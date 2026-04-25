@@ -4,68 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9959CFF8864
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:52:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2607FF885C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:52:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=efNil+PNmmmvTcZKEec15sBNEnsydHEhEYd+ZnlvuZ8=; b=LD7+xvMD4D/RGZpai11CrcwW8e
-	xYLH/7HUtMSQ3T1p5wZXjiftP+XTaVtifFfUDtEaynQ7VP6BI/0YrQzR0+VCnRMT2coRYgK3sCLhe
-	5wqcra1gFVWFtKX7mJUK10u9C2MEHu4n81H8SU/7R1kUazr338/AxK/ufL57W5eW9zVc3eN3WOLU9
-	KeFl8cnEYGo5EiDHGbD1PALtnE0gIZzhqkV6C3wpLqaaDD/RwCYvslyPHsodZ0SbBjZiGjV7LSsA8
-	Mkjxv+JpiYlz+SYCtS0do+fT1nWe1CHHb8jwxdHG1LgPIgN1BiSbB2jzjsqTFyrquRYkSQReoMnS5
-	gqndyhwQ==;
+	bh=d6/DbS8+a0Bbu++hm0mIANNgnhHVu7X5dNuwNyZ3JIg=; b=U3HrmmhYu2uOZLEYA9PQk7B4ur
+	X1y8LU+FxwnhZTr5MsFj6R/L7D8M2zLw09vRCmSz4EZ8kV/s8ixRziEl8HmS53ZAVh5BGSXxg0wa8
+	5ABYrQ/E0kVvpsrULTZKz/YUbM02UnrOENJn+SL9ET0bK6p4/7uTiKlWdCdflw2VQvVnNUQ4NigYq
+	lvqHav31/BU85C4BM9JJcEtaPJk8Gm71s5KxYELJochX/aY4OLwmSUWVXsqPan21pzWSk0gafDQX1
+	WZ99C60GiWv90QAQVVlxVvhyOYjuvIOYIG+X1BmEfwx2nLWfG31c6VQeF8YQjZIBZdWqaKwqpSZsD
+	g2DKJEcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlr3-0000000Ezlo-3fUb;
-	Sat, 25 Apr 2026 22:52:06 +0000
-Received: from mail-dy1-f202.google.com ([74.125.82.202])
+	id 1wGlr8-0000000EzrD-47y8;
+	Sat, 25 Apr 2026 22:52:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlqH-0000000Eypn-0zPD
+	id 1wGlqg-0000000EzIx-0bsc
+	for linux-arm-kernel@bombadil.infradead.org;
+	Sat, 25 Apr 2026 22:51:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=d6/DbS8+a0Bbu++hm0mIANNgnhHVu7X5dNuwNyZ3JIg=; b=rTKDVE1Fkg59sSxgj/x39DDu55
+	IxIX5NyBMTZ9GOncme+5NXag+qwWAU+gB+DN2mcWaGDrSb/ehbXXMYp6/nCS0vqi8kIBeRMaiY0eP
+	VqdJqfq0SELry9xKVd/e5SQolanACB/So5qFcyBP2gl65ueBjJUEdtQkQPGwh1KkkvU7J2iLx6BZo
+	XmduGBvKejOnH7rpalylutE7bt48XZWDmoQuo7T5OMAZxRI8JdkliTN3YEU23q35i/nlR3bse4+d+
+	dbZDUby2pvuksMBRHX3Uvi2geiQwWg55xMnLobI2X/AoDrRPUXZ5+3bxrYDll4/TS0vRWbyTM59Za
+	ooW4jvSA==;
+Received: from mail-dl1-x124a.google.com ([2607:f8b0:4864:20::124a])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wGlqb-0000000GMmQ-1oXv
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Apr 2026 22:51:33 +0000
-Received: by mail-dy1-f202.google.com with SMTP id 5a478bee46e88-2d889997495so23992408eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:51:16 -0700 (PDT)
+	Sat, 25 Apr 2026 22:51:40 +0000
+Received: by mail-dl1-x124a.google.com with SMTP id a92af1059eb24-12c726f4055so9219491c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:51:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777157475; x=1777762275; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777157495; x=1777762295; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=efNil+PNmmmvTcZKEec15sBNEnsydHEhEYd+ZnlvuZ8=;
-        b=CPY9IMzR8vFcdIU139s8eqxCO3r1Ux7LbGqEyjwX3gUJCEwxxxzIZrosYga/Eb+0Jm
-         0NB/S0pPFNaZD5dsXz2qlRx8UxuR1cXydx0DI3gbzsbgulVFQdr/kDAa0AVbj9pP35Kp
-         8b035Fq8QbheLmXOLGFC98//7V/UAZxHiovE7vhFupkBgQ5kLrODnym9AJggj5wTzTIh
-         1R40CC3PxUdatgcN9a/CJ4/YOqPsSXeoJq5Wpz+luTxq6kDKqsu3pB/rFEOavX7hC23a
-         Bh4jlo6Y+JjwsBbSXUrSist3qYVjYA5iN4ct6Sm8MGZu4mbrX1TIclmULczmiuomhXDF
-         t8lQ==
+        bh=d6/DbS8+a0Bbu++hm0mIANNgnhHVu7X5dNuwNyZ3JIg=;
+        b=ekX8UsN6rLO/xgCqEYcR9Rzw5QDIrWPsP3g6aqiOVuGxT9A2/YLw75zvYQMuHTreqI
+         Dii4Oc3VrDaruTPKZc+u1fbwXQb8CjviaQWWlaaT1mXM5T+6XjGJpMIM+QB1eTz/hVov
+         Gy82PnE3oelBZMCiHfSSRQKGBmD6/e+8t8y+m5JQ+YDKoD1pU5h8vWqDXNqG+2AFQqsy
+         lFNSOKlAEPxgo3MpqMKwrBOCBLkJhSHHFt/m9O3GIr5ggd/WekiuSpD7XZcVnnikp8Zc
+         JBIXzfub4Dn+hpi1sHTu4jfpIxuQJg04UyJsuqq+Ll0V496Z8ey+lFxjctTknQhW46y+
+         bYjA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777157475; x=1777762275;
+        d=1e100.net; s=20251104; t=1777157495; x=1777762295;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=efNil+PNmmmvTcZKEec15sBNEnsydHEhEYd+ZnlvuZ8=;
-        b=O5VKYx75q+85Lkqd7P8OBWFUw53KgUwm25ovWxMA2a+1Kdtxniha5okzXmq1HBTXst
-         FdSCjlHhPxdWaNqricE8Mvmj4UafAzQnZd5uCH5JQkgoYiHOmd2iYyOsjXeFfAD32ha9
-         E7qUu9lQBil+Cy/e++brZq9WUTPs5qJi5UuifA+4iwSe4RDhpCjH3q5MLRI8qj72pUPM
-         IQD3+ZMVlzRgOtmBufD+XmnTRKewzTbeX3FYOcec/+KwT9ak57VlqcS1YNyanAOh+QeO
-         1xlHs2/m12ZqJMXL1cOhmLPPBHlEScRSwnzhv8/vDpskseYUGJpgPjQoGOP0XFzJRN6G
-         72Yw==
-X-Forwarded-Encrypted: i=1; AFNElJ/bGAdok04FsfnMNMcLurxgBofWhY6khmcWyThhK+8cqVRu3TFLe2VKr3su51sLPOSYmHFSezF4WJVD9+ve1yJI@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzy1J/F7MzFXFCWISLOGVapd3yUhSXff3ed9XtsVsYttQuJo++h
-	uzpWdlXuc1c8TNzEvlNwcV3Qnt25f/U1O2xyxmFjiy0J0WzLOoXsE5gkjX6ZsPsyp4pga57M8b4
-	f6KSixUEi6A==
-X-Received: from dycf28.prod.google.com ([2002:a05:7300:50dc:b0:2d9:6c52:c24a])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:4186:b0:2de:cc07:e99
- with SMTP id 5a478bee46e88-2e464dafc4cmr18867631eec.7.1777157475156; Sat, 25
- Apr 2026 15:51:15 -0700 (PDT)
-Date: Sat, 25 Apr 2026 15:49:22 -0700
+        bh=d6/DbS8+a0Bbu++hm0mIANNgnhHVu7X5dNuwNyZ3JIg=;
+        b=tJLTYPXjNAGdDZbFqdqk0p4z5PH26NNTGhjCFehg+2DrWA0EOGwXq/bHdiqPEi98Pz
+         Cl5+DjnKgVFsA613EfUnDdFZQSqgqmaryNV5TnLCqXhpQpJsz4DiZE9tqvuREmo0Q8yG
+         uxVyumgcoBVytEZr2C6q3KSwnIW3R5fNVDPedbGDErWHoNu0+pEvJ/bLinbjMlJi+x4X
+         Sefpf+44tIveU16DVZKgbyu1R2oefQrA7v9foRPl2+Ohdq86FLH3ao671vAr2DdYof9O
+         Q5jMYFzP/6OPa3HF4dd4tBF7wpMzAykThJgyJz8pCB+XFdACGLccRgBpiXhPO2STeG0P
+         dMWA==
+X-Forwarded-Encrypted: i=1; AFNElJ+gXEa/hP72FJnsCZHznaEmjQlq6nbeR4TAMokG/17lZKs8/fSFEPSKPAsangIbNEMz9OfD5JqFrIRABZmUL/1E@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywfw74Vd4WKLhhywuq/reubasdr6EJq4iwpZLULT+SrxSp0gXZH
+	BPTGBi8hkp4iB6i3oIO2XW0LgKzMC+q4+Cdw9/ZlnD5K7IDzbCp3lsJfurCAk1d5N/hi36TstT2
+	z3r25X5um0g==
+X-Received: from dlbrl2.prod.google.com ([2002:a05:7022:f502:b0:12d:c3dd:4fba])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:6b8d:b0:12a:6a64:81d9
+ with SMTP id a92af1059eb24-12c73f723aamr19527958c88.13.1777157494450; Sat, 25
+ Apr 2026 15:51:34 -0700 (PDT)
+Date: Sat, 25 Apr 2026 15:49:31 -0700
 In-Reply-To: <20260425224951.174663-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260425174858.3922152-1-irogers@google.com> <20260425224951.174663-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260425224951.174663-31-irogers@google.com>
-Subject: [PATCH v7 30/59] perf flamegraph: Port flamegraph to use python module
+Message-ID: <20260425224951.174663-40-irogers@google.com>
+Subject: [PATCH v7 39/59] perf intel-pt-events: Port intel-pt-events/libxed to
+ use python module
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org, 
 	leo.yan@linux.dev, namhyung@kernel.org, tmricht@linux.ibm.com
@@ -75,8 +91,8 @@ Cc: alice.mei.rogers@gmail.com, dapeng1.mi@linux.intel.com,
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260425_155117_817896_86D7948C 
-X-CRM114-Status: GOOD (  19.54  )
+X-CRM114-CacheID: sfid-20260425_235137_717222_DF2A579F 
+X-CRM114-Status: GOOD (  17.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,282 +107,620 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a port of the flamegraph script that uses the perf python module
-directly. This approach improves performance by avoiding intermediate
-dictionaries for event fields.
+Ported from tools/perf/scripts/python/.
+- Refactored intel-pt-events.py to use a class structure to eliminate
+  global state and improve maintainability.
+- Removed Python 2 compatibility checks.
+- Renamed methods in libxed.py to snake_case (Instruction ->
+  instruction, SetMode -> set_mode, DisassembleOne -> disassemble_one)
+  to comply with pylint.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
-v5:
-1. Fix Event Filtering: Corrected event filtering check to search for a
-   substring match within the parsed event string, preventing all events
-   from being dropped due to the `evsel(...)` wrapper.
+v2:
 
-v6:
-- Fixed terminal injection risk by not printing unverified content in
-  prompt.
+1. Robustness in print_cbr : Added checks to ensure raw_buf is at
+   least 12 bytes long and that the frequency divisor is not zero,
+   avoiding struct.error and ZeroDivisionError .
+
+2. Robustness in print_evt : Added buffer length checks in the loop to
+   prevent struct.error if event data count exceeds available buffer.
+
+3. Buffer Handling in disassem : Used
+   ctypes.create_string_buffer(insn, 64) to properly initialize the
+   buffer with raw bytes, preventing truncation on \x00 bytes.
+
+4. Corrected Field Names: Reverted short names to sample_ip ,
+   sample_time , and sample_cpu across multiple methods.
+
+5. Comm Resolution: Used session.process(sample.sample_pid).comm() to
+   get the thread name, rather than failing back to "Unknown" .
+
+6. Event Name Cleanup: Stripped  evsel(  and  )  from event names.
+
+7. Fixed Broken Pipe Handling: Prevented sys.stdout from being closed
+   before exiting in the handler.
+
+8. Eliminated Hardcoded Offset in libxed.py : Added
+   xed_decoded_inst_get_length from the official LibXED API rather
+   than relying on the hardcoded byte offset 166 .
 ---
- tools/perf/python/flamegraph.py | 250 ++++++++++++++++++++++++++++++++
- 1 file changed, 250 insertions(+)
- create mode 100755 tools/perf/python/flamegraph.py
+ tools/perf/python/intel-pt-events.py | 435 +++++++++++++++++++++++++++
+ tools/perf/python/libxed.py          | 122 ++++++++
+ 2 files changed, 557 insertions(+)
+ create mode 100755 tools/perf/python/intel-pt-events.py
+ create mode 100755 tools/perf/python/libxed.py
 
-diff --git a/tools/perf/python/flamegraph.py b/tools/perf/python/flamegraph.py
+diff --git a/tools/perf/python/intel-pt-events.py b/tools/perf/python/intel-pt-events.py
 new file mode 100755
-index 000000000000..b0eb5844b772
+index 000000000000..19a0faec8f5f
 --- /dev/null
-+++ b/tools/perf/python/flamegraph.py
-@@ -0,0 +1,250 @@
++++ b/tools/perf/python/intel-pt-events.py
+@@ -0,0 +1,435 @@
 +#!/usr/bin/env python3
 +# SPDX-License-Identifier: GPL-2.0
 +"""
-+flamegraph.py - create flame graphs from perf samples using perf python module
++Print Intel PT Events including Power Events and PTWRITE.
++Ported from tools/perf/scripts/python/intel-pt-events.py
 +"""
 +
 +import argparse
-+import hashlib
-+import json
++import contextlib
++from ctypes import addressof, create_string_buffer
++import io
 +import os
-+import subprocess
++import struct
 +import sys
-+import urllib.request
-+from typing import Dict, Optional, Union
++from typing import Any, Optional
 +import perf
 +
-+MINIMAL_HTML = """<head>
-+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/d3-flame-graph@4.1.3/dist/d3-flamegraph.css">
-+</head>
-+<body>
-+  <div id="chart"></div>
-+  <script type="text/javascript" src="https://d3js.org/d3.v7.js"></script>
-+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/d3-flame-graph@4.1.3/dist/d3-flamegraph.min.js"></script>
-+  <script type="text/javascript">
-+  const stacks = [/** @flamegraph_json **/];
-+  // Note, options is unused.
-+  const options = [/** @options_json **/];
-+
-+  var chart = flamegraph();
-+  d3.select("#chart")
-+        .datum(stacks[0])
-+        .call(chart);
-+  </script>
-+</body>
-+"""
-+
-+class Node:
-+    """A node in the flame graph tree."""
-+    def __init__(self, name: str, libtype: str):
-+        self.name = name
-+        self.libtype = libtype
-+        self.value: int = 0
-+        self.children: dict[str, Node] = {}
-+
-+    def to_json(self) -> Dict[str, Union[str, int, list[Dict]]]:
-+        """Convert the node to a JSON-serializable dictionary."""
-+        return {
-+            "n": self.name,
-+            "l": self.libtype,
-+            "v": self.value,
-+            "c": [x.to_json() for x in self.children.values()]
-+        }
++# Try to import LibXED from legacy directory if available in PYTHONPATH
++try:
++    from libxed import LibXED  # type: ignore
++except ImportError:
++    LibXED = None  # type: ignore
 +
 +
-+class FlameGraphCLI:
-+    """Command-line interface for generating flame graphs."""
-+    def __init__(self, args):
-+        self.args = args
-+        self.stack = Node("all", "root")
-+        self.session = None
++class IntelPTAnalyzer:
++    """Analyzes Intel PT events and prints details."""
 +
-+    @staticmethod
-+    def get_libtype_from_dso(dso: Optional[str]) -> str:
-+        """Determine the library type from the DSO name."""
-+        if dso and (dso == "[kernel.kallsyms]" or dso.endswith("/vmlinux") or dso == "[kernel]"):
-+            return "kernel"
-+        return ""
++    def __init__(self, cfg: argparse.Namespace):
++        self.args = cfg
++        self.session: Optional[perf.session] = None
++        self.insn = False
++        self.src = False
++        self.source_file_name: Optional[str] = None
++        self.line_number: int = 0
++        self.dso: Optional[str] = None
++        self.stash_dict: dict[int, list[str]] = {}
++        self.output: Any = None
++        self.output_pos: int = 0
++        self.cpu: int = -1
++        self.time: int = 0
++        self.switch_str: dict[int, str] = {}
 +
-+    @staticmethod
-+    def find_or_create_node(node: Node, name: str, libtype: str) -> Node:
-+        """Find a child node with the given name or create a new one."""
-+        if name in node.children:
-+            return node.children[name]
-+        child = Node(name, libtype)
-+        node.children[name] = child
-+        return child
-+
-+    def process_event(self, sample) -> None:
-+        """Process a single perf sample event."""
-+        if self.args.event_name and self.args.event_name not in str(sample.evsel):
-+            return
-+
-+        pid = sample.sample_pid
-+        dso_type = ""
-+        try:
-+            thread = self.session.find_thread(sample.sample_tid)
-+            comm = thread.comm()
-+        except Exception:
-+            comm = "[unknown]"
-+
-+        if pid == 0:
-+            comm = "swapper"
-+            dso_type = "kernel"
++        if cfg.insn_trace:
++            print("Intel PT Instruction Trace")
++            self.insn = True
++        elif cfg.src_trace:
++            print("Intel PT Source Trace")
++            self.insn = True
++            self.src = True
 +        else:
-+            comm = f"{comm} ({pid})"
++            print("Intel PT Branch Trace, Power Events, Event Trace and PTWRITE")
 +
-+        node = self.find_or_create_node(self.stack, comm, dso_type)
-+
-+        callchain = sample.callchain
-+        if callchain:
-+            # We want to traverse from root to leaf.
-+            # perf callchain iterator gives leaf to root.
-+            # We collect them and reverse.
-+            frames = list(callchain)
-+            for entry in reversed(frames):
-+                name = entry.symbol or "[unknown]"
-+                libtype = self.get_libtype_from_dso(entry.dso)
-+                node = self.find_or_create_node(node, name, libtype)
-+        else:
-+            # Fallback if no callchain
-+            name = getattr(sample, "symbol", "[unknown]")
-+            libtype = self.get_libtype_from_dso(getattr(sample, "dso", "[unknown]"))
-+            node = self.find_or_create_node(node, name, libtype)
-+
-+        node.value += 1
-+
-+    def get_report_header(self) -> str:
-+        """Get the header from the perf report."""
-+        try:
-+            input_file = self.args.input or "perf.data"
-+            output = subprocess.check_output(["perf", "report", "--header-only", "-i", input_file])
-+            result = output.decode("utf-8")
-+            if self.args.event_name:
-+                result += "\nFocused event: " + self.args.event_name
-+            return result
-+        except Exception:
-+            return ""
-+
-+    def run(self) -> None:
-+        """Run the flame graph generation."""
-+        input_file = self.args.input or "perf.data"
-+        if not os.path.exists(input_file):
-+            print(f"Error: {input_file} not found. (try 'perf record' first)", file=sys.stderr)
-+            sys.exit(1)
-+
-+        try:
-+            self.session = perf.session(perf.data(input_file),
-+                                        sample=self.process_event)
-+        except Exception as e:
-+            print(f"Error opening session: {e}", file=sys.stderr)
-+            sys.exit(1)
-+
-+        self.session.process_events()
-+
-+        stacks_json = json.dumps(self.stack, default=lambda x: x.to_json())
-+        # Escape HTML special characters to prevent XSS
-+        stacks_json = stacks_json.replace("<", "\\u003c") \
-+            .replace(">", "\\u003e").replace("&", "\\u0026")
-+
-+        if self.args.format == "html":
-+            report_header = self.get_report_header()
-+            options = {
-+                "colorscheme": self.args.colorscheme,
-+                "context": report_header
-+            }
-+            options_json = json.dumps(options)
-+            options_json = options_json.replace("<", "\\u003c") \
-+                .replace(">", "\\u003e").replace("&", "\\u0026")
-+
-+            template = self.args.template
-+            template_md5sum = None
-+            output_str = None
-+
-+            if not os.path.isfile(template):
-+                if template.startswith("http://") or template.startswith("https://"):
-+                    if not self.args.allow_download:
-+                        print("Warning: Downloading templates is disabled. "
-+                              "Use --allow-download.", file=sys.stderr)
-+                        template = None
-+                else:
-+                    print(f"Warning: Template file '{template}' not found.", file=sys.stderr)
-+                    if self.args.allow_download:
-+                        print("Using default CDN template.", file=sys.stderr)
-+                        template = (
-+                            "https://cdn.jsdelivr.net/npm/d3-flame-graph@4.1.3/dist/templates/"
-+                            "d3-flamegraph-base.html"
-+                        )
-+                        template_md5sum = "143e0d06ba69b8370b9848dcd6ae3f36"
-+                    else:
-+                        template = None
-+
-+            use_minimal = False
++        self.disassembler: Any = None
++        if self.insn and LibXED is not None:
 +            try:
-+                if not template:
-+                    use_minimal = True
-+                elif template.startswith("http"):
-+                    with urllib.request.urlopen(template) as url_template:
-+                        output_str = "".join([l.decode("utf-8") for l in url_template.readlines()])
++                self.disassembler = LibXED()
++            except Exception as e:
++                print(f"Failed to initialize LibXED: {e}")
++                self.disassembler = None
++
++    def print_ptwrite(self, raw_buf: bytes) -> None:
++        """Print PTWRITE data."""
++        data = struct.unpack_from("<IQ", raw_buf)
++        flags = data[0]
++        payload = data[1]
++        exact_ip = flags & 1
++        try:
++            s = payload.to_bytes(8, "little").decode("ascii").rstrip("\x00")
++            if not s.isprintable():
++                s = ""
++        except (UnicodeDecodeError, ValueError):
++            s = ""
++        print(f"IP: {exact_ip} payload: {payload:#x} {s}", end=' ')
++
++    def print_cbr(self, raw_buf: bytes) -> None:
++        """Print CBR data."""
++        if len(raw_buf) < 12:
++            return
++        data = struct.unpack_from("<BBBBII", raw_buf)
++        cbr = data[0]
++        f = (data[4] + 500) // 1000
++        if data[2] == 0:
++            return
++        p = ((cbr * 1000 // data[2]) + 5) // 10
++        print(f"{cbr:3u}  freq: {f:4u} MHz  ({p:3u}%)", end=' ')
++
++    def print_mwait(self, raw_buf: bytes) -> None:
++        """Print MWAIT data."""
++        data = struct.unpack_from("<IQ", raw_buf)
++        payload = data[1]
++        hints = payload & 0xff
++        extensions = (payload >> 32) & 0x3
++        print(f"hints: {hints:#x} extensions: {extensions:#x}", end=' ')
++
++    def print_pwre(self, raw_buf: bytes) -> None:
++        """Print PWRE data."""
++        data = struct.unpack_from("<IQ", raw_buf)
++        payload = data[1]
++        hw = (payload >> 7) & 1
++        cstate = (payload >> 12) & 0xf
++        subcstate = (payload >> 8) & 0xf
++        print(f"hw: {hw} cstate: {cstate} sub-cstate: {subcstate}", end=' ')
++
++    def print_exstop(self, raw_buf: bytes) -> None:
++        """Print EXSTOP data."""
++        data = struct.unpack_from("<I", raw_buf)
++        flags = data[0]
++        exact_ip = flags & 1
++        print(f"IP: {exact_ip}", end=' ')
++
++    def print_pwrx(self, raw_buf: bytes) -> None:
++        """Print PWRX data."""
++        data = struct.unpack_from("<IQ", raw_buf)
++        payload = data[1]
++        deepest_cstate = payload & 0xf
++        last_cstate = (payload >> 4) & 0xf
++        wake_reason = (payload >> 8) & 0xf
++        print(f"deepest cstate: {deepest_cstate} last cstate: {last_cstate} "
++              f"wake reason: {wake_reason:#x}", end=' ')
++
++    def print_psb(self, raw_buf: bytes) -> None:
++        """Print PSB data."""
++        data = struct.unpack_from("<IQ", raw_buf)
++        offset = data[1]
++        print(f"offset: {offset:#x}", end=' ')
++
++    def print_evt(self, raw_buf: bytes) -> None:
++        """Print EVT data."""
++        glb_cfe = ["", "INTR", "IRET", "SMI", "RSM", "SIPI", "INIT", "VMENTRY", "VMEXIT",
++                   "VMEXIT_INTR", "SHUTDOWN", "", "UINT", "UIRET"] + [""] * 18
++        glb_evd = ["", "PFA", "VMXQ", "VMXR"] + [""] * 60
++
++        data = struct.unpack_from("<BBH", raw_buf)
++        typ = data[0] & 0x1f
++        ip_flag = (data[0] & 0x80) >> 7
++        vector = data[1]
++        evd_cnt = data[2]
++        s = glb_cfe[typ]
++        if s:
++            print(f" cfe: {s} IP: {ip_flag} vector: {vector}", end=' ')
++        else:
++            print(f" cfe: {typ} IP: {ip_flag} vector: {vector}", end=' ')
++        pos = 4
++        for _ in range(evd_cnt):
++            if len(raw_buf) < pos + 16:
++                break
++            data = struct.unpack_from("<QQ", raw_buf, pos)
++            et = data[0] & 0x3f
++            s = glb_evd[et]
++            if s:
++                print(f"{s}: {data[1]:#x}", end=' ')
++            else:
++                print(f"EVD_{et}: {data[1]:#x}", end=' ')
++            pos += 16
++
++    def print_iflag(self, raw_buf: bytes) -> None:
++        """Print IFLAG data."""
++        data = struct.unpack_from("<IQ", raw_buf)
++        iflag = data[0] & 1
++        old_iflag = iflag ^ 1
++        via_branch = data[0] & 2
++        s = "via" if via_branch else "non"
++        print(f"IFLAG: {old_iflag}->{iflag} {s} branch", end=' ')
++
++    def common_start_str(self, comm: str, sample: perf.sample_event) -> str:
++        """Return common start string for display."""
++        ts = sample.sample_time
++        cpu = sample.sample_cpu
++        pid = sample.sample_pid
++        tid = sample.tid
++        machine_pid = getattr(sample, "machine_pid", 0)
++        if machine_pid:
++            vcpu = getattr(sample, "vcpu", -1)
++            return (f"VM:{machine_pid:5d} VCPU:{vcpu:03d} {comm:>16s} {pid:5u}/{tid:<5u} "
++                    f"[{cpu:03u}] {ts // 1000000000:9u}.{ts % 1000000000:09u}  ")
++        return (f"{comm:>16s} {pid:5u}/{tid:<5u} [{cpu:03u}] "
++                f"{ts // 1000000000:9u}.{ts % 1000000000:09u}  ")
++
++    def print_common_start(self, comm: str, sample: perf.sample_event, name: str) -> None:
++        """Print common start info."""
++        flags_disp = getattr(sample, "flags_disp", "")
++        print(self.common_start_str(comm, sample) + f"{name:>8s}  {flags_disp:>21s}", end=' ')
++
++    def print_instructions_start(self, comm: str, sample: perf.sample_event) -> None:
++        """Print instructions start info."""
++        flags = getattr(sample, "flags_disp", "")
++        if "x" in flags:
++            print(self.common_start_str(comm, sample) + "x", end=' ')
++        else:
++            print(self.common_start_str(comm, sample), end='  ')
++
++    def disassem(self, insn: bytes, ip: int) -> tuple[int, str]:
++        """Disassemble instruction using LibXED."""
++        inst = self.disassembler.instruction()
++        self.disassembler.set_mode(inst, 0)  # Assume 64-bit
++        buf = create_string_buffer(insn, 64)
++        return self.disassembler.disassemble_one(inst, addressof(buf), len(insn), ip)
++
++    def print_common_ip(self, sample: perf.sample_event, symbol: str, dso: str) -> None:
++        """Print IP and symbol info."""
++        ip = sample.sample_ip
++        offs = f"+{sample.symoff:#x}" if hasattr(sample, "symoff") else ""
++        cyc_cnt = getattr(sample, "cyc_cnt", 0)
++        if cyc_cnt:
++            insn_cnt = getattr(sample, "insn_cnt", 0)
++            ipc_str = f"  IPC: {insn_cnt / cyc_cnt:#.2f} ({insn_cnt}/{cyc_cnt})"
++        else:
++            ipc_str = ""
++
++        if self.insn and self.disassembler is not None:
++            try:
++                insn = sample.insn()
++            except AttributeError:
++                insn = None
++            if insn:
++                cnt, text = self.disassem(insn, ip)
++                byte_str = (f"{ip:x}").rjust(16)
++                for k in range(cnt):
++                    byte_str += f" {insn[k]:02x}"
++                print(f"{byte_str:-40s}  {text:-30s}", end=' ')
++            print(f"{symbol}{offs} ({dso})", end=' ')
++        else:
++            print(f"{ip:16x} {symbol}{offs} ({dso})", end=' ')
++
++        addr_correlates_sym = getattr(sample, "addr_correlates_sym", False)
++        if addr_correlates_sym:
++            addr = sample.addr
++            addr_dso = getattr(sample, "addr_dso", "[unknown]")
++            addr_symbol = getattr(sample, "addr_symbol", "[unknown]")
++            addr_offs = f"+{sample.addr_symoff:#x}" if hasattr(sample, "addr_symoff") else ""
++            print(f"=> {addr:x} {addr_symbol}{addr_offs} ({addr_dso}){ipc_str}")
++        else:
++            print(ipc_str)
++
++    def print_srccode(self, comm: str, sample: perf.sample_event,
++                      symbol: str, dso: str, with_insn: bool) -> None:
++        """Print source code info."""
++        ip = sample.sample_ip
++        if symbol == "[unknown]":
++            start_str = self.common_start_str(comm, sample) + (f"{ip:x}").rjust(16).ljust(40)
++        else:
++            offs = f"+{sample.symoff:#x}" if hasattr(sample, "symoff") else ""
++            start_str = self.common_start_str(comm, sample) + (symbol + offs).ljust(40)
++
++        if with_insn and self.insn and self.disassembler is not None:
++            try:
++                insn = sample.insn()
++            except AttributeError:
++                insn = None
++            if insn:
++                _, text = self.disassem(insn, ip)
++                start_str += text.ljust(30)
++
++        try:
++            source_file_name, line_number, source_line = sample.srccode()
++        except (AttributeError, ValueError):
++            source_file_name, line_number, source_line = None, 0, None
++
++        if source_file_name:
++            if self.line_number == line_number and self.source_file_name == source_file_name:
++                src_str = ""
++            else:
++                if len(source_file_name) > 40:
++                    src_file = ("..." + source_file_name[-37:]) + " "
 +                else:
-+                    with open(template, "r", encoding="utf-8") as f:
-+                        output_str = f.read()
-+            except Exception as err:
-+                print(f"Error reading template {template}: {err}\n", file=sys.stderr)
-+                use_minimal = True
-+
-+            if use_minimal:
-+                print("Using internal minimal HTML that refers to d3's web site. JavaScript " +
-+                      "loaded this way from a local file may be blocked unless your " +
-+                      "browser has relaxed permissions. Run with '--allow-download' to fetch" +
-+                      "the full D3 HTML template.", file=sys.stderr)
-+                output_str = MINIMAL_HTML
-+
-+            elif template_md5sum:
-+                assert output_str is not None
-+                download_md5sum = hashlib.md5(output_str.encode("utf-8")).hexdigest()
-+                if download_md5sum != template_md5sum:
-+                    s = None
-+                    while s not in ["y", "n"]:
-+                        s = input(f"""Unexpected template md5sum.
-+{download_md5sum} != {template_md5sum}, for:
-+{template}
-+continue?[yn] """).lower()
-+                    if s == "n":
-+                        sys.exit(1)
-+
-+            assert output_str is not None
-+            output_str = output_str.replace("/** @options_json **/", options_json)
-+            output_str = output_str.replace("/** @flamegraph_json **/", stacks_json)
-+            output_fn = self.args.output or "flamegraph.html"
++                    src_file = source_file_name.ljust(41)
++                if source_line is None:
++                    src_str = src_file + str(line_number).rjust(4) + " <source not found>"
++                else:
++                    src_str = src_file + str(line_number).rjust(4) + " " + source_line
++            self.dso = None
++        elif dso == self.dso:
++            src_str = ""
 +        else:
-+            output_str = stacks_json
-+            output_fn = self.args.output or "stacks.json"
++            src_str = dso
++            self.dso = dso
 +
-+        if output_fn == "-":
-+            sys.stdout.write(output_str)
++        self.line_number = line_number
++        self.source_file_name = source_file_name
++        print(start_str, src_str)
++
++    def do_process_event(self, sample: perf.sample_event) -> None:
++        """Process event and print info."""
++        comm = "Unknown"
++        if hasattr(self, 'session') and self.session:
++            try:
++                comm = self.session.find_thread(sample.sample_pid).comm()
++            except Exception:
++                pass
++        name = getattr(sample.evsel, 'name', str(sample.evsel))
++        if name.startswith("evsel("):
++            name = name[6:-1]
++        dso = getattr(sample, "dso", "[unknown]")
++        symbol = getattr(sample, "symbol", "[unknown]")
++
++        cpu = sample.sample_cpu
++        if cpu in self.switch_str:
++            print(self.switch_str[cpu])
++            del self.switch_str[cpu]
++
++        try:
++            raw_buf = sample.raw_buf
++        except AttributeError:
++            raw_buf = b""
++
++        if name.startswith("instructions"):
++            if self.src:
++                self.print_srccode(comm, sample, symbol, dso, True)
++            else:
++                self.print_instructions_start(comm, sample)
++                self.print_common_ip(sample, symbol, dso)
++        elif name.startswith("branches"):
++            if self.src:
++                self.print_srccode(comm, sample, symbol, dso, False)
++            else:
++                self.print_common_start(comm, sample, name)
++                self.print_common_ip(sample, symbol, dso)
++        elif name == "ptwrite":
++            self.print_common_start(comm, sample, name)
++            self.print_ptwrite(raw_buf)
++            self.print_common_ip(sample, symbol, dso)
++        elif name == "cbr":
++            self.print_common_start(comm, sample, name)
++            self.print_cbr(raw_buf)
++            self.print_common_ip(sample, symbol, dso)
++        elif name == "mwait":
++            self.print_common_start(comm, sample, name)
++            self.print_mwait(raw_buf)
++            self.print_common_ip(sample, symbol, dso)
++        elif name == "pwre":
++            self.print_common_start(comm, sample, name)
++            self.print_pwre(raw_buf)
++            self.print_common_ip(sample, symbol, dso)
++        elif name == "exstop":
++            self.print_common_start(comm, sample, name)
++            self.print_exstop(raw_buf)
++            self.print_common_ip(sample, symbol, dso)
++        elif name == "pwrx":
++            self.print_common_start(comm, sample, name)
++            self.print_pwrx(raw_buf)
++            self.print_common_ip(sample, symbol, dso)
++        elif name == "psb":
++            self.print_common_start(comm, sample, name)
++            self.print_psb(raw_buf)
++            self.print_common_ip(sample, symbol, dso)
++        elif name == "evt":
++            self.print_common_start(comm, sample, name)
++            self.print_evt(raw_buf)
++            self.print_common_ip(sample, symbol, dso)
++        elif name == "iflag":
++            self.print_common_start(comm, sample, name)
++            self.print_iflag(raw_buf)
++            self.print_common_ip(sample, symbol, dso)
 +        else:
-+            print(f"dumping data to {output_fn}")
-+            with open(output_fn, "w", encoding="utf-8") as out:
-+                out.write(output_str)
++            self.print_common_start(comm, sample, name)
++            self.print_common_ip(sample, symbol, dso)
++
++    def interleave_events(self, sample: perf.sample_event) -> None:
++        """Interleave output to avoid garbled lines from different CPUs."""
++        self.cpu = sample.sample_cpu
++        ts = sample.sample_time
++
++        if self.time != ts:
++            self.time = ts
++            self.flush_stashed_output()
++
++        self.output_pos = 0
++        with contextlib.redirect_stdout(io.StringIO()) as self.output:
++            self.do_process_event(sample)
++
++        self.stash_output()
++
++    def stash_output(self) -> None:
++        """Stash output for later flushing."""
++        output_str = self.output.getvalue()[self.output_pos:]
++        n = len(output_str)
++        if n:
++            self.output_pos += n
++            if self.cpu not in self.stash_dict:
++                self.stash_dict[self.cpu] = []
++            self.stash_dict[self.cpu].append(output_str)
++            if len(self.stash_dict[self.cpu]) > 1000:
++                self.flush_stashed_output()
++
++    def flush_stashed_output(self) -> None:
++        """Flush stashed output."""
++        while self.stash_dict:
++            cpus = list(self.stash_dict.keys())
++            for cpu in cpus:
++                items = self.stash_dict[cpu]
++                countdown = self.args.interleave
++                while len(items) and countdown:
++                    sys.stdout.write(items[0])
++                    del items[0]
++                    countdown -= 1
++                if not items:
++                    del self.stash_dict[cpu]
++
++    def process_event(self, sample: perf.sample_event) -> None:
++        """Wrapper to handle interleaving and exceptions."""
++        try:
++            if self.args.interleave:
++                self.interleave_events(sample)
++            else:
++                self.do_process_event(sample)
++        except BrokenPipeError:
++            # Stop python printing broken pipe errors and traceback
++            sys.stdout = open(os.devnull, 'w', encoding='utf-8')
++            sys.exit(1)
 +
 +
 +if __name__ == "__main__":
-+    parser = argparse.ArgumentParser(description="Create flame graphs using perf python module.")
-+    parser.add_argument("-f", "--format", default="html", choices=["json", "html"],
-+                        help="output file format")
-+    parser.add_argument("-o", "--output", help="output file name")
-+    parser.add_argument("--template",
-+                        default="/usr/share/d3-flame-graph/d3-flamegraph-base.html",
-+                        help="path to flame graph HTML template")
-+    parser.add_argument("--colorscheme", default="blue-green",
-+                        help="flame graph color scheme", choices=["blue-green", "orange"])
-+    parser.add_argument("-i", "--input", help="input perf.data file")
-+    parser.add_argument("--allow-download", default=False, action="store_true",
-+                        help="allow unprompted downloading of HTML template")
-+    parser.add_argument("-e", "--event", default="", dest="event_name", type=str,
-+                        help="specify the event to generate flamegraph for")
++    ap = argparse.ArgumentParser()
++    ap.add_argument("-i", "--input", default="perf.data", help="Input file name")
++    ap.add_argument("--insn-trace", action='store_true')
++    ap.add_argument("--src-trace", action='store_true')
++    ap.add_argument("--all-switch-events", action='store_true')
++    ap.add_argument("--interleave", type=int, nargs='?', const=4, default=0)
++    args = ap.parse_args()
 +
-+    cli_args = parser.parse_args()
-+    cli = FlameGraphCLI(cli_args)
-+    cli.run()
++    analyzer = IntelPTAnalyzer(args)
++
++    try:
++        session = perf.session(perf.data(args.input), sample=analyzer.process_event)
++        analyzer.session = session
++        session.process_events()
++        if args.interleave:
++            analyzer.flush_stashed_output()
++        print("End")
++    except KeyboardInterrupt:
++        if args.interleave:
++            analyzer.flush_stashed_output()
++        print("End")
++    except Exception as e:
++        print(f"Error processing events: {e}")
+diff --git a/tools/perf/python/libxed.py b/tools/perf/python/libxed.py
+new file mode 100755
+index 000000000000..0e622e6959c2
+--- /dev/null
++++ b/tools/perf/python/libxed.py
+@@ -0,0 +1,122 @@
++#!/usr/bin/env python3
++# SPDX-License-Identifier: GPL-2.0
++"""
++Python wrapper for libxed.so
++Ported from tools/perf/scripts/python/libxed.py
++"""
++
++from ctypes import CDLL, Structure, create_string_buffer, addressof, sizeof, \
++                   c_void_p, c_byte, c_int, c_uint, c_ulonglong
++
++# To use Intel XED, libxed.so must be present. To build and install
++# libxed.so:
++#            git clone https://github.com/intelxed/mbuild.git mbuild
++#            git clone https://github.com/intelxed/xed
++#            cd xed
++#            ./mfile.py --share
++#            sudo ./mfile.py --prefix=/usr/local install
++#            sudo ldconfig
++#
++
++
++class XedStateT(Structure):
++    """xed_state_t structure."""
++    _fields_ = [
++        ("mode", c_int),
++        ("width", c_int)
++    ]
++
++
++class XEDInstruction():
++    """Represents a decoded instruction."""
++
++    def __init__(self, libxed):
++        # Current xed_decoded_inst_t structure is 192 bytes. Use 512 to allow for future expansion
++        xedd_t = c_byte * 512
++        self.xedd = xedd_t()
++        self.xedp = addressof(self.xedd)
++        libxed.xed_decoded_inst_zero(self.xedp)
++        self.state = XedStateT()
++        self.statep = addressof(self.state)
++        # Buffer for disassembled instruction text
++        self.buffer = create_string_buffer(256)
++        self.bufferp = addressof(self.buffer)
++
++
++class LibXED():
++    """Wrapper for libxed.so."""
++
++    def __init__(self):
++        try:
++            self.libxed = CDLL("libxed.so")
++        except OSError:
++            self.libxed = None
++        if not self.libxed:
++            try:
++                self.libxed = CDLL("/usr/local/lib/libxed.so")
++            except OSError:
++                self.libxed = None
++
++        if not self.libxed:
++            raise ImportError("libxed.so not found. Please install Intel XED.")
++
++        self.xed_tables_init = self.libxed.xed_tables_init
++        self.xed_tables_init.restype = None
++        self.xed_tables_init.argtypes = []
++
++        self.xed_decoded_inst_zero = self.libxed.xed_decoded_inst_zero
++        self.xed_decoded_inst_zero.restype = None
++        self.xed_decoded_inst_zero.argtypes = [c_void_p]
++
++        self.xed_operand_values_set_mode = self.libxed.xed_operand_values_set_mode
++        self.xed_operand_values_set_mode.restype = None
++        self.xed_operand_values_set_mode.argtypes = [c_void_p, c_void_p]
++
++        self.xed_decoded_inst_zero_keep_mode = self.libxed.xed_decoded_inst_zero_keep_mode
++        self.xed_decoded_inst_zero_keep_mode.restype = None
++        self.xed_decoded_inst_zero_keep_mode.argtypes = [c_void_p]
++
++        self.xed_decode = self.libxed.xed_decode
++        self.xed_decode.restype = c_int
++        self.xed_decode.argtypes = [c_void_p, c_void_p, c_uint]
++
++        self.xed_format_context = self.libxed.xed_format_context
++        self.xed_format_context.restype = c_uint
++        self.xed_format_context.argtypes = [
++            c_int, c_void_p, c_void_p, c_int, c_ulonglong, c_void_p, c_void_p
++        ]
++
++        self.xed_decoded_inst_get_length = self.libxed.xed_decoded_inst_get_length
++        self.xed_decoded_inst_get_length.restype = c_uint
++        self.xed_decoded_inst_get_length.argtypes = [c_void_p]
++
++        self.xed_tables_init()
++
++    def instruction(self):
++        """Create a new XEDInstruction."""
++        return XEDInstruction(self)
++
++    def set_mode(self, inst, mode):
++        """Set 32-bit or 64-bit mode."""
++        if mode:
++            inst.state.mode = 4  # 32-bit
++            inst.state.width = 4  # 4 bytes
++        else:
++            inst.state.mode = 1  # 64-bit
++            inst.state.width = 8  # 8 bytes
++        self.xed_operand_values_set_mode(inst.xedp, inst.statep)
++
++    def disassemble_one(self, inst, bytes_ptr, bytes_cnt, ip):
++        """Disassemble one instruction."""
++        self.xed_decoded_inst_zero_keep_mode(inst.xedp)
++        err = self.xed_decode(inst.xedp, bytes_ptr, bytes_cnt)
++        if err:
++            return 0, ""
++        # Use AT&T mode (2), alternative is Intel (3)
++        ok = self.xed_format_context(2, inst.xedp, inst.bufferp, sizeof(inst.buffer), ip, 0, 0)
++        if not ok:
++            return 0, ""
++
++        result = inst.buffer.value.decode('utf-8')
++        # Return instruction length and the disassembled instruction text
++        return self.xed_decoded_inst_get_length(inst.xedp), result
 -- 
 2.54.0.545.g6539524ca2-goog
 
