@@ -4,102 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98674FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 03:10:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20A2DFF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 03:52:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oR4jWMu75WRXwBMB4jMl/9EAS9gvi4/U+KUeptL7o1A=; b=WFj2G9eNEwFuO5BUVuQxUl8L1N
-	y9mrCRnkdEhnJp0/cISlIzCueSun3uzoT8Y7bQ8GmZU/6wYhRx++VD6RhUvUuehuBtaBOrthXfgvE
-	VRJHFUXQnUw6D1EeEj4Kwrk6KRXgFvG3dn6Crk22Tiqy8tk/Z6b2p5hyn/NvXvlgww8KHHItu1KIK
-	waD31mq5kGF9tvsYXoK7CC2+Q0I5tEEX8E4r/oOnXmzWDXUVN8/DHNiQtkNsS5q8F4Uvjd1EHFjPl
-	NNynkFFdVDJvcyouI2FP49ck64bQOztry8uvpjUpXdbQT8akTze5MUrkYv47a1GXT2bOjzyp9QPV0
-	hdKAYC2g==;
+	bh=yqzDIS4dnR7edifhAc46V9bpYquzevTiEeSagQiwEFM=; b=bau9sN6vO7YRxYfxwy9nqh7eMM
+	1CymkXFoY/a3pmSLjBPMV2LsSsBvTxCUnOKRWZsyZSEE7gRgtYJ2MxdpAz5+LyAh5avWcJ0+GEQxg
+	7wSHDtFBYYtRonroHva4ZHQJA2nWTkJnfLtPuT/f33rRCD9KGQgx+Xq/6cB7GntBycZhJqPqLFI/O
+	eY4lVIGTNByeSTWck5TjsEq4agcJKAwFga3HSXi//kvKik4Lu9jmlFu6RzCSugEXPtBo5V+umTDG8
+	911vfTD2Kz1m6/FVrDSpIYZZkMOfdLaxysLMeorkWz4pAGwmF5hDjbMgWxVMucG0iI//z8d6umfn/
+	y4Q0TUBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGTPf-0000000E1pR-2sCo;
-	Sat, 25 Apr 2026 03:10:35 +0000
-Received: from mail-dy1-x1362.google.com ([2607:f8b0:4864:20::1362])
+	id 1wGU3t-0000000E3WV-07wN;
+	Sat, 25 Apr 2026 03:52:09 +0000
+Received: from mail-centralusazon11010045.outbound.protection.outlook.com ([52.101.61.45] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGTPX-0000000E1hu-3ZYH
+	id 1wGU3q-0000000E3W8-2bUi
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Apr 2026 03:10:29 +0000
-Received: by mail-dy1-x1362.google.com with SMTP id 5a478bee46e88-2b6b0500e06so13532237eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 20:10:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ausil.us; s=google; t=1777086627; x=1777691427; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=oR4jWMu75WRXwBMB4jMl/9EAS9gvi4/U+KUeptL7o1A=;
-        b=TWDdmcUfw2ULBX+2a3lfWjhLY8Ykc0Ia0kIjp2PBAe3j/DDvDDywfZ8uslIGbzHFHl
-         OwzzBtH05bxFdw5ruofiojFRPgkx89Mf2zVPRB/4ps9Psl+O+H5l5naO9ri2siICkc7m
-         HoP+SibaTnCcRA0B5XWPCM92gSp8c6L2uATLrkajeSBjbnAZ7LW5K6+DgX1+zpqNgN0g
-         RKQQLpn+uohQk1NQdn8V/tt/PJ16aIJvrlyjNLV7o3P2f8K2K4hwQUctDoi64lNb+cKo
-         PWZ9TQVwFM8d065WHjNMdCOhBP6j83UG6qjr1noeP3SZT95noa+9+oWogeUu37+mGP1f
-         ZY8g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777086627; x=1777691427;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=oR4jWMu75WRXwBMB4jMl/9EAS9gvi4/U+KUeptL7o1A=;
-        b=rxztyvrzjTLr9VjGsiF8CCRvRZFMRz6QoNrU75cAUe1dmGV9NKhhjRxZJfgQuJhjXU
-         3VPfMYvhj4cOaOD3zQOofp3o0QMBkkv9+IyaIbZg6s+CqSu2FHc6QCGWG65AT4p1Futw
-         oexBy7F6e0SLKhRitwVtZZtHgE+aJuKDaPeP70Vyev8PHe7oZxtmnv6YO0hwRnZYhVSf
-         9WiBIdzPHnBCI/gY2Fbj1lnD0HvEOetmarZeXW/o+gspn9Gp5gH7KkB+Cgu3UKPvliBb
-         /NSfNW0xx8Bk4fLWdkmmghgpbSi4NmegqMq8Zdz7X+5Uid49TWzrPj4vWM7CWO2jVx2H
-         ZEpQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9egP8eUW7IgZD6yV0GZ1x2n43WJjENZteXFwGvfBWp4sYXB9MMivcrkEilx7PWW57+B9AlsYSDTvcgJXSKvNYk@lists.infradead.org
-X-Gm-Message-State: AOJu0YzBcDZe279jjl3hWBHhhPrMZyIcH2++XbVtANJQep4yFIODQQXQ
-	4+bksPkvqdBxisVJ7bPW8SvUkfZG7+Yc0wyfQt7zn5SJn1LU0Omm5j2JcsI5NPV/DxxFegWpRcl
-	E8KwkgjTHBTUP97zfFvW8TN2s+7DjpU5iTVr+
-X-Gm-Gg: AeBDieuRDA6aSW3hWcbu53k5e6w2bERhejqsaP2qJ4CdLX6hg49df+X9gASx1vrSJMl
-	/ueFAv8PMhIztVlIxDvVwKgGMLTFSnbjymQvTJmdHALzsuIJoCPIVpaegi66dxQv3ld7Bpn/noD
-	SWQsPkXZnY6DZiYAwMr9unrGPWcCmVk5x8fva6eFuZnfnieYlbuTYbSomXZs7B2DmD0bL3cy58H
-	ZGcj0HJAmIC97JXQHiqjGVQhTMoqRDOzT/qXLFxzscEgSSFo47vpYarrvMfMnr5J1oCMom4JbiM
-	DZIaqqCUuF5XiDMoNO5TjLPlt8yJoFlign1IrdmqVUzJzkVtC5BgwdWAFqtnss08JUb3q1GPagu
-	sbGUpfWrxE7qt4Odg+KnaJKBuRIn5O98gx4qS5m/iM6exE0JqCPx2ozk=
-X-Received: by 2002:a05:7300:230c:b0:2d2:c60d:4fe5 with SMTP id 5a478bee46e88-2e464ea4e10mr17155372eec.6.1777086627253;
-        Fri, 24 Apr 2026 20:10:27 -0700 (PDT)
-Received: from ryac.ausil.us (207-179-239-100.mtco.net. [207.179.239.100])
-        by smtp-relay.gmail.com with ESMTPS id 5a478bee46e88-2e53a3ae691sm1728646eec.11.2026.04.24.20.10.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Apr 2026 20:10:27 -0700 (PDT)
-X-Relaying-Domain: ausil.us
-From: Dennis Gilmore <dennis@ausil.us>
-To: Heiko Stuebner <heiko@sntech.de>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Alexey Charkov <alchark@gmail.com>,
-	devicetree@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	Dennis Gilmore <dennis@ausil.us>
-Subject: [PATCH v8 6/6] arm64: dts: rockchip: Add Orange Pi 5 Pro board support
-Date: Fri, 24 Apr 2026 22:10:11 -0500
-Message-ID: <20260425031011.2529364-7-dennis@ausil.us>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260425031011.2529364-1-dennis@ausil.us>
-References: <20260425031011.2529364-1-dennis@ausil.us>
+	Sat, 25 Apr 2026 03:52:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=p3NOzQFX09R7UoVDTYm3xGRMN4w7RazYjpikie+tUgpHFgXSLvvdUjKVKnOuOxcQIyup61qzfLWqunasOCrgD4bsJpSy/V6kjjRFF8j2anqSyZcLCmaCmQ4Wh1xqXDXiczBoOSHvO/S3eAos9ulMBatu4hzX6ImLDPsXtFfNo3qXu93c8gMP3VeLhHgGyjo0kFSWjsUOdZBxjdfqzoMopoE8TXFbUBrSO9H47j1OGc6QGp29WivwHYqU2VGUmnlulz3xK/UtOUctlwPbuk/FX3/N4luBvoxKqtjgdIUjILJkP7llafapizBMekYevGsPpRLLQf25v+rh+S9saxF3kA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yqzDIS4dnR7edifhAc46V9bpYquzevTiEeSagQiwEFM=;
+ b=D+EwpgvUMolawGG0RsffVcx9dwOkx4GQTRlDHdVeQmbpMh03tJSNXvBgQIbTS+wTqPNVgqv1RZ8/VQTrEydaS/gPBn5ECRCetOht87gU0TcMOaDAsVoPxwET8RCNG5j83bmcrzzIX/9uO0T746bC2ORCpWFWzXranrqvgI7nZPB0gXagmr6hgc+nV7RmDH3a7yGO+gg/I6vBo9BBd4pUpuR3FfQPLl2P+F8U7rdXZVnOJKid2CaVIuWvbcBRHvhmRLnXUAqoI2MZcMKIoQWyBx8IpW7bvFPHMS1SbBbnv0GQMYbRIGbFFyhPx/kPQYHg5DgcmAaw35ESWAZRec5jJA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yqzDIS4dnR7edifhAc46V9bpYquzevTiEeSagQiwEFM=;
+ b=to+G3mY1m6XNsfpPOXekWXkxveCgsc/ls48/ITaF4yb020dhhkkrElXVMHNHL9J1SPaCWCF18vy/0kNqTrlUWFPnKtVGZfTiFrBWXZR1t553cLegzzFUquTKXe9IcV23pfTarddmcwsFoREBMkAYrQFr3P8qlsJlMfYX4tpyjMY=
+Received: from DS7PR03CA0118.namprd03.prod.outlook.com (2603:10b6:5:3b7::33)
+ by SJ0PR10MB4576.namprd10.prod.outlook.com (2603:10b6:a03:2ae::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.33; Sat, 25 Apr
+ 2026 03:52:02 +0000
+Received: from DS2PEPF000061C1.namprd02.prod.outlook.com
+ (2603:10b6:5:3b7:cafe::f8) by DS7PR03CA0118.outlook.office365.com
+ (2603:10b6:5:3b7::33) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.22 via Frontend Transport; Sat,
+ 25 Apr 2026 03:52:01 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ DS2PEPF000061C1.mail.protection.outlook.com (10.167.23.68) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9791.48 via Frontend Transport; Sat, 25 Apr 2026 03:52:00 +0000
+Received: from DFLE212.ent.ti.com (10.64.6.70) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 24 Apr
+ 2026 22:51:59 -0500
+Received: from DFLE207.ent.ti.com (10.64.6.65) by DFLE212.ent.ti.com
+ (10.64.6.70) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 24 Apr
+ 2026 22:51:59 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE207.ent.ti.com
+ (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 24 Apr 2026 22:51:59 -0500
+Received: from [10.249.130.12] ([10.249.130.12])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 63P3pqwS3131032;
+	Fri, 24 Apr 2026 22:51:56 -0500
+Message-ID: <93ea5065-b8a4-49db-91b3-71170905fa15@ti.com>
+Date: Sat, 25 Apr 2026 09:21:51 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] remoteproc: xlnx: check remote node state
+To: Tanmay Shah <tanmay.shah@amd.com>, <michal.simek@amd.com>,
+	<andersson@kernel.org>, <mathieu.poirier@linaro.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-remoteproc@vger.kernel.org>
+References: <20260425030231.3145225-1-tanmay.shah@amd.com>
+Content-Language: en-US
+From: "Padhi, Beleswar" <b-padhi@ti.com>
+In-Reply-To: <20260425030231.3145225-1-tanmay.shah@amd.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS2PEPF000061C1:EE_|SJ0PR10MB4576:EE_
+X-MS-Office365-Filtering-Correlation-Id: 078d81d2-9a3a-4654-8d8c-08dea27e0136
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|82310400026|1800799024|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: KmVsRjFRiWeGwm+ulvBAn77qNDc7aHNJq5wgIad0n06SFwOjznhkUKYlghTEfYTuZKXdiYypccaYjsqS/GYJ8IQQbcjVSoWPlicNAV30GdijfDxHGqwEdxmzFq59d0xZ2ARNuH/KUGXM5gNjNuWO/gfsOvcAqsAmxem4Ji3WRLq18ZdADwm09VRpDnedf3PP8h8YVPigOfUvo1xlfaD59Xbp89oJ46Xk6OwJDDuj+Im1cANDV4ONn880DCUyoqJlY3ODy6zPZAT6iL4m+fqmaaRguzj5Bybsa/mvcYfOxB2i6QKm6Eb4Gbfak2jmEPLaKENDv5EAxS7FGSzO3OK3C6w14I+cnd9rF0uLzXntVo6odfwR2lR+Vbff6dxl7n1NgWhNMtNJYB5a+0x75PyFPYowZ0xX+vZtish6PC5bf4UV4D5JKGgfdMMBPFflNmFTczxPqP6MFjdVX6MyLK5ZgcfXIYH9/UpQgW0i4MVNMp5CiZrITOUB1GxEltWUSvS1rYQA3pN9YMRH4vHznP+zJUe05tVagw+2WD8FxF0fvYLmQgh/9ede+RqQQyOJvG+2kgn/cv1SHkJbM8PU76gmrbbo61ZF7BMLCFWIoLBx1Giru5o6U6qDUEJI+RIbsv1vwyAYkx5dFsI4ys+XOyj9A6BVEcgTIsAONz8CH3Lp3TfqzK/0AuWpsxAP89/T+Es5fqkN2W5stwsx2we/EcqHgDMw8FQuAyw83oCYCIHsejxGU8RzkPJnZwWo0eeGPTEeX7EUfrCEHl/vh+5k1PMySQ==
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(36860700016)(82310400026)(1800799024)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: Yg4UtacDdA892N4UAT1CWvAVjOkJSEbfZfJTNPcPVcTXdmVjk8r4eheBT6HF0pw4FiNI2gsyJY8XMujcD7OvDjv7i6pzd7jm9emEAl+bjEy4GKD6TahReDesGsYsxyXTuOX+uxu2YKtL05q+hz0NsBjrdng6rvEO3dL2YaFJkA+BDF9QZnxu28xsSZr6L8SotLvUCcNQYQpVQQL3oycF9cLwHPpRtEHz4hKeLl99ib3h8VeNPrSLKO9XdT3X8CT+Q8i7F99Ytzrve/V2CGzcpQdBkeLIMaN1CUacgBmvHpfMNRe9D8XHdBN8Mpb8vSDFWJTqjsd3PwaPxJ7++kwXFHfYAUIsI3vzR5Vw4/ufR6zfcd2iV5fEEaDX0U4MsuHdfsdmfYKQgsu3MjXtI9alTl/Ii3oUPRmIVLlfVGywECfgJNG/Q6V6zmYtjdZt6+FF
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Apr 2026 03:52:00.2077
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 078d81d2-9a3a-4654-8d8c-08dea27e0136
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS2PEPF000061C1.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB4576
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_201027_912791_8C87A7C5 
-X-CRM114-Status: GOOD (  16.91  )
+X-CRM114-CacheID: sfid-20260424_205206_775110_F83E5B9A 
+X-CRM114-Status: GOOD (  35.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,488 +131,190 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device tree for the Xunlong Orange Pi 5 Pro (RK3588S).
+Hi Tanmay,
 
-- eMMC module, you can optionally solder a SPI NOR in place and turn
- off the eMMC
-- PCIe-attached NIC (pcie2x1l2)
-- PCIe NVMe slot (pcie2x1l1)
-- AP6256 WiFi (BCM43456) via SDIO with mmc-pwrseq
-- BCM4345C5 Bluetooth
-- es8388 audio
-- USB 2.0 and USB 3.0
-- Two HDMI ports, the second is connected to the SoC's DP controller
-  driven through a Lontium LT8711UXD bridge.
+In $subject-line, s/remote node/remoteproc
 
-Vendors schematics are available at:
-https://drive.google.com/file/d/1qs1DratHuh7C6J6MEtQIwUsiSrg8qgTi/view
+On 4/25/2026 8:32 AM, Tanmay Shah wrote:
+> The remote state is set to RPROC_DETACHED if the resource table is found
+> in the memory. However, this can be wrong if the remote is not started,
+> but firmware is still loaded in the memory. Use PM_GET_NODE_STATUS call
+> to the firmware to request the state of the RPU node. If the RPU is
+> actually out of reset and running, only then move the remote state to
+> RPROC_DETACHED, otherwise keep the remote state to RPROC_OFFLINE.
 
-Signed-off-by: Dennis Gilmore <dennis@ausil.us>
----
- arch/arm64/boot/dts/rockchip/Makefile         |   1 +
- .../dts/rockchip/rk3588s-orangepi-5-pro.dts   | 440 ++++++++++++++++++
- 2 files changed, 441 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-pro.dts
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index 4d384f153c13..c99dca2ae9e7 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -214,6 +214,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-nanopi-r6c.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-odroid-m2.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-orangepi-5.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-orangepi-5b.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-orangepi-5-pro.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-orangepi-cm5-base.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-radxa-cm5-io.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-roc-pc.dtb
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-pro.dts b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-pro.dts
-new file mode 100644
-index 000000000000..67363709c4ca
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-pro.dts
-@@ -0,0 +1,440 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+
-+/dts-v1/;
-+
-+#include "rk3588s-orangepi-5.dtsi"
-+
-+/ {
-+	model = "Xunlong Orange Pi 5 Pro";
-+	compatible = "xunlong,orangepi-5-pro", "rockchip,rk3588s";
-+
-+	aliases {
-+		mmc0 = &sdhci;
-+		mmc1 = &sdmmc;
-+		mmc2 = &sdio;
-+	};
-+
-+	hdmi1-con {
-+		compatible = "hdmi-connector";
-+		label = "HDMI1 OUT";
-+		type = "a";
-+
-+		port {
-+			hdmi1_con_in: endpoint {
-+				remote-endpoint = <&lt8711uxd_out>;
-+			};
-+		};
-+	};
-+
-+	hdmi-bridge {
-+		compatible = "lontium,lt8711uxd";
-+		vdd-supply = <&vcc3v3_dp>;
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			port@0 {
-+				reg = <0>;
-+
-+				lt8711uxd_in: endpoint {
-+					remote-endpoint = <&dp0_out_con>;
-+				};
-+			};
-+
-+			port@1 {
-+				reg = <1>;
-+
-+				lt8711uxd_out: endpoint {
-+					remote-endpoint = <&hdmi1_con_in>;
-+				};
-+			};
-+		};
-+	};
-+
-+	analog-sound {
-+		compatible = "simple-audio-card";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&hp_detect>;
-+		simple-audio-card,format = "i2s";
-+		simple-audio-card,hp-det-gpios = <&gpio1 RK_PD5 GPIO_ACTIVE_HIGH>;
-+		simple-audio-card,mclk-fs = <256>;
-+		simple-audio-card,name = "rockchip,es8388";
-+		simple-audio-card,routing =
-+			"Headphones", "LOUT1",
-+			"Headphones", "ROUT1",
-+			"LINPUT1", "Microphone Jack",
-+			"RINPUT1", "Microphone Jack",
-+			"LINPUT2", "Onboard Microphone",
-+			"RINPUT2", "Onboard Microphone";
-+		simple-audio-card,widgets =
-+			"Microphone", "Microphone Jack",
-+			"Microphone", "Onboard Microphone",
-+			"Headphone", "Headphones";
-+
-+		simple-audio-card,cpu {
-+			sound-dai = <&i2s2_2ch>;
-+		};
-+
-+		simple-audio-card,codec {
-+			sound-dai = <&es8388>;
-+			system-clock-frequency = <12288000>;
-+		};
-+	};
-+
-+	pwm-leds {
-+		compatible = "pwm-leds";
-+
-+		led-0 {
-+			color = <LED_COLOR_ID_BLUE>;
-+			function = LED_FUNCTION_STATUS;
-+			linux,default-trigger = "heartbeat";
-+			max-brightness = <255>;
-+			pwms = <&pwm15 0 1000000 0>;
-+		};
-+
-+		led-1 {
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_ACTIVITY;
-+			linux,default-trigger = "heartbeat";
-+			max-brightness = <255>;
-+			pwms = <&pwm3 0 1000000 0>;
-+		};
-+	};
-+
-+	fan: pwm-fan {
-+		compatible = "pwm-fan";
-+		#cooling-cells = <2>;
-+		cooling-levels = <0 50 100 150 200 255>;
-+		fan-supply = <&vcc5v0_sys>;
-+		pwms = <&pwm2 0 20000000 0>;
-+	};
-+
-+	vcc3v3_dp: regulator-vcc3v3-dp {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpios = <&gpio3 RK_PC2 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&dp_bridge_en>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-name = "vcc3v3_dp";
-+		regulator-always-on;
-+		vin-supply = <&vcc_3v3_s3>;
-+	};
-+
-+	vcc3v3_eth: regulator-vcc3v3-eth {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpios = <&gpio3 RK_PB7 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&ethernet_en>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-name = "vcc3v3_eth";
-+		startup-delay-us = <50000>;
-+		vin-supply = <&vcc_3v3_s3>;
-+	};
-+
-+	vcc5v0_otg: regulator-vcc5v0-otg {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpios = <&gpio0 RK_PC4 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&vcc5v0_otg_en>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-name = "vcc5v0_otg";
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	sdio_pwrseq: sdio-pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		clocks = <&hym8563>;
-+		clock-names = "ext_clock";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&wifi_enable_h>;
-+		post-power-on-delay-ms = <200>;
-+		reset-gpios = <&gpio0 RK_PD0 GPIO_ACTIVE_LOW>;
-+	};
-+
-+	typea_con: usb-a-connector {
-+		compatible = "usb-a-connector";
-+		data-role = "host";
-+		label = "USB3 Type-A";
-+		power-role = "source";
-+		vbus-supply = <&vcc5v0_otg>;
-+	};
-+};
-+
-+&dp0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&dp0m0_pins>;
-+	status = "okay";
-+};
-+
-+&dp0_in {
-+	dp0_in_vp1: endpoint {
-+		remote-endpoint = <&vp1_out_dp0>;
-+	};
-+};
-+
-+&dp0_out {
-+	dp0_out_con: endpoint {
-+		remote-endpoint = <&lt8711uxd_in>;
-+	};
-+};
-+
-+&i2c1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c1m4_xfer>;
-+	status = "okay";
-+};
-+
-+&i2c3 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c3m0_xfer>;
-+	status = "okay";
-+
-+	es8388: audio-codec@11 {
-+		compatible = "everest,es8388", "everest,es8328";
-+		reg = <0x11>;
-+		#sound-dai-cells = <0>;
-+		AVDD-supply = <&vcca_3v3_s0>;
-+		DVDD-supply = <&vcca_1v8_s0>;
-+		HPVDD-supply = <&vcca_3v3_s0>;
-+		PVDD-supply = <&vcca_1v8_s0>;
-+		assigned-clock-rates = <12288000>;
-+		assigned-clocks = <&cru I2S2_2CH_MCLKOUT>;
-+		clocks = <&cru I2S2_2CH_MCLKOUT>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&i2s2m1_mclk>;
-+	};
-+};
-+
-+&i2c4 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c4m3_xfer>;
-+	status = "okay";
-+};
-+
-+&i2s2_2ch {
-+	pinctrl-0 = <&i2s2m1_lrck &i2s2m1_sclk
-+		     &i2s2m1_sdi &i2s2m1_sdo>;
-+	status = "okay";
-+};
-+
-+&package_thermal {
-+	polling-delay = <1000>;
-+
-+	cooling-maps {
-+		map0 {
-+			trip = <&package_fan0>;
-+			cooling-device = <&fan THERMAL_NO_LIMIT 1>;
-+		};
-+
-+		map1 {
-+			trip = <&package_fan1>;
-+			cooling-device = <&fan 2 THERMAL_NO_LIMIT>;
-+		};
-+	};
-+
-+	trips {
-+		package_fan0: package-fan0 {
-+			hysteresis = <2000>;
-+			temperature = <55000>;
-+			type = "active";
-+		};
-+
-+		package_fan1: package-fan1 {
-+			hysteresis = <2000>;
-+			temperature = <65000>;
-+			type = "active";
-+		};
-+	};
-+};
-+
-+/* NVMe */
-+&pcie2x1l1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pcie30x1m1_1_perstn>, <&pcie30x1m1_1_clkreqn>,
-+		    <&pcie30x1m1_1_waken>;
-+	reset-gpios = <&gpio4 RK_PA2 GPIO_ACTIVE_HIGH>;
-+	supports-clkreq;
-+	vpcie3v3-supply = <&vcc_3v3_s3>;
-+	status = "okay";
-+};
-+
-+/* NIC */
-+&pcie2x1l2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pcie20x1m0_perstn>, <&pcie20x1m0_clkreqn>,
-+		    <&pcie20x1m0_waken>;
-+	reset-gpios = <&gpio3 RK_PD1 GPIO_ACTIVE_HIGH>;
-+	vpcie3v3-supply = <&vcc3v3_eth>;
-+	status = "okay";
-+};
-+
-+&pinctrl {
-+	bluetooth {
-+		bt_wake_gpio: bt-wake-pin {
-+			rockchip,pins = <0 RK_PC6 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+
-+		bt_wake_host_irq: bt-wake-host-irq {
-+			rockchip,pins = <0 RK_PC5 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+	};
-+
-+	dp {
-+		dp_bridge_en: dp-bridge-en {
-+			rockchip,pins = <3 RK_PC2 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+	};
-+
-+	ethernet {
-+		ethernet_en: ethernet-en {
-+			rockchip,pins = <3 RK_PB7 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+	};
-+
-+	usb {
-+		vcc5v0_otg_en: vcc5v0-otg-en {
-+			rockchip,pins = <0 RK_PC4 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+	};
-+
-+	wlan {
-+		wifi_enable_h: wifi-enable-h {
-+			rockchip,pins = <0 RK_PD0 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+
-+		wifi_host_wake_irq: wifi-host-wake-irq {
-+			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+	};
-+};
-+
-+&pwm15 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pwm15m2_pins>;
-+	status = "okay";
-+};
-+
-+&pwm2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pwm2m1_pins>;
-+	status = "okay";
-+};
-+
-+&pwm3 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pwm3m2_pins>;
-+	status = "okay";
-+};
-+
-+&rk806_single {
-+	regulators {
-+		vcca_1v8_s0: pldo-reg1 {
-+			regulator-name = "vcca_1v8_s0";
-+			regulator-always-on;
-+			regulator-boot-on;
-+			regulator-min-microvolt = <1800000>;
-+			regulator-max-microvolt = <1800000>;
-+
-+			regulator-state-mem {
-+				regulator-off-in-suspend;
-+				regulator-suspend-microvolt = <1800000>;
-+			};
-+		};
-+
-+		vcc_1v8_s0: pldo-reg2 {
-+			regulator-name = "vcc_1v8_s0";
-+			regulator-always-on;
-+			regulator-boot-on;
-+			regulator-min-microvolt = <1800000>;
-+			regulator-max-microvolt = <1800000>;
-+
-+			regulator-state-mem {
-+				regulator-off-in-suspend;
-+			};
-+		};
-+	};
-+};
-+
-+&sdhci {
-+	status = "okay";
-+};
-+
-+&sdio {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	bus-width = <4>;
-+	cap-sd-highspeed;
-+	cap-sdio-irq;
-+	keep-power-in-suspend;
-+	max-frequency = <150000000>;
-+	mmc-pwrseq = <&sdio_pwrseq>;
-+	no-mmc;
-+	no-sd;
-+	non-removable;
-+	sd-uhs-sdr104;
-+	status = "okay";
-+
-+	ap6256: wifi@1 {
-+		compatible = "brcm,bcm43456-fmac", "brcm,bcm4329-fmac";
-+		reg = <1>;
-+		interrupt-names = "host-wake";
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <RK_PA0 IRQ_TYPE_LEVEL_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&wifi_host_wake_irq>;
-+	};
-+};
-+
-+&uart9 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart9m2_xfer &uart9m2_ctsn &uart9m2_rtsn>;
-+	uart-has-rtscts;
-+	status = "okay";
-+
-+	bluetooth {
-+		compatible = "brcm,bcm4345c5";
-+		clocks = <&hym8563>;
-+		clock-names = "lpo";
-+		device-wakeup-gpios = <&gpio0 RK_PC6 GPIO_ACTIVE_HIGH>;
-+		interrupt-names = "host-wakeup";
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <RK_PC5 IRQ_TYPE_LEVEL_HIGH>;
-+		max-speed = <1500000>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&bt_wake_host_irq &bt_wake_gpio>;
-+		shutdown-gpios = <&gpio0 RK_PD5 GPIO_ACTIVE_HIGH>;
-+		vbat-supply = <&vcc_3v3_s3>;
-+		vddio-supply = <&vcc_1v8_s3>;
-+	};
-+};
-+
-+&u2phy0_otg {
-+	phy-supply = <&vcc5v0_otg>;
-+};
-+
-+&usb_host0_xhci {
-+	dr_mode = "host";
-+};
-+
-+&usbdp_phy0 {
-+	/*
-+	 * USBDP PHY0 is wired to a USB3 Type-A host connector via lanes 2/3.
-+	 * Additionally lanes 0/1 and the aux channel are wired to the
-+	 * Lontium LT8711UXD DP-to-HDMI bridge feeding the HDMI1 connector.
-+	 */
-+	rockchip,dp-lane-mux = <0 1>;
-+};
-+
-+&vp1 {
-+	vp1_out_dp0: endpoint@a {
-+		reg = <ROCKCHIP_VOP2_EP_DP0>;
-+		remote-endpoint = <&dp0_in_vp1>;
-+	};
-+};
--- 
-2.53.0
+This is a good additional check. However, one thing to note is 
+remoteproc core
+framework will load the firmware if the state is set to RPROC_OFFLINE. This
+will override the existing firmware in the memory, I hope that is not 
+fatal for
+your usecase?
 
+>
+> Signed-off-by: Tanmay Shah <tanmay.shah@amd.com>
+> ---
+>   drivers/firmware/xilinx/zynqmp.c        | 28 +++++++++++++++++++
+>   drivers/remoteproc/xlnx_r5_remoteproc.c | 37 ++++++++++++++++++-------
+>   include/linux/firmware/xlnx-zynqmp.h    | 21 ++++++++++++++
+>   3 files changed, 76 insertions(+), 10 deletions(-)
+>
+> diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/zynqmp.c
+> index fbe8510f4927..af838b2dc327 100644
+> --- a/drivers/firmware/xilinx/zynqmp.c
+> +++ b/drivers/firmware/xilinx/zynqmp.c
+> @@ -1450,6 +1450,34 @@ int zynqmp_pm_get_node_status(const u32 node, u32 *const status,
+>   }
+>   EXPORT_SYMBOL_GPL(zynqmp_pm_get_node_status);
+>   
+> +/**
+> + * zynqmp_pm_get_rpu_node_status - PM call to request a RPU node's current power state
+> + * @node:		ID of the RPU component or sub-system in question
+> + * @status:		Current operating state of the requested RPU node.
+> + * @requirements:	Current requirements asserted on the RPU node.
+> + * @usage:		Usage information, used for RPU slave nodes only:
+> + *			PM_USAGE_NO_MASTER	- No master is currently using
+> + *						  the node
+> + *			PM_USAGE_CURRENT_MASTER	- Only requesting master is
+> + *						  currently using the node
+> + *			PM_USAGE_OTHER_MASTER	- Only other masters are
+> + *						  currently using the node
+> + *			PM_USAGE_BOTH_MASTERS	- Both the current and at least
+> + *						  one other master is currently
+> + *						  using the node
+> + *
+> + * Return:		Returns status, either success or error+reason
+> + */
+> +int zynqmp_pm_get_rpu_node_status(const u32 node, u32 *const status,
+> +				  u32 *const requirements, u32 *const usage)
+> +{
+> +	if (zynqmp_pm_feature(PM_GET_NODE_STATUS) < PM_API_VERSION_2)
+> +		return -EOPNOTSUPP;
+> +
+> +	return zynqmp_pm_get_node_status(node, status, requirements, usage);
+> +}
+> +EXPORT_SYMBOL_GPL(zynqmp_pm_get_rpu_node_status);
+> +
+>   /**
+>    * zynqmp_pm_force_pwrdwn - PM call to request for another PU or subsystem to
+>    *             be powered down forcefully
+> diff --git a/drivers/remoteproc/xlnx_r5_remoteproc.c b/drivers/remoteproc/xlnx_r5_remoteproc.c
+> index 50a9974f3202..e2f25d94177d 100644
+> --- a/drivers/remoteproc/xlnx_r5_remoteproc.c
+> +++ b/drivers/remoteproc/xlnx_r5_remoteproc.c
+> @@ -948,16 +948,6 @@ static struct zynqmp_r5_core *zynqmp_r5_add_rproc_core(struct device *cdev)
+>   		goto free_rproc;
+>   	}
+>   
+> -	/*
+> -	 * If firmware is already available in the memory then move rproc state
+> -	 * to DETACHED. Firmware can be preloaded via debugger or by any other
+> -	 * agent (processors) in the system.
+> -	 * If firmware isn't available in the memory and resource table isn't
+> -	 * found, then rproc state remains OFFLINE.
+> -	 */
+> -	if (!zynqmp_r5_get_rsc_table_va(r5_core))
+> -		r5_rproc->state = RPROC_DETACHED;
+> -
+>   	r5_core->rproc = r5_rproc;
+>   	return r5_core;
+>   
+> @@ -1210,6 +1200,7 @@ static int zynqmp_r5_core_init(struct zynqmp_r5_cluster *cluster,
+>   {
+>   	struct device *dev = cluster->dev;
+>   	struct zynqmp_r5_core *r5_core;
+> +	u32 req, usage, status;
+>   	int ret = -EINVAL, i;
+>   
+>   	r5_core = cluster->r5_cores[0];
+> @@ -1255,6 +1246,32 @@ static int zynqmp_r5_core_init(struct zynqmp_r5_cluster *cluster,
+>   		ret = zynqmp_r5_get_sram_banks(r5_core);
+>   		if (ret)
+>   			return ret;
+> +
+> +		/*
+> +		 * It is possible that firmware is loaded into the memory, but
+> +		 * RPU (remote) is not running. In such case, RPU state will be
+> +		 * moved to RPROC_DETACHED wrongfully. To avoid it first make
+> +		 * sure RPU is power-on and out of reset before parsing for the
+> +		 * resource table.
+> +		 */
+> +		ret = zynqmp_pm_get_rpu_node_status(r5_core->pm_domain_id,
+> +						    &status, &req, &usage);
+> +		if (ret) {
+> +			dev_warn(r5_core->dev,
+> +				 "failed to get rpu node status, err %d\n", ret);
+> +			continue;
+> +		}
+> +
+> +		/*
+> +		 * If RPU state is power on and out of reset i.e. running, then
+> +		 * assign RPROC_DETACHED state. If the RPU is not out of reset
+> +		 * then do not attempt to attach to the remote processor.
+> +		 */
+> +		if (status == PM_NODE_RUNNING) {
+> +			if (zynqmp_r5_get_rsc_table_va(r5_core))
+> +				dev_dbg(r5_core->dev, "rsc tbl not found\n");
+
+
+Do you still want to set state = RPROC_DETACHED if resource table is not 
+found in the
+memory?
+
+Thanks,
+Beleswar
+
+> +			r5_core->rproc->state = RPROC_DETACHED;
+> +		}
+>   	}
+>   
+>   	return 0;
+> diff --git a/include/linux/firmware/xlnx-zynqmp.h b/include/linux/firmware/xlnx-zynqmp.h
+> index d70dcd462b44..7e27b0f7bf7e 100644
+> --- a/include/linux/firmware/xlnx-zynqmp.h
+> +++ b/include/linux/firmware/xlnx-zynqmp.h
+> @@ -542,6 +542,18 @@ enum pm_gem_config_type {
+>   	GEM_CONFIG_FIXED = 2,
+>   };
+>   
+> +/**
+> + * enum pm_node_status - Device node status provided by xilpm fw
+> + * @PM_NODE_UNUSED: Device is not used
+> + * @PM_NODE_RUNNING: Device is power-on and out of reset
+> + * @PM_NODE_HALT: Device is power-on but in the reset state
+> + */
+> +enum pm_node_status {
+> +	PM_NODE_UNUSED = 0,
+> +	PM_NODE_RUNNING = 1,
+> +	PM_NODE_HALT = 12,
+> +};
+> +
+>   /**
+>    * struct zynqmp_pm_query_data - PM query data
+>    * @qid:	query ID
+> @@ -630,6 +642,8 @@ int zynqmp_pm_set_rpu_mode(u32 node_id, enum rpu_oper_mode rpu_mode);
+>   int zynqmp_pm_set_tcm_config(u32 node_id, enum rpu_tcm_comb tcm_mode);
+>   int zynqmp_pm_get_node_status(const u32 node, u32 *const status,
+>   			      u32 *const requirements, u32 *const usage);
+> +int zynqmp_pm_get_rpu_node_status(const u32 node, u32 *const status,
+> +				  u32 *const requirements, u32 *const usage);
+>   int zynqmp_pm_set_sd_config(u32 node, enum pm_sd_config_type config, u32 value);
+>   int zynqmp_pm_set_gem_config(u32 node, enum pm_gem_config_type config,
+>   			     u32 value);
+> @@ -939,6 +953,13 @@ static inline int zynqmp_pm_get_node_status(const u32 node, u32 *const status,
+>   	return -ENODEV;
+>   }
+>   
+> +static inline int zynqmp_pm_get_rpu_node_status(const u32 node, u32 *const status,
+> +						u32 *const requirements,
+> +						u32 *const usage)
+> +{
+> +	return -ENODEV;
+> +}
+> +
+>   static inline int zynqmp_pm_set_sd_config(u32 node,
+>   					  enum pm_sd_config_type config,
+>   					  u32 value)
+>
+> base-commit: 6f860d238b44da8ac57be25289b9f4410691c4e2
 
