@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A1ADFF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 06:59:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35371FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 07:00:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BynxxfWlvVoBpcnbEF3cJYjxix2q649E3WZZ7ir+TYA=; b=PX7Bywjnhk7TSCweMAS1LXfTe2
-	oCpzjsIc53UIEczHhTABu7I4To4H5ctUdW6TXEfN80dgF8ic0HL4C3w+HdaPUcfPczDQOcx+cEPoR
-	NsdzHAFIBofqLqA8PUQuNRRsLQIRrX2Ze9jTRxpkFtXzxAHPXKRhOkIWFyXMICZNhrapbi4gkpxuF
-	lGO1HeJqz8cYv5XK6QV9qZgoy6nP447yVh6s6O6/Yes6fonHU9NpM1J/cOYneI4+h4XQULZZji4c1
-	CINHDRvxNBLaggwJg+AbJhVL5aGiBAS3Rl0DTANL6oRwC2+vyh8W/5JbPy6ytU+SH3OFXZhdPNbEP
-	kUwe310g==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UYu9o+7VrmH1rNOBG/h+zqWK1u+dGDFkWIV9Agamq2k=; b=2KDhGcp9dT6kJ7LM8oYxlycVPX
+	G53Q1FjzfG29KfH8r603UyIIG3c1GWMgFDPbod48ikCQxpUVTFFDwfu4PQ63r0MNVSEy1d46HpPoC
+	qbK0X3ydsRQY51CSWDhikpAmHH9WRITpItS4VQS7ew1/RXW1V8GxoK6GH5pEq0aoTMoDK5A9TMFi8
+	ERmzseThNS9fSA8liQQccBXlNJsFBJ2dIH0iMXO3ksrwk/fAKQXCzaJqyHuJzqlARd85daAFMOdyA
+	xfrCXbAo9C1zLfu47+RvvrxD2GKOE+LmkL2SgZ9npL54OcuNNBgJFuz+oTuwni9E6k6Gw4o/5XZ3k
+	Lsyps14g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGWzV-0000000E8ki-3d4L;
-	Sat, 25 Apr 2026 06:59:49 +0000
+	id 1wGWzb-0000000E8mg-3Mtr;
+	Sat, 25 Apr 2026 06:59:55 +0000
 Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGWzQ-0000000E8jV-31b3;
-	Sat, 25 Apr 2026 06:59:47 +0000
-X-UUID: 5018db82407411f1aa26b74ffac11d73-20260425
+	id 1wGWzZ-0000000E8lF-1S1l;
+	Sat, 25 Apr 2026 06:59:54 +0000
+X-UUID: 581dfc9a407411f1aa26b74ffac11d73-20260425
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:796fe8ce-2424-43df-837a-5824a8ff87b6,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e7bac3a,CLOUDID:69e31420f7444c0bcb2c92291f08c449,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:102|898,TC:nil,Content:0|15|50,EDM:-3,IP
-	:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,
-	LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-O-INFO: VERSION:1.3.12,REQID:293a675c-0837-4505-b3f7-b02a8e0aa797,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-5
+X-CID-META: VersionHash:e7bac3a,CLOUDID:3425f2eda19b92ffc288353dc79b7b29,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|898,TC:nil,Content:0|15|50,EDM
+	:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0
+	,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 5018db82407411f1aa26b74ffac11d73-20260425
+X-UUID: 581dfc9a407411f1aa26b74ffac11d73-20260425
 X-User: aichao@kylinos.cn
 Received: from thinksys.. [(10.44.16.150)] by mailgw.kylinos.cn
 	(envelope-from <aichao@kylinos.cn>)
 	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1869557384; Sat, 25 Apr 2026 14:59:32 +0800
+	with ESMTP id 33038705; Sat, 25 Apr 2026 14:59:46 +0800
 From: Ai Chao <aichao@kylinos.cn>
 To: deller@gmx.de,
 	nicolas.ferre@microchip.com,
@@ -75,15 +75,17 @@ Cc: linux-fbdev@vger.kernel.org,
 	linux-geode@lists.infradead.org,
 	linux-parisc@vger.kernel.org,
 	Ai Chao <aichao@kylinos.cn>
-Subject: [PATCH 00/35] Use safer strscpy() instead of strcpy()
-Date: Sat, 25 Apr 2026 14:58:51 +0800
-Message-Id: <20260425065926.1091168-1-aichao@kylinos.cn>
+Subject: [PATCH 02/35] fbdev: i810: Use safer strscpy() instead of strcpy()
+Date: Sat, 25 Apr 2026 14:58:53 +0800
+Message-Id: <20260425065926.1091168-3-aichao@kylinos.cn>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260425065926.1091168-1-aichao@kylinos.cn>
+References: <20260425065926.1091168-1-aichao@kylinos.cn>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_235946_220474_28D30930 
-X-CRM114-Status: UNSURE (   5.74  )
+X-CRM114-CacheID: sfid-20260424_235953_727342_F5F193E8 
+X-CRM114-Status: UNSURE (   9.00  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -99,91 +101,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series introduces wrapper functions strscpy().
-
 Use a safer function strscpy() instead of strcpy() for copying to arrays.
 
 Only idiomatic code replacement, and no functional changes.
 
-Summary:
+Signed-off-by: Ai Chao <aichao@kylinos.cn>
+---
+ drivers/video/fbdev/i810/i810-i2c.c  | 2 +-
+ drivers/video/fbdev/i810/i810_main.c | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-  fbdev: matroxfb: Use safer strscpy() instead of strcpy()
-  fbdev: i810: Use safer strscpy() instead of strcpy()
-  fbdev: sisfb: Use safer strscpy() instead of strcpy()
-  fbdev: geode: Use safer strscpy() instead of strcpy()
-  fbdev: atafb: Use safer strscpy() instead of strcpy()
-  fbdev: tdfxfb: Use safer strscpy() instead of strcpy()
-  fbdev: pm2fb: Use safer strscpy() instead of strcpy()
-  fbdev: xen-fbfront: Use safer strscpy() instead of strcpy()
-  fbdev: controlfb: Use safer strscpy() instead of strcpy()
-  fbdev: stifb: Use safer strscpy() instead of strcpy()
-  fbdev: fm2fb: Use safer strscpy() instead of strcpy()
-  fbdev: arkfb: Use safer strscpy() instead of strcpy()
-  fbdev: vt8500lcdfb: Use safer strscpy() instead of strcpy()
-  fbdev: vt8623fb: Use safer strscpy() instead of strcpy()
-  fbdev: gbefb: Use safer strscpy() instead of strcpy()
-  fbdev: wm8505fb: Use safer strscpy() instead of strcpy()
-  fbdev: rivafb: Use safer strscpy() instead of strcpy()
-  fbdev: sh7760fb: Use safer strscpy() instead of strcpy()
-  fbdev: savage: Use safer strscpy() instead of strcpy()
-  fbdev: atmel_lcdfb: Use safer strscpy() instead of strcpy()
-  fbdev: aty128fb: Use safer strscpy() instead of strcpy()
-  fbdev: amifb: Use safer strscpy() instead of strcpy()
-  fbdev: s3fb: Use safer strscpy() instead of strcpy()
-  fbdev: viafb: Use safer strscpy() instead of strcpy()
-  fbdev: platinumfb: Use safer strscpy() instead of strcpy()
-  fbdev: cyber2000fb: Use safer strscpy() instead of strcpy()
-  fbdev: mb862xxfb: Use safer strscpy() instead of strcpy()
-  fbdev: mmpfb: Use safer strscpy() instead of strcpy()
-  fbdev: ep93xx-fb: Use safer strscpy() instead of strcpy()
-  fbdev: valkyriefb: Use safer strscpy() instead of strcpy()
-  fbdev: pxafb: Use safer strscpy() instead of strcpy()
-  fbdev: sa1100fb: Use safer strscpy() instead of strcpy()
-  fbdev: sm501fb: Use safer strscpy() instead of strcpy()
-  fbdev: acornfb: Use safer strscpy() instead of strcpy()
-  fbdev: ocfb: Use safer strscpy() instead of strcpy()
-
- drivers/video/fbdev/acornfb.c               |  2 +-
- drivers/video/fbdev/amifb.c                 |  2 +-
- drivers/video/fbdev/arkfb.c                 |  2 +-
- drivers/video/fbdev/atafb.c                 | 10 +++++-----
- drivers/video/fbdev/atmel_lcdfb.c           |  2 +-
- drivers/video/fbdev/aty/aty128fb.c          |  2 +-
- drivers/video/fbdev/controlfb.c             |  2 +-
- drivers/video/fbdev/cyber2000fb.c           |  2 +-
- drivers/video/fbdev/ep93xx-fb.c             |  2 +-
- drivers/video/fbdev/fm2fb.c                 |  2 +-
- drivers/video/fbdev/gbefb.c                 |  2 +-
- drivers/video/fbdev/geode/gx1fb_core.c      |  2 +-
- drivers/video/fbdev/geode/gxfb_core.c       |  2 +-
- drivers/video/fbdev/geode/lxfb_core.c       |  2 +-
- drivers/video/fbdev/i810/i810-i2c.c         |  2 +-
- drivers/video/fbdev/i810/i810_main.c        |  2 +-
- drivers/video/fbdev/matrox/matroxfb_base.c  |  6 +++---
- drivers/video/fbdev/matrox/matroxfb_crtc2.c |  2 +-
- drivers/video/fbdev/mb862xx/mb862xxfbdrv.c  |  2 +-
- drivers/video/fbdev/mmp/fb/mmpfb.c          |  2 +-
- drivers/video/fbdev/ocfb.c                  |  2 +-
- drivers/video/fbdev/platinumfb.c            |  2 +-
- drivers/video/fbdev/pm2fb.c                 |  6 +++---
- drivers/video/fbdev/pxafb.c                 |  2 +-
- drivers/video/fbdev/riva/rivafb-i2c.c       |  2 +-
- drivers/video/fbdev/s3fb.c                  |  2 +-
- drivers/video/fbdev/sa1100fb.c              |  2 +-
- drivers/video/fbdev/savage/savagefb-i2c.c   |  2 +-
- drivers/video/fbdev/sh7760fb.c              |  2 +-
- drivers/video/fbdev/sis/sis_main.c          | 16 ++++++++--------
- drivers/video/fbdev/sm501fb.c               |  2 +-
- drivers/video/fbdev/stifb.c                 |  2 +-
- drivers/video/fbdev/tdfxfb.c                |  6 +++---
- drivers/video/fbdev/valkyriefb.c            |  2 +-
- drivers/video/fbdev/via/viafbdev.c          |  2 +-
- drivers/video/fbdev/vt8500lcdfb.c           |  2 +-
- drivers/video/fbdev/vt8623fb.c              |  2 +-
- drivers/video/fbdev/wm8505fb.c              |  2 +-
- drivers/video/fbdev/xen-fbfront.c           |  2 +-
- 39 files changed, 56 insertions(+), 56 deletions(-)
-
+diff --git a/drivers/video/fbdev/i810/i810-i2c.c b/drivers/video/fbdev/i810/i810-i2c.c
+index 7db17d0d8a8c..6141e9d2fff4 100644
+--- a/drivers/video/fbdev/i810/i810-i2c.c
++++ b/drivers/video/fbdev/i810/i810-i2c.c
+@@ -91,7 +91,7 @@ static int i810_setup_i2c_bus(struct i810fb_i2c_chan *chan, const char *name)
+ {
+         int rc;
+ 
+-        strcpy(chan->adapter.name, name);
++	strscpy(chan->adapter.name, name);
+         chan->adapter.owner             = THIS_MODULE;
+         chan->adapter.algo_data         = &chan->algo;
+         chan->adapter.dev.parent        = &chan->par->dev->dev;
+diff --git a/drivers/video/fbdev/i810/i810_main.c b/drivers/video/fbdev/i810/i810_main.c
+index 10b914a24114..0499058a3ea8 100644
+--- a/drivers/video/fbdev/i810/i810_main.c
++++ b/drivers/video/fbdev/i810/i810_main.c
+@@ -1091,7 +1091,7 @@ static int encode_fix(struct fb_fix_screeninfo *fix, struct fb_info *info)
+ 
+     	memset(fix, 0, sizeof(struct fb_fix_screeninfo));
+ 
+-    	strcpy(fix->id, "I810");
++	strscpy(fix->id, "I810");
+ 	mutex_lock(&info->mm_lock);
+     	fix->smem_start = par->fb.physical;
+     	fix->smem_len = par->fb.size;
 -- 
 2.34.1
 
