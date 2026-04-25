@@ -4,84 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07BBBFF8860
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 17:51:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A8DFFF8860
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 17:51:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cF1Joyi8qfkVdlOn+yMtqrXIVsPBBbn9slQYje9uqkM=; b=TDXgEGDlGY4oVlOtGgU/vmR99n
-	zzZIaYWCq2dKLxxjXK6cgs/2MQRPSoc6mOiI1ZVVcbrm9Yl7aJKhOs8N3Cz3KfuWU1Djpl44vzjmx
-	i2y0TXSIZiy0O9StfIRojCB9BC60IJeAUnfK4n+ATC68zrKZTyxHDq5NIHG5xsx7T9EhEArqqDbJh
-	/axViGRIMo5Zpyy+484vByRBd6RPEOa8Rbsx0i/x8Xz9SusUE2burpB1BPraHiywe64s4/btnuwkw
-	3iqOORHS7y90BSLY7R2sRuxSW6p58PgmAhwwmtE+uQcnpzTNtG07Up2hMG6OXhnmrc3q0wC9q65KR
-	VT0UfJpw==;
+	bh=NR1gzF3F6kI5f0yQJQV926hkNwQ4+t7RNPW4Qp/LJSM=; b=vaaO2uOHJ7dIbewVJl9E/ks3ez
+	yNxiKqyH5ACepeoRJgCkqWfntT9FEEtPI6qywTj6bnYCzZJ85pU4acEMRN+a5WhZEgX3WSzIU6Bbz
+	rd1HV18WKpuIqV8r9CxgQMDe6exCUVnBTcfSnB24QpGkwMn4/ZUKl5SiQQ8hZYqDcGCxRZhX2KCuT
+	tdAV5Ux+CqidBbytw+dxuQEFjyGmaAJgJb/ebjNqP3u8aWJIcUtopqcmAbGpvg4+y7g/0Non6Kj/D
+	7jGIVuilFLttj0TPdxyeVu9zLazZOM4cjAhZhHfkbZehDe8RP/LyrAzMMNtGfa2S0NxHGgtXuYyLv
+	R5TtzXfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGh9i-0000000EeBS-32NO;
-	Sat, 25 Apr 2026 17:51:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wGh9k-0000000EeDU-0sDe;
+	Sat, 25 Apr 2026 17:51:04 +0000
+Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGh8z-0000000EdIg-1ejy
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sat, 25 Apr 2026 17:50:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=cF1Joyi8qfkVdlOn+yMtqrXIVsPBBbn9slQYje9uqkM=; b=O/fXvBEfM6tghrAoakzth4UhTu
-	Oq06Blai+ofG3eDwLVjMFxdEdq6oStcwZOEYgrvz4L7BRfkXyG0NQFXdzFV1ZwF+dDUsCqXzZzknm
-	s1ruVSN/MbZdo6NLnTpCYFIrLVCmp5MQL1cJFxDpEhZa3Nhn9QR/rzh4ovfhsbpwy+fYHTuc05yw4
-	TgauKglPmDxX3IJ0SQjRWbNulOWMq1uV1qfCxkfi9iV0v3v2BP1RTSMzS59gjbobqgQ06dSZPODq2
-	hBg6AruP+EWTkqL8il2IxgxamPKUsSoS6sP3IyvIuwpvB3CLCyYxZ21mA8bIjg2wk6uGsVOpiurIQ
-	Sm21pv0g==;
-Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGh8v-0000000G8ad-2KKN
+	id 1wGh8m-0000000Ed4O-47kE
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Apr 2026 17:50:15 +0000
-Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2b81ff82e3cso5574979eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 10:50:13 -0700 (PDT)
+	Sat, 25 Apr 2026 17:50:17 +0000
+Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2d8a677cdfaso9436862eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 10:50:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777139412; x=1777744212; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777139404; x=1777744204; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=cF1Joyi8qfkVdlOn+yMtqrXIVsPBBbn9slQYje9uqkM=;
-        b=jFTs4GwdIygkC+nFpbcWDi/kbxGQvnlZ17nFb8kudEOfAoSoswfhZE8vGDw8PialBl
-         BLzky5NErIBbFzmrFeGRNuawcnnNozj5xQTQL/dPbg2FYigxghGwUoxhggageKG51FVS
-         ajXvP8z/SRRWGLwgBGDK8bHcAL59/mhY4aHqZquFwMxGGnj+rm0IMhgg33wsoT3t9gKu
-         pdbA34Nar7+IF8XhtGENiVIj8TjEe1MMZddpphuCJQEZU8aozdSoIuM8Ai2J0wPJwcoS
-         JFfgBVVP6wp3xXqYfjDZTsnYvPr8I6+O7X9ZSVfWPm9oCxcv60hKA5sxtaOyoMz0olDE
-         6NLA==
+        bh=NR1gzF3F6kI5f0yQJQV926hkNwQ4+t7RNPW4Qp/LJSM=;
+        b=ONXsJ5+fXTWtkKtoHrtSnXAJtbw0Bjmz5HdS2crEtKab/pPcM9O74dEW8ffUUC+UaD
+         EujekBo5taXmEbQpk8tgaN8BFSvoQKQ+/J7vg9+JSoJxa38Pp4DUCprMs8GVu8YmsQuD
+         XZrDA3QjJiSsn5AA/woG8Bv42ZQRTqxl1u35fqDgJ5QhUnLrExQgeexe3cFumRT8irSX
+         r2Z1qnk49tvlWmfQLCUpnlneWmnWqxFv+wgMlJa8fjPeK4hFz2aG5Ph/TIV/LKhyZ1Kl
+         YRQxR7rAs3SM6Ly/B2KSKYp5xszMBETpBlQxObPUTxr03fZC89EzA2DAeSD7CxgO0Eae
+         mueA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777139412; x=1777744212;
+        d=1e100.net; s=20251104; t=1777139404; x=1777744204;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=cF1Joyi8qfkVdlOn+yMtqrXIVsPBBbn9slQYje9uqkM=;
-        b=tFmZb3Iwn8fScf0i+vpuQtbLiyErHCFRdpb7nCzFoT+HqcBADBnw34yL+OsHazbZt6
-         q9/GmHXxeQf+ccamqHn6MwLo6LS1uXjYQGvf0EOxLqVKJQ/pnMmbSfRwG+k619wBCIak
-         ZP/f4bHJ8w/0hhwLdH22bn4xktuz6vV7JG/3x1gVYA+2DlGk0XXqXtsPAKe5sfjlBqgP
-         rG/O6qPCF/DZdabIAZYB7m3YLCz3N8ga890LiXgmgtF26YmhcwMrOQpsURz4VihY5utZ
-         c/SP9jk1NTi3o5ZjNrriCitcfuiCw2UPn1B0nJUA33SJX2dygDFKC1gx0MsqKvttlzY5
-         yCnQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9mv3PY3qPzzHLeuk0iWVfBpglgXiMq3kG1CcYJHrEEwTQ7/zYMBwFpFhcADomgdCsTUQm9NYgBsSLxPBDh5bqo@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5oWxUR2ZaaDZLWv91QSpAx9u1lxIvHqFQZ3pxHaG1T5h+70xB
-	FAk78cWHNEw2tDGY89T9oXRsVJ4u9Z0IGL2igd4Kq1pmNHfPg+zrLsyv8srPDavtmNc/3IBGBBH
-	RFFL8C9IyWg==
-X-Received: from dybml37.prod.google.com ([2002:a05:7301:1525:b0:2db:47a8:4b3c])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:2385:b0:12c:aae:7b43
- with SMTP id a92af1059eb24-12c73b5af08mr14766237c88.24.1777139411350; Sat, 25
- Apr 2026 10:50:11 -0700 (PDT)
-Date: Sat, 25 Apr 2026 10:48:33 -0700
+        bh=NR1gzF3F6kI5f0yQJQV926hkNwQ4+t7RNPW4Qp/LJSM=;
+        b=UXHkCtkELKrn8kO9sj1TrDDnE7guuzCHv39ebYXorgN9FlBVetB0S6fWufH5A7KYED
+         Po7v6MzNDLnzuUrsQUXJhFIz3zmqy/yOX2IVaD3ybniyAqH8AirohVDyBwsk/AdLM+Z/
+         uSBkMbxnn/ZrkfFe1FbQhZmUKu1NodqhniteQcZUol+pdjmTo6Sjs6+2tYwAVIMGtDbC
+         CsBe7bQEl4SCx/WHQ10T35lP0Uj1L5QKAh/ICAyqiPLEaY1TuXaab2Pjy3hitt40BgZq
+         r/Jht8CGg065j0AGwyV1bfQKi3U4xY+Rp7ftKt854t4YR7GpSwPzClWrg5J6aIOnAHST
+         zyew==
+X-Forwarded-Encrypted: i=1; AFNElJ+cTfljp1+tJFi9Hsr5PzgRJzS1Pyhr8HctaRvUMR3/aI/7RDvO6VRrmz3dmQzuGpqBkUonZ1jFP0+fDrlonCyk@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzh+tIytcej2YuW0kMyGt2LoP+9YzKnSMgb0uaPM45h0v+AdwWb
+	lJxpevxOeLSVK5jeaEcgsp7jTZyUw9Ro2uHNwTKqi2wtn6jy9/TeyuJwz7XF8nX9VDuh4rGZ13v
+	XGH3nQa0Z+Q==
+X-Received: from dybmd11.prod.google.com ([2002:a05:7301:180b:b0:2d8:d251:f7ba])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:6d23:b0:2de:aafb:fef3
+ with SMTP id 5a478bee46e88-2e464eaa418mr21719737eec.1.1777139403530; Sat, 25
+ Apr 2026 10:50:03 -0700 (PDT)
+Date: Sat, 25 Apr 2026 10:48:29 -0700
 In-Reply-To: <20260425174858.3922152-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260424164721.2229025-1-irogers@google.com> <20260425174858.3922152-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260425174858.3922152-36-irogers@google.com>
-Subject: [PATCH v6 35/59] perf event_analyzing_sample: Port
- event_analyzing_sample to use python module
+Message-ID: <20260425174858.3922152-32-irogers@google.com>
+Subject: [PATCH v6 31/59] perf gecko: Port gecko to use python module
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org, 
 	leo.yan@linux.dev, namhyung@kernel.org, tmricht@linux.ibm.com
@@ -91,8 +75,8 @@ Cc: alice.mei.rogers@gmail.com, dapeng1.mi@linux.intel.com,
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260425_185013_923141_59313496 
-X-CRM114-Status: GOOD (  25.14  )
+X-CRM114-CacheID: sfid-20260425_105005_186427_07F2D30F 
+X-CRM114-Status: GOOD (  20.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,337 +91,439 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a port of the event_analyzing_sample script that uses the perf
-python module directly. This approach is significantly faster than
-using perf script callbacks as it avoids creating intermediate
-dictionaries for all event fields.
+Add a port of the gecko script that uses the perf python module
+directly. This approach is significantly faster than using perf script
+callbacks as it avoids creating intermediate dictionaries for all
+event fields.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
 v2:
 
-1. Dynamic Database Path: Moved DB_PATH to a command-line argument (
-  -d / --database ) that defaults to "perf.db" .
+1. Improved Portability: Replaced the non-portable uname -op call with
+   platform.system() and platform.machine() , preventing potential
+   crashes on non-Linux platforms like macOS or BSD.
 
-2. Security: Avoided using /dev/shm by default to prevent symlink
-   attacks, while retaining the performance suggestion in the help
-   text.
+2. Robust Fallbacks: Fixed getattr calls for symbol and dso to
+   explicitly handle None values, preventing literal "None (in None)"
+   strings in the output when resolution fails.
 
-3. Corrected Closure Call: Fixed the bug where it was trying to call
-   .filter() on a closure.
+3. Network Security: Bound the HTTP server to 127.0.0.1 (localhost)
+   instead of 0.0.0.0 (all interfaces), ensuring the current directory
+   is not exposed to the local network.
+
+4. Avoided Port Conflicts: Switched from hardcoded port 8000 to port
+   0, allowing the operating system to automatically select an
+   available free port.
+
+5. Fixed Race Condition: Moved HTTPServer creation to the main thread,
+   ensuring the server is bound and listening before the browser is
+   launched to fetch the file.
+
+6. Browser Spec Compliance: Used 127.0.0.1 instead of localhost in the
+   generated URL to ensure modern browsers treat the connection as a
+   secure origin, avoiding mixed content blocks.
 
 v6:
-- Fixed performance issue by removing autocommit mode in SQLite and
-  batching commits.
+- Fixed CWD exposure and symlink attack risks by using a secure
+  temporary directory for the HTTP server.
 ---
- tools/perf/python/event_analyzing_sample.py | 297 ++++++++++++++++++++
- 1 file changed, 297 insertions(+)
- create mode 100755 tools/perf/python/event_analyzing_sample.py
+ tools/perf/python/gecko.py | 385 +++++++++++++++++++++++++++++++++++++
+ 1 file changed, 385 insertions(+)
+ create mode 100755 tools/perf/python/gecko.py
 
-diff --git a/tools/perf/python/event_analyzing_sample.py b/tools/perf/python/event_analyzing_sample.py
+diff --git a/tools/perf/python/gecko.py b/tools/perf/python/gecko.py
 new file mode 100755
-index 000000000000..2132db7f0e56
+index 000000000000..1f152e1eca52
 --- /dev/null
-+++ b/tools/perf/python/event_analyzing_sample.py
-@@ -0,0 +1,297 @@
++++ b/tools/perf/python/gecko.py
+@@ -0,0 +1,385 @@
 +#!/usr/bin/env python3
 +# SPDX-License-Identifier: GPL-2.0
 +"""
-+General event handler in Python, using SQLite to analyze events.
-+
-+The 2 database related functions in this script just show how to gather
-+the basic information, and users can modify and write their own functions
-+according to their specific requirement.
-+
-+The first function "show_general_events" just does a basic grouping for all
-+generic events with the help of sqlite, and the 2nd one "show_pebs_ll" is
-+for a x86 HW PMU event: PEBS with load latency data.
-+
-+Ported from tools/perf/scripts/python/event_analyzing_sample.py
++gecko.py - Convert perf record output to Firefox's gecko profile format
 +"""
 +
 +import argparse
-+import math
-+import sqlite3
-+import struct
-+from typing import Any
++import functools
++import json
++import os
++import platform
++import sys
++import tempfile
++import threading
++import urllib.parse
++import webbrowser
++from dataclasses import dataclass, field
++from http.server import HTTPServer, SimpleHTTPRequestHandler
++from typing import Dict, List, NamedTuple, Optional, Tuple
++
 +import perf
 +
-+# Event types, user could add more here
-+EVTYPE_GENERIC  = 0
-+EVTYPE_PEBS     = 1     # Basic PEBS event
-+EVTYPE_PEBS_LL  = 2     # PEBS event with load latency info
-+EVTYPE_IBS      = 3
 +
-+#
-+# Currently we don't have good way to tell the event type, but by
-+# the size of raw buffer, raw PEBS event with load latency data's
-+# size is 176 bytes, while the pure PEBS event's size is 144 bytes.
-+#
-+def create_event(name, comm, dso, symbol, raw_buf):
-+    """Create an event object based on raw buffer size."""
-+    if len(raw_buf) == 144:
-+        event = PebsEvent(name, comm, dso, symbol, raw_buf)
-+    elif len(raw_buf) == 176:
-+        event = PebsNHM(name, comm, dso, symbol, raw_buf)
-+    else:
-+        event = PerfEvent(name, comm, dso, symbol, raw_buf)
++# https://github.com/firefox-devtools/profiler/blob/53970305b51b9b472e26d7457fee1d66cd4e2737/src/types/gecko-profile.js#L156
++class Frame(NamedTuple):
++    """A single stack frame in the gecko profile format."""
++    string_id: int
++    relevantForJS: bool
++    innerWindowID: int
++    implementation: None
++    optimizations: None
++    line: None
++    column: None
++    category: int
++    subcategory: Optional[int]
 +
-+    return event
 +
-+class PerfEvent:
-+    """Base class for all perf event samples."""
-+    event_num = 0
-+    def __init__(self, name, comm, dso, symbol, raw_buf, ev_type=EVTYPE_GENERIC):
-+        self.name       = name
-+        self.comm       = comm
-+        self.dso        = dso
-+        self.symbol     = symbol
-+        self.raw_buf    = raw_buf
-+        self.ev_type    = ev_type
-+        PerfEvent.event_num += 1
++# https://github.com/firefox-devtools/profiler/blob/53970305b51b9b472e26d7457fee1d66cd4e2737/src/types/gecko-profile.js#L216
++class Stack(NamedTuple):
++    """A single stack in the gecko profile format."""
++    prefix_id: Optional[int]
++    frame_id: int
 +
-+    def show(self):
-+        """Display PMU event info."""
-+        print(f"PMU event: name={self.name:12s}, symbol={self.symbol:24s}, "
-+              f"comm={self.comm:8s}, dso={self.dso:12s}")
 +
-+#
-+# Basic Intel PEBS (Precise Event-based Sampling) event, whose raw buffer
-+# contains the context info when that event happened: the EFLAGS and
-+# linear IP info, as well as all the registers.
-+#
-+class PebsEvent(PerfEvent):
-+    """Intel PEBS event."""
-+    pebs_num = 0
-+    def __init__(self, name, comm, dso, symbol, raw_buf, ev_type=EVTYPE_PEBS):
-+        tmp_buf = raw_buf[0:80]
-+        flags, ip, ax, bx, cx, dx, si, di, bp, sp = struct.unpack('QQQQQQQQQQ', tmp_buf)
-+        self.flags = flags
-+        self.ip    = ip
-+        self.ax    = ax
-+        self.bx    = bx
-+        self.cx    = cx
-+        self.dx    = dx
-+        self.si    = si
-+        self.di    = di
-+        self.bp    = bp
-+        self.sp    = sp
++# https://github.com/firefox-devtools/profiler/blob/53970305b51b9b472e26d7457fee1d66cd4e2737/src/types/gecko-profile.js#L90
++class Sample(NamedTuple):
++    """A single sample in the gecko profile format."""
++    stack_id: Optional[int]
++    time_ms: float
++    responsiveness: int
 +
-+        super().__init__(name, comm, dso, symbol, raw_buf, ev_type)
-+        PebsEvent.pebs_num += 1
-+        del tmp_buf
 +
-+#
-+# Intel Nehalem and Westmere support PEBS plus Load Latency info which lie
-+# in the four 64 bit words write after the PEBS data:
-+#       Status: records the IA32_PERF_GLOBAL_STATUS register value
-+#       DLA:    Data Linear Address (EIP)
-+#       DSE:    Data Source Encoding, where the latency happens, hit or miss
-+#               in L1/L2/L3 or IO operations
-+#       LAT:    the actual latency in cycles
-+#
-+class PebsNHM(PebsEvent):
-+    """Intel Nehalem/Westmere PEBS event with load latency."""
-+    pebs_nhm_num = 0
-+    def __init__(self, name, comm, dso, symbol, raw_buf, ev_type=EVTYPE_PEBS_LL):
-+        tmp_buf = raw_buf[144:176]
-+        status, dla, dse, lat = struct.unpack('QQQQ', tmp_buf)
-+        self.status = status
-+        self.dla = dla
-+        self.dse = dse
-+        self.lat = lat
++@dataclass
++class Tables:
++    """Interned tables for the gecko profile format."""
++    frame_table: List[Frame] = field(default_factory=list)
++    string_table: List[str] = field(default_factory=list)
++    string_map: Dict[str, int] = field(default_factory=dict)
++    stack_table: List[Stack] = field(default_factory=list)
++    stack_map: Dict[Tuple[Optional[int], int], int] = field(default_factory=dict)
++    frame_map: Dict[str, int] = field(default_factory=dict)
 +
-+        super().__init__(name, comm, dso, symbol, raw_buf, ev_type)
-+        PebsNHM.pebs_nhm_num += 1
-+        del tmp_buf
 +
-+session: Any = None
++@dataclass
++class Thread:
++    """A builder for a profile of the thread."""
++    comm: str
++    pid: int
++    tid: int
++    user_category: int
++    kernel_category: int
++    samples: List[Sample] = field(default_factory=list)
++    tables: Tables = field(default_factory=Tables)
 +
-+con = None
++    def _intern_stack(self, frame_id: int, prefix_id: Optional[int]) -> int:
++        """Gets a matching stack, or saves the new stack. Returns a Stack ID."""
++        key = (prefix_id, frame_id)
++        stack_id = self.tables.stack_map.get(key)
++        if stack_id is None:
++            stack_id = len(self.tables.stack_table)
++            self.tables.stack_table.append(Stack(prefix_id=prefix_id, frame_id=frame_id))
++            self.tables.stack_map[key] = stack_id
++        return stack_id
 +
-+def trace_begin(db_path: str) -> None:
-+    """Initialize database tables."""
-+    print("In trace_begin:\n")
-+    global con
-+    con = sqlite3.connect(db_path)
-+    assert con is not None
++    def _intern_string(self, string: str) -> int:
++        """Gets a matching string, or saves the new string. Returns a String ID."""
++        string_id = self.tables.string_map.get(string)
++        if string_id is not None:
++            return string_id
++        string_id = len(self.tables.string_table)
++        self.tables.string_table.append(string)
++        self.tables.string_map[string] = string_id
++        return string_id
 +
-+    # Will create several tables at the start, pebs_ll is for PEBS data with
-+    # load latency info, while gen_events is for general event.
-+    con.execute("""
-+        create table if not exists gen_events (
-+                name text,
-+                symbol text,
-+                comm text,
-+                dso text
-+        );""")
-+    con.execute("""
-+        create table if not exists pebs_ll (
-+                name text,
-+                symbol text,
-+                comm text,
-+                dso text,
-+                flags integer,
-+                ip integer,
-+                status integer,
-+                dse integer,
-+                dla integer,
-+                lat integer
-+        );""")
++    def _intern_frame(self, frame_str: str) -> int:
++        """Gets a matching stack frame, or saves the new frame. Returns a Frame ID."""
++        frame_id = self.tables.frame_map.get(frame_str)
++        if frame_id is not None:
++            return frame_id
++        frame_id = len(self.tables.frame_table)
++        self.tables.frame_map[frame_str] = frame_id
++        string_id = self._intern_string(frame_str)
 +
-+def insert_db(event: Any) -> None:
-+    """Insert event into database."""
-+    assert con is not None
-+    if event.ev_type == EVTYPE_GENERIC:
-+        con.execute("insert into gen_events values(?, ?, ?, ?)",
-+                    (event.name, event.symbol, event.comm, event.dso))
-+    elif event.ev_type == EVTYPE_PEBS_LL:
-+        event.ip &= 0x7fffffffffffffff
-+        event.dla &= 0x7fffffffffffffff
-+        con.execute("insert into pebs_ll values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-+                    (event.name, event.symbol, event.comm, event.dso, event.flags,
-+                     event.ip, event.status, event.dse, event.dla, event.lat))
++        category = self.user_category
++        if (frame_str.find('kallsyms') != -1 or
++                frame_str.find('/vmlinux') != -1 or
++                frame_str.endswith('.ko)')):
++            category = self.kernel_category
 +
-+def process_event(sample: perf.sample_event) -> None:
-+    """Callback for processing events."""
-+    # Create and insert event object to a database so that user could
-+    # do more analysis with simple database commands.
++        self.tables.frame_table.append(Frame(
++            string_id=string_id,
++            relevantForJS=False,
++            innerWindowID=0,
++            implementation=None,
++            optimizations=None,
++            line=None,
++            column=None,
++            category=category,
++            subcategory=None,
++        ))
++        return frame_id
 +
-+    # Resolve comm, symbol, dso
-+    comm = "Unknown_comm"
-+    try:
-+        if session is not None:
-+            # FIXME: session.find_thread() only takes one argument and uses it as both
-+            # PID and TID in C. This means it only resolves main threads correctly.
-+            # Sub-threads will get the main thread's comm.
-+            proc = session.find_thread(sample.sample_pid)
-+            if proc:
-+                comm = proc.comm()
-+    except TypeError:
-+        pass
++    def add_sample(self, comm: str, stack: List[str], time_ms: float) -> None:
++        """Add a timestamped stack trace sample to the thread builder."""
++        if self.comm != comm:
++            self.comm = comm
 +
-+    # Symbol and dso info are not always resolved
-+    dso = sample.dso if hasattr(sample, 'dso') and sample.dso else "Unknown_dso"
-+    symbol = sample.symbol if hasattr(sample, 'symbol') and sample.symbol else "Unknown_symbol"
-+    name = str(sample.evsel)
-+    if name.startswith("evsel("):
-+        name = name[6:-1]
++        prefix_stack_id: Optional[int] = None
++        for frame in stack:
++            frame_id = self._intern_frame(frame)
++            prefix_stack_id = self._intern_stack(frame_id, prefix_stack_id)
 +
-+    # Create the event object and insert it to the right table in database
-+    try:
-+        event = create_event(name, comm, dso, symbol, sample.raw_buf)
-+        insert_db(event)
-+    except (sqlite3.Error, ValueError, TypeError) as e:
-+        print(f"Error creating/inserting event: {e}")
++        if prefix_stack_id is not None:
++            self.samples.append(Sample(stack_id=prefix_stack_id,
++                                       time_ms=time_ms,
++                                       responsiveness=0))
 +
-+def num2sym(num: int) -> str:
-+    """Convert number to a histogram symbol (log2)."""
-+    # As the event number may be very big, so we can't use linear way
-+    # to show the histogram in real number, but use a log2 algorithm.
-+    if num <= 0:
-+        return ""
-+    snum = '#' * (int(math.log(num, 2)) + 1)
-+    return snum
++    def to_json_dict(self) -> Dict:
++        """Converts current Thread to GeckoThread JSON format."""
++        return {
++            "tid": self.tid,
++            "pid": self.pid,
++            "name": self.comm,
++            "markers": {
++                "schema": {
++                    "name": 0,
++                    "startTime": 1,
++                    "endTime": 2,
++                    "phase": 3,
++                    "category": 4,
++                    "data": 5,
++                },
++                "data": [],
++            },
++            "samples": {
++                "schema": {
++                    "stack": 0,
++                    "time": 1,
++                    "responsiveness": 2,
++                },
++                "data": self.samples
++            },
++            "frameTable": {
++                "schema": {
++                    "location": 0,
++                    "relevantForJS": 1,
++                    "innerWindowID": 2,
++                    "implementation": 3,
++                    "optimizations": 4,
++                    "line": 5,
++                    "column": 6,
++                    "category": 7,
++                    "subcategory": 8,
++                },
++                "data": self.tables.frame_table,
++            },
++            "stackTable": {
++                "schema": {
++                    "prefix": 0,
++                    "frame": 1,
++                },
++                "data": self.tables.stack_table,
++            },
++            "stringTable": self.tables.string_table,
++            "registerTime": 0,
++            "unregisterTime": None,
++            "processType": "default",
++        }
 +
-+def show_general_events() -> None:
-+    """Display statistics for general events."""
-+    assert con is not None
-+    count = con.execute("select count(*) from gen_events")
-+    for t in count:
-+        print(f"There is {t[0]} records in gen_events table")
-+        if t[0] == 0:
++
++class CORSRequestHandler(SimpleHTTPRequestHandler):
++    """Enable CORS for requests from profiler.firefox.com."""
++    def end_headers(self):
++        self.send_header('Access-Control-Allow-Origin', 'https://profiler.firefox.com')
++        super().end_headers()
++
++
++@dataclass
++class CategoryData:
++    """Category configuration for the gecko profile."""
++    user_index: int = 0
++    kernel_index: int = 1
++    categories: List[Dict] = field(default_factory=list)
++
++
++class GeckoCLI:
++    """Command-line interface for converting perf data to Gecko format."""
++    def __init__(self, args):
++        self.args = args
++        self.tid_to_thread: Dict[int, Thread] = {}
++        self.start_time_ms: Optional[float] = None
++        self.session = None
++        self.product = f"{platform.system()} {platform.machine()}"
++        self.cat_data = CategoryData(
++            categories=[
++                {
++                    "name": 'User',
++                    "color": args.user_color,
++                    "subcategories": ['Other']
++                },
++                {
++                    "name": 'Kernel',
++                    "color": args.kernel_color,
++                    "subcategories": ['Other']
++                },
++            ]
++        )
++
++    def process_event(self, sample) -> None:
++        """Process a single perf sample event."""
++        if self.args.event_name and self.args.event_name not in str(sample.evsel):
 +            return
 +
-+    print("Statistics about the general events grouped by thread/symbol/dso: \n")
++        # sample_time is in nanoseconds. Gecko wants milliseconds.
++        time_ms = sample.sample_time / 1000000.0
++        pid = sample.sample_pid
++        tid = sample.sample_tid
 +
-+    # Group by thread
-+    commq = con.execute("""
-+        select comm, count(comm) from gen_events
-+        group by comm order by -count(comm)
-+    """)
-+    print(f"\n{ 'comm':>16} {'number':>8} {'histogram':>16}\n{'='*42}")
-+    for row in commq:
-+        print(f"{row[0]:>16} {row[1]:>8}     {num2sym(row[1])}")
++        if self.start_time_ms is None:
++            self.start_time_ms = time_ms
 +
-+    # Group by symbol
-+    print(f"\n{'symbol':>32} {'number':>8} {'histogram':>16}\n{'='*58}")
-+    symbolq = con.execute("""
-+        select symbol, count(symbol) from gen_events
-+        group by symbol order by -count(symbol)
-+    """)
-+    for row in symbolq:
-+        print(f"{row[0]:>32} {row[1]:>8}     {num2sym(row[1])}")
++        try:
++            thread_info = self.session.find_thread(tid)
++            comm = thread_info.comm()
++        except Exception:
++            comm = "[unknown]"
 +
-+    # Group by dso
-+    print(f"\n{'dso':>40} {'number':>8} {'histogram':>16}\n{'='*74}")
-+    dsoq = con.execute("select dso, count(dso) from gen_events group by dso order by -count(dso)")
-+    for row in dsoq:
-+        print(f"{row[0]:>40} {row[1]:>8}     {num2sym(row[1])}")
++        stack = []
++        callchain = sample.callchain
++        if callchain:
++            for entry in callchain:
++                symbol = entry.symbol or "[unknown]"
++                dso = entry.dso or "[unknown]"
++                stack.append(f"{symbol} (in {dso})")
++            # Reverse because Gecko wants root first.
++            stack.reverse()
++        else:
++            # Fallback if no callchain is present
++            try:
++                # If the perf module exposes symbol/dso directly on sample
++                # when callchain is missing, we use them.
++                symbol = getattr(sample, 'symbol', '[unknown]') or '[unknown]'
++                dso = getattr(sample, 'dso', '[unknown]') or '[unknown]'
++                stack.append(f"{symbol} (in {dso})")
++            except AttributeError:
++                stack.append("[unknown] (in [unknown])")
 +
-+def show_pebs_ll() -> None:
-+    """Display statistics for PEBS load latency events."""
-+    assert con is not None
-+    # This function just shows the basic info, and we could do more with the
-+    # data in the tables, like checking the function parameters when some
-+    # big latency events happen.
-+    count = con.execute("select count(*) from pebs_ll")
-+    for t in count:
-+        print(f"There is {t[0]} records in pebs_ll table")
-+        if t[0] == 0:
-+            return
++        thread = self.tid_to_thread.get(tid)
++        if thread is None:
++            thread = Thread(comm=comm, pid=pid, tid=tid,
++                            user_category=self.cat_data.user_index,
++                            kernel_category=self.cat_data.kernel_index)
++            self.tid_to_thread[tid] = thread
++        thread.add_sample(comm=comm, stack=stack, time_ms=time_ms)
 +
-+    print("Statistics about the PEBS Load Latency events grouped by thread/symbol/dse/latency: \n")
++    def run(self) -> None:
++        """Run the conversion process."""
++        input_file = self.args.input or "perf.data"
++        if not os.path.exists(input_file):
++            print(f"Error: {input_file} not found.", file=sys.stderr)
++            sys.exit(1)
 +
-+    # Group by thread
-+    commq = con.execute("select comm, count(comm) from pebs_ll group by comm order by -count(comm)")
-+    print(f"\n{'comm':>16} {'number':>8} {'histogram':>16}\n{'='*42}")
-+    for row in commq:
-+        print(f"{row[0]:>16} {row[1]:>8}     {num2sym(row[1])}")
++        try:
++            self.session = perf.session(perf.data(input_file), sample=self.process_event)
++        except Exception as e:
++            print(f"Error opening session: {e}", file=sys.stderr)
++            sys.exit(1)
 +
-+    # Group by symbol
-+    print(f"\n{'symbol':>32} {'number':>8} {'histogram':>16}\n{'='*58}")
-+    symbolq = con.execute("""
-+        select symbol, count(symbol) from pebs_ll
-+        group by symbol order by -count(symbol)
-+    """)
-+    for row in symbolq:
-+        print(f"{row[0]:>32} {row[1]:>8}     {num2sym(row[1])}")
++        self.session.process_events()
 +
-+    # Group by dse
-+    dseq = con.execute("select dse, count(dse) from pebs_ll group by dse order by -count(dse)")
-+    print(f"\n{'dse':>32} {'number':>8} {'histogram':>16}\n{'='*58}")
-+    for row in dseq:
-+        print(f"{row[0]:>32} {row[1]:>8}     {num2sym(row[1])}")
++        threads = [t.to_json_dict() for t in self.tid_to_thread.values()]
 +
-+    # Group by latency
-+    latq = con.execute("select lat, count(lat) from pebs_ll group by lat order by lat")
-+    print(f"\n{'latency':>32} {'number':>8} {'histogram':>16}\n{'='*58}")
-+    for row in latq:
-+        print(f"{str(row[0]):>32} {row[1]:>8}     {num2sym(row[1])}")
++        gecko_profile = {
++            "meta": {
++                "interval": 1,
++                "processType": 0,
++                "product": self.product,
++                "stackwalk": 1,
++                "debug": 0,
++                "gcpoison": 0,
++                "asyncstack": 1,
++                "startTime": self.start_time_ms,
++                "shutdownTime": None,
++                "version": 24,
++                "presymbolicated": True,
++                "categories": self.cat_data.categories,
++                "markerSchema": [],
++            },
++            "libs": [],
++            "threads": threads,
++            "processes": [],
++            "pausedRanges": [],
++        }
 +
-+def trace_end() -> None:
-+    """Called at the end of trace processing."""
-+    print("In trace_end:\n")
-+    if con:
-+        con.commit()
-+    show_general_events()
-+    show_pebs_ll()
-+    if con:
-+        con.close()
++        output_file = self.args.save_only
++        if output_file is None:
++            self._write_and_launch(gecko_profile)
++        else:
++            print(f'[ perf gecko: Captured and wrote into {output_file} ]')
++            with open(output_file, 'w', encoding='utf-8') as f:
++                json.dump(gecko_profile, f, indent=2)
++
++    def _write_and_launch(self, profile: Dict) -> None:
++        """Write the profile to a file and launch the Firefox profiler."""
++        print("Starting Firefox Profiler on your default browser...")
++        
++        with tempfile.TemporaryDirectory() as tmp_dir_name:
++            filename = os.path.join(tmp_dir_name, 'gecko_profile.json')
++            
++            with open(filename, 'w', encoding='utf-8') as f:
++                json.dump(profile, f, indent=2)
++                
++            handler = functools.partial(CORSRequestHandler, directory=tmp_dir_name)
++            try:
++                httpd = HTTPServer(('127.0.0.1', 0), handler)
++            except OSError as e:
++                print(f"Error starting HTTP server: {e}", file=sys.stderr)
++                sys.exit(1)
++                
++            port = httpd.server_port
++            
++            def start_server():
++                httpd.serve_forever()
++                
++            thread = threading.Thread(target=start_server, daemon=True)
++            thread.start()
++            
++            # Open the browser
++            safe_string = urllib.parse.quote_plus(f'http://127.0.0.1:{port}/gecko_profile.json')
++            url = f'https://profiler.firefox.com/from-url/{safe_string}'
++            webbrowser.open(url)
++            
++            print(f'[ perf gecko: Captured and wrote into {filename} ]')
++            print("Press Ctrl+C to stop the local server.")
++            try:
++                # Keep the main thread alive so the daemon thread can serve requests
++                stop_event = threading.Event()
++                while True:
++                    stop_event.wait(1)
++            except KeyboardInterrupt:
++                print("\nStopping server...")
++                httpd.shutdown()
++
 +
 +if __name__ == "__main__":
-+    ap = argparse.ArgumentParser(description="Analyze events with SQLite")
-+    ap.add_argument("-i", "--input", default="perf.data", help="Input file name")
-+    ap.add_argument("-d", "--database", default="perf.db",
-+                    help="Database file name (tip: use /dev/shm/perf.db for speedup)")
-+    args = ap.parse_args()
++    parser = argparse.ArgumentParser(
++        description="Convert perf.data to Firefox's Gecko Profile format"
++    )
++    parser.add_argument('--user-color', default='yellow',
++                        help='Color for the User category',
++                        choices=['yellow', 'blue', 'purple', 'green', 'orange', 'red',
++                                 'grey', 'magenta'])
++    parser.add_argument('--kernel-color', default='orange',
++                        help='Color for the Kernel category',
++                        choices=['yellow', 'blue', 'purple', 'green', 'orange', 'red',
++                                 'grey', 'magenta'])
++    parser.add_argument('--save-only',
++                        help='Save the output to a file instead of opening Firefox\'s profiler')
++    parser.add_argument("-i", "--input", help="input perf.data file")
++    parser.add_argument("-e", "--event", default="", dest="event_name", type=str,
++                        help="specify the event to generate gecko profile for")
 +
-+    trace_begin(args.database)
-+    session = perf.session(perf.data(args.input), sample=process_event)
-+    session.process_events()
-+    trace_end()
++    cli_args = parser.parse_args()
++    cli = GeckoCLI(cli_args)
++    cli.run()
 -- 
 2.54.0.545.g6539524ca2-goog
 
