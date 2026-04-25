@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43693FF885C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 14:08:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C86ADFF8861
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 14:11:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qzUAxgA9tGRq/PHsmc2325DJDEXjY0bT1l/jFUonhLs=; b=RdBh5qCDL3EjYBitT0W4jIcfny
-	cnqraenogUbz/O1LKaHWosNs5yM55B7u96GpdJnVR0smn17IKTFMJA530uSoI5xS+zAvYmX43K3kw
-	WiJc2SH27P7RVnxG31q8BII/TuvZhYLXi7G/JcCuJYYIGBqrLGFEFnyVVdbFq0R6mW+4I6sbzY+sz
-	lBY6/KaAc2RBu/g/d93vnzamotWZqrEtWZ8lBxsKmlRjaUfn+RI+b/vtsn7KqWT9ore2HgCjiIJEP
-	Gy2wFc8CqNQktamth/vOZn5EVdyaTWT6XiBbsyOHmiWFUa0AMOaalMt92UHZyoNypN5iOlW7tw1+F
-	nA9Ylg5w==;
+	bh=oCDRnSN4R5hdrw6p/Z2MSp7JmFvMbvRG5SIix8Wk020=; b=lWYuCM6SXBej6JijsZFRvUcYm8
+	kjpppoqlXMU46s76WUH60ASk5PZ44+RPcghVbar8Z7CXpSdjRKU29FzKQwERyjB+NgmmGC1RvcacI
+	Xff1bhjH2nUsnkQ68hnFPUdHGa/44hVIxCiIE+AJZYtWNQ70q6dsJobE0upwMrm2tg/+SfwefLHOT
+	QeZXlhlq9dr6M2xHf3x7YebtZyWM/CsiMcoW8QVPKZy/Q+BQLD66HCnbSnXuEGpTUYq6KeNQpJmZh
+	T1zl93l2HdCkyIMExmr7Pl/cqrAXfonfu7VbtAaBzIpgNjl2eys3t/LpUtMp3idStx8d1SRdvACIZ
+	iKNOOywA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGdg9-0000000EUql-1zdM;
-	Sat, 25 Apr 2026 14:08:17 +0000
-Received: from out-182.mta0.migadu.com ([2001:41d0:1004:224b::b6])
+	id 1wGdih-0000000EV0C-41tl;
+	Sat, 25 Apr 2026 14:10:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGdg1-0000000EUpt-2QB8
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Apr 2026 14:08:15 +0000
-Date: Sat, 25 Apr 2026 16:08:00 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1777126085;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=qzUAxgA9tGRq/PHsmc2325DJDEXjY0bT1l/jFUonhLs=;
-	b=C/2OsEMHuzXqmSkoPcUBUmVTlRKrBMNxqwH7xmAmnLw9m1322fDC+yHHJfGL8UBzVSxZXi
-	3Zw3Tl+qCMgp3blYNVP4puZ/2ooyBy5mkuZCkQDtUeEZFu3mj+L/neL1Ube6gAXkNje71b
-	/vQ47IrYj7awq+6hZw/phyYsADmMXy0=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Thorsten Blum <thorsten.blum@linux.dev>
-To: Lothar Rubusch <l.rubusch@gmail.com>
-Cc: herbert@gondor.apana.org.au, davem@davemloft.net,
-	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev, ardb@kernel.org, linusw@kernel.org,
-	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/3] crypto: atmel-sha204a - fix truncated 32-byte
- blocking read
-Message-ID: <aezKwAqWPo0kXHDu@linux.dev>
-References: <20260422210936.20095-1-l.rubusch@gmail.com>
- <20260422210936.20095-3-l.rubusch@gmail.com>
- <aezFsF8gLkABZZ1O@linux.dev>
+	id 1wGdih-0000000EV03-0vFC;
+	Sat, 25 Apr 2026 14:10:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0DF0D6011F;
+	Sat, 25 Apr 2026 14:10:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F892C2BCB0;
+	Sat, 25 Apr 2026 14:10:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777126253;
+	bh=wagJbOabzBX4c3I3/fpQnk3/gb9n7mhfA2RWn9EY5NU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=avcVIe9uVideLxvgqZdXGOU5N0OIGskkLBJJMVEnRmjir9GW7F6hRNAesMAwospOe
+	 1P4JdGVEWbL15vJm4SllIZ0PZ4pZJx07Q6AY0OdTosB6pD7iIVk0rrezENQ60C/lc2
+	 RyIKmNA+q6xorvq1Yh31gIL1lFJL7BFlIpLOXJwjApA5efUMdqVc3AIwoG+0cCgWto
+	 nLtLiBO3hD6pn+dhZZa+lWDBNTYSU7HnDEQDdFwUrP7Y9y1caJJrmpupbqqSfr6pqe
+	 P3Va2G3zCVcjaKMHUCUtigVuy561vO5g7XICgO0cnWF04SW7kjgMx2qEZ8B1Tio0aZ
+	 RM3vNuIeW0ghg==
+Date: Sat, 25 Apr 2026 16:10:51 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Simon Horman <horms@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net] net: airoha: Do not read uninitialized fragment
+ address in airoha_dev_xmit()
+Message-ID: <aezLa2POvT0It5AA@lore-desk>
+References: <20260424-airoha-xmit-fix-read-frag-v1-1-fdc0a83c79e8@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="0VgauHS1AwOXXx5H"
 Content-Disposition: inline
-In-Reply-To: <aezFsF8gLkABZZ1O@linux.dev>
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260425_070814_092183_C7E593AA 
-X-CRM114-Status: GOOD (  22.86  )
+In-Reply-To: <20260424-airoha-xmit-fix-read-frag-v1-1-fdc0a83c79e8@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,61 +72,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Apr 25, 2026 at 03:46:30PM +0200, Thorsten Blum wrote:
-> Hi Lothar,
-> 
-> On Wed, Apr 22, 2026 at 09:09:35PM +0000, Lothar Rubusch wrote:
-> > The ATSHA204A returns a 35-byte packet consisting of a 1-byte count,
-> > 32 bytes of entropy, and a 2-byte CRC. The current blocking read
-> > implementation was incorrectly copying data starting from the
-> > count byte, leading to offset data and truncated entropy.
-> > 
-> > Additionally, the chip requires significant execution time to
-> > generate random numbers, going by the datasheet. Reading the I2C bus
-> > too early results in the chip NACK-ing or returning a partial buffer
-> > followed by zeros.
-> > 
-> > Verification:
-> > Tests before showed repeadetly reading only 8 bytes of entropy:
-> > $ head -c 32 /dev/hwrng | hexdump -C
-> > 00000000  02 28 85 b3 47 40 f2 ee  00 00 00 00 00 00 00 00  |.(..G@..........|
-> > 00000010  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
-> > 00000020
-> > 
-> > After this patch applied, the result will be as follows:
-> > $ head -c 32 /dev/hwrng | hexdump -C
-> > 00000000  5a fc 3f 13 14 68 fe 06  68 0a bd 04 83 6e 09 69  |Z.?..h..h....n.i|
-> > 00000010  75 ff cf 87 10 84 3b c9  c1 df ae eb 45 53 4c c3  |u.....;.....ESL.|
-> > 00000020
-> > 
-> > Fix these issues by:
-> > Increase cmd.msecs to 30ms to provide sufficient execution time. Then
-> > set cmd.rxsize to RANDOM_RSP_SIZE (35 bytes) to capture the entire
-> > hardware response. Eventually, correct the memcpy() offset to index 1 of
-> > the data buffer to skip the count byte and retrieve exactly 32 bytes of
-> > entropy.
-> > 
-> > Fixes: da001fb651b0 ("crypto: atmel-i2c - add support for SHA204A random number generator")
-> > Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
 
-[...]
+--0VgauHS1AwOXXx5H
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> > -	max = min(sizeof(cmd.data), max);
-> > -	memcpy(data, cmd.data, max);
-> > +	max = min_t(size_t, ATMEL_RNG_BLOCK_SIZE, max);
-> > +	memcpy(data, &cmd.data[1], max);
+> The transmit loop in airoha_dev_xmit() reads fragment address and length
+> during its final iteration, when the loop index equals
+> skb_shinfo(skb)->nr_frags, at which point the fragment data is
+> uninitialized. While these values are never consumed, the read itself is
+> unsafe and may trigger a page fault. Fix this by avoiding the fragment
+> read on the last iteration.
+> Additionally, move the skb pointer from the first to the last used packet
+> descriptor, so that airoha_qdma_tx_napi_poll() defers freeing the skb
+> until the final descriptor is processed.
+>=20
+> Fixes: 23020f0493270 ("net: airoha: Introduce ethernet support for EN7581=
+ SoC")
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> ---
+>  drivers/net/ethernet/airoha/airoha_eth.c | 9 ++++++---
+>  1 file changed, 6 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
+net/airoha/airoha_eth.c
+> index 2bb0a3ff9810..d3a841908c82 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -1997,8 +1997,8 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *=
+skb,
+>  	struct netdev_queue *txq;
+>  	struct airoha_queue *q;
+>  	LIST_HEAD(tx_list);
+> +	int i =3D 0, qid;
+>  	void *data;
+> -	int i, qid;
+>  	u16 index;
+>  	u8 fport;
+> =20
+> @@ -2057,7 +2057,7 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *=
+skb,
+>  			     list);
+>  	index =3D e - q->entry;
+> =20
+> -	for (i =3D 0; i < nr_frags; i++) {
+> +	while (true) {
+>  		struct airoha_qdma_desc *desc =3D &q->desc[index];
+>  		skb_frag_t *frag =3D &skb_shinfo(skb)->frags[i];
+>  		dma_addr_t addr;
+> @@ -2069,7 +2069,7 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *=
+skb,
+>  			goto error_unmap;
+> =20
+>  		list_move_tail(&e->list, &tx_list);
+> -		e->skb =3D i ? NULL : skb;
+> +		e->skb =3D i =3D=3D nr_frags - 1 ? skb : NULL;
+>  		e->dma_addr =3D addr;
+>  		e->dma_len =3D len;
+> =20
+> @@ -2088,6 +2088,9 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *=
+skb,
+>  		WRITE_ONCE(desc->msg1, cpu_to_le32(msg1));
+>  		WRITE_ONCE(desc->msg2, cpu_to_le32(0xffff));
+> =20
+> +		if (++i =3D=3D nr_frags)
+> +			break;
+> +
+>  		data =3D skb_frag_address(frag);
+>  		len =3D skb_frag_size(frag);
+>  	}
+>=20
+> ---
+> base-commit: e728258debd553c95d2e70f9cd97c9fde27c7130
+> change-id: 20260423-airoha-xmit-fix-read-frag-dc6aa001ca4b
+>=20
+> Best regards,
+> --=20
+> Lorenzo Bianconi <lorenzo@kernel.org>
+>=20
 
-I just noticed that index 1 is already defined as RSP_DATA_IDX in
-drivers/crypto/atmel-i2c.h.
+Commenting on Sashiko reported issues:
+https://sashiko.dev/#/patchset/20260424-airoha-xmit-fix-read-frag-v1-1-fdc0=
+a83c79e8%40kernel.org
 
-> This works and fixes rngtest for me on real hardware.
-> 
-> min_t() is not strictly necessary here, since the types are compatible
-> and min() is sufficient.
-> 
-> I agree with Ard that patch 2/3 should be a separate patch for easier
-> stable backporting.
+- Does the TSO checksum calculation earlier in this function ensure the
+  TCP header is in the linear portion of the SKB?
+  This issue is not related to the current patch. Moreover, can we have a T=
+SO
+  packet where the tcp header is not in the linear area of the skb?
 
-Thanks,
-Thorsten
+- If dma_map_single() fails partway through a multi-fragment packet and
+  triggers this goto error_unmap, will it break the Tx ring contiguity?
+  This issue is not related to the current patch. Moreover, I guess the hw =
+is
+  capable of managing out-of-order descriptors.
+
+- Is it safe to map fragment data using dma_map_single() instead of
+  skb_frag_dma_map()?
+  This issue is not related to the current patch. I will post a dedicated p=
+atch
+  for it.
+
+Regards,
+Lorenzo
+
+--0VgauHS1AwOXXx5H
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaezLawAKCRA6cBh0uS2t
+rCSVAP4hJXo5r610dexifSQ7HqAQwgINCipaQyT6j0sTiA11XwD/a4KlozQd3xg7
+gPp2llCfFkiPrwcWIN60uNLYuPWkrAE=
+=4VRT
+-----END PGP SIGNATURE-----
+
+--0VgauHS1AwOXXx5H--
 
