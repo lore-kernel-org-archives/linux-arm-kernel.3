@@ -4,84 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 449DCFF8863
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:51:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11857FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:52:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GkS04/94NBW5ShfL0EcvB/IZEgEtB93nGkm6zSZzY+Q=; b=NYP1DfDfxeOOzGQKFqv7/j30EZ
-	sDGcyqlv7qpI9/P16LRX0y0RM6NVnFatb/dO9Qqp2GDtU+zh4E9owHb07cavYIbNlo0iuVHWa3OCK
-	siCfz9ZT/0T4T7hP4+oKr9/PHtcIEWD7fqs5G1KKu1U3eU4eSUno8d6jXY8gfK7ovdZN/pfjF3ZMF
-	OmCzDAQIpDQbSgkVQFOEWAgARDJ9lVBtMd8KEQqXvkVRzLghf2eQbtkMzZlLMGqONKDb1ALNMJNIK
-	DjaLB52T5MBceib/KosrKz+bnJ7lheTJMbfQ7uBzdzcJAvY2p3eksmGFOKsMG/vbEKPvKkopgOV7i
-	SU1YKJwA==;
+	bh=VNEC1d+XQU6xcwJqo0QpL4AVBd93i989y6KjyJp07QI=; b=0RNFF9iI9AGzBPlKpnf108stGN
+	PZ8spdZSQ2MoEALxKA/4CFl/Gz+0I0SCmeaxrciEeDwdCCAOtdxPXXUo4q/jrNJRZXjLPm5RjNDWl
+	scrox6Z1T6lr3RI3jL//MZLr8n0d4tfhXiCcuHJhmYQKztpYiv+aw04JlrgDoqfc1iHJH4p01t0Oi
+	Vorp8n3btyE6ahqnPZ1B67C9HoWH5K8m8c9Rr3s/IYJWtT3tBP838OyiLVYuM7RW8p6sQ29RC7KG9
+	tVfSLXaaT8gcMkl9lOHWDg0LUXpD3/b2CBrJ/Wj/5BS985bhyGT0MMI8hff96mTw8iWGmzPFMtHX/
+	/77RPPSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlqZ-0000000EzC2-3u1j;
-	Sat, 25 Apr 2026 22:51:35 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wGlqu-0000000EzbB-2MIY;
+	Sat, 25 Apr 2026 22:51:56 +0000
+Received: from mail-pl1-f202.google.com ([209.85.214.202])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlqJ-0000000Eyrt-01Yk
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sat, 25 Apr 2026 22:51:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=GkS04/94NBW5ShfL0EcvB/IZEgEtB93nGkm6zSZzY+Q=; b=Uvm9SYCFsFr+ZZKC8QQeq12d5o
-	TRhEKWCGahwrqwyviGeU88Go3t745VWu8m/rznErbIth1i5DZQWgYuL8aHdKal9mtdHJuqdKnk/lM
-	58u5TLM3t06Tnj4Hee4dl3TdX/lj/YlE7uhIqjTwr8TRcq7sVjgT/Od4ydeMVRYdANE8uonVO93Dr
-	S086dVmvV8J2xW11JUJDGbu09PhFNIglpUBvn0F5WJiDwagF+o9AtSH5jDr9u5Q2m2nKZ4k7zwRNe
-	bvLmka7C43tAyNyVBWLTOFNR/dj6LZnKBSlYab/d7oLWdx0YQbY+NASEUgTCiq+VV8u3Z4xtnRFkE
-	4StZpqmQ==;
-Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlqF-0000000GMd3-1IzM
+	id 1wGlq7-0000000Eyf0-48rk
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Apr 2026 22:51:17 +0000
-Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2d889997495so23992359eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:51:14 -0700 (PDT)
+	Sat, 25 Apr 2026 22:51:23 +0000
+Received: by mail-pl1-f202.google.com with SMTP id d9443c01a7336-2b2ecc96a9aso79068505ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:51:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777157473; x=1777762273; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777157465; x=1777762265; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=GkS04/94NBW5ShfL0EcvB/IZEgEtB93nGkm6zSZzY+Q=;
-        b=Jf9RvkJq3Tzs+j3tcjLGgwGrjs3x2dQsNM29h5LKnLhwR2MZMzxFcjwiWD7BprcApN
-         PnVIKV0pWQE6qG+0MSbfAI6H74hcAtGZLdlKpJW31XjjA2yK4TbLrnkPTJ3K8JNbPHZZ
-         srHDLnUEOqIO8K7L8CQ5gBVNbN4NIzFPUs3oPFhJUfJJ2XGrLYkNcdwSOG12iTRfhMl9
-         fPbVm2jHBbQgZjwg49LOYnain+NI5ZjzOZg/4AlbeNbk+GsgDmHCwlDJFWxUGcFMNhvB
-         dNhyUBc2zJMNwDIwe43wirCog4bz9ulj/eW3fAib496MmIhyEKzNRx8kxn34sp/SzJSz
-         JdIw==
+        bh=VNEC1d+XQU6xcwJqo0QpL4AVBd93i989y6KjyJp07QI=;
+        b=aLQZvW4A2Atw5dkh+xw+KXXLsNJbI8MHoGd27KDCspZj/BbjjUYoDhJWI4cGsM3BWz
+         sJkg/xLwOhvlammeM7rsVyh27uV1f7Rbtlz7wMqKgjVViW6akuAMrjVoWbdXzrH5CHbR
+         16IFkQUCtgv/d/xrFcPi1i4LV5G3uN9rRm1lVdrVZHtn/6YI+II+Sk2KBVUd1LWjHYa5
+         jUDXv3ptnlYZ8aZ++OBYsJxSu0U3ChnLY7hjzVAXIdN92DoZtOANkwjZ7e7n35PBpVlO
+         RgzX+SNGQkfmFYOfP+XV/aXYaDsRLBitYyzIR1eTRn5VY4MejIFGWQTc8aFi4hVsztpr
+         Oq9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777157473; x=1777762273;
+        d=1e100.net; s=20251104; t=1777157465; x=1777762265;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=GkS04/94NBW5ShfL0EcvB/IZEgEtB93nGkm6zSZzY+Q=;
-        b=aUk0bFYljU0j5NF57o95FwT08RpBRdkRk3+hCEvcayzgUDNDkr9Q9MUt3k9oBWDC/F
-         ++biNXXMnBQ2dEeMWUrjdNWaqNIRXVEYq6VQxH6g07uvedWK19Vg73uaHYnacTmANNws
-         qLZUBpGXBEgoysh0z8aZIFNr2+hPqiTZGaZNFZyS1napSSUjRylpgE+s2wBn51TP/sI+
-         7H7UT6VCBwYYVsTVQltuIV2vqf3R4yAKqZF0hhKe1MRANdGeEcTewvUV+ZhgKT9sIjDj
-         caHjqCr0JnwDLSfv6tUoncwgFSPX5tDCoEblVkXIVt5WHfbZ/ch0QY7UVcqYcqiLgkH9
-         DV5Q==
-X-Forwarded-Encrypted: i=1; AFNElJ9etXOQic2Ujaq5AJWl0b/eWesTvDn1JUGoIp/PpNeTdcUksoP/7gbH+pLVI85aDx94Lhd5pdwno1utNXFmSokN@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZF6PnMPfh/9+M78COouxXb/XRdG/Mu63q8Gs53mHnCND7uxCJ
-	I/E5j0t9Ai1GpzV+rBUAdU9S9c+BoYTlcGxMkDwaOSlrOJuysUcmrL/Z4MCGHx9UQEFQN65XfyX
-	0ZuBN2eu78g==
-X-Received: from dlbtz15.prod.google.com ([2002:a05:7022:eacf:b0:12c:4b32:3177])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:f40b:b0:12d:ce36:892a
- with SMTP id a92af1059eb24-12dce3691famr1839408c88.9.1777157473158; Sat, 25
- Apr 2026 15:51:13 -0700 (PDT)
-Date: Sat, 25 Apr 2026 15:49:21 -0700
+        bh=VNEC1d+XQU6xcwJqo0QpL4AVBd93i989y6KjyJp07QI=;
+        b=so+NLAZGfgoJhvNpbzkY/UBunQgb2LbsurCkTAY+vNZmg6wVP2wy+aEdpxxBZgse2W
+         +FdPX65FEiFD4OdMQfWpyCc6MMVis8q5LAoJt4ow+b13RrSZDhSQgVij+cXqXeR33SnU
+         LZ+5AD5rYL6q0NJQzHbJPW7Dbfag9WcUjbmAJHL5AfYBkKyTsLP8ehZgrNQRBHoC3PEI
+         m6MxiouX5LrPMOww7Dafh0/I0Rc9JiyVk8Mcz3w1jaHzN23ZuSPjdCBoWsynFc2xaN07
+         cLtKezh+wFjUHbvTJOCSMykjdh1+ZkEyuWs2NXTtENh1oDoDLznfc2O9R63K1yNaF7Vu
+         yiPA==
+X-Forwarded-Encrypted: i=1; AFNElJ+pcdO5BYE7c1V5phoXW2eYmxe7g6qXj8KoxZqf7VNJFGmt4c9qwKd5vy66ZUC91Chsq+7x+R6hUj5vwhdQ1NAS@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzj4G+giFxjX94UllAz3rS+PbGmdTETxAp5lJlYQ2yUQm14V7D/
+	ppl2qY7czHGBlxAe67yaQyg22tslMZGx4LoIfUN1o9GdH5q44RR2aHhlieeAyOgxUMMmNJqpHDs
+	xMaRe0qjqZA==
+X-Received: from plfh1.prod.google.com ([2002:a17:902:f541:b0:2b7:f9d8:3d1b])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:1ac6:b0:2b2:5840:808e
+ with SMTP id d9443c01a7336-2b5f9ee9487mr368769035ad.10.1777157465041; Sat, 25
+ Apr 2026 15:51:05 -0700 (PDT)
+Date: Sat, 25 Apr 2026 15:49:17 -0700
 In-Reply-To: <20260425224951.174663-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260425174858.3922152-1-irogers@google.com> <20260425224951.174663-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260425224951.174663-30-irogers@google.com>
-Subject: [PATCH v7 29/59] perf futex-contention: Port futex-contention to use
- python module
+Message-ID: <20260425224951.174663-26-irogers@google.com>
+Subject: [PATCH v7 25/59] perf stat-cpi: Port stat-cpi to use python module
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org, 
 	leo.yan@linux.dev, namhyung@kernel.org, tmricht@linux.ibm.com
@@ -91,8 +75,8 @@ Cc: alice.mei.rogers@gmail.com, dapeng1.mi@linux.intel.com,
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260425_235115_440197_56DE965E 
-X-CRM114-Status: GOOD (  16.10  )
+X-CRM114-CacheID: sfid-20260425_155108_161888_DEB64D14 
+X-CRM114-Status: GOOD (  17.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,157 +91,208 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rewrite tools/perf/scripts/python/futex-contention.py to use the
-python module and various style changes. By avoiding the overheads in
-the `perf script` execution the performance improves by more than 3.2x
-as shown in the following (with PYTHON_PATH and PERF_EXEC_PATH set as
-necessary):
-
-```
-$ perf record -e syscalls:sys_*_futex -a sleep 1
-...
-$ time perf script tools/perf/scripts/python/futex-contention.py
-Install the python-audit package to get syscall names.
-For example:
-  # apt-get install python3-audit (Ubuntu)
-  # yum install python3-audit (Fedora)
-  etc.
-
-Press control+C to stop and show the summary
-aaa/4[2435653] lock 7f76b380c878 contended 1 times, 1099 avg ns [max: 1099 ns, min 1099 ns]
-...
-real    0m1.007s
-user    0m0.935s
-sys     0m0.072s
-$ time python3 tools/perf/python/futex-contention.py
-...
-real    0m0.314s
-user    0m0.259s
-sys     0m0.056s
-```
+Port stat-cpi.py from the legacy framework to a standalone script.
+Support both file processing mode (using perf.session) and live mode
+(reading counters directly via perf.parse_events and evsel.read). Use
+argparse for command line options handling. Calculate and display CPI
+(Cycles Per Instruction) per interval per CPU/thread.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
 v2:
 
-1. Fixed Module Import Failure: Corrected the type annotations from
-   [int, int] to Tuple[int, int] .  The previous code would raise a
-   TypeError at module import time because lists cannot be used as
-   types in dictionary annotations.
+1. Accurate CPI Calculation (Multiplexing Support):
+  - Before: The get() method returned the raw counter value directly,
+    ignoring whether the counter ran for the full interval.
 
-2. Prevented Out-Of-Memory Crashes: Replaced the approach of storing
-   every single duration in a list with a LockStats class that
-   maintains running aggregates (count, total time, min, max). This
-   ensures O(1) memory usage per lock/thread pair rather than
-   unbounded memory growth.
+  - After: The get() method now scales the raw value by the ratio of
+    enabled time to running time ( val * (ena / float(run)) ) when run
+    > 0 . This handles cases where PMU counters are overcommitted and
+    multiplexed.
 
-3. Support for Custom Input Files: Added a -i / --input command-line
-   argument to support processing arbitrarily named trace files,
-   removing the hardcoded "perf.data" restriction.
+2. Per-Interval CPI in File Mode:
+  - Before: store() saved absolute counter values as read from
+    PERF_RECORD_STAT . Since these are cumulative from the start of
+    the trace, and data.clear() was called every round, the script
+    computed cumulative CPI rather than per-interval CPI.
 
-4. Robust Process Lookup: Added a check to ensure session is
-   initialized before calling session.  process() , preventing
-   potential NoneType attribute errors if events are processed during
-   initialization.
+  - After: store() now computes the delta between the current absolute
+    value and the value from the previous interval. It saves this
+    delta in self.data and retains the absolute value in self.
+    prev_data for the next delta computation.
+
+3. Prevention of Dummy Output (Cartesian Product Fix):
+  - Before: self.cpus and self.threads lists accumulated all unique
+    CPUs and threads seen independently. The nested loops in
+    print_interval() then created a Cartesian product of all seen CPUs
+    and threads, querying data for combinations that might never have
+    occurred.
+  - After: Replaced lists with a self.recorded_pairs set that stores
+    (cpu, thread) tuples only when a sample actually records them. The
+    output loop now iterates strictly over these verified pairs.
 ---
- tools/perf/python/futex-contention.py | 87 +++++++++++++++++++++++++++
- 1 file changed, 87 insertions(+)
- create mode 100755 tools/perf/python/futex-contention.py
+ tools/perf/python/stat-cpi.py | 151 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 151 insertions(+)
+ create mode 100755 tools/perf/python/stat-cpi.py
 
-diff --git a/tools/perf/python/futex-contention.py b/tools/perf/python/futex-contention.py
+diff --git a/tools/perf/python/stat-cpi.py b/tools/perf/python/stat-cpi.py
 new file mode 100755
-index 000000000000..1fc87ec0e6e5
+index 000000000000..4b1f1f69c94a
 --- /dev/null
-+++ b/tools/perf/python/futex-contention.py
-@@ -0,0 +1,87 @@
++++ b/tools/perf/python/stat-cpi.py
+@@ -0,0 +1,151 @@
 +#!/usr/bin/env python3
 +# SPDX-License-Identifier: GPL-2.0
-+"""Measures futex contention."""
++"""Calculate CPI from perf stat data or live."""
 +
 +import argparse
-+from collections import defaultdict
-+from typing import Dict, Tuple
++import sys
++import time
++from typing import Any, Optional
 +import perf
 +
-+class LockStats:
-+    """Aggregate lock contention information."""
-+    def __init__(self) -> None:
-+        self.count = 0
-+        self.total_time = 0
-+        self.min_time = 0
-+        self.max_time = 0
++class StatCpiAnalyzer:
++    """Accumulates cycles and instructions and calculates CPI."""
 +
-+    def add(self, duration: int) -> None:
-+        """Add a new duration measurement."""
-+        self.count += 1
-+        self.total_time += duration
-+        if self.count == 1:
-+            self.min_time = duration
-+            self.max_time = duration
++    def __init__(self, args: argparse.Namespace) -> None:
++        self.args = args
++        self.data: dict[str, tuple[int, int, int]] = {}
++        self.prev_data: dict[str, tuple[int, int, int]] = {}
++        self.recorded_pairs: set[tuple[int, int]] = set()
++
++    def get_key(self, event: str, cpu: int, thread: int) -> str:
++        """Get key for data dictionary."""
++        return f"{event}-{cpu}-{thread}"
++
++    def store_key(self, cpu: int, thread: int) -> None:
++        """Store CPU and thread IDs."""
++        self.recorded_pairs.add((cpu, thread))
++
++    def store(self, event: str, cpu: int, thread: int, counts: tuple[int, int, int]) -> None:
++        """Store counter values, computing difference from previous absolute values."""
++        self.store_key(cpu, thread)
++        key = self.get_key(event, cpu, thread)
++
++        val, ena, run = counts
++        if key in self.prev_data:
++            prev_val, prev_ena, prev_run = self.prev_data[key]
++            cur_val = val - prev_val
++            cur_ena = ena - prev_ena
++            cur_run = run - prev_run
 +        else:
-+            self.min_time = min(self.min_time, duration)
-+            self.max_time = max(self.max_time, duration)
++            cur_val = val
++            cur_ena = ena
++            cur_run = run
 +
-+    def avg(self) -> float:
-+        """Return average duration."""
-+        return self.total_time / self.count if self.count > 0 else 0.0
++        self.data[key] = (cur_val, cur_ena, cur_run)
++        self.prev_data[key] = counts # Store absolute value for next time
 +
-+process_names: Dict[int, str] = {}
-+start_times: Dict[int, Tuple[int, int]] = {}
-+session = None
-+durations: Dict[Tuple[int, int], LockStats] = defaultdict(LockStats)
++    def get(self, event: str, cpu: int, thread: int) -> float:
++        """Get scaled counter value."""
++        key = self.get_key(event, cpu, thread)
++        if key not in self.data:
++            return 0.0
++        val, ena, run = self.data[key]
++        if run > 0:
++            return val * (ena / float(run))
++        return float(val)
 +
-+FUTEX_WAIT = 0
-+FUTEX_WAKE = 1
-+FUTEX_PRIVATE_FLAG = 128
-+FUTEX_CLOCK_REALTIME = 256
-+FUTEX_CMD_MASK = ~(FUTEX_PRIVATE_FLAG | FUTEX_CLOCK_REALTIME)
++    def process_stat_event(self, event: Any, name: Optional[str] = None) -> None:
++        """Process PERF_RECORD_STAT and PERF_RECORD_STAT_ROUND events."""
++        if event.type == perf.RECORD_STAT:
++            if name:
++                if "cycles" in name:
++                    event_name = "cycles"
++                elif "instructions" in name:
++                    event_name = "instructions"
++                else:
++                    return
++                self.store(event_name, event.cpu, event.thread, (event.val, event.ena, event.run))
++        elif event.type == perf.RECORD_STAT_ROUND:
++            timestamp = getattr(event, "time", 0)
++            self.print_interval(timestamp)
++            self.data.clear()
++            self.recorded_pairs.clear()
 +
++    def print_interval(self, timestamp: int) -> None:
++        """Print CPI for the current interval."""
++        for cpu, thread in sorted(self.recorded_pairs):
++            cyc = self.get("cycles", cpu, thread)
++            ins = self.get("instructions", cpu, thread)
++            cpi = 0.0
++            if ins != 0:
++                cpi = cyc / float(ins)
++            t_sec = timestamp / 1000000000.0
++            print(f"{t_sec:15f}: cpu {cpu}, thread {thread} -> cpi {cpi:f} ({cyc:.0f}/{ins:.0f})")
 +
-+def process_event(sample: perf.sample_event) -> None:
-+    """Process a single sample event."""
-+    def handle_start(tid: int, uaddr: int, op: int, start_time: int) -> None:
-+        if (op & FUTEX_CMD_MASK) != FUTEX_WAIT:
++    def read_counters(self, evlist: Any) -> None:
++        """Read counters live."""
++        for evsel in evlist:
++            name = str(evsel)
++            if "cycles" in name:
++                event_name = "cycles"
++            elif "instructions" in name:
++                event_name = "instructions"
++            else:
++                continue
++
++            for cpu in evsel.cpus():
++                for thread in evsel.threads():
++                    try:
++                        counts = evsel.read(cpu, thread)
++                        self.store(event_name, cpu, thread,
++                                   (counts.val, counts.ena, counts.run))
++                    except OSError:
++                        pass
++
++    def run_file(self) -> None:
++        """Process events from file."""
++        session = perf.session(perf.data(self.args.input), stat=self.process_stat_event)
++        session.process_events()
++
++    def run_live(self) -> None:
++        """Read counters live."""
++        evlist = perf.parse_events("cycles,instructions")
++        if not evlist:
++            print("Failed to parse events", file=sys.stderr)
 +            return
-+        if tid not in process_names:
-+            try:
-+                if session:
-+                    process = session.find_thread(tid)
-+                    if process:
-+                        process_names[tid] = process.comm()
-+            except (TypeError, AttributeError):
-+                return
-+        start_times[tid] = (uaddr, start_time)
-+
-+    def handle_end(tid: int, end_time: int) -> None:
-+        if tid not in start_times:
++        try:
++            evlist.open()
++        except OSError as e:
++            print(f"Failed to open events: {e}", file=sys.stderr)
 +            return
-+        (uaddr, start_time) = start_times[tid]
-+        del start_times[tid]
-+        durations[(tid, uaddr)].add(end_time - start_time)
 +
-+    event_name = str(sample.evsel)
-+    if event_name == "evsel(syscalls:sys_enter_futex)":
-+        uaddr = getattr(sample, "uaddr", 0)
-+        op = getattr(sample, "op", 0)
-+        handle_start(sample.sample_tid, uaddr, op, sample.sample_time)
-+    elif event_name == "evsel(syscalls:sys_exit_futex)":
-+        handle_end(sample.sample_tid, sample.sample_time)
++        print("Live mode started. Press Ctrl+C to stop.")
++        try:
++            while True:
++                time.sleep(self.args.interval)
++                timestamp = time.time_ns()
++                self.read_counters(evlist)
++                self.print_interval(timestamp)
++                self.data.clear()
++                self.recorded_pairs.clear()
++        except KeyboardInterrupt:
++            print("\nStopped.")
++        finally:
++            evlist.close()
 +
-+
-+if __name__ == "__main__":
-+    ap = argparse.ArgumentParser(description="Measure futex contention")
-+    ap.add_argument("-i", "--input", default="perf.data", help="Input file name")
++def main() -> None:
++    """Main function."""
++    ap = argparse.ArgumentParser(description="Calculate CPI from perf stat data or live")
++    ap.add_argument("-i", "--input", help="Input file name (enables file mode)")
++    ap.add_argument("-I", "--interval", type=float, default=1.0,
++                    help="Interval in seconds for live mode")
 +    args = ap.parse_args()
 +
-+    session = perf.session(perf.data(args.input), sample=process_event)
-+    session.process_events()
++    analyzer = StatCpiAnalyzer(args)
++    if args.input:
++        analyzer.run_file()
++    else:
++        analyzer.run_live()
 +
-+    for ((t, u), stats) in sorted(durations.items()):
-+        avg_ns = stats.avg()
-+        print(f"{process_names.get(t, 'unknown')}[{t}] lock {u:x} contended {stats.count} times, "
-+              f"{avg_ns:.0f} avg ns [max: {stats.max_time} ns, min {stats.min_time} ns]")
++if __name__ == "__main__":
++    main()
 -- 
 2.54.0.545.g6539524ca2-goog
 
