@@ -4,69 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A4C1FF885C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:44:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01C1BFF885C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:45:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eSIqwKcS0eTw/iJ71nuF6LH/l45/M4zma3yK4ndbcR0=; b=3HG8mFUp0NtyP3oHRKzntrhLXW
-	/Lwh8WVDhWa618PYRe1/ZrWKRM2v3JujRWKafYgsycRKR5J1KhztU2bHxp3D0lcu8UL49z38o1Dpv
-	lm8h3abg4eZH6zuOHpRb/ZlOJnYd83PMpV30ZIMiQYlLETT+P8dIzWsAaWJjqUARSdSAdfb4nnOIG
-	gnYRxfRcNSrvh3Pz5ezKSbg5TKaCsp9Y+lFDnA6794gGsLENWeMK0VvYv9CNG8Lt8Lgr2eD42u9Up
-	b1Lw6zKvLOp6ddjVoSF1vf8MAmJ98SNpDpAmxn3t8ZbHxDxSexNEFJgctSopVNsqtsd42o3OOjW/m
-	0LQKL5Bg==;
+	bh=C1LwLJ/S5+yYNXf1JRm+e96X+YoT2PYO4quJ+4E0ZMc=; b=Ulbcfb3hxsl5XnRPngTQwb5sE9
+	X/P7eDYGNqjtcv+mcxqNkeckaxtqqSyw8BQ+7/K0JS3PjArXrrzO9R6MV4L4j75no8ivBpGbIJ9rE
+	crCF1o2opXZID/ICPcNEEtZVcJWuVvIIebP/pDSSA6sWM4qAGwELbl1mlI+b27VLdtQM7MEjxHFGJ
+	i+tF6XoESxTTirt50Cr/FjB758voVklRPmmZeMlXV3VQrVlsJyO7IQY5GSz0sbfsMLTCADATAF4vC
+	CVZX6OSovr4VSLomvcyWompdjrZvRt6zn54X6IrSpmbewq7xJxSL7TsZjwemKCIHVojleF11E5Kxb
+	x/nM7fpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGljQ-0000000EvG4-1j9X;
-	Sat, 25 Apr 2026 22:44:12 +0000
-Received: from mail-dy1-f202.google.com ([74.125.82.202])
+	id 1wGlkS-0000000EwGU-2TdA;
+	Sat, 25 Apr 2026 22:45:17 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGli5-0000000Etwe-11Uk
+	id 1wGlkQ-0000000EwEr-3nrQ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Sat, 25 Apr 2026 22:45:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=C1LwLJ/S5+yYNXf1JRm+e96X+YoT2PYO4quJ+4E0ZMc=; b=qt4Q/nQwpPo6a2Igb101E827d6
+	SdRm1oa2jWDWXujXIqZ6so3x559F9YDCS0r7zT46UPB8L+0pquFOe5+T/L824mJ/clxzwnD5OdlQJ
+	BP8/5xoKYDGSD2MdF5Y3M8NdB5Y2BptaLcUY60DcYagfpDLZ9KOqVeViqGDOaxOMqrPtnWjYafu0A
+	noFD61SgvwHnfH3cUwiYvF4aSRA+NreWroMICqkXZlJp2E1AtsG6hR9UvVt8SbFkzpGZ7/Vdm0aef
+	53yqdaRsMeFylhDHrhA+YqweCbdhqDndYDGNep19r3p2GWTLQJ3qQu3GbkrHzb5yRS9P+Q+9FTVPZ
+	RzPzJstA==;
+Received: from mail-dl1-x124a.google.com ([2607:f8b0:4864:20::124a])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wGlkN-0000000GLW9-3u63
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Apr 2026 22:43:07 +0000
-Received: by mail-dy1-f202.google.com with SMTP id 5a478bee46e88-2d9da2559aeso24860777eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:42:48 -0700 (PDT)
+	Sat, 25 Apr 2026 22:45:13 +0000
+Received: by mail-dl1-x124a.google.com with SMTP id a92af1059eb24-12dbf4f678eso132017c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:45:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777156967; x=1777761767; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777157110; x=1777761910; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=eSIqwKcS0eTw/iJ71nuF6LH/l45/M4zma3yK4ndbcR0=;
-        b=vVTd94u5xTSKcbhTpf66flHAISOirar7I/BESbx8NQKbGT7TLr8mRzOKuZ0qDDYplR
-         yMvnV+UtAIzccmrJGtutJhFzpfpNPGS7dp4UJwm1ZQIMKU8w79GjfDzrP2yeKPx3Ak/S
-         lrXcJg4xwvOxNsT3ushVs8kHYl+dharL4w3iAow1XPLiQ3ajLniy2jmVbmljF37npYXX
-         FzGsHGR6K2rEHIzTqr8gaef9qoFZevMzY3EjXUQZbHW+QB3P7I1yQ8Sdft1CjqzSuv7j
-         VN9NkD4xCYogeRvdxUnd/FfwqrciuWW73nwDQaNFkXWWoJdPe9/DCSgT7OZMqJDy5Tt0
-         vnbA==
+        bh=C1LwLJ/S5+yYNXf1JRm+e96X+YoT2PYO4quJ+4E0ZMc=;
+        b=BuBfv9PKTyz5p0piWWyaUzqIxua9E/3Jdj0mwkHkjBz5TV5ZH+1Ld4TpHYACOVKWby
+         FYcS2BnTmgbv4fjQiudvatbNaIFDWNk89mLu+3TZO+eemnYaEAxuJsacxcNZr7Yw0MHr
+         /PS5+hRclFMGrnfHnvT9OjplzT8sccVoqwPdjAXxhyyM68Ssis/UqrX/XdAdM9/ACr5e
+         37y2KYrri+Ljfct69grX+MY/6ZXT8VmpR9lW8nJI1D360D6vXyniVa44XeZDtYtyLzOK
+         EfJaUfXAqwIsbrba9Ik12GhisHdJ8lJWxfCnRnjYlUJvH/6IcWWXDh4iLnvnhyHjWfem
+         QJEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777156967; x=1777761767;
+        d=1e100.net; s=20251104; t=1777157110; x=1777761910;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=eSIqwKcS0eTw/iJ71nuF6LH/l45/M4zma3yK4ndbcR0=;
-        b=Q0Ywjmw1/PWchKxX9iOGzHIDLD25sKNWT3YMumANV/5kshIdfSlrBewfTpbYbypv4r
-         aN2DyIy5WB7XMuB7FyBXkQWQAd3KpfVKKGtySgqDVb3wX2iwAz7pXdEXHoNOEZaJwK4m
-         EWALLEE75nNl9gO4PmTQ0+00EvH1v0Z13/iEsT/JOxcrtAAq13QOEVQDBjVV6v5JRQY+
-         akWwejt9wEOfKN3lrbxcmv9J7eXjgRx6yHNgBYg2htoke4/Ok4j8WBNeolAVPU7WO2DY
-         InjVNyU7+5G5P1WufZH1h+FDCd8PxklpDIhoZiprLuQqB+38v2R0l6bPddTrhNWH7LEo
-         /RNA==
-X-Forwarded-Encrypted: i=1; AFNElJ9/waMVQmV9SMagso2WxSsJEIgxIYSXNr+g/iMycW9J1wRFAu1+TTnvDD/ecKClgnXzy/0lmWGwcJpezIBFKQQX@lists.infradead.org
-X-Gm-Message-State: AOJu0YzWRQ9jmwVhDu+d4srQFuE4Dw+FN0inS72MyPTVXANyGETm+XQG
-	cYZE08wAW4BeQalQP3nc6QCiYDAuZRndupMHZoPG7oFBBP3cZ4CtnLaCgOL4Ze5/7HSF5p1Nlou
-	y4eUvjh/JuA==
-X-Received: from dybmf46.prod.google.com ([2002:a05:7301:92e:b0:2d9:3c6b:a26b])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:1007:b0:2dd:6937:79bc
- with SMTP id 5a478bee46e88-2eada6d66e6mr5783317eec.6.1777156967087; Sat, 25
- Apr 2026 15:42:47 -0700 (PDT)
-Date: Sat, 25 Apr 2026 15:41:02 -0700
-In-Reply-To: <20260425224125.160890-1-irogers@google.com>
+        bh=C1LwLJ/S5+yYNXf1JRm+e96X+YoT2PYO4quJ+4E0ZMc=;
+        b=p1N2kbJTehzIHMLbxDOKQvcMtvvrHXrIvLpMKIWMRjKaWxT8Ef538yxVyKA1jcow90
+         Hs4Z/S8x2bm3owKrEzN9f59VbXqkR1H2O2OXSRWH61COPQlzPCW9eweJeBNBWx0StKHf
+         mz2hnKvJqKBZOwVAi2OM8x0htXfnjB6Jg2MHIcMJX03KWf/EBYUgS2lHbgbe/YxdSgBE
+         qgHAbbHHMAKNwzwk7ynGbUk6X5VJL9WnEFPmluBt9wIra5JpnzbNA9qi7YlmSa7gcr4F
+         /lc89alMlvLVcgCLDSYRzmhN+PuXy2XmEobxWK5ZwU01a/QCCIb8fHi5n77bsMDhk6QL
+         rlfw==
+X-Forwarded-Encrypted: i=1; AFNElJ9Kp5uJ2HQsmn42/ZODnxPKtm+Ek0Mp9Pp/2O5dAkF3Fsn9swWamtuJyBt3u7xsIu2A9CqGAxlMrYATEAUvr5of@lists.infradead.org
+X-Gm-Message-State: AOJu0Yypk/XFJs+yvEDhnw6DutD1R8Qwh+Ith1uZATYzdE+qyRYFiaN7
+	ZqkH9mNqBdy+5KpgfWkeRO7+GYutTtrlIJwFlGRwDOQdidz0c7qq0bQ0yWP3NhzsbA8R5JrsgMe
+	UyTVXMAGutQ==
+X-Received: from dlam20-n1.prod.google.com ([2002:a05:701b:2094:10b0:12d:bd4b:5b09])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:ff45:b0:128:ca6f:adf2
+ with SMTP id a92af1059eb24-12c73fae276mr24695803c88.32.1777157109909; Sat, 25
+ Apr 2026 15:45:09 -0700 (PDT)
+Date: Sat, 25 Apr 2026 15:44:48 -0700
+In-Reply-To: <20260425224503.170337-1-irogers@google.com>
 Mime-Version: 1.0
-References: <20260425174858.3922152-1-irogers@google.com> <20260425224125.160890-1-irogers@google.com>
+References: <20260425174858.3922152-1-irogers@google.com> <20260425224503.170337-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260425224125.160890-38-irogers@google.com>
-Subject: [PATCH v7 37/59] perf export-to-postgresql: Port export-to-postgresql
- to use python module
+Message-ID: <20260425224503.170337-2-irogers@google.com>
+Subject: [PATCH v7 44/59] perf sctop: Port sctop to use python module
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org, 
 	leo.yan@linux.dev, namhyung@kernel.org, tmricht@linux.ibm.com
@@ -76,8 +90,8 @@ Cc: alice.mei.rogers@gmail.com, dapeng1.mi@linux.intel.com,
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260425_154249_539488_036F139F 
-X-CRM114-Status: GOOD (  18.46  )
+X-CRM114-CacheID: sfid-20260425_234512_120832_A70DA5B0 
+X-CRM114-Status: GOOD (  14.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,729 +106,216 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ported from tools/perf/scripts/python/export-to-postgresql.py to use
-the perf Python module API.
+This commit ports sctop.py from tools/perf/scripts/python/ to
+tools/perf/python/ using a class-based structure. It also adds live mode
+support using the LiveSession helper with a fallback strategy for
+tracepoint names.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
 v5:
-1. Fix Data Integrity: Added `comm_thread` ID sequence to prevent duplicate
-   primary keys in `comm_threads` table.
-2. Fix COPY failure: Ensured file trailer is written and files are closed
-   before being copied to PostgreSQL, preventing data rejection.
+1. Fix Fallback Logic: Check `__syscall_nr` and `nr` fields for syscall ID
+   if `id` is missing on fallback tracepoints.
+2. Fix Thread Lookup Crash: Added try-except block around `session.process()`
+   to handle missing PIDs gracefully.
 ---
- tools/perf/python/export-to-postgresql.py | 701 ++++++++++++++++++++++
- 1 file changed, 701 insertions(+)
- create mode 100755 tools/perf/python/export-to-postgresql.py
+ tools/perf/python/sctop.py | 186 +++++++++++++++++++++++++++++++++++++
+ 1 file changed, 186 insertions(+)
+ create mode 100755 tools/perf/python/sctop.py
 
-diff --git a/tools/perf/python/export-to-postgresql.py b/tools/perf/python/export-to-postgresql.py
+diff --git a/tools/perf/python/sctop.py b/tools/perf/python/sctop.py
 new file mode 100755
-index 000000000000..0118dc348b1e
+index 000000000000..b94f66a8307d
 --- /dev/null
-+++ b/tools/perf/python/export-to-postgresql.py
-@@ -0,0 +1,701 @@
++++ b/tools/perf/python/sctop.py
+@@ -0,0 +1,186 @@
 +#!/usr/bin/env python3
 +# SPDX-License-Identifier: GPL-2.0
-+r"""
-+Export perf data to a postgresql database.
++"""
++System call top
 +
-+This script has been ported to use the modern perf Python module and
-+libpq via ctypes. It no longer requires PySide2 or QtSql for exporting.
++Periodically displays system-wide system call totals, broken down by
++syscall.  If a [comm] arg is specified, only syscalls called by
++[comm] are displayed. If an [interval] arg is specified, the display
++will be refreshed every [interval] seconds.  The default interval is
++3 seconds.
 +
-+The script assumes postgresql is running on the local machine and that the
-+user has postgresql permissions to create databases.
-+
-+An example of using this script with Intel PT:
-+
-+	$ perf record -e intel_pt//u ls
-+	$ python tools/perf/python/export-to-postgresql.py -i perf.data -o pt_example
-+
-+To browse the database, psql can be used e.g.
-+
-+	$ psql pt_example
-+	pt_example=# select * from samples_view where id < 100;
-+	pt_example=# \d+
-+	pt_example=# \d+ samples_view
-+	pt_example=# \q
-+
-+An example of using the database is provided by the script
-+exported-sql-viewer.py. Refer to that script for details.
-+
-+Tables:
-+
-+	The tables largely correspond to perf tools' data structures. They are
-+	largely self-explanatory.
-+
-+	samples
-+		'samples' is the main table. It represents what instruction was
-+		executing at a point in time when something (a selected event)
-+		happened. The memory address is the instruction pointer or 'ip'.
-+
-+	branch_types
-+		'branch_types' provides descriptions for each type of branch.
-+
-+	comm_threads
-+		'comm_threads' shows how 'comms' relates to 'threads'.
-+
-+	comms
-+		'comms' contains a record for each 'comm' - the name given to the
-+		executable that is running.
-+
-+	dsos
-+		'dsos' contains a record for each executable file or library.
-+
-+	machines
-+		'machines' can be used to distinguish virtual machines if
-+		virtualization is supported.
-+
-+	selected_events
-+		'selected_events' contains a record for each kind of event that
-+		has been sampled.
-+
-+	symbols
-+		'symbols' contains a record for each symbol. Only symbols that
-+		have samples are present.
-+
-+	threads
-+		'threads' contains a record for each thread.
-+
-+Views:
-+
-+	Most of the tables have views for more friendly display. The views are:
-+
-+		comm_threads_view
-+		dsos_view
-+		machines_view
-+		samples_view
-+		symbols_view
-+		threads_view
-+
-+Ported from tools/perf/scripts/python/export-to-postgresql.py
++Ported from tools/perf/scripts/python/sctop.py
 +"""
 +
 +import argparse
-+from ctypes import CDLL, c_char_p, c_int, c_void_p, c_ubyte
-+import ctypes.util
-+import os
-+import shutil
-+import struct
++from collections import defaultdict
 +import sys
-+from typing import Any, Dict, Optional
++import threading
++from typing import Optional
 +import perf
-+
-+# Need to access PostgreSQL C library directly to use COPY FROM STDIN
-+libpq_name = ctypes.util.find_library("pq")
-+if not libpq_name:
-+    libpq_name = "libpq.so.5"
-+
-+try:
-+    libpq = CDLL(libpq_name)
-+except OSError as e:
-+    print(f"Error loading {libpq_name}: {e}")
-+    print("Please ensure PostgreSQL client library is installed.")
-+    sys.exit(1)
-+
-+PQconnectdb = libpq.PQconnectdb
-+PQconnectdb.restype = c_void_p
-+PQconnectdb.argtypes = [c_char_p]
-+PQfinish = libpq.PQfinish
-+PQfinish.argtypes = [c_void_p]
-+PQstatus = libpq.PQstatus
-+PQstatus.restype = c_int
-+PQstatus.argtypes = [c_void_p]
-+PQexec = libpq.PQexec
-+PQexec.restype = c_void_p
-+PQexec.argtypes = [c_void_p, c_char_p]
-+PQresultStatus = libpq.PQresultStatus
-+PQresultStatus.restype = c_int
-+PQresultStatus.argtypes = [c_void_p]
-+PQputCopyData = libpq.PQputCopyData
-+PQputCopyData.restype = c_int
-+PQputCopyData.argtypes = [c_void_p, c_void_p, c_int]
-+PQputCopyEnd = libpq.PQputCopyEnd
-+PQputCopyEnd.restype = c_int
-+PQputCopyEnd.argtypes = [c_void_p, c_void_p]
-+PQgetResult = libpq.PQgetResult
-+PQgetResult.restype = c_void_p
-+PQgetResult.argtypes = [c_void_p]
-+PQclear = libpq.PQclear
-+PQclear.argtypes = [c_void_p]
-+
-+
-+def toserverstr(s: str) -> bytes:
-+    """Convert string to server encoding (UTF-8)."""
-+    return bytes(s, "UTF_8")
-+
-+
-+def toclientstr(s: str) -> bytes:
-+    """Convert string to client encoding (UTF-8)."""
-+    return bytes(s, "UTF_8")
++from perf_live import LiveSession
 +
 +
 +
-+class PostgresExporter:
-+    """Handles PostgreSQL connection and exporting of perf events."""
 +
-+    def __init__(self, dbname: str):
-+        self.dbname = dbname
-+        self.conn = None
++class SCTopAnalyzer:
++    """Periodically displays system-wide system call totals."""
++
++    def __init__(self, for_comm: str | None, interval: int, offline: bool = False):
++        self.for_comm = for_comm
++        self.interval = interval
++        self.syscalls: dict[int, int] = defaultdict(int)
++        self.lock = threading.Lock()
++        self.stop_event = threading.Event()
++        self.thread = threading.Thread(target=self.print_syscall_totals)
++        self.offline = offline
++        self.last_print_time: int | None = None
 +        self.session: Optional[perf.session] = None
-+        self.output_dir_name = os.getcwd() + "/" + dbname + "-perf-data"
 +
-+        self.file_header = struct.pack("!11sii", b"PGCOPY\n\377\r\n\0", 0, 0)
-+        self.file_trailer = b"\377\377"
-+
-+        # Caches and counters grouped to reduce instance attributes
-+        self.caches: Dict[str, dict] = {
-+            'threads': {},
-+            'comms': {},
-+            'dsos': {},
-+            'symbols': {},
-+            'events': {},
-+            'branch_types': {},
-+            'call_paths': {}
-+        }
-+
-+        self.next_id = {
-+            'thread': 1,
-+            'comm': 1,
-+            'dso': 1,
-+            'symbol': 1,
-+            'event': 1,
-+            'branch_type': 1,
-+            'comm_thread': 1,
-+            'call_path': 1
-+        }
-+
-+        self.files: Dict[str, Any] = {}
-+        self.unhandled_count = 0
-+
-+    def connect(self, db_to_use: str) -> None:
-+        """Connect to database."""
-+        conn_str = toclientstr(f"dbname = {db_to_use}")
-+        self.conn = PQconnectdb(conn_str)
-+        if PQstatus(self.conn) != 0:
-+            raise RuntimeError(f"PQconnectdb failed for {db_to_use}")
-+
-+    def disconnect(self) -> None:
-+        """Disconnect from database."""
-+        if self.conn:
-+            PQfinish(self.conn)
-+            self.conn = None
-+
-+    def do_query(self, sql: str) -> None:
-+        """Execute a query and check status."""
-+        res = PQexec(self.conn, toserverstr(sql))
-+        status = PQresultStatus(res)
-+        PQclear(res)
-+        if status not in (1, 2):  # PGRES_COMMAND_OK, PGRES_TUPLES_OK
-+            raise RuntimeError(f"Query failed: {sql}")
-+
-+
-+    def open_output_file(self, file_name: str):
-+        """Open intermediate binary file."""
-+        path_name = self.output_dir_name + "/" + file_name
-+        f = open(path_name, "wb+")
-+        f.write(self.file_header)
-+        return f
-+
-+    def close_output_file(self, f):
-+        """Close intermediate binary file."""
-+        f.write(self.file_trailer)
-+        f.close()
-+
-+    def copy_output_file(self, path_name: str, table_name: str):
-+        """Copy intermediate file to database."""
-+        sql = f"COPY {table_name} FROM STDIN (FORMAT 'binary')"
-+        res = PQexec(self.conn, toserverstr(sql))
-+        if PQresultStatus(res) != 4:  # PGRES_COPY_IN
-+            PQclear(res)
-+            raise RuntimeError(f"COPY FROM STDIN PQexec failed for {table_name}")
-+        PQclear(res)
-+
-+        with open(path_name, "rb") as f:
-+            data = f.read(65536)
-+            while len(data) > 0:
-+                c_data = (c_ubyte * len(data)).from_buffer_copy(data)
-+                ret = PQputCopyData(self.conn, c_data, len(data))
-+                if ret != 1:
-+                    raise RuntimeError(f"PQputCopyData failed for {table_name}")
-+                data = f.read(65536)
-+
-+        ret = PQputCopyEnd(self.conn, None)
-+        if ret != 1:
-+            raise RuntimeError(f"PQputCopyEnd failed for {table_name}")
-+
-+        res = PQgetResult(self.conn)
-+        while res:
-+            PQclear(res)
-+            res = PQgetResult(self.conn)
-+
-+
-+
-+    def setup_db(self) -> None:
-+        """Create database and tables. MUST be called after init."""
-+        os.mkdir(self.output_dir_name)
-+
-+        self.connect('postgres')
++    def syscall_name(self, syscall_id: int) -> str:
++        """Lookup syscall name by ID."""
 +        try:
-+            self.do_query(f'CREATE DATABASE "{self.dbname}"')
-+        except Exception as e:
-+            os.rmdir(self.output_dir_name)
-+            raise e
-+        self.disconnect()
-+
-+        self.connect(self.dbname)
-+        self.do_query("SET client_min_messages TO WARNING")
-+
-+        self.do_query("""
-+            CREATE TABLE selected_events (
-+                    id              bigint          NOT NULL,
-+                    name            varchar(80))
-+        """)
-+        self.do_query("""
-+            CREATE TABLE machines (
-+                    id              bigint          NOT NULL,
-+                    pid             integer,
-+                    root_dir        varchar(4096))
-+        """)
-+        self.do_query("""
-+            CREATE TABLE threads (
-+                    id              bigint          NOT NULL,
-+                    machine_id      bigint,
-+                    process_id      bigint,
-+                    pid             integer,
-+                    tid             integer)
-+        """)
-+        self.do_query("""
-+            CREATE TABLE comms (
-+                    id              bigint          NOT NULL,
-+                    comm            varchar(16),
-+                    c_thread_id     bigint,
-+                    c_time          bigint,
-+                    exec_flag       boolean)
-+        """)
-+        self.do_query("""
-+            CREATE TABLE comm_threads (
-+                    id              bigint          NOT NULL,
-+                    comm_id         bigint,
-+                    thread_id       bigint)
-+        """)
-+        self.do_query("""
-+            CREATE TABLE dsos (
-+                    id              bigint          NOT NULL,
-+                    machine_id      bigint,
-+                    short_name      varchar(256),
-+                    long_name       varchar(4096),
-+                    build_id        varchar(64))
-+        """)
-+        self.do_query("""
-+            CREATE TABLE symbols (
-+                    id              bigint          NOT NULL,
-+                    dso_id          bigint,
-+                    sym_start       bigint,
-+                    sym_end         bigint,
-+                    binding         integer,
-+                    name            varchar(2048))
-+        """)
-+        self.do_query("""
-+            CREATE TABLE branch_types (
-+                    id              integer         NOT NULL,
-+                    name            varchar(80))
-+        """)
-+        self.do_query("""
-+            CREATE TABLE samples (
-+                    id              bigint          NOT NULL,
-+                    evsel_id        bigint,
-+                    machine_id      bigint,
-+                    thread_id       bigint,
-+                    comm_id         bigint,
-+                    dso_id          bigint,
-+                    symbol_id       bigint,
-+                    sym_offset      bigint,
-+                    ip              bigint,
-+                    time            bigint,
-+                    cpu             integer,
-+                    to_dso_id       bigint,
-+                    to_symbol_id    bigint,
-+                    to_sym_offset   bigint,
-+                    to_ip           bigint,
-+                    period          bigint,
-+                    weight          bigint,
-+                    transaction_    bigint,
-+                    data_src        bigint,
-+                    branch_type     integer,
-+                    in_tx           boolean,
-+                    call_path_id    bigint,
-+                    insn_count      bigint,
-+                    cyc_count       bigint,
-+                    flags           integer)
-+        """)
-+        self.do_query("""
-+            CREATE TABLE call_paths (
-+                    id              bigint          NOT NULL,
-+                    parent_id       bigint,
-+                    symbol_id       bigint,
-+                    ip              bigint)
-+        """)
-+
-+        self.files['evsel'] = self.open_output_file("evsel_table.bin")
-+        self.files['machine'] = self.open_output_file("machine_table.bin")
-+        self.files['thread'] = self.open_output_file("thread_table.bin")
-+        self.files['comm'] = self.open_output_file("comm_table.bin")
-+        self.files['comm_thread'] = self.open_output_file("comm_thread_table.bin")
-+        self.files['dso'] = self.open_output_file("dso_table.bin")
-+        self.files['symbol'] = self.open_output_file("symbol_table.bin")
-+        self.files['branch_type'] = self.open_output_file("branch_type_table.bin")
-+        self.files['sample'] = self.open_output_file("sample_table.bin")
-+        self.files['call_path'] = self.open_output_file("call_path_table.bin")
-+
-+        self.write_evsel(0, "unknown")
-+        self.write_machine(0, 0, "unknown")
-+        self.write_thread(0, 0, 0, -1, -1)
-+        self.write_comm(0, "unknown", 0, 0, 0)
-+        self.write_dso(0, 0, "unknown", "unknown", "")
-+        self.write_symbol(0, 0, 0, 0, 0, "unknown")
-+        self.write_call_path(0, 0, 0, 0)
-+
-+    def write_evsel(self, evsel_id: int, name: str) -> None:
-+        """Write event to binary file."""
-+        name_bytes = toserverstr(name)
-+        n = len(name_bytes)
-+        fmt = "!hiqi" + str(n) + "s"
-+        value = struct.pack(fmt, 2, 8, evsel_id, n, name_bytes)
-+        self.files['evsel'].write(value)
-+
-+    def write_machine(self, machine_id: int, pid: int, root_dir: str) -> None:
-+        """Write machine to binary file."""
-+        rd_bytes = toserverstr(root_dir)
-+        n = len(rd_bytes)
-+        fmt = "!hiqiii" + str(n) + "s"
-+        value = struct.pack(fmt, 3, 8, machine_id, 4, pid, n, rd_bytes)
-+        self.files['machine'].write(value)
-+
-+
-+    def write_thread(self, thread_id: int, machine_id: int, process_id: int,
-+                     pid: int, tid: int) -> None:
-+        """Write thread to binary file."""
-+        value = struct.pack("!hiqiqiqiiii", 5, 8, thread_id, 8, machine_id,
-+                            8, process_id, 4, pid, 4, tid)
-+        self.files['thread'].write(value)
-+
-+
-+    def write_comm(self, comm_id: int, comm_str: str, thread_id: int,
-+                   time: int, exec_flag: int) -> None:
-+        """Write comm to binary file."""
-+        comm_bytes = toserverstr(comm_str)
-+        n = len(comm_bytes)
-+        fmt = "!hiqi" + str(n) + "s" + "iqiqiB"
-+        value = struct.pack(fmt, 5, 8, comm_id, n, comm_bytes, 8,
-+                            thread_id, 8, time, 1, exec_flag)
-+        self.files['comm'].write(value)
-+
-+    def write_comm_thread(self, comm_thread_id: int, comm_id: int,
-+                          thread_id: int) -> None:
-+        """Write comm_thread to binary file."""
-+        fmt = "!hiqiqiq"
-+        value = struct.pack(fmt, 3, 8, comm_thread_id, 8, comm_id, 8, thread_id)
-+        self.files['comm_thread'].write(value)
-+
-+
-+    def write_dso(self, dso_id: int, machine_id: int, short_name: str,
-+                  long_name: str, build_id: str) -> None:
-+        """Write DSO to binary file."""
-+        sn_bytes = toserverstr(short_name)
-+        ln_bytes = toserverstr(long_name)
-+        bi_bytes = toserverstr(build_id)
-+        n1, n2, n3 = len(sn_bytes), len(ln_bytes), len(bi_bytes)
-+        fmt = "!hiqiqi" + str(n1) + "si" + str(n2) + "si" + str(n3) + "s"
-+        value = struct.pack(fmt, 5, 8, dso_id, 8, machine_id, n1,
-+                            sn_bytes, n2, ln_bytes, n3, bi_bytes)
-+        self.files['dso'].write(value)
-+
-+
-+    def write_symbol(self, symbol_id: int, dso_id: int, sym_start: int,
-+                      sym_end: int, binding: int, symbol_name: str) -> None:
-+        """Write symbol to binary file."""
-+        name_bytes = toserverstr(symbol_name)
-+        n = len(name_bytes)
-+        fmt = "!hiqiqiqiqiii" + str(n) + "s"
-+        value = struct.pack(fmt, 6, 8, symbol_id, 8, dso_id, 8,
-+                            sym_start, 8, sym_end, 4, binding, n, name_bytes)
-+        self.files['symbol'].write(value)
-+
-+    def write_call_path(self, cp_id: int, parent_id: int, symbol_id: int,
-+                         ip: int) -> None:
-+        """Write call path to binary file."""
-+        fmt = "!hiqiqiqiq"
-+        value = struct.pack(fmt, 4, 8, cp_id, 8, parent_id, 8, symbol_id, 8, ip)
-+        self.files['call_path'].write(value)
-+
-+
-+    def write_sample(self, sample_id: int, evsel_id: int, thread_id: int,
-+                      comm_id: int, dso_id: int, symbol_id: int,
-+                      sample: perf.sample_event, call_path_id: int) -> None:
-+        """Write sample to binary file."""
-+        value = struct.pack(
-+            "!hiqiqiqiqiqiqiqiqiqiqiiiqiqiqiqiqiqiqiqiiiBiqiqiqii",
-+            25, 8, sample_id, 8, evsel_id, 8, 0, 8, thread_id, 8, comm_id,
-+            8, dso_id, 8, symbol_id, 8, getattr(sample, 'sym_offset', 0),
-+            8, sample.sample_ip, 8, sample.sample_time, 4, sample.sample_cpu,
-+            8, 0, 8, 0, 8, 0, 8, 0,
-+            8, getattr(sample, 'sample_period', 0) or 0,
-+            8, getattr(sample, 'sample_weight', 0) or 0,
-+            8, getattr(sample, 'transaction_', 0) or 0,
-+            8, getattr(sample, 'data_src', 0) or 0,
-+            4, 0,
-+            1, getattr(sample, 'in_tx', 0) or 0,
-+            8, call_path_id,
-+            8, getattr(sample, 'insn_count', 0) or 0,
-+            8, getattr(sample, 'cyc_count', 0) or 0,
-+            4, getattr(sample, 'flags', 0) or 0
-+        )
-+        self.files['sample'].write(value)
-+
-+    def get_event_id(self, name: str) -> int:
-+        """Get or create event ID."""
-+        if name in self.caches['events']:
-+            return self.caches['events'][name]
-+        event_id = self.next_id['event']
-+        self.write_evsel(event_id, name)
-+        self.caches['events'][name] = event_id
-+        self.next_id['event'] += 1
-+        return event_id
-+
-+    def get_thread_id(self, pid: int, tid: int) -> int:
-+        """Get or create thread ID."""
-+        key = (pid, tid)
-+        if key in self.caches['threads']:
-+            return self.caches['threads'][key]
-+        thread_id = self.next_id['thread']
-+        self.write_thread(thread_id, 0, pid, pid, tid)
-+        self.caches['threads'][key] = thread_id
-+        self.next_id['thread'] += 1
-+        return thread_id
-+
-+    def get_comm_id(self, comm: str, thread_id: int) -> int:
-+        """Get or create comm ID."""
-+        if comm in self.caches['comms']:
-+            comm_id = self.caches['comms'][comm]
-+        else:
-+            comm_id = self.next_id['comm']
-+            self.write_comm(comm_id, comm, thread_id, 0, 0)
-+            self.caches['comms'][comm] = comm_id
-+            self.next_id['comm'] += 1
-+
-+        key = (comm_id, thread_id)
-+        if 'comm_threads' not in self.caches:
-+            self.caches['comm_threads'] = {}
-+        if key not in self.caches['comm_threads']:
-+            comm_thread_id = self.next_id['comm_thread']
-+            self.write_comm_thread(comm_thread_id, comm_id, thread_id)
-+            self.caches['comm_threads'][key] = True
-+            self.next_id['comm_thread'] += 1
-+
-+        return comm_id
-+
-+    def get_dso_id(self, short_name: str, long_name: str,
-+                   build_id: str) -> int:
-+        """Get or create DSO ID."""
-+        if short_name in self.caches['dsos']:
-+            return self.caches['dsos'][short_name]
-+        dso_id = self.next_id['dso']
-+        self.write_dso(dso_id, 0, short_name, long_name, build_id)
-+        self.caches['dsos'][short_name] = dso_id
-+        self.next_id['dso'] += 1
-+        return dso_id
-+
-+    def get_symbol_id(self, dso_id: int, name: str, start: int,
-+                      end: int) -> int:
-+        """Get or create symbol ID."""
-+        key = (dso_id, name)
-+        if key in self.caches['symbols']:
-+            return self.caches['symbols'][key]
-+        symbol_id = self.next_id['symbol']
-+        self.write_symbol(symbol_id, dso_id, start, end, 0, name)
-+        self.caches['symbols'][key] = symbol_id
-+        self.next_id['symbol'] += 1
-+        return symbol_id
-+
-+    def get_call_path_id(self, parent_id: int, symbol_id: int,
-+                         ip: int) -> int:
-+        """Get or create call path ID."""
-+        key = (parent_id, symbol_id, ip)
-+        if key in self.caches['call_paths']:
-+            return self.caches['call_paths'][key]
-+        call_path_id = self.next_id['call_path']
-+        self.write_call_path(call_path_id, parent_id, symbol_id, ip)
-+        self.caches['call_paths'][key] = call_path_id
-+        self.next_id['call_path'] += 1
-+        return call_path_id
++            return perf.syscall_name(syscall_id)
++        except Exception:  # pylint: disable=broad-exception-caught
++            pass
++        return str(syscall_id)
 +
 +    def process_event(self, sample: perf.sample_event) -> None:
-+        """Callback for processing events."""
-+        thread_id = self.get_thread_id(sample.sample_pid, sample.sample_tid)
++        """Collect syscall events."""
++        name = str(sample.evsel)
++        syscall_id = getattr(sample, "id", -1)
++        if syscall_id == -1:
++            syscall_id = getattr(sample, "__syscall_nr", -1)
++        if syscall_id == -1:
++            syscall_id = getattr(sample, "nr", -1)
 +
-+        comm = "Unknown_comm"
-+        try:
-+            if self.session is not None:
++        if syscall_id == -1:
++            return
++
++        comm = "Unknown"
++        if hasattr(self, 'session') and self.session:
++            try:
 +                proc = self.session.find_thread(sample.sample_pid)
 +                if proc:
 +                    comm = proc.comm()
-+        except TypeError:
-+            pass
-+        comm_id = self.get_comm_id(comm, thread_id)
++            except (TypeError, AttributeError):
++                pass
++        else:
++            comm = getattr(sample, "comm", "Unknown")
 +
-+        dso_id = self.get_dso_id(
-+            getattr(sample, 'dso', "Unknown_dso") or "Unknown_dso",
-+            getattr(sample, 'dso_long_name', "Unknown_dso_long") or "Unknown_dso_long",
-+            getattr(sample, 'dso_bid', "") or ""
-+        )
++        if name in ("evsel(raw_syscalls:sys_enter)", "evsel(syscalls:sys_enter)"):
++            if self.for_comm is not None and comm != self.for_comm:
++                return
++            with self.lock:
++                self.syscalls[syscall_id] += 1
 +
-+        symbol_id = self.get_symbol_id(
-+            dso_id,
-+            getattr(sample, 'symbol', "Unknown_symbol") or "Unknown_symbol",
-+            getattr(sample, 'sym_start', 0) or 0,
-+            getattr(sample, 'sym_end', 0) or 0
-+        )
++        if self.offline and hasattr(sample, "time"):
++            interval_ns = self.interval * (10 ** 9)
++            if self.last_print_time is None:
++                self.last_print_time = sample.time
++            elif sample.time - self.last_print_time >= interval_ns:
++                self.print_current_totals()
++                self.last_print_time = sample.time
 +
-+        call_path_id = 0
-+        if hasattr(sample, 'callchain') and sample.callchain:
-+            parent_id = 0
-+            for node in sample.callchain:
-+                node_dso = getattr(node, 'dso', None) or getattr(node, 'map', None)
-+                node_symbol = getattr(node, 'symbol', None) or getattr(node, 'sym', None)
++    def print_current_totals(self):
++        """Print current syscall totals."""
++        # Clear terminal
++        print("\x1b[2J\x1b[H", end="")
 +
-+                dso_name = "Unknown_dso"
-+                if node_dso:
-+                    dso_name = getattr(node_dso, 'name', "Unknown_dso") or "Unknown_dso"
++        if self.for_comm is not None:
++            print(f"\nsyscall events for {self.for_comm}:\n")
++        else:
++            print("\nsyscall events:\n")
 +
-+                symbol_name = "Unknown_symbol"
-+                if node_symbol:
-+                    symbol_name = getattr(node_symbol, 'name', "Unknown_symbol") or "Unknown_symbol"
++        print(f"{'event':40s}  {'count':10s}")
++        print(f"{'-' * 40:40s}  {'-' * 10:10s}")
 +
-+                node_dso_id = self.get_dso_id(dso_name, dso_name, "")
-+                node_symbol_id = self.get_symbol_id(node_dso_id, symbol_name, 0, 0)
++        with self.lock:
++            current_syscalls = list(self.syscalls.items())
++            self.syscalls.clear()
 +
-+                parent_id = self.get_call_path_id(parent_id, node_symbol_id, node.ip)
-+            call_path_id = parent_id
++        current_syscalls.sort(key=lambda kv: (kv[1], kv[0]), reverse=True)
 +
-+        sample_id = self.next_id['event']
-+        self.write_sample(sample_id,
-+                          self.get_event_id(getattr(sample.evsel, 'name', str(sample.evsel))),
-+                          thread_id, comm_id, dso_id, symbol_id, sample,
-+                          call_path_id)
-+        self.next_id['event'] += 1
++        for syscall_id, val in current_syscalls:
++            print(f"{self.syscall_name(syscall_id):<40s}  {val:10d}")
 +
-+    def finalize(self) -> None:
-+        """Copy files to database and add keys/views."""
-+        print("Copying to database...")
-+        for name, f in self.files.items():
-+            self.close_output_file(f)
++    def print_syscall_totals(self):
++        """Periodically print syscall totals."""
++        while not self.stop_event.is_set():
++            self.print_current_totals()
++            self.stop_event.wait(self.interval)
++        # Print final batch
++        self.print_current_totals()
 +
-+        for name, f in self.files.items():
-+            table_name = name + "s" if name != "call_path" else "call_paths"
-+            if name == "evsel":
-+                table_name = "selected_events"
-+            self.copy_output_file(f.name, table_name)
++    def start(self):
++        """Start the background thread."""
++        self.thread.start()
 +
-+        print("Removing intermediate files...")
-+        for name, f in self.files.items():
-+            os.unlink(f.name)
-+        os.rmdir(self.output_dir_name)
++    def stop(self):
++        """Stop the background thread."""
++        self.stop_event.set()
++        self.thread.join()
 +
-+        print("Adding primary keys")
-+        self.do_query("ALTER TABLE selected_events ADD PRIMARY KEY (id)")
-+        self.do_query("ALTER TABLE machines        ADD PRIMARY KEY (id)")
-+        self.do_query("ALTER TABLE threads         ADD PRIMARY KEY (id)")
-+        self.do_query("ALTER TABLE comms           ADD PRIMARY KEY (id)")
-+        self.do_query("ALTER TABLE comm_threads    ADD PRIMARY KEY (id)")
-+        self.do_query("ALTER TABLE dsos            ADD PRIMARY KEY (id)")
-+        self.do_query("ALTER TABLE symbols         ADD PRIMARY KEY (id)")
-+        self.do_query("ALTER TABLE branch_types    ADD PRIMARY KEY (id)")
-+        self.do_query("ALTER TABLE samples         ADD PRIMARY KEY (id)")
-+        self.do_query("ALTER TABLE call_paths      ADD PRIMARY KEY (id)")
 +
-+        print("Creating views...")
-+        self.do_query("""
-+            CREATE VIEW machines_view AS
-+            SELECT id, pid, root_dir,
-+            CASE WHEN id=0 THEN 'unknown' WHEN pid=-1 THEN 'host' ELSE 'guest' END AS host_or_guest
-+            FROM machines
-+        """)
-+        self.do_query("""
-+            CREATE VIEW dsos_view AS
-+            SELECT id, machine_id,
-+            (SELECT host_or_guest FROM machines_view WHERE id = machine_id) AS host_or_guest,
-+            short_name, long_name, build_id
-+            FROM dsos
-+        """)
-+        self.do_query("""
-+            CREATE VIEW symbols_view AS
-+            SELECT id, name,
-+            (SELECT short_name FROM dsos WHERE id=dso_id) AS dso,
-+            dso_id, sym_start, sym_end,
-+            CASE WHEN binding=0 THEN 'local' WHEN binding=1 THEN 'global' ELSE 'weak' END AS binding
-+            FROM symbols
-+        """)
-+        self.do_query("""
-+            CREATE VIEW threads_view AS
-+            SELECT id, machine_id,
-+            (SELECT host_or_guest FROM machines_view WHERE id = machine_id) AS host_or_guest,
-+            process_id, pid, tid
-+            FROM threads
-+        """)
-+        self.do_query("""
-+            CREATE VIEW samples_view AS
-+            SELECT id, time, cpu,
-+            (SELECT pid FROM threads WHERE id = thread_id) AS pid,
-+            (SELECT tid FROM threads WHERE id = thread_id) AS tid,
-+            (SELECT comm FROM comms WHERE id = comm_id) AS command,
-+            (SELECT name FROM selected_events WHERE id = evsel_id) AS event,
-+            to_hex(ip) AS ip_hex,
-+            (SELECT name FROM symbols WHERE id = symbol_id) AS symbol,
-+            sym_offset,
-+            (SELECT short_name FROM dsos WHERE id = dso_id) AS dso_short_name,
-+            to_hex(to_ip) AS to_ip_hex,
-+            (SELECT name FROM symbols WHERE id = to_symbol_id) AS to_symbol,
-+            to_sym_offset,
-+            (SELECT short_name FROM dsos WHERE id = to_dso_id) AS to_dso_short_name,
-+            (SELECT name FROM branch_types WHERE id = branch_type) AS branch_type_name,
-+            in_tx, insn_count, cyc_count, flags
-+            FROM samples
-+        """)
++def main():
++    """Main function."""
++    ap = argparse.ArgumentParser(description="System call top")
++    ap.add_argument("args", nargs="*", help="[comm] [interval] or [interval]")
++    ap.add_argument("-i", "--input", help="Input file name")
++    args = ap.parse_args()
++
++    for_comm = None
++    default_interval = 3
++    interval = default_interval
++
++    if len(args.args) > 2:
++        print("Usage: perf script -s sctop.py [comm] [interval]")
++        sys.exit(1)
++
++    if len(args.args) > 1:
++        for_comm = args.args[0]
++        try:
++            interval = int(args.args[1])
++        except ValueError:
++            print(f"Invalid interval: {args.args[1]}")
++            sys.exit(1)
++    elif len(args.args) > 0:
++        try:
++            interval = int(args.args[0])
++        except ValueError:
++            for_comm = args.args[0]
++            interval = default_interval
++
++    analyzer = SCTopAnalyzer(for_comm, interval, offline=bool(args.input))
++
++    if not args.input:
++        analyzer.start()
++
++    try:
++        if args.input:
++            session = perf.session(perf.data(args.input), sample=analyzer.process_event)
++            analyzer.session = session
++            session.process_events()
++        else:
++            try:
++                live_session = LiveSession(
++                    "raw_syscalls:sys_enter", sample_callback=analyzer.process_event
++                )
++            except OSError:
++                live_session = LiveSession(
++                    "syscalls:sys_enter", sample_callback=analyzer.process_event
++                )
++            live_session.run()
++    except KeyboardInterrupt:
++        pass
++    except IOError as e:
++        print(f"Error: {e}")
++    finally:
++        if args.input:
++            analyzer.print_current_totals()
++        else:
++            analyzer.stop()
 +
 +
 +if __name__ == "__main__":
-+    ap = argparse.ArgumentParser(
-+        description="Export perf data to a postgresql database")
-+    ap.add_argument("-i", "--input", default="perf.data",
-+                    help="Input file name")
-+    ap.add_argument("-o", "--output", required=True,
-+                    help="Output database name")
-+    args = ap.parse_args()
-+
-+    exporter = PostgresExporter(args.output)
-+    exporter.setup_db()
-+
-+    session = None
-+    error_occurred = False
-+    try:
-+        session = perf.session(perf.data(args.input),
-+                               sample=exporter.process_event)
-+        exporter.session = session
-+        session.process_events()
-+        exporter.finalize()
-+        print(f"Successfully exported to {args.output}")
-+    except Exception as e:
-+        print(f"Error processing events: {e}")
-+        error_occurred = True
-+    finally:
-+        exporter.disconnect()
-+        if error_occurred:
-+            if os.path.exists(exporter.output_dir_name):
-+                shutil.rmtree(exporter.output_dir_name)
++    main()
 -- 
 2.54.0.545.g6539524ca2-goog
 
