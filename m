@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4427FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:46:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6189EFF8863
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:46:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a4cIRIqFZJ5y1BubPplg9oWe019B443zoI45B5rxaHA=; b=iGI9UEqaxSu2pNWDHaeuOKM87v
-	DY++SZwB7AjdF1ovO65b7fWcOA08pZTmxc3EyuZPRYLEwg/J9sXGbXUnAbpq+WTsgGm04rSjQc7so
-	w9M5lGCcpoI7+2la1QwEUQvi6iWO4SQtw4SpSoo8Md5Zvxj5y0oC2PBC90q7Ikxd+BSHxBDxcpZTg
-	DQeqeQnAPUOKy+aAM5b5emQBWRLnJmjQBoAuJXyPxn5mdqB403NyNQQa7VEZwPfixaKh8F4Rxd13D
-	CvKqV7Mf8o3yNcr7FPZPsaleNWWS8LW0jlHIO8WOQwQ5zs7rYiQkIGvwaMGaytASjlr2n4dXKX7Wx
-	PfyRu6MA==;
+	bh=FUJSZggZAnW35gY6L6UfepyO4olhr8IMzDQNCfxT3yU=; b=pBA5HOQz8OcQS9LPFOh1LK4xve
+	v/6mnFa3fu1S/q5a+BooTAIhjm8Z6wg22HNIYu7EPozMvJNQlBttl2HfboIIgUSfn17Lc3XcIN+CH
+	+0GB5wlWGTQH1tsWC1/CDx9rHk+KQ1e5m4utu4BYAZyPt9bmpNRA4W6umdmwCDmRDYcMVX+iI4A0M
+	uybmvRHjeLlsT7I/RBLQxwg43MmSAMg/3mSxaWhcGrNR4U0kHkxRsaWvo3Ode0qvluevLX9O0KrQv
+	2cHupVssDiwlmcnPSK9YO1w6LW0bPzo++mVXv8T3V2UUca2+Jm1PHJvubxhNWnoU/Jjq12Ktz9FBg
+	GNg/Zzww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGll6-0000000EwjJ-0z0x;
-	Sat, 25 Apr 2026 22:45:56 +0000
-Received: from mail-dl1-x124a.google.com ([2607:f8b0:4864:20::124a])
+	id 1wGll7-0000000Ewkw-2Xzz;
+	Sat, 25 Apr 2026 22:45:57 +0000
+Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlkd-0000000EwMO-2ySi
+	id 1wGlkl-0000000EwQk-0Af8
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Apr 2026 22:45:31 +0000
-Received: by mail-dl1-x124a.google.com with SMTP id a92af1059eb24-12c66fdd4aeso13652020c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:45:26 -0700 (PDT)
+	Sat, 25 Apr 2026 22:45:43 +0000
+Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2dd6fb4c867so15657565eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:45:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777157126; x=1777761926; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777157132; x=1777761932; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=a4cIRIqFZJ5y1BubPplg9oWe019B443zoI45B5rxaHA=;
-        b=NtvAzLLEFeSr4u7nGZS0cIO76fFZwU1dRCrW7zanfy+Bc8aLF6oTLaKL030lSy9q5J
-         AqgiAYVxUS3S4QTPagADurTx2rWefwA4tUS7bkDayRe2nGPidCgZmAV4X9YEpheGbvOF
-         ncUYLq0jPu6BnIT1et0wXRDVeizHxMuHftq6OJbvTapHdZKIwCRMAQ5vKtjMGOOvKlEY
-         wPkL4bWsooMeLqYVBUqBjoujoy9/HQbGOOtnmKD659l8yoJzD2m3FGaHxmfwxC1mK5HK
-         7raEzkgwNpMaYSEnaw92WjGS4d4fz+1CKo2YIZ5+8zYxUfQcpCE5twB+JeCnyvdUalZe
-         s8Bg==
+        bh=FUJSZggZAnW35gY6L6UfepyO4olhr8IMzDQNCfxT3yU=;
+        b=k4KMaNwyTB+acc65jogTX/437xEYeLGztBnKwWD5DC8DLnNjrBbf8brtRTdB6svLvY
+         LPGAX2Bu450I/zZIYrZvRq/VbCQkJUVeb3+rawJKDJHVu7dNkyIq9rHNP90ZDedsiRlX
+         ce+c7Dijo0AQYqkvNoI461CKGwDl4Y4Yh/jOQQGxvNe6AM5XlThorGq06WK6BXQjzo+C
+         7+vKkw3irPmMMlhwX1X+F014Vtl2Yn22DUIT0UVmqkdTzYgscfwcvO32aSPmuTy+fkQ5
+         9cx+foODfb0nF13sdyralvUUQ3BCN2Va18ZV19sLauhmioWy6mHZ+fyX1p69cUSagizn
+         M70w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777157126; x=1777761926;
+        d=1e100.net; s=20251104; t=1777157132; x=1777761932;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=a4cIRIqFZJ5y1BubPplg9oWe019B443zoI45B5rxaHA=;
-        b=F/2D3qfJSxX+w0wtfrAl95fj79q1GQfC0hPMPONvs7a27VT5E8Y4mjKCxTSbvw7KW3
-         Icgpu8uTF17eykdVPGgGMZgsdt/IvKCXQLrA3Ptx0+0ZHL0b89Mj9/sjb5AvwIsi+nv5
-         DYamdVVMaJ0jCPbj3f+5unrILPCK6z1pUgwRoBUlvPbfv0mptSpiN6yByAXr6wc11Oh8
-         wzUlGHi4/FrHlzcx+UQzYJeb4gucDVnM5MuElPhpZyC/lQFoQ51iLJ22djk19lWgFuPP
-         dDf4C39tKRILN4Qmwz3TbvIzXAWlaAkhQuhiobb76gJYRHGQxXes9GwDwaRFjF4wdBuf
-         qKRQ==
-X-Forwarded-Encrypted: i=1; AFNElJ88dprqUCGElKFzFPSy91DZBP3XwGjZEGSSwMSMzI+LeQQiBgiwczyMJ5kWRIFy4RhMgxnHLE+cPfWBjYTjbm+I@lists.infradead.org
-X-Gm-Message-State: AOJu0YwWaa6m7HTbJh/bdfBq6pMcf0LVoqLTmcYMl9fJYhQkQyNWH1bC
-	hSuGyYbKhth7J2lwUC3TRixi2TvHwdLFQi8qodJN5U97UFvv4SLAe+goUEORSO3OqAyRp0onVQd
-	ieq8zdFGgzw==
-X-Received: from dlam10.prod.google.com ([2002:a05:701b:208a:b0:12c:912f:7d3f])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:383:b0:128:d4db:447a
- with SMTP id a92af1059eb24-12c73fa73e6mr20056887c88.29.1777157125536; Sat, 25
- Apr 2026 15:45:25 -0700 (PDT)
-Date: Sat, 25 Apr 2026 15:44:56 -0700
+        bh=FUJSZggZAnW35gY6L6UfepyO4olhr8IMzDQNCfxT3yU=;
+        b=VQk2xwdPahbRTOkKIMoBj56GjwFmPsAXopTTboOY7yGLK+OFcV8XA+8caKvcm+fFHf
+         KuRBl8H/loCrtSP2xi2YH9lsFjp8YLqGozSnMthu40BICQWvAKm6o2H2TuDUFYbM6HkR
+         YHibwlpnxpxOueOyuo6XEbs+v7DutSZIOoIbxHmQK4Z8pcDBZI21sZVKOo8MzRm/814n
+         bIqxPNepVSCGnYtfna1V09tujnBqM2+7gYNQ9E5iwQI9e6Cnl3+qnwbVlbPNR3Br8evt
+         gCr5RuwVHIBbXOUlxEfEqHBwNA2hrt2BL931QkOOHDsTe/2zPOPaUrYG1V/4OZEYdImD
+         F8gg==
+X-Forwarded-Encrypted: i=1; AFNElJ/8a4ufveLp9n65tk9x4D0WdD0rX4qk/5p4mHf7Wzl1C5Hn/3RhxLpgiVpWDtGpCZ0idjan3wv3d/3P3c+YCehk@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXuk1QEPm84BYxajHdOMPS47XqkFQL3Ez4k4T86CmYTgk/W/gN
+	PykE/T838c5OEPOFCWHiMDMAJmKXegZ4pJxXZmKbKbkrTPDa60JoJHM6s8QyYr/mfn6booY6Ze9
+	JSFRRLCwvzA==
+X-Received: from dycf28.prod.google.com ([2002:a05:7300:50dc:b0:2d9:6c52:c24a])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:d717:b0:2e2:a64b:63b5
+ with SMTP id 5a478bee46e88-2e479c08fa4mr22676842eec.18.1777157131715; Sat, 25
+ Apr 2026 15:45:31 -0700 (PDT)
+Date: Sat, 25 Apr 2026 15:44:59 -0700
 In-Reply-To: <20260425224503.170337-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260425174858.3922152-1-irogers@google.com> <20260425224503.170337-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260425224503.170337-10-irogers@google.com>
-Subject: [PATCH v7 52/59] perf test: Migrate Intel PT virtual LBR test to use
- Python API
+Message-ID: <20260425224503.170337-13-irogers@google.com>
+Subject: [PATCH v7 55/59] perf Makefile: Update Python script installation path
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org, 
 	leo.yan@linux.dev, namhyung@kernel.org, tmricht@linux.ibm.com
@@ -76,8 +75,8 @@ Cc: alice.mei.rogers@gmail.com, dapeng1.mi@linux.intel.com,
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260425_154527_791323_F7E2FC94 
-X-CRM114-Status: GOOD (  14.97  )
+X-CRM114-CacheID: sfid-20260425_154535_105400_A0137268 
+X-CRM114-Status: GOOD (  21.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,129 +91,239 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Intel PT virtual LBR test used an ad-hoc Python script written on
-the fly to parse branch stacks. This change migrates it to use the
-newly added `brstack` iterator API in the `perf` Python module.
+Remove libpython feature test that is now a python-module feature
+test. Update references from libpython to python-module accordingly.
+
+Remove references to legacy 'scripts/python' directory and install
+scripts directly to 'python' directory under libexec. This aligns with
+the removal of embedded interpreter and move to standalone
+scripts.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
-
 ---
-v7:
-- Fixed permanent iterator exhaustion on brstack by converting it
-  to a list.
----
- .../perf/tests/shell/lib/perf_brstack_max.py  | 43 +++++++++++++++++++
- tools/perf/tests/shell/test_intel_pt.sh       | 35 +++++----------
- 2 files changed, 53 insertions(+), 25 deletions(-)
- create mode 100644 tools/perf/tests/shell/lib/perf_brstack_max.py
+ tools/build/Makefile.feature             |  4 ++--
+ tools/build/feature/Makefile             |  4 ++--
+ tools/build/feature/test-all.c           |  6 +++---
+ tools/build/feature/test-libpython.c     | 10 ----------
+ tools/build/feature/test-python-module.c | 12 ++++++++++++
+ tools/perf/Makefile.config               | 13 ++++++-------
+ tools/perf/Makefile.perf                 | 10 ++++------
+ tools/perf/tests/make                    |  5 +----
+ 8 files changed, 30 insertions(+), 34 deletions(-)
+ delete mode 100644 tools/build/feature/test-libpython.c
+ create mode 100644 tools/build/feature/test-python-module.c
 
-diff --git a/tools/perf/tests/shell/lib/perf_brstack_max.py b/tools/perf/tests/shell/lib/perf_brstack_max.py
+diff --git a/tools/build/Makefile.feature b/tools/build/Makefile.feature
+index 96d4382144c4..cbe41ba7bae5 100644
+--- a/tools/build/Makefile.feature
++++ b/tools/build/Makefile.feature
+@@ -79,7 +79,7 @@ FEATURE_TESTS_BASIC :=                  \
+         libelf-zstd                     \
+         libnuma                         \
+         numa_num_possible_cpus          \
+-        libpython                       \
++        python-module                   \
+         libslang                        \
+         libtraceevent                   \
+         libcpupower                     \
+@@ -140,7 +140,7 @@ FEATURE_DISPLAY ?=              \
+          libelf                 \
+          libnuma                \
+          numa_num_possible_cpus \
+-         libpython              \
++         python-module          \
+          libcapstone            \
+          llvm-perf              \
+          zlib                   \
+diff --git a/tools/build/feature/Makefile b/tools/build/feature/Makefile
+index 60e3df8142a5..5530f9e03fcf 100644
+--- a/tools/build/feature/Makefile
++++ b/tools/build/feature/Makefile
+@@ -30,7 +30,7 @@ FILES=                                          \
+          test-libdebuginfod.bin                 \
+          test-libnuma.bin                       \
+          test-numa_num_possible_cpus.bin        \
+-         test-libpython.bin                     \
++         test-python-module.bin                 \
+          test-libslang.bin                      \
+          test-libtraceevent.bin                 \
+          test-libcpupower.bin                   \
+@@ -252,7 +252,7 @@ $(OUTPUT)test-gtk2-infobar.bin:
+ grep-libs  = $(filter -l%,$(1))
+ strip-libs = $(filter-out -l%,$(1))
+ 
+-$(OUTPUT)test-libpython.bin:
++$(OUTPUT)test-python-module.bin:
+ 	$(BUILD) $(FLAGS_PYTHON_EMBED)
+ 
+ $(OUTPUT)test-libbfd.bin:
+diff --git a/tools/build/feature/test-all.c b/tools/build/feature/test-all.c
+index 1488bf6e6078..4400e3d24f81 100644
+--- a/tools/build/feature/test-all.c
++++ b/tools/build/feature/test-all.c
+@@ -10,8 +10,8 @@
+  * Quirk: Python headers cannot be in arbitrary places, so keep this testcase at
+  * the top:
+  */
+-#define main main_test_libpython
+-# include "test-libpython.c"
++#define main main_test_python_module
++# include "test-python-module.c"
+ #undef main
+ 
+ #define main main_test_hello
+@@ -148,7 +148,7 @@
+ 
+ int main(int argc, char *argv[])
+ {
+-	main_test_libpython();
++	main_test_python_module();
+ 	main_test_hello();
+ 	main_test_libelf();
+ 	main_test_gettid();
+diff --git a/tools/build/feature/test-libpython.c b/tools/build/feature/test-libpython.c
+deleted file mode 100644
+index 371c9113e49d..000000000000
+--- a/tools/build/feature/test-libpython.c
++++ /dev/null
+@@ -1,10 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0
+-#include <Python.h>
+-
+-int main(void)
+-{
+-	Py_Initialize();
+-
+-	return 0;
+-}
+-#undef _GNU_SOURCE
+diff --git a/tools/build/feature/test-python-module.c b/tools/build/feature/test-python-module.c
 new file mode 100644
-index 000000000000..bd1cdb463f28
+index 000000000000..d670dba014b0
 --- /dev/null
-+++ b/tools/perf/tests/shell/lib/perf_brstack_max.py
-@@ -0,0 +1,43 @@
-+#!/usr/bin/python
-+# SPDX-License-Identifier: GPL-2.0
-+# Determine the maximum size of branch stacks in a perf.data file.
++++ b/tools/build/feature/test-python-module.c
+@@ -0,0 +1,12 @@
++// SPDX-License-Identifier: GPL-2.0
++#include <Python.h>
 +
-+import argparse
-+import sys
++int main(void)
++{
++	static struct PyModuleDef moduledef = {
++		PyModuleDef_HEAD_INIT,
++	};
++	PyObject *module = PyModule_Create(&moduledef);
 +
-+import os
-+
-+script_dir = os.path.dirname(os.path.abspath(__file__))
-+python_dir = os.path.abspath(os.path.join(script_dir, "../../../python"))
-+sys.path.insert(0, python_dir)
-+
-+import perf
-+
-+def main():
-+    ap = argparse.ArgumentParser()
-+    ap.add_argument("-i", "--input", default="perf.data", help="Input file name")
-+    args = ap.parse_args()
-+
-+    bmax = 0
-+
-+    def process_event(sample):
-+        nonlocal bmax
-+        try:
-+            brstack = sample.brstack
-+            if brstack:
-+                n = len(list(brstack))
-+                if n > bmax:
-+                    bmax = n
-+        except AttributeError:
-+            pass
-+
-+    try:
-+        session = perf.session(perf.data(args.input), sample=process_event)
-+        session.process_events()
-+        print("max brstack", bmax)
-+    except Exception as e:
-+        print(f"Error processing events: {e}", file=sys.stderr)
-+        sys.exit(1)
-+
-+if __name__ == "__main__":
-+    main()
-diff --git a/tools/perf/tests/shell/test_intel_pt.sh b/tools/perf/tests/shell/test_intel_pt.sh
-index 8ee761f03c38..d711ecdf5be0 100755
---- a/tools/perf/tests/shell/test_intel_pt.sh
-+++ b/tools/perf/tests/shell/test_intel_pt.sh
-@@ -24,7 +24,6 @@ errfile="${temp_dir}/test-err.txt"
- workload="${temp_dir}/workload"
- awkscript="${temp_dir}/awkscript"
- jitdump_workload="${temp_dir}/jitdump_workload"
--maxbrstack="${temp_dir}/maxbrstack.py"
++	return module ? 0 : -1;
++}
+diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
+index ecddd91229c8..e2cef452964f 100644
+--- a/tools/perf/Makefile.config
++++ b/tools/perf/Makefile.config
+@@ -317,7 +317,7 @@ PYTHON_CONFIG_SQ := $(call shell-sq,$(PYTHON_CONFIG))
  
- cleanup()
- {
-@@ -539,34 +538,20 @@ test_kernel_trace()
- test_virtual_lbr()
- {
- 	echo "--- Test virtual LBR ---"
--	# Check if python script is supported
--	libpython=$(perf version --build-options | grep python | grep -cv OFF)
--	if [ "${libpython}" != "1" ] ; then
--		echo "SKIP: python scripting is not supported"
-+	# shellcheck source=lib/setup_python.sh
-+	. "$(dirname "$0")"/lib/setup_python.sh
-+
-+	if [ -z "$PYTHON" ] ; then
-+		echo "SKIP: Python not found"
- 		return 2
- 	fi
+ # Python 3.8 changed the output of `python-config --ldflags` to not include the
+ # '-lpythonX.Y' flag unless '--embed' is also passed. The feature check for
+-# libpython fails if that flag is not included in LDFLAGS
++# python-module fails if that flag is not included in LDFLAGS
+ ifeq ($(shell $(PYTHON_CONFIG_SQ) --ldflags --embed 2>&1 1>/dev/null; echo $$?), 0)
+   PYTHON_CONFIG_LDFLAGS := --ldflags --embed
+ else
+@@ -340,8 +340,8 @@ ifdef PYTHON_CONFIG
+   endif
+ endif
  
--	# Python script to determine the maximum size of branch stacks
--	cat << "_end_of_file_" > "${maxbrstack}"
--from __future__ import print_function
+-FEATURE_CHECK_CFLAGS-libpython := $(PYTHON_EMBED_CCOPTS)
+-FEATURE_CHECK_LDFLAGS-libpython := $(PYTHON_EMBED_LDOPTS)
++FEATURE_CHECK_CFLAGS-python-module := $(PYTHON_EMBED_CCOPTS)
++FEATURE_CHECK_LDFLAGS-python-module := $(PYTHON_EMBED_LDOPTS)
+ 
+ FEATURE_CHECK_LDFLAGS-libaio = -lrt
+ 
+@@ -830,13 +830,12 @@ endif
+ 
+ disable-python = $(eval $(disable-python_code))
+ define disable-python_code
+-  CFLAGS += -DNO_LIBPYTHON
+   $(warning $1)
+-  NO_LIBPYTHON := 1
++  NO_PYTHON_MODULE := 1
+ endef
+ 
+ PYTHON_EXTENSION_SUFFIX := '.so'
+-ifdef NO_LIBPYTHON
++ifdef NO_PYTHON_MODULE
+   $(call disable-python,Python support disabled by user)
+ else
+ 
+@@ -849,7 +848,7 @@ else
+       $(call disable-python,No 'python-config' tool was found: disables Python support - please install python-devel/python-dev)
+     else
+ 
+-      ifneq ($(feature-libpython), 1)
++      ifneq ($(feature-python-module), 1)
+         $(call disable-python,No 'Python.h' was found: disables Python support - please install python-devel/python-dev)
+       else
+          PYTHON_SETUPTOOLS_INSTALLED := $(shell $(PYTHON) -c 'import setuptools;' 2> /dev/null && echo "yes" || echo "no")
+diff --git a/tools/perf/Makefile.perf b/tools/perf/Makefile.perf
+index 2020532bab9c..e50b1e8cf85d 100644
+--- a/tools/perf/Makefile.perf
++++ b/tools/perf/Makefile.perf
+@@ -17,9 +17,7 @@ include ../scripts/utilities.mak
+ #
+ # Define CROSS_COMPILE as prefix name of compiler if you want cross-builds.
+ #
 -
--bmax = 0
--
--def process_event(param_dict):
--	if "brstack" in param_dict:
--		brstack = param_dict["brstack"]
--		n = len(brstack)
--		global bmax
--		if n > bmax:
--			bmax = n
--
--def trace_end():
--	print("max brstack", bmax)
--_end_of_file_
--
- 	# Check if virtual lbr is working
--	perf_record_no_bpf -o "${perfdatafile}" --aux-sample -e '{intel_pt//,cycles}:u' uname
--	times_val=$(perf script -i "${perfdatafile}" --itrace=L -s "${maxbrstack}" 2>/dev/null | grep "max brstack " | cut -d " " -f 3)
-+	perf_record_no_bpf -o "${tmpfile}" --aux-sample -e '{intel_pt//,cycles}:u' perf test -w brstack
-+	perf inject --itrace=L -i "${tmpfile}" -o "${perfdatafile}"
-+	output=$($PYTHON "$(dirname "$0")"/lib/perf_brstack_max.py -i "${perfdatafile}")
-+	echo "Debug: perf_brstack_max.py output: $output"
-+	times_val=$(echo "$output" | grep "max brstack " | cut -d " " -f 3)
- 	case "${times_val}" in
- 		[0-9]*)	;;
- 		*)	times_val=0;;
+-#
+-# Define NO_LIBPYTHON to disable python script extension.
++# Define NO_PYTHON_MODULE to disable python script extension.
+ #
+ # Define PYTHON to point to the python binary if the default
+ # `python' is not correct; for example: PYTHON=python2
+@@ -1099,10 +1097,10 @@ endif
+ 	$(call QUIET_INSTALL, perf-iostat) \
+ 		$(INSTALL) $(OUTPUT)perf-iostat -t '$(DESTDIR_SQ)$(perfexec_instdir_SQ)'
+ 
+-ifndef NO_LIBPYTHON
++ifndef NO_PYTHON_MODULE
+ 	$(call QUIET_INSTALL, python-scripts) \
+-		$(INSTALL) -d -m 755 '$(DESTDIR_SQ)$(perfexec_instdir_SQ)/scripts/python'; \
+-		$(INSTALL) python/*.py -m 644 -t '$(DESTDIR_SQ)$(perfexec_instdir_SQ)/scripts/python'
++		$(INSTALL) -d -m 755 '$(DESTDIR_SQ)$(perfexec_instdir_SQ)/python'; \
++		$(INSTALL) python/*.py -m 644 -t '$(DESTDIR_SQ)$(perfexec_instdir_SQ)/python'
+ endif
+ 	$(call QUIET_INSTALL, dlfilters) \
+ 		$(INSTALL) -d -m 755 '$(DESTDIR_SQ)$(perfexec_instdir_SQ)/dlfilters'; \
+diff --git a/tools/perf/tests/make b/tools/perf/tests/make
+index 31b064928cfc..f2c5f1c254a7 100644
+--- a/tools/perf/tests/make
++++ b/tools/perf/tests/make
+@@ -75,8 +75,6 @@ make_jevents_all    := JEVENTS_ARCH=all
+ make_no_bpf_skel    := BUILD_BPF_SKEL=0
+ make_gen_vmlinux_h  := GEN_VMLINUX_H=1
+ 
+-make_no_libpython   := NO_LIBPYTHON=1
+-make_no_scripts     := NO_LIBPYTHON=1
+ make_no_slang       := NO_SLANG=1
+ make_no_gtk2        := NO_GTK2=1
+ make_no_ui          := NO_SLANG=1 NO_GTK2=1
+@@ -118,7 +116,7 @@ make_install_prefix_slash := install prefix=/tmp/krava/
+ make_static         := LDFLAGS=-static NO_PERF_READ_VDSO32=1 NO_PERF_READ_VDSOX32=1 NO_JVMTI=1 NO_LIBTRACEEVENT=1 NO_LIBELF=1
+ 
+ # all the NO_* variable combined
+-make_minimal        := NO_LIBPYTHON=1 NO_GTK2=1
++make_minimal        := NO_GTK2=1
+ make_minimal        += NO_DEMANGLE=1 NO_LIBELF=1 NO_BACKTRACE=1
+ make_minimal        += NO_LIBNUMA=1 NO_LIBBIONIC=1 NO_LIBDW=1
+ make_minimal        += NO_LIBBPF=1
+@@ -150,7 +148,6 @@ run += make_jevents_all
+ run += make_no_bpf_skel
+ run += make_gen_vmlinux_h
+ 
+-run += make_no_libpython
+ run += make_no_scripts
+ run += make_no_slang
+ run += make_no_gtk2
 -- 
 2.54.0.545.g6539524ca2-goog
 
