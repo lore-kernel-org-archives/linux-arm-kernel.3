@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 779B9FF8864
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:52:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2850FF885C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:53:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eSIqwKcS0eTw/iJ71nuF6LH/l45/M4zma3yK4ndbcR0=; b=1H0IYqbVwfcZFSVYPo+UR0PipX
-	/QmdmIAip3RMsKBtG4eXT4aY5uofw7vNdZG4MrXmePHBcX5YfWe86O+an6yaZRFSzckE6SKYB4dxV
-	OlAORnBriFVsGfOdu6i/mkF/HsWd2jJ9cN9DcuE/rU0F9SyK+7GbLwFV87IW4iGEzrFjoAYHDMnQ6
-	g5aCWRjmzUQV7PyLkKFFKw1vS9VeYYXHaxzMo8Bb1kSD9RRK10BSGyL8mbOrp610exEkRZOplXsrk
-	KJqsQvOavyHkZye6MPsmVWELOHU8vv8hCyrNVfUzPx4OBjoaFNpg1M1WltRy+qMHZEi4WWe+H7+Cq
-	IKwlLbtA==;
+	bh=SC9Z8TYU3FIlegbJKB+Rnykve8tItTwLd+p+lGKeOhc=; b=kkxMF8OtnjjJ8LhPDRuv3tuX08
+	mOx0VAL3t21oLIWsTcpGbFRRrH0X4EPe0H6Gv8LD2wHrlbaFWleq2Ga3hxO+pL5ynAgzVi2jhIKcG
+	HP/4sXhmRCowllmnQSgCd07RO+6VyCbCZAci7YGzz70GU0MSnLOaq0xgSGIJAzgg8CSkg3h9v8rtQ
+	W9wrJndbRW1Qy+MyO5r8VVHsIBT5PiqWluya9MWxdj0LhdxVCdZOpWvqH1cWYkYq5Wyksm+HPvIiF
+	wGwnzyHacd99b/H4oDlfyGPuqug3eVzFXcEltj3GS/GGkDTGdv3Ah03F+SfvIwAu54VpkuqTD0wvX
+	duTQ1B5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlrN-0000000F08H-2lwX;
-	Sat, 25 Apr 2026 22:52:25 +0000
-Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
+	id 1wGlrl-0000000F0Zl-2fsu;
+	Sat, 25 Apr 2026 22:52:50 +0000
+Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlqV-0000000Ez5w-3HRh
+	id 1wGlqj-0000000EzLk-0Yw9
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Apr 2026 22:51:48 +0000
-Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2da19227bc1so20923804eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:51:30 -0700 (PDT)
+	Sat, 25 Apr 2026 22:51:55 +0000
+Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2eaf70f3b5fso734598eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:51:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777157490; x=1777762290; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777157503; x=1777762303; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=eSIqwKcS0eTw/iJ71nuF6LH/l45/M4zma3yK4ndbcR0=;
-        b=m0GWmG4HGyl8IkqqFCrPniXd1ggd5tqUo+PxwEQM/1416EfWZqdg4OXxkQus6n7PSi
-         rgXxhAd4M5LLLmfAQZVZgXNYFspk07kRtNAZz9Xsq7cwe7RkvnlEAceRjIM/3prQZe0a
-         EbhlTHEA4qD3Pob2yOG8p/ZwI0e2XukDQBN1cE0RybfoypPA4rdd5FPa9MkZwH7SGZ1F
-         6k1FAr0UYBjcyA151mdi+3VKtlH+/C7GJ3FHT9mNhLxhK7ecnM3bRjIgpu8PUd3Rd6Lr
-         ZV3M4JUewCFZl1S5Y2+rxgpqqY394LqxdU+bSvzg9Cf2qYkyCrgjXqxRjfRmlx2JW1wa
-         lACA==
+        bh=SC9Z8TYU3FIlegbJKB+Rnykve8tItTwLd+p+lGKeOhc=;
+        b=PdCiovLBtFqNThLViiZow4q2j/eBkLOSNyGu3btjJGX23xqZpo9xx/u9RREb9f7mhr
+         ycqbl/fCY0IlMVbIkM8Fm+R5HIThy1+mGcxt0wgX7j/jBefIUvAvqSPVWxp/T2FC+iDe
+         YzObjRHRb0XoPfMzHS4eD+fVSdy0ez6dRJwjeRGCpTMmmxfrKXVeG7ZMzDp+9kru0wlE
+         6Ld8lECJyrS8jJGhTulXflYquMxiISkEKSX2goSrf8CHH7sojOmgxQ8mcPvI76WUnY+7
+         T9+hvZHRnuPNugJXbw0D9e43swCrjmMPgRP8zeBY2oyKdApAj9oogSRehJqC8O5UZX92
+         XnlQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777157490; x=1777762290;
+        d=1e100.net; s=20251104; t=1777157503; x=1777762303;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=eSIqwKcS0eTw/iJ71nuF6LH/l45/M4zma3yK4ndbcR0=;
-        b=tNaZ6YcD7tLuutkTsQLjC+gAIBaVJNVy1aXvO+HA95Q8pdRZeCe6LuGpI0g/BX1fBs
-         fZDi9aYfS68zTNk+YkQBiuo3sdlbKXfOw1V1Kcfuiqy94109GajhumEjA41qwsfXfrKd
-         M/tAEVjJSCDAFP3su9wKVKNVFqkGvWDaMSmc+6P55YJI5uH8H9EYAa7ZEu4HHo6VOfua
-         7QO2Ah3rH9bvVlO7tgZ1V8IDKcq/da9Os5csQwov95Fj8jJy39Lxtv9sRaP4ZKO8lwyo
-         6oIEpQm8CfbszTdomn9TdxtP75r9NgDy5vHr2OmGwTgZ4k5Wp/bJlrvHTJthxPkqBY23
-         E0bw==
-X-Forwarded-Encrypted: i=1; AFNElJ8IBvThn2Y3t7TYHX10Y7Qn51YdFI6Caio27M1VmKELR1gWn0O0I+iqDuKbkUBmZY9lOEfOET/bri406j7pS4hd@lists.infradead.org
-X-Gm-Message-State: AOJu0YzONayPyS+5NVWOxlpbOPjukrwvg+D6vXSwTBCaaFBXBiZggKbF
-	mtoMUDpP64taN598SoBmJ2fozrBqHiKo3HNvMsvNacu8tvXrdyn999gGJYh2v9g660ye2tzTU+N
-	IWAXKqcolpQ==
-X-Received: from dyckg11.prod.google.com ([2002:a05:7301:d18b:b0:2e8:5e04:ef25])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:fa10:b0:2e6:e504:5435
- with SMTP id 5a478bee46e88-2e6e5045e56mr11466870eec.12.1777157489866; Sat, 25
- Apr 2026 15:51:29 -0700 (PDT)
-Date: Sat, 25 Apr 2026 15:49:29 -0700
+        bh=SC9Z8TYU3FIlegbJKB+Rnykve8tItTwLd+p+lGKeOhc=;
+        b=GJpSRS3/uF7cCFt6Kg4J9kjGX7Mbv8CNhIXsIFbTHAK1PvS1XsoYYke7Wh77kJhsTs
+         oo/8bzGdGhdIjRj4ebpnHaQS+qG169UpzyfqJnA7BPzvzvZQ6fdfRRwiFqD5nBbJuNuu
+         Mfi1OzmuQz10Ck72Ik8C+pvdy9HkF3dTRHHESKcKxh9cFL7f4SPF0E/Y8WVnSslaHT/L
+         s40r3RyXOgeyQKBnPuNG1NqqbgaEfRsfe+8/a/uPakKBf6Nr8WcowbDkAgOycrYpXT0c
+         VifZFU5+8zPr9s7RJ07P+FPoFC+TZ4nXB+WiW5CClhbJpApTZTHX/XVZmHXQxE3oT92+
+         8zwA==
+X-Forwarded-Encrypted: i=1; AFNElJ96BuAVoSQZN5Os2NQBw1SZLZ2Y5zInp7mlJdTxHzF2y0W0E6OcpL8cdrwk/WlM2hP43eJbuqSAL4XeOz4QqjJF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw0r0O1mCF8HcGgvPckMqLnVfXq533mi2uczWomyrYeKi3KqL0H
+	kPkk/PVYCLDnI4AkpFhROkaM7q8RFk6h8XSjL7In3uIQ9iFPdLQkJEWdCa0QG76SNxcpHqjup+k
+	rYQTedHbmMA==
+X-Received: from dycf28.prod.google.com ([2002:a05:7300:50dc:b0:2d9:6c52:c24a])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:641a:b0:2dd:6937:79d6
+ with SMTP id 5a478bee46e88-2e46c48a9cfmr15637752eec.7.1777157502527; Sat, 25
+ Apr 2026 15:51:42 -0700 (PDT)
+Date: Sat, 25 Apr 2026 15:49:35 -0700
 In-Reply-To: <20260425224951.174663-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260425174858.3922152-1-irogers@google.com> <20260425224951.174663-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260425224951.174663-38-irogers@google.com>
-Subject: [PATCH v7 37/59] perf export-to-postgresql: Port export-to-postgresql
+Message-ID: <20260425224951.174663-44-irogers@google.com>
+Subject: [PATCH v7 43/59] perf sched-migration: Port sched-migration/SchedGui
  to use python module
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org, 
@@ -76,8 +76,8 @@ Cc: alice.mei.rogers@gmail.com, dapeng1.mi@linux.intel.com,
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260425_155132_014662_405E8212 
-X-CRM114-Status: GOOD (  18.46  )
+X-CRM114-CacheID: sfid-20260425_155145_604602_83885F21 
+X-CRM114-Status: GOOD (  20.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,729 +92,760 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ported from tools/perf/scripts/python/export-to-postgresql.py to use
-the perf Python module API.
+Ported from tools/perf/scripts/python/ and its Util lib.
+- Refactored sched-migration.py to use a class structure
+  (SchedMigrationAnalyzer) to encapsulate state.
+- Used perf.session for event processing.
+- Ported SchedGui.py to the same directory to keep it as a local
+  dependency.
+- Made wxPython dependency optional in sched-migration.py, printing a
+  message if it's missing instead of failing with ImportError.
+- Cleaned up Python 2 compatibility artifacts.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
-v5:
-1. Fix Data Integrity: Added `comm_thread` ID sequence to prevent duplicate
-   primary keys in `comm_threads` table.
-2. Fix COPY failure: Ensured file trailer is written and files are closed
-   before being copied to PostgreSQL, preventing data rejection.
----
- tools/perf/python/export-to-postgresql.py | 701 ++++++++++++++++++++++
- 1 file changed, 701 insertions(+)
- create mode 100755 tools/perf/python/export-to-postgresql.py
+v2:
 
-diff --git a/tools/perf/python/export-to-postgresql.py b/tools/perf/python/export-to-postgresql.py
+tools/perf/python/SchedGui.py:
+ - Python 3 Compatibility: Fixed TypeError issues caused by float
+   division in Python 3 when wxPython expected integers. Used integer
+   division ( // ) and explicit int() casts for scrollbar and size
+   calculations.
+ - wxPython Phoenix API Updates:
+   - Replaced deprecated  SetDimensions()  with  SetSize() .
+   - Replaced removed GetPositionTuple() with GetPosition() in
+     on_mouse_down.
+ - Fixed wx.PaintDC creation in on_paint to use
+   event.GetEventObject() to ensure valid DC creation regardless of
+   which window triggered the event.
+ - Layout and Rendering Fixes:
+   - Replaced static layout with a wx.SplitterWindow to physically
+     separate the drawing area from the text area, preventing them
+     from overlapping and restoring scrollbar functionality.
+   - Adjusted the initial sash position to give 3/4 of the height to
+     the drawing area.
+   - Replaced wx.StaticText with a multiline wx.TextCtrl for the
+     summary area to allow text selection and simpler value updates.
+   - Added CPU labels ("CPU ") drawn at the left edge of the visible
+     area in on_paint .
+   - Added background clearing ( dc.Clear() ) in on_paint to avoid
+     "ghosting" of old text and rectangles when scrolling.
+
+tools/perf/python/sched-migration.py:
+ - Fixed a bug where sharing a snapshot in find_time_slice caused data
+   mutation across calls.
+ - Added safety checks to handle empty data cases (e.g., when
+   intervals have no events).
+ - Fixed fallbacks in fill_zone when search conditions fail to find a
+   matching time slice.
+---
+ tools/perf/python/SchedGui.py        | 219 +++++++++++++
+ tools/perf/python/sched-migration.py | 469 +++++++++++++++++++++++++++
+ 2 files changed, 688 insertions(+)
+ create mode 100755 tools/perf/python/SchedGui.py
+ create mode 100755 tools/perf/python/sched-migration.py
+
+diff --git a/tools/perf/python/SchedGui.py b/tools/perf/python/SchedGui.py
 new file mode 100755
-index 000000000000..0118dc348b1e
+index 000000000000..6111f3e5f552
 --- /dev/null
-+++ b/tools/perf/python/export-to-postgresql.py
-@@ -0,0 +1,701 @@
++++ b/tools/perf/python/SchedGui.py
+@@ -0,0 +1,219 @@
 +#!/usr/bin/env python3
 +# SPDX-License-Identifier: GPL-2.0
-+r"""
-+Export perf data to a postgresql database.
++# SchedGui.py - Python extension for perf script, basic GUI code for
++#		traces drawing and overview.
++#
++# Copyright (C) 2010 by Frederic Weisbecker <fweisbec@gmail.com>
++#
++# Ported to modern directory structure.
 +
-+This script has been ported to use the modern perf Python module and
-+libpq via ctypes. It no longer requires PySide2 or QtSql for exporting.
++try:
++    import wx  # type: ignore
++except ImportError:
++    raise ImportError("You need to install the wxpython lib for this script")
 +
-+The script assumes postgresql is running on the local machine and that the
-+user has postgresql permissions to create databases.
 +
-+An example of using this script with Intel PT:
++class RootFrame(wx.Frame):
++    Y_OFFSET = 100
++    RECT_HEIGHT = 100
++    RECT_SPACE = 50
++    EVENT_MARKING_WIDTH = 5
 +
-+	$ perf record -e intel_pt//u ls
-+	$ python tools/perf/python/export-to-postgresql.py -i perf.data -o pt_example
++    def __init__(self, sched_tracer, title, parent=None, id=-1):
++        wx.Frame.__init__(self, parent, id, title)
 +
-+To browse the database, psql can be used e.g.
++        (self.screen_width, self.screen_height) = wx.GetDisplaySize()
++        self.screen_width -= 10
++        self.screen_height -= 10
++        self.zoom = 0.5
++        self.scroll_scale = 20
++        self.sched_tracer = sched_tracer
++        self.sched_tracer.set_root_win(self)
++        (self.ts_start, self.ts_end) = sched_tracer.interval()
++        self.update_width_virtual()
++        self.nr_rects = sched_tracer.nr_rectangles() + 1
++        self.height_virtual = RootFrame.Y_OFFSET + \
++            (self.nr_rects * (RootFrame.RECT_HEIGHT + RootFrame.RECT_SPACE))
 +
-+	$ psql pt_example
-+	pt_example=# select * from samples_view where id < 100;
-+	pt_example=# \d+
-+	pt_example=# \d+ samples_view
-+	pt_example=# \q
++        # whole window panel
++        self.panel = wx.Panel(self, size=(self.screen_width, self.screen_height))
 +
-+An example of using the database is provided by the script
-+exported-sql-viewer.py. Refer to that script for details.
++        # scrollable container
++        # Create SplitterWindow
++        self.splitter = wx.SplitterWindow(self.panel, style=wx.SP_3D)
 +
-+Tables:
++        # scrollable container (Top)
++        self.scroll = wx.ScrolledWindow(self.splitter)
++        self.scroll.SetScrollbars(self.scroll_scale, self.scroll_scale,
++                                  int(self.width_virtual // self.scroll_scale),
++                                  int(self.height_virtual // self.scroll_scale))
++        self.scroll.EnableScrolling(True, True)
++        self.scroll.SetFocus()
 +
-+	The tables largely correspond to perf tools' data structures. They are
-+	largely self-explanatory.
++        # scrollable drawing area
++        self.scroll_panel = wx.Panel(self.scroll,
++                                     size=(self.screen_width - 15, self.screen_height // 2))
++        self.scroll_panel.Bind(wx.EVT_PAINT, self.on_paint)
++        self.scroll_panel.Bind(wx.EVT_KEY_DOWN, self.on_key_press)
++        self.scroll_panel.Bind(wx.EVT_LEFT_DOWN, self.on_mouse_down)
++        self.scroll.Bind(wx.EVT_KEY_DOWN, self.on_key_press)
++        self.scroll.Bind(wx.EVT_LEFT_DOWN, self.on_mouse_down)
 +
-+	samples
-+		'samples' is the main table. It represents what instruction was
-+		executing at a point in time when something (a selected event)
-+		happened. The memory address is the instruction pointer or 'ip'.
++        self.scroll_panel.SetSize(int(self.width_virtual), int(self.height_virtual))
 +
-+	branch_types
-+		'branch_types' provides descriptions for each type of branch.
++        # Create a separate panel for text (Bottom)
++        self.text_panel = wx.Panel(self.splitter)
++        self.text_sizer = wx.BoxSizer(wx.VERTICAL)
++        self.txt = wx.TextCtrl(self.text_panel, -1, "Click a bar to see details",
++                               style=wx.TE_MULTILINE)
++        self.text_sizer.Add(self.txt, 1, wx.EXPAND | wx.ALL, 5)
++        self.text_panel.SetSizer(self.text_sizer)
 +
-+	comm_threads
-+		'comm_threads' shows how 'comms' relates to 'threads'.
++        # Split the window
++        self.splitter.SplitHorizontally(self.scroll, self.text_panel, (self.screen_height * 3) // 4)
 +
-+	comms
-+		'comms' contains a record for each 'comm' - the name given to the
-+		executable that is running.
++        # Main sizer to layout splitter
++        self.main_sizer = wx.BoxSizer(wx.VERTICAL)
++        self.main_sizer.Add(self.splitter, 1, wx.EXPAND)
++        self.panel.SetSizer(self.main_sizer)
 +
-+	dsos
-+		'dsos' contains a record for each executable file or library.
++        self.scroll.Fit()
++        self.Fit()
 +
-+	machines
-+		'machines' can be used to distinguish virtual machines if
-+		virtualization is supported.
++        self.Show(True)
 +
-+	selected_events
-+		'selected_events' contains a record for each kind of event that
-+		has been sampled.
++    def us_to_px(self, val):
++        return val / (10 ** 3) * self.zoom
 +
-+	symbols
-+		'symbols' contains a record for each symbol. Only symbols that
-+		have samples are present.
++    def px_to_us(self, val):
++        return (val / self.zoom) * (10 ** 3)
 +
-+	threads
-+		'threads' contains a record for each thread.
++    def scroll_start(self):
++        (x, y) = self.scroll.GetViewStart()
++        return (x * self.scroll_scale, y * self.scroll_scale)
 +
-+Views:
++    def scroll_start_us(self):
++        (x, y) = self.scroll_start()
++        return self.px_to_us(x)
 +
-+	Most of the tables have views for more friendly display. The views are:
++    def paint_rectangle_zone(self, nr, color, top_color, start, end):
++        offset_px = self.us_to_px(start - self.ts_start)
++        width_px = self.us_to_px(end - start)
 +
-+		comm_threads_view
-+		dsos_view
-+		machines_view
-+		samples_view
-+		symbols_view
-+		threads_view
++        offset_py = RootFrame.Y_OFFSET + (nr * (RootFrame.RECT_HEIGHT + RootFrame.RECT_SPACE))
++        width_py = RootFrame.RECT_HEIGHT
 +
-+Ported from tools/perf/scripts/python/export-to-postgresql.py
++        dc = self.dc
++
++        if top_color is not None:
++            (r, g, b) = top_color
++            top_color = wx.Colour(r, g, b)
++            brush = wx.Brush(top_color, wx.SOLID)
++            dc.SetBrush(brush)
++            dc.DrawRectangle(int(offset_px), int(offset_py),
++                             int(width_px), RootFrame.EVENT_MARKING_WIDTH)
++            width_py -= RootFrame.EVENT_MARKING_WIDTH
++            offset_py += RootFrame.EVENT_MARKING_WIDTH
++
++        (r, g, b) = color
++        color = wx.Colour(r, g, b)
++        brush = wx.Brush(color, wx.SOLID)
++        dc.SetBrush(brush)
++        dc.DrawRectangle(int(offset_px), int(offset_py), int(width_px), int(width_py))
++
++    def update_rectangles(self, dc, start, end):
++        start += self.ts_start
++        end += self.ts_start
++        self.sched_tracer.fill_zone(start, end)
++
++    def on_paint(self, event):
++        window = event.GetEventObject()
++        dc = wx.PaintDC(window)
++
++        # Clear background to avoid ghosting
++        dc.SetBackground(wx.Brush(window.GetBackgroundColour()))
++        dc.Clear()
++
++        self.dc = dc
++
++        width = min(self.width_virtual, self.screen_width)
++        (x, y) = self.scroll_start()
++        start = self.px_to_us(x)
++        end = self.px_to_us(x + width)
++        self.update_rectangles(dc, start, end)
++
++        # Draw CPU labels at the left edge of the visible area
++        (x_scroll, _) = self.scroll_start()
++        for nr in range(self.nr_rects):
++            offset_py = RootFrame.Y_OFFSET + (nr * (RootFrame.RECT_HEIGHT + RootFrame.RECT_SPACE))
++            dc.DrawText(f"CPU {nr}", x_scroll + 10, offset_py + 10)
++
++    def rect_from_ypixel(self, y):
++        y -= RootFrame.Y_OFFSET
++        rect = y // (RootFrame.RECT_HEIGHT + RootFrame.RECT_SPACE)
++        height = y % (RootFrame.RECT_HEIGHT + RootFrame.RECT_SPACE)
++
++        if rect < 0 or rect > self.nr_rects - 1 or height > RootFrame.RECT_HEIGHT:
++            return -1
++
++        return rect
++
++    def update_summary(self, txt):
++        self.txt.SetValue(txt)
++        self.text_panel.Layout()
++        self.splitter.Layout()
++        self.text_panel.Refresh()
++
++    def on_mouse_down(self, event):
++        pos = event.GetPosition()
++        x, y = pos.x, pos.y
++        rect = self.rect_from_ypixel(y)
++        if rect == -1:
++            return
++
++        t = self.px_to_us(x) + self.ts_start
++
++        self.sched_tracer.mouse_down(rect, t)
++
++    def update_width_virtual(self):
++        self.width_virtual = self.us_to_px(self.ts_end - self.ts_start)
++
++    def __zoom(self, x):
++        self.update_width_virtual()
++        (xpos, ypos) = self.scroll.GetViewStart()
++        xpos = int(self.us_to_px(x) // self.scroll_scale)
++        self.scroll.SetScrollbars(self.scroll_scale, self.scroll_scale,
++                                  int(self.width_virtual // self.scroll_scale),
++                                  int(self.height_virtual // self.scroll_scale),
++                                  xpos, ypos)
++        self.Refresh()
++
++    def zoom_in(self):
++        x = self.scroll_start_us()
++        self.zoom *= 2
++        self.__zoom(x)
++
++    def zoom_out(self):
++        x = self.scroll_start_us()
++        self.zoom /= 2
++        self.__zoom(x)
++
++    def on_key_press(self, event):
++        key = event.GetRawKeyCode()
++        if key == ord("+"):
++            self.zoom_in()
++            return
++        if key == ord("-"):
++            self.zoom_out()
++            return
++
++        key = event.GetKeyCode()
++        (x, y) = self.scroll.GetViewStart()
++        if key == wx.WXK_RIGHT:
++            self.scroll.Scroll(x + 1, y)
++        elif key == wx.WXK_LEFT:
++            self.scroll.Scroll(x - 1, y)
++        elif key == wx.WXK_DOWN:
++            self.scroll.Scroll(x, y + 1)
++        elif key == wx.WXK_UP:
++            self.scroll.Scroll(x, y - 1)
+diff --git a/tools/perf/python/sched-migration.py b/tools/perf/python/sched-migration.py
+new file mode 100755
+index 000000000000..331278958763
+--- /dev/null
++++ b/tools/perf/python/sched-migration.py
+@@ -0,0 +1,469 @@
++#!/usr/bin/env python3
++# SPDX-License-Identifier: GPL-2.0
++"""
++Cpu task migration overview toy
++
++Copyright (C) 2010 Frederic Weisbecker <fweisbec@gmail.com>
++Ported to modern directory structure and refactored to use class.
 +"""
 +
 +import argparse
-+from ctypes import CDLL, c_char_p, c_int, c_void_p, c_ubyte
-+import ctypes.util
-+import os
-+import shutil
-+import struct
-+import sys
-+from typing import Any, Dict, Optional
++from collections import defaultdict, UserList
 +import perf
 +
-+# Need to access PostgreSQL C library directly to use COPY FROM STDIN
-+libpq_name = ctypes.util.find_library("pq")
-+if not libpq_name:
-+    libpq_name = "libpq.so.5"
-+
++# SchedGui might not be available if wxPython is missing
 +try:
-+    libpq = CDLL(libpq_name)
-+except OSError as e:
-+    print(f"Error loading {libpq_name}: {e}")
-+    print("Please ensure PostgreSQL client library is installed.")
-+    sys.exit(1)
++    from SchedGui import RootFrame
++    import wx  # type: ignore
++    WX_AVAILABLE = True
++except ImportError:
++    WX_AVAILABLE = False
 +
-+PQconnectdb = libpq.PQconnectdb
-+PQconnectdb.restype = c_void_p
-+PQconnectdb.argtypes = [c_char_p]
-+PQfinish = libpq.PQfinish
-+PQfinish.argtypes = [c_void_p]
-+PQstatus = libpq.PQstatus
-+PQstatus.restype = c_int
-+PQstatus.argtypes = [c_void_p]
-+PQexec = libpq.PQexec
-+PQexec.restype = c_void_p
-+PQexec.argtypes = [c_void_p, c_char_p]
-+PQresultStatus = libpq.PQresultStatus
-+PQresultStatus.restype = c_int
-+PQresultStatus.argtypes = [c_void_p]
-+PQputCopyData = libpq.PQputCopyData
-+PQputCopyData.restype = c_int
-+PQputCopyData.argtypes = [c_void_p, c_void_p, c_int]
-+PQputCopyEnd = libpq.PQputCopyEnd
-+PQputCopyEnd.restype = c_int
-+PQputCopyEnd.argtypes = [c_void_p, c_void_p]
-+PQgetResult = libpq.PQgetResult
-+PQgetResult.restype = c_void_p
-+PQgetResult.argtypes = [c_void_p]
-+PQclear = libpq.PQclear
-+PQclear.argtypes = [c_void_p]
++# Global threads dictionary
++threads = defaultdict(lambda: "unknown")
++threads[0] = "idle"
 +
 +
-+def toserverstr(s: str) -> bytes:
-+    """Convert string to server encoding (UTF-8)."""
-+    return bytes(s, "UTF_8")
++def thread_name(pid: int) -> str:
++    """Return thread name formatted with pid."""
++    return f"{threads[pid]}:{pid}"
 +
 +
-+def toclientstr(s: str) -> bytes:
-+    """Convert string to client encoding (UTF-8)."""
-+    return bytes(s, "UTF_8")
++def task_state(state: int) -> str:
++    """Map task state integer to string."""
++    states = {
++        0: "R",
++        1: "S",
++        2: "D",
++        64: "DEAD"
++    }
++    return states.get(state, "Unknown")
 +
 +
++class RunqueueEventUnknown:
++    """Unknown runqueue event."""
++    @staticmethod
++    def color():
++        """Return color for event."""
++        return None
 +
-+class PostgresExporter:
-+    """Handles PostgreSQL connection and exporting of perf events."""
-+
-+    def __init__(self, dbname: str):
-+        self.dbname = dbname
-+        self.conn = None
-+        self.session: Optional[perf.session] = None
-+        self.output_dir_name = os.getcwd() + "/" + dbname + "-perf-data"
-+
-+        self.file_header = struct.pack("!11sii", b"PGCOPY\n\377\r\n\0", 0, 0)
-+        self.file_trailer = b"\377\377"
-+
-+        # Caches and counters grouped to reduce instance attributes
-+        self.caches: Dict[str, dict] = {
-+            'threads': {},
-+            'comms': {},
-+            'dsos': {},
-+            'symbols': {},
-+            'events': {},
-+            'branch_types': {},
-+            'call_paths': {}
-+        }
-+
-+        self.next_id = {
-+            'thread': 1,
-+            'comm': 1,
-+            'dso': 1,
-+            'symbol': 1,
-+            'event': 1,
-+            'branch_type': 1,
-+            'comm_thread': 1,
-+            'call_path': 1
-+        }
-+
-+        self.files: Dict[str, Any] = {}
-+        self.unhandled_count = 0
-+
-+    def connect(self, db_to_use: str) -> None:
-+        """Connect to database."""
-+        conn_str = toclientstr(f"dbname = {db_to_use}")
-+        self.conn = PQconnectdb(conn_str)
-+        if PQstatus(self.conn) != 0:
-+            raise RuntimeError(f"PQconnectdb failed for {db_to_use}")
-+
-+    def disconnect(self) -> None:
-+        """Disconnect from database."""
-+        if self.conn:
-+            PQfinish(self.conn)
-+            self.conn = None
-+
-+    def do_query(self, sql: str) -> None:
-+        """Execute a query and check status."""
-+        res = PQexec(self.conn, toserverstr(sql))
-+        status = PQresultStatus(res)
-+        PQclear(res)
-+        if status not in (1, 2):  # PGRES_COMMAND_OK, PGRES_TUPLES_OK
-+            raise RuntimeError(f"Query failed: {sql}")
++    def __repr__(self):
++        return "unknown"
 +
 +
-+    def open_output_file(self, file_name: str):
-+        """Open intermediate binary file."""
-+        path_name = self.output_dir_name + "/" + file_name
-+        f = open(path_name, "wb+")
-+        f.write(self.file_header)
-+        return f
++class RunqueueEventSleep:
++    """Sleep runqueue event."""
++    @staticmethod
++    def color():
++        """Return color for event."""
++        return 0, 0, 0xff
 +
-+    def close_output_file(self, f):
-+        """Close intermediate binary file."""
-+        f.write(self.file_trailer)
-+        f.close()
++    def __init__(self, sleeper: int):
++        self.sleeper = sleeper
 +
-+    def copy_output_file(self, path_name: str, table_name: str):
-+        """Copy intermediate file to database."""
-+        sql = f"COPY {table_name} FROM STDIN (FORMAT 'binary')"
-+        res = PQexec(self.conn, toserverstr(sql))
-+        if PQresultStatus(res) != 4:  # PGRES_COPY_IN
-+            PQclear(res)
-+            raise RuntimeError(f"COPY FROM STDIN PQexec failed for {table_name}")
-+        PQclear(res)
-+
-+        with open(path_name, "rb") as f:
-+            data = f.read(65536)
-+            while len(data) > 0:
-+                c_data = (c_ubyte * len(data)).from_buffer_copy(data)
-+                ret = PQputCopyData(self.conn, c_data, len(data))
-+                if ret != 1:
-+                    raise RuntimeError(f"PQputCopyData failed for {table_name}")
-+                data = f.read(65536)
-+
-+        ret = PQputCopyEnd(self.conn, None)
-+        if ret != 1:
-+            raise RuntimeError(f"PQputCopyEnd failed for {table_name}")
-+
-+        res = PQgetResult(self.conn)
-+        while res:
-+            PQclear(res)
-+            res = PQgetResult(self.conn)
++    def __repr__(self):
++        return f"{thread_name(self.sleeper)} gone to sleep"
 +
 +
++class RunqueueEventWakeup:
++    """Wakeup runqueue event."""
++    @staticmethod
++    def color():
++        """Return color for event."""
++        return 0xff, 0xff, 0
 +
-+    def setup_db(self) -> None:
-+        """Create database and tables. MUST be called after init."""
-+        os.mkdir(self.output_dir_name)
++    def __init__(self, wakee: int):
++        self.wakee = wakee
 +
-+        self.connect('postgres')
-+        try:
-+            self.do_query(f'CREATE DATABASE "{self.dbname}"')
-+        except Exception as e:
-+            os.rmdir(self.output_dir_name)
-+            raise e
-+        self.disconnect()
-+
-+        self.connect(self.dbname)
-+        self.do_query("SET client_min_messages TO WARNING")
-+
-+        self.do_query("""
-+            CREATE TABLE selected_events (
-+                    id              bigint          NOT NULL,
-+                    name            varchar(80))
-+        """)
-+        self.do_query("""
-+            CREATE TABLE machines (
-+                    id              bigint          NOT NULL,
-+                    pid             integer,
-+                    root_dir        varchar(4096))
-+        """)
-+        self.do_query("""
-+            CREATE TABLE threads (
-+                    id              bigint          NOT NULL,
-+                    machine_id      bigint,
-+                    process_id      bigint,
-+                    pid             integer,
-+                    tid             integer)
-+        """)
-+        self.do_query("""
-+            CREATE TABLE comms (
-+                    id              bigint          NOT NULL,
-+                    comm            varchar(16),
-+                    c_thread_id     bigint,
-+                    c_time          bigint,
-+                    exec_flag       boolean)
-+        """)
-+        self.do_query("""
-+            CREATE TABLE comm_threads (
-+                    id              bigint          NOT NULL,
-+                    comm_id         bigint,
-+                    thread_id       bigint)
-+        """)
-+        self.do_query("""
-+            CREATE TABLE dsos (
-+                    id              bigint          NOT NULL,
-+                    machine_id      bigint,
-+                    short_name      varchar(256),
-+                    long_name       varchar(4096),
-+                    build_id        varchar(64))
-+        """)
-+        self.do_query("""
-+            CREATE TABLE symbols (
-+                    id              bigint          NOT NULL,
-+                    dso_id          bigint,
-+                    sym_start       bigint,
-+                    sym_end         bigint,
-+                    binding         integer,
-+                    name            varchar(2048))
-+        """)
-+        self.do_query("""
-+            CREATE TABLE branch_types (
-+                    id              integer         NOT NULL,
-+                    name            varchar(80))
-+        """)
-+        self.do_query("""
-+            CREATE TABLE samples (
-+                    id              bigint          NOT NULL,
-+                    evsel_id        bigint,
-+                    machine_id      bigint,
-+                    thread_id       bigint,
-+                    comm_id         bigint,
-+                    dso_id          bigint,
-+                    symbol_id       bigint,
-+                    sym_offset      bigint,
-+                    ip              bigint,
-+                    time            bigint,
-+                    cpu             integer,
-+                    to_dso_id       bigint,
-+                    to_symbol_id    bigint,
-+                    to_sym_offset   bigint,
-+                    to_ip           bigint,
-+                    period          bigint,
-+                    weight          bigint,
-+                    transaction_    bigint,
-+                    data_src        bigint,
-+                    branch_type     integer,
-+                    in_tx           boolean,
-+                    call_path_id    bigint,
-+                    insn_count      bigint,
-+                    cyc_count       bigint,
-+                    flags           integer)
-+        """)
-+        self.do_query("""
-+            CREATE TABLE call_paths (
-+                    id              bigint          NOT NULL,
-+                    parent_id       bigint,
-+                    symbol_id       bigint,
-+                    ip              bigint)
-+        """)
-+
-+        self.files['evsel'] = self.open_output_file("evsel_table.bin")
-+        self.files['machine'] = self.open_output_file("machine_table.bin")
-+        self.files['thread'] = self.open_output_file("thread_table.bin")
-+        self.files['comm'] = self.open_output_file("comm_table.bin")
-+        self.files['comm_thread'] = self.open_output_file("comm_thread_table.bin")
-+        self.files['dso'] = self.open_output_file("dso_table.bin")
-+        self.files['symbol'] = self.open_output_file("symbol_table.bin")
-+        self.files['branch_type'] = self.open_output_file("branch_type_table.bin")
-+        self.files['sample'] = self.open_output_file("sample_table.bin")
-+        self.files['call_path'] = self.open_output_file("call_path_table.bin")
-+
-+        self.write_evsel(0, "unknown")
-+        self.write_machine(0, 0, "unknown")
-+        self.write_thread(0, 0, 0, -1, -1)
-+        self.write_comm(0, "unknown", 0, 0, 0)
-+        self.write_dso(0, 0, "unknown", "unknown", "")
-+        self.write_symbol(0, 0, 0, 0, 0, "unknown")
-+        self.write_call_path(0, 0, 0, 0)
-+
-+    def write_evsel(self, evsel_id: int, name: str) -> None:
-+        """Write event to binary file."""
-+        name_bytes = toserverstr(name)
-+        n = len(name_bytes)
-+        fmt = "!hiqi" + str(n) + "s"
-+        value = struct.pack(fmt, 2, 8, evsel_id, n, name_bytes)
-+        self.files['evsel'].write(value)
-+
-+    def write_machine(self, machine_id: int, pid: int, root_dir: str) -> None:
-+        """Write machine to binary file."""
-+        rd_bytes = toserverstr(root_dir)
-+        n = len(rd_bytes)
-+        fmt = "!hiqiii" + str(n) + "s"
-+        value = struct.pack(fmt, 3, 8, machine_id, 4, pid, n, rd_bytes)
-+        self.files['machine'].write(value)
++    def __repr__(self):
++        return f"{thread_name(self.wakee)} woke up"
 +
 +
-+    def write_thread(self, thread_id: int, machine_id: int, process_id: int,
-+                     pid: int, tid: int) -> None:
-+        """Write thread to binary file."""
-+        value = struct.pack("!hiqiqiqiiii", 5, 8, thread_id, 8, machine_id,
-+                            8, process_id, 4, pid, 4, tid)
-+        self.files['thread'].write(value)
++class RunqueueEventFork:
++    """Fork runqueue event."""
++    @staticmethod
++    def color():
++        """Return color for event."""
++        return 0, 0xff, 0
++
++    def __init__(self, child: int):
++        self.child = child
++
++    def __repr__(self):
++        return f"new forked task {thread_name(self.child)}"
 +
 +
-+    def write_comm(self, comm_id: int, comm_str: str, thread_id: int,
-+                   time: int, exec_flag: int) -> None:
-+        """Write comm to binary file."""
-+        comm_bytes = toserverstr(comm_str)
-+        n = len(comm_bytes)
-+        fmt = "!hiqi" + str(n) + "s" + "iqiqiB"
-+        value = struct.pack(fmt, 5, 8, comm_id, n, comm_bytes, 8,
-+                            thread_id, 8, time, 1, exec_flag)
-+        self.files['comm'].write(value)
++class RunqueueMigrateIn:
++    """Migrate in runqueue event."""
++    @staticmethod
++    def color():
++        """Return color for event."""
++        return 0, 0xf0, 0xff
 +
-+    def write_comm_thread(self, comm_thread_id: int, comm_id: int,
-+                          thread_id: int) -> None:
-+        """Write comm_thread to binary file."""
-+        fmt = "!hiqiqiq"
-+        value = struct.pack(fmt, 3, 8, comm_thread_id, 8, comm_id, 8, thread_id)
-+        self.files['comm_thread'].write(value)
++    def __init__(self, new: int):
++        self.new = new
++
++    def __repr__(self):
++        return f"task migrated in {thread_name(self.new)}"
 +
 +
-+    def write_dso(self, dso_id: int, machine_id: int, short_name: str,
-+                  long_name: str, build_id: str) -> None:
-+        """Write DSO to binary file."""
-+        sn_bytes = toserverstr(short_name)
-+        ln_bytes = toserverstr(long_name)
-+        bi_bytes = toserverstr(build_id)
-+        n1, n2, n3 = len(sn_bytes), len(ln_bytes), len(bi_bytes)
-+        fmt = "!hiqiqi" + str(n1) + "si" + str(n2) + "si" + str(n3) + "s"
-+        value = struct.pack(fmt, 5, 8, dso_id, 8, machine_id, n1,
-+                            sn_bytes, n2, ln_bytes, n3, bi_bytes)
-+        self.files['dso'].write(value)
++class RunqueueMigrateOut:
++    """Migrate out runqueue event."""
++    @staticmethod
++    def color():
++        """Return color for event."""
++        return 0xff, 0, 0xff
++
++    def __init__(self, old: int):
++        self.old = old
++
++    def __repr__(self):
++        return f"task migrated out {thread_name(self.old)}"
 +
 +
-+    def write_symbol(self, symbol_id: int, dso_id: int, sym_start: int,
-+                      sym_end: int, binding: int, symbol_name: str) -> None:
-+        """Write symbol to binary file."""
-+        name_bytes = toserverstr(symbol_name)
-+        n = len(name_bytes)
-+        fmt = "!hiqiqiqiqiii" + str(n) + "s"
-+        value = struct.pack(fmt, 6, 8, symbol_id, 8, dso_id, 8,
-+                            sym_start, 8, sym_end, 4, binding, n, name_bytes)
-+        self.files['symbol'].write(value)
++class RunqueueSnapshot:
++    """Snapshot of runqueue state."""
 +
-+    def write_call_path(self, cp_id: int, parent_id: int, symbol_id: int,
-+                         ip: int) -> None:
-+        """Write call path to binary file."""
-+        fmt = "!hiqiqiqiq"
-+        value = struct.pack(fmt, 4, 8, cp_id, 8, parent_id, 8, symbol_id, 8, ip)
-+        self.files['call_path'].write(value)
++    def __init__(self, tasks=None, event=None):
++        if tasks is None:
++            tasks = (0,)
++        if event is None:
++            event = RunqueueEventUnknown()
++        self.tasks = tuple(tasks)
++        self.event = event
++
++    def sched_switch(self, prev: int, prev_state: int, next_pid: int):
++        """Handle sched switch in snapshot."""
++        if task_state(prev_state) == "R" and next_pid in self.tasks \
++                and prev in self.tasks:
++            return self
++
++        event = RunqueueEventUnknown()
++        if task_state(prev_state) != "R":
++            event = RunqueueEventSleep(prev)  # type: ignore
++
++        next_tasks = list(self.tasks[:])
++        if prev in self.tasks:
++            if task_state(prev_state) != "R":
++                next_tasks.remove(prev)
++        elif task_state(prev_state) == "R":
++            next_tasks.append(prev)
++
++        if next_pid not in next_tasks:
++            next_tasks.append(next_pid)
++
++        return RunqueueSnapshot(next_tasks, event)
++
++    def migrate_out(self, old: int):
++        """Handle task migrate out in snapshot."""
++        if old not in self.tasks:
++            return self
++        next_tasks = [task for task in self.tasks if task != old]
++
++        return RunqueueSnapshot(next_tasks, RunqueueMigrateOut(old))
++
++    def __migrate_in(self, new: int, event):
++        if new in self.tasks:
++            return RunqueueSnapshot(self.tasks, event)
++        next_tasks = self.tasks + tuple([new])
++
++        return RunqueueSnapshot(next_tasks, event)
++
++    def migrate_in(self, new: int):
++        """Handle task migrate in in snapshot."""
++        return self.__migrate_in(new, RunqueueMigrateIn(new))
++
++    def wake_up(self, new: int):
++        """Handle task wakeup in snapshot."""
++        return self.__migrate_in(new, RunqueueEventWakeup(new))
++
++    def wake_up_new(self, new: int):
++        """Handle task fork in snapshot."""
++        return self.__migrate_in(new, RunqueueEventFork(new))
++
++    def load(self) -> int:
++        """Provide the number of tasks on the runqueue. Don't count idle"""
++        return len(self.tasks) - 1
++
++    def __repr__(self):
++        return self.tasks.__repr__()
 +
 +
-+    def write_sample(self, sample_id: int, evsel_id: int, thread_id: int,
-+                      comm_id: int, dso_id: int, symbol_id: int,
-+                      sample: perf.sample_event, call_path_id: int) -> None:
-+        """Write sample to binary file."""
-+        value = struct.pack(
-+            "!hiqiqiqiqiqiqiqiqiqiqiiiqiqiqiqiqiqiqiqiiiBiqiqiqii",
-+            25, 8, sample_id, 8, evsel_id, 8, 0, 8, thread_id, 8, comm_id,
-+            8, dso_id, 8, symbol_id, 8, getattr(sample, 'sym_offset', 0),
-+            8, sample.sample_ip, 8, sample.sample_time, 4, sample.sample_cpu,
-+            8, 0, 8, 0, 8, 0, 8, 0,
-+            8, getattr(sample, 'sample_period', 0) or 0,
-+            8, getattr(sample, 'sample_weight', 0) or 0,
-+            8, getattr(sample, 'transaction_', 0) or 0,
-+            8, getattr(sample, 'data_src', 0) or 0,
-+            4, 0,
-+            1, getattr(sample, 'in_tx', 0) or 0,
-+            8, call_path_id,
-+            8, getattr(sample, 'insn_count', 0) or 0,
-+            8, getattr(sample, 'cyc_count', 0) or 0,
-+            4, getattr(sample, 'flags', 0) or 0
-+        )
-+        self.files['sample'].write(value)
++class TimeSlice:
++    """Represents a time slice of execution."""
 +
-+    def get_event_id(self, name: str) -> int:
-+        """Get or create event ID."""
-+        if name in self.caches['events']:
-+            return self.caches['events'][name]
-+        event_id = self.next_id['event']
-+        self.write_evsel(event_id, name)
-+        self.caches['events'][name] = event_id
-+        self.next_id['event'] += 1
-+        return event_id
-+
-+    def get_thread_id(self, pid: int, tid: int) -> int:
-+        """Get or create thread ID."""
-+        key = (pid, tid)
-+        if key in self.caches['threads']:
-+            return self.caches['threads'][key]
-+        thread_id = self.next_id['thread']
-+        self.write_thread(thread_id, 0, pid, pid, tid)
-+        self.caches['threads'][key] = thread_id
-+        self.next_id['thread'] += 1
-+        return thread_id
-+
-+    def get_comm_id(self, comm: str, thread_id: int) -> int:
-+        """Get or create comm ID."""
-+        if comm in self.caches['comms']:
-+            comm_id = self.caches['comms'][comm]
++    def __init__(self, start: int, prev):
++        self.start = start
++        self.prev = prev
++        self.end = start
++        # cpus that triggered the event
++        self.event_cpus: list[int] = []
++        if prev is not None:
++            self.total_load = prev.total_load
++            self.rqs = prev.rqs.copy()
 +        else:
-+            comm_id = self.next_id['comm']
-+            self.write_comm(comm_id, comm, thread_id, 0, 0)
-+            self.caches['comms'][comm] = comm_id
-+            self.next_id['comm'] += 1
++            self.rqs = defaultdict(RunqueueSnapshot)
++            self.total_load = 0
 +
-+        key = (comm_id, thread_id)
-+        if 'comm_threads' not in self.caches:
-+            self.caches['comm_threads'] = {}
-+        if key not in self.caches['comm_threads']:
-+            comm_thread_id = self.next_id['comm_thread']
-+            self.write_comm_thread(comm_thread_id, comm_id, thread_id)
-+            self.caches['comm_threads'][key] = True
-+            self.next_id['comm_thread'] += 1
++    def __update_total_load(self, old_rq: RunqueueSnapshot, new_rq: RunqueueSnapshot):
++        diff = new_rq.load() - old_rq.load()
++        self.total_load += diff
 +
-+        return comm_id
++    def sched_switch(self, ts_list, prev: int, prev_state: int, next_pid: int, cpu: int):
++        """Process sched_switch in time slice."""
++        old_rq = self.prev.rqs[cpu]
++        new_rq = old_rq.sched_switch(prev, prev_state, next_pid)
 +
-+    def get_dso_id(self, short_name: str, long_name: str,
-+                   build_id: str) -> int:
-+        """Get or create DSO ID."""
-+        if short_name in self.caches['dsos']:
-+            return self.caches['dsos'][short_name]
-+        dso_id = self.next_id['dso']
-+        self.write_dso(dso_id, 0, short_name, long_name, build_id)
-+        self.caches['dsos'][short_name] = dso_id
-+        self.next_id['dso'] += 1
-+        return dso_id
++        if old_rq is new_rq:
++            return
 +
-+    def get_symbol_id(self, dso_id: int, name: str, start: int,
-+                      end: int) -> int:
-+        """Get or create symbol ID."""
-+        key = (dso_id, name)
-+        if key in self.caches['symbols']:
-+            return self.caches['symbols'][key]
-+        symbol_id = self.next_id['symbol']
-+        self.write_symbol(symbol_id, dso_id, start, end, 0, name)
-+        self.caches['symbols'][key] = symbol_id
-+        self.next_id['symbol'] += 1
-+        return symbol_id
++        self.rqs[cpu] = new_rq
++        self.__update_total_load(old_rq, new_rq)
++        ts_list.append(self)
++        self.event_cpus = [cpu]
 +
-+    def get_call_path_id(self, parent_id: int, symbol_id: int,
-+                         ip: int) -> int:
-+        """Get or create call path ID."""
-+        key = (parent_id, symbol_id, ip)
-+        if key in self.caches['call_paths']:
-+            return self.caches['call_paths'][key]
-+        call_path_id = self.next_id['call_path']
-+        self.write_call_path(call_path_id, parent_id, symbol_id, ip)
-+        self.caches['call_paths'][key] = call_path_id
-+        self.next_id['call_path'] += 1
-+        return call_path_id
++    def migrate(self, ts_list, new: int, old_cpu: int, new_cpu: int):
++        """Process task migration in time slice."""
++        if old_cpu == new_cpu:
++            return
++        old_rq = self.prev.rqs[old_cpu]
++        out_rq = old_rq.migrate_out(new)
++        self.rqs[old_cpu] = out_rq
++        self.__update_total_load(old_rq, out_rq)
++
++        new_rq = self.prev.rqs[new_cpu]
++        in_rq = new_rq.migrate_in(new)
++        self.rqs[new_cpu] = in_rq
++        self.__update_total_load(new_rq, in_rq)
++
++        ts_list.append(self)
++
++        if old_rq is not out_rq:
++            self.event_cpus.append(old_cpu)
++        self.event_cpus.append(new_cpu)
++
++    def wake_up(self, ts_list, pid: int, cpu: int, fork: bool):
++        """Process wakeup in time slice."""
++        old_rq = self.prev.rqs[cpu]
++        if fork:
++            new_rq = old_rq.wake_up_new(pid)
++        else:
++            new_rq = old_rq.wake_up(pid)
++
++        if new_rq is old_rq:
++            return
++        self.rqs[cpu] = new_rq
++        self.__update_total_load(old_rq, new_rq)
++        ts_list.append(self)
++        self.event_cpus = [cpu]
++
++    def next(self, t: int):
++        """Create next time slice."""
++        self.end = t
++        return TimeSlice(t, self)
++
++
++class TimeSliceList(UserList):
++    """List of time slices with search capabilities."""
++
++    def __init__(self, arg=None):
++        super().__init__(arg if arg is not None else [])
++        self.root_win = None
++
++    def get_time_slice(self, ts: int) -> TimeSlice:
++        """Get or create time slice for timestamp."""
++        if len(self.data) == 0:
++            ts_slice = TimeSlice(ts, TimeSlice(-1, None))
++        else:
++            ts_slice = self.data[-1].next(ts)
++        return ts_slice
++
++    def find_time_slice(self, ts: int) -> int:
++        """Binary search for time slice containing timestamp."""
++        if not self.data:
++            return -1
++        start = 0
++        end = len(self.data)
++        found = -1
++        searching = True
++        while searching:
++            if start in (end, end - 1):
++                searching = False
++
++            i = (end + start) // 2
++            if self.data[i].start <= ts <= self.data[i].end:
++                found = i
++                break
++
++            if self.data[i].end < ts:
++                start = i
++            elif self.data[i].start > ts:
++                end = i
++
++        return found
++
++    def set_root_win(self, win):
++        """Set root window for GUI."""
++        self.root_win = win
++
++    def mouse_down(self, cpu: int, t: int):
++        """Handle mouse down event from GUI."""
++        idx = self.find_time_slice(t)
++        if idx == -1:
++            return
++
++        ts = self[idx]
++        rq = ts.rqs[cpu]
++        raw = f"CPU: {cpu}\n"
++        raw += f"Last event : {repr(rq.event)}\n"
++        raw += f"Timestamp : {ts.start // (10 ** 9)}.{ts.start % (10 ** 9) // 1000:06d}\n"
++        raw += f"Duration : {(ts.end - ts.start) // (10 ** 6):6d} us\n"
++        raw += f"Load = {rq.load()}\n"
++        for task in rq.tasks:
++            raw += f"{thread_name(task)} \n"
++
++        if self.root_win:
++            self.root_win.update_summary(raw)
++
++    def update_rectangle_cpu(self, slice_obj: TimeSlice, cpu: int):
++        """Update rectangle for CPU in GUI."""
++        rq = slice_obj.rqs[cpu]
++
++        if slice_obj.total_load != 0:
++            load_rate = rq.load() / float(slice_obj.total_load)
++        else:
++            load_rate = 0
++
++        red_power = int(0xff - (0xff * load_rate))
++        color = (0xff, red_power, red_power)
++
++        top_color = None
++        if cpu in slice_obj.event_cpus:
++            top_color = rq.event.color()
++
++        if self.root_win:
++            self.root_win.paint_rectangle_zone(cpu, color, top_color,
++                                               slice_obj.start, slice_obj.end)
++
++    def fill_zone(self, start: int, end: int):
++        """Fill zone in GUI."""
++        i = self.find_time_slice(start)
++        if i == -1:
++            i = 0
++
++        for idx in range(i, len(self.data)):
++            timeslice = self.data[idx]
++            if timeslice.start > end:
++                return
++
++            for cpu in timeslice.rqs:
++                self.update_rectangle_cpu(timeslice, cpu)
++
++    def interval(self) -> tuple[int, int]:
++        """Return start and end timestamps."""
++        if len(self.data) == 0:
++            return 0, 0
++        return self.data[0].start, self.data[-1].end
++
++    def nr_rectangles(self) -> int:
++        """Return maximum CPU number."""
++        if not self.data:
++            return 0
++        last_ts = self.data[-1]
++        max_cpu = 0
++        for cpu in last_ts.rqs:
++            max_cpu = max(max_cpu, cpu)
++        return max_cpu
++
++
++class SchedMigrationAnalyzer:
++    """Analyzes task migrations and manages time slices."""
++
++    def __init__(self):
++        self.current_tsk = defaultdict(lambda: -1)
++        self.timeslices = TimeSliceList()
++
++    def sched_switch(self, time: int, cpu: int, prev_comm: str, prev_pid: int, prev_state: int,
++                     next_comm: str, next_pid: int):
++        """Handle sched_switch event."""
++        on_cpu_task = self.current_tsk[cpu]
++
++        if on_cpu_task not in (-1, prev_pid):
++            print(f"Sched switch event rejected ts: {time} cpu: {cpu} "
++                  f"prev: {prev_comm}({prev_pid}) next: {next_comm}({next_pid})")
++
++        threads[prev_pid] = prev_comm
++        threads[next_pid] = next_comm
++        self.current_tsk[cpu] = next_pid
++
++        ts = self.timeslices.get_time_slice(time)
++        ts.sched_switch(self.timeslices, prev_pid, prev_state, next_pid, cpu)
++
++    def migrate(self, time: int, pid: int, orig_cpu: int, dest_cpu: int):
++        """Handle sched_migrate_task event."""
++        ts = self.timeslices.get_time_slice(time)
++        ts.migrate(self.timeslices, pid, orig_cpu, dest_cpu)
++
++    def wake_up(self, time: int, pid: int, success: int, target_cpu: int, fork: bool):
++        """Handle wakeup event."""
++        if success == 0:
++            return
++        ts = self.timeslices.get_time_slice(time)
++        ts.wake_up(self.timeslices, pid, target_cpu, fork)
 +
 +    def process_event(self, sample: perf.sample_event) -> None:
-+        """Callback for processing events."""
-+        thread_id = self.get_thread_id(sample.sample_pid, sample.sample_tid)
++        """Collect events and pass to analyzer."""
++        name = str(sample.evsel)
++        time = sample.sample_time
++        cpu = sample.sample_cpu
++        _pid = sample.sample_pid
++        _comm = "Unknown"
 +
-+        comm = "Unknown_comm"
-+        try:
-+            if self.session is not None:
-+                proc = self.session.find_thread(sample.sample_pid)
-+                if proc:
-+                    comm = proc.comm()
-+        except TypeError:
-+            pass
-+        comm_id = self.get_comm_id(comm, thread_id)
++        if name == "evsel(sched:sched_switch)":
++            prev_comm = getattr(sample, "prev_comm", "Unknown")
++            prev_pid = getattr(sample, "prev_pid", -1)
++            prev_state = getattr(sample, "prev_state", 0)
++            next_comm = getattr(sample, "next_comm", "Unknown")
++            next_pid = getattr(sample, "next_pid", -1)
++            self.sched_switch(time, cpu, prev_comm, prev_pid, prev_state, next_comm, next_pid)
++        elif name == "evsel(sched:sched_migrate_task)":
++            task_pid = getattr(sample, "pid", -1)
++            orig_cpu = getattr(sample, "orig_cpu", -1)
++            dest_cpu = getattr(sample, "dest_cpu", -1)
++            self.migrate(time, task_pid, orig_cpu, dest_cpu)
++        elif name == "evsel(sched:sched_wakeup)":
++            task_pid = getattr(sample, "pid", -1)
++            success = getattr(sample, "success", 1)
++            target_cpu = getattr(sample, "target_cpu", -1)
++            self.wake_up(time, task_pid, success, target_cpu, False)
++        elif name == "evsel(sched:sched_wakeup_new)":
++            task_pid = getattr(sample, "pid", -1)
++            success = getattr(sample, "success", 1)
++            target_cpu = getattr(sample, "target_cpu", -1)
++            self.wake_up(time, task_pid, success, target_cpu, True)
 +
-+        dso_id = self.get_dso_id(
-+            getattr(sample, 'dso', "Unknown_dso") or "Unknown_dso",
-+            getattr(sample, 'dso_long_name', "Unknown_dso_long") or "Unknown_dso_long",
-+            getattr(sample, 'dso_bid', "") or ""
-+        )
-+
-+        symbol_id = self.get_symbol_id(
-+            dso_id,
-+            getattr(sample, 'symbol', "Unknown_symbol") or "Unknown_symbol",
-+            getattr(sample, 'sym_start', 0) or 0,
-+            getattr(sample, 'sym_end', 0) or 0
-+        )
-+
-+        call_path_id = 0
-+        if hasattr(sample, 'callchain') and sample.callchain:
-+            parent_id = 0
-+            for node in sample.callchain:
-+                node_dso = getattr(node, 'dso', None) or getattr(node, 'map', None)
-+                node_symbol = getattr(node, 'symbol', None) or getattr(node, 'sym', None)
-+
-+                dso_name = "Unknown_dso"
-+                if node_dso:
-+                    dso_name = getattr(node_dso, 'name', "Unknown_dso") or "Unknown_dso"
-+
-+                symbol_name = "Unknown_symbol"
-+                if node_symbol:
-+                    symbol_name = getattr(node_symbol, 'name', "Unknown_symbol") or "Unknown_symbol"
-+
-+                node_dso_id = self.get_dso_id(dso_name, dso_name, "")
-+                node_symbol_id = self.get_symbol_id(node_dso_id, symbol_name, 0, 0)
-+
-+                parent_id = self.get_call_path_id(parent_id, node_symbol_id, node.ip)
-+            call_path_id = parent_id
-+
-+        sample_id = self.next_id['event']
-+        self.write_sample(sample_id,
-+                          self.get_event_id(getattr(sample.evsel, 'name', str(sample.evsel))),
-+                          thread_id, comm_id, dso_id, symbol_id, sample,
-+                          call_path_id)
-+        self.next_id['event'] += 1
-+
-+    def finalize(self) -> None:
-+        """Copy files to database and add keys/views."""
-+        print("Copying to database...")
-+        for name, f in self.files.items():
-+            self.close_output_file(f)
-+
-+        for name, f in self.files.items():
-+            table_name = name + "s" if name != "call_path" else "call_paths"
-+            if name == "evsel":
-+                table_name = "selected_events"
-+            self.copy_output_file(f.name, table_name)
-+
-+        print("Removing intermediate files...")
-+        for name, f in self.files.items():
-+            os.unlink(f.name)
-+        os.rmdir(self.output_dir_name)
-+
-+        print("Adding primary keys")
-+        self.do_query("ALTER TABLE selected_events ADD PRIMARY KEY (id)")
-+        self.do_query("ALTER TABLE machines        ADD PRIMARY KEY (id)")
-+        self.do_query("ALTER TABLE threads         ADD PRIMARY KEY (id)")
-+        self.do_query("ALTER TABLE comms           ADD PRIMARY KEY (id)")
-+        self.do_query("ALTER TABLE comm_threads    ADD PRIMARY KEY (id)")
-+        self.do_query("ALTER TABLE dsos            ADD PRIMARY KEY (id)")
-+        self.do_query("ALTER TABLE symbols         ADD PRIMARY KEY (id)")
-+        self.do_query("ALTER TABLE branch_types    ADD PRIMARY KEY (id)")
-+        self.do_query("ALTER TABLE samples         ADD PRIMARY KEY (id)")
-+        self.do_query("ALTER TABLE call_paths      ADD PRIMARY KEY (id)")
-+
-+        print("Creating views...")
-+        self.do_query("""
-+            CREATE VIEW machines_view AS
-+            SELECT id, pid, root_dir,
-+            CASE WHEN id=0 THEN 'unknown' WHEN pid=-1 THEN 'host' ELSE 'guest' END AS host_or_guest
-+            FROM machines
-+        """)
-+        self.do_query("""
-+            CREATE VIEW dsos_view AS
-+            SELECT id, machine_id,
-+            (SELECT host_or_guest FROM machines_view WHERE id = machine_id) AS host_or_guest,
-+            short_name, long_name, build_id
-+            FROM dsos
-+        """)
-+        self.do_query("""
-+            CREATE VIEW symbols_view AS
-+            SELECT id, name,
-+            (SELECT short_name FROM dsos WHERE id=dso_id) AS dso,
-+            dso_id, sym_start, sym_end,
-+            CASE WHEN binding=0 THEN 'local' WHEN binding=1 THEN 'global' ELSE 'weak' END AS binding
-+            FROM symbols
-+        """)
-+        self.do_query("""
-+            CREATE VIEW threads_view AS
-+            SELECT id, machine_id,
-+            (SELECT host_or_guest FROM machines_view WHERE id = machine_id) AS host_or_guest,
-+            process_id, pid, tid
-+            FROM threads
-+        """)
-+        self.do_query("""
-+            CREATE VIEW samples_view AS
-+            SELECT id, time, cpu,
-+            (SELECT pid FROM threads WHERE id = thread_id) AS pid,
-+            (SELECT tid FROM threads WHERE id = thread_id) AS tid,
-+            (SELECT comm FROM comms WHERE id = comm_id) AS command,
-+            (SELECT name FROM selected_events WHERE id = evsel_id) AS event,
-+            to_hex(ip) AS ip_hex,
-+            (SELECT name FROM symbols WHERE id = symbol_id) AS symbol,
-+            sym_offset,
-+            (SELECT short_name FROM dsos WHERE id = dso_id) AS dso_short_name,
-+            to_hex(to_ip) AS to_ip_hex,
-+            (SELECT name FROM symbols WHERE id = to_symbol_id) AS to_symbol,
-+            to_sym_offset,
-+            (SELECT short_name FROM dsos WHERE id = to_dso_id) AS to_dso_short_name,
-+            (SELECT name FROM branch_types WHERE id = branch_type) AS branch_type_name,
-+            in_tx, insn_count, cyc_count, flags
-+            FROM samples
-+        """)
++    def run_gui(self):
++        """Start wxPython GUI."""
++        if not WX_AVAILABLE:
++            print("wxPython is not available. Cannot start GUI.")
++            return
++        app = wx.App(False)
++        _frame = RootFrame(self.timeslices, "Migration")
++        app.MainLoop()
 +
 +
 +if __name__ == "__main__":
-+    ap = argparse.ArgumentParser(
-+        description="Export perf data to a postgresql database")
-+    ap.add_argument("-i", "--input", default="perf.data",
-+                    help="Input file name")
-+    ap.add_argument("-o", "--output", required=True,
-+                    help="Output database name")
++    ap = argparse.ArgumentParser(description="Cpu task migration overview toy")
++    ap.add_argument("-i", "--input", default="perf.data", help="Input file name")
 +    args = ap.parse_args()
 +
-+    exporter = PostgresExporter(args.output)
-+    exporter.setup_db()
++    analyzer = SchedMigrationAnalyzer()
 +
-+    session = None
-+    error_occurred = False
 +    try:
-+        session = perf.session(perf.data(args.input),
-+                               sample=exporter.process_event)
-+        exporter.session = session
++        session = perf.session(perf.data(args.input), sample=analyzer.process_event)
 +        session.process_events()
-+        exporter.finalize()
-+        print(f"Successfully exported to {args.output}")
++        analyzer.run_gui()
++    except KeyboardInterrupt:
++        pass
 +    except Exception as e:
 +        print(f"Error processing events: {e}")
-+        error_occurred = True
-+    finally:
-+        exporter.disconnect()
-+        if error_occurred:
-+            if os.path.exists(exporter.output_dir_name):
-+                shutil.rmtree(exporter.output_dir_name)
 -- 
 2.54.0.545.g6539524ca2-goog
 
