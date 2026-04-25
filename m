@@ -4,83 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE9EBFF885C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:45:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC7B5FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:45:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z8uDU0iX99Tgv3o+fYqZ9yp1w2za7K0HbBrM8LxB5IA=; b=OICao6sdhTNtU0CXsTIWVfMnQE
-	UKI5SoFxjVNbjsW53qf86heD/zXo6OssO+giJ/y6yRp0ROKmtbZ6prVu53uWd2SJFL58i+NmmIgUm
-	rH8HwEjC49HFkxPXhLr3N4wC2bzI70acX0JwAZLq/zXo4WZh9JbV06rD5RjkkvrS10JK/5XQqeZdW
-	i2Jf1220olTK0EzhGfpdty53Fon2QEZyvnpfinsc5cg4XMdiqc31KI5z+iOkKYMIUt5NzWaIJt8xM
-	w4NpuqzkC37kXk1GGH4b+6ddfXfL1NrPWPBpnunwM/fR5A/bjBCE8MD4e0olskMOeJE8ozTTD/HjY
-	I10sIjhw==;
+	bh=nQeNxtOSoOXwV2zRr64LvO5u7apubipAzZoDUg3KnRw=; b=Yd+7f+ekzmyyI7VDsDwWT49MLR
+	23QOP4FEaKuQBQLRAg+irHqLhBZ8xcnXwHS3eFZq9WcvUghlkrb7/05tczDORo2hmytZzwiomxjKh
+	AKYcYho7Jk9L+AJUlKxln5a7iYDLFIT7M57TWDlXI3g4M+PI6baj2aM90xmp7PtheQ+LiMulmd6ba
+	8S9B7pV+w2JiNqW+C8e5JI/80joet9ZJvJ86vgz7OVeoX6LX60XvUw/sp67gWfXUcmEccYygI3NTH
+	pTP3Uu0RkspnXYZPTNyt6UfOoKmePhPwxnk1gtXEu8zrKsk3jMNQv9xajEP5vkuydxk4e4J6woDXR
+	CzQrRurA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlkf-0000000EwOr-3AXb;
-	Sat, 25 Apr 2026 22:45:30 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wGlkh-0000000EwQ0-2Smx;
+	Sat, 25 Apr 2026 22:45:35 +0000
+Received: from mail-dl1-x1249.google.com ([2607:f8b0:4864:20::1249])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlkZ-0000000EwKh-00wB
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sat, 25 Apr 2026 22:45:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Z8uDU0iX99Tgv3o+fYqZ9yp1w2za7K0HbBrM8LxB5IA=; b=Ld1mvFz658g2ZKGujP/nAKC0GT
-	E4gT/zc41ww8NbV9fN8HHyWqEFQBS9HbN3YisCeP6WynaZ5g1yaAf6rMKXdcdKQyqVMc5lhjiJSAf
-	F8OgNDE2r+J1c9HxOGlSrqvvIwJmh1HKuZ1bqhustzBzgkcxE+4U8E9eDCcjgXT5h0RKFMl799Oi1
-	DjMKkmrbA4v8SAFVb5CcYQn1jHfo5Ht+1wYAauPOzVqDlHqzFKGGMfbc4g4T8KKRBY8dYuS9XvqA5
-	3nxGowEYIMDl2BWbfgryBZykt+h6aAsAEaoJk/3mZdnZuK8qEsLTz3636nQ+S4D3hRzbGvtxRwtt3
-	V+SMFblA==;
-Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlkV-0000000GLZP-3pp8
+	id 1wGlkP-0000000EwDW-2R0l
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Apr 2026 22:45:21 +0000
-Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2d93379001eso20013668eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:45:19 -0700 (PDT)
+	Sat, 25 Apr 2026 22:45:24 +0000
+Received: by mail-dl1-x1249.google.com with SMTP id a92af1059eb24-12c21dbc9c1so33844433c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:45:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777157118; x=1777761918; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777157112; x=1777761912; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Z8uDU0iX99Tgv3o+fYqZ9yp1w2za7K0HbBrM8LxB5IA=;
-        b=GaL9U/2mk3h4keSftpicYST5oK0C7AhgH0SH0QqvcDBfRvxrmoOh9qyYx3zhCoYC9A
-         29qXwvWAg3gdH1drwJEgFuVC7N1x1r1VMhoXGKDaMDjrMYLWJDTlADSpat4pUQBgxeFk
-         0F4nQ4LOgcioi2VutYgS2q2tPCdX3Hp3DB/WPeFlCNBWR6b6LhIEgU7aA5zDDA6DAfEz
-         WnpHdZD9Q+hBefKGexnSXk7IMnQdSSq/P8+/xmUNKEQHIomHepcOVzCH6lugO88bkNc5
-         8wCDdUv+gbOH3Y56j0yPwa8OBKWKR0keVgq2E8HLgzlaGAzdAZYEvveV50r8gRwfc63Z
-         zgjw==
+        bh=nQeNxtOSoOXwV2zRr64LvO5u7apubipAzZoDUg3KnRw=;
+        b=IlrzUzULJpwHefnMfn4BhPOGsTOqnPIVzzNUtV04vBIZYuaK8Ac3jfbKRfd67WOsi6
+         f8zfQHE02VwP2MXfutEjLPHK1IVgPJUKJNYqeyB2Q8ItrzWqMAd5kL55g7DHvTSkLZLz
+         uDm0708Xl3pnfqqEBSrAK97hCN/ROvZ1R15qNmGbKbZ0oInmwEgIS3q9rQd4/RcE2Qoi
+         KMpYepaA2XoOWpy3/YWSr5wYuxAv8qOJkRFR9In3QwCeydqCzKfNt3FN9FJ14Dpt5O52
+         d4o4Ukd6ynEkf2cm1Ho/40yKUJfjlaKDvnjDTeheX7ouNPU/6ieqO8OkM3iZyo800DLK
+         ryGw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777157118; x=1777761918;
+        d=1e100.net; s=20251104; t=1777157112; x=1777761912;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Z8uDU0iX99Tgv3o+fYqZ9yp1w2za7K0HbBrM8LxB5IA=;
-        b=pH9yNMTHHH7EQCrWYSDoimbpGMIGVFUNzetKn+k3/JP2CiX5ZVdk9uR6Prm22sHT2u
-         hOmm1EKlJ+mIOzvS4e2YtyX2iXVxdK/9ek3itg573YucewVdG2BedG4gkYORefDfTYt6
-         q4zJU/lsJoMa5OHLnF0PbZMNFUxQ+2awwdJgSS5NYVeozR62peGQfsxv5NnqcpCjGl/E
-         kd4nrZohA1U5UBX/dYXoVrggpCkzr5OJRMBGZlyFRDwT/lcURTf9oZtNV7eV9HqaiFes
-         OlqjG5t0bPw+HMXXEF+UkUu7+4dMnq+avJdfLzdXTObNPPxt/zQ2xn1irgCN6PsuwpH6
-         8pzw==
-X-Forwarded-Encrypted: i=1; AFNElJ8uB9GT70DbT/xbznrFKIrSqZXKWTyrpOk0XSGkQL6rTneSsxLWjMTyOTcQt/eLL6myHXpsWsFVUjOqOaG173AP@lists.infradead.org
-X-Gm-Message-State: AOJu0YxCFjzV3ipIPd8EywkvBES2sYohG3PAbQhETNuVuuZIjiq581A5
-	772yOMU1zlcEKQWwba3T+r0yxDDvm6W8XY9aeEbbQXIAyWF7P9NaADp/HLEsB7NGPZmYM1OZoLp
-	XtigVjWbrmQ==
-X-Received: from dybss20.prod.google.com ([2002:a05:7301:7214:b0:2e5:ce71:32c4])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:2327:b0:2d8:97d6:6ac8
- with SMTP id 5a478bee46e88-2e478c1ff0cmr23453474eec.21.1777157117979; Sat, 25
- Apr 2026 15:45:17 -0700 (PDT)
-Date: Sat, 25 Apr 2026 15:44:52 -0700
+        bh=nQeNxtOSoOXwV2zRr64LvO5u7apubipAzZoDUg3KnRw=;
+        b=Nbm0DSCYfhuCaIni61EWrTJNkYadVJqCjRt/6WvikMuTWXhFws+kidq9gIqSEKyatv
+         Q5RiFdEsFd4oBeZc9tXfQTm52W+ETE6MePxD1MhMpHxjYRNyZpQ0toa2DQU1jVuoH5FT
+         g0mMqKfxfkYBG8Fu/w2KQNN7ZS/N9odDDNuUwaXS4An1DyeTx2ZIeK94LTb4duPwx73K
+         v/y7tEUznR6v1Xt0W9/cQTIYBrGDEYhXPzPDzRITmFEfNi9Gq/nu8CN5ikVWIe4bToQ6
+         4OCzGzZS8/xgGo6T+HpbC1Zvz3IjI8tQVfzHWV/wpYEJdDbnYpKElNS/H57TgTf502np
+         w0zw==
+X-Forwarded-Encrypted: i=1; AFNElJ+7Pm0wC6NRK0xv7ikt0hMMX09NYi8WLzGn99cEn6SddTHqWDQl/2sd7Wwz33Ut+2sDZT/cPlVThaeDdjBCtEiR@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+L3X3TOewt9Bj4nAxfAHHkUKnFDdCzpLZMt138qBxjGR1pS13
+	kjAKyHxMWYmtSXSrLBJNzHhHZQDWMKxtLj9t0FxD49ZItQmKHLqtbVVDmneiG7kfCy4W0w52tPi
+	5P1JlDlbLwg==
+X-Received: from dlbur21-n2.prod.google.com ([2002:a05:7022:ea55:20b0:12d:c516:f51])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:6728:b0:12b:ec67:3529
+ with SMTP id a92af1059eb24-12c73f781e0mr20677481c88.14.1777157111966; Sat, 25
+ Apr 2026 15:45:11 -0700 (PDT)
+Date: Sat, 25 Apr 2026 15:44:49 -0700
 In-Reply-To: <20260425224503.170337-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260425174858.3922152-1-irogers@google.com> <20260425224503.170337-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260425224503.170337-6-irogers@google.com>
-Subject: [PATCH v7 48/59] perf rw-by-file: Port rw-by-file to use python module
+Message-ID: <20260425224503.170337-3-irogers@google.com>
+Subject: [PATCH v7 45/59] perf stackcollapse: Port stackcollapse to use python module
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org, 
 	leo.yan@linux.dev, namhyung@kernel.org, tmricht@linux.ibm.com
@@ -90,8 +75,8 @@ Cc: alice.mei.rogers@gmail.com, dapeng1.mi@linux.intel.com,
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260425_234520_252393_3B01889F 
-X-CRM114-Status: GOOD (  14.91  )
+X-CRM114-CacheID: sfid-20260425_154513_628161_25EDBF4D 
+X-CRM114-Status: GOOD (  16.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,150 +91,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Port the legacy Perl script rw-by-file.pl to a python script using the
-perf module in tools/perf/python.
-
-The new script uses a class-based architecture and leverages the
-perf.session API for event processing.
-
-It tracks read and write activity by file descriptor for a given
-program name, aggregating bytes requested/written and total counts.
-
-Complications:
-- Had to split long lines in __init__ to satisfy pylint.
-- pylint warns about the module name not being snake_case, but it is
-  kept for consistency with the original script name.
+Modernize the legacy stackcollapse.py trace script by refactoring it
+into a class-based architecture (StackCollapseAnalyzer).
+The script uses perf.session for event processing and aggregates call
+stacks to produce output suitable for flame graphs.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
 v2:
 
- - Fixed Substring Matching: Replaced if "sys_enter_read" in
-   event_name: with an exact match against syscalls:sys_enter_read and
-   raw_syscalls:sys_enter_read using sample.evsel.name . This prevents
-   variants like readv or readlink from incorrectly triggering the
-   read logic. Similar fixes were applied for write events.
-
- - Fixed Silent Error Dropping: Instead of silently returning when
-   expected fields are missing (causing AttributeError ), the script
-   now increments the self.unhandled counter for that event. This
-   ensures that missing data or unexpected event variants are reported
-   to the user instead of quietly skewing the results.
-
-v6:
-- Fixed `AttributeError` by using `str(sample.evsel)` to get event name.
+ - Fixed Callchain Check: Replaced hasattr(sample, "callchain") with
+   getattr(sample, "callchain", None) and checked if it is not None .
+   This avoids attempting to iterate over None when a sample lacks a
+   callchain, which would raise a TypeError.
+ - Fixed Comm Resolution: The code already used
+   self.session.process(sample.sample_pid).comm() to resolve the
+   command name using the session object (if available), avoiding the
+   missing comm attribute on perf.sample_event.
+ - Code Cleanup: Broke a long line in process_event to satisfy pylint.
 ---
- tools/perf/python/rw-by-file.py | 103 ++++++++++++++++++++++++++++++++
- 1 file changed, 103 insertions(+)
- create mode 100755 tools/perf/python/rw-by-file.py
+ tools/perf/python/stackcollapse.py | 126 +++++++++++++++++++++++++++++
+ 1 file changed, 126 insertions(+)
+ create mode 100755 tools/perf/python/stackcollapse.py
 
-diff --git a/tools/perf/python/rw-by-file.py b/tools/perf/python/rw-by-file.py
+diff --git a/tools/perf/python/stackcollapse.py b/tools/perf/python/stackcollapse.py
 new file mode 100755
-index 000000000000..2103ac0412bb
+index 000000000000..996c73246ebc
 --- /dev/null
-+++ b/tools/perf/python/rw-by-file.py
-@@ -0,0 +1,103 @@
++++ b/tools/perf/python/stackcollapse.py
+@@ -0,0 +1,126 @@
 +#!/usr/bin/env python3
-+# SPDX-License-Identifier: GPL-2.0-only
-+"""Display r/w activity for files read/written to for a given program."""
++# SPDX-License-Identifier: GPL-2.0
++"""
++stackcollapse.py - format perf samples with one line per distinct call stack
++
++This script's output has two space-separated fields.  The first is a semicolon
++separated stack including the program name (from the "comm" field) and the
++function names from the call stack.  The second is a count:
++
++ swapper;start_kernel;rest_init;cpu_idle;default_idle;native_safe_halt 2
++
++The file is sorted according to the first field.
++
++Ported from tools/perf/scripts/python/stackcollapse.py
++"""
 +
 +import argparse
 +from collections import defaultdict
 +import sys
-+from typing import Optional, Dict
 +import perf
 +
-+class RwByFile:
-+    """Tracks and displays read/write activity by file descriptor."""
-+    def __init__(self, comm: str) -> None:
-+        self.for_comm = comm
-+        self.reads: Dict[int, Dict[str, int]] = defaultdict(
-+            lambda: {"bytes_requested": 0, "total_reads": 0}
-+        )
-+        self.writes: Dict[int, Dict[str, int]] = defaultdict(
-+            lambda: {"bytes_written": 0, "total_writes": 0}
-+        )
-+        self.unhandled: Dict[str, int] = defaultdict(int)
-+        self.session: Optional[perf.session] = None
++
++class StackCollapseAnalyzer:
++    """Accumulates call stacks and prints them collapsed."""
++
++    def __init__(self, args: argparse.Namespace) -> None:
++        self.args = args
++        self.lines: dict[str, int] = defaultdict(int)
++
++    def tidy_function_name(self, sym: str, dso: str) -> str:
++        """Beautify function names based on options."""
++        if sym is None:
++            sym = "[unknown]"
++
++        sym = sym.replace(";", ":")
++        if self.args.tidy_java:
++            # Beautify Java signatures
++            sym = sym.replace("<", "")
++            sym = sym.replace(">", "")
++            if sym.startswith("L") and "/" in sym:
++                sym = sym[1:]
++            try:
++                sym = sym[:sym.index("(")]
++            except ValueError:
++                pass
++
++        if self.args.annotate_kernel and dso == "[kernel.kallsyms]":
++            return sym + "_[k]"
++        return sym
 +
 +    def process_event(self, sample: perf.sample_event) -> None:
-+        """Process events."""
-+        event_name = str(sample.evsel)[6:-1]
-+
-+        pid = sample.sample_pid
-+        assert self.session is not None
-+        try:
-+            comm = self.session.find_thread(pid).comm()
-+        except Exception: # pylint: disable=broad-except
-+            comm = "unknown"
-+
-+        if comm != self.for_comm:
-+            return
-+
-+        if event_name in ("syscalls:sys_enter_read", "raw_syscalls:sys_enter_read"):
-+            try:
-+                fd = sample.fd
-+                count = sample.count
-+                self.reads[fd]["bytes_requested"] += count
-+                self.reads[fd]["total_reads"] += 1
-+            except AttributeError:
-+                self.unhandled[event_name] += 1
-+        elif event_name in ("syscalls:sys_enter_write", "raw_syscalls:sys_enter_write"):
-+            try:
-+                fd = sample.fd
-+                count = sample.count
-+                self.writes[fd]["bytes_written"] += count
-+                self.writes[fd]["total_writes"] += 1
-+            except AttributeError:
-+                self.unhandled[event_name] += 1
++        """Collect call stack for each sample."""
++        stack = []
++        callchain = getattr(sample, "callchain", None)
++        if callchain is not None:
++            for node in callchain:
++                stack.append(self.tidy_function_name(node.symbol, node.dso))
 +        else:
-+            self.unhandled[event_name] += 1
++            # Fallback if no callchain
++            sym = getattr(sample, "symbol", "[unknown]")
++            dso = getattr(sample, "dso", "[unknown]")
++            stack.append(self.tidy_function_name(sym, dso))
++
++        if self.args.include_comm:
++            if hasattr(self, 'session') and self.session:
++                comm = self.session.find_thread(sample.sample_pid).comm()
++            else:
++                comm = "Unknown"
++            comm = comm.replace(" ", "_")
++            sep = "-"
++            if self.args.include_pid:
++                comm = f"{comm}{sep}{getattr(sample, 'sample_pid', 0)}"
++                sep = "/"
++            if self.args.include_tid:
++                comm = f"{comm}{sep}{getattr(sample, 'sample_tid', 0)}"
++            stack.append(comm)
++
++        stack_string = ";".join(reversed(stack))
++        self.lines[stack_string] += 1
 +
 +    def print_totals(self) -> None:
-+        """Print summary tables."""
-+        print(f"file read counts for {self.for_comm}:\n")
-+        print(f"{'fd':>6s}  {'# reads':>10s}  {'bytes_requested':>15s}")
-+        print(f"{'-'*6}  {'-'*10}  {'-'*15}")
++        """Print sorted collapsed stacks."""
++        for stack in sorted(self.lines):
++            print(f"{stack} {self.lines[stack]}")
 +
-+        for fd, data in sorted(self.reads.items(),
-+                               key=lambda kv: kv[1]["bytes_requested"], reverse=True):
-+            print(f"{fd:6d}  {data['total_reads']:10d}  {data['bytes_requested']:15d}")
 +
-+        print(f"\nfile write counts for {self.for_comm}:\n")
-+        print(f"{'fd':>6s}  {'# writes':>10s}  {'bytes_written':>15s}")
-+        print(f"{'-'*6}  {'-'*10}  {'-'*15}")
-+
-+        for fd, data in sorted(self.writes.items(),
-+                               key=lambda kv: kv[1]["bytes_written"], reverse=True):
-+            print(f"{fd:6d}  {data['total_writes']:10d}  {data['bytes_written']:15d}")
-+
-+        if self.unhandled:
-+            print("\nunhandled events:\n")
-+            print(f"{'event':<40s}  {'count':>10s}")
-+            print(f"{'-'*40}  {'-'*10}")
-+            for event_name, count in self.unhandled.items():
-+                print(f"{event_name:<40s}  {count:10d}")
-+
-+    def run(self, input_file: str) -> None:
-+        """Run the session."""
-+        self.session = perf.session(perf.data(input_file), sample=self.process_event)
-+        self.session.process_events()
-+        self.print_totals()
-+
-+def main() -> None:
++def main():
 +    """Main function."""
-+    parser = argparse.ArgumentParser(description="Trace r/w activity by file")
-+    parser.add_argument("comm", help="Filter by command name")
-+    parser.add_argument("-i", "--input", default="perf.data", help="Input file")
-+    args = parser.parse_args()
++    ap = argparse.ArgumentParser(
++        description="Format perf samples with one line per distinct call stack"
++    )
++    ap.add_argument("-i", "--input", default="perf.data", help="Input file name")
++    ap.add_argument("--include-tid", action="store_true", help="include thread id in stack")
++    ap.add_argument("--include-pid", action="store_true", help="include process id in stack")
++    ap.add_argument("--no-comm", dest="include_comm", action="store_false", default=True,
++                    help="do not separate stacks according to comm")
++    ap.add_argument("--tidy-java", action="store_true", help="beautify Java signatures")
++    ap.add_argument("--kernel", dest="annotate_kernel", action="store_true",
++                    help="annotate kernel functions with _[k]")
 +
-+    analyzer = RwByFile(args.comm)
-+    try:
-+        analyzer.run(args.input)
-+    except IOError as e:
-+        print(e, file=sys.stderr)
++    args = ap.parse_args()
++
++    if args.include_tid and not args.include_comm:
++        print("requesting tid but not comm is invalid", file=sys.stderr)
 +        sys.exit(1)
++    if args.include_pid and not args.include_comm:
++        print("requesting pid but not comm is invalid", file=sys.stderr)
++        sys.exit(1)
++
++    analyzer = StackCollapseAnalyzer(args)
++
++    try:
++        session = perf.session(perf.data(args.input), sample=analyzer.process_event)
++        analyzer.session = session
++        session.process_events()
++    except IOError as e:
++        print(f"Error: {e}", file=sys.stderr)
++        sys.exit(1)
++    except KeyboardInterrupt:
++        pass
++
++    analyzer.print_totals()
++
 +
 +if __name__ == "__main__":
 +    main()
