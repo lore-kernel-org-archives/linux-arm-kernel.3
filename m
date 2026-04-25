@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49B72FF8862
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 17:49:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D6FFFF885C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 17:49:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RL6gbA3yHwRjF7ykSQ2dEvMc7Axg6yuH3FzRoVTsCT0=; b=lslRQ2uBJIjItfydNOKfwxrXRK
-	0BIeHJkJIrAyeGhUNMDcefRmcUHbnH+ItcZEkh6IPSn4UtYLdmw5MvLGAB4lrVcZjYyD6/n8JwiZb
-	DgjzUexneGAmELF9uaR+AZXw2XJWQEbH7yZ1IU6kuWdBN7Dkhs/mtmHo6qRguaUogwOD9iZot9B7+
-	gGsLS2urZd5FnPOxv0eKPAO77IpOJdGoz0khG+ptLWO3fAEvRihtV/6mpRaN6BBmkHISXE/cYWW00
-	2rNkDP83a/r5yP6HSqiTCqQLd96IHAmgv5tsnTQwcZODHpncEjHRjTtlhEkzKJ/hcURiARJLGaS+v
-	09VX8RKA==;
+	bh=Pih4PvjlzSX23VUBfhxJgrdaziaLdcdiDaL3PE08L8Q=; b=IFfbi3bI6PEZb3ZVAxsZGXtEon
+	uE7cjJlvyvyNaP2SqMXYaDRqkCgu+AtvuVAFjGqqFwOWFyJK3uf1mYLvCChXENnhpIuPybBcfKsRN
+	RlBWgMNQHyLLB5qrdTs2T21VDHPX3X7WmIVTPt556JmGTAEFKLhRqhiTferX2GGcm492Q3S0oMCLI
+	wo4VVoRgcrrqqjxM5/ej6JixOkfrYmpCgTSVnfXtY3SPFMviVzvPWFwF7LXerzN3I7Qz2L9h1fN4Y
+	4PMFrqffpqoLGqmRM4YujKjQv/jzezLSrQY2SMOAoQrSXD3sC9mfswSqjXQjLT9ynCeXFhpI32IlL
+	wMUcwlKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGh7z-0000000EcCd-0nN1;
-	Sat, 25 Apr 2026 17:49:15 +0000
+	id 1wGh8C-0000000EcLB-2fwz;
+	Sat, 25 Apr 2026 17:49:28 +0000
 Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGh7s-0000000EcA1-1SKB
+	id 1wGh80-0000000EcDZ-3jl7
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Apr 2026 17:49:09 +0000
-Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2cc75e79b97so24050208eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 10:49:08 -0700 (PDT)
+	Sat, 25 Apr 2026 17:49:17 +0000
+Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2d9da2559aeso24385804eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 10:49:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777139347; x=1777744147; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777139355; x=1777744155; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=RL6gbA3yHwRjF7ykSQ2dEvMc7Axg6yuH3FzRoVTsCT0=;
-        b=kvLxqIBjqc5g8PQ9yKfhWns+d9/0WzhEhNpFm0uIdcenqq3D/oGagflxe6SsQODs3G
-         nRR5B9E+eeTFSfUJjTzfksTiBm1wuHVs3aRujjScLSJ2u2Cg2gXxx64cIDjTVnN8hdwq
-         Cj9LFI3hhUUmZ4Em/2b4pdMAROjwHa/rpSLxiA4OT67Z8HQJW687cZXFvlL47Nkddlmf
-         Nvmb2H+OEEfACkHNnaEyxb6jeHs93VR7ElWhKSq5v1pdp+/cvNr8o7kGIpZTv5bUK3Pr
-         BSadDb89tRL4GCfs0LjroqRX1D72sjqGGbUs6yYFB2tnLL9fYCMLPEwzgJmIeJP6P37g
-         C5PA==
+        bh=Pih4PvjlzSX23VUBfhxJgrdaziaLdcdiDaL3PE08L8Q=;
+        b=JHl0aNI64bnAHHL1No936jMXWzdqOW+eju+iD4ApYUgywHoxQh6UdHOoZCtCQavLNW
+         64FsUZRHhQB24yvqHW8VnFLAAUvXZY33Cig87JB21iyPlXWw9r8N5xjR9wHnXQoNXUWy
+         /BNL2yRndsakpXcpBfrje8vEJedgvsHCe2fGRKWrrP+EgtC0NIkcGTU+3uUETUManuZG
+         e5/2DKOpxOQJavu1OFCbhEu9cU6u3gaDQ3aNgr75cMnVJbG/ryCHlyyme3wF1HOgjiOI
+         RXoeYUC+k7842J4YQHUyRhuMakGEs/7Hq/j2+/fesLQ1RPxSiN2paRc+j/8lI4lCLGNL
+         m73Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777139347; x=1777744147;
+        d=1e100.net; s=20251104; t=1777139355; x=1777744155;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=RL6gbA3yHwRjF7ykSQ2dEvMc7Axg6yuH3FzRoVTsCT0=;
-        b=LmW6+yQRLaC5KFdr+GmHUNw7pK/W0RH3mumjci43j2j5sWBODtfFdsGwUIuD+U1GC9
-         Ei0chLwCilo9z2/viJNnMjEFg2RaFIf+/78u1ZnzSJrJ60ET5rhAkK66hPfUlTxd23qH
-         BtqW3YBA5odESw84ZfUxLkiESvtjjnGEZbpTfLf6u1bFeOavKw3ZPu2unkZK0/zEsLiF
-         vqSb+0MCvr+REtSQ0sPwo6mFKl2nvLwd4/Y3QHTb4wP2USLrnT1C3nnD9hwtAWzD/OVx
-         rztYwjt5+jeI6nYpKrQVJtML0yHg3KLd9DVJ2TB8quWdiGs4bXZ1OYq6/rjFoZGTmiR9
-         rTrQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+eHr0tmJDijo+QzAn2u9u8BQS4GKc05UFw8Jy5yAi6paWTEvuK0QXikgso4DNpE17nTZoiSUEZWxg2Otk5iHwN@lists.infradead.org
-X-Gm-Message-State: AOJu0YzDnhNb57RdgY6nuKNkcQ+rIpNR8/viOoBKuhboqCO3VzYDdufV
-	wx/zw6c4d23gMbVy/LPTLLB908WSoAFDF3x2CLwvpNPGZ3yYor+8FUmbZEv0CDBn5YPLlVZ8Ssu
-	aj53fCQsNoQ==
-X-Received: from dybb21.prod.google.com ([2002:a05:693c:6095:b0:2d9:61d4:4d0e])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:1295:b0:2be:a2d8:e9e3
- with SMTP id 5a478bee46e88-2e47981c631mr20925841eec.29.1777139347076; Sat, 25
- Apr 2026 10:49:07 -0700 (PDT)
-Date: Sat, 25 Apr 2026 10:48:01 -0700
+        bh=Pih4PvjlzSX23VUBfhxJgrdaziaLdcdiDaL3PE08L8Q=;
+        b=kG0moCZW8WmsbeVwxj3TLLIkuf31VlnFYWJKr7BawAWOZQ7PuUlP06eEIlxSSMTp8Q
+         dqjYI+LokVR6VJobuAmMPBms5FWGLE8treDpZ3xKPEhWLEk5Q+4DJMnoFDSS/j5QDR3U
+         A4FdtEH3Q1A8jfXwjSp8rcJl/IBTfBAfQcY39VvU0x8eyvZ7uurbIyRsjHTG5NNDqS1l
+         u6Fcjermo5FUvyoFaASq01UT1Uuv6wNMGsVFPxQiHaT4LZUDTXEB0/AbHyXFgosSUL5M
+         pAEQUKoqBPqppdoEVwxHLZk4Auv2IZVIXTuh20mYwBth0Un37hlXyoKeAa3nzFP3ygyB
+         JSow==
+X-Forwarded-Encrypted: i=1; AFNElJ+8nsRXUm6cbtA4HMWoqPCZkO2Pzn6fyIMr/kBzTstt2SoYzkzJGOwP8eNjPzJiPTByFbM+WuyfsXd9ufUO8Ks0@lists.infradead.org
+X-Gm-Message-State: AOJu0YwHbFPkaKaKbWUjVIbTDWSwCChe3HNAAUpx+tU1sDBGtXwVMGII
+	Nv1xmKgGTLCvV+GTmjNXAAGueLaDSHOpKs8fQNnjDy6n2to0ETFm8Yn5tz/Y/bgIE4lgfqc3wS6
+	GW+j1o91hXQ==
+X-Received: from dycnr28-n1.prod.google.com ([2002:a05:7300:e9dc:10b0:2d5:d26c:d4bc])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:230c:b0:2da:7e33:9261
+ with SMTP id 5a478bee46e88-2e47951dedfmr21517858eec.27.1777139355126; Sat, 25
+ Apr 2026 10:49:15 -0700 (PDT)
+Date: Sat, 25 Apr 2026 10:48:05 -0700
 In-Reply-To: <20260425174858.3922152-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260424164721.2229025-1-irogers@google.com> <20260425174858.3922152-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260425174858.3922152-4-irogers@google.com>
-Subject: [PATCH v6 03/59] perf arch x86: Sort includes and add missed explicit dependencies
+Message-ID: <20260425174858.3922152-8-irogers@google.com>
+Subject: [PATCH v6 07/59] perf python: Add missed explicit dependencies
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org, 
 	leo.yan@linux.dev, namhyung@kernel.org, tmricht@linux.ibm.com
@@ -75,8 +75,9 @@ Cc: alice.mei.rogers@gmail.com, dapeng1.mi@linux.intel.com,
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260425_104908_380287_82AA6C59 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20260425_104916_924166_DA8C3607 
+X-CRM114-Status: UNSURE (   9.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,116 +92,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix missing #includes found while cleaning the evsel/evlist header
-files. Sort the remaining header files for consistency with the rest
-of the code.
+Fix missing #include of pmus.h found while cleaning the evsel/evlist
+header files.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/arch/x86/util/intel-bts.c | 20 +++++++++++--------
- tools/perf/arch/x86/util/intel-pt.c  | 29 +++++++++++++++-------------
- 2 files changed, 28 insertions(+), 21 deletions(-)
+ tools/perf/util/python.c | 17 ++++++++++-------
+ 1 file changed, 10 insertions(+), 7 deletions(-)
 
-diff --git a/tools/perf/arch/x86/util/intel-bts.c b/tools/perf/arch/x86/util/intel-bts.c
-index 85c8186300c8..100a23d27998 100644
---- a/tools/perf/arch/x86/util/intel-bts.c
-+++ b/tools/perf/arch/x86/util/intel-bts.c
-@@ -4,26 +4,30 @@
-  * Copyright (c) 2013-2015, Intel Corporation.
-  */
- 
-+#include "../../../util/intel-bts.h"
+diff --git a/tools/perf/util/python.c b/tools/perf/util/python.c
+index cc1019d29a5d..1e6c99efff90 100644
+--- a/tools/perf/util/python.c
++++ b/tools/perf/util/python.c
+@@ -5,26 +5,29 @@
+ #include <poll.h>
+ #include <linux/err.h>
+ #include <perf/cpumap.h>
+-#ifdef HAVE_LIBTRACEEVENT
+-#include <event-parse.h>
+-#endif
++#include <internal/lib.h>
+ #include <perf/mmap.h>
 +
- #include <errno.h>
--#include <linux/kernel.h>
--#include <linux/types.h>
+ #include "callchain.h"
+ #include "counts.h"
++#include "event.h"
+ #include "evlist.h"
+ #include "evsel.h"
+-#include "event.h"
+ #include "expr.h"
++#include "metricgroup.h"
++#include "mmap.h"
++#include "pmus.h"
+ #include "print_binary.h"
+ #include "record.h"
+ #include "strbuf.h"
+ #include "thread_map.h"
+ #include "tp_pmu.h"
+ #include "trace-event.h"
+-#include "metricgroup.h"
+-#include "mmap.h"
+ #include "util/sample.h"
+-#include <internal/lib.h>
 +
- #include <linux/bitops.h>
-+#include <linux/kernel.h>
- #include <linux/log2.h>
-+#include <linux/types.h>
- #include <linux/zalloc.h>
++#ifdef HAVE_LIBTRACEEVENT
++#include <event-parse.h>
++#endif
  
-+#include <internal/lib.h> // page_size
-+
-+#include "../../../util/auxtrace.h"
- #include "../../../util/cpumap.h"
-+#include "../../../util/debug.h"
- #include "../../../util/event.h"
--#include "../../../util/evsel.h"
- #include "../../../util/evlist.h"
-+#include "../../../util/evsel.h"
- #include "../../../util/mmap.h"
--#include "../../../util/session.h"
-+#include "../../../util/pmu.h"
- #include "../../../util/pmus.h"
--#include "../../../util/debug.h"
- #include "../../../util/record.h"
-+#include "../../../util/session.h"
- #include "../../../util/tsc.h"
--#include "../../../util/auxtrace.h"
--#include "../../../util/intel-bts.h"
--#include <internal/lib.h> // page_size
+ PyMODINIT_FUNC PyInit_perf(void);
  
- #define KiB(x) ((x) * 1024)
- #define MiB(x) ((x) * 1024 * 1024)
-diff --git a/tools/perf/arch/x86/util/intel-pt.c b/tools/perf/arch/x86/util/intel-pt.c
-index c131a727774f..0307ff15d9fc 100644
---- a/tools/perf/arch/x86/util/intel-pt.c
-+++ b/tools/perf/arch/x86/util/intel-pt.c
-@@ -3,36 +3,39 @@
-  * intel_pt.c: Intel Processor Trace support
-  * Copyright (c) 2013-2015, Intel Corporation.
-  */
-+#include "../../../util/intel-pt.h"
- 
- #include <errno.h>
- #include <stdbool.h>
--#include <linux/kernel.h>
--#include <linux/types.h>
-+
- #include <linux/bitops.h>
-+#include <linux/err.h>
-+#include <linux/kernel.h>
- #include <linux/log2.h>
-+#include <linux/types.h>
- #include <linux/zalloc.h>
--#include <linux/err.h>
- 
--#include "../../../util/session.h"
-+#include <api/fs/fs.h>
-+#include <internal/lib.h> // page_size
-+#include <subcmd/parse-options.h>
-+
-+#include "../../../util/auxtrace.h"
-+#include "../../../util/config.h"
-+#include "../../../util/cpumap.h"
-+#include "../../../util/debug.h"
- #include "../../../util/event.h"
- #include "../../../util/evlist.h"
- #include "../../../util/evsel.h"
- #include "../../../util/evsel_config.h"
--#include "../../../util/config.h"
--#include "../../../util/cpumap.h"
- #include "../../../util/mmap.h"
--#include <subcmd/parse-options.h>
- #include "../../../util/parse-events.h"
--#include "../../../util/pmus.h"
--#include "../../../util/debug.h"
--#include "../../../util/auxtrace.h"
- #include "../../../util/perf_api_probe.h"
-+#include "../../../util/pmu.h"
-+#include "../../../util/pmus.h"
- #include "../../../util/record.h"
-+#include "../../../util/session.h"
- #include "../../../util/target.h"
- #include "../../../util/tsc.h"
--#include <internal/lib.h> // page_size
--#include "../../../util/intel-pt.h"
--#include <api/fs/fs.h>
- #include "cpuid.h"
- 
- #define KiB(x) ((x) * 1024)
 -- 
 2.54.0.545.g6539524ca2-goog
 
