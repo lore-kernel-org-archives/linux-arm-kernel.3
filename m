@@ -4,71 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 472A6FF885C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:46:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9174FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:50:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
-	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B3+cWJevLjvEH5KJKbFyl52jn1VIAtDDIGnwsxupOuY=; b=zNd16EJAVxOVCdryQAqdqUu8Md
-	8Vo3crvOLjZQYlB7OXfXCAvnlF4F/SN89nY/tciJu1Sx/p7ebBA09ep/PRof76+KS7qovWjv7rL7w
-	G2a0sRZ3BtA7WvpWI6JA1fPspXCRFYPVxVRnH+W0FLJsV6iENbAdhnxfa+hqFPfWpeLPRoXOvEoJN
-	VTbIGDZ0/vVZp8LLLuhVy6RCExA1zmOm5wRqJ5QZ6FJvEtITEtMPQYsYvZJCkHzBRIxVjghPaL1ay
-	2YlF6oD6g1BuyLj1dNoIn7CZxhK35QV9mqy6giBIjzaHzv7O74NMFdH0kpVTZD/IZxAHouDPIXYJ3
-	Elfpmz4A==;
+	bh=kv6V2dWecTfOpmD/K/CBj33HJCmv3wXwQToI4e7PgkI=; b=m6hRFqpG2igAwrXA+e3XQUWq1n
+	eEkrk184TxL85Cfr0V3WeKdK2QSlvh9EgnUl+gt3O9WRigBx0pW5vK91G2S8LZdpM4uDQX33sAqBN
+	dgU1D3mltSgwjxfUhFhE5e1ASUx7DGmypN9P9vHVNIisSSx/4gaHMttBkj75MsxFprAELPzgk+Z/U
+	irmhAjnG5MvfhKQ7Y6fNSv/1eWbxBjmJZXjypaAt1LXGrh/rEa3+3byaqvzzXDuT+Q2oPifMKAG8U
+	qtEXl3Lr0IXIeXQvZeHporpB5Nj4aXjX1y1e4KQP2WGKALaBw+Owq6PupNCpZkDzBNCwvGzd7S0p8
+	oXDKJH8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGll7-0000000Ewkd-0kKT;
-	Sat, 25 Apr 2026 22:45:57 +0000
-Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
+	id 1wGlpE-0000000Exqg-2wRb;
+	Sat, 25 Apr 2026 22:50:12 +0000
+Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlke-0000000EwNY-30b2
+	id 1wGlpC-0000000Expe-3Fw4
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Apr 2026 22:45:37 +0000
-Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2bdd327d970so5510881eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:45:28 -0700 (PDT)
+	Sat, 25 Apr 2026 22:50:11 +0000
+Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2ddd8ef5343so8846680eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:50:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777157128; x=1777761928; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=B3+cWJevLjvEH5KJKbFyl52jn1VIAtDDIGnwsxupOuY=;
-        b=ZLHX0jyTr+eFRMEJim6tgm3ZOc/a1IgxP6JEkkLLuT2B8xlwCuO0gFn2/rQMgrCXx3
-         1gcU+m6VniDhGvlrcOjRwNFAfZd4CKuSs1A5PHG4PkaHB1c6OrsciUWhhYPYBeSkyjpJ
-         73PVhBOlrBnHhcPYFyOy/X1GuaZsyCRK2ZLYiby4QNlGDwqic0vPgiy0A6JqTqsK10TO
-         JcQnPc9MyMGAZLndHApYTILbOLwTpIdcE1sO07Yq1v5YeaMLZCiDKbS1U0/QcVgK3Io3
-         vIBGBvQ2+3iQ66L7lLtW6Ed7lFFmxbKzcYXBoIhrVSqtNhjsbaxBlGDdQl8YCfeDtvG1
-         p3nQ==
+        d=google.com; s=20251104; t=1777157410; x=1777762210; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=kv6V2dWecTfOpmD/K/CBj33HJCmv3wXwQToI4e7PgkI=;
+        b=IG7YISQmYAOF+bCKuT5PVkHFCOSkBkcy2EpPq10iSCeuHurf6UJoYArXkCZCnUhKic
+         OkkBgYVgSQ53cfHR/1hrsklVHPRBZNeG9AS+uiNloBwzcLhIx/AlTCHQQ+U4A4v/yBvl
+         y+olm+z4TzPmpf02nmQc3I7Bp+WgO5XyXW9tIcUcF6o4SsCa3/BTtqPA+Qllhb+TKV1G
+         En+1AFBhfI8G0iRaIYrxJn2BPlKMSfDQTykBczYgdVHr+svv4M/hNoKbaPfdKkd3ouVh
+         nDjMAF6uwrsUkCdmVb6WwszUft0u4aDbAe+7ND+RZbxL1ljH3dsbyFlZAzkn/X+FlqPn
+         qmJQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777157128; x=1777761928;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=B3+cWJevLjvEH5KJKbFyl52jn1VIAtDDIGnwsxupOuY=;
-        b=lWF1q4v3pICqW6J6S7CH3G8zJyrx3PxPIyzLfL3dIDq/c81+aFOYFhXPAHMEZUduvk
-         PXvnaa1QFIo6RdJfBCmkraOIzvpwP9Gehalpc1Y8/tiFLCLWjcgpGI0xZrgL55Vc3mRJ
-         lafeB3j3+vmUCuGJsKuxW1kIFh4M7lnHhz7GULaZL1kmC685JeRzE7sqasPgPGAhUZGY
-         ByeJq8+nQTaTNELgfHFs1S6ShaUYU7aZHko3+xwxHWgFJ2fXLtr5+KWoPWZHYGNW1Aq3
-         S7rWAtADvJR0+jezO0BRJDoE2U8BtVtJdR3HIvx85u3f/2mHBYj0JDx+TepyaMtmYw9T
-         32VQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8cvWM3mYxr18Eqt0FjzNMFLVB6C6b2q723jgrlRi7/GdKAj45V3jFP9ux/ff5rXXC/4wfjS/xsWZz3vPYxiKAx@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxm6Pe4SVdl2GWkqmX+WoWIzLIS4njg4qkyCm6t5sPM/PmGsDGX
-	5ekeOWaTYLj/l19BbrRluBG6zRCL0C5UkX6RtJ70iMC3fvDUKClFGFKU+mn4w2S9XuJ9RGi195N
-	ffhKQBGpBUg==
-X-Received: from dyblz34.prod.google.com ([2002:a05:7301:1622:b0:2e6:f22b:f849])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:3d19:b0:2d1:9b35:4edb
- with SMTP id 5a478bee46e88-2e41a1e3fb6mr14594959eec.0.1777157127356; Sat, 25
- Apr 2026 15:45:27 -0700 (PDT)
-Date: Sat, 25 Apr 2026 15:44:57 -0700
-In-Reply-To: <20260425224503.170337-1-irogers@google.com>
+        d=1e100.net; s=20251104; t=1777157410; x=1777762210;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=kv6V2dWecTfOpmD/K/CBj33HJCmv3wXwQToI4e7PgkI=;
+        b=MUXw2SpMJzVOVkjnkqv6I7yn3u2OgGJf1e2Ro0Z9mGWtWDnkdJXBJWmdwGdkOwfNco
+         Quu7U46qRLZOuKzpI3S0bDzbOFLmqkmDtJvaEiccD5oSsmTkK/rq8jd6Rxs9CSJysmUO
+         DgLjwouHNQBldZafn5bExU6KqMhbuZhAnlHwQ+UWgs3EEpzt1DogrXsIUGns3IO8M9ju
+         ciWe3nYFaZHBH85pWtKBi8qNbnO/9pywwk771TbjL+1p1z/lJYXBmbrCdoIhtlqQPqhi
+         3bftEpKGNW6Mcd6BwdCizjNT3CGR72TRIHAVU60v8VMjGQGz2I1fOEya+4wvp4Tu3aQ2
+         EwyA==
+X-Forwarded-Encrypted: i=1; AFNElJ+lt305iXlDRgmoM0b496MFPDRgcQZ/bTSHrQIM3LdEKRfOesOAgy1buajObtIHlKgLJv7tqSlkSa0D9jXRS9mn@lists.infradead.org
+X-Gm-Message-State: AOJu0YzkGj1aYP7oA8+k1kuaLb+xetidQw+T1WBxanqnNHgcndSsp257
+	kzP5Rsquuqh5G6QjqTvlGryW2zNxqh8KIIfn+LFlz5Kz5rv6AgpZZYMY3q4bp7cplxCsQHBQ7aj
+	wSilE2RbAkQ==
+X-Received: from dybtv6.prod.google.com ([2002:a05:7300:f486:b0:2d8:5b05:964b])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:641b:b0:2d1:d434:d022
+ with SMTP id 5a478bee46e88-2e4521f9d92mr19591953eec.0.1777157409508; Sat, 25
+ Apr 2026 15:50:09 -0700 (PDT)
+Date: Sat, 25 Apr 2026 15:48:53 -0700
+In-Reply-To: <20260425224951.174663-1-irogers@google.com>
 Mime-Version: 1.0
-References: <20260425174858.3922152-1-irogers@google.com> <20260425224503.170337-1-irogers@google.com>
+References: <20260425174858.3922152-1-irogers@google.com> <20260425224951.174663-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260425224503.170337-11-irogers@google.com>
-Subject: [PATCH v7 53/59] perf: Remove libperl support, legacy Perl scripts
- and tests
+Message-ID: <20260425224951.174663-2-irogers@google.com>
+Subject: [PATCH v7 01/59] perf inject: Fix itrace branch stack synthesis
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org, 
 	leo.yan@linux.dev, namhyung@kernel.org, tmricht@linux.ibm.com
@@ -77,10 +74,9 @@ Cc: alice.mei.rogers@gmail.com, dapeng1.mi@linux.intel.com,
 	linux-perf-users@vger.kernel.org, mingo@redhat.com, peterz@infradead.org, 
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260425_154528_831126_8ABBB1A2 
-X-CRM114-Status: GOOD (  15.70  )
+X-CRM114-CacheID: sfid-20260425_155010_847358_FFC8BB2D 
+X-CRM114-Status: GOOD (  21.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,3053 +91,410 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove libperl support from perf, along with legacy Perl scripts
-and their corresponding tests.
+When using "perf inject --itrace=L" to synthesize branch stacks from
+AUX data, several issues caused failures:
+
+1. The synthesized samples were delivered without the
+   PERF_SAMPLE_BRANCH_STACK flag if it was not in the original event's
+   sample_type. Fixed by using sample_type | evsel->synth_sample_type
+   in intel_pt_deliver_synth_event.
+
+2. The record layout was misaligned because of inconsistent handling
+   of PERF_SAMPLE_BRANCH_HW_INDEX. Fixed by explicitly writing nr and
+   hw_idx in perf_event__synthesize_sample.
+
+3. Modifying evsel->core.attr.sample_type early in __cmd_inject caused
+   parse failures for subsequent records in the input file. Fixed by
+   moving this modification to just before writing the header.
+
+4. perf_event__repipe_sample was narrowed to only synthesize samples
+   when branch stack injection was requested, and restored the use of
+   perf_inject__cut_auxtrace_sample as a fallback to preserve
+   functionality.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
-v5:
-1. Fix Buffer Overflows: Added bounds checks in `check_ev_match()` and
-   `find_scripts()` to prevent stack and heap buffer overflows when
-   parsing long event or script names.
----
- tools/build/Makefile.feature                  |   1 -
- tools/build/feature/Makefile                  |  19 +-
- tools/build/feature/test-libperl.c            |  10 -
- tools/perf/Documentation/perf-check.txt       |   1 -
- tools/perf/Makefile.config                    |  22 +-
- tools/perf/Makefile.perf                      |  11 +-
- tools/perf/builtin-check.c                    |   2 +-
- tools/perf/builtin-script.c                   |   4 +-
- tools/perf/scripts/Build                      |   4 +-
- tools/perf/scripts/perl/Perf-Trace-Util/Build |   9 -
- .../scripts/perl/Perf-Trace-Util/Context.c    | 122 ---
- .../scripts/perl/Perf-Trace-Util/Context.xs   |  42 -
- .../scripts/perl/Perf-Trace-Util/Makefile.PL  |  18 -
- .../perf/scripts/perl/Perf-Trace-Util/README  |  59 --
- .../Perf-Trace-Util/lib/Perf/Trace/Context.pm |  55 --
- .../Perf-Trace-Util/lib/Perf/Trace/Core.pm    | 192 -----
- .../Perf-Trace-Util/lib/Perf/Trace/Util.pm    |  94 ---
- .../perf/scripts/perl/Perf-Trace-Util/typemap |   1 -
- .../scripts/perl/bin/check-perf-trace-record  |   2 -
- .../scripts/perl/bin/failed-syscalls-record   |   3 -
- .../scripts/perl/bin/failed-syscalls-report   |  10 -
- tools/perf/scripts/perl/bin/rw-by-file-record |   3 -
- tools/perf/scripts/perl/bin/rw-by-file-report |  10 -
- tools/perf/scripts/perl/bin/rw-by-pid-record  |   2 -
- tools/perf/scripts/perl/bin/rw-by-pid-report  |   3 -
- tools/perf/scripts/perl/bin/rwtop-record      |   2 -
- tools/perf/scripts/perl/bin/rwtop-report      |  20 -
- .../scripts/perl/bin/wakeup-latency-record    |   6 -
- .../scripts/perl/bin/wakeup-latency-report    |   3 -
- tools/perf/scripts/perl/check-perf-trace.pl   | 106 ---
- tools/perf/scripts/perl/failed-syscalls.pl    |  47 --
- tools/perf/scripts/perl/rw-by-file.pl         | 106 ---
- tools/perf/scripts/perl/rw-by-pid.pl          | 184 -----
- tools/perf/scripts/perl/rwtop.pl              | 203 -----
- tools/perf/scripts/perl/wakeup-latency.pl     | 107 ---
- tools/perf/tests/make                         |   4 +-
- tools/perf/tests/shell/script_perl.sh         | 102 ---
- tools/perf/ui/browsers/scripts.c              |  21 +-
- tools/perf/util/scripting-engines/Build       |   6 +-
- .../util/scripting-engines/trace-event-perl.c | 773 ------------------
- tools/perf/util/trace-event-scripting.c       |  65 --
- tools/perf/util/trace-event.h                 |   2 +-
- 42 files changed, 25 insertions(+), 2431 deletions(-)
- delete mode 100644 tools/build/feature/test-libperl.c
- delete mode 100644 tools/perf/scripts/perl/Perf-Trace-Util/Build
- delete mode 100644 tools/perf/scripts/perl/Perf-Trace-Util/Context.c
- delete mode 100644 tools/perf/scripts/perl/Perf-Trace-Util/Context.xs
- delete mode 100644 tools/perf/scripts/perl/Perf-Trace-Util/Makefile.PL
- delete mode 100644 tools/perf/scripts/perl/Perf-Trace-Util/README
- delete mode 100644 tools/perf/scripts/perl/Perf-Trace-Util/lib/Perf/Trace/=
-Context.pm
- delete mode 100644 tools/perf/scripts/perl/Perf-Trace-Util/lib/Perf/Trace/=
-Core.pm
- delete mode 100644 tools/perf/scripts/perl/Perf-Trace-Util/lib/Perf/Trace/=
-Util.pm
- delete mode 100644 tools/perf/scripts/perl/Perf-Trace-Util/typemap
- delete mode 100644 tools/perf/scripts/perl/bin/check-perf-trace-record
- delete mode 100644 tools/perf/scripts/perl/bin/failed-syscalls-record
- delete mode 100644 tools/perf/scripts/perl/bin/failed-syscalls-report
- delete mode 100644 tools/perf/scripts/perl/bin/rw-by-file-record
- delete mode 100644 tools/perf/scripts/perl/bin/rw-by-file-report
- delete mode 100644 tools/perf/scripts/perl/bin/rw-by-pid-record
- delete mode 100644 tools/perf/scripts/perl/bin/rw-by-pid-report
- delete mode 100644 tools/perf/scripts/perl/bin/rwtop-record
- delete mode 100644 tools/perf/scripts/perl/bin/rwtop-report
- delete mode 100644 tools/perf/scripts/perl/bin/wakeup-latency-record
- delete mode 100644 tools/perf/scripts/perl/bin/wakeup-latency-report
- delete mode 100644 tools/perf/scripts/perl/check-perf-trace.pl
- delete mode 100644 tools/perf/scripts/perl/failed-syscalls.pl
- delete mode 100644 tools/perf/scripts/perl/rw-by-file.pl
- delete mode 100644 tools/perf/scripts/perl/rw-by-pid.pl
- delete mode 100644 tools/perf/scripts/perl/rwtop.pl
- delete mode 100644 tools/perf/scripts/perl/wakeup-latency.pl
- delete mode 100755 tools/perf/tests/shell/script_perl.sh
- delete mode 100644 tools/perf/util/scripting-engines/trace-event-perl.c
+Issues fixed in v2:
 
-diff --git a/tools/build/Makefile.feature b/tools/build/Makefile.feature
-index 0b7a7c38cb88..96d4382144c4 100644
---- a/tools/build/Makefile.feature
-+++ b/tools/build/Makefile.feature
-@@ -118,7 +118,6 @@ FEATURE_TESTS_EXTRA :=3D                  \
-          libbfd-liberty                 \
-          libbfd-liberty-z               \
-          libopencsd                     \
--         libperl                        \
-          cxx                            \
-          llvm                           \
-          clang                          \
-diff --git a/tools/build/feature/Makefile b/tools/build/feature/Makefile
-index f163a245837a..60e3df8142a5 100644
---- a/tools/build/feature/Makefile
-+++ b/tools/build/feature/Makefile
-@@ -30,7 +30,6 @@ FILES=3D                                          \
-          test-libdebuginfod.bin                 \
-          test-libnuma.bin                       \
-          test-numa_num_possible_cpus.bin        \
--         test-libperl.bin                       \
-          test-libpython.bin                     \
-          test-libslang.bin                      \
-          test-libtraceevent.bin                 \
-@@ -113,7 +112,7 @@ __BUILD =3D $(CC) $(CFLAGS) -MD -Wall -Werror -o $@ $(p=
-atsubst %.bin,%.c,$(@F)) $(
-   BUILD =3D $(__BUILD) > $(@:.bin=3D.make.output) 2>&1
-   BUILD_BFD =3D $(BUILD) -DPACKAGE=3D'"perf"' -lbfd -ldl
-   BUILD_ALL =3D $(BUILD) -fstack-protector-all -O2 -D_FORTIFY_SOURCE=3D2 -=
-ldw -lelf -lnuma -lelf -lslang \
--	      $(FLAGS_PERL_EMBED) $(FLAGS_PYTHON_EMBED) -ldl -lz -llzma -lzstd \
-+	      $(FLAGS_PYTHON_EMBED) -ldl -lz -llzma -lzstd \
- 	      $(shell $(PKG_CONFIG) --libs --cflags openssl 2>/dev/null)
-=20
- __BUILDXX =3D $(CXX) $(CXXFLAGS) -MD -Wall -Werror -o $@ $(patsubst %.bin,=
-%.cpp,$(@F)) $(LDFLAGS)
-@@ -253,22 +252,6 @@ $(OUTPUT)test-gtk2-infobar.bin:
- grep-libs  =3D $(filter -l%,$(1))
- strip-libs =3D $(filter-out -l%,$(1))
-=20
--PERL_EMBED_LDOPTS =3D $(shell perl -MExtUtils::Embed -e ldopts 2>/dev/null=
-)
--PERL_EMBED_LDFLAGS =3D $(call strip-libs,$(PERL_EMBED_LDOPTS))
--PERL_EMBED_LIBADD =3D $(call grep-libs,$(PERL_EMBED_LDOPTS))
--PERL_EMBED_CCOPTS =3D $(shell perl -MExtUtils::Embed -e ccopts 2>/dev/null=
-)
--FLAGS_PERL_EMBED=3D$(PERL_EMBED_CCOPTS) $(PERL_EMBED_LDOPTS)
+1. Potential Heap Overflow in perf_event__repipe_sample : Addressed by
+   adding a check that prints an error and returns -EFAULT if the
+   calculated event size exceeds PERF_SAMPLE_MAX_SIZE , as you
+   requested.
+
+2. Header vs Payload Mismatch in __cmd_inject : Addressed by narrowing
+   the condition so that HEADER_BRANCH_STACK is only set in the file
+   header if add_last_branch was true.
+
+3. NULL Pointer Dereference in intel-pt.c : Addressed by updating the
+   condition in intel_pt_do_synth_pebs_sample to fill sample.
+   branch_stack if it was synthesized, even if not in the original
+   sample_type .
+
+4. Unsafe Reads for events lacking HW_INDEX in synthetic-events.c :
+   Addressed by using the perf_sample__branch_entries() macro and
+   checking sample->no_hw_idx .
+
+5. Size mismatch in perf_event__sample_event_size : Addressed by
+   passing branch_sample_type to it and conditioning the hw_idx size on
+   PERF_SAMPLE_BRANCH_HW_INDEX .
+---
+ tools/perf/bench/inject-buildid.c  |  9 ++--
+ tools/perf/builtin-inject.c        | 77 ++++++++++++++++++++++++++++--
+ tools/perf/tests/dlfilter-test.c   |  8 +++-
+ tools/perf/tests/sample-parsing.c  |  5 +-
+ tools/perf/util/arm-spe.c          |  7 ++-
+ tools/perf/util/cs-etm.c           |  6 ++-
+ tools/perf/util/intel-bts.c        |  3 +-
+ tools/perf/util/intel-pt.c         | 13 +++--
+ tools/perf/util/synthetic-events.c | 25 +++++++---
+ tools/perf/util/synthetic-events.h |  6 ++-
+ 10 files changed, 129 insertions(+), 30 deletions(-)
+
+diff --git a/tools/perf/bench/inject-buildid.c b/tools/perf/bench/inject-buildid.c
+index aad572a78d7f..bfd2c5ec9488 100644
+--- a/tools/perf/bench/inject-buildid.c
++++ b/tools/perf/bench/inject-buildid.c
+@@ -228,9 +228,12 @@ static ssize_t synthesize_sample(struct bench_data *data, struct bench_dso *dso,
+ 
+ 	event.header.type = PERF_RECORD_SAMPLE;
+ 	event.header.misc = PERF_RECORD_MISC_USER;
+-	event.header.size = perf_event__sample_event_size(&sample, bench_sample_type, 0);
 -
--ifeq ($(CC_NO_CLANG), 0)
--  PERL_EMBED_LDOPTS :=3D $(filter-out -specs=3D%,$(PERL_EMBED_LDOPTS))
--  PERL_EMBED_CCOPTS :=3D $(filter-out -flto=3Dauto -ffat-lto-objects, $(PE=
-RL_EMBED_CCOPTS))
--  PERL_EMBED_CCOPTS :=3D $(filter-out -specs=3D%,$(PERL_EMBED_CCOPTS))
--  FLAGS_PERL_EMBED +=3D -Wno-compound-token-split-by-macro
--endif
--
--$(OUTPUT)test-libperl.bin:
--	$(BUILD) $(FLAGS_PERL_EMBED)
--
- $(OUTPUT)test-libpython.bin:
- 	$(BUILD) $(FLAGS_PYTHON_EMBED)
-=20
-diff --git a/tools/build/feature/test-libperl.c b/tools/build/feature/test-=
-libperl.c
-deleted file mode 100644
-index 0415f437eb31..000000000000
---- a/tools/build/feature/test-libperl.c
-+++ /dev/null
-@@ -1,10 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0
--#include <EXTERN.h>
--#include <perl.h>
--
--int main(void)
--{
--	perl_alloc();
--
--	return 0;
--}
-diff --git a/tools/perf/Documentation/perf-check.txt b/tools/perf/Documenta=
-tion/perf-check.txt
-index 09e1d35677f5..60fa9ea43a58 100644
---- a/tools/perf/Documentation/perf-check.txt
-+++ b/tools/perf/Documentation/perf-check.txt
-@@ -58,7 +58,6 @@ feature::
-                 libLLVM                 /  HAVE_LIBLLVM_SUPPORT
-                 libnuma                 /  HAVE_LIBNUMA_SUPPORT
-                 libopencsd              /  HAVE_CSTRACE_SUPPORT
--                libperl                 /  HAVE_LIBPERL_SUPPORT
-                 libpfm4                 /  HAVE_LIBPFM
-                 libpython               /  HAVE_LIBPYTHON_SUPPORT
-                 libslang                /  HAVE_SLANG_SUPPORT
-diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
-index 333ddd0e4bd8..db30e73c5efc 100644
---- a/tools/perf/Makefile.config
-+++ b/tools/perf/Makefile.config
-@@ -820,26 +820,7 @@ ifdef GTK2
-   endif
- endif
-=20
--ifdef LIBPERL
--  PERL_EMBED_LDOPTS =3D $(shell perl -MExtUtils::Embed -e ldopts 2>/dev/nu=
-ll)
--  PERL_EMBED_LDFLAGS =3D $(call strip-libs,$(PERL_EMBED_LDOPTS))
--  PERL_EMBED_LIBADD =3D $(call grep-libs,$(PERL_EMBED_LDOPTS))
--  PERL_EMBED_CCOPTS =3D $(shell perl -MExtUtils::Embed -e ccopts 2>/dev/nu=
-ll)
--  PERL_EMBED_CCOPTS :=3D $(filter-out -specs=3D%,$(PERL_EMBED_CCOPTS))
--  PERL_EMBED_CCOPTS :=3D $(filter-out -flto% -ffat-lto-objects, $(PERL_EMB=
-ED_CCOPTS))
--  PERL_EMBED_LDOPTS :=3D $(filter-out -specs=3D%,$(PERL_EMBED_LDOPTS))
--  FLAGS_PERL_EMBED=3D$(PERL_EMBED_CCOPTS) $(PERL_EMBED_LDOPTS)
--
--  $(call feature_check,libperl)
--  ifneq ($(feature-libperl), 1)
--    $(error Missing perl devel files. Please install perl-ExtUtils-Embed/l=
-ibperl-dev)
--  else
--    LDFLAGS +=3D $(PERL_EMBED_LDFLAGS)
--    EXTLIBS +=3D $(PERL_EMBED_LIBADD)
--    CFLAGS +=3D -DHAVE_LIBPERL_SUPPORT
--    $(call detected,CONFIG_LIBPERL)
--  endif
--endif
-+
-=20
- ifeq ($(feature-timerfd), 1)
-   CFLAGS +=3D -DHAVE_TIMERFD_SUPPORT
-@@ -1321,7 +1302,6 @@ $(call detected_var,tipdir_SQ)
- $(call detected_var,srcdir_SQ)
- $(call detected_var,LIBDIR)
- $(call detected_var,GTK_CFLAGS)
--$(call detected_var,PERL_EMBED_CCOPTS)
- $(call detected_var,PYTHON_EMBED_CCOPTS)
- ifneq ($(BISON_FILE_PREFIX_MAP),)
- $(call detected_var,BISON_FILE_PREFIX_MAP)
-diff --git a/tools/perf/Makefile.perf b/tools/perf/Makefile.perf
-index cee19c923c06..7bf349198622 100644
---- a/tools/perf/Makefile.perf
-+++ b/tools/perf/Makefile.perf
-@@ -17,7 +17,7 @@ include ../scripts/utilities.mak
- #
- # Define CROSS_COMPILE as prefix name of compiler if you want cross-builds=
-.
- #
--# Define LIBPERL to enable perl script extension.
-+
- #
- # Define NO_LIBPYTHON to disable python script extension.
- #
-@@ -1098,14 +1098,7 @@ endif
- 		$(INSTALL) $(OUTPUT)perf-archive -t '$(DESTDIR_SQ)$(perfexec_instdir_SQ)=
-'
- 	$(call QUIET_INSTALL, perf-iostat) \
- 		$(INSTALL) $(OUTPUT)perf-iostat -t '$(DESTDIR_SQ)$(perfexec_instdir_SQ)'
--ifdef LIBPERL
--	$(call QUIET_INSTALL, perl-scripts) \
--		$(INSTALL) -d -m 755 '$(DESTDIR_SQ)$(perfexec_instdir_SQ)/scripts/perl/P=
-erf-Trace-Util/lib/Perf/Trace'; \
--		$(INSTALL) scripts/perl/Perf-Trace-Util/lib/Perf/Trace/* -m 644 -t '$(DE=
-STDIR_SQ)$(perfexec_instdir_SQ)/scripts/perl/Perf-Trace-Util/lib/Perf/Trace=
-'; \
--		$(INSTALL) scripts/perl/*.pl -m 644 -t '$(DESTDIR_SQ)$(perfexec_instdir_=
-SQ)/scripts/perl'; \
--		$(INSTALL) -d -m 755 '$(DESTDIR_SQ)$(perfexec_instdir_SQ)/scripts/perl/b=
-in'; \
--		$(INSTALL) scripts/perl/bin/* -t '$(DESTDIR_SQ)$(perfexec_instdir_SQ)/sc=
-ripts/perl/bin'
--endif
-+
- ifndef NO_LIBPYTHON
- 	$(call QUIET_INSTALL, python-scripts) \
- 		$(INSTALL) -d -m 755 '$(DESTDIR_SQ)$(perfexec_instdir_SQ)/scripts/python=
-/Perf-Trace-Util/lib/Perf/Trace'; \
-diff --git a/tools/perf/builtin-check.c b/tools/perf/builtin-check.c
-index 3641d263b345..944038814d62 100644
---- a/tools/perf/builtin-check.c
-+++ b/tools/perf/builtin-check.c
-@@ -51,7 +51,7 @@ struct feature_status supported_features[] =3D {
- 	FEATURE_STATUS("libLLVM", HAVE_LIBLLVM_SUPPORT),
- 	FEATURE_STATUS("libnuma", HAVE_LIBNUMA_SUPPORT),
- 	FEATURE_STATUS("libopencsd", HAVE_CSTRACE_SUPPORT),
--	FEATURE_STATUS_TIP("libperl", HAVE_LIBPERL_SUPPORT, "Deprecated, use LIBP=
-ERL=3D1 and install perl-ExtUtils-Embed/libperl-dev to build with it"),
-+
- 	FEATURE_STATUS("libpfm4", HAVE_LIBPFM),
- 	FEATURE_STATUS("libpython", HAVE_LIBPYTHON_SUPPORT),
- 	FEATURE_STATUS("libslang", HAVE_SLANG_SUPPORT),
-diff --git a/tools/perf/builtin-script.c b/tools/perf/builtin-script.c
-index 3e3692088154..c0949556d1bb 100644
---- a/tools/perf/builtin-script.c
-+++ b/tools/perf/builtin-script.c
-@@ -2621,9 +2621,7 @@ static void process_stat_interval(u64 tstamp)
-=20
- static void setup_scripting(void)
- {
--#ifdef HAVE_LIBTRACEEVENT
--	setup_perl_scripting();
--#endif
-+
- 	setup_python_scripting();
+-	perf_event__synthesize_sample(&event, bench_sample_type, 0, &sample);
++	event.header.size = perf_event__sample_event_size(&sample, bench_sample_type,
++							   /*read_format=*/0,
++							   /*branch_sample_type=*/0);
++	perf_event__synthesize_sample(&event, bench_sample_type,
++				      /*read_format=*/0,
++				      /*branch_sample_type=*/0, &sample);
+ 
+ 	return writen(data->input_pipe[1], &event, event.header.size);
  }
-=20
-diff --git a/tools/perf/scripts/Build b/tools/perf/scripts/Build
-index 91229a1fe3ff..d72cf9ad45fe 100644
---- a/tools/perf/scripts/Build
-+++ b/tools/perf/scripts/Build
-@@ -1,6 +1,4 @@
--ifeq ($(CONFIG_LIBTRACEEVENT),y)
--  perf-util-$(CONFIG_LIBPERL)   +=3D perl/Perf-Trace-Util/
--endif
+diff --git a/tools/perf/builtin-inject.c b/tools/perf/builtin-inject.c
+index f174bc69cec4..88c0ef4f5ff1 100644
+--- a/tools/perf/builtin-inject.c
++++ b/tools/perf/builtin-inject.c
+@@ -375,7 +375,59 @@ static int perf_event__repipe_sample(const struct perf_tool *tool,
+ 
+ 	build_id__mark_dso_hit(tool, event, sample, evsel, machine);
+ 
+-	if (inject->itrace_synth_opts.set && sample->aux_sample.size) {
++	if (inject->itrace_synth_opts.set &&
++	    (inject->itrace_synth_opts.last_branch ||
++	     inject->itrace_synth_opts.add_last_branch)) {
++		union perf_event *event_copy = (void *)inject->event_copy;
++		struct branch_stack dummy_bs = { .nr = 0 };
++		int err;
++		size_t sz;
++		u64 orig_type = evsel->core.attr.sample_type;
++		u64 orig_branch_type = evsel->core.attr.branch_sample_type;
 +
- perf-util-$(CONFIG_LIBPYTHON) +=3D python/Perf-Trace-Util/
-=20
- ifdef MYPY
-diff --git a/tools/perf/scripts/perl/Perf-Trace-Util/Build b/tools/perf/scr=
-ipts/perl/Perf-Trace-Util/Build
-deleted file mode 100644
-index 01a1a0ed51ae..000000000000
---- a/tools/perf/scripts/perl/Perf-Trace-Util/Build
-+++ /dev/null
-@@ -1,9 +0,0 @@
--perf-util-y +=3D Context.o
--
--CFLAGS_Context.o +=3D $(PERL_EMBED_CCOPTS) -Wno-redundant-decls -Wno-stric=
-t-prototypes -Wno-bad-function-cast -Wno-declaration-after-statement -Wno-s=
-witch-enum
--CFLAGS_Context.o +=3D -Wno-unused-parameter -Wno-nested-externs -Wno-undef
--CFLAGS_Context.o +=3D -Wno-switch-default -Wno-shadow -Wno-thread-safety-a=
-nalysis
--
--ifeq ($(CC_NO_CLANG), 1)
--  CFLAGS_Context.o +=3D -Wno-unused-command-line-argument
--endif
-diff --git a/tools/perf/scripts/perl/Perf-Trace-Util/Context.c b/tools/perf=
-/scripts/perl/Perf-Trace-Util/Context.c
-deleted file mode 100644
-index 25c47d23a130..000000000000
---- a/tools/perf/scripts/perl/Perf-Trace-Util/Context.c
-+++ /dev/null
-@@ -1,122 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-or-later
--/*
-- * This file was generated automatically by ExtUtils::ParseXS version 2.18=
-_02 from the
-- * contents of Context.xs. Do not edit this file, edit Context.xs instead.
-- *
-- *	ANY CHANGES MADE HERE WILL BE LOST!=20
-- */
--#include <stdbool.h>
--#ifndef HAS_BOOL
--# define HAS_BOOL 1
--#endif
--#line 1 "Context.xs"
--/*
-- * Context.xs.  XS interfaces for perf script.
-- *
-- * Copyright (C) 2009 Tom Zanussi <tzanussi@gmail.com>
-- */
--
--#include "EXTERN.h"
--#include "perl.h"
--#include "XSUB.h"
--#include "../../../util/trace-event.h"
--
--#ifndef PERL_UNUSED_VAR
--#  define PERL_UNUSED_VAR(var) if (0) var =3D var
--#endif
--
--#line 42 "Context.c"
--
--XS(XS_Perf__Trace__Context_common_pc); /* prototype to pass -Wmissing-prot=
-otypes */
--XS(XS_Perf__Trace__Context_common_pc)
--{
--#ifdef dVAR
--    dVAR; dXSARGS;
--#else
--    dXSARGS;
--#endif
--    if (items !=3D 1)
--       Perl_croak(aTHX_ "Usage: %s(%s)", "Perf::Trace::Context::common_pc"=
-, "context");
--    PERL_UNUSED_VAR(cv); /* -W */
--    {
--	struct scripting_context *	context =3D INT2PTR(struct scripting_context *=
-,SvIV(ST(0)));
--	int	RETVAL;
--	dXSTARG;
--
--	RETVAL =3D common_pc(context);
--	XSprePUSH; PUSHi((IV)RETVAL);
--    }
--    XSRETURN(1);
--}
--
--
--XS(XS_Perf__Trace__Context_common_flags); /* prototype to pass -Wmissing-p=
-rototypes */
--XS(XS_Perf__Trace__Context_common_flags)
--{
--#ifdef dVAR
--    dVAR; dXSARGS;
--#else
--    dXSARGS;
--#endif
--    if (items !=3D 1)
--       Perl_croak(aTHX_ "Usage: %s(%s)", "Perf::Trace::Context::common_fla=
-gs", "context");
--    PERL_UNUSED_VAR(cv); /* -W */
--    {
--	struct scripting_context *	context =3D INT2PTR(struct scripting_context *=
-,SvIV(ST(0)));
--	int	RETVAL;
--	dXSTARG;
--
--	RETVAL =3D common_flags(context);
--	XSprePUSH; PUSHi((IV)RETVAL);
--    }
--    XSRETURN(1);
--}
--
--
--XS(XS_Perf__Trace__Context_common_lock_depth); /* prototype to pass -Wmiss=
-ing-prototypes */
--XS(XS_Perf__Trace__Context_common_lock_depth)
--{
--#ifdef dVAR
--    dVAR; dXSARGS;
--#else
--    dXSARGS;
--#endif
--    if (items !=3D 1)
--       Perl_croak(aTHX_ "Usage: %s(%s)", "Perf::Trace::Context::common_loc=
-k_depth", "context");
--    PERL_UNUSED_VAR(cv); /* -W */
--    {
--	struct scripting_context *	context =3D INT2PTR(struct scripting_context *=
-,SvIV(ST(0)));
--	int	RETVAL;
--	dXSTARG;
--
--	RETVAL =3D common_lock_depth(context);
--	XSprePUSH; PUSHi((IV)RETVAL);
--    }
--    XSRETURN(1);
--}
--
--#ifdef __cplusplus
--extern "C"
--#endif
--XS(boot_Perf__Trace__Context); /* prototype to pass -Wmissing-prototypes *=
-/
--XS(boot_Perf__Trace__Context)
--{
--#ifdef dVAR
--    dVAR; dXSARGS;
--#else
--    dXSARGS;
--#endif
--    const char* file =3D __FILE__;
--
--    PERL_UNUSED_VAR(cv); /* -W */
--    PERL_UNUSED_VAR(items); /* -W */
--    XS_VERSION_BOOTCHECK ;
--
--        newXSproto("Perf::Trace::Context::common_pc", XS_Perf__Trace__Cont=
-ext_common_pc, file, "$");
--        newXSproto("Perf::Trace::Context::common_flags", XS_Perf__Trace__C=
-ontext_common_flags, file, "$");
--        newXSproto("Perf::Trace::Context::common_lock_depth", XS_Perf__Tra=
-ce__Context_common_lock_depth, file, "$");
--    if (PL_unitcheckav)
--         call_list(PL_scopestack_ix, PL_unitcheckav);
--    XSRETURN_YES;
--}
--
-diff --git a/tools/perf/scripts/perl/Perf-Trace-Util/Context.xs b/tools/per=
-f/scripts/perl/Perf-Trace-Util/Context.xs
-deleted file mode 100644
-index 8c7ea42444d1..000000000000
---- a/tools/perf/scripts/perl/Perf-Trace-Util/Context.xs
-+++ /dev/null
-@@ -1,42 +0,0 @@
--/*
-- * Context.xs.  XS interfaces for perf script.
-- *
-- * Copyright (C) 2009 Tom Zanussi <tzanussi@gmail.com>
-- *
-- *  This program is free software; you can redistribute it and/or modify
-- *  it under the terms of the GNU General Public License as published by
-- *  the Free Software Foundation; either version 2 of the License, or
-- *  (at your option) any later version.
-- *
-- *  This program is distributed in the hope that it will be useful,
-- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
-- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-- *  GNU General Public License for more details.
-- *
-- *  You should have received a copy of the GNU General Public License
-- *  along with this program; if not, write to the Free Software
-- *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  =
-USA
-- *
-- */
--
--#include "EXTERN.h"
--#include "perl.h"
--#include "XSUB.h"
--#include "../../../perf.h"
--#include "../../../util/trace-event.h"
--
--MODULE =3D Perf::Trace::Context		PACKAGE =3D Perf::Trace::Context
--PROTOTYPES: ENABLE
--
--int
--common_pc(context)
--	struct scripting_context * context
--
--int
--common_flags(context)
--	struct scripting_context * context
--
--int
--common_lock_depth(context)
--	struct scripting_context * context
--
-diff --git a/tools/perf/scripts/perl/Perf-Trace-Util/Makefile.PL b/tools/pe=
-rf/scripts/perl/Perf-Trace-Util/Makefile.PL
-deleted file mode 100644
-index e8994332d7dc..000000000000
---- a/tools/perf/scripts/perl/Perf-Trace-Util/Makefile.PL
-+++ /dev/null
-@@ -1,18 +0,0 @@
--# SPDX-License-Identifier: GPL-2.0
--use 5.010000;
--use ExtUtils::MakeMaker;
--# See lib/ExtUtils/MakeMaker.pm for details of how to influence
--# the contents of the Makefile that is written.
--WriteMakefile(
--    NAME              =3D> 'Perf::Trace::Context',
--    VERSION_FROM      =3D> 'lib/Perf/Trace/Context.pm', # finds $VERSION
--    PREREQ_PM         =3D> {}, # e.g., Module::Name =3D> 1.1
--    ($] >=3D 5.005 ?     ## Add these new keywords supported since 5.005
--      (ABSTRACT_FROM  =3D> 'lib/Perf/Trace/Context.pm', # retrieve abstrac=
-t from module
--       AUTHOR         =3D> 'Tom Zanussi <tzanussi@gmail.com>') : ()),
--    LIBS              =3D> [''], # e.g., '-lm'
--    DEFINE            =3D> '-I ../..', # e.g., '-DHAVE_SOMETHING'
--    INC               =3D> '-I.', # e.g., '-I. -I/usr/include/other'
--	# Un-comment this if you add C files to link with later:
--    OBJECT            =3D> 'Context.o', # link all the C files too
--);
-diff --git a/tools/perf/scripts/perl/Perf-Trace-Util/README b/tools/perf/sc=
-ripts/perl/Perf-Trace-Util/README
-deleted file mode 100644
-index 2f0c7f3043ee..000000000000
---- a/tools/perf/scripts/perl/Perf-Trace-Util/README
-+++ /dev/null
-@@ -1,59 +0,0 @@
--Perf-Trace-Util version 0.01
--=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D
--
--This module contains utility functions for use with perf script.
--
--Core.pm and Util.pm are pure Perl modules; Core.pm contains routines
--that the core perf support for Perl calls on and should always be
--'used', while Util.pm contains useful but optional utility functions
--that scripts may want to use.  Context.pm contains the Perl->C
--interface that allows scripts to access data in the embedding perf
--executable; scripts wishing to do that should 'use Context.pm'.
--
--The Perl->C perf interface is completely driven by Context.xs.  If you
--want to add new Perl functions that end up accessing C data in the
--perf executable, you add desciptions of the new functions here.
--scripting_context is a pointer to the perf data in the perf executable
--that you want to access - it's passed as the second parameter,
--$context, to all handler functions.
--
--After you do that:
--
--  perl Makefile.PL   # to create a Makefile for the next step
--  make               # to create Context.c
--
--  edit Context.c to add const to the char* file =3D __FILE__ line in
--  XS(boot_Perf__Trace__Context) to silence a warning/error.
--
--  You can delete the Makefile, object files and anything else that was
--  generated e.g. blib and shared library, etc, except for of course
--  Context.c
--
--  You should then be able to run the normal perf make as usual.
--
--INSTALLATION
--
--Building perf with perf script Perl scripting should install this
--module in the right place.
--
--You should make sure libperl and ExtUtils/Embed.pm are installed first
--e.g. apt-get install libperl-dev or yum install perl-ExtUtils-Embed.
--
--DEPENDENCIES
--
--This module requires these other modules and libraries:
--
--  None
--
--COPYRIGHT AND LICENCE
--
--Copyright (C) 2009 by Tom Zanussi <tzanussi@gmail.com>
--
--This library is free software; you can redistribute it and/or modify
--it under the same terms as Perl itself, either Perl version 5.10.0 or,
--at your option, any later version of Perl 5 you may have available.
--
--Alternatively, this software may be distributed under the terms of the
--GNU General Public License ("GPL") version 2 as published by the Free
--Software Foundation.
--
-diff --git a/tools/perf/scripts/perl/Perf-Trace-Util/lib/Perf/Trace/Context=
-.pm b/tools/perf/scripts/perl/Perf-Trace-Util/lib/Perf/Trace/Context.pm
-deleted file mode 100644
-index 4e2f6039ac92..000000000000
---- a/tools/perf/scripts/perl/Perf-Trace-Util/lib/Perf/Trace/Context.pm
-+++ /dev/null
-@@ -1,55 +0,0 @@
--package Perf::Trace::Context;
--
--use 5.010000;
--use strict;
--use warnings;
--
--require Exporter;
--
--our @ISA =3D qw(Exporter);
--
--our %EXPORT_TAGS =3D ( 'all' =3D> [ qw(
--) ] );
--
--our @EXPORT_OK =3D ( @{ $EXPORT_TAGS{'all'} } );
--
--our @EXPORT =3D qw(
--	common_pc common_flags common_lock_depth
--);
--
--our $VERSION =3D '0.01';
--
--require XSLoader;
--XSLoader::load('Perf::Trace::Context', $VERSION);
--
--1;
--__END__
--=3Dhead1 NAME
--
--Perf::Trace::Context - Perl extension for accessing functions in perf.
--
--=3Dhead1 SYNOPSIS
--
--  use Perf::Trace::Context;
--
--=3Dhead1 SEE ALSO
--
--Perf (script) documentation
--
--=3Dhead1 AUTHOR
--
--Tom Zanussi, E<lt>tzanussi@gmail.com<gt>
--
--=3Dhead1 COPYRIGHT AND LICENSE
--
--Copyright (C) 2009 by Tom Zanussi
--
--This library is free software; you can redistribute it and/or modify
--it under the same terms as Perl itself, either Perl version 5.10.0 or,
--at your option, any later version of Perl 5 you may have available.
--
--Alternatively, this software may be distributed under the terms of the
--GNU General Public License ("GPL") version 2 as published by the Free
--Software Foundation.
--
--=3Dcut
-diff --git a/tools/perf/scripts/perl/Perf-Trace-Util/lib/Perf/Trace/Core.pm=
- b/tools/perf/scripts/perl/Perf-Trace-Util/lib/Perf/Trace/Core.pm
-deleted file mode 100644
-index 9158458d3eeb..000000000000
---- a/tools/perf/scripts/perl/Perf-Trace-Util/lib/Perf/Trace/Core.pm
-+++ /dev/null
-@@ -1,192 +0,0 @@
--package Perf::Trace::Core;
--
--use 5.010000;
--use strict;
--use warnings;
--
--require Exporter;
--
--our @ISA =3D qw(Exporter);
--
--our %EXPORT_TAGS =3D ( 'all' =3D> [ qw(
--) ] );
--
--our @EXPORT_OK =3D ( @{ $EXPORT_TAGS{'all'} } );
--
--our @EXPORT =3D qw(
--define_flag_field define_flag_value flag_str dump_flag_fields
--define_symbolic_field define_symbolic_value symbol_str dump_symbolic_field=
-s
--trace_flag_str
--);
--
--our $VERSION =3D '0.01';
--
--my %trace_flags =3D (0x00 =3D> "NONE",
--		   0x01 =3D> "IRQS_OFF",
--		   0x02 =3D> "IRQS_NOSUPPORT",
--		   0x04 =3D> "NEED_RESCHED",
--		   0x08 =3D> "HARDIRQ",
--		   0x10 =3D> "SOFTIRQ");
--
--sub trace_flag_str
--{
--    my ($value) =3D @_;
--
--    my $string;
--
--    my $print_delim =3D 0;
--
--    foreach my $idx (sort {$a <=3D> $b} keys %trace_flags) {
--	if (!$value && !$idx) {
--	    $string .=3D "NONE";
--	    last;
--	}
--
--	if ($idx && ($value & $idx) =3D=3D $idx) {
--	    if ($print_delim) {
--		$string .=3D " | ";
--	    }
--	    $string .=3D "$trace_flags{$idx}";
--	    $print_delim =3D 1;
--	    $value &=3D ~$idx;
--	}
--    }
--
--    return $string;
--}
--
--my %flag_fields;
--my %symbolic_fields;
--
--sub flag_str
--{
--    my ($event_name, $field_name, $value) =3D @_;
--
--    my $string;
--
--    if ($flag_fields{$event_name}{$field_name}) {
--	my $print_delim =3D 0;
--	foreach my $idx (sort {$a <=3D> $b} keys %{$flag_fields{$event_name}{$fie=
-ld_name}{"values"}}) {
--	    if (!$value && !$idx) {
--		$string .=3D "$flag_fields{$event_name}{$field_name}{'values'}{$idx}";
--		last;
--	    }
--	    if ($idx && ($value & $idx) =3D=3D $idx) {
--		if ($print_delim && $flag_fields{$event_name}{$field_name}{'delim'}) {
--		    $string .=3D " $flag_fields{$event_name}{$field_name}{'delim'} ";
--		}
--		$string .=3D "$flag_fields{$event_name}{$field_name}{'values'}{$idx}";
--		$print_delim =3D 1;
--		$value &=3D ~$idx;
--	    }
--	}
--    }
--
--    return $string;
--}
--
--sub define_flag_field
--{
--    my ($event_name, $field_name, $delim) =3D @_;
--
--    $flag_fields{$event_name}{$field_name}{"delim"} =3D $delim;
--}
--
--sub define_flag_value
--{
--    my ($event_name, $field_name, $value, $field_str) =3D @_;
--
--    $flag_fields{$event_name}{$field_name}{"values"}{$value} =3D $field_st=
-r;
--}
--
--sub dump_flag_fields
--{
--    for my $event (keys %flag_fields) {
--	print "event $event:\n";
--	for my $field (keys %{$flag_fields{$event}}) {
--	    print "    field: $field:\n";
--	    print "        delim: $flag_fields{$event}{$field}{'delim'}\n";
--	    foreach my $idx (sort {$a <=3D> $b} keys %{$flag_fields{$event}{$fiel=
-d}{"values"}}) {
--		print "        value $idx: $flag_fields{$event}{$field}{'values'}{$idx}\=
-n";
--	    }
--	}
--    }
--}
--
--sub symbol_str
--{
--    my ($event_name, $field_name, $value) =3D @_;
--
--    if ($symbolic_fields{$event_name}{$field_name}) {
--	foreach my $idx (sort {$a <=3D> $b} keys %{$symbolic_fields{$event_name}{=
-$field_name}{"values"}}) {
--	    if (!$value && !$idx) {
--		return "$symbolic_fields{$event_name}{$field_name}{'values'}{$idx}";
--		last;
--	    }
--	    if ($value =3D=3D $idx) {
--		return "$symbolic_fields{$event_name}{$field_name}{'values'}{$idx}";
--	    }
--	}
--    }
--
--    return undef;
--}
--
--sub define_symbolic_field
--{
--    my ($event_name, $field_name) =3D @_;
--
--    # nothing to do, really
--}
--
--sub define_symbolic_value
--{
--    my ($event_name, $field_name, $value, $field_str) =3D @_;
--
--    $symbolic_fields{$event_name}{$field_name}{"values"}{$value} =3D $fiel=
-d_str;
--}
--
--sub dump_symbolic_fields
--{
--    for my $event (keys %symbolic_fields) {
--	print "event $event:\n";
--	for my $field (keys %{$symbolic_fields{$event}}) {
--	    print "    field: $field:\n";
--	    foreach my $idx (sort {$a <=3D> $b} keys %{$symbolic_fields{$event}{$=
-field}{"values"}}) {
--		print "        value $idx: $symbolic_fields{$event}{$field}{'values'}{$i=
-dx}\n";
--	    }
--	}
--    }
--}
--
--1;
--__END__
--=3Dhead1 NAME
--
--Perf::Trace::Core - Perl extension for perf script
--
--=3Dhead1 SYNOPSIS
--
--  use Perf::Trace::Core
--
--=3Dhead1 SEE ALSO
--
--Perf (script) documentation
--
--=3Dhead1 AUTHOR
--
--Tom Zanussi, E<lt>tzanussi@gmail.com<gt>
--
--=3Dhead1 COPYRIGHT AND LICENSE
--
--Copyright (C) 2009 by Tom Zanussi
--
--This library is free software; you can redistribute it and/or modify
--it under the same terms as Perl itself, either Perl version 5.10.0 or,
--at your option, any later version of Perl 5 you may have available.
--
--Alternatively, this software may be distributed under the terms of the
--GNU General Public License ("GPL") version 2 as published by the Free
--Software Foundation.
--
--=3Dcut
-diff --git a/tools/perf/scripts/perl/Perf-Trace-Util/lib/Perf/Trace/Util.pm=
- b/tools/perf/scripts/perl/Perf-Trace-Util/lib/Perf/Trace/Util.pm
-deleted file mode 100644
-index 053500114625..000000000000
---- a/tools/perf/scripts/perl/Perf-Trace-Util/lib/Perf/Trace/Util.pm
-+++ /dev/null
-@@ -1,94 +0,0 @@
--package Perf::Trace::Util;
--
--use 5.010000;
--use strict;
--use warnings;
--
--require Exporter;
--
--our @ISA =3D qw(Exporter);
--
--our %EXPORT_TAGS =3D ( 'all' =3D> [ qw(
--) ] );
--
--our @EXPORT_OK =3D ( @{ $EXPORT_TAGS{'all'} } );
--
--our @EXPORT =3D qw(
--avg nsecs nsecs_secs nsecs_nsecs nsecs_usecs print_nsecs
--clear_term
--);
--
--our $VERSION =3D '0.01';
--
--sub avg
--{
--    my ($total, $n) =3D @_;
--
--    return $total / $n;
--}
--
--my $NSECS_PER_SEC    =3D 1000000000;
--
--sub nsecs
--{
--    my ($secs, $nsecs) =3D @_;
--
--    return $secs * $NSECS_PER_SEC + $nsecs;
--}
--
--sub nsecs_secs {
--    my ($nsecs) =3D @_;
--
--    return $nsecs / $NSECS_PER_SEC;
--}
--
--sub nsecs_nsecs {
--    my ($nsecs) =3D @_;
--
--    return $nsecs % $NSECS_PER_SEC;
--}
--
--sub nsecs_str {
--    my ($nsecs) =3D @_;
--
--    my $str =3D sprintf("%5u.%09u", nsecs_secs($nsecs), nsecs_nsecs($nsecs=
-));
--
--    return $str;
--}
--
--sub clear_term
--{
--    print "\x1b[H\x1b[2J";
--}
--
--1;
--__END__
--=3Dhead1 NAME
--
--Perf::Trace::Util - Perl extension for perf script
--
--=3Dhead1 SYNOPSIS
--
--  use Perf::Trace::Util;
--
--=3Dhead1 SEE ALSO
--
--Perf (script) documentation
--
--=3Dhead1 AUTHOR
--
--Tom Zanussi, E<lt>tzanussi@gmail.com<gt>
--
--=3Dhead1 COPYRIGHT AND LICENSE
--
--Copyright (C) 2009 by Tom Zanussi
--
--This library is free software; you can redistribute it and/or modify
--it under the same terms as Perl itself, either Perl version 5.10.0 or,
--at your option, any later version of Perl 5 you may have available.
--
--Alternatively, this software may be distributed under the terms of the
--GNU General Public License ("GPL") version 2 as published by the Free
--Software Foundation.
--
--=3Dcut
-diff --git a/tools/perf/scripts/perl/Perf-Trace-Util/typemap b/tools/perf/s=
-cripts/perl/Perf-Trace-Util/typemap
-deleted file mode 100644
-index 840836804aa7..000000000000
---- a/tools/perf/scripts/perl/Perf-Trace-Util/typemap
-+++ /dev/null
-@@ -1 +0,0 @@
--struct scripting_context * T_PTR
-diff --git a/tools/perf/scripts/perl/bin/check-perf-trace-record b/tools/pe=
-rf/scripts/perl/bin/check-perf-trace-record
-deleted file mode 100644
-index 423ad6aed056..000000000000
---- a/tools/perf/scripts/perl/bin/check-perf-trace-record
-+++ /dev/null
-@@ -1,2 +0,0 @@
--#!/bin/bash
--perf record -a -e kmem:kmalloc -e irq:softirq_entry -e kmem:kfree
-diff --git a/tools/perf/scripts/perl/bin/failed-syscalls-record b/tools/per=
-f/scripts/perl/bin/failed-syscalls-record
-deleted file mode 100644
-index 74685f318379..000000000000
---- a/tools/perf/scripts/perl/bin/failed-syscalls-record
-+++ /dev/null
-@@ -1,3 +0,0 @@
--#!/bin/bash
--(perf record -e raw_syscalls:sys_exit $@ || \
-- perf record -e syscalls:sys_exit $@) 2> /dev/null
-diff --git a/tools/perf/scripts/perl/bin/failed-syscalls-report b/tools/per=
-f/scripts/perl/bin/failed-syscalls-report
-deleted file mode 100644
-index 9f83cc1ad8ba..000000000000
---- a/tools/perf/scripts/perl/bin/failed-syscalls-report
-+++ /dev/null
-@@ -1,10 +0,0 @@
--#!/bin/bash
--# description: system-wide failed syscalls
--# args: [comm]
--if [ $# -gt 0 ] ; then
--    if ! expr match "$1" "-" > /dev/null ; then
--	comm=3D$1
--	shift
--    fi
--fi
--perf script $@ -s "$PERF_EXEC_PATH"/scripts/perl/failed-syscalls.pl $comm
-diff --git a/tools/perf/scripts/perl/bin/rw-by-file-record b/tools/perf/scr=
-ipts/perl/bin/rw-by-file-record
-deleted file mode 100644
-index 33efc8673aae..000000000000
---- a/tools/perf/scripts/perl/bin/rw-by-file-record
-+++ /dev/null
-@@ -1,3 +0,0 @@
--#!/bin/bash
--perf record -e syscalls:sys_enter_read -e syscalls:sys_enter_write $@
--
-diff --git a/tools/perf/scripts/perl/bin/rw-by-file-report b/tools/perf/scr=
-ipts/perl/bin/rw-by-file-report
-deleted file mode 100644
-index 77200b3f3100..000000000000
---- a/tools/perf/scripts/perl/bin/rw-by-file-report
-+++ /dev/null
-@@ -1,10 +0,0 @@
--#!/bin/bash
--# description: r/w activity for a program, by file
--# args: <comm>
--if [ $# -lt 1 ] ; then
--    echo "usage: rw-by-file <comm>"
--    exit
--fi
--comm=3D$1
--shift
--perf script $@ -s "$PERF_EXEC_PATH"/scripts/perl/rw-by-file.pl $comm
-diff --git a/tools/perf/scripts/perl/bin/rw-by-pid-record b/tools/perf/scri=
-pts/perl/bin/rw-by-pid-record
-deleted file mode 100644
-index 7cb9db230448..000000000000
---- a/tools/perf/scripts/perl/bin/rw-by-pid-record
-+++ /dev/null
-@@ -1,2 +0,0 @@
--#!/bin/bash
--perf record -e syscalls:sys_enter_read -e syscalls:sys_exit_read -e syscal=
-ls:sys_enter_write -e syscalls:sys_exit_write $@
-diff --git a/tools/perf/scripts/perl/bin/rw-by-pid-report b/tools/perf/scri=
-pts/perl/bin/rw-by-pid-report
-deleted file mode 100644
-index a27b9f311f95..000000000000
---- a/tools/perf/scripts/perl/bin/rw-by-pid-report
-+++ /dev/null
-@@ -1,3 +0,0 @@
--#!/bin/bash
--# description: system-wide r/w activity
--perf script $@ -s "$PERF_EXEC_PATH"/scripts/perl/rw-by-pid.pl
-diff --git a/tools/perf/scripts/perl/bin/rwtop-record b/tools/perf/scripts/=
-perl/bin/rwtop-record
-deleted file mode 100644
-index 7cb9db230448..000000000000
---- a/tools/perf/scripts/perl/bin/rwtop-record
-+++ /dev/null
-@@ -1,2 +0,0 @@
--#!/bin/bash
--perf record -e syscalls:sys_enter_read -e syscalls:sys_exit_read -e syscal=
-ls:sys_enter_write -e syscalls:sys_exit_write $@
-diff --git a/tools/perf/scripts/perl/bin/rwtop-report b/tools/perf/scripts/=
-perl/bin/rwtop-report
-deleted file mode 100644
-index 83e11ec2e190..000000000000
---- a/tools/perf/scripts/perl/bin/rwtop-report
-+++ /dev/null
-@@ -1,20 +0,0 @@
--#!/bin/bash
--# description: system-wide r/w top
--# args: [interval]
--n_args=3D0
--for i in "$@"
--do
--    if expr match "$i" "-" > /dev/null ; then
--	break
--    fi
--    n_args=3D$(( $n_args + 1 ))
--done
--if [ "$n_args" -gt 1 ] ; then
--    echo "usage: rwtop-report [interval]"
--    exit
--fi
--if [ "$n_args" -gt 0 ] ; then
--    interval=3D$1
--    shift
--fi
--perf script $@ -s "$PERF_EXEC_PATH"/scripts/perl/rwtop.pl $interval
-diff --git a/tools/perf/scripts/perl/bin/wakeup-latency-record b/tools/perf=
-/scripts/perl/bin/wakeup-latency-record
-deleted file mode 100644
-index 464251a1bd7e..000000000000
---- a/tools/perf/scripts/perl/bin/wakeup-latency-record
-+++ /dev/null
-@@ -1,6 +0,0 @@
--#!/bin/bash
--perf record -e sched:sched_switch -e sched:sched_wakeup $@
--
--
--
--
-diff --git a/tools/perf/scripts/perl/bin/wakeup-latency-report b/tools/perf=
-/scripts/perl/bin/wakeup-latency-report
-deleted file mode 100644
-index 889e8130cca5..000000000000
---- a/tools/perf/scripts/perl/bin/wakeup-latency-report
-+++ /dev/null
-@@ -1,3 +0,0 @@
--#!/bin/bash
--# description: system-wide min/max/avg wakeup latency
--perf script $@ -s "$PERF_EXEC_PATH"/scripts/perl/wakeup-latency.pl
-diff --git a/tools/perf/scripts/perl/check-perf-trace.pl b/tools/perf/scrip=
-ts/perl/check-perf-trace.pl
-deleted file mode 100644
-index d307ce8fd6ed..000000000000
---- a/tools/perf/scripts/perl/check-perf-trace.pl
-+++ /dev/null
-@@ -1,106 +0,0 @@
--# perf script event handlers, generated by perf script -g perl
--# (c) 2009, Tom Zanussi <tzanussi@gmail.com>
--# Licensed under the terms of the GNU GPL License version 2
--
--# This script tests basic functionality such as flag and symbol
--# strings, common_xxx() calls back into perf, begin, end, unhandled
--# events, etc.  Basically, if this script runs successfully and
--# displays expected results, perl scripting support should be ok.
--
--use lib "$ENV{'PERF_EXEC_PATH'}/scripts/perl/Perf-Trace-Util/lib";
--use lib "./Perf-Trace-Util/lib";
--use Perf::Trace::Core;
--use Perf::Trace::Context;
--use Perf::Trace::Util;
--
--sub trace_begin
--{
--    print "trace_begin\n";
--}
--
--sub trace_end
--{
--    print "trace_end\n";
--
--    print_unhandled();
--}
--
--sub irq::softirq_entry
--{
--	my ($event_name, $context, $common_cpu, $common_secs, $common_nsecs,
--	    $common_pid, $common_comm, $common_callchain,
--	    $vec) =3D @_;
--
--	print_header($event_name, $common_cpu, $common_secs, $common_nsecs,
--		     $common_pid, $common_comm);
--
--	print_uncommon($context);
--
--	printf("vec=3D%s\n",
--	       symbol_str("irq::softirq_entry", "vec", $vec));
--}
--
--sub kmem::kmalloc
--{
--	my ($event_name, $context, $common_cpu, $common_secs, $common_nsecs,
--	    $common_pid, $common_comm, $common_callchain,
--	    $call_site, $ptr, $bytes_req, $bytes_alloc,
--	    $gfp_flags) =3D @_;
--
--	print_header($event_name, $common_cpu, $common_secs, $common_nsecs,
--		     $common_pid, $common_comm);
--
--	print_uncommon($context);
--
--	printf("call_site=3D%p, ptr=3D%p, bytes_req=3D%u, bytes_alloc=3D%u, ".
--	       "gfp_flags=3D%s\n",
--	       $call_site, $ptr, $bytes_req, $bytes_alloc,
--
--	       flag_str("kmem::kmalloc", "gfp_flags", $gfp_flags));
--}
--
--# print trace fields not included in handler args
--sub print_uncommon
--{
--    my ($context) =3D @_;
--
--    printf("common_preempt_count=3D%d, common_flags=3D%s, common_lock_dept=
-h=3D%d, ",
--	   common_pc($context), trace_flag_str(common_flags($context)),
--	   common_lock_depth($context));
--
--}
--
--my %unhandled;
--
--sub print_unhandled
--{
--    if ((scalar keys %unhandled) =3D=3D 0) {
--	return;
--    }
--
--    print "\nunhandled events:\n\n";
--
--    printf("%-40s  %10s\n", "event", "count");
--    printf("%-40s  %10s\n", "----------------------------------------",
--	   "-----------");
--
--    foreach my $event_name (keys %unhandled) {
--	printf("%-40s  %10d\n", $event_name, $unhandled{$event_name});
--    }
--}
--
--sub trace_unhandled
--{
--    my ($event_name, $context, $common_cpu, $common_secs, $common_nsecs,
--	$common_pid, $common_comm, $common_callchain) =3D @_;
--
--    $unhandled{$event_name}++;
--}
--
--sub print_header
--{
--	my ($event_name, $cpu, $secs, $nsecs, $pid, $comm) =3D @_;
--
--	printf("%-20s %5u %05u.%09u %8u %-20s ",
--	       $event_name, $cpu, $secs, $nsecs, $pid, $comm);
--}
-diff --git a/tools/perf/scripts/perl/failed-syscalls.pl b/tools/perf/script=
-s/perl/failed-syscalls.pl
-deleted file mode 100644
-index 05954a8f363a..000000000000
---- a/tools/perf/scripts/perl/failed-syscalls.pl
-+++ /dev/null
-@@ -1,47 +0,0 @@
--# failed system call counts
--# (c) 2010, Tom Zanussi <tzanussi@gmail.com>
--# Licensed under the terms of the GNU GPL License version 2
--#
--# Displays system-wide failed system call totals
--# If a [comm] arg is specified, only syscalls called by [comm] are display=
-ed.
--
--use lib "$ENV{'PERF_EXEC_PATH'}/scripts/perl/Perf-Trace-Util/lib";
--use lib "./Perf-Trace-Util/lib";
--use Perf::Trace::Core;
--use Perf::Trace::Context;
--use Perf::Trace::Util;
--
--my $for_comm =3D shift;
--
--my %failed_syscalls;
--
--sub raw_syscalls::sys_exit
--{
--	my ($event_name, $context, $common_cpu, $common_secs, $common_nsecs,
--	    $common_pid, $common_comm, $common_callchain,
--	    $id, $ret) =3D @_;
--
--	if ($ret < 0) {
--	    $failed_syscalls{$common_comm}++;
--	}
--}
--
--sub syscalls::sys_exit
--{
--	raw_syscalls::sys_exit(@_)
--}
--
--sub trace_end
--{
--    printf("\nfailed syscalls by comm:\n\n");
--
--    printf("%-20s  %10s\n", "comm", "# errors");
--    printf("%-20s  %6s  %10s\n", "--------------------", "----------");
--
--    foreach my $comm (sort {$failed_syscalls{$b} <=3D> $failed_syscalls{$a=
-}}
--		      keys %failed_syscalls) {
--	next if ($for_comm && $comm ne $for_comm);
--
--	printf("%-20s  %10s\n", $comm, $failed_syscalls{$comm});
--    }
--}
-diff --git a/tools/perf/scripts/perl/rw-by-file.pl b/tools/perf/scripts/per=
-l/rw-by-file.pl
-deleted file mode 100644
-index 92a750b8552b..000000000000
---- a/tools/perf/scripts/perl/rw-by-file.pl
-+++ /dev/null
-@@ -1,106 +0,0 @@
--#!/usr/bin/perl -w
--# SPDX-License-Identifier: GPL-2.0-only
--# (c) 2009, Tom Zanussi <tzanussi@gmail.com>
--
--# Display r/w activity for files read/written to for a given program
--
--# The common_* event handler fields are the most useful fields common to
--# all events.  They don't necessarily correspond to the 'common_*' fields
--# in the status files.  Those fields not available as handler params can
--# be retrieved via script functions of the form get_common_*().
--
--use 5.010000;
--use strict;
--use warnings;
--
--use lib "$ENV{'PERF_EXEC_PATH'}/scripts/perl/Perf-Trace-Util/lib";
--use lib "./Perf-Trace-Util/lib";
--use Perf::Trace::Core;
--use Perf::Trace::Util;
--
--my $usage =3D "perf script -s rw-by-file.pl <comm>\n";
--
--my $for_comm =3D shift or die $usage;
--
--my %reads;
--my %writes;
--
--sub syscalls::sys_enter_read
--{
--    my ($event_name, $context, $common_cpu, $common_secs, $common_nsecs,
--	$common_pid, $common_comm, $common_callchain, $nr, $fd, $buf, $count) =3D=
- @_;
--
--    if ($common_comm eq $for_comm) {
--	$reads{$fd}{bytes_requested} +=3D $count;
--	$reads{$fd}{total_reads}++;
--    }
--}
--
--sub syscalls::sys_enter_write
--{
--    my ($event_name, $context, $common_cpu, $common_secs, $common_nsecs,
--	$common_pid, $common_comm, $common_callchain, $nr, $fd, $buf, $count) =3D=
- @_;
--
--    if ($common_comm eq $for_comm) {
--	$writes{$fd}{bytes_written} +=3D $count;
--	$writes{$fd}{total_writes}++;
--    }
--}
--
--sub trace_end
--{
--    printf("file read counts for $for_comm:\n\n");
--
--    printf("%6s  %10s  %10s\n", "fd", "# reads", "bytes_requested");
--    printf("%6s  %10s  %10s\n", "------", "----------", "-----------");
--
--    foreach my $fd (sort {$reads{$b}{bytes_requested} <=3D>
--			      $reads{$a}{bytes_requested}} keys %reads) {
--	my $total_reads =3D $reads{$fd}{total_reads};
--	my $bytes_requested =3D $reads{$fd}{bytes_requested};
--	printf("%6u  %10u  %10u\n", $fd, $total_reads, $bytes_requested);
--    }
--
--    printf("\nfile write counts for $for_comm:\n\n");
--
--    printf("%6s  %10s  %10s\n", "fd", "# writes", "bytes_written");
--    printf("%6s  %10s  %10s\n", "------", "----------", "-----------");
--
--    foreach my $fd (sort {$writes{$b}{bytes_written} <=3D>
--			      $writes{$a}{bytes_written}} keys %writes) {
--	my $total_writes =3D $writes{$fd}{total_writes};
--	my $bytes_written =3D $writes{$fd}{bytes_written};
--	printf("%6u  %10u  %10u\n", $fd, $total_writes, $bytes_written);
--    }
--
--    print_unhandled();
--}
--
--my %unhandled;
--
--sub print_unhandled
--{
--    if ((scalar keys %unhandled) =3D=3D 0) {
--	return;
--    }
--
--    print "\nunhandled events:\n\n";
--
--    printf("%-40s  %10s\n", "event", "count");
--    printf("%-40s  %10s\n", "----------------------------------------",
--	   "-----------");
--
--    foreach my $event_name (keys %unhandled) {
--	printf("%-40s  %10d\n", $event_name, $unhandled{$event_name});
--    }
--}
--
--sub trace_unhandled
--{
--    my ($event_name, $context, $common_cpu, $common_secs, $common_nsecs,
--	$common_pid, $common_comm, $common_callchain) =3D @_;
--
--    $unhandled{$event_name}++;
--}
--
--
-diff --git a/tools/perf/scripts/perl/rw-by-pid.pl b/tools/perf/scripts/perl=
-/rw-by-pid.pl
-deleted file mode 100644
-index d789fe39caab..000000000000
---- a/tools/perf/scripts/perl/rw-by-pid.pl
-+++ /dev/null
-@@ -1,184 +0,0 @@
--#!/usr/bin/perl -w
--# SPDX-License-Identifier: GPL-2.0-only
--# (c) 2009, Tom Zanussi <tzanussi@gmail.com>
--
--# Display r/w activity for all processes
--
--# The common_* event handler fields are the most useful fields common to
--# all events.  They don't necessarily correspond to the 'common_*' fields
--# in the status files.  Those fields not available as handler params can
--# be retrieved via script functions of the form get_common_*().
--
--use 5.010000;
--use strict;
--use warnings;
--
--use lib "$ENV{'PERF_EXEC_PATH'}/scripts/perl/Perf-Trace-Util/lib";
--use lib "./Perf-Trace-Util/lib";
--use Perf::Trace::Core;
--use Perf::Trace::Util;
--
--my %reads;
--my %writes;
--
--sub syscalls::sys_exit_read
--{
--    my ($event_name, $context, $common_cpu, $common_secs, $common_nsecs,
--	$common_pid, $common_comm, $common_callchain,
--	$nr, $ret) =3D @_;
--
--    if ($ret > 0) {
--	$reads{$common_pid}{bytes_read} +=3D $ret;
--    } else {
--	if (!defined ($reads{$common_pid}{bytes_read})) {
--	    $reads{$common_pid}{bytes_read} =3D 0;
--	}
--	$reads{$common_pid}{errors}{$ret}++;
--    }
--}
--
--sub syscalls::sys_enter_read
--{
--    my ($event_name, $context, $common_cpu, $common_secs, $common_nsecs,
--	$common_pid, $common_comm, $common_callchain,
--	$nr, $fd, $buf, $count) =3D @_;
--
--    $reads{$common_pid}{bytes_requested} +=3D $count;
--    $reads{$common_pid}{total_reads}++;
--    $reads{$common_pid}{comm} =3D $common_comm;
--}
--
--sub syscalls::sys_exit_write
--{
--    my ($event_name, $context, $common_cpu, $common_secs, $common_nsecs,
--	$common_pid, $common_comm, $common_callchain,
--	$nr, $ret) =3D @_;
--
--    if ($ret <=3D 0) {
--	$writes{$common_pid}{errors}{$ret}++;
--    }
--}
--
--sub syscalls::sys_enter_write
--{
--    my ($event_name, $context, $common_cpu, $common_secs, $common_nsecs,
--	$common_pid, $common_comm, $common_callchain,
--	$nr, $fd, $buf, $count) =3D @_;
--
--    $writes{$common_pid}{bytes_written} +=3D $count;
--    $writes{$common_pid}{total_writes}++;
--    $writes{$common_pid}{comm} =3D $common_comm;
--}
--
--sub trace_end
--{
--    printf("read counts by pid:\n\n");
--
--    printf("%6s  %20s  %10s  %10s  %10s\n", "pid", "comm",
--	   "# reads", "bytes_requested", "bytes_read");
--    printf("%6s  %-20s  %10s  %10s  %10s\n", "------", "------------------=
---",
--	   "-----------", "----------", "----------");
--
--    foreach my $pid (sort { ($reads{$b}{bytes_read} || 0) <=3D>
--				($reads{$a}{bytes_read} || 0) } keys %reads) {
--	my $comm =3D $reads{$pid}{comm} || "";
--	my $total_reads =3D $reads{$pid}{total_reads} || 0;
--	my $bytes_requested =3D $reads{$pid}{bytes_requested} || 0;
--	my $bytes_read =3D $reads{$pid}{bytes_read} || 0;
--
--	printf("%6s  %-20s  %10s  %10s  %10s\n", $pid, $comm,
--	       $total_reads, $bytes_requested, $bytes_read);
--    }
--
--    printf("\nfailed reads by pid:\n\n");
--
--    printf("%6s  %20s  %6s  %10s\n", "pid", "comm", "error #", "# errors")=
-;
--    printf("%6s  %20s  %6s  %10s\n", "------", "--------------------",
--	   "------", "----------");
--
--    my @errcounts =3D ();
--
--    foreach my $pid (keys %reads) {
--	foreach my $error (keys %{$reads{$pid}{errors}}) {
--	    my $comm =3D $reads{$pid}{comm} || "";
--	    my $errcount =3D $reads{$pid}{errors}{$error} || 0;
--	    push @errcounts, [$pid, $comm, $error, $errcount];
--	}
--    }
--
--    @errcounts =3D sort { $b->[3] <=3D> $a->[3] } @errcounts;
--
--    for my $i (0 .. $#errcounts) {
--	printf("%6d  %-20s  %6d  %10s\n", $errcounts[$i][0],
--	       $errcounts[$i][1], $errcounts[$i][2], $errcounts[$i][3]);
--    }
--
--    printf("\nwrite counts by pid:\n\n");
--
--    printf("%6s  %20s  %10s  %10s\n", "pid", "comm",
--	   "# writes", "bytes_written");
--    printf("%6s  %-20s  %10s  %10s\n", "------", "--------------------",
--	   "-----------", "----------");
--
--    foreach my $pid (sort { ($writes{$b}{bytes_written} || 0) <=3D>
--			($writes{$a}{bytes_written} || 0)} keys %writes) {
--	my $comm =3D $writes{$pid}{comm} || "";
--	my $total_writes =3D $writes{$pid}{total_writes} || 0;
--	my $bytes_written =3D $writes{$pid}{bytes_written} || 0;
--
--	printf("%6s  %-20s  %10s  %10s\n", $pid, $comm,
--	       $total_writes, $bytes_written);
--    }
--
--    printf("\nfailed writes by pid:\n\n");
--
--    printf("%6s  %20s  %6s  %10s\n", "pid", "comm", "error #", "# errors")=
-;
--    printf("%6s  %20s  %6s  %10s\n", "------", "--------------------",
--	   "------", "----------");
--
--    @errcounts =3D ();
--
--    foreach my $pid (keys %writes) {
--	foreach my $error (keys %{$writes{$pid}{errors}}) {
--	    my $comm =3D $writes{$pid}{comm} || "";
--	    my $errcount =3D $writes{$pid}{errors}{$error} || 0;
--	    push @errcounts, [$pid, $comm, $error, $errcount];
--	}
--    }
--
--    @errcounts =3D sort { $b->[3] <=3D> $a->[3] } @errcounts;
--
--    for my $i (0 .. $#errcounts) {
--	printf("%6d  %-20s  %6d  %10s\n", $errcounts[$i][0],
--	       $errcounts[$i][1], $errcounts[$i][2], $errcounts[$i][3]);
--    }
--
--    print_unhandled();
--}
--
--my %unhandled;
--
--sub print_unhandled
--{
--    if ((scalar keys %unhandled) =3D=3D 0) {
--	return;
--    }
--
--    print "\nunhandled events:\n\n";
--
--    printf("%-40s  %10s\n", "event", "count");
--    printf("%-40s  %10s\n", "----------------------------------------",
--	   "-----------");
--
--    foreach my $event_name (keys %unhandled) {
--	printf("%-40s  %10d\n", $event_name, $unhandled{$event_name});
--    }
--}
--
--sub trace_unhandled
--{
--    my ($event_name, $context, $common_cpu, $common_secs, $common_nsecs,
--	$common_pid, $common_comm, $common_callchain) =3D @_;
--
--    $unhandled{$event_name}++;
--}
-diff --git a/tools/perf/scripts/perl/rwtop.pl b/tools/perf/scripts/perl/rwt=
-op.pl
-deleted file mode 100644
-index eba4df67af6b..000000000000
---- a/tools/perf/scripts/perl/rwtop.pl
-+++ /dev/null
-@@ -1,203 +0,0 @@
--#!/usr/bin/perl -w
--# SPDX-License-Identifier: GPL-2.0-only
--# (c) 2010, Tom Zanussi <tzanussi@gmail.com>
--
--# read/write top
--#
--# Periodically displays system-wide r/w call activity, broken down by
--# pid.  If an [interval] arg is specified, the display will be
--# refreshed every [interval] seconds.  The default interval is 3
--# seconds.
--
--use 5.010000;
--use strict;
--use warnings;
--
--use lib "$ENV{'PERF_EXEC_PATH'}/scripts/perl/Perf-Trace-Util/lib";
--use lib "./Perf-Trace-Util/lib";
--use Perf::Trace::Core;
--use Perf::Trace::Util;
--use POSIX qw/SIGALRM SA_RESTART/;
--
--my $default_interval =3D 3;
--my $nlines =3D 20;
--my $print_thread;
--my $print_pending =3D 0;
--
--my %reads;
--my %writes;
--
--my $interval =3D shift;
--if (!$interval) {
--    $interval =3D $default_interval;
--}
--
--sub syscalls::sys_exit_read
--{
--    my ($event_name, $context, $common_cpu, $common_secs, $common_nsecs,
--	$common_pid, $common_comm, $common_callchain,
--	$nr, $ret) =3D @_;
--
--    print_check();
--
--    if ($ret > 0) {
--	$reads{$common_pid}{bytes_read} +=3D $ret;
--    } else {
--	if (!defined ($reads{$common_pid}{bytes_read})) {
--	    $reads{$common_pid}{bytes_read} =3D 0;
--	}
--	$reads{$common_pid}{errors}{$ret}++;
--    }
--}
--
--sub syscalls::sys_enter_read
--{
--    my ($event_name, $context, $common_cpu, $common_secs, $common_nsecs,
--	$common_pid, $common_comm, $common_callchain,
--	$nr, $fd, $buf, $count) =3D @_;
--
--    print_check();
--
--    $reads{$common_pid}{bytes_requested} +=3D $count;
--    $reads{$common_pid}{total_reads}++;
--    $reads{$common_pid}{comm} =3D $common_comm;
--}
--
--sub syscalls::sys_exit_write
--{
--    my ($event_name, $context, $common_cpu, $common_secs, $common_nsecs,
--	$common_pid, $common_comm, $common_callchain,
--	$nr, $ret) =3D @_;
--
--    print_check();
--
--    if ($ret <=3D 0) {
--	$writes{$common_pid}{errors}{$ret}++;
--    }
--}
--
--sub syscalls::sys_enter_write
--{
--    my ($event_name, $context, $common_cpu, $common_secs, $common_nsecs,
--	$common_pid, $common_comm, $common_callchain,
--	$nr, $fd, $buf, $count) =3D @_;
--
--    print_check();
--
--    $writes{$common_pid}{bytes_written} +=3D $count;
--    $writes{$common_pid}{total_writes}++;
--    $writes{$common_pid}{comm} =3D $common_comm;
--}
--
--sub trace_begin
--{
--    my $sa =3D POSIX::SigAction->new(\&set_print_pending);
--    $sa->flags(SA_RESTART);
--    $sa->safe(1);
--    POSIX::sigaction(SIGALRM, $sa) or die "Can't set SIGALRM handler: $!\n=
-";
--    alarm 1;
--}
--
--sub trace_end
--{
--    print_unhandled();
--    print_totals();
--}
--
--sub print_check()
--{
--    if ($print_pending =3D=3D 1) {
--	$print_pending =3D 0;
--	print_totals();
--    }
--}
--
--sub set_print_pending()
--{
--    $print_pending =3D 1;
--    alarm $interval;
--}
--
--sub print_totals
--{
--    my $count;
--
--    $count =3D 0;
--
--    clear_term();
--
--    printf("\nread counts by pid:\n\n");
--
--    printf("%6s  %20s  %10s  %10s  %10s\n", "pid", "comm",
--	   "# reads", "bytes_req", "bytes_read");
--    printf("%6s  %-20s  %10s  %10s  %10s\n", "------", "------------------=
---",
--	   "----------", "----------", "----------");
--
--    foreach my $pid (sort { ($reads{$b}{bytes_read} || 0) <=3D>
--			       ($reads{$a}{bytes_read} || 0) } keys %reads) {
--	my $comm =3D $reads{$pid}{comm} || "";
--	my $total_reads =3D $reads{$pid}{total_reads} || 0;
--	my $bytes_requested =3D $reads{$pid}{bytes_requested} || 0;
--	my $bytes_read =3D $reads{$pid}{bytes_read} || 0;
--
--	printf("%6s  %-20s  %10s  %10s  %10s\n", $pid, $comm,
--	       $total_reads, $bytes_requested, $bytes_read);
--
--	if (++$count =3D=3D $nlines) {
--	    last;
--	}
--    }
--
--    $count =3D 0;
--
--    printf("\nwrite counts by pid:\n\n");
--
--    printf("%6s  %20s  %10s  %13s\n", "pid", "comm",
--	   "# writes", "bytes_written");
--    printf("%6s  %-20s  %10s  %13s\n", "------", "--------------------",
--	   "----------", "-------------");
--
--    foreach my $pid (sort { ($writes{$b}{bytes_written} || 0) <=3D>
--			($writes{$a}{bytes_written} || 0)} keys %writes) {
--	my $comm =3D $writes{$pid}{comm} || "";
--	my $total_writes =3D $writes{$pid}{total_writes} || 0;
--	my $bytes_written =3D $writes{$pid}{bytes_written} || 0;
--
--	printf("%6s  %-20s  %10s  %13s\n", $pid, $comm,
--	       $total_writes, $bytes_written);
--
--	if (++$count =3D=3D $nlines) {
--	    last;
--	}
--    }
--
--    %reads =3D ();
--    %writes =3D ();
--}
--
--my %unhandled;
--
--sub print_unhandled
--{
--    if ((scalar keys %unhandled) =3D=3D 0) {
--	return;
--    }
--
--    print "\nunhandled events:\n\n";
--
--    printf("%-40s  %10s\n", "event", "count");
--    printf("%-40s  %10s\n", "----------------------------------------",
--	   "-----------");
--
--    foreach my $event_name (keys %unhandled) {
--	printf("%-40s  %10d\n", $event_name, $unhandled{$event_name});
--    }
--}
--
--sub trace_unhandled
--{
--    my ($event_name, $context, $common_cpu, $common_secs, $common_nsecs,
--	$common_pid, $common_comm, $common_callchain) =3D @_;
--
--    $unhandled{$event_name}++;
--}
-diff --git a/tools/perf/scripts/perl/wakeup-latency.pl b/tools/perf/scripts=
-/perl/wakeup-latency.pl
-deleted file mode 100644
-index 53444ff4ec7f..000000000000
---- a/tools/perf/scripts/perl/wakeup-latency.pl
-+++ /dev/null
-@@ -1,107 +0,0 @@
--#!/usr/bin/perl -w
--# SPDX-License-Identifier: GPL-2.0-only
--# (c) 2009, Tom Zanussi <tzanussi@gmail.com>
--
--# Display avg/min/max wakeup latency
--
--# The common_* event handler fields are the most useful fields common to
--# all events.  They don't necessarily correspond to the 'common_*' fields
--# in the status files.  Those fields not available as handler params can
--# be retrieved via script functions of the form get_common_*().
--
--use 5.010000;
--use strict;
--use warnings;
--
--use lib "$ENV{'PERF_EXEC_PATH'}/scripts/perl/Perf-Trace-Util/lib";
--use lib "./Perf-Trace-Util/lib";
--use Perf::Trace::Core;
--use Perf::Trace::Util;
--
--my %last_wakeup;
--
--my $max_wakeup_latency;
--my $min_wakeup_latency;
--my $total_wakeup_latency =3D 0;
--my $total_wakeups =3D 0;
--
--sub sched::sched_switch
--{
--    my ($event_name, $context, $common_cpu, $common_secs, $common_nsecs,
--	$common_pid, $common_comm, $common_callchain,
--	$prev_comm, $prev_pid, $prev_prio, $prev_state, $next_comm, $next_pid,
--	$next_prio) =3D @_;
--
--    my $wakeup_ts =3D $last_wakeup{$common_cpu}{ts};
--    if ($wakeup_ts) {
--	my $switch_ts =3D nsecs($common_secs, $common_nsecs);
--	my $wakeup_latency =3D $switch_ts - $wakeup_ts;
--	if ($wakeup_latency > $max_wakeup_latency) {
--	    $max_wakeup_latency =3D $wakeup_latency;
--	}
--	if ($wakeup_latency < $min_wakeup_latency) {
--	    $min_wakeup_latency =3D $wakeup_latency;
--	}
--	$total_wakeup_latency +=3D $wakeup_latency;
--	$total_wakeups++;
--    }
--    $last_wakeup{$common_cpu}{ts} =3D 0;
--}
--
--sub sched::sched_wakeup
--{
--    my ($event_name, $context, $common_cpu, $common_secs, $common_nsecs,
--	$common_pid, $common_comm, $common_callchain,
--	$comm, $pid, $prio, $success, $target_cpu) =3D @_;
--
--    $last_wakeup{$target_cpu}{ts} =3D nsecs($common_secs, $common_nsecs);
--}
--
--sub trace_begin
--{
--    $min_wakeup_latency =3D 1000000000;
--    $max_wakeup_latency =3D 0;
--}
--
--sub trace_end
--{
--    printf("wakeup_latency stats:\n\n");
--    print "total_wakeups: $total_wakeups\n";
--    if ($total_wakeups) {
--	printf("avg_wakeup_latency (ns): %u\n",
--	       avg($total_wakeup_latency, $total_wakeups));
--    } else {
--	printf("avg_wakeup_latency (ns): N/A\n");
--    }
--    printf("min_wakeup_latency (ns): %u\n", $min_wakeup_latency);
--    printf("max_wakeup_latency (ns): %u\n", $max_wakeup_latency);
--
--    print_unhandled();
--}
--
--my %unhandled;
--
--sub print_unhandled
--{
--    if ((scalar keys %unhandled) =3D=3D 0) {
--	return;
--    }
--
--    print "\nunhandled events:\n\n";
--
--    printf("%-40s  %10s\n", "event", "count");
--    printf("%-40s  %10s\n", "----------------------------------------",
--	   "-----------");
--
--    foreach my $event_name (keys %unhandled) {
--	printf("%-40s  %10d\n", $event_name, $unhandled{$event_name});
--    }
--}
--
--sub trace_unhandled
--{
--    my ($event_name, $context, $common_cpu, $common_secs, $common_nsecs,
--	$common_pid, $common_comm, $common_callchain) =3D @_;
--
--    $unhandled{$event_name}++;
--}
-diff --git a/tools/perf/tests/make b/tools/perf/tests/make
-index 6587dc326d1b..31b064928cfc 100644
---- a/tools/perf/tests/make
-+++ b/tools/perf/tests/make
-@@ -74,7 +74,7 @@ make_no_jevents     :=3D NO_JEVENTS=3D1
- make_jevents_all    :=3D JEVENTS_ARCH=3Dall
- make_no_bpf_skel    :=3D BUILD_BPF_SKEL=3D0
- make_gen_vmlinux_h  :=3D GEN_VMLINUX_H=3D1
--make_libperl        :=3D LIBPERL=3D1
++		if (event_copy == NULL) {
++			inject->event_copy = malloc(PERF_SAMPLE_MAX_SIZE);
++			if (!inject->event_copy)
++				return -ENOMEM;
 +
- make_no_libpython   :=3D NO_LIBPYTHON=3D1
- make_no_scripts     :=3D NO_LIBPYTHON=3D1
- make_no_slang       :=3D NO_SLANG=3D1
-@@ -149,7 +149,7 @@ run +=3D make_no_jevents
- run +=3D make_jevents_all
- run +=3D make_no_bpf_skel
- run +=3D make_gen_vmlinux_h
--run +=3D make_libperl
++			event_copy = (void *)inject->event_copy;
++		}
 +
- run +=3D make_no_libpython
- run +=3D make_no_scripts
- run +=3D make_no_slang
-diff --git a/tools/perf/tests/shell/script_perl.sh b/tools/perf/tests/shell=
-/script_perl.sh
-deleted file mode 100755
-index b6d65b6fbda1..000000000000
---- a/tools/perf/tests/shell/script_perl.sh
-+++ /dev/null
-@@ -1,102 +0,0 @@
--#!/bin/bash
--# perf script perl tests
--# SPDX-License-Identifier: GPL-2.0
--
--set -e
--
--# set PERF_EXEC_PATH to find scripts in the source directory
--perfdir=3D$(dirname "$0")/../..
--if [ -e "$perfdir/scripts/perl/Perf-Trace-Util" ]; then
--  export PERF_EXEC_PATH=3D$perfdir
--fi
--
--
--perfdata=3D$(mktemp /tmp/__perf_test_script_perl.perf.data.XXXXX)
--generated_script=3D$(mktemp /tmp/__perf_test_script.XXXXX.pl)
--
--cleanup() {
--  rm -f "${perfdata}"
--  rm -f "${generated_script}"
--  trap - EXIT TERM INT
--}
--
--trap_cleanup() {
--  echo "Unexpected signal in ${FUNCNAME[1]}"
--  cleanup
--  exit 1
--}
--trap trap_cleanup TERM INT
--trap cleanup EXIT
--
--check_perl_support() {
--	if perf check feature -q libperl; then
--		return 0
--	fi
--	echo "perf script perl test [Skipped: no libperl support]"
--	return 2
--}
--
--test_script() {
--	local event_name=3D$1
--	local expected_output=3D$2
--	local record_opts=3D$3
--
--	echo "Testing event: $event_name"
--
--	# Try to record. If this fails, it might be permissions or lack of suppor=
-t.
--	# We return 2 to indicate "skip this event" rather than "fail test".
--	if ! perf record -o "${perfdata}" -e "$event_name" $record_opts -- perf t=
-est -w thloop > /dev/null 2>&1; then
--		echo "perf script perl test [Skipped: failed to record $event_name]"
--		return 2
--	fi
--
--	echo "Generating perl script..."
--	if ! perf script -i "${perfdata}" -g "${generated_script}"; then
--		echo "perf script perl test [Failed: script generation for $event_name]"
--		return 1
--	fi
--
--	if [ ! -f "${generated_script}" ]; then
--		echo "perf script perl test [Failed: script not generated for $event_nam=
-e]"
--		return 1
--	fi
--
--	echo "Executing perl script..."
--	output=3D$(perf script -i "${perfdata}" -s "${generated_script}" 2>&1)
--
--	if echo "$output" | grep -q "$expected_output"; then
--		echo "perf script perl test [Success: $event_name triggered $expected_ou=
-tput]"
--		return 0
--	else
--		echo "perf script perl test [Failed: $event_name did not trigger $expect=
-ed_output]"
--		echo "Output was:"
--		echo "$output" | head -n 20
--		return 1
--	fi
--}
--
--check_perl_support || exit 2
--
--# Try tracepoint first
--test_script "sched:sched_switch" "sched::sched_switch" "-c 1" && res=3D0 |=
-| res=3D$?
--
--if [ $res -eq 0 ]; then
--	exit 0
--elif [ $res -eq 1 ]; then
--	exit 1
--fi
--
--# If tracepoint skipped (res=3D2), try task-clock
--# For generic events like task-clock, the generated script uses process_ev=
-ent()
--# which dumps data using Data::Dumper. We check for "$VAR1" which is stand=
-ard Dumper output.
--test_script "task-clock" "\$VAR1" "-c 100" && res=3D0 || res=3D$?
--
--if [ $res -eq 0 ]; then
--	exit 0
--elif [ $res -eq 1 ]; then
--	exit 1
--fi
--
--# If both skipped
--echo "perf script perl test [Skipped: Could not record tracepoint or task-=
-clock]"
--exit 2
-diff --git a/tools/perf/ui/browsers/scripts.c b/tools/perf/ui/browsers/scri=
-pts.c
-index 1e8c2c2f952d..db5559311a1f 100644
---- a/tools/perf/ui/browsers/scripts.c
-+++ b/tools/perf/ui/browsers/scripts.c
-@@ -126,8 +126,10 @@ static int check_ev_match(int dir_fd, const char *scri=
-ptname, struct perf_sessio
- 			len =3D strcspn(p, " \t");
- 			if (!len)
- 				break;
-+			if ((size_t)len >=3D sizeof(evname))
-+				len =3D sizeof(evname) - 1;
-=20
--			snprintf(evname, len + 1, "%s", p);
-+			snprintf(evname, sizeof(evname), "%s", p);
-=20
- 			match =3D 0;
- 			evlist__for_each_entry(session->evlist, pos) {
-@@ -200,14 +202,13 @@ static int find_scripts(char **scripts_array, char **=
-scripts_path_array, int num
- 		if (!strcmp(lang_dirent->d_name, ".") || !strcmp(lang_dirent->d_name, ".=
-."))
- 			continue;
-=20
--#ifndef HAVE_LIBPERL_SUPPORT
--		if (strstr(lang_dirent->d_name, "perl"))
--			continue;
--#endif
++		if (!sample->branch_stack)
++			sample->branch_stack = &dummy_bs;
 +
- #ifndef HAVE_LIBPYTHON_SUPPORT
- 		if (strstr(lang_dirent->d_name, "python"))
- 			continue;
- #endif
-+		if (strstr(lang_dirent->d_name, "perl"))
-+			continue;
-=20
- 		lang_dir_fd =3D openat(scripts_dir_fd, lang_dirent->d_name, O_DIRECTORY)=
-;
- 		if (lang_dir_fd =3D=3D -1)
-@@ -218,6 +219,8 @@ static int find_scripts(char **scripts_array, char **sc=
-ripts_path_array, int num
- 			continue;
++		if (inject->itrace_synth_opts.add_last_branch) {
++			/* Temporarily add in type bits for synthesis. */
++			evsel->core.attr.sample_type |= PERF_SAMPLE_BRANCH_STACK;
++			evsel->core.attr.branch_sample_type |= PERF_SAMPLE_BRANCH_HW_INDEX;
++			evsel->core.attr.sample_type &= ~PERF_SAMPLE_AUX;
++		}
++
++		sz = perf_event__sample_event_size(sample, evsel->core.attr.sample_type,
++						   evsel->core.attr.read_format,
++						   evsel->core.attr.branch_sample_type);
++
++		if (sz > PERF_SAMPLE_MAX_SIZE) {
++			pr_err("Sample size %zu exceeds max size %d\n", sz, PERF_SAMPLE_MAX_SIZE);
++			return -EFAULT;
++		}
++
++		event_copy->header.type = PERF_RECORD_SAMPLE;
++		event_copy->header.size = sz;
++
++		err = perf_event__synthesize_sample(event_copy, evsel->core.attr.sample_type,
++						    evsel->core.attr.read_format,
++						    evsel->core.attr.branch_sample_type, sample);
++
++		evsel->core.attr.sample_type = orig_type;
++		evsel->core.attr.branch_sample_type = orig_branch_type;
++
++		if (err) {
++			pr_err("Failed to synthesize sample\n");
++			return err;
++		}
++		event = event_copy;
++	} else if (inject->itrace_synth_opts.set && sample->aux_sample.size) {
+ 		event = perf_inject__cut_auxtrace_sample(inject, event, sample);
+ 		if (IS_ERR(event))
+ 			return PTR_ERR(event);
+@@ -464,7 +516,8 @@ static int perf_event__convert_sample_callchain(const struct perf_tool *tool,
+ 	sample_type &= ~(PERF_SAMPLE_STACK_USER | PERF_SAMPLE_REGS_USER);
+ 
+ 	perf_event__synthesize_sample(event_copy, sample_type,
+-				      evsel->core.attr.read_format, sample);
++				      evsel->core.attr.read_format,
++				      evsel->core.attr.branch_sample_type, sample);
+ 	return perf_event__repipe_synth(tool, event_copy);
+ }
+ 
+@@ -1100,7 +1153,8 @@ static int perf_inject__sched_stat(const struct perf_tool *tool,
+ 	sample_sw.period = sample->period;
+ 	sample_sw.time	 = sample->time;
+ 	perf_event__synthesize_sample(event_sw, evsel->core.attr.sample_type,
+-				      evsel->core.attr.read_format, &sample_sw);
++				      evsel->core.attr.read_format,
++				      evsel->core.attr.branch_sample_type, &sample_sw);
+ 	build_id__mark_dso_hit(tool, event_sw, &sample_sw, evsel, machine);
+ 	ret = perf_event__repipe(tool, event_sw, &sample_sw, machine);
+ 	perf_sample__exit(&sample_sw);
+@@ -2434,12 +2488,25 @@ static int __cmd_inject(struct perf_inject *inject)
+ 		 * synthesized hardware events, so clear the feature flag.
+ 		 */
+ 		if (inject->itrace_synth_opts.set) {
++			struct evsel *evsel;
++
+ 			perf_header__clear_feat(&session->header,
+ 						HEADER_AUXTRACE);
+-			if (inject->itrace_synth_opts.last_branch ||
+-			    inject->itrace_synth_opts.add_last_branch)
++
++			evlist__for_each_entry(session->evlist, evsel) {
++				evsel->core.attr.sample_type &= ~PERF_SAMPLE_AUX;
++			}
++
++			if (inject->itrace_synth_opts.add_last_branch) {
+ 				perf_header__set_feat(&session->header,
+ 						      HEADER_BRANCH_STACK);
++
++				evlist__for_each_entry(session->evlist, evsel) {
++					evsel->core.attr.sample_type |= PERF_SAMPLE_BRANCH_STACK;
++					evsel->core.attr.branch_sample_type |=
++						PERF_SAMPLE_BRANCH_HW_INDEX;
++				}
++			}
  		}
- 		while ((script_dirent =3D readdir(lang_dir)) !=3D NULL) {
-+			int script_len;
-+
- 			if (script_dirent->d_type =3D=3D DT_DIR)
- 				continue;
- 			if (script_dirent->d_type =3D=3D DT_UNKNOWN &&
-@@ -233,9 +236,11 @@ static int find_scripts(char **scripts_array, char **s=
-cripts_path_array, int num
- 				lang_dirent->d_name,
- 				script_dirent->d_name);
- 			temp =3D strchr(script_dirent->d_name, '.');
--			snprintf(scripts_array[i],
--				(temp - script_dirent->d_name) + 1,
--				"%s", script_dirent->d_name);
-+			script_len =3D temp ? (temp - script_dirent->d_name) : (int)strlen(scri=
-pt_dirent->d_name);
-+
-+			if (script_len >=3D SCRIPT_NAMELEN)
-+				script_len =3D SCRIPT_NAMELEN - 1;
-+			snprintf(scripts_array[i], script_len + 1, "%s", script_dirent->d_name)=
-;
-=20
- 			if (check_ev_match(lang_dir_fd, scripts_array[i], session))
- 				continue;
-diff --git a/tools/perf/util/scripting-engines/Build b/tools/perf/util/scri=
-pting-engines/Build
-index 24f087b0cd11..ce14ef44b200 100644
---- a/tools/perf/util/scripting-engines/Build
-+++ b/tools/perf/util/scripting-engines/Build
-@@ -1,9 +1,7 @@
--ifeq ($(CONFIG_LIBTRACEEVENT),y)
--  perf-util-$(CONFIG_LIBPERL)   +=3D trace-event-perl.o
--endif
-+
- perf-util-$(CONFIG_LIBPYTHON) +=3D trace-event-python.o
-=20
--CFLAGS_trace-event-perl.o +=3D $(PERL_EMBED_CCOPTS) -Wno-redundant-decls -=
-Wno-strict-prototypes -Wno-unused-parameter -Wno-shadow -Wno-nested-externs=
- -Wno-undef -Wno-switch-default -Wno-bad-function-cast -Wno-declaration-aft=
-er-statement -Wno-switch-enum -Wno-thread-safety-analysis
-+
-=20
- # -Wno-declaration-after-statement: The python headers have mixed code wit=
-h declarations (decls after asserts, for instance)
- CFLAGS_trace-event-python.o +=3D $(PYTHON_EMBED_CCOPTS) -Wno-redundant-dec=
-ls -Wno-strict-prototypes -Wno-unused-parameter -Wno-shadow -Wno-deprecated=
--declarations -Wno-switch-enum -Wno-declaration-after-statement
-diff --git a/tools/perf/util/scripting-engines/trace-event-perl.c b/tools/p=
-erf/util/scripting-engines/trace-event-perl.c
-deleted file mode 100644
-index e261a57b87d4..000000000000
---- a/tools/perf/util/scripting-engines/trace-event-perl.c
-+++ /dev/null
-@@ -1,773 +0,0 @@
--/*
-- * trace-event-perl.  Feed perf script events to an embedded Perl interpre=
-ter.
-- *
-- * Copyright (C) 2009 Tom Zanussi <tzanussi@gmail.com>
-- *
-- *  This program is free software; you can redistribute it and/or modify
-- *  it under the terms of the GNU General Public License as published by
-- *  the Free Software Foundation; either version 2 of the License, or
-- *  (at your option) any later version.
-- *
-- *  This program is distributed in the hope that it will be useful,
-- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
-- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-- *  GNU General Public License for more details.
-- *
-- *  You should have received a copy of the GNU General Public License
-- *  along with this program; if not, write to the Free Software
-- *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  =
-USA
-- *
-- */
--
--#include <inttypes.h>
--#include <stdio.h>
--#include <stdlib.h>
--#include <string.h>
--#include <ctype.h>
--#include <errno.h>
--#include <linux/bitmap.h>
--#include <linux/time64.h>
--#include <event-parse.h>
--
--#include <stdbool.h>
--/* perl needs the following define, right after including stdbool.h */
--#define HAS_BOOL
--#include <EXTERN.h>
--#include <perl.h>
--
--#include "../callchain.h"
--#include "../dso.h"
--#include "../machine.h"
--#include "../map.h"
--#include "../symbol.h"
--#include "../thread.h"
--#include "../event.h"
--#include "../trace-event.h"
--#include "../evsel.h"
--#include "../debug.h"
--
--void boot_Perf__Trace__Context(pTHX_ CV *cv);
--void boot_DynaLoader(pTHX_ CV *cv);
--typedef PerlInterpreter * INTERP;
--
--void xs_init(pTHX);
--
--void xs_init(pTHX)
--{
--	const char *file =3D __FILE__;
--	dXSUB_SYS;
--
--	newXS("Perf::Trace::Context::bootstrap", boot_Perf__Trace__Context,
--	      file);
--	newXS("DynaLoader::boot_DynaLoader", boot_DynaLoader, file);
--}
--
--INTERP my_perl;
--
--#define TRACE_EVENT_TYPE_MAX				\
--	((1 << (sizeof(unsigned short) * 8)) - 1)
--
--extern struct scripting_context *scripting_context;
--
--static char *cur_field_name;
--static int zero_flag_atom;
--
--static void define_symbolic_value(const char *ev_name,
--				  const char *field_name,
--				  const char *field_value,
--				  const char *field_str)
--{
--	unsigned long long value;
--	dSP;
--
--	value =3D eval_flag(field_value);
--
--	ENTER;
--	SAVETMPS;
--	PUSHMARK(SP);
--
--	XPUSHs(sv_2mortal(newSVpv(ev_name, 0)));
--	XPUSHs(sv_2mortal(newSVpv(field_name, 0)));
--	XPUSHs(sv_2mortal(newSVuv(value)));
--	XPUSHs(sv_2mortal(newSVpv(field_str, 0)));
--
--	PUTBACK;
--	if (get_cv("main::define_symbolic_value", 0))
--		call_pv("main::define_symbolic_value", G_SCALAR);
--	SPAGAIN;
--	PUTBACK;
--	FREETMPS;
--	LEAVE;
--}
--
--static void define_symbolic_values(struct tep_print_flag_sym *field,
--				   const char *ev_name,
--				   const char *field_name)
--{
--	define_symbolic_value(ev_name, field_name, field->value, field->str);
--	if (field->next)
--		define_symbolic_values(field->next, ev_name, field_name);
--}
--
--static void define_symbolic_field(const char *ev_name,
--				  const char *field_name)
--{
--	dSP;
--
--	ENTER;
--	SAVETMPS;
--	PUSHMARK(SP);
--
--	XPUSHs(sv_2mortal(newSVpv(ev_name, 0)));
--	XPUSHs(sv_2mortal(newSVpv(field_name, 0)));
--
--	PUTBACK;
--	if (get_cv("main::define_symbolic_field", 0))
--		call_pv("main::define_symbolic_field", G_SCALAR);
--	SPAGAIN;
--	PUTBACK;
--	FREETMPS;
--	LEAVE;
--}
--
--static void define_flag_value(const char *ev_name,
--			      const char *field_name,
--			      const char *field_value,
--			      const char *field_str)
--{
--	unsigned long long value;
--	dSP;
--
--	value =3D eval_flag(field_value);
--
--	ENTER;
--	SAVETMPS;
--	PUSHMARK(SP);
--
--	XPUSHs(sv_2mortal(newSVpv(ev_name, 0)));
--	XPUSHs(sv_2mortal(newSVpv(field_name, 0)));
--	XPUSHs(sv_2mortal(newSVuv(value)));
--	XPUSHs(sv_2mortal(newSVpv(field_str, 0)));
--
--	PUTBACK;
--	if (get_cv("main::define_flag_value", 0))
--		call_pv("main::define_flag_value", G_SCALAR);
--	SPAGAIN;
--	PUTBACK;
--	FREETMPS;
--	LEAVE;
--}
--
--static void define_flag_values(struct tep_print_flag_sym *field,
--			       const char *ev_name,
--			       const char *field_name)
--{
--	define_flag_value(ev_name, field_name, field->value, field->str);
--	if (field->next)
--		define_flag_values(field->next, ev_name, field_name);
--}
--
--static void define_flag_field(const char *ev_name,
--			      const char *field_name,
--			      const char *delim)
--{
--	dSP;
--
--	ENTER;
--	SAVETMPS;
--	PUSHMARK(SP);
--
--	XPUSHs(sv_2mortal(newSVpv(ev_name, 0)));
--	XPUSHs(sv_2mortal(newSVpv(field_name, 0)));
--	XPUSHs(sv_2mortal(newSVpv(delim, 0)));
--
--	PUTBACK;
--	if (get_cv("main::define_flag_field", 0))
--		call_pv("main::define_flag_field", G_SCALAR);
--	SPAGAIN;
--	PUTBACK;
--	FREETMPS;
--	LEAVE;
--}
--
--static void define_event_symbols(struct tep_event *event,
--				 const char *ev_name,
--				 struct tep_print_arg *args)
--{
--	if (args =3D=3D NULL)
--		return;
--
--	switch (args->type) {
--	case TEP_PRINT_NULL:
--		break;
--	case TEP_PRINT_ATOM:
--		define_flag_value(ev_name, cur_field_name, "0",
--				  args->atom.atom);
--		zero_flag_atom =3D 0;
--		break;
--	case TEP_PRINT_FIELD:
--		free(cur_field_name);
--		cur_field_name =3D strdup(args->field.name);
--		break;
--	case TEP_PRINT_FLAGS:
--		define_event_symbols(event, ev_name, args->flags.field);
--		define_flag_field(ev_name, cur_field_name, args->flags.delim);
--		define_flag_values(args->flags.flags, ev_name, cur_field_name);
--		break;
--	case TEP_PRINT_SYMBOL:
--		define_event_symbols(event, ev_name, args->symbol.field);
--		define_symbolic_field(ev_name, cur_field_name);
--		define_symbolic_values(args->symbol.symbols, ev_name,
--				       cur_field_name);
--		break;
--	case TEP_PRINT_HEX:
--	case TEP_PRINT_HEX_STR:
--		define_event_symbols(event, ev_name, args->hex.field);
--		define_event_symbols(event, ev_name, args->hex.size);
--		break;
--	case TEP_PRINT_INT_ARRAY:
--		define_event_symbols(event, ev_name, args->int_array.field);
--		define_event_symbols(event, ev_name, args->int_array.count);
--		define_event_symbols(event, ev_name, args->int_array.el_size);
--		break;
--	case TEP_PRINT_BSTRING:
--	case TEP_PRINT_DYNAMIC_ARRAY:
--	case TEP_PRINT_DYNAMIC_ARRAY_LEN:
--	case TEP_PRINT_STRING:
--	case TEP_PRINT_BITMASK:
--		break;
--	case TEP_PRINT_TYPE:
--		define_event_symbols(event, ev_name, args->typecast.item);
--		break;
--	case TEP_PRINT_OP:
--		if (strcmp(args->op.op, ":") =3D=3D 0)
--			zero_flag_atom =3D 1;
--		define_event_symbols(event, ev_name, args->op.left);
--		define_event_symbols(event, ev_name, args->op.right);
--		break;
--	case TEP_PRINT_FUNC:
--	default:
--		pr_err("Unsupported print arg type\n");
--		/* we should warn... */
--		return;
--	}
--
--	if (args->next)
--		define_event_symbols(event, ev_name, args->next);
--}
--
--static SV *perl_process_callchain(struct perf_sample *sample,
--				  struct evsel *evsel,
--				  struct addr_location *al)
--{
--	struct callchain_cursor *cursor;
--	AV *list;
--
--	list =3D newAV();
--	if (!list)
--		goto exit;
--
--	if (!symbol_conf.use_callchain || !sample->callchain)
--		goto exit;
--
--	cursor =3D get_tls_callchain_cursor();
--
--	if (thread__resolve_callchain(al->thread, cursor, evsel,
--				      sample, NULL, NULL, scripting_max_stack) !=3D 0) {
--		pr_err("Failed to resolve callchain. Skipping\n");
--		goto exit;
--	}
--	callchain_cursor_commit(cursor);
--
--
--	while (1) {
--		HV *elem;
--		struct callchain_cursor_node *node;
--		node =3D callchain_cursor_current(cursor);
--		if (!node)
--			break;
--
--		elem =3D newHV();
--		if (!elem)
--			goto exit;
--
--		if (!hv_stores(elem, "ip", newSVuv(node->ip))) {
--			hv_undef(elem);
--			goto exit;
--		}
--
--		if (node->ms.sym) {
--			HV *sym =3D newHV();
--			if (!sym) {
--				hv_undef(elem);
--				goto exit;
--			}
--			if (!hv_stores(sym, "start",   newSVuv(node->ms.sym->start)) ||
--			    !hv_stores(sym, "end",     newSVuv(node->ms.sym->end)) ||
--			    !hv_stores(sym, "binding", newSVuv(node->ms.sym->binding)) ||
--			    !hv_stores(sym, "name",    newSVpvn(node->ms.sym->name,
--								node->ms.sym->namelen)) ||
--			    !hv_stores(elem, "sym",    newRV_noinc((SV*)sym))) {
--				hv_undef(sym);
--				hv_undef(elem);
--				goto exit;
--			}
--		}
--
--		if (node->ms.map) {
--			struct map *map =3D node->ms.map;
--			struct dso *dso =3D map ? map__dso(map) : NULL;
--			const char *dsoname =3D "[unknown]";
--
--			if (dso) {
--				if (symbol_conf.show_kernel_path && dso__long_name(dso))
--					dsoname =3D dso__long_name(dso);
--				else
--					dsoname =3D dso__name(dso);
--			}
--			if (!hv_stores(elem, "dso", newSVpv(dsoname,0))) {
--				hv_undef(elem);
--				goto exit;
--			}
--		}
--
--		callchain_cursor_advance(cursor);
--		av_push(list, newRV_noinc((SV*)elem));
--	}
--
--exit:
--	return newRV_noinc((SV*)list);
--}
--
--static void perl_process_tracepoint(struct perf_sample *sample,
--				    struct evsel *evsel,
--				    struct addr_location *al)
--{
--	struct thread *thread =3D al->thread;
--	struct tep_event *event;
--	struct tep_format_field *field;
--	static char handler[256];
--	unsigned long long val;
--	unsigned long s, ns;
--	int pid;
--	int cpu =3D sample->cpu;
--	void *data =3D sample->raw_data;
--	unsigned long long nsecs =3D sample->time;
--	const char *comm =3D thread__comm_str(thread);
--	DECLARE_BITMAP(events_defined, TRACE_EVENT_TYPE_MAX);
--
--	bitmap_zero(events_defined, TRACE_EVENT_TYPE_MAX);
--	dSP;
--
--	if (evsel->core.attr.type !=3D PERF_TYPE_TRACEPOINT)
--		return;
--
--	event =3D evsel__tp_format(evsel);
--	if (!event) {
--		pr_debug("ug! no event found for type %" PRIu64, (u64)evsel->core.attr.c=
-onfig);
--		return;
--	}
--
--	pid =3D raw_field_value(event, "common_pid", data);
--
--	sprintf(handler, "%s::%s", event->system, event->name);
--
--	if (!__test_and_set_bit(event->id, events_defined))
--		define_event_symbols(event, handler, event->print_fmt.args);
--
--	s =3D nsecs / NSEC_PER_SEC;
--	ns =3D nsecs - s * NSEC_PER_SEC;
--
--	ENTER;
--	SAVETMPS;
--	PUSHMARK(SP);
--
--	XPUSHs(sv_2mortal(newSVpv(handler, 0)));
--	XPUSHs(sv_2mortal(newSViv(PTR2IV(scripting_context))));
--	XPUSHs(sv_2mortal(newSVuv(cpu)));
--	XPUSHs(sv_2mortal(newSVuv(s)));
--	XPUSHs(sv_2mortal(newSVuv(ns)));
--	XPUSHs(sv_2mortal(newSViv(pid)));
--	XPUSHs(sv_2mortal(newSVpv(comm, 0)));
--	XPUSHs(sv_2mortal(perl_process_callchain(sample, evsel, al)));
--
--	/* common fields other than pid can be accessed via xsub fns */
--
--	for (field =3D event->format.fields; field; field =3D field->next) {
--		if (field->flags & TEP_FIELD_IS_STRING) {
--			int offset;
--			if (field->flags & TEP_FIELD_IS_DYNAMIC) {
--				offset =3D *(int *)(data + field->offset);
--				offset &=3D 0xffff;
--				if (tep_field_is_relative(field->flags))
--					offset +=3D field->offset + field->size;
--			} else
--				offset =3D field->offset;
--			XPUSHs(sv_2mortal(newSVpv((char *)data + offset, 0)));
--		} else { /* FIELD_IS_NUMERIC */
--			val =3D read_size(event, data + field->offset,
--					field->size);
--			if (field->flags & TEP_FIELD_IS_SIGNED) {
--				XPUSHs(sv_2mortal(newSViv(val)));
--			} else {
--				XPUSHs(sv_2mortal(newSVuv(val)));
--			}
--		}
--	}
--
--	PUTBACK;
--
--	if (get_cv(handler, 0))
--		call_pv(handler, G_SCALAR);
--	else if (get_cv("main::trace_unhandled", 0)) {
--		XPUSHs(sv_2mortal(newSVpv(handler, 0)));
--		XPUSHs(sv_2mortal(newSViv(PTR2IV(scripting_context))));
--		XPUSHs(sv_2mortal(newSVuv(cpu)));
--		XPUSHs(sv_2mortal(newSVuv(nsecs)));
--		XPUSHs(sv_2mortal(newSViv(pid)));
--		XPUSHs(sv_2mortal(newSVpv(comm, 0)));
--		XPUSHs(sv_2mortal(perl_process_callchain(sample, evsel, al)));
--		call_pv("main::trace_unhandled", G_SCALAR);
--	}
--	SPAGAIN;
--	PUTBACK;
--	FREETMPS;
--	LEAVE;
--}
--
--static void perl_process_event_generic(union perf_event *event,
--				       struct perf_sample *sample,
--				       struct evsel *evsel)
--{
--	dSP;
--
--	if (!get_cv("process_event", 0))
--		return;
--
--	ENTER;
--	SAVETMPS;
--	PUSHMARK(SP);
--	XPUSHs(sv_2mortal(newSVpvn((const char *)event, event->header.size)));
--	XPUSHs(sv_2mortal(newSVpvn((const char *)&evsel->core.attr, sizeof(evsel-=
->core.attr))));
--	XPUSHs(sv_2mortal(newSVpvn((const char *)sample, sizeof(*sample))));
--	XPUSHs(sv_2mortal(newSVpvn((const char *)sample->raw_data, sample->raw_si=
-ze)));
--	PUTBACK;
--	call_pv("process_event", G_SCALAR);
--	SPAGAIN;
--	PUTBACK;
--	FREETMPS;
--	LEAVE;
--}
--
--static void perl_process_event(union perf_event *event,
--			       struct perf_sample *sample,
--			       struct evsel *evsel,
--			       struct addr_location *al,
--			       struct addr_location *addr_al)
--{
--	scripting_context__update(scripting_context, event, sample, evsel, al, ad=
-dr_al);
--	perl_process_tracepoint(sample, evsel, al);
--	perl_process_event_generic(event, sample, evsel);
--}
--
--static void run_start_sub(void)
--{
--	dSP; /* access to Perl stack */
--	PUSHMARK(SP);
--
--	if (get_cv("main::trace_begin", 0))
--		call_pv("main::trace_begin", G_DISCARD | G_NOARGS);
--}
--
--/*
-- * Start trace script
-- */
--static int perl_start_script(const char *script, int argc, const char **ar=
-gv,
--			     struct perf_session *session)
--{
--	const char **command_line;
--	int i, err =3D 0;
--
--	scripting_context->session =3D session;
--
--	command_line =3D malloc((argc + 2) * sizeof(const char *));
--	if (!command_line)
--		return -ENOMEM;
--
--	command_line[0] =3D "";
--	command_line[1] =3D script;
--	for (i =3D 2; i < argc + 2; i++)
--		command_line[i] =3D argv[i - 2];
--
--	my_perl =3D perl_alloc();
--	perl_construct(my_perl);
--
--	if (perl_parse(my_perl, xs_init, argc + 2, (char **)command_line,
--		       (char **)NULL)) {
--		err =3D -1;
--		goto error;
--	}
--
--	if (perl_run(my_perl)) {
--		err =3D -1;
--		goto error;
--	}
--
--	if (SvTRUE(ERRSV)) {
--		err =3D -1;
--		goto error;
--	}
--
--	run_start_sub();
--
--	free(command_line);
--	return 0;
--error:
--	perl_free(my_perl);
--	free(command_line);
--
--	return err;
--}
--
--static int perl_flush_script(void)
--{
--	return 0;
--}
--
--/*
-- * Stop trace script
-- */
--static int perl_stop_script(void)
--{
--	dSP; /* access to Perl stack */
--	PUSHMARK(SP);
--
--	if (get_cv("main::trace_end", 0))
--		call_pv("main::trace_end", G_DISCARD | G_NOARGS);
--
--	perl_destruct(my_perl);
--	perl_free(my_perl);
--
--	return 0;
--}
--
--static int perl_generate_script(struct tep_handle *pevent, const char *out=
-file)
--{
--	int i, not_first, count, nr_events;
--	struct tep_event **all_events;
--	struct tep_event *event =3D NULL;
--	struct tep_format_field *f;
--	char fname[PATH_MAX];
--	FILE *ofp;
--
--	sprintf(fname, "%s.pl", outfile);
--	ofp =3D fopen(fname, "w");
--	if (ofp =3D=3D NULL) {
--		fprintf(stderr, "couldn't open %s\n", fname);
--		return -1;
--	}
--
--	fprintf(ofp, "# perf script event handlers, "
--		"generated by perf script -g perl\n");
--
--	fprintf(ofp, "# Licensed under the terms of the GNU GPL"
--		" License version 2\n\n");
--
--	fprintf(ofp, "# The common_* event handler fields are the most useful "
--		"fields common to\n");
--
--	fprintf(ofp, "# all events.  They don't necessarily correspond to "
--		"the 'common_*' fields\n");
--
--	fprintf(ofp, "# in the format files.  Those fields not available as "
--		"handler params can\n");
--
--	fprintf(ofp, "# be retrieved using Perl functions of the form "
--		"common_*($context).\n");
--
--	fprintf(ofp, "# See Context.pm for the list of available "
--		"functions.\n\n");
--
--	fprintf(ofp, "use lib \"$ENV{'PERF_EXEC_PATH'}/scripts/perl/"
--		"Perf-Trace-Util/lib\";\n");
--
--	fprintf(ofp, "use lib \"./Perf-Trace-Util/lib\";\n");
--	fprintf(ofp, "use Perf::Trace::Core;\n");
--	fprintf(ofp, "use Perf::Trace::Context;\n");
--	fprintf(ofp, "use Perf::Trace::Util;\n\n");
--
--	fprintf(ofp, "sub trace_begin\n{\n\t# optional\n}\n\n");
--	fprintf(ofp, "sub trace_end\n{\n\t# optional\n}\n");
--
--
--	fprintf(ofp, "\n\
--sub print_backtrace\n\
--{\n\
--	my $callchain =3D shift;\n\
--	for my $node (@$callchain)\n\
--	{\n\
--		if(exists $node->{sym})\n\
--		{\n\
--			printf( \"\\t[\\%%x] \\%%s\\n\", $node->{ip}, $node->{sym}{name});\n\
--		}\n\
--		else\n\
--		{\n\
--			printf( \"\\t[\\%%x]\\n\", $node{ip});\n\
--		}\n\
--	}\n\
--}\n\n\
--");
--
--	nr_events =3D tep_get_events_count(pevent);
--	all_events =3D tep_list_events(pevent, TEP_EVENT_SORT_ID);
--
--	for (i =3D 0; all_events && i < nr_events; i++) {
--		event =3D all_events[i];
--		fprintf(ofp, "sub %s::%s\n{\n", event->system, event->name);
--		fprintf(ofp, "\tmy (");
--
--		fprintf(ofp, "$event_name, ");
--		fprintf(ofp, "$context, ");
--		fprintf(ofp, "$common_cpu, ");
--		fprintf(ofp, "$common_secs, ");
--		fprintf(ofp, "$common_nsecs,\n");
--		fprintf(ofp, "\t    $common_pid, ");
--		fprintf(ofp, "$common_comm, ");
--		fprintf(ofp, "$common_callchain,\n\t    ");
--
--		not_first =3D 0;
--		count =3D 0;
--
--		for (f =3D event->format.fields; f; f =3D f->next) {
--			if (not_first++)
--				fprintf(ofp, ", ");
--			if (++count % 5 =3D=3D 0)
--				fprintf(ofp, "\n\t    ");
--
--			fprintf(ofp, "$%s", f->name);
--		}
--		fprintf(ofp, ") =3D @_;\n\n");
--
--		fprintf(ofp, "\tprint_header($event_name, $common_cpu, "
--			"$common_secs, $common_nsecs,\n\t             "
--			"$common_pid, $common_comm, $common_callchain);\n\n");
--
--		fprintf(ofp, "\tprintf(\"");
--
--		not_first =3D 0;
--		count =3D 0;
--
--		for (f =3D event->format.fields; f; f =3D f->next) {
--			if (not_first++)
--				fprintf(ofp, ", ");
--			if (count && count % 4 =3D=3D 0) {
--				fprintf(ofp, "\".\n\t       \"");
--			}
--			count++;
--
--			fprintf(ofp, "%s=3D", f->name);
--			if (f->flags & TEP_FIELD_IS_STRING ||
--			    f->flags & TEP_FIELD_IS_FLAG ||
--			    f->flags & TEP_FIELD_IS_SYMBOLIC)
--				fprintf(ofp, "%%s");
--			else if (f->flags & TEP_FIELD_IS_SIGNED)
--				fprintf(ofp, "%%d");
--			else
--				fprintf(ofp, "%%u");
--		}
--
--		fprintf(ofp, "\\n\",\n\t       ");
--
--		not_first =3D 0;
--		count =3D 0;
--
--		for (f =3D event->format.fields; f; f =3D f->next) {
--			if (not_first++)
--				fprintf(ofp, ", ");
--
--			if (++count % 5 =3D=3D 0)
--				fprintf(ofp, "\n\t       ");
--
--			if (f->flags & TEP_FIELD_IS_FLAG) {
--				if ((count - 1) % 5 !=3D 0) {
--					fprintf(ofp, "\n\t       ");
--					count =3D 4;
--				}
--				fprintf(ofp, "flag_str(\"");
--				fprintf(ofp, "%s::%s\", ", event->system,
--					event->name);
--				fprintf(ofp, "\"%s\", $%s)", f->name,
--					f->name);
--			} else if (f->flags & TEP_FIELD_IS_SYMBOLIC) {
--				if ((count - 1) % 5 !=3D 0) {
--					fprintf(ofp, "\n\t       ");
--					count =3D 4;
--				}
--				fprintf(ofp, "symbol_str(\"");
--				fprintf(ofp, "%s::%s\", ", event->system,
--					event->name);
--				fprintf(ofp, "\"%s\", $%s)", f->name,
--					f->name);
--			} else
--				fprintf(ofp, "$%s", f->name);
--		}
--
--		fprintf(ofp, ");\n\n");
--
--		fprintf(ofp, "\tprint_backtrace($common_callchain);\n");
--
--		fprintf(ofp, "}\n\n");
--	}
--
--	fprintf(ofp, "sub trace_unhandled\n{\n\tmy ($event_name, $context, "
--		"$common_cpu, $common_secs, $common_nsecs,\n\t    "
--		"$common_pid, $common_comm, $common_callchain) =3D @_;\n\n");
--
--	fprintf(ofp, "\tprint_header($event_name, $common_cpu, "
--		"$common_secs, $common_nsecs,\n\t             $common_pid, "
--		"$common_comm, $common_callchain);\n");
--	fprintf(ofp, "\tprint_backtrace($common_callchain);\n");
--	fprintf(ofp, "}\n\n");
--
--	fprintf(ofp, "sub print_header\n{\n"
--		"\tmy ($event_name, $cpu, $secs, $nsecs, $pid, $comm) =3D @_;\n\n"
--		"\tprintf(\"%%-20s %%5u %%05u.%%09u %%8u %%-20s \",\n\t       "
--		"$event_name, $cpu, $secs, $nsecs, $pid, $comm);\n}\n");
--
--	fprintf(ofp,
--		"\n# Packed byte string args of process_event():\n"
--		"#\n"
--		"# $event:\tunion perf_event\tutil/event.h\n"
--		"# $attr:\tstruct perf_event_attr\tlinux/perf_event.h\n"
--		"# $sample:\tstruct perf_sample\tutil/event.h\n"
--		"# $raw_data:\tperf_sample->raw_data\tutil/event.h\n"
--		"\n"
--		"sub process_event\n"
--		"{\n"
--		"\tmy ($event, $attr, $sample, $raw_data) =3D @_;\n"
--		"\n"
--		"\tmy @event\t=3D unpack(\"LSS\", $event);\n"
--		"\tmy @attr\t=3D unpack(\"LLQQQQQLLQQ\", $attr);\n"
--		"\tmy @sample\t=3D unpack(\"QLLQQQQQLL\", $sample);\n"
--		"\tmy @raw_data\t=3D unpack(\"C*\", $raw_data);\n"
--		"\n"
--		"\tuse Data::Dumper;\n"
--		"\tprint Dumper \\@event, \\@attr, \\@sample, \\@raw_data;\n"
--		"}\n");
--
--	fclose(ofp);
--
--	fprintf(stderr, "generated Perl script: %s\n", fname);
--
--	return 0;
--}
--
--struct scripting_ops perl_scripting_ops =3D {
--	.name =3D "Perl",
--	.dirname =3D "perl",
--	.start_script =3D perl_start_script,
--	.flush_script =3D perl_flush_script,
--	.stop_script =3D perl_stop_script,
--	.process_event =3D perl_process_event,
--	.generate_script =3D perl_generate_script,
--};
-diff --git a/tools/perf/util/trace-event-scripting.c b/tools/perf/util/trac=
-e-event-scripting.c
-index fa850e44cb46..a82472419611 100644
---- a/tools/perf/util/trace-event-scripting.c
-+++ b/tools/perf/util/trace-event-scripting.c
-@@ -206,72 +206,7 @@ void setup_python_scripting(void)
+ 
+ 		/*
+diff --git a/tools/perf/tests/dlfilter-test.c b/tools/perf/tests/dlfilter-test.c
+index e63790c61d53..204663571943 100644
+--- a/tools/perf/tests/dlfilter-test.c
++++ b/tools/perf/tests/dlfilter-test.c
+@@ -188,8 +188,12 @@ static int write_sample(struct test_data *td, u64 sample_type, u64 id, pid_t pid
+ 
+ 	event->header.type = PERF_RECORD_SAMPLE;
+ 	event->header.misc = PERF_RECORD_MISC_USER;
+-	event->header.size = perf_event__sample_event_size(&sample, sample_type, 0);
+-	err = perf_event__synthesize_sample(event, sample_type, 0, &sample);
++	event->header.size = perf_event__sample_event_size(&sample, sample_type,
++							   /*read_format=*/0,
++							   /*branch_sample_type=*/0);
++	err = perf_event__synthesize_sample(event, sample_type,
++					    /*read_format=*/0,
++					    /*branch_sample_type=*/0, &sample);
+ 	if (err)
+ 		return test_result("perf_event__synthesize_sample() failed", TEST_FAIL);
+ 
+diff --git a/tools/perf/tests/sample-parsing.c b/tools/perf/tests/sample-parsing.c
+index a7327c942ca2..55f0b73ca20e 100644
+--- a/tools/perf/tests/sample-parsing.c
++++ b/tools/perf/tests/sample-parsing.c
+@@ -310,7 +310,8 @@ static int do_test(u64 sample_type, u64 sample_regs, u64 read_format)
+ 		sample.read.one.lost  = 1;
+ 	}
+ 
+-	sz = perf_event__sample_event_size(&sample, sample_type, read_format);
++	sz = perf_event__sample_event_size(&sample, sample_type, read_format,
++					   evsel.core.attr.branch_sample_type);
+ 	bufsz = sz + 4096; /* Add a bit for overrun checking */
+ 	event = malloc(bufsz);
+ 	if (!event) {
+@@ -324,7 +325,7 @@ static int do_test(u64 sample_type, u64 sample_regs, u64 read_format)
+ 	event->header.size = sz;
+ 
+ 	err = perf_event__synthesize_sample(event, sample_type, read_format,
+-					    &sample);
++					    evsel.core.attr.branch_sample_type, &sample);
+ 	if (err) {
+ 		pr_debug("%s failed for sample_type %#"PRIx64", error %d\n",
+ 			 "perf_event__synthesize_sample", sample_type, err);
+diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
+index e5835042acdf..c4ed9f10e731 100644
+--- a/tools/perf/util/arm-spe.c
++++ b/tools/perf/util/arm-spe.c
+@@ -484,8 +484,11 @@ static void arm_spe__prep_branch_stack(struct arm_spe_queue *speq)
+ 
+ static int arm_spe__inject_event(union perf_event *event, struct perf_sample *sample, u64 type)
+ {
+-	event->header.size = perf_event__sample_event_size(sample, type, 0);
+-	return perf_event__synthesize_sample(event, type, 0, sample);
++	event->header.type = PERF_RECORD_SAMPLE;
++	event->header.size = perf_event__sample_event_size(sample, type, /*read_format=*/0,
++							   /*branch_sample_type=*/0);
++	return perf_event__synthesize_sample(event, type, /*read_format=*/0,
++					     /*branch_sample_type=*/0, sample);
  }
- #endif
-=20
--#ifdef HAVE_LIBTRACEEVENT
--static void print_perl_unsupported_msg(void)
--{
--	fprintf(stderr, "Perl scripting not supported."
--		"  Install libperl and rebuild perf to enable it.\n"
--		"For example:\n  # apt-get install libperl-dev (ubuntu)"
--		"\n  # yum install 'perl(ExtUtils::Embed)' (Fedora)"
--		"\n  etc.\n");
--}
--
--static int perl_start_script_unsupported(const char *script __maybe_unused=
-,
--					 int argc __maybe_unused,
--					 const char **argv __maybe_unused,
--					 struct perf_session *session __maybe_unused)
--{
--	print_perl_unsupported_msg();
--
--	return -1;
--}
--
--static int perl_generate_script_unsupported(struct tep_handle *pevent
--					    __maybe_unused,
--					    const char *outfile __maybe_unused)
--{
--	print_perl_unsupported_msg();
--
--	return -1;
--}
--
--struct scripting_ops perl_scripting_unsupported_ops =3D {
--	.name =3D "Perl",
--	.dirname =3D "perl",
--	.start_script =3D perl_start_script_unsupported,
--	.flush_script =3D flush_script_unsupported,
--	.stop_script =3D stop_script_unsupported,
--	.process_event =3D process_event_unsupported,
--	.generate_script =3D perl_generate_script_unsupported,
--};
--
--static void register_perl_scripting(struct scripting_ops *scripting_ops)
--{
--	if (scripting_context =3D=3D NULL)
--		scripting_context =3D malloc(sizeof(*scripting_context));
--
--       if (scripting_context =3D=3D NULL ||
--	   script_spec_register("Perl", scripting_ops) ||
--	   script_spec_register("pl", scripting_ops)) {
--		pr_err("Error registering Perl script extension: disabling it\n");
--		zfree(&scripting_context);
--	}
--}
--
--#ifndef HAVE_LIBPERL_SUPPORT
--void setup_perl_scripting(void)
--{
--	register_perl_scripting(&perl_scripting_unsupported_ops);
--}
--#else
--extern struct scripting_ops perl_scripting_ops;
-=20
--void setup_perl_scripting(void)
--{
--	register_perl_scripting(&perl_scripting_ops);
--}
--#endif
--#endif
-=20
- static const struct {
- 	u32 flags;
-diff --git a/tools/perf/util/trace-event.h b/tools/perf/util/trace-event.h
-index 914d9b69ed62..7bdf44403e3a 100644
---- a/tools/perf/util/trace-event.h
-+++ b/tools/perf/util/trace-event.h
-@@ -116,7 +116,7 @@ extern unsigned int scripting_max_stack;
- struct scripting_ops *script_spec__lookup(const char *spec);
- int script_spec__for_each(int (*cb)(struct scripting_ops *ops, const char =
-*spec));
-=20
--void setup_perl_scripting(void);
+ 
+ static inline int
+diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
+index 8a639d2e51a4..1ebc1a6a5e75 100644
+--- a/tools/perf/util/cs-etm.c
++++ b/tools/perf/util/cs-etm.c
+@@ -1425,8 +1425,10 @@ static void cs_etm__update_last_branch_rb(struct cs_etm_queue *etmq,
+ static int cs_etm__inject_event(union perf_event *event,
+ 			       struct perf_sample *sample, u64 type)
+ {
+-	event->header.size = perf_event__sample_event_size(sample, type, 0);
+-	return perf_event__synthesize_sample(event, type, 0, sample);
++	event->header.size = perf_event__sample_event_size(sample, type, /*read_format=*/0,
++							   /*branch_sample_type=*/0);
++	return perf_event__synthesize_sample(event, type, /*read_format=*/0,
++					     /*branch_sample_type=*/0, sample);
+ }
+ 
+ 
+diff --git a/tools/perf/util/intel-bts.c b/tools/perf/util/intel-bts.c
+index 382255393fb3..0b18ebd13f7c 100644
+--- a/tools/perf/util/intel-bts.c
++++ b/tools/perf/util/intel-bts.c
+@@ -303,7 +303,8 @@ static int intel_bts_synth_branch_sample(struct intel_bts_queue *btsq,
+ 		event.sample.header.size = bts->branches_event_size;
+ 		ret = perf_event__synthesize_sample(&event,
+ 						    bts->branches_sample_type,
+-						    0, &sample);
++						    /*read_format=*/0, /*branch_sample_type=*/0,
++						    &sample);
+ 		if (ret)
+ 			return ret;
+ 	}
+diff --git a/tools/perf/util/intel-pt.c b/tools/perf/util/intel-pt.c
+index fc9eec8b54b8..2dce6106c038 100644
+--- a/tools/perf/util/intel-pt.c
++++ b/tools/perf/util/intel-pt.c
+@@ -1731,8 +1731,12 @@ static void intel_pt_prep_b_sample(struct intel_pt *pt,
+ static int intel_pt_inject_event(union perf_event *event,
+ 				 struct perf_sample *sample, u64 type)
+ {
+-	event->header.size = perf_event__sample_event_size(sample, type, 0);
+-	return perf_event__synthesize_sample(event, type, 0, sample);
++	event->header.type = PERF_RECORD_SAMPLE;
++	event->header.size = perf_event__sample_event_size(sample, type, /*read_format=*/0,
++							   /*branch_sample_type=*/0);
 +
- void setup_python_scripting(void);
-=20
- struct scripting_context {
---=20
++	return perf_event__synthesize_sample(event, type, /*read_format=*/0,
++					     /*branch_sample_type=*/0, sample);
+ }
+ 
+ static inline int intel_pt_opt_inject(struct intel_pt *pt,
+@@ -2486,7 +2490,7 @@ static int intel_pt_do_synth_pebs_sample(struct intel_pt_queue *ptq, struct evse
+ 		intel_pt_add_xmm(intr_regs, pos, items, regs_mask);
+ 	}
+ 
+-	if (sample_type & PERF_SAMPLE_BRANCH_STACK) {
++	if ((sample_type | evsel->synth_sample_type) & PERF_SAMPLE_BRANCH_STACK) {
+ 		if (items->mask[INTEL_PT_LBR_0_POS] ||
+ 		    items->mask[INTEL_PT_LBR_1_POS] ||
+ 		    items->mask[INTEL_PT_LBR_2_POS]) {
+@@ -2557,7 +2561,8 @@ static int intel_pt_do_synth_pebs_sample(struct intel_pt_queue *ptq, struct evse
+ 		sample.transaction = txn;
+ 	}
+ 
+-	ret = intel_pt_deliver_synth_event(pt, event, &sample, sample_type);
++	ret = intel_pt_deliver_synth_event(pt, event, &sample,
++					   sample_type | evsel->synth_sample_type);
+ 	perf_sample__exit(&sample);
+ 	return ret;
+ }
+diff --git a/tools/perf/util/synthetic-events.c b/tools/perf/util/synthetic-events.c
+index 85bee747f4cd..2461f25a4d7d 100644
+--- a/tools/perf/util/synthetic-events.c
++++ b/tools/perf/util/synthetic-events.c
+@@ -1455,7 +1455,8 @@ int perf_event__synthesize_stat_round(const struct perf_tool *tool,
+ 	return process(tool, (union perf_event *) &event, NULL, machine);
+ }
+ 
+-size_t perf_event__sample_event_size(const struct perf_sample *sample, u64 type, u64 read_format)
++size_t perf_event__sample_event_size(const struct perf_sample *sample, u64 type, u64 read_format,
++				     u64 branch_sample_type)
+ {
+ 	size_t sz, result = sizeof(struct perf_record_sample);
+ 
+@@ -1515,8 +1516,10 @@ size_t perf_event__sample_event_size(const struct perf_sample *sample, u64 type,
+ 
+ 	if (type & PERF_SAMPLE_BRANCH_STACK) {
+ 		sz = sample->branch_stack->nr * sizeof(struct branch_entry);
+-		/* nr, hw_idx */
+-		sz += 2 * sizeof(u64);
++		/* nr */
++		sz += sizeof(u64);
++		if (branch_sample_type & PERF_SAMPLE_BRANCH_HW_INDEX)
++			sz += sizeof(u64);
+ 		result += sz;
+ 	}
+ 
+@@ -1605,7 +1608,7 @@ static __u64 *copy_read_group_values(__u64 *array, __u64 read_format,
+ }
+ 
+ int perf_event__synthesize_sample(union perf_event *event, u64 type, u64 read_format,
+-				  const struct perf_sample *sample)
++				  u64 branch_sample_type, const struct perf_sample *sample)
+ {
+ 	__u64 *array;
+ 	size_t sz;
+@@ -1719,9 +1722,17 @@ int perf_event__synthesize_sample(union perf_event *event, u64 type, u64 read_fo
+ 
+ 	if (type & PERF_SAMPLE_BRANCH_STACK) {
+ 		sz = sample->branch_stack->nr * sizeof(struct branch_entry);
+-		/* nr, hw_idx */
+-		sz += 2 * sizeof(u64);
+-		memcpy(array, sample->branch_stack, sz);
++
++		*array++ = sample->branch_stack->nr;
++
++		if (branch_sample_type & PERF_SAMPLE_BRANCH_HW_INDEX) {
++			if (sample->no_hw_idx)
++				*array++ = 0;
++			else
++				*array++ = sample->branch_stack->hw_idx;
++		}
++
++		memcpy(array, perf_sample__branch_entries((struct perf_sample *)sample), sz);
+ 		array = (void *)array + sz;
+ 	}
+ 
+diff --git a/tools/perf/util/synthetic-events.h b/tools/perf/util/synthetic-events.h
+index b0edad0c3100..8c7f49f9ccf5 100644
+--- a/tools/perf/util/synthetic-events.h
++++ b/tools/perf/util/synthetic-events.h
+@@ -81,7 +81,8 @@ int perf_event__synthesize_mmap_events(const struct perf_tool *tool, union perf_
+ int perf_event__synthesize_modules(const struct perf_tool *tool, perf_event__handler_t process, struct machine *machine);
+ int perf_event__synthesize_namespaces(const struct perf_tool *tool, union perf_event *event, pid_t pid, pid_t tgid, perf_event__handler_t process, struct machine *machine);
+ int perf_event__synthesize_cgroups(const struct perf_tool *tool, perf_event__handler_t process, struct machine *machine);
+-int perf_event__synthesize_sample(union perf_event *event, u64 type, u64 read_format, const struct perf_sample *sample);
++int perf_event__synthesize_sample(union perf_event *event, u64 type, u64 read_format,
++				  u64 branch_sample_type, const struct perf_sample *sample);
+ int perf_event__synthesize_stat_config(const struct perf_tool *tool, struct perf_stat_config *config, perf_event__handler_t process, struct machine *machine);
+ int perf_event__synthesize_stat_events(struct perf_stat_config *config, const struct perf_tool *tool, struct evlist *evlist, perf_event__handler_t process, bool attrs);
+ int perf_event__synthesize_stat_round(const struct perf_tool *tool, u64 time, u64 type, perf_event__handler_t process, struct machine *machine);
+@@ -97,7 +98,8 @@ void perf_event__synthesize_final_bpf_metadata(struct perf_session *session,
+ 
+ int perf_tool__process_synth_event(const struct perf_tool *tool, union perf_event *event, struct machine *machine, perf_event__handler_t process);
+ 
+-size_t perf_event__sample_event_size(const struct perf_sample *sample, u64 type, u64 read_format);
++size_t perf_event__sample_event_size(const struct perf_sample *sample, u64 type,
++				     u64 read_format, u64 branch_sample_type);
+ 
+ int __machine__synthesize_threads(struct machine *machine, const struct perf_tool *tool,
+ 				  struct target *target, struct perf_thread_map *threads,
+-- 
 2.54.0.545.g6539524ca2-goog
 
 
