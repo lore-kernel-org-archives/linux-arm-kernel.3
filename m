@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED2ECFF885C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 09:58:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AA03FF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 10:00:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wapJKygwc4klFKfqa2WJNsS/+mhmurZxaEHjleDcRwM=; b=1b8Io2yLUdkFFUfkIIRb6U7y7W
-	0eGquJuNEknGYuB/JkVT6+0rxqzu7okMon1rBk2KGvQm6AICOzrFiLbT4mDnx92rZKyus7n1DVLFN
-	pj1laX52xlgUbqNBsuv0cE3HsLjLGgV3JeGpsgqgWELtuOw/C7IGzPVH4luX707EOtSqJQKZsqXbo
-	YSS7QbXF7WB2iI64zdHlLMddC+GTh85ktsFOncTSUqkUL+JgLowAck3en+znofXVEhbT8XTfiTNSx
-	jn2IHcyney9RzE+2AnvEzERP4ZvakYlBsHx2Ici6IEaQEcMOjJqSBLlhSJ61xOmh5jJouFeA0D8Cn
-	bmOKkjzQ==;
+	bh=DrOTvtcvWrP0TyutCm83pMXD9rX5I3pM0QuGMxKVktQ=; b=myZLi7oXP1cMArzJuW4f9qq5Q+
+	62Xq/7quvi5aeh7QdMqrv+s2srIJo7Ph9eQY5DDvOpolIIBPkyXvwNiKB7ZRACNIGs750K4eFSHuW
+	RK39Peu0vRiii7r0AgfC+sQutpWAd7nlSWxTDF0ixmco4EWlGhlFzrD1Vd0OmC/Sj1OP71Q9C9jnY
+	0F17Tj4jtli3VkvyodnpSHPHgppUhzaGuoY53bC9exUimzEK92weylEZFDtPvPosByuoRiPCgQQiF
+	XmK5ZTg5rvAWVNt95uDTfok9VvL2rmCPv/SjyautwaY9o7F3cHFid606W7Nv5sifjKepPefOqHiLm
+	ZhOckNUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGZml-0000000EK7f-2Geb;
-	Sat, 25 Apr 2026 09:58:51 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wGZoB-0000000EKFx-3rtv;
+	Sat, 25 Apr 2026 10:00:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGZmk-0000000EK7Z-0hIe
+	id 1wGZo9-0000000EKFc-1PD0
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Apr 2026 09:58:50 +0000
+	Sat, 25 Apr 2026 10:00:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 52B7F60052;
-	Sat, 25 Apr 2026 09:58:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59CA4C2BCB0;
-	Sat, 25 Apr 2026 09:58:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B45EE40A85;
+	Sat, 25 Apr 2026 10:00:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9D2CC2BCB0;
+	Sat, 25 Apr 2026 10:00:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777111129;
-	bh=aazaLXG8kSAJ5nNWCvS05sFQTG0KWyaoWFm3XFwT0qE=;
+	s=k20201202; t=1777111216;
+	bh=0JI/sNhBy7s5x/BVI9wTKO0mI5GBqDtKbA7wQnD5N3g=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mBUxTg39e9CZyczDYRqwGcgbPCh/BoMhGud0fopjSmq4R2Afd5tLXFscbvNuxc3hd
-	 1OV0C6BGTSDPHkWYJE7ERJAfMnapL6dRWD2lqxi3XWY2MkyViqdc7WbG7H33RO0xlu
-	 2zLYvjj5NMWbn3I75KSbOWy9V7HMIutompkR+h+pWBpA10Aoxae9TOmk4C+bTEMsPQ
-	 Qy4rdeCl2uAWGDcJVxRGxJ0MhNKvLtlgGaR57v1jUrScs1SwIbwlPqeWqRaZJKSNYG
-	 HIzrAWwdodtzkQlLWtI1zcwxZ2xccx/PO+CHK9smSdmYa2+U+K3MJaLJ4XeLzm/bXe
-	 dh7MqIUdG1IPw==
-Date: Sat, 25 Apr 2026 11:58:47 +0200
+	b=fwmye6amN9Ii56XtGCyVLlIySXU6NXdKia5YQdMmYiGO4+Qrad9jKp1zwC243Of+g
+	 9Mtdo5xpmxVXCLNiU5Q1k1AAPX6ehs+5Nkepk8cmCDawaRvGDehvglZasErnowzf7F
+	 JZqHGW+VbhzZ2x5zZ2EUhdXITKbhdG6U01aFVsgzL658R9atdQembuVCysJ507Yo7H
+	 kbs6ZwoPsmmipysGr0K4uqcayBqchOE+R5I6zHy/NegQaDTzhQfEoP1/lSX+H5crbj
+	 1u2J6H3e72bRv9idBoOZVGWonRPNZzXdvAdWfam3hTr/r+iifGfSAdalb/6RQWo4hy
+	 DtSE5SopYCmMA==
+Date: Sat, 25 Apr 2026 12:00:14 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Lukas Timmermann <linux@timmermann.space>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, 
-	Jessica Zhang <jesszhan0024@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Thierry Reding <thierry.reding@gmail.com>, Sam Ravnborg <sam@ravnborg.org>, 
-	Douglas Anderson <dianders@chromium.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, 
-	Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, dri-devel@lists.freedesktop.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
-	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Alexandre Marquet <tb@a-marquet.fr>
-Subject: Re: [PATCH 5/5] ARM: dts: exynos: Add display support for
- exynos5250-manta
-Message-ID: <20260425-eccentric-amiable-fossa-fa1cae@quoll>
-References: <20260423-manta-display-v1-0-196f80c5673a@timmermann.space>
- <20260423-manta-display-v1-5-196f80c5673a@timmermann.space>
+To: Conor Dooley <conor@kernel.org>
+Cc: Richard Zhu <hongxing.zhu@nxp.com>, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, bhelgaas@google.com, frank.li@nxp.com, 
+	l.stach@pengutronix.de, lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 1/3] dt-bindings: PCI: imx6q-pcie: Add intr, aer and
+ pme interrupts
+Message-ID: <20260425-agile-impala-of-unity-cadced@quoll>
+References: <20260424025735.1490772-1-hongxing.zhu@nxp.com>
+ <20260424025735.1490772-2-hongxing.zhu@nxp.com>
+ <20260424-sinless-unfiled-d1087a894da5@spud>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260423-manta-display-v1-5-196f80c5673a@timmermann.space>
+In-Reply-To: <20260424-sinless-unfiled-d1087a894da5@spud>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260425_030017_388910_7B3681EA 
+X-CRM114-Status: UNSURE (   9.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,148 +79,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 23, 2026 at 11:14:41PM +0200, Lukas Timmermann wrote:
-> Adds the necessary entries for panel and backlight as
-> well as the fimd controller.
+On Fri, Apr 24, 2026 at 06:06:18PM +0100, Conor Dooley wrote:
+> On Fri, Apr 24, 2026 at 10:57:33AM +0800, Richard Zhu wrote:
+> > Add optional 'intr', 'aer', and 'pme' interrupt entries to the i.MX6Q
+> > PCIe binding to support PCIe event-based interrupts for general
+> > controller events, Advanced Error Reporting, and Power Management Events
+> > respectively.
+> > 
+> > Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> > ---
 > 
-> Signed-off-by: Alexandre Marquet <tb@a-marquet.fr>
-> Signed-off-by: Lukas Timmermann <linux@timmermann.space>
-> ---
->  arch/arm/boot/dts/samsung/exynos5250-manta.dts | 99 ++++++++++++++++++++++++++
->  1 file changed, 99 insertions(+)
-> 
-> diff --git a/arch/arm/boot/dts/samsung/exynos5250-manta.dts b/arch/arm/boot/dts/samsung/exynos5250-manta.dts
-> index 76d3657eb22f..eb97a28ff4e3 100644
-> --- a/arch/arm/boot/dts/samsung/exynos5250-manta.dts
-> +++ b/arch/arm/boot/dts/samsung/exynos5250-manta.dts
-> @@ -25,6 +25,29 @@ aliases {
->  		mmc1 = &mmc_1; /* WiFi */
->  	};
->  
-> +	backlight: backlight {
-> +		compatible = "pwm-backlight";
-> +		pwms = <&pwm 0 1000000 0>;
-> +
-> +		brightness-levels = <2 255>; /* TODO */
-> +		num-interpolated-steps = <254>; /* TODO */
-> +		default-brightness-level = <102>; /* TODO */
-> +		post-pwm-on-delay-ms = <97>; /* TODO */
-> +
-> +		power-supply = <&backlight_reg>;
-> +		enable-gpios = <&gpg0 5 GPIO_ACTIVE_HIGH>;
-> +
-> +		pinctrl-0 = <&led_bl_reset &pwm0_out>;
-> +		pinctrl-names = "default";
-> +	};
-> +
-> +	backlight_reg: regulator-backlight {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "APS_EN_18V";
-> +		pinctrl-0 = <&aps_en_18v>;
-> +		pinctrl-names = "default";
+> This binding supports lots of devices. Do they all have these additional
+> interrupts?
 
-No enable GPIO? No voltage?
-
-> +	};
-> +
->  	/* Voltage source unknown */
->  	bmp180_vdda_reg: regulator-bmp180-vdda {
->  		compatible = "regulator-fixed";
-> @@ -105,6 +128,28 @@ multi-led {
->  		leds = <&status_red>, <&status_green>, <&status_blue>, <&status_white>;
->  	};
->  
-> +	panel {
-> +		compatible = "samsung,ltl101dl02-002";
-> +
-> +		backlight = <&backlight>;
-> +		power-supply = <&panel_reg>;
-> +		enable-gpios = <&gph1 7 GPIO_ACTIVE_HIGH>;
-> +		pinctrl-0 = <&lcd_en>;
-> +		pinctrl-names = "default";
-> +		no-hpd;
-> +
-> +		port {
-> +			panel: endpoint {
-> +				remote-endpoint = <&dp_out>;
-> +			};
-> +		};
-> +	};
-> +
-> +	panel_reg: regulator-panel {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "LCD_EN";
-
-That's incomplete. You should have at least voltage.
-
-> +	};
-> +
->  	pwrseq: mmc1-pwrseq {
->  		compatible = "mmc-pwrseq-simple";
->  
-> @@ -146,10 +191,36 @@ &cpu1 {
->  	cpu-supply = <&buck2_reg>;
->  };
->  
-> +&dp {
-> +	status = "okay";
-> +
-> +	samsung,color-space = <0>;
-> +	samsung,color-depth = <1>;
-> +	samsung,link-rate = <0x0a>;
-> +	samsung,lane-count = <4>;
-> +	samsung,dynamic-range = <0>;
-> +	samsung,ycbcr-coeff = <0>;
-> +
-> +	ports {
-> +		port {
-> +			dp_out: endpoint {
-> +				remote-endpoint = <&panel>;
-> +			};
-> +		};
-> +	};
-> +};
-> +
->  &ehci {
->  	status = "disabled";
->  };
->  
-> +&fimd {
-> +	status = "okay";
-> +
-> +	assigned-clocks = <&clock CLK_MOUT_FIMD1>, <&clock CLK_MOUT_VPLL>;
-> +	assigned-clock-parents = <&clock CLK_MOUT_VPLL>;
-> +};
-> +
->  &i2c_1 {
->  	status = "okay";
->  
-> @@ -396,6 +467,12 @@ ldo25_reg: LDO25 {
->  	};
->  };
->  
-> +&mali {
-> +	status = "okay";
-> +
-> +	mali-supply = <&buck4_reg>;
-> +};
-> +
->  &mixer {
->  	status = "okay";
->  };
-> @@ -489,6 +566,14 @@ wlan_irq: wlan-irq-pins {
->  };
->  
->  &pinctrl_1 {
-> +	aps_en_18v: aps-en-18v-pins {
-> +		samsung,pins = "gph1-6";
-> +		samsung,pin-function = <EXYNOS_PIN_FUNC_OUTPUT>; /* TODO */
-
-TODO why? IOW, what are you missing here? Was this tested?
-
-TODO note can stay, but I would prefer to see short comment explaining
-why.
-
+Yep. Commit msg says only i.MX6Q...
 
 Best regards,
 Krzysztof
