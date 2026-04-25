@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D17E5FF885C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:51:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFCAFFF885C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:51:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=teyYQp0E3EyOIZgpUXSUO0oKReWVKi9UUmdHMeA+/YA=; b=lCexpABMqvLAb11KkIE/NFlikB
-	xLi8XBiqKmwqgsOj9+C6epcTfU70MwuKxDOQFVfPrliYKpUpTWwGV9FHUXghuvoDq+SmT2g4vvWzW
-	w2LU197lc9vmC1FZhybzdcfOpAzmu+Hty9ELVZPTJAZq5fHkn7yih9/EJD/tigX7Cz4H0cEWr9SBH
-	fRchnf77jJRSJkUxjZIC/z01yHDKfAgRirsNjt5h93loNoRdde/PMi6jNAdzBMGwNsOsXMdpifKOt
-	+JzMK6GyqUStItqwgZdWxj8RCw3iJI8hx0xKayDRXjzN8hj3mVx65k8CG7cdK2E0cUaOosLBjbU+y
-	KkL3WcFg==;
+	bh=5qNJyUA9ryt9seTGqwkY6UAT2Vxtn3jg366bqqeB58s=; b=ob9eEshtoQvEDBlvwuhlAEqt3J
+	sfXG1TINbv1XB9scHBdelHwWsoEYeuf3Sd1tpjPQtEzKyQLo3qhnyxYrdRL99M4PdELMFtMTfV9T1
+	i33d1B15iFE4lqdxAj0S1j2BfO2+jpRjthlw0RDgISMGmU5XrxcYWTWOPkGSraO9qHOYXoxH9XMYh
+	NFWwl60vaEqusRABKeuWjMubI3Rr6vxC4xifu5FWE8IQGZHOaOQxIcYulTq+zLUnfHphTpUHASSey
+	NBTFz7mlo2jpqoGE5FlStATmbHYukn8PaDceljDO7UlEoHjVBRvgowiWKQ1GgzZGxKKXKDRBbUhG6
+	0BiH2VtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlqE-0000000Eyo7-3gui;
-	Sat, 25 Apr 2026 22:51:14 +0000
-Received: from mail-dl1-x1249.google.com ([2607:f8b0:4864:20::1249])
+	id 1wGlqL-0000000Eyv8-3Lvr;
+	Sat, 25 Apr 2026 22:51:21 +0000
+Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlpr-0000000EyNf-3iJK
+	id 1wGlpt-0000000EyR9-3tgX
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Apr 2026 22:50:55 +0000
-Received: by mail-dl1-x1249.google.com with SMTP id a92af1059eb24-1270dcd11c1so5627435c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:50:51 -0700 (PDT)
+	Sat, 25 Apr 2026 22:50:56 +0000
+Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2c0f6593ef5so11439687eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:50:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777157450; x=1777762250; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777157453; x=1777762253; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=teyYQp0E3EyOIZgpUXSUO0oKReWVKi9UUmdHMeA+/YA=;
-        b=aRkmM3CVoXsiJLauO946kSEk0wqp7PksCpCsQevtnlK384wUunYz/O0Z9md+AdmpNF
-         eJBluKTubObBhMX864z+NF8+ru9R/fj73NiIfiVFNmD+5xsNFhBIoxESopPwk9BGoqke
-         4COVpleZL/Ddd8DT/fqS5mjoU1oBFy/vWT3p3sR0Ax6/BD/6GQJoL7w62o87yoSD+XFE
-         ClOrwRtGw+Uw/biBkEq7gerBq+jOm4aqINPAnBJ4QZCTmDVmcS/+pBBKGA1craniTQ3g
-         iSIyCj9tQZDPw0gzud/8A0NMtPurYRR2MdMWVDYrtAn+bWOYR+v7oktk2k6vSezCM7vk
-         Mctg==
+        bh=5qNJyUA9ryt9seTGqwkY6UAT2Vxtn3jg366bqqeB58s=;
+        b=eJkjLccILrpGfBnhaOutEBhWlG8WhviyFrnclUTKfwEnwyi3VCxfFCclAhD0XkLPkh
+         RCyuL06DN3DarD/Wg80wym6Gbr4RGzZHfIrEGK0rUOWNsrOinfucblbh2jO08q6m1WJw
+         +oUAQQyh6RSkoecxpX1IVohPUr/Vmy/k0e3BCvxMd2mQqawYqdSab5QjVtDpx2OeMp2T
+         wPq6xHfFEHkqScQTbPVD68nIZSZbnPwSHn1NUkUTh8CfhDZd82ZVks8hPGWWcAd1h8QR
+         bB41sZEFalKRlU1t/+0s7o62ASQpdBG3hMaduvirLSOMR39lUP+46kk7IN77hlZKnlm4
+         Dc2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777157450; x=1777762250;
+        d=1e100.net; s=20251104; t=1777157453; x=1777762253;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=teyYQp0E3EyOIZgpUXSUO0oKReWVKi9UUmdHMeA+/YA=;
-        b=AQYX9CuWdR9Li3RB9yQH+6VHIy42zP0aUB8iwI/IJXeUJ2csL4TN3lp5FP7FbP9YQI
-         O/vdEPICx8c2nSdRLyV2RTLG3lOHUsDPXdOSCr0tSwYeuh1boDzPkcx2w8VQzRnBmRPW
-         0uttluAAx3wmOHd/L2h4OO2f18rR2z9e8kYKSAba5iQ5/Hl8MEpubMnwN867gTm7Mn+x
-         dMHsJXmtAMrFvVNPLm6HuMar/3nJoORNTGoW7+Z4Vg/AuF+JcEK5vT2anIg3oiLICxfJ
-         hjpemrXj3Jr/UOWW4r0YMuhfvxYlO1G9gcv1U7EZz6syPd7y+pPa4U1R9rUKhAYBl5nj
-         nyTA==
-X-Forwarded-Encrypted: i=1; AFNElJ+QloH1yfXGj/8caScaX/MkvUZr4OGoixwj0+tZuzb61OY7HVBcp4Mnv8ZO5Is7lewUlPGQzdS8NMHYjHkhgMKn@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0zB1exJblZ2V7yON9uq0MulCopw2f27LmaDdaNjGFeVH+Cdoc
-	GNSGopNgz5vCt8xa8FbGQh/IXgCLU2pdnR0pdm62VNs6RWhp5NB/pb2gr0caCEGZj6SBFzhYrLv
-	okX+y1ereWw==
-X-Received: from dlad28.prod.google.com ([2002:a05:701b:221c:b0:12a:7f44:d2e3])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:6981:b0:12c:856:ddcc
- with SMTP id a92af1059eb24-12c73fa3c9amr19854524c88.27.1777157450294; Sat, 25
- Apr 2026 15:50:50 -0700 (PDT)
-Date: Sat, 25 Apr 2026 15:49:10 -0700
+        bh=5qNJyUA9ryt9seTGqwkY6UAT2Vxtn3jg366bqqeB58s=;
+        b=f67EZ+2kiSW49k0BbxgkyuhNWA/kzu7VCodtQkUXcggmw72y6dyhmdEEZKS3arMJhL
+         fJdY+79FaQvSk9tZw9uJjoVBB2Zzm+FQF/vnpzrhOMAEt41WtZ/Qi7zIgkrNUZ9V0dVg
+         /KBsmW0Eh6zsETiM6tmCNlWgbmypdVE0pDxNlMwJLQIlaCQDVq8vqonVqteflYWetY5r
+         kuHFpZ/nbAgJ4Auw+QGL4kkkewsI4NA+0CdqmG7KZiDi23y68T9oa537EwvFITXkpO1c
+         GoqB/nA9XKDsM5Ok8Y5MRwHp6odQ3///GB87LCI+fehfgGJmZfUZwXypjwmxip0I8sAi
+         NVGg==
+X-Forwarded-Encrypted: i=1; AFNElJ8i0N/3gudQ2Mj28P4Ibtl8UIRX4kpyBNxTJ2t0WVPTDJXHG4jbyLyoH1+jN5oY5ndHVJR0vJovB4sPw5a+heOD@lists.infradead.org
+X-Gm-Message-State: AOJu0YzqLZF/V2B0WsWI+cQ60CyCZLOcQb5uun2YjiVLokKn/JVI6nyc
+	mSsh7NSdLTSFFuf3iQ8f4YDx6a23Mnq9qPiFcQlM1BIXhBNV6HTLSVel0K3j0LEM8D7aBY6ojJB
+	nV2Ij97BsNA==
+X-Received: from dybaz36.prod.google.com ([2002:a05:7300:6c24:b0:2da:2525:9f3])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:f90:b0:2ea:7901:8d72
+ with SMTP id 5a478bee46e88-2ea79019c06mr8624190eec.17.1777157452753; Sat, 25
+ Apr 2026 15:50:52 -0700 (PDT)
+Date: Sat, 25 Apr 2026 15:49:11 -0700
 In-Reply-To: <20260425224951.174663-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260425174858.3922152-1-irogers@google.com> <20260425224951.174663-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260425224951.174663-19-irogers@google.com>
-Subject: [PATCH v7 18/59] perf python: Add callchain support
+Message-ID: <20260425224951.174663-20-irogers@google.com>
+Subject: [PATCH v7 19/59] perf python: Add config file access
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org, 
 	leo.yan@linux.dev, namhyung@kernel.org, tmricht@linux.ibm.com
@@ -75,8 +75,8 @@ Cc: alice.mei.rogers@gmail.com, dapeng1.mi@linux.intel.com,
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260425_155051_965863_42033986 
-X-CRM114-Status: GOOD (  21.16  )
+X-CRM114-CacheID: sfid-20260425_155054_026169_2EE0930C 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,346 +91,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement pyrf_callchain_node and pyrf_callchain types for lazy
-iteration over callchain frames. Add callchain property to
-sample_event.
+Add perf.config_get(name) to expose the perf configuration system.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
-v2:
-
-1. Eager Callchain Resolution: Moved the callchain resolution from
-   deferred iteration to eager processing in
-   pyrf_session_tool__sample() .  This avoids risks of reading from
-   unmapped memory or following dangling pointers to closed sessions.
-
-2. Cached Callchain: Added a callchain field to struct pyrf_event to
-   store the resolved object.
-
-3. Simplified Access: pyrf_sample_event__get_callchain() now just
-   returns the cached object if available.
-
-4. Avoided Double Free: Handled lazy cleanups properly.
-
-v6:
-- Moved callchain resolution from `session_tool__sample` to
-  `pyrf_event__new`.
----
- tools/perf/util/python.c | 241 ++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 240 insertions(+), 1 deletion(-)
+ tools/perf/util/python.c | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
 
 diff --git a/tools/perf/util/python.c b/tools/perf/util/python.c
-index 824cf58645e0..2953c4c8e142 100644
+index 2953c4c8e142..5478561ca62c 100644
 --- a/tools/perf/util/python.c
 +++ b/tools/perf/util/python.c
-@@ -66,6 +66,8 @@ struct pyrf_event {
- 	struct addr_location al;
- 	/** @al_resolved: True when machine__resolve been called. */
- 	bool al_resolved;
-+	/** @callchain: Resolved callchain, eagerly computed if requested. */
-+	PyObject *callchain;
- 	/** @event: The underlying perf_event that may be in a file or ring buffer. */
- 	union perf_event event;
- };
-@@ -103,6 +105,7 @@ static void pyrf_event__delete(struct pyrf_event *pevent)
- {
- 	if (pevent->al_resolved)
- 		addr_location__exit(&pevent->al);
-+	Py_XDECREF(pevent->callchain);
- 	perf_sample__exit(&pevent->sample);
- 	Py_TYPE(pevent)->tp_free((PyObject *)pevent);
- }
-@@ -621,6 +624,181 @@ static PyObject *pyrf_sample_event__insn(PyObject *self, PyObject *args __maybe_
- 					 pevent->sample.insn_len);
+@@ -12,6 +12,7 @@
+ #include "build-id.h"
+ #include "callchain.h"
+ #include "comm.h"
++#include "config.h"
+ #include "counts.h"
+ #include "data.h"
+ #include "debug.h"
+@@ -3296,7 +3297,26 @@ static PyObject *pyrf__syscall_id(PyObject *self, PyObject *args, PyObject *kwar
+ 	return PyLong_FromLong(id);
  }
  
-+struct pyrf_callchain_node {
-+	PyObject_HEAD
-+	u64 ip;
-+	struct map *map;
-+	struct symbol *sym;
-+};
-+
-+static void pyrf_callchain_node__delete(struct pyrf_callchain_node *pnode)
++static PyObject *pyrf__config_get(PyObject *self, PyObject *args)
 +{
-+	map__put(pnode->map);
-+	Py_TYPE(pnode)->tp_free((PyObject*)pnode);
-+}
++	const char *config_name, *val;
 +
-+static PyObject *pyrf_callchain_node__get_ip(struct pyrf_callchain_node *pnode,
-+					     void *closure __maybe_unused)
-+{
-+	return PyLong_FromUnsignedLongLong(pnode->ip);
-+}
-+
-+static PyObject *pyrf_callchain_node__get_symbol(struct pyrf_callchain_node *pnode,
-+						 void *closure __maybe_unused)
-+{
-+	if (pnode->sym)
-+		return PyUnicode_FromString(pnode->sym->name);
-+	return PyUnicode_FromString("[unknown]");
-+}
-+
-+static PyObject *pyrf_callchain_node__get_dso(struct pyrf_callchain_node *pnode,
-+					      void *closure __maybe_unused)
-+{
-+	const char *dsoname = "[unknown]";
-+
-+	if (pnode->map) {
-+		struct dso *dso = map__dso(pnode->map);
-+		if (dso) {
-+			if (symbol_conf.show_kernel_path && dso__long_name(dso))
-+				dsoname = dso__long_name(dso);
-+			else
-+				dsoname = dso__name(dso);
-+		}
-+	}
-+	return PyUnicode_FromString(dsoname);
-+}
-+
-+static PyGetSetDef pyrf_callchain_node__getset[] = {
-+	{ .name = "ip",     .get = (getter)pyrf_callchain_node__get_ip, },
-+	{ .name = "symbol", .get = (getter)pyrf_callchain_node__get_symbol, },
-+	{ .name = "dso",    .get = (getter)pyrf_callchain_node__get_dso, },
-+	{ .name = NULL, },
-+};
-+
-+static PyTypeObject pyrf_callchain_node__type = {
-+	PyVarObject_HEAD_INIT(NULL, 0)
-+	.tp_name	= "perf.callchain_node",
-+	.tp_basicsize	= sizeof(struct pyrf_callchain_node),
-+	.tp_dealloc	= (destructor)pyrf_callchain_node__delete,
-+	.tp_flags	= Py_TPFLAGS_DEFAULT|Py_TPFLAGS_BASETYPE,
-+	.tp_doc		= "perf callchain node object.",
-+	.tp_getset	= pyrf_callchain_node__getset,
-+};
-+
-+struct pyrf_callchain_frame {
-+	u64 ip;
-+	struct map *map;
-+	struct symbol *sym;
-+};
-+
-+struct pyrf_callchain {
-+	PyObject_HEAD
-+	struct pyrf_event *pevent;
-+	struct pyrf_callchain_frame *frames;
-+	u64 nr_frames;
-+	u64 pos;
-+	bool resolved;
-+};
-+
-+static void pyrf_callchain__delete(struct pyrf_callchain *pchain)
-+{
-+	Py_XDECREF(pchain->pevent);
-+	if (pchain->frames) {
-+		for (u64 i = 0; i < pchain->nr_frames; i++)
-+			map__put(pchain->frames[i].map);
-+		free(pchain->frames);
-+	}
-+	Py_TYPE(pchain)->tp_free((PyObject*)pchain);
-+}
-+
-+static PyObject *pyrf_callchain__next(struct pyrf_callchain *pchain)
-+{
-+	struct pyrf_callchain_node *pnode;
-+
-+	if (!pchain->resolved) {
-+		struct evsel *evsel = pchain->pevent->sample.evsel;
-+		struct evlist *evlist = evsel->evlist;
-+		struct perf_session *session = evlist ? evlist__session(evlist) : NULL;
-+		struct addr_location al;
-+		struct callchain_cursor *cursor;
-+		struct callchain_cursor_node *node;
-+		u64 i;
-+
-+		if (!session || !pchain->pevent->sample.callchain)
-+			return NULL;
-+
-+		addr_location__init(&al);
-+		if (machine__resolve(&session->machines.host, &al, &pchain->pevent->sample) < 0) {
-+			addr_location__exit(&al);
-+			return NULL;
-+		}
-+
-+		cursor = get_tls_callchain_cursor();
-+		if (thread__resolve_callchain(al.thread, cursor, evsel,
-+					      &pchain->pevent->sample, NULL, NULL,
-+					      PERF_MAX_STACK_DEPTH) != 0) {
-+			addr_location__exit(&al);
-+			return NULL;
-+		}
-+		callchain_cursor_commit(cursor);
-+
-+		pchain->nr_frames = cursor->nr;
-+		if (pchain->nr_frames > 0) {
-+			pchain->frames = calloc(pchain->nr_frames, sizeof(*pchain->frames));
-+			if (!pchain->frames) {
-+				addr_location__exit(&al);
-+				return PyErr_NoMemory();
-+			}
-+
-+			for (i = 0; i < pchain->nr_frames; i++) {
-+				node = callchain_cursor_current(cursor);
-+				pchain->frames[i].ip = node->ip;
-+				pchain->frames[i].map = map__get(node->ms.map);
-+				pchain->frames[i].sym = node->ms.sym;
-+				callchain_cursor_advance(cursor);
-+			}
-+		}
-+		pchain->resolved = true;
-+		addr_location__exit(&al);
-+	}
-+
-+	if (pchain->pos >= pchain->nr_frames)
++	if (!PyArg_ParseTuple(args, "s", &config_name))
 +		return NULL;
 +
-+	pnode = PyObject_New(struct pyrf_callchain_node, &pyrf_callchain_node__type);
-+	if (!pnode)
-+		return NULL;
-+
-+	pnode->ip = pchain->frames[pchain->pos].ip;
-+	pnode->map = map__get(pchain->frames[pchain->pos].map);
-+	pnode->sym = pchain->frames[pchain->pos].sym;
-+
-+	pchain->pos++;
-+	return (PyObject *)pnode;
-+}
-+
-+static PyTypeObject pyrf_callchain__type = {
-+	PyVarObject_HEAD_INIT(NULL, 0)
-+	.tp_name	= "perf.callchain",
-+	.tp_basicsize	= sizeof(struct pyrf_callchain),
-+	.tp_dealloc	= (destructor)pyrf_callchain__delete,
-+	.tp_flags	= Py_TPFLAGS_DEFAULT|Py_TPFLAGS_BASETYPE,
-+	.tp_doc		= "perf callchain object.",
-+	.tp_iter	= PyObject_SelfIter,
-+	.tp_iternext	= (iternextfunc)pyrf_callchain__next,
-+};
-+
-+static PyObject *pyrf_sample_event__get_callchain(PyObject *self, void *closure __maybe_unused)
-+{
-+	struct pyrf_event *pevent = (void *)self;
-+
-+	if (!pevent->callchain)
++	val = perf_config_get(config_name);
++	if (!val)
 +		Py_RETURN_NONE;
-+
-+	Py_INCREF(pevent->callchain);
-+	return pevent->callchain;
++	return PyUnicode_FromString(val);
 +}
 +
- static PyObject*
- pyrf_sample_event__getattro(struct pyrf_event *pevent, PyObject *attr_name)
- {
-@@ -635,6 +813,12 @@ pyrf_sample_event__getattro(struct pyrf_event *pevent, PyObject *attr_name)
- }
- 
- static PyGetSetDef pyrf_sample_event__getset[] = {
+ static PyMethodDef perf__methods[] = {
 +	{
-+		.name = "callchain",
-+		.get = pyrf_sample_event__get_callchain,
-+		.set = NULL,
-+		.doc = "event callchain.",
++		.ml_name  = "config_get",
++		.ml_meth  = (PyCFunction) pyrf__config_get,
++		.ml_flags = METH_VARARGS,
++		.ml_doc	  = PyDoc_STR("Get a perf config value.")
 +	},
  	{
- 		.name = "raw_buf",
- 		.get = (getter)pyrf_sample_event__get_raw_buf,
-@@ -803,6 +987,12 @@ static int pyrf_event__setup_types(void)
- 	err = PyType_Ready(&pyrf_context_switch_event__type);
- 	if (err < 0)
- 		goto out;
-+	err = PyType_Ready(&pyrf_callchain_node__type);
-+	if (err < 0)
-+		goto out;
-+	err = PyType_Ready(&pyrf_callchain__type);
-+	if (err < 0)
-+		goto out;
- out:
- 	return err;
- }
-@@ -822,10 +1012,12 @@ static PyTypeObject *pyrf_event__type[] = {
- };
- 
- static PyObject *pyrf_event__new(const union perf_event *event, struct evsel *evsel,
--				 struct perf_session *session __maybe_unused)
-+				 struct perf_session *session)
- {
- 	struct pyrf_event *pevent;
- 	PyTypeObject *ptype;
-+	struct perf_sample *sample;
-+	struct machine *machine = session ? &session->machines.host : NULL;
- 	size_t size;
- 	int err;
- 	size_t min_size = sizeof(struct perf_event_header);
-@@ -883,6 +1075,7 @@ static PyObject *pyrf_event__new(const union perf_event *event, struct evsel *ev
- 	PyObject_Init((PyObject *)pevent, ptype);
- 	memcpy(&pevent->event, event, event->header.size);
- 	perf_sample__init(&pevent->sample, /*all=*/true);
-+	pevent->callchain = NULL;
- 	pevent->al_resolved = false;
- 	addr_location__init(&pevent->al);
- 
-@@ -896,6 +1089,49 @@ static PyObject *pyrf_event__new(const union perf_event *event, struct evsel *ev
- 		return PyErr_Format(PyExc_OSError,
- 				    "perf: can't parse sample, err=%d", err);
- 	}
-+	sample = &pevent->sample;
-+	if (machine && sample->callchain) {
-+		struct addr_location al;
-+		struct callchain_cursor *cursor;
-+		u64 i;
-+		struct pyrf_callchain *pchain;
-+
-+		addr_location__init(&al);
-+		if (machine__resolve(machine, &al, sample) >= 0) {
-+			cursor = get_tls_callchain_cursor();
-+			if (thread__resolve_callchain(al.thread, cursor, evsel, sample,
-+						      NULL, NULL, PERF_MAX_STACK_DEPTH) == 0) {
-+				callchain_cursor_commit(cursor);
-+
-+				pchain = PyObject_New(struct pyrf_callchain, &pyrf_callchain__type);
-+				if (pchain) {
-+					pchain->pevent = pevent;
-+					Py_INCREF(pevent);
-+					pchain->nr_frames = cursor->nr;
-+					pchain->pos = 0;
-+					pchain->resolved = true;
-+					pchain->frames = calloc(pchain->nr_frames,
-+								sizeof(*pchain->frames));
-+					if (pchain->frames) {
-+						struct callchain_cursor_node *node;
-+
-+						for (i = 0; i < pchain->nr_frames; i++) {
-+							node = callchain_cursor_current(cursor);
-+							pchain->frames[i].ip = node->ip;
-+							pchain->frames[i].map =
-+								map__get(node->ms.map);
-+							pchain->frames[i].sym = node->ms.sym;
-+							callchain_cursor_advance(cursor);
-+						}
-+						pevent->callchain = (PyObject *)pchain;
-+					} else {
-+						Py_DECREF(pchain);
-+					}
-+				}
-+			}
-+			addr_location__exit(&al);
-+		}
-+	}
- 	return (PyObject *)pevent;
- }
- 
-@@ -2959,6 +3195,9 @@ static int pyrf_session__init(struct pyrf_session *psession, PyObject *args, PyO
- 		return -1;
- 	}
- 
-+	symbol_conf.use_callchain = true;
-+	symbol_conf.show_kernel_path = true;
-+	symbol_conf.inline_name = false;
- 	if (symbol__init(perf_session__env(psession->session)) < 0) {
- 		perf_session__delete(psession->session);
- 		psession->session = NULL;
+ 		.ml_name  = "metrics",
+ 		.ml_meth  = (PyCFunction) pyrf__metrics,
 -- 
 2.54.0.545.g6539524ca2-goog
 
