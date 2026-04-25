@@ -4,107 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7694FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 03:03:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FEA8FF885E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 03:10:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gty8IDulhSv53SFT4gRqCY4X6zeXmq0u81489k7FZ/g=; b=4gL9lEwfZKYN+8xRCCvH5qig+4
-	XwF+e7uVJH1akpH1W0taftIetqsAbRqZCZFyXkAtaeSv2gxVc2bEtow9ZLSIsocB+6BUl2GwqePXl
-	tslCygf/1pb/9o82EInq3rtNoiCHtGftnOa5qyVHUJ6OVTdM+ltpZ2tA/91BMBtBdi7tVtwzc77Dm
-	TxhBlZg01a+QJAQzlZVGzIYvn/yC0UHWjnXTBUtHZmJzKx9y+K3G4YeQS8skPPagMkRM0hBpY4Umh
-	zerNQkziVuxDZq6+dNB5A/JL9veNoKIGaISwLo7EO/RXYtvJnUVODCpEJSiXiQLWuyGw2+SXDb92F
-	AQffUfLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Fvue385W0hX6gDR6DeAjBvEUcDEjMxESWf6pVitmIoY=; b=LQDY9cjCHcF70tDK9mNqVNJhr/
+	hC71Z5gW3iN6nJpXa3gI7Kl+9HPdsjonqrniCeWaKeeRc+CRLkf6mWb2deinxF6osumo8/ioG1rpY
+	KL1c5TL/fItTk05EK7MlyTnxI1uXhpZsh06dvUeGOGg4wRtLHHIJuFldDTruNe8LMLnVqfivTt1xA
+	NRGArNNDMz9dCImFDrYalI934/sCFxJ+OUAk/ctNXwJyKkNIH0Xs6UQfver+RH8VDmcjpT8JwUMps
+	utqkd0LU9wA4/dTbWXVu3+Tvt9Vk5f81TFn3lugruFKzIX/KSbUBwHzM8V+zAEGvodCTiEjv2o9mH
+	TcrnQsBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGTIM-0000000E1GG-3Uw1;
-	Sat, 25 Apr 2026 03:03:02 +0000
-Received: from mail-northcentralusazon11010020.outbound.protection.outlook.com ([52.101.193.20] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1wGTPQ-0000000E1bM-0zvO;
+	Sat, 25 Apr 2026 03:10:20 +0000
+Received: from mail-dy1-x1364.google.com ([2607:f8b0:4864:20::1364])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGTII-0000000E1Ff-3OIq
+	id 1wGTPN-0000000E1Zw-0mve
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Apr 2026 03:03:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=zLAeQRXqHKM1cIA9VoBN0FV2fUcWax6ZjInlsY/xBlcQVdsuMjHuz3ABlGCVnQmLrwmKo0qBIPqHyxFc8nR9zTGKaXt8ZHLhDZ8P/kZXgAAGSgbURe4NYeQwC+DVkzib/MfE4hXAxk892ySSdbphUa0SuvfCFg1ymK+HbveKuo6GkTrL8KLhgmpiNKXCGnZKBdpPx5QtmUigHDTHo/5Wyln+Pw6XKZDq39VwCIG3htpqjoBAWj81hSe5q721Gt6lg0jGJmnoV5mhCoF+7bEWAXYM2TmbsZ+vbGqxMIHNSyRNLzdxeDLsX5To5IO2usZCtGa6F6GoX0j9bARnnJxjAg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gty8IDulhSv53SFT4gRqCY4X6zeXmq0u81489k7FZ/g=;
- b=Uj4eVIdoMqD02e7pbYOqxsgpjZhGXX3DMZxL1oINZ8Z0/NBB3FeCOfyLFtQioa+xwSbUFkqlA7RnW+qyQjHkeJoTUrmmq9QANEv8hABV6l14x4o0MF/lcX/KJeA/XcZNAelxmPSISkk6aN3ObMbqZdIY2ihXgWRWb6f1nuc+pxhdOmzOz6nrQJeKCyjzuulZ0Sykckf5LNNF8zEb4E/ODRFKBU5qUNS6sZYnmg4iKsikn0NbGmL02Ys18YGM8ym7NnHwn2yFuCFd8N44gNVAEygzzcOM6lfJejLR06O5lsm4Zaa3nVLNEu0abSGrvMje0sIaU8SjV1z0rqt93krruA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gty8IDulhSv53SFT4gRqCY4X6zeXmq0u81489k7FZ/g=;
- b=3WHO8Y1sMMsyDJO1j5MFwuOGnWlIRmQKj+emKpESmwapjLxrUXwbF6kdK4YLrHenSmjmk/HCm72YhFgFPi+NZXt0+QE9dXCSnloWx8qPmooGvJNSG3L8ulJGPLErhzVGEDFYxQWBv2UPJcuVtRHPDMr0FN0rt0be3DZ5sqNmc7Q=
-Received: from CH2PR02CA0016.namprd02.prod.outlook.com (2603:10b6:610:4e::26)
- by IA1PR12MB6385.namprd12.prod.outlook.com (2603:10b6:208:38b::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.22; Sat, 25 Apr
- 2026 03:02:45 +0000
-Received: from CH1PEPF0000AD81.namprd04.prod.outlook.com
- (2603:10b6:610:4e:cafe::67) by CH2PR02CA0016.outlook.office365.com
- (2603:10b6:610:4e::26) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.22 via Frontend Transport; Sat,
- 25 Apr 2026 03:02:45 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- CH1PEPF0000AD81.mail.protection.outlook.com (10.167.244.89) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9846.18 via Frontend Transport; Sat, 25 Apr 2026 03:02:45 +0000
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Fri, 24 Apr
- 2026 22:02:45 -0500
-Received: from xsjtanmays50.xilinx.com (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Fri, 24 Apr 2026 22:02:45 -0500
-From: Tanmay Shah <tanmay.shah@amd.com>
-To: <michal.simek@amd.com>, <andersson@kernel.org>,
-	<mathieu.poirier@linaro.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-remoteproc@vger.kernel.org>, Tanmay Shah <tanmay.shah@amd.com>
-Subject: [PATCH] remoteproc: xlnx: check remote node state
-Date: Fri, 24 Apr 2026 20:02:31 -0700
-Message-ID: <20260425030231.3145225-1-tanmay.shah@amd.com>
-X-Mailer: git-send-email 2.34.1
+	Sat, 25 Apr 2026 03:10:18 +0000
+Received: by mail-dy1-x1364.google.com with SMTP id 5a478bee46e88-2d868d014a5so8351277eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 20:10:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ausil.us; s=google; t=1777086616; x=1777691416; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Fvue385W0hX6gDR6DeAjBvEUcDEjMxESWf6pVitmIoY=;
+        b=efqnm72E/axv8XwwR7kvej6dfGa3uHWLllVV9dhFylx/2DlfLWH5XqRW0kOygOiIIC
+         CfNDUTqkIt/CCyz19zriCGabErzOUYy7hhMrLgW8FROnq+dHQhNwNfG5ZB8ixgwLI2Sg
+         xSz7Mk1aHMRUVUHNBJ6ss9CgQitmnoFRyelvfpXrWpsTwR50tSWgmNMUMAivkexrHeRe
+         I+QSMgZFCxJdLj8TJt20oOd5TlUZsSMIJxaDx60HhkccFtXkscPuL7H54ZioJ9MxTY27
+         1+QzrRScYbLs4JG86i4xSGl+XJAHZqqmm71QGOPPcowo3t6zp+Vub0uSsKdZ52gXHXpr
+         Bv9Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777086616; x=1777691416;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Fvue385W0hX6gDR6DeAjBvEUcDEjMxESWf6pVitmIoY=;
+        b=PKAAlo78U/rWACPOe/zjHrH6qc11xOvqe2cOKXaLRZe8xs11gta71D3dtX0XQ7aGir
+         a1FCPEs6wKqGRQXNTKIgViFOYRwnbFRbD6WJIiBXp1r80gdLop0YlRYl02WW3I1yUUZP
+         KqkLGpmG6d+FJNTDTI7ktMeN3ar9ViX2jlP5JnJLZXreToPymbMqg4Zxh504rRFR/MWH
+         w3WhEpMpKZqh2aFaWrqH+2/3jekiteAqV5NYbu++gfqfnnSPY7+IwwsjvzFY+PFnoArE
+         4O/4ISwx+YN06Tr5vL9Ed3BRr57pNI8qakWSxOv2RiWUURFvVy0l0JLM8u9Qzu6KfvzL
+         aqzw==
+X-Forwarded-Encrypted: i=1; AFNElJ+kzzaorGjg+htTAcWnLNKGDbfor+S2wubU4XOvUCw+86/sP6OU9kT0hF+yQeW2b0pNXVsu/BOSs15/DJBAl7bL@lists.infradead.org
+X-Gm-Message-State: AOJu0YzY1UfxJbLynNDo3f1DxsEm6/58ZxYNsGu5VqGIM53+vj3+bJ4Q
+	0ZTFRrHMjtfn65yAJpCdx0RRuavK5KJnkggNi58sNxcBMKoxfaueO8wyq6KXi/PXW1Wuw2lDGdq
+	NC4Ad7XHftrNlXD/U2+WAdcLLEzT2oa7Awh43
+X-Gm-Gg: AeBDieuq8vdFRK+rCrozdT2LaWuRsR0frOAwolF2lHtfL4rVMtwcl1Qcrou96fM4got
+	/7suBIHbhgzGZu5kdBntmS8HOExe0U3uaGy4NEDcpnnMkT6Yy5l4g/7clweQRV2iAeGwa/Ad2bk
+	qMDsP6tCwvhF0aFwAyH26fTHaT3mf98ZUM8E5Amq+w2j5C4TkCCku3Pf/38gVHVGbO+vcGd3Zqo
+	X/lsjA3wg2Hz281LzTqWj7b5m/m1pDQH7wGepec0bXwBtIZ3BMl7caqD8H9pb6x41FJEIN/4V7N
+	Dn12VOo9mkUAw0K9aH3OoEaE8rvZ8RS6LKrkRmqrTg71L4fSAHNjCk+idIu3JsK9lSG30PIK/Rc
+	hTZyT/ril2BESRorYuz0BJXFX1q4Qn14pz0s8ruYJ8GxpFS6wmgLSBak=
+X-Received: by 2002:a05:7301:4586:b0:2e2:27bb:a4a2 with SMTP id 5a478bee46e88-2e47873a866mr19665803eec.13.1777086615769;
+        Fri, 24 Apr 2026 20:10:15 -0700 (PDT)
+Received: from ryac.ausil.us (207-179-239-100.mtco.net. [207.179.239.100])
+        by smtp-relay.gmail.com with ESMTPS id 5a478bee46e88-2e53a3ae691sm1728646eec.11.2026.04.24.20.10.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 24 Apr 2026 20:10:15 -0700 (PDT)
+X-Relaying-Domain: ausil.us
+From: Dennis Gilmore <dennis@ausil.us>
+To: Heiko Stuebner <heiko@sntech.de>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Alexey Charkov <alchark@gmail.com>,
+	devicetree@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	Dennis Gilmore <dennis@ausil.us>
+Subject: [PATCH v8 0/6] Add support for Orange Pi 5 Pro
+Date: Fri, 24 Apr 2026 22:10:05 -0500
+Message-ID: <20260425031011.2529364-1-dennis@ausil.us>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH1PEPF0000AD81:EE_|IA1PR12MB6385:EE_
-X-MS-Office365-Filtering-Correlation-Id: 67f6ddb6-6086-411d-3ff1-08dea2772029
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|1800799024|82310400026|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: DqlpM4skAACi42y2vRgx6EqbdWUdWMbKmidWVQWmWvmeSzquTFQ3tAbQuSm2VOUFBODvf9UCm97HMoO9LMqiQFSf5bk/j2nM0VsC8lV9y1XXCQH4bYcwYP6mYINuMHm1xRCzQPheIXWsJj7rrlayYE251Ja8vxhh+109tJsOkWFMZOysszs+K9dwjysR+emX/aACjjjzGIZddY6xw2QfLKuN4FR38uwtXvFuMYal3umBsLqJ2vQvl4Q/6oTvLIVjd73rRrY9wpi06lCdNFfnipJlrzb1O8d6N8XGtHR49Z88eylA/UGY7f425JRc7n+J3UNC+c2zu+b3K/9yrj7Oq1RdyXntl35ePh/eHDtL5bNqk/Iv+Gg5TctINzBv3h4rTDzKo9OqL8Dex4JaDszs++ZpQ36TWHorqsBRgq6WIpK+Aco3NAFSa5om/zgQ1y6WwPjhLrEaWzsyMuTWMNDsAtHvD/pbEq2Mv/76rqPyBXg38vjYMoGwzk9O0MAzKNfdEs1+A2RM4bcN1N5kdElKrtKsfLDbZbUMONRHoYRcSo8tV9WesSvy00may0P0jEGn12ZyM6Rk/sO0Uc6GcXQTZ5pI71Z4Yl5D7YM+AjRyC3jY2gmTPU+apXk4xJ1Q9GpYe/UqwkpDKn8P7M5peLFrECRKMHYFe8H7Aj8yz/hZ+RNcJudOZg+ymBuMYbAPYTjcmtassG5o27UU+DIR8z7H8/oT2Z4beac0LNcxqIVSmKagtore8msC9s5OD5u7ebUbt7JZcqs5O03MqRGI/VxV8A==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(1800799024)(82310400026)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: GFcF/K9l6kc5lARLh6ctfYH/h8AkJNK8f37ifIigoULFg3ijESUfQkiGWIXVhyNDlW6aFcBGrq1BL/g8rO7tp+m1lVQKnfQhjMB03QTxN1JWwP2hpYT5qvLKg8dcHT7H3tYscFs17zvi1+sBhpex8G5nIPXI0pvfJz8DtfRJ95XLxcydcL1A8FIGhvjMrAFDpfyMrCOdOmmlFZuPbfdd/Pds/cpKg3ZJFEamFngSIBPvfCQWXwdlsH/ivdUedXMSEnId5rfLrICHjPy0Wztbj+jcjR5C5D/Z7OYe2cZYuQ50okx57U1m56pXRxGPxzivUhm063mLrZScOUK01oV5jtR9OJZ+SajxrtXKqWbOFPbd9LN+8CesIeZdbyPUnNb6OUxtnPqjtyAPIQKlNMAgLPiQU3w2/4zNwCXezaawlvwQj8jM+t2pMlWPIpEiyaDp
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Apr 2026 03:02:45.7249
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 67f6ddb6-6086-411d-3ff1-08dea2772029
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000AD81.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6385
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_200259_045317_CA90616C 
-X-CRM114-Status: GOOD (  24.41  )
+X-CRM114-CacheID: sfid-20260424_201017_248124_71E60E85 
+X-CRM114-Status: GOOD (  20.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,170 +112,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The remote state is set to RPROC_DETACHED if the resource table is found
-in the memory. However, this can be wrong if the remote is not started,
-but firmware is still loaded in the memory. Use PM_GET_NODE_STATUS call
-to the firmware to request the state of the RPU node. If the RPU is
-actually out of reset and running, only then move the remote state to
-RPROC_DETACHED, otherwise keep the remote state to RPROC_OFFLINE.
+This series adds initial support for the Xunlong Orange Pi 5 Pro, based on
+the Rockchip RK3588S SoC. The board features eMMC, SD card, NVMe (PCIe),
+a Motorcomm YT6801 NIC (PCIe), WiFi/BT (BCM43456), dual HDMI output (the
+second via a Lontium LT8711UXD DP-to-HDMI bridge on dp0), and a 40-pin
+expansion header.
 
-Signed-off-by: Tanmay Shah <tanmay.shah@amd.com>
----
- drivers/firmware/xilinx/zynqmp.c        | 28 +++++++++++++++++++
- drivers/remoteproc/xlnx_r5_remoteproc.c | 37 ++++++++++++++++++-------
- include/linux/firmware/xlnx-zynqmp.h    | 21 ++++++++++++++
- 3 files changed, 76 insertions(+), 10 deletions(-)
+The series was tested against Linux 7.0
 
-diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/zynqmp.c
-index fbe8510f4927..af838b2dc327 100644
---- a/drivers/firmware/xilinx/zynqmp.c
-+++ b/drivers/firmware/xilinx/zynqmp.c
-@@ -1450,6 +1450,34 @@ int zynqmp_pm_get_node_status(const u32 node, u32 *const status,
- }
- EXPORT_SYMBOL_GPL(zynqmp_pm_get_node_status);
- 
-+/**
-+ * zynqmp_pm_get_rpu_node_status - PM call to request a RPU node's current power state
-+ * @node:		ID of the RPU component or sub-system in question
-+ * @status:		Current operating state of the requested RPU node.
-+ * @requirements:	Current requirements asserted on the RPU node.
-+ * @usage:		Usage information, used for RPU slave nodes only:
-+ *			PM_USAGE_NO_MASTER	- No master is currently using
-+ *						  the node
-+ *			PM_USAGE_CURRENT_MASTER	- Only requesting master is
-+ *						  currently using the node
-+ *			PM_USAGE_OTHER_MASTER	- Only other masters are
-+ *						  currently using the node
-+ *			PM_USAGE_BOTH_MASTERS	- Both the current and at least
-+ *						  one other master is currently
-+ *						  using the node
-+ *
-+ * Return:		Returns status, either success or error+reason
-+ */
-+int zynqmp_pm_get_rpu_node_status(const u32 node, u32 *const status,
-+				  u32 *const requirements, u32 *const usage)
-+{
-+	if (zynqmp_pm_feature(PM_GET_NODE_STATUS) < PM_API_VERSION_2)
-+		return -EOPNOTSUPP;
-+
-+	return zynqmp_pm_get_node_status(node, status, requirements, usage);
-+}
-+EXPORT_SYMBOL_GPL(zynqmp_pm_get_rpu_node_status);
-+
- /**
-  * zynqmp_pm_force_pwrdwn - PM call to request for another PU or subsystem to
-  *             be powered down forcefully
-diff --git a/drivers/remoteproc/xlnx_r5_remoteproc.c b/drivers/remoteproc/xlnx_r5_remoteproc.c
-index 50a9974f3202..e2f25d94177d 100644
---- a/drivers/remoteproc/xlnx_r5_remoteproc.c
-+++ b/drivers/remoteproc/xlnx_r5_remoteproc.c
-@@ -948,16 +948,6 @@ static struct zynqmp_r5_core *zynqmp_r5_add_rproc_core(struct device *cdev)
- 		goto free_rproc;
- 	}
- 
--	/*
--	 * If firmware is already available in the memory then move rproc state
--	 * to DETACHED. Firmware can be preloaded via debugger or by any other
--	 * agent (processors) in the system.
--	 * If firmware isn't available in the memory and resource table isn't
--	 * found, then rproc state remains OFFLINE.
--	 */
--	if (!zynqmp_r5_get_rsc_table_va(r5_core))
--		r5_rproc->state = RPROC_DETACHED;
--
- 	r5_core->rproc = r5_rproc;
- 	return r5_core;
- 
-@@ -1210,6 +1200,7 @@ static int zynqmp_r5_core_init(struct zynqmp_r5_cluster *cluster,
- {
- 	struct device *dev = cluster->dev;
- 	struct zynqmp_r5_core *r5_core;
-+	u32 req, usage, status;
- 	int ret = -EINVAL, i;
- 
- 	r5_core = cluster->r5_cores[0];
-@@ -1255,6 +1246,32 @@ static int zynqmp_r5_core_init(struct zynqmp_r5_cluster *cluster,
- 		ret = zynqmp_r5_get_sram_banks(r5_core);
- 		if (ret)
- 			return ret;
-+
-+		/*
-+		 * It is possible that firmware is loaded into the memory, but
-+		 * RPU (remote) is not running. In such case, RPU state will be
-+		 * moved to RPROC_DETACHED wrongfully. To avoid it first make
-+		 * sure RPU is power-on and out of reset before parsing for the
-+		 * resource table.
-+		 */
-+		ret = zynqmp_pm_get_rpu_node_status(r5_core->pm_domain_id,
-+						    &status, &req, &usage);
-+		if (ret) {
-+			dev_warn(r5_core->dev,
-+				 "failed to get rpu node status, err %d\n", ret);
-+			continue;
-+		}
-+
-+		/*
-+		 * If RPU state is power on and out of reset i.e. running, then
-+		 * assign RPROC_DETACHED state. If the RPU is not out of reset
-+		 * then do not attempt to attach to the remote processor.
-+		 */
-+		if (status == PM_NODE_RUNNING) {
-+			if (zynqmp_r5_get_rsc_table_va(r5_core))
-+				dev_dbg(r5_core->dev, "rsc tbl not found\n");
-+			r5_core->rproc->state = RPROC_DETACHED;
-+		}
- 	}
- 
- 	return 0;
-diff --git a/include/linux/firmware/xlnx-zynqmp.h b/include/linux/firmware/xlnx-zynqmp.h
-index d70dcd462b44..7e27b0f7bf7e 100644
---- a/include/linux/firmware/xlnx-zynqmp.h
-+++ b/include/linux/firmware/xlnx-zynqmp.h
-@@ -542,6 +542,18 @@ enum pm_gem_config_type {
- 	GEM_CONFIG_FIXED = 2,
- };
- 
-+/**
-+ * enum pm_node_status - Device node status provided by xilpm fw
-+ * @PM_NODE_UNUSED: Device is not used
-+ * @PM_NODE_RUNNING: Device is power-on and out of reset
-+ * @PM_NODE_HALT: Device is power-on but in the reset state
-+ */
-+enum pm_node_status {
-+	PM_NODE_UNUSED = 0,
-+	PM_NODE_RUNNING = 1,
-+	PM_NODE_HALT = 12,
-+};
-+
- /**
-  * struct zynqmp_pm_query_data - PM query data
-  * @qid:	query ID
-@@ -630,6 +642,8 @@ int zynqmp_pm_set_rpu_mode(u32 node_id, enum rpu_oper_mode rpu_mode);
- int zynqmp_pm_set_tcm_config(u32 node_id, enum rpu_tcm_comb tcm_mode);
- int zynqmp_pm_get_node_status(const u32 node, u32 *const status,
- 			      u32 *const requirements, u32 *const usage);
-+int zynqmp_pm_get_rpu_node_status(const u32 node, u32 *const status,
-+				  u32 *const requirements, u32 *const usage);
- int zynqmp_pm_set_sd_config(u32 node, enum pm_sd_config_type config, u32 value);
- int zynqmp_pm_set_gem_config(u32 node, enum pm_gem_config_type config,
- 			     u32 value);
-@@ -939,6 +953,13 @@ static inline int zynqmp_pm_get_node_status(const u32 node, u32 *const status,
- 	return -ENODEV;
- }
- 
-+static inline int zynqmp_pm_get_rpu_node_status(const u32 node, u32 *const status,
-+						u32 *const requirements,
-+						u32 *const usage)
-+{
-+	return -ENODEV;
-+}
-+
- static inline int zynqmp_pm_set_sd_config(u32 node,
- 					  enum pm_sd_config_type config,
- 					  u32 value)
+This series depends on:
+  https://lore.kernel.org/all/20260217-typea-vbus-v1-1-657b4e55a4c2@flipper.net/
 
-base-commit: 6f860d238b44da8ac57be25289b9f4410691c4e2
+Please take a look.
+
+Thank you,
+
+Dennis Gilmore
+
+Changes in v8:
+- Bridge node: renamed label from lt8711uxd to hdmi-bridge
+- Bridge node: added vdd-supply = <&vcc3v3_dp>. The vcc3v3_dp regulator
+  gates power to the LT8711UXD. regulator-always-on is kept because
+  drm_simple_bridge only enables vdd-supply with HPD which does not
+  happen without power on
+- GPIO output pinctrl groups (bt_wake_gpio, dp_bridge_en, ethernet_en,
+  vcc5v0_otg_en, wifi_enable_h) changed from pcfg_pull_none to
+  pcfg_pull_down to match the RK3588S power-on-reset default state
+- pcie2x1l1 (NVMe): switched from GPIO-mode reset to hardware sideband pins
+  using pinctrl-0 = <&pcie30x1m1_1_perstn>, <&pcie30x1m1_1_clkreqn>,
+  <&pcie30x1m1_1_waken>. Note: despite the "pcie30" prefix in the DTSI
+  group names, the SoC pin-mux table confirms these alt-function 4 pads
+  physically route to pcie2x1l1's native PERST#/CLKREQ#/WAKE# inputs.
+  reset-gpios is retained alongside the pinctrl entry for U-Boot
+  compatibility (pcie_dw_rockchip in U-Boot requires reset-gpios).
+- pcie2x1l2 (NIC): added &pcie20x1m0_clkreqn and &pcie20x1m0_waken to
+  pinctrl-0
+- Renamed pinctrl group vcc3v3_phy1_en to ethernet_en to match the
+  schematic signal name (Ethernet_EN)
+- link to v7: https://lore.kernel.org/linux-devicetree/20260414214104.1363987-1-dennis@ausil.us/
+
+Changes in v7:
+- Fix up whitespace issues identified by checkpatch.pl --strict in
+  rk3588s-orangepi-5-5b.dtsi
+- checkpatch gave a warning for WARNING: phy-mode "rgmii-rxid" without
+  comment, as this was moved over I left it untouched
+- Added lontium,lt8711uxd to the compatible enum in the simple-bridge
+  binding
+- Added lontium,lt8711uxd match entry with DRM_MODE_CONNECTOR_HDMIA to
+  the simple-bridge driver
+- New patch to rename the regulator labels for the es8388 supplies to
+  match the schematics and they all use vcca_*
+- Fixed ES8388 PVDD-supply — vcca_3v3_s0 → vcca_1v8_s0, 5 Pro is
+  different to 5 and 5b.
+- analog-sound: use CPU-as-clock-master on the Pro. The ES8388 is wired to
+  i2s2_2ch (the only I2S block physically routed to the codec pins on this
+  board), which uses the legacy rockchip_i2s driver. That driver's
+  slave-mode trigger path hangs for 200 µs polling I2S_CLR and bails with
+  -ETIMEDOUT ("lrclk update failed"). The TDM-capable i2s0/i2s1/i2s5
+  blocks served by rockchip_i2s_tdm don't have this issue, which is why
+  other mainline ES8388 boards get away with bitclock-master = masterdai.
+  Drop bitclock-master/frame-master and the masterdai label to let the I2S
+  block generate BCLK/LRCK itself
+- Removed regulator-always-on/regulator-boot-on from vcc3v3_dp
+- Added pinctrl entries for all GPIO pins (dp_bridge_en, vcc3v3_phy1_en,
+  wifi_enable_h, pcie2x1l1_rst, pcie2x1l2_rst)
+- DP bridge rework — replaced dp-connector node with proper chain:
+    - lt8711uxd bridge node (compatible lontium,lt8711uxd, with port@0/port@1
+      endpoints). Bridge power is gated by the vcc3v3_dp regulator, whose
+      enable GPIO (GPIO3_PC2) is driven via the dp_bridge_en pinctrl group;
+      no enable-gpios/vdd-supply on the bridge node itself.
+    - hdmi1-con connector node (compatible hdmi-connector, type a)
+    - dp0_out endpoint now points to bridge input instead of old connector
+- remove accidentally included unnecessary changes
+- link to v6: https://lore.kernel.org/linux-devicetree/20260411024743.195385-1-dennis@ausil.us/
+
+Changes in v6:
+- Move the shared configs for the Orange Pi 5 and Orange Pi 5b from each
+  devices dts to a shared rk3588s-orangepi-5-5b.dtsi to avoid duplication
+- Remove empty ports subnodeis from typea_con
+- Move i2s2m1_mclk pinctrl from &i2s2 to the es8388 codec node
+- Add dp-con, dp0_out, dp0_in, and vp1 nodes, plus the vcc3v3_dp regulator
+  in order to get the second HDMI port working via its transparent
+  LT8711UXD DP to HDMI bridge
+- link to v5: https://lore.kernel.org/linux-devicetree/20260401010707.2584962-1-dennis@ausil.us/
+
+Changes in v5:
+- define a connector node for Type-A port, and list the regulator as its VBUS supply explicitly.
+- Requires https://lore.kernel.org/all/20260217-typea-vbus-v1-1-657b4e55a4c2@flipper.net/
+- link to v4: https://lore.kernel.org/linux-devicetree/20260310031002.3921234-1-dennis@ausil.us/
+
+Changes in v4:
+- rename vcc3v3_pcie20 copied from rk3588s-orangepi-5.dts to vcc3v3_phy1 to match the schematic
+- use vcc_3v3_s3 as the supply not vcc5v0_sys for PCIe
+- remove the definition for vcc3v3_pcie_m2 as it does not really exist
+  as a regulator
+- link to v3: https://lore.kernel.org/linux-devicetree/20260306024634.239614-1-dennis@ausil.us/
+
+Changes in v3:
+- moved leds from gpio-leds to pwm-leds
+- remove disable-wp from sdio
+- rename vcc3v3_pcie_eth regulator to vcc3v3_pcie_m2 to reflect the
+  purpose
+- actually clean up the delete lines and comments missed in v2
+- link to v2: https://lore.kernel.org/linux-devicetree/20260304025521.210377-1-dennis@ausil.us/
+
+Changes in v2:
+- moved items not shared by orangepi 5/5b/5 Pro from dtsi to 5 and 5b
+  dts files
+- removed all the comments and deleted properties from 5 Pro dts
+- link to v1: https://lore.kernel.org/linux-devicetree/20260228205418.2944620-1-dennis@ausil.us/
+
+Dennis Gilmore (6):
+  dt-bindings: arm: rockchip: Add Orange Pi 5 Pro
+  dt-bindings: display: bridge: simple: document the Lontium LT8711UXD
+    DP-to-HDMI bridge
+  drm/bridge: simple: Add the Lontium LT8711UXD DP-to-HDMI bridge
+  arm64: dts: rockchip: rk3588s-orangepi-5: rename PLDO regulator labels
+    to match schematic
+  arm64: dts: rockchip: refactor items from Orange Pi 5/b to prep for
+    Pro
+  arm64: dts: rockchip: Add Orange Pi 5 Pro board support
+
+ .../devicetree/bindings/arm/rockchip.yaml     |   1 +
+ .../display/bridge/simple-bridge.yaml         |   1 +
+ arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+ .../dts/rockchip/rk3588s-orangepi-5-5b.dtsi   | 256 ++++++++++
+ .../dts/rockchip/rk3588s-orangepi-5-pro.dts   | 440 ++++++++++++++++++
+ .../boot/dts/rockchip/rk3588s-orangepi-5.dts  |   6 +-
+ .../boot/dts/rockchip/rk3588s-orangepi-5.dtsi | 263 +----------
+ .../boot/dts/rockchip/rk3588s-orangepi-5b.dts |   2 +-
+ drivers/gpu/drm/bridge/simple-bridge.c        |   5 +
+ 9 files changed, 725 insertions(+), 250 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-5b.dtsi
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-pro.dts
+
 -- 
-2.34.1
+2.53.0
 
 
