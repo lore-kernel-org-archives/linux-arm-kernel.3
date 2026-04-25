@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE008FF8863
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:45:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 618D4FF8864
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:46:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4vO51mkUv8czx4QMNQNbvlHwQFmUDbpKAVfeUaPjKEk=; b=2G/vNEa6xtS+fdolMeA+N6sSA8
-	Wd416oZTXm5U9B+NWTG7pAZBupl8RudYAjSpgJsCIuJKTf34kLrnfG+VK3noRQQ4DbD28fTunXD1i
-	gTOsVdlln48SBDa4U9eczevTojehpOoW8fcQjFYhutlbIlyDxnvuldOmTsJExRqpRjTjshb5tsGCO
-	uE308dQo2Nwrp5FilL2bJJGeGdwJqYYnYx8bx83sylqx7SsHg10+x/F8nFWfTqKl4gs19MhdRPT7I
-	U7nAbkE1KfXNAXE3jPDY7rb39RdkwDme/vEP0H9vmHsV5FAVN0OgVgEOjMtYJYQmrZHq2lM9k+QFb
-	S7wjWOuw==;
+	bh=l4V5NPppnOwBca93KfwrOU1gh2Bqmr4SRvd044JdzTk=; b=VHwvTBiaUG0wWkBdiN2pc669LV
+	bUjloQCO4TgOAEvaok+JgvAb3RMKZPcCUfnKsW8cJ9Mzoboua/hbIAKldgI/0lVnjf0Ssd0fbS6aV
+	QI/Chl57ifA+iUUZS/GEfBsCdxeux0qt8HOLnveGAzIU0I7rNbIlrDBMPkmEgUt4QAGTGLZ2ZNsNN
+	0FdTll+kcJjbiqPzKzXTYeIhVHfaToUzyuoIU97Ic5uZj+sVaHHPFbjinG+zLQSi2wVL66DH+v0Na
+	w6R4r5Ju8QknjStgC663rIhgPoI7LrVgO/h99E94wzDkpbSkzHwMEbmZ5T9ukLpllh5kxr2TLt85x
+	Ls17JicQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlkm-0000000EwTf-2HQy;
-	Sat, 25 Apr 2026 22:45:36 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1wGll8-0000000Ewle-07jH;
+	Sat, 25 Apr 2026 22:45:58 +0000
+Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlkd-0000000EwLt-0lCX
+	id 1wGlkr-0000000EwVZ-0hW7
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Apr 2026 22:45:28 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-358e95e81aeso11431326a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:45:24 -0700 (PDT)
+	Sat, 25 Apr 2026 22:45:47 +0000
+Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2ba9a744f7dso11748453eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:45:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777157124; x=1777761924; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777157138; x=1777761938; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=4vO51mkUv8czx4QMNQNbvlHwQFmUDbpKAVfeUaPjKEk=;
-        b=EmcHOYt86I0FBBZV4rhNAr0/6wocEYp+iopYyuYvzAfFwDWWa/R7ePUIZEWTtMW/aJ
-         R71nHBFIteLpjsr0WtsyEQeH8a3YB32e56yCDTM16c13eS5KEeP2EhZMSdjwQOyJipeN
-         lpIz/SOjMyAKSsZFifN4KfsxdW+CMTAPrTZ3xQSGAWxb1p0E+zPK9Tz3O/PV+oygGjgY
-         +680PoJ6aI6FJWMK8UZMaX7tMlFlE1Z6cdQ+X/WKfkhSyRdOOk/cnI0O4jDZJt5MYc0/
-         cYDNa51z44Coj6o1x+7SUM1csAkDM1JjeuYVxHatY/0XYIesIwMrYmjm8mvoROL2xMbf
-         Grew==
+        bh=l4V5NPppnOwBca93KfwrOU1gh2Bqmr4SRvd044JdzTk=;
+        b=jD1HlD7xxl5T5p7J33L0QoIwHJ0IfMsuLMPkOegUZrgPF0c2bu7ETgmrhRL+zx9kCC
+         SZELS0YIYA98g9EFH+ejYk/RXkJrZ1NBk+FQvkCblrFshdDnSobbrA/1Pz9tnFX+pYDJ
+         4s+7sb0VjUyBuR2WoRFM3sY/iiD/epCh2QP4UTWTgF7ieCB4x/Oyei/gt5ZL4WMgi+hn
+         Elx+27nCKKypWbA2wqhObuZK2eS6YlI/Pg5hn/4jsFUwI1lF8iHi3HFZr+nA2aSrrGuP
+         cadqXqZQ6/hUMx0cVA+9j0IWyhBiS4vy9gVQpHq4rY2htpsCOw72aLQaN51LqcQWXqV9
+         UC4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777157124; x=1777761924;
+        d=1e100.net; s=20251104; t=1777157138; x=1777761938;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=4vO51mkUv8czx4QMNQNbvlHwQFmUDbpKAVfeUaPjKEk=;
-        b=snFeQ6w8hvKniYknulXBHElQAcGgniAvzG48fb9E3cQkWfj6QH0XJOOcr+jxe1luZD
-         Bg9JHOMIv1G/kD8OmNQYFI9fusREISncLjn2VidslpBjg2cfLa/pUXHuqsUDR506RaAM
-         iECjmQG/vwhqVAFVjxVjhuV1YXpbBxoetk+ZF0tvfZHeNkcKGEPJfl6G/qefSUOEHyZ3
-         I1sjNBnRngmiCBHImWHkp3G1eu7JgKM0FZCE89ujmtqTJuWUR1BtW3oJZdpwNCH63gDC
-         GMD3QpxHauyYs5kkRlHCxUdKUPfgyKdSJex7yI4hHlWqKXXusitpmRjhPZ1hcH2X4oiZ
-         rgAg==
-X-Forwarded-Encrypted: i=1; AFNElJ/gFbTeln2vMfkY0MkiG8xVqMWUmP/Bi/bXG6mvShw1/bbN7ZqbCyyVwfXFA6h8jqi8qaH2Ayt7dS51Hf2QPgKJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzavUVztZZ4sS7hNC3m22DgDNNBlJUsod9C0wdEd4E5UBsD1slH
-	n8Ezz5xX25DdHtoqzngXvMgmflvYlmz3CNI8egaw3z8l4Dq09+5xPtXTSpcGoh3DTzs0s5n6lzk
-	uEICBDLHE6Q==
-X-Received: from pgem18.prod.google.com ([2002:a63:9412:0:b0:c79:85be:4c5c])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:dfd0:b0:35f:c729:de9b
- with SMTP id 98e67ed59e1d1-3614048ad9dmr39241184a91.20.1777157123571; Sat, 25
- Apr 2026 15:45:23 -0700 (PDT)
-Date: Sat, 25 Apr 2026 15:44:55 -0700
+        bh=l4V5NPppnOwBca93KfwrOU1gh2Bqmr4SRvd044JdzTk=;
+        b=BktkgpLM+pUNXudW21zVJLsWMasfUvpPFwws66V0Hc3+qxxGjq6QJKidQSpCHXNgyM
+         rNLRD5xXTMdfPgAEHH4pZJNInpSKLeu5tiERBQFncka2bOe5papSWWC/2K7pzOFHo6zc
+         Un6yYqnn/dN27CLlHPLk0I1AkS10ASh2N0zExjnpcmg4EdI6uZCBaAC29W641sTRCamr
+         lw87wq3AFkmaXzhipCvzWBpXhgZxMTpp9bwdgE0t2Iwx3KaBeLs5EpxoF68msLC7JGA2
+         cWJrkc2IorQjMRK4P31yWTgwWuggitiVa9u8uOUXhiwtzAKfTPWRCxvKH45tA56B/cjQ
+         9CBg==
+X-Forwarded-Encrypted: i=1; AFNElJ/HolxXf/HsRDGk30A7rHxeHDA2tytERmfvRxo6GM0Whf5Na7/kahfz38JU4I/GHcO+npDP8Egwtkq+MC9pYFZl@lists.infradead.org
+X-Gm-Message-State: AOJu0YzFoWO97SkjBlu+pT8Qk2qIpCHsQEfwdEZlK9Jo2vtV7hDvlMTy
+	hZi7MLi7Dag2xPSeTk9ltuvskmK0TwtMFr9bBuD95XWW09VJLN1N9msMjmCDD4a4uBIOS6U4mpd
+	BKxBrJvolVw==
+X-Received: from dycai17.prod.google.com ([2002:a05:7300:fb11:b0:2d9:3459:1de6])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:214e:b0:2c4:dd55:ffc1
+ with SMTP id 5a478bee46e88-2e464ea4fffmr19490662eec.2.1777157137979; Sat, 25
+ Apr 2026 15:45:37 -0700 (PDT)
+Date: Sat, 25 Apr 2026 15:45:02 -0700
 In-Reply-To: <20260425224503.170337-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260425174858.3922152-1-irogers@google.com> <20260425224503.170337-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260425224503.170337-9-irogers@google.com>
-Subject: [PATCH v7 51/59] perf wakeup-latency: Port wakeup-latency to use
- python module
+Message-ID: <20260425224503.170337-16-irogers@google.com>
+Subject: [PATCH v7 58/59] perf python: Improve perf script -l descriptions
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org, 
 	leo.yan@linux.dev, namhyung@kernel.org, tmricht@linux.ibm.com
@@ -76,8 +75,8 @@ Cc: alice.mei.rogers@gmail.com, dapeng1.mi@linux.intel.com,
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260425_154527_288883_FC979FFE 
-X-CRM114-Status: GOOD (  15.92  )
+X-CRM114-CacheID: sfid-20260425_154541_346839_AA49B16F 
+X-CRM114-Status: GOOD (  12.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,139 +91,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Port the legacy Perl script wakeup-latency.pl to a python script using
-the perf module in tools/perf/python.
+Improve the description when running "perf script -l":
+```
+$ perf script -l
+List of available scripts:
+...
+  counting                             Example for counting perf events.
+...
+  exported-sql-viewer                  exported-sql-viewer.py: view data from sql database.
+...
+  tracepoint                           Example showing how to enable a tracepoint and access its fields.
+  twatch                               Example to show how to enable a tracepoint and access its fields.
+...
+```
 
-The new script uses a class-based architecture and leverages the
-perf.session API for event processing.
-
-It measures wakeup latency by tracking timestamps of
-sched:sched_wakeup and sched:sched_switch events.
-
-Complications:
-- Used min() and max() built-in functions instead of if blocks to
-  satisfy pylint recommendations.
-- pylint warns about the module name not being snake_case, but it is
-  kept for consistency with the original script name.
-
-Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
-v2:
+ tools/perf/python/counting.py            | 1 +
+ tools/perf/python/exported-sql-viewer.py | 2 +-
+ tools/perf/python/tracepoint.py          | 1 +
+ tools/perf/python/twatch.py              | 1 +
+ 4 files changed, 4 insertions(+), 1 deletion(-)
 
- - Fixed Wakeup Latency Logic: Modified the script to track wakeup
-   timestamps per task (using sample.pid as the key) instead of per
-   CPU.  This ensures that context switches are correctly paired with
-   the specific task that was woken up, even if multiple tasks are
-   woken up on the same CPU or if a task is migrated to a different
-   CPU before running.
-
- - Prevented Memory Growth: Added del self.last_wakeup[next_pid] after
-   successful latency calculation to prevent the dictionary from
-   growing unbounded over time.
-
- - Added Error Tracking: Added try-except blocks around tracepoint
-   field access in process_event() and tracked missing fields in self.
-   unhandled instead of ignoring them.
----
- tools/perf/python/wakeup-latency.py | 88 +++++++++++++++++++++++++++++
- 1 file changed, 88 insertions(+)
- create mode 100755 tools/perf/python/wakeup-latency.py
-
-diff --git a/tools/perf/python/wakeup-latency.py b/tools/perf/python/wakeup-latency.py
-new file mode 100755
-index 000000000000..1b0db115abcf
---- /dev/null
-+++ b/tools/perf/python/wakeup-latency.py
-@@ -0,0 +1,88 @@
-+#!/usr/bin/env python3
-+# SPDX-License-Identifier: GPL-2.0-only
-+"""Display avg/min/max wakeup latency."""
-+
-+import argparse
-+from collections import defaultdict
-+import sys
-+from typing import Optional, Dict
-+import perf
-+
-+class WakeupLatency:
-+    """Tracks and displays wakeup latency statistics."""
-+    def __init__(self) -> None:
-+        self.last_wakeup: Dict[int, int] = defaultdict(int)
-+        self.max_wakeup_latency = 0
-+        self.min_wakeup_latency = 1000000000
-+        self.total_wakeup_latency = 0
-+        self.total_wakeups = 0
-+        self.unhandled: Dict[str, int] = defaultdict(int)
-+        self.session: Optional[perf.session] = None
-+
-+    def process_event(self, sample: perf.sample_event) -> None:
-+        """Process events."""
-+        event_name = str(sample.evsel)
-+        sample_time = sample.sample_time
-+
-+        if "sched:sched_wakeup" in event_name:
-+            try:
-+                pid = sample.pid
-+                self.last_wakeup[pid] = sample_time
-+            except AttributeError:
-+                self.unhandled[event_name] += 1
-+        elif "sched:sched_switch" in event_name:
-+            try:
-+                next_pid = sample.next_pid
-+                wakeup_ts = self.last_wakeup.get(next_pid, 0)
-+                if wakeup_ts:
-+                    latency = sample_time - wakeup_ts
-+                    self.max_wakeup_latency = max(self.max_wakeup_latency, latency)
-+                    self.min_wakeup_latency = min(self.min_wakeup_latency, latency)
-+                    self.total_wakeup_latency += latency
-+                    self.total_wakeups += 1
-+                    del self.last_wakeup[next_pid]
-+            except AttributeError:
-+                self.unhandled[event_name] += 1
-+        else:
-+            self.unhandled[event_name] += 1
-+
-+    def print_totals(self) -> None:
-+        """Print summary statistics."""
-+        print("wakeup_latency stats:\n")
-+        print(f"total_wakeups: {self.total_wakeups}")
-+        if self.total_wakeups:
-+            avg = self.total_wakeup_latency // self.total_wakeups
-+            print(f"avg_wakeup_latency (ns): {avg}")
-+        else:
-+            print("avg_wakeup_latency (ns): N/A")
-+        print(f"min_wakeup_latency (ns): {self.min_wakeup_latency}")
-+        print(f"max_wakeup_latency (ns): {self.max_wakeup_latency}")
-+
-+        if self.unhandled:
-+            print("\nunhandled events:\n")
-+            print(f"{'event':<40s}  {'count':>10s}")
-+            print(f"{'-'*40}  {'-'*10}")
-+            for event_name, count in self.unhandled.items():
-+                print(f"{event_name:<40s}  {count:10d}")
-+
-+    def run(self, input_file: str) -> None:
-+        """Run the session."""
-+        self.session = perf.session(perf.data(input_file), sample=self.process_event)
-+        self.session.process_events()
-+        self.print_totals()
-+
-+def main() -> None:
-+    """Main function."""
-+    parser = argparse.ArgumentParser(description="Trace wakeup latency")
-+    parser.add_argument("-i", "--input", default="perf.data", help="Input file")
-+    args = parser.parse_args()
-+
-+    analyzer = WakeupLatency()
-+    try:
-+        analyzer.run(args.input)
-+    except IOError as e:
-+        print(e, file=sys.stderr)
-+        sys.exit(1)
-+
-+if __name__ == "__main__":
-+    main()
+diff --git a/tools/perf/python/counting.py b/tools/perf/python/counting.py
+index 02121d2bb11d..9adbbeccdacd 100755
+--- a/tools/perf/python/counting.py
++++ b/tools/perf/python/counting.py
+@@ -1,5 +1,6 @@
+ #!/usr/bin/env python3
+ # SPDX-License-Identifier: GPL-2.0
++"""Example for counting perf events."""
+ # -*- python -*-
+ # -*- coding: utf-8 -*-
+ 
+diff --git a/tools/perf/python/exported-sql-viewer.py b/tools/perf/python/exported-sql-viewer.py
+index f3ac96ada1f5..6d526a2502ca 100755
+--- a/tools/perf/python/exported-sql-viewer.py
++++ b/tools/perf/python/exported-sql-viewer.py
+@@ -1,6 +1,6 @@
+ #!/usr/bin/env python
+ # SPDX-License-Identifier: GPL-2.0
+-# exported-sql-viewer.py: view data from sql database
++"""exported-sql-viewer.py: view data from sql database."""
+ # Copyright (c) 2014-2018, Intel Corporation.
+ 
+ # To use this script you will need to have exported data using either the
+diff --git a/tools/perf/python/tracepoint.py b/tools/perf/python/tracepoint.py
+index 15b0c8268996..d3bc22628ef7 100755
+--- a/tools/perf/python/tracepoint.py
++++ b/tools/perf/python/tracepoint.py
+@@ -1,5 +1,6 @@
+ #! /usr/bin/env python
+ # SPDX-License-Identifier: GPL-2.0
++"""Example showing how to enable a tracepoint and access its fields."""
+ # -*- python -*-
+ # -*- coding: utf-8 -*-
+ 
+diff --git a/tools/perf/python/twatch.py b/tools/perf/python/twatch.py
+index 04f3db29b9bc..e50cc2feb58a 100755
+--- a/tools/perf/python/twatch.py
++++ b/tools/perf/python/twatch.py
+@@ -1,5 +1,6 @@
+ #! /usr/bin/env python
+ # SPDX-License-Identifier: GPL-2.0-only
++"""Example to show how to enable a tracepoint and access its fields."""
+ # -*- python -*-
+ # -*- coding: utf-8 -*-
+ #   twatch - Experimental use of the perf python interface
 -- 
 2.54.0.545.g6539524ca2-goog
 
