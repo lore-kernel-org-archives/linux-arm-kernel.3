@@ -4,68 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F90AFF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:52:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5E69FF885C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:52:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yfBwBqR2Z+Zk1dnV7MbJ1NLKT+aSgQqUxonuLHmwfTg=; b=cbXUeLa7K9lvuOIkInbfoay6Gm
-	/Et+jQBFeUl/Ut0mw+p6t9UoN48ATrnbcnsYoA27silMq4O4A2/oPp/724Fe3n4mW1HagNZCGL5Xe
-	876mV/ohmunUS9olUr676RX4CbN6SOD/j0cvXE3cdKi8w+nqYv+h0PTHcSnUj0QTR7FBnKWcP8LSZ
-	XxwEp9ZmRtC/pSIF8i34ABx1vMc7ZALbpcbJEnuiW6mhbUJ51XvDCbTIGwaIj1fCZ7WYc2o3n8zy6
-	P22EyKtiAUrQ4so0PCvyNyejQo/Wvd4BlcD/cuDbha/+1EPREyiyliXavWwMQNlmlV1jS02Fd1QSA
-	rtlVt09Q==;
+	bh=tFkKJpx387LQyGkxFesF27g3u3l0azo1BknyR7NysHU=; b=pmPnkrfA0vmHf5ReRAMUe8vI/1
+	6skWdMg8VMx93AiiazdUa3k+hK8GptRY3NuLBga3zsB1yWZk2CGvxOCPMJqOghAElS9HJN7r1XD9u
+	4QM45kq529qZm4V8ooUTEfrk15XuPEbDHwmYh0/Q587Mq5oQEbbiubMOOcZKUHg8MMvq5bScBgZ89
+	Nx+Y5W5HxKxDkN9UICkDiZBb54uSw8mZ6xvpocB6XigmA+Hp9BwqAGf5cE7n1VsGMmBat4Ihn9/+5
+	IvgXpqwixe8rHEKMjCUGk4d29zmoeO4OnytcMEHVJmd1eUIc5/QHAcPu+0xN/DmbwvQvHdRKymrpM
+	gEhYOMkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlrK-0000000F04p-1lb3;
-	Sat, 25 Apr 2026 22:52:22 +0000
-Received: from mail-dy1-f201.google.com ([74.125.82.201])
+	id 1wGlrT-0000000F0EB-0Cqr;
+	Sat, 25 Apr 2026 22:52:31 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlqP-0000000Eyyj-206r
+	id 1wGlql-0000000EzP3-1eer
+	for linux-arm-kernel@bombadil.infradead.org;
+	Sat, 25 Apr 2026 22:51:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=tFkKJpx387LQyGkxFesF27g3u3l0azo1BknyR7NysHU=; b=OdQTc8zMvxhiZbG1q2Qm1bhpWB
+	EdaBzzajeXgdHSHMzz2oftTwK5U1raSVBQIL/7XX2urxCgmMmHBSYxDyrTTJjB4VStuwwVLEkrGvi
+	sgKCHs1UIELp3R1WM5OF2VA1PXwtULtr+t5w2KSBF0t4CNabyuGo8ZIYpGh9wI4QEXTMKi3mXsafv
+	iF47WqeoZeIyWxoMVKLSl76qLQ/iS7fYwnN3UXo5jGmdjAjYdNsCtmsRxwono8kJkQLqcGxPjY0YZ
+	sclq9vI/dPhnnK6udxx1l4g5MNe7osjf3nnvYedHpoJsccVvJjHNReajQdduQdwUYSVsf4T0/bWJp
+	N+f46wTg==;
+Received: from mail-dl1-x1249.google.com ([2607:f8b0:4864:20::1249])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wGlqh-0000000GMq2-1mTq
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Apr 2026 22:51:44 +0000
-Received: by mail-dy1-f201.google.com with SMTP id 5a478bee46e88-2dd6fb4c867so15665388eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:51:24 -0700 (PDT)
+	Sat, 25 Apr 2026 22:51:46 +0000
+Received: by mail-dl1-x1249.google.com with SMTP id a92af1059eb24-12db218e265so14790322c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:51:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777157484; x=1777762284; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777157501; x=1777762301; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=yfBwBqR2Z+Zk1dnV7MbJ1NLKT+aSgQqUxonuLHmwfTg=;
-        b=Jw4u/pxHQ00rGA7xt5pIllho/kkkh6GZ64cAk4bho7ZXyISFrCaJlcsOm+D6GYae62
-         hwpLgZEIR1bQrKKTdCOjhP4YZNhhMSp3lSFky9evRaxrDBKJ3WLcbEhB18dMBqz6l9kP
-         7Lnf2atPsdsywJI1zWaf3O+9ls1sU0EIqp26m8+xgMEoC9VjCSXk4tF1xVrvH/J/+Vgl
-         jGEmzKnp+Hu6ys0bhysjASzwAYJl0ollrYCpSljUOiAOd/VzGjfOUHJGSZV1le6yVPLu
-         mqXKpnaQjdLP8zds687HbQoe+OW67hZCAbDLb5II+3t1r7yjeyuwHcS3PY02BpQxmUVN
-         XC8w==
+        bh=tFkKJpx387LQyGkxFesF27g3u3l0azo1BknyR7NysHU=;
+        b=nhCCk22QgOqvC+pRkouYW6Bs+9wSPsgVu5sZhJtnW4SKtIg591tKJI0Z1l7UEDEWdU
+         oE2B5ea1OUBw3Hhs3r2I3ce4gQfNq8CbF7+l7Fkbl50z7F23tgU0iLj/NZTujh0rlPLH
+         IW3Jg/0sgfwgkJYp0QBZl9FmRu/qC8L5TtyrVx/MuJZqNZjrn+05+hPH7gS64jVmI4WX
+         TWhO904k8AKGMHHou1Cx2/KMk/0X9vGee8VQqz1x1NaG6H1CcHQDhhTJ8XguwWTaIxA8
+         KU+3Bwht0G09rEZvB/FzB1E7dQwuSWm4n5r5xuJdiv0gbOas7a8D/2UrZOX4P3DOXniw
+         7q5Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777157484; x=1777762284;
+        d=1e100.net; s=20251104; t=1777157501; x=1777762301;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=yfBwBqR2Z+Zk1dnV7MbJ1NLKT+aSgQqUxonuLHmwfTg=;
-        b=Im1s06xIgVJcXuADTBVra7R896Ge9ed/IVSI4A/FPbIxQI8YIu3Pedw6IKevO1bJmY
-         vId/8ARkCoJ+wOHnYhZiGftW/D57SyCI31+c4+kD6MWHS8FILF8BZGIbNXX2w2dyh/W6
-         AjLsH7FCxvg8QYF2eHp4hPZBTS26hE1SeA1AGVcPMpgMVYv3NWE2hCfiYoFb4QBjhmc0
-         6YuksICBRkg3/5ZnQK/0qYF6VV+mCSUk5vpM6/3B/+mNz9EZ9vjHynxTBqU2gkrPzU+F
-         XylKEkOX9Oh9g8WQU6mTRIkY9zM68kzihs1PPaZ7Xq69igyTGTW7LEREgqYp5Me9hfR5
-         vxHA==
-X-Forwarded-Encrypted: i=1; AFNElJ/rybqgjS9QMnSMw4BICAYtB86TvFkQZEbvS2kNBMS9IFpkM6czOW7tp/ZU9MZY2UWDExDTdLBHR8cOBeAgXnIm@lists.infradead.org
-X-Gm-Message-State: AOJu0YxLPvzRs7Mv75aGOl4kn2Ev+uAEwCINLdKCUe/UkPUZV+xxjDgX
-	l1lwYVAMbwUYPzZvLBR4huXQ/9vKcFX/HFVYFa/f2WE7ggM5OZxY6VlnR8ECefcxcmbFEDNM/C6
-	hUsdLRRPQOA==
-X-Received: from dybuz22.prod.google.com ([2002:a05:7301:5096:b0:2df:70c6:196b])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:ca4:b0:2d9:6373:ad10
- with SMTP id 5a478bee46e88-2e473cb4f9bmr17775893eec.7.1777157483617; Sat, 25
- Apr 2026 15:51:23 -0700 (PDT)
-Date: Sat, 25 Apr 2026 15:49:26 -0700
+        bh=tFkKJpx387LQyGkxFesF27g3u3l0azo1BknyR7NysHU=;
+        b=CdRHB5Wb5EIZ/3btmv9wPF+uNB8udK/ShVFq81OUl7FfuiIOEkKOMOuRdr50TE88iM
+         rG6KNOCNA9NDgmhxthowncjEohFQP40Y9blf07AdiywYENyaLwbnskRkdK3DTznHUIlO
+         x7pjwOQNxCXFpZ3LoioBs+Q9XmvSGSJGg84+vPpSYFwBMH3wz14s8b8jsCBLNnMVxUOi
+         6QoImMrrrPLDFc4kKH4eJNkopxbphz3i8iY6d+XG3OFiEoAUERlmwxz65+mQ1JIkifBx
+         bzXe/Eip5o1qr+8FgcjvVONPgiMgm2FA6hv6DKM51ZY4guPg7+oFaI8nu19eOadvR0ZW
+         x1nA==
+X-Forwarded-Encrypted: i=1; AFNElJ9QT5X823YENdF4u6kUqSLd9Gir3gcFtCjORxv2xVYShf4MkCMwek3+L+2rOn5a3oczZz5gCh9JfkAjliPkE/z9@lists.infradead.org
+X-Gm-Message-State: AOJu0YxkO7kgVDwZDlwYNuEcB0+4VPbptx754eds3mKEoqeBrn/D34IN
+	AjEJmswixE5DY7RQq2uXvU9K9lBY6FKybXMIJ9iTw0bw0dVBL88bxQO+GtDAODH1sYK7PEWWbBE
+	TCAT4/y7B/A==
+X-Received: from dlbpu10.prod.google.com ([2002:a05:7022:e88a:b0:12b:fba9:5eb0])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:418e:b0:12c:87f1:f41a
+ with SMTP id a92af1059eb24-12c87f1f772mr17623182c88.21.1777157500791; Sat, 25
+ Apr 2026 15:51:40 -0700 (PDT)
+Date: Sat, 25 Apr 2026 15:49:34 -0700
 In-Reply-To: <20260425224951.174663-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260425174858.3922152-1-irogers@google.com> <20260425224951.174663-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260425224951.174663-35-irogers@google.com>
-Subject: [PATCH v7 34/59] perf compaction-times: Port compaction-times to use
+Message-ID: <20260425224951.174663-43-irogers@google.com>
+Subject: [PATCH v7 42/59] perf powerpc-hcalls: Port powerpc-hcalls to use
  python module
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org, 
@@ -76,8 +91,8 @@ Cc: alice.mei.rogers@gmail.com, dapeng1.mi@linux.intel.com,
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260425_155125_620246_3D990749 
-X-CRM114-Status: GOOD (  21.04  )
+X-CRM114-CacheID: sfid-20260425_235143_533508_C509A09C 
+X-CRM114-Status: GOOD (  15.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,355 +107,239 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a port of the compaction-times script that uses the perf python
-module directly. This approach is significantly faster than using perf
-script callbacks as it avoids creating intermediate dictionaries for
-all event fields.
+Ported from tools/perf/scripts/python/.
+- Refactored the script to use a class structure (HCallAnalyzer) to
+  encapsulate state.
+- Used perf.session for event processing.
+- Tracked hcall entry and exit to calculate duration and aggregate
+  statistics.
+- Moved the large hcall_table to a module-level constant HCALL_TABLE.
+- Cleaned up Python 2 compatibility artifacts.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
-v2: Fixed Closure Call: Changed cls.fobj.filter(pid, comm) to
-    cls.fobj(pid, comm) . Since fobj is a function (closure) and not a
-    class instance, calling .filter() on it would raise an
-    AttributeError .
----
- tools/perf/python/compaction-times.py | 326 ++++++++++++++++++++++++++
- 1 file changed, 326 insertions(+)
- create mode 100755 tools/perf/python/compaction-times.py
+ tools/perf/python/powerpc-hcalls.py | 211 ++++++++++++++++++++++++++++
+ 1 file changed, 211 insertions(+)
+ create mode 100755 tools/perf/python/powerpc-hcalls.py
 
-diff --git a/tools/perf/python/compaction-times.py b/tools/perf/python/compaction-times.py
+diff --git a/tools/perf/python/powerpc-hcalls.py b/tools/perf/python/powerpc-hcalls.py
 new file mode 100755
-index 000000000000..7f17c251ded7
+index 000000000000..c4fa539174c9
 --- /dev/null
-+++ b/tools/perf/python/compaction-times.py
-@@ -0,0 +1,326 @@
++++ b/tools/perf/python/powerpc-hcalls.py
+@@ -0,0 +1,211 @@
 +#!/usr/bin/env python3
-+# SPDX-License-Identifier: GPL-2.0
++# SPDX-License-Identifier: GPL-2.0+
 +"""
-+Report time spent in memory compaction.
++Hypervisor call statistics
 +
-+Memory compaction is a feature in the Linux kernel that defragments memory
-+by moving used pages to create larger contiguous blocks of free memory. This
-+is particularly useful for allocating huge pages.
-+
-+This script processes trace events related to memory compaction and reports:
-+- Total time spent in compaction (stall time).
-+- Statistics for page migration (moved vs. failed).
-+- Statistics for the free scanner (scanned vs. isolated pages).
-+- Statistics for the migration scanner (scanned vs. isolated pages).
-+
-+Definitions:
-+- **Compaction**: Defragmenting memory by moving allocated pages.
-+- **Migration**: Moving pages from their current location to free pages found by the free scanner.
-+- **Free Scanner**: Scans memory (typically from the end of a zone) to find free pages.
-+- **Migration Scanner**: Scans memory (typically from the beginning of a zone)
-+  to find pages to move.
-+- **Isolated Pages**: Pages that have been temporarily removed from the buddy
-+  system for migration or as migration targets.
-+
-+Ported from tools/perf/scripts/python/compaction-times.py to the modern perf Python module.
++Copyright (C) 2018 Ravi Bangoria, IBM Corporation
++Ported from tools/perf/scripts/python/powerpc-hcalls.py
 +"""
 +
 +import argparse
-+import enum
-+import re
-+import sys
-+from typing import Callable, Dict, List, Optional, Any
++from collections import defaultdict
 +import perf
 +
-+class Popt(enum.IntEnum):
-+    """Process display options."""
-+    DISP_DFL = 0
-+    DISP_PROC = 1
-+    DISP_PROC_VERBOSE = 2
++# Hypervisor call table
++HCALL_TABLE = {
++    4: 'H_REMOVE',
++    8: 'H_ENTER',
++    12: 'H_READ',
++    16: 'H_CLEAR_MOD',
++    20: 'H_CLEAR_REF',
++    24: 'H_PROTECT',
++    28: 'H_GET_TCE',
++    32: 'H_PUT_TCE',
++    36: 'H_SET_SPRG0',
++    40: 'H_SET_DABR',
++    44: 'H_PAGE_INIT',
++    48: 'H_SET_ASR',
++    52: 'H_ASR_ON',
++    56: 'H_ASR_OFF',
++    60: 'H_LOGICAL_CI_LOAD',
++    64: 'H_LOGICAL_CI_STORE',
++    68: 'H_LOGICAL_CACHE_LOAD',
++    72: 'H_LOGICAL_CACHE_STORE',
++    76: 'H_LOGICAL_ICBI',
++    80: 'H_LOGICAL_DCBF',
++    84: 'H_GET_TERM_CHAR',
++    88: 'H_PUT_TERM_CHAR',
++    92: 'H_REAL_TO_LOGICAL',
++    96: 'H_HYPERVISOR_DATA',
++    100: 'H_EOI',
++    104: 'H_CPPR',
++    108: 'H_IPI',
++    112: 'H_IPOLL',
++    116: 'H_XIRR',
++    120: 'H_MIGRATE_DMA',
++    124: 'H_PERFMON',
++    220: 'H_REGISTER_VPA',
++    224: 'H_CEDE',
++    228: 'H_CONFER',
++    232: 'H_PROD',
++    236: 'H_GET_PPP',
++    240: 'H_SET_PPP',
++    244: 'H_PURR',
++    248: 'H_PIC',
++    252: 'H_REG_CRQ',
++    256: 'H_FREE_CRQ',
++    260: 'H_VIO_SIGNAL',
++    264: 'H_SEND_CRQ',
++    272: 'H_COPY_RDMA',
++    276: 'H_REGISTER_LOGICAL_LAN',
++    280: 'H_FREE_LOGICAL_LAN',
++    284: 'H_ADD_LOGICAL_LAN_BUFFER',
++    288: 'H_SEND_LOGICAL_LAN',
++    292: 'H_BULK_REMOVE',
++    304: 'H_MULTICAST_CTRL',
++    308: 'H_SET_XDABR',
++    312: 'H_STUFF_TCE',
++    316: 'H_PUT_TCE_INDIRECT',
++    332: 'H_CHANGE_LOGICAL_LAN_MAC',
++    336: 'H_VTERM_PARTNER_INFO',
++    340: 'H_REGISTER_VTERM',
++    344: 'H_FREE_VTERM',
++    348: 'H_RESET_EVENTS',
++    352: 'H_ALLOC_RESOURCE',
++    356: 'H_FREE_RESOURCE',
++    360: 'H_MODIFY_QP',
++    364: 'H_QUERY_QP',
++    368: 'H_REREGISTER_PMR',
++    372: 'H_REGISTER_SMR',
++    376: 'H_QUERY_MR',
++    380: 'H_QUERY_MW',
++    384: 'H_QUERY_HCA',
++    388: 'H_QUERY_PORT',
++    392: 'H_MODIFY_PORT',
++    396: 'H_DEFINE_AQP1',
++    400: 'H_GET_TRACE_BUFFER',
++    404: 'H_DEFINE_AQP0',
++    408: 'H_RESIZE_MR',
++    412: 'H_ATTACH_MCQP',
++    416: 'H_DETACH_MCQP',
++    420: 'H_CREATE_RPT',
++    424: 'H_REMOVE_RPT',
++    428: 'H_REGISTER_RPAGES',
++    432: 'H_DISABLE_AND_GETC',
++    436: 'H_ERROR_DATA',
++    440: 'H_GET_HCA_INFO',
++    444: 'H_GET_PERF_COUNT',
++    448: 'H_MANAGE_TRACE',
++    468: 'H_FREE_LOGICAL_LAN_BUFFER',
++    472: 'H_POLL_PENDING',
++    484: 'H_QUERY_INT_STATE',
++    580: 'H_ILLAN_ATTRIBUTES',
++    592: 'H_MODIFY_HEA_QP',
++    596: 'H_QUERY_HEA_QP',
++    600: 'H_QUERY_HEA',
++    604: 'H_QUERY_HEA_PORT',
++    608: 'H_MODIFY_HEA_PORT',
++    612: 'H_REG_BCMC',
++    616: 'H_DEREG_BCMC',
++    620: 'H_REGISTER_HEA_RPAGES',
++    624: 'H_DISABLE_AND_GET_HEA',
++    628: 'H_GET_HEA_INFO',
++    632: 'H_ALLOC_HEA_RESOURCE',
++    644: 'H_ADD_CONN',
++    648: 'H_DEL_CONN',
++    664: 'H_JOIN',
++    676: 'H_VASI_STATE',
++    688: 'H_ENABLE_CRQ',
++    696: 'H_GET_EM_PARMS',
++    720: 'H_SET_MPP',
++    724: 'H_GET_MPP',
++    748: 'H_HOME_NODE_ASSOCIATIVITY',
++    756: 'H_BEST_ENERGY',
++    764: 'H_XIRR_X',
++    768: 'H_RANDOM',
++    772: 'H_COP',
++    788: 'H_GET_MPP_X',
++    796: 'H_SET_MODE',
++    61440: 'H_RTAS',
++}
 +
-+class Topt(enum.IntFlag):
-+    """Trace display options."""
-+    DISP_TIME = 0
-+    DISP_MIG = 1
-+    DISP_ISOLFREE = 2
-+    DISP_ISOLMIG = 4
-+    DISP_ALL = DISP_MIG | DISP_ISOLFREE | DISP_ISOLMIG
 +
-+# Globals to satisfy pylint when accessed in functions before assignment in main.
-+OPT_NS = True
-+opt_disp = Topt.DISP_ALL
-+opt_proc = Popt.DISP_DFL
-+session = None
++class HCallAnalyzer:
++    """Analyzes hypervisor calls and aggregates statistics."""
 +
-+def get_comm_filter(regex: re.Pattern) -> Callable[[int, str], bool]:
-+    """Returns a filter function based on command regex."""
-+    def filter_func(_pid: int, comm: str) -> bool:
-+        regex_match = regex.search(comm)
-+        return regex_match is None or regex_match.group() == ""
-+    return filter_func
++    def __init__(self):
++        # output: {opcode: {'min': min, 'max': max, 'time': time, 'cnt': cnt}}
++        self.output = defaultdict(lambda: {'time': 0, 'cnt': 0, 'min': float('inf'), 'max': 0})
++        # d_enter: {pid: (opcode, nsec)}
++        self.d_enter: dict[int, tuple[int, int]] = {}
++        self.print_ptrn = '%-28s%10s%10s%10s%10s'
 +
-+def get_pid_filter(low_str: str, high_str: str) -> Callable[[int, str], bool]:
-+    """Returns a filter function based on PID range."""
-+    low = 0 if low_str == "" else int(low_str)
-+    high = 0 if high_str == "" else int(high_str)
++    def hcall_table_lookup(self, opcode: int) -> str:
++        """Lookup hcall name by opcode."""
++        return HCALL_TABLE.get(opcode, str(opcode))
 +
-+    def filter_func(pid: int, _comm: str) -> bool:
-+        return not (pid >= low and (high == 0 or pid <= high))
-+    return filter_func
++    def process_event(self, sample: perf.sample_event) -> None:
++        """Process a single sample event."""
++        name = str(sample.evsel)
++        pid = sample.sample_pid
++        time = sample.time
++        opcode = getattr(sample, "opcode", -1)
 +
-+def ns_to_time(ns: int) -> str:
-+    """Format nanoseconds to string based on options."""
-+    return f"{ns}ns" if OPT_NS else f"{round(ns, -3) // 1000}us"
-+
-+class Pair:
-+    """Represents a pair of related counters (e.g., scanned vs isolated, moved vs failed)."""
-+    def __init__(self, aval: int, bval: int,
-+                 alabel: Optional[str] = None, blabel: Optional[str] = None):
-+        self.alabel = alabel
-+        self.blabel = blabel
-+        self.aval = aval
-+        self.bval = bval
-+
-+    def __add__(self, rhs: 'Pair') -> 'Pair':
-+        self.aval += rhs.aval
-+        self.bval += rhs.bval
-+        return self
-+
-+    def __str__(self) -> str:
-+        return f"{self.alabel}={self.aval} {self.blabel}={self.bval}"
-+
-+class Cnode:
-+    """Holds statistics for a single compaction event or an aggregated set of events."""
-+    def __init__(self, ns: int):
-+        self.ns = ns
-+        self.migrated = Pair(0, 0, "moved", "failed")
-+        self.fscan = Pair(0, 0, "scanned", "isolated")
-+        self.mscan = Pair(0, 0, "scanned", "isolated")
-+
-+    def __add__(self, rhs: 'Cnode') -> 'Cnode':
-+        self.ns += rhs.ns
-+        self.migrated += rhs.migrated
-+        self.fscan += rhs.fscan
-+        self.mscan += rhs.mscan
-+        return self
-+
-+    def __str__(self) -> str:
-+        prev = False
-+        s = f"{ns_to_time(self.ns)} "
-+        if opt_disp & Topt.DISP_MIG:
-+            s += f"migration: {self.migrated}"
-+            prev = True
-+        if opt_disp & Topt.DISP_ISOLFREE:
-+            s += f"{' ' if prev else ''}free_scanner: {self.fscan}"
-+            prev = True
-+        if opt_disp & Topt.DISP_ISOLMIG:
-+            s += f"{' ' if prev else ''}migration_scanner: {self.mscan}"
-+        return s
-+
-+    def complete(self, secs: int, nsecs: int) -> None:
-+        """Complete the node with duration."""
-+        self.ns = (secs * 1000000000 + nsecs) - self.ns
-+
-+    def increment(self, migrated: Optional[Pair], fscan: Optional[Pair],
-+                  mscan: Optional[Pair]) -> None:
-+        """Increment statistics."""
-+        if migrated is not None:
-+            self.migrated += migrated
-+        if fscan is not None:
-+            self.fscan += fscan
-+        if mscan is not None:
-+            self.mscan += mscan
-+
-+class Chead:
-+    """Aggregates compaction statistics per process (PID) and maintains total statistics."""
-+    heads: Dict[int, 'Chead'] = {}
-+    val = Cnode(0)
-+    fobj: Optional[Any] = None
-+
-+    @classmethod
-+    def add_filter(cls, fobj: Any) -> None:
-+        """Add a filter object."""
-+        cls.fobj = fobj
-+
-+    @classmethod
-+    def create_pending(cls, pid: int, comm: str, start_secs: int, start_nsecs: int) -> None:
-+        """Create a pending node for a process."""
-+        filtered = False
-+        try:
-+            head = cls.heads[pid]
-+            filtered = head.is_filtered()
-+        except KeyError:
-+            if cls.fobj is not None:
-+                filtered = cls.fobj(pid, comm)
-+            head = cls.heads[pid] = Chead(comm, pid, filtered)
-+
-+        if not filtered:
-+            head.mark_pending(start_secs, start_nsecs)
-+
-+    @classmethod
-+    def increment_pending(cls, pid: int, migrated: Optional[Pair],
-+                          fscan: Optional[Pair], mscan: Optional[Pair]) -> None:
-+        """Increment pending stats for a process."""
-+        if pid not in cls.heads:
++        if opcode == -1:
 +            return
-+        head = cls.heads[pid]
-+        if not head.is_filtered():
-+            if head.is_pending():
-+                head.do_increment(migrated, fscan, mscan)
-+            else:
-+                sys.stderr.write(f"missing start compaction event for pid {pid}\n")
 +
-+    @classmethod
-+    def complete_pending(cls, pid: int, secs: int, nsecs: int) -> None:
-+        """Complete pending stats for a process."""
-+        if pid not in cls.heads:
-+            return
-+        head = cls.heads[pid]
-+        if not head.is_filtered():
-+            if head.is_pending():
-+                head.make_complete(secs, nsecs)
-+            else:
-+                sys.stderr.write(f"missing start compaction event for pid {pid}\n")
++        if name == "evsel(powerpc:hcall_entry)":
++            self.d_enter[pid] = (opcode, time)
++        elif name == "evsel(powerpc:hcall_exit)":
++            if pid in self.d_enter:
++                opcode_entry, time_entry = self.d_enter[pid]
++                if opcode_entry == opcode:
++                    diff = time - time_entry
++                    del self.d_enter[pid]
 +
-+    @classmethod
-+    def gen(cls):
-+        """Generate heads for display."""
-+        if opt_proc != Popt.DISP_DFL:
-+            yield from cls.heads.values()
++                    stats = self.output[opcode]
++                    stats['time'] += diff
++                    stats['cnt'] += 1
++                    if diff < stats['min']:
++                        stats['min'] = diff
++                    if diff > stats['max']:
++                        stats['max'] = diff
 +
-+    @classmethod
-+    def get_total(cls) -> Cnode:
-+        """Get total statistics."""
-+        return cls.val
++    def print_summary(self) -> None:
++        """Print aggregated statistics."""
++        print(self.print_ptrn % ('hcall', 'count', 'min(ns)', 'max(ns)', 'avg(ns)'))
++        print('-' * 68)
++        for opcode in sorted(self.output.keys()):
++            h_name = self.hcall_table_lookup(opcode)
++            stats = self.output[opcode]
++            time = stats['time']
++            cnt = stats['cnt']
++            min_t = stats['min']
++            max_t = stats['max']
 +
-+    def __init__(self, comm: str, pid: int, filtered: bool):
-+        self.comm = comm
-+        self.pid = pid
-+        self.val = Cnode(0)
-+        self.pending: Optional[Cnode] = None
-+        self.filtered = filtered
-+        self.list: List[Cnode] = []
++            # Avoid float representation for large integers if possible,
++            # or use formatted strings. Legacy used time//cnt.
++            avg_t = time // cnt if cnt > 0 else 0
 +
-+    def mark_pending(self, secs: int, nsecs: int) -> None:
-+        """Mark node as pending."""
-+        self.pending = Cnode(secs * 1000000000 + nsecs)
++            # If min was not updated, it remains inf, but cnt should be > 0 if in output
++            if min_t == float('inf'):
++                min_t = 0
 +
-+    def do_increment(self, migrated: Optional[Pair], fscan: Optional[Pair],
-+                     mscan: Optional[Pair]) -> None:
-+        """Increment pending stats."""
-+        if self.pending is not None:
-+            self.pending.increment(migrated, fscan, mscan)
++            print(self.print_ptrn % (h_name, cnt, int(min_t), int(max_t), avg_t))
 +
-+    def make_complete(self, secs: int, nsecs: int) -> None:
-+        """Make pending stats complete."""
-+        if self.pending is not None:
-+            self.pending.complete(secs, nsecs)
-+            Chead.val += self.pending
-+
-+            if opt_proc != Popt.DISP_DFL:
-+                self.val += self.pending
-+
-+                if opt_proc == Popt.DISP_PROC_VERBOSE:
-+                    self.list.append(self.pending)
-+            self.pending = None
-+
-+    def enumerate(self) -> None:
-+        """Enumerate verbose stats."""
-+        if opt_proc == Popt.DISP_PROC_VERBOSE and not self.is_filtered():
-+            for i, pelem in enumerate(self.list):
-+                sys.stdout.write(f"{self.pid}[{self.comm}].{i+1}: {pelem}\n")
-+
-+    def is_pending(self) -> bool:
-+        """Check if node is pending."""
-+        return self.pending is not None
-+
-+    def is_filtered(self) -> bool:
-+        """Check if node is filtered."""
-+        return self.filtered
-+
-+    def display(self) -> None:
-+        """Display stats."""
-+        if not self.is_filtered():
-+            sys.stdout.write(f"{self.pid}[{self.comm}]: {self.val}\n")
-+
-+def trace_end() -> None:
-+    """Called at the end of trace processing."""
-+    sys.stdout.write(f"total: {Chead.get_total()}\n")
-+    for i in Chead.gen():
-+        i.display()
-+        i.enumerate()
-+
-+def process_event(sample: perf.sample_event) -> None:
-+    """Callback for processing events."""
-+    event_name = str(sample.evsel)
-+    pid = sample.sample_pid
-+    comm = session.find_thread(pid).comm() if session else "[unknown]"
-+    secs = sample.sample_time // 1000000000
-+    nsecs = sample.sample_time % 1000000000
-+
-+    if "evsel(compaction:mm_compaction_begin)" in event_name:
-+        Chead.create_pending(pid, comm, secs, nsecs)
-+    elif "evsel(compaction:mm_compaction_end)" in event_name:
-+        Chead.complete_pending(pid, secs, nsecs)
-+    elif "evsel(compaction:mm_compaction_migratepages)" in event_name:
-+        Chead.increment_pending(pid, Pair(sample.nr_migrated, sample.nr_failed), None, None)
-+    elif "evsel(compaction:mm_compaction_isolate_freepages)" in event_name:
-+        Chead.increment_pending(pid, None, Pair(sample.nr_scanned, sample.nr_taken), None)
-+    elif "evsel(compaction:mm_compaction_isolate_migratepages)" in event_name:
-+        Chead.increment_pending(pid, None, None, Pair(sample.nr_scanned, sample.nr_taken))
 +
 +if __name__ == "__main__":
-+    ap = argparse.ArgumentParser(description="Report time spent in compaction")
-+    ap.add_argument("-p", action="store_true", help="display by process")
-+    ap.add_argument("-pv", action="store_true", help="display by process (verbose)")
-+    ap.add_argument("-u", action="store_true", help="display results in microseconds")
-+    ap.add_argument("-t", action="store_true", help="display stall times only")
-+    ap.add_argument("-m", action="store_true", help="display stats for migration")
-+    ap.add_argument("-fs", action="store_true", help="display stats for free scanner")
-+    ap.add_argument("-ms", action="store_true", help="display stats for migration scanner")
-+    ap.add_argument("filter", nargs="?", help="pid|pid-range|comm-regex")
++    ap = argparse.ArgumentParser(description="Hypervisor call statistics")
 +    ap.add_argument("-i", "--input", default="perf.data", help="Input file name")
 +    args = ap.parse_args()
 +
-+    opt_proc = Popt.DISP_DFL
-+    if args.pv:
-+        opt_proc = Popt.DISP_PROC_VERBOSE
-+    elif args.p:
-+        opt_proc = Popt.DISP_PROC
++    analyzer = HCallAnalyzer()
 +
-+    OPT_NS = not args.u
-+
-+    opt_disp = Topt.DISP_ALL
-+    if args.t or args.m or args.fs or args.ms:
-+        opt_disp = Topt(0)
-+        if args.t:
-+            opt_disp |= Topt.DISP_TIME
-+        if args.m:
-+            opt_disp |= Topt.DISP_MIG
-+        if args.fs:
-+            opt_disp |= Topt.DISP_ISOLFREE
-+        if args.ms:
-+            opt_disp |= Topt.DISP_ISOLMIG
-+
-+    if args.filter:
-+        PID_PATTERN = r"^(\d*)-(\d*)$|^(\d*)$"
-+        pid_re = re.compile(PID_PATTERN)
-+        match = pid_re.search(args.filter)
-+        filter_obj: Any = None
-+        if match is not None and match.group() != "":
-+            if match.group(3) is not None:
-+                filter_obj = get_pid_filter(match.group(3), match.group(3))
-+            else:
-+                filter_obj = get_pid_filter(match.group(1), match.group(2))
-+        else:
-+            try:
-+                comm_re = re.compile(args.filter)
-+            except re.error:
-+                sys.stderr.write(f"invalid regex '{args.filter}'\n")
-+                sys.exit(1)
-+            filter_obj = get_comm_filter(comm_re)
-+        Chead.add_filter(filter_obj)
-+
-+    session = perf.session(perf.data(args.input), sample=process_event)
-+    session.process_events()
-+    trace_end()
++    try:
++        session = perf.session(perf.data(args.input), sample=analyzer.process_event)
++        session.process_events()
++        analyzer.print_summary()
++    except KeyboardInterrupt:
++        analyzer.print_summary()
++    except Exception as e:
++        print(f"Error processing events: {e}")
 -- 
 2.54.0.545.g6539524ca2-goog
 
