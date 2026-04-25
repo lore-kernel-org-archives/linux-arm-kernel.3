@@ -4,69 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A758DFF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:45:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE9EBFF885C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:45:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SC9Z8TYU3FIlegbJKB+Rnykve8tItTwLd+p+lGKeOhc=; b=oQWlcT2m8eBtvqMhO3Qjhes+wO
-	HRciecV0A2Y8C9tJ4jcxscSX14ISp2myHxjtZ5rWP0p+M8yZIkc8LBhMYpOegIHNjp5hnS8iHCs+e
-	FzlNKLovcUWtkGA/iBPm4Upvy8TobOX2of+PS9X7FkcNae9TdBhU8H2XddVdR3NiGNS6DkyP4hZDl
-	tCXHWQB/sj4+lI775aBzI8Vn8vJJJSGnsCaBqF+nf/3rg2g1URPNHqiChRLTe8M2r7zPDqkzN5mpT
-	1MmXkPfwCWcl1NF0ZhhZ8omhOdIbiOw1elWK7YpKgTFa5XHIxxsIe5pftR9G0NfBuwYnwxP2T3MXo
-	0uWsZ4Wg==;
+	bh=Z8uDU0iX99Tgv3o+fYqZ9yp1w2za7K0HbBrM8LxB5IA=; b=OICao6sdhTNtU0CXsTIWVfMnQE
+	UKI5SoFxjVNbjsW53qf86heD/zXo6OssO+giJ/y6yRp0ROKmtbZ6prVu53uWd2SJFL58i+NmmIgUm
+	rH8HwEjC49HFkxPXhLr3N4wC2bzI70acX0JwAZLq/zXo4WZh9JbV06rD5RjkkvrS10JK/5XQqeZdW
+	i2Jf1220olTK0EzhGfpdty53Fon2QEZyvnpfinsc5cg4XMdiqc31KI5z+iOkKYMIUt5NzWaIJt8xM
+	w4NpuqzkC37kXk1GGH4b+6ddfXfL1NrPWPBpnunwM/fR5A/bjBCE8MD4e0olskMOeJE8ozTTD/HjY
+	I10sIjhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlkf-0000000EwOV-1M1C;
-	Sat, 25 Apr 2026 22:45:29 +0000
-Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
+	id 1wGlkf-0000000EwOr-3AXb;
+	Sat, 25 Apr 2026 22:45:30 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlkL-0000000EwAs-1wzP
+	id 1wGlkZ-0000000EwKh-00wB
+	for linux-arm-kernel@bombadil.infradead.org;
+	Sat, 25 Apr 2026 22:45:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Z8uDU0iX99Tgv3o+fYqZ9yp1w2za7K0HbBrM8LxB5IA=; b=Ld1mvFz658g2ZKGujP/nAKC0GT
+	E4gT/zc41ww8NbV9fN8HHyWqEFQBS9HbN3YisCeP6WynaZ5g1yaAf6rMKXdcdKQyqVMc5lhjiJSAf
+	F8OgNDE2r+J1c9HxOGlSrqvvIwJmh1HKuZ1bqhustzBzgkcxE+4U8E9eDCcjgXT5h0RKFMl799Oi1
+	DjMKkmrbA4v8SAFVb5CcYQn1jHfo5Ht+1wYAauPOzVqDlHqzFKGGMfbc4g4T8KKRBY8dYuS9XvqA5
+	3nxGowEYIMDl2BWbfgryBZykt+h6aAsAEaoJk/3mZdnZuK8qEsLTz3636nQ+S4D3hRzbGvtxRwtt3
+	V+SMFblA==;
+Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wGlkV-0000000GLZP-3pp8
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Apr 2026 22:45:22 +0000
-Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2bdf6fe90a9so13688664eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:45:08 -0700 (PDT)
+	Sat, 25 Apr 2026 22:45:21 +0000
+Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2d93379001eso20013668eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:45:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777157108; x=1777761908; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777157118; x=1777761918; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=SC9Z8TYU3FIlegbJKB+Rnykve8tItTwLd+p+lGKeOhc=;
-        b=hAkjhQNcxR+mnPEVzriKc6y6uvVIHBM6XYfQ6fqgSx6mFblatCE4sgmByWycBkJL8E
-         LfohXIyjIwWi3Y9tob2j4eEgOvglhGYxqPxQ0ubF4b+GFWLLKsoeQIzoH7d01eZ9J/ND
-         ABMwCkxdivH84NJyaqWjFxrGYm7UgPT2rnMPeLuBih0UqrqIooJO2w2TEubezR7IogLb
-         4Grj2dKXK80a3UW84Kc0vFiVtFm6f53Fm8+2A0td+/IW7Qvn2wDusSj08JvHHP65K2VP
-         RIkZhb0YaDUo4rq6siMj8q6030kTbGtlcOhZHChQVVzOtj+IDW9fgC9tsQr+pFWKSFs3
-         TcVg==
+        bh=Z8uDU0iX99Tgv3o+fYqZ9yp1w2za7K0HbBrM8LxB5IA=;
+        b=GaL9U/2mk3h4keSftpicYST5oK0C7AhgH0SH0QqvcDBfRvxrmoOh9qyYx3zhCoYC9A
+         29qXwvWAg3gdH1drwJEgFuVC7N1x1r1VMhoXGKDaMDjrMYLWJDTlADSpat4pUQBgxeFk
+         0F4nQ4LOgcioi2VutYgS2q2tPCdX3Hp3DB/WPeFlCNBWR6b6LhIEgU7aA5zDDA6DAfEz
+         WnpHdZD9Q+hBefKGexnSXk7IMnQdSSq/P8+/xmUNKEQHIomHepcOVzCH6lugO88bkNc5
+         8wCDdUv+gbOH3Y56j0yPwa8OBKWKR0keVgq2E8HLgzlaGAzdAZYEvveV50r8gRwfc63Z
+         zgjw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777157108; x=1777761908;
+        d=1e100.net; s=20251104; t=1777157118; x=1777761918;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=SC9Z8TYU3FIlegbJKB+Rnykve8tItTwLd+p+lGKeOhc=;
-        b=GI/fSRuaZXzACDEVYav6PVwlbkUooS3ivJq4P1+V85dPz6VGfnHsK0OHG16NJyEI8R
-         CeWt5u1UTsPFjN4w8dapzQ/GKuczsqklmwS4Z4BMw9xMFeEBHNJsyiJNStC4gMTWoAUf
-         4fqvvr43N5zON4JQ5FrJ6Z1xxhO6fwMEgjCpsRUz5D58hVKaRmCHlvea19vriUFJy92z
-         pqqh8QXG0KWjXiLmAmjp+RiJ4RUv8FMhTuOleC9w9xHWucVjHfD42zuqjK4vlHIM2+08
-         zk32lhgChVMXTuUzhjKspzUH4y0dHvfCdlf/iLYk4odIy/EiC2xAS2iil1ESUIowwvQX
-         cH9w==
-X-Forwarded-Encrypted: i=1; AFNElJ/BuUzvXmjS618Bw6yrIlIApAYYHvu4oBRciHZH/LQsStBvJVJj8/CavHSCdp1rYIePnP0kBhUMrwU3M/Yq3y7Q@lists.infradead.org
-X-Gm-Message-State: AOJu0YwSCoMyhD9jO3DWOSL0rfH7sB3EpbyAS293H3IbRP645pGM3w/+
-	VB7b5dBD/EW1jQZ2JwTYphgTmoxk5EYMe9inDjE4vuzbqowGsUcoXL8BffVNtRGoCDnou3X2U0k
-	dlhgD/wnu1A==
-X-Received: from dyoy21.prod.google.com ([2002:a05:7300:3715:b0:2d7:dc51:72ad])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:3007:b0:2dd:6937:79cb
- with SMTP id 5a478bee46e88-2e46538dab9mr19224505eec.12.1777157107855; Sat, 25
- Apr 2026 15:45:07 -0700 (PDT)
-Date: Sat, 25 Apr 2026 15:44:47 -0700
-In-Reply-To: <20260425174858.3922152-1-irogers@google.com>
+        bh=Z8uDU0iX99Tgv3o+fYqZ9yp1w2za7K0HbBrM8LxB5IA=;
+        b=pH9yNMTHHH7EQCrWYSDoimbpGMIGVFUNzetKn+k3/JP2CiX5ZVdk9uR6Prm22sHT2u
+         hOmm1EKlJ+mIOzvS4e2YtyX2iXVxdK/9ek3itg573YucewVdG2BedG4gkYORefDfTYt6
+         q4zJU/lsJoMa5OHLnF0PbZMNFUxQ+2awwdJgSS5NYVeozR62peGQfsxv5NnqcpCjGl/E
+         kd4nrZohA1U5UBX/dYXoVrggpCkzr5OJRMBGZlyFRDwT/lcURTf9oZtNV7eV9HqaiFes
+         OlqjG5t0bPw+HMXXEF+UkUu7+4dMnq+avJdfLzdXTObNPPxt/zQ2xn1irgCN6PsuwpH6
+         8pzw==
+X-Forwarded-Encrypted: i=1; AFNElJ8uB9GT70DbT/xbznrFKIrSqZXKWTyrpOk0XSGkQL6rTneSsxLWjMTyOTcQt/eLL6myHXpsWsFVUjOqOaG173AP@lists.infradead.org
+X-Gm-Message-State: AOJu0YxCFjzV3ipIPd8EywkvBES2sYohG3PAbQhETNuVuuZIjiq581A5
+	772yOMU1zlcEKQWwba3T+r0yxDDvm6W8XY9aeEbbQXIAyWF7P9NaADp/HLEsB7NGPZmYM1OZoLp
+	XtigVjWbrmQ==
+X-Received: from dybss20.prod.google.com ([2002:a05:7301:7214:b0:2e5:ce71:32c4])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:2327:b0:2d8:97d6:6ac8
+ with SMTP id 5a478bee46e88-2e478c1ff0cmr23453474eec.21.1777157117979; Sat, 25
+ Apr 2026 15:45:17 -0700 (PDT)
+Date: Sat, 25 Apr 2026 15:44:52 -0700
+In-Reply-To: <20260425224503.170337-1-irogers@google.com>
 Mime-Version: 1.0
-References: <20260425174858.3922152-1-irogers@google.com>
+References: <20260425174858.3922152-1-irogers@google.com> <20260425224503.170337-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260425224503.170337-1-irogers@google.com>
-Subject: [PATCH v7 43/59] perf sched-migration: Port sched-migration/SchedGui
- to use python module
+Message-ID: <20260425224503.170337-6-irogers@google.com>
+Subject: [PATCH v7 48/59] perf rw-by-file: Port rw-by-file to use python module
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org, 
 	leo.yan@linux.dev, namhyung@kernel.org, tmricht@linux.ibm.com
@@ -76,8 +90,8 @@ Cc: alice.mei.rogers@gmail.com, dapeng1.mi@linux.intel.com,
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260425_154509_549675_5424E0D9 
-X-CRM114-Status: GOOD (  20.43  )
+X-CRM114-CacheID: sfid-20260425_234520_252393_3B01889F 
+X-CRM114-Status: GOOD (  14.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,760 +106,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ported from tools/perf/scripts/python/ and its Util lib.
-- Refactored sched-migration.py to use a class structure
-  (SchedMigrationAnalyzer) to encapsulate state.
-- Used perf.session for event processing.
-- Ported SchedGui.py to the same directory to keep it as a local
-  dependency.
-- Made wxPython dependency optional in sched-migration.py, printing a
-  message if it's missing instead of failing with ImportError.
-- Cleaned up Python 2 compatibility artifacts.
+Port the legacy Perl script rw-by-file.pl to a python script using the
+perf module in tools/perf/python.
+
+The new script uses a class-based architecture and leverages the
+perf.session API for event processing.
+
+It tracks read and write activity by file descriptor for a given
+program name, aggregating bytes requested/written and total counts.
+
+Complications:
+- Had to split long lines in __init__ to satisfy pylint.
+- pylint warns about the module name not being snake_case, but it is
+  kept for consistency with the original script name.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
 v2:
 
-tools/perf/python/SchedGui.py:
- - Python 3 Compatibility: Fixed TypeError issues caused by float
-   division in Python 3 when wxPython expected integers. Used integer
-   division ( // ) and explicit int() casts for scrollbar and size
-   calculations.
- - wxPython Phoenix API Updates:
-   - Replaced deprecated  SetDimensions()  with  SetSize() .
-   - Replaced removed GetPositionTuple() with GetPosition() in
-     on_mouse_down.
- - Fixed wx.PaintDC creation in on_paint to use
-   event.GetEventObject() to ensure valid DC creation regardless of
-   which window triggered the event.
- - Layout and Rendering Fixes:
-   - Replaced static layout with a wx.SplitterWindow to physically
-     separate the drawing area from the text area, preventing them
-     from overlapping and restoring scrollbar functionality.
-   - Adjusted the initial sash position to give 3/4 of the height to
-     the drawing area.
-   - Replaced wx.StaticText with a multiline wx.TextCtrl for the
-     summary area to allow text selection and simpler value updates.
-   - Added CPU labels ("CPU ") drawn at the left edge of the visible
-     area in on_paint .
-   - Added background clearing ( dc.Clear() ) in on_paint to avoid
-     "ghosting" of old text and rectangles when scrolling.
+ - Fixed Substring Matching: Replaced if "sys_enter_read" in
+   event_name: with an exact match against syscalls:sys_enter_read and
+   raw_syscalls:sys_enter_read using sample.evsel.name . This prevents
+   variants like readv or readlink from incorrectly triggering the
+   read logic. Similar fixes were applied for write events.
 
-tools/perf/python/sched-migration.py:
- - Fixed a bug where sharing a snapshot in find_time_slice caused data
-   mutation across calls.
- - Added safety checks to handle empty data cases (e.g., when
-   intervals have no events).
- - Fixed fallbacks in fill_zone when search conditions fail to find a
-   matching time slice.
+ - Fixed Silent Error Dropping: Instead of silently returning when
+   expected fields are missing (causing AttributeError ), the script
+   now increments the self.unhandled counter for that event. This
+   ensures that missing data or unexpected event variants are reported
+   to the user instead of quietly skewing the results.
+
+v6:
+- Fixed `AttributeError` by using `str(sample.evsel)` to get event name.
 ---
- tools/perf/python/SchedGui.py        | 219 +++++++++++++
- tools/perf/python/sched-migration.py | 469 +++++++++++++++++++++++++++
- 2 files changed, 688 insertions(+)
- create mode 100755 tools/perf/python/SchedGui.py
- create mode 100755 tools/perf/python/sched-migration.py
+ tools/perf/python/rw-by-file.py | 103 ++++++++++++++++++++++++++++++++
+ 1 file changed, 103 insertions(+)
+ create mode 100755 tools/perf/python/rw-by-file.py
 
-diff --git a/tools/perf/python/SchedGui.py b/tools/perf/python/SchedGui.py
+diff --git a/tools/perf/python/rw-by-file.py b/tools/perf/python/rw-by-file.py
 new file mode 100755
-index 000000000000..6111f3e5f552
+index 000000000000..2103ac0412bb
 --- /dev/null
-+++ b/tools/perf/python/SchedGui.py
-@@ -0,0 +1,219 @@
++++ b/tools/perf/python/rw-by-file.py
+@@ -0,0 +1,103 @@
 +#!/usr/bin/env python3
-+# SPDX-License-Identifier: GPL-2.0
-+# SchedGui.py - Python extension for perf script, basic GUI code for
-+#		traces drawing and overview.
-+#
-+# Copyright (C) 2010 by Frederic Weisbecker <fweisbec@gmail.com>
-+#
-+# Ported to modern directory structure.
-+
-+try:
-+    import wx  # type: ignore
-+except ImportError:
-+    raise ImportError("You need to install the wxpython lib for this script")
-+
-+
-+class RootFrame(wx.Frame):
-+    Y_OFFSET = 100
-+    RECT_HEIGHT = 100
-+    RECT_SPACE = 50
-+    EVENT_MARKING_WIDTH = 5
-+
-+    def __init__(self, sched_tracer, title, parent=None, id=-1):
-+        wx.Frame.__init__(self, parent, id, title)
-+
-+        (self.screen_width, self.screen_height) = wx.GetDisplaySize()
-+        self.screen_width -= 10
-+        self.screen_height -= 10
-+        self.zoom = 0.5
-+        self.scroll_scale = 20
-+        self.sched_tracer = sched_tracer
-+        self.sched_tracer.set_root_win(self)
-+        (self.ts_start, self.ts_end) = sched_tracer.interval()
-+        self.update_width_virtual()
-+        self.nr_rects = sched_tracer.nr_rectangles() + 1
-+        self.height_virtual = RootFrame.Y_OFFSET + \
-+            (self.nr_rects * (RootFrame.RECT_HEIGHT + RootFrame.RECT_SPACE))
-+
-+        # whole window panel
-+        self.panel = wx.Panel(self, size=(self.screen_width, self.screen_height))
-+
-+        # scrollable container
-+        # Create SplitterWindow
-+        self.splitter = wx.SplitterWindow(self.panel, style=wx.SP_3D)
-+
-+        # scrollable container (Top)
-+        self.scroll = wx.ScrolledWindow(self.splitter)
-+        self.scroll.SetScrollbars(self.scroll_scale, self.scroll_scale,
-+                                  int(self.width_virtual // self.scroll_scale),
-+                                  int(self.height_virtual // self.scroll_scale))
-+        self.scroll.EnableScrolling(True, True)
-+        self.scroll.SetFocus()
-+
-+        # scrollable drawing area
-+        self.scroll_panel = wx.Panel(self.scroll,
-+                                     size=(self.screen_width - 15, self.screen_height // 2))
-+        self.scroll_panel.Bind(wx.EVT_PAINT, self.on_paint)
-+        self.scroll_panel.Bind(wx.EVT_KEY_DOWN, self.on_key_press)
-+        self.scroll_panel.Bind(wx.EVT_LEFT_DOWN, self.on_mouse_down)
-+        self.scroll.Bind(wx.EVT_KEY_DOWN, self.on_key_press)
-+        self.scroll.Bind(wx.EVT_LEFT_DOWN, self.on_mouse_down)
-+
-+        self.scroll_panel.SetSize(int(self.width_virtual), int(self.height_virtual))
-+
-+        # Create a separate panel for text (Bottom)
-+        self.text_panel = wx.Panel(self.splitter)
-+        self.text_sizer = wx.BoxSizer(wx.VERTICAL)
-+        self.txt = wx.TextCtrl(self.text_panel, -1, "Click a bar to see details",
-+                               style=wx.TE_MULTILINE)
-+        self.text_sizer.Add(self.txt, 1, wx.EXPAND | wx.ALL, 5)
-+        self.text_panel.SetSizer(self.text_sizer)
-+
-+        # Split the window
-+        self.splitter.SplitHorizontally(self.scroll, self.text_panel, (self.screen_height * 3) // 4)
-+
-+        # Main sizer to layout splitter
-+        self.main_sizer = wx.BoxSizer(wx.VERTICAL)
-+        self.main_sizer.Add(self.splitter, 1, wx.EXPAND)
-+        self.panel.SetSizer(self.main_sizer)
-+
-+        self.scroll.Fit()
-+        self.Fit()
-+
-+        self.Show(True)
-+
-+    def us_to_px(self, val):
-+        return val / (10 ** 3) * self.zoom
-+
-+    def px_to_us(self, val):
-+        return (val / self.zoom) * (10 ** 3)
-+
-+    def scroll_start(self):
-+        (x, y) = self.scroll.GetViewStart()
-+        return (x * self.scroll_scale, y * self.scroll_scale)
-+
-+    def scroll_start_us(self):
-+        (x, y) = self.scroll_start()
-+        return self.px_to_us(x)
-+
-+    def paint_rectangle_zone(self, nr, color, top_color, start, end):
-+        offset_px = self.us_to_px(start - self.ts_start)
-+        width_px = self.us_to_px(end - start)
-+
-+        offset_py = RootFrame.Y_OFFSET + (nr * (RootFrame.RECT_HEIGHT + RootFrame.RECT_SPACE))
-+        width_py = RootFrame.RECT_HEIGHT
-+
-+        dc = self.dc
-+
-+        if top_color is not None:
-+            (r, g, b) = top_color
-+            top_color = wx.Colour(r, g, b)
-+            brush = wx.Brush(top_color, wx.SOLID)
-+            dc.SetBrush(brush)
-+            dc.DrawRectangle(int(offset_px), int(offset_py),
-+                             int(width_px), RootFrame.EVENT_MARKING_WIDTH)
-+            width_py -= RootFrame.EVENT_MARKING_WIDTH
-+            offset_py += RootFrame.EVENT_MARKING_WIDTH
-+
-+        (r, g, b) = color
-+        color = wx.Colour(r, g, b)
-+        brush = wx.Brush(color, wx.SOLID)
-+        dc.SetBrush(brush)
-+        dc.DrawRectangle(int(offset_px), int(offset_py), int(width_px), int(width_py))
-+
-+    def update_rectangles(self, dc, start, end):
-+        start += self.ts_start
-+        end += self.ts_start
-+        self.sched_tracer.fill_zone(start, end)
-+
-+    def on_paint(self, event):
-+        window = event.GetEventObject()
-+        dc = wx.PaintDC(window)
-+
-+        # Clear background to avoid ghosting
-+        dc.SetBackground(wx.Brush(window.GetBackgroundColour()))
-+        dc.Clear()
-+
-+        self.dc = dc
-+
-+        width = min(self.width_virtual, self.screen_width)
-+        (x, y) = self.scroll_start()
-+        start = self.px_to_us(x)
-+        end = self.px_to_us(x + width)
-+        self.update_rectangles(dc, start, end)
-+
-+        # Draw CPU labels at the left edge of the visible area
-+        (x_scroll, _) = self.scroll_start()
-+        for nr in range(self.nr_rects):
-+            offset_py = RootFrame.Y_OFFSET + (nr * (RootFrame.RECT_HEIGHT + RootFrame.RECT_SPACE))
-+            dc.DrawText(f"CPU {nr}", x_scroll + 10, offset_py + 10)
-+
-+    def rect_from_ypixel(self, y):
-+        y -= RootFrame.Y_OFFSET
-+        rect = y // (RootFrame.RECT_HEIGHT + RootFrame.RECT_SPACE)
-+        height = y % (RootFrame.RECT_HEIGHT + RootFrame.RECT_SPACE)
-+
-+        if rect < 0 or rect > self.nr_rects - 1 or height > RootFrame.RECT_HEIGHT:
-+            return -1
-+
-+        return rect
-+
-+    def update_summary(self, txt):
-+        self.txt.SetValue(txt)
-+        self.text_panel.Layout()
-+        self.splitter.Layout()
-+        self.text_panel.Refresh()
-+
-+    def on_mouse_down(self, event):
-+        pos = event.GetPosition()
-+        x, y = pos.x, pos.y
-+        rect = self.rect_from_ypixel(y)
-+        if rect == -1:
-+            return
-+
-+        t = self.px_to_us(x) + self.ts_start
-+
-+        self.sched_tracer.mouse_down(rect, t)
-+
-+    def update_width_virtual(self):
-+        self.width_virtual = self.us_to_px(self.ts_end - self.ts_start)
-+
-+    def __zoom(self, x):
-+        self.update_width_virtual()
-+        (xpos, ypos) = self.scroll.GetViewStart()
-+        xpos = int(self.us_to_px(x) // self.scroll_scale)
-+        self.scroll.SetScrollbars(self.scroll_scale, self.scroll_scale,
-+                                  int(self.width_virtual // self.scroll_scale),
-+                                  int(self.height_virtual // self.scroll_scale),
-+                                  xpos, ypos)
-+        self.Refresh()
-+
-+    def zoom_in(self):
-+        x = self.scroll_start_us()
-+        self.zoom *= 2
-+        self.__zoom(x)
-+
-+    def zoom_out(self):
-+        x = self.scroll_start_us()
-+        self.zoom /= 2
-+        self.__zoom(x)
-+
-+    def on_key_press(self, event):
-+        key = event.GetRawKeyCode()
-+        if key == ord("+"):
-+            self.zoom_in()
-+            return
-+        if key == ord("-"):
-+            self.zoom_out()
-+            return
-+
-+        key = event.GetKeyCode()
-+        (x, y) = self.scroll.GetViewStart()
-+        if key == wx.WXK_RIGHT:
-+            self.scroll.Scroll(x + 1, y)
-+        elif key == wx.WXK_LEFT:
-+            self.scroll.Scroll(x - 1, y)
-+        elif key == wx.WXK_DOWN:
-+            self.scroll.Scroll(x, y + 1)
-+        elif key == wx.WXK_UP:
-+            self.scroll.Scroll(x, y - 1)
-diff --git a/tools/perf/python/sched-migration.py b/tools/perf/python/sched-migration.py
-new file mode 100755
-index 000000000000..331278958763
---- /dev/null
-+++ b/tools/perf/python/sched-migration.py
-@@ -0,0 +1,469 @@
-+#!/usr/bin/env python3
-+# SPDX-License-Identifier: GPL-2.0
-+"""
-+Cpu task migration overview toy
-+
-+Copyright (C) 2010 Frederic Weisbecker <fweisbec@gmail.com>
-+Ported to modern directory structure and refactored to use class.
-+"""
++# SPDX-License-Identifier: GPL-2.0-only
++"""Display r/w activity for files read/written to for a given program."""
 +
 +import argparse
-+from collections import defaultdict, UserList
++from collections import defaultdict
++import sys
++from typing import Optional, Dict
 +import perf
 +
-+# SchedGui might not be available if wxPython is missing
-+try:
-+    from SchedGui import RootFrame
-+    import wx  # type: ignore
-+    WX_AVAILABLE = True
-+except ImportError:
-+    WX_AVAILABLE = False
-+
-+# Global threads dictionary
-+threads = defaultdict(lambda: "unknown")
-+threads[0] = "idle"
-+
-+
-+def thread_name(pid: int) -> str:
-+    """Return thread name formatted with pid."""
-+    return f"{threads[pid]}:{pid}"
-+
-+
-+def task_state(state: int) -> str:
-+    """Map task state integer to string."""
-+    states = {
-+        0: "R",
-+        1: "S",
-+        2: "D",
-+        64: "DEAD"
-+    }
-+    return states.get(state, "Unknown")
-+
-+
-+class RunqueueEventUnknown:
-+    """Unknown runqueue event."""
-+    @staticmethod
-+    def color():
-+        """Return color for event."""
-+        return None
-+
-+    def __repr__(self):
-+        return "unknown"
-+
-+
-+class RunqueueEventSleep:
-+    """Sleep runqueue event."""
-+    @staticmethod
-+    def color():
-+        """Return color for event."""
-+        return 0, 0, 0xff
-+
-+    def __init__(self, sleeper: int):
-+        self.sleeper = sleeper
-+
-+    def __repr__(self):
-+        return f"{thread_name(self.sleeper)} gone to sleep"
-+
-+
-+class RunqueueEventWakeup:
-+    """Wakeup runqueue event."""
-+    @staticmethod
-+    def color():
-+        """Return color for event."""
-+        return 0xff, 0xff, 0
-+
-+    def __init__(self, wakee: int):
-+        self.wakee = wakee
-+
-+    def __repr__(self):
-+        return f"{thread_name(self.wakee)} woke up"
-+
-+
-+class RunqueueEventFork:
-+    """Fork runqueue event."""
-+    @staticmethod
-+    def color():
-+        """Return color for event."""
-+        return 0, 0xff, 0
-+
-+    def __init__(self, child: int):
-+        self.child = child
-+
-+    def __repr__(self):
-+        return f"new forked task {thread_name(self.child)}"
-+
-+
-+class RunqueueMigrateIn:
-+    """Migrate in runqueue event."""
-+    @staticmethod
-+    def color():
-+        """Return color for event."""
-+        return 0, 0xf0, 0xff
-+
-+    def __init__(self, new: int):
-+        self.new = new
-+
-+    def __repr__(self):
-+        return f"task migrated in {thread_name(self.new)}"
-+
-+
-+class RunqueueMigrateOut:
-+    """Migrate out runqueue event."""
-+    @staticmethod
-+    def color():
-+        """Return color for event."""
-+        return 0xff, 0, 0xff
-+
-+    def __init__(self, old: int):
-+        self.old = old
-+
-+    def __repr__(self):
-+        return f"task migrated out {thread_name(self.old)}"
-+
-+
-+class RunqueueSnapshot:
-+    """Snapshot of runqueue state."""
-+
-+    def __init__(self, tasks=None, event=None):
-+        if tasks is None:
-+            tasks = (0,)
-+        if event is None:
-+            event = RunqueueEventUnknown()
-+        self.tasks = tuple(tasks)
-+        self.event = event
-+
-+    def sched_switch(self, prev: int, prev_state: int, next_pid: int):
-+        """Handle sched switch in snapshot."""
-+        if task_state(prev_state) == "R" and next_pid in self.tasks \
-+                and prev in self.tasks:
-+            return self
-+
-+        event = RunqueueEventUnknown()
-+        if task_state(prev_state) != "R":
-+            event = RunqueueEventSleep(prev)  # type: ignore
-+
-+        next_tasks = list(self.tasks[:])
-+        if prev in self.tasks:
-+            if task_state(prev_state) != "R":
-+                next_tasks.remove(prev)
-+        elif task_state(prev_state) == "R":
-+            next_tasks.append(prev)
-+
-+        if next_pid not in next_tasks:
-+            next_tasks.append(next_pid)
-+
-+        return RunqueueSnapshot(next_tasks, event)
-+
-+    def migrate_out(self, old: int):
-+        """Handle task migrate out in snapshot."""
-+        if old not in self.tasks:
-+            return self
-+        next_tasks = [task for task in self.tasks if task != old]
-+
-+        return RunqueueSnapshot(next_tasks, RunqueueMigrateOut(old))
-+
-+    def __migrate_in(self, new: int, event):
-+        if new in self.tasks:
-+            return RunqueueSnapshot(self.tasks, event)
-+        next_tasks = self.tasks + tuple([new])
-+
-+        return RunqueueSnapshot(next_tasks, event)
-+
-+    def migrate_in(self, new: int):
-+        """Handle task migrate in in snapshot."""
-+        return self.__migrate_in(new, RunqueueMigrateIn(new))
-+
-+    def wake_up(self, new: int):
-+        """Handle task wakeup in snapshot."""
-+        return self.__migrate_in(new, RunqueueEventWakeup(new))
-+
-+    def wake_up_new(self, new: int):
-+        """Handle task fork in snapshot."""
-+        return self.__migrate_in(new, RunqueueEventFork(new))
-+
-+    def load(self) -> int:
-+        """Provide the number of tasks on the runqueue. Don't count idle"""
-+        return len(self.tasks) - 1
-+
-+    def __repr__(self):
-+        return self.tasks.__repr__()
-+
-+
-+class TimeSlice:
-+    """Represents a time slice of execution."""
-+
-+    def __init__(self, start: int, prev):
-+        self.start = start
-+        self.prev = prev
-+        self.end = start
-+        # cpus that triggered the event
-+        self.event_cpus: list[int] = []
-+        if prev is not None:
-+            self.total_load = prev.total_load
-+            self.rqs = prev.rqs.copy()
-+        else:
-+            self.rqs = defaultdict(RunqueueSnapshot)
-+            self.total_load = 0
-+
-+    def __update_total_load(self, old_rq: RunqueueSnapshot, new_rq: RunqueueSnapshot):
-+        diff = new_rq.load() - old_rq.load()
-+        self.total_load += diff
-+
-+    def sched_switch(self, ts_list, prev: int, prev_state: int, next_pid: int, cpu: int):
-+        """Process sched_switch in time slice."""
-+        old_rq = self.prev.rqs[cpu]
-+        new_rq = old_rq.sched_switch(prev, prev_state, next_pid)
-+
-+        if old_rq is new_rq:
-+            return
-+
-+        self.rqs[cpu] = new_rq
-+        self.__update_total_load(old_rq, new_rq)
-+        ts_list.append(self)
-+        self.event_cpus = [cpu]
-+
-+    def migrate(self, ts_list, new: int, old_cpu: int, new_cpu: int):
-+        """Process task migration in time slice."""
-+        if old_cpu == new_cpu:
-+            return
-+        old_rq = self.prev.rqs[old_cpu]
-+        out_rq = old_rq.migrate_out(new)
-+        self.rqs[old_cpu] = out_rq
-+        self.__update_total_load(old_rq, out_rq)
-+
-+        new_rq = self.prev.rqs[new_cpu]
-+        in_rq = new_rq.migrate_in(new)
-+        self.rqs[new_cpu] = in_rq
-+        self.__update_total_load(new_rq, in_rq)
-+
-+        ts_list.append(self)
-+
-+        if old_rq is not out_rq:
-+            self.event_cpus.append(old_cpu)
-+        self.event_cpus.append(new_cpu)
-+
-+    def wake_up(self, ts_list, pid: int, cpu: int, fork: bool):
-+        """Process wakeup in time slice."""
-+        old_rq = self.prev.rqs[cpu]
-+        if fork:
-+            new_rq = old_rq.wake_up_new(pid)
-+        else:
-+            new_rq = old_rq.wake_up(pid)
-+
-+        if new_rq is old_rq:
-+            return
-+        self.rqs[cpu] = new_rq
-+        self.__update_total_load(old_rq, new_rq)
-+        ts_list.append(self)
-+        self.event_cpus = [cpu]
-+
-+    def next(self, t: int):
-+        """Create next time slice."""
-+        self.end = t
-+        return TimeSlice(t, self)
-+
-+
-+class TimeSliceList(UserList):
-+    """List of time slices with search capabilities."""
-+
-+    def __init__(self, arg=None):
-+        super().__init__(arg if arg is not None else [])
-+        self.root_win = None
-+
-+    def get_time_slice(self, ts: int) -> TimeSlice:
-+        """Get or create time slice for timestamp."""
-+        if len(self.data) == 0:
-+            ts_slice = TimeSlice(ts, TimeSlice(-1, None))
-+        else:
-+            ts_slice = self.data[-1].next(ts)
-+        return ts_slice
-+
-+    def find_time_slice(self, ts: int) -> int:
-+        """Binary search for time slice containing timestamp."""
-+        if not self.data:
-+            return -1
-+        start = 0
-+        end = len(self.data)
-+        found = -1
-+        searching = True
-+        while searching:
-+            if start in (end, end - 1):
-+                searching = False
-+
-+            i = (end + start) // 2
-+            if self.data[i].start <= ts <= self.data[i].end:
-+                found = i
-+                break
-+
-+            if self.data[i].end < ts:
-+                start = i
-+            elif self.data[i].start > ts:
-+                end = i
-+
-+        return found
-+
-+    def set_root_win(self, win):
-+        """Set root window for GUI."""
-+        self.root_win = win
-+
-+    def mouse_down(self, cpu: int, t: int):
-+        """Handle mouse down event from GUI."""
-+        idx = self.find_time_slice(t)
-+        if idx == -1:
-+            return
-+
-+        ts = self[idx]
-+        rq = ts.rqs[cpu]
-+        raw = f"CPU: {cpu}\n"
-+        raw += f"Last event : {repr(rq.event)}\n"
-+        raw += f"Timestamp : {ts.start // (10 ** 9)}.{ts.start % (10 ** 9) // 1000:06d}\n"
-+        raw += f"Duration : {(ts.end - ts.start) // (10 ** 6):6d} us\n"
-+        raw += f"Load = {rq.load()}\n"
-+        for task in rq.tasks:
-+            raw += f"{thread_name(task)} \n"
-+
-+        if self.root_win:
-+            self.root_win.update_summary(raw)
-+
-+    def update_rectangle_cpu(self, slice_obj: TimeSlice, cpu: int):
-+        """Update rectangle for CPU in GUI."""
-+        rq = slice_obj.rqs[cpu]
-+
-+        if slice_obj.total_load != 0:
-+            load_rate = rq.load() / float(slice_obj.total_load)
-+        else:
-+            load_rate = 0
-+
-+        red_power = int(0xff - (0xff * load_rate))
-+        color = (0xff, red_power, red_power)
-+
-+        top_color = None
-+        if cpu in slice_obj.event_cpus:
-+            top_color = rq.event.color()
-+
-+        if self.root_win:
-+            self.root_win.paint_rectangle_zone(cpu, color, top_color,
-+                                               slice_obj.start, slice_obj.end)
-+
-+    def fill_zone(self, start: int, end: int):
-+        """Fill zone in GUI."""
-+        i = self.find_time_slice(start)
-+        if i == -1:
-+            i = 0
-+
-+        for idx in range(i, len(self.data)):
-+            timeslice = self.data[idx]
-+            if timeslice.start > end:
-+                return
-+
-+            for cpu in timeslice.rqs:
-+                self.update_rectangle_cpu(timeslice, cpu)
-+
-+    def interval(self) -> tuple[int, int]:
-+        """Return start and end timestamps."""
-+        if len(self.data) == 0:
-+            return 0, 0
-+        return self.data[0].start, self.data[-1].end
-+
-+    def nr_rectangles(self) -> int:
-+        """Return maximum CPU number."""
-+        if not self.data:
-+            return 0
-+        last_ts = self.data[-1]
-+        max_cpu = 0
-+        for cpu in last_ts.rqs:
-+            max_cpu = max(max_cpu, cpu)
-+        return max_cpu
-+
-+
-+class SchedMigrationAnalyzer:
-+    """Analyzes task migrations and manages time slices."""
-+
-+    def __init__(self):
-+        self.current_tsk = defaultdict(lambda: -1)
-+        self.timeslices = TimeSliceList()
-+
-+    def sched_switch(self, time: int, cpu: int, prev_comm: str, prev_pid: int, prev_state: int,
-+                     next_comm: str, next_pid: int):
-+        """Handle sched_switch event."""
-+        on_cpu_task = self.current_tsk[cpu]
-+
-+        if on_cpu_task not in (-1, prev_pid):
-+            print(f"Sched switch event rejected ts: {time} cpu: {cpu} "
-+                  f"prev: {prev_comm}({prev_pid}) next: {next_comm}({next_pid})")
-+
-+        threads[prev_pid] = prev_comm
-+        threads[next_pid] = next_comm
-+        self.current_tsk[cpu] = next_pid
-+
-+        ts = self.timeslices.get_time_slice(time)
-+        ts.sched_switch(self.timeslices, prev_pid, prev_state, next_pid, cpu)
-+
-+    def migrate(self, time: int, pid: int, orig_cpu: int, dest_cpu: int):
-+        """Handle sched_migrate_task event."""
-+        ts = self.timeslices.get_time_slice(time)
-+        ts.migrate(self.timeslices, pid, orig_cpu, dest_cpu)
-+
-+    def wake_up(self, time: int, pid: int, success: int, target_cpu: int, fork: bool):
-+        """Handle wakeup event."""
-+        if success == 0:
-+            return
-+        ts = self.timeslices.get_time_slice(time)
-+        ts.wake_up(self.timeslices, pid, target_cpu, fork)
++class RwByFile:
++    """Tracks and displays read/write activity by file descriptor."""
++    def __init__(self, comm: str) -> None:
++        self.for_comm = comm
++        self.reads: Dict[int, Dict[str, int]] = defaultdict(
++            lambda: {"bytes_requested": 0, "total_reads": 0}
++        )
++        self.writes: Dict[int, Dict[str, int]] = defaultdict(
++            lambda: {"bytes_written": 0, "total_writes": 0}
++        )
++        self.unhandled: Dict[str, int] = defaultdict(int)
++        self.session: Optional[perf.session] = None
 +
 +    def process_event(self, sample: perf.sample_event) -> None:
-+        """Collect events and pass to analyzer."""
-+        name = str(sample.evsel)
-+        time = sample.sample_time
-+        cpu = sample.sample_cpu
-+        _pid = sample.sample_pid
-+        _comm = "Unknown"
++        """Process events."""
++        event_name = str(sample.evsel)[6:-1]
 +
-+        if name == "evsel(sched:sched_switch)":
-+            prev_comm = getattr(sample, "prev_comm", "Unknown")
-+            prev_pid = getattr(sample, "prev_pid", -1)
-+            prev_state = getattr(sample, "prev_state", 0)
-+            next_comm = getattr(sample, "next_comm", "Unknown")
-+            next_pid = getattr(sample, "next_pid", -1)
-+            self.sched_switch(time, cpu, prev_comm, prev_pid, prev_state, next_comm, next_pid)
-+        elif name == "evsel(sched:sched_migrate_task)":
-+            task_pid = getattr(sample, "pid", -1)
-+            orig_cpu = getattr(sample, "orig_cpu", -1)
-+            dest_cpu = getattr(sample, "dest_cpu", -1)
-+            self.migrate(time, task_pid, orig_cpu, dest_cpu)
-+        elif name == "evsel(sched:sched_wakeup)":
-+            task_pid = getattr(sample, "pid", -1)
-+            success = getattr(sample, "success", 1)
-+            target_cpu = getattr(sample, "target_cpu", -1)
-+            self.wake_up(time, task_pid, success, target_cpu, False)
-+        elif name == "evsel(sched:sched_wakeup_new)":
-+            task_pid = getattr(sample, "pid", -1)
-+            success = getattr(sample, "success", 1)
-+            target_cpu = getattr(sample, "target_cpu", -1)
-+            self.wake_up(time, task_pid, success, target_cpu, True)
++        pid = sample.sample_pid
++        assert self.session is not None
++        try:
++            comm = self.session.find_thread(pid).comm()
++        except Exception: # pylint: disable=broad-except
++            comm = "unknown"
 +
-+    def run_gui(self):
-+        """Start wxPython GUI."""
-+        if not WX_AVAILABLE:
-+            print("wxPython is not available. Cannot start GUI.")
++        if comm != self.for_comm:
 +            return
-+        app = wx.App(False)
-+        _frame = RootFrame(self.timeslices, "Migration")
-+        app.MainLoop()
 +
++        if event_name in ("syscalls:sys_enter_read", "raw_syscalls:sys_enter_read"):
++            try:
++                fd = sample.fd
++                count = sample.count
++                self.reads[fd]["bytes_requested"] += count
++                self.reads[fd]["total_reads"] += 1
++            except AttributeError:
++                self.unhandled[event_name] += 1
++        elif event_name in ("syscalls:sys_enter_write", "raw_syscalls:sys_enter_write"):
++            try:
++                fd = sample.fd
++                count = sample.count
++                self.writes[fd]["bytes_written"] += count
++                self.writes[fd]["total_writes"] += 1
++            except AttributeError:
++                self.unhandled[event_name] += 1
++        else:
++            self.unhandled[event_name] += 1
++
++    def print_totals(self) -> None:
++        """Print summary tables."""
++        print(f"file read counts for {self.for_comm}:\n")
++        print(f"{'fd':>6s}  {'# reads':>10s}  {'bytes_requested':>15s}")
++        print(f"{'-'*6}  {'-'*10}  {'-'*15}")
++
++        for fd, data in sorted(self.reads.items(),
++                               key=lambda kv: kv[1]["bytes_requested"], reverse=True):
++            print(f"{fd:6d}  {data['total_reads']:10d}  {data['bytes_requested']:15d}")
++
++        print(f"\nfile write counts for {self.for_comm}:\n")
++        print(f"{'fd':>6s}  {'# writes':>10s}  {'bytes_written':>15s}")
++        print(f"{'-'*6}  {'-'*10}  {'-'*15}")
++
++        for fd, data in sorted(self.writes.items(),
++                               key=lambda kv: kv[1]["bytes_written"], reverse=True):
++            print(f"{fd:6d}  {data['total_writes']:10d}  {data['bytes_written']:15d}")
++
++        if self.unhandled:
++            print("\nunhandled events:\n")
++            print(f"{'event':<40s}  {'count':>10s}")
++            print(f"{'-'*40}  {'-'*10}")
++            for event_name, count in self.unhandled.items():
++                print(f"{event_name:<40s}  {count:10d}")
++
++    def run(self, input_file: str) -> None:
++        """Run the session."""
++        self.session = perf.session(perf.data(input_file), sample=self.process_event)
++        self.session.process_events()
++        self.print_totals()
++
++def main() -> None:
++    """Main function."""
++    parser = argparse.ArgumentParser(description="Trace r/w activity by file")
++    parser.add_argument("comm", help="Filter by command name")
++    parser.add_argument("-i", "--input", default="perf.data", help="Input file")
++    args = parser.parse_args()
++
++    analyzer = RwByFile(args.comm)
++    try:
++        analyzer.run(args.input)
++    except IOError as e:
++        print(e, file=sys.stderr)
++        sys.exit(1)
 +
 +if __name__ == "__main__":
-+    ap = argparse.ArgumentParser(description="Cpu task migration overview toy")
-+    ap.add_argument("-i", "--input", default="perf.data", help="Input file name")
-+    args = ap.parse_args()
-+
-+    analyzer = SchedMigrationAnalyzer()
-+
-+    try:
-+        session = perf.session(perf.data(args.input), sample=analyzer.process_event)
-+        session.process_events()
-+        analyzer.run_gui()
-+    except KeyboardInterrupt:
-+        pass
-+    except Exception as e:
-+        print(f"Error processing events: {e}")
++    main()
 -- 
 2.54.0.545.g6539524ca2-goog
 
