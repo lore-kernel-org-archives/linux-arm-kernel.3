@@ -4,90 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D846FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 23:32:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 832F3FF8850
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 00:52:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zyUuyE7w6pvvtI2U755rVQDGqOG1TjZmAAoWkbcJ3pw=; b=dbSVXszf329nPy5ReSzpnn51hk
-	deX3xyJoyH5QtawbN67gY8E5gNj78Dp+AP4f9t/WxB2JczLXGi0cXXM9TElWgacIA9C3lfY/slHJF
-	GZdBJcScoF1oHdFYp3GJLrfPVYelGF0k7hh9p3JAqxyqagLeBevWJ5TacZm5MBLndMwk+eWu3520R
-	hXtHnoUAMYQlVyWZtnRYl52MREIvnWi22od2r/jhfyJqp/YkeVxHYPAC3WHjmAJVKGmhac2w1Z4zi
-	csmb9A07tINRIra416zxg9HJIu73us/CNx/h6i29VvpJ3+1+B4Zh2AKgbnSXT3WFR1apQA8WedmRg
-	gchlO2Ig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2ClXLjb0gpBaRqcFE1LjnEvb3ZPPqJV/bZdFw6swByA=; b=DawomWWK/fJZpgXuSjtZGuJkSb
+	16KY53ID0UK2FxdFNS1oy1REwUrit49l0EiQ+w/GwwqoFwmh8q6UMXlAPp7ORbRIal4544yB7iU6w
+	pMScrCxQ1raK3TJ+yx2lJiihbOAjwUOaWTHTP01APOSexnmduFYUV5VR/82tN9RmwRauExV53PLX/
+	nCK79vEImHZo/s8bf9CedbQTZlwHb0LDfkBmBHBsEu7FUtRc5up59bKyHPMt1Hy1NkKmXF9hB6Ucl
+	5ZRFpF3qYc5PCt/6LXz8PliXGkJvQ1qn0WPypnKM97QsURc3xem2Tv6NwzB5+Qhl6GVL8Lpi+YBhT
+	1g38c5UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGQ01-0000000Dtrk-2tC3;
-	Fri, 24 Apr 2026 23:31:53 +0000
-Received: from out-174.mta1.migadu.com ([95.215.58.174])
+	id 1wGRFZ-0000000Dw8G-1KEd;
+	Sat, 25 Apr 2026 00:52:01 +0000
+Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGPzy-0000000DtrJ-0cZI
+	id 1wGRFW-0000000Dw7s-1eg1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 23:31:52 +0000
-Message-ID: <d8fccecd-5418-46ff-8e9f-065d1dee6d98@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1777073506;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zyUuyE7w6pvvtI2U755rVQDGqOG1TjZmAAoWkbcJ3pw=;
-	b=FWyOdMQChNJACKlHSUigRbF+UkaZINGXAnfgG0l27LLGRf/hYjHu/Lxkyy0R7Svov/3cgV
-	ca7lKrp+oJsiAffpgj9aIdrEaU8SwwAp8RbrsigFrfnx1EjvABSU63IFjcjHzxaGMsifyR
-	FfCrsxV2p8KUbJc33PxkbcHVFDmYG7c=
-Date: Fri, 24 Apr 2026 16:31:29 -0700
+	Sat, 25 Apr 2026 00:52:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gENPDpY195jqB2bTlj3VRzQBMmXioYoA4RlfSPXUcU2CzH7MZIA70ICG30BH91/OpT0+yJ9hneZhkWYRlPsRyC9+0eLGvdhHqDA82VkoUiILtByYcAAOft509+TSG0tiuaVHRhjq5BRv24P91ovpsYAsz1RdGpE0GX2s0q1ivss+pokgISpi9629V/RPQNPdUzb5P8xIeOJ3/DdCNmlxTe0x9CiFmA9WjRDy8e1GPwITQxFW5uGLx6da8xYGVGzSAE9JllkmJ8ZOsZqg9ZRQPtxSOEcTZHEPN/60lijkllPvtmA20ZjXQakyCLaP5D1wtUmQAKm1/sE+36qm190rMA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2ClXLjb0gpBaRqcFE1LjnEvb3ZPPqJV/bZdFw6swByA=;
+ b=xIErcHz7eCz1d8fWxCvbnU9D7lb01Q7t8kDkiJwXKJmLd+woCY9rlQeWcXganXB4p9rhRl2tLQVJqD2LdYmsf2vLDk2FJVj9biqvYrFm5DdlV261oz6IheSTJWGhXLWAaYzLgnVLsx41wsLBlc9h6noB3dRyUcu1MmKWS0N8DiR4lAbmzfJTOqQPXyLHXp/Ea9BZrCc2s0o1NpSIdAMsIS03FabzetVAovGHxz0mP4/MAufS9zkbehnz8KR8atuxp1bLK4ErnFxgitvNaSbh34catzWdWbyh4x0nv2c/KDeodPsEXNt+H10DsDv/34dfyi0+5ejxSeDyUHrLEXCATg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2ClXLjb0gpBaRqcFE1LjnEvb3ZPPqJV/bZdFw6swByA=;
+ b=cMg+r5bF5Rp7XIBeh3x+Kw4FkHuYgBAnp35PSnOjZ2bD/AmPTuCo++4w9GSTz+yLAdNQDOMl0c+2DLkToQsS7WnWl+1zJY3wY6JBRLfv+eapzrj6Ieg0F26DW7M6gqLUbhglgNchKK7CwiKUhCZpC+LxNBQeXrCUovacCce+Ah8EzuDk9wqfgXKVMjnHb5eIA20E2hcUcYA21B9KC7XLnCn2CZfFHZqSU6MfhedjDfi/HwDdltpIXnDqF6Gw/R/ScO74Pt6/5coL2vCgAOOzktXCvqcutNxQDHpH0bNAS6vt+TmNzONO0sHZJZ8fp0jL3sFrstW1KiekR8shpkJmKQ==
+Received: from DM6PR07CA0126.namprd07.prod.outlook.com (2603:10b6:5:330::9) by
+ DS0PR12MB8574.namprd12.prod.outlook.com (2603:10b6:8:166::7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9846.22; Sat, 25 Apr 2026 00:51:49 +0000
+Received: from DS1PEPF0001708F.namprd03.prod.outlook.com
+ (2603:10b6:5:330:cafe::7f) by DM6PR07CA0126.outlook.office365.com
+ (2603:10b6:5:330::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.23 via Frontend Transport; Sat,
+ 25 Apr 2026 00:51:49 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ DS1PEPF0001708F.mail.protection.outlook.com (10.167.17.139) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9846.18 via Frontend Transport; Sat, 25 Apr 2026 00:51:49 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 24 Apr
+ 2026 17:51:40 -0700
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 24 Apr
+ 2026 17:51:40 -0700
+Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com (10.129.68.7)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 24 Apr 2026 17:51:38 -0700
+Date: Fri, 24 Apr 2026 17:51:37 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: Baolu Lu <baolu.lu@linux.intel.com>, Will Deacon <will@kernel.org>, "Robin
+ Murphy" <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, Bjorn Helgaas
+	<bhelgaas@google.com>, "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown
+	<lenb@kernel.org>, Pranjal Shrivastava <praan@google.com>, Mostafa Saleh
+	<smostafa@google.com>, Kevin Tian <kevin.tian@intel.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-pci@vger.kernel.org>, <vsethi@nvidia.com>, Shuai Xue
+	<xueshuai@linux.alibaba.com>
+Subject: Re: [PATCH v3 05/11] iommu: Change group->devices to RCU-protected
+ list
+Message-ID: <aewQGSVwfgFov5Nu@Asurada-Nvidia>
+References: <cover.1776381841.git.nicolinc@nvidia.com>
+ <12a224061de4fff9e0725909fd0ba4e14996ff08.1776381841.git.nicolinc@nvidia.com>
+ <779dad61-d7e7-4ae0-83a9-8c5920222219@linux.intel.com>
+ <aerey+ULGG589rdi@Asurada-Nvidia>
+ <20260424131148.GB3444440@nvidia.com>
+ <aevAqKFq7ATYk3+i@Asurada-Nvidia>
+ <20260424225820.GN3444440@nvidia.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH RFC bpf-next 1/8] kasan: expose generic kasan helpers
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>,
- Andrey Konovalov <andreyknvl@gmail.com>
-Cc: =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
- <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>,
- "David S. Miller" <davem@davemloft.net>, David Ahern <dsahern@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- X86 ML <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>,
- Shuah Khan <shuah@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Andrey Ryabinin <ryabinin.a.a@gmail.com>,
- Alexander Potapenko <glider@google.com>, Dmitry Vyukov <dvyukov@google.com>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Andrew Morton <akpm@linux-foundation.org>, ebpf@linuxfoundation.org,
- Bastien Curutchet <bastien.curutchet@bootlin.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Xu Kuohai <xukuohai@huawei.com>, bpf <bpf@vger.kernel.org>,
- LKML <linux-kernel@vger.kernel.org>,
- Network Development <netdev@vger.kernel.org>,
- "open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- kasan-dev <kasan-dev@googlegroups.com>, linux-mm <linux-mm@kvack.org>
-References: <20260413-kasan-v1-0-1a5831230821@bootlin.com>
- <20260413-kasan-v1-1-1a5831230821@bootlin.com>
- <CA+fCnZfubV6LgRjO3NQvhrG2Q5o0ftkFFupLWVYS50XDnmCaog@mail.gmail.com>
- <DHSWK17EZUDP.GIJ6BX2NFR6U@bootlin.com>
- <CAADnVQLJ=fJ7t1i2+_RYqU1gqYqiLP9Zrwo4vdZsgzjK_yzJTQ@mail.gmail.com>
- <CA+fCnZd31GzdpEqR8VhfK4JtUKyyRMgbBoAbeGACJgm7WvB6Vw@mail.gmail.com>
- <CAADnVQKv5y+gq=TnOAEXSqgBRpmHNjwqCfxpLaw5XkcbQ+23bg@mail.gmail.com>
- <CA+fCnZe-b0Qqbo5gGv3HN20twquQETDfYYkE1r9tPr9zUFbW9Q@mail.gmail.com>
- <CAADnVQKuptG_opA12O=Xb9_+cHf3f=ycAZdfUp17P2HBYQzdsg@mail.gmail.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Ihor Solodrai <ihor.solodrai@linux.dev>
-In-Reply-To: <CAADnVQKuptG_opA12O=Xb9_+cHf3f=ycAZdfUp17P2HBYQzdsg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260424225820.GN3444440@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS1PEPF0001708F:EE_|DS0PR12MB8574:EE_
+X-MS-Office365-Filtering-Correlation-Id: 008006bd-c31a-4f6e-f5ea-08dea264d582
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|36860700016|376014|1800799024|82310400026|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: yvQqGv99CmWbAaplAG2f2VLh2IAXAhelsVViiyvytjQphxr7/DZSjva8QyzsjQV3HO9iTqQE7WH+XVOO8pEEecHHzUqQiKhZDIUHVRzdGRqMKPNivWMtj1PIHCle5WqG6at0/563YHwIJuU2ctZPAFtiLU9MSSSRE2wVMBrbek+Tw6gjb+0bUeFCFp/ToPHg68Jjw7subvNKEJDM5AoH6N02GWhzD8BXS9jEpL0ANXfXP7QLAA2zX5/4AZSdBKfhYmXuVfO0guDzDqqo57yKDno+C/F0Q27d1N+ZaSjdyKPezUTipWpUeEc16FFY2mcS660Mnan+teg4pWgN27wtSGhGAuOlYl+qmwqFhed+tYMD6UtIS/lM3I7tuE5W/6DfXRIerjLKdfjIBDHHzACqDj4+xLffCyHWuSL6lph8UDKEOnSL/49VS3pyCGQmjd437Mv58p42ZHlIx12O4seCbx1YW6JGE91lspmOw1On5joWi4asQVMoRh9l3zBcOIOpbibFRLPLquQPSfTlhHcV6ZIEVb+X9KSvQehqTM/NjFveH3YVkS3BBb0lHC7W7zWgmdheMPBTMNrKLhUd0IH6pw2xP0nIXnwXzmf1r5I89JzGiL0kmtqM9OL2nHoAn6QIWiROucl+2eFHKe34iUCU5ZXzLNXY3kI/G2p0zMPJeWwSIulJHjXtD2AYyuGOpzzIeqL6pnPE6rffZNVzBUFs/TVaT3WTeIGYnYMuQc7qwc8FgD3Ze8wO9pUrKIu8S8/Uf7xo8xzWWp/LagzBRQ2Few==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(36860700016)(376014)(1800799024)(82310400026)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: FypL5IZRuEq7AP/ndOT6DTOQjqw/wd0yWkiUQn3yeFjMBMnJLITpu2vNEBP7tm4r0RXiJ5zTkuyqE2Mi+eIj55agZf8IOkUg3Yf4zQt4ELoEyyT45f35Cj53TqveCvyLdoPUgBYCIZ+43E1fydgtkU2uSjU3aV5a1a0hn1WWItSoWj4lsNCGqMviLywqBrMP58ig07qPRwxxBVtMmzSQGzZYDFTSdvgEq3tCgjaWIabgDI9PdSIwabR9JXBmMJ/erX6Tub1ziNqs/j1gn+mtQmH6r0b+aI15zGmN3g8N7f+RR59oH3XAhzthpIenMdF+lpQMJPkvzYpKOLtk1DWMbGHUKo84x7Y3T+E6mVVbJKo/tZHGI11GmJi/f4DnLpC1vNJsMp+QWUC6joYl8a1a05fql/6xsY0lvHzR2LkPQclwtK9QFEZKSaTLlJdbgrdj
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Apr 2026 00:51:49.4537
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 008006bd-c31a-4f6e-f5ea-08dea264d582
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF0001708F.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8574
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_163150_551306_930513A7 
-X-CRM114-Status: GOOD (  22.82  )
+X-CRM114-CacheID: sfid-20260424_175158_507303_B4E05559 
+X-CRM114-Status: GOOD (  19.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,71 +139,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/19/26 3:51 PM, Alexei Starovoitov wrote:
-> On Sun, Apr 19, 2026 at 2:49 PM Andrey Konovalov <andreyknvl@gmail.com> wrote:
->>
->> On Tue, Apr 14, 2026 at 5:58 PM Alexei Starovoitov
->> <alexei.starovoitov@gmail.com> wrote:
->>>
->>> I think we're talking past each other.
->>> We're not interested in KASAN_SW_TAGS or KASAN_HW_TAGS.
->>> We're not going to modify arm64 JIT at all.
->>>
->>> This is purely KASAN_GENRIC and only on x86-64.
->>> JIT will emit exactly what compilers emit for generic
->>> which is __asan_load/store. This is as stable ABI as it can get
->>> and we don't want to deviate from it.
->>
->> OK, I supposed that's fair. You did throw me off point with your
->> performance comment. But if you decide to add SW_TAGS support at some
->> point, I think this discussion needs to be revisited.
->>
->> But please add a comment saying that those functions are only exposed
->> for BPF JIT and they are not supposed to be used by other parts of the
->> kernel. And in case you do end up adding a new config option, guard
->> the public declarations by a corresponding ifdef.
+On Fri, Apr 24, 2026 at 07:58:20PM -0300, Jason Gunthorpe wrote:
+> On Fri, Apr 24, 2026 at 12:12:40PM -0700, Nicolin Chen wrote:
+> > On Fri, Apr 24, 2026 at 10:11:48AM -0300, Jason Gunthorpe wrote:
+> > > On Thu, Apr 23, 2026 at 08:08:59PM -0700, Nicolin Chen wrote:
+> > > > On Fri, Apr 24, 2026 at 10:53:49AM +0800, Baolu Lu wrote:
+> > > > > On 4/17/26 07:28, Nicolin Chen wrote:
+> > > > > 	    mutex_unlock(&group->mutex);
+> > > > >             /*
+> > > > >              * FIXME: Mis-locked because the ops->probe_finalize() call-back
+> > > > >              * of some IOMMU drivers calls arm_iommu_attach_device() which
+> > > > >              * in-turn might call back into IOMMU core code, where it tries
+> > > > >              * to take group->mutex, resulting in a deadlock.
+> > > > >              */
+> > > > >              for_each_group_device(group, gdev)
+> > > > >                         iommu_group_do_probe_finalize(gdev->dev);
+> > > > >         }
+> > > > > 
+> > > > >         return 0;
+> > > > > }
+> > > > > 
+> > > > > Will the change above trigger a lockdep splat due to this "mis-locked"
+> > > > > case?"
+> > > > 
+> > > > Oh, I missed this one. That's a good finding!
+> > > > 
+> > > > Perhaps we can just change it to list_for_each_entry_rcu holding
+> > > > rcu_read_lock() and drop the FIXME.
+> > > 
+> > > You can't hold rcu across that function IIRC
+> > 
+> > Oh right. I didn't think too carefully...
+> > 
+> > I tend to keep it as-is. So, maybe just list_for_each_entry?
 > 
-> I feel concerns of misuse are overblown.
-> Being in include/linux/kasan.h doesn't make them free-for-all
-> all of a sudden, but if you prefer we can just copy paste:
-> +void __asan_load1(void *p);
-> +void __asan_store1(void *p);
-> into bpf_jit_comp.c
-> 
->>> The goal here is to find bugs in the verifier.
->>> If something got past it, that shouldn't have,
->>> kasan generic on x86-64 is enough.
->>
->> FWIW, I suspect HW_TAGS KASAN already just works with JITed BPF code.
-> 
-> Ohh. Good point. Looks like modern arm64 cpus in public clouds
-> don't have that enabled, so one would need pixel phone to
-> catch verifier bugs via hw_tags.
+> Does your series make this existing race materially worse?
 
-This comment got me curious, and acckktually if we *really* want to,
-we can get some KASAN_HW_TAGS testing for BPF already.
+I think it would be a status quo.
 
-The first option is emulation, since QEMU supports MTE [1], e.g.:
+The only possible place is __iommu_group_remove_device() that this
+series touched by changing the kfree(gdev) within the mutex to the
+kfree_rcu(gdev, rcu) outside the mutex, which actually added small
+delay. Though that doesn't fix a potential race, it shouldn't make
+things worse.
 
-    qemu-system-aarch64 -machine virt,mte=on ...
-
-This is of course slow, because it runs in software, so it's
-infeasible to run this for every signle patch on BPF CI. But we could
-run it on schedule on the base branches or smth like that.
-
-[1] https://qemu-project.gitlab.io/qemu/system/arm/virt.html
-
-The second option is set up an AmpereOne machine on Oracle Cloud
-(assuming they are available, haven't checked), because apparently [2]
-those CPUs run with MTE.
-
-It's a bunch of infra work and spending, but it is doable if it was
-a priority.
-
-[2] https://arxiv.org/abs/2511.17773
-
-
-> So we still need this x86-specific jit kasan.
-> I guess eventually it can be removed when hw_tags support is widespread.
-
+Nicolin
 
