@@ -4,83 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3F43FF885C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:53:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8978FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:53:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FUJSZggZAnW35gY6L6UfepyO4olhr8IMzDQNCfxT3yU=; b=MGayNI5y1OgyuVSFBTq0Co+x9R
-	tvZgOSfHBt7ahm1CBX0arfW6nQdPDALKrfwbqo1RuI1A+MBZoXGF7cYIjpU85rIQkJR6rpi4DlEa6
-	7UIpaHj0DE1H6IGhVrIjo252XjXG6vxC56d+Q/oQx4b6JoZ5RmAlN8Ugj8ThqLl2e6BBYYbryM/Sb
-	3rhb79ApU6WWN123ZYFhdBId/8CCBXgs5ojWc4XvtuPiExYWF5imNalbs1OWUZTvHz5K/+ShN3FNE
-	7M+IYuw3GilM4abtxM8KYErhSBRfygsujPCQFTZauNe9/fUZUXB2HrbHu4AGIYAEhkyxHtqMYu6ZH
-	R0iZ8d7w==;
+	bh=Z8uDU0iX99Tgv3o+fYqZ9yp1w2za7K0HbBrM8LxB5IA=; b=SK84Ols+Qs92xV3nTqkY1hOTh5
+	QoHp72amtltcxd7yFAXC1UkifiMtUgWLUQ8mqFu7vQZPqT/WZBU/HhQGIyD3lYjmqKj8b2n0a3MK3
+	JfoXVwLtvv/8xxRpe5/YlpU5WfYCHrVcXfdr00WgPbxp+tLNoYPfvuj1V2peaCysrrnm/qenXQ3J9
+	upuoycWXwgjt5SIG3h2uUvPihbnSB1AUeXhWOrnA0vRoU3bbcTmxHgAdScRlO5xem6E+UW8WjYhRu
+	kCpbH/28aLugL2gbF6G3URwWcY5I/ZW0QHps3bYwl64U7LftxFd4fhEF3dETsCkzPCzauI5+VMy9y
+	76SFB9QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlsP-0000000F1HW-0H9t;
-	Sat, 25 Apr 2026 22:53:29 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wGlsS-0000000F1LE-1moQ;
+	Sat, 25 Apr 2026 22:53:32 +0000
+Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlrE-0000000Ezwg-27WF
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sat, 25 Apr 2026 22:52:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=FUJSZggZAnW35gY6L6UfepyO4olhr8IMzDQNCfxT3yU=; b=NUyPcIDnCfZSzxwuF/SuGSUI0e
-	/frzAhUT+EsIIXAoQGtGCJjqHdp5wRt3Y1nuXhY0dtKTeL/nytXhi04tmGwwDqq9c5shqPaPW84ZJ
-	xkESMm1cJXN0nyeegJql061DjpUjvUpsCglmDx7ch9wDT8J3MMtJLIkrVUz82NE+YeEyA0VDJfAbX
-	JwqVjbnUJYxICP8EtZjz1nCGFBSW88Xq9qNn19wl8woBPOoJxfMYl0wGmO8Q0sGGLnsbvM4QWGZhb
-	hgNU941SSjgGtRaoPsS9sHvFTd1mrqm+JoKtvw17K6tCyeGpPgUqmPTEfPd4pu8Oo2K/4WQcdbbHe
-	qhDKED7w==;
-Received: from mail-dl1-x1249.google.com ([2607:f8b0:4864:20::1249])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlr8-0000000GN3r-2vaz
+	id 1wGlqs-0000000EzXf-2HDj
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Apr 2026 22:52:14 +0000
-Received: by mail-dl1-x1249.google.com with SMTP id a92af1059eb24-12c21dbc9c1so33859208c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:52:10 -0700 (PDT)
+	Sat, 25 Apr 2026 22:52:13 +0000
+Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2c16233ee11so12493274eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:51:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777157528; x=1777762328; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777157514; x=1777762314; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=FUJSZggZAnW35gY6L6UfepyO4olhr8IMzDQNCfxT3yU=;
-        b=iy/1EE/psqKeXcmvSfWfZtgRdW9MJ4CxIe9q0tT1kEhy8IIoPfGGWFnZvkiILOUv28
-         2LiYxnlBp0HzoERqtXF4vvTLSf920rLngVVQHrJ5L76C6l4FTRU597Be+9XgiNkhtQKT
-         O/PB3cEjRbAXMdkHZC/RJU8JgtcoFYnNcEbzURr0PSdLZlx4CzlpXKlO1RSZh+rw26xn
-         bk6g8WcoC+xd3f/z7XGjoU4j+dL+NUzhg02dceF9v/oDGQAL4mqKewk5mHKbHctcG1XW
-         o0z0fLEY6wVhuPJH1VsOQqtKn+Er0uehTjTZlz+OF56TRCl5d40j6J74a9fUEnZZvhW7
-         Z5VA==
+        bh=Z8uDU0iX99Tgv3o+fYqZ9yp1w2za7K0HbBrM8LxB5IA=;
+        b=lr+nDS4Dp5oZuwKkmONkO9gvXaVD8Lki9UFnZi/AGKoe6oEtFlcaVwxF1yEkauD/a+
+         P+Lx7SOtsRT24MksujjtfC9MOc1kBnYJ7Bbj5R27hU4RwQPJUPEgqec/FJem+cXCg8Ik
+         bVGV06D9G3gIv5qDtuyg2T1wY2uuIBaFTb8Zwyr2bdR62HC2F9HWePXzLZWmzCICxSh6
+         zzzqoWnaIhze1EeWJtH1E1qmdn3flXzhNPvgBCAOsiiKi9EEboCcUFv+JGnXAb/vptir
+         1qVGH8FdO5DYB7nco2gDPyXBs3JoIKW4k+J+n66TxMjSjhVptchjQrXpKCa2PoZYZPzP
+         26BA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777157528; x=1777762328;
+        d=1e100.net; s=20251104; t=1777157514; x=1777762314;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=FUJSZggZAnW35gY6L6UfepyO4olhr8IMzDQNCfxT3yU=;
-        b=qqZ4tqIRS1rpLZOfJU3GIdHCh/HNTu++++y0Xwmjf7fv4BPYVLtj4V+HIbSPmGDbd3
-         1Tz9+Dd9qYsQPbdisULrN6N7eb02mUFMkYnQdByv75ETJdXVeRs9nqd4reUTMoftkzSB
-         l6/rp3beCvMJuKTnuWbf8EVK6RzBKdYAqlSad3EWzHjTTlmazHgeTETqB/Jix7kakkUm
-         97xim4AicrAJq4q0vJyUp/sMXMdKvTFQuQfZ1IDl8zHU+S3cd+vESvueIwjsfapaYzx5
-         K4913cnghZ7ityThK7UL2gtbZ3sSwKrTd+VuXeg/kzapLYHVDklAhrYurpeMy9EJWuKK
-         DbSg==
-X-Forwarded-Encrypted: i=1; AFNElJ+QJKlIR/RchI3sN9CBfUVSKaW90c7asgSRpm1G0LBKZnYnqH/GsOGrgtzP6moXoVoJnLvFPuQJg3f0iN/Nazdw@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/dS739bq65304G2N509FlbHh8Bmk5COL7TogBWnoGqil7yMat
-	ddzlO/yDAG9F8Ojyq+WP2PU81fOLjEi5dh366ZWibOGImZmsQvol79qv5PsKcsDCDv1+bRKxMiv
-	ImlgDxO/y9Q==
-X-Received: from dlbvg6.prod.google.com ([2002:a05:7022:7f06:b0:12d:b396:eadf])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:4199:b0:122:2f4:b24b
- with SMTP id a92af1059eb24-12c73f9bfebmr18766156c88.25.1777157528294; Sat, 25
- Apr 2026 15:52:08 -0700 (PDT)
-Date: Sat, 25 Apr 2026 15:49:47 -0700
+        bh=Z8uDU0iX99Tgv3o+fYqZ9yp1w2za7K0HbBrM8LxB5IA=;
+        b=PxHsPLKLPefEoxRrdVF7hyJTD3h+r6FTH8JqJ+E8+eDswGYjRAlflOfWIMUyW7TExy
+         ZUu3pxHxoTEqOmoNYuXALVxbTTkyrpX2OqOlrAqeiY/2wWBOESivxqEsjpM/kkRlVcDa
+         AMAKdLtRc54Bhjn+jcFbmNjGMLB9axtI0BoxhRQuNYxx2F5pMq6CDZ02ns9MRmVXfRbC
+         wbtt2bKnAG4HDSKPqWua1AEF+XdqUJ3T7H5Jl3S2MrkziFyS5sr4Y+CPObQmXcwwOfu9
+         QoT5AHMOOb4sCzViRmYON1lBmnLBQv+xgZR0gJjrVixj/g997VnYn9iFCQdlj/ytagk2
+         gTUw==
+X-Forwarded-Encrypted: i=1; AFNElJ/qO1KUQt7PI/p4ORlK9kCYRV3rnEGP92dLdQWcY2bkVzpq3n3GVyqPwxmYgE7bFfiZbq3VmClBabANdcaexBaJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwP54z5ZOcfFvbildRi9UmBk+35N9epDOcnJ8Ft22jv1LO1sO6r
+	PfX8Wg8MP3dXROhMpVr2GAaFBWsZqUI/rFFOCKx1ewy8oKxS6b4UuD9ZjGGkx8T5CKw6ZEPmmEk
+	p1tr6zBShLw==
+X-Received: from dyjf14.prod.google.com ([2002:a05:7300:680e:b0:2d9:9fa3:5aa6])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:2b08:b0:2c1:7afc:df06
+ with SMTP id 5a478bee46e88-2e464ea7057mr18321401eec.5.1777157513342; Sat, 25
+ Apr 2026 15:51:53 -0700 (PDT)
+Date: Sat, 25 Apr 2026 15:49:40 -0700
 In-Reply-To: <20260425224951.174663-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260425174858.3922152-1-irogers@google.com> <20260425224951.174663-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260425224951.174663-56-irogers@google.com>
-Subject: [PATCH v7 55/59] perf Makefile: Update Python script installation path
+Message-ID: <20260425224951.174663-49-irogers@google.com>
+Subject: [PATCH v7 48/59] perf rw-by-file: Port rw-by-file to use python module
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org, 
 	leo.yan@linux.dev, namhyung@kernel.org, tmricht@linux.ibm.com
@@ -90,8 +75,8 @@ Cc: alice.mei.rogers@gmail.com, dapeng1.mi@linux.intel.com,
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260425_235210_879945_06728391 
-X-CRM114-Status: GOOD (  21.48  )
+X-CRM114-CacheID: sfid-20260425_155154_602548_C9664285 
+X-CRM114-Status: GOOD (  14.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,239 +91,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove libpython feature test that is now a python-module feature
-test. Update references from libpython to python-module accordingly.
+Port the legacy Perl script rw-by-file.pl to a python script using the
+perf module in tools/perf/python.
 
-Remove references to legacy 'scripts/python' directory and install
-scripts directly to 'python' directory under libexec. This aligns with
-the removal of embedded interpreter and move to standalone
-scripts.
+The new script uses a class-based architecture and leverages the
+perf.session API for event processing.
+
+It tracks read and write activity by file descriptor for a given
+program name, aggregating bytes requested/written and total counts.
+
+Complications:
+- Had to split long lines in __init__ to satisfy pylint.
+- pylint warns about the module name not being snake_case, but it is
+  kept for consistency with the original script name.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/build/Makefile.feature             |  4 ++--
- tools/build/feature/Makefile             |  4 ++--
- tools/build/feature/test-all.c           |  6 +++---
- tools/build/feature/test-libpython.c     | 10 ----------
- tools/build/feature/test-python-module.c | 12 ++++++++++++
- tools/perf/Makefile.config               | 13 ++++++-------
- tools/perf/Makefile.perf                 | 10 ++++------
- tools/perf/tests/make                    |  5 +----
- 8 files changed, 30 insertions(+), 34 deletions(-)
- delete mode 100644 tools/build/feature/test-libpython.c
- create mode 100644 tools/build/feature/test-python-module.c
+v2:
 
-diff --git a/tools/build/Makefile.feature b/tools/build/Makefile.feature
-index 96d4382144c4..cbe41ba7bae5 100644
---- a/tools/build/Makefile.feature
-+++ b/tools/build/Makefile.feature
-@@ -79,7 +79,7 @@ FEATURE_TESTS_BASIC :=                  \
-         libelf-zstd                     \
-         libnuma                         \
-         numa_num_possible_cpus          \
--        libpython                       \
-+        python-module                   \
-         libslang                        \
-         libtraceevent                   \
-         libcpupower                     \
-@@ -140,7 +140,7 @@ FEATURE_DISPLAY ?=              \
-          libelf                 \
-          libnuma                \
-          numa_num_possible_cpus \
--         libpython              \
-+         python-module          \
-          libcapstone            \
-          llvm-perf              \
-          zlib                   \
-diff --git a/tools/build/feature/Makefile b/tools/build/feature/Makefile
-index 60e3df8142a5..5530f9e03fcf 100644
---- a/tools/build/feature/Makefile
-+++ b/tools/build/feature/Makefile
-@@ -30,7 +30,7 @@ FILES=                                          \
-          test-libdebuginfod.bin                 \
-          test-libnuma.bin                       \
-          test-numa_num_possible_cpus.bin        \
--         test-libpython.bin                     \
-+         test-python-module.bin                 \
-          test-libslang.bin                      \
-          test-libtraceevent.bin                 \
-          test-libcpupower.bin                   \
-@@ -252,7 +252,7 @@ $(OUTPUT)test-gtk2-infobar.bin:
- grep-libs  = $(filter -l%,$(1))
- strip-libs = $(filter-out -l%,$(1))
- 
--$(OUTPUT)test-libpython.bin:
-+$(OUTPUT)test-python-module.bin:
- 	$(BUILD) $(FLAGS_PYTHON_EMBED)
- 
- $(OUTPUT)test-libbfd.bin:
-diff --git a/tools/build/feature/test-all.c b/tools/build/feature/test-all.c
-index 1488bf6e6078..4400e3d24f81 100644
---- a/tools/build/feature/test-all.c
-+++ b/tools/build/feature/test-all.c
-@@ -10,8 +10,8 @@
-  * Quirk: Python headers cannot be in arbitrary places, so keep this testcase at
-  * the top:
-  */
--#define main main_test_libpython
--# include "test-libpython.c"
-+#define main main_test_python_module
-+# include "test-python-module.c"
- #undef main
- 
- #define main main_test_hello
-@@ -148,7 +148,7 @@
- 
- int main(int argc, char *argv[])
- {
--	main_test_libpython();
-+	main_test_python_module();
- 	main_test_hello();
- 	main_test_libelf();
- 	main_test_gettid();
-diff --git a/tools/build/feature/test-libpython.c b/tools/build/feature/test-libpython.c
-deleted file mode 100644
-index 371c9113e49d..000000000000
---- a/tools/build/feature/test-libpython.c
-+++ /dev/null
-@@ -1,10 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0
--#include <Python.h>
--
--int main(void)
--{
--	Py_Initialize();
--
--	return 0;
--}
--#undef _GNU_SOURCE
-diff --git a/tools/build/feature/test-python-module.c b/tools/build/feature/test-python-module.c
-new file mode 100644
-index 000000000000..d670dba014b0
+ - Fixed Substring Matching: Replaced if "sys_enter_read" in
+   event_name: with an exact match against syscalls:sys_enter_read and
+   raw_syscalls:sys_enter_read using sample.evsel.name . This prevents
+   variants like readv or readlink from incorrectly triggering the
+   read logic. Similar fixes were applied for write events.
+
+ - Fixed Silent Error Dropping: Instead of silently returning when
+   expected fields are missing (causing AttributeError ), the script
+   now increments the self.unhandled counter for that event. This
+   ensures that missing data or unexpected event variants are reported
+   to the user instead of quietly skewing the results.
+
+v6:
+- Fixed `AttributeError` by using `str(sample.evsel)` to get event name.
+---
+ tools/perf/python/rw-by-file.py | 103 ++++++++++++++++++++++++++++++++
+ 1 file changed, 103 insertions(+)
+ create mode 100755 tools/perf/python/rw-by-file.py
+
+diff --git a/tools/perf/python/rw-by-file.py b/tools/perf/python/rw-by-file.py
+new file mode 100755
+index 000000000000..2103ac0412bb
 --- /dev/null
-+++ b/tools/build/feature/test-python-module.c
-@@ -0,0 +1,12 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include <Python.h>
++++ b/tools/perf/python/rw-by-file.py
+@@ -0,0 +1,103 @@
++#!/usr/bin/env python3
++# SPDX-License-Identifier: GPL-2.0-only
++"""Display r/w activity for files read/written to for a given program."""
 +
-+int main(void)
-+{
-+	static struct PyModuleDef moduledef = {
-+		PyModuleDef_HEAD_INIT,
-+	};
-+	PyObject *module = PyModule_Create(&moduledef);
++import argparse
++from collections import defaultdict
++import sys
++from typing import Optional, Dict
++import perf
 +
-+	return module ? 0 : -1;
-+}
-diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
-index ecddd91229c8..e2cef452964f 100644
---- a/tools/perf/Makefile.config
-+++ b/tools/perf/Makefile.config
-@@ -317,7 +317,7 @@ PYTHON_CONFIG_SQ := $(call shell-sq,$(PYTHON_CONFIG))
- 
- # Python 3.8 changed the output of `python-config --ldflags` to not include the
- # '-lpythonX.Y' flag unless '--embed' is also passed. The feature check for
--# libpython fails if that flag is not included in LDFLAGS
-+# python-module fails if that flag is not included in LDFLAGS
- ifeq ($(shell $(PYTHON_CONFIG_SQ) --ldflags --embed 2>&1 1>/dev/null; echo $$?), 0)
-   PYTHON_CONFIG_LDFLAGS := --ldflags --embed
- else
-@@ -340,8 +340,8 @@ ifdef PYTHON_CONFIG
-   endif
- endif
- 
--FEATURE_CHECK_CFLAGS-libpython := $(PYTHON_EMBED_CCOPTS)
--FEATURE_CHECK_LDFLAGS-libpython := $(PYTHON_EMBED_LDOPTS)
-+FEATURE_CHECK_CFLAGS-python-module := $(PYTHON_EMBED_CCOPTS)
-+FEATURE_CHECK_LDFLAGS-python-module := $(PYTHON_EMBED_LDOPTS)
- 
- FEATURE_CHECK_LDFLAGS-libaio = -lrt
- 
-@@ -830,13 +830,12 @@ endif
- 
- disable-python = $(eval $(disable-python_code))
- define disable-python_code
--  CFLAGS += -DNO_LIBPYTHON
-   $(warning $1)
--  NO_LIBPYTHON := 1
-+  NO_PYTHON_MODULE := 1
- endef
- 
- PYTHON_EXTENSION_SUFFIX := '.so'
--ifdef NO_LIBPYTHON
-+ifdef NO_PYTHON_MODULE
-   $(call disable-python,Python support disabled by user)
- else
- 
-@@ -849,7 +848,7 @@ else
-       $(call disable-python,No 'python-config' tool was found: disables Python support - please install python-devel/python-dev)
-     else
- 
--      ifneq ($(feature-libpython), 1)
-+      ifneq ($(feature-python-module), 1)
-         $(call disable-python,No 'Python.h' was found: disables Python support - please install python-devel/python-dev)
-       else
-          PYTHON_SETUPTOOLS_INSTALLED := $(shell $(PYTHON) -c 'import setuptools;' 2> /dev/null && echo "yes" || echo "no")
-diff --git a/tools/perf/Makefile.perf b/tools/perf/Makefile.perf
-index 2020532bab9c..e50b1e8cf85d 100644
---- a/tools/perf/Makefile.perf
-+++ b/tools/perf/Makefile.perf
-@@ -17,9 +17,7 @@ include ../scripts/utilities.mak
- #
- # Define CROSS_COMPILE as prefix name of compiler if you want cross-builds.
- #
--
--#
--# Define NO_LIBPYTHON to disable python script extension.
-+# Define NO_PYTHON_MODULE to disable python script extension.
- #
- # Define PYTHON to point to the python binary if the default
- # `python' is not correct; for example: PYTHON=python2
-@@ -1099,10 +1097,10 @@ endif
- 	$(call QUIET_INSTALL, perf-iostat) \
- 		$(INSTALL) $(OUTPUT)perf-iostat -t '$(DESTDIR_SQ)$(perfexec_instdir_SQ)'
- 
--ifndef NO_LIBPYTHON
-+ifndef NO_PYTHON_MODULE
- 	$(call QUIET_INSTALL, python-scripts) \
--		$(INSTALL) -d -m 755 '$(DESTDIR_SQ)$(perfexec_instdir_SQ)/scripts/python'; \
--		$(INSTALL) python/*.py -m 644 -t '$(DESTDIR_SQ)$(perfexec_instdir_SQ)/scripts/python'
-+		$(INSTALL) -d -m 755 '$(DESTDIR_SQ)$(perfexec_instdir_SQ)/python'; \
-+		$(INSTALL) python/*.py -m 644 -t '$(DESTDIR_SQ)$(perfexec_instdir_SQ)/python'
- endif
- 	$(call QUIET_INSTALL, dlfilters) \
- 		$(INSTALL) -d -m 755 '$(DESTDIR_SQ)$(perfexec_instdir_SQ)/dlfilters'; \
-diff --git a/tools/perf/tests/make b/tools/perf/tests/make
-index 31b064928cfc..f2c5f1c254a7 100644
---- a/tools/perf/tests/make
-+++ b/tools/perf/tests/make
-@@ -75,8 +75,6 @@ make_jevents_all    := JEVENTS_ARCH=all
- make_no_bpf_skel    := BUILD_BPF_SKEL=0
- make_gen_vmlinux_h  := GEN_VMLINUX_H=1
- 
--make_no_libpython   := NO_LIBPYTHON=1
--make_no_scripts     := NO_LIBPYTHON=1
- make_no_slang       := NO_SLANG=1
- make_no_gtk2        := NO_GTK2=1
- make_no_ui          := NO_SLANG=1 NO_GTK2=1
-@@ -118,7 +116,7 @@ make_install_prefix_slash := install prefix=/tmp/krava/
- make_static         := LDFLAGS=-static NO_PERF_READ_VDSO32=1 NO_PERF_READ_VDSOX32=1 NO_JVMTI=1 NO_LIBTRACEEVENT=1 NO_LIBELF=1
- 
- # all the NO_* variable combined
--make_minimal        := NO_LIBPYTHON=1 NO_GTK2=1
-+make_minimal        := NO_GTK2=1
- make_minimal        += NO_DEMANGLE=1 NO_LIBELF=1 NO_BACKTRACE=1
- make_minimal        += NO_LIBNUMA=1 NO_LIBBIONIC=1 NO_LIBDW=1
- make_minimal        += NO_LIBBPF=1
-@@ -150,7 +148,6 @@ run += make_jevents_all
- run += make_no_bpf_skel
- run += make_gen_vmlinux_h
- 
--run += make_no_libpython
- run += make_no_scripts
- run += make_no_slang
- run += make_no_gtk2
++class RwByFile:
++    """Tracks and displays read/write activity by file descriptor."""
++    def __init__(self, comm: str) -> None:
++        self.for_comm = comm
++        self.reads: Dict[int, Dict[str, int]] = defaultdict(
++            lambda: {"bytes_requested": 0, "total_reads": 0}
++        )
++        self.writes: Dict[int, Dict[str, int]] = defaultdict(
++            lambda: {"bytes_written": 0, "total_writes": 0}
++        )
++        self.unhandled: Dict[str, int] = defaultdict(int)
++        self.session: Optional[perf.session] = None
++
++    def process_event(self, sample: perf.sample_event) -> None:
++        """Process events."""
++        event_name = str(sample.evsel)[6:-1]
++
++        pid = sample.sample_pid
++        assert self.session is not None
++        try:
++            comm = self.session.find_thread(pid).comm()
++        except Exception: # pylint: disable=broad-except
++            comm = "unknown"
++
++        if comm != self.for_comm:
++            return
++
++        if event_name in ("syscalls:sys_enter_read", "raw_syscalls:sys_enter_read"):
++            try:
++                fd = sample.fd
++                count = sample.count
++                self.reads[fd]["bytes_requested"] += count
++                self.reads[fd]["total_reads"] += 1
++            except AttributeError:
++                self.unhandled[event_name] += 1
++        elif event_name in ("syscalls:sys_enter_write", "raw_syscalls:sys_enter_write"):
++            try:
++                fd = sample.fd
++                count = sample.count
++                self.writes[fd]["bytes_written"] += count
++                self.writes[fd]["total_writes"] += 1
++            except AttributeError:
++                self.unhandled[event_name] += 1
++        else:
++            self.unhandled[event_name] += 1
++
++    def print_totals(self) -> None:
++        """Print summary tables."""
++        print(f"file read counts for {self.for_comm}:\n")
++        print(f"{'fd':>6s}  {'# reads':>10s}  {'bytes_requested':>15s}")
++        print(f"{'-'*6}  {'-'*10}  {'-'*15}")
++
++        for fd, data in sorted(self.reads.items(),
++                               key=lambda kv: kv[1]["bytes_requested"], reverse=True):
++            print(f"{fd:6d}  {data['total_reads']:10d}  {data['bytes_requested']:15d}")
++
++        print(f"\nfile write counts for {self.for_comm}:\n")
++        print(f"{'fd':>6s}  {'# writes':>10s}  {'bytes_written':>15s}")
++        print(f"{'-'*6}  {'-'*10}  {'-'*15}")
++
++        for fd, data in sorted(self.writes.items(),
++                               key=lambda kv: kv[1]["bytes_written"], reverse=True):
++            print(f"{fd:6d}  {data['total_writes']:10d}  {data['bytes_written']:15d}")
++
++        if self.unhandled:
++            print("\nunhandled events:\n")
++            print(f"{'event':<40s}  {'count':>10s}")
++            print(f"{'-'*40}  {'-'*10}")
++            for event_name, count in self.unhandled.items():
++                print(f"{event_name:<40s}  {count:10d}")
++
++    def run(self, input_file: str) -> None:
++        """Run the session."""
++        self.session = perf.session(perf.data(input_file), sample=self.process_event)
++        self.session.process_events()
++        self.print_totals()
++
++def main() -> None:
++    """Main function."""
++    parser = argparse.ArgumentParser(description="Trace r/w activity by file")
++    parser.add_argument("comm", help="Filter by command name")
++    parser.add_argument("-i", "--input", default="perf.data", help="Input file")
++    args = parser.parse_args()
++
++    analyzer = RwByFile(args.comm)
++    try:
++        analyzer.run(args.input)
++    except IOError as e:
++        print(e, file=sys.stderr)
++        sys.exit(1)
++
++if __name__ == "__main__":
++    main()
 -- 
 2.54.0.545.g6539524ca2-goog
 
