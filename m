@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62F3AFF885C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9218FF885A
 	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:44:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,75 +12,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ERRU3KdUiox4uEsWs/CeTXwwWIrylXGw9vYnzrPC1Tw=; b=li5ZSurSIx02PelAzIqO+Bcd3S
-	bgb7EebjNYhVxnApWWXBIk7AOgf6G0jcMyhbiMfuv+st9hW1jbMvXagJMtrwSzweMTzL5mOwzBQgp
-	6IT57BvJJ5VdSrX5f5/VLNtRI74Xl7R74kUC3eIMIkDCv7RoJNSCaWzrG/FagSZsASwhapJnkXSgT
-	X0dwqYil8EIHeIgTxK9FR+CcNNzpP8+EAHG1oBGxhivEtwBkDD8uTfXBzBWx7Yd9NFpoyO02k9vTG
-	X/dGWOIw2y+es5x/TrlZuigEoFKPUJhQvgr12nIRX/j6q1pl5m3s9Xj9HG3xni2ApfN62wFs1k8Od
-	K8QAPsXw==;
+	bh=tFkKJpx387LQyGkxFesF27g3u3l0azo1BknyR7NysHU=; b=Kn5mUG+m857pZaVLyxz/NufvCw
+	DbIZ65alOaB7SdFRpsDCnW9m7qaC+gvcAdMNDm95JPaJh/uGcKoBHZr2PTHKVMirKxioXGO9Kf7Nd
+	sWsQnBjsrmc8/WsZOIERU3JJCCXnRcx3BgoicRuBF0PGvCESMIhsm2F/jExvaMfCa9ej4Wh3r5f/2
+	dmYo7KBTzHYzHfPG7ACjwgGrf2xkbOQ+WjFifOcs7cLFBcGgJFSqvaC6oQlqip8bq5d74wcRhv+kE
+	q1OoMO04c79gXs3Iz+SO3frSIXMMxhn6zbL9pCAcInNPkvKoMFECa+mM2x753ALAzcv/UDSmgQtoM
+	1Aq1rLdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGljU-0000000EvM0-0aou;
-	Sat, 25 Apr 2026 22:44:16 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wGljT-0000000EvKm-13Dg;
+	Sat, 25 Apr 2026 22:44:15 +0000
+Received: from mail-dl1-f74.google.com ([74.125.82.74])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGliY-0000000EuTl-0e88
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sat, 25 Apr 2026 22:43:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=ERRU3KdUiox4uEsWs/CeTXwwWIrylXGw9vYnzrPC1Tw=; b=UHvg0UuBBJtf07IpnhQ++9ul43
-	d3yJwl2LIPAcYSqsARkiY/YiogB7eZTNBsih8peHAyEVDD5y2zgrbZaj6fwZUyX13XxTVDbPbZEWT
-	LX1k1hfrkicf4npzGpGsTzYEvf0ndEvn7htMT0w7W8Rlh/24mkE3H0l1YgBbN20+/zdZywizi3FGS
-	5uF82WFvcRe4v3tmxSFt0aqyVNaIkkX3w0ylhMhlJYajHOSPxhwaPp7dY2IbUEaDkMvdnQnONel2D
-	HIzYtsh3i/AVmU37E1IJnhAS7BOq5THqH2bvRk+FOoGOfihLsHVb5t9u7Be50CA0RXwfrmgrXZnmE
-	L0/WYLOw==;
-Received: from mail-dy1-f201.google.com ([74.125.82.201])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGliP-0000000GKxl-1vc6
+	id 1wGliF-0000000Eu8Q-04H4
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Apr 2026 22:43:15 +0000
-Received: by mail-dy1-f201.google.com with SMTP id 5a478bee46e88-2eaed3d96d7so857352eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:42:42 -0700 (PDT)
+	Sat, 25 Apr 2026 22:43:13 +0000
+Received: by mail-dl1-f74.google.com with SMTP id a92af1059eb24-126e8ee6227so9127217c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:42:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777156958; x=1777761758; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777156977; x=1777761777; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ERRU3KdUiox4uEsWs/CeTXwwWIrylXGw9vYnzrPC1Tw=;
-        b=GreD2cJYHTEgiT/orKoolDX3tqGTpH9JjDa3ANtmL8Iz4F/e+YdY/zDDoB5CjbbdZt
-         TNoI/gK0Y4UoQIrq+58bOb/2YbJ8IN2kWhD+fiT8ZfIRFLvXP4yw19cuSCc+8Tt0c532
-         1u4W2rwkg+b/jOpgvvMCgMRqYYGTOR68jfk03yJyTNfcg5fN3MrNQRKZdu8QZLFjEPZ0
-         emwy70h7vWZtvbNa6yLrdvP3XvbRCKUXmU5z8yUa8zlHTCQ+M/8pfbeIIaszzYujQ9ao
-         iqG9D3TcqcG5D1ALWLmzhLjM9+vR4Ym0I76tKxPXB70PqWXjw0kL2e9mz6D0Y5XZJqCq
-         /MsQ==
+        bh=tFkKJpx387LQyGkxFesF27g3u3l0azo1BknyR7NysHU=;
+        b=tOlU5fRHeu/h4M1qOL72/j5WFRz4bYAMX1yHtqLWtvK6GDPKCkii3QikBU7UM7f7Lm
+         hLBYlT7ZY6NlYyw8bf1sTMuHueUESVRx6FXuSNhPqC0JoR9GT50FyG82OhUY9IyKIK3b
+         6+p4X/AsBuoPFPsZTYHXUEaeW5fP+wUslut5ZvjcZ0WOwBd7ZN97tx5JaCzhLiX9kjEZ
+         n+GzF8MOVU/n6fubbmjAA/0uqBLVFKkTYyxKA9l84khoJlelb9wA5O30KN5PvIl5NxxL
+         albGvE41NLreQ2PP5DezMGmgJFkBN2dwah6zGOzsw+yJkXfHl0vqSqSOO+2ytOnm/Rzv
+         1AXg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777156958; x=1777761758;
+        d=1e100.net; s=20251104; t=1777156977; x=1777761777;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ERRU3KdUiox4uEsWs/CeTXwwWIrylXGw9vYnzrPC1Tw=;
-        b=AuciRLn7MEKi3Kg5JDt97uMCYqHeGU06ohfyaroOd4TbuSL2vwMmpu2GWQcVk0zTW7
-         PdgYJHEH4tW9oRd5jdT7LXvKWzdqs7yiIyDa4sy1JlAIODDt6hs0j8nos8D5JOchp6Vg
-         CdoqvPV0AG9/mZlgr5L48TPd5zNdU42wbgYov8XNSiMev4v+hhzS5jU+XcZfE/AexiO1
-         BWidDCXKVmQmO1DRuNujM8TnCAnM0kkNJWqR91sY3wN9zcwu4LBapRvpMmbogsaRXQfP
-         +vLQ87HB/quu21CpcsfH0Dk9RBkr9Tq70+5o/ZAjWRwVPYp2nF2zRUyTXCYr6I3FU6V7
-         1fSw==
-X-Forwarded-Encrypted: i=1; AFNElJ+V3yBR4bt2DV4uMnMgYUt74dL4cjMj5toRvR6r+0rdQZCgOCaF1S/jjQPdbAvi3SlkjkvhLKBE9anFVLOvK3om@lists.infradead.org
-X-Gm-Message-State: AOJu0YxG27W82wWAxOIbe/mtflevnyAz8Th9oOlaw+psHkLwmo4kye/w
-	9hF31k1qh/qKFX3S/E+V1hOsmQFCd//FP7H6D0Ry6s02jL7OeG0k+Y9wXEcmknChm0ixVpFWC63
-	y4QFB99eO1g==
-X-Received: from dycoy3.prod.google.com ([2002:a05:7301:fc03:b0:2e0:fe68:96c7])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:fd09:b0:2da:d4b4:c85a
- with SMTP id 5a478bee46e88-2e464dad10cmr17824799eec.11.1777156958365; Sat, 25
- Apr 2026 15:42:38 -0700 (PDT)
-Date: Sat, 25 Apr 2026 15:40:58 -0700
+        bh=tFkKJpx387LQyGkxFesF27g3u3l0azo1BknyR7NysHU=;
+        b=DZIaGod4RvTNePrbbTenQKUJ/ZyFsyUTcUDK8Hjommvbqr4DPcJGPWP0bHkOSJDJyo
+         cvhNedStbOGGBbNpqe5CSMi7GPbwXys2/RJkxLi7sVayejZcB3PziNbLJVeid2ftteHa
+         UiTYhk399WHATa7eGsLZ/3VIHlzB8yyVniBamhytU5fpQV6uxp/GFaXfeP0KRVyFz61A
+         o2aByM2PFrD8NZUEHCBp/58YwgcSVCltlc/JEI+9Da9awFx4JUa2cWId/JjzVo5xYj4C
+         s0ZjWOPKlMVxocKQV9xnNVuDbafWP2ac6KTa6OG0qaYLNrRBa3Xu4Re1dtoyW8/B9LcH
+         R+2g==
+X-Forwarded-Encrypted: i=1; AFNElJ9I3Vcfb8h2YAjBKCRhsXKKBW5+O651z80dHNvmd8GPv96hvO7NwmR/+Essv72JdqQ+hZz2mv3UjhtVTUspt0nX@lists.infradead.org
+X-Gm-Message-State: AOJu0YzLM9r0kIVpPqOVKYzhC5JLPV6huFx/rOYKIN4H/94Xtf308myo
+	x714zH8oXur85zh50AXJIi0mIVe7eiZXqKG2e4vDYrwqC1TM0oZ/08S1WbEeGLgmSqkyY4mXo7c
+	s9BEl0nUa8A==
+X-Received: from dlbvv17.prod.google.com ([2002:a05:7022:5f11:b0:12a:c3c1:4ace])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:6627:b0:128:ca83:5aa1
+ with SMTP id a92af1059eb24-12c73f9217dmr20015505c88.16.1777156976612; Sat, 25
+ Apr 2026 15:42:56 -0700 (PDT)
+Date: Sat, 25 Apr 2026 15:41:07 -0700
 In-Reply-To: <20260425224125.160890-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260425174858.3922152-1-irogers@google.com> <20260425224125.160890-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260425224125.160890-34-irogers@google.com>
-Subject: [PATCH v7 33/59] perf check-perf-trace: Port check-perf-trace to use
+Message-ID: <20260425224125.160890-43-irogers@google.com>
+Subject: [PATCH v7 42/59] perf powerpc-hcalls: Port powerpc-hcalls to use
  python module
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org, 
@@ -91,8 +76,8 @@ Cc: alice.mei.rogers@gmail.com, dapeng1.mi@linux.intel.com,
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260425_234313_745040_B3AA29C1 
-X-CRM114-Status: GOOD (  16.11  )
+X-CRM114-CacheID: sfid-20260425_154259_439329_9EF676F2 
+X-CRM114-Status: GOOD (  16.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,150 +92,239 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a port of the check-perf-trace script that uses the perf python
-module directly. This approach is significantly faster than using perf
-script callbacks as it avoids creating intermediate dictionaries for
-all event fields.
+Ported from tools/perf/scripts/python/.
+- Refactored the script to use a class structure (HCallAnalyzer) to
+  encapsulate state.
+- Used perf.session for event processing.
+- Tracked hcall entry and exit to calculate duration and aggregate
+  statistics.
+- Moved the large hcall_table to a module-level constant HCALL_TABLE.
+- Cleaned up Python 2 compatibility artifacts.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
-v2:
-1. String Match Accuracy: Replaced the substring check for `irq:softirq_entry`
-   events with a robust exact string match.
+ tools/perf/python/powerpc-hcalls.py | 211 ++++++++++++++++++++++++++++
+ 1 file changed, 211 insertions(+)
+ create mode 100755 tools/perf/python/powerpc-hcalls.py
 
-v3:
-1. Safe Thread Resolution: Swapped out sample.sample_pid with
-   sample.sample_tid and safeguarded the session process lookup with
-   a try-except block.
-
-v4:
-1. Git Fixup Cleanup: Squashed the lingering fixup commit from the previous
-   session into its proper patch.
----
- tools/perf/python/check-perf-trace.py | 113 ++++++++++++++++++++++++++
- 1 file changed, 113 insertions(+)
- create mode 100755 tools/perf/python/check-perf-trace.py
-
-diff --git a/tools/perf/python/check-perf-trace.py b/tools/perf/python/check-perf-trace.py
+diff --git a/tools/perf/python/powerpc-hcalls.py b/tools/perf/python/powerpc-hcalls.py
 new file mode 100755
-index 000000000000..7c1c7632a091
+index 000000000000..c4fa539174c9
 --- /dev/null
-+++ b/tools/perf/python/check-perf-trace.py
-@@ -0,0 +1,113 @@
++++ b/tools/perf/python/powerpc-hcalls.py
+@@ -0,0 +1,211 @@
 +#!/usr/bin/env python3
-+# SPDX-License-Identifier: GPL-2.0
++# SPDX-License-Identifier: GPL-2.0+
 +"""
-+Basic test of Python scripting support for perf.
-+Ported from tools/perf/scripts/python/check-perf-trace.py
++Hypervisor call statistics
++
++Copyright (C) 2018 Ravi Bangoria, IBM Corporation
++Ported from tools/perf/scripts/python/powerpc-hcalls.py
 +"""
 +
 +import argparse
-+import collections
++from collections import defaultdict
 +import perf
 +
-+unhandled: collections.defaultdict[str, int] = collections.defaultdict(int)
-+session = None
-+
-+softirq_vecs = {
-+    0: "HI_SOFTIRQ",
-+    1: "TIMER_SOFTIRQ",
-+    2: "NET_TX_SOFTIRQ",
-+    3: "NET_RX_SOFTIRQ",
-+    4: "BLOCK_SOFTIRQ",
-+    5: "IRQ_POLL_SOFTIRQ",
-+    6: "TASKLET_SOFTIRQ",
-+    7: "SCHED_SOFTIRQ",
-+    8: "HRTIMER_SOFTIRQ",
-+    9: "RCU_SOFTIRQ",
++# Hypervisor call table
++HCALL_TABLE = {
++    4: 'H_REMOVE',
++    8: 'H_ENTER',
++    12: 'H_READ',
++    16: 'H_CLEAR_MOD',
++    20: 'H_CLEAR_REF',
++    24: 'H_PROTECT',
++    28: 'H_GET_TCE',
++    32: 'H_PUT_TCE',
++    36: 'H_SET_SPRG0',
++    40: 'H_SET_DABR',
++    44: 'H_PAGE_INIT',
++    48: 'H_SET_ASR',
++    52: 'H_ASR_ON',
++    56: 'H_ASR_OFF',
++    60: 'H_LOGICAL_CI_LOAD',
++    64: 'H_LOGICAL_CI_STORE',
++    68: 'H_LOGICAL_CACHE_LOAD',
++    72: 'H_LOGICAL_CACHE_STORE',
++    76: 'H_LOGICAL_ICBI',
++    80: 'H_LOGICAL_DCBF',
++    84: 'H_GET_TERM_CHAR',
++    88: 'H_PUT_TERM_CHAR',
++    92: 'H_REAL_TO_LOGICAL',
++    96: 'H_HYPERVISOR_DATA',
++    100: 'H_EOI',
++    104: 'H_CPPR',
++    108: 'H_IPI',
++    112: 'H_IPOLL',
++    116: 'H_XIRR',
++    120: 'H_MIGRATE_DMA',
++    124: 'H_PERFMON',
++    220: 'H_REGISTER_VPA',
++    224: 'H_CEDE',
++    228: 'H_CONFER',
++    232: 'H_PROD',
++    236: 'H_GET_PPP',
++    240: 'H_SET_PPP',
++    244: 'H_PURR',
++    248: 'H_PIC',
++    252: 'H_REG_CRQ',
++    256: 'H_FREE_CRQ',
++    260: 'H_VIO_SIGNAL',
++    264: 'H_SEND_CRQ',
++    272: 'H_COPY_RDMA',
++    276: 'H_REGISTER_LOGICAL_LAN',
++    280: 'H_FREE_LOGICAL_LAN',
++    284: 'H_ADD_LOGICAL_LAN_BUFFER',
++    288: 'H_SEND_LOGICAL_LAN',
++    292: 'H_BULK_REMOVE',
++    304: 'H_MULTICAST_CTRL',
++    308: 'H_SET_XDABR',
++    312: 'H_STUFF_TCE',
++    316: 'H_PUT_TCE_INDIRECT',
++    332: 'H_CHANGE_LOGICAL_LAN_MAC',
++    336: 'H_VTERM_PARTNER_INFO',
++    340: 'H_REGISTER_VTERM',
++    344: 'H_FREE_VTERM',
++    348: 'H_RESET_EVENTS',
++    352: 'H_ALLOC_RESOURCE',
++    356: 'H_FREE_RESOURCE',
++    360: 'H_MODIFY_QP',
++    364: 'H_QUERY_QP',
++    368: 'H_REREGISTER_PMR',
++    372: 'H_REGISTER_SMR',
++    376: 'H_QUERY_MR',
++    380: 'H_QUERY_MW',
++    384: 'H_QUERY_HCA',
++    388: 'H_QUERY_PORT',
++    392: 'H_MODIFY_PORT',
++    396: 'H_DEFINE_AQP1',
++    400: 'H_GET_TRACE_BUFFER',
++    404: 'H_DEFINE_AQP0',
++    408: 'H_RESIZE_MR',
++    412: 'H_ATTACH_MCQP',
++    416: 'H_DETACH_MCQP',
++    420: 'H_CREATE_RPT',
++    424: 'H_REMOVE_RPT',
++    428: 'H_REGISTER_RPAGES',
++    432: 'H_DISABLE_AND_GETC',
++    436: 'H_ERROR_DATA',
++    440: 'H_GET_HCA_INFO',
++    444: 'H_GET_PERF_COUNT',
++    448: 'H_MANAGE_TRACE',
++    468: 'H_FREE_LOGICAL_LAN_BUFFER',
++    472: 'H_POLL_PENDING',
++    484: 'H_QUERY_INT_STATE',
++    580: 'H_ILLAN_ATTRIBUTES',
++    592: 'H_MODIFY_HEA_QP',
++    596: 'H_QUERY_HEA_QP',
++    600: 'H_QUERY_HEA',
++    604: 'H_QUERY_HEA_PORT',
++    608: 'H_MODIFY_HEA_PORT',
++    612: 'H_REG_BCMC',
++    616: 'H_DEREG_BCMC',
++    620: 'H_REGISTER_HEA_RPAGES',
++    624: 'H_DISABLE_AND_GET_HEA',
++    628: 'H_GET_HEA_INFO',
++    632: 'H_ALLOC_HEA_RESOURCE',
++    644: 'H_ADD_CONN',
++    648: 'H_DEL_CONN',
++    664: 'H_JOIN',
++    676: 'H_VASI_STATE',
++    688: 'H_ENABLE_CRQ',
++    696: 'H_GET_EM_PARMS',
++    720: 'H_SET_MPP',
++    724: 'H_GET_MPP',
++    748: 'H_HOME_NODE_ASSOCIATIVITY',
++    756: 'H_BEST_ENERGY',
++    764: 'H_XIRR_X',
++    768: 'H_RANDOM',
++    772: 'H_COP',
++    788: 'H_GET_MPP_X',
++    796: 'H_SET_MODE',
++    61440: 'H_RTAS',
 +}
 +
-+def trace_begin() -> None:
-+    """Called at the start of trace processing."""
-+    print("trace_begin")
 +
-+def trace_end() -> None:
-+    """Called at the end of trace processing."""
-+    print_unhandled()
++class HCallAnalyzer:
++    """Analyzes hypervisor calls and aggregates statistics."""
 +
-+def symbol_str(event_name: str, field_name: str, value: int) -> str:
-+    """Resolves symbol values to strings."""
-+    if event_name == "irq__softirq_entry" and field_name == "vec":
-+        return softirq_vecs.get(value, str(value))
-+    return str(value)
++    def __init__(self):
++        # output: {opcode: {'min': min, 'max': max, 'time': time, 'cnt': cnt}}
++        self.output = defaultdict(lambda: {'time': 0, 'cnt': 0, 'min': float('inf'), 'max': 0})
++        # d_enter: {pid: (opcode, nsec)}
++        self.d_enter: dict[int, tuple[int, int]] = {}
++        self.print_ptrn = '%-28s%10s%10s%10s%10s'
 +
-+def flag_str(event_name: str, field_name: str, value: int) -> str:
-+    """Resolves flag values to strings."""
-+    if event_name == "kmem__kmalloc" and field_name == "gfp_flags":
-+        return f"0x{value:x}"
-+    return str(value)
++    def hcall_table_lookup(self, opcode: int) -> str:
++        """Lookup hcall name by opcode."""
++        return HCALL_TABLE.get(opcode, str(opcode))
 +
-+def print_header(event_name: str, sample: perf.sample_event) -> None:
-+    """Prints common header for events."""
-+    secs = sample.sample_time // 1000000000
-+    nsecs = sample.sample_time % 1000000000
-+    comm = session.find_thread(sample.sample_pid).comm() if session else "[unknown]"
-+    print(f"{event_name:<20} {sample.sample_cpu:5} {secs:05}.{nsecs:09} "
-+          f"{sample.sample_pid:8} {comm:<20} ", end=' ')
++    def process_event(self, sample: perf.sample_event) -> None:
++        """Process a single sample event."""
++        name = str(sample.evsel)
++        pid = sample.sample_pid
++        time = sample.time
++        opcode = getattr(sample, "opcode", -1)
 +
-+def print_uncommon(sample: perf.sample_event) -> None:
-+    """Prints uncommon fields for tracepoints."""
-+    # Fallback to 0 if field not found (e.g. on older kernels or if not tracepoint)
-+    pc = getattr(sample, "common_preempt_count", 0)
-+    flags = getattr(sample, "common_flags", 0)
-+    lock_depth = getattr(sample, "common_lock_depth", 0)
++        if opcode == -1:
++            return
 +
-+    print(f"common_preempt_count={pc}, common_flags={flags}, "
-+          f"common_lock_depth={lock_depth}, ")
++        if name == "evsel(powerpc:hcall_entry)":
++            self.d_enter[pid] = (opcode, time)
++        elif name == "evsel(powerpc:hcall_exit)":
++            if pid in self.d_enter:
++                opcode_entry, time_entry = self.d_enter[pid]
++                if opcode_entry == opcode:
++                    diff = time - time_entry
++                    del self.d_enter[pid]
 +
-+def irq__softirq_entry(sample: perf.sample_event) -> None:
-+    """Handles irq:softirq_entry events."""
-+    print_header("irq__softirq_entry", sample)
-+    print_uncommon(sample)
-+    print(f"vec={symbol_str('irq__softirq_entry', 'vec', sample.vec)}")
++                    stats = self.output[opcode]
++                    stats['time'] += diff
++                    stats['cnt'] += 1
++                    if diff < stats['min']:
++                        stats['min'] = diff
++                    if diff > stats['max']:
++                        stats['max'] = diff
 +
-+def kmem__kmalloc(sample: perf.sample_event) -> None:
-+    """Handles kmem:kmalloc events."""
-+    print_header("kmem__kmalloc", sample)
-+    print_uncommon(sample)
++    def print_summary(self) -> None:
++        """Print aggregated statistics."""
++        print(self.print_ptrn % ('hcall', 'count', 'min(ns)', 'max(ns)', 'avg(ns)'))
++        print('-' * 68)
++        for opcode in sorted(self.output.keys()):
++            h_name = self.hcall_table_lookup(opcode)
++            stats = self.output[opcode]
++            time = stats['time']
++            cnt = stats['cnt']
++            min_t = stats['min']
++            max_t = stats['max']
 +
-+    print(f"call_site={sample.call_site:d}, ptr={sample.ptr:d}, "
-+          f"bytes_req={sample.bytes_req:d}, bytes_alloc={sample.bytes_alloc:d}, "
-+          f"gfp_flags={flag_str('kmem__kmalloc', 'gfp_flags', sample.gfp_flags)}")
++            # Avoid float representation for large integers if possible,
++            # or use formatted strings. Legacy used time//cnt.
++            avg_t = time // cnt if cnt > 0 else 0
 +
-+def trace_unhandled(event_name: str) -> None:
-+    """Tracks unhandled events."""
-+    unhandled[event_name] += 1
++            # If min was not updated, it remains inf, but cnt should be > 0 if in output
++            if min_t == float('inf'):
++                min_t = 0
 +
-+def print_unhandled() -> None:
-+    """Prints summary of unhandled events."""
-+    if not unhandled:
-+        return
-+    print("\nunhandled events:\n")
-+    print(f"{'event':<40} {'count':>10}")
-+    print("---------------------------------------- -----------")
-+    for event_name, count in unhandled.items():
-+        print(f"{event_name:<40} {count:10}")
++            print(self.print_ptrn % (h_name, cnt, int(min_t), int(max_t), avg_t))
 +
-+def process_event(sample: perf.sample_event) -> None:
-+    """Callback for processing events."""
-+    event_name = str(sample.evsel)
-+    if event_name == "evsel(irq:softirq_entry)":
-+        irq__softirq_entry(sample)
-+    elif "evsel(kmem:kmalloc)" in event_name:
-+        kmem__kmalloc(sample)
-+    else:
-+        trace_unhandled(event_name)
 +
 +if __name__ == "__main__":
-+    ap = argparse.ArgumentParser()
++    ap = argparse.ArgumentParser(description="Hypervisor call statistics")
 +    ap.add_argument("-i", "--input", default="perf.data", help="Input file name")
 +    args = ap.parse_args()
 +
-+    trace_begin()
-+    session = perf.session(perf.data(args.input), sample=process_event)
-+    session.process_events()
-+    trace_end()
++    analyzer = HCallAnalyzer()
++
++    try:
++        session = perf.session(perf.data(args.input), sample=analyzer.process_event)
++        session.process_events()
++        analyzer.print_summary()
++    except KeyboardInterrupt:
++        analyzer.print_summary()
++    except Exception as e:
++        print(f"Error processing events: {e}")
 -- 
 2.54.0.545.g6539524ca2-goog
 
