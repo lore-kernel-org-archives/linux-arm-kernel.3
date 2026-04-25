@@ -4,83 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83835FF885C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 17:52:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDFCAFF8860
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 17:52:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P0hpHM6Q0qnz4rILJ4wjp6r0pWm8+LVx9WiZ78eUWKU=; b=StDp/vTrcs/nzgFhe8eH6+PV84
-	uj4VzT4zPITCryFPaG4fe6SazsNV86K5pN2t0fX4myHFOMkbdFBItu9Kcb5mf17bLM7RrUwBDzA5n
-	poCAmmMt6VCHloXbQ+h/99MoJ81v7ZgB+vMrksmrDT8LuKb7HOmkhq12qFd4PX0vKLZJWMxh04Gjf
-	VG69x3mK9hAAFpMXnBYzcO+d81zRUMV0BoGxezA9k/EGg28dCLCfebjMTGcA1W6SmHs61GdtoDwYl
-	mFK8h6zGV/oQQ4M8PIhvVF1Jg3IuSHY0uFJhG0BYrjBP3hQS756wGfV+J+u6Nj9eSrNM456dvzWhL
-	XgJU4yjQ==;
+	bh=yfBwBqR2Z+Zk1dnV7MbJ1NLKT+aSgQqUxonuLHmwfTg=; b=WTm92xzg40g0HV4Ek4/OI1PKwT
+	hIPZpAQ2Asq/nPriMhIcgK4Tg7eYCZWpKt0xYqrG4UXN1uKCsQzPKC8c8sxBeCt+ifIQnfQoqTxHj
+	Y7Xj6sOBfa7PYZ9pqivn8B+StbJ+aWpzr7etNkg36KvxsEZp9LV5pKcnPCwntjelXH7GVdrFC94Hs
+	WZpmMGTl19kQBggeMJSCoASDrv0t/DA/hFOyx9WdylSIs5LW4OIC66G7raYu2zo31xWn4kU31FQEe
+	rUHJ8Z+wbVxfEdgMVYwWcxrsf9U7uLCNOvM0qifIAVo31B60VIx6nIZLO6FksemRFRVHLjVsNjHsB
+	klBucOmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGhBO-0000000Ef1T-2DTs;
-	Sat, 25 Apr 2026 17:52:46 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wGhBN-0000000Ef0d-3kMG;
+	Sat, 25 Apr 2026 17:52:45 +0000
+Received: from mail-dl1-x1249.google.com ([2607:f8b0:4864:20::1249])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGh9A-0000000EdVY-3MaZ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sat, 25 Apr 2026 17:50:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=P0hpHM6Q0qnz4rILJ4wjp6r0pWm8+LVx9WiZ78eUWKU=; b=MV9gZ/uFdljcmLBpUyKt6GIKzF
-	0RkocyF9bMVl8QNaQ7XHPvIfrpGCYvr5IR2HPisJlab7JyapgTxeeG8vtDND8rLkSi+TsvWJZzE7b
-	jvvP9dA2gYKdw0G07A2SZahpcp1r01W6mqQGhPyQF3993twPn3iMgIOZ6XhiZc05q9+X8VF2MOH5v
-	cv59yiE2GWWxUjKM+78i02OJfkXktuAHQwiwOAE2XfqGVEupL2qemyEVtuUZvuiQiexwdy3O8lq8U
-	bbU0bKnX++sPmefyeAhqyKGRgIFe0FsFK5l+TGFG7AGn5CqmRq0zoxaQzQczESsMfNVsU07Ig5bv0
-	vjjIC7bw==;
-Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGh95-0000000G8f5-3jcD
+	id 1wGh8t-0000000EdBc-0cGV
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Apr 2026 17:50:27 +0000
-Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2d9da2559aeso24387935eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 10:50:23 -0700 (PDT)
+	Sat, 25 Apr 2026 17:50:25 +0000
+Received: by mail-dl1-x1249.google.com with SMTP id a92af1059eb24-12c87ba0890so29856118c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 10:50:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777139422; x=1777744222; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777139410; x=1777744210; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=P0hpHM6Q0qnz4rILJ4wjp6r0pWm8+LVx9WiZ78eUWKU=;
-        b=tigg9cWTXag6HKquCVxyJlsmTCgIStd7wkZoEONXGH5TSwP5KEySfwz944fK8Nqfp1
-         Mxxm85eivs6jLheSEfYtCo+YEZ8t70QGAs5678Np3ZN0kj0ghVxhmi1RtTG7clHu1ov/
-         rCGUDKLAuYeF1j/W5NrC87DpghbM9m7pYS8pAuwsr71ufj9BSWwEfKkwqzzZaBd2Z1wp
-         e93WrvKEUgvJNtIc5KHHaIWJe1lT0MAgml2A17q44S6XUTQr76Fr5tZ1XJghX1lDBOWN
-         wrKPBh0pEQm9pi/cnMKT5oZxAUdm5BK9+m3+8j3kG4nT8+he6+XagYD0Sc/e8lhxACa1
-         kYRg==
+        bh=yfBwBqR2Z+Zk1dnV7MbJ1NLKT+aSgQqUxonuLHmwfTg=;
+        b=o1Uw+hJq+FWEukch9n66uquECyNZYopCa6ZYEi7kOJyp4pjHRGj+sKBovoRcwZGyRX
+         R3dy7QAAgHOUrkWKURce1T8z+O/6+LtTBl2MrnsdOuWdNKkDhCtmUKxK+SAZNV1DtzW5
+         4jyL3fijWpO2FZLyfNeXBFfBERkeftG753cHFDeT5rGKLqqONu8iXg7BCL3wG0+s1lyR
+         XPIMuT39shk/nh7oSfOBtJyElIFiKJdoR/k6hOHWFmGTe/mJS7+6r6gyvwW4nwLPHRi9
+         uH0toNwQiHFOvlq4IizyLV+1QAByzvKtA/lOJNNOyeANDY3z92xA+Ef4aKOhSh+h6TLf
+         NHbg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777139422; x=1777744222;
+        d=1e100.net; s=20251104; t=1777139410; x=1777744210;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=P0hpHM6Q0qnz4rILJ4wjp6r0pWm8+LVx9WiZ78eUWKU=;
-        b=PjKlOH6hWSj3QGlL2bMlK92Zf/azAxa6Ej4REBrKTVj/h6NXaOxg6iZpQXiIYgGoFa
-         1u6G9FaRcZa5pmvn4c+p1rXZXvKof7osruRlogRhKf0uBA34wdF6cSsk8RF/9S7vC/gS
-         A37W/OH3ObOTIWkGbfPnLpf/1SzWLJiEz6Nb2mJNVobgb+Q7rhcZGcq/xWdIN52p73zb
-         VjVkybZJLRrQarDPIaX/vtwvy1QjRdGNouNPO38ppdpSALYT5m4BcgDzLEwG+WouhARU
-         BeXoT9haFPTPCdQ7C4s2ouIYiZ6MYIMtOV9UWt5NGPM3jNaQzxk/SZzq0sB6Rt7c23Mg
-         AIGg==
-X-Forwarded-Encrypted: i=1; AFNElJ8wqIhWnGTe6/q5QOsGrKJMQ6Y1zpuYT9NUbxQ4xkdL3K6l85DULoFRHtPHhsSoSDrpHlRu0Ua7mrhUylJ2k1G4@lists.infradead.org
-X-Gm-Message-State: AOJu0YwE8wkmFliLqQ/BioZr3TA4P14yhCvMbK8PZYKGyplYDbgrrex/
-	pMR+m7PODDzTMk2mTDS8GQljRuKwQudXqK6x5cwvSlW2jDyZ/G8C+gvNIpHTUEVqv0HdStvcVBf
-	bgutUdB1J7g==
-X-Received: from dybqo1.prod.google.com ([2002:a05:7301:6781:b0:2d8:c995:cafe])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:230c:b0:2da:7e33:9261
- with SMTP id 5a478bee46e88-2e47951dedfmr21518988eec.27.1777139421456; Sat, 25
- Apr 2026 10:50:21 -0700 (PDT)
-Date: Sat, 25 Apr 2026 10:48:38 -0700
+        bh=yfBwBqR2Z+Zk1dnV7MbJ1NLKT+aSgQqUxonuLHmwfTg=;
+        b=QWLe0tES7e48lQ7alS3QRmxGz4twWrIpa543fcPNjKvXiv8zSOfgldMx3keYAr26o/
+         tKa3i29jr04LJFJf1ieZ6gozIZqrE2EJ3E+SOXZQjoO2l1Zcvx/hU+qpgvCY3lXic6B0
+         ncfAJIM9Q9smwwa+vFtsC4Tfg15ep1QMM4rNER4zA8dua+SiS5ut78hTgCjhFOHa+WOI
+         UzE3tl7m/JsBGnsX2NYtYy8xTApUTDPf2jX6W0wtzwWIxKHejOCH3vZhYs6t/BT2DAtS
+         mc2FRxNsLwAJsOJ+FkkFvQSOXFWUCxqrR6g6Dg+jD9b4VKVa6ZLTWeKsY2AbH2UHR+M1
+         y2yA==
+X-Forwarded-Encrypted: i=1; AFNElJ9eC6Sa72ObFN8xathLwkfYENpNqiEaFN/MLNIa0tt+7HwWhbCr1CaVUIsaj9tyDWHg0o55VaBhZ7oIrM7xYUo9@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx/CDZQ3QitIWuhXVD2doIppZUYofXMPNK/53ytZ/pyE6nDNz+1
+	A4760e0ggJ1W+wLqZpH1phNZ+PFyZdYnLE4R3ALANFqHrdGOZjIRSX3299i37KVwr+XyoNDP0QM
+	RwbcHyTLmVQ==
+X-Received: from dlec6-n2.prod.google.com ([2002:a05:701b:4286:20b0:12d:bbdf:edcb])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:701b:270f:b0:12d:b993:c68f
+ with SMTP id a92af1059eb24-12db993c9b2mr5832732c88.4.1777139409427; Sat, 25
+ Apr 2026 10:50:09 -0700 (PDT)
+Date: Sat, 25 Apr 2026 10:48:32 -0700
 In-Reply-To: <20260425174858.3922152-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260424164721.2229025-1-irogers@google.com> <20260425174858.3922152-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260425174858.3922152-41-irogers@google.com>
-Subject: [PATCH v6 40/59] perf net_dropmonitor: Port net_dropmonitor to use
+Message-ID: <20260425174858.3922152-35-irogers@google.com>
+Subject: [PATCH v6 34/59] perf compaction-times: Port compaction-times to use
  python module
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org, 
@@ -91,8 +76,8 @@ Cc: alice.mei.rogers@gmail.com, dapeng1.mi@linux.intel.com,
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260425_185023_988574_651ECD1E 
-X-CRM114-Status: GOOD (  14.16  )
+X-CRM114-CacheID: sfid-20260425_105011_371586_30DE8712 
+X-CRM114-Status: GOOD (  20.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,97 +92,355 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ported from tools/perf/scripts/python/.
-- Refactored the script to use a class structure (DropMonitor) to
-  encapsulate state.
-- Used perf.session for event processing instead of legacy global
-  handlers.
-- Maintained the manual /proc/kallsyms reading and binary search for
-  symbol resolution as in the original script.
-- Cleaned up Python 2 compatibility artifacts.
+Add a port of the compaction-times script that uses the perf python
+module directly. This approach is significantly faster than using perf
+script callbacks as it avoids creating intermediate dictionaries for
+all event fields.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
-v2:
-
-1. Fixed Sorting of Locations: Kept location as an integer in the
-   drop_log dictionary keys so that they are sorted numerically rather
-   than lexicographically when generating the report.
-
-2. Fixed Interrupt Handling: Moved the call to get_kallsyms_table()
-   and print_drop_table() outside the try-except block. This ensures
-   that the reporting phase happens exactly once, even if the user
-   interrupts the trace with Ctrl-C.
+v2: Fixed Closure Call: Changed cls.fobj.filter(pid, comm) to
+    cls.fobj(pid, comm) . Since fobj is a function (closure) and not a
+    class instance, calling .filter() on it would raise an
+    AttributeError .
 ---
- tools/perf/python/net_dropmonitor.py | 58 ++++++++++++++++++++++++++++
- 1 file changed, 58 insertions(+)
- create mode 100755 tools/perf/python/net_dropmonitor.py
+ tools/perf/python/compaction-times.py | 326 ++++++++++++++++++++++++++
+ 1 file changed, 326 insertions(+)
+ create mode 100755 tools/perf/python/compaction-times.py
 
-diff --git a/tools/perf/python/net_dropmonitor.py b/tools/perf/python/net_dropmonitor.py
+diff --git a/tools/perf/python/compaction-times.py b/tools/perf/python/compaction-times.py
 new file mode 100755
-index 000000000000..25ea2a66ed3c
+index 000000000000..7f17c251ded7
 --- /dev/null
-+++ b/tools/perf/python/net_dropmonitor.py
-@@ -0,0 +1,58 @@
++++ b/tools/perf/python/compaction-times.py
+@@ -0,0 +1,326 @@
 +#!/usr/bin/env python3
 +# SPDX-License-Identifier: GPL-2.0
 +"""
-+Monitor the system for dropped packets and produce a report of drop locations and counts.
-+Ported from tools/perf/scripts/python/net_dropmonitor.py
++Report time spent in memory compaction.
++
++Memory compaction is a feature in the Linux kernel that defragments memory
++by moving used pages to create larger contiguous blocks of free memory. This
++is particularly useful for allocating huge pages.
++
++This script processes trace events related to memory compaction and reports:
++- Total time spent in compaction (stall time).
++- Statistics for page migration (moved vs. failed).
++- Statistics for the free scanner (scanned vs. isolated pages).
++- Statistics for the migration scanner (scanned vs. isolated pages).
++
++Definitions:
++- **Compaction**: Defragmenting memory by moving allocated pages.
++- **Migration**: Moving pages from their current location to free pages found by the free scanner.
++- **Free Scanner**: Scans memory (typically from the end of a zone) to find free pages.
++- **Migration Scanner**: Scans memory (typically from the beginning of a zone)
++  to find pages to move.
++- **Isolated Pages**: Pages that have been temporarily removed from the buddy
++  system for migration or as migration targets.
++
++Ported from tools/perf/scripts/python/compaction-times.py to the modern perf Python module.
 +"""
 +
 +import argparse
-+from collections import defaultdict
++import enum
++import re
 +import sys
++from typing import Callable, Dict, List, Optional, Any
 +import perf
 +
++class Popt(enum.IntEnum):
++    """Process display options."""
++    DISP_DFL = 0
++    DISP_PROC = 1
++    DISP_PROC_VERBOSE = 2
 +
-+class DropMonitor:
-+    """Monitors dropped packets and aggregates counts by location."""
++class Topt(enum.IntFlag):
++    """Trace display options."""
++    DISP_TIME = 0
++    DISP_MIG = 1
++    DISP_ISOLFREE = 2
++    DISP_ISOLMIG = 4
++    DISP_ALL = DISP_MIG | DISP_ISOLFREE | DISP_ISOLMIG
 +
-+    def __init__(self):
-+        self.drop_log: dict[tuple[str, int], int] = defaultdict(int)
-+        self.unhandled: dict[str, int] = defaultdict(int)
++# Globals to satisfy pylint when accessed in functions before assignment in main.
++OPT_NS = True
++opt_disp = Topt.DISP_ALL
++opt_proc = Popt.DISP_DFL
++session = None
 +
-+    def print_drop_table(self) -> None:
-+        """Print aggregated results."""
-+        print(f"{'LOCATION':>25} {'OFFSET':>25} {'COUNT':>25}")
-+        for (sym, off) in sorted(self.drop_log.keys()):
-+            print(f"{sym:>25} {off:>25d} {self.drop_log[(sym, off)]:>25d}")
++def get_comm_filter(regex: re.Pattern) -> Callable[[int, str], bool]:
++    """Returns a filter function based on command regex."""
++    def filter_func(_pid: int, comm: str) -> bool:
++        regex_match = regex.search(comm)
++        return regex_match is None or regex_match.group() == ""
++    return filter_func
 +
-+    def process_event(self, sample: perf.sample_event) -> None:
-+        """Process a single sample event."""
-+        if str(sample.evsel) != "evsel(skb:kfree_skb)":
-+            return
++def get_pid_filter(low_str: str, high_str: str) -> Callable[[int, str], bool]:
++    """Returns a filter function based on PID range."""
++    low = 0 if low_str == "" else int(low_str)
++    high = 0 if high_str == "" else int(high_str)
 +
++    def filter_func(pid: int, _comm: str) -> bool:
++        return not (pid >= low and (high == 0 or pid <= high))
++    return filter_func
++
++def ns_to_time(ns: int) -> str:
++    """Format nanoseconds to string based on options."""
++    return f"{ns}ns" if OPT_NS else f"{round(ns, -3) // 1000}us"
++
++class Pair:
++    """Represents a pair of related counters (e.g., scanned vs isolated, moved vs failed)."""
++    def __init__(self, aval: int, bval: int,
++                 alabel: Optional[str] = None, blabel: Optional[str] = None):
++        self.alabel = alabel
++        self.blabel = blabel
++        self.aval = aval
++        self.bval = bval
++
++    def __add__(self, rhs: 'Pair') -> 'Pair':
++        self.aval += rhs.aval
++        self.bval += rhs.bval
++        return self
++
++    def __str__(self) -> str:
++        return f"{self.alabel}={self.aval} {self.blabel}={self.bval}"
++
++class Cnode:
++    """Holds statistics for a single compaction event or an aggregated set of events."""
++    def __init__(self, ns: int):
++        self.ns = ns
++        self.migrated = Pair(0, 0, "moved", "failed")
++        self.fscan = Pair(0, 0, "scanned", "isolated")
++        self.mscan = Pair(0, 0, "scanned", "isolated")
++
++    def __add__(self, rhs: 'Cnode') -> 'Cnode':
++        self.ns += rhs.ns
++        self.migrated += rhs.migrated
++        self.fscan += rhs.fscan
++        self.mscan += rhs.mscan
++        return self
++
++    def __str__(self) -> str:
++        prev = False
++        s = f"{ns_to_time(self.ns)} "
++        if opt_disp & Topt.DISP_MIG:
++            s += f"migration: {self.migrated}"
++            prev = True
++        if opt_disp & Topt.DISP_ISOLFREE:
++            s += f"{' ' if prev else ''}free_scanner: {self.fscan}"
++            prev = True
++        if opt_disp & Topt.DISP_ISOLMIG:
++            s += f"{' ' if prev else ''}migration_scanner: {self.mscan}"
++        return s
++
++    def complete(self, secs: int, nsecs: int) -> None:
++        """Complete the node with duration."""
++        self.ns = (secs * 1000000000 + nsecs) - self.ns
++
++    def increment(self, migrated: Optional[Pair], fscan: Optional[Pair],
++                  mscan: Optional[Pair]) -> None:
++        """Increment statistics."""
++        if migrated is not None:
++            self.migrated += migrated
++        if fscan is not None:
++            self.fscan += fscan
++        if mscan is not None:
++            self.mscan += mscan
++
++class Chead:
++    """Aggregates compaction statistics per process (PID) and maintains total statistics."""
++    heads: Dict[int, 'Chead'] = {}
++    val = Cnode(0)
++    fobj: Optional[Any] = None
++
++    @classmethod
++    def add_filter(cls, fobj: Any) -> None:
++        """Add a filter object."""
++        cls.fobj = fobj
++
++    @classmethod
++    def create_pending(cls, pid: int, comm: str, start_secs: int, start_nsecs: int) -> None:
++        """Create a pending node for a process."""
++        filtered = False
 +        try:
-+            symbol = getattr(sample, "symbol", "[unknown]")
-+            symoff = getattr(sample, "symoff", 0)
-+            self.drop_log[(symbol, symoff)] += 1
-+        except AttributeError:
-+            self.unhandled[str(sample.evsel)] += 1
++            head = cls.heads[pid]
++            filtered = head.is_filtered()
++        except KeyError:
++            if cls.fobj is not None:
++                filtered = cls.fobj(pid, comm)
++            head = cls.heads[pid] = Chead(comm, pid, filtered)
 +
++        if not filtered:
++            head.mark_pending(start_secs, start_nsecs)
++
++    @classmethod
++    def increment_pending(cls, pid: int, migrated: Optional[Pair],
++                          fscan: Optional[Pair], mscan: Optional[Pair]) -> None:
++        """Increment pending stats for a process."""
++        if pid not in cls.heads:
++            return
++        head = cls.heads[pid]
++        if not head.is_filtered():
++            if head.is_pending():
++                head.do_increment(migrated, fscan, mscan)
++            else:
++                sys.stderr.write(f"missing start compaction event for pid {pid}\n")
++
++    @classmethod
++    def complete_pending(cls, pid: int, secs: int, nsecs: int) -> None:
++        """Complete pending stats for a process."""
++        if pid not in cls.heads:
++            return
++        head = cls.heads[pid]
++        if not head.is_filtered():
++            if head.is_pending():
++                head.make_complete(secs, nsecs)
++            else:
++                sys.stderr.write(f"missing start compaction event for pid {pid}\n")
++
++    @classmethod
++    def gen(cls):
++        """Generate heads for display."""
++        if opt_proc != Popt.DISP_DFL:
++            yield from cls.heads.values()
++
++    @classmethod
++    def get_total(cls) -> Cnode:
++        """Get total statistics."""
++        return cls.val
++
++    def __init__(self, comm: str, pid: int, filtered: bool):
++        self.comm = comm
++        self.pid = pid
++        self.val = Cnode(0)
++        self.pending: Optional[Cnode] = None
++        self.filtered = filtered
++        self.list: List[Cnode] = []
++
++    def mark_pending(self, secs: int, nsecs: int) -> None:
++        """Mark node as pending."""
++        self.pending = Cnode(secs * 1000000000 + nsecs)
++
++    def do_increment(self, migrated: Optional[Pair], fscan: Optional[Pair],
++                     mscan: Optional[Pair]) -> None:
++        """Increment pending stats."""
++        if self.pending is not None:
++            self.pending.increment(migrated, fscan, mscan)
++
++    def make_complete(self, secs: int, nsecs: int) -> None:
++        """Make pending stats complete."""
++        if self.pending is not None:
++            self.pending.complete(secs, nsecs)
++            Chead.val += self.pending
++
++            if opt_proc != Popt.DISP_DFL:
++                self.val += self.pending
++
++                if opt_proc == Popt.DISP_PROC_VERBOSE:
++                    self.list.append(self.pending)
++            self.pending = None
++
++    def enumerate(self) -> None:
++        """Enumerate verbose stats."""
++        if opt_proc == Popt.DISP_PROC_VERBOSE and not self.is_filtered():
++            for i, pelem in enumerate(self.list):
++                sys.stdout.write(f"{self.pid}[{self.comm}].{i+1}: {pelem}\n")
++
++    def is_pending(self) -> bool:
++        """Check if node is pending."""
++        return self.pending is not None
++
++    def is_filtered(self) -> bool:
++        """Check if node is filtered."""
++        return self.filtered
++
++    def display(self) -> None:
++        """Display stats."""
++        if not self.is_filtered():
++            sys.stdout.write(f"{self.pid}[{self.comm}]: {self.val}\n")
++
++def trace_end() -> None:
++    """Called at the end of trace processing."""
++    sys.stdout.write(f"total: {Chead.get_total()}\n")
++    for i in Chead.gen():
++        i.display()
++        i.enumerate()
++
++def process_event(sample: perf.sample_event) -> None:
++    """Callback for processing events."""
++    event_name = str(sample.evsel)
++    pid = sample.sample_pid
++    comm = session.find_thread(pid).comm() if session else "[unknown]"
++    secs = sample.sample_time // 1000000000
++    nsecs = sample.sample_time % 1000000000
++
++    if "evsel(compaction:mm_compaction_begin)" in event_name:
++        Chead.create_pending(pid, comm, secs, nsecs)
++    elif "evsel(compaction:mm_compaction_end)" in event_name:
++        Chead.complete_pending(pid, secs, nsecs)
++    elif "evsel(compaction:mm_compaction_migratepages)" in event_name:
++        Chead.increment_pending(pid, Pair(sample.nr_migrated, sample.nr_failed), None, None)
++    elif "evsel(compaction:mm_compaction_isolate_freepages)" in event_name:
++        Chead.increment_pending(pid, None, Pair(sample.nr_scanned, sample.nr_taken), None)
++    elif "evsel(compaction:mm_compaction_isolate_migratepages)" in event_name:
++        Chead.increment_pending(pid, None, None, Pair(sample.nr_scanned, sample.nr_taken))
 +
 +if __name__ == "__main__":
-+    ap = argparse.ArgumentParser(
-+        description="Monitor the system for dropped packets and produce a "
-+                    "report of drop locations and counts.")
++    ap = argparse.ArgumentParser(description="Report time spent in compaction")
++    ap.add_argument("-p", action="store_true", help="display by process")
++    ap.add_argument("-pv", action="store_true", help="display by process (verbose)")
++    ap.add_argument("-u", action="store_true", help="display results in microseconds")
++    ap.add_argument("-t", action="store_true", help="display stall times only")
++    ap.add_argument("-m", action="store_true", help="display stats for migration")
++    ap.add_argument("-fs", action="store_true", help="display stats for free scanner")
++    ap.add_argument("-ms", action="store_true", help="display stats for migration scanner")
++    ap.add_argument("filter", nargs="?", help="pid|pid-range|comm-regex")
 +    ap.add_argument("-i", "--input", default="perf.data", help="Input file name")
 +    args = ap.parse_args()
 +
-+    monitor = DropMonitor()
++    opt_proc = Popt.DISP_DFL
++    if args.pv:
++        opt_proc = Popt.DISP_PROC_VERBOSE
++    elif args.p:
++        opt_proc = Popt.DISP_PROC
 +
-+    try:
-+        session = perf.session(perf.data(args.input), sample=monitor.process_event)
-+        session.process_events()
-+    except KeyboardInterrupt:
-+        print("\nStopping trace...")
-+    except Exception as e:
-+        print(f"Error processing events: {e}")
-+        sys.exit(1)
++    OPT_NS = not args.u
 +
-+    monitor.print_drop_table()
++    opt_disp = Topt.DISP_ALL
++    if args.t or args.m or args.fs or args.ms:
++        opt_disp = Topt(0)
++        if args.t:
++            opt_disp |= Topt.DISP_TIME
++        if args.m:
++            opt_disp |= Topt.DISP_MIG
++        if args.fs:
++            opt_disp |= Topt.DISP_ISOLFREE
++        if args.ms:
++            opt_disp |= Topt.DISP_ISOLMIG
++
++    if args.filter:
++        PID_PATTERN = r"^(\d*)-(\d*)$|^(\d*)$"
++        pid_re = re.compile(PID_PATTERN)
++        match = pid_re.search(args.filter)
++        filter_obj: Any = None
++        if match is not None and match.group() != "":
++            if match.group(3) is not None:
++                filter_obj = get_pid_filter(match.group(3), match.group(3))
++            else:
++                filter_obj = get_pid_filter(match.group(1), match.group(2))
++        else:
++            try:
++                comm_re = re.compile(args.filter)
++            except re.error:
++                sys.stderr.write(f"invalid regex '{args.filter}'\n")
++                sys.exit(1)
++            filter_obj = get_comm_filter(comm_re)
++        Chead.add_filter(filter_obj)
++
++    session = perf.session(perf.data(args.input), sample=process_event)
++    session.process_events()
++    trace_end()
 -- 
 2.54.0.545.g6539524ca2-goog
 
