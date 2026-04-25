@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC7B5FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:45:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F144FFF8863
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:45:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nQeNxtOSoOXwV2zRr64LvO5u7apubipAzZoDUg3KnRw=; b=Yd+7f+ekzmyyI7VDsDwWT49MLR
-	23QOP4FEaKuQBQLRAg+irHqLhBZ8xcnXwHS3eFZq9WcvUghlkrb7/05tczDORo2hmytZzwiomxjKh
-	AKYcYho7Jk9L+AJUlKxln5a7iYDLFIT7M57TWDlXI3g4M+PI6baj2aM90xmp7PtheQ+LiMulmd6ba
-	8S9B7pV+w2JiNqW+C8e5JI/80joet9ZJvJ86vgz7OVeoX6LX60XvUw/sp67gWfXUcmEccYygI3NTH
-	pTP3Uu0RkspnXYZPTNyt6UfOoKmePhPwxnk1gtXEu8zrKsk3jMNQv9xajEP5vkuydxk4e4J6woDXR
-	CzQrRurA==;
+	bh=22aR7BdMkfc4F5hxQy/Qmu6pnO70TcMwJUmCFfE13QY=; b=JNdqlXyrbnY3PQwHHkLYfc0qIn
+	nf4c1x6j9Ek5d/ilJxzc2aBvRg3z0Xz1cQHPUdgcSSGkVfO8zCmJsrlzbxgahZwmvMCKFY4IkeMap
+	vRIvbqWNms9jzWcx+y/H23p36iMoiYe8bK3F7GwmUXZR4MAaFnqWvpkJg7bpsDGu+1W+Xuu+Ol+ip
+	s1EGIh7JotoHypkcBsx1ybptU46Utie6EaSCgsx9cmdsK2fDZ1rpcl/RzVbVuHiEWSmIyOBrN244Q
+	G2c+aqlGk5agd8cBBO0qieyjbc7B+2LR/1nQ3PEkq5ZzwSgfxiuonXf+WCECd8xzsekxO01MIOh7/
+	wRaRnlJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlkh-0000000EwQ0-2Smx;
+	id 1wGlkl-0000000EwSJ-2LsY;
 	Sat, 25 Apr 2026 22:45:35 +0000
-Received: from mail-dl1-x1249.google.com ([2607:f8b0:4864:20::1249])
+Received: from mail-dl1-x124a.google.com ([2607:f8b0:4864:20::124a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlkP-0000000EwDW-2R0l
+	id 1wGlkU-0000000EwGV-33eu
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Apr 2026 22:45:24 +0000
-Received: by mail-dl1-x1249.google.com with SMTP id a92af1059eb24-12c21dbc9c1so33844433c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:45:12 -0700 (PDT)
+	Sat, 25 Apr 2026 22:45:27 +0000
+Received: by mail-dl1-x124a.google.com with SMTP id a92af1059eb24-12c20d5d7f4so43618214c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:45:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777157112; x=1777761912; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777157116; x=1777761916; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=nQeNxtOSoOXwV2zRr64LvO5u7apubipAzZoDUg3KnRw=;
-        b=IlrzUzULJpwHefnMfn4BhPOGsTOqnPIVzzNUtV04vBIZYuaK8Ac3jfbKRfd67WOsi6
-         f8zfQHE02VwP2MXfutEjLPHK1IVgPJUKJNYqeyB2Q8ItrzWqMAd5kL55g7DHvTSkLZLz
-         uDm0708Xl3pnfqqEBSrAK97hCN/ROvZ1R15qNmGbKbZ0oInmwEgIS3q9rQd4/RcE2Qoi
-         KMpYepaA2XoOWpy3/YWSr5wYuxAv8qOJkRFR9In3QwCeydqCzKfNt3FN9FJ14Dpt5O52
-         d4o4Ukd6ynEkf2cm1Ho/40yKUJfjlaKDvnjDTeheX7ouNPU/6ieqO8OkM3iZyo800DLK
-         ryGw==
+        bh=22aR7BdMkfc4F5hxQy/Qmu6pnO70TcMwJUmCFfE13QY=;
+        b=Bkcz4KDjNunAcM/ARl9W5Vdba43nNYa4UZe6XPkqDG7Is1HHSQaGCfYYpd2YWmI/oE
+         NNw1E37PECfmfXj7eHzHQzMTdB/o6sp/8dUE6Gxml/i1HoeVqKHwFMbSgygKzMFojWKS
+         64+41vLFdz4LdOmS54OL4HjRkkh7dJdl9q5wt2r/GdomNSF4uxooG7yeZvljn/h6GsV/
+         Shz78PoDnICBm7xmqFajAhtw47JH3Ub6SOilh0wU5zW3VJnJylAYzQsbqrbW5fv0AjLy
+         SnjJ1fX/b+4qRaMX18VAHMOXHzVyqFDqXvm42/njkzpUH3NsUEXfnBhCjHvg1DyUgG+W
+         qmYg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777157112; x=1777761912;
+        d=1e100.net; s=20251104; t=1777157116; x=1777761916;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=nQeNxtOSoOXwV2zRr64LvO5u7apubipAzZoDUg3KnRw=;
-        b=Nbm0DSCYfhuCaIni61EWrTJNkYadVJqCjRt/6WvikMuTWXhFws+kidq9gIqSEKyatv
-         Q5RiFdEsFd4oBeZc9tXfQTm52W+ETE6MePxD1MhMpHxjYRNyZpQ0toa2DQU1jVuoH5FT
-         g0mMqKfxfkYBG8Fu/w2KQNN7ZS/N9odDDNuUwaXS4An1DyeTx2ZIeK94LTb4duPwx73K
-         v/y7tEUznR6v1Xt0W9/cQTIYBrGDEYhXPzPDzRITmFEfNi9Gq/nu8CN5ikVWIe4bToQ6
-         4OCzGzZS8/xgGo6T+HpbC1Zvz3IjI8tQVfzHWV/wpYEJdDbnYpKElNS/H57TgTf502np
-         w0zw==
-X-Forwarded-Encrypted: i=1; AFNElJ+7Pm0wC6NRK0xv7ikt0hMMX09NYi8WLzGn99cEn6SddTHqWDQl/2sd7Wwz33Ut+2sDZT/cPlVThaeDdjBCtEiR@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+L3X3TOewt9Bj4nAxfAHHkUKnFDdCzpLZMt138qBxjGR1pS13
-	kjAKyHxMWYmtSXSrLBJNzHhHZQDWMKxtLj9t0FxD49ZItQmKHLqtbVVDmneiG7kfCy4W0w52tPi
-	5P1JlDlbLwg==
-X-Received: from dlbur21-n2.prod.google.com ([2002:a05:7022:ea55:20b0:12d:c516:f51])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:6728:b0:12b:ec67:3529
- with SMTP id a92af1059eb24-12c73f781e0mr20677481c88.14.1777157111966; Sat, 25
- Apr 2026 15:45:11 -0700 (PDT)
-Date: Sat, 25 Apr 2026 15:44:49 -0700
+        bh=22aR7BdMkfc4F5hxQy/Qmu6pnO70TcMwJUmCFfE13QY=;
+        b=MgxBR8M0dkAekxJQH3ax/F+O+OdsEdwq60JEzkn0tL7S2gBrt6myq5Xe9L9mEYH7Jg
+         +2tAxYUaMuZsU8wnWQxhAGNJbOS184XOa0jjnopvf0k3jPXS0ICadRARp/3ZAv9BYVlP
+         fjEc1b98YsBSDQSZ3TkAnbfMtRKJ6ODWOYAJPhcmkahmATRYVs6RIJ9QLNnBxGjcqEYG
+         Vch/VuqmJMSIZ4k6RBO6/SzNeVcq0O+hMdiklFooKJo5+JE1hbS6QreVh7pseuHJVmFT
+         vl6LS4zn4fdiJ1AOh2j2A/7GL0qbkDRanEPyaKOVSdRKBi5qTpF90k98ZirJIxV5VhJa
+         rCwA==
+X-Forwarded-Encrypted: i=1; AFNElJ9eo3n61jFLurEE2O1s/NpUb4eMNZ2dcWHh19WJIhEEevuiTTpCMShmk/ztfJYrlsZspVunn9tiBSh477iVOjwo@lists.infradead.org
+X-Gm-Message-State: AOJu0YwCJ0tYzV0ddE3iIZZNODZtvQXVrzPTmh5qSUt8ZSBBlzMjvNjP
+	kRKVh8ACE9jskxfNaNxZXT3BtLtf1JsIgE5JA4GZlY5HbE5B4gQ8wgS1ZkNORB6ybXkWOniE9oC
+	rJIxfbuaFOw==
+X-Received: from dyhd3.prod.google.com ([2002:a05:7300:8283:b0:2e2:b79e:ed06])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:f193:b0:2da:1874:f39c
+ with SMTP id 5a478bee46e88-2e4657728eamr20326591eec.12.1777157116025; Sat, 25
+ Apr 2026 15:45:16 -0700 (PDT)
+Date: Sat, 25 Apr 2026 15:44:51 -0700
 In-Reply-To: <20260425224503.170337-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260425174858.3922152-1-irogers@google.com> <20260425224503.170337-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260425224503.170337-3-irogers@google.com>
-Subject: [PATCH v7 45/59] perf stackcollapse: Port stackcollapse to use python module
+Message-ID: <20260425224503.170337-5-irogers@google.com>
+Subject: [PATCH v7 47/59] perf failed-syscalls: Port failed-syscalls to use
+ python module
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org, 
 	leo.yan@linux.dev, namhyung@kernel.org, tmricht@linux.ibm.com
@@ -75,8 +76,8 @@ Cc: alice.mei.rogers@gmail.com, dapeng1.mi@linux.intel.com,
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260425_154513_628161_25EDBF4D 
-X-CRM114-Status: GOOD (  16.32  )
+X-CRM114-CacheID: sfid-20260425_154518_958113_4EBE5617 
+X-CRM114-Status: GOOD (  14.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,159 +92,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Modernize the legacy stackcollapse.py trace script by refactoring it
-into a class-based architecture (StackCollapseAnalyzer).
-The script uses perf.session for event processing and aggregates call
-stacks to produce output suitable for flame graphs.
+Port the legacy Perl script failed-syscalls.pl to a python script
+using the perf module in tools/perf/python.
+
+The new script uses a class-based architecture and leverages the
+perf.session API for event processing, making it a standalone script
+that reads perf.data files.
+
+It filters for sys_exit events, checks for failed syscalls (where
+return value ret < 0), and aggregates counts per command name.
+
+Complications:
+- The script is designed for file-based processing using perf.session.
+- pylint warns about the module name not being snake_case, but it is
+  kept for consistency with the original script name.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
-v2:
+ tools/perf/python/failed-syscalls.py | 78 ++++++++++++++++++++++++++++
+ 1 file changed, 78 insertions(+)
+ create mode 100755 tools/perf/python/failed-syscalls.py
 
- - Fixed Callchain Check: Replaced hasattr(sample, "callchain") with
-   getattr(sample, "callchain", None) and checked if it is not None .
-   This avoids attempting to iterate over None when a sample lacks a
-   callchain, which would raise a TypeError.
- - Fixed Comm Resolution: The code already used
-   self.session.process(sample.sample_pid).comm() to resolve the
-   command name using the session object (if available), avoiding the
-   missing comm attribute on perf.sample_event.
- - Code Cleanup: Broke a long line in process_event to satisfy pylint.
----
- tools/perf/python/stackcollapse.py | 126 +++++++++++++++++++++++++++++
- 1 file changed, 126 insertions(+)
- create mode 100755 tools/perf/python/stackcollapse.py
-
-diff --git a/tools/perf/python/stackcollapse.py b/tools/perf/python/stackcollapse.py
+diff --git a/tools/perf/python/failed-syscalls.py b/tools/perf/python/failed-syscalls.py
 new file mode 100755
-index 000000000000..996c73246ebc
+index 000000000000..c3b58664eb57
 --- /dev/null
-+++ b/tools/perf/python/stackcollapse.py
-@@ -0,0 +1,126 @@
++++ b/tools/perf/python/failed-syscalls.py
+@@ -0,0 +1,78 @@
 +#!/usr/bin/env python3
 +# SPDX-License-Identifier: GPL-2.0
-+"""
-+stackcollapse.py - format perf samples with one line per distinct call stack
-+
-+This script's output has two space-separated fields.  The first is a semicolon
-+separated stack including the program name (from the "comm" field) and the
-+function names from the call stack.  The second is a count:
-+
-+ swapper;start_kernel;rest_init;cpu_idle;default_idle;native_safe_halt 2
-+
-+The file is sorted according to the first field.
-+
-+Ported from tools/perf/scripts/python/stackcollapse.py
-+"""
++"""Failed system call counts."""
 +
 +import argparse
 +from collections import defaultdict
 +import sys
++from typing import Optional
 +import perf
 +
-+
-+class StackCollapseAnalyzer:
-+    """Accumulates call stacks and prints them collapsed."""
-+
-+    def __init__(self, args: argparse.Namespace) -> None:
-+        self.args = args
-+        self.lines: dict[str, int] = defaultdict(int)
-+
-+    def tidy_function_name(self, sym: str, dso: str) -> str:
-+        """Beautify function names based on options."""
-+        if sym is None:
-+            sym = "[unknown]"
-+
-+        sym = sym.replace(";", ":")
-+        if self.args.tidy_java:
-+            # Beautify Java signatures
-+            sym = sym.replace("<", "")
-+            sym = sym.replace(">", "")
-+            if sym.startswith("L") and "/" in sym:
-+                sym = sym[1:]
-+            try:
-+                sym = sym[:sym.index("(")]
-+            except ValueError:
-+                pass
-+
-+        if self.args.annotate_kernel and dso == "[kernel.kallsyms]":
-+            return sym + "_[k]"
-+        return sym
++class FailedSyscalls:
++    """Tracks and displays failed system call totals."""
++    def __init__(self, comm: Optional[str] = None) -> None:
++        self.failed_syscalls: dict[str, int] = defaultdict(int)
++        self.for_comm = comm
++        self.session: Optional[perf.session] = None
++        self.unhandled: dict[str, int] = defaultdict(int)
 +
 +    def process_event(self, sample: perf.sample_event) -> None:
-+        """Collect call stack for each sample."""
-+        stack = []
-+        callchain = getattr(sample, "callchain", None)
-+        if callchain is not None:
-+            for node in callchain:
-+                stack.append(self.tidy_function_name(node.symbol, node.dso))
-+        else:
-+            # Fallback if no callchain
-+            sym = getattr(sample, "symbol", "[unknown]")
-+            dso = getattr(sample, "dso", "[unknown]")
-+            stack.append(self.tidy_function_name(sym, dso))
++        """Process sys_exit events."""
++        event_name = str(sample.evsel)
++        if not event_name.startswith("evsel(syscalls:sys_exit_") and \
++           not event_name.startswith("evsel(raw_syscalls:sys_exit_"):
++            return
 +
-+        if self.args.include_comm:
-+            if hasattr(self, 'session') and self.session:
-+                comm = self.session.find_thread(sample.sample_pid).comm()
-+            else:
-+                comm = "Unknown"
-+            comm = comm.replace(" ", "_")
-+            sep = "-"
-+            if self.args.include_pid:
-+                comm = f"{comm}{sep}{getattr(sample, 'sample_pid', 0)}"
-+                sep = "/"
-+            if self.args.include_tid:
-+                comm = f"{comm}{sep}{getattr(sample, 'sample_tid', 0)}"
-+            stack.append(comm)
++        try:
++            ret = sample.ret
++        except AttributeError:
++            self.unhandled[event_name] += 1
++            return
 +
-+        stack_string = ";".join(reversed(stack))
-+        self.lines[stack_string] += 1
++        if ret >= 0:
++            return
++
++        pid = sample.sample_pid
++        assert self.session is not None
++        try:
++            comm = self.session.find_thread(pid).comm()
++        except Exception: # pylint: disable=broad-except
++            comm = "unknown"
++
++        if self.for_comm and comm != self.for_comm:
++            return
++
++        self.failed_syscalls[comm] += 1
 +
 +    def print_totals(self) -> None:
-+        """Print sorted collapsed stacks."""
-+        for stack in sorted(self.lines):
-+            print(f"{stack} {self.lines[stack]}")
++        """Print summary table."""
++        print("\nfailed syscalls by comm:\n")
++        print(f"{'comm':<20s}  {'# errors':>10s}")
++        print(f"{'-'*20}  {'-'*10}")
 +
++        for comm, val in sorted(self.failed_syscalls.items(),
++                                key=lambda kv: (kv[1], kv[0]), reverse=True):
++            print(f"{comm:<20s}  {val:10d}")
 +
-+def main():
++    def run(self, input_file: str) -> None:
++        """Run the session."""
++        self.session = perf.session(perf.data(input_file), sample=self.process_event)
++        self.session.process_events()
++        self.print_totals()
++
++def main() -> None:
 +    """Main function."""
-+    ap = argparse.ArgumentParser(
-+        description="Format perf samples with one line per distinct call stack"
-+    )
-+    ap.add_argument("-i", "--input", default="perf.data", help="Input file name")
-+    ap.add_argument("--include-tid", action="store_true", help="include thread id in stack")
-+    ap.add_argument("--include-pid", action="store_true", help="include process id in stack")
-+    ap.add_argument("--no-comm", dest="include_comm", action="store_false", default=True,
-+                    help="do not separate stacks according to comm")
-+    ap.add_argument("--tidy-java", action="store_true", help="beautify Java signatures")
-+    ap.add_argument("--kernel", dest="annotate_kernel", action="store_true",
-+                    help="annotate kernel functions with _[k]")
++    parser = argparse.ArgumentParser(description="Trace failed syscalls")
++    parser.add_argument("comm", nargs="?", help="Filter by command name")
++    parser.add_argument("-i", "--input", default="perf.data", help="Input file")
++    args = parser.parse_args()
 +
-+    args = ap.parse_args()
-+
-+    if args.include_tid and not args.include_comm:
-+        print("requesting tid but not comm is invalid", file=sys.stderr)
-+        sys.exit(1)
-+    if args.include_pid and not args.include_comm:
-+        print("requesting pid but not comm is invalid", file=sys.stderr)
-+        sys.exit(1)
-+
-+    analyzer = StackCollapseAnalyzer(args)
-+
++    analyzer = FailedSyscalls(args.comm)
 +    try:
-+        session = perf.session(perf.data(args.input), sample=analyzer.process_event)
-+        analyzer.session = session
-+        session.process_events()
++        analyzer.run(args.input)
 +    except IOError as e:
-+        print(f"Error: {e}", file=sys.stderr)
++        print(e, file=sys.stderr)
 +        sys.exit(1)
-+    except KeyboardInterrupt:
-+        pass
-+
-+    analyzer.print_totals()
-+
 +
 +if __name__ == "__main__":
 +    main()
