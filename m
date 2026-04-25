@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E366FF885C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9959CFF8864
 	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:52:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,61 +12,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ERRU3KdUiox4uEsWs/CeTXwwWIrylXGw9vYnzrPC1Tw=; b=g1W0NVcISiQ+34J3PuE7+4I9SP
-	dznA6x6XO7uOAV0z+K/YOlZ5zMzuCQ2lCQJrng1Fhh+kVD8rQjE5pfBvyej6wsNsKeXsaioC4X2B3
-	VORuJiw0yBHAs4rrJ+Bmoe7TcQDe1uLwKPm1VpI13yvgdpbTRvdIDjpCOQbvzOK0QAxdCmGHlIEkO
-	3/RD6Q3aS9S1UHibWjMC8XFabKW7paAWpkOIXKJPU0UcwXnZ6uj1OCojnjCri8U9o5yrMna8ihqAC
-	xNmf6+ptw7O78xgPa/VIhjytdNxZRWrYp7ruxgE/bAy0JXIe5h9g0xnIltuJH+Yam0YlIKaYug25J
-	u3xKt4fQ==;
+	bh=efNil+PNmmmvTcZKEec15sBNEnsydHEhEYd+ZnlvuZ8=; b=LD7+xvMD4D/RGZpai11CrcwW8e
+	xYLH/7HUtMSQ3T1p5wZXjiftP+XTaVtifFfUDtEaynQ7VP6BI/0YrQzR0+VCnRMT2coRYgK3sCLhe
+	5wqcra1gFVWFtKX7mJUK10u9C2MEHu4n81H8SU/7R1kUazr338/AxK/ufL57W5eW9zVc3eN3WOLU9
+	KeFl8cnEYGo5EiDHGbD1PALtnE0gIZzhqkV6C3wpLqaaDD/RwCYvslyPHsodZ0SbBjZiGjV7LSsA8
+	Mkjxv+JpiYlz+SYCtS0do+fT1nWe1CHHb8jwxdHG1LgPIgN1BiSbB2jzjsqTFyrquRYkSQReoMnS5
+	gqndyhwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlr7-0000000EzpD-3xwj;
-	Sat, 25 Apr 2026 22:52:09 +0000
-Received: from mail-dl1-x124a.google.com ([2607:f8b0:4864:20::124a])
+	id 1wGlr3-0000000Ezlo-3fUb;
+	Sat, 25 Apr 2026 22:52:06 +0000
+Received: from mail-dy1-f202.google.com ([74.125.82.202])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlqN-0000000Eyvr-0SMm
+	id 1wGlqH-0000000Eypn-0zPD
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Apr 2026 22:51:38 +0000
-Received: by mail-dl1-x124a.google.com with SMTP id a92af1059eb24-12db218e265so14789630c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:51:22 -0700 (PDT)
+	Sat, 25 Apr 2026 22:51:33 +0000
+Received: by mail-dy1-f202.google.com with SMTP id 5a478bee46e88-2d889997495so23992408eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:51:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777157482; x=1777762282; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777157475; x=1777762275; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ERRU3KdUiox4uEsWs/CeTXwwWIrylXGw9vYnzrPC1Tw=;
-        b=k4jMTzEBQNTy1nadimh5JBrlvxYFcSIF8b7y6kXyNtVvBflnTH9HUQLoESsZGbUfAw
-         Qm7OqicNaXsiFoftvcf7VpPxZ7Bkh5WJx3d6HoqkbPO/ESqFKYvDsr+G0pePkqEQ3x6v
-         WlbmxvpEa3/na+KbKfsYt8EPrhe4qY0zSU/LTuklwE3LwTNq1n7lQ3yYWrAJXRh4WV6U
-         2AJYkJdBzERapT/CIueIFcQoflyBTxKaRxXWFDx/t9ZhEPNKA/g0UduiUY4RA7ij7uxO
-         1YJs0/o7VESGTmD7heEosSb9lfJYRBcdWTgqeZEtOyIierrqGZLCoZB1eIEQwB+CuSs+
-         sY0Q==
+        bh=efNil+PNmmmvTcZKEec15sBNEnsydHEhEYd+ZnlvuZ8=;
+        b=CPY9IMzR8vFcdIU139s8eqxCO3r1Ux7LbGqEyjwX3gUJCEwxxxzIZrosYga/Eb+0Jm
+         0NB/S0pPFNaZD5dsXz2qlRx8UxuR1cXydx0DI3gbzsbgulVFQdr/kDAa0AVbj9pP35Kp
+         8b035Fq8QbheLmXOLGFC98//7V/UAZxHiovE7vhFupkBgQ5kLrODnym9AJggj5wTzTIh
+         1R40CC3PxUdatgcN9a/CJ4/YOqPsSXeoJq5Wpz+luTxq6kDKqsu3pB/rFEOavX7hC23a
+         Bh4jlo6Y+JjwsBbSXUrSist3qYVjYA5iN4ct6Sm8MGZu4mbrX1TIclmULczmiuomhXDF
+         t8lQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777157482; x=1777762282;
+        d=1e100.net; s=20251104; t=1777157475; x=1777762275;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ERRU3KdUiox4uEsWs/CeTXwwWIrylXGw9vYnzrPC1Tw=;
-        b=E1PHGetSN1NdK9Ug5xGtKy68DncGAb8BN47mHuusIYsaddrf/gDZ2A7lk7qoqySO1q
-         eGbjOqeAL+CA1L0+ADKLW3ezJzwYCLxothVGzGbL1w3N7Rq4Xhh52HFdnWBmpGXBvMnk
-         ANJBoVpshXvpWSBZ9OaTDCYGQrXxtv8r7wvOcM97KRGFYfbtvpU0eodkVXiL/0hTGMD4
-         S0PDmlev9fBtXlQkKQYyDumpwOQFXklIiEQLoFmrdUyn7ztPthiHJlazKQs4E3R4zZTD
-         x1pph1VmL0TcfNUc8Or8sVe5SIk8LX+QNwE5OPV+s/adp4/fz0r9Ta+YNpg5+ZDoBO0W
-         RHTQ==
-X-Forwarded-Encrypted: i=1; AFNElJ85FnaIp8Aqd+lz65qOLNhSHI27KXWZnNQieIcnB0zkAMWq+4awW9u41uaKVcMNWDljbNPZZ0M6NkY+nesYqWBD@lists.infradead.org
-X-Gm-Message-State: AOJu0YzONRv8geAUOrEVzod0HqeLrCN5nReS6eyrtyXm/vigqyiJYofe
-	cRKn9iu1huXWL2d1zBlYrOUE2oignmt/sfBVn1szfHzbUX6kHAz7+D6rDw/6Ygvgyh74r5IpOTh
-	gBGewmIbuqQ==
-X-Received: from dlbsj13.prod.google.com ([2002:a05:7022:f90d:b0:12d:b591:4bad])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:60f:b0:127:3915:76b2
- with SMTP id a92af1059eb24-12c73f9ae51mr22028481c88.27.1777157481565; Sat, 25
- Apr 2026 15:51:21 -0700 (PDT)
-Date: Sat, 25 Apr 2026 15:49:25 -0700
+        bh=efNil+PNmmmvTcZKEec15sBNEnsydHEhEYd+ZnlvuZ8=;
+        b=O5VKYx75q+85Lkqd7P8OBWFUw53KgUwm25ovWxMA2a+1Kdtxniha5okzXmq1HBTXst
+         FdSCjlHhPxdWaNqricE8Mvmj4UafAzQnZd5uCH5JQkgoYiHOmd2iYyOsjXeFfAD32ha9
+         E7qUu9lQBil+Cy/e++brZq9WUTPs5qJi5UuifA+4iwSe4RDhpCjH3q5MLRI8qj72pUPM
+         IQD3+ZMVlzRgOtmBufD+XmnTRKewzTbeX3FYOcec/+KwT9ak57VlqcS1YNyanAOh+QeO
+         1xlHs2/m12ZqJMXL1cOhmLPPBHlEScRSwnzhv8/vDpskseYUGJpgPjQoGOP0XFzJRN6G
+         72Yw==
+X-Forwarded-Encrypted: i=1; AFNElJ/bGAdok04FsfnMNMcLurxgBofWhY6khmcWyThhK+8cqVRu3TFLe2VKr3su51sLPOSYmHFSezF4WJVD9+ve1yJI@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzy1J/F7MzFXFCWISLOGVapd3yUhSXff3ed9XtsVsYttQuJo++h
+	uzpWdlXuc1c8TNzEvlNwcV3Qnt25f/U1O2xyxmFjiy0J0WzLOoXsE5gkjX6ZsPsyp4pga57M8b4
+	f6KSixUEi6A==
+X-Received: from dycf28.prod.google.com ([2002:a05:7300:50dc:b0:2d9:6c52:c24a])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:4186:b0:2de:cc07:e99
+ with SMTP id 5a478bee46e88-2e464dafc4cmr18867631eec.7.1777157475156; Sat, 25
+ Apr 2026 15:51:15 -0700 (PDT)
+Date: Sat, 25 Apr 2026 15:49:22 -0700
 In-Reply-To: <20260425224951.174663-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260425174858.3922152-1-irogers@google.com> <20260425224951.174663-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260425224951.174663-34-irogers@google.com>
-Subject: [PATCH v7 33/59] perf check-perf-trace: Port check-perf-trace to use
- python module
+Message-ID: <20260425224951.174663-31-irogers@google.com>
+Subject: [PATCH v7 30/59] perf flamegraph: Port flamegraph to use python module
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org, 
 	leo.yan@linux.dev, namhyung@kernel.org, tmricht@linux.ibm.com
@@ -76,8 +75,8 @@ Cc: alice.mei.rogers@gmail.com, dapeng1.mi@linux.intel.com,
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260425_155123_273831_E0110E28 
-X-CRM114-Status: GOOD (  15.69  )
+X-CRM114-CacheID: sfid-20260425_155117_817896_86D7948C 
+X-CRM114-Status: GOOD (  19.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,150 +91,282 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a port of the check-perf-trace script that uses the perf python
-module directly. This approach is significantly faster than using perf
-script callbacks as it avoids creating intermediate dictionaries for
-all event fields.
+Add a port of the flamegraph script that uses the perf python module
+directly. This approach improves performance by avoiding intermediate
+dictionaries for event fields.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
-v2:
-1. String Match Accuracy: Replaced the substring check for `irq:softirq_entry`
-   events with a robust exact string match.
+v5:
+1. Fix Event Filtering: Corrected event filtering check to search for a
+   substring match within the parsed event string, preventing all events
+   from being dropped due to the `evsel(...)` wrapper.
 
-v3:
-1. Safe Thread Resolution: Swapped out sample.sample_pid with
-   sample.sample_tid and safeguarded the session process lookup with
-   a try-except block.
-
-v4:
-1. Git Fixup Cleanup: Squashed the lingering fixup commit from the previous
-   session into its proper patch.
+v6:
+- Fixed terminal injection risk by not printing unverified content in
+  prompt.
 ---
- tools/perf/python/check-perf-trace.py | 113 ++++++++++++++++++++++++++
- 1 file changed, 113 insertions(+)
- create mode 100755 tools/perf/python/check-perf-trace.py
+ tools/perf/python/flamegraph.py | 250 ++++++++++++++++++++++++++++++++
+ 1 file changed, 250 insertions(+)
+ create mode 100755 tools/perf/python/flamegraph.py
 
-diff --git a/tools/perf/python/check-perf-trace.py b/tools/perf/python/check-perf-trace.py
+diff --git a/tools/perf/python/flamegraph.py b/tools/perf/python/flamegraph.py
 new file mode 100755
-index 000000000000..7c1c7632a091
+index 000000000000..b0eb5844b772
 --- /dev/null
-+++ b/tools/perf/python/check-perf-trace.py
-@@ -0,0 +1,113 @@
++++ b/tools/perf/python/flamegraph.py
+@@ -0,0 +1,250 @@
 +#!/usr/bin/env python3
 +# SPDX-License-Identifier: GPL-2.0
 +"""
-+Basic test of Python scripting support for perf.
-+Ported from tools/perf/scripts/python/check-perf-trace.py
++flamegraph.py - create flame graphs from perf samples using perf python module
 +"""
 +
 +import argparse
-+import collections
++import hashlib
++import json
++import os
++import subprocess
++import sys
++import urllib.request
++from typing import Dict, Optional, Union
 +import perf
 +
-+unhandled: collections.defaultdict[str, int] = collections.defaultdict(int)
-+session = None
++MINIMAL_HTML = """<head>
++  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/d3-flame-graph@4.1.3/dist/d3-flamegraph.css">
++</head>
++<body>
++  <div id="chart"></div>
++  <script type="text/javascript" src="https://d3js.org/d3.v7.js"></script>
++  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/d3-flame-graph@4.1.3/dist/d3-flamegraph.min.js"></script>
++  <script type="text/javascript">
++  const stacks = [/** @flamegraph_json **/];
++  // Note, options is unused.
++  const options = [/** @options_json **/];
 +
-+softirq_vecs = {
-+    0: "HI_SOFTIRQ",
-+    1: "TIMER_SOFTIRQ",
-+    2: "NET_TX_SOFTIRQ",
-+    3: "NET_RX_SOFTIRQ",
-+    4: "BLOCK_SOFTIRQ",
-+    5: "IRQ_POLL_SOFTIRQ",
-+    6: "TASKLET_SOFTIRQ",
-+    7: "SCHED_SOFTIRQ",
-+    8: "HRTIMER_SOFTIRQ",
-+    9: "RCU_SOFTIRQ",
-+}
++  var chart = flamegraph();
++  d3.select("#chart")
++        .datum(stacks[0])
++        .call(chart);
++  </script>
++</body>
++"""
 +
-+def trace_begin() -> None:
-+    """Called at the start of trace processing."""
-+    print("trace_begin")
++class Node:
++    """A node in the flame graph tree."""
++    def __init__(self, name: str, libtype: str):
++        self.name = name
++        self.libtype = libtype
++        self.value: int = 0
++        self.children: dict[str, Node] = {}
 +
-+def trace_end() -> None:
-+    """Called at the end of trace processing."""
-+    print_unhandled()
++    def to_json(self) -> Dict[str, Union[str, int, list[Dict]]]:
++        """Convert the node to a JSON-serializable dictionary."""
++        return {
++            "n": self.name,
++            "l": self.libtype,
++            "v": self.value,
++            "c": [x.to_json() for x in self.children.values()]
++        }
 +
-+def symbol_str(event_name: str, field_name: str, value: int) -> str:
-+    """Resolves symbol values to strings."""
-+    if event_name == "irq__softirq_entry" and field_name == "vec":
-+        return softirq_vecs.get(value, str(value))
-+    return str(value)
 +
-+def flag_str(event_name: str, field_name: str, value: int) -> str:
-+    """Resolves flag values to strings."""
-+    if event_name == "kmem__kmalloc" and field_name == "gfp_flags":
-+        return f"0x{value:x}"
-+    return str(value)
++class FlameGraphCLI:
++    """Command-line interface for generating flame graphs."""
++    def __init__(self, args):
++        self.args = args
++        self.stack = Node("all", "root")
++        self.session = None
 +
-+def print_header(event_name: str, sample: perf.sample_event) -> None:
-+    """Prints common header for events."""
-+    secs = sample.sample_time // 1000000000
-+    nsecs = sample.sample_time % 1000000000
-+    comm = session.find_thread(sample.sample_pid).comm() if session else "[unknown]"
-+    print(f"{event_name:<20} {sample.sample_cpu:5} {secs:05}.{nsecs:09} "
-+          f"{sample.sample_pid:8} {comm:<20} ", end=' ')
++    @staticmethod
++    def get_libtype_from_dso(dso: Optional[str]) -> str:
++        """Determine the library type from the DSO name."""
++        if dso and (dso == "[kernel.kallsyms]" or dso.endswith("/vmlinux") or dso == "[kernel]"):
++            return "kernel"
++        return ""
 +
-+def print_uncommon(sample: perf.sample_event) -> None:
-+    """Prints uncommon fields for tracepoints."""
-+    # Fallback to 0 if field not found (e.g. on older kernels or if not tracepoint)
-+    pc = getattr(sample, "common_preempt_count", 0)
-+    flags = getattr(sample, "common_flags", 0)
-+    lock_depth = getattr(sample, "common_lock_depth", 0)
++    @staticmethod
++    def find_or_create_node(node: Node, name: str, libtype: str) -> Node:
++        """Find a child node with the given name or create a new one."""
++        if name in node.children:
++            return node.children[name]
++        child = Node(name, libtype)
++        node.children[name] = child
++        return child
 +
-+    print(f"common_preempt_count={pc}, common_flags={flags}, "
-+          f"common_lock_depth={lock_depth}, ")
++    def process_event(self, sample) -> None:
++        """Process a single perf sample event."""
++        if self.args.event_name and self.args.event_name not in str(sample.evsel):
++            return
 +
-+def irq__softirq_entry(sample: perf.sample_event) -> None:
-+    """Handles irq:softirq_entry events."""
-+    print_header("irq__softirq_entry", sample)
-+    print_uncommon(sample)
-+    print(f"vec={symbol_str('irq__softirq_entry', 'vec', sample.vec)}")
++        pid = sample.sample_pid
++        dso_type = ""
++        try:
++            thread = self.session.find_thread(sample.sample_tid)
++            comm = thread.comm()
++        except Exception:
++            comm = "[unknown]"
 +
-+def kmem__kmalloc(sample: perf.sample_event) -> None:
-+    """Handles kmem:kmalloc events."""
-+    print_header("kmem__kmalloc", sample)
-+    print_uncommon(sample)
++        if pid == 0:
++            comm = "swapper"
++            dso_type = "kernel"
++        else:
++            comm = f"{comm} ({pid})"
 +
-+    print(f"call_site={sample.call_site:d}, ptr={sample.ptr:d}, "
-+          f"bytes_req={sample.bytes_req:d}, bytes_alloc={sample.bytes_alloc:d}, "
-+          f"gfp_flags={flag_str('kmem__kmalloc', 'gfp_flags', sample.gfp_flags)}")
++        node = self.find_or_create_node(self.stack, comm, dso_type)
 +
-+def trace_unhandled(event_name: str) -> None:
-+    """Tracks unhandled events."""
-+    unhandled[event_name] += 1
++        callchain = sample.callchain
++        if callchain:
++            # We want to traverse from root to leaf.
++            # perf callchain iterator gives leaf to root.
++            # We collect them and reverse.
++            frames = list(callchain)
++            for entry in reversed(frames):
++                name = entry.symbol or "[unknown]"
++                libtype = self.get_libtype_from_dso(entry.dso)
++                node = self.find_or_create_node(node, name, libtype)
++        else:
++            # Fallback if no callchain
++            name = getattr(sample, "symbol", "[unknown]")
++            libtype = self.get_libtype_from_dso(getattr(sample, "dso", "[unknown]"))
++            node = self.find_or_create_node(node, name, libtype)
 +
-+def print_unhandled() -> None:
-+    """Prints summary of unhandled events."""
-+    if not unhandled:
-+        return
-+    print("\nunhandled events:\n")
-+    print(f"{'event':<40} {'count':>10}")
-+    print("---------------------------------------- -----------")
-+    for event_name, count in unhandled.items():
-+        print(f"{event_name:<40} {count:10}")
++        node.value += 1
 +
-+def process_event(sample: perf.sample_event) -> None:
-+    """Callback for processing events."""
-+    event_name = str(sample.evsel)
-+    if event_name == "evsel(irq:softirq_entry)":
-+        irq__softirq_entry(sample)
-+    elif "evsel(kmem:kmalloc)" in event_name:
-+        kmem__kmalloc(sample)
-+    else:
-+        trace_unhandled(event_name)
++    def get_report_header(self) -> str:
++        """Get the header from the perf report."""
++        try:
++            input_file = self.args.input or "perf.data"
++            output = subprocess.check_output(["perf", "report", "--header-only", "-i", input_file])
++            result = output.decode("utf-8")
++            if self.args.event_name:
++                result += "\nFocused event: " + self.args.event_name
++            return result
++        except Exception:
++            return ""
++
++    def run(self) -> None:
++        """Run the flame graph generation."""
++        input_file = self.args.input or "perf.data"
++        if not os.path.exists(input_file):
++            print(f"Error: {input_file} not found. (try 'perf record' first)", file=sys.stderr)
++            sys.exit(1)
++
++        try:
++            self.session = perf.session(perf.data(input_file),
++                                        sample=self.process_event)
++        except Exception as e:
++            print(f"Error opening session: {e}", file=sys.stderr)
++            sys.exit(1)
++
++        self.session.process_events()
++
++        stacks_json = json.dumps(self.stack, default=lambda x: x.to_json())
++        # Escape HTML special characters to prevent XSS
++        stacks_json = stacks_json.replace("<", "\\u003c") \
++            .replace(">", "\\u003e").replace("&", "\\u0026")
++
++        if self.args.format == "html":
++            report_header = self.get_report_header()
++            options = {
++                "colorscheme": self.args.colorscheme,
++                "context": report_header
++            }
++            options_json = json.dumps(options)
++            options_json = options_json.replace("<", "\\u003c") \
++                .replace(">", "\\u003e").replace("&", "\\u0026")
++
++            template = self.args.template
++            template_md5sum = None
++            output_str = None
++
++            if not os.path.isfile(template):
++                if template.startswith("http://") or template.startswith("https://"):
++                    if not self.args.allow_download:
++                        print("Warning: Downloading templates is disabled. "
++                              "Use --allow-download.", file=sys.stderr)
++                        template = None
++                else:
++                    print(f"Warning: Template file '{template}' not found.", file=sys.stderr)
++                    if self.args.allow_download:
++                        print("Using default CDN template.", file=sys.stderr)
++                        template = (
++                            "https://cdn.jsdelivr.net/npm/d3-flame-graph@4.1.3/dist/templates/"
++                            "d3-flamegraph-base.html"
++                        )
++                        template_md5sum = "143e0d06ba69b8370b9848dcd6ae3f36"
++                    else:
++                        template = None
++
++            use_minimal = False
++            try:
++                if not template:
++                    use_minimal = True
++                elif template.startswith("http"):
++                    with urllib.request.urlopen(template) as url_template:
++                        output_str = "".join([l.decode("utf-8") for l in url_template.readlines()])
++                else:
++                    with open(template, "r", encoding="utf-8") as f:
++                        output_str = f.read()
++            except Exception as err:
++                print(f"Error reading template {template}: {err}\n", file=sys.stderr)
++                use_minimal = True
++
++            if use_minimal:
++                print("Using internal minimal HTML that refers to d3's web site. JavaScript " +
++                      "loaded this way from a local file may be blocked unless your " +
++                      "browser has relaxed permissions. Run with '--allow-download' to fetch" +
++                      "the full D3 HTML template.", file=sys.stderr)
++                output_str = MINIMAL_HTML
++
++            elif template_md5sum:
++                assert output_str is not None
++                download_md5sum = hashlib.md5(output_str.encode("utf-8")).hexdigest()
++                if download_md5sum != template_md5sum:
++                    s = None
++                    while s not in ["y", "n"]:
++                        s = input(f"""Unexpected template md5sum.
++{download_md5sum} != {template_md5sum}, for:
++{template}
++continue?[yn] """).lower()
++                    if s == "n":
++                        sys.exit(1)
++
++            assert output_str is not None
++            output_str = output_str.replace("/** @options_json **/", options_json)
++            output_str = output_str.replace("/** @flamegraph_json **/", stacks_json)
++            output_fn = self.args.output or "flamegraph.html"
++        else:
++            output_str = stacks_json
++            output_fn = self.args.output or "stacks.json"
++
++        if output_fn == "-":
++            sys.stdout.write(output_str)
++        else:
++            print(f"dumping data to {output_fn}")
++            with open(output_fn, "w", encoding="utf-8") as out:
++                out.write(output_str)
++
 +
 +if __name__ == "__main__":
-+    ap = argparse.ArgumentParser()
-+    ap.add_argument("-i", "--input", default="perf.data", help="Input file name")
-+    args = ap.parse_args()
++    parser = argparse.ArgumentParser(description="Create flame graphs using perf python module.")
++    parser.add_argument("-f", "--format", default="html", choices=["json", "html"],
++                        help="output file format")
++    parser.add_argument("-o", "--output", help="output file name")
++    parser.add_argument("--template",
++                        default="/usr/share/d3-flame-graph/d3-flamegraph-base.html",
++                        help="path to flame graph HTML template")
++    parser.add_argument("--colorscheme", default="blue-green",
++                        help="flame graph color scheme", choices=["blue-green", "orange"])
++    parser.add_argument("-i", "--input", help="input perf.data file")
++    parser.add_argument("--allow-download", default=False, action="store_true",
++                        help="allow unprompted downloading of HTML template")
++    parser.add_argument("-e", "--event", default="", dest="event_name", type=str,
++                        help="specify the event to generate flamegraph for")
 +
-+    trace_begin()
-+    session = perf.session(perf.data(args.input), sample=process_event)
-+    session.process_events()
-+    trace_end()
++    cli_args = parser.parse_args()
++    cli = FlameGraphCLI(cli_args)
++    cli.run()
 -- 
 2.54.0.545.g6539524ca2-goog
 
