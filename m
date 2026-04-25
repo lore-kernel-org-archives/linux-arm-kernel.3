@@ -4,68 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90668FF885C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 17:51:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07BBBFF8860
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 17:51:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=efNil+PNmmmvTcZKEec15sBNEnsydHEhEYd+ZnlvuZ8=; b=0tWZXpCHpLNCQKriph6/XRFAUp
-	cf+wTF8lYjocrqv8uchXv9VM4reC0A/moYW9jyEltO/tSVums2nza3YLuMiw9RcFBzvJ31Zzf8eOB
-	jAZD3Kl0Pa1gII81bMITewnXOuf3bdVns3bGqzyVW78H52YAn2YUzCYkj0ScsHYy7x9Y3sY+UYbJk
-	V4bC38bJ88eYPUkxEu3O3/RdCmhI4aaGMmUWlZuyDjPGpPeIo1fShw9yuEsCCKH7IihB9EM+bhvbD
-	pap4kWz/sZLCR3m+iwdgLbJrv7OaA6DH4yITWvAUH1jVjz4YR7Zgg6AT+4zXkGiPgX/c4+kz4RPek
-	o2YaKS0Q==;
+	bh=cF1Joyi8qfkVdlOn+yMtqrXIVsPBBbn9slQYje9uqkM=; b=TDXgEGDlGY4oVlOtGgU/vmR99n
+	zzZIaYWCq2dKLxxjXK6cgs/2MQRPSoc6mOiI1ZVVcbrm9Yl7aJKhOs8N3Cz3KfuWU1Djpl44vzjmx
+	i2y0TXSIZiy0O9StfIRojCB9BC60IJeAUnfK4n+ATC68zrKZTyxHDq5NIHG5xsx7T9EhEArqqDbJh
+	/axViGRIMo5Zpyy+484vByRBd6RPEOa8Rbsx0i/x8Xz9SusUE2burpB1BPraHiywe64s4/btnuwkw
+	3iqOORHS7y90BSLY7R2sRuxSW6p58PgmAhwwmtE+uQcnpzTNtG07Up2hMG6OXhnmrc3q0wC9q65KR
+	VT0UfJpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGh9h-0000000EeAc-3kt8;
-	Sat, 25 Apr 2026 17:51:01 +0000
-Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
+	id 1wGh9i-0000000EeBS-32NO;
+	Sat, 25 Apr 2026 17:51:02 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGh8l-0000000Ed2B-1GoX
+	id 1wGh8z-0000000EdIg-1ejy
+	for linux-arm-kernel@bombadil.infradead.org;
+	Sat, 25 Apr 2026 17:50:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=cF1Joyi8qfkVdlOn+yMtqrXIVsPBBbn9slQYje9uqkM=; b=O/fXvBEfM6tghrAoakzth4UhTu
+	Oq06Blai+ofG3eDwLVjMFxdEdq6oStcwZOEYgrvz4L7BRfkXyG0NQFXdzFV1ZwF+dDUsCqXzZzknm
+	s1ruVSN/MbZdo6NLnTpCYFIrLVCmp5MQL1cJFxDpEhZa3Nhn9QR/rzh4ovfhsbpwy+fYHTuc05yw4
+	TgauKglPmDxX3IJ0SQjRWbNulOWMq1uV1qfCxkfi9iV0v3v2BP1RTSMzS59gjbobqgQ06dSZPODq2
+	hBg6AruP+EWTkqL8il2IxgxamPKUsSoS6sP3IyvIuwpvB3CLCyYxZ21mA8bIjg2wk6uGsVOpiurIQ
+	Sm21pv0g==;
+Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wGh8v-0000000G8ad-2KKN
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Apr 2026 17:50:16 +0000
-Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2ba8013a9e3so10250161eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 10:50:02 -0700 (PDT)
+	Sat, 25 Apr 2026 17:50:15 +0000
+Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2b81ff82e3cso5574979eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 10:50:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777139402; x=1777744202; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777139412; x=1777744212; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=efNil+PNmmmvTcZKEec15sBNEnsydHEhEYd+ZnlvuZ8=;
-        b=wltG7B+R2GIXxLcZEgO2Ql8Y+DM4RpWNXyt56HiWdpblIAXhegbbfYCrwgsjE9Yb9f
-         en/8kduxOCtgJJqm83jg7mKkQJxY2JffDibTgcrJRMzwBf8Hi8fagph5+jbjpGL2GUjl
-         pbod0qgdWCnGxIbjRn7PGDOb42Jm2jr3jAzvftxli4h+pPSogHuvtsW16EsIfyJS2KVL
-         ndfX2DCaHelRarOTOBJeDMLecBL9WlbzPMJssy4UlRHwt5ccO+d1psmGPDJV0iPKNk0D
-         sle+5iYshqfcJMhLfZjrta10nn94rrB0tsaxWzpmd8apvPVdl0f+3w8/oql5Daufls+9
-         JyLw==
+        bh=cF1Joyi8qfkVdlOn+yMtqrXIVsPBBbn9slQYje9uqkM=;
+        b=jFTs4GwdIygkC+nFpbcWDi/kbxGQvnlZ17nFb8kudEOfAoSoswfhZE8vGDw8PialBl
+         BLzky5NErIBbFzmrFeGRNuawcnnNozj5xQTQL/dPbg2FYigxghGwUoxhggageKG51FVS
+         ajXvP8z/SRRWGLwgBGDK8bHcAL59/mhY4aHqZquFwMxGGnj+rm0IMhgg33wsoT3t9gKu
+         pdbA34Nar7+IF8XhtGENiVIj8TjEe1MMZddpphuCJQEZU8aozdSoIuM8Ai2J0wPJwcoS
+         JFfgBVVP6wp3xXqYfjDZTsnYvPr8I6+O7X9ZSVfWPm9oCxcv60hKA5sxtaOyoMz0olDE
+         6NLA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777139402; x=1777744202;
+        d=1e100.net; s=20251104; t=1777139412; x=1777744212;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=efNil+PNmmmvTcZKEec15sBNEnsydHEhEYd+ZnlvuZ8=;
-        b=BbaMQ4uHmjt7xoKc7qVB4tNpRE0d2gYXYZ3zeipO9zr0WBQvnvI13I0tRpqvPUdw9h
-         8RtmEaoG9HCAg7DlWwNcIq04yoviYobwojwimqSR3lXTcNSQMdXh9RiClcp5eaAuFCYP
-         Jp7vlvNAGPzNj0tITLW6oDUVSgGcG8y8rOc6O0ZDc+S8q3Xh9mwPqX1+qMTTwHP4pa5O
-         JA0XToyDLi3DJQO7GffaEL8p8m2faVKcinz32SWHlWHzGTFow0TSpsLe3o/7wIv+n+je
-         jofKDRAu8eAf4xUihYA5FTBcR/c2Ze6vzQOfob9Yu6rG06MpJC3swTzPFSk8OvdyzqDr
-         5vSA==
-X-Forwarded-Encrypted: i=1; AFNElJ+yL5dVsv2gnGoGdu8r4NMOEADGpLA6n6e8XwKBSt+St7Q0Xqc2OMM/xEI5ulTAStqaFfGllPuKCL5lwOjXY3Ax@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw9IwaaDFHkZImjQABtjOfiiXjneBTFlVnKVkyTNiubyTmNxy40
-	Tz1YuzNwzgZFGBPeGHMhRxCmsRx2SO0YE3CoKuMlPHDQWjEn62jRm3YsoHfwNJ0Osd7ut7KQLsk
-	Cl8O4trqbNg==
-X-Received: from dybfe3.prod.google.com ([2002:a05:7300:bf83:b0:2e6:1dc6:691e])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:fd81:b0:2be:80c4:2c8c
- with SMTP id 5a478bee46e88-2eada6d6576mr2831067eec.8.1777139401495; Sat, 25
- Apr 2026 10:50:01 -0700 (PDT)
-Date: Sat, 25 Apr 2026 10:48:28 -0700
+        bh=cF1Joyi8qfkVdlOn+yMtqrXIVsPBBbn9slQYje9uqkM=;
+        b=tFmZb3Iwn8fScf0i+vpuQtbLiyErHCFRdpb7nCzFoT+HqcBADBnw34yL+OsHazbZt6
+         q9/GmHXxeQf+ccamqHn6MwLo6LS1uXjYQGvf0EOxLqVKJQ/pnMmbSfRwG+k619wBCIak
+         ZP/f4bHJ8w/0hhwLdH22bn4xktuz6vV7JG/3x1gVYA+2DlGk0XXqXtsPAKe5sfjlBqgP
+         rG/O6qPCF/DZdabIAZYB7m3YLCz3N8ga890LiXgmgtF26YmhcwMrOQpsURz4VihY5utZ
+         c/SP9jk1NTi3o5ZjNrriCitcfuiCw2UPn1B0nJUA33SJX2dygDFKC1gx0MsqKvttlzY5
+         yCnQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9mv3PY3qPzzHLeuk0iWVfBpglgXiMq3kG1CcYJHrEEwTQ7/zYMBwFpFhcADomgdCsTUQm9NYgBsSLxPBDh5bqo@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx5oWxUR2ZaaDZLWv91QSpAx9u1lxIvHqFQZ3pxHaG1T5h+70xB
+	FAk78cWHNEw2tDGY89T9oXRsVJ4u9Z0IGL2igd4Kq1pmNHfPg+zrLsyv8srPDavtmNc/3IBGBBH
+	RFFL8C9IyWg==
+X-Received: from dybml37.prod.google.com ([2002:a05:7301:1525:b0:2db:47a8:4b3c])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:2385:b0:12c:aae:7b43
+ with SMTP id a92af1059eb24-12c73b5af08mr14766237c88.24.1777139411350; Sat, 25
+ Apr 2026 10:50:11 -0700 (PDT)
+Date: Sat, 25 Apr 2026 10:48:33 -0700
 In-Reply-To: <20260425174858.3922152-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260424164721.2229025-1-irogers@google.com> <20260425174858.3922152-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260425174858.3922152-31-irogers@google.com>
-Subject: [PATCH v6 30/59] perf flamegraph: Port flamegraph to use python module
+Message-ID: <20260425174858.3922152-36-irogers@google.com>
+Subject: [PATCH v6 35/59] perf event_analyzing_sample: Port
+ event_analyzing_sample to use python module
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org, 
 	leo.yan@linux.dev, namhyung@kernel.org, tmricht@linux.ibm.com
@@ -75,8 +91,8 @@ Cc: alice.mei.rogers@gmail.com, dapeng1.mi@linux.intel.com,
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260425_105003_569330_6822F467 
-X-CRM114-Status: GOOD (  19.55  )
+X-CRM114-CacheID: sfid-20260425_185013_923141_59313496 
+X-CRM114-Status: GOOD (  25.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,282 +107,337 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a port of the flamegraph script that uses the perf python module
-directly. This approach improves performance by avoiding intermediate
-dictionaries for event fields.
+Add a port of the event_analyzing_sample script that uses the perf
+python module directly. This approach is significantly faster than
+using perf script callbacks as it avoids creating intermediate
+dictionaries for all event fields.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
-v5:
-1. Fix Event Filtering: Corrected event filtering check to search for a
-   substring match within the parsed event string, preventing all events
-   from being dropped due to the `evsel(...)` wrapper.
+v2:
+
+1. Dynamic Database Path: Moved DB_PATH to a command-line argument (
+  -d / --database ) that defaults to "perf.db" .
+
+2. Security: Avoided using /dev/shm by default to prevent symlink
+   attacks, while retaining the performance suggestion in the help
+   text.
+
+3. Corrected Closure Call: Fixed the bug where it was trying to call
+   .filter() on a closure.
 
 v6:
-- Fixed terminal injection risk by not printing unverified content in
-  prompt.
+- Fixed performance issue by removing autocommit mode in SQLite and
+  batching commits.
 ---
- tools/perf/python/flamegraph.py | 250 ++++++++++++++++++++++++++++++++
- 1 file changed, 250 insertions(+)
- create mode 100755 tools/perf/python/flamegraph.py
+ tools/perf/python/event_analyzing_sample.py | 297 ++++++++++++++++++++
+ 1 file changed, 297 insertions(+)
+ create mode 100755 tools/perf/python/event_analyzing_sample.py
 
-diff --git a/tools/perf/python/flamegraph.py b/tools/perf/python/flamegraph.py
+diff --git a/tools/perf/python/event_analyzing_sample.py b/tools/perf/python/event_analyzing_sample.py
 new file mode 100755
-index 000000000000..b0eb5844b772
+index 000000000000..2132db7f0e56
 --- /dev/null
-+++ b/tools/perf/python/flamegraph.py
-@@ -0,0 +1,250 @@
++++ b/tools/perf/python/event_analyzing_sample.py
+@@ -0,0 +1,297 @@
 +#!/usr/bin/env python3
 +# SPDX-License-Identifier: GPL-2.0
 +"""
-+flamegraph.py - create flame graphs from perf samples using perf python module
++General event handler in Python, using SQLite to analyze events.
++
++The 2 database related functions in this script just show how to gather
++the basic information, and users can modify and write their own functions
++according to their specific requirement.
++
++The first function "show_general_events" just does a basic grouping for all
++generic events with the help of sqlite, and the 2nd one "show_pebs_ll" is
++for a x86 HW PMU event: PEBS with load latency data.
++
++Ported from tools/perf/scripts/python/event_analyzing_sample.py
 +"""
 +
 +import argparse
-+import hashlib
-+import json
-+import os
-+import subprocess
-+import sys
-+import urllib.request
-+from typing import Dict, Optional, Union
++import math
++import sqlite3
++import struct
++from typing import Any
 +import perf
 +
-+MINIMAL_HTML = """<head>
-+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/d3-flame-graph@4.1.3/dist/d3-flamegraph.css">
-+</head>
-+<body>
-+  <div id="chart"></div>
-+  <script type="text/javascript" src="https://d3js.org/d3.v7.js"></script>
-+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/d3-flame-graph@4.1.3/dist/d3-flamegraph.min.js"></script>
-+  <script type="text/javascript">
-+  const stacks = [/** @flamegraph_json **/];
-+  // Note, options is unused.
-+  const options = [/** @options_json **/];
++# Event types, user could add more here
++EVTYPE_GENERIC  = 0
++EVTYPE_PEBS     = 1     # Basic PEBS event
++EVTYPE_PEBS_LL  = 2     # PEBS event with load latency info
++EVTYPE_IBS      = 3
 +
-+  var chart = flamegraph();
-+  d3.select("#chart")
-+        .datum(stacks[0])
-+        .call(chart);
-+  </script>
-+</body>
-+"""
++#
++# Currently we don't have good way to tell the event type, but by
++# the size of raw buffer, raw PEBS event with load latency data's
++# size is 176 bytes, while the pure PEBS event's size is 144 bytes.
++#
++def create_event(name, comm, dso, symbol, raw_buf):
++    """Create an event object based on raw buffer size."""
++    if len(raw_buf) == 144:
++        event = PebsEvent(name, comm, dso, symbol, raw_buf)
++    elif len(raw_buf) == 176:
++        event = PebsNHM(name, comm, dso, symbol, raw_buf)
++    else:
++        event = PerfEvent(name, comm, dso, symbol, raw_buf)
 +
-+class Node:
-+    """A node in the flame graph tree."""
-+    def __init__(self, name: str, libtype: str):
-+        self.name = name
-+        self.libtype = libtype
-+        self.value: int = 0
-+        self.children: dict[str, Node] = {}
++    return event
 +
-+    def to_json(self) -> Dict[str, Union[str, int, list[Dict]]]:
-+        """Convert the node to a JSON-serializable dictionary."""
-+        return {
-+            "n": self.name,
-+            "l": self.libtype,
-+            "v": self.value,
-+            "c": [x.to_json() for x in self.children.values()]
-+        }
++class PerfEvent:
++    """Base class for all perf event samples."""
++    event_num = 0
++    def __init__(self, name, comm, dso, symbol, raw_buf, ev_type=EVTYPE_GENERIC):
++        self.name       = name
++        self.comm       = comm
++        self.dso        = dso
++        self.symbol     = symbol
++        self.raw_buf    = raw_buf
++        self.ev_type    = ev_type
++        PerfEvent.event_num += 1
 +
++    def show(self):
++        """Display PMU event info."""
++        print(f"PMU event: name={self.name:12s}, symbol={self.symbol:24s}, "
++              f"comm={self.comm:8s}, dso={self.dso:12s}")
 +
-+class FlameGraphCLI:
-+    """Command-line interface for generating flame graphs."""
-+    def __init__(self, args):
-+        self.args = args
-+        self.stack = Node("all", "root")
-+        self.session = None
++#
++# Basic Intel PEBS (Precise Event-based Sampling) event, whose raw buffer
++# contains the context info when that event happened: the EFLAGS and
++# linear IP info, as well as all the registers.
++#
++class PebsEvent(PerfEvent):
++    """Intel PEBS event."""
++    pebs_num = 0
++    def __init__(self, name, comm, dso, symbol, raw_buf, ev_type=EVTYPE_PEBS):
++        tmp_buf = raw_buf[0:80]
++        flags, ip, ax, bx, cx, dx, si, di, bp, sp = struct.unpack('QQQQQQQQQQ', tmp_buf)
++        self.flags = flags
++        self.ip    = ip
++        self.ax    = ax
++        self.bx    = bx
++        self.cx    = cx
++        self.dx    = dx
++        self.si    = si
++        self.di    = di
++        self.bp    = bp
++        self.sp    = sp
 +
-+    @staticmethod
-+    def get_libtype_from_dso(dso: Optional[str]) -> str:
-+        """Determine the library type from the DSO name."""
-+        if dso and (dso == "[kernel.kallsyms]" or dso.endswith("/vmlinux") or dso == "[kernel]"):
-+            return "kernel"
++        super().__init__(name, comm, dso, symbol, raw_buf, ev_type)
++        PebsEvent.pebs_num += 1
++        del tmp_buf
++
++#
++# Intel Nehalem and Westmere support PEBS plus Load Latency info which lie
++# in the four 64 bit words write after the PEBS data:
++#       Status: records the IA32_PERF_GLOBAL_STATUS register value
++#       DLA:    Data Linear Address (EIP)
++#       DSE:    Data Source Encoding, where the latency happens, hit or miss
++#               in L1/L2/L3 or IO operations
++#       LAT:    the actual latency in cycles
++#
++class PebsNHM(PebsEvent):
++    """Intel Nehalem/Westmere PEBS event with load latency."""
++    pebs_nhm_num = 0
++    def __init__(self, name, comm, dso, symbol, raw_buf, ev_type=EVTYPE_PEBS_LL):
++        tmp_buf = raw_buf[144:176]
++        status, dla, dse, lat = struct.unpack('QQQQ', tmp_buf)
++        self.status = status
++        self.dla = dla
++        self.dse = dse
++        self.lat = lat
++
++        super().__init__(name, comm, dso, symbol, raw_buf, ev_type)
++        PebsNHM.pebs_nhm_num += 1
++        del tmp_buf
++
++session: Any = None
++
++con = None
++
++def trace_begin(db_path: str) -> None:
++    """Initialize database tables."""
++    print("In trace_begin:\n")
++    global con
++    con = sqlite3.connect(db_path)
++    assert con is not None
++
++    # Will create several tables at the start, pebs_ll is for PEBS data with
++    # load latency info, while gen_events is for general event.
++    con.execute("""
++        create table if not exists gen_events (
++                name text,
++                symbol text,
++                comm text,
++                dso text
++        );""")
++    con.execute("""
++        create table if not exists pebs_ll (
++                name text,
++                symbol text,
++                comm text,
++                dso text,
++                flags integer,
++                ip integer,
++                status integer,
++                dse integer,
++                dla integer,
++                lat integer
++        );""")
++
++def insert_db(event: Any) -> None:
++    """Insert event into database."""
++    assert con is not None
++    if event.ev_type == EVTYPE_GENERIC:
++        con.execute("insert into gen_events values(?, ?, ?, ?)",
++                    (event.name, event.symbol, event.comm, event.dso))
++    elif event.ev_type == EVTYPE_PEBS_LL:
++        event.ip &= 0x7fffffffffffffff
++        event.dla &= 0x7fffffffffffffff
++        con.execute("insert into pebs_ll values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
++                    (event.name, event.symbol, event.comm, event.dso, event.flags,
++                     event.ip, event.status, event.dse, event.dla, event.lat))
++
++def process_event(sample: perf.sample_event) -> None:
++    """Callback for processing events."""
++    # Create and insert event object to a database so that user could
++    # do more analysis with simple database commands.
++
++    # Resolve comm, symbol, dso
++    comm = "Unknown_comm"
++    try:
++        if session is not None:
++            # FIXME: session.find_thread() only takes one argument and uses it as both
++            # PID and TID in C. This means it only resolves main threads correctly.
++            # Sub-threads will get the main thread's comm.
++            proc = session.find_thread(sample.sample_pid)
++            if proc:
++                comm = proc.comm()
++    except TypeError:
++        pass
++
++    # Symbol and dso info are not always resolved
++    dso = sample.dso if hasattr(sample, 'dso') and sample.dso else "Unknown_dso"
++    symbol = sample.symbol if hasattr(sample, 'symbol') and sample.symbol else "Unknown_symbol"
++    name = str(sample.evsel)
++    if name.startswith("evsel("):
++        name = name[6:-1]
++
++    # Create the event object and insert it to the right table in database
++    try:
++        event = create_event(name, comm, dso, symbol, sample.raw_buf)
++        insert_db(event)
++    except (sqlite3.Error, ValueError, TypeError) as e:
++        print(f"Error creating/inserting event: {e}")
++
++def num2sym(num: int) -> str:
++    """Convert number to a histogram symbol (log2)."""
++    # As the event number may be very big, so we can't use linear way
++    # to show the histogram in real number, but use a log2 algorithm.
++    if num <= 0:
 +        return ""
++    snum = '#' * (int(math.log(num, 2)) + 1)
++    return snum
 +
-+    @staticmethod
-+    def find_or_create_node(node: Node, name: str, libtype: str) -> Node:
-+        """Find a child node with the given name or create a new one."""
-+        if name in node.children:
-+            return node.children[name]
-+        child = Node(name, libtype)
-+        node.children[name] = child
-+        return child
-+
-+    def process_event(self, sample) -> None:
-+        """Process a single perf sample event."""
-+        if self.args.event_name and self.args.event_name not in str(sample.evsel):
++def show_general_events() -> None:
++    """Display statistics for general events."""
++    assert con is not None
++    count = con.execute("select count(*) from gen_events")
++    for t in count:
++        print(f"There is {t[0]} records in gen_events table")
++        if t[0] == 0:
 +            return
 +
-+        pid = sample.sample_pid
-+        dso_type = ""
-+        try:
-+            thread = self.session.find_thread(sample.sample_tid)
-+            comm = thread.comm()
-+        except Exception:
-+            comm = "[unknown]"
++    print("Statistics about the general events grouped by thread/symbol/dso: \n")
 +
-+        if pid == 0:
-+            comm = "swapper"
-+            dso_type = "kernel"
-+        else:
-+            comm = f"{comm} ({pid})"
++    # Group by thread
++    commq = con.execute("""
++        select comm, count(comm) from gen_events
++        group by comm order by -count(comm)
++    """)
++    print(f"\n{ 'comm':>16} {'number':>8} {'histogram':>16}\n{'='*42}")
++    for row in commq:
++        print(f"{row[0]:>16} {row[1]:>8}     {num2sym(row[1])}")
 +
-+        node = self.find_or_create_node(self.stack, comm, dso_type)
++    # Group by symbol
++    print(f"\n{'symbol':>32} {'number':>8} {'histogram':>16}\n{'='*58}")
++    symbolq = con.execute("""
++        select symbol, count(symbol) from gen_events
++        group by symbol order by -count(symbol)
++    """)
++    for row in symbolq:
++        print(f"{row[0]:>32} {row[1]:>8}     {num2sym(row[1])}")
 +
-+        callchain = sample.callchain
-+        if callchain:
-+            # We want to traverse from root to leaf.
-+            # perf callchain iterator gives leaf to root.
-+            # We collect them and reverse.
-+            frames = list(callchain)
-+            for entry in reversed(frames):
-+                name = entry.symbol or "[unknown]"
-+                libtype = self.get_libtype_from_dso(entry.dso)
-+                node = self.find_or_create_node(node, name, libtype)
-+        else:
-+            # Fallback if no callchain
-+            name = getattr(sample, "symbol", "[unknown]")
-+            libtype = self.get_libtype_from_dso(getattr(sample, "dso", "[unknown]"))
-+            node = self.find_or_create_node(node, name, libtype)
++    # Group by dso
++    print(f"\n{'dso':>40} {'number':>8} {'histogram':>16}\n{'='*74}")
++    dsoq = con.execute("select dso, count(dso) from gen_events group by dso order by -count(dso)")
++    for row in dsoq:
++        print(f"{row[0]:>40} {row[1]:>8}     {num2sym(row[1])}")
 +
-+        node.value += 1
++def show_pebs_ll() -> None:
++    """Display statistics for PEBS load latency events."""
++    assert con is not None
++    # This function just shows the basic info, and we could do more with the
++    # data in the tables, like checking the function parameters when some
++    # big latency events happen.
++    count = con.execute("select count(*) from pebs_ll")
++    for t in count:
++        print(f"There is {t[0]} records in pebs_ll table")
++        if t[0] == 0:
++            return
 +
-+    def get_report_header(self) -> str:
-+        """Get the header from the perf report."""
-+        try:
-+            input_file = self.args.input or "perf.data"
-+            output = subprocess.check_output(["perf", "report", "--header-only", "-i", input_file])
-+            result = output.decode("utf-8")
-+            if self.args.event_name:
-+                result += "\nFocused event: " + self.args.event_name
-+            return result
-+        except Exception:
-+            return ""
++    print("Statistics about the PEBS Load Latency events grouped by thread/symbol/dse/latency: \n")
 +
-+    def run(self) -> None:
-+        """Run the flame graph generation."""
-+        input_file = self.args.input or "perf.data"
-+        if not os.path.exists(input_file):
-+            print(f"Error: {input_file} not found. (try 'perf record' first)", file=sys.stderr)
-+            sys.exit(1)
++    # Group by thread
++    commq = con.execute("select comm, count(comm) from pebs_ll group by comm order by -count(comm)")
++    print(f"\n{'comm':>16} {'number':>8} {'histogram':>16}\n{'='*42}")
++    for row in commq:
++        print(f"{row[0]:>16} {row[1]:>8}     {num2sym(row[1])}")
 +
-+        try:
-+            self.session = perf.session(perf.data(input_file),
-+                                        sample=self.process_event)
-+        except Exception as e:
-+            print(f"Error opening session: {e}", file=sys.stderr)
-+            sys.exit(1)
++    # Group by symbol
++    print(f"\n{'symbol':>32} {'number':>8} {'histogram':>16}\n{'='*58}")
++    symbolq = con.execute("""
++        select symbol, count(symbol) from pebs_ll
++        group by symbol order by -count(symbol)
++    """)
++    for row in symbolq:
++        print(f"{row[0]:>32} {row[1]:>8}     {num2sym(row[1])}")
 +
-+        self.session.process_events()
++    # Group by dse
++    dseq = con.execute("select dse, count(dse) from pebs_ll group by dse order by -count(dse)")
++    print(f"\n{'dse':>32} {'number':>8} {'histogram':>16}\n{'='*58}")
++    for row in dseq:
++        print(f"{row[0]:>32} {row[1]:>8}     {num2sym(row[1])}")
 +
-+        stacks_json = json.dumps(self.stack, default=lambda x: x.to_json())
-+        # Escape HTML special characters to prevent XSS
-+        stacks_json = stacks_json.replace("<", "\\u003c") \
-+            .replace(">", "\\u003e").replace("&", "\\u0026")
++    # Group by latency
++    latq = con.execute("select lat, count(lat) from pebs_ll group by lat order by lat")
++    print(f"\n{'latency':>32} {'number':>8} {'histogram':>16}\n{'='*58}")
++    for row in latq:
++        print(f"{str(row[0]):>32} {row[1]:>8}     {num2sym(row[1])}")
 +
-+        if self.args.format == "html":
-+            report_header = self.get_report_header()
-+            options = {
-+                "colorscheme": self.args.colorscheme,
-+                "context": report_header
-+            }
-+            options_json = json.dumps(options)
-+            options_json = options_json.replace("<", "\\u003c") \
-+                .replace(">", "\\u003e").replace("&", "\\u0026")
-+
-+            template = self.args.template
-+            template_md5sum = None
-+            output_str = None
-+
-+            if not os.path.isfile(template):
-+                if template.startswith("http://") or template.startswith("https://"):
-+                    if not self.args.allow_download:
-+                        print("Warning: Downloading templates is disabled. "
-+                              "Use --allow-download.", file=sys.stderr)
-+                        template = None
-+                else:
-+                    print(f"Warning: Template file '{template}' not found.", file=sys.stderr)
-+                    if self.args.allow_download:
-+                        print("Using default CDN template.", file=sys.stderr)
-+                        template = (
-+                            "https://cdn.jsdelivr.net/npm/d3-flame-graph@4.1.3/dist/templates/"
-+                            "d3-flamegraph-base.html"
-+                        )
-+                        template_md5sum = "143e0d06ba69b8370b9848dcd6ae3f36"
-+                    else:
-+                        template = None
-+
-+            use_minimal = False
-+            try:
-+                if not template:
-+                    use_minimal = True
-+                elif template.startswith("http"):
-+                    with urllib.request.urlopen(template) as url_template:
-+                        output_str = "".join([l.decode("utf-8") for l in url_template.readlines()])
-+                else:
-+                    with open(template, "r", encoding="utf-8") as f:
-+                        output_str = f.read()
-+            except Exception as err:
-+                print(f"Error reading template {template}: {err}\n", file=sys.stderr)
-+                use_minimal = True
-+
-+            if use_minimal:
-+                print("Using internal minimal HTML that refers to d3's web site. JavaScript " +
-+                      "loaded this way from a local file may be blocked unless your " +
-+                      "browser has relaxed permissions. Run with '--allow-download' to fetch" +
-+                      "the full D3 HTML template.", file=sys.stderr)
-+                output_str = MINIMAL_HTML
-+
-+            elif template_md5sum:
-+                assert output_str is not None
-+                download_md5sum = hashlib.md5(output_str.encode("utf-8")).hexdigest()
-+                if download_md5sum != template_md5sum:
-+                    s = None
-+                    while s not in ["y", "n"]:
-+                        s = input(f"""Unexpected template md5sum.
-+{download_md5sum} != {template_md5sum}, for:
-+{template}
-+continue?[yn] """).lower()
-+                    if s == "n":
-+                        sys.exit(1)
-+
-+            assert output_str is not None
-+            output_str = output_str.replace("/** @options_json **/", options_json)
-+            output_str = output_str.replace("/** @flamegraph_json **/", stacks_json)
-+            output_fn = self.args.output or "flamegraph.html"
-+        else:
-+            output_str = stacks_json
-+            output_fn = self.args.output or "stacks.json"
-+
-+        if output_fn == "-":
-+            sys.stdout.write(output_str)
-+        else:
-+            print(f"dumping data to {output_fn}")
-+            with open(output_fn, "w", encoding="utf-8") as out:
-+                out.write(output_str)
-+
++def trace_end() -> None:
++    """Called at the end of trace processing."""
++    print("In trace_end:\n")
++    if con:
++        con.commit()
++    show_general_events()
++    show_pebs_ll()
++    if con:
++        con.close()
 +
 +if __name__ == "__main__":
-+    parser = argparse.ArgumentParser(description="Create flame graphs using perf python module.")
-+    parser.add_argument("-f", "--format", default="html", choices=["json", "html"],
-+                        help="output file format")
-+    parser.add_argument("-o", "--output", help="output file name")
-+    parser.add_argument("--template",
-+                        default="/usr/share/d3-flame-graph/d3-flamegraph-base.html",
-+                        help="path to flame graph HTML template")
-+    parser.add_argument("--colorscheme", default="blue-green",
-+                        help="flame graph color scheme", choices=["blue-green", "orange"])
-+    parser.add_argument("-i", "--input", help="input perf.data file")
-+    parser.add_argument("--allow-download", default=False, action="store_true",
-+                        help="allow unprompted downloading of HTML template")
-+    parser.add_argument("-e", "--event", default="", dest="event_name", type=str,
-+                        help="specify the event to generate flamegraph for")
++    ap = argparse.ArgumentParser(description="Analyze events with SQLite")
++    ap.add_argument("-i", "--input", default="perf.data", help="Input file name")
++    ap.add_argument("-d", "--database", default="perf.db",
++                    help="Database file name (tip: use /dev/shm/perf.db for speedup)")
++    args = ap.parse_args()
 +
-+    cli_args = parser.parse_args()
-+    cli = FlameGraphCLI(cli_args)
-+    cli.run()
++    trace_begin(args.database)
++    session = perf.session(perf.data(args.input), sample=process_event)
++    session.process_events()
++    trace_end()
 -- 
 2.54.0.545.g6539524ca2-goog
 
