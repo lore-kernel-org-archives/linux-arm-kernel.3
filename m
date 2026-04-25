@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B29AFF8864
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:42:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08746FF885C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:42:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=22olXlLY2a/aW3iIRalXE3Od5F0yl9bqDC7eX7ett48=; b=Dosxw4jqAnRiQaT+XSr97e3iZI
-	cc6bu1Z0jAQZk1RlhnlXvQbJWhBmK2FKySG1dABtzYzE6EkRHHA3UkanpcgvQ5E0/Tx871gJ527HZ
-	VmI9pz8m84HBjLxq2mvy2fzRcU1JX2UFO7fka/xCuJ9UkrtZCDq/6ajCadaEZVqlJwCK0gZjaIt9a
-	oS9mGi+G1xDDYdU9qkYGGU4Rdv/wivdkwFIJnwJu+fWf57iUYTPTDBHr8dmU9k9DvkvC7ex/0sclP
-	dhNP2/qy1BIRh7jKvUcjLhq7xRhwqF2TFC6Vv17FVIcDlE0715BME2o7V5cv+kBjTL1GoMq4Y5eQ9
-	wq4H4k1Q==;
+	bh=8vR8VHmbPIJQPTIZrNWt9fCtSF5PQGv7sK1eCsyjJo0=; b=rVv6jyT81FRNlsVIdFZTDMezfl
+	ANrgasvyH3dWgV/dclCOXPKJAyPPS8L/fUh9PCuqP3d2akVHBQsAxitpBY/tEL+h3pl17/LvU3MwI
+	s0UbpjsVk6EVj5vBDIMf3uqtJQy/n/L+JJHuDmY3Om/CVXiQ9FZsZmJDNZr1kh/Xkk2iAMwvecHuG
+	MlxWbt2i3sj7QR1gpvZNfb7LoLKX+16EiITD/UkyGsFQAV4W9fci3BndD19t4jTVkrfNcSNEah0DI
+	TPj+4/gmz05VI+wAr3mvWfUSi+yx88v7bhmqyMrUdyB8oRUoMsZafZ9xJuS1E+qUYTkjjYWk/ypG9
+	FbUfbaxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlhD-0000000EswG-36G0;
-	Sat, 25 Apr 2026 22:41:55 +0000
-Received: from mail-dl1-x124a.google.com ([2607:f8b0:4864:20::124a])
+	id 1wGlhX-0000000EtJ4-0RIa;
+	Sat, 25 Apr 2026 22:42:15 +0000
+Received: from mail-dl1-x1249.google.com ([2607:f8b0:4864:20::1249])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlh8-0000000Esqw-1ehZ
+	id 1wGlhH-0000000EszQ-22N5
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Apr 2026 22:41:51 +0000
-Received: by mail-dl1-x124a.google.com with SMTP id a92af1059eb24-126e8ee6227so9126554c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:41:49 -0700 (PDT)
+	Sat, 25 Apr 2026 22:42:02 +0000
+Received: by mail-dl1-x1249.google.com with SMTP id a92af1059eb24-12dbf4f678eso122975c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:41:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777156909; x=1777761709; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777156918; x=1777761718; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=22olXlLY2a/aW3iIRalXE3Od5F0yl9bqDC7eX7ett48=;
-        b=KgN9hlX9wXKjuG/83suWOcfzEH1ibsX3u2bEc3oJkKcyTtJ7uqSSSlTomSmPJr8FxO
-         +0bXBd2bw/sQlRNGixsrJ1NxfU0Nrz1JiQPnW02QsFBMejErafQq1di5Z8o0fkRLcB9Q
-         DAfiM3OLtoliNO0FIUk665XYy53VmZp/1VBrK4S2larBptAoEonOuKpivZZlEMvUOd78
-         R6oZykyDA8Zw+D2CI69+U8lJiZw4G8lTyWVbeo9+r4qtPnXRci+OqT8h2fjVDB5r2tTG
-         DetUs8EFTTeWcQhmqPTEVtJ92k/GIEYpXuc5PaafsRZiIFmv70HaZNlYpBN3p4cEJIKf
-         LwkA==
+        bh=8vR8VHmbPIJQPTIZrNWt9fCtSF5PQGv7sK1eCsyjJo0=;
+        b=UjmKAQOwDxT7tSHzjb7ymKwg2Exvqdy5yRgNHvDvbI0haI2T70y6+pExcgMCXvs+1+
+         l4MTpstQDuoK1NYoXF90pDpB9f2Sg5PH3ObuPaXMdejlY6NPjO6bPAv6r2xfVtheeR0H
+         CGcC9VuACu1cnINYkzPsY+Ww7uq2FXcdaeh+ky/mrc9WMOR4r4tKsJ78vAh8pWAwQMvi
+         fUe8oWlyyZa4IMkzjVSySrDFI6gNml3l30XmFBWWqKVUFLIi6eWd0NZrT2BJHWEq/Ejx
+         7cerB8vzRRAMD5N9+HCz/sgvEGtJD4q589ndPedw+ui63sxrvTgyLM8cXqt/sAc1ZuXo
+         0tCw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777156909; x=1777761709;
+        d=1e100.net; s=20251104; t=1777156918; x=1777761718;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=22olXlLY2a/aW3iIRalXE3Od5F0yl9bqDC7eX7ett48=;
-        b=BSXYtm+jAH+LPxUxqEL1uhjdOZcJdCWkb4Jkt0DCEYWVeG32hN+9ECuszGwY1/LNY5
-         TMHxa0WZ3uwqeIFEwN0utlDtmDjUEAx8sCpZnBQtZvOdx+qj/F4u+vCKNzotVaVJ7ZYN
-         ii7PwnkVAN1iiiCGZ5iaNvha3Q3B2NC59oSifinZPev6757HVQsnO1dMIwogq6jDwnyt
-         74fihT3SUmRCxguDsVCH5OHUDEA4uBg8RkeT8YvkVB6HmUx8ThI8kNKRweW8Gz1wabqg
-         RPzV/lak1++mIqAXOjgWCI4C0g3QzIn5jUUtvX/7fBbMlwhJiLQ5TkjKh91/DrwTKQ0A
-         IbCg==
-X-Forwarded-Encrypted: i=1; AFNElJ/1S/OMlN2/PnM0BUW/ksP9cl5AUgKStJerHX1ay+5Yt1T2fWb77DFWTGCnDA/tg5HlMcnWWtbQEarObTaA7HjZ@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywvh7kQpA6qvRuh8FphCUvncWSajYKX3nMql2LKWWtLnFZpyeA+
-	Tf3zZFFENM5HYfekH2IaJyMZrcRmYKFBYkjdfNz7IBtnsf0n5Nz/XvyAujbhAlU/dEwL3/gaOI3
-	5A1H6GWz4rw==
-X-Received: from dlbbs39.prod.google.com ([2002:a05:7022:927:b0:12c:8b66:5a8d])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:6b99:b0:12c:2dd7:9099
- with SMTP id a92af1059eb24-12c73f9fb84mr20495568c88.30.1777156909066; Sat, 25
- Apr 2026 15:41:49 -0700 (PDT)
-Date: Sat, 25 Apr 2026 15:40:34 -0700
+        bh=8vR8VHmbPIJQPTIZrNWt9fCtSF5PQGv7sK1eCsyjJo0=;
+        b=rgzlU/3Ue6gOpURz1o6XxuMtbtaLPOL3XJTZE7y1DTgBnrSZQygmFoa0RiUQxINdGN
+         zhfjXVmknxcgOw04XXa52QiLy0RAHGZtBeNx9nWINWVbTFX7zyjEGSHTJUMfPlC4Ca97
+         Z5nCqtDXk3h+05g59LmVpwUCrweLx2sqvLFUqzl5h7ob4IZm2OraGNec2i1WfhZqcdOz
+         UhyYlpsN7daFJZ3fIasbnKtzUbzjIu2VKjzEcErfnL63ZbcKSyRBLV5ROMo+NmI+no2j
+         8HmmeEXvOzCF4MsB8rdrWD3hRurMZ5A50fMs/P/flNF0zJ4BjZyzhhi5Zpl1IMBfjS/W
+         Wi3g==
+X-Forwarded-Encrypted: i=1; AFNElJ8WgusssLXoYtTLRVnzPuNlD0FviIhhclSzK68UnHN8C9UAFqpBTB4LdYW8gqGp8D5AvAH1Udk0YlqubWYLt/YV@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYbRMCjkikuCSxlhQ413tD/IpUicf1hX75ziSsVXHU0f/ERwKI
+	Gf8qxtikWBeajIb/hslWpCMDxcgb/KEKjkChijRsuX2G+x/YYNuTqVdRbuRrdHLyqlb4YSg8kVK
+	CcBALk+MB9w==
+X-Received: from dlbsj13.prod.google.com ([2002:a05:7022:f90d:b0:12d:b591:4bad])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:3d0e:b0:12d:ca31:f19d
+ with SMTP id a92af1059eb24-12dca31f3f7mr3121822c88.28.1777156917931; Sat, 25
+ Apr 2026 15:41:57 -0700 (PDT)
+Date: Sat, 25 Apr 2026 15:40:38 -0700
 In-Reply-To: <20260425224125.160890-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260425174858.3922152-1-irogers@google.com> <20260425224125.160890-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260425224125.160890-10-irogers@google.com>
-Subject: [PATCH v7 09/59] perf data: Add open flag
+Message-ID: <20260425224125.160890-14-irogers@google.com>
+Subject: [PATCH v7 13/59] perf python: Use evsel in sample in pyrf_event
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org, 
 	leo.yan@linux.dev, namhyung@kernel.org, tmricht@linux.ibm.com
@@ -75,8 +75,8 @@ Cc: alice.mei.rogers@gmail.com, dapeng1.mi@linux.intel.com,
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260425_154150_432655_33A63BD7 
-X-CRM114-Status: GOOD (  18.50  )
+X-CRM114-CacheID: sfid-20260425_154159_621633_480BAE6D 
+X-CRM114-Status: GOOD (  13.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,119 +91,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Avoid double opens and ensure only open files are closed. This
-addresses some issues with python integration where the data file
-wants to be opened before being given to a session.
+Avoid a duplicated evsel by using the one in sample. Add
+evsel__get/put to the evsel in perf_sample.
 
-Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
-Changes in v2:
+ tools/perf/util/evsel.c  |  2 +-
+ tools/perf/util/python.c | 10 +++-------
+ tools/perf/util/sample.c | 17 ++++++++++++-----
+ 3 files changed, 16 insertions(+), 13 deletions(-)
 
-1. Fixed File Rotation: In perf_data__switch() , I added data->open =
-   false; after the file is closed. This ensures that the subsequent
-   perf_data__open() call will not exit early and will successfully
-   open the new file.
-
-2. Fixed Memory Leak: In open_dir() , I added a call to
-   zfree(&data->file.path) if mkdir() fails, preventing the leak of
-   the path string.
----
- tools/perf/util/data.c | 26 ++++++++++++++++++++++----
- tools/perf/util/data.h |  4 +++-
- 2 files changed, 25 insertions(+), 5 deletions(-)
-
-diff --git a/tools/perf/util/data.c b/tools/perf/util/data.c
-index 94dc534a7386..17baf71897d1 100644
---- a/tools/perf/util/data.c
-+++ b/tools/perf/util/data.c
-@@ -346,8 +346,10 @@ static int open_dir(struct perf_data *data)
- 		return -1;
+diff --git a/tools/perf/util/evsel.c b/tools/perf/util/evsel.c
+index 3015b9b4b4da..9b16d832810f 100644
+--- a/tools/perf/util/evsel.c
++++ b/tools/perf/util/evsel.c
+@@ -3235,7 +3235,7 @@ int evsel__parse_sample(struct evsel *evsel, union perf_event *event,
+ 	union u64_swap u;
  
- 	if (perf_data__is_write(data) &&
--	    mkdir(data->path, S_IRWXU) < 0)
-+	    mkdir(data->path, S_IRWXU) < 0) {
-+		zfree(&data->file.path);
- 		return -1;
-+	}
+ 	perf_sample__init(data, /*all=*/true);
+-	data->evsel = evsel;
++	data->evsel = evsel__get(evsel);
+ 	data->cpu = data->pid = data->tid = -1;
+ 	data->stream_id = data->id = data->time = -1ULL;
+ 	data->period = evsel->core.attr.sample_period;
+diff --git a/tools/perf/util/python.c b/tools/perf/util/python.c
+index 22cc57914ad4..2ba3556c4f16 100644
+--- a/tools/perf/util/python.c
++++ b/tools/perf/util/python.c
+@@ -43,7 +43,6 @@ PyMODINIT_FUNC PyInit_perf(void);
  
- 	ret = open_file(data);
+ struct pyrf_event {
+ 	PyObject_HEAD
+-	struct evsel *evsel;
+ 	struct perf_sample sample;
+ 	union perf_event   event;
+ };
+@@ -274,7 +273,6 @@ static PyMemberDef pyrf_sample_event__members[] = {
  
-@@ -360,9 +362,16 @@ static int open_dir(struct perf_data *data)
- 
- int perf_data__open(struct perf_data *data)
+ static void pyrf_sample_event__delete(struct pyrf_event *pevent)
  {
--	if (check_pipe(data))
-+	int ret;
-+
-+	if (data->open)
- 		return 0;
- 
-+	if (check_pipe(data)) {
-+		data->open = true;
-+		return 0;
-+	}
-+
- 	/* currently it allows stdio for pipe only */
- 	data->file.use_stdio = false;
- 
-@@ -375,16 +384,24 @@ int perf_data__open(struct perf_data *data)
- 	if (perf_data__is_read(data))
- 		data->is_dir = is_dir(data);
- 
--	return perf_data__is_dir(data) ?
--	       open_dir(data) : open_file_dup(data);
-+	ret = perf_data__is_dir(data) ? open_dir(data) : open_file_dup(data);
-+
-+	if (!ret)
-+		data->open = true;
-+
-+	return ret;
+-	evsel__put(pevent->evsel);
+ 	perf_sample__exit(&pevent->sample);
+ 	Py_TYPE(pevent)->tp_free((PyObject*)pevent);
+ }
+@@ -296,7 +294,7 @@ static PyObject *pyrf_sample_event__repr(const struct pyrf_event *pevent)
+ #ifdef HAVE_LIBTRACEEVENT
+ static bool is_tracepoint(const struct pyrf_event *pevent)
+ {
+-	return pevent->evsel->core.attr.type == PERF_TYPE_TRACEPOINT;
++	return pevent->sample.evsel->core.attr.type == PERF_TYPE_TRACEPOINT;
  }
  
- void perf_data__close(struct perf_data *data)
+ static PyObject*
+@@ -343,7 +341,7 @@ tracepoint_field(const struct pyrf_event *pe, struct tep_format_field *field)
+ static PyObject*
+ get_tracepoint_field(struct pyrf_event *pevent, PyObject *attr_name)
  {
-+	if (!data->open)
-+		return;
-+
- 	if (perf_data__is_dir(data))
- 		perf_data__close_dir(data);
+-	struct evsel *evsel = pevent->evsel;
++	struct evsel *evsel = pevent->sample.evsel;
+ 	struct tep_event *tp_format = evsel__tp_format(evsel);
+ 	struct tep_format_field *field;
  
- 	perf_data_file__close(&data->file);
-+	data->open = false;
+@@ -509,7 +507,7 @@ static PyObject *pyrf_event__new(const union perf_event *event)
+ 	pevent = PyObject_New(struct pyrf_event, ptype);
+ 	if (pevent != NULL) {
+ 		memcpy(&pevent->event, event, event->header.size);
+-		pevent->evsel = NULL;
++		perf_sample__init(&pevent->sample, /*all=*/false);
+ 	}
+ 	return (PyObject *)pevent;
  }
+@@ -1798,8 +1796,6 @@ static PyObject *pyrf_evlist__read_on_cpu(struct pyrf_evlist *pevlist,
+ 			return Py_None;
+ 		}
  
- static ssize_t perf_data_file__read(struct perf_data_file *file, void *buf, size_t size)
-@@ -457,6 +474,7 @@ int perf_data__switch(struct perf_data *data,
+-		pevent->evsel = evsel__get(evsel);
+-
+ 		perf_mmap__consume(&md->core);
  
- 	if (!at_exit) {
- 		perf_data_file__close(&data->file);
-+		data->open = false;
- 		ret = perf_data__open(data);
- 		if (ret < 0)
- 			goto out;
-diff --git a/tools/perf/util/data.h b/tools/perf/util/data.h
-index 8299fb5fa7da..76f57f60361f 100644
---- a/tools/perf/util/data.h
-+++ b/tools/perf/util/data.h
-@@ -50,6 +50,8 @@ struct perf_data {
- 	const char		*path;
- 	/** @file: Underlying file to be used. */
- 	struct perf_data_file	 file;
-+	/** @open: Has the file or directory been opened. */
-+	bool			 open;
- 	/** @is_pipe: Underlying file is a pipe. */
- 	bool			 is_pipe;
- 	/** @is_dir: Underlying file is a directory. */
-@@ -59,7 +61,7 @@ struct perf_data {
- 	/** @in_place_update: A file opened for reading but will be written to. */
- 	bool			 in_place_update;
- 	/** @mode: Read or write mode. */
--	enum perf_data_mode	 mode;
-+	enum perf_data_mode	 mode:8;
+ 		err = evsel__parse_sample(evsel, &pevent->event, &pevent->sample);
+diff --git a/tools/perf/util/sample.c b/tools/perf/util/sample.c
+index cf73329326d7..7ec534dedc5c 100644
+--- a/tools/perf/util/sample.c
++++ b/tools/perf/util/sample.c
+@@ -1,18 +1,23 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+ #include "sample.h"
++
++#include <stdlib.h>
++#include <string.h>
++
++#include <elf.h>
++#include <linux/zalloc.h>
++
+ #include "debug.h"
++#include "evsel.h"
+ #include "thread.h"
+-#include <elf.h>
++#include "../../arch/x86/include/asm/insn.h"
++
+ #ifndef EM_CSKY
+ #define EM_CSKY		252
+ #endif
+ #ifndef EM_LOONGARCH
+ #define EM_LOONGARCH	258
+ #endif
+-#include <linux/zalloc.h>
+-#include <stdlib.h>
+-#include <string.h>
+-#include "../../arch/x86/include/asm/insn.h"
  
- 	struct {
- 		/** @version: perf_dir_version. */
+ void perf_sample__init(struct perf_sample *sample, bool all)
+ {
+@@ -29,6 +34,8 @@ void perf_sample__init(struct perf_sample *sample, bool all)
+ 
+ void perf_sample__exit(struct perf_sample *sample)
+ {
++	evsel__put(sample->evsel);
++	sample->evsel = NULL;
+ 	zfree(&sample->user_regs);
+ 	zfree(&sample->intr_regs);
+ 	if (sample->merged_callchain) {
 -- 
 2.54.0.545.g6539524ca2-goog
 
