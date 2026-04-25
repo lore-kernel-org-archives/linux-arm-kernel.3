@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9218FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:44:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54B9BFF8863
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:44:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tFkKJpx387LQyGkxFesF27g3u3l0azo1BknyR7NysHU=; b=Kn5mUG+m857pZaVLyxz/NufvCw
-	DbIZ65alOaB7SdFRpsDCnW9m7qaC+gvcAdMNDm95JPaJh/uGcKoBHZr2PTHKVMirKxioXGO9Kf7Nd
-	sWsQnBjsrmc8/WsZOIERU3JJCCXnRcx3BgoicRuBF0PGvCESMIhsm2F/jExvaMfCa9ej4Wh3r5f/2
-	dmYo7KBTzHYzHfPG7ACjwgGrf2xkbOQ+WjFifOcs7cLFBcGgJFSqvaC6oQlqip8bq5d74wcRhv+kE
-	q1OoMO04c79gXs3Iz+SO3frSIXMMxhn6zbL9pCAcInNPkvKoMFECa+mM2x753ALAzcv/UDSmgQtoM
-	1Aq1rLdQ==;
+	bh=N4Nf17+iE4TpFXICTEQCjer2ymy7/ZPQXwIyAydjrk8=; b=fiSwKRNs7e25dSSPeEAISgeRLR
+	sbjMiudl8JD9Igp+fpNG/kOzLhF5Rm21Bdbvj7MLLFHAWQzuq5rhLlY6eq8ViK0pkukWoBElxzAJs
+	4oQrLJjA/HwAjo2MmLkzN+wPzz0Cdcf/7lMa953gwz7zq+h33tKIS8y+iM90QPpRLdzBPgcBuWjnw
+	KudP3SQaazB3FQel+se+Xu9usMvgpEfLRq4kNzPEYsA/VYDPlEGqdChPngpAqWfEe9u9Q5oac+VD+
+	3y3z+Bqyo8Kw9HU1/PeSjAedupUoX0mB4PaTMCpoNOsyjpgofm/ceHzBYnPjn0rscrApCTXN8Qx1p
+	aWZTucIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGljT-0000000EvKm-13Dg;
-	Sat, 25 Apr 2026 22:44:15 +0000
-Received: from mail-dl1-f74.google.com ([74.125.82.74])
+	id 1wGljP-0000000EvFE-3rdK;
+	Sat, 25 Apr 2026 22:44:11 +0000
+Received: from mail-dl1-x124a.google.com ([2607:f8b0:4864:20::124a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGliF-0000000Eu8Q-04H4
+	id 1wGli2-0000000Etu1-45Lp
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Apr 2026 22:43:13 +0000
-Received: by mail-dl1-f74.google.com with SMTP id a92af1059eb24-126e8ee6227so9127217c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:42:58 -0700 (PDT)
+	Sat, 25 Apr 2026 22:43:02 +0000
+Received: by mail-dl1-x124a.google.com with SMTP id a92af1059eb24-12c87ba0890so30456775c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:42:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777156977; x=1777761777; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777156965; x=1777761765; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=tFkKJpx387LQyGkxFesF27g3u3l0azo1BknyR7NysHU=;
-        b=tOlU5fRHeu/h4M1qOL72/j5WFRz4bYAMX1yHtqLWtvK6GDPKCkii3QikBU7UM7f7Lm
-         hLBYlT7ZY6NlYyw8bf1sTMuHueUESVRx6FXuSNhPqC0JoR9GT50FyG82OhUY9IyKIK3b
-         6+p4X/AsBuoPFPsZTYHXUEaeW5fP+wUslut5ZvjcZ0WOwBd7ZN97tx5JaCzhLiX9kjEZ
-         n+GzF8MOVU/n6fubbmjAA/0uqBLVFKkTYyxKA9l84khoJlelb9wA5O30KN5PvIl5NxxL
-         albGvE41NLreQ2PP5DezMGmgJFkBN2dwah6zGOzsw+yJkXfHl0vqSqSOO+2ytOnm/Rzv
-         1AXg==
+        bh=N4Nf17+iE4TpFXICTEQCjer2ymy7/ZPQXwIyAydjrk8=;
+        b=P+7f9fhGSh/EyILHvI+BVBtrZV7sUcXObqRlSxxT8ks52VCrmS9jMj6yt2+oU8uHF0
+         tCfbrWvXIF8qmoRKEib6lRosmDKgJNa3zscr1PHgHNc9WOVV5MS4VYR09nDRYQmH4Rxq
+         2lzBfM13Cnf9kWNEmKsoliql/V8LpEnvb5IQpS1OiHr4gIEzVu16XAX/AhtPYSwJ5ww5
+         NXYHzsJblZkY5tyBQEEJFMVw6dpS6BFdz8bawv2UEmSwIWygyVdLeyfggbos1k6//ltn
+         BBDHY4XSK3/BRhbNBAacaFke5IyZ8ufvsMywQ1r/B0F/8jqskP2EDxeht7MHpUIDiIDa
+         NVJA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777156977; x=1777761777;
+        d=1e100.net; s=20251104; t=1777156965; x=1777761765;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=tFkKJpx387LQyGkxFesF27g3u3l0azo1BknyR7NysHU=;
-        b=DZIaGod4RvTNePrbbTenQKUJ/ZyFsyUTcUDK8Hjommvbqr4DPcJGPWP0bHkOSJDJyo
-         cvhNedStbOGGBbNpqe5CSMi7GPbwXys2/RJkxLi7sVayejZcB3PziNbLJVeid2ftteHa
-         UiTYhk399WHATa7eGsLZ/3VIHlzB8yyVniBamhytU5fpQV6uxp/GFaXfeP0KRVyFz61A
-         o2aByM2PFrD8NZUEHCBp/58YwgcSVCltlc/JEI+9Da9awFx4JUa2cWId/JjzVo5xYj4C
-         s0ZjWOPKlMVxocKQV9xnNVuDbafWP2ac6KTa6OG0qaYLNrRBa3Xu4Re1dtoyW8/B9LcH
-         R+2g==
-X-Forwarded-Encrypted: i=1; AFNElJ9I3Vcfb8h2YAjBKCRhsXKKBW5+O651z80dHNvmd8GPv96hvO7NwmR/+Essv72JdqQ+hZz2mv3UjhtVTUspt0nX@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLM9r0kIVpPqOVKYzhC5JLPV6huFx/rOYKIN4H/94Xtf308myo
-	x714zH8oXur85zh50AXJIi0mIVe7eiZXqKG2e4vDYrwqC1TM0oZ/08S1WbEeGLgmSqkyY4mXo7c
-	s9BEl0nUa8A==
-X-Received: from dlbvv17.prod.google.com ([2002:a05:7022:5f11:b0:12a:c3c1:4ace])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:6627:b0:128:ca83:5aa1
- with SMTP id a92af1059eb24-12c73f9217dmr20015505c88.16.1777156976612; Sat, 25
- Apr 2026 15:42:56 -0700 (PDT)
-Date: Sat, 25 Apr 2026 15:41:07 -0700
+        bh=N4Nf17+iE4TpFXICTEQCjer2ymy7/ZPQXwIyAydjrk8=;
+        b=L3sOwR72r8QJCEyAtzU87PtThe/NfoptVGlDR7rAEvezA4+u22O3GjA3Tke/cqxSGo
+         Ep1A9uHEb1lmrE8X9qGgKkys3YDQCcJKtHeEeTAus3Imp4aY6eJf4NW6e5/G2iNmu9Hd
+         /Mt8+cKhS5zTO+kAH844nC6rwlJsl9pfe/iWb/fz6nTz8AjExoRAbmKLEhFEr9LbSPFY
+         xS+Q+Cd6O4Udk5VXmdlZhKvkAUUUn1msDnjfk57tR6ffJ44VxNgM9uzICOQqu1O8ibdb
+         epK1ITgHtgBgM7sn81Md1VwdcBgrYx2XEr+7oHQpNr4SVZkImgFKZVsVbPJ5ovYt/MC7
+         l4jQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+r+9Bbryp72kOq8yFQg5uDPL5ELUoSk5Xc1j8sm/QN9U+MagGoZq6Sg6XRDd5EPdKlWtwwIQhtDk/Y79VuYB+e@lists.infradead.org
+X-Gm-Message-State: AOJu0YzfNcJtf9CHH2A/puSc/FmSRSYrbFY/F3lWyh01kNzOnDW61sqU
+	nohlsOTBRJwTftfL2nXwTFJfxlhFxcMbQvT3WgMRIx0ChqLYussXhpR43cz0IfJCkMsDtFqySME
+	KUh3p+FnuFQ==
+X-Received: from dlbui16.prod.google.com ([2002:a05:7022:3d10:b0:12d:b27b:7405])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:69a:b0:128:d967:466c
+ with SMTP id a92af1059eb24-12c73f9f65fmr18937639c88.24.1777156964933; Sat, 25
+ Apr 2026 15:42:44 -0700 (PDT)
+Date: Sat, 25 Apr 2026 15:41:01 -0700
 In-Reply-To: <20260425224125.160890-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260425174858.3922152-1-irogers@google.com> <20260425224125.160890-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260425224125.160890-43-irogers@google.com>
-Subject: [PATCH v7 42/59] perf powerpc-hcalls: Port powerpc-hcalls to use
+Message-ID: <20260425224125.160890-37-irogers@google.com>
+Subject: [PATCH v7 36/59] perf export-to-sqlite: Port export-to-sqlite to use
  python module
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org, 
@@ -76,8 +76,8 @@ Cc: alice.mei.rogers@gmail.com, dapeng1.mi@linux.intel.com,
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260425_154259_439329_9EF676F2 
-X-CRM114-Status: GOOD (  16.00  )
+X-CRM114-CacheID: sfid-20260425_154247_150129_0A62652C 
+X-CRM114-Status: GOOD (  16.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,239 +92,401 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ported from tools/perf/scripts/python/.
-- Refactored the script to use a class structure (HCallAnalyzer) to
-  encapsulate state.
-- Used perf.session for event processing.
-- Tracked hcall entry and exit to calculate duration and aggregate
-  statistics.
-- Moved the large hcall_table to a module-level constant HCALL_TABLE.
-- Cleaned up Python 2 compatibility artifacts.
+This commit ports the export-to-sqlite.py script to use the modern perf
+Python module and the standard library sqlite3 module. It drops the
+dependency on PySide2.QtSql.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/python/powerpc-hcalls.py | 211 ++++++++++++++++++++++++++++
- 1 file changed, 211 insertions(+)
- create mode 100755 tools/perf/python/powerpc-hcalls.py
+v5:
+1. Fix Callchain Resolution: Corrected attribute lookups on callchain
+   nodes. The `dso` and `symbol` properties already return strings, so
+   attempting to get a `.name` attribute from them failed and caused
+   fallback to "Unknown_...".
+---
+ tools/perf/python/export-to-sqlite.py | 372 ++++++++++++++++++++++++++
+ 1 file changed, 372 insertions(+)
+ create mode 100755 tools/perf/python/export-to-sqlite.py
 
-diff --git a/tools/perf/python/powerpc-hcalls.py b/tools/perf/python/powerpc-hcalls.py
+diff --git a/tools/perf/python/export-to-sqlite.py b/tools/perf/python/export-to-sqlite.py
 new file mode 100755
-index 000000000000..c4fa539174c9
+index 000000000000..736b56ff8d59
 --- /dev/null
-+++ b/tools/perf/python/powerpc-hcalls.py
-@@ -0,0 +1,211 @@
++++ b/tools/perf/python/export-to-sqlite.py
+@@ -0,0 +1,372 @@
 +#!/usr/bin/env python3
-+# SPDX-License-Identifier: GPL-2.0+
++# SPDX-License-Identifier: GPL-2.0
 +"""
-+Hypervisor call statistics
++Export perf data to a sqlite3 database.
 +
-+Copyright (C) 2018 Ravi Bangoria, IBM Corporation
-+Ported from tools/perf/scripts/python/powerpc-hcalls.py
++This script has been ported to use the modern perf Python module and the
++standard library sqlite3 module. It no longer requires PySide2 or QtSql
++for exporting.
++
++Examples of using this script with Intel PT:
++
++	$ perf record -e intel_pt//u ls
++	$ python tools/perf/python/export-to-sqlite.py -i perf.data -o pt_example
++
++To browse the database, sqlite3 can be used e.g.
++
++	$ sqlite3 pt_example
++	sqlite> .header on
++	sqlite> select * from samples_view where id < 10;
++	sqlite> .mode column
++	sqlite> select * from samples_view where id < 10;
++	sqlite> .tables
++	sqlite> .schema samples_view
++	sqlite> .quit
++
++An example of using the database is provided by the script
++exported-sql-viewer.py. Refer to that script for details.
++
++Ported from tools/perf/scripts/python/export-to-sqlite.py
 +"""
 +
 +import argparse
-+from collections import defaultdict
++import os
++import sqlite3
++import sys
++from typing import Dict, Optional
 +import perf
 +
-+# Hypervisor call table
-+HCALL_TABLE = {
-+    4: 'H_REMOVE',
-+    8: 'H_ENTER',
-+    12: 'H_READ',
-+    16: 'H_CLEAR_MOD',
-+    20: 'H_CLEAR_REF',
-+    24: 'H_PROTECT',
-+    28: 'H_GET_TCE',
-+    32: 'H_PUT_TCE',
-+    36: 'H_SET_SPRG0',
-+    40: 'H_SET_DABR',
-+    44: 'H_PAGE_INIT',
-+    48: 'H_SET_ASR',
-+    52: 'H_ASR_ON',
-+    56: 'H_ASR_OFF',
-+    60: 'H_LOGICAL_CI_LOAD',
-+    64: 'H_LOGICAL_CI_STORE',
-+    68: 'H_LOGICAL_CACHE_LOAD',
-+    72: 'H_LOGICAL_CACHE_STORE',
-+    76: 'H_LOGICAL_ICBI',
-+    80: 'H_LOGICAL_DCBF',
-+    84: 'H_GET_TERM_CHAR',
-+    88: 'H_PUT_TERM_CHAR',
-+    92: 'H_REAL_TO_LOGICAL',
-+    96: 'H_HYPERVISOR_DATA',
-+    100: 'H_EOI',
-+    104: 'H_CPPR',
-+    108: 'H_IPI',
-+    112: 'H_IPOLL',
-+    116: 'H_XIRR',
-+    120: 'H_MIGRATE_DMA',
-+    124: 'H_PERFMON',
-+    220: 'H_REGISTER_VPA',
-+    224: 'H_CEDE',
-+    228: 'H_CONFER',
-+    232: 'H_PROD',
-+    236: 'H_GET_PPP',
-+    240: 'H_SET_PPP',
-+    244: 'H_PURR',
-+    248: 'H_PIC',
-+    252: 'H_REG_CRQ',
-+    256: 'H_FREE_CRQ',
-+    260: 'H_VIO_SIGNAL',
-+    264: 'H_SEND_CRQ',
-+    272: 'H_COPY_RDMA',
-+    276: 'H_REGISTER_LOGICAL_LAN',
-+    280: 'H_FREE_LOGICAL_LAN',
-+    284: 'H_ADD_LOGICAL_LAN_BUFFER',
-+    288: 'H_SEND_LOGICAL_LAN',
-+    292: 'H_BULK_REMOVE',
-+    304: 'H_MULTICAST_CTRL',
-+    308: 'H_SET_XDABR',
-+    312: 'H_STUFF_TCE',
-+    316: 'H_PUT_TCE_INDIRECT',
-+    332: 'H_CHANGE_LOGICAL_LAN_MAC',
-+    336: 'H_VTERM_PARTNER_INFO',
-+    340: 'H_REGISTER_VTERM',
-+    344: 'H_FREE_VTERM',
-+    348: 'H_RESET_EVENTS',
-+    352: 'H_ALLOC_RESOURCE',
-+    356: 'H_FREE_RESOURCE',
-+    360: 'H_MODIFY_QP',
-+    364: 'H_QUERY_QP',
-+    368: 'H_REREGISTER_PMR',
-+    372: 'H_REGISTER_SMR',
-+    376: 'H_QUERY_MR',
-+    380: 'H_QUERY_MW',
-+    384: 'H_QUERY_HCA',
-+    388: 'H_QUERY_PORT',
-+    392: 'H_MODIFY_PORT',
-+    396: 'H_DEFINE_AQP1',
-+    400: 'H_GET_TRACE_BUFFER',
-+    404: 'H_DEFINE_AQP0',
-+    408: 'H_RESIZE_MR',
-+    412: 'H_ATTACH_MCQP',
-+    416: 'H_DETACH_MCQP',
-+    420: 'H_CREATE_RPT',
-+    424: 'H_REMOVE_RPT',
-+    428: 'H_REGISTER_RPAGES',
-+    432: 'H_DISABLE_AND_GETC',
-+    436: 'H_ERROR_DATA',
-+    440: 'H_GET_HCA_INFO',
-+    444: 'H_GET_PERF_COUNT',
-+    448: 'H_MANAGE_TRACE',
-+    468: 'H_FREE_LOGICAL_LAN_BUFFER',
-+    472: 'H_POLL_PENDING',
-+    484: 'H_QUERY_INT_STATE',
-+    580: 'H_ILLAN_ATTRIBUTES',
-+    592: 'H_MODIFY_HEA_QP',
-+    596: 'H_QUERY_HEA_QP',
-+    600: 'H_QUERY_HEA',
-+    604: 'H_QUERY_HEA_PORT',
-+    608: 'H_MODIFY_HEA_PORT',
-+    612: 'H_REG_BCMC',
-+    616: 'H_DEREG_BCMC',
-+    620: 'H_REGISTER_HEA_RPAGES',
-+    624: 'H_DISABLE_AND_GET_HEA',
-+    628: 'H_GET_HEA_INFO',
-+    632: 'H_ALLOC_HEA_RESOURCE',
-+    644: 'H_ADD_CONN',
-+    648: 'H_DEL_CONN',
-+    664: 'H_JOIN',
-+    676: 'H_VASI_STATE',
-+    688: 'H_ENABLE_CRQ',
-+    696: 'H_GET_EM_PARMS',
-+    720: 'H_SET_MPP',
-+    724: 'H_GET_MPP',
-+    748: 'H_HOME_NODE_ASSOCIATIVITY',
-+    756: 'H_BEST_ENERGY',
-+    764: 'H_XIRR_X',
-+    768: 'H_RANDOM',
-+    772: 'H_COP',
-+    788: 'H_GET_MPP_X',
-+    796: 'H_SET_MODE',
-+    61440: 'H_RTAS',
-+}
 +
++class DatabaseExporter:
++    """Handles database connection and exporting of perf events."""
 +
-+class HCallAnalyzer:
-+    """Analyzes hypervisor calls and aggregates statistics."""
++    def __init__(self, db_path: str):
++        self.con = sqlite3.connect(db_path)
++        self.session: Optional[perf.session] = None
++        self.sample_count = 0
 +
-+    def __init__(self):
-+        # output: {opcode: {'min': min, 'max': max, 'time': time, 'cnt': cnt}}
-+        self.output = defaultdict(lambda: {'time': 0, 'cnt': 0, 'min': float('inf'), 'max': 0})
-+        # d_enter: {pid: (opcode, nsec)}
-+        self.d_enter: dict[int, tuple[int, int]] = {}
-+        self.print_ptrn = '%-28s%10s%10s%10s%10s'
++        # Caches and counters grouped to reduce instance attributes
++        self.caches: Dict[str, dict] = {
++            'threads': {},
++            'comms': {},
++            'dsos': {},
++            'symbols': {},
++            'events': {},
++            'branch_types': {},
++            'call_paths': {}
++        }
 +
-+    def hcall_table_lookup(self, opcode: int) -> str:
-+        """Lookup hcall name by opcode."""
-+        return HCALL_TABLE.get(opcode, str(opcode))
++        self.next_id = {
++            'thread': 1,
++            'comm': 1,
++            'dso': 1,
++            'symbol': 1,
++            'event': 1,
++            'branch_type': 1,
++            'call_path': 1
++        }
++
++        self.create_tables()
++
++    def create_tables(self) -> None:
++        """Create database tables."""
++        self.con.execute("""
++            CREATE TABLE IF NOT EXISTS selected_events (
++                    id      INTEGER         NOT NULL        PRIMARY KEY,
++                    name    VARCHAR(80))
++        """)
++        self.con.execute("""
++            CREATE TABLE IF NOT EXISTS machines (
++                    id      INTEGER         NOT NULL        PRIMARY KEY,
++                    pid     INTEGER,
++                    root_dir VARCHAR(4096))
++        """)
++        self.con.execute("""
++            CREATE TABLE IF NOT EXISTS threads (
++                    id      INTEGER         NOT NULL        PRIMARY KEY,
++                    machine_id BIGINT,
++                    process_id BIGINT,
++                    pid     INTEGER,
++                    tid     INTEGER)
++        """)
++        self.con.execute("""
++            CREATE TABLE IF NOT EXISTS comms (
++                    id      INTEGER         NOT NULL        PRIMARY KEY,
++                    comm    VARCHAR(16),
++                    c_thread_id BIGINT,
++                    c_time  BIGINT,
++                    exec_flag BOOLEAN)
++        """)
++        self.con.execute("""
++            CREATE TABLE IF NOT EXISTS comm_threads (
++                    id      INTEGER         NOT NULL        PRIMARY KEY,
++                    comm_id BIGINT,
++                    thread_id BIGINT)
++        """)
++        self.con.execute("""
++            CREATE TABLE IF NOT EXISTS dsos (
++                    id      INTEGER         NOT NULL        PRIMARY KEY,
++                    machine_id BIGINT,
++                    short_name VARCHAR(256),
++                    long_name VARCHAR(4096),
++                    build_id VARCHAR(64))
++        """)
++        self.con.execute("""
++            CREATE TABLE IF NOT EXISTS symbols (
++                    id      INTEGER         NOT NULL        PRIMARY KEY,
++                    dso_id  BIGINT,
++                    sym_start BIGINT,
++                    sym_end BIGINT,
++                    binding INTEGER,
++                    name    VARCHAR(2048))
++        """)
++        self.con.execute("""
++            CREATE TABLE IF NOT EXISTS branch_types (
++                    id      INTEGER         NOT NULL        PRIMARY KEY,
++                    name    VARCHAR(80))
++        """)
++        self.con.execute("""
++            CREATE TABLE IF NOT EXISTS samples (
++                    id              INTEGER         NOT NULL        PRIMARY KEY,
++                    evsel_id        BIGINT,
++                    machine_id      BIGINT,
++                    thread_id       BIGINT,
++                    comm_id         BIGINT,
++                    dso_id          BIGINT,
++                    symbol_id       BIGINT,
++                    sym_offset      BIGINT,
++                    ip              BIGINT,
++                    time            BIGINT,
++                    cpu             INTEGER,
++                    to_dso_id       BIGINT,
++                    to_symbol_id    BIGINT,
++                    to_sym_offset   BIGINT,
++                    to_ip           BIGINT,
++                    period          BIGINT,
++                    weight          BIGINT,
++                    transaction_    BIGINT,
++                    data_src        BIGINT,
++                    branch_type     INTEGER,
++                    in_tx           BOOLEAN,
++                    call_path_id    BIGINT,
++                    insn_count      BIGINT,
++                    cyc_count       BIGINT,
++                    flags           INTEGER)
++        """)
++        self.con.execute("""
++            CREATE TABLE IF NOT EXISTS call_paths (
++                    id              INTEGER         NOT NULL        PRIMARY KEY,
++                    parent_id       BIGINT,
++                    symbol_id       BIGINT,
++                    ip              BIGINT)
++        """)
++        self.con.execute("""
++            CREATE VIEW IF NOT EXISTS samples_view AS
++            SELECT s.id, e.name as event, t.pid, t.tid, c.comm,
++                   d.short_name as dso, sym.name as symbol, s.sym_offset,
++                   s.ip, s.time, s.cpu
++            FROM samples s
++            JOIN selected_events e ON s.evsel_id = e.id
++            JOIN threads t ON s.thread_id = t.id
++            JOIN comms c ON s.comm_id = c.id
++            JOIN dsos d ON s.dso_id = d.id
++            JOIN symbols sym ON s.symbol_id = sym.id;
++        """)
++
++        # id == 0 means unknown. It is easier to create records for them than
++        # replace the zeroes with NULLs
++        self.con.execute("INSERT OR IGNORE INTO selected_events VALUES (0, 'unknown')")
++        self.con.execute("INSERT OR IGNORE INTO machines VALUES (0, 0, 'unknown')")
++        self.con.execute("INSERT OR IGNORE INTO threads VALUES (0, 0, 0, -1, -1)")
++        self.con.execute("INSERT OR IGNORE INTO comms VALUES (0, 'unknown', 0, 0, 0)")
++        self.con.execute("INSERT OR IGNORE INTO dsos VALUES (0, 0, 'unknown', 'unknown', '')")
++        self.con.execute("INSERT OR IGNORE INTO symbols VALUES (0, 0, 0, 0, 0, 'unknown')")
++
++    def get_event_id(self, name: str) -> int:
++        """Get or create event ID."""
++        if name in self.caches['events']:
++            return self.caches['events'][name]
++        event_id = self.next_id['event']
++        self.con.execute("INSERT INTO selected_events VALUES (?, ?)",
++                         (event_id, name))
++        self.caches['events'][name] = event_id
++        self.next_id['event'] += 1
++        return event_id
++
++    def get_thread_id(self, pid: int, tid: int) -> int:
++        """Get or create thread ID."""
++        key = (pid, tid)
++        if key in self.caches['threads']:
++            return self.caches['threads'][key]
++        thread_id = self.next_id['thread']
++        self.con.execute("INSERT INTO threads VALUES (?, ?, ?, ?, ?)",
++                         (thread_id, 0, pid, pid, tid))
++        self.caches['threads'][key] = thread_id
++        self.next_id['thread'] += 1
++        return thread_id
++
++    def get_comm_id(self, comm: str, thread_id: int) -> int:
++        """Get or create comm ID."""
++        if comm in self.caches['comms']:
++            return self.caches['comms'][comm]
++        comm_id = self.next_id['comm']
++        self.con.execute("INSERT INTO comms VALUES (?, ?, ?, ?, ?)",
++                         (comm_id, comm, thread_id, 0, 0))
++        self.con.execute("INSERT INTO comm_threads VALUES (?, ?, ?)",
++                         (comm_id, comm_id, thread_id))
++        self.caches['comms'][comm] = comm_id
++        self.next_id['comm'] += 1
++        return comm_id
++
++    def get_dso_id(self, short_name: str, long_name: str,
++                   build_id: str) -> int:
++        """Get or create DSO ID."""
++        if short_name in self.caches['dsos']:
++            return self.caches['dsos'][short_name]
++        dso_id = self.next_id['dso']
++        self.con.execute("INSERT INTO dsos VALUES (?, ?, ?, ?, ?)",
++                         (dso_id, 0, short_name, long_name, build_id))
++        self.caches['dsos'][short_name] = dso_id
++        self.next_id['dso'] += 1
++        return dso_id
++
++    def get_symbol_id(self, dso_id: int, name: str, start: int,
++                      end: int) -> int:
++        """Get or create symbol ID."""
++        key = (dso_id, name)
++        if key in self.caches['symbols']:
++            return self.caches['symbols'][key]
++        symbol_id = self.next_id['symbol']
++        self.con.execute("INSERT INTO symbols VALUES (?, ?, ?, ?, ?, ?)",
++                         (symbol_id, dso_id, start, end, 0, name))
++        self.caches['symbols'][key] = symbol_id
++        self.next_id['symbol'] += 1
++        return symbol_id
++
++    def get_call_path_id(self, parent_id: int, symbol_id: int,
++                         ip: int) -> int:
++        """Get or create call path ID."""
++        key = (parent_id, symbol_id, ip)
++        if key in self.caches['call_paths']:
++            return self.caches['call_paths'][key]
++        call_path_id = self.next_id['call_path']
++        self.con.execute("INSERT INTO call_paths VALUES (?, ?, ?, ?)",
++                         (call_path_id, parent_id, symbol_id, ip))
++        self.caches['call_paths'][key] = call_path_id
++        self.next_id['call_path'] += 1
++        return call_path_id
 +
 +    def process_event(self, sample: perf.sample_event) -> None:
-+        """Process a single sample event."""
-+        name = str(sample.evsel)
-+        pid = sample.sample_pid
-+        time = sample.time
-+        opcode = getattr(sample, "opcode", -1)
++        """Callback for processing events."""
++        thread_id = self.get_thread_id(sample.sample_pid, sample.sample_tid)
 +
-+        if opcode == -1:
-+            return
++        comm = "Unknown_comm"
++        try:
++            if self.session is not None:
++                proc = self.session.find_thread(sample.sample_pid)
++                if proc:
++                    comm = proc.comm()
++        except TypeError:
++            pass
++        comm_id = self.get_comm_id(comm, thread_id)
 +
-+        if name == "evsel(powerpc:hcall_entry)":
-+            self.d_enter[pid] = (opcode, time)
-+        elif name == "evsel(powerpc:hcall_exit)":
-+            if pid in self.d_enter:
-+                opcode_entry, time_entry = self.d_enter[pid]
-+                if opcode_entry == opcode:
-+                    diff = time - time_entry
-+                    del self.d_enter[pid]
++        dso_id = self.get_dso_id(
++            getattr(sample, 'dso', "Unknown_dso") or "Unknown_dso",
++            getattr(sample, 'dso_long_name', "Unknown_dso_long") or "Unknown_dso_long",
++            getattr(sample, 'dso_bid', "") or ""
++        )
 +
-+                    stats = self.output[opcode]
-+                    stats['time'] += diff
-+                    stats['cnt'] += 1
-+                    if diff < stats['min']:
-+                        stats['min'] = diff
-+                    if diff > stats['max']:
-+                        stats['max'] = diff
++        symbol_id = self.get_symbol_id(
++            dso_id,
++            getattr(sample, 'symbol', "Unknown_symbol") or "Unknown_symbol",
++            getattr(sample, 'sym_start', 0) or 0,
++            getattr(sample, 'sym_end', 0) or 0
++        )
 +
-+    def print_summary(self) -> None:
-+        """Print aggregated statistics."""
-+        print(self.print_ptrn % ('hcall', 'count', 'min(ns)', 'max(ns)', 'avg(ns)'))
-+        print('-' * 68)
-+        for opcode in sorted(self.output.keys()):
-+            h_name = self.hcall_table_lookup(opcode)
-+            stats = self.output[opcode]
-+            time = stats['time']
-+            cnt = stats['cnt']
-+            min_t = stats['min']
-+            max_t = stats['max']
++        # Handle callchain
++        call_path_id = 0
++        if hasattr(sample, 'callchain') and sample.callchain:
++            parent_id = 0
++            for node in sample.callchain:
++                dso_name = getattr(node, 'dso', "Unknown_dso") or "Unknown_dso"
++                symbol_name = getattr(node, 'symbol', "Unknown_symbol") or "Unknown_symbol"
 +
-+            # Avoid float representation for large integers if possible,
-+            # or use formatted strings. Legacy used time//cnt.
-+            avg_t = time // cnt if cnt > 0 else 0
++                node_dso_id = self.get_dso_id(dso_name, dso_name, "")
++                node_symbol_id = self.get_symbol_id(node_dso_id, symbol_name, 0, 0)
 +
-+            # If min was not updated, it remains inf, but cnt should be > 0 if in output
-+            if min_t == float('inf'):
-+                min_t = 0
++                parent_id = self.get_call_path_id(parent_id, node_symbol_id, node.ip)
++            call_path_id = parent_id
++        else:
++            call_path_id = 0
 +
-+            print(self.print_ptrn % (h_name, cnt, int(min_t), int(max_t), avg_t))
++        # Insert sample
++        self.con.execute("""
++            INSERT INTO samples VALUES (
++                NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
++            )
++        """, (
++            self.get_event_id(getattr(sample.evsel, 'name', str(sample.evsel))),
++            0, thread_id, comm_id,
++            dso_id, symbol_id, getattr(sample, 'sym_offset', 0),
++            sample.sample_ip, sample.sample_time, sample.sample_cpu,
++            0, 0, 0, 0,  # to_dso, to_symbol, to_sym_offset, to_ip
++            getattr(sample, 'sample_period', 0) or 0,
++            getattr(sample, 'sample_weight', 0) or 0,
++            getattr(sample, 'transaction_', 0),
++            getattr(sample, 'data_src', 0),
++            0,  # branch_type
++            getattr(sample, 'in_tx', 0),
++            call_path_id,
++            getattr(sample, 'insn_count', 0),
++            getattr(sample, 'cyc_count', 0),
++            getattr(sample, 'flags', 0)
++        ))
++
++        self.sample_count += 1
++        if self.sample_count % 10000 == 0:
++            self.commit()
++
++    def commit(self) -> None:
++        """Commit transaction."""
++        self.con.commit()
++
++    def close(self) -> None:
++        """Close connection."""
++        self.con.close()
 +
 +
 +if __name__ == "__main__":
-+    ap = argparse.ArgumentParser(description="Hypervisor call statistics")
-+    ap.add_argument("-i", "--input", default="perf.data", help="Input file name")
++    ap = argparse.ArgumentParser(
++        description="Export perf data to a sqlite3 database")
++    ap.add_argument("-i", "--input", default="perf.data",
++                    help="Input file name")
++    ap.add_argument("-o", "--output", default="perf.db",
++                    help="Output database name")
 +    args = ap.parse_args()
 +
-+    analyzer = HCallAnalyzer()
-+
 +    try:
-+        session = perf.session(perf.data(args.input), sample=analyzer.process_event)
++        fd = os.open(args.output, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
++        os.close(fd)
++    except FileExistsError:
++        print(f"Error: {args.output} already exists")
++        sys.exit(1)
++
++    exporter = DatabaseExporter(args.output)
++
++    session = None
++    error_occurred = False
++    try:
++        session = perf.session(perf.data(args.input),
++                               sample=exporter.process_event)
++        exporter.session = session
 +        session.process_events()
-+        analyzer.print_summary()
-+    except KeyboardInterrupt:
-+        analyzer.print_summary()
++        exporter.commit()
++        print(f"Successfully exported to {args.output}")
 +    except Exception as e:
 +        print(f"Error processing events: {e}")
++        error_occurred = True
++    finally:
++        exporter.close()
++        if error_occurred:
++            if os.path.exists(args.output):
++                os.remove(args.output)
 -- 
 2.54.0.545.g6539524ca2-goog
 
