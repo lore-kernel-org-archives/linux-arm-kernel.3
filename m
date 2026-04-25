@@ -4,83 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D69BAFF8863
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:52:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8C07FF885C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:52:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ph7R9L13qRaJL3QC1gV+rLNWu/VKavX3EHLSwKF2rZc=; b=kTXdjXIsj9JQIO+MMSWwArRGLl
-	xfKALe1CYDWQoUPkpkNdGDr2p69nK9aTTfoW66ftEb3zDUar8INvitTMqUXMmiNSx2R4Rk8/80JCO
-	rCj+qMC/GGRwnPB7XbivqphmLj5wmRvLrTGoqKbp9kum4I4+GeZoQe/us9QSRoHBP2Bsz/Y9X+0Xp
-	EcbkMlMk1TzLxnB9ZAdTuK4LozklYk7EdTIfpxsU/Y+FX/OkJAH8NiPQfJWJzLwHAtI7/v9y9F+hT
-	ChkSkNlRm21y5WzD2ivc+WNjYY8o4y9ETUwZu1uwcRjwvQfUqRJNID3neEu7vEu/B5LHMtYYKDgrb
-	0b8Ihnzg==;
+	bh=N4Nf17+iE4TpFXICTEQCjer2ymy7/ZPQXwIyAydjrk8=; b=b4KcCrcS/b1LIWm4qUE+SGdt3l
+	snbtuvSrf2qmLDsbaDXGpCYWd3FEqrzIwN9wiRM709nJ1X9Mjb2zdXOpBhZtNb204GjcNmoZ66fK2
+	9Vn0L2xhPXuNG+v903UawdIRmsgzrT1hTF7fyB1gcsqVitn0YThLVIHwe26h/PmtQsguW/2FMTtBK
+	EI/vApptoC2tUG0irEqmfb97PYlc3h4zpS3yH+Udj54RI07vg3LJYgmy74bhY/VJfYbfLS1iOUlZq
+	IpUIMrI72Fd8ZXMFarIrfoo2wJH90JKwc4Qmf7T/uwnrgaZjp1NvCo4JDAjmeAhlwxb3gJ0tkDB2c
+	Iigi8cqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlrC-0000000Ezvd-16PD;
-	Sat, 25 Apr 2026 22:52:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wGlrH-0000000F01j-1VF8;
+	Sat, 25 Apr 2026 22:52:19 +0000
+Received: from mail-dl1-f73.google.com ([74.125.82.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlqi-0000000EzLv-2rUz
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sat, 25 Apr 2026 22:51:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=ph7R9L13qRaJL3QC1gV+rLNWu/VKavX3EHLSwKF2rZc=; b=UOqItQ5Va5oQfQngg4MaR24RWp
-	1gRfLlm4G/3vG/dDXF4qZ9S9g2CsOlpQVBHGbtnSC3IVu7miBYJPkINHplGJvjzWzU1ov9/oovM0f
-	SHUqYwOFP7HQWsZvByvIOU5W2FZd239TQIpmdeg/CIyJ89U0ER4YV5bkPWcaZwfZunqCFY6Cp4+8Y
-	mxbknIEGr/y+p6wosfvmm8HR3IViGBakcPJE8MPkzPMM2QVgzUtiymMNC+AdrAfnSnrX2+OUbHhzb
-	Pkubb3lL1KBpl7etjJxmhhUtM5dQCdt/Lo7F6JwOw6wqV+gB6cTNEJYwTxjkJf0VrqKJB2fqxMLrb
-	jQCDa2+Q==;
-Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlqf-0000000GMoo-1ncH
+	id 1wGlqU-0000000Ez3a-1567
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Apr 2026 22:51:43 +0000
-Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2c16233ee11so12493184eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:51:40 -0700 (PDT)
+	Sat, 25 Apr 2026 22:51:45 +0000
+Received: by mail-dl1-f73.google.com with SMTP id a92af1059eb24-12db37213daso14715961c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:51:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777157499; x=1777762299; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777157488; x=1777762288; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ph7R9L13qRaJL3QC1gV+rLNWu/VKavX3EHLSwKF2rZc=;
-        b=fG3FV2wOc6+eSgYKD8r2I1/IwDl3hp7KpFxVZ9TSdBcuqsR2IUwJWRfI2NAkqget4F
-         W8WDymNaXlsx8BqDf+4C0mpItVHLyIOmLzE32zvEsaqZdwr4Iz7yxZj1w6tF6Ez9S4ai
-         CyJEMIgY92gCrv1PHSICHcqonoEoEYPUUND/dwZjL9r482wYD3DTPEzlAc/rFJKeDMzS
-         dHBoVHky8YAe9hnG75L5iN+AXMVZJvi2NoaUENg5tVwK4uTWOTl9iSF9feJAznwQSnrH
-         DgCoKdjRFN/C4rLa3THulZ6+v2pDThAmKPXpJZOeMFCZJJP1DS3UZd5LO0Qwl+mZSY5C
-         TjOg==
+        bh=N4Nf17+iE4TpFXICTEQCjer2ymy7/ZPQXwIyAydjrk8=;
+        b=BJsyA5Xty9ftD2NscEP2qrB6oOobX0tWMrcdcine5QmEKlA63MlwdJz4ZO0nsc5tvp
+         7MPisZ9i9DqrlE/a3IUBqpbEFUWHCAgnKwINsFeaRR3IzU+Uk/6zEDpcnNxzFb1XNS2q
+         I02Tfy+Ft2wFqtGbnxnXTMQZfsCMCdZzq8K2XOaGcq1ukgw6FdA269QYPbFl9mS4N8HE
+         W9tySANng97IZBo7YO4gtnfMCT/MxFbvXfvvrVFKShFJOkOm9vPrO8uZ0iOT00Upu9zh
+         JDf4voQ0wBORmOqKtXoyJuGWeLrZet1dUVjN4hISbLqDoOz8JqxfAO1aoKqdHFX114Rh
+         GX5g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777157499; x=1777762299;
+        d=1e100.net; s=20251104; t=1777157488; x=1777762288;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ph7R9L13qRaJL3QC1gV+rLNWu/VKavX3EHLSwKF2rZc=;
-        b=e6ph9jZI0xL4gErMAD0Y05Q1XKT9IBAuGrbOCGJr5EpzAQ/J846JjiZoztGJEd3ipq
-         7qcC4Mlw3vu6RltFoROv1ggpD668GFU0+2G9YEFNVb38NTXn6GnDgHpVVJxGB9ppJ0Vs
-         c1pP49S3vK8C+9ELSV1ohpqwopO0IROt1PfrEXfA8cBJx8ssbwJS+OUyHxESDTenTyJB
-         bWx2r6USULk+Zc5aZtksSOQdbSjYlHi/RAMWjRjUoA4xkpTmRKcH0xkv1sdqSuDDUWZE
-         agOmpC2WB6BY803zrco78n7NRJMFUINm3VNj9A+zqSxCoqmHMcmZguzLJJ5oje42AZUL
-         IlsQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9eHjVJYUvIlV/h4nihqtf9gM2IOkHTok4aTHv32iLbw/WwX4Ix47z2bGriUdXyp3gQPwjKXiMyXB64Ey7pP0DK@lists.infradead.org
-X-Gm-Message-State: AOJu0YxLzWo/LWfa5IzU3auW8v5fMqDORU37viCDR2ror4zXJUXaLCtU
-	JEEh1ZNaAVtKc++ja5LQQyl+z/JZ6Qa57UBvtMLqDOSwFnHi6kPF/XIGhpeLy0AXbnw/entpVvx
-	wa1rbqTtCQw==
-X-Received: from dybor13.prod.google.com ([2002:a05:7301:1f0d:b0:2d8:4599:1d20])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:40c9:b0:2e6:ff79:e344
- with SMTP id 5a478bee46e88-2e6ff7a04bemr13956737eec.9.1777157498644; Sat, 25
- Apr 2026 15:51:38 -0700 (PDT)
-Date: Sat, 25 Apr 2026 15:49:33 -0700
+        bh=N4Nf17+iE4TpFXICTEQCjer2ymy7/ZPQXwIyAydjrk8=;
+        b=bQHmifihxQbwWhPejarKrlH11RcmBLDxItJQBTcSWBjHu7NRXQpJZxLeMwpurkrDG2
+         k7oaVB9ACtWG9Iw2AtJeGNxYctCKh2DwiTUddXT+A5/g0tS4vuSSqvr8ys09siaFy2JO
+         UBoFXjD9v75yOPxW+wJIO8stM+0EMFd2KS2Okqq2uEdL45srKWX/xgyKlYJFDHeNFjpE
+         Hvihi+WnjT0Y235UbNPGEoBt4UYUCRY2E+Nr+QYApA1F5djNWu4yfDVzFZ8VWMARDFJg
+         J2IFZv+/3okt3iUbhzPLNv55CYvpp1W3bFzKZQ6Szz+uahDeN1D4n6iZDzPDWcyKAOuG
+         kDfA==
+X-Forwarded-Encrypted: i=1; AFNElJ/yiRnxQMjC6tJihz2zMwHjKDtTaz9TwHqzm5LjSyL5WfymEVN0I8QSDrGyvHNHnmPGm0Nu3otlPIgy3w+ksy2w@lists.infradead.org
+X-Gm-Message-State: AOJu0YzrTcYBCyBoEzRC/zRX7/MY6QrKLNp/vcYy87e3cvGzxAZNpZbY
+	ow+ZuCNQDTGgf0JWDJ/Nt83mpc34olYxTaZ09LYx+j1bMwtSAYOqj+fegMBbMX7n/XeNtE0cdU1
+	eqLXe2PUMCw==
+X-Received: from dlak2.prod.google.com ([2002:a05:701b:2902:b0:12d:b319:ccc4])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:6ba1:b0:12c:5e48:4c01
+ with SMTP id a92af1059eb24-12c73f6c501mr21511343c88.1.1777157488085; Sat, 25
+ Apr 2026 15:51:28 -0700 (PDT)
+Date: Sat, 25 Apr 2026 15:49:28 -0700
 In-Reply-To: <20260425224951.174663-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260425174858.3922152-1-irogers@google.com> <20260425224951.174663-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260425224951.174663-42-irogers@google.com>
-Subject: [PATCH v7 41/59] perf netdev-times: Port netdev-times to use python module
+Message-ID: <20260425224951.174663-37-irogers@google.com>
+Subject: [PATCH v7 36/59] perf export-to-sqlite: Port export-to-sqlite to use
+ python module
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org, 
 	leo.yan@linux.dev, namhyung@kernel.org, tmricht@linux.ibm.com
@@ -90,8 +76,8 @@ Cc: alice.mei.rogers@gmail.com, dapeng1.mi@linux.intel.com,
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260425_235141_615112_D9316FE7 
-X-CRM114-Status: GOOD (  15.74  )
+X-CRM114-CacheID: sfid-20260425_155130_492946_76839C47 
+X-CRM114-Status: GOOD (  16.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,504 +92,401 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ported from tools/perf/scripts/python/.
-- Refactored the script to use a class structure (NetDevTimesAnalyzer)
-  to encapsulate state.
-- Used perf.session for event collection and processed them in time
-  order at the end to match legacy behavior.
-- Extracted tracepoint fields directly from sample attributes.
-- Moved format string constants to module level.
-- Cleaned up Python 2 compatibility artifacts (like cmp_to_key).
+This commit ports the export-to-sqlite.py script to use the modern perf
+Python module and the standard library sqlite3 module. It drops the
+dependency on PySide2.QtSql.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
-v2: Corrected Field Names: Fixed getattr calls for skblen and dev_name
-    to use "len" and "name" respectively, as exposed by the actual
-    tracepoints.
+v5:
+1. Fix Callchain Resolution: Corrected attribute lookups on callchain
+   nodes. The `dso` and `symbol` properties already return strings, so
+   attempting to get a `.name` attribute from them failed and caused
+   fallback to "Unknown_...".
 ---
- tools/perf/python/netdev-times.py | 472 ++++++++++++++++++++++++++++++
- 1 file changed, 472 insertions(+)
- create mode 100755 tools/perf/python/netdev-times.py
+ tools/perf/python/export-to-sqlite.py | 372 ++++++++++++++++++++++++++
+ 1 file changed, 372 insertions(+)
+ create mode 100755 tools/perf/python/export-to-sqlite.py
 
-diff --git a/tools/perf/python/netdev-times.py b/tools/perf/python/netdev-times.py
+diff --git a/tools/perf/python/export-to-sqlite.py b/tools/perf/python/export-to-sqlite.py
 new file mode 100755
-index 000000000000..3fe46b4e7f21
+index 000000000000..736b56ff8d59
 --- /dev/null
-+++ b/tools/perf/python/netdev-times.py
-@@ -0,0 +1,472 @@
++++ b/tools/perf/python/export-to-sqlite.py
+@@ -0,0 +1,372 @@
 +#!/usr/bin/env python3
 +# SPDX-License-Identifier: GPL-2.0
 +"""
-+Display a process of packets and processed time.
-+It helps us to investigate networking or network device.
++Export perf data to a sqlite3 database.
 +
-+Ported from tools/perf/scripts/python/netdev-times.py
++This script has been ported to use the modern perf Python module and the
++standard library sqlite3 module. It no longer requires PySide2 or QtSql
++for exporting.
++
++Examples of using this script with Intel PT:
++
++	$ perf record -e intel_pt//u ls
++	$ python tools/perf/python/export-to-sqlite.py -i perf.data -o pt_example
++
++To browse the database, sqlite3 can be used e.g.
++
++	$ sqlite3 pt_example
++	sqlite> .header on
++	sqlite> select * from samples_view where id < 10;
++	sqlite> .mode column
++	sqlite> select * from samples_view where id < 10;
++	sqlite> .tables
++	sqlite> .schema samples_view
++	sqlite> .quit
++
++An example of using the database is provided by the script
++exported-sql-viewer.py. Refer to that script for details.
++
++Ported from tools/perf/scripts/python/export-to-sqlite.py
 +"""
 +
 +import argparse
-+from collections import defaultdict
++import os
++import sqlite3
 +import sys
-+from typing import Optional
++from typing import Dict, Optional
 +import perf
 +
-+# Format for displaying rx packet processing
-+PF_IRQ_ENTRY = "  irq_entry(+%.3fmsec irq=%d:%s)"
-+PF_SOFT_ENTRY = "  softirq_entry(+%.3fmsec)"
-+PF_NAPI_POLL = "  napi_poll_exit(+%.3fmsec %s)"
-+PF_JOINT = "         |"
-+PF_WJOINT = "         |            |"
-+PF_NET_RECV = "         |---netif_receive_skb(+%.3fmsec skb=%x len=%d)"
-+PF_NET_RX = "         |---netif_rx(+%.3fmsec skb=%x)"
-+PF_CPY_DGRAM = "         |      skb_copy_datagram_iovec(+%.3fmsec %d:%s)"
-+PF_KFREE_SKB = "         |      kfree_skb(+%.3fmsec location=%x)"
-+PF_CONS_SKB = "         |      consume_skb(+%.3fmsec)"
 +
++class DatabaseExporter:
++    """Handles database connection and exporting of perf events."""
 +
-+class NetDevTimesAnalyzer:
-+    """Analyzes network device events and prints charts."""
-+
-+    def __init__(self, cfg: argparse.Namespace):
-+        self.args = cfg
++    def __init__(self, db_path: str):
++        self.con = sqlite3.connect(db_path)
 +        self.session: Optional[perf.session] = None
-+        self.show_tx = cfg.tx or (not cfg.tx and not cfg.rx)
-+        self.show_rx = cfg.rx or (not cfg.tx and not cfg.rx)
-+        self.dev = cfg.dev
-+        self.debug = cfg.debug
-+        self.buffer_budget = 65536
-+        self.irq_dic: dict[int, list[dict]] = defaultdict(list)
-+        self.net_rx_dic: dict[int, dict] = {}
-+        self.receive_hunk_list: list[dict] = []
-+        self.rx_skb_list: list[dict] = []
-+        self.tx_queue_list: list[dict] = []
-+        self.tx_xmit_list: list[dict] = []
-+        self.tx_free_list: list[dict] = []
++        self.sample_count = 0
 +
-+        self.buffer_budget = 65536
-+        self.of_count_rx_skb_list = 0
-+        self.of_count_tx_queue_list = 0
-+        self.of_count_tx_xmit_list = 0
-+
-+    def diff_msec(self, src: int, dst: int) -> float:
-+        """Calculate a time interval(msec) from src(nsec) to dst(nsec)."""
-+        return (dst - src) / 1000000.0
-+
-+    def print_transmit(self, hunk: dict) -> None:
-+        """Display a process of transmitting a packet."""
-+        if self.dev and hunk['dev'].find(self.dev) < 0:
-+            return
-+        queue_t_sec = hunk['queue_t'] // 1000000000
-+        queue_t_usec = hunk['queue_t'] % 1000000000 // 1000
-+        print(f"{hunk['dev']:7s} {hunk['len']:5d} "
-+              f"{queue_t_sec:6d}.{queue_t_usec:06d}sec "
-+              f"{self.diff_msec(hunk['queue_t'], hunk['xmit_t']):12.3f}msec      "
-+              f"{self.diff_msec(hunk['xmit_t'], hunk['free_t']):12.3f}msec")
-+
-+    def print_receive(self, hunk: dict) -> None:
-+        """Display a process of received packets and interrupts."""
-+        show_hunk = False
-+        irq_list = hunk['irq_list']
-+        if not irq_list:
-+            return
-+        cpu = irq_list[0]['cpu']
-+        base_t = irq_list[0]['irq_ent_t']
-+
-+        if self.dev:
-+            for irq in irq_list:
-+                if irq['name'].find(self.dev) >= 0:
-+                    show_hunk = True
-+                    break
-+        else:
-+            show_hunk = True
-+
-+        if not show_hunk:
-+            return
-+
-+        base_t_sec = base_t // 1000000000
-+        base_t_usec = base_t % 1000000000 // 1000
-+        print(f"{base_t_sec}.{base_t_usec:06d}sec cpu={cpu}")
-+        for irq in irq_list:
-+            print(PF_IRQ_ENTRY %
-+                  (self.diff_msec(base_t, irq['irq_ent_t']),
-+                   irq['irq'], irq['name']))
-+            print(PF_JOINT)
-+            irq_event_list = irq['event_list']
-+            for irq_event in irq_event_list:
-+                if irq_event['event'] == 'netif_rx':
-+                    print(PF_NET_RX %
-+                          (self.diff_msec(base_t, irq_event['time']),
-+                           irq_event['skbaddr']))
-+                    print(PF_JOINT)
-+
-+        print(PF_SOFT_ENTRY % self.diff_msec(base_t, hunk['sirq_ent_t']))
-+        print(PF_JOINT)
-+        event_list = hunk['event_list']
-+        for i, event in enumerate(event_list):
-+            if event['event_name'] == 'napi_poll':
-+                print(PF_NAPI_POLL %
-+                      (self.diff_msec(base_t, event['event_t']),
-+                       event['dev']))
-+                if i == len(event_list) - 1:
-+                    print("")
-+                else:
-+                    print(PF_JOINT)
-+            else:
-+                print(PF_NET_RECV %
-+                      (self.diff_msec(base_t, event['event_t']),
-+                       event['skbaddr'],
-+                       event['len']))
-+                if 'comm' in event:
-+                    print(PF_WJOINT)
-+                    print(PF_CPY_DGRAM %
-+                          (self.diff_msec(base_t, event['comm_t']),
-+                           event['pid'], event['comm']))
-+                elif 'handle' in event:
-+                    print(PF_WJOINT)
-+                    if event['handle'] == "kfree_skb":
-+                        print(PF_KFREE_SKB %
-+                              (self.diff_msec(base_t, event['comm_t']),
-+                               event['location']))
-+                    elif event['handle'] == "consume_skb":
-+                        print(PF_CONS_SKB %
-+                              self.diff_msec(base_t, event['comm_t']))
-+                print(PF_JOINT)
-+
-+    def handle_irq_handler_entry(self, event: dict) -> None:
-+        """Handle irq:irq_handler_entry event."""
-+        time = event['time']
-+        cpu = event['cpu']
-+        irq = event['irq']
-+        irq_name = event['irq_name']
-+        irq_record = {'irq': irq, 'name': irq_name, 'cpu': cpu,
-+                      'irq_ent_t': time, 'event_list': []}
-+        self.irq_dic[cpu].append(irq_record)
-+
-+    def handle_irq_handler_exit(self, event: dict) -> None:
-+        """Handle irq:irq_handler_exit event."""
-+        time = event['time']
-+        cpu = event['cpu']
-+        irq = event['irq']
-+        if cpu not in self.irq_dic or not self.irq_dic[cpu]:
-+            return
-+        irq_record = self.irq_dic[cpu].pop()
-+        if irq != irq_record['irq']:
-+            return
-+        irq_record['irq_ext_t'] = time
-+        # if an irq doesn't include NET_RX softirq, drop.
-+        if irq_record['event_list']:
-+            self.irq_dic[cpu].append(irq_record)
-+
-+    def handle_irq_softirq_raise(self, event: dict) -> None:
-+        """Handle irq:softirq_raise event."""
-+        time = event['time']
-+        cpu = event['cpu']
-+        if cpu not in self.irq_dic or not self.irq_dic[cpu]:
-+            return
-+        irq_record = self.irq_dic[cpu].pop()
-+        irq_record['event_list'].append({'time': time, 'event': 'sirq_raise'})
-+        self.irq_dic[cpu].append(irq_record)
-+
-+    def handle_irq_softirq_entry(self, event: dict) -> None:
-+        """Handle irq:softirq_entry event."""
-+        time = event['time']
-+        cpu = event['cpu']
-+        self.net_rx_dic[cpu] = {'sirq_ent_t': time, 'event_list': []}
-+
-+    def handle_irq_softirq_exit(self, event: dict) -> None:
-+        """Handle irq:softirq_exit event."""
-+        time = event['time']
-+        cpu = event['cpu']
-+        irq_list = []
-+        event_list = []
-+        sirq_ent_t = None
-+
-+        if cpu in self.irq_dic:
-+            irq_list = self.irq_dic[cpu]
-+            del self.irq_dic[cpu]
-+        if cpu in self.net_rx_dic:
-+            sirq_ent_t = self.net_rx_dic[cpu]['sirq_ent_t']
-+            event_list = self.net_rx_dic[cpu]['event_list']
-+            del self.net_rx_dic[cpu]
-+        if not irq_list or not event_list or sirq_ent_t is None:
-+            return
-+        rec_data = {'sirq_ent_t': sirq_ent_t, 'sirq_ext_t': time,
-+                    'irq_list': irq_list, 'event_list': event_list}
-+        self.receive_hunk_list.append(rec_data)
-+
-+    def handle_napi_poll(self, event: dict) -> None:
-+        """Handle napi:napi_poll event."""
-+        time = event['time']
-+        cpu = event['cpu']
-+        dev_name = event['dev_name']
-+        work = event['work']
-+        budget = event['budget']
-+        if cpu in self.net_rx_dic:
-+            event_list = self.net_rx_dic[cpu]['event_list']
-+            rec_data = {'event_name': 'napi_poll',
-+                        'dev': dev_name, 'event_t': time,
-+                        'work': work, 'budget': budget}
-+            event_list.append(rec_data)
-+
-+    def handle_netif_rx(self, event: dict) -> None:
-+        """Handle net:netif_rx event."""
-+        time = event['time']
-+        cpu = event['cpu']
-+        skbaddr = event['skbaddr']
-+        skblen = event['skblen']
-+        dev_name = event['dev_name']
-+        if cpu not in self.irq_dic or not self.irq_dic[cpu]:
-+            return
-+        irq_record = self.irq_dic[cpu].pop()
-+        irq_record['event_list'].append({'time': time, 'event': 'netif_rx',
-+                                         'skbaddr': skbaddr, 'skblen': skblen,
-+                                         'dev_name': dev_name})
-+        self.irq_dic[cpu].append(irq_record)
-+
-+    def handle_netif_receive_skb(self, event: dict) -> None:
-+        """Handle net:netif_receive_skb event."""
-+        time = event['time']
-+        cpu = event['cpu']
-+        skbaddr = event['skbaddr']
-+        skblen = event['skblen']
-+        if cpu in self.net_rx_dic:
-+            rec_data = {'event_name': 'netif_receive_skb',
-+                        'event_t': time, 'skbaddr': skbaddr, 'len': skblen}
-+            event_list = self.net_rx_dic[cpu]['event_list']
-+            event_list.append(rec_data)
-+            self.rx_skb_list.insert(0, rec_data)
-+            if len(self.rx_skb_list) > self.buffer_budget:
-+                self.rx_skb_list.pop()
-+                self.of_count_rx_skb_list += 1
-+
-+    def handle_net_dev_queue(self, event: dict) -> None:
-+        """Handle net:net_dev_queue event."""
-+        time = event['time']
-+        skbaddr = event['skbaddr']
-+        skblen = event['skblen']
-+        dev_name = event['dev_name']
-+        skb = {'dev': dev_name, 'skbaddr': skbaddr, 'len': skblen, 'queue_t': time}
-+        self.tx_queue_list.insert(0, skb)
-+        if len(self.tx_queue_list) > self.buffer_budget:
-+            self.tx_queue_list.pop()
-+            self.of_count_tx_queue_list += 1
-+
-+    def handle_net_dev_xmit(self, event: dict) -> None:
-+        """Handle net:net_dev_xmit event."""
-+        time = event['time']
-+        skbaddr = event['skbaddr']
-+        rc = event['rc']
-+        if rc == 0:  # NETDEV_TX_OK
-+            for i, skb in enumerate(self.tx_queue_list):
-+                if skb['skbaddr'] == skbaddr:
-+                    skb['xmit_t'] = time
-+                    self.tx_xmit_list.insert(0, skb)
-+                    del self.tx_queue_list[i]
-+                    if len(self.tx_xmit_list) > self.buffer_budget:
-+                        self.tx_xmit_list.pop()
-+                        self.of_count_tx_xmit_list += 1
-+                    return
-+
-+    def handle_kfree_skb(self, event: dict) -> None:
-+        """Handle skb:kfree_skb event."""
-+        time = event['time']
-+        skbaddr = event['skbaddr']
-+        comm = event['comm']
-+        pid = event['pid']
-+        location = event['location']
-+        for i, skb in enumerate(self.tx_queue_list):
-+            if skb['skbaddr'] == skbaddr:
-+                del self.tx_queue_list[i]
-+                return
-+        for i, skb in enumerate(self.tx_xmit_list):
-+            if skb['skbaddr'] == skbaddr:
-+                skb['free_t'] = time
-+                self.tx_free_list.append(skb)
-+                del self.tx_xmit_list[i]
-+                return
-+        for i, rec_data in enumerate(self.rx_skb_list):
-+            if rec_data['skbaddr'] == skbaddr:
-+                rec_data.update({'handle': "kfree_skb",
-+                                 'comm': comm, 'pid': pid, 'comm_t': time, 'location': location})
-+                del self.rx_skb_list[i]
-+                return
-+
-+    def handle_consume_skb(self, event: dict) -> None:
-+        """Handle skb:consume_skb event."""
-+        time = event['time']
-+        skbaddr = event['skbaddr']
-+        for i, skb in enumerate(self.tx_xmit_list):
-+            if skb['skbaddr'] == skbaddr:
-+                skb['free_t'] = time
-+                self.tx_free_list.append(skb)
-+                del self.tx_xmit_list[i]
-+                return
-+
-+    def handle_skb_copy_datagram_iovec(self, event: dict) -> None:
-+        """Handle skb:skb_copy_datagram_iovec event."""
-+        time = event['time']
-+        skbaddr = event['skbaddr']
-+        comm = event['comm']
-+        pid = event['pid']
-+        for i, rec_data in enumerate(self.rx_skb_list):
-+            if skbaddr == rec_data['skbaddr']:
-+                rec_data.update({'handle': "skb_copy_datagram_iovec",
-+                                 'comm': comm, 'pid': pid, 'comm_t': time})
-+                del self.rx_skb_list[i]
-+                return
-+
-+
-+
-+    def print_summary(self) -> None:
-+        """Print charts."""
-+
-+        # display receive hunks
-+        if self.show_rx:
-+            for hunk in self.receive_hunk_list:
-+                self.print_receive(hunk)
-+
-+        # display transmit hunks
-+        if self.show_tx:
-+            print("   dev    len      Qdisc        "
-+                  "       netdevice             free")
-+            for hunk in self.tx_free_list:
-+                self.print_transmit(hunk)
-+
-+        if self.debug:
-+            print("debug buffer status")
-+            print("----------------------------")
-+            print(f"xmit Qdisc:remain:{len(self.tx_queue_list)} "
-+                  f"overflow:{self.of_count_tx_queue_list}")
-+            print(f"xmit netdevice:remain:{len(self.tx_xmit_list)} "
-+                  f"overflow:{self.of_count_tx_xmit_list}")
-+            print(f"receive:remain:{len(self.rx_skb_list)} "
-+                  f"overflow:{self.of_count_rx_skb_list}")
-+
-+    def handle_single_event(self, event: dict) -> None:
-+        """Handle a single processed event."""
-+        name = event['name']
-+        if name == 'irq:softirq_exit':
-+            self.handle_irq_softirq_exit(event)
-+        elif name == 'irq:softirq_entry':
-+            self.handle_irq_softirq_entry(event)
-+        elif name == 'irq:softirq_raise':
-+            self.handle_irq_softirq_raise(event)
-+        elif name == 'irq:irq_handler_entry':
-+            self.handle_irq_handler_entry(event)
-+        elif name == 'irq:irq_handler_exit':
-+            self.handle_irq_handler_exit(event)
-+        elif name == 'napi:napi_poll':
-+            self.handle_napi_poll(event)
-+        elif name == 'net:netif_receive_skb':
-+            self.handle_netif_receive_skb(event)
-+        elif name == 'net:netif_rx':
-+            self.handle_netif_rx(event)
-+        elif name == 'skb:skb_copy_datagram_iovec':
-+            self.handle_skb_copy_datagram_iovec(event)
-+        elif name == 'net:net_dev_queue':
-+            self.handle_net_dev_queue(event)
-+        elif name == 'net:net_dev_xmit':
-+            self.handle_net_dev_xmit(event)
-+        elif name == 'skb:kfree_skb':
-+            self.handle_kfree_skb(event)
-+        elif name == 'skb:consume_skb':
-+            self.handle_consume_skb(event)
-+
-+    def process_event(self, sample: perf.sample_event) -> None:
-+        """Process events directly on-the-fly."""
-+        name = str(sample.evsel)
-+        pid = sample.sample_pid
-+        if hasattr(self, 'session') and self.session:
-+            comm = self.session.find_thread(pid).comm()
-+        else:
-+            comm = "Unknown"
-+        event_data = {
-+            'name': name[6:-1] if name.startswith("evsel(") else name,
-+            'time': sample.sample_time,
-+            'cpu': sample.sample_cpu,
-+            'pid': pid,
-+            'comm': comm,
++        # Caches and counters grouped to reduce instance attributes
++        self.caches: Dict[str, dict] = {
++            'threads': {},
++            'comms': {},
++            'dsos': {},
++            'symbols': {},
++            'events': {},
++            'branch_types': {},
++            'call_paths': {}
 +        }
 +
-+        # Extract specific fields based on event type
-+        if name.startswith("evsel(irq:softirq_"):
-+            event_data['vec'] = getattr(sample, "vec", 0)
-+            # Filter for NET_RX
-+            try:
-+                if perf.symbol_str("irq:softirq_entry", "vec",  # type: ignore
-+                                   event_data['vec']) != "NET_RX":
-+                    return
-+            except AttributeError:
-+                # Fallback if symbol_str not available or fails
-+                if event_data['vec'] != 3:  # NET_RX_SOFTIRQ is usually 3
-+                    return
-+        elif name == "evsel(irq:irq_handler_entry)":
-+            event_data['irq'] = getattr(sample, "irq", -1)
-+            event_data['irq_name'] = getattr(sample, "name", "[unknown]")
-+        elif name == "evsel(irq:irq_handler_exit)":
-+            event_data['irq'] = getattr(sample, "irq", -1)
-+            event_data['ret'] = getattr(sample, "ret", 0)
-+        elif name == "evsel(napi:napi_poll)":
-+            event_data['napi'] = getattr(sample, "napi", 0)
-+            event_data['dev_name'] = getattr(sample, "dev_name", "[unknown]")
-+            event_data['work'] = getattr(sample, "work", 0)
-+            event_data['budget'] = getattr(sample, "budget", 0)
-+        elif name in ("evsel(net:netif_receive_skb)", "evsel(net:netif_rx)",
-+                      "evsel(net:net_dev_queue)"):
-+            event_data['skbaddr'] = getattr(sample, "skbaddr", 0)
-+            event_data['skblen'] = getattr(sample, "len", 0)
-+            event_data['dev_name'] = getattr(sample, "name", "[unknown]")
-+        elif name == "evsel(net:net_dev_xmit)":
-+            event_data['skbaddr'] = getattr(sample, "skbaddr", 0)
-+            event_data['skblen'] = getattr(sample, "len", 0)
-+            event_data['rc'] = getattr(sample, "rc", 0)
-+            event_data['dev_name'] = getattr(sample, "name", "[unknown]")
-+        elif name == "evsel(skb:kfree_skb)":
-+            event_data['skbaddr'] = getattr(sample, "skbaddr", 0)
-+            event_data['location'] = getattr(sample, "location", 0)
-+            event_data['protocol'] = getattr(sample, "protocol", 0)
-+            event_data['reason'] = getattr(sample, "reason", 0)
-+        elif name == "evsel(skb:consume_skb)":
-+            event_data['skbaddr'] = getattr(sample, "skbaddr", 0)
-+            event_data['location'] = getattr(sample, "location", 0)
-+        elif name == "evsel(skb:skb_copy_datagram_iovec)":
-+            event_data['skbaddr'] = getattr(sample, "skbaddr", 0)
-+            event_data['skblen'] = getattr(sample, "skblen", 0)
++        self.next_id = {
++            'thread': 1,
++            'comm': 1,
++            'dso': 1,
++            'symbol': 1,
++            'event': 1,
++            'branch_type': 1,
++            'call_path': 1
++        }
 +
-+        self.handle_single_event(event_data)
++        self.create_tables()
++
++    def create_tables(self) -> None:
++        """Create database tables."""
++        self.con.execute("""
++            CREATE TABLE IF NOT EXISTS selected_events (
++                    id      INTEGER         NOT NULL        PRIMARY KEY,
++                    name    VARCHAR(80))
++        """)
++        self.con.execute("""
++            CREATE TABLE IF NOT EXISTS machines (
++                    id      INTEGER         NOT NULL        PRIMARY KEY,
++                    pid     INTEGER,
++                    root_dir VARCHAR(4096))
++        """)
++        self.con.execute("""
++            CREATE TABLE IF NOT EXISTS threads (
++                    id      INTEGER         NOT NULL        PRIMARY KEY,
++                    machine_id BIGINT,
++                    process_id BIGINT,
++                    pid     INTEGER,
++                    tid     INTEGER)
++        """)
++        self.con.execute("""
++            CREATE TABLE IF NOT EXISTS comms (
++                    id      INTEGER         NOT NULL        PRIMARY KEY,
++                    comm    VARCHAR(16),
++                    c_thread_id BIGINT,
++                    c_time  BIGINT,
++                    exec_flag BOOLEAN)
++        """)
++        self.con.execute("""
++            CREATE TABLE IF NOT EXISTS comm_threads (
++                    id      INTEGER         NOT NULL        PRIMARY KEY,
++                    comm_id BIGINT,
++                    thread_id BIGINT)
++        """)
++        self.con.execute("""
++            CREATE TABLE IF NOT EXISTS dsos (
++                    id      INTEGER         NOT NULL        PRIMARY KEY,
++                    machine_id BIGINT,
++                    short_name VARCHAR(256),
++                    long_name VARCHAR(4096),
++                    build_id VARCHAR(64))
++        """)
++        self.con.execute("""
++            CREATE TABLE IF NOT EXISTS symbols (
++                    id      INTEGER         NOT NULL        PRIMARY KEY,
++                    dso_id  BIGINT,
++                    sym_start BIGINT,
++                    sym_end BIGINT,
++                    binding INTEGER,
++                    name    VARCHAR(2048))
++        """)
++        self.con.execute("""
++            CREATE TABLE IF NOT EXISTS branch_types (
++                    id      INTEGER         NOT NULL        PRIMARY KEY,
++                    name    VARCHAR(80))
++        """)
++        self.con.execute("""
++            CREATE TABLE IF NOT EXISTS samples (
++                    id              INTEGER         NOT NULL        PRIMARY KEY,
++                    evsel_id        BIGINT,
++                    machine_id      BIGINT,
++                    thread_id       BIGINT,
++                    comm_id         BIGINT,
++                    dso_id          BIGINT,
++                    symbol_id       BIGINT,
++                    sym_offset      BIGINT,
++                    ip              BIGINT,
++                    time            BIGINT,
++                    cpu             INTEGER,
++                    to_dso_id       BIGINT,
++                    to_symbol_id    BIGINT,
++                    to_sym_offset   BIGINT,
++                    to_ip           BIGINT,
++                    period          BIGINT,
++                    weight          BIGINT,
++                    transaction_    BIGINT,
++                    data_src        BIGINT,
++                    branch_type     INTEGER,
++                    in_tx           BOOLEAN,
++                    call_path_id    BIGINT,
++                    insn_count      BIGINT,
++                    cyc_count       BIGINT,
++                    flags           INTEGER)
++        """)
++        self.con.execute("""
++            CREATE TABLE IF NOT EXISTS call_paths (
++                    id              INTEGER         NOT NULL        PRIMARY KEY,
++                    parent_id       BIGINT,
++                    symbol_id       BIGINT,
++                    ip              BIGINT)
++        """)
++        self.con.execute("""
++            CREATE VIEW IF NOT EXISTS samples_view AS
++            SELECT s.id, e.name as event, t.pid, t.tid, c.comm,
++                   d.short_name as dso, sym.name as symbol, s.sym_offset,
++                   s.ip, s.time, s.cpu
++            FROM samples s
++            JOIN selected_events e ON s.evsel_id = e.id
++            JOIN threads t ON s.thread_id = t.id
++            JOIN comms c ON s.comm_id = c.id
++            JOIN dsos d ON s.dso_id = d.id
++            JOIN symbols sym ON s.symbol_id = sym.id;
++        """)
++
++        # id == 0 means unknown. It is easier to create records for them than
++        # replace the zeroes with NULLs
++        self.con.execute("INSERT OR IGNORE INTO selected_events VALUES (0, 'unknown')")
++        self.con.execute("INSERT OR IGNORE INTO machines VALUES (0, 0, 'unknown')")
++        self.con.execute("INSERT OR IGNORE INTO threads VALUES (0, 0, 0, -1, -1)")
++        self.con.execute("INSERT OR IGNORE INTO comms VALUES (0, 'unknown', 0, 0, 0)")
++        self.con.execute("INSERT OR IGNORE INTO dsos VALUES (0, 0, 'unknown', 'unknown', '')")
++        self.con.execute("INSERT OR IGNORE INTO symbols VALUES (0, 0, 0, 0, 0, 'unknown')")
++
++    def get_event_id(self, name: str) -> int:
++        """Get or create event ID."""
++        if name in self.caches['events']:
++            return self.caches['events'][name]
++        event_id = self.next_id['event']
++        self.con.execute("INSERT INTO selected_events VALUES (?, ?)",
++                         (event_id, name))
++        self.caches['events'][name] = event_id
++        self.next_id['event'] += 1
++        return event_id
++
++    def get_thread_id(self, pid: int, tid: int) -> int:
++        """Get or create thread ID."""
++        key = (pid, tid)
++        if key in self.caches['threads']:
++            return self.caches['threads'][key]
++        thread_id = self.next_id['thread']
++        self.con.execute("INSERT INTO threads VALUES (?, ?, ?, ?, ?)",
++                         (thread_id, 0, pid, pid, tid))
++        self.caches['threads'][key] = thread_id
++        self.next_id['thread'] += 1
++        return thread_id
++
++    def get_comm_id(self, comm: str, thread_id: int) -> int:
++        """Get or create comm ID."""
++        if comm in self.caches['comms']:
++            return self.caches['comms'][comm]
++        comm_id = self.next_id['comm']
++        self.con.execute("INSERT INTO comms VALUES (?, ?, ?, ?, ?)",
++                         (comm_id, comm, thread_id, 0, 0))
++        self.con.execute("INSERT INTO comm_threads VALUES (?, ?, ?)",
++                         (comm_id, comm_id, thread_id))
++        self.caches['comms'][comm] = comm_id
++        self.next_id['comm'] += 1
++        return comm_id
++
++    def get_dso_id(self, short_name: str, long_name: str,
++                   build_id: str) -> int:
++        """Get or create DSO ID."""
++        if short_name in self.caches['dsos']:
++            return self.caches['dsos'][short_name]
++        dso_id = self.next_id['dso']
++        self.con.execute("INSERT INTO dsos VALUES (?, ?, ?, ?, ?)",
++                         (dso_id, 0, short_name, long_name, build_id))
++        self.caches['dsos'][short_name] = dso_id
++        self.next_id['dso'] += 1
++        return dso_id
++
++    def get_symbol_id(self, dso_id: int, name: str, start: int,
++                      end: int) -> int:
++        """Get or create symbol ID."""
++        key = (dso_id, name)
++        if key in self.caches['symbols']:
++            return self.caches['symbols'][key]
++        symbol_id = self.next_id['symbol']
++        self.con.execute("INSERT INTO symbols VALUES (?, ?, ?, ?, ?, ?)",
++                         (symbol_id, dso_id, start, end, 0, name))
++        self.caches['symbols'][key] = symbol_id
++        self.next_id['symbol'] += 1
++        return symbol_id
++
++    def get_call_path_id(self, parent_id: int, symbol_id: int,
++                         ip: int) -> int:
++        """Get or create call path ID."""
++        key = (parent_id, symbol_id, ip)
++        if key in self.caches['call_paths']:
++            return self.caches['call_paths'][key]
++        call_path_id = self.next_id['call_path']
++        self.con.execute("INSERT INTO call_paths VALUES (?, ?, ?, ?)",
++                         (call_path_id, parent_id, symbol_id, ip))
++        self.caches['call_paths'][key] = call_path_id
++        self.next_id['call_path'] += 1
++        return call_path_id
++
++    def process_event(self, sample: perf.sample_event) -> None:
++        """Callback for processing events."""
++        thread_id = self.get_thread_id(sample.sample_pid, sample.sample_tid)
++
++        comm = "Unknown_comm"
++        try:
++            if self.session is not None:
++                proc = self.session.find_thread(sample.sample_pid)
++                if proc:
++                    comm = proc.comm()
++        except TypeError:
++            pass
++        comm_id = self.get_comm_id(comm, thread_id)
++
++        dso_id = self.get_dso_id(
++            getattr(sample, 'dso', "Unknown_dso") or "Unknown_dso",
++            getattr(sample, 'dso_long_name', "Unknown_dso_long") or "Unknown_dso_long",
++            getattr(sample, 'dso_bid', "") or ""
++        )
++
++        symbol_id = self.get_symbol_id(
++            dso_id,
++            getattr(sample, 'symbol', "Unknown_symbol") or "Unknown_symbol",
++            getattr(sample, 'sym_start', 0) or 0,
++            getattr(sample, 'sym_end', 0) or 0
++        )
++
++        # Handle callchain
++        call_path_id = 0
++        if hasattr(sample, 'callchain') and sample.callchain:
++            parent_id = 0
++            for node in sample.callchain:
++                dso_name = getattr(node, 'dso', "Unknown_dso") or "Unknown_dso"
++                symbol_name = getattr(node, 'symbol', "Unknown_symbol") or "Unknown_symbol"
++
++                node_dso_id = self.get_dso_id(dso_name, dso_name, "")
++                node_symbol_id = self.get_symbol_id(node_dso_id, symbol_name, 0, 0)
++
++                parent_id = self.get_call_path_id(parent_id, node_symbol_id, node.ip)
++            call_path_id = parent_id
++        else:
++            call_path_id = 0
++
++        # Insert sample
++        self.con.execute("""
++            INSERT INTO samples VALUES (
++                NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
++            )
++        """, (
++            self.get_event_id(getattr(sample.evsel, 'name', str(sample.evsel))),
++            0, thread_id, comm_id,
++            dso_id, symbol_id, getattr(sample, 'sym_offset', 0),
++            sample.sample_ip, sample.sample_time, sample.sample_cpu,
++            0, 0, 0, 0,  # to_dso, to_symbol, to_sym_offset, to_ip
++            getattr(sample, 'sample_period', 0) or 0,
++            getattr(sample, 'sample_weight', 0) or 0,
++            getattr(sample, 'transaction_', 0),
++            getattr(sample, 'data_src', 0),
++            0,  # branch_type
++            getattr(sample, 'in_tx', 0),
++            call_path_id,
++            getattr(sample, 'insn_count', 0),
++            getattr(sample, 'cyc_count', 0),
++            getattr(sample, 'flags', 0)
++        ))
++
++        self.sample_count += 1
++        if self.sample_count % 10000 == 0:
++            self.commit()
++
++    def commit(self) -> None:
++        """Commit transaction."""
++        self.con.commit()
++
++    def close(self) -> None:
++        """Close connection."""
++        self.con.close()
 +
 +
 +if __name__ == "__main__":
-+    ap = argparse.ArgumentParser(description="Display a process of packets and processed time.")
-+    ap.add_argument("-i", "--input", default="perf.data", help="Input file name")
-+    ap.add_argument("tx", nargs="?", help="show only tx chart")
-+    ap.add_argument("rx", nargs="?", help="show only rx chart")
-+    ap.add_argument("dev", nargs="?", help="show only specified device")
-+    ap.add_argument("debug", nargs="?", help="work with debug mode. It shows buffer status.")
++    ap = argparse.ArgumentParser(
++        description="Export perf data to a sqlite3 database")
++    ap.add_argument("-i", "--input", default="perf.data",
++                    help="Input file name")
++    ap.add_argument("-o", "--output", default="perf.db",
++                    help="Output database name")
 +    args = ap.parse_args()
 +
-+    parsed_args = argparse.Namespace(tx=False, rx=False, dev=None, debug=False, input=args.input)
-+
-+    for arg in sys.argv[1:]:
-+        if arg == 'tx':
-+            parsed_args.tx = True
-+        elif arg == 'rx':
-+            parsed_args.rx = True
-+        elif arg.startswith('dev='):
-+            parsed_args.dev = arg[4:]
-+        elif arg == 'debug':
-+            parsed_args.debug = True
-+
-+    analyzer = NetDevTimesAnalyzer(parsed_args)
-+
 +    try:
-+        session = perf.session(perf.data(parsed_args.input), sample=analyzer.process_event)
-+        analyzer.session = session
++        fd = os.open(args.output, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
++        os.close(fd)
++    except FileExistsError:
++        print(f"Error: {args.output} already exists")
++        sys.exit(1)
++
++    exporter = DatabaseExporter(args.output)
++
++    session = None
++    error_occurred = False
++    try:
++        session = perf.session(perf.data(args.input),
++                               sample=exporter.process_event)
++        exporter.session = session
 +        session.process_events()
-+        analyzer.print_summary()
-+    except KeyboardInterrupt:
-+        analyzer.print_summary()
++        exporter.commit()
++        print(f"Successfully exported to {args.output}")
 +    except Exception as e:
 +        print(f"Error processing events: {e}")
++        error_occurred = True
++    finally:
++        exporter.close()
++        if error_occurred:
++            if os.path.exists(args.output):
++                os.remove(args.output)
 -- 
 2.54.0.545.g6539524ca2-goog
 
