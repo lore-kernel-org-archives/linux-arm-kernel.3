@@ -4,83 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58AA8FF8863
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:51:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE686FF8864
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 22:51:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VLDLlf+sgEgN/cBLQvW28zSQKGyhqbeTTGXjAT4IZ18=; b=WHXEO6Rn3ALhyDybFNaWAzkwbs
-	uy2pQjH03LbdcYsDwX0ywKsmnFPy2wkjYnFdyfR1FM8EvtqKrDINmCxujZe0awfkepnjsiSg3ZVYw
-	80nSOXkm19bJbX9Tkk2H6ewc9L5O4QHGeJ53Dh5wkNaPCz7snVj2n21cgd0m/hP0fPfjQz4r2xQ+u
-	I8U2g4c+q8QY0xXeNyA1D0PX9vnWOYyIn434QqROBE0Gr0eu0JEhOPwyL1WDf110Rf6K7vlk2Nht1
-	Gfwkut6PSyG9ffxbZtMdISDXEd6aMxyvLq6lUak3QIUpX1ZQrMqqEK3TvAbpgNoVxlazT/hcZlWm0
-	SOWOZV9Q==;
+	bh=p5jktYnXLVV3ufAgYuB6nR2y55Mog/bG7LgNxL64ue4=; b=heVhiaj83ayTIVnSATIvy/zvnf
+	cISPo/ArTq9j4UcWrYZgWbFCezCS1LRYIUNn9JI3yMJpZnmfxVkE3qjvfWchUD+nIaSw4VT4czz5D
+	SSF1Z7pzONYXTySitiDPmSpfSt7gnRefb5e+s3/GYJATaTJjSIQw8vOvFc2OBL6rdfAq9Pt2XjOp4
+	UnzDtkuoaN/1sK1x6sbv7jpa47oWwCHQPdg87npqa1fQgoOizow2kDwh825pi7IvzL0nfCDkJsScS
+	wwvgQNj4xyYaBdT6iCnBZijw0fIGFQpeeyeK3tnv4KHKTsNa42crN09uwte5oYXpAFVSREfpaIEH6
+	t513J0+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlqV-0000000Ez6v-2yAR;
-	Sat, 25 Apr 2026 22:51:31 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlqE-0000000Eymk-00PE
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sat, 25 Apr 2026 22:51:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=VLDLlf+sgEgN/cBLQvW28zSQKGyhqbeTTGXjAT4IZ18=; b=PviNFtdJqSOPwrtqZ9VIjjR5Qp
-	oB/KDdlx+/WXw/xeefZ1qLhveQIqjIi9gNlEzkzcTfeuaB8U2kqm1Gcxx6hyPn3FWDHF0Cdy80lob
-	LwfImQE0SNaFlESHKPMJC0XKTdTn3HA91XlM5LgO8XsVSCD7QK/H+56qkoortI7KxulcQGwh5yDo7
-	BtC1HM159iq+xF1rcCT2/JKthSNg/T7rhST+OiUxz0E18Z/IVswallNzPgLuI5KmlrJbvgRbWjvrQ
-	wq9b8bZrLmDUew/sBvLsFnGqyWn1yZMJdsXJ2ekpILjvqOvm1rGeNlIBxyi4qOdDuRMn18kNG7xLT
-	SD5iUIfw==;
+	id 1wGlqQ-0000000Ez0u-2MfM;
+	Sat, 25 Apr 2026 22:51:28 +0000
 Received: from mail-dl1-x1249.google.com ([2607:f8b0:4864:20::1249])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGlq9-0000000GMZo-1NoY
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wGlq0-0000000EyZG-27gL
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Apr 2026 22:51:12 +0000
-Received: by mail-dl1-x1249.google.com with SMTP id a92af1059eb24-12c726f4019so11833814c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:51:08 -0700 (PDT)
+	Sat, 25 Apr 2026 22:51:09 +0000
+Received: by mail-dl1-x1249.google.com with SMTP id a92af1059eb24-12c21dbc9c1so33856745c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 15:50:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777157467; x=1777762267; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777157459; x=1777762259; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=VLDLlf+sgEgN/cBLQvW28zSQKGyhqbeTTGXjAT4IZ18=;
-        b=BqqGj/Fs7kItVQeOjvgglHwtEERJpiYkS6G9GE34OzUI9Fr57wh2J0SjBxj+Z+SaI2
-         DvpJPRcGZ+V5UypgDNX/IAEA8cBSsi9Jz6rVfPxSyNHLgmKLaWAxeMPLJl8PVEYf1ocA
-         3Abf8UVrfG+7OAEqAmjZrkkD+fBSLsE7WroCn17NGSBCXqAjfKdGRaP3lf322koIwjfA
-         ppfDPRHBb3A/UKNePYPVAFrRq0owP5ybFJ8Ar6ehpTACGqv2INrF7VMZhTKyqXmHTIvd
-         84aRCPUtSpIr0KjCJlAmUOcNVUWEfKqF1CN9YsjWjldf9D+6ZbHI5RuODTmRr2teiWsx
-         j2IA==
+        bh=p5jktYnXLVV3ufAgYuB6nR2y55Mog/bG7LgNxL64ue4=;
+        b=Vaa4mG79d3kCCExfBs5bxJ3BEIaAhZMEfFmmEdejJAOfTV8fLJf2NvH5v+M4GftY/+
+         nUeMpmACu8yJfDGuQZJL8Jytqu9URfr70KUGuguw52SikKJZBqArPZ3XcDwhIihu/5B+
+         Ve9XomxuHnkH8MRWLMFISorqpd0cQPfCuVb5vLZFbeCpJweDcjyMT9pz9A4g5TQkMtLO
+         AZa4aVMwqYy8ukmvjA0Dg6EsESgrK1kVEihXy6UXhJ108RFdYH1MyBQS46sdwTFfSddc
+         24VEGIIYRyZ8nkhaDt7wEhTqnahYzIqcYtvT5h05BRYDxsLfng0T9g6p5p3fpdU7m7CV
+         jItw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777157467; x=1777762267;
+        d=1e100.net; s=20251104; t=1777157459; x=1777762259;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=VLDLlf+sgEgN/cBLQvW28zSQKGyhqbeTTGXjAT4IZ18=;
-        b=O/YSztaH7UkxUznYzlKOQGnIoIQ97DuNNPaVeQ9FUp5i+ZKLufnNgJASYsAaC2yXEU
-         GbkJbAkhLeUvrga+dDE/R1JQDqss1s2Qe5Bfg6DfSUo5RhvOaQ/Ax28G1tKSu5oxgXUR
-         kf2fAr8Q6dUxgGgWPRjxq3b13SkWJG3yoMoRC4R75lwGDZgIqtlcGHcwmBifGQzUomMc
-         D+mgJYygoZuVSPRqLIQ/ymuDsLqbX74Rzko7FlFiG0yX7jl1qqbSWs7ttPWsVp7ZpadV
-         hD6oie90jRGY5Dzmbdrz6km7FD6WGaAwgc+2TVJcoVKGFSXruBi2iq1QbQ0PDGusiklF
-         tUAQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/s0x4n8YHk0IEwJ0UuYg+GqyexLYOpMw8T+KjuPtdEHn+0Bpncpbfqgd3Jc15LNS0tnmjZRekCkNLBbByWCs/4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy2fofndWb/j6IMXitcQj8R7TKpYDjpMHvw28L8IIhKKC3vB/lo
-	kSLEIj0fXBJhob8wy7QibkUMsrYB3byQvh67p6t+XJpiiYrHAR/3Ja2rHEQBHZm4q7tl5iI96Rq
-	eF2C5H5s8dw==
-X-Received: from dlbqq11.prod.google.com ([2002:a05:7022:ed0b:b0:12a:7182:6cb])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:4395:b0:128:d24a:a5ba
- with SMTP id a92af1059eb24-12c73f90c45mr19012420c88.20.1777157466999; Sat, 25
- Apr 2026 15:51:06 -0700 (PDT)
-Date: Sat, 25 Apr 2026 15:49:18 -0700
+        bh=p5jktYnXLVV3ufAgYuB6nR2y55Mog/bG7LgNxL64ue4=;
+        b=V45CEUcBZSZFnuA/2mGVYdhJIkYl6KjXYr/8ciQw1JgyLjWRzTxVX86+nrkbXFUL/J
+         8dGvwMAUJLJ12GVP5Aw91R6kf+pff3zivUoMtd6mcouKQvSoO23Bb2F/DuDv/XeBmd/w
+         ZE4YRvw0AVwiJv5hCkkUocV4PsWOGnl3U4senMock49CeXz1yGLjB4hcIOTyZMXdc62n
+         q9CSThUSd3SUXT17VqEOoslsZoPK5xtD2ltrOoyAO9qO22Mk7XRUiVoeNzOlCB2UeLvj
+         g17dQ3mt55UYoQOiPYWGwAwD3Ff426ZPbw2rpGTz5nelm3jL3FQ3kz4fjWd/OfqFGgAV
+         l7qA==
+X-Forwarded-Encrypted: i=1; AFNElJ8y02SdJTsjx7h36OwZBYeij0dFpBTkYpSqKlmf2qVpN0bObvYdk2uFok5YGt1wcapAcUrKOSBX47DT5P+YKORj@lists.infradead.org
+X-Gm-Message-State: AOJu0YwAdrLnyhVlniBEdzizAwLcaMAcza7EfHkdsebyROuUFAs5ZTDT
+	JWtkOeERjg/ywk8WiiIppeD/ZVz3nys73lyD4LY6XRg4XokwyqyUoK8VtSeppiZ4GPHL2n0qU65
+	p7oscMYgj4Q==
+X-Received: from dlbsn12.prod.google.com ([2002:a05:7022:b90c:b0:12d:b26a:1571])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:701b:220e:b0:12d:b3f8:60e7
+ with SMTP id a92af1059eb24-12db3f8635amr8453061c88.34.1777157458747; Sat, 25
+ Apr 2026 15:50:58 -0700 (PDT)
+Date: Sat, 25 Apr 2026 15:49:14 -0700
 In-Reply-To: <20260425224951.174663-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260425174858.3922152-1-irogers@google.com> <20260425224951.174663-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260425224951.174663-27-irogers@google.com>
-Subject: [PATCH v7 26/59] perf mem-phys-addr: Port mem-phys-addr to use python module
+Message-ID: <20260425224951.174663-23-irogers@google.com>
+Subject: [PATCH v7 22/59] perf python: Add perf.pyi stubs file
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org, 
 	leo.yan@linux.dev, namhyung@kernel.org, tmricht@linux.ibm.com
@@ -90,8 +75,8 @@ Cc: alice.mei.rogers@gmail.com, dapeng1.mi@linux.intel.com,
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260425_235109_591096_10B7318E 
-X-CRM114-Status: GOOD (  13.55  )
+X-CRM114-CacheID: sfid-20260425_155101_066289_C5803D35 
+X-CRM114-Status: GOOD (  20.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,142 +91,630 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Give an example of using the perf python session API to load a
-perf.data file and perform the behavior of
-tools/perf/scripts/python/mem-phys-addr.py.
+Add Python type stubs for the perf module to improve IDE support and
+static analysis.  Includes docstrings for classes, methods, and
+constants derived from C source and JSON definitions.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
-v2: Added command line '-i' option and cleaned up pylint issues.
----
- tools/perf/python/mem-phys-addr.py | 117 +++++++++++++++++++++++++++++
- 1 file changed, 117 insertions(+)
- create mode 100755 tools/perf/python/mem-phys-addr.py
+v2:
 
-diff --git a/tools/perf/python/mem-phys-addr.py b/tools/perf/python/mem-phys-addr.py
-new file mode 100755
-index 000000000000..ba874d7a2011
+1. Added Missing Module Functions: Added parse_metrics and
+   pmus. Renamed metrics to parse_metrics to match python.c .
+
+2. Added Constructors: Added __init__ methods for data , evsel , and
+   evlist with their appropriate arguments.
+
+3. Removed sample_comm : Removed it from sample_event since it is not
+   exported in python.c .
+
+4. Keyword Handling in branch_entry : I used from_ip and to_ip in the
+   stubs to match the rename I did in python.c (in turn 145) to avoid
+   the Python from keyword conflict.
+
+5. Added Missing Event Classes: Added mmap_event , lost_event ,
+   comm_event , task_event , throttle_event , read_event , and
+   switch_event .
+
+6. Added Missing evlist Methods: Added get_pollfd and add .
+
+7. Updated Return Types: Changed process_events to return int .
+
+v6:
+- Updated `perf.pyi` to use `find_thread` and `elf_machine`.
+---
+ tools/perf/python/perf.pyi | 581 +++++++++++++++++++++++++++++++++++++
+ 1 file changed, 581 insertions(+)
+ create mode 100644 tools/perf/python/perf.pyi
+
+diff --git a/tools/perf/python/perf.pyi b/tools/perf/python/perf.pyi
+new file mode 100644
+index 000000000000..91e19704e595
 --- /dev/null
-+++ b/tools/perf/python/mem-phys-addr.py
-@@ -0,0 +1,117 @@
-+#!/usr/bin/env python3
-+# SPDX-License-Identifier: GPL-2.0
-+"""mem-phys-addr.py: Resolve physical address samples"""
-+import argparse
-+import bisect
-+import collections
-+from dataclasses import dataclass
-+import re
-+from typing import (Dict, Optional)
++++ b/tools/perf/python/perf.pyi
+@@ -0,0 +1,581 @@
++"""Type stubs for the perf Python module."""
++from typing import Callable, Dict, List, Optional, Any, Iterator
 +
-+import perf
++def config_get(name: str) -> Optional[str]:
++    """Get a configuration value from perf config.
 +
-+@dataclass(frozen=True)
-+class IomemEntry:
-+    """Read from a line in /proc/iomem"""
-+    begin: int
-+    end: int
-+    indent: int
-+    label: str
++    Args:
++        name: The configuration variable name (e.g., 'colors.top').
 +
-+# Physical memory layout from /proc/iomem. Key is the indent and then
-+# a list of ranges.
-+iomem: Dict[int, list[IomemEntry]] = collections.defaultdict(list)
-+# Child nodes from the iomem parent.
-+children: Dict[IomemEntry, set[IomemEntry]] = collections.defaultdict(set)
-+# Maximum indent seen before an entry in the iomem file.
-+max_indent: int = 0
-+# Count for each range of memory.
-+load_mem_type_cnt: Dict[IomemEntry, int] = collections.Counter()
-+# Perf event name set from the first sample in the data.
-+event_name: Optional[str] = None
++    Returns:
++        The configuration value as a string, or None if not set.
++    """
++    ...
 +
-+def parse_iomem(iomem_path: str):
-+    """Populate iomem from iomem file"""
-+    global max_indent
-+    with open(iomem_path, 'r', encoding='ascii') as f:
-+        for line in f:
-+            indent = 0
-+            while line[indent] == ' ':
-+                indent += 1
-+            max_indent = max(max_indent, indent)
-+            m = re.split('-|:', line, maxsplit=2)
-+            begin = int(m[0], 16)
-+            end = int(m[1], 16)
-+            label = m[2].strip()
-+            entry = IomemEntry(begin, end, indent, label)
-+            # Before adding entry, search for a parent node using its begin.
-+            if indent > 0:
-+                parent = find_memory_type(begin)
-+                assert parent, f"Given indent expected a parent for {label}"
-+                children[parent].add(entry)
-+            iomem[indent].append(entry)
++def metrics() -> List[Dict[str, str]]:
++    """Get a list of available metrics.
 +
-+def find_memory_type(phys_addr) -> Optional[IomemEntry]:
-+    """Search iomem for the range containing phys_addr with the maximum indent"""
-+    for i in range(max_indent, -1, -1):
-+        if i not in iomem:
-+            continue
-+        position = bisect.bisect_right(iomem[i], phys_addr,
-+                                       key=lambda entry: entry.begin)
-+        if position is None:
-+            continue
-+        iomem_entry = iomem[i][position-1]
-+        if  iomem_entry.begin <= phys_addr <= iomem_entry.end:
-+            return iomem_entry
-+    print(f"Didn't find {phys_addr}")
-+    return None
++    Returns:
++        A list of dictionaries, each describing a metric.
++    """
++    ...
 +
-+def print_memory_type():
-+    """Print the resolved memory types and their counts."""
-+    print(f"Event: {event_name}")
-+    print(f"{'Memory type':<40}  {'count':>10}  {'percentage':>10}")
-+    print(f"{'-' * 40:<40}  {'-' * 10:>10}  {'-' * 10:>10}")
-+    total = sum(load_mem_type_cnt.values())
-+    # Add count from children into the parent.
-+    for i in range(max_indent, -1, -1):
-+        if i not in iomem:
-+            continue
-+        for entry in iomem[i]:
-+            for child in children[entry]:
-+                if load_mem_type_cnt[child] > 0:
-+                    load_mem_type_cnt[entry] += load_mem_type_cnt[child]
++def syscall_name(sc_id: int, *, elf_machine: Optional[int] = None) -> str:
++    """Convert a syscall number to its name.
 +
-+    def print_entries(entries):
-+        """Print counts from parents down to their children"""
-+        for entry in sorted(entries,
-+                            key = lambda entry: load_mem_type_cnt[entry],
-+                            reverse = True):
-+            count = load_mem_type_cnt[entry]
-+            if count > 0:
-+                mem_type = ' ' * entry.indent + f"{entry.begin:x}-{entry.end:x} : {entry.label}"
-+                percent = 100 * count / total
-+                print(f"{mem_type:<40}  {count:>10}  {percent:>10.1f}")
-+                print_entries(children[entry])
++    Args:
++        sc_id: The syscall number.
++        elf_machine: Optional ELF machine type.
 +
-+    print_entries(iomem[0])
++    Returns:
++        The name of the syscall.
++    """
++    ...
 +
-+if __name__ == "__main__":
-+    ap = argparse.ArgumentParser(description="Resolve physical address samples")
-+    ap.add_argument("-i", "--input", default="perf.data", help="Input file name")
-+    ap.add_argument("--iomem", default="/proc/iomem", help="Path to iomem file")
-+    args = ap.parse_args()
++def syscall_id(name: str, *, elf_machine: Optional[int] = None) -> int:
++    """Convert a syscall name to its number.
 +
-+    def process_event(sample):
-+        """Process a single sample event."""
-+        phys_addr  = sample.sample_phys_addr
-+        entry = find_memory_type(phys_addr)
-+        if entry:
-+            load_mem_type_cnt[entry] += 1
++    Args:
++        name: The syscall name.
++        elf_machine: Optional ELF machine type.
 +
-+            global event_name
-+            if event_name is None:
-+                event_name  = str(sample.evsel)
++    Returns:
++        The number of the syscall.
++    """
++    ...
 +
-+    parse_iomem(args.iomem)
-+    perf.session(perf.data(args.input), sample=process_event).process_events()
-+    print_memory_type()
++def parse_events(
++    event_string: str,
++    cpus: Optional[cpu_map] = None,
++    threads: Optional[Any] = None
++) -> 'evlist':
++    """Parse an event string and return an evlist.
++
++    Args:
++        event_string: The event string (e.g., 'cycles,instructions').
++        cpus: Optional CPU map to bind events to.
++        threads: Optional thread map to bind events to.
++
++    Returns:
++        An evlist containing the parsed events.
++    """
++    ...
++
++def parse_metrics(metrics_string: str) -> 'evlist':
++    """Parse a string of metrics or metric groups and return an evlist."""
++    ...
++
++def pmus() -> Iterator[Any]:
++    """Returns a sequence of pmus."""
++    ...
++
++class data:
++    """Represents a perf data file."""
++    def __init__(self, path: str = ..., fd: int = ...) -> None: ...
++
++class thread:
++    """Represents a thread in the system."""
++    def comm(self) -> str:
++        """Get the command name of the thread."""
++        ...
++
++class counts_values:
++    """Raw counter values."""
++    val: int
++    ena: int
++    run: int
++
++class thread_map:
++    """Map of threads being monitored."""
++    def __init__(self, pid: int = -1, tid: int = -1) -> None:
++        """Initialize a thread map.
++
++        Args:
++            pid: Process ID to monitor (-1 for all).
++            tid: Thread ID to monitor (-1 for all).
++        """
++        ...
++    def __len__(self) -> int: ...
++    def __getitem__(self, index: int) -> int: ...
++    def __iter__(self) -> Iterator[int]: ...
++
++class evsel:
++    """Event selector, represents a single event being monitored."""
++    def __init__(
++        self,
++        type: int = ...,
++        config: int = ...,
++        sample_freq: int = ...,
++        sample_period: int = ...,
++        sample_type: int = ...,
++        read_format: int = ...,
++        disabled: bool = ...,
++        inherit: bool = ...,
++        pinned: bool = ...,
++        exclusive: bool = ...,
++        exclude_user: bool = ...,
++        exclude_kernel: bool = ...,
++        exclude_hv: bool = ...,
++        exclude_idle: bool = ...,
++        mmap: bool = ...,
++        context_switch: bool = ...,
++        comm: bool = ...,
++        freq: bool = ...,
++        idx: int = ...,
++    ) -> None: ...
++    def __str__(self) -> str:
++        """Return string representation of the event."""
++        ...
++    def open(self) -> None:
++        """Open the event selector file descriptor table."""
++        ...
++    def read(self, cpu: int, thread: int) -> counts_values:
++        """Read counter values for a specific CPU and thread."""
++        ...
++    ids: List[int]
++    def cpus(self) -> cpu_map:
++        """Get CPU map for this event."""
++        ...
++    def threads(self) -> thread_map:
++        """Get thread map for this event."""
++        ...
++
++
++class sample_event:
++    """Represents a sample event from perf."""
++    evsel: evsel
++    sample_cpu: int
++    sample_time: int
++    sample_pid: int
++    type: int
++    brstack: Optional['branch_stack']
++    callchain: Optional['callchain']
++    def __getattr__(self, name: str) -> Any: ...
++
++class mmap_event:
++    """Represents a mmap event from perf."""
++    type: int
++    pid: int
++    tid: int
++    addr: int
++    len: int
++    pgoff: int
++    filename: str
++
++class lost_event:
++    """Represents a lost events record."""
++    type: int
++    id: int
++    lost: int
++
++class comm_event:
++    """Represents a COMM record."""
++    type: int
++    pid: int
++    tid: int
++    comm: str
++
++class task_event:
++    """Represents an EXIT or FORK record."""
++    type: int
++    pid: int
++    ppid: int
++    tid: int
++    ptid: int
++    time: int
++
++class throttle_event:
++    """Represents a THROTTLE or UNTHROTTLE record."""
++    type: int
++    time: int
++    id: int
++    stream_id: int
++
++class read_event:
++    """Represents a READ record."""
++    type: int
++    pid: int
++    tid: int
++    value: int
++
++class switch_event:
++    """Represents a SWITCH or SWITCH_CPU_WIDE record."""
++    type: int
++
++class branch_entry:
++    """Represents a branch entry in the branch stack.
++
++    Attributes:
++        from_ip: Source address of the branch (corresponds to 'from' keyword in C).
++        to_ip: Destination address of the branch.
++        mispred: True if the branch was mispredicted.
++        predicted: True if the branch was predicted.
++        in_tx: True if the branch was in a transaction.
++        abort: True if the branch was an abort.
++        cycles: Number of cycles since the last branch.
++        type: Type of branch.
++    """
++    from_ip: int
++    to_ip: int
++    mispred: bool
++    predicted: bool
++    in_tx: bool
++    abort: bool
++    cycles: int
++    type: int
++
++class branch_stack:
++    """Iterator over branch entries in the branch stack."""
++    def __iter__(self) -> Iterator[branch_entry]: ...
++    def __next__(self) -> branch_entry: ...
++
++class callchain_node:
++    """Represents a frame in the callchain."""
++    ip: int
++    sym: Optional[Any]
++    map: Optional[Any]
++
++class callchain:
++    """Iterator over callchain frames."""
++    def __iter__(self) -> Iterator[callchain_node]: ...
++    def __next__(self) -> callchain_node: ...
++
++class stat_event:
++    """Represents a stat event from perf."""
++    type: int
++    id: int
++    cpu: int
++    thread: int
++    val: int
++    ena: int
++    run: int
++
++class stat_round_event:
++    """Represents a stat round event from perf."""
++    type: int
++    time: int
++
++class cpu_map:
++    """Map of CPUs being monitored."""
++    def __init__(self, cpustr: Optional[str] = None) -> None: ...
++    def __len__(self) -> int: ...
++    def __getitem__(self, index: int) -> int: ...
++    def __iter__(self) -> Iterator[int]: ...
++
++
++class evlist:
++    def __init__(self, cpus: cpu_map, threads: thread_map) -> None: ...
++    def open(self) -> None:
++        """Open the events in the list."""
++        ...
++    def close(self) -> None:
++        """Close the events in the list."""
++        ...
++    def mmap(self) -> None:
++        """Memory map the event buffers."""
++        ...
++    def poll(self, timeout: int) -> int:
++        """Poll for events.
++
++        Args:
++            timeout: Timeout in milliseconds.
++
++        Returns:
++            Number of events ready.
++        """
++        ...
++    def read_on_cpu(self, cpu: int) -> Optional[sample_event]:
++        """Read a sample event from a specific CPU.
++
++        Args:
++            cpu: The CPU number.
++
++        Returns:
++            A sample_event if available, or None.
++        """
++        ...
++    def all_cpus(self) -> cpu_map:
++        """Get a cpu_map of all CPUs in the system."""
++        ...
++    def metrics(self) -> List[str]:
++        """Get a list of metric names within the evlist."""
++        ...
++    def compute_metric(self, metric: str, cpu: int, thread: int) -> float:
++        """Compute metric for given name, cpu and thread.
++
++        Args:
++            metric: The metric name.
++            cpu: The CPU number.
++            thread: The thread ID.
++
++        Returns:
++            The computed metric value.
++        """
++        ...
++    def config(self) -> None:
++        """Configure the events in the list."""
++        ...
++    def disable(self) -> None:
++        """Disable all events in the list."""
++        ...
++    def enable(self) -> None:
++        """Enable all events in the list."""
++        ...
++    def get_pollfd(self) -> List[int]:
++        """Get a list of file descriptors for polling."""
++        ...
++    def add(self, evsel: evsel) -> int:
++        """Add an event to the list."""
++        ...
++    def __iter__(self) -> Iterator[evsel]:
++        """Iterate over the events (evsel) in the list."""
++        ...
++
++
++class session:
++    def __init__(
++        self,
++        data: data,
++        sample: Optional[Callable[[sample_event], None]] = None,
++        stat: Optional[Callable[[Any, Optional[str]], None]] = None
++    ) -> None:
++        """Initialize a perf session.
++
++        Args:
++            data: The perf data file to read.
++            sample: Callback for sample events.
++            stat: Callback for stat events.
++        """
++        ...
++    def process_events(self) -> int:
++        """Process all events in the session."""
++        ...
++    def find_thread(self, pid: int) -> thread:
++        """Returns the thread associated with a pid."""
++        ...
++
++# Event Types
++TYPE_HARDWARE: int
++"""Hardware event."""
++
++TYPE_SOFTWARE: int
++"""Software event."""
++
++TYPE_TRACEPOINT: int
++"""Tracepoint event."""
++
++TYPE_HW_CACHE: int
++"""Hardware cache event."""
++
++TYPE_RAW: int
++"""Raw hardware event."""
++
++TYPE_BREAKPOINT: int
++"""Breakpoint event."""
++
++
++# Hardware Counters
++COUNT_HW_CPU_CYCLES: int
++"""Total cycles. Be wary of what happens during CPU frequency scaling."""
++
++COUNT_HW_INSTRUCTIONS: int
++"""Retired instructions. Be careful, these can be affected by various issues,
++most notably hardware interrupt counts."""
++
++COUNT_HW_CACHE_REFERENCES: int
++"""Cache accesses. Usually this indicates Last Level Cache accesses but this
++may vary depending on your CPU."""
++
++COUNT_HW_CACHE_MISSES: int
++"""Cache misses. Usually this indicates Last Level Cache misses."""
++
++COUNT_HW_BRANCH_INSTRUCTIONS: int
++"""Retired branch instructions."""
++
++COUNT_HW_BRANCH_MISSES: int
++"""Mispredicted branch instructions."""
++
++COUNT_HW_BUS_CYCLES: int
++"""Bus cycles, which can be different from total cycles."""
++
++COUNT_HW_STALLED_CYCLES_FRONTEND: int
++"""Stalled cycles during issue [This event is an alias of idle-cycles-frontend]."""
++
++COUNT_HW_STALLED_CYCLES_BACKEND: int
++"""Stalled cycles during retirement [This event is an alias of idle-cycles-backend]."""
++
++COUNT_HW_REF_CPU_CYCLES: int
++"""Total cycles; not affected by CPU frequency scaling."""
++
++
++# Cache Counters
++COUNT_HW_CACHE_L1D: int
++"""Level 1 data cache."""
++
++COUNT_HW_CACHE_L1I: int
++"""Level 1 instruction cache."""
++
++COUNT_HW_CACHE_LL: int
++"""Last Level Cache."""
++
++COUNT_HW_CACHE_DTLB: int
++"""Data TLB."""
++
++COUNT_HW_CACHE_ITLB: int
++"""Instruction TLB."""
++
++COUNT_HW_CACHE_BPU: int
++"""Branch Processing Unit."""
++
++COUNT_HW_CACHE_OP_READ: int
++"""Read accesses."""
++
++COUNT_HW_CACHE_OP_WRITE: int
++"""Write accesses."""
++
++COUNT_HW_CACHE_OP_PREFETCH: int
++"""Prefetch accesses."""
++
++COUNT_HW_CACHE_RESULT_ACCESS: int
++"""Accesses."""
++
++COUNT_HW_CACHE_RESULT_MISS: int
++"""Misses."""
++
++
++# Software Counters
++COUNT_SW_CPU_CLOCK: int
++"""CPU clock event."""
++
++COUNT_SW_TASK_CLOCK: int
++"""Task clock event."""
++
++COUNT_SW_PAGE_FAULTS: int
++"""Page faults."""
++
++COUNT_SW_CONTEXT_SWITCHES: int
++"""Context switches."""
++
++COUNT_SW_CPU_MIGRATIONS: int
++"""CPU migrations."""
++
++COUNT_SW_PAGE_FAULTS_MIN: int
++"""Minor page faults."""
++
++COUNT_SW_PAGE_FAULTS_MAJ: int
++"""Major page faults."""
++
++COUNT_SW_ALIGNMENT_FAULTS: int
++"""Alignment faults."""
++
++COUNT_SW_EMULATION_FAULTS: int
++"""Emulation faults."""
++
++COUNT_SW_DUMMY: int
++"""Dummy event."""
++
++
++# Sample Fields
++SAMPLE_IP: int
++"""Instruction pointer."""
++
++SAMPLE_TID: int
++"""Process and thread ID."""
++
++SAMPLE_TIME: int
++"""Timestamp."""
++
++SAMPLE_ADDR: int
++"""Sampled address."""
++
++SAMPLE_READ: int
++"""Read barcode."""
++
++SAMPLE_CALLCHAIN: int
++"""Call chain."""
++
++SAMPLE_ID: int
++"""Unique ID."""
++
++SAMPLE_CPU: int
++"""CPU number."""
++
++SAMPLE_PERIOD: int
++"""Sample period."""
++
++SAMPLE_STREAM_ID: int
++"""Stream ID."""
++
++SAMPLE_RAW: int
++"""Raw sample."""
++
++
++# Format Fields
++FORMAT_TOTAL_TIME_ENABLED: int
++"""Total time enabled."""
++
++FORMAT_TOTAL_TIME_RUNNING: int
++"""Total time running."""
++
++FORMAT_ID: int
++"""Event ID."""
++
++FORMAT_GROUP: int
++"""Event group."""
++
++
++# Record Types
++RECORD_MMAP: int
++"""MMAP record. Contains header, pid, tid, addr, len, pgoff, filename, and sample_id."""
++
++RECORD_LOST: int
++"""Lost events record. Contains header, id, lost count, and sample_id."""
++
++RECORD_COMM: int
++"""COMM record. Contains header, pid, tid, comm, and sample_id."""
++
++RECORD_EXIT: int
++"""EXIT record. Contains header, pid, ppid, tid, ptid, time, and sample_id."""
++
++RECORD_THROTTLE: int
++"""THROTTLE record. Contains header, time, id, stream_id, and sample_id."""
++
++RECORD_UNTHROTTLE: int
++"""UNTHROTTLE record. Contains header, time, id, stream_id, and sample_id."""
++
++RECORD_FORK: int
++"""FORK record. Contains header, pid, ppid, tid, ptid, time, and sample_id."""
++
++RECORD_READ: int
++"""READ record. Contains header, and read values."""
++
++RECORD_SAMPLE: int
++"""SAMPLE record. Contains header, and sample data requested by sample_type."""
++
++RECORD_MMAP2: int
++"""MMAP2 record. Contains header, pid, tid, addr, len, pgoff, maj, min, ino,
++ino_generation, prot, flags, filename, and sample_id."""
++
++RECORD_AUX: int
++"""AUX record. Contains header, aux_offset, aux_size, flags, and sample_id."""
++
++RECORD_ITRACE_START: int
++"""ITRACE_START record. Contains header, pid, tid, and sample_id."""
++
++RECORD_LOST_SAMPLES: int
++"""LOST_SAMPLES record. Contains header, lost count, and sample_id."""
++
++RECORD_SWITCH: int
++"""SWITCH record. Contains header, and sample_id."""
++
++RECORD_SWITCH_CPU_WIDE: int
++"""SWITCH_CPU_WIDE record. Contains header, and sample_id."""
++
++RECORD_STAT: int
++"""STAT record."""
++
++RECORD_STAT_ROUND: int
++"""STAT_ROUND record."""
++
++RECORD_MISC_SWITCH_OUT: int
++"""MISC_SWITCH_OUT record."""
 -- 
 2.54.0.545.g6539524ca2-goog
 
