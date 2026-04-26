@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63944FF885E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 18:30:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88BA6FF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 19:04:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z7Ot2GDshvFfJEimYZjWg5/CjI8K9zv+Llk4gJkPAPQ=; b=lmOe+OaIWv+V56HSwL5Et0Ffd4
-	zIJL/77X3UqkyTAFM1uM6UZz2IPo+eoCGgAau9kSdMmxFRe1IEpqxIeigdcjTTtKJ9pldscTvKBj5
-	q2htCFWHrfqXpGyixvmqwYA89Ojy7lvOq3E8Pk93Cmz3Q7ydlw22EoxpZVpFsos8qW0KM6+0cApyi
-	vzz82Kcm4KeHZ8/cyZiVN9pnYuN1I8BFT4gQyAnzRZB9OjIf1VacE7a+miGzNF46tdNMjas6xRdO2
-	9bU8q+LXR9TvAfsKdzboxpe9thlRojip/avpiAQTt91LfBEQ/dBYG6kei9iCIhKyDYLu0IxZcswbZ
-	1VMyCTYA==;
+	bh=FITUIvH3OOKTM6pJeboLI1HfwgwJYxbryeU4nh+FdnE=; b=HOtGMCwjHvozQq8hc4abEQGiOr
+	/IfAD5iqKapYWnZuiYGkTJjdydlRJDqNllaPGZtm/id9Sdk8HkNdwjaLfGk9tZZ2WkAawDZzVh0ij
+	wvRrz421wX38FOe4FrBWSNKb1GA4VzsTr8KNUEnAYlbpP5QPpyja/9hOJlA0H5JRIAwath3H8INsu
+	98+T7pszNcrdG69/OH60Y2pIhY3POHQ1YHZs4WWTRx4seJ8XWXQNen/RfMU4nayDn9S4lSpO6Mlmo
+	N8Br58mGSXkrt5MlpZjzrrthBJ/z9rVdAabYlcEZ5b0kZlN1/8X2SXZgeUVQy2eZFi/WjiUZ+pa3w
+	oUf0zfnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wH4Fd-0000000FlHN-0vZj;
-	Sun, 26 Apr 2026 18:30:41 +0000
+	id 1wH4mD-0000000FmNm-32kR;
+	Sun, 26 Apr 2026 19:04:21 +0000
 Received: from todd.t-8ch.de ([159.69.126.157])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wH4Fa-0000000FlH0-3sUr
+	id 1wH4mB-0000000FmNE-1394
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Apr 2026 18:30:40 +0000
+	Sun, 26 Apr 2026 19:04:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=weissschuh.net;
-	s=mail; t=1777228236;
-	bh=RX0vprigtwFDfvPHPQDQjGHFFSECwpJrLBtKIV9cU9Q=;
+	s=mail; t=1777230255;
+	bh=cL909OqLMd5VzANrjK7Nm/XEbexMuPAlas4Ce1GEC8o=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rgZmiyWFqk2UTABJRG965ZG1RFUQYVGrGeAOCXp/tvCy8mvsOalPMS51t0Zx3luh8
-	 AA+qi7rm4LSKejZiczUMyYWV0YeJKZhy5Vu6oHG+bP0Uiz0AyzruhGfDsMnxiE8gDm
-	 fxhhGweLrnR+r7svkMupRffCtPEUghvWJJDPN5wM=
-Date: Sun, 26 Apr 2026 20:30:35 +0200
+	b=eHNUcbuCZilNwpHrn0AE0Yn4krgyTNzjDGoxNuscpKIOVVWM0QoT0gEDctOpBwiAL
+	 TQLYYNLH702PIhm8Gg34eRi+IibwULREquFg0ov4wUBlBQjhV/nJ0u0s8tk0xvqXnG
+	 BtiWRxFFBVLirNHcKKcDMrlU74nOSVdnXrShtZ40=
+Date: Sun, 26 Apr 2026 21:04:14 +0200
 From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>
 To: =?utf-8?B?QW5kcsOp?= Almeida <andrealmeid@igalia.com>
 Cc: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -48,19 +48,20 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	"Liam R . Howlett" <Liam.Howlett@oracle.com>, Uros Bizjak <ubizjak@gmail.com>, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
 	kernel-dev@igalia.com
-Subject: Re: [PATCH RFC v2 2/2] arm64: vdso: Implement
- __vdso_futex_robust_try_unlock()
-Message-ID: <7ddc1c74-c504-44c6-8d51-d10d436c0db8@t-8ch.de>
+Subject: Re: [PATCH RFC v2 1/2] arm64: vdso: Prepare for robust futex unlock
+ support
+Message-ID: <c9e3f275-da35-4cdf-876f-b4ec4278a75d@t-8ch.de>
 References: <20260424-tonyk-robust_arm-v2-0-db4e46f752cf@igalia.com>
- <20260424-tonyk-robust_arm-v2-2-db4e46f752cf@igalia.com>
+ <20260424-tonyk-robust_arm-v2-1-db4e46f752cf@igalia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260424-tonyk-robust_arm-v2-2-db4e46f752cf@igalia.com>
+In-Reply-To: <20260424-tonyk-robust_arm-v2-1-db4e46f752cf@igalia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_113039_112505_A17B7604 
-X-CRM114-Status: GOOD (  23.05  )
+X-CRM114-CacheID: sfid-20260426_120419_436246_1360AF9B 
+X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,109 +76,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-04-24 15:56:01-0300, André Almeida wrote:
+One more thing, sorry for the spam.
+
+On 2026-04-24 15:56:00-0300, André Almeida wrote:
 (...)
 
-> Signed-off-by: André Almeida <andrealmeid@igalia.com>
-> ---
-> RFC:
->  - Should I duplicate the explanation found in the x86 commit or can I just
->  point to it?
->  - Only LL/SC for now but I can add LSE later if this looks good
->  - It the objdump I see that op_pending is store at x2. But how stable is this,
->  how can I write it in a way that's always x2?
-> ---
->  arch/arm64/Kconfig                                 |  1 +
->  arch/arm64/include/asm/futex_robust.h              | 35 +++++++++++++
->  arch/arm64/kernel/vdso/Makefile                    |  9 +++-
->  arch/arm64/kernel/vdso/vdso.lds.S                  |  4 ++
->  .../kernel/vdso/vfutex_robust_list_try_unlock.c    | 59 ++++++++++++++++++++++
->  5 files changed, 107 insertions(+), 1 deletion(-)
-
-What about the actual 32-bit vDSO in arch/arm64/kernel/vdso32/ ?
-
-(...)
-
-> diff --git a/arch/arm64/kernel/vdso/vfutex_robust_list_try_unlock.c b/arch/arm64/kernel/vdso/vfutex_robust_list_try_unlock.c
-> new file mode 100644
-> index 000000000000..e8a8fb22a2fa
-> --- /dev/null
-> +++ b/arch/arm64/kernel/vdso/vfutex_robust_list_try_unlock.c
-> @@ -0,0 +1,59 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +#include <vdso/futex.h>
-> +#include <linux/stringify.h>
-> +
-> +#define LABEL(name, sz) __stringify(__futex_list##sz##_try_unlock_cs_##name)
-
-We should have some defines for these symbols. While they are not
-userspace ABI, they will be used by the selftests.
-
-> +#define GLOBLS(sz) ".globl " LABEL(start, sz) ", " LABEL(success, sz) ", " LABEL(end, sz) "\n"
-> +
-> +__u32 __vdso_futex_robust_list64_try_unlock(__u32 *lock, __u32 tid, __u64 *pop)
+> +#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
+> +static void vdso_futex_robust_unlock_update_ips(enum vdso_abi abi, struct mm_struct *mm)
 > +{
-> +	__u32 val, result;
+> +	unsigned long vdso = (unsigned long) mm->context.vdso;
+> +	struct futex_mm_data *fd = &mm->futex;
+> +	uintptr_t success, end;
 > +
-> +	asm volatile (
-> +		GLOBLS(64)
-> +		"	prfm pstl1strm, %[lock]			\n"
-> +		LABEL(start, 64)":				\n"
-> +		"	ldxr %[val], %[lock]			\n"
-> +		"	cmp %[tid], %[val]			\n"
-> +		"	bne " LABEL(end, 64)"			\n"
-> +		"	stlxr %w[result], xzr, %[lock]		\n"
-> +		"	cbnz %w[result], " LABEL(start, 64)"	\n"
-> +		LABEL(success, 64)":				\n"
-> +		"	str xzr, %[pop]				\n"
-> +		LABEL(end, 64)":				\n"
+> +	if (abi == VDSO_ABI_AA64) {
+> +		success = (uintptr_t) VDSO_SYMBOL(vdso, futex_list64_try_unlock_cs_success);
+> +		end = (uintptr_t) VDSO_SYMBOL(vdso, futex_list64_try_unlock_cs_end);
 > +
-> +		: [val] "=&r" (val), [result] "=r" (result)
-> +		: [tid] "r" (tid), [lock] "Q" (*lock), [pop] "Q" (*pop)
-> +		: "memory"
-> +	);
-
-My clang 22.1.3 chokes on the assembly in this patch.
-
-> +
-> +	return val;
-> +}
+> +		futex_set_vdso_cs_range(fd, 0, vdso, success, end, false);
+> +	}
 > +
 > +#ifdef CONFIG_COMPAT_VDSO
+> +	if (abi == VDSO_ABI_AA32) {
+> +		success = (uintptr_t) VDSO_SYMBOL(vdso, futex_list32_try_unlock_cs_success);
+> +		end = (uintptr_t) VDSO_SYMBOL(vdso, futex_list32_try_unlock_cs_end);
 
-I am wondering about the CONFIG_COMPAT{,_VDSO} dependency here.
-As far as I know the list32 variant is meant to be used by code
-emulators which run 32-bit code on a 64-bit kernel, for example FEX.
-But these emulators don't actually seem to need CONFIG_COMPAT.
-So the dependency does not look correct.
-The space savings also should be irrelevant.
+The futex_list32_ symbols here are in the 64-bit vDSO. They are not
+applicable for VDSO_ABI_AA32 processes.
 
-The x86 series from Thomas does the same, maybe he will read this
-comment, otherwise I'll bring it up on his series, too.
-
-> +__u32 __vdso_futex_robust_list32_try_unlock(__u32 *lock, __u32 tid, __u32 *pop)
-> +{
-> +	__u32 val, result;
 > +
-> +	asm volatile (
-> +		GLOBLS(32)
-> +		"	prfm pstl1strm, %[lock]			\n"
-> +		LABEL(start, 32)":				\n"
-> +		"	ldxr %w[val], %[lock]			\n"
-> +		"	cmp %w[tid], %w[val]			\n"
-> +		"	bne " LABEL(end, 32)"			\n"
-> +		"	stlxr %w[result], wzr, %w[lock]		\n"
-> +		"	cbnz %w[result], " LABEL(start, 32)"	\n"
-> +		LABEL(success, 32)":				\n"
-> +		"	str wzr, %w[pop]			\n"
-> +		LABEL(end, 32)":				\n"
-> +
-> +		: [val] "=&r" (val), [result] "=r" (result)
-> +		: [tid] "r" (tid), [lock] "Q" (*lock), [pop] "Q" (*pop)
-> +		: "memory"
-> +	);
-> +
-> +	return val;
-> +}
+> +		futex_set_vdso_cs_range(fd, 1, vdso, success, end, true);
+> +	}
 > +#endif
+> +}
+
+(...)
 
