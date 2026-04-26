@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE331FF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 13:06:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36C47FF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 13:27:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nl2CWt7YHq4CVRiW39M9dYA9426AAtJnr6XrWA5BtKQ=; b=OWyhn7ZNdBujPcq+wxzNmdHa7f
-	9MhNiZoPMvlg4WHBLd2oKIQJ3BkNgiRiLIZLU9e3Osc0+McrZA5BWGuB8K4BcjKyLPWqc9y3pgg9S
-	PyyPMmgjkvUoA48JJf87DgcRY5jyju82B7o/oMvkgjyTobWqjgxaB8k2QSYx7OEVPISwGyLhbxm9v
-	1Sgx5SXkyWjwz5w3IF2i8TZhx+mzQ7gdiTRVr5n7G51otPLgZknwAF63DMBNzoIInNn4WNoYceKJ8
-	M+iw/huidj1fBgoPeyNmIcIlZksWhxuC5+HLE/+rTKrOQxopNz0vYowmSeFhT15m5fCnJi3AGC7Lt
-	crQCrDaw==;
+	bh=5xC/PJRB26EKjeEw0e9t7oZyxHpBurVT3QAmlMmWQcg=; b=iCIXS/xwVfEA/aM45kP/yjnZ+o
+	9Mz2wumT6lKSFWpLz+Mvw6gy1X2MRTd86+aukKdGoAHp1QtiOA7IXDhAH311PCDMgPZZUG6sgkhzt
+	sa8XUAZpGpURk9OoieqF0Tg+X8ro9gABNIq+QTvnWXgHQG2uBFEQUu+g8myEpJ2Qneao3pRTmLUKz
+	77EvQS8ts7CfAWP4THuoU/2mnldo+HocrFklvTZKnVxDJ0lnu8sOrUG87rvxya6XeoYz2w68cjxbZ
+	GEMShzH5Pc5H9ilje4mb4ysgLxv9k3gFosgDwqALCcXRsCcKYUSwkXt+f72oWw/Wh74J43InFE2jf
+	XdZPnu2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGzBx-0000000FZ5I-0mO1;
-	Sun, 26 Apr 2026 13:06:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wGzWA-0000000FZoP-0ey0;
+	Sun, 26 Apr 2026 13:27:26 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGzBu-0000000FZ4W-29aW;
-	Sun, 26 Apr 2026 13:06:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 90BEC4445A;
-	Sun, 26 Apr 2026 13:06:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E85EBC2BCAF;
-	Sun, 26 Apr 2026 13:06:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777208788;
-	bh=F7Ik3qSyzNonPaKu0ttctdmlliVl+oK+J9sKk+2aqjY=;
+	id 1wGzW8-0000000FZnr-1J5n;
+	Sun, 26 Apr 2026 13:27:25 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 36BCF6A6;
+	Sun, 26 Apr 2026 15:25:39 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1777209939;
+	bh=AImdYVRVxu5KDaS0wYHMilfThx6b/J7M7IYbo4FUIic=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GVPJMv6FIVTpry6AKVRzDTg0KfalajIzBsXsUzu24Cws86nrohzBFJzf+Wv72+kji
-	 1HYFrHN3DxmC7Xs+Wwm1ltwpzBkNEpXk7UfJSoXFHpC6J8rJwUh/4FsaDvFaWsrOlv
-	 4q+epwJNpg3iN5J+fkC/ODUEgXT2Em79cwYNVxmiEgQf1xWAAxpLBPxQ7ybVGCwrZM
-	 ZHT5f56Gnp+plPyy/4XhBg9/+wx8sY/55rPGY9QSRfTNMxlJj1kBffQgB4vs4/oVGE
-	 W/oL88hac6IL4KOifWVXTvRoHjEOHpoc8ed692KnHXmbQUIBW+U33CZCQTAZiou/WY
-	 7jellAU74+3jQ==
-Date: Sun, 26 Apr 2026 15:06:24 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Damon Ding <damon.ding@rock-chips.com>
-Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Lee Jones <lee@kernel.org>, 
-	William Breathitt Gray <wbg@kernel.org>, kernel@collabora.com, Jonas Karlman <jonas@kwiboo.se>, 
-	Alexey Charkov <alchark@gmail.com>, linux-rockchip@lists.infradead.org, linux-pwm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org
-Subject: Re: [PATCH v5 3/6] pwm: Add rockchip PWMv4 driver
-Message-ID: <ae4MCRE_hGJ-VcBQ@monoceros>
-References: <20260420-rk3576-pwm-v5-0-ae7cfbbe5427@collabora.com>
- <20260420-rk3576-pwm-v5-3-ae7cfbbe5427@collabora.com>
- <4592b323-bebd-4242-ae31-892a51b5b3be@rock-chips.com>
+	b=V4Lgyvz+LZ/B8NucZ0Tq9FVaEOSNosKAzOGtypyt0aopXlHtPJ5LgFoqccCr2/Ebk
+	 05wMugBV4SQYdxtJ4jryIdOh5QNeSC5BhErZRAvpDAdYVz6v5ePwa04f6HAA2YihYf
+	 t2MstkfWay9RaYZcKTRJ2Jf64UeuJlD0IavR7VGU=
+Date: Sun, 26 Apr 2026 16:27:19 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Dennis Gilmore <dennis@ausil.us>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Alexey Charkov <alchark@gmail.com>, devicetree@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v8 3/6] drm/bridge: simple: Add the Lontium LT8711UXD
+ DP-to-HDMI bridge
+Message-ID: <20260426132719.GD2964234@killaraus.ideasonboard.com>
+References: <20260425031011.2529364-1-dennis@ausil.us>
+ <ur7mow4lw47ylxj3uigwwasrfywe6n42zb2to7ygeyjlkcgfkf@guzkembyy5hc>
+ <20260425234845.GC2964234@killaraus.ideasonboard.com>
+ <6519122.LvFx2qVVIh@phil>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="eqdlulvhi33joyyv"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <4592b323-bebd-4242-ae31-892a51b5b3be@rock-chips.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <6519122.LvFx2qVVIh@phil>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_060630_615940_169F4812 
-X-CRM114-Status: GOOD (  23.12  )
+X-CRM114-CacheID: sfid-20260426_062724_496404_0ACB2B30 
+X-CRM114-Status: GOOD (  43.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,79 +81,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sun, Apr 26, 2026 at 11:54:57AM +0200, Heiko Stuebner wrote:
+> Am Sonntag, 26. April 2026, 01:48:45 Mitteleuropäische Sommerzeit schrieb Laurent Pinchart:
+> > On Sun, Apr 26, 2026 at 12:44:59AM +0300, Dmitry Baryshkov wrote:
+> > > On Sat, Apr 25, 2026 at 01:10:02PM -0500, Dennis Gilmore wrote:
+> > > > On Sat, Apr 25, 2026 at 9:24 AM Dmitry Baryshkov wrote:
+> > > > > On Sat, Apr 25, 2026 at 02:28:44PM +0300, Laurent Pinchart wrote:
+> > > > > > Hi Dennis,
+> > > > > >
+> > > > > > Thank you for the patch.
+> > > > > >
+> > > > > > On Fri, Apr 24, 2026 at 10:10:08PM -0500, Dennis Gilmore wrote:
+> > > > > > > The Lontium LT8711UXD is a high performance two lane Type-C/DP1.4
+> > > > > > > to HDMI2.0 converter, designed to connect a USB Type-C source or
+> > > > > > > a DP1.4 source to an HDMI2.0 sink.
+> > > > > >
+> > > > > > As far as I can tell, the LT8711UXD has an I2C control interface.
+> > > > > > Shouldn't it be an I2C device ?
+> > > > >
+> > > > > From the datasheet:
+> > > > >
+> > > > > The device is capable of automatic operation which is
+> > > > > enabled by an integrated microprocessor that uses an
+> > > > > embedded SPI flash for firmware storage. System control
+> > > > > is also available through the use of a dedicated
+> > > > > configuration I2C slave interface.
+> > > > >
+> > > > > My guess was that it can either be an I2C device or it can function as a
+> > > > > simple platdev with no I2C controls. Please correct me if my
+> > > > > understanding was wrong.
+> > > > >
+> > > > > But now looking at the schematics, it seems to be connected to I2C6.
+> > > > > Which means that it should be desribed (and bound) as such.
+> > > > 
+> > > > Hi Dmitry and Laurent,
+> > > > 
+> > > > While the schematic shows that it can use I2C and has been wired up,
+> > > > it also shows that both MODE_SEL and I2C_ADDR have unpopulated 10k
+> > > > resistors; as a result, MODE_SEL is connected directly to GND,
+> 
+> looking at the schematics linked in the board patch, I somehow see
+> both R9 (mode_sel -> vcc3v3_io) but also R17 (mode_sel -> gnd) marked
+> as 10K.nc ?
+> 
+> > > > putting
+> > > > the bridge in autonomous mode. I confirmed this by running `i2cdetect
+> > > > -r -y 6`, with the only device on the bus being the HYM8563 RTC at
+> > > > 0x51. Without reworking the board, the device is not directly
+> > > > controllable and just runs autonomously.
+> > > 
+> > > I think it would be nice to mention:
+> > > - In the commit for the bindings, that the device can be running
+> > >   uncontrolled or it can be attached over I2C, bindings describe the
+> > >   uncontrolled mode.
+> > > - In this commit message, the same.
+> > > - In the commit message for the board DT mention your findings about the
+> > >   board, mention soldering R9 or R17 (which one?) and R27.
+> > 
+> > Additionally, how are we going to handle boards where the device
+> > operates in I2C mode ? Will we use a different compatible string (maybe
+> > "lontium,lt8711uxd-i2c") ? If DT maintainers are fine with that, I have
+> > no objection to this patch.
+> 
+> I would assume it'd be more the dt-maintainers objecting?
 
---eqdlulvhi33joyyv
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v5 3/6] pwm: Add rockchip PWMv4 driver
-MIME-Version: 1.0
+Yes, probably :-) My main concern here is making sure we're not
+cornering ourselves.
 
-Hello,
+> I.e. the two different bindings for the same hardware and leaking Linux
+> implementation-specifics into the binding.
+> 
+> I'm don't have deep insight into the i2c framework, but I guess the i2c
+> device probe does not need to talk to an i2c device due to resources
+> needing setup. Does the i2c core need to talk to the device at all?
+> 
+> Because otherwise, you could just do a regular i2c device (the routing
+> for everything is there afterall), add a lontium,automatic-mode; flag
+> to the node to denote mode.
 
-first of all thanks for your extensive testing, very appreciated.
+That would work in this case, but if we have a board where the I2C lines
+are really not routed, we would have to invent a fake connection to an
+I2C controller. That's not very nice.
 
-On Sun, Apr 26, 2026 at 05:44:46PM +0800, Damon Ding wrote:
-> On 4/20/2026 9:52 PM, Nicolas Frattaroli wrote:
-> > The Rockchip RK3576 brings with it a new PWM IP, in downstream code
-> > referred to as "v4". This new IP is different enough from the previous
-> > Rockchip IP that I felt it necessary to add a new driver for it, instead
-> > of shoehorning it in the old one.
-> >=20
-> > Add this new driver, based on the PWM core's waveform APIs. Its platform
-> > device is registered by the parent mfpwm driver, from which it also
-> > receives a little platform data struct, so that mfpwm can guarantee that
-> > all the platform device drivers spread across different subsystems for
-> > this specific hardware IP do not interfere with each other.
-> >=20
-> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> Tested-by: Damon Ding <damon.ding@rock-chips.com>
->=20
-> The continuous mode of all PWM channels has been preliminarily tested
-> and verified working on the RK3576 IoT board.
->=20
-> I have tested with several typical period and duty cycle configurations.
->=20
-> Following Uwe's suggestion [0], I also tested with libpwm using commands
-> similar to the following:
->=20
-> ./pwmset -c 0 -p 0 -P 1000000 -D 500000 -s 5000
+There seem to be precedents for devices that can be controlled through
+either I2C or SPI. See for instance
+Documentation/devicetree/bindings/net/nfc/st,st-nci.yaml that defines
+two compatible strings for the same device, "st,st21nfcb-i2c" and
+"st,st21nfcb-spi". I don't know if that's the best practice recommended
+by the DT maintainers, or a hack that slipped through.
 
-This one is good if you have an oscilloscope (or something similar) to
-verify the output. Without that (or additionally) pwmtestperf creates a
-series of requests that in combination with PWM_DEBUG should uncover
-rounding errors in the .tohw and .fromhw callbacks.
+> And if for whatever reason a variant appears with the lines connected
+> you can just modifiy the DT via an overlay?
 
-A good set of calls then is:
+-- 
+Regards,
 
-	pwmtestperf -p ... -c ... -P 50000 -S1
-	pwmtestperf -p ... -c ... -P 50000 -S1 -I
-
-	pwmtestperf -p ... -c ... -P 50000 -S-1
-	pwmtestperf -p ... -c ... -P 50000 -S-1 -I
-
-(Assuming that 50000 is a sensible period for the device under test.)
-
-And yes, I know, I need to document that using something more permanent
-than a mailing list post.
-
-Best regards
-Uwe
-
---eqdlulvhi33joyyv
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmnuDccACgkQj4D7WH0S
-/k514AgAoS8CgfuXs5XqIUpaG6DUWC9TEK90N9rTPcFI3q1Wfki2g130cEx3h+HQ
-URD/O3wMAg5buTbtEJCYFaecSEVEYsQdyOCd1rOmNCOJRhGSNkWTfcz+LTeSwbb/
-HZkA4FKcd5bn/KSJ0lymXx60zgeOZDCLkz2hOBIOK/wNm9oIJ3nBbHFU+4K3nhBf
-bU0jUkFPgxIq6i8rCb/sewIqpTo0/dAME5F1/ELNCsFhZpACwDZXmCn7xdd4/J4i
-wAZwp5rZWex9L8lIoSM6O0ue72lrrPBdxeMA1DlWeD1u9FV9o5NYFIGUuL8Vrum7
-3KLGPiD/nTpf9LY7Ns5EfDcuKPeJ7w==
-=zN39
------END PGP SIGNATURE-----
-
---eqdlulvhi33joyyv--
+Laurent Pinchart
 
