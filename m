@@ -4,92 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BEE8FF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 21:20:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D802FF8850
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 21:30:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D+z5ks7FycyWyhSB2oeVofN0AVLQLkvT8Z6YFVDa6do=; b=xCQSCWjW496kSygqxUxCQHvcyT
-	qABZACG5Cg7kwODERmZlSQshN+3wPI1rws9BAds+exVPuBnY9nzZjZp7AKDaAd/U2WpSVfdYKQ+Rq
-	CH/I1qmOXL6YKKITJIuULNaS51h4+g+c3unt4dSGxh3J3RVMn5v0xkkRZIuhWVUvrTyEmyU1mjFtV
-	lavYSu5mfRPcurTxwubYS0/1LMkHKPLTLCKVBNkvJ/C7lHvybEdbfgb3Udn70EoP7ZBiIA8VR4kKL
-	0NZbdMwqDEpHQrD356yM1gGlxvxWbVUm0m/IDW472nVgGl2Ma25iWxMV4JrbBe/gvoyFKyDEQve5G
-	sFWJe/Hw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iLR/opeNBhDfGIgJhq5deg39/VYXY2JhgaAs8rpPWvc=; b=h0Qsn2Ijj2ooYpRlWcfVgiaUmo
+	uKKm/+SP0m2Q8C06Fm0SNEWJQ4UGU+tg0Fj9fw83WicRvD33AQnBvpncpuLOvT02P1v0AT9AXsDfD
+	XIckcXZPtmZL+cZWcb2BdJt5rfyBk8ZenionzPCWWNId/4p0JqrpMOOws7oGTzNgKoJuTgN3IzvuV
+	XOEkHKvHMuUXJdPfCA9x1Vmnmu5SgBhlgi5XQPkbwQQnXVOAHTb/Nw5ItDa5fGOdE/9fAX78RZCIq
+	OU9g+lno6Y76Zp9EIAFpVmYZGZ7PNl6JBW3D/CmHsZL8QbokoqqjZXhenor6VXCYuJmSLrcHu8ILs
+	TWtKzqFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wH6u5-0000000FrAn-3Ve7;
-	Sun, 26 Apr 2026 21:20:37 +0000
-Received: from mail-dl1-x122e.google.com ([2607:f8b0:4864:20::122e])
+	id 1wH737-0000000FrXQ-3eiD;
+	Sun, 26 Apr 2026 21:29:58 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wH6u3-0000000FrA8-3NSU
+	id 1wH735-0000000FrWr-3FD7
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Apr 2026 21:20:36 +0000
-Received: by mail-dl1-x122e.google.com with SMTP id a92af1059eb24-12c8c9c4cd8so3591775c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Apr 2026 14:20:35 -0700 (PDT)
+	Sun, 26 Apr 2026 21:29:56 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-43d7b879691so1128182f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Apr 2026 14:29:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=usp.br; s=usp-google; t=1777238435; x=1777843235; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=D+z5ks7FycyWyhSB2oeVofN0AVLQLkvT8Z6YFVDa6do=;
-        b=hA+RSOYkyouhHpQ5zkKETHvuqX9y62CbqgkiQkN2pdOvb732mflboNDUEndrrQTsl6
-         cvzt/CpPnoIM+dyKZK4kJ1+Asi6VCgWkv9B343SEIiyRpzwZCll6jNtel+voCELXVrAi
-         sPArvQlf8JS2JNkllba2TFQpQdnaivWmrLekVPJcD59ZtC/09eh6HfER7N5o3ypcx9gZ
-         U706hXupyVbTs65yDKeJs8IYXRgiVFSfJsIHDvzkTReMZ13gBFu7pA0URg0Ge2ueANMu
-         mAKfhNzsd/6RA+ztJwV1beZckq7uh1/oRsFDLRSpzVog/dSGYDzRL0CozmwsHkWyhikQ
-         th+Q==
+        d=gmail.com; s=20251104; t=1777238994; x=1777843794; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=iLR/opeNBhDfGIgJhq5deg39/VYXY2JhgaAs8rpPWvc=;
+        b=bQQpTsKIU+5UzJAVroTlKlnviO+Q0AbLe2JLsSTx4Iu8yATAhh6wL2UcuX3WdNL5Be
+         ezR+9U8/U4IKLsGtbJFy2pjAE5d3IZiSPBa2govUZ5P6vKK8qzTL3g0ILAcEosrCYqvW
+         ydpGq9b0ToifyIWVXfbvGFg6Q0pWZRlmxPtjqSbFKiGULLGGFhTfVfGkA9d51TGQeYrQ
+         NG3Uyr5f3RCaeihPSrfgcHPPYwUwKwqR7V1nGu30lzQjEPgfDjV/w45vQ92GGish3jno
+         NuEM3MCsEAzU1BZoFl338X/8nWx+ffGOaoeudEuIDTVXM/XHqcYbj/5LNk6WCwg3SRPj
+         /G9A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777238435; x=1777843235;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=D+z5ks7FycyWyhSB2oeVofN0AVLQLkvT8Z6YFVDa6do=;
-        b=hTOuhDaE4iSnl1RkQVhTSDYRoA4WkrpZpdRdBWLmh++Js0IwDASOfC8hF9Fo40cWrS
-         7di0o4KQuIDXi89qf5XBVomVSzSFmKWBbYo9tZtCVXClPxTJYXhi8VjeJp8OrVJPRNIn
-         3MI/Oi3BUsr34E8xI/817SnlS3OatDikPhJ6LlUw+Fw3b/zqURH6Rvjcr8xP6LIFha5A
-         2plN3I64hK7co9hG3fahB9T+Zekoh+P+2SRIPiemxwTzRWIRhY9gXZorO/x8bHkeGjnf
-         aYpNmIcPwvqUXd0d4YAwe7VZasAGqgW08eTyfTrWOXGvRiCk5tM6W4FctdjXbh+E0FTz
-         LgyA==
-X-Forwarded-Encrypted: i=1; AFNElJ+zCV3Y4lWoSAVdShSZb2f6TIioIggL6pVhkvxhwJ2Yqn2D//H5hREXCIUUDPjZy/Tf3eN2f2rNpmWYvJ+1jGF1@lists.infradead.org
-X-Gm-Message-State: AOJu0YzYzkJ9oCabTkx853rIEnNxlYMCGWbx5QLn5GWAyFiP+dcxjyT9
-	FDugt9P/THb6liqYZ8fz34/xccp/TrPpbSALXClLJmH3cMCRSi3wrRP/zyLsV9aAo3s=
-X-Gm-Gg: AeBDievvT3vygoMahftVv+zpbDrPus8dsRX09F7HeRCAva/47+PWY3xH4In+1EfumI0
-	vpeRNptp/JE49KIB0RYThtthAhnwzssfI4AMQfWvLsernUUWKA8C/J5yulU6bmfhae0gAGjUVAe
-	aYQB/zTLNtL4oprhrNzpHvabHMLc8q5XyjK+VJrhsAGWUOtao6T9978qiI3pSmH4EZ45JoN9+S/
-	oRt1Us1ipRW7oGepo8fTQGSajDV4BcNJLh/3fCZBg3wxh3Ia10JM2jH6YMm9GN3ksVmaWiL+9u1
-	1RuBwxBP2vaBvi5+9SMm6V3orU3Ol4gOnHfP9L1ftz+LWisIVD9TD4x9dUYbFe28HR96SAoZzGh
-	AX+jwI7VRtsZkUBXKTtTrfgxq4LmFLmcar8PJZ69f1Ku+qQwbtdQzQfiHygGyjq6BU33Ci/lwF6
-	X6K2edHf8hUxdhmeeGhw1NhGGebeke5bes1X38JydfYw==
-X-Received: by 2002:a05:7300:dc8e:b0:2d9:db50:c6ce with SMTP id 5a478bee46e88-2e42c348309mr15335715eec.3.1777238434861;
-        Sun, 26 Apr 2026 14:20:34 -0700 (PDT)
-Received: from eileen ([38.10.153.31])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2e53ccce0f5sm40799122eec.17.2026.04.26.14.20.31
+        d=1e100.net; s=20251104; t=1777238994; x=1777843794;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=iLR/opeNBhDfGIgJhq5deg39/VYXY2JhgaAs8rpPWvc=;
+        b=Frw1R8XagSR0Q7j6GTcooY5BNYxMDFURO8fXrWG1AqCe6mar8cxpi7ea1uOf+uNwT5
+         xMnBrqLR8j+E09oRX+1n+Nn0oOBRLX2/amGkPeHGJSe21pMMU0Cpb500n+fLPJnlIuQA
+         SXFGu6OSdZ6ORZGjpq8YOt/ERREZ1oB32GaHsaMuuw+BDtaIyuIKp0+rPm/A36+E3Jiw
+         1SmtGtr3mVETsQy0QHujBhHCg/ZHpEOeCeqov1fdHI7BSJARyU0uYVKs4iqtvrylAWp3
+         WmxCnwnrW8Kky5PJLfSu1kFzx6JWpgHIhOaLnz4TfY0Kf+NJ46kzBRqp7HlglkOUXkQ8
+         7zvw==
+X-Forwarded-Encrypted: i=1; AFNElJ+oo3vgdfOi4PX0LcrBv1OeEJWfmNmVngkbUPtu68ipYxHhCKY/+tYl2/bo8WSVud39EyvnCQpTuy6zmQWEuuLV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz4flYl0eThQLlVM1n04xvb6adTG1RY9pS7NO3bUINiywbUg1GK
+	ZLfpWWuUW5LWUMh+A2aaOVRZSh6sp1uOfos0T+gt2Y33aI3LmjX/wlIY
+X-Gm-Gg: AeBDieuvksDiFCSmA3KsrvqYDInKcTTtToj0jhsYhnf/xjZqL4jSZsKcUSvF9NXvOfV
+	1tzEfk76DIflZOn7u7W+lYxb+Cc1DPXRYZpeZu30aYDsomMylvYIE6afehC4TAHDbbhH6k1LoaV
+	zjwiOC+fgAPk/Dw6DyM4N3VCi4n9RpctxsDQ77gBLpz4Sy1Y4TIYVf0jpk5UT2llxoy/QotB4qq
+	CAlo+qjdvCeS8YidrvSzA4CT+9EE4u7GzPwEvoT5aXtLPretE4EvAHCqJLUSHelV5JEisUU3ks+
+	IimAtlqTONYo0DlyXoPfMZbD3leLFol62lqUkqm0x9RG2lWzCoGmQTYDa+acfXejzXe5aBmZQk7
+	5zxex5o+k77NaH0qs8qRoBSWZXUnj1ORnBjGgomFD5DJHHGFXcIaxMnoUb+5hu2NoMc6Jjg4N/E
+	1DSD3R8WiHGRDjWrMYJ5kpo9n0J6cqLMIyZXp/W8i5L2WxeI9Zd7LpAM3enyVkvKmynn45y507Z
+	g==
+X-Received: by 2002:a05:6000:2d0c:b0:43c:fdfe:bdda with SMTP id ffacd0b85a97d-43fe3e26512mr16823929f8f.6.1777238993569;
+        Sun, 26 Apr 2026 14:29:53 -0700 (PDT)
+Received: from menon.v.cablecom.net (84-74-0-139.dclient.hispeed.ch. [84.74.0.139])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43fe4e3a79esm79047320f8f.17.2026.04.26.14.29.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 26 Apr 2026 14:20:34 -0700 (PDT)
-From: Caio Morais <caiomorais@usp.br>
-X-Google-Original-From: Caio Morais
-To: andy@kernel.org,
-	dlechner@baylibre.com,
-	jic23@kernel.org,
-	michal.simek@amd.com,
-	nuno.sa@analog.com
-Cc: Caio Morais <caiomorais@usp.br>,
+        Sun, 26 Apr 2026 14:29:53 -0700 (PDT)
+From: Lothar Rubusch <l.rubusch@gmail.com>
+To: herbert@gondor.apana.org.au,
+	thorsten.blum@linux.dev,
+	davem@davemloft.net,
+	nicolas.ferre@microchip.com,
+	alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev,
+	ardb@kernel.org,
+	linusw@kernel.org
+Cc: linux-crypto@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-iio@vger.kernel.org
-Subject: [PATCH 3/3] iio: common: st_sensors: fix includes with IWYU
-Date: Sun, 26 Apr 2026 18:18:02 -0300
-Message-ID: <20260426211834.3318306-4-caiomorais@usp.br>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260426211834.3318306-1-caiomorais@usp.br>
-References: <20260426211834.3318306-1-caiomorais@usp.br>
+	linux-kernel@vger.kernel.org,
+	l.rubusch@gmail.com
+Subject: [PATCH v5 0/1] crypto: atmel-sha204a - multiple RNG fixes
+Date: Sun, 26 Apr 2026 21:29:46 +0000
+Message-Id: <20260426212947.24757-1-l.rubusch@gmail.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_142035_845465_73D8626D 
-X-CRM114-Status: UNSURE (   8.39  )
+X-CRM114-CacheID: sfid-20260426_142955_818791_57E6A2A6 
+X-CRM114-Status: UNSURE (   7.98  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,61 +106,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Caio Morais <caiomorais@usp.br>
+When testing the RNG functionality on the Atmel SHA204a hardware, rngtest
+reported failures. Fix start of reading and size of fetched data.
 
-Signed-off-by: Caio Morais <caiomorais@usp.br>
+I verified and applied Ard's solution (tagged it with sugtgested-by, pls
+tell me if I used the wrong tag).
+
+Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
 ---
- drivers/iio/common/st_sensors/st_sensors_i2c.c | 7 +++++--
- drivers/iio/common/st_sensors/st_sensors_spi.c | 9 +++++++--
- 2 files changed, 12 insertions(+), 4 deletions(-)
+v3 -> v4: rephrase commit title; fix typos in commit message;
+          replace index literal by `RSP_DATA_IDX`
+v3 -> v4: Reduce seet and set focus on RNG fix, blocking and nonblocking
+v2 -> v3: Removal blank line, rebased
+v1 -> v2: Removal of C++ style comment
+---
+Lothar Rubusch (1):
+  crypto: atmel-sha204a - fix blocking and non-blocking rng logic
 
-diff --git a/drivers/iio/common/st_sensors/st_sensors_i2c.c b/drivers/iio/common/st_sensors/st_sensors_i2c.c
-index 7156302fe..04d106def 100644
---- a/drivers/iio/common/st_sensors/st_sensors_i2c.c
-+++ b/drivers/iio/common/st_sensors/st_sensors_i2c.c
-@@ -7,12 +7,15 @@
-  * Denis Ciocca <denis.ciocca@st.com>
-  */
- 
-+#include <linux/device.h>
-+#include <linux/err.h>
- #include <linux/i2c.h>
--#include <linux/kernel.h>
-+#include <linux/linkage.h>
- #include <linux/module.h>
--#include <linux/iio/iio.h>
- #include <linux/regmap.h>
- 
-+#include <linux/iio/iio.h>
-+
- #include <linux/iio/common/st_sensors_i2c.h>
- 
- #define ST_SENSORS_I2C_MULTIREAD	0x80
-diff --git a/drivers/iio/common/st_sensors/st_sensors_spi.c b/drivers/iio/common/st_sensors/st_sensors_spi.c
-index 0da270139..884077d51 100644
---- a/drivers/iio/common/st_sensors/st_sensors_spi.c
-+++ b/drivers/iio/common/st_sensors/st_sensors_spi.c
-@@ -7,12 +7,17 @@
-  * Denis Ciocca <denis.ciocca@st.com>
-  */
- 
--#include <linux/kernel.h>
-+#include <linux/device.h>
-+#include <linux/err.h>
-+#include <linux/linkage.h>
- #include <linux/module.h>
--#include <linux/iio/iio.h>
- #include <linux/property.h>
- #include <linux/regmap.h>
- #include <linux/spi/spi.h>
-+#include <linux/stddef.h>
-+#include <linux/types.h>
-+
-+#include <linux/iio/iio.h>
- 
- #include <linux/iio/common/st_sensors_spi.h>
- 
+ drivers/crypto/atmel-sha204a.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+
+base-commit: 5db6ef9847717329f12c5ea8aba7e9f588a980c0
 -- 
-2.54.0
+2.53.0
 
 
