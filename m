@@ -4,85 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00464FF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 09:14:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B27CCFF8860
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 09:45:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wDoxXpnYNkI9G++A3DymN5g3Rtb6cBmbOTHxfQDWeAk=; b=FpkfimqRE/BILyIKVCg/4st7lA
-	Tttda9pJbKrktdOpK+VGs6mi5GZljbcMcn77FsHpi29QKuFLoGfB5jGmnoJeVeU/6KGs7IP0e9i6o
-	42vxdOqpDMABz4cZqkySPPiSB9HUUTPDge2VU9o5LmbVd8LkbF1KxgCs0M1f95Pk6AcjQYU0nFzqN
-	AgjV33dFNJec+Wdqst5ce0pMZQKlGHg3dFfKCmL62tPKEAAoOsXD9HoUoc5CR+YZby14wv2ygpGQp
-	99XLvNPjFB8fTS0jwxzXQXOQ9my3Am+WEiUOfmc6WLsoijdLXPeSU+cnON0mLmbldLEHDJNfvrcD0
-	uLCp3WNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QT/EFaL4fcCqqsu06HNkALgIVcLkVsgdWHpd2+shATA=; b=2upuqGugayOgOPXjYEO1HAbddj
+	SXo5xWD6hF1QCSln8DnioIOqHARz493PIRM1I2hlheGfxJGy6D2g++D2kjcJWCY2k5ecw1F4KwX1K
+	aXErcX5AzoI/TS18U2goxu8+TuiRgfrn6FsPJi2loSPs2n0MBPUkOsUG1RJHTlZBgffvNOStk+cWb
+	5/Ko2tBtEwMkecC55NTAYo5zCWrnf1xnHuVGDpwhqbS3ugH03+vvacGviBM6mSfipLoV9txplx1hB
+	xJS5kD/0Omao9S0ajWPgYky9flMwGGfD4RjqK0d/X2G1BnB8cGDMCQBpwtHFCjx4zyzBWsSSoHO1U
+	/fCRg0Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGvZC-0000000FOBG-1asI;
-	Sun, 26 Apr 2026 09:14:18 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wGw2s-0000000FPL7-2w2k;
+	Sun, 26 Apr 2026 09:44:58 +0000
+Received: from mail-m1022.netease.com ([154.81.10.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGvZA-0000000FOAx-2dG8
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Apr 2026 09:14:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B10A4600AE;
-	Sun, 26 Apr 2026 09:14:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EECDC2BCAF;
-	Sun, 26 Apr 2026 09:14:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777194854;
-	bh=mIDtI2DvRmR2rKhKS/QpZYOxXcixSL38uwNQkFExpJY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=sKiWiQjHfFPALfrhENoLfMQrcqClLCseJNaGBJlhSiIKV/HVCJLNeNJH0yA5F0wJl
-	 uDOLlNPKzqwTfmvWOZyu4BhSzTRr+e64lOVw5Qlz/U/La4Xe4IXrJTHRAp3m1hKe0O
-	 eGo4hI+2rsda6kMdHrpRYRstWmUiSyWJYffq4JXhHs7C+ynRQwYti1gxXLk7RDW7YL
-	 q2Ty/Z7nD44BnBAyp2L24hV7ZV7YXX++j8ERtT8ugq1VtT6ol4AmkavnX1oo6kbeaT
-	 /CIgLGoufUknVpBI35ZF8EPuHTn86aDaTf1LH/rVvfzG21CTD1voMqJaaPnRZcrijv
-	 mq+UTY6/DzDRA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wGvZ5-0000000EkyH-46jc;
-	Sun, 26 Apr 2026 09:14:12 +0000
-Date: Sun, 26 Apr 2026 10:14:11 +0100
-Message-ID: <861pg213to.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Vishnu Pajjuri <vishnu@os.amperecomputing.com>
-Cc: Fuad Tabba <tabba@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Mark Brown
- <broonie@kernel.org>,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	Darren Hart <darren@os.amperecomputing.com>
-Subject: Re: [PATCH v4 35/49] KVM: arm64: GICv3: nv: Plug L1 LR sync into deactivation primitive
-In-Reply-To: <e283e755-c348-43cf-b5fe-278c5eab742d@os.amperecomputing.com>
-References: <20251120172540.2267180-1-maz@kernel.org>
-	<20251120172540.2267180-36-maz@kernel.org>
-	<2e12c5c2-a1b6-47b7-b54c-7281a77bbe0a@os.amperecomputing.com>
-	<878qb9cxzr.wl-maz@kernel.org>
-	<1e050b67-2276-41ad-9265-796ba853dc7c@os.amperecomputing.com>
-	<86a4vo49ni.wl-maz@kernel.org>
-	<86eck71o1v.wl-maz@kernel.org>
-	<e283e755-c348-43cf-b5fe-278c5eab742d@os.amperecomputing.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: vishnu@os.amperecomputing.com, tabba@google.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, broonie@kernel.org, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, darren@os.amperecomputing.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1wGw2o-0000000FPKe-3N0o;
+	Sun, 26 Apr 2026 09:44:56 +0000
+Received: from [172.16.12.43] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 3c2b50084;
+	Sun, 26 Apr 2026 17:44:46 +0800 (GMT+08:00)
+Message-ID: <4592b323-bebd-4242-ae31-892a51b5b3be@rock-chips.com>
+Date: Sun, 26 Apr 2026 17:44:46 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 3/6] pwm: Add rockchip PWMv4 driver
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Lee Jones <lee@kernel.org>, William Breathitt Gray <wbg@kernel.org>
+Cc: kernel@collabora.com, Jonas Karlman <jonas@kwiboo.se>,
+ Alexey Charkov <alchark@gmail.com>, linux-rockchip@lists.infradead.org,
+ linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-iio@vger.kernel.org
+References: <20260420-rk3576-pwm-v5-0-ae7cfbbe5427@collabora.com>
+ <20260420-rk3576-pwm-v5-3-ae7cfbbe5427@collabora.com>
+Content-Language: en-US
+From: Damon Ding <damon.ding@rock-chips.com>
+In-Reply-To: <20260420-rk3576-pwm-v5-3-ae7cfbbe5427@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0a9dc92d5ac103a3kunmad79455f144c6e
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1kYFggdWUFKV1ktWUFJV1kPCRoVCBIfWUFZQ0gZSlZMHU8aT0pIGh
+	8dQx9WFRQJFhoXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0
+	tIVUpLSU9PT0hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=CJLx/i7y6XIEhYYkK+bcgbOZWb7NOyQLgyDPGnFicFerhHIaBNhya23FTvMhF0ELqg0hwYPcLAE8ijcflb+VnzUyvdw1e702NyfyYnKk08xcMHFVZIbWrDHosDGHV59BmABw2a+DV9+1R2xtfFph6z2yjW0VDJnk4GjdMRUUAas=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=QT/EFaL4fcCqqsu06HNkALgIVcLkVsgdWHpd2+shATA=;
+	h=date:mime-version:subject:message-id:from;
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260426_024455_384009_5648F6E8 
+X-CRM114-Status: GOOD (  11.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,78 +78,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 22 Apr 2026 15:57:44 +0100,
-Vishnu Pajjuri <vishnu@os.amperecomputing.com> wrote:
+Hi Nicolas,
+
+On 4/20/2026 9:52 PM, Nicolas Frattaroli wrote:
+> The Rockchip RK3576 brings with it a new PWM IP, in downstream code
+> referred to as "v4". This new IP is different enough from the previous
+> Rockchip IP that I felt it necessary to add a new driver for it, instead
+> of shoehorning it in the old one.
 > 
-> Hi Marc,
+> Add this new driver, based on the PWM core's waveform APIs. Its platform
+> device is registered by the parent mfpwm driver, from which it also
+> receives a little platform data struct, so that mfpwm can guarantee that
+> all the platform device drivers spread across different subsystems for
+> this specific hardware IP do not interfere with each other.
 > 
-> On 22-04-2026 12:25, Marc Zyngier wrote:
-> >
-> > Have you made progress on this? I can't reproduce it at all despite my
-> > best effort. I'm perfectly happy to help, but you need to give me
-> > *something* to go on.
-> 
-> 
-> Thanks for your support!!
-> 
-> The issue is triggered as soon as the timer interrupt (IRQ 27) is
-> deactivated. Preventing the deactivation of IRQ 27 during nested VGIC
-> state transitions prevents the failure from reproducing.
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Tested-by: Damon Ding <damon.ding@rock-chips.com>
 
-Which level of deactivation? From L2 to L1? Or L1 to L0? The former
-should just be a an update to the irq structure, while the latter is
-effectively a write to ICC_DIR_EL1, and *that* is a new behaviour
-introduced by this patch.
+The continuous mode of all PWM channels has been preliminarily tested
+and verified working on the RK3576 IoT board.
 
-I wonder if your implementation is such that ICC_DIR_EL1 is trapped by
-ICH_HCR_EL2.TDIR, which is allowed by the architecture, but that none
-of the two implementations I have actually enforce (the trap only
-applies to ICV_DIR_EL1). Can you try the hack below which disables the
-traps much earlier, and let me know if that helps?
+I have tested with several typical period and duty cycle configurations.
 
-Even if that's the case, this should result in an EL2->EL2 exception,
-and that should be caught as an unhandled exception in entry-common.c,
-so something else is afoot.
+Following Uwe's suggestion [0], I also tested with libpwm using commands
+similar to the following:
 
-Thanks,
+./pwmset -c 0 -p 0 -P 1000000 -D 500000 -s 5000
 
-	M.
+I was previously unaware of the existence of libpwm. I will continue to 
+follow its upstream development and updates going forward. :-)
 
-diff --git a/arch/arm64/kvm/vgic/vgic-v3-nested.c b/arch/arm64/kvm/vgic/vgic-v3-nested.c
-index 5c69fa615823c..ee415c1038b4e 100644
---- a/arch/arm64/kvm/vgic/vgic-v3-nested.c
-+++ b/arch/arm64/kvm/vgic/vgic-v3-nested.c
-@@ -280,6 +280,14 @@ void vgic_v3_sync_nested(struct kvm_vcpu *vcpu)
- 	struct shadow_if *shadow_if = get_shadow_if();
- 	int i;
- 
-+	/* We need these to be synchronised to generate the MI */
-+	__vcpu_assign_sys_reg(vcpu, ICH_VMCR_EL2, read_sysreg_s(SYS_ICH_VMCR_EL2));
-+	__vcpu_rmw_sys_reg(vcpu, ICH_HCR_EL2, &=, ~ICH_HCR_EL2_EOIcount);
-+	__vcpu_rmw_sys_reg(vcpu, ICH_HCR_EL2, |=, read_sysreg_s(SYS_ICH_HCR_EL2) & ICH_HCR_EL2_EOIcount);
-+
-+	write_sysreg_s(0, SYS_ICH_HCR_EL2);
-+	isb();
-+
- 	for_each_set_bit(i, &shadow_if->lr_map, kvm_vgic_global_state.nr_lr) {
- 		u64 val, host_lr, lr;
- 
-@@ -309,14 +317,6 @@ void vgic_v3_sync_nested(struct kvm_vcpu *vcpu)
- 		vgic_v3_deactivate(vcpu, FIELD_GET(ICH_LR_PHYS_ID_MASK, lr));
- 	}
- 
--	/* We need these to be synchronised to generate the MI */
--	__vcpu_assign_sys_reg(vcpu, ICH_VMCR_EL2, read_sysreg_s(SYS_ICH_VMCR_EL2));
--	__vcpu_rmw_sys_reg(vcpu, ICH_HCR_EL2, &=, ~ICH_HCR_EL2_EOIcount);
--	__vcpu_rmw_sys_reg(vcpu, ICH_HCR_EL2, |=, read_sysreg_s(SYS_ICH_HCR_EL2) & ICH_HCR_EL2_EOIcount);
--
--	write_sysreg_s(0, SYS_ICH_HCR_EL2);
--	isb();
--
- 	vgic_v3_nested_update_mi(vcpu);
- }
- 
+Best regards,
+Damon
 
--- 
-Without deviation from the norm, progress is not possible.
+[0]https://lore.kernel.org/all/fgu42esufq2x4fcccncqs3hlotih2gqmws5atotlaznuahoslw@34vblr6vboze/
 
