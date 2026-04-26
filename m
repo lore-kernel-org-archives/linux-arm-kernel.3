@@ -4,111 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A0EFFF8850
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 03:55:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D906FF8850
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 05:32:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1BdFcpz+AcaZJuHG5kH6Dp7Mwp/lMapbOHRN2wu9PUQ=; b=sqvsPAzovc/AvvSdrkisPsMK4Q
-	spLGa+k9uZU8Amp3VIDgzXllpon5vgHf58lfXdieY9wSRP90sfnKUqcMDaDWveg+PULiuJRG6gkNc
-	UefpX3SPDAez8G+QcHoXpzEfZKIQo5dH7RHrwBN0o3c4li7d+Jo1AhvlhfDxCewrJW68QjovSXRha
-	MYypfrX2EOgfSgb/T8QaRTgc+VIgqpUM+UbKFu5WForEe3OBdUWGWZJI/2ZH/HoLTVKy9/vBH2VtW
-	KXhZ3ayKQJnm5h0YX42nUPJZvNhKuHcQJMPYtwu+Anml2o2AhbFOjmW5/sOYBsOjbGjWO0EIeUgAo
-	eH0E3XGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1rPfFa1B1GbjH5KTkfI6ezIH4vvvFqQ/l+mQ1YCLh/A=; b=k+YEuyO0JYlNbaNYQWvYE/zY6F
+	9OWAw3GtYjhD4nU7MbTRU2qKZAhnRfElaCX+Kh5maivWjbu37P123K3jkJl5h41ZDYWUo75L/Cwu6
+	8DIzEPglOAEA4Nku5XFvmVttFJaf9+RSW4+fkgCXQH/CAYDhwDXWDSGmnAnrZii+9vMFyS/sSgOvd
+	+4qHX+YYmi2PUVfPU4dCUfgdgajg/aA+Fdi3jpvA4PFBLoYUIJlPu7xF7ad+T/gAdGakWfCnOcY8B
+	x7BFwGC8u+MHWfhBJdUAqot2roD1Je//nxBZtCBO+S9/h7J0rvYvx/XAzHejxfWol+j/W7Eg2eFIw
+	bOdnUfSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGqaD-0000000FEfM-3Owh;
-	Sun, 26 Apr 2026 03:55:01 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1wGs6N-0000000FHP3-18CR;
+	Sun, 26 Apr 2026 05:32:19 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGqaA-0000000FEe0-2ctw
+	id 1wGs6I-0000000FHOC-2gkU
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Apr 2026 03:54:59 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2ad9f316d68so40626075ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Apr 2026 20:54:58 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1777175697; cv=none;
-        d=google.com; s=arc-20240605;
-        b=ctHML6vqlFtnu6KjQhVDkIW00gKfltZJPL0ZS8iXh1Lyt98mRqFPg3XaHnuBrfsAMT
-         Jl+LT/B9KrSY2wkRBN4osR+GVLLUWbA+wszPuEa+KoQ37dXhWV9B+rQj1TRruqS9JGzm
-         TyRHIof9vpWl1SMvTBjIpzDWeywelFWD7N3SYj752cN/n0702uTiJFDxcZdc67RrtEBI
-         MUAa8XRiTVCi9BJMToslqCK4kYGlYIIJlsrKtmlRqj6Z2LxWrVo1JmwEDw7edA0d55iX
-         dhq2a+PqdFExV0jqYoarLS2Sx5t4LTxLJ8vcsBtbVebNqbeTwAqgQkCQ6hiOQNcBftlL
-         YzKA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=1BdFcpz+AcaZJuHG5kH6Dp7Mwp/lMapbOHRN2wu9PUQ=;
-        fh=TUqjjJmxJMlWgcqHJp97S6Ys/j4UaTXIdnAhMJUr3mw=;
-        b=Sl2HKWJtgV7tcChzdrw+eVe6jZH6CLLyXcUheQ6tTxEFORj+kPCGJ8oZDoWjF8+1JW
-         ADsBudg5Zmer3uBzJF3+Bn4YTRAIWWXyiYh0V84UYiKGTW9HJwQO9VNvKnYCXxkxHSul
-         e2uKHEho9BN9rAM1myuY+Xb3HYXPXE8Dq2wiFnpKB8FsYZI/qT3b0+0ehTz8UMCGEz28
-         6Zrji5Gkbhlr5+RT/G2YV3yrSQLK/eI6tCqza+05b0xT90yCdjihz8W8Liy0NIMooQWP
-         Tt9oLQ7ngs1LPj0yjUSPHJMmggVxd4CaAPi5lEhQi5yNcqn19pGmO9fnl/8t3491NVIT
-         qcOg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777175697; x=1777780497; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1BdFcpz+AcaZJuHG5kH6Dp7Mwp/lMapbOHRN2wu9PUQ=;
-        b=RALmFA3PbA4qFjPRQ9kUYFM4SIytStQwwgZK3bBATspwVmU8aJCwQuaWGd7qh/MttQ
-         eC4as9TyWKCEbwhSwCymKciB/hHhY78G3D/5oS5FCr4UMTuTwLMe+CvjDIAYXE4gQ51i
-         IKz+Uod8URJRKTm9B1qO3YCYXdiqyzSloIR1w2HGwh5g6qprd9/Oo642DY482wUuWtue
-         LBFtHREraAhxoK32kEbx4nu8uPex/V27vZ9kJQte4BQVasIYFTwj2SomzgbXD70F/8yq
-         orF9muovVLWQ6oGF6agkT/1LijtL+G2Bn6LjFxOgM8NBmaozaiZmnl4+dnuKlDmjMOch
-         ZIyg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777175697; x=1777780497;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=1BdFcpz+AcaZJuHG5kH6Dp7Mwp/lMapbOHRN2wu9PUQ=;
-        b=Wo2go+8c0kGype1di2oaBwbgb6pFX+nRvqNDb4GwRVaF5RdcB3UTrH83CvhVhEY4P2
-         LF4Jyd33H2pKtIsoDRLwKsIStMR7PAE1TMkZNluOs+xSXdjDlnRPWJAtthBVkQsGrKI0
-         71B2lMwnbrcqKKqCDtu6F+BXproUreDoo6D9TPYtgSWjHT06WCHAg1+Jb4QOK0Wd/oi6
-         khj7lf7uDFOFCTp3ZtRzcbY70ZrXbdjQIIXk/UIpvm9XU7nj3gfXeYZHf4lJpFF4ratp
-         a2VCgbPB6Fy4bm1KxYXnKfRnek3sSb8gjeyicIStYjqxKJ0IqSg+p+nhxa20vK969SXL
-         Lwng==
-X-Forwarded-Encrypted: i=1; AFNElJ/ddhuseOhvUlqNJAyO4R4fIAV1PfUVNqKNBg4KztFQIrvzg2Qdj20kYTQ8YG2Kszc5H7nhXKwwB7442qZe5/pt@lists.infradead.org
-X-Gm-Message-State: AOJu0YznHdC6lXXYSNSK6PnagjceqmYCN+9+AlbL2qOhQNn9CIgavg9c
-	9TIpLZN/oyaY7Qlz349eQyaPlHd42KCPkQF9S82d/CsRRVbyDKv6KOEv5pe3/HoQ+fV1Mj5R5nr
-	nI6/blWHnhGG6vMEfG9U9dhy14j9ym74=
-X-Gm-Gg: AeBDieuGwj0A2iN1T4RIN2EkmHBUQA9Y/STR5+5Rr9jcq0foMHlygU81uNXRX8SO/vf
-	LAtw9xzcLW08SR4WQ3DDV+sGpUbqMkk7SNKWmI79uBrs3t9v90MTciTd82HSQfb++XuWtGTgYZI
-	PYqGuc4htfEHTgydigs5mIZtfanlXfKWCFj+UUEuT9vdbZvHYKPn6bdtowQfPmN2UJR4Ts523cP
-	t28bMW7Ch+ONEzefVHdvgjlx+dpGMPcRretE9NqqHuHn+HwSZh7CilUH2uGAYKq26ju5IZPo7Ov
-	6fCGH9FhCwoUWwoosFSZft1fk6OhuStX7VK7qe+YLSxe8V3ZQfIwRUkZ2ELP9/TDUH1jqG/RiE8
-	=
-X-Received: by 2002:a17:903:1aa5:b0:2ae:57e6:616c with SMTP id
- d9443c01a7336-2b5f9e5e312mr361056635ad.3.1777175697342; Sat, 25 Apr 2026
- 20:54:57 -0700 (PDT)
+	Sun, 26 Apr 2026 05:32:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1777181534; x=1808717534;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=FZxW/0xc3tlPxseOGzaG8aEguh7TK5Jw7ofxFY9FK88=;
+  b=XY0l489CfOyAu5+VMAtedeoNgUznohhrG7DLqU2rIMbWaC3TMIXcrStp
+   0F7UN0/aD5q17ZzVfD0MRT6A8J2/KJTdj/IRvAhzOI8iPnR+vV69Zx2yu
+   2FjgzxR0pXUO3u16D/ysQhuozkUYRcdvTRQ2pG3i5t77NFPPZEX7iV31W
+   KXjFKhnzUIVznMPKC29spWXzJGSn+Uj6UresyhPFFM1eaawbcDxehzR8X
+   OBMYx1QbqKHW2lslGTZynOPzDVumAgZwF3g/lLSNSRgv6PeRvfdz+QEmA
+   v4xtUA/a2ecvPyX2rnzYQI1sAwtdPDGWLOOhJoPosiPiBC+dsnSaz71ax
+   Q==;
+X-CSE-ConnectionGUID: r3wyxG9+RjeYb1qtXUEUsA==
+X-CSE-MsgGUID: FeW74CJhRwO8mRB7kAZzHw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11767"; a="65636109"
+X-IronPort-AV: E=Sophos;i="6.23,199,1770624000"; 
+   d="scan'208";a="65636109"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Apr 2026 22:32:10 -0700
+X-CSE-ConnectionGUID: uvJyIYwRSLK2wagYQHwDAg==
+X-CSE-MsgGUID: Z8sWPRqgQIK9RunmgA3kRA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,199,1770624000"; 
+   d="scan'208";a="238323720"
+Received: from lkp-server01.sh.intel.com (HELO aa799cca880d) ([10.239.97.150])
+  by fmviesa005.fm.intel.com with ESMTP; 25 Apr 2026 22:32:07 -0700
+Received: from kbuild by aa799cca880d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wGs69-000000007W5-04Xp;
+	Sun, 26 Apr 2026 05:32:05 +0000
+Date: Sun, 26 Apr 2026 13:31:13 +0800
+From: kernel test robot <lkp@intel.com>
+To: Wentao Liang <vulab@iscas.ac.cn>, Georgi Djakov <djakov@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>
+Cc: oe-kbuild-all@lists.linux.dev,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Wentao Liang <vulab@iscas.ac.cn>, linux-pm@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2] interconnect: imx: fix use-after-free in
+ imx_icc_node_init_qos()
+Message-ID: <202604261347.QzG9r7Ym-lkp@intel.com>
+References: <20260408153022.401123-1-vulab@iscas.ac.cn>
 MIME-Version: 1.0
-References: <20260426-meson_saradc-v1-1-6e96b2982c43@gmail.com>
- <84cae83c-2d67-4927-aa40-6c416d4f862d@baylibre.com> <20260425194412.1872eff8@jic23-huawei>
- <754b6044-2285-4694-99d4-18d4fd5d8f6d@baylibre.com>
-In-Reply-To: <754b6044-2285-4694-99d4-18d4fd5d8f6d@baylibre.com>
-From: Felix Gu <ustc.gu@gmail.com>
-Date: Sun, 26 Apr 2026 11:54:47 +0800
-X-Gm-Features: AQROBzBzsaXQFVJdkYRHjTgsoiLM-gr_cIOC3RLib6DRouSrwbDmmVsVhdBXyy8
-Message-ID: <CAN4SLj0hp4N_WXPxxQcLjY+espY96LfizsNEqJ3L2UF4_GoCHg@mail.gmail.com>
-Subject: Re: [PATCH] iio: adc: meson-saradc: fix calibration buffer leak on error
-To: David Lechner <dlechner@baylibre.com>
-Cc: Jonathan Cameron <jic23@kernel.org>, =?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
-	Andy Shevchenko <andy@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Rosen Penev <rosenp@gmail.com>, 
-	linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260408153022.401123-1-vulab@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260425_205458_690336_293328C1 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20260425_223214_714521_3E22813F 
+X-CRM114-Status: GOOD (  13.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,30 +94,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 26, 2026 at 7:16=E2=80=AFAM David Lechner <dlechner@baylibre.co=
-m> wrote:
-> I just updated iio/testing today and I see return without kfree().
->
->         priv->tsc_regmap =3D syscon_regmap_lookup_by_phandle(dev->of_node=
-, "amlogic,hhi-sysctrl");
->         if (IS_ERR(priv->tsc_regmap))
->                 return dev_err_probe(dev, PTR_ERR(priv->tsc_regmap),
->                                      "failed to get amlogic,hhi-sysctrl r=
-egmap\n");
-> >> Should `#include <linux/cleanup.h>` though rather that relying on it b=
-eing
-> >> included through another header.
-> >>
-> >> With that fixed...
-> >>
-> >> Reviewed-by: David Lechner <dlechner@baylibre.com>
-> >>
-> >
->
-Hi Jonathan,
-This code was merged into linux/master yesterday, perhaps you haven't
-updated the code base.
+Hi Wentao,
 
-Best regards,
-Felix
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on amd-pstate/linux-next]
+[also build test ERROR on amd-pstate/bleeding-edge linus/master v7.0 next-20260424]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Wentao-Liang/interconnect-imx-fix-use-after-free-in-imx_icc_node_init_qos/20260424-225513
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/superm1/linux.git linux-next
+patch link:    https://lore.kernel.org/r/20260408153022.401123-1-vulab%40iscas.ac.cn
+patch subject: [PATCH v2] interconnect: imx: fix use-after-free in imx_icc_node_init_qos()
+config: m68k-allmodconfig (https://download.01.org/0day-ci/archive/20260426/202604261347.QzG9r7Ym-lkp@intel.com/config)
+compiler: m68k-linux-gcc (GCC) 15.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260426/202604261347.QzG9r7Ym-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202604261347.QzG9r7Ym-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   drivers/interconnect/imx/imx.c: In function 'imx_icc_node_init_qos':
+>> drivers/interconnect/imx/imx.c:123:16: error: cleanup argument not a function
+     123 |         struct device_node *__free(device_nod) dn = of_parse_phandle(dev->of_node,
+         |                ^~~~~~~~~~~
+
+
+vim +123 drivers/interconnect/imx/imx.c
+
+   116	
+   117	static int imx_icc_node_init_qos(struct icc_provider *provider,
+   118					 struct icc_node *node)
+   119	{
+   120		struct imx_icc_node *node_data = node->data;
+   121		const struct imx_icc_node_adj_desc *adj = node_data->desc->adj;
+   122		struct device *dev = provider->dev;
+ > 123		struct device_node *__free(device_nod) dn = of_parse_phandle(dev->of_node,
+   124				adj->phandle_name, 0);
+   125		struct platform_device *pdev;
+   126	
+   127		if (adj->main_noc) {
+   128			node_data->qos_dev = dev;
+   129			dev_dbg(dev, "icc node %s[%d] is main noc itself\n",
+   130				node->name, node->id);
+   131		} else {
+   132			if (!dn) {
+   133				dev_warn(dev, "Failed to parse %s\n",
+   134					 adj->phandle_name);
+   135				return -ENODEV;
+   136			}
+   137			/* Allow scaling to be disabled on a per-node basis */
+   138			if (!of_device_is_available(dn)) {
+   139				dev_warn(dev, "Missing property %s, skip scaling %s\n",
+   140					 adj->phandle_name, node->name);
+   141				return 0;
+   142			}
+   143	
+   144			pdev = of_find_device_by_node(dn);
+   145			if (!pdev) {
+   146				dev_warn(dev, "node %s[%d] missing device for %pOF\n",
+   147					 node->name, node->id, dn);
+   148				return -EPROBE_DEFER;
+   149			}
+   150			node_data->qos_dev = &pdev->dev;
+   151			dev_dbg(dev, "node %s[%d] has device node %pOF\n",
+   152				node->name, node->id, dn);
+   153		}
+   154	
+   155		return dev_pm_qos_add_request(node_data->qos_dev,
+   156					      &node_data->qos_req,
+   157					      DEV_PM_QOS_MIN_FREQUENCY, 0);
+   158	}
+   159	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
