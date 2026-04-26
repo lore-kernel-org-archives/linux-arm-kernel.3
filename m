@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFAA2FF8865
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 10:16:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3265AFF8860
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 10:16:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+oNeD0Gjuiyl0hRsTH+1sk2t+V7IAJjF8eo4+EiMzD0=; b=uc17oEd6S+nD/ZIk+9cUp6ktBj
-	xgsRqehRyjEAi3bRmX6cukYQCWLWxC56QWuAKzcZwmgy0ORUB4UX/Jmh+6dOPIVNZKWhyLe9d63Nj
-	A1KUEL8xklzLZD/nxHhK2utRVdriruZ8nJgBfTp54DrV5gxQLBpVQtcRWS2CjL5T/0qEwAL4O97Ll
-	yYTBXQ3O/yEaQRplKZkfjSeeHXjnCG7sTYAZuB41GHVYf6DUYHnsu5vp6lt4qaPV4uKQZ5Z2InvQV
-	qsOIV1SkknnwvlzPHDoIXdxIGrKYmX+04Rn0JF2KL24VmUVcCURBx2t6MGlXDRMler5+PaJGSEKZP
-	rzF9ZNGg==;
+	bh=uNFzzd95mcTYhcO+wG3xMSmWT3vJi7xx2yg5IbFJlII=; b=vraSRyCcbkRcveL87hKrh4sk/G
+	bTJrdkVjHFarE9bunlrtQDNbavDpbNfxh84ZRtq/Ihn/RtOsHM5hqiWtjmpZF+gOMI6NDHC4VfoAL
+	vUp69vrmxII2HjeLuYxxcKlBw5ecG7Xt1DsU6NkXBnyEDnCTxX0NMaYgljwKh5lg6wGQErIrN/wLq
+	737l2zuKQq6moC/dITI4ckZJIYTTM545g5k0fl8FuUsauhzyHtzq3tvSG9saXYWCi9ld323PN/ojw
+	cu4l51fUh/af8i0mC5WaPo25FWUiolTh3axSWkLsP3m++OfZeRbirjRsHsxMexST+dhOXC/PyyHSz
+	wY5s5TwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGwXJ-0000000FRHV-0aWw;
+	id 1wGwXJ-0000000FRHu-1vO9;
 	Sun, 26 Apr 2026 10:16:25 +0000
 Received: from s106b.cyber-folks.pl ([195.78.66.88])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGwXB-0000000FRDu-46Qa
+	id 1wGwXC-0000000FRDv-1op7
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Apr 2026 10:16:20 +0000
+	Sun, 26 Apr 2026 10:16:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=mmpsystems.pl; s=x; h=Cc:To:In-Reply-To:References:Message-Id:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
 	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=+oNeD0Gjuiyl0hRsTH+1sk2t+V7IAJjF8eo4+EiMzD0=; b=jecAcGkE/icL+1Odx8tBzt9mEC
-	LXj4I8dvPYr7ugPLx7BKIvGrVnyMmI3kcRDgkdjxro2VQErhNrDnV651nEZvhbnhlpVnzfWTUcjKR
-	sfwcVyS8lhy1eMnLpljSr0mcQsvE4VKtRUxJRiv0PlsQGPc8hRDBBEklNGOXu5rPTyddRB2FIavpu
-	+9qsUWkHy3hW1CBM9shFWUx5ulfP8pXontxLF6jVYf0t2TaigrkagR5jw93Edl4x4AHYaAs0LS6U9
-	wjWLUJRrhjQ4yJJ4f061Prznk5or5lemFKAviORTK4L2ksXfROklxZiS+gdFkzXRDAqee7qCRM4QH
-	9zMmpSKw==;
+	bh=uNFzzd95mcTYhcO+wG3xMSmWT3vJi7xx2yg5IbFJlII=; b=BK7Bz3OVlygoGKz6TSBEGDuzY9
+	nKq/RULN7AVEGlNaIwQ2wB3KXYF59XDtOJ9E1ny5mOljANkJ4zI38btt8jXI2Lzc2YXHTlTgT/enV
+	Ph18uzznc22o4KyS6pd72dS+M3dAb2hP4bJxXY3P87/zOsh6YLhyv8LFZ4zFQcBz6/40717lwBhhJ
+	7TJ2WzI6Uui4/mY/dq66lGo+eIqKphoBWnqCYW6xxWOAx2im92fDYlwsKshF04ZvMEu2FfxshQ78+
+	UVW+RGDLgvF1xOlRURDdXsqdU+vwIiVqePxlUxW54gb0obaP9nDk2POAxYu1qfJBBUIyyUaPsLn7P
+	hwbI3caQ==;
 Received: from user-188-33-36-99.play-internet.pl ([188.33.36.99] helo=localhost)
 	by s106.cyber-folks.pl with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <michal.piekos@mmpsystems.pl>)
-	id 1wGwX8-0000000CBKl-2Hxm;
-	Sun, 26 Apr 2026 12:16:14 +0200
+	id 1wGwX9-0000000CBRV-3ut5;
+	Sun, 26 Apr 2026 12:16:16 +0200
 From: Michal Piekos <michal.piekos@mmpsystems.pl>
-Date: Sun, 26 Apr 2026 12:15:27 +0200
-Subject: [PATCH v2 2/4] clocksource/drivers/sun5i: add D1 hstimer support
+Date: Sun, 26 Apr 2026 12:15:29 +0200
+Subject: [PATCH v2 4/4] arm64: dts: allwinner: h616: add hstimer node
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260426-h616-t113s-hstimer-v2-2-e65e9dc0c9da@mmpsystems.pl>
+Message-Id: <20260426-h616-t113s-hstimer-v2-4-e65e9dc0c9da@mmpsystems.pl>
 References: <20260426-h616-t113s-hstimer-v2-0-e65e9dc0c9da@mmpsystems.pl>
 In-Reply-To: <20260426-h616-t113s-hstimer-v2-0-e65e9dc0c9da@mmpsystems.pl>
 To: Daniel Lezcano <daniel.lezcano@kernel.org>, 
@@ -64,17 +64,18 @@ Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
  Michal Piekos <michal.piekos@mmpsystems.pl>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777198529; l=7183;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777198529; l=1212;
  i=michal.piekos@mmpsystems.pl; s=20260301; h=from:subject:message-id;
- bh=OfqHcszwXfWEIT+eQuG3sEAaKeCtKqRoPXDzDMxKQsM=;
- b=JojX/9Zg4U7Spr3NlkhLhRETJ5CLp0ijaZnPA6EaWdRoDTQA3stYbDstW7o57ix6I2hKirWxo
- Esy6Fj4hI3OCvoVZ+LrNAKJaTpVJMjl1hZSgWygUw5szqFmwGHrjKFJ
+ bh=cCHCvUuPpHPu5/1mgf/ezZ1u0bRGr6TqCo7i9RhbRKk=;
+ b=0x0K5umTBuHAYa/VBYZvkuflhbBQIa1oByPmLb0zonwXUViZBNgJ3TSBKIRGDk/8Payuva2uG
+ zx9x83mwLcMC2kPHFZJEXGuASvsTKqT0CnfES+2VefcrYFfTnsswHp4
 X-Developer-Key: i=michal.piekos@mmpsystems.pl; a=ed25519;
  pk=Aixyx03If7ZDamiKKN0lsa+0mtA+WjIuIf2ZQVYNBqg=
 X-Authenticated-Id: michal.piekos@mmpsystems.pl
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_031618_215466_B618B7AF 
-X-CRM114-Status: GOOD (  17.89  )
+X-CRM114-CacheID: sfid-20260426_031618_647110_741E4E36 
+X-CRM114-Status: UNSURE (   9.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,215 +90,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-D1 high speed timer differs from existing timer-sun5i by register base
-offset.
+Describe high speed timer block on Allwinner H616.
 
-Add sunxi quirks to handle D1 specific offset.
-Add D1 compatible string to OF match table.
+Tested on Orange Pi Zero 3:
+- hstimer is registered as clocksource
+- switching clocksource at runtime works
+- after rating increase hstimer operates as a broadcast clockevent device
 
 Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
 ---
- drivers/clocksource/timer-sun5i.c | 88 ++++++++++++++++++++++++++++++---------
- 1 file changed, 69 insertions(+), 19 deletions(-)
+ arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/drivers/clocksource/timer-sun5i.c b/drivers/clocksource/timer-sun5i.c
-index f827d3f98f60..2b17904debfa 100644
---- a/drivers/clocksource/timer-sun5i.c
-+++ b/drivers/clocksource/timer-sun5i.c
-@@ -18,21 +18,30 @@
- #include <linux/slab.h>
- #include <linux/platform_device.h>
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
+index bf054869e78b..1356e5df2562 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
+@@ -237,6 +237,16 @@ timer0: timer@3009000 {
+ 			clocks = <&osc24M>;
+ 		};
  
--#define TIMER_IRQ_EN_REG		0x00
-+#define TIMER_IRQ_EN_REG			0x00
- #define TIMER_IRQ_EN(val)			BIT(val)
--#define TIMER_IRQ_ST_REG		0x04
--#define TIMER_CTL_REG(val)		(0x20 * (val) + 0x10)
-+#define TIMER_IRQ_ST_REG			0x04
-+#define TIMER_CTL_REG(val, offset)		(0x20 * (val) + 0x10 + (offset))
- #define TIMER_CTL_ENABLE			BIT(0)
- #define TIMER_CTL_RELOAD			BIT(1)
- #define TIMER_CTL_CLK_PRES(val)			(((val) & 0x7) << 4)
- #define TIMER_CTL_ONESHOT			BIT(7)
--#define TIMER_INTVAL_LO_REG(val)	(0x20 * (val) + 0x14)
--#define TIMER_INTVAL_HI_REG(val)	(0x20 * (val) + 0x18)
--#define TIMER_CNTVAL_LO_REG(val)	(0x20 * (val) + 0x1c)
--#define TIMER_CNTVAL_HI_REG(val)	(0x20 * (val) + 0x20)
-+#define TIMER_INTVAL_LO_REG(val, offset)	(0x20 * (val) + 0x14 + (offset))
-+#define TIMER_INTVAL_HI_REG(val, offset)	(0x20 * (val) + 0x18 + (offset))
-+#define TIMER_CNTVAL_LO_REG(val, offset)	(0x20 * (val) + 0x1c + (offset))
-+#define TIMER_CNTVAL_HI_REG(val, offset)	(0x20 * (val) + 0x20 + (offset))
- 
- #define TIMER_SYNC_TICKS	3
- 
-+/**
-+ * struct sunxi_timer_quirks - Differences between SoC variants.
-+ *
-+ * @from_ctl_base_offset: offset applied from ctl register onwards
-+ */
-+struct sunxi_timer_quirks {
-+	u32 from_ctl_base_offset;
-+};
++		hstimer@3005000 {
++			compatible = "allwinner,sun50i-h616-hstimer",
++				     "allwinner,sun20i-d1-hstimer";
++			reg = <0x03005000 0x1000>;
++			interrupts = <GIC_SPI 45 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 46 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&ccu CLK_BUS_HSTIMER>;
++			resets = <&ccu RST_BUS_HSTIMER>;
++		};
 +
- struct sun5i_timer {
- 	void __iomem		*base;
- 	struct clk		*clk;
-@@ -40,6 +49,7 @@ struct sun5i_timer {
- 	u32			ticks_per_jiffy;
- 	struct clocksource	clksrc;
- 	struct clock_event_device	clkevt;
-+	const struct sunxi_timer_quirks *quirks;
- };
- 
- #define nb_to_sun5i_timer(x) \
-@@ -57,28 +67,36 @@ struct sun5i_timer {
-  */
- static void sun5i_clkevt_sync(struct sun5i_timer *ce)
- {
--	u32 old = readl(ce->base + TIMER_CNTVAL_LO_REG(1));
-+	u32 offset = ce->quirks->from_ctl_base_offset;
-+	u32 old = readl(ce->base + TIMER_CNTVAL_LO_REG(1, offset));
- 
--	while ((old - readl(ce->base + TIMER_CNTVAL_LO_REG(1))) < TIMER_SYNC_TICKS)
-+	while ((old - readl(ce->base + TIMER_CNTVAL_LO_REG(1, offset))) <
-+	       TIMER_SYNC_TICKS)
- 		cpu_relax();
- }
- 
- static void sun5i_clkevt_time_stop(struct sun5i_timer *ce, u8 timer)
- {
--	u32 val = readl(ce->base + TIMER_CTL_REG(timer));
--	writel(val & ~TIMER_CTL_ENABLE, ce->base + TIMER_CTL_REG(timer));
-+	u32 offset = ce->quirks->from_ctl_base_offset;
-+	u32 val = readl(ce->base + TIMER_CTL_REG(timer, offset));
-+
-+	writel(val & ~TIMER_CTL_ENABLE,
-+	       ce->base + TIMER_CTL_REG(timer, offset));
- 
- 	sun5i_clkevt_sync(ce);
- }
- 
- static void sun5i_clkevt_time_setup(struct sun5i_timer *ce, u8 timer, u32 delay)
- {
--	writel(delay, ce->base + TIMER_INTVAL_LO_REG(timer));
-+	u32 offset = ce->quirks->from_ctl_base_offset;
-+
-+	writel(delay, ce->base + TIMER_INTVAL_LO_REG(timer, offset));
- }
- 
- static void sun5i_clkevt_time_start(struct sun5i_timer *ce, u8 timer, bool periodic)
- {
--	u32 val = readl(ce->base + TIMER_CTL_REG(timer));
-+	u32 offset = ce->quirks->from_ctl_base_offset;
-+	u32 val = readl(ce->base + TIMER_CTL_REG(timer, offset));
- 
- 	if (periodic)
- 		val &= ~TIMER_CTL_ONESHOT;
-@@ -86,7 +104,7 @@ static void sun5i_clkevt_time_start(struct sun5i_timer *ce, u8 timer, bool perio
- 		val |= TIMER_CTL_ONESHOT;
- 
- 	writel(val | TIMER_CTL_ENABLE | TIMER_CTL_RELOAD,
--	       ce->base + TIMER_CTL_REG(timer));
-+	       ce->base + TIMER_CTL_REG(timer, offset));
- }
- 
- static int sun5i_clkevt_shutdown(struct clock_event_device *clkevt)
-@@ -141,8 +159,9 @@ static irqreturn_t sun5i_timer_interrupt(int irq, void *dev_id)
- static u64 sun5i_clksrc_read(struct clocksource *clksrc)
- {
- 	struct sun5i_timer *cs = clksrc_to_sun5i_timer(clksrc);
-+	u32 offset = cs->quirks->from_ctl_base_offset;
- 
--	return ~readl(cs->base + TIMER_CNTVAL_LO_REG(1));
-+	return ~readl(cs->base + TIMER_CNTVAL_LO_REG(1, offset));
- }
- 
- static int sun5i_rate_cb(struct notifier_block *nb,
-@@ -173,12 +192,13 @@ static int sun5i_setup_clocksource(struct platform_device *pdev,
- 				   unsigned long rate)
- {
- 	struct sun5i_timer *cs = platform_get_drvdata(pdev);
-+	u32 offset = cs->quirks->from_ctl_base_offset;
- 	void __iomem *base = cs->base;
- 	int ret;
- 
--	writel(~0, base + TIMER_INTVAL_LO_REG(1));
-+	writel(~0, base + TIMER_INTVAL_LO_REG(1, offset));
- 	writel(TIMER_CTL_ENABLE | TIMER_CTL_RELOAD,
--	       base + TIMER_CTL_REG(1));
-+	       base + TIMER_CTL_REG(1, offset));
- 
- 	cs->clksrc.name = pdev->dev.of_node->name;
- 	cs->clksrc.rating = 340;
-@@ -237,7 +257,9 @@ static int sun5i_setup_clockevent(struct platform_device *pdev,
- 
- static int sun5i_timer_probe(struct platform_device *pdev)
- {
-+	const struct sunxi_timer_quirks *quirks;
- 	struct device *dev = &pdev->dev;
-+	struct device_node *node = dev_of_node(&pdev->dev);
- 	struct sun5i_timer *st;
- 	struct reset_control *rstc;
- 	void __iomem *timer_base;
-@@ -251,6 +273,9 @@ static int sun5i_timer_probe(struct platform_device *pdev)
- 
- 	platform_set_drvdata(pdev, st);
- 
-+	if (!node)
-+		return -EINVAL;
-+
- 	timer_base = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(timer_base)) {
- 		dev_err(dev, "Can't map registers\n");
-@@ -273,11 +298,18 @@ static int sun5i_timer_probe(struct platform_device *pdev)
- 		return -EINVAL;
- 	}
- 
-+	quirks = of_device_get_match_data(&pdev->dev);
-+	if (!quirks) {
-+		dev_err(&pdev->dev, "Failed to determine the quirks to use\n");
-+		return -ENODEV;
-+	}
-+
- 	st->base = timer_base;
- 	st->ticks_per_jiffy = DIV_ROUND_UP(rate, HZ);
- 	st->clk = clk;
- 	st->clk_rate_cb.notifier_call = sun5i_rate_cb;
- 	st->clk_rate_cb.next = NULL;
-+	st->quirks = quirks;
- 
- 	ret = devm_clk_notifier_register(dev, clk, &st->clk_rate_cb);
- 	if (ret) {
-@@ -311,9 +343,27 @@ static void sun5i_timer_remove(struct platform_device *pdev)
- 	clocksource_unregister(&st->clksrc);
- }
- 
-+static const struct sunxi_timer_quirks sun5i_sun7i_hstimer_quirks = {
-+	.from_ctl_base_offset = 0x0,
-+};
-+
-+static const struct sunxi_timer_quirks sun20i_d1_hstimer_quirks = {
-+	.from_ctl_base_offset = 0x10,
-+};
-+
- static const struct of_device_id sun5i_timer_of_match[] = {
--	{ .compatible = "allwinner,sun5i-a13-hstimer" },
--	{ .compatible = "allwinner,sun7i-a20-hstimer" },
-+	{
-+		.compatible = "allwinner,sun5i-a13-hstimer",
-+		.data = &sun5i_sun7i_hstimer_quirks,
-+	},
-+	{
-+		.compatible = "allwinner,sun7i-a20-hstimer",
-+		.data = &sun5i_sun7i_hstimer_quirks,
-+	},
-+	{
-+		.compatible = "allwinner,sun20i-d1-hstimer",
-+		.data = &sun20i_d1_hstimer_quirks,
-+	},
- 	{},
- };
- MODULE_DEVICE_TABLE(of, sun5i_timer_of_match);
+ 		watchdog: watchdog@30090a0 {
+ 			compatible = "allwinner,sun50i-h616-wdt",
+ 				     "allwinner,sun6i-a31-wdt";
 
 -- 
 2.43.0
