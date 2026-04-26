@@ -4,89 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B72E2FF885C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 14:07:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FEB5FF885E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 14:19:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V4Tp3KcJ82bZJMyJRNJR9HAOoV8XL1CLmFyDRzP4tKA=; b=hcpgFem4Jvho4UhRKHL1V7IzUH
-	M+mlkN2sGIZzVMYf63xD3fjvvZC4Q92/bUNVJhe28xkBN7nKzSboOzQ/7KrJBKJtdqg31UhL7IQRR
-	oXjqNGaGH1DmJXW05Dcy9XELumDL4c8pxdFOForf1I2UgI5wD25SQOPW2oXRLEYYGzAaMD5t1GB0R
-	udl/uRojnImxHsrSB86cwsB7zn6d+DJwbKfouVfAg/89t9CfyH1r0mZD6tRxnqZhFu3wfE3+LTHiZ
-	RHm2FA8csKSwkjJT12HC/vn6ZKEgFskucA+sEqiS3MTeg4Di9m+XT4kABtKWOu5TiU5WdyfJz2b1Z
-	83XRgsQQ==;
+	bh=nIbjCE0idFNBR5tGNRNYR/3Jjpca3sCK/SdaxOg55ds=; b=C8iAXpTWLsGJODKZeuk82qvyGd
+	KpZ8fzR/ICbVyLkFAI9+M75vsBMsHL56bgd43xjyk42S99SYBrWI7q+pV1PAYsz6HZdodhyL29oiz
+	PY/WMSFxXFmrxkoVRgU/Yb2JtiiMgOeT6rMl3IWCt8wKy33fE8aeVjVWXnvuqw+r+F7+1QTtnMC+A
+	a2bmjW7J3VODcv/pfHP5DxjBJdf9wyrknmAarewZsvLhPKlkZ8+I+G+wTheJoln219bYq5chRv4zP
+	YJk5MwVg/1yLw4hSrw/HhhZYeRYwhSDY4uib180X5R0/7asrMeYf88TrJidckRxXO6qG8crLOYqwZ
+	mqD7yYzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wH09A-0000000FbAX-0TBi;
-	Sun, 26 Apr 2026 14:07:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wH0Kp-0000000Fbgi-19TM;
+	Sun, 26 Apr 2026 14:19:47 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wH097-0000000FbAB-1OgO
+	id 1wH0Km-0000000FbgJ-0mCi
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Apr 2026 14:07:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4CFC043618;
-	Sun, 26 Apr 2026 14:07:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D9C2C2BCAF;
-	Sun, 26 Apr 2026 14:07:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777212459;
-	bh=lDY502D0UwTlnUwqf8BtPahtm7twsTmu8HFtn+sm0IA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=tH7DMitlSokecV8h+r6UW83iqIZELeQsvftYXNCwbWJ4C1tGsegwbFrQwE8VRLIol
-	 pdOPTL5FUBTWxqfYLt3YWZOTmZ06lkNOZRAKdTSqbouqHoUEMyemuj1pbvXGPVse2u
-	 F/EYw15WAetJgngUM32zjvi9O6m9TA+Ww0qQG9A1qaB5LXBYujRuLmbvLwg/s46wmH
-	 XO/Oo18VWtjN1/TECD1FWniOIDDXuN5zmlWI7FaX+lsuxs5VirkvkLZ9axgQN2yLSk
-	 XR8Yh/ZDZt64YYJ9u0bBs9jhqEegHr5aFTjc2tTVqXuYVyRs/lSlBUGv7BFwWW+LcU
-	 Oew3uCGUnOUdQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wH092-0000000EnUE-3vU3;
-	Sun, 26 Apr 2026 14:07:37 +0000
-Date: Sun, 26 Apr 2026 15:07:36 +0100
-Message-ID: <87ik9dbys7.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Vishnu Pajjuri <vishnu@os.amperecomputing.com>
-Cc: Fuad Tabba <tabba@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Mark Brown
- <broonie@kernel.org>,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	Darren Hart <darren@os.amperecomputing.com>
-Subject: Re: [PATCH v4 35/49] KVM: arm64: GICv3: nv: Plug L1 LR sync into deactivation primitive
-In-Reply-To: <861pg213to.wl-maz@kernel.org>
-References: <20251120172540.2267180-1-maz@kernel.org>
-	<20251120172540.2267180-36-maz@kernel.org>
-	<2e12c5c2-a1b6-47b7-b54c-7281a77bbe0a@os.amperecomputing.com>
-	<878qb9cxzr.wl-maz@kernel.org>
-	<1e050b67-2276-41ad-9265-796ba853dc7c@os.amperecomputing.com>
-	<86a4vo49ni.wl-maz@kernel.org>
-	<86eck71o1v.wl-maz@kernel.org>
-	<e283e755-c348-43cf-b5fe-278c5eab742d@os.amperecomputing.com>
-	<861pg213to.wl-maz@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: vishnu@os.amperecomputing.com, tabba@google.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, broonie@kernel.org, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, darren@os.amperecomputing.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Sun, 26 Apr 2026 14:19:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1777213184; x=1808749184;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=URvyEJiznvxr1mg7MT1vmtVH/KoUn/kPWKJIrV3eitw=;
+  b=JgtanguwmrJHv8obF0M+1ni4TcBckMitrZiN31ASi3fyGvylITVG6wwh
+   4+Rv/3PvfCHvL+SHgsbjuTqtrkzZO/0/BdJ5pb/fjEfBrLueJLvzOOBY5
+   GNIyRdBcczMH6gDvRrk3QV3+A9Nb3X19LsOds2ib1zooANPeFdSJJjhax
+   QoaRf9aga0tD3GDFoNv7pQhFQ8BnN2YXSH4+PKbuj8Tgp6kyoOVRSABoi
+   li4ByALFjs2N0xoYCXe8omKnc9d1uKUNpXtWr5xaVsmpA4Qi9SOZiU7i5
+   xuTxNvW4szV7ZgIPr+uuJYU6UJ+vAFNFtejdVIn0e8jLiRhxOmStRpgdG
+   w==;
+X-CSE-ConnectionGUID: QqxfRqtyQWqeHnPrQO1DRQ==
+X-CSE-MsgGUID: wgWnZY3ASJCj/3PQ0v+kpQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11768"; a="78308282"
+X-IronPort-AV: E=Sophos;i="6.23,200,1770624000"; 
+   d="scan'208";a="78308282"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Apr 2026 07:19:41 -0700
+X-CSE-ConnectionGUID: ziOmEDTvSCe9EljfjscO9A==
+X-CSE-MsgGUID: UdPkb92JS5m4WCwW7FbKag==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,200,1770624000"; 
+   d="scan'208";a="233683673"
+Received: from lkp-server01.sh.intel.com (HELO aa799cca880d) ([10.239.97.150])
+  by orviesa007.jf.intel.com with ESMTP; 26 Apr 2026 07:19:37 -0700
+Received: from kbuild by aa799cca880d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wH0Kd-000000007wL-0HYX;
+	Sun, 26 Apr 2026 14:19:35 +0000
+Date: Sun, 26 Apr 2026 22:19:15 +0800
+From: kernel test robot <lkp@intel.com>
+To: Wentao Liang <vulab@iscas.ac.cn>, Georgi Djakov <djakov@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Wentao Liang <vulab@iscas.ac.cn>, linux-pm@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2] interconnect: imx: fix use-after-free in
+ imx_icc_node_init_qos()
+Message-ID: <202604262216.MLuzg6nl-lkp@intel.com>
+References: <20260408153022.401123-1-vulab@iscas.ac.cn>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260408153022.401123-1-vulab@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_070741_414699_7B381059 
-X-CRM114-Status: GOOD (  28.24  )
+X-CRM114-CacheID: sfid-20260426_071944_309669_29FEB8D6 
+X-CRM114-Status: GOOD (  14.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,53 +94,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 26 Apr 2026 10:14:11 +0100,
-Marc Zyngier <maz@kernel.org> wrote:
-> 
-> On Wed, 22 Apr 2026 15:57:44 +0100,
-> Vishnu Pajjuri <vishnu@os.amperecomputing.com> wrote:
-> > 
-> > Hi Marc,
-> > 
-> > On 22-04-2026 12:25, Marc Zyngier wrote:
-> > >
-> > > Have you made progress on this? I can't reproduce it at all despite my
-> > > best effort. I'm perfectly happy to help, but you need to give me
-> > > *something* to go on.
-> > 
-> > 
-> > Thanks for your support!!
-> > 
-> > The issue is triggered as soon as the timer interrupt (IRQ 27) is
-> > deactivated. Preventing the deactivation of IRQ 27 during nested VGIC
-> > state transitions prevents the failure from reproducing.
-> 
-> Which level of deactivation? From L2 to L1? Or L1 to L0? The former
-> should just be a an update to the irq structure, while the latter is
-> effectively a write to ICC_DIR_EL1, and *that* is a new behaviour
-> introduced by this patch.
-> 
-> I wonder if your implementation is such that ICC_DIR_EL1 is trapped by
-> ICH_HCR_EL2.TDIR, which is allowed by the architecture, but that none
-> of the two implementations I have actually enforce (the trap only
-> applies to ICV_DIR_EL1). Can you try the hack below which disables the
-> traps much earlier, and let me know if that helps?
-> 
-> Even if that's the case, this should result in an EL2->EL2 exception,
-> and that should be caught as an unhandled exception in entry-common.c,
-> so something else is afoot.
+Hi Wentao,
 
-Actually, this should never happen. ICH_HCR_EL2.TDIR is constructed
-like all the other GICv3 trap bits, in the sense that it only traps
-accesses from EL1, not EL2 (for sanity reasons, I'm not considering
-the possibility of a trap to EL3...).
+kernel test robot noticed the following build errors:
 
-Still, I'm interested in finding out if that hack helps at all.
+[auto build test ERROR on amd-pstate/linux-next]
+[also build test ERROR on amd-pstate/bleeding-edge linus/master shawnguo/for-next v7.0 next-20260424]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Thanks,
+url:    https://github.com/intel-lab-lkp/linux/commits/Wentao-Liang/interconnect-imx-fix-use-after-free-in-imx_icc_node_init_qos/20260424-225513
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/superm1/linux.git linux-next
+patch link:    https://lore.kernel.org/r/20260408153022.401123-1-vulab%40iscas.ac.cn
+patch subject: [PATCH v2] interconnect: imx: fix use-after-free in imx_icc_node_init_qos()
+config: sparc64-allmodconfig (https://download.01.org/0day-ci/archive/20260426/202604262216.MLuzg6nl-lkp@intel.com/config)
+compiler: clang version 23.0.0git (https://github.com/llvm/llvm-project 5bac06718f502014fade905512f1d26d578a18f3)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260426/202604262216.MLuzg6nl-lkp@intel.com/reproduce)
 
-	M.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202604262216.MLuzg6nl-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> drivers/interconnect/imx/imx.c:123:22: error: use of undeclared identifier '__free_device_nod'; did you mean '__free_device_node'?
+     123 |         struct device_node *__free(device_nod) dn = of_parse_phandle(dev->of_node,
+         |                             ^~~~~~~~~~~~~~~~~~
+   include/linux/cleanup.h:213:33: note: expanded from macro '__free'
+     213 | #define __free(_name)   __cleanup(__free_##_name)
+         |                                   ^~~~~~~~~~~~~~
+   <scratch space>:42:1: note: expanded from here
+      42 | __free_device_nod
+         | ^~~~~~~~~~~~~~~~~
+   include/linux/of.h:138:1: note: '__free_device_node' declared here
+     138 | DEFINE_FREE(device_node, struct device_node *, if (_T) of_node_put(_T))
+         | ^
+   include/linux/cleanup.h:211:30: note: expanded from macro 'DEFINE_FREE'
+     211 |         static __always_inline void __free_##_name(void *p) { _type _T = *(_type *)p; _free; }
+         |                                     ^
+   <scratch space>:227:1: note: expanded from here
+     227 | __free_device_node
+         | ^
+   1 error generated.
+
+
+vim +123 drivers/interconnect/imx/imx.c
+
+   116	
+   117	static int imx_icc_node_init_qos(struct icc_provider *provider,
+   118					 struct icc_node *node)
+   119	{
+   120		struct imx_icc_node *node_data = node->data;
+   121		const struct imx_icc_node_adj_desc *adj = node_data->desc->adj;
+   122		struct device *dev = provider->dev;
+ > 123		struct device_node *__free(device_nod) dn = of_parse_phandle(dev->of_node,
+   124				adj->phandle_name, 0);
+   125		struct platform_device *pdev;
+   126	
+   127		if (adj->main_noc) {
+   128			node_data->qos_dev = dev;
+   129			dev_dbg(dev, "icc node %s[%d] is main noc itself\n",
+   130				node->name, node->id);
+   131		} else {
+   132			if (!dn) {
+   133				dev_warn(dev, "Failed to parse %s\n",
+   134					 adj->phandle_name);
+   135				return -ENODEV;
+   136			}
+   137			/* Allow scaling to be disabled on a per-node basis */
+   138			if (!of_device_is_available(dn)) {
+   139				dev_warn(dev, "Missing property %s, skip scaling %s\n",
+   140					 adj->phandle_name, node->name);
+   141				return 0;
+   142			}
+   143	
+   144			pdev = of_find_device_by_node(dn);
+   145			if (!pdev) {
+   146				dev_warn(dev, "node %s[%d] missing device for %pOF\n",
+   147					 node->name, node->id, dn);
+   148				return -EPROBE_DEFER;
+   149			}
+   150			node_data->qos_dev = &pdev->dev;
+   151			dev_dbg(dev, "node %s[%d] has device node %pOF\n",
+   152				node->name, node->id, dn);
+   153		}
+   154	
+   155		return dev_pm_qos_add_request(node_data->qos_dev,
+   156					      &node_data->qos_req,
+   157					      DEV_PM_QOS_MIN_FREQUENCY, 0);
+   158	}
+   159	
 
 -- 
-Jazz isn't dead. It just smells funny.
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
