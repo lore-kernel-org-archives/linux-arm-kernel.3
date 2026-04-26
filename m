@@ -4,58 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D44AFF885C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 08:27:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00464FF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 09:14:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1iTOS9cDB4eTqm85ycpk/vXneKg5ChQ6TyFs0NfunoI=; b=QMZD4PsMXdjk82vdI53+TMpgbl
-	WT6b68yk16AvCDmH1wV/F/eIUEhjgwJI5IpeJa3ss0mGExV2HJz2YV+uITcjw9aFAxFLlxp35ny18
-	Gi6nBCMzaCH/8mrVlFy+r3Ri9kIJEpTpkYz6+pFCZX2WNZ2NJAqHrFPnsXLzjbj9bH5Cz6VMWILUD
-	HIaekl0KrbvtnOLFFX954LYRemO5vR8K809icmaBogPYJBE2mYq9XoEr85nNCofpZHjrua4Xnt/o8
-	UcTtc323SwVaI0u8ymbfhYJZ5ypDP7fOa5y29dUPC+i5hkJsuO1HI+mmJ1dUTqCFP3WQ9XowqttMa
-	ozz7Bgow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wDoxXpnYNkI9G++A3DymN5g3Rtb6cBmbOTHxfQDWeAk=; b=FpkfimqRE/BILyIKVCg/4st7lA
+	Tttda9pJbKrktdOpK+VGs6mi5GZljbcMcn77FsHpi29QKuFLoGfB5jGmnoJeVeU/6KGs7IP0e9i6o
+	42vxdOqpDMABz4cZqkySPPiSB9HUUTPDge2VU9o5LmbVd8LkbF1KxgCs0M1f95Pk6AcjQYU0nFzqN
+	AgjV33dFNJec+Wdqst5ce0pMZQKlGHg3dFfKCmL62tPKEAAoOsXD9HoUoc5CR+YZby14wv2ygpGQp
+	99XLvNPjFB8fTS0jwxzXQXOQ9my3Am+WEiUOfmc6WLsoijdLXPeSU+cnON0mLmbldLEHDJNfvrcD0
+	uLCp3WNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGupb-0000000FMXh-1CYN;
-	Sun, 26 Apr 2026 08:27:11 +0000
-Received: from mail-10627.protonmail.ch ([79.135.106.27])
+	id 1wGvZC-0000000FOBG-1asI;
+	Sun, 26 Apr 2026 09:14:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGupX-0000000FMWz-2P3J
+	id 1wGvZA-0000000FOAx-2dG8
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Apr 2026 08:27:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=emersion.fr;
-	s=protonmail; t=1777192022; x=1777451222;
-	bh=1iTOS9cDB4eTqm85ycpk/vXneKg5ChQ6TyFs0NfunoI=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=YBTtzFNiiTwE8f2l97G92koeD+o/jO5O1Pjv3Aqlks2lrpxDvi63ggokvsZrjCrGi
-	 CLmYTsi8NxbPxABgBVhBepcND9+R+e91pLUj4FknuR/UMhxTHiT7+Abf9sO0PiBwZ+
-	 aOr74eQFHMEVsv2JaxP2QvIbblRzy4puca1N66Y41zcPV8W/AJyG9pkHikc+eOg1Tv
-	 9OCnlTemTGztJURrG56uFTJ5Xx73DD1bv+eZSSiVLrcrMIn89QDqKLNEd867cqLiW3
-	 sxVB6oo6O5/PmwT3j11q7TQ7c+aJ8NyeHynm98/wW5D9r4alAJKeo0eHzOTvoHiZFG
-	 VZimupMQQueDQ==
-Date: Sun, 26 Apr 2026 08:26:55 +0000
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-From: Simon Ser <contact@emersion.fr>
-Cc: Vishal Sagar <vishal.sagar@amd.com>, Anatoliy Klymenko <anatoliy.klymenko@amd.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Michal Simek <michal.simek@amd.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Geert Uytterhoeven <geert@linux-m68k.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Pekka Paalanen <ppaalanen@gmail.com>, Pekka Paalanen <pekka.paalanen@collabora.com>, Dmitry Baryshkov <lumag@kernel.org>
-Subject: Re: [PATCH v10 03/11] drm/fourcc: Add DRM_FORMAT_Y8
-Message-ID: <s279jnUbjuzMu7Ud8twi-Q2HApb_X3uU5Dr_cqu8OwQk80vHvaaVtz0kAezp7XpdlOLBH26loK7qQrOjzGSXSW3sSyjZjEoiUwexZTzdzn4=@emersion.fr>
-In-Reply-To: <20260423-xilinx-formats-v10-3-c690c2b8ea89@ideasonboard.com>
-References: <20260423-xilinx-formats-v10-0-c690c2b8ea89@ideasonboard.com> <20260423-xilinx-formats-v10-3-c690c2b8ea89@ideasonboard.com>
-Feedback-ID: 1358184:user:proton
-X-Pm-Message-ID: 1f241d6a1a78ee17cdf4d511d451f87c35e39a6d
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_012708_243195_0A5AC23B 
-X-CRM114-Status: UNSURE (   6.45  )
-X-CRM114-Notice: Please train this message.
+	Sun, 26 Apr 2026 09:14:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B10A4600AE;
+	Sun, 26 Apr 2026 09:14:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EECDC2BCAF;
+	Sun, 26 Apr 2026 09:14:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777194854;
+	bh=mIDtI2DvRmR2rKhKS/QpZYOxXcixSL38uwNQkFExpJY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=sKiWiQjHfFPALfrhENoLfMQrcqClLCseJNaGBJlhSiIKV/HVCJLNeNJH0yA5F0wJl
+	 uDOLlNPKzqwTfmvWOZyu4BhSzTRr+e64lOVw5Qlz/U/La4Xe4IXrJTHRAp3m1hKe0O
+	 eGo4hI+2rsda6kMdHrpRYRstWmUiSyWJYffq4JXhHs7C+ynRQwYti1gxXLk7RDW7YL
+	 q2Ty/Z7nD44BnBAyp2L24hV7ZV7YXX++j8ERtT8ugq1VtT6ol4AmkavnX1oo6kbeaT
+	 /CIgLGoufUknVpBI35ZF8EPuHTn86aDaTf1LH/rVvfzG21CTD1voMqJaaPnRZcrijv
+	 mq+UTY6/DzDRA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wGvZ5-0000000EkyH-46jc;
+	Sun, 26 Apr 2026 09:14:12 +0000
+Date: Sun, 26 Apr 2026 10:14:11 +0100
+Message-ID: <861pg213to.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Vishnu Pajjuri <vishnu@os.amperecomputing.com>
+Cc: Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Mark Brown
+ <broonie@kernel.org>,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	Darren Hart <darren@os.amperecomputing.com>
+Subject: Re: [PATCH v4 35/49] KVM: arm64: GICv3: nv: Plug L1 LR sync into deactivation primitive
+In-Reply-To: <e283e755-c348-43cf-b5fe-278c5eab742d@os.amperecomputing.com>
+References: <20251120172540.2267180-1-maz@kernel.org>
+	<20251120172540.2267180-36-maz@kernel.org>
+	<2e12c5c2-a1b6-47b7-b54c-7281a77bbe0a@os.amperecomputing.com>
+	<878qb9cxzr.wl-maz@kernel.org>
+	<1e050b67-2276-41ad-9265-796ba853dc7c@os.amperecomputing.com>
+	<86a4vo49ni.wl-maz@kernel.org>
+	<86eck71o1v.wl-maz@kernel.org>
+	<e283e755-c348-43cf-b5fe-278c5eab742d@os.amperecomputing.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: vishnu@os.amperecomputing.com, tabba@google.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, broonie@kernel.org, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, darren@os.amperecomputing.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,25 +97,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thursday, April 23rd, 2026 at 16:22, Tomi Valkeinen <tomi.valkeinen@idea=
-sonboard.com> wrote:
+On Wed, 22 Apr 2026 15:57:44 +0100,
+Vishnu Pajjuri <vishnu@os.amperecomputing.com> wrote:
+> 
+> Hi Marc,
+> 
+> On 22-04-2026 12:25, Marc Zyngier wrote:
+> >
+> > Have you made progress on this? I can't reproduce it at all despite my
+> > best effort. I'm perfectly happy to help, but you need to give me
+> > *something* to go on.
+> 
+> 
+> Thanks for your support!!
+> 
+> The issue is triggered as soon as the timer interrupt (IRQ 27) is
+> deactivated. Preventing the deactivation of IRQ 27 during nested VGIC
+> state transitions prevents the failure from reproducing.
 
-> However, adding DRM_FORMAT_Y8 makes sense, we can mark it as 'is_yuv' in
-> the drm_format_info, and this can help the drivers handle e.g.
-> full/limited range. This will distinguish two single-channel formats:
-> R8, which is a RGB format with the same value for all components, and
-> Y8, which is a Y-only YCbCr format, with Cb and Cr being neutral.
+Which level of deactivation? From L2 to L1? Or L1 to L0? The former
+should just be a an update to the irq structure, while the latter is
+effectively a write to ICC_DIR_EL1, and *that* is a new behaviour
+introduced by this patch.
 
-I've been wondering on IRC whether we really need yet another 1-channel
-format, since Y8 isn't that different from Y8. Pekka said:
+I wonder if your implementation is such that ICC_DIR_EL1 is trapped by
+ICH_HCR_EL2.TDIR, which is allowed by the architecture, but that none
+of the two implementations I have actually enforce (the trap only
+applies to ICV_DIR_EL1). Can you try the hack below which disables the
+traps much earlier, and let me know if that helps?
 
-- R8 doesn't necessarily expand to G an B channels. The Vulkan spec
-  states that R8 expands to (R, 0, 0).
-- Y8 is semantically more correct than R8 to represent grayscale
-  formats.
+Even if that's the case, this should result in an EL2->EL2 exception,
+and that should be caught as an unhandled exception in entry-common.c,
+so something else is afoot.
 
-I wonder if we would've added R8 at all if had Y8 from the start=E2=80=
-=A6=20
+Thanks,
 
-Acked-by: Simon Ser <contact@emersion.fr>
+	M.
+
+diff --git a/arch/arm64/kvm/vgic/vgic-v3-nested.c b/arch/arm64/kvm/vgic/vgic-v3-nested.c
+index 5c69fa615823c..ee415c1038b4e 100644
+--- a/arch/arm64/kvm/vgic/vgic-v3-nested.c
++++ b/arch/arm64/kvm/vgic/vgic-v3-nested.c
+@@ -280,6 +280,14 @@ void vgic_v3_sync_nested(struct kvm_vcpu *vcpu)
+ 	struct shadow_if *shadow_if = get_shadow_if();
+ 	int i;
+ 
++	/* We need these to be synchronised to generate the MI */
++	__vcpu_assign_sys_reg(vcpu, ICH_VMCR_EL2, read_sysreg_s(SYS_ICH_VMCR_EL2));
++	__vcpu_rmw_sys_reg(vcpu, ICH_HCR_EL2, &=, ~ICH_HCR_EL2_EOIcount);
++	__vcpu_rmw_sys_reg(vcpu, ICH_HCR_EL2, |=, read_sysreg_s(SYS_ICH_HCR_EL2) & ICH_HCR_EL2_EOIcount);
++
++	write_sysreg_s(0, SYS_ICH_HCR_EL2);
++	isb();
++
+ 	for_each_set_bit(i, &shadow_if->lr_map, kvm_vgic_global_state.nr_lr) {
+ 		u64 val, host_lr, lr;
+ 
+@@ -309,14 +317,6 @@ void vgic_v3_sync_nested(struct kvm_vcpu *vcpu)
+ 		vgic_v3_deactivate(vcpu, FIELD_GET(ICH_LR_PHYS_ID_MASK, lr));
+ 	}
+ 
+-	/* We need these to be synchronised to generate the MI */
+-	__vcpu_assign_sys_reg(vcpu, ICH_VMCR_EL2, read_sysreg_s(SYS_ICH_VMCR_EL2));
+-	__vcpu_rmw_sys_reg(vcpu, ICH_HCR_EL2, &=, ~ICH_HCR_EL2_EOIcount);
+-	__vcpu_rmw_sys_reg(vcpu, ICH_HCR_EL2, |=, read_sysreg_s(SYS_ICH_HCR_EL2) & ICH_HCR_EL2_EOIcount);
+-
+-	write_sysreg_s(0, SYS_ICH_HCR_EL2);
+-	isb();
+-
+ 	vgic_v3_nested_update_mi(vcpu);
+ }
+ 
+
+-- 
+Without deviation from the norm, progress is not possible.
 
