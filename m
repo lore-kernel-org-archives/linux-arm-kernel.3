@@ -4,147 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9996FF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 09:59:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 535D3FF885C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 10:10:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=krihnreZL0xJWgTHL29szPETUPjlX28ddNP5O5+d8Y8=; b=PkP0yL8+1suFnlU0tgi0RQiJMI
-	yFChiOh91PrJ4Zndkf+9EEr+/L0Eh9GEFDvuIxIttYdUPq7/Tok31kcfJhXcFBu+ydOGBBH1pdvrH
-	aaialJNRz6ZRmNhOxt0GDyNMEmCZEn7cDHYqllEHelHkZJimlWtdHOeHDUnO78QKUnv1C9cJuhiaa
-	V9qez8XiD+bN7n3XJC/rskDL5CvgmiW9+fjG4cOukQGeqqsTwAKRm+2rhXQSsN83m6HJ0mZds8/v3
-	jvOOtw/P/XlIk3nW3lXrQT6Xe+8ehVz5z5C0t3zyOWvSK6x2oVOYo1vp9NoyA3PudlEXzD63jizAE
-	W4+eM0yw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sxbl4epg48KUX2MzjpAavq4/tG2sfpxD57DOODEbyl0=; b=3LI5MYjNzQtIDZx39cYoS9dlzw
+	+VETDLrRXTrAd+d1t+rFyzEKurzcwIjxWf/Nl2iaiHK9aua3nmNkrXcxjngwRUQmLO+1i3enq3/vz
+	l1RDYLEsxUznx9oHOw1hcrhOKufPJrp+ozGuzg7qshjxqbf3ZSwp7jcjK9udmAVuEg40kDV5B2MvE
+	DOcdoV3ncxWFcYhM3JT2nJ72gbbmOEXp1nb4S+1mhZE6VJcMqGG66e9ZlYDlUL7nWYbQ01NwyWsHE
+	nybJOlqeB0METGwyE2EdWH+4ZMT2UpG1vTVZmgmiZT0xMGg/wGRlHpM9OpyflH/P1irOdvxTQBvzD
+	5ACADiag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGwHF-0000000FQU7-3x3f;
-	Sun, 26 Apr 2026 09:59:49 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wGwRD-0000000FQpa-1IWB;
+	Sun, 26 Apr 2026 10:10:07 +0000
+Received: from mail-m128112.netease.com ([103.209.128.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGwHE-0000000FQTk-0ZdR
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Apr 2026 09:59:49 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63Q5oUbc403993
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Apr 2026 09:59:47 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=krihnreZL0xJWgTHL29szP
-	ETUPjlX28ddNP5O5+d8Y8=; b=UO77lhIohoHMerJN1xGiAQ47meH+EBPmsas/aG
-	WhaoZSVYCcIxQnYvh7S2/oi/DihAzhtFXJ6w4ZwTKiLAlfunqC7cdMLpYWNgJkAz
-	Rlo8exVopeXoOOfXxGqzt8at6KRqLb3MUjW+g3JkGEW9rCMvQnVa0uPurrYeDvlG
-	r+pLeFv5pADulGeMEHOLEKfDEhZPKW3IkuFTz0ZJjfnIHxc19XjIkzDFiutrU8QX
-	fq0ZG6TQLs6dKVnbakZNIat3R/7N6kvyr947WUgr2gKuK/ag0ko9zw4JR6gC34I5
-	b7SEkGPucAeMLgonkLZskTr3DKisvAPoGom+MHm+SJ+kvdTQ==
-Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4drpsgtg17-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Apr 2026 09:59:47 +0000 (GMT)
-Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-bce224720d8so5240794a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Apr 2026 02:59:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1777197587; x=1777802387; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=krihnreZL0xJWgTHL29szPETUPjlX28ddNP5O5+d8Y8=;
-        b=XmD6pDZDfJbSAoAE2xDKE74cQKQiYayA8fIrHUsny+UBgs/ZEPbWZckAS4pEryzGl+
-         aZtG0h5Uke4psnK8u+/To8mFTExNELygz5wZg1B7wzekaeQYhwl5A0AtGa1U/zCicWnO
-         5ZfWtPBysba2k6pGTNFT2TzLiTm4IFcS6+trbsgLy2gxsbd4fLdFurkOOFd0ArSOC94O
-         Xeup/d0Z2iy0lLNGig3Drr1A9R/AzHCld+tyI2SZgFyGIWhJfHeky9Nac/PZTEfrcRgX
-         3jEX/B74ilmRo+BtygUrSn61X3a2ZBTcc5LNn/Tkk9uVWo9hCU0pPvVh0e9sr6OC49A+
-         ILcA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777197587; x=1777802387;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=krihnreZL0xJWgTHL29szPETUPjlX28ddNP5O5+d8Y8=;
-        b=r5r6oGBjhTuA1xXMowhy+SmflTs8QpKbFp/mPHuYqTCA0MCbwTysLBnYBXfOYVKtVU
-         MTQ2X9e9kciC6S8Nyz4W/GqeZBunMDi9RIsmYA0Ss8elcxIH8CrPMictX3HxtI6MRO7N
-         KxyYlVKMrSzN380PCx6Y7YF6rqK6a5HFLSNENhmBApsMK/5HKpxru806J+pH1cNN13CN
-         a6lJxfChk9+dQwqRJl2Tlu8Sc4nem+M7kAFYd7JFdAMrayIJzfQR22+UBkZM/sNnai6/
-         LMEUzS6rL+Y9ONMeCxwmat65o3QevwkHd7jim4ZjIKa3efg0SWbzZKRYCrmsd2JpeMv+
-         Zing==
-X-Forwarded-Encrypted: i=1; AFNElJ9JK+kTPpfSFeSBnpRw6ytcZdk64iFchlqbK7iIkEkwlGILQjRMfQ2u0hRlLUa7rW2bKgIoBJmk7ULuZqJci8ff@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw9wrm9aNXg54dIJM68sAUu9IjxUblnvIrrU+VNxKBMEIAOHczb
-	uyZiW62UN4jcktJ5FfF2g8XIM4xGC4vRrFc3DaeRB0L0xjsloRLuI4cdHVpxxWEIn3t4jl7nWBI
-	b+riqYwzz9E4HuDZEn2CZI4cl2y3LXqQFju4h13PHpyzOPM4guaMf/ZhCUTH7oB1qYbfCxpDc/3
-	TG0A==
-X-Gm-Gg: AeBDieuLTxR3Rsvsk6bhAvoagNSrovZzLoeDsx+YkpcHOQPqZeqZRZlL0B96nuAZyxO
-	TeDH+l04qH9W5IasUQ8plS4c3aR921kcGfU4cJCfZWTZekmSgHsPFnt7MrWkE7w1koQ/pbgrHVk
-	jKWcypnYiMHA8XnAYK/2fNLIP4SsdQaGGavLEaxIUjTpSgo9GIIUmgSUMDmSOp+TvNuAq2C/Wq9
-	AdRgi1G03uDUJ6IKxUZQA1OAz3RamrN5bHN/CQQELOgTUQJarLPfsuskhyPAsArkm98IilLXSav
-	44XUkixbyjjV5tMkdjK199xwX1vIgL8aOvLYvf2+hrqXDcXiYk0Np9H8Bi6b+MUcfOm4vwpqVMF
-	XaS/5cbZmtOtRdd2cZW36UIXc13c+WKKMNOBWobh8v03QGPFWDE/b+ax2ZgFwn4gt/05vZmxM9l
-	iwHRWFpfv6eN+x1LK2yGF2sc7g
-X-Received: by 2002:a05:6a00:3cca:b0:82f:120:fd6f with SMTP id d2e1a72fcca58-82f8c40ae88mr39403989b3a.0.1777197586849;
-        Sun, 26 Apr 2026 02:59:46 -0700 (PDT)
-X-Received: by 2002:a05:6a00:3cca:b0:82f:120:fd6f with SMTP id d2e1a72fcca58-82f8c40ae88mr39403963b3a.0.1777197586342;
-        Sun, 26 Apr 2026 02:59:46 -0700 (PDT)
-Received: from jinlmao-gv.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f8ec06cbfsm33173655b3a.58.2026.04.26.02.59.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 26 Apr 2026 02:59:46 -0700 (PDT)
-From: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
-Date: Sun, 26 Apr 2026 17:59:34 +0800
-Subject: [PATCH] coresight: cti: Fix DT filter signals silently ignored
+	id 1wGwR9-0000000FQp2-0lpP;
+	Sun, 26 Apr 2026 10:10:05 +0000
+Received: from [172.16.12.43] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 3c2b8e6e5;
+	Sun, 26 Apr 2026 18:09:58 +0800 (GMT+08:00)
+Message-ID: <544c8d66-b242-4895-b8de-2f1dfdd0c7b4@rock-chips.com>
+Date: Sun, 26 Apr 2026 18:09:59 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260426-nr_sigs-v1-1-3b9df99dab97@oss.qualcomm.com>
-X-B4-Tracking: v=1; b=H4sIAAXi7WkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDEyMz3byi+OLM9GJdIzOLxJQUyxQDy6REJaDqgqLUtMwKsEnRsbW1ACB
- 7pYZZAAAA
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>,
-        James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Mathieu Poirier <mathieu.poirier@linaro.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, quic_yingdeng@quicinc.com,
-        Jinlong Mao <jinlong.mao@oss.qualcomm.com>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-        Jie Gan <jie.gan@oss.qualcomm.com>,
-        Yingchao Deng <yingchao.deng@oss.qualcomm.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777197582; l=1459;
- i=yingchao.deng@oss.qualcomm.com; s=20260426; h=from:subject:message-id;
- bh=lrlVAl4C9ixfL43ABwEt6iWq42AK8F/Dlk0PYw6KDCk=;
- b=Cfq1xFHRPH+Mzgcz9BYnhcEZW3BBnwiX6yeRvMwi7M6By+QRcip76DyhOiF1M5KzAuFUiuHAl
- jguZlQ8BOAzBl29ck+ML1Nilj35QdV0OtSTeiusKzGnYULsiradrDKp
-X-Developer-Key: i=yingchao.deng@oss.qualcomm.com; a=ed25519;
- pk=aufKZC4I8k2lqi+B/z87rB5kPPybOn8C3mLosbtw+no=
-X-Proofpoint-GUID: DaDNJzugp_YWktbVj28xth5NW4iBwgz1
-X-Proofpoint-ORIG-GUID: DaDNJzugp_YWktbVj28xth5NW4iBwgz1
-X-Authority-Analysis: v=2.4 cv=Y+fIdBeN c=1 sm=1 tr=0 ts=69ede213 cx=c_pps
- a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=EUspDBNiAAAA:8 a=4Hfm4KLuBlQu0LOkly8A:9 a=QEXdDO2ut3YA:10
- a=_Vgx9l1VpLgwpw_dHYaR:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI2MDEwNiBTYWx0ZWRfX/6ULpBN6Wl1X
- IqzmJEuBDFXceLgO64TWMN0XLy+8xqGlYY9sOQ8xghHqx6lSjAs8jRxTs4EpeET7+dM5dD+0t/v
- Z4C7w1VsHPLc/7Fs9nC78IREluP3fGgK7zvQI9hZYIrmI4MqIfuKY/+wHNsOFKGZY8E6n9Dmq9f
- AxU9gAVnoV5PII6eohLpkP8qe0FCa3GnVamlakSXLtx28/kfNlkB/YSDdftCuyXybfaz2bwb0cQ
- GGJHWxcU6rwkuXOvjjeOkUytGYZUTbEOAlBMQr9CNkX/ciA71gsdBp/CITcGWDe62c6VJYEbfpT
- JWQD/+G8hgIzrBdfOjBns7y/d4C4XD6Nnyu9MYXLW3bXcFck0lxhVcDNp0YzfFxq6EtTsAPRO+W
- qz4xavHm2OHizG96rfTxD8EZUpovVqW7YY691UYl8H6qOKFDzIR4nkKPBQ/E1qcXGKV4oqeXudx
- N3H67FtWIiCA5DIlRmw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-26_03,2026-04-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 spamscore=0 suspectscore=0 phishscore=0 adultscore=0
- priorityscore=1501 malwarescore=0 impostorscore=0 bulkscore=0
- lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
- definitions=main-2604260106
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 3/6] pwm: Add rockchip PWMv4 driver
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Lee Jones <lee@kernel.org>, William Breathitt Gray <wbg@kernel.org>
+Cc: kernel@collabora.com, Jonas Karlman <jonas@kwiboo.se>,
+ Alexey Charkov <alchark@gmail.com>, linux-rockchip@lists.infradead.org,
+ linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-iio@vger.kernel.org
+References: <20260420-rk3576-pwm-v5-0-ae7cfbbe5427@collabora.com>
+ <20260420-rk3576-pwm-v5-3-ae7cfbbe5427@collabora.com>
+Content-Language: en-US
+From: Damon Ding <damon.ding@rock-chips.com>
+In-Reply-To: <20260420-rk3576-pwm-v5-3-ae7cfbbe5427@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9dc9446f9103a3kunm6b0f68e1145d79
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1kYFggdWUFKV1ktWUFJV1kPCRoVCBIfWUFZQh5KTlZPHh0aGBkaTU
+	MdQhpWFRQJFhoXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0
+	tIVUpLSU9PT0hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=eb4I3kZaySR2+F0gMBqA+RVFFlrWOKdh4b1SAYLJKcnbvJzdFS3sxr68WQO9M8q2IYHeje3rvXLc0fvoKnlmY70h3B0YqxEyL/k1lwEJe3P43wERT4kvuBmCEXLea3V6AmnaLYA6wjfjEaWn+q21PmIEP8kRvTgW6DbdSnvdcoQ=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=sxbl4epg48KUX2MzjpAavq4/tG2sfpxD57DOODEbyl0=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_025948_209046_BA92CE33 
-X-CRM114-Status: GOOD (  11.72  )
+X-CRM114-CacheID: sfid-20260426_031003_792296_689E6886 
+X-CRM114-Status: GOOD (  31.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,43 +78,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In cti_plat_process_filter_sigs(), after allocating a temporary
-cti_trig_grp struct via kzalloc_obj(), the code never assigns tg->nr_sigs
-= nr_filter_sigs. Since kzalloc zero-initialises the struct, tg->nr_sigs
-remains 0. cti_plat_read_trig_group() guards with:
-    if (!tgrp->nr_sigs)
-        return 0;
+Hi Nicolas，
 
-so it returns immediately without reading any signal indices from DT.
+On 4/20/2026 9:52 PM, Nicolas Frattaroli wrote:
+> The Rockchip RK3576 brings with it a new PWM IP, in downstream code
+> referred to as "v4". This new IP is different enough from the previous
+> Rockchip IP that I felt it necessary to add a new driver for it, instead
+> of shoehorning it in the old one.
+> 
+> Add this new driver, based on the PWM core's waveform APIs. Its platform
+> device is registered by the parent mfpwm driver, from which it also
+> receives a little platform data struct, so that mfpwm can guarantee that
+> all the platform device drivers spread across different subsystems for
+> this specific hardware IP do not interfere with each other.
+> 
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> ---
+>   MAINTAINERS                   |   1 +
+>   drivers/pwm/Kconfig           |  11 ++
+>   drivers/pwm/Makefile          |   1 +
+>   drivers/pwm/pwm-rockchip-v4.c | 383 ++++++++++++++++++++++++++++++++++++++++++
+>   4 files changed, 396 insertions(+)
+> 
+......
+> diff --git a/drivers/pwm/pwm-rockchip-v4.c b/drivers/pwm/pwm-rockchip-v4.c
+> new file mode 100644
+> index 000000000000..b7de72c433c5
+> --- /dev/null
+> +++ b/drivers/pwm/pwm-rockchip-v4.c
+> @@ -0,0 +1,383 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + * Copyright (c) 2025 Collabora Ltd.
+> + *
+> + * A Pulse-Width-Modulation (PWM) generator driver for the generators found in
+> + * Rockchip SoCs such as the RK3576, internally referred to as "PWM v4". Uses
+> + * the MFPWM infrastructure to guarantee exclusive use over the device without
+> + * other functions of the device from different drivers interfering with its
+> + * operation while it's active.
+> + *
+> + * Technical Reference Manual: Chapter 31 of the RK3506 TRM Part 1, a SoC which
+> + * uses the same PWM hardware and has a publicly available TRM.
+> + * https://opensource.rock-chips.com/images/3/36/Rockchip_RK3506_TRM_Part_1_V1.2-20250811.pdf
+> + *
+> + * Authors:
+> + *     Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> + *
+> + * Limitations:
+> + * - The hardware supports both completing the currently running period
+> + *   on disable (by switching to oneshot mode with a single repetition and
+> + *   only disable when the complete irq fires), and abrupt disable (freeze).
+> + *   Only the latter is implemented in the driver.
+> + * - When the output is disabled, the pin will remain driven to whatever state
+> + *   it last had.
 
-Fix by assigning tg->nr_sigs before calling cti_plat_read_trig_group().
+This limitation exists because after disabling the PWM output via 
+registers, the actual shutdown only happens after the current period 
+completes.
 
-Fixes: a5614770ab97 ("coresight: cti: Add device tree support for custom CTI")
+Therefore, the better approach is to add a delay of one full period
+before disabling &rockchip_mfpwm_func.core.
 
-Signed-off-by: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
----
- drivers/hwtracing/coresight/coresight-cti-platform.c | 1 +
- 1 file changed, 1 insertion(+)
+> + * - Adjustments to the duty cycle will only take effect during the next period.
+> + * - Adjustments to the period length will only take effect during the next
+> + *   period.
+> + * - The hardware only supports offsets in [0, period - duty_cycle]
+> + */
+> +
+......
+> +
+> +	if (wfhw->rate) {
+> +		if (!was_enabled) {
+> +			dev_dbg(&chip->dev, "Enabling PWM output\n");
+> +			ret = clk_enable(pc->pwmf->core);
+> +			if (ret)
+> +				goto err_mfpwm_release;
+> +			ret = clk_set_rate_exclusive(pc->pwmf->core, wfhw->rate);
+> +			if (ret) {
+> +				clk_disable(pc->pwmf->core);
+> +				goto err_mfpwm_release;
+> +			}
+> +
+> +			/*
+> +			 * Output should be on now, acquire device to guarantee
+> +			 * exclusion with other device functions while it's on.
+> +			 *
+> +			 * It's highly unlikely that this fails, as mfpwm has
+> +			 * already been acquired before, and this is just a
+> +			 * usage counter increase. Not worth the added
+> +			 * complexity of clearing the PWMV4_REG_ENABLE again,
+> +			 * especially considering the CTRL_UPDATE_EN behaviour.
+> +			 */
+> +			ret = mfpwm_acquire(pc->pwmf);
+> +			if (ret) {
+> +				clk_rate_exclusive_put(pc->pwmf->core);
+> +				clk_disable(pc->pwmf->core);
+> +				goto err_mfpwm_release;
+> +			}
+> +		}
+> +	} else if (was_enabled) {
+> +		dev_dbg(&chip->dev, "Disabling PWM output\n");
 
-diff --git a/drivers/hwtracing/coresight/coresight-cti-platform.c b/drivers/hwtracing/coresight/coresight-cti-platform.c
-index 4eff96f48594..d6d5388705c3 100644
---- a/drivers/hwtracing/coresight/coresight-cti-platform.c
-+++ b/drivers/hwtracing/coresight/coresight-cti-platform.c
-@@ -329,6 +329,7 @@ static int cti_plat_process_filter_sigs(struct cti_drvdata *drvdata,
- 	if (!tg)
- 		return -ENOMEM;
- 
-+	tg->nr_sigs = nr_filter_sigs;
- 	err = cti_plat_read_trig_group(tg, fwnode, CTI_DT_FILTER_OUT_SIGS);
- 	if (!err)
- 		drvdata->config.trig_out_filter |= tg->used_mask;
+Delay for one full PWM period before disabling the dclk.
 
----
-base-commit: 7080e32d3f09d8688c4a87d81bdcc71f7f606b16
-change-id: 20260426-nr_sigs-268add9d09ba
+Although this may introduce some latency for disable -> re-enable 
+operations, it ensures that the state after shutdown aligns with the 
+actual polarity configuration.
+
+> +		clk_rate_exclusive_put(pc->pwmf->core);
+> +		clk_disable(pc->pwmf->core);
+> +		/* Output is off now, extra release to balance extra acquire */
+> +		mfpwm_release(pc->pwmf);
+> +	}
+> +
+> +err_mfpwm_release:
+> +	mfpwm_release(pc->pwmf);
+> +
+> +	return ret;
+> +}
+> +
+> 
 
 Best regards,
--- 
-Yingchao Deng <yingchao.deng@oss.qualcomm.com>
+Damon
 
 
