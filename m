@@ -4,70 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C225FF885C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Apr 2026 23:49:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ADD7FF8864
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 00:20:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o6r2b2jMlnyEbHw3lQ5dPAKKOJP18qt0SqafBNS79kw=; b=ZaNTvZ2L+3UYu15YbTrFHA3Cg5
-	/evts78XRxwSCho+vGXjbxk0oJP5LCCcaibGyLHNABNgQYrfsPQ2CQGkhNwWK7fbg5cQWm7Us3XUX
-	fZl6jF50e0DBbe89IvNwFNBhheruSC6oiolQpO5yVgW4i4XshfkF/dEGC7oIRKtiZ/mQNo2rWhtLm
-	b+QtpsU36fIuyAOdYafmNIIoJ8WKuVL2BTRxXD+1r/HNGU7//F3kWtYgH3gdEfCCpI5/8Uh9SEI7o
-	Zr6/c3Oca8IS1nXW3g9b2f2la1EJ3ecXndPP50uc8JPkc+vViGaUpCJuv82pX8P+dHCsuM628yRpW
-	wa0evK1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=04eaBeRXQUMAF+i/JZGXBsWQlPlhmITfR8weXcOBsD8=; b=p60KNk8u9xCNqBzz0P3cM/0G9v
+	xspPx2SiCxPBEf+Qq+obytETvE5obS0JQNyy3ik2QRGtOgDMCrRlQR0atD8n7gRa026a/dZEOuPDX
+	6tnQE5yRmD5eBUR0NMeOPw5B3j18ceTXrkGiQZZ6mNpc0GFE+DJJBzJ/IbrNtnhyBVECEZT9p6Vrv
+	o1Lw7V2lrwkAZbqyHeYVGsUG42OBbrnz89h8r+6OxbKoTWJJ1ogUvMEmBXM5yNTAcmD8dLAYXIynw
+	d1T+3Ifb8Pl3IrT+2QSlqfIjnTtPQjQKhE1cXUhRGsHuj7vZc+P+/6t4FHjNF3dYM8KOrAiLNYhVK
+	yyZ41YiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGmk4-0000000F5H7-0iVD;
-	Sat, 25 Apr 2026 23:48:56 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wGnEf-0000000F6iQ-410k;
+	Sun, 26 Apr 2026 00:20:33 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGmk1-0000000F5Ge-1H61;
-	Sat, 25 Apr 2026 23:48:54 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id A956F1544;
-	Sun, 26 Apr 2026 01:47:06 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1777160826;
-	bh=Bp8RyEnQL0UxPw7eElHX5mckH3F8+ELKhrN2JVsixec=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aBosJ+CPRWpbzNhjnEakqNIWx8v6lvj20KVcTdhjJHN+Ndm/UNWPtYyXx6WQQbise
-	 L8hXN5SGvJ/awHLT9vgqFhYtYGLwhcvKW6IpH+xHcG2egbT8THwrLcbcNhFYgXfQdc
-	 j4ji2Tag7R41Gax3AEIZ/M90dRFcVrQECrMOoRD0=
-Date: Sun, 26 Apr 2026 02:48:45 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Dennis Gilmore <dennis@ausil.us>, Heiko Stuebner <heiko@sntech.de>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Alexey Charkov <alchark@gmail.com>, devicetree@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v8 3/6] drm/bridge: simple: Add the Lontium LT8711UXD
- DP-to-HDMI bridge
-Message-ID: <20260425234845.GC2964234@killaraus.ideasonboard.com>
-References: <20260425031011.2529364-1-dennis@ausil.us>
- <20260425031011.2529364-4-dennis@ausil.us>
- <20260425112844.GB2964234@killaraus.ideasonboard.com>
- <45evt7lkzuykoqsc2z27hsvm7fasmn6sr6gbjtdnme54jauehf@dmvon2o5emzd>
- <CAABkxwt1=n=CnrVfCcw+EHjqjfsLkp67POk451fV8Gqw4vdnQw@mail.gmail.com>
- <ur7mow4lw47ylxj3uigwwasrfywe6n42zb2to7ygeyjlkcgfkf@guzkembyy5hc>
+	id 1wGnEd-0000000F6gr-2ziF;
+	Sun, 26 Apr 2026 00:20:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1777162828;
+	bh=PhCBUZ9LP1QlSA5Vw3scKGIP9YUqVnd7mb1z6jP2Cgg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=aIwmUvhZYNxAN75eBf2UNQliuzeBxHsJEEbVb1RCVGgUbMO9qeL5XU9gid7Qrzye8
+	 vZkHT8VBBeas2OJ0FZF5CXqEHikha37LCjau4Uc8gcgM/lzXbak/Dj5RcMYSyGhxrw
+	 /FRaR/J1Tz1PWz7ey2u+rR1LErU2N7UXhaDzJsAMQDAuVnx0eH2lnggmtMYAWrxoEs
+	 F2vN8moPy3BQJCfofzBJyJ0kPN4vb5gkQUDB8RXZC1gCoRLUTbjbF/6uS/TyPbTvJ3
+	 gGv9a+cs3ensFHMv7bt5+2UDsBHPF2dbZzL+X9i6tIlbMZINdi0aoxaRSvEWvTHti/
+	 JG2M/y0yUJqiQ==
+Received: from localhost (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B7BAB17E107E;
+	Sun, 26 Apr 2026 02:20:28 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Sun, 26 Apr 2026 03:20:14 +0300
+Subject: [PATCH v5 02/10] drm/bridge: Add detect_ctx hook and
+ drm_bridge_detect_ctx() helper
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <ur7mow4lw47ylxj3uigwwasrfywe6n42zb2to7ygeyjlkcgfkf@guzkembyy5hc>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260426-dw-hdmi-qp-scramb-v5-2-d778e70c317b@collabora.com>
+References: <20260426-dw-hdmi-qp-scramb-v5-0-d778e70c317b@collabora.com>
+In-Reply-To: <20260426-dw-hdmi-qp-scramb-v5-0-d778e70c317b@collabora.com>
+To: Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, 
+ Diederik de Haas <diederik@cknow-tech.com>, 
+ Maud Spierings <maud_spierings@hotmail.com>
+X-Mailer: b4 0.15.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260425_164853_798352_D48A59F5 
-X-CRM114-Status: GOOD (  38.33  )
+X-CRM114-CacheID: sfid-20260425_172031_905275_61E8734C 
+X-CRM114-Status: GOOD (  18.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,85 +86,189 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 26, 2026 at 12:44:59AM +0300, Dmitry Baryshkov wrote:
-> On Sat, Apr 25, 2026 at 01:10:02PM -0500, Dennis Gilmore wrote:
-> > On Sat, Apr 25, 2026 at 9:24 AM Dmitry Baryshkov wrote:
-> > > On Sat, Apr 25, 2026 at 02:28:44PM +0300, Laurent Pinchart wrote:
-> > > > Hi Dennis,
-> > > >
-> > > > Thank you for the patch.
-> > > >
-> > > > On Fri, Apr 24, 2026 at 10:10:08PM -0500, Dennis Gilmore wrote:
-> > > > > The Lontium LT8711UXD is a high performance two lane Type-C/DP1.4
-> > > > > to HDMI2.0 converter, designed to connect a USB Type-C source or
-> > > > > a DP1.4 source to an HDMI2.0 sink.
-> > > >
-> > > > As far as I can tell, the LT8711UXD has an I2C control interface.
-> > > > Shouldn't it be an I2C device ?
-> > >
-> > > From the datasheet:
-> > >
-> > > The device is capable of automatic operation which is
-> > > enabled by an integrated microprocessor that uses an
-> > > embedded SPI flash for firmware storage. System control
-> > > is also available through the use of a dedicated
-> > > configuration I2C slave interface.
-> > >
-> > > My guess was that it can either be an I2C device or it can function as a
-> > > simple platdev with no I2C controls. Please correct me if my
-> > > understanding was wrong.
-> > >
-> > > But now looking at the schematics, it seems to be connected to I2C6.
-> > > Which means that it should be desribed (and bound) as such.
-> > 
-> > Hi Dmitry and Laurent,
-> > 
-> > While the schematic shows that it can use I2C and has been wired up,
-> > it also shows that both MODE_SEL and I2C_ADDR have unpopulated 10k
-> > resistors; as a result, MODE_SEL is connected directly to GND, putting
-> > the bridge in autonomous mode. I confirmed this by running `i2cdetect
-> > -r -y 6`, with the only device on the bus being the HYM8563 RTC at
-> > 0x51. Without reworking the board, the device is not directly
-> > controllable and just runs autonomously.
-> 
-> I think it would be nice to mention:
-> - In the commit for the bindings, that the device can be running
->   uncontrolled or it can be attached over I2C, bindings describe the
->   uncontrolled mode.
-> - In this commit message, the same.
-> - In the commit message for the board DT mention your findings about the
->   board, mention soldering R9 or R17 (which one?) and R27.
+Add an atomic-aware .detect_ctx() callback to drm_bridge_funcs and a
+drm_bridge_detect_ctx() helper that accepts an optional
+drm_modeset_acquire_ctx.
 
-Additionally, how are we going to handle boards where the device
-operates in I2C mode ? Will we use a different compatible string (maybe
-"lontium,lt8711uxd-i2c") ? If DT maintainers are fine with that, I have
-no objection to this patch.
+This enables bridge drivers to perform operations requiring modeset
+locking during connector detection, such as SCDC management for HDMI
+2.0.  When both ->detect_ctx and ->detect are defined, the former takes
+precedence.  When ctx is NULL, locking is managed internally with EDEADLK
+retry.
 
-> > > > > Signed-off-by: Dennis Gilmore <dennis@ausil.us>
-> > > > > Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-> > > > > ---
-> > > > >  drivers/gpu/drm/bridge/simple-bridge.c | 5 +++++
-> > > > >  1 file changed, 5 insertions(+)
-> > > > >
-> > > > > diff --git a/drivers/gpu/drm/bridge/simple-bridge.c b/drivers/gpu/drm/bridge/simple-bridge.c
-> > > > > index 8aa31ca3c72d..42c1f3d5ba0c 100644
-> > > > > --- a/drivers/gpu/drm/bridge/simple-bridge.c
-> > > > > +++ b/drivers/gpu/drm/bridge/simple-bridge.c
-> > > > > @@ -270,6 +270,11 @@ static const struct of_device_id simple_bridge_match[] = {
-> > > > >             .data = &(const struct simple_bridge_info) {
-> > > > >                     .connector_type = DRM_MODE_CONNECTOR_HDMIA,
-> > > > >             },
-> > > > > +   }, {
-> > > > > +           .compatible = "lontium,lt8711uxd",
-> > > > > +           .data = &(const struct simple_bridge_info) {
-> > > > > +                   .connector_type = DRM_MODE_CONNECTOR_HDMIA,
-> > > > > +           },
-> > > > >     }, {
-> > > > >             .compatible = "parade,ps185hdm",
-> > > > >             .data = &(const struct simple_bridge_info) {
+Tested-by: Diederik de Haas <diederik@cknow-tech.com>
+Tested-by: Maud Spierings <maud_spierings@hotmail.com>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ drivers/gpu/drm/drm_bridge.c | 66 ++++++++++++++++++++++++++++++++++++++++----
+ include/drm/drm_bridge.h     | 43 +++++++++++++++++++++++++----
+ 2 files changed, 98 insertions(+), 11 deletions(-)
+
+diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
+index 986e4c79a4e0..a5c6c2ea4ba6 100644
+--- a/drivers/gpu/drm/drm_bridge.c
++++ b/drivers/gpu/drm/drm_bridge.c
+@@ -1361,9 +1361,9 @@ EXPORT_SYMBOL(drm_atomic_bridge_chain_check);
+  * @connector: attached connector
+  *
+  * If the bridge supports output detection, as reported by the
+- * DRM_BRIDGE_OP_DETECT bridge ops flag, call &drm_bridge_funcs.detect for the
+- * bridge and return the connection status. Otherwise return
+- * connector_status_unknown.
++ * DRM_BRIDGE_OP_DETECT bridge ops flag, call &drm_bridge_funcs.detect_ctx
++ * or &drm_bridge_funcs.detect for the bridge and return the connection status.
++ * Otherwise return connector_status_unknown.
+  *
+  * RETURNS:
+  * The detection status on success, or connector_status_unknown if the bridge
+@@ -1372,12 +1372,68 @@ EXPORT_SYMBOL(drm_atomic_bridge_chain_check);
+ enum drm_connector_status
+ drm_bridge_detect(struct drm_bridge *bridge, struct drm_connector *connector)
+ {
++	return drm_bridge_detect_ctx(bridge, connector, NULL);
++}
++EXPORT_SYMBOL_GPL(drm_bridge_detect);
++
++/**
++ * drm_bridge_detect_ctx - check if anything is attached to the bridge output
++ * @bridge: bridge control structure
++ * @connector: attached connector
++ * @ctx: acquire_ctx, or NULL to let this function handle locking
++ *
++ * If the bridge supports output detection, as reported by the
++ * DRM_BRIDGE_OP_DETECT bridge ops flag, call &drm_bridge_funcs.detect_ctx
++ * or &drm_bridge_funcs.detect for the bridge and return the connection status.
++ * Otherwise return connector_status_unknown.
++ *
++ * RETURNS:
++ * The detection status on success, or connector_status_unknown if the bridge
++ * doesn't support output detection.
++ * If @ctx is set, it might also return -EDEADLK.
++ */
++int drm_bridge_detect_ctx(struct drm_bridge *bridge,
++			  struct drm_connector *connector,
++			  struct drm_modeset_acquire_ctx *ctx)
++{
++	struct drm_modeset_acquire_ctx br_ctx;
++	int ret;
++
+ 	if (!(bridge->ops & DRM_BRIDGE_OP_DETECT))
+ 		return connector_status_unknown;
+ 
+-	return bridge->funcs->detect(bridge, connector);
++	if (!bridge->funcs->detect_ctx)
++		return bridge->funcs->detect(bridge, connector);
++
++	if (ctx) {
++		ret = bridge->funcs->detect_ctx(bridge, connector, ctx);
++		if (ret == -EDEADLK)
++			return ret;
++
++		goto out;
++	}
++
++	drm_modeset_acquire_init(&br_ctx, 0);
++retry:
++	ret = drm_modeset_lock(&connector->dev->mode_config.connection_mutex,
++			       &br_ctx);
++	if (!ret)
++		ret = bridge->funcs->detect_ctx(bridge, connector, &br_ctx);
++
++	if (ret == -EDEADLK) {
++		drm_modeset_backoff(&br_ctx);
++		goto retry;
++	}
++
++	drm_modeset_drop_locks(&br_ctx);
++	drm_modeset_acquire_fini(&br_ctx);
++out:
++	if (WARN_ON(ret < 0))
++		ret = connector_status_unknown;
++
++	return ret;
+ }
+-EXPORT_SYMBOL_GPL(drm_bridge_detect);
++EXPORT_SYMBOL_GPL(drm_bridge_detect_ctx);
+ 
+ /**
+  * drm_bridge_get_modes - fill all modes currently valid for the sink into the
+diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
+index d6cd0f5af045..6c751b96c3c9 100644
+--- a/include/drm/drm_bridge.h
++++ b/include/drm/drm_bridge.h
+@@ -535,10 +535,12 @@ struct drm_bridge_funcs {
+ 	 *
+ 	 * Check if anything is attached to the bridge output.
+ 	 *
+-	 * This callback is optional, if not implemented the bridge will be
+-	 * considered as always having a component attached to its output.
+-	 * Bridges that implement this callback shall set the
+-	 * DRM_BRIDGE_OP_DETECT flag in their &drm_bridge->ops.
++	 * This is the non-atomic version of detect_ctx() callback, and is
++	 * optional. If both are implemented, it is ignored. If none is
++	 * implemented, the bridge will be considered as always having a
++	 * component attached to its output. Bridges that implement this
++	 * callback shall set the DRM_BRIDGE_OP_DETECT flag in their
++	 * &drm_bridge->ops.
+ 	 *
+ 	 * RETURNS:
+ 	 *
+@@ -547,6 +549,32 @@ struct drm_bridge_funcs {
+ 	enum drm_connector_status (*detect)(struct drm_bridge *bridge,
+ 					    struct drm_connector *connector);
+ 
++	/**
++	 * @detect_ctx:
++	 *
++	 * Check if anything is attached to the bridge output.
++	 *
++	 * This is the atomic version of detect() callback, and is optional.
++	 * If both are implemented, it takes precedence. If none is implemented,
++	 * the bridge will be considered as always having a component attached
++	 * to its output. Bridges that implement this callback shall set the
++	 * DRM_BRIDGE_OP_DETECT flag in their &drm_bridge->ops.
++	 *
++	 * To avoid races against concurrent connector state updates, the
++	 * helper libraries always call this with ctx set to a valid context,
++	 * and &drm_mode_config.connection_mutex will always be locked with
++	 * the ctx parameter set to this ctx. This allows taking additional
++	 * locks as required.
++	 *
++	 * RETURNS:
++	 *
++	 * &drm_connector_status indicating the bridge output status,
++	 * or the error code returned by drm_modeset_lock(), -EDEADLK.
++	 */
++	int (*detect_ctx)(struct drm_bridge *bridge,
++			  struct drm_connector *connector,
++			  struct drm_modeset_acquire_ctx *ctx);
++
+ 	/**
+ 	 * @get_modes:
+ 	 *
+@@ -1002,8 +1030,8 @@ struct drm_bridge_timings {
+ enum drm_bridge_ops {
+ 	/**
+ 	 * @DRM_BRIDGE_OP_DETECT: The bridge can detect displays connected to
+-	 * its output. Bridges that set this flag shall implement the
+-	 * &drm_bridge_funcs->detect callback.
++	 * its output. Bridges that set this flag shall implement either the
++	 * &drm_bridge_funcs->detect or &drm_bridge_funcs->detect_ctx callbacks.
+ 	 */
+ 	DRM_BRIDGE_OP_DETECT = BIT(0),
+ 	/**
+@@ -1565,6 +1593,9 @@ drm_atomic_helper_bridge_propagate_bus_fmt(struct drm_bridge *bridge,
+ 
+ enum drm_connector_status
+ drm_bridge_detect(struct drm_bridge *bridge, struct drm_connector *connector);
++int drm_bridge_detect_ctx(struct drm_bridge *bridge,
++			  struct drm_connector *connector,
++			  struct drm_modeset_acquire_ctx *ctx);
+ int drm_bridge_get_modes(struct drm_bridge *bridge,
+ 			 struct drm_connector *connector);
+ const struct drm_edid *drm_bridge_edid_read(struct drm_bridge *bridge,
 
 -- 
-Regards,
+2.53.0
 
-Laurent Pinchart
 
