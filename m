@@ -4,70 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFE9EFF8850
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 23:11:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEE41FF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 23:22:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XUcM5EpsAK6Kqp8W2K1nvAMuyQjaRWemKyoNzQP4r8g=; b=pbFHIFC3ymtV8DuSyefwrkaxcv
-	rmywlMkJ8izWN0dps+ENiJijEfH4cByjgsbVybXf4Gl5fBzO3Q7iBNiAvPAiG39rpqqFcdy9cxnWe
-	QtjqsjAuQHdPgqHnXdAX9ZBilv71/MZFE993DS6+k3qUTvNMvRJG7vJ8jpwers+7GZAJ3s6AS7H7K
-	aaShijXwI7QMN0iB5CZWZGRWYNv/sPHJYDEestpyxTYBvvULmhQABXRN1SEreIJlMlVS9bTplKJL2
-	5FE0U4Iq1M+R6d/XbeUR/QV0M7fx4tzMc1911wB3dMHVkBIPoPJCkcklc64X+sMgZRtrZZuK1fo4Y
-	qvBi0yAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yHmRpheChnnsyaf0Fu8oTmfR5ycf3JOSEouN7NBJXTM=; b=kheHgtxnTKhUvEmUIEAzMHBDpg
+	L1s5hQ9hmI5XIYT/YHXPZ6Dbw4L6DBDZs5X3E8ZGiQ3BDDuJAjBBevIfJnJfrbaVcrva1tafYxhNs
+	0deqKoQKeEDxzfeTW7Spq52aQATnvArbxwA9yoig0afIswAPiJKZrWL5SBLkjkoUBAdx/aSudpo2X
+	DIXlT+IYNPBnfM7RnCNKEBPWppi3xUtugfwVijYM5KoNtVL2yhMf3Us3JVAHvLW4X3owYnyjERk8u
+	RGithcZCzMerj+Jiac79lIC+cwZwJOejspigDbrXr+zfLFPjqHyrYF1O+Dboouxg46gtxI+YK4j0z
+	3RKnT91w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wH8cv-0000000FuuU-14fx;
-	Sun, 26 Apr 2026 23:11:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wH8cs-0000000Fuu7-43Kb
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Apr 2026 23:11:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 815121F02;
-	Sun, 26 Apr 2026 16:10:51 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2440A3F763;
-	Sun, 26 Apr 2026 16:10:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777245057; bh=a/aJYD6pRvMxLS87Yj3RcGUYhcRUIAX2XSq4KMBsQQU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qNPJZs6+vgMSeAnGjNou/szz7erkEx2r0b/jVAFVKxomqucUko7deq+yVJfoEwiJG
-	 ggRKCCt9/wSae87dDwayalhIbqUpyAsN1LZ0OG3OXf3lNxskhdQGD7tgLFnB/ZlaLi
-	 sLCex6afDiGYaXlHstiEwyxomHUg/JkEDxMbYIAI=
-Date: Mon, 27 Apr 2026 00:10:47 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org, sudeep.holla@arm.com,
-	philip.radford@arm.com, james.quinlan@broadcom.com,
-	f.fainelli@gmail.com, vincent.guittot@linaro.org,
-	etienne.carriere@foss.st.com, peng.fan@oss.nxp.com,
-	michal.simek@amd.com, dan.carpenter@linaro.org,
-	geert+renesas@glider.be, kuninori.morimoto.gx@renesas.com,
-	marek.vasut+renesas@gmail.com
-Subject: Re: [PATCH v2 08/13] firmware: arm_scmi: Harden clock protocol
- initialization
-Message-ID: <ae6bdwhHoft3p0lv@pluto>
-References: <20260310184030.3669330-1-cristian.marussi@arm.com>
- <20260310184030.3669330-9-cristian.marussi@arm.com>
- <WNCeTzosRbKm_zGsbSPx8w@collabora.com>
- <aetw1WcSCDxk11AV@pluto>
- <CAMuHMdXYGRzq2j3z1io=kHj_QsWtJBirPhbZPa5bFBD7U9e0sw@mail.gmail.com>
+	id 1wH8nX-0000000FvPR-40ym;
+	Sun, 26 Apr 2026 23:21:59 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wH8nW-0000000FvOs-1lY5;
+	Sun, 26 Apr 2026 23:21:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 13CAA60145;
+	Sun, 26 Apr 2026 23:21:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D66EC2BCAF;
+	Sun, 26 Apr 2026 23:21:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777245716;
+	bh=rA86lA0g7W/+V7BO/FVvGSvEuTg3X2fgF21kbHGVYgo=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=JoCrGdD3YOaO1Yk1P3J7IOlXL66bvP/5+YTJhI2rldp6s2OaEPH1R6XjYzQmMTuH/
+	 HH45cpNz7VrG+fuzWz8by4DqC0JZWyPmKFt4hRJUaZa8ZddGLFD8hhGmnmyhGRtXmJ
+	 uLRoUZ3wiHX9kwMqCSHiDuAO+VEhm9CCu+j2vNArLuxvItw0mb9qbReQhC3gdie3Z9
+	 FS04F0t93/kUZb7Ifz+LriW83o2y584m2Vjn8369M9No6m0nbg1nI0/kYoT1teMAUb
+	 Z/MQh19RP6WpAHseo88+dGKMbnv5tXGsh0mKC1LvLVSLYA2vYjiG5ykDxk/RE49QGq
+	 YCDOLXJKF0+pg==
+From: Mark Brown <broonie@kernel.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Gene Chen <gene_chen@richtek.com>, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org
+In-Reply-To: <20260414-mtk-g1200-pmic-cleanup-v1-0-2a7193ed4e93@collabora.com>
+References: <20260414-mtk-g1200-pmic-cleanup-v1-0-2a7193ed4e93@collabora.com>
+Subject: Re: (subset) [PATCH 0/3] Mediatek Genio 1200-EVK: MT6315/MT6360
+ PMIC regulator supply cleanup
+Message-Id: <177724330298.266775.14132313883869438377.b4-ty@b4>
+Date: Mon, 27 Apr 2026 07:41:42 +0900
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMuHMdXYGRzq2j3z1io=kHj_QsWtJBirPhbZPa5bFBD7U9e0sw@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_161059_089269_C62DCA40 
-X-CRM114-Status: GOOD (  39.91  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.16-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1756; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=rA86lA0g7W/+V7BO/FVvGSvEuTg3X2fgF21kbHGVYgo=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBp7p4RN+O47GpsvyrSWQ01EVchEW48pBlZVoTbr
+ uiw1p0XiXyJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCae6eEQAKCRAk1otyXVSH
+ 0CRAB/wL2SMaWjRhWwuhdNYcG4TzAg1zkfTQqVHM79iM+l9cygxMo2mcBEhZ1Cc2/VJGxgPxQ6d
+ irFFH+YlHSWmH8ReXi/9AQshr6NRvVfpVG3+bbko9WweZdMVCSuyNChqShzZz890FZOxFkIrmBn
+ z9mpTTcvOdpmrRS4d6jzYUlnSzPZ/IZLbRLO7vrcY1GrVpp/Yf4PvGtJlx0IkSAwczvpsb6r7ur
+ p9r73MUc6r3oLH9LPk5NnFs/yNpV7dxWvUApOKHQ0mnMKjzlApi3wdMIxgaRyFm8ztAmZ1mzji+
+ 4Ms8Dwn/lELwQu7M6xOleeg+qrcbQ5eknSANDHyd54uMaayA
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,128 +86,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 24, 2026 at 03:55:08PM +0200, Geert Uytterhoeven wrote:
-> Hi Cristian,
-
-Hi,
-
+On Tue, 14 Apr 2026 13:44:09 +0200, Louis-Alexis Eyraud wrote:
+> Mediatek Genio 1200-EVK: MT6315/MT6360 PMIC regulator supply cleanup
 > 
-> On Fri, 24 Apr 2026 at 15:32, Cristian Marussi <cristian.marussi@arm.com> wrote:
-> > On Fri, Apr 24, 2026 at 02:07:59PM +0200, Nicolas Frattaroli wrote:
-> > > On Tuesday, 10 March 2026 19:40:25 Central European Summer Time Cristian Marussi wrote:
-> > > > Add proper error handling on failure to enumerate clocks features or
-> > > > rates.
+> This series goal is to cleanup the power supplies of MT6315 and MT6360
+> PMIC regulators, that are either missing or incorrect in the Mediatek
+> Genio 1200-EVK board devicetree.
 > 
-> > > > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
-> > > > ---
-> > > >  drivers/firmware/arm_scmi/clock.c | 22 ++++++++++++++++------
-> > > >  1 file changed, 16 insertions(+), 6 deletions(-)
-> > > >
-> > > > diff --git a/drivers/firmware/arm_scmi/clock.c b/drivers/firmware/arm_scmi/clock.c
-> > > > index c9b62edce4fd..bf956305a8fe 100644
-> > > > --- a/drivers/firmware/arm_scmi/clock.c
-> > > > +++ b/drivers/firmware/arm_scmi/clock.c
-> > > > @@ -402,10 +402,16 @@ static int scmi_clock_attributes_get(const struct scmi_protocol_handle *ph,
-> > > >                 SUPPORTS_RATE_CHANGE_REQUESTED_NOTIF(attributes))
-> > > >                     clk->rate_change_requested_notifications = true;
-> > > >             if (PROTOCOL_REV_MAJOR(ph->version) >= 0x3) {
-> > > > -                   if (SUPPORTS_PARENT_CLOCK(attributes))
-> > > > -                           scmi_clock_possible_parents(ph, clk_id, cinfo);
-> > > > -                   if (SUPPORTS_GET_PERMISSIONS(attributes))
-> > > > -                           scmi_clock_get_permissions(ph, clk_id, clk);
-> > > > +                   if (SUPPORTS_PARENT_CLOCK(attributes)) {
-> > > > +                           ret = scmi_clock_possible_parents(ph, clk_id, cinfo);
-> > > > +                           if (ret)
-> > > > +                                   return ret;
-> > > > +                   }
-> > > > +                   if (SUPPORTS_GET_PERMISSIONS(attributes)) {
-> > > > +                           ret = scmi_clock_get_permissions(ph, clk_id, clk);
-> > > > +                           if (ret)
-> > > > +                                   return ret;
-> > > > +                   }
-> > > >                     if (SUPPORTS_EXTENDED_CONFIG(attributes))
-> > > >                             clk->extended_config = true;
-> > > >             }
-> > > > @@ -1143,8 +1149,12 @@ static int scmi_clock_protocol_init(const struct scmi_protocol_handle *ph)
-> > > >     for (clkid = 0; clkid < cinfo->num_clocks; clkid++) {
-> > > >             cinfo->clkds[clkid].id = clkid;
-> > > >             ret = scmi_clock_attributes_get(ph, clkid, cinfo);
-> > > > -           if (!ret)
-> > > > -                   scmi_clock_describe_rates_get(ph, clkid, cinfo);
-> > > > +           if (ret)
-> > > > +                   return ret;
-> > > > +
-> > > > +           ret = scmi_clock_describe_rates_get(ph, clkid, cinfo);
-> > > > +           if (ret)
-> > > > +                   return ret;
-> > > >     }
-> > > >
-> > > >     if (PROTOCOL_REV_MAJOR(ph->version) >= 0x3) {
-> > > >
-> > >
-> > > I see that a quirk is being added for this, but I thought I should chime
-> > > in with my opinion for future approaches in this direction.
-> > >
-> > > I don't see how this hardens anything. All this does is break platforms
-> > > that were previously working by returning early. At most, this should
-> >
-> > Certainly the naming in the subject was chosen badly (by me!)...indeed it
-> > should be more something like "Enforce strict protocol compliance",
-> > because at the end all of the broken platforms really run a slighly odd
-> > out of spec SCMI firmware that does NOT implement one or more of the SCMI
-> > mandatory command...
-> >
-> > > be a warning (as in not WARN but pr_warn/dev_warn/...). If firmware
-> > > returns nonsense, a clock driver should imho try its best to work
-> > > around the nonsense in a safe way, because the alternative is that
-> > > a major part of the system (and thus likely the entire system) no
-> >
-> > ..well yes we definitely dont want to break deployed platforms BUT also
-> > we dont want to legalize this kind of out of spec behaviour in future
-> > firmwares...hence (a number ?) of quirks an FW_BUG warns probably to
-> > let already broken deployed platforms survive while discouraging such
-> > implementation in future fw implementations...
-> >
-> > These firmware most certainly wont pass the SCMI compliance test suite [1],
-> > which indeed we do not mandate, but the reason these bugs happened is
-> > exactly because the kernel SCMI stack was buggy and left that door open...
-> >
-> > More specifically these kind of out-of-spec behaviours are not really just
-> > a matter being 'picky', the problem is that any resource set in any
-> > SCMI protocol is defined by the spec such as to be described by a
-> > contiguos set of IDs and the drivers are designed anyway under that
-> > assumption from the allocation point of view, so allowing a clock ID to
-> > just fail one of the mandatory commands and skip a domain would jeopardize
-> > all of this and, even if clearly is NOT a problem here, seems a fragile
-> > assumption.
+> Patch 1 completes the MT6360 dt-bindings by adding the missing power
+> supply descriptions for its buck regulators, that already handled by
+> the mt6360 regulator driver.
+> Patch 2 adds for the board the MT6315 regulator supply properties, that
+> were added in the dt-bindings by [1].
+> Patch 3 adds for the board the MT6360 regulator supply properties and
+> fixes the existing one.
 > 
-> How can you have all of:
->   1. a contiguous list of IDs,
->   2. implement all mandatory commands,
->   2. restrict the use of some clocks to a subset of the agents in the system?
-> Use a different list of IDs for each agent?
+> [...]
 
-Yes, the SCMI server can provide a per-agent view of the world to each
-agent, and ideally it should not even expose resources that are not
-needed at all to an agent...and by that I mean that the server SHOULD
-not enumerate that resources when queried, by dropping them from the
-list of resources that return to that agent WHILE maintaining the set of
-IDs contigous...
+Applied to
 
-...the SCMI server provides an illusion ideally where the agent is in
-control and can access whatever it wants, while the reality is that the
-agent can only issue commands that are deemed safe and sensible by the server,
-which is the ultimate arbiter on the system, to the extent that can hide
-resources or simply silently ignore requests...
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-7.2
 
-> What if a mistake was made, and a clock was exposed to an agent by
-> accident?
+Thanks!
 
-Quirk ! 
+[1/3] regulator: dt-bindings: mt6360: add buck regulator supplies
+      https://git.kernel.org/broonie/regulator/c/a8fccc792f42
 
-More detail on all of this in my babbling on the other thread...sorry
-for the flood of words :P
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
 Thanks,
-Cristian
+Mark
+
 
