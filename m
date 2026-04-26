@@ -4,36 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84431FF885C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 07:23:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1029EFF8850
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 07:30:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jVYUAUD3MtOhd5xJ/8bgt/jc3lNhNlVgEg2Y7JvdCe4=; b=JZRXXCkhn5F5SfDvIVpFOFFu6J
-	138tkGmT9QyYv5V3O4DSP7SixMdF1qXm056cK8zgx3B9I8JkNnZ5iBaj70ucRH6QgfJS5+7+Xjar5
-	JfNzG+VDFVoEbGaLvBupVoDJP4MBdC3et2ixlthpNKpEunj52SmPzGg80CyUaRFV8hEPfD9GCY4lY
-	eoi1foY7ZIXt7QIGBV1g4fuKPZG1Qne67GsPt19PQ+jr+u/T65/3xIEPgdSO2Zxfnl6xh0TtpI4iU
-	oijxNE4r4xJktDtsVy0qFIJlJtTr/vPLgtET4F4URMull8F+d1+IwPVNBHFuKdxSpUMv4hCg7Wzmh
-	F9VvAVSw==;
+	bh=cvKBY+c+iYjGsEpoYL9NRwD1uu5gqclMVNxmGMDvE7c=; b=3mgxvs+O0Z7vwOK9gAArr9jG/0
+	dpgViu8YfV0TTvGpRb5aPLuj8A+FGn6ijJMNtnkgr3hN7iS1BOFRiDJmZYekGN41QuzzGGDTC6mmn
+	TJfrVx5NwTGMv7tWYSre4LMqglJrmd+lHngr2wvP7ZsoezN/y7JK7aOfs+oanXTohEzMiLGLT3TZN
+	aqNzIyRZFU8OktsphGiTvGTIgrTudDk6ZqoDtqwm3LaE3CRelysN7hpKhUVuvjTjVW4iNJ4jvselZ
+	HjmzHZXmkGOXg97c64vSa4FIjmYE8MGvkI6pQHFFK5RnIPO3PfJGHxFVyY0spjexEOzM9q1EQ+Wu+
+	zRhj7WMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGtpp-0000000FKXv-08At;
-	Sun, 26 Apr 2026 07:23:21 +0000
-Received: from mail-m83171.xmail.ntesmail.com ([156.224.83.171])
+	id 1wGtwy-0000000FKoH-2vCW;
+	Sun, 26 Apr 2026 07:30:44 +0000
+Received: from mail-m2485.xmail.ntesmail.com ([45.195.24.85])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGtpl-0000000FKXP-1fwA;
-	Sun, 26 Apr 2026 07:23:19 +0000
+	id 1wGtwt-0000000FKnj-3nt2;
+	Sun, 26 Apr 2026 07:30:42 +0000
 Received: from [172.16.12.43] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 3c2a40191;
-	Sun, 26 Apr 2026 15:23:00 +0800 (GMT+08:00)
-Message-ID: <35afc21f-74c9-4f52-bdf1-18a34fb58578@rock-chips.com>
-Date: Sun, 26 Apr 2026 15:23:01 +0800
+	by smtp.qiye.163.com (Hmail) with ESMTP id 3c2a404a3;
+	Sun, 26 Apr 2026 15:30:35 +0800 (GMT+08:00)
+Message-ID: <7e55f270-5422-4696-987d-e2a2ab16240b@rock-chips.com>
+Date: Sun, 26 Apr 2026 15:30:35 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 6/6] arm64: dts: rockchip: Add cooling fan to ROCK 4D
+Subject: Re: [PATCH v5 5/6] arm64: dts: rockchip: add PWM nodes to RK3576 SoC
+ dtsi
 To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
  =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -45,25 +46,25 @@ Cc: kernel@collabora.com, Jonas Karlman <jonas@kwiboo.se>,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-iio@vger.kernel.org
 References: <20260420-rk3576-pwm-v5-0-ae7cfbbe5427@collabora.com>
- <20260420-rk3576-pwm-v5-6-ae7cfbbe5427@collabora.com>
+ <20260420-rk3576-pwm-v5-5-ae7cfbbe5427@collabora.com>
 Content-Language: en-US
 From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <20260420-rk3576-pwm-v5-6-ae7cfbbe5427@collabora.com>
+In-Reply-To: <20260420-rk3576-pwm-v5-5-ae7cfbbe5427@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9dc8ab938e03a3kunm608d0a1f13e627
+X-HM-Tid: 0a9dc8b282f103a3kunm5e5a610713ec55
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1kYFggdWUFKV1ktWUFJV1kPCRoVCBIfWUFZQ08YSVYZTU1PSUMeSh
-	hCHkxWFRQJFhoXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0
+	tZV1koWUFDSUNOT01LS0k3V1kYFggdWUFKV1ktWUFJV1kPCRoVCBIfWUFZGUIdH1ZIGUlJQ0pPSx
+	8dQh9WFRQJFhoXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0
 	tIVUpLSU9PT0hVSktLVUpCS0tZBg++
 DKIM-Signature: a=rsa-sha256;
-	b=eUjhWMrcKnY5LlEG1ShyEX5gpPrTxsDLAiqhKFZuGYIn9YmGbcKOJ9cbbMupRyX0IHZsQ02lJAkUP5ZC3WtabW9h/ra6UnjQjpmj3VzuRn0rqLdsSmTHXj8Gmb0ysUl+tHUSOaVGyn5+pUgzHVTb8NidTbjAnCP+EAcvO7OceX0=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=jVYUAUD3MtOhd5xJ/8bgt/jc3lNhNlVgEg2Y7JvdCe4=;
+	b=IbFrEF5AZwgTn9ILKm7PdjZuml/51hPqi9yF563W+xC4TVPGo4y99OxqEX1Wj8x7+IPz6bTT46VYGLM/kXqYcO94cJ3wBGZC+kPSmMjJj1pQuka2tuZf0pWSwRRgjIlXUSjZgIzhsWZhvL66UGkXrQI9oNIAm+fa3tg0gtFiq2k=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=cvKBY+c+iYjGsEpoYL9NRwD1uu5gqclMVNxmGMDvE7c=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_002318_018204_E7DE0496 
-X-CRM114-Status: GOOD (  15.31  )
+X-CRM114-CacheID: sfid-20260426_003041_297838_6D514CB3 
+X-CRM114-Status: GOOD (  11.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,107 +82,247 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Hi Nicolas,
 
 On 4/20/2026 9:52 PM, Nicolas Frattaroli wrote:
-> The ROCK 4D has a header to connect a small cooling fan. This fan is
-> driven by one of the SoC's PWM outputs driving a transistor, that in
-> turn controls the fan's power.
-> 
-> With the introduction of PWM support, add a description of this cooling
-> fan, as well as the additional trips and cooling-maps for it.
+> The RK3576 SoC features three distinct PWM controllers, with variable
+> numbers of channels. Add each channel as a separate node to the SoC's
+> device tree, as they don't really overlap in register ranges.
 > 
 > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 > ---
->   arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts | 50 +++++++++++++++++++++++++
->   1 file changed, 50 insertions(+)
+>   arch/arm64/boot/dts/rockchip/rk3576.dtsi | 208 +++++++++++++++++++++++++++++++
+>   1 file changed, 208 insertions(+)
 > 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-> index 899a84b1fbf9..2d5ede010ad0 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-> @@ -45,6 +45,14 @@ rfkill {
->   		shutdown-gpios = <&gpio2 RK_PD1 GPIO_ACTIVE_HIGH>;
->   	};
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+> index e12a2a0cfb89..55d6b103c329 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+> @@ -1032,6 +1032,32 @@ uart1: serial@27310000 {
+>   			status = "disabled";
+>   		};
 >   
-> +	fan: pwm-fan {
-> +		compatible = "pwm-fan";
-> +		cooling-levels = <0 180 205 230 255>;
-> +		fan-supply = <&vcc_5v0_sys>;
-> +		pwms = <&pwm2_8ch_5 0 60000 0>;
-> +		#cooling-cells = <2>;
-> +	};
+> +		pwm0_2ch_0: pwm@27330000 {
+> +			compatible = "rockchip,rk3576-pwm";
+> +			reg = <0x0 0x27330000 0x0 0x1000>;
+> +			clocks = <&cru CLK_PMU1PWM>, <&cru PCLK_PMU1PWM>,
+> +				 <&cru CLK_PMU1PWM_OSC>, <&cru CLK_PMU1PWM_RC>;
+> +			clock-names = "pwm", "pclk", "osc", "rc";
+> +			interrupts = <GIC_SPI 100 IRQ_TYPE_LEVEL_HIGH>;
+> +			pinctrl-names = "default";
+> +			pinctrl-0 = <&pwm0m0_ch0>;
+> +			#pwm-cells = <3>;
+> +			status = "disabled";
+> +		};
 > +
->   	leds: leds {
->   		compatible = "gpio-leds";
->   		pinctrl-names = "default";
-> @@ -711,6 +719,36 @@ rgmii_phy0: ethernet-phy@1 {
->   	};
->   };
+> +		pwm0_2ch_1: pwm@27331000 {
+> +			compatible = "rockchip,rk3576-pwm";
+> +			reg = <0x0 0x27331000 0x0 0x1000>;
+> +			clocks = <&cru CLK_PMU1PWM>, <&cru PCLK_PMU1PWM>,
+> +				 <&cru CLK_PMU1PWM_OSC>, <&cru CLK_PMU1PWM_RC>;
+> +			clock-names = "pwm", "pclk", "osc", "rc";
+> +			interrupts = <GIC_SPI 101 IRQ_TYPE_LEVEL_HIGH>;
+> +			pinctrl-names = "default";
+> +			pinctrl-0 = <&pwm0m0_ch1>;
+> +			#pwm-cells = <3>;
+> +			status = "disabled";
+> +		};
+> +
+>   		pmu: power-management@27380000 {
+>   			compatible = "rockchip,rk3576-pmu", "syscon", "simple-mfd";
+>   			reg = <0x0 0x27380000 0x0 0x800>;
+> @@ -2630,6 +2656,188 @@ uart9: serial@2adc0000 {
+>   			status = "disabled";
+>   		};
 >   
-> +&package_thermal {
-> +	polling-delay = <100>;
-> +
-> +	trips {
-> +		package_fan0: package-fan0 {
-> +			temperature = <50000>;
-> +			hysteresis = <2000>;
-> +			type = "active";
+> +		pwm1_6ch_0: pwm@2add0000 {
+> +			compatible = "rockchip,rk3576-pwm";
+> +			reg = <0x0 0x2add0000 0x0 0x1000>;
+> +			clocks = <&cru CLK_PWM1>, <&cru PCLK_PWM1>,
+> +				 <&cru CLK_OSC_PWM1>, <&cru CLK_RC_PWM1>;
+> +			clock-names = "pwm", "pclk", "osc", "rc";
+> +			interrupts = <GIC_SPI 102 IRQ_TYPE_LEVEL_HIGH>;
+> +			pinctrl-names = "default";
+> +			pinctrl-0 = <&pwm1m0_ch0>;
+> +			#pwm-cells = <3>;
+> +			status = "disabled";
 > +		};
 > +
-> +		package_fan1: package-fan1 {
-> +			temperature = <60000>;
-> +			hysteresis = <2000>;
-> +			type = "active";
+> +		pwm1_6ch_1: pwm@2add1000 {
+> +			compatible = "rockchip,rk3576-pwm";
+> +			reg = <0x0 0x2add1000 0x0 0x1000>;
+> +			clocks = <&cru CLK_PWM1>, <&cru PCLK_PWM1>,
+> +				 <&cru CLK_OSC_PWM1>, <&cru CLK_RC_PWM1>;
+> +			clock-names = "pwm", "pclk", "osc", "rc";
+> +			interrupts = <GIC_SPI 103 IRQ_TYPE_LEVEL_HIGH>;
+> +			pinctrl-names = "default";
+> +			pinctrl-0 = <&pwm1m0_ch1>;
+> +			#pwm-cells = <3>;
+> +			status = "disabled";
 > +		};
-> +	};
 > +
-> +	cooling-maps {
-> +		map1 {
-> +			trip = <&package_fan0>;
-> +			cooling-device = <&fan THERMAL_NO_LIMIT 1>;
+> +		pwm1_6ch_2: pwm@2add2000 {
+> +			compatible = "rockchip,rk3576-pwm";
+> +			reg = <0x0 0x2add2000 0x0 0x1000>;
+> +			clocks = <&cru CLK_PWM1>, <&cru PCLK_PWM1>,
+> +				 <&cru CLK_OSC_PWM1>, <&cru CLK_RC_PWM1>;
+> +			clock-names = "pwm", "pclk", "osc", "rc";
+> +			interrupts = <GIC_SPI 104 IRQ_TYPE_LEVEL_HIGH>;
+> +			pinctrl-names = "default";
+> +			pinctrl-0 = <&pwm1m0_ch2>;
+> +			#pwm-cells = <3>;
+> +			status = "disabled";
 > +		};
 > +
-> +		map2 {
-> +			trip = <&package_fan1>;
-> +			cooling-device = <&fan 2 THERMAL_NO_LIMIT>;
+> +		pwm1_6ch_3: pwm@2add3000 {
+> +			compatible = "rockchip,rk3576-pwm";
+> +			reg = <0x0 0x2add3000 0x0 0x1000>;
+> +			clocks = <&cru CLK_PWM1>, <&cru PCLK_PWM1>,
+> +				 <&cru CLK_OSC_PWM1>, <&cru CLK_RC_PWM1>;
+> +			clock-names = "pwm", "pclk", "osc", "rc";
+> +			interrupts = <GIC_SPI 105 IRQ_TYPE_LEVEL_HIGH>;
+> +			pinctrl-names = "default";
+> +			pinctrl-0 = <&pwm1m0_ch3>;
+> +			#pwm-cells = <3>;
+> +			status = "disabled";
 > +		};
-> +	};
-> +};
 > +
->   &pcie0 {
->   	pinctrl-names = "default";
->   	pinctrl-0 = <&pcie_reset>;
-> @@ -720,6 +758,13 @@ &pcie0 {
->   };
->   
->   &pinctrl {
-> +	fan {
-> +		fan_pwm: fan-pwm {
-> +			rockchip,pins =
-> +				<4 RK_PC5 14 &pcfg_pull_down_drv_level_5>;
+> +		pwm1_6ch_4: pwm@2add4000 {
+> +			compatible = "rockchip,rk3576-pwm";
+> +			reg = <0x0 0x2add4000 0x0 0x1000>;
+> +			clocks = <&cru CLK_PWM1>, <&cru PCLK_PWM1>,
+> +				 <&cru CLK_OSC_PWM1>, <&cru CLK_RC_PWM1>;
+> +			clock-names = "pwm", "pclk", "osc", "rc";
+> +			interrupts = <GIC_SPI 106 IRQ_TYPE_LEVEL_HIGH>;
+> +			pinctrl-names = "default";
+> +			pinctrl-0 = <&pwm1m0_ch4>;
+> +			#pwm-cells = <3>;
+> +			status = "disabled";
 > +		};
-> +	};
 > +
->   	hym8563 {
->   		hym8563_int: hym8563-int {
->   			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_up>;
-> @@ -770,6 +815,11 @@ wifi_en_h: wifi-en-h {
->   	};
->   };
->   
-> +&pwm2_8ch_5 {
-> +	pinctrl-0 = <&fan_pwm>;
-
-May I ask why the pinctrl does not directly use &pwm2m1_ch5?
-
-Is it because the default pin configuration cannot meet the requirements 
-of the fan?
-
-> +	status = "okay";
-> +};
+> +		pwm1_6ch_5: pwm@2add5000 {
+> +			compatible = "rockchip,rk3576-pwm";
+> +			reg = <0x0 0x2add5000 0x0 0x1000>;
+> +			clocks = <&cru CLK_PWM1>, <&cru PCLK_PWM1>,
+> +				 <&cru CLK_OSC_PWM1>, <&cru CLK_RC_PWM1>;
+> +			clock-names = "pwm", "pclk", "osc", "rc";
+> +			interrupts = <GIC_SPI 107 IRQ_TYPE_LEVEL_HIGH>;
+> +			pinctrl-names = "default";
+> +			pinctrl-0 = <&pwm1m0_ch5>;
+> +			#pwm-cells = <3>;
+> +			status = "disabled";
+> +		};
 > +
->   &sai6 {
->   	status = "okay";
->   };
+> +		pwm2_8ch_0: pwm@2ade0000 {
+> +			compatible = "rockchip,rk3576-pwm";
+> +			reg = <0x0 0x2ade0000 0x0 0x1000>;
+> +			clocks = <&cru CLK_PWM2>, <&cru PCLK_PWM2>,
+> +				 <&cru CLK_OSC_PWM2>, <&cru CLK_RC_PWM2>;
+> +			clock-names = "pwm", "pclk", "osc", "rc";
+> +			interrupts = <GIC_SPI 108 IRQ_TYPE_LEVEL_HIGH>;
+> +			pinctrl-names = "default";
+> +			pinctrl-0 = <&pwm2m0_ch0>;
+> +			#pwm-cells = <3>;
+> +			status = "disabled";
+> +		};
+> +
+> +		pwm2_8ch_1: pwm@2ade1000 {
+> +			compatible = "rockchip,rk3576-pwm";
+> +			reg = <0x0 0x2ade1000 0x0 0x1000>;
+> +			clocks = <&cru CLK_PWM2>, <&cru PCLK_PWM2>,
+> +				 <&cru CLK_OSC_PWM2>, <&cru CLK_RC_PWM2>;
+> +			clock-names = "pwm", "pclk", "osc", "rc";
+> +			interrupts = <GIC_SPI 109 IRQ_TYPE_LEVEL_HIGH>;
+> +			pinctrl-names = "default";
+> +			pinctrl-0 = <&pwm2m0_ch1>;
+> +			#pwm-cells = <3>;
+> +			status = "disabled";
+> +		};
+> +
+> +		pwm2_8ch_2: pwm@2ade2000 {
+> +			compatible = "rockchip,rk3576-pwm";
+> +			reg = <0x0 0x2ade2000 0x0 0x1000>;
+> +			clocks = <&cru CLK_PWM2>, <&cru PCLK_PWM2>,
+> +				 <&cru CLK_OSC_PWM2>, <&cru CLK_RC_PWM2>;
+> +			clock-names = "pwm", "pclk", "osc", "rc";
+> +			interrupts = <GIC_SPI 110 IRQ_TYPE_LEVEL_HIGH>;
+> +			pinctrl-names = "default";
+> +			pinctrl-0 = <&pwm2m0_ch2>;
+> +			#pwm-cells = <3>;
+> +			status = "disabled";
+> +		};
+> +
+> +		pwm2_8ch_3: pwm@2ade3000 {
+> +			compatible = "rockchip,rk3576-pwm";
+> +			reg = <0x0 0x2ade3000 0x0 0x1000>;
+> +			clocks = <&cru CLK_PWM2>, <&cru PCLK_PWM2>,
+> +				 <&cru CLK_OSC_PWM2>, <&cru CLK_RC_PWM2>;
+> +			clock-names = "pwm", "pclk", "osc", "rc";
+> +			interrupts = <GIC_SPI 111 IRQ_TYPE_LEVEL_HIGH>;
+> +			pinctrl-names = "default";
+> +			pinctrl-0 = <&pwm2m0_ch3>;
+> +			#pwm-cells = <3>;
+> +			status = "disabled";
+> +		};
+> +
+> +		pwm2_8ch_4: pwm@2ade4000 {
+> +			compatible = "rockchip,rk3576-pwm";
+> +			reg = <0x0 0x2ade4000 0x0 0x1000>;
+> +			clocks = <&cru CLK_PWM2>, <&cru PCLK_PWM2>,
+> +				 <&cru CLK_OSC_PWM2>, <&cru CLK_RC_PWM2>;
+> +			clock-names = "pwm", "pclk", "osc", "rc";
+> +			interrupts = <GIC_SPI 112 IRQ_TYPE_LEVEL_HIGH>;
+> +			pinctrl-names = "default";
+> +			pinctrl-0 = <&pwm2m0_ch4>;
+> +			#pwm-cells = <3>;
+> +			status = "disabled";
+> +		};
+> +
+> +		pwm2_8ch_5: pwm@2ade5000 {
+> +			compatible = "rockchip,rk3576-pwm";
+> +			reg = <0x0 0x2ade5000 0x0 0x1000>;
+> +			clocks = <&cru CLK_PWM2>, <&cru PCLK_PWM2>,
+> +				 <&cru CLK_OSC_PWM2>, <&cru CLK_RC_PWM2>;
+> +			clock-names = "pwm", "pclk", "osc", "rc";
+> +			interrupts = <GIC_SPI 113 IRQ_TYPE_LEVEL_HIGH>;
+> +			pinctrl-names = "default";
+> +			pinctrl-0 = <&pwm2m0_ch5>;
+> +			#pwm-cells = <3>;
+> +			status = "disabled";
+> +		};
+> +
+> +		pwm2_8ch_6: pwm@2ade6000 {
+> +			compatible = "rockchip,rk3576-pwm";
+> +			reg = <0x0 0x2ade6000 0x0 0x1000>;
+> +			clocks = <&cru CLK_PWM2>, <&cru PCLK_PWM2>,
+> +				 <&cru CLK_OSC_PWM2>, <&cru CLK_RC_PWM2>;
+> +			clock-names = "pwm", "pclk", "osc", "rc";
+> +			interrupts = <GIC_SPI 114 IRQ_TYPE_LEVEL_HIGH>;
+> +			pinctrl-names = "default";
+> +			pinctrl-0 = <&pwm2m0_ch6>;
+> +			#pwm-cells = <3>;
+> +			status = "disabled";
+> +		};
+> +
+> +		pwm2_8ch_7: pwm@2ade7000 {
+> +			compatible = "rockchip,rk3576-pwm";
+> +			reg = <0x0 0x2ade7000 0x0 0x1000>;
+> +			clocks = <&cru CLK_PWM2>, <&cru PCLK_PWM2>,
+> +				 <&cru CLK_OSC_PWM2>, <&cru CLK_RC_PWM2>;
+> +			clock-names = "pwm", "pclk", "osc", "rc";
+> +			interrupts = <GIC_SPI 115 IRQ_TYPE_LEVEL_HIGH>;
+> +			pinctrl-names = "default";
+> +			pinctrl-0 = <&pwm2m0_ch7>;
+> +			#pwm-cells = <3>;
+> +			status = "disabled";
+> +		};
+> +
+>   		saradc: adc@2ae00000 {
+>   			compatible = "rockchip,rk3576-saradc", "rockchip,rk3588-saradc";
+>   			reg = <0x0 0x2ae00000 0x0 0x10000>;
 > 
+
+According to the RK3576 TRM, the register base address, clocks and 
+interrupt configuration of the PWM node are all correct
+
+Reviewed-by: Damon Ding <damon.ding@rock-chips.com>
 
 Best regards,
 Damon
