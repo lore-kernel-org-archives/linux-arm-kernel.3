@@ -4,94 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0800EFF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 15:50:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB745FF885E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 16:16:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IQNSYuEKSp5nerKY7s4NoQ7aeozw2OgexDJkLVaxoww=; b=LbhiqIJAi/GAGbUZf2aJWw6/jp
-	8D5GxPQyItjCfX//ETwk6ebdf6/IyQhOOHfAP+StZ7GcNPQqyzlJptW7eEWZVxJ2Cu21OfgEtSHZt
-	wPKwCCvRmMewAuj4ofJzZUmW4jF9Ju10+Z32NJeJsPyExjQcXZUlTAOXDo4Zt6hqxl+psvhquCAG7
-	saoWYYTDiCCd5BqkmaZH2Da36sKDCEr5ZPDncvkbkS8b9qivXDyk5UZXY1ClrygibBqMLw082PT7D
-	wWMATnr4txf5s3OODowNhe4RpxcOFgaKOE8H5h/R9GDmGVqBMDKl8x8XPgIrGqZbHdH90clPHxPIx
-	Kx3F/7ZQ==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Sy8YQRlXFMqq09CaaFPTGPZaqT5UhwghzbyWM8yjEtQ=; b=1vuIYg5zSdmFAa0ZIiNpwXSV99
+	HPnYKUwieS5EOlHppLA/+XR9Rf3B2MvKQqRPgau50B/4r8KsMlzIo5kWj67UqQuA9MHE+lgQLY7Y5
+	A8zvLtJi7liNIOYnOJ4Q28yfjEyr1GGd/AeKKk8fa7zmT4XIxtVr9kMNwZGZMNe9DO0r8o4UWK9S0
+	FSMvu0JJUKJSBfR0Thnow0E023uIl3GP4m8CUwfvHownf1XAuger2f9QwuLyibrIE1jjcY2qShOsD
+	1R8T8VUrZFSoXXP5/gINCJxdvpDM56C8m5m4HckXlZd+Du1OtXumO42HxkkxL0F8Nx7nTazdwUGSy
+	mp/3ORJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wH1k0-0000000FgEn-0N9V;
-	Sun, 26 Apr 2026 15:49:52 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1wH2A6-0000000FhPh-3qan;
+	Sun, 26 Apr 2026 16:16:50 +0000
+Received: from mail-yx1-xb12f.google.com ([2607:f8b0:4864:20::b12f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wH1jw-0000000FgDB-0Aw6
+	id 1wH2A4-0000000FhOw-0JRz
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Apr 2026 15:49:50 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4891cd5927dso10971405e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Apr 2026 08:49:47 -0700 (PDT)
+	Sun, 26 Apr 2026 16:16:49 +0000
+Received: by mail-yx1-xb12f.google.com with SMTP id 956f58d0204a3-651b17f1bcdso1122804d50.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Apr 2026 09:16:47 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1777220207; cv=none;
+        d=google.com; s=arc-20240605;
+        b=cUxNe7E820eA1l2/Ne9JwOMnu0EzK+jVCpceUUF2b+0rUpGigGvRdDL1g/pEhOXqIB
+         pdvgTlIHgcyCKpsk2Sut0gApEb8uDmyKjCdHEq5ytm5uh5K1LM4GxjIHXuIinDjJYTlM
+         tCGeTs5MDl9V/Mq7UF1yCGYVoRffu4pQLmT4z2BrBD1POC9RFYms2JBnonMjo29L9rZR
+         ielE4UwUtKfgKuWfip5TGuKJ+jHM6RgWsgQn2MefiS9NaI5PAeDZr23YwU6s2sKfH2aC
+         TZdQLCCLpEjTUG9dgt+adQr7NzCEoesxEl30bMEPwD69TXEpcXQt2SPG31SaFXDzYu7g
+         I//Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Sy8YQRlXFMqq09CaaFPTGPZaqT5UhwghzbyWM8yjEtQ=;
+        fh=O+zvtmNDYX+/Wao7g4TbhgmNhDkxg4pu8zqzQ3l/FDI=;
+        b=OFN4Vu+WnDpmOgJQnZPQdhTfLOmmNBOMeNJFHjnEv8+boGHovo1jRtaTXnJuHE5MjH
+         CGsYTmjgXd/5/sQAxPZwnvnoFYTu0ZU90MNZu/UOqMi6HgnJd1s5ZQPOlCk7ElmD9LVe
+         suAK9YoIFtVvvfDff4ab1iuxU9Qxda+rs9LHt3OMUOXo/btdB03AoqOjdlRCQtdUQGS2
+         ZUYIUxiKKrH5mGEyOigt7uvV02/OfmuCG5kHrL8FAoU+b7Q8z7LexXSbRloKA6zdCAgI
+         zMgpjeU3USBchb1WPtIWIDSX5pQNKwgL2MNTcuMeN28BrUbR0QCEO/3wtHUXDQuvrEJu
+         IJaA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777218586; x=1777823386; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=IQNSYuEKSp5nerKY7s4NoQ7aeozw2OgexDJkLVaxoww=;
-        b=Uz4ucVfeo4s9HSLsROkPsgwZ1az84EpQA/Pfnykp7U0a2dLdpLj68rZTJgmQ1dg6BD
-         h2+Whl50o4pciIy1O8I3/P45xuWWaphV69oZJADzzHqPSY2jXsBT5hiTdB1WipYTMALx
-         /ngpFRqKHVt+JpHUIo1hFTGxKzMwMmQ366OJ1M6lLc5Fjmg1qGrWfVj4266/e8rKaFuJ
-         hJzxXMa04KMupB44bPpku1dwnGvx0BskK3NtqotW8TGfcM8SmaeteX1abLQ5l3J63VuU
-         Ix5KexgoNtgj+6X3RoRKXjLS1xYMeoEUn0VGDibadgladfnVXHV26qv0yMgLz5FKlmHA
-         RvJQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777218586; x=1777823386;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1777220207; x=1777825007; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=IQNSYuEKSp5nerKY7s4NoQ7aeozw2OgexDJkLVaxoww=;
-        b=WRfF7F6mERmv66+5wL6G0rjtYzpXhvq8DjaxV0au15AnjZvFzymR/ueQHR0ymTluPs
-         rFKJNqftV8BE2kP9lL+iscSD66YTR/m6nynW0k4vQEwzJJU3S/5Jpz4c5pEWYUOfTyJj
-         zfJDmVL/way+13uhjtbSVqxcSddGW/YIM4GDJyVhX7/x3cygNBHqHqXcoP2JuxiB/XQX
-         iW7RVJ6aN6jh9AGOutO+R0zWVfnQcQKFVl0eTCtcb0GKB3IpN5xzmm70syKjea02/ZhV
-         W17m0JhYv65e6shsOPb4cx0gJnoaw2i0TxDMPY9FdG+d6aFjUv7CUW+5b11AKgpJPNAV
-         LP+g==
-X-Forwarded-Encrypted: i=1; AFNElJ9CIq+x6abuZSzMOs01ntUnZnSpm+fGrs08LJVO5xrXmvhi5gWEagSwUFoGMgw8R5RDotOejwsy9L5lRNPqHlen@lists.infradead.org
-X-Gm-Message-State: AOJu0YxWuTvnjY5PRSWbBRZtn6CTcVMnleVUfWd3YOin2h8nBkVI2sli
-	9wiFoNuz8AQM3QTyX4bZX/5J0ztrGZCgl9FTsr05VpQ9hoAxrfAQA7x6
-X-Gm-Gg: AeBDieuU+484Sqh63FEjs+SvXJgoF6snfQARoLgNvW5WPcXXQSByJoX3lMqV+SYq9x+
-	+iwZBZqQbCf6MNbeXMIRuyhy8Kcz5JNRIQY8a5IlgYp99tlmcNMrW3tNVleyZuZJD8vUU9FUXrX
-	GwZ+BDquOYLTh7XuMoAhgFHdMuTRUCyrh5J9vkmBlWnApUmW8u5GvbT7kD91NUrgCgpPr1cJrZa
-	wbD9lQHBvZOMofZ8Qf7mCfcvr+eGcsArkZGPezjC8qtnRD8rQP9afQyi7VmJGg0GwvxqDKUIPC3
-	uDzArdzLCHOiQC+vg/hftYFTOhJ11iq7/Llk4sNIWnzr/Je1qwa3juH3J8V0s5C4CWHerZyVpj+
-	iKdnx3p3fk7DUVtCuXA/WO/09Xv2FsL37IgV5u3YfnAebfOIvhOl1t3FbS2Tug9ARfhuH73CRTR
-	bb02q+kN1AnnnJoJQ3pzxGdd/LCwlj+3UDgNWXQqG8ILmksj/7cFjoBvLM/9oo79bZy0eBS5fXE
-	d6GJ6AlV57E
-X-Received: by 2002:a05:600c:4746:b0:488:a2ac:a338 with SMTP id 5b1f17b1804b1-488fb7685f8mr288589875e9.5.1777218585703;
-        Sun, 26 Apr 2026 08:49:45 -0700 (PDT)
-Received: from menon.v.cablecom.net (84-74-0-139.dclient.hispeed.ch. [84.74.0.139])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43fe4e3a341sm79799339f8f.24.2026.04.26.08.49.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 26 Apr 2026 08:49:45 -0700 (PDT)
-From: Lothar Rubusch <l.rubusch@gmail.com>
-To: herbert@gondor.apana.org.au,
-	thorsten.blum@linux.dev,
-	davem@davemloft.net,
-	nicolas.ferre@microchip.com,
-	alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev,
-	ardb@kernel.org,
-	linusw@kernel.org
-Cc: linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	l.rubusch@gmail.com
-Subject: [PATCH v4 0/1] crypto: atmel-sha204a - multiple RNG fixes
-Date: Sun, 26 Apr 2026 15:49:39 +0000
-Message-Id: <20260426154940.24375-1-l.rubusch@gmail.com>
-X-Mailer: git-send-email 2.39.5
+        bh=Sy8YQRlXFMqq09CaaFPTGPZaqT5UhwghzbyWM8yjEtQ=;
+        b=lYjDKmAs4JLrlasF6NDKxRW/EbJ4W8/q96HWQajTI2/B34XAS5v7v+/ZFsX6rtnwm+
+         dktSARmFNDdpxkLo85dBBA7VR921h7F1+qoQ7o5/xzhIYD7cXa6nhZsdlMqcevxQ7cLE
+         RimFKI0D3+wJzbwDu20/L+qD1sn6aRwLhsrHOJWRKZ/KIBmqm4T+jQQu/Tzom3W98qLd
+         XKe6OO2+fiiynALjsimHSUyz0MSBTy420YZFYd9NWqy+1PF31jm3YNxDh6kE7EKM2pA2
+         MoWffKWnPoYerMBbDtLabEB9DL2Vf9Vg84u9u2TQLWDXQ3eWm6PdXwfQkQyRu7UzXF9s
+         T4ZA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777220207; x=1777825007;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Sy8YQRlXFMqq09CaaFPTGPZaqT5UhwghzbyWM8yjEtQ=;
+        b=F5GsXHNNuybzk58QGdH/RgE8zq0L14CCncneZTLyI5KHuQP9zyTixjdCdJ+ppqW6W+
+         1Rg4tPecQ2OOmT68ILlqherZ0c8yHtMVSh8956DAVeQJsXQU5zifAz8fm3cxyscXjgCA
+         prETKItFhBI/7n/CF1Bc/34yVR129CZeScJr5BNcxdxQCNBzvZH9n6RuOd1k3fBEMJrz
+         VrFrcUpwrAPiTOaxvOEaefBtOIrSd33mW/m0BFOR/PQ+cKBN09W2snv4a0Xq+R6czoau
+         rYsC6+XJr3XV8shlWk7mhAYOMmem548OAhmDTIcJdAqohHp771x8NvgJcDEvE0yNbCIZ
+         zHXw==
+X-Forwarded-Encrypted: i=1; AFNElJ+AjVSaTuIuNOjFkUvjW8OAlOAgrgYkvIudwgivcJtcQT/y2BpDyKecZmW5KL7/ymCfbala7oJGQT3Up/THpWh3@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEWRpD5/bpp7RgGtPhbdsqHmIbvcfkApIATc9l+KqRPuxAyzKT
+	kizmpUVll/MBL0eYw9OaonDvC69f0fWR/cKQgJ0nnF1iHKB3t+T4V7X4F6XpQ4g7x5h6PMP6nMr
+	W4rNyeBszdzFE0Dvhpz2Qe+Usci7mCU8=
+X-Gm-Gg: AeBDieu20cgiCMMtrctby0OZTeTYehrL707/3XOM3U4QrTEi03KvPXiH5xAje61QfMu
+	RO7eNSeNVKc9f7MX2GTK53fvOFasG2A8bZq7scR/TVmunCemM0X5EwZMPGzkM/+bRfmDmq3uHpI
+	Of1oI6lq6qMNkNENmbaJVyAlXmmqlmeP5HHA4fbbQRi8OTboobyhCqoggmI+/ji8QtIGW7brE+L
+	Bzlne4KMxG5qzJDn2COeCpFhcjMfnx0uFqk8K2KUdHbBVZ2BzM4dLdl7VVQ5xZYmAuVDt8FJgwi
+	mOjCsjME83/RneGzwC1I4/cDyA==
+X-Received: by 2002:a53:d04a:0:20b0:653:729:d3ab with SMTP id
+ 956f58d0204a3-65310a14db4mr18143727d50.3.1777220206629; Sun, 26 Apr 2026
+ 09:16:46 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260422210936.20095-1-l.rubusch@gmail.com> <20260422210936.20095-2-l.rubusch@gmail.com>
+ <ae4UD-JGUarmSMiK@linux.dev>
+In-Reply-To: <ae4UD-JGUarmSMiK@linux.dev>
+From: Lothar Rubusch <l.rubusch@gmail.com>
+Date: Sun, 26 Apr 2026 18:16:09 +0200
+X-Gm-Features: AQROBzAdobJWO6tfhp5JyVRYwJsSwcINrh7XtzsayxG_8kLpGQyyKxDyXpGwq9g
+Message-ID: <CAFXKEHYMxZ2AP+LHyjB1dWAqx+N+bEZ=xn2HDYpmS3axd7f9wg@mail.gmail.com>
+Subject: Re: [PATCH v3 1/3] crypto: atmel-sha204a - fix memory leak at
+ non-blocking RNG work_data
+To: Thorsten Blum <thorsten.blum@linux.dev>
+Cc: herbert@gondor.apana.org.au, davem@davemloft.net, 
+	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com, 
+	claudiu.beznea@tuxon.dev, ardb@kernel.org, linusw@kernel.org, 
+	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_084948_081670_CA39991F 
-X-CRM114-Status: UNSURE (   7.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260426_091648_722022_207B4540 
+X-CRM114-Status: GOOD (  18.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,27 +121,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When testing the RNG functionality on the Atmel SHA204a hardware, rngtest
-reported failures. Fix start of reading and size of fetched data.
+Hi Thorsten and Ard & ML,
 
-I verified and applied Ard's solution (tagged it with sugtgested-by, pls
-tell me if I used the wrong tag).
+This is just two general questions on some details of this driver.
+Perhaps you could
+give me some insights here.
 
-Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
----
-v3 -> v4: Reduce seet and set focus on RNG fix, blocking and nonblocking
-v2 -> v3: Removal blank line, rebased
-v1 -> v2: Removal of C++ style comment
----
-Lothar Rubusch (1):
-  crypto: atmel-sha204a - fix non-blocking read logic
+On Sun, Apr 26, 2026 at 3:33=E2=80=AFPM Thorsten Blum <thorsten.blum@linux.=
+dev> wrote:
+>
+> On Wed, Apr 22, 2026 at 09:09:34PM +0000, Lothar Rubusch wrote:
+> > The driver allocated memory for work_data in the non-blocking read
+> > path but never free'd it again.
+>
+> Yes, 'work_data' is allocated once on the first nonblocking RNG request
+> and reused for subsequent requests, but the memory is eventually freed
+> on device removal in atmel_sha204a_remove().
+>
+> The memory might be retained unnecessarily after use when the device is
+> idle (probably negligible), but it's not a memory leak.
+>
+> Best,
+> Thorsten
 
- drivers/crypto/atmel-sha204a.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+1. Actually, having `work_data` allocated once/rarely and usually re-used.
+Stupid question: could it be allocated also with managed device memory? I
+usually use devm_ allocs rather in probe for related general instances,
+here I'm a bit in doubt. Could it be used here as well, or why not?
 
+2. In `atmel_sha204a_rng_read()` there is the function variable
+`struct atmel_i2c_cmd cmd;`.
+AFAIR allocation on the heap is preferable to stack variables, particularly
+for structs and any non-primitive types. So, wouldn't it be better to have
+`*cmd` as a pointer, dynamically allocate memory at the beginning of this
+function and free it at the end of this function again?
 
-base-commit: 5db6ef9847717329f12c5ea8aba7e9f588a980c0
--- 
-2.39.5
-
+Best,
+L
 
