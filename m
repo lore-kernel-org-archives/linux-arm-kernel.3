@@ -4,97 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 417CEFF8850
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 22:51:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A305BFF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 23:03:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DpolBNQI1ISDHWJRF7n4gmHjOHDLOhmwHwmZt6RCU6Q=; b=LVuI7D95hmjel7DR4eblIYCU27
-	hImDBmol5pVo5Fc0bfX/gccAhpZpxTByuK6YLI9YnKDYAQoofCIn8Dc1hAjUa8T1IDicVARRdOVHz
-	dWJWoYKapQPNGZmAk0oUc8TcUM4meZ5f2au4OaeqUXmDoj2D1WDczimMRw6C+3LgXza0Yaf/S5580
-	57Sc4QetERnXDGvr76cj4JbkL/zCsAWdzhlQYig4juWYsjHSzzR5fXE7EUCFZ0Mjm4JxS3ZMpTCp6
-	H1H8P8tBNQQv+yviRwhyEbe/sN0LuflXGKY3UUx8eMlEksv0WLRkZKFVkHjfntF4c+aCsNp50oUeG
-	ohhvGq6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gtsO0vZxvtVgXXBkDebVAqfQBtbcPoUACyAEuwnde+c=; b=jMNdQ8ozo1TGQ9eS8gXEdRtb1X
+	9m2/PngK9743L8LXDIA4WW+yfJcbaib8ji3JxGEWJ8NS5KtjOVCASiLFNfWHb4gO7jf3Wtj3ob2Yr
+	nE7g7uN1/OuW+zq6jiBrSuSTqXrFN/VhEIDodzpRhMJuHh7wy8Psjr+NMZyWP3UJyjT3PCw4i6k3k
+	BrwFfWAYGIbm3s3vP+OGYwyealA7SCd5SuJk4c14kEtAiBa+FFKe2tnds2dBNEFVdcDSuOQv93pb5
+	jNhKfNeplhhDifmS+2MGk5ou1Gxp7//tpfZjj6n34uFy069EROthKNvh9J6RO9QRBr3yjcCQBfNE4
+	ZasdhjMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wH8K1-0000000FuJB-0mXo;
-	Sun, 26 Apr 2026 22:51:29 +0000
-Received: from mail-oa1-x2a.google.com ([2001:4860:4864:20::2a])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wH8Jy-0000000FuId-2DJh
+	id 1wH8VW-0000000FufS-1MYz;
+	Sun, 26 Apr 2026 23:03:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wH8VT-0000000Fuf6-390J
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Apr 2026 22:51:27 +0000
-Received: by mail-oa1-x2a.google.com with SMTP id 586e51a60fabf-408778a8ec4so5844419fac.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Apr 2026 15:51:25 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1777243885; cv=none;
-        d=google.com; s=arc-20240605;
-        b=CTmzREXJIpMGHZq7uNr21hcKI/mlGGEi26Hhy7GnCYIkVaGGtTXMovooDDTCeaD3Kj
-         viLj30qCdfNwNNijDt8QGjcqvdTMEEL5DnUCWaMepPPrbEehBGKdbnHpdCOGEBL68gsW
-         G1wvYKglue95jQIXC4vMr3jYZjewCAS/KPcA+OHaGg+rXvwkcu184tx8WunfoXif5bwZ
-         QhFVkUjT2g/wCCcv1t9EbNcq2Y83YF9MUagSlWIcqsO4KUvrjgZ5f8+U2RvhwvBOVQDp
-         X7Lmac+YZkwFqyHJ8e5DyDZG6La5jTtydubFIIK8yJbs3f0ihqgViMTZ/OfvEmSyGVGQ
-         4vhw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
-        bh=DpolBNQI1ISDHWJRF7n4gmHjOHDLOhmwHwmZt6RCU6Q=;
-        fh=pF6/PktA7FeWNVMTupqRKo7fdBM43NHIhYQuZj0R/bw=;
-        b=atkl7islO6JTmdl1EZXDIg/PsoaMBe/jsn9jYb0swMguyYjuruIwYtranzZjJ5IK85
-         V2r6yJlgJ1L96PkG13AuRzlqKCJAJ9NHd2BzWPHePD0ooOp6T9rFHXOUeS9rZu3Db3/f
-         DlpKv+ePXh4fAsQyTQuHlBL1W4ND04iGlCmPhjLO/rvLh5gDL/UnENl9NNBZv2LS5/W7
-         lyyxeBx/oSMJapdpqq/fXcBmeI3C8Nx4Igp2OpudSLSoH4nZl/R2mG+2H/zXt+aZGrXZ
-         p/4EtzFT99eAkiTFxVa7j+2gNXsivSoDzGLag2PaVbf0OQEUxUtd1A7Ig2LsIRSVuXsP
-         Ju4Q==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777243885; x=1777848685; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=DpolBNQI1ISDHWJRF7n4gmHjOHDLOhmwHwmZt6RCU6Q=;
-        b=EuYZZnQ012hp2WIfKYRUfVtXr4nI5kODxq8EzNMvO9p2yh90ksYnvgpM5F4VAFyQde
-         VAEsilGFWpIoqi280/1FzFQ7xrDX9dh7w2ukuhuXL5tLkT/rpM/nxS9BqzWp+hfqrRTA
-         0rTCDvg3PVCFuWAjLx3KLjAKubigSx3I19PjaQZ0TwRWiuMy+vINCqk5ovxnKpHtcJgF
-         TWhJN51O0aCwlROjSIcSeQU1QW3/waavw4c1N7IkRcrYR7RiZg2KCa2P9EdGAKBu32C/
-         PYnbqHeEYgm/WieKbA1WeIxmOTZx2C1Dx/QiQrD/oeYI34XJa27Cq05anV1dSuXgRYTP
-         hiZA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777243885; x=1777848685;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=DpolBNQI1ISDHWJRF7n4gmHjOHDLOhmwHwmZt6RCU6Q=;
-        b=mdbt4X6gJuVb1otRa/i/z74TcRTzCv5gB6Z2KX22BfrJee92lpCTG/KoAn30iileRD
-         fOhJe6qrAzTMjrqvxtCCXkI8BbbWY+LYWPi9KumPmNodydRCUm2kwizlHHI4No4RKMVR
-         WQ9Ir0M+R3zj6r1mz4i+XzwBvsrxkadD6YBhTxGaOZRMSGO8cB2IFYOenUOheikT+BXK
-         2SzJm5mV8tkEDn1F5Ke8JcinsiemHbsodEQE5F7g+3gPDZ+R9cR9c8JylhNNpAhu7GIF
-         4AlEuoGneFf60GDLYpPhhSV+ZD2wwzxrKglPH2uJ3rLk4l7G0RcGWYCwDDmlNhOalSwb
-         Xdfw==
-X-Gm-Message-State: AOJu0Yy/bWrUV9EdZUjSGAFcv8eQgevQn4aV8pi65QycB3SnVs51bZo3
-	BhSopF77vQgJ8DsmqrVLbVRvRP8zsOs/KE6SttORRcwIJJKSXnhfUy4L6hADgeYGLEryU7HApMZ
-	RTupKuZDLrqbovOShfcO/8LrmoD5EED6Yc2ZR
-X-Gm-Gg: AeBDiet3o2VehrYPTGwCoxvS+5XY02NJ9ZXj5weE5pX7IiyRZWGmqrY76ZBiT+T/wy1
-	Y5fuA2xuonYueg9TWMtkLevsMzpgZ9+T2rRhLzzjElFItdkHWwL+LTz0wZGyvIUnu7UNoByCDOp
-	eUJStTv8qgOW9e8j9EgBk2e/lIQGckJBa4W223gGJ5TW/eAdceBlVPziO0m9fy8CBTAlz36jMrW
-	wHxgwyEh6t78TpqoU72i4Idr4tiFXiEXj8N4sAXcnADAqlJhGeuTxb9vVEeFJhvKLLeR1aliVbm
-	kMuYWc+08rP9pgoSECQ=
-X-Received: by 2002:a05:6870:a112:b0:42e:a647:5615 with SMTP id
- 586e51a60fabf-42ea6475e68mr14125429fac.38.1777243884824; Sun, 26 Apr 2026
- 15:51:24 -0700 (PDT)
+	Sun, 26 Apr 2026 23:03:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C94AE1682;
+	Sun, 26 Apr 2026 16:03:09 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E31683F763;
+	Sun, 26 Apr 2026 16:03:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1777244595; bh=JXnG5gM43KDfdXTQxTdUvNUB0kaa5mek58fQuwFm/hk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=n7AajchLwbx/0BmM/IQ3Ui56MqRfDBKADMu4Q+OOxX5NgT1u9/A9ZgSemUzLSTyFJ
+	 r9Kfecxi0k2P871WuxNmv4FIOfjWyx42fDTL8cNWFfIE5hZrtRiufhhgMBSiwo7KHb
+	 Emb68D8xzTo0/aRfbFMbu7dIZAOteXQm1lkqRfJE=
+Date: Mon, 27 Apr 2026 00:03:03 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Saravana Kannan <saravanak@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Ulf Hansson <ulfh@kernel.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH/RFC 05/14] firmware: arm_scmi: Add scmi_get_base_info()
+Message-ID: <ae6Zp54NhKlVes8J@pluto>
+References: <cover.1776793163.git.geert+renesas@glider.be>
+ <72e2a0e7a5abda02fe36b3f5851842f7a77b2593.1776793163.git.geert+renesas@glider.be>
+ <aekXUvIPb8nkhdKu@pluto>
+ <CAMuHMdWJvMH+a1RqozbaCxxH_8M569JcruTFa8PW+87FysnjHw@mail.gmail.com>
 MIME-Version: 1.0
-From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Sun, 26 Apr 2026 17:51:13 -0500
-X-Gm-Features: AQROBzCvzYr9kEepscCiHqoRhMvlP1xV9RgMfzLZaOzWVC3-gBHxM--Zuwgn700
-Message-ID: <CABb+yY3-iRU8m_UQw2hsmP8R3aTVRRfuz7VgVizVerRMLNdS1g@mail.gmail.com>
-Subject: [GIT PULL] Mailbox changes for v7.1
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAMuHMdWJvMH+a1RqozbaCxxH_8M569JcruTFa8PW+87FysnjHw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_155126_604632_D01B4440 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20260426_160320_078230_5A9D346F 
+X-CRM114-Status: GOOD (  58.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,85 +90,192 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
-The following changes since commit 11439c4635edd669ae435eec308f4ab8a0804808:
+On Fri, Apr 24, 2026 at 02:08:55PM +0200, Geert Uytterhoeven wrote:
+> Hi Cristian,
 
-  Linux 7.0-rc2 (2026-03-01 15:39:31 -0800)
+Hi Geert,
 
-are available in the Git repository at:
+> 
+> On Wed, 22 Apr 2026 at 20:45, Cristian Marussi <cristian.marussi@arm.com> wrote:
+> > On Tue, Apr 21, 2026 at 08:11:38PM +0200, Geert Uytterhoeven wrote:
+> > > Currently non-SCMI drivers cannot find out what the specific versions of
+> > > each SCMI provider implementation on the running system are.
+> >
+> > Thanks for your patches....this is not a proper full review of the series,
+> > BUT this patch catched my eye..
+> >
+> > Indeed, yes, it is deliberate that the SCMI version information is NOT
+> > exposed out of the SCMI world, since being the SCMI an attempt to
+> > standardize a common FW interface (as in [1] of course), you should not
+> > know what runs inside the black-box, it should be irrelevant...
+> >
+> > ...indeed the versioning is used inside the SCMI stack to deal properly
+> > with different protocol versions implemented by the server OR to apply
+> > proper quirks when needed, but all the rest should be standard....
+> >
+> > ...you should NOT really behave differently based on the underneath
+> > protocol or firmare implementation version...it is the SCMI stack that
+> > should behave properly, transparently...
+> 
+> Oh well...
+> 
+> > Having said that...I understand that at least it could be useful to be able
+> > to query the SCMI stack to know, even from non-SCMI drivers, WHICH quirks
+> > have been applied/activated at run time...but anything more than that it
+> 
+> I see no need for that, but we can discover which quirks have been
+> applied from the kernel log ;-)
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/jassibrar/mailbox.git
-tags/mailbox-v7.1
+Ok so I may have misunderstood...it seemed to me, glancing through the
+series that you wanted sort of reconfigure other non-SCMI drivers based
+on the SCMI FW version assuming that some quirks were applied BUT also
+that some sort of corrective workaround was needed additionally...so
+what I was saying was that: is not more straightforward to be possibly
+able to check if a quirk has been applied instead of querying the
+version from outside ?
 
-for you to fetch changes up to 6e937f4e769e60947909e3525965f0137b9039e8:
+> 
+> > seems to me dangerous and prone to a number of abuses of the SCMI stack
+> > itself...
+> >
+> > (Also...exposing the versions itself means also tracking that bit of info
+> > in more than one place: the quirk framework and your drivers.)
+> 
+> I'll see if I can get everything handled as quirks instead...
+> 
+> > > However, different versions may use different ABIs (e.g. different clock
+> > > IDs), or behave different, requiring remapping or workarounds in other
+> > > drivers.
+> >
+> > ...abuse like this indeed :P ... the SCMI server is supposed to be that
+> > one entity remapping the IDs in the background if the same IDs happen to
+> > be representing different physical resources across a number of distinct
+> > platforms all supported by the same firmware blob...so as to present
+> > a consistent set of contiguos IDs...
+> 
+> In our case it is just a single platform, with different ID number
+> spaces for different firmware versions.
 
-  mailbox: mailbox-test: make data_ready a per-instance variable
-(2026-04-18 13:10:14 -0500)
+Yes understood.
 
-----------------------------------------------------------------
-mailbox: updates for v7.1
+> 
+> > Also because this should be one of the selling point of the SCMI stack
+> > in a virtualized environment: you can ship the same kernel drivers with
+> > the same DT and you know that ID=<N> will always identify the specific
+> > resource that is needed by your driver without worrying about the fact
+> > that in reality in the backstage the effectively managed physical resource
+> > could be different across different platforms, because that does not matter
+> 
+> This sounds strange to me, do I understand it correctly?
+> So the ID should (1) be tied to the use-case, and not to the underlying
+> hardware, and (2) be the same for different platforms?
+> 
+> For (1): Then we must not put these IDs in DT at all, as DT is supposed
+>     to describe the hardware (and firmware IDs in DT were IMHO already
+>     a stretch before).
+> For (2): How can there be a contiguous list of IDs, as not all platforms
+>     may have the same underlying hardware?
+>
 
- - core: fix NULL message handling and add API to query TX queue slots
- - test: resolve concurrency bugs, dangling IRQs, and memory leaks
- - dt-bindings: qcom: add Eliza IPCC
- - mtk: fix address calculation and pointer handling bugs
- - cix: resolve SCMI suspend timeouts
- - misc memory allocation optimizations and cleanups
+I would NOT say that an SCMI FW must behave like this regarding IDs, but it
+is a possible SCMI deployed setup that can be useful in virtualized setups
 
-----------------------------------------------------------------
-Abel Vesa (1):
-      dt-bindings: mailbox: qcom-ipcc: Document the Eliza
-Inter-Processor Communication Controller
+I mean, the DT describes the hardware of course BUT when you refer to
+some of this hardware DT bits from some other subsystem by referencing a
+phandle, even in the non-SCMI world, you are in fact selecting a specific
+resource that fit you use case, right ? Can we say this ?
+I mean you needed that specific clock or regulator that you described
+previously so as to be able to enable some other piece of HW...
 
-Dylan Wu (1):
-      mailbox: cix: Add IRQF_NO_SUSPEND to mailbox interrupt
+Now, the SCMI provides an abstraction on top of this, since you really
+discover domain IDs of a specific class (clocks/regulators etc) you are
+in fact describing an HW abstraction that you then refer with the usual
+phandle...also because there is NOT so much SCMI hardware to describe,
+given that the HW is handled transparently (opaquely really :P) by the
+driver on the FW side...
 
-Felix Gu (1):
-      mailbox: mtk-vcp-mailbox: Fix the return value in mtk_vcp_mbox_xlate()
+...you basically obtain such domain ID, usable as phandles through dynamic
+SCMI enumeration so that you can use it all over your DT to make use of such
+resources...
 
-Jason-JH Lin (1):
-      mailbox: mtk-cmdq: Fix CURR and END addr for task insert case
+...on top of this, consider that the SCMI server CAN provide to its agents
+a per-agent-view of the world, IOW it can (and should) expose to a specific
+agent ONLY the resources needed by that agent, i.e. it can expose the set
+of resources 1-N to two distinct agents and that does NOT mean that the
+underlying physical resource mapped by ID=3 in both agents has to be
+effectively the same piece of hardware: it could be the case, and this 
+would be useful to exposed and managed properly a shared resource, or
+it could also be that the same ID=3 could refer to completely distinct
+pieces of the same class of hardware...(same protocol same class of
+resource...)
 
-Jassi Brar (2):
-      mailbox: add API to query available TX queue slots
-      mailbox: Fix NULL message support in mbox_send_message()
+In fact the SCMI server provides an abstraction, sometime a mere illusion
+to the agents...
 
-Rosen Penev (2):
-      mailbox: rockchip: kzalloc + kcalloc to kzalloc
-      mailbox: hi6220: kzalloc + kcalloc to kzalloc
+So in a virtualized ennvironment you could expose the same ID to a pair
+of distinct agents on distinct VMs, so that you can use the same driver
+and same DT despite the fact that maybe the underlying resources are
+distinct pieces of hardware ...
 
-Wolfram Sang (12):
-      mailbox: exynos: drop superfluous mbox setting per channel
-      mailbox: test: really ignore optional memory resources
-      mailbox: correct kdoc title for mbox_bind_client
-      mailbox: remove superfluous internal header
-      mailbox: prefix new constants with MBOX_
-      mailbox: mailbox-test: free channels on probe error
-      mailbox: add sanity check for channel array
-      mailbox: update kdoc for struct mbox_controller
-      mailbox: mailbox-test: handle channel errors consistently
-      mailbox: mailbox-test: don't free the reused channel
-      mailbox: mailbox-test: initialize struct earlier
-      mailbox: mailbox-test: make data_ready a per-instance variable
+...OR on the other side you could decide to share the same resource with
+different agents (say a clock) and take care, as a server, of armonizing
+conflicting requests from different agents (e.g. by refcounting enable/disable
+across all agents), WITHOUT necessarily need to expose that same resource
+with the same ID to both agents...
 
- .../devicetree/bindings/mailbox/qcom-ipcc.yaml     |  1 +
- drivers/mailbox/cix-mailbox.c                      |  6 +-
- drivers/mailbox/exynos-mailbox.c                   |  4 --
- drivers/mailbox/hi3660-mailbox.c                   |  2 -
- drivers/mailbox/hi6220-mailbox.c                   | 14 ++--
- drivers/mailbox/imx-mailbox.c                      |  4 +-
- drivers/mailbox/mailbox-sti.c                      |  2 -
- drivers/mailbox/mailbox-test.c                     | 80 +++++++++++++---------
- drivers/mailbox/mailbox.c                          | 67 +++++++++++-------
- drivers/mailbox/mailbox.h                          | 12 ----
- drivers/mailbox/mtk-cmdq-mailbox.c                 | 10 +--
- drivers/mailbox/mtk-vcp-mailbox.c                  |  2 +-
- drivers/mailbox/omap-mailbox.c                     |  4 +-
- drivers/mailbox/pcc.c                              |  2 -
- drivers/mailbox/rockchip-mailbox.c                 |  9 +--
- drivers/mailbox/tegra-hsp.c                        |  6 +-
- include/linux/mailbox_client.h                     |  1 +
- include/linux/mailbox_controller.h                 | 17 +++--
- 18 files changed, 124 insertions(+), 119 deletions(-)
- delete mode 100644 drivers/mailbox/mailbox.h
+...and you can easily draw a parallel from this virtualization dynamic
+scenario to a more static usecase where you have a FW shipped on
+multiple boards and so capable of serving, in fact, multiple distinct
+agents, but this time, just NOT all together like the VM, but one at time
+depending on which board configuration is booted...
+
+....all of this madness of course has a chance to work ONLY if the SCMI
+server takes care to remap such resources properly at build-time or
+run-time as a contiguos set of IDs, based on the expected agents that
+it has to serve
+
+I am, of course, disillusioned enough NOT to believe that many FW were
+shipped around trying to fit this ideal SCMI deployment scenario BUT at
+least we try, kernel side, NOT to ease these kind of design that goes
+pretty much against the SCMI ideas of a system (and the spec to some
+extent if you punch holes in the IDs sets), and even more we try NOT
+to legalize/normalize out-of-spec FW behaviours by fixing the driver,
+where required, and deploying needed quirks to let existing boards survive
+(..and that becomes quickly much more a pain in the ass for us then for the
+FW guys :P)
+ 
+> > if the SCMI platform server had properly remapped (at build time/run-time ?)
+> > the resources to your expected ID...alternatively of course you can ship
+> > with different DTs to describe different hardware...BUT remmapping stuff
+> 
+> That is a different issue: as SCMI covers the full platform, not just
+> the SoC, the IDs can be board-specific, and thus should be specified
+> in the board .dts, not in the SoC .dtsi?
+> Then the SoC .dtsi should describe the hardware, and we end up with
+> things like arch/arm/boot/dts/st/stm32mp157a-dk1-scmi.dts?
+> 
+> > in the drivers themselves guessing on the vendor/subvendor/impl_vers
+> > seems a dangerous abuse...
+> 
+> There is no guessing.
+> 
+> > I watched a bit of the LPC discussions around this (from Marek I think)
+> > but sincerely most of those problems had one (not necessarily simple)
+> > solution: fix your firmwares AND/OR apply quirks in the meantime...
+> 
+> Unfortunately (at this point) we have to work with the firmware that exists.
+> 
+> From that LPC discussion, we learned that we are actually the lucky
+> guys: some other vendors tend to change the IDs and/or behavior without
+> bumping the version, so Linux cannot even act upon that...
+> 
+
+Oh I know that :P ... the whole SCMI quirk framework has been introduced
+to cope with FW issue from one vendor that afterwards fixed their FW
+issue BUT did NOT take care to update properly their FW versions upon
+each release...so their quirks will be like diamonds, forever !
+... no matter how many fixed-FW they will deploy :P
+
+Thanks,
+Cristian
 
