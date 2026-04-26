@@ -4,69 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36C47FF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 13:27:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DDF9FF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 13:33:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5xC/PJRB26EKjeEw0e9t7oZyxHpBurVT3QAmlMmWQcg=; b=iCIXS/xwVfEA/aM45kP/yjnZ+o
-	9Mz2wumT6lKSFWpLz+Mvw6gy1X2MRTd86+aukKdGoAHp1QtiOA7IXDhAH311PCDMgPZZUG6sgkhzt
-	sa8XUAZpGpURk9OoieqF0Tg+X8ro9gABNIq+QTvnWXgHQG2uBFEQUu+g8myEpJ2Qneao3pRTmLUKz
-	77EvQS8ts7CfAWP4THuoU/2mnldo+HocrFklvTZKnVxDJ0lnu8sOrUG87rvxya6XeoYz2w68cjxbZ
-	GEMShzH5Pc5H9ilje4mb4ysgLxv9k3gFosgDwqALCcXRsCcKYUSwkXt+f72oWw/Wh74J43InFE2jf
-	XdZPnu2w==;
+	bh=G884qd97PNIxFyanL5+UkLxO8fmPu7J/+fwd9gPZOR8=; b=LBvcM4o+p+LlDfSB2UsPnZnFaJ
+	hgPVfuPyaLI/g1rDS3pZK7PthWM5mG5ftXlaVD5G5khzMSPU1qMhOTg3z7wxVGRimaEFvw2ux525H
+	1I9fJEMU/08KcWKDSXd9MqGold8QBWgn3afciDydble9bLj30cSd4DtnYkQz46Hp6wGrTamFEMpKA
+	i4KXou9bSUbDmgvqw7xedzczG1/M0pNcgRR4bkuVyY9bwamg0qkmXQ/NkwL6V+pw4tCZDcccrHIpl
+	MRHkYudEeph+AeHIulezirWE5HQlEgm/6zVQTI/BMycMN/BAFMWa6XJgziGrq0JBR05549si5RRyZ
+	ljWgiegg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGzWA-0000000FZoP-0ey0;
-	Sun, 26 Apr 2026 13:27:26 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wGzbp-0000000Fa5m-0CVa;
+	Sun, 26 Apr 2026 13:33:17 +0000
+Received: from out-188.mta1.migadu.com ([95.215.58.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGzW8-0000000FZnr-1J5n;
-	Sun, 26 Apr 2026 13:27:25 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 36BCF6A6;
-	Sun, 26 Apr 2026 15:25:39 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1777209939;
-	bh=AImdYVRVxu5KDaS0wYHMilfThx6b/J7M7IYbo4FUIic=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=V4Lgyvz+LZ/B8NucZ0Tq9FVaEOSNosKAzOGtypyt0aopXlHtPJ5LgFoqccCr2/Ebk
-	 05wMugBV4SQYdxtJ4jryIdOh5QNeSC5BhErZRAvpDAdYVz6v5ePwa04f6HAA2YihYf
-	 t2MstkfWay9RaYZcKTRJ2Jf64UeuJlD0IavR7VGU=
-Date: Sun, 26 Apr 2026 16:27:19 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Dennis Gilmore <dennis@ausil.us>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Alexey Charkov <alchark@gmail.com>, devicetree@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v8 3/6] drm/bridge: simple: Add the Lontium LT8711UXD
- DP-to-HDMI bridge
-Message-ID: <20260426132719.GD2964234@killaraus.ideasonboard.com>
-References: <20260425031011.2529364-1-dennis@ausil.us>
- <ur7mow4lw47ylxj3uigwwasrfywe6n42zb2to7ygeyjlkcgfkf@guzkembyy5hc>
- <20260425234845.GC2964234@killaraus.ideasonboard.com>
- <6519122.LvFx2qVVIh@phil>
+	id 1wGzbl-0000000Fa5U-1lcW
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 26 Apr 2026 13:33:15 +0000
+Date: Sun, 26 Apr 2026 15:33:03 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1777210390;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=G884qd97PNIxFyanL5+UkLxO8fmPu7J/+fwd9gPZOR8=;
+	b=WsE19gSk0wj+TVv11MRCqO70eJqdJIYZTDkuTcxHRdA1Z/2eX9AE+eMmp+QRigvfhinfBC
+	8wa4yJzFa4j8lkMkswAbKZhLYamRAujoAcaph+IooMc6H+EZAyzBYTyQXg8e+4ZJ3VCVpM
+	o/0DCI0D9/H4wP0HsplB+6MoArqXyt4=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Thorsten Blum <thorsten.blum@linux.dev>
+To: Lothar Rubusch <l.rubusch@gmail.com>
+Cc: herbert@gondor.apana.org.au, davem@davemloft.net,
+	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev, ardb@kernel.org, linusw@kernel.org,
+	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/3] crypto: atmel-sha204a - fix memory leak at
+ non-blocking RNG work_data
+Message-ID: <ae4UD-JGUarmSMiK@linux.dev>
+References: <20260422210936.20095-1-l.rubusch@gmail.com>
+ <20260422210936.20095-2-l.rubusch@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <6519122.LvFx2qVVIh@phil>
+In-Reply-To: <20260422210936.20095-2-l.rubusch@gmail.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_062724_496404_0ACB2B30 
-X-CRM114-Status: GOOD (  43.97  )
+X-CRM114-CacheID: sfid-20260426_063314_107985_814C057B 
+X-CRM114-Status: UNSURE (   8.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,100 +73,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 26, 2026 at 11:54:57AM +0200, Heiko Stuebner wrote:
-> Am Sonntag, 26. April 2026, 01:48:45 Mitteleuropäische Sommerzeit schrieb Laurent Pinchart:
-> > On Sun, Apr 26, 2026 at 12:44:59AM +0300, Dmitry Baryshkov wrote:
-> > > On Sat, Apr 25, 2026 at 01:10:02PM -0500, Dennis Gilmore wrote:
-> > > > On Sat, Apr 25, 2026 at 9:24 AM Dmitry Baryshkov wrote:
-> > > > > On Sat, Apr 25, 2026 at 02:28:44PM +0300, Laurent Pinchart wrote:
-> > > > > > Hi Dennis,
-> > > > > >
-> > > > > > Thank you for the patch.
-> > > > > >
-> > > > > > On Fri, Apr 24, 2026 at 10:10:08PM -0500, Dennis Gilmore wrote:
-> > > > > > > The Lontium LT8711UXD is a high performance two lane Type-C/DP1.4
-> > > > > > > to HDMI2.0 converter, designed to connect a USB Type-C source or
-> > > > > > > a DP1.4 source to an HDMI2.0 sink.
-> > > > > >
-> > > > > > As far as I can tell, the LT8711UXD has an I2C control interface.
-> > > > > > Shouldn't it be an I2C device ?
-> > > > >
-> > > > > From the datasheet:
-> > > > >
-> > > > > The device is capable of automatic operation which is
-> > > > > enabled by an integrated microprocessor that uses an
-> > > > > embedded SPI flash for firmware storage. System control
-> > > > > is also available through the use of a dedicated
-> > > > > configuration I2C slave interface.
-> > > > >
-> > > > > My guess was that it can either be an I2C device or it can function as a
-> > > > > simple platdev with no I2C controls. Please correct me if my
-> > > > > understanding was wrong.
-> > > > >
-> > > > > But now looking at the schematics, it seems to be connected to I2C6.
-> > > > > Which means that it should be desribed (and bound) as such.
-> > > > 
-> > > > Hi Dmitry and Laurent,
-> > > > 
-> > > > While the schematic shows that it can use I2C and has been wired up,
-> > > > it also shows that both MODE_SEL and I2C_ADDR have unpopulated 10k
-> > > > resistors; as a result, MODE_SEL is connected directly to GND,
-> 
-> looking at the schematics linked in the board patch, I somehow see
-> both R9 (mode_sel -> vcc3v3_io) but also R17 (mode_sel -> gnd) marked
-> as 10K.nc ?
-> 
-> > > > putting
-> > > > the bridge in autonomous mode. I confirmed this by running `i2cdetect
-> > > > -r -y 6`, with the only device on the bus being the HYM8563 RTC at
-> > > > 0x51. Without reworking the board, the device is not directly
-> > > > controllable and just runs autonomously.
-> > > 
-> > > I think it would be nice to mention:
-> > > - In the commit for the bindings, that the device can be running
-> > >   uncontrolled or it can be attached over I2C, bindings describe the
-> > >   uncontrolled mode.
-> > > - In this commit message, the same.
-> > > - In the commit message for the board DT mention your findings about the
-> > >   board, mention soldering R9 or R17 (which one?) and R27.
-> > 
-> > Additionally, how are we going to handle boards where the device
-> > operates in I2C mode ? Will we use a different compatible string (maybe
-> > "lontium,lt8711uxd-i2c") ? If DT maintainers are fine with that, I have
-> > no objection to this patch.
-> 
-> I would assume it'd be more the dt-maintainers objecting?
+On Wed, Apr 22, 2026 at 09:09:34PM +0000, Lothar Rubusch wrote:
+> The driver allocated memory for work_data in the non-blocking read
+> path but never free'd it again.
 
-Yes, probably :-) My main concern here is making sure we're not
-cornering ourselves.
+Yes, 'work_data' is allocated once on the first nonblocking RNG request
+and reused for subsequent requests, but the memory is eventually freed
+on device removal in atmel_sha204a_remove().
 
-> I.e. the two different bindings for the same hardware and leaking Linux
-> implementation-specifics into the binding.
-> 
-> I'm don't have deep insight into the i2c framework, but I guess the i2c
-> device probe does not need to talk to an i2c device due to resources
-> needing setup. Does the i2c core need to talk to the device at all?
-> 
-> Because otherwise, you could just do a regular i2c device (the routing
-> for everything is there afterall), add a lontium,automatic-mode; flag
-> to the node to denote mode.
+The memory might be retained unnecessarily after use when the device is
+idle (probably negligible), but it's not a memory leak.
 
-That would work in this case, but if we have a board where the I2C lines
-are really not routed, we would have to invent a fake connection to an
-I2C controller. That's not very nice.
-
-There seem to be precedents for devices that can be controlled through
-either I2C or SPI. See for instance
-Documentation/devicetree/bindings/net/nfc/st,st-nci.yaml that defines
-two compatible strings for the same device, "st,st21nfcb-i2c" and
-"st,st21nfcb-spi". I don't know if that's the best practice recommended
-by the DT maintainers, or a hack that slipped through.
-
-> And if for whatever reason a variant appears with the lines connected
-> you can just modifiy the DT via an overlay?
-
--- 
-Regards,
-
-Laurent Pinchart
+Best,
+Thorsten
 
