@@ -4,76 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B546FF8850
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 23:22:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F63CFF8850
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 23:22:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TnFaW8D3P7JMYF4YVfDkUarRJOKqz/skLyqRNd+M4Zk=; b=bnhRXyLjITyfmeQQAKfZM6okqO
-	PFr9TzVy2OlJTfujTwHpL00/nSov2lTvAQpCHwdFU5E3pysf5gcE2KtV3s1Q/rd+lVMrA4gm5HvTQ
-	YR2OKFvrh86uy46PvkXPUQJiShxbR4Zrpk+bHleeMIcwUPnd/BQoVERgQsv1Xp1ncp794KsULrk1g
-	yk91VhnN0WL7FUTXiECRNhyofC7r/M9XE1oKdnFOkDstoWYAj+DDLOhIl6embfPUJkx14xyEAsmRJ
-	cGFiP+/QHkmtqfyvGgIKGdMm2f0yyw/Y7Ew8t5+mx6BlbLh0F3oqqGTWGxmwHB33NaQepoZWexe3w
-	OKsoTJ+Q==;
+	bh=RV5exxidE19rbTI7Bi5r6s8rjO7F+UljUuc9MEjvRvM=; b=IgCBbN3qZL/ARoUZwhmhUz8hfX
+	/U1zcj71TIf9Pp+38wV9NFoxqoziDM5xSzr6AsKwWhyvzPuQYd5otNy26LEWpZbkH69JtmkD/bFXe
+	yXOXkaVckNGUPTUjQ3RxU3acW33O1FwW7hkcwVRmj72/mf14G72E42Y80mGG3LS4dMU/AlrukUYre
+	DhWI5FgJdxdNEvFuI4E+RUzELgWoUd3bxc7mS251GIkgoY//lK6AUnL0ffhrwVPqk5KuXWoHbEC5Z
+	ZSnoE3lk2Gi9iBaKs9wZ98fld+xqdg2htzF+I7D3TW2lr+8LMD3ixsLH9BRK2RhWxfTjJZWlcIbgv
+	BMt4xETA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wH8ny-0000000FvV4-3S6l;
-	Sun, 26 Apr 2026 23:22:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wH8oJ-0000000FvaZ-0YVD;
+	Sun, 26 Apr 2026 23:22:47 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wH8nw-0000000FvUN-1asL
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Apr 2026 23:22:25 +0000
+	id 1wH8oI-0000000Fva8-0P8a;
+	Sun, 26 Apr 2026 23:22:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1B5BD409D2;
-	Sun, 26 Apr 2026 23:22:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 266CCC2BCAF;
-	Sun, 26 Apr 2026 23:22:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 894CF6014B;
+	Sun, 26 Apr 2026 23:22:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A51F6C2BCB4;
+	Sun, 26 Apr 2026 23:22:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777245744;
-	bh=S9dBTChFIlnYvDUEZaETK0hIKafFubYQ+1rcMFkVN8I=;
+	s=k20201202; t=1777245765;
+	bh=SmIp8IO/MdHTxdBpkYMqcIoU2ScMnSFAPgfF1YMBViM=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=om0ejSB48rnF07FqWKyOsSodsGu7SU/3sGdOBHyfvqGV5T18gdUnVa8Qh8rkRiRs+
-	 mssiLicxFZWKcMOraKuR61UClbLosjDoLhg3vKe1FgGKNDDm5jPCMYCAqxXch15bxD
-	 VVCCeo8V4J6N5nN7/Ic0UmRZuYHtzWJuOe8kCJk55FFn7tjePtJoArZVjdVTkccAe1
-	 QGygaTQIDBBX54VqgeVRVJE0DnrJjS7yT8CrgIlsbgPcfZyDFME7M2kw9nJXUnm6IN
-	 En3h6PLZJqCN8hvWLV8OopfC8tgNEvhDZ0+OaTY1G5JABM8sP6WNXUkrlOkQNHSRgE
-	 DFo1aWZ2li9tw==
+	b=a1xV0sULfbhgv7lcb+vY0wyfH8ZOWus2jbjZZlSxQ+P8ZgQIK2K9NKWb7MAtvDZ7U
+	 xHemB4kG6r28mWO2YtIdNJBI2GrrETWxp1hVwOv3MhEEcs54oWVB+/MmiYqwDGeVR4
+	 /xefwMHjzCrp2K+sOMSfqWCZqqDHU42YQ6vc3tKh04miNypV9rGsxHw9M7/lQfPFuO
+	 66OuyJiDEHzM37xgLpflV26Lg+/XUuBUj2iKPP6yMD7b3Eyb7wXmkdtKfFjKJzvg/y
+	 bO9Y4t2DcVwKYfjnE46rZc6Lrg7CW0JDPkKucxkGtJ2t6RV2z9BvnTa+Ol2wPzdsIK
+	 h295rgmL8YCSQ==
 From: Mark Brown <broonie@kernel.org>
-To: claudiu.beznea@tuxon.dev, andrei.simion@microchip.com, 
- lgirdwood@gmail.com, perex@perex.cz, tiwai@suse.com, 
- nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com, 
- Gabriel Jacob Perin <gabrieljp@usp.br>
-Cc: carlos.albmr@usp.br, linux-sound@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org
-In-Reply-To: <20260421193113.1060213-1-gabrieljp@usp.br>
-References: <20260421193113.1060213-1-gabrieljp@usp.br>
-Subject: Re: [PATCH] Change manual bitfield manipulation to use
- FIELD_PREP()
-Message-Id: <177724043581.266775.16077702022130631965.b4-ty@b4>
-Date: Mon, 27 Apr 2026 06:53:55 +0900
+To: heiko@sntech.de, John Madieu <john.madieu@gmail.com>
+Cc: jon.lin@rock-chips.com, linux-spi@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20260425092936.2590132-1-john.madieu@gmail.com>
+References: <20260425092936.2590132-1-john.madieu@gmail.com>
+Subject: Re: (subset) [PATCH 0/3] spi: rockchip: ISR fix and minor cleanups
+Message-Id: <177724064669.266775.12560276533670856955.b4-ty@b4>
+Date: Mon, 27 Apr 2026 06:57:26 +0900
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1135; i=broonie@kernel.org;
- h=from:subject:message-id; bh=S9dBTChFIlnYvDUEZaETK0hIKafFubYQ+1rcMFkVN8I=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBp7p4t6CI4Rcq9kTqMarTJ4G7FVZB3M5EfMwoOn
- KkZAF1QL96JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCae6eLQAKCRAk1otyXVSH
- 0OSsB/99y9bUzrW42ETTKfIN3VqLin/KgFpythZJnIH46o7vyOsUQjO3KLJllGqDYfZU5LQOdzt
- 6c2QTn3l1nG4xUfDpBuxyh0qpeUBHN6E/HY7+WU1DvH8Z2bNvPa1Hmyb1MtJ5pEnu8i4N/emBSQ
- upnyNLlRP/64wqwDIzWWdFQlrn/NL3OJwhreyWUuicRyRs4+X3nrRaB4feOI+B82G7YuzXj/mNu
- eM5vRywc48TAY+LILEsorvcLHR+xr4FxwpJOkhri3R+ir98aEDGFxWJx4AtXSiGKswX/7qZ4QRD
- +JU+hdQ0qukg6vxi0sUXndNd7DF16faD63QLAfpqCUbguSU2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1521; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=SmIp8IO/MdHTxdBpkYMqcIoU2ScMnSFAPgfF1YMBViM=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBp7p5CWz1j9sFp9KrJIpcMW164Et7JC5XZDwrTs
+ WT+w2ulsc2JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCae6eQgAKCRAk1otyXVSH
+ 0FjkB/wIMXsUIBOTKU4d38uqNrqkSbKfQAosDvnKwSjle7gXrMfcR8D1ZYy5zmtHT7n2ovtDxR1
+ AmSf05TShUO/PEXaEoxxvhv/Y42Euhle8RHQ6k25qQQna52cuhPpZLztgfgL4Usnnx7GCJA9sxV
+ CaDQXq06WhUm69R3EplDijMrCJ9e4gVaJavsgYBeoX6fHi9HesglVSR3OUaQb0zgM6jKNj8km4F
+ 5ggtni1+LuPBshh1rzjQ3w5CQpVazb+F88al4O4NPJ7Jke0DrFGZpH5MSCXcWv3LyMzTkomGYQr
+ 3mjCGwiOgBUioDe6WtHfiKCY6C0UwqVGJZa23y21TxbEa/1i
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_162224_443994_6C84B12C 
-X-CRM114-Status: UNSURE (   7.81  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,17 +80,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 21 Apr 2026 16:31:13 -0300, Gabriel Jacob Perin wrote:
-> Change manual bitfield manipulation to use FIELD_PREP()
+On Sat, 25 Apr 2026 09:29:33 +0000, John Madieu wrote:
+> spi: rockchip: ISR fix and minor cleanups
+> 
+> Hi all,
+> 
+> This series fixes one real bug in the Rockchip SPI driver and tidies up
+> two unrelated cosmetic issues spotted while looking at the same area.
+> The patches are independent and could be applied in any order; they are
+> ordered here by decreasing severity.
+> 
+> [...]
 
 Applied to
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.2
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.1
 
 Thanks!
 
-[1/1] Change manual bitfield manipulation to use FIELD_PREP()
-      https://git.kernel.org/broonie/sound/c/ae93afff9818
+[1/3] spi: rockchip: Read ISR, not IMR, to detect cs-inactive IRQ
+      https://git.kernel.org/broonie/spi/c/b4683a239a40
+[2/3] spi: rockchip: Drop unused and broken CR0 macros
+      https://git.kernel.org/broonie/spi/c/7643978722aa
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
