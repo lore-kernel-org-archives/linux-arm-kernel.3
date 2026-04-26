@@ -4,69 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34B4EFF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 10:40:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C701FF8860
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 10:41:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bIvC+6gKKtd9UDWlaaA7tMyo7XSRTJh/W5Wsad50RKg=; b=wr6K3qMk4A4rAAVrkPinPA6jM7
-	RR0TEnyVJsdk7JYnOEy8Hf+ymlkJT7s+L5rhwoL8dgALlJ2Tu2guNJzgk1IxvGF8ZluB5dzuqmqSy
-	a9S81Hu3h1saHKf97YSoCf9RvpxEZn+MI2B6P5gDeRyZX8hbnYOyaJQzWyayK9Db70QFmIe8yeja8
-	VyTM0XC1qOEIcviUWhwefjZ16n+7ZMgRfY30z94nMUReLsEWETkMl1mNiU1Yp7tOzhbByzPG153M5
-	X+SjFnacXD3qvgXVFWbX6u+mYrp/fNK8B7SAymW6gNffEQtDtKgoH5YlbYAhjI24gpgzGTXNbNbK8
-	n3yh/rWw==;
+	bh=6Wk/E6gFcBPa0/cjOCcgRpBO67wzZNWewnL0fIUm6Ec=; b=pfNVlaQTE0yT2fCsQ/KpVK8vBm
+	2DbhlEGyYEmTRWONK3VLhKz/Fd+yVABZtY5Gl8Vvwx3lBlAwR0rTY+uBXzeFocxg+gBLN5PTqXjAz
+	eoDuucnvReUv0xOr5tB2ZRsOh1hk93z4HkGN6fYF7KD4QeuuVrzwuQkaCFSlx32/G2vL0WvuT7iYK
+	TMrEI/c8kNnKUAb8Gy+rI49RswW7HeeyqpTZEYnS2u7bkfRwTfP+2bwVoCr7prMgn3uFjow8vokyc
+	bvaEHNnH4E0x4UsZmKVU3VKgZzHpEWYSvfsqLhdOhOWBjT6ZnFwfjFBQrKYjYEn5XKvYgWTokEMvG
+	l8vJqMbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGwuQ-0000000FSN2-2n63;
-	Sun, 26 Apr 2026 10:40:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wGwvZ-0000000FSYq-2Lv9;
+	Sun, 26 Apr 2026 10:41:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGwuO-0000000FSMQ-29jd;
-	Sun, 26 Apr 2026 10:40:17 +0000
+	id 1wGwvY-0000000FSYS-1ywj;
+	Sun, 26 Apr 2026 10:41:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1407240E90;
-	Sun, 26 Apr 2026 10:40:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 504A8C2BCAF;
-	Sun, 26 Apr 2026 10:40:09 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 934C2600CB;
+	Sun, 26 Apr 2026 10:41:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98B5DC2BCAF;
+	Sun, 26 Apr 2026 10:41:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777200014;
-	bh=Hpm/RHjdQVWHP69xS9eePzzNeO07/UiUtBrVtlV/V5g=;
+	s=k20201202; t=1777200087;
+	bh=bWuYnO75xPWJJzpmOLfME7o59x3oZomw2PqqFsHNDKc=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=LfMTQ6VjKOLIduL9F9kUqMzrEhMqpJrqNy21O/BU8cJbFXiP0KJl3Tq057NxPRxba
-	 jFYy7x3IRQk5sWfBrmtD0jfO1wkZdUF9ig83iR8pE49NhPF98GSxqCjbILsea1rEX7
-	 PEU+VdL0euAY2xQjCeGOGUyOQKwF8v2tZTChNMOM7aR3t6Ndita8cZ1fBbtCz/ttZH
-	 OwydDmDJZcGMMXPId0T+WtdUBnRAD7P9Sy1Vzd+4xihzIpyOmOfBUoPEoYMDkKortz
-	 etxi6Qe7gW1DktXjDp9KsPgK9pv8h2G8d5NhZqTNb8QPGN4J+X8DeUAo2GPK0fmf6B
-	 digQyHqCw1Lww==
-Date: Sun, 26 Apr 2026 11:40:05 +0100
+	b=Rxn4W1ybROgNUPHL7WHZepd5HEn3s4NjpiHxJPTzVQTagfs298o6rOZZ3vI4COjS0
+	 Zo1QTzuYVJJEhelJrboWJ+aYJZsM/LthaEvmMqcFjg+2TOQZvd6FP9h40puitiI696
+	 qGup3Zb0LePODPuqynEoHZA936p8PvtaL9GK/RJAmK5gfwmUXI1q8B3iAhgWP3MsR3
+	 2TUZmwQcf0j0+HQwKrKWJwMkbUxdviLcEfi2ZEHMD8XBUJGVWIHHcW35afjIB1vAlB
+	 ZhtLxGOS6feEg8BeHxFvIMPytR2sbX52jNC4sLyZ43+naquvu5p1m+BrsuNnPhFB+e
+	 v4Dt1yZDNY+OA==
+Date: Sun, 26 Apr 2026 11:41:18 +0100
 From: Jonathan Cameron <jic23@kernel.org>
-To: Felix Gu <ustc.gu@gmail.com>
-Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Neil Armstrong
- <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, Jerome
- Brunet <jbrunet@baylibre.com>, Martin Blumenstingl
- <martin.blumenstingl@googlemail.com>, Rosen Penev <rosenp@gmail.com>,
+To: Rosen Penev <rosenp@gmail.com>
+Cc: Felix Gu <ustc.gu@gmail.com>, David Lechner <dlechner@baylibre.com>,
+ Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko
+ <andy@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman
+ <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, Martin
+ Blumenstingl <martin.blumenstingl@googlemail.com>,
  linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
 Subject: Re: [PATCH] iio: adc: meson-saradc: fix calibration buffer leak on
  error
-Message-ID: <20260426114005.72fdbc49@jic23-huawei>
-In-Reply-To: <CAN4SLj0hp4N_WXPxxQcLjY+espY96LfizsNEqJ3L2UF4_GoCHg@mail.gmail.com>
+Message-ID: <20260426114118.7ad8b130@jic23-huawei>
+In-Reply-To: <CAKxU2N9_Nmk_apUZLSCGssXpwxYOz9k99ggRcUM3EPGUzaVi7w@mail.gmail.com>
 References: <20260426-meson_saradc-v1-1-6e96b2982c43@gmail.com>
-	<84cae83c-2d67-4927-aa40-6c416d4f862d@baylibre.com>
-	<20260425194412.1872eff8@jic23-huawei>
-	<754b6044-2285-4694-99d4-18d4fd5d8f6d@baylibre.com>
-	<CAN4SLj0hp4N_WXPxxQcLjY+espY96LfizsNEqJ3L2UF4_GoCHg@mail.gmail.com>
+	<CAKxU2N9_Nmk_apUZLSCGssXpwxYOz9k99ggRcUM3EPGUzaVi7w@mail.gmail.com>
 X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_034016_575971_D5BA83FC 
-X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,39 +75,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 26 Apr 2026 11:54:47 +0800
-Felix Gu <ustc.gu@gmail.com> wrote:
+On Sat, 25 Apr 2026 12:20:55 -0700
+Rosen Penev <rosenp@gmail.com> wrote:
 
-> On Sun, Apr 26, 2026 at 7:16=E2=80=AFAM David Lechner <dlechner@baylibre.=
-com> wrote:
-> > I just updated iio/testing today and I see return without kfree().
+> On Sat, Apr 25, 2026 at 9:07=E2=80=AFAM Felix Gu <ustc.gu@gmail.com> wrot=
+e:
+> >
+> > meson_sar_adc_temp_sensor_init() allocates a buffer with
+> > nvmem_cell_read(), but the old code leaked it if
+> > syscon_regmap_lookup_by_phandle() failed.
+> >
+> > Switch buf to __free(kfree) so all return paths release it.
+> >
+> > Fixes: d6f2eac64403 ("iio: adc: meson: no devm for nvmem_cell_get")
+> > Signed-off-by: Felix Gu <ustc.gu@gmail.com>
+> > ---
+> >  drivers/iio/adc/meson_saradc.c | 10 +++-------
+> >  1 file changed, 3 insertions(+), 7 deletions(-)
+> >
+> > diff --git a/drivers/iio/adc/meson_saradc.c b/drivers/iio/adc/meson_sar=
+adc.c
+> > index 23991a3612bd..9708ddcc4919 100644
+> > --- a/drivers/iio/adc/meson_saradc.c
+> > +++ b/drivers/iio/adc/meson_saradc.c
+> > @@ -786,7 +786,7 @@ static int meson_sar_adc_clk_init(struct iio_dev *i=
+ndio_dev,
+> >  static int meson_sar_adc_temp_sensor_init(struct iio_dev *indio_dev)
+> >  {
+> >         struct meson_sar_adc_priv *priv =3D iio_priv(indio_dev);
+> > -       u8 *buf, trimming_bits, trimming_mask, upper_adc_val;
+> > +       u8 trimming_bits, trimming_mask, upper_adc_val;
+> >         struct device *dev =3D indio_dev->dev.parent;
+> >         struct nvmem_cell *temperature_calib;
+> >         size_t read_len;
+> > @@ -807,14 +807,12 @@ static int meson_sar_adc_temp_sensor_init(struct =
+iio_dev *indio_dev)
+> >         }
+> >
+> >         read_len =3D MESON_SAR_ADC_EFUSE_BYTES;
+> > -       buf =3D nvmem_cell_read(temperature_calib, &read_len);
+> > +       u8 *buf __free(kfree) =3D nvmem_cell_read(temperature_calib, &r=
+ead_len);
+> >         nvmem_cell_put(temperature_calib);
+> >         if (IS_ERR(buf))
+> >                 return dev_err_probe(dev, PTR_ERR(buf), "failed to read=
+ temperature_calib cell\n");
+> > -       if (read_len !=3D MESON_SAR_ADC_EFUSE_BYTES) {
+> > -               kfree(buf); =20
+> I don't like this. Just add the missing kfree.
+
+That is the minimal fix, so we should probably do that first
+even if we then circle back to consider if __free() magic is worth using he=
+re.
+
+J
+> > +       if (read_len !=3D MESON_SAR_ADC_EFUSE_BYTES)
+> >                 return dev_err_probe(dev, -EINVAL, "invalid read size o=
+f temperature_calib cell\n");
+> > -       }
 > >
 > >         priv->tsc_regmap =3D syscon_regmap_lookup_by_phandle(dev->of_no=
 de, "amlogic,hhi-sysctrl");
 > >         if (IS_ERR(priv->tsc_regmap))
-> >                 return dev_err_probe(dev, PTR_ERR(priv->tsc_regmap),
-> >                                      "failed to get amlogic,hhi-sysctrl=
- regmap\n"); =20
-> > >> Should `#include <linux/cleanup.h>` though rather that relying on it=
- being
-> > >> included through another header.
-> > >>
-> > >> With that fixed...
-> > >>
-> > >> Reviewed-by: David Lechner <dlechner@baylibre.com>
-> > >> =20
-> > > =20
+> > @@ -835,8 +833,6 @@ static int meson_sar_adc_temp_sensor_init(struct ii=
+o_dev *indio_dev)
+> >         priv->temperature_sensor_adc_val |=3D upper_adc_val << BITS_PER=
+_BYTE;
+> >         priv->temperature_sensor_adc_val >>=3D trimming_bits;
+> >
+> > -       kfree(buf);
+> > -
+> >         return 0;
+> >  }
+> >
+> >
+> > ---
+> > base-commit: 7080e32d3f09d8688c4a87d81bdcc71f7f606b16
+> > change-id: 20260425-meson_saradc-54abc52d9b31
+> >
+> > Best regards,
+> > --
+> > Felix Gu <ustc.gu@gmail.com>
 > > =20
-> Hi Jonathan,
-> This code was merged into linux/master yesterday, perhaps you haven't
-> updated the code base.
-Ah.  My bad.  I tend to be lazy and use elixir to check stuff like this
-and had completely forgotten I merged the patch that broke this :(
-
-J
->=20
-> Best regards,
-> Felix
->=20
 
 
