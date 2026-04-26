@@ -4,78 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3265AFF8860
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 10:16:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34B4EFF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 10:40:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uNFzzd95mcTYhcO+wG3xMSmWT3vJi7xx2yg5IbFJlII=; b=vraSRyCcbkRcveL87hKrh4sk/G
-	bTJrdkVjHFarE9bunlrtQDNbavDpbNfxh84ZRtq/Ihn/RtOsHM5hqiWtjmpZF+gOMI6NDHC4VfoAL
-	vUp69vrmxII2HjeLuYxxcKlBw5ecG7Xt1DsU6NkXBnyEDnCTxX0NMaYgljwKh5lg6wGQErIrN/wLq
-	737l2zuKQq6moC/dITI4ckZJIYTTM545g5k0fl8FuUsauhzyHtzq3tvSG9saXYWCi9ld323PN/ojw
-	cu4l51fUh/af8i0mC5WaPo25FWUiolTh3axSWkLsP3m++OfZeRbirjRsHsxMexST+dhOXC/PyyHSz
-	wY5s5TwQ==;
+	bh=bIvC+6gKKtd9UDWlaaA7tMyo7XSRTJh/W5Wsad50RKg=; b=wr6K3qMk4A4rAAVrkPinPA6jM7
+	RR0TEnyVJsdk7JYnOEy8Hf+ymlkJT7s+L5rhwoL8dgALlJ2Tu2guNJzgk1IxvGF8ZluB5dzuqmqSy
+	a9S81Hu3h1saHKf97YSoCf9RvpxEZn+MI2B6P5gDeRyZX8hbnYOyaJQzWyayK9Db70QFmIe8yeja8
+	VyTM0XC1qOEIcviUWhwefjZ16n+7ZMgRfY30z94nMUReLsEWETkMl1mNiU1Yp7tOzhbByzPG153M5
+	X+SjFnacXD3qvgXVFWbX6u+mYrp/fNK8B7SAymW6gNffEQtDtKgoH5YlbYAhjI24gpgzGTXNbNbK8
+	n3yh/rWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGwXJ-0000000FRHu-1vO9;
-	Sun, 26 Apr 2026 10:16:25 +0000
-Received: from s106b.cyber-folks.pl ([195.78.66.88])
+	id 1wGwuQ-0000000FSN2-2n63;
+	Sun, 26 Apr 2026 10:40:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGwXC-0000000FRDv-1op7
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Apr 2026 10:16:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=mmpsystems.pl; s=x; h=Cc:To:In-Reply-To:References:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=uNFzzd95mcTYhcO+wG3xMSmWT3vJi7xx2yg5IbFJlII=; b=BK7Bz3OVlygoGKz6TSBEGDuzY9
-	nKq/RULN7AVEGlNaIwQ2wB3KXYF59XDtOJ9E1ny5mOljANkJ4zI38btt8jXI2Lzc2YXHTlTgT/enV
-	Ph18uzznc22o4KyS6pd72dS+M3dAb2hP4bJxXY3P87/zOsh6YLhyv8LFZ4zFQcBz6/40717lwBhhJ
-	7TJ2WzI6Uui4/mY/dq66lGo+eIqKphoBWnqCYW6xxWOAx2im92fDYlwsKshF04ZvMEu2FfxshQ78+
-	UVW+RGDLgvF1xOlRURDdXsqdU+vwIiVqePxlUxW54gb0obaP9nDk2POAxYu1qfJBBUIyyUaPsLn7P
-	hwbI3caQ==;
-Received: from user-188-33-36-99.play-internet.pl ([188.33.36.99] helo=localhost)
-	by s106.cyber-folks.pl with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <michal.piekos@mmpsystems.pl>)
-	id 1wGwX9-0000000CBRV-3ut5;
-	Sun, 26 Apr 2026 12:16:16 +0200
-From: Michal Piekos <michal.piekos@mmpsystems.pl>
-Date: Sun, 26 Apr 2026 12:15:29 +0200
-Subject: [PATCH v2 4/4] arm64: dts: allwinner: h616: add hstimer node
+	id 1wGwuO-0000000FSMQ-29jd;
+	Sun, 26 Apr 2026 10:40:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1407240E90;
+	Sun, 26 Apr 2026 10:40:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 504A8C2BCAF;
+	Sun, 26 Apr 2026 10:40:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777200014;
+	bh=Hpm/RHjdQVWHP69xS9eePzzNeO07/UiUtBrVtlV/V5g=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=LfMTQ6VjKOLIduL9F9kUqMzrEhMqpJrqNy21O/BU8cJbFXiP0KJl3Tq057NxPRxba
+	 jFYy7x3IRQk5sWfBrmtD0jfO1wkZdUF9ig83iR8pE49NhPF98GSxqCjbILsea1rEX7
+	 PEU+VdL0euAY2xQjCeGOGUyOQKwF8v2tZTChNMOM7aR3t6Ndita8cZ1fBbtCz/ttZH
+	 OwydDmDJZcGMMXPId0T+WtdUBnRAD7P9Sy1Vzd+4xihzIpyOmOfBUoPEoYMDkKortz
+	 etxi6Qe7gW1DktXjDp9KsPgK9pv8h2G8d5NhZqTNb8QPGN4J+X8DeUAo2GPK0fmf6B
+	 digQyHqCw1Lww==
+Date: Sun, 26 Apr 2026 11:40:05 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Felix Gu <ustc.gu@gmail.com>
+Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Neil Armstrong
+ <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, Jerome
+ Brunet <jbrunet@baylibre.com>, Martin Blumenstingl
+ <martin.blumenstingl@googlemail.com>, Rosen Penev <rosenp@gmail.com>,
+ linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] iio: adc: meson-saradc: fix calibration buffer leak on
+ error
+Message-ID: <20260426114005.72fdbc49@jic23-huawei>
+In-Reply-To: <CAN4SLj0hp4N_WXPxxQcLjY+espY96LfizsNEqJ3L2UF4_GoCHg@mail.gmail.com>
+References: <20260426-meson_saradc-v1-1-6e96b2982c43@gmail.com>
+	<84cae83c-2d67-4927-aa40-6c416d4f862d@baylibre.com>
+	<20260425194412.1872eff8@jic23-huawei>
+	<754b6044-2285-4694-99d4-18d4fd5d8f6d@baylibre.com>
+	<CAN4SLj0hp4N_WXPxxQcLjY+espY96LfizsNEqJ3L2UF4_GoCHg@mail.gmail.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260426-h616-t113s-hstimer-v2-4-e65e9dc0c9da@mmpsystems.pl>
-References: <20260426-h616-t113s-hstimer-v2-0-e65e9dc0c9da@mmpsystems.pl>
-In-Reply-To: <20260426-h616-t113s-hstimer-v2-0-e65e9dc0c9da@mmpsystems.pl>
-To: Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- Michal Piekos <michal.piekos@mmpsystems.pl>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777198529; l=1212;
- i=michal.piekos@mmpsystems.pl; s=20260301; h=from:subject:message-id;
- bh=cCHCvUuPpHPu5/1mgf/ezZ1u0bRGr6TqCo7i9RhbRKk=;
- b=0x0K5umTBuHAYa/VBYZvkuflhbBQIa1oByPmLb0zonwXUViZBNgJ3TSBKIRGDk/8Payuva2uG
- zx9x83mwLcMC2kPHFZJEXGuASvsTKqT0CnfES+2VefcrYFfTnsswHp4
-X-Developer-Key: i=michal.piekos@mmpsystems.pl; a=ed25519;
- pk=Aixyx03If7ZDamiKKN0lsa+0mtA+WjIuIf2ZQVYNBqg=
-X-Authenticated-Id: michal.piekos@mmpsystems.pl
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_031618_647110_741E4E36 
-X-CRM114-Status: UNSURE (   9.02  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260426_034016_575971_D5BA83FC 
+X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,41 +81,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Describe high speed timer block on Allwinner H616.
+On Sun, 26 Apr 2026 11:54:47 +0800
+Felix Gu <ustc.gu@gmail.com> wrote:
 
-Tested on Orange Pi Zero 3:
-- hstimer is registered as clocksource
-- switching clocksource at runtime works
-- after rating increase hstimer operates as a broadcast clockevent device
+> On Sun, Apr 26, 2026 at 7:16=E2=80=AFAM David Lechner <dlechner@baylibre.=
+com> wrote:
+> > I just updated iio/testing today and I see return without kfree().
+> >
+> >         priv->tsc_regmap =3D syscon_regmap_lookup_by_phandle(dev->of_no=
+de, "amlogic,hhi-sysctrl");
+> >         if (IS_ERR(priv->tsc_regmap))
+> >                 return dev_err_probe(dev, PTR_ERR(priv->tsc_regmap),
+> >                                      "failed to get amlogic,hhi-sysctrl=
+ regmap\n"); =20
+> > >> Should `#include <linux/cleanup.h>` though rather that relying on it=
+ being
+> > >> included through another header.
+> > >>
+> > >> With that fixed...
+> > >>
+> > >> Reviewed-by: David Lechner <dlechner@baylibre.com>
+> > >> =20
+> > > =20
+> > =20
+> Hi Jonathan,
+> This code was merged into linux/master yesterday, perhaps you haven't
+> updated the code base.
+Ah.  My bad.  I tend to be lazy and use elixir to check stuff like this
+and had completely forgotten I merged the patch that broke this :(
 
-Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
----
- arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi | 10 ++++++++++
- 1 file changed, 10 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
-index bf054869e78b..1356e5df2562 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
-@@ -237,6 +237,16 @@ timer0: timer@3009000 {
- 			clocks = <&osc24M>;
- 		};
- 
-+		hstimer@3005000 {
-+			compatible = "allwinner,sun50i-h616-hstimer",
-+				     "allwinner,sun20i-d1-hstimer";
-+			reg = <0x03005000 0x1000>;
-+			interrupts = <GIC_SPI 45 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 46 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_HSTIMER>;
-+			resets = <&ccu RST_BUS_HSTIMER>;
-+		};
-+
- 		watchdog: watchdog@30090a0 {
- 			compatible = "allwinner,sun50i-h616-wdt",
- 				     "allwinner,sun6i-a31-wdt";
-
--- 
-2.43.0
+J
+>=20
+> Best regards,
+> Felix
+>=20
 
 
