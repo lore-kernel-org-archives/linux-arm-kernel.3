@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82575FF885E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 10:39:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74702FF8861
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 10:40:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NGfX4JifioHdwGlnrd0jnkQHo1q8IbJYI1jfVgI5My0=; b=3Ss4+uW5CTZMK8XM9jAlsK0Jix
-	XipCOLpWhDu3eCgGC27cWylEQaoA63RWfzukf8ZRJiXoo4a0WX07onru0ngGd1SyLv2VCiLTNm60K
-	wkqrZgOnJJCMCypGIJOcnsmVcCQZ7wBo1SLVNB+hFXUhq6GIol2TfChT5C6ZTQcfDu1sVzWUY4pDN
-	fNJHhjK9nlrePhU7a8S5O2s3jOFeLkQXso1zUTGC5qePwAeyMzL2I7WQcWRrWci36F7N/PEMrAisI
-	3/hhgsV6Y1ngqwbavTttiHjLpEcyy4i9K5XSjjyGoZyFTJyX9L7wAhahB7VkCAQ2O0bl3mHaEcqhE
-	Lmcke6Hg==;
+	bh=bGZ7YOwJZOEtP2GD2HID4K8bg5wvfLD7eRfmJfHmnYo=; b=aQ1365rRinI4KSgv1B3v0j/SMi
+	NhzHnRG5uFYHVOasxrWiEr6MCKUe61OPoDCVjYsK2khAi6vkyb7ymrdr8I62gY8o8LpZqEr/6MQvo
+	7XGZ6LXUTUk+/pck21ocPqgMLMXHv/N68DFPV3hRp0VOGF0zEv3uANg2Fv3UXHkNrhQuHENMBxGBj
+	E9rLXb6EqQIgmwroHE3MVibJrHybP0T2zVhF5iGk+kuTYxDRTFxXbsNhUHrsWWuBtHtsIsnmod8Js
+	TipQB28n2DTGZxjV/VGh9U36GFfA7LQsA3NGlAAj8V3sI1CsEsRUCvlNASVSkgsVv9L3N7aDacAlC
+	/WwcaNJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHJN1-0000000GhzE-0shg;
-	Mon, 27 Apr 2026 10:39:19 +0000
+	id 1wHJNe-0000000Gi7i-0wA3;
+	Mon, 27 Apr 2026 10:39:58 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHJMy-0000000Ghya-1ESJ;
-	Mon, 27 Apr 2026 10:39:17 +0000
+	id 1wHJNc-0000000Gi7G-21aN;
+	Mon, 27 Apr 2026 10:39:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=NGfX4JifioHdwGlnrd0jnkQHo1q8IbJYI1jfVgI5My0=; b=IjSCaNP8MIsnEMZ2lckrN87FuR
-	TZhtTUS1pl4pGpMkAsFkSDoo9T9slTc5PQ2ZbHBI2WnXmYRP6x8HLCJulUi+e/qYLOML3Eu0mkjwt
-	fRpxGEUyJbL9Av+Eh5X98td0MUzoKUX4o462NXZibNiyvxQ3eXUnW+nqC5tm9iKefwDNF+JyVRqpp
-	wc0pvpeUkYV6QFJ/dD+pAM8Sb9HykqyafN6/l3pafBLh82zHbZwdz/dIIepyiJtzTblX/UtyUfXRs
-	s7udLaTjndqtriqiXiJQH76EsiKEuXA+MdyvMdUc0jbzxQqvrvOG4dA6gXK3wRzmBa+Q9sWsBWI8U
-	UbsrOGyA==;
+	bh=bGZ7YOwJZOEtP2GD2HID4K8bg5wvfLD7eRfmJfHmnYo=; b=0hFk1FOiuEOAd1ZJgUwpCmvIYF
+	fY2m4BaeL2EnVixCgZtxOi+dhPRHBILisKmu/9/Q/HNFzKWryeyClcUkBIph2ft9KfEFtxYOJkmKU
+	m1O9P/qg5LNa6b97JbqoriAhT/t3/BlGrenBYj93aA86beEkYz12l+vHvC5odPbgFd55vNLqCHSXO
+	VktBrUiN89LCgODCnMiFQ2mPEAGAjE2XVHJt4XtqCE55POm6/K6koM4ofiHmHukNoCBPqa3AFIUze
+	sWVWTQRmPNBo3MOaF2gGBjiSNa5MM3jZvDtZQvj+fDBAz7Q/YoY3Ai92ZzsW/SFmU+DQv2d9piK9k
+	u0bGEYVg==;
 From: Heiko Stuebner <heiko@sntech.de>
 To: Andrzej Hajda <andrzej.hajda@intel.com>,
  Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
@@ -48,19 +48,19 @@ To: Andrzej Hajda <andrzej.hajda@intel.com>,
 Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v5 07/10] drm/rockchip: dw_hdmi_qp: Add missing newlines in
- dev_err_probe() messages
-Date: Mon, 27 Apr 2026 12:39:00 +0200
-Message-ID: <4050839.irdbgypaU6@phil>
-In-Reply-To: <20260426-dw-hdmi-qp-scramb-v5-7-d778e70c317b@collabora.com>
+Subject: Re: [PATCH v5 08/10] drm/rockchip: dw_hdmi_qp: Use local dev variable
+ consistently in bind()
+Date: Mon, 27 Apr 2026 12:39:41 +0200
+Message-ID: <4830630.e9J7NaK4W3@phil>
+In-Reply-To: <20260426-dw-hdmi-qp-scramb-v5-8-d778e70c317b@collabora.com>
 References: <20260426-dw-hdmi-qp-scramb-v5-0-d778e70c317b@collabora.com>
- <20260426-dw-hdmi-qp-scramb-v5-7-d778e70c317b@collabora.com>
+ <20260426-dw-hdmi-qp-scramb-v5-8-d778e70c317b@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_033916_331115_988C1695 
-X-CRM114-Status: UNSURE (   6.37  )
+X-CRM114-CacheID: sfid-20260427_033956_551077_C75F9D10 
+X-CRM114-Status: UNSURE (   6.07  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,10 +76,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Sonntag, 26. April 2026, 02:20:19 Mitteleurop=C3=A4ische Sommerzeit schr=
+Am Sonntag, 26. April 2026, 02:20:20 Mitteleurop=C3=A4ische Sommerzeit schr=
 ieb Cristian Ciocaltea:
-> Add the missing trailing newlines to a couple of dev_err_probe() calls
-> in dw_hdmi_qp_rockchip_bind().
+> Replace indirect struct device accesses via hdmi->dev and pdev->dev with
+> the local dev parameter already available in dw_hdmi_qp_rockchip_bind(),
+> for consistency and readability.
 >=20
 > Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 
