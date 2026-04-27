@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8956FFF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 15:36:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99B9BFF8860
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 15:36:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+WwzihijZssqSOtMqDRFEFZS96kFccDT7AOSNModvwc=; b=rBEZwmD+o9gpOHII05tbROVZa7
-	i6wjg9DHxhgcxo7OhsT2uhbKVHdm11wEBdm8+Q5sdN5MgFcF0yVg8RGso7VdQteuOt+4oETT0P+X/
-	qVp1Z0pKiJZWMfKQwLjeahpDzUovEF2k6TONB2uZtmg79R2sm1ZGQaQL027NuvVrdgQEghmhx0NR1
-	pzZDMndiCV149WlfHltKX8u8wJPNxID2nNWnC4R5P8PDJU4Mi9p/Q3OXKJAgpx8WmXGdx+6EvudFH
-	uOB1bljDCtvIGzmfYWdL2t2588ac/H7h5E94bC7AQriebJWwfywiIjYtuLD5f4F/LMdTVjf9ZiB9f
-	qOoGqpiQ==;
+	bh=wb69xevabgQmFZqaaKZbB6ba2WMM/rgvKxL0qThMEZ4=; b=sulwGGaI1hg2j5K00R2DNIZikr
+	OAhm8t/JhR/BH8/a3VZ05zmhQRy/RBuqU6cJEI0obnqtyXs9D9hlThPel8WNwG5IBtq6hsryjgST4
+	WN/X1T95Yso5kipMv6YcG6/kEzhT4HoRPAL0AWK7THf9eQDS7tT9eTqTbsNpEMUTd1BiQrYs3JbUg
+	bmUsUid4OT6Bd/THqkDXkuMpBrR9+BF4BOR+QeKzZxL5dr65TgPwCT6wCE44jtJgApVB0tBCdpNj9
+	nKrpbpgMHKigLsWAs0IXs0aKfAOIakepekJBKvjFvU25U+49R9QFkCQNta8KI3KuURWDobxpbfQXA
+	z2ParDKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHO0H-0000000HCns-21RE;
-	Mon, 27 Apr 2026 15:36:09 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	id 1wHO0I-0000000HCpU-2Ajp;
+	Mon, 27 Apr 2026 15:36:10 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHNzv-0000000HCTf-0xzR
+	id 1wHNzw-0000000HCUY-1Ntz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 15:35:48 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-4440c5944fbso1288003f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 08:35:45 -0700 (PDT)
+	Mon, 27 Apr 2026 15:35:49 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-48a5adc141cso37668595e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 08:35:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777304144; x=1777908944; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777304146; x=1777908946; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=+WwzihijZssqSOtMqDRFEFZS96kFccDT7AOSNModvwc=;
-        b=LMoY9k0oB9kxf2yrk3J+ra5reoMq/jnI9JZMO4kBDIFTNPe1OBa7Xxs3/l/8wzytpV
-         4fNJi3dT3VU2/N6NewXwW1k0J3R50f+07qsDoda7UwUnGTV3ImOFjqdK5sY8kyitqQiF
-         Ug6DKAj/YQlWj6/yb54fOKNV51DHNnvavW1kmmbSK0GIJug1sBS4mirpo+AQWBP5aQO+
-         D3b0h1NW165UbJBC0Z/T0PPpfTdAX40kHpF0p2duy58HFTvR4t/DRyprpiofaESUNoio
-         dxGlfcAUGZRT3P+H7UbgN/uUTfVZEBCOr1V5n+rTGZmp6qJDepIlUMzt7sNs+fRrpgrX
-         00HQ==
+        bh=wb69xevabgQmFZqaaKZbB6ba2WMM/rgvKxL0qThMEZ4=;
+        b=FI7sY9u9fxc9yH6vq7tGjCoPV0P2CEBfbYIgLDRniGnauQblkMxWuO6nZbGdwALgEz
+         E76/kPt1Nj88BFZ3mA1xLa8wqWbJHfpYGpPGii0mDP8bwjJp1oWdG/CkNcctwJgei+jB
+         8mdHKdQhM2M4FK7WbfRtUDgeoFduF8lohwgPzaWP3w0qN81yRYaJLbzvzkLzpHbbQzeC
+         wHgtJhsC0uRbr+55PkuRq+KQNlJuvJOEIgeE7+5zZsWX5ND0IAcywETfcNSuAZsQGJS7
+         vSpIDLxN7OQTOtXAo1x8N19D4qWKXueallaBumnjyVzFk9rJt242lfFsT8PteQvO3En0
+         Q1xQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777304144; x=1777908944;
+        d=1e100.net; s=20251104; t=1777304146; x=1777908946;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+WwzihijZssqSOtMqDRFEFZS96kFccDT7AOSNModvwc=;
-        b=AkkpMUAW8SJcFBwufB5F6x1sKDHA+gKp57Gu+g4AHA6JmoAw8E1gpaRn8a0lNuZcyr
-         WahjYCuTpASdQBWimoJyMRE88/Pgqb2cO4LoXRVIJveBINeVrVbeTx1eANIkWOxl4HZQ
-         hCrLjAgXMaEFc8f2aoCOqOyV5VGCZNvjrgoLviHoSje3FwMBaznZHjU25/2ot1aNQlsN
-         lkvMyy7ajnNfgGvDsoYz3TeXngbjugnvnbZWXgJCGX8GsQqnqnXomsQN8SZeyTr3RfB4
-         iFKZKkgjPtDIwRWHQKdT2qcMwTg29QFnVdmLGQ7Gb426E9Prbsa3/mljdNvFMSzWjlDC
-         TXBw==
-X-Gm-Message-State: AOJu0YyAwJ1DFSFG26uuHqg+888IcdhGgpsz9Oe0kRJ93L77WJpzTl77
-	mCkuYX2H9dMH7b/zydPI3CenfmF5/LF2WGAsnryOim6m8jgbmtLTCaaTzQxtsFWS5DELbv8FbYY
-	Y8My3pkPjkjIUx7yc0JSnUZg5fcR6zyyIAtLDSyAoZAzMQWSaV43Nqz0a/zUml3FEN89oBR+5Bz
-	y4DNNrv77G6EPlnusCGRhrprXRW/7weZnDhxkp670qO7Jy
-X-Received: from wrbdy16.prod.google.com ([2002:a05:6000:e50:b0:43d:729a:b525])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a5d:5d05:0:b0:441:247a:e98e
- with SMTP id ffacd0b85a97d-441247ae9ebmr36895346f8f.24.1777304141472; Mon, 27
- Apr 2026 08:35:41 -0700 (PDT)
-Date: Mon, 27 Apr 2026 17:34:24 +0200
+        bh=wb69xevabgQmFZqaaKZbB6ba2WMM/rgvKxL0qThMEZ4=;
+        b=WOcd776LmgC5s7cyeFedrEB9Z6v+jp1G4yLNnXPPIGxlKHc41CvOEo2eVdSKvSIgvu
+         ivETlP5e7ql/eS2Og22Idgs9KniLz4vxb9T63vqxxe2ZIM4S3RXD8CnfpuN+9HsxVq4t
+         P3nf+UEgmFXxDgXIRhHtOd52aw7bv8gRRBxNQ8ZGjulLazC2ATeIix+dShIA0WLtjcb1
+         Ylg/NU6oXOslHkLEV3eKgL00iKB1aAg2kNYRtNbPDqDdLHtOz34Bzy5GlKrYJKhoviiO
+         kVtc8iwdoRlz3pL1CYmz+H1Qkq67VGcru+CGPQ0wXXPDAoDlll+xd5zRFgwo7UsTXIjO
+         FgKA==
+X-Gm-Message-State: AOJu0YwQHp/PRVLI+7ACjegzzD2t/2OG73dfYs8/U+FyHkvwrftJDJO1
+	uQ3gptcZCgI0xGvBltQOnblgkJlqKD+5fVn+kqy91FY1RhOi1XxQqAbU5TMsdq29VYePUhYwgg6
+	b8gAk6RGrMxp5Wqc+9g0XzegTN68K3vB2fAwQcgq8SU78zAnxqKk9EyM2k5+2AiSy1XCYk2ZnXG
+	9y8cSWBTE8mNaqmlbKQ1Hx6RZ9MAzeFzBdRIycUOA4MZ1V
+X-Received: from wmbd5.prod.google.com ([2002:a05:600c:58c5:b0:487:38f4:9550])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:870e:b0:488:aa33:dc8f
+ with SMTP id 5b1f17b1804b1-488fb84ffb8mr585875005e9.0.1777304146208; Mon, 27
+ Apr 2026 08:35:46 -0700 (PDT)
+Date: Mon, 27 Apr 2026 17:34:28 +0200
 In-Reply-To: <20260427153416.2103979-17-ardb+git@google.com>
 Mime-Version: 1.0
 References: <20260427153416.2103979-17-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=918; i=ardb@kernel.org;
- h=from:subject; bh=2M+2R/xfGuHti5Wurk6r5E9xqbGluJyDsIl7VYMOsyI=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIfN9E8tUw49az8LPeSafvHDx3bajk3bfqxCf4/ElO9n+i
- EqbmadXRykLgxgXg6yYIovA7L/vdp6eKFXrPEsWZg4rE8gQBi5OAZhIxHGGf2rT5kc6JZw8EfTc
- dtq0B6b/C6uZdnxyULeaKj/79Ou3L1gZGd7fr5d6L8ZyoL7vypL3Bx1P/wzxNdu7JOz5R5H7c65 9f80EAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2467; i=ardb@kernel.org;
+ h=from:subject; bh=TVDzWXCizjusDiJt30HNr7P0mL2kBIblXPS9xGhGOSo=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIfN9E+ehGfdF/QRq/FmuJKZkGvWc/iT0g6Gl2I5tubnAy
+ Y9CG793lLIwiHExyIopsgjM/vtu5+mJUrXOs2Rh5rAygQxh4OIUgIlEqjAyvDcKPHlm+gTZr9FO
+ zowHGPXW3UnPWRRZvm1iz+ZPz5uFVjMyPDzwccZLZ47pM1nk2/aq55zdOYtBz/fIlbs/+xIOXNz +mgUA
 X-Mailer: git-send-email 2.54.0.rc2.544.gc7ae2d5bb8-goog
-Message-ID: <20260427153416.2103979-24-ardb+git@google.com>
-Subject: [PATCH v4 07/15] arm64: mm: Permit contiguous descriptors to be rewritten
+Message-ID: <20260427153416.2103979-28-ardb+git@google.com>
+Subject: [PATCH v4 11/15] arm64: mm: Don't abuse memblock NOMAP to check for overlaps
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com, 
@@ -83,8 +83,8 @@ Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com,
 	linux-hardening@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_083547_320595_C1708274 
-X-CRM114-Status: GOOD (  12.47  )
+X-CRM114-CacheID: sfid-20260427_083548_390749_E50C3C47 
+X-CRM114-Status: GOOD (  14.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,32 +101,63 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-Currently, pgattr_change_is_safe() is overly pedantic when it comes to
-descriptors with the contiguous hint attribute set, as it rejects
-assignments even if the old and the new value are the same.
+Now that the DRAM mapping routines respect existing table mappings and
+contiguous block and page mappings, it is no longer needed to fiddle
+with the memblock tables to set and clear the NOMAP attribute in order
+to omit text and rodata when creating the linear map.
 
-So relax the check to allow that.
+Instead, map the kernel text and rodata alias first with the desired
+attributes, so that they will not be remapped later with different
+attributes when mapping the memblocks.
 
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/arm64/mm/mmu.c | 4 ----
- 1 file changed, 4 deletions(-)
+ arch/arm64/mm/mmu.c | 24 +++++++-------------
+ 1 file changed, 8 insertions(+), 16 deletions(-)
 
 diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 9610dd2d7bd9..bfb2f1cae724 100644
+index 5e2348b15783..1a4b4337d29a 100644
 --- a/arch/arm64/mm/mmu.c
 +++ b/arch/arm64/mm/mmu.c
-@@ -134,10 +134,6 @@ bool pgattr_change_is_safe(pteval_t old, pteval_t new)
- 	if (pte_pfn(__pte(old)) != pte_pfn(__pte(new)))
- 		return false;
+@@ -1148,12 +1148,15 @@ static void __init map_mem(void)
+ 		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
  
--	/* live contiguous mappings may not be manipulated at all */
--	if ((old | new) & PTE_CONT)
--		return false;
+ 	/*
+-	 * Take care not to create a writable alias for the
+-	 * read-only text and rodata sections of the kernel image.
+-	 * So temporarily mark them as NOMAP to skip mappings in
+-	 * the following for-loop
++	 * Map the linear alias of the [_text, __init_begin) interval
++	 * as non-executable now, and remove the write permission in
++	 * mark_linear_text_alias_ro() above (which will be called after
++	 * alternative patching has completed). This makes the contents
++	 * of the region accessible to subsystems such as hibernate,
++	 * but protects it from inadvertent modification or execution.
+ 	 */
+-	memblock_mark_nomap(kernel_start, kernel_end - kernel_start);
++	__map_memblock(kernel_start, kernel_end, pgprot_tagged(PAGE_KERNEL),
++		       flags);
+ 
+ 	/* map all the memory banks */
+ 	for_each_mem_range(i, &start, &end) {
+@@ -1165,17 +1168,6 @@ static void __init map_mem(void)
+ 		__map_memblock(start, end, pgprot_tagged(PAGE_KERNEL),
+ 			       flags);
+ 	}
 -
- 	/* Transitioning from Non-Global to Global is unsafe */
- 	if (old & ~new & PTE_NG)
- 		return false;
+-	/*
+-	 * Map the linear alias of the [_text, __init_begin) interval
+-	 * as non-executable now, and remove the write permission in
+-	 * mark_linear_text_alias_ro() below (which will be called after
+-	 * alternative patching has completed). This makes the contents
+-	 * of the region accessible to subsystems such as hibernate,
+-	 * but protects it from inadvertent modification or execution.
+-	 */
+-	__map_memblock(kernel_start, kernel_end, PAGE_KERNEL, 0);
+-	memblock_clear_nomap(kernel_start, kernel_end - kernel_start);
+ }
+ 
+ void mark_rodata_ro(void)
 -- 
 2.54.0.rc2.544.gc7ae2d5bb8-goog
 
