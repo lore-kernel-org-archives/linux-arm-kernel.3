@@ -4,77 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8D62FF885E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 08:55:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A4CDFF8861
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 08:55:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lLoQm73qYnA/djFhKSk/MN3OcDjeoDKzJAxqVRgp0vk=; b=C7kLGpsOgd+1b7OVtvILmX3sg3
-	vvvj00ubS1pFt6Q+zO0WU1y1KcKXrLqkhxKDKelSpUr7SZ1iq0Jv29u2EIJ0N2CcS2M8PLLhK+N9q
-	WKJZXAMBjb/oXmXew0tWcQSSleUjpzzTIyeKZgNZOE1sCsvcUCohNiF+Tgc4YP9yv3D38DXsQf52+
-	p/B2R6xWP5oVwzjTq7BqIXf74SgSkTsJSyfDy6N3nupG2sHaY7DwrWnNXJyEQG+OSunrsQVF+0frC
-	z0A6W6AYwnbD8A5mZzwNdVtUHxWu2Y39miaQ/tSbP777dO6VrQgkkHZmnhmfJn6aZxBUCtp5ivUaN
-	GMtpWOwg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=g+pkBk61K0bONezvT3hKFR4CsnavUHfQ0OwvNOKj+rk=; b=zSojZOCULaAaxDetB2kcSR0Rvl
+	ojo5NkX0aQHo5rHY29YiCq/+Fu8VJXffxWxtIPbKdPWk06MxJ+mAdvv46AeO4uM9Jqv6lHO8HzrDh
+	O5wuQzXYS+d4niyPl3+9/pjSGUefA3/6wPY34tAwPwZwnCrcQp1ljvTfiXn7fmYehA/sTmeVY31vu
+	cDw56y4llitV7+ResqPVpaO6YxjIE90ltjeVOMIy5Oc4rPEzrZWISUgvvSxgGrS8IRG/q5G7Dcc3y
+	4eOlKGHMyHG4ecwQt4wEqCnFJrdxEoGB2Ld0z3MSG5TQWYxC22fceRSxj/2jYXWVPYSUhvEzxXvoL
+	1L24lkUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHHkY-0000000GVlI-3sYu;
-	Mon, 27 Apr 2026 08:55:30 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wHHke-0000000GVqe-0whI;
+	Mon, 27 Apr 2026 08:55:36 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHHkS-0000000GVgv-3dFX
+	id 1wHHkd-0000000GVpT-20uR
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 27 Apr 2026 08:55:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=g+pkBk61K0bONezvT3hKFR4CsnavUHfQ0OwvNOKj+rk=; b=Rx0DXKr/WvtRkJy+HfkpcRKNR6
+	6jBDTWMgeAlv1TtmrouAJkKt+nO6rmjBAKijQ5apWgdLIoeTnR1HzDC9twM5Y/wJfGkXBLkYIx8Bp
+	kCLeeyGnmeywjcgwI72Gz2oC6aoLtmpmxKOMZp3aEWXBfnGE4XhQxS24oSwQWfib2Prv6/n2ZGpQb
+	FpF3AIOkZFPa4S1l8sHm/YlSFTJkSqosGWkxGWWvwS3ueM4UVJ1F6UxHQkTGL1smexcP834RwPaFX
+	QWupNNWghjE+KYM+EDM/yLQNVN1TlmjCB/RAH/ytUL9dO2EKhlDwsVgqsIMvJQrh7dj3Z9qlgHHGf
+	wEBKchNg==;
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHHkH-000000007Lu-3geE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 08:55:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 705FA43D0F;
-	Mon, 27 Apr 2026 08:55:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B972EC2BCC4;
-	Mon, 27 Apr 2026 08:55:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777280124;
-	bh=2LonPFnM9BahaLo9ZBu9rOu/lx6xKzGRSDuTtO9DK+0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=JZkS4Y0liJD6jbo1TIJm/zncvNe+Md28WWWWsFd4QpeGdRMnTI2z3ak9e07DG77+B
-	 +medIBpT7BrfFrwB8yefpTxphuDPm3HyZryQ8RYF/+bBF7atI87NDamUvWQ/sQQpz1
-	 TjQIZN+GkAEOmfsksthZiQCCo+ywT7QEgAY9wCpAnBJp5QQG1BikuGRqyEQ01qFKIi
-	 bltzBkrGseN4oR3BePHayKG/8X6GACT9EdsjybjunznpuCwjVXwMGLTOu4TvpNEgBE
-	 qEwOiXcL+/YVBBgQLpRLTwqVT+mdAOm8AgUZB9onfM5kOnhEI6vc0V6Xk7GnsVU7Ex
-	 CAq8qrOrxe6Dw==
-From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-To: linux-coco@lists.linux.dev,
-	kvmarm@lists.linux.dev,
+	Mon, 27 Apr 2026 08:55:24 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4852b81c73aso83015605e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 01:55:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1777280111; x=1777884911; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=g+pkBk61K0bONezvT3hKFR4CsnavUHfQ0OwvNOKj+rk=;
+        b=QihJgHVAQs2ctx/d40qXO8uUuMGHKjDMUrh62DZdlJNYBwea3aADeXk8piL5HNPoYf
+         pZ46ZjdpTR5PsTRfOPC6euYPoZY0iWImDD59dVqpY4TMDKUKNzMz7Ly8At5vXbLbb/4D
+         CqeqUaVrc4mea3nZnKYyDlEZO8c/lBVf9PYP+9yNdE2tzGlBAJop4McnsJ7Eul8Dxv8R
+         96jPlwSai8IRMdD3leSKzN2MYyMKbjN50fnn8AKaqni9jsw2jKzfriBZm+rP2PSbE/YQ
+         gCd/+uJWtDjLwRQ4kZm9DhQuFzjRXdmap/4cazWNbvg2TXE/87s/prNX6E7WaSaZ+iH4
+         qTWA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777280111; x=1777884911;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=g+pkBk61K0bONezvT3hKFR4CsnavUHfQ0OwvNOKj+rk=;
+        b=V1ggE8E4tKxF/CoVA1S4N6NzhOS5b/cNC+d9MmEbJOjyGnwEA+npBvXTOrdOEmlxre
+         jP5+DAEftGC/8fuMhTh0cpF7kRJRjP4oRH/qXS3bSma7Qq9LPgTMTXTmmg5BbFh2sVEC
+         wrUwuhdtzuyXDDTxRRKSw7hiPfDvb/7EM/hfeIOI2GCHOYHcdEjLzzLR60XRmnRL2ncZ
+         9dgfmdzjV3ag76IKXYEYDNq+oee+SliY4K7Imdqp7pShtlznGCI8PQ+OSJnnahGWBb11
+         gDFiL2xokmgDLiYAW7rJpF6MQAkC3mvbFuaTFB9XNPCPLsisDNjPFQo0r8hK+tw7F0Sk
+         rOag==
+X-Forwarded-Encrypted: i=1; AFNElJ/k2lczFfVjzn3/z+YmZGckUvz6/SzltRF0ZKe8t5lqmmJZ9wykvPIvSEu4/8wfKVupTxQjsRfn6rROx8H8ZlbZ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy6P/4fB2i9Wy4WU5JB5pvGYLppeTQP7Li/z+AW7AlCKyCes5YB
+	Qigw/aMkxHGkJkeOI3I/FB+Qi3WFhup76mmkoPYhzDnEUMgDMGnpdJO6
+X-Gm-Gg: AeBDietqxxtkmCK4JA9WPt8ykerZQFdR9O2ZEKC+E/VT7i+EirEb6kRomsDjtqAVFq9
+	VTgjbLkIHsNyuapH+m2o8O62rcwzQWv1ADwRFL3UqbTB4LED47qbKAIwNJLSThiHdaFDs/0Q8Z/
+	+nBJgtkFJ4Hu9ocRCps8md1Gjw0+1HvUNnuDoiP9E7oGHDwb/5/iJ4RNtLAHrZ/pmH2rXiDCSbP
+	hsC5L/TLP36Yq2CNQuRUhocKUYpC59R5tke5GZdOm7iJ5k7o7WM2B4k5gz5u7hj7yvw5HCa/zDU
+	pb7AmlKXhGOxJktdDwujZSAiXeQsVhMSddiiAL0DwyL5VYz+8PIBqi6p9Tjn+ypzJJXqCKOPMzu
+	GwzZPKOGCiQFv0+AHDvubg3D0ImMh0ZDhFZIndaIoG4JqU3cf0acB/bGxvCHS9Hubu7NhvR3Q3f
+	8G0B65/kkvMYiz7/+ZPIUIeCoCjpkIdFv9xiEBsEJkHKluVadgbdLFK0Y7CgY=
+X-Received: by 2002:a05:600c:4a15:b0:489:1aed:1658 with SMTP id 5b1f17b1804b1-4891aed16d8mr269026355e9.23.1777280111056;
+        Mon, 27 Apr 2026 01:55:11 -0700 (PDT)
+Received: from localhost.localdomain ([196.235.152.26])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43fe4e4d5b1sm82248879f8f.30.2026.04.27.01.55.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Apr 2026 01:55:10 -0700 (PDT)
+From: Salah Triki <salah.triki@gmail.com>
+To: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Joerg Roedel <joro@8bytes.org>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Pranjal Shrivastava <praan@google.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Ortiz <sameo@rivosinc.com>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Xu Yilun <yilun.xu@linux.intel.com>
-Subject: [RFC PATCH v4 14/16] KVM: arm64: Unmap device mappings when a private granule is destroyed
-Date: Mon, 27 Apr 2026 14:23:42 +0530
-Message-ID: <20260427085344.941627-15-aneesh.kumar@kernel.org>
+	linux-mediatek@lists.infradead.org,
+	Salah Triki <salah.triki@gmail.com>
+Subject: [PATCH] iio: adc: mt6359: fix unchecked return value in mt6358_read_imp
+Date: Mon, 27 Apr 2026 09:54:57 +0100
+Message-ID: <20260427085458.38546-1-salah.triki@gmail.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260427085344.941627-1-aneesh.kumar@kernel.org>
-References: <20260427085344.941627-1-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_015524_995103_94C0303F 
-X-CRM114-Status: GOOD (  21.47  )
+X-CRM114-CacheID: sfid-20260427_095520_926264_2E7E4912 
+X-CRM114-Status: GOOD (  16.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,183 +118,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ensure tearing down a private granule also tears down any RMM device
-mapping by reading the RTT entry, invoking the new RMI_VDEV_MEM_UNMAP,
-and remembering the entry’s RIPAS so we only free RAM pages.
+In mt6358_read_imp(), the return value of regmap_read() is currently
+ignored. This is problematic because if the bus read fails the variable
+val_v remains uninitialized.
 
-Drive the device-unmap path when RIPAS transitions to EMPTY. Also roll
-back partially built device maps when errors occur.
+The function subsequently assigns this uninitialized stack value to
+*vbat, leading to incorrect measurement results being reported to
+the IIO subsystem without any error indication.
 
-Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+Update the function to check the return value of regmap_read(). Ensure
+that mt6358_stop_imp_conv() is still called to clean up the hardware
+state before returning the error code.
+
+Signed-off-by: Salah Triki <salah.triki@gmail.com>
 ---
- arch/arm64/include/asm/rmi_smc.h |  1 +
- arch/arm64/kvm/rmi.c             | 87 ++++++++++++++++++++++++++++++--
- 2 files changed, 83 insertions(+), 5 deletions(-)
+ drivers/iio/adc/mt6359-auxadc.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/rmi_smc.h b/arch/arm64/include/asm/rmi_smc.h
-index 6bbabcd853bd..f3ad545d68b7 100644
---- a/arch/arm64/include/asm/rmi_smc.h
-+++ b/arch/arm64/include/asm/rmi_smc.h
-@@ -199,6 +199,7 @@ enum rmi_ripas {
- 	RMI_EMPTY = 0,
- 	RMI_RAM = 1,
- 	RMI_DESTROYED = 2,
-+	RMI_DEV = 3,
- };
+diff --git a/drivers/iio/adc/mt6359-auxadc.c b/drivers/iio/adc/mt6359-auxadc.c
+index 6b9ed9b1fde2..f927bff4a26a 100644
+--- a/drivers/iio/adc/mt6359-auxadc.c
++++ b/drivers/iio/adc/mt6359-auxadc.c
+@@ -497,10 +497,13 @@ static int mt6358_read_imp(struct mt6359_auxadc *adc_dev,
+ 		return ret;
  
- #define RMI_NO_MEASURE_CONTENT	0
-diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
-index 3a549dc87906..cc9e045dcae9 100644
---- a/arch/arm64/kvm/rmi.c
-+++ b/arch/arm64/kvm/rmi.c
-@@ -720,6 +720,11 @@ static int realm_create_rd(struct kvm *kvm)
- 	return r;
- }
+ 	/* Read the params before stopping */
+-	regmap_read(regmap, reg_adc0 + (cinfo->imp_adc_num << 1), &val_v);
++	ret = regmap_read(regmap, reg_adc0 + (cinfo->imp_adc_num << 1), &val_v);
  
-+static int rmi_rtt_dev_unmap(unsigned long rd_phys,
-+		unsigned long base, unsigned long top,
-+		unsigned long *out_ipa, unsigned long *out_desc,
-+		unsigned long *rmi_ret);
+ 	mt6358_stop_imp_conv(adc_dev);
+ 
++	if (ret)
++		return ret;
 +
- static void realm_unmap_private_range(struct kvm *kvm,
- 				      unsigned long start,
- 				      unsigned long end,
-@@ -728,16 +733,33 @@ static void realm_unmap_private_range(struct kvm *kvm,
- 	struct realm *realm = &kvm->arch.realm;
- 	unsigned long rd = virt_to_phys(realm->rd);
- 	unsigned long next_addr, addr;
-+	struct rtt_entry rtt_entry;
- 	int ret;
- 
-+	/* Called with mmu_lock held, so RTT entry can't change. */
-+	lockdep_assert_held_write(&kvm->mmu_lock);
-+
-+	/* An unmap request won't mix different RIPAS ranges. */
-+	if (rmi_rtt_read_entry(rd, start, RMM_RTT_MAX_LEVEL, &rtt_entry))
-+		return;
-+
- 	for (addr = start; addr < end; addr = next_addr) {
-+		unsigned long rmi_ret;
- 		unsigned long out_range;
- 		unsigned long flags = RMI_ADDR_TYPE_SINGLE;
- 		/* TODO: Optimise using RMI_ADDR_TYPE_LIST */
- 
- retry:
--		ret = rmi_rtt_data_unmap(rd, addr, end, flags, 0,
--					 &next_addr, &out_range, NULL);
-+		if (rtt_entry.ripas == RMI_DEV)
-+			ret = rmi_rtt_dev_unmap(rd, addr, end,
-+						&next_addr, &out_range,
-+						&rmi_ret);
-+		else
-+			ret = rmi_rtt_data_unmap(rd, addr, end, flags, 0,
-+						 &next_addr, &out_range, NULL);
-+
-+		if (!ret && rtt_entry.ripas == RMI_DEV)
-+			ret = rmi_ret;
- 
- 		if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
- 			phys_addr_t rtt;
-@@ -763,6 +785,7 @@ static void realm_unmap_private_range(struct kvm *kvm,
- 		if (WARN_ON(ret))
- 			break;
- 
-+		//FIXME!! where are we freeing the private page?
- 		if (may_block)
- 			cond_resched_rwlock_write(&kvm->mmu_lock);
- 	}
-@@ -1152,10 +1175,27 @@ static int realm_set_ipa_state(struct kvm_vcpu *vcpu,
- 			       unsigned long *top_ipa)
- {
- 	struct kvm *kvm = vcpu->kvm;
--	int ret = ripas_change(kvm, vcpu, start, end, RIPAS_SET, top_ipa);
-+	int ret;
- 
--	if (ripas == RMI_EMPTY && *top_ipa != start)
--		realm_unmap_private_range(kvm, start, *top_ipa, false);
-+	/*
-+	 * We use the RIPAS value to decide between a data_destroy or a
-+	 * dev_mem_unmap. Hence call realm_unmap_private_range() before
-+	 * ripas_change().
-+	 *
-+	 * Technically, for private RAM, we don't need to call
-+	 * realm_unmap_private_range(), because any RIPAS change via RSI would
-+	 * trigger a memory fault exit. That would, in turn, invalidate the
-+	 * guest's memfd range, which then triggers realm_unmap_private_range()
-+	 * automatically.
-+	 *
-+	 * However, this doesn’t apply to RIPAS_DEV, because we currently
-+	 * lack a user-space API to call realm_dev_mem_unmap() in response to a
-+	 * memory fault exit. Therefore, the unmap must happen explicitly before
-+	 * the RIPAS change.
-+	 */
-+	if (ripas == RMI_EMPTY)
-+		realm_unmap_private_range(kvm, start, end, false);
-+	ret = ripas_change(kvm, vcpu, start, end, RIPAS_SET, top_ipa);
- 
- 	return ret;
- }
-@@ -1301,6 +1341,27 @@ static int rmi_rtt_dev_map(unsigned long rd_phys, unsigned long vdev_phys,
- 	return 0;
- }
- 
-+static int rmi_rtt_dev_unmap(unsigned long rd_phys,
-+		unsigned long base, unsigned long top,
-+		unsigned long *out_ipa, unsigned long *out_desc,
-+		unsigned long *rmi_ret)
-+{
-+	unsigned long flags = RMI_ADDR_TYPE_SINGLE;
-+	struct rmi_sro_state *sro __free(sro) =
-+		rmi_sro_init(SMC_RMI_RTT_DEV_UNMAP, rd_phys, base, top, flags, NULL);
-+	if (!sro)
-+		return -ENOMEM;
-+
-+	*rmi_ret = rmi_sro_execute(sro);
-+	if (*rmi_ret)
-+		return 0;
-+
-+	*out_ipa = sro->regs.a1;
-+	*out_desc = sro->regs.a2;
-+
-+	return 0;
-+}
-+
- static int rmi_rtt_dev_validate(unsigned long rd_phys, unsigned long rec_phys,
- 		unsigned long base, unsigned long top, unsigned long *out_top,
- 		unsigned long *rmi_ret)
-@@ -1401,9 +1462,12 @@ int realm_dev_mem_map(struct kvm *kvm, unsigned long pdev_phys,
- 		unsigned long end_ipa, unsigned long start_pa)
- {
- 	int ret;
-+	unsigned long rmi_ret;
- 	unsigned long top_ipa;
- 	unsigned long base_ipa = start_ipa;
-+	struct realm *realm = &kvm->arch.realm;
- 	struct kvm_s2_mmu *mmu = &kvm->arch.mmu;
-+	phys_addr_t rd_phys = virt_to_phys(realm->rd);
- 	struct kvm_mmu_memory_cache cache = { .gfp_zero = __GFP_ZERO };
- 
- 	do {
-@@ -1431,6 +1495,19 @@ int realm_dev_mem_map(struct kvm *kvm, unsigned long pdev_phys,
- 		for (start_ipa = ALIGN(base_ipa, RMM_L2_BLOCK_SIZE);
- 		     ((start_ipa + RMM_L2_BLOCK_SIZE) < end_ipa); start_ipa += RMM_L2_BLOCK_SIZE)
- 			fold_rtt(&kvm->arch.realm, start_ipa, RMM_RTT_BLOCK_LEVEL);
-+	} else {
-+		/* unmap the partial mapping. [base_ipa, start_ipa) */
-+		while (start_ipa > base_ipa) {
-+			unsigned long out_ipa;
-+			unsigned long out_range;
-+
-+			ret = rmi_rtt_dev_unmap(rd_phys, base_ipa, start_ipa,
-+					&out_ipa, &out_range, &rmi_ret);
-+			if (ret || (rmi_ret != RMI_SUCCESS))
-+				break;
-+			WARN_ON(undelegate_range_desc(out_range));
-+			base_ipa = out_ipa;
-+		}
- 	}
- 
- 	return ret;
+ 	if (vbat)
+ 		*vbat = val_v;
+ 	if (ibat)
 -- 
 2.43.0
 
