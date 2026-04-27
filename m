@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43D27FF8861
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1E9AFF8868
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 06:23:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,24 +12,24 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zLe/JUqnW5/3GA47FWix+U9BvqXd61kPAp78FpLV5z8=; b=KnR+PwMztuoFflegX0kZ6KPzzb
-	7ki4ShAWi/I3n4sgRbaBq5n/KhySjAt9hZMDHpvn2RRoZ2cW4IwwkArqXTgLaSVKC1k+KqrFdkxEK
-	8hmkfbjpGctOH5bPnnpVEaH7MCkKMu+ArtuluUkkZazZAKFDZu9q2xdlTtvOELPjHPvftkeaqXE8y
-	byJevK7QzbVK4azpHkqraY32n3NWU2428q9fSBTFFrFE3351DDOpk2Q5fAhFrGIgvA8ek87mnpQZv
-	CsWdZljvrgoGZCqel49cOULlTfvlapWGoCxexVGOOmbFvfe1f9q7Hw90aDPuZg5MuadssjtRYcTPr
-	OAjl9kFQ==;
+	bh=zLe/JUqnW5/3GA47FWix+U9BvqXd61kPAp78FpLV5z8=; b=xjy9xCuogp6+CZ2lCJqlx90XEN
+	/Sguv7jHi2sqqNPMuIaV2PsZsKqK08qYWKlR8YMEqEMCC+2VBgo1ZBLZYVtwNZ7EMNsyawt9hNR1C
+	QKFmkI5dxuAwhRHFqpOvnmHr9gowWZjcAnjE0IL2bJZpmyo98mmJcRGSlQ4ZEuVyBRTRLWxzz9g0H
+	BnTWtTmeGU56wHo3bdbo0RQhMlXpTymrWxc9RRiWUNzpiwc92Hx8jnfeByTqbny1RlFQwRoGGK8AI
+	l45C54x1ssGmITuTP0xGnrZJhA2zM3pRKbtDrhpkxTL9O4ZuCpupQnBDSe0XSZkhRrYn6Tt1G78kS
+	0mZjLV7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHFNc-0000000GFoT-2c26;
-	Mon, 27 Apr 2026 06:23:40 +0000
-Received: from mail-m81129.netease.com ([47.88.81.129])
+	id 1wHFNd-0000000GFpv-3NC3;
+	Mon, 27 Apr 2026 06:23:41 +0000
+Received: from mail-m10134.netease.com ([154.81.10.134])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHFNU-0000000GFlr-3fNL
+	id 1wHFNX-0000000GFmL-1ZAl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 06:23:34 +0000
+	Mon, 27 Apr 2026 06:23:36 +0000
 Received: from albert-OptiPlex-7080.. (unknown [112.65.126.162])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 3c40fa9ef;
-	Mon, 27 Apr 2026 14:23:28 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 3c40faa12;
+	Mon, 27 Apr 2026 14:23:32 +0800 (GMT+08:00)
 From: Albert Yang <yangzh0906@thundersoft.com>
 To: gordon.ge@bst.ai,
 	krzk@kernel.org,
@@ -44,26 +44,26 @@ Cc: bst-upstream@bstai.top,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
 Subject: [PATCH v8 2/2] arm64: defconfig: enable BST SDHCI controller
-Date: Mon, 27 Apr 2026 14:23:25 +0800
-Message-ID: <20260427062326.3715732-3-yangzh0906@thundersoft.com>
+Date: Mon, 27 Apr 2026 14:23:29 +0800
+Message-ID: <20260427062329.3715925-3-yangzh0906@thundersoft.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260427062326.3715732-1-yangzh0906@thundersoft.com>
-References: <20260427062326.3715732-1-yangzh0906@thundersoft.com>
+In-Reply-To: <20260427062329.3715925-1-yangzh0906@thundersoft.com>
+References: <20260427062329.3715925-1-yangzh0906@thundersoft.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9dcd9b6d8e09cckunm8f7dadf41a30b9
+X-HM-Tid: 0a9dcd9b7bcb09cckunmcd249b321a30e7
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaHh1IVkhIGU1CQ0xPTBgeT1YVFA
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCTUoZVklMGB5CQhpMGhlLSlYVFA
 	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlKSklVTU5VSklNVUpNSVlXWRYaDxIVHRRZQVlPS0hVSk
 	tJT09PSFVKS0tVSkJLS1kG
 DKIM-Signature: a=rsa-sha256;
-	b=mArF+uuWr4C2cXUiQuTPGM8K5XKOcpmfHAIi5pfGGMC/boTXvd2WXJlR+XqwT8T7ZGDcQAWD6apTpFIRXjrxLgWTO6BKLfRc2P1gfUMhGztzEKfqTTSUw3KRwIIz2lWPPQvfPwuipiAzczfq14mNZfH0Mg8qPjVuv/YApL9lgTM=; c=relaxed/relaxed; s=default; d=thundersoft.com; v=1;
+	b=kWNXW7hE4p3PjGCbDKhGT7cqTDPgKQ5L6RN6Rm2+wzQeSs9LmfPaMsXJzfI3ix3VNh3tBkXvGo/RWKEhhm2AFGF7stN8NHO3WQVkCHcAORCtiXyIxHWB3jllLP0sQGOCi07xHkVQ0Yx4p3U0i1VsmtIX/4jHOKDHLYyrWmK+Fbc=; c=relaxed/relaxed; s=default; d=thundersoft.com; v=1;
 	bh=zLe/JUqnW5/3GA47FWix+U9BvqXd61kPAp78FpLV5z8=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_232333_489271_722FE522 
-X-CRM114-Status: UNSURE (   6.77  )
+X-CRM114-CacheID: sfid-20260426_232335_619510_C908B79D 
+X-CRM114-Status: UNSURE (   6.86  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
