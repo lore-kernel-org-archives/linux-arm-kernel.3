@@ -4,70 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3954FFF8860
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 13:44:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD484FF8860
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 13:45:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JkHp6xKRAW/MZYyZ7lFeEZ7wQ6ocTjVxF4mQwSs/vCI=; b=ZYYvubagFuQOxYTZyYjRnZFpvV
-	ciIoM+agfusrbpAWaWJDhYBnjFSY807Jf29bYoIKLUBV3JcGFN+S5Y9H6wLAnf14aKHDSBgR/BvFN
-	9VvFJ1b2/9RMQpOMsDcS01d2BgsSpKQY5h8n25vug2P8qW+C94BTKqL4MM4kLFxV4dT+RrGleKfUm
-	H0sjrVt2xC9okXb3EJc7dQ2LTimcA6o/5W6gEOmMr69lavdyj3SzhZF/5wU7lju0rNePXCGtxVOWf
-	/4tCJo1hZE71FvfxiWYIvxBLPF7sQAj2sfJDW9rVIgAapmS+AMp7D4m4DoCSloVXl+wni7CfWpzWt
-	2yYR1Hsg==;
+	bh=9kmXfnFKdD/dXQ7uFNoeFuBou+trtZ2ZKzOYaz73C08=; b=B9Ok7eIVrKK3VKZum5Jj7e9sNN
+	fwv7Cny38E8A1Rfyw3tByj9If7Jz3MuGju2PqGqUvocijMkhchh7g1esy0RSIh/3/jNQpgt9e8wM0
+	7i62MA/Gj0+W9taY84zbZAZfPftwE9Yjxrt7vy54F3PXoKdfAwx0Ryghe+ApnLPJNfae9HRS8RmSt
+	1z5a0BpWTJOYEP5anxwNDD30zV5bMWWXHPVSqt455i3666CuWosebuOh7IKwxT2AfRt0lpHc1igkI
+	N7fnpuL5uHZqvwl29C5gfXIHYC1peb9iEtQLvVhzF8MNaQye5NZIUUH1DCLLa/ddGP3ZxUJWH/15V
+	1HKwU+Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHMGH-0000000H1Le-010S;
-	Mon, 27 Apr 2026 13:44:33 +0000
+	id 1wHMGk-0000000H1Pq-1Ts2;
+	Mon, 27 Apr 2026 13:45:02 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHMGE-0000000H1LK-1xDV
+	id 1wHMGh-0000000H1Og-3vSs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 13:44:31 +0000
+	Mon, 27 Apr 2026 13:45:01 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0EA1A1684;
-	Mon, 27 Apr 2026 06:44:23 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 95F961684;
+	Mon, 27 Apr 2026 06:44:53 -0700 (PDT)
 Received: from gaia.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 110773F763;
-	Mon, 27 Apr 2026 06:44:25 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5A9BC3F763;
+	Mon, 27 Apr 2026 06:44:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777297468; bh=Px/W/Ya2SR7lP2+gVdyjKWhgWqDhPeYV/Ic2w6HMEeQ=;
+	t=1777297499; bh=K+MSDdOm2QRoJbgl9KhrnuSleUCOCuQeXduuzuu8BzE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ACj7EZ6xUTVoXpW8tnBi3R3snDJlEy+3KZmtG/9Wl9R+21vW7Uw0AZHFgRINaOlCM
-	 7DsKo5KWBHKjcDPED2EljkY/Vjt1iJRtmC4/V/Ov1Ee0KI3tSqvTrZTNKNv42KYi/y
-	 CyOHEaCImUHAGG31urirAnZnsSCzfATmJBzTGlNQ=
+	b=lJyYuhmFOxJ/YjTDQ327Ncm9AxyUW7U3dZ6GuC4qPusgPezm96WHUs/7/lq8iOwZC
+	 sRY3SyL/hBjsl8pS1njRSPq9a8OcJiVHXyj57eRKcRj7val7lRQ7nOrcTe2Y87AaOi
+	 F6pt1Fu0ZJntF1qseVZvX7/9F8lQcq0dFpKARiFk=
 From: Catalin Marinas <catalin.marinas@arm.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	Huisong Li <lihuisong@huawei.com>,
+To: Will Deacon <will@kernel.org>,
+	mark.rutland@arm.com,
 	Breno Leitao <leitao@debian.org>
-Cc: "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	linux-acpi@vger.kernel.org,
+Cc: leo.bras@arm.com,
+	leo.yan@arm.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	pjaroszynski@nvidia.com,
+	palmer@dabbelt.com,
+	paulmck@kernel.org,
+	puranjay@kernel.org,
+	usama.arif@linux.dev,
 	rmikey@meta.com,
-	kernel-team@meta.com,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] ACPI: arm64: cpuidle: Tolerate platforms with no deep PSCI idle states
-Date: Mon, 27 Apr 2026 14:44:21 +0100
-Message-ID: <177729716542.3579760.5742318124586748645.b4-ty@arm.com>
+	kernel-team@meta.com
+Subject: Re: [PATCH v2] arm64/irqflags: __always_inline the arch_local_irq_*() helpers
+Date: Mon, 27 Apr 2026 14:44:44 +0100
+Message-ID: <177729716541.3579760.1029539154605428256.b4-ty@arm.com>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260420-ffh-v1-1-6b4c10fec442@debian.org>
-References: <20260420-ffh-v1-1-6b4c10fec442@debian.org>
+In-Reply-To: <20260421-arm64_always_inline-v2-1-c59d1400514d@debian.org>
+References: <20260421-arm64_always_inline-v2-1-c59d1400514d@debian.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_064430_632763_BF57DF94 
-X-CRM114-Status: UNSURE (   7.05  )
+X-CRM114-CacheID: sfid-20260427_064500_063727_651E9FA7 
+X-CRM114-Status: UNSURE (   9.23  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,19 +80,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 20 Apr 2026 02:27:13 -0700, Breno Leitao wrote:
-> Commit cac173bea57d ("ACPI: processor: idle: Rework the handling of
-> acpi_processor_ffh_lpi_probe()") moved the acpi_processor_ffh_lpi_probe()
-> call from acpi_processor_setup_cpuidle_dev(), where its return value was
-> ignored, to acpi_processor_get_power_info(), where it is now treated as
-> a hard failure. As a result, platforms where psci_acpi_cpu_init_idle()
-> returned -ENODEV stopped registering any cpuidle states, forcing CPUs to
-> busy-poll when idle.
+On Tue, 21 Apr 2026 08:58:57 -0700, Breno Leitao wrote:
+> The arch_local_irq_*() wrappers in <asm/irqflags.h> dispatch between two
+> underlying primitives: the __daif_* path on most systems, and the
+> __pmr_* path on builds that use GIC PMR-based masking (Pseudo-NMI). The
+> leaf primitives are already __always_inline, but the wrappers themselves
+> are plain "static inline".
+> 
+> That is unsafe for noinstr callers: nothing prevents the compiler from
+> emitting an out-of-line copy of e.g. arch_local_irq_disable(), and an
+> out-of-line copy can be instrumented (ftrace, kcov, sanitizers), which
+> breaks the noinstr contract on the entry/idle paths that rely on these
+> helpers.
 > 
 > [...]
 
 Applied to arm64 (for-next/fixes), thanks!
 
-[1/1] ACPI: arm64: cpuidle: Tolerate platforms with no deep PSCI idle states
-      https://git.kernel.org/arm64/c/3ea4415015d6
+[1/1] arm64/irqflags: __always_inline the arch_local_irq_*() helpers
+      https://git.kernel.org/arm64/c/caecde119e34
 
