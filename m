@@ -4,149 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6203FF8860
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 16:18:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCA98FF8860
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 16:18:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+srgrSnEMcG+naPFHZ8O5b4QPSQnwOJTFfSu6YFJPKk=; b=DjB4zzIQUTEqidLkdmhWwSdvwQ
-	WqywN2x15UIqE7wWzMaMmaIfQFivRseiAsi8b2CTuMdz2Wap+5SnUm5XTdacbCfakwGH/sRm8QMP+
-	neXRUQPniIAe5G+FaQgKJfrrSZsAeOiIYpJTVAN7xYmVdJPuAXevy0YSalUQtL64I3WWvDqFisjyo
-	+z2anQQYDyCtLXcFU3FRNQkJwaOuq5V634ZpKTKIV2ldfcKyyJvxYvMVqUeqX/2F8iuChXaeidGCj
-	FwLWo5P5EWtIDsB3CIiq/hcMuXDLgn1peWDJSOkW4aACcuz9MtQq2HQDuFs/zovRmx8WVLmdg2dI9
-	/uEYKFwg==;
+	bh=JbhNNtkACDoe7xFvlMDxo1hg3mD7N2S9mOLV3kh/g2Q=; b=TERzdzzCdWO2VhcJWQSw20ZfUt
+	Z8e8fZmm1Hoi0Ak1oycPBE7q0JhKMdWS1WQoNoL3hnGiZMNhc+/kI2Ik203V5s7iLvSp+bEIomFTk
+	6AndR1aXwq/+L3tazkaMtZVz8PN1ncwQj1ehhlQle8ZB/cCNsg/H2746CdYKXdWVG4crpDCrTiLbt
+	n6khx0ciRNOmIp1jy/fRwgfDyPaLlZqJRTGuhMv9wLFphVRQE+e/Hsc9bwYQcZwwgh3tc5MroweSJ
+	A3mkpkAGxsvd7SbRJX3UKzcB1sivWL6ls5iwRR3GEdn9k4oghQTghwRhYrR5a55qkbDPPds4qyguB
+	SlBvqHow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHOeu-0000000HKfY-177I;
-	Mon, 27 Apr 2026 16:18:08 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1wHOez-0000000HKi5-2sUz;
+	Mon, 27 Apr 2026 16:18:13 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHOer-0000000HKdD-11kc
+	id 1wHOew-0000000HKfW-0MQG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 16:18:07 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=ZwXPNLLioYKeS/glMDJl7WbyRm4CfhJorDgPs7kszKxpCXBMuqNrL53xSEh6FBlraekIl2lx90wOEZyb+Jw8vpSWeuvF6eDiUIN6h3B/hrhVwCyCETHIoQLkR6YIlEXt26XrL6e0Mt1Iialcz3IgtZVtCJm9g3qVLwKm6rP5pQ2ni7lNKnUuWnRhCtHZ6Kl/hY3GZJ7Nw3APbRJPzJ1Y/Yu3TL9L4AlhZvucSsARIVVJd0OpTg/fmK8dkRE8yjMIO++AcqWXoBHnvGLyniZ+TDm7pO2LTVsEPb6/jEr7azPko1H5Clpa/0+ZnNkM5MWd4h9Wh6ZhZZS4yHYsFmpMIw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+srgrSnEMcG+naPFHZ8O5b4QPSQnwOJTFfSu6YFJPKk=;
- b=fgq3s6zyPt2lFjnqJHAr4Q0JzMkRLgYgP2RnjAkauhoPIPjMN9rzWIRwk44Qvr8WV/fvtB8ciDSmOMFtAMEwkeWxc/oaqo52D9ejIHIGfKkgssrSUI2ioBcV6c1hPa0NjTcoP17Rw/saCmfKbQTSqoFcsJDZP66ZfPuq/+CtS1F39P+4UP4WwC8byxqBHTl8N9hqOlEckA2EEjxOVir0zADbKu+Om3EDQhld5ayYttQapMg5GRWmUNJCu8s64wDN1lshW+zXgMfj1UOEz0LWZuWG7et4/JbrkgxjeoYW3LrV6p6A/6C4QCn5iXizZLGCFNbGsuFK+QeYTiGcKeJgqw==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+srgrSnEMcG+naPFHZ8O5b4QPSQnwOJTFfSu6YFJPKk=;
- b=IBvNQxhprwEjP/V9bjc8Yk1P1Iy9P78UoJZ+6tLXX3iyAQQbpM2Nq09v4KsrBMBe8UFEkOv7uh9GXgs7KKLcmN/7F7o8DVF6+oaSi6KQNcafFP4xmvwu/1Nbb9uoS9WBrccxP2vKhm1bxVYZQ9a9iyXLh0OE7OB1ly71QH/5lUI=
-Received: from AM6PR0502CA0055.eurprd05.prod.outlook.com
- (2603:10a6:20b:56::32) by AMDPR08MB11411.eurprd08.prod.outlook.com
- (2603:10a6:20b:717::19) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Mon, 27 Apr
- 2026 16:18:01 +0000
-Received: from AM4PEPF00027A6A.eurprd04.prod.outlook.com
- (2603:10a6:20b:56:cafe::fa) by AM6PR0502CA0055.outlook.office365.com
- (2603:10a6:20b:56::32) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.26 via Frontend Transport; Mon,
- 27 Apr 2026 16:18:01 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AM4PEPF00027A6A.mail.protection.outlook.com (10.167.16.88) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.18
- via Frontend Transport; Mon, 27 Apr 2026 16:18:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bFzfANu0bxMqsru7Py8xpFsrtqKIQrQvksj+S2IdIvxoThNeyB3HQjdpQZSeIGjLX1aubcrCJDQzvcUmpV85RdI5iom3Tdc8izE4BVIuvHGaVFuNOPJyoybx8TMe1dowVc6f4b/9V+oALGPR45StNdCa5glQZPh2vXL8c+jddqFTjGYF9kQqZoc6XwUgZik+SN1XUSZf1CbOPj036XLWPgLG4kiF0vEAs+7IGbhN0KO5Qox7lVbMnqNEKOjyD8GOXZ/dZQoHv+dQASZcxMkHzNhtOLh+ywJE14jqNhPCJL47xvvAa0cdwESBsHWTzbhHXZr+vTYGtKvWmjQMYbjqAQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+srgrSnEMcG+naPFHZ8O5b4QPSQnwOJTFfSu6YFJPKk=;
- b=dXxL5ub3pJzieJckQAqfSTToH5SR3mEw6uZw34g8JoDFXxfiMZ2eLTUMO6zouy2vwYtLZgnuX76l+2eA9WNTCtvp/Xv4sJaeMDSoCn/n5xtZUSEqezzsNLKCs+HA936r4Zz0o+gYSOsqkqWEBUiW8RS/eTVoTMON+HGCJzCsgKicGjkA6XloCmR/kvl/lZp/nW1Ai+RPa4P0py2a5IlrZ5E1GtsuddE0GUSQ4dSHpxQIHngVWZlOgweou7j+lxlHITAAaza0nKsqi43c4ZSuZkD23TAoGABWkvXiXCtX1Kh2FVBGhZAJ1ppeGB8WFA4a+jyx3KbBQRE3aAkX82BdZw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+srgrSnEMcG+naPFHZ8O5b4QPSQnwOJTFfSu6YFJPKk=;
- b=IBvNQxhprwEjP/V9bjc8Yk1P1Iy9P78UoJZ+6tLXX3iyAQQbpM2Nq09v4KsrBMBe8UFEkOv7uh9GXgs7KKLcmN/7F7o8DVF6+oaSi6KQNcafFP4xmvwu/1Nbb9uoS9WBrccxP2vKhm1bxVYZQ9a9iyXLh0OE7OB1ly71QH/5lUI=
-Received: from VI1PR08MB3408.eurprd08.prod.outlook.com (2603:10a6:803:7c::10)
- by AS2PR08MB9919.eurprd08.prod.outlook.com (2603:10a6:20b:545::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Mon, 27 Apr
- 2026 16:16:58 +0000
-Received: from VI1PR08MB3408.eurprd08.prod.outlook.com
- ([fe80::6daa:d2f4:acf1:84ba]) by VI1PR08MB3408.eurprd08.prod.outlook.com
- ([fe80::6daa:d2f4:acf1:84ba%7]) with mapi id 15.20.9846.025; Mon, 27 Apr 2026
- 16:16:58 +0000
-From: Sascha Bischoff <Sascha.Bischoff@arm.com>
-To: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>
-CC: nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, Joey Gouly
-	<Joey.Gouly@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, "peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>
-Subject: [PATCH 32/43] KVM: arm64: gic-v5: Support SPI injection
-Thread-Topic: [PATCH 32/43] KVM: arm64: gic-v5: Support SPI injection
-Thread-Index: AQHc1mFFW9vwpgWs3UKNGEXuCTp+QQ==
-Date: Mon, 27 Apr 2026 16:16:58 +0000
-Message-ID: <20260427160547.3129448-33-sascha.bischoff@arm.com>
-References: <20260427160547.3129448-1-sascha.bischoff@arm.com>
-In-Reply-To: <20260427160547.3129448-1-sascha.bischoff@arm.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-mailer: git-send-email 2.34.1
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-x-ms-traffictypediagnostic: VI1PR08MB3408:EE_|AS2PR08MB9919:EE_|AM4PEPF00027A6A:EE_|AMDPR08MB11411:EE_
-X-MS-Office365-Filtering-Correlation-Id: bf3a3b62-e3b8-4daa-4f2a-08dea4788dab
-x-checkrecipientrouted: true
-nodisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|366016|376014|38070700021|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info-Original: wPLmgOObhySEsoZgyHuQvrGGQBmgJas2S3SxYHQQyTMywB8T7YweVwBdSZtmN81lo6m4Bazqq48gYS6L5m0IoTCYSQRFm4gp3ren6AGKDfMH5ijWFvaWJNVcssVrNG/tyuFtF9MYL5+/8MiK/rzIu6i7BWohnA/1CXhP5u/0jFbK9B4+CsuY9HYuyMlisgB1OgzUPiwqt5ctiqfqm2XD+bRM4/YklLiEK5GrxfTvJiNIBcEWRkdzMQSpVcPKH5St7aj9mIosd9j/zfKeEpmddFKjJ4HeJAReIWcjbUyZue0UrZwg2OgB+EinCR7iQ0Jv+H2vnykpiYthqiH+MDaKtvpyqBuc5v68RRGQ7P3IZWhX8KQaIy3YB4eJqJHjEd7PIu/EVOYJqICiSnrgE0YvLXgsvz4esQwDsJ+k+zQniN4+/0x21+PAUio2pJdYBCJEDyImBshklPLnLr8Y2q7lA2T/yxWxgjWEu/XI3NxaXEuWq4KNjWpMNFOEzVadTw4AcjEkHwaG1/KgaUSLJW5zIW16qiKsE8xkKbGjkvVUBetQHPt0k1i8ZPTJkvt6AkhL8TQZGZpVPJG42NMp0s0o1GiwEFzRNk3bcFUiqsQ5HdBZ2+asXeiTnv+Q4SOxLKpu1UyqyQSVfoG6qf/uPQFGeLdvNcL314SVsNWjFH1yOcqrC4TssHRSfS+/0IZqF01AzarlEDd0OH1g9SgxjIIVCgDsE1tDYXm0Z7BGcRvnCD/sX5aSkNhm98g3etWDaZob52KGw0hBEOC2nZYYDvbkPxZiOgw0Bh0WFPRodJODWko=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI1PR08MB3408.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(38070700021)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	Mon, 27 Apr 2026 16:18:11 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-ba545100a13so1139397866b.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 09:18:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1777306687; x=1777911487; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=JbhNNtkACDoe7xFvlMDxo1hg3mD7N2S9mOLV3kh/g2Q=;
+        b=UKxcHKTNDfkv9G142Yy4DDeV0kGTXLcXB0K+MEiJk9iQyoK5Mh4sZo4t83emT4lPD5
+         6wvQ33bPqIvoKVvROulGPPI8T+zmDA8yUJ24vCZkdi7Jfc4Eh/2Yq+bc/YKl3Jk9drTV
+         M4cFklc0hEA4z8qyiAA+QZRDMBCiI6K776wPU=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777306687; x=1777911487;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JbhNNtkACDoe7xFvlMDxo1hg3mD7N2S9mOLV3kh/g2Q=;
+        b=g2CFtTD00P9MaYvz8o+3S0NjV71fvmkyTLIIiAxxaM4ej4LuQ/9pwcla/ol6izdxyp
+         AHPiUKAuu9QxGq+F9GQUjPwSPJke46+GLlyWsLmaerKsX3Xy05XLfDnX7p9bSm4BPAtM
+         ztUZ5hf/ULnawieq40/br73MzNmrUGXMwYYZ4Jy23qO60v4wFZJ5vE6HlIKrI4ak+A2a
+         /O+nDKum7ifUB7vz50BW9AgWlkL4oKSIuVDF2nMHX9MkKNvyFAI/aE3pG9eY5EOYeokU
+         5bvk7flSKYKrJZvdnaDDLGkoQmBxFgpsljMdbhNQvV5sL4bqAGTuAu+8WTMlsgc4WZK7
+         wQww==
+X-Forwarded-Encrypted: i=1; AFNElJ9vAyWEYeuX6XAku+eUwRklcOSLWp8csQwOF7zI2n12KnbGXpgxH1hrssZf5lHH6SrGSrxkZEOPNqe9vQE7m8b4@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzo4/G2fzUU+SWYzRXPECvwRoG4nK50woXtFysQE7x6mzLzZOOf
+	ediNV+iDChDe4xCwfklE0UKge/3FQshoRgEviQ8d+bpNN0ufuXEPiAtj2yVy+d7LHY+iX+r3xsa
+	hdyHbfU8=
+X-Gm-Gg: AeBDieudsQOqImmGQQTg6zdC7XPpdFArhZVE+cVCKeDL2aIEv8REdZvlFfVxBzMyic0
+	yqL64XBV29aJjc58IZxzDQCaGN9v5n/D4L2z5UkujfaIweqt4zPXDJl0eD0TnlQUyTPA0jF3+ln
+	71OGGtLBESwJXlgzWwsTDjgCaj1O6DLxC882eq+jJI+LguJd9kqCi9sjNGo3rbJlOrj5mvf0geI
+	kmxKVI7JoKQSb4Q9NEZKomVdPbI1EJO3xsf5zmskz9gnLWhnjUzWBDSHl+TTc8xiSH+F9qKsdwR
+	Iu5lislafLAfrrrs4SQNRfBlofZ77WZLjyOLmszcut66gl1Q3jT9m6hFNM35WE8xepaaQA2iyb8
+	8W0Y24PrM7C8lJcS/iERw3mpHlG0sJqltGTITwCfsWmQrka9qasARpgOvc4NN4oora2X9dDOM0C
+	PqOx0YH+8AoJpaJPrEe82ygyUv2TaBRrveeQ2H49dwGH+gy5kWATEwJsmWS6rTBpyxi4cwZFAuH
+	seUJdcKAaU=
+X-Received: by 2002:a17:907:1b24:b0:baf:477:f11b with SMTP id a640c23a62f3a-baf0477f1aamr504843966b.20.1777306687371;
+        Mon, 27 Apr 2026 09:18:07 -0700 (PDT)
+Received: from mail-ej1-f50.google.com (mail-ej1-f50.google.com. [209.85.218.50])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ba45553e502sm1123317066b.61.2026.04.27.09.18.07
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 27 Apr 2026 09:18:07 -0700 (PDT)
+Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-b9c3e2cf3c0so1773841266b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 09:18:07 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+JICsGPCtgZh0PMXnqBmBYscpDYEOOFoGu+3J7+haKO/gNtX4hOGvjBVgdLhvGe2SFSoWIo62mu9Xo6zeGdTQd@lists.infradead.org
+X-Received: by 2002:a05:6402:c46:b0:670:d548:da79 with SMTP id
+ 4fb4d7f45d1cf-672bfd87175mr18954968a12.3.1777306362462; Mon, 27 Apr 2026
+ 09:12:42 -0700 (PDT)
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: hHGEBWAqsm2SC7wBU+tL4JjCZOsBh7gq5uL0slb5O5sj/Kjfl0z9J+/4b/htovW8L+8hy6mv/gmRpWrgc+XZ0TiDevCWMO069KiDkZI+EfnE2n7Tvgo1lpG/O7jk+LarNyNVTz3D/b3SWDmU/2DOr9FSvQlQBKI+vhUQYPw6qUSURiI1/4WXMwRL11Z8D7VtkP7JPmAb3xYqYxRuPwgXKb/NoaTjWzqzIA5h0s7J2zPkwmbTf8ghDUYpLgJeL6L0XkBhtm8wvfr+O+YAFmIC4Dp59g5fy52LxNN7BYhYTwrt2FvMOGblBBoaqEi67uDzdrn7EUdgMW7J5GU+LCt7eA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR08MB9919
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM4PEPF00027A6A.eurprd04.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 8ea74314-ffb4-4000-5c26-08dea4786814
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|14060799003|35042699022|376014|36860700016|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: YPvvNIsYVIryevEH8kLNkOqgF0Ehm1yaQ7kcV+3kV1Gjbf8ofnRrOGciNaAh48N+Axunf0RVZSX/GQUJkpckFCNoesjQAnmB4GjKrdE7wDNwsDpEjr2s1qgGBZrGwue2toSmJc34uykzjnwZB74lwEX1xUsx61vPRDWRTYmEsvw1M1hIT5mH8sq+KbGf6ThYBVA2OsAplIBG7rGvfumegEg9WKIBYNDvLJcOq6nbG5ykOccI/lpFicFOLRhXSLQYkwF0iGHSyjk0/pqx9NK056ej6YGqC/xAZtx8B7JGqerEMbpAmwTx7rMOJnTV97JCNXoIaGb9jr6ERkKSUH5OVtmtUxo8ocnyRlVBxlW57JpQKYSusKiwCIwXHzR1XlsCm1Rws/+neopwoUqGeEOzKOMoLXEWCQxSfWCnaOQ4GpPFVRHF1dxZHMsAmtwhThjcJvqFZbpXTBCDd9NSBcWFbFDsgsZYch3FlZTLj3C7lR+Wokc0S/39c7VNA7/F4mVaQDjXHtQkc+MJrOcdNwDsz6jMvXh/+yoxwoItJ8B+Aa8l19Xp4Q8SPbQ1JUBtTnY6l4YsJ61ipf+uNHRyBoDhxVDq8FHvb04BIgc3NRicy5Ct/LMEaP9vyVoPlMo6H8Itv/lUHfaRIci5sQb3uRGv3TlhxlihHoqs86cmo9GbO5MRGQAM2j/uePxyVZcfDFORnfPEZwaT5yDmr4QmYdcNfoYV2YMDHrymW43hpdll0tnCQjQ2/DCDW4AaerLN8rr4M4SSnZD96vKWTClScM0rZw==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(14060799003)(35042699022)(376014)(36860700016)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: T0wD/W0nK0JHr0eGQbOW8Gpc1TdkCYMQeEY/TRyY9xZRBjzck4su63vEDpXAJxJHOxPrlobQnZ3XWO46ATaZfStxWrazevWMd0R7xyCJ2rBkeT7V4f0KCUXjzhNL4+4Qd2EMr8uI5k72JWxnNZIl5EwMI+Vk4u/iCdI8MUwREtL3O+xqAyld0s7lh9f0yp6VCcF3rKX+uc7+g4JAeH7Ylh626WEtZUk+rEpvzVtktp+hz9yQR7kDP4R92we4WkYu030SG04D19O9ywHKnzinDiJuNVqScVDouDF84nkHHgMbo8jubA0ajC3RcpH0WOmoP/8p8+i5XYDQ0kIEnWe6tv6QN4f1IZeSda1AyuYBYCzgslEVaey7r7IzKonPm6SXfwVtozJnZRu8JjgQl7olk5k25ydR+Jcr8xZpGQRdJuqdLfMRFOfWqUJf/vbqdF0P
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Apr 2026 16:18:01.2051
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: bf3a3b62-e3b8-4daa-4f2a-08dea4788dab
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00027A6A.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMDPR08MB11411
+References: <CAHnCjA25b+nO2n5CeifknSKHssJpPrjnf+dtr7UgzRw4Zgu=oA@mail.gmail.com>
+ <20260422125647.GP3126523@noisy.programming.kicks-ass.net>
+ <20260422131338.GI3102924@noisy.programming.kicks-ass.net>
+ <CAHnCjA2fa+dP1+yCYNQrTXQaW-JdtfMj7wMikwMeeCRg-3NhiA@mail.gmail.com>
+ <87fr4l28zn.ffs@tglx> <CAHnCjA07ER=9xBqXq4jf5yn052W-E9ZXD86HxnRGtai6bpXbbQ@mail.gmail.com>
+ <87cxzp1tn6.ffs@tglx> <CAHk-=wjsEqWJxXArS-P5+ksSY2Apaox8u6FtUrtyWSBEOL4Q2Q@mail.gmail.com>
+ <874il11jac.ffs@tglx> <CAHk-=wh=B3fqU9AaBsyViZR=eVTG5qa2CGyN=qxPROVxu9Gctg@mail.gmail.com>
+ <lhuqzo051cq.fsf@oldenburg.str.redhat.com>
+In-Reply-To: <lhuqzo051cq.fsf@oldenburg.str.redhat.com>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Mon, 27 Apr 2026 09:12:26 -0700
+X-Gmail-Original-Message-ID: <CAHk-=wiLdmz92CCfu2+-9_UrGSn6Pu6sUVvLs5gjyhGaEov-BA@mail.gmail.com>
+X-Gm-Features: AVHnY4KSfM89JX8og5V5ge1wHnX-tp7SzfuRcYZnE_6XGeDyPM7Sz-28_HY9VRI
+Message-ID: <CAHk-=wiLdmz92CCfu2+-9_UrGSn6Pu6sUVvLs5gjyhGaEov-BA@mail.gmail.com>
+Subject: Re: [REGRESSION] rseq: refactoring in v6.19 broke everyone on arm64
+ and tcmalloc everywhere
+To: Florian Weimer <fweimer@redhat.com>
+Cc: Thomas Gleixner <tglx@kernel.org>, Mathias Stearn <mathias@mongodb.com>, 
+	Peter Zijlstra <peterz@infradead.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Boqun Feng <boqun.feng@gmail.com>, "Paul E. McKenney" <paulmck@kernel.org>, 
+	Chris Kennelly <ckennelly@google.com>, Dmitry Vyukov <dvyukov@google.com>, regressions@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Ingo Molnar <mingo@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Jinjie Ruan <ruanjinjie@huawei.com>, Blake Oler <blake.oler@mongodb.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_091805_454985_0336F3BB 
-X-CRM114-Status: GOOD (  20.73  )
+X-CRM114-CacheID: sfid-20260427_091810_190583_F98A33A2 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,194 +118,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-GICv5 SPI lifecycle is handled by the GICv5 hardware once the pending
-state has been injected.
+On Mon, 27 Apr 2026 at 00:06, Florian Weimer <fweimer@redhat.com> wrote:
+>
+> RSEQ was intended to be modular
 
-This change adds support for injecting and managing SPIs to the core
-VGIC code and GICv5 code. First of all, allow GICv5 SPIs to be looked
-up by ID via vgic_get_irq(). Previously, only PPIs were supported.
+You are entirely missing the point. "Intention" is immaterial.
 
-Two irq_ops are used to inject the SPI pending state into the
-hardware, and to append the SPI to the VM's global SPI AP list.  The
-set_pending_state() irq_op is used to inject the SPI's pending state
-into the guest. The queue_irq_unlock irq_op is used to append the SPI
-to the SPI AP list - they are not added to a per-VCPU AP list as they
-are global to the VM. Also, this would require KVM to track the
-affinity of individual interrupts, which would negate much of the
-benefit of their lifecycle's being hardware managed.
+All that matters is reality. Intentions are ephemeral farts in the wind.
 
-While the SPIs are on the global AP list, their state is checked on
-every vcpu exit, and once they've been consumed they are removed from
-the AP list again.
+There is *one* major rule in kernel development, and it is "we don't
+break user space".
 
-Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
----
- arch/arm64/kvm/vgic/vgic-irs-v5.c |  1 +
- arch/arm64/kvm/vgic/vgic-v5.c     | 91 +++++++++++++++++++++++++++++++
- arch/arm64/kvm/vgic/vgic.c        | 14 +++--
- arch/arm64/kvm/vgic/vgic.h        |  2 +
- 4 files changed, 103 insertions(+), 5 deletions(-)
+And user space is inconvenient, I know. Users do odd and strange
+things. Sometimes on purpose, but quite often entirely accidentally.
 
-diff --git a/arch/arm64/kvm/vgic/vgic-irs-v5.c b/arch/arm64/kvm/vgic/vgic-i=
-rs-v5.c
-index 8e69b624194d5..3a2539bf99d0d 100644
---- a/arch/arm64/kvm/vgic/vgic-irs-v5.c
-+++ b/arch/arm64/kvm/vgic/vgic-irs-v5.c
-@@ -724,6 +724,7 @@ int kvm_vgic_v5_irs_init(struct kvm *kvm, unsigned int =
-nr_spis)
- 			 * view it is always enabled.
- 			 */
- 			irq->enabled =3D 1;
-+			vgic_v5_set_spi_ops(irq);
- 		}
-=20
- 		nr_spi_bits =3D fls(roundup_pow_of_two(nr_spis)) - 1;
-diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
-index f36d37c694d71..38e37a03ac951 100644
---- a/arch/arm64/kvm/vgic/vgic-v5.c
-+++ b/arch/arm64/kvm/vgic/vgic-v5.c
-@@ -1274,6 +1274,97 @@ void vgic_v5_fold_irq_state(struct kvm_vcpu *vcpu)
- 	}
- }
-=20
-+static bool vgic_v5_set_spi_pending_state(struct kvm_vcpu *vcpu,
-+					  struct vgic_irq *irq)
-+{
-+	vgic_v5_set_irq_pend(irq->target_vcpu, irq);
-+	return true;
-+}
-+
-+/*
-+ * Put the SPI on the SPI AP list. No need to kick the VCPU. If it is runn=
-ing,
-+ * the interrupt will signal at some point, and if not, then a VPE doorbel=
-l will
-+ * fire (based on the IAFFID the guest has configured).
-+ */
-+static bool vgic_v5_spi_queue_irq_unlock(struct kvm *kvm,
-+					struct vgic_irq *irq,
-+					unsigned long flags)
-+	__releases(&irq->irq_lock)
-+{
-+	struct vgic_dist *vgic_dist =3D &kvm->arch.vgic;
-+
-+	lockdep_assert_held(&irq->irq_lock);
-+
-+	if (WARN_ON(!__irq_is_spi(KVM_DEV_TYPE_ARM_VGIC_V5, irq->intid)))
-+		return false;
-+
-+retry:
-+	/*
-+	 * We're already on the AP list or don't need to be on
-+	 * one; nothing more to do.
-+	 */
-+	if (irq->vcpu) {
-+		raw_spin_unlock_irqrestore(&irq->irq_lock, flags);
-+		return true;
-+	}
-+
-+	raw_spin_unlock_irqrestore(&irq->irq_lock, flags);
-+
-+	/* someone can do stuff here, which we re-check below */
-+	raw_spin_lock_irqsave(&vgic_dist->vgic_v5_spi_ap_list_lock, flags);
-+	raw_spin_lock(&irq->irq_lock);
-+
-+	/*
-+	 * We've lost the race; and have already been queued. Unlock
-+	 * global AP list, relock IRQ, and retry.
-+	 */
-+	if (unlikely(irq->vcpu)) {
-+		raw_spin_unlock(&irq->irq_lock);
-+		raw_spin_unlock_irqrestore(&vgic_dist->vgic_v5_spi_ap_list_lock, flags);
-+
-+		raw_spin_lock_irqsave(&irq->irq_lock, flags);
-+
-+		goto retry;
-+	}
-+
-+	list_add_tail(&irq->ap_list, &vgic_dist->vgic_v5_spi_ap_list_head);
-+
-+	/*
-+	 * Use the VCPU we've been given as the target VCPU to track
-+	 * that we're on an AP list. We're not queued on that VCPU's AP
-+	 * list, but in lieu of an AP flag, this will do.
-+	 */
-+	irq->vcpu =3D irq->target_vcpu;
-+
-+	raw_spin_unlock(&irq->irq_lock);
-+	raw_spin_unlock_irqrestore(&vgic_dist->vgic_v5_spi_ap_list_lock, flags);
-+
-+	return true;
-+}
-+
-+static struct irq_ops vgic_v5_spi_irq_ops =3D {
-+	.set_pending_state =3D vgic_v5_set_spi_pending_state,
-+	.queue_irq_unlock =3D vgic_v5_spi_queue_irq_unlock,
-+};
-+
-+void vgic_v5_set_spi_ops(struct vgic_irq *irq)
-+{
-+	if (WARN_ON(!irq) || WARN_ON(irq->ops))
-+		return;
-+
-+	irq->ops =3D &vgic_v5_spi_irq_ops;
-+}
-+
-+/* Set the pending state for GICv5 SPIs and LPIs */
-+void vgic_v5_set_irq_pend(struct kvm_vcpu *vcpu, struct vgic_irq *irq)
-+{
-+	if (WARN_ON(__irq_is_ppi(KVM_DEV_TYPE_ARM_VGIC_V5, irq->intid)))
-+		return;
-+
-+	kvm_call_hyp(__vgic_v5_vdpend, irq->intid, irq_is_pending(irq),
-+		     vcpu->kvm->arch.vgic.gicv5_vm.vm_id);
-+}
-+
- void vgic_v5_load(struct kvm_vcpu *vcpu)
- {
- 	bool irichppidis =3D !vcpu->kvm->arch.vgic.vgic_v5_irs_data->enabled;
-diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
-index b35833a4e2bf9..3c8655aee8bbf 100644
---- a/arch/arm64/kvm/vgic/vgic.c
-+++ b/arch/arm64/kvm/vgic/vgic.c
-@@ -86,12 +86,16 @@ static struct vgic_irq *vgic_get_lpi(struct kvm *kvm, u=
-32 intid)
-  */
- struct vgic_irq *vgic_get_irq(struct kvm *kvm, u32 intid)
- {
--	/* Non-private IRQs are not yet implemented for GICv5 */
--	if (vgic_is_v5(kvm))
--		return NULL;
--
- 	/* SPIs */
--	if (intid >=3D VGIC_NR_PRIVATE_IRQS &&
-+	if (vgic_is_v5(kvm) && __irq_is_spi(KVM_DEV_TYPE_ARM_VGIC_V5, intid)) {
-+		u32 int_num =3D FIELD_GET(GICV5_HWIRQ_ID, intid);
-+
-+		if (int_num >=3D kvm->arch.vgic.nr_spis)
-+			return NULL;
-+
-+		int_num =3D array_index_nospec(int_num, kvm->arch.vgic.nr_spis);
-+		return &kvm->arch.vgic.spis[int_num];
-+	} else if (intid >=3D VGIC_NR_PRIVATE_IRQS &&
- 	    intid < (kvm->arch.vgic.nr_spis + VGIC_NR_PRIVATE_IRQS)) {
- 		intid =3D array_index_nospec(intid, kvm->arch.vgic.nr_spis + VGIC_NR_PRI=
-VATE_IRQS);
- 		return &kvm->arch.vgic.spis[intid - VGIC_NR_PRIVATE_IRQS];
-diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
-index 7eef8ece52dde..b5036170430dd 100644
---- a/arch/arm64/kvm/vgic/vgic.h
-+++ b/arch/arm64/kvm/vgic/vgic.h
-@@ -370,6 +370,8 @@ int kvm_vgic_v5_irs_init(struct kvm *kvm, unsigned int =
-nr_spis);
- void vgic_v5_teardown(struct kvm *kvm);
- int vgic_v5_map_resources(struct kvm *kvm);
- void vgic_v5_set_ppi_ops(struct kvm_vcpu *vcpu, u32 vintid);
-+void vgic_v5_set_spi_ops(struct vgic_irq *irq);
-+void vgic_v5_set_irq_pend(struct kvm_vcpu *vcpu, struct vgic_irq *irq);
- bool vgic_v5_has_pending_ppi(struct kvm_vcpu *vcpu);
- void vgic_v5_flush_ppi_state(struct kvm_vcpu *vcpu);
- void vgic_v5_fold_irq_state(struct kvm_vcpu *vcpu);
---=20
-2.34.1
+The end result is the same as far as the kernel is concerned: we don't
+break tools that people use.
+
+This is simply not up for discussion. Any "intent" that isn't actually
+enforced by _checking_ for it is only wishful thinking, and worth
+nothing at all.
+
+                   Linus
 
