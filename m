@@ -4,58 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2A99FF8864
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 21:57:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 434E2FF8867
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 21:57:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=6Y7WZoOaL5XpQeMokBemc3GxIU4ukhNWflL/DLGDOhI=; b=4sTtfxtBjw8Uwg
-	VOAX1Kq8GfvOU6Y9CaJVwYKJebuw4oUQ07pXRgRaV9Eazwzn2/apytY9ZM6KKN+4cAOJXFVyXEuLr
-	0cvGqLmq7tp8hnr1BD++8qjy8PJ+kZt0Jb2lALma6X2+07MNWkOBZ1V+K7cpE3qBKPpJltqceEbSD
-	vcid2wtZdBJ3axhW0JhvWCMySQUIAGk68F74NKF6vUvKemvUPj5rYriQT+qummC0ry/3c8Eq0EYyT
-	2Wf8dOJM6bLBwnqJVLVxOy05/aHjIvACjF28BmAlibAskHbHsb1Hin393/3LX7YrQktFPekhXliuG
-	5+xMub5Tlfq3yDGmagOQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Yci4ZwBo4D3fMmA+miyB3SnZECeUFtL4SQoC3yAlie4=; b=TKGTOo6eMibmj2hdzk7VifvYtl
+	DNlXdtlIp6ESZHz42tlU30njGaATH8/M296R0agopdC24C1IC/PMYnEMalbBiuoEw3RhbamrSGm7A
+	azmCobbPGg2pjpfDIl/1yoO9Uh3USI/DbQa8LjLnFdMMYkdLdx9dT+k/EgtLzohlXPBwIhLollTqi
+	mx7GsTO+LqEmIdDjpBpJxckeNz0bRcFMuFuShyfYWd67ZB9sKsMrF66Byx2GMb5h0tNSbTIGPx7pw
+	AdQ95UC9rKpE6gN4Y42UFRntlYTO+UPEaf2+J2cYhBja1zmAJMLTjqTEMLr6Wx0EH+Slsf2EkySND
+	BOiE6Y3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHTxd-00000000DFy-0iSp;
-	Mon, 27 Apr 2026 21:57:49 +0000
+	id 1wHTxi-00000000DMZ-28Bf;
+	Mon, 27 Apr 2026 21:57:54 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHTxZ-00000000DET-3gdx;
-	Mon, 27 Apr 2026 21:57:48 +0000
+	id 1wHTxa-00000000DEg-3Zgl;
+	Mon, 27 Apr 2026 21:57:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1777327062;
-	bh=uWU06PV+eLEGXA1QlwT32JGIwdV2LTYGAZ+bIHKDUeM=;
-	h=From:Subject:Date:To:Cc:From;
-	b=RWuZw4x0YkQlS2q1np47mdToA2QJD+dl99IQxojZkAoK1l3OHZHdLhnCxGdqjqna/
-	 lhwBplktTtQ980RzspFcW8Wf0EGvecVXM+RmqRsmADWidzmch6tTc++iSTO7vTw/DT
-	 6NnZ7RYbYJ/zMFqxzMut9jH/Ds3VrtfBDMLCru6essIGb6jkTmMXey23GxMr2dnWJ2
-	 qibMI6+VKw7dKfeoGzq2SbyDcwtDtzGR0WfMg0dXzeUL5X0NM3Kvt7tQACI4oN5mo1
-	 SBjDL6rg2jN4Cun+5RIF5yjwC6BUWeFhj5+X2JyttKraUWYVqK85h5qRh6MOcKsaAT
-	 aCzAaA0OChpMA==
+	s=mail; t=1777327064;
+	bh=zhyJCoZrrjcFXrqebOcpw3bjPfuh5lPY066+qDv72rI=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=dYqZN9A5MNQw5/2Ml1+Wz98fulhnNPfA/3X/bpIe2n3tpwG4oaPoQJ8F016R0dChn
+	 gXkO7r0qi3CoP8HJzZXbodXjZ5wnFaPwn8tMXjYJQEKyNm12I5F29kO/d5cfJmJPSk
+	 og/7Z7rKEM4F8r2SS2z76BnHKgCBdGiO5vdBsqtEJQMmFq4k5auD0blWpyJWEj6S4S
+	 i907OGNh7HCcaAxx89YpGKLw/2fS0XD/IOVuY7nMoSCRJeLeTro4S7h/+RUGyDXiXv
+	 rRe4HZRpTkCvJe+Z+S9HiCR+oxw20JxX8MBCWN8SrqAs85x0I7cMIQu5hlVuX/LTN2
+	 PmrssxhUX2PtQ==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A3B1017E0D23;
-	Mon, 27 Apr 2026 23:57:42 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4DE2517E1274;
+	Mon, 27 Apr 2026 23:57:44 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Subject: [PATCH v2 00/13] arm64: dts: rockchip: Wire up frl-enable-gpios
- for RK3576/RK3588 boards
-Date: Tue, 28 Apr 2026 00:57:18 +0300
-Message-Id: <20260428-dts-rk-frl-enable-gpios-v2-0-924df9db884a@collabora.com>
+Date: Tue, 28 Apr 2026 00:57:20 +0300
+Subject: [PATCH v2 02/13] arm64: dts: rockchip: Add frl-enable-gpios to
+ rk3576-luckfox-core3576
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4WNQQ6CMBBFr2K6dkyLitaV9zAs2ukUqpWSDhIN4
- e4CHsDlS95/fxRMORCLy2YUmYbAIbUzFNuNwMa0NUFwM4tCFqU8qBO4niE/wOcI1BobCeouJAY
- krffSWX9EI+Z1l8mH91q+VT/ml70T9ktuMZrAfcqf9XpQi/f/ZVAgwSiN0rkzal9eMcVobMpmh
- +kpqmmavgURTqvUAAAA
-X-Change-ID: 20260417-dts-rk-frl-enable-gpios-ce9930dbf5ca
+Message-Id: <20260428-dts-rk-frl-enable-gpios-v2-2-924df9db884a@collabora.com>
+References: <20260428-dts-rk-frl-enable-gpios-v2-0-924df9db884a@collabora.com>
+In-Reply-To: <20260428-dts-rk-frl-enable-gpios-v2-0-924df9db884a@collabora.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
 Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
@@ -63,8 +60,8 @@ Cc: kernel@collabora.com, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org
 X-Mailer: b4 0.15.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_145746_264627_744391F6 
-X-CRM114-Status: GOOD (  16.79  )
+X-CRM114-CacheID: sfid-20260427_145747_037459_0AA13A45 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,127 +76,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Several boards based on the RK3576 and RK3588(S) SoCs use a
-GPIO-controlled voltage bias circuit on the HDMI data lines that must be
-switched according to the active link mode: asserted for HDMI 2.1 FRL
-and deasserted for HDMI 1.4/2.0 TMDS.
+The board exposes the GPIO4_C6 pin to control the voltage bias on the
+HDMI data lines.  It must be asserted when operating in HDMI 2.1 FRL
+mode and deasserted for HDMI 1.4/2.0 TMDS mode.
 
-This series adds the frl-enable-gpios property to the HDMI nodes of all
-boards for which the GPIO configuration could be identified from vendor
-BSP kernel sources and/or schematics where available.  In a small number
-of cases it was necessary to extract and disassemble the DTB from the
-vendor firmware image.
+Wire up the hdmi node to its dedicated GPIO via frl-enable-gpios to
+allow adjusting the bias when transitioning between TMDS and FRL modes.
 
-One board remains unhandled (rk3588-edgeble-neu6a-io), pending
-clarification from the vendor.
+Additionally, remove the now unnecessary workaround of using
+vcc_5v0_hdmi as hdmi-pwr-supply solely to drive the GPIO into its
+default state.
 
-For each affected board the patches:
-- set frl-enable-gpios with the appropriate GPIO reference and
-  GPIO_ACTIVE_LOW polarity (inverted relative to the BSP enable-gpios /
-  GPIO_ACTIVE_HIGH convention, which effectively acts as
-  tmds-enable-gpios)
-- extend pinctrl-0 of the HDMI node to include the new pin group
-- add the corresponding pinctrl definition under &pinctrl
-
-It's worth noting the Rockchip platform glue driver for the DesignWare
-HDMI QP TX controller already drives the frl-enable GPIO, but since FRL
-is not yet supported, TMDS mode is unconditionally selected.  This
-ensures a consistent setup independent of hardware reset defaults and
-bootloader state.
-
-Furthermore, this allows removing a few DT quirks hardcoding the active
-link mode and paves the way for a follow-up series enabling HDMI 2.1 FRL
-support.
+Also rename the hdmi_con_en pinctrl to hdmi_tx_on_h to match the
+schematic naming.
 
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
-Changes in v2:
-- Squashed common changes into one patch per SoC; the more invasive
-  changes remain in board specific patches
-- Ensured overridden pinctrl-0 properties in the hdmi nodes are followed
-  by the pinctrl-names property
-- Move the newly introduced frl-enable-gpios entries before pinctrl-*,
-  to keep the items ordered alphabetically
-- Renamed hdmi[0-1]?-frl-en pinmux nodes to hdmi[0-1]?-tx-on-h, to match
-  the naming commonly used in boards schematics
-- Added a new patch to drop unnecessary #{address,size}-cells from
-  rk3588-jaguar
-- Added patches to provide the missing pinctrl-names to pinctrl-N
-  overrides for all non-hdmi nodes, e.g. i2c, i2s, pcie, pwm, sdmmc,
-  spdif, spi, uart, etc
-- Rebased series onto next-20260427
-- Link to v1: https://patch.msgid.link/20260417-dts-rk-frl-enable-gpios-v1-0-a19c0dd8c9f6@collabora.com
+ .../boot/dts/rockchip/rk3576-luckfox-core3576.dtsi | 22 ++++------------------
+ 1 file changed, 4 insertions(+), 18 deletions(-)
 
----
-Cristian Ciocaltea (13):
-      arm64: dts: rockchip: Add frl-enable-gpios to rk3576 boards
-      arm64: dts: rockchip: Add frl-enable-gpios to rk3576-luckfox-core3576
-      arm64: dts: rockchip: Add frl-enable-gpios to rk3576-nanopi-r76s
-      arm64: dts: rockchip: Add frl-enable-gpios to rk3588 boards
-      arm64: dts: rockchip: Add frl-enable-gpios to rk3588s boards
-      arm64: dts: rockchip: Add frl-enable-gpios to rk3588s-gameforce-ace
-      arm64: dts: rockchip: Add frl-enable-gpios to rk3588s-khadas-edge2
-      arm64: dts: rockchip: Add frl-enable-gpios to rk3588s-orangepi-cm5-base
-      arm64: dts: rockchip: Add frl-enable-gpios to rk3588s-roc-pc
-      arm64: dts: rockchip: Drop unnecessary #{address,size}-cells from rk3588-jaguar
-      arm64: dts: rockchip: Add missing pinctrl-names to rk3576 boards
-      arm64: dts: rockchip: Add missing pinctrl-names to rk3588 boards
-      arm64: dts: rockchip: Add missing pinctrl-names to rk3588s boards
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-luckfox-core3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576-luckfox-core3576.dtsi
+index 749f0a54b478..4fc8496828f8 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-luckfox-core3576.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3576-luckfox-core3576.dtsi
+@@ -26,7 +26,6 @@ chosen {
+ 
+ 	hdmi-con {
+ 		compatible = "hdmi-connector";
+-		hdmi-pwr-supply = <&vcc_5v0_hdmi>;
+ 		type = "a";
+ 
+ 		port {
+@@ -138,22 +137,6 @@ regulator-state-mem {
+ 		};
+ 	};
+ 
+-	vcc_5v0_hdmi: regulator-vcc-5v0-hdmi {
+-		compatible = "regulator-fixed";
+-		enable-active-high;
+-		gpios = <&gpio4 RK_PC6 GPIO_ACTIVE_HIGH>;
+-		pinctrl-names = "default";
+-		pinctrl-0 = <&hdmi_con_en>;
+-		regulator-min-microvolt = <5000000>;
+-		regulator-max-microvolt = <5000000>;
+-		regulator-name = "vcc_5v0_hdmi";
+-		vin-supply = <&vcc_5v0_sys>;
+-
+-		regulator-state-mem {
+-			regulator-off-in-suspend;
+-		};
+-	};
+-
+ 	vcc_5v0_host: regulator-vcc-5v0-host {
+ 		compatible = "regulator-fixed";
+ 		enable-active-high;
+@@ -231,6 +214,9 @@ &gpu {
+ };
+ 
+ &hdmi {
++	frl-enable-gpios = <&gpio4 RK_PC6 GPIO_ACTIVE_LOW>;
++	pinctrl-0 = <&hdmi_txm0_pins &hdmi_tx_scl &hdmi_tx_sda &hdmi_tx_on_h>;
++	pinctrl-names = "default";
+ 	status = "okay";
+ };
+ 
+@@ -655,7 +641,7 @@ &pcie0 {
+ 
+ &pinctrl {
+ 	hdmi {
+-		hdmi_con_en: hdmi-con-en {
++		hdmi_tx_on_h: hdmi-tx-on-h {
+ 			rockchip,pins = <4 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
+ 		};
+ 	};
 
- .../boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dts | 10 +++++++++
- .../boot/dts/rockchip/rk3576-armsom-sige5.dts      | 10 +++++++++
- arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts   |  9 ++++++++
- arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts   |  9 ++++++++
- .../boot/dts/rockchip/rk3576-luckfox-core3576.dtsi | 22 ++++----------------
- arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts  |  9 ++++++++
- .../arm64/boot/dts/rockchip/rk3576-nanopi-r76s.dts | 16 +++------------
- arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dts     | 10 +++++++++
- arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts    | 10 +++++++++
- .../boot/dts/rockchip/rk3588-armsom-sige7.dts      | 11 ++++++++++
- arch/arm64/boot/dts/rockchip/rk3588-armsom-w3.dts  | 19 +++++++++++++++++
- .../boot/dts/rockchip/rk3588-coolpi-cm5-evb.dts    | 18 +++++++++++++++-
- .../dts/rockchip/rk3588-coolpi-cm5-genbook.dts     | 12 ++++++++++-
- .../arm64/boot/dts/rockchip/rk3588-coolpi-cm5.dtsi |  4 ++++
- .../boot/dts/rockchip/rk3588-edgeble-neu6a-io.dtsi |  1 +
- arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts   | 20 ++++++++++++++++++
- arch/arm64/boot/dts/rockchip/rk3588-evb2-v10.dts   | 11 ++++++++++
- arch/arm64/boot/dts/rockchip/rk3588-fet3588-c.dtsi |  1 +
- .../dts/rockchip/rk3588-firefly-core-3588j.dtsi    |  1 +
- .../dts/rockchip/rk3588-firefly-icore-3588q.dtsi   |  1 +
- .../boot/dts/rockchip/rk3588-firefly-itx-3588j.dts | 12 +++++++++++
- .../rockchip/rk3588-friendlyelec-cm3588-nas.dts    | 18 ++++++++++++++++
- .../arm64/boot/dts/rockchip/rk3588-h96-max-v58.dts | 11 ++++++++++
- arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts     | 24 +++++++++++++++-------
- .../arm64/boot/dts/rockchip/rk3588-mnt-reform2.dts | 12 +++++++++++
- arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi | 21 +++++++++++++++++++
- .../boot/dts/rockchip/rk3588-orangepi-5-max.dts    | 18 ++++++++++++++--
- .../boot/dts/rockchip/rk3588-orangepi-5-plus.dts   | 20 ++++++++++++++++++
- .../boot/dts/rockchip/rk3588-orangepi-5-ultra.dts  | 11 ++++++++--
- .../arm64/boot/dts/rockchip/rk3588-orangepi-5.dtsi |  1 +
- arch/arm64/boot/dts/rockchip/rk3588-roc-rt.dts     | 19 +++++++++++++++++
- arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts | 12 ++++++++++-
- .../boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi   | 19 ++++++++++++++++-
- .../boot/dts/rockchip/rk3588-tiger-haikou.dts      |  4 +++-
- arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi     | 20 ++++++++++++++++--
- .../arm64/boot/dts/rockchip/rk3588-toybrick-x0.dts |  1 +
- .../arm64/boot/dts/rockchip/rk3588-turing-rk1.dtsi |  2 ++
- arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts | 16 +++++++++++++++
- arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts  |  1 +
- .../boot/dts/rockchip/rk3588s-gameforce-ace.dts    | 15 +++++++++-----
- .../boot/dts/rockchip/rk3588s-indiedroid-nova.dts  | 13 +++++++++++-
- .../boot/dts/rockchip/rk3588s-khadas-edge2.dts     | 15 ++++++++++----
- .../arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi | 11 ++++++++++
- arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts | 10 +++++++++
- .../boot/dts/rockchip/rk3588s-orangepi-5.dtsi      | 11 ++++++++++
- .../dts/rockchip/rk3588s-orangepi-cm5-base.dts     | 12 +++++++----
- .../boot/dts/rockchip/rk3588s-orangepi-cm5.dtsi    |  3 +++
- .../boot/dts/rockchip/rk3588s-radxa-cm5-io.dts     | 10 +++++++++
- arch/arm64/boot/dts/rockchip/rk3588s-roc-pc.dts    | 17 ++++++++++++---
- arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts   | 13 ++++++++++--
- arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts   | 13 ++++++++++--
- 51 files changed, 519 insertions(+), 70 deletions(-)
----
-base-commit: 39704f00f747aba3144289870b5fd8ac230a9aaf
-change-id: 20260417-dts-rk-frl-enable-gpios-ce9930dbf5ca
+-- 
+2.53.0
 
 
