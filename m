@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D76E4FF8873
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 21:58:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6954FFF8867
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 21:58:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mqG+hmbnpLQo8EKu+bSNJysSCdwKzPG3j8sEzdXti8U=; b=p/1ZsgrtD9ueXuSgNVVFsdg6p7
-	HBaNKzdYREVbKTFtnVUFPY5ssuqReW2Onpmqp+49f7ZxjGq4crV4mFjs6ufMyEDarunBVIJWBqu8U
-	fklOvpoqS7AZV8Nnf6I35zj+KQiUN8z0um6/SCbpZ+vlXHtta7jWTqO+ypJjCQriXozqb6Xqv2Q56
-	FU7lx4TgTUd4UMDXBYgXBGJAeKMjPiKYkcoirhgv94xy3AmmecY6MyNt/slI+UpRYeouS85LgRFbp
-	i0q21qiCt13W1vKMVxP73hzZYje4X7Q0VNTXVh04uiNGxBDMYhP5fadnKOqR3TiLjGEsZAz88U60Z
-	Jv8NsHvQ==;
+	bh=zYZiB9XbZwovQknlVU+0TUAxWhGhvr3tPdANlcwBNcM=; b=IJS+f65tb+udfUFggcOnHJK0pL
+	fWkDkSLkiNvoA5q88nw/glh2rj/rwv/YomTGwo714max393BgPIVtFhp7db5+lL5zYNAZ+zQzhtCI
+	UTpTEcBcJMcyvNZI+ZZqIk9dOl54Sz99EpJOjhhmvH5ycBI0oQ+DkIzXJCYRUGHo1x/w/pYw8YQCJ
+	R/mwfpz37Mpk4HHy0cOnXD43fA2ozRtlhya7N69Qq/uQJvllx98ZKv91c7WQtsS1VODfBULuVxEd1
+	eaKDBFV1QkANXszoipo4iDneP0yJNN5/MUDIKF3UCBnA4oZXyU5xLA0nmlhnPSEIuZJYs7yJPlFlA
+	ldmdfBkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHTxt-00000000DeQ-3wuG;
-	Mon, 27 Apr 2026 21:58:05 +0000
+	id 1wHTxv-00000000DhB-1eU5;
+	Mon, 27 Apr 2026 21:58:07 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHTxh-00000000DJn-3AR9;
+	id 1wHTxi-00000000DKC-08Mr;
 	Mon, 27 Apr 2026 21:57:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1777327071;
-	bh=pqRtbplYE8IdJKdBWhM5OHW77gHMGDEF1m/tI0sVmVg=;
+	bh=L8fHGnYJyQWq1k1jHm8DfO8Gn8xMdJZNXES7wUUBo9c=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=KQLXIHWJdZT0TECVDrV5VZQulabse1tqARayoCENAjGajdd5B5KWN683h6Y3vIu3U
-	 5CVfEqlvA3dilYUNKiO+TrtyWoyUJnTtsJIduQICpxwoesLS2fABYxCowaeIwW3jYD
-	 zsfok6b79zkMnZzdofnsKK0lRaCTrOmE77rQLOc2LWcs4zZcMK0ocsLOisn+MQu63P
-	 pYS02iAetB/LAyB1aMrkpAqY+UlTBq7t6RNCuxQn5TvMCUg7hp3Bg0l5n/c6gFnPR/
-	 Z+PAkRZILC9fLTjqMDKyTsK+H3/EVTL7qGCDdhuFrL++UeYsbFn3UevNYGhP9FEv/J
-	 n4LzWoTtnCv9w==
+	b=Ggm058k0+YbgMqt05i7tTW6pf9RqHbyXgydQijp8VJES5aK77XPSjSp8n3kvNBXBu
+	 ybZaEsDWpYpcmmT0S0ZoF8LQUxgDjPQBcbRF2sobpdybIiIE95AFusregoagXVzFMd
+	 hdsKanc1SMBYANsyAymDv5DYG6+/SXU8jv6HRzR72faobSg8KFf5Q0h1pL4cUjNhv4
+	 i1nX74FGneWfPx+koeVN7igKgM9IBVg+a72u8rzQChW5/bJ1F9xSrX2RggYK1gXxQb
+	 clUnpmpMTS//Ox6/abwtN9cR4hLfVHw9qS9/ZTnYIfBK/gqnAFqwZASInrWndT+axD
+	 phl00X6KJ0CoA==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id D5A7E17E141F;
-	Mon, 27 Apr 2026 23:57:50 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id ACE4717E1562;
+	Mon, 27 Apr 2026 23:57:51 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Tue, 28 Apr 2026 00:57:28 +0300
-Subject: [PATCH v2 10/13] arm64: dts: rockchip: Drop unnecessary
- #{address,size}-cells from rk3588-jaguar
+Date: Tue, 28 Apr 2026 00:57:29 +0300
+Subject: [PATCH v2 11/13] arm64: dts: rockchip: Add missing pinctrl-names
+ to rk3576 boards
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260428-dts-rk-frl-enable-gpios-v2-10-924df9db884a@collabora.com>
+Message-Id: <20260428-dts-rk-frl-enable-gpios-v2-11-924df9db884a@collabora.com>
 References: <20260428-dts-rk-frl-enable-gpios-v2-0-924df9db884a@collabora.com>
 In-Reply-To: <20260428-dts-rk-frl-enable-gpios-v2-0-924df9db884a@collabora.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -60,8 +60,8 @@ Cc: kernel@collabora.com, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org
 X-Mailer: b4 0.15.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_145753_996592_D3AC70E7 
-X-CRM114-Status: UNSURE (   8.43  )
+X-CRM114-CacheID: sfid-20260427_145754_248097_7CEBF2D8 
+X-CRM114-Status: UNSURE (   9.87  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,45 +77,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove the unnecessary #address-cells and #size-cells properties from
-the usb_host0_xhci and usb_host1_xhci port nodes, as they each contain
-a single endpoint child with no reg property.
-
-This fixes the following dtc warnings:
-
-rk3588-jaguar.dts: Warning (avoid_unnecessary_addr_size):
- /usb@fc000000/port: unnecessary #address-cells/#size-cells [...]
- /usb@fc400000/port: unnecessary #address-cells/#size-cells [...]
+Several rk3576 board DTS files override pinctrl-0 for uart0 without
+re-specifying pinctrl-names.  While the property is inherited from the
+base rk3576.dtsi, add it explicitly to the board-level overrides for
+consistency with other nodes.
 
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts | 6 ------
- 1 file changed, 6 deletions(-)
+ arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dts | 1 +
+ arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts      | 1 +
+ arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dts            | 1 +
+ arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts           | 1 +
+ 4 files changed, 4 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts b/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts
-index 05b524f682cf..033db78aff67 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts
-@@ -1142,9 +1142,6 @@ &usb_host0_xhci {
- 	status = "okay";
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dts b/arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dts
+index a9e3beb3ee5e..05fb4a7f9a16 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dts
+@@ -815,6 +815,7 @@ &u2phy1_otg {
  
- 	port {
--		#address-cells = <1>;
--		#size-cells = <0>;
--
- 		usb_host0_xhci_drd_sw: endpoint {
- 			remote-endpoint = <&usbc0_hs>;
- 		};
-@@ -1157,9 +1154,6 @@ &usb_host1_xhci {
+ &uart0 {
+ 	pinctrl-0 = <&uart0m0_xfer>;
++	pinctrl-names = "default";
  	status = "okay";
+ };
  
- 	port {
--		#address-cells = <1>;
--		#size-cells = <0>;
--
- 		usb_host1_xhci_drd_sw: endpoint {
- 			remote-endpoint = <&usbc1_hs>;
- 		};
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+index c3e8966c09c4..4ac4465e39a5 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+@@ -975,6 +975,7 @@ &u2phy1_otg {
+ 
+ &uart0 {
+ 	pinctrl-0 = <&uart0m0_xfer>;
++	pinctrl-names = "default";
+ 	status = "okay";
+ };
+ 
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dts b/arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dts
+index 54de3a50571f..8411c16fa471 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dts
+@@ -776,6 +776,7 @@ wd_en: wd-en {
+ 
+ &uart0 {
+ 	pinctrl-0 = <&uart0m0_xfer>;
++	pinctrl-names = "default";
+ 	status = "okay";
+ };
+ 
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
+index cc054c837317..272af1012ab0 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
+@@ -833,6 +833,7 @@ &u2phy1_otg {
+ 
+ &uart0 {
+ 	pinctrl-0 = <&uart0m0_xfer>;
++	pinctrl-names = "default";
+ 	status = "okay";
+ };
+ 
 
 -- 
 2.53.0
