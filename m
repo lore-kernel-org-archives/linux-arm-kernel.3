@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 246CFFF8860
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 14:24:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 201B1FF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 14:24:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kel3aEvgR2LwrabvkGqWPn/9dZy2wQYqVSdPgSKOyq4=; b=4NKR21KfW8rciOOETBzPCZoQbF
-	wWjZ0Vk09ip4RwhX/wTC6khBGEURXzAbGOQaEZNmM7FPQpQsqo+j/YFcr8rV2e5zlKLz6SIGsJ3r8
-	6AJqmt2pcQ6vVTQFEk/xi7gvyNqKe9DpO1YH7waiKwAVAAuD+7smDCnz0CGo1/w1bMS1zHM1z+CwQ
-	jRJ8tHqjx3doz/3Qu3l5JUwkxN3/9DjT27lwD6mA1oLMDQDBI4tNvZf8ztb+9ykAz1JTCRLols5fQ
-	Q7+4O/fT8a8hQBE1w2FwZsmDjdvrSy7dvWEQxdek8Ykruf7mt8bdKKLo1FiA5VKN+WkFah3juOb/z
-	iDZPUt4Q==;
+	bh=KoY9ZoI1Sl/3PkJRq3/Iel00EgmDuIhbXaepc+P8kpA=; b=j6SB8iyWgHRyvT2coBUtImaBDs
+	qcbuYprOgQP5/NB9+sG1dGB6HZEq3SCGD4lQDXEEDU9h6/hFg9q7AQDW+h68c8enz7+Jwtt3+ieUw
+	f+pN5CHur5gC1a1lZQ9RTyLLzG96J7Mgz0W6Hv1BfHcab7aalTLWupMO9HkGumjy5svrUbwhti2L4
+	3A0Lb+Vu+uU0pOfnkdbPvRiPFkeK02a1z2qrlZHl4FEU4Yg0Hm0Ddkti1emS+lyiVzupPmLL6kMFQ
+	dSpV0BW9lQ7SV3b1nBiD81rh+WLRJ5EoXn2Jri7414ptLgjMpwBL/KX8xtc6nIEPzPk5oPyv3h1qz
+	bZb1mgFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHMsk-0000000H5e8-0XwM;
-	Mon, 27 Apr 2026 14:24:18 +0000
+	id 1wHMsr-0000000H5iJ-0Fig;
+	Mon, 27 Apr 2026 14:24:26 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHMsj-0000000H5dL-1EMO
+	id 1wHMso-0000000H5gq-2GW7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 14:24:17 +0000
+	Mon, 27 Apr 2026 14:24:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 78C0C60139;
+	by tor.source.kernel.org (Postfix) with ESMTP id F231660139;
+	Mon, 27 Apr 2026 14:24:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F4C4C2BCC4;
 	Mon, 27 Apr 2026 14:24:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 291B2C19425;
-	Mon, 27 Apr 2026 14:24:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777299856;
-	bh=Nv1JYf3LO+jPMQgpo8pnXz9mJrVmyxe8ICeN5WxGts0=;
+	s=k20201202; t=1777299861;
+	bh=5vHeUD4XDO+jrNf3SjbxNwWzSv6HWIWXWuo72nUC1JI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=MqNrrf3g5O6M65G1JhS7bEZJX1r8MEERTG22J+Ynebq3uEAY/PvQ7VWZhbWmuxA6Y
-	 8U1FJ4y47vfh6ZcPkCHxPBD70DnaqAuY/nfkaqwFSr+xOiKtX7ZMYsd+XdmF4vrO//
-	 kSjh7yQcq4iI6f6TTLgsRC0SH+DOGeKdQGuarmbU44+cnJ46gb27/SP71av0s3gZ07
-	 5dZr7nZCrtqFNugvftIk6vbTV602ox/34HBW3ZZzAngvZif8z5AGGToYTJ/V+OzVuk
-	 guMW+CUMhKZUuCeNW/Lnrf29IRET91h9LWu/JiqzLYeMNj/CYRJWROpZWW7DlK3Epz
-	 5+ndG4WFx1HwA==
+	b=uGdsR4+k3FvnnYnvX3Y8UhtjVufTKOlRn85hY5P7E9hwpr3x3DRbxCttv2TDtdkMC
+	 UZBGTe8kwF1BBuT+Rk8dj3YxZ7hcEMWHn3RZ2E35/Igo/CaXdbC8fANsB7mH+rKLkb
+	 fjm8htxAkvo46HqYmaN+ZUCW7/DeEHD7hkXKPJP/trr3Fsf0pYfh+w/aRK9YuYhtgr
+	 ue73ltKQMJqkuDpyG6xB9V7mVUy303EhLF5iJFMY0kV/XSr1p86aoTUeQInQPIaC+R
+	 2wtwquWyoYCKsrMS4MKjF7S987ZTRy66tm0UjHpMiDgYFAytkx472Rjo/Udnownd7r
+	 tog962DDwol7w==
 From: Arnd Bergmann <arnd@kernel.org>
 To: 
 Cc: Arnd Bergmann <arnd@arndb.de>,
@@ -69,10 +69,10 @@ Cc: Arnd Bergmann <arnd@arndb.de>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-gpio@vger.kernel.org,
 	linux-omap@vger.kernel.org,
-	Krzysztof Kozlowski <krzk@kernel.org>
-Subject: [PATCH v3 2/3] ARM: dts: omap2: add stlc4560 spi-wireless node
-Date: Mon, 27 Apr 2026 16:23:54 +0200
-Message-Id: <20260427142355.2532714-3-arnd@kernel.org>
+	Christian Lamparter <chunkeey@gmail.com>
+Subject: [PATCH v3 3/3] p54spi: convert to devicetree
+Date: Mon, 27 Apr 2026 16:23:55 +0200
+Message-Id: <20260427142355.2532714-4-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260427142355.2532714-1-arnd@kernel.org>
 References: <20260427142355.2532714-1-arnd@kernel.org>
@@ -94,58 +94,222 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-Converted from the platform_device creation in board-n8x0.c.
+The Prism54 SPI driver hardcodes GPIO numbers and expects users to
+pass them as module parameters, apparently a relic from its life as a
+staging driver. This works because there is only one user, the Nokia
+N8x0 tablet.
 
-Link: https://lore.kernel.org/all/20230314163201.955689-1-arnd@kernel.org/
-Reviewed-by: Krzysztof Kozlowski <krzk@kernel.org>
+Convert this to the gpio descriptor interface and DT based probing
+to improve this and simplify the code at the same time.
+
+Acked-by: Christian Lamparter <chunkeey@gmail.com>
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- arch/arm/boot/dts/ti/omap/omap2.dtsi                |  4 ++++
- arch/arm/boot/dts/ti/omap/omap2420-n8x0-common.dtsi | 12 ++++++++++++
- 2 files changed, 16 insertions(+)
+ arch/arm/mach-omap2/board-n8x0.c           | 18 ------
+ drivers/net/wireless/intersil/p54/p54spi.c | 68 ++++++++--------------
+ drivers/net/wireless/intersil/p54/p54spi.h |  3 +
+ 3 files changed, 28 insertions(+), 61 deletions(-)
 
-diff --git a/arch/arm/boot/dts/ti/omap/omap2.dtsi b/arch/arm/boot/dts/ti/omap/omap2.dtsi
-index afabb36a8ac1..fdc1790adf43 100644
---- a/arch/arm/boot/dts/ti/omap/omap2.dtsi
-+++ b/arch/arm/boot/dts/ti/omap/omap2.dtsi
-@@ -129,6 +129,8 @@ i2c2: i2c@48072000 {
- 		};
+diff --git a/arch/arm/mach-omap2/board-n8x0.c b/arch/arm/mach-omap2/board-n8x0.c
+index 969265d5d5c6..d9acd32c5457 100644
+--- a/arch/arm/mach-omap2/board-n8x0.c
++++ b/arch/arm/mach-omap2/board-n8x0.c
+@@ -20,7 +20,6 @@
+ #include <linux/spi/spi.h>
+ #include <linux/usb/musb.h>
+ #include <linux/mmc/host.h>
+-#include <linux/platform_data/spi-omap2-mcspi.h>
+ #include <linux/platform_data/mmc-omap.h>
+ #include <linux/mfd/menelaus.h>
  
- 		mcspi1: spi@48098000 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
- 			compatible = "ti,omap2-mcspi";
- 			ti,hwmods = "mcspi1";
- 			reg = <0x48098000 0x100>;
-@@ -140,6 +142,8 @@ mcspi1: spi@48098000 {
- 		};
+@@ -106,21 +105,6 @@ static void __init n8x0_usb_init(void) {}
  
- 		mcspi2: spi@4809a000 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
- 			compatible = "ti,omap2-mcspi";
- 			ti,hwmods = "mcspi2";
- 			reg = <0x4809a000 0x100>;
-diff --git a/arch/arm/boot/dts/ti/omap/omap2420-n8x0-common.dtsi b/arch/arm/boot/dts/ti/omap/omap2420-n8x0-common.dtsi
-index 63b0b4921e4e..fe9dd8bbfc85 100644
---- a/arch/arm/boot/dts/ti/omap/omap2420-n8x0-common.dtsi
-+++ b/arch/arm/boot/dts/ti/omap/omap2420-n8x0-common.dtsi
-@@ -109,3 +109,15 @@ partition@5 {
- 		};
- 	};
- };
-+
-+&mcspi2 {
-+	status = "okay";
-+
-+	wifi@0 {
-+		reg = <0>;
-+		compatible = "st,stlc4560";
-+		spi-max-frequency = <48000000>;
-+		interrupts-extended = <&gpio3 23 IRQ_TYPE_EDGE_RISING>;
-+		powerdown-gpios = <&gpio4 1 GPIO_ACTIVE_LOW>; /* gpio 97 */
-+	};
+ #endif /*CONFIG_USB_MUSB_TUSB6010 */
+ 
+-
+-static struct omap2_mcspi_device_config p54spi_mcspi_config = {
+-	.turbo_mode	= 0,
+-};
+-
+-static struct spi_board_info n800_spi_board_info[] __initdata = {
+-	{
+-		.modalias	= "p54spi",
+-		.bus_num	= 2,
+-		.chip_select	= 0,
+-		.max_speed_hz   = 48000000,
+-		.controller_data = &p54spi_mcspi_config,
+-	},
+-};
+-
+ #if defined(CONFIG_MENELAUS) && IS_ENABLED(CONFIG_MMC_OMAP)
+ 
+ /*
+@@ -524,7 +508,5 @@ omap_late_initcall(n8x0_late_initcall);
+ void * __init n8x0_legacy_init(void)
+ {
+ 	board_check_revision();
+-	spi_register_board_info(n800_spi_board_info,
+-				ARRAY_SIZE(n800_spi_board_info));
+ 	return &mmc1_data;
+ }
+diff --git a/drivers/net/wireless/intersil/p54/p54spi.c b/drivers/net/wireless/intersil/p54/p54spi.c
+index 9d66dcae54e0..1cda3b42b5d7 100644
+--- a/drivers/net/wireless/intersil/p54/p54spi.c
++++ b/drivers/net/wireless/intersil/p54/p54spi.c
+@@ -8,6 +8,7 @@
+  */
+ 
+ #include <linux/module.h>
++#include <linux/mod_devicetable.h>
+ #include <linux/platform_device.h>
+ #include <linux/interrupt.h>
+ #include <linux/firmware.h>
+@@ -15,7 +16,7 @@
+ #include <linux/irq.h>
+ #include <linux/spi/spi.h>
+ #include <linux/etherdevice.h>
+-#include <linux/gpio.h>
++#include <linux/gpio/consumer.h>
+ #include <linux/slab.h>
+ 
+ #include "p54spi.h"
+@@ -30,19 +31,6 @@
+ MODULE_FIRMWARE("3826.arm");
+ MODULE_FIRMWARE("3826.eeprom");
+ 
+-/* gpios should be handled in board files and provided via platform data,
+- * but because it's currently impossible for p54spi to have a header file
+- * in include/linux, let's use module parameters for now
+- */
+-
+-static int p54spi_gpio_power = 97;
+-module_param(p54spi_gpio_power, int, 0444);
+-MODULE_PARM_DESC(p54spi_gpio_power, "gpio number for power line");
+-
+-static int p54spi_gpio_irq = 87;
+-module_param(p54spi_gpio_irq, int, 0444);
+-MODULE_PARM_DESC(p54spi_gpio_irq, "gpio number for irq line");
+-
+ static void p54spi_spi_read(struct p54s_priv *priv, u8 address,
+ 			      void *buf, size_t len)
+ {
+@@ -262,14 +250,14 @@ static int p54spi_upload_firmware(struct ieee80211_hw *dev)
+ 
+ static void p54spi_power_off(struct p54s_priv *priv)
+ {
+-	disable_irq(gpio_to_irq(p54spi_gpio_irq));
+-	gpio_set_value(p54spi_gpio_power, 0);
++	disable_irq(priv->irq);
++	gpiod_set_value(priv->gpio_powerdown, 1);
+ }
+ 
+ static void p54spi_power_on(struct p54s_priv *priv)
+ {
+-	gpio_set_value(p54spi_gpio_power, 1);
+-	enable_irq(gpio_to_irq(p54spi_gpio_irq));
++	gpiod_set_value(priv->gpio_powerdown, 0);
++	enable_irq(priv->irq);
+ 
+ 	/* need to wait a while before device can be accessed, the length
+ 	 * is just a guess
+@@ -608,30 +596,19 @@ static int p54spi_probe(struct spi_device *spi)
+ 		goto err_free;
+ 	}
+ 
+-	ret = gpio_request(p54spi_gpio_power, "p54spi power");
+-	if (ret < 0) {
+-		dev_err(&priv->spi->dev, "power GPIO request failed: %d", ret);
++	priv->gpio_powerdown = gpiod_get(&spi->dev, "powerdown", GPIOD_OUT_HIGH);
++	if (IS_ERR(priv->gpio_powerdown)) {
++		ret = PTR_ERR(priv->gpio_powerdown);
++		dev_err(&priv->spi->dev, "powerdown GPIO request failed: %d", ret);
+ 		goto err_free;
+ 	}
+ 
+-	ret = gpio_request(p54spi_gpio_irq, "p54spi irq");
+-	if (ret < 0) {
+-		dev_err(&priv->spi->dev, "irq GPIO request failed: %d", ret);
+-		goto err_free_gpio_power;
+-	}
+-
+-	gpio_direction_output(p54spi_gpio_power, 0);
+-	gpio_direction_input(p54spi_gpio_irq);
+-
+-	ret = request_irq(gpio_to_irq(p54spi_gpio_irq),
+-			  p54spi_interrupt, IRQF_NO_AUTOEN, "p54spi",
+-			  priv->spi);
++	ret = request_irq(spi->irq, p54spi_interrupt, IRQF_NO_AUTOEN, "p54spi", priv->spi);
+ 	if (ret < 0) {
+ 		dev_err(&priv->spi->dev, "request_irq() failed");
+-		goto err_free_gpio_irq;
++		goto err_free_gpio_power;
+ 	}
+ 
+-	irq_set_irq_type(gpio_to_irq(p54spi_gpio_irq), IRQ_TYPE_EDGE_RISING);
+ 
+ 	INIT_WORK(&priv->work, p54spi_work);
+ 	init_completion(&priv->fw_comp);
+@@ -659,11 +636,9 @@ static int p54spi_probe(struct spi_device *spi)
+ 
+ err_free_common:
+ 	release_firmware(priv->firmware);
+-	free_irq(gpio_to_irq(p54spi_gpio_irq), spi);
+-err_free_gpio_irq:
+-	gpio_free(p54spi_gpio_irq);
++	free_irq(priv->irq, spi);
+ err_free_gpio_power:
+-	gpio_free(p54spi_gpio_power);
++	gpiod_put(priv->gpio_powerdown);
+ err_free:
+ 	p54_free_common(priv->hw);
+ 	return ret;
+@@ -675,10 +650,8 @@ static void p54spi_remove(struct spi_device *spi)
+ 
+ 	p54_unregister_common(priv->hw);
+ 
+-	free_irq(gpio_to_irq(p54spi_gpio_irq), spi);
+-
+-	gpio_free(p54spi_gpio_power);
+-	gpio_free(p54spi_gpio_irq);
++	free_irq(priv->irq, spi);
++	gpiod_put(priv->gpio_powerdown);
+ 	release_firmware(priv->firmware);
+ 
+ 	mutex_destroy(&priv->mutex);
+@@ -686,10 +659,19 @@ static void p54spi_remove(struct spi_device *spi)
+ 	p54_free_common(priv->hw);
+ }
+ 
++struct of_device_id p54spi_of_ids[] = {
++	{ .compatible = "cnxt,3110x", },
++	{ .compatible = "isil,p54spi", },
++	{ .compatible = "st,stlc4550", },
++	{ .compatible = "st,stlc4560", },
++	{ },
 +};
++MODULE_DEVICE_TABLE(of, p54spi_of_ids);
+ 
+ static struct spi_driver p54spi_driver = {
+ 	.driver = {
+ 		.name		= "p54spi",
++		.of_match_table = p54spi_of_ids,
+ 	},
+ 
+ 	.probe		= p54spi_probe,
+diff --git a/drivers/net/wireless/intersil/p54/p54spi.h b/drivers/net/wireless/intersil/p54/p54spi.h
+index e5619a13fd61..118785cc635a 100644
+--- a/drivers/net/wireless/intersil/p54/p54spi.h
++++ b/drivers/net/wireless/intersil/p54/p54spi.h
+@@ -107,6 +107,9 @@ struct p54s_priv {
+ 
+ 	enum fw_state fw_state;
+ 	const struct firmware *firmware;
++
++	struct gpio_desc *gpio_powerdown;
++	int irq;
+ };
+ 
+ #endif /* P54SPI_H */
 -- 
 2.39.5
 
