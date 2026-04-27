@@ -4,105 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 298EFFF885E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 11:26:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EE66FF885E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 11:31:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MRULM3iCCqXJE5g/4xg/Q1GMtMSkkTbAvywHS3WulkU=; b=Xh8bgA623Xo3o5TQ8u7lCCE5F4
-	+M/eWDXeNN0qAfL36ChT0gz1lQPW2HAjAl0bufnarT/bhaTY0RM44iWCHwnIXoTp3qLMgXefRZs4h
-	utiKp52M2c7ncMN7ZpRtJnjBMudpxqrtXvpUUJcjuiZuG1VzTLbRL3xd3OPIyAijtMNhk0CXJHzlj
-	Z4IefyHJnQ30DWsXlHrYmgvtnQTHQJhpThTO+2qfJ9y3hIXiUlxPReMFnSGi7U1X+E9glu9AS1I5R
-	TTz6q8osKme/AehLMwowh3KaPcZM3uC7qxVuhlixkyWNlzRqoo87dbsAxrSZP1nSzSwVPC01VgKxE
-	vLMF27xw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oczoMnPReZaIdQXexoCfPQETvMC08e4WB9/AECl0kH0=; b=DdcRuU6n/LC+WvMCd3WFPnXNVi
+	9RdJK9w/ZV5gCQKMTHZJiGlwe7gjL+ASV8JzOTIEy1x3KoihqKXUSBNihVPIxTMf32NCBLNAJTA4o
+	SSK9TTVONObV2DouxVNoryLX6/fU5djq30TiD7fDBDaD8lHWRuwt/1hfPcVXWfXkaU1GG7vHEmWUe
+	qPWrI97IEHd4bnVu6A3e/WlG/H4vuMswQgsFhZJAB/0tIBq01+SElSkPfWDpJc9JFnDDcxU7MvAA5
+	ms/IgyWxmtYhPuD0oETJ0YRSCSPw/fkZ/v/2wLUzTMf37DSdAX/ApP8JN0igUBBGT02TBCgdHh6Xz
+	iNXEBQvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHK6q-0000000GnWI-3KFo;
-	Mon, 27 Apr 2026 11:26:40 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1wHKBj-0000000Gnpw-2LH4;
+	Mon, 27 Apr 2026 11:31:43 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHK6n-0000000GnVI-34yx
+	id 1wHKBh-0000000GnoT-0UrL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 11:26:39 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-82f1f6103afso4600157b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 04:26:37 -0700 (PDT)
+	Mon, 27 Apr 2026 11:31:42 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4891c00e7aeso75106255e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 04:31:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777289197; x=1777893997; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=MRULM3iCCqXJE5g/4xg/Q1GMtMSkkTbAvywHS3WulkU=;
-        b=nZ54fFwhdU3n+tmJtpOcjA0ZGExgTbsEFQd4oyav+zcKmgoTHnEC+AmeIUiDww7afQ
-         n0puCsl+iaLKALjQTyAWByX1IJ6UJAQgf0/hk62Yx/haHr/F5uaKF2NG03tIN/BzWe3d
-         wQJgrGFweHFOJ1xwnisXuVAtsGcuMVopHrU3lgxn+2LF4zAtWiCpVSJ3o8mfKr8cjdZV
-         jZNjTOmRcghqlk/QDFy70XxAPN/mKVKbpkG6BK8CpPR7rtFvTfr/VPNemW5SMTbBDXzH
-         J842HLGHWHKIv5wIwpTQgMp3G9Vm3z/b8LGKxk7hctgjDjn5oqeV0pwy4MYnSdJrOQtl
-         UCDA==
+        d=gmail.com; s=20251104; t=1777289499; x=1777894299; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=oczoMnPReZaIdQXexoCfPQETvMC08e4WB9/AECl0kH0=;
+        b=LodDXEkCAyP6uzan+Rt1xbHXkvY8g8wmluuprKXSBPVztQRYAQjCwm7PQQs+LtSPiz
+         TKpKrrue4yGv4DnyEJOMEIHPspA8/ZDoo13cx1KxnuawqHdFfbYLdX1u0w0e6YvsHIGB
+         lI4JzenJsRnZiByPhYM6hPO0Z6lwBnl1iPpQAJ25s4gslQQIGE96hV5/UdDlMuBVbRW+
+         clJo5aaHXCMkBHYGyJFVmn98QVKoS5zhpAUT6ob+XLEPZFFOsBai36NFZ5kJAqLn0pPf
+         3TX1N6RQ4BjvkiCnzNwhqgAXtwSORxVax1DmtfdAncTXfDWV57+dNApf3VErPCYli4+3
+         4YzA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777289197; x=1777893997;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MRULM3iCCqXJE5g/4xg/Q1GMtMSkkTbAvywHS3WulkU=;
-        b=gd9E6PYRCnoSk1ngWW4IdsycVG/RVw+Q8iIy/Jv0lMb3Bmsj+2sIWAwjHbEbkEbWqC
-         UGwC9tsoVZAJyuWxe+hJhaq7QfFac2+gS828ss4JChtNNBTOin9J9HBO4OEaycxDT7yk
-         KOO1j13DDR7Q0QT3tp4tEyfk+yoU1lniwkTD+yRWPUVr4lZpj9Scp0Rs4EWd8DHRAN1t
-         kB7muHk58+zVw17a2sbwGYYaz7bPF6jhJns8ktFesHxIPQbH8RzJENtQ8L9koLycm4f8
-         W87tgFjsBMTCCyKiM+5pS0WI2d9hUhPvrZQgMWYf5uE7cT4gn7G5E+q+4YMXdmBx626g
-         +Gqw==
-X-Forwarded-Encrypted: i=1; AFNElJ9pdL6Uyc05DjboqC8DUZg0iQ35IoLU6hdHBa60GdVq5bZejpxsikgTM5eWgswWHqZNL6mF7jPsi7vVJViKBZn4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8imK1IRxbRv3h+EUeReTpKA3OzEGRlJhA/APjM27z4+qyoex9
-	sIBphHDCsLQIGVhK6vT86/oIiUpZuRWgT30btbiIYJiZw6Um35nmgGnJ
-X-Gm-Gg: AeBDieslfW50MvRw9W1v1sDCyU6HqY9mgiogLgjnNgykCLH+1iISLFXVX9Np93lmLGh
-	UBSxLA63m8xhF9cLGk7+JxFfK1WzbrpqcriklVX7k7lNYJH7kKPRSAnRCCJS9w1S5j+5STb+3oJ
-	LVNcmMkfVclj+mfT9F0GqFE3DgbJbYIhLcPmM4GQpbjiaaptTwZcgv/1PBE8E68UgWx/wOiT+Ei
-	4cis1AFsaXPgv2q6hqSmEQ0t2LeLjHbIiHsthR3ynNnzGQ4WUuJcO3ojyx8FBEQW5QBSYQTqwaX
-	Rr3+xqPGrApRUvyDHXQ5RNV0ssODDGyvmywfSsm1biMmxH+PNCbcvZp3yG0cat0gmp0qFkp8TPa
-	yqdPloguHoCtpW6hDm0vfJ8/xRSN/cc9PDtpj79NMM8FcMsyEoBsOkjavCkLYD4Ph/A0YXPUY9H
-	ZwmR5C1RTB3Uq1LPcBfx6v9zrXeVd+lL2WhA+oyHHacgywZlbmFLXsneZLaovZW/D0EOwAvqU//
-	Uo4DsbJu6aMa/MG1tyZ/y2V4/JiHhE=
-X-Received: by 2002:a05:6a00:3019:b0:82f:8b84:50c0 with SMTP id d2e1a72fcca58-82f8c973bf6mr46567455b3a.45.1777289196476;
-        Mon, 27 Apr 2026 04:26:36 -0700 (PDT)
-Received: from junjungu-PC.localdomain ([223.167.147.125])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f8ebe40dasm31504074b3a.40.2026.04.27.04.26.32
+        d=1e100.net; s=20251104; t=1777289499; x=1777894299;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=oczoMnPReZaIdQXexoCfPQETvMC08e4WB9/AECl0kH0=;
+        b=TLxfSkIPlzpjjBLprZeCVSo3QTY/qNVUd5fFZ/JBVEjyWKYrX+Bw+GS+yVEJbpazJM
+         +ekIgpoh3feh+lEpC4972SLOvxWbAnfZUBzTRwYuBCy3WJhYpSHUADVRzoZvg25oZQvX
+         0FWESqVdpgt5IdL91rFnGaiQ9v8VZfyMIDvp76KOR8xiwbh6mIguSJy5evaGR3b2+GM0
+         IqUyvHyz/R47CQlFfkzKS5/VhULoAigqNP9VlYk86EB0+QENeyCJfUj8VX0HxaIuXlwR
+         tD+VJ7HCBigMptf7pXSHCAaqBC96n/Dv+Y/tPIcahIOq2qogyoTa/UiALxHoYcj4Hg1V
+         uBzQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/sluV0WdZwl6MD5T1AAflxIsf7docRXtAMzqKFcpsvXwi/jpGqhGGA+g5zgQfaOBekv/jsAgMZKWdoPF1zWuNs@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZev3xfWWKz8Q/pU/LKoTKnT0XRkcszV7uR4h+KZNAu8jYofGf
+	AfmD7LPNr9GLn7BlZAaHV103DOsmdu2rbM3ltId9RtYO44DmHvLv7GQg
+X-Gm-Gg: AeBDietrVQ1UaoCEcq56ErbmTfCwLA5ZGNWGKQdEVJkQcQSKE7UdR5unf8DZ/+NfbqX
+	emMCgGCru0lvWJehZ4bW8hIEvbuuvVSnpNrIFXnokEZWDISl4c+tNymYweDvUiUEeXh5DC8r5ti
+	0uIESrNoh9hlAGjjY2fkLybL2xDLQyJTxrl0zJpmw4pKAL7s/tGWcdIRG+r2Lrw6Lz5Ly85QgQw
+	A4FTCl61ngK6ZHZXuP8z3fWZbMOyjURbBds4KiPREfFd3XmV8Lr/GefZpHBdAvLKnFN4u4v/QRi
+	ZLMsD0z1Hdcpg64Pr5jz0eUayAwiIJdc13HxGtGb+TivXTaMAoechlG2SQdvviEAnQJESG5ile6
+	U3Aqwgo0dxU9a6f6uO2jQK5ln5m0Dc6YwqFmgSUgl4OiYGzysgoptyz1JUJ4QLrK2hHbuJNoIqd
+	ApxzhQ+Yfu70/eZaXQ17boWTYGUsDUGGfzkA==
+X-Received: by 2002:a05:600c:a31a:b0:488:b241:2c5f with SMTP id 5b1f17b1804b1-488fb785b7emr456261975e9.26.1777289498891;
+        Mon, 27 Apr 2026 04:31:38 -0700 (PDT)
+Received: from pc ([196.235.239.18])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48a59816b71sm221145305e9.1.2026.04.27.04.31.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Apr 2026 04:26:36 -0700 (PDT)
-From: Felix Gu <ustc.gu@gmail.com>
-Date: Mon, 27 Apr 2026 19:26:31 +0800
-Subject: [PATCH v2] iio: adc: meson-saradc: fix calibration buffer leak on
- error
+        Mon, 27 Apr 2026 04:31:38 -0700 (PDT)
+Date: Mon, 27 Apr 2026 12:31:34 +0100
+From: Salah Triki <salah.triki@gmail.com>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] iio: adc: mt6359: fix unchecked return value in
+ mt6358_read_imp
+Message-ID: <ae9JFucpXBPwwGzr@pc>
+References: <20260427085458.38546-1-salah.triki@gmail.com>
+ <ae8pAGBGGOvsURka@ashevche-desk.local>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260427-meson_saradc-v2-1-8981c56fd05e@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAOZH72kC/1XMQQrCMBCF4auUWRtppkmwrryHFEmTsR2wTUkkK
- KV3NxZcuPwfvG+FRJEpwblaIVLmxGEugYcK3GjngQT70oA1mlqhFhOlMN+SjdY7oZXtnUbf9o2
- Eclki3fm1c9eu9MjpGeJ717P8rj/I/ENZCikMtabH9oRONZdhsvw4ujBBt23bByPCEXmoAAAA
-X-Change-ID: 20260425-meson_saradc-54abc52d9b31
-To: Jonathan Cameron <jic23@kernel.org>, 
- David Lechner <dlechner@baylibre.com>, 
- =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
- Andy Shevchenko <andy@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Rosen Penev <rosenp@gmail.com>
-Cc: linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Jonathan Cameron <jic23@kernel.org>, Felix Gu <ustc.gu@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777289193; l=1435;
- i=ustc.gu@gmail.com; h=from:subject:message-id;
- bh=kEiZHKJqit4MGPY+b2Ld1n2nTYLDwv8qfRcBrOW6l7Y=;
- b=OgBTJVEKI4XrARc7cMlcqcU7gP8GsABoiiF9yu7IVEyF9y6+My2J18Bx+/02Bvsj4MdK4S/nU
- QSfZVGrBreDD30Ae6PJwlEGnW3XjAo8m8gDqfw2XihWA8ZQPKwIUPfM
-X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
- pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ae8pAGBGGOvsURka@ashevche-desk.local>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_042638_024099_D6529C30 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20260427_043141_187568_5579C54E 
+X-CRM114-Status: GOOD (  21.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,46 +106,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-meson_sar_adc_temp_sensor_init() allocates a buffer with
-nvmem_cell_read(), but the old code leaked it if
-syscon_regmap_lookup_by_phandle() failed.
+On Mon, Apr 27, 2026 at 12:14:40PM +0300, Andy Shevchenko wrote:
+> On Mon, Apr 27, 2026 at 09:54:57AM +0100, Salah Triki wrote:
+> > In mt6358_read_imp(), the return value of regmap_read() is currently
+> > ignored. This is problematic because if the bus read fails the variable
+> > val_v remains uninitialized.
+> > 
+> > The function subsequently assigns this uninitialized stack value to
+> > *vbat, leading to incorrect measurement results being reported to
+> > the IIO subsystem without any error indication.
+> > 
+> > Update the function to check the return value of regmap_read(). Ensure
+> > that mt6358_stop_imp_conv() is still called to clean up the hardware
+> > state before returning the error code.
+> 
+> Sounds like this deserves a Fixes tag, but the problem is that the whole driver
+> is written like this. Why does having this fixed make it special?
+> 
+> -- 
+> With Best Regards,
+> Andy Shevchenko
+> 
+> 
 
-Fix this by adding missing kfree(buf).
+You are right, Andy. I noticed that several other functions in this driver
+share the same issue. I will send a V2 that addresses all unchecked
+regmap_read() calls in this file and I will include the Fixes tag. Thanks
+for the feedback.
 
-Fixes: d6f2eac64403 ("iio: adc: meson: no devm for nvmem_cell_get")
-Signed-off-by: Felix Gu <ustc.gu@gmail.com>
----
-Changes in v2:
-- Switch to a minimal fix according to Jonathan's comment.
-- Link to v1: https://lore.kernel.org/r/20260426-meson_saradc-v1-1-6e96b2982c43@gmail.com
----
- drivers/iio/adc/meson_saradc.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/iio/adc/meson_saradc.c b/drivers/iio/adc/meson_saradc.c
-index 23991a3612bd..000e39ca5c62 100644
---- a/drivers/iio/adc/meson_saradc.c
-+++ b/drivers/iio/adc/meson_saradc.c
-@@ -817,9 +817,11 @@ static int meson_sar_adc_temp_sensor_init(struct iio_dev *indio_dev)
- 	}
- 
- 	priv->tsc_regmap = syscon_regmap_lookup_by_phandle(dev->of_node, "amlogic,hhi-sysctrl");
--	if (IS_ERR(priv->tsc_regmap))
-+	if (IS_ERR(priv->tsc_regmap)) {
-+		kfree(buf);
- 		return dev_err_probe(dev, PTR_ERR(priv->tsc_regmap),
- 				     "failed to get amlogic,hhi-sysctrl regmap\n");
-+	}
- 
- 	trimming_bits = priv->param->temperature_trimming_bits;
- 	trimming_mask = BIT(trimming_bits) - 1;
-
----
-base-commit: 7080e32d3f09d8688c4a87d81bdcc71f7f606b16
-change-id: 20260425-meson_saradc-54abc52d9b31
-
-Best regards,
--- 
-Felix Gu <ustc.gu@gmail.com>
-
+Best Regards
+Salah Triki
 
