@@ -4,89 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 633BDFF8861
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 08:46:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B0EEFF885E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 08:48:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=enlPWmXbCXiBTtPjtrqyyDQhH4YVYS+iBt6pkMFkQHE=; b=k56XEEfkY9WyWNDooP7HGLs678
-	22JcYE0GiiSeL3gKDbzeXycFzQQ234MqNz10WUW941X3OkhwbRDDH/RX48Q/HeWPLiPb+wis/RmRp
-	ONxYfN5/1VhhnCREQeFnSc0B15tg8qpJyV6bnwWyB3MsR02olX4YCWPc4ZwHeNEL9LopsfUOYvq90
-	SoRLheP9mnDu6HR9R44+iq1/ysD3i2OH0NNzz7xKcdKrjU5aUl03oVzW01U+EI166KTZl+jaKJpvs
-	cHzwfSPW6pEDy9N/41pMkD/yP9kK/LiboCB6POrR/0If5LhDimWbF4apUZLFl4ybxRvA3Wrw67TUk
-	1upVbGDQ==;
+	bh=0JA+E2OJoqNXeWdWbhpFOoKA8w/M6yXZ6Nq/L8Dy8vA=; b=YuXPsWD/1qTHkD8qiJ/VCe4OgR
+	DgKT07/PGog57kQb7giWpRuk5U5vvtjPBw5ppi3RIZL1TT5JAd3nx5+6ZMw56DDvBwBJx/AgT25hy
+	bYLlfPkijcR3y+jvcJiWu21P47JWskK1dHZj2b05YMrEhJZz7jTSKRa6fWFMH9eD7dn9WrBcFebyV
+	3L7R6172y0kXZMtRZPScdnQD+h5UouWWAvpFk2PtZxq/0mI8GI9n1zGCdVFPTM9QzRaVqopIobhVU
+	o8y9YzCClQ0d40HYPWNknsQ5gRyDttjVg0ApH5R7R24SgGY1IuR97BUNMdqIKF1h+jewhYU3/5ktx
+	xipkA4Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHHbI-0000000GUCV-4Bt2;
-	Mon, 27 Apr 2026 08:45:57 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wHHe2-0000000GUOM-2GmB;
+	Mon, 27 Apr 2026 08:48:47 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHHbF-0000000GUC8-0NLJ
+	id 1wHHe0-0000000GUNt-1O47
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 08:45:55 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id A24BE1A343D;
-	Mon, 27 Apr 2026 08:45:48 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 6D3D9600D1;
-	Mon, 27 Apr 2026 08:45:48 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4E94B10722389;
-	Mon, 27 Apr 2026 10:45:34 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1777279546; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=enlPWmXbCXiBTtPjtrqyyDQhH4YVYS+iBt6pkMFkQHE=;
-	b=WJbcAploUg0VmF8Pr+sfgdotkcsE+3i3sOgj0VN9GILZjM/dn7k2l6yEnDFaLgNnsHB2ke
-	rIiFoGiqvbcbZUtxKswbsaRljyz+xXTtAxqH/KKDTh71KwOwbOw8l/vQCMnSwhlcMo4xCC
-	xoIgVMfDds0upX6YXNRrk8BNT5gtD69tE0EPWoJGdDPyPEFVH4WSMc76pnmesP3PyyGxoi
-	WSBqZVZb+deNlGfh7SjsbGBSVzPwbj+XpuWgjdaPkUDHoOr+AiZQXiqXcxWBxKDn39Kuzf
-	8xtuEKI55YCnUaxvGQOliOLdPRRmK0uaNRPXrzMWGxybldX6FdIJZBopPxlCjQ==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+	Mon, 27 Apr 2026 08:48:45 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-43eb012ac4fso5980858f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 01:48:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1777279722; x=1777884522; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=0JA+E2OJoqNXeWdWbhpFOoKA8w/M6yXZ6Nq/L8Dy8vA=;
+        b=G82WuSy8ONfyXcPYjeByZs37i3obxDBQMbBLDIQG/bixHs1GP1/0bX1RMlWSOu3Txw
+         q8VzpSCjS2P+uWLMjmWtgLtpkHqCjaGr8ZwoihqIB/1YZ7CRxajM53KuGtdEV2VSKo1R
+         aSt2yCfcS5eBDHKDS+VpkqDhEn4j+NH7h4TOZMXXH2bwIcJ/bt8cEsw9WBRSvY82cGN4
+         TLNP+AkDWr9isLOyvxaM/AYULC5L4ITTld7JIP8Atz5Hi/JsIDxLEgD2TBqrK6VsMnNn
+         YlZ7Rzk0IVewqMeVEQuHZsXdvMqpRmKoEHD8v/kriYZacKSKD6X7GN7PBRZIurQfka0x
+         Q49g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777279722; x=1777884522;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0JA+E2OJoqNXeWdWbhpFOoKA8w/M6yXZ6Nq/L8Dy8vA=;
+        b=UE4hVjyOePCvIvgp8ReW2LX4zyFRRTmhMyR9EPFP8u79ToVhQ6QxTO0JmKEI4CBQdh
+         uvAwMBR7b4/pJowykkC3roHUa4e17Nxsafr3QhJ1tY5/enp8yzEXso10Pin314JIrCqe
+         YC3eEIqiMePc6XN8IcTycdUnu6f2ZZDhlEK5i1e/KknJVpBzNhSc1AD8iOPLE5dqAo/6
+         W1K1VS6Z+dJOUp6dbxpoNB78TLY+JO1G2GST8Bwfm3DGgixjtI0eZ39GGYTKfW/KLjKI
+         k7LjFEMNd19dstrK7bipNCixBMn7KX7bwpU7OImU3eNmHYUZ7+lI47F+SL8eR7rInVHC
+         NDlA==
+X-Forwarded-Encrypted: i=1; AFNElJ/26jj+HmlpIEZ0XazuCiaT3iJgv2+B3JDs7xjrsMGCVvUXDEBaxZh/YnjBlvDYdW2FPt6b9UWD/E1CfQdT6T+S@lists.infradead.org
+X-Gm-Message-State: AOJu0YwZ5KLBBwilqWmx/3c34ydfUWsQ4F7ADtKIl5BxPUyThBaALxSt
+	gJjzHzSmxKrBCjEptlZulqKLxldJj4KamUveIlwmtQy/u+oAVJjZk30Hyydk2wDmbf4=
+X-Gm-Gg: AeBDieswJ6jpoEk9d5WmFrJLCeUmeEyIwFnb9wG+UCmRbPXDHcAgcL8CkIIBpvhJ7F6
+	ct6aqXtZJebFw2e8PxPx0HPF4BB/BSAPrTdbCG8OG3QCZ+L9wcz+KyKuYjibKFl3DrFCYwWDzCU
+	vlg1PxX59sTQ6bnNrtkFFNDXyuo2CcH3SeB0Eb/1oMGNJHip9d2/7UWxqbZhyYV4+FuB8i/XCq3
+	cLkjcpBVc9fbtTJtCK+A/xBGv+efQ2Pcso8dfSxNqivcGy0PSSlKIFkZniNsFESYa5KE6DSRfJj
+	ynTjTTTQMoHN6SUW4qQz9NJrF/jaWVerJwZkUwRU9ZPiv+CEvSu75fTQU34CuaGKnnQEVLxtlOd
+	LqcmJYaGCs06cW1gE4u/+ZlgLlla6hUt+o5Y3aO4/JW4ECebIlr3qFDgXFapQcbLpd+Ac9pUbCt
+	vRCAfWYFYrezyV80lnsVan8/epAxtd/WYiUmb7oSHjcTc=
+X-Received: by 2002:a05:6000:184e:b0:43b:9a9f:8956 with SMTP id ffacd0b85a97d-43fe3e0715dmr63483116f8f.22.1777279721576;
+        Mon, 27 Apr 2026 01:48:41 -0700 (PDT)
+Received: from [10.11.12.108] ([79.115.63.228])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43fe4cc2cacsm79702504f8f.13.2026.04.27.01.48.40
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 27 Apr 2026 01:48:41 -0700 (PDT)
+Message-ID: <84c292d8-d2a0-4c29-bd28-cc00f66c2f43@linaro.org>
+Date: Mon, 27 Apr 2026 11:48:38 +0300
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] firmware: samsung: fix stale response flag in
+ acpm_prepare_xfer()
+To: Titouan Ameline de Cadeville <titouan.ameline@gmail.com>
+Cc: krzk@kernel.org, alim.akhtar@samsung.com, linux-kernel@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20260426210255.73674-1-titouan.ameline@gmail.com>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20260426210255.73674-1-titouan.ameline@gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Date: Mon, 27 Apr 2026 10:45:34 +0200
-Message-Id: <DI3T0IKVGW9X.KVYWOQJN3PCI@bootlin.com>
-Subject: Re: [PATCH RFC bpf-next 0/8] bpf: add support for KASAN checks in
- JITed programs
-Cc: <ebpf@linuxfoundation.org>, "Bastien Curutchet"
- <bastien.curutchet@bootlin.com>, "Thomas Petazzoni"
- <thomas.petazzoni@bootlin.com>, "Xu Kuohai" <xukuohai@huawei.com>,
- <bpf@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <netdev@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
- <linux-stm32@st-md-mailman.stormreply.com>,
- <linux-arm-kernel@lists.infradead.org>, <kasan-dev@googlegroups.com>,
- <linux-mm@kvack.org>
-From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
-To: "Ihor Solodrai" <ihor.solodrai@linux.dev>,
- =?utf-8?b?QWxleGlzIExvdGhvcsOpIChlQlBGIEZvdW5kYXRpb24p?=
- <alexis.lothore@bootlin.com>, "Alexei Starovoitov" <ast@kernel.org>,
- "Daniel Borkmann" <daniel@iogearbox.net>, "Andrii Nakryiko"
- <andrii@kernel.org>, "Martin KaFai Lau" <martin.lau@linux.dev>, "Eduard
- Zingerman" <eddyz87@gmail.com>, "Kumar Kartikeya Dwivedi"
- <memxor@gmail.com>, "Song Liu" <song@kernel.org>, "Yonghong Song"
- <yonghong.song@linux.dev>, "Jiri Olsa" <jolsa@kernel.org>, "John Fastabend"
- <john.fastabend@gmail.com>, "David S. Miller" <davem@davemloft.net>, "David
- Ahern" <dsahern@kernel.org>, "Thomas Gleixner" <tglx@kernel.org>, "Ingo
- Molnar" <mingo@redhat.com>, "Borislav Petkov" <bp@alien8.de>, "Dave Hansen"
- <dave.hansen@linux.intel.com>, <x86@kernel.org>, "H. Peter Anvin"
- <hpa@zytor.com>, "Shuah Khan" <shuah@kernel.org>, "Maxime Coquelin"
- <mcoquelin.stm32@gmail.com>, "Alexandre Torgue"
- <alexandre.torgue@foss.st.com>, "Andrey Ryabinin" <ryabinin.a.a@gmail.com>,
- "Alexander Potapenko" <glider@google.com>, "Andrey Konovalov"
- <andreyknvl@gmail.com>, "Dmitry Vyukov" <dvyukov@google.com>, "Vincenzo
- Frascino" <vincenzo.frascino@arm.com>, "Andrew Morton"
- <akpm@linux-foundation.org>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260413-kasan-v1-0-1a5831230821@bootlin.com>
- <71fb19ff-6dde-43f4-a0e9-5c8cf2ba4ed4@linux.dev>
-In-Reply-To: <71fb19ff-6dde-43f4-a0e9-5c8cf2ba4ed4@linux.dev>
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_014553_268750_AD507AB2 
-X-CRM114-Status: GOOD (  13.81  )
+X-CRM114-CacheID: sfid-20260427_014844_424014_146A64E1 
+X-CRM114-Status: GOOD (  17.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,45 +102,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ihor,
-thanks a lot for the review and help !
+Hi,
 
-On Sat Apr 25, 2026 at 1:10 AM CEST, Ihor Solodrai wrote:
-> On 4/13/26 11:28 AM, Alexis Lothor=C3=83=C2=A9 (eBPF Foundation) wrote:
->> Hello,
->> this series aims to bring basic support for KASAN checks to BPF JITed
->> programs. This follows the first RFC posted in [1].
+Thanks for the patch!
 
-[...]
+On 4/27/26 12:02 AM, Titouan Ameline de Cadeville wrote:
+> acpm_prepare_xfer() only ever set rx_data->response to true, never
+> false. A reused sequence number slot could therefore inherit a stale
+> true from a previous transfer that expected a response, causing
+> acpm_get_rx() to enter the response-copy path for a fire-and-forget
+> transfer whose rxd is NULL.
+> 
+> Unconditionally assign the correct boolean value so the slot is fully
+> reset on every reuse.
+> 
 
->> The series is marked and sent as RFC:
->> - to allow collecting feedback early and make sure that it goes into the
->>   right direction
->> - because it depends on Xu's work to pass data between the verifier and
->>   JIT compilers. This work is not merged yet, see [2]. I have been
->>   tracking the various revisions he sent on the ML and based my local
->>   branch on his work
->> - because tests brought by this series currently can't run on BPF CI:
->>   they expect kasan multishot to be enabled, otherwise the first test
->>   will make all other kasan-related tests fail.
->
-> AFAICT this can be trivially fixed on BPF CI side, we just need to set
-> kasan_multi_shot for the VMs running the tests. I will do that, your
-> next revision doesn't have to be and RFC.
+How did you find this?
 
-Sweet, much appreciated :)
+Sashiko identified this too when reviewing the ACPM thermal patches.
+I sent some fixes last week, where this bug is squashed as well:
 
-I've started receiving some Sashiko reviews on the series (likely thanks
-to some of your actions), I'll take a look into those and prepare a
-(non-RFC) v2.
+https://lore.kernel.org/linux-samsung-soc/20260423-acpm-fixes-sashiko-reports-v1-0-2217b790925e@linaro.org/T/#m1c32aa4c84ea7e3909bc8fe7599585b71e95d8b5
 
-Thanks,
 
-Alexis
+Thanks!
+ta
 
---=20
-Alexis Lothor=C3=A9, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+> Fixes: a88927b534ba ("firmware: add Exynos ACPM protocol driver")
+> Signed-off-by: Titouan Ameline de Cadeville <titouan.ameline@gmail.com>
+> ---
+>  drivers/firmware/samsung/exynos-acpm.c | 3 +--
+>  1 file changed, 1 insertion(+), 2 deletions(-)
+> 
+> diff --git a/drivers/firmware/samsung/exynos-acpm.c b/drivers/firmware/samsung/exynos-acpm.c
+> index 16c46ed60837..2fee6bb60efc 100644
+> --- a/drivers/firmware/samsung/exynos-acpm.c
+> +++ b/drivers/firmware/samsung/exynos-acpm.c
+> @@ -380,8 +380,7 @@ static void acpm_prepare_xfer(struct acpm_chan *achan,
+>  	/* Clear data for upcoming responses */
+>  	rx_data = &achan->rx_data[achan->seqnum - 1];
+>  	memset(rx_data->cmd, 0, sizeof(*rx_data->cmd) * rx_data->n_cmd);
+> -	if (xfer->rxd)
+> -		rx_data->response = true;
+> +	rx_data->response = !!xfer->rxd;
+>  
+>  	/* Flag the index based on seqnum. (seqnum: 1~63, bitmap: 0~62) */
+>  	set_bit(achan->seqnum - 1, achan->bitmap_seqnum);
 
 
