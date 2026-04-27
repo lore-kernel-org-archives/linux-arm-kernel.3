@@ -4,47 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26952FF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 18:32:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4E35FF8860
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 18:35:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DEvjTnuToY1sm0DpgUIVOaDKJXu5b04Nj+3IlevEBIg=; b=uQ7U+qZGD6Zsv8pU23KBfQ0ss8
-	RW4SfVEhJOE0ogUyGEGa541QPyGvXVqpiPxALIHDBl84mF0n2TT1LQQ0RjWWTqtfEcs/eUXp9P6PE
-	l8BRGysWCh0KVApm2BXO7n+s3LLtQcYiosk3RBStJrA951o31plqv+7Q4pNSASTf9it2/iPD8sF5l
-	LTW/JWn1enr3OOAMREuBZ1lEJ3d+CMbHD/oUOPS/A6LiBpf2TlcQKXWtM9cxC9tlx+5Td7kCAih+j
-	3+J5E/ATk5FLmFYbBhDycAE5Y0DyA0SvBaoX157mmOTkFFLkukN8Jm8LeUaNns7gFXgY+K2pylpDF
-	PkHtL/+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ly5gsQzW24HcWcrd9A5H/YLEt6HUPzxFH8mX07JWyAU=; b=w7Z4DDvFAWWntXfYDNlh21L7mu
+	xJ3P19cksTvzQFd6kjOJAFCjknRQDtuj9+wkAzyRJjCZEg6K7rND4oLdiiHBbVz8A83j0RMAFUtx3
+	znNbv49wjlRhXwPGEysCKRWd2tHGG+l2bSW3qjcUHLtqbhF5x6Uj2UYfVFQvwwtq2Mhfxfuff8ZVy
+	gkMyLZFzCLPgPuvDWm1dUMCjcY2qrT45YazUsEQfREuCuZpy7vSuTPI11o9ZiawMvtGr2veN9wsLt
+	qPyiglLAs5TsVCNtnODFQBMfG2YkfgBSsvwgJeXrkqPx8y/ZJCs3AStLGUrnkKiwayhKqtzwa5u+f
+	m23czWIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHQl5-0000000Ha2f-0hkQ;
-	Mon, 27 Apr 2026 18:32:39 +0000
-Received: from [50.53.43.113] (helo=bombadil.infradead.org)
-	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHQl3-0000000Ha2H-2RpQ;
-	Mon, 27 Apr 2026 18:32:37 +0000
-From: Randy Dunlap <rdunlap@infradead.org>
-To: dri-devel@lists.freedesktop.org
-Cc: Randy Dunlap <rdunlap@infradead.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Helge Deller <deller@gmx.de>,
-	linux-fbdev@vger.kernel.org
-Subject: [PATCH v3] gpu: ipu-v3: clean up kernel-doc warnings
-Date: Mon, 27 Apr 2026 11:32:36 -0700
-Message-ID: <20260427183236.656902-1-rdunlap@infradead.org>
-X-Mailer: git-send-email 2.53.0
+	id 1wHQnw-0000000HaFD-3EH4;
+	Mon, 27 Apr 2026 18:35:36 +0000
+Received: from mail-canadacentralazon11021089.outbound.protection.outlook.com ([40.107.192.89] helo=YT5PR01CU002.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHQnt-0000000HaEe-2jhq
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Apr 2026 18:35:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JzEy7iJ3khKeHhuy9XJokuZqq0RoyEEhOrHXI6TiH0kRjmr3Pwf/RgDrk49mTaGugPuUfJa254jJ3xtf0a9tBF7qXxPbxSABZRi1G2kQgUT0OidDmlZvVWAQxHFg1VaZxGK2j7xlJOsiMSusYeaowJBXl+kAvP3QsuN3I4KW2lE5ibdb6ctdm7iRUNtkDKQXdnmHxuemjKXEEss1WkGdfcYRP+VpFNWtyNBiWQN/sYXIcBlPmeP1uDHokm8Z7X8qwflnwAoSHfIbuTOD6y/Pqd7ayDFF++WIrUiPUJRmVhSDdPq2e10Xfn5EQrnZklVGJi3CiALK7rOfv+NEElklZQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ly5gsQzW24HcWcrd9A5H/YLEt6HUPzxFH8mX07JWyAU=;
+ b=CsegxrC/fsdgXvDqeEg+po69tRMRRdLIcj6jF/p/s+/oTcE15EvLOyVBlKz9OM3Jth+2npHlGGdZPhdu2NyQ3G+6GsQJj8apUutLugR919bEvaHu5XGsU2wOeWLNcx5+h32uVS+OA9VRk0FlyYjVjg9up7S84k3ERO7ocnc2sJ0wiJDn7Mr8+3ouxErwZ3E/Baqv/BkwZvRd2RAY8GCOmsQmm9r+F7RsYAOXwpEe7DLvG5Uq5y1i0pcpO00ksIo6nIBzokzunue3caXb2D28anR8lCMn4xcuJXnMVi9RM8JOKLL97+SJEWAPHhcdV7t8pIbfVTz2TYNBzMhCDQRv8A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
+ dkim=pass header.d=efficios.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ly5gsQzW24HcWcrd9A5H/YLEt6HUPzxFH8mX07JWyAU=;
+ b=l592UTsh1AhrDbPdFRjUWBasWmUlV6UZVxeDUDc85LtWv1kes3Va1V6c4GJdmhMdWEMoJnyazzXzZ/IcSmuKvQLc907rAb8xTg2TTwBpTxsbyEejpRHoGqLHEPX5dzgJArWCQkQL+UEUzHEYIfj5s2VLU7ohH9Hw9CCk32vyf9JvW4Gf+iNUim5vXuVgEK4ByxnneyNI1b/re/HLvJLXZNyqmRE/4s/op836cFIwfjyk3tJjTlzboX9DRuPpwLp+SRUjbuG+9/xr1SM+Wf/vmLNRRDupzXDEtfSVhsNDRZhq6FhTZ+gUME0eC+gBt5Q9OfhK8SQfNk1cEo55qHAbVw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=efficios.com;
+Received: from YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:be::5)
+ by YT2PR01MB10418.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:dc::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Mon, 27 Apr
+ 2026 18:35:26 +0000
+Received: from YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6004:a862:d45d:90c1]) by YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6004:a862:d45d:90c1%3]) with mapi id 15.20.9846.025; Mon, 27 Apr 2026
+ 18:35:25 +0000
+Message-ID: <7f8783a6-1a48-4c92-850c-d285a788b491@efficios.com>
+Date: Mon, 27 Apr 2026 14:35:22 -0400
+User-Agent: Mozilla Thunderbird
+Subject: Re: [REGRESSION] rseq: refactoring in v6.19 broke everyone on arm64
+ and tcmalloc everywhere
+To: Florian Weimer <fweimer@redhat.com>, Thomas Gleixner <tglx@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>,
+ Mathias Stearn <mathias@mongodb.com>, Dmitry Vyukov <dvyukov@google.com>,
+ Jinjie Ruan <ruanjinjie@huawei.com>, linux-man@vger.kernel.org,
+ Mark Rutland <mark.rutland@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Boqun Feng <boqun.feng@gmail.com>, "Paul E. McKenney" <paulmck@kernel.org>,
+ Chris Kennelly <ckennelly@google.com>, regressions@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Ingo Molnar <mingo@kernel.org>, Blake Oler <blake.oler@mongodb.com>,
+ Rich Felker <dalias@libc.org>, Matthew Wilcox <willy@infradead.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Linus Torvalds <torvalds@linuxfoundation.org>, criu@lists.linux.dev,
+ Michael Jeanson <mjeanson@efficios.com>
+References: <aekPXvvuKHKlETjm@J2N7QTR9R3.cambridge.arm.com>
+ <87wlxy22x7.ffs@tglx> <c5331cd6-76c8-430d-978e-fcad164e48f6@huawei.com>
+ <CACT4Y+bxnQyHGdVNE1BYTx+Z2-cscLb38HYS9jBM5gPAz8=4bw@mail.gmail.com>
+ <87ik9i0xlj.ffs@tglx>
+ <CAHnCjA0UBNXfjHw=Y34OrAyGRNUtVF+zWd3ugyX6pd_mCk8K9w@mail.gmail.com>
+ <87a4ut1njh.ffs@tglx>
+ <CACT4Y+bBD7uCHXKqGo=epBXeEmsZ67Og2YO9kjNMT3ryjUY_sA@mail.gmail.com>
+ <CAHnCjA1LqbaUGkPe79EeP6Mpaki8QWeR-JBSbrG0z6pTm9CmUg@mail.gmail.com>
+ <87v7dgzbo7.ffs@tglx>
+ <20260424150318.GE641209@noisy.programming.kicks-ass.net>
+ <87se8kywhb.ffs@tglx> <87jyttz8cf.ffs@tglx>
+ <lhujyts4zr8.fsf@oldenburg.str.redhat.com>
+From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Content-Language: en-US
+In-Reply-To: <lhujyts4zr8.fsf@oldenburg.str.redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: YT4PR01CA0273.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:109::21) To YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:be::5)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: YT2PR01MB9175:EE_|YT2PR01MB10418:EE_
+X-MS-Office365-Filtering-Correlation-Id: 40da9610-9bdd-449a-55c6-08dea48bbf52
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: Z0hlTubLKMngRV5vUyLpo9gedW+NLJ9bHlVPzb+PuyJAQOY8zeAxIgQaFKE7ON2uIvhubszO4SoUY5iJbwCIP7Pv2Pyrc+8ZnkA/0XE3EyOfDz2gluWX5OZOSZEkYXDU2Gv2pdw4AeqnIlv9FfAynzYT46OyVXGDptBEuDa3VYGiBDpTR/3Bfh+XuxIyAWQpfl9ax3WFwgwSherzKsc+GOioSCnUZ1o/bB32lq6rJhkgtWnR0FWvUgiq0jmMiTtvubaNVDOMBZnU6ZkKd4KIBGFLcuaTEvdNr2kg8U8i12Z71ZDzqNVDo38ImR1WmSEztD1F9lqXr+9zGeibEdvT2MareFOqjLK9yOvbxdrvoEEkWOZcxlw0ZQjfmhOfpfCGW8Gkaqr7ZtnAhd6Xolik9WeuHE5gaNG+W7yFFqUOoAbhqwp+NK28vmZkg0gMaCiqfmUAbEigofmRS3abr+Aeno3Du2w3gHd5eLxvt+SSQqOL/2b2/zuUmrcKR0QWnoJfmwnLN5W81AqWGTNrq44GAsbNzCafhGgIbrEQO9RP/xfyg3NOLwxsnfplyJyN7ampDjP6mc/84GFNgKHiHoV4+8ItJ44BCj72VmOloyQOoEhebxkMPYivt6rIXM6RhCPKq01zG36rGC0VE6wXb5/COCrEO40Wlf2FFCObmddWM5EsWfqTPnb0nagycw35AjYr
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aGF4MUx5cEg2WWN5MXhEWHBhcGJaNHprb0U1NmVacnovdCtUWHhKT0thb2NC?=
+ =?utf-8?B?aHlUUkExQWdFZVhEQ2hpMURyWHliSTlKTlVFeVVwSG92MFJQYlJIRk5UTU9m?=
+ =?utf-8?B?WS9nelZBek15TDl6TkthVmpWaU5oVTAva1pxR1crbEFIbVhFUmxXUHZMNUI3?=
+ =?utf-8?B?c1pzck5vb2NPZWJadGN1VWRvQ0I1QzhhQ0tReDMyZHBlWnBkTllpUWIyenEz?=
+ =?utf-8?B?NzVIeHNRcjRIVm1vZXU1S2pYSEJBZVhNdWg5OU01ZGhkV1F1L3ZzckpGWWpK?=
+ =?utf-8?B?Ti9hczhIbXo4eml4czhZSGg0TWZ1Vm1ENDlhdlhkdWEvdXlPSDJCcGVMVjVQ?=
+ =?utf-8?B?SkZ6U0ZzK0o5am0zbnFqTkpiS0ZjSzVvcW1rbDBYckdrcDB2dThibmxpbVRC?=
+ =?utf-8?B?RnJyZGN5dUEvMWJ1dUlKMEZYbEtMbEtPMGE2aksxa0hSRUFqZkJ0dHoycFFo?=
+ =?utf-8?B?QyswdW1pVU43U1hUcENpWi9tbzN6TnJDMjk0Y3NUOXQzTjJObkhHU2piWjRy?=
+ =?utf-8?B?Z0hqR09kdWFXV3hlb01DMXJrNmNVdEY3YVZVeGlZTHFLUlRQY2dkN3lxcmp5?=
+ =?utf-8?B?Q2ZVMWlHRnhuK0lHR3ZzU2FIRnhsWVZKVkdWZVFiV3JqVWNIYzArSnZKRjhx?=
+ =?utf-8?B?MEdDaHowRTNYZjV3VXBza080T2lENno0ZGp5Tk1nditlTllmalNRdGhXcHJU?=
+ =?utf-8?B?b0wwNTJxWGJVU0NPS3ZWQUpicllyRTRwdVlNZ2ZmUHFuVCsrYnYxcHVqNk9U?=
+ =?utf-8?B?QWpuU1gyaERBOWFLVnJnRjAxdDRpeTNBOHQza285Z3lZeFR4cFNQYnZRcnRI?=
+ =?utf-8?B?YXFjMnRLMHlqUUtJVG1IY2VDbUFVUUozNS9IbEgwaWVTUlpSbitHd0orOXBn?=
+ =?utf-8?B?RTE5aXVTODFtdG05cmlTRWE5bERVWkVUMEtGSXl0YWRCZTN5RkJKdkFqSHBy?=
+ =?utf-8?B?aTdRSFlHSi9XRUY5eFZWV1BBWXU0QjB4Y0VJM1ZoNk8xc2ZNUFZBeGx5eUd3?=
+ =?utf-8?B?dlJmR3BwRlFNR1JtUGNxYTJST2NDOTFyVy9zaXNrL2NDNFpyemZzbE91MzAr?=
+ =?utf-8?B?WjZ1RUxJZG9nYmtvQ0hUNFlIV0M2K2hnbUtiRVNQOHVVdWRiYmlHa1JuUUNC?=
+ =?utf-8?B?bVpWMlFRL0F1RGdNSHh6akFVL2dOODRIalk1emdpQjVnRkoxaHRHb1lTZ1R0?=
+ =?utf-8?B?YmJsWEJvSGlSejd1Y25vNHNWUHFHZm0xZVJaWkRTTnRIZ0x4TE1xT1p5bVlY?=
+ =?utf-8?B?VW5OTHdWR2NXTTFBZmIvajRINjhSWDNOb1NkUEMyUitXRWxnMm8ycytGTk95?=
+ =?utf-8?B?M1oyS1JyZVQ4R3J2eVZpUXkvOHBUa3RBd00vRlNPYUQySkovaFgxRitsNlhS?=
+ =?utf-8?B?S3FWaGhjQU9RYVdIZUpkNEZKNWtMVjVXejZ3elh0dE1ubHJFMVJBcWl3d2Q2?=
+ =?utf-8?B?WUd5SkIwRFBMZHQzRHVjMkVqbFZKWmdvM2h4Ym1ZNm9Gak8yMXRCaTZJQ29h?=
+ =?utf-8?B?Y0QwdE43aXdqSDZ5L3kxWmR1SytBenl2UkFub1hicUNrOWFuVklGWTdyS1Np?=
+ =?utf-8?B?ZFRFMlNkNVdhTE04NVZtNFRKR0xMQzZ6N0dwS0haYTRaeE9tNFk0VVRkUEo0?=
+ =?utf-8?B?ZDA0UDVtUXpCdWx6a1M5Smt4L2Jtc2w2Y0Q1MVZrRHRMZU5VYkowUHQ5NGV0?=
+ =?utf-8?B?bmdhdmpaQXU3dE5ybGhTS1lZeEkwTHdmV2ZrZDNXUzJRMS9Ea3JUTDVZQXhv?=
+ =?utf-8?B?RzNkVlAycDVESE1mZkR0M1lHeCtHYjJveVNUL2ZjOGxwS3Z1RDMybktabjdV?=
+ =?utf-8?B?V2FPMmlicXdRMVBFbVZGZ0thVm5Xbkh4djU2czAxQzYzR29ad28rbllGNHNs?=
+ =?utf-8?B?dkR1TjRLNGRySUpYY3NDbDY0d3RGcXhiQnhDMmFkZGN4VnoxOFR4M01BR2Fq?=
+ =?utf-8?B?LytOM1RhOUl1eWRUbldJSTEvL3NYYVFOcUJxWUdsbytVT2ZtNkN2TWJiMTYr?=
+ =?utf-8?B?amYxUmN5aWY1OURuNGZPZDB0Z2JJYWtZczAyeTVsN3BRbEcrZTY0K3ZyYlhl?=
+ =?utf-8?B?bHAwU1MrWkJ2VzUvZ3llWjZPcllpb0taUG02R0trckZnbTEyN2RtMm5DY1lW?=
+ =?utf-8?B?REhPb3dibDliSG5acmdscEdJLzdOQXpaSVhLRW9zc0ZNN25veWN4enNrZXkw?=
+ =?utf-8?B?aDZTUHFhellCMlFFOGYvVk5ic3owUFo4Y3NKUzJEZHUzVGZRcUNUenZsZUI4?=
+ =?utf-8?B?WHpCcm0vbUsweCtkQzBicDNOelNRYnhBazZMMEJiZXVBTUJWeW1XVko4dm93?=
+ =?utf-8?B?WThyeDI2ZWk4b3duZk5uYVdYcldwekgrTCt5N2tkWGs2TFhKbEtMQk9UeWZT?=
+ =?utf-8?Q?LsrMq1/YvbWAnSq3Lo4ks5YNYeslNxErxC8E/?=
+X-OriginatorOrg: efficios.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 40da9610-9bdd-449a-55c6-08dea48bbf52
+X-MS-Exchange-CrossTenant-AuthSource: YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Apr 2026 18:35:25.5061
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Ks1tL8lX4jXKyjgTsnvPscobwKDM0cisgZf1DBPAAZUDtT0xILFxh6GU5VqnHk4ITfffQYm8e24Pz9mJ//9GwBoooL7sI5VgVulcmQLLyCY=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT2PR01MB10418
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260427_113533_712494_6E024ACD 
+X-CRM114-Status: GOOD (  14.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,104 +170,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Correct all kernel-doc warnings:
-- fix a typedef kernel-doc comment
-- mark a list_head as private
-- use Returns: for function return values
+On 2026-04-27 03:40, Florian Weimer wrote:
+> * Thomas Gleixner:
+> 
+>> The real question is how to differentiate between the legacy and the
+>> optimized mode. I have two working variants to achieve that:
+[...]
+> 
+> Switching to the new extensible RSEQ allocation code in older glibc
+> builds is not entirely trivial, and I would prefer not doing that.
+> Registering with a new flag is comparatively simple, and we could
+> backport it, except that it might not be compatible with CRIU.
+A third option would allow the entire range of older libc versions to
+benefit from rseq optimizations, gating the "v2" behavior on:
 
-Warning: include/video/imx-ipu-image-convert.h:31 struct member 'list' not
- described in 'ipu_image_convert_run'
-Warning: include/video/imx-ipu-image-convert.h:40 function parameter
- 'ipu_image_convert_cb_t' not described in 'void'
-Warning: include/video/imx-ipu-image-convert.h:40 expecting prototype for
- ipu_image_convert_cb_t(). Prototype was for void() instead
-Warning: include/video/imx-ipu-image-convert.h:66 No description found for
- return value of 'ipu_image_convert_verify'
-Warning: include/video/imx-ipu-image-convert.h:90 No description found for
- return value of 'ipu_image_convert_prepare'
-Warning: include/video/imx-ipu-image-convert.h:125 No description found for
- return value of 'ipu_image_convert_queue'
-Warning: include/video/imx-ipu-image-convert.h:163 No description found for
- return value of 'ipu_image_convert'
+   rseq_len > 32 || (flags & RSEQ_FLAG_V2)
 
-Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
-Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
----
-v2: add Reviewed-by, update Cc: list, rebase, resend
-v3: rebase & resend
+As a result:
 
-Cc: Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-Cc: Maxime Ripard <mripard@kernel.org>
-Cc: Thomas Zimmermann <tzimmermann@suse.de>
-Cc: David Airlie <airlied@gmail.com>
-Cc: Simona Vetter <simona@ffwll.ch>
-Cc: imx@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: Helge Deller <deller@gmx.de>
-Cc: linux-fbdev@vger.kernel.org
+- restore compatibility with existing tcmalloc binaries.
 
- include/video/imx-ipu-image-convert.h |   16 +++++++++++-----
- 1 file changed, 11 insertions(+), 5 deletions(-)
+- glibc 2.41+ would benefit from optimization without changes.
 
---- linux-next-20260427.orig/include/video/imx-ipu-image-convert.h
-+++ linux-next-20260427/include/video/imx-ipu-image-convert.h
-@@ -27,12 +27,13 @@ struct ipu_image_convert_run {
- 
- 	int status;
- 
-+	/* private: */
- 	/* internal to image converter, callers don't touch */
- 	struct list_head list;
- };
- 
- /**
-- * ipu_image_convert_cb_t - conversion callback function prototype
-+ * typedef ipu_image_convert_cb_t - conversion callback function prototype
-  *
-  * @run:	the completed conversion run pointer
-  * @ctx:	a private context pointer for the callback
-@@ -60,7 +61,7 @@ void ipu_image_convert_adjust(struct ipu
-  * @out:	output image format
-  * @rot_mode:	rotation mode
-  *
-- * Returns 0 if the formats and rotation mode meet IPU restrictions,
-+ * Returns: 0 if the formats and rotation mode meet IPU restrictions,
-  * -EINVAL otherwise.
-  */
- int ipu_image_convert_verify(struct ipu_image *in, struct ipu_image *out,
-@@ -77,11 +78,11 @@ int ipu_image_convert_verify(struct ipu_
-  * @complete:	run completion callback
-  * @complete_context:	a context pointer for the completion callback
-  *
-- * Returns an opaque conversion context pointer on success, error pointer
-+ * In V4L2, drivers should call ipu_image_convert_prepare() at streamon.
-+ *
-+ * Returns: an opaque conversion context pointer on success, error pointer
-  * on failure. The input/output formats and rotation mode must already meet
-  * IPU retrictions.
-- *
-- * In V4L2, drivers should call ipu_image_convert_prepare() at streamon.
-  */
- struct ipu_image_convert_ctx *
- ipu_image_convert_prepare(struct ipu_soc *ipu, enum ipu_ic_task ic_task,
-@@ -122,6 +123,8 @@ void ipu_image_convert_unprepare(struct
-  * In V4L2, drivers should call ipu_image_convert_queue() while
-  * streaming to queue the conversion of a received input buffer.
-  * For example mem2mem devices this would be called in .device_run.
-+ *
-+ * Returns: 0 on success or -errno on error.
-  */
- int ipu_image_convert_queue(struct ipu_image_convert_run *run);
- 
-@@ -155,6 +158,9 @@ void ipu_image_convert_abort(struct ipu_
-  * On successful return the caller can queue more run requests if needed, using
-  * the prepared context in run->ctx. The caller is responsible for unpreparing
-  * the context when no more conversion requests are needed.
-+ *
-+ * Returns: pointer to the created &struct ipu_image_convert_run that has
-+ * been queued on success; an ERR_PTR(errno) on error.
-  */
- struct ipu_image_convert_run *
- ipu_image_convert(struct ipu_soc *ipu, enum ipu_ic_task ic_task,
+- glibc 2.35-2.40 would be able to easily backport minimal changes [*]
+   to benefit from kernel optimizations (flags & RSEQ_FLAG_V2).
+   Likewise for RHEL glibc 2.34 with backported rseq support.
+
+[*] Minimal changes to allow older libc to use the optimized mode
+     involve implementing a new query for getauxval(AT_RSEQ_V2),
+     which would return nonzero when the kernel supports the v2
+     flag, and when supported pass a new RSEQ_FLAG_V2 flag to rseq
+     on registration.
+
+That v2 behavior would:
+
+A) Enforce the ABI contract:
+
+    - RO fields corruption -> kill process,
+
+    - System call within rseq critical section -> kill process,
+
+B) Allow optimization of the rseq field updates (only update relevant
+    fields on migration),
+
+This entirely decouples the feature enablement concern (rseq_len) from
+the strictness/optimization mode (v2).
+
+This keeps compatibility with current tcmalloc binaries because
+tcmalloc always registers a 32 bytes rseq_len without the v2
+flag set. tcmalloc already has its own internal fields at fixed
+offsets from the rseq structure which conflict with extended rseq
+fields, so limiting the tcmalloc work-around behavior to
+rseq_len == 32 seem to align well with the tcmalloc project
+approach towards extensibility and ecosystem inter-compatibility.
+
+Thoughts ?
+
+Thanks,
+
+Mathieu
+
+-- 
+Mathieu Desnoyers
+EfficiOS Inc.
+https://www.efficios.com
 
