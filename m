@@ -4,155 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41CACFF8860
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 05:41:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2E6DFF8850
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 05:54:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lAWuHYP5PjwxCYpcv50N32lDLH65mOubH0uDSpPgD90=; b=M3oxF5QIg24I9XVjQkRQSmZ8ZQ
-	PZgRNtPbVnn/La98DH7j2GIMn9XMWQ1z4e+fE1E3y38xBKRmcCTVTXRVuGDNKIgwMUhtWOmf5M6mw
-	3nP0u7hKgJtZkG7tE8FhoFe9h2V7PhpqH1Z+A6F/7zxJ7mnNpCQhCsA/T1Q1kV02i43FW00Q0xZ/c
-	gIpkcP6fS1lIAmTi8uR4ibBPfzY6aJAyhxGyCWNzoCyFQsKn9dyTbnVPInDtuidrpi4VGYqD9a2Sa
-	7zX+MQlY/B4PWdXJvboKjlQfq5fnnlMOADAs4iZosrxj2eaglaMpN+f0V8nepDMxZMKplM/wwI659
-	BKz2LaJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8uZsyzlJE9pH0xfDXTLUF7l3xylZBj3HrTveE3AJ1EY=; b=nIETbg2WYoGKwGMfhjXiBB1EyF
+	ZpT4ZiblVxKhwqGlZjPDjhvsq/g9Mg9Mrd0bLN52N0xuo4Q3SHG/sytv9EAVVD90gva47PA0kNZ+6
+	wbbGu6T29S3TKcb2E9gS/BQOSvpciX4S94SwPz6z/V/6H0Vcl+MjA2CFfqJpl9LnQN4zf5i2v0tnd
+	JOMVmbJ8s0u70cgFibCY0aDt26Ipkm/K/ppZxkC4dkS7d0LCCadHDfnxGmeWrJoL/xusqd6v83Muz
+	/KgGJlDkMO6fDUtW/GVcqBZ8Yj5J3UcmvGrc2kHEkzKDFiJLVkpqoCjjy25jakjdtfRbDJy0i0M/9
+	FQRHBZoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHEiK-0000000GChA-0W9M;
-	Mon, 27 Apr 2026 05:41:00 +0000
-Received: from mail-westusazolkn19010079.outbound.protection.outlook.com ([52.103.2.79] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1wHEvY-0000000GDTP-3Meb;
+	Mon, 27 Apr 2026 05:54:40 +0000
+Received: from mail-westus2azon11012038.outbound.protection.outlook.com ([52.101.48.38] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHEiH-0000000GCfo-2U9C;
-	Mon, 27 Apr 2026 05:40:58 +0000
+	id 1wHEvW-0000000GDSu-1HMH
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Apr 2026 05:54:39 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Veu21Ec1ksh5PnRMniiAjIjUfe5VNLwXgkA2mU2TCUS6cjkxNL7mjB/xgv6uv6pyYP7HVmNV6fT7/fSxkkILge8ykbvZsvKSzy9w5s2JCXV2H4FjeykIxFbJFfCoDbtAbNhzSDgdWRf43OnUvdzJ0esI4o63VBbBhfR34edqAal20MnZI3gJI90bfYI9iLVeMYWoKeY4B8wF0TwkKS8GabXdZFt/oIB7idirMKWn2PNfkRoLHBF5zcrNu98nzDf5kXNGLtqHSPnkh5iexbPT6V6DfArXbO36Lkj1+X2KhZEPLfinYWqAskZl7VyzAYPVHYKnldhvld6/lfuP8JJIzw==
+ b=MpKYXkqbryWenVlALi8Z7awgn8aKy1zy4U8uhe968g0jfuhoszE6uW4tVLbyzXqvA6FLVBGxFy8S7qUq+Ja/YBeGJSTNj4bGqVGvnOcFeenw99uxDlbd8xQSIeTzVb1pddFkWomVwCX0mHUrvaIAYOy0pR95cSiUcwTDnexUuqmUICO1BIHezUXdii0rDMgnDhDOy1ndTbXeguo+REGcYAcb8XSmqZcsP50o88ukhawL1lh/secsudaxkVAH/eR7x2l5CosWCPAU8ZxIE43aV4HyCS0Vj9iDUGmarEKisNFUqn6uaLeg4T/EpRqshtA5GomIakIUX/l3V5tdR7NMKA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lAWuHYP5PjwxCYpcv50N32lDLH65mOubH0uDSpPgD90=;
- b=WXjWqljH4jPGG8beCrN3rRGaN7ePs0zMB7vZaxHnPVE0w5fXwspXnlVS6YsYi5A8fUlhvWWk51zsaA6/96DqljDZaSIcVXeZBqvulhd3DoowpgLqDGI3Sydb4tNLd7Cdzplmel/Q/LTiJBCCnEKTTM6Z6NQSScERnS7bibbiFJsyCZsh8jWeAxj8Ip+EfoW6LkRqT8u1wTyBmp9cEkD/hmq4JYoOHuT4TD9Pm4ettk0728S/PO7eGmvNWFnuFHJEI3OeY5G1JcdsvxlvNDfFosZ6u/B7Kw2zun+1tCadDw/sOyZ9IPCAXx0dUy2bH1dX+P0n3rVzT8APIOlNk10i7g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
+ bh=8uZsyzlJE9pH0xfDXTLUF7l3xylZBj3HrTveE3AJ1EY=;
+ b=F9ucS7+DxM+D4zzAK0wFuzet1i9wMlLzuYpByCVvsOCv2KySN9UMq3IdJvbkqCsqcnBzKPzMj7lYfQqPyHus/4Xzwa/PDWdFKo9Xjv/SQE2ODjyJrx6VShPeiO3MRQj/QCE6glHtCQcPgyMpevt3AdgcDlEwR7MJobhtoQ4zit5Lms70aoGSepy0W07lD2mF0X4eDeJHVyMc2sEkCP44SegZKg62sB6hbbr8BqB0lGnppmHYoI/KPnJ/scAFLk1A8vsHQ5+HCdLxnzEglp1TiL511JQ81uvwMXhAx8C46r3equ0GckBvz636qR+rv6XJTqkhNAjmDKqWVQldH0T0qQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=huawei.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lAWuHYP5PjwxCYpcv50N32lDLH65mOubH0uDSpPgD90=;
- b=cuUIpWIHHYmiMLrRvj2nkCL8e8lS7Zu2+uynJWe/Xdvu/MK11kS+Lk9UPEaF9i4stTv2w1PoAA1GUFYyzAy/p4ZWaNTEFhtLQhOI/sliVpdmOkVt4+JusDU8BRRagjDQ8WsjIkfzBlxdVIphDN0jOBcWhpHgsOApsltCwU3l8wBuYBWjEOJE11kGad7+0N+lPat6UiSS6VRIDkBIRq4ROyMZgNeYsOidOKg0S4/Yns/TeUA+1FlosCCEVz7CMoV6NSvKrVZZndzxQ0qFNKtjb8BjN8dCLcNRofy/LRLs+fh/fDF+AIUfb7DDMTZUk4TvyhRSqMn2g+DAsERhmwbllQ==
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
- by CO6PR02MB7809.namprd02.prod.outlook.com (2603:10b6:303:a2::22) with
+ bh=8uZsyzlJE9pH0xfDXTLUF7l3xylZBj3HrTveE3AJ1EY=;
+ b=NbX+2/m6lKq8KvG/6Iadk/Zf1XxfrgGyQrXUaj9ZTqmsCb/mHgoTE8GvOIZqO1b6IC8y9xfTNg46dro37s848gDDyNuu+IFh/h46HosgetStdAZ0vyGNDonS+pdi8cZFTzYwxlBdpOEjR3vVFekCAEyJDm94epnd7VHiHtwQuKQAsHPeRcGlpRooXDw7LznNho6ynOlmQz9IClv0rkpXC9XRiY3Ecgm64ipblHHHFK8AXc4PW7DJcj6puxBP//kmy7cAxv8bGeRV7LXp8obWGWazjTp3iWK/ccfbuusv7JscIN32R8PFN11iVn0hz/aQZZ2/5weSqUEJpz885LkKhw==
+Received: from CY5PR22CA0018.namprd22.prod.outlook.com (2603:10b6:930:16::30)
+ by LVXPR12MB999198.namprd12.prod.outlook.com (2603:10b6:408:3dc::7) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Mon, 27 Apr
- 2026 05:40:52 +0000
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::900:1ccf:2b1e:52b6]) by SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::900:1ccf:2b1e:52b6%6]) with mapi id 15.20.9846.025; Mon, 27 Apr 2026
- 05:40:52 +0000
-From: Michael Kelley <mhklinux@outlook.com>
-To: Naman Jain <namjain@linux.microsoft.com>, "K . Y . Srinivasan"
-	<kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu
-	<wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>, Long Li
-	<longli@microsoft.com>, Catalin Marinas <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
-	<mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
-	<dave.hansen@linux.intel.com>, "x86@kernel.org" <x86@kernel.org>, "H . Peter
- Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>, Paul Walmsley
-	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Michael Kelley
-	<mhklinux@outlook.com>
-CC: Marc Zyngier <maz@kernel.org>, Timothy Hayes <timothy.hayes@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Sascha Bischoff
-	<sascha.bischoff@arm.com>, mrigendrachaubey <mrigendra.chaubey@gmail.com>,
-	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arch@vger.kernel.org"
-	<linux-arch@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "vdso@mailbox.org" <vdso@mailbox.org>,
-	"ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>
-Subject: RE: [PATCH v2 12/15] mshv_vtl: Move VSM code page offset logic to x86
- files
-Thread-Topic: [PATCH v2 12/15] mshv_vtl: Move VSM code page offset logic to
- x86 files
-Thread-Index: AQHc0x7dvoxTT1xj6U+jCn0YEoiRorXyapGw
-Date: Mon, 27 Apr 2026 05:40:52 +0000
-Message-ID: <SN6PR02MB4157E0525DDDD153888F5AFBD4362@SN6PR02MB4157.namprd02.prod.outlook.com>
-References: <20260423124206.2410879-1-namjain@linux.microsoft.com>
- <20260423124206.2410879-13-namjain@linux.microsoft.com>
-In-Reply-To: <20260423124206.2410879-13-namjain@linux.microsoft.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|CO6PR02MB7809:EE_
-x-ms-office365-filtering-correlation-id: f0cb2edb-9040-438f-696c-08dea41f8b42
-x-microsoft-antispam: BCL:0;ARA:14566002|2604032031799003|704163111799003|51005399006|55001999006|16051099003|37011999003|13091999003|19101099003|461199028|41001999006|31061999003|19110799012|15080799012|8062599012|8060799015|40105399003|440099028|3412199025|102099032|12091999003|1710799026;
-x-microsoft-antispam-message-info: =?us-ascii?Q?MvvVeg8fXOA63QZFLtb2auJdqql//zfHx5rk55KGa8Hc32fuZe1AzaZpJYP5?=
- =?us-ascii?Q?eJ+xEsLdTg8Varg+14aUGfCpYwV+NQKi7N1DNBepAq/XUkld138vL3/a3UDg?=
- =?us-ascii?Q?fCK03zC2IrqW5l+UIOzszsGIxOaDePtql2A0mNV8G8jZxuVbmdBPW5e9wI6P?=
- =?us-ascii?Q?j7y5UAno5y1mPFN4IyNghTbdXiXNqzUfSEK/3aXBFmqVVqJbHtHpPyOWjwQH?=
- =?us-ascii?Q?6bvMDXBvEQoZQ5RbYzLjM4GapXEWH+gG9AguJ30qBT6dmJCTXDBnVfWBdIo/?=
- =?us-ascii?Q?sT1DimPymh/mgWEOc4BuXJ3bsHZuK2SvyjRJMbPM4dbV4ELZyLTE+13daebv?=
- =?us-ascii?Q?nFIYtSG3D8vgIJiCZnyChsEWM7C37j2m268kDHh8CIj2EIU138Ohe656yBZv?=
- =?us-ascii?Q?pZaSlrSsLBHNlzN73/xifzROqlfBt1Of+CzzQfPrp3MItaK+B/UQCOE9MXKb?=
- =?us-ascii?Q?0K+oVJNJrWQJGC9KzvU0Yrq33uCZmPozPaUfmcGQqvGQPxl5JN4vDVSpy/Tq?=
- =?us-ascii?Q?Kvs9dbM084Yq1ocMEepCmDR9fweFqVO/nLqN+wQzft4FCw+mLHQXnpud+2J9?=
- =?us-ascii?Q?8UcuRVuC7XoXwsyM18YHOJxC33NJ6dqRuzYJhTbSASmVPtyWbB5hKz7NmaQR?=
- =?us-ascii?Q?pVhsyEtp81D6/x8k59dhAunwB3xA5LjZpFTU/8LPY+r9WnHcJnlRUL0VPkfN?=
- =?us-ascii?Q?9AwHV0eAUSUfAHZYt2Valut5CkznyL8A6TpxS/eeWSQN4jIHu2R3rTkoabmJ?=
- =?us-ascii?Q?JfMAQNGrVAqKZtUDRYS9oFSqULV+1JoW1s+qHtijfHa4+ZEVD8e4vXe97K7p?=
- =?us-ascii?Q?Dmz1eegU5hremRHTtteRtj2PKvOqmdhRucN1KEbS7ljxZ10QmQ7cpJp9p5D3?=
- =?us-ascii?Q?wHPH2uDmMZcJdgj69nUUh1fkk+ANRiUqB21djv49KWinAPQki3CWAbz4n/jh?=
- =?us-ascii?Q?zZSNmNs+umu8j+tue/tpF/3NRWqYDkvgToH0iqfuyQck/X7skd36OjtPMh6Q?=
- =?us-ascii?Q?RTVESkGDs2ccaVDlMJLoOCIam7FlxNpgdxLwnG/aZzDqLlDBwZmhrNhYsDzL?=
- =?us-ascii?Q?xYYHm588aXi1QlvSiL6c88OvgujFcKEjXOneENc5Cgt0u8jPA/jV6t9bOWwI?=
- =?us-ascii?Q?AS2tCrtHg0rASRS5IVZZG5Ajj0lCFj2y3grtbwibGTkJxz/RHCBardV1jzba?=
- =?us-ascii?Q?ECX7QtOEgYOO9RzhySh8556/GBRLz7xFF547Hahonoxvv3CNKNDuk/kFNrM?=
- =?us-ascii?Q?=3D?=
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?FSPrHNDWBeXk48Y5c1xCbr+s16Z5DhDdq7vHNvN4sTarryI7tPZzPzJxp3eQ?=
- =?us-ascii?Q?7Clnv/pNyoKzu75aQScUkhOr4ygmYikCLTV50grzV6rSN+d++6sQvMuJ1bCo?=
- =?us-ascii?Q?BL5bvvzYijE9MDlagnoS4+VT1VEB0yY9zZqZRApzU+3drZ9ELCu1s845vdux?=
- =?us-ascii?Q?oA67NNXvV79mfWweFt5XIs5tqUEbVQ6ErlDoxUuDcV0KLTmqwhaEDgANckuZ?=
- =?us-ascii?Q?b/MleIamJhEoSWbmIpVFYqeBBhn+EG+0+Ez+j78ZtStPMhIgXPPCC++RJOq+?=
- =?us-ascii?Q?xikua/Lzskd94mSEd5cupBRYudETIhn3KbPNTcieetwNLXHaXDfnbt+9cyIe?=
- =?us-ascii?Q?MYxOZFG1zXxuYxCtOkDHf8KSMGoAbtAx4kS71fCnAOhbUPQ+pDpNmPNn5vRL?=
- =?us-ascii?Q?6dV9JF/r5aXdbJauon/pUOIewaYmQjUKfR4VntgjucyO1QgdFMjwGoLwBUtl?=
- =?us-ascii?Q?bg/J9cs72eNGx0fcg5TSjFebzrnAaFkAABbxJcd85nyUMCl37UngkRAZxOSv?=
- =?us-ascii?Q?9n2YJjRlRrJtEt6OjG+gEkUTVKSFUAfcz/qvneXQwjO5nfwAwY4Dq2kMPGxR?=
- =?us-ascii?Q?a6um63f3xSYi7Y2x2yqDPl/8A7+VwX9THb3Q4abR55+0RnrITP5TXQYcNQjA?=
- =?us-ascii?Q?4WszQCa82JOiiEm0ydkUUQuEAR9frWZIWEKH0Y6g+/qtC/Foe7lBjD4MXvmz?=
- =?us-ascii?Q?hgeeyIxRDyI5a8aDqFB4cRZovttB1NYve1wAdMdP1Qf4rEQjaYUqmL5pFDv4?=
- =?us-ascii?Q?6GcNgLZB0+XU5wpYow6LcGVcA49LbD/bJtWdrfj/7XTUGKS2jnu8cZnwozyj?=
- =?us-ascii?Q?8bmrpzIQX+U0p/VLzbRGWrzB2OdAD5mKC4BaerpHTzEhUUt/YiEpYUVm2Zav?=
- =?us-ascii?Q?M+915+ajkO+VAkxKnfVmPxSznv9b9AuNO9nGsghPVhnyCwkCb5b7UcBvZXoG?=
- =?us-ascii?Q?5ZqIajoJz8W4mP72Jy+Xtjn7EhvKyX/JadLkbU5GXbOjhD5EMQ5HvFSuwJvr?=
- =?us-ascii?Q?EsFhlkLoWuVbUN6ePmrTPLFHqccQqy/qHZNaZvzQYBBsgq61eWWYQ9ktKgon?=
- =?us-ascii?Q?N+qXvSPhKov3g9vtmW5sgYuqeuyea9Z8WBA4e1QOxX6ts7E7c2YmxMMdh5Fz?=
- =?us-ascii?Q?yNiEhkMZXh2+ygsjNp/1BBvcOX5Hhw7ummGy1+fQCkm2ZNflDEaEgUC0OqgY?=
- =?us-ascii?Q?mrmsHkP1iKvCvhWFcpsL5Qo3aAz0MErHLdCylfSrGVmpsPY7WigWcb/CSJ/2?=
- =?us-ascii?Q?Yu0M/h6Fe9Q5yVigfK8rqSYOK2WZXmZZDwb7mfJXH+8aYif5md/PAAuHm/vH?=
- =?us-ascii?Q?sarzSjfJE9iGzwtGltQ7onbljckNSpNaOAEuBtxOBI/j/mGwL6WdDzya+uzY?=
- =?us-ascii?Q?BwxMi4Q=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.12; Mon, 27 Apr
+ 2026 05:54:30 +0000
+Received: from CY4PEPF0000EE31.namprd05.prod.outlook.com
+ (2603:10b6:930:16:cafe::7d) by CY5PR22CA0018.outlook.office365.com
+ (2603:10b6:930:16::30) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.26 via Frontend Transport; Mon,
+ 27 Apr 2026 05:54:30 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ CY4PEPF0000EE31.mail.protection.outlook.com (10.167.242.37) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9846.18 via Frontend Transport; Mon, 27 Apr 2026 05:54:28 +0000
+Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sun, 26 Apr
+ 2026 22:54:19 -0700
+Received: from drhqmail203.nvidia.com (10.126.190.182) by
+ drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Sun, 26 Apr 2026 22:54:18 -0700
+Received: from Asurada-Nvidia.nvidia.com (10.127.8.12) by mail.nvidia.com
+ (10.126.190.182) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
+ Transport; Sun, 26 Apr 2026 22:54:17 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: <jgg@nvidia.com>, <will@kernel.org>, <robin.murphy@arm.com>,
+	<bhelgaas@google.com>
+CC: <joro@8bytes.org>, <praan@google.com>, <baolu.lu@linux.intel.com>,
+	<kevin.tian@intel.com>, <miko.lenczewski@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+	<dan.j.williams@intel.com>, <jonathan.cameron@huawei.com>,
+	<vsethi@nvidia.com>, <linux-cxl@vger.kernel.org>, <nirmoyd@nvidia.com>
+Subject: [PATCH v4 0/3] Allow ATS to be always on for certain ATS-capable devices
+Date: Sun, 26 Apr 2026 22:53:59 -0700
+Message-ID: <cover.1777269009.git.nicolinc@nvidia.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: f0cb2edb-9040-438f-696c-08dea41f8b42
-X-MS-Exchange-CrossTenant-originalarrivaltime: 27 Apr 2026 05:40:52.0419
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE31:EE_|LVXPR12MB999198:EE_
+X-MS-Office365-Filtering-Correlation-Id: acda12f8-97e8-4edc-f167-08dea42171f3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|7416014|1800799024|82310400026|56012099003|18002099003|13003099007;
+X-Microsoft-Antispam-Message-Info: lL3glxw8X/PdngCLUJt6Yd1RI6LkDAE4Oaa7KEuG++kaOsL99H53zGClviLBR3EWOILaeSMSwgcys04WuiY7ifQUEpJR4XdHnjL+guvcRGtO5Rj0hQAS/QvPe3L9CSoS5FOTS2Deql/0isJ+/0h9THg4HrF4VFZLzoW8kgl6bhOcDbLXgYWrJVR8H1KEklo5NwVUolN72He0MGVNJHxO2AAcNLc11B1jvr9WXYfjpMTqdUdmWsT+RO/rhySSM9z/7ZgC5PgnlFGlcqyGEQWt5YwjJ91DqdPbh9oYUt3wtTM9Qvef6WA2YswaKiYiunGyCSFjITb4W8ydMT7MJp8sk4ahQQGWrVKZEbfJq9gHtQ/KrxN5DpPvPHOJ/+pO2bhk2jkeAVO6k3byMCy40WzXSqXwQR0JY0iuvn0IvIeAZezCK0dZxjA+zCwYv0CrVYHerSjasrfcZt+GIZ8vkeWZGxDsLibFuExiFLgKWDMDsrub05uGUnIg9TmG3Mz0EelhlKtqo+9pnTV2aJ7hTVh9/qGNtu6vZeyvDVysVLQcSwhUNyoG8fyWUZZ8HXmBLPP1KtvtEhjHa1Cdv25mS+bUUmrVkr6veFacDdwh5pxxrYsfS3rgbOtXiUF6eru+nhCYstQhab5Awa0u9HoytdqpCDA/cFQ2vTkGpLjpWT03Ll/5IZnbx26FCGKq5U+svbddXRnTwQEa54FxvTeQd2KOx5GqMqDww1ik/tLEgIE7QmUqLWac613aVLdqp36pyZ6iqQy5JFKQg8urNoo3fwFsHw==
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(376014)(7416014)(1800799024)(82310400026)(56012099003)(18002099003)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: Qe6eQ+Z/QSwfP2BcxBTNXGUBBjx+bJpm+ZtNRrFveZaAGwbKIwf9odoIN5xJm8X/rF5MyBO7ryi8mnukAFaLE2CBY6zgOBvAFhcM2X7OIaFt246BZBf5tdWPlJL2iabKOhOydPmyGWzkdbCSgqqFXoxkiP8HpK1bsVya2FjieYUTvZKDLrtIvBak5Ajp8TJv9uW8+07PGo0vHNCTRHt5tkCZErBNFhpzBPKylzFzecZYXqOuL+AO8CuxCM0HyOQ2oLpbQNsBlRoimRX/9TivZ6Rfhr0pgzoGCQ0pcgn9nYT4DkQkqsFqnT6OemB044+4hgXknUrZ3VQnE1cBr8WndQ+S3tmT5bbUdX2hfsV4FBiL46ubBC8zyCmH2w9e8t9nQMWwHNot7yIiXZc/A8z61p299B+FRIADsJc2b6qdmjfMdwBpyiDIzdhWJc6UJrCR
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Apr 2026 05:54:28.4653
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO6PR02MB7809
+X-MS-Exchange-CrossTenant-Network-Message-Id: acda12f8-97e8-4edc-f167-08dea42171f3
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE31.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LVXPR12MB999198
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_224057_650724_A6ED9AC2 
-X-CRM114-Status: GOOD (  25.82  )
+X-CRM114-CacheID: sfid-20260426_225438_371093_F5E3EBEE 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,160 +129,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Naman Jain <namjain@linux.microsoft.com> Sent: Thursday, April 23, 20=
-26 5:42 AM
->=20
-> The VSM code page offset register (HV_REGISTER_VSM_CODE_PAGE_OFFSETS)
-> is x86 specific, its value configures the static call used to return
-> to VTL0 via the hypercall page. Move the register read from the common
-> mshv_vtl_get_vsm_regs() into the x86 mshv_vtl_return_call_init(),
-> which is the sole consumer of the offset.
->=20
-> Change mshv_vtl_return_call_init() from taking a u64 parameter
-> to taking no arguments, and rename mshv_vtl_get_vsm_regs() to
-> mshv_vtl_get_vsm_cap_reg() since it now only fetches
-> HV_REGISTER_VSM_CAPABILITIES.
->=20
-> No functional change on x86. This prepares the common driver code for
-> ARM64 where VSM code page offsets do not apply.
->=20
-> Signed-off-by: Naman Jain <namjain@linux.microsoft.com>
-> ---
->  arch/x86/hyperv/hv_vtl.c        | 19 +++++++++++++++++--
->  arch/x86/include/asm/mshyperv.h |  4 ++--
->  drivers/hv/mshv_vtl_main.c      | 24 +++++++++++++-----------
->  3 files changed, 32 insertions(+), 15 deletions(-)
->=20
-> diff --git a/arch/x86/hyperv/hv_vtl.c b/arch/x86/hyperv/hv_vtl.c
-> index f3ffb6a7cb2d..7c10b34cf8a4 100644
-> --- a/arch/x86/hyperv/hv_vtl.c
-> +++ b/arch/x86/hyperv/hv_vtl.c
-> @@ -293,10 +293,25 @@ EXPORT_SYMBOL_GPL(hv_vtl_configure_reg_page);
->=20
->  DEFINE_STATIC_CALL_NULL(__mshv_vtl_return_hypercall, void (*)(void));
->=20
-> -void mshv_vtl_return_call_init(u64 vtl_return_offset)
-> +int mshv_vtl_return_call_init(void)
->  {
-> +	struct hv_register_assoc vsm_pg_offset_reg;
-> +	union hv_register_vsm_page_offsets offsets;
-> +	int ret;
-> +
-> +	vsm_pg_offset_reg.name =3D HV_REGISTER_VSM_CODE_PAGE_OFFSETS;
-> +
-> +	ret =3D hv_call_get_vp_registers(HV_VP_INDEX_SELF, HV_PARTITION_ID_SELF=
-,
-> +				       1, input_vtl_zero, &vsm_pg_offset_reg);
-> +	if (ret)
-> +		return ret;
-> +
-> +	offsets.as_uint64 =3D vsm_pg_offset_reg.value.reg64;
-> +
->  	static_call_update(__mshv_vtl_return_hypercall,
-> -			   (void *)((u8 *)hv_hypercall_pg + vtl_return_offset));
-> +			   (void *)((u8 *)hv_hypercall_pg + offsets.vtl_return_offset));
-> +
-> +	return 0;
->  }
->  EXPORT_SYMBOL(mshv_vtl_return_call_init);
->=20
-> diff --git a/arch/x86/include/asm/mshyperv.h b/arch/x86/include/asm/mshyp=
-erv.h
-> index b4d80c9a673a..b48f115c1292 100644
-> --- a/arch/x86/include/asm/mshyperv.h
-> +++ b/arch/x86/include/asm/mshyperv.h
-> @@ -286,14 +286,14 @@ struct mshv_vtl_cpu_context {
->  #ifdef CONFIG_HYPERV_VTL_MODE
->  void __init hv_vtl_init_platform(void);
->  int __init hv_vtl_early_init(void);
-> -void mshv_vtl_return_call_init(u64 vtl_return_offset);
-> +int mshv_vtl_return_call_init(void);
->  void mshv_vtl_return_hypercall(void);
->  void __mshv_vtl_return_call(struct mshv_vtl_cpu_context *vtl0);
->  int hv_vtl_get_set_reg(struct hv_register_assoc *regs, bool set, bool sh=
-ared);
->  #else
->  static inline void __init hv_vtl_init_platform(void) {}
->  static inline int __init hv_vtl_early_init(void) { return 0; }
-> -static inline void mshv_vtl_return_call_init(u64 vtl_return_offset) {}
-> +static inline int mshv_vtl_return_call_init(void) { return 0; }
->  static inline void mshv_vtl_return_hypercall(void) {}
->  static inline void __mshv_vtl_return_call(struct mshv_vtl_cpu_context *v=
-tl0) {}
->  #endif
-> diff --git a/drivers/hv/mshv_vtl_main.c b/drivers/hv/mshv_vtl_main.c
-> index 4c9ae65ad3e8..be498c9234fd 100644
-> --- a/drivers/hv/mshv_vtl_main.c
-> +++ b/drivers/hv/mshv_vtl_main.c
-> @@ -79,7 +79,6 @@ struct mshv_vtl {
->  };
->=20
->  static struct mutex mshv_vtl_poll_file_lock;
-> -static union hv_register_vsm_page_offsets mshv_vsm_page_offsets;
->  static union hv_register_vsm_capabilities mshv_vsm_capabilities;
->=20
->  static DEFINE_PER_CPU(struct mshv_vtl_poll_file, mshv_vtl_poll_file);
-> @@ -203,21 +202,19 @@ static void mshv_vtl_synic_enable_regs(unsigned int=
- cpu)
->  	/* VTL2 Host VSP SINT is (un)masked when the user mode requests that */
->  }
->=20
-> -static int mshv_vtl_get_vsm_regs(void)
-> +static int mshv_vtl_get_vsm_cap_reg(void)
->  {
-> -	struct hv_register_assoc registers[2];
-> -	int ret, count =3D 2;
-> +	struct hv_register_assoc vsm_capability_reg;
-> +	int ret;
->=20
-> -	registers[0].name =3D HV_REGISTER_VSM_CODE_PAGE_OFFSETS;
-> -	registers[1].name =3D HV_REGISTER_VSM_CAPABILITIES;
-> +	vsm_capability_reg.name =3D HV_REGISTER_VSM_CAPABILITIES;
->=20
->  	ret =3D hv_call_get_vp_registers(HV_VP_INDEX_SELF, HV_PARTITION_ID_SELF=
-,
-> -				       count, input_vtl_zero, registers);
-> +				       1, input_vtl_zero, &vsm_capability_reg);
->  	if (ret)
->  		return ret;
->=20
-> -	mshv_vsm_page_offsets.as_uint64 =3D registers[0].value.reg64;
-> -	mshv_vsm_capabilities.as_uint64 =3D registers[1].value.reg64;
-> +	mshv_vsm_capabilities.as_uint64 =3D vsm_capability_reg.value.reg64;
->=20
->  	return ret;
+PCI ATS function is controlled by the IOMMU driver calling pci_enable_ats()
+and pci_disable_ats() helpers. In general, IOMMU driver only enables ATS
+when a translation channel is enabled on a PASID, typically for an SVA use
+case. When a device's RID is IOMMU bypassed and its PASIDs are not running
+SVA use case, ATS is always disabled.
 
-Nit: This could be just "return 0".
+However, certain PCIe devices require non-PASID ATS on the RID, even if the
+RID is IOMMU bypassed. E.g. CXL.cache capability requires ATS to access the
+physical memory; some pre-CXL NVIDIA GPUs also require the ATS to be always
+on even when their RIDs are IOMMU bypassed.
 
->  }
-> @@ -1139,13 +1136,18 @@ static int __init mshv_vtl_init(void)
->  	tasklet_init(&msg_dpc, mshv_vtl_sint_on_msg_dpc, 0);
->  	init_waitqueue_head(&fd_wait_queue);
->=20
-> -	if (mshv_vtl_get_vsm_regs()) {
-> +	if (mshv_vtl_get_vsm_cap_reg()) {
->  		dev_emerg(dev, "Unable to get VSM capabilities !!\n");
+Provide a helper function to detect CXL.cache capability and scan through a
+pre-CXL device ID list.
 
-Why is this failure an emergency message, while the other failures
-here in mshv_vtl_init() are just error messages? When there's lack
-of consistency, I always wonder if there is a reason ..... :-)
+As the initial use case, call the helper in ARM SMMUv3 driver and adapt the
+driver accordingly with a per-device ats_always_on flag.
 
->  		ret =3D -ENODEV;
->  		goto free_dev;
->  	}
->=20
-> -	mshv_vtl_return_call_init(mshv_vsm_page_offsets.vtl_return_offset);
-> +	ret =3D mshv_vtl_return_call_init();
-> +	if (ret) {
-> +		dev_err(dev, "mshv_vtl_return_call_init failed: %d\n", ret);
-> +		goto free_dev;
-> +	}
-> +
->  	ret =3D hv_vtl_setup_synic();
->  	if (ret)
->  		goto free_dev;
-> --
-> 2.43.0
->=20
+This is on Github:
+https://github.com/nicolinc/iommufd/commits/pci_ats_always_on-v4/
+
+Changelog
+v4
+ * Rebase on v7.1-rc1
+ * Added Reviewed/Tested/Acked-by lines
+ * Update commit messages and inline comments
+ * [pci-quirks] Add range-based scan for NVIDIA GPUs
+ * [smmu] Add missing arm_smmu_remove_master() in error path
+ * [pci-ats] Don't init "cap=0"; check pci_read_config_word error
+v3
+ https://lore.kernel.org/all/cover.1772833963.git.nicolinc@nvidia.com/
+ * Add Reviewed-by from Jonathan
+ * Update function kdocs of PCI APIs
+ * Simplify boolean return/variable computations
+v2
+ https://lore.kernel.org/all/cover.1771886695.git.nicolinc@nvidia.com/
+ * s/non-CXL/pre-CXL
+ * Rebase on v7.0-rc1
+ * Update inline comments and commit message
+ * Add WARN_ON back at !ptr in arm_smmu_clear_cd()
+ * Add NVIDIA CX10 Family NVlink-C2C to the pre-CXL list
+ * Do not add boolean parameter to arm_smmu_attach_dev_ste()
+v1
+ https://lore.kernel.org/all/cover.1768624180.git.nicolinc@nvidia.com/
+
+Nicolin Chen (3):
+  PCI: Allow ATS to be always on for CXL.cache capable devices
+  PCI: Allow ATS to be always on for pre-CXL devices
+  iommu/arm-smmu-v3: Allow ATS to be always on
+
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  1 +
+ drivers/pci/pci.h                           |  9 +++
+ include/linux/pci-ats.h                     |  3 +
+ include/uapi/linux/pci_regs.h               |  1 +
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 75 ++++++++++++++++++---
+ drivers/pci/ats.c                           | 44 ++++++++++++
+ drivers/pci/quirks.c                        | 38 +++++++++++
+ 7 files changed, 163 insertions(+), 8 deletions(-)
+
+-- 
+2.43.0
 
 
