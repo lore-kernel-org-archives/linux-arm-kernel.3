@@ -4,73 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9396AFF885E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 10:58:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4C1DFF885E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 11:01:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dGBdavIaqnVL2bFEtTe5Ml/xW7w8rZK2JeFY/jWQ3kI=; b=isPj6IYuXPImXozH4Sgwvi9prw
-	kUHW8teqWZiMUKroWL1Q4dZ5iOPHeLHbIWVg3lRGoSlPRk+eJ0vXXFUlFsBPp0DFHATYGJtZUH352
-	ujm6GTGr2TaBar0gFyHysFZWI2j/cUqxz0w0nXZnFuXSq/xRNdUg7tGrZrXpdwuKjLqtUXOQkY//u
-	8aNQg5UcFWyEgCYo5CZGVBPiILtpI6O2EKNMXxFtJCtEvByo0giwJMQVoIw/ajT7eXitfKzo0+Lbt
-	4r7liOzFqJOxmCED0Y1z5VVMuDa7HH91UooNsUXPOdNPOhsbBztHusQHQC3IcpLaruPbYY3Zip1ne
-	D9bytLNA==;
+	bh=4XRJaWFbqSFsmBGRLBmlvpPymX1vBXalsYhJharnm3k=; b=N1pjGWMcz2izk/UdfSw8hhMXGS
+	WTtZfYozB43SxEzNwofor4C/tXfm5+FdWoST3j4fFUYW70JUoDkeg22B3kkbq96dcEO3EMw1PWhAO
+	2SXwN5BfWEE+dH7zV3I221Z4numlRWEqn0fa7NRnE2qWg4D0au+3M2K2tb1GheWCb+fBnOgJ4eFt2
+	iM6nYlbxIgcFPO/EvaxS0xtan5ToP5N098Ljlk4zCosVDeAK3Tn7Z+X6LXt48fqQO9t+vQz0FvT9F
+	aifM6A1Pu04U/RKbjQIzyZFD+o7mUv3QvXLCMFwuq4WcbU5b7I8Ff7RLmaL74csWY5ml7ytS+fyTy
+	T3LiSeMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHJfd-0000000GjwB-0yDe;
-	Mon, 27 Apr 2026 10:58:33 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1wHJhx-0000000GkBc-13L4;
+	Mon, 27 Apr 2026 11:00:57 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHJfa-0000000GjvF-0b3e
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 10:58:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=dGBdavIaqnVL2bFEtTe5Ml/xW7w8rZK2JeFY/jWQ3kI=; b=mLv5x2ELnnYv8KJwqrsZ6PgyMF
-	xIRHSKxzYv/IWoSBMYF+aHJxWRNUmzb25/HRQlzPl0kBlk/xwvz/mCaXX8qarfsw4a3rdhzQCxDwq
-	DNKhiPptxpL1nEakVi7Fm4053EN+BaAbPTQyC4p0L/iQdvXOwEFrJummjJNqUKDR0nHE5vOsfefAV
-	+5mVEwhxV3pdCWhPI8eZn0ruQn2KdC3ICZbvpjXapeQ6Z2k3ZOIL49UX4QNB/wWLsfyNkcSE69+fG
-	EZOcFlQ6x0OB3rBVLdwNo/0Z/WJ2j8D21QBnQj2xDG1U3lBeUZFghSaJE80b39SSyBCaPQHSXQ5dd
-	IDYlSPxg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:48392)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1wHJfO-000000006tA-0MDk;
-	Mon, 27 Apr 2026 11:58:18 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1wHJfL-000000005JE-339f;
-	Mon, 27 Apr 2026 11:58:15 +0100
-Date: Mon, 27 Apr 2026 11:58:15 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Arnd Bergmann <arnd@kernel.org>, Linus Walleij <linusw@kernel.org>,
-	brgl@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/4] ARM: pxa: pxa25x: attach software node to its
- target GPIO controller
-Message-ID: <ae9BR5vW_6jvNOYY@shell.armlinux.org.uk>
-References: <20260427-pxa-gpio-swnodes-v2-0-86fc24b9e714@oss.qualcomm.com>
- <20260427-pxa-gpio-swnodes-v2-3-86fc24b9e714@oss.qualcomm.com>
+	id 1wHJhu-0000000GkB8-3wGE;
+	Mon, 27 Apr 2026 11:00:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=4XRJaWFbqSFsmBGRLBmlvpPymX1vBXalsYhJharnm3k=; b=V4zLCz3ZLjDozLT4o/LAggRxW+
+	/7tTwM/7AIduZZExmA/N0ISPGIhudlvQr8OIZLfqqpl3dZzFBMZO1+CHO4S8/p8hIQThRYm7H+6Kw
+	qUkz/RARTegoCwhvGlEh1G2dMvmMhgeaxaOhhWF1lOqflCgkHilvK6JFcoBJJcc6z7QZTy5pHVYxG
+	W9MKn34IY0Srn89vDSGxcQR1sfCsVcWFb3In1Ti8EhUxZReRvvRM0/7nKkCmR621tabBfYgWvbiql
+	WQsl/2EmAYv0jtLQJdv8PT+fJNaOnJl8mfbz3nHEmX1FbNG529k3mzs/2eOoeE1awhg2afR8w/mLW
+	oKv+HpAA==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org,
+ Diederik de Haas <diederik@cknow-tech.com>,
+ Maud Spierings <maud_spierings@hotmail.com>
+Subject: Re: [PATCH v5 02/10] drm/bridge: Add detect_ctx hook and
+ drm_bridge_detect_ctx() helper
+Date: Mon, 27 Apr 2026 13:00:35 +0200
+Message-ID: <11399494.CDJkKcVGEf@phil>
+In-Reply-To: <20260426-dw-hdmi-qp-scramb-v5-2-d778e70c317b@collabora.com>
+References: <20260426-dw-hdmi-qp-scramb-v5-0-d778e70c317b@collabora.com>
+ <20260426-dw-hdmi-qp-scramb-v5-2-d778e70c317b@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260427-pxa-gpio-swnodes-v2-3-86fc24b9e714@oss.qualcomm.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_035830_489542_12596ECB 
-X-CRM114-Status: GOOD (  23.35  )
+X-CRM114-CacheID: sfid-20260427_040054_979574_77645D77 
+X-CRM114-Status: UNSURE (   7.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,49 +78,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 27, 2026 at 12:14:34PM +0200, Bartosz Golaszewski wrote:
-> Software node describing the GPIO controller for the pxa25x platforms is
-> currently "dangling" - it's not actually attached to the relevant
-> controller and doesn't allow real fwnode lookup. Attach it once it's
-> registered as a firmware node before adding the platform device.
-> 
-> Reviewed-by: Linus Walleij <linusw@kernel.org>
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> ---
->  arch/arm/mach-pxa/pxa25x.c | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm/mach-pxa/pxa25x.c b/arch/arm/mach-pxa/pxa25x.c
-> index 70509a5998142ec6b9c484e5f094751eda6db6cd..6875774f2cae1db4798d18c813f445bdc31b15de 100644
-> --- a/arch/arm/mach-pxa/pxa25x.c
-> +++ b/arch/arm/mach-pxa/pxa25x.c
-> @@ -179,7 +179,6 @@ void __init pxa25x_map_io(void)
->  }
->  
->  static struct platform_device *pxa25x_devices[] __initdata = {
-> -	&pxa25x_device_gpio,
->  	&pxa25x_device_udc,
->  	&pxa_device_pmu,
->  	&pxa_device_i2s,
-> @@ -240,6 +239,10 @@ static int __init pxa25x_init(void)
->  
->  		if (!of_have_populated_dt()) {
->  			software_node_register(&pxa2xx_gpiochip_node);
-> +			pxa25x_device_gpio.dev.fwnode = software_node_fwnode(
-> +								&pxa2xx_gpiochip_node);
-> +			platform_device_register(&pxa25x_device_gpio);
-> +
->  			pxa2xx_set_dmac_info(&pxa25x_dma_pdata);
->  			ret = platform_add_devices(pxa25x_devices,
->  						   ARRAY_SIZE(pxa25x_devices));
+Am Sonntag, 26. April 2026, 02:20:14 Mitteleurop=C3=A4ische Sommerzeit schr=
+ieb Cristian Ciocaltea:
+> Add an atomic-aware .detect_ctx() callback to drm_bridge_funcs and a
+> drm_bridge_detect_ctx() helper that accepts an optional
+> drm_modeset_acquire_ctx.
+>=20
+> This enables bridge drivers to perform operations requiring modeset
+> locking during connector detection, such as SCDC management for HDMI
+> 2.0.  When both ->detect_ctx and ->detect are defined, the former takes
+> precedence.  When ctx is NULL, locking is managed internally with EDEADLK
+> retry.
+>=20
+> Tested-by: Diederik de Haas <diederik@cknow-tech.com>
+> Tested-by: Maud Spierings <maud_spierings@hotmail.com>
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 
-Why do you need to explicitly register using platform_device_register()
-rather than leaving the device in the pxa25x_devices list and letting
-platform_add_devices() do that for you? platform_add_devices() is just
-a wrapper around platform_device_register() which calls that for all
-devices in the array.
+while this looks sane to me, my drm insights are spotty, so I can
+only provide the lighter
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Acked-by: Heiko Stuebner <heiko@sntech.de>
+
+
 
