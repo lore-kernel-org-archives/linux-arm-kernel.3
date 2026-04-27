@@ -4,70 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07C4EFF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 20:30:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8C53FF8867
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 20:33:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TQEQTKF6Ane8FSjdQ4dArHvWB3kPyNAdQv5Hh4WVCxU=; b=3aG2X/yybvBGc68d/M9OlRVJJl
-	DdOvUocLVG67gaG4mFjPsCGzG1ZxJA84YAGFmZ8zyPwVNsMxbszLXTsVmS/k+WO9nTnXaPcs1fj0B
-	q11abLjfcbHck2atYLid/GiKcFLMZpoGWfe+XBNbPjf8PpR07IVZuYcap+G79DdMxd9viiO7pfKOS
-	JpoiNAKmlDKhPdD+keSp4hNwcRJZnTlYy4+Vrc+TiXkt0uua3HNjd0tYRrlCbmKsS2XVwKXPTsaWc
-	4zqUChZrebg2KYEMXiI5fJg8h923dunK4kzs9H8yM5ofV6KAdOyZrSXY25s6sdCoKXytDrs0glYRA
-	KNpfiPdw==;
+	bh=0zilGkucIvAKI2C1BINewP5ngC2cVQqU9MCjENDL+F0=; b=DIZjfBDjxYEKgm04+KoSA+qS8H
+	LDpyTe+82FJu/zfl/7FLzJAwY6nNtBJ899JCRsscdhlGeanVfNLbJ2uoFzMKoyzdWOxVFnt3AeCsC
+	i7PVyF8DSYtBnUYSc3OFuH63U13QaQaB/ay87/+iaNgQ2mrI+4GJkaBfK5mY/RKgUc0+9fNaag6Yi
+	wbaRh9LU0I0zq66YYDEXy9LCD+/Y1biCK7ifYJj1PQojahxbAdyvUgLuwukAw483lyvpyoI/2eLMA
+	EXjV40jFd2XOwKntj0VZsu71NC07SdTcMZlnjOAvVx7NAQMPAjruxv5PtSbH3Rd2P0JBswqGBMye5
+	XUIMmgNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHSbF-000000007vk-3Lrx;
-	Mon, 27 Apr 2026 20:30:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wHSda-0000000085I-1B2R;
+	Mon, 27 Apr 2026 20:33:02 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHSbE-000000007vU-3oh8
+	id 1wHSdX-0000000084u-3VU4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 20:30:36 +0000
+	Mon, 27 Apr 2026 20:33:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EE8CA60139
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 20:30:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A38CAC2BCB6
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 20:30:35 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DC5F642B8C;
+	Mon, 27 Apr 2026 20:32:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 907F7C19425;
+	Mon, 27 Apr 2026 20:32:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777321835;
-	bh=TQEQTKF6Ane8FSjdQ4dArHvWB3kPyNAdQv5Hh4WVCxU=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=JpYow58Oh6UmQ6oQIR9k6FnDXQMeAn4UNotWUB8IhSKo6sdD5WOk4vTxxxnRYIi9G
-	 g/kqJAe15f8MNyijU4NkF7suJb84IkjaTVXhFMIp9pvT2Mo7vWvjEcwrQ4lSEkXjhh
-	 vVAXNN2L4tEDc05hXYVrsOPZGoa+NX2ZABfq+7ZnNr5UvfJCizQ2DNzp7OMH6fIloK
-	 dYdiWYl2SUZV+cbeWcTxaNpIg3oRv0NYyGqv/u879pz6cl63GIOK1SLsIgyXHAZUGS
-	 EkVRnse68NQ3u4s6b0+odC5EnxEf83QDGPteAEzrMEfJcbS5xQsLDHK8L9Ga6iJ0pR
-	 vkDjUOn+Md0sQ==
-Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-38ea6a5a0b3so105369691fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 13:30:35 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+OeAfSwCiXszB1PvaYjdN7+kbE6hIDrVGxT+53eRmhC2dtvuLqKvx4JV6KW5YhsCr8iSmJO5NMR4WrsprTHuJQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzXkW60EhSmqRFE8XBgjkyP8TL31CcwMR9IPzRofKYgr18gvkow
-	ujjOqfE4Ytye0CcfCUE1SU8ZvrUw1nGZylzMbTu2PAesHUg/C3twirh4A7xw78x8tDxQlxvLoPp
-	cjBCUX8CbKsjFOVqT4EnBkFrDu6yir1w=
-X-Received: by 2002:a05:6512:128c:b0:5a2:7b74:3c60 with SMTP id
- 2adb3069b0e04-5a7466143cemr122787e87.33.1777321834378; Mon, 27 Apr 2026
- 13:30:34 -0700 (PDT)
+	s=k20201202; t=1777321978;
+	bh=AYegFMHP0FdsG4kub/LfFJkX3yPMbTV5RSbToEya7YE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=CPpGeZqUUq4NeHLjr8Y6gHhQ05OKQLcZ0ZJVizuxBD/hnh6paiIYrIaKnVuuk0EWe
+	 uYc3mVuCWJhlzjC04W4vgsZ2z+vmdwMvbLJyFiFcyeCY/Uqq8FIQ7ITfxECAGUtWnT
+	 445TSQd8UPwBSkkeHWgDEd08Z5PuIQaQrtrInshYoGmv/n+R8hYzz6uxvVaiH5hL4n
+	 tAUtIiwsnIUACypW2QAIXakl9lt0s90+wFQj1nY9viO0zXAtVev6mYsQGHg8yzH+9V
+	 LLCz45rzypGCC1pYmnOEA0N1vkqM7F3g1RBDqMXXhebeC5qq5sDX5noJ6G/U/bdIpd
+	 ydqaY9P//sj0g==
+Message-ID: <67a655e3-fa23-4d2a-9685-14e6221d5d26@kernel.org>
+Date: Mon, 27 Apr 2026 22:32:40 +0200
 MIME-Version: 1.0
-References: <20260427143546.3098519-1-arnd@kernel.org>
-In-Reply-To: <20260427143546.3098519-1-arnd@kernel.org>
-From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 27 Apr 2026 22:30:22 +0200
-X-Gmail-Original-Message-ID: <CAD++jLnFimSnV+KhRq4kL0ADXPy1sNd_1vBViG6=kADOF4Sz0w@mail.gmail.com>
-X-Gm-Features: AVHnY4IDAqphHkFYWq0uMk0MOZiHZ4MXXrvG-QLMzzb07r9LDEqh7dgnp_Ijt9o
-Message-ID: <CAD++jLnFimSnV+KhRq4kL0ADXPy1sNd_1vBViG6=kADOF4Sz0w@mail.gmail.com>
-Subject: Re: [PATCH] ARM: s3c: use gpio lookup table for LEDs
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Charles Keepax <ckeepax@opensource.cirrus.com>, 
-	Bartosz Golaszewski <brgl@kernel.org>, patches@opensource.cirrus.com, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RESEND] Re: [PATCH RFC v3 4/4] mm: add PMD-level huge page
+ support for remap_pfn_range()
+To: Yin Tirui <yintirui@gmail.com>, lorenzo.stoakes@oracle.com
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, willy@infradead.org, jgross@suse.com,
+ catalin.marinas@arm.com, will@kernel.org, tglx@kernel.org, mingo@redhat.com,
+ bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com, luto@kernel.org,
+ peterz@infradead.org, akpm@linux-foundation.org, ziy@nvidia.com,
+ baolin.wang@linux.alibaba.com, Liam.Howlett@oracle.com, npache@redhat.com,
+ ryan.roberts@arm.com, dev.jain@arm.com, baohua@kernel.org,
+ lance.yang@linux.dev, vbabka@suse.cz, rppt@kernel.org, surenb@google.com,
+ mhocko@suse.com, anshuman.khandual@arm.com, rmclure@linux.ibm.com,
+ kevin.brodsky@arm.com, apopple@nvidia.com, ajd@linux.ibm.com,
+ pasha.tatashin@soleen.com, bhe@redhat.com, thuth@redhat.com,
+ coxu@redhat.com, dan.j.williams@intel.com, yu-cheng.yu@intel.com,
+ baolu.lu@linux.intel.com, conor.dooley@microchip.com,
+ Jonathan.Cameron@huawei.com, riel@surriel.com, wangkefeng.wang@huawei.com,
+ chenjun102@huawei.com
+References: <20260228070906.1418911-1-yintirui@huawei.com>
+ <20260228070906.1418911-5-yintirui@huawei.com>
+ <9886b2c6-5516-4be8-ac31-db3133455af2@kernel.org>
+ <39dac497-220c-4e71-9d3e-d9cf32357400@gmail.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <39dac497-220c-4e71-9d3e-d9cf32357400@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260427_133259_927787_54FE9B42 
+X-CRM114-Status: GOOD (  17.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,16 +134,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 27, 2026 at 4:35=E2=80=AFPM Arnd Bergmann <arnd@kernel.org> wro=
-te:
+>>> +			pte_t entry;
+>>> +
+>>> +			if (!pmd_special(old_pmd)) {
+>>
+>> If you are using pmd_special(), you are doing something wrong.
+>>
+>> Hint: vm_normal_page_pmd() is usually what you want.
+> 
+> Spot on.
+> 
+> While looking into applying vm_normal_folio_pmd() here to avoid the
+> magical VMA checks, I realized that both __split_huge_pmd_locked() and
+> copy_huge_pmd() currently suffer from the same !vma_is_anonymous(vma)
+> top-level entanglement.
 
-> From: Arnd Bergmann <arnd@arndb.de>
->
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+Yes, that code is an absolute mess.
 
-With comitt message added:
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+> I think these functions could benefit from a
+> structural refactoring similar to what Lorenzo is currently doing in
+> zap_huge_pmd().
+> 
+> My idea is to flatten both functions into a pmd_present()-driven
+> decision tree:
 
-Yours,
-Linus Walleij
+Likely similar to how we handle PTEs.
+
+> 1. Branch strictly on pmd_present().
+> 2. For present PMDs, use vm_normal_folio_pmd() as the single source of
+> truth.
+> 3. If !folio (and not a huge zero page), it cleanly identifies special
+> mappings (like PFNMAPs) without relying on vma_is_special_huge(). We can
+> handle the split/copy directly and return early.
+> 4. Otherwise, proceed with the normal Anon/File THP logic, or handle
+> non-present migration entries in the !pmd_present() branch.
+
+Yes, that sounds about right.
+
+> 
+> I have drafted two preparation patches demonstrating this approach and
+> appended the diffs at the end of this email. Does this direction look
+> reasonable to you? If so, I will iron out the implementation details and
+> include these refactoring patches in my upcoming v4 series.
+> 
+
+Yes, sounds like nice cleanups.
+
+Maybe the code could then benefit from moving the present vs. non-present
+handling into separate functions? Just a thought.
+
+-- 
+Cheers,
+
+David
 
