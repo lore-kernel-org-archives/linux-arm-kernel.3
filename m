@@ -4,78 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F077FF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 17:19:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 650EAFF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 17:19:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vyq9LsaKRB6gfboV0Kj4MLcDiGDYHMdZH9ONtCsXtqY=; b=gXcRerPFZNGZCOqEAlb7vZM4HM
-	OfYQBVmZM2anVprNesSo9e+BGXdOYtVsjtcIVxpI7Mx3B6YAYAcrw9HCcrKWDvpJF15pa9vF21U/B
-	CwKgh6VnYlnIysa47cjggiaXiNg9qf/w9flNlZFKcYq4JXExlQwA/UJDY+RE6GkNd/nXH7vEBYtpD
-	/Fu1N/SAw0CeqYGw2twYLh/QN+J7va8sX5tZBGhO5AOPlFjnD74cMPNGGkH6ItGO3swSJuC1/4vAt
-	pe6YC55gazwPo+IYhErMLN5fFRRWQ5PiB6LaPbLNY7UZA6OEviWv0WL8z5ZfRIMSewHuIWjCqYWCa
-	pwByXQUA==;
+	bh=h3Z/nVyoovIhD0EOyurWXqapA3Ve0yAERyRow/fU/M4=; b=RYQjt+BrPRRrD2900iicxF/O+b
+	NUk2F83CVnPJDNfLrkfiedc/tJx4gmzQAhXOXPo2dGVYkfHQdNBRHoTJCQD5NpJ8DsB+sHp35ZdC9
+	gHiOPaKKdPdyEpooo5+3D8kQWGHAWukqpbQ8idGqNTf7F+/vbdNfEb/fuWw/ghEIGdI6p2Fr1L0yM
+	1HZm54XMPty7ZhX1MkQdUOtIwpYETr7CqtUHwIwPhp/NA/ULUjYeQm2l3Svga2PUg0zgbBZ8C+W8S
+	SpCyMxzourd45wdgApmnI/mqqHu1ujm8V+zyZzg0C+rmb+8AUfGlYjbKPdNc238Th2mODyExM/b3y
+	5bZ2yIyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHPc7-0000000HRyv-1VZX;
-	Mon, 27 Apr 2026 17:19:19 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wHPcE-0000000HS6R-23S0;
+	Mon, 27 Apr 2026 17:19:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHPc2-0000000HRsL-0JmC;
-	Mon, 27 Apr 2026 17:19:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Vyq9LsaKRB6gfboV0Kj4MLcDiGDYHMdZH9ONtCsXtqY=; b=Mtd00NnWpRYNvm20r5Ria8JTn4
-	obEnKSrMlBWBO9QpjSZBrCMB8CCst0ycW/9/T7djksxpHwWtFFZFOaFioHFSY47UnKvGFCwmI66m7
-	7op3FuJmvoE1TMF+1HEZ0W4sP7nx7Okp544rztHRxulg81ygNr+l/iQL6EXhA8fWNsLJYCQ9Aq9Ve
-	j+w3T6Mig0fuCwsLiSElbCAAZuTfG8d7KwlIC/+us/8jgZ/uuYA1WeeVHyEkuSb7we7fOt4sCM8kw
-	uJrXD9C27pKFasMbVCc7AVmDdkMHj6lbXtXKsyTbPhH/PqNNfwCLbt2302y535emSGBJXh7KIEeRP
-	hQRHldAA==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHPby-00000001Ddg-21uT;
-	Mon, 27 Apr 2026 17:19:13 +0000
+	id 1wHPcD-0000000HS5P-2hS0;
+	Mon, 27 Apr 2026 17:19:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E3E54405A3;
-	Mon, 27 Apr 2026 17:19:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8CADC2BCB5;
-	Mon, 27 Apr 2026 17:19:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 180046024D;
+	Mon, 27 Apr 2026 17:19:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A25EEC2BCB7;
+	Mon, 27 Apr 2026 17:19:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777310346;
-	bh=mepkGGhsNTUJswO/3b4246rhiRDTDWXlZZW2YA/w71w=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=VK1GySpR/+ruwGR+XpTEZu6x0iADUCf91xLH8L3bhPIdG+pvpT9ssxCS0989Sew7V
-	 L7hsSv7HFAeLG57GPDHtbc+Az66WYRGam54gYYGs1Y9t4MD1fMZE4Lhtr/NiLBIW1b
-	 PD3YBfH6p5hE+/y2kzPZGf7XbdwB7VsRx2GNTay4hRZnlwZIuRVQhI4DR0X05i/g1N
-	 ZUMuJna6+WQDOyhIs0D20LSta/kt0AaTzbBEb12ICwZ5WVog5bQD7JJHHzVQn359Eo
-	 q1RNCDItCIXw2+r/eUeA/JkM8dtXm/tWjfad4wuQYztW85SAZUCxjkbt4rRec0k7v+
-	 /Abd13yBi3Pog==
-Date: Mon, 27 Apr 2026 18:18:56 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Salah Triki <salah.triki@gmail.com>
-Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, linux-iio@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v2] iio: adc: mt6359: fix unchecked return value in
- mt6358_read_imp
-Message-ID: <20260427181856.613a22ee@jic23-huawei>
-In-Reply-To: <20260427165759.5756-1-salah.triki@gmail.com>
-References: <20260427165759.5756-1-salah.triki@gmail.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	s=k20201202; t=1777310364;
+	bh=xblTv37x9V4gU3cvmA9ILfz6xXNOv0sNe2zU9C6a5nw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=k8kV5Zhk7HZbxy8X7mxqUL5UgTTJPPuuLtSKHKOe5PwbIiNodL9/7ESxRbcOMv4dB
+	 NN/pd897F5mMQZv6MW+RM/3mikWvqmJGQCtupbd6YHiobStaCQu79RRkwt3Bs1rL/A
+	 WmXtcy3vIzgejB2MGSu6MrKJ33itreKKdFlemNypyCUExoUHGXA1bHbqFqaNX4ujdd
+	 iXZiXWTV/w69yfgs2V8e+zdWAilhhtsvDDxzPIT8CbbievjXPmrPwVloE5aoqLKmYP
+	 ca2+sf92YJQm2mLHcpyNlGd6mMQP6QhUed6Hx8vk/CloBjO7tSgz4fayv+CeXka+Fz
+	 NwGM6tvALNVmQ==
+From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+To: Yury Norov <ynorov@nvidia.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	David Laight <david.laight.linux@gmail.com>,
+	Thomas Gleixner <tglx@linutronix.de>
+Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	linux-alpha@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	kvm@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	dmaengine@vger.kernel.org,
+	linux-efi@vger.kernel.org,
+	linux-fsi@lists.ozlabs.org,
+	amd-gfx@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org,
+	intel-gfx@lists.freedesktop.org,
+	linux-wpan@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-wireless@vger.kernel.org,
+	linux-spi@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	linux-staging@lists.linux.dev,
+	linux-serial@vger.kernel.org,
+	linux-usb@vger.kernel.org,
+	xen-devel@lists.xenproject.org,
+	linux-fsdevel@vger.kernel.org,
+	ocfs2-devel@lists.linux.dev,
+	bpf@vger.kernel.org,
+	kasan-dev@googlegroups.com,
+	linux-mm@kvack.org,
+	linux-x25@vger.kernel.org,
+	rust-for-linux@vger.kernel.org,
+	linux-sound@vger.kernel.org,
+	sound-open-firmware@alsa-project.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org,
+	linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	linux-arch@vger.kernel.org
+Subject: [RFC PATCH v1 9/9] uaccess: Convert small fixed size copy_{to/from}_user() to scoped user access
+Date: Mon, 27 Apr 2026 19:13:50 +0200
+Message-ID: <8780eb2ef80575931a339e5225bc80eb13e9be6c.1777306795.git.chleroy@kernel.org>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <cover.1777306795.git.chleroy@kernel.org>
+References: <cover.1777306795.git.chleroy@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_181910_842545_4769A445 
-X-CRM114-Status: GOOD (  27.04  )
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3638; i=chleroy@kernel.org; h=from:subject:message-id; bh=xblTv37x9V4gU3cvmA9ILfz6xXNOv0sNe2zU9C6a5nw=; b=owGbwMvMwCV2d0KB2p7V54MZT6slMWS+nxlr/n9yu2DE7uwkCZGbl0uCp6Y1JLvZTPpz+P/PY xNqPMoaOkpZGMS4GGTFFFmO/+feNaPrS2r+1F36MHNYmUCGMHBxCsBE9HwZ/ns82Ho9PV2Q+7Pp 5fqvs6O/v3YN+3EgL+Wk4b/co1rlkZ8YGVZxmDl7XFiUcmPSTPW14WGSHT6/1u4pcTY2cjD0U7P bzAkA
+X-Developer-Key: i=chleroy@kernel.org; a=openpgp; fpr=10FFE6F8B390DE17ACC2632368A92FEB01B8DD78
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,67 +115,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 27 Apr 2026 17:57:59 +0100
-Salah Triki <salah.triki@gmail.com> wrote:
+copy_{to/from}_user() is a heavy function optimised for copy of large
+blocs of memory between user and kernel space.
 
-> In mt6358_read_imp(), the return value of regmap_read() is currently
-> ignored. This is problematic because if the bus read fails the variable
-> val_v remains uninitialized.
-> 
-> The function subsequently assigns this uninitialized stack value to
-> *vbat, leading to incorrect measurement results being reported to
-> the IIO subsystem without any error indication.
-> 
-> Update the function to check the return value of regmap_read(). Ensure
-> that mt6358_stop_imp_conv() is still called to clean up the hardware
-> state before returning the error code.
-> 
-> Fixes: 3587914bf61 ("iio: adc: Add support for MediaTek MT6357/8/9 Auxiliary ADC")
-> Signed-off-by: Salah Triki <salah.triki@gmail.com>
-> ---
-> Changes in v2:
-> - Added Fixes tag.
-> - Re-examined the entire driver for unchecked regmap operations.
->   While several regmap_write() and regmap_set_bits() calls also ignore
->   return values, I focused on this specific regmap_read() in 
->   mt6358_read_imp() because it leads to an uninitialized variable usage
->   (val_v). This makes this fix critical for reporting correct data 
->   to userspace.
+When the number of bytes to be copied is known at build time and small,
+using scoped user access removes the burden of that optimisation.
 
-I'd be more concerned about what it might otherwise report.. Will expose
-something random that was on the stack previously.
+Signed-off-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
+---
+ include/linux/uaccess.h | 47 +++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 47 insertions(+)
 
-Ok on this one having a fixes tag given the uninitialized, though as I mentioned
-I'd have been tempted to take the approach of just initialising it.
-
-Even with the code as you have it here a static analyzer may not be able
-to see far enough to tell it is initialized and so throw false positive warnings.
-
-Still, let's see what Andy thinks before you change anything.
-
-J
-> 
->  drivers/iio/adc/mt6359-auxadc.c | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/iio/adc/mt6359-auxadc.c b/drivers/iio/adc/mt6359-auxadc.c
-> index 6b9ed9b1fde2..f927bff4a26a 100644
-> --- a/drivers/iio/adc/mt6359-auxadc.c
-> +++ b/drivers/iio/adc/mt6359-auxadc.c
-> @@ -497,10 +497,13 @@ static int mt6358_read_imp(struct mt6359_auxadc *adc_dev,
->  		return ret;
->  
->  	/* Read the params before stopping */
-> -	regmap_read(regmap, reg_adc0 + (cinfo->imp_adc_num << 1), &val_v);
-> +	ret = regmap_read(regmap, reg_adc0 + (cinfo->imp_adc_num << 1), &val_v);
->  
->  	mt6358_stop_imp_conv(adc_dev);
->  
-> +	if (ret)
-> +		return ret;
-> +
->  	if (vbat)
->  		*vbat = val_v;
->  	if (ibat)
+diff --git a/include/linux/uaccess.h b/include/linux/uaccess.h
+index 33b7d0f5f808..3ac544527af2 100644
+--- a/include/linux/uaccess.h
++++ b/include/linux/uaccess.h
+@@ -50,6 +50,8 @@
+  #define mask_user_address(src) (src)
+ #endif
+ 
++#define SMALL_COPY_USER		64
++
+ /*
+  * Architectures should provide two primitives (raw_copy_{to,from}_user())
+  * and get rid of their private instances of copy_{to,from}_user() and
+@@ -191,6 +193,9 @@ _inline_copy_from_user(void *to, const void __user *from, unsigned long n)
+ 	return res;
+ }
+ 
++static __always_inline __must_check unsigned long
++_small_copy_from_user(void *to, const void __user *from, unsigned long n);
++
+ extern __must_check unsigned long
+ _copy_from_user(void *, const void __user *, unsigned long);
+ 
+@@ -207,6 +212,9 @@ _inline_copy_to_user(void __user *to, const void *from, unsigned long n)
+ 	return n;
+ }
+ 
++static __always_inline __must_check unsigned long
++_small_copy_to_user(void __user *to, const void *from, unsigned long n);
++
+ extern __must_check unsigned long
+ _copy_to_user(void __user *, const void *, unsigned long);
+ 
+@@ -215,6 +223,8 @@ copy_from_user_common(void *to, const void __user *from, unsigned long n, bool p
+ {
+ 	if (!check_copy_size(to, n, false))
+ 		return n;
++	if (!partial && __builtin_constant_p(n) && n <= SMALL_COPY_USER)
++		return _small_copy_from_user(to, from, n);
+ 	if (IS_ENABLED(ARCH_WANTS_NOINLINE_COPY_USER))
+ 		return _copy_from_user(to, from, n);
+ 	else
+@@ -239,6 +249,8 @@ copy_to_user_common(void __user *to, const void *from, unsigned long n, bool par
+ 	if (!check_copy_size(from, n, true))
+ 		return n;
+ 
++	if (!partial && __builtin_constant_p(n) && n <= SMALL_COPY_USER)
++		return _small_copy_to_user(to, from, n);
+ 	if (IS_ENABLED(ARCH_WANTS_NOINLINE_COPY_USER))
+ 		return _copy_to_user(to, from, n);
+ 	else
+@@ -838,6 +850,41 @@ for (bool done = false; !done; done = true)					\
+ #define scoped_user_rw_access(uptr, elbl)				\
+ 	scoped_user_rw_access_size(uptr, sizeof(*(uptr)), elbl)
+ 
++static __always_inline __must_check unsigned long
++_small_copy_from_user(void *to, const void __user *from, unsigned long n)
++{
++	might_fault();
++	instrument_copy_from_user_before(to, from, n);
++	scoped_user_read_access_size(from, n, failed) {
++		/*
++		 * Ensure that bad access_ok() speculation will not lead
++		 * to nasty side effects *after* the copy is finished:
++		 */
++		if (!can_do_masked_user_access())
++			barrier_nospec();
++		unsafe_copy_from_user(to, from, n, failed);
++	}
++	instrument_copy_from_user_after(to, from, n, 0);
++	return 0;
++failed:
++	instrument_copy_from_user_after(to, from, n, n);
++	return n;
++}
++
++static __always_inline __must_check unsigned long
++_small_copy_to_user(void __user *to, const void *from, unsigned long n)
++{
++	might_fault();
++	if (should_fail_usercopy())
++		return n;
++	instrument_copy_to_user(to, from, n);
++	scoped_user_write_access_size(to, n, failed)
++		unsafe_copy_to_user(to, from, n, failed);
++	return 0;
++failed:
++	return n;
++}
++
+ /**
+  * get_user_inline - Read user data inlined
+  * @val:	The variable to store the value read from user memory
+-- 
+2.49.0
 
 
