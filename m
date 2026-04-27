@@ -4,90 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C92D5FF8850
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 01:12:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64678FF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 01:20:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n/vau+b8Z6KXPKxb16NGp/J2UsKe/YefmAdKbBEzfzI=; b=qHQS78tL73CizZx38YRu7fRnxk
-	Mv4mss89Gib59UMyzWpGt+mlRgQsV0sYBkM8JBRy1eM4V8R+e4jRtNtehS3n4GReRhHsXyJQR87Mi
-	I+Rxio7RanZDXNROebCepQdu8zux9xEW5DBLnN4F7mAonEHz3YvoonZ1LZIR4xsKIbVuKPnpZjSZU
-	Vynzbd5DdjoBsYEOWbygDNXNqFVLYig3xy5JFD2ZJG5kBmPktJOMggpNFAT0QZPZqVgOhjDT/Bcap
-	bUeK9qQ9P6i7iRz+6p432PSAZt+P8qcncblQfKd+gaBK2i0ULuD8GiFqYQFCNi20UWa1OGHDldq5A
-	V8Io5rVQ==;
+	bh=LIIi6TlLlORarJbE8L0nD/XYuT5XrhpXxkOCrf081b0=; b=rWRhpzkCwGcw7nLltXied4ybj4
+	1sUfsOBqtJN2RYu6gfM/wfUaoop/UYFMwCeT5rZq0V31YluSUqjULD/il0Vr7OgNThAg6znKaryrO
+	KQUtQnhvvVKNrQAMLzi+OQZk6wAlFBhffzPiZRlFMMISsLM9ZJFFbX2rVJQWtQzpeZnoOCDdeMSsp
+	uJxSCopAwxeNZ9MN/+g1kwAf+a92lE1qkbe69FeHc8aVrDA6xtM/UaSOggHkUekQYe77y6/DmIL3e
+	dzOO3eaZ2lmCxbB6dscbA3HXUEJ+saec98E9+A5+k7ymcCkr8ByP7X9VIgao9DRKOJfT1NmsomLO+
+	iKreAyhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHAWr-0000000G01F-2qSp;
-	Mon, 27 Apr 2026 01:12:53 +0000
-Received: from mout-p-101.mailbox.org ([2001:67c:2050:0:465::101])
+	id 1wHAeG-0000000G0V5-3UZj;
+	Mon, 27 Apr 2026 01:20:32 +0000
+Received: from mail-m6099.netease.com ([210.79.60.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHAWo-0000000G00n-3wZd
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 01:12:52 +0000
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4g3lt53xPVz9tHp;
-	Mon, 27 Apr 2026 03:12:45 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1777252365;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=n/vau+b8Z6KXPKxb16NGp/J2UsKe/YefmAdKbBEzfzI=;
-	b=rJqb2EOVxm7zLUY4fPO9GnFcM3dw6TF/pgQAlMOJhi2HY+fHRGEb1V48IERordu2LOJ5lq
-	Jxb4ogzTB0a0eUvKtKYsqBZcGMRiJ61MESefVbChA7FQz7NRRDVaiyAsVw+fL6tHcfclG0
-	AbrMRWgE3PSbC5KNJtOpK/8iRbf+YAxV1lcAsi5yI9KUrR5+4yJMa+eJEdUf+/lDm9JL7D
-	xM+FJUCRkcMf2Un0PrOdIxl9sc1QrniOuN+o8wIMU4IzgY4dK4jP09vcKdQteIgE/HHN+G
-	1iLcLVjb4NZprCXHP/sYLBl0LFyqZVJKStAD7l1TQbH1QQJL+9IXLlnK7eigtg==
-Message-ID: <b3a8bf69-bdd2-4122-93c4-4c4d94240da4@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1777252363;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=n/vau+b8Z6KXPKxb16NGp/J2UsKe/YefmAdKbBEzfzI=;
-	b=eqb8BHggIKW7Id+ffGHthTGnuw06a9FekWbi8S/mMrzYYyEQ4HfPpWFfsMsnX78BOi5Wqv
-	vE5G8hpZEJxNQU5Xbm6EuVsyOn9ydMp3Hi6qpPsuGo18Rv3RCQNJp4HBXCW9JCu4SKTgGe
-	nFS+Sx6/hsowqquk/9Jpx2gm79TwA3PB3uTh+6LdN2uTVhtuRUco5YEiU27TsQ40hxYIdP
-	HABJEi2s0HaC9Fw9eiq1erxE2rwIqtfN1ERyhe69VNXsj1miaTqZ2jZllZ/g+/W03v9ZLd
-	tfRXGTn6z+58/prjLiT3VgG+tN21g3LZH6Tbjbsxdfpi6GMgDz/QKr6JP8Xaew==
-Date: Mon, 27 Apr 2026 02:32:16 +0200
+	id 1wHAeD-0000000G0UE-1QZ1;
+	Mon, 27 Apr 2026 01:20:31 +0000
+Received: from [172.16.12.43] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 3c3462145;
+	Mon, 27 Apr 2026 09:20:24 +0800 (GMT+08:00)
+Message-ID: <2af2f6a1-9b3b-4be5-b842-dcf29621e7ec@rock-chips.com>
+Date: Mon, 27 Apr 2026 09:20:24 +0800
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 3/4] ARM: dts: renesas: r8a7740: Add ZT/ZTR trace clock
- on R-Mobile A1
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm
- <magnus.damm@gmail.com>, Michael Turquette <mturquette@baylibre.com>,
- Rob Herring <robh@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
- devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-References: <20260415233300.457892-1-marek.vasut+renesas@mailbox.org>
- <20260415233300.457892-4-marek.vasut+renesas@mailbox.org>
- <20260421-cherubic-urban-beluga-49ee00@quoll>
- <0f933506-c196-4503-844f-2a375e2cf690@mailbox.org>
- <161eb29f-2d07-455a-bd74-4f22061b5dfb@kernel.org>
- <c9ef9d73-6f1b-42ea-b5f0-09fcf904c78e@mailbox.org>
- <d246edd2-5f9d-4e95-850d-abff175088a6@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 3/6] pwm: Add rockchip PWMv4 driver
+To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Lee Jones <lee@kernel.org>, William Breathitt Gray <wbg@kernel.org>,
+ kernel@collabora.com, Jonas Karlman <jonas@kwiboo.se>,
+ Alexey Charkov <alchark@gmail.com>, linux-rockchip@lists.infradead.org,
+ linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-iio@vger.kernel.org
+References: <20260420-rk3576-pwm-v5-0-ae7cfbbe5427@collabora.com>
+ <20260420-rk3576-pwm-v5-3-ae7cfbbe5427@collabora.com>
+ <4592b323-bebd-4242-ae31-892a51b5b3be@rock-chips.com>
+ <ae4MCRE_hGJ-VcBQ@monoceros>
 Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <d246edd2-5f9d-4e95-850d-abff175088a6@kernel.org>
+From: Damon Ding <damon.ding@rock-chips.com>
+In-Reply-To: <ae4MCRE_hGJ-VcBQ@monoceros>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-MBO-RS-META: jxpzoosb6bbjrefbcyhnhqa7tzzogyhw
-X-MBO-RS-ID: e708615267761e85859
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9dcc85f48b03a3kunm09663e0d16a152
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCS0kdVhodSk4fTBoYGB4aHVYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
+	9PT0hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=bN5zx+rtmrL/sfaeiN+vg4O5kxMPAdyyupG2fp4MJaav5iTPpC3+Md9GiDIwaAEa20itdarD/TrppKYVToPHo/R9mZIVkQzwHk0zzW7y0APT8DmguCFa2GcaMdME/F662c9RLqfWIX+kk0dx0he8C4S8WCAeOMp5f3/CgfSwlPs=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=LIIi6TlLlORarJbE8L0nD/XYuT5XrhpXxkOCrf081b0=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_181251_134956_E81C28A9 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20260426_182029_977962_BB165A3F 
+X-CRM114-Status: GOOD (  20.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,48 +80,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/23/26 4:00 PM, Krzysztof Kozlowski wrote:
+Hi Uwe,
 
-Hello Krzysztof,
-
->>>> "
->>>> WARNING: DT binding docs and includes should be a separate patch. See:
->>>> Documentation/devicetree/bindings/submitting-patches.rst
->>>
->>> So you did not implement it... Include goes with the binding. Always.
->>> Look at other commits.
->> The warning says the exact opposite thing , does it not ?
->>
->> Maybe the warning text needs to be updated ?
+On 4/26/2026 9:06 PM, Uwe Kleine-König wrote:
+> Hello,
 > 
-> The warning is shown for patches mixing stuff, like DTSI+header, so for
-> this context the AND means binding doc plus header are separate FROM
-> this patch. Not separate from each other.
+> first of all thanks for your extensive testing, very appreciated.
+> 
+> On Sun, Apr 26, 2026 at 05:44:46PM +0800, Damon Ding wrote:
+>> On 4/20/2026 9:52 PM, Nicolas Frattaroli wrote:
+>>> The Rockchip RK3576 brings with it a new PWM IP, in downstream code
+>>> referred to as "v4". This new IP is different enough from the previous
+>>> Rockchip IP that I felt it necessary to add a new driver for it, instead
+>>> of shoehorning it in the old one.
+>>>
+>>> Add this new driver, based on the PWM core's waveform APIs. Its platform
+>>> device is registered by the parent mfpwm driver, from which it also
+>>> receives a little platform data struct, so that mfpwm can guarantee that
+>>> all the platform device drivers spread across different subsystems for
+>>> this specific hardware IP do not interfere with each other.
+>>>
+>>> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+>> Tested-by: Damon Ding <damon.ding@rock-chips.com>
+>>
+>> The continuous mode of all PWM channels has been preliminarily tested
+>> and verified working on the RK3576 IoT board.
+>>
+>> I have tested with several typical period and duty cycle configurations.
+>>
+>> Following Uwe's suggestion [0], I also tested with libpwm using commands
+>> similar to the following:
+>>
+>> ./pwmset -c 0 -p 0 -P 1000000 -D 500000 -s 5000
+> 
+> This one is good if you have an oscilloscope (or something similar) to
+> verify the output. Without that (or additionally) pwmtestperf creates a
+> series of requests that in combination with PWM_DEBUG should uncover
+> rounding errors in the .tohw and .fromhw callbacks.
 
-Oh, thank you for the clarification.
+Aha, this is my oversight. I did not elaborate on my verification 
+methods. ;-)
 
-> To me it is clear, so I don't feel like finding different text. If you
-> find it unclear or confusing, you should propose something better.
+I have adopted three ways to complete the test:
 
-How about this:
+1. Measure the output waveform of each channel with a simple logic 
+analyzer, Kinst LA2016.
+2. Read relevant registers to verify that the configured period and duty 
+values match expectations.
+3. Connect the PWM continuous output pins to capture input pins 
+directly, to confirm the capture measurement results.
 
-"
-diff --git a/scripts/checkpatch.pl b/scripts/checkpatch.pl
-index 0d18771f1b013..715a98ccc69f7 100755
---- a/scripts/checkpatch.pl
-+++ b/scripts/checkpatch.pl
-@@ -2957,7 +2957,7 @@ sub process {
-                                 if (($last_binding_patch != -1) &&
-                                     ($last_binding_patch ^ 
-$is_binding_patch)) {
-                                         WARN("DT_SPLIT_BINDING_PATCH",
--                                            "DT binding docs and 
-includes should be a separate patch. See: 
-Documentation/devicetree/bindings/submitting-patches.rst\n");
-+                                            "DT binding docs and 
-includes should be a single patch, but separate from this patch. See: 
-Documentation/devicetree/bindings/submitting-patches.rst\n");
-                                 }
-                         }
-"
+> 
+> A good set of calls then is:
+> 
+> 	pwmtestperf -p ... -c ... -P 50000 -S1
+> 	pwmtestperf -p ... -c ... -P 50000 -S1 -I
+> 
+> 	pwmtestperf -p ... -c ... -P 50000 -S-1
+> 	pwmtestperf -p ... -c ... -P 50000 -S-1 -I
+> 
+> (Assuming that 50000 is a sensible period for the device under test.)
+> 
+
+Okay, I will look into this tool and run these commands to conduct more 
+in-depth verification.
+
+> And yes, I know, I need to document that using something more permanent
+> than a mailing list post.
+> 
+
+Best regards,
+Damon
+
 
