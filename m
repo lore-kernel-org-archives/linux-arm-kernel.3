@@ -4,67 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A00EBFF885E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 14:02:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A5FBFF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 14:24:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8ak8ZeqMcf56QYnl1fRzitVZtscSNV5p4ckLSj3orzg=; b=4vw0FoqUO7oGGudkqHKtDOjEAR
-	09WJvkkwNiSIhQEmuO88gj+7d11DJsjkC0sk0/2KAZdot2C9AE+Bg3+u8Ub2itM62HUsiOmhwh8Lo
-	GWIuTFzHlLbSIVCjmeFWpjFeHLZscg4gKVUZyKZfD7XkQFdNRo+nRdTa+IqHJN9f0UNdb9Ux0aQOU
-	qisIbrTxzYBYpYHM22yTDjn2KX0siPVVr6ZOD1f+uVv0tTyciswjGLv27GUPEKXXs2041e5nCtmzL
-	14pnhnC2+J5zuUSLtf5hfnX6aJt+wUeeyLe5k3Kc1P3oVpyx5o6kgcoOuzwqjaB1Lsz8ow6rpfjr8
-	6jt8z2OA==;
+	bh=yMm38LseJ/can2WyJa7lzG7mmzbgcoVsifOmEpljgeg=; b=ERQOhjTkPiOAYp5m4ka3PSNyx1
+	j8HD7t02h++slxlcXeH/t7GPk2XgzTHGgb5S9IvSM7fAES6TjWF5cLpUBS+szO/soqDUL2Zl4oV58
+	w57IIeoxMZmYPWy6yRntVQI1aPyqpxstuOS9XYCPIyoXiDsBfZ8lLS89tP6JYkzuJIGXLjUFwBDVZ
+	jLDC7dCeqX/doX+im8cyu61vtRigF7bZ8I0/Cn3fRnZKUkoJnQQa9MvJsAFO83FBpSIo3x/G0ZeXw
+	3i8qJcdX0TihulrB8cw1zo6pE15WN0Rq5jbg9ZLswfRiAbRGWnh16kCfn0LVbMRW62EfN9d6lFatc
+	EihAhteA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHMXU-0000000H2yq-1Uw3;
-	Mon, 27 Apr 2026 14:02:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHMXO-0000000H2un-1QW1
+	id 1wHMsf-0000000H5bS-21HK;
+	Mon, 27 Apr 2026 14:24:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHMsd-0000000H5aQ-2Bbv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 14:02:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 93C9C1684;
-	Mon, 27 Apr 2026 07:02:03 -0700 (PDT)
-Received: from devkitleo.cambridge.arm.com (devkitleo.cambridge.arm.com [10.1.196.90])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 62DC43F763;
-	Mon, 27 Apr 2026 07:02:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777298529; bh=dD4PWRYpo7EHK+a11lx5u+lWacH6ZMzCfigDfNpRHCU=;
+	Mon, 27 Apr 2026 14:24:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CE6DD40437;
+	Mon, 27 Apr 2026 14:24:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF564C2BCB4;
+	Mon, 27 Apr 2026 14:24:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777299850;
+	bh=7Y8vgQ5oaQQ1eADmt9RQJb/9/dRh7wzS0n00a5vfL4Q=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=PQrIg21Ha1aurXj/LExfbLHCS3IMKDho+xnBA8PjVaaqDApBKl8Tc444WcIND0x6W
-	 DbxWdi1ITnHpBNA92vXAv0vKiTv9fY8/B9/hHhYmYPtzU0kwb65dz3WBIgz9IfqSNo
-	 KvaNPkF8QX79D3TrJ4u+W9073c0YUGLeXE0+RHi0=
-From: Leonardo Bras <leo.bras@arm.com>
-To: mark.rutland@arm.com
-Cc: catalin.marinas@arm.com,
-	kernel-team@meta.com,
-	leitao@debian.org,
-	leo.bras@arm.com,
-	leo.yan@arm.com,
-	linux-arm-kernel@lists.infradead.org,
+	b=qsQWO2DWlqlAEh6KEPtkJCtTRC/t+Pot7fdDQCo6CjBn3k0liWl7zwSAyFTyjSufR
+	 vMX/O8Cizu1pCgc0PjuC2MqwFl4P2BCz1+bhdHxTowdpX9A/P9jdl7RmFfUrEp4r80
+	 eod90/FmuICu9XxZ1azHPR8HhC8iCKSjF8/+x5rKjr+/UvJ98b8nuCT6X9yWPU7Qq5
+	 h4FeuIMedSH7F1tcBBZc+tB3pZrxZBMOLHP+nDPzsnyupWrgdbKvRTsaXfXfS3l43v
+	 r8G+vYX8akZ/0zhVWz4XM2L9tfavLipRgNn78I6KqW79r8dmkdM2yQHnwWQEuuGrlk
+	 lmRcPIvKDGdEA==
+From: Arnd Bergmann <arnd@kernel.org>
+To: 
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	"Aaro Koskinen" <aaro.koskinen@iki.fi>,
+	"Andreas Kemnade" <andreas@kemnade.info>,
+	"Bartosz Golaszewski" <brgl@kernel.org>,
+	=?UTF-8?q?Beno=C3=AEt=20Cousson?= <bcousson@baylibre.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	"Dmitry Torokhov" <dmitry.torokhov@gmail.com>,
+	"Eric Dumazet" <edumazet@google.com>,
+	"Felipe Balbi" <balbi@kernel.org>,
+	"Jakub Kicinski" <kuba@kernel.org>,
+	"Johannes Berg" <johannes@sipsolutions.net>,
+	"Kevin Hilman" <khilman@baylibre.com>,
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+	"Linus Walleij" <linusw@kernel.org>,
+	"Paolo Abeni" <pabeni@redhat.com>,
+	"Rob Herring" <robh+dt@kernel.org>,
+	"Roger Quadros" <rogerq@kernel.org>,
+	"Tony Lindgren" <tony@atomide.com>,
+	linux-wireless@vger.kernel.org,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	palmer@dabbelt.com,
-	paulmck@kernel.org,
-	puranjay@kernel.org,
-	rmikey@meta.com,
-	usama.arif@linux.dev,
-	will@kernel.org
-Subject: [PATCH] arm64/daifflags: Make local_daif_*() helpers __always_inline
-Date: Mon, 27 Apr 2026 15:01:26 +0100
-Message-ID: <20260427140125.1773574-2-leo.bras@arm.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <ae9f6_MSCMfgG8VT@J2N7QTR9R3.cambridge.arm.com>
-References: <ae9f6_MSCMfgG8VT@J2N7QTR9R3.cambridge.arm.com>
+	linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org,
+	linux-omap@vger.kernel.org,
+	Christian Lamparter <chunkeey@gmail.com>
+Subject: [PATCH v3 1/3] dt-bindings: net: add st,stlc45xx/p54spi binding
+Date: Mon, 27 Apr 2026 16:23:53 +0200
+Message-Id: <20260427142355.2532714-2-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20260427142355.2532714-1-arnd@kernel.org>
+References: <20260427142355.2532714-1-arnd@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_070214_544652_D4A33889 
-X-CRM114-Status: GOOD (  12.12  )
+X-CRM114-CacheID: sfid-20260427_072411_603746_834316D4 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,112 +95,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Make sure those helpers are always inlined and instrumentation safe.
+From: Arnd Bergmann <arnd@arndb.de>
 
-Signed-off-by: Leonardo Bras <leo.bras@arm.com>
+The SPI version of Prism54 was sold under a couple of different
+names and supported by the Linux p54spi driver, but there was
+never a DT binding for it.
+
+Document the four known names of this device and the properties
+that are sufficient for its use on the Nokia N8x0 tablet.
+
+As I don't have this hardware or documentation for it, this is
+purely based on existing usage in the driver.
+
+Link: https://lore.kernel.org/all/e8dc9acb-6f85-e0a9-a145-d101ca6da201@gmail.com/
+Acked-by: Christian Lamparter <chunkeey@gmail.com>
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- arch/arm64/include/asm/daifflags.h | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+ .../bindings/net/wireless/st,stlc45xx.yaml    | 58 +++++++++++++++++++
+ MAINTAINERS                                   |  1 +
+ 2 files changed, 59 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/wireless/st,stlc45xx.yaml
 
-diff --git a/arch/arm64/include/asm/daifflags.h b/arch/arm64/include/asm/daifflags.h
-index 5fca48009043..795b35128467 100644
---- a/arch/arm64/include/asm/daifflags.h
-+++ b/arch/arm64/include/asm/daifflags.h
-@@ -12,66 +12,66 @@
- #include <asm/cpufeature.h>
- #include <asm/ptrace.h>
+diff --git a/Documentation/devicetree/bindings/net/wireless/st,stlc45xx.yaml b/Documentation/devicetree/bindings/net/wireless/st,stlc45xx.yaml
+new file mode 100644
+index 000000000000..12d907720ec4
+--- /dev/null
++++ b/Documentation/devicetree/bindings/net/wireless/st,stlc45xx.yaml
+@@ -0,0 +1,58 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/wireless/st,stlc45xx.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: ST/Intersil/Conexant stlc45xx/p54spi/cx3110x SPI wireless device
++
++maintainers:
++  - Christian Lamparter <chunkeey@gmail.com>
++
++description:
++  The SPI variant of the Intersil Prism54 wireless device was sold
++  under a variety of names, including Conexant CX3110x and
++  ST Microelectronics STLC5460.
++
++allOf:
++  - $ref: ieee80211.yaml#
++  - $ref: /schemas/spi/spi-peripheral-props.yaml#
++
++properties:
++  compatible:
++    enum:
++      - cnxt,3110x
++      - isil,p54spi
++      - st,stlc4550
++      - st,stlc4560
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  powerdown-gpios:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++  - interrupts
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    spi {
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        wifi@0 {
++            compatible = "st,stlc4560";
++            reg = <0>;
++            spi-max-frequency = <48000000>;
++            interrupts-extended = <&gpio 23>;
++            powerdown-gpios = <&gpio 1>;
++        };
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 84afd29c9b1b..deacfc4e244d 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -20098,6 +20098,7 @@ M:	Christian Lamparter <chunkeey@googlemail.com>
+ L:	linux-wireless@vger.kernel.org
+ S:	Maintained
+ W:	https://wireless.wiki.kernel.org/en/users/Drivers/p54
++F:	Documentation/devicetree/bindings/net/wireless/st,stlc45xx.yaml
+ F:	drivers/net/wireless/intersil/
  
- #define DAIF_PROCCTX		0
- #define DAIF_PROCCTX_NOIRQ	(PSR_I_BIT | PSR_F_BIT)
- #define DAIF_ERRCTX		(PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
- #define DAIF_MASK		(PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
- 
- 
- /* mask/save/unmask/restore all exceptions, including interrupts. */
--static inline void local_daif_mask(void)
-+static __always_inline void local_daif_mask(void)
- {
- 	WARN_ON(system_has_prio_mask_debugging() &&
- 		(read_sysreg_s(SYS_ICC_PMR_EL1) == (GIC_PRIO_IRQOFF |
- 						    GIC_PRIO_PSR_I_SET)));
- 
- 	asm volatile(
- 		"msr	daifset, #0xf		// local_daif_mask\n"
- 		:
- 		:
- 		: "memory");
- 
- 	/* Don't really care for a dsb here, we don't intend to enable IRQs */
- 	if (system_uses_irq_prio_masking())
- 		gic_write_pmr(GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET);
- 
- 	trace_hardirqs_off();
- }
- 
--static inline unsigned long local_daif_save_flags(void)
-+static __always_inline unsigned long local_daif_save_flags(void)
- {
- 	unsigned long flags;
- 
- 	flags = read_sysreg(daif);
- 
- 	if (system_uses_irq_prio_masking()) {
- 		/* If IRQs are masked with PMR, reflect it in the flags */
- 		if (read_sysreg_s(SYS_ICC_PMR_EL1) != GIC_PRIO_IRQON)
- 			flags |= PSR_I_BIT | PSR_F_BIT;
- 	}
- 
- 	return flags;
- }
- 
--static inline unsigned long local_daif_save(void)
-+static __always_inline unsigned long local_daif_save(void)
- {
- 	unsigned long flags;
- 
- 	flags = local_daif_save_flags();
- 
- 	local_daif_mask();
- 
- 	return flags;
- }
- 
--static inline void local_daif_restore(unsigned long flags)
-+static __always_inline void local_daif_restore(unsigned long flags)
- {
- 	bool irq_disabled = flags & PSR_I_BIT;
- 
- 	WARN_ON(system_has_prio_mask_debugging() &&
- 		(read_sysreg(daif) & (PSR_I_BIT | PSR_F_BIT)) != (PSR_I_BIT | PSR_F_BIT));
- 
- 	if (!irq_disabled) {
- 		trace_hardirqs_on();
- 
- 		if (system_uses_irq_prio_masking()) {
-@@ -117,21 +117,21 @@ static inline void local_daif_restore(unsigned long flags)
- 	write_sysreg(flags, daif);
- 
- 	if (irq_disabled)
- 		trace_hardirqs_off();
- }
- 
- /*
-  * Called by synchronous exception handlers to restore the DAIF bits that were
-  * modified by taking an exception.
-  */
--static inline void local_daif_inherit(struct pt_regs *regs)
-+static __always_inline void local_daif_inherit(struct pt_regs *regs)
- {
- 	unsigned long flags = regs->pstate & DAIF_MASK;
- 
- 	if (!regs_irqs_disabled(regs))
- 		trace_hardirqs_on();
- 
- 	if (system_uses_irq_prio_masking())
- 		gic_write_pmr(regs->pmr);
- 
- 	/*
+ PACKET SOCKETS
 -- 
-2.54.0
+2.39.5
 
 
