@@ -4,71 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 534F5FF8860
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 12:04:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2128FF885E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 12:20:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=47qaqV+mdeqKvFvgNpCp3D9H5gjzcSrJHbkUmsUuFfA=; b=L7WTTy+mVAYBFCDcKed9HnqmoX
-	Tm42uNf172eXZvH5wUs1Dys+1RKILQVsPV5wSPWL+1UJFbSejFImKVtHfFRZ6GVkdsSdl9/GO+V2t
-	YJrmoaFjUgqmdsU4YBsoNizjSwHcxRuJPJ/JxN2pREK15UzNnwEbd/fBlKNX0cnoCdE8JJwvT7Fv+
-	iMNHzCnsmQ1HQhSNjcu1p7ru0AgR7aMGizM4bahsgW6LqgaYPBCHbn5OmXNrj/9d0XghxYDSMwHqY
-	not6MbOdNpgaNLXYkjhYgzcOU5x68vcquzc9vKRnO0YqStEoRjljPq4tyfns9+1GwOZPj1JOubjre
-	BdS6trpA==;
+	bh=PJcxGiVkZlfjJqmXJdSpcQcuZLHP2CGOgvZ7uSde88A=; b=Qm9nql+lyLySiy/4HpSm5SAJlI
+	9+vcoxuhYu7dVgioaQGRHoJMzXNTQdtrey6C0SEcPyTMNLZY5oMCIl7DjtQTuzVeQ1Ap2W3QxDYj2
+	gRkwRv1OA0l3TShtUaK08+urTQfi5qx/O2WCsgy5PWhhffJSB1mQiihyN67yyz0GSvnIqkku/RgQA
+	lLPEUkGVJQRRO2cEO14qcHqRSE0ahfgYjTLnFj/4wi4T7r4NHGcJ8QsCR7O4bci9hx2nIAVzkwJ4Y
+	uxyvVIQ+7c9DWLf/NWIx3eMxWg+XR8oxEH765GWqYWbxklJIj4oCGA1DDJdHqBgOR6olWd6+8HYkZ
+	BtwLoQGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHKhP-0000000Gqkx-2jhA;
-	Mon, 27 Apr 2026 12:04:27 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHKh8-0000000GqcG-2MHz
+	id 1wHKwR-0000000GsNf-29IQ;
+	Mon, 27 Apr 2026 12:19:59 +0000
+Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHKwO-0000000GsMu-1swT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 12:04:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EA2391684;
-	Mon, 27 Apr 2026 05:04:03 -0700 (PDT)
-Received: from localhost.localdomain (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CA1BE3F62B;
-	Mon, 27 Apr 2026 05:04:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777291449; bh=W1D5lSXRtEDeQjde+9XAOouOpPIYvgXYBK0Xv65p3K0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=FrcRXtyoVN+V5QnRWUBcPP11+5QJboDFs/HJ+cJcNWlVL73mrj0coeJAWyJ6c00lz
-	 Ma1oL+zHBHNZpHbpiurhIeqZM4hAmR80fUOAiPEn+krHPySnbUvDCwR0rEMf0VARDX
-	 NM2JVBbf7eizQct9FKyZ/R6dTUecIOJ7Qf9bSXmg=
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Date: Mon, 27 Apr 2026 13:03:37 +0100
-Subject: [PATCH v2 5/5] kselftest/arm64: Add tests for POR_EL0
- save/reset/restore
+	Mon, 27 Apr 2026 12:19:57 +0000
+Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-50e5b55062fso71406621cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 05:19:55 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1777292395; cv=none;
+        d=google.com; s=arc-20240605;
+        b=jj7TeJ7MVYKYIodjI3ziPFHcELLWRKfeAupuAcNporqgPZZGImdR+2KDCyk0ZbwZAb
+         wwVEGa0UIOTn/xGAUGsbAZmo5fTdb1lYexWsKAy+IVAQS8N8eQNHiI+m9xtTMyz50eVb
+         WUvFdwfuWUvGHJuRMh1A6WGZpgPVc0Yr0hQJWwAFG+7ZU/YGGz9RscMTcvQYGyTXYM1g
+         0U4BpqxxgCceoNoITUJY/zajl3/w5kQ1r5WgMsuuvCmIqKSqJi1sulynxHFl/zcoOdex
+         AsjVHu5RCAgTrpxWePRP7IIh5u7Kt2v6BUSiypO0sdzYHGMllnTydSTD+3miukg/mM6e
+         ZSrw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=PJcxGiVkZlfjJqmXJdSpcQcuZLHP2CGOgvZ7uSde88A=;
+        fh=+xF0yBWExz5S9GqXN1/AJ1Hsno9DdR+wxBhixpJZXME=;
+        b=XgjqeMZCMsbLHq3yAIKLeRVH0ypt2r+NI4LqSbFitsRQFJdMQr7kr3P5QZTcHGeS8U
+         uA/LUD7t0F86TDq5ACXnzETaoi/FEYPDsPOjvBFcug82K/A89M8fHSTyrSE4FbaSCXGP
+         jBxjcCKRHEux1PHi7hqEbZwGCP9L9EiPEmJlOiLHTKeKmL0sSQh8dRyI6kF2fRpH5tmW
+         w67BHmnse46ZA1h52SzySfSzcmUTOVNSeIby2oKI0sh/O144gZu84dCxofB2oqKiH0tL
+         URxaP9zolIASxJ0BJtrKJ6owMbsMWP0KTiV/6uRcFlEYz4S0jfeyRJ9qtbSxYtX0ZDtU
+         mLrA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1777292395; x=1777897195; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PJcxGiVkZlfjJqmXJdSpcQcuZLHP2CGOgvZ7uSde88A=;
+        b=fzANUqYgUGAup1Vz6dzAezQpTMD7xtt2xQ0fEgsPNKwUpUbibukam4g3FXq3nlA84S
+         6jWvDOuWAFM99/KbzsRRcXdQ+uPnTybf8DbJUHXChfKY/NEiWYwYNmcGaw58Jtw8r9oC
+         feMSj8o0W7cDxOlAEt9U88088DcwtA4TaBOlc2dVcUGMYDjsorOTKHI++TW4hH5tgqu0
+         8LFOjn1m4wn+qCXEQcLK5EZ2llnoQ+YPK2SXMNcVTD2fBJuXbTeFLOKyTp7QrxRLENI6
+         ABKWNdD7p4HhbS/BOb3kTEB5GisRzqAs3tjeEJo1ROyE+/zeXAon547w5tpgkVV2oNxO
+         p/ug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777292395; x=1777897195;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=PJcxGiVkZlfjJqmXJdSpcQcuZLHP2CGOgvZ7uSde88A=;
+        b=sP0xaGZCH/ba3xK/nBsgK2jqO5SpHuG5t01ImI/L9YQK4hqUBUL7vKNG72WGvuzgMG
+         TrdXhjwScWjNV79B47zG2OY7R/TsriYeyckS9wzTvkkKGZURDFREcFJsMdPBMi6a0LEU
+         FAxXOfJgPVQSD2DVOJG4i+dIRz+iqvil7l/Y9lkcykLvLpyMcoYa5lRSFE/ezHeu1Z4I
+         2Fhxp9z6ytMttIjSoPB4vxtcw8zBFLSej8EdBbA5wwKeYjSVe8X/nPU1C/8CLS9oAUEt
+         S7CUxMgRKSFpw9oKq3R4YVS+RNljetFkCL5rpza3EXY1YNpPY2HCe4QA0XOmfDUzrHx8
+         wLMA==
+X-Forwarded-Encrypted: i=1; AFNElJ/IV/BANUnR5GbrOo/aghmGOy5qlVNspVTGUd/n6DjkFtZeQTvOW8a8ocDP6S2F9pmeDnvtDqB64UbSuHkCk6rO@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyj4vrMRDfNKcVwZK9r4UlPXSqg/qlSlBGlNa490RUHegx6sokf
+	P5gYfcDclDlRgwfILDDKmabkvgVAsuDKQKQy1UCbie2D3ZMsOc4GE8SbxkSCIhyVnYo7UvGhboO
+	UoySl7PzF/zBXD3UBgMq5x8Uzi/IsqMg=
+X-Gm-Gg: AeBDiet8PuPzR3jAX08HXhNwi+bTSQPSK/JxDPf8hmYWcwIKfJtHaEcmACmyYZqwtc4
+	FQwv0/XfV9DTgjghqDLpS7u5QsS91BuG/2lfSmGxtrvXw9ReEwVMB6MzbrhH6J1VXiP44aLuHLh
+	AD2L/CBniUWzjNDTKV5pDB4CR7IkXgdteduistXt/dTy/W8wTiWL79sT0veWwi7IQ6xYIb0irIb
+	xnnqemssjn/CcZlvGk/bHFiUN4PDDzJu2lqjC47CjOHB/2rFdzUkzmcvMcfj/gy6ICvsJN32TU5
+	X0biC94qX4gzg6phRw==
+X-Received: by 2002:ac8:7e8f:0:b0:50f:817c:5d45 with SMTP id
+ d75a77b69052e-50f817c676cmr442478311cf.23.1777292391770; Mon, 27 Apr 2026
+ 05:19:51 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260427-poe_signal-v2-5-2bd9d6f16ab4@arm.com>
-References: <20260427-poe_signal-v2-0-2bd9d6f16ab4@arm.com>
-In-Reply-To: <20260427-poe_signal-v2-0-2bd9d6f16ab4@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Kevin Brodsky <kevin.brodsky@arm.com>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- "David Hildenbrand (Arm)" <david@kernel.org>, 
- Joey Gouly <joey.gouly@arm.com>, Mark Brown <broonie@kernel.org>, 
- Shuah Khan <shuah@kernel.org>, Will Deacon <will@kernel.org>, 
- linux-kselftest@vger.kernel.org, linux-mm@kvack.org, 
- linux-kernel@vger.kernel.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777291437; l=5057;
- i=kevin.brodsky@arm.com; s=20260427; h=from:subject:message-id;
- bh=W1D5lSXRtEDeQjde+9XAOouOpPIYvgXYBK0Xv65p3K0=;
- b=5XkTdq3N2XGqgMLfy65UGbovi8wThCf1OhK2p3M89xXvnTmO/hRQNDs1NU+gdq2uzLZO9C9BO
- laUnaCvsYZCATe6H8kHpDgAZSU5TxOL+f0VbJZHTFkICzz6VO6ioq6C
-X-Developer-Key: i=kevin.brodsky@arm.com; a=ed25519;
- pk=N2QG+eJKrvkNovwhhwJhnJ4+ScVfsGCHldmqLfcMTFs=
+References: <20260425031011.2529364-1-dennis@ausil.us> <20260425031011.2529364-7-dennis@ausil.us>
+In-Reply-To: <20260425031011.2529364-7-dennis@ausil.us>
+From: Alexey Charkov <alchark@gmail.com>
+Date: Mon, 27 Apr 2026 16:19:37 +0400
+X-Gm-Features: AVHnY4JMQA7P3RUKZV7Q2ZiP4ijZr_0utVOWXuWYUEbZIgaWmckkoQwwj3mXN60
+Message-ID: <CABjd4Yw_bqi-Lj5MX--y34X_4GZPwa+ajwRGim7=nLGdqEOjEA@mail.gmail.com>
+Subject: Re: [PATCH v8 6/6] arm64: dts: rockchip: Add Orange Pi 5 Pro board support
+To: Dennis Gilmore <dennis@ausil.us>
+Cc: Heiko Stuebner <heiko@sntech.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Maxime Ripard <mripard@kernel.org>, 
+	devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_050410_716411_311E572A 
-X-CRM114-Status: GOOD (  18.95  )
+X-CRM114-CacheID: sfid-20260427_051956_523828_D2E022D9 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,182 +122,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-POR_EL0 is expected to be:
-- Saved in the poe_context record
-- Reset to POR_EL0_INIT when invoking the signal handler
-- Restored from poe_context when returning from the signal handler
+On Sat, Apr 25, 2026 at 7:10=E2=80=AFAM Dennis Gilmore <dennis@ausil.us> wr=
+ote:
+>
+> Add device tree for the Xunlong Orange Pi 5 Pro (RK3588S).
+>
+> - eMMC module, you can optionally solder a SPI NOR in place and turn
+>  off the eMMC
+> - PCIe-attached NIC (pcie2x1l2)
+> - PCIe NVMe slot (pcie2x1l1)
+> - AP6256 WiFi (BCM43456) via SDIO with mmc-pwrseq
+> - BCM4345C5 Bluetooth
+> - es8388 audio
+> - USB 2.0 and USB 3.0
+> - Two HDMI ports, the second is connected to the SoC's DP controller
+>   driven through a Lontium LT8711UXD bridge.
+>
+> Vendors schematics are available at:
+> https://drive.google.com/file/d/1qs1DratHuh7C6J6MEtQIwUsiSrg8qgTi/view
+>
+> Signed-off-by: Dennis Gilmore <dennis@ausil.us>
+> ---
+>  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+>  .../dts/rockchip/rk3588s-orangepi-5-pro.dts   | 440 ++++++++++++++++++
+>  2 files changed, 441 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-pro.d=
+ts
 
-Add a new test, poe_restore, to check that the save/reset/restore
-mechanism is working as intended. See commit 2e8a1acea859 ("arm64:
-signal: Improve POR_EL0 handling to avoid uaccess failures") for
-more details.
+Reviewed-by: Alexey Charkov <alchark@gmail.com>
 
-This commit did not handle the case where poe_context is missing
-correctly. This was recently fixed; add a new test,
-poe_missing_poe_context, to check this case.
-
-Note: td->pass is only set to true at the very end, as an unexpected
-signal may occur in case of failure (especially in
-poe_missing_poe_context if POR_EL0 is restored to an invalid value).
-Failures are tracked with a global, failed_check.
-
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
----
- .../signal/testcases/poe_missing_poe_context.c     | 73 ++++++++++++++++++++++
- .../selftests/arm64/signal/testcases/poe_restore.c | 64 +++++++++++++++++++
- 2 files changed, 137 insertions(+)
-
-diff --git a/tools/testing/selftests/arm64/signal/testcases/poe_missing_poe_context.c b/tools/testing/selftests/arm64/signal/testcases/poe_missing_poe_context.c
-new file mode 100644
-index 000000000000..3f22d8cf6106
---- /dev/null
-+++ b/tools/testing/selftests/arm64/signal/testcases/poe_missing_poe_context.c
-@@ -0,0 +1,73 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2026 Arm Ltd
-+ *
-+ * Verify that the POR_EL0 register is left untouched on sigreturn if the
-+ * POE frame record is missing.
-+ */
-+
-+#include <asm/sigcontext.h>
-+
-+#include "test_signals_utils.h"
-+#include "testcases.h"
-+
-+#define POR_EL0_INIT	0x07ul
-+#define POR_EL0_CUSTOM	0x77ul
-+
-+static bool failed_check;
-+
-+static bool modify_por_el0(struct tdescr *td)
-+{
-+	set_por_el0(POR_EL0_CUSTOM);
-+
-+	return true;
-+}
-+
-+static int signal_remove_poe_context(struct tdescr *td, siginfo_t *si,
-+				      ucontext_t *uc)
-+{
-+	struct _aarch64_ctx *ctx = GET_UC_RESV_HEAD(uc);
-+	size_t resv_size = GET_UCP_RESV_SIZE(uc);
-+	struct _aarch64_ctx *poe_ctx_head;
-+
-+	poe_ctx_head = get_header(ctx, POE_MAGIC, resv_size, NULL);
-+	if (!poe_ctx_head) {
-+		fprintf(stderr, "Missing poe_context record\n");
-+		failed_check = true;
-+		return 0;
-+	}
-+
-+	/*
-+	 * Actually removing the record would require moving down the next
-+	 * records. An easier option is to turn it into an ESR record, which is
-+	 * ignored by sigreturn().
-+	 */
-+	poe_ctx_head->magic = ESR_MAGIC;
-+
-+	return 0;
-+}
-+
-+static void check_por_el0_preserved(struct tdescr *td)
-+{
-+	uint64_t por_el0 = get_por_el0();
-+
-+	if (por_el0 == POR_EL0_INIT) {
-+		fprintf(stderr, "POR_EL0 preserved\n");
-+	} else {
-+		fprintf(stderr, "POR_EL0 unexpectedly set to %lx\n", por_el0);
-+		failed_check = true;
-+	}
-+
-+	td->pass = !failed_check;
-+}
-+
-+struct tdescr tde = {
-+	.name = "POR_EL0 missing poe_context",
-+	.descr = "Remove poe_context record and check POR_EL0 is preserved",
-+	.feats_required = FEAT_POE,
-+	.timeout = 3,
-+	.sig_trig = SIGUSR1,
-+	.init = modify_por_el0,
-+	.run = signal_remove_poe_context,
-+	.check_result = check_por_el0_preserved,
-+};
-diff --git a/tools/testing/selftests/arm64/signal/testcases/poe_restore.c b/tools/testing/selftests/arm64/signal/testcases/poe_restore.c
-new file mode 100644
-index 000000000000..9f9a61a4214d
---- /dev/null
-+++ b/tools/testing/selftests/arm64/signal/testcases/poe_restore.c
-@@ -0,0 +1,64 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2026 Arm Ltd
-+ *
-+ * Verify that the POR_EL0 register is saved and restored as expected on signal
-+ * entry/return.
-+ */
-+
-+#include <asm/sigcontext.h>
-+
-+#include "test_signals_utils.h"
-+#include "testcases.h"
-+
-+#define POR_EL0_INIT	0x07ul
-+#define POR_EL0_CUSTOM	0x77ul
-+
-+static bool failed_check;
-+
-+static bool modify_por_el0(struct tdescr *td)
-+{
-+	set_por_el0(POR_EL0_CUSTOM);
-+
-+	return true;
-+}
-+
-+static int signal_check_por_el0_reset(struct tdescr *td, siginfo_t *si,
-+				      ucontext_t *uc)
-+{
-+	uint64_t signal_por_el0 = get_por_el0();
-+
-+	if (signal_por_el0 != POR_EL0_INIT) {
-+		fprintf(stderr, "POR_EL0 is %lx in signal handler (expected %lx)\n",
-+			signal_por_el0, POR_EL0_INIT);
-+		failed_check = true;
-+	}
-+
-+	return 0;
-+}
-+
-+static void check_por_el0_restored(struct tdescr *td)
-+{
-+	uint64_t por_el0 = get_por_el0();
-+
-+	if (por_el0 == POR_EL0_CUSTOM) {
-+		fprintf(stderr, "POR_EL0 restored\n");
-+	} else {
-+		fprintf(stderr, "POR_EL0 was %lx but is now %lx\n",
-+			POR_EL0_CUSTOM, por_el0);
-+		failed_check = true;
-+	}
-+
-+	td->pass = !failed_check;
-+}
-+
-+struct tdescr tde = {
-+	.name = "POR_EL0 restore",
-+	.descr = "Validate that POR_EL0 is saved/restored on signal entry/return",
-+	.feats_required = FEAT_POE,
-+	.timeout = 3,
-+	.sig_trig = SIGUSR1,
-+	.init = modify_por_el0,
-+	.run = signal_check_por_el0_reset,
-+	.check_result = check_por_el0_restored,
-+};
-
--- 
-2.51.2
-
+Best regards,
+Alexey
 
