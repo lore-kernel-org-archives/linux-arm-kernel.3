@@ -4,149 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C776FF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 03:17:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF184FF8860
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 03:37:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mrKA2D5LiYTMB7qGPyf1iCSYPPuuhqtDQlb/e6O4AZ8=; b=UR9ixYPMMBkCYxreFMHIe7NXIV
-	i07pPYzyKBJvnw9fTpCy7orDLaCxJZazsJNNA8AwuDhJufELMFjc9JZzYcZEur5wxec0bfMnmyJdf
-	lj5tRJzXLu/d77Ejf3AR35BQ+FJaW+kpzVEaHVBGgVHUuqsnCpwFhbayJOy09ZMXO6W9m807vqfjq
-	ZQUACdiKP3m2vSBrvmoMPelsBqgJcJyCoHy52/cHxIjp6jNNk84Q7bkiuO8YlqwrIhkU7TD7U0hrM
-	qzFBi9yTrZFY+kAA5/qjPnOEchgrRBFah3o+T+FRagbr/PzQF6LmAMFbCvCfB/LIJQ0F/1hWOoDyt
-	J/uPwKNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yY8YvWI2HmyyWPEE65aEh7he5GvSnkG8URbkSSv3y8Q=; b=r6i1o9hI2X2K/pLLLEMrerBmOM
+	py8pgX16Zv1nBx7Ps4rD0SGYRLQ8W3ZDx5NFI2kc9FBeolo42jGGWarJooqJAFbhvZkGhRO43Yx0p
+	oiS+vLvLT2za8glW10xQX+XAz8gw1uTtS4T0qBx6eg7fcq5Q8vSP+uwcBIxHuVbj7p6kWeBoAcadj
+	7ZfM/OSvqmHXjqc/XCXS8lU5LSsxtga1W3kE/sALmrKDsGBt9ea5MirLuC5b4nfAQL8r8r5nMOX/4
+	u6j4syPpOA9jlPzR27DRJmUlO3yx/r3+bTooEXLKbTEyhuwJnx2V9rBTGHK4ctLjm96gNKJx/T5Uj
+	hdBnAt8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHCTO-0000000G5rU-31ut;
-	Mon, 27 Apr 2026 03:17:26 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1wHCmN-0000000G6Wd-1hc0;
+	Mon, 27 Apr 2026 03:37:03 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHCTJ-0000000G5q4-1h9w
+	id 1wHCmK-0000000G6VT-2L5j
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 03:17:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RN5I7lyfWUSZuUVYhfD4Ajhvag/BnNUjc0w0NbrS0e816mF2KUpprjc18Fcskm36/9dQjx6zSkGL3BjlGJHoIpg+FULbbbCQFIFbhN5Wtn+W13V6cHmzLsXlCo2zsFL5vIPU+vyB4a/fEG3nsuV287HNGBv//xXkYZci3e+FA3B0k3vWXVkVQbcqcaTJQa3OYWgyKtSjxbQXwSl1PRnLUe/o13M9XceVrddtI+auUrvOKoiR4NcusyCqqVTmpNhXm12us8DVW7WK7S79m2aiZ8bFPo/YkQc0E9vHI/Ckd6QCjUDyobjZuIuH9FJzgyif4mOg4Bc8aRQbQcjTmaK7yg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mrKA2D5LiYTMB7qGPyf1iCSYPPuuhqtDQlb/e6O4AZ8=;
- b=RRNZsb36wt651Q+qr9kEXOXvbXrXm0R+cSumXGieHEflobPUGEAcqdBqRcdI1tJuKULLFs7zQTkrkv7XvakWJG+SMJi3QzH0w1SpJ5LSt5EEeTx852YfZPZv261PAGVSDvNEviH4aaReArwX0HjkABsSBxx43l4HklU91JEjI9e64rXY+eo/RYtaYgFY1XSni2G/rOfuPuiA0MVt/t43r00wL3qySkYZdMhXY0gSoQ2nuSBxh/sGyRGNMAdbovu81CH6H7P7lY7NH6td+TT9SXW7I1gxhbOsBXVGAHm46qjV0XiY/zFMp6a/vmcX2tndtT9IC4+TKIjjtj+bD7urgw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mrKA2D5LiYTMB7qGPyf1iCSYPPuuhqtDQlb/e6O4AZ8=;
- b=eSru7Q3ATxMuER/8RFNQjONqzEH87CjYwN78gMM0RqT4cpN+YDiE/H5vESTSxgN8VNxunRQqeusKxOnQXshEFfr+WFjTFQaV2HdyWEE/000S3y7yhBD+B7DCZt/B5dTCvrdBt5z63wvg6zsIfUsDygsGQTUbwZXEVxuo6i9ecrTcgXGlLyf/d5V0p98o2xEFIeCj6QxEaspmxMN1xbaVjjqsSj3pt1qSYtxcsZHe5xIV5NMv1LlgH/1FIuc7X22nEivvSWmNtDuuA1iYiShwCopwv9pTd+acmRKTePyb9E/qKB0IsY+wNQTfNiZJ8K6YgmWWdZHXokZATUhQvdh+Ew==
-Received: from AM0PR04MB5220.eurprd04.prod.outlook.com (2603:10a6:208:c2::19)
- by PA1PR04MB10604.eurprd04.prod.outlook.com (2603:10a6:102:48e::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Mon, 27 Apr
- 2026 03:17:17 +0000
-Received: from AM0PR04MB5220.eurprd04.prod.outlook.com
- ([fe80::cbbc:93fd:f7b0:76e5]) by AM0PR04MB5220.eurprd04.prod.outlook.com
- ([fe80::cbbc:93fd:f7b0:76e5%4]) with mapi id 15.20.9846.021; Mon, 27 Apr 2026
- 03:17:17 +0000
-From: Hongxing Zhu <hongxing.zhu@nxp.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Conor Dooley <conor@kernel.org>
-CC: "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>, Frank Li <frank.li@nxp.com>,
-	"l.stach@pengutronix.de" <l.stach@pengutronix.de>, "lpieralisi@kernel.org"
-	<lpieralisi@kernel.org>, "kwilczynski@kernel.org" <kwilczynski@kernel.org>,
-	"mani@kernel.org" <mani@kernel.org>, "s.hauer@pengutronix.de"
-	<s.hauer@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v1 1/3] dt-bindings: PCI: imx6q-pcie: Add intr, aer and
- pme interrupts
-Thread-Topic: [PATCH v1 1/3] dt-bindings: PCI: imx6q-pcie: Add intr, aer and
- pme interrupts
-Thread-Index: AQHc05XoRj3SxGaMXEyZa09FUjk/wbXucikAgAEbSgCAAq11QA==
-Date: Mon, 27 Apr 2026 03:17:17 +0000
-Message-ID: <AM0PR04MB522092A5C4AE75007F9F020F8C362@AM0PR04MB5220.eurprd04.prod.outlook.com>
-References: <20260424025735.1490772-1-hongxing.zhu@nxp.com>
- <20260424025735.1490772-2-hongxing.zhu@nxp.com>
- <20260424-sinless-unfiled-d1087a894da5@spud>
- <20260425-agile-impala-of-unity-cadced@quoll>
-In-Reply-To: <20260425-agile-impala-of-unity-cadced@quoll>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AM0PR04MB5220:EE_|PA1PR04MB10604:EE_
-x-ms-office365-filtering-correlation-id: b6d166da-0c4e-4bf2-cd5e-08dea40b7c6c
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|7416014|376014|38070700021|22082099003|18002099003|56012099003;
-x-microsoft-antispam-message-info: dxGM3f6g+V535cl/7xNfHqG96hXSkFhp9SpAXludKbZCDDKZbNNbneq5AQF7aOm4z+58oigOfeseuSKm5LsOjiB1vPZKP1B1GbEYiiCCudN7MEiz9r/5UK8KyT4D5vrkvB84Zy9MlUBy70aYSI4BpB2S2v//oKX2Rj06ztZUnC3dUkwY7XdD9U+xTvva1s0bhN7TQ5BrCJmS0aZ5TD7/T/IlSJYZUmV6pcZNPmG6oKtfeuWoXqIM43Wwn/UXMEPHoxFNiaVBdSoeA+i+RmkjeS42cTc3XSJby4GXkBV8M59/Byeiuou/0HOSxpf4gR5YP42bctdp/iCA7aRxf+7xezCzm1+soEoJZzK4o3AjowiiKlsU6W79rhT0Imv672/0IWrec6GXpYModinCJ8pkUuQgjTsGrGxBKxn+cJ3tXiDOq4Gu86M69MSMjs6rEaU15dnqi8wvDm9jd1T/kS3Ey4cR1wesboNSlbikITfSUinrMs44Wr8lXaJ0lNLegoe8y6NIyffIPw9NzahEgBXNxCVsJxoE9ghfHtn75UA+727QYcsEyZMvull0DbgZvuVKkYmTgT9oZuS2+p7Swft/raBpNL5D1z13jPeW6s1IcvPwpEtMSBTGRN50/P63ssPKeqVTI8gjabEF1gQPvD7z9/eJDpegs4tFkEjBIFlpbNOWeHzpqfq4SmRxwHOVrxqscqhkvz3xg83RtQkfozXBwT8GWYkTBGEfcYPPvnQiTJ1l7daKlrfa/ySZP0EBpNDrxIg9MKmU+Jkp+bNXCrhyygc4+RLWkOrRpRfCU0YSRws=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB5220.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(7416014)(376014)(38070700021)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?Q0F1UlJpYVRGMGZtYXA1Y0ZsYmxSZDF1WUhRUVBUamw0SkMyMXdKdEkydmdL?=
- =?utf-8?B?emVod1FsR2tsa1E0UHdaeWw3Smo3QnpqL1BkbnB6QTlyc1JKNm85VTAzbE1F?=
- =?utf-8?B?bENZNWhZRDROZ0lqS1ZCb244aEVQKzd0ZWlCeHN4b1lZTlhHMlZtUlpvKzJl?=
- =?utf-8?B?eCtLNDNWbkFlRHNCdUY2STFOVmg5V3pDOFRCTlVJMlhvNFVXQ204NjNvUEU1?=
- =?utf-8?B?NDFqd2VuUUxVQUpLQzVGQnFPWGFQZHpMOUFMakF2MlNLMCtRRWxZRmZBWi85?=
- =?utf-8?B?S25PNkp5ZkN2VE5vSlJmbVZrVW84ZmNjV2owKzIvWkhma0d6UlRaNkF3ZWgw?=
- =?utf-8?B?WHdVcHdud3BjYUJ0T3FVZVFxMTUzZXM0Y3BMM2ZuamtQMTR5WWpxZDVYRmFL?=
- =?utf-8?B?cHpHbVN5YWdWOXNudVJzQWsxVWh6MDVBRDJXTmpwL011NHJQV1psVnZ5bFF0?=
- =?utf-8?B?eHNOKzBOT25LMkF4aHFFdm11WmpRR0tHMWZvc2htSndwUkdkYXNOcDNuMFBW?=
- =?utf-8?B?NFFlSktMNHk4dDRjQlBWTVdSbDA2WEV2NWN3eEpGci9xVUtILzBVbnBTdDdt?=
- =?utf-8?B?TEVpSkhKNzNLM3g0VTFDMlc4ckJZK1FhVlZrT21jdHRxNDZ5S2dhVVU1K29Q?=
- =?utf-8?B?YU5sc3ZaMVdhSTc2V0xhUGFtU21LUUxYVDVtUkYzWXNsTit6bWdaRFJZM1la?=
- =?utf-8?B?cUN4OXhZdEhpK0xNeDBTVDd6NUlrS2dyU3NRSDJDb0ZjY0JEUGwrZ240MmVE?=
- =?utf-8?B?SkZFaXpFeE5RbXNzcVoyTmlTRzZDUHRBQTRNS2xVZnBXcDhIYWJmWXVROFY5?=
- =?utf-8?B?VVcyY1haSXBZMnFkdkxyMjkxdW43ZGV0blloZmdpbi95K3BDU25BaXd1QVBW?=
- =?utf-8?B?YW5TRGU1cUtIV1FXRUFLTmpIeWZuWFpYOTNIbWFKNENseTBNay9jZ2VERzha?=
- =?utf-8?B?ODkreVVPOVI5a0JwcGp5dTVpZDZRMVc5UGFNUm1hRk5KZ3ZwMld4a2MzNVUx?=
- =?utf-8?B?cTBnTEx2NEJvVWp4Z21ZNVFiQUFLVEdEZFdRUmdLT0Z3TnNjc0pSRW5MaGpl?=
- =?utf-8?B?cmJ0SmhmU3pZTDhlMmVEVE15Vzlmd3lKQUplMk56ekxMUGQxbXhOcDhGQjRl?=
- =?utf-8?B?c3dvR3p6TXl3MU9hNHMxUDUwbFdaTTczYUU2VVRyTk9PQmpiRFdtWU5zSTRu?=
- =?utf-8?B?ZUNGT0Z6QkcwMmlsNEdxTmwvQWJ3d0xmSUNkdTl4T0JxcFhScUloMnhhMjJI?=
- =?utf-8?B?b0dKVXQvelZZSTJ3V0xRWkk5bXhtamRNdU1sa3dhNkRMbXdUdFdQcVhuYVhj?=
- =?utf-8?B?cEtsSFRTeXdSUTJwbU4xK25KdzNpVk9jRTllTDJUQzN2dHZHU0NTc2hwbFpR?=
- =?utf-8?B?amVybjNxQmY5TmpRUnlmczQwUjRjUWw0bXhJbnJTeEVnWWRQZzNqMDhhY1FF?=
- =?utf-8?B?MC9meDBFY0lZNEQxcjhnLzE1TzJUN3MzaSsyOHF4WG5CR0ZzNkhMQlZpKzZV?=
- =?utf-8?B?UGEyb2FZRExOVytOZVdYd3A0MFdKUnFwb2t2Um0vRHlIaGFrRlcrV1VJdUIx?=
- =?utf-8?B?ZzBqMU5rOHdEbWxlNFd6TmUvLzlJN3dQcEYxT0pscEwrb0N1Z0o2NzdaREdn?=
- =?utf-8?B?djByWG1ObDN4b284eXBkRU15MVQvQ2RnNTZ2ZzU3UTM2NDljNjlvS3BvajRG?=
- =?utf-8?B?cDZyR0RFOGJheFVVUFR5L1BhMWxHbjVWMzNLcHYvNllqajZXaFQyM2JtUFVn?=
- =?utf-8?B?R2ZFTHE5ckVyUGEzL0JzSzVsNlJ0TE1uOTZlcHNWMFlicmNHRnVMMmdTQzgr?=
- =?utf-8?B?Q0pPcUFkUVVrblFBZWs2Q3k0ZGp3MGZ0a3VidkJaRm5GbHRzSEFLd3IvOTRL?=
- =?utf-8?B?WWZKRWRYa0dqSVc0alZMMUxKQ3pNdVZZOWh0anM2YnJWZEROTmJoVmFWTXpG?=
- =?utf-8?B?c0ZHZjJZR1NEcEN5cXdJc3dCMWZhaFYzR0ttenZHd2pzNmFzRWQ3TjBaR2R1?=
- =?utf-8?B?MTZQNTBTK2M3TFFQNlpDQytSYk41eFJ1TGtkbXF6eVlrMGE3M0l1VHZqL2tN?=
- =?utf-8?B?VEZadVViYW5uMEZDZmFIYWF2MkZ3dk4zbGlLUm5ETTFjdHNLOVEveXZZaEEx?=
- =?utf-8?B?Sm5EMDVjZU9CMkovZW1EUVNLbnc5OXdJK1VlYmlFTzBCYXFPUmt1ci9jZVY5?=
- =?utf-8?B?RWlxMnVUbTUzMVJkWEZnV3g2eDdrWkRDTFZuTlRYMmd3ZjJkakEvcWs2bTVx?=
- =?utf-8?B?VmJsZ3VCQ3UyQ2U0VkF6ZXJQWjZXanlsMk9CRUlicnFHV0JNQTNnTDN4SkhS?=
- =?utf-8?Q?etNr4AldOZHzZ35Nhl?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	Mon, 27 Apr 2026 03:37:02 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63R2jU8f2884198;
+	Mon, 27 Apr 2026 03:36:54 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	yY8YvWI2HmyyWPEE65aEh7he5GvSnkG8URbkSSv3y8Q=; b=iMP6Be/+sHmEvjJD
+	CTjvj1hBoXEZJn6QefReaiD5PxxoKDJ3mh/XJR8G+I7CC4ZFYtlWjAscIgHHMM24
+	HencxrD/dSb4NnchL9lvXz9TH6Zk3GkT2x+qR65E3pXvLRaqRpgbb4VcvjYXPJTe
+	eydvoI2gduKvmf8GOwcr4ciu0tsjawM4FK0yeNLitfsvvbX8YpfgRGwGP2l8OmO9
+	LA8jmBzWkOMpvf6tkcF42wI7hPLo2esMQ5+OOXBfQj7CC9+l2R37oLkmDy8F4sHn
+	rrK0yn932+Fi9GB8/iXRJJ12T72tJKQLgpvBYx+7wh66xgYdUuENYzKKIfP0A2VK
+	HWthXg==
+Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dsya004a4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 27 Apr 2026 03:36:53 +0000 (GMT)
+Received: from nasanex01a.na.qualcomm.com (nasanex01a.na.qualcomm.com [10.52.223.231])
+	by NASANPPMTA04.qualcomm.com (8.18.1.7/8.18.1.7) with ESMTPS id 63R3aqwg019242
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 27 Apr 2026 03:36:52 GMT
+Received: from [10.233.71.148] (10.80.80.8) by nasanex01a.na.qualcomm.com
+ (10.52.223.231) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Sun, 26 Apr
+ 2026 20:36:49 -0700
+Message-ID: <34dce0de-334a-4b02-8a18-fb712d0ad4c3@quicinc.com>
+Date: Mon, 27 Apr 2026 11:36:47 +0800
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB5220.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b6d166da-0c4e-4bf2-cd5e-08dea40b7c6c
-X-MS-Exchange-CrossTenant-originalarrivaltime: 27 Apr 2026 03:17:17.1820
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: trnHhYJ19XZgbEqcIfJe6O1d3sAz786yQBFo0ImmVUlto6xzGFAd3EG2wP2UQWW/8LtRgtRIWh7ytpa917gi+Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10604
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 2/4] coresight: cti: encode trigger register index in
+ register offsets
+To: Jie Gan <jie.gan@oss.qualcomm.com>,
+        Yingchao Deng
+	<yingchao.deng@oss.qualcomm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
+        "Leo
+ Yan" <leo.yan@arm.com>,
+        Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>
+CC: <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        Jinlong Mao
+	<jinlong.mao@oss.qualcomm.com>,
+        Tingwei Zhang
+	<tingwei.zhang@oss.qualcomm.com>
+References: <20260426-extended-cti-v8-0-23b900a4902f@oss.qualcomm.com>
+ <20260426-extended-cti-v8-2-23b900a4902f@oss.qualcomm.com>
+ <11376a1b-923d-4bee-bdc6-fecea43a256d@oss.qualcomm.com>
+Content-Language: en-US
+From: "Yingchao Deng (Consultant)" <quic_yingdeng@quicinc.com>
+In-Reply-To: <11376a1b-923d-4bee-bdc6-fecea43a256d@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01a.na.qualcomm.com (10.52.223.231)
+X-QCInternal: smtphost
+X-Proofpoint-GUID: yxnRMOiEGlRCyvtopx0NQLpHb3Yo2qzx
+X-Proofpoint-ORIG-GUID: yxnRMOiEGlRCyvtopx0NQLpHb3Yo2qzx
+X-Authority-Analysis: v=2.4 cv=DZEnbPtW c=1 sm=1 tr=0 ts=69eed9d5 cx=c_pps
+ a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=EUspDBNiAAAA:8 a=HjV8xp-4hyBqE0_XzRwA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI3MDAzNCBTYWx0ZWRfX/Axaqd8183hA
+ RP/ZAVwywhKaRJgluyK/cm4XJCCv2CZis4mlP+iJMkPa58wHrJczDdS7XYaKItzn9w07yB2HnR+
+ G2WUKl/m1wh0QYtUKybgCzfnpGCkO7LaTQlsdwU4j9lnisn4NHv9TRoUvgszEA4uKFUFdlOdROK
+ 8seJGXxgT+H+N0gT9eRZdxIQZJN9udtn84m1Ph/zsjwr6GLiPDyi7Yx9OOBUiF5Ia7+kX7nbxAI
+ EkOABYkm0qDLVWRWhg2VYmLifLuaQxg2Y8dOkn9V/Ryy7+JQOrkPg62qylclJ3QzmJJio01Zmao
+ ITqfdn/zzc/tqXTr1rYQh1TwsEdaf1FHD/CLvXH3CZL770S9kRVl3OB1dR4wxzqc09f6sWcTIWp
+ 3Hy5z8ia22Yd55s11wgHxYEUzwz0nLItFPByioGYyB5STwYqjf4yyHCgmymyp1XFbOCK5s0SzD/
+ fgWsbE5TJwOXWJ+Rq1g==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-27_01,2026-04-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 phishscore=0 spamscore=0 adultscore=0 bulkscore=0
+ lowpriorityscore=0 priorityscore=1501 malwarescore=0 impostorscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
+ definitions=main-2604270034
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_201721_443964_308DBE79 
-X-CRM114-Status: GOOD (  16.86  )
+X-CRM114-CacheID: sfid-20260426_203700_756851_1D035D05 
+X-CRM114-Status: GOOD (  22.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,32 +126,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBLcnp5c3p0b2YgS296bG93c2tp
-IDxrcnprQGtlcm5lbC5vcmc+DQo+IFNlbnQ6IFNhdHVyZGF5LCBBcHJpbCAyNSwgMjAyNiA2OjAw
-IFBNDQo+IFRvOiBDb25vciBEb29sZXkgPGNvbm9yQGtlcm5lbC5vcmc+DQo+IENjOiBIb25neGlu
-ZyBaaHUgPGhvbmd4aW5nLnpodUBueHAuY29tPjsgcm9iaEBrZXJuZWwub3JnOw0KPiBrcnprK2R0
-QGtlcm5lbC5vcmc7IGNvbm9yK2R0QGtlcm5lbC5vcmc7IGJoZWxnYWFzQGdvb2dsZS5jb207IEZy
-YW5rIExpDQo+IDxmcmFuay5saUBueHAuY29tPjsgbC5zdGFjaEBwZW5ndXRyb25peC5kZTsgbHBp
-ZXJhbGlzaUBrZXJuZWwub3JnOw0KPiBrd2lsY3p5bnNraUBrZXJuZWwub3JnOyBtYW5pQGtlcm5l
-bC5vcmc7IHMuaGF1ZXJAcGVuZ3V0cm9uaXguZGU7DQo+IGtlcm5lbEBwZW5ndXRyb25peC5kZTsg
-ZmVzdGV2YW1AZ21haWwuY29tOyBsaW51eC1wY2lAdmdlci5rZXJuZWwub3JnOyBsaW51eC0NCj4g
-YXJtLWtlcm5lbEBsaXN0cy5pbmZyYWRlYWQub3JnOyBkZXZpY2V0cmVlQHZnZXIua2VybmVsLm9y
-ZzsNCj4gaW14QGxpc3RzLmxpbnV4LmRldjsgbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZw0K
-PiBTdWJqZWN0OiBSZTogW1BBVENIIHYxIDEvM10gZHQtYmluZGluZ3M6IFBDSTogaW14NnEtcGNp
-ZTogQWRkIGludHIsIGFlciBhbmQgcG1lDQo+IGludGVycnVwdHMNCj4gDQo+IE9uIEZyaSwgQXBy
-IDI0LCAyMDI2IGF0IDA2OjA2OjE4UE0gKzAxMDAsIENvbm9yIERvb2xleSB3cm90ZToNCj4gPiBP
-biBGcmksIEFwciAyNCwgMjAyNiBhdCAxMDo1NzozM0FNICswODAwLCBSaWNoYXJkIFpodSB3cm90
-ZToNCj4gPiA+IEFkZCBvcHRpb25hbCAnaW50cicsICdhZXInLCBhbmQgJ3BtZScgaW50ZXJydXB0
-IGVudHJpZXMgdG8gdGhlDQo+ID4gPiBpLk1YNlEgUENJZSBiaW5kaW5nIHRvIHN1cHBvcnQgUENJ
-ZSBldmVudC1iYXNlZCBpbnRlcnJ1cHRzIGZvcg0KPiA+ID4gZ2VuZXJhbCBjb250cm9sbGVyIGV2
-ZW50cywgQWR2YW5jZWQgRXJyb3IgUmVwb3J0aW5nLCBhbmQgUG93ZXINCj4gPiA+IE1hbmFnZW1l
-bnQgRXZlbnRzIHJlc3BlY3RpdmVseS4NCj4gPiA+DQo+ID4gPiBTaWduZWQtb2ZmLWJ5OiBSaWNo
-YXJkIFpodSA8aG9uZ3hpbmcuemh1QG54cC5jb20+DQo+ID4gPiAtLS0NCj4gPg0KPiA+IFRoaXMg
-YmluZGluZyBzdXBwb3J0cyBsb3RzIG9mIGRldmljZXMuIERvIHRoZXkgYWxsIGhhdmUgdGhlc2UN
-Cj4gPiBhZGRpdGlvbmFsIGludGVycnVwdHM/DQo+IA0KPiBZZXAuIENvbW1pdCBtc2cgc2F5cyBv
-bmx5IGkuTVg2US4uLg0KPiANClNvcnJ5IGZvciB0aGUgY29uZnVzaW9uIGNhdXNlZCBieSB0aGUg
-ZmlsZSBuYW1lLiBUaGVzZSBzdGFuZGFsb25lIFNQSQ0KaW50ZXJydXB0cyBhcmUgc3BlY2lmaWMg
-dG8gaS5NWDk1IFBDSWUgb25seSwgbm90IHRoZSBvdGhlciBkZXZpY2VzIGNvdmVyZWQgYnkNCnRo
-aXMgYmluZGluZy4NCg0KQmVzdCBSZWdhcmRzDQpSaWNoYXJkIFpodQ0KPiBCZXN0IHJlZ2FyZHMs
-DQo+IEtyenlzenRvZg0KPiANCg0K
+
+On 4/27/2026 10:22 AM, Jie Gan wrote:
+>
+>
+> On 4/26/2026 5:44 PM, Yingchao Deng wrote:
+>> Introduce a small encoding to carry the register index together with the
+>> base offset in a single u32, and use a common helper to compute the 
+>> final
+>> MMIO address. This refactors register access to be based on the encoded
+>> (reg, nr) pair, reducing duplicated arithmetic and making it easier to
+>> support variants that bank or relocate trigger-indexed registers.
+>>
+>> Signed-off-by: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
+>> ---
+>>   drivers/hwtracing/coresight/coresight-cti-core.c  | 31 
+>> +++++++++++++++--------
+>>   drivers/hwtracing/coresight/coresight-cti-sysfs.c |  4 +--
+>>   drivers/hwtracing/coresight/coresight-cti.h       | 16 ++++++++++--
+>>   3 files changed, 36 insertions(+), 15 deletions(-)
+>>
+>> diff --git a/drivers/hwtracing/coresight/coresight-cti-core.c 
+>> b/drivers/hwtracing/coresight/coresight-cti-core.c
+>> index 4e7d12bd2d3e..c4cbeb64365b 100644
+>> --- a/drivers/hwtracing/coresight/coresight-cti-core.c
+>> +++ b/drivers/hwtracing/coresight/coresight-cti-core.c
+>> @@ -42,6 +42,14 @@ static DEFINE_MUTEX(ect_mutex);
+>>   #define csdev_to_cti_drvdata(csdev)    \
+>>       dev_get_drvdata(csdev->dev.parent)
+>>   +static void __iomem *cti_reg_addr(struct cti_drvdata *drvdata, int 
+>> reg)
+>
+> u32 reg would be better.
+>
+>> +{
+>> +    u32 offset = CTI_REG_CLR_NR(reg);
+>
+> No functional error but a little bit tricky here.
+>
+> CTI_REG_CLR_NR(reg) will produce a offset for the bits[0:23], but in 
+> the comment, you mentioned the base register offset ranges from [0:11].
+>
+> With my understanding, all CTI register offsets fall within the range 
+> b 0 to 0XFAC, that's why we have bits[0:11]?
+>
+> Thanks,
+> Jie
+   Thanks for the review.
+  While current CoreSight components fit within a single 4KB
+   block, IHI0029 states that a component can occupy up to 64MB (16,384
+   x 4KB blocks), requiring up to 26 bits for the offset. I will change
+   CTI_REG_NR_MASK to GENMASK(31, 28) to avoid any potential conflict
+   with bits[24:25].
+
+
+Thanks,
+Yingchao
+>> +    u32 nr = CTI_REG_GET_NR(reg);
+>> +
+>> +    return drvdata->base + offset + sizeof(u32) * nr;
+>> +}
+>> +
+>>   /* write set of regs to hardware - call with spinlock claimed */
+>>   void cti_write_all_hw_regs(struct cti_drvdata *drvdata)
+>>   {
+>> @@ -55,16 +63,17 @@ void cti_write_all_hw_regs(struct cti_drvdata 
+>> *drvdata)
+>>         /* write the CTI trigger registers */
+>>       for (i = 0; i < config->nr_trig_max; i++) {
+>> -        writel_relaxed(config->ctiinen[i], drvdata->base + CTIINEN(i));
+>> +        writel_relaxed(config->ctiinen[i],
+>> +                   cti_reg_addr(drvdata, CTI_REG_SET_NR(CTIINEN, i)));
+>>           writel_relaxed(config->ctiouten[i],
+>> -                   drvdata->base + CTIOUTEN(i));
+>> +                   cti_reg_addr(drvdata, CTI_REG_SET_NR(CTIOUTEN, i)));
+>>       }
+>>         /* other regs */
+>> -    writel_relaxed(config->ctigate, drvdata->base + CTIGATE);
+>> +    writel_relaxed(config->ctigate, cti_reg_addr(drvdata, CTIGATE));
+>>       if (config->asicctl_impl)
+>> -        writel_relaxed(config->asicctl, drvdata->base + ASICCTL);
+>> -    writel_relaxed(config->ctiappset, drvdata->base + CTIAPPSET);
+>> +        writel_relaxed(config->asicctl, cti_reg_addr(drvdata, 
+>> ASICCTL));
+>> +    writel_relaxed(config->ctiappset, cti_reg_addr(drvdata, 
+>> CTIAPPSET));
+>>         /* re-enable CTI */
+>>       writel_relaxed(1, drvdata->base + CTICONTROL);
+>> @@ -127,7 +136,7 @@ u32 cti_read_single_reg(struct cti_drvdata 
+>> *drvdata, int offset)
+>>       int val;
+>>         CS_UNLOCK(drvdata->base);
+>> -    val = readl_relaxed(drvdata->base + offset);
+>> +    val = readl_relaxed(cti_reg_addr(drvdata, offset));
+>>       CS_LOCK(drvdata->base);
+>>         return val;
+>> @@ -136,7 +145,7 @@ u32 cti_read_single_reg(struct cti_drvdata 
+>> *drvdata, int offset)
+>>   void cti_write_single_reg(struct cti_drvdata *drvdata, int offset, 
+>> u32 value)
+>>   {
+>>       CS_UNLOCK(drvdata->base);
+>> -    writel_relaxed(value, drvdata->base + offset);
+>> +    writel_relaxed(value, cti_reg_addr(drvdata, offset));
+>>       CS_LOCK(drvdata->base);
+>>   }
+>>   @@ -344,8 +353,7 @@ int cti_channel_trig_op(struct device *dev, 
+>> enum cti_chan_op op,
+>>         /* update the local register values */
+>>       chan_bitmask = BIT(channel_idx);
+>> -    reg_offset = (direction == CTI_TRIG_IN ? CTIINEN(trigger_idx) :
+>> -              CTIOUTEN(trigger_idx));
+>> +    reg_offset = (direction == CTI_TRIG_IN ? CTIINEN : CTIOUTEN);
+>>         guard(raw_spinlock_irqsave)(&drvdata->spinlock);
+>>   @@ -365,8 +373,9 @@ int cti_channel_trig_op(struct device *dev, 
+>> enum cti_chan_op op,
+>>         /* write through if enabled */
+>>       if (cti_is_active(config))
+>> -        cti_write_single_reg(drvdata, reg_offset, reg_value);
+>> -
+>> +        cti_write_single_reg(drvdata,
+>> +                     CTI_REG_SET_NR(reg_offset, trigger_idx),
+>> +                     reg_value);
+>>       return 0;
+>>   }
+>>   diff --git a/drivers/hwtracing/coresight/coresight-cti-sysfs.c 
+>> b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
+>> index 2bbfa405cb6b..8b70e7e38ea3 100644
+>> --- a/drivers/hwtracing/coresight/coresight-cti-sysfs.c
+>> +++ b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
+>> @@ -386,7 +386,7 @@ static ssize_t inen_store(struct device *dev,
+>>         /* write through if enabled */
+>>       if (cti_is_active(config))
+>> -        cti_write_single_reg(drvdata, CTIINEN(index), val);
+>> +        cti_write_single_reg(drvdata, CTI_REG_SET_NR(CTIINEN, 
+>> index), val);
+>>         return size;
+>>   }
+>> @@ -427,7 +427,7 @@ static ssize_t outen_store(struct device *dev,
+>>         /* write through if enabled */
+>>       if (cti_is_active(config))
+>> -        cti_write_single_reg(drvdata, CTIOUTEN(index), val);
+>> +        cti_write_single_reg(drvdata, CTI_REG_SET_NR(CTIOUTEN, 
+>> index), val);
+>>         return size;
+>>   }
+>> diff --git a/drivers/hwtracing/coresight/coresight-cti.h 
+>> b/drivers/hwtracing/coresight/coresight-cti.h
+>> index ef079fc18b72..dd1ba44518c4 100644
+>> --- a/drivers/hwtracing/coresight/coresight-cti.h
+>> +++ b/drivers/hwtracing/coresight/coresight-cti.h
+>> @@ -7,6 +7,7 @@
+>>   #ifndef _CORESIGHT_CORESIGHT_CTI_H
+>>   #define _CORESIGHT_CORESIGHT_CTI_H
+>>   +#include <linux/bitfield.h>
+>>   #include <linux/coresight.h>
+>>   #include <linux/device.h>
+>>   #include <linux/list.h>
+>> @@ -30,8 +31,8 @@ struct fwnode_handle;
+>>   #define CTIAPPSET        0x014
+>>   #define CTIAPPCLEAR        0x018
+>>   #define CTIAPPPULSE        0x01C
+>> -#define CTIINEN(n)        (0x020 + (4 * n))
+>> -#define CTIOUTEN(n)        (0x0A0 + (4 * n))
+>> +#define CTIINEN            0x020
+>> +#define CTIOUTEN        0x0A0
+>>   #define CTITRIGINSTATUS        0x130
+>>   #define CTITRIGOUTSTATUS    0x134
+>>   #define CTICHINSTATUS        0x138
+>> @@ -59,6 +60,17 @@ struct fwnode_handle;
+>>    */
+>>   #define CTIINOUTEN_MAX        32
+>>   +/*
+>> + * Encode CTI register offset and register index in one u32:
+>> + *   - bits[0:11]  : base register offset (0x000 to 0xFFF)
+>> + *   - bits[24:31] : register index (nr)
+>> + */
+>> +#define CTI_REG_NR_MASK            GENMASK(31, 24)
+>> +#define CTI_REG_GET_NR(reg)        FIELD_GET(CTI_REG_NR_MASK, (reg))
+>> +#define CTI_REG_SET_NR_CONST(reg, nr)    ((reg) | 
+>> FIELD_PREP_CONST(CTI_REG_NR_MASK, (nr)))
+>> +#define CTI_REG_SET_NR(reg, nr)        ((reg) | 
+>> FIELD_PREP(CTI_REG_NR_MASK, (nr)))
+>> +#define CTI_REG_CLR_NR(reg)        ((reg) & (~CTI_REG_NR_MASK))
+>> +
+>>   /**
+>>    * Group of related trigger signals
+>>    *
+>>
+>
 
