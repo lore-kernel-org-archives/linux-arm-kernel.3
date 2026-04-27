@@ -4,80 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A158FF8867
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 21:06:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C97EFF8870
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 21:29:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z15Wgm5Jadcf5OplbDLN3OuS8ibhyOQbcM/0NTHJ/to=; b=VXZR0MmYghBXEODApJN3hgjvJb
-	LjM9WkiU1t3MgEQa+98xw3sriDs5QYufLqP6s/mshaE4EHs88JMcf1KNW9kmBgcnsehk9a9IKROCH
-	pW+sgIfESmOcYDlTHu3RZLUuyR/e0zL2i5WtZS76gxziy73w4J4gEBifb+GmE4y37tTblzI8t5FI+
-	vmakfhKMzmAQrAfua9pZqNwg9UltEMXJWHsuKUossDXJ7APKMiTtFP0ZZzIcaD/YO8uNS9iR5YMAg
-	NQuWX3B9O4bPLn6eXygQbknuw4WP3m3Vr6sdREqVAIcOHqylSyJJoCJyaMuyviQw5MFXZbjuBes37
-	8JNz4tog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ebg5+i/pOUuQx7xxuERTUppaj1qL6vIxTxgv86V/NC0=; b=q/Gu9Kr4THcLIEf/47p9kY3IBS
+	POQm+2U89UvruLTaf8orcqiCADRddO243RLbYBXxvfto5RO3n7o+SvpBL9Rv9EHICCLzDHPu9SG4A
+	Jt5cBLEO9kF3/AvtaqY41r3qkIo3JH0yA8L4MpCrCYhI9IGBsnw9CacxmCkAldL0wdTi/wgPCztRp
+	ileO/8Mi5U3G+r4ZiLvuz/7P5cvln1vDSLejKstkfQeIcHgf6InKh1efwyKqeVS1rWf+ojK9+04MR
+	iyftr0yFnc8/yuUiblFb0PqO5LRGAvEzgwt2F2tEnC5QlKix16RwF00LN1kvsUQIKGYfiwFi7C9Yw
+	GhDy+Qig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHT9l-000000009sZ-09q6;
-	Mon, 27 Apr 2026 21:06:17 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wHTW7-00000000Ayv-3G89;
+	Mon, 27 Apr 2026 21:29:23 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHT9i-000000009sT-3tYh
+	id 1wHTW4-00000000AxP-1o9m
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 21:06:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0E8E06014C;
-	Mon, 27 Apr 2026 21:06:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D742AC2BCB5;
-	Mon, 27 Apr 2026 21:06:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777323973;
-	bh=KBRYX6tEB+mYgRW4VfUUMxd2Mz2ql4bOLSZemcFFgzQ=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=JkGn6Kt1y6YH2h8fUEmQXSUTStPRDHM2qzazqiwDfzrp6yp3KfOna5pLtvZI56K0/
-	 4smug6gT/MjmzFbaHA7z3V1bFhyMnPQQcKKudIw4h+lcp6MfiU7D7R16jSpsMFkb2n
-	 xULOmLBk0gqKQTrzvS1qWHybmBONUnBnk+2c01fOQUAru014iwvBBtBYWChmrUy4hK
-	 Y/vaPQaYaLPMPvY1O/xsBHqJUIHFaP6HoKicxLjmZLF13PcsjGYbXP0hn3JG2brSIJ
-	 sHKDKx5MOKEkjwpJjWT+/+mTLA5yUMDoFBYokYwNcXKNR+bjt02WD8YYBr58rffEB3
-	 G8gUnHVAXeS6Q==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Florian Weimer
- <fweimer@redhat.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Mathias Stearn
- <mathias@mongodb.com>, Dmitry Vyukov <dvyukov@google.com>, Jinjie Ruan
- <ruanjinjie@huawei.com>, linux-man@vger.kernel.org, Mark Rutland
- <mark.rutland@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>, Boqun Feng <boqun.feng@gmail.com>, "Paul E.
- McKenney" <paulmck@kernel.org>, Chris Kennelly <ckennelly@google.com>,
- regressions@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Ingo Molnar <mingo@kernel.org>,
- Blake Oler <blake.oler@mongodb.com>, Rich Felker <dalias@libc.org>,
- Matthew Wilcox <willy@infradead.org>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, Linus Torvalds
- <torvalds@linuxfoundation.org>, criu@lists.linux.dev, Michael Jeanson
- <mjeanson@efficios.com>
-Subject: Re: [REGRESSION] rseq: refactoring in v6.19 broke everyone on arm64
- and tcmalloc everywhere
-In-Reply-To: <7f8783a6-1a48-4c92-850c-d285a788b491@efficios.com>
-References: <aekPXvvuKHKlETjm@J2N7QTR9R3.cambridge.arm.com>
- <87wlxy22x7.ffs@tglx> <c5331cd6-76c8-430d-978e-fcad164e48f6@huawei.com>
- <CACT4Y+bxnQyHGdVNE1BYTx+Z2-cscLb38HYS9jBM5gPAz8=4bw@mail.gmail.com>
- <87ik9i0xlj.ffs@tglx>
- <CAHnCjA0UBNXfjHw=Y34OrAyGRNUtVF+zWd3ugyX6pd_mCk8K9w@mail.gmail.com>
- <87a4ut1njh.ffs@tglx>
- <CACT4Y+bBD7uCHXKqGo=epBXeEmsZ67Og2YO9kjNMT3ryjUY_sA@mail.gmail.com>
- <CAHnCjA1LqbaUGkPe79EeP6Mpaki8QWeR-JBSbrG0z6pTm9CmUg@mail.gmail.com>
- <87v7dgzbo7.ffs@tglx>
- <20260424150318.GE641209@noisy.programming.kicks-ass.net>
- <87se8kywhb.ffs@tglx> <87jyttz8cf.ffs@tglx>
- <lhujyts4zr8.fsf@oldenburg.str.redhat.com>
- <7f8783a6-1a48-4c92-850c-d285a788b491@efficios.com>
-Date: Mon, 27 Apr 2026 23:06:09 +0200
-Message-ID: <87bjf4yuym.ffs@tglx>
+	Mon, 27 Apr 2026 21:29:21 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-43d64313c39so8336494f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 14:29:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1777325358; x=1777930158; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ebg5+i/pOUuQx7xxuERTUppaj1qL6vIxTxgv86V/NC0=;
+        b=IMLbRmYEXHk4kUnosshE5P5pf1HqFLf0l7XiDgwKvr7oE5MkpvdH0FTxH9LxckM35l
+         Os4ccdgiiqlHRjRvL+RryGdn7oCPjsw6SLFUekQpynSRUqQHJnFXCP4HacqJvlh9iVis
+         zGNZ4qYId5So/UVoGJsvJ2dwzmNYcRR49V1njggySedCiI895cCkL8pOoq75Ll5tg6UJ
+         gs8U4RZrdEdp2ukJO+287TbmqmdaAnfgJD/SIT9nlPuRmKUl02/Bp4INCRNCNdvLwWsW
+         ZotKCyVf/DPyX+Q0XgzSuhekf61ba0R2ykzyXafBvJJhNbQi7bDkg47gbRImxl3ioFqu
+         McvA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777325358; x=1777930158;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Ebg5+i/pOUuQx7xxuERTUppaj1qL6vIxTxgv86V/NC0=;
+        b=SqJnccWWt7Fas9Esdr3F/8aQpQc7JnVHjcS/dPldazPEOYOyWqJA98dmkZLvobbTwr
+         97XIJpi6O2ZmCXWIrrawAA9sgD1U4pVVuEyt8F8u0i1enlB1RL/jJd6VAb82I/fypGrt
+         1jgrDGnANCvIUqIfnZLHCkbnlVrO1SDSx/2kBrECxH8z2ADG5lP1Qi9FlT7ZvUYDc95+
+         euxNUwtqjXf5fjYAPuy8Z0WPma5BN+sp0xuycmsikpJf7anX1Ls89sc7rMHA76QFzLMa
+         6ENFLRB8JXJE1Bc5XFSCzG7bTyabPqosmgeYxnMD9Vg81Q5WnHvPrT0H6cskW6sDeAyG
+         WrbA==
+X-Forwarded-Encrypted: i=1; AFNElJ9GAzZkPDow9sfLzvezvgsjOjBAu+sh9a+N8FHGuYnwzNZTGrNRYVH16OzWQ4Cm8iE0UX1bRxSvwXxPZdRL4YtF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1wtje3N5nFELV/9koryuukAyf/tCf0t55SKTX8gKS3dIngA6u
+	+A+3FLKgBDAw3Q6nuvx8NOy+Zq5snIUbHBr6uwDn1fZ3VqGg+tJr1ZeK
+X-Gm-Gg: AeBDieuC5fL0ZLZOBNy7JzRCDGyu/DscCtdny1AAfZMFM/vBH6P/Ar3hie90RQhJm05
+	ZtdIlS16SOVoG8uSMd9fTN/cIM/0W0RJkmcKs3iJhiEDkMDa8ShxwSol25sf9NtELrGXkfVxjaW
+	T7y6F/1sWQoH0dvvD7MTXqnQxkL2NNqpmVGpBonNaLWhJkxK5mbE4vtVierxClPDgj+rSdQNgoX
+	zxtcqMMDjFP/vSnOpS5Wuqqrgvgpw+CsW724vgOyjF6B4rcSXN8nZF9PEszQOfwjEtfp3unI2GN
+	HHLSm66oa2gllTC9OqIzdomehOHV6TRXAi19MP8Tp8Rb/kzir3JXwtDAYH4tcbzvUIOP/49mTNj
+	3IIuVIc2PZuGj1MMf8aESvHAUO3q1uKHsP/m2fznErpW/mtqsFINZwvMoc76uKXshptfHroI2V5
+	r9r59qc7FUK2QI7z57NiEjqDYYHj6WgbOl05XMtPFh4CdrlW5QEOOwkLRMRYx46w+KX50yVsTEV
+	LkVSFjPJCepOg==
+X-Received: by 2002:a05:6000:3109:b0:43d:7d6f:f531 with SMTP id ffacd0b85a97d-44649ba1f4amr816127f8f.30.1777325358072;
+        Mon, 27 Apr 2026 14:29:18 -0700 (PDT)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4463d02f270sm1120515f8f.9.2026.04.27.14.29.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Apr 2026 14:29:17 -0700 (PDT)
+Date: Mon, 27 Apr 2026 22:29:14 +0100
+From: David Laight <david.laight.linux@gmail.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Yury Norov
+ <ynorov@nvidia.com>, Andrew Morton <akpm@linux-foundation.org>, Thomas
+ Gleixner <tglx@linutronix.de>, linux-alpha@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+ dmaengine@vger.kernel.org, linux-efi@vger.kernel.org,
+ linux-fsi@lists.ozlabs.org, amd-gfx@lists.freedesktop.org,
+ dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+ linux-wpan@vger.kernel.org, netdev@vger.kernel.org,
+ linux-wireless@vger.kernel.org, linux-spi@vger.kernel.org,
+ linux-media@vger.kernel.org, linux-staging@lists.linux.dev,
+ linux-serial@vger.kernel.org, linux-usb@vger.kernel.org,
+ xen-devel@lists.xenproject.org, linux-fsdevel@vger.kernel.org,
+ ocfs2-devel@lists.linux.dev, bpf@vger.kernel.org,
+ kasan-dev@googlegroups.com, linux-mm@kvack.org, linux-x25@vger.kernel.org,
+ rust-for-linux@vger.kernel.org, linux-sound@vger.kernel.org,
+ sound-open-firmware@alsa-project.org, linux-csky@vger.kernel.org,
+ linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linux-sh@vger.kernel.org,
+ linux-arch@vger.kernel.org
+Subject: Re: [RFC PATCH v1 5/9] uaccess: Switch to
+ copy_{to/from}_user_partial() when relevant
+Message-ID: <20260427222914.1cb2dd3b@pumpkin>
+In-Reply-To: <CAHk-=whC1DZojwdMB1=sJWG2=dsCdfyU8N6tDE1qx50HRZ-WJQ@mail.gmail.com>
+References: <cover.1777306795.git.chleroy@kernel.org>
+	<289b424e243ba2c4139ea04009cf8b9c448a87ff.1777306795.git.chleroy@kernel.org>
+	<CAHk-=whC1DZojwdMB1=sJWG2=dsCdfyU8N6tDE1qx50HRZ-WJQ@mail.gmail.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260427_142920_530103_0F576796 
+X-CRM114-Status: GOOD (  52.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,64 +125,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 27 2026 at 14:35, Mathieu Desnoyers wrote:
-> On 2026-04-27 03:40, Florian Weimer wrote:
->> Switching to the new extensible RSEQ allocation code in older glibc
->> builds is not entirely trivial, and I would prefer not doing that.
->> Registering with a new flag is comparatively simple, and we could
->> backport it, except that it might not be compatible with CRIU.
-> A third option would allow the entire range of older libc versions to
-> benefit from rseq optimizations, gating the "v2" behavior on:
->
->    rseq_len > 32 || (flags & RSEQ_FLAG_V2)
+On Mon, 27 Apr 2026 12:01:23 -0700
+Linus Torvalds <torvalds@linux-foundation.org> wrote:
 
-No. Features beyond mm_cid require optimized mode and a larger rseq
-area. That's not negotiable. See below.
+> On Mon, 27 Apr 2026 at 10:18, Christophe Leroy (CS GROUP)
+> <chleroy@kernel.org> wrote:
+> >
+> > In a subsequent patch, copy_{to/from}_user() will be modified to
+> > return -EFAULT when copy fails.  
+> 
+> Please don't do this.
+> 
+> This is a maintenance nightmare, and changes pretty much three decades
+> of semantics, and will cause *very* subtle backporting issues if
+> somebody happens to rely on the old / new behavior.
+> 
+> I understand the reasoning for the change, but I really don't think
+> the pain of creating yet another user copy interface is worth it.
+> 
+> We already have a lot of different versions of user copies for
+> different reasons, and while they all tend to have a good reason (and
+> some not-so-good, but historical reasons) for existing, this one
+> doesn't seem worth it.
+> 
+> The main - perhaps only - reason for this "partial" version is that
+> you want to do that "automatically inlined and optimized fixed-sized
+> case".
+> 
+> But here's the thing: I think you can already do that. Yes, it
+> requires some improvements to unsafe_copy_from_user(), but *that*
+> interface doesn't have three decades of history associated with it,
+> _and_ you're extending on that one anyway in this series.
+> 
+> "unsafe_copy_from_user()" is very odd, is meant only for small simple
+> copies that can be inlined and it's special-cased for 'objtool' anyway
+> (because objtool would have complained about an out-of-line call,
+> although it could have been special-cased other ways).
+> 
+> In other words: unsafe_copy_from_user() is *very* close to what you
+> want for that "Oh, I noticed that it's a small fixed-size copy, so I
+> want to special-case copy-from-user for that".
+> 
+> The _only_ issue with unsafe_copy_from_user() is that you can't see
+> that there were partial successes. But if *that* was fixed, then this
+> whole "create a new copy_from_user interface" issue would just go
+> away.
+> 
+> So please - let's just change unsafe_copy_from_user() to be usable for
+> the partial case.
+> 
+> And the thing is, all the existing unsafe_copy_from_user()
+> implementations already effectively *have* the "how much did I not
+> copy" internally, and they actually do extra work to hide it, ie they
+> have things like that
+> 
+>         int _i;
+> 
+> that is "how many bytes have I copied" in the powerpc implementation,
+> or the x86 code does
+> 
+>         size_t __ucu_len = (_len);
+> 
+> where that "ucu_len" is updated as you go along and is literally the
+> "how many bytes are left to copy" return value that is missing from
+> this interface.
+> 
+> So what I would suggest is
+> 
+>  - introduce a new user accessor helper that is used for *both*
+> unsafe_copy_to/from_user() *and* the "inline small constant-sized
+> normal copy_to/from_user()" calls
+> 
+>  - it's the same thing as the existing  unsafe_copy_to/from_user()
+> implementation, except it exposes how many bytes are left to be copied
+> to the exception label.
 
-> That v2 behavior would:
->
-> A) Enforce the ABI contract:
->
->     - RO fields corruption -> kill process,
+I think there is a slight difference in that the normal copy_to_user()
+will determine the exact offset of the error by retrying with byte copies.
 
-My patch does that already and the time slice extension muck does so too
-from day one.
+There is also the issue of misaligned copies.
 
->     - System call within rseq critical section -> kill process,
+Then there is the 'bugbear' of hardened user copies.
+Chasing down the stack to find whether the kernel buffer crosses
+a stack frame is probably more expensive than the copy for the typically
+small copies that will use on-stack buffers.
 
-No. That's overkill for syscall heavy workloads.
+	David
 
-Also it's not a functional correctness problem which affects multiple
-RSEQ users in an application. User space can do even worse things.
+> 
+> IOW, it would look something like
+> 
+>      #define unsafe_copy_to_user_outlen(_dst,_src,_len,label)...
+> 
+> which is exactly the same as the current unsafe_copy_to_user(),
+> *except* it changes "_len" as it does along.
+> 
+> And then you use that for both the "real" unsafe_copy_user and for the
+> "small constant values" case.
+> 
+> Just as an example, attached is a completely stupid rough draft of a
+> patch that does this for x86 and only for unsafe_copy_to_user().
+> 
+> And I made a very very hacky change to kernel/sys.c to see what the
+> code generation looks like.
+> 
+> This is what it results in on x86 with clang (with all the magic
+> .section data edited out):
+> 
+>         ... edited out the code to generate the times
+>         ... this is the actual user copy:
+>         # HERE!
+>         movabsq $81985529216486895, %rcx        # imm = 0x123456789ABCDEF
+>         cmpq    %rcx, %rbx
+>         cmovaq  %rcx, %rbx
+>         stac
+>         movq    %r13, (%rbx)                    # exception to .LBB45_8
+>         movq    %r14, 8(%rbx)                   # exception to .LBB45_8
+>         movq    %r15, 16(%rbx)                  # exception to .LBB45_8
+>         movq    %rax, 24(%rbx)                  # exception to .LBB45_8
+>         clac
+> .LBB45_6:
+>         movq    jiffies(%rip), %rdi
+>         callq   jiffies_64_to_clock_t
+> .LBB45_7:
+>         addq    $16, %rsp
+>         popq    %rbx
+>         popq    %r12
+>         popq    %r13
+>         popq    %r14
+>         popq    %r15
+>         retq
+> .LBB45_8:
+>         clac
+>         movq    $-14, %rax
+>         jmp     .LBB45_7
+> 
+> and notice how the compiler noticed that the 'outlen' isn't actually
+> used, and turned the exception label into just a "return -EFAULT" and
+> never actually generated any code for updating remaining lengths?
+> 
+> That actually looks pretty much optimal for a 32-byte user copy.
+> 
+> And it didn't involve changing the semantics at all.
+> 
+> Just to check, I changed that "times()" system call to return the
+> number of bytes uncopied instead (to emulate the "I actually want to
+> know what's left" case), and it generated this:
+> 
+>         # HERE!
+>         movabsq $81985529216486895, %rcx        # imm = 0x123456789ABCDEF
+>         cmpq    %rcx, %rbx
+>         cmovaq  %rcx, %rbx
+>         stac
+>         movl    $32, %ecx
+>         movq    %r13, (%rbx)                    # exception to .LBB45_7
+>         movl    $24, %ecx
+>         movq    %r15, 8(%rbx)                   # exception to .LBB45_7
+>         movl    $16, %ecx
+>         movq    %r14, 16(%rbx)                  # exception to .LBB45_7
+>         movl    $8, %ecx
+>         movq    %rax, 24(%rbx)                  # exception to .LBB45_7
+>         clac
+>         xorl    %ecx, %ecx
+> .LBB45_8:
+>         movq    %rcx, %rax
+>         addq    $16, %rsp
+>         popq    %rbx
+>         popq    %r12
+>         popq    %r13
+>         popq    %r14
+>         popq    %r15
+>         retq
+> .LBB45_6:
+>         movq    jiffies(%rip), %rdi
+>         jmp     jiffies_64_to_clock_t           # TAILCALL
+> .LBB45_7:
+>         clac
+>         jmp     .LBB45_8
+> 
+> so it all seems to work - although obviously the above is *not* the normal case.
+> 
+> NOTE NOTE NOTE! The attached patch is entirely untested. I obviously
+> did some "test code generation" with it, but I only *looked* at the
+> result, and maybe it has some fundamental problem that I just didn't
+> notice. So treat this as a "how about this approach" patch, not as
+> anything more serious than that.
+> 
+> And the kerrnel/sys.c hack is very obviously just that: a complate
+> hack for testing.
+> 
+> A real patch would do that "for small constant-sized copies, turn
+> copy_to_user() automatically into "_small_copy_to_user()".
+> 
+> The attached is *not* a real patch. Treat it with the contempt it deserves.
+> 
+>              Linus
 
-      cs_start
-      call foo	// foo uses rseq too ....
-      cs_end
-
-Invoking a syscall from within the critical section is stupid, but at
-least harmless vs. other usage in the same thread as the syscall needs
-to return before anything else can go and use RSEQ in that thread, no?
-
-People who develop RSEQ critical sections can enable debug mode via the
-sysfs knob if they want to prove that their code is correct. That's a
-debug aid, not more.
-
-> B) Allow optimization of the rseq field updates (only update relevant
->     fields on migration),
-
-That's part of the whole combo. Optimized behaviour and new features.
-
-> This entirely decouples the feature enablement concern (rseq_len) from
-> the strictness/optimization mode (v2).
-
-Which causes us to sprinkle more conditionals into the hot paths for
-individual features instead of simply doing unconditional stores and be
-done with it. It's bad enough that we have one, we don't need more.
-
-User space knows the size the kernel expects and if it insists on using
-the original size, so be it. Keep it simple.
-
-Thanks,
-
-        tglx
 
