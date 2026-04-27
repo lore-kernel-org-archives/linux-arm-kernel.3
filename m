@@ -4,59 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C80B3FF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 14:24:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 246CFFF8860
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 14:24:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=djj08T+YPT9WmejZ47kv3TGOahII0KpljVMTQtp6NzM=; b=2VhlsilGNwp0e1cb1ugcDMI8OM
-	lXuaI8e/HlTPXetRaf2Q/F4OmriOPSLvJ4Cp/b3ErKk7Hk/ObNWAf97tku+g3BZjZwYEj6U1OjU4k
-	/gz5Xdv4vZgMohpe0uValrmKCf2Vka1OgSmjkcWmsasFfXrve3ocN421px6UITD4zCLeJjzc9UubH
-	PGmDIvciUTNhfDtmtRMz7a59QtHE3BTZ+CA+J9lRkeJB49aThxGtCiMoh6DOG2SkNWX7opt5qs5+u
-	L3ZgOFdV+4/CYU4ck41FH3PEiGKQHItSkkSwokugsjBuRsZtCyxIrjb4oIhmEUDWKtnT8xhhNNP2G
-	GWJygQew==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Kel3aEvgR2LwrabvkGqWPn/9dZy2wQYqVSdPgSKOyq4=; b=4NKR21KfW8rciOOETBzPCZoQbF
+	wWjZ0Vk09ip4RwhX/wTC6khBGEURXzAbGOQaEZNmM7FPQpQsqo+j/YFcr8rV2e5zlKLz6SIGsJ3r8
+	6AJqmt2pcQ6vVTQFEk/xi7gvyNqKe9DpO1YH7waiKwAVAAuD+7smDCnz0CGo1/w1bMS1zHM1z+CwQ
+	jRJ8tHqjx3doz/3Qu3l5JUwkxN3/9DjT27lwD6mA1oLMDQDBI4tNvZf8ztb+9ykAz1JTCRLols5fQ
+	Q7+4O/fT8a8hQBE1w2FwZsmDjdvrSy7dvWEQxdek8Ykruf7mt8bdKKLo1FiA5VKN+WkFah3juOb/z
+	iDZPUt4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHMsj-0000000H5dn-3RwZ;
-	Mon, 27 Apr 2026 14:24:17 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wHMsk-0000000H5e8-0XwM;
+	Mon, 27 Apr 2026 14:24:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHMsf-0000000H5az-1YcZ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 27 Apr 2026 14:24:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=djj08T+YPT9WmejZ47kv3TGOahII0KpljVMTQtp6NzM=; b=TWakmz0EUeUGqZ5YE00gkzYT60
-	8B7F62w7j2xFkLlXv0ExyQZJLI6x69pT+uu6Om2Vs2BNJV+VYqRlDol6bTCKv6JjVkSJqHqZhzOf2
-	8QRsojzfjzdcHIjjuDk9tigWAn8lvUbLXscIxKF7pd6qZMmYcyqkIOOCCGhP5UvK6LkZhWJn389UN
-	Y1y5rRo1mkXr4O0Y4GJnQH2FKjz6w903017vdNpRoG8EgKAStqN5+CmQJlv5uu1vWOX9BuHkndzxi
-	ylM8TFyJiG6N0azGFBwDdrky2CLx0r6SNscrUPIcnBfF6xQIUpBa2ZLkZkWIna1N4jz/ugzw/nwgg
-	s98ofRVw==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHMsZ-00000000nag-3a6o
+	id 1wHMsj-0000000H5dL-1EMO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 14:24:10 +0000
+	Mon, 27 Apr 2026 14:24:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1FC64443C3;
-	Mon, 27 Apr 2026 14:24:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC263C19425;
-	Mon, 27 Apr 2026 14:23:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 78C0C60139;
+	Mon, 27 Apr 2026 14:24:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 291B2C19425;
+	Mon, 27 Apr 2026 14:24:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777299843;
-	bh=ftZ0XwT6UuuizUHV9Pp1aiajU/PBr+uLiW96IGbuHvs=;
-	h=From:To:Cc:Subject:Date:From;
-	b=sRxiN7hp9DE6K4vJvQH/+GCR3cimtAOQLXQRpPar3WCm/X1+DprIIJ9tPpB42EQzY
-	 gJZVVJ/q+C9Bg+wDDMKyXHpFzgZH8ejXky0uZNzCYBKfq41c6hTr4yELINTYGgtA6E
-	 iLLlV+oQ8iF0RA2aPWsHxFPPcvPezbJiX0+sNZPtuAYzDQYViCJC96oM6piu62PkoW
-	 Q0cG2/saUzrOE3HhFzCWWXQbFsDAGkopAuJlzSqjZtdD9UWP5T+EH0sWWIcePGd4La
-	 G1hEd7FnuYb/tmGpJz7ARATyxFgORRBvToKLMziTOJuE9WF98qDH9UBZueeuxeuRHE
-	 IsRuwgNFl6Smw==
+	s=k20201202; t=1777299856;
+	bh=Nv1JYf3LO+jPMQgpo8pnXz9mJrVmyxe8ICeN5WxGts0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=MqNrrf3g5O6M65G1JhS7bEZJX1r8MEERTG22J+Ynebq3uEAY/PvQ7VWZhbWmuxA6Y
+	 8U1FJ4y47vfh6ZcPkCHxPBD70DnaqAuY/nfkaqwFSr+xOiKtX7ZMYsd+XdmF4vrO//
+	 kSjh7yQcq4iI6f6TTLgsRC0SH+DOGeKdQGuarmbU44+cnJ46gb27/SP71av0s3gZ07
+	 5dZr7nZCrtqFNugvftIk6vbTV602ox/34HBW3ZZzAngvZif8z5AGGToYTJ/V+OzVuk
+	 guMW+CUMhKZUuCeNW/Lnrf29IRET91h9LWu/JiqzLYeMNj/CYRJWROpZWW7DlK3Epz
+	 5+ndG4WFx1HwA==
 From: Arnd Bergmann <arnd@kernel.org>
 To: 
 Cc: Arnd Bergmann <arnd@arndb.de>,
@@ -83,17 +68,16 @@ Cc: Arnd Bergmann <arnd@arndb.de>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-gpio@vger.kernel.org,
-	linux-omap@vger.kernel.org
-Subject: [PATCH v3 0/3] wireless: p54 devicetree conversion
-Date: Mon, 27 Apr 2026 16:23:52 +0200
-Message-Id: <20260427142355.2532714-1-arnd@kernel.org>
+	linux-omap@vger.kernel.org,
+	Krzysztof Kozlowski <krzk@kernel.org>
+Subject: [PATCH v3 2/3] ARM: dts: omap2: add stlc4560 spi-wireless node
+Date: Mon, 27 Apr 2026 16:23:54 +0200
+Message-Id: <20260427142355.2532714-3-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20260427142355.2532714-1-arnd@kernel.org>
+References: <20260427142355.2532714-1-arnd@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_152408_428870_5B527C02 
-X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,61 +94,58 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-This is an older patch of mine that I lost track of. We already decided
-a while ago that the OMAP2 platform should probably be removed entirely,
-and this is the only known user, but it's probably a good idea to still
-get the driver changes in, in case there are other out-of-tree users.
+Converted from the platform_device creation in board-n8x0.c.
 
-We probably don't have to worry about bisectability any more though,
-so the devicetree and driver changes can just get merged independently
-through the OMAP and wireless trees, respectively.
+Link: https://lore.kernel.org/all/20230314163201.955689-1-arnd@kernel.org/
+Reviewed-by: Krzysztof Kozlowski <krzk@kernel.org>
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ arch/arm/boot/dts/ti/omap/omap2.dtsi                |  4 ++++
+ arch/arm/boot/dts/ti/omap/omap2420-n8x0-common.dtsi | 12 ++++++++++++
+ 2 files changed, 16 insertions(+)
 
-     Arnd
-
-v2 Link: https://lore.kernel.org/all/20230404082401.1087835-1-arnd@kernel.org/
-
-Cc: "Aaro Koskinen" <aaro.koskinen@iki.fi>
-Cc: "Andreas Kemnade" <andreas@kemnade.info>
-Cc: "Arnd Bergmann" <arnd@arndb.de>
-Cc: "Bartosz Golaszewski" <brgl@kernel.org>
-Cc: "Benoît Cousson" <bcousson@baylibre.com>
-Cc: "David S. Miller" <davem@davemloft.net>
-Cc: "Dmitry Torokhov" <dmitry.torokhov@gmail.com>
-Cc: "Eric Dumazet" <edumazet@google.com>
-Cc: "Felipe Balbi" <balbi@kernel.org>
-Cc: "Jakub Kicinski" <kuba@kernel.org>
-Cc: "Johannes Berg" <johannes@sipsolutions.net>
-Cc: "Kevin Hilman" <khilman@baylibre.com>
-Cc: "Krzysztof Kozlowski" <krzk+dt@kernel.org>
-Cc: "Linus Walleij" <linusw@kernel.org>
-Cc: "Paolo Abeni" <pabeni@redhat.com>
-Cc: "Rob Herring" <robh+dt@kernel.org>
-Cc: "Roger Quadros" <rogerq@kernel.org>
-Cc: "Tony Lindgren" <tony@atomide.com>
-Cc: linux-wireless@vger.kernel.org
-Cc: netdev@vger.kernel.org
-Cc: devicetree@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-gpio@vger.kernel.org
-Cc: linux-omap@vger.kernel.org
-
-
-Arnd Bergmann (3):
-  dt-bindings: net: add st,stlc45xx/p54spi binding
-  ARM: dts: omap2: add stlc4560 spi-wireless node
-  p54spi: convert to devicetree
-
- .../bindings/net/wireless/st,stlc45xx.yaml    | 58 ++++++++++++++++
- MAINTAINERS                                   |  1 +
- arch/arm/boot/dts/ti/omap/omap2.dtsi          |  4 ++
- .../dts/ti/omap/omap2420-n8x0-common.dtsi     | 12 ++++
- arch/arm/mach-omap2/board-n8x0.c              | 18 -----
- drivers/net/wireless/intersil/p54/p54spi.c    | 68 +++++++------------
- drivers/net/wireless/intersil/p54/p54spi.h    |  3 +
- 7 files changed, 103 insertions(+), 61 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/net/wireless/st,stlc45xx.yaml
-
+diff --git a/arch/arm/boot/dts/ti/omap/omap2.dtsi b/arch/arm/boot/dts/ti/omap/omap2.dtsi
+index afabb36a8ac1..fdc1790adf43 100644
+--- a/arch/arm/boot/dts/ti/omap/omap2.dtsi
++++ b/arch/arm/boot/dts/ti/omap/omap2.dtsi
+@@ -129,6 +129,8 @@ i2c2: i2c@48072000 {
+ 		};
+ 
+ 		mcspi1: spi@48098000 {
++			#address-cells = <1>;
++			#size-cells = <0>;
+ 			compatible = "ti,omap2-mcspi";
+ 			ti,hwmods = "mcspi1";
+ 			reg = <0x48098000 0x100>;
+@@ -140,6 +142,8 @@ mcspi1: spi@48098000 {
+ 		};
+ 
+ 		mcspi2: spi@4809a000 {
++			#address-cells = <1>;
++			#size-cells = <0>;
+ 			compatible = "ti,omap2-mcspi";
+ 			ti,hwmods = "mcspi2";
+ 			reg = <0x4809a000 0x100>;
+diff --git a/arch/arm/boot/dts/ti/omap/omap2420-n8x0-common.dtsi b/arch/arm/boot/dts/ti/omap/omap2420-n8x0-common.dtsi
+index 63b0b4921e4e..fe9dd8bbfc85 100644
+--- a/arch/arm/boot/dts/ti/omap/omap2420-n8x0-common.dtsi
++++ b/arch/arm/boot/dts/ti/omap/omap2420-n8x0-common.dtsi
+@@ -109,3 +109,15 @@ partition@5 {
+ 		};
+ 	};
+ };
++
++&mcspi2 {
++	status = "okay";
++
++	wifi@0 {
++		reg = <0>;
++		compatible = "st,stlc4560";
++		spi-max-frequency = <48000000>;
++		interrupts-extended = <&gpio3 23 IRQ_TYPE_EDGE_RISING>;
++		powerdown-gpios = <&gpio4 1 GPIO_ACTIVE_LOW>; /* gpio 97 */
++	};
++};
 -- 
 2.39.5
 
