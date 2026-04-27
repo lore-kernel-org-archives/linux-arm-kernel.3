@@ -4,85 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF7E9FF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 18:21:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26952FF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 18:32:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jRL0edEqnjRKMMuAf8kNDWGdxE3K4+zobIK6wBqidRA=; b=Fd1dRZL7qhNk68IN5NzEU5YcL9
-	Sc5pz7jW99zuYG3c346yKXAkL8pOhVANsGZduO4NN66nUsrkF1AvhlAfNLQQCGbNSk4hjKqW3eON3
-	TKOJ1zRM8p+KlxZbzdakvNEKcL5O2wqgdBzR+Wws6UDpAqL5IIdg1l/DosfTqai4Ajvai74HWc1wA
-	lbL4x2NMZN8RLTquyfjXCSMRxI0W/y9g7l534Q4Lhtxj4/NCXo8Gsh+KSRpahxjjCCmw/MwKZafWw
-	879JQmE9T2GOnGwvgH2npP8xljuayyqSAEpFl4X7kiQGuojqHHHiiRanTesg4zmdwV3yEfNylV4EK
-	uZLnO7mg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DEvjTnuToY1sm0DpgUIVOaDKJXu5b04Nj+3IlevEBIg=; b=uQ7U+qZGD6Zsv8pU23KBfQ0ss8
+	RW4SfVEhJOE0ogUyGEGa541QPyGvXVqpiPxALIHDBl84mF0n2TT1LQQ0RjWWTqtfEcs/eUXp9P6PE
+	l8BRGysWCh0KVApm2BXO7n+s3LLtQcYiosk3RBStJrA951o31plqv+7Q4pNSASTf9it2/iPD8sF5l
+	LTW/JWn1enr3OOAMREuBZ1lEJ3d+CMbHD/oUOPS/A6LiBpf2TlcQKXWtM9cxC9tlx+5Td7kCAih+j
+	3+J5E/ATk5FLmFYbBhDycAE5Y0DyA0SvBaoX157mmOTkFFLkukN8Jm8LeUaNns7gFXgY+K2pylpDF
+	PkHtL/+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHQaE-0000000HZK8-33AU;
-	Mon, 27 Apr 2026 18:21:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHQaC-0000000HZJc-0L84;
-	Mon, 27 Apr 2026 18:21:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 46E9540246;
-	Mon, 27 Apr 2026 18:20:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CCCFC2BCB5;
-	Mon, 27 Apr 2026 18:20:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777314053;
-	bh=fSfdZ5/fBIJBn92+lTQ8RknrFiSruKk4Zm5FPbyuhQI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=J2scZpbKenpOejPaCkxdr8Fr6c4RornKyxLjF0dKFYhSlw+matCdj3SDWlLeqEo9E
-	 a373XI9Iold2YwxLkAFI1OVkbxbR9JLgxu/comiCZJeBJjQK8IiPFbF3a0OQIu5zFJ
-	 z32D8XDVz5Fo00XfpR09lc3WO+fPx7ont3FOA+TL4jxGM7w1J5Z2cHWcv2Vi05coRU
-	 6lIPjD/Eh4XtMiOh4PUlJfQ+hbcnF50oIaF0Y5is14Jb9Uy7pNbq6e4WVWxwPn3QZF
-	 F5175xYuXBtUSK+HvgeuPZTDTXog5e6524IUP62vgqpWl/U/vR5Pqvo+DbOYeGkne+
-	 cSOzK+yVIhXWw==
-Message-ID: <63a4d0f6-0eb3-48cd-9f98-bf7b223b2606@kernel.org>
-Date: Mon, 27 Apr 2026 20:20:38 +0200
+	id 1wHQl5-0000000Ha2f-0hkQ;
+	Mon, 27 Apr 2026 18:32:39 +0000
+Received: from [50.53.43.113] (helo=bombadil.infradead.org)
+	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHQl3-0000000Ha2H-2RpQ;
+	Mon, 27 Apr 2026 18:32:37 +0000
+From: Randy Dunlap <rdunlap@infradead.org>
+To: dri-devel@lists.freedesktop.org
+Cc: Randy Dunlap <rdunlap@infradead.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Helge Deller <deller@gmx.de>,
+	linux-fbdev@vger.kernel.org
+Subject: [PATCH v3] gpu: ipu-v3: clean up kernel-doc warnings
+Date: Mon, 27 Apr 2026 11:32:36 -0700
+Message-ID: <20260427183236.656902-1-rdunlap@infradead.org>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v1 7/9] x86: Add unsafe_copy_from_user()
-To: Yury Norov <ynorov@nvidia.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- David Laight <david.laight.linux@gmail.com>,
- Thomas Gleixner <tglx@linutronix.de>, linux-alpha@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
- dmaengine@vger.kernel.org, linux-efi@vger.kernel.org,
- linux-fsi@lists.ozlabs.org, amd-gfx@lists.freedesktop.org,
- dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
- linux-wpan@vger.kernel.org, netdev@vger.kernel.org,
- linux-wireless@vger.kernel.org, linux-spi@vger.kernel.org,
- linux-media@vger.kernel.org, linux-staging@lists.linux.dev,
- linux-serial@vger.kernel.org, linux-usb@vger.kernel.org,
- xen-devel@lists.xenproject.org, linux-fsdevel@vger.kernel.org,
- ocfs2-devel@lists.linux.dev, bpf@vger.kernel.org,
- kasan-dev@googlegroups.com, linux-mm@kvack.org, linux-x25@vger.kernel.org,
- rust-for-linux@vger.kernel.org, linux-sound@vger.kernel.org,
- sound-open-firmware@alsa-project.org, linux-csky@vger.kernel.org,
- linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
- linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org,
- linux-parisc@vger.kernel.org, linux-sh@vger.kernel.org,
- linux-arch@vger.kernel.org
-References: <cover.1777306795.git.chleroy@kernel.org>
- <0ee46bb228d97163fbdc14f2a7c52b93d8bc34ce.1777306795.git.chleroy@kernel.org>
- <ae-j2_QirCySZD02@yury>
-Content-Language: fr-FR
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <ae-j2_QirCySZD02@yury>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_112124_188243_5F384290 
-X-CRM114-Status: GOOD (  15.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,90 +59,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Correct all kernel-doc warnings:
+- fix a typedef kernel-doc comment
+- mark a list_head as private
+- use Returns: for function return values
 
+Warning: include/video/imx-ipu-image-convert.h:31 struct member 'list' not
+ described in 'ipu_image_convert_run'
+Warning: include/video/imx-ipu-image-convert.h:40 function parameter
+ 'ipu_image_convert_cb_t' not described in 'void'
+Warning: include/video/imx-ipu-image-convert.h:40 expecting prototype for
+ ipu_image_convert_cb_t(). Prototype was for void() instead
+Warning: include/video/imx-ipu-image-convert.h:66 No description found for
+ return value of 'ipu_image_convert_verify'
+Warning: include/video/imx-ipu-image-convert.h:90 No description found for
+ return value of 'ipu_image_convert_prepare'
+Warning: include/video/imx-ipu-image-convert.h:125 No description found for
+ return value of 'ipu_image_convert_queue'
+Warning: include/video/imx-ipu-image-convert.h:163 No description found for
+ return value of 'ipu_image_convert'
 
-Le 27/04/2026 à 19:58, Yury Norov a écrit :
-> On Mon, Apr 27, 2026 at 07:13:48PM +0200, Christophe Leroy (CS GROUP) wrote:
->> At the time being, x86 and arm64 are missing unsafe_copy_from_user().
-> 
-> No, they don't. They (should) rely on a generic implementation from
-> linux/uaccess.h, like every other arch, except for  PPC and RISCV.
-> 
-> But they #define arch_unsafe_get_user, and the unsafe_copy_from_user()
-> becomes undefined conditionally on that.
-> 
-> So please, fix that bug instead of introducing another arch flavor.
-> We'd always choose generic version, unless there's strong evidence
-> that arch one is better.
+Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
+---
+v2: add Reviewed-by, update Cc: list, rebase, resend
+v3: rebase & resend
 
-But they both implement the exact same unsafe_copy_to_user(). What is 
-the difference here ?
+Cc: Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+Cc: Maxime Ripard <mripard@kernel.org>
+Cc: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: David Airlie <airlied@gmail.com>
+Cc: Simona Vetter <simona@ffwll.ch>
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: Helge Deller <deller@gmx.de>
+Cc: linux-fbdev@vger.kernel.org
 
-Should that function become generic too ?
+ include/video/imx-ipu-image-convert.h |   16 +++++++++++-----
+ 1 file changed, 11 insertions(+), 5 deletions(-)
 
-Christophe
-
-> 
-> 
-> Thanks,
-> Yury
->   
->> Add it.
->>
->> Signed-off-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
->> ---
->>   arch/x86/include/asm/uaccess.h | 29 ++++++++++++++++++++++++-----
->>   1 file changed, 24 insertions(+), 5 deletions(-)
->>
->> diff --git a/arch/x86/include/asm/uaccess.h b/arch/x86/include/asm/uaccess.h
->> index 3a0dd3c2b233..10c458ffa399 100644
->> --- a/arch/x86/include/asm/uaccess.h
->> +++ b/arch/x86/include/asm/uaccess.h
->> @@ -598,7 +598,7 @@ _label:									\
->>    * We want the unsafe accessors to always be inlined and use
->>    * the error labels - thus the macro games.
->>    */
->> -#define unsafe_copy_loop(dst, src, len, type, label)				\
->> +#define unsafe_put_loop(dst, src, len, type, label)				\
->>   	while (len >= sizeof(type)) {						\
->>   		unsafe_put_user(*(type *)(src),(type __user *)(dst),label);	\
->>   		dst += sizeof(type);						\
->> @@ -611,10 +611,29 @@ do {									\
->>   	char __user *__ucu_dst = (_dst);				\
->>   	const char *__ucu_src = (_src);					\
->>   	size_t __ucu_len = (_len);					\
->> -	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u64, label);	\
->> -	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u32, label);	\
->> -	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u16, label);	\
->> -	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u8, label);	\
->> +	unsafe_put_loop(__ucu_dst, __ucu_src, __ucu_len, u64, label);	\
->> +	unsafe_put_loop(__ucu_dst, __ucu_src, __ucu_len, u32, label);	\
->> +	unsafe_put_loop(__ucu_dst, __ucu_src, __ucu_len, u16, label);	\
->> +	unsafe_put_loop(__ucu_dst, __ucu_src, __ucu_len, u8, label);	\
->> +} while (0)
->> +
->> +#define unsafe_get_loop(dst, src, len, type, label)				\
->> +	while (len >= sizeof(type)) {						\
->> +		unsafe_get_user(*(type __user *)(src),(type *)(dst),label);	\
->> +		dst += sizeof(type);						\
->> +		src += sizeof(type);						\
->> +		len -= sizeof(type);						\
->> +	}
->> +
->> +#define unsafe_copy_from_user(_dst,_src,_len,label)			\
->> +do {									\
->> +	char *__ucu_dst = (_dst);					\
->> +	const char __user *__ucu_src = (_src);				\
->> +	size_t __ucu_len = (_len);					\
->> +	unsafe_get_loop(__ucu_dst, __ucu_src, __ucu_len, u64, label);	\
->> +	unsafe_get_loop(__ucu_dst, __ucu_src, __ucu_len, u32, label);	\
->> +	unsafe_get_loop(__ucu_dst, __ucu_src, __ucu_len, u16, label);	\
->> +	unsafe_get_loop(__ucu_dst, __ucu_src, __ucu_len, u8, label);	\
->>   } while (0)
->>   
->>   #ifdef CONFIG_CC_HAS_ASM_GOTO_OUTPUT
->> -- 
->> 2.49.0
->>
-
+--- linux-next-20260427.orig/include/video/imx-ipu-image-convert.h
++++ linux-next-20260427/include/video/imx-ipu-image-convert.h
+@@ -27,12 +27,13 @@ struct ipu_image_convert_run {
+ 
+ 	int status;
+ 
++	/* private: */
+ 	/* internal to image converter, callers don't touch */
+ 	struct list_head list;
+ };
+ 
+ /**
+- * ipu_image_convert_cb_t - conversion callback function prototype
++ * typedef ipu_image_convert_cb_t - conversion callback function prototype
+  *
+  * @run:	the completed conversion run pointer
+  * @ctx:	a private context pointer for the callback
+@@ -60,7 +61,7 @@ void ipu_image_convert_adjust(struct ipu
+  * @out:	output image format
+  * @rot_mode:	rotation mode
+  *
+- * Returns 0 if the formats and rotation mode meet IPU restrictions,
++ * Returns: 0 if the formats and rotation mode meet IPU restrictions,
+  * -EINVAL otherwise.
+  */
+ int ipu_image_convert_verify(struct ipu_image *in, struct ipu_image *out,
+@@ -77,11 +78,11 @@ int ipu_image_convert_verify(struct ipu_
+  * @complete:	run completion callback
+  * @complete_context:	a context pointer for the completion callback
+  *
+- * Returns an opaque conversion context pointer on success, error pointer
++ * In V4L2, drivers should call ipu_image_convert_prepare() at streamon.
++ *
++ * Returns: an opaque conversion context pointer on success, error pointer
+  * on failure. The input/output formats and rotation mode must already meet
+  * IPU retrictions.
+- *
+- * In V4L2, drivers should call ipu_image_convert_prepare() at streamon.
+  */
+ struct ipu_image_convert_ctx *
+ ipu_image_convert_prepare(struct ipu_soc *ipu, enum ipu_ic_task ic_task,
+@@ -122,6 +123,8 @@ void ipu_image_convert_unprepare(struct
+  * In V4L2, drivers should call ipu_image_convert_queue() while
+  * streaming to queue the conversion of a received input buffer.
+  * For example mem2mem devices this would be called in .device_run.
++ *
++ * Returns: 0 on success or -errno on error.
+  */
+ int ipu_image_convert_queue(struct ipu_image_convert_run *run);
+ 
+@@ -155,6 +158,9 @@ void ipu_image_convert_abort(struct ipu_
+  * On successful return the caller can queue more run requests if needed, using
+  * the prepared context in run->ctx. The caller is responsible for unpreparing
+  * the context when no more conversion requests are needed.
++ *
++ * Returns: pointer to the created &struct ipu_image_convert_run that has
++ * been queued on success; an ERR_PTR(errno) on error.
+  */
+ struct ipu_image_convert_run *
+ ipu_image_convert(struct ipu_soc *ipu, enum ipu_ic_task ic_task,
 
