@@ -4,86 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99374FF8860
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 14:44:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E51CAFF8860
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 14:47:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bK8N1RYsXZ7OryJZ9uHfmG8l0HJuB18neAVGNswJ/rs=; b=UxqtGDSlJSHfC30vS9VKLLShBj
-	QJ9f3yp0OP+04YfO7qvykqcnVKOt+3pyw74W8y9P/5yt+SNEX1LXqHpCqq6m38qtNJe0XYXiU9sdO
-	06y6Qq7iFBmUQgz/4HXRKQmAVzzXrFh73Axm7JxS6zISiaKEqM/2xq2f6BdZk/xmnf9keZau9WWL/
-	fNBOyJVOHQzR/auOdcbzCpPvZ7HfyWisTvwxMsKTNeoOY3B+n18b7aIQDYUBTqtN0ULYB8eDPPZ8Y
-	gq7E1SeBFjarrPJXWdDr9KyLsnayMcgJ9+ma2tiLQ/nEwQ5i6qW5f/FkR0e3G7vvmQIF2ZEfKvs58
-	nV+jsU7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EEvtyh1qratRa875TvVRbNz2A9rzPjFDxObHiRWIEKU=; b=EbV4qlVPy7I+QS//z/uJnnu/Ur
+	29+4qflxHt02QG8nX5xwiablkjfsLA0w+KeHqhbGmOzZk14yD/am365ML09bJZbusvmHbIIx3NsRo
+	BrUHnVZfpiTIHlj0SC9eqzSn2RdRHWgz4pmRRfA3PKiCUsZMCYod6mhZ9rkCgL6gVvX0yq7voqIuJ
+	9m1pVneSSsS3vYwqnpTcT1SO3MwNPvknVVayoHqrY6z7r+xIVwcMMYF1FmSqb6eNbpwhePqSoNRDj
+	tb7l1PUwMDBblLJzik/d0g0DaUjHj8Hjt5se6Z/g1VlYb0hU+iojnXJAdSQKir0Pf7F734EaFV54L
+	tnAI1UaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHNBx-0000000H7hY-1dik;
-	Mon, 27 Apr 2026 14:44:09 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1wHNEo-0000000H7uB-4At4;
+	Mon, 27 Apr 2026 14:47:07 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHNBu-0000000H7h7-2qZQ
+	id 1wHNEn-0000000H7tp-15Li
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 14:44:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1777301047; x=1808837047;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=xEZviH1Rx0Trs7TNfbXnsRxSsbOwAKS55WHlb0BfwFs=;
-  b=Z0hbfwCPAIwDpLTm14HToTJonHgIYxHsLRASjEcwYSPcvlN+APwGDpOS
-   gGFuI9BhUayl68/ckduMb0egEr5eeSR6ClBS4oFKeFoPR8Z/jQ61Rzqos
-   JUjsRpnUM1xp5kkA2LGmnpce9eRr/ldTSOvKYF+txLr9AUZXlv28IroTA
-   B4d7oIt0CLp9efuhWAJRj2Ne96i3+E19u5x8MNr5MmlWlfGFiKx5Bh1v+
-   Fo/yKV1kSuuJl16wZID+itIwii1+a5zztEZyPlhTRHgMk/2yofbZBoNP+
-   67SQ7g2LEQd6sqYr87gBT6zZnI4nON0jVzRVM6SeYICshxhOxObX9Yky0
-   A==;
-X-CSE-ConnectionGUID: t2fmeyyzSC2eOIHTKrxdLw==
-X-CSE-MsgGUID: W6J/r6WETSGmvZDnSShowA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11769"; a="78248300"
-X-IronPort-AV: E=Sophos;i="6.23,202,1770624000"; 
-   d="scan'208";a="78248300"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Apr 2026 07:44:05 -0700
-X-CSE-ConnectionGUID: HZMRTky5RgWSWwZjmbXWZg==
-X-CSE-MsgGUID: Bb9Y1DJDQmu6NQQfLbze+w==
-X-ExtLoop1: 1
-Received: from fpallare-mobl4.ger.corp.intel.com (HELO localhost) ([10.245.244.2])
-  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Apr 2026 07:43:59 -0700
-Date: Mon, 27 Apr 2026 17:43:56 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Janusz Krzysztofik <jmkrzyszt@gmail.com>,
-	Tony Lindgren <tony@atomide.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Kevin Hilman <khilman@baylibre.com>, Arnd Bergmann <arnd@arndb.de>,
-	brgl@kernel.org, driver-core@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org
-Subject: Re: [PATCH v6 2/3] ARM: omap1: use platform_device_register_full()
- for GPIO devices on OMAP 16xx
-Message-ID: <ae92LAOy6nRsFb9w@ashevche-desk.local>
-References: <20260427-nokia770-gpio-swnodes-v6-0-b693296c1985@oss.qualcomm.com>
- <20260427-nokia770-gpio-swnodes-v6-2-b693296c1985@oss.qualcomm.com>
+	Mon, 27 Apr 2026 14:47:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7339760139;
+	Mon, 27 Apr 2026 14:47:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99AC7C19425;
+	Mon, 27 Apr 2026 14:47:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777301224;
+	bh=RPLbGSaE9fK6W+hLR2tVvhlPdS/IRjZSLnCkOBHVBE4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=aDyJDrElZCc5uFhcAXa/g2ltvdCmThW/NIuETOuFk5vxa1JGoTgMLS5byXSvWfx1J
+	 VEe8G9OwNYB+i+AleAif3A48jL46TYxka6sLsB6rGs4T2428hdQnrJJLWnkr6Tr2ad
+	 0KDn2+ZPHV27wWXwn1SKexjOt1aj3GTrva9biGRd/jHvSvx4hfjpEk4NHtdd+n0+MQ
+	 JagNkutNn9eUmaMZGHM0kDeUUfWiD0cZMOzUX7OjUolr9OvrXz71B4oE1zJ43emf7J
+	 91J005/OUmrF/RIYTjTq99+nTz04Og20CIS43iaxY25cHe+DheRvqxsBVL1H+XV7IN
+	 3gpBpndGmrSzA==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>,
+	linux-kernel@vger.kernel.org,
+	linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH 1/3] ASoC: arm: pxa2xx: remove platform_data processing
+Date: Mon, 27 Apr 2026 16:46:29 +0200
+Message-Id: <20260427144658.3609647-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260427-nokia770-gpio-swnodes-v6-2-b693296c1985@oss.qualcomm.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_074406_781138_FD12154B 
-X-CRM114-Status: GOOD (  14.52  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,45 +75,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 27, 2026 at 12:46:33PM +0200, Bartosz Golaszewski wrote:
-> Ahead of changes attaching GPIO controller's software nodes referenced
-> from the Nokia 770 board files to their target devices, switch the
-> method for registering the platform devices to the
-> platform_device_register_full() variant. This is done to leverage the
-> new swnode field of struct platform_device_info which automate the
-> software node's registration and assignment.
+From: Arnd Bergmann <arnd@arndb.de>
 
-...
+Nothing ever sets pxa2xx_audio_ops_t since the last users were removed
+in ce79f3a1ad5f ("ARM: pxa: prune unused device support") , so stop
+passing it around through the sound, ac97 code.
 
->  	for (i = 0; i < ARRAY_SIZE(omap16xx_gpio_dev); i++) {
-> -		pdev = omap16xx_gpio_dev[i];
-> +		pdevinfo = omap16xx_gpio_dev[i];
->  
-> -		res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> +		res = &pdevinfo->res[0];
->  		if (unlikely(!res)) {
->  			dev_err(&pdev->dev, "Invalid mem resource.\n");
->  			return -ENODEV;
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ include/linux/platform_data/asoc-pxa.h | 21 ---------------------
+ include/sound/ac97/codec.h             |  5 ++++-
+ include/sound/ac97/controller.h        |  5 ++---
+ sound/ac97/bus.c                       | 26 ++------------------------
+ sound/soc/pxa/pxa2xx-ac97.c            |  3 +--
+ 5 files changed, 9 insertions(+), 51 deletions(-)
 
->  		base = ioremap(res->start, resource_size(res));
->  		if (unlikely(!base)) {
-> -			dev_err(&pdev->dev, "ioremap failed.\n");
-> +			pr_err("ioremap failed.\n");
->  			return -ENOMEM;
->  		}
-
-Isn't this a stray change? Or why then? And why the previous dev_err() is left untouched?
-
->  		__raw_writel(SYSCONFIG_WORD, base + OMAP1610_GPIO_SYSCONFIG);
->  		iounmap(base);
->  
-> -		platform_device_register(omap16xx_gpio_dev[i]);
-> +		platform_device_register_full(omap16xx_gpio_dev[i]);
->  	}
-
+diff --git a/include/linux/platform_data/asoc-pxa.h b/include/linux/platform_data/asoc-pxa.h
+index 7b5b9e20fbf5..7df78867db49 100644
+--- a/include/linux/platform_data/asoc-pxa.h
++++ b/include/linux/platform_data/asoc-pxa.h
+@@ -6,27 +6,6 @@
+ #include <sound/pcm.h>
+ #include <sound/ac97_codec.h>
+ 
+-/*
+- * @reset_gpio: AC97 reset gpio (normally gpio113 or gpio95)
+- *              a -1 value means no gpio will be used for reset
+- * @codec_pdata: AC97 codec platform_data
+-
+- * reset_gpio should only be specified for pxa27x CPUs where a silicon
+- * bug prevents correct operation of the reset line. If not specified,
+- * the default behaviour on these CPUs is to consider gpio 113 as the
+- * AC97 reset line, which is the default on most boards.
+- */
+-typedef struct {
+-	int (*startup)(struct snd_pcm_substream *, void *);
+-	void (*shutdown)(struct snd_pcm_substream *, void *);
+-	void (*suspend)(void *);
+-	void (*resume)(void *);
+-	void *priv;
+-	int reset_gpio;
+-	void *codec_pdata[AC97_BUS_MAX_DEVICES];
+-} pxa2xx_audio_ops_t;
+-
+-extern void pxa_set_ac97_info(pxa2xx_audio_ops_t *ops);
+ extern void pxa27x_configure_ac97reset(int reset_gpio, bool to_gpio);
+ 
+ #endif
+diff --git a/include/sound/ac97/codec.h b/include/sound/ac97/codec.h
+index 882b849b9255..69b404c354f5 100644
+--- a/include/sound/ac97/codec.h
++++ b/include/sound/ac97/codec.h
+@@ -108,6 +108,9 @@ static inline void ac97_set_drvdata(struct ac97_codec_device *adev,
+ 	dev_set_drvdata(ac97_codec_dev2dev(adev), data);
+ }
+ 
+-void *snd_ac97_codec_get_platdata(const struct ac97_codec_device *adev);
++static inline void *snd_ac97_codec_get_platdata(const struct ac97_codec_device *adev)
++{
++	return NULL;
++}
+ 
+ #endif
+diff --git a/include/sound/ac97/controller.h b/include/sound/ac97/controller.h
+index 06b5afb7fa6b..d5895ea3922b 100644
+--- a/include/sound/ac97/controller.h
++++ b/include/sound/ac97/controller.h
+@@ -62,14 +62,13 @@ struct ac97_controller_ops {
+ #if IS_ENABLED(CONFIG_AC97_BUS_NEW)
+ struct ac97_controller *snd_ac97_controller_register(
+ 	const struct ac97_controller_ops *ops, struct device *dev,
+-	unsigned short slots_available, void **codecs_pdata);
++	unsigned short slots_available);
+ void snd_ac97_controller_unregister(struct ac97_controller *ac97_ctrl);
+ #else
+ static inline struct ac97_controller *
+ snd_ac97_controller_register(const struct ac97_controller_ops *ops,
+ 			     struct device *dev,
+-			     unsigned short slots_available,
+-			     void **codecs_pdata)
++			     unsigned short slots_available)
+ {
+ 	return ERR_PTR(-ENODEV);
+ }
+diff --git a/sound/ac97/bus.c b/sound/ac97/bus.c
+index 15487837e894..a4d230a19c56 100644
+--- a/sound/ac97/bus.c
++++ b/sound/ac97/bus.c
+@@ -206,24 +206,6 @@ void snd_ac97_codec_driver_unregister(struct ac97_codec_driver *drv)
+ }
+ EXPORT_SYMBOL_GPL(snd_ac97_codec_driver_unregister);
+ 
+-/**
+- * snd_ac97_codec_get_platdata - get platform_data
+- * @adev: the ac97 codec device
+- *
+- * For legacy platforms, in order to have platform_data in codec drivers
+- * available, while ac97 device are auto-created upon probe, this retrieves the
+- * platdata which was setup on ac97 controller registration.
+- *
+- * Returns the platform data pointer
+- */
+-void *snd_ac97_codec_get_platdata(const struct ac97_codec_device *adev)
+-{
+-	struct ac97_controller *ac97_ctrl = adev->ac97_ctrl;
+-
+-	return ac97_ctrl->codecs_pdata[adev->num];
+-}
+-EXPORT_SYMBOL_GPL(snd_ac97_codec_get_platdata);
+-
+ static void ac97_ctrl_codecs_unregister(struct ac97_controller *ac97_ctrl)
+ {
+ 	int i;
+@@ -337,7 +319,6 @@ static int ac97_add_adapter(struct ac97_controller *ac97_ctrl)
+  * @dev: the device providing the ac97 DC function
+  * @slots_available: mask of the ac97 codecs that can be scanned and probed
+  *                   bit0 => codec 0, bit1 => codec 1 ... bit 3 => codec 3
+- * @codecs_pdata: codec platform data
+  *
+  * Register a digital controller which can control up to 4 ac97 codecs. This is
+  * the controller side of the AC97 AC-link, while the slave side are the codecs.
+@@ -346,18 +327,15 @@ static int ac97_add_adapter(struct ac97_controller *ac97_ctrl)
+  */
+ struct ac97_controller *snd_ac97_controller_register(
+ 	const struct ac97_controller_ops *ops, struct device *dev,
+-	unsigned short slots_available, void **codecs_pdata)
++	unsigned short slots_available)
+ {
+ 	struct ac97_controller *ac97_ctrl;
+-	int ret, i;
++	int ret;
+ 
+ 	ac97_ctrl = kzalloc_obj(*ac97_ctrl);
+ 	if (!ac97_ctrl)
+ 		return ERR_PTR(-ENOMEM);
+ 
+-	for (i = 0; i < AC97_BUS_MAX_CODECS && codecs_pdata; i++)
+-		ac97_ctrl->codecs_pdata[i] = codecs_pdata[i];
+-
+ 	ac97_ctrl->ops = ops;
+ 	ac97_ctrl->slots_available = slots_available;
+ 	ac97_ctrl->parent = dev;
+diff --git a/sound/soc/pxa/pxa2xx-ac97.c b/sound/soc/pxa/pxa2xx-ac97.c
+index a0c672602918..b0b1293bc849 100644
+--- a/sound/soc/pxa/pxa2xx-ac97.c
++++ b/sound/soc/pxa/pxa2xx-ac97.c
+@@ -246,8 +246,7 @@ static int pxa2xx_ac97_dev_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	ctrl = snd_ac97_controller_register(&pxa2xx_ac97_ops, &pdev->dev,
+-					    AC97_SLOTS_AVAILABLE_ALL,
+-					    NULL);
++					    AC97_SLOTS_AVAILABLE_ALL);
+ 	if (IS_ERR(ctrl))
+ 		return PTR_ERR(ctrl);
+ 
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.39.5
 
 
