@@ -4,136 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87DE0FF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 19:02:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75B0CFF8860
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 19:05:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zt1qoBiZgQM1t1btlI0mC79addHEa7yO7OT0uaav6JI=; b=u8bSHxknklA2ITUYuYmSUSVw4B
-	xaY4A3C0ha5J7Z+RuvL2emFdVyv/HcmQSc5VUOg0KG92WF0xb/OiaARogqDMtQMkSB/su8DRjY4/l
-	aVkhHYvHJXZxGp7+Zi2rmNsr3TyEjtaMfZ3AJCV+aOKlSfiZ9LbmRfpl9n1SHe1svhe4GK6QWnQvl
-	ZzugZzvbjw6fwSYI+XAOQePUldhuv9SMUqVBYLV4/54AqL8WUoj+gH/3s6HJxEwmN4yqiYBT+wRDa
-	mwtKZCTlqGSAYtHgxoZzb9J8IyJyA5GFCIhMNm4y540M3ZK/JeBxu4iidNVX7l2vCOo5pebmjW5md
-	fQRrJYPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Mhyohh1HXnwBgAR4BR6g6L0ve+gccVeyspOB5HMBrqE=; b=2Ft2DKuyEsRyTMRcDQS9Q4ae6X
+	KYmn8i0dkNHC3MQPjahxf8tD+oj4GAPhk/GGwETBapSV3LlnEOurnHpHa5wc8EwPS+KTCilWExnzF
+	URflxh5Cok/Wdbimp0RK55pJC4lPmc60wi21aCS93l0Ho9WnWRsI6OZS9crIgnsFcgR6Sux0/l02v
+	Erll1kZb8tUgi3Pz5MmjIgk+in0zhTFTDKFZp0eapj4YQsuX0eJ5Gnruy/Pk0aqS7n/9dqXJQSkN0
+	Rai1iY0Mv5r4/Pe8fcykPHLDpR55OKN6nR7AyPG39FiaE3Do9RDxeKmYZ7jK8yiMSD8Ncg+egPcUw
+	qdjYLGWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHRDj-000000001BX-1qD5;
-	Mon, 27 Apr 2026 19:02:15 +0000
-Received: from mout.gmx.net ([212.227.15.18])
+	id 1wHRH4-000000001Ze-1Bzz;
+	Mon, 27 Apr 2026 19:05:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHRDd-000000001AC-2v6l;
-	Mon, 27 Apr 2026 19:02:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
-	s=s31663417; t=1777316482; x=1777921282; i=deller@gmx.de;
-	bh=Zt1qoBiZgQM1t1btlI0mC79addHEa7yO7OT0uaav6JI=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=pvJKKcq2bvRAhsxjqAkSqPCTHz+c9uXutnBUNfweFC5C6v6Q3EgeOKe/MJanf1Ba
-	 sAehF4t5/xUIpLJRVOl0YNFM0UY2s1ZtmOUE+OxOPa2dZ4N+GaoaNXUJVeKbqUObc
-	 zWTti5uW04mbR8LXlYdWXdzH0idgP2vWBzyha8fXbLatDwnhl5ulQbpKW/B/LIbfq
-	 m9Sk/0zz5Hq5YiFn5LKjsXeE3bvcDSyAbbuH306N8cXcn/B+mqRHa0DLJIfFBgcYb
-	 SPUzS1OgVVxqH7BapIrTRFMwx269SyWfjiAxp4nbh+xegJyY+50MN5oyqjtATSzbv
-	 OtP1eu9OBKhkgrJwaA==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MMXUD-1vxzDK309n-00RQkF; Mon, 27
- Apr 2026 21:01:21 +0200
-Message-ID: <844ee1e8-e7e2-40ef-a2b1-b7a6b6a44cb2@gmx.de>
-Date: Mon, 27 Apr 2026 21:01:18 +0200
+	id 1wHRGy-000000001ZH-2psM;
+	Mon, 27 Apr 2026 19:05:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 23A13416BE;
+	Mon, 27 Apr 2026 19:05:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D481CC19425;
+	Mon, 27 Apr 2026 19:05:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777316736;
+	bh=Mhyohh1HXnwBgAR4BR6g6L0ve+gccVeyspOB5HMBrqE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Ff5NIzK13KiJmVmOM3rZi1ac7+0JpRvDmH5OHP5nlmXfpnhV4Iq4ORa/QLeJlvrHY
+	 gkOAFcnYCsoH/hPEmAwwRVcFmLCtpOeP3f4r93F2faU/r+0YOK41sESQt7IIt74eet
+	 zn0Dtot5BhoZDnaTwANDDnTAuq5awt5aV41Km0sLJ0K4Q4FgyZKeeR2sDsc8YVkqTN
+	 YlOYgYvJdmyoop5+FijncqYibMuXcd4zadOeqymCj8b789e8B5ppCgtgqJS4o8EMFY
+	 xCiX42i8UETm724S1c+2ut5F7kdswn1ZsZZd1QY2yKftofnBP+8qQ00Wqb1bP94tjs
+	 ijbgbTTV0R2yQ==
+Date: Mon, 27 Apr 2026 20:05:28 +0100
+From: Conor Dooley <conor@kernel.org>
+To: lizhi2@eswincomputing.com
+Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@google.com, kuba@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
+	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	maxime.chevallier@bootlin.com, ningyu@eswincomputing.com,
+	linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com,
+	pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com,
+	horms@kernel.org
+Subject: Re: [PATCH net-next v7 3/4] dt-bindings: mfd: syscon: add ESWIN
+ EIC7700 compatible
+Message-ID: <20260427-skewed-thigh-40baec89fbaf@spud>
+References: <20260427072353.1114-1-lizhi2@eswincomputing.com>
+ <20260427072541.1174-1-lizhi2@eswincomputing.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v1 0/9] uaccess: Convert small fixed size
- copy_{to/from}_user() to scoped user access
-To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- Yury Norov <ynorov@nvidia.com>, Andrew Morton <akpm@linux-foundation.org>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- David Laight <david.laight.linux@gmail.com>,
- Thomas Gleixner <tglx@linutronix.de>
-Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- kvm@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-um@lists.infradead.org, dmaengine@vger.kernel.org,
- linux-efi@vger.kernel.org, linux-fsi@lists.ozlabs.org,
- amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
- intel-gfx@lists.freedesktop.org, linux-wpan@vger.kernel.org,
- netdev@vger.kernel.org, linux-wireless@vger.kernel.org,
- linux-spi@vger.kernel.org, linux-media@vger.kernel.org,
- linux-staging@lists.linux.dev, linux-serial@vger.kernel.org,
- linux-usb@vger.kernel.org, xen-devel@lists.xenproject.org,
- linux-fsdevel@vger.kernel.org, ocfs2-devel@lists.linux.dev,
- bpf@vger.kernel.org, kasan-dev@googlegroups.com, linux-mm@kvack.org,
- linux-x25@vger.kernel.org, rust-for-linux@vger.kernel.org,
- linux-sound@vger.kernel.org, sound-open-firmware@alsa-project.org,
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
- loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
- linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
- linux-sh@vger.kernel.org, linux-arch@vger.kernel.org
-References: <cover.1777306795.git.chleroy@kernel.org>
-Content-Language: en-US
-From: Helge Deller <deller@gmx.de>
-Autocrypt: addr=deller@gmx.de; keydata=
- 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
-In-Reply-To: <cover.1777306795.git.chleroy@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:1BVGzEnh9ud/z86J5vc3jwqhrUEQaFN9ezvONBNWk23lK0h66Lj
- 0xrtgBmMIOPcBoDWmEQeS4PXCvzdwIxhn4Pzilub15kM3Feqk0H3eDb2tX/MG5xgU1O6fnx
- QeGvXu9BfFIEYVIV+dF2H3PKbCBnzALlwBp4AW5heloRv5iuM8nQW3/zjVECVWKsEM94tAo
- sS/Thsodt5emF3NO5Yt1A==
-UI-OutboundReport: notjunk:1;M01:P0:0TjjV61NXRM=;CbjUzEi6igRLCIXmnNBp946d8aL 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
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="El0eEiK729PJ8197"
+Content-Disposition: inline
+In-Reply-To: <20260427072541.1174-1-lizhi2@eswincomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_120210_024074_1BD512FD 
-X-CRM114-Status: GOOD (  17.37  )
+X-CRM114-CacheID: sfid-20260427_120536_735503_BA150EFE 
+X-CRM114-Status: UNSURE (   6.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,166 +85,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Christophe,
 
-On 4/27/26 19:13, Christophe Leroy (CS GROUP) wrote:
-> A lot of copy_from_user() and copy_to_user() perform copies of small
-> fixed size pieces of data between kernel and userspace, and don't
-> care about partial copies.
+--El0eEiK729PJ8197
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, Apr 27, 2026 at 03:25:41PM +0800, lizhi2@eswincomputing.com wrote:
+> From: Zhi Li <lizhi2@eswincomputing.com>
 >=20
-> copy_from_user() and copy_to_user() are big functions optimised for
-> copying large amount of data, with cache management, etc ...=20
-
-They take care of much more: alignments, exception handling (e.g. if userp=
-age
-is read-only and kernel writes to it), various rules when to return faults
-(e.g. sometime reading from page0 is allowed for other arches not), and
-much more. I've seen so many strange things during the last few years,
-and you would need to get it right if you want to "make small" versions
-of those functions.
-
-> This is often overkill for small copies that could just be inlined
-> instead.
-
-Isn't put_user() and get_user() for that ?
-And if you inline you need to take care of faults as well, so indirectly
-you will add more fault handlers (or fault pointers) to the generated code=
-,
-effectively making the kernel bigger.
-
-> What makes things a bit more tricky is that those copy functions
-> are designed to handle partial copies in case of page fault. But among
-> the 6000 callers of those functions, only 2% really care about the
-> quantity of no-copied data that those functions return. All other ones
-> fails as soon as the returned value is not 0, returning -EACCESS.
+> Document ESWIN EIC7700 SoC compatible for syscon registers.
 >=20
-> So first step in this series is to introduce variants called
-> copy_from_user_partial() and copy_to_user_partial() which will be
-> called by the 2% users that care about the partial copy, then the
-> original copy_from_user() and copy_to_user() are changed to return
-> -EFAULT when the copy fails.
->=20
-> Then the second step is to implement copy of small fixed-size data
-> with scoped user access instead of calling the arch specific heavy
-> user copy functions.
+> Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
 
-I'm not against your idea or your patch, but I wonder if you
-really gain much from it.
-Have you done some size or speed comparisons ?
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
-Helge
+--El0eEiK729PJ8197
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> Patch 5, can be split in different patches for each archicture or
-> subsystem, but let's get a first feedback and agree on the principle.
->=20
-> Christophe Leroy (CS GROUP) (9):
->    uaccess: Split check_zeroed_user() out of usercopy.c
->    uaccess: Convert INLINE_COPY_{TO/FROM}_USER to kconfig and reduce
->      ifdefery
->    x86/umip: Be stricter in fixup_umip_exception()
->    uaccess: Introduce copy_{to/from}_user_partial()
->    uaccess: Switch to copy_{to/from}_user_partial() when relevant
->    uaccess: Change copy_{to/from}_user to return -EFAULT
->    x86: Add unsafe_copy_from_user()
->    arm64: Add unsafe_copy_from_user()
->    uaccess: Convert small fixed size copy_{to/from}_user() to scoped use=
-r
->      access
->=20
->   arch/alpha/Kconfig                            |   1 +
->   arch/alpha/kernel/osf_sys.c                   |   4 +-
->   arch/alpha/kernel/termios.c                   |   2 +-
->   arch/arc/include/asm/uaccess.h                |   3 -
->   arch/arc/kernel/disasm.c                      |   2 +-
->   arch/arm/include/asm/uaccess.h                |   2 -
->   arch/arm64/include/asm/gcs.h                  |   2 +-
->   arch/arm64/include/asm/uaccess.h              |  30 +++--
->   arch/arm64/kernel/signal32.c                  |   2 +-
->   arch/csky/Kconfig                             |   1 +
->   arch/hexagon/include/asm/uaccess.h            |   3 -
->   arch/loongarch/include/asm/uaccess.h          |   3 -
->   arch/m68k/include/asm/uaccess.h               |   3 -
->   arch/microblaze/include/asm/uaccess.h         |   2 -
->   arch/mips/include/asm/uaccess.h               |   3 -
->   arch/mips/kernel/rtlx.c                       |   8 +-
->   arch/mips/kernel/vpe.c                        |   2 +-
->   arch/nios2/include/asm/uaccess.h              |   2 -
->   arch/openrisc/include/asm/uaccess.h           |   2 -
->   arch/parisc/include/asm/uaccess.h             |   3 -
->   arch/powerpc/Kconfig                          |   1 +
->   arch/powerpc/kvm/book3s_64_mmu_hv.c           |   4 +-
->   arch/powerpc/kvm/book3s_64_mmu_radix.c        |   4 +-
->   arch/powerpc/kvm/book3s_hv.c                  |   2 +-
->   arch/riscv/Kconfig                            |   1 +
->   arch/riscv/kernel/signal.c                    |   2 +-
->   arch/s390/include/asm/idals.h                 |   8 +-
->   arch/s390/include/asm/uaccess.h               |   3 -
->   arch/sh/include/asm/uaccess.h                 |   2 -
->   arch/sparc/include/asm/uaccess_32.h           |   3 -
->   arch/sparc/include/asm/uaccess_64.h           |   2 -
->   arch/sparc/kernel/termios.c                   |   2 +-
->   arch/um/include/asm/uaccess.h                 |   3 -
->   arch/um/kernel/process.c                      |   2 +-
->   arch/x86/Kconfig                              |   1 +
->   arch/x86/include/asm/uaccess.h                |  29 ++++-
->   arch/x86/kernel/umip.c                        |   2 +-
->   arch/x86/lib/insn-eval.c                      |   2 +-
->   arch/x86/um/signal.c                          |   2 +-
->   arch/xtensa/include/asm/uaccess.h             |   2 -
->   drivers/android/binder_alloc.c                |   2 +-
->   drivers/comedi/comedi_fops.c                  |   4 +-
->   drivers/dma/idxd/cdev.c                       |   2 +-
->   drivers/firmware/efi/test/efi_test.c          |   2 +-
->   drivers/fsi/fsi-scom.c                        |   2 +-
->   .../amd/display/amdgpu_dm/amdgpu_dm_debugfs.c |   2 +-
->   drivers/gpu/drm/i915/gt/intel_sseu.c          |   4 +-
->   drivers/gpu/drm/i915/i915_gem.c               |   4 +-
->   drivers/hwtracing/intel_th/msu.c              |   2 +-
->   drivers/misc/ibmvmc.c                         |   2 +-
->   drivers/misc/vmw_vmci/vmci_host.c             |   2 +-
->   drivers/most/most_cdev.c                      |   2 +-
->   drivers/net/ieee802154/ca8210.c               |   4 +-
->   drivers/net/wireless/ath/wil6210/debugfs.c    |   2 +-
->   .../intel/iwlwifi/pcie/gen1_2/trans.c         |   2 +-
->   drivers/net/wireless/ti/wlcore/debugfs.c      |   2 +-
->   drivers/ps3/ps3-lpm.c                         |   2 +-
->   drivers/s390/crypto/zcrypt_api.h              |   4 +-
->   drivers/spi/spidev.c                          |   2 +-
->   .../staging/media/atomisp/pci/atomisp_cmd.c   |   8 +-
->   drivers/tty/tty_ioctl.c                       |  14 +--
->   drivers/tty/vt/vc_screen.c                    |   4 +-
->   drivers/usb/gadget/function/f_hid.c           |   4 +-
->   drivers/usb/gadget/function/f_printer.c       |   2 +-
->   drivers/vfio/vfio_iommu_type1.c               |   4 +-
->   drivers/xen/xenbus/xenbus_dev_frontend.c      |   2 +-
->   fs/namespace.c                                |   2 +-
->   fs/ocfs2/dlmfs/dlmfs.c                        |   2 +-
->   fs/proc/base.c                                |   4 +-
->   include/asm-generic/uaccess.h                 |   2 -
->   include/linux/bpfptr.h                        |   2 +-
->   include/linux/sockptr.h                       |   4 +-
->   include/linux/uaccess.h                       | 107 ++++++++++++++----
->   ipc/msg.c                                     |   8 +-
->   ipc/sem.c                                     |   8 +-
->   ipc/shm.c                                     |  18 +--
->   kernel/regset.c                               |   2 +-
->   kernel/sys.c                                  |   4 +-
->   lib/Kconfig                                   |   3 +
->   lib/Makefile                                  |   4 +-
->   lib/kfifo.c                                   |   8 +-
->   lib/{usercopy.c =3D> usercheck.c}               |  22 ----
->   lib/usercopy.c                                |  66 -----------
->   mm/kasan/kasan_test_c.c                       |   4 +-
->   mm/memory.c                                   |   2 +-
->   net/x25/af_x25.c                              |   2 +-
->   rust/helpers/uaccess.c                        |   6 +-
->   sound/pci/emu10k1/emufx.c                     |   4 +-
->   sound/pci/rme9652/hdsp.c                      |   6 +-
->   sound/soc/intel/avs/probes.c                  |   6 +-
->   sound/soc/sof/compress.c                      |  12 +-
->   sound/soc/sof/sof-client-probes.c             |   6 +-
->   92 files changed, 269 insertions(+), 288 deletions(-)
->   copy lib/{usercopy.c =3D> usercheck.c} (73%)
->=20
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCae+zeAAKCRB4tDGHoIJi
+0mlTAP9T1H4VVCoPrBVkVi5B+2V2Nkk0PL+jONjju6Vk9eFLiQEAtsSo/+ncqagi
+Rjbg6nd17U+wXLIrzq8nY1sOlp9TkQk=
+=nVjP
+-----END PGP SIGNATURE-----
+
+--El0eEiK729PJ8197--
 
