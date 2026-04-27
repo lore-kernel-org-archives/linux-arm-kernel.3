@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8414EFF8862
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 07:05:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD935FF8861
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 07:05:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rr/9loWzTCnuzbqIycr7oDXTTISYfg5Ae1uSICJW5Ho=; b=sJoLy/ETCw2pveyEQONh0oop0Y
-	AWa4e+LoorrHNjHfQ5ow1nTm3+WxcWQAO2cR+4/C6Zr9PySAm8SgTsYGzK7AiijJdw31yTo4fBPug
-	PL5nPbeFjcN3gawg2N7T918qMgI9UaKnBapaOX646Z/z0HPWN32BR6GS6OpWh6FiBe/MeBxi4zlcQ
-	1XofGGQtfFFnbQgENL7+l3dSIUUQjQqg1x6QIwRnrLDhBYrk6IKAH/8lE2oJce/SiwPHVE01ZaKeJ
-	1eXoDeAdVP2mORBVthrtS20f2Kx2zPW00zB7EwHPqbjTRk+06k4KNbSt1pvOMmfO490oOm9RzwBBk
-	qI+mB2Lg==;
+	bh=BY/CeKw/Cj7EVqerAhBT/2EnODNIlNfrNdkGy5aGuvs=; b=XkMkC+MOQHSXtl64E/YcqAynvF
+	y7881YbOYxNjNTkmk0fXFe2REYoLYTmjvBrZXdZT+5cqv3YFUQlUEKz59mCcAGcAlTPYp/oHyDMBI
+	l0C+H6e26m1dtUEQuKhuqQ8r4ff4YCU+PnPdEoelhHc1GFjecwKkSb7PiwN9Pmfx0KNsYpdJCJ8uh
+	CLaXM3q+0t2Ov3NIRup252RkeVOsVSXYswEGXtQzXYfdrVJe95nDN1fvEDLih1LA/eFtPta8yQk7W
+	LGUs1sVb9OpUoKb+Cw4ZHtCLk7nsh8Bcp9G8/7MTgjGG3dLfPPhr61Jdch/gKPmx463/B6iDFmA2U
+	J9VGwU/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHG1z-0000000GKhy-2I2b;
-	Mon, 27 Apr 2026 07:05:23 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1wHG24-0000000GKkR-0Y1Y;
+	Mon, 27 Apr 2026 07:05:28 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHG1x-0000000GKhK-2g1w;
-	Mon, 27 Apr 2026 07:05:22 +0000
-X-UUID: 7340bcda420711f1a6de359d7043e138-20260427
+	id 1wHG21-0000000GKj8-36eb;
+	Mon, 27 Apr 2026 07:05:27 +0000
+X-UUID: 74c2ba9a420711f19e7563141e833ce8-20260427
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=rr/9loWzTCnuzbqIycr7oDXTTISYfg5Ae1uSICJW5Ho=;
-	b=gm4RQL34QwCnjs15OkJloqifimmHdv+EKvRzIE7U8O4MwjETygGf/okbXdCtvtGNHNlxtjZGp147eTK0OwC0cx8HaLlCALJk55W8pc/pgW+NErDVLJNXqHqtLWDH9V3hlHp0dkSAfc0irjgM+QtNXapvURuytQ/RH5+uJfVlFYs=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=BY/CeKw/Cj7EVqerAhBT/2EnODNIlNfrNdkGy5aGuvs=;
+	b=ay9dd/bd6CzZrqLPp8YvbPwEIUNWqWX/gS45lHfFhrggmL/Cbjad/vHfvQdPe09s/5fgwCOqfCMydN2PKNMuqINzZN460bHLdPqZ7iizRb1kQ20MOFXje0nFMGlH0E/ca1ZSWWCkCl9alcNYPJxpa3qym2G0S+zUTZDem2VTDAg=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:69650daf-2971-4235-8fdb-6c23e51ebfc1,IP:0,U
-	RL:0,TC:0,Content:0,EDM:-25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-25
-X-CID-META: VersionHash:e7bac3a,CLOUDID:5b187fbe-65a8-4b41-ac18-3671578a914d,B
+X-CID-O-INFO: VERSION:1.3.12,REQID:4e8d75ad-444a-4488-8084-ce4ee0d589d1,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e7bac3a,CLOUDID:ecbaa764-469e-4eb6-aeb8-4b21454b0f32,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|865|888|898,TC:-5,Cont
-	ent:0|15|50,EDM:2,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,
-	OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+	ent:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0
+	,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 7340bcda420711f1a6de359d7043e138-20260427
-Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw02.mediatek.com
+X-UUID: 74c2ba9a420711f19e7563141e833ce8-20260427
+Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw01.mediatek.com
 	(envelope-from <zhengnan.chen@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1068630829; Mon, 27 Apr 2026 00:05:19 -0700
+	with ESMTP id 1472856947; Mon, 27 Apr 2026 00:05:21 -0700
 Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- MTKMBS14N2.mediatek.inc (172.21.101.76) with Microsoft SMTP Server
+ MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Mon, 27 Apr 2026 15:05:16 +0800
+ 15.2.2562.29; Mon, 27 Apr 2026 15:05:18 +0800
 Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
  mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Mon, 27 Apr 2026 15:05:15 +0800
+ 15.2.2562.29 via Frontend Transport; Mon, 27 Apr 2026 15:05:18 +0800
 From: mtk20898 <zhengnan.chen@mediatek.com>
 To: Yong Wu <yong.wu@mediatek.com>, Krzysztof Kozlowski <krzk@kernel.org>, Rob
  Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias
@@ -63,9 +63,9 @@ CC: <linux-mediatek@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Zhengnan Chen
 	<zhengnan.chen@mediatek.com>
-Subject: [RESEND,v2 1/2] dt-bindings: memory-controllers: mtk-smi: Add support for mt8189
-Date: Mon, 27 Apr 2026 15:04:28 +0800
-Message-ID: <20260427070444.20247-2-zhengnan.chen@mediatek.com>
+Subject: [RESEND,v2 2/2] memory: mtk-smi: Add mt8189 support
+Date: Mon, 27 Apr 2026 15:04:29 +0800
+Message-ID: <20260427070444.20247-3-zhengnan.chen@mediatek.com>
 X-Mailer: git-send-email 2.46.0
 In-Reply-To: <20260427070444.20247-1-zhengnan.chen@mediatek.com>
 References: <20260427070444.20247-1-zhengnan.chen@mediatek.com>
@@ -73,8 +73,9 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_000521_684829_EC9213C9 
-X-CRM114-Status: GOOD (  13.67  )
+X-CRM114-CacheID: sfid-20260427_000525_791832_D04612ED 
+X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,111 +92,98 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Zhengnan Chen <zhengnan.chen@mediatek.com>
 
-Add binding description for mt8189.
-
-The clocks number of mt8189 smi-sub common has a bit difference.
-Its clock count is 2, while mt8195 has 3. Therefore, the minimum
-number of clocks is changed to 2, with the third one being optional.
-
-About what smi-sub-common is, please check the below diagram,
-we add it in mediatek,smi-common.yaml file.
+Add the necessary platform data and ostdl setting to enable support
+for mt8189 smi.
 
 Signed-off-by: Zhengnan Chen <zhengnan.chen@mediatek.com>
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- .../mediatek,smi-common.yaml                  | 25 +++++++++++++++++--
- .../memory-controllers/mediatek,smi-larb.yaml |  3 +++
- 2 files changed, 26 insertions(+), 2 deletions(-)
+ drivers/memory/mtk-smi.c | 44 ++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 44 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml b/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml
-index 0762e0ff66ef..454d11a83973 100644
---- a/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml
-+++ b/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml
-@@ -25,6 +25,21 @@ description: |
-   SMI generation 1 to transform the smi clock into emi clock domain, but that is
-   not needed for SMI generation 2.
+diff --git a/drivers/memory/mtk-smi.c b/drivers/memory/mtk-smi.c
+index aaeba8ab211e..f2d5462af681 100644
+--- a/drivers/memory/mtk-smi.c
++++ b/drivers/memory/mtk-smi.c
+@@ -401,6 +401,30 @@ static const u8 mtk_smi_larb_mt8188_ostd[][SMI_LARB_PORT_NR_MAX] = {
+ 	[25] = {0x01},
+ };
  
-+  The smi-common connects with smi-larb and IOMMU. The maximum inputs number of
-+  a smi-common is 8. In SMI generation 2, the engines number may be over 8.
-+  In this case, we use a smi-sub-common to merge some larbs.
-+  The block diagram something is like:
++static const u8 mtk_smi_larb_mt8189_ostd[][SMI_LARB_PORT_NR_MAX] = {
++	[0] = {0x8, 0x20, 0x20, 0x20, 0x20, 0x20, 0x10, 0x0,},
++	[1] = {0x8, 0x20, 0x20, 0x20, 0x20, 0x20, 0x10, 0x0,},
++	[2] = {0x7, 0x7, 0x4, 0x4, 0x0, 0x0, 0x2, 0x2, 0x7, 0x7, 0x0,},
++	[4] = {0x2F, 0x1E, 0x9, 0x1, 0x1, 0x1, 0x1, 0x2, 0x2, 0x5, 0x1, 0x17,},
++	[7] = {0x20, 0x2, 0x1, 0x1, 0x1, 0x4, 0x2, 0x1, 0x1, 0x2, 0x3, 0x2,
++	       0xA, 0xF, 0x4, 0x6, 0x5, 0x1,},
++	[9] = {0x6, 0x3, 0xC, 0x6, 0x1, 0x4, 0x3, 0x1, 0x2, 0x4, 0x5, 0x2,
++	       0x4, 0x2, 0x3, 0xB, 0x1, 0x4, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1,
++	       0x1, 0x1,},
++	[11] = {0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1,
++		0x1, 0x1, 0x1, 0xB, 0x1, 0x4, 0x6, 0x5, 0x6, 0x1, 0x5, 0x2,
++		0x9, 0x5,},
++	[13] = {0x2, 0x8, 0x8, 0x8, 0x4, 0x4, 0x4, 0x4, 0x4, 0xE, 0x4, 0x1,
++		0x6, 0x6, 0x2,},
++	[14] = {0x1, 0x1, 0x1, 0x20, 0xE, 0x4, 0x8, 0x8, 0x6, 0x4,},
++	[16] = {0x1E, 0xC, 0x2, 0x8, 0xE, 0x2, 0x1E, 0x10, 0x4, 0x2, 0x2, 0x2,
++		0x2, 0x2, 0x4, 0x2, 0x4,},
++	[17] = {0x1E, 0xC, 0x2, 0x8, 0xE, 0x2, 0x1E, 0x10, 0x4, 0x2, 0x2, 0x2,
++		0x2, 0x2, 0x4, 0x2, 0x4,},
++	[19] = {0x2, 0x1, 0x3, 0x1,},
++	[20] = {0x7, 0x7, 0x3, 0x3, 0x1, 0x1,},
++};
 +
-+                          IOMMU
-+                           | |
-+                       smi-common
-+              ---------------------------
-+               |          |           ...
-+              larb0   sub-common      ...  <-max number is 8
-+                   ----------------
-+                    |     |    ...
-+                  larb1 larbX  ...  <-max number is 8
+ static const u8 mtk_smi_larb_mt8192_ostd[][SMI_LARB_PORT_NR_MAX] = {
+ 	[0] = {0x2, 0x2, 0x28, 0xa, 0xc, 0x28,},
+ 	[1] = {0x2, 0x2, 0x18, 0x18, 0x18, 0xa, 0xc, 0x28,},
+@@ -533,6 +557,13 @@ static const struct mtk_smi_larb_gen mtk_smi_larb_mt8188 = {
+ 	.ostd		            = mtk_smi_larb_mt8188_ostd,
+ };
+ 
++static const struct mtk_smi_larb_gen mtk_smi_larb_mt8189 = {
++	.config_port                = mtk_smi_larb_config_port_gen2_general,
++	.flags_general	            = MTK_SMI_FLAG_THRT_UPDATE | MTK_SMI_FLAG_SW_FLAG |
++				      MTK_SMI_FLAG_SLEEP_CTL | MTK_SMI_FLAG_CFG_PORT_SEC_CTL,
++	.ostd		            = mtk_smi_larb_mt8189_ostd,
++};
 +
- properties:
-   compatible:
-     oneOf:
-@@ -40,6 +55,8 @@ properties:
-           - mediatek,mt8186-smi-common
-           - mediatek,mt8188-smi-common-vdo
-           - mediatek,mt8188-smi-common-vpp
-+          - mediatek,mt8189-smi-common
-+          - mediatek,mt8189-smi-sub-common
-           - mediatek,mt8192-smi-common
-           - mediatek,mt8195-smi-common-vdo
-           - mediatek,mt8195-smi-common-vpp
-@@ -108,19 +125,23 @@ allOf:
-         compatible:
-           contains:
-             enum:
-+              - mediatek,mt8189-smi-sub-common
-               - mediatek,mt8195-smi-sub-common
-     then:
-       required:
-         - mediatek,smi
-       properties:
-         clocks:
--          minItems: 3
-+          minItems: 2
-           maxItems: 3
-         clock-names:
-+          minItems: 2
-+          maxItems: 3
-           items:
-             - const: apb
-             - const: smi
--            - const: gals0
-+          additionalItems:
-+            const: gals0
-     else:
-       properties:
-         mediatek,smi: false
-diff --git a/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-larb.yaml b/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-larb.yaml
-index 2e7fac4b5094..9a5dafd7c07e 100644
---- a/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-larb.yaml
-+++ b/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-larb.yaml
-@@ -27,6 +27,7 @@ properties:
-           - mediatek,mt8183-smi-larb
-           - mediatek,mt8186-smi-larb
-           - mediatek,mt8188-smi-larb
-+          - mediatek,mt8189-smi-larb
-           - mediatek,mt8192-smi-larb
-           - mediatek,mt8195-smi-larb
+ static const struct mtk_smi_larb_gen mtk_smi_larb_mt8192 = {
+ 	.config_port                = mtk_smi_larb_config_port_gen2_general,
+ 	.ostd			    = mtk_smi_larb_mt8192_ostd,
+@@ -556,6 +587,7 @@ static const struct of_device_id mtk_smi_larb_of_ids[] = {
+ 	{.compatible = "mediatek,mt8183-smi-larb", .data = &mtk_smi_larb_mt8183},
+ 	{.compatible = "mediatek,mt8186-smi-larb", .data = &mtk_smi_larb_mt8186},
+ 	{.compatible = "mediatek,mt8188-smi-larb", .data = &mtk_smi_larb_mt8188},
++	{.compatible = "mediatek,mt8189-smi-larb", .data = &mtk_smi_larb_mt8189},
+ 	{.compatible = "mediatek,mt8192-smi-larb", .data = &mtk_smi_larb_mt8192},
+ 	{.compatible = "mediatek,mt8195-smi-larb", .data = &mtk_smi_larb_mt8195},
+ 	{}
+@@ -808,6 +840,16 @@ static const struct mtk_smi_common_plat mtk_smi_common_mt8188_vpp = {
+ 	.init     = mtk_smi_common_mt8195_init,
+ };
  
-@@ -85,6 +86,7 @@ allOf:
-             - mediatek,mt8183-smi-larb
-             - mediatek,mt8186-smi-larb
-             - mediatek,mt8188-smi-larb
-+            - mediatek,mt8189-smi-larb
-             - mediatek,mt8195-smi-larb
- 
-     then:
-@@ -119,6 +121,7 @@ allOf:
-               - mediatek,mt6779-smi-larb
-               - mediatek,mt8186-smi-larb
-               - mediatek,mt8188-smi-larb
-+              - mediatek,mt8189-smi-larb
-               - mediatek,mt8192-smi-larb
-               - mediatek,mt8195-smi-larb
- 
++static const struct mtk_smi_common_plat mtk_smi_common_mt8189 = {
++	.type     = MTK_SMI_GEN2,
++	.bus_sel  = F_MMU1_LARB(1) | F_MMU1_LARB(3) | F_MMU1_LARB(5) |
++		    F_MMU1_LARB(7),
++};
++
++static const struct mtk_smi_common_plat mtk_smi_sub_common_mt8189 = {
++	.type     = MTK_SMI_GEN2_SUB_COMM,
++};
++
+ static const struct mtk_smi_common_plat mtk_smi_common_mt8192 = {
+ 	.type     = MTK_SMI_GEN2,
+ 	.has_gals = true,
+@@ -852,6 +894,8 @@ static const struct of_device_id mtk_smi_common_of_ids[] = {
+ 	{.compatible = "mediatek,mt8186-smi-common", .data = &mtk_smi_common_mt8186},
+ 	{.compatible = "mediatek,mt8188-smi-common-vdo", .data = &mtk_smi_common_mt8188_vdo},
+ 	{.compatible = "mediatek,mt8188-smi-common-vpp", .data = &mtk_smi_common_mt8188_vpp},
++	{.compatible = "mediatek,mt8189-smi-common", .data = &mtk_smi_common_mt8189},
++	{.compatible = "mediatek,mt8189-smi-sub-common", .data = &mtk_smi_sub_common_mt8189},
+ 	{.compatible = "mediatek,mt8192-smi-common", .data = &mtk_smi_common_mt8192},
+ 	{.compatible = "mediatek,mt8195-smi-common-vdo", .data = &mtk_smi_common_mt8195_vdo},
+ 	{.compatible = "mediatek,mt8195-smi-common-vpp", .data = &mtk_smi_common_mt8195_vpp},
 -- 
 2.46.0
 
