@@ -4,80 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 201B1FF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 14:24:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CA0AFF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 14:29:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KoY9ZoI1Sl/3PkJRq3/Iel00EgmDuIhbXaepc+P8kpA=; b=j6SB8iyWgHRyvT2coBUtImaBDs
-	qcbuYprOgQP5/NB9+sG1dGB6HZEq3SCGD4lQDXEEDU9h6/hFg9q7AQDW+h68c8enz7+Jwtt3+ieUw
-	f+pN5CHur5gC1a1lZQ9RTyLLzG96J7Mgz0W6Hv1BfHcab7aalTLWupMO9HkGumjy5svrUbwhti2L4
-	3A0Lb+Vu+uU0pOfnkdbPvRiPFkeK02a1z2qrlZHl4FEU4Yg0Hm0Ddkti1emS+lyiVzupPmLL6kMFQ
-	dSpV0BW9lQ7SV3b1nBiD81rh+WLRJ5EoXn2Jri7414ptLgjMpwBL/KX8xtc6nIEPzPk5oPyv3h1qz
-	bZb1mgFQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IMFvWn4bMUcIXQpx/OE+bHq9xpHDeiZjz5kCAiCvPSE=; b=4+fdLlAZWBZMa1jMz+fTNSWvfg
+	Ch10pqezJyTcnmeZ6DBLVOvJC7J3Vzcda+XmyfJHtskQH86ve3b40OT2N3yzZb67jQJXTjHaw+o7M
+	PnZ3k6xUZVih37vlJN8uB1Jj2eQYLW4RpS6t2gTGPza3LNua7x57WVCSWRSnaKl9n2QUwMvtBkgrA
+	GAzkpIqZN5tt0/v8p3RZhThP2E6f8y8l6okHv6GlqRvUQzvcPrhx5KuEBBUS2Zos+Otq+R73n8LUL
+	GJesw/EOT3yP+xaJDROdvB1lFg6vYpd1pkHTvN25XHtI75554QWbD5BoEY9y3nN7aqBmky3bicvB2
+	uoJUItpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHMsr-0000000H5iJ-0Fig;
-	Mon, 27 Apr 2026 14:24:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wHMxz-0000000H6M0-3mf5;
+	Mon, 27 Apr 2026 14:29:43 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHMso-0000000H5gq-2GW7
+	id 1wHMxv-0000000H6L7-2wa7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 14:24:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F231660139;
-	Mon, 27 Apr 2026 14:24:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F4C4C2BCC4;
-	Mon, 27 Apr 2026 14:24:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777299861;
-	bh=5vHeUD4XDO+jrNf3SjbxNwWzSv6HWIWXWuo72nUC1JI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=uGdsR4+k3FvnnYnvX3Y8UhtjVufTKOlRn85hY5P7E9hwpr3x3DRbxCttv2TDtdkMC
-	 UZBGTe8kwF1BBuT+Rk8dj3YxZ7hcEMWHn3RZ2E35/Igo/CaXdbC8fANsB7mH+rKLkb
-	 fjm8htxAkvo46HqYmaN+ZUCW7/DeEHD7hkXKPJP/trr3Fsf0pYfh+w/aRK9YuYhtgr
-	 ue73ltKQMJqkuDpyG6xB9V7mVUy303EhLF5iJFMY0kV/XSr1p86aoTUeQInQPIaC+R
-	 2wtwquWyoYCKsrMS4MKjF7S987ZTRy66tm0UjHpMiDgYFAytkx472Rjo/Udnownd7r
-	 tog962DDwol7w==
-From: Arnd Bergmann <arnd@kernel.org>
-To: 
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	"Aaro Koskinen" <aaro.koskinen@iki.fi>,
-	"Andreas Kemnade" <andreas@kemnade.info>,
-	"Bartosz Golaszewski" <brgl@kernel.org>,
-	=?UTF-8?q?Beno=C3=AEt=20Cousson?= <bcousson@baylibre.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	"Dmitry Torokhov" <dmitry.torokhov@gmail.com>,
-	"Eric Dumazet" <edumazet@google.com>,
-	"Felipe Balbi" <balbi@kernel.org>,
-	"Jakub Kicinski" <kuba@kernel.org>,
-	"Johannes Berg" <johannes@sipsolutions.net>,
-	"Kevin Hilman" <khilman@baylibre.com>,
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
-	"Linus Walleij" <linusw@kernel.org>,
-	"Paolo Abeni" <pabeni@redhat.com>,
-	"Rob Herring" <robh+dt@kernel.org>,
-	"Roger Quadros" <rogerq@kernel.org>,
-	"Tony Lindgren" <tony@atomide.com>,
-	linux-wireless@vger.kernel.org,
-	netdev@vger.kernel.org,
+	Mon, 27 Apr 2026 14:29:41 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 306AC4E42B34;
+	Mon, 27 Apr 2026 14:29:35 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id DD899600D1;
+	Mon, 27 Apr 2026 14:29:34 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 77F8010728201;
+	Mon, 27 Apr 2026 16:29:29 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1777300174; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=IMFvWn4bMUcIXQpx/OE+bHq9xpHDeiZjz5kCAiCvPSE=;
+	b=OBm2Oc5RhoK+jY+juB43n1SFGuNEXi4M5PKpopAuBMfJF2QZ5rEgo5rDJb9ZCbItBMWI8J
+	KSvxANLmV2wspDotACNXnb89PvoNj5lYp05ZGiliReQBRGQcWLsDnMr1PZNkR/ypRl9CYl
+	qa2WEQ2QBXFR4/AGck6xDDzPlk2Xx0zxe40tKHVROBXiz7oTR+GUaNF97+TyriGFY39Q9P
+	4JN7wxtK6mvvTOA1w61Y4qD6iLo+j1W/jrrmoc3Z3aeUJWDIiVeIBTBUnNNl5R0/oj8Pb8
+	D1ZSCk/h+K8GkuPWcJSrHL1ANyQTc3aHpepTgr1a52goz1l0ok9XBqwoCFn0FQ==
+From: "Richard Genoud (TI)" <richard.genoud@bootlin.com>
+To: Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Gregory CLEMENT <gregory.clement@bootlin.com>,
+	Thomas Richard <thomas.richard@bootlin.com>,
+	Udit Kumar <u-kumar1@ti.com>,
+	Abhash Kumar <a-kumar2@ti.com>,
+	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
-	linux-omap@vger.kernel.org,
-	Christian Lamparter <chunkeey@gmail.com>
-Subject: [PATCH v3 3/3] p54spi: convert to devicetree
-Date: Mon, 27 Apr 2026 16:23:55 +0200
-Message-Id: <20260427142355.2532714-4-arnd@kernel.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260427142355.2532714-1-arnd@kernel.org>
-References: <20260427142355.2532714-1-arnd@kernel.org>
+	"Richard Genoud (TI)" <richard.genoud@bootlin.com>
+Subject: [PATCH v2 0/3] J722s: s2r: use ti,j7200-padconf
+Date: Mon, 27 Apr 2026 16:28:58 +0200
+Message-ID: <20260427142901.341861-1-richard.genoud@bootlin.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260427_072939_874981_6D068284 
+X-CRM114-Status: UNSURE (   8.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,225 +84,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+The pinctrl contexts for j722s should be saved and restored during
+suspend-to-ram, just like it is done for j7200 and j784s4 SoCs.
 
-The Prism54 SPI driver hardcodes GPIO numbers and expects users to
-pass them as module parameters, apparently a relic from its life as a
-staging driver. This works because there is only one user, the Nokia
-N8x0 tablet.
+The first patch adds the ti,j7200-padconf compatible, and the next 2
+patches introduce k3-j722s-mcu.dtsi and k3-j722s-wakeup.dtsi, preventing
+using k3-j722s-main.dtsi for something else than main domain
+peripherals.
 
-Convert this to the gpio descriptor interface and DT based probing
-to improve this and simplify the code at the same time.
+Changes from v1:
+- Add ti,j7200-padconf at SoC level instead of board level.
+- create k3-j722s-mcu.dtsi and k3-j722s-wakeup.dtsi for mcu/wakeup
+  domain peripherals.
 
-Acked-by: Christian Lamparter <chunkeey@gmail.com>
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
- arch/arm/mach-omap2/board-n8x0.c           | 18 ------
- drivers/net/wireless/intersil/p54/p54spi.c | 68 ++++++++--------------
- drivers/net/wireless/intersil/p54/p54spi.h |  3 +
- 3 files changed, 28 insertions(+), 61 deletions(-)
+- Link to v1: https://lore.kernel.org/lkml/20260420131735.3833993-1-richard.genoud@bootlin.com/
 
-diff --git a/arch/arm/mach-omap2/board-n8x0.c b/arch/arm/mach-omap2/board-n8x0.c
-index 969265d5d5c6..d9acd32c5457 100644
---- a/arch/arm/mach-omap2/board-n8x0.c
-+++ b/arch/arm/mach-omap2/board-n8x0.c
-@@ -20,7 +20,6 @@
- #include <linux/spi/spi.h>
- #include <linux/usb/musb.h>
- #include <linux/mmc/host.h>
--#include <linux/platform_data/spi-omap2-mcspi.h>
- #include <linux/platform_data/mmc-omap.h>
- #include <linux/mfd/menelaus.h>
- 
-@@ -106,21 +105,6 @@ static void __init n8x0_usb_init(void) {}
- 
- #endif /*CONFIG_USB_MUSB_TUSB6010 */
- 
--
--static struct omap2_mcspi_device_config p54spi_mcspi_config = {
--	.turbo_mode	= 0,
--};
--
--static struct spi_board_info n800_spi_board_info[] __initdata = {
--	{
--		.modalias	= "p54spi",
--		.bus_num	= 2,
--		.chip_select	= 0,
--		.max_speed_hz   = 48000000,
--		.controller_data = &p54spi_mcspi_config,
--	},
--};
--
- #if defined(CONFIG_MENELAUS) && IS_ENABLED(CONFIG_MMC_OMAP)
- 
- /*
-@@ -524,7 +508,5 @@ omap_late_initcall(n8x0_late_initcall);
- void * __init n8x0_legacy_init(void)
- {
- 	board_check_revision();
--	spi_register_board_info(n800_spi_board_info,
--				ARRAY_SIZE(n800_spi_board_info));
- 	return &mmc1_data;
- }
-diff --git a/drivers/net/wireless/intersil/p54/p54spi.c b/drivers/net/wireless/intersil/p54/p54spi.c
-index 9d66dcae54e0..1cda3b42b5d7 100644
---- a/drivers/net/wireless/intersil/p54/p54spi.c
-+++ b/drivers/net/wireless/intersil/p54/p54spi.c
-@@ -8,6 +8,7 @@
-  */
- 
- #include <linux/module.h>
-+#include <linux/mod_devicetable.h>
- #include <linux/platform_device.h>
- #include <linux/interrupt.h>
- #include <linux/firmware.h>
-@@ -15,7 +16,7 @@
- #include <linux/irq.h>
- #include <linux/spi/spi.h>
- #include <linux/etherdevice.h>
--#include <linux/gpio.h>
-+#include <linux/gpio/consumer.h>
- #include <linux/slab.h>
- 
- #include "p54spi.h"
-@@ -30,19 +31,6 @@
- MODULE_FIRMWARE("3826.arm");
- MODULE_FIRMWARE("3826.eeprom");
- 
--/* gpios should be handled in board files and provided via platform data,
-- * but because it's currently impossible for p54spi to have a header file
-- * in include/linux, let's use module parameters for now
-- */
--
--static int p54spi_gpio_power = 97;
--module_param(p54spi_gpio_power, int, 0444);
--MODULE_PARM_DESC(p54spi_gpio_power, "gpio number for power line");
--
--static int p54spi_gpio_irq = 87;
--module_param(p54spi_gpio_irq, int, 0444);
--MODULE_PARM_DESC(p54spi_gpio_irq, "gpio number for irq line");
--
- static void p54spi_spi_read(struct p54s_priv *priv, u8 address,
- 			      void *buf, size_t len)
- {
-@@ -262,14 +250,14 @@ static int p54spi_upload_firmware(struct ieee80211_hw *dev)
- 
- static void p54spi_power_off(struct p54s_priv *priv)
- {
--	disable_irq(gpio_to_irq(p54spi_gpio_irq));
--	gpio_set_value(p54spi_gpio_power, 0);
-+	disable_irq(priv->irq);
-+	gpiod_set_value(priv->gpio_powerdown, 1);
- }
- 
- static void p54spi_power_on(struct p54s_priv *priv)
- {
--	gpio_set_value(p54spi_gpio_power, 1);
--	enable_irq(gpio_to_irq(p54spi_gpio_irq));
-+	gpiod_set_value(priv->gpio_powerdown, 0);
-+	enable_irq(priv->irq);
- 
- 	/* need to wait a while before device can be accessed, the length
- 	 * is just a guess
-@@ -608,30 +596,19 @@ static int p54spi_probe(struct spi_device *spi)
- 		goto err_free;
- 	}
- 
--	ret = gpio_request(p54spi_gpio_power, "p54spi power");
--	if (ret < 0) {
--		dev_err(&priv->spi->dev, "power GPIO request failed: %d", ret);
-+	priv->gpio_powerdown = gpiod_get(&spi->dev, "powerdown", GPIOD_OUT_HIGH);
-+	if (IS_ERR(priv->gpio_powerdown)) {
-+		ret = PTR_ERR(priv->gpio_powerdown);
-+		dev_err(&priv->spi->dev, "powerdown GPIO request failed: %d", ret);
- 		goto err_free;
- 	}
- 
--	ret = gpio_request(p54spi_gpio_irq, "p54spi irq");
--	if (ret < 0) {
--		dev_err(&priv->spi->dev, "irq GPIO request failed: %d", ret);
--		goto err_free_gpio_power;
--	}
--
--	gpio_direction_output(p54spi_gpio_power, 0);
--	gpio_direction_input(p54spi_gpio_irq);
--
--	ret = request_irq(gpio_to_irq(p54spi_gpio_irq),
--			  p54spi_interrupt, IRQF_NO_AUTOEN, "p54spi",
--			  priv->spi);
-+	ret = request_irq(spi->irq, p54spi_interrupt, IRQF_NO_AUTOEN, "p54spi", priv->spi);
- 	if (ret < 0) {
- 		dev_err(&priv->spi->dev, "request_irq() failed");
--		goto err_free_gpio_irq;
-+		goto err_free_gpio_power;
- 	}
- 
--	irq_set_irq_type(gpio_to_irq(p54spi_gpio_irq), IRQ_TYPE_EDGE_RISING);
- 
- 	INIT_WORK(&priv->work, p54spi_work);
- 	init_completion(&priv->fw_comp);
-@@ -659,11 +636,9 @@ static int p54spi_probe(struct spi_device *spi)
- 
- err_free_common:
- 	release_firmware(priv->firmware);
--	free_irq(gpio_to_irq(p54spi_gpio_irq), spi);
--err_free_gpio_irq:
--	gpio_free(p54spi_gpio_irq);
-+	free_irq(priv->irq, spi);
- err_free_gpio_power:
--	gpio_free(p54spi_gpio_power);
-+	gpiod_put(priv->gpio_powerdown);
- err_free:
- 	p54_free_common(priv->hw);
- 	return ret;
-@@ -675,10 +650,8 @@ static void p54spi_remove(struct spi_device *spi)
- 
- 	p54_unregister_common(priv->hw);
- 
--	free_irq(gpio_to_irq(p54spi_gpio_irq), spi);
--
--	gpio_free(p54spi_gpio_power);
--	gpio_free(p54spi_gpio_irq);
-+	free_irq(priv->irq, spi);
-+	gpiod_put(priv->gpio_powerdown);
- 	release_firmware(priv->firmware);
- 
- 	mutex_destroy(&priv->mutex);
-@@ -686,10 +659,19 @@ static void p54spi_remove(struct spi_device *spi)
- 	p54_free_common(priv->hw);
- }
- 
-+struct of_device_id p54spi_of_ids[] = {
-+	{ .compatible = "cnxt,3110x", },
-+	{ .compatible = "isil,p54spi", },
-+	{ .compatible = "st,stlc4550", },
-+	{ .compatible = "st,stlc4560", },
-+	{ },
-+};
-+MODULE_DEVICE_TABLE(of, p54spi_of_ids);
- 
- static struct spi_driver p54spi_driver = {
- 	.driver = {
- 		.name		= "p54spi",
-+		.of_match_table = p54spi_of_ids,
- 	},
- 
- 	.probe		= p54spi_probe,
-diff --git a/drivers/net/wireless/intersil/p54/p54spi.h b/drivers/net/wireless/intersil/p54/p54spi.h
-index e5619a13fd61..118785cc635a 100644
---- a/drivers/net/wireless/intersil/p54/p54spi.h
-+++ b/drivers/net/wireless/intersil/p54/p54spi.h
-@@ -107,6 +107,9 @@ struct p54s_priv {
- 
- 	enum fw_state fw_state;
- 	const struct firmware *firmware;
-+
-+	struct gpio_desc *gpio_powerdown;
-+	int irq;
- };
- 
- #endif /* P54SPI_H */
--- 
-2.39.5
+Abhash Kumar Jha (1):
+  arm64: dts: ti: k3-j722s: Use ti,j7200-padconf compatible
 
+Richard Genoud (TI) (2):
+  arm64: dts: ti: k3-j722s: Add mcu domain peripherals specific to J722S
+  arm64: dts: ti: k3-j722s: Add wakeup domain peripherals specific to
+    J722S
+
+ arch/arm64/boot/dts/ti/k3-j722s-main.dtsi   | 24 ++++-----------------
+ arch/arm64/boot/dts/ti/k3-j722s-mcu.dtsi    | 15 +++++++++++++
+ arch/arm64/boot/dts/ti/k3-j722s-wakeup.dtsi | 18 ++++++++++++++++
+ arch/arm64/boot/dts/ti/k3-j722s.dtsi        |  2 ++
+ 4 files changed, 39 insertions(+), 20 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-j722s-mcu.dtsi
+ create mode 100644 arch/arm64/boot/dts/ti/k3-j722s-wakeup.dtsi
+
+
+base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
 
