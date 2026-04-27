@@ -4,65 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3254FF8861
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 09:54:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40C8FFF885E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 09:59:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CDL00mNehTnU03tGXQ5syJNde/P/tKrMirMV7wN+H8o=; b=3BcicPVA23vw5vGBqNpfHFuYS4
-	AjIJZsFMQH+D31JK6JcyjAZ+KI2CN6e2ow9JOo7zPpXIJ4HOCHjadjdHB1gxJ3xw8P/dHRygtmHir
-	6IRU1rx7ZgyfXRFGzyHhMCkZUdr0tDKAHZB5EQB5l5dEH5p/dXN5RevxZlSjMoLZzBvHGO3bOq+In
-	kl8Ei1qoGHPwpkWeti5PhBDKqJnozroRd026Lcko/lVFgMT9HuKhkPnTbHuW3XU6Lr+zN4clzGlPd
-	1cmGe5rbAgaH2jq8+V9wzt1mnXENBFwRQgjMvRE96iymJHjTBDB6eiNP1/tB4AKGj2dwnRGyqABL8
-	yALNp3pw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=anaxGZ0X1VjiQEcMCKSdPt+wpxGQuGZA4nXVyCQsh7U=; b=mcR1i4TA6GuaQvzE6Lt/S/Sgdk
+	DOY7XqQikwGxZx/+nHsUeDQc6rkbuePhG5ogbFxZkvOizkU8HJ1qeM63etvFPSheW9kZ4Cxx64WCn
+	CO3Dvs+ZnsNbCamEpRgbPy7dvUjd07weEHZbTSL12vnWu2iKgMz7sBkX8M1lsebRumb+niTzRfzGz
+	+q1bbgGJJkxOF8aUIDh3svjKuFhovJOz/MSI9InqSGBtXFCp53tEdWe1UPoLQjoWxkl3rNo8m61iU
+	ycvspbWouXWpiy9y5bssxIw4F6GIdHXyYba3QcJLCVPQlQiVK62+9By4pBgIUxMYfwLSowOI2eDgH
+	w+/zk3Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHIg0-0000000GcHw-2nq5;
-	Mon, 27 Apr 2026 09:54:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wHIk9-0000000Gdai-3P0Q;
+	Mon, 27 Apr 2026 09:59:09 +0000
+Received: from mgamail.intel.com ([198.175.65.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHIfy-0000000GcHC-463n;
-	Mon, 27 Apr 2026 09:54:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2902260145;
-	Mon, 27 Apr 2026 09:54:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAD6DC19425;
-	Mon, 27 Apr 2026 09:54:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777283689;
-	bh=3GJbd01BMV46KOqmSsQTOMiZH5IiF+nQeyc2rgr2Oy0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=N0e1xCma1Yv/JFQEVHz6rAqbo4SzecdgubW5eAeuFBxPfZLFcSpHZifv3smJyUZL4
-	 wLX+78hNXVoT6Us5dXRipin+RcIYZEnW0Nc87BCRW7eJGKnV+3E46tVwFrj672qevA
-	 cBfkymnQOHyjd7cH5I+NxJHloek91K2y156YPIVQ9g07CgGrd/RBlJS5tVYNmVJBwH
-	 0LL49GtkSA7wTOsuTxWqeCgpW6da9FIc3lwpnrt7SSpHsDlUEvdjULzHYeX7safi59
-	 T4hMOD87cDj4NWOjQ0hA6Xxs5AmhqbAaDaxj3AvBdtKD7jE11dz222IpZr0ITdM/6I
-	 XD1R17oZGM81g==
-Date: Mon, 27 Apr 2026 10:54:38 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Felix Gu <ustc.gu@gmail.com>
-Cc: Rosen Penev <rosenp@gmail.com>, David Lechner <dlechner@baylibre.com>,
- Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko
- <andy@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman
- <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, Martin
- Blumenstingl <martin.blumenstingl@googlemail.com>,
- linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iio: adc: meson-saradc: fix calibration buffer leak on
- error
-Message-ID: <20260427105438.2a9541f6@jic23-huawei>
-In-Reply-To: <CAN4SLj1_45OG+1AdzCfNiV7T3VX9tpQTcX8krsTDruhtYLzEGw@mail.gmail.com>
-References: <20260426-meson_saradc-v1-1-6e96b2982c43@gmail.com>
-	<CAKxU2N9_Nmk_apUZLSCGssXpwxYOz9k99ggRcUM3EPGUzaVi7w@mail.gmail.com>
-	<20260426114118.7ad8b130@jic23-huawei>
-	<CAN4SLj1_45OG+1AdzCfNiV7T3VX9tpQTcX8krsTDruhtYLzEGw@mail.gmail.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	id 1wHIk6-0000000GdYL-3XLI
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Apr 2026 09:59:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1777283947; x=1808819947;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=mn4cjarikRtny3FJMZFSoB4LrzsPQzAV548uIkJF+HM=;
+  b=aujlQ+7eFIfNXbXEhkDgZouPkpyfWYKemJbh9qHcnX44/jWC64MQENFI
+   +v2XXb3wKu81LBYTLaGYAol+L+R7R1wZsO5o9EI5VRsAjl4hJxXcaWB5X
+   z58s8jrSnbSjNwXUAsdF1Gaf1h7F/uyu/3CtvaQwBVW7D0B2Zj31BaN2V
+   bXLhJA9sOLl3UVCvQqCRFZe3zoK68qC60jLAw7DFhRv6tMrUd7jMVz9/a
+   4Zwgp5UWx/X3DqelogNpmOGHCeFnURTLJ/04VM7yYKnOdHzQN4wMWgu+l
+   QY3WKBtPbGIAUNrL3F9d4Scdu/KP8JptLz0Pr1p2rk+itG4uifoE568is
+   w==;
+X-CSE-ConnectionGUID: 01MVtDRcQKCD8w9jDWeEEg==
+X-CSE-MsgGUID: Uyeop4qqSJG/ZYv/IqonaA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11768"; a="88481108"
+X-IronPort-AV: E=Sophos;i="6.23,201,1770624000"; 
+   d="scan'208";a="88481108"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Apr 2026 02:59:06 -0700
+X-CSE-ConnectionGUID: T/jc5r4fTByTlTQst1Rl6g==
+X-CSE-MsgGUID: FMW/KOI1S1KR8QDuxVCqXQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,201,1770624000"; 
+   d="scan'208";a="229268558"
+Received: from fpallare-mobl4.ger.corp.intel.com (HELO localhost) ([10.245.244.2])
+  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Apr 2026 02:59:03 -0700
+Date: Mon, 27 Apr 2026 12:59:01 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Caio Morais <caiomorais@usp.br>
+Cc: andy@kernel.org, dlechner@baylibre.com, jic23@kernel.org,
+	michal.simek@amd.com, nuno.sa@analog.com,
+	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org
+Subject: Re: [PATCH 2/3] iio: buffer: industrialio-triggered-buffer: fix
+ includes with IWYU
+Message-ID: <ae8zZU5WR8umynef@ashevche-desk.local>
+References: <20260426211834.3318306-1-caiomorais@usp.br>
+ <20260426211834.3318306-3-caiomorais@usp.br>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260426211834.3318306-3-caiomorais@usp.br>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260427_025906_944896_356D30AD 
+X-CRM114-Status: UNSURE (   7.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,32 +89,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 26 Apr 2026 23:26:33 +0800
-Felix Gu <ustc.gu@gmail.com> wrote:
+On Sun, Apr 26, 2026 at 06:18:01PM -0300, Caio Morais wrote:
 
-> On Sun, Apr 26, 2026 at 6:41=E2=80=AFPM Jonathan Cameron <jic23@kernel.or=
-g> wrote:
-> >
-> > That is the minimal fix, so we should probably do that first
-> > even if we then circle back to consider if __free() magic is worth usin=
-g here.
-> >
-> > J =20
->=20
-> Hi Jonathan,
-> You prefer a minimal fix here?
-Yes please.  Then if you like we can carry on discussion about whether
-__free() is a good change here as a follow up.
+...
 
-That can include the fact that it would have avoided this bug ever being
-introduced.
+> -#include <linux/kernel.h>
+> -#include <linux/export.h>
+> +#include <linux/errno.h>
 
-Thanks,
+> +#include <linux/linkage.h>
 
-Jonathan
+Hmm... This one rarely appears in the drivers. What do we get from it here?
 
->=20
-> Best regards,
-> Felix
+>  #include <linux/module.h>
+> +#include <linux/stddef.h>
+
+This one for NULL, for example, which is fine.
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
 
 
