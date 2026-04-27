@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA622FF8865
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 06:52:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB576FF8865
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 06:52:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YKwzMF4Jues8v9L8adOzb6dNb4/nlEvbqWvzaKf2xQ4=; b=1+3CiDebkvAhskCcXf5kUPLCEn
-	gjz9a4I2EQyPdiNBSvvOOzWW35kn7wN+oj0Jwxf8+4Ojtj8KKxkcwrVSzRMIWJI51AQGtNYb0ZhXs
-	EsGbiqG7mG4DNivPW4NrRsk64IPsLAnPeZVkINaRbwgW9nsslPc7J0A8yI4+ulOwuquCwarUScs7k
-	/AkQs74V1x+TPyl3ils6LhpfV0Ia6ZsV6fWP3E3KB65YqmwJbizrm882xYi64qxu+soOv7VWUFX5A
-	tg6VMkwZ8HoK5Cwu43wgIcck6REvXlYghQ7NyfZDGdrfYe9tqgVWHzbywnWobhu2asn/ZVB6yaafh
-	J7PQHrhQ==;
+	bh=U/x6CLni2Lznf/8rBHNg/r6T6HvoxT4CEtAmm0nKOZM=; b=CcVgxFAeBzs6LN/WSBKOm/+dom
+	tJcNunYKceYwIBcsQcUqC00HttFAImN5rDRGfqmO5mirJu9iOzDnjo+GHh3GdKOA+TuXuKq+WB4QQ
+	Lkl1zcc8uU41Pcl7K3osEInI9d3V09Mab0Re5QBBZX5/txO61QEj/inFnCC5jC35pQYSdevhKQozL
+	yFZaoSioyta6CVz7Is4fBFgHzEBcRgnQkF5tX0ueWAdMGvj8pvQ1nlCUjpm33GNczkf3nRNq/674k
+	dmBZ0fAQQusInXLTpg5YmAqvAO9i4qjHXfxVtzX0mtiwtbfAezsa9TJimodXjD6yig77q3rgQIYhm
+	1hnWuxZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHFp8-0000000GIE7-15tH;
-	Mon, 27 Apr 2026 06:52:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wHFpF-0000000GIIg-2Zh1;
+	Mon, 27 Apr 2026 06:52:13 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHFp6-0000000GICo-2Gvo
+	id 1wHFpC-0000000GIGR-3dWH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 06:52:04 +0000
+	Mon, 27 Apr 2026 06:52:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EE95C6013B;
-	Mon, 27 Apr 2026 06:52:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E12AC2BCB6;
-	Mon, 27 Apr 2026 06:51:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 31AF443597;
+	Mon, 27 Apr 2026 06:52:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 462D8C2BCF4;
+	Mon, 27 Apr 2026 06:52:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777272723;
-	bh=iT902Kks+8Y5KbHMSujhzXpOT2Flu5+M48nmim2dfB8=;
+	s=k20201202; t=1777272730;
+	bh=rj2gZrREi98L5OW7DVFeQ4A3D6mJm8/gxjqIgpOv8+4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=gh2im7toqr3/e66zB/sju0y9xVNNDvr0LZl3e/zrwn97kxM0Fs2YOwKOycs/EXcij
-	 8ABG6FXVVvzrwW5qT1TdeIigXXsyIjtpK5o6EiKlfyNjUaY6NDGAgmZOqbs+RObw5I
-	 mOwtPpWeiu14B3vlDLSC3MfzXVqGPVWk0nlZMrvWkXM/DP+nZ3RfDg7tTX/9Suagf7
-	 kAIifO8mk14eS1SU1RCw+izfQcfRjzo7J6J6mISeNmB6QZZWf0w351hc18A0G3rQn3
-	 BdBqYdlgqpglzFrDd+SRFmh5CfASZQac4Pypoaqa5HWCLzfYTAIsDRNWLNUhWQmFYC
-	 irNI7D7fq/F5g==
+	b=bFJUaGtkSDKRTJn0s95vHYtgPBOZQJp+FgE/V8/RpViupAsg2NyZBF4GqZd1U3upp
+	 bfjr2M1p2y7Me0vmTz+wIWxBaQf6EbaOLrESfg7MB3EL3kY7c4dXG2Irb2HGi6wj5u
+	 Od512jDVj0LAbOKIebViKfGL+seKnzHgzha6ObdQnsNMdwVkS8vPv4XBCXehV/wI3I
+	 KkhePzLOVbLq4Rv9gcShzwhF1rsnUDhBQXSZu8X6C29Dt2bP6PV5RgRFdTANPVXMpQ
+	 uvPopa6fTBjNGwJZqyv2eTfWWAkOUg0MQDbgK5+AZ3Zf/Epk2TjZVIWXs2tkjs/s3L
+	 862inefcNPsjw==
 From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 To: linux-coco@lists.linux.dev,
 	kvmarm@lists.linux.dev,
@@ -60,17 +60,21 @@ Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
 	Will Deacon <will@kernel.org>,
 	Xu Yilun <yilun.xu@linux.intel.com>,
 	Lukas Wunner <lukas@wunner.de>,
+	Wilfred Mallawa <wilfred.mallawa@wdc.com>,
 	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
 	Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Subject: [RFC PATCH v4 05/14] X.509: Make certificate parser public
-Date: Mon, 27 Apr 2026 12:21:12 +0530
-Message-ID: <20260427065121.916615-6-aneesh.kumar@kernel.org>
+Subject: [RFC PATCH v4 06/14] X.509: Parse Subject Alternative Name in certificates
+Date: Mon, 27 Apr 2026 12:21:13 +0530
+Message-ID: <20260427065121.916615-7-aneesh.kumar@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260427065121.916615-1-aneesh.kumar@kernel.org>
 References: <20260427065121.916615-1-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260426_235210_957464_EA8535F0 
+X-CRM114-Status: GOOD (  12.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,153 +95,53 @@ The upcoming support for PCI device authentication with CMA-SPDM
 (PCIe r6.1 sec 6.31) requires validating the Subject Alternative Name
 in X.509 certificates.
 
-High-level functions for X.509 parsing such as key_create_or_update()
-throw away the internal, low-level struct x509_certificate after
-extracting the struct public_key and public_key_signature from it.
-The Subject Alternative Name is thus inaccessible when using those
-functions.
-
-Afford CMA-SPDM access to the Subject Alternative Name by making struct
-x509_certificate public, together with the functions for parsing an
-X.509 certificate into such a struct and freeing such a struct.
-
-The private header file x509_parser.h previously included <linux/time.h>
-for the definition of time64_t.  That definition was since moved to
-<linux/time64.h> by commit 361a3bf00582 ("time64: Add time64.h header
-and define struct timespec64"), so adjust the #include directive as part
-of the move to the new public header file <keys/x509-parser.h>.
-
-No functional change intended.
+Store a pointer to the Subject Alternative Name upon parsing for
+consumption by CMA-SPDM.
 
 Signed-off-by: Lukas Wunner <lukas@wunner.de>
-Reviewed-by: Dan Williams <dan.j.williams@intel.com>
+Reviewed-by: Wilfred Mallawa <wilfred.mallawa@wdc.com>
 Reviewed-by: Ilpo Järvinen <ilpo.jarvinen@linux.intel.com>
 Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Acked-by: Dan Williams <dan.j.williams@intel.com>
 Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 ---
- crypto/asymmetric_keys/x509_parser.h | 42 +--------------------
- include/keys/x509-parser.h           | 55 ++++++++++++++++++++++++++++
- 2 files changed, 56 insertions(+), 41 deletions(-)
- create mode 100644 include/keys/x509-parser.h
+ crypto/asymmetric_keys/x509_cert_parser.c | 9 +++++++++
+ include/keys/x509-parser.h                | 2 ++
+ 2 files changed, 11 insertions(+)
 
-diff --git a/crypto/asymmetric_keys/x509_parser.h b/crypto/asymmetric_keys/x509_parser.h
-index b7aeebdddb36..39f1521b773d 100644
---- a/crypto/asymmetric_keys/x509_parser.h
-+++ b/crypto/asymmetric_keys/x509_parser.h
-@@ -5,51 +5,11 @@
-  * Written by David Howells (dhowells@redhat.com)
-  */
+diff --git a/crypto/asymmetric_keys/x509_cert_parser.c b/crypto/asymmetric_keys/x509_cert_parser.c
+index 37e4fb9da106..d81b7de4236c 100644
+--- a/crypto/asymmetric_keys/x509_cert_parser.c
++++ b/crypto/asymmetric_keys/x509_cert_parser.c
+@@ -596,6 +596,15 @@ int x509_process_extension(void *context, size_t hdrlen,
+ 		return 0;
+ 	}
  
--#include <linux/cleanup.h>
--#include <linux/time.h>
--#include <crypto/public_key.h>
--#include <keys/asymmetric-type.h>
--#include <crypto/sha2.h>
--
--struct x509_certificate {
--	struct x509_certificate *next;
--	struct x509_certificate *signer;	/* Certificate that signed this one */
--	struct public_key *pub;			/* Public key details */
--	struct public_key_signature *sig;	/* Signature parameters */
--	u8		sha256[SHA256_DIGEST_SIZE]; /* Hash for blacklist purposes */
--	char		*issuer;		/* Name of certificate issuer */
--	char		*subject;		/* Name of certificate subject */
--	struct asymmetric_key_id *id;		/* Issuer + Serial number */
--	struct asymmetric_key_id *skid;		/* Subject + subjectKeyId (optional) */
--	time64_t	valid_from;
--	time64_t	valid_to;
--	const void	*tbs;			/* Signed data */
--	unsigned	tbs_size;		/* Size of signed data */
--	unsigned	raw_sig_size;		/* Size of signature */
--	const void	*raw_sig;		/* Signature data */
--	const void	*raw_serial;		/* Raw serial number in ASN.1 */
--	unsigned	raw_serial_size;
--	unsigned	raw_issuer_size;
--	const void	*raw_issuer;		/* Raw issuer name in ASN.1 */
--	const void	*raw_subject;		/* Raw subject name in ASN.1 */
--	unsigned	raw_subject_size;
--	unsigned	raw_skid_size;
--	const void	*raw_skid;		/* Raw subjectKeyId in ASN.1 */
--	unsigned	index;
--	bool		seen;			/* Infinite recursion prevention */
--	bool		verified;
--	bool		self_signed;		/* T if self-signed (check unsupported_sig too) */
--	bool		unsupported_sig;	/* T if signature uses unsupported crypto */
--	bool		blacklisted;
--};
-+#include <keys/x509-parser.h>
- 
- /*
-  * x509_cert_parser.c
-  */
--extern void x509_free_certificate(struct x509_certificate *cert);
--DEFINE_FREE(x509_free_certificate, struct x509_certificate *,
--	    if (!IS_ERR(_T)) x509_free_certificate(_T))
--extern struct x509_certificate *x509_cert_parse(const void *data, size_t datalen);
- extern int x509_decode_time(time64_t *_t,  size_t hdrlen,
- 			    unsigned char tag,
- 			    const unsigned char *value, size_t vlen);
++	if (ctx->last_oid == OID_subjectAltName) {
++		if (ctx->cert->raw_san)
++			return -EBADMSG;
++
++		ctx->cert->raw_san = v;
++		ctx->cert->raw_san_size = vlen;
++		return 0;
++	}
++
+ 	if (ctx->last_oid == OID_keyUsage) {
+ 		/*
+ 		 * Get hold of the keyUsage bit string
 diff --git a/include/keys/x509-parser.h b/include/keys/x509-parser.h
-new file mode 100644
-index 000000000000..8b68e720693a
---- /dev/null
+index 8b68e720693a..4e6a05a8c7a6 100644
+--- a/include/keys/x509-parser.h
 +++ b/include/keys/x509-parser.h
-@@ -0,0 +1,55 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+/* X.509 certificate parser
-+ *
-+ * Copyright (C) 2012 Red Hat, Inc. All Rights Reserved.
-+ * Written by David Howells (dhowells@redhat.com)
-+ */
-+
-+#ifndef _KEYS_X509_PARSER_H
-+#define _KEYS_X509_PARSER_H
-+
-+#include <linux/cleanup.h>
-+#include <linux/time.h>
-+#include <crypto/public_key.h>
-+#include <keys/asymmetric-type.h>
-+#include <crypto/sha2.h>
-+
-+struct x509_certificate {
-+	struct x509_certificate *next;
-+	struct x509_certificate *signer;	/* Certificate that signed this one */
-+	struct public_key *pub;			/* Public key details */
-+	struct public_key_signature *sig;	/* Signature parameters */
-+	u8		sha256[SHA256_DIGEST_SIZE]; /* Hash for blacklist purposes */
-+	char		*issuer;		/* Name of certificate issuer */
-+	char		*subject;		/* Name of certificate subject */
-+	struct asymmetric_key_id *id;		/* Issuer + Serial number */
-+	struct asymmetric_key_id *skid;		/* Subject + subjectKeyId (optional) */
-+	time64_t	valid_from;
-+	time64_t	valid_to;
-+	const void	*tbs;			/* Signed data */
-+	unsigned	tbs_size;		/* Size of signed data */
-+	unsigned	raw_sig_size;		/* Size of signature */
-+	const void	*raw_sig;		/* Signature data */
-+	const void	*raw_serial;		/* Raw serial number in ASN.1 */
-+	unsigned	raw_serial_size;
-+	unsigned	raw_issuer_size;
-+	const void	*raw_issuer;		/* Raw issuer name in ASN.1 */
-+	const void	*raw_subject;		/* Raw subject name in ASN.1 */
-+	unsigned	raw_subject_size;
-+	unsigned	raw_skid_size;
-+	const void	*raw_skid;		/* Raw subjectKeyId in ASN.1 */
-+	unsigned	index;
-+	bool		seen;			/* Infinite recursion prevention */
-+	bool		verified;
-+	bool		self_signed;		/* T if self-signed (check unsupported_sig too) */
-+	bool		unsupported_sig;	/* T if signature uses unsupported crypto */
-+	bool		blacklisted;
-+};
-+
-+struct x509_certificate *x509_cert_parse(const void *data, size_t datalen);
-+void x509_free_certificate(struct x509_certificate *cert);
-+
-+DEFINE_FREE(x509_free_certificate, struct x509_certificate *,
-+	    if (!IS_ERR(_T)) x509_free_certificate(_T))
-+
-+#endif /* _KEYS_X509_PARSER_H */
+@@ -38,6 +38,8 @@ struct x509_certificate {
+ 	unsigned	raw_subject_size;
+ 	unsigned	raw_skid_size;
+ 	const void	*raw_skid;		/* Raw subjectKeyId in ASN.1 */
++	const void	*raw_san;		/* Raw subjectAltName in ASN.1 */
++	unsigned	raw_san_size;
+ 	unsigned	index;
+ 	bool		seen;			/* Infinite recursion prevention */
+ 	bool		verified;
 -- 
 2.43.0
 
