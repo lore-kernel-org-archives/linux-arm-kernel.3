@@ -4,106 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84788FF8860
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 17:18:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA207FF8860
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 17:18:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sOGbn9OoG8rBGqzI2kLVy+02fyWRJuxPwbq3dZ0vyfI=; b=GpI7jlEuYuxNkaS1Y9eLFTJHHH
-	EbxhWsApmE7nqWYdzyJTzWfMGfXxvZ4w0q3dtBUYWPOsbtsoKxjcR1rVqWlpW02iRAaLiyK0ndj2A
-	Q4WVM35ETKXgXe80EC63AAmaSERkJGGlPb43APuP/ZupD6m9ERi/g3OaFO97Gs7dY0MvlM15WXoZD
-	gPGmIV/+ODmGDNV1mXfUubCpVopSnfPMVi70eU0V7XNxqocXaQkBu8fkdRUDLRYfhOgkSzVrIonmN
-	d0P4tJoHydd5vSK69DNwWUw0Ri7yxvJ9UqwsSHSjo7zW3MD0Uz0kR6mHtrzQzP6iACnf/+sAVo3Ep
-	xBiLL+gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bXedwRzoqLX366g/tnoKfZ2zMaP1ns3wcTqOK2AZMgM=; b=CTJAqpC4VF/P4EXb7zdsplTHIR
+	gRR4lTQfEm6NlmP44q/ncQ+HKj5278lY6fLJ4jiWVu00U+BuAI7xsfgYS5AAj8myEwP0bxxvD0n8F
+	cY0lFsWpHYRIv5pWVOCkW/ovbRzXv1qqvaa9cy4oIRrJ/kvkzpF/Ktei+ZyZYRj7EJXpn3ndc0lLN
+	vhbHAXwit/QCVyaYsR5Qe6MmX8texATf+KUzvrx9pHcDsMA72L3BgSjaqfTO7VsRPVnycetiQMo7u
+	msS+RMzvZgzOJdNvQizzQVFHKv8krDq5LFQXBuOUdSsggUmhoOQDFm5XxUyCb/JbX15hpw5gfek2U
+	otMR0xrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHPbB-0000000HR69-2MsX;
-	Mon, 27 Apr 2026 17:18:21 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wHPbG-0000000HRB1-1oHq;
+	Mon, 27 Apr 2026 17:18:26 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHPb7-0000000HR41-48rJ;
-	Mon, 27 Apr 2026 17:18:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8B93C440C2;
-	Mon, 27 Apr 2026 17:18:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08C06C2BCF4;
-	Mon, 27 Apr 2026 17:17:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777310297;
-	bh=G/2eQ9TI5TAejE5IgsfdvVcfACCawPpecEdM1VXM32k=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=JDwlcHynPBKJgZEQOCWtilxNz5OJTbEC9ImCjJuQT3RnOoZjD4+90hMORF2q1smV0
-	 ZZwStmTz2ZWfCFTglmd/E7DTmKQiqUkyq6DoW4QkOcmP8LtfpYhN9V4ZMaLV1xjKUX
-	 qf/gxqJdT3gAPMXuYRhHcRDH0KM3YGUgvPXpdKncm5DePPHjb0VOG6buq4s8MreRM+
-	 EZo8pRxSQAzQ5kujjD1AkNCv3dgeUm7ZrfC1oOr8cnbPHFYMiYdejiO8B5iigWhrca
-	 1OgKQbcauQ7QAB8qeF6Zf8CM71cpuIXWBUm7GSS+m87r+rFbtJTWOdD0Mn8qIs0Vfn
-	 3JDYXNLvVgu3g==
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-To: Yury Norov <ynorov@nvidia.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	David Laight <david.laight.linux@gmail.com>,
-	Thomas Gleixner <tglx@linutronix.de>
-Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	linux-alpha@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	kvm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-um@lists.infradead.org,
-	dmaengine@vger.kernel.org,
-	linux-efi@vger.kernel.org,
-	linux-fsi@lists.ozlabs.org,
-	amd-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org,
-	intel-gfx@lists.freedesktop.org,
-	linux-wpan@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-wireless@vger.kernel.org,
-	linux-spi@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	linux-staging@lists.linux.dev,
-	linux-serial@vger.kernel.org,
-	linux-usb@vger.kernel.org,
-	xen-devel@lists.xenproject.org,
-	linux-fsdevel@vger.kernel.org,
-	ocfs2-devel@lists.linux.dev,
-	bpf@vger.kernel.org,
-	kasan-dev@googlegroups.com,
-	linux-mm@kvack.org,
-	linux-x25@vger.kernel.org,
-	rust-for-linux@vger.kernel.org,
-	linux-sound@vger.kernel.org,
-	sound-open-firmware@alsa-project.org,
-	linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-m68k@lists.linux-m68k.org,
-	linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	linux-arch@vger.kernel.org
-Subject: [RFC PATCH v1 4/9] uaccess: Introduce copy_{to/from}_user_partial()
-Date: Mon, 27 Apr 2026 19:13:45 +0200
-Message-ID: <c73b90236f2810edd47c84edd2a8d8e8e0c816da.1777306795.git.chleroy@kernel.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <cover.1777306795.git.chleroy@kernel.org>
-References: <cover.1777306795.git.chleroy@kernel.org>
+	id 1wHPbC-0000000HR6X-3gv6;
+	Mon, 27 Apr 2026 17:18:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1777310285; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=AONUFnmPJe7rvq6jg1smn1vKZwWTHWd4KK8LCstwo44AakIrSuIl1utQztkCYpM4Pmry9S2obBYcCcEwLRXAhw3zgG7imvAaCi70TGaFCsuKT3cMl9oXk3E/79p0/rWjZlv/wT+H+LuIjS6FZ5c3TEWpp48OfEjvwXXPvGp1j8M=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1777310285; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=bXedwRzoqLX366g/tnoKfZ2zMaP1ns3wcTqOK2AZMgM=; 
+	b=AlgdzFqkJ4Ae/TERfCWF7bUOs0kLATfB16eI2xYjXb4nbbZ4/07F6l9tR9lAucEwMgzZapr+sb8uG+8nbVWgAENnUDue2NeW2KndQf0jecwO11oIAjS+oatzmNzEbTzLsZEVHrS1CZdUgzneHn6ZWUTz1k00jsa1sxjxD8BMMHI=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1777310285;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=bXedwRzoqLX366g/tnoKfZ2zMaP1ns3wcTqOK2AZMgM=;
+	b=S9zXn+IMlR2eV1zhjsqpJDfCInyD8z/vR/LnDAPOBLES8RavaNCeVAJspPcZAJR7
+	vmHMRFdcBieZLbP5ie4MH0/RRVgZkxwOslDidpY12/ngVVuR4w0ecEjDcAUuxN3nYpX
+	DxYEKcKIuMZ02nFZxatgtmJuhJG2uPWIxf1oiyXM=
+Received: by mx.zohomail.com with SMTPS id 1777310283788820.0404676270748;
+	Mon, 27 Apr 2026 10:18:03 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <ukleinek@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Lee Jones <lee@kernel.org>, William Breathitt Gray <wbg@kernel.org>,
+ Damon Ding <damon.ding@rock-chips.com>
+Cc: kernel@collabora.com, Jonas Karlman <jonas@kwiboo.se>,
+ Alexey Charkov <alchark@gmail.com>, linux-rockchip@lists.infradead.org,
+ linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-iio@vger.kernel.org
+Subject: Re: [PATCH v5 6/6] arm64: dts: rockchip: Add cooling fan to ROCK 4D
+Date: Mon, 27 Apr 2026 19:17:57 +0200
+Message-ID: <El5M8EbxT4a3ZzcG9vKdNA@collabora.com>
+In-Reply-To: <35afc21f-74c9-4f52-bdf1-18a34fb58578@rock-chips.com>
+References: <20260420-rk3576-pwm-v5-0-ae7cfbbe5427@collabora.com>
+ <20260420-rk3576-pwm-v5-6-ae7cfbbe5427@collabora.com>
+ <35afc21f-74c9-4f52-bdf1-18a34fb58578@rock-chips.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1585; i=chleroy@kernel.org; h=from:subject:message-id; bh=G/2eQ9TI5TAejE5IgsfdvVcfACCawPpecEdM1VXM32k=; b=owGbwMvMwCV2d0KB2p7V54MZT6slMWS+nxmjMKmwhcOl/KmCyQK3t3e2vTXauaOc++38fue5J 1/fnLd3d0cpC4MYF4OsmCLL8f/cu2Z0fUnNn7pLH2YOKxPIEAYuTgGYyD5HRoZnIqUtqi/uzJzx /elrrqTduXsuSM05kFXcMu1CQyFnzPFOhv/RJewtZeu89EsObX+ieXizf2Xo8RNCJwMOumbxCC5 Mr+EBAA==
-X-Developer-Key: i=chleroy@kernel.org; a=openpgp; fpr=10FFE6F8B390DE17ACC2632368A92FEB01B8DD78
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_101818_067118_086FD715 
-X-CRM114-Status: GOOD (  13.07  )
+X-CRM114-CacheID: sfid-20260427_101823_039421_093966D5 
+X-CRM114-Status: GOOD (  23.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,49 +84,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Today there are approximately 3000 calls for copy_to_user() and
-3000 calls to copy_from_user().
+Hello,
 
-The majority of callers of copy_{to/from}_user() don't care about the
-return value, they only check whether it is 0 or not, and when it is
-not 0 they handle it as a -EACCES.
+On Sunday, 26 April 2026 09:23:01 Central European Summer Time Damon Ding wrote:
+> Hi Nicolas,
+> 
+> On 4/20/2026 9:52 PM, Nicolas Frattaroli wrote:
+> > The ROCK 4D has a header to connect a small cooling fan. This fan is
+> > driven by one of the SoC's PWM outputs driving a transistor, that in
+> > turn controls the fan's power.
+> > 
+> > With the introduction of PWM support, add a description of this cooling
+> > fan, as well as the additional trips and cooling-maps for it.
+> > 
+> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > ---
+> >   arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts | 50 +++++++++++++++++++++++++
+> >   1 file changed, 50 insertions(+)
+> > 
+> > diff --git a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
+> > index 899a84b1fbf9..2d5ede010ad0 100644
+> > --- a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
+> > +++ b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
+> > @@ -45,6 +45,14 @@ rfkill {
+> >   		shutdown-gpios = <&gpio2 RK_PD1 GPIO_ACTIVE_HIGH>;
+> >   	};
+> >   
+> > +	fan: pwm-fan {
+> > +		compatible = "pwm-fan";
+> > +		cooling-levels = <0 180 205 230 255>;
+> > +		fan-supply = <&vcc_5v0_sys>;
+> > +		pwms = <&pwm2_8ch_5 0 60000 0>;
+> > +		#cooling-cells = <2>;
+> > +	};
+> > +
+> >   	leds: leds {
+> >   		compatible = "gpio-leds";
+> >   		pinctrl-names = "default";
+> > @@ -711,6 +719,36 @@ rgmii_phy0: ethernet-phy@1 {
+> >   	};
+> >   };
+> >   
+> > +&package_thermal {
+> > +	polling-delay = <100>;
+> > +
+> > +	trips {
+> > +		package_fan0: package-fan0 {
+> > +			temperature = <50000>;
+> > +			hysteresis = <2000>;
+> > +			type = "active";
+> > +		};
+> > +
+> > +		package_fan1: package-fan1 {
+> > +			temperature = <60000>;
+> > +			hysteresis = <2000>;
+> > +			type = "active";
+> > +		};
+> > +	};
+> > +
+> > +	cooling-maps {
+> > +		map1 {
+> > +			trip = <&package_fan0>;
+> > +			cooling-device = <&fan THERMAL_NO_LIMIT 1>;
+> > +		};
+> > +
+> > +		map2 {
+> > +			trip = <&package_fan1>;
+> > +			cooling-device = <&fan 2 THERMAL_NO_LIMIT>;
+> > +		};
+> > +	};
+> > +};
+> > +
+> >   &pcie0 {
+> >   	pinctrl-names = "default";
+> >   	pinctrl-0 = <&pcie_reset>;
+> > @@ -720,6 +758,13 @@ &pcie0 {
+> >   };
+> >   
+> >   &pinctrl {
+> > +	fan {
+> > +		fan_pwm: fan-pwm {
+> > +			rockchip,pins =
+> > +				<4 RK_PC5 14 &pcfg_pull_down_drv_level_5>;
+> > +		};
+> > +	};
+> > +
+> >   	hym8563 {
+> >   		hym8563_int: hym8563-int {
+> >   			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_up>;
+> > @@ -770,6 +815,11 @@ wifi_en_h: wifi-en-h {
+> >   	};
+> >   };
+> >   
+> > +&pwm2_8ch_5 {
+> > +	pinctrl-0 = <&fan_pwm>;
+> 
+> May I ask why the pinctrl does not directly use &pwm2m1_ch5?
+> 
+> Is it because the default pin configuration cannot meet the requirements 
+> of the fan?
 
-In order to allow better optimisation of copy_{to/from}_user() when
-the size of the copy is known at build time, create new fonctions
-named copy_{to/from}_user_partial() to be used by the few callers
-that are interested in partial copies and need to now how many
-bytes remain at the end of the copy.
+Yes, I'm adding a strong pull down. The PWM pin controls a transistor,
+and if it floats when not in use the fan can start spinning when no
+PWM signal is present. If I recall correctly (it's been a while since
+I wrote this DT patch) it could be left spinning when the board was
+shut down with a `poweroff` command.
 
-For the time being it is just the same as copy_{to/from}_user().
+> 
+> > +	status = "okay";
+> > +};
+> > +
+> >   &sai6 {
+> >   	status = "okay";
+> >   };
+> > 
+> 
+> Best regards,
+> Damon
+> 
+> 
 
-Signed-off-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
----
- include/linux/uaccess.h | 4 ++++
- 1 file changed, 4 insertions(+)
+Kind regards,
+Nicolas Frattaroli
 
-diff --git a/include/linux/uaccess.h b/include/linux/uaccess.h
-index bd1201c81d94..2d37173782b3 100644
---- a/include/linux/uaccess.h
-+++ b/include/linux/uaccess.h
-@@ -221,6 +221,8 @@ copy_from_user(void *to, const void __user *from, unsigned long n)
- 		return _inline_copy_from_user(to, from, n);
- }
- 
-+#define copy_from_user_partial copy_from_user
-+
- static __always_inline unsigned long __must_check
- copy_to_user(void __user *to, const void *from, unsigned long n)
- {
-@@ -233,6 +235,8 @@ copy_to_user(void __user *to, const void *from, unsigned long n)
- 		return _inline_copy_to_user(to, from, n);
- }
- 
-+#define copy_to_user_partial copy_to_user
-+
- #ifndef copy_mc_to_kernel
- /*
-  * Without arch opt-in this generic copy_mc_to_kernel() will not handle
--- 
-2.49.0
 
 
