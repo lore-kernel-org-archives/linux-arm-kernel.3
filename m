@@ -4,78 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BF7CFF8867
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 20:04:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9D70FF8867
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 20:12:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qRIVkThlffipZ/O92mL/TKTST1+ANc+IotggZ0ZHvpo=; b=4y7H98I41B7dTHTRHX657DgHH6
-	rovkvPpIuqgTkUEYJM/WHjVMsaCnn3cAx81E2vM5UvKw+TtUwXhLuUNxWhrPRkajX/+UGjovDmz71
-	QzuWgLgJPSIPe8O37BDfKACzOroGE+txc3rafYSOki8sZkD5CyskhSYFK/qdOQgVAzr5B3OtwMSK0
-	KTSjDxSQIzQMbWcHw6PYacl0q87PZdDdJUPsFpQHuV4JJp/OUd9I0AHRKMh4ulz+kS8IJhbQliauL
-	7zn0kyUjtXbyu2p0IWnmDE6+KulPYOvpABoDEcQJJmx1HRZ0QGDth3Pp5jdjdlbB+sLkkdFA5LReQ
-	IKKJwgLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=X88UXqkPXIfmwYlICLDKaIiVceuFJijGDlq2QP6KUmc=; b=MGQrsjQyWxxJiUoQAPyEDacyyF
+	ZUHnk/enkcQ4MNhJmIDrXs+0CdkmccSAAfHheyBQT6TPs/qbboV6BPGCvQazU+l6EhU4KYl5vEOHJ
+	jRNiPptmnYxTBAKV74UAzhzAm5fCz/4XiMJwXmxVNYxMBzeQYZspAFV69BVULNTqSHW5q/UbPwalu
+	HrsaKSLp11TSahf6bVcQ2cvfcujBW9sPba7XjVS7Junb5+yrHh4qSmxEKfREkRG9L8NvkaFEXVP6F
+	8bHVfw8oIRrb2GOBTVv23SJebZkkYAZ5usIFpfcFj89AvP6kqEEsQIqDNAIXkkdeyfnwOaQ7yIAcM
+	8bfEYbbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHSBm-000000005aa-1jDE;
-	Mon, 27 Apr 2026 20:04:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wHSK0-000000005ve-2dHL;
+	Mon, 27 Apr 2026 20:12:48 +0000
+Received: from mail-pl1-x664.google.com ([2607:f8b0:4864:20::664])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHSBj-000000005aA-3rUv;
-	Mon, 27 Apr 2026 20:04:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 95A5343F69;
-	Mon, 27 Apr 2026 20:04:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30C6CC19425;
-	Mon, 27 Apr 2026 20:04:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777320255;
-	bh=nOBHti0wrHIQHTwQnJvsrWPDG3yEViQYOsOP4A5im4Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qmBuXREfmQAXnYSF9q5c7g4TKf65q7wBmO/Pr7wznrXG71gEoVcJ70jumCaFOOdnS
-	 Lxgz+GsnS/HXDUwI5oebFrRDr5zA6yecrBab2HnilNsk7Y4PyiTWsfsBCVgpveZwKs
-	 /RjlEPv6Ye3NMCWcdpzRVUw7s6nIuG1vM3oEg0I9RMCKVEiDsPqL84cKbW1bGNID7N
-	 IRdlVKoXA0nBmYM6UxQglYugCmb1hiDar0PvSmpb3b6sTGStl+NGofz2vVierIy692
-	 nnhWi6H/R0GYRXjLJNg+LxxluNcXg/RxWGy6TyzuSaYLYvaGiIaMVLxlGJBaMJ74wR
-	 7lJA5CXT6Og1Q==
-Date: Mon, 27 Apr 2026 21:04:10 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Rosen Penev <rosenp@gmail.com>
-Cc: devicetree@vger.kernel.org, Felix Fietkau <nbd@nbd.name>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Shayne Chen <shayne.chen@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	"open list:MEDIATEK MT76 WIRELESS LAN DRIVER" <linux-wireless@vger.kernel.org>,
-	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>,
-	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>,
-	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>,
-	"open list:MIPS" <linux-mips@vger.kernel.org>
-Subject: Re: [PATCH 3/3] wifi: mt76: remove mt76_get_of_data_from_mtd
-Message-ID: <20260427-sevenfold-scapegoat-9b66fb09da5c@spud>
-References: <20260427034427.881389-1-rosenp@gmail.com>
- <20260427034427.881389-4-rosenp@gmail.com>
- <20260427-hug-baboon-d60bb8fdfa51@spud>
- <CAKxU2N-mhrhjDEc2MnOvDZC5PpMzj=vRgMemNK4qSQzNQ-=BPQ@mail.gmail.com>
- <20260427-safeguard-unthawed-cfb87dc55a32@spud>
+	id 1wHSJx-000000005up-28Pv
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Apr 2026 20:12:47 +0000
+Received: by mail-pl1-x664.google.com with SMTP id d9443c01a7336-2ab46931cf1so79376605ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 13:12:44 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777320764; x=1777925564;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=X88UXqkPXIfmwYlICLDKaIiVceuFJijGDlq2QP6KUmc=;
+        b=L47mFxCHeJNw1ai/05VKKwreNOI+fbHwHi6HHpZQfD00kTF2hnwrsgqwkcE6h2dNtM
+         4aM11MMc/EIAwTj82qox7O/bwijm3/hcT+dCjN3hjq+0swdCTCzv47qkRn5Qsz2C0qIF
+         Tob/mce2trC5wju39sT+cDCjEiUFWASNSOsAtSc4T3R0NANyTVUFrec9SW1ytBBqkmlc
+         t3RERTfZlnfnTHxTVDMRNj3c/B0e/zOIf75FOM1mPw5zuCauoO74v+Nhip7x9a3M8luc
+         deeXbU+JTK/hBnFk5pwRaeiqAykb4WHA6gWchEjM0yJgFV04ow9BGFjb+9dN9BWmxiU7
+         /P9w==
+X-Forwarded-Encrypted: i=1; AFNElJ+8ZoOq7/Xl+MyIF1JPzsyHLZvWnYZmatDH1CPAsCl6zuysMekaRNEbdCV+955mIG2CtZ+z9XvswVnihwr3Pztx@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzcz0cmr4B6INcvqYhSBqy1ELVvniVcbSkOuTiBdYC1bFOv1NCy
+	c6W7IR21aPZK55YVdM9s/hiGXT7g491tcQfF7q7uyYEv9jmsgNzRFba0eA1REhmvduRIU2AHmLp
+	4rqLf3wCHE4Nm+vB7D7rEvV1LKkHFLYrT/Q7y+be0PgCo9ilkcMuDPbqC6DohvCYhivVqVMjzNZ
+	shH5K8WJaUciJxJRcsb1BB90wq/O5QRVw35RdVoh7NHVxyM9LgftCMqseeoMNTnn/MO3YOlNaAi
+	NuaTf3jD9X5AM43V0ZRv0sZmwM=
+X-Gm-Gg: AeBDietKBYf9cyh1XfZ6d8swThVnfKAru08bnlW+KrjATPWQflYdBfweBCjz2BrCjHD
+	7Oau6x1oWKBswyh4GRtpMK7efXghEawAtZ4tEZqe6+yxq5dPM2gNoNWeqShgKgY6tTUnEb49Ge7
+	WMDOUm8v3VtvLv1fFpzZnaHbvCDrmCw4Gqsw5+/tDbmI3ZhY/OQMdYQImWnZ6kqbYI5LnteP/QS
+	fNXxgBLUwMBRIM6YLq0Hlso0ieRn/qoD7IHwSeGOmtfv+arHxTb17EGWKtshbjcjCPW4iR+ycrJ
+	BlHskeTrL2Mm7XWN0u7nDoktUIN9G69zjujaEHwW0Yps8L+2DXQdueDRU1lITTZzWF6LdPScDnq
+	621XSJMSkSvUUWsRZv/rzec/paFYEKQc10MlGc4MK5JvIyiYxNFLIZq+K8uCBlPxJkVKtKlcWAV
+	3pWJ38g9ncD+mO4zxjlRlYU/cLOLkB0P67VdkQJ5o7mSzFln4vB00Iqyl6XvGYnZTR
+X-Received: by 2002:a17:903:245:b0:2b4:6122:10f8 with SMTP id d9443c01a7336-2b97be39711mr1600855ad.21.1777320763819;
+        Mon, 27 Apr 2026 13:12:43 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-16.dlp.protect.broadcom.com. [144.49.247.16])
+        by smtp-relay.gmail.com with ESMTPS id d9443c01a7336-2b97aa8c8c9sm335335ad.11.2026.04.27.13.12.43
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 27 Apr 2026 13:12:43 -0700 (PDT)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-2bdd327d970so6690813eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 13:12:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1777320762; x=1777925562; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=X88UXqkPXIfmwYlICLDKaIiVceuFJijGDlq2QP6KUmc=;
+        b=EkfWuH+khWxgWuQiMilDu06CUV8mXvI6GCbQV7nmnUcuWSWlD5B4JfLdM1rV2PER+p
+         0VIdC0bRiMx58QvDzQF01m6sYtZ+ZSAUENzsYt70ovmTz2Yk/jpk/mfzyUdLxfm+Bq9H
+         4v0sNfDfH1V1b8TV6tVK0KKmNESxF08Sze6N4=
+X-Forwarded-Encrypted: i=1; AFNElJ/VT328ai1z0nya6jX2wM4J6mFbWJKKw/DCDmNmquFKRVEbLxM1YsKzGbL/KNTdCCMCxzKOGIR6M92W8RdNCyBQ@lists.infradead.org
+X-Received: by 2002:a05:7300:7fa2:b0:2d1:9b35:4edb with SMTP id 5a478bee46e88-2ed0a5a2ddfmr107175eec.0.1777320761896;
+        Mon, 27 Apr 2026 13:12:41 -0700 (PDT)
+X-Received: by 2002:a05:7300:7fa2:b0:2d1:9b35:4edb with SMTP id 5a478bee46e88-2ed0a5a2ddfmr107159eec.0.1777320761283;
+        Mon, 27 Apr 2026 13:12:41 -0700 (PDT)
+Received: from mail.broadcom.net ([192.19.144.250])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2ed09fb6b7fsm437136eec.10.2026.04.27.13.12.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Apr 2026 13:12:40 -0700 (PDT)
+From: Kamal Dasu <kamal.dasu@broadcom.com>
+To: andersson@kernel.org,
+	robh@kernel.org
+Cc: krzysztof.kozlowski@linaro.org,
+	conor+dt@kernel.org,
+	baolin.wang@linux.alibaba.com,
+	florian.fainelli@broadcom.com,
+	bcm-kernel-feedback-list@broadcom.com,
+	linux-remoteproc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Kamal Dasu <kamal.dasu@broadcom.com>
+Subject: [PATCH v7 0/3] Adding brcmstb-hwspinlock support
+Date: Mon, 27 Apr 2026 16:12:30 -0400
+Message-Id: <20260427201233.380314-1-kamal.dasu@broadcom.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="bmrn+DgUsYWxn18C"
-Content-Disposition: inline
-In-Reply-To: <20260427-safeguard-unthawed-cfb87dc55a32@spud>
+Content-Transfer-Encoding: 8bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_130416_006592_355FE275 
-X-CRM114-Status: GOOD (  30.34  )
+X-CRM114-CacheID: sfid-20260427_131245_597860_347B6AE0 
+X-CRM114-Status: GOOD (  14.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,218 +119,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series adds hardware semaphore support for Broadcom set-top SoCs
+via the generic hwspinlock framework.
 
---bmrn+DgUsYWxn18C
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The semaphore registers live in the sundry block; the DT binding
+describes only the semaphore register range. The compatible is
+brcm,bcm7038-sun-top-ctrl-semaphore (BCM7038 is where this block first
+appeared on set-top chips).
 
-On Mon, Apr 27, 2026 at 09:02:56PM +0100, Conor Dooley wrote:
-> On Mon, Apr 27, 2026 at 12:17:04PM -0700, Rosen Penev wrote:
-> > On Mon, Apr 27, 2026 at 12:09=E2=80=AFPM Conor Dooley <conor@kernel.org=
-> wrote:
-> > >
-> > > On Sun, Apr 26, 2026 at 08:44:27PM -0700, Rosen Penev wrote:
-> > > > mt76_get_of_data_from_mtd has been replaced by
-> > > > mt76_get_of_data_from_nvmem in all usages.
-> > >
-> > > All users in the kernel, but what about other sources of devicetrees?
-> > > Those built into firmware etc? Are there none of those too?
-> > I'm actively removing those: https://github.com/openwrt/openwrt/pull/23=
-113
-> >=20
-> > Anyway, irrelevant here.
->=20
-> Hardly, you can't break backwards compatibility with old devicetrees.
-> Removing known users from the kernel is one step in that process, but if
-> there's devicetrees in other places those cunt too!
->=20
-> With the moving pieces in this patchset alone it's problematic to move
-> this fast, since you're changing the dts user in the same series as
-> removing driver support (AFIACT), which means that neither netdev nor
-> the platform tree will work with their portion applied.
+The driver has been tested built-in and as a module.
 
-Well, maybe the platform tree will work, but not the netdev tree unless
-I've misunderstood completely.
+v7 changes :
+ - Rebase: Whole series rebased onto Linux 7.1-rc1 (254f49634ee1) so it
+   applies cleanly on current upstream.
+ - Reviewed-by tag (PATCH 1/3, dt-bindings): Krzysztof Kozlowski's
 
->=20
-> > >
-> > > Conor.
-> > >
-> > > >
-> > > > Remove it to prevent people from using the deprecated
-> > > > mediatek,mtd-eeprom binding.
-> > > >
-> > > > Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> > > > ---
-> > > >  drivers/net/wireless/mediatek/mt76/eeprom.c   | 87 ---------------=
-----
-> > > >  drivers/net/wireless/mediatek/mt76/mt76.h     |  1 -
-> > > >  .../wireless/mediatek/mt76/mt7915/eeprom.c    |  4 -
-> > > >  3 files changed, 92 deletions(-)
-> > > >
-> > > > diff --git a/drivers/net/wireless/mediatek/mt76/eeprom.c b/drivers/=
-net/wireless/mediatek/mt76/eeprom.c
-> > > > index afdb73661866..092804323d81 100644
-> > > > --- a/drivers/net/wireless/mediatek/mt76/eeprom.c
-> > > > +++ b/drivers/net/wireless/mediatek/mt76/eeprom.c
-> > > > @@ -35,89 +35,6 @@ static int mt76_get_of_eeprom_data(struct mt76_d=
-ev *dev, void *eep, int len)
-> > > >       return 0;
-> > > >  }
-> > > >
-> > > > -int mt76_get_of_data_from_mtd(struct mt76_dev *dev, void *eep, int=
- offset, int len)
-> > > > -{
-> > > > -#ifdef CONFIG_MTD
-> > > > -     struct device_node *np =3D dev->dev->of_node;
-> > > > -     struct mtd_info *mtd;
-> > > > -     const __be32 *list;
-> > > > -     const char *part;
-> > > > -     phandle phandle;
-> > > > -     size_t retlen;
-> > > > -     int size;
-> > > > -     int ret;
-> > > > -
-> > > > -     list =3D of_get_property(np, "mediatek,mtd-eeprom", &size);
-> > > > -     if (!list)
-> > > > -             return -ENOENT;
-> > > > -
-> > > > -     phandle =3D be32_to_cpup(list++);
-> > > > -     if (!phandle)
-> > > > -             return -ENOENT;
-> > > > -
-> > > > -     np =3D of_find_node_by_phandle(phandle);
-> > > > -     if (!np)
-> > > > -             return -EINVAL;
-> > > > -
-> > > > -     part =3D of_get_property(np, "label", NULL);
-> > > > -     if (!part)
-> > > > -             part =3D np->name;
-> > > > -
-> > > > -     mtd =3D get_mtd_device_nm(part);
-> > > > -     if (IS_ERR(mtd)) {
-> > > > -             ret =3D  PTR_ERR(mtd);
-> > > > -             goto out_put_node;
-> > > > -     }
-> > > > -
-> > > > -     if (size <=3D sizeof(*list)) {
-> > > > -             ret =3D -EINVAL;
-> > > > -             goto out_put_node;
-> > > > -     }
-> > > > -
-> > > > -     offset +=3D be32_to_cpup(list);
-> > > > -     ret =3D mtd_read(mtd, offset, len, &retlen, eep);
-> > > > -     put_mtd_device(mtd);
-> > > > -     if (mtd_is_bitflip(ret))
-> > > > -             ret =3D 0;
-> > > > -     if (ret) {
-> > > > -             dev_err(dev->dev, "reading EEPROM from mtd %s failed:=
- %i\n",
-> > > > -                     part, ret);
-> > > > -             goto out_put_node;
-> > > > -     }
-> > > > -
-> > > > -     if (retlen < len) {
-> > > > -             ret =3D -EINVAL;
-> > > > -             goto out_put_node;
-> > > > -     }
-> > > > -
-> > > > -     if (of_property_read_bool(dev->dev->of_node, "big-endian")) {
-> > > > -             u8 *data =3D (u8 *)eep;
-> > > > -             int i;
-> > > > -
-> > > > -             /* convert eeprom data in Little Endian */
-> > > > -             for (i =3D 0; i < round_down(len, 2); i +=3D 2)
-> > > > -                     put_unaligned_le16(get_unaligned_be16(&data[i=
-]),
-> > > > -                                        &data[i]);
-> > > > -     }
-> > > > -
-> > > > -#ifdef CONFIG_NL80211_TESTMODE
-> > > > -     dev->test_mtd.name =3D devm_kstrdup(dev->dev, part, GFP_KERNE=
-L);
-> > > > -     if (!dev->test_mtd.name) {
-> > > > -             ret =3D -ENOMEM;
-> > > > -             goto out_put_node;
-> > > > -     }
-> > > > -     dev->test_mtd.offset =3D offset;
-> > > > -#endif
-> > > > -
-> > > > -out_put_node:
-> > > > -     of_node_put(np);
-> > > > -     return ret;
-> > > > -#else
-> > > > -     return -ENOENT;
-> > > > -#endif
-> > > > -}
-> > > > -EXPORT_SYMBOL_GPL(mt76_get_of_data_from_mtd);
-> > > > -
-> > > >  int mt76_get_of_data_from_nvmem(struct mt76_dev *dev, void *eep,
-> > > >                               const char *cell_name, int len)
-> > > >  {
-> > > > @@ -163,10 +80,6 @@ static int mt76_get_of_eeprom(struct mt76_dev *=
-dev, void *eep, int len)
-> > > >       if (!ret)
-> > > >               return 0;
-> > > >
-> > > > -     ret =3D mt76_get_of_data_from_mtd(dev, eep, 0, len);
-> > > > -     if (!ret)
-> > > > -             return 0;
-> > > > -
-> > > >       return mt76_get_of_data_from_nvmem(dev, eep, "eeprom", len);
-> > > >  }
-> > > >
-> > > > diff --git a/drivers/net/wireless/mediatek/mt76/mt76.h b/drivers/ne=
-t/wireless/mediatek/mt76/mt76.h
-> > > > index 527bef97e122..f447ecac664d 100644
-> > > > --- a/drivers/net/wireless/mediatek/mt76/mt76.h
-> > > > +++ b/drivers/net/wireless/mediatek/mt76/mt76.h
-> > > > @@ -1339,7 +1339,6 @@ void mt76_seq_puts_array(struct seq_file *fil=
-e, const char *str,
-> > > >
-> > > >  int mt76_eeprom_init(struct mt76_dev *dev, int len);
-> > > >  int mt76_eeprom_override(struct mt76_phy *phy);
-> > > > -int mt76_get_of_data_from_mtd(struct mt76_dev *dev, void *eep, int=
- offset, int len);
-> > > >  int mt76_get_of_data_from_nvmem(struct mt76_dev *dev, void *eep,
-> > > >                               const char *cell_name, int len);
-> > > >
-> > > > diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/eeprom.c b/d=
-rivers/net/wireless/mediatek/mt76/mt7915/eeprom.c
-> > > > index eb92cbf1a284..c24e1276700b 100644
-> > > > --- a/drivers/net/wireless/mediatek/mt76/mt7915/eeprom.c
-> > > > +++ b/drivers/net/wireless/mediatek/mt76/mt7915/eeprom.c
-> > > > @@ -29,10 +29,6 @@ static int mt7915_eeprom_load_precal(struct mt79=
-15_dev *dev)
-> > > >
-> > > >       offs =3D is_mt7915(&dev->mt76) ? MT_EE_PRECAL : MT_EE_PRECAL_=
-V2;
-> > > >
-> > > > -     ret =3D mt76_get_of_data_from_mtd(mdev, dev->cal, offs, size);
-> > > > -     if (!ret)
-> > > > -             return ret;
-> > > > -
-> > > >       ret =3D mt76_get_of_data_from_nvmem(mdev, dev->cal, "precal",=
- size);
-> > > >       if (!ret)
-> > > >               return ret;
-> > > > --
-> > > > 2.54.0
-> > > >
+v6 changes:
+Addressed review comments from Krzysztof Kozlowski:
+ - Renamed DT binding YAML file from "brcm,brcmstb-hwspinlock.yaml"
+   to "brcm,bcm7038-sun-top-ctrl-semaphore.yaml" to match the
+   compatible string
+ - Updated $id in the YAML to match the new filename
+ - Updated MAINTAINERS F: entry to match the new filename
 
+v5 changes:
+Addressed review comments from Krzysztof Kozlowski:
+ - Changed compatible to "brcm,bcm7038-sun-top-ctrl-semaphore"
+   using the SoC where the semaphore hardware was first introduced,
+   following the brcm,bcm7038-l1-intc convention
 
+v4 changes:
+Addressed review comments from Krzysztof Kozlowski and Rob Herring:
+ - Renamed compatible from "brcm,brcmstb-hwspinlock" to
+   "brcm,brcmstb-sun-top-ctrl-semaphore" to use the hardware name
+ - Added description block to the DT binding YAML explaining what
+   the semaphore registers are and their relationship to the sundry
+   block
+ - Fixed typo in Kconfig "Setttop" -> "Settop"
+ - Fixed email typo in MODULE_AUTHOR
 
---bmrn+DgUsYWxn18C
-Content-Type: application/pgp-signature; name="signature.asc"
+v3 changes:
+Added detailed explanation in the all commit messages as per review
+comments
+ - Added description of 'sundry' ip block that the hardware semaphore
+   belongs to
+ - Added reasoning for using common compatible string
 
------BEGIN PGP SIGNATURE-----
+v2 changes:
+Addressed following review comments:
+ - fixed ordering of obj brcmstb_hwspinlock.o in Makefile
+ - fixed ordering of 'config HWSPINLOCK_BRCMSTB' block in Kconfig
+ - Renamed BRCMSTB_MAX_SEMAPHORES to BRCMSTB_NUM_SEMAPHORES
+ - Removed unnecessary platform_set_drvdata(pdev, bank);
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCae/BOQAKCRB4tDGHoIJi
-0hiVAQCuQjZQ0kXNujxtGnjAFyCtQV5vV/cdvN5oxs2/TTgkRgEA0Qb6OYc/8bMe
-eImO8EwL5nRHSDd29R9EVtG7DSFgGQQ=
-=5iMX
------END PGP SIGNATURE-----
+Also addressing duplicate PATCH 1/3 sent in error as part of v1 change.
 
---bmrn+DgUsYWxn18C--
+v1 changes:
+based on fixes made to Initial patch:
+Link: https://github.com/intel-lab-lkp/linux/commits/Kamal-Dasu/dt-bindings-brcmstb-hwspinlock-support-for-hwspinlock/20250712-034624
+Link: https://lore.kernel.org/r/20250711154221.928164-4-kamal.dasu%40broadcom.com
+  [PATCH 2/4] hwspinlock: brcmstb hardware semaphore support
+
+All the review comments and build warning have been fixed.
+
+Kamal Dasu (3):
+  dt-bindings: hwlock: Adding brcmstb-hwspinlock support
+  hwspinlock: brcmstb hardware semaphore support
+  MAINTAINERS: adding entry for BRCMSTB HWSPINLOCK driver
+
+ .../brcm,bcm7038-sun-top-ctrl-semaphore.yaml  | 44 +++++++++
+ MAINTAINERS                                   |  8 ++
+ drivers/hwspinlock/Kconfig                    | 10 ++
+ drivers/hwspinlock/Makefile                   |  1 +
+ drivers/hwspinlock/brcmstb_hwspinlock.c       | 96 +++++++++++++++++++
+ 5 files changed, 159 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/hwlock/brcm,bcm7038-sun-top-ctrl-semaphore.yaml
+ create mode 100644 drivers/hwspinlock/brcmstb_hwspinlock.c
+
+-- 
+2.34.1
+
 
