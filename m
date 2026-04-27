@@ -4,85 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01FAFFF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 20:12:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A39ACFF886D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 20:12:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mDV4LUkEkUcEhST/7UTvXNteW4b3j/yhsWXpXNrZ4E8=; b=1uaAwK8sdJTRdhBhZKWzkBkH0U
-	bE2lsfpYMjS6I0TEvhIyB7veXIeLjvEbF310mE3SqbhmjFz5pyd1aW6D/DcmALN9NTMO7Le+3yvNa
-	SWKyKwKHY0qymLeNHsK6YEb0AsCx56mFAcWOp+hRvEH42nLqBoOUVSVcIPmNO87qgCPSc606UU7ev
-	uRlVDhDEwNfmdk0vq8+p8s8RgV6x25UZc97ppXIeOfyD4tKyqeuLAbKTksMyR4fNX4nDzM2gafkTZ
-	y6R20PJIYyVtvgzcADZfUFAhuzX9jcw1T4vQxA8DuKNPxm/ph3z8HssQOGbc+1RTA/dVlmzbxUv1I
-	LYqQ1yCg==;
+	bh=xS47RVDKW8GFZppjjzYsYzUHq1wMuiBPcs650CNp/VE=; b=vrQbuLxvp9SXly0SjCuobFM8mm
+	XnkJSPwhiHJke/e72KJmGa8cNQd+Tm2uu+PHZlps7i+/BEqKiRYVFq1ubY0bkrk1E1NYu6xhzv6BV
+	SEZYRCLhijn/GKyWhEYR3+9gIgpGmr/uQjsKvbVKlf/dNpOZbghl6k673aBUVgzzHUrzLwxT5mz8g
+	ABeKlIDEw/6w8xn814zpj43mtK+P5WMzcRJND30dGrUEW5IAzls5WKCETkUzR+0j4UZkBbNZ3IqN7
+	rWFTVD0G/c4DGqCISOnUIER7pngxXWAbyRubrUiu+PmJbpWADZ2Q7jEqS8WRIXYOgLWkTxgrWZ/Vr
+	orLopTWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHSK5-000000005xo-3BrF;
+	id 1wHSK5-000000005xO-1xVX;
 	Mon, 27 Apr 2026 20:12:53 +0000
-Received: from mail-pg1-x562.google.com ([2607:f8b0:4864:20::562])
+Received: from mail-oo1-xc61.google.com ([2607:f8b0:4864:20::c61])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHSK3-000000005wo-31J2
+	id 1wHSJz-000000005v6-3Q1v
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 20:12:53 +0000
-Received: by mail-pg1-x562.google.com with SMTP id 41be03b00d2f7-c7973f67f4dso3142940a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 13:12:51 -0700 (PDT)
+	Mon, 27 Apr 2026 20:12:49 +0000
+Received: by mail-oo1-xc61.google.com with SMTP id 006d021491bc7-679b072ed3aso5102373eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 13:12:47 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777320771; x=1777925571;
+        d=1e100.net; s=20251104; t=1777320767; x=1777925567;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=mDV4LUkEkUcEhST/7UTvXNteW4b3j/yhsWXpXNrZ4E8=;
-        b=IqBgSE6zBPSc5JrA95nj8ZmwSA93DgGtEVDyYMZJn3+fTI9TRZuXxHnZCVIrkKwyz3
-         xBsIg6yoInx6mbvWzxWWqudDktRwoN4pbdVw8NtOlsx5ClrEnKkeIuwJvKCwXPQmoe0X
-         H90Indcxhl77wNrMF9sFP+Jhn4vUWyQoP8BZ4formJaecaeOb1zKyEJzgLtnfv/+5PLn
-         HBXvU5+Z7yJCSGVQM5ALkIYiNnF87WyX1uVHARw0keAbfsSh/jpSp5SxfPwcCXygydhH
-         xIHke2aRE+LGuRUU7f99p4E6SZh1US2c5CH7IO4eAwJEiU+Gab5XEAixJ3JUoMQ8IR+X
-         iyzw==
-X-Forwarded-Encrypted: i=1; AFNElJ+fEXwvjYZkqV6asQEpSM7WEtUHWGgL3TBgg8nxQulOM93LE6QGzpcwnh1yhK7L2taTx3/GEqgNqjA69k0n2HUI@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+509DDoizviSNlxD9gUBacLYERF+HaTklkCIg1jwjbIBgQiyv
-	dkEBFQ0r0H9nzqszNUpTTWfLqnZPkxK+KF5VPA9i/ptz0iQd3pmHDqA67PBD+JWsaZWZbrK8/GC
-	PAzgt6pvjot0+HvS+Ykw532cE4iq7KRVlt5iRLiD40KpYW/aq6n9lLQSrpFdKiScIIkjduKR60R
-	vqddPeNaIPgnW7fWUhRmChsZponLS7vE3CfzLSbU/woeD2PM3CqIrjj9NzkDgjZBrmPhzxNF1VZ
-	vn05WNr1AoqB6eQHznC/VqbUSQ=
-X-Gm-Gg: AeBDievnbSa3lg+6RmbnhlGs7QvlmLOG5xAcU5ZraGAS7Vd3qnYrrjoG5YhJmJvJQTA
-	rA5IoEVe7A2H+AqX9l1zLpar4cj3RY7jMN1T9pfts1ixJ7UP5EkA3SPKOwVjJk+A51Nk2gcCyyU
-	gUgWESpma0mKeO/aO75YUS2UyTfCJb8mD9lG143bZhh1inPfMc7EZdXK/Pe9OCKCtG9bkAoQ3rw
-	RniE6URdxSDz3BFHalx54M5wvFgiQLkpGTALSagO5mkBgP9ZN+ktQVa3hexrFD88EkBydfl2joO
-	0rKOCC5/XZUDZ4SyU17srKEILaoYZWLljMmyiB1GRbiDXEkpVROsAODbWUSubGP5VPCkDPFrx/0
-	c4ZsUnolAJ9hXQiajSKM2IOhQtZgPXzpFpz3at1Q4pc+KKrTiQHgwVwhH5GLrrcKGC7QTsTipCc
-	F3B0vR3/6h3KSYN8jYymK3LnwrkVqBVO+29nRejMJdqA2m/Ho3eDYajzIMLLM22g==
-X-Received: by 2002:a17:903:3b88:b0:2b0:91e6:bc18 with SMTP id d9443c01a7336-2b97c0125d5mr954445ad.14.1777320770601;
-        Mon, 27 Apr 2026 13:12:50 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-2.dlp.protect.broadcom.com. [144.49.247.2])
-        by smtp-relay.gmail.com with ESMTPS id d9443c01a7336-2b97ac69375sm302735ad.27.2026.04.27.13.12.50
+        bh=xS47RVDKW8GFZppjjzYsYzUHq1wMuiBPcs650CNp/VE=;
+        b=MIlYzXMP4aTR9sC54vT5m01L7VZjeuRqwiRTPv3HTHeTTXL8QIQ7CzEIX6yU8Dy1p6
+         ejv2iCQtXjFbEB/GxD3JoS1oTsDtWY9xzGmzHQtw1sACUfLbbdG7+m4lsTkSh//tjp3U
+         QwqhVZpw3TQqzB/nu0bWP/1+vnUkJSEy9V9NfCrmV8eZrbn5r3HLp5WnAFz+hACRhJZL
+         magRX457hYbXC26DB5qewLAGAQ+TDxYnBJmG8I9LOh3waQokH5Lq8C9AVbIcTZDhkdm6
+         LL19+n91f6DkMSywgtsLyh9xpHExAwaQPRzmnuqffHaIljFr2wPYEVucbhjmA+aCIddZ
+         AXNg==
+X-Forwarded-Encrypted: i=1; AFNElJ+YXweqquaSS+PG6l4++MCYqJWsI2hFss+AZzXkmWt2WAYMCeL1OR6Dsh0Gpo0P88xJQk/PaugAY/xCDzghIfWb@lists.infradead.org
+X-Gm-Message-State: AOJu0YxmoQFzwz2LtGtoIr2RAIRoKoQlrIHWveIIitv/VTerltCxUfka
+	38c0TAqwpY/HI3Wzu1mquWF0jz0KTleUY9XHsszi0yDhoEYKrpqfEh8W91KAeQpUEESA59eWHhs
+	u1NSmIcV4LR50qB0XVWuvQb6k9ZESao22qMDaFSSf6Cw3GCYbbVRfAwbyNQPVRiByjh6hfHhx/e
+	J2MuDyUisTpsi2DhV6IqHfrjH8ZEuywyrD7PlWvsRg76MmWu8fwDYDvMzhC8etNceT3S5+1Qp3A
+	bwsX7KixfkdUt0avZ3odlxCz9k=
+X-Gm-Gg: AeBDieuYCUEBbtbQuL8+PZ1WGkl5pm1xWr1rgaJqXH1iCrzuYtQP4UTDjVV4ZeixTkb
+	4IrWwMtXSMkoEv03pX5Mza+3CADdvzLuDRQ4MJ1uLnU/zumtrDJFnzAUr/HgeMxAz48deQGNbOa
+	G1dOduRxin7In6hOFdmL/jLKiQuLAT+Om4tzZQj2sZjx6CWBBbpTg6VOLB6SxOebU+BgzgzwKLo
+	l0RPYmhUTfkowRfVWmNyW/cntlagO10BBtfpPofBJOPCTSOzV9IDT2OJ5OX8NA0C3ndNE3lhMxn
+	ioZllJ/mVGvD8bazW8pULf0LQpj5NKofrrHFgpLLmTsiuBHgG8xL7GQK1rnEmPr+lz7vBZjT3hr
+	IpM8ANLpx86G6m8s8b8RAT8HII3n6+4QOVKcq33LQybmoZtgRVPk3++i7+CX81lHxpXPHeRz674
+	X08Jmj1FXo92r2kkU22j2KpXwNmRroAsMe1zf2K6MC/XeH1tYgb5cW1U9+fsAaTWrO
+X-Received: by 2002:a05:6820:f09:b0:681:b070:3dc6 with SMTP id 006d021491bc7-6965ca3e4b5mr30558eaf.10.1777320766529;
+        Mon, 27 Apr 2026 13:12:46 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-16.dlp.protect.broadcom.com. [144.49.247.16])
+        by smtp-relay.gmail.com with ESMTPS id 006d021491bc7-6965b937aeesm20082eaf.8.2026.04.27.13.12.45
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 27 Apr 2026 13:12:50 -0700 (PDT)
+        Mon, 27 Apr 2026 13:12:46 -0700 (PDT)
 X-Relaying-Domain: broadcom.com
 X-CFilter-Loop: Reflected
-Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-2bda35eab74so9540635eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 13:12:49 -0700 (PDT)
+Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-12db218e265so22549208c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 13:12:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1777320769; x=1777925569; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1777320765; x=1777925565; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=mDV4LUkEkUcEhST/7UTvXNteW4b3j/yhsWXpXNrZ4E8=;
-        b=Wv0EtquN2Z3S5DUYIBbUcnGOAMkBei34ik5q/mS2h/F9xHgJ8mZv3uxl+lDe66RVh4
-         wvuUCSaLQYT9yjI4LzobzBLSYBrPcjvSh/2/EzdKfTwN0lJTHl1FvhNU3QtuTFzzO5J8
-         hUpZVCb2WQFHcprHS6oYIFvZ5olx8tsR+86mQ=
-X-Forwarded-Encrypted: i=1; AFNElJ/zGMz4yrKKtj9K213bMp66+d/i/Nh3RJ88klVVWGNKdOw9wzdT5BO8x1vq3XoolWGtdpWao6a3wcaPlUBSOdTu@lists.infradead.org
-X-Received: by 2002:a05:7300:d509:b0:2be:17b1:e49f with SMTP id 5a478bee46e88-2ed0a3e3ac0mr143855eec.4.1777320768628;
-        Mon, 27 Apr 2026 13:12:48 -0700 (PDT)
-X-Received: by 2002:a05:7300:d509:b0:2be:17b1:e49f with SMTP id 5a478bee46e88-2ed0a3e3ac0mr143826eec.4.1777320767938;
-        Mon, 27 Apr 2026 13:12:47 -0700 (PDT)
+        bh=xS47RVDKW8GFZppjjzYsYzUHq1wMuiBPcs650CNp/VE=;
+        b=Nxr/611yp/7HRpPgaSx8vcEh1/HjZmHyYp8tWlQ1E1ENPeGCd+FKdvSv64RFKwG22x
+         am6XHUqdD58ulDOPVAWGCDkCbGyU/WpnfOqgwe/OAAGUA+kw3owpC6ILywL1lWB7eoM2
+         LlT0JCKKM4irNynfFS/ISqGXGoxjME5VPgFCs=
+X-Forwarded-Encrypted: i=1; AFNElJ++hCsURYCtjMkocRUKRs/SSlDaY/kroJXLx4MSTJP3CDNAJ/B3ZXzVUNmTjU9BCKMei81b/XXbDHpHQ147tgsI@lists.infradead.org
+X-Received: by 2002:a05:7300:7316:b0:2c0:e404:8b08 with SMTP id 5a478bee46e88-2ed0a19128emr207093eec.29.1777320764884;
+        Mon, 27 Apr 2026 13:12:44 -0700 (PDT)
+X-Received: by 2002:a05:7300:7316:b0:2c0:e404:8b08 with SMTP id 5a478bee46e88-2ed0a19128emr207074eec.29.1777320764314;
+        Mon, 27 Apr 2026 13:12:44 -0700 (PDT)
 Received: from mail.broadcom.net ([192.19.144.250])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2ed09fb6b7fsm437136eec.10.2026.04.27.13.12.46
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2ed09fb6b7fsm437136eec.10.2026.04.27.13.12.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Apr 2026 13:12:47 -0700 (PDT)
+        Mon, 27 Apr 2026 13:12:43 -0700 (PDT)
 From: Kamal Dasu <kamal.dasu@broadcom.com>
 To: andersson@kernel.org,
 	robh@kernel.org
@@ -96,9 +96,9 @@ Cc: krzysztof.kozlowski@linaro.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Kamal Dasu <kamal.dasu@broadcom.com>
-Subject: [PATCH v7 2/3] hwspinlock: brcmstb hardware semaphore support
-Date: Mon, 27 Apr 2026 16:12:32 -0400
-Message-Id: <20260427201233.380314-3-kamal.dasu@broadcom.com>
+Subject: [PATCH v7 1/3] dt-bindings: hwlock: Adding brcmstb-hwspinlock support
+Date: Mon, 27 Apr 2026 16:12:31 -0400
+Message-Id: <20260427201233.380314-2-kamal.dasu@broadcom.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260427201233.380314-1-kamal.dasu@broadcom.com>
 References: <20260427201233.380314-1-kamal.dasu@broadcom.com>
@@ -106,8 +106,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_131251_781478_C08BE4A6 
-X-CRM114-Status: GOOD (  23.58  )
+X-CRM114-CacheID: sfid-20260427_131247_867893_5EC92AE5 
+X-CRM114-Status: GOOD (  13.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,164 +122,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Broadcom settop SoCs have common 16 hardware semaphore registers that
-can be used as part of the kernel hardware spinlock framework. The
-hardware semaphores are part of the 'sundry' ip block that also has
-controls like pin/mux controls, SoC identification, drive strength,
-reset controls, and other misc bits.
+The Broadcom settop SoCs have hardware semaphores as part of the
+"sundry" IP block which has other controls that do not belong anywhere
+else e.g. pin/mux controls, SoC identification, drive strength, reset
+controls, and other misc bits are part of this block.
 
-Adding support for brcmstb_hwspinlock that only maps sundry block
-registers SUN_TOP_CTRL_SEMAPHORE_[0:15] to implement the hardware
-spinlock operations. Change allows other Broadcom settop drivers to
-call hwspin_trylock() and hwspin_unlock() interfaces to make use of
-hwspinlock framework. Other driver dt nodes just need to provide a
-reference to the &hwspinlock and lock id to make use of a particular
-hardware lock.
-e.g. hwlocks = <&hwspinlock0 0>;
+Adding brcmstb-hwspinlock bindings which allows the hwspinlock driver
+to iomap only the 16 hardware semaphore registers that are part of all
+settop SoCs. The semaphore registers are based on the BCM7038 SoC
+where they were first introduced in settop chips.
 
 Signed-off-by: Kamal Dasu <kamal.dasu@broadcom.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- drivers/hwspinlock/Kconfig              | 10 +++
- drivers/hwspinlock/Makefile             |  1 +
- drivers/hwspinlock/brcmstb_hwspinlock.c | 96 +++++++++++++++++++++++++
- 3 files changed, 107 insertions(+)
- create mode 100644 drivers/hwspinlock/brcmstb_hwspinlock.c
+ .../brcm,bcm7038-sun-top-ctrl-semaphore.yaml  | 44 +++++++++++++++++++
+ 1 file changed, 44 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/hwlock/brcm,bcm7038-sun-top-ctrl-semaphore.yaml
 
-diff --git a/drivers/hwspinlock/Kconfig b/drivers/hwspinlock/Kconfig
-index d84e00084ee2..3a81a6785e45 100644
---- a/drivers/hwspinlock/Kconfig
-+++ b/drivers/hwspinlock/Kconfig
-@@ -8,6 +8,16 @@ menuconfig HWSPINLOCK
- 
- if HWSPINLOCK
- 
-+config HWSPINLOCK_BRCMSTB
-+	tristate "Broadcom Settop Hardware Semaphore functionality"
-+	depends on ARCH_BRCMSTB || COMPILE_TEST
-+	help
-+	  Broadcom settop hwspinlock driver.
-+	  Say y here to support the Broadcom Hardware Semaphore functionality, which
-+	  provides a synchronisation mechanism on the SoC.
-+
-+	  If unsure, say N.
-+
- config HWSPINLOCK_OMAP
- 	tristate "OMAP Hardware Spinlock device"
- 	depends on ARCH_OMAP4 || SOC_OMAP5 || SOC_DRA7XX || SOC_AM33XX || SOC_AM43XX || ARCH_K3 || COMPILE_TEST
-diff --git a/drivers/hwspinlock/Makefile b/drivers/hwspinlock/Makefile
-index 3a740805949d..379443987b94 100644
---- a/drivers/hwspinlock/Makefile
-+++ b/drivers/hwspinlock/Makefile
-@@ -4,6 +4,7 @@
- #
- 
- obj-$(CONFIG_HWSPINLOCK)		+= hwspinlock_core.o
-+obj-$(CONFIG_HWSPINLOCK_BRCMSTB)	+= brcmstb_hwspinlock.o
- obj-$(CONFIG_HWSPINLOCK_OMAP)		+= omap_hwspinlock.o
- obj-$(CONFIG_HWSPINLOCK_QCOM)		+= qcom_hwspinlock.o
- obj-$(CONFIG_HWSPINLOCK_SPRD)		+= sprd_hwspinlock.o
-diff --git a/drivers/hwspinlock/brcmstb_hwspinlock.c b/drivers/hwspinlock/brcmstb_hwspinlock.c
+diff --git a/Documentation/devicetree/bindings/hwlock/brcm,bcm7038-sun-top-ctrl-semaphore.yaml b/Documentation/devicetree/bindings/hwlock/brcm,bcm7038-sun-top-ctrl-semaphore.yaml
 new file mode 100644
-index 000000000000..7a5a35e741f3
+index 000000000000..552f334256b5
 --- /dev/null
-+++ b/drivers/hwspinlock/brcmstb_hwspinlock.c
-@@ -0,0 +1,96 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * brcmstb HWSEM driver
-+ *
-+ * Copyright (C) 2025 Broadcom
-+ *
-+ */
++++ b/Documentation/devicetree/bindings/hwlock/brcm,bcm7038-sun-top-ctrl-semaphore.yaml
+@@ -0,0 +1,44 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/hwlock/brcm,bcm7038-sun-top-ctrl-semaphore.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+#include <linux/delay.h>
-+#include <linux/hwspinlock.h>
-+#include <linux/io.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/slab.h>
-+#include <linux/spinlock.h>
-+#include "hwspinlock_internal.h"
++title: Broadcom Settop Sundry Block Hardware Semaphore
 +
-+#define BRCMSTB_NUM_SEMAPHORES		16
-+#define RESET_SEMAPHORE			0
++description:
++  Broadcom settop SoCs contain 16 hardware semaphore registers
++  (SEMAPHORE_0 through SEMAPHORE_15) that provide hardware-arbitrated
++  mutual exclusion between drivers running on the SoC.
 +
-+#define HWSPINLOCK_VAL			'L'
++  The semaphore registers belong to the sundry hardware block. The
++  node describes the semaphore register range carved out of the larger
++  sundry block address space.
 +
-+static int brcmstb_hwspinlock_trylock(struct hwspinlock *lock)
-+{
-+	void __iomem *lock_addr = (void __iomem *)lock->priv;
++maintainers:
++  - Kamal Dasu <kamal.dasu@broadcom.com>
 +
-+	writel(HWSPINLOCK_VAL, lock_addr);
++properties:
++  compatible:
++    const: brcm,bcm7038-sun-top-ctrl-semaphore
 +
-+	return (readl(lock_addr) == HWSPINLOCK_VAL);
-+}
++  "#hwlock-cells":
++    const: 1
 +
-+static void brcmstb_hwspinlock_unlock(struct hwspinlock *lock)
-+{
-+	void __iomem *lock_addr = (void __iomem *)lock->priv;
++  reg:
++    maxItems: 1
 +
-+	/* release the lock by writing 0 to it */
-+	writel(RESET_SEMAPHORE, lock_addr);
-+}
++required:
++  - compatible
++  - reg
++  - "#hwlock-cells"
 +
-+static void brcmstb_hwspinlock_relax(struct hwspinlock *lock)
-+{
-+	ndelay(50);
-+}
++additionalProperties: false
 +
-+static const struct hwspinlock_ops brcmstb_hwspinlock_ops = {
-+	.trylock	= brcmstb_hwspinlock_trylock,
-+	.unlock		= brcmstb_hwspinlock_unlock,
-+	.relax		= brcmstb_hwspinlock_relax,
-+};
-+
-+static int brcmstb_hwspinlock_probe(struct platform_device *pdev)
-+{
-+	struct hwspinlock_device *bank;
-+	struct hwspinlock *hwlock;
-+	void __iomem *io_base;
-+	int i, num_locks = BRCMSTB_NUM_SEMAPHORES;
-+
-+	io_base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(io_base)) {
-+		dev_err(&pdev->dev, "semaphore iobase mapping error\n");
-+		return PTR_ERR(io_base);
-+	}
-+
-+	bank = devm_kzalloc(&pdev->dev, struct_size(bank, lock, num_locks),
-+			    GFP_KERNEL);
-+	if (!bank)
-+		return -ENOMEM;
-+
-+	for (i = 0, hwlock = &bank->lock[0]; i < num_locks; i++, hwlock++)
-+		hwlock->priv = (void __iomem *)(io_base + sizeof(u32) * i);
-+
-+	return devm_hwspin_lock_register(&pdev->dev, bank,
-+					 &brcmstb_hwspinlock_ops,
-+					 0, num_locks);
-+}
-+
-+static const struct of_device_id brcmstb_hwspinlock_ids[] = {
-+	{ .compatible = "brcm,bcm7038-sun-top-ctrl-semaphore", },
-+	{ /* end */ },
-+};
-+MODULE_DEVICE_TABLE(of, brcmstb_hwspinlock_ids);
-+
-+static struct platform_driver brcmstb_hwspinlock_driver = {
-+	.probe		= brcmstb_hwspinlock_probe,
-+	.driver		= {
-+		.name	= "brcmstb_hwspinlock",
-+		.of_match_table = brcmstb_hwspinlock_ids,
-+	},
-+};
-+
-+module_platform_driver(brcmstb_hwspinlock_driver);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_DESCRIPTION("Hardware Spinlock driver for brcmstb");
-+MODULE_AUTHOR("Kamal Dasu <kamal.dasu@broadcom.com>");
++examples:
++  - |
++    hwlock@404038 {
++        compatible = "brcm,bcm7038-sun-top-ctrl-semaphore";
++        reg = <0x404038 0x40>;
++        #hwlock-cells = <1>;
++    };
 -- 
 2.34.1
 
