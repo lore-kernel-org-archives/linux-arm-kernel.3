@@ -4,154 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C163FF885E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 13:30:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B110FF8860
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 13:38:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	References:To:From:Subject:Cc:Message-Id:Date:Content-Type:
-	Content-Transfer-Encoding:Reply-To:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L5aMnw16kRZJmZSBiObovUG/8QP2+23ctzobvVKlEJE=; b=Vp4arnZ/lPDxbqcJzbbZDI1NzK
-	EMGaWUgMj5EcteFWJh7QCV12J5Eyis9keQHedFVo+oOMzTVg0fRTQTk1EigdfUsMd9z3zd6WQUU6L
-	4dv2XLkbfhCdlST5Qdmp/M//rVxrC3vPOVgvw3GTTnQW5XRxWzbkU9Vd3TMGGpecheny6mWrbDGo9
-	g67hzp72btRn7kTs3ToG3uRGUQk2/mWMX6VNLlJwgJMxpqAG3UKdJ2T54iS5wjAhn8Si1aUP870Qy
-	HJFEFnmvvsfqM1NeBFkvhTyJ1JAx9yUXbXGUfC0p3gz8ogEYHQAZBQWcFoC22/OcRsHhzZNSapybC
-	bmQp50lg==;
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kdoF8XoZW86Ck2I+94FE3TwzzF1GaJCnJrn/wWDvjdw=; b=MEaRs9LKFBum1FXKo1CJ7ywHTH
+	FbylQrSBGJLbBhE8ZSMhdUzvYcDYx5cQ070S6T7ah3iWSKoLAsKc2tewTsKQnqyQReC8Ll0ZCouZx
+	ZoyB2R2F4pn4cqf8urKBs8P9y5opV/UEpHQxJLBdVdezNgwp9X4TbCPixg2th+gTp5SjauRDAbA2r
+	hJwKO1rKna9X5tTLkbpEfsQvu1l0dH+ChI9rbm/sbBvZ2ZlEet1tun0IrBuQmxbKVEmXMmmY8Zk2G
+	+zXochr7IBnX/r+xsp0gSC5rMyEbZp5bJH4vp/Ye1rJyPwceOrdmvf+Bmxi/ANBJz5LWzggm/tj5z
+	POoANU9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHM2I-0000000H0KO-3oXy;
-	Mon, 27 Apr 2026 13:30:06 +0000
-Received: from mail-uksouthazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c205::5] helo=LO0P265CU003.outbound.protection.outlook.com)
+	id 1wHMAg-0000000H0pH-2lD8;
+	Mon, 27 Apr 2026 13:38:46 +0000
+Received: from mail-westus3azon11011053.outbound.protection.outlook.com ([40.107.208.53] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHM2F-0000000H0J1-3yDn
+	id 1wHMAe-0000000H0os-1hQS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 13:30:05 +0000
+	Mon, 27 Apr 2026 13:38:45 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VV4VWpGb+41lJ/FnXxZcfy7SEgc78/UyQyOk0WHkGbZRwJr6/C4GZyBGXoNyBiGYzguT5WXW0mhNWgDHeo4w7kbwk5+/SA5exDDrZOU4ack6kvD2rAyI0De2PltSdTyEujLzPUcfem1aqWHuzmnNA7VHh6xZeQ8jLxmXif085vTjdE5AO1m4FnUmJv8ga43turTgiSjgsP0PwDerO1n2aLKi9f9iDPjs49QwrB0tI8RcFNjz3kyKI9rE9CX2Ox0/ICni2HLRPJN6I5swR+jFxTk6PjBAiLicnJDN+C0IESDxy9EmU3/G5J5Q0B1z2/XJacjuEGzzLdZn5WE8aky/1A==
+ b=eTvJKWFhgFv4olQs/mS96cMrXmGSEqtr8Y4XY5zj7p4cMtZXZBMjB11/I438NNRXNtXCisLqCBM1HGvldNL4XAYgfzTFX4j0ccI8R4zDDlKiZ4GrklkOtQc+A5iZluWxFM8OMTCEEcM/TfiY4GNfAZ1hFhGzbfoj1fTj6vMfTfqhFF8QCCCuyg6UNr5B/Wy4cJqSGIr61V7eXDq3rAb2JfzS41VVSQv29pjlA3ja8zN6TC9eLrglyf/r7+TwfuajWMA0ecst9VzbxDF1nfCbfFJpGcAvhcSakKvuB67LpibZIPhK7goTgYlRIvRaQMzAGHcYuHzd8O4qC3wv8tdIjA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=L5aMnw16kRZJmZSBiObovUG/8QP2+23ctzobvVKlEJE=;
- b=ZxKBqkDYY5dhHDkGKqlEpq5IRUh9bpxHrCq4kSuY5+MKT49u9eu/c9uN+HMHfpLU5RAsBxZaS3y5+aBzi2UyHXSouE3cEw5xnUKHDT7wnl/mpZjODriW10cfJSD1FVszJzzi5WOy7U/wU58AEIGVWjCDuktFsIY5W8dDBwpBrSFV9nms9nFX20IpOKn154VXCOjsyBKs4BuiNN+cr4g5azuNbreVRu8X/ECBlzHJpuh8xX0ISsB3cna010rqjt7Bcf1QoL1ls038Oaa36d6H1cNKu0Lln6UCoZn2dHh5Rwd33IO8//BhiE6UvRLt3infY6LnalytE6pwf3CiztO4qw==
+ bh=kdoF8XoZW86Ck2I+94FE3TwzzF1GaJCnJrn/wWDvjdw=;
+ b=gc+Y7jb1FLT6+VlkAkoB4EjxmTSOR7ch5lWIBkNat/3rOQuLyXLIJyrCTgn5qxN9+t+7j1ESFcuujuuthh0rahRSES//W1+yxRwFzHxstNuHmpRIYLlAqzRVamPQYn/rKtQJDTxlVZWeAtph0kDU1lXXlpUaech8nIyUsceYkbN4NF0w+GcvPq18QBND9d+xg5DXHqQBFirxSzrfFPuYBY3PKfLovV7ZUQ1GDOul34hBCGIPw6b/T15qC1BnsdpNI6cqIHxkKS/n9ynhmfUYZR/bgHBQHRr66HtOODNiUFk1kh++WHMY0DupfsLXIOmAX7HK0uko1mYVSh1OKXID3A==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
- dkim=pass header.d=garyguo.net; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
- s=selector1;
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=L5aMnw16kRZJmZSBiObovUG/8QP2+23ctzobvVKlEJE=;
- b=n3HHlCbT6Az0Cc0xwBNq96dF5e428Zj9qjTDMvkGoKd8JgT1QMvd5rMRdVMLdYFIQm/sMWvkn4uWLqlfGoFfKfP6GbXj0lQBrt54IXs7+6ZRYHdD9QXFCm3RKlva5noHMx5Vm1DKWqzOH7ZVmeUykuI3wJhZ94ECcM2ynkXvfzI=
+ bh=kdoF8XoZW86Ck2I+94FE3TwzzF1GaJCnJrn/wWDvjdw=;
+ b=Snf70S7RCcJZoo8JJNIAbwfsFYj8uXUf9UpK4dyUgDbpzGVp0euMLVZypCpogk4YZFjcDb3CnFaf9aB6wrJlt0wNxhmcslQM58amoxf16w42cNXjdg1npqpLcINBuThP/kwFkYiGGm/DEYzmEJ/FowyDMeWw6lVvo+8RIU04CnRz6RDtO6WZ9SDyqhL8cpTS0mefzFeJLQV5Fjd82oIPuLHPPmjaYq4IOKpKAq4zob/iZ5RikW4l4O0Gv+AIiiQQH4jNtu3iRRHrvVcDeNS6NbOqJorlOh4dZhCHpOW7fP3F0GsjSeko1gE8pZykSUfRxfVarykID2WPKsNongWeMQ==
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=garyguo.net;
-Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:488::16)
- by LO4P265MB6729.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:2f4::13) with
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by CH1PR12MB9576.namprd12.prod.outlook.com (2603:10b6:610:2ad::14) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Mon, 27 Apr
- 2026 13:29:57 +0000
-Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
- ([fe80::1c3:ceba:21b4:9986]) by LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
- ([fe80::1c3:ceba:21b4:9986%4]) with mapi id 15.20.9846.025; Mon, 27 Apr 2026
- 13:29:57 +0000
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 27 Apr 2026 14:29:55 +0100
-Message-Id: <DI3Z28IZZOT9.349TTWNN9VDMB@garyguo.net>
-Cc: "Rahul Bukte" <rahul.bukte@sony.com>, <linux-kernel@vger.kernel.org>,
- <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
- <driver-core@lists.linux.dev>, <rust-for-linux@vger.kernel.org>,
- <linux-doc@vger.kernel.org>, "Daniel Palmer" <daniel.palmer@sony.com>, "Tim
- Bird" <tim.bird@sony.com>, <linux-modules@vger.kernel.org>
-Subject: Re: [PATCH v4 1/4] kernel: param: initialize module_kset before
- do_initcalls()
-From: "Gary Guo" <gary@garyguo.net>
-To: "Shashank Balaji" <shashank.mahadasyam@sony.com>, "Suzuki K Poulose"
- <suzuki.poulose@arm.com>, "James Clark" <james.clark@linaro.org>,
- "Alexander Shishkin" <alexander.shishkin@linux.intel.com>, "Maxime
- Coquelin" <mcoquelin.stm32@gmail.com>, "Alexandre Torgue"
- <alexandre.torgue@foss.st.com>, "Greg Kroah-Hartman"
- <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
- "Danilo Krummrich" <dakr@kernel.org>, "Miguel Ojeda" <ojeda@kernel.org>,
- "Boqun Feng" <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
- <lossin@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Alice
- Ryhl" <aliceryhl@google.com>, "Trevor Gross" <tmgross@umich.edu>, "Richard
- Cochran" <richardcochran@gmail.com>, "Jonathan Corbet" <corbet@lwn.net>,
- "Shuah Khan" <skhan@linuxfoundation.org>, "Luis Chamberlain"
- <mcgrof@kernel.org>, "Petr Pavlu" <petr.pavlu@suse.com>, "Daniel Gomez"
- <da.gomez@kernel.org>, "Sami Tolvanen" <samitolvanen@google.com>, "Aaron
- Tomlin" <atomlin@atomlin.com>, "Mike Leach" <mike.leach@arm.com>, "Leo Yan"
- <leo.yan@arm.com>
-X-Mailer: aerc 0.21.0
-References: <20260427-acpi_mod_name-v4-0-22b42240c9bf@sony.com>
- <20260427-acpi_mod_name-v4-1-22b42240c9bf@sony.com>
-In-Reply-To: <20260427-acpi_mod_name-v4-1-22b42240c9bf@sony.com>
-X-ClientProxiedBy: LO4P265CA0198.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:318::11) To LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:488::16)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.13; Mon, 27 Apr
+ 2026 13:38:30 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9870.013; Mon, 27 Apr 2026
+ 13:38:30 +0000
+Date: Mon, 27 Apr 2026 10:38:29 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Thomas Gleixner <tglx@kernel.org>, Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v4 2/3] swiotlb: dma: its: Enforce host page-size
+ alignment for shared buffers
+Message-ID: <20260427133829.GA792646@nvidia.com>
+References: <20260427063108.909019-1-aneesh.kumar@kernel.org>
+ <20260427063108.909019-3-aneesh.kumar@kernel.org>
+ <86zf2ozrb8.wl-maz@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86zf2ozrb8.wl-maz@kernel.org>
+X-ClientProxiedBy: YT3PR01CA0004.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:86::7) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LOVP265MB8871:EE_|LO4P265MB6729:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6ff95767-0092-4642-9573-08dea46112e5
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|CH1PR12MB9576:EE_
+X-MS-Office365-Filtering-Correlation-Id: f8356d3b-be6e-47e8-d918-08dea46244ca
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|10070799003|56012099003|18002099003|22082099003|921020;
-X-Microsoft-Antispam-Message-Info: SDyiiBD3iEfz7RCjysXc+dutLjjGs08VaCUPh/TaJDgxyNq4i+gIKSxHicTwWJYU03yrPAA1js8S3rRIEHuargJZBN9f67pNSHNjll4UABdnEKcmVVdV9NMwdI4Oj9aJhcIwL/INdUILSNRaF3vs2xUrvLRKChJ6j+m1jT9pcMrmOysjCi3hG0/+6geNg6DGsRWIp3JX4BUD4CwG+VUfLL/ATbCjtD4sfHAbETB6am+uCbrGaTTYwA8+3LPzZZ0XbwJjFBq+T8uIllaf4JJvIz4x+Y0O9pLydismd5x+pzRmH4TxSbXIOMRScpnYY40xqKBZKnsI0nWwDmancywxyrp9Dma9yg3jKATl03UhmLWOBy+ia3LJ1pSst/nO3XpohLIrDIi2L0pXafs87vMyrZeOq9AzgO7vBcYZVRHkOL6E2pxqfJXqw29LKhwCXya9axGuxM+oXO+JZFLdL9mEyr/xhFgPTrsB0OQKEn0xcA2x5Pk0wMgNaTomeHT+sbsyzDF3QCVIlcdMJLWtZZTyAWpEHj6C2/30ungmk2h0uo6UmB+8UiR2m0YQR7T9R6dwjaZi3gcvBdJE24sDj/JU+WPNyliQU78kTDi8buHjK63H/85jPgLSlFVahFu7IRd4VrxHzarRpyTb8wg70nfpDhaYZmqMP1iwIpVwsc4K9gwCkQKNmCzIxpl/nDMNiaE5Ly7jI2LYq9RttoMnHnaHM0XcQR1crSuD9W+UVj4FNxZEvB0Dc0RU9m4dvjZocPlL55BkdJmjWkL7HmH9MeuJFA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(10070799003)(56012099003)(18002099003)(22082099003)(921020);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: O1lxIrjM2M08yY1qUwquAGADcoHCDr8mViqgbj1BdlpSLTLXzXKV54xrLkd1/wO0bSGZ6GsLwq/tTLkyUwObeoSRUqdqsKuwIf916hPdH8hFG0+zzp4mWMCQ0DuEq+KY0cWjkgiQ5vfLLOcorBvPNqSTjkqNScPuH71iblPsmY0cLqdNkhl+ua/Egco+0LTC6zJdtQcpYdQpT3OYGOpud4soQ5QA+sTpXiDIxUssUyqwY2JghmxhGelJpsXTQoMBl+iPNOwblSv5476D5twUsjVwvwCnIzPOnjndMAzKO/5mq3VYiyl1se5KFllAGTjMHl54aO6jxM9n3QJ9yzpG16xH+JiQN4zPg6gLXvnGusq7CBouSLI1zzRDS9kRWTXHzyAJWdKMWYFdt6ANExGph5tkmCiVl62jFkTSkZjSOWpkrdG17VjLXZW1q8iv0FPaWKWgk2VXy3wvfZGSgeQxHRBDo4Oxox2buFGNMerSG89eR4ljzATbCotI7NEfDPOhrmLfJTnjXYT/e9lElhNQtvYRtgGo9Mrbg6pGehrFs6bfVq/xAYYDIX9U1fCsP79uXuZvPVDjhknrbcuxXeo1NoojF0xeOsawF/Bce5q9KmeuZqL8+saa9CrU5UcLUpvjwuBpmEy1+ubaBXgecurIb0zS5xUjWkNEqZXyhEiaASSlA0C3rJ8rT7MRh6j7oeLvRZgPeEcdo4Iv+c0iBj55MGx2VQVxQdoiwGZMbo24tfs=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SS9RQUpHUmF4aHpyM2NTWHlubDMvVWJIZGZvMXV4RDFON2lTS0ZtYWpLVW5m?=
- =?utf-8?B?ZHBCMW91TmZlMnU1WVdjTlNYS2ZzSXQ3RDREQ2dlWlN5YnFUK1RscERSclor?=
- =?utf-8?B?NEZieEFaSzN3ZDBtOWRIUTgwMUVMYVJjTDVVbjIxNlI2eHF5UFhpODdOdWQz?=
- =?utf-8?B?NFJEbWp3YktpMDlwTHNEMjlZMDJwU1RYN21INmx6V3JLL3FkR3QzUld3WXM5?=
- =?utf-8?B?ZmpqT0NnQ0NUcHA0a1RYNFczeDF1Y01kRWhUY0FpazdNWGVoLy9ybHJGd0h3?=
- =?utf-8?B?eEZNa1lPQmRENDJxbzBMZkJqZE9TQkdGTitoWVVkVEJ5cEFwU1RwRmV6Y2Zu?=
- =?utf-8?B?THBKVVpVZmVBOHo5RXpHbG9SalZsR1NKRlZtRHd1Q3FuWEFiMWZrRSt0Z2xX?=
- =?utf-8?B?NUVuRXgyVGF3TzVOUTE0TmtBYVJUcTVyeldDRnY2Y0V4NEtUeDA1cU03YlI3?=
- =?utf-8?B?cS93M1I5c2pSVGJqMVNVSnJsU3UrWE14dXR3VVhqU3lTMXAzVU04R2piTWJB?=
- =?utf-8?B?bHdkeDEzbHhvZnlaOXRmbzU0amd6RnhCNC9CTlBuR21CaHdlSThlQW15bkR2?=
- =?utf-8?B?S2gycEx6bXJ0MjJKRmV6eFdOSTVBMTN4VFVXSEdJSEtVZDQ0dnY5SXRrOVJN?=
- =?utf-8?B?ZGwyeWw3ZWQ0WE9nMGd5QlFkZ0ZwaHEzY2JBbWNMOTI5UHQwK3o5YnJhK1NV?=
- =?utf-8?B?c2FDQ3lzWjMrcGNtQjVEVlRxVzltWXVkMy9YVG1TdXV3bnN0Wi9zT0g3dVJ4?=
- =?utf-8?B?UG84RmpQcWJUanBkNVBTTFFobzRFSDcwSXl2VGpwK0h4RzM1NHBPVk92cW45?=
- =?utf-8?B?dVZyczF4dTJ4dEgvRmdPKzRrTmtuczhPNWZSV1dPUlRscVI3VkJrbW1CaG5l?=
- =?utf-8?B?Nkx4TFViMFQ2YkxaNjA2dnJZV3lLR3hSWE01SHZueWlUZ09kenZxZGJvMDB0?=
- =?utf-8?B?RXA1WkdTMnFUT3RQME1POTZBK2d3M3RxL3I4U1U3N1ZCaHUxTjF0YTF1Slp0?=
- =?utf-8?B?QVNFV004UldseDZ0ekRBV1YySVlxYzNSZXJCQlpLMmVkUEdtVjRpY25HNW5T?=
- =?utf-8?B?b05rTnRYNU95S0VJSGlWWXhSSmtyek1lL1RnSjNjblN3QkJyRWpIeHJQZkt2?=
- =?utf-8?B?em43OHJYTGtQMjFSMVN0UDVZNko2VzN1S3ZlQkYxYnZnVnBtREFJWmt4a1NL?=
- =?utf-8?B?cVY3OVJjSzlNNDJpK3FiWk1PRWJTSEdDTGVxUmk4NFQrNFZYeGhMN3czUDdU?=
- =?utf-8?B?cDN3dFNvRWdDWm9PRmxmTTRaczNTZjV4bDRoVkIvVmtzcWRUS0I3cElpd3Q4?=
- =?utf-8?B?MS9UdFJoWi80R0J0YUNqSWNrT3BmQmVseFRVVE5BemxxOVl1S1l2MEpQVWpI?=
- =?utf-8?B?UXFLZXFxSnlnakpRY1VXQ2dhUzJjbmxmMmFnbUhLVXh6aC9aUlpCWjd4U3hO?=
- =?utf-8?B?WWRxTDhlNWlKRGFNTklvRVRzUjdaT0QrK0hOVFBTcVE0T1FMcTBudU5kaHZL?=
- =?utf-8?B?eHQzWmM0eHBEeXR4ZVJVK01CKzZ1Q3Uwc2VReUY3aldiRGs4cFZHRVdPMjBq?=
- =?utf-8?B?aXZieGllT0Q2SHNLOHllT3lwdmhPajR6bi9YNmY1U0VOSnNyb0c4dHJpemZa?=
- =?utf-8?B?MmVDREhlMkszT3gzREhFYWFmTnZtOVh2QTkyeXVQeFZzcGFWbGl6THZFdXVW?=
- =?utf-8?B?dmVqd2FLc3A5RjZrcUx3bnNZWFdxS2ZHamwxeUVTTGxFbzFyQzc2OHpsYmVF?=
- =?utf-8?B?SVM0bkR0b0hLSDlPaitaeTZPRWZlZStlSit6TGZpMUUycEtzcnhYY2ZUc05o?=
- =?utf-8?B?ZkdvR3NPTFJ0NTVKRlBvUkFlai8yUUJWUGxFNkJqWGM1c0Z2cEtibEQrOEZR?=
- =?utf-8?B?Q3ZjNmhaaWtZNmxLQUlSbFp6TW45b01QOTk3V2xhelRKTm9WS1FOdmJzazJp?=
- =?utf-8?B?US94SUw3UUdLZzVPT09FZGxxV3o2TDdLYlgzL3YvRzRpdWhUS1VzMXVOUGxi?=
- =?utf-8?B?WCtjNUFwclZMTlpoQVl3bFJnR1Rsb2lHRzBCcFJhdVJJSnh6azFRSGlaRjJ0?=
- =?utf-8?B?Y3JlU3JuMkZEOEFqRUgydVpuNGU5OENQeXBQcVBOM0h4NHlDVERnc1ErYU44?=
- =?utf-8?B?c0dmQXY1NmVOR0crWlVWb0VyMGI2UkRNclBpYlljN3hKQmNTeFVaeGFzZjVD?=
- =?utf-8?B?RHJ3R0IvOUdQV3NHU0tSSWpwaWVPK3BaUmp5SERDeFN2ZERnUHVaUzEweDJH?=
- =?utf-8?B?ZTlrZC9mZWo5Tkxla1pJSis1aVBNR3ZUR1U1UnphcTRBODdPd0JINFNodG1Q?=
- =?utf-8?B?RUxSYlhRVmxwdnNRUHBWYldLU2dtOFcyM3ozRVdiRGRqTStxNEI1QT09?=
-X-OriginatorOrg: garyguo.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6ff95767-0092-4642-9573-08dea46112e5
-X-MS-Exchange-CrossTenant-AuthSource: LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/LPG1ZGoeKGC1chfvQrdJOGTnecvqn01DxE3m+uVmtGzK4yClxBlgi+sk8g0?=
+ =?us-ascii?Q?J1MoOirGWHLlEcfuwEmbwU05gH02YgCA130niQTiZkKPjEhaqW7Gkgv6Jc8h?=
+ =?us-ascii?Q?X9p3FQrmTejcHsnaNr/BoTXyEk98HaxgAyr2luk55xmpvXGZBnFoSk0zXwXF?=
+ =?us-ascii?Q?gi1FJ5+kG0gYqNhLHe2O4PIe9anroxKKERpf6jyVx4h8eAjBqV22X+c3hUPw?=
+ =?us-ascii?Q?1N1vVCrflB7PfRcolxydIDmhr4FhsTTqLjG1PkwXLaysAHpKJ6PlpYncHQZ6?=
+ =?us-ascii?Q?F4A9f+k8vI68WIl90QbYO2ZgqJRE+JO53YfToB28MoZELXEZtBjqTs0uq940?=
+ =?us-ascii?Q?HhLKuE1T/wJ8Xy1F2NUOWRsT8vq2r2aVsy4p4xDDpJ396qrtRYpPEAVjdqw/?=
+ =?us-ascii?Q?zy2H8wdKTjE/4ww65aJvb9cSK1L7G5yfxSqyZQKw4/4/Vd9fkxegmZZuDv8R?=
+ =?us-ascii?Q?qqYkqaS1RXQd5xJPj561Q2nWLzvEFOJaKAFcjKjXWlPKXGje/3KZCCZOzTwb?=
+ =?us-ascii?Q?eGkmisroYliLxFq8vL3MUtVUcHBi/gB7o1OiUEzVh7adnyZlS+R5pYvQhC9R?=
+ =?us-ascii?Q?LCF4JlrojpryHqh20vU/zzH3VZcaFonA/fHAh+AsMpyYqhlr0xAz8vOxYDcq?=
+ =?us-ascii?Q?iEGp9evHhniM2jFe/W7NxfdHM7HfsiEFG5nVslHZVmBLJTVCqoUytwDIpC40?=
+ =?us-ascii?Q?kfDde742U9t+oDasbcmHP/iKKGFq2ZF657i719hHukpmfwJxEXFeKnUPcGNV?=
+ =?us-ascii?Q?Tg4qV/+gOCktG4ZdCvP88fHWvs46Fw4tx1UZYZQ0AslhHUyvZ/OIBny1Rs7V?=
+ =?us-ascii?Q?SN7Hh0N4sE5KDk1Pdf+cWV0LHLjFDP2Z1sS8xN44IbdgAhZArO9KVrwq0fJi?=
+ =?us-ascii?Q?ov3rk51+Rl8Yfi4hWYMTaXaSn+xfwFchDj8eJaH5/o9vIxLTyfPPvJ05KgXb?=
+ =?us-ascii?Q?xVBt+7kd29+z2qDM/JyQj7KoM0YISOxoIcQ/+9pWo36W7jEJq91JQkbWBdLK?=
+ =?us-ascii?Q?JJBlT2DU88Rhdh2ujpGZuLf6l7N6vAuAiX8v+o8iKaYPJLWBlZLMqaBu47ck?=
+ =?us-ascii?Q?jEHCmQpZkGI7phf3WJn9p+JUKbEu7xNjBW17WZvKBoUYG1TEboy2RmGCaId9?=
+ =?us-ascii?Q?M0L1MH9G1gqqr02u+KdR1Inky7wB35T6dmDq7xqLRPrm6Wpn5QODoS5VYtob?=
+ =?us-ascii?Q?O8MFggpMhoezehU3TayBFduc0L4vCMzpkzZ6q9h3pupAebLHjmIM27bRN/xa?=
+ =?us-ascii?Q?HNCfmuroISBsLYLFfLHc23Cpdqxrc9WkjeHDYNqXuQ4p3b2FDIF+O83bDiAY?=
+ =?us-ascii?Q?9CamHkiuCvXt6Fr/w3/Do4ow0UDPIP+52ayERkzQpMmXvl0Be4XVAo4M1nXj?=
+ =?us-ascii?Q?Ro1aEcBrxga5bfb3gpwf8hI9YmQ7z4MzA5g9EFKC0Hvcomijp+nDi1GbatMi?=
+ =?us-ascii?Q?MIIafIu3uocGp6dVomqYDdtzshzXCKjbSwEAWWFsobf4yyDWGYDT9W+qY/u1?=
+ =?us-ascii?Q?sm9Wc6WKt5pOY03T9ZnM/Sq+i0vwsegz5ULHI6CAfOGRXBU9cj4BhUanAVGG?=
+ =?us-ascii?Q?qClFJHP56c2cWGjngvHv8Zt7Ie99LBxezDGeijxUS+V2bIQciEmZ8vNAa0zE?=
+ =?us-ascii?Q?2sRF1Keg2GN/uS8R2mqWJZDyijVndt+1IqKfeMJEMTYylg1QZ5b8TRtXQ3zJ?=
+ =?us-ascii?Q?533OYnoQAduAzK3FXJnJgiKb/xfjtG2JTdDYfAVSyAgen7jm?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f8356d3b-be6e-47e8-d918-08dea46244ca
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Apr 2026 13:29:56.9611
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Apr 2026 13:38:30.4593
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: NrB/2WBkxTsifVL3k4mOyUHrDSoc5SyBx0tmULNhTqFeOpD07J423egJ1TVkc49r8/aMzPsUxfdmNbSfzf9NKQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO4P265MB6729
+X-MS-Exchange-CrossTenant-UserPrincipalName: gxolYM3rB+EMahMAV1lcf9+re+U1E4JZ9HyWofky4s5dOeI9+6Eo3Twurex7KigI
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH1PR12MB9576
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_063003_991980_4B54B1AF 
-X-CRM114-Status: GOOD (  24.22  )
+X-CRM114-CacheID: sfid-20260427_063844_542768_E9B88C41 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,127 +144,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon Apr 27, 2026 at 3:41 AM BST, Shashank Balaji wrote:
-> module_kset is initialized in param_sysfs_init(), a subsys_initcall. A nu=
-mber
-> of platform drivers register themselves prior to subsys_initcalls
-> (tegra194_cbb_driver registers in a pure_initcall, for example). With an
-> upcoming patch ("driver core: platform: set mod_name in driver registrati=
-on")
-> that sets their mod_name in struct device_driver, lookup_or_create_module=
-_kobject()
-> will be called for those drivers, which calls kset_find_obj(module_kset, =
-mod_name).
-> This causes a null deref because module_kset isn't alive yet.
->
-> Fix this by initializing module_kset in do_basic_setup() before do_initca=
-lls().
-> Modernize the pr_warn while we're at it.
->
-> Suggested-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-> Suggested-by: Gary Guo <gary@garyguo.net>
+On Mon, Apr 27, 2026 at 10:27:23AM +0100, Marc Zyngier wrote:
+> > With CCA, although Stage-2 mappings managed by the RMM still operate at a
+> > 4K granularity, shared pages must nonetheless be aligned to the
+> > host-managed page size and sized as whole host pages to avoid the issues
+> > described above.
+> 
+> I thought that was being fixed, and that there was now a strong
+> guarantee that RMM and host are aligned on the page size.
 
-I didn't suggest this change :)
+Yes, the RMM and host are supposed to be aligned on page size, but
+this means the guest now has this mem_decrypt_granule_size() value
+that it has to deal with, and it won't always be 4k.
 
-I suggested `pure_initcall`, which is just a one line change.
+The spec introduction of RHI_HOSTCONF_GET_IPA_CHANGE_ALIGNMENT is
+fixing a defect in earlier RMM specs that just assumed it was always
+4k.
 
-diff --git a/kernel/params.c b/kernel/params.c
-index 74d620bc2521..ac088d4b09a9 100644
---- a/kernel/params.c
-+++ b/kernel/params.c
-@@ -957,7 +957,7 @@ static int __init param_sysfs_init(void)
-=20
- 	return 0;
- }
--subsys_initcall(param_sysfs_init);
-+pure_initcall(param_sysfs_init);
-=20
- /*
-  * param_sysfs_builtin_init - add sysfs version and parameter
+AFAIK this is unfixable in ARM's architecture..
 
-pure_initcall is level 0 so it happens before all other init calls. Does it=
- not
-work?
+> Even more, S2 is totally irrelevant here. The only thing that
+> matters is the host page size vs the guest page size. Nothing else.
 
-Best,
-Gary
+Yeah
 
-> Co-developed-by: Rahul Bukte <rahul.bukte@sony.com>
-> Signed-off-by: Rahul Bukte <rahul.bukte@sony.com>
-> Signed-off-by: Shashank Balaji <shashank.mahadasyam@sony.com>
-> ---
->  include/linux/module.h |  4 ++++
->  init/main.c            |  1 +
->  kernel/params.c        | 21 +++++++++------------
->  3 files changed, 14 insertions(+), 12 deletions(-)
->
-> diff --git a/include/linux/module.h b/include/linux/module.h
-> index 7566815fabbe..6478596e8f9f 100644
-> --- a/include/linux/module.h
-> +++ b/include/linux/module.h
-> @@ -886,6 +886,10 @@ static inline void module_for_each_mod(int(*func)(st=
-ruct module *mod, void *data
->  #ifdef CONFIG_SYSFS
->  extern struct kset *module_kset;
->  extern const struct kobj_type module_ktype;
-> +
-> +void param_sysfs_init(void);
-> +#else
-> +static inline void param_sysfs_init(void) {}
->  #endif /* CONFIG_SYSFS */
-> =20
->  #define symbol_request(x) try_then_request_module(symbol_get(x), "symbol=
-:" #x)
-> diff --git a/init/main.c b/init/main.c
-> index 96f93bb06c49..01552c6b62ff 100644
-> --- a/init/main.c
-> +++ b/init/main.c
-> @@ -1486,6 +1486,7 @@ static void __init do_basic_setup(void)
->  	ksysfs_init();
->  	driver_init();
->  	init_irq_proc();
-> +	param_sysfs_init();
->  	do_ctors();
->  	do_initcalls();
->  }
-> diff --git a/kernel/params.c b/kernel/params.c
-> index 74d620bc2521..d1e3934fb3a7 100644
-> --- a/kernel/params.c
-> +++ b/kernel/params.c
-> @@ -942,22 +942,19 @@ const struct kobj_type module_ktype =3D {
->  /*
->   * param_sysfs_init - create "module" kset
->   *
-> - * This must be done before the initramfs is unpacked and
-> - * request_module() thus becomes possible, because otherwise the
-> - * module load would fail in mod_sysfs_init.
-> + * Must run before:
-> + * - do_initcalls(): some drivers register during initcalls and rely on
-> + *   module_kset existing for their sysfs module symlink.
-> + * - rootfs_initcall (initramfs unpack): request_module() becomes possib=
-le.
-> + *   But if module_kset is null, module load would fail in mod_sysfs_ini=
-t(),
-> + *   causing request_module() to fail.
->   */
-> -static int __init param_sysfs_init(void)
-> +void __init param_sysfs_init(void)
->  {
->  	module_kset =3D kset_create_and_add("module", &module_uevent_ops, NULL)=
-;
-> -	if (!module_kset) {
-> -		printk(KERN_WARNING "%s (%d): error creating kset\n",
-> -			__FILE__, __LINE__);
-> -		return -ENOMEM;
-> -	}
-> -
-> -	return 0;
-> +	if (!module_kset)
-> +		pr_warn("Error creating module kset\n");
->  }
-> -subsys_initcall(param_sysfs_init);
-> =20
->  /*
->   * param_sysfs_builtin_init - add sysfs version and parameter
+Or rather more specifically the RMM now has
+RHI_HOSTCONF_GET_IPA_CHANGE_ALIGNMENT which says exactly the minimum
+supported shared/private conversion granule and the VM must obey it.
 
+It doesn't actually matter *WHY* the RMM chooses a size, whatever it
+is the guest must follow it.
+
+It would probably be helpful to focus on this a little more, as really
+this series is implementing a new RMM feature. It is good to explain
+why this feature was added to RMM in the cover letter, but I would
+focus the patch commentary on explaining the process of introducing
+mem_decrypt_granule_size()
+
+Jason
 
