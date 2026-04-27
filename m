@@ -4,72 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 641E3FF8865
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 06:53:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1A1CFF8865
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 06:53:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aBhR+VMSApqnVLtcX1lDKgGxByVA+JUSoS902W+VVIk=; b=dhwFiLR4R4n+ZcQrlra1/kIHN+
-	274xKCotmIO2+rvKyZ67fTNe/bRRrQc24XA4GtXLVyIIq6IO2aRPBJf8A8XwR6Pm52RdZOhNfwTNl
-	Myw/ifOXl2sVp9+lXXlUiPRFauEpppQMRszYQ+6mLOF8p/JFyOaXj107ND+PpVjoqIupYVNbOIOR1
-	3wMqSVEdk8as85L+NFwdXb5Q0H0TByv/WfWkokR0VGESes6pBqt2PrLwxYBJ41V1fYoyXLKwGIJrY
-	E4738hOrCTUmj0+8GEtFrjZD3Y4zWHrgAaOqiTFJuRl/d9xljFF+j4K6fxA2315pELHrrYIDTEioz
-	hANi4XSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Ss2cj82M0/89oGj9sC/6bQnm3td5UO2hvLaBpDMWa60=; b=p+r5yBc99h5ov6G70aF9M/PnY7
+	GsTOsxotAHtYNsOCFo9R6Jitt35ZWS3glkJgUDrcITC62hWfjCyPHARhg9CHr1gnZbSaC+fFbw7AK
+	gcoI5KD9e1nFKvpR1dNLvqNeWcuhm9MFXbBsMvr4BgbBZggBo7ZjqdhTBMVhtsdJlA+dJfbR94aYz
+	24DGsEkcNcq15bNvkkTN7pM+ZRhvSmT/JcTvNsQIjLPXXorD1bwjR3v6Cksjkk+RNp6ucqtVRkiCb
+	P+pBZs+61MTPC3TUuuv1YOx8u8nKdowmzECBkklv/OzS+uvg3QeNl/2+/eM9VdFPEtY2BNZCBJT8H
+	sRafnafA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHFq3-0000000GIz6-1cLl;
-	Mon, 27 Apr 2026 06:53:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wHFqH-0000000GJAa-1Klj;
+	Mon, 27 Apr 2026 06:53:17 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHFpt-0000000GIoi-2J4W
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 06:52:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 39AD143788;
-	Mon, 27 Apr 2026 06:52:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D30BC4AF0B;
-	Mon, 27 Apr 2026 06:52:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777272773;
-	bh=TKihfP1sVP9MoGos7O6yEjkbJNsJ70AjwacVZf82tOU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Jb1GNe7oJiWmum8eE+T3ZUHoLT6j/OA0ZwpbjHuWebCbYAIuZ5FoqY15tUhTJx2LK
-	 WrPejaCgrTcjFQhm1tLf1LCclzLc98EreGo2TbtiXili1SBXxQKmvUbddoIW3dgwg0
-	 ZZBY37PV8tL/nS/NnKgMmneG9MNHBfsGz14rTMiNTL6zxzXQV9twoTmkVFytCTfGlt
-	 m8piyK1TPe0UrBE8Bq8wUHvsKD9mB9ZU32UlrJu7lGedIKeN2n7IF6XW9dHuCtOfvl
-	 OhV2qrdcw2+V+TDF7OfyqUv4VT1Rztktxc2ez54IHSTLpZRIb1uXMnFyhKLLsW+ej8
-	 V32UcleUrrZHA==
-From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-To: linux-coco@lists.linux.dev,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Samuel Ortiz <sameo@rivosinc.com>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Xu Yilun <yilun.xu@linux.intel.com>
-Subject: [RFC PATCH v4 14/14] coco: host: arm64: Add NCOH_SYS stream support for RC endpoints
-Date: Mon, 27 Apr 2026 12:21:21 +0530
-Message-ID: <20260427065121.916615-15-aneesh.kumar@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260427065121.916615-1-aneesh.kumar@kernel.org>
-References: <20260427065121.916615-1-aneesh.kumar@kernel.org>
+	id 1wHFq7-0000000GJ0H-0Bkn;
+	Mon, 27 Apr 2026 06:53:15 +0000
+X-UUID: bac97c24420511f1a6de359d7043e138-20260426
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=Ss2cj82M0/89oGj9sC/6bQnm3td5UO2hvLaBpDMWa60=;
+	b=awhpednUdviT4JTNQMf2bSgBpOkE3bktTP9Exc/eIowf5YPWHgEQDZ6m9uxwsQMIsPM85VpPV7PWSlfP07zgT5xi6Zicb0vXOWgeO2FBAzzz/IIKdAwrlB4RfrlLk4g+Ii1NXnmZGMw3boyOFoFRwLzDH5jKjX/IXrud7Hmlnn0=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:6c2c1cda-bb65-47cf-9e3f-44cbc2358fff,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e7bac3a,CLOUDID:adbff48f-6df4-4a3d-a7a4-fbdc42d669ce,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|865|888|898,TC:-5,Content:0|
+	15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0
+	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: bac97c24420511f1a6de359d7043e138-20260426
+Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
+	(envelope-from <kuanfu.lu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 455706387; Sun, 26 Apr 2026 23:53:00 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Mon, 27 Apr 2026 14:52:57 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Mon, 27 Apr 2026 14:52:57 +0800
+From: mtk36707 <kuanfu.lu@mediatek.com>
+To: "Rafael J . Wysocki" <rafael@kernel.org>, Daniel Lezcano
+	<daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, Lukasz Luba
+	<lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Balsam
+ CHIHI <bchihi@baylibre.com>
+CC: <linux-pm@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, <jarried.lin@mediatek.com>,
+	<vince-wl.liu@mediatek.com>, <justin.yeh@mediatek.com>, Kuanfu Lu
+	<kuanfu.lu@mediatek.com>
+Subject: [PATCH 1/2] dt-bindings: thermal: mediatek: Add MT8189 LVTS bindings
+Date: Mon, 27 Apr 2026 14:48:29 +0800
+Message-ID: <20260427065236.1685057-1-kuanfu.lu@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_235253_702435_544ABD0E 
-X-CRM114-Status: GOOD (  14.12  )
+X-CRM114-CacheID: sfid-20260426_235307_137865_B18F0EC8 
+X-CRM114-Status: GOOD (  10.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,89 +92,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Teach the host CCA pdev setup to handle PCI_EXP_TYPE_RC_END devices.
+From: Kuanfu Lu <kuanfu.lu@mediatek.com>
 
-Classify RC integrated endpoints as RMI_PDEV_FLAGS_CATEGORY_ON_CHIP_EP when
-building the RMM pdev parameters, and only advertise SPDM support when a
-DOE mailbox is present.
+Add support for the MediaTek MT8189 LVTS thermal controller to
+the device tree bindings. This includes new compatible strings
+and required properties for MT8189.
 
-Also add the stream setup path for these devices by creating an
-RMI_PDEV_STREAM_NCOH_SYS stream using the endpoint pdev and its bridge
-address windows. This allows RC endpoints to participate in the TDISP flow
-without requiring a separate root-port pdev.
-
-Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+Signed-off-by: Kuanfu Lu <kuanfu.lu@mediatek.com>
 ---
- drivers/virt/coco/arm-cca-host/arm-cca.c | 28 ++++++++++++++++++++++++
- drivers/virt/coco/arm-cca-host/rmi-da.c  | 10 +++++++++
- 2 files changed, 38 insertions(+)
+ .../thermal/mediatek,lvts-thermal.yaml        | 27 +++++++++++++++++--
+ .../thermal/mediatek,lvts-thermal.h           | 20 ++++++++++++++
+ 2 files changed, 45 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/virt/coco/arm-cca-host/arm-cca.c b/drivers/virt/coco/arm-cca-host/arm-cca.c
-index 265aa0cb612a..8b1182620872 100644
---- a/drivers/virt/coco/arm-cca-host/arm-cca.c
-+++ b/drivers/virt/coco/arm-cca-host/arm-cca.c
-@@ -277,11 +277,39 @@ static int cca_pdev_create_ncoh_stream(struct pci_dev *pdev, unsigned long strea
- 	return ret;
- }
+diff --git a/Documentation/devicetree/bindings/thermal/mediatek,lvts-thermal.yaml b/Documentation/devicetree/bindings/thermal/mediatek,lvts-thermal.yaml
+index 975235130670..64fc6b5385de 100644
+--- a/Documentation/devicetree/bindings/thermal/mediatek,lvts-thermal.yaml
++++ b/Documentation/devicetree/bindings/thermal/mediatek,lvts-thermal.yaml
+@@ -23,6 +23,8 @@ properties:
+       - mediatek,mt8186-lvts
+       - mediatek,mt8188-lvts-ap
+       - mediatek,mt8188-lvts-mcu
++      - mediatek,mt8189-lvts-ap
++      - mediatek,mt8189-lvts-mcu
+       - mediatek,mt8192-lvts-ap
+       - mediatek,mt8192-lvts-mcu
+       - mediatek,mt8195-lvts-ap
+@@ -61,6 +63,21 @@ properties:
+ allOf:
+   - $ref: thermal-sensor.yaml#
  
-+static int cca_pdev_create_ncoh_sys_stream(struct pci_dev *pdev)
-+{
-+	int ret;
-+	long stream_handle;
-+	struct rmi_pdev_stream_params *params;
-+	struct cca_host_pf0_ep_dsc *pf0_ep_dsc = to_cca_pf0_ep_dsc(pdev);
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - mediatek,mt8189-lvts-ap
++              - mediatek,mt8189-lvts-mcu
++    then:
++      properties:
++        nvmem-cells:
++          minItems: 2
 +
-+	params = (struct rmi_pdev_stream_params *)get_zeroed_page(GFP_KERNEL);
-+	if (!params)
-+		return -ENOMEM;
++        nvmem-cell-names:
++          minItems: 2
 +
-+	params->flags = 0;
-+	params->type = RMI_PDEV_STREAM_NCOH_SYS;
-+	params->pdev_1 = virt_to_phys(pf0_ep_dsc->pdev.rmm_pdev);
-+	params->pdev_2 = 0; /* ignored */
-+	params->ide_sid = 0; /* ignored */
-+	params->num_addr_range = pci_dev_addr_range(pdev, params->addr_range);
+   - if:
+       properties:
+         compatible:
+@@ -78,6 +95,10 @@ allOf:
+         nvmem-cell-names:
+           maxItems: 1
+ 
++      required:
++          - clocks
++          - resets
 +
-+	ret = cca_pdev_stream_connect(pdev, NULL, params, &stream_handle);
-+	if (!ret)
-+		pf0_ep_dsc->stream_handle = stream_handle;
+   - if:
+       properties:
+         compatible:
+@@ -94,12 +115,14 @@ allOf:
+         nvmem-cell-names:
+           minItems: 2
+ 
++      required:
++          - clocks
++          - resets
 +
-+	free_page((unsigned long)params);
-+	return ret;
-+}
+ required:
+   - compatible
+   - reg
+   - interrupts
+-  - clocks
+-  - resets
+   - nvmem-cells
+   - nvmem-cell-names
+ 
+diff --git a/include/dt-bindings/thermal/mediatek,lvts-thermal.h b/include/dt-bindings/thermal/mediatek,lvts-thermal.h
+index 350f98178b26..3f493d7f13b3 100644
+--- a/include/dt-bindings/thermal/mediatek,lvts-thermal.h
++++ b/include/dt-bindings/thermal/mediatek,lvts-thermal.h
+@@ -45,6 +45,26 @@
+ #define MT8188_AP_CAM1		6
+ #define MT8188_AP_CAM2		7
+ 
++#define MT8189_MCU_BIG_CPU1     0
++#define MT8189_MCU_BIG_CPU2     1
++#define MT8189_MCU_BIG_CPU3     2
++#define MT8189_MCU_BIG_CPU4     3
++#define MT8189_MCU_LITTLE_CPU1  4
++#define MT8189_MCU_LITTLE_CPU2  5
++#define MT8189_MCU_LITTLE_CPU3  6
++#define MT8189_MCU_LITTLE_CPU4  7
++#define MT8189_MCU_LITTLE_CPU5  8
++#define MT8189_MCU_LITTLE_CPU6  9
++#define MT8189_MCU_LITTLE_CPU7  10
++#define MT8189_MCU_LITTLE_CPU8  11
 +
- static int cca_pdev_create_streams(struct pci_dev *pdev, unsigned long stream_id)
- {
- 	switch (pci_pcie_type(pdev)) {
- 	case PCI_EXP_TYPE_ENDPOINT:
- 		return cca_pdev_create_ncoh_stream(pdev, stream_id);
-+	case PCI_EXP_TYPE_RC_END:
-+		return cca_pdev_create_ncoh_sys_stream(pdev);
- 	default:
- 		return -EINVAL;
- 	}
-diff --git a/drivers/virt/coco/arm-cca-host/rmi-da.c b/drivers/virt/coco/arm-cca-host/rmi-da.c
-index a10ac6ff03d1..33a2551fd09f 100644
---- a/drivers/virt/coco/arm-cca-host/rmi-da.c
-+++ b/drivers/virt/coco/arm-cca-host/rmi-da.c
-@@ -66,6 +66,16 @@ static int init_pdev_params(struct pci_dev *pdev, struct rmi_pdev_params *params
- 		category = RMI_PDEV_FLAGS_CATEGORY_ROOT_PORT;
- 		break;
- 	}
-+	case PCI_EXP_TYPE_RC_END: {
-+		struct cca_host_pf0_ep_dsc *pf0_ep_dsc = to_cca_pf0_ep_dsc(pdev);
++#define MT8189_AP_SOC1          12
++#define MT8189_AP_SOC2          13
++#define MT8189_AP_SOC3          14
++#define MT8189_AP_APU           15
++#define MT8189_AP_GPU1          16
++#define MT8189_AP_GPU2          17
 +
-+		/* Use SPDM if present */
-+		if (pf0_ep_dsc->pci.doe_mb)
-+			params->flags = RMI_PDEV_FLAGS_SPDM;
-+
-+		category = RMI_PDEV_FLAGS_CATEGORY_ON_CHIP_EP;
-+		break;
-+	}
- 	default:
- 		return -EINVAL;
- 	}
+ #define MT8195_MCU_BIG_CPU0     0
+ #define MT8195_MCU_BIG_CPU1     1
+ #define MT8195_MCU_BIG_CPU2     2
 -- 
-2.43.0
+2.45.2
 
 
