@@ -4,72 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37244FF8860
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 17:36:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDB6DFF8860
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 17:36:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UmdZibbd/+Riw2ttNnhE20ZsNtrexm4/ybN5Xvwgvow=; b=V+MhYbx7Dgi9gHBSIMHCflKcrI
-	cnB9Mn48WAjOhORX0ZABXqgMjYvkEOrMwEx1Gxy/SbWCR0gbfbTSiTFIKEdBSjT/luBmVZJieIKwI
-	bOSgkOU9s/WpywEzIOmBRjc+fKop72aCckIuoCpw/8ic0HTb4zT26eKj2JylkptVbYwn06F9ZxZQm
-	ZToB20GN8iSLuSIrbig5Wj5gWdc8VYGtwXq89+OQdAb9vUm0E+I+5YG/scw1N2rJXM2LWsbwoRXmm
-	1w8ouNjsHRgv7m9QgWOs0X/m6hWXBqPrXObSR1Z99k5/6JYgnMFUcStkbGfIev8x5gNKWNwkH+SNQ
-	2J7QGdMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+CUiM8EWNjsOey3D4G6szxSNMyY47RvHNq1zFsclMX4=; b=UL/+BxiEK0mh64MpeWa+3DPH4y
+	jEufuut8g8e5lfT5CEell8M9zQMmag+btWjJeCkGj0MzTP+K9sKqK+aArY/6o7pU+v61Spzn2CmpF
+	a7ephZT4ARZRalikY7sOPprfo4+bpZ+jx+Iqy+JGdsHv4wrgsjzHjpHEylB/WEMbRsfGG5MTvJptF
+	nXBB2pzsmGlHn18QdM+moc7Uz6XKzQRlwmx+K9R0VwHVGAj6yamkPGkA+1qaRCPUQanijsvrS7ZOE
+	g+UylReeWgqOTFqLAgGLJnUjDI2rcwqHAZjJS80MnJmWkrNitQa4RXu94fcIkCBT6TitOPanGACjR
+	pdc1pbeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHPsB-0000000HThy-0TRb;
-	Mon, 27 Apr 2026 17:35:55 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1wHPsI-0000000HTmK-1m7v;
+	Mon, 27 Apr 2026 17:36:02 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHPs8-0000000HTgW-1In2;
-	Mon, 27 Apr 2026 17:35:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1777311340; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=AD31+MNPTHWPoTYCQMpX7n3R0Er4g3R9tw0h41WKv3hmOvvgViSemwhfzgvt0V/Xr18hI/13AuZ0oc0jPRO1vaW8c/KDAqRL2r30pWhwGATOtKWmuq12DKZQQTOg1LqmiiHzVlG6YN2u+grPU4bwOqHmSMG/tOYf69jDCalMJLw=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1777311340; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=UmdZibbd/+Riw2ttNnhE20ZsNtrexm4/ybN5Xvwgvow=; 
-	b=LXggAq9qe3W+IUdyL2SssQt6RWKdrnslU1yGMFBo6D1XXM6lNMqddmD0wdndgrl7EWNOY6exIK0HAQ6yvlpkbRDJCviTPe9oD481ycqCzL3J9zoN6jg2Deoji6iwl5sUZScIEeeKqVMnoeHYRZ/tLdLuJClButw5EBNT31hnOHE=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1777311340;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=UmdZibbd/+Riw2ttNnhE20ZsNtrexm4/ybN5Xvwgvow=;
-	b=Zk7ogawB1ZqlMX1b33i7nQ48RAsz7BPFAlhFSMtpmi8D4JtbDjXDFb4ZwdMH1rlr
-	lehBH8gAk6rM/QAG7ZaQYWhFns4VQdtZ3tGA53rooZDa9H+oXX7voL4Z8XxCgCBA45i
-	s9i7M6LHzBfPYjGKSjicMwGrYclXUYxOUUbKXPDc=
-Received: by mx.zohomail.com with SMTPS id 1777311337704981.5046370792685;
-	Mon, 27 Apr 2026 10:35:37 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <ukleinek@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Lee Jones <lee@kernel.org>, William Breathitt Gray <wbg@kernel.org>,
- Damon Ding <damon.ding@rock-chips.com>
-Cc: kernel@collabora.com, Jonas Karlman <jonas@kwiboo.se>,
- Alexey Charkov <alchark@gmail.com>, linux-rockchip@lists.infradead.org,
- linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-iio@vger.kernel.org
-Subject: Re: [PATCH v5 4/6] counter: Add rockchip-pwm-capture driver
-Date: Mon, 27 Apr 2026 19:35:32 +0200
-Message-ID: <q0kG3ZZyT92lQlYsvZD_qg@collabora.com>
-In-Reply-To: <91eed9a4-4dc3-4846-baf3-e9cef53be79b@rock-chips.com>
-References: <20260420-rk3576-pwm-v5-0-ae7cfbbe5427@collabora.com>
- <20260420-rk3576-pwm-v5-4-ae7cfbbe5427@collabora.com>
- <91eed9a4-4dc3-4846-baf3-e9cef53be79b@rock-chips.com>
+	id 1wHPsB-0000000HTiL-24rd
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Apr 2026 17:35:56 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63RFLHeT440498
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 17:35:55 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	+CUiM8EWNjsOey3D4G6szxSNMyY47RvHNq1zFsclMX4=; b=lCz2QCezMCNeSYCU
+	dLbGk4kqlKhZdcmkwgfG6iSUrW8Wwks7bnL/QLRt5pyP3OP5z0ehCJWxc5GWeD1g
+	HUgICg9pMNEd2M/02RwvZ1YyDRFCGPa0xuMXDKjshmKJX2m6wKZTt5rUw0i/Prek
+	0GP7xCF7f20uLp4K6eLgOZ5u3JrFSy913GqS3qNBPsS7HvrQtaL9LmLQylCvMH5H
+	wCGbg9NojDwUXg1KsZ7V7i48XmbtAGTlOwi+RIm67AXL6VJBwJhbH5fujEaGislg
+	+f3M5zDYTw2XZdjBAAob3LLxZpoq/4I6zGLXzr669Fd2TaqAAWs16V2ePeeJfwzv
+	AMWmcA==
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dtac40gqa-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 17:35:54 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2b24e9b4d82so100323345ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 10:35:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1777311354; x=1777916154; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+CUiM8EWNjsOey3D4G6szxSNMyY47RvHNq1zFsclMX4=;
+        b=H/0FIipNLb+RKA96Mcl0E5oJib8LVTfsfp7QyBoYNPnpZsFPsVx9x1mIHoUav0yWlg
+         9zBad2Gj0kI6qADNQx1FhyyHGDgLfhRJN4lhsKjraFMY7KR7wAlYKtLwomsXL88lwOmV
+         Cje1gBbkOGqV46DkpD5U/uMiEUduOhrPQ7UNPwVKdjQdt4MJTusSGhCpZhK3QGutgzot
+         qUwYtqUYGBXE4zuMcHtzlwkAWZAtgybYG3o8/3R/DghPC7YeuC+N4w61Z3S8udM7fqOT
+         8px7kFRA/gOju2ZSwbDEuzcdP03hfSqw0KAMeHqDIE5qpWPKFD+vjuqOrstCs7SwJVAY
+         gTbA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777311354; x=1777916154;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=+CUiM8EWNjsOey3D4G6szxSNMyY47RvHNq1zFsclMX4=;
+        b=P3JfQKOIS7iQEGQY2fXqPp8vcDOi5FYNp2Y9V+nZGiJLA+4C91cQkUNg0zjIcKq6TH
+         jCqcjyy6Xr7egAPJtmgffgx5BVPAkpuV6c6SMNBQH+or2fqgTP05dQXq/i6BMYs30OgB
+         gka6HeD6kWefdFJdyBrbKB6w5qiimrhMocTos0Lk1nW2FiqmD7FUuiOsziuSxGuf3nf7
+         aGpcIkh6VsNCkr9YAJHU3p67gYlNPo/TsvbrGNYA39hZfYjZSI/5VqpPL3H0+kyiTS9b
+         0U/ZuWjuxR/tF3LGBD2M7+eFCcybe1IixJurSrZ1Sn+WKPr77mDZy24mWERJt/JfP0oY
+         Gl1Q==
+X-Forwarded-Encrypted: i=1; AFNElJ9qkyRC3xiDMjr0ABCIIZE2czPNBlTbfvEDb15J0zh5R0HJuXttt89sMmu3L6a3UF1jF9Gt1kcaZGo7fuchf98k@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHV1r2mQvQ4+W5hXtBKgypKHUI1dJqp9NmG56csUYjt9q+4HzT
+	QP024dRf67lZoW9De3n6pCHUu53YaemYGeNzm3SzPEY7kbg5f3e+Mk/xdfE2+k4Ujd+XDZU+p60
+	0v4HFWHUBF1tqKCsYIFI9s6aKogjxCKg3W9Ih1S6NTRlR8rmooKi0EJktgc5DK1DhbmEtot84Uq
+	Xjcw==
+X-Gm-Gg: AeBDietvUN2m4RJUM+Wg7I6V2TMyDQggWsU7sZn6/OT3tAMtsj8W1RkgLHFf/wYHfiO
+	+gB/UHR/lRcPEspJCSqgGyS2pKUKcDT6e/2U5hUjr4iHJcKUT8VLMfuO554JU0/tdge9JsFROmJ
+	M7RnZFKep33VXPrfhQCq0ayhJjsVFTSJI0o8yOzhZEOyMehqvV0p4WtQU8wv29mLkHvRfx97OTf
+	EroqnCHaVSY6Wret9cD3gvUUoNPv6eJ1V4IWDIY+d3mrwATS4Ue8v4cjZc2Ver8m44I1ssaS+Gr
+	bcR+l48gQ78KL6r0KEPijirUPqTbtqhwU2LNFY2NjCOL4x4QymHOOswOzXxYo3y5nZFSkpNXNgP
+	wvZIluWlRWViwrhNifmRoDAdSZWxHGTtBtkzZk7T/ouXJmECjRjQGoLnZlGYe1Evu0R2l
+X-Received: by 2002:a17:903:3c44:b0:2b0:4f16:22f7 with SMTP id d9443c01a7336-2b97ac74404mr519035ad.16.1777311354055;
+        Mon, 27 Apr 2026 10:35:54 -0700 (PDT)
+X-Received: by 2002:a17:903:3c44:b0:2b0:4f16:22f7 with SMTP id d9443c01a7336-2b97ac74404mr518555ad.16.1777311353383;
+        Mon, 27 Apr 2026 10:35:53 -0700 (PDT)
+Received: from hu-spratap-hyd.qualcomm.com ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b97aca8369sm329115ad.75.2026.04.27.10.35.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Apr 2026 10:35:53 -0700 (PDT)
+From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Date: Mon, 27 Apr 2026 23:04:44 +0530
+Subject: [PATCH v21 04/13] firmware: psci: Introduce command-based with
+ magic
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
 Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260427-arm-psci-system_reset2-vendor-reboots-v21-4-dcf937775e73@oss.qualcomm.com>
+References: <20260427-arm-psci-system_reset2-vendor-reboots-v21-0-dcf937775e73@oss.qualcomm.com>
+In-Reply-To: <20260427-arm-psci-system_reset2-vendor-reboots-v21-0-dcf937775e73@oss.qualcomm.com>
+To: Sebastian Reichel <sre@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        "Rafael J. Wysocki" <rafael@kernel.org>,
+        Daniel Lezcano <daniel.lezcano@kernel.org>,
+        Christian Loehle <christian.loehle@arm.com>,
+        Ulf Hansson <ulfh@kernel.org>, Lee Jones <lee@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+        Andy Yan <andy.yan@rock-chips.com>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        John Stultz <john.stultz@linaro.org>,
+        Moritz Fischer <moritz.fischer@ettus.com>,
+        Bartosz Golaszewski <brgl@kernel.org>,
+        Sudeep Holla <sudeep.holla@kernel.org>, Ulf Hansson <ulfh@kernel.org>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        devicetree@vger.kernel.org,
+        Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
+        Florian Fainelli <florian.fainelli@broadcom.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+        Andre Draszik <andre.draszik@linaro.org>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+        Srinivas Kandagatla <srini@kernel.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777311301; l=6677;
+ i=shivendra.pratap@oss.qualcomm.com; s=20250710; h=from:subject:message-id;
+ bh=IJaAfFoD68Hrp8z3QWdwMvJoK/M04B/XNqX7mDYzhJk=;
+ b=C1CJp2wthLFqASyPaBoz2bmtc5z3yh2Vt0xyY746fg44zr0TjDFSpuJDS92BW6Jsg0sUhMzDf
+ 3hqs005mGwXBPy0tEuBhaWKEwjimbSOSNCPq+NE7ukFuc7O3+sNU6/U
+X-Developer-Key: i=shivendra.pratap@oss.qualcomm.com; a=ed25519;
+ pk=CpsuL7yZ8NReDPhGgq6Xn/SRoa59mAvzWOW0QZoo4gw=
+X-Proofpoint-GUID: -aaQoZjSCr-56oJXpqe4bFYq3Oillm2L
+X-Authority-Analysis: v=2.4 cv=D7J37PRj c=1 sm=1 tr=0 ts=69ef9e7a cx=c_pps
+ a=IZJwPbhc+fLeJZngyXXI0A==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=EUspDBNiAAAA:8 a=dfwn7jY9AU0u4DHcGkkA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=uG9DUKGECoFWVXl0Dc02:22
+X-Proofpoint-ORIG-GUID: -aaQoZjSCr-56oJXpqe4bFYq3Oillm2L
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI3MDE4NyBTYWx0ZWRfXxAOezG+f0u3j
+ /5utu5Ydnvci1Vqo1RHwDKxX/gnQrPPUhEo2sxyeU3SMlcB49/oG/i9LBjdPJC2WsIWfu7oNfGw
+ xUlop7PrdDC/GtCRf7IdNQxOR/+j+6T7JG7Cqlvg9m08z80eJJI/48UQJaoL38KdeV4LnZrIxbf
+ pUqcLGZTasU4X50oXULI5+5Ozjs+sgaYbj5tFXkRNgMbr7QsECKomlFUbIF/1fOY1RhuwpEQvKj
+ h42WOMSUYV5cbLT1ffcWGJS79ryoJAMgyNRGK/A4DgEnaq3v0k3lEMFIqreJbDL6UPNiEJ17fL5
+ NSkvar5h5z1WvEVvErLxzuLUv6B6zNsTeQ1le9fEaQ2X0KlX2w873sIYsRRLJ745OqbryYJv7E/
+ Y/vlRoxG4h+Tk37JurZQBOxx2Odm6YqY1yS66O7c67IzELujnm7JpZ3QX0dSU0SVU27PzjE1bJJ
+ aJerC8u/aXi8oFF1igg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-27_04,2026-04-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 bulkscore=0 phishscore=0 lowpriorityscore=0 spamscore=0
+ priorityscore=1501 suspectscore=0 clxscore=1015 adultscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604270187
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_103553_195040_331082D1 
-X-CRM114-Status: GOOD (  39.22  )
+X-CRM114-CacheID: sfid-20260427_103555_544781_F1446F13 
+X-CRM114-Status: GOOD (  27.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,143 +178,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Damon,
+PSCI currently supports only two resets - SYSTEM_RESET and SYSTEM_RESET2
+ARCH WARM reset. The reset patch is selected based on the Linux
+reboot_mode variable. The PSCI specification now includes SYSTEM_RESET2
+for vendor-specific resets but there's no mechanism to issue these
+through psci_sys_reset().
 
-On Sunday, 26 April 2026 12:55:20 Central European Summer Time Damon Ding wrote:
-> Hi Nicolas,
-> 
-> On 4/20/2026 9:52 PM, Nicolas Frattaroli wrote:
-> > Among many other things, Rockchip's new PWMv4 IP in the RK3576 supports
-> > PWM capture functionality.
-> > 
-> > Add a basic driver for this that works to expose HPC/LPC counts and
-> > state change events to userspace through the counter framework. It's
-> > quite basic, but works well enough to demonstrate the device function
-> > exclusion stuff that mfpwm does, in order to eventually support all the
-> > functions of this device in drivers within their appropriate subsystems,
-> > without them interfering with each other.
-> > 
-> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> > ---
-> >   MAINTAINERS                            |   1 +
-> >   drivers/counter/Kconfig                |  11 ++
-> >   drivers/counter/Makefile               |   1 +
-> >   drivers/counter/rockchip-pwm-capture.c | 307 +++++++++++++++++++++++++++++++++
-> >   4 files changed, 320 insertions(+)
-> > 
-> 
-> For functional validation, I connected PWM0/PWM1 (continuous output)
-> to PWM2 (capture input) pairwise.
-> 
-> I enabled the counter via:
-> /sys/bus/counter/devices/counter0/count0/enable
-> 
-> Then I verified the functionality by reading the count values from:
-> /sys/bus/counter/devices/counter0/count0/count
-> /sys/bus/counter/devices/counter0/count1/count
-> 
-> Tested-by: Damon Ding <damon.ding@rock-chips.com>
+Add a command-based reset mechanism that allows external drivers to set
+the psci reset command via a exported psci_set_reset_cmd() function.
 
-Thanks for testing! To make sure a bug on the pwm output driver won't
-be cancelled out by an equivalent bug in the counter driver, I did
-my counter driver testing by using an RK3588 as the source of the
-PWM signal, with the two boards sharing a common ground. Maybe I
-should get a proper function generator. :)
+Define predefined reset_types - PSCI_RESET_TYPE_SYSTEM_RESET to map to
+SYSTEM_RESET, and PSCI_RESET_TYPE_SYSTEM_RESET2_ARCH_WARM to map to
+SYSTEM_RESET2 arch warm reset. Interpret zero cmd_reset_type, for
+predefined reset-command selection via cmd_cookie. For non-zero
+cmd_reset_type, check for valid vendor_reset_type and set the psci
+reset_command and cookie accordingly.
 
-> BTW: Is there any user-space test tool similar to libpwm for the
-> counter subsystem?
+Disable PSCI command-based reset by default and treat invalid reset
+commands as no‑op. psci_sys_reset() follows its original flow based on
+reboot_mode until a reset command is explicitly set by
+psci_set_reset_cmd().  In the device reset flow, psci_set_reset_cmd() is
+called in reboot_notifier phase and the device reset happens in
+psci_sys_reset() which is called later in the restart_notifier phase. If
+a kernel panic occurs in between these two phases, the reboot should
+take its original flow based on the value of reboot_mode. Disable the
+command-based reset in such case.
 
-I've tried looking for this as well, and couldn't find anything. If
-it exists then adding a mention of it to generic-counter.rst would
-be in order I think.
+Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+---
+ drivers/firmware/psci/psci.c | 75 ++++++++++++++++++++++++++++++++++++++++++--
+ include/linux/psci.h         | 19 +++++++++++
+ 2 files changed, 92 insertions(+), 2 deletions(-)
 
-> 
-> ......
-> > diff --git a/drivers/counter/rockchip-pwm-capture.c b/drivers/counter/rockchip-pwm-capture.c
-> > new file mode 100644
-> > index 000000000000..09a92f2bc409
-> > --- /dev/null
-> > +++ b/drivers/counter/rockchip-pwm-capture.c
-> > @@ -0,0 +1,307 @@
-> > +// SPDX-License-Identifier: GPL-2.0-or-later
-> > +/*
-> > + * Copyright (c) 2025 Collabora Ltd.
-> > + *
-> > + * A counter driver for the Pulse-Width-Modulation (PWM) hardware found on
-> > + * Rockchip SoCs such as the RK3576, internally referred to as "PWM v4". It
-> > + * allows for measuring the high cycles and low cycles of a PWM signal through
-> > + * the generic counter framework, while guaranteeing exclusive use over the
-> > + * MFPWM device while the counter is enabled.
-> > + *
-> > + * Authors:
-> > + *     Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> > + */
-> > +
-> > +#include <linux/cleanup.h>
-> > +#include <linux/counter.h>
-> > +#include <linux/devm-helpers.h>
-> > +#include <linux/interrupt.h>
-> > +#include <linux/mfd/rockchip-mfpwm.h>
-> > +#include <linux/mod_devicetable.h>
-> > +#include <linux/of.h>
-> > +#include <linux/platform_device.h>
-> > +#include <linux/spinlock.h>
-> > +
-> > +#define RKPWMC_INT_MASK			(PWMV4_INT_LPC | PWMV4_INT_HPC)
-> > +
-> > +struct rockchip_pwm_capture {
-> > +	struct rockchip_mfpwm_func *pwmf;
-> > +	struct counter_device *counter;
-> > +};
-> > +
-> > +static struct counter_signal rkpwmc_signals[] = {
-> > +	{
-> > +		.id = 0,
-> > +		.name = "PWM Clock"
-> > +	},
-> > +};
-> > +
-> > +static const enum counter_synapse_action rkpwmc_hpc_lpc_actions[] = {
-> > +	COUNTER_SYNAPSE_ACTION_BOTH_EDGES,
-> > +	COUNTER_SYNAPSE_ACTION_NONE,
-> > +};
-> 
-> For the capture function, it uses the PWM's reference clock (dclk) as 
-> the time base to measure how many reference cycles the high and low 
-> levels of the input waveform last respectively.
-> 
-> I find it a bit strange to set COUNTER_SYNAPSE_ACTION_BOTH_EDGES for 
-> counting. If we treat the input waveform as a sequence of square waves 
-> sampled by dclk cycles, it feels like we should count on a single edge 
-> (rising edge only) rather than both edges.
-> 
+diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
+index 38ca190d4a22d6e7e0f06420e8478a2b0ec2fe6f..cb37c39e2b4b1d99f0080f6a5cd6c92a070beda8 100644
+--- a/drivers/firmware/psci/psci.c
++++ b/drivers/firmware/psci/psci.c
+@@ -51,6 +51,16 @@ static int resident_cpu = -1;
+ struct psci_operations psci_ops;
+ static enum arm_smccc_conduit psci_conduit = SMCCC_CONDUIT_NONE;
+ 
++/*
++ * Encoded reset command:
++ * bits[63:32] = cookie
++ * bits[31:0]  = reset_type
++ */
++static u64 reset_cmd;
++
++#define PSCI_RESET_TYPE(reset_cmd)	((u32)(reset_cmd))
++#define PSCI_RESET_COOKIE(reset_cmd)	((u32)((reset_cmd) >> 32))
++
+ bool psci_tos_resident_on(int cpu)
+ {
+ 	return cpu == resident_cpu;
+@@ -80,6 +90,35 @@ static u32 psci_cpu_suspend_feature;
+ static bool psci_system_reset2_supported;
+ static bool psci_system_off2_hibernate_supported;
+ 
++static u32 psci_fn_from_cookie(u32 cookie)
++{
++	switch (cookie) {
++	case PSCI_RESET_TYPE_SYSTEM_RESET2_ARCH_WARM:
++		if (psci_system_reset2_supported)
++			return PSCI_FN_NATIVE(1_1, SYSTEM_RESET2);
++		return 0;
++	case PSCI_RESET_TYPE_SYSTEM_RESET:
++		return PSCI_0_2_FN_SYSTEM_RESET;
++	default:
++		return 0;
++	}
++}
++
++/** psci_set_reset_cmd() - Configure reset request for psci_sys_reset()
++ * @psci_reset_cmd: reset command encoded as cookie[63:32] | reset_type[31:0]
++ *
++ * Save reset command.
++ */
++void psci_set_reset_cmd(u64 psci_reset_cmd)
++{
++	reset_cmd = psci_reset_cmd;
++}
++
++bool psci_has_system_reset2_support(void)
++{
++	return psci_system_reset2_supported;
++}
++
+ static inline bool psci_has_ext_power_state(void)
+ {
+ 	return psci_cpu_suspend_feature &
+@@ -306,8 +345,24 @@ static int get_set_conduit_method(const struct device_node *np)
+ 	return 0;
+ }
+ 
+-static int psci_sys_reset(struct notifier_block *nb, unsigned long action,
+-			  void *data)
++static void psci_handle_reset_cmd(void)
++{
++	u32 psci_sys_reset_fn;
++
++	if ((reset_cmd & BIT_ULL(31)) && psci_system_reset2_supported) {
++		/* PSCI SYSTEM_RESET2 Vendor-specific reset */
++		invoke_psci_fn(PSCI_FN_NATIVE(1_1, SYSTEM_RESET2),
++			       PSCI_RESET_TYPE(reset_cmd),
++			       PSCI_RESET_COOKIE(reset_cmd), 0);
++	} else {
++		/* cookie part of the reset_cmd decides ARCH WARM RESET vs SYSTEM_RESET */
++		psci_sys_reset_fn = psci_fn_from_cookie(PSCI_RESET_COOKIE(reset_cmd));
++		if (!PSCI_RESET_TYPE(reset_cmd) && psci_sys_reset_fn)
++			invoke_psci_fn(psci_sys_reset_fn, 0, 0, 0);
++	}
++}
++
++static void psci_handle_reboot_mode(void)
+ {
+ 	if ((reboot_mode == REBOOT_WARM || reboot_mode == REBOOT_SOFT) &&
+ 	    psci_system_reset2_supported) {
+@@ -320,6 +375,22 @@ static int psci_sys_reset(struct notifier_block *nb, unsigned long action,
+ 	} else {
+ 		invoke_psci_fn(PSCI_0_2_FN_SYSTEM_RESET, 0, 0, 0);
+ 	}
++}
++
++static int psci_sys_reset(struct notifier_block *nb, unsigned long action,
++			  void *data)
++{
++	/*
++	 * Command-based resets are configured at the reboot_notifier phase.
++	 * If a kernel panic occurs between the reboot_notifier and this final
++	 * reset, ignore the command-based reset and let reboot_mode drive the
++	 * reset flow.
++	 * If reset_cmd is zero, there is no command to handle.
++	 */
++	if (reset_cmd && !panic_in_progress())
++		psci_handle_reset_cmd();
++	else
++		psci_handle_reboot_mode();
+ 
+ 	return NOTIFY_DONE;
+ }
+diff --git a/include/linux/psci.h b/include/linux/psci.h
+index 4ca0060a3fc42ba1ca751c7862fb4ad8dda35a4c..c2458291a3faf5ac89b1528dae2c9b805a2dd075 100644
+--- a/include/linux/psci.h
++++ b/include/linux/psci.h
+@@ -21,6 +21,21 @@ bool psci_power_state_is_valid(u32 state);
+ int psci_set_osi_mode(bool enable);
+ bool psci_has_osi_support(void);
+ 
++/**
++ * enum psci_reset_type	-	PSCI_RESET_TYPE for SYSTEM_RESET.
++ * @PSCI_RESET_TYPE_SYSTEM_RESET: Standard SYSTEM_RESET command.
++ * @PSCI_RESET_TYPE_SYSTEM_RESET2_ARCH_WARM: SYSTEM_RESET2 architectural warm reset.
++ *
++ * These enum values map PSCI_RESET_TYPE_SYSTEM_* constants to reset strings
++ * issued from user space. When user space requests a reset, the cookie
++ * carries one of these values, and the PSCI reset path translates it into
++ * the appropriate PSCI system reset call.
++ */
++enum psci_reset_type {
++	PSCI_RESET_TYPE_SYSTEM_RESET = 1,
++	PSCI_RESET_TYPE_SYSTEM_RESET2_ARCH_WARM,
++};
++
+ struct psci_operations {
+ 	u32 (*get_version)(void);
+ 	int (*cpu_suspend)(u32 state, unsigned long entry_point);
+@@ -45,8 +60,12 @@ struct psci_0_1_function_ids get_psci_0_1_function_ids(void);
+ 
+ #if defined(CONFIG_ARM_PSCI_FW)
+ int __init psci_dt_init(void);
++void psci_set_reset_cmd(u64 psci_reset_cmd);
++bool psci_has_system_reset2_support(void);
+ #else
+ static inline int psci_dt_init(void) { return 0; }
++static inline void psci_set_reset_cmd(u64 psci_reset_cmd) { }
++static inline bool psci_has_system_reset2_support(void) { return false; }
+ #endif
+ 
+ #if defined(CONFIG_ARM_PSCI_FW) && defined(CONFIG_ACPI)
 
-Yeah, that's a good point. I think I've been struggling to wrap my head
-around what the signal is and what the synapse should trigger on because
-the signal isn't something exposed in this case.
-
-Your explanation makes sense, and perhaps I should rename
-rkpwmc_hpc_lpc_actions as well. Currently it makes it seem like HPC
-and LPC are the signal, when actually the waveform is the signal, HPC
-and LPC are the counts, and the synapse is a sample every dclk spotting
-a transition if I understand this correctly.
-
-> > +
-> > +static struct counter_synapse rkpwmc_pwm_synapses[] = {
-> > +	{
-> > +		.actions_list = rkpwmc_hpc_lpc_actions,
-> > +		.num_actions = ARRAY_SIZE(rkpwmc_hpc_lpc_actions),
-> > +		.signal = &rkpwmc_signals[0]
-> > +	},
-> > +};
-> > +
-> 
-> Best regards,
-> Damon
-> 
-
-Kind regards,
-Nicolas Frattaroli
-
+-- 
+2.34.1
 
 
