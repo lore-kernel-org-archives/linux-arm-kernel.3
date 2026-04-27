@@ -4,75 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5437CFF8865
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 06:47:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D6CEFF8861
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 06:50:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kbd+KJ62CZU4qnR3q8Wb/lGJuOs9KI6EpKwpM2lUoVc=; b=Ud4DZplK73RIrpA397FLcJuYXE
-	nWXuitVY18rORJs4PIxu2GLRxwCI/llkUcsApjZD2aoShL8XSXOTXGNNlfetGfSoH3LdhBlO72c3P
-	uHEHuv+mw1TWDom0EenK0lDdLDhi0UDHWTNPPh5kfdZdcAWBjPS4UbU2rQpDioZuc/5/5kTQPmNrE
-	O4TxQ3iDfcuwQ5gTae3RWKvhNGz313VVhHfjnJqadnzz9T+K6zA30VbwXkaCGvrnyoRWWpvT7+awP
-	KyQ7iEI5DdzEr6N/m0qi8s+Lgq08DgIHSX+/FfogQM09XqTHSL2q1ynwBwadX5H0yGFYIh7ik0Coe
-	zSsVdCXw==;
+	bh=Dla8YPisQpFUiP5CnszIEM85dQreW5Y1H3GYNrZPlik=; b=DAl5POafe1BCjJ7Ua9wSzFSnyL
+	vtO2uCcNXoQT/dFd1M6RMflFaAVXihHzf/aFnMXtgON8aJQjr3JQD/nMbYDfeksW/ufzeZl9kfmF4
+	TMGEBr2km5fRVQ+OldMYV4HF8nxSAPGad9aBt5JXgMCMGE/d8qERfjdd2IGxTSptDxldhaZV/JuPs
+	fg11i7j7R/3ha4Gcy/uGZe8xDxuVMISxRtDYaCzjDIF4VrfKV6+abPFesjEM38QzRVqlBpo6liM4x
+	r6AhdzGQjAExtuSxnLJXHO4ZeJa5t8FzkQxmXDTVEGabIOnCe8I48151PCx0FMcs/B7w5kticy+M+
+	5PFT5NPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHFkW-0000000GHlK-0pEm;
-	Mon, 27 Apr 2026 06:47:20 +0000
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	id 1wHFnd-0000000GHue-3QcT;
+	Mon, 27 Apr 2026 06:50:33 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHFkT-0000000GHkX-0FVI
+	id 1wHFnc-0000000GHuY-2PQP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 06:47:19 +0000
-Received: from francesco-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch [83.173.201.248])
-	by mail11.truemail.it (Postfix) with ESMTPA id 2944B1F94F;
-	Mon, 27 Apr 2026 08:47:08 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1777272429;
-	bh=kbd+KJ62CZU4qnR3q8Wb/lGJuOs9KI6EpKwpM2lUoVc=; h=From:To:Subject;
-	b=tVn55DDp/bNzLaXOdmrsekwW1j/RGVrzSryO6xtEvOGnM47lLZu4sHZoIbLZ3O50D
-	 QLuh58iINvRQlZPI2oGj7ijDMlBombEcGp2s8l7Q3FBbnFd61SujArKZkArTLsgeQ/
-	 8KL7u/Ias7XgtOuEtORdSLFCSDGyrOmLvQ3r7WQy50GvXVY8+M+84PkbchtzHu7Fmc
-	 d/yTv5mVVO8G+2veajDbG2BO9od7+77/ts0/pSmt1iVFL4SltVKOxvDZEc53S2gPY3
-	 w78TFRrQa3eRrvWRfBPkMUx69iEKQcoQ3jWRrCVcLMHByifQEwQXtJYW9yqeAZSiv0
-	 6hIZ5IIubfeSw==
-Date: Mon, 27 Apr 2026 08:47:04 +0200
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>, Frank Li <Frank.Li@nxp.com>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	imx@lists.linux.dev, linux-renesas-soc@vger.kernel.org,
-	linux-sunxi@lists.linux.dev, driver-core@lists.linux.dev,
-	regressions@lists.linux.dev
-Subject: Re: [PATCH v2 6/9] soc: imx8m: don't access of_root directly
-Message-ID: <20260427064704.GA17710@francesco-nb>
-References: <20260223-soc-of-root-v2-0-b45da45903c8@oss.qualcomm.com>
- <20260223-soc-of-root-v2-6-b45da45903c8@oss.qualcomm.com>
- <6593091.DvuYhMxLoT@steina-w>
+	Mon, 27 Apr 2026 06:50:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 73D9F6013B;
+	Mon, 27 Apr 2026 06:50:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F754C19425;
+	Mon, 27 Apr 2026 06:50:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777272631;
+	bh=Dla8YPisQpFUiP5CnszIEM85dQreW5Y1H3GYNrZPlik=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GCkc95Sx9kdNbmFV/rzdEM1yffrI/VxN+1rAlBSULk+BxBPjpu/hzOR3B+aUJODsu
+	 7imrTdTNeRDqM6lfzTHSjlStp8XLPrL6jHCsPXwQgzEhgPv9Vf6qrby0yZ5dYY85uj
+	 tLM8W1PyeDVLeX3ZDZD6qFlEBKY6W9FHX1cHZLJlNhNQAr8qBPweYZIek8zsbbiqZW
+	 xjap0l0S7bYTm3PAoM06R+QU6tnd1A1uCf5oV58uLycNDBcW3v4tRfXsdWUPM8yApS
+	 MSe/MY5WRjcZrVdGgJ6kn6oKGeQ6XtEb7VMWNHI5ZQPGIty77U4nxCM9BaO+vtIzl3
+	 u42tUzPkTRBog==
+Date: Mon, 27 Apr 2026 08:50:27 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Stefan =?utf-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Russell King <linux@armlinux.org.uk>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Linus Walleij <linusw@kernel.org>, 
+	Drew Fustini <fustini@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Jiri Slaby <jirislaby@kernel.org>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, soc@lists.linux.dev, 
+	linux-serial@vger.kernel.org
+Subject: Re: [PATCH v6 1/6] dt-bindings: arm: zte: Add D-Link DWR932M board
+ based on zx297520v3 SoC
+Message-ID: <20260427-neat-quoll-of-current-fed19c@quoll>
+References: <20260426-send-v6-0-d49efa72bb09@gmail.com>
+ <20260426-send-v6-1-d49efa72bb09@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <6593091.DvuYhMxLoT@steina-w>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_234718_000002_1E04C67C 
-X-CRM114-Status: GOOD (  17.06  )
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20260426-send-v6-1-d49efa72bb09@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,57 +78,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Alexander, Bartosz
+On Sun, Apr 26, 2026 at 02:54:14PM +0300, Stefan D=C3=B6singer wrote:
+> This adds a new binding file for ZTE, containing their zx297520v3 SoC
+> and one board (D-Link DWR-932M) based on it.
+>=20
+> Signed-off-by: Stefan D=C3=B6singer <stefandoesinger@gmail.com>
+>=20
+> ---
 
-On Tue, Mar 24, 2026 at 11:24:09AM +0100, Alexander Stein wrote:
-> Hi,
-> 
-> Am Montag, 23. Februar 2026, 14:37:21 CET schrieb Bartosz Golaszewski:
-> > Don't access of_root directly as it reduces the build test coverage for
-> > this driver with COMPILE_TEST=y and OF=n. Use existing helper functions
-> > to retrieve the relevant information.
-> > 
-> > Suggested-by: Rob Herring <robh@kernel.org>
-> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> 
-> today I noticed the following warning running next-20260323:
-> > caam 30900000.crypto: No clock data provided for i.MX SoC
-> 
-> This happens when there is no matching against the soc_id.
-> 
-> Checking the source it turns out this patch is the cause that the SoC info
-> does not provide soc_id anymore.
-> next-20260323:
-> > $ grep . /sys/devices/soc0/*
-> > /sys/devices/soc0/family:Freescale i.MX
-> > /sys/devices/soc0/machine:TQ-Systems i.MX8MPlus TQMa8MPxL on MBa8MP-RAS314
-> > grep: /sys/devices/soc0/power: Is a directory
-> > /sys/devices/soc0/revision:unknown
-> > /sys/devices/soc0/serial_number:0000000000000000
-> > grep: /sys/devices/soc0/subsystem: Is a directory
-> 
-> reverting this patch (2524b293a59e586afd06358d0b191ab57208a920):
-> > $ grep . /sys/devices/soc0/*
-> > /sys/devices/soc0/family:Freescale i.MX
-> > /sys/devices/soc0/machine:TQ-Systems i.MX8MPlus TQMa8MPxL on MBa8MP-RAS314
-> > grep: /sys/devices/soc0/power: Is a directory
-> > /sys/devices/soc0/revision:1.1
-> > /sys/devices/soc0/serial_number:469677A693A4B8CE131D180033E44903
-> > /sys/devices/soc0/soc_id:i.MX8MP
-> > grep: /sys/devices/soc0/subsystem: Is a directory
-> 
-> soc_id is restored. Now that I write these lines I noticed that
-> serial_number also contained empty value which is restored with the revert.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Any update on this? I would say this is a regression in 7.1-rc1.
-
-I noticed the same issue, and CAAM is not working.
-
-[    0.000000] Linux version 7.1.0-rc1-0.0.0-devel (oe-user@oe-host) (aarch64-tdx-linux-gcc (GCC) 15.2.0, GNU ld (GNU Binutils) 2.46) #1 SMP PREEMPT Sun Apr 26 21:19:00 UTC 2026
-...
-[   10.611139] caam 30900000.crypto: No clock data provided for i.MX SoC
-[   10.611211] caam 30900000.crypto: probe with driver caam failed with error -22
-
-Francesco
+Best regards,
+Krzysztof
 
 
