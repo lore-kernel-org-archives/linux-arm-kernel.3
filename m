@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E34CDFF886B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 15:35:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CC99FF8860
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 15:36:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wc51wPzk67h/KJWuIdvgej4c5wVXm+tSlcwLrREqPXw=; b=cTpbnoGaVgqQEebP3RibuNmuNP
-	UiRd3f219uktzbHQRoMzkQmSN78FZvcnmlItpwUtA/mId/WuuTcWUcumOC9+4FPM8ecs6a2M57Ifq
-	dttNlal1BNacpC1UCEZGYomdWRN4tMy1A7Gb9QQHajPktxkcfecEqDJF4RX3yh9JCKJC5Q8Zm345i
-	OqtdBZG70YIQu/5q9KGA4vJNEVCapTqD6QhZgxqS817yQJR84V6gTDrf6bYHvBCuBvrcTNSvZT/bP
-	sEl/IE4z/ca5uCizmokEAiHuLMYAKn5xT/V5zHS3WDnoZLaKZJ6lyfs59p3SbJW9XK3xkDxTW23R4
-	uaWP+sUA==;
+	bh=Fih3i4e18PfvVXsOqO+51UGmMLaCoh2lR+Igb4mepcc=; b=4qznmcfKGflWs2kQlbCKNQgOZT
+	+SHco9fMMEDWmWmYeG8Pf0EvqcPNS6SvK0DQ9evBh6XA/lS2FcDH4IIJixcjAhqHeI3uiXnUs1agf
+	x9+U8S1/hWX+h3YBCjS6LseMGZMZJc5NVQnjGEeEtTLBCUaXecLfN3842paEvoX4t2TIz1pVpS3Kv
+	boOBzbKjpVkcClTl29P7O+8b1vZQya29ydAJrYjbnGrZqZAB7OJZW1urYjf6rIVtDvIdhbvT8olsf
+	SgKPeYhmXnYUJyh94btFkvRPaPLAUbniR90vFuhjeeZAhIhnAbyEAJS1DKLmEvrPsqkvrz7b6Cgbn
+	tUrXLtUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHNzw-0000000HCVk-1b7g;
-	Mon, 27 Apr 2026 15:35:48 +0000
+	id 1wHNzx-0000000HCX9-0zX3;
+	Mon, 27 Apr 2026 15:35:49 +0000
 Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHNzn-0000000HCQD-2DXm
+	id 1wHNzp-0000000HCRj-1xbj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 15:35:40 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4837b6f6b93so111412265e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 08:35:38 -0700 (PDT)
+	Mon, 27 Apr 2026 15:35:42 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-488f973ddfeso76715105e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 08:35:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777304137; x=1777908937; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777304139; x=1777908939; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Wc51wPzk67h/KJWuIdvgej4c5wVXm+tSlcwLrREqPXw=;
-        b=EgBpKn8/e4+BlHuPXzvMLt7Z9jGndOF+WflYM1eYRJYi7Jzl7CtFLKbMBgsScXntrD
-         kJoAlE/VgWK6Pb5M6hLCwd7HKNkyjbQiXk4P0BdkNHugxp8pwIN5edfO/sYrk/WehXbb
-         FDojzdkh+yCsV99nnBaAZVY38v54UPf7FTTvaEB6gWMtw5kmaMYvDPdqtcdV/DsT8VEP
-         Vgmi3NdRaaJ/j1kwOQVW3/4U0NJeujmRA/JiNEGvMgytx9vC0W/FTGF/m8mB64oNWb44
-         /QgOUBxVW7GFrDCSSxEFSBcbyxV/ekoM7+xf13wk6RYsOV0eOZdmmI10vmrR3RqN6OoH
-         rZxg==
+        bh=Fih3i4e18PfvVXsOqO+51UGmMLaCoh2lR+Igb4mepcc=;
+        b=dSZvk+VZNGGQ8GrngvgV/JNoduR4XhSCvKdFli3rwwUZV36VoCljvZztDNYYlG0h5U
+         6h2EMbbBoyDksdwQmgu8ZeVei+/IulDXimpRzgWoqL25yTMumqFdx+6AfMcovXlz2s3Q
+         aMpfYzjAldLQkJPfIlUfaGXVLHKl/uSxEj+8/OkKUkNX95zLsVrKodCOjiTtHlY0UnBq
+         yJuMM1eWGSAd7YS1rxAA6uaKQfkIEtw8Z7fu3sFWpl1Zlnzu3Plj/2PNzTKIK9qv5ahI
+         a8Wvp+j2Ww39/D72t6pbwr404CuQiAuhjfaxuFrx2JtA7GhnhyzD9qWW9MHl6twquAzV
+         qGgQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777304137; x=1777908937;
+        d=1e100.net; s=20251104; t=1777304140; x=1777908940;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Wc51wPzk67h/KJWuIdvgej4c5wVXm+tSlcwLrREqPXw=;
-        b=a0GxuAxxNhMgjL4vuruxY1k+hmWNN+H52KzKyFNUaiHU8xy2PuUAwUy1i6G4ublmfq
-         xeQiGhENd46axiGJ0W79xrLgr5GKAtjsOzhO6oI1yv2rQFnjxsTHSEmCQWkeVQ74HVsw
-         EPSXLymgkfFfRw2HT6byJ54XZEirCyvkB88IPMg1DdGD/JGcU58n9eEZ23abs8rgfUHp
-         kfbUUD5C+XJ22aQevmTGFJ2C62n5sFxI5r4X6UjO4E7CJczYJRM2+sD512h2QNNluqqo
-         HC9gsm030XIYHICoVmKS5FQnDcELPC+/mwfzlf8hOXf/c+eM02v6Ovet7UoDFEDjt+Ff
-         chmg==
-X-Gm-Message-State: AOJu0Yzt/R9PNEOWqXXPXPm99j7s1v6RVTyndFtc5/RR4NsM7HbR1aca
-	YA4mBgKgdhDAgZeyXwy7MteDRi/ArnAkjFCu3BAl4fR7RX4NFtNMCkYKgI99TG0IphfiOXQqf1d
-	2xDj3SPJOPo31m95GrFKxcRKAjjobYvWrPOAzUA7vLj0RFdY/ahmTx+MsB5YX9YoHGFBWsQ/fT6
-	ybfx4LvChGGWp6oStfrTUss9f0tcYHNojDNDIVMPNi4+Nx
-X-Received: from wrrf15.prod.google.com ([2002:adf:f98f:0:b0:445:9b34:32eb])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:3b14:b0:48a:52d9:54ab
- with SMTP id 5b1f17b1804b1-48a52d95604mr460176645e9.30.1777304137397; Mon, 27
- Apr 2026 08:35:37 -0700 (PDT)
-Date: Mon, 27 Apr 2026 17:34:20 +0200
+        bh=Fih3i4e18PfvVXsOqO+51UGmMLaCoh2lR+Igb4mepcc=;
+        b=bwSWPATE/Rf0fQkxgUJkipB8R4dguqtLxoUFqiPf/tTQhqkQv0yN/D78/s7PQqzteY
+         3DmIVkEkcaLls50CVI38VJKPRQ/wrldQCiZ/v4U2JmdX1Dy5eHmRQEz9jRNmUcLGT0jx
+         Np0ZRp28srjaJbj1Bv3OemZoYjLBdHYmK/g2nblt4x3h/HxC703G7fVpzf9Afu7+24DN
+         VINAXU7Lls5+dGzEqxr7xPKea2EYwO0nKX4TDwcik7zFLfHA0wTKRPPBKzCg/5t2OZVc
+         8vSxINTnPM3+04MLFGALE/juU9MaJwcuNLifhvCuZtJit1vKhvZgYogcR+0X+tFGokTm
+         OuiA==
+X-Gm-Message-State: AOJu0Yx7jm3GzFbbXdEJbS01WXKIw9WoKopq0wcMoUnnkjj1QqEmF+eX
+	tTkinU8Mhf0Rs0CtU1EWZGHFfT5wFuLyL5CZsjRmIdwS0YhEOre29KYTa890c8H2AL8tsyer9UL
+	ZkaKYt4tVJwDb9smaTC6cxPN/Gw7gX2DOn3h5zUcaMFdhgKwnLT4JlTwzDCrjfd9y2SYpZk1low
+	k4Xd63qcT9imc2f/Irvc6SBl5taTu8n73Aneszl5h25c71
+X-Received: from wmok24.prod.google.com ([2002:a05:600c:4798:b0:485:3a48:d6c5])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:a30b:b0:487:4eb:d125
+ with SMTP id 5b1f17b1804b1-488fb74dff1mr437765065e9.9.1777304139320; Mon, 27
+ Apr 2026 08:35:39 -0700 (PDT)
+Date: Mon, 27 Apr 2026 17:34:22 +0200
 In-Reply-To: <20260427153416.2103979-17-ardb+git@google.com>
 Mime-Version: 1.0
 References: <20260427153416.2103979-17-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1344; i=ardb@kernel.org;
- h=from:subject; bh=GHwWYq60lqNuozERz0S434bqDfMxYbnUraaeSVA3Tn0=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIfN947/7X8wOXuLePiOp7MONnvXiUl5NBamL377hk804c
- tjhpENeRykLgxgXg6yYIovA7L/vdp6eKFXrPEsWZg4rE8gQBi5OAZjI+npGhoWiYueTlCv3njc5
- eKI4u3WiW9EuwdunmA+vma0g5vHDOoKRYavEAeGovTdWuwnO7aw0j1t2v8qU20TqZU3o42gvDsX t/AA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=973; i=ardb@kernel.org;
+ h=from:subject; bh=h7ZYPXsk7x8qiYN5Bb4ArPGJm788B+DXEeUwDjC4Hlg=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIfN9E2OMr//DSScOyewrtDKSTj2pNjs54uXG3/nW1/QLW
+ jXW+t/rKGVhEONikBVTZBGY/ffdztMTpWqdZ8nCzGFlAhnCwMUpABPxecnwP+a5BK/ZucVOeU81
+ 7jYvnbjm7Q/9FoVaDcW+23MP86w91sLwi+mK+4lU2YQl89dJGK4S/TllWwHHxeqs1PkRZyUC700 14gQA
 X-Mailer: git-send-email 2.54.0.rc2.544.gc7ae2d5bb8-goog
-Message-ID: <20260427153416.2103979-20-ardb+git@google.com>
-Subject: [PATCH v4 03/15] arm64: mm: Preserve existing table mappings when
- mapping DRAM
+Message-ID: <20260427153416.2103979-22-ardb+git@google.com>
+Subject: [PATCH v4 05/15] arm64: mm: Remove bogus stop condition from
+ map_mem() loop
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com, 
@@ -84,8 +84,8 @@ Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com,
 	linux-hardening@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_083539_576650_336AAB93 
-X-CRM114-Status: GOOD (  11.52  )
+X-CRM114-CacheID: sfid-20260427_083541_538501_1F3846C3 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,41 +102,32 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-Instead of blindly overwriting an existing table entry when mapping DRAM
-regions, take care not to replace a pre-existing table entry with a
-block entry. This permits the logic of mapping the kernel's linear alias
-to be simplified in a subsequent patch.
+The memblock API guarantees that start is not greater than or equal to
+end, so there is no need to test it. And if it were, it is doubtful that
+breaking out of the loop would be a reasonable course of action here
+(rather than attempting to map the remaining regions)
+
+So let's drop this check.
 
 Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/arm64/mm/mmu.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+ arch/arm64/mm/mmu.c | 2 --
+ 1 file changed, 2 deletions(-)
 
 diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index f084993024ab..801a54ade76f 100644
+index 005844e521bd..bfbf3fe0d1be 100644
 --- a/arch/arm64/mm/mmu.c
 +++ b/arch/arm64/mm/mmu.c
-@@ -256,7 +256,8 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+@@ -1177,8 +1177,6 @@ static void __init map_mem(pgd_t *pgdp)
  
- 		/* try section mapping first */
- 		if (((addr | next | phys) & ~PMD_MASK) == 0 &&
--		    (flags & NO_BLOCK_MAPPINGS) == 0) {
-+		    (flags & NO_BLOCK_MAPPINGS) == 0 &&
-+		    !pmd_table(old_pmd)) {
- 			pmd_set_huge(pmdp, phys, prot);
- 
- 			/*
-@@ -379,7 +380,8 @@ static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
- 		 */
- 		if (pud_sect_supported() &&
- 		   ((addr | next | phys) & ~PUD_MASK) == 0 &&
--		    (flags & NO_BLOCK_MAPPINGS) == 0) {
-+		    (flags & NO_BLOCK_MAPPINGS) == 0 &&
-+		    !pud_table(old_pud)) {
- 			pud_set_huge(pudp, phys, prot);
- 
- 			/*
+ 	/* map all the memory banks */
+ 	for_each_mem_range(i, &start, &end) {
+-		if (start >= end)
+-			break;
+ 		/*
+ 		 * The linear map must allow allocation tags reading/writing
+ 		 * if MTE is present. Otherwise, it has the same attributes as
 -- 
 2.54.0.rc2.544.gc7ae2d5bb8-goog
 
