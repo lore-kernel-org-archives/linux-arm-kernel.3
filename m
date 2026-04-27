@@ -4,95 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 166CEFF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 17:07:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA7F0FF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 17:15:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ERRqVYI8CFxrsUDJfV7VsWlDQmS0mSXaXFgBL1Geb4k=; b=2PKLOnTGGkTbnMh+JJF1PELlhL
-	4SoJplSoT22kvSrAfDiKvQ+BNsajgHQzEAMMPBiww7nCySMBUIQvXGU6kqkGsq2VG+mnd+hj6tgpa
-	IcoD7pFwE7k32CYHwgAumcKjBnyNVQQ7tsDgGYSw0eNFEyHdaxd+iAXNCDpuSh8GiNlz6Uf4K8Q9v
-	/yX6jEPkGDLTiecu75pUDoBajYaYWR18PQf2XOCFnoNc1tqH016iyMdf5A9gMGHowu/NLKGANQGcu
-	HUa3d3YREiqigArXLX1c8qlJLI17EATr/+PrepURk97x3n/YIJO3wQnXMXLR3mKSkO2B9X8o6ANBM
-	HfktQ31A==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q8thP6qhPrOgal4uMGkaw17Qz6H+fZluoqd+J197DkA=; b=zlA2382Nxq2coYOrFQceI/fIow
+	x/0OjRnZGSS5bUpf+7wfXwcypxUJ+81HHiOvTarl3/YexWt+hSnniMTch8l6FjTMRQpEoQBmVfK5G
+	3jscLBrok2YwphYyhhsVX9HyKwyhgpEa8nVTEDPApmODqG78MTdLEJ3KQC4uwGjC4fy+TVVC8Mw01
+	R1jDrcNXYTgLLu77uOr6fLArj8OEy9MJv3e9bXPjT9X66BlOIZ16f6PmCi1nzehpUt+8LaTswL7sX
+	/Gu2DV5gIlJXdbXkiGbI0wZEAUt5RLeti4Z7VojmnDNOAXA16dp+XZUbz02/MbpGVG2XoLrU4iwf9
+	ow/0xS1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHPQr-0000000HPTj-2d6P;
-	Mon, 27 Apr 2026 17:07:41 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
+	id 1wHPYk-0000000HQ8k-1iP4;
+	Mon, 27 Apr 2026 17:15:50 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHPQp-0000000HPT9-0Csj
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 17:07:40 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-c70c112cb61so6884768a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 10:07:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777309657; x=1777914457; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ERRqVYI8CFxrsUDJfV7VsWlDQmS0mSXaXFgBL1Geb4k=;
-        b=RDoNCwMStTnC1kTbsKtWgJUSSefl/LMYaV0fINTi4bNm+AkxCTU01lHwEY/jcp1f4S
-         NSUpUp+/BxaB6XZ6Nmnuw/2WERxlxD7bDhN0g0cnqHA2qfMrsJCGjZSxBWLSHqse2FDC
-         dYwm61fq/ZApiVu3OwYHrwl/vMjLu6qY/kAHS5xk2pbrA4RDNtm9xklScfwNQXwKG0lc
-         HDqvNpiBT+dVxdmK58XJFDaeO23uSm3K5rk5/HFLs02y5ZVFzLkS4Eegrxn5C4lzssxz
-         IoPqWx9VEYTn+980yqomEYSF+3mYSPAGy5apIChJC8IFko9cftGG29TDP6gR88m4y7oB
-         u0mg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777309657; x=1777914457;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ERRqVYI8CFxrsUDJfV7VsWlDQmS0mSXaXFgBL1Geb4k=;
-        b=SmWqHw7gpePaRGKbJerIsQgE8jEA2qIUqEg7usJIW/ka4RP31E2JKQADGbzyST08KI
-         KdF6yNIimzPSd79yiVt046wsZy+OkiJY6vq3fBaKM1By7Rlq577rl2UyThPRSbolmUy0
-         YViGCm/HHChGi49xXkXyNqBDYw0jpj0WOI2m9/uEuY++lguOc4ietg7hLtF7Jk4YCovh
-         LOutK12qpNvHgp27Iy7DTWbzMcOl2wq2ELSCMBJD8VH5PVNDlNm4ZBDlPvXtsWbVMFXJ
-         +cSmYnQAzytEjERUYcoal2iPfbv1/i1cC4WXrRSUARJub89TZZqn5ywBpZHGBoUgQc+C
-         ptuA==
-X-Forwarded-Encrypted: i=1; AFNElJ99FwchOG2UEH1Fhc4vFjfIuVAzBQZPAblVWvwCElVk8FuzA7u5blAvtDSbrCwwnDI9zWjDELKvggh1Z/cgs08U@lists.infradead.org
-X-Gm-Message-State: AOJu0YxL08HRsx4yJKieID+hBbKT6ZhkOZPfTSEmi4kmmjY4gTAB2iBb
-	TTJ5+0O6s6EVe5oExITwnVFS1SL+IbRFbtfbw6EtQvtrYb45o5yivs1Y
-X-Gm-Gg: AeBDietVgNmUlf8Z1xrFlBCiax6vQgrD4T8rKV3ZZOemqAnmgMBKO5Z/e3VRMOMcqTo
-	jZH7gTzy8ApFyn+m8mCFgBOWXbM6Q9WoIMkuxMTd1FOYBXWYKjHBaqJqXpZbcAaXjdTwDTn5/uc
-	7f/HXW5EVTUwKCxDkTOWl1pl+BQZEhtpJBsRwwZHu4CLJgWbjsJtmp1OZZYeoqkQABoHH8/ITlM
-	mfWEOnfuH1rBv2+XTEAvdC3CQZgg30OJfo/lWYzFjNW/6Z4IOfNXWw2D6LRTJCNQJKU5GSjGt0y
-	k1o7VZ6CvlX0AUAV0HJYXPZv0MDU7F8c6OEbIcjesTScdcIF7n7wqhYyL9zqS/9EFhlOu8BzsM7
-	U8rCa9kA+v0qVfzUMaP7CSCf94s+k1+ZXAQLwUEUhES0uHnLcOmLnYily/uAExe4sbgqosURCc6
-	MXlH+t55PvRxAsl1vcpxd44f9/qwGj+r2gj3PCL/wuMx+FcUvMYv/YsLsGzsV3YWXk8fK2AKP6G
-	Iv5n/f2K/LKPsdj1KFiZrTUErly2JIE
-X-Received: by 2002:a05:6a20:6a09:b0:39b:ba95:b127 with SMTP id adf61e73a8af0-3a398c117f6mr307416637.4.1777309657446;
-        Mon, 27 Apr 2026 10:07:37 -0700 (PDT)
-Received: from shyam-VMware-Virtual-Platform.localdomain ([223.181.114.98])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f8ec04448sm39497551b3a.55.2026.04.27.10.07.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Apr 2026 10:07:36 -0700 (PDT)
-From: Shyam Sunder Reddy Padira <shyamsunderreddypadira@gmail.com>
-To: slongerbeam@gmail.com,
-	p.zabel@pengutronix.de,
-	mchehab@kernel.org,
-	gregkh@linuxfoundation.org,
-	s.hauer@pengutronix.de
-Cc: Frank.Li@nxp.com,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	imx@lists.linux.dev,
-	linux-media@vger.kernel.org,
-	linux-staging@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Shyam Sunder Reddy Padira <shyamsunderreddypadira@gmail.com>
-Subject: [PATCH] staging: media: imx: remove unnecessary braces from single statement if block
-Date: Mon, 27 Apr 2026 22:36:33 +0530
-Message-ID: <20260427170634.23072-1-shyamsunderreddypadira@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	id 1wHPYi-0000000HQ8K-0o6R;
+	Mon, 27 Apr 2026 17:15:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D2DEF4457C;
+	Mon, 27 Apr 2026 17:15:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEEFEC2BCC6;
+	Mon, 27 Apr 2026 17:15:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777310146;
+	bh=sq1+qESM1wlT/vwSuEnbxCmoVbaCa6OozRDKCDMNaJU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=AFRQycP/TI0kAFHPNQWNXin9rnss5JlxCniueDahA3tGRk5NHMC2cfaKGiHUxEnaZ
+	 sLBiunrMJL9DOCI8z3HaC0A0M37K3FOID21f8BULAntPT56uXpJczpLD14cGxrpGIQ
+	 4WPgFGDn2yq857zHVbMlgupj1TbLFDwmSKX0VNrUvJYKC0P+YZkjftuvmEypaX6Ws7
+	 YNxj+Br3Yp+PbYDaKmmXIgRshr/sbql1Lw/K3nbyTU6ZWVLF/xiCdmwIWW3BJm7Ms+
+	 RRoEMiEsrsVzr2snExWMqlR3YkJA91/UQ1IRz3Cix4GyrGQbbKBqrarSvIhB986ZyB
+	 H9mAcCZmaBnVA==
+Date: Mon, 27 Apr 2026 18:15:37 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Salah Triki <salah.triki@gmail.com>
+Cc: Andy Shevchenko <andriy.shevchenko@intel.com>, David Lechner
+ <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy
+ Shevchenko <andy@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] iio: adc: mt6359: fix unchecked return value in
+ mt6358_read_imp
+Message-ID: <20260427181537.46c2f20a@jic23-huawei>
+In-Reply-To: <ae9JFucpXBPwwGzr@pc>
+References: <20260427085458.38546-1-salah.triki@gmail.com>
+	<ae8pAGBGGOvsURka@ashevche-desk.local>
+	<ae9JFucpXBPwwGzr@pc>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_100739_090677_DE8177EC 
-X-CRM114-Status: GOOD (  10.26  )
+X-CRM114-CacheID: sfid-20260427_101548_277366_A8B307A4 
+X-CRM114-Status: GOOD (  26.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,32 +78,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove braces from a single statement if block to
-follow kernel coding style and improve readability.
+On Mon, 27 Apr 2026 12:31:34 +0100
+Salah Triki <salah.triki@gmail.com> wrote:
 
-No functional change.
+> On Mon, Apr 27, 2026 at 12:14:40PM +0300, Andy Shevchenko wrote:
+> > On Mon, Apr 27, 2026 at 09:54:57AM +0100, Salah Triki wrote:  
+> > > In mt6358_read_imp(), the return value of regmap_read() is currently
+> > > ignored. This is problematic because if the bus read fails the variable
+> > > val_v remains uninitialized.
+> > > 
+> > > The function subsequently assigns this uninitialized stack value to
+> > > *vbat, leading to incorrect measurement results being reported to
+> > > the IIO subsystem without any error indication.
+> > > 
+> > > Update the function to check the return value of regmap_read(). Ensure
+> > > that mt6358_stop_imp_conv() is still called to clean up the hardware
+> > > state before returning the error code.  
+> > 
+> > Sounds like this deserves a Fixes tag, but the problem is that the whole driver
+> > is written like this. Why does having this fixed make it special?
+> > 
+> > -- 
+> > With Best Regards,
+> > Andy Shevchenko
+> > 
+> >   
+> 
+> You are right, Andy. I noticed that several other functions in this driver
+> share the same issue. I will send a V2 that addresses all unchecked
+> regmap_read() calls in this file and I will include the Fixes tag. Thanks
+> for the feedback.
+What's the bus in this case?
 
-Signed-off-by: Shyam Sunder Reddy Padira <shyamsunderreddypadira@gmail.com>
----
- drivers/staging/media/imx/imx-media-of.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+Whilst maybe we should be checking them, it is not uncommon to forgo those
+checks in internal busses.  In general they should be more reliable than
+something going over PCB tracks like spi or i2c.
 
-diff --git a/drivers/staging/media/imx/imx-media-of.c b/drivers/staging/media/imx/imx-media-of.c
-index bb28daa4d713..7413551052ae 100644
---- a/drivers/staging/media/imx/imx-media-of.c
-+++ b/drivers/staging/media/imx/imx-media-of.c
-@@ -57,9 +57,8 @@ int imx_media_add_of_subdevs(struct imx_media_dev *imxmd,
- 		of_node_put(csi_np);
- 		if (ret) {
- 			/* unavailable or already added is not an error */
--			if (ret == -ENODEV || ret == -EEXIST) {
-+			if (ret == -ENODEV || ret == -EEXIST)
- 				continue;
--			}
- 
- 			/* other error, can't continue */
- 			return ret;
--- 
-2.43.0
+I'd be tempted to fix the uninitialized variable by setting it at declaration
+rather than worry too much about checking all the regmap return values.
+
+> 
+> Best Regards
+> Salah Triki
 
 
