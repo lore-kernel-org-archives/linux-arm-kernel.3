@@ -4,75 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D367FF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 16:27:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35BCEFF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 16:31:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BPLg1Hn38x8a+m0kG/FEsTFwbBhtL+oRHiLJRGc//TU=; b=A9pnB/LMf77YuowS0DqyplDNcz
-	t+abMTelQmj1mwmUvoGkTNKrqabir9pbh8mtfg3rcbGLeuSym6WhiVKRqmxqt9sA+UokvJ2Zt6ct7
-	7JZfaHmh4NpVCaiMjMPTUbbZwcLQeJ/SAMm3SmQCfTbwI5N88G6vq6QmsV0FszlQrC3tLLwRgZ9Xp
-	OtX0Q/L1pKNBMuDSFC5f6o7md2YiJs4eU6lLRNvW1Q8J/j4JGxlnm+YENcTnh2lokjTfJENKgvRZz
-	solztQtuJtp/c7zgKDM+m7aX1KLoA51FlF0WsLJWKSpDEjvpTvQ6aLWx3oKTrkpb1FQeliihhmPAm
-	9OLKSiiQ==;
+	bh=JRYSJF6nrSH7Det3WPja4JzgUkDVpaSEI3RwsPkFyHI=; b=TfXfhp+J8tSpkMdipo+EzglpMB
+	C/G3LPA+VdsGSjubkvwcOPJTPiW6FQGUeoDAg3AMmsLqmAzQf3AnpIU6NoCVxJfr+OUhebm52prz7
+	UETr8Vg1RF8XJq4qwhgMjstJBKO16V+XWF9WSVje+uokCtreKBBky2sQS+JQwMvb/3ylmjiZ6+oo/
+	bSkg6pufCk+Rwrkd8eQIIlBvRkN7xadIs+SFrHhRATWO5QwAfVGW0V1869qzV6rHK3o+zb2GFsTul
+	ZsOnYsOC6y8bIfV8JDmS1/Atcy18bqKPii+O44Z9E2GNGVaSJt5vz+yHSaXuSHVczlkllKc82oZSi
+	inBFmTZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHOni-0000000HMb6-0z44;
-	Mon, 27 Apr 2026 16:27:14 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1wHOs7-0000000HMsW-05ba;
+	Mon, 27 Apr 2026 16:31:47 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHOnf-0000000HMa5-0wdC
+	id 1wHOs4-0000000HMrz-16zb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 16:27:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=BPLg1Hn38x8a+m0kG/FEsTFwbBhtL+oRHiLJRGc//TU=; b=syAv4LxLVHacKb7lD0gWSxExjl
-	ALtxi4r+F+lwos9dX87zDCmRI8yf5uNew32TzulCab9e3SiknlZyLkTPxwJOt3ooYyt5nNCvzcHBL
-	74B9Wuq45vZpqBLllROZa3rb7YNwvpc5gNJvkZHgyqmqIolWtVH6rvQGMmtK/Yt1AQkh0DVg1jBv9
-	9rCLpB8OnLdSdRVKagAZ4q8RrBxZcRDnVMUiArOoGqRQrxAYe1LFin8JRjZCf8R8Ptd+DE4cRa8eH
-	O/7yQfz+ZKhu9ou3cQoawCioTZ9Lp/+H86NE3rdehuB6RIn8Qg3/jQPJEKkuBWXpHPULfWOFNoVva
-	pi2tC98Q==;
-Received: from [187.57.76.96] (helo=[192.168.15.100])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
-	id 1wHOnL-0030S7-FA; Mon, 27 Apr 2026 18:26:50 +0200
-Message-ID: <f14b2297-9b6b-46a6-ac9c-57377aaf9031@igalia.com>
-Date: Mon, 27 Apr 2026 13:26:41 -0300
+	Mon, 27 Apr 2026 16:31:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1777307505; x=1808843505;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=RJ9UPp8EF7z1uvB7R2RYJWNX1kg1lSd61NxnC8m0o8k=;
+  b=HB8wshe5xaesE8hiN1moXKOsa8sth351hJ2iPGrRRFYXKqH7a+W3K0QU
+   z97s/k1pBLvDptCxtcCdmIohQhk+ABWl7R2la0r6qEKuyxzypj4ymaFNI
+   keIlv+nbanNnfQ6lbqm3d0chtWfEPUR9NkIBzuwUpb3yr6+9JNs70O7F7
+   yrqewYg2FmUGcxcjgNixvsKZ7ChQgiOOWfcAL/55mpe6sTPWmNzlhrBTX
+   XWUD3HgQCOyAuMUqdNXoeuojATWTaxVYvONTuOqwXek8BwuMWnj6Wg5gV
+   QKZ1r06UjbwJG8HgRmmPR1SO3lIpx+dHzDEHAXnRd93sMpXjm6DgURFP3
+   w==;
+X-CSE-ConnectionGUID: l+/TwdeUTKCSoflisPPT+Q==
+X-CSE-MsgGUID: 7Cfj7Y3ERAmU3uo3vrALQA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11769"; a="78093620"
+X-IronPort-AV: E=Sophos;i="6.23,202,1770624000"; 
+   d="scan'208";a="78093620"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Apr 2026 09:31:43 -0700
+X-CSE-ConnectionGUID: LCC0RagbSjCpVrwYJkeKiQ==
+X-CSE-MsgGUID: D8PgNkBgQgSIF6wwRjcL7w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,202,1770624000"; 
+   d="scan'208";a="271816236"
+Received: from msatwood-mobl.amr.corp.intel.com (HELO [10.125.108.172]) ([10.125.108.172])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Apr 2026 09:31:42 -0700
+Message-ID: <2efed1ea-e373-41d0-bc37-4adac8378169@intel.com>
+Date: Mon, 27 Apr 2026 09:31:39 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v2 2/2] arm64: vdso: Implement
- __vdso_futex_robust_try_unlock()
-To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- Carlos O'Donell <carlos@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
- Florian Weimer <fweimer@redhat.com>, Rich Felker <dalias@aerifal.cx>,
- Torvald Riegel <triegel@redhat.com>, Darren Hart <dvhart@infradead.org>,
- Ingo Molnar <mingo@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>,
- Arnd Bergmann <arnd@arndb.de>, "Liam R . Howlett" <Liam.Howlett@oracle.com>,
- Uros Bizjak <ubizjak@gmail.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
- kernel-dev@igalia.com
-References: <20260424-tonyk-robust_arm-v2-0-db4e46f752cf@igalia.com>
- <20260424-tonyk-robust_arm-v2-2-db4e46f752cf@igalia.com>
- <7ddc1c74-c504-44c6-8d51-d10d436c0db8@t-8ch.de>
+Subject: Re: [PATCH v4 1/3] PCI: Allow ATS to be always on for CXL.cache
+ capable devices
+To: Nicolin Chen <nicolinc@nvidia.com>, jgg@nvidia.com, will@kernel.org,
+ robin.murphy@arm.com, bhelgaas@google.com
+Cc: joro@8bytes.org, praan@google.com, baolu.lu@linux.intel.com,
+ kevin.tian@intel.com, miko.lenczewski@arm.com,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+ dan.j.williams@intel.com, jonathan.cameron@huawei.com, vsethi@nvidia.com,
+ linux-cxl@vger.kernel.org, nirmoyd@nvidia.com
+References: <cover.1777269009.git.nicolinc@nvidia.com>
+ <f6734b9dad0050138676f11ecd14e9db1cf6b697.1777269009.git.nicolinc@nvidia.com>
 Content-Language: en-US
-From: =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-In-Reply-To: <7ddc1c74-c504-44c6-8d51-d10d436c0db8@t-8ch.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+From: Dave Jiang <dave.jiang@intel.com>
+In-Reply-To: <f6734b9dad0050138676f11ecd14e9db1cf6b697.1777269009.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_092711_286645_EE5B1CA1 
-X-CRM114-Status: GOOD (  25.25  )
+X-CRM114-CacheID: sfid-20260427_093144_352897_84381151 
+X-CRM114-Status: GOOD (  26.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,129 +93,139 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-Em 26/04/2026 15:30, Thomas Weißschuh escreveu:
-> On 2026-04-24 15:56:01-0300, André Almeida wrote:
-> (...)
-> 
->> Signed-off-by: André Almeida <andrealmeid@igalia.com>
->> ---
->> RFC:
->>   - Should I duplicate the explanation found in the x86 commit or can I just
->>   point to it?
->>   - Only LL/SC for now but I can add LSE later if this looks good
->>   - It the objdump I see that op_pending is store at x2. But how stable is this,
->>   how can I write it in a way that's always x2?
->> ---
->>   arch/arm64/Kconfig                                 |  1 +
->>   arch/arm64/include/asm/futex_robust.h              | 35 +++++++++++++
->>   arch/arm64/kernel/vdso/Makefile                    |  9 +++-
->>   arch/arm64/kernel/vdso/vdso.lds.S                  |  4 ++
->>   .../kernel/vdso/vfutex_robust_list_try_unlock.c    | 59 ++++++++++++++++++++++
->>   5 files changed, 107 insertions(+), 1 deletion(-)
-> 
-> What about the actual 32-bit vDSO in arch/arm64/kernel/vdso32/ ?
-> 
 
-Right, I missed that. Then I should move 
-__vdso_futex_robust_list32_try_unlock() to arch/arm64/kernel/vdso32/ right?
-
-> (...)
+On 4/26/26 10:54 PM, Nicolin Chen wrote:
+> Controlled by the IOMMU driver, ATS is usually enabled "on demand" when a
+> given PASID on a device is attached to an I/O page table. This is working
+> even when a device has no translation on its RID (i.e., the RID is IOMMU
+> bypassed).
 > 
->> diff --git a/arch/arm64/kernel/vdso/vfutex_robust_list_try_unlock.c b/arch/arm64/kernel/vdso/vfutex_robust_list_try_unlock.c
->> new file mode 100644
->> index 000000000000..e8a8fb22a2fa
->> --- /dev/null
->> +++ b/arch/arm64/kernel/vdso/vfutex_robust_list_try_unlock.c
->> @@ -0,0 +1,59 @@
->> +// SPDX-License-Identifier: GPL-2.0-or-later
->> +#include <vdso/futex.h>
->> +#include <linux/stringify.h>
->> +
->> +#define LABEL(name, sz) __stringify(__futex_list##sz##_try_unlock_cs_##name)
+> However, certain PCIe devices require non-PASID ATS on their RID even when
+> the RID is IOMMU bypassed. Call this "always on".
 > 
-> We should have some defines for these symbols. While they are not
-> userspace ABI, they will be used by the selftests.
+> For example, CXL spec r4.0 notes in sec 3.2.5.13 Memory Type on CXL.cache:
+>  "To source requests on CXL.cache, devices need to get the Host Physical
+>   Address (HPA) from the Host by means of an ATS request on CXL.io."
 > 
-
-Do you mean to have this defined at include/uapi/linux/futex.h?
-
->> +#define GLOBLS(sz) ".globl " LABEL(start, sz) ", " LABEL(success, sz) ", " LABEL(end, sz) "\n"
->> +
->> +__u32 __vdso_futex_robust_list64_try_unlock(__u32 *lock, __u32 tid, __u64 *pop)
->> +{
->> +	__u32 val, result;
->> +
->> +	asm volatile (
->> +		GLOBLS(64)
->> +		"	prfm pstl1strm, %[lock]			\n"
->> +		LABEL(start, 64)":				\n"
->> +		"	ldxr %[val], %[lock]			\n"
->> +		"	cmp %[tid], %[val]			\n"
->> +		"	bne " LABEL(end, 64)"			\n"
->> +		"	stlxr %w[result], xzr, %[lock]		\n"
->> +		"	cbnz %w[result], " LABEL(start, 64)"	\n"
->> +		LABEL(success, 64)":				\n"
->> +		"	str xzr, %[pop]				\n"
->> +		LABEL(end, 64)":				\n"
->> +
->> +		: [val] "=&r" (val), [result] "=r" (result)
->> +		: [tid] "r" (tid), [lock] "Q" (*lock), [pop] "Q" (*pop)
->> +		: "memory"
->> +	);
+> In other words, the CXL.cache capability requires ATS; otherwise, it can't
+> access host physical memory.
 > 
-> My clang 22.1.3 chokes on the assembly in this patch.
+> Introduce a new pci_ats_always_on() helper for the IOMMU driver to scan a
+> PCI device and shift ATS policies between "on demand" and "always on".
 > 
-
-Do you mind sharing the output?
-
->> +
->> +	return val;
->> +}
->> +
->> +#ifdef CONFIG_COMPAT_VDSO
+> Add the support for CXL.cache devices first. Pre-CXL devices will be added
+> in quirks.c file.
 > 
-> I am wondering about the CONFIG_COMPAT{,_VDSO} dependency here.
-> As far as I know the list32 variant is meant to be used by code
-> emulators which run 32-bit code on a 64-bit kernel, for example FEX.
-> But these emulators don't actually seem to need CONFIG_COMPAT.
-> So the dependency does not look correct.
-> The space savings also should be irrelevant.
-
-Right, good catch. In the new syscall I had to do something similar[1], 
-to expose the 32-bit functions to 64-bit kernels as well, and not hide 
-them behind CONFIG_COMPAT.
-
-[1] 
-https://lore.kernel.org/lkml/20251122-tonyk-robust_futex-v6-2-05fea005a0fd@igalia.com/
-
+> Note that pci_ats_always_on() validates against pci_ats_supported(), so we
+> ensure that untrusted devices (e.g. external ports) will not be always on.
+> This maintains the existing ATS security policy regarding potential side-
+> channel attacks via ATS.
 > 
-> The x86 series from Thomas does the same, maybe he will read this
-> comment, otherwise I'll bring it up on his series, too.
+> Cc: linux-cxl@vger.kernel.org
+> Suggested-by: Vikram Sethi <vsethi@nvidia.com>
+> Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> Reviewed-by: Kevin Tian <kevin.tian@intel.com>
+> Tested-by: Nirmoy Das <nirmoyd@nvidia.com>
+> Acked-by: Nirmoy Das <nirmoyd@nvidia.com>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+
+Reviewed-by: Dave Jiang <dave.jiang@intel.com>
+
+
+> ---
+>  include/linux/pci-ats.h       |  3 +++
+>  include/uapi/linux/pci_regs.h |  1 +
+>  drivers/pci/ats.c             | 43 +++++++++++++++++++++++++++++++++++
+>  3 files changed, 47 insertions(+)
 > 
->> +__u32 __vdso_futex_robust_list32_try_unlock(__u32 *lock, __u32 tid, __u32 *pop)
->> +{
->> +	__u32 val, result;
->> +
->> +	asm volatile (
->> +		GLOBLS(32)
->> +		"	prfm pstl1strm, %[lock]			\n"
->> +		LABEL(start, 32)":				\n"
->> +		"	ldxr %w[val], %[lock]			\n"
->> +		"	cmp %w[tid], %w[val]			\n"
->> +		"	bne " LABEL(end, 32)"			\n"
->> +		"	stlxr %w[result], wzr, %w[lock]		\n"
->> +		"	cbnz %w[result], " LABEL(start, 32)"	\n"
->> +		LABEL(success, 32)":				\n"
->> +		"	str wzr, %w[pop]			\n"
->> +		LABEL(end, 32)":				\n"
->> +
->> +		: [val] "=&r" (val), [result] "=r" (result)
->> +		: [tid] "r" (tid), [lock] "Q" (*lock), [pop] "Q" (*pop)
->> +		: "memory"
->> +	);
->> +
->> +	return val;
->> +}
->> +#endif
+> diff --git a/include/linux/pci-ats.h b/include/linux/pci-ats.h
+> index 75c6c86cf09dc..d14ba727d38b3 100644
+> --- a/include/linux/pci-ats.h
+> +++ b/include/linux/pci-ats.h
+> @@ -12,6 +12,7 @@ int pci_prepare_ats(struct pci_dev *dev, int ps);
+>  void pci_disable_ats(struct pci_dev *dev);
+>  int pci_ats_queue_depth(struct pci_dev *dev);
+>  int pci_ats_page_aligned(struct pci_dev *dev);
+> +bool pci_ats_always_on(struct pci_dev *dev);
+>  #else /* CONFIG_PCI_ATS */
+>  static inline bool pci_ats_supported(struct pci_dev *d)
+>  { return false; }
+> @@ -24,6 +25,8 @@ static inline int pci_ats_queue_depth(struct pci_dev *d)
+>  { return -ENODEV; }
+>  static inline int pci_ats_page_aligned(struct pci_dev *dev)
+>  { return 0; }
+> +static inline bool pci_ats_always_on(struct pci_dev *dev)
+> +{ return false; }
+>  #endif /* CONFIG_PCI_ATS */
+>  
+>  #ifdef CONFIG_PCI_PRI
+> diff --git a/include/uapi/linux/pci_regs.h b/include/uapi/linux/pci_regs.h
+> index 14f634ab9350d..6ac45be1008b8 100644
+> --- a/include/uapi/linux/pci_regs.h
+> +++ b/include/uapi/linux/pci_regs.h
+> @@ -1349,6 +1349,7 @@
+>  /* CXL r4.0, 8.1.3: PCIe DVSEC for CXL Device */
+>  #define PCI_DVSEC_CXL_DEVICE				0
+>  #define  PCI_DVSEC_CXL_CAP				0xA
+> +#define   PCI_DVSEC_CXL_CACHE_CAPABLE			_BITUL(0)
+>  #define   PCI_DVSEC_CXL_MEM_CAPABLE			_BITUL(2)
+>  #define   PCI_DVSEC_CXL_HDM_COUNT			__GENMASK(5, 4)
+>  #define  PCI_DVSEC_CXL_CTRL				0xC
+> diff --git a/drivers/pci/ats.c b/drivers/pci/ats.c
+> index ec6c8dbdc5e9c..fc871858b65bc 100644
+> --- a/drivers/pci/ats.c
+> +++ b/drivers/pci/ats.c
+> @@ -205,6 +205,49 @@ int pci_ats_page_aligned(struct pci_dev *pdev)
+>  	return 0;
+>  }
+>  
+> +/*
+> + * CXL r4.0, sec 3.2.5.13 Memory Type on CXL.cache notes: to source requests on
+> + * CXL.cache, devices need to get the Host Physical Address (HPA) from the Host
+> + * by means of an ATS request on CXL.io.
+> + *
+> + * In other words, CXL.cache devices cannot access host physical memory without
+> + * ATS.
+> + */
+> +static bool pci_cxl_ats_always_on(struct pci_dev *pdev)
+> +{
+> +	int offset;
+> +	u16 cap;
+> +
+> +	offset = pci_find_dvsec_capability(pdev, PCI_VENDOR_ID_CXL,
+> +					   PCI_DVSEC_CXL_DEVICE);
+> +	if (!offset)
+> +		return false;
+> +
+> +	if (pci_read_config_word(pdev, offset + PCI_DVSEC_CXL_CAP, &cap))
+> +		return false;
+> +
+> +	return cap & PCI_DVSEC_CXL_CACHE_CAPABLE;
+> +}
+> +
+> +/**
+> + * pci_ats_always_on - Whether the PCI device requires ATS to be always enabled
+> + * @pdev: the PCI device
+> + *
+> + * Returns true, if the PCI device requires ATS for basic functional operation.
+> + */
+> +bool pci_ats_always_on(struct pci_dev *pdev)
+> +{
+> +	if (pci_ats_disabled() || !pci_ats_supported(pdev))
+> +		return false;
+> +
+> +	/* A VF inherits its PF's requirement for ATS function */
+> +	if (pdev->is_virtfn)
+> +		pdev = pci_physfn(pdev);
+> +
+> +	return pci_cxl_ats_always_on(pdev);
+> +}
+> +EXPORT_SYMBOL_GPL(pci_ats_always_on);
+> +
+>  #ifdef CONFIG_PCI_PRI
+>  void pci_pri_init(struct pci_dev *pdev)
+>  {
 
 
