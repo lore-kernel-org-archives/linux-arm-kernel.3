@@ -4,184 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 535ACFF8860
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 06:12:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1634FF8860
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 06:13:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3T9c/mAOXnUP4/hiPQO33qkhZKla6BtV3ZuRq/3whn0=; b=xzJ/YgKsw0wt9q2BNrEKVD7t1A
-	AkPN4Cp2I31ZuInC0dyNs59yC+qYcJiXJ3atYMi1vSP4e5SLXlX43nqB82bxBbO4Zwa/77xEGjtdx
-	5U6mMMSQnT3lQAqKZ7kRdgboHkH+uDq+dBWX/qL+mjGqYPGRWBdSTc/2LpSmqdmEFQO6qgrTSdQPQ
-	dZpJd5E5EAvMNE0rJYCAArPz21gtSPCknfHoWDrP0nn3656OzifwtgtAvqJqi99idcb0PaM4H4gRM
-	XqpEhHyB9zYBqyRG6yAn7pexL4edUhOhxVWpBrwjMyZ0XQGB7Pow0VVxh/wfZwyN6S1aZ7lhnZUfj
-	2Ibwy2eA==;
+	bh=d+SLptO3tSjtdVppUfEVeI9zf1mkFQeoOIq+n+usgAs=; b=DPB7Noqq9NT0mZmHfSXgxqrQxh
+	SbBESRYeHzoiPvrMkR73X7KvOHPMIBgjS2afNY9Kq7pZxv0Uy87hfk9B5m0zfuwvw/GVuTYOelgol
+	6V9J9tS8Ydv0iw1WPaZHDbxpYBMcCrVG2KtCoRoM4uBKUlcjt6AujV8uGGVOGdytIk6oYKWzT+jaz
+	wQHpx7q+OFs/E77cqBnVXvAnapTG24u/hb9MfqDUnN/xPJ0qiZiO6wD5AN2bUu6J+YHjqxKmcnQnx
+	bmS1gtyTytuz01JRynCzUElFEwsSYnRbId2ag/pjH/RzXgkcTEQ6wno3m9V9dQsu9ptg5J/q+X4vs
+	hT36gWbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHFCL-0000000GEck-27Xj;
-	Mon, 27 Apr 2026 06:12:01 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1wHFDt-0000000GEnc-3hqL;
+	Mon, 27 Apr 2026 06:13:37 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHFCI-0000000GEc5-34CU;
-	Mon, 27 Apr 2026 06:12:00 +0000
-X-UUID: fb7cd9d841ff11f1a6de359d7043e138-20260426
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=3T9c/mAOXnUP4/hiPQO33qkhZKla6BtV3ZuRq/3whn0=;
-	b=CktCqUvQPC2KtYhKHY+K8NZ69Trz8mJqBJTdpMn7AzMJXHAChAgDJLqCZ7uwGoMmX+mtjbg88kDamEIDfqbpLy25Bu1BPbvpX/CHAACPQqfmGqr8S9lvfpZzxYLtNalHmLccDSmmPwIogqENnAPZQCLo5GGPjBtvQToWyaYMirk=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:3365a9a5-e283-4386-a604-7d0ffb86dca8,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e7bac3a,CLOUDID:411af48f-6df4-4a3d-a7a4-fbdc42d669ce,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|865|888|
-	898,TC:-5,Content:0|15|50,EDM:-3,IP:nil,URL:99|1,File:130,RT:0,Bulk:nil,QS
-	:nil,BEC:-1,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,AR
-	C:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: fb7cd9d841ff11f1a6de359d7043e138-20260426
-Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw02.mediatek.com
-	(envelope-from <peter.wang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 538719078; Sun, 26 Apr 2026 23:11:51 -0700
-Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
- mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Mon, 27 Apr 2026 14:11:49 +0800
-Received: from SI4PR04CU002.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Mon, 27 Apr 2026 14:11:49 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jZCi2kfwLB6IYyuCeWUnoNBYCgwTJANJedneUsrVnxUOiBS5QmWh9DM5IuGVVFYOmzQaK0pbkgNccpdS7oulCilqtT6MVj3I5PQar06OoFgxrtuiZoiyWjuRxIt0Z61ukT+Bk9fj8aMIl15TTKcjcQ1KUuw+zsXSHXCa0sNgZ2Bm7D0sAUL8Jx6ZY92t/E/FydttCw0SzYFoFUaMIFhDKo0x+8Tx6BqkPBh+v782LkW8kBjwjcj5kzxNvZ6AtJxNsKOWxkf1Ivf648dV49394BjQJexbPU3Ohz/QzKZi4IIecS73Ggk6Yq22ojakHLeAwEC9MxZifSgUQgEGz6O4Bw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3T9c/mAOXnUP4/hiPQO33qkhZKla6BtV3ZuRq/3whn0=;
- b=RemlRiVnkBK+XY9+FwACJLqScv2aa6zdSQmjeKvVvdJmAihrRA3SNExRCKvFpx2Aa7uS/iGihWLjVviAIxegqyerm4RO8elgSWxfsbgZG+3hkuMqjRewXWFeD47ePehczbgWJLkDJ8kiZ11rCZNlsBPUpWjl8mMh+JyD0PE1PWVOWZ2lSHXcr72Rwu5zgZj00a8URskPyvDwGyYV8D11u55k/NyeL+29+q8tUkQhOp6O60IknjO6JaaYv5K4z8GoRhAfrddCig0GSH2fI2p2JEXZLhJAh2BEqAEZ1yURY326oQud80CN81NQTWOFaY1Kmcs42Nv1VWt1JwGIfb+Dbg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3T9c/mAOXnUP4/hiPQO33qkhZKla6BtV3ZuRq/3whn0=;
- b=bqUEXqGtnxndx9AWTmBsORpsb+c21WNDWQZczowsShG5Isnan280PqJ8OwmK5hT1znQGF/7YJb7GQzYDBv7UPEtOy1xXWEsh4BlGNJ419B3Mg+MAdZD6/qaf0JIn5lDYYDPn41tsRosw/eK4W8rMXO/C6us1xH7hFgEyTtlTw8U=
-Received: from PSAPR03MB5605.apcprd03.prod.outlook.com (2603:1096:301:66::6)
- by TYZPR03MB8726.apcprd03.prod.outlook.com (2603:1096:405:65::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Mon, 27 Apr
- 2026 06:11:45 +0000
-Received: from PSAPR03MB5605.apcprd03.prod.outlook.com
- ([fe80::165:d36a:3f76:2925]) by PSAPR03MB5605.apcprd03.prod.outlook.com
- ([fe80::165:d36a:3f76:2925%6]) with mapi id 15.20.9846.025; Mon, 27 Apr 2026
- 06:11:45 +0000
-From: =?utf-8?B?UGV0ZXIgV2FuZyAo546L5L+h5Y+LKQ==?= <peter.wang@mediatek.com>
-To: "avri.altman@wdc.com" <avri.altman@wdc.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>,
-	=?utf-8?B?RWQgVHNhaSAo6JSh5a6X6LuSKQ==?= <Ed.Tsai@mediatek.com>,
-	"bvanassche@acm.org" <bvanassche@acm.org>, "alim.akhtar@samsung.com"
-	<alim.akhtar@samsung.com>, "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	"James.Bottomley@HansenPartnership.com"
-	<James.Bottomley@HansenPartnership.com>, "martin.petersen@oracle.com"
-	<martin.petersen@oracle.com>
-CC: =?utf-8?B?QWxpY2UgQ2hhbyAo6LaZ54+u5Z2HKQ==?= <Alice.Chao@mediatek.com>,
-	"linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>, wsd_upstream
-	<wsd_upstream@mediatek.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, =?utf-8?B?Q2h1bi1IdW5nIFd1ICjlt6vpp7/lro8p?=
-	<Chun-hung.Wu@mediatek.com>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	=?utf-8?B?TmFvbWkgQ2h1ICjmnLHoqaDnlLAp?= <Naomi.Chu@mediatek.com>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"stable@vger.kernel.org" <stable@vger.kernel.org>
-Subject: Re: [PATCH 1/1] scsi: ufs: remove ucd_rsp_dma_addr and
- ucd_prdt_dma_addr from ufshcd_lrb
-Thread-Topic: [PATCH 1/1] scsi: ufs: remove ucd_rsp_dma_addr and
- ucd_prdt_dma_addr from ufshcd_lrb
-Thread-Index: AQHc1fpRV67n28DDjEu+qz2UGvtoeLXybXwA
-Date: Mon, 27 Apr 2026 06:11:45 +0000
-Message-ID: <e35cee170c92fd980a29b9aaa72fd93b11ba1bc8.camel@mediatek.com>
-References: <20260427035856.1610363-1-ed.tsai@mediatek.com>
-In-Reply-To: <20260427035856.1610363-1-ed.tsai@mediatek.com>
-Accept-Language: zh-TW, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PSAPR03MB5605:EE_|TYZPR03MB8726:EE_
-x-ms-office365-filtering-correlation-id: 31b83e94-4ba5-4466-ac51-08dea423dbe4
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|38070700021|18002099003|22082099003|56012099003;
-x-microsoft-antispam-message-info: eLElUPAQZvY9MKJcyGC/CY18dg0ZkYdwhjLgk8w80TcWzrvjqqhDhcpxtqH+aX76PIPAtc/sRFw52WeFGE6/F4OYGa5mcD6XIj2n44EiMCDAlWuDqtHpQsJrDMd99lgMsJRbykNzgfCwnDCp2RMMSqnWqGylAXDwwytWSn6p30UfqKqFli5DQJC/3GKmdK0i9bP19chwnjp69HnquZNiWTTqL8u4bkqEeA1vwzjLlpGG997q5fPBSnrSy5fNvp5+zkA4ir4MywnIjqrnH9nW6zbFHmfDO/2BkBkuWJqafQjfFTB5xKJbEvN1fpfu3IErjpRrhAvUbEMrhmtlh9H7W2ZhMNStsBOaeLFoAkAFxKq4uhlXpoQ7TGqeC9qZ3nx4sM1WjfBuvnTZCSo42dmHAOoNYBJqpOfNjnJHhWuzIXG8mY3qP1WuJd2Ekp+HA/6UazILQjB09g2J+uaVXEGmaAqTc0K7ZyStJ0e1QfPyCjlYsylsOIJsfT4RA6QbsFnE1HbxwwkugzIa5SKyHjbI5KJpMH7julVesA9PZLGoPaRg2isX0SOfUgEb2Z/F/yatzLuwAg7oZaJjAPyoEpxj74K1sKWy36XINNJbSMDPNrlXWs2BTXIde/p+/tyr5Z/NDtfZwduQX0udosM31QFQKYabne5l1nR6GBFg+qet3JiHbFxIGk2Ue+dUYDA4gu5yv3J1Jv8lCyjLzPY0FzMbv57n7MgfuGjHUlSl0peIi+dHMYcj5Ysyc+Qh0Gddnh6UUSMWxWKba29wdE0su0MSCvSBOLHnZ2aFodkQIRrhbq8=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PSAPR03MB5605.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(38070700021)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?SVluYjE4eTZkVm1Jc2FqTDluNHZnbEVMeVpqeUx5WmhBbnJ4OHZFekZMbWRh?=
- =?utf-8?B?elhVUGVmV2M2bzRUTU15Nk9uZHg0Z3hBRzBDRG1MRlgrQzUvcm8wb0J4alhH?=
- =?utf-8?B?MzRRTTY1QW5UTGhVM3ovSEp6WUlsdEk0QU9Lbmd4OFZtU3hZcUdkL0VkekRh?=
- =?utf-8?B?OW9iRnpTVXFzaEIxaE1NRDc0VnRvYVFpaFIvKzREREhqUTUxWmU4dnl0ZFVa?=
- =?utf-8?B?NmhjUEc4WGYxSXlMdmFHYmkwamxQVEt0bkt2T0s4Y0xySE8wd25rcTJ6UWg5?=
- =?utf-8?B?Nk1NQklEeUhCQit2QjFMTlhoWVZuN3hzV0NiQ3VyYnZ3MDFsOWJJUldEam1M?=
- =?utf-8?B?Q2I3UEZPNFAyc25yM2hSeVpNdXExRStFd1VaWnIrYzlBdmhnbm5LamZJUzRa?=
- =?utf-8?B?M2NXWUtMVHdUN2FCdm1pOEM5elY4UmU2U0d5SlRZNERneFNHSzJXVkpEaUZa?=
- =?utf-8?B?bFoyWHhPdDR6V0pkTERoWWRDZzlvcmVXQUpCRHBFQkRGdDQ1V2FPb3Y1L2ow?=
- =?utf-8?B?dlVNNjdJNWNqcVZtU2d4aDhHM1lhTXU4YjVYU2tqdzZvTUR6bW42VWJ3a0ZJ?=
- =?utf-8?B?UkEwekh4Nk1ZVmY3YlgwcVYvcXYyajdjZUlTYWZEZTFoSTBEV3pwZERVYy9J?=
- =?utf-8?B?ajZ0bjBtVmFMTDArZURmSm43eTBoMS8zN0h1NlZJSFBYYmJ4ak9sSHBuQWdh?=
- =?utf-8?B?VTY3d3pQdzFXRUcvdERBUnBEZFNSUEVONnlNNnZxYTl4RHRhM1BlM0dTRDA1?=
- =?utf-8?B?aUNNbTlNZ0hrQnd2T3BYQXgrM0pqV1p0d0NUR2lNeDhEb0Uydy91RC9pN2Mr?=
- =?utf-8?B?RjBqYVB0L2lVWkJDbGdVUkpsZnpjVXVFd0RKTDFWNFRDYmUvV1dNL2RlWkg4?=
- =?utf-8?B?bEpMSE90UG5jZFFLLzBJaFE2MUUzRkxNSzE3azRPV2pPMmxmRGtCd0RRSStS?=
- =?utf-8?B?THBKcnRtaEFHRTRTSVp5Nk5tNkxZSHRWdDgyVEJDYmpwbXJXVk1OY3RzOS9w?=
- =?utf-8?B?bkx2OEM5WmJmelB0eGRCbWdGYUk2c1pKK0tpcVgybVlReC83a0lBSThsVExo?=
- =?utf-8?B?WTlOekdER2I0U1ZJcnV5RTNxRE5BcGt4TEJ5QmV3VTg3SFdNb0dnaGRJNzlO?=
- =?utf-8?B?WUFYZWptcXRTRGJuL0xCRmFYcVYrQmxNMnErZkdKclplYTFNNy9BN0ZJSk5s?=
- =?utf-8?B?alVuQm1oY3UwNUU1MUJHUm5malo5VGFsMGFsc3pIMEwvaERSNXZOaWZLd214?=
- =?utf-8?B?L0ppb3FRb0xVMVg4Z2xtVWV1RmZpY2ZPa2NlTWF6UEkzTTM4OHlkbG5wTkRD?=
- =?utf-8?B?dnZGQ1phM3NhVHhjMlFuY2FDcXNBM2JKVzZwTlJNL2JEZFI3WC9LREk3QWZm?=
- =?utf-8?B?V3N5MjRoam1jM3l1enJ0THR0MFQ2NXJpNGsvNEVQN2hWOU84Q0N4Ujdpa3J0?=
- =?utf-8?B?YUtsNE5YWHZsRnJIQ1FoUHhVYzZ5SG1nUmMrREVGWElZT08zcDg4a1JhbG4r?=
- =?utf-8?B?Q28rQkxTNTAzaHRsd0FrWkVtd1hBMERzM0N3ckZqb1hGa1c3ektqUlVkN0o3?=
- =?utf-8?B?SGlHNTJTM25IYW9wTklGOUdSamkrbTljWERkeWM1REc3UVBMSktWNU9KeExD?=
- =?utf-8?B?Y2twVlJNNnkvR3RIcHNqMHRrN1VBWGlhMjI3ZFNFSll6VEhqU1ZvT0VuaHhL?=
- =?utf-8?B?cXVVOWlqU2Fna2dwUmRMdEU3bSt6Q3BQRzl5R2R6MWxkYnVHRnlXTzBlbmoy?=
- =?utf-8?B?YTRKU215R3hLMmlMUGI2bEFRcXVoR2UxN2Z6a2F6bUpzenhMQVF2YTZRTVRo?=
- =?utf-8?B?RXM5a2FaTDlIT0dwbnp0d3FDZW10cG95YlJxUWM2b2p0bW5QN3ZrNWt6Wmly?=
- =?utf-8?B?QkhNUTFseXQvSG04OGZqZVBKdko0V0pWV21XNjRDaHd3Ly9qU3NoWXJ1SzNo?=
- =?utf-8?B?a2syeGtNQksyRGpxRDIrdlBhTTA5ZTdpMWwwM0NnbTBhdkNib0NxYjBiZHlM?=
- =?utf-8?B?Wkg1VHVVallsTCtMRlpWMHJjdUpMeW1sbGk2MW93eitFMzJMZi91cG16MlR4?=
- =?utf-8?B?UU5EUGJyN25SekNRc1dTNWpOTUV2YisrcHlGNS82R0xoZ0tHWnVLQVRERjNL?=
- =?utf-8?B?cCtvbVhZUmVXRFpZNVFRVk5jenRsRms2NVI2bG1LdHV2bmxVZUpqcTJhbk5D?=
- =?utf-8?B?bmpRYWNySisrL2JVNzNoZnRsdFYra1FWY3dvdDRjdlVRWWJkVHk1NnBsalhW?=
- =?utf-8?B?QUdLNThldVdxN0UvdFVPR1dpeldHa1RnVXVlRU1ueDdLVGhXczF5dm1ab014?=
- =?utf-8?B?K1NDN1BaMXRvNy9jdTJGWG5pN096MldTcytPL1lWRmFkSGRFTVllekVXZi9l?=
- =?utf-8?Q?z99FjKMuoTt/2vUA=3D?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <2F25F233F2734E49A289F854A52825C4@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1wHFDs-0000000GEnS-2i3Y
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Apr 2026 06:13:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id AA88D6013B;
+	Mon, 27 Apr 2026 06:13:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAD30C19425;
+	Mon, 27 Apr 2026 06:13:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777270415;
+	bh=wM6ZV2NwVJW0MbTrc2wrjS4pGhDVvI8TogTGXTLDAAc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qN8pvndhKI8Tt3LpdyJHhg+IEC+rFA7o2PRhk1kC0gHGxQsUwlAOM7iBCh9SDbqWk
+	 bwQRpIjY8Mjn6m8xq795Zef+7VKM7o0XqTsj06hna033v/YgkUUKuaEwdPuROOBId+
+	 RCrUo3OtvgYQXb4aAMseZOLQM9ucLS/hTSdf3pEomi5W0ShEpZj77Zsc/k4O9TiZzt
+	 iGxZvdxx4oR6ElPMVVWfTou+W7gFz3trt5KmQWPBu4I/0e4THSNE8IjFTcPtL2nJFN
+	 f2VNrhz6ZwdcKQj2cGHgaxmI1WEXbiQb9BxuE/tuYPXzzE4jy/wPBXV4HhHXY9EXjA
+	 htUqRhR/N6ZfQ==
+Date: Sun, 26 Apr 2026 23:13:33 -0700
+From: Namhyung Kim <namhyung@kernel.org>
+To: Ian Rogers <irogers@google.com>
+Cc: acme@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org,
+	leo.yan@linux.dev, tmricht@linux.ibm.com,
+	alice.mei.rogers@gmail.com, dapeng1.mi@linux.intel.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, mingo@redhat.com,
+	peterz@infradead.org
+Subject: Re: [PATCH v7 01/59] perf inject: Fix itrace branch stack synthesis
+Message-ID: <ae7-jS-TeQ-TUXSF@google.com>
+References: <20260425174858.3922152-1-irogers@google.com>
+ <20260425224951.174663-1-irogers@google.com>
+ <20260425224951.174663-2-irogers@google.com>
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: goDIHMlKoRb2/MNumjA6evR8hS82SAlj1ftguDjQcc1Dm3R8uXAkOi5LHQAUvA9lXH7sBk7AftAmSzNkyaTgxFAe5KknW0iPCdG+KTGZQIjZPXNjbL6I72SKmJbLSMSMEEHJO4W4C4epJZ7V6P+KsFsBdTCeMOzUgY3xoUuyDEbZF67VZw92UOlPcK+bjTv3V749n1Zih8wb+JSeK1Xy5aQYIezTB/yZtaFqFcZ4sUcZ3MKlncVOicNyNL6nLT5hRg7z7MpesUAl+7+gStbFi4MW1fSwuMoiYhiDNSeJa8jp2zJSxFPskbg0dUbUv06jEkl+vaAWCR5d/xMFxVAMCw==
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PSAPR03MB5605.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 31b83e94-4ba5-4466-ac51-08dea423dbe4
-X-MS-Exchange-CrossTenant-originalarrivaltime: 27 Apr 2026 06:11:45.2649
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: sK1hv2Br+XmYiOLIRlXgOiUZryyyT3xYs+yeeidgJ1WKhl32wl6TE5oUdiQ0aapaOA1vlOyw9D4ZcuSUtRwF2w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR03MB8726
-X-MTK: N
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_231158_790022_792C44E5 
-X-CRM114-Status: UNSURE (   9.58  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260425224951.174663-2-irogers@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -196,19 +74,421 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAyMDI2LTA0LTI3IGF0IDExOjU4ICswODAwLCBlZC50c2FpQG1lZGlhdGVrLmNvbSB3
-cm90ZToNCj4gVGhlIG9mZnNldHMgc3RvcmVkIGluIHV0cF90cmFuc2Zlcl9yZXFfZGVzYyBhcmUg
-aW4gZG91YmxlIHdvcmRzIG9uDQo+IGhvc3RzIHdpdGhvdXQgVUZTSENEX1FVSVJLX1BSRFRfQllU
-RV9HUkFOLCB1c2luZyB0aGVtIGRpcmVjdGx5IHRvDQo+IGNvbXB1dGUgdWNkX3JzcF9kbWFfYWRk
-ciBhbmQgdWNkX3ByZHRfZG1hX2FkZHIgcmVzdWx0cyBpbiBpbmNvcnJlY3QNCj4gRE1BIGFkZHJl
-c3Nlcy4NCj4gDQo+IFNpbmNlIHRoZXNlIGZpZWxkcyBhcmUgb25seSB1c2VkIGZvciBlcnJvciBs
-b2dnaW5nLCByZW1vdmUgdGhlbSBmcm9tDQo+IHN0cnVjdCB1ZnNoY2RfbHJiIGFuZCBjb21wdXRl
-IGRpcmVjdGx5IGluIHVmc2hjZF9wcmludF90cigpIHVzaW5nDQo+IG9mZnNldG9mKHN0cnVjdCB1
-dHBfdHJhbnNmZXJfY21kX2Rlc2MsIC4uLikgaW5zdGVhZC4NCj4gDQo+IEZpeGVzOiBkNTEzMGM1
-YTA5MzIgKCJzY3NpOiB1ZnM6IFVzZSBwcmUtY2FsY3VsYXRlZCBvZmZzZXRzIGluDQo+IHVmc2hj
-ZF9pbml0X2xyYigpIikNCj4gQ2M6IHN0YWJsZUB2Z2VyLmtlcm5lbC5vcmcNCj4gTGluazoNCj4g
-aHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzIwMjYwNDI0MDYzNjAzLjM4MjMyOC0yLWVkLnRz
-YWlAbWVkaWF0ZWsuY29tLw0KPiBTaWduZWQtb2ZmLWJ5OiBFZCBUc2FpIDxlZC50c2FpQG1lZGlh
-dGVrLmNvbT4NCj4gLS0tDQoNClJldmlld2VkLWJ5OiBQZXRlciBXYW5nIDxwZXRlci53YW5nQG1l
-ZGlhdGVrLmNvbT4NCg0K
+Hi Ian,
+
+On Sat, Apr 25, 2026 at 03:48:53PM -0700, Ian Rogers wrote:
+> When using "perf inject --itrace=L" to synthesize branch stacks from
+> AUX data, several issues caused failures:
+> 
+> 1. The synthesized samples were delivered without the
+>    PERF_SAMPLE_BRANCH_STACK flag if it was not in the original event's
+>    sample_type. Fixed by using sample_type | evsel->synth_sample_type
+>    in intel_pt_deliver_synth_event.
+> 
+> 2. The record layout was misaligned because of inconsistent handling
+>    of PERF_SAMPLE_BRANCH_HW_INDEX. Fixed by explicitly writing nr and
+>    hw_idx in perf_event__synthesize_sample.
+> 
+> 3. Modifying evsel->core.attr.sample_type early in __cmd_inject caused
+>    parse failures for subsequent records in the input file. Fixed by
+>    moving this modification to just before writing the header.
+> 
+> 4. perf_event__repipe_sample was narrowed to only synthesize samples
+>    when branch stack injection was requested, and restored the use of
+>    perf_inject__cut_auxtrace_sample as a fallback to preserve
+>    functionality.
+
+Looks like it does a lot of things in a patch.  I think these are
+independent fixes from this series.  How about moving this out to a
+separate series?
+
+Thanks,
+Namhyung
+
+> 
+> Assisted-by: Gemini:gemini-3.1-pro-preview
+> Signed-off-by: Ian Rogers <irogers@google.com>
+> ---
+> Issues fixed in v2:
+> 
+> 1. Potential Heap Overflow in perf_event__repipe_sample : Addressed by
+>    adding a check that prints an error and returns -EFAULT if the
+>    calculated event size exceeds PERF_SAMPLE_MAX_SIZE , as you
+>    requested.
+> 
+> 2. Header vs Payload Mismatch in __cmd_inject : Addressed by narrowing
+>    the condition so that HEADER_BRANCH_STACK is only set in the file
+>    header if add_last_branch was true.
+> 
+> 3. NULL Pointer Dereference in intel-pt.c : Addressed by updating the
+>    condition in intel_pt_do_synth_pebs_sample to fill sample.
+>    branch_stack if it was synthesized, even if not in the original
+>    sample_type .
+> 
+> 4. Unsafe Reads for events lacking HW_INDEX in synthetic-events.c :
+>    Addressed by using the perf_sample__branch_entries() macro and
+>    checking sample->no_hw_idx .
+> 
+> 5. Size mismatch in perf_event__sample_event_size : Addressed by
+>    passing branch_sample_type to it and conditioning the hw_idx size on
+>    PERF_SAMPLE_BRANCH_HW_INDEX .
+> ---
+>  tools/perf/bench/inject-buildid.c  |  9 ++--
+>  tools/perf/builtin-inject.c        | 77 ++++++++++++++++++++++++++++--
+>  tools/perf/tests/dlfilter-test.c   |  8 +++-
+>  tools/perf/tests/sample-parsing.c  |  5 +-
+>  tools/perf/util/arm-spe.c          |  7 ++-
+>  tools/perf/util/cs-etm.c           |  6 ++-
+>  tools/perf/util/intel-bts.c        |  3 +-
+>  tools/perf/util/intel-pt.c         | 13 +++--
+>  tools/perf/util/synthetic-events.c | 25 +++++++---
+>  tools/perf/util/synthetic-events.h |  6 ++-
+>  10 files changed, 129 insertions(+), 30 deletions(-)
+> 
+> diff --git a/tools/perf/bench/inject-buildid.c b/tools/perf/bench/inject-buildid.c
+> index aad572a78d7f..bfd2c5ec9488 100644
+> --- a/tools/perf/bench/inject-buildid.c
+> +++ b/tools/perf/bench/inject-buildid.c
+> @@ -228,9 +228,12 @@ static ssize_t synthesize_sample(struct bench_data *data, struct bench_dso *dso,
+>  
+>  	event.header.type = PERF_RECORD_SAMPLE;
+>  	event.header.misc = PERF_RECORD_MISC_USER;
+> -	event.header.size = perf_event__sample_event_size(&sample, bench_sample_type, 0);
+> -
+> -	perf_event__synthesize_sample(&event, bench_sample_type, 0, &sample);
+> +	event.header.size = perf_event__sample_event_size(&sample, bench_sample_type,
+> +							   /*read_format=*/0,
+> +							   /*branch_sample_type=*/0);
+> +	perf_event__synthesize_sample(&event, bench_sample_type,
+> +				      /*read_format=*/0,
+> +				      /*branch_sample_type=*/0, &sample);
+>  
+>  	return writen(data->input_pipe[1], &event, event.header.size);
+>  }
+> diff --git a/tools/perf/builtin-inject.c b/tools/perf/builtin-inject.c
+> index f174bc69cec4..88c0ef4f5ff1 100644
+> --- a/tools/perf/builtin-inject.c
+> +++ b/tools/perf/builtin-inject.c
+> @@ -375,7 +375,59 @@ static int perf_event__repipe_sample(const struct perf_tool *tool,
+>  
+>  	build_id__mark_dso_hit(tool, event, sample, evsel, machine);
+>  
+> -	if (inject->itrace_synth_opts.set && sample->aux_sample.size) {
+> +	if (inject->itrace_synth_opts.set &&
+> +	    (inject->itrace_synth_opts.last_branch ||
+> +	     inject->itrace_synth_opts.add_last_branch)) {
+> +		union perf_event *event_copy = (void *)inject->event_copy;
+> +		struct branch_stack dummy_bs = { .nr = 0 };
+> +		int err;
+> +		size_t sz;
+> +		u64 orig_type = evsel->core.attr.sample_type;
+> +		u64 orig_branch_type = evsel->core.attr.branch_sample_type;
+> +
+> +		if (event_copy == NULL) {
+> +			inject->event_copy = malloc(PERF_SAMPLE_MAX_SIZE);
+> +			if (!inject->event_copy)
+> +				return -ENOMEM;
+> +
+> +			event_copy = (void *)inject->event_copy;
+> +		}
+> +
+> +		if (!sample->branch_stack)
+> +			sample->branch_stack = &dummy_bs;
+> +
+> +		if (inject->itrace_synth_opts.add_last_branch) {
+> +			/* Temporarily add in type bits for synthesis. */
+> +			evsel->core.attr.sample_type |= PERF_SAMPLE_BRANCH_STACK;
+> +			evsel->core.attr.branch_sample_type |= PERF_SAMPLE_BRANCH_HW_INDEX;
+> +			evsel->core.attr.sample_type &= ~PERF_SAMPLE_AUX;
+> +		}
+> +
+> +		sz = perf_event__sample_event_size(sample, evsel->core.attr.sample_type,
+> +						   evsel->core.attr.read_format,
+> +						   evsel->core.attr.branch_sample_type);
+> +
+> +		if (sz > PERF_SAMPLE_MAX_SIZE) {
+> +			pr_err("Sample size %zu exceeds max size %d\n", sz, PERF_SAMPLE_MAX_SIZE);
+> +			return -EFAULT;
+> +		}
+> +
+> +		event_copy->header.type = PERF_RECORD_SAMPLE;
+> +		event_copy->header.size = sz;
+> +
+> +		err = perf_event__synthesize_sample(event_copy, evsel->core.attr.sample_type,
+> +						    evsel->core.attr.read_format,
+> +						    evsel->core.attr.branch_sample_type, sample);
+> +
+> +		evsel->core.attr.sample_type = orig_type;
+> +		evsel->core.attr.branch_sample_type = orig_branch_type;
+> +
+> +		if (err) {
+> +			pr_err("Failed to synthesize sample\n");
+> +			return err;
+> +		}
+> +		event = event_copy;
+> +	} else if (inject->itrace_synth_opts.set && sample->aux_sample.size) {
+>  		event = perf_inject__cut_auxtrace_sample(inject, event, sample);
+>  		if (IS_ERR(event))
+>  			return PTR_ERR(event);
+> @@ -464,7 +516,8 @@ static int perf_event__convert_sample_callchain(const struct perf_tool *tool,
+>  	sample_type &= ~(PERF_SAMPLE_STACK_USER | PERF_SAMPLE_REGS_USER);
+>  
+>  	perf_event__synthesize_sample(event_copy, sample_type,
+> -				      evsel->core.attr.read_format, sample);
+> +				      evsel->core.attr.read_format,
+> +				      evsel->core.attr.branch_sample_type, sample);
+>  	return perf_event__repipe_synth(tool, event_copy);
+>  }
+>  
+> @@ -1100,7 +1153,8 @@ static int perf_inject__sched_stat(const struct perf_tool *tool,
+>  	sample_sw.period = sample->period;
+>  	sample_sw.time	 = sample->time;
+>  	perf_event__synthesize_sample(event_sw, evsel->core.attr.sample_type,
+> -				      evsel->core.attr.read_format, &sample_sw);
+> +				      evsel->core.attr.read_format,
+> +				      evsel->core.attr.branch_sample_type, &sample_sw);
+>  	build_id__mark_dso_hit(tool, event_sw, &sample_sw, evsel, machine);
+>  	ret = perf_event__repipe(tool, event_sw, &sample_sw, machine);
+>  	perf_sample__exit(&sample_sw);
+> @@ -2434,12 +2488,25 @@ static int __cmd_inject(struct perf_inject *inject)
+>  		 * synthesized hardware events, so clear the feature flag.
+>  		 */
+>  		if (inject->itrace_synth_opts.set) {
+> +			struct evsel *evsel;
+> +
+>  			perf_header__clear_feat(&session->header,
+>  						HEADER_AUXTRACE);
+> -			if (inject->itrace_synth_opts.last_branch ||
+> -			    inject->itrace_synth_opts.add_last_branch)
+> +
+> +			evlist__for_each_entry(session->evlist, evsel) {
+> +				evsel->core.attr.sample_type &= ~PERF_SAMPLE_AUX;
+> +			}
+> +
+> +			if (inject->itrace_synth_opts.add_last_branch) {
+>  				perf_header__set_feat(&session->header,
+>  						      HEADER_BRANCH_STACK);
+> +
+> +				evlist__for_each_entry(session->evlist, evsel) {
+> +					evsel->core.attr.sample_type |= PERF_SAMPLE_BRANCH_STACK;
+> +					evsel->core.attr.branch_sample_type |=
+> +						PERF_SAMPLE_BRANCH_HW_INDEX;
+> +				}
+> +			}
+>  		}
+>  
+>  		/*
+> diff --git a/tools/perf/tests/dlfilter-test.c b/tools/perf/tests/dlfilter-test.c
+> index e63790c61d53..204663571943 100644
+> --- a/tools/perf/tests/dlfilter-test.c
+> +++ b/tools/perf/tests/dlfilter-test.c
+> @@ -188,8 +188,12 @@ static int write_sample(struct test_data *td, u64 sample_type, u64 id, pid_t pid
+>  
+>  	event->header.type = PERF_RECORD_SAMPLE;
+>  	event->header.misc = PERF_RECORD_MISC_USER;
+> -	event->header.size = perf_event__sample_event_size(&sample, sample_type, 0);
+> -	err = perf_event__synthesize_sample(event, sample_type, 0, &sample);
+> +	event->header.size = perf_event__sample_event_size(&sample, sample_type,
+> +							   /*read_format=*/0,
+> +							   /*branch_sample_type=*/0);
+> +	err = perf_event__synthesize_sample(event, sample_type,
+> +					    /*read_format=*/0,
+> +					    /*branch_sample_type=*/0, &sample);
+>  	if (err)
+>  		return test_result("perf_event__synthesize_sample() failed", TEST_FAIL);
+>  
+> diff --git a/tools/perf/tests/sample-parsing.c b/tools/perf/tests/sample-parsing.c
+> index a7327c942ca2..55f0b73ca20e 100644
+> --- a/tools/perf/tests/sample-parsing.c
+> +++ b/tools/perf/tests/sample-parsing.c
+> @@ -310,7 +310,8 @@ static int do_test(u64 sample_type, u64 sample_regs, u64 read_format)
+>  		sample.read.one.lost  = 1;
+>  	}
+>  
+> -	sz = perf_event__sample_event_size(&sample, sample_type, read_format);
+> +	sz = perf_event__sample_event_size(&sample, sample_type, read_format,
+> +					   evsel.core.attr.branch_sample_type);
+>  	bufsz = sz + 4096; /* Add a bit for overrun checking */
+>  	event = malloc(bufsz);
+>  	if (!event) {
+> @@ -324,7 +325,7 @@ static int do_test(u64 sample_type, u64 sample_regs, u64 read_format)
+>  	event->header.size = sz;
+>  
+>  	err = perf_event__synthesize_sample(event, sample_type, read_format,
+> -					    &sample);
+> +					    evsel.core.attr.branch_sample_type, &sample);
+>  	if (err) {
+>  		pr_debug("%s failed for sample_type %#"PRIx64", error %d\n",
+>  			 "perf_event__synthesize_sample", sample_type, err);
+> diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
+> index e5835042acdf..c4ed9f10e731 100644
+> --- a/tools/perf/util/arm-spe.c
+> +++ b/tools/perf/util/arm-spe.c
+> @@ -484,8 +484,11 @@ static void arm_spe__prep_branch_stack(struct arm_spe_queue *speq)
+>  
+>  static int arm_spe__inject_event(union perf_event *event, struct perf_sample *sample, u64 type)
+>  {
+> -	event->header.size = perf_event__sample_event_size(sample, type, 0);
+> -	return perf_event__synthesize_sample(event, type, 0, sample);
+> +	event->header.type = PERF_RECORD_SAMPLE;
+> +	event->header.size = perf_event__sample_event_size(sample, type, /*read_format=*/0,
+> +							   /*branch_sample_type=*/0);
+> +	return perf_event__synthesize_sample(event, type, /*read_format=*/0,
+> +					     /*branch_sample_type=*/0, sample);
+>  }
+>  
+>  static inline int
+> diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
+> index 8a639d2e51a4..1ebc1a6a5e75 100644
+> --- a/tools/perf/util/cs-etm.c
+> +++ b/tools/perf/util/cs-etm.c
+> @@ -1425,8 +1425,10 @@ static void cs_etm__update_last_branch_rb(struct cs_etm_queue *etmq,
+>  static int cs_etm__inject_event(union perf_event *event,
+>  			       struct perf_sample *sample, u64 type)
+>  {
+> -	event->header.size = perf_event__sample_event_size(sample, type, 0);
+> -	return perf_event__synthesize_sample(event, type, 0, sample);
+> +	event->header.size = perf_event__sample_event_size(sample, type, /*read_format=*/0,
+> +							   /*branch_sample_type=*/0);
+> +	return perf_event__synthesize_sample(event, type, /*read_format=*/0,
+> +					     /*branch_sample_type=*/0, sample);
+>  }
+>  
+>  
+> diff --git a/tools/perf/util/intel-bts.c b/tools/perf/util/intel-bts.c
+> index 382255393fb3..0b18ebd13f7c 100644
+> --- a/tools/perf/util/intel-bts.c
+> +++ b/tools/perf/util/intel-bts.c
+> @@ -303,7 +303,8 @@ static int intel_bts_synth_branch_sample(struct intel_bts_queue *btsq,
+>  		event.sample.header.size = bts->branches_event_size;
+>  		ret = perf_event__synthesize_sample(&event,
+>  						    bts->branches_sample_type,
+> -						    0, &sample);
+> +						    /*read_format=*/0, /*branch_sample_type=*/0,
+> +						    &sample);
+>  		if (ret)
+>  			return ret;
+>  	}
+> diff --git a/tools/perf/util/intel-pt.c b/tools/perf/util/intel-pt.c
+> index fc9eec8b54b8..2dce6106c038 100644
+> --- a/tools/perf/util/intel-pt.c
+> +++ b/tools/perf/util/intel-pt.c
+> @@ -1731,8 +1731,12 @@ static void intel_pt_prep_b_sample(struct intel_pt *pt,
+>  static int intel_pt_inject_event(union perf_event *event,
+>  				 struct perf_sample *sample, u64 type)
+>  {
+> -	event->header.size = perf_event__sample_event_size(sample, type, 0);
+> -	return perf_event__synthesize_sample(event, type, 0, sample);
+> +	event->header.type = PERF_RECORD_SAMPLE;
+> +	event->header.size = perf_event__sample_event_size(sample, type, /*read_format=*/0,
+> +							   /*branch_sample_type=*/0);
+> +
+> +	return perf_event__synthesize_sample(event, type, /*read_format=*/0,
+> +					     /*branch_sample_type=*/0, sample);
+>  }
+>  
+>  static inline int intel_pt_opt_inject(struct intel_pt *pt,
+> @@ -2486,7 +2490,7 @@ static int intel_pt_do_synth_pebs_sample(struct intel_pt_queue *ptq, struct evse
+>  		intel_pt_add_xmm(intr_regs, pos, items, regs_mask);
+>  	}
+>  
+> -	if (sample_type & PERF_SAMPLE_BRANCH_STACK) {
+> +	if ((sample_type | evsel->synth_sample_type) & PERF_SAMPLE_BRANCH_STACK) {
+>  		if (items->mask[INTEL_PT_LBR_0_POS] ||
+>  		    items->mask[INTEL_PT_LBR_1_POS] ||
+>  		    items->mask[INTEL_PT_LBR_2_POS]) {
+> @@ -2557,7 +2561,8 @@ static int intel_pt_do_synth_pebs_sample(struct intel_pt_queue *ptq, struct evse
+>  		sample.transaction = txn;
+>  	}
+>  
+> -	ret = intel_pt_deliver_synth_event(pt, event, &sample, sample_type);
+> +	ret = intel_pt_deliver_synth_event(pt, event, &sample,
+> +					   sample_type | evsel->synth_sample_type);
+>  	perf_sample__exit(&sample);
+>  	return ret;
+>  }
+> diff --git a/tools/perf/util/synthetic-events.c b/tools/perf/util/synthetic-events.c
+> index 85bee747f4cd..2461f25a4d7d 100644
+> --- a/tools/perf/util/synthetic-events.c
+> +++ b/tools/perf/util/synthetic-events.c
+> @@ -1455,7 +1455,8 @@ int perf_event__synthesize_stat_round(const struct perf_tool *tool,
+>  	return process(tool, (union perf_event *) &event, NULL, machine);
+>  }
+>  
+> -size_t perf_event__sample_event_size(const struct perf_sample *sample, u64 type, u64 read_format)
+> +size_t perf_event__sample_event_size(const struct perf_sample *sample, u64 type, u64 read_format,
+> +				     u64 branch_sample_type)
+>  {
+>  	size_t sz, result = sizeof(struct perf_record_sample);
+>  
+> @@ -1515,8 +1516,10 @@ size_t perf_event__sample_event_size(const struct perf_sample *sample, u64 type,
+>  
+>  	if (type & PERF_SAMPLE_BRANCH_STACK) {
+>  		sz = sample->branch_stack->nr * sizeof(struct branch_entry);
+> -		/* nr, hw_idx */
+> -		sz += 2 * sizeof(u64);
+> +		/* nr */
+> +		sz += sizeof(u64);
+> +		if (branch_sample_type & PERF_SAMPLE_BRANCH_HW_INDEX)
+> +			sz += sizeof(u64);
+>  		result += sz;
+>  	}
+>  
+> @@ -1605,7 +1608,7 @@ static __u64 *copy_read_group_values(__u64 *array, __u64 read_format,
+>  }
+>  
+>  int perf_event__synthesize_sample(union perf_event *event, u64 type, u64 read_format,
+> -				  const struct perf_sample *sample)
+> +				  u64 branch_sample_type, const struct perf_sample *sample)
+>  {
+>  	__u64 *array;
+>  	size_t sz;
+> @@ -1719,9 +1722,17 @@ int perf_event__synthesize_sample(union perf_event *event, u64 type, u64 read_fo
+>  
+>  	if (type & PERF_SAMPLE_BRANCH_STACK) {
+>  		sz = sample->branch_stack->nr * sizeof(struct branch_entry);
+> -		/* nr, hw_idx */
+> -		sz += 2 * sizeof(u64);
+> -		memcpy(array, sample->branch_stack, sz);
+> +
+> +		*array++ = sample->branch_stack->nr;
+> +
+> +		if (branch_sample_type & PERF_SAMPLE_BRANCH_HW_INDEX) {
+> +			if (sample->no_hw_idx)
+> +				*array++ = 0;
+> +			else
+> +				*array++ = sample->branch_stack->hw_idx;
+> +		}
+> +
+> +		memcpy(array, perf_sample__branch_entries((struct perf_sample *)sample), sz);
+>  		array = (void *)array + sz;
+>  	}
+>  
+> diff --git a/tools/perf/util/synthetic-events.h b/tools/perf/util/synthetic-events.h
+> index b0edad0c3100..8c7f49f9ccf5 100644
+> --- a/tools/perf/util/synthetic-events.h
+> +++ b/tools/perf/util/synthetic-events.h
+> @@ -81,7 +81,8 @@ int perf_event__synthesize_mmap_events(const struct perf_tool *tool, union perf_
+>  int perf_event__synthesize_modules(const struct perf_tool *tool, perf_event__handler_t process, struct machine *machine);
+>  int perf_event__synthesize_namespaces(const struct perf_tool *tool, union perf_event *event, pid_t pid, pid_t tgid, perf_event__handler_t process, struct machine *machine);
+>  int perf_event__synthesize_cgroups(const struct perf_tool *tool, perf_event__handler_t process, struct machine *machine);
+> -int perf_event__synthesize_sample(union perf_event *event, u64 type, u64 read_format, const struct perf_sample *sample);
+> +int perf_event__synthesize_sample(union perf_event *event, u64 type, u64 read_format,
+> +				  u64 branch_sample_type, const struct perf_sample *sample);
+>  int perf_event__synthesize_stat_config(const struct perf_tool *tool, struct perf_stat_config *config, perf_event__handler_t process, struct machine *machine);
+>  int perf_event__synthesize_stat_events(struct perf_stat_config *config, const struct perf_tool *tool, struct evlist *evlist, perf_event__handler_t process, bool attrs);
+>  int perf_event__synthesize_stat_round(const struct perf_tool *tool, u64 time, u64 type, perf_event__handler_t process, struct machine *machine);
+> @@ -97,7 +98,8 @@ void perf_event__synthesize_final_bpf_metadata(struct perf_session *session,
+>  
+>  int perf_tool__process_synth_event(const struct perf_tool *tool, union perf_event *event, struct machine *machine, perf_event__handler_t process);
+>  
+> -size_t perf_event__sample_event_size(const struct perf_sample *sample, u64 type, u64 read_format);
+> +size_t perf_event__sample_event_size(const struct perf_sample *sample, u64 type,
+> +				     u64 read_format, u64 branch_sample_type);
+>  
+>  int __machine__synthesize_threads(struct machine *machine, const struct perf_tool *tool,
+>  				  struct target *target, struct perf_thread_map *threads,
+> -- 
+> 2.54.0.545.g6539524ca2-goog
+> 
 
