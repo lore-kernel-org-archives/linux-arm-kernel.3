@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EF7CFF8868
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95CB2FF8869
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 15:36:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,66 +12,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UxYPOVRWmcj1klY6tkKd45C/dDkcyiHdqjwOkqhsN/0=; b=swF3xD7NM94w3+BoFU3zVIHL6w
-	N1GmIGxYBMM2Gg0xButkvEUA2PZsbsV9SsY0VNWVAJrVF9SfMLLudflAYeiPJC5fgltTfNl/t7AAQ
-	L2B1sqQy6ZSiHSZaekbp67RmrXdgonctyq+qCHjUGMeXDiW2tlOs/wBiEju5QE95QcVB4vIgpPjCl
-	NU6wASyf44ocNwf4bA5MdO/2CEhLC5nV93gkCoWye/iaH+sTwSpOSommvmZLPZY4eu3DZLznBmH0V
-	k3Q8evDCHAthfIQBOL+cHdludSel4CTSmzaZvHtBirlDZRfJX2qiH6S0EQMDw50OooJQ5TKawohz8
-	QU7bu/bg==;
+	bh=LHBfAOq62ddYo5eYH63kmRGKW2W5oXHrS23q0wSzvjk=; b=oa60KurLGy5nm6wm7WdkZhyjde
+	cLPglKyHmU70zNuxJUMToeg3PZmXXsCkicBMSXa1p1riZtjhDQfqENRg/7LRYfMa/Kums1RGndO7S
+	KA1lbw8P/V+GmdOw644gzkCsv4h9LJxT8anMcDyzuSzU55FYAbFxqmUv03fA/uDLGsbb3t7b+J+X0
+	Gk1CpX5g5g6FGTua+mU+ERqSxVOzQ724QfzwZ9VOYwBjpzvngS2OG5hnGFLN1eFTs/CrS8AuOgIom
+	B+Nv2THAl3cB5SmQfxC9k2uxcY3bpx+HiLiKswuroGhKFZlYjilM55l8wGSqww3cCOdSMePVQIh7s
+	Dwt9z8Mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHO0I-0000000HCq9-462b;
-	Mon, 27 Apr 2026 15:36:11 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	id 1wHO0L-0000000HCu3-3cWD;
+	Mon, 27 Apr 2026 15:36:13 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHNzx-0000000HCVF-1v93
+	id 1wHNzz-0000000HCXd-1S1Z
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 15:35:50 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-43d7a5b9678so8097218f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 08:35:48 -0700 (PDT)
+	Mon, 27 Apr 2026 15:35:52 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-488d8deb75fso85321545e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 08:35:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777304147; x=1777908947; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777304149; x=1777908949; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=UxYPOVRWmcj1klY6tkKd45C/dDkcyiHdqjwOkqhsN/0=;
-        b=VSAGWhEWdFW3NAI44P0+FYR+TpV18PmALcasRtDc+Nw6yrm3D54OZRRuTn3sQk54r1
-         YXXOMEhMIr+MFr3VgwffzNLYrfz1afWeQ9MB/DWouq1IaEK3yVgwWqWLgCzRpg0NrjKH
-         vEPXaj8ukxqJp1bLsTlyAJDV+x3lTw+Yzb6R7OzHB2RRmn1+G62jpIElWXCj7ogIRcML
-         IL/eX2nloYS/s6XPbYVY5S5RbQ1qg8gryrv55N+/DvFGFrK43Nhqnb1SRyOFxa0c1NKt
-         fRx6w3Gih3XA8Ghb5R81ei99CxKxnU/rWrp2dUuIUvaNdSdnC8FB7HMWRW3zFoKLF3sS
-         CsmA==
+        bh=LHBfAOq62ddYo5eYH63kmRGKW2W5oXHrS23q0wSzvjk=;
+        b=mfJUn2BG8FESR05Oaq7jCqhjzAyTX9NpUNXkM8OtEPoI+JKfL+/I4FoPdUdGeiz7N0
+         lltX53bhLUpnAZn/exhovWsedt4Hlgu/B+flBlr6yA9WaWw7mdAmtiuA0XBw5lvTIhoI
+         qeWucel4hn52Jq/OmWgyZmpvYFmtjSdcNQ1K7d2M72MRrUDYmWPKG6PbPVpCAzQxQsK3
+         MnOIkMDqozhxDo9NHOBhxuutIFvMIZN/Gc/e3ZLLm6CurmO1OCnQJlCCfNmrxt0pUjQD
+         kU3hgEKVLE65dN22oyY/0SruhGMS2DgKhIQF8ymTgvbKTzQiK8RRztf6xXxFKOOYwxJS
+         1Nig==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777304147; x=1777908947;
+        d=1e100.net; s=20251104; t=1777304149; x=1777908949;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=UxYPOVRWmcj1klY6tkKd45C/dDkcyiHdqjwOkqhsN/0=;
-        b=f18/9sksgHyj9vSvpA/1wH8Cm6ZaEl657NV/5kTiyGzJDm8YTt2JMK3UJyCrLgsLUM
-         XtVgNqbOxXOWSxQ21JU1KVjD3UFTNKlmecHkZhuLeWdVq7UicpbZhKRtNUsWH4o9old5
-         y8pgfdbt68zV8QH1KEB4vcW93GO0R6viTQPKj9nmEifhmvbVZGw/LYB/rDxASjHB5+pS
-         5aRVA8Cyb7jR2vlmNcgF3pT0zv/QpijUpR81LS/e9skyfWJ8TDqRIkrvZZVoW+Ohngpx
-         Lf702N9JioDBJ9A+2qHDdSHUS529Gfwn9VLPDoH7AU/FFey2V3z5/i4dHBbd67WmQOMW
-         hXvg==
-X-Gm-Message-State: AOJu0YwMjclOVM9QAQ4dIvhvUE5vxWI5+5rqJ02cmGGpTEdbLhFeilUU
-	7GkQCByOhTxKeRjN/Is+F7hnz3fw6xi0+51SffQ7oGECj01ploxtc6AR4uRP6eCpvv60Wka4DKx
-	JOdS8TacGpb0ojLAffRskTed4tMU4glbI8KyQ8ghyZ0Pl0RQ2T5RGbJmA4d2qSyfCNXRHGr5pt/
-	P+CxHzyPNT4/ABF2jpsueOe4y6huvR6GQbUlY76+00hhRS
-X-Received: from wrsm7.prod.google.com ([2002:adf:fe47:0:b0:43f:e932:b48d])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a5d:5d88:0:b0:43d:6e0:9458
- with SMTP id ffacd0b85a97d-43fe3e0c779mr67106901f8f.39.1777304147061; Mon, 27
- Apr 2026 08:35:47 -0700 (PDT)
-Date: Mon, 27 Apr 2026 17:34:29 +0200
+        bh=LHBfAOq62ddYo5eYH63kmRGKW2W5oXHrS23q0wSzvjk=;
+        b=A5GWWSX2v7tjcYvVqGeYhpwn3ORph/CPiRAqA9zN8+nGPmigjyFYyNRqOV2tiu6mDQ
+         o9AGtgb1a11AyK7lgbehC7JtXsL5syKoQ1hHkPhR636cMxpk8BF898M8bL7iYfWMMbEu
+         vZHW+32OSnsYs7+yJL/i9JT373kXmOzOq/6WO98SXmM0qRfwzf8H2woLg4vjVD8WzE33
+         jdHNBVGpzTcX0OFQlf6OO0IdSSzhrTqSFvW1Gwu7LCvaa3/mYKI3tTWdtFJvkTdq68cR
+         +nSJO8ahS7VF/0IAhRr2bMG7W1Hbiuw1ZAiyzIY+yfLx8mrfzeT2dCFHuc0M8FXiYAmL
+         gzgA==
+X-Gm-Message-State: AOJu0Yxc0J4qz7aUyp7eFES0j9wEz5UFHWM6b4p4O2dqHmW9LKPLEd2s
+	ZfTkZVyY0CEs5viPjehlCsDNJVZrfpMOFMXQB77FqQfqXGpB7hn57ZF6/ciFw4VojEjQ4Z043RI
+	GlCGGvlEood0T6IrIy7YilOuzXGdPlRKk+ARJV8UKlezLb/fmOUruP44E73rN/MDINBR+5xsoU2
+	84ffY3BM+ATqyf6MdVQqFckPqn/jIJCo2Y1idFPYKCBxAn
+X-Received: from wmim14.prod.google.com ([2002:a7b:cb8e:0:b0:485:4f4a:bd84])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:628c:b0:48a:52d4:888c
+ with SMTP id 5b1f17b1804b1-48a52d48985mr436500725e9.3.1777304148352; Mon, 27
+ Apr 2026 08:35:48 -0700 (PDT)
+Date: Mon, 27 Apr 2026 17:34:30 +0200
 In-Reply-To: <20260427153416.2103979-17-ardb+git@google.com>
 Mime-Version: 1.0
 References: <20260427153416.2103979-17-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3111; i=ardb@kernel.org;
- h=from:subject; bh=vnOPgzR9gwGy7RU3jbNwlQgfBXncMvaaP3oMs7gg07Y=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIfN9E7fhjbPcgs4XVKfeTnOd6X5d81L1wd6JdtmfgucZt
- Dn6GzB2lLIwiHExyIopsgjM/vtu5+mJUrXOs2Rh5rAygQxh4OIUgIlM/Mfwz1hYf8184+dKqf8u
- huwKYeCbfkN1Q8PZ5+f9Qlm8AtrWXmX4Z3804IBu667aItk0A8Wfbn81/Y/98HK+tuNd4pHLyrc 5WQA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3345; i=ardb@kernel.org;
+ h=from:subject; bh=wQjR+F+1V7sUzLN4TnEphIKngbWEIlFdlV4UM9366h0=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIfN9E8/zzp9rzJvuTrrssME56tgdeZGiCxu1/hnmHFEw2
+ Kx3/PTcjlIWBjEuBlkxRRaB2X/f7Tw9UarWeZYszBxWJpAhDFycAjARdX2Gf7qTeGeyv/WQ3m+5
+ YJN2SVKJmjhP0Cq12slhs9JOff29JYeR4fLhIoXXDu2TA92k7l89733+pdS0gHk/wh3rGVYs+M3 wjgkA
 X-Mailer: git-send-email 2.54.0.rc2.544.gc7ae2d5bb8-goog
-Message-ID: <20260427153416.2103979-29-ardb+git@google.com>
-Subject: [PATCH v4 12/15] arm64: mm: Map the kernel data/bss read-only in the
+Message-ID: <20260427153416.2103979-30-ardb+git@google.com>
+Subject: [PATCH v4 13/15] arm64: mm: Unmap kernel data/bss entirely from the
  linear map
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-arm-kernel@lists.infradead.org
@@ -84,8 +84,8 @@ Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com,
 	linux-hardening@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_083549_544572_E7FECE67 
-X-CRM114-Status: GOOD (  16.86  )
+X-CRM114-CacheID: sfid-20260427_083551_436151_1C201926 
+X-CRM114-Status: GOOD (  18.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,75 +102,106 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-On systems where the bootloader adheres to the original arm64 boot
-protocol, the placement of the kernel in the physical address space is
-highly predictable, and this makes the placement of its linear alias in
-the kernel virtual address space equally predictable, given the lack of
-randomization of the linear map.
+The linear aliases of the kernel text and rodata are mapped read-only in
+the linear map as well. Given that the contents of these regions are
+mostly identical to the version in the loadable image, mapping them
+read-only and leaving their contents visible is a reasonable hardening
+measure.
 
-The linear aliases of the kernel text and rodata regions are already
-mapped read-only, but the kernel data and bss are mapped read-write in
-this region. This is not needed, so map them read-only as well.
+Data and bss, however, are now also mapped read-only but the contents of
+these regions are more likely to contain data that we'd rather not leak.
+So let's unmap these entirely in the linear map when the kernel is
+running normally.
 
-Note that the statically allocated kernel page tables do need to be
-modifiable via the linear map, so leave these mapped read-write.
+When going into hibernation or waking up from it, these regions need to
+be mapped, so map the region initially, and toggle the valid bit so
+map/unmap the region as needed.
 
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/arm64/include/asm/sections.h |  1 +
- arch/arm64/mm/mmu.c               | 16 ++++++++++++++--
- 2 files changed, 15 insertions(+), 2 deletions(-)
+ arch/arm64/mm/mmu.c | 44 ++++++++++++++++----
+ 1 file changed, 37 insertions(+), 7 deletions(-)
 
-diff --git a/arch/arm64/include/asm/sections.h b/arch/arm64/include/asm/sections.h
-index 51b0d594239e..32ec21af0823 100644
---- a/arch/arm64/include/asm/sections.h
-+++ b/arch/arm64/include/asm/sections.h
-@@ -23,6 +23,7 @@ extern char __irqentry_text_start[], __irqentry_text_end[];
- extern char __mmuoff_data_start[], __mmuoff_data_end[];
- extern char __entry_tramp_text_start[], __entry_tramp_text_end[];
- extern char __relocate_new_kernel_start[], __relocate_new_kernel_end[];
-+extern char __fixmap_pgdir_start[];
- 
- static inline size_t entry_tramp_text_size(void)
- {
 diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 1a4b4337d29a..9361b7efb848 100644
+index 9361b7efb848..a464f3d2d2df 100644
 --- a/arch/arm64/mm/mmu.c
 +++ b/arch/arm64/mm/mmu.c
-@@ -1122,7 +1122,9 @@ static void __init map_mem(void)
- {
- 	static const u64 direct_map_end = _PAGE_END(VA_BITS_MIN);
- 	phys_addr_t kernel_start = __pa_symbol(_text);
--	phys_addr_t kernel_end = __pa_symbol(__init_begin);
-+	phys_addr_t init_begin = __pa_symbol(__init_begin);
-+	phys_addr_t init_end = __pa_symbol(__init_end);
-+	phys_addr_t kernel_end = __pa_symbol(__fixmap_pgdir_start);
- 	phys_addr_t start, end;
- 	int flags = NO_EXEC_MAPPINGS;
- 	u64 i;
-@@ -1155,7 +1157,11 @@ static void __init map_mem(void)
- 	 * of the region accessible to subsystems such as hibernate,
- 	 * but protects it from inadvertent modification or execution.
- 	 */
--	__map_memblock(kernel_start, kernel_end, pgprot_tagged(PAGE_KERNEL),
-+	__map_memblock(kernel_start, init_begin, pgprot_tagged(PAGE_KERNEL),
-+		       flags);
+@@ -24,6 +24,7 @@
+ #include <linux/mm.h>
+ #include <linux/vmalloc.h>
+ #include <linux/set_memory.h>
++#include <linux/suspend.h>
+ #include <linux/kfence.h>
+ #include <linux/pkeys.h>
+ #include <linux/mm_inline.h>
+@@ -1040,6 +1041,31 @@ static void __init __map_memblock(phys_addr_t start, phys_addr_t end,
+ 				 end - start, prot, early_pgtable_alloc, flags);
+ }
+ 
++static void remap_linear_data_alias(bool unmap)
++{
++	set_memory_valid((unsigned long)lm_alias(__init_end),
++			 (unsigned long)(__fixmap_pgdir_start - __init_end) / PAGE_SIZE,
++			 !unmap);
++}
 +
-+	/* Map the kernel data/bss so it can be remapped later */
-+	__map_memblock(init_end, kernel_end, pgprot_tagged(PAGE_KERNEL),
- 		       flags);
++static int arm64_hibernate_pm_notify(struct notifier_block *nb,
++				     unsigned long mode, void *unused)
++{
++	switch (mode) {
++	default:
++		break;
++	case PM_POST_HIBERNATION:
++	case PM_POST_RESTORE:
++		remap_linear_data_alias(true);
++		break;
++	case PM_HIBERNATION_PREPARE:
++	case PM_RESTORE_PREPARE:
++		remap_linear_data_alias(false);
++		break;
++	}
++	return 0;
++}
++
+ void __init mark_linear_text_alias_ro(void)
+ {
+ 	/*
+@@ -1048,6 +1074,16 @@ void __init mark_linear_text_alias_ro(void)
+ 	update_mapping_prot(__pa_symbol(_text), (unsigned long)lm_alias(_text),
+ 			    (unsigned long)__init_begin - (unsigned long)_text,
+ 			    pgprot_tagged(PAGE_KERNEL_RO));
++
++	remap_linear_data_alias(true);
++
++	if (IS_ENABLED(CONFIG_HIBERNATION)) {
++		static struct notifier_block nb = {
++			.notifier_call = arm64_hibernate_pm_notify
++		};
++
++		register_pm_notifier(&nb);
++	}
+ }
+ 
+ #ifdef CONFIG_KFENCE
+@@ -1162,7 +1198,7 @@ static void __init map_mem(void)
+ 
+ 	/* Map the kernel data/bss so it can be remapped later */
+ 	__map_memblock(init_end, kernel_end, pgprot_tagged(PAGE_KERNEL),
+-		       flags);
++		       flags | NO_BLOCK_MAPPINGS);
  
  	/* map all the memory banks */
-@@ -1168,6 +1174,12 @@ static void __init map_mem(void)
+ 	for_each_mem_range(i, &start, &end) {
+@@ -1174,12 +1210,6 @@ static void __init map_mem(void)
  		__map_memblock(start, end, pgprot_tagged(PAGE_KERNEL),
  			       flags);
  	}
-+
-+	/* Map the kernel data/bss read-only in the linear map */
-+	__map_memblock(init_end, kernel_end, pgprot_tagged(PAGE_KERNEL_RO),
-+		       flags);
-+	flush_tlb_kernel_range((unsigned long)lm_alias(__init_end),
-+			       (unsigned long)lm_alias(__fixmap_pgdir_start));
+-
+-	/* Map the kernel data/bss read-only in the linear map */
+-	__map_memblock(init_end, kernel_end, pgprot_tagged(PAGE_KERNEL_RO),
+-		       flags);
+-	flush_tlb_kernel_range((unsigned long)lm_alias(__init_end),
+-			       (unsigned long)lm_alias(__fixmap_pgdir_start));
  }
  
  void mark_rodata_ro(void)
