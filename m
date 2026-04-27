@@ -4,69 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0474FF8850
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 02:31:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04203FF8850
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 02:39:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RkvcX8B1hwT/8VO32VTdl7opKUePM7Ger8bM8HBgqvs=; b=Uu4bnGTXLDJRtolvZQ74/KOh+J
-	uZTXCaZQ4RuxhQig0p509faz7BuBGuoybnBd2jrPNtbHGyjbd2qndVW/u0mH4m6CMxxakDXxyqzEG
-	jcpTX+hVnrFKLzEVosyDhhkfCtiypaF/liXHmG7ZaokmVzS8nXVxnuLOYJ2g+CZlEemVA1DrS1lak
-	B32HINiZMhFgXKfmqKoa7rf2zg8ItFmPC5kPgFs0hY+p0JIO3s6fkpp0WDuBe0vIh4aVl3Fw9HQ7Z
-	MEFi5OHbdynhGmyZ6+st+nU6plXss+w2XuVFn76+bH7NyYUguQumVI+CgG02dU41yueWpzsNTzYsO
-	9OS+NVXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YOllnpo5dWNYpLH71FGu8iri9y3UuR/Pby23V+tNERI=; b=2pdakXUKT7wp+Iq0DfDz3X7YLi
+	VYUo7O70lpQzHYp8YKeRUC/ClYnkgNRcphzksFllrehfyaB1U7RE3gBMl8iX0A42iocceX0TA+4WJ
+	HTfJmEZIw7NA2zLKw8T0uy29V2ZPSvv25KfsfOG4E+kXxoXJHgeOJ8jBQ8UPplx2YSrjre1nXQTIY
+	kaU4HSCGSIamyJhnQQ3ItoFEnVMMOu0Jo17OLXurVSgV9VDek/8t56WXtTleiVwntMTZXQ/JC+riG
+	rqmqaIuMr4kpuIGVWKuKILCZxUyfLBqt2dTtpBQjVjlB/xXEyQp1CXlM5rrURE0Q3oH3bOrcpw0yH
+	UnDqobQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHBki-0000000G3Nu-0Quk;
-	Mon, 27 Apr 2026 02:31:16 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+	id 1wHBsW-0000000G3ku-1VmY;
+	Mon, 27 Apr 2026 02:39:20 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHBke-0000000G3N3-3aA4
+	id 1wHBsT-0000000G3kG-1bgd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 02:31:14 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=RkvcX8B1hwT/8VO32VTdl7opKUePM7Ger8bM8HBgqvs=;
-	b=CqeEq2o5z+a8QIlsmg8wSB8gWS67ggAqurzsOzpkUy44lSjGbSyjZ21YT3CVufajUHB7H7szM
-	woPuuAL0nsC2WVtXWwiigsWgmMTEHDt1jhQ00oryV6EhD2Zo12GW0cTHOr3JdjkkWVoAsNQ06yu
-	5JDJpatDiOwUQTcdPom603M=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4g3nSQ63TtzcZyv;
-	Mon, 27 Apr 2026 10:24:06 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 4FA8F40571;
-	Mon, 27 Apr 2026 10:30:58 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
- (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 27 Apr
- 2026 10:30:57 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>,
-	<punit.agrawal@oss.qualcomm.com>, <rafael.j.wysocki@intel.com>,
-	<fengchengwen@huawei.com>, <chenl311@chinatelecom.cn>,
-	<suzuki.poulose@arm.com>, <maz@kernel.org>, <timothy.hayes@arm.com>,
-	<lpieralisi@kernel.org>, <mrigendra.chaubey@gmail.com>, <arnd@arndb.de>,
-	<sudeep.holla@kernel.org>, <yangyicong@hisilicon.com>, <jic23@kernel.org>,
-	<pierre.gondois@arm.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <james.morse@arm.com>
-CC: <ruanjinjie@huawei.com>
-Subject: [PATCH v2] cpu/hotplug: Fix NULL kobject warning in cpuhp_smt_enable()
-Date: Mon, 27 Apr 2026 10:35:07 +0800
-Message-ID: <20260427023507.1247418-1-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
+	Mon, 27 Apr 2026 02:39:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MxBABoxb3uEblMvHpQoBY/zHaJUD9Pn207HEwkaAMRCqawvyMfB1nukuLv1fVaUkmdx4CQnNvGsPev1CW4aAJfsDiuTK0ADysAgGTyX/Wmixalj4I5RfS+PLfEQjx2KUIJxUnFqzJ3I7Am7Cv3SDWU3JfRqo4LpgOKf38qxKfRqQkOZcxZIvBLB4FlvAYazlU3po0IZWeTXtsXLVrgDC01O0muHoiNf4uQt6Gs+5+yR0bJWMMthXON7bb06IQWVbm9PCNb1062PuOv5BQU7u+mRQzmBft5WDDyk9Ghh3HBZwD/F/0T98Uz9xzwUYGffanzQQ9va8HiK9PAEMub8xZw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YOllnpo5dWNYpLH71FGu8iri9y3UuR/Pby23V+tNERI=;
+ b=NWY+/3CYs5E34WXy8bZCKUKCRRqDJs+qCiJ4+p7xJt8UprLKKC2yTw5h3uUFE/gxi8yY5DPotAQ9Mwb7/UKSSMmSO5i80fdLS0azq2Bby/PH2DqwKutJPBk0cl0sI13MtaFkInWkbuF/3tkN93H1uEznjenlqdaeAa/hm9gjc6bWIkdb+COoGbHqw100ClmyZOBj5s3WT8jt+n0iJBUo97IBo6hCDQf6GuUVZf9D23c7ZmqXbLltH/9McKCOz1BM7KnJ3OcPN39FbqP1EYifVgk6aGmBktviFB25BKF1MSPu34u5d9g7elXQ9pCcFh7vrO+je9xu1mqmyq0FJfv7pg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YOllnpo5dWNYpLH71FGu8iri9y3UuR/Pby23V+tNERI=;
+ b=UuQhQqWidNeKiyhQLqG2IjcF4kVFeUlisqXfsTLIOHPJkjfdvwoYSmWOxp68pSUeF8GaAiDvyFWCoAYyv8znZn2+IIwTAlOcz0GCnoxl4DtlgO1lQaTToDBoKpOki/Xg8W6o7AHONorxQeB4WzeOtTObLtiIKIY4hexxr/Jj/ZzU6WxaHLcj/+EWzdnA9f4gPhheNAbWd8OsmumX1VTewFVcQ2WORkRua5Ezb20zaDGBA2MLqlNZl2+h5ZaSTPSL98/qkqzK5pPaQGqXu/ucQU3gEWV/D34ENbYgKDmSYNM2K3lnKeK0roCAmqdQeDYNS+n3HikcSQWvUSRwh35tYA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by PA1PR04MB10793.eurprd04.prod.outlook.com (2603:10a6:102:485::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Mon, 27 Apr
+ 2026 02:39:12 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e%4]) with mapi id 15.20.9846.025; Mon, 27 Apr 2026
+ 02:39:12 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Subject: [PATCH v4 0/3] Add i.MX94 remoteproc support and reset vector
+ handling improvements
+Date: Mon, 27 Apr 2026 10:41:23 +0800
+Message-Id: <20260427-imx943-rproc-v4-0-68d7c7253acd@nxp.com>
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.90.53.73]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+X-B4-Tracking: v=1; b=H4sIANTM7mkC/13MTQqDMBCG4atI1k1JJr921XuULmKMNQuNxBIs4
+ t0bhWIVZvMNPO+MRhe9G9GtmFF0yY8+9HnwS4Fsa/qXw77OGwEBSRil2HdTyRmOQwwWAxHEEVJ
+ J0SiUyRBd46ct93jm3frxHeJnqye6fn8hOIYSxQQzJ6Uo84HR934arjZ0aM0k+KOgThQyNYIrw
+ 4TWipEjZTvlVJwoy7RsjBKg60pbs9NlWb6tyU1BHAEAAA==
+X-Change-ID: 20260311-imx943-rproc-2050e00b65f7
+To: Bjorn Andersson <andersson@kernel.org>, 
+ Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Daniel Baluta <daniel.baluta@nxp.com>
+Cc: linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+X-Mailer: b4 0.14.2
+X-ClientProxiedBy: MAXP287CA0002.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a00:49::23) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PA1PR04MB10793:EE_
+X-MS-Office365-Filtering-Correlation-Id: 56c1833b-d732-48d4-a56a-08dea4062a30
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|52116014|376014|366016|1800799024|921020|38350700014|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: Hw9csSOYfZ6XozDHhDoSzClk3WIBLxjNcJaxfw/KNKtp+z3wpsu2trp7tL1d9HVXQ21va1o9IzENKDaI4T1qqQb/MXuMKIRDK7/QUVhwhYC3WIUduJ0txaSH/wytbQ9u15R/aY/+a2sQVpTQuJyWABK2v7HIsQ53ns9PLNGge3GYNZoDVETQ/mTGZ0Ef/QsuOcrHN2cjnI5aiXf1jIR4QqWaEpzJX5Qkq4x82kqE3orN5dqgUfTCWndTVDB42pCiY0TkdhTz99VrdsWmQ15sbXB6zSQ/t0KUdxO5ZVJ3vFEWstAVBWrjCzbbDfJ9hsk/WLeh4CTCnEoAFumPnMxsIIQsm6KPeXGHRz8ns4GmLi6kITbttgTVxpaxUwjoHqVKChw2UUsa2KGB7O5o0EAm5unbZ8kwaZPhYagF+HmG5qmgJb0PIrcTiLn9VwvdPpK4fMw8QKytS/4cvAa2tYw5TYPokoKDJjM8TscJo3rzj7WGgBHJIMP84DWU2IcWXUv/VVJCBhwUiN0BzVJoDwkO4Gi3qKryY4/QgiR6+HWElW2CFJ7XOAHnBth9C7jn2SFLzRvzm8tSFCP/iGbX45EGL1n7JYySdqMT/CAc+QOP4gJl9MEDcmsyetQn0/tfrqJtnipqKPQ6qgvEcodVEhM8j08oFUeMqOPZRXv/+baKwYqk+fhkFNwTkupACTvFi37bi84HjLOCt3WWin4uYE9/6OmSXHRz1O/EKh9v0ycLwAtOFYqZHmu3ktu5v/Yaz6HoymPSoORhS82SsFFzmalIVlPCQzoDVUioejdtOFl+7c0XejwH+wai7hFNo2hj9rpCZuRwF35BLw23EIcfJBldgw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(52116014)(376014)(366016)(1800799024)(921020)(38350700014)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OFlTQXlFdEFyMi9IdHdTWjJ5djVTQUZqL3hlbnhubjFuTU1YaFhscnB0YlAw?=
+ =?utf-8?B?cFIvSWV2Yks2dlJrQTBaaUJSVENoK05GZ3lqc2dia0cvMi9Ca1FxbmtnRFY2?=
+ =?utf-8?B?Wis0cTBmc0Z0QzBWOGlsZHpNb3RKOEVRVWt4SHIyMmJqcjhSV2sweFA5cVBx?=
+ =?utf-8?B?U3Y5Q1VIVHVDK0FFaDQ2Z0dBN0JxQ1lNL2NCVmhJelNkYzV1VzQxNXZMNUNk?=
+ =?utf-8?B?VG1WMy9yMUJ2SHNDblFGMEYrWk9LNjF5UHdBd0wwOVFwenNCRXErZngzN21V?=
+ =?utf-8?B?ODkxNWRuQmtndW4yS05QR3BkQjZTL0tSWWFsRWVsM243VWoxWnpXSDY2a0Ur?=
+ =?utf-8?B?RjhjSnpJaGNqRTB6bW5HQ2RMN0pxS0E5amo0aTN4aWJHVDJJN3ZudXQwenMr?=
+ =?utf-8?B?UzY3TkVONFAzUFV1dE1aNHByeFBkY25OOXErWVRUZmdPaEZ6eEZ6SHVDQlFh?=
+ =?utf-8?B?SmdJZmJ3UmdoVXdyZXE1YTRDQWpaMWthRERtbjJvSG5WVm0vYkdsaGg3TnJD?=
+ =?utf-8?B?TGs5dlJ1SjJZbUpnNjZOektiZThUS2F2bHpLTTBPWGFuSzRUK0s3Mis3Vk5Y?=
+ =?utf-8?B?M2ZSa21Sd3RmRE1RNjd2WlIxUUxzd1E1bkRNVkNLYTR5NjlyVmZpZkJnVFI5?=
+ =?utf-8?B?K3pyOHExZ0oybmtKR2hjZkc4Y1BRSUNoZDB5UTdxZU5Za3Ziemx2b01XN3lH?=
+ =?utf-8?B?TlpkUHE4TG9JTzFsWDV6LzljczdhRi96ajRpSExpekM5ZnNtMGF6RVdSUjRD?=
+ =?utf-8?B?Vm9RbjRVZnBKcHFoaWtSOWk5Z1RlYmlESE1sUklmYkNXMWg5aE9DRktUK21K?=
+ =?utf-8?B?R3Q0ckYyZHhucWdwWmVvSnVUb2EvbVpldTdubHVweU1tM21tS0pMNXpOZ29I?=
+ =?utf-8?B?ODdtZGlvQkh1WElSNGF0KzE3SlBVR1VaWlZvVnBHMDZldU5UNUhpTnpxcnNr?=
+ =?utf-8?B?Ykh2cWx2STZKU1RYc3pFZm5jcERQZVIya1pVVmFZMEppWmNvVmxKMi94bDY3?=
+ =?utf-8?B?cG4rck1sd05pTFEyYnpZSFA2QjlySnZrdUxkeWFvY2JLL1cxeklxd2pHWnFC?=
+ =?utf-8?B?UG5UaXdLS2djV2hCMk03NXMvb1hLalJpb2xkSXZWUno2b2g1eDBLaUFrOEtx?=
+ =?utf-8?B?YWl2d2pQWlpNSTR5STJUMFZLMGJ1VndvSzJHZ1YwT3VUVGl6VUgrTjdDUk85?=
+ =?utf-8?B?ZFJUQTR2U2NlbXlkb2NveGpNMkcvZlFCak1iSk5PMHYrYkladlpzV3lvQ3FM?=
+ =?utf-8?B?SnlMTWNMZ1FabjRBcEZiSXBnMDMzVXo1ZGJMMm5xOHpjLzIwWHBYWmZFb2l2?=
+ =?utf-8?B?V3pUQWxIM2pMM3RvSFlPVUpBWU0renhIaXJBejgrQnNyOC9OVlFZaHFHR2hh?=
+ =?utf-8?B?ZitGamNnUGZuV01xUmVweUlucmlJbDRsS2IvRWhoMTVxWUhRN3JRdDVlcEVn?=
+ =?utf-8?B?SlZEeEFmY0FETVFlOEY1SG9idllxVXVNNlNqSEJIeFNOK3JlTzJacHprOUZq?=
+ =?utf-8?B?MlBweHlOSWVYakUzUVBZaklYcFdpWHo4SzVRQTVQYWRpRW9rU1F5c3RzTno4?=
+ =?utf-8?B?RWxSMXhHOFZObi9pb05TaXZTaXdxc1c0cG5HZVVxaGJDQjg4U2dFckUrZlpa?=
+ =?utf-8?B?RUJVa3g2c2NhMGpOcjY0SE1SU1pUUjRyUldsczl5STVzb0pWL2loU1czaDZi?=
+ =?utf-8?B?YTNwazRyV3pXL3h2QlRsaGkvU0R5bVIzbENWSUttRy93aG5zQStMcW9RdWVB?=
+ =?utf-8?B?bnYrMzBGUGt5ZCt5RXdUNnh5bWRkOHR4d0RjNE9SNEwyYTFvK1JsMmNZeEhh?=
+ =?utf-8?B?enEyeU80UXRrY2VoVmNtVGVqZzFRNGVIaTRuQm53bFU3UE5LSGdvV3NQUmFI?=
+ =?utf-8?B?UlliV1JnazhDT1NJQU9iY0d6czdkTUxBQjNyNlUxcWZjd2xxblFQL1dHZTZP?=
+ =?utf-8?B?WUsrMVZ3YkNOZG1TRFppaU9RcngrazdBZFRZbXIrY25LUmZlM0lQR1QzUHB2?=
+ =?utf-8?B?VmdUOHdlM3lVdUVDM1lPL1dVQjhzVFY1bzlYak10c2ZXK2NxRExmQ21Rd3lW?=
+ =?utf-8?B?RmFvVDdwMkZ4d3ljV0JaQ1F3R0Ivclk1QVFSZ1FyNUxCcG9BakI3bFN2dkQx?=
+ =?utf-8?B?cHg4VDVoa1JXUnVwVkNudmpudmRSNDM2V2tqdzk3YnBiSzEwVUdrOWQzbDdw?=
+ =?utf-8?B?d1hHVmVtQm1TV3NtV1B1dHhLNFFqMlZMdFZIYnN0ZXdJSU5pMDVOYXpMUVlF?=
+ =?utf-8?B?Y2ZNOUxsMjVGSllhWTJFYy9XMXh6aitXQmR4OEYyN01ZZGpkeFVBYmVudkJS?=
+ =?utf-8?B?TWE1eTdacUVxallsNVhuNlUxWW13UkdHRHZ0OTJyaXl1SXpJbnNEUT09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 56c1833b-d732-48d4-a56a-08dea4062a30
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Apr 2026 02:39:12.0094
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0RdrG9Ndu7ydn2Olohk2vXnop1fmiP2zD8mezX9ANOO0C+LBuAJpCh4BvaMxMPaQ8rH0fxC6dX1bnd41tL4NOQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10793
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_193113_210443_22AA5E1D 
-X-CRM114-Status: GOOD (  15.54  )
+X-CRM114-CacheID: sfid-20260426_193917_435128_7FE2E898 
+X-CRM114-Status: GOOD (  14.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,167 +158,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On arm64, when booting with `maxcpus` greater than the number of present
-CPUs (e.g., QEMU -smp cpus=4,maxcpus=8), some CPUs are marked as 'present'
-but have not yet been registered via register_cpu(). Consequently,
-the per-cpu device objects for these CPUs are not yet initialized.
+This series adds remoteproc support for the i.MX94 family, including the
+CM70, CM71, and CM33S cores, and derive the hardware reset vector for
+Cortex‑M processors whose ELF entry point does not directly correspond to
+the actual reset address.
 
-In cpuhp_smt_enable(), the code iterates over all present CPUs. Calling
-_cpu_up() for these unregistered CPUs eventually leads to
-sysfs_create_group() being called with a NULL kobject (or a kobject
-without a directory), triggering the following warning in
-fs/sysfs/group.c:
+Background:
+Cortex‑M processors fetch their initial SP and PC from a fixed reset vector
+table. While ELF images embed the entry point (e_entry), this value is
+not always aligned to the hardware reset address. On platforms such as
+i.MX94 CM33S, masking is required to compute the correct reset vector
+address before programming the SoC reset registers.
 
-	if (WARN_ON(!kobj || (!update && !kobj->sd)))
-		return -EINVAL;
+Similarly, on i.MX95, the existing implementation always programs a reset
+vector of 0x0, which only works when executing entirely from TCM. When
+firmware is loaded into DDR, the driver must pass the correct reset vector
+to the SM CPU/LMM interfaces.
 
-When booting with ACPI, arm64 smp_prepare_cpus() currently sets all
-enumerated CPUs as "present" regardless of their status in the MADT. This
-causes issues with SMT hotplug control. For instance, with QEMU's
-"-smp 4,maxcpus=8" configuration, the MADT GICC entries are populated as
-follows: the first four CPUs are marked Enabled while the remaining four
-are marked Online Capable to support potential hot-plugging.
+Summary of patches:
+[1]dt-bindings: remoteproc: imx-rproc: Introduce fsl,reset-vector-mask
+Adds a new DT property allowing SoCs to specify a mask for deriving the
+hardware reset vector from the ELF entry point.
 
-Fix this by:
+[2]remoteproc: imx_rproc: Program non-zero SM CPU/LMM reset vector
+Ensures the correct reset vector is passed to SM APIs by introducing a
+helper (imx_rproc_sm_get_reset_vector()) that applies the reset‑vector
+mask.
 
-1. When booting with ACPI, checking the ACPI_MADT_ENABLED flag in the GICC
-   entry before calling set_cpu_present() during SMP initialization.
+[3]remoteproc: imx_rproc: Add support for i.MX94 remoteproc
+Adds address translation tables and configuration data for CM70, CM71,
+and CM33S, enabling full remoteproc operation on i.MX94.
 
-2. Properly managing the present mask in acpi_map_cpu() and
-   acpi_unmap_cpu() to support actual CPU hotplug events, This aligns with
-   other architectures like x86 and LoongArch.
-
-This ensures that only physically available or explicitly enabled CPUs
-are in the present mask, keeping the SMT control logic consistent with
-the actual hardware state.
-
-How to reproduce:
-
-	1. echo off > /sys/devices/system/cpu/smt/control
-		psci: CPU1 killed (polled 0 ms)
-		psci: CPU3 killed (polled 0 ms)
-
-	2. echo 2 > /sys/devices/system/cpu/smt/control
-
-	Detected PIPT I-cache on CPU1
-	GICv3: CPU1: found redistributor 1 region 0:0x00000000080c0000
-	CPU1: Booted secondary processor 0x0000000001 [0x410fd082]
-	Detected PIPT I-cache on CPU3
-	GICv3: CPU3: found redistributor 3 region 0:0x0000000008100000
-	CPU3: Booted secondary processor 0x0000000003 [0x410fd082]
-	------------[ cut here ]------------
-	WARNING: fs/sysfs/group.c:137 at internal_create_group+0x41c/0x4bc, CPU#2: sh/181
-	Modules linked in:
-	CPU: 2 UID: 0 PID: 181 Comm: sh Not tainted 7.0.0-rc1-00010-g8d13386c7624 #142 PREEMPT
-	Hardware name: QEMU KVM Virtual Machine, BIOS 0.0.0 02/06/2015
-	pstate: 20000005 (nzCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-	pc : internal_create_group+0x41c/0x4bc
-	lr : sysfs_create_group+0x18/0x24
-	sp : ffff80008078ba40
-	x29: ffff80008078ba40 x28: ffff296c980ad000 x27: ffff00007fb94128
-	x26: 0000000000000054 x25: ffffd693e845f3f0 x24: 0000000000000001
-	x23: 0000000000000001 x22: 0000000000000004 x21: 0000000000000000
-	x20: ffffd693e845fc10 x19: 0000000000000004 x18: 00000000ffffffff
-	x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
-	x14: 0000000000000358 x13: 0000000000000007 x12: 0000000000000350
-	x11: 0000000000000008 x10: 0000000000000407 x9 : 0000000000000400
-	x8 : ffff00007fbf3b60 x7 : 0000000000000000 x6 : ffffd693e845f3f0
-	x5 : ffff00007fb94128 x4 : 0000000000000000 x3 : ffff000000f4eac0
-	x2 : ffffd693e7095a08 x1 : 0000000000000000 x0 : 0000000000000000
-	Call trace:
-	 internal_create_group+0x41c/0x4bc (P)
-	 sysfs_create_group+0x18/0x24
-	 topology_add_dev+0x1c/0x28
-	 cpuhp_invoke_callback+0x104/0x20c
-	 __cpuhp_invoke_callback_range+0x94/0x11c
-	 _cpu_up+0x200/0x37c
-	 cpuhp_smt_enable+0xbc/0x114
-	 control_store+0xe8/0x1d4
-	 dev_attr_store+0x18/0x2c
-	 sysfs_kf_write+0x7c/0x94
-	 kernfs_fop_write_iter+0x128/0x1b8
-	 vfs_write+0x2b0/0x354
-	 ksys_write+0x68/0xfc
-	 __arm64_sys_write+0x1c/0x28
-	 invoke_syscall+0x48/0x10c
-	 el0_svc_common.constprop.0+0x40/0xe8
-	 do_el0_svc+0x20/0x2c
-	 el0_svc+0x34/0x124
-	 el0t_64_sync_handler+0xa0/0xe4
-	 el0t_64_sync+0x198/0x19c
-	---[ end trace 0000000000000000 ]---
-
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Jonathan Cameron <jic23@kernel.org>
-Cc: James Morse <james.morse@arm.com>
-Cc: Yicong Yang <yangyicong@hisilicon.com>
-Cc: stable@vger.kernel.org
-Link: https://uefi.org/specs/ACPI/6.5/05_ACPI_Software_Programming_Model.html#gic-cpu-interface-gicc-structure
-Fixes: eed4583bcf9a6 ("arm64: Kconfig: Enable HOTPLUG_SMT")
-Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
 ---
- arch/arm64/kernel/acpi.c |  2 ++
- arch/arm64/kernel/smp.c  | 12 +++++++++++-
- 2 files changed, 13 insertions(+), 1 deletion(-)
+Changes in v4:
+- Daniel raised the M33S secure region was not included, but since I not
+  have image to test secure region, so drop the Secure alias region for
+  all. Updated DDR region. R-b kept since this is a minor change.
+- Add R-b for patch 2
+- Link to v3: https://lore.kernel.org/r/20260415-imx943-rproc-v3-0-9fa7528db8ca@nxp.com
 
-diff --git a/arch/arm64/kernel/acpi.c b/arch/arm64/kernel/acpi.c
-index 5891f92c2035..681aa2bbc399 100644
---- a/arch/arm64/kernel/acpi.c
-+++ b/arch/arm64/kernel/acpi.c
-@@ -448,12 +448,14 @@ int acpi_map_cpu(acpi_handle handle, phys_cpuid_t physid, u32 apci_id,
- 		return *pcpu;
- 	}
- 
-+	set_cpu_present(*pcpu, true);
- 	return 0;
- }
- EXPORT_SYMBOL(acpi_map_cpu);
- 
- int acpi_unmap_cpu(int cpu)
- {
-+	set_cpu_present(cpu, false);
- 	return 0;
- }
- EXPORT_SYMBOL(acpi_unmap_cpu);
-diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index 1aa324104afb..5932e5b30b71 100644
---- a/arch/arm64/kernel/smp.c
-+++ b/arch/arm64/kernel/smp.c
-@@ -566,6 +566,11 @@ struct acpi_madt_generic_interrupt *acpi_cpu_get_madt_gicc(int cpu)
- }
- EXPORT_SYMBOL_GPL(acpi_cpu_get_madt_gicc);
- 
-+static bool acpi_cpu_is_present(int cpu)
-+{
-+	return acpi_cpu_get_madt_gicc(cpu)->flags & ACPI_MADT_ENABLED;
-+}
-+
- /*
-  * acpi_map_gic_cpu_interface - parse processor MADT entry
-  *
-@@ -670,6 +675,10 @@ static void __init acpi_parse_and_init_cpus(void)
- 		early_map_cpu_to_node(i, acpi_numa_get_nid(i));
- }
- #else
-+static bool acpi_cpu_is_present(int cpu)
-+{
-+	return false;
-+}
- #define acpi_parse_and_init_cpus(...)	do { } while (0)
- #endif
- 
-@@ -808,7 +817,8 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
- 		if (err)
- 			continue;
- 
--		set_cpu_present(cpu, true);
-+		if (acpi_disabled || acpi_cpu_is_present(cpu))
-+			set_cpu_present(cpu, true);
- 		numa_store_cpu_info(cpu);
- 	}
- }
+Changes in v3:
+- Patch 2: 
+  Drop R-b because of changes in V3
+
+  Following suggestion from Mathieu that apply reset vector in
+  scmi_imx_[cpu,lmm]_reset_vector_set(), not change the meaning of
+  rproc->bootaddr, add helper imx_rproc_sm_get_reset_vector() to get reset
+  vector and use the hlper in scmi_imx_[cpu,lmm]_reset_vector_set().
+
+  Add reset-vector-mask for i.MX95 CM7 to avoid breaking i.MX95 CM7
+  boot.
+
+- Link to v2: https://lore.kernel.org/r/20260327-imx943-rproc-v2-0-a547a3588730@nxp.com
+
+Changes in v2:
+- Drop fsl,reset-vector-mask by using fixed value in driver for per device
+- Add R-b for i.MX94 dt-binding
+- Update commit log to include dev addr and sys addr
+- Link to v1: https://lore.kernel.org/r/20260312-imx943-rproc-v1-0-3e66596592a8@nxp.com
+
+---
+Peng Fan (3):
+      dt-bindings: remoteproc: imx-rproc: Support i.MX94
+      remoteproc: imx_rproc: Program non-zero SM CPU/LMM reset vector
+      remoteproc: imx_rproc: Add support for i.MX94
+
+ .../bindings/remoteproc/fsl,imx-rproc.yaml         |  3 +
+ drivers/remoteproc/imx_rproc.c                     | 92 +++++++++++++++++++++-
+ drivers/remoteproc/imx_rproc.h                     |  2 +
+ 3 files changed, 95 insertions(+), 2 deletions(-)
+---
+base-commit: 724699d8d0523909da51fda8d1e10c1ff867b280
+change-id: 20260311-imx943-rproc-2050e00b65f7
+
+Best regards,
 -- 
-2.34.1
+Peng Fan <peng.fan@nxp.com>
 
 
