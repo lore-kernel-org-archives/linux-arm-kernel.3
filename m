@@ -4,106 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DF43FF885E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 13:13:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E383FF8862
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 13:13:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4zTEZOstYQ1Ndkmbxb0gXIziFqMiC9RX7BP1ekAY2J0=; b=ltaNUL96YUlsaEtO5Z1z68X3kf
-	D+SGuQOlv0/EhFOdcEOPhl5hJTfDw12aMOSuzlTlaay6pDlXCh2wGFIDlm9ImFqEw2+M/puSjWygi
-	dpurAi4YPlMxi3h4DTOzl17M8rYGMbjgb2lwISfTyLRaDt+wVVUp7iiYohg6lvKeie6L4L4t60sjq
-	JWSk/nbMBd/NqQDoKnY/1A6s/mLnfYPQo0SavNq73bvxIHKyfWfs4F3Rm3j76LYZfl5u/0krvzNtc
-	Us/kShgZpMv20aRPiQZ3vrA4fsPOTnz+asrEoiCC5c+XStykBk0WzRDnkfz/1SZ7tVvCFF1z6/f1u
-	N7BGXhbQ==;
+	bh=L7//5ece1DlWDMT1aLpKgGFyRfsm8Y+IqHoNcwNLtWg=; b=3gH2y1Cat1VTnhBweDmkj44nIi
+	THCHv6aoZUZ7NGfoXrNRj/rA03qav//heTBoVqpwmTj7h0su0SmupqZO4ZY5r8i63CHNxI4QXjKzc
+	mjbnuRtb5tFEgLF+QZCt/91D2gX6v6wtOTMgUbjYQVdImy1Idn2fXyLWKoIgu8klAUJ/9liZiWRUI
+	dEENhjpiWby0brycUAA1r3OtUUsBqr2zOPoIWmPENVUhR8pBAdBOtdgJOVYXIgjvWy3vIEZ+PKZ2D
+	V5S9paFqmJIg/kD56nL627lc6K5kU8ehQ0nH/wQfHzqSbwrV3DFgd4aWqvb1E5f1S/AcwJ72K4UG0
+	1wAXZZ9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHLmU-0000000Gz4i-1aZP;
-	Mon, 27 Apr 2026 13:13:46 +0000
-Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
+	id 1wHLmd-0000000Gz7t-0B4Z;
+	Mon, 27 Apr 2026 13:13:55 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHLmS-0000000Gz3n-0XPh
+	id 1wHLmZ-0000000Gz5t-1Qdz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 13:13:45 +0000
-Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-38e8292423fso89968241fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 06:13:43 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1777295621; cv=none;
+	Mon, 27 Apr 2026 13:13:52 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-5a337552604so9167930e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 06:13:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1777295629; cv=none;
         d=google.com; s=arc-20240605;
-        b=gFTNoxvAdIuHRR65lxwV4AIDTNgeAWeN9aflO2kxrKLM+hvn+y/27/neM+FVNRzxKa
-         UCUrIYWf3fBWOqu3Xw/abiaV+Pu7awg9uVSmr8usYtYZ/br544JUTWAm+nH/54DEX4Q9
-         yV2FmUoYcRK3EXneUg546N/TOaUUauJVEnJ4T/E1AZQjrd2cCQlZM5Ld/Ul9QjBaVeY1
-         Ar8tYV/3meSGLBbBrFcyTbDPKOhhflevqOtjDi7av7YU9duSw5CQ+/1+HIKxeN+d8Jgb
-         msOnhSvv9CYBap51UTrxSCD+RHKSvbHxd54GlWym7AgoNCxVEq2QC1jBv0Hkljkx2y2u
-         Rg9w==
+        b=H74th5x9EoNOVnTovgeBXWDM2VzaioDBeZsBtnMVXt9EkASA1r6W23Pc05Ax43Plim
+         SKKvC6lDr3Wl8d/LcNr7+LMNumiE4BUJbaL2eYUFwrC/cSFZWpYsG5kq23Vp7eS+JWvD
+         UH/gsn1RA4sDGC6+EqLQRXwTQUN56qz/YpYecOIRHe7zLWO+E+M/6JQZfHSYxYXO5Wbf
+         Zy4nYDYDYGqRsSDZ0l+V15Mcl0CMjcPCqdxh09yu8CRFcBXA19WGoblc4Rr3BPIU+WC2
+         B7cGzplrmRYeSwkVsOWcYNwcvUw+Qj2TXcCzgcvGKCM92sB+hXMx8tvZvNm18/U7wrh0
+         NJtg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=4zTEZOstYQ1Ndkmbxb0gXIziFqMiC9RX7BP1ekAY2J0=;
-        fh=m2P8iWAv+wDwP+Cz7sbhD4AyzlRfJnXB1WFhWVF/XxQ=;
-        b=lvnlBX0kiMLgePiiKIx7xxU7xH3fiY0k4EduAEzjhNtWcFdd0N9RDXSEX0q26Q0eRc
-         oDIPe4RN+q8WcvvqV11EUgH4QpA2jaCeWreJ6PiAEMtOAS9YMBPS12ES5J65ZRdE2p8s
-         YkTQQy6D5Yif/hPxDdtycCNI3VOi6QRPhd03Ph8yrg67huYXDZCh0bi2qtiYcLOyi47l
-         sEGVHZmD3MlLmFq7Gssbdbuy8CClViOteCrdC1se575iY2PTSTYAFobMgnuE2nfcr4/N
-         SdJ3W9FK1uIKatU2YinE31ld8MAcE5JhZneWMC9yKVVhfNnbFr+HqhAEoAtNHblc5KFj
-         52nQ==;
+        bh=L7//5ece1DlWDMT1aLpKgGFyRfsm8Y+IqHoNcwNLtWg=;
+        fh=Pm30WBE/87hES8+tlZ+4ZwdeGRKWki1bJ3uy0w8DcOA=;
+        b=OdiU/5q3zrv/OvGZ4QdLeQV4Muw9ob5ssC5lLomKHaz8/8TOg03+QLLJX7NPpYfKYj
+         fUx5by4TBgrxRtqCmG+pgcdkCAfaqjmKYfRq6270CbnZe+lGer4mXPfMdkScDrh/l4dQ
+         3MpeaRG+Y2qiH9tidvmw25RRvKSoup+CRQjFXLYclalVWxIieOOvjMerSCYdQHUXg9ie
+         R6jeQuvbFhP4IQpBH4bR0O4yzjgc4uKnoNLQxBx5XeQQoZfPZuhPaMEhepyPMpw1ZhX9
+         NQv9fFTfyGl2dw22sJZbM0IRGfl1Y/nLQaz4cUmjw70dwX/ziQyBuIA0nar6Jxj10QLH
+         RSzw==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1777295621; x=1777900421; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1777295629; x=1777900429; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=4zTEZOstYQ1Ndkmbxb0gXIziFqMiC9RX7BP1ekAY2J0=;
-        b=Btyf0GAbEuJk51mMJhNIu7RVANkcrpG9HxhyEO/CcN/FVJkkE0EHHeSHCrn1m772hD
-         cYk5cgQJ+W1hFE/OUjefM5Huul8OhvD2efTkdBCnSo4IVZfX/i0nTujyGcROuwPngodZ
-         1PsB7WlCiJ8jO9ltsGbLssPJOE1JpoioujWxjCWg8/M+jY09zoJlrR2F6FoFIeqodCw4
-         3SshxxsByyh85y0xtCnudnpOOsVQRGRzu5Kfa8qPEPU2JxK0R9gMqwL74OH6emDUFsyo
-         QCytu9RhAaGyAn/yyRoV/z+XuYh+sVg9kkIVP2qGxYYS4nj14+yFQs5i9WseuNK7i8qy
-         Ngug==
+        bh=L7//5ece1DlWDMT1aLpKgGFyRfsm8Y+IqHoNcwNLtWg=;
+        b=V3HdL5ujHrahwb6LcApHXUMfbFDGgGRPtl/hG3jDYZa1dBln/ktelGF1qFzGcRLMmT
+         R4JDhuN8C/Lg/6CTiXN+2xcKFXvbkwspo15s+7GM8VEMDYTrPN7qk1qWnYWnHh2qLuMR
+         pPruKMnpzMc+IfeDwcjRSAnn2SniFeTWsDvoRT0NCiSktREK1EIBFKF6ycE2L4PllDe/
+         7/IxRwc/0n6N3yAxATiHj8PlKumSC3vPC4TSrmu8B8q4itwCr3n9JFsuNATkmVRTwSJO
+         5pLWPX8qiad6jgpVRunBQ79j4ZX2hFewk2rjYgjY+bASWDq4N5LZ/YA42T7a50lDmCkC
+         cvBQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777295621; x=1777900421;
+        d=1e100.net; s=20251104; t=1777295629; x=1777900429;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=4zTEZOstYQ1Ndkmbxb0gXIziFqMiC9RX7BP1ekAY2J0=;
-        b=C7EFFy3j0mifbzXTorkuEweyDOJlHcATsbA1ZlMsmFrv/KiBHxejxZftM+KJdWmY26
-         VrXqLwSjGZufgf8ZAD1TK4l/1VO6lNr7tGdPLTkz6Di2D7FB/JkZ9OONcifrZYt0//K8
-         GCblr3yQUAgZhxwfLkTuHxcCa4NVxwcDITrIL1QyCpuJLnt+ZFAnUc5MdBN7mXdERifo
-         px5JV3IaIO8H8difUiI71uEoy5wrWvErPg1ov04JVZJ+mK2deJTZKm180/vMXNzTz6qo
-         qHg0/FLuBxuKNmEsfB0haTsr24R0bt1+pU52js7RJx7W6TRbfTwu7Uqu5DYQv1L0nUQK
-         1aGQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9OsWXizY1nYbNwveTORoxvrMP0uXvtoPqX3laDK1wtVPMur1Ue5UkoDNmMDpBHX+ibWHN+iKRLUi+QM+18Lr1z@lists.infradead.org
-X-Gm-Message-State: AOJu0YxSlThvakjeV4YBbqNkk2TiQQyMnjTXCAk4e3p0wGQBwaR7Bxdo
-	Rn/fPUKUMdMM8LNM5UlGGk6xVOYkrtKa+kRGJxI/VyOuLcQyMKLqlplvK9mo9aV2yHzwCBOYhZG
-	Kn1VqJph6c08kl/W4eItOggwlvgcOH8km589iwXg65Q==
-X-Gm-Gg: AeBDies/2zzDudyFRuYeiDoYvQ7SWnK5jECB6UfzUZQpy9iQSJl9MkTmlnATgQyWOOa
-	0r5ueViVeAlVozD6KlC4fzQpfpw2siTPpnDqyLsdgww9n4aNcdlO9CyV/fOsn/Xj8VkF2iRAT7A
-	stus8oUOMFtoX5D686HXEKmZWiMto5DWLaiMZBB4waqwS+GmciI+UsSMYRIbDPhvH0Xe/LRgJDt
-	jeni3Ig8MVjmDkEKKk9s/a0ARrbyI7VPf4vMcgWHezt98OWpHUfyN4XoFP64ZLTVlAv6V9yHhcZ
-	6cM5fA/MvDh8OOS0qr4=
-X-Received: by 2002:a05:6512:3193:b0:5a4:1310:473a with SMTP id
- 2adb3069b0e04-5a4172ca11dmr12799424e87.10.1777295621120; Mon, 27 Apr 2026
- 06:13:41 -0700 (PDT)
+        bh=L7//5ece1DlWDMT1aLpKgGFyRfsm8Y+IqHoNcwNLtWg=;
+        b=l6s+cl9105+ZnphA8JPWUaw/90Uas/9gQeBY9tnHyMj1U/mIDn6UKMek+wDWAgC6iZ
+         heDwhTTpVKfEwzVX1FM3JnfjYkXYAle1LN5kaj7sbR2yHi+1wg7tLab9ODFKBtKvRa9R
+         k9LvRUwK5qK2MxqJ3aECfFpjV0GJOUxHgfZcn6PgOU5TGtde4xnqMQ/z+wA3u2hdbbK2
+         jFQqwCtnjoNGVM7WKPBR5Xbmd9Rqwe7iOV0V7he7BWgYlBHKr/BpgPcdc8DNpcTw5GN2
+         +ZrfoCt8zna/atxSC+5zkbFgjW7VmPfD+RnjeRnWot2C13Y+hnfxh2I/QoPte2lj4gS5
+         yWSw==
+X-Forwarded-Encrypted: i=1; AFNElJ9tgBP4pD7vGcmwWyomuMyp9B+zFKAzigw/rZJVt0mgcSoY+mXur7c+yUALSCMlBbSIi+yPyNnNL55/fi5ZZEzB@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5ktGEPNM1ilraIAq4YmZw0Oj97gMAiSKZFb57QNq2Y1u/w+P/
+	UKX0fGPJDynuucgfIrf6G73G3MwPZp5IJ7NpUN2FmPWACTCR1LaYIQZ9h8dzf99bw+VjY1agOkV
+	9mn7u9/NFwrDo/VAo3oC0fOUjDy+r4nk2Wln8QZCdgw==
+X-Gm-Gg: AeBDieuJ6tCeic9AlMC72RcbHzAyCEESIyRrLClkyo7YGFZwjrog8GA+NhN7utdBVHs
+	cc1vZ9O0Nm6K8TR/vda3roKuQCeZsa/KXyRriLsbo0hOUbsuW7CD6ST2oS13sv6mmiCKJ9TXdRv
+	epLUdKmy11LO8Y4EAJJOYA1ZYU9zamQmnK5lLjSqacPL11J6BevYnr0H8TUaovSn8ZhuHh8kFmM
+	hyE53MqKb+lkBnXUGrp6AFINEDxKxt2dIJ1KIapwg2IYwpN3UpH4YagPVxb4iDVhdq3q1iDeB++
+	XSv1fu+mEv0i7b/EqlQ=
+X-Received: by 2002:a05:6512:3193:b0:5a4:1672:59e0 with SMTP id
+ 2adb3069b0e04-5a4172cd574mr14121153e87.19.1777295629037; Mon, 27 Apr 2026
+ 06:13:49 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260417111331.158190-1-ulf.hansson@linaro.org> <CAMuHMdVr-dzRUruue0XEky_6fCt+v3AHp3G+Zv_N7S2_TpC7yg@mail.gmail.com>
-In-Reply-To: <CAMuHMdVr-dzRUruue0XEky_6fCt+v3AHp3G+Zv_N7S2_TpC7yg@mail.gmail.com>
+References: <20260408141121.386522-1-vulab@iscas.ac.cn>
+In-Reply-To: <20260408141121.386522-1-vulab@iscas.ac.cn>
 From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Mon, 27 Apr 2026 15:13:05 +0200
-X-Gm-Features: AVHnY4LaoKv-9zR1nRT5b_JUXnSu76zcBHdPRCqIMP_MLLpQF4ZFC_5gwPwYYIM
-Message-ID: <CAPDyKFrZvNsURsK+jmeorDmaN1icXnC8e4tDTk0A42UmtVSTcA@mail.gmail.com>
-Subject: Re: [PATCH] pmdomain: core: Fix detach procedure for virtual devices
- in genpd
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Ulf Hansson <ulfh@kernel.org>, linux-pm@vger.kernel.org, 
-	Frank Binns <frank.binns@imgtec.com>, Matt Coster <matt.coster@imgtec.com>, 
-	Marek Vasut <marek.vasut@mailbox.org>, "Rafael J . Wysocki" <rafael@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+Date: Mon, 27 Apr 2026 15:13:12 +0200
+X-Gm-Features: AVHnY4KIw0y71PHOTou49MhZ1vsAm_GUfrl6yfolmci7Zff-_TktbzdbSpL-x1c
+Message-ID: <CAPDyKFrTG6tp9XbuiUYjgMYkHYQwVsyXBuggCc3Lp=J_NcKTyA@mail.gmail.com>
+Subject: Re: [PATCH] pmdomain: mediatek: fix use-after-free in scpsys_get_bus_protection_legacy()
+To: Wentao Liang <vulab@iscas.ac.cn>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, nfraprado@collabora.com, 
+	Macpaul Lin <macpaul.lin@mediatek.com>, Adam Ford <aford173@gmail.com>, 
+	Chen-Yu Tsai <wenst@chromium.org>, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
 	stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_061344_201419_2D9340C3 
-X-CRM114-Status: GOOD (  32.12  )
+X-CRM114-CacheID: sfid-20260427_061351_464001_D1CDFC33 
+X-CRM114-Status: GOOD (  21.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,87 +118,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 17 Apr 2026 at 20:36, Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+On Wed, 8 Apr 2026 at 16:11, Wentao Liang <vulab@iscas.ac.cn> wrote:
 >
-> Hi Ulf,
+> In scpsys_get_bus_protection_legacy(), of_find_node_with_property()
+> returns a device node with its reference count incremented. The function
+> then calls of_node_put(node) before checking whether
+> syscon_regmap_lookup_by_phandle() returns an error. If an error occurs,
+> dev_err_probe() dereferences the node pointer to print diagnostic
+> information, but the node memory may have already been freed due to the
+> earlier of_node_put(), leading to a use-after-free vulnerability.
 >
-> On Fri, 17 Apr 2026 at 13:13, Ulf Hansson <ulf.hansson@linaro.org> wrote:
-> > If a device is attached to a PM domain through genpd_dev_pm_attach_by_id(),
-> > genpd calls pm_runtime_enable() for the corresponding virtual device that
-> > it registers. While this avoids boilerplate code in drivers, there is no
-> > corresponding call to pm_runtime_disable() in genpd_dev_pm_detach().
-> >
-> > This means these virtual devices are typically detached from its genpd,
-> > while runtime PM remains enabled for them, which is not how things are
-> > designed to work. In worst cases it may lead to critical errors, like a
-> > NULL pointer dereference bug in genpd_runtime_suspend(), which was recently
-> > reported. For another case, we may end up keeping an unnecessary vote for a
-> > performance state for the device.
-> >
-> > To fix these problems, let's add this missing call to pm_runtime_disable()
-> > in genpd_dev_pm_detach().
-> >
-> > Reported-by: Geert Uytterhoeven <geert@linux-m68k.org>
-> > Fixes: 3c095f32a92b ("PM / Domains: Add support for multi PM domains per device to genpd")
-> > Cc: stable@vger.kernel.org
-> > Closes: https://lore.kernel.org/all/CAMuHMdWapT40hV3c+CSBqFOW05aWcV1a6v_NiJYgoYi0i9_PDQ@mail.gmail.com/
-> > Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+> Fix this by moving the of_node_put() call after the error check, ensuring
+> the node is still valid when accessed in the error path.
 >
-> Thanks for your patch!
->
-> This survived more than 160000 bind/unbind attempts[1] on R-Car M3-W
-> and M3-N, so
-> Tested-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> Fixes: c29345fa5f66 ("pmdomain: mediatek: Refactor bus protection regmaps retrieval")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
 
-Thanks for testing! I have queued the patch for fixes.
-
->
-> > --- a/drivers/pmdomain/core.c
-> > +++ b/drivers/pmdomain/core.c
-> > @@ -3089,6 +3089,7 @@ static const struct bus_type genpd_bus_type = {
-> >  static void genpd_dev_pm_detach(struct device *dev, bool power_off)
-> >  {
-> >         struct generic_pm_domain *pd;
-> > +       bool is_virt_dev;
-> >         unsigned int i;
-> >         int ret = 0;
-> >
-> > @@ -3098,6 +3099,13 @@ static void genpd_dev_pm_detach(struct device *dev, bool power_off)
-> >
-> >         dev_dbg(dev, "removing from PM domain %s\n", pd->name);
-> >
-> > +       /* Check if the device was created by genpd at attach. */
-> > +       is_virt_dev = dev->bus == &genpd_bus_type;
-> > +
-> > +       /* Disable runtime PM if we enabled it at attach. */
-> > +       if (is_virt_dev)
-> > +               pm_runtime_disable(dev);
-> > +
-> >         /* Drop the default performance state */
-> >         if (dev_gpd_data(dev)->default_pstate) {
-> >                 dev_pm_genpd_set_performance_state(dev, 0);
-> > @@ -3123,7 +3131,7 @@ static void genpd_dev_pm_detach(struct device *dev, bool power_off)
->
-> Above, out of context, there is an error return.
-> Should we call pm_runtime_enable() again, to keep the reference count
-> balanced? Or can we just ignore this? It's probably futile anyway.
-
-Good point. I considered it, but I think it's safer to keep runtime PM
-disabled, if we encounter an error.
-
-If we end up converting genpd_dev_pm_detach() to return an int instead
-of void, then we could revisit this.
-
->
-> >         genpd_queue_power_off_work(pd);
-> >
-> >         /* Unregister the device if it was created by genpd. */
-> > -       if (dev->bus == &genpd_bus_type)
-> > +       if (is_virt_dev)
-> >                 device_unregister(dev);
-> >  }
-> >
+Applied for fixes, thanks!
 
 Kind regards
 Uffe
+
+
+> ---
+>  drivers/pmdomain/mediatek/mtk-pm-domains.c | 10 +++++++---
+>  1 file changed, 7 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.c b/drivers/pmdomain/mediatek/mtk-pm-domains.c
+> index e2800aa1bc59..d3b36f32417c 100644
+> --- a/drivers/pmdomain/mediatek/mtk-pm-domains.c
+> +++ b/drivers/pmdomain/mediatek/mtk-pm-domains.c
+> @@ -993,6 +993,7 @@ static int scpsys_get_bus_protection_legacy(struct device *dev, struct scpsys *s
+>         struct device_node *node, *smi_np;
+>         int num_regmaps = 0, i, j;
+>         struct regmap *regmap[3];
+> +       int ret = 0;
+>
+>         /*
+>          * Legacy code retrieves a maximum of three bus protection handles:
+> @@ -1043,11 +1044,14 @@ static int scpsys_get_bus_protection_legacy(struct device *dev, struct scpsys *s
+>         if (node) {
+>                 regmap[2] = syscon_regmap_lookup_by_phandle(node, "mediatek,infracfg-nao");
+>                 num_regmaps++;
+> -               of_node_put(node);
+> -               if (IS_ERR(regmap[2]))
+> -                       return dev_err_probe(dev, PTR_ERR(regmap[2]),
+> +               if (IS_ERR(regmap[2])) {
+> +                       ret = dev_err_probe(dev, PTR_ERR(regmap[2]),
+>                                              "%pOF: failed to get infracfg regmap\n",
+>                                              node);
+> +                       of_node_put(node);
+> +                       return ret;
+> +               }
+> +               of_node_put(node);
+>         } else {
+>                 regmap[2] = NULL;
+>         }
+> --
+> 2.34.1
+>
 
