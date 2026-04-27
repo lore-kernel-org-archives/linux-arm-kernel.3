@@ -4,61 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE785FF886D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 12:24:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65A6AFF8862
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 12:26:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sHPMBhXxp+6B9raEClgP4b7fTnQR4Zw3lXf5NCEnyIo=; b=gkxFz8XcbZWy33vvo6qILaClJL
-	8/jMDywxTZWhl4BUerbNroSzndYMlz6CWgODlG2cGv25Bl6GScih8RsaOGdbqzzvGs1zeCx1vJGNm
-	Vqe4HgQ/hgYKbK7i0n0cs/mNu2/tSUpDfIA83n+TSEe35gtClhhzR/DwmlgHjDPsu9nK/rMZKAR9C
-	ANK+zefZqdMg1lc1WYA4v6Rbv1zAsavhCudHj09IEZNZlF9l0B3rGNuCXHyKUtyNNFjIwSdSJjFVZ
-	yoyjgWij0s3FSlmydSPWU2/bQNb7l/E7sg/biLVVIGxSXPpMqj6hDYX1pM8uiJTmoHJGTL/TAbgk3
-	0Iur3C7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=333EQ5bhO0fiPprY5W+7dmdDUISQgxlb4XBMWTWf1m8=; b=gl8mjLN2GHwDoPdE4mc3839MhR
+	qnIkzItwsK9LTH7UziY9Od+oop/2NSmIGVWMPALFNxumf/fwv2UGf4cDL0PRPsNvWq8tMp0Jap0Jj
+	XGiFZBN/+h9piRHje0mkxtTQ2shdzM1DoWCdAAF87Y1R/OLvpwK9pAeADGi5eo4U4evDWBj7eCRqP
+	yp59BoTP3rnTqqvIycOSJazM1+jqQ1g0uIQprlxiodADkV0MGSOP+uKypwKnSXcM5LRSJlr9v1+Nd
+	f35v5Lo/T2wCym5HZ3bevJiGYrCHO+D+azCKinjkGVKqkk38TaZGIa6YrjIIvUluwYzdo52+jzehu
+	bDLNrJLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHL0Q-0000000GtNr-21tb;
-	Mon, 27 Apr 2026 12:24:06 +0000
+	id 1wHL2B-0000000Gu8F-3cfy;
+	Mon, 27 Apr 2026 12:25:55 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHL02-0000000GtAK-0Lxx;
-	Mon, 27 Apr 2026 12:23:43 +0000
+	id 1wHL29-0000000Gu7Z-2kAt;
+	Mon, 27 Apr 2026 12:25:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=sHPMBhXxp+6B9raEClgP4b7fTnQR4Zw3lXf5NCEnyIo=; b=wgaVrAQrH8VPCzvKDJo4DzshHu
-	qkAyTfXB/yMJi9kt3mYX0z2VjWxxlYCtTJxj0McUmAqDVzlhXu7Qp6GN8v/In3DF2sR9A9WgKxwlA
-	pqaG3A1qpg256pAuEoQXXxqAVZo7CttBb0OnM5R4uLcG8hqGt5lEi/+yN/3v2V3tDETvf5TNHgogx
-	GndMKNt5qL+DtkBxNkvNvUc8OMghQDAvW+28PljPoJacwsXpk4xablegJ5nPQUT+gqZiisz0h0jcf
-	Xoum0h8DF7yDgqV3pMOL+DKBEheWsi+2zy+p0zVdoRIJZIwdo9viA4zwA2dU14+gdSC3SiN7kQqkP
-	C2VIyYBw==;
+	bh=333EQ5bhO0fiPprY5W+7dmdDUISQgxlb4XBMWTWf1m8=; b=tJP4z/UUPvD4UlrBsuvfNDoHl1
+	lnd9XxfkZ9/k7Q1jEt3qnr97Ju8L2hZWMCqwqm5clCWWyXa0Yt+75weS0s4u+VhV4KQ9/kKO8aNnH
+	8n0j+UqFH9arwRD0QkRtkv7VvuQy7/JZNA1byei+XKLHqyX3SsyWrpYTiMfSXY5k2rQnf8b3Lpi9J
+	w73mwCzLIio74WloxRpy1ShWqeUgEGqzTX36VqhhloA1PZNaiJekSlR8UKjL11bz03AVIfEeavbsJ
+	DzrHdOvW9qhEwC4aZHe85TODVRtwSNyZot6t8/jO14hwKhmUKo92tdo/Sa7FMCCKoJPMpr0BIlQzW
+	ZUGZ2RBg==;
 From: Heiko Stuebner <heiko@sntech.de>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Diederik de Haas <diederik@cknow-tech.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	Arnd Bergmann <arnd@arndb.de>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: (subset) [PATCH 0/2] Improve gmac0 DT config for NanoPi R5S
-Date: Mon, 27 Apr 2026 14:23:17 +0200
-Message-ID: <177729258226.1866089.4215675452095780346.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260401131551.734456-1-diederik@cknow-tech.com>
-References: <20260401131551.734456-1-diederik@cknow-tech.com>
+To: Gray Huang <gray.huang@wesion.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ nick@khadas.com, Gray Huang <gray.huang@wesion.com>
+Subject: Re: [PATCH 2/6] arm64: dts: rockchip: Add AP6275P wireless support for Khadas
+ Edge 2L
+Date: Mon, 27 Apr 2026 14:25:51 +0200
+Message-ID: <4059489.Mh6RI2rZIc@phil>
+In-Reply-To: <20260325054614.1497147-3-gray.huang@wesion.com>
+References: <20260325054614.1497147-1-gray.huang@wesion.com>
+ <20260325054614.1497147-3-gray.huang@wesion.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_052342_454699_A71000FB 
-X-CRM114-Status: UNSURE (   8.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260427_052553_744598_EFFB68D0 
+X-CRM114-Status: GOOD (  15.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,24 +68,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Am Mittwoch, 25. M=C3=A4rz 2026, 06:46:10 Mitteleurop=C3=A4ische Sommerzeit=
+ schrieb Gray Huang:
+> The Khadas Edge 2L board uses the Ampak AP6275P (BCM43752) PCIe
+> Wi-Fi 6 module.
+>=20
+> Enable the pcie0 controller and add the Wi-Fi module as its child
+> node. Additionally, enable the HYM8563 RTC to provide the 32.768kHz
+> LPO clock required by the Wi-Fi module, along with the necessary
+> CombPHY and fixed regulator.
+>=20
+> Signed-off-by: Gray Huang <gray.huang@wesion.com>
 
-On Wed, 01 Apr 2026 15:11:37 +0200, Diederik de Haas wrote:
-> These 2 patches contain a fix for an incorrect pinctlr definition and
-> replaces several deprecated snps,reset* properties with their
-> non-deprecated replacements.
-> 
-> Diederik de Haas (2):
->   arm64: dts: rockchip: Fix gmac0 reset pin for NanoPi R5S
->   arm64: dts: rockchip: Replace deprecated snps,* props for NanoPi R5S
-> 
-> [...]
+Please make this 2 patches:
+=2D add the rtc
+=2D add the wifi using the rtc
 
-Applied, thanks!
+> ---
+>  .../dts/rockchip/rk3576-khadas-edge-2l.dts    | 71 ++++++++++++++++++-
+>  1 file changed, 70 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3576-khadas-edge-2l.dts b/arc=
+h/arm64/boot/dts/rockchip/rk3576-khadas-edge-2l.dts
+> index 5781deae00d9..09cb0f0d6dcf 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3576-khadas-edge-2l.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3576-khadas-edge-2l.dts
+> @@ -47,7 +47,19 @@ vcc_2v0_pldo_s3: regulator-vcc-2v0-pldo-s3 {
+>  		vin-supply =3D <&vcc_sys>;
+>  	};
+> =20
+> -
+> +	vcc_wifi_reg_on: regulator-wifi-reg-on {
+> +		compatible =3D "regulator-fixed";
+> +		enable-active-high;
+> +		gpios =3D <&gpio4 RK_PA2 GPIO_ACTIVE_HIGH>;
+> +		pinctrl-0 =3D <&wifi_reg_on>;
+> +		pinctrl-names =3D "default";
+> +		regulator-name =3D "wifi_reg_on";
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-min-microvolt =3D <1800000>;
+> +		regulator-max-microvolt =3D <1800000>;
+> +		vin-supply =3D <&vcc_1v8_s3>;
+> +	};
+>  };
+> =20
+>  &cpu_l0 {
+> @@ -431,6 +443,63 @@ regulator-state-mem {
+>  	};
+>  };
+> =20
+> +&combphy0_ps {
+> +	status =3D "okay";
+> +};
 
-[1/2] arm64: dts: rockchip: Fix gmac0 reset pin for NanoPi R5S
-      commit: c83c4a09d4c01c91d6c52d6d4d77a06892a3e83b
+also please sort also phandles alphabetically, i.e. pcie2 between
+c-something and i2c is the wrong place :-)
 
-Best regards,
--- 
-Heiko Stuebner <heiko@sntech.de>
+
+Heiko
+
+> +
+> +&pcie0 {
+> +	pinctrl-names =3D "default";
+> +	pinctrl-0 =3D <&pcie0_rst>;
+
+
+
 
