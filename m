@@ -4,73 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75B0CFF8860
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 19:05:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55E29FF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 19:09:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mhyohh1HXnwBgAR4BR6g6L0ve+gccVeyspOB5HMBrqE=; b=2Ft2DKuyEsRyTMRcDQS9Q4ae6X
-	KYmn8i0dkNHC3MQPjahxf8tD+oj4GAPhk/GGwETBapSV3LlnEOurnHpHa5wc8EwPS+KTCilWExnzF
-	URflxh5Cok/Wdbimp0RK55pJC4lPmc60wi21aCS93l0Ho9WnWRsI6OZS9crIgnsFcgR6Sux0/l02v
-	Erll1kZb8tUgi3Pz5MmjIgk+in0zhTFTDKFZp0eapj4YQsuX0eJ5Gnruy/Pk0aqS7n/9dqXJQSkN0
-	Rai1iY0Mv5r4/Pe8fcykPHLDpR55OKN6nR7AyPG39FiaE3Do9RDxeKmYZ7jK8yiMSD8Ncg+egPcUw
-	qdjYLGWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FwBDxvhhf1dytDgVC9wEZNucPdGR8g31jisecswPi0k=; b=LaMAZwgKJ5387H95+97PsW4eiH
+	xMtapzmz03lktM5G5EWUTdfFrfo2dff8pr5iOF99I32J+zPdViFZS7avcAfq2QqxMtmuiAJlLV0jQ
+	i3QWibSQ84SxJ/BIynNoZggtS0jhiz5oRMbuAJlMIKuc2MLrHQ5UaZj5L3r6/WFOzeSiFRw1ldh//
+	p4Jd46ZsuWN0ap4GlQAi3j5PwpPsXpDxjfW/sG9tPaEsu8H/045I3NETtWZvogU14lbCMYNv6S1Y1
+	XML7zbEq8X54FCZkdxoQdGOLt2pZXPHzOFmqp+HAS0mvKi/NtklOU8v5/+Hu3Q8vRb7cm1mMX8JmC
+	o7uDGW8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHRH4-000000001Ze-1Bzz;
-	Mon, 27 Apr 2026 19:05:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wHRKH-000000001vV-11gl;
+	Mon, 27 Apr 2026 19:09:01 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHRGy-000000001ZH-2psM;
-	Mon, 27 Apr 2026 19:05:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 23A13416BE;
-	Mon, 27 Apr 2026 19:05:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D481CC19425;
-	Mon, 27 Apr 2026 19:05:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777316736;
-	bh=Mhyohh1HXnwBgAR4BR6g6L0ve+gccVeyspOB5HMBrqE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ff5NIzK13KiJmVmOM3rZi1ac7+0JpRvDmH5OHP5nlmXfpnhV4Iq4ORa/QLeJlvrHY
-	 gkOAFcnYCsoH/hPEmAwwRVcFmLCtpOeP3f4r93F2faU/r+0YOK41sESQt7IIt74eet
-	 zn0Dtot5BhoZDnaTwANDDnTAuq5awt5aV41Km0sLJ0K4Q4FgyZKeeR2sDsc8YVkqTN
-	 YlOYgYvJdmyoop5+FijncqYibMuXcd4zadOeqymCj8b789e8B5ppCgtgqJS4o8EMFY
-	 xCiX42i8UETm724S1c+2ut5F7kdswn1ZsZZd1QY2yKftofnBP+8qQ00Wqb1bP94tjs
-	 ijbgbTTV0R2yQ==
-Date: Mon, 27 Apr 2026 20:05:28 +0100
-From: Conor Dooley <conor@kernel.org>
-To: lizhi2@eswincomputing.com
-Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
-	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
-	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	maxime.chevallier@bootlin.com, ningyu@eswincomputing.com,
-	linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com,
-	pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com,
-	horms@kernel.org
-Subject: Re: [PATCH net-next v7 3/4] dt-bindings: mfd: syscon: add ESWIN
- EIC7700 compatible
-Message-ID: <20260427-skewed-thigh-40baec89fbaf@spud>
-References: <20260427072353.1114-1-lizhi2@eswincomputing.com>
- <20260427072541.1174-1-lizhi2@eswincomputing.com>
+	id 1wHRKE-000000001ue-3N2x
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Apr 2026 19:09:00 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-488a88aeec9so131321635e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 12:08:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1777316937; x=1777921737; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=FwBDxvhhf1dytDgVC9wEZNucPdGR8g31jisecswPi0k=;
+        b=h8LPolDyunBRtntegMvKJ+uSxak2biUwHtQgWADkgCl2+Vq2+7ced/Ap2iaefX9aa2
+         zmuxnEZV9knRW5XyP1+2mdaZXFotCCws91elly9ISdXWiBlb/9SzPzI7aBrH0az6upF4
+         pA3oj2n2H5PfDBr39xhBhWWP/ikrG3/xvjyf/cxJU14SL2xC1pdb734gSVL7KJcYDJLt
+         +1pwBHEj1cZEzfZRx+ofjfypqtzJ4ETxyo1bcIF6ZGTVGdic50tkm2tPV8lp7Z4lXZmk
+         0T82mmvAKgzQFMLBvD/rBVrB7A0ZL68uDUWtEPZ1F1P4eVhuVHCsB+eM1DjgPP4kPc07
+         viTA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777316937; x=1777921737;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FwBDxvhhf1dytDgVC9wEZNucPdGR8g31jisecswPi0k=;
+        b=gt1/7/AXLXpe0QdWL3osz7MpdrhbHRGfPqZRoC4+syNUpXPN++o9CjJ/IpRJA8qtMA
+         jv/ZHkTq0tilKx9Fa2X+/kZJEFfbsPzs3NXeWK/wVyZc0bXfywuAgvq4t9FRdL5oRFY2
+         Jvxjxt+3G/3E9LEp10nphJdBuvgZdp4o6IT75o3DIGWoEGVK22zBIqapkdxedQxBj43P
+         wNyT3tq2OX0Yeu3C6GV9dsT9MH0KZ48ODzhVCMrVaEluF4TjIpij/pLZ/yWC89WEpceg
+         AEnbDdZHJn/EkyQ2K5XHP6VnoPq09U1dk9b1HJQz+hEQ1TL0xiNLKucCls2cWDvW/RcQ
+         KNKg==
+X-Forwarded-Encrypted: i=1; AFNElJ+fJGpFbWsS93rpeskSvaRt2HOQQCyILjwent4nCT4tBUt6BWrDw52y6p7zV9IBkABZKL8WGurMTQspkbbGUfN5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzz4jzvE7aA0nsctDWjecb3YF3BnsC1MtWdCxftjMDuuPsfEkaP
+	e+rIGwTB2svjq1YCQSa0MlPrOyD2z1nbiswtgsSWDXdoo487obynNqjU
+X-Gm-Gg: AeBDieueI6KnllUAc26iKO26d2xS4+9bJ12nAAuHljSPjaq4/IMJPHClGMTPIYz4lo9
+	KmQJKW18N1wv9ihW5xaYQga5h9ziaV+CRtNgt/AEhU5v0gh6DslyN/XLJjbOmX/e1dP5/Dtv7bO
+	sctQl8dKa+s/tFlSj9jgO9PKyLy1rL4cae/pF9Ek+zQTAEtoY+uWbciWCnTqLXSQRTuT+jsRjwG
+	QCIhOLHUcOo4mGFIKmA98hMv60rQfgd/r8ZsOqNk055bQ6ibEdz+kcHJOMltxbJBbmQDb8WBoOO
+	pVvs0vdzQqYdQS8QZvgbJ/Ppf4HemNwRVPcMQM7Z+GlxGVo98gVFkWtM7hJWtG1EhcVn3wsB5si
+	jax4b1ybt32lIKE/9m49Du723SlrYL3QCvsaEdd6Wwyxm7pMI58pevYIR/g2Myy0mMitmPBbcNY
+	HMn2NosNULE5iQBfImcDQB3bHlLVW0AcDpzSBct5iu7ec4m2xf
+X-Received: by 2002:a05:6000:240e:b0:43d:6fb7:fee1 with SMTP id ffacd0b85a97d-4464aced261mr153573f8f.46.1777316936724;
+        Mon, 27 Apr 2026 12:08:56 -0700 (PDT)
+Received: from localhost.localdomain ([196.235.239.18])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4463cb59d5esm504286f8f.7.2026.04.27.12.08.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Apr 2026 12:08:56 -0700 (PDT)
+From: Salah Triki <salah.triki@gmail.com>
+To: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Salah Triki <salah.triki@gmail.com>
+Subject: [PATCH v3] iio: adc: mt6359: fix unchecked return value in mt6358_read_imp
+Date: Mon, 27 Apr 2026 20:08:49 +0100
+Message-ID: <20260427190849.14963-1-salah.triki@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="El0eEiK729PJ8197"
-Content-Disposition: inline
-In-Reply-To: <20260427072541.1174-1-lizhi2@eswincomputing.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_120536_735503_BA150EFE 
-X-CRM114-Status: UNSURE (   6.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260427_120858_855305_0286DD62 
+X-CRM114-Status: GOOD (  16.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,32 +103,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+In mt6358_read_imp(), the variable val_v is passed to regmap_read()
+but the return value is not checked. If the read fails, val_v remains
+uninitialized and its random stack content is subsequently reported
+as a measurement result.
 
---El0eEiK729PJ8197
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Initialize val_v to zero to ensure a predictable value is reported
+in case of bus failure and to prevent potential stack data leakage.
+This also satisfies static analyzers that might otherwise flag the
+variable as used uninitialized.
 
-On Mon, Apr 27, 2026 at 03:25:41PM +0800, lizhi2@eswincomputing.com wrote:
-> From: Zhi Li <lizhi2@eswincomputing.com>
->=20
-> Document ESWIN EIC7700 SoC compatible for syscon registers.
->=20
-> Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
+Fixes: 3587914bf61 ("iio: adc: Add support for MediaTek MT6357/8/9 Auxiliary ADC")
+Signed-off-by: Salah Triki <salah.triki@gmail.com>
+---
+Changes in v3:
+- Initialize val_v to zero at declaration instead of checking regmap_read()
+  return value, as suggested by Jonathan Cameron and Andy Shevchenko.
+- Update commit message to reflect this new approach
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
+Changes in v2:
+- Added Fixes tag.
+- Re-examined the entire driver for unchecked regmap operations.
+  While several regmap_write() and regmap_set_bits() calls also ignore
+  return values, I focused on this specific regmap_read() in
+  mt6358_read_imp() because it leads to an uninitialized variable usage
+  (val_v). This makes this fix critical for reporting correct data
+  to userspace
 
---El0eEiK729PJ8197
-Content-Type: application/pgp-signature; name="signature.asc"
+ drivers/iio/adc/mt6359-auxadc.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
------BEGIN PGP SIGNATURE-----
+diff --git a/drivers/iio/adc/mt6359-auxadc.c b/drivers/iio/adc/mt6359-auxadc.c
+index 6b9ed9b1fde2..0e52effa55db 100644
+--- a/drivers/iio/adc/mt6359-auxadc.c
++++ b/drivers/iio/adc/mt6359-auxadc.c
+@@ -489,7 +489,7 @@ static int mt6358_read_imp(struct mt6359_auxadc *adc_dev,
+ 	const struct mtk_pmic_auxadc_info *cinfo = adc_dev->chip_info;
+ 	struct regmap *regmap = adc_dev->regmap;
+ 	u16 reg_adc0 = cinfo->regs[PMIC_AUXADC_ADC0];
+-	u32 val_v;
++	u32 val_v = 0;
+ 	int ret;
+ 
+ 	ret = mt6358_start_imp_conv(adc_dev, chan);
+-- 
+2.43.0
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCae+zeAAKCRB4tDGHoIJi
-0mlTAP9T1H4VVCoPrBVkVi5B+2V2Nkk0PL+jONjju6Vk9eFLiQEAtsSo/+ncqagi
-Rjbg6nd17U+wXLIrzq8nY1sOlp9TkQk=
-=nVjP
------END PGP SIGNATURE-----
-
---El0eEiK729PJ8197--
 
