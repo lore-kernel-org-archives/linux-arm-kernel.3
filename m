@@ -4,91 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55E29FF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 19:09:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B62FFF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 19:10:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=FwBDxvhhf1dytDgVC9wEZNucPdGR8g31jisecswPi0k=; b=LaMAZwgKJ5387H95+97PsW4eiH
-	xMtapzmz03lktM5G5EWUTdfFrfo2dff8pr5iOF99I32J+zPdViFZS7avcAfq2QqxMtmuiAJlLV0jQ
-	i3QWibSQ84SxJ/BIynNoZggtS0jhiz5oRMbuAJlMIKuc2MLrHQ5UaZj5L3r6/WFOzeSiFRw1ldh//
-	p4Jd46ZsuWN0ap4GlQAi3j5PwpPsXpDxjfW/sG9tPaEsu8H/045I3NETtWZvogU14lbCMYNv6S1Y1
-	XML7zbEq8X54FCZkdxoQdGOLt2pZXPHzOFmqp+HAS0mvKi/NtklOU8v5/+Hu3Q8vRb7cm1mMX8JmC
-	o7uDGW8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/+537DeOzdoa8NSn6MBJfjhR1eh4h4m+gHKWGpVaQUA=; b=hb/InzC+0EYlijK4DC44Xy19sg
+	ZeA6QwRJ/3PlcSacQVTWqIWzeJs8FgxQGa+ao37TDrg+YrI3ZqISUJdboz3AwfQSnZW00yM6uvdkv
+	aQep6q/ARk8zTs+p9P4j7o8OcFSnhV6fzIH/dc2mznfukDDirSxQGeuA5THQ+WWr6YyQcnmUARROw
+	3R8eEVHk+nBEE+4UGoFRZbLjcUYomCwX6VjfhPJwU/1HqkD4neHYYKbdJ46EK63Zwx8r3wuZTMEU5
+	TRBU+Yv4JDUuu3Fuvz3d2eZgAyUAtBk/0cANYzzi+gOLiysNm1xjqhDAmzEDP74k/sRJZRFBSnxyC
+	RGmk/IYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHRKH-000000001vV-11gl;
-	Mon, 27 Apr 2026 19:09:01 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1wHRLE-00000000248-1ERQ;
+	Mon, 27 Apr 2026 19:10:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHRKE-000000001ue-3N2x
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 19:09:00 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-488a88aeec9so131321635e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 12:08:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777316937; x=1777921737; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=FwBDxvhhf1dytDgVC9wEZNucPdGR8g31jisecswPi0k=;
-        b=h8LPolDyunBRtntegMvKJ+uSxak2biUwHtQgWADkgCl2+Vq2+7ced/Ap2iaefX9aa2
-         zmuxnEZV9knRW5XyP1+2mdaZXFotCCws91elly9ISdXWiBlb/9SzPzI7aBrH0az6upF4
-         pA3oj2n2H5PfDBr39xhBhWWP/ikrG3/xvjyf/cxJU14SL2xC1pdb734gSVL7KJcYDJLt
-         +1pwBHEj1cZEzfZRx+ofjfypqtzJ4ETxyo1bcIF6ZGTVGdic50tkm2tPV8lp7Z4lXZmk
-         0T82mmvAKgzQFMLBvD/rBVrB7A0ZL68uDUWtEPZ1F1P4eVhuVHCsB+eM1DjgPP4kPc07
-         viTA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777316937; x=1777921737;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=FwBDxvhhf1dytDgVC9wEZNucPdGR8g31jisecswPi0k=;
-        b=gt1/7/AXLXpe0QdWL3osz7MpdrhbHRGfPqZRoC4+syNUpXPN++o9CjJ/IpRJA8qtMA
-         jv/ZHkTq0tilKx9Fa2X+/kZJEFfbsPzs3NXeWK/wVyZc0bXfywuAgvq4t9FRdL5oRFY2
-         Jvxjxt+3G/3E9LEp10nphJdBuvgZdp4o6IT75o3DIGWoEGVK22zBIqapkdxedQxBj43P
-         wNyT3tq2OX0Yeu3C6GV9dsT9MH0KZ48ODzhVCMrVaEluF4TjIpij/pLZ/yWC89WEpceg
-         AEnbDdZHJn/EkyQ2K5XHP6VnoPq09U1dk9b1HJQz+hEQ1TL0xiNLKucCls2cWDvW/RcQ
-         KNKg==
-X-Forwarded-Encrypted: i=1; AFNElJ+fJGpFbWsS93rpeskSvaRt2HOQQCyILjwent4nCT4tBUt6BWrDw52y6p7zV9IBkABZKL8WGurMTQspkbbGUfN5@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzz4jzvE7aA0nsctDWjecb3YF3BnsC1MtWdCxftjMDuuPsfEkaP
-	e+rIGwTB2svjq1YCQSa0MlPrOyD2z1nbiswtgsSWDXdoo487obynNqjU
-X-Gm-Gg: AeBDieueI6KnllUAc26iKO26d2xS4+9bJ12nAAuHljSPjaq4/IMJPHClGMTPIYz4lo9
-	KmQJKW18N1wv9ihW5xaYQga5h9ziaV+CRtNgt/AEhU5v0gh6DslyN/XLJjbOmX/e1dP5/Dtv7bO
-	sctQl8dKa+s/tFlSj9jgO9PKyLy1rL4cae/pF9Ek+zQTAEtoY+uWbciWCnTqLXSQRTuT+jsRjwG
-	QCIhOLHUcOo4mGFIKmA98hMv60rQfgd/r8ZsOqNk055bQ6ibEdz+kcHJOMltxbJBbmQDb8WBoOO
-	pVvs0vdzQqYdQS8QZvgbJ/Ppf4HemNwRVPcMQM7Z+GlxGVo98gVFkWtM7hJWtG1EhcVn3wsB5si
-	jax4b1ybt32lIKE/9m49Du723SlrYL3QCvsaEdd6Wwyxm7pMI58pevYIR/g2Myy0mMitmPBbcNY
-	HMn2NosNULE5iQBfImcDQB3bHlLVW0AcDpzSBct5iu7ec4m2xf
-X-Received: by 2002:a05:6000:240e:b0:43d:6fb7:fee1 with SMTP id ffacd0b85a97d-4464aced261mr153573f8f.46.1777316936724;
-        Mon, 27 Apr 2026 12:08:56 -0700 (PDT)
-Received: from localhost.localdomain ([196.235.239.18])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4463cb59d5esm504286f8f.7.2026.04.27.12.08.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Apr 2026 12:08:56 -0700 (PDT)
-From: Salah Triki <salah.triki@gmail.com>
-To: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
+	id 1wHRLC-0000000023r-3STd;
+	Mon, 27 Apr 2026 19:09:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 82D3960141;
+	Mon, 27 Apr 2026 19:09:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB534C19425;
+	Mon, 27 Apr 2026 19:09:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777316997;
+	bh=S2QFyYO98/VeGN/skPl8gjEfWZ0lmpn91ZH1v5evmfc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=oy1TTQzabSaSuoEPs9nMY1DcOZHjLDMVdinWJwVSlLiubHWfCdGTVDrBoiffUnV42
+	 4lR3iRcdRoRm6WmErZB7xmwE+o0aok1TZr1gwQZZcMF/yREI/KReJwtBaDBanAXqWX
+	 TfhlFacma5zyeE/lMesNtd8p1bGd0mlgCuYcBVgQKiBOZuO5gLxEp2OxhkJ8/ui9We
+	 1EHCy0xQa2AOpklCXJB1L/n/Ayy5PTYKEtFKHBzU4E8+TgcW9+pFZ4yNaV0pCoERhj
+	 XNq7M8lMiRHMiGR0gSTnuKUyaqDXJruookoppjFCDKseviChNfSmsd40xnEbV7T3hs
+	 /TvYi7Y59+Oqw==
+Date: Mon, 27 Apr 2026 20:09:51 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Rosen Penev <rosenp@gmail.com>
+Cc: devicetree@vger.kernel.org, Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Salah Triki <salah.triki@gmail.com>
-Subject: [PATCH v3] iio: adc: mt6359: fix unchecked return value in mt6358_read_imp
-Date: Mon, 27 Apr 2026 20:08:49 +0100
-Message-ID: <20260427190849.14963-1-salah.triki@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	"open list:MEDIATEK MT76 WIRELESS LAN DRIVER" <linux-wireless@vger.kernel.org>,
+	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>,
+	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>,
+	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>,
+	"open list:MIPS" <linux-mips@vger.kernel.org>
+Subject: Re: [PATCH 3/3] wifi: mt76: remove mt76_get_of_data_from_mtd
+Message-ID: <20260427-hug-baboon-d60bb8fdfa51@spud>
+References: <20260427034427.881389-1-rosenp@gmail.com>
+ <20260427034427.881389-4-rosenp@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_120858_855305_0286DD62 
-X-CRM114-Status: GOOD (  16.86  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="h8E0ijeg3Rf1YQAF"
+Content-Disposition: inline
+In-Reply-To: <20260427034427.881389-4-rosenp@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,50 +84,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In mt6358_read_imp(), the variable val_v is passed to regmap_read()
-but the return value is not checked. If the read fails, val_v remains
-uninitialized and its random stack content is subsequently reported
-as a measurement result.
 
-Initialize val_v to zero to ensure a predictable value is reported
-in case of bus failure and to prevent potential stack data leakage.
-This also satisfies static analyzers that might otherwise flag the
-variable as used uninitialized.
+--h8E0ijeg3Rf1YQAF
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Fixes: 3587914bf61 ("iio: adc: Add support for MediaTek MT6357/8/9 Auxiliary ADC")
-Signed-off-by: Salah Triki <salah.triki@gmail.com>
----
-Changes in v3:
-- Initialize val_v to zero at declaration instead of checking regmap_read()
-  return value, as suggested by Jonathan Cameron and Andy Shevchenko.
-- Update commit message to reflect this new approach
+On Sun, Apr 26, 2026 at 08:44:27PM -0700, Rosen Penev wrote:
+> mt76_get_of_data_from_mtd has been replaced by
+> mt76_get_of_data_from_nvmem in all usages.
 
-Changes in v2:
-- Added Fixes tag.
-- Re-examined the entire driver for unchecked regmap operations.
-  While several regmap_write() and regmap_set_bits() calls also ignore
-  return values, I focused on this specific regmap_read() in
-  mt6358_read_imp() because it leads to an uninitialized variable usage
-  (val_v). This makes this fix critical for reporting correct data
-  to userspace
+All users in the kernel, but what about other sources of devicetrees?
+Those built into firmware etc? Are there none of those too?
 
- drivers/iio/adc/mt6359-auxadc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Conor.
 
-diff --git a/drivers/iio/adc/mt6359-auxadc.c b/drivers/iio/adc/mt6359-auxadc.c
-index 6b9ed9b1fde2..0e52effa55db 100644
---- a/drivers/iio/adc/mt6359-auxadc.c
-+++ b/drivers/iio/adc/mt6359-auxadc.c
-@@ -489,7 +489,7 @@ static int mt6358_read_imp(struct mt6359_auxadc *adc_dev,
- 	const struct mtk_pmic_auxadc_info *cinfo = adc_dev->chip_info;
- 	struct regmap *regmap = adc_dev->regmap;
- 	u16 reg_adc0 = cinfo->regs[PMIC_AUXADC_ADC0];
--	u32 val_v;
-+	u32 val_v = 0;
- 	int ret;
- 
- 	ret = mt6358_start_imp_conv(adc_dev, chan);
--- 
-2.43.0
+>=20
+> Remove it to prevent people from using the deprecated
+> mediatek,mtd-eeprom binding.
+>=20
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> ---
+>  drivers/net/wireless/mediatek/mt76/eeprom.c   | 87 -------------------
+>  drivers/net/wireless/mediatek/mt76/mt76.h     |  1 -
+>  .../wireless/mediatek/mt76/mt7915/eeprom.c    |  4 -
+>  3 files changed, 92 deletions(-)
+>=20
+> diff --git a/drivers/net/wireless/mediatek/mt76/eeprom.c b/drivers/net/wi=
+reless/mediatek/mt76/eeprom.c
+> index afdb73661866..092804323d81 100644
+> --- a/drivers/net/wireless/mediatek/mt76/eeprom.c
+> +++ b/drivers/net/wireless/mediatek/mt76/eeprom.c
+> @@ -35,89 +35,6 @@ static int mt76_get_of_eeprom_data(struct mt76_dev *de=
+v, void *eep, int len)
+>  	return 0;
+>  }
+> =20
+> -int mt76_get_of_data_from_mtd(struct mt76_dev *dev, void *eep, int offse=
+t, int len)
+> -{
+> -#ifdef CONFIG_MTD
+> -	struct device_node *np =3D dev->dev->of_node;
+> -	struct mtd_info *mtd;
+> -	const __be32 *list;
+> -	const char *part;
+> -	phandle phandle;
+> -	size_t retlen;
+> -	int size;
+> -	int ret;
+> -
+> -	list =3D of_get_property(np, "mediatek,mtd-eeprom", &size);
+> -	if (!list)
+> -		return -ENOENT;
+> -
+> -	phandle =3D be32_to_cpup(list++);
+> -	if (!phandle)
+> -		return -ENOENT;
+> -
+> -	np =3D of_find_node_by_phandle(phandle);
+> -	if (!np)
+> -		return -EINVAL;
+> -
+> -	part =3D of_get_property(np, "label", NULL);
+> -	if (!part)
+> -		part =3D np->name;
+> -
+> -	mtd =3D get_mtd_device_nm(part);
+> -	if (IS_ERR(mtd)) {
+> -		ret =3D  PTR_ERR(mtd);
+> -		goto out_put_node;
+> -	}
+> -
+> -	if (size <=3D sizeof(*list)) {
+> -		ret =3D -EINVAL;
+> -		goto out_put_node;
+> -	}
+> -
+> -	offset +=3D be32_to_cpup(list);
+> -	ret =3D mtd_read(mtd, offset, len, &retlen, eep);
+> -	put_mtd_device(mtd);
+> -	if (mtd_is_bitflip(ret))
+> -		ret =3D 0;
+> -	if (ret) {
+> -		dev_err(dev->dev, "reading EEPROM from mtd %s failed: %i\n",
+> -			part, ret);
+> -		goto out_put_node;
+> -	}
+> -
+> -	if (retlen < len) {
+> -		ret =3D -EINVAL;
+> -		goto out_put_node;
+> -	}
+> -
+> -	if (of_property_read_bool(dev->dev->of_node, "big-endian")) {
+> -		u8 *data =3D (u8 *)eep;
+> -		int i;
+> -
+> -		/* convert eeprom data in Little Endian */
+> -		for (i =3D 0; i < round_down(len, 2); i +=3D 2)
+> -			put_unaligned_le16(get_unaligned_be16(&data[i]),
+> -					   &data[i]);
+> -	}
+> -
+> -#ifdef CONFIG_NL80211_TESTMODE
+> -	dev->test_mtd.name =3D devm_kstrdup(dev->dev, part, GFP_KERNEL);
+> -	if (!dev->test_mtd.name) {
+> -		ret =3D -ENOMEM;
+> -		goto out_put_node;
+> -	}
+> -	dev->test_mtd.offset =3D offset;
+> -#endif
+> -
+> -out_put_node:
+> -	of_node_put(np);
+> -	return ret;
+> -#else
+> -	return -ENOENT;
+> -#endif
+> -}
+> -EXPORT_SYMBOL_GPL(mt76_get_of_data_from_mtd);
+> -
+>  int mt76_get_of_data_from_nvmem(struct mt76_dev *dev, void *eep,
+>  				const char *cell_name, int len)
+>  {
+> @@ -163,10 +80,6 @@ static int mt76_get_of_eeprom(struct mt76_dev *dev, v=
+oid *eep, int len)
+>  	if (!ret)
+>  		return 0;
+> =20
+> -	ret =3D mt76_get_of_data_from_mtd(dev, eep, 0, len);
+> -	if (!ret)
+> -		return 0;
+> -
+>  	return mt76_get_of_data_from_nvmem(dev, eep, "eeprom", len);
+>  }
+> =20
+> diff --git a/drivers/net/wireless/mediatek/mt76/mt76.h b/drivers/net/wire=
+less/mediatek/mt76/mt76.h
+> index 527bef97e122..f447ecac664d 100644
+> --- a/drivers/net/wireless/mediatek/mt76/mt76.h
+> +++ b/drivers/net/wireless/mediatek/mt76/mt76.h
+> @@ -1339,7 +1339,6 @@ void mt76_seq_puts_array(struct seq_file *file, con=
+st char *str,
+> =20
+>  int mt76_eeprom_init(struct mt76_dev *dev, int len);
+>  int mt76_eeprom_override(struct mt76_phy *phy);
+> -int mt76_get_of_data_from_mtd(struct mt76_dev *dev, void *eep, int offse=
+t, int len);
+>  int mt76_get_of_data_from_nvmem(struct mt76_dev *dev, void *eep,
+>  				const char *cell_name, int len);
+> =20
+> diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/eeprom.c b/drivers=
+/net/wireless/mediatek/mt76/mt7915/eeprom.c
+> index eb92cbf1a284..c24e1276700b 100644
+> --- a/drivers/net/wireless/mediatek/mt76/mt7915/eeprom.c
+> +++ b/drivers/net/wireless/mediatek/mt76/mt7915/eeprom.c
+> @@ -29,10 +29,6 @@ static int mt7915_eeprom_load_precal(struct mt7915_dev=
+ *dev)
+> =20
+>  	offs =3D is_mt7915(&dev->mt76) ? MT_EE_PRECAL : MT_EE_PRECAL_V2;
+> =20
+> -	ret =3D mt76_get_of_data_from_mtd(mdev, dev->cal, offs, size);
+> -	if (!ret)
+> -		return ret;
+> -
+>  	ret =3D mt76_get_of_data_from_nvmem(mdev, dev->cal, "precal", size);
+>  	if (!ret)
+>  		return ret;
+> --=20
+> 2.54.0
+>=20
 
+--h8E0ijeg3Rf1YQAF
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCae+0fwAKCRB4tDGHoIJi
+0p6UAQCh7xiqZv6vZTQVkekaR1PoBZs8cZSa9cGLXxrA5TBPXAD+NdxdB4FFY1+K
+5yFpUApYxWTCs8eeSKv6+VAqqrq7lAE=
+=hLdb
+-----END PGP SIGNATURE-----
+
+--h8E0ijeg3Rf1YQAF--
 
