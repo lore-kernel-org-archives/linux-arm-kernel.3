@@ -4,108 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11944FF8861
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 10:00:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68EDEFF8861
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 10:01:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eWeO98Nt9yPBFV9mUTW4xZfhM/Yh8rc/7tXj3PKgVVc=; b=0zMVzukGTHtbGtNkUBfJhgadSE
-	6t4LkZT64nBTdl7GNvTHlar2anRR1cAKCJlMBlGLxACwLK45gpNU25/N17O5xEDmmY+8yY+nzv2pN
-	y9AhyUx1vzeKJVVW+Uxf0yM7Hy4qwL7+PsSytHW3Qk9bPIvXYptkxoDayQJ9Y4q7Au4l7yCgzdoYQ
-	f3FlYUimWYtZwRVsjCfiew6JNNFnKMAcfLLmRh9GvpZT9955DiIpMweQyLabzDAJGCv9LepUwCWrs
-	/hl/MNu2obzm2arRXhgbbXMqRPVRgf+qEjIbCWji7Ui4cL32moEi2mBuan32domyJikAhENaVQWzB
-	b/b8SQVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0EvvvHNzTOaXmxdzFUeL0y2A0j/j9spluGpaFZP3FMU=; b=IG0z/7pwwcLBurqDLnjPIkPLjS
+	snlOXxXXu1X4QCIb4vNosbnQxDerEZ4u9YH/x0HECDmz+ylfvbG4veohNOYkg0bvehvNeywWSe4uC
+	2fU/jSJITaaSDJJXsYn+twRLFZ4hTi4fUuoRoaqI39ca2oCdKx9l9nO0lVeb2x4oXx3x4uEd/cFge
+	Y5eAtaOF2j0rKjtYpLNzhhVpqf+o9D7WeHfehzf5lEGqVUuxwqiW1745MiQf7UyyDfz1Lvt6BP87j
+	8WGJR5g5AQkKBmRFNQUmF21vtg8tkMUgCkKvSRJ6FZ0gL19yVN+WKkn/ByKHtp9xWpf1FWAkci2j/
+	h9ivhHtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHIlI-0000000Ge82-1pP1;
-	Mon, 27 Apr 2026 10:00:20 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1wHIly-0000000GeIN-20JT;
+	Mon, 27 Apr 2026 10:01:02 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHIlF-0000000Ge68-47TD
+	id 1wHIlu-0000000GeHV-0mID
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 10:00:19 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-445795cf6f1so224093f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 03:00:17 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1777284016; cv=none;
-        d=google.com; s=arc-20240605;
-        b=dg3Gjk+p64ZSzvd1OST02bPpRVgfkshwMSLf1TDgbxQLKZttTgYLhK1g8KCfpA80MF
-         O+zuiM0nqq+tLTpo0fTAGMoQv6D3vfizFNwNRfkXRG4/fuhXaW1QmcNbYtH5f0sIAGRQ
-         JD8wQNWBTHlC6sVAJ2n7v8O5IiyuEVj3NxI7xxxx+zjCpGP9m61emfJKI0GLr3rRcZQq
-         extzQTqGpZKVGflMu8k6mckbcLQaMdaWWkUZ7c0Ch5mHYa/zqi7LLuaWxYgTe+GmxJCH
-         mbgLDpUJs9X37eR6orU5yUREWhU3U9Fu2PEoDMLRFR4L/IpSAHkjzB7KglQCjFCi8Pk6
-         KeQg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=eWeO98Nt9yPBFV9mUTW4xZfhM/Yh8rc/7tXj3PKgVVc=;
-        fh=HkV1RLoDLOMiemCRCues3y7ihLqgTjctj5uqnkB3B/c=;
-        b=TBjVOqjo6LaKHnmtcuCkB4uXeHubI87ui95PG05phbHkcEb1/bRjg0Kd+DtlUzusYI
-         h6bhOo8jHF8lbPwLOrOfcA6lfiMPmQvj0EDUGxarlGvC96Wk3s7dr0KKmqyJlh8x3GI2
-         P0REf1ja5D4IRUYpCvegL6s0shaxp+YpkaEEd3GDJFfjB2xAWzfT8QnpTFdGoFBlNj3S
-         9DO5d9lgpeCx9rPfMO7zQNZY8Mu0YFPOqsbMHvDujcK/KQAaWYyhF4BoN66aOH5pOVgF
-         UnibxNiuZ4weDqBDQIyyS6JpWejmDr1AXlagoFoi2Axj3dwybfbh19Dq3pbe4BV8fUTp
-         8mPA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Mon, 27 Apr 2026 10:01:01 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2b23fcf90b2so95104935ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 03:00:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777284016; x=1777888816; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=eWeO98Nt9yPBFV9mUTW4xZfhM/Yh8rc/7tXj3PKgVVc=;
-        b=lynHnLMvk+R6gBrvMgK1X06V5ah7arxfvkKZ/ixwttl23THPviTzO943fTFE+kWF0t
-         KphsRqZspdYyXeihn8Q6it1OTXuH5cx4LWxTmGSs4XPiuyTqVVlUlIVjtzxmdmmSJjHy
-         zYb6bPnO0c2qFZHzgHBCaX32ftSN/kdAuLzWR1IlfrbHDXX+MI5BwE3OOHCtHXc6uONY
-         BG2HRG7B+SzXCae9JhyxjHQK/oLP0VKCS+W7Q1hiXTwk0SHQQNqMlT5jIL5k1UyllrpB
-         Q9/y33eYmYg4gDNQp6yU6CqaJw0PZo+9psRBxZC0d0izYItgGKqlwy5IQ//OMMaIOLl6
-         dm2g==
+        d=gmail.com; s=20251104; t=1777284057; x=1777888857; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=0EvvvHNzTOaXmxdzFUeL0y2A0j/j9spluGpaFZP3FMU=;
+        b=jAmSXV5eO0xeXtoo5oVpd0r8wvvtKSToDfSE8O9cxoYDZoOdQ8nOl9pEF8qyikkwPy
+         IsZP4NDFgFymMiknoY5XAJ8pzob/g1UwZriMQntz56AXkRYePuMmCUh5GWAqBhOxBwbV
+         G2CRUGK8GBi7VEOsMvk9IbTGTNg7ks9b+Yac5aOVykhMd0IhncQZ7qroXCAljf7qH7GP
+         BbuOuyAsWaPMKeKbFOKO0NM2crHeYINETksuYRqC4PPAZ45JdmEtX78k7YudoSsYAb0v
+         Ixi37fL9wNJ/PRj6fB9iCBNjC7MSCcf/QtNZmsX4ryZnNybvaHQcl81kDglyvwQ8KCBv
+         Q5FQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777284016; x=1777888816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20251104; t=1777284057; x=1777888857;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=eWeO98Nt9yPBFV9mUTW4xZfhM/Yh8rc/7tXj3PKgVVc=;
-        b=WTgU7xbmmpgbHWICDL2t9smobMIX7Lg6UVyJhnYXZyxmmMFJ4SASSynNsEFVMPfZdC
-         jVA/85GQq4xZCnkFqu2NKW9fhlKDULKE4RMVATvUrAlRjy/5THhSq0O0LrmFwWfUnRn+
-         /vCwmPFkqIphIPn3vrKHvmslfonhnECkJwIqDALcSHCxN3qYsl+lZnV2qNnadO84bQ4f
-         a+05Rh7KCHajlJ3ZkvDy6dV2Ms46R5oM2qaAMabO6m0goT3jVyqiYgLS/P+KisL/oK2C
-         1PMd22jElB3+bKUdkNr2zJ14RudWpphrzhBEJt8oalAH5glZi0uvRNGzrevVPJBZeq1F
-         qBPQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9sZ2YK/7E9M54ykjDbM6hHW5qkPVbgq7p9kWjSlbSkqTtNvA9Oe/OcqkHr66wmLR9c67Z16y677dlFn4lmnaRf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/Zgu/Q9+fmdKqG6u5XTGUIouV/MTHveoF4VIT/+dJDeVKHBb0
-	qRQRuQ1nWbQLY1uQqsd5dJUoINyZYLC9cr1FD1+hgcjQwFw9birBCz1XnZfvsTuFpZ71rpwAjsw
-	l0yDJwn08G5iVNtujEo2Lu7k+lxcRjNE=
-X-Gm-Gg: AeBDievz5iiw6lasxYjpojZ7EvkuJaiModjzjoJFARN1/uxNPKZzKK+/9KqFwzAGMH5
-	svhg1LzzqwuGXcYf5WZ/MkE4ZjwvXixhpFLUfKV7nmquD39A3WSjv35XXTEqgNp7wZ6I6AQGq3R
-	1IQg9x+eNPG/WWmgILNGoAg1J+Y/WXICsr4VaaexJ5myWA6V+uR9NrdxttTrG48p9H1Q9ncaskg
-	4Hltty6SkeL7xKMg6UHHSytxhtFQXHCeFWML1hGQyijRALZ6xuMJbXj8dBoIAfF2CTImzU3bW36
-	UNwBNsq7cjl1pkVzmLQAlqxUbCL6oqPZee/78nasmI9o6XZddnTS8xOXOiQATEz/JyNzyUl+6Ym
-	+HMGY5QIvPXO+/BhIMw4GYGrYvtHsbz67waAakLRDmRzeWlbXwVXA8lupTLn9mW3QMXn2Q76xAd
-	iAbL0z1Kr0IDcXvOi6
-X-Received: by 2002:a5d:588f:0:b0:43d:1c7a:8b5b with SMTP id
- ffacd0b85a97d-43fe3e11665mr63059205f8f.40.1777284014766; Mon, 27 Apr 2026
- 03:00:14 -0700 (PDT)
+        bh=0EvvvHNzTOaXmxdzFUeL0y2A0j/j9spluGpaFZP3FMU=;
+        b=skzjHppbEzkW3OaWp/lQf8KIUZeMaoTAwIheQQur9n4d4vxSksaYDsJDzHclDpyFDA
+         //eKzYxiJLIVq9TZG/JXwPjvLC6tJlpk2ySzuvjWFUMlMuMbP9Q+glU31ToOe/RZqYLT
+         BxOZ3MF3OCATp/LyjudAViLLzS+Vk4xHwvdvIRPgzFFnVx7QH3+v96FVlGqBfkhJAA+i
+         CEk8eeesDmhk2KLXTRL3nZKlvqv8XzNSvMnQYD6oDd1/gz2VcEjVUaNLLeDoRz0xL/LE
+         zDked3vUHJBLyTPZJP9flecRiF7Duzb8pcj/fPpjPqlHSg8F9n6DW8BOb4Vk4CpYNic1
+         Ai7A==
+X-Forwarded-Encrypted: i=1; AFNElJ+ggcTSZCCaI5qedey/be3MfU1LU8x7gAsjLnESq988ga6pvXyk3tVgcSWHc4B+o+qwQ+DJLK27LTNwNlTy7KuC@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx11vYH7eLJfPyP7Vjrcw92DENOyxmu7wkkwGRT0chXCSYh12Ae
+	H3JusDhM7esMd5fwr35rkCb3/8YrnYGGJ59gZ0qXUWRFQLd9HPABP5c=
+X-Gm-Gg: AeBDievyFwO9VepJFdsR4o2Ae3V0TsHI7QJR9SfO8axncXHxFvB4GCIt4nJ+cK2kcwU
+	knKxdOJWoTqEFVS7YJ/m/vIG6h6ZnBMC8Pu2Wcv1Vb6Qm7e5m3qwnz/ZavnbEjf8K+b0U32amOL
+	AZ77NWx8CM06JF8andmVJIR2i9xkJl6q0e2T5JTyd8vfKRU+1iUwhmKuaJtZqQvUc3E0C0JLk31
+	wHC/wG9oJxfHBv3IXrdq4xaYyI6BRslPv5iiJj5bBNlhI35o7tWvvYaHimPjaGblG2wKR3KZqxF
+	RJtcwNRUPPJgBoa3YFXP+xbqDOo8c/96V540E/Krjv8zTWiHXQJu23anlJBx61YQCAL1jPZeGz6
+	v06NZum/GR+yNY2Hg2Y5fr2/iJ42xo9GePfzR9UbWq9qXSr+PvTCrA4Alv64K7TL57VORb0jAjv
+	gwkTmDQM1tSfpaZY4NIywVZxWv2vQHKNP8FJbhF+53dMVrDgJZy77IDyyqLopUn6wVliD13X++U
+	UigfG2FPbU+2pQ3Gi3RgzQD96yQT/GDxIzxFVNxBGIYxQ4=
+X-Received: by 2002:a17:902:e54e:b0:2ae:ce35:2686 with SMTP id d9443c01a7336-2b5f9e64c77mr424633395ad.5.1777284057141;
+        Mon, 27 Apr 2026 03:00:57 -0700 (PDT)
+Received: from localhost.localdomain ([1.226.165.54])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b5fa9ff713sm304240245ad.5.2026.04.27.03.00.53
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Mon, 27 Apr 2026 03:00:56 -0700 (PDT)
+From: "=?UTF-8?q?=EB=B0=95=EB=AA=85=ED=9B=88?=" <mhun512@gmail.com>
+X-Google-Original-From: =?UTF-8?q?=EB=B0=95=EB=AA=85=ED=9B=88?= <pakmyeonghun@bagmyeonghun-ui-MacBookPro.local>
+To: Maxime Ripard <mripard@kernel.org>,
+	Paul Kocialkowski <paulk@sys-base.io>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: Myeonghun Pak <mhun512@gmail.com>,
+	linux-media@vger.kernel.org,
+	linux-staging@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Ijae Kim <ae878000@gmail.com>
+Subject: [PATCH] media: cedrus: clean up media device on probe failure
+Date: Mon, 27 Apr 2026 19:00:10 +0900
+Message-ID: <20260427100049.29034-1-pakmyeonghun@bagmyeonghun-ui-MacBookPro.local>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-References: <20260426211834.3318306-1-caiomorais@usp.br> <20260426211834.3318306-2-caiomorais@usp.br>
- <CALoEA-zz-2cG7SJr1iKNQ0H81TVMXLQh3omkxJc9YRW673Kqqw@mail.gmail.com> <ae8xeI8VVUWn6OqQ@ashevche-desk.local>
-In-Reply-To: <ae8xeI8VVUWn6OqQ@ashevche-desk.local>
-From: Joshua Crofts <joshua.crofts1@gmail.com>
-Date: Mon, 27 Apr 2026 12:00:02 +0200
-X-Gm-Features: AVHnY4JjJ-1A0lty0OYBjPLv7IfMOB6XONqilcNpgy-xtOBrXG3SycZpHUetd8M
-Message-ID: <CALoEA-zgYuPM667fm4XPcxqbsXkQ8G5t09aj=ZHmsx89UFYKSw@mail.gmail.com>
-Subject: Re: [PATCH 1/3] iio: adc: xilinx-xadc: remove unnecessary includes
- and add missing ones
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: Caio Morais <caiomorais@usp.br>, andy@kernel.org, dlechner@baylibre.com, 
-	jic23@kernel.org, michal.simek@amd.com, nuno.sa@analog.com, 
-	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_030018_113786_7B610E90 
-X-CRM114-Status: UNSURE (   9.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260427_030058_227998_23C3D13D 
+X-CRM114-Status: GOOD (  13.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,23 +109,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 27 Apr 2026 at 11:50, Andy Shevchenko
-<andriy.shevchenko@intel.com> wrote:
+From: Myeonghun Pak <mhun512@gmail.com>
 
-> Dunno if it's your first review (congrats in that case!), but I fully agree with.
+cedrus_probe() initializes the media device before registering the video
+device, the media controller, and the media device. If any of those later
+steps fails, probe returns without calling media_device_cleanup(), so the
+media device internals initialized by media_device_init() are left behind.
 
-Yes, this is my first review :)
+Add a media-device cleanup label to the probe unwind path and route video
+registration failures through it as well.
 
-> We do not accept patches with the empty commit message bodies.
-> (*Yes, it used to be okay twenty ears ago, but now.)
+Fixes: 50e761516f2b8c ("media: platform: Add Cedrus VPU decoder driver")
+Cc: stable@vger.kernel.org
+Co-developed-by: Ijae Kim <ae878000@gmail.com>
+Signed-off-by: Ijae Kim <ae878000@gmail.com>
+Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
+---
+ drivers/staging/media/sunxi/cedrus/cedrus.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-I maybe also take issue with the fact that the series (although they are
-the same logical change) is composed of changes in different iio
-subsystems (adc, buffer and common). Shouldn't these be sent
-separately?
-
+diff --git a/drivers/staging/media/sunxi/cedrus/cedrus.c b/drivers/staging/media/sunxi/cedrus/cedrus.c
+index 6600245dff..2c25654640 100644
+--- a/drivers/staging/media/sunxi/cedrus/cedrus.c
++++ b/drivers/staging/media/sunxi/cedrus/cedrus.c
+@@ -507,7 +507,7 @@ static int cedrus_probe(struct platform_device *pdev)
+ 	ret = video_register_device(vfd, VFL_TYPE_VIDEO, 0);
+ 	if (ret) {
+ 		v4l2_err(&dev->v4l2_dev, "Failed to register video device\n");
+-		goto err_m2m;
++		goto err_media_cleanup;
+ 	}
+ 
+ 	v4l2_info(&dev->v4l2_dev,
+@@ -533,6 +533,8 @@ static int cedrus_probe(struct platform_device *pdev)
+ 	v4l2_m2m_unregister_media_controller(dev->m2m_dev);
+ err_video:
+ 	video_unregister_device(&dev->vfd);
++err_media_cleanup:
++	media_device_cleanup(&dev->mdev);
+ err_m2m:
+ 	v4l2_m2m_release(dev->m2m_dev);
+ err_v4l2:
 -- 
-Kind regards
-
-CJD
+2.50.1
 
