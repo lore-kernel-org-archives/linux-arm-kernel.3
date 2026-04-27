@@ -4,76 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11ED6FF8861
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 10:33:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2594BFF885E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 10:33:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rjUe+40tU8KgywhMGb5EBcnInYwRid7F76KcJIk5PoY=; b=MmetWWKaKBbAU0YzFCk2xOYEbs
-	rS5eHwLdmTrDhLOU3BfX5uBcOxQfpj3nAlbCX2qvBvJc2f3MdMvQLzZMO6xZyoQEJRIItyfYWqx5b
-	YfPEtg/nO2xhMfuS+zYSVYv9iqz5Y+KRxnNxs83STFF7ahFeJwhpe9AxSPQlNFfQIxHo6VzORX5iV
-	cJiuysTiS+xzd6DikOxMnreOI//ChAOBss6y2wTN6ce778W3Vj6861aKD95fvvnWmVpM2UPd6H+w6
-	lL9a/tCwB80a/KQTp3zA1caxcAktmRSLsBpZTrGOXXkM2ZF6LCEtuxGTpEUfKWCXnn72rDQS5Ak8Q
-	KkqoZskA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:Message-ID:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ah2vBlg2jW3vt+Sa68gZRq0jghCuaPjB53hpzbrnHpM=; b=Nd5OjQ3FbF4gr9yTifcNqzWp92
+	5ChSaevio8hdUOAjQYpqKXaXIBzXCVC3NU50F/U8Mg1VxdaVMloxhdJ2FWvayAGh1b20K6pWtmsp6
+	FJhKX2YMP/xA/4wUk3SmCdmPqRVnFeJdiu1Wfm3V03scxLHNg78S8IGR/TTkJu4eQYVvpusfBO5Ar
+	mrCWClyt5FddgAjSQKrbrElxT2TPLNqZGC/QzO+LiyCxsHCqtAYEsyh94/CbzL8wBFDCsyx4V9Kc1
+	j8DTG547gRh+3IEFG2RFS1vCHsjKJCA+tZayImByyHGpwJsgHwgZQb5ZuuwQGDf6lnt6AxHH4DQBL
+	tOPNhoAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHJH6-0000000GhUM-0aNV;
-	Mon, 27 Apr 2026 10:33:12 +0000
+	id 1wHJHJ-0000000GhWq-42k5;
+	Mon, 27 Apr 2026 10:33:26 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHJH3-0000000GhTa-04yK
+	id 1wHJHD-0000000GhW3-29uC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 10:33:10 +0000
+	Mon, 27 Apr 2026 10:33:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C92B444556
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 10:33:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A58DBC2BCF5
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 10:33:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 27435429F7;
+	Mon, 27 Apr 2026 10:33:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D67D0C19425;
+	Mon, 27 Apr 2026 10:33:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777285987;
-	bh=sZdY/36jbKK4QMgRBN3Be3QYPzzEjzIo9WdGSHUOuZ8=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Y0XBdBb6tsh/ct062e3s+3bE94qJ7F0kHpyLoBxLkCN+lfEar/pvjFUd/RKMGyheD
-	 vFw6NYZCVZwYZgk2dntGAr3q/a3O4D0X1ZYamoL6uv/3fjk/449FT/AZ4mFdKBAVLA
-	 nGpH723lrtieknWZbvSUM0wyrqUxqC7B5BO4Eir4/errEGTlMlSvRE07ngkuYcdcu1
-	 NYe3pbVngxZA9cdwKycU7w4eBTBiawdIh5bWStdkIBtrAFuawAifW2OnY2/x0T+BE2
-	 B4XTykxZYm0/rAc5TkD16t7UbtyWEasojnVV55gbxpyzfDyCQMxRq5C/E4ORal1Sv2
-	 3CEvHOLViU28A==
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5a3fcb2c718so8606306e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 03:33:07 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+yeucoD2lcSvtCMTcVm8oX21M5vGmYSC8j/E4rvgBpyyXgD4u69Hi70yrrp/maz2jX7k9KXvHxwl+Csle4MzJB@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUvnxB11Fr1kICH9B/g6zwclLCaUS0iMPkQ71V3ZUpgqdP9ly2
-	4vSS8lgMg4bq/d/UIHU3v/1blwrlYpbtu6sRxxzVUmWZcG/DgWR7sKPU4OHJjkKcQl46DbMbPSc
-	20RatBUjB1QwW31Ru4wgyWNdNl/GGm2U+QcvukdxhhA==
-X-Received: by 2002:a05:6512:3b91:b0:5a3:f2ed:87cd with SMTP id
- 2adb3069b0e04-5a4172d0085mr15446256e87.10.1777285986242; Mon, 27 Apr 2026
- 03:33:06 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260410070935.9540-1-bartosz.golaszewski@oss.qualcomm.com>
- <trinity-5e6f6a95-e576-4f97-9085-c6de21945eab-1775813076268@trinity-msg-rest-gmx-gmx-live-5cf7d7879b-qwfn5>
- <CAD++jLnjN-gUdCbmdmLaMYck=sP9wrhT2fFRB0TGCAVGvSsY1w@mail.gmail.com>
- <dc46f7d784281642aad6d47e79a3e91652eec667@linux.dev> <CAD++jLkz189qT1kJr34ratZT_n20oWEAQg8q0ttQ-VrsFchp7g@mail.gmail.com>
-In-Reply-To: <CAD++jLkz189qT1kJr34ratZT_n20oWEAQg8q0ttQ-VrsFchp7g@mail.gmail.com>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Mon, 27 Apr 2026 12:32:52 +0200
-X-Gmail-Original-Message-ID: <CAMRc=McRuH5Fi-5UQWLRe4+wXKH8qikaYqiqbGXrPOgaifEesw@mail.gmail.com>
-X-Gm-Features: AVHnY4IwzDLYhHPbIaUAVZBlf2N-kg8RzncpCvZK6axdzsTP8InukubITrev7X0
-Message-ID: <CAMRc=McRuH5Fi-5UQWLRe4+wXKH8qikaYqiqbGXrPOgaifEesw@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: mediatek: moore: implement gpio_chip::get_direction()
-To: Linus Walleij <linusw@kernel.org>
-Cc: Frank Wunderlich <frank.wunderlich@linux.dev>, Frank Wunderlich <frank-w@public-files.de>, 
-	bartosz.golaszewski@oss.qualcomm.com, linux@fw-web.de, sean.wang@kernel.org, 
-	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
-	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	s=k20201202; t=1777285999;
+	bh=FPY/T+e9phzGqTaFehkbQCBcK9RxnTMkg/PcLmH4az0=;
+	h=From:Date:To:Cc:Subject:In-Reply-To:References:From;
+	b=Uh5qous5cQPPEzoaGz1yu5FlezTiFRdhWSEit3FfKVvqtXI3i9PogWkNBB5Q+hCIS
+	 gcd+bUFrJvFmqTycxhnx50PDeiebiljZXa7iRMETT6H4LGhZNdVnxSLs6W/T/kOLP1
+	 KxIEqCscmZmzuJBdaV/v4yJeyERl8F+q/qe0gUtkHIy1thlB1rCEPUSz3GnMvPvgVI
+	 /rMf7p+S8+/fY3vUKarvYx4aBJxtLVJt6ZDMkPBJQ2feerq3kUtkvf+1bJp/7FDcKS
+	 QvBXUZcBBdl8eRtB42cOcqb5cJO9RB1A8n4IuQIbWyPvRNgOebJhLSovya4X0WwhZ9
+	 eh1QyjuCcoj9g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wHJHA-0000000F1Jx-2NEn;
+	Mon, 27 Apr 2026 10:33:16 +0000
+From: Marc Zyngier <maz@kernel.org>
+Date: Mon, 27 Apr 2026 11:33:16 +0100
+Message-ID: <86y0i8zo9f.wl-maz@kernel.org>
+>From: Marc Zyngier <maz@kernel.org>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev,
+	linux-coco@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v4 3/3] coco: guest: arm64: Query host IPA-change alignment via RHI
+In-Reply-To: <20260427063108.909019-4-aneesh.kumar@kernel.org>
+References: <20260427063108.909019-1-aneesh.kumar@kernel.org>
+	<20260427063108.909019-4-aneesh.kumar@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: aneesh.kumar@kernel.org, linux-kernel@vger.kernel.org, iommu@lists.linux.dev, linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, jgg@ziepe.ca, m.szyprowski@samsung.com, robin.murphy@arm.com, steven.price@arm.com, suzuki.poulose@arm.com, tglx@kernel.org, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_033309_096460_9CB8D597 
-X-CRM114-Status: GOOD (  17.65  )
+X-CRM114-CacheID: sfid-20260427_033319_655601_56963972 
+X-CRM114-Status: GOOD (  39.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,62 +96,289 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 19, 2026 at 11:25=E2=80=AFPM Linus Walleij <linusw@kernel.org> =
-wrote:
->
-> On Mon, Apr 13, 2026 at 6:59=E2=80=AFPM Frank Wunderlich
-> <frank.wunderlich@linux.dev> wrote:
-> > Am 13. April 2026 um 10:01 schrieb "Linus Walleij" <linusw@kernel.org m=
-ailto:linusw@kernel.org?to=3D%22Linus%20Walleij%22%20%3Clinusw%40kernel.org=
-%3E >:
-> > >
-> > > On Fri, Apr 10, 2026 at 11:24 AM Frank Wunderlich
-> > > <frank-w@public-files.de> wrote:
-> > >
-> > > >
-> > > > Gesendet: Freitag, 10. April 2026 um 09:09
-> > > >  Von: "Bartosz Golaszewski" <bartosz.golaszewski@oss.qualcomm.com>
-> > > >  An: "Frank Wunderlich" <linux@fw-web.de>, "Sean Wang" <sean.wang@k=
-ernel.org>, "Linus Walleij" <linusw@kernel.org>, "Matthias Brugger" <matthi=
-as.bgg@gmail.com>, "AngeloGioacchino Del Regno" <angelogioacchino.delregno@=
-collabora.com>, "Bartosz Golaszewski" <brgl@kernel.org>
-> > > >  CC: linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org=
-, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, "Bart=
-osz Golaszewski" <bartosz.golaszewski@oss.qualcomm.com>
-> > > >  Betreff: [PATCH] pinctrl: mediatek: moore: implement gpio_chip::ge=
-t_direction()
-> > > >
-> > > >  If the gpio_chip::get_direction() callback is not implemented by t=
-he GPIO
-> > > >  controller driver, GPIOLIB emits a warning.
-> > > >
-> > > >  Implement get_direction() for the GPIO part of pinctrl-moore.
-> > > >
-> > > >  Fixes: 471e998c0e31 ("gpiolib: remove redundant callback check")
-> > > >  Fixes: e623c4303ed1 ("gpiolib: sanitize the return value of gpio_c=
-hip::get_direction()")
-> > > >  Reported-by: Frank Wunderlich <linux@fw-web.de>
-> > > >
-> > > >  please use the email i used for SoB in my linked patch (closes lin=
-k below), the other email i use only for sending patches due to mail provid=
-er limitation.
-> > > >
-> > > I can't fix this up because the closes link isn't working right now.
-> > > Is it the same
-> > > as the one this mail came from frank-w@public-files.de?
-> >
-> > yes, closes-link works for me
->
-> Fixed up and applied. Will be going in as fix for v7.1.
->
-> Yours,
-> Linus Walleij
->
+On Mon, 27 Apr 2026 07:31:08 +0100,
+"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> wrote:
+> 
+> Add the Realm Host Interface support needed to query host configuration
+> from a Realm guest. Define the RHI hostconf SMCs, add rsi_host_call(), and
+> use them during Realm initialization to retrieve the host IPA-change
+> alignment size.
 
-Hi Linus!
+I don't understand what "IPA-change" means. What you are after is the
+host's sharing granule size.
 
-It seems this one got lost somewhere along the way? I don't see it in
-mainline nor next.
+> 
+> Expose that alignment through realm_get_hyp_pagesize() and
+> mem_decrypt_granule_size() so shared-buffer allocation and
+> encryption/decryption paths can honor the ipa change page-size requirement.
+> 
+> If the host reports an invalid alignment (when alginment value is not
+> multiple of 4K), do not enable Realm support.
+> 
+> This provides the host alignment information required by the shared buffer
+> alignment changes.
+> 
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> ---
+>  arch/arm64/include/asm/mem_encrypt.h |  3 ++
+>  arch/arm64/include/asm/rhi.h         | 24 +++++++++++++
+>  arch/arm64/include/asm/rsi.h         |  2 ++
+>  arch/arm64/include/asm/rsi_cmds.h    | 10 ++++++
+>  arch/arm64/include/asm/rsi_smc.h     |  7 ++++
+>  arch/arm64/kernel/Makefile           |  2 +-
+>  arch/arm64/kernel/rhi.c              | 54 ++++++++++++++++++++++++++++
+>  arch/arm64/kernel/rsi.c              | 13 +++++++
+>  arch/arm64/mm/mem_encrypt.c          |  8 +++++
+>  9 files changed, 122 insertions(+), 1 deletion(-)
+>  create mode 100644 arch/arm64/include/asm/rhi.h
+>  create mode 100644 arch/arm64/kernel/rhi.c
+> 
+> diff --git a/arch/arm64/include/asm/mem_encrypt.h b/arch/arm64/include/asm/mem_encrypt.h
+> index 314b2b52025f..5541911eb028 100644
+> --- a/arch/arm64/include/asm/mem_encrypt.h
+> +++ b/arch/arm64/include/asm/mem_encrypt.h
+> @@ -16,6 +16,9 @@ int arm64_mem_crypt_ops_register(const struct arm64_mem_crypt_ops *ops);
+>  int set_memory_encrypted(unsigned long addr, int numpages);
+>  int set_memory_decrypted(unsigned long addr, int numpages);
+>  
+> +#define mem_decrypt_granule_size mem_decrypt_granule_size
+> +size_t mem_decrypt_granule_size(void);
+> +
+>  int realm_register_memory_enc_ops(void);
+>  
+>  static inline bool force_dma_unencrypted(struct device *dev)
+> diff --git a/arch/arm64/include/asm/rhi.h b/arch/arm64/include/asm/rhi.h
+> new file mode 100644
+> index 000000000000..0895dd92ea1d
+> --- /dev/null
+> +++ b/arch/arm64/include/asm/rhi.h
+> @@ -0,0 +1,24 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2026 ARM Ltd.
+> + */
+> +
+> +#ifndef __ASM_RHI_H_
+> +#define __ASM_RHI_H_
+> +
+> +#include <linux/types.h>
+> +
+> +#define SMC_RHI_CALL(func)				\
+> +	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,		\
+> +			   ARM_SMCCC_SMC_64,		\
+> +			   ARM_SMCCC_OWNER_STANDARD_HYP,\
+> +			   (func))
+> +
+> +unsigned long rhi_get_ipa_change_alignment(void);
+> +#define RHI_HOSTCONF_VER_1_0		0x10000
+> +#define RHI_HOSTCONF_VERSION		SMC_RHI_CALL(0x004E)
+> +
+> +#define __RHI_HOSTCONF_GET_IPA_CHANGE_ALIGNMENT BIT(0)
+> +#define RHI_HOSTCONF_FEATURES		SMC_RHI_CALL(0x004F)
+> +#define RHI_HOSTCONF_GET_IPA_CHANGE_ALIGNMENT	SMC_RHI_CALL(0x0050)
+> +#endif
+> diff --git a/arch/arm64/include/asm/rsi.h b/arch/arm64/include/asm/rsi.h
+> index 88b50d660e85..ae54fb3b1429 100644
+> --- a/arch/arm64/include/asm/rsi.h
+> +++ b/arch/arm64/include/asm/rsi.h
+> @@ -67,4 +67,6 @@ static inline int rsi_set_memory_range_shared(phys_addr_t start,
+>  	return rsi_set_memory_range(start, end, RSI_RIPAS_EMPTY,
+>  				    RSI_CHANGE_DESTROYED);
+>  }
+> +
+> +unsigned long realm_get_hyp_pagesize(void);
+>  #endif /* __ASM_RSI_H_ */
+> diff --git a/arch/arm64/include/asm/rsi_cmds.h b/arch/arm64/include/asm/rsi_cmds.h
+> index 2c8763876dfb..a341ce0eeda1 100644
+> --- a/arch/arm64/include/asm/rsi_cmds.h
+> +++ b/arch/arm64/include/asm/rsi_cmds.h
+> @@ -159,4 +159,14 @@ static inline unsigned long rsi_attestation_token_continue(phys_addr_t granule,
+>  	return res.a0;
+>  }
+>  
+> +static inline unsigned long rsi_host_call(struct rsi_host_call *rhi_call)
+> +{
+> +	phys_addr_t addr = virt_to_phys(rhi_call);
+> +	struct arm_smccc_res res;
+> +
+> +	arm_smccc_1_1_invoke(SMC_RSI_HOST_CALL, addr, &res);
 
-Bart
+Errr... What guarantees that *rhi_call is *IPA contiguous*? This is
+incredibly fragile. You should at the very least check that this isn't
+vmalloc'd.
+
+> +
+> +	return res.a0;
+> +}
+> +
+>  #endif /* __ASM_RSI_CMDS_H */
+> diff --git a/arch/arm64/include/asm/rsi_smc.h b/arch/arm64/include/asm/rsi_smc.h
+> index e19253f96c94..9ee8b5c7612e 100644
+> --- a/arch/arm64/include/asm/rsi_smc.h
+> +++ b/arch/arm64/include/asm/rsi_smc.h
+> @@ -182,6 +182,13 @@ struct realm_config {
+>   */
+>  #define SMC_RSI_IPA_STATE_GET			SMC_RSI_FID(0x198)
+>  
+> +struct rsi_host_call {
+> +	union {
+> +		u16 imm;
+> +		u64 padding0;
+> +	};
+> +	u64 gprs[31];
+> +} __aligned(0x100);
+>  /*
+>   * Make a Host call.
+>   *
+> diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
+> index fe627100d199..3e72dd9584ed 100644
+> --- a/arch/arm64/kernel/Makefile
+> +++ b/arch/arm64/kernel/Makefile
+> @@ -34,7 +34,7 @@ obj-y			:= debug-monitors.o entry.o irq.o fpsimd.o		\
+>  			   cpufeature.o alternative.o cacheinfo.o		\
+>  			   smp.o smp_spin_table.o topology.o smccc-call.o	\
+>  			   syscall.o proton-pack.o idle.o patching.o pi/	\
+> -			   rsi.o jump_label.o
+> +			   rsi.o jump_label.o rhi.o
+>  
+>  obj-$(CONFIG_COMPAT)			+= sys32.o signal32.o			\
+>  					   sys_compat.o
+> diff --git a/arch/arm64/kernel/rhi.c b/arch/arm64/kernel/rhi.c
+> new file mode 100644
+> index 000000000000..7cd6c5102464
+> --- /dev/null
+> +++ b/arch/arm64/kernel/rhi.c
+> @@ -0,0 +1,54 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2026 ARM Ltd.
+> + */
+> +
+> +#include <linux/mm.h>
+> +#include <asm/rsi.h>
+> +#include <asm/rhi.h>
+> +
+> +/* we need an aligned rhicall for rsi_host_call. slab is not yet ready */
+> +static struct rsi_host_call hyp_pagesize_rhicall;
+
+Why the "hyp_" prefix? This has absolutely nothing to with the
+hypervisor.
+
+> +unsigned long rhi_get_ipa_change_alignment(void)
+> +{
+> +	long ret;
+> +	unsigned long ipa_change_align;
+> +
+> +	hyp_pagesize_rhicall.imm = 0;
+> +	hyp_pagesize_rhicall.gprs[0] = RHI_HOSTCONF_VERSION;
+> +	ret = rsi_host_call(lm_alias(&hyp_pagesize_rhicall));
+> +	if (ret != RSI_SUCCESS)
+> +		goto err_out;
+> +
+> +	if (hyp_pagesize_rhicall.gprs[0] != RHI_HOSTCONF_VER_1_0)
+> +		goto err_out;
+> +
+> +	hyp_pagesize_rhicall.imm = 0;
+> +	hyp_pagesize_rhicall.gprs[0] = RHI_HOSTCONF_FEATURES;
+> +	ret = rsi_host_call(lm_alias(&hyp_pagesize_rhicall));
+> +	if (ret != RSI_SUCCESS)
+> +		goto err_out;
+> +
+> +	if (!(hyp_pagesize_rhicall.gprs[0] & __RHI_HOSTCONF_GET_IPA_CHANGE_ALIGNMENT))
+> +		goto err_out;
+> +
+> +	hyp_pagesize_rhicall.imm = 0;
+> +	hyp_pagesize_rhicall.gprs[0] = RHI_HOSTCONF_GET_IPA_CHANGE_ALIGNMENT;
+> +	ret = rsi_host_call(lm_alias(&hyp_pagesize_rhicall));
+> +	if (ret != RSI_SUCCESS)
+> +		goto err_out;
+> +
+> +	ipa_change_align = hyp_pagesize_rhicall.gprs[0];
+> +	/* This error needs special handling in the caller */
+> +	if (ipa_change_align & (SZ_4K - 1))
+> +		return 0;
+> +
+> +	return ipa_change_align;
+> +
+> +err_out:
+> +	/*
+> +	 * For failure condition assume host is built with 4K page size
+> +	 * and hence ipa change alignment can be guest PAGE_SIZE.
+> +	 */
+> +	return PAGE_SIZE;
+> +}
+
+Why can't this be part of rsi.c? This is an RSI call, and it should be
+part of the RSI initialisation.
+
+> diff --git a/arch/arm64/kernel/rsi.c b/arch/arm64/kernel/rsi.c
+> index 9e846ce4ef9c..ff735c04e236 100644
+> --- a/arch/arm64/kernel/rsi.c
+> +++ b/arch/arm64/kernel/rsi.c
+> @@ -14,8 +14,10 @@
+>  #include <asm/mem_encrypt.h>
+>  #include <asm/pgtable.h>
+>  #include <asm/rsi.h>
+> +#include <asm/rhi.h>
+>  
+>  static struct realm_config config;
+> +static unsigned long ipa_change_alignment = PAGE_SIZE;
+>  
+>  unsigned long prot_ns_shared;
+>  EXPORT_SYMBOL(prot_ns_shared);
+> @@ -139,6 +141,11 @@ static int realm_ioremap_hook(phys_addr_t phys, size_t size, pgprot_t *prot)
+>  	return 0;
+>  }
+>  
+> +unsigned long realm_get_hyp_pagesize(void)
+> +{
+> +	return ipa_change_alignment;
+> +}
+
+Again, this has nothing to do with the hypervisor, but the host. And
+ipa_change_alignment is still a wording I can't wrap my small head
+around.
+
+> +
+>  void __init arm64_rsi_init(void)
+>  {
+>  	if (arm_smccc_1_1_get_conduit() != SMCCC_CONDUIT_SMC)
+> @@ -147,6 +154,12 @@ void __init arm64_rsi_init(void)
+>  		return;
+>  	if (WARN_ON(rsi_get_realm_config(&config)))
+>  		return;
+> +
+> +	ipa_change_alignment = rhi_get_ipa_change_alignment();
+> +	/* If we don't get a correct alignment response, don't enable realm */
+> +	if (!ipa_change_alignment)
+> +		return;
+
+But at the same time, you override a global value with an error, and
+then paper over it in mem_decrypt_granule_size()...
+
+> +
+>  	prot_ns_shared = __phys_to_pte_val(BIT(config.ipa_bits - 1));
+>  
+>  	if (arm64_ioremap_prot_hook_register(realm_ioremap_hook))
+> diff --git a/arch/arm64/mm/mem_encrypt.c b/arch/arm64/mm/mem_encrypt.c
+> index 38c62c9e4e74..f5d64bc29c20 100644
+> --- a/arch/arm64/mm/mem_encrypt.c
+> +++ b/arch/arm64/mm/mem_encrypt.c
+> @@ -59,3 +59,11 @@ int set_memory_decrypted(unsigned long addr, int numpages)
+>  	return crypt_ops->decrypt(addr, numpages);
+>  }
+>  EXPORT_SYMBOL_GPL(set_memory_decrypted);
+> +
+> +size_t mem_decrypt_granule_size(void)
+> +{
+> +	if (is_realm_world())
+> +		return max(PAGE_SIZE, realm_get_hyp_pagesize());
+
+If you didn't mess with ipa_change_alignment above, you shouldn't need
+this max().
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
