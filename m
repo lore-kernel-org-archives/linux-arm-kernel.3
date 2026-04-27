@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68526FF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 19:10:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD68FFF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 19:16:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eMiVQtO/20AP/BJG4HATSBBh4qLb0DtjiWzEe2Kk0IY=; b=HQ9mtL0bS0d5lT24LYfD2UWDrg
-	v3DCOW8DAlAfBVFOCH8HP4VK3ZgaaqRqQ4+uA2Tmk7kmU4GIP27gyiwqzp8OSn3lAqJzi/QjmPUyU
-	gGcAdj5nJKSKco48usqaeor7ddT2dGZvE/Hmg5YhqF/jqeCX9aFw9/nr35y11a9sZWXRyCGkTNGbF
-	mI7CjLrcxbtOKbJzPfnJplQMx35XtILDj/Z0wTSweSKHbdobAMNluyTuPu6F0LqTKXOmFHPsBaQql
-	C6X8ph39CQkNxQHc6b2F4wZTkbLSD1hSsF991paJmIGAMglmWNmSniMEyqHwPTCsEfYZh9dqmq/TH
-	V/LDfhOQ==;
+	bh=8Jf04DItQUT71No2PBi41LRPib7T5yDet3U3GeZREwo=; b=zq7ps1wOotM9xBLSuzIK0LzoV1
+	ty0tfCHqb7O8Ht+n4NL/nD4hKpo8U/Mql/5U4IE2s/gZNgInC2yspdaPE1vzdxnxB+mlKYYAMlvEk
+	8ApomI936bO2cOncMT+337N+iG1xDgr6T0mWDU4shOZXVy1lVxEiQoLen1mi/vQ1jCY2knzSJ0TKv
+	/0RWK8cousA/ILSJ+qjx471qWjj3+UsNm0Ia5gADTi0+I2205WGsI8ehp4j+shvoZS+bA6MaRSw3s
+	mxNlU26qbEYpMAQtd7NRM19JGvRnUDKiv7L+FLqc5q+BUv/DDkynT57RCZP1UehCnFkUcYUnxdHxu
+	VnC9KJ+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHRM4-000000002Gr-2PVZ;
-	Mon, 27 Apr 2026 19:10:52 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wHRRY-000000003AM-1S6p;
+	Mon, 27 Apr 2026 19:16:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHRM2-000000002G5-0jLY;
-	Mon, 27 Apr 2026 19:10:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=eMiVQtO/20AP/BJG4HATSBBh4qLb0DtjiWzEe2Kk0IY=; b=Zcf+aeVgoqzfplXbcoalce31z8
-	+BmBHRruAPnXcH9YOxAp9tjMDCa2Lb0uWI+20zzEttLj2p4HyhLOoA9MlNClW6iJG+YnmKOutdvl2
-	zIG+m0aUKr3lmoYLV4hgHPxsTic7ka9c1EPDdFX9g/UxcKM04nhnZAkJs0Gtf4l7Vqkp6poE+dleT
-	R265z67Emide8+Pba0LcwfUrmCt6irdOXyVG/CqCZoJ1VrG50t6nvbZpe1/IR8Tx5NOGig9TS5KAo
-	gtVmrnJOZR6ohZ599ZwxmlNJGqI1dHJPMav4aJK2vdoMO10sPfVHs0kFbknsBDZXRDvSQUjhLeEWt
-	EpCX/KNQ==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org,
- Diederik de Haas <diederik@cknow-tech.com>,
- Maud Spierings <maud_spierings@hotmail.com>
-Subject: Re: [PATCH v5 05/10] drm/bridge: dw-hdmi-qp: Add HDMI 2.0 SCDC scrambling and
- high TMDS clock ratio support
-Date: Mon, 27 Apr 2026 21:10:35 +0200
-Message-ID: <3837777.yKVeVyVuyW@phil>
-In-Reply-To: <20260426-dw-hdmi-qp-scramb-v5-5-d778e70c317b@collabora.com>
-References: <20260426-dw-hdmi-qp-scramb-v5-0-d778e70c317b@collabora.com>
- <20260426-dw-hdmi-qp-scramb-v5-5-d778e70c317b@collabora.com>
+	id 1wHRRW-0000000039p-07DM
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Apr 2026 19:16:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AF57B41B0C;
+	Mon, 27 Apr 2026 19:16:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E94AAC19425;
+	Mon, 27 Apr 2026 19:16:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777317389;
+	bh=ixckm2P4vuXIw7DV3No6tQyUzz3TqNd6xEhgFTEaVpQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nheMo4pnun3AlAxdrXBXdrTdhbFj7DbwfjQ9v17CQFZiUGrfmP/8RVGiSHHzXF5O9
+	 xOGMHybsUViXE8W6LuvKguTjlEwy3Ek0m1WbZidjCkivf/V/nKbMufcBlVuKoloWLE
+	 31zFEItHru0ZV4XyqwIP71uYEqxzDA5l/KOwpHonsp3F0FKZHmD2ujDP24qEQ5EHpr
+	 3JdEJCDezFWzmp1i7K2CosqsvVJ7SAY9CXZQ95xoXfoedgTWtBbIAySaUX4UhvOdme
+	 biVvIpA15xp3EF90HoZ7xON2d+EBnRJ6D2CIpYa8jgwLtNT+DcS/4nKXpc515In90P
+	 AR8XC//rg0Ylw==
+Date: Mon, 27 Apr 2026 20:16:24 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Michal Piekos <michal.piekos@mmpsystems.pl>
+Cc: Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Maxime Ripard <mripard@kernel.org>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v2 1/4] dt-bindings: timer: allwinner,sun5i-a13-hstimer:
+ add H616 and D1
+Message-ID: <20260427-glider-cause-f6e015c6595a@spud>
+References: <20260426-h616-t113s-hstimer-v2-0-e65e9dc0c9da@mmpsystems.pl>
+ <20260426-h616-t113s-hstimer-v2-1-e65e9dc0c9da@mmpsystems.pl>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="pNK/41k60Ogg+RgS"
+Content-Disposition: inline
+In-Reply-To: <20260426-h616-t113s-hstimer-v2-1-e65e9dc0c9da@mmpsystems.pl>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_121050_215874_6DA4D27A 
-X-CRM114-Status: UNSURE (   7.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260427_121630_107485_974BCB44 
+X-CRM114-Status: GOOD (  16.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,29 +81,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Sonntag, 26. April 2026, 02:20:17 Mitteleurop=C3=A4ische Sommerzeit schr=
-ieb Cristian Ciocaltea:
-> Enable HDMI 2.0 display modes (e.g. 4K@60Hz) by adding SCDC management
-> for the high TMDS clock ratio and scrambling, required when the TMDS
-> character rate exceeds the 340 MHz HDMI 1.4b limit.
+
+--pNK/41k60Ogg+RgS
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Sun, Apr 26, 2026 at 12:15:26PM +0200, Michal Piekos wrote:
+> D1 is similar to existing sun5i, but with different register offsets.
+> H616 uses same offsets as D1.
 >=20
-> A periodic work item monitors the sink's scrambling status to recover
-> from sink-side resets.  On hotplug detect, if SCDC scrambling state is
-> out of sync with the driver, trigger a CRTC reset to re-establish the
-> link.
+> Add allwinner,sun20i-d1-hstimer
+> Add allwinner,sun50i-h616-hstimer with fallback to
+> allwinner,sun20i-d1-hstimer
+> Extend schema condition for interrupts to cover D1 compatible variant.
 >=20
-> Reject modes requiring TMDS rates above 600 MHz, as those fall in the
-> HDMI 2.1 FRL domain which is not supported. In no_hpd configurations,
-> further restrict to 340 MHz since SCDC requires a connected sink.
+> Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
+
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
+
+> ---
+>  .../devicetree/bindings/timer/allwinner,sun5i-a13-hstimer.yaml   | 9 +++=
++++++-
+>  1 file changed, 8 insertions(+), 1 deletion(-)
 >=20
-> Tested-by: Diederik de Haas <diederik@cknow-tech.com>
-> Tested-by: Maud Spierings <maud_spierings@hotmail.com>
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> diff --git a/Documentation/devicetree/bindings/timer/allwinner,sun5i-a13-=
+hstimer.yaml b/Documentation/devicetree/bindings/timer/allwinner,sun5i-a13-=
+hstimer.yaml
+> index f1853daec2f9..3e2725c56995 100644
+> --- a/Documentation/devicetree/bindings/timer/allwinner,sun5i-a13-hstimer=
+=2Eyaml
+> +++ b/Documentation/devicetree/bindings/timer/allwinner,sun5i-a13-hstimer=
+=2Eyaml
+> @@ -15,9 +15,13 @@ properties:
+>      oneOf:
+>        - const: allwinner,sun5i-a13-hstimer
+>        - const: allwinner,sun7i-a20-hstimer
+> +      - const: allwinner,sun20i-d1-hstimer
+>        - items:
+>            - const: allwinner,sun6i-a31-hstimer
+>            - const: allwinner,sun7i-a20-hstimer
+> +      - items:
+> +          - const: allwinner,sun50i-h616-hstimer
+> +          - const: allwinner,sun20i-d1-hstimer
+> =20
+>    reg:
+>      maxItems: 1
+> @@ -45,7 +49,10 @@ required:
+>  if:
+>    properties:
+>      compatible:
+> -      const: allwinner,sun5i-a13-hstimer
+> +      anyOf:
+> +        - const: allwinner,sun5i-a13-hstimer
+> +        - contains:
+> +            const: allwinner,sun20i-d1-hstimer
+> =20
+>  then:
+>    properties:
+>=20
+> --=20
+> 2.43.0
+>=20
 
-The change looks fine to my semi-trained eye, so even with my copyright
-concern addressed, I can only provide an
+--pNK/41k60Ogg+RgS
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Acked-by: Heiko Stuebner <heiko@sntech.de>
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCae+2CAAKCRB4tDGHoIJi
+0nS7AP4/CDhqa4Ux2Wj5qHy3wSqDPSDnHczo2iuNR62MTBa6EAEAiZz+CQNqwujG
+BD7yUhD4X39xYTXU1o1JE7Ek1rLTqws=
+=YqUz
+-----END PGP SIGNATURE-----
 
+--pNK/41k60Ogg+RgS--
 
