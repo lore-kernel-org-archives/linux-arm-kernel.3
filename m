@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26E6BFF8862
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 08:07:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA8B1FF8864
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 08:24:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V5TkgjwxbUuArCO4ICwo8xJ3fv0RVK8UqGSazM8m0Bg=; b=0ZfJ+CbYH0Y71MIQz16X90iyKO
-	Sn1NGovg2Xk5wKKi9fgpmAXqKQuCf52SYx76cJv17BpWQH7YGLR+EmYoVzLGw6FIEHI3zyT7HlqS9
-	ERa3FK+06hm8oKbLT863uO5aUlrlIxYteim66ykLXBpohdvkuxdt3tfpwsp0QROqPvC8Pe//GCpYs
-	Mzv+SDef+RIbnKeJO+FrLqIIdTtrBpAflZLQ5UQryBBn5ZsXjnlN+iNu7CunExJEAYK8o1U21O23c
-	tKKNVk92BVfW37nGqfEDka3RSHcvIYIXQ+OPNSwWE4VdM7ejABW7hrcEiVGhD3tqBU+knOqUXgljb
-	j2bZsD+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XFSA0GdWPG2aV57KEJ5QOp2iDhhRiPToTCZD/+0Ar0M=; b=bSeomk9d110t9je74bcDH0WnV6
+	mVPdzvHfDKstqn6/n0v8AzeATqJ46+hs/VQ68t/WiaZFNkxa9srLi2MJbRqzxZwRcBjplQ8ey+QNn
+	lFTNqfMr5I410eaHBeJMp9LKwqIdCq7Bdr2JeEbDPCldEa7/StcopnAnvUIJoCArUUll3hoDb3edy
+	FkiHjZ4bJY6iwpE/2KhhBZ6MSltrAkX9MieLQOP4apZO0BCwYarDGKVVRB9EiJvWl9o/q7SVI07D9
+	wfrwYqZ41eSh2uK52XyPzByQqokiJ8qKzKxGis9iX8s699e5AxuvJFuhs0POZwKdUoY7pRXtvEtdB
+	VRb091fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHH0N-0000000GQV6-3TzA;
-	Mon, 27 Apr 2026 08:07:47 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wHHGB-0000000GRLa-4885;
+	Mon, 27 Apr 2026 08:24:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHH0J-0000000GQUb-3Jgy
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 08:07:46 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 7413A4E42B13;
-	Mon, 27 Apr 2026 08:07:37 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 40F85600D1;
-	Mon, 27 Apr 2026 08:07:37 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B2C8D1072227A;
-	Mon, 27 Apr 2026 10:07:29 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1777277256; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=V5TkgjwxbUuArCO4ICwo8xJ3fv0RVK8UqGSazM8m0Bg=;
-	b=sS2k5mmQAU4Zb7zznUnG859IoZPkdpzVfbBEqSt2jdp3iibOyd685Y3UoWN8fV1P2FA6DF
-	RwuoebpIjbLNXLCXAdZYOBwssrqtL3Wo1rvYugVJdkLpqsLU/D5ua1v7PK4RUfTJD1k0JD
-	QLzZucGMsbZzapITl7u1LR0NwXlj6BhPXKUb+nknCxQD7381AKuojgb0Fh7ck7UPmKyAoT
-	lypZEI24eyFSSzHnH+5SiBlyRK0uFd6pscE/hNu4iwqRRwdb5vOhMneFZTuYzqfcXZaDE3
-	tPscWq0H0c3SLSHSn3Fyc8/B5EdtMjlVcEp7zy2BZPKvyzeRcuGs+kco/GMxkA==
-Message-ID: <d83c971e-659c-433e-888a-dc1bdffe975e@bootlin.com>
-Date: Mon, 27 Apr 2026 10:07:29 +0200
+	id 1wHHGA-0000000GRLN-4BND;
+	Mon, 27 Apr 2026 08:24:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0C6A26013B;
+	Mon, 27 Apr 2026 08:24:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D778C19425;
+	Mon, 27 Apr 2026 08:24:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777278245;
+	bh=zvpwmP5OW9BVPljro9l/0A5E+XjE0vObFmo1E7/7drQ=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=j59/t+wTph9MDM/6ZabS4cD6CwHS3v4FDE+e8GB9LgWAQaTMdBwJlLxABT3W6KX1E
+	 ATPoALKwUU/Q5o8SNFjrYkhbxfcEl0a/+Jepqn5zonyM0ZX/tQ+Izh/hm7nV1lYTvg
+	 KGS8r2Yv0NETjzxVGIZiyVq4KboQUlPq79pTpGWZldohA6rOSjPGU2cAxISxsDRwCk
+	 6i4n1feMbycqpIu2hbqDYZDl9wjgOslETt3NEfj8uI3qQAdLGZTKSmdDR+kIAAO1Qc
+	 1q4Fg3nONwXAGllKkBtscs0aCJto3EueSFE2Y3j5JzgbTReA0+O9JxaAExtJByVnba
+	 TJs2vyKldmmWw==
+Date: Mon, 27 Apr 2026 01:24:03 -0700
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] net: stmmac: fix RX DMA leak on TX alloc failure
-To: dev.taqnialabs@gmail.com, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260425-stmmac-rx-desc-cleanup-v1-1-1a18a704c422@gmail.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20260425-stmmac-rx-desc-cleanup-v1-1-1a18a704c422@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_010743_990270_563BA383 
-X-CRM114-Status: GOOD (  13.18  )
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ "Rafael J . Wysocki" <rafael@kernel.org>, devicetree@vger.kernel.org, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ Balsam CHIHI <bchihi@baylibre.com>, linux-arm-kernel@lists.infradead.org, 
+ vince-wl.liu@mediatek.com, Philipp Zabel <p.zabel@pengutronix.de>, 
+ justin.yeh@mediatek.com, linux-mediatek@lists.infradead.org, 
+ jarried.lin@mediatek.com, Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Lukasz Luba <lukasz.luba@arm.com>, linux-kernel@vger.kernel.org, 
+ Zhang Rui <rui.zhang@intel.com>, linux-pm@vger.kernel.org
+To: mtk36707 <kuanfu.lu@mediatek.com>
+In-Reply-To: <20260427065236.1685057-1-kuanfu.lu@mediatek.com>
+References: <20260427065236.1685057-1-kuanfu.lu@mediatek.com>
+Message-Id: <177727824371.1363528.14088477684280198031.robh@kernel.org>
+Subject: Re: [PATCH 1/2] dt-bindings: thermal: mediatek: Add MT8189 LVTS
+ bindings
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,51 +78,43 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-
-On 25/04/2026 14:38, Abid Ali via B4 Relay wrote:
-> From: Abid Ali <dev.taqnialabs@gmail.com>
+On Mon, 27 Apr 2026 14:48:29 +0800, mtk36707 wrote:
+> From: Kuanfu Lu <kuanfu.lu@mediatek.com>
 > 
-> Free RX DMA resources when alloc_dma_tx_desc_resources() fails in
-> alloc_dma_desc_resources().
+> Add support for the MediaTek MT8189 LVTS thermal controller to
+> the device tree bindings. This includes new compatible strings
+> and required properties for MT8189.
 > 
-> Signed-off-by: Abid Ali <dev.taqnialabs@gmail.com>
+> Signed-off-by: Kuanfu Lu <kuanfu.lu@mediatek.com>
 > ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 6 +++++-
->  1 file changed, 5 insertions(+), 1 deletion(-)
+>  .../thermal/mediatek,lvts-thermal.yaml        | 27 +++++++++++++++++--
+>  .../thermal/mediatek,lvts-thermal.h           | 20 ++++++++++++++
+>  2 files changed, 45 insertions(+), 2 deletions(-)
 > 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 13d3cac05..8bb843b55 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -2370,8 +2370,12 @@ static int alloc_dma_desc_resources(struct stmmac_priv *priv,
->  		return ret;
->  
->  	ret = alloc_dma_tx_desc_resources(priv, dma_conf);
-> +	if (ret) {
-> +		free_dma_rx_desc_resources(priv, dma_conf);
-> +		return ret;
-> +	}
->  
-> -	return ret;
-> +	return 0;
->  }
 
-This change looks correct, however you're missing a Fixes: tag
-indicating when was this issue introduced. You must also indicate what
-tree you're targetting (in this case, net) :
+My bot found errors running 'make dt_binding_check' on your patch:
 
-Please look here for the process information :
+yamllint warnings/errors:
+./Documentation/devicetree/bindings/thermal/mediatek,lvts-thermal.yaml:99:11: [warning] wrong indentation: expected 8 but found 10 (indentation)
+./Documentation/devicetree/bindings/thermal/mediatek,lvts-thermal.yaml:119:11: [warning] wrong indentation: expected 8 but found 10 (indentation)
 
-https://docs.kernel.org/process/maintainer-netdev.html
+dtschema/dtc warnings/errors:
 
-Maxime
->  
->  /**
-> 
-> ---
-> base-commit: 028ef9c96e96197026887c0f092424679298aae8
-> change-id: 20260425-stmmac-rx-desc-cleanup-440f05845492
-> 
-> Best regards,
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.kernel.org/project/devicetree/patch/20260427065236.1685057-1-kuanfu.lu@mediatek.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
