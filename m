@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EBC5FF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 17:01:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13116FF8860
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 17:01:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Message-ID:Date:From:Cc:To:Subject:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Tu+OryHTke0aSfYR4CZZfBNPSztsk8yTwBTUA4UyvBc=; b=bHg5ux4h6hZfwcLeiys/tQA4wV
-	OpVetb9epREkPe7tUJmAV7Q2eVtWla8EEfC43KfRpsN6ATeBBqh3hRF75RBPATFeCQfbZ5ls4QJHl
-	w0nz4OZS70qeLMAZdtmiatQ+pWmxkDLTxrzQjtxBOYIJtnYnQseqtBLzp1vLslXtuyjUoZOshX06w
-	Q5U41VYyZRVJFBVlv+txn4f+voFsC3HdZUOzDj2uLDzMqQQUPDjX1DES/OhXUOZybO+q5UZubtlv5
-	2Dn2Kz8UxJ/yneBmol/IjbNmerpSO8G/CBb4RapOIcGdf5ifwrhbWu+a8deemy1X3n7AM64vqYQfU
-	i3EcQUhQ==;
+	bh=rW2q7i+YMJY+dJffHlRCpJ1RE4mD7wS54un+UBshdac=; b=KAVQlscQDfgpDo2zrdjBnLwVTO
+	Mopp5/x2XrfTZXncsjTXVdAS+pSqSZZYTp4GW+yOAw5KNW0Q66mWimfzD1fT9xNWp7D89gNmM9eBp
+	AZVKMuyosmzg7BtTrTSDxXLC3fxbB9mMSz4QC1TZe9JbWa407jmdxjgmmzPzlFTv2mx4kELRpBbOe
+	EmMnRgZP/LnyMdBCej15WlwQQC79OOACNawTFKKQ/Usjp/JtgwbQnm8S6pyvVC4sXgpvNzjs8ajLI
+	aIkTePvNeu5I/ts2ca3et8pSwqySBgK1dANazoj3f3TXvNDLMYXTbpw0fj4Dy/uPjMlPUAdVw9BuY
+	KRXNMUZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHPKL-0000000HOzb-1rFe;
-	Mon, 27 Apr 2026 17:00:57 +0000
+	id 1wHPKj-0000000HP5G-3GI9;
+	Mon, 27 Apr 2026 17:01:21 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHPKJ-0000000HOz6-241f
+	id 1wHPKj-0000000HP52-0GMM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 17:00:55 +0000
+	Mon, 27 Apr 2026 17:01:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9292D60141;
-	Mon, 27 Apr 2026 17:00:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20911C19425;
-	Mon, 27 Apr 2026 17:00:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 078986015B;
+	Mon, 27 Apr 2026 17:01:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87357C19425;
+	Mon, 27 Apr 2026 17:01:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1777309254;
-	bh=MzK452HviXDobHJ55Qlob3Nk3gCUsMgd3wT1ABtLg80=;
+	s=korg; t=1777309278;
+	bh=eg3j4fMqk5vg/HxpGhtksYYz+sRRMNAjIdf+2bkt1FU=;
 	h=Subject:To:Cc:From:Date:From;
-	b=tSR8ZXSY6GT3gjTttuuUxlw51awOhfqjkvJAaJZ0oCw0fqZG29OMWLZATs5bjYdyX
-	 j7XZyV/mLsw1VX7kyjF91z5iT7hzHluO5Ub0gfVVyQ/9BFq6gt7BydhGEN28p4lZu4
-	 dvlsKNcmCf/fuS2ZcPGwvlq/NCEE/qAGuCzcmtjA=
-Subject: Patch "arm64/mm: Enable batched TLB flush in unmap_hotplug_range()" has been added to the 6.18-stable tree
+	b=MskTmg1vRv0BSEkPq5cptfAUWuhDHwnbnb+woO6N7sb8VZnsI9txZm62CLFbe0WBI
+	 NUtv9WeBkcAjjLqJLo9MfZO+VqxAfvQ/fUSluEdgWvE6R5oTLI9FKnKZlCTw5ViDyg
+	 1rOPNcLlvMYd+IQqk6RRB2nA/PGizD/XIByh7TcU=
+Subject: Patch "arm64/mm: Enable batched TLB flush in unmap_hotplug_range()" has been added to the 7.0-stable tree
 To: anshuman.khandual@arm.com,catalin.marinas@arm.com,david@kernel.org,gregkh@linuxfoundation.org,linux-arm-kernel@lists.infradead.org,ryan.roberts@arm.com,will@kernel.org
 Cc: <stable-commits@vger.kernel.org>
 From: <gregkh@linuxfoundation.org>
-Date: Mon, 27 Apr 2026 10:54:59 -0600
-Message-ID: <2026042759-unweave-handpick-2f14@gregkh>
+Date: Mon, 27 Apr 2026 10:55:15 -0600
+Message-ID: <2026042715-headsman-epidermis-cff3@gregkh>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=ANSI_X3.4-1968
 Content-Transfer-Encoding: 8bit
@@ -69,12 +69,12 @@ This is a note to let you know that I've just added the patch titled
 
     arm64/mm: Enable batched TLB flush in unmap_hotplug_range()
 
-to the 6.18-stable tree which can be found at:
+to the 7.0-stable tree which can be found at:
     http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
 
 The filename of the patch is:
      arm64-mm-enable-batched-tlb-flush-in-unmap_hotplug_range.patch
-and it can be found in the queue-6.18 subdirectory.
+and it can be found in the queue-7.0 subdirectory.
 
 If you, or anyone else, feels it should not be added to the stable tree,
 please let <stable@vger.kernel.org> know about it.
@@ -135,7 +135,7 @@ Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 
 --- a/arch/arm64/mm/mmu.c
 +++ b/arch/arm64/mm/mmu.c
-@@ -1465,10 +1465,14 @@ static void unmap_hotplug_pte_range(pmd_
+@@ -1462,10 +1462,14 @@ static void unmap_hotplug_pte_range(pmd_
  
  		WARN_ON(!pte_present(pte));
  		__pte_clear(&init_mm, addr, ptep);
@@ -152,7 +152,7 @@ Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
  	} while (addr += PAGE_SIZE, addr < end);
  }
  
-@@ -1489,15 +1493,14 @@ static void unmap_hotplug_pmd_range(pud_
+@@ -1486,15 +1490,14 @@ static void unmap_hotplug_pmd_range(pud_
  		WARN_ON(!pmd_present(pmd));
  		if (pmd_sect(pmd)) {
  			pmd_clear(pmdp);
@@ -174,7 +174,7 @@ Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
  			continue;
  		}
  		WARN_ON(!pmd_table(pmd));
-@@ -1522,15 +1525,12 @@ static void unmap_hotplug_pud_range(p4d_
+@@ -1519,15 +1522,12 @@ static void unmap_hotplug_pud_range(p4d_
  		WARN_ON(!pud_present(pud));
  		if (pud_sect(pud)) {
  			pud_clear(pudp);
@@ -194,7 +194,7 @@ Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
  			continue;
  		}
  		WARN_ON(!pud_table(pud));
-@@ -1560,6 +1560,7 @@ static void unmap_hotplug_p4d_range(pgd_
+@@ -1557,6 +1557,7 @@ static void unmap_hotplug_p4d_range(pgd_
  static void unmap_hotplug_range(unsigned long addr, unsigned long end,
  				bool free_mapped, struct vmem_altmap *altmap)
  {
@@ -202,7 +202,7 @@ Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
  	unsigned long next;
  	pgd_t *pgdp, pgd;
  
-@@ -1581,6 +1582,9 @@ static void unmap_hotplug_range(unsigned
+@@ -1578,6 +1579,9 @@ static void unmap_hotplug_range(unsigned
  		WARN_ON(!pgd_present(pgd));
  		unmap_hotplug_p4d_range(pgdp, addr, next, free_mapped, altmap);
  	} while (addr = next, addr < end);
@@ -216,5 +216,5 @@ Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 
 Patches currently in stable-queue which might be from anshuman.khandual@arm.com are
 
-queue-6.18/arm64-mm-enable-batched-tlb-flush-in-unmap_hotplug_range.patch
+queue-7.0/arm64-mm-enable-batched-tlb-flush-in-unmap_hotplug_range.patch
 
