@@ -4,96 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E0F2FF8861
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 07:41:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13254FF8862
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 07:43:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GpOgCcb4ilQt4GgXVtC95e/+8g1AuEOs4okthTTjNEo=; b=F9vWfOnEUEWBM/AR/z2Mlzwcli
-	41oWe3/W8WcX5gyJuUVPl/CrA9OZySc/mz75FUJYMvJBMoi3XD8/6t0JdICxS5mS2bS1DPOSfaAuC
-	OjsnpLGmGIvsNfHH0oXfZUxnCoRXxfAWWsOFK/0miltftVD3T8gNEXiTlkVg7bBqhy8afS2wl0SVq
-	Gied6Pwjkbdb0Jd2Pi78MP2hYSmcXwLuh5LTcHqyxapiVe6IlNbY5IIixZvXgf0ZNjV7ptLircZR5
-	/Zly1mSAcVO6lzqEXa9i9lIRlVqBV+rL8RtNNLhv4DhVQwpb+dC2R1++cZpdwJ2ZiJhuiQAFDGDCW
-	RCOPO8TA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XY5/B5BmXIfc07c7SIF9IfKpOKxShfT31vQUiNN9UJ8=; b=4JeFgdJrGeUCGzrey66XGftohN
+	ClO6kFeIkoXD5MIXa3xeobfGOJG1gjGMTfqbH0w7vdunEroMrI/Inq+KGhSnvbUVbI8x7amMS3sBh
+	XstgFvzs1vSbt8WGGf6Dh8eKJ+/jsQK5XpNrniMJQ3EajUaYdCsFeU4AbsUCYmnTX4KufHInTasCA
+	1fK/CkjU/HDDve0npFc0VeWRXyBFonzZfcVFUfIg3R9bXgTJA9zsp88CeAjJwtqM1r7hIBmnfL8jH
+	Hq3Md3bM87mNzrf9ej8MexXFQwdju8PKigidzqFc+RMORVHOp64EwBECUN9lG4lFsBRxiI175aMHh
+	wZG2X0Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHGaY-0000000GOfY-3vva;
-	Mon, 27 Apr 2026 07:41:06 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wHGcW-0000000GOqG-1bWZ;
+	Mon, 27 Apr 2026 07:43:08 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHGaV-0000000GOf3-2eZQ
+	id 1wHGcT-0000000GOpl-0Snr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 07:41:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1777275661;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=GpOgCcb4ilQt4GgXVtC95e/+8g1AuEOs4okthTTjNEo=;
-	b=WIBanLo+pZR7eyjc7CKWrQ4zBk50uzLrX4yyp0i8GHMtCiOyJlN/Mk5KAAP1SD39w3N4N9
-	YKvyRcMF+HyfpIiFufDtOD5pvGKaCdDaEos+7nUGaN1atKQ1vi9dDPzdIbBUfMml/ueC8O
-	UDLe4s0NQP79w9QXNTb8/I0c0Xq7b/E=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-119-0IPi-P0tMAayg2A5qbA2ow-1; Mon,
- 27 Apr 2026 03:40:57 -0400
-X-MC-Unique: 0IPi-P0tMAayg2A5qbA2ow-1
-X-Mimecast-MFC-AGG-ID: 0IPi-P0tMAayg2A5qbA2ow_1777275654
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 454E318003F6;
-	Mon, 27 Apr 2026 07:40:53 +0000 (UTC)
-Received: from fweimer-oldenburg.csb.redhat.com (unknown [10.44.48.4])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id AFFEA180047F;
-	Mon, 27 Apr 2026 07:40:46 +0000 (UTC)
-From: Florian Weimer <fweimer@redhat.com>
-To: Thomas Gleixner <tglx@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>,  Mathias Stearn
- <mathias@mongodb.com>,  Dmitry Vyukov <dvyukov@google.com>,  Jinjie Ruan
- <ruanjinjie@huawei.com>,  linux-man@vger.kernel.org,  Mark Rutland
- <mark.rutland@arm.com>,  Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>,  Catalin Marinas
- <catalin.marinas@arm.com>,  Will Deacon <will@kernel.org>,  Boqun Feng
- <boqun.feng@gmail.com>,  "Paul E. McKenney" <paulmck@kernel.org>,  Chris
- Kennelly <ckennelly@google.com>,  regressions@lists.linux.dev,
-  linux-kernel@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
-  Ingo Molnar <mingo@kernel.org>,  Blake Oler <blake.oler@mongodb.com>,
-  Rich Felker <dalias@libc.org>,  Matthew Wilcox <willy@infradead.org>,
-  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,  Linus Torvalds
- <torvalds@linuxfoundation.org>, criu@lists.linux.dev
-Subject: Re: [REGRESSION] rseq: refactoring in v6.19 broke everyone on arm64
- and tcmalloc everywhere
-In-Reply-To: <87jyttz8cf.ffs@tglx> (Thomas Gleixner's message of "Mon, 27 Apr
-	2026 00:04:48 +0200")
-References: <aekPXvvuKHKlETjm@J2N7QTR9R3.cambridge.arm.com>
-	<87wlxy22x7.ffs@tglx>
-	<c5331cd6-76c8-430d-978e-fcad164e48f6@huawei.com>
-	<CACT4Y+bxnQyHGdVNE1BYTx+Z2-cscLb38HYS9jBM5gPAz8=4bw@mail.gmail.com>
-	<87ik9i0xlj.ffs@tglx>
-	<CAHnCjA0UBNXfjHw=Y34OrAyGRNUtVF+zWd3ugyX6pd_mCk8K9w@mail.gmail.com>
-	<87a4ut1njh.ffs@tglx>
-	<CACT4Y+bBD7uCHXKqGo=epBXeEmsZ67Og2YO9kjNMT3ryjUY_sA@mail.gmail.com>
-	<CAHnCjA1LqbaUGkPe79EeP6Mpaki8QWeR-JBSbrG0z6pTm9CmUg@mail.gmail.com>
-	<87v7dgzbo7.ffs@tglx>
-	<20260424150318.GE641209@noisy.programming.kicks-ass.net>
-	<87se8kywhb.ffs@tglx> <87jyttz8cf.ffs@tglx>
-Date: Mon, 27 Apr 2026 09:40:43 +0200
-Message-ID: <lhujyts4zr8.fsf@oldenburg.str.redhat.com>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	Mon, 27 Apr 2026 07:43:06 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63R64Za62583841;
+	Mon, 27 Apr 2026 07:43:00 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	XY5/B5BmXIfc07c7SIF9IfKpOKxShfT31vQUiNN9UJ8=; b=OjA8+4cE+3CxDrXS
+	07iNsY1al6bjhGytHw1qpdgBQl3Js24TBW5SscCOyH2hBaxSQhRHFaTCMVCx3D3E
+	57ohr+JyTkYsx/vy0KA8HkMjZFxtnx8V3s6DuR/zOSNAFQVL3yTDlyyadSzGl8tj
+	TrcqKSRehLe3mqgSJ5N/0YJOnsTGAvNjisiN2+lL8+p58gqFZkaNZk9InsxNpnxg
+	1eRGBZd+EWT9cBoNai/xEimBrZLpZEr3PCwUYLu8XkGKWKyJc+jpRKuy6SZD17i4
+	S58FHvS8VDafGi8aRB9rWimRj7g/Z9xDVKQAqadhZ85MzWqEnTZ2YWejXLzdu3kG
+	jF1PzQ==
+Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dt26xgbgb-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 27 Apr 2026 07:42:59 +0000 (GMT)
+Received: from nasanex01a.na.qualcomm.com (nasanex01a.na.qualcomm.com [10.52.223.231])
+	by NASANPPMTA01.qualcomm.com (8.18.1.7/8.18.1.7) with ESMTPS id 63R7gwUW029695
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 27 Apr 2026 07:42:58 GMT
+Received: from [10.233.71.148] (10.80.80.8) by nasanex01a.na.qualcomm.com
+ (10.52.223.231) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Mon, 27 Apr
+ 2026 00:42:55 -0700
+Message-ID: <4a76f9aa-d3f6-4841-a883-022a0c56fc9c@quicinc.com>
+Date: Mon, 27 Apr 2026 15:42:53 +0800
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
-X-Mimecast-MFC-PROC-ID: rPSUj5juVHRi7PUnqmxglylweZWIN-6p6oEQlepYaf4_1777275654
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 3/4] coresight: cti: add Qualcomm extended CTI
+ identification and quirks
+To: Jie Gan <jie.gan@oss.qualcomm.com>,
+        Yingchao Deng
+	<yingchao.deng@oss.qualcomm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
+        "Leo
+ Yan" <leo.yan@arm.com>,
+        Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>
+CC: <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        Jinlong Mao
+	<jinlong.mao@oss.qualcomm.com>,
+        Tingwei Zhang
+	<tingwei.zhang@oss.qualcomm.com>,
+        Yingchao Deng <quic_yingdeng@quicinc.com>
+References: <20260426-extended-cti-v8-0-23b900a4902f@oss.qualcomm.com>
+ <20260426-extended-cti-v8-3-23b900a4902f@oss.qualcomm.com>
+ <337789c5-7311-4613-9daf-915fcae0c6fc@oss.qualcomm.com>
+Content-Language: en-US
+From: "Yingchao Deng (Consultant)" <quic_yingdeng@quicinc.com>
+In-Reply-To: <337789c5-7311-4613-9daf-915fcae0c6fc@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01a.na.qualcomm.com (10.52.223.231)
+X-QCInternal: smtphost
+X-Proofpoint-GUID: 5wbLSuJlrNdLT7ism9sx_pV8ekLs61BY
+X-Proofpoint-ORIG-GUID: 5wbLSuJlrNdLT7ism9sx_pV8ekLs61BY
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI3MDA4MSBTYWx0ZWRfX9KjknpFSa+DJ
+ N8bJuqoS7aMzNXrsQPh47eH1dRW1hm/ifNP8t30CkLLLE55OBzkwD/GDvye6AV1/P8L/CoEU4Bf
+ IyAu0spo7bx05cPz6nI/IHX/NXfS3pJ4ROoD0YtqddVQcBhdFDlbS+8WUoE5fMYzLseaJXnbNu4
+ 7lgPh2Cpbf51f1VB38Yo/7K3aN5oGkhBC0XJ+5YTdtDJPmUeDQBpAbi/IM6+FwEZAt2qBIIedDF
+ Es5Lu/MTpoqS1FsZ4nXILdq9afjcVdI0gGkACDSHboSUx5+m0frYNOiTox/nsoYZ3PmdS8BuzXH
+ lwY6OP8e9zy9jEWJOQpHDOP88CSvfp0DFRrO+Tk2Koa2cn/JHSLfWPNLzPeQ8q9jGKAJ+ZQypzQ
+ 2D1HJyVfL2Na2ffVua5nbF8//+jK1xMT8zIUW+HoBPI436RbwhQ2THFRKY7rAa068VPmk07E/vE
+ inYqq4808c+XLRhZltQ==
+X-Authority-Analysis: v=2.4 cv=FM8rAeos c=1 sm=1 tr=0 ts=69ef1383 cx=c_pps
+ a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
+ a=EUspDBNiAAAA:8 a=N0EiosT1q-aN2Bz525kA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-27_02,2026-04-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 suspectscore=0 adultscore=0 bulkscore=0 phishscore=0
+ spamscore=0 malwarescore=0 priorityscore=1501 impostorscore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604270081
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_004103_746332_4CF7FA7B 
-X-CRM114-Status: GOOD (  21.75  )
+X-CRM114-CacheID: sfid-20260427_004305_309105_31F5EEC9 
+X-CRM114-Status: GOOD (  26.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,65 +126,221 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-* Thomas Gleixner:
 
-> The real question is how to differentiate between the legacy and the
-> optimized mode. I have two working variants to achieve that:
+On 4/27/2026 3:39 PM, Jie Gan wrote:
 >
->    1) The fully safe option requires a new flag for RSEQ
->       registration. It obviously requires a glibc update. (Suggested by
->       PeterZ)
-
-Without glibc changes, RSEQ would keep working, but with the old,
-problematic performance, right?
-
-If we don't have a notification in the auxiliary vector, we'd have to do
-two system calls at process start, which isn't ideal, but is probably
-not a significant issue, either.
-
-I haven't verified this, but it looks like introducing the flag breaks
-CRIU?  In dump_thread_rseq, we have this:
-
-        if (rseqc.flags != 0) {
-                pr_err("something wrong with ptrace(PTRACE_GET_RSEQ_CONFIGURATION, %d) flags = 0x%x\n", tid,
-                       rseqc.flags);
-                return -1;
-        }
-
-I suppose a workaround could make this behavior flag a prctl flag.  CRIU
-wouldn't dump and restore that until taught about it.  If the new
-behavior is switched on explicitly by the flag, it would be
-backwards-compatible, except that restoring with unpatched CRIU would
-lead to a performance loss.
-
->    2) Determine the requirements of the registering task via the size of
->       the registered RSEQ area.
 >
->       The original implementation, which TCMalloc depends on, registers
->       a 32 byte region (ORIG_RSEG_SIZE). This region has 32 byte
->       alignment requirement.
+> On 4/26/2026 5:44 PM, Yingchao Deng wrote:
+>> Qualcomm implements an extended variant of the ARM CoreSight CTI with a
+>> different register layout and vendor-specific behavior. While the
+>> programming model remains largely compatible, the register offsets 
+>> differ
+>> from the standard ARM CTI and require explicit handling.
+>>
+>> Detect Qualcomm CTIs via the DEVARCH register and record this in the CTI
+>> driver data. Introduce a small mapping layer to translate standard CTI
+>> register offsets to Qualcomm-specific offsets, allowing the rest of the
+>> driver to use a common register access path.
+>>
+>> Additionally, handle a Qualcomm-specific quirk where the CLAIMSET
+>> register is incorrectly initialized to a non-zero value, which can cause
+>> tools or drivers to assume the component is already claimed. Clear the
+>> register during probe to reflect the actual unclaimed state.
+>>
+>> No functional change is intended for standard ARM CTI devices.
+>>
+>> Co-developed-by: Jinlong Mao <jinlong.mao@oss.qualcomm.com>
+>> Signed-off-by: Jinlong Mao <jinlong.mao@oss.qualcomm.com>
+>> Signed-off-by: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
+>> ---
+>>   drivers/hwtracing/coresight/coresight-cti-core.c | 28 +++++++++-
+>>   drivers/hwtracing/coresight/coresight-cti.h      |  4 +-
+>>   drivers/hwtracing/coresight/qcom-cti.h           | 65 
+>> ++++++++++++++++++++++++
+>>   3 files changed, 95 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/drivers/hwtracing/coresight/coresight-cti-core.c 
+>> b/drivers/hwtracing/coresight/coresight-cti-core.c
+>> index c4cbeb64365b..b1c69a3e9b99 100644
+>> --- a/drivers/hwtracing/coresight/coresight-cti-core.c
+>> +++ b/drivers/hwtracing/coresight/coresight-cti-core.c
+>> @@ -21,6 +21,7 @@
+>>     #include "coresight-priv.h"
+>>   #include "coresight-cti.h"
+>> +#include "qcom-cti.h"
+>>     /*
+>>    * CTI devices can be associated with a PE, or be connected to 
+>> CoreSight
+>> @@ -47,6 +48,10 @@ static void __iomem *cti_reg_addr(struct 
+>> cti_drvdata *drvdata, int reg)
+>>       u32 offset = CTI_REG_CLR_NR(reg);
+>>       u32 nr = CTI_REG_GET_NR(reg);
+>>   +    /* convert to qcom specific offset */
+>> +    if (unlikely(drvdata->is_qcom_cti))
 >
->       The extension safe newer variant exposes the kernel RSEQ feature
->       size via getauxval(AT_RSEQ_FEATURE_SIZE) and the alignment
->       requirement via getauxval(AT_RSEQ_ALIGN). The alignment
->       requirement is that the registered rseq region is aligned to the
->       next power of two of the feature size. The kernel currently has a
->       feature size of 33 bytes, which means the alignment requirement is
->       64 bytes.
-
-There are still glibc builds in use that do not use AT_RSEQ_ALIGN, and
-instead unconditionally reserve a size of 32.  In some builds, the RSEQ
-area is not aligned to a multiple of 64, which makes glibc
-indistinguishable from tcmalloc.  You could look at the location of the
-thread pointer relative to the RSEQ area at registration to tell them
-apart, but that is perhaps too nasty.
-
-Switching to the new extensible RSEQ allocation code in older glibc
-builds is not entirely trivial, and I would prefer not doing that.
-Registering with a new flag is comparatively simple, and we could
-backport it, except that it might not be compatible with CRIU.
+> I prefer to drop the unlikely here, let the cpu do the branch predictor.
+>
+>> +        offset = cti_qcom_reg_off(offset);
+>> +
+>>       return drvdata->base + offset + sizeof(u32) * nr;
+>>   }
+>>   @@ -170,6 +175,9 @@ void cti_write_intack(struct device *dev, u32 
+>> ackval)
+>>   /* DEVID[19:16] - number of CTM channels */
+>>   #define CTI_DEVID_CTMCHANNELS(devid_val) ((int) BMVAL(devid_val, 
+>> 16, 19))
+>>   +/* DEVARCH[31:21] - ARCHITECT */
+>> +#define CTI_DEVARCH_ARCHITECT(devarch_val) ((int)BMVAL(devarch_val, 
+>> 21, 31))
+>> +
+>>   static int cti_set_default_config(struct device *dev,
+>>                     struct cti_drvdata *drvdata)
+>>   {
+>> @@ -700,6 +708,7 @@ static int cti_probe(struct amba_device *adev, 
+>> const struct amba_id *id)
+>>       struct coresight_desc cti_desc;
+>>       struct coresight_platform_data *pdata = NULL;
+>>       struct resource *res = &adev->res;
+>> +    u32 devarch;
+>>         /* driver data*/
+>>       drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
+>> @@ -724,6 +733,22 @@ static int cti_probe(struct amba_device *adev, 
+>> const struct amba_id *id)
+>>         raw_spin_lock_init(&drvdata->spinlock);
+>>   +    devarch = readl_relaxed(drvdata->base + CORESIGHT_DEVARCH);
+>> +    if (CTI_DEVARCH_ARCHITECT(devarch) == ARCHITECT_QCOM) {
+>> +        drvdata->is_qcom_cti = true;
+>> +        /*
+>> +         * QCOM CTI does not implement Claimtag functionality as
+>> +         * per CoreSight specification, but its CLAIMSET register
+>> +         * is incorrectly initialized to 0xF. This can mislead
+>> +         * tools or drivers into thinking the component is claimed.
+>> +         *
+>> +         * Reset CLAIMSET to 0 to reflect that no claims are active.
+>> +         */
+>> +        CS_UNLOCK(drvdata->base);
+>> +        writel_relaxed(0, drvdata->base + CORESIGHT_CLAIMSET);
+>> +        CS_LOCK(drvdata->base);
+>> +    }
+>> +
+>>       /* initialise CTI driver config values */
+>>       ret = cti_set_default_config(dev, drvdata);
+>>       if (ret)
+>> @@ -780,7 +805,8 @@ static int cti_probe(struct amba_device *adev, 
+>> const struct amba_id *id)
+>>         /* all done - dec pm refcount */
+>>       pm_runtime_put(&adev->dev);
+>> -    dev_info(&drvdata->csdev->dev, "CTI initialized\n");
+>> +    dev_info(&drvdata->csdev->dev,
+>> +         "%sCTI initialized\n", drvdata->is_qcom_cti ? "QCOM " : "");
+>>       return 0;
+>>   }
+>>   diff --git a/drivers/hwtracing/coresight/coresight-cti.h 
+>> b/drivers/hwtracing/coresight/coresight-cti.h
+>> index dd1ba44518c4..2598601e7b93 100644
+>> --- a/drivers/hwtracing/coresight/coresight-cti.h
+>> +++ b/drivers/hwtracing/coresight/coresight-cti.h
+>> @@ -55,10 +55,11 @@ struct fwnode_handle;
+>>   /*
+>>    * CTI CSSoc 600 has a max of 32 trigger signals per direction.
+>>    * CTI CSSoc 400 has 8 IO triggers - other CTIs can be impl def.
+>> + * QCOM CTI supports up to 128 trigger signals per direction.
+>>    * Max of in and out defined in the DEVID register.
+>>    * - pick up actual number used from .dts parameters if present.
+>>    */
+>> -#define CTIINOUTEN_MAX        32
+>> +#define CTIINOUTEN_MAX        128
+>>     /*
+>>    * Encode CTI register offset and register index in one u32:
+>> @@ -188,6 +189,7 @@ struct cti_drvdata {
+>>       raw_spinlock_t spinlock;
+>>       struct cti_config config;
+>>       struct list_head node;
+>> +    bool is_qcom_cti;
+>
+> missed document.
+>
+> Thanks,
+> Jie
+>
+will update.
 
 Thanks,
-Florian
-
+Yingchao
+>>   };
+>>     /*
+>> diff --git a/drivers/hwtracing/coresight/qcom-cti.h 
+>> b/drivers/hwtracing/coresight/qcom-cti.h
+>> new file mode 100644
+>> index 000000000000..fd1bf07d7cb4
+>> --- /dev/null
+>> +++ b/drivers/hwtracing/coresight/qcom-cti.h
+>> @@ -0,0 +1,65 @@
+>> +/* SPDX-License-Identifier: GPL-2.0-only */
+>> +/*
+>> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+>> + */
+>> +
+>> +#ifndef _CORESIGHT_QCOM_CTI_H
+>> +#define _CORESIGHT_QCOM_CTI_H
+>> +
+>> +#include "coresight-cti.h"
+>> +
+>> +#define ARCHITECT_QCOM 0x477
+>> +
+>> +/* CTI programming registers */
+>> +#define QCOM_CTIINTACK        0x020
+>> +#define QCOM_CTIAPPSET        0x004
+>> +#define QCOM_CTIAPPCLEAR    0x008
+>> +#define QCOM_CTIAPPPULSE    0x00C
+>> +#define QCOM_CTIINEN        0x400
+>> +#define QCOM_CTIOUTEN        0x800
+>> +#define QCOM_CTITRIGINSTATUS    0x040
+>> +#define QCOM_CTITRIGOUTSTATUS    0x060
+>> +#define QCOM_CTICHINSTATUS    0x080
+>> +#define QCOM_CTICHOUTSTATUS    0x084
+>> +#define QCOM_CTIGATE        0x088
+>> +#define QCOM_ASICCTL        0x08C
+>> +/* Integration test registers */
+>> +#define QCOM_ITCHINACK        0xE70
+>> +#define QCOM_ITTRIGINACK    0xE80
+>> +#define QCOM_ITCHOUT        0xE74
+>> +#define QCOM_ITTRIGOUT        0xEA0
+>> +#define QCOM_ITCHOUTACK        0xE78
+>> +#define QCOM_ITTRIGOUTACK    0xEC0
+>> +#define QCOM_ITCHIN        0xE7C
+>> +#define QCOM_ITTRIGIN        0xEE0
+>> +
+>> +static noinline u32 cti_qcom_reg_off(u32 offset)
+>> +{
+>> +    switch (offset) {
+>> +    case CTIINTACK:        return QCOM_CTIINTACK;
+>> +    case CTIAPPSET:        return QCOM_CTIAPPSET;
+>> +    case CTIAPPCLEAR:    return QCOM_CTIAPPCLEAR;
+>> +    case CTIAPPPULSE:    return QCOM_CTIAPPPULSE;
+>> +    case CTIINEN:        return QCOM_CTIINEN;
+>> +    case CTIOUTEN:        return QCOM_CTIOUTEN;
+>> +    case CTITRIGINSTATUS:    return QCOM_CTITRIGINSTATUS;
+>> +    case CTITRIGOUTSTATUS:    return QCOM_CTITRIGOUTSTATUS;
+>> +    case CTICHINSTATUS:    return QCOM_CTICHINSTATUS;
+>> +    case CTICHOUTSTATUS:    return QCOM_CTICHOUTSTATUS;
+>> +    case CTIGATE:        return QCOM_CTIGATE;
+>> +    case ASICCTL:        return QCOM_ASICCTL;
+>> +    case ITCHINACK:        return QCOM_ITCHINACK;
+>> +    case ITTRIGINACK:    return QCOM_ITTRIGINACK;
+>> +    case ITCHOUT:        return QCOM_ITCHOUT;
+>> +    case ITTRIGOUT:        return QCOM_ITTRIGOUT;
+>> +    case ITCHOUTACK:    return QCOM_ITCHOUTACK;
+>> +    case ITTRIGOUTACK:    return QCOM_ITTRIGOUTACK;
+>> +    case ITCHIN:        return QCOM_ITCHIN;
+>> +    case ITTRIGIN:        return QCOM_ITTRIGIN;
+>> +
+>> +    default:
+>> +        return offset;
+>> +    }
+>> +}
+>> +
+>> +#endif  /* _CORESIGHT_QCOM_CTI_H */
+>>
+>
 
