@@ -4,106 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C0A3FF8860
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 06:43:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D478BFF8861
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 06:44:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WcOsr9RfEk0bJ62aLAVriU179vnNVwV4fppmi9KtUbI=; b=F5B+8VnE5WvgjGvLOS083YWNGb
-	c8Wi9EoC3YWU3EU1TGEbAaOg3lI4E3Gbzy4/Jp1KqkVz1Lp3lDrR6BnhaquhtCKJQuhkcQ+EFIqO7
-	yg66xKMsfYuBVo0lJdfkoZO7io7RxJ3+1ZFGHwOWrEL9sRrHA9xTryhD0C+o7PVBh+KSiR+TQRsxf
-	rTyTOzFG5nRBwCxM0+gVhZgynb8Db5iY71Lpm+Th5vkJb8x7/eEqffA8prqrXFp9QkToFyT47aA1j
-	0Af57C8Q/O3/L9gJvm612UxSYyBwMyTjStE3Nifpu4HvdFQS7YWuOKUoY13xJZ0SFqgChkBoshoNR
-	oPucztqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O/s3dptB+GsylMeuZ/vqjSHlzhdGa4ZAr73wfZBZfq4=; b=pZqOJSv5QsP47pzHLJ8kqok6AV
+	bfavbS4xyJ8NwC5fAVSsy6loOt1xMCqeI98CiqWVWSlEMLReag9l14CkoODctW37cZqdBV0MI65LM
+	dRTeZw7V4cTJ71bFqd6Q+xsStotJVQYsBkeZSlXmcUpxbHEeA+r2iwpVOl6UMMJjsTmQrX3kEA4ao
+	MUyqhAHilIdNppr8m4TWWGL5UT20h7G57wbx0yPWq8xM/Dj75RAEAZpn7FxQ5RuoHbV0ouKSk8i/J
+	EoxypXZX4Vernkmp/CaN8KuO24gyVlwIm5DTQaOoj/fGX6emS2vRDKEVK365JgaRGMKZ+EqduAzCJ
+	NmNnlBZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHFgU-0000000GHSr-1E85;
-	Mon, 27 Apr 2026 06:43:10 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1wHFhy-0000000GHaa-2wdh;
+	Mon, 27 Apr 2026 06:44:42 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHFgR-0000000GHSW-1MYM
+	id 1wHFhx-0000000GHaN-25up
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 06:43:08 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4891c0620bcso66119105e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Apr 2026 23:43:06 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1777272185; cv=none;
-        d=google.com; s=arc-20240605;
-        b=h7AHylSmlFO/TlUA++uxyfG7i2uaa2vmnl0YObYE5ah+Y/UGeu+5dqDkvt5ZH4aZ9v
-         HIj2RkZ0IVex/jHN+pYJFzVg0mj3p3rsxLVJ+vBb+mWO96ckkRmsUp6puD0lTWGj9Wr5
-         2xBhdsxltaIFihdaSGdawxXuLg6hYqhUo8sRrOxZCokZNq7y42oFwDqBrrdbKAuFMvoL
-         6EzWkE28nNX7AjMGafLu45nbGZC3ExXVW0iZA0+rQFENEEilzdBl/RJv2vmKrl3gWxgt
-         G8rMPuoupFCNNyUgTFCtWVQ+hOSHIr5MhdnAhleUV6v4KjrIdRI+allYqAo+NyyAgm9N
-         ewew==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=WcOsr9RfEk0bJ62aLAVriU179vnNVwV4fppmi9KtUbI=;
-        fh=n2hIUMInhdvtXflEA2Uwu5ctNSJCQHA8vQHRs3akHHQ=;
-        b=i/kAXEcbk2Fx4UG+5/3D0w9YXyPJILByS0hFiVrVaKkn0rHqu3wUgBmz7+e47n+t5y
-         7RFXD44XpQM2Ep3zC7uo1UawIeJqSnTfWOafe8wBJZ8LxF6u5OgdBDopU4jRzKPc+XBG
-         Cx0OrE5wtFriw8FIatu8YKAYD2i/kowPqjfgRWpgzotc/gtSNLccX9AvX5Mjs1ZWtSyt
-         c+8S3r3gUK2Frqgc+4bNROKMHPQUOPA9I5Zp3vEI1uDSClXkWkSyvmjUJ1O2t+S5zUN1
-         X4TSZjf9+DiULlbK8oCPi+obq40jLvU1oNuMdYP7VRR9+iLoGbjgWtNGRfGUbLQ4faWr
-         8TXg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777272185; x=1777876985; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=WcOsr9RfEk0bJ62aLAVriU179vnNVwV4fppmi9KtUbI=;
-        b=oK+shXUUupoP4oL6DapUKIRee66QiCLHTDagg9eOzjKfhXWLOG2Qfr7akNuOCt7MCT
-         CPawQuuUEGOSC14qaE3PsjhmcvD1z38DXCUqNMro8oiSKcmmddJfdseZKuOwPX2H4vhz
-         jtHijVKPD9/Sz4ta0Jpo9NIXeizvy6KzY6AzxJJr6hZQlZtlnZP3PEI4Rn3UhV0vOn1r
-         H1Cgx+1zh2b++P/GMEdP6YUhYYH4+qPlrdkwKJHqvbZ61+5sklkF9hzUJM8RiLXn4dRZ
-         PKj8B5+HwU18r2OATKedchqetgv53nSpsqMhTvKGchQrOt2UzFRfu/0T3FvOc/HBesam
-         2mqA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777272185; x=1777876985;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WcOsr9RfEk0bJ62aLAVriU179vnNVwV4fppmi9KtUbI=;
-        b=F4RDdf84YPO531gs1ThAWEViTKh11C9PNYbxUmgoOc1Z0iIHOt+Rl+KevLCMzy7K3w
-         1yah01vA+7nZEBatwUXmPyfZ1GPePT93BhrVvhrCW2Cyu5iHcvT1ndkBN6LGxlvb8ana
-         MdCGauNTDt+Qm3PyXhxQslgLVssl2YfJG89PzJWSwjmDtNMb+s/Bbp3oIhhxtCbYiuSe
-         +ol8rRcNQ7Jr2f5fTRViAtcd8QY07ZxZUywLKxQHswjSHjSaw94LxvWuIOEZH1CIR8eP
-         G7p/3DQKDDfz39fE9glC4SUzsGx7Jo8I+hCylU8lv7OJn9jykPP7NCd+NomVGuhvoXrQ
-         Il/Q==
-X-Forwarded-Encrypted: i=1; AFNElJ/9oCmaOS1kjF4WfKHIZmUZrBSy06gbsd464ZVRq0/mbT+NA6WrKMBEvf4GVFBCd/s38XricWgZ+qHPRP2hDFfO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx607mcIxt2nP4dLbpWcYpMG0f3hRAsi0/UGyn8N7Uha9lP3njk
-	4lO1xLgU7+UpTDYL4QASdgtdMeVafRAuUP10/86JM6uuTQmKNG4v66UVd+e9c2VfEJMXpISy77O
-	zjGz/2hgHhgtkOOAqB80Sw/rSKbJ+MOg=
-X-Gm-Gg: AeBDietZ/f1zhJliLP6YipKr+JXFYAiuRzKTOB8ht0jUhaJ+GTUI4sIc+gNS7E2BxHX
-	SzjvBOrNQIOZfiIa7inGi1xvEByvLWNlZpaKgZmyM11kHRXy75tyAXMC+ptOctAegDutcwYLYeW
-	kzJvpIut6YtydSFS/RaLdRlRnDaThUGx8iBk0vru8csBhVjqqMstuPHdxVerNj0j+xZjMtCwhKS
-	FmxGIXhKrs88C1NszoiLLb4/ua8j/KierwaZzs4Ke2vbTYYvmsx1LFcJf4ocY9vDseC83OTUTqa
-	kCd3w8SEcWdkUMJfz4Hc3HZbFTUfOx5zQEjuzVhGwdkIpUWzfqxztZ9ZPcRZeMJuu254/nrbrLc
-	X4JJjXZht+VeF64aKpr6ZkLfmjVI7UxDZKSWikjUFo1i4AaQDtQw0neYr5ohfQC32AhrYK/rxdo
-	3Rt+rWH5fnBthkpK4p
-X-Received: by 2002:a05:600d:8454:b0:48a:5970:2003 with SMTP id
- 5b1f17b1804b1-48a59702216mr227888515e9.3.1777272184448; Sun, 26 Apr 2026
- 23:43:04 -0700 (PDT)
+	Mon, 27 Apr 2026 06:44:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7B93260138;
+	Mon, 27 Apr 2026 06:44:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71978C19425;
+	Mon, 27 Apr 2026 06:44:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777272280;
+	bh=++6UEU4yaOeO1axP1G6QsOSmQ/VpNi76TGpnvYbKroQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=kStS81G327bAWFsQVJjguSpbpGsPIEJhQ4furfZH1JiswKgHHaRkFKHZ5v8T8JByY
+	 ZK4VV0tHNVpUAo7MfLfRaDug4HLRW7Y+YS/VczZ5iOShPKow2kjWkFIYtdjYEwGNz2
+	 ym8Wr9ye82bLBK7qU9ol+gkQa+zUfYJENCa365By3uUcu5D6eQse6zOHqOiuBKzLXI
+	 RDYEOmLTfBzjEJ5JaX6uC8vNHyiqQLx6MwT1hFxL4We1sESlY2SbVE9+i0PH9nREUU
+	 NWVNJ5iqwQkEPdM7Nozm/45eLiCTHuOL3DI7R/UNrfwBJb2hq7/nBKQOtjSeeKrK4L
+	 vSuHqjF8e9Xcg==
+Message-ID: <2a04feb9-43ce-4a09-9ae2-75c2d2f842f3@kernel.org>
+Date: Mon, 27 Apr 2026 08:44:34 +0200
 MIME-Version: 1.0
-References: <20260426211834.3318306-1-caiomorais@usp.br> <20260426211834.3318306-2-caiomorais@usp.br>
-In-Reply-To: <20260426211834.3318306-2-caiomorais@usp.br>
-From: Joshua Crofts <joshua.crofts1@gmail.com>
-Date: Mon, 27 Apr 2026 08:42:55 +0200
-X-Gm-Features: AVHnY4Kz9mzYmXtl_F23_Et-h-RH1SZ5HdIzGYse74P0wBY1rMYM11t_BGRAWAo
-Message-ID: <CALoEA-zz-2cG7SJr1iKNQ0H81TVMXLQh3omkxJc9YRW673Kqqw@mail.gmail.com>
-Subject: Re: [PATCH 1/3] iio: adc: xilinx-xadc: remove unnecessary includes
- and add missing ones
-To: Caio Morais <caiomorais@usp.br>
-Cc: andy@kernel.org, dlechner@baylibre.com, jic23@kernel.org, 
-	michal.simek@amd.com, nuno.sa@analog.com, 
-	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_234307_403741_C0962067 
-X-CRM114-Status: GOOD (  10.45  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] arm64: defconfig: Enable J721E and Keystone PCIe
+ drivers for TI SoCs
+To: Aksh Garg <a-garg7@ti.com>, krzysztof.kozlowski@oss.qualcomm.com,
+ bjorn.andersson@oss.qualcomm.com, geert@linux-m68k.org,
+ dmitry.baryshkov@oss.qualcomm.com, arnd@arndb.de, ebiggers@kernel.org,
+ michal.simek@amd.com, luca.weiss@fairphone.com, sven@kernel.org,
+ kuninori.morimoto.gx@renesas.com, shijie@os.amperecomputing.com,
+ linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org, s-vadapalli@ti.com, danishanwar@ti.com
+References: <20260427044404.222396-1-a-garg7@ti.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260427044404.222396-1-a-garg7@ti.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,31 +118,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 26 Apr 2026 at 23:20, Caio Morais <caiomorais@usp.br> wrote:
->
-> From: Caio Morais <caiomorais@usp.br>
->
-> Signed-off-by: Caio Morais <caiomorais@usp.br>
-> ---
+On 27/04/2026 06:44, Aksh Garg wrote:
+> Enable the J721E PCIe endpoint driver used by TI's J721E, J7200, J721S2,
+> J722S, J742S2, J784S4, AM64, AM68, and AM69 SoCs.
+> 
+> Enable the Keystone PCIe driver for host and endpoint mode used by TI's
+> AM65 SoC.
+> 
+> Signed-off-by: Aksh Garg <a-garg7@ti.com>
+> Reviewed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
 
-You're missing the commit message body. While it's understandable
-what changes you've done in this patch, it's good to expand the idea
-further (what you did, how you did it, why you did it). This goes for all
-of the patches in your series.
 
-> +#include <linux/bitmap.h>
-> +#include <linux/errno.h>
-> +#include <linux/mutex.h>
-> +#include <linux/types.h>
-> +
->  #include <linux/iio/events.h>
->  #include <linux/iio/iio.h>
-> -#include <linux/kernel.h>
->
->  #include "xilinx-xadc.h"
->
-> --
-> 2.54.0
->
->
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+
+Best regards,
+Krzysztof
 
