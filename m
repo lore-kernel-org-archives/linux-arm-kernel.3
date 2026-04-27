@@ -4,142 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C247FF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 02:39:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B745AFF8850
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 02:42:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gnjBvcwsFuV3BFAI1rSLXXcOXAoeMgeZj1ryS4P/lSk=; b=gRn1kQ9kOEqxipQGX22SCitUgr
-	edD5elnvd+pyPDF5KPU7Uf3O2lbg3cV44XQqy1wMn+CcBDNgIgk46YxkZciJAWiAn+XitSACIpSQX
-	w6+0/1dWUKA6BvrtQb1rflFFrX/D1ZnOO12WL7X2r+9t+ULPQCVJInknImrX1AYK0PkHXir2s5JHI
-	gyevgAR0HoFhznRv1EmLw6wX8NMkXuq3M0wkID33pP7K9JIBu+6NM7705EQTnq0ret27RqXCaQkA3
-	FcUWm5eFCj03zg/SJ2LDUyS4J4F2vc129vwdsyw0N29tLuJIYH5wbNBSEj02TmjMPMrqApLQpEA0A
-	5M/uuipw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:References:In-Reply-To
+	:Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qhtscWonEKOFZrQW+3xWMuRK2rrdNHFur8IInUkqd5Q=; b=VyXfZHfLGdP5XPYCxiJrixh9yv
+	lJPcfQhK0g7k8E3a8VjtlrgT4GSGtKvh+X2OlPE+oJo8+3S3a/aUMa99jkwNg3u7uAuOW8sDOzF1w
+	YBDZ2WB4dfsozdbkRiXld5y1I6VKiJdVN0yK7JTADWrHXMaJR0L/wp3FaLNhGryTVb+HaQpcC2TzM
+	S360JX7F/Tm/r+D8N3Qcbw1iu4HLo7KRcHHD74MH+qTSb7cd0i/rTn5tdWfeAPOM9GihgHRzFfQPN
+	Jx3veG2+IZhjM7t1SGs/AYVGrkxz0E8ZasFIgnx5NoEG1HMj8iY8+gWMSJ7WMhOSaaxlNW+EAIpER
+	7sSDRPyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHBsj-0000000G3p7-3Egt;
-	Mon, 27 Apr 2026 02:39:33 +0000
-Received: from mail-westeuropeazon11011027.outbound.protection.outlook.com ([52.101.70.27] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1wHBvI-0000000G4CR-3Pop;
+	Mon, 27 Apr 2026 02:42:12 +0000
+Received: from jpms-ob01-os7.noc.sony.co.jp ([2001:cf8:acf:41::7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHBse-0000000G3lt-3V6c
+	id 1wHBvF-0000000G4Bj-1DsD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 02:39:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PFWSyeFBY9ORoa/rU7BVaeJhFgIoCjtN9uujI8f/E6KBwe9SGow1i67Rd1OPnztg9FWOAO0ybA+IPSoqkXjKB6Ldilt7LZ4HIqLd7VsyUjapd+ZpbYEXpur7XBMw+xBfkMn6aTQy78YiE/SVEhZXafYkz9sLqsYLOhUenmkyJElUXs80/F/lBxpI4l/RJihq0m7Hb0yIOLbze7NPAJ+oZlgtM9LEDu8sWhziFMrkdx9b/1eojX1Csw3q2S/ai2YB6gQREM03+Ke1BlSOFbdIm7THGJt/i2EaGHXut3OSbXE6b0PyiKP+8JbK342JbW3554A2tT4vnPhryYT1m6Xe7g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gnjBvcwsFuV3BFAI1rSLXXcOXAoeMgeZj1ryS4P/lSk=;
- b=L93/3PTfFg8Wwm4brnqS6MHaWdCrx7AvW+dAgl1+U2jyG5iEtVomXFvy9pPX1Gvd+RbyyOjGrWkzTHwMiitzL+WI0PVHq2fd0N8A7/jUmBmNYG7G2044GsjZdgnDwbBGgUq+tn09njwfWNUbr3KUxIiyxSQS+bSlKjBHlF/wF/BEXTXxXZMfcjlTEVSzvsNwyke2UWKHqoTMUTgYym1eYZVEYo7d7gJr8Su30PqTVqIu/Dv5Hbk0eF1pm2LHnajwkTZezKf0ajeKWShTuSm/1NF8RAft9yQYuBylpZeGff5NUoWY/EfpIqJGgC8D+W/j988urBUm3+dCT39TRHrBoA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gnjBvcwsFuV3BFAI1rSLXXcOXAoeMgeZj1ryS4P/lSk=;
- b=WfaLmbN+GFNxLKltWGt0QJalOGqKfQn98qzbQVIERw16uaOrwZLQuCllJmW3wNlh/vIN6yNn/bUWMlAWDBKhuQbh2zi7mnOBA7eOK6K7x39tu8tJObBonKbBTnxeR6MytUxjHvADh9VofCZ5LeHIRRsY7G5x/vPmGrIkryLgNU5r6Io/YZpgpefT/j96UuAU/3awbbyMhEVpMBVy3tseQh7GsFc/xLh3M8d8Ua1GMbJAl3zZworjDwHJRntrvkEDWUoW9T44beJWUVuGSyiJP9l9O9fYnYmt7Sc0DDoGQkPYTYuUFo8WZv6dX6g8xXmhmkQzIAVQgcu0LuQ1bnEVjA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by PA1PR04MB10793.eurprd04.prod.outlook.com (2603:10a6:102:485::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Mon, 27 Apr
- 2026 02:39:27 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e%4]) with mapi id 15.20.9846.025; Mon, 27 Apr 2026
- 02:39:27 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Date: Mon, 27 Apr 2026 10:41:26 +0800
-Subject: [PATCH v4 3/3] remoteproc: imx_rproc: Add support for i.MX94
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260427-imx943-rproc-v4-3-68d7c7253acd@nxp.com>
-References: <20260427-imx943-rproc-v4-0-68d7c7253acd@nxp.com>
-In-Reply-To: <20260427-imx943-rproc-v4-0-68d7c7253acd@nxp.com>
-To: Bjorn Andersson <andersson@kernel.org>, 
- Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Daniel Baluta <daniel.baluta@nxp.com>
-Cc: linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.14.2
-X-ClientProxiedBy: MAXP287CA0002.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a00:49::23) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Mon, 27 Apr 2026 02:42:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=sony.com; s=s1jp; t=1777257729; x=1808793729;
+  h=from:subject:date:message-id:mime-version:
+   content-transfer-encoding:in-reply-to:references:to:cc;
+  bh=qhtscWonEKOFZrQW+3xWMuRK2rrdNHFur8IInUkqd5Q=;
+  b=vU14wbnDiEH9cxvWZlhLJw3XRy7Z6qppI0txXRFF8knIdMN2Tnrot7xL
+   H6QM+aTGtwvIInenjOR51RmikgW3dPm9xGcfdJL3crLzKRMy6NFZ5JxLt
+   CSDv8fNhuk+sc3f53QKF0Pvimw9VRA5R/preaaoj8T4c1I3sjjRl/fG4M
+   t2/2v9P2dtK+vyiyiXuKW4zRIFwJIhpU6wjWnDogtl9zMXw9s9T7H47Cf
+   1jc3NKfNYrRzsLe3ftu+OTgZ57ShdP1Wp7PWJ8Qdrh45c8G7L4cHm+DAT
+   imnEWAcuNtfIkyqcufyG2uk13HwuRpN+NjTrfTaZZii6ISN9DFzRhDaDz
+   Q==;
+X-CSE-ConnectionGUID: yh8VV8zfSxyDpunTaZ0FYg==
+X-CSE-MsgGUID: 7dARV2ZoSaeqEIZxieWTrg==
+Received: from unknown (HELO jpmta-ob02-os7.noc.sony.co.jp) ([IPv6:2001:cf8:acf:1104::7])
+  by jpms-ob01-os7.noc.sony.co.jp with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Apr 2026 11:42:04 +0900
+X-CSE-ConnectionGUID: +W+n/bPoRC+IUCG6r6jjxQ==
+X-CSE-MsgGUID: +R75kAZwS56p+O/DwSqFEA==
+X-IronPort-AV: E=Sophos;i="6.23,201,1770562800"; 
+   d="scan'208";a="52275250"
+Received: from unknown (HELO [127.0.1.1]) ([IPv6:2001:cf8:1:573:0:dddd:eb3e:119e])
+  by jpmta-ob02-os7.noc.sony.co.jp with ESMTP; 27 Apr 2026 11:42:03 +0900
+From: Shashank Balaji <shashank.mahadasyam@sony.com>
+Subject: [PATCH v4 0/4] Enable sysfs module symlink for more built-in
+ drivers
+Date: Mon, 27 Apr 2026 11:41:20 +0900
+Message-Id: <20260427-acpi_mod_name-v4-0-22b42240c9bf@sony.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PA1PR04MB10793:EE_
-X-MS-Office365-Filtering-Correlation-Id: f2960680-27ab-4b32-3cc2-08dea4063320
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|52116014|376014|366016|1800799024|921020|38350700014|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: /uXAxS1HykqpcRFGHBUqSsXvJQlCc6QActAtI6VQmigW/T+9RDnjYbTU1nIiRlkvRrs2fiN6aG0dTPeFJReSQR+Jz8LJ4yZDBz0H0/S4mMucyf5KkVe8P2jk+jpLtDlbIDnK67u2O4cj3JWNaMAnLUzu1U/809+8Hm061hF97F/vwtv8zl1i9TKpY9v55At/yOVsqYARzdUmD7gKPXdaHG1b7+4M7I9hSgFG6bA960kwEabpGFoiL3qGKSZWkoTft+U3s4wN9HYU+FZyVoEiQgdnVUO3ZEBCRjP/qF3BFCD00Y/2wJ624qrcS0QWC/PoVmYYIL7LHpBCeUzR9ZBryl8hN8QG/Vb26rDnXfY3mTOM5SbzFZW04JXvANDvqf4uHBzm+7qx4/AD6v+vw+gMhcFxC+3ofa5fmflXAn/YhNI2lP3PRN8peJ3aSeV2n3/gwLtQPssjm1jwvBdzQfoPoJp0S0ybryYhbfSvjWACaDmTBwmgjm2vKkyVCBLwhYea5DHV9CIj5vQ8ZrskI4dUdybeZb70hTL732ojOsWVKZgmEqrZjfSK3Ig5UNofhuevL5pxH3tFwf6TuKuN9cM8boR8Z/64tE22uTLcILngBY2B20+py6HsvJ+WAjHV9Y7xyoMUhjWx6wUHrr+KFHlIIAyJwo5tWemIobkLwV6wVUDSEDWFXAUQkk9NxsxBB8YWCwzrKbwVEPsRM9MrhxlKI6VmpfwESH2EngMAKOp8L10WYG/P0tO+VPCsS+vErAZa+GbZ43x+0megRFo4KEdzuiznc879gE5tTxHqwmLXRLg2iLfBYdmYf23ydekL4zak
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(52116014)(376014)(366016)(1800799024)(921020)(38350700014)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NU51TkRRNFVTUjBlWkdTL1hVVDdvR1BMbVM0dmtyN0FjbVhSVXFTckdhNW5p?=
- =?utf-8?B?S3Voai9GNlpaLzZzb2FNNXk4VVRZL1VHNWc4d2lRRWxQakIxdGU2RGoxS3dF?=
- =?utf-8?B?VlhibjVFQUpiK0pRODVOUG03QTZZZUhkRkhCRVRCNjFaeDBieHE3bExVOVRz?=
- =?utf-8?B?bWFWUmRPRHhwMlhVRDlBMGV2d3YrYXdNYlh6U2lkaWVFNmhpUGJtTENmbXJr?=
- =?utf-8?B?eDNyZmVvbDMwWC9qMDhCUnltcVUvQTBiSzlhS0h2aWpodzhIM29XQjlQMVQ1?=
- =?utf-8?B?QjlIcFo1dUZNQ1UxWDY4VDVMS3praTBwaUlkNks1cGdOdkxuNXZGNXdWaU1w?=
- =?utf-8?B?MHF3WDNGd0R6MWRuSGdRR1dmYjZSRjBFOG9kSjVwRzBYQmZhMUt0Zk5ZTlE3?=
- =?utf-8?B?MFJoUWpSZTg3K25sZ3VFOXZ2YWxlWUU2Y1JYejBCc0pWQnA3elpscW9oNUpm?=
- =?utf-8?B?ekdsbGxXQXVLNkthTFA2NEVXSFZEbjdCLzBVd1Bja1pnUEc5eE55a1Z3SU94?=
- =?utf-8?B?c2t4ZTRWblpzNURQM011WXRQSm8xZUZVV0JLSGNNUE16d0dvblozbStESVVw?=
- =?utf-8?B?SE1keS9uQ2ZIZDFSd09lbktLSXR0bHVDT3IxeGQ1aXJweStrVnF2V1hOZzUw?=
- =?utf-8?B?d1Erb3gxU0tidEd0dVZXNS9BT1Fnc0FJS1NmMGIyTmZuaElLZG1iUEovNUdl?=
- =?utf-8?B?ekdIazA4YmFTa0d0cTgzekFBSFFmam1ReEZyeFd6UWVhZitNcEVqSFZHRDU0?=
- =?utf-8?B?Y2hSdUhKZzlJR0hOaGx5NEh3QVBVTXBOcisrNHNhbnFhdk41VnJ3N2ZYYTVz?=
- =?utf-8?B?MUJTUldoK20ydlo2Q2tXdVlqTVNsSXpYVmV2elhJOVFQK2tMd3BSSWU0Mi9k?=
- =?utf-8?B?cFdvWUxuMWlOU2JoaXVWbGpzaHBMNnBOSnFjVFFZUE1GZmN4MmgxbTMyRWk5?=
- =?utf-8?B?cWhQRURwdE9MMVU3MEROb2hhQmRSTWxZNlhWZ1kwa2trL0RwMDhzcjVQREYw?=
- =?utf-8?B?UnNXZ2pCY2d0UXU0aGJNVzlFd0U0cTFEdXdWZFpzL2lPc2VGSE1oZlIvMmtD?=
- =?utf-8?B?MDJzaTMyQWNTcFo3d1g3YVphRnpuVEZ4OEhEdHN5NXBCMVdNbW9Uc3ZhdlM5?=
- =?utf-8?B?RnpOcG1ZOXZjNUlnZXVVZjNrVjgxYlpYNkplRThCeFR5a0xoejNJWTlZbEJy?=
- =?utf-8?B?bUVUdXBRNitmTk5rRG5rL2M0T1lmVGs0c0J5aXBYb1prRDhyQTF5bmZZeUN6?=
- =?utf-8?B?ejdwTTFXNGk0NS9XMWVxblpCU0NSdTQ4S1hxZ1hFcnBBcFd1UnU3S3dZQk5l?=
- =?utf-8?B?NjluMmVnMHR2ZzhMWnhSaHlYSklCQ2dPVkoyWVAwQ1BNa3g5bjVTaHZ4R1lT?=
- =?utf-8?B?aU9EbGdMZ1pHKzV0T01wTGJ0eHo1cGtHQU11ZHQyRmwzbHppS2NsZVNOT2dN?=
- =?utf-8?B?by9FQ3VETWx0MXdxaVo2MVFFQVQ2elFudDZ0WW81L2dORW1TbGJXa1dzTWxM?=
- =?utf-8?B?bi9GYlZIakVWMkdHRFNhdzRPaDFSNjZXNEZ0TFZBTllUTmxNdWt0aDQ0NlZC?=
- =?utf-8?B?R0daV1pRT3ErY2w4dVJCMTkwUGMxR0NmVmsrUS9OeThJLzNpNW83Z0cyaTFn?=
- =?utf-8?B?RmZTL2swcGNTa3o4RW1kRHdlWWlTcUxmb29sMU5uSUJBVFJYWjVMa3pwSSt3?=
- =?utf-8?B?dVBVbmIwOTN5T1c3MGgzU1FVT0JSSGJWcXA5MXBkRnpRM0U4bi9ORi85akRz?=
- =?utf-8?B?QkduKzFGWVNvdUUyQ01KTjFiRWN3dGZWWEFKM1hpZXJQWjhkWDlSTDhuQW8x?=
- =?utf-8?B?VS9KK0VkWXFmMUNxNFp4em14RWR4RXo5aS95MHhiT004b1k5L3k5bElzZkpy?=
- =?utf-8?B?blpEaDhGaWozQWx2ZWdCN3ZQcVBqeFNwMWgrQjY0MHhRMjhLOWRHcE52MU81?=
- =?utf-8?B?R2RNaDNGYThUdTVNR2xlTzJ0NFg3UXJqNCsvWC91a3FselJzQ2xXL3ordzFE?=
- =?utf-8?B?K1YrUUJWM1Zpb1cyNUhITDJabTlEcWllNWJEaC9QYks5UmhmcmhMRDlxdFps?=
- =?utf-8?B?V210MGxmN0hrelpBSXZrZlJVRit2aTRsOW0vdHo1VkgwUzVpVzE3UGQ0QkF6?=
- =?utf-8?B?Zk5xOGJIQThTNE1FQk5KRURjZU10YUw5T0RkZ29IS096RTRsUTQ4MGpmVXgx?=
- =?utf-8?B?T1l3SFdIZ2VIRDIzTXNDMGRLTEE3aW5DMDRyMFNCQllpN3U1ZW9SNDBRVkNM?=
- =?utf-8?B?bzI2dU8rYTF5Qm5xMHdZUFZxbTJUUC91S2tSMTc1OXNtUXJGM3dZbzRjTzBp?=
- =?utf-8?B?ZktuYmROL3JGejlwZVREbWwvajlTWHJ1RTBvbUhHR2FlckNSOVhWdz09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f2960680-27ab-4b32-3cc2-08dea4063320
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Apr 2026 02:39:26.9623
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Oa158nC2epd9VoZLprFM+o1y2HvTOvxRn6tl1/e5zzs/KN+c4DoKl/aafp1KQFCC6t7hQRQ7IMaOXvCitifLAA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10793
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIANDM7mkC/3XNTQqDMBCG4atI1k0xP43aVe9RisRkpqagEWOlI
+ t690W5E6PKDed6ZSYDeQSDXZCY9jC4438YhTwkxtW6fQJ2Nm/CUq1QyRbXpXNl4W7a6AYpKXnS
+ mQIisItF0PaD7bL3747fDu3qBGdbIelG7MPh+2h6ObL371x4ZTSnT0hYKba5McQu+nc7GN2RNj
+ 3yHOTtiHjFkAgvBUqutOGCxx/yIRcSa5RIQC0SFO7wsyxcEjrLlNQEAAA==
+X-Change-ID: 20260416-acpi_mod_name-f645a76e337b
+In-Reply-To: <20260422-acpi_mod_name-v3-0-a184eff9ff6f@sony.com>
+References: <20260422-acpi_mod_name-v3-0-a184eff9ff6f@sony.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ James Clark <james.clark@linaro.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
+ Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
+ Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+ Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
+ Richard Cochran <richardcochran@gmail.com>, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+ Luis Chamberlain <mcgrof@kernel.org>, Petr Pavlu <petr.pavlu@suse.com>, 
+ Daniel Gomez <da.gomez@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, 
+ Aaron Tomlin <atomlin@atomlin.com>, Mike Leach <mike.leach@arm.com>, 
+ Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@arm.com>
+Cc: Rahul Bukte <rahul.bukte@sony.com>, 
+ Shashank Balaji <shashank.mahadasyam@sony.com>, 
+ linux-kernel@vger.kernel.org, coresight@lists.linaro.org, 
+ linux-arm-kernel@lists.infradead.org, driver-core@lists.linux.dev, 
+ rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org, 
+ Daniel Palmer <daniel.palmer@sony.com>, Tim Bird <tim.bird@sony.com>, 
+ linux-modules@vger.kernel.org
+X-Mailer: b4 0.16-dev-3bfbc
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5490;
+ i=shashank.mahadasyam@sony.com; h=from:subject:message-id;
+ bh=Bc6B30GXoro1QIrZ2ACQX8CrnIUIWdRhjjFxqv9HIMo=;
+ b=owGbwMvMwCU2bX1+URVTXyjjabUkhsx3Z37uWVxx1i2qbb66zaSW3DoDlY4+ifSDy46883T8v
+ 7viDa9QRykLgxgXg6yYIkupUvWvvSuClvScea0IM4eVCWQIAxenAEykfCMjw8Wldx+UeUe/bY9Q
+ r7h2LLI0ZpnpBMFr131n2x7d8fZcnCQjw52Q28H35i9kDlb/uSs8Riu36MWKGc6xAm90557hZTg
+ VxwcA
+X-Developer-Key: i=shashank.mahadasyam@sony.com; a=openpgp;
+ fpr=75227BFABDA852A48CCCEB2196AF6F727A028E55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_193928_885788_A3E48307 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20260426_194209_598269_D16D0C16 
+X-CRM114-Status: GOOD (  18.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,111 +116,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peng Fan <peng.fan@nxp.com>
+struct device_driver's mod_name is not set by a number of bus' driver registration
+functions. Without that, built-in drivers don't have the module symlink in sysfs.
+We want this to go from unbound driver name -> module name -> kernel config name.
+This is useful on embedded platforms to minimize kernel config, reduce kernel size,
+and reduce boot time.
 
-Add basic remoteproc support for the i.MX94 M-core processors, including
-address translation tables(dev addr is from view of remote processor,
-sys addr is from view of main processor) and device configuration data for
-the CM70, CM71, and CM33S cores.
+In order to achieve this, mod_name has to be set to KBUILD_MODNAME, and this has
+to be done for all buses which don't yet do this.
 
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
+Here are some treewide stats:
+- 110 registration functions across all bus types
+- 20 of them set mod_name
+- Remaining 90 do not set mod_name:
+    1. 36 functions under pattern 1:
+        They have a __register function + register macro. KBUILD_MODNAME needs to
+        be passed and the function needs to take mod_name as input.
+    2. 42 functions under pattern 2:
+        These have no macro wrapper. They need a double-underscore rename + macro
+        wrapper to make them similar to pattern 1.
+    3. Remaining 12 do not have such a clean registration interface. More analysis
+       is required.
+
+We plan to start with pattern 1, since it's the easiest category of changes.
+Within that, for now we're only sending the platform patch. If we get the go-ahead
+on that, we'll send the remaining ones.
+
+Patch 3 depends on patches 1 and 2.
+
+Co-developed-by: Rahul Bukte <rahul.bukte@sony.com>
+Signed-off-by: Rahul Bukte <rahul.bukte@sony.com>
+Signed-off-by: Shashank Balaji <shashank.mahadasyam@sony.com>
 ---
- drivers/remoteproc/imx_rproc.c | 65 ++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 65 insertions(+)
+Changes in v4:
+- Initialize module_kset in do_basic_setup() before do_initcalls() (Gary)
+- Add commit body to the documentation patch (Greg)
+- Link to v3: https://patch.msgid.link/20260422-acpi_mod_name-v3-0-a184eff9ff6f@sony.com
 
-diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-index c21782be4bb69d830479f538a091bda48b740ca4..7f54322244acacb32d8fe17f5e62b6aba21b3084 100644
---- a/drivers/remoteproc/imx_rproc.c
-+++ b/drivers/remoteproc/imx_rproc.c
-@@ -145,6 +145,41 @@ static const struct imx_rproc_att imx_rproc_att_imx95_m7[] = {
- 	{ 0x80000000, 0x80000000, 0x50000000, 0 },
- };
- 
-+static const struct imx_rproc_att imx_rproc_att_imx94_m70[] = {
-+	/* dev addr , sys addr  , size	    , flags */
-+	/* TCM CODE NON-SECURE */
-+	{ 0x00000000, 0x203C0000, 0x00040000, ATT_OWN | ATT_IOMEM },
-+	/* TCM SYS NON-SECURE*/
-+	{ 0x20000000, 0x20400000, 0x00040000, ATT_OWN | ATT_IOMEM },
-+
-+	/* DDR */
-+	{ 0x80000000, 0x80000000, 0x10000000, 0 },
-+};
-+
-+static const struct imx_rproc_att imx_rproc_att_imx94_m71[] = {
-+	/* dev addr , sys addr  , size	    , flags */
-+	/* TCM CODE NON-SECURE */
-+	{ 0x00000000, 0x202C0000, 0x00040000, ATT_OWN | ATT_IOMEM },
-+	/* TCM SYS NON-SECURE*/
-+	{ 0x20000000, 0x20300000, 0x00040000, ATT_OWN | ATT_IOMEM },
-+
-+	/* DDR */
-+	{ 0x80000000, 0x80000000, 0x10000000, 0 },
-+};
-+
-+static const struct imx_rproc_att imx_rproc_att_imx94_m33s[] = {
-+	/* dev addr , sys addr  , size	    , flags */
-+	/* TCM CODE NON-SECURE */
-+	{ 0x0FFC0000, 0x209C0000, 0x00040000, ATT_OWN | ATT_IOMEM },
-+	/* TCM SYS NON-SECURE */
-+	{ 0x20000000, 0x20A00000, 0x00040000, ATT_OWN | ATT_IOMEM },
-+	/* M33S OCRAM NON-SECURE */
-+	{ 0x20800000, 0x20800000, 0x180000, ATT_OWN | ATT_IOMEM },
-+
-+	/* DDR */
-+	{ 0x80000000, 0x80000000, 0x10000000, 0 },
-+};
-+
- static const struct imx_rproc_att imx_rproc_att_imx93[] = {
- 	/* dev addr , sys addr  , size	    , flags */
- 	/* TCM CODE NON-SECURE */
-@@ -1477,6 +1512,33 @@ static const struct imx_rproc_dcfg imx_rproc_cfg_imx93 = {
- 	.flags		= IMX_RPROC_NEED_CLKS,
- };
- 
-+static const struct imx_rproc_dcfg imx_rproc_cfg_imx94_m70 = {
-+	.att		= imx_rproc_att_imx94_m70,
-+	.att_size	= ARRAY_SIZE(imx_rproc_att_imx94_m70),
-+	.ops		= &imx_rproc_ops_sm_lmm,
-+	.cpuid		= 1,
-+	.lmid		= 2,
-+	.reset_vector_mask = GENMASK_U32(31, 16),
-+};
-+
-+static const struct imx_rproc_dcfg imx_rproc_cfg_imx94_m71 = {
-+	.att		= imx_rproc_att_imx94_m71,
-+	.att_size	= ARRAY_SIZE(imx_rproc_att_imx94_m71),
-+	.ops		= &imx_rproc_ops_sm_lmm,
-+	.cpuid		= 7,
-+	.lmid		= 3,
-+	.reset_vector_mask = GENMASK_U32(31, 16),
-+};
-+
-+static const struct imx_rproc_dcfg imx_rproc_cfg_imx94_m33s = {
-+	.att		= imx_rproc_att_imx94_m33s,
-+	.att_size	= ARRAY_SIZE(imx_rproc_att_imx94_m33s),
-+	.ops		= &imx_rproc_ops_sm_lmm,
-+	.cpuid		= 8,
-+	.lmid		= 1,
-+	.reset_vector_mask = GENMASK_U32(31, 16),
-+};
-+
- static const struct imx_rproc_dcfg imx_rproc_cfg_imx95_m7 = {
- 	.att		= imx_rproc_att_imx95_m7,
- 	.att_size	= ARRAY_SIZE(imx_rproc_att_imx95_m7),
-@@ -1501,6 +1563,9 @@ static const struct of_device_id imx_rproc_of_match[] = {
- 	{ .compatible = "fsl,imx8qm-cm4", .data = &imx_rproc_cfg_imx8qm },
- 	{ .compatible = "fsl,imx8ulp-cm33", .data = &imx_rproc_cfg_imx8ulp },
- 	{ .compatible = "fsl,imx93-cm33", .data = &imx_rproc_cfg_imx93 },
-+	{ .compatible = "fsl,imx94-cm70", .data = &imx_rproc_cfg_imx94_m70 },
-+	{ .compatible = "fsl,imx94-cm71", .data = &imx_rproc_cfg_imx94_m71 },
-+	{ .compatible = "fsl,imx94-cm33s", .data = &imx_rproc_cfg_imx94_m33s },
- 	{ .compatible = "fsl,imx95-cm7", .data = &imx_rproc_cfg_imx95_m7 },
- 	{},
- };
+Changes in v3:
+- Initialize module_kset on-demand (Greg)
+- Make coresight driver registration happen through a macro (Greg)
+- Split up the patch adding mod_name to platform driver registrations (Greg)
+- Link to v2: https://patch.msgid.link/20260421-acpi_mod_name-v2-0-e73f9310dad3@sony.com
 
--- 
-2.37.1
+Changes in v2:
+- Drop acpi patch, send platform instead (Rafael)
+- Link to v1: https://patch.msgid.link/20260416-acpi_mod_name-v1-0-1a4d96fd86c9@sony.com
+
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: Mike Leach <mike.leach@linaro.org>
+To: James Clark <james.clark@linaro.org>
+To: Alexander Shishkin <alexander.shishkin@linux.intel.com>
+To: Maxime Coquelin <mcoquelin.stm32@gmail.com>
+To: Alexandre Torgue <alexandre.torgue@foss.st.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: "Rafael J. Wysocki" <rafael@kernel.org>
+To: Danilo Krummrich <dakr@kernel.org>
+To: Miguel Ojeda <ojeda@kernel.org>
+To: Boqun Feng <boqun@kernel.org>
+To: Gary Guo <gary@garyguo.net>
+To: Björn Roy Baron <bjorn3_gh@protonmail.com>
+To: Benno Lossin <lossin@kernel.org>
+To: Andreas Hindborg <a.hindborg@kernel.org>
+To: Alice Ryhl <aliceryhl@google.com>
+To: Trevor Gross <tmgross@umich.edu>
+To: Richard Cochran <richardcochran@gmail.com>
+To: Jonathan Corbet <corbet@lwn.net>
+To: Shuah Khan <skhan@linuxfoundation.org>
+To: Luis Chamberlain <mcgrof@kernel.org>
+To: Petr Pavlu <petr.pavlu@suse.com>
+To: Daniel Gomez <da.gomez@kernel.org>
+To: Sami Tolvanen <samitolvanen@google.com>
+To: Aaron Tomlin <atomlin@atomlin.com>
+To: Mike Leach <mike.leach@arm.com>
+To: Leo Yan <leo.yan@arm.com>
+Cc: linux-kernel@vger.kernel.org
+Cc: coresight@lists.linaro.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: driver-core@lists.linux.dev
+Cc: rust-for-linux@vger.kernel.org
+Cc: linux-doc@vger.kernel.org
+Cc: Shashank Balaji <shashank.mahadasyam@sony.com>
+Cc: Rahul Bukte <rahul.bukte@sony.com>
+Cc: Daniel Palmer <daniel.palmer@sony.com>
+Cc: Tim Bird <tim.bird@sony.com>
+Cc: linux-modules@vger.kernel.org
+
+---
+Shashank Balaji (4):
+      kernel: param: initialize module_kset before do_initcalls()
+      coresight: pass THIS_MODULE implicitly through a macro
+      driver core: platform: set mod_name in driver registration
+      docs: driver-api: add mod_name argument to __platform_register_drivers()
+
+ Documentation/driver-api/driver-model/platform.rst |  3 ++-
+ drivers/base/platform.c                            | 21 ++++++++++++++-------
+ drivers/hwtracing/coresight/coresight-catu.c       |  2 +-
+ drivers/hwtracing/coresight/coresight-core.c       |  9 +++++----
+ drivers/hwtracing/coresight/coresight-cpu-debug.c  |  3 +--
+ drivers/hwtracing/coresight/coresight-funnel.c     |  3 +--
+ drivers/hwtracing/coresight/coresight-replicator.c |  3 +--
+ drivers/hwtracing/coresight/coresight-stm.c        |  2 +-
+ drivers/hwtracing/coresight/coresight-tmc-core.c   |  2 +-
+ drivers/hwtracing/coresight/coresight-tnoc.c       |  2 +-
+ drivers/hwtracing/coresight/coresight-tpdm.c       |  3 +--
+ drivers/hwtracing/coresight/coresight-tpiu.c       |  2 +-
+ include/linux/coresight.h                          |  7 +++++--
+ include/linux/module.h                             |  4 ++++
+ include/linux/platform_device.h                    | 17 +++++++++--------
+ init/main.c                                        |  1 +
+ kernel/params.c                                    | 21 +++++++++------------
+ rust/kernel/platform.rs                            |  4 +++-
+ 18 files changed, 61 insertions(+), 48 deletions(-)
+---
+base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
+change-id: 20260416-acpi_mod_name-f645a76e337b
+
+Best regards,
+--  
+Shashank Balaji <shashank.mahadasyam@sony.com>
 
 
