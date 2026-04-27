@@ -4,82 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2225FF8862
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 07:45:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80575FF8861
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 07:46:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o4xZ8O3GrJVl1ARjTJSu6oXGhIFUVfK552g4turRTd8=; b=LFi7UJ+GeAt968rim1P5FppkO1
-	xuSvB+uWZ+PrtwwPxV7vJxq838tX07ILxN487bdgPTAzfRl5xyshjUBEVNtRghlFcWzEVjnl9Q1FY
-	oyuGw3syle+eEkUFNpUN19bQM84HOD9vTo9H4847YUqarK6jdqP2nQQQXPrmOospvOzTZNvapaVqc
-	25x89xR3gmEQffyh9o7Rtp+pvqRGVsDf6vn1ny5oJe1x58snAEfSeQLfdvATHzlTIHVadMyikcA2o
-	XiwIubJXI8/2vynW66bwWVi5wzNaK9Eilm6doGdU2DFP3JHy+gVtGHU0K9Z/htDDhsRND/T6O3wXF
-	YTIdvivw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2a4GcW/9CQXNlYVQKt40jw2ZEV4nSc3Q1Abjd895jfM=; b=4MfKIY760zcSuonkYrtlwXAZz8
+	8mh9Jsi0zB0MsulxNa8GGAYSTYHLi3mkn0/Yxmzg79Pe9bPrtSNb/7Tb4pqriMKdE9EYGiJwzpZaS
+	kqSdSacgw1OlFfy0NiVCeo4El6RaDAbHxq8l1Wz7KS5VIxmh4VSst9BUestHd69Z58CCK/CgH5562
+	JnWc81YPj0Bkma4YzvCGsAz0FGLlOd6uhr4J5gHCfh1XMLkcZZqOZOkuY157vRftXIg/UMalOeWkO
+	M4lEUoYxGrkAKfHffFMrioBhtsfn2bO5luYjWdmdXXpaJq/KASKak1sTiFuX2D+WizDxRTtLP0VyI
+	TNLA4wWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHGeT-0000000GP0y-1uDF;
-	Mon, 27 Apr 2026 07:45:09 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1wHGfg-0000000GPAO-0Wp7;
+	Mon, 27 Apr 2026 07:46:24 +0000
+Received: from mail-m3294.qiye.163.com ([220.197.32.94])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHGeQ-0000000GP0b-1YP2;
-	Mon, 27 Apr 2026 07:45:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1777275906; x=1808811906;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=0twFypO0Cust5Vlkw+9ZGd+TnyzE7zX+xD9com9o9bQ=;
-  b=WzRO6bxpUdeKDPOQ+NRR5llwOHk6Pdx9d7QF9AcllcBgCsjDQ4UgsSqv
-   K8ScqDvrkam/qObY2y1rCiQuXRYtQezs5dJm9NwM5nWarMK2vXVhjqevt
-   R6Ro6lLdzbsDCNXUOYJKtO9A3E4Pb5XFjDb+D339NniFPWjvRlPtmOzrr
-   rGFy7ScBJtMRevDCmVom7hG5Vsw9UTHvup+QtPMlruq3JbZmhGKWaNxSF
-   01s3CSdCthXw0RBC0sY/tOLGign6CILl7mwVtlOPgXPE8BLXK/gSLiMKa
-   OWX1ZAofrkFMVByIfFokW555ibYaqZoSZWpwcQSdv4L9ph9rJify+DRTJ
-   g==;
-X-CSE-ConnectionGUID: /C3YxpBpRtOGWktNPzfvPQ==
-X-CSE-MsgGUID: xAnOCGlfRl2r9JfiBjsDVQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11768"; a="78174369"
-X-IronPort-AV: E=Sophos;i="6.23,201,1770624000"; 
-   d="scan'208";a="78174369"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Apr 2026 00:45:04 -0700
-X-CSE-ConnectionGUID: VANwaX7DSdCaml7GSXTQyA==
-X-CSE-MsgGUID: IwC3Bq6TQAyFcJTf4E8pjQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,201,1770624000"; 
-   d="scan'208";a="256868919"
-Received: from fpallare-mobl4.ger.corp.intel.com (HELO localhost) ([10.245.244.2])
-  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Apr 2026 00:45:01 -0700
-Date: Mon, 27 Apr 2026 10:44:58 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Felix Gu <ustc.gu@gmail.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Rosen Penev <rosenp@gmail.com>, linux-iio@vger.kernel.org,
+	id 1wHGfd-0000000GPA1-2WPB
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Apr 2026 07:46:23 +0000
+Received: from albert-OptiPlex-7080.. (unknown [112.65.126.162])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 3c44d2e91;
+	Mon, 27 Apr 2026 15:46:11 +0800 (GMT+08:00)
+From: Albert Yang <yangzh0906@thundersoft.com>
+To: krzk@kernel.org
+Cc: arnd@arndb.de,
+	bst-upstream@bstai.top,
+	catalin.marinas@arm.com,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	gordon.ge@bst.ai,
+	krzk+dt@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iio: adc: meson-saradc: fix calibration buffer leak on
- error
-Message-ID: <ae8T-pU8Pf9xaCKy@ashevche-desk.local>
-References: <20260426-meson_saradc-v1-1-6e96b2982c43@gmail.com>
+	linux-kernel@vger.kernel.org,
+	robh@kernel.org,
+	will@kernel.org,
+	yangzh0906@thundersoft.com
+Subject: Re: [PATCH v8 0/2] arm64: dts/defconfig: enable BST C1200 eMMC
+Date: Mon, 27 Apr 2026 15:46:11 +0800
+Message-ID: <20260427074611.26112-1-yangzh0906@thundersoft.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <d78e5b19-c380-4fd6-9ae7-e2b20b74474f@kernel.org>
+References: <d78e5b19-c380-4fd6-9ae7-e2b20b74474f@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260426-meson_saradc-v1-1-6e96b2982c43@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9dcde727a609cckunm139de2471b056f
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCSRhKVkxLHxkfT0JLSRkdH1YVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlKSklVTU5VSklNVUpNSVlXWRYaDxIVHRRZQVlPS0hVSk
+	tJT09PSFVKS0tVSkJLS1kG
+DKIM-Signature: a=rsa-sha256;
+	b=PaAH8gCO1lCvuD+EUHgJYdJs3O9vLdBvkaI8AY1nfThuUE2VYeMo9DH0A39b4ITUE9fuQf7IPz3GcQ1siaVuIOocj9U8jJwqgPNuI9jTXj9p433RW0qunn3fDSyXA9+2QnhyvuItFSu950KNCp58K5izVV+qFx/gBNOglZxXe0o=; c=relaxed/relaxed; s=default; d=thundersoft.com; v=1;
+	bh=2a4GcW/9CQXNlYVQKt40jw2ZEV4nSc3Q1Abjd895jfM=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_004506_487897_67EAC631 
-X-CRM114-Status: UNSURE (   8.57  )
+X-CRM114-CacheID: sfid-20260427_004621_867795_48D31721 
+X-CRM114-Status: UNSURE (   3.90  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,19 +80,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 26, 2026 at 12:07:24AM +0800, Felix Gu wrote:
-> meson_sar_adc_temp_sensor_init() allocates a buffer with
-> nvmem_cell_read(), but the old code leaked it if
-> syscon_regmap_lookup_by_phandle() failed.
+On 27/04/2026 08:36, Krzysztof Kozlowski wrote:
+> You sent it already three times within one hour. Please stop.
 
-> Switch buf to __free(kfree) so all return paths release it.
+Apologies for the noise. Sending is stopped on my side and the root
+cause is still under investigation. Please use the canonical v8 for
+review:
+https://lore.kernel.org/r/20260427055555.3693459-1-yangzh0906@thundersoft.com
 
-__free() is defined in cleanup.h which is missing in the driver. Please add the
-include to it.
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+Thanks,
+Albert
 
