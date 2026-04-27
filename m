@@ -4,151 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31816FF8864
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 22:30:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B849FF8867
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 22:46:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=INTDocwjeOkxaSI4e6JrPlp7Kh7b3u8/5GXqjyNfeUk=; b=olGy6H+o9J2SJd5MygtVfiTI3R
-	Ac6v4NYPuJ0PT2Mh0AmeKAK+wn6QazkT55tH2TkeHmLTi4S4mH8hoWDZPDsHIAWHbDLUI535hPl8n
-	A3xIaXoLxIbzdbbuhgUSc1R+fFzcSKvNeH4XiO/RFVloCD1leq5tI8WzyW1m4g4rZDWdmp7ODg49G
-	Cu/IN9gvTdt8ebm4QUYN0wu5A35XoIVMI8OdZwr1pbA73LlUuEu5Zc16z4zXmjjxvYPj7Cg3ClAqd
-	Rc81MsmBSJNhoRCMF96EvOUuJvXOk3A6dJCWxPuWNABziIQOqrqeknlD0uOXIWF1HFlUZsHxM1W/B
-	Hn8Zgsgg==;
+	bh=sUOCVCwkDvAsvT4QFe/ve3int+0hAV1t081X52X2K4c=; b=XcXzEDOXmkxpm2Mve1qBh8Yy+I
+	KxAcwtN3pKs9gVUhadflosxlkv4M/omp2R2grL2AYlQjL/ayYJUl0WOJyAr15B4X74HLRZ1b7685q
+	eMivPfUhSwdKmTk8My9UaA2c4jRQm6UgNqixkOsdKYcz8Qf9QDg034fWj7zwNzWBNTqog8vnbZkdW
+	IOLF6MWY1EERcJ2D0cYmO4qsAd82AsrdfCI880iwuoYBczGL3mUUjSxU2NsJEA7v6ictjUA+kcJ2y
+	xd36Sx8XEbEZhQZDMOYjsulVQhAHlJyY/d3aUwacKb6Rjk5moiP4M4XWdQIUv6LRklYPDxnQBiuoG
+	WJq2ldTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHUTJ-00000000GC2-1bKx;
-	Mon, 27 Apr 2026 22:30:33 +0000
-Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1wHUix-00000000Gsq-41O2;
+	Mon, 27 Apr 2026 22:46:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHUTH-00000000GBR-1oUL;
-	Mon, 27 Apr 2026 22:30:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cw2dkYic0VXH1kOjwz3jIZQqr8NTQVH9DBTRDd+uRIJW8uYvfM3m58iBDy5zpHYFWzEy5HurjZ12uATc9tuoWjt6/VUzJQgYZAXBZYTEWP2XEmKALhwnH1ENaA8Ac3CwlRTLvFMEwZgba4b3Efi2fsBGQWsShlfVbk+iphjAE+Pk8XuV/eyWjUpmRM4Y9HTRa5iR9RbjMNZZynCz9AHHff0s05EhkIWAfnApXK/qNRqGYLDiFlw7SNnaj3GyeIXPMO8znU+1Kcc/CMVRnCsFx/w1kA7TU7UcIRQb+Rb580j65fMEeEArkSpCjuQa2ek7DCgnd0gLF6jXF9N06qZxtg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=INTDocwjeOkxaSI4e6JrPlp7Kh7b3u8/5GXqjyNfeUk=;
- b=SqLxt4MZPnahGOYqHMCjywU0/HSF4waA/vwnt9ydy1Lm3yrvjNZmkOwuRl93fy6RdmE6bPOC0ZQH4p62+pUUajNd8KxX3yJjBZ746IuQ8gH2tmJrktf9NUD/vrVHw11Y2NBVtrlIsVl9bi7Gqi3ZmgASKvtgOkWY/PmrmgA8udiJVCjbw3br3CieEjsiA/YIbcoZFACykvsdKe3H0iQEMKywElW7FGY/qQYU/hi4PYicWTB3SL3zcJzUqBCWxEiVibRndteACQ6BsdcLI27Rvh553IDZD+jPGF6v9qtpISs3YncftmVw4ldPrz0yQOOExCWF0vjzgVzKvTwuTXEdYA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=INTDocwjeOkxaSI4e6JrPlp7Kh7b3u8/5GXqjyNfeUk=;
- b=nMn9Mg2etjSkCULYpJ5Rnl9/tmBSYad+HpQiMXeFiB6hdvpkrBodtOjFqLvvae82lTwKkV5GAhUHMYupb9utCbBt74zqUto3WQW72bithMtImxRQVa6G6ZaLkW4OIEKHFvEKJ+4xMIBslyesZGqZr4aXMhT6ctHxrHNz0lcJuSDOtu83n51qwHc7wWb/LGrn5RUMmskk9za8NlV0oTff8Bpmfg6PDqFInZvOWRUYF9K6Lc76NhEMq83jHNyESr4la6NDuNth/60Y4SeDe0uNCU02GfnTMD1so+hMFearXgJnH1poNP4yUWzDn8gizO53kHtparXBSnIxAyJtXuIfFA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CY8PR12MB8300.namprd12.prod.outlook.com (2603:10b6:930:7d::16)
- by SA1PR12MB6871.namprd12.prod.outlook.com (2603:10b6:806:25f::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.16; Mon, 27 Apr
- 2026 22:30:21 +0000
-Received: from CY8PR12MB8300.namprd12.prod.outlook.com
- ([fe80::ce75:8187:3ac3:c5de]) by CY8PR12MB8300.namprd12.prod.outlook.com
- ([fe80::ce75:8187:3ac3:c5de%3]) with mapi id 15.20.9870.013; Mon, 27 Apr 2026
- 22:30:18 +0000
-Date: Mon, 27 Apr 2026 18:30:16 -0400
-From: Yury Norov <ynorov@nvidia.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	id 1wHUiw-00000000Gsk-35bu
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Apr 2026 22:46:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CA9AF60052;
+	Mon, 27 Apr 2026 22:46:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E033C19425;
+	Mon, 27 Apr 2026 22:46:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777330001;
+	bh=n5gFq9q37eYKpFEcXLpgRDH09jgbIoc4l89TWPtZg0s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OQu9oUYsYCA5E4F2chgkBhPx7BhwwQvWhe7SkkMd8nN9Jp2nQZYBy5Mp7TZL7su7l
+	 QIhmn/x0nDaH+g8x9rzR2pXfNCE4+W/vkz5f5hqMz6eRoBAHNgQ9oLfpom1md0J1L2
+	 7Z8UDRvHteltaywJQMHCXLQDkXUhVCOa1CId1e0lpF4rsaKO7fWYKC0ACqilL0Ru21
+	 3clRUMWEFImj9oGoaz1pUK5o1/apmrBAOuuBJw7xkje/103APz4S4LBfkr9xbzdKTt
+	 eLEMHQKQVyELeh8Q0t0Ph6ESjvnZ52sCNjhTzzW7sP75xVOQ6+Abvp0kIgaTw37UYp
+	 krv+IGQJ5QFIg==
+Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
+	id 17CD21AC583E; Mon, 27 Apr 2026 23:46:39 +0100 (BST)
+Date: Tue, 28 Apr 2026 07:46:39 +0900
+From: Mark Brown <broonie@kernel.org>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
 	Andrew Morton <akpm@linux-foundation.org>,
-	David Laight <david.laight.linux@gmail.com>,
-	Thomas Gleixner <tglx@linutronix.de>, linux-alpha@vger.kernel.org,
-	Yury Norov <yury.norov@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
-	dmaengine@vger.kernel.org, linux-efi@vger.kernel.org,
-	linux-fsi@lists.ozlabs.org, amd-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
-	linux-wpan@vger.kernel.org, netdev@vger.kernel.org,
-	linux-wireless@vger.kernel.org, linux-spi@vger.kernel.org,
-	linux-media@vger.kernel.org, linux-staging@lists.linux.dev,
-	linux-serial@vger.kernel.org, linux-usb@vger.kernel.org,
-	xen-devel@lists.xenproject.org, linux-fsdevel@vger.kernel.org,
-	ocfs2-devel@lists.linux.dev, bpf@vger.kernel.org,
-	kasan-dev@googlegroups.com, linux-mm@kvack.org,
-	linux-x25@vger.kernel.org, rust-for-linux@vger.kernel.org,
-	linux-sound@vger.kernel.org, sound-open-firmware@alsa-project.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
-	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linux-sh@vger.kernel.org, linux-arch@vger.kernel.org
-Subject: Re: [RFC PATCH v1 7/9] x86: Add unsafe_copy_from_user()
-Message-ID: <ae_jeJLlVWjJ4sOY@yury>
-References: <cover.1777306795.git.chleroy@kernel.org>
- <0ee46bb228d97163fbdc14f2a7c52b93d8bc34ce.1777306795.git.chleroy@kernel.org>
- <ae-j2_QirCySZD02@yury>
- <63a4d0f6-0eb3-48cd-9f98-bf7b223b2606@kernel.org>
- <ae-2yLWSGnfeTvh1@yury>
- <CAHk-=wgPrLy0FR3sEWBYQuNAac1axDASYMnTuPuxEU0WytzL7w@mail.gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAHk-=wgPrLy0FR3sEWBYQuNAac1axDASYMnTuPuxEU0WytzL7w@mail.gmail.com>
-X-ClientProxiedBy: BN0PR04CA0197.namprd04.prod.outlook.com
- (2603:10b6:408:e9::22) To CY8PR12MB8300.namprd12.prod.outlook.com
- (2603:10b6:930:7d::16)
+	Catalin Marinas <catalin.marinas@arm.com>,
+	"David Hildenbrand (Arm)" <david@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>, Shuah Khan <shuah@kernel.org>,
+	Will Deacon <will@kernel.org>, linux-kselftest@vger.kernel.org,
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/5] selftests/mm: Fix resv_sz when parsing arm64
+ signal frame
+Message-ID: <ae_nTynMI26GV0PN@sirena.co.uk>
+References: <20260427-poe_signal-v2-0-2bd9d6f16ab4@arm.com>
+ <20260427-poe_signal-v2-2-2bd9d6f16ab4@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY8PR12MB8300:EE_|SA1PR12MB6871:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1f3655ce-20ef-4e2c-2fe2-08dea4ac8fa5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|376014|7416014|366016|1800799024|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: /PUX5wTJGMs/KBsNviNpWA288jfovgZeFH/D5rlo4Ft68PLkNzRu+VJLbwZPVL7WMTmGE/7sGAUjidmOrf6PO7cVfcrQe6QT08Oqm4vVTbq+1kk8SU+vprwEBmYwG+gAfH2qmWzaQJsEm7YpHDRuW/7Cs1/Xk+BrlRiawZrKiyZzPhbDmpZp82G1md2nBR6MipihlTfUyQ+saizppq6JVvqKLc5dE++LYGjddOZxiO3yutMfU07Cp5tvF3yobREfTw/fDdOZgk2+rMoVASDdUVkAaqH0FXJ28Bm6NVJs+NSRjDYnMLXVfJoJcrsNuF4W22tsLIY5w3wDLjkrtfUAaGwMnqXvKgmEE1qpibH4HaSjxrWfCswHPCx7Vc7oELIEGKApXlepMVtafKQ1eBm0bnWKqspLr19ifmkOBqioMXptCdlJ75n5gVcLiBzfflllkv55OjNYGzmu/P23vn89/MqFVHCPYaOOw1vjLjy3Olm5/wQLP++hGKYxXIrZ64iQpyo+GIlD3HGQMFC+oPQ+4alqqHQ0+kc6l4epUtSsHVmWOEFWpRzFBafriU8ilGCl8/f8jCwsnB3t+/+q8pFFXiilqgDF9lWOw60zcIbP7xO24Ozxdu5GXF2ThaRP8NVaPA/4be0MJgysKa4xa0hnonHdTiIDcF4SkkqpHjiJ5qwmY2Gce2PdYuEwEpTf8TjR66psUlL2DcOZVs8sQNjcffnyedzo5Nat0VSDOW7wgzk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY8PR12MB8300.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(376014)(7416014)(366016)(1800799024)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?y1CvQpZYZ2eMHe2MhRl9jMjiWbPAKKWXFKb0rNr6P2FKNpuYqlm0vHnj/c+p?=
- =?us-ascii?Q?etrijvKck7MltKVOhuLlrUk/4maEie31AAuCO4vEDEQz7eLSMhE+LXqZ7580?=
- =?us-ascii?Q?/dTzhhd6ZXj5MAUt3SGOfXeBZ9mnjjf2uZ2zVl0944wpMj1aPR6bhJJsKwkp?=
- =?us-ascii?Q?VUL5kcdJLltj/bbXdIYt5R4Q5sFcreBO2t2YjdncWBk9awGhHkshgH2+xQK3?=
- =?us-ascii?Q?KZ9jZvFRcaTs7WARWb/cK4emdp6bDzM7GZoacpZC4jFUpUOAzU++q1cUqbIp?=
- =?us-ascii?Q?IcojDKNgAE9HncwAue719JnQVeUjYbuQfI9vFrEzSJwqQkAaJNY/N9KIqHH5?=
- =?us-ascii?Q?gb6ElO029nGL4z2hh5SKSqKFAJYfJvd6N318L3xLFXMXoREhQbz05reO9kR7?=
- =?us-ascii?Q?GWI0NeihuZjKnE/Ak2IoeTePP++KCVgyuhiSD0PXj7MCcQGFIfSjdMtsrSD0?=
- =?us-ascii?Q?qpof8HORPaHefDg6xtvU0Ls17iRCuj1Xtuu5fBcRshNrriAJmj0nlZqzlPp0?=
- =?us-ascii?Q?oq96Gm2fPd5N0qcJLOIB4vfutS46eOW3OBK4BlzxlMwOHl6WCEd/wmb2kDAK?=
- =?us-ascii?Q?VPTN1pR756Yxc8PWdgyvhKBLft+N8lDJQGyoSrLOClJEovN6quxxF5UrmLgl?=
- =?us-ascii?Q?BSzU4GMBOjLU5qQqVVM1fzFPiQJrPzyeuGPUF6s5eWsZMUNFhY8uESY52c+S?=
- =?us-ascii?Q?SE6TQJUy1lWTLGmxVFeFQgD9qZCVc47lVZv/tMLN8sA71HzeCfL2tx6zUAP1?=
- =?us-ascii?Q?hu81S/ywLrBvCHKaffr0P8d1j0edNWOzngwXYnwimWLWnJ+OOYH82yO8AfMj?=
- =?us-ascii?Q?9OG00BjXZXIsalWG80IQlBy27WpQ84/1c9oAnvbNeJfjdgOz4uIbM6FHkYyA?=
- =?us-ascii?Q?MupGlptk1Xu50YbzeOZ03kGiMKX0VxGdprIqVjtikQtw3BlYFt0IIGwsWiy8?=
- =?us-ascii?Q?wb6reRFBF6KZAnTmSERVS8uD68yLvuu4uDhGLoBqPxQofaxbHl5bqyIHeiVZ?=
- =?us-ascii?Q?JmIJF4RPeAJ5/v6RFBLjGohX5ZjyNkXJb9RZjSdHP1ziqpItJ3rcJG2ZFZJT?=
- =?us-ascii?Q?TOtNJUdl8MYzQUzieK78aUKDOyKuWpAWh2Jep6/sVe9CBZ2NlHHJGqtGJ0+6?=
- =?us-ascii?Q?owwVe4C6J1ikL7yn0gdEWIiiyjuOxoCdI3+hulZemm7LK5thRU+ZyJaPjQR+?=
- =?us-ascii?Q?YK+iuiqW4QYnqG8Bp71RoCe6giJoTJeiqfcGpFeX0h22VmfkFjYMyp/W8nb3?=
- =?us-ascii?Q?mBn+6WSNLOLGrrznB6jKXoRf6cnQ1xEMeJxPdXY/BnX2sOfoIY42tLqAScbN?=
- =?us-ascii?Q?LtZ7qBEv6zip7I8sQ5//f4FDcyaAHJDISd0ze+LMD1SGCz1vUejeBGt5jNwE?=
- =?us-ascii?Q?iyPDDoJ3VJHJ8aGIrV8p6MgUo+UO94WHdRtz/JHe7JLmdPqflsqW5Z53kqYw?=
- =?us-ascii?Q?MP/nGig0/bW+qSUHZi0ybA7U9qUULzBtAdJ3gf4NkhxIRHImljJP3sZS+AbG?=
- =?us-ascii?Q?VX+xV6ny9hftAe82VJ9ewoJIvZ1jOdavxAo38YgxrnhYM4VA4PLlPxMJgrFB?=
- =?us-ascii?Q?bl95emjkBX7MxnGkfKrgN0u2MtTSs3sO1Wdm6BH6ZQ9kazGSKdvWqMQAmcgZ?=
- =?us-ascii?Q?2TAXsG9f2jiTJy/XjYe+XqDYMz+09yazlugWhbXrIX8heUtqQqlD4RBq2C5J?=
- =?us-ascii?Q?CuCIR2G+UzaeT6rHBATVfYnF1JfQa1er7U7HJW5PSDW8XBt5cyY/COXOF+YI?=
- =?us-ascii?Q?h6yFwkKGk0zfxpHpRxxXg2KPpUtDCbrrUbX4jMC5IsdF387MIWjR?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1f3655ce-20ef-4e2c-2fe2-08dea4ac8fa5
-X-MS-Exchange-CrossTenant-AuthSource: CY8PR12MB8300.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Apr 2026 22:30:18.5780
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 8yVCjxcKtFstGt67IdVeO9hT/qCk0UDq0EBYtz0042ex6ttmtrXzmmIlGerSzGsUENgCE8ayV5UchO391MZbfA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6871
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_153031_497695_6256C819 
-X-CRM114-Status: GOOD (  15.26  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="WzzMpVDZUqWGuynT"
+Content-Disposition: inline
+In-Reply-To: <20260427-poe_signal-v2-2-2bd9d6f16ab4@arm.com>
+X-Cookie: Victory uber allies!
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,31 +79,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 27, 2026 at 02:52:05PM -0700, Linus Torvalds wrote:
-> On Mon, 27 Apr 2026 at 12:19, Yury Norov <ynorov@nvidia.com> wrote:
-> >
-> > This is what Linus said when added x86 implementation for copy_from_user()
-> > in c512c69187197:
-> 
-> Note that some things have happily changed in the six+ years since...
-> 
-> >   That's partly because we have no current users of it, but also partly
-> >   because the copy_from_user() case is slightly different and cannot
-> >   efficiently be implemented in terms of a unsafe_get_user() loop (because
-> >   gcc can't do asm goto with outputs).
-> 
-> now everybody can do asm goto with outputs.
-> 
-> Yes, it's disabled on older versions, so it's not *always* available,
-> but all modern versions do it. And if you care about performance, you
-> won't be using an old compiler.
 
-The minimal GCC version is 8.1, and asm goto with outputs is supported
-since GCC-11. That would brake the build, if we just switch to using it
-without "CC_IS_GCC && (GCC_VERSION >= 110100)" guard.
+--WzzMpVDZUqWGuynT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Is it worth to maintain 2 version of the function? I don't know...
+On Mon, Apr 27, 2026 at 01:03:34PM +0100, Kevin Brodsky wrote:
+> get_header() wants the size of the reserved area in struct
+> sigcontext, but instead we pass it the size of the entire struct.
+> This could in theory result in an out-of-bounds read (if the signal
+> frame is malformed).
 
-Thanks,
-Yury
+> Fix this using one of the existing macros from
+> tools/testing/selftests/arm64/signal/testcases/testcases.h.
+
+Oh, good to know this is peering inside the arm64 selftests - it'd be
+good to document that on the arm64 side to avoid unpleasant suprirses.
+
+>  {
+>  	struct _aarch64_ctx *ctx = GET_UC_RESV_HEAD(uctxt);
+> +	size_t resv_size = GET_UCP_RESV_SIZE(uctxt);
+>  	struct poe_context *poe_ctx =
+>  		(struct poe_context *) get_header(ctx, POE_MAGIC,
+> -						sizeof(uctxt->uc_mcontext), NULL);
+> +						  resv_size, NULL);
+
+Reviewed-by: Mark Brown <broonie@kernel.org>
+
+--WzzMpVDZUqWGuynT
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnv504ACgkQJNaLcl1U
+h9A1aQf+L6+uuz3D6N7BR58qAnQN3BS2/tl81soQVMBU56wRidU7GVgf/AtWw2jW
+/LVlvMuB8Ap2uzlr5zjxrd3ZTM5XbOcB81WKJIxyhN7hGmivevjwwXvx2suhJhHV
+qz196HjM076yvXa4/Rp6AhzjnAfVC6TpxRr6fZEemMOuX9sVnn4DB5dwXI0UQlgj
+Rzg/gYKPM8IAAqeXxH+m4sICwgXYfC4WQSn8WsCJMb96EGM5ar84/c1PRqYFAryU
+TWLt9PgfB7B0vWGgMWVkLbnx925WhvoD8T1fDz7jOUUURkn9nxrDKSRsHfJG/toR
+HUA8Boacpswt9EXt56PfWIC5mySyhA==
+=Khap
+-----END PGP SIGNATURE-----
+
+--WzzMpVDZUqWGuynT--
 
