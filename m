@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 621A2FF8864
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 21:58:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97D00FF8874
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 21:58:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b2NH6zjdcKvSDzbOk6O5NQa8oZf6YVmG9OHyBdU4tv0=; b=j+Y7ybjrwKa8XWF4TA06I3pQ1a
-	xp94HK96k2WiOYq1LvyOkHRky0J9s7A5VudbZw4wsoyjishV8cXw5gRngoapiWmNRBbyZSNW3vkVT
-	vfdCt5sWGwynA26178TPTRNNtthDW0+MDJvrAS4F+uSxNp0/viQKNgFTVizVBhWQuP1sS7l3IFBGt
-	lYL5KmOTabxpFx5jlHEkQl7AJAEYpzdz6g748/4AM8wpr6yd+uC40g2aZKksBxoxdd8FxbxgGb6Rv
-	+zkqo9edtzYIgANF5LZClGD0Uy5wEBjx//WJx62FL75GWQcMrZ2QorrdF0b5mnCC/KpC5wwE1IlSC
-	+xvl4U+w==;
+	bh=/jxZ9qKBKD/N3qYNuazes7Xn/stRaNFzoR0kGCiyNdU=; b=hZZaet9qHR94L5dI8fTHBA5eOb
+	kDbJNaxRoidibIvMV+ZuL3ckJnObRDZyLIaYJrv7SdgCtB6L918TFPxkJ/yqkG25h7CJJA9lULF/t
+	k/n0XfqIt8MO14pACXjRQAmGEk2C2NhSG+5VGq+a41HizgpnsRNUG6wpXDdQaW0lAI3VF9sTo2k58
+	2HvH5z31E1TTwIJ8bFYQCO2IwGNchX9SZnvJXDayl+XoU6oANcJgKuz3YiSTZMkAAWnK0Juwt2id1
+	ttrTG2aoNkLpHiPcpUXuN2AZOnAqerFSRMjgjqJBHMOAJ7QYXyOdHDJd0IZQdSqXf7YQ36jmXizkJ
+	CZyUQMeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHTxn-00000000DTU-1UHE;
-	Mon, 27 Apr 2026 21:57:59 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wHTxp-00000000DXI-2XNY;
+	Mon, 27 Apr 2026 21:58:01 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHTxe-00000000DFx-2JVN;
-	Mon, 27 Apr 2026 21:57:52 +0000
+	id 1wHTxf-00000000DH2-1Jh1;
+	Mon, 27 Apr 2026 21:57:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1777327066;
-	bh=GBlgGv3GtlJcaiLMjdHnPI0cHx08TkK+G4j4qUmiPIE=;
+	s=mail; t=1777327069;
+	bh=FDI0D3bF0d00cd9rT9aq23OMLT8xla/yOJVEQWe89oI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=HhUxTX3RV6qpf/wFVa0TCZ5x3euiMr004fUYN1KMIe4MNa/2V7Dm3z9RToqPDi59k
-	 84MnyEFSkPHNM+Sr2IuDhQz8SEdoVK7l4lPtas5cPk/sXkM0R5mS2uWp5TOMgaTdCX
-	 tGZXY31LL9xsnr0tWMJlq3TV+FZovpWCQygXtZArO9Mm6gH5VRd/jGbBRVcz3nS2lf
-	 jFD7A+xMXAmATHNa/1Jqj48Qy2clM8nURtxT8yaa5yK/IkN3j4vQ5hFyr/BvE5H0Tn
-	 L8tnEADmkO2qHgaMUwTjoXvfJ8rmmNVp6QK4tRfvvkleXoSoNACw2agbSgcZ0kfhfm
-	 VlwLCU945VCtA==
+	b=kSWeEJsrKMkD9pCuqJEh+s1UCk4WrgkXADAHiNMbNBuMjfo7MoSETThMr1osw9IF8
+	 zN+xPN8IiDXeNPJu3uHYQZFfFtJBryvKOSDcDM+Bd/xmRKgvfKFlKOw0w63qvu64Ie
+	 SlLnFlPgftLZY64d1dfuA8HwwTqYxvqwPYdIpvSpWdlr4RtSNaUW/Gg1Ba40uCIo2a
+	 +aKKW3JCQUKH7Xvikx7Bkaueqn4+62i+v9ns6gKWFBOOoufo4xf9od2TcYFCR0mtRQ
+	 fGf6pqJmsxGcIY3779v1uAA2w7NoW5XZWUURnveY5+6R0n2RdAY0dwxQcVnuiNXo3G
+	 Mhf+EFAMk7Kow==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id BF2DC17E1523;
-	Mon, 27 Apr 2026 23:57:46 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 37CAA17E154C;
+	Mon, 27 Apr 2026 23:57:49 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Tue, 28 Apr 2026 00:57:23 +0300
-Subject: [PATCH v2 05/13] arm64: dts: rockchip: Add frl-enable-gpios to
- rk3588s boards
+Date: Tue, 28 Apr 2026 00:57:26 +0300
+Subject: [PATCH v2 08/13] arm64: dts: rockchip: Add frl-enable-gpios to
+ rk3588s-orangepi-cm5-base
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260428-dts-rk-frl-enable-gpios-v2-5-924df9db884a@collabora.com>
+Message-Id: <20260428-dts-rk-frl-enable-gpios-v2-8-924df9db884a@collabora.com>
 References: <20260428-dts-rk-frl-enable-gpios-v2-0-924df9db884a@collabora.com>
 In-Reply-To: <20260428-dts-rk-frl-enable-gpios-v2-0-924df9db884a@collabora.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -60,8 +60,8 @@ Cc: kernel@collabora.com, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org
 X-Mailer: b4 0.15.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_145750_932788_05C703FF 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20260427_145751_544710_6A3297D6 
+X-CRM114-Status: GOOD (  10.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,274 +76,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following RK3588s boards expose a GPIO pin to control the voltage
-bias on the HDMI0 data lines:
-
-- rk3588s-coolpi-4b
-- rk3588s-indiedroid-nova
-- rk3588s-nanopi-r6
-- rk3588s-odroid-m2
-- rk3588s-orangepi-5
-- rk3588s-radxa-cm5-io
-- rk3588s-rock-5a
-- rk3588s-rock-5c
-
-The pin must be asserted when operating in HDMI 2.1 FRL mode and
-deasserted for HDMI 1.4/2.0 TMDS mode.
+The board exposes the GPIO4_B5 pin to control the voltage bias on the
+HDMI0 data lines.  It must be asserted when operating in HDMI 2.1 FRL
+mode and deasserted for HDMI 1.4/2.0 TMDS mode.
 
 Wire up the hdmi0 node to its dedicated GPIO via frl-enable-gpios to
 allow adjusting the bias when transitioning between TMDS and FRL modes.
 
-While at it, also ensure that pinctrl-names is present and ordered
-alphabetically within the hdmi nodes.
+While at it, rename the hdmi_frl_pin pinmux to hdmi0_tx_on_h, in line
+with the naming commonly used in RK3588s-bassed board schematics.
 
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts       | 10 ++++++++++
- arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dts | 10 +++++++++-
- arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi      | 10 ++++++++++
- arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts       | 10 ++++++++++
- arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi     | 10 ++++++++++
- arch/arm64/boot/dts/rockchip/rk3588s-radxa-cm5-io.dts    | 10 ++++++++++
- arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts         | 12 ++++++++++--
- arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts         | 12 ++++++++++--
- 8 files changed, 79 insertions(+), 5 deletions(-)
+ arch/arm64/boot/dts/rockchip/rk3588s-orangepi-cm5-base.dts | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts b/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
-index 189444d20779..16f19109fca6 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
-@@ -251,6 +251,10 @@ &gpu {
- };
- 
- &hdmi0 {
-+	frl-enable-gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_LOW>;
-+	pinctrl-0 = <&hdmim0_tx0_cec &hdmim0_tx0_hpd
-+		     &hdmim0_tx0_scl &hdmim0_tx0_sda &hdmi0_tx_on_h>;
-+	pinctrl-names = "default";
- 	status = "okay";
- };
- 
-@@ -396,6 +400,12 @@ &pd_gpu {
- };
- 
- &pinctrl {
-+	hdmi {
-+		hdmi0_tx_on_h: hdmi0-tx-on-h {
-+			rockchip,pins = <4 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
- 	hym8563 {
- 		hym8563_int: hym8563-int {
- 			rockchip,pins = <0 RK_PB0 RK_FUNC_GPIO &pcfg_pull_up>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dts b/arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dts
-index 174d299cc6bb..f9e3c0134d5f 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dts
-@@ -277,8 +277,10 @@ &gpu {
- };
- 
- &hdmi0 {
-+	frl-enable-gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_LOW>;
- 	pinctrl-0 = <&hdmim0_tx0_scl>, <&hdmim0_tx0_sda>,
--		    <&hdmim0_tx0_hpd>, <&hdmim0_tx0_cec>;
-+		    <&hdmim0_tx0_hpd>, <&hdmim0_tx0_cec>,
-+		    <&hdmi0_tx_on_h>;
- 	pinctrl-names = "default";
- 	status = "okay";
- };
-@@ -517,6 +519,12 @@ bt_wake_host: bt-wake-host {
- 		};
- 	};
- 
-+	hdmi {
-+		hdmi0_tx_on_h: hdmi0-tx-on-h {
-+			rockchip,pins = <4 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
- 	hym8563 {
- 
- 		hym8563_int: hym8563-int {
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
-index 1b6a59f7cabc..b9c0a1a050a9 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
-@@ -236,6 +236,10 @@ &gpu {
- };
- 
- &hdmi0 {
-+	frl-enable-gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_LOW>;
-+	pinctrl-0 = <&hdmim0_tx0_cec &hdmim0_tx0_hpd
-+		     &hdmim0_tx0_scl &hdmim0_tx0_sda &hdmi0_tx_on_h>;
-+	pinctrl-names = "default";
- 	status = "okay";
- };
- 
-@@ -404,6 +408,12 @@ lan2_led_pin: lan2-led-pin {
- 		};
- 	};
- 
-+	hdmi {
-+		hdmi0_tx_on_h: hdmi0-tx-on-h {
-+			rockchip,pins = <4 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
- 	hym8563 {
- 		rtc_int: rtc-int {
- 			rockchip,pins = <0 RK_PB0 RK_FUNC_GPIO &pcfg_pull_up>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts b/arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts
-index a72063c55140..4e98fa33492c 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts
-@@ -249,6 +249,10 @@ &gpu {
- };
- 
- &hdmi0 {
-+	frl-enable-gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_LOW>;
-+	pinctrl-0 = <&hdmim0_tx0_cec &hdmim0_tx0_hpd
-+		     &hdmim0_tx0_scl &hdmim0_tx0_sda &hdmi0_tx_on_h>;
-+	pinctrl-names = "default";
- 	status = "okay";
- };
- 
-@@ -438,6 +442,12 @@ &pd_gpu {
- };
- 
- &pinctrl {
-+	hdmi {
-+		hdmi0_tx_on_h: hdmi0-tx-on-h {
-+			rockchip,pins = <4 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
- 	lcd {
- 		lcd_pwren: lcd-pwren {
- 			rockchip,pins = <4 RK_PA3 RK_FUNC_GPIO &pcfg_pull_none>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
-index dafad29f9854..cd80cb15a405 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
-@@ -181,6 +181,10 @@ &gpu {
- };
- 
- &hdmi0 {
-+	frl-enable-gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_LOW>;
-+	pinctrl-0 = <&hdmim0_tx0_cec &hdmim0_tx0_hpd
-+		     &hdmim0_tx0_scl &hdmim0_tx0_sda &hdmi0_tx_on_h>;
-+	pinctrl-names = "default";
- 	status = "okay";
- };
- 
-@@ -381,6 +385,12 @@ &pd_npu {
- };
- 
- &pinctrl {
-+	hdmi {
-+		hdmi0_tx_on_h: hdmi0-tx-on-h {
-+			rockchip,pins = <4 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
- 	hym8563 {
- 		hym8563_int: hym8563-int {
- 			rockchip,pins = <0 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-radxa-cm5-io.dts b/arch/arm64/boot/dts/rockchip/rk3588s-radxa-cm5-io.dts
-index f80d5a00a4bd..af4a9bc015e1 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-radxa-cm5-io.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-radxa-cm5-io.dts
-@@ -120,6 +120,10 @@ &gmac1 {
- };
- 
- &hdmi0 {
-+	frl-enable-gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_LOW>;
-+	pinctrl-0 = <&hdmim0_tx0_cec &hdmim0_tx0_hpd
-+		     &hdmim0_tx0_scl &hdmim0_tx0_sda &hdmi0_tx_on_h>;
-+	pinctrl-names = "default";
- 	status = "okay";
- };
- 
-@@ -217,6 +221,12 @@ usbc0_int: usbc0-int {
- 		};
- 	};
- 
-+	hdmi {
-+		hdmi0_tx_on_h: hdmi0-tx-on-h {
-+			rockchip,pins = <4 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
- 	usb {
- 		vcc5v0_host_en: vcc5v0-host-en {
- 			rockchip,pins = <1 RK_PA0 RK_FUNC_GPIO &pcfg_pull_none>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts
-index 0991f6a21190..ffd26b43ae8c 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts
-@@ -323,11 +323,13 @@ &gmac1_rgmii_clk
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-cm5-base.dts b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-cm5-base.dts
+index 06120b2db690..20da0c2b3d92 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-cm5-base.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-cm5-base.dts
+@@ -143,10 +143,11 @@ &gmac1_rgmii_clk
  };
  
  &hdmi0 {
 -	pinctrl-names = "default";
-+	frl-enable-gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_LOW>;
- 	pinctrl-0 = <&hdmim0_tx0_cec
- 		     &hdmim1_tx0_hpd
- 		     &hdmim0_tx0_scl
--		     &hdmim0_tx0_sda>;
-+		     &hdmim0_tx0_sda
++	frl-enable-gpios = <&gpio4 RK_PB5 GPIO_ACTIVE_LOW>;
+ 	pinctrl-0 = <&hdmim0_tx0_cec &hdmim0_tx0_hpd
+ 		     &hdmim0_tx0_scl &hdmim0_tx0_sda
+-		     &hdmi_frl_pin>;
 +		     &hdmi0_tx_on_h>;
 +	pinctrl-names = "default";
  	status = "okay";
  };
  
-@@ -373,6 +375,12 @@ &pd_gpu {
- };
+@@ -245,8 +246,8 @@ key1_pin: key1-pin {
+ 	};
  
- &pinctrl {
-+	hdmi {
+ 	hdmi {
+-		hdmi_frl_pin: hdmi-frl-pin {
+-			rockchip,pins = <4 RK_PB5 RK_FUNC_GPIO &pcfg_pull_up>;
 +		hdmi0_tx_on_h: hdmi0-tx-on-h {
-+			rockchip,pins = <4 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
- 	leds {
- 		io_led: io-led {
- 			rockchip,pins = <3 RK_PD5 RK_FUNC_GPIO &pcfg_pull_none>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
-index 7fe42f4ff827..9d3d0791554d 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
-@@ -258,11 +258,13 @@ &gpu {
- };
++			rockchip,pins = <4 RK_PB5 RK_FUNC_GPIO &pcfg_pull_none>;
+ 		};
+ 	};
  
- &hdmi0 {
--	pinctrl-names = "default";
-+	frl-enable-gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_LOW>;
- 	pinctrl-0 = <&hdmim0_tx0_cec
- 		     &hdmim1_tx0_hpd
- 		     &hdmim0_tx0_scl
--		     &hdmim0_tx0_sda>;
-+		     &hdmim0_tx0_sda
-+		     &hdmi0_tx_on_h>;
-+	pinctrl-names = "default";
- 	status = "okay";
- };
- 
-@@ -461,6 +463,12 @@ &pd_gpu {
- };
- 
- &pinctrl {
-+	hdmi {
-+		hdmi0_tx_on_h: hdmi0-tx-on-h {
-+			rockchip,pins = <4 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
- 	leds {
- 		led_pins: led-pins {
- 			rockchip,pins = <3 RK_PC4 RK_FUNC_GPIO &pcfg_pull_none>,
 
 -- 
 2.53.0
