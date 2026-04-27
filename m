@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC0D6FF8861
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 06:51:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8D95FF8865
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 06:51:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tFXdQUrh5pNHzOqAQGhOIT7uMmYcG2JVaPVgvIJnoLI=; b=bYxx0H55AQT3Impceac0v92g2H
-	SJVIRzXc/eNzIO3FXqUfhOHL0tIuf63qaT6qPLOEJF/41rs4O3J0g8ibjkwFtDXgWJz2htn28FaH/
-	AmFl89Y83FSzgJHydtkmAN6Gi/lHR9s9xyYzIFqNkuGZ9chreJlu8JcBXRTql3GHRnsQ0YXUKJr6I
-	b1K969queEjDRy58qSUlERop7UitOQgq1NKVjJQe/r/+gFhH0DnjVS0vd6bgM4p1gh6czmmrPyrWu
-	pIb3xmYeKKc7psb7U82PxxU/QSRK4qAZZLrjYVdhL/PudN6Lfd52WasD/XlwnbmcJPx+Hez0IHHGS
-	nljDoeug==;
+	bh=V+zp4s2QzLHuAkdatef8LP6ZHvaDtoyCXwG1S8asaJY=; b=pTZFRnBdLkqb1v0lftmH2r41xh
+	6+qMi57TR2Ze1QAHF/j777esl9cbY7CbanWKm1C2BgiPEbQ6XxjLgjsNWZlYVBBvYAZctSxtmEmU8
+	4MIIfrqFMduxpPfzkjMixPDkxNCYcfefZl/uaLo/buSPmade68HmYByM6DUAmYbKjXXj/mq+WEsVp
+	fCfrDeZZjhZJUJBvCIozawopJ8w/NrG1PK3OVXseBt1Ioz7is+TXFpYjTwkR1k1YUJeRsmwD8rGNa
+	PTPbj0dZLlGQi1rfb13AzPreomaabNhcoZimuWtP3h/xlJSM6WsHu9DCog6OOmWmL9P2k9SJMTfyw
+	02gL9jaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHFom-0000000GI3Y-0ZEo;
-	Mon, 27 Apr 2026 06:51:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wHFoq-0000000GI5N-2CHW;
+	Mon, 27 Apr 2026 06:51:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHFok-0000000GI2y-16Hf
+	id 1wHFop-0000000GI50-2Jmg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 06:51:42 +0000
+	Mon, 27 Apr 2026 06:51:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 96EA06013B;
+	by tor.source.kernel.org (Postfix) with ESMTP id EE3086014C;
+	Mon, 27 Apr 2026 06:51:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5B94C19425;
 	Mon, 27 Apr 2026 06:51:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 607F5C19425;
-	Mon, 27 Apr 2026 06:51:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777272701;
-	bh=DItmN7CZJj9mPjedXacvO6++q0aZQyxMF5Mr5JCA8i8=;
+	s=k20201202; t=1777272706;
+	bh=dXVSkfXFOX78UgFW20dAcjZ+t2/MgDkcG0mnxyEG+AU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dh1wPQPpsfz4oPsUXrvorOw5GifxbivRYT8lRBBE0Pz0WDLXkgZg6TBuVk+w1hiAU
-	 R1jvr8W5O6FyXQv0tGTd4U9tflsQAedWKpFCG3iwjZ4keFt8HWqx9bISg8B2YIt3ZE
-	 GNERJYyTQkROaxWGTOhOa9F9+h81Zdn7WNf0xjRFY/J8HXpWyoiRCeTsPqq+a7Zn29
-	 GTrm/MP3UCMBqvneEAaUb4ANO+kCj+6MJPbwqyKsvFaUZsJBQXfeql42vdwYNV77k6
-	 Vv7gOtfBr4oOWdwXcMfPUqfFiQ0T7l/K1Be3L0ld7diV9HbxOvZaj1krPUTf9dqnK9
-	 bZPE4/z0xKROg==
+	b=mFMorngmP4n5ZNy59e3IGxRAEDoS87uDWsQmaaz5+/VD+zWcsl4HMCvZ7Th6x8GJB
+	 GRmg23kXm7dLPZbtGEe41W+f0Qcd5o+OoJeaEYqDKzRB+a8YAVwTqD6HSd/4iknAQR
+	 GqDBUIgwKqpaL19dOiR5KuztnLN7wslU2QjDqr93RdWFpcSaFrh47SssUI42eusN45
+	 mp4rLdqz8lno314NIGzq0CZ1j2xeN4CDnsJl8EgBTUsnwiT4vDlssxotLGKFnnz5Qo
+	 qlWZLb8ijM5TtYw8WvFamxtsAaqR72iaJEjDij2hKXvRYq3PwfJISqq1CSxr4OnnZP
+	 57PTXkN8WYQ+w==
 From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 To: linux-coco@lists.linux.dev,
 	kvmarm@lists.linux.dev,
@@ -59,9 +59,9 @@ Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
 	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Xu Yilun <yilun.xu@linux.intel.com>
-Subject: [RFC PATCH v4 01/14] coco: host: arm64: Add host TSM callback and IDE stream allocation support
-Date: Mon, 27 Apr 2026 12:21:08 +0530
-Message-ID: <20260427065121.916615-2-aneesh.kumar@kernel.org>
+Subject: [RFC PATCH v4 02/14] coco: host: arm64: Create RMM pdev objects for PCI endpoints
+Date: Mon, 27 Apr 2026 12:21:09 +0530
+Message-ID: <20260427065121.916615-3-aneesh.kumar@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260427065121.916615-1-aneesh.kumar@kernel.org>
 References: <20260427065121.916615-1-aneesh.kumar@kernel.org>
@@ -81,441 +81,320 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Register the TSM callback when the DA feature is supported by KVM.
+Add the RMI definitions needed for pdev management, including the pdev
+state enum, parameter layout, and helpers for RMI_PDEV_CREATE and
+RMI_PDEV_GET_STATE.
 
-This driver handles IDE stream setup for both the root port and PCIe
-endpoints. Root port IDE stream enablement itself is managed by RMM.
+Introduce a host-side pdev descriptor and cca_pdev_create() to
+allocate and delegate the backing granule, populate the pdev parameters
+from the PCI endpoint, and issue RMI_PDEV_CREATE to the RMM.
 
-In addition, the driver registers pci_tsm_ops with the TSM subsystem.
+The new helper stores the created RMM pdev handle in the PF0 endpoint
+descriptor preparing the device for later IDE/TDISP setup.
 
 Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 ---
- arch/arm64/include/asm/rmi_smc.h         |   2 +
- drivers/firmware/smccc/rmm.c             |  12 ++
- drivers/firmware/smccc/rmm.h             |   8 +
- drivers/firmware/smccc/smccc.c           |   1 +
- drivers/virt/coco/Kconfig                |   2 +
- drivers/virt/coco/Makefile               |   1 +
- drivers/virt/coco/arm-cca-host/Kconfig   |  19 ++
- drivers/virt/coco/arm-cca-host/Makefile  |   5 +
- drivers/virt/coco/arm-cca-host/arm-cca.c | 225 +++++++++++++++++++++++
- drivers/virt/coco/arm-cca-host/rmi-da.h  |  46 +++++
- 10 files changed, 321 insertions(+)
- create mode 100644 drivers/virt/coco/arm-cca-host/Kconfig
- create mode 100644 drivers/virt/coco/arm-cca-host/Makefile
- create mode 100644 drivers/virt/coco/arm-cca-host/arm-cca.c
- create mode 100644 drivers/virt/coco/arm-cca-host/rmi-da.h
+ arch/arm64/include/asm/rmi_cmds.h       |  10 ++
+ arch/arm64/include/asm/rmi_smc.h        |  49 ++++++++
+ drivers/virt/coco/arm-cca-host/Makefile |   2 +-
+ drivers/virt/coco/arm-cca-host/rmi-da.c | 151 ++++++++++++++++++++++++
+ drivers/virt/coco/arm-cca-host/rmi-da.h |  26 ++++
+ 5 files changed, 237 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/virt/coco/arm-cca-host/rmi-da.c
 
-diff --git a/arch/arm64/include/asm/rmi_smc.h b/arch/arm64/include/asm/rmi_smc.h
-index fa23818e1b4c..109d6cc6ef37 100644
---- a/arch/arm64/include/asm/rmi_smc.h
-+++ b/arch/arm64/include/asm/rmi_smc.h
-@@ -12,6 +12,8 @@
- 
- #include <linux/arm-smccc.h>
- 
-+#define RMI_DEV_NAME "arm-rmi-dev"
-+
- #define SMC_RMI_CALL(func)				\
- 	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,		\
- 			   ARM_SMCCC_SMC_64,		\
-diff --git a/drivers/firmware/smccc/rmm.c b/drivers/firmware/smccc/rmm.c
-index 2a6187df3285..7444cc3a588c 100644
---- a/drivers/firmware/smccc/rmm.c
-+++ b/drivers/firmware/smccc/rmm.c
-@@ -21,3 +21,15 @@ void __init register_rsi_device(struct platform_device *pdev)
- 	__devm_auxiliary_device_create(&pdev->dev,
- 				       "arm_cca_guest", RSI_DEV_NAME, NULL, 0);
+diff --git a/arch/arm64/include/asm/rmi_cmds.h b/arch/arm64/include/asm/rmi_cmds.h
+index 2901fc84d245..d23a0590c7ee 100644
+--- a/arch/arm64/include/asm/rmi_cmds.h
++++ b/arch/arm64/include/asm/rmi_cmds.h
+@@ -726,4 +726,14 @@ static inline int rmi_rtt_unmap_unprotected(unsigned long rd,
+ 	return res.a0;
  }
-+
-+void __init register_rmi_device(struct platform_device *pdev)
+ 
++static inline unsigned long rmi_pdev_get_state(unsigned long pdev_phys, enum rmi_pdev_state *state)
 +{
 +	struct arm_smccc_res res;
-+	unsigned long host_version = RMI_ABI_VERSION(RMI_ABI_MAJOR_VERSION,
-+						     RMI_ABI_MINOR_VERSION);
 +
-+	arm_smccc_1_1_invoke(SMC_RMI_VERSION, host_version, &res);
-+	if (res.a0 == RMI_SUCCESS)
-+		__devm_auxiliary_device_create(&pdev->dev,
-+					"arm_cca_host", RMI_DEV_NAME, NULL, 0);
-+}
-diff --git a/drivers/firmware/smccc/rmm.h b/drivers/firmware/smccc/rmm.h
-index a47a650d4f51..37d0d95a099e 100644
---- a/drivers/firmware/smccc/rmm.h
-+++ b/drivers/firmware/smccc/rmm.h
-@@ -6,12 +6,20 @@
- 
- #ifdef CONFIG_ARM64
- #include <asm/rsi_cmds.h>
-+#include <asm/rmi_smc.h>
++	arm_smccc_1_1_invoke(SMC_RMI_PDEV_GET_STATE, pdev_phys, &res);
 +
- void __init register_rsi_device(struct platform_device *pdev);
-+void __init register_rmi_device(struct platform_device *pdev);
- #else
- 
- static void __init register_rsi_device(struct platform_device *pdev)
- {
- 
++	*state = res.a1;
++	return res.a0;
 +}
 +
-+static void __init register_rmi_device(struct platform_device *pdev)
-+{
-+
- }
- #endif
- #endif
-diff --git a/drivers/firmware/smccc/smccc.c b/drivers/firmware/smccc/smccc.c
-index fc9b44b7c687..2bf2d59e686d 100644
---- a/drivers/firmware/smccc/smccc.c
-+++ b/drivers/firmware/smccc/smccc.c
-@@ -97,6 +97,7 @@ static int __init smccc_devices_init(void)
- 		 * the required SMCCC function IDs at a supported revision.
- 		 */
- 		register_rsi_device(pdev);
-+		register_rmi_device(pdev);
- 	}
+ #endif /* __ASM_RMI_CMDS_H */
+diff --git a/arch/arm64/include/asm/rmi_smc.h b/arch/arm64/include/asm/rmi_smc.h
+index 109d6cc6ef37..94bcaf3e7e68 100644
+--- a/arch/arm64/include/asm/rmi_smc.h
++++ b/arch/arm64/include/asm/rmi_smc.h
+@@ -429,4 +429,53 @@ struct rec_run {
+ 	struct rec_exit exit;
+ };
  
- 	if (smccc_trng_available) {
-diff --git a/drivers/virt/coco/Kconfig b/drivers/virt/coco/Kconfig
-index f7691f64fbe3..1cbc2134f9ea 100644
---- a/drivers/virt/coco/Kconfig
-+++ b/drivers/virt/coco/Kconfig
-@@ -19,5 +19,7 @@ endif
- 
- source "drivers/virt/coco/tdx-host/Kconfig"
- 
-+source "drivers/virt/coco/arm-cca-host/Kconfig"
++enum rmi_pdev_state {
++	RMI_PDEV_NEW,
++	RMI_PDEV_NEEDS_KEY,
++	RMI_PDEV_HAS_KEY,
++	RMI_PDEV_READY,
++	RMI_PDEV_STOPPED,
++	RMI_PDEV_ERROR,
++};
 +
- config TSM
- 	bool
-diff --git a/drivers/virt/coco/Makefile b/drivers/virt/coco/Makefile
-index b323b0ae4f82..f2310c34daf9 100644
---- a/drivers/virt/coco/Makefile
-+++ b/drivers/virt/coco/Makefile
-@@ -10,3 +10,4 @@ obj-$(CONFIG_INTEL_TDX_HOST)	+= tdx-host/
- obj-$(CONFIG_ARM_CCA_GUEST)	+= arm-cca-guest/
- obj-$(CONFIG_TSM) 		+= tsm-core.o
- obj-$(CONFIG_TSM_GUEST)		+= guest/
-+obj-$(CONFIG_ARM_CCA_HOST)	+= arm-cca-host/
-diff --git a/drivers/virt/coco/arm-cca-host/Kconfig b/drivers/virt/coco/arm-cca-host/Kconfig
-new file mode 100644
-index 000000000000..efe40d61d5d8
---- /dev/null
-+++ b/drivers/virt/coco/arm-cca-host/Kconfig
-@@ -0,0 +1,19 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+#
-+# TSM (TEE Security Manager) host drivers
-+#
-+config ARM_CCA_HOST
-+	tristate "Arm CCA Host driver"
-+	depends on ARM64
-+	depends on PCI
-+	depends on KVM
-+	select PCI_TSM
-+	select AUXILIARY_BUS
++#define RMI_PDEV_FLAGS_SPDM		BIT(0)
++#define RMI_PDEV_FLAGS_CATEGORY_MASK	GENMASK(2, 1)
++#define RMI_PDEV_FLAGS_CATEGORY_SHIFT	1
++#define RMI_PDEV_FLAGS_P2P		BIT(3)
 +
-+	help
-+	  ARM CCA RMM firmware is the trusted runtime that enforces memory
-+	  isolation and security for confidential computing on ARM. This driver
-+	  provides the interface for communicating with RMM to support secure
-+	  device assignment.
++#define RMI_PDEV_FLAGS_CATEGORY_ROOT_PORT	0x0
++#define RMI_PDEV_FLAGS_CATEGORY_OFF_CHIP_EP	0x1
++#define RMI_PDEV_FLAGS_CATEGORY_ON_CHIP_EP	0x2
++#define RMI_PDEV_FLAGS_CATEGORY_CMEM		0x3
 +
-+	  If you choose 'M' here, this module will be called arm-cca-host.
++#define RMI_HASH_SHA_256	0x0
++#define RMI_HASH_SHA_512	0x1
++#define RMI_HASH_SHA_384	0x2
++
++struct rmi_pdev_params {
++	union {
++		struct {
++			u64 flags;
++			u64 pdev_id;
++			//u64 rc_id;
++			u64 routing_id;
++			u64 id_index;
++			union {
++				u16 rid_base;
++				u8 padding1[8];
++			};
++			union {
++				u16 rid_top;
++				u8 padding2[8];
++			};
++			union {
++				u8 hash_algo;
++				u8 padding3[8];
++			};
++			u64 max_vdevs_order;
++		};
++		u8 padding5[0x1000];
++	};
++};
++
+ #endif /* __ASM_RMI_SMC_H */
 diff --git a/drivers/virt/coco/arm-cca-host/Makefile b/drivers/virt/coco/arm-cca-host/Makefile
-new file mode 100644
-index 000000000000..c236827f002c
---- /dev/null
+index c236827f002c..d48e8940af46 100644
+--- a/drivers/virt/coco/arm-cca-host/Makefile
 +++ b/drivers/virt/coco/arm-cca-host/Makefile
-@@ -0,0 +1,5 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+#
-+obj-$(CONFIG_ARM_CCA_HOST) += arm-cca-host.o
-+
-+arm-cca-host-y	+=  arm-cca.o
-diff --git a/drivers/virt/coco/arm-cca-host/arm-cca.c b/drivers/virt/coco/arm-cca-host/arm-cca.c
+@@ -2,4 +2,4 @@
+ #
+ obj-$(CONFIG_ARM_CCA_HOST) += arm-cca-host.o
+ 
+-arm-cca-host-y	+=  arm-cca.o
++arm-cca-host-y	+=  arm-cca.o rmi-da.o
+diff --git a/drivers/virt/coco/arm-cca-host/rmi-da.c b/drivers/virt/coco/arm-cca-host/rmi-da.c
 new file mode 100644
-index 000000000000..67f7e80106e8
+index 000000000000..8fb5d286fd82
 --- /dev/null
-+++ b/drivers/virt/coco/arm-cca-host/arm-cca.c
-@@ -0,0 +1,225 @@
++++ b/drivers/virt/coco/arm-cca-host/rmi-da.c
+@@ -0,0 +1,151 @@
 +// SPDX-License-Identifier: GPL-2.0-only
 +/*
 + * Copyright (C) 2026 ARM Ltd.
 + */
 +
-+#include <linux/auxiliary_bus.h>
-+#include <linux/pci-tsm.h>
-+#include <linux/pci-ide.h>
-+#include <linux/module.h>
 +#include <linux/pci.h>
-+#include <linux/tsm.h>
-+#include <linux/vmalloc.h>
-+#include <linux/cleanup.h>
++#include <linux/pci-ecam.h>
++#include <asm/rmi_cmds.h>
 +
 +#include "rmi-da.h"
 +
-+/* Total number of stream id supported at root port level */
-+#define MAX_STREAM_ID	256
-+
-+static struct pci_tsm *cca_tsm_pci_probe(struct tsm_dev *tsm_dev, struct pci_dev *pdev)
++static int pci_ide_segment(struct pci_dev *pdev)
 +{
-+	int ret;
-+
-+	if (!is_pci_tsm_pf0(pdev)) {
-+		struct cca_host_fn_dsc *fn_dsc __free(kfree) =
-+			kzalloc(sizeof(*fn_dsc), GFP_KERNEL);
-+
-+		if (!fn_dsc)
-+			return NULL;
-+
-+		ret = pci_tsm_link_constructor(pdev, &fn_dsc->pci, tsm_dev);
-+		if (ret)
-+			return NULL;
-+
-+		return &no_free_ptr(fn_dsc)->pci;
-+	}
-+
-+	if (!pdev->ide_cap)
-+		return NULL;
-+
-+	struct cca_host_pf0_ep_dsc *pf0_ep_dsc __free(kfree) =
-+		kzalloc(sizeof(*pf0_ep_dsc), GFP_KERNEL);
-+	if (!pf0_ep_dsc)
-+		return NULL;
-+
-+	ret = pci_tsm_pf0_constructor(pdev, &pf0_ep_dsc->pci, tsm_dev);
-+	if (ret)
-+		return NULL;
-+
-+	pci_dbg(pdev, "tsm enabled\n");
-+	return &no_free_ptr(pf0_ep_dsc)->pci.base_tsm;
++	if (pdev->fm_enabled)
++		return pci_domain_nr(pdev->bus);
++	return 0;
 +}
 +
-+static void cca_tsm_pci_remove(struct pci_tsm *tsm)
++static unsigned int pci_get_max_rid(struct pci_dev *pdev)
 +{
-+	struct pci_dev *pdev = tsm->pdev;
++	int fn;
++	int max_rid;
++	int slot = PCI_SLOT(pdev->devfn);
 +
-+	if (is_pci_tsm_pf0(pdev)) {
++	for (fn = 0; fn < 8; fn++) {
++		struct pci_dev *fn_dev;
++
++		fn_dev = pci_get_slot(pdev->bus, PCI_DEVFN(slot, fn));
++		if (!fn_dev)
++			continue;
++
++		max_rid = PCI_DEVFN(slot, fn);
++		pci_dev_put(fn_dev);
++	}
++	return max_rid;
++}
++
++static int init_pdev_params(struct pci_dev *pdev, struct rmi_pdev_params *params)
++{
++	int rid;
++	unsigned long category;
++	struct pci_config_window *cfg = pdev->bus->sysdata;
++
++	/* check we are ECAM compliant */
++	if (!pdev->bus->ops->map_bus)
++		return -EINVAL;
++
++	switch (pci_pcie_type(pdev)) {
++	case PCI_EXP_TYPE_ENDPOINT: {
 +		struct cca_host_pf0_ep_dsc *pf0_ep_dsc = to_cca_pf0_ep_dsc(pdev);
 +
-+		pci_tsm_pf0_destructor(&pf0_ep_dsc->pci);
-+		kfree(pf0_ep_dsc);
-+	} else {
-+		kfree(to_cca_fn_dsc(pdev));
++		/* Endpoint needs DOE mailbox */
++		if (!pf0_ep_dsc->pci.doe_mb)
++			return -EINVAL;
++
++		params->flags = RMI_PDEV_FLAGS_SPDM;
++		category = RMI_PDEV_FLAGS_CATEGORY_OFF_CHIP_EP;
++		break;
 +	}
-+}
-+
-+/* For now global for simplicity. Protected by pci_tsm_rwsem */
-+static DECLARE_BITMAP(cca_stream_ids, MAX_STREAM_ID);
-+static int alloc_stream_id(struct pci_host_bridge *hb)
-+{
-+	int stream_id;
-+
-+redo_alloc:
-+	stream_id = find_first_zero_bit(cca_stream_ids, MAX_STREAM_ID);
-+	if (stream_id == MAX_STREAM_ID)
-+		return stream_id;
-+
-+	if (ida_exists(&hb->ide_stream_ids_ida, stream_id)) {
-+		/* mark the stream allocated in the global bitmap. */
-+		set_bit(stream_id, cca_stream_ids);
-+		goto redo_alloc;
++	default:
++		return -EINVAL;
 +	}
-+	return stream_id;
++
++	params->flags |= (category << RMI_PDEV_FLAGS_CATEGORY_SHIFT);
++	/* assign the ep device with RMM */
++	rid = pci_dev_id(pdev);
++	params->pdev_id = cfg->res.start | rid;
++	// ecam window base FIXME!!
++	//params->pdev_id = rid;
++	//params->rc_id = cfg->res.start;
++	params->routing_id = pci_ide_segment(pdev);
++	/* slot number for certificate chain default to zero */
++	params->id_index = 0;
++	params->hash_algo = RMI_HASH_SHA_256;
++	/* no multi function device here. */
++	params->rid_base = rid;
++	params->rid_top = pci_get_max_rid(pdev) + 1;
++	// FIXME!! what is this?
++	params->max_vdevs_order = 10;
++	return 0;
 +}
 +
-+static inline bool cca_pdev_need_sel_ide_streams(struct pci_dev *pdev)
++static inline int rmi_pdev_create(unsigned long pdev_phys,
++		unsigned long pdev_params_phys, unsigned long *rmi_ret)
 +{
-+	return pci_pcie_type(pdev) == PCI_EXP_TYPE_ENDPOINT;
++
++	struct rmi_sro_state *sro __free(sro) =
++		rmi_sro_init(SMC_RMI_PDEV_CREATE, pdev_phys, pdev_params_phys);
++	if (!sro)
++		return -ENOMEM;
++
++	*rmi_ret = rmi_sro_execute(sro);
++
++	return 0;
 +}
 +
-+static int cca_tsm_connect(struct pci_dev *pdev)
++int cca_pdev_create(struct pci_dev *pci_dev)
 +{
-+	struct pci_dev *rp = pcie_find_root_port(pdev);
-+	struct cca_host_pf0_ep_dsc *pf0_ep_dsc;
-+	struct pci_ide *ide;
-+	int ret, stream_id = 0;
++	int ret;
++	void *rmm_pdev;
++	bool should_free = true;
++	phys_addr_t rmm_pdev_phys;
++	struct rmi_pdev_params *params;
++	struct cca_host_pdev_dsc *pdev_dsc = to_cca_pdev_dsc(pci_dev);
 +
-+	/* Only function 0 supports connect in host */
-+	if (WARN_ON(!is_pci_tsm_pf0(pdev)))
-+		return -EIO;
++	rmm_pdev = (void *)get_zeroed_page(GFP_KERNEL);
++	if (!rmm_pdev)
++		return -ENOMEM;
 +
-+	pf0_ep_dsc = to_cca_pf0_ep_dsc(pdev);
-+	if (cca_pdev_need_sel_ide_streams(pdev)) {
-+		/* Allocate stream id */
-+		stream_id = alloc_stream_id(pci_find_host_bridge(pdev->bus));
-+		if (stream_id == MAX_STREAM_ID)
-+			return -EBUSY;
-+		set_bit(stream_id, cca_stream_ids);
++	rmm_pdev_phys = virt_to_phys(rmm_pdev);
++	if (rmi_delegate_page(rmm_pdev_phys)) {
++		ret = -EIO;
++		goto err_granule_delegate;
++	}
 +
-+		ide = pci_ide_stream_alloc(pdev);
-+		if (!ide) {
-+			ret = -ENOMEM;
-+			goto err_stream_alloc;
++	params = (struct rmi_pdev_params *)get_zeroed_page(GFP_KERNEL);
++	if (!params) {
++		ret = -ENOMEM;
++		goto err_param_alloc;
++	}
++
++	ret = init_pdev_params(pci_dev, params);
++	if (ret)
++		goto err_init_pdev_params;
++
++	{
++		unsigned long rmi_ret;
++
++		ret = rmi_pdev_create(rmm_pdev_phys, virt_to_phys(params),
++				      &rmi_ret);
++		if (ret || rmi_ret) {
++			if (!ret)
++				ret = -EIO;
++			goto err_init_pdev_params;
 +		}
-+
-+		pf0_ep_dsc->sel_stream = ide;
-+		ide->stream_id = stream_id;
-+		ret = pci_ide_stream_register(ide);
-+		if (ret)
-+			goto err_stream;
-+		/*
-+		 * Configure IDE capability for target device
-+		 *
-+		 * Some test devices work only with DEFAULT_STREAM enabled.
-+		 * For simplicity, enable DEFAULT_STREAM for all devices. A
-+		 * future decent solution may be to have a quirk table to
-+		 * specify which devices need DEFAULT_STREAM.
-+		 */
-+		ide->partner[PCI_IDE_EP].default_stream = 1;
-+		pci_ide_stream_setup(pdev, ide);
-+		pci_ide_stream_setup(rp, ide);
-+
-+		ret = tsm_ide_stream_register(ide);
-+		if (ret)
-+			goto err_tsm;
-+
-+		/*
-+		 * Once ide is setup, enable the stream at the endpoint
-+		 * Root port will be done by RMM
-+		 */
-+		pci_ide_stream_enable(pdev, ide);
 +	}
++
++	pdev_dsc->rmm_pdev = rmm_pdev;
++	free_page((unsigned long)params);
 +	return 0;
 +
-+err_tsm:
-+	if (cca_pdev_need_sel_ide_streams(pdev)) {
-+		pci_ide_stream_teardown(rp, ide);
-+		pci_ide_stream_teardown(pdev, ide);
-+		pci_ide_stream_unregister(ide);
-+	}
-+err_stream:
-+	if (cca_pdev_need_sel_ide_streams(pdev))
-+		pci_ide_stream_free(ide);
-+	pf0_ep_dsc->sel_stream = NULL;
-+err_stream_alloc:
-+	clear_bit(stream_id, cca_stream_ids);
-+
++err_init_pdev_params:
++	free_page((unsigned long)params);
++err_param_alloc:
++	if (rmi_undelegate_page(rmm_pdev_phys))
++		should_free = false;
++err_granule_delegate:
++	if (should_free)
++		free_page((unsigned long)rmm_pdev);
 +	return ret;
 +}
+diff --git a/drivers/virt/coco/arm-cca-host/rmi-da.h b/drivers/virt/coco/arm-cca-host/rmi-da.h
+index 4abc7ad159e5..de67f10ce20e 100644
+--- a/drivers/virt/coco/arm-cca-host/rmi-da.h
++++ b/drivers/virt/coco/arm-cca-host/rmi-da.h
+@@ -12,13 +12,26 @@
+ #include <asm/rmi_cmds.h>
+ #include <asm/rmi_smc.h>
+ 
++/**
++ * struct cca_host_pdev_dsc - Common RMM pdev context
++ * @rmm_pdev: Delegated page backing the RMM pdev object
++ * @object_lock: Serializes access to the RMM pdev object and PF0/TDI caches
++ */
++struct cca_host_pdev_dsc {
++	void *rmm_pdev;
++	/* lock kept here to simplify the generic lock/unlock paths. */
++	struct mutex object_lock;
++};
 +
-+static void cca_tsm_disconnect(struct pci_dev *pdev)
+ /**
+  * struct cca_host_pf0_ep_dsc - PF0 endpoint device security context.
+  * @pci: Physical Function 0 TDISP link context
++ * @pdev: pdev communication context
+  * @sel_stream: Selective IDE Stream descriptor
+  */
+ struct cca_host_pf0_ep_dsc {
+ 	struct pci_tsm_pf0 pci;
++	struct cca_host_pdev_dsc pdev;
+ 	struct pci_ide *sel_stream;
+ };
+ 
+@@ -43,4 +56,17 @@ static inline struct cca_host_fn_dsc *to_cca_fn_dsc(struct pci_dev *pdev)
+ 	return container_of(tsm, struct cca_host_fn_dsc, pci);
+ }
+ 
++static inline struct cca_host_pdev_dsc *to_cca_pdev_dsc(struct pci_dev *pdev)
 +{
-+	int stream_id;
-+	struct pci_ide *ide;
 +	struct cca_host_pf0_ep_dsc *pf0_ep_dsc;
 +
 +	pf0_ep_dsc = to_cca_pf0_ep_dsc(pdev);
-+	if (!pf0_ep_dsc)
-+		return;
++	if (pf0_ep_dsc)
++		return &pf0_ep_dsc->pdev;
 +
-+	if (cca_pdev_need_sel_ide_streams(pdev)) {
-+		ide = pf0_ep_dsc->sel_stream;
-+		stream_id = ide->stream_id;
-+
-+		pci_ide_stream_release(ide);
-+		pf0_ep_dsc->sel_stream = NULL;
-+		clear_bit(stream_id, cca_stream_ids);
-+	}
-+
++	return NULL;
 +}
 +
-+static struct pci_tsm_ops cca_link_pci_ops = {
-+	.probe = cca_tsm_pci_probe,
-+	.remove = cca_tsm_pci_remove,
-+	.connect = cca_tsm_connect,
-+	.disconnect = cca_tsm_disconnect,
-+};
++int cca_pdev_create(struct pci_dev *pdev);
 +
-+static void cca_link_tsm_remove(void *tsm_dev)
-+{
-+	tsm_unregister(tsm_dev);
-+}
-+
-+static int cca_link_tsm_probe(struct auxiliary_device *adev,
-+		const struct auxiliary_device_id *id)
-+{
-+	struct tsm_dev *tsm_dev;
-+
-+	if (!rmm_has_reg2_feature(RMI_FEATURE_REGISTER_2_DA))
-+		return -ENODEV;
-+
-+	tsm_dev = tsm_register(&adev->dev, &cca_link_pci_ops);
-+	if (IS_ERR(tsm_dev))
-+		return PTR_ERR(tsm_dev);
-+
-+	return devm_add_action_or_reset(&adev->dev, cca_link_tsm_remove,
-+					tsm_dev);
-+}
-+
-+static const struct auxiliary_device_id cca_link_tsm_id_table[] = {
-+	{ .name =  KBUILD_MODNAME "." RMI_DEV_NAME },
-+	{}
-+};
-+MODULE_DEVICE_TABLE(auxiliary, cca_link_tsm_id_table);
-+
-+static struct auxiliary_driver cca_link_tsm_driver = {
-+	.probe = cca_link_tsm_probe,
-+	.id_table = cca_link_tsm_id_table,
-+};
-+module_auxiliary_driver(cca_link_tsm_driver);
-+MODULE_IMPORT_NS("PCI_IDE");
-+MODULE_AUTHOR("Aneesh Kumar <aneesh.kumar@kernel.org>");
-+MODULE_DESCRIPTION("ARM CCA Host TSM driver");
-+MODULE_LICENSE("GPL");
-diff --git a/drivers/virt/coco/arm-cca-host/rmi-da.h b/drivers/virt/coco/arm-cca-host/rmi-da.h
-new file mode 100644
-index 000000000000..4abc7ad159e5
---- /dev/null
-+++ b/drivers/virt/coco/arm-cca-host/rmi-da.h
-@@ -0,0 +1,46 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2026 ARM Ltd.
-+ */
-+
-+#ifndef _VIRT_COCO_RMM_DA_H_
-+#define _VIRT_COCO_RMM_DA_H_
-+
-+#include <linux/pci.h>
-+#include <linux/pci-ide.h>
-+#include <linux/pci-tsm.h>
-+#include <asm/rmi_cmds.h>
-+#include <asm/rmi_smc.h>
-+
-+/**
-+ * struct cca_host_pf0_ep_dsc - PF0 endpoint device security context.
-+ * @pci: Physical Function 0 TDISP link context
-+ * @sel_stream: Selective IDE Stream descriptor
-+ */
-+struct cca_host_pf0_ep_dsc {
-+	struct pci_tsm_pf0 pci;
-+	struct pci_ide *sel_stream;
-+};
-+
-+struct cca_host_fn_dsc {
-+	struct pci_tsm pci;
-+};
-+
-+static inline struct cca_host_pf0_ep_dsc *to_cca_pf0_ep_dsc(struct pci_dev *pdev)
-+{
-+	struct pci_tsm *tsm = pdev->tsm;
-+
-+	if (!tsm || !is_pci_tsm_pf0(pdev))
-+		return NULL;
-+
-+	return container_of(tsm, struct cca_host_pf0_ep_dsc, pci.base_tsm);
-+}
-+
-+static inline struct cca_host_fn_dsc *to_cca_fn_dsc(struct pci_dev *pdev)
-+{
-+	struct pci_tsm *tsm = pdev->tsm;
-+
-+	return container_of(tsm, struct cca_host_fn_dsc, pci);
-+}
-+
-+#endif
+ #endif
 -- 
 2.43.0
 
