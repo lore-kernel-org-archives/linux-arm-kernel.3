@@ -4,83 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C70EDFF8860
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 14:47:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F488FF8860
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 14:48:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PA3bf/imBxC5EKrXdfA68ek5E3GmwUyX6xt/N+ElqDw=; b=r5nIeF+GubYTwnb4fQsT0Gw2TX
-	hCvmksVXJu3rOx2+iqCXdj1Uk6Ct1z+d4x5oOo1ifuh/4X/wgf/KOTBy7tmVfuxduL0yCDLJmz7As
-	pmITuZqORdpnRhKXcw4uoBFoIfFEm4L02IbkCEpTZLY171xNaM5McYjF6DvJ13Kt42ydwPvxe1OmU
-	f7C3JOWHfvUKEGAhYcYUQlt9wn9nCOaK++dn3qFt+YpW3Y06wJRk/hcysuvX1543I2DN/yZW1O+9D
-	2W3L92cx5c7oSyFXnsRNDllmJw5w2VtDiiV1k4Iyal2bk1Kn0m2V3v4nFqSvqOxF87D3xSF0l+dw8
-	y5OkKRvQ==;
+	bh=F68sontWVpv0LJBb3I4/r1X3RY43for05JLFPlTyeAA=; b=zGs6DVyspUU0PSR59RTwddz7YT
+	N/vMugrM4MHsnnyirN/a56QpAmVoToY9sg81Pe5oZrIkNiLDNZmjD5REQko/qWUvJDvBWksuL30Nm
+	N02BmReKG919S1D0C8YhRAlcePyE/vkuR+r1JWmjdV/cP0IiYyfyXV7fg7Q54bUvcCH0LdwQO3ft8
+	Oj/ug1TjYrTfcQ74JUCCXgL6J0suZuxOjAg4wKVwrUxdUBhxNZ9mLi3yGaipdKsVhiSOickTKukYz
+	2qChYXS/PPrToR0BSYmOGZXVhaRdjaNgNNnHLXr+5YMbNm35vWrbGjSUAkW6xVgf4KIPXkHpEzbGA
+	WOVCC4pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHNFJ-0000000H7zt-3C5x;
-	Mon, 27 Apr 2026 14:47:37 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wHNG6-0000000H8Aj-0nM4;
+	Mon, 27 Apr 2026 14:48:26 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHNFI-0000000H7zX-3eAA
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 27 Apr 2026 14:47:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=PA3bf/imBxC5EKrXdfA68ek5E3GmwUyX6xt/N+ElqDw=; b=hF/Kg+eipQV6iewjDodSQr0E5M
-	uLJktkf9g0oeC/ZR5kMgmh5jj7hjKuINsPbdm8Fobh0hdjgiFRLcq0IU6LgIIMTsV6zEqdhuMwoBP
-	GiI1Q7tlxTBgJb9f0DkGiJxZK2Cu0NQhnqA+ofoU867JNwx7+mg6bi0/y4LFgQEADPqX+2Hn12TOy
-	/W+raLTz4s9Xx8mpFDbg0Rg/2Q+/hbOy4hOTfPJv47Kn0Y01sOC5UrmnRLEpy4CohHpVlKfTshO/9
-	3L+4ksvcZWWhIu0+E6sg0B0+0C5VHWS4gMRUQUZBkyC5QGO3lRL+KU9fMrXi+r0VT2WfsYXOVBuXo
-	v2ARSnOg==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHNFF-00000000r9S-39zf
+	id 1wHNG3-0000000H89s-1Orc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 14:47:35 +0000
+	Mon, 27 Apr 2026 14:48:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6AF89440F3;
-	Mon, 27 Apr 2026 14:47:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7A6BC2BCB4;
-	Mon, 27 Apr 2026 14:47:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AEC3844039;
+	Mon, 27 Apr 2026 14:48:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 272B0C2BCB4;
+	Mon, 27 Apr 2026 14:48:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777301252;
-	bh=Z483jaq0PLbsnfulejve6EMRSqLX8gYSbFxJJPyN+J8=;
+	s=k20201202; t=1777301302;
+	bh=tMRSOmuH9vl80v/pnySdoiiUTbV8qcDVnbT7P00zM+4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=eGE/TAFGP3EM1iSaHiXOvAVrROZj0Wr7WKrXXtoP4nNEi9T+nHTZBN7vnwD0wp8Zi
-	 qdvWsLRkfev7pSaALiZ2bbElfC1CBn8eTFeu0w9RZBhxMwRIaz40BKA4+e4zyHc/nG
-	 FFkLaeSVx32p1R0Uz92O3pHxsgKmLbRPf2K3aaEm9RwPMtdmCWQ4sgg9VtHV/mn97Y
-	 Ly3OVFNae0eHxq/hsIEGHkMFBltJSRsQgRq7TaACqDFD7QQ3sYY3ynNmagm4PaBjGS
-	 MJNqkJdv4+3Jd3kVkANI54Txbe+2HW1vTPRy0fHjUi2B38V2rgjRJ1dl0mbS5/ntzZ
-	 r+U8fuliu6TnA==
+	b=Z58uoDT9qExhfkc75LaU9JcuPyoobh3lGDW8LTpHV0cWdyV20gdxVdjyZvXrMdeI4
+	 F1qFTW7lpqo9vmouBEE71nlKDQUXv57iwNaK9II7bQARMzgwBdX6HInVg+gpmSb2iM
+	 97QtSOjM9biTVuTyK+ZWpJVY2W7gS+Q+gq8MmhmI778+Gd8SK7Vhy04SiwiS60UELV
+	 ZH8ElmZK4hAKs+VgftY4nB2lrIErFa3F3hChjBizVbv437XFFMhGkPedSVXJkOgBNN
+	 LiUuSTUX0rfk3SOVun8oUtLlo2Gcwny9r06vtZbO9eyZVPBoEs5VVu/UMA7MqXxE1J
+	 HhkSTugMl7UAQ==
 From: Arnd Bergmann <arnd@kernel.org>
 To: Daniel Mack <daniel@zonque.org>,
 	Haojian Zhuang <haojian.zhuang@gmail.com>,
 	Robert Jarzmik <robert.jarzmik@free.fr>,
 	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>
+	Takashi Iwai <tiwai@suse.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>
 Cc: Arnd Bergmann <arnd@arndb.de>,
-	Thierry Reding <treding@nvidia.com>,
-	Mark Brown <broonie@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
 	Andy Shevchenko <andriy.shevchenko@intel.com>,
-	linux-arm-kernel@lists.infradead.org,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Kees Cook <kees@kernel.org>,
 	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
 	linux-sound@vger.kernel.org
-Subject: [PATCH 2/3] ASoC: pxa2xx: push gpio usage into arch code
-Date: Mon, 27 Apr 2026 16:46:30 +0200
-Message-Id: <20260427144658.3609647-2-arnd@kernel.org>
+Subject: [PATCH 3/3] ASoC: pxa: integrate sound/arm/pxa2xx into sound/soc/pxa2xx
+Date: Mon, 27 Apr 2026 16:46:31 +0200
+Message-Id: <20260427144658.3609647-3-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260427144658.3609647-1-arnd@kernel.org>
 References: <20260427144658.3609647-1-arnd@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_154734_306517_BF501A40 
-X-CRM114-Status: GOOD (  20.47  )
+X-CRM114-CacheID: sfid-20260427_074823_417157_CA3AC6B7 
+X-CRM114-Status: GOOD (  22.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,114 +87,469 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-There are no remaining static platform_device users of pxa2xx ac97,
-so the rest of that code path can go away as well.
-
-Since nothing in the driver uses the gpio number now, constrain the use
-of the legacy gpio interface to the architecture specific code.
+The pxa2xx sound library modules are only used by the ASoC driver since
+commit b094de7810f3 ("ASoC: codec: Remove pxa2xx-ac97.c"), so move the
+code into the one module that uses as a simpliciation.
 
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- arch/arm/mach-pxa/pxa27x.c             |  9 ++++++++-
- include/linux/platform_data/asoc-pxa.h |  2 +-
- sound/arm/pxa2xx-ac97-lib.c            | 25 ++++++-------------------
- 3 files changed, 15 insertions(+), 21 deletions(-)
+ include/sound/pxa2xx-lib.h                | 50 +----------------------
+ sound/arm/Kconfig                         |  7 ----
+ sound/arm/Makefile                        |  4 --
+ sound/soc/pxa/Kconfig                     |  6 +++
+ sound/soc/pxa/Makefile                    |  4 +-
+ sound/soc/pxa/mmp-sspa.c                  |  2 +-
+ sound/soc/pxa/pxa-ssp.c                   |  2 +-
+ sound/{arm => soc/pxa}/pxa2xx-ac97-lib.c  | 10 +----
+ sound/{arm => soc/pxa}/pxa2xx-ac97-regs.h |  0
+ sound/soc/pxa/pxa2xx-ac97.c               |  3 +-
+ sound/soc/pxa/pxa2xx-i2s.c                |  2 +-
+ sound/soc/pxa/pxa2xx-lib.h                | 47 +++++++++++++++++++++
+ sound/{arm => soc/pxa}/pxa2xx-pcm-lib.c   | 26 +++++-------
+ sound/soc/pxa/pxa2xx-pcm.c                |  3 +-
+ 14 files changed, 75 insertions(+), 91 deletions(-)
+ rename sound/{arm => soc/pxa}/pxa2xx-ac97-lib.c (96%)
+ rename sound/{arm => soc/pxa}/pxa2xx-ac97-regs.h (100%)
+ create mode 100644 sound/soc/pxa/pxa2xx-lib.h
+ rename sound/{arm => soc/pxa}/pxa2xx-pcm-lib.c (86%)
 
-diff --git a/arch/arm/mach-pxa/pxa27x.c b/arch/arm/mach-pxa/pxa27x.c
-index ff6361979038..c588eeea1485 100644
---- a/arch/arm/mach-pxa/pxa27x.c
-+++ b/arch/arm/mach-pxa/pxa27x.c
-@@ -58,8 +58,15 @@ static unsigned long ac97_reset_config[] = {
- 	GPIO95_AC97_nRESET,
+diff --git a/include/sound/pxa2xx-lib.h b/include/sound/pxa2xx-lib.h
+index 0a6f8dabf8c4..2d86f62f9408 100644
+--- a/include/sound/pxa2xx-lib.h
++++ b/include/sound/pxa2xx-lib.h
+@@ -2,55 +2,7 @@
+ #ifndef PXA2XX_LIB_H
+ #define PXA2XX_LIB_H
+ 
+-#include <uapi/sound/asound.h>
+-#include <linux/platform_device.h>
+-
+-/* PCM */
+-struct snd_pcm_substream;
+-struct snd_pcm_hw_params;
+-struct snd_soc_pcm_runtime;
+-struct snd_pcm;
+-struct snd_soc_component;
+-
+-extern int pxa2xx_pcm_hw_params(struct snd_pcm_substream *substream,
+-				struct snd_pcm_hw_params *params);
+-extern int pxa2xx_pcm_trigger(struct snd_pcm_substream *substream, int cmd);
+-extern snd_pcm_uframes_t pxa2xx_pcm_pointer(struct snd_pcm_substream *substream);
+-extern int pxa2xx_pcm_prepare(struct snd_pcm_substream *substream);
+-extern int pxa2xx_pcm_open(struct snd_pcm_substream *substream);
+-extern int pxa2xx_pcm_close(struct snd_pcm_substream *substream);
+-extern int pxa2xx_pcm_preallocate_dma_buffer(struct snd_pcm *pcm);
+-extern int pxa2xx_soc_pcm_new(struct snd_soc_component *component,
+-			      struct snd_soc_pcm_runtime *rtd);
+-extern int pxa2xx_soc_pcm_open(struct snd_soc_component *component,
+-			       struct snd_pcm_substream *substream);
+-extern int pxa2xx_soc_pcm_close(struct snd_soc_component *component,
+-				struct snd_pcm_substream *substream);
+-extern int pxa2xx_soc_pcm_hw_params(struct snd_soc_component *component,
+-				    struct snd_pcm_substream *substream,
+-				    struct snd_pcm_hw_params *params);
+-extern int pxa2xx_soc_pcm_prepare(struct snd_soc_component *component,
+-				  struct snd_pcm_substream *substream);
+-extern int pxa2xx_soc_pcm_trigger(struct snd_soc_component *component,
+-				  struct snd_pcm_substream *substream, int cmd);
+-extern snd_pcm_uframes_t
+-pxa2xx_soc_pcm_pointer(struct snd_soc_component *component,
+-		       struct snd_pcm_substream *substream);
+-
+-/* AC97 */
+-
+-extern int pxa2xx_ac97_read(int slot, unsigned short reg);
+-extern int pxa2xx_ac97_write(int slot, unsigned short reg, unsigned short val);
+-
+-extern bool pxa2xx_ac97_try_warm_reset(void);
+-extern bool pxa2xx_ac97_try_cold_reset(void);
+-extern void pxa2xx_ac97_finish_reset(void);
+-
+-extern int pxa2xx_ac97_hw_suspend(void);
+-extern int pxa2xx_ac97_hw_resume(void);
+-
+-extern int pxa2xx_ac97_hw_probe(struct platform_device *dev);
+-extern void pxa2xx_ac97_hw_remove(struct platform_device *dev);
++#include <linux/types.h>
+ 
+ /* modem registers, used by touchscreen driver */
+ u32 pxa2xx_ac97_read_modr(void);
+diff --git a/sound/arm/Kconfig b/sound/arm/Kconfig
+index e4d7288d1e1e..09054ce8074f 100644
+--- a/sound/arm/Kconfig
++++ b/sound/arm/Kconfig
+@@ -19,10 +19,3 @@ config SND_ARMAACI
+ 	select SND_AC97_CODEC
+ 
+ endif	# SND_ARM
+-
+-config SND_PXA2XX_LIB
+-	tristate
+-	select SND_DMAENGINE_PCM
+-
+-config SND_PXA2XX_LIB_AC97
+-	bool
+diff --git a/sound/arm/Makefile b/sound/arm/Makefile
+index 99325a66cf77..6b91eb796b9b 100644
+--- a/sound/arm/Makefile
++++ b/sound/arm/Makefile
+@@ -5,7 +5,3 @@
+ 
+ obj-$(CONFIG_SND_ARMAACI)	+= snd-aaci.o
+ snd-aaci-y			:= aaci.o
+-
+-obj-$(CONFIG_SND_PXA2XX_LIB)	+= snd-pxa2xx-lib.o
+-snd-pxa2xx-lib-y		:= pxa2xx-pcm-lib.o
+-snd-pxa2xx-lib-$(CONFIG_SND_PXA2XX_LIB_AC97)	+= pxa2xx-ac97-lib.o
+diff --git a/sound/soc/pxa/Kconfig b/sound/soc/pxa/Kconfig
+index 4bd14ae330d5..2788514be6b1 100644
+--- a/sound/soc/pxa/Kconfig
++++ b/sound/soc/pxa/Kconfig
+@@ -54,4 +54,10 @@ config SND_PXA910_SOC
+ 	  Say Y if you want to add support for SoC audio on the
+ 	  Marvell PXA910 reference platform.
+ 
++config SND_PXA2XX_LIB
++	tristate
++	select SND_DMAENGINE_PCM
++
++config SND_PXA2XX_LIB_AC97
++	bool
+ endmenu
+diff --git a/sound/soc/pxa/Makefile b/sound/soc/pxa/Makefile
+index 93b4e57eaa5c..bf504a85657c 100644
+--- a/sound/soc/pxa/Makefile
++++ b/sound/soc/pxa/Makefile
+@@ -1,8 +1,9 @@
+ # SPDX-License-Identifier: GPL-2.0
+ # PXA Platform Support
+ snd-soc-pxa2xx-y := pxa2xx-pcm.o
+-snd-soc-pxa2xx-ac97-y := pxa2xx-ac97.o
++snd-soc-pxa2xx-ac97-y := pxa2xx-ac97.o pxa2xx-ac97-lib.o
+ snd-soc-pxa2xx-i2s-y := pxa2xx-i2s.o
++snd-soc-pxa2xx-lib-y := pxa2xx-pcm-lib.o
+ snd-soc-pxa-ssp-y := pxa-ssp.o
+ snd-soc-mmp-sspa-y := mmp-sspa.o
+ 
+@@ -11,6 +12,7 @@ obj-$(CONFIG_SND_PXA2XX_SOC_AC97) += snd-soc-pxa2xx-ac97.o
+ obj-$(CONFIG_SND_PXA2XX_SOC_I2S) += snd-soc-pxa2xx-i2s.o
+ obj-$(CONFIG_SND_PXA_SOC_SSP) += snd-soc-pxa-ssp.o
+ obj-$(CONFIG_SND_MMP_SOC_SSPA) += snd-soc-mmp-sspa.o
++obj-$(CONFIG_SND_PXA2XX_LIB)   += snd-soc-pxa2xx-lib.o
+ 
+ # PXA Machine Support
+ snd-soc-spitz-y := spitz.o
+diff --git a/sound/soc/pxa/mmp-sspa.c b/sound/soc/pxa/mmp-sspa.c
+index 73f36c9dd35c..fbbce81680cf 100644
+--- a/sound/soc/pxa/mmp-sspa.c
++++ b/sound/soc/pxa/mmp-sspa.c
+@@ -20,8 +20,8 @@
+ #include <sound/initval.h>
+ #include <sound/pcm_params.h>
+ #include <sound/soc.h>
+-#include <sound/pxa2xx-lib.h>
+ #include <sound/dmaengine_pcm.h>
++#include "pxa2xx-lib.h"
+ #include "mmp-sspa.h"
+ 
+ /*
+diff --git a/sound/soc/pxa/pxa-ssp.c b/sound/soc/pxa/pxa-ssp.c
+index 37bd8dbd541f..f8054c1c59fa 100644
+--- a/sound/soc/pxa/pxa-ssp.c
++++ b/sound/soc/pxa/pxa-ssp.c
+@@ -27,9 +27,9 @@
+ #include <sound/initval.h>
+ #include <sound/pcm_params.h>
+ #include <sound/soc.h>
+-#include <sound/pxa2xx-lib.h>
+ #include <sound/dmaengine_pcm.h>
+ 
++#include "pxa2xx-lib.h"
+ #include "pxa-ssp.h"
+ 
+ /*
+diff --git a/sound/arm/pxa2xx-ac97-lib.c b/sound/soc/pxa/pxa2xx-ac97-lib.c
+similarity index 96%
+rename from sound/arm/pxa2xx-ac97-lib.c
+rename to sound/soc/pxa/pxa2xx-ac97-lib.c
+index 4913c8818ddf..45dcb276cb0e 100644
+--- a/sound/arm/pxa2xx-ac97-lib.c
++++ b/sound/soc/pxa/pxa2xx-ac97-lib.c
+@@ -23,6 +23,7 @@
+ #include <linux/platform_data/asoc-pxa.h>
+ 
+ #include "pxa2xx-ac97-regs.h"
++#include "pxa2xx-lib.h"
+ 
+ static DEFINE_MUTEX(car_mutex);
+ static DECLARE_WAIT_QUEUE_HEAD(gsr_wq);
+@@ -82,7 +83,6 @@ int pxa2xx_ac97_read(int slot, unsigned short reg)
+ 	wait_event_timeout(gsr_wq, (readl(ac97_reg_base + GSR) | gsr_bits) & GSR_SDONE, 1);
+ 	return val;
+ }
+-EXPORT_SYMBOL_GPL(pxa2xx_ac97_read);
+ 
+ int pxa2xx_ac97_write(int slot, unsigned short reg, unsigned short val)
+ {
+@@ -112,7 +112,6 @@ int pxa2xx_ac97_write(int slot, unsigned short reg, unsigned short val)
+ 
+ 	return ret;
+ }
+-EXPORT_SYMBOL_GPL(pxa2xx_ac97_write);
+ 
+ #ifdef CONFIG_PXA25x
+ static inline void pxa_ac97_warm_pxa25x(void)
+@@ -225,7 +224,6 @@ bool pxa2xx_ac97_try_warm_reset(void)
+ 
+ 	return true;
+ }
+-EXPORT_SYMBOL_GPL(pxa2xx_ac97_try_warm_reset);
+ 
+ bool pxa2xx_ac97_try_cold_reset(void)
+ {
+@@ -262,7 +260,6 @@ bool pxa2xx_ac97_try_cold_reset(void)
+ 
+ 	return true;
+ }
+-EXPORT_SYMBOL_GPL(pxa2xx_ac97_try_cold_reset);
+ 
+ 
+ void pxa2xx_ac97_finish_reset(void)
+@@ -272,7 +269,6 @@ void pxa2xx_ac97_finish_reset(void)
+ 	gcr |= GCR_SDONE_IE|GCR_CDONE_IE;
+ 	writel(gcr, ac97_reg_base + GCR);
+ }
+-EXPORT_SYMBOL_GPL(pxa2xx_ac97_finish_reset);
+ 
+ static irqreturn_t pxa2xx_ac97_irq(int irq, void *dev_id)
+ {
+@@ -306,14 +302,12 @@ int pxa2xx_ac97_hw_suspend(void)
+ 	clk_disable_unprepare(ac97_clk);
+ 	return 0;
+ }
+-EXPORT_SYMBOL_GPL(pxa2xx_ac97_hw_suspend);
+ 
+ int pxa2xx_ac97_hw_resume(void)
+ {
+ 	clk_prepare_enable(ac97_clk);
+ 	return 0;
+ }
+-EXPORT_SYMBOL_GPL(pxa2xx_ac97_hw_resume);
+ #endif
+ 
+ int pxa2xx_ac97_hw_probe(struct platform_device *dev)
+@@ -386,7 +380,6 @@ int pxa2xx_ac97_hw_probe(struct platform_device *dev)
+ err_conf:
+ 	return ret;
+ }
+-EXPORT_SYMBOL_GPL(pxa2xx_ac97_hw_probe);
+ 
+ void pxa2xx_ac97_hw_remove(struct platform_device *dev)
+ {
+@@ -400,7 +393,6 @@ void pxa2xx_ac97_hw_remove(struct platform_device *dev)
+ 	clk_put(ac97_clk);
+ 	ac97_clk = NULL;
+ }
+-EXPORT_SYMBOL_GPL(pxa2xx_ac97_hw_remove);
+ 
+ u32 pxa2xx_ac97_read_modr(void)
+ {
+diff --git a/sound/arm/pxa2xx-ac97-regs.h b/sound/soc/pxa/pxa2xx-ac97-regs.h
+similarity index 100%
+rename from sound/arm/pxa2xx-ac97-regs.h
+rename to sound/soc/pxa/pxa2xx-ac97-regs.h
+diff --git a/sound/soc/pxa/pxa2xx-ac97.c b/sound/soc/pxa/pxa2xx-ac97.c
+index b0b1293bc849..7b9036947dfc 100644
+--- a/sound/soc/pxa/pxa2xx-ac97.c
++++ b/sound/soc/pxa/pxa2xx-ac97.c
+@@ -18,11 +18,12 @@
+ #include <sound/core.h>
+ #include <sound/ac97_codec.h>
+ #include <sound/soc.h>
+-#include <sound/pxa2xx-lib.h>
+ #include <sound/dmaengine_pcm.h>
+ 
+ #include <linux/platform_data/asoc-pxa.h>
+ 
++#include "pxa2xx-lib.h"
++
+ #define PCDR	0x0040  /* PCM FIFO Data Register */
+ #define MODR	0x0140  /* Modem FIFO Data Register */
+ #define MCDR	0x0060  /* Mic-in FIFO Data Register */
+diff --git a/sound/soc/pxa/pxa2xx-i2s.c b/sound/soc/pxa/pxa2xx-i2s.c
+index f6ada6cffc88..fe1df78926f5 100644
+--- a/sound/soc/pxa/pxa2xx-i2s.c
++++ b/sound/soc/pxa/pxa2xx-i2s.c
+@@ -18,11 +18,11 @@
+ #include <sound/pcm.h>
+ #include <sound/initval.h>
+ #include <sound/soc.h>
+-#include <sound/pxa2xx-lib.h>
+ #include <sound/dmaengine_pcm.h>
+ 
+ #include <linux/platform_data/asoc-pxa.h>
+ 
++#include "pxa2xx-lib.h"
+ #include "pxa2xx-i2s.h"
+ 
+ /*
+diff --git a/sound/soc/pxa/pxa2xx-lib.h b/sound/soc/pxa/pxa2xx-lib.h
+new file mode 100644
+index 000000000000..66ec95812093
+--- /dev/null
++++ b/sound/soc/pxa/pxa2xx-lib.h
+@@ -0,0 +1,47 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef __PXA2XX_LIB_H
++#define __PXA2XX_LIB_H
++
++#include <uapi/sound/asound.h>
++#include <linux/platform_device.h>
++
++/* PCM */
++struct snd_pcm_substream;
++struct snd_pcm_hw_params;
++struct snd_soc_pcm_runtime;
++struct snd_pcm;
++struct snd_soc_component;
++
++extern int pxa2xx_soc_pcm_new(struct snd_soc_component *component,
++			      struct snd_soc_pcm_runtime *rtd);
++extern int pxa2xx_soc_pcm_open(struct snd_soc_component *component,
++			       struct snd_pcm_substream *substream);
++extern int pxa2xx_soc_pcm_close(struct snd_soc_component *component,
++				struct snd_pcm_substream *substream);
++extern int pxa2xx_soc_pcm_hw_params(struct snd_soc_component *component,
++				    struct snd_pcm_substream *substream,
++				    struct snd_pcm_hw_params *params);
++extern int pxa2xx_soc_pcm_prepare(struct snd_soc_component *component,
++				  struct snd_pcm_substream *substream);
++extern int pxa2xx_soc_pcm_trigger(struct snd_soc_component *component,
++				  struct snd_pcm_substream *substream, int cmd);
++extern snd_pcm_uframes_t
++pxa2xx_soc_pcm_pointer(struct snd_soc_component *component,
++		       struct snd_pcm_substream *substream);
++
++/* AC97 */
++
++extern int pxa2xx_ac97_read(int slot, unsigned short reg);
++extern int pxa2xx_ac97_write(int slot, unsigned short reg, unsigned short val);
++
++extern bool pxa2xx_ac97_try_warm_reset(void);
++extern bool pxa2xx_ac97_try_cold_reset(void);
++extern void pxa2xx_ac97_finish_reset(void);
++
++extern int pxa2xx_ac97_hw_suspend(void);
++extern int pxa2xx_ac97_hw_resume(void);
++
++extern int pxa2xx_ac97_hw_probe(struct platform_device *dev);
++extern void pxa2xx_ac97_hw_remove(struct platform_device *dev);
++
++#endif
+diff --git a/sound/arm/pxa2xx-pcm-lib.c b/sound/soc/pxa/pxa2xx-pcm-lib.c
+similarity index 86%
+rename from sound/arm/pxa2xx-pcm-lib.c
+rename to sound/soc/pxa/pxa2xx-pcm-lib.c
+index 571e9d909cdf..88a9d3226302 100644
+--- a/sound/arm/pxa2xx-pcm-lib.c
++++ b/sound/soc/pxa/pxa2xx-pcm-lib.c
+@@ -9,9 +9,10 @@
+ #include <sound/core.h>
+ #include <sound/pcm.h>
+ #include <sound/pcm_params.h>
+-#include <sound/pxa2xx-lib.h>
+ #include <sound/dmaengine_pcm.h>
+ 
++#include "pxa2xx-lib.h"
++
+ static const struct snd_pcm_hardware pxa2xx_pcm_hardware = {
+ 	.info			= SNDRV_PCM_INFO_MMAP |
+ 				  SNDRV_PCM_INFO_MMAP_VALID |
+@@ -29,8 +30,8 @@ static const struct snd_pcm_hardware pxa2xx_pcm_hardware = {
+ 	.fifo_size		= 32,
  };
  
--void pxa27x_configure_ac97reset(int reset_gpio, bool to_gpio)
-+void pxa27x_configure_ac97reset(struct gpio_desc *gpiod, bool to_gpio)
+-int pxa2xx_pcm_hw_params(struct snd_pcm_substream *substream,
+-			 struct snd_pcm_hw_params *params)
++static int pxa2xx_pcm_hw_params(struct snd_pcm_substream *substream,
++			        struct snd_pcm_hw_params *params)
  {
-+	int reset_gpio;
-+
-+	if (!gpiod)
-+		return;
-+
-+	reset_gpio = desc_to_gpio(gpiod);
-+
- 	/*
- 	 * This helper function is used to work around a bug in the pxa27x's
- 	 * ac97 controller during a warm reset.  The configuration of the
-diff --git a/include/linux/platform_data/asoc-pxa.h b/include/linux/platform_data/asoc-pxa.h
-index 7df78867db49..0d5eaf4b100c 100644
---- a/include/linux/platform_data/asoc-pxa.h
-+++ b/include/linux/platform_data/asoc-pxa.h
-@@ -6,6 +6,6 @@
- #include <sound/pcm.h>
- #include <sound/ac97_codec.h>
+ 	struct dma_chan *chan = snd_dmaengine_pcm_get_chan(substream);
+ 	struct snd_soc_pcm_runtime *rtd = snd_soc_substream_to_rtd(substream);
+@@ -56,28 +57,24 @@ int pxa2xx_pcm_hw_params(struct snd_pcm_substream *substream,
  
--extern void pxa27x_configure_ac97reset(int reset_gpio, bool to_gpio);
-+extern void pxa27x_configure_ac97reset(struct gpio_desc *reset_gpio, bool to_gpio);
- 
- #endif
-diff --git a/sound/arm/pxa2xx-ac97-lib.c b/sound/arm/pxa2xx-ac97-lib.c
-index 79eb557d4942..4913c8818ddf 100644
---- a/sound/arm/pxa2xx-ac97-lib.c
-+++ b/sound/arm/pxa2xx-ac97-lib.c
-@@ -29,7 +29,6 @@ static DECLARE_WAIT_QUEUE_HEAD(gsr_wq);
- static volatile long gsr_bits;
- static struct clk *ac97_clk;
- static struct clk *ac97conf_clk;
--static int reset_gpio;
- struct gpio_desc *rst_gpio;
- static void __iomem *ac97_reg_base;
- 
-@@ -140,10 +139,10 @@ static inline void pxa_ac97_warm_pxa27x(void)
- 	gsr_bits = 0;
- 
- 	/* warm reset broken on Bulverde, so manually keep AC97 reset high */
--	pxa27x_configure_ac97reset(reset_gpio, true);
-+	pxa27x_configure_ac97reset(rst_gpio, true);
- 	udelay(10);
- 	writel(readl(ac97_reg_base + GCR) | (GCR_WARM_RST), ac97_reg_base + GCR);
--	pxa27x_configure_ac97reset(reset_gpio, false);
-+	pxa27x_configure_ac97reset(rst_gpio, false);
- 	udelay(500);
+ 	return 0;
  }
+-EXPORT_SYMBOL(pxa2xx_pcm_hw_params);
  
-@@ -328,24 +327,12 @@ int pxa2xx_ac97_hw_probe(struct platform_device *dev)
- 		return PTR_ERR(ac97_reg_base);
- 	}
+-int pxa2xx_pcm_trigger(struct snd_pcm_substream *substream, int cmd)
++static int pxa2xx_pcm_trigger(struct snd_pcm_substream *substream, int cmd)
+ {
+ 	return snd_dmaengine_pcm_trigger(substream, cmd);
+ }
+-EXPORT_SYMBOL(pxa2xx_pcm_trigger);
  
--	if (dev->dev.of_node) {
-+	if (cpu_is_pxa27x()) {
- 		/* Assert reset using GPIOD_OUT_HIGH, because reset is GPIO_ACTIVE_LOW */
- 		rst_gpio = devm_gpiod_get(&dev->dev, "reset", GPIOD_OUT_HIGH);
--		if (IS_ERR(rst_gpio)) {
--			ret = PTR_ERR(rst_gpio);
--			if (ret == -ENOENT)
--				reset_gpio = -1;
--			else if (ret)
--				return ret;
--		} else {
--			reset_gpio = desc_to_gpio(rst_gpio);
--		}
--	} else {
--		if (cpu_is_pxa27x())
--			reset_gpio = 113;
--	}
-+		if (IS_ERR(rst_gpio))
-+			rst_gpio = NULL;
+-snd_pcm_uframes_t
++static snd_pcm_uframes_t
+ pxa2xx_pcm_pointer(struct snd_pcm_substream *substream)
+ {
+ 	return snd_dmaengine_pcm_pointer(substream);
+ }
+-EXPORT_SYMBOL(pxa2xx_pcm_pointer);
  
--	if (cpu_is_pxa27x()) {
- 		/*
- 		 * This gpio is needed for a work-around to a bug in the ac97
- 		 * controller during warm reset.  The direction and level is set
-@@ -353,7 +340,7 @@ int pxa2xx_ac97_hw_probe(struct platform_device *dev)
- 		 * AC97_nRESET alt function to generic gpio.
- 		 */
- 		gpiod_set_consumer_name(rst_gpio, "pxa27x ac97 reset");
--		pxa27x_configure_ac97reset(reset_gpio, false);
-+		pxa27x_configure_ac97reset(rst_gpio, false);
+-int pxa2xx_pcm_prepare(struct snd_pcm_substream *substream)
++static int pxa2xx_pcm_prepare(struct snd_pcm_substream *substream)
+ {
+ 	return 0;
+ }
+-EXPORT_SYMBOL(pxa2xx_pcm_prepare);
  
- 		ac97conf_clk = clk_get(&dev->dev, "AC97CONFCLK");
- 		if (IS_ERR(ac97conf_clk)) {
+-int pxa2xx_pcm_open(struct snd_pcm_substream *substream)
++static int pxa2xx_pcm_open(struct snd_pcm_substream *substream)
+ {
+ 	struct snd_soc_pcm_runtime *rtd = snd_soc_substream_to_rtd(substream);
+ 	struct snd_pcm_runtime *runtime = substream->runtime;
+@@ -114,22 +111,19 @@ int pxa2xx_pcm_open(struct snd_pcm_substream *substream)
+ 		substream, dma_request_slave_channel(snd_soc_rtd_to_cpu(rtd, 0)->dev,
+ 						     dma_params->chan_name));
+ }
+-EXPORT_SYMBOL(pxa2xx_pcm_open);
+ 
+-int pxa2xx_pcm_close(struct snd_pcm_substream *substream)
++static int pxa2xx_pcm_close(struct snd_pcm_substream *substream)
+ {
+ 	return snd_dmaengine_pcm_close_release_chan(substream);
+ }
+-EXPORT_SYMBOL(pxa2xx_pcm_close);
+ 
+-int pxa2xx_pcm_preallocate_dma_buffer(struct snd_pcm *pcm)
++static int pxa2xx_pcm_preallocate_dma_buffer(struct snd_pcm *pcm)
+ {
+ 	size_t size = pxa2xx_pcm_hardware.buffer_bytes_max;
+ 
+ 	return snd_pcm_set_fixed_buffer_all(pcm, SNDRV_DMA_TYPE_DEV_WC,
+ 					    pcm->card->dev, size);
+ }
+-EXPORT_SYMBOL(pxa2xx_pcm_preallocate_dma_buffer);
+ 
+ int pxa2xx_soc_pcm_new(struct snd_soc_component *component,
+ 		       struct snd_soc_pcm_runtime *rtd)
+diff --git a/sound/soc/pxa/pxa2xx-pcm.c b/sound/soc/pxa/pxa2xx-pcm.c
+index ff0fbb61dccd..71b7bd948b5e 100644
+--- a/sound/soc/pxa/pxa2xx-pcm.c
++++ b/sound/soc/pxa/pxa2xx-pcm.c
+@@ -14,9 +14,10 @@
+ 
+ #include <sound/core.h>
+ #include <sound/soc.h>
+-#include <sound/pxa2xx-lib.h>
+ #include <sound/dmaengine_pcm.h>
+ 
++#include "pxa2xx-lib.h"
++
+ static const struct snd_soc_component_driver pxa2xx_soc_platform = {
+ 	.pcm_new	= pxa2xx_soc_pcm_new,
+ 	.open		= pxa2xx_soc_pcm_open,
 -- 
 2.39.5
 
