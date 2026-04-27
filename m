@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C5B7FF8850
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 02:10:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB1A0FF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 02:12:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=eNGha38KYXK7mTaNFdD1kyRzSrZGKEbgGIpx5vaJrTA=; b=pUCmgL2Ynu1QKkvQQjfRYTIqpg
-	IddqwYvY+LnDbbpqjEdKbNheEllmmvbjPyx2RiKxfLjw1byaxMrIY1p9Old/wkKXu8+4fbtzREJuR
-	HkF9HfVdWNJK4g0x1bdnlI7ECo9h7hmCYJy0Muz+x6utw7Bjq7hbKjrCXXxiWQYT51+gV8+lCADUY
-	iiC3UQwQD+04la9R6NKep24Qb3EFrUi3MSE4JaSG9rOCFh2egydQZ5ZCepnaPBNy5hxkHmkDrQcDJ
-	Guccqnio8hnebkS6uTRrnc9f+rXsjy5giMLm1CezazRikya60tJzbcOiymxUIqmaNMCQuhnGwVlyw
-	Og6Cn4Og==;
+	bh=mF/9AhbFaWy+vBCE+sic1C2hAqKkKmrRtazAAKk6boM=; b=EmwgtUq22KJ6+Pszg0N/T3m38Z
+	6K6DSY5Ekmvv41Wmx6TGkx+KX5jqUPK9Ut5a8DGyTQSIQxRevj27L0W8jpHj+Ol3xK6FIkqhwORIW
+	VzLaJNO3QW0+oKlYeCrbZxdMvwy8G32YUuwqTz9fMOKK8u1tJ8aSzGJozDIhOKgWxL/Ap9170QpIs
+	lSazcDRHFqEttcL4tS23xR9c/MMLm/Pv3OvQYFtzWelYWhLh/wGWi1R33ns9a9DBZqNb/4HLvUFgi
+	9J4HoS91XUDr7WgCy834v3atxlxZ+zBtTwCn+GYyEyp51E2qF/XQieTZ8OXOzx+TX249xrseaHacd
+	QPySQ5xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHBQq-0000000G2Ns-1vEr;
-	Mon, 27 Apr 2026 02:10:44 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1wHBS4-0000000G2WR-2FwN;
+	Mon, 27 Apr 2026 02:12:00 +0000
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHBQn-0000000G2Mw-05jx
+	id 1wHBS1-0000000G2V9-23Z2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 02:10:42 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-c6dd5b01e14so3275431a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Apr 2026 19:10:40 -0700 (PDT)
+	Mon, 27 Apr 2026 02:11:58 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-c795eacbeb0so4182220a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Apr 2026 19:11:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1777255839; x=1777860639; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1777255916; x=1777860716; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=eNGha38KYXK7mTaNFdD1kyRzSrZGKEbgGIpx5vaJrTA=;
-        b=Fp9/9x9TKS81sfpXuE9RoPIiCGnoKZSFv4Td9affMoZhZ4+73KtNHM9XvDEABw8m3f
-         MFTMBFICBMzfbMylb1DMsoM9U6RhckEvBVpolsuJ7lUVuF2m5e1gzVyXoFVuVIB9VQU8
-         quQ3oUFgowgWuMcsG3sIFRy4yuP0XMf3SwoHA=
+        bh=mF/9AhbFaWy+vBCE+sic1C2hAqKkKmrRtazAAKk6boM=;
+        b=X2ndQ6L9qC9pVy9jOqF0gdA4yxKqqg+HaICzLmhcC8Mh9NvVk5PNImzL5xEetK4TTK
+         QA6/WBa1tDcUjnIG3rn6vyMWIgg8siwwQTXs9gcPizacFaYUuz+l0OuY8YgYifSrE03e
+         30ktRiKmiEbbd5zCQA1wKxvJZ++iD2XZDKWzk=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777255839; x=1777860639;
+        d=1e100.net; s=20251104; t=1777255916; x=1777860716;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=eNGha38KYXK7mTaNFdD1kyRzSrZGKEbgGIpx5vaJrTA=;
-        b=Q2UD8rdfm6lhOuYGVC+sp6X3kyR+m9zT+p0Cmulxwi1wp/ihTzu6kYnAVNudXWTOGT
-         diDzJOzRzUcqnBwyfs44R4fO/kkkh5ovGqZybFCIW4J2UGTGXk7vicSLkn6+gJOyaTrt
-         ztgFf9u47dxul4iKSIsIg/4LmuR3+50yJLHg0ZUcz6MFcS1H8zIi03YhVyQKwyTcvYV+
-         BIBUnIV1fxVu07M9wLhQqpk7YlP7u8DLhuaz6Qax8EnXk4SomWDkDF3eGjPd8D4GQclq
-         YW52SN3Hl0AwC1eixJIRBrPHjwUqO4/FCRsxlmeG6+rEQ4S6toQv2g6JIgyIqluLM48R
-         hjPQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/47kjNx+fMkRkUugPqt4SUsY86d79eEHtoV8BShfayXzEetVZm9fhceQ+uZigFZ8+QJ7hLuRMM23GUZm0ndXMK@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy10dHN5RmLGBwUlCdtwtDA8XFPbWot9v9aDJ+pFbmmf9Yhf0eW
-	4punseEor+B5a90xSC3IBWvk4Ora18NvnJcbhV9zhTDDrun895TYTaqNt2F6fcmOyyX+97hPqqK
-	/Pm8Abw==
-X-Gm-Gg: AeBDies+tRgw9pwCX73SYPPdwzWi5NAASRN58UTt8eBPqMbxxAnf7tJmqkKrCYv1Tav
-	op4G2T7OvWA/Tm7bsLP4LK7luSCC//c2SQal+bw83LjXcKeb1Qwk3kEIjMhwcdGhFe32o5ZLEBs
-	eOsC5Al5EBpZfs5+ZJUD+ed9oeP02uPQvarFDkF81Nw0KhN/MZ4apgsmiBSmwORzeRXPhb6BiPY
-	CeyyFf3C3QK3RnGVBe7NBQTvTDPERGOb+xAuTxiNSv1ovu8RxWPQe4tN6YIPi7VR/ivgKlpFK8c
-	BPz10cV+IehJlFpQZL9jDEIeBqCyt18p5XgRpgqOQq4VyBDa0R7lqT3MPh6wEXDXpWEcSO1i4f9
-	ZUkI7tEeN+TtCH9e7CY6eQGo0lstVI796QOl7vPtvUDW4RPH2QN6uW4MeYIkw0MIicGnK563G6p
-	XIqcZMWvBdZUjGctqTwP3wUz3ufVRhGLEHeL1CuskbNAKpZqBTy/ZPW+CbGIpZB1Zz0IZWWNPYZ
-	6r/eRge83vScJg9z4trHAiur0muWg==
-X-Received: by 2002:a05:6a00:c81:b0:82c:dd31:b84a with SMTP id d2e1a72fcca58-82f8c908083mr40534324b3a.43.1777255839376;
-        Sun, 26 Apr 2026 19:10:39 -0700 (PDT)
+        bh=mF/9AhbFaWy+vBCE+sic1C2hAqKkKmrRtazAAKk6boM=;
+        b=isO15SAzCgsRRDz4nRjYhA/suu8TR44l5/oJQHlUfQkMGaCiRVcxDxCve3BEVd9xwK
+         lK09ua+0Su7+zGSE5C3D3SrJ4EWjhmWBrABo7fohPcNYFH1X3EN9HYREXA5hGr0/MDrW
+         aoYHr+2G3wzcmW/6Cbaoq1tEZc7B8utVEMlveIj59F+K73o1iFBmZB68uZWRmBSfWKPN
+         RPB92V99Ed9MPaa7SyBuEk/b1MJlEs9392qJ76N8wvkFdnHCcQAZl9WeMW+JfCFR5LLL
+         +BM1SMP+pkRm+H3T/Ng+70Z0IaDJnpRn0dufjl13JNdTRL58596DloJD1K0xZAc1ztyu
+         mHQw==
+X-Forwarded-Encrypted: i=1; AFNElJ9Wnnfm5n1nqoWcSEgVTCkBB4Aq9tPxN4bWyn2Ku5IjnQ5zAZ+6ehBurHV4OHLC4HwA1LG8Wc0QisP+Px1FnbXa@lists.infradead.org
+X-Gm-Message-State: AOJu0YyfFpxB0rsR0akWsfLn5YQf2JOHzXjM4PiveXJrIYV4VWRs26Dw
+	aAKRz8rz8kTVPkNMHnzA7NX7L7j8eNc86h57Kj5RM+qBMxEZJxKDfTe3UQIcKiMOaA==
+X-Gm-Gg: AeBDiet+qTstBZcTU95g0Y9c8BlYmma7tH0sLjO3JI4apYf5WbZGHXQIleb90mBU1WO
+	mAQ50i3fcTCAkCedHUBkfFph85I3ACPqiW142kdJsm+Qvqc1zrUds7Wnv1wFSxlaSOO0hFiDmWL
+	RAiicf4fcpP/PSOxMAFMqFxuTLPv2RVvdOJO82VI4qUOmyQcpkhkmuT+vRRLRvHG9zoczQo4BMT
+	pBumfP+xNYwLv7ZPIJfonxfKyRWjTAZgc+kEzUkGYAzaKvk4joSOc4ysH31x2VddlX43Gy7mR4L
+	2gnRxrvDma1HTsyxR/XGOnBNXqvliSTR3IM9u864EN1IOPGbzBdRA0uFGTESlkb2m8bbxFNOnLy
+	H/j4URPzcGDH6EfCVElLa+qKu/yhBgllGA8pszqehe59GjkXe/ChMxLZ+SS/+Zc06SZmZoqWDPw
+	EoBZV5VUHDN/E2sRF7PGf8v58zxDXy7zIczIZW7BvEMJ5a58qISarIWML8KBJ6ltX3ElNBUt5DJ
+	JKriNSabRb2j7VlfQs=
+X-Received: by 2002:a05:6a20:158a:b0:39b:abdc:4215 with SMTP id adf61e73a8af0-3a08d68e0e4mr46011148637.10.1777255916491;
+        Sun, 26 Apr 2026 19:11:56 -0700 (PDT)
 Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:8f3b:cb24:e20a:84bd])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f8ebe41cfsm33097883b3a.43.2026.04.26.19.10.37
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f8e9d2fa9sm31234668b3a.16.2026.04.26.19.11.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 26 Apr 2026 19:10:38 -0700 (PDT)
+        Sun, 26 Apr 2026 19:11:56 -0700 (PDT)
 From: Chen-Yu Tsai <wenst@chromium.org>
 To: Sean Wang <sean.wang@kernel.org>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
@@ -76,16 +75,18 @@ Cc: Chen-Yu Tsai <wenst@chromium.org>,
 	linux-mediatek@lists.infradead.org,
 	linux-gpio@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] pinctrl: mediatek: paris: Directly modify registers to set GPIO direction
-Date: Mon, 27 Apr 2026 10:10:19 +0800
-Message-ID: <20260427021021.2049015-1-wenst@chromium.org>
+	linux-kernel@vger.kernel.org,
+	Hao Chang <ot_chhao.chang@mediatek.com>,
+	Qingliang Li <qingliang.li@mediatek.com>
+Subject: [PATCH] pinctrl: mediatek: eint: Drop base from mtk_eint_chip_write_mask()
+Date: Mon, 27 Apr 2026 10:11:46 +0800
+Message-ID: <20260427021148.2049555-1-wenst@chromium.org>
 X-Mailer: git-send-email 2.54.0.rc2.544.gc7ae2d5bb8-goog
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_191041_104901_FEBE5B85 
-X-CRM114-Status: GOOD (  14.00  )
+X-CRM114-CacheID: sfid-20260426_191157_527748_44CBC5DC 
+X-CRM114-Status: GOOD (  13.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,57 +101,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pinctrl_gpio_direction_input() / pinctrl_gpio_direction_output() take
-the pinctrl mutex. This causes a gpiochip operations to need to sleep.
-Worse yet, the .can_sleep field in the gpiochip is not set. This causes
-the shared GPIO proxy to trip over, as it uses gpiod_cansleep() to check
-whether it can use a spinlock or needs a mutex. In this case, it ends
-up taking a spinlock, then calls pinctrl_gpio_direction_output(), which
-takes a mutex. This causes a huge warning.
+When support for multiple EINT base addresses was added in commit
+3ef9f710efcb ("pinctrl: mediatek: Add EINT support for multiple
+addresses"), mtk_eint_chip_write_mask() was changed to write interrupt
+masks for all base addresses in one call. However the "base" parameter
+was left around and now causes sparse warnings:
 
-While this class of Mediatek hardware does not have separate clear/set
-registers, the pinctrl context has a spinlock that is taken whenever
-a register read-modify-write is done.
+    mtk-eint.c:428:44: warning: incorrect type in argument 2 (different address spaces)
+    mtk-eint.c:428:44:    expected void [noderef] __iomem *base
+    mtk-eint.c:428:44:    got void [noderef] __iomem **base
+    mtk-eint.c:436:44: warning: incorrect type in argument 2 (different address spaces)
+    mtk-eint.c:436:44:    expected void [noderef] __iomem *base
+    mtk-eint.c:436:44:    got void [noderef] __iomem **base
 
-Switch to directly setting the GPIO direction register bits to avoid
-the mutex.
+Since the "base" parameter is no longer needed, just drop it.
 
+Fixes: 3ef9f710efcb ("pinctrl: mediatek: Add EINT support for multiple addresses")
+Cc: Hao Chang <ot_chhao.chang@mediatek.com>
+Cc: Qingliang Li <qingliang.li@mediatek.com>
 Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 ---
- drivers/pinctrl/mediatek/pinctrl-paris.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+Only compile tested.
+---
+ drivers/pinctrl/mediatek/mtk-eint.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/pinctrl/mediatek/pinctrl-paris.c b/drivers/pinctrl/mediatek/pinctrl-paris.c
-index 6bf37d8085fa..e4c0bc27d984 100644
---- a/drivers/pinctrl/mediatek/pinctrl-paris.c
-+++ b/drivers/pinctrl/mediatek/pinctrl-paris.c
-@@ -886,19 +886,24 @@ static int mtk_gpio_set(struct gpio_chip *chip, unsigned int gpio, int value)
- 
- static int mtk_gpio_direction_input(struct gpio_chip *chip, unsigned int gpio)
- {
--	return pinctrl_gpio_direction_input(chip, gpio);
-+	struct mtk_pinctrl *hw = gpiochip_get_data(chip);
-+	const struct mtk_pin_desc *desc = &hw->soc->pins[gpio];
-+
-+	return mtk_hw_set_value(hw, desc, PINCTRL_PIN_REG_DIR, 0);
+diff --git a/drivers/pinctrl/mediatek/mtk-eint.c b/drivers/pinctrl/mediatek/mtk-eint.c
+index 2a3c04eedc5f..47ac92ea98c2 100644
+--- a/drivers/pinctrl/mediatek/mtk-eint.c
++++ b/drivers/pinctrl/mediatek/mtk-eint.c
+@@ -246,7 +246,7 @@ static int mtk_eint_irq_set_wake(struct irq_data *d, unsigned int on)
  }
  
- static int mtk_gpio_direction_output(struct gpio_chip *chip, unsigned int gpio,
- 				     int value)
+ static void mtk_eint_chip_write_mask(const struct mtk_eint *eint,
+-				     void __iomem *base, unsigned int **buf)
++				     unsigned int **buf)
  {
-+	struct mtk_pinctrl *hw = gpiochip_get_data(chip);
-+	const struct mtk_pin_desc *desc = &hw->soc->pins[gpio];
- 	int ret;
+ 	int inst, port, port_num;
+ 	void __iomem *reg;
+@@ -425,7 +425,7 @@ static void mtk_eint_irq_handler(struct irq_desc *desc)
  
- 	ret = mtk_gpio_set(chip, gpio, value);
- 	if (ret)
- 		return ret;
+ int mtk_eint_do_suspend(struct mtk_eint *eint)
+ {
+-	mtk_eint_chip_write_mask(eint, eint->base, eint->wake_mask);
++	mtk_eint_chip_write_mask(eint, eint->wake_mask);
  
--	return pinctrl_gpio_direction_output(chip, gpio);
-+	return mtk_hw_set_value(hw, desc, PINCTRL_PIN_REG_DIR, 1);
+ 	return 0;
  }
+@@ -433,7 +433,7 @@ EXPORT_SYMBOL_GPL(mtk_eint_do_suspend);
  
- static int mtk_gpio_to_irq(struct gpio_chip *chip, unsigned int offset)
+ int mtk_eint_do_resume(struct mtk_eint *eint)
+ {
+-	mtk_eint_chip_write_mask(eint, eint->base, eint->cur_mask);
++	mtk_eint_chip_write_mask(eint, eint->cur_mask);
+ 
+ 	return 0;
+ }
 -- 
 2.54.0.rc2.544.gc7ae2d5bb8-goog
 
