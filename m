@@ -4,73 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 372A4FF885E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 12:39:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C84BFF885E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 12:41:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w38CNbfpTIhzkEDDUqc0w67jztq2m2LTaiL2MV7vWfo=; b=OewErjOIsG7WKOyyKFfDcOeVHn
-	4F3da3PBiCCcAUaxWcP/zXEdYnhrDEUYrPrYVHjB+4RGn/SglN8fD4InvNjEWkhTOCzx9o7szOCWU
-	5R4miOvuHU5DSmqJm0+oiZbF7uxmw8sxh0AbONkU76+DaT9Q6NKuvcwrsQ8zefwj8i57DiaboIfYX
-	EV9N95X88D67frvNDDrSJSHwruLfeqCA2kyWYprVhGRGZ1mkWizjXz8Zsz/wj//VOizqF8vxVowMy
-	ZhpBfFWFqCB0c3TQxN/GwGRRWIxd+VCRKUNoFPWkzLGeXEd/DOZbJaDR9E8neKXvD8jP3WLIXSlu3
-	+Th0/j9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1hHanKhgSNPNyW7BtonFlH3iX6W/a+wogWqZOKIosO4=; b=J18Cfq45Xrd6gJHq7n/uEzc/Bl
+	OTJt28Zc4VJcC29RZUYmJ8OqLkm21wtcXDYLkWIPImp3+j780cJLEIl7juMcH0tvjtZXeC8biU2P2
+	6kylfw3IdgmA7VGtqnXZTL0yeyI0euCct8qrnQQ0R+Q70u47Hkn+tjhZd/M+9YJ7PDhK3PxdhBEhf
+	N/j43c0o4ym1hmrie6q8wd2EtG6gqMtzav5satZeMrowsdtCCI79M4eXFC/Rm40gLV7xWm3mnV6WW
+	KRF5RF3RxU9OHgjqgeSWp9/npT6jKJKb36TCEGmhclTnkf76oLX0QoY8mEOL0u7ErNtWZD3cGtEnQ
+	IUacEpHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHLFi-0000000GvU9-0hN2;
-	Mon, 27 Apr 2026 12:39:54 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wHLHO-0000000GveV-0aGy;
+	Mon, 27 Apr 2026 12:41:38 +0000
+Received: from out-180.mta1.migadu.com ([95.215.58.180])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHLFf-0000000GvTl-1H6s;
-	Mon, 27 Apr 2026 12:39:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 49B20440AD;
-	Mon, 27 Apr 2026 12:39:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA629C19425;
-	Mon, 27 Apr 2026 12:39:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777293590;
-	bh=B6VXB3n93X8gQas+e8Yh7Mmm6pVyLJdNvfAKeHZtWuI=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=SEdolQrkY49wv+MM4qEkvALcwMpbb0oXZH16A8bc8mYX5c+E7xMGPIxt06/5wBMk2
-	 xhswo/oTLqCb2cOsjDqgTHUhr2pvauHIITQNBY2qmsm0308ZmnEPDszb2o8huKxCNN
-	 f5CCUvp9jlbjuhCT3ZdQkmTJiVsCdkmVO2aNL5mkwNfhKi1Ko/aJcmLmwYxlT7Vwsw
-	 RzZGzuzwE7jJciqCr9ar7VMpi8vOBjkMZbTGaN2nSHvJuDs0Mz/bFlUrb8tXzZgUYN
-	 7zGBgT2/OW/aQrUdd9p/kkFHGy+YWBb+dXpyHwj61BXnsvTS1BMAbothMwKyCT5CEM
-	 vYJw0fb2MhYHg==
-Date: Mon, 27 Apr 2026 07:39:48 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1wHLHK-0000000GvdY-3lUD
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Apr 2026 12:41:36 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1777293690;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=1hHanKhgSNPNyW7BtonFlH3iX6W/a+wogWqZOKIosO4=;
+	b=SwVYql808T4i1NosCr+5XCBhbYxszy3j4bdvpSaN7hyrUVPJnDS4kjM7GTFV70EEhnhQ64
+	j5xjEVw9xCl1EK7bCx0xNVB8b93VYELLiIv91pgtpuFtKoWtOChxkAr777c65OBkvcvmoi
+	cDLcCsPZiWVaUi8UxSi7++5yOh2tiEE=
+From: Thorsten Blum <thorsten.blum@linux.dev>
+To: Thorsten Blum <thorsten.blum@linux.dev>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	=?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Linus Walleij <linusw@kernel.org>
+Cc: stable@vger.kernel.org,
+	linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] crypto: atmel-sha204a - drop hwrng quality reduction for ATSHA204A
+Date: Mon, 27 Apr 2026 14:40:32 +0200
+Message-ID: <20260427124030.315590-3-thorsten.blum@linux.dev>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Hailong Fan <Hailong.Fan@mediatek.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, 
- Project_Global_Chrome_Upstream_Group@mediatek.com, 
- Justin Yeh <Justin.Yeh@mediatek.com>, Conor Dooley <conor+dt@kernel.org>, 
- Xiangzhi Tang <Xiangzhi.Tang@mediatek.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- linux-remoteproc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Vince-WL Liu <Vince-WL.Liu@mediatek.com>, 
- Huayu Zong <Huayu.Zong@mediatek.com>, 
- Jarried Lin <Jarried.Lin@mediatek.com>, 
- Bjorn Andersson <andersson@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Xiangzhi Tang <xiangzhi.tang@mediatek.com>
-In-Reply-To: <20260427111446.22955-2-xiangzhi.tang@mediatek.com>
-References: <20260427111446.22955-1-xiangzhi.tang@mediatek.com>
- <20260427111446.22955-2-xiangzhi.tang@mediatek.com>
-Message-Id: <177729358821.1983670.16657208241339249962.robh@kernel.org>
-Subject: Re: [PATCH v4 1/7] dt-bindings: remoteproc: Add MediaTek mt8196
- VCP binding
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3771; i=thorsten.blum@linux.dev; h=from:subject; bh=rPsElOTnBU2IAaqPJKzszB9VzGW4gBafqHa3s/4eJvE=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDJnvI+02/HdQN7hmPueCfHr9w5tdL9aeNPmQs8Yga+78N IGLjaXMHaUsDGJcDLJiiiwPZv2Y4VtaU7nJJGInzBxWJpAhDFycAjCRDGmG/2ETlnxR8p9cppF5 Vl3/07rAaxx/brz2KuF9/7Q/tukskwAjw28np8U5s2a5rLsqqqPIVPV/F8+JU24qlqmrv4WrP3q 1kQEA
+X-Developer-Key: i=thorsten.blum@linux.dev; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_053951_446903_16FEA3D9 
-X-CRM114-Status: GOOD (  14.51  )
+X-CRM114-CacheID: sfid-20260427_054135_118267_951A9F35 
+X-CRM114-Status: GOOD (  13.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,63 +76,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Commit 8006aff15516 ("crypto: atmel-sha204a - Set hwrng quality to
+lowest possible") reduced the hwrng quality to 1 based on a review by
+Bill Cox [1]. However, despite its title, the review only tested the
+ATSHA204, not the ATSHA204A.
 
-On Mon, 27 Apr 2026 19:04:40 +0800, Xiangzhi Tang wrote:
-> Add device tree binding for the MediaTek Video Companion Processor
-> (VCP), a RISC-V based coprocessor used for video processing and
-> multimedia tasks on mt8196 and future MediaTek SoCs.
-> 
-> The VCP is a heterogeneous multi-core processor that can contain
-> multiple RISC-V cores with different hart (hardware thread)
-> configurations. Key features:
-> 
-> - Supports both single-core and multi-core VCP configurations
-> - Each core can have 1 or 2 harts (hardware threads)
-> - Shared SRAM memory space partitioned among cores
-> - Communication via 5 dedicated mailbox channels for IPI messaging
-> - Integrated with SoC IOMMU for multimedia memory management
-> - Boot and power management coordinated with ARM Trusted Firmware
-> 
-> The binding defines both the top-level VCP device (with mailboxes,
-> interrupts, and power domains) and child nodes for individual VCP
-> cores (with SRAM allocation and hart configuration).
-> 
-> Signed-off-by: Xiangzhi Tang <xiangzhi.tang@mediatek.com>
-> ---
->  .../remoteproc/mediatek,mt8196-vcp.yaml       | 166 ++++++++++++++++++
->  1 file changed, 166 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/remoteproc/mediatek,mt8196-vcp.yaml
-> 
+In the same thread, Atmel engineer Landon Cox wrote "this behavior has
+been eliminated entirely"[2] in the ATSHA204A and "this problem does not
+affect the ATECC108 or the ATECC108A (or the ATSHA204A)"[3].
 
-My bot found errors running 'make dt_binding_check' on your patch:
+According to the official ATSHA204A datasheet [4], the device contains a
+high-quality hardware RNG that combines its output with an internal seed
+value stored in EEPROM or SRAM to generate random numbers. The device
+also implements all security functions using SHA-256, and the driver
+uses the chip's Random command in seed-update mode.
 
-yamllint warnings/errors:
+Keep 'quality = 1' for ATSHA204, but drop the explicit hwrng quality
+reduction for ATSHA204A and fall back to the hwrng core default.
 
-dtschema/dtc warnings/errors:
-Documentation/devicetree/bindings/remoteproc/mediatek,mt8196-vcp.example.dts:26:18: fatal error: dt-bindings/power/mt8196-power.h: No such file or directory
-   26 |         #include <dt-bindings/power/mt8196-power.h>
-      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-compilation terminated.
-make[2]: *** [scripts/Makefile.dtbs:140: Documentation/devicetree/bindings/remoteproc/mediatek,mt8196-vcp.example.dtb] Error 1
-make[2]: *** Waiting for unfinished jobs....
-make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1635: dt_binding_check] Error 2
-make: *** [Makefile:248: __sub-make] Error 2
+[1] https://www.metzdowd.com/pipermail/cryptography/2014-December/023858.html
+[2] https://www.metzdowd.com/pipermail/cryptography/2014-December/023852.html
+[3] https://www.metzdowd.com/pipermail/cryptography/2014-December/023886.html
+[4] https://ww1.microchip.com/downloads/en/DeviceDoc/ATSHA204A-Data-Sheet-40002025A.pdf
 
-doc reference errors (make refcheckdocs):
+Fixes: 8006aff15516 ("crypto: atmel-sha204a - Set hwrng quality to lowest possible")
+Cc: stable@vger.kernel.org
+Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+---
+ drivers/crypto/atmel-sha204a.c | 40 ++++++++++++++++++----------------
+ 1 file changed, 21 insertions(+), 19 deletions(-)
 
-See https://patchwork.kernel.org/project/devicetree/patch/20260427111446.22955-2-xiangzhi.tang@mediatek.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+diff --git a/drivers/crypto/atmel-sha204a.c b/drivers/crypto/atmel-sha204a.c
+index dbb39ed0cea1..df69fb190e52 100644
+--- a/drivers/crypto/atmel-sha204a.c
++++ b/drivers/crypto/atmel-sha204a.c
+@@ -19,6 +19,25 @@
+ #include <linux/workqueue.h>
+ #include "atmel-i2c.h"
+ 
++enum atmel_sha204a_variant {
++	ATSHA204 = 1,
++	ATSHA204A,
++};
++
++static const struct of_device_id atmel_sha204a_dt_ids[] __maybe_unused = {
++	{ .compatible = "atmel,atsha204",  .data = (void *)ATSHA204 },
++	{ .compatible = "atmel,atsha204a", .data = (void *)ATSHA204A },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, atmel_sha204a_dt_ids);
++
++static const struct i2c_device_id atmel_sha204a_id[] = {
++	{ .name = "atsha204",  .driver_data = ATSHA204 },
++	{ .name = "atsha204a", .driver_data = ATSHA204A },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(i2c, atmel_sha204a_id);
++
+ static void atmel_sha204a_rng_done(struct atmel_i2c_work_data *work_data,
+ 				   void *areq, int status)
+ {
+@@ -171,11 +190,8 @@ static int atmel_sha204a_probe(struct i2c_client *client)
+ 	i2c_priv->hwrng.name = dev_name(&client->dev);
+ 	i2c_priv->hwrng.read = atmel_sha204a_rng_read;
+ 
+-	/*
+-	 * According to review by Bill Cox [1], this HWRNG has very low entropy.
+-	 * [1] https://www.metzdowd.com/pipermail/cryptography/2014-December/023858.html
+-	 */
+-	i2c_priv->hwrng.quality = 1;
++	if ((uintptr_t)i2c_get_match_data(client) == ATSHA204)
++		i2c_priv->hwrng.quality = 1;
+ 
+ 	ret = devm_hwrng_register(&client->dev, &i2c_priv->hwrng);
+ 	if (ret)
+@@ -202,20 +218,6 @@ static void atmel_sha204a_remove(struct i2c_client *client)
+ 	kfree((void *)i2c_priv->hwrng.priv);
+ }
+ 
+-static const struct of_device_id atmel_sha204a_dt_ids[] __maybe_unused = {
+-	{ .compatible = "atmel,atsha204", },
+-	{ .compatible = "atmel,atsha204a", },
+-	{ /* sentinel */ }
+-};
+-MODULE_DEVICE_TABLE(of, atmel_sha204a_dt_ids);
+-
+-static const struct i2c_device_id atmel_sha204a_id[] = {
+-	{ "atsha204" },
+-	{ "atsha204a" },
+-	{ /* sentinel */ }
+-};
+-MODULE_DEVICE_TABLE(i2c, atmel_sha204a_id);
+-
+ static struct i2c_driver atmel_sha204a_driver = {
+ 	.probe			= atmel_sha204a_probe,
+ 	.remove			= atmel_sha204a_remove,
 
