@@ -4,78 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F64AFF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 15:55:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EE6CFF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 15:58:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N44/hUn/rxHKj0zNAbb1s+J5HUDW8JRG1lbLFljrYmY=; b=RFHsj6yNdDtcdgO4l982cL8y1e
-	qm0N3hUc5lDdWPiBKRZJn2gBWrPKnlUf0CxDYhhzXv7fgju1lAs7bfsIULhbZfd+55z499UavXyxd
-	rV4eWlhfNQhzsVebX6Fk7WOrhUTNZ158TX0QbEhzAI3YywZHFPJaBjgkve+EZpDVLPuHLbbWc4b/K
-	G4ie/+skELX90+7abRPat5aNoNrg1F8RSW0cdgQq6GEGFticktSsb+l4ME5gB/MzVaMiTsuKXD8og
-	SUwfYOHUkRv36UabqwDrFTJTIv9QBHL/Eh4IL6ZzGGHHcoH2wXhMrc7KG/Gp3f3Na4kzTHB/THluE
-	vNI6p9ZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5/9rLg1nLE+ZWgSqQp+5EPf/U4Z5gRcFyKlqDW6O5ro=; b=BAAIdLKwL7DdfbhS6Cru5yhDED
+	kJH2isY1MdJC13k2bE2pZB9kB/BkZoX9qsU2W+3fUWvILdxsNm2+v/0it7S4ozHIkMw1mFXb1KwWR
+	JRJjdg60JASwu8TUz3vz1QxHllwrKLj/5BaO9dCMviwupGqPpG/gT2PISPbm0rA1zC+kPRLvofQ89
+	PxLYoCvapl0o2Nlb8q07pyoSeyNwUU3MT9Vu4voCXCcRGYOBZIsTscv2dIEXcrzYMQW2TpYp26DEQ
+	g0jrgVhVge7AnPQjZHc7Lhv7LaYCXITBEDgmS5utMGejtOcf9p6mRzEzVulWH3skJiENPxeazF0sG
+	Yj5L9uOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHOJA-0000000HFNh-1Gls;
-	Mon, 27 Apr 2026 15:55:40 +0000
-Received: from 013.lax.mailroute.net ([199.89.1.16])
+	id 1wHOLp-0000000HFxM-17zX;
+	Mon, 27 Apr 2026 15:58:25 +0000
+Received: from mgamail.intel.com ([198.175.65.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHOJ7-0000000HFN7-1uet;
-	Mon, 27 Apr 2026 15:55:38 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by 013.lax.mailroute.net (Postfix) with ESMTP id 4g47Sk47zbzlfl8H;
-	Mon, 27 Apr 2026 15:55:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
-	content-transfer-encoding:content-type:content-type:in-reply-to
-	:from:from:content-language:references:subject:subject
-	:user-agent:mime-version:date:date:message-id:received:received;
-	 s=mr01; t=1777305324; x=1779897325; bh=N44/hUn/rxHKj0zNAbb1s+J5
-	HUDW8JRG1lbLFljrYmY=; b=AS9ot/w/9A9vR1R65POxmh5t9/Aj96s4ZI0AEiD+
-	jcCrQU7rczUOWUSNHe9o0Z92MUJtXOvW6XAYI8TRdwA2nH5XXByKhCCgWK/RzEVC
-	F57InLaCupU3IavRMmDPIhWuVCD2sr+P4dBKj7Cc0KEwcbDsEt61J7xAgzIC6I3S
-	5WwoMJb6Xop8pJzgmTFNGmbGWDV6aJb40z6vT8zNuzo1Jgu4aYsMTj69odB1QHu1
-	FwofbHUg3GgRxVWW2XQje7XeKU3hOs/nV0rzlJfMcMiHp0ROh134ZUtd2tA5l44N
-	jJWbTsX6uMFo1exml2S6aFVOf3AzbYJatMHFGeYijHUg0g==
-X-Virus-Scanned: by MailRoute
-Received: from 013.lax.mailroute.net ([127.0.0.1])
- by localhost (013.lax [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
- id RxkvdlmE0D7E; Mon, 27 Apr 2026 15:55:24 +0000 (UTC)
-Received: from [100.119.48.131] (unknown [104.135.180.219])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: bvanassche@acm.org)
-	by 013.lax.mailroute.net (Postfix) with ESMTPSA id 4g47SN4npKzlfl7s;
-	Mon, 27 Apr 2026 15:55:16 +0000 (UTC)
-Message-ID: <4190071d-0eb0-4b3a-b2a7-78ea31d4fe37@acm.org>
-Date: Mon, 27 Apr 2026 08:55:15 -0700
+	id 1wHOLm-0000000HFwp-0rY4
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Apr 2026 15:58:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1777305503; x=1808841503;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=bRO0pft5QsUPW4LQyQOyXHgfHCTW8GGaobJi0FhQc0E=;
+  b=mKRCKCuq/q/Os5ek2+xkOLms7t+Ceu2q6bcs8piNWWIHFHxiPlvHdLSQ
+   kMOAM3avQGXj+wCKfuHWUzTj3qQ5pRhhosTHwbH7QC5Q5lcj1xk87jYEX
+   XgjnXikotpyFazl8MvDPNKXMwVELmtA9SE7C1saBoaw65oDCOgkVDzpFP
+   SBLTIl2HIlCFtDlhZg7Ih8lOYscOZmiQd1xv3JMMUAIe3oQtrUTF2yCxA
+   dLdo90hPY1PpNoXXkfpjUHdjwZtKyP/766qk1r6/8VtijD4K4emQIrRhA
+   8KWgtzSqJdTlZrc/+2O3ZFGCSesnJpNhVLd57HY3qnvV9FGvt7+icvrW3
+   w==;
+X-CSE-ConnectionGUID: eDtc9Jf7Tu2QeTpZb40q3A==
+X-CSE-MsgGUID: CbQdP/aIQQKRIaXL9FqLBg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11769"; a="88510962"
+X-IronPort-AV: E=Sophos;i="6.23,202,1770624000"; 
+   d="scan'208";a="88510962"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Apr 2026 08:58:22 -0700
+X-CSE-ConnectionGUID: vlwi7aK4RPmb16kNrF4n+w==
+X-CSE-MsgGUID: st8OBs88TvuijDWBDwdKPg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,202,1770624000"; 
+   d="scan'208";a="229115369"
+Received: from fpallare-mobl4.ger.corp.intel.com (HELO localhost) ([10.245.244.2])
+  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Apr 2026 08:58:18 -0700
+Date: Mon, 27 Apr 2026 18:58:15 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Arnd Bergmann <arnd@arndb.de>, Thierry Reding <treding@nvidia.com>,
+	Mark Brown <broonie@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-sound@vger.kernel.org
+Subject: Re: [PATCH 2/3] ASoC: pxa2xx: push gpio usage into arch code
+Message-ID: <ae-Hl4LZiZzCh8dy@ashevche-desk.local>
+References: <20260427144658.3609647-1-arnd@kernel.org>
+ <20260427144658.3609647-2-arnd@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/1] scsi: ufs: remove ucd_rsp_dma_addr and
- ucd_prdt_dma_addr from ufshcd_lrb
-To: ed.tsai@mediatek.com, Alim Akhtar <alim.akhtar@samsung.com>,
- Avri Altman <avri.altman@wdc.com>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- "Martin K. Petersen" <martin.petersen@oracle.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, wsd_upstream@mediatek.com,
- peter.wang@mediatek.com, alice.chao@mediatek.com, naomi.chu@mediatek.com,
- chun-hung.wu@mediatek.com, stable@vger.kernel.org, linux-scsi@vger.kernel.org
-References: <20260427035856.1610363-1-ed.tsai@mediatek.com>
-Content-Language: en-US
-From: Bart Van Assche <bvanassche@acm.org>
-In-Reply-To: <20260427035856.1610363-1-ed.tsai@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260427144658.3609647-2-arnd@kernel.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_085537_513933_831C5764 
-X-CRM114-Status: GOOD (  12.73  )
+X-CRM114-CacheID: sfid-20260427_085822_346948_FE80BB77 
+X-CRM114-Status: GOOD (  13.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,63 +92,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/26/26 8:58 PM, ed.tsai@mediatek.com wrote:
-> diff --git a/drivers/ufs/core/ufshcd.c b/drivers/ufs/core/ufshcd.c
-> index 4805e40ed4d7..02fa61322e77 100644
-> --- a/drivers/ufs/core/ufshcd.c
-> +++ b/drivers/ufs/core/ufshcd.c
-> @@ -621,7 +621,8 @@ static void ufshcd_print_tr(struct ufs_hba *hba, st=
-ruct scsi_cmnd *cmd,
->   	ufshcd_hex_dump("UPIU REQ: ", lrbp->ucd_req_ptr,
->   			sizeof(struct utp_upiu_req));
->   	dev_err(hba->dev, "UPIU[%d] - Response UPIU phys@0x%llx\n", tag,
-> -		(u64)lrbp->ucd_rsp_dma_addr);
-> +		(u64)(lrbp->ucd_req_dma_addr +
-> +		offsetof(struct utp_transfer_cmd_desc, response_upiu)));
->   	ufshcd_hex_dump("UPIU RSP: ", lrbp->ucd_rsp_ptr,
->   			sizeof(struct utp_upiu_rsp));
->  =20
-> @@ -633,7 +634,8 @@ static void ufshcd_print_tr(struct ufs_hba *hba, st=
-ruct scsi_cmnd *cmd,
->   	dev_err(hba->dev,
->   		"UPIU[%d] - PRDT - %d entries  phys@0x%llx\n",
->   		tag, prdt_length,
-> -		(u64)lrbp->ucd_prdt_dma_addr);
-> +		(u64)(lrbp->ucd_req_dma_addr +
-> +		offsetof(struct utp_transfer_cmd_desc, prd_table)));
+On Mon, Apr 27, 2026 at 04:46:30PM +0200, Arnd Bergmann wrote:
 
-I don't think that it is useful to log DMA addresses and I prefer that=20
-this information would not be logged at all. Logging this information
-might even involve a security risk. Here is some information about this
-topic that comes from an LLM:
-------------------------------------------------------------------------
-Why is logging pointer addresses from kernel code considered a security=20
-risk?
+> There are no remaining static platform_device users of pxa2xx ac97,
+> so the rest of that code path can go away as well.
+> 
+> Since nothing in the driver uses the gpio number now, constrain the use
+> of the legacy gpio interface to the architecture specific code.
 
-Exposing kernel pointer addresses=E2=80=94a practice often referred to as=
-=20
-pointer leaking=E2=80=94is considered a major security risk because it by=
-passes=20
-a fundamental defense mechanism called KASLR (Kernel Address Space=20
-Layout Randomization).
-[ ... ]
-2. Facilitating Exploit Chains
+...
 
-A pointer leak is rarely an exploit on its own, but it is almost always=20
-the first step in a sophisticated attack.
+> +	if (cpu_is_pxa27x()) {
+>  		/* Assert reset using GPIOD_OUT_HIGH, because reset is GPIO_ACTIVE_LOW */
+>  		rst_gpio = devm_gpiod_get(&dev->dev, "reset", GPIOD_OUT_HIGH);
+> +		if (IS_ERR(rst_gpio))
+> +			rst_gpio = NULL;
 
-* Return-Oriented Programming (ROP): To hijack execution flow, an=20
-attacker needs "gadgets" (small snippets of existing code). Without=20
-knowing the exact addresses of these gadgets, their exploit will simply=20
-crash the system (a Denial of Service).
+Have you seen my
+https://lore.kernel.org/r/20260415150412.365989-1-andriy.shevchenko@linux.intel.com
+?
 
-* Targeted Corruption: If an attacker wants to overwrite a specific=20
-security structure (like a process's UID to gain root access), they need=20
-the pointer to that specific object in kernel memory.
-[ ... ]
-------------------------------------------------------------------------
+Perhaps you can incorporate it into this mini-series, as it looks like that one
+hasn't been applied yet.
 
-Thanks,
+-- 
+With Best Regards,
+Andy Shevchenko
 
-Bart.
+
 
