@@ -4,91 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29E18FF8870
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 21:52:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17562FF8867
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 21:54:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CNhntZyoOnGHOA0x4ScHYcHWxSRqZTMx43yC0kuuWsU=; b=yzSEyYCv7ApXbziVb4m0DUkGeB
-	UIv7QHsPKetdNOTPWFR+xA881OiXqTF93ToAQvo9FTIV/XDRAf9gNfp9U/9JQBNY0oYN8+NccE22X
-	TqWYPQGlUeCGFxezg+/Y8kQn0+wLsPbqST4DApmzoDyMdYiGHOSX/FkOQAW4386zXDcOVcuv8URZX
-	gy3KhIX/TSpMxdde5rf37R/tqYRJLDsgxS7xnntLWg7iaICsu7m4mhsyDRHgmHgzIvNXuvm+ibrFQ
-	4lKZNOt3VipguGsnYps0rvZ8DYx7wacmI4F9DJOdnzH1cue1DuDkg9rG3MLlp+1pUF4tXo3mDi6St
-	p3Tnhktg==;
+	bh=SX13csyuB/QEm6z97KDEVCbw9bOnr8oHQXxFaeduZ78=; b=0ehFP2t2iDSuPgfXQna/DtztIK
+	66EkNG8JTmmgbPLE6c3KT5JaHCJoEneqA9kGlVH1chQ8pdnmofi/DuESxge2Y7WSH0qV2/iiQQSHN
+	zEe/bXsla3KBI+SPw9i+Jwah8I7T/wHwNZjA2E/k6chaFLrj7xuNB7km81XVbMwL2Tt0H/8/G5QQF
+	Lvyqs96T0YshCwA+Cfi6IR3wySnXLoGT14myU80blV5B7Pi/36PwE9jkkkgNW7/kIgvT/P25AU9gF
+	CfwsFfS+OT81myvazuyf3TeVQSbxg9LDXj67HDHx4hhij99ym9GVztgmh3tokpivm5/N29ZE8T9oC
+	XPxPrAdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHTsg-00000000CkW-41wW;
-	Mon, 27 Apr 2026 21:52:42 +0000
+	id 1wHTuH-00000000D3C-2ZUU;
+	Mon, 27 Apr 2026 21:54:21 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHTsf-00000000Cir-0EV4
+	id 1wHTuE-00000000D2C-0rWh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 21:52:42 +0000
+	Mon, 27 Apr 2026 21:54:20 +0000
 Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63RHc5Ks1238182
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 21:52:40 GMT
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63RHc5LA1238182
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 21:54:17 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=CNhntZyoOnGHOA0x4ScHYcHW
-	xSRqZTMx43yC0kuuWsU=; b=CZ6Ss6XTBvh0n7I8Jn5kTc+Ex/cTe/aMwy9GsBd0
-	TvHeNCdSr6eogQr6g7f61TOvBQGG9oFOyZ1VH2Qkz5+vF+oJWjooKB0pBITckyLo
-	/n2O4fJRkSdmkzTnJ3wBaBJJ/62iVJrB23HgXalmxefV0+Bs7mxpyOW1VEHGhme8
-	AzH1OsfTMcabuFf0EiE2t5oDa0nwOSDO/0BmhDVxi2zZR0rQ3tNCXcYzFoJCSzKD
-	lOXc5glwNc8dubirwbeeyDvewdqc2B0pQFaMvfqsWe1hQH2J6kn6ifpaIWcHhcW/
-	q82QEhVjHBW++2FAsXl1FNFIOOlT5x4+TKnZQxYzTOrXcQ==
-Received: from mail-vk1-f199.google.com (mail-vk1-f199.google.com [209.85.221.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dt6n4jbkc-1
+	:references:subject:to; s=qcppdkim1; bh=SX13csyuB/QEm6z97KDEVCbw
+	9bOnr8oHQXxFaeduZ78=; b=H+CIdJUBMILCMgyJ144jJwXAlvJV5yyaVBS5bJjy
+	GLd96Tpw25a1OY3u/a9vsnIY4fbi8YxinUX3lFNLIIW4R78bA4hrgGi/5Q23OwKq
+	Ti8TKZOnc30BwNixB5AYfNJJQHGCgddB9MNAExtOqk3276v5ESpiJ4LVz4ZRWaqj
+	CGJoAU5S785kRqJXd3qu8RFpADqji41R4+pkQz1hhrY4hBXbX2jX8LyzTV8jXa6u
+	61HItosx+npqHvAyu4KogzTV5dkH8TikuDmNE8869YT+95phmdzB1K3cVdVJ6uas
+	82+9QSqxHtzNjsUH9jKxdnMzv0iCG660R6DR237VFdVKUg==
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dt6n4jbs2-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 21:52:39 +0000 (GMT)
-Received: by mail-vk1-f199.google.com with SMTP id 71dfb90a1353d-56ef11518d3so19085370e0c.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 14:52:39 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 21:54:17 +0000 (GMT)
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-50df4c130dbso184131811cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 14:54:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1777326759; x=1777931559; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1777326856; x=1777931656; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=CNhntZyoOnGHOA0x4ScHYcHWxSRqZTMx43yC0kuuWsU=;
-        b=FTKThCjut7hwJjX6kmSapjBqbaVt/4bZGegQ0l3uFs7T+dSihT3FyA90jgR9jTD35e
-         2ic/wPw0XVTP0R4PwT74x0gqfNrg4ce7AJv99TNcLTYp/KC0KsBwnEACXqh3zgLIKUD8
-         h9+0fCcoMI1GaBOSoufw6FpZd+5sYS5UP8jNAvba1NkbvuIwdQ5mnwnPRcWLqX3Jfsqm
-         60Vz+7fNy4S1nQ4KEkW+Xl1MspsY95RkHvtrJy6h0CD/USnLYe1talZnqvAUy5/qbVLH
-         +k11pySQF86/Wx3uzVsDnkc83Kb9OIWeE4vwKSyi/9NIfgUo2JWukRuxQ0eThKQTv4ZD
-         d8kQ==
+        bh=SX13csyuB/QEm6z97KDEVCbw9bOnr8oHQXxFaeduZ78=;
+        b=iwUgQ7NutiBQmaBaHyiiyL4q8/yJKNQ62JpVhsUjIDhQ/sPAF2WVYLIuulq/vZ9Vfj
+         GwonLK8VzwihxvhkMtb+hu+XVR5TNvAk6cZ+iFJ6jUf2PqbqXZQsdW2OKrlg/iD/R381
+         Mh/PlNqEx2aI1SQyKH90wZG61mODEl9EyjQankM1aLmdhnEEktb8utxlUYgWt9kUdL2c
+         x2gpZq04Ajgdi7zuWty/s3sly5+WF4V1NXGwCbdcn04CCBmSaHG6dV/xsubo7nFywXxn
+         DULhk1e83ClzZnuNe7HO1PU1zDXCg1Eo9Y1paTa05B0+43U7P5qxGKaoT0HI4tme4h+F
+         4YSA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777326759; x=1777931559;
+        d=1e100.net; s=20251104; t=1777326856; x=1777931656;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=CNhntZyoOnGHOA0x4ScHYcHWxSRqZTMx43yC0kuuWsU=;
-        b=WGfqQpOZMMvNH0vTVpWHReSKS11g5l9hoM2Mt2H82HYB8xkaNQRJOaw3C8RCqxZtFJ
-         UCWdoXKMcwotc18JfVzd+T4Q0tAvzF+JJfmes1X620pik32gNcSgcoEyAjovAmwWs3oj
-         +PM3GH1qs2z+19EWE0xGqQOuXbuxzK8CFvw2bKaLZxXekrIipQ5OWBBkaf44QuZgcWaz
-         uSHYg1w3iU+G+uzTm+QCLwER54ulTdMEtt5Xut0sTYTVA1j2v/Skpg7o7pVCjoewQIWx
-         kOKvobItXJLp2ZvNf8CdeKKdJV/1Cr40yWnwA5lAME6lH2qnGsIDDQ5Rcbn4BWcbm4q4
-         vDmg==
-X-Forwarded-Encrypted: i=1; AFNElJ+s/sF9QKuOXM23ksgS10hA+hcciswQkMMsrXA4Hl0N57mm9f16+q4kEL8MbUOg1nzqqFkv/lPHz7TLIdNoB+68@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywdw3RRCCmq0qjWS42q30T8KudUD8K9N2YCoHlAiig6o7FtlVyH
-	UNGhVXLpVlUKwf/71y82GFW4lbjm463euGm/TJlAyp0NUU+vMSKpjiCSd+FN4A96J0pqVUqAm8j
-	a1zWKkJCDb7gZI9Q3f7MGS3793nE6RrAhK5fdwJ8d9s7pBfSSaqZoQQ5mPPUp7+9syfQLdQVd80
-	SQdg==
-X-Gm-Gg: AeBDies6f586cZWkQl4gXE9d0ZkgmeNGZGlVvU9pUog3tnGAL5G1NToyHd34Y1Wb8fX
-	sJdfkDZ9VRv4jMloaDlKPVwe7JteYr4Is4ZQcba4iWLYWUcRVbx3XVQuR53rWW1Y/KxO/ZsU7f2
-	PgPczBsuOP3DAJO3hhq25/tfDXxWHkivcMtIC04jICZhZcQpJaefl/9e2UWJbJUsWibDRr5Btkp
-	NWZGTUqiGCsEEh8NPnptRQxtEKioO8+ymlZKNIXUQoRC2+cY/MnnbFGGfibhqz98ErsdkwpQ3ce
-	s9ZZu85nPGrKpSH1bCbbqb2ll5+/SuPhXxp3rpjFbSp4ZLDROMBrOdr+dpgK/VBZOYi0gPCkI+a
-	cpP/6PDd5+FdRDUExNMRTEwIhkJxHKfc4vQ2E6bzJTHHfgfPJ3nAn1VTH4ROnXNPM/6SQeMOt2I
-	S3pOSJkmtULFLjp9oFHR+FSuKn1g+CWAglOt1dUZzh/Udo7A==
-X-Received: by 2002:a05:6102:46e8:b0:613:6b44:3fad with SMTP id ada2fe7eead31-6280b3dcee1mr126948137.25.1777326759236;
-        Mon, 27 Apr 2026 14:52:39 -0700 (PDT)
-X-Received: by 2002:a05:6102:46e8:b0:613:6b44:3fad with SMTP id ada2fe7eead31-6280b3dcee1mr126934137.25.1777326758789;
-        Mon, 27 Apr 2026 14:52:38 -0700 (PDT)
+        bh=SX13csyuB/QEm6z97KDEVCbw9bOnr8oHQXxFaeduZ78=;
+        b=S3MS0UJNStdFoGJ15o9cJkotjOBZHhfLv/9seazQMOUykSOZlWVfb306Qnfl9Kb/Zy
+         HxzUiUWY+i30KJt0yX+uq5K5DBsnB3cgE7hbdceij0cqBxJ4r9ooyRfDRrgrz5IgbqN2
+         jcylgz3rhbhiFSIE4JG1G9cHOi7H2RJylMXym7V7Imx2Ysw6t/2M1YjH6NovVVtQ6mut
+         Fw4XRsDvCbIUsFqLIMR5abG2lVm4iRgSmXdUE5E/zp5Q1kIFNQNDCCVUiLvOR5zXY+Dr
+         9SuKyjh27ZoAvUPQcDmfqAh2jrjvZ2vziDmhmBfy0FsVIjJLZe7MFq4umoPIklzrtcew
+         cJdQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/9PZZImdRJftQY66Pm/b4N3SWfC/YkuvkpnAA6CHWd5bfyFcO+/3lFHECwJTtnc1Dq4uRFCC4OEW726Zf/A2IA@lists.infradead.org
+X-Gm-Message-State: AOJu0YxvAYkAyTnp8sawBfv3RlXn0HErO82CrBWPrADCQMQR3rMUcVOF
+	ogG7UkJsvWAhCUQN1SZkf1meaSpbdfrCK7XXDC5DhGsLXHPMZrugChlcfejdtCNgkFtonRt1tVm
+	FWj/mGOjxU2Ks5qiNiOcii9zS4vo8mUaEzg3E7dBbQXRMWQaxcPThcMYJ37Jonb2M3ysb0S4dbQ
+	dDUQ==
+X-Gm-Gg: AeBDievapCEry8udQSA5eYK2Dc0JusT9tYi7sgGFInOE6VmmaeKfm/lBl8EtYBjCwro
+	/J6ZFhiUhSMaXWbLldWADJjkIh3IzunxquZwa5+uZvwGAixWcIkKYJJHGhwK9mxvJ0SDMmsGd84
+	OrPSzfjkqvBKWDtnRyhUdnTHhTkb13dyJw6YFi7l0d4va/KTVKBk5eE8qSUgbadxDaSoNcbJva6
+	P/+Th9gzK2Bw2B6Lyi73uKUJI2ygTb4atBf6TpjoyQQVQ57wKjTKQ/ejYmNf5pkvU63e7zCdGbR
+	XV8ViTP68Mqt0MVKBtdBbsa8NFXvTFiOFviiz3ztSKBHYFQl1w/2LH2igjdinQ/9rUWOI5INPLh
+	sq1Nw92jHNkC2368I9tV6kCEwKHDfzf4afwCfKcWAsaQjgGGFsJL8QFQOFYiV65UpAYoIIC4n6Y
+	9IKbGCRFLJgJ1KjM96lZ44jbp8OiqJf402MRYjH+TgLuhVyw==
+X-Received: by 2002:ac8:5f12:0:b0:50f:b427:7525 with SMTP id d75a77b69052e-5100da98d86mr8185841cf.42.1777326856488;
+        Mon, 27 Apr 2026 14:54:16 -0700 (PDT)
+X-Received: by 2002:ac8:5f12:0:b0:50f:b427:7525 with SMTP id d75a77b69052e-5100da98d86mr8185521cf.42.1777326856041;
+        Mon, 27 Apr 2026 14:54:16 -0700 (PDT)
 Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3923f2e3237sm1638651fa.3.2026.04.27.14.52.36
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a7462d588asm105499e87.34.2026.04.27.14.54.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Apr 2026 14:52:36 -0700 (PDT)
-Date: Tue, 28 Apr 2026 00:52:34 +0300
+        Mon, 27 Apr 2026 14:54:14 -0700 (PDT)
+Date: Tue, 28 Apr 2026 00:54:13 +0300
 From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
@@ -106,32 +106,35 @@ Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
         Andy Yan <andy.yan@rock-chips.com>, kernel@collabora.com,
         dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
         linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v5 03/10] drm/bridge-connector: Use cached connector
- status in .get_modes()
-Message-ID: <4zvprx4mytr22ylibmoj2rsrjzkrnnuumucohodrl75cwntxcj@5wixqw74n6cs>
+        linux-rockchip@lists.infradead.org,
+        Diederik de Haas <diederik@cknow-tech.com>,
+        Maud Spierings <maud_spierings@hotmail.com>
+Subject: Re: [PATCH v5 04/10] drm/bridge-connector: Switch to .detect_ctx()
+ for connector detection
+Message-ID: <znjgxzoyavxctvmec4j376a5cjg4s2oqhn3s3ubkbkuiluguao@pve7siqulhxp>
 References: <20260426-dw-hdmi-qp-scramb-v5-0-d778e70c317b@collabora.com>
- <20260426-dw-hdmi-qp-scramb-v5-3-d778e70c317b@collabora.com>
+ <20260426-dw-hdmi-qp-scramb-v5-4-d778e70c317b@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260426-dw-hdmi-qp-scramb-v5-3-d778e70c317b@collabora.com>
-X-Proofpoint-ORIG-GUID: kelEhbr0w_IBXwnf0xrbDBqEBvUMR_Me
-X-Authority-Analysis: v=2.4 cv=Xba5Co55 c=1 sm=1 tr=0 ts=69efdaa7 cx=c_pps
- a=+D9SDfe9YZWTjADjLiQY5g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+In-Reply-To: <20260426-dw-hdmi-qp-scramb-v5-4-d778e70c317b@collabora.com>
+X-Proofpoint-ORIG-GUID: 86ykNlGlP1VvoUO-Ld6NRB0oEE8TSZJ3
+X-Authority-Analysis: v=2.4 cv=Xba5Co55 c=1 sm=1 tr=0 ts=69efdb09 cx=c_pps
+ a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
  a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22 a=QX4gbG5DAAAA:8
- a=EUspDBNiAAAA:8 a=ANRcj1VhA4TbxNHgoT0A:9 a=CjuIK1q_8ugA:10
- a=vmgOmaN-Xu0dpDh8OwbV:22 a=AbAUZ8qAyYyZVLSsDulk:22
-X-Proofpoint-GUID: kelEhbr0w_IBXwnf0xrbDBqEBvUMR_Me
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI3MDIzMSBTYWx0ZWRfXwGjjK7OJa5ov
- 9uJdlSrR/N75fDbfL+htKshkUaEkM8wyqVroajyyYa1ZhATYnxYwdzMu4zV/RCuN/7SQ2y/yD0i
- oCtHmSQDfHamj1nNR8+b3CVQNQNbDsnBBR1pym62lHvSw0KGnoQioYq2b8NAaqWKUOYbwZ1zmfV
- r/z/mkzfW+fy3V3v9AdiRbzdy6gYDCHR19N8Td1kiwJJtFnCksk7Rxx60ixXW6hXjk97qKIJ+zG
- IeHxh4XUqYjBJME5hoBVo8CEh4tIcMiPuE7NqK4JfVmpCdblRwEvsApZM+WddlHB/mWC8YPIbti
- otwPw4s5wR/e3RQocypHTItNNQvb5Wg7hvHR4s25VmY4FSpWQAG/Teb84ri7l49w6t2Ej7IZ7qm
- OVzmYMWahNBBosrEyPVFaDFHYT1Wr7Bb06B4+1Uk4UxVhLx0Khs/y/HYvY8R3rzh1w55tMlO9ZK
- wMV4CuUeJ592oLU5ryw==
+ a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22 a=MTERcTr8AAAA:8
+ a=69EAbJreAAAA:8 a=QX4gbG5DAAAA:8 a=EUspDBNiAAAA:8 a=5Ozh1E2pZYoiRNblH9EA:9
+ a=CjuIK1q_8ugA:10 a=dawVfQjAaf238kedN5IG:22 a=1w2Y23rLpnaGpkO2nlKf:22
+ a=AbAUZ8qAyYyZVLSsDulk:22
+X-Proofpoint-GUID: 86ykNlGlP1VvoUO-Ld6NRB0oEE8TSZJ3
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI3MDIzMSBTYWx0ZWRfX8WQjM8KZkI+s
+ SBx3a2RMQBUKSiJ9TdiarEoorbnFlLNIZhytQR2SNbEUnGBVQ/0o1W6uVBBiGF2STQAAxWWRTNx
+ konmY8iZoIF760wfzut9B7C1+rLHfmyVlrIR5GDZsg9/SyN6mSr+9MAvmKWNvdydtqS+H57Xf7D
+ rzboJ5Vvc/MeuaHwJXG/DuQrSxx82Q6XdChSPss3RpBBt1NslHoBQsm5BuB3F7Yq5z0Cn5cWK85
+ /oMeSOZ3tkIW1GhUaXQQLr01/Q54EIzvaT9DNXhZhFqcbX51VeFPzw1EzZEidJxUwD+L59lBiQm
+ tFzZ0LmKXPSKrfBF29iJSS9fUEr9Qzz9g+EdUQ4lJhw09aceIZ28wqMSqJPzBi8yyqgR4mR2p7L
+ VsNRw6HuOB4jHvf9ZyWlmTLpVeQYhgxnIMqYN3zerU1i6TLXTyBQxu9yPR4Ce+4AedfQiKgHdLs
+ Xx5zlgQrT9F+FT/oNcw==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-04-27_04,2026-04-21_02,2025-10-01_01
@@ -141,8 +144,8 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604270231
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_145241_212327_80AEDAA5 
-X-CRM114-Status: GOOD (  18.12  )
+X-CRM114-CacheID: sfid-20260427_145418_383272_65515052 
+X-CRM114-Status: GOOD (  15.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,21 +160,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 26, 2026 at 03:20:15AM +0300, Cristian Ciocaltea wrote:
-> Replace the active drm_bridge_connector_detect() call in get_modes()
-> with a read of the already-cached connector->status.
+On Sun, Apr 26, 2026 at 03:20:16AM +0300, Cristian Ciocaltea wrote:
+> Use the atomic .detect_ctx() connector helper hook and invoke
+> drm_bridge_detect_ctx() to propagate the modeset acquire context to
+> bridge drivers.
 > 
-> The .get_modes() callback is only invoked from
-> drm_helper_probe_single_connector_modes(), which has already retrieved
-> the connector status.  Calling detect again is redundant and triggers a
-> duplicate hotplug event.  This is also a prerequisite for switching to
-> the .detect_ctx() hook, which requires a drm_modeset_acquire_ctx not
-> available in the .get_modes() path.
+> This enables bridge drivers to perform modeset operations during
+> detection, which is needed for managing SCDC state lost on sink
+> disconnects in HDMI 2.0 scenarios.
 > 
+> Tested-by: Diederik de Haas <diederik@cknow-tech.com>
+> Tested-by: Maud Spierings <maud_spierings@hotmail.com>
 > Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 > ---
->  drivers/gpu/drm/display/drm_bridge_connector.c | 4 +---
->  1 file changed, 1 insertion(+), 3 deletions(-)
+>  drivers/gpu/drm/display/drm_bridge_connector.c | 71 ++++++++++++++------------
+>  1 file changed, 37 insertions(+), 34 deletions(-)
 > 
 
 Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
