@@ -4,91 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51093FF8861
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 08:54:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DB85FF8861
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 08:54:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TXqEElTwN2Tki8IktRXTfIVL9D01k/xyxgMf0ctrAd4=; b=XncSL1cwI7UxfmSTX6kNr0N9D/
-	uiwvU8eQ7ai2cK2AcGjDIN1wVVQnpanw11cQ9q8QchKCqUhs/tfftAnteNuEVrE6KlWVUDBN/5pFj
-	1NozlyIMFYv6yI2NBw7p5qjF0B92WNDYrX1WHNqboxocXJuGkpjVikpkUUYVdhQVGRGxAWc9Ql9Y9
-	ibv5JMiWh6JEJQnjdGqyp+pEkQ69LRPc/oq8VwTFZJWJWsmLFAc3Td1wVT6zw4EbuHsVoc8keYtVB
-	+b29lyrjnKyZcqEaLnmLQRM7MfNarqsBMkTON+VN2FnBF+c6viNTdYLtgXrcHM8KhHtNGyQA3vuJt
-	Ih850HlQ==;
+	bh=xkmaDiAkapPOpF/pzIARxD4B1Yn+4QqSV/fAgSS2pCY=; b=3vX+eCELWp92eGT2dkCnc+wEkP
+	8icFM03lAIm2j5HQqfGWGMgayS+TrCMbgiGHgFJ0LLjpsFdpKhKv1ccGhcPiFzkqJG01Kke6XtrGZ
+	24DWY4CPoOnlXxatrrdHSXSATEdRHq7T12HtsQIiyq4KCOqw05uhiYmUP/HXUZKjnSaAVi1/AYq6g
+	IZ7lvpr0f39jVgggLK0pcmgvD/KGXs+5TnlwKMudfAIAx4NLSqUXBtzbE8WYEQyXBSYnsSOKcvqVr
+	bmJoiwrceQGNH4WugF6m7Xh4jl9MezTl6EGMo4L926IsN7shD8cynOyzLfDZIu825As2JN49gMpLA
+	lCVu5nkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHHjl-0000000GV3f-2Kw8;
-	Mon, 27 Apr 2026 08:54:41 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wHHju-0000000GVBg-1gfl;
+	Mon, 27 Apr 2026 08:54:50 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHHjh-0000000GUyx-3jOT
+	id 1wHHjs-0000000GV8t-09OE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 08:54:39 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 32E231A342E;
-	Mon, 27 Apr 2026 08:54:36 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 00C60600D1;
-	Mon, 27 Apr 2026 08:54:36 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3E6B410722270;
-	Mon, 27 Apr 2026 10:54:24 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1777280074; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=TXqEElTwN2Tki8IktRXTfIVL9D01k/xyxgMf0ctrAd4=;
-	b=S6fWitaVDU/VTZT6yPZJGXT7mUzoaUUbLCjgB4vRC3fCgw3YaEa8rUxESSeQ4XM7sjxdld
-	w2wJkszlpI/+wJv4VqWfh21mPO0o4KNiRTj9oqzk+O10QqDUfqSImMWvLhCIOcLEjFMtyG
-	sUY57bQmm2xTj8ZjKaHYGBs4eCyHXGr/RuUPsVyddOb3ET/DEUbe3cIOjRYxQgYqhcHujv
-	mmeRT0Ooj0pRPIPSI9VdRSjRGsZnUXRi8k6doRZ/9vcuXQtb+ezrvE5e+kTwdL2pM/S1MO
-	LmYK6n6Izjxt4mzCaSxAD8ryLg7XzSE0B+bbHBjSDcwj2rcfoRc1SPkXzxFAtQ==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 27 Apr 2026 10:54:24 +0200
-Message-Id: <DI3T7A3A3LWQ.1WBAS2CWS2343@bootlin.com>
-Subject: Re: [PATCH RFC bpf-next 0/8] bpf: add support for KASAN checks in
- JITed programs
-Cc: =?utf-8?b?QWxleGlzIExvdGhvcsOpIChlQlBGIEZvdW5kYXRpb24p?=
- <alexis.lothore@bootlin.com>, "Alexei Starovoitov" <ast@kernel.org>,
- "Daniel Borkmann" <daniel@iogearbox.net>, "Andrii Nakryiko"
- <andrii@kernel.org>, "Martin KaFai Lau" <martin.lau@linux.dev>, "Eduard
- Zingerman" <eddyz87@gmail.com>, "Kumar Kartikeya Dwivedi"
- <memxor@gmail.com>, "Song Liu" <song@kernel.org>, "Yonghong Song"
- <yonghong.song@linux.dev>, "Jiri Olsa" <jolsa@kernel.org>, "John Fastabend"
- <john.fastabend@gmail.com>, "David S. Miller" <davem@davemloft.net>, "David
- Ahern" <dsahern@kernel.org>, "Thomas Gleixner" <tglx@kernel.org>, "Ingo
- Molnar" <mingo@redhat.com>, "Borislav Petkov" <bp@alien8.de>, "Dave Hansen"
- <dave.hansen@linux.intel.com>, "X86 ML" <x86@kernel.org>, "H. Peter Anvin"
- <hpa@zytor.com>, "Shuah Khan" <shuah@kernel.org>, "Maxime Coquelin"
- <mcoquelin.stm32@gmail.com>, "Alexandre Torgue"
- <alexandre.torgue@foss.st.com>, "Andrey Ryabinin" <ryabinin.a.a@gmail.com>,
- "Alexander Potapenko" <glider@google.com>, "Andrey Konovalov"
- <andreyknvl@gmail.com>, "Dmitry Vyukov" <dvyukov@google.com>, "Vincenzo
- Frascino" <vincenzo.frascino@arm.com>, "Andrew Morton"
- <akpm@linux-foundation.org>, <ebpf@linuxfoundation.org>, "Bastien
- Curutchet" <bastien.curutchet@bootlin.com>, "Thomas Petazzoni"
- <thomas.petazzoni@bootlin.com>, "Xu Kuohai" <xukuohai@huawei.com>, "bpf"
- <bpf@vger.kernel.org>, "LKML" <linux-kernel@vger.kernel.org>, "Network
- Development" <netdev@vger.kernel.org>, "open list:KERNEL SELFTEST
- FRAMEWORK" <linux-kselftest@vger.kernel.org>,
- <linux-stm32@st-md-mailman.stormreply.com>, "linux-arm-kernel"
- <linux-arm-kernel@lists.infradead.org>, "kasan-dev"
- <kasan-dev@googlegroups.com>, "linux-mm" <linux-mm@kvack.org>
-From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
-To: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>, "Ihor Solodrai"
- <ihor.solodrai@linux.dev>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260413-kasan-v1-0-1a5831230821@bootlin.com>
- <71fb19ff-6dde-43f4-a0e9-5c8cf2ba4ed4@linux.dev>
- <CAADnVQ+ytaX5oq_1TjKC66dnjd1-yh3yjmPrP-kEg5wEvX643g@mail.gmail.com>
-In-Reply-To: <CAADnVQ+ytaX5oq_1TjKC66dnjd1-yh3yjmPrP-kEg5wEvX643g@mail.gmail.com>
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_015438_102074_A912D6F9 
-X-CRM114-Status: GOOD (  11.79  )
+	Mon, 27 Apr 2026 08:54:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 672D16111B;
+	Mon, 27 Apr 2026 08:54:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FBE5C2BCC7;
+	Mon, 27 Apr 2026 08:54:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777280087;
+	bh=L1kg4iW/l9CqM3IiD0aDKTGGpXD63FTQiy3LBcrx34Y=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=tS9NIxCriwSBUb+IZxU5x5ANrjbEEOQG1BCO6hc4VsgZPhC5IL9d7gChuZjd56U0T
+	 Iqcni8oqb7Wi00GvpomheAa8oMYuEibA/2qeGOAbzTIq063UHEOGLEQkUSJuMV870W
+	 GMVT/+HHarhMuB7afvqWqgZt6BCEAl3b3WBj+ujJZ+OAoO7xKk95Ca0eCWk1LzZYay
+	 OlzoouKlSd7xt5VM+EVEMYNAj91X05wVEY8Ea1OF7mVTnl9TibATDsxtBJusD36HKm
+	 VzSLaIZMehw+ocRHbDM8U2hlz8jG5Hqeo93hn0nIqGekZ0heJPYqFvQxqBOhynU8FH
+	 Ve0XLDNtwZmag==
+From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+To: linux-coco@lists.linux.dev,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Joerg Roedel <joro@8bytes.org>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	Pranjal Shrivastava <praan@google.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Samuel Ortiz <sameo@rivosinc.com>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Xu Yilun <yilun.xu@linux.intel.com>
+Subject: [RFC PATCH v4 08/16] coco: host: arm64: Add helpers to unlock and destroy RMM vdev
+Date: Mon, 27 Apr 2026 14:23:36 +0530
+Message-ID: <20260427085344.941627-9-aneesh.kumar@kernel.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260427085344.941627-1-aneesh.kumar@kernel.org>
+References: <20260427085344.941627-1-aneesh.kumar@kernel.org>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,56 +85,219 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat Apr 25, 2026 at 1:28 AM CEST, Alexei Starovoitov wrote:
-> On Fri, Apr 24, 2026 at 4:10=E2=80=AFPM Ihor Solodrai <ihor.solodrai@linu=
-x.dev> wrote:
->>
->> I wonder if it's feasible to implement KASAN support on the verifier
->> side in post-verification fixups. AI slop for illustration:
->>
->>   ;; Original (1 BPF insn):
->>   dst =3D *(u64 *)(src + off)           ; BPF_LDX | BPF_MEM | BPF_DW
->>
->>   ;; Rewrite (~7 BPF insns):
->>   r_tmp1 =3D src                         ; BPF_MOV64_REG
->>   r_tmp1 +=3D off                        ; BPF_ALU64 | BPF_ADD | K   (fu=
-ll address)
->>   r_tmp2 =3D r_tmp1                      ; copy
->>   r_tmp2 >>=3D 3                         ; KASAN_SHADOW_SCALE_SHIFT
->>   r_tmp2 +=3D KASAN_SHADOW_OFFSET        ; shadow address
->>   r_tmp3 =3D *(u8 *)(r_tmp2 + 0)         ; BPF_LDX | BPF_B   (load shado=
-w byte)
->>   if r_tmp3 !=3D 0 goto +2               ; BPF_JNE | PC+2
->>   dst =3D *(u64 *)(src + off)            ; original access (fast path)
->>   goto +1                              ; skip slowpath
->>   call __asan_report_load8             ; BPF kfunc
->>   dst =3D *(u64 *)(src + off)            ; retry the access after report=
- (non-fatal)
->>
->> A sort of inline kasan directly in BPF.
->>
->> There are plenty of issues with it: instruction limit, exposing asan
->> API as kfuncs, etc. On the flip side we get cross-arch support out of
->> the box with no or mininal JIT changes.
->>
->> Honestly I'm not excited about this approach, but curious if anyone
->> thought about this, or maybe it was already discussed?
->
-> We discussed this.
-> It won't work because we don't have that many temp registers for once
-> and second it has to preserve all (both callee and caller saved regs).
-> This is arch specific.
+- define the SMCCC IDs and inline wrappers for RMI_VDEV_UNLOCK and
+  RMI_VDEV_DESTROY
+- extend vdev_create() to treat communication failures as fatal and
+  tear down the newly created vdev
+- provide vdev_unlock_and_destroy() that drives the vdev back to the
+  unlocked state, issues the destroy call, and frees the delegated granule
+- hook the new helper into the TSM unbind path so host cleanup always
+  unlock and destroy RMM vdev and releases cached buffers
 
-This "fast path" was indeed part of my initial proposal. For the record:
+Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+---
+ arch/arm64/include/asm/rmi_cmds.h        | 20 +++++++
+ arch/arm64/include/asm/rmi_smc.h         |  2 +
+ drivers/virt/coco/arm-cca-host/arm-cca.c | 25 +++++++++
+ drivers/virt/coco/arm-cca-host/rmi-da.c  | 69 ++++++++++++++++++++++--
+ drivers/virt/coco/arm-cca-host/rmi-da.h  |  3 ++
+ 5 files changed, 116 insertions(+), 3 deletions(-)
 
-https://lore.kernel.org/bpf/DG7UG112AVBC.JKYISDTAM30T@bootlin.com/
-
-in the "Basic instrumentation" block.
-
-
---=20
-Alexis Lothor=C3=A9, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+diff --git a/arch/arm64/include/asm/rmi_cmds.h b/arch/arm64/include/asm/rmi_cmds.h
+index 03dffba763e1..aa7ef9f07517 100644
+--- a/arch/arm64/include/asm/rmi_cmds.h
++++ b/arch/arm64/include/asm/rmi_cmds.h
+@@ -949,4 +949,24 @@ static inline unsigned long rmi_pdev_stream_key_purge(unsigned long pdev1_phys,
+ 	return res.a0;
+ }
+ 
++static inline unsigned long rmi_vdev_unlock(unsigned long rd,
++		unsigned long pdev_phys, unsigned long vdev_phys)
++{
++	struct arm_smccc_res res;
++
++	arm_smccc_1_1_invoke(SMC_RMI_VDEV_UNLOCK, rd, pdev_phys, vdev_phys, &res);
++
++	return res.a0;
++}
++
++static inline unsigned long rmi_vdev_destroy(unsigned long rd,
++		unsigned long pdev_phys, unsigned long vdev_phys)
++{
++	struct arm_smccc_res res;
++
++	arm_smccc_1_1_invoke(SMC_RMI_VDEV_DESTROY, rd, pdev_phys, vdev_phys, &res);
++
++	return res.a0;
++}
++
+ #endif /* __ASM_RMI_CMDS_H */
+diff --git a/arch/arm64/include/asm/rmi_smc.h b/arch/arm64/include/asm/rmi_smc.h
+index d14d13a9f169..6cd5439f56ec 100644
+--- a/arch/arm64/include/asm/rmi_smc.h
++++ b/arch/arm64/include/asm/rmi_smc.h
+@@ -649,6 +649,8 @@ enum rmi_vdev_state {
+ 	RMI_VDEV_LOCKED,
+ 	RMI_VDEV_STARTED,
+ 	RMI_VDEV_ERROR,
++	RMI_VDEV_KEY_REFRESH,
++	RMI_VDEV_KEY_PURGE,
+ };
+ 
+ #define MAX_VDEV_ADDR_RANGE 8
+diff --git a/drivers/virt/coco/arm-cca-host/arm-cca.c b/drivers/virt/coco/arm-cca-host/arm-cca.c
+index 5930a30dd16f..b75fa20513a9 100644
+--- a/drivers/virt/coco/arm-cca-host/arm-cca.c
++++ b/drivers/virt/coco/arm-cca-host/arm-cca.c
+@@ -473,12 +473,37 @@ static struct pci_tdi *cca_tsm_bind(struct pci_dev *pdev, struct kvm *kvm, u32 t
+ 	return &no_free_ptr(host_tdi)->tdi;
+ }
+ 
++/*
++ * All device memory should be unmapped by now.
++ * 1. A pci device destroy will cause a driver remove (vfio) which will have
++ *    done a dmabuf based unmap
++ * 2. A vdevice/idevice destroy from VMM should have done a unmap_private_range
++ *    vm ioctl before
++ * 3. A guest unlock request should have done a rsi_invalidiate_mem_mapping
++ *    before unlock rhi
++ * 4. vfio_pci_core_close_device() should trigger tsm unbind if vdevice is not
++ *    already distroyed and that path involves vfio_pci_dma_buf_cleanup() which
++ *    should get kvm to unmap the devmap
++ */
++static void cca_tsm_unbind(struct pci_tdi *tdi)
++{
++	struct cca_host_tdi *host_tdi;
++	struct realm *realm = &tdi->kvm->arch.realm;
++
++	host_tdi = container_of(tdi, struct cca_host_tdi, tdi);
++	cca_vdev_unlock_and_destroy(realm, tdi->pdev, tdi->pdev->tsm->dsm_dev);
++	kvfree(host_tdi->interface_report);
++	kvfree(host_tdi->measurements);
++	kfree(host_tdi);
++}
++
+ static struct pci_tsm_ops cca_link_pci_ops = {
+ 	.probe = cca_tsm_pci_probe,
+ 	.remove = cca_tsm_pci_remove,
+ 	.connect = cca_tsm_connect,
+ 	.disconnect = cca_tsm_disconnect,
+ 	.bind = cca_tsm_bind,
++	.unbind = cca_tsm_unbind,
+ };
+ 
+ static void cca_link_tsm_remove(void *tsm_dev)
+diff --git a/drivers/virt/coco/arm-cca-host/rmi-da.c b/drivers/virt/coco/arm-cca-host/rmi-da.c
+index 128079d5b993..ef25392562e0 100644
+--- a/drivers/virt/coco/arm-cca-host/rmi-da.c
++++ b/drivers/virt/coco/arm-cca-host/rmi-da.c
+@@ -1018,15 +1018,25 @@ void *cca_vdev_create(struct realm *realm, struct pci_dev *pdev,
+ 	host_tdi->rmm_vdev = rmm_vdev;
+ 	host_tdi->realm = realm;
+ 
+-	submit_vdev_state_transition_work(pdev, RMI_VDEV_UNLOCKED);
++	ret = submit_vdev_state_transition_work(pdev, RMI_VDEV_UNLOCKED);
++	/* failure is treated as rmi_vdev_create failure */
++	if (ret)
++		goto err_vdev_comm;
+ 
+-	ret = rmi_vdev_lock(rd_phys, rmm_pdev_phys, rmm_vdev_phys);
++	if (rmi_vdev_lock(rd_phys, rmm_pdev_phys, rmm_vdev_phys)) {
++		ret = -ENXIO;
++		goto err_vdev_comm;
++	}
+ 
+-	submit_vdev_state_transition_work(pdev, RMI_VDEV_LOCKED);
++	ret = submit_vdev_state_transition_work(pdev, RMI_VDEV_LOCKED);
++	if (ret)
++		goto err_vdev_comm;
+ 
+ 	free_page((unsigned long)params);
+ 	return rmm_vdev;
+ 
++err_vdev_comm:
++	rmi_vdev_destroy(rd_phys, rmm_pdev_phys, rmm_vdev_phys);
+ err_vdev_create:
+ 	free_page((unsigned long)params);
+ err_params_alloc:
+@@ -1073,3 +1083,56 @@ int cca_pdev_purge_stream_key(struct pci_dev *pdev1,
+ 
+ 	return submit_stream_work(pdev1, pdev2, stream_handle);
+ }
++
++void cca_vdev_unlock_and_destroy(struct realm *realm,
++		struct pci_dev *pdev, struct pci_dev *pf0_dev)
++{
++	int ret;
++	phys_addr_t rmm_pdev_phys;
++	phys_addr_t rmm_vdev_phys;
++	struct cca_host_pdev_dsc *pdev_dsc;
++	struct cca_host_tdi *host_tdi;
++	phys_addr_t rd_phys = virt_to_phys(realm->rd);
++
++	host_tdi = to_cca_host_tdi(pdev);
++	rmm_vdev_phys = virt_to_phys(host_tdi->rmm_vdev);
++
++	pdev_dsc = to_cca_pdev_dsc(pf0_dev);
++	rmm_pdev_phys = virt_to_phys(pdev_dsc->rmm_pdev);
++	if (rmi_vdev_unlock(rd_phys, rmm_pdev_phys, rmm_vdev_phys)) {
++		pci_err(pdev, "failed to unlock vdev\n");
++		goto unlock_err;
++	}
++
++	if (rmm_has_reg2_feature(RMI_FEATURE_REGISTER_2_VDEV_KROU)) {
++		struct pci_dev *rp = pcie_find_root_port(pf0_dev);
++		struct cca_host_pf0_ep_dsc *pf0_ep_dsc = to_cca_pf0_ep_dsc(pf0_dev);
++
++		ret = submit_vdev_state_transition_work(pdev, RMI_VDEV_KEY_REFRESH);
++		if (ret)
++			pci_err(pdev, "failed to transition vdev to KEY_REFRESH state (%d)\n", ret);
++
++		ret = cca_pdev_refresh_stream_key(pf0_dev, rp, pf0_ep_dsc->stream_handle);
++		if (ret)
++			pci_err(pf0_dev, "failed to refresh pdev stream key (%d)\n", ret);
++
++		ret = cca_pdev_purge_stream_key(pf0_dev, rp, pf0_ep_dsc->stream_handle);
++		if (ret)
++			pci_err(pf0_dev, "failed to purge pdev stream key (%d)\n", ret);
++	}
++
++	ret = submit_vdev_state_transition_work(pdev, RMI_VDEV_UNLOCKED);
++	if (ret)
++		pci_err(pdev, "failed to unlock vdev (%d)\n", ret);
++
++unlock_err:
++	/* Try to destroy even in case of error */
++	if (rmi_vdev_destroy(rd_phys, rmm_pdev_phys, rmm_vdev_phys))
++		pci_err(pdev, "failed to destroy vdev\n");
++
++	if (!rmi_undelegate_page(rmm_vdev_phys))
++		free_page((unsigned long)host_tdi->rmm_vdev);
++
++	host_tdi->rmm_vdev = NULL;
++	host_tdi->realm = NULL;
++}
+diff --git a/drivers/virt/coco/arm-cca-host/rmi-da.h b/drivers/virt/coco/arm-cca-host/rmi-da.h
+index d6cdbc638d6d..97f7eaf1f779 100644
+--- a/drivers/virt/coco/arm-cca-host/rmi-da.h
++++ b/drivers/virt/coco/arm-cca-host/rmi-da.h
+@@ -15,6 +15,7 @@
+ #include <linux/wait.h>
+ #include <asm/rmi_cmds.h>
+ #include <asm/rmi_smc.h>
++#include <asm/rhi.h>
+ 
+ #define MAX_CACHE_OBJ_SIZE	SZ_16M
+ #define CACHE_CHUNK_SIZE	SZ_4K
+@@ -239,5 +240,7 @@ int cca_pdev_refresh_stream_key(struct pci_dev *pdev1,
+ 		struct pci_dev *pdev2, unsigned long stream_handle);
+ int cca_pdev_purge_stream_key(struct pci_dev *pdev1,
+ 		struct pci_dev *pdev2, unsigned long stream_handle);
++void cca_vdev_unlock_and_destroy(struct realm *realm, struct pci_dev *pdev,
++		struct pci_dev *pf0_dev);
+ 
+ #endif
+-- 
+2.43.0
 
 
