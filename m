@@ -4,158 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4E35FF8860
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 18:35:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D569FFF8860
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 18:38:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ly5gsQzW24HcWcrd9A5H/YLEt6HUPzxFH8mX07JWyAU=; b=w7Z4DDvFAWWntXfYDNlh21L7mu
-	xJ3P19cksTvzQFd6kjOJAFCjknRQDtuj9+wkAzyRJjCZEg6K7rND4oLdiiHBbVz8A83j0RMAFUtx3
-	znNbv49wjlRhXwPGEysCKRWd2tHGG+l2bSW3qjcUHLtqbhF5x6Uj2UYfVFQvwwtq2Mhfxfuff8ZVy
-	gkMyLZFzCLPgPuvDWm1dUMCjcY2qrT45YazUsEQfREuCuZpy7vSuTPI11o9ZiawMvtGr2veN9wsLt
-	qPyiglLAs5TsVCNtnODFQBMfG2YkfgBSsvwgJeXrkqPx8y/ZJCs3AStLGUrnkKiwayhKqtzwa5u+f
-	m23czWIw==;
+	bh=1rvcn2QZ86UVMYiawr/8sNwuCiB72yb3zsXka6ATX78=; b=0II/GyjJ5366rJO8B0sp2EPyGM
+	p7HsiRr+qOyyJYLyqX1iaxI3C4VaKX8zwC0XD1V9nguhnCyvov4gPAYIpAVeFN2vUzvhRwLz04zDU
+	M2WS1Ce2l/papinpuB8gadW9C+uWYJ9glJ+iWv8Wai0cxOy5Js4NeIpXS7fM1v8VrD5WHC9AFYcj0
+	htWwNDSNvj2+h3+3ftmxXh3nqiNzA04stg0rJxr1lAaz1gScc/QVMWYN0F25+j197NCkvMWEoCBIX
+	met7N3wm61EdCEfoP4n7bPok40qG/Fh5ANkZkJEJkmQzkunm1JM0DtvLOPC6cn8+Vnrift6dPXL1A
+	v4usiWVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHQnw-0000000HaFD-3EH4;
-	Mon, 27 Apr 2026 18:35:36 +0000
-Received: from mail-canadacentralazon11021089.outbound.protection.outlook.com ([40.107.192.89] helo=YT5PR01CU002.outbound.protection.outlook.com)
+	id 1wHQqS-0000000HaPS-1HW4;
+	Mon, 27 Apr 2026 18:38:12 +0000
+Received: from mgamail.intel.com ([198.175.65.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHQnt-0000000HaEe-2jhq
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 18:35:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JzEy7iJ3khKeHhuy9XJokuZqq0RoyEEhOrHXI6TiH0kRjmr3Pwf/RgDrk49mTaGugPuUfJa254jJ3xtf0a9tBF7qXxPbxSABZRi1G2kQgUT0OidDmlZvVWAQxHFg1VaZxGK2j7xlJOsiMSusYeaowJBXl+kAvP3QsuN3I4KW2lE5ibdb6ctdm7iRUNtkDKQXdnmHxuemjKXEEss1WkGdfcYRP+VpFNWtyNBiWQN/sYXIcBlPmeP1uDHokm8Z7X8qwflnwAoSHfIbuTOD6y/Pqd7ayDFF++WIrUiPUJRmVhSDdPq2e10Xfn5EQrnZklVGJi3CiALK7rOfv+NEElklZQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ly5gsQzW24HcWcrd9A5H/YLEt6HUPzxFH8mX07JWyAU=;
- b=CsegxrC/fsdgXvDqeEg+po69tRMRRdLIcj6jF/p/s+/oTcE15EvLOyVBlKz9OM3Jth+2npHlGGdZPhdu2NyQ3G+6GsQJj8apUutLugR919bEvaHu5XGsU2wOeWLNcx5+h32uVS+OA9VRk0FlyYjVjg9up7S84k3ERO7ocnc2sJ0wiJDn7Mr8+3ouxErwZ3E/Baqv/BkwZvRd2RAY8GCOmsQmm9r+F7RsYAOXwpEe7DLvG5Uq5y1i0pcpO00ksIo6nIBzokzunue3caXb2D28anR8lCMn4xcuJXnMVi9RM8JOKLL97+SJEWAPHhcdV7t8pIbfVTz2TYNBzMhCDQRv8A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
- dkim=pass header.d=efficios.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ly5gsQzW24HcWcrd9A5H/YLEt6HUPzxFH8mX07JWyAU=;
- b=l592UTsh1AhrDbPdFRjUWBasWmUlV6UZVxeDUDc85LtWv1kes3Va1V6c4GJdmhMdWEMoJnyazzXzZ/IcSmuKvQLc907rAb8xTg2TTwBpTxsbyEejpRHoGqLHEPX5dzgJArWCQkQL+UEUzHEYIfj5s2VLU7ohH9Hw9CCk32vyf9JvW4Gf+iNUim5vXuVgEK4ByxnneyNI1b/re/HLvJLXZNyqmRE/4s/op836cFIwfjyk3tJjTlzboX9DRuPpwLp+SRUjbuG+9/xr1SM+Wf/vmLNRRDupzXDEtfSVhsNDRZhq6FhTZ+gUME0eC+gBt5Q9OfhK8SQfNk1cEo55qHAbVw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=efficios.com;
-Received: from YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:be::5)
- by YT2PR01MB10418.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:dc::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Mon, 27 Apr
- 2026 18:35:26 +0000
-Received: from YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6004:a862:d45d:90c1]) by YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6004:a862:d45d:90c1%3]) with mapi id 15.20.9846.025; Mon, 27 Apr 2026
- 18:35:25 +0000
-Message-ID: <7f8783a6-1a48-4c92-850c-d285a788b491@efficios.com>
-Date: Mon, 27 Apr 2026 14:35:22 -0400
-User-Agent: Mozilla Thunderbird
-Subject: Re: [REGRESSION] rseq: refactoring in v6.19 broke everyone on arm64
- and tcmalloc everywhere
-To: Florian Weimer <fweimer@redhat.com>, Thomas Gleixner <tglx@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>,
- Mathias Stearn <mathias@mongodb.com>, Dmitry Vyukov <dvyukov@google.com>,
- Jinjie Ruan <ruanjinjie@huawei.com>, linux-man@vger.kernel.org,
- Mark Rutland <mark.rutland@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Boqun Feng <boqun.feng@gmail.com>, "Paul E. McKenney" <paulmck@kernel.org>,
- Chris Kennelly <ckennelly@google.com>, regressions@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Ingo Molnar <mingo@kernel.org>, Blake Oler <blake.oler@mongodb.com>,
- Rich Felker <dalias@libc.org>, Matthew Wilcox <willy@infradead.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Linus Torvalds <torvalds@linuxfoundation.org>, criu@lists.linux.dev,
- Michael Jeanson <mjeanson@efficios.com>
-References: <aekPXvvuKHKlETjm@J2N7QTR9R3.cambridge.arm.com>
- <87wlxy22x7.ffs@tglx> <c5331cd6-76c8-430d-978e-fcad164e48f6@huawei.com>
- <CACT4Y+bxnQyHGdVNE1BYTx+Z2-cscLb38HYS9jBM5gPAz8=4bw@mail.gmail.com>
- <87ik9i0xlj.ffs@tglx>
- <CAHnCjA0UBNXfjHw=Y34OrAyGRNUtVF+zWd3ugyX6pd_mCk8K9w@mail.gmail.com>
- <87a4ut1njh.ffs@tglx>
- <CACT4Y+bBD7uCHXKqGo=epBXeEmsZ67Og2YO9kjNMT3ryjUY_sA@mail.gmail.com>
- <CAHnCjA1LqbaUGkPe79EeP6Mpaki8QWeR-JBSbrG0z6pTm9CmUg@mail.gmail.com>
- <87v7dgzbo7.ffs@tglx>
- <20260424150318.GE641209@noisy.programming.kicks-ass.net>
- <87se8kywhb.ffs@tglx> <87jyttz8cf.ffs@tglx>
- <lhujyts4zr8.fsf@oldenburg.str.redhat.com>
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Content-Language: en-US
-In-Reply-To: <lhujyts4zr8.fsf@oldenburg.str.redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: YT4PR01CA0273.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:109::21) To YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:be::5)
+	id 1wHQqP-0000000HaP4-3iTp;
+	Mon, 27 Apr 2026 18:38:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1777315090; x=1808851090;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=+OpmoAu13fY5wZP+SeSwWUXkGEYUd9HoSGTid1eDS58=;
+  b=OsDfRZ+DXPg0VryMo5D1yP9nUEYWWHtnoqn/SEeQps6icPnWCPO51NRV
+   VyNys1KorsncNp1SGl3gS5QURh34FnnWNSDhu+nLgCV7FIQbL7rLTmtcc
+   ufS2eMr9xzChAe9DHet/Ek8xhEESNZo8UfSA+htmclflrC9xFj/coET+U
+   KvFwHLZ6gtMZzC+wivCaNgK3taZMT2JveL0CW4/V8MKs4mF5IJ2bXHNL4
+   c5jNE3+JJoAlEYJHgzAxNufHKQGCX25X+G1DTkKbtc4etu+GqC1gZ4Pa6
+   7mmyDRmCMNQqYeqM3rf/X6HUVkHHR/OCTHCLx7oGzbrgfXZMmcahp5mUo
+   w==;
+X-CSE-ConnectionGUID: OCw9QI13R+qSAJnA8xiDHg==
+X-CSE-MsgGUID: adsWLESsRVaQLermCFJVhQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11769"; a="78197480"
+X-IronPort-AV: E=Sophos;i="6.23,202,1770624000"; 
+   d="scan'208";a="78197480"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Apr 2026 11:38:09 -0700
+X-CSE-ConnectionGUID: JSUxNLBSS12D3OVNaqYiwg==
+X-CSE-MsgGUID: ZflEqIJTR4m26XQKJD9IRw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,202,1770624000"; 
+   d="scan'208";a="238755006"
+Received: from fpallare-mobl4.ger.corp.intel.com (HELO localhost) ([10.245.244.2])
+  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Apr 2026 11:38:06 -0700
+Date: Mon, 27 Apr 2026 21:38:04 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Jonathan Cameron <jic23@kernel.org>
+Cc: Salah Triki <salah.triki@gmail.com>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v2] iio: adc: mt6359: fix unchecked return value in
+ mt6358_read_imp
+Message-ID: <ae-tDFwxxTgTPayu@ashevche-desk.local>
+References: <20260427165759.5756-1-salah.triki@gmail.com>
+ <20260427181856.613a22ee@jic23-huawei>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT2PR01MB9175:EE_|YT2PR01MB10418:EE_
-X-MS-Office365-Filtering-Correlation-Id: 40da9610-9bdd-449a-55c6-08dea48bbf52
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: Z0hlTubLKMngRV5vUyLpo9gedW+NLJ9bHlVPzb+PuyJAQOY8zeAxIgQaFKE7ON2uIvhubszO4SoUY5iJbwCIP7Pv2Pyrc+8ZnkA/0XE3EyOfDz2gluWX5OZOSZEkYXDU2Gv2pdw4AeqnIlv9FfAynzYT46OyVXGDptBEuDa3VYGiBDpTR/3Bfh+XuxIyAWQpfl9ax3WFwgwSherzKsc+GOioSCnUZ1o/bB32lq6rJhkgtWnR0FWvUgiq0jmMiTtvubaNVDOMBZnU6ZkKd4KIBGFLcuaTEvdNr2kg8U8i12Z71ZDzqNVDo38ImR1WmSEztD1F9lqXr+9zGeibEdvT2MareFOqjLK9yOvbxdrvoEEkWOZcxlw0ZQjfmhOfpfCGW8Gkaqr7ZtnAhd6Xolik9WeuHE5gaNG+W7yFFqUOoAbhqwp+NK28vmZkg0gMaCiqfmUAbEigofmRS3abr+Aeno3Du2w3gHd5eLxvt+SSQqOL/2b2/zuUmrcKR0QWnoJfmwnLN5W81AqWGTNrq44GAsbNzCafhGgIbrEQO9RP/xfyg3NOLwxsnfplyJyN7ampDjP6mc/84GFNgKHiHoV4+8ItJ44BCj72VmOloyQOoEhebxkMPYivt6rIXM6RhCPKq01zG36rGC0VE6wXb5/COCrEO40Wlf2FFCObmddWM5EsWfqTPnb0nagycw35AjYr
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aGF4MUx5cEg2WWN5MXhEWHBhcGJaNHprb0U1NmVacnovdCtUWHhKT0thb2NC?=
- =?utf-8?B?aHlUUkExQWdFZVhEQ2hpMURyWHliSTlKTlVFeVVwSG92MFJQYlJIRk5UTU9m?=
- =?utf-8?B?WS9nelZBek15TDl6TkthVmpWaU5oVTAva1pxR1crbEFIbVhFUmxXUHZMNUI3?=
- =?utf-8?B?c1pzck5vb2NPZWJadGN1VWRvQ0I1QzhhQ0tReDMyZHBlWnBkTllpUWIyenEz?=
- =?utf-8?B?NzVIeHNRcjRIVm1vZXU1S2pYSEJBZVhNdWg5OU01ZGhkV1F1L3ZzckpGWWpK?=
- =?utf-8?B?Ti9hczhIbXo4eml4czhZSGg0TWZ1Vm1ENDlhdlhkdWEvdXlPSDJCcGVMVjVQ?=
- =?utf-8?B?SkZ6U0ZzK0o5am0zbnFqTkpiS0ZjSzVvcW1rbDBYckdrcDB2dThibmxpbVRC?=
- =?utf-8?B?RnJyZGN5dUEvMWJ1dUlKMEZYbEtMbEtPMGE2aksxa0hSRUFqZkJ0dHoycFFo?=
- =?utf-8?B?QyswdW1pVU43U1hUcENpWi9tbzN6TnJDMjk0Y3NUOXQzTjJObkhHU2piWjRy?=
- =?utf-8?B?Z0hqR09kdWFXV3hlb01DMXJrNmNVdEY3YVZVeGlZTHFLUlRQY2dkN3lxcmp5?=
- =?utf-8?B?Q2ZVMWlHRnhuK0lHR3ZzU2FIRnhsWVZKVkdWZVFiV3JqVWNIYzArSnZKRjhx?=
- =?utf-8?B?MEdDaHowRTNYZjV3VXBza080T2lENno0ZGp5Tk1nditlTllmalNRdGhXcHJU?=
- =?utf-8?B?b0wwNTJxWGJVU0NPS3ZWQUpicllyRTRwdVlNZ2ZmUHFuVCsrYnYxcHVqNk9U?=
- =?utf-8?B?QWpuU1gyaERBOWFLVnJnRjAxdDRpeTNBOHQza285Z3lZeFR4cFNQYnZRcnRI?=
- =?utf-8?B?YXFjMnRLMHlqUUtJVG1IY2VDbUFVUUozNS9IbEgwaWVTUlpSbitHd0orOXBn?=
- =?utf-8?B?RTE5aXVTODFtdG05cmlTRWE5bERVWkVUMEtGSXl0YWRCZTN5RkJKdkFqSHBy?=
- =?utf-8?B?aTdRSFlHSi9XRUY5eFZWV1BBWXU0QjB4Y0VJM1ZoNk8xc2ZNUFZBeGx5eUd3?=
- =?utf-8?B?dlJmR3BwRlFNR1JtUGNxYTJST2NDOTFyVy9zaXNrL2NDNFpyemZzbE91MzAr?=
- =?utf-8?B?WjZ1RUxJZG9nYmtvQ0hUNFlIV0M2K2hnbUtiRVNQOHVVdWRiYmlHa1JuUUNC?=
- =?utf-8?B?bVpWMlFRL0F1RGdNSHh6akFVL2dOODRIalk1emdpQjVnRkoxaHRHb1lTZ1R0?=
- =?utf-8?B?YmJsWEJvSGlSejd1Y25vNHNWUHFHZm0xZVJaWkRTTnRIZ0x4TE1xT1p5bVlY?=
- =?utf-8?B?VW5OTHdWR2NXTTFBZmIvajRINjhSWDNOb1NkUEMyUitXRWxnMm8ycytGTk95?=
- =?utf-8?B?M1oyS1JyZVQ4R3J2eVZpUXkvOHBUa3RBd00vRlNPYUQySkovaFgxRitsNlhS?=
- =?utf-8?B?S3FWaGhjQU9RYVdIZUpkNEZKNWtMVjVXejZ3elh0dE1ubHJFMVJBcWl3d2Q2?=
- =?utf-8?B?WUd5SkIwRFBMZHQzRHVjMkVqbFZKWmdvM2h4Ym1ZNm9Gak8yMXRCaTZJQ29h?=
- =?utf-8?B?Y0QwdE43aXdqSDZ5L3kxWmR1SytBenl2UkFub1hicUNrOWFuVklGWTdyS1Np?=
- =?utf-8?B?ZFRFMlNkNVdhTE04NVZtNFRKR0xMQzZ6N0dwS0haYTRaeE9tNFk0VVRkUEo0?=
- =?utf-8?B?ZDA0UDVtUXpCdWx6a1M5Smt4L2Jtc2w2Y0Q1MVZrRHRMZU5VYkowUHQ5NGV0?=
- =?utf-8?B?bmdhdmpaQXU3dE5ybGhTS1lZeEkwTHdmV2ZrZDNXUzJRMS9Ea3JUTDVZQXhv?=
- =?utf-8?B?RzNkVlAycDVESE1mZkR0M1lHeCtHYjJveVNUL2ZjOGxwS3Z1RDMybktabjdV?=
- =?utf-8?B?V2FPMmlicXdRMVBFbVZGZ0thVm5Xbkh4djU2czAxQzYzR29ad28rbllGNHNs?=
- =?utf-8?B?dkR1TjRLNGRySUpYY3NDbDY0d3RGcXhiQnhDMmFkZGN4VnoxOFR4M01BR2Fq?=
- =?utf-8?B?LytOM1RhOUl1eWRUbldJSTEvL3NYYVFOcUJxWUdsbytVT2ZtNkN2TWJiMTYr?=
- =?utf-8?B?amYxUmN5aWY1OURuNGZPZDB0Z2JJYWtZczAyeTVsN3BRbEcrZTY0K3ZyYlhl?=
- =?utf-8?B?bHAwU1MrWkJ2VzUvZ3llWjZPcllpb0taUG02R0trckZnbTEyN2RtMm5DY1lW?=
- =?utf-8?B?REhPb3dibDliSG5acmdscEdJLzdOQXpaSVhLRW9zc0ZNN25veWN4enNrZXkw?=
- =?utf-8?B?aDZTUHFhellCMlFFOGYvVk5ic3owUFo4Y3NKUzJEZHUzVGZRcUNUenZsZUI4?=
- =?utf-8?B?WHpCcm0vbUsweCtkQzBicDNOelNRYnhBazZMMEJiZXVBTUJWeW1XVko4dm93?=
- =?utf-8?B?WThyeDI2ZWk4b3duZk5uYVdYcldwekgrTCt5N2tkWGs2TFhKbEtMQk9UeWZT?=
- =?utf-8?Q?LsrMq1/YvbWAnSq3Lo4ks5YNYeslNxErxC8E/?=
-X-OriginatorOrg: efficios.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 40da9610-9bdd-449a-55c6-08dea48bbf52
-X-MS-Exchange-CrossTenant-AuthSource: YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Apr 2026 18:35:25.5061
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Ks1tL8lX4jXKyjgTsnvPscobwKDM0cisgZf1DBPAAZUDtT0xILFxh6GU5VqnHk4ITfffQYm8e24Pz9mJ//9GwBoooL7sI5VgVulcmQLLyCY=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT2PR01MB10418
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260427181856.613a22ee@jic23-huawei>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_113533_712494_6E024ACD 
-X-CRM114-Status: GOOD (  14.09  )
+X-CRM114-CacheID: sfid-20260427_113809_965915_DC184D43 
+X-CRM114-Status: GOOD (  25.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,68 +93,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-04-27 03:40, Florian Weimer wrote:
-> * Thomas Gleixner:
+On Mon, Apr 27, 2026 at 06:18:56PM +0100, Jonathan Cameron wrote:
+> On Mon, 27 Apr 2026 17:57:59 +0100
+> Salah Triki <salah.triki@gmail.com> wrote:
 > 
->> The real question is how to differentiate between the legacy and the
->> optimized mode. I have two working variants to achieve that:
-[...]
+> > In mt6358_read_imp(), the return value of regmap_read() is currently
+> > ignored. This is problematic because if the bus read fails the variable
+> > val_v remains uninitialized.
+> > 
+> > The function subsequently assigns this uninitialized stack value to
+> > *vbat, leading to incorrect measurement results being reported to
+> > the IIO subsystem without any error indication.
+> > 
+> > Update the function to check the return value of regmap_read(). Ensure
+> > that mt6358_stop_imp_conv() is still called to clean up the hardware
+> > state before returning the error code.
+
+> I'd be more concerned about what it might otherwise report.. Will expose
+> something random that was on the stack previously.
 > 
-> Switching to the new extensible RSEQ allocation code in older glibc
-> builds is not entirely trivial, and I would prefer not doing that.
-> Registering with a new flag is comparatively simple, and we could
-> backport it, except that it might not be compatible with CRIU.
-A third option would allow the entire range of older libc versions to
-benefit from rseq optimizations, gating the "v2" behavior on:
+> Ok on this one having a fixes tag given the uninitialized, though as I mentioned
+> I'd have been tempted to take the approach of just initialising it.
+> 
+> Even with the code as you have it here a static analyzer may not be able
+> to see far enough to tell it is initialized and so throw false positive warnings.
 
-   rseq_len > 32 || (flags & RSEQ_FLAG_V2)
+True.
 
-As a result:
+> Still, let's see what Andy thinks before you change anything.
 
-- restore compatibility with existing tcmalloc binaries.
+...
 
-- glibc 2.41+ would benefit from optimization without changes.
+> >  	/* Read the params before stopping */
+> > -	regmap_read(regmap, reg_adc0 + (cinfo->imp_adc_num << 1), &val_v);
+> > +	ret = regmap_read(regmap, reg_adc0 + (cinfo->imp_adc_num << 1), &val_v);
 
-- glibc 2.35-2.40 would be able to easily backport minimal changes [*]
-   to benefit from kernel optimizations (flags & RSEQ_FLAG_V2).
-   Likewise for RHEL glibc 2.34 with backported rseq support.
+> >  	mt6358_stop_imp_conv(adc_dev);
 
-[*] Minimal changes to allow older libc to use the optimized mode
-     involve implementing a new query for getauxval(AT_RSEQ_V2),
-     which would return nonzero when the kernel supports the v2
-     flag, and when supported pass a new RSEQ_FLAG_V2 flag to rseq
-     on registration.
+This still uses unchecked IO.
 
-That v2 behavior would:
+> > +	if (ret)
+> > +		return ret;
 
-A) Enforce the ABI contract:
+So, assume we got it right and error code is 0, but failed to stop conversion.
+What would be the consequences?
 
-    - RO fields corruption -> kill process,
+As I said, the whole driver needs to be re-think of. If you going to check this
+you need to add checks into _stop_imp_conv() which may lead to adding checks to
+the complementary functions and it will go as a rabbit hole.
 
-    - System call within rseq critical section -> kill process,
-
-B) Allow optimization of the rseq field updates (only update relevant
-    fields on migration),
-
-This entirely decouples the feature enablement concern (rseq_len) from
-the strictness/optimization mode (v2).
-
-This keeps compatibility with current tcmalloc binaries because
-tcmalloc always registers a 32 bytes rseq_len without the v2
-flag set. tcmalloc already has its own internal fields at fixed
-offsets from the rseq structure which conflict with extended rseq
-fields, so limiting the tcmalloc work-around behavior to
-rseq_len == 32 seem to align well with the tcmalloc project
-approach towards extensibility and ecosystem inter-compatibility.
-
-Thoughts ?
-
-Thanks,
-
-Mathieu
+I agree with Jonathan that quick fix of initialising it explicitly with
+a comment will be better approach taking into account the state of affairs
+of this driver as a whole.
 
 -- 
-Mathieu Desnoyers
-EfficiOS Inc.
-https://www.efficios.com
+With Best Regards,
+Andy Shevchenko
+
+
 
