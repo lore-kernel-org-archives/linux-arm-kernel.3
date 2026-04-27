@@ -4,64 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C84BFF885E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 12:41:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1F09FF8860
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 12:42:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1hHanKhgSNPNyW7BtonFlH3iX6W/a+wogWqZOKIosO4=; b=J18Cfq45Xrd6gJHq7n/uEzc/Bl
-	OTJt28Zc4VJcC29RZUYmJ8OqLkm21wtcXDYLkWIPImp3+j780cJLEIl7juMcH0tvjtZXeC8biU2P2
-	6kylfw3IdgmA7VGtqnXZTL0yeyI0euCct8qrnQQ0R+Q70u47Hkn+tjhZd/M+9YJ7PDhK3PxdhBEhf
-	N/j43c0o4ym1hmrie6q8wd2EtG6gqMtzav5satZeMrowsdtCCI79M4eXFC/Rm40gLV7xWm3mnV6WW
-	KRF5RF3RxU9OHgjqgeSWp9/npT6jKJKb36TCEGmhclTnkf76oLX0QoY8mEOL0u7ErNtWZD3cGtEnQ
-	IUacEpHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pyOXD16AVEn2+jNkjmx/QXBNgk/cFeIkblrhM1nz1a0=; b=MgmDjLltlEYungIaE0qI+1ND3k
+	ObXxj93jjGHpUv3Lsu5KYs0yCaTqUIhyueDYg54uynXuYD6KlI4JrG+Mm24LNt1V4ChJy9p917O1e
+	1X8ASLjgCia5NfuLyC0OMPfDYAy/30Yj7xEmTDTkep6F6HIdGdATiHncqhQnFKOiypTMxdLou4rIr
+	lfmGNPWKzuEA5bVchstiseDU09o6+RtK+2qZmvAaw+F/ux+bQDwql0D9vIsY5t1KL91+u3UY9yIjd
+	O+xSKGDpxyXg7FVQBrs0J7gCq9FvrWraI1B08OVRe5z3DiRUHu+nJS9TdDbuSzyaB25+d0AgTzGR/
+	6PejlLWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHLHO-0000000GveV-0aGy;
-	Mon, 27 Apr 2026 12:41:38 +0000
-Received: from out-180.mta1.migadu.com ([95.215.58.180])
+	id 1wHLI7-0000000GvjC-2ILL;
+	Mon, 27 Apr 2026 12:42:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHLHK-0000000GvdY-3lUD
+	id 1wHLI4-0000000GviN-2Jm0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 12:41:36 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1777293690;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=1hHanKhgSNPNyW7BtonFlH3iX6W/a+wogWqZOKIosO4=;
-	b=SwVYql808T4i1NosCr+5XCBhbYxszy3j4bdvpSaN7hyrUVPJnDS4kjM7GTFV70EEhnhQ64
-	j5xjEVw9xCl1EK7bCx0xNVB8b93VYELLiIv91pgtpuFtKoWtOChxkAr777c65OBkvcvmoi
-	cDLcCsPZiWVaUi8UxSi7++5yOh2tiEE=
-From: Thorsten Blum <thorsten.blum@linux.dev>
-To: Thorsten Blum <thorsten.blum@linux.dev>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	=?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Linus Walleij <linusw@kernel.org>
-Cc: stable@vger.kernel.org,
-	linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] crypto: atmel-sha204a - drop hwrng quality reduction for ATSHA204A
-Date: Mon, 27 Apr 2026 14:40:32 +0200
-Message-ID: <20260427124030.315590-3-thorsten.blum@linux.dev>
+	Mon, 27 Apr 2026 12:42:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CAAE3419F1;
+	Mon, 27 Apr 2026 12:42:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2F69C19425;
+	Mon, 27 Apr 2026 12:42:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777293739;
+	bh=E4JN3tpqXjLm9rCgx2y53pOGJUFLoml2hig5xRKFWyU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=f0mNuntOXUvsvZTC6O2mHfHb7CLmA9EtKNC1EppXeQZZh3QMv/bkTKOAog9WDGQck
+	 hpzWFXRnx0/D8wCQBokY+KEs3HlZkrjtb6HSD42W3PKSndSeH58g9eQuvGvA0A6pRI
+	 GkT2sV6Q8owz1BIobe1uV5w9Ze1e2+BffxobzMk6S26WEaaMvsbz6AS/jVb/Nca5Iw
+	 NJyKA3qj3KsX9TQTVGNXvgDHCoLIcCbh9f6N1MzL/JGbPc+4gIHQir1mZVqwiTy3mu
+	 FUYUaksyYCMBAXdbiwXM193X7X34JM97mJEpAemjLdGUps4tLjeC+jjHPT/PW2txSF
+	 bqiMLTQCK9M5g==
+Date: Mon, 27 Apr 2026 13:42:16 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Sebastian Ene <sebastianene@google.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Jens Wiklander <jens.wiklander@linaro.org>
+Subject: Re: [PATCH 3/8] firmware: arm_ffa: Align RxTx buffer size before
+ mapping
+Message-ID: <20260427-witty-light-hyrax-ea65d1@sudeepholla>
+References: <20260423-ffa_fixes-v1-0-61189661affe@kernel.org>
+ <20260423-ffa_fixes-v1-3-61189661affe@kernel.org>
+ <ae8sqehR7yQFheuj@google.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3771; i=thorsten.blum@linux.dev; h=from:subject; bh=rPsElOTnBU2IAaqPJKzszB9VzGW4gBafqHa3s/4eJvE=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDJnvI+02/HdQN7hmPueCfHr9w5tdL9aeNPmQs8Yga+78N IGLjaXMHaUsDGJcDLJiiiwPZv2Y4VtaU7nJJGInzBxWJpAhDFycAjCRDGmG/2ETlnxR8p9cppF5 Vl3/07rAaxx/brz2KuF9/7Q/tukskwAjw28np8U5s2a5rLsqqqPIVPV/F8+JU24qlqmrv4WrP3q 1kQEA
-X-Developer-Key: i=thorsten.blum@linux.dev; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ae8sqehR7yQFheuj@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_054135_118267_951A9F35 
-X-CRM114-Status: GOOD (  13.83  )
+X-CRM114-CacheID: sfid-20260427_054220_611184_5671A11F 
+X-CRM114-Status: GOOD (  14.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,99 +74,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 8006aff15516 ("crypto: atmel-sha204a - Set hwrng quality to
-lowest possible") reduced the hwrng quality to 1 based on a review by
-Bill Cox [1]. However, despite its title, the review only tested the
-ATSHA204, not the ATSHA204A.
+On Mon, Apr 27, 2026 at 09:30:17AM +0000, Sebastian Ene wrote:
+> On Thu, Apr 23, 2026 at 06:22:53PM +0100, Sudeep Holla wrote:
+> > Commit 83210251fd70 ("firmware: arm_ffa: Use the correct buffer size during
+> > RXTX_MAP") advertises PAGE_ALIGN(rxtx_bufsz) to firmware when mapping the
+> > buffers but the driver continues to stores the minimum FF-A buffer size
+> > in drv_info->rxtx_bufsz which is used elsewhere in the driver.
+> 
+> Hello Sudeep,
+> 
+> > 
+> > Align the size before storing it so that the allocation, validation and
+> > FFA_RXTX_MAP all use the same buffer size.
+> > 
+> 
+> Thanks for fixing this,
 
-In the same thread, Atmel engineer Landon Cox wrote "this behavior has
-been eliminated entirely"[2] in the ATSHA204A and "this problem does not
-affect the ATECC108 or the ATECC108A (or the ATSHA204A)"[3].
+It was my fault, I wasn't expecting sashiko was covering most of the lists
+now, so didn't check for it in time.
 
-According to the official ATSHA204A datasheet [4], the device contains a
-high-quality hardware RNG that combines its output with an internal seed
-value stored in EEPROM or SRAM to generate random numbers. The device
-also implements all security functions using SHA-256, and the driver
-uses the chip's Random command in seed-update mode.
+> Reviewed-by: Sebastian Ene <sebastianene@google.com>.
+> 
 
-Keep 'quality = 1' for ATSHA204, but drop the explicit hwrng quality
-reduction for ATSHA204A and fall back to the hwrng core default.
+Thanks!
 
-[1] https://www.metzdowd.com/pipermail/cryptography/2014-December/023858.html
-[2] https://www.metzdowd.com/pipermail/cryptography/2014-December/023852.html
-[3] https://www.metzdowd.com/pipermail/cryptography/2014-December/023886.html
-[4] https://ww1.microchip.com/downloads/en/DeviceDoc/ATSHA204A-Data-Sheet-40002025A.pdf
-
-Fixes: 8006aff15516 ("crypto: atmel-sha204a - Set hwrng quality to lowest possible")
-Cc: stable@vger.kernel.org
-Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
----
- drivers/crypto/atmel-sha204a.c | 40 ++++++++++++++++++----------------
- 1 file changed, 21 insertions(+), 19 deletions(-)
-
-diff --git a/drivers/crypto/atmel-sha204a.c b/drivers/crypto/atmel-sha204a.c
-index dbb39ed0cea1..df69fb190e52 100644
---- a/drivers/crypto/atmel-sha204a.c
-+++ b/drivers/crypto/atmel-sha204a.c
-@@ -19,6 +19,25 @@
- #include <linux/workqueue.h>
- #include "atmel-i2c.h"
- 
-+enum atmel_sha204a_variant {
-+	ATSHA204 = 1,
-+	ATSHA204A,
-+};
-+
-+static const struct of_device_id atmel_sha204a_dt_ids[] __maybe_unused = {
-+	{ .compatible = "atmel,atsha204",  .data = (void *)ATSHA204 },
-+	{ .compatible = "atmel,atsha204a", .data = (void *)ATSHA204A },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, atmel_sha204a_dt_ids);
-+
-+static const struct i2c_device_id atmel_sha204a_id[] = {
-+	{ .name = "atsha204",  .driver_data = ATSHA204 },
-+	{ .name = "atsha204a", .driver_data = ATSHA204A },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(i2c, atmel_sha204a_id);
-+
- static void atmel_sha204a_rng_done(struct atmel_i2c_work_data *work_data,
- 				   void *areq, int status)
- {
-@@ -171,11 +190,8 @@ static int atmel_sha204a_probe(struct i2c_client *client)
- 	i2c_priv->hwrng.name = dev_name(&client->dev);
- 	i2c_priv->hwrng.read = atmel_sha204a_rng_read;
- 
--	/*
--	 * According to review by Bill Cox [1], this HWRNG has very low entropy.
--	 * [1] https://www.metzdowd.com/pipermail/cryptography/2014-December/023858.html
--	 */
--	i2c_priv->hwrng.quality = 1;
-+	if ((uintptr_t)i2c_get_match_data(client) == ATSHA204)
-+		i2c_priv->hwrng.quality = 1;
- 
- 	ret = devm_hwrng_register(&client->dev, &i2c_priv->hwrng);
- 	if (ret)
-@@ -202,20 +218,6 @@ static void atmel_sha204a_remove(struct i2c_client *client)
- 	kfree((void *)i2c_priv->hwrng.priv);
- }
- 
--static const struct of_device_id atmel_sha204a_dt_ids[] __maybe_unused = {
--	{ .compatible = "atmel,atsha204", },
--	{ .compatible = "atmel,atsha204a", },
--	{ /* sentinel */ }
--};
--MODULE_DEVICE_TABLE(of, atmel_sha204a_dt_ids);
--
--static const struct i2c_device_id atmel_sha204a_id[] = {
--	{ "atsha204" },
--	{ "atsha204a" },
--	{ /* sentinel */ }
--};
--MODULE_DEVICE_TABLE(i2c, atmel_sha204a_id);
--
- static struct i2c_driver atmel_sha204a_driver = {
- 	.probe			= atmel_sha204a_probe,
- 	.remove			= atmel_sha204a_remove,
+-- 
+Regards,
+Sudeep
 
