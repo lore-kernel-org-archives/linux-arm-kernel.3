@@ -4,148 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF131FF886C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 18:39:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0022AFF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 18:51:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nALNUxvPaXzFesZYqSMaFrytkX4CgELDa/JWTp7Lw8s=; b=VNKxxJHPulyEDfSGsTIa561A4U
-	ZyXzz0ejOmt2fM09j/botn8Ya0EDAJxjHSBXnO+SX2YR0luoAvAAUd/aonf46jMKVmObdOoswgJlX
-	Nbb61BFWf1OIHk8cJAKjZwflO1LxXaMBckmBW0aMMWht1uxljGeWCjPsRLxyQ4VkMZNJaHiCrkpTw
-	zAzsUNmi2j/nyXovGYUwsTnooaaNq3wab1c3tEC9ytdsLMGp1sw1DTssXyvcPfkmxkIkCdw+jqOsC
-	DItE3etIgFzADnkvuazOh65TfrwGiC6SWvcqWLcFxiEawxosi7kDJhrEGQ7pu/w8Fvp9mC4XpManf
-	pPfM4t5Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/6sfoFAvfWB9EagW7iFTogcH7jnzQzJq4Ms7jXRzikU=; b=gU3Rq/HAcmK/Hg
+	IQ9GQj4lPdnTnyqBLPHk7M6kcKpdReEYyFU1saQL7vhk1HUoHjhXUmONmTnz6f+Gxp4O25pP2l5RQ
+	MPEtUPI0s+oYHZnokRA67iIawj1AUrbdYjX+Eb+bsreHfhMZ59tiVNjMgjpsp/3y9sm61NaUJZu/6
+	FG6UMOog1wXsmKnNzsydceCqJDxTnOGTnqYM/IY2+1qul9rWHNKOVCSHQAkz3m+1su4NMuivownqt
+	F2f11AJFXlnqcWfTPiu+B2wfj+/IBzyKVVJ9WJaiAuYTiy4B6v1eOgFtnZ2DIT9dICPYVsGIukJM/
+	Tg0w2YlYOv01sb8WUvqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHQrt-0000000HaaO-2z3Q;
-	Mon, 27 Apr 2026 18:39:41 +0000
-Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1wHR3I-000000000Ca-38TH;
+	Mon, 27 Apr 2026 18:51:28 +0000
+Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHQrr-0000000HaZW-01cC;
-	Mon, 27 Apr 2026 18:39:40 +0000
+	id 1wHR3F-000000000C6-3Pcj
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Apr 2026 18:51:27 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IQeGa+YdNTuEb823qdZS8Hpotu2r72E0T7L133DkAjYdxm4sXHNsSUmdDgfuLqSgZ8ptJqXAaawtnWfzbuYE9JgTht/7aoE/UBY4fb8CsN7gCBIZfgKE1at/fpNpM0xSdAZJWuaUqRa0tqhI+N/yx9xph7PK0K68mzfAl3ULUBoKMqt7kO8SmQqIRPQp/EyHUjaf8pVm2IKhXkERYsuE6sazi1OyFGe8w6Tpyc067R/wsyQcV3mHt7zG29uYi1UdlBEBwV7zkb5+etoOikaMn5emW16FR/V0uWFWi+xABha/3wJBSOsptBb5XuUEJ0gI46UsoZZATZeItdPD4X+E7w==
+ b=Ecim7HMpu6re722q0ykIN2NLSnHzX5y9m1cQZJzCc8HuDoABrQKhncTB3GoSysy5pS3uDnht7iPDbdeH2f6yPSTQRWT2k3h89gW9EjzbUpGGUnqiv8uXbJ7XrD1nG8pBassqdUeNlT3jh7Bf3Hj46mHob1NbSxm0IIWzrGTywl7dKbxkfot8J4fkshyik4HlnIgRQhylwCxSqkowqi5joMoyiAGONw3fbxJRcu2e2y/bJdfC567cn6R9xZAgrP+Dj9ccbaJtP+w7JWBeclcN9cnzLJsqlz4kISMaOxQnNgMDAXFw2CCLf93UOZ7KqX+LzerHzfW/ghnWdMwKQLeCgQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nALNUxvPaXzFesZYqSMaFrytkX4CgELDa/JWTp7Lw8s=;
- b=px9mAWIgpW1g8A++4bB0b0HuBTVzWQKUHx38Lv15RAJgY6RPeHYUnILh/TwEOgn2886PJ4HV1v36kbLLG0HxUFAomMviDfWTHNqC74F0NXfW2B6flkUGEtIYX1KuG62cISJfxDrgdMABrDWp6xVA2MUygcqCtHSOnaMZ5ZNilmoI++yqNmdF0OaD0k2KfXGmE6cSPLaiwtfXftefCRmJeENOcw80UlNkg4EMTulJcftI1iU27D4XyjUiX2sDWu2PtYSLmYIgPWNxczRp1XfiNZwvXibbYm5a4muPrwHvEBOL77eyyAZhWYd43uPx0Y5scO9gl7o17mc1PxH3v/Hq8g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
+ bh=/6sfoFAvfWB9EagW7iFTogcH7jnzQzJq4Ms7jXRzikU=;
+ b=Qras3xA4Kg87AHjKTD+lxxamnry7XQqFm7uK0ZCOAnSdxltrRARSK4+KQz8WWRfdCqW+gDguJ2bdAYpfVQyJ/Yjbx1brgXB17RIc4plejY0t7PAHXsN6RYepDU21f2v7Pi1HstDU+kP3yxQmKhyLvkWU+Rg+qkG0j4EqrQDjyWjV248DGJolwIwV+HM8ZM5faMC5NImAe5eQ7jlPI4gTnMn/k42pNoknaqp5SMk7JlTn45ENkVMyw74Z+CRBysON53hX1y4tEplJi86CQ/QoWmNiydmixUDa1GetjJENIR+Tfwuz9GIUYUYl7alZ6n9xaOX9hb+lRXZRkHkIuls9tA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=linaro.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nALNUxvPaXzFesZYqSMaFrytkX4CgELDa/JWTp7Lw8s=;
- b=pmvWhp/oxEcxQMryFRvqYtTB0A/GaOLun2mURAQK9jJXjqt4Nrc84ZfAfdVzaosEdXMWAP59oi4+UbMy4mec1KbzWHAyoF57I8DflvmrAbfhIb57bYv5qY2FGaPKUQk1zJRQQp9CqnyFj5VocFwyiXwUgS9FNTnrrFLeiZOJ1G9JrF4fAHR8lxFNj5/FwsIq3FU1ajVbQb2H+3//9zc7t+U20kMXMalri61t8NRsJ5k3/mDo4BdG+GEoyoHOcMDJdBMl8UX3LCr93JIqZbyQOPZZ1D/mW+4NjIfkYIV4DzD/8KPPzEEOg0Q59M3wKfLfO1wJ1sZJFQP38+wbciAclw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CY8PR12MB8300.namprd12.prod.outlook.com (2603:10b6:930:7d::16)
- by CH3PR12MB8969.namprd12.prod.outlook.com (2603:10b6:610:17c::12) with
+ bh=/6sfoFAvfWB9EagW7iFTogcH7jnzQzJq4Ms7jXRzikU=;
+ b=I4PgW2CpaQjACI4DXJm4tgusPmGdg0JOtsKvjeHv9RDKjcM8ikMrmbMtkfd58nI5tEa6lPcuz5DomAlOOSqyq6mOwsWuKBQMdYTndUpzxrVMnowleBr+X0HYEkqyygs6VV+9Qjesn3CdcSq6sI+RT2Et8cYOxoDttG8pgT1Xinc=
+Received: from BY5PR04CA0017.namprd04.prod.outlook.com (2603:10b6:a03:1d0::27)
+ by SJ2PR12MB8956.namprd12.prod.outlook.com (2603:10b6:a03:53a::6) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.15; Mon, 27 Apr
- 2026 18:39:19 +0000
-Received: from CY8PR12MB8300.namprd12.prod.outlook.com
- ([fe80::ce75:8187:3ac3:c5de]) by CY8PR12MB8300.namprd12.prod.outlook.com
- ([fe80::ce75:8187:3ac3:c5de%3]) with mapi id 15.20.9870.013; Mon, 27 Apr 2026
- 18:39:19 +0000
-Date: Mon, 27 Apr 2026 14:39:16 -0400
-From: Yury Norov <ynorov@nvidia.com>
-To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	David Laight <david.laight.linux@gmail.com>,
-	Thomas Gleixner <tglx@linutronix.de>, linux-alpha@vger.kernel.org,
-	Yury Norov <yury.norov@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
-	dmaengine@vger.kernel.org, linux-efi@vger.kernel.org,
-	linux-fsi@lists.ozlabs.org, amd-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
-	linux-wpan@vger.kernel.org, netdev@vger.kernel.org,
-	linux-wireless@vger.kernel.org, linux-spi@vger.kernel.org,
-	linux-media@vger.kernel.org, linux-staging@lists.linux.dev,
-	linux-serial@vger.kernel.org, linux-usb@vger.kernel.org,
-	xen-devel@lists.xenproject.org, linux-fsdevel@vger.kernel.org,
-	ocfs2-devel@lists.linux.dev, bpf@vger.kernel.org,
-	kasan-dev@googlegroups.com, linux-mm@kvack.org,
-	linux-x25@vger.kernel.org, rust-for-linux@vger.kernel.org,
-	linux-sound@vger.kernel.org, sound-open-firmware@alsa-project.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
-	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linux-sh@vger.kernel.org, linux-arch@vger.kernel.org
-Subject: Re: [RFC PATCH v1 2/9] uaccess: Convert INLINE_COPY_{TO/FROM}_USER
- to kconfig and reduce ifdefery
-Message-ID: <ae-tVFVfx72oCC_i@yury>
-References: <cover.1777306795.git.chleroy@kernel.org>
- <9fe875d2f55af59c12708336c571a46038528678.1777306795.git.chleroy@kernel.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <9fe875d2f55af59c12708336c571a46038528678.1777306795.git.chleroy@kernel.org>
-X-ClientProxiedBy: BN9PR03CA0924.namprd03.prod.outlook.com
- (2603:10b6:408:107::29) To CY8PR12MB8300.namprd12.prod.outlook.com
- (2603:10b6:930:7d::16)
+ 2026 18:51:15 +0000
+Received: from SJ5PEPF000001D7.namprd05.prod.outlook.com
+ (2603:10b6:a03:1d0:cafe::19) by BY5PR04CA0017.outlook.office365.com
+ (2603:10b6:a03:1d0::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.26 via Frontend Transport; Mon,
+ 27 Apr 2026 18:51:15 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ SJ5PEPF000001D7.mail.protection.outlook.com (10.167.242.59) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9846.18 via Frontend Transport; Mon, 27 Apr 2026 18:51:15 +0000
+Received: from SATLEXMB04.amd.com (10.181.40.145) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.17; Mon, 27 Apr
+ 2026 13:51:13 -0500
+Received: from satlexmb08.amd.com (10.181.42.217) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 27 Apr
+ 2026 13:51:13 -0500
+Received: from [172.31.134.241] (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Mon, 27 Apr 2026 13:51:13 -0500
+Message-ID: <00a41c39-81b1-4f7b-8681-8bf0dd59918a@amd.com>
+Date: Mon, 27 Apr 2026 13:51:12 -0500
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] remoteproc: xlnx: check remote node state
+To: Mathieu Poirier <mathieu.poirier@linaro.org>, <tanmay.shah@amd.com>
+CC: "Padhi, Beleswar" <b-padhi@ti.com>, <michal.simek@amd.com>,
+	<andersson@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-remoteproc@vger.kernel.org>
+References: <20260425030231.3145225-1-tanmay.shah@amd.com>
+ <93ea5065-b8a4-49db-91b3-71170905fa15@ti.com>
+ <5aabddce-eeee-43de-be30-115bc58040dc@amd.com> <ae-iTAk0KvtPvMSB@p14s>
+Content-Language: en-US
+From: "Shah, Tanmay" <tanmays@amd.com>
+In-Reply-To: <ae-iTAk0KvtPvMSB@p14s>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Received-SPF: None (SATLEXMB04.amd.com: tanmays@amd.com does not designate
+ permitted sender hosts)
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY8PR12MB8300:EE_|CH3PR12MB8969:EE_
-X-MS-Office365-Filtering-Correlation-Id: 88d3e4e6-a43d-4919-49fd-08dea48c4adf
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001D7:EE_|SJ2PR12MB8956:EE_
+X-MS-Office365-Filtering-Correlation-Id: aaabb21d-aa2c-4b4d-f676-08dea48df5a2
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|366016|376014|7416014|1800799024|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: TPoVweG6k+dJJz5MfIFVzAwybwz2jm9fSNM7cxd69vHJE9UR7v6gWyNzsADjvW7ykt1GxFh4Loi1ek62Aro4GaYSpAgmWTn2FafAKuzv9brpXCmKrPkRpx9DEAPIV+O5dQy3egB7SEzayZhdD/hWFuNZI6/aSgi9lHWX7gRMsSsQ+hETpWZ33SUUr8PWk26gfuJDFv6mOEW2uC2BXHmIXUBpyDzOLTJkWEZLidp+7/nea6eckeX0OWVi4bEZfR9vET0pIew0s/JD7Zz/RgAl3L1OS3LR+WDk0Cj+9xRSjoZt6hvaQHTWsroBoiVTErBG9cZcE6iDBPvkBn6JALg+xzh67RQUZnSxe3dpsNnBDx7CyfIbDUoxU3lAu9QNZYDT1pjKtmsR0xUxypUJz8heZAAejUX+cI5zyhEOMCfbZhYDfC8lL5HRKEb55UhgnG1W7/6v/FhxkMwqKMlyWokoOjOY4UTekvoZ2YoBlTz/0SexmXJCV8GlzzJCCy3Y1wJ/gnGl1oiAmGAyfo29/0sdy3H4BAYwxQB+IiP82ASQGpLESNwitwXe5+qlNSYOiiNPhvXQr7YPxg9TQ20Ipo3dS/oLszmjrr6IMeWdSIzAycLxAjM4ybcGKoHCvx/iHvz1ya1/Lu6sN7VNJ7G92kgR4XUfztSnUa/+T4Ty1oGleBPJ/1/eGU/xx0C11jRZy6aMFQ1qLzVFXPf+Rw3f5XbXFGlI7ibkCm1ybi3SLvQHJsk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY8PR12MB8300.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(366016)(376014)(7416014)(1800799024)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|376014|1800799024|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: MYW6edxpTKXfdY61fgP7hXW5RZOgA0f2g2/IQtwDJwGB5od/QiayHHYXoMWRLtutGO0Y6R09Ay0I7Q+IoxDmfQzaTQ9EaduiVgW9kgZjdI2ACyMlMkQ32i+yjOk/zmlT7ncDbQJclKFp1AJgq+mennxDTZG7ES+OTueMtZibBOSBprCW/1j5qXHqVf93PuvC4MzKN498ozWsNV7wAUz7hnmR0nmmks3ypTxiwdEQhfWb7+dbgs0s8tK6FXZLLXCQC9Fcm0xGgkQGb0I8hh3OD+kjak1VS39ruTwHIn4YmJo7S/3+oM7FyeM6FskQYyvwm+4Eap6oiVLbUbvdNFGyMEOAW9akKfeAhXmrNV5ZUgqVBEflCcgGSobuudsW5/Qf3nNLejrmVt5Eih1ggveVSj7Y5n1c5xrZQhAZYM2BX6KsdwXO45L/NMZLnCIh2EnxftcGLTZtvYA96yV1lyw3L/JTVB5eaiizsLF9X2SBvAsTVnCqTf5e0Cu2hvdQwseDH7OP7F+tHQ5B052eK7MraOENFapjwKJTYTTeM3J+x/uHVCYkDQpGadfx+qb2sZpkoQDgUxwyXf47MQ7PBCM0x5Fj1JT1481LhepAkZ71n7wcdpTENIGstDHxPUrhRADgrTVLyin+tAMYuQ/pvpJMdUsxYOIifiDFWDbG67OMnijDp0fVRqL9HdKzsL+vFj8pwHbI9d307JhAq+pzpcCnUV8vAMTzLGRTNkeF0MoGfK2PC18JgG8Y07BomQg2S90lkOotcPSgJP3/+RZRGlTDlA==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(376014)(1800799024)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?oib4bKcV8LA5vdjLqJ8bgcxtg+HiGQmptbpLOggOnOXMP8WzMNQrzTBLxW0t?=
- =?us-ascii?Q?J/O13Po8omZAsmm/pQpy/oqttV579odYMQrIVxXSjgf18STek1XRrKGwVmp0?=
- =?us-ascii?Q?l0BU1ufe1EiXFQOU6+6botm2sdTbVj9guzWn35tmDPDQr3Dwwmyjq5n/e4XI?=
- =?us-ascii?Q?SzRjxH/T3DI21r6vl4cCl334Ew2ij5/yQJC8A/DRNX+V7pyzPYuZovSr9F/H?=
- =?us-ascii?Q?Wgm4eMo8ZKAXBaCC+JcutRhN7eAH9v+cW52Q3ahFRH6xBK3C4/Z3i735rmIV?=
- =?us-ascii?Q?aMfpxHZ0SFW7fKav66AdZnuwM6sLZ9JgRxdV6lUM7BH/+pQ+3Pt5OuxuIF7P?=
- =?us-ascii?Q?wOEzXGgLg/FCQyv3W40kHRzWP2soqwyli3M0yrSc+NSjlNU55HajGFi1JvaI?=
- =?us-ascii?Q?tiNl9ri9lNxc+qE7KdAVPFL/2e+CEWg2vZahotUnAp3114m5sQG/4rVIg4gm?=
- =?us-ascii?Q?gd9zXeVaEsINZnTiz1qVCTLSKFcxLzulAejw8jMwtJRbeGBzK4ZC1e7VOCW+?=
- =?us-ascii?Q?aKVYJaES/nOjEprimIme29LeOa01vmBbY6+qz+yCseVYOQCq9CdDX7e1deoV?=
- =?us-ascii?Q?zaTnta1O/6L4nX1080PXzmu9mTtYtJNQO3DF9ovWHiONsmGP4U11bu49laOs?=
- =?us-ascii?Q?B0UU9IxLtWutiJxYBVD0KN4xfooNicHXXZR6LrmeOgPpcSsKDeGO2BnYG9lv?=
- =?us-ascii?Q?jdgN60ENdKBvmSOFTzCRkCByFYt+/x7RaSBTKsrsbJl8Enat/5Q9rpxaSuYv?=
- =?us-ascii?Q?Hk0QJmiBMLq/XaaCVVftv/lOLZiG1rfq9bJc6AGkJ7Be2P6481HfBvkVoSKm?=
- =?us-ascii?Q?7dS46V0SCDnMF6O9L5WMOGcQF3/JmPJwDC3bbG0KXyXraugzFpO2I2A/zirX?=
- =?us-ascii?Q?a/CdkcxQ4G6IILYhs8aeRubhtiJ4TjMT/T5Mn38f6As5actrgh5OSaby7k/P?=
- =?us-ascii?Q?p/eP1WrTDycIQ7kQbNn0vPkAk/h7ELW35FbH3Phz+HVj/qsyPVuI3ZrMXUag?=
- =?us-ascii?Q?WAN4DeGhJIVi4hPoLtGwda6uakBNXByYqWFG6Y8WSZFrAuFMwEgvc3vSyFyl?=
- =?us-ascii?Q?Dx5n3nRrxw1RgZUiiAKDP0rwsC7WGhhl7rCLYH8tGf3cooY4z46us5fwXFjC?=
- =?us-ascii?Q?wNTDl7f7oWOaDilXo0Jux13wM3eh0BtH51CgLCN9tDrJnzsW7ZyZvcKQk5Tn?=
- =?us-ascii?Q?O9ixfPU/YHVSwPfjb9gBof+EiT69zyPNYsZE4X2O8CyU4Z8XVVbkKhgMngy9?=
- =?us-ascii?Q?YRDPa867pPjQhJc3j8j98MgOVgWGheyih5q5W+m9AMvdBEneu+a9dnByQyMn?=
- =?us-ascii?Q?qCLgefyIDgxtIR+PcNMkMkPhjugjUNVEanta6lIV/gHJ2JE334rR3ZB3QcoQ?=
- =?us-ascii?Q?NbJNKCyplpSmz2mdkoBN9xHWSzQA2d2/nRHmtmEYPxzVHY+pAEBbGSLUGA+G?=
- =?us-ascii?Q?n7hhnzbzDtnl+NVWD79E8VDdTdq6sg4VE3PrKKvMdORAmzEkarJh1RDPehzr?=
- =?us-ascii?Q?rf0jUwl/4QGQHSZRpxkK/lDw7l5CdWKgWv1KnfHZnVpP43iLu8DuyVVHQL2R?=
- =?us-ascii?Q?VCkeADDpChtUpYBLJdlINE5FPPK7QdiOkkbRoLE8VBbhAFo5vAXH2E7YlciW?=
- =?us-ascii?Q?k0gtUjR84c84anx2yV2+7D9n2SuoEUaYGM1OOv9cl/uolZtt2Je3yiYv7HTI?=
- =?us-ascii?Q?yD9W0nKiIOg27gfW0ZUuL7Zq68OzdAmeaqD7+UqqyPO6Vm6rjH2beLlolKD3?=
- =?us-ascii?Q?NnU9q5OrFzP7EEzyxKROJwYEahtrjRNUQfGufTekFC1cKWXYO/DQ?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 88d3e4e6-a43d-4919-49fd-08dea48c4adf
-X-MS-Exchange-CrossTenant-AuthSource: CY8PR12MB8300.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Apr 2026 18:39:19.3919
+X-MS-Exchange-AntiSpam-MessageData-0: ETLYBRP0JU0yVNi460uLgnpYE52F4K5wd8w8ktzW6cvdxGHHA3d9HIzsxS5IgpkdaqZt17FWogfAT2TTw5Cg3HZjwjOiXy+dxRzRLmydkQUzeF17AxVHaWPT1ddyt9K9FBXWu3HRCTnwUJhoDMU7yWWpO/JRwIgPbDV4UbKkNt4A7pT3DdBPYwerXoeY9vBoIXQJWT3vgjfvGNacTa/wD6Ei/zl5vvfK8cOM0dFLS33K31vU5tsFDyOWWKfVI9KjP3ZW4j0DJzAMHOE/wp18mJUJr6/P3/G4x6Q8aZnWUL9Hq7r6x0a0FU323xTcKgCuKOXbk5aqUShhMfroIec1dsQnZ0elvkJtY5z9SaqDGA/Pf9B6MeZaQ0D68C0urmA8p639fFkRlb6q9ZVA4Djxb7quR/4m1CY0by/XA28+mQKAZZN7jyd9ofAkoupDrM6s
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Apr 2026 18:51:15.0252
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 1EMi8W1U4wKLqFUR+2jNWxP3McH9TdZjJFX+Py1zekodl7uM/ruq8Dm5SoHnnrACMPwMaK2iGgbUgpHPN2cF6A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8969
+X-MS-Exchange-CrossTenant-Network-Message-Id: aaabb21d-aa2c-4b4d-f676-08dea48df5a2
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001D7.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8956
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_113939_045880_F2F00671 
-X-CRM114-Status: GOOD (  10.63  )
+X-CRM114-CacheID: sfid-20260427_115125_883102_E200F75F 
+X-CRM114-Status: GOOD (  25.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,36 +127,148 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: tanmay.shah@amd.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 27, 2026 at 07:13:43PM +0200, Christophe Leroy (CS GROUP) wrote:
-> Among the 21 architectures supported by the kernel, 16 define both
-> INLINE_COPY_TO_USER and INLINE_COPY_FROM_USER while the 5 other ones
-> don't define any of the two.
+
+
+On 4/27/2026 12:52 PM, Mathieu Poirier wrote:
+> Good morning
 > 
-> To simplify and reduce risk of mistakes, convert them to a single
-> kconfig item named CONFIG_ARCH_WANTS_NOINLINE_COPY which will be
-
-We've got a special word for it: outline. Can you name it
-CONFIG_OUTLINE_USERCOPY, or similar?
-
-> selected by the 5 architectures that don't want inlined copy.
+> On Mon, Apr 27, 2026 at 11:15:29AM -0500, Shah, Tanmay wrote:
+>> Hello Beleswar,
+>>
+>> Thanks for reviews. Please find my answer below:
+>>
+>> On 4/24/2026 10:51 PM, Padhi, Beleswar wrote:
+>>> Hi Tanmay,
+>>>
+>>> In $subject-line, s/remote node/remoteproc
+>>>
+>>
+>> Ack. 'node' is platform management firmware term, which might not be
+>> right here. subject line already contains remoteproc so no need to have
+>> it again. Instead, will replace 'node' with 'core'. new subject:
+>>
+>> remoteproc: xlnx: check remote core state.
+>>
 > 
-> To minimise complication in a later patch, also remove
-> ifdefery and replace it with IS_ENABLED().
+> Much better.
+>  
+>>> On 4/25/2026 8:32 AM, Tanmay Shah wrote:
+>>>> The remote state is set to RPROC_DETACHED if the resource table is found
+>>>> in the memory. However, this can be wrong if the remote is not started,
+>>>> but firmware is still loaded in the memory. Use PM_GET_NODE_STATUS call
+>>>> to the firmware to request the state of the RPU node. If the RPU is
+>>>> actually out of reset and running, only then move the remote state to
+>>>> RPROC_DETACHED, otherwise keep the remote state to RPROC_OFFLINE.
+>>>
+>>>
+>>> This is a good additional check. However, one thing to note is
+
+[...]
+
+>>>> +
+>>>> +        /*
+>>>> +         * If RPU state is power on and out of reset i.e. running, then
+>>>> +         * assign RPROC_DETACHED state. If the RPU is not out of reset
+>>>> +         * then do not attempt to attach to the remote processor.
+>>>> +         */
+>>>> +        if (status == PM_NODE_RUNNING) {
+>>>> +            if (zynqmp_r5_get_rsc_table_va(r5_core))
+>>>> +                dev_dbg(r5_core->dev, "rsc tbl not found\n");
+>>>
+>>>
+>>> Do you still want to set state = RPROC_DETACHED if resource table is not
+>>> found in the
+>>> memory?
+>>>
+>>
+>> Yes. Not all the firmware that is running on remote core is expected to
+>> have the resource table. The firmware might not use RPMsg at all, and in
+>> that case resource table becomes irrelevant. However, we still need to
+>> make sure that running core is not reported as offline.
 > 
-> Signed-off-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
+> Please add the above explanation to the inlined comment.  Otherwise I'm good
+> with this patch but I'll need an RB from Michael before moving forward.  
+> 
 
-Andrew has taken my consolidation patch for INLINE_COPY_USER:
+Ack.
 
-https://lore.kernel.org/all/20260427085814.7ca0b134603b8d5813e23396@linux-foundation.org/
+> Do you see this as a bug fix?  Is there a point adding this patch to the stable
+> kernels?
+> 
 
-Please base your series on top of it.
+That's a good point. I should add Fixes tag as well, for the commit that
+introduced attach-detach feature.
 
-I'm not sure this patch is relevant to the goal of your series. Maybe
-send it separately?
+I will do that in v2.
 
 Thanks,
-Yury
+Tanmay
+
+>>
+>> Thanks.
+>>
+>>> Thanks,
+>>> Beleswar
+>>>
+>>>> +            r5_core->rproc->state = RPROC_DETACHED;
+>>>> +        }
+>>>>       }
+>>>>         return 0;
+>>>> diff --git a/include/linux/firmware/xlnx-zynqmp.h b/include/linux/
+>>>> firmware/xlnx-zynqmp.h
+>>>> index d70dcd462b44..7e27b0f7bf7e 100644
+>>>> --- a/include/linux/firmware/xlnx-zynqmp.h
+>>>> +++ b/include/linux/firmware/xlnx-zynqmp.h
+>>>> @@ -542,6 +542,18 @@ enum pm_gem_config_type {
+>>>>       GEM_CONFIG_FIXED = 2,
+>>>>   };
+>>>>   +/**
+>>>> + * enum pm_node_status - Device node status provided by xilpm fw
+>>>> + * @PM_NODE_UNUSED: Device is not used
+>>>> + * @PM_NODE_RUNNING: Device is power-on and out of reset
+>>>> + * @PM_NODE_HALT: Device is power-on but in the reset state
+>>>> + */
+>>>> +enum pm_node_status {
+>>>> +    PM_NODE_UNUSED = 0,
+>>>> +    PM_NODE_RUNNING = 1,
+>>>> +    PM_NODE_HALT = 12,
+>>>> +};
+>>>> +
+>>>>   /**
+>>>>    * struct zynqmp_pm_query_data - PM query data
+>>>>    * @qid:    query ID
+>>>> @@ -630,6 +642,8 @@ int zynqmp_pm_set_rpu_mode(u32 node_id, enum
+>>>> rpu_oper_mode rpu_mode);
+>>>>   int zynqmp_pm_set_tcm_config(u32 node_id, enum rpu_tcm_comb tcm_mode);
+>>>>   int zynqmp_pm_get_node_status(const u32 node, u32 *const status,
+>>>>                     u32 *const requirements, u32 *const usage);
+>>>> +int zynqmp_pm_get_rpu_node_status(const u32 node, u32 *const status,
+>>>> +                  u32 *const requirements, u32 *const usage);
+>>>>   int zynqmp_pm_set_sd_config(u32 node, enum pm_sd_config_type config,
+>>>> u32 value);
+>>>>   int zynqmp_pm_set_gem_config(u32 node, enum pm_gem_config_type config,
+>>>>                    u32 value);
+>>>> @@ -939,6 +953,13 @@ static inline int zynqmp_pm_get_node_status(const
+>>>> u32 node, u32 *const status,
+>>>>       return -ENODEV;
+>>>>   }
+>>>>   +static inline int zynqmp_pm_get_rpu_node_status(const u32 node, u32
+>>>> *const status,
+>>>> +                        u32 *const requirements,
+>>>> +                        u32 *const usage)
+>>>> +{
+>>>> +    return -ENODEV;
+>>>> +}
+>>>> +
+>>>>   static inline int zynqmp_pm_set_sd_config(u32 node,
+>>>>                         enum pm_sd_config_type config,
+>>>>                         u32 value)
+>>>>
+>>>> base-commit: 6f860d238b44da8ac57be25289b9f4410691c4e2
+>>
+
 
