@@ -4,91 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 385C0FF8861
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 07:26:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56165FF8861
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 07:39:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xcE9uQ8ojNRrXk0HoW5qjfz3912L4tTPdfBa9/kbsT0=; b=I2zXgiH3+xcl+IzGDUWIFKTZIl
-	U2hwrJz+ShGwsswX52VPt096bYBs2VG4zObKgFVJfb1XidtPajqSVbNWsSUtheflvhmz9DOWjS2af
-	F5oc4GMvxLwkQdhxSwj6KUc7/1SV06G9iS7/xVKXfVZOn3XDTREWNXYXLegosubQCpBQUCqP+LGp8
-	PEQWt21y8vjJD4yiBMlrUyTvP2QD33lVNCEhHU/u16jIu5NLfrzhOd3yt4HEUmHdGNp7OHIgJLVUd
-	vjU1rR19g3JKSILAOUtzdAEll7YFt8mLytBCu1A/h4dXOdxyOJkukqxoQ6f6PIxacpEI/ljnxaQXh
-	wDIvTWnQ==;
+	bh=YSF93J6G5/0g0jzcBWjwV6lhwpYbylA3GIwtBNzfErQ=; b=Two2DOvbLhpSG2TM3KkPfxtuWW
+	P5KBgcoKxA6RxEqo2/dMiCJDnI9vMWNZt1+qXhUn1tMPaqR4QVG4TQSyqtLSg9PggduqdLGdcqKdJ
+	x1Lv306ufk1qS0Uh1uyZhisJ54Stel0M/ui8oz49FlthdrmwDhKMaogKt7g6I46LGuLmkcO5dlXQV
+	9Azj0M2iZRDIfCdONO+X/+AeBc5YdDilQH+DvmkZFp5K7XDlcCDMNE+xNdIVwtoZ9gc87pbd9sZIK
+	HyAeC4fA4mY1/9cIsCZ+xmegATsmsv5jFmTmb3nD3ozO+7hqlVudpLJNlfjbXXV84Ssf3moXvboCC
+	4BO9paCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHGMN-0000000GNPZ-0y6Z;
-	Mon, 27 Apr 2026 07:26:27 +0000
-Received: from azure-sdnproxy.icoremail.net ([52.237.72.81])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHGMG-0000000GNL2-2Jaf;
-	Mon, 27 Apr 2026 07:26:21 +0000
-Received: from E0004057DT.eswin.cn (unknown [10.11.96.26])
-	by app2 (Coremail) with SMTP id TQJkCgD3DKCOD+9pcQkVAA--.24679S2;
-	Mon, 27 Apr 2026 15:26:07 +0800 (CST)
-From: lizhi2@eswincomputing.com
-To: devicetree@vger.kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	netdev@vger.kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	maxime.chevallier@bootlin.com
-Cc: ningyu@eswincomputing.com,
-	linmin@eswincomputing.com,
-	pinkesh.vaghela@einfochips.com,
-	pritesh.patel@einfochips.com,
-	weishangjuan@eswincomputing.com,
-	horms@kernel.org,
-	Zhi Li <lizhi2@eswincomputing.com>
-Subject: [PATCH net-next v7 4/4] riscv: dts: eswin: eic7700-hifive-premier-p550: enable Ethernet controller
-Date: Mon, 27 Apr 2026 15:26:03 +0800
-Message-ID: <20260427072603.1191-1-lizhi2@eswincomputing.com>
-X-Mailer: git-send-email 2.52.0.windows.1
-In-Reply-To: <20260427072353.1114-1-lizhi2@eswincomputing.com>
-References: <20260427072353.1114-1-lizhi2@eswincomputing.com>
+	id 1wHGYi-0000000GONR-0Ggu;
+	Mon, 27 Apr 2026 07:39:12 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHGYf-0000000GOMu-3ItB
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Apr 2026 07:39:10 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63R6wf4h2982608
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 07:39:09 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	YSF93J6G5/0g0jzcBWjwV6lhwpYbylA3GIwtBNzfErQ=; b=fDvbdHqMf1/pO/D1
+	QOP2xYhcr+zEsdG6Eefd2y4/MS8TTcGwEVQcvWMCBbmpuGi3HFoI35OZ1eGbNx9O
+	3o7P24RTPA/h7atSOBWxo917XIM/DQjpBipZUTsL3LMKHpKyfrLIMrO6uC2e2S1s
+	91ILCfJZNPMO7G8f4JPO4hSn4zR0QP5ZcZIBlRYobFxmma+pmCOUdDd3nxYdFHLP
+	HUtMP4wrcctgLl5BZLgnVOmu9HJnB7lClRiTNk7JmQy+VSZSF2wlObBNNPK+SXRh
+	hbzIYFeVspfLdttjpGgyORiyyQrG+ZjmATdElueDSu+F9To99lpT+d1B6j5+bfH5
+	M/i6wg==
+Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4drpsgvuta-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 07:39:08 +0000 (GMT)
+Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-bce224720d8so5612958a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 00:39:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1777275548; x=1777880348; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=YSF93J6G5/0g0jzcBWjwV6lhwpYbylA3GIwtBNzfErQ=;
+        b=UiNZ0/h0D4Hmm5IAq9UzvvtFxTCYFMIbA3Tows3MaCV0vS42z7dX2FCa26ko1fGLdX
+         UaCj9z2A3pyCWdfxNRqH1fNvPfBor/sYO1QMxt8PZJKhlLNlowFEx4hiAvr9JyePlwN4
+         AA9YG1WsX867Zh8KzRe7S2Y30NreB+/yIJ1Z7JPSNJXfvUytfGO5pf6XLhtMM4zJsSe4
+         Unzwn4ZVqJpepAg8p5OJB4SbCEED7MkwfOeoEjPlANkA/WLX3Nr4iW72zF4Z/tTgQob2
+         F9gmXXyHy7boFUY0AX8sf3P+iqYt+clUjSnyqOfqJAzYWluEWaNcH8KRhAg2p91Xjg0Y
+         Bb2A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777275548; x=1777880348;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=YSF93J6G5/0g0jzcBWjwV6lhwpYbylA3GIwtBNzfErQ=;
+        b=NXKN4cB8XfuJ+13lN/Rz4JzYip2xytXuKhxGSZSM86L+qtR2suF+pUbnglqBvOXHic
+         RPMw4NpCqNGWVndtJUfVkF8/vIWQum+i6KBH59SA9HjGBjV+1Q8M/evchRsSboLlAxdZ
+         2L2niSM5xnCFKd6laoFLlhG8krPjfOvnc9zQgsBLImwzAhqMaAnFFYUC3Ru1BDiVuxmk
+         sBV69UCMx+zULyrH3N87CQiu0MtHTQL9QTqEXOfb/jXp/w767vJT+vX4WWaURiQj1fPK
+         9+raPCa+NIy1K9VPHFBYlNMtSUMWDj0216MRW+FJHaysYipG7zpPPRZTTEzd7W6xPeJu
+         GYMA==
+X-Forwarded-Encrypted: i=1; AFNElJ/O3+p2Gbth69WwVbtFde0suDRVhvCaE0kgZCohqM5xthCLBSIQyDBkfsq9OxQ2OI07lhoWbBi7I9lU+ZXblOWD@lists.infradead.org
+X-Gm-Message-State: AOJu0YxFHhsjHAx3rGOCF43oc8VyxosCEvbsGJdv4CwINa5fCnlkhm2T
+	PL7AfuRsKeWkcRG96m90nA63UkC2gJYxg1bS/1l58Ve9PzqJ5ZZLJuvRfrg4B0EG4eZqocwBWzA
+	VHWJ5EEQSUM4zHIkcmhO3uIkbVsAy8D7ezNUTzQHCcRc+gC5zaDneuC4/pjRFjtvP6ZJc8GdvPM
+	I8Lw==
+X-Gm-Gg: AeBDievFo+rEF9PxkRAEii3v0Pv41vf4CUzlZa78dJI4sCvSijadhbq/1atZLeSQxf0
+	J+22vv78Y8XhpXqJdkytKot/jbSxd6eYE8JsWugJ6/0kqM2xy5glbhySc+5c71OQNMq/pY3hA5x
+	XYnHVgTIBN43XShqS/upKaYdkuNLDGDQL08BPVRQFjWWlZ20juxy7bF+/sWUnEO8zWSgKHDPfyA
+	B87kmNKz4daxwjICnJiDXdOfOtUMRavtKRu7GTnmAHZDZZ/WBy6zjrEYOpVg7Yu28ob2Z1tA9RY
+	iZNfCMmEHirtb4X3IyinXceNv8vxyXHBEKQyi73hi5PFw4fyG/U/WXyQZep/ZHvUJuxzrWUy84a
+	BEVmjZidM8HRugX/ck4HE4Ouiol7aUYToIsMniw1DJd0OXArkybQ66C2y1/G8lPRVN4mu+BNuhj
+	pO5scRgVh7pBWjzRaLrf29
+X-Received: by 2002:a05:6a00:2d15:b0:82f:6a87:f75 with SMTP id d2e1a72fcca58-82f8c93e84bmr44502089b3a.33.1777275548174;
+        Mon, 27 Apr 2026 00:39:08 -0700 (PDT)
+X-Received: by 2002:a05:6a00:2d15:b0:82f:6a87:f75 with SMTP id d2e1a72fcca58-82f8c93e84bmr44502050b3a.33.1777275547640;
+        Mon, 27 Apr 2026 00:39:07 -0700 (PDT)
+Received: from [10.133.33.62] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f8e9d2f9asm33111087b3a.19.2026.04.27.00.39.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 27 Apr 2026 00:39:07 -0700 (PDT)
+Message-ID: <337789c5-7311-4613-9daf-915fcae0c6fc@oss.qualcomm.com>
+Date: Mon, 27 Apr 2026 15:39:02 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: TQJkCgD3DKCOD+9pcQkVAA--.24679S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3JF45GryxJr1fXr1DGFWkXrb_yoW3tw18pa
-	13urWfJw4kuF4Svw4jvF40kFZrGan7KFykurnrtFy8Jw1v9FnYk34jqFy5XF1DZrWrXw13
-	JFnrJ34xtF1xA3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBG14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
-	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_JF0_Jw1lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26r4a6rW5MxkIecxEwVCm-wCF04
-	k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18
-	MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr4
-	1lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4U
-	JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcV
-	C2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x0pRQ6p9UUUUU=
-X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 3/4] coresight: cti: add Qualcomm extended CTI
+ identification and quirks
+To: Yingchao Deng <yingchao.deng@oss.qualcomm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
+        Leo Yan <leo.yan@arm.com>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        quic_yingdeng@quicinc.com, Jinlong Mao <jinlong.mao@oss.qualcomm.com>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
+References: <20260426-extended-cti-v8-0-23b900a4902f@oss.qualcomm.com>
+ <20260426-extended-cti-v8-3-23b900a4902f@oss.qualcomm.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <20260426-extended-cti-v8-3-23b900a4902f@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: 4UD31ZQyx-FiDAX78TBhXQXcWbvYBvJg
+X-Proofpoint-ORIG-GUID: 4UD31ZQyx-FiDAX78TBhXQXcWbvYBvJg
+X-Authority-Analysis: v=2.4 cv=Y+fIdBeN c=1 sm=1 tr=0 ts=69ef129d cx=c_pps
+ a=rz3CxIlbcmazkYymdCej/Q==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=EUspDBNiAAAA:8 a=Fi1y-F4gZlMYRSbziuEA:9 a=QEXdDO2ut3YA:10
+ a=bFCP_H2QrGi7Okbo017w:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI3MDA4MCBTYWx0ZWRfX/FV3Jd5ngQWJ
+ 5l2PQx+DWs+Wy+0/yZssFL3DNldHxV5fsyAcaqNwIOAEQR4sI+CbEP0wRUdNEhnqDKsXViTOLzD
+ ukUFG4kE5NW4WKZovNPzvdhCKT3TDIc0oA05JZdllCHs1es9CR0G9W3ZXQ4knGwvVdK57ciw6jD
+ uvBd1MdwFF55A5DnLysnkIs4WlATMPi6bPKwMaGtd+ImEdwdOQCCXkfbIQgUxpqao1Dh7REs5xE
+ 9BouWypevZls34ryvsyEryTGVPlhaK+Mzx6YRP8jF3bttv18ueXL1j5GIBRVczACPVGjzuUgukW
+ muCyfDleMXXsnuQtAfDZZyu9I99Mj1FAQpcrz2hzGGwUL8Pfg4XiZpnKgsqTDcsigou/tm8q8q3
+ GYBudnlmHm3bBP0LAHi/kSNtsfxb1J7lI6gxHoqAxtMjR7iHcBVQNXHnp9R9gbMW2Uqn/wGfsdL
+ OGlZqFdlp8iTJ0WlMZA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-27_02,2026-04-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 spamscore=0 suspectscore=0 phishscore=0 adultscore=0
+ priorityscore=1501 malwarescore=0 impostorscore=0 bulkscore=0
+ lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
+ definitions=main-2604270080
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_002620_764191_AC671A30 
-X-CRM114-Status: UNSURE (   8.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260427_003909_846253_00C7CC81 
+X-CRM114-Status: GOOD (  35.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,409 +155,214 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Zhi Li <lizhi2@eswincomputing.com>
 
-Enable the on-board Gigabit Ethernet controller on the
-HiFive Premier P550 development board.
 
-Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
----
- .../dts/eswin/eic7700-hifive-premier-p550.dts | 239 ++++++++++++++++++
- arch/riscv/boot/dts/eswin/eic7700.dtsi        | 105 ++++++++
- 2 files changed, 344 insertions(+)
+On 4/26/2026 5:44 PM, Yingchao Deng wrote:
+> Qualcomm implements an extended variant of the ARM CoreSight CTI with a
+> different register layout and vendor-specific behavior. While the
+> programming model remains largely compatible, the register offsets differ
+> from the standard ARM CTI and require explicit handling.
+> 
+> Detect Qualcomm CTIs via the DEVARCH register and record this in the CTI
+> driver data. Introduce a small mapping layer to translate standard CTI
+> register offsets to Qualcomm-specific offsets, allowing the rest of the
+> driver to use a common register access path.
+> 
+> Additionally, handle a Qualcomm-specific quirk where the CLAIMSET
+> register is incorrectly initialized to a non-zero value, which can cause
+> tools or drivers to assume the component is already claimed. Clear the
+> register during probe to reflect the actual unclaimed state.
+> 
+> No functional change is intended for standard ARM CTI devices.
+> 
+> Co-developed-by: Jinlong Mao <jinlong.mao@oss.qualcomm.com>
+> Signed-off-by: Jinlong Mao <jinlong.mao@oss.qualcomm.com>
+> Signed-off-by: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
+> ---
+>   drivers/hwtracing/coresight/coresight-cti-core.c | 28 +++++++++-
+>   drivers/hwtracing/coresight/coresight-cti.h      |  4 +-
+>   drivers/hwtracing/coresight/qcom-cti.h           | 65 ++++++++++++++++++++++++
+>   3 files changed, 95 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-cti-core.c b/drivers/hwtracing/coresight/coresight-cti-core.c
+> index c4cbeb64365b..b1c69a3e9b99 100644
+> --- a/drivers/hwtracing/coresight/coresight-cti-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-cti-core.c
+> @@ -21,6 +21,7 @@
+>   
+>   #include "coresight-priv.h"
+>   #include "coresight-cti.h"
+> +#include "qcom-cti.h"
+>   
+>   /*
+>    * CTI devices can be associated with a PE, or be connected to CoreSight
+> @@ -47,6 +48,10 @@ static void __iomem *cti_reg_addr(struct cti_drvdata *drvdata, int reg)
+>   	u32 offset = CTI_REG_CLR_NR(reg);
+>   	u32 nr = CTI_REG_GET_NR(reg);
+>   
+> +	/* convert to qcom specific offset */
+> +	if (unlikely(drvdata->is_qcom_cti))
 
-diff --git a/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts b/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
-index 131ed1fc6b2e..4e09ad738d3d 100644
---- a/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
-+++ b/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
-@@ -13,11 +13,250 @@ / {
- 
- 	aliases {
- 		serial0 = &uart0;
-+		ethernet0 = &gmac0;
-+		ethernet1 = &gmac1;
- 	};
- 
- 	chosen {
- 		stdout-path = "serial0:115200n8";
- 	};
-+
-+	vcc_1v8: vcc1v8 {
-+		 compatible = "regulator-fixed";
-+		 regulator-name = "vcc1v8";
-+		 regulator-always-on;
-+		 regulator-boot-on;
-+		 regulator-min-microvolt = <1800000>;
-+		 regulator-max-microvolt = <1800000>;
-+	 };
-+};
-+
-+&xtal24m {
-+	clock-frequency = <24000000>;
-+	clock-output-names = "xtal24m";
-+};
-+
-+&pinctrl {
-+	status = "okay";
-+	vrgmii-supply = <&vcc_1v8>;
-+
-+	pinctrl_gpio0: gpio0-grp {
-+		gpio0-pins {
-+			pins = "gpio0";
-+			function = "gpio";
-+			input-enable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio5: gpio5-grp {
-+		gpio5-pins {
-+			pins = "gpio5";
-+			function = "gpio";
-+			input-enable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio11: gpio11-grp {
-+		gpio11-pins {
-+			pins = "gpio11";
-+			function = "gpio";
-+			input-enable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio14: gpio14-grp {
-+		gpio14-pins {
-+			pins = "mode_set1";
-+			function = "gpio";
-+			input-disable;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	pinctrl_gpio15: gpio15-grp {
-+		gpio15-pins {
-+			pins = "mode_set2";
-+			function = "gpio";
-+			input-enable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio28: gpio28-grp {
-+		gpio28-pins {
-+			pins = "gpio28";
-+			function = "gpio";
-+			input-enable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio43: gpio43-grp {
-+		gpio43-pins {
-+			pins = "usb1_pwren";
-+			function = "gpio";
-+			input-disable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio71: gpio71-grp {
-+		gpio71-pins {
-+			pins = "mipi_csi0_xhs";
-+			function = "gpio";
-+			input-disable;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	pinctrl_gpio74: gpio74-grp {
-+		gpio74-pins {
-+			pins = "mipi_csi1_xhs";
-+			function = "gpio";
-+			input-disable;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	pinctrl_gpio76: gpio76-grp {
-+		gpio76-pins {
-+			pins = "mipi_csi2_xvs";
-+			function = "gpio";
-+			input-disable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio77: gpio77-grp {
-+		gpio77-pins {
-+			pins = "mipi_csi2_xhs";
-+			function = "gpio";
-+			input-disable;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	pinctrl_gpio79: gpio79-grp {
-+		gpio79-pins {
-+			pins = "mipi_csi3_xvs";
-+			function = "gpio";
-+			input-disable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio80: gpio80-grp {
-+		gpio80-pins {
-+			pins = "mipi_csi3_xhs";
-+			function = "gpio";
-+			input-disable;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	pinctrl_gpio82: gpio82-grp {
-+		gpio82-pins {
-+			pins = "mipi_csi4_xvs";
-+			function = "gpio";
-+			input-disable;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	pinctrl_gpio84: gpio84-grp {
-+		gpio84-pins {
-+			pins = "mipi_csi4_mclk";
-+			function = "gpio";
-+			input-disable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio85: gpio85-grp {
-+		gpio85-pins {
-+			pins = "mipi_csi5_xvs";
-+			function = "gpio";
-+			input-disable;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	pinctrl_gpio94: gpio94-grp {
-+		gpio94-pins {
-+			pins = "s_mode";
-+			function = "gpio";
-+			input-disable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio106: gpio106-grp {
-+		gpio106-pins {
-+			pins = "gpio106";
-+			function = "gpio";
-+			input-disable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio111: gpio111-grp {
-+		gpio111-pins {
-+			pins = "gpio111";
-+			function = "gpio";
-+			input-disable;
-+			bias-disable;
-+		};
-+	};
-+};
-+
-+&gmac0 {
-+	phy-handle = <&gmac0_phy0>;
-+	phy-mode = "rgmii-id";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_gpio106>;
-+	rx-internal-delay-ps = <20>;
-+	tx-internal-delay-ps = <100>;
-+	status = "okay";
-+};
-+
-+&gmac0_mdio {
-+	gmac0_phy0: ethernet-phy@0 {
-+		compatible = "ethernet-phy-id001c.c916";
-+		reg = <0>;
-+		reset-gpios = <&gpioD 10 GPIO_ACTIVE_LOW>;
-+		reset-assert-us = <10000>;
-+		reset-deassert-us = <80000>;
-+	};
-+};
-+
-+&gmac1 {
-+	phy-handle = <&gmac1_phy0>;
-+	/*
-+	 * For the TX path of gmac1, there is a skew between the TX clock
-+	 * and data on the MAC controller inside the silicon. This skew happens
-+	 * to be approximately 2 ns. Therefore, it can be considered that the
-+	 * 2 ns delay of TX is provided by the MAC.
-+	 * No delay configuration for tx is needed in software via PHY driver.
-+	 */
-+	phy-mode = "rgmii-rxid";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_gpio111>;
-+	rx-internal-delay-ps = <200>;
-+	tx-internal-delay-ps = <200>;
-+	status = "okay";
-+};
-+
-+&gmac1_mdio {
-+	gmac1_phy0: ethernet-phy@0 {
-+		compatible = "ethernet-phy-id001c.c916";
-+		reg = <0>;
-+		reset-gpios = <&gpioD 15 GPIO_ACTIVE_LOW>;
-+		reset-assert-us = <10000>;
-+		reset-deassert-us = <80000>;
-+	};
- };
- 
- &uart0 {
-diff --git a/arch/riscv/boot/dts/eswin/eic7700.dtsi b/arch/riscv/boot/dts/eswin/eic7700.dtsi
-index c3ed93008bca..c77bc8b1b7bc 100644
---- a/arch/riscv/boot/dts/eswin/eic7700.dtsi
-+++ b/arch/riscv/boot/dts/eswin/eic7700.dtsi
-@@ -5,6 +5,9 @@
- 
- /dts-v1/;
- 
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/reset/eswin,eic7700-reset.h>
-+
- / {
- 	#address-cells = <2>;
- 	#size-cells = <2>;
-@@ -202,6 +205,11 @@ pmu {
- 				<0x00000000 0x0000000f 0xfffffffc 0x000000ff 0x00000078>;
- 	};
- 
-+	xtal24m: oscillator {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+	};
-+
- 	soc {
- 		compatible = "simple-bus";
- 		ranges;
-@@ -245,6 +253,85 @@ plic: interrupt-controller@c000000 {
- 			#interrupt-cells = <1>;
- 		};
- 
-+		hsp_power_domain: bus@50400000 {
-+			compatible = "simple-pm-bus";
-+			ranges;
-+			clocks = <&clk 171>;
-+			#address-cells = <2>;
-+			#size-cells = <2>;
-+
-+			hsp_sp_csr: hsp-sp-top-csr@50440000 {
-+				compatible = "eswin,eic7700-syscfg", "syscon";
-+				reg = <0x0 0x50440000 0x0 0x2000>;
-+			};
-+
-+			gmac0: ethernet@50400000 {
-+				compatible = "eswin,eic7700-qos-eth",
-+					     "snps,dwmac-5.20";
-+				reg = <0x0 0x50400000 0x0 0x10000>;
-+				interrupts = <61>;
-+				interrupt-names = "macirq";
-+				clocks = <&clk 186>,
-+					 <&clk 171>,
-+					 <&clk 40>,
-+					 <&clk 193>;
-+				clock-names = "axi", "cfg", "stmmaceth", "tx";
-+				resets = <&reset EIC7700_RESET_HSP_ETH0_ARST>;
-+				reset-names = "stmmaceth";
-+				eswin,hsp-sp-csr = <&hsp_sp_csr 0x100 0x108 0x118 0x114 0x11c>;
-+				snps,aal;
-+				snps,fixed-burst;
-+				snps,tso;
-+				snps,axi-config = <&stmmac_axi_setup_gmac0>;
-+				status = "disabled";
-+
-+				gmac0_mdio: mdio {
-+					compatible = "snps,dwmac-mdio";
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+				};
-+
-+				stmmac_axi_setup_gmac0: stmmac-axi-config {
-+					snps,blen = <0 0 0 0 16 8 4>;
-+					snps,rd_osr_lmt = <2>;
-+					snps,wr_osr_lmt = <2>;
-+				};
-+			};
-+
-+			gmac1: ethernet@50410000 {
-+				compatible = "eswin,eic7700-qos-eth-clk-inversion",
-+					     "snps,dwmac-5.20";
-+				reg = <0x0 0x50410000 0x0 0x10000>;
-+				interrupts = <70>;
-+				interrupt-names = "macirq";
-+				clocks = <&clk 186>,
-+					 <&clk 171>,
-+					 <&clk 40>,
-+					 <&clk 194>;
-+				clock-names = "axi", "cfg", "stmmaceth", "tx";
-+				resets = <&reset EIC7700_RESET_HSP_ETH1_ARST>;
-+				reset-names = "stmmaceth";
-+				eswin,hsp-sp-csr = <&hsp_sp_csr 0x200 0x208 0x218 0x214 0x21c>;
-+				snps,aal;
-+				snps,fixed-burst;
-+				snps,tso;
-+				snps,axi-config = <&stmmac_axi_setup_gmac1>;
-+				status = "disabled";
-+
-+				gmac1_mdio: mdio {
-+					compatible = "snps,dwmac-mdio";
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+				};
-+
-+				stmmac_axi_setup_gmac1: stmmac-axi-config {
-+					snps,blen = <0 0 0 0 16 8 4>;
-+					snps,rd_osr_lmt = <2>;
-+					snps,wr_osr_lmt = <2>;
-+				};
-+			};
-+		};
-+
- 		uart0: serial@50900000 {
- 			compatible = "snps,dw-apb-uart";
- 			reg = <0x0 0x50900000 0x0 0x10000>;
-@@ -341,5 +428,23 @@ gpioD: gpio-port@3 {
- 				#gpio-cells = <2>;
- 			};
- 		};
-+
-+		pinctrl: pinctrl@51600080 {
-+			compatible = "eswin,eic7700-pinctrl";
-+			reg = <0x0 0x51600080 0x0 0x1fff80>;
-+		};
-+
-+		clk: clock-controller@51828000 {
-+			compatible = "eswin,eic7700-clock";
-+			reg = <0x0 0x51828000 0x0 0x300>;
-+			clocks = <&xtal24m>;
-+			#clock-cells = <1>;
-+		};
-+
-+		reset: reset-controller@51828300 {
-+			compatible = "eswin,eic7700-reset";
-+			reg = <0x0 0x51828300 0x0 0x200>;
-+			#reset-cells = <1>;
-+		};
- 	};
- };
--- 
-2.25.1
+I prefer to drop the unlikely here, let the cpu do the branch predictor.
+
+> +		offset = cti_qcom_reg_off(offset);
+> +
+>   	return drvdata->base + offset + sizeof(u32) * nr;
+>   }
+>   
+> @@ -170,6 +175,9 @@ void cti_write_intack(struct device *dev, u32 ackval)
+>   /* DEVID[19:16] - number of CTM channels */
+>   #define CTI_DEVID_CTMCHANNELS(devid_val) ((int) BMVAL(devid_val, 16, 19))
+>   
+> +/* DEVARCH[31:21] - ARCHITECT */
+> +#define CTI_DEVARCH_ARCHITECT(devarch_val) ((int)BMVAL(devarch_val, 21, 31))
+> +
+>   static int cti_set_default_config(struct device *dev,
+>   				  struct cti_drvdata *drvdata)
+>   {
+> @@ -700,6 +708,7 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
+>   	struct coresight_desc cti_desc;
+>   	struct coresight_platform_data *pdata = NULL;
+>   	struct resource *res = &adev->res;
+> +	u32 devarch;
+>   
+>   	/* driver data*/
+>   	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
+> @@ -724,6 +733,22 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
+>   
+>   	raw_spin_lock_init(&drvdata->spinlock);
+>   
+> +	devarch = readl_relaxed(drvdata->base + CORESIGHT_DEVARCH);
+> +	if (CTI_DEVARCH_ARCHITECT(devarch) == ARCHITECT_QCOM) {
+> +		drvdata->is_qcom_cti = true;
+> +		/*
+> +		 * QCOM CTI does not implement Claimtag functionality as
+> +		 * per CoreSight specification, but its CLAIMSET register
+> +		 * is incorrectly initialized to 0xF. This can mislead
+> +		 * tools or drivers into thinking the component is claimed.
+> +		 *
+> +		 * Reset CLAIMSET to 0 to reflect that no claims are active.
+> +		 */
+> +		CS_UNLOCK(drvdata->base);
+> +		writel_relaxed(0, drvdata->base + CORESIGHT_CLAIMSET);
+> +		CS_LOCK(drvdata->base);
+> +	}
+> +
+>   	/* initialise CTI driver config values */
+>   	ret = cti_set_default_config(dev, drvdata);
+>   	if (ret)
+> @@ -780,7 +805,8 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
+>   
+>   	/* all done - dec pm refcount */
+>   	pm_runtime_put(&adev->dev);
+> -	dev_info(&drvdata->csdev->dev, "CTI initialized\n");
+> +	dev_info(&drvdata->csdev->dev,
+> +		 "%sCTI initialized\n", drvdata->is_qcom_cti ? "QCOM " : "");
+>   	return 0;
+>   }
+>   
+> diff --git a/drivers/hwtracing/coresight/coresight-cti.h b/drivers/hwtracing/coresight/coresight-cti.h
+> index dd1ba44518c4..2598601e7b93 100644
+> --- a/drivers/hwtracing/coresight/coresight-cti.h
+> +++ b/drivers/hwtracing/coresight/coresight-cti.h
+> @@ -55,10 +55,11 @@ struct fwnode_handle;
+>   /*
+>    * CTI CSSoc 600 has a max of 32 trigger signals per direction.
+>    * CTI CSSoc 400 has 8 IO triggers - other CTIs can be impl def.
+> + * QCOM CTI supports up to 128 trigger signals per direction.
+>    * Max of in and out defined in the DEVID register.
+>    * - pick up actual number used from .dts parameters if present.
+>    */
+> -#define CTIINOUTEN_MAX		32
+> +#define CTIINOUTEN_MAX		128
+>   
+>   /*
+>    * Encode CTI register offset and register index in one u32:
+> @@ -188,6 +189,7 @@ struct cti_drvdata {
+>   	raw_spinlock_t spinlock;
+>   	struct cti_config config;
+>   	struct list_head node;
+> +	bool is_qcom_cti;
+
+missed document.
+
+Thanks,
+Jie
+
+>   };
+>   
+>   /*
+> diff --git a/drivers/hwtracing/coresight/qcom-cti.h b/drivers/hwtracing/coresight/qcom-cti.h
+> new file mode 100644
+> index 000000000000..fd1bf07d7cb4
+> --- /dev/null
+> +++ b/drivers/hwtracing/coresight/qcom-cti.h
+> @@ -0,0 +1,65 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+> + */
+> +
+> +#ifndef _CORESIGHT_QCOM_CTI_H
+> +#define _CORESIGHT_QCOM_CTI_H
+> +
+> +#include "coresight-cti.h"
+> +
+> +#define ARCHITECT_QCOM 0x477
+> +
+> +/* CTI programming registers */
+> +#define QCOM_CTIINTACK		0x020
+> +#define QCOM_CTIAPPSET		0x004
+> +#define QCOM_CTIAPPCLEAR	0x008
+> +#define QCOM_CTIAPPPULSE	0x00C
+> +#define QCOM_CTIINEN		0x400
+> +#define QCOM_CTIOUTEN		0x800
+> +#define QCOM_CTITRIGINSTATUS	0x040
+> +#define QCOM_CTITRIGOUTSTATUS	0x060
+> +#define QCOM_CTICHINSTATUS	0x080
+> +#define QCOM_CTICHOUTSTATUS	0x084
+> +#define QCOM_CTIGATE		0x088
+> +#define QCOM_ASICCTL		0x08C
+> +/* Integration test registers */
+> +#define QCOM_ITCHINACK		0xE70
+> +#define QCOM_ITTRIGINACK	0xE80
+> +#define QCOM_ITCHOUT		0xE74
+> +#define QCOM_ITTRIGOUT		0xEA0
+> +#define QCOM_ITCHOUTACK		0xE78
+> +#define QCOM_ITTRIGOUTACK	0xEC0
+> +#define QCOM_ITCHIN		0xE7C
+> +#define QCOM_ITTRIGIN		0xEE0
+> +
+> +static noinline u32 cti_qcom_reg_off(u32 offset)
+> +{
+> +	switch (offset) {
+> +	case CTIINTACK:		return QCOM_CTIINTACK;
+> +	case CTIAPPSET:		return QCOM_CTIAPPSET;
+> +	case CTIAPPCLEAR:	return QCOM_CTIAPPCLEAR;
+> +	case CTIAPPPULSE:	return QCOM_CTIAPPPULSE;
+> +	case CTIINEN:		return QCOM_CTIINEN;
+> +	case CTIOUTEN:		return QCOM_CTIOUTEN;
+> +	case CTITRIGINSTATUS:	return QCOM_CTITRIGINSTATUS;
+> +	case CTITRIGOUTSTATUS:	return QCOM_CTITRIGOUTSTATUS;
+> +	case CTICHINSTATUS:	return QCOM_CTICHINSTATUS;
+> +	case CTICHOUTSTATUS:	return QCOM_CTICHOUTSTATUS;
+> +	case CTIGATE:		return QCOM_CTIGATE;
+> +	case ASICCTL:		return QCOM_ASICCTL;
+> +	case ITCHINACK:		return QCOM_ITCHINACK;
+> +	case ITTRIGINACK:	return QCOM_ITTRIGINACK;
+> +	case ITCHOUT:		return QCOM_ITCHOUT;
+> +	case ITTRIGOUT:		return QCOM_ITTRIGOUT;
+> +	case ITCHOUTACK:	return QCOM_ITCHOUTACK;
+> +	case ITTRIGOUTACK:	return QCOM_ITTRIGOUTACK;
+> +	case ITCHIN:		return QCOM_ITCHIN;
+> +	case ITTRIGIN:		return QCOM_ITTRIGIN;
+> +
+> +	default:
+> +		return offset;
+> +	}
+> +}
+> +
+> +#endif  /* _CORESIGHT_QCOM_CTI_H */
+> 
 
 
