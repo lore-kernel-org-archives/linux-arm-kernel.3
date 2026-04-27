@@ -4,115 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE7EFFF8860
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 16:15:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D3F1FF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 16:15:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0CrMUmnqpA6qYd53knC2tE/ROKR1g8jDKutC6tbCbew=; b=JS7yzSKy8gcUj6
-	8k6W1d0MnPC72FieyvL91bzOEuS8j9ObqEgfYpVr/AfaMF88Gzsv3rmdFlFCdn8VQNiamTp0le5fi
-	4pcsgoXhXd3ZZKuz1cq0ogXk877I+yiiL604IyceSzGv6mKZ8O4CaDoGM8Xc509+QSyWXMrKpa8fg
-	18rOR9bVOHTV8y6zncMIuNDIF3NC6cPfkI9rwnSvXRv+lcVq3JsyUDNRIxwygCuGeFRISYRZO/GvZ
-	0jRzRDfhvo3oPAJoGsvpwxNgA1pZ7gkruwoEvwvRuLSDuMwnohIzpR4qpQZeuTNmv+U0eC1pD745P
-	4O5vnTz66QYIr5jzdCZg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uA0KUv7MfJchcDtqZPV/FM6l291QLU55vs5e5wVjhgg=; b=l2Gy5EKxPm0/SbGtRYakW550/j
+	RNGbE/o/rwnQsyHIR8R9g0xuh2aYYkDxP3V+0V2KOvovlMgrHzb6UbE9CleCktdq/ZMPxBZZjbphY
+	35qGkCA+zEON7Ird/9/JCNbg1oINaKvc8tr0aeUKNAvsxxKsOeGDGqL6YiWDV5qTK5coa68+U5DXB
+	fsJt14NptuSBK/ixcVAdugsmL54DthzTQ9X+oWzCT1FB5KgBX7vovy9CAAXwQ9DAL1Pv40U89SdOt
+	mWAxvtaa1yHlkDaFIpbQLgPwVdEnIlhfaSGvaZpAsAumDUa3E7620DuFXtPdDXNo/uqv7KogVq4mB
+	FzSHZv6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHOcb-0000000HJiY-3Z63;
-	Mon, 27 Apr 2026 16:15:45 +0000
-Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
+	id 1wHOch-0000000HJkp-0sNb;
+	Mon, 27 Apr 2026 16:15:51 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHOcX-0000000HJg1-3GIC
+	id 1wHOcY-0000000HJgF-247L
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 16:15:44 +0000
+	Mon, 27 Apr 2026 16:15:46 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=Gy/YsiQ7SQeRnIRJf8JA+3gJdgAcDNKkOlecJSDYY4mAuf0C9HfxaVzqqk6lbhBNJXgv5dbinveDmV2UKegVjJo9JOJmrDrdUyxspFl/UiFXEUsrFqQ19dOi4STA0hs2t+UL1oC3zRjRE4eFO9NM3vgHrOfLl90uBDReFPW/5W2Gv2NEPDPLgKSaCykSFOA7VRyHbVdmcb5Cp7Xzl7Q5hHXg0aR9yRS3VfYvMCViqa0Jc9GK5AnzbeAARRH/ihDfk6PgbjW5GSAnJT2sGUGW29/d0pb6NDB8+4qqd1PCdIpA1qVqTX4waRTCqVw37c03w9WhfbQs1eN7/cJUmVFBrg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uA0KUv7MfJchcDtqZPV/FM6l291QLU55vs5e5wVjhgg=;
+ b=krbTfO+GTohzV8lBp1QzXnVl5/H5O5Lps6NGYVXrnaW5u9PMnHOLrYSoWaQDuGWaY32MCAcdRK99aA6tQqea4/s64/7SOySTp/ZWOMkr6+l4k1ghCi4HDHStIKCbMBKMsC4hyZIvC60LEyFuLTlcvyPcUK5+DNd2NR10OTjS34hYI5UY4c3eIwU/vPzD1lQ35XcXGHQvN0RlOpM38WzH9/xNnjhk2EofLR42mSB+2HoxFD/vZly8gvS3OGS41prhKEx7Fp6XZu7SDGze4g3eQLRBOxyCHFD6QrYCN+xfVK0bRRtjYHVofX7efuT2IrLug1YzDTFgtlzHEJhMHsLIwQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uA0KUv7MfJchcDtqZPV/FM6l291QLU55vs5e5wVjhgg=;
+ b=n3QdRqKxq6IrLkhZ7fe+FCN3qLy8rEhreGAOOJzoCDn4zWyXNFI+XuyxYs8DEhihGiTOaKj2B6K7Zse8As1LK6VIqGmasa34YvL1AGPhgUNOlOjCukFU1NMlNCY4/mAoO2vzaTqt64zIDKBQ4HZWc1khi9oIrTMlFEMaIHn4+qI=
+Received: from AM6P191CA0079.EURP191.PROD.OUTLOOK.COM (2603:10a6:209:8a::20)
+ by AS8PR08MB7944.eurprd08.prod.outlook.com (2603:10a6:20b:541::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Mon, 27 Apr
+ 2026 16:15:37 +0000
+Received: from AM3PEPF0000A78F.eurprd04.prod.outlook.com
+ (2603:10a6:209:8a:cafe::58) by AM6P191CA0079.outlook.office365.com
+ (2603:10a6:209:8a::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.26 via Frontend Transport; Mon,
+ 27 Apr 2026 16:15:37 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AM3PEPF0000A78F.mail.protection.outlook.com (10.167.16.118) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.18
+ via Frontend Transport; Mon, 27 Apr 2026 16:15:37 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oC7qdbPmV9Sm9ZquGZ3T7Z5z5M2LXE1EPFhGP0D0KMj372CTINxm4VdT8q0319BmBc3F7nUsIZX5evYjo5VaWCR61ZrfWvblLOW1HlRw9Rl+8gq17p6aDfvpaBPqEMDM1Iu1307/4hY80O5TNbUUpanC+qxO2Lb8hsttMNT7LJvf+7nVfAqkPiJsXKQ01Z1Fh8DLsDnPyz7Zh3WQD5mvWoGPG+K/DfRtOI+KA+OYsxnucKu8Y15fu8mWx24piV1RtwwH+U00w6ajifhscXQsZneq5ml6+HRyGZzI5RoEUYgBtGCiQQlrZojIaY97hTjDTm1UfVsOkgjHb+G523A+Gw==
+ b=flCpH4rVPzarEsxHIazgnzhSVKGap5ezeTfpSrdZxxL/MPLsuJcpFT3RFjE5kEHeFxYf1ONlDhIGSywGp/0s6m5JmMtvvEK673mVzWR0MXzj33DaCh/IJjiOoO0sqiQbrZ2ywCKsn8H2OaQgYhS3njShLtlnA1b/yRyBaFLME66HbGT5lBQKVwKPanECdLTpEXitpOMEk9fcc2o8EHOlxcqx7YEBrsnfDkAMLzx9Qjuw4ydhCfUKQX7vl794ZDOrDyIxd9n1O6hIZycEF84pLcAR7889v2UcZyAVNw/+G0woJeG0PelYYFrjWGi2P0xpYAVycMTe8puYaa85CUDQjQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0CrMUmnqpA6qYd53knC2tE/ROKR1g8jDKutC6tbCbew=;
- b=ZXDHMTn19OZuZQG+30KXRn26RjRAXyTUUPJTDCT7+ZgOR63FGGLPQY4h62zFyCxMQElu46Xr9tQq2P208G0ir5/G6mtGEHP7eDNNoZ2WHKrnjPUjp1xbW9ZHYwgAX1wd9FdHg8SZdr4+x1GIjKkUDr1IWWYVt+lXXD+D7Ofg2nM9vSnipnAYNSe6sEGHTquf0VU3cWdXURI/wybvbjRf/UC1KekWm4wPXxDyEi9PD3hLD5AMl6JGpbNibizT4h2zcBDf1JpgCqOLlX3xa/NkDAraGPA7fz0Wv3+Hu37TiY9gADSSnehXO5VjD8zwWGzm/SxG7kgR6gfpBEA/BLatUA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=ti.com smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ bh=uA0KUv7MfJchcDtqZPV/FM6l291QLU55vs5e5wVjhgg=;
+ b=HFzMvofa5qompyNQdwQW3bkDjBFZnjp7yfy7IbgdkZKpuvamKwJtWSEbyqCYKKHW4sk4SiIS39jR/zKyLBsskeJPH9R1sy9Vwy+Jd1NoLD2k8l+HwQ4rKKN5EAgtf11q2CU9b8KoW+Gc2ebshNpEq0IynDYoWDky9ZeH80RrJhA92Ag5H3CEedzSfrf2d92Li3NKrbDW+sReFRL0LSUxq6Q48Wt3yBrn2gs+AkFcGGoWTZbPXxNQwlKdjafojZm0S4CqSlqJgoz7p4tAMwOF0fE8k96RfpcUY5NQa7Nh0+NAZWevOn0K48bK53RbtsuoTg/D6aAbmGovP4g5RUDh6g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0CrMUmnqpA6qYd53knC2tE/ROKR1g8jDKutC6tbCbew=;
- b=3ZuJSvaeZjwS03S8gza3FtnP7koO0qksBpAaAK8pYH6jahVkPL+cfWubxFWML4d3N03SBYRBW5CqctOalRQXHMPaaic9Q5e4FKS0phqV8Gn6bZKs4Ybpv4Ig3Un5jCk44BqHaCdgwp8R4+PhNzDWeCgw/TmY99y3oKgYs7cMhjU=
-Received: from BN0PR02CA0027.namprd02.prod.outlook.com (2603:10b6:408:e4::32)
- by IA1PR12MB6577.namprd12.prod.outlook.com (2603:10b6:208:3a3::20) with
+ bh=uA0KUv7MfJchcDtqZPV/FM6l291QLU55vs5e5wVjhgg=;
+ b=n3QdRqKxq6IrLkhZ7fe+FCN3qLy8rEhreGAOOJzoCDn4zWyXNFI+XuyxYs8DEhihGiTOaKj2B6K7Zse8As1LK6VIqGmasa34YvL1AGPhgUNOlOjCukFU1NMlNCY4/mAoO2vzaTqt64zIDKBQ4HZWc1khi9oIrTMlFEMaIHn4+qI=
+Received: from VI1PR08MB3408.eurprd08.prod.outlook.com (2603:10a6:803:7c::10)
+ by PAXPR08MB7383.eurprd08.prod.outlook.com (2603:10a6:102:22e::13) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.15; Mon, 27 Apr
- 2026 16:15:31 +0000
-Received: from BN1PEPF00004683.namprd03.prod.outlook.com
- (2603:10b6:408:e4:cafe::99) by BN0PR02CA0027.outlook.office365.com
- (2603:10b6:408:e4::32) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.26 via Frontend Transport; Mon,
- 27 Apr 2026 16:15:31 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- BN1PEPF00004683.mail.protection.outlook.com (10.167.243.89) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9846.18 via Frontend Transport; Mon, 27 Apr 2026 16:15:31 +0000
-Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Mon, 27 Apr
- 2026 11:15:30 -0500
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb10.amd.com
- (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Mon, 27 Apr
- 2026 11:15:30 -0500
-Received: from [172.31.134.241] (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Mon, 27 Apr 2026 11:15:29 -0500
-Message-ID: <5aabddce-eeee-43de-be30-115bc58040dc@amd.com>
-Date: Mon, 27 Apr 2026 11:15:29 -0500
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] remoteproc: xlnx: check remote node state
-To: "Padhi, Beleswar" <b-padhi@ti.com>, Tanmay Shah <tanmay.shah@amd.com>,
-	<michal.simek@amd.com>, <andersson@kernel.org>, <mathieu.poirier@linaro.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-remoteproc@vger.kernel.org>
-References: <20260425030231.3145225-1-tanmay.shah@amd.com>
- <93ea5065-b8a4-49db-91b3-71170905fa15@ti.com>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Mon, 27 Apr
+ 2026 16:14:34 +0000
+Received: from VI1PR08MB3408.eurprd08.prod.outlook.com
+ ([fe80::6daa:d2f4:acf1:84ba]) by VI1PR08MB3408.eurprd08.prod.outlook.com
+ ([fe80::6daa:d2f4:acf1:84ba%7]) with mapi id 15.20.9846.025; Mon, 27 Apr 2026
+ 16:14:34 +0000
+From: Sascha Bischoff <Sascha.Bischoff@arm.com>
+To: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>
+CC: nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, Joey Gouly
+	<Joey.Gouly@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, "peter.maydell@linaro.org"
+	<peter.maydell@linaro.org>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>
+Subject: [PATCH 25/43] KVM: arm64: gic-v5: Register the IRS IODEV
+Thread-Topic: [PATCH 25/43] KVM: arm64: gic-v5: Register the IRS IODEV
+Thread-Index: AQHc1mDwwpvOmqdM6EekZ9hjkTAi6Q==
+Date: Mon, 27 Apr 2026 16:14:34 +0000
+Message-ID: <20260427160547.3129448-26-sascha.bischoff@arm.com>
+References: <20260427160547.3129448-1-sascha.bischoff@arm.com>
+In-Reply-To: <20260427160547.3129448-1-sascha.bischoff@arm.com>
+Accept-Language: en-GB, en-US
 Content-Language: en-US
-From: "Shah, Tanmay" <tanmays@amd.com>
-In-Reply-To: <93ea5065-b8a4-49db-91b3-71170905fa15@ti.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN1PEPF00004683:EE_|IA1PR12MB6577:EE_
-X-MS-Office365-Filtering-Correlation-Id: d3e03a47-fef6-4512-f052-08dea478342c
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-mailer: git-send-email 2.34.1
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+x-ms-traffictypediagnostic: VI1PR08MB3408:EE_|PAXPR08MB7383:EE_|AM3PEPF0000A78F:EE_|AS8PR08MB7944:EE_
+X-MS-Office365-Filtering-Correlation-Id: 77281b31-91be-4b07-7294-08dea47837fd
+x-checkrecipientrouted: true
+nodisclaimer: true
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|376014|36860700016|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: ZYnbxdS7LOLlN70KNpW8XzBU89w4js0uuibLi4jhc8lBVmi8qzM+NBdLZVJlf2kEEBQBaIgpPXPMEXqSQwpk6eiat3161cJVMx6Ho6FL17mm75tfk0rQMZfbJJZUqSfOB8KrmYJxiM7a/A01PQVOrEFMvmyI9mzwSTcUtUamycf2H/s9qRx0zA3gSrGo3GTSUeraw07D1j5j5jjg9VbNymaYZJ8ibyWxa4hVAdUo1aFM/79gok3fNl5sGq8NeVAoZGWDXo8DQC14LLKXDGucOYhv4b0rrp8BjR86//FhbXTeotHcTzNL76n3kmD8aCgyQDpvIrd5EzyKkXcUbJUM80yf8ZuBc9iuutagf9FQu/Wh4iYTWpgyS8SGQkgWP3giO4/1l7sI5BZ+CiORf4N4jDTVOMbUELaIRPvEMtqrx3XBzaQ7sNY9nBt9Yv3dk46zEnDelTExLXhjVf6URYpwFDZxVd8wO+G7lOnA0FcC8AYBlfuCOKGAuqPEXi3XbHGZD0eyHsMBaErBfQ65AELdwKXH/kYDZx+uX3wRMn2m8LTTCou9dtwowgVC3Bmn+Lci24ruaDwZ8nZnTKle7AIKy5WYFnBg8xm1UPj/6o23pxQXcNADLyqLzhycMC/pbPQRQ7vcOybsM8m7y+ACPtpJWyz3U5q00ntOwf9XVK83YL8RsmHAHFyMqgRObKdscCgV67rzzmazCQMu3NUJWAi3alcOQAymti2BWIwtjn3D4m0WU9JkBQmz2kcH7iCXYM0szBRpLuhBcqP0FEwOFy+N5Q==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(36860700016)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|366016|1800799024|38070700021|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info-Original: zR6ignfXvlS/PVYsumuFn48Hy9oMDnuXGiK8mdDGODSGPozXpz6Q6jWA4NCnk0Mut07KzNh7XcRjjtgeCSNKw4hd4+S0NPScsK+SIpbiX+HqdBv2g4uYc5hrrNwyO44isbLIqIMYDcjc473jMyo0bzOlJ1dT6E6GGt6SGI5X6XwRTYjOwIVFavkYZbHJieEiTteS3MsIZhgm/rusKL1LK2w+y9tZkdD58s6WTwgdwwNmzZMzTBgSwj/bpEwauu320+XxrvW01GyDHFM5Wa+eRnOdRcfpzNQGJFjiY/T7kS9Mj3QwlfVsN7Ddxgrrj5KXS0SMPRl0dyaUBwZbcglwd/zpG4Em1RrQtB7VCZHKOhKloK/n1fq09ut4fM+s/X0zKtRo/qSqxoJXBidOyWuQHSV+kR2NbeEzQyNfqcbQCBgrDhOq6zmCue14veifmRAOI/r1XDlh1f1bUO/AGxhb3/uWTetgVeXxYWn94w/NBsI4sYfQDa9KDBiSdGdesNkxgWhhYPrYp08WAlUzGz4vcvcdt+wDCINAPJcXG1yIGhQGufKSLlvjTNTBvjX//p+nSTvw6V2RZGTV6gc2ONbDURUKSKk7tMm/IHJ16OvwLZZRGjD1X3NNX2c9O5hokwV2dYVOAifUgiCqRNUP5oCBjhBMnsNwrO8ErZhyKS7AdHIQCgfD1NTLe5Nz8i7tLP+5vV6TtY4y+HyAwY72yJIEwqy1Bdh6Up6oHl5vXUlGi9pStUrnaebiHyII+u8XIjM9LXXnqWihbMhE0LNMse97NIytmIR4DMS3xq4sizZoiR8=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI1PR08MB3408.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(38070700021)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-Exchange-RoutingPolicyChecked: tMFjvxJAlY2XRxxGM+s/GV0MW3viqPb8oxlqw5bWyPCPtjUccpGqqj+9XFewqQ3ClOeU3aL+mWw39d8xVqmr5HpBWmvda5nYtBI/WMoznw/AGGTjg+jBIwE/7rpZxVrUbxx95lOImLsjAVCMaa+pRQlW1ErWcYcIO+l2Nn7cMu7BPf+vN070u8qZG+6e5CEbtRYNN708SGEcQPig1cT9lAhTQelzCtk2bRYsbLAU7RBnuVzks2lenyAliqlplqgHx3Gr48MZh6Pxggxabrhz8kVgTC+1JkEWwcxh+cd7ZKOfZ+7+H5HxKKrv3SLFhuuPwZcgysWc3gFociCnvB7Mzg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR08MB7383
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM3PEPF0000A78F.eurprd04.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 25b67c7f-8226-4918-b03a-08dea4781293
+X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|376014|36860700016|82310400026|14060799003|1800799024|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: 7m9dniLc+SSXrKCAEZJdZY+0GykagDjAzM0oVYWbL9HEK5nF5Vr56VDYTin7Jpu9aTS6Ex+jPuu/ygKezp1GI6Wl/QyI/h4zzvkUaiMBYkFPT7mEdoW/3nZmFWW2sA6/tD8Djfltof4airn94JMVXOOuizeB2cRxgxwiuQgr/ZCmYFQWWX1J5ZIipjPLUJnUL5ACn9Pd4PWhv0kitNMECC8EjDws2ZRrPWqtij70oN0W+6YPZQlo0MPMVw9QeER8dR+BopHXv8gj6qaUgACtR5BZW3Zu2nB1UjXXZjAzs79Lr822CH0NVCJiWPe/0drm6S6RzMxkJkqPWDZgxiIPwS7BUeqjTC6LlFOlkyfnNOvVHUDoq2KF2t+mDgmlWi+/25HyBHqtNQ8iZ+2SrFnlE946vddZYxyZkysY/784Af0xi4V7KGDh0GIwuldftItj4FxVn4lCDaTvY0u/vewEn0xlOMo1FcFO2k/GluYCBoMHhBo/F/Qu1Bxu7urjoyC7x9p+R5J7kzY9ul22bgo/7vE2OdJBlz3IC4dFe5R8WiMScQ7eBC9YALRUbwv+64/piKkPa/rWOEk75FQIai3GNocSb5Jq4mZRQya+BUUSG68Cb5kFuQGBsg49y/z55dgoK3HRyZCx03zLBXWcWA6is/gwzCBrFeEWOu8NPDCKNcuu/sRPyNj71uLH8QYeTEkXoDeKh1V4l486gA7bz2Ec6jxOUklehpBvHS3DHEyPDd1AY6mR0OmYlF75L8+AIIPVoSkp4/evHVnQK0X6EBngZA==
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(376014)(36860700016)(82310400026)(14060799003)(1800799024)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: FNyJXdLTcItQ+YiwoRao8mfxXH1cphA7zNKeI4JGNe0fdcOxgyQzvpyxeJMm8MLW6MCAtjpG2h6Eda/wf6zZC/qrPmmASFh3+qVYCMOcVuIlG8dwFNSo+OoOoj8u2ES7SkRCm3zHQTDfZUD45L1XJCWMOQ5fvc2LrLJaOjNwBE6tShQHLgFJKokCOYmjNraIGk4GHDAr7f7VYmOEVZ+Uxv5S8gytME0sQgFnBG7Z7dre7IZ0QrIFKUmc8Xdriravwnc4w2TClpqL8TrQq4aKWgNHr/kEAQFj2XiR8puk1YhWICewDwtIf3Xdt6H42kNFSy1Zg6SlSTR2y6oy0yz6VkzbTl3uG95jjPrjUdCViPom/wKNZ4KmsK1O+D+Reavoavlj1Srj0yeTnTnnnwi5Ezx3y0MZYi2EEF+bIoYO8jROXuPimBAlvWvZm2RTEqSp
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Apr 2026 16:15:31.1152
+X-MS-Exchange-AntiSpam-MessageData-0: DhCBq7tAGYaXswy8gsi9/jq9lt3pGGL7hXu9bS8FzbU/HnmhquLOxidcDI4WoCk7/znKNYXf4ZP3PAzIDG0BSxnjrlyQdcR02lXHq0O7L2DylSPka1HFfWi+yRmjthkvH+pJc7PcU62tBKhJGikIGINcA7RsFJuMTkpOfUOxENTYbJ6MqOHwEIsd9hGy7pPXoYPaV9z+K9CLNEd6tdsjzhan07WHtuG+8IXSw1yy/DnWaEMsVr+D1b1UF5Sb/r3L5R2Frh7Oin72jiLps/XYdjbOGR+HJD/Nbl+1RTN88PWw4PbMJHwOtEWDUw/mmQV8vXRxKRfvtlIUG/9VZ5OE5QMbzoz2P3pLuGVHFp1hNjsRxvkncVoT7MGE3WxtRbxGm9dxUPHLhSwVMhOjHBTmDn85ZoII7zHcgLeKuT9LMl/L90K7Mh+dmmw4hn3LnJp8
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Apr 2026 16:15:37.4537
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d3e03a47-fef6-4512-f052-08dea478342c
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00004683.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 77281b31-91be-4b07-7294-08dea47837fd
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF0000A78F.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6577
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB7944
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_091541_869038_D5815E8E 
-X-CRM114-Status: GOOD (  34.69  )
+X-CRM114-CacheID: sfid-20260427_091542_680930_796A5839 
+X-CRM114-Status: GOOD (  17.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,229 +158,271 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: tanmay.shah@amd.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Beleswar,
+Now that we have an emulated IRS, it needs to be registered, which
+ensures that guest accesses to the MMIO regions handled by the device
+are handled appropriately in KVM. Therefore, as part of
+vgic_map_resources, the GICv5 IRS IODEV is registered. If the address
+for the IRS is not provided, bail out reporting an error - this is not
+a supported config.
 
-Thanks for reviews. Please find my answer below:
+As part of this change, expose setting the address of the emulated IRS
+via KVM_VGIC_V5_ADDR_TYPE_IRS to userspace, as well as setting the
+number of SPIs handled by the emulated GICv5 implementation.
 
-On 4/24/2026 10:51 PM, Padhi, Beleswar wrote:
-> Hi Tanmay,
-> 
-> In $subject-line, s/remote node/remoteproc
-> 
+Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+---
+ arch/arm64/kvm/vgic/vgic-init.c       | 23 ++++++-
+ arch/arm64/kvm/vgic/vgic-kvm-device.c | 97 ++++++++++++++++++---------
+ 2 files changed, 87 insertions(+), 33 deletions(-)
 
-Ack. 'node' is platform management firmware term, which might not be
-right here. subject line already contains remoteproc so no need to have
-it again. Instead, will replace 'node' with 'core'. new subject:
-
-remoteproc: xlnx: check remote core state.
-
-> On 4/25/2026 8:32 AM, Tanmay Shah wrote:
->> The remote state is set to RPROC_DETACHED if the resource table is found
->> in the memory. However, this can be wrong if the remote is not started,
->> but firmware is still loaded in the memory. Use PM_GET_NODE_STATUS call
->> to the firmware to request the state of the RPU node. If the RPU is
->> actually out of reset and running, only then move the remote state to
->> RPROC_DETACHED, otherwise keep the remote state to RPROC_OFFLINE.
-> 
-> 
-> This is a good additional check. However, one thing to note is
-> remoteproc core
-> framework will load the firmware if the state is set to RPROC_OFFLINE. This
-> will override the existing firmware in the memory, I hope that is not
-> fatal for
-> your usecase?
-> 
-
-That is expected. If remote core is 'offline' during driver probe then
-any firmware already in the memory becomes irrelevant and new firmware
-can be loaded.
-
->>
->> Signed-off-by: Tanmay Shah <tanmay.shah@amd.com>
->> ---
->>   drivers/firmware/xilinx/zynqmp.c        | 28 +++++++++++++++++++
->>   drivers/remoteproc/xlnx_r5_remoteproc.c | 37 ++++++++++++++++++-------
->>   include/linux/firmware/xlnx-zynqmp.h    | 21 ++++++++++++++
->>   3 files changed, 76 insertions(+), 10 deletions(-)
->>
->> diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/
->> xilinx/zynqmp.c
->> index fbe8510f4927..af838b2dc327 100644
->> --- a/drivers/firmware/xilinx/zynqmp.c
->> +++ b/drivers/firmware/xilinx/zynqmp.c
->> @@ -1450,6 +1450,34 @@ int zynqmp_pm_get_node_status(const u32 node,
->> u32 *const status,
->>   }
->>   EXPORT_SYMBOL_GPL(zynqmp_pm_get_node_status);
->>   +/**
->> + * zynqmp_pm_get_rpu_node_status - PM call to request a RPU node's
->> current power state
->> + * @node:        ID of the RPU component or sub-system in question
->> + * @status:        Current operating state of the requested RPU node.
->> + * @requirements:    Current requirements asserted on the RPU node.
->> + * @usage:        Usage information, used for RPU slave nodes only:
->> + *            PM_USAGE_NO_MASTER    - No master is currently using
->> + *                          the node
->> + *            PM_USAGE_CURRENT_MASTER    - Only requesting master is
->> + *                          currently using the node
->> + *            PM_USAGE_OTHER_MASTER    - Only other masters are
->> + *                          currently using the node
->> + *            PM_USAGE_BOTH_MASTERS    - Both the current and at least
->> + *                          one other master is currently
->> + *                          using the node
->> + *
->> + * Return:        Returns status, either success or error+reason
->> + */
->> +int zynqmp_pm_get_rpu_node_status(const u32 node, u32 *const status,
->> +                  u32 *const requirements, u32 *const usage)
->> +{
->> +    if (zynqmp_pm_feature(PM_GET_NODE_STATUS) < PM_API_VERSION_2)
->> +        return -EOPNOTSUPP;
->> +
->> +    return zynqmp_pm_get_node_status(node, status, requirements, usage);
->> +}
->> +EXPORT_SYMBOL_GPL(zynqmp_pm_get_rpu_node_status);
->> +
->>   /**
->>    * zynqmp_pm_force_pwrdwn - PM call to request for another PU or
->> subsystem to
->>    *             be powered down forcefully
->> diff --git a/drivers/remoteproc/xlnx_r5_remoteproc.c b/drivers/
->> remoteproc/xlnx_r5_remoteproc.c
->> index 50a9974f3202..e2f25d94177d 100644
->> --- a/drivers/remoteproc/xlnx_r5_remoteproc.c
->> +++ b/drivers/remoteproc/xlnx_r5_remoteproc.c
->> @@ -948,16 +948,6 @@ static struct zynqmp_r5_core
->> *zynqmp_r5_add_rproc_core(struct device *cdev)
->>           goto free_rproc;
->>       }
->>   -    /*
->> -     * If firmware is already available in the memory then move rproc
->> state
->> -     * to DETACHED. Firmware can be preloaded via debugger or by any
->> other
->> -     * agent (processors) in the system.
->> -     * If firmware isn't available in the memory and resource table
->> isn't
->> -     * found, then rproc state remains OFFLINE.
->> -     */
->> -    if (!zynqmp_r5_get_rsc_table_va(r5_core))
->> -        r5_rproc->state = RPROC_DETACHED;
->> -
->>       r5_core->rproc = r5_rproc;
->>       return r5_core;
->>   @@ -1210,6 +1200,7 @@ static int zynqmp_r5_core_init(struct
->> zynqmp_r5_cluster *cluster,
->>   {
->>       struct device *dev = cluster->dev;
->>       struct zynqmp_r5_core *r5_core;
->> +    u32 req, usage, status;
->>       int ret = -EINVAL, i;
->>         r5_core = cluster->r5_cores[0];
->> @@ -1255,6 +1246,32 @@ static int zynqmp_r5_core_init(struct
->> zynqmp_r5_cluster *cluster,
->>           ret = zynqmp_r5_get_sram_banks(r5_core);
->>           if (ret)
->>               return ret;
->> +
->> +        /*
->> +         * It is possible that firmware is loaded into the memory, but
->> +         * RPU (remote) is not running. In such case, RPU state will be
->> +         * moved to RPROC_DETACHED wrongfully. To avoid it first make
->> +         * sure RPU is power-on and out of reset before parsing for the
->> +         * resource table.
->> +         */
->> +        ret = zynqmp_pm_get_rpu_node_status(r5_core->pm_domain_id,
->> +                            &status, &req, &usage);
->> +        if (ret) {
->> +            dev_warn(r5_core->dev,
->> +                 "failed to get rpu node status, err %d\n", ret);
->> +            continue;
->> +        }
->> +
->> +        /*
->> +         * If RPU state is power on and out of reset i.e. running, then
->> +         * assign RPROC_DETACHED state. If the RPU is not out of reset
->> +         * then do not attempt to attach to the remote processor.
->> +         */
->> +        if (status == PM_NODE_RUNNING) {
->> +            if (zynqmp_r5_get_rsc_table_va(r5_core))
->> +                dev_dbg(r5_core->dev, "rsc tbl not found\n");
-> 
-> 
-> Do you still want to set state = RPROC_DETACHED if resource table is not
-> found in the
-> memory?
-> 
-
-Yes. Not all the firmware that is running on remote core is expected to
-have the resource table. The firmware might not use RPMsg at all, and in
-that case resource table becomes irrelevant. However, we still need to
-make sure that running core is not reported as offline.
-
-Thanks.
-
-> Thanks,
-> Beleswar
-> 
->> +            r5_core->rproc->state = RPROC_DETACHED;
->> +        }
->>       }
->>         return 0;
->> diff --git a/include/linux/firmware/xlnx-zynqmp.h b/include/linux/
->> firmware/xlnx-zynqmp.h
->> index d70dcd462b44..7e27b0f7bf7e 100644
->> --- a/include/linux/firmware/xlnx-zynqmp.h
->> +++ b/include/linux/firmware/xlnx-zynqmp.h
->> @@ -542,6 +542,18 @@ enum pm_gem_config_type {
->>       GEM_CONFIG_FIXED = 2,
->>   };
->>   +/**
->> + * enum pm_node_status - Device node status provided by xilpm fw
->> + * @PM_NODE_UNUSED: Device is not used
->> + * @PM_NODE_RUNNING: Device is power-on and out of reset
->> + * @PM_NODE_HALT: Device is power-on but in the reset state
->> + */
->> +enum pm_node_status {
->> +    PM_NODE_UNUSED = 0,
->> +    PM_NODE_RUNNING = 1,
->> +    PM_NODE_HALT = 12,
->> +};
->> +
->>   /**
->>    * struct zynqmp_pm_query_data - PM query data
->>    * @qid:    query ID
->> @@ -630,6 +642,8 @@ int zynqmp_pm_set_rpu_mode(u32 node_id, enum
->> rpu_oper_mode rpu_mode);
->>   int zynqmp_pm_set_tcm_config(u32 node_id, enum rpu_tcm_comb tcm_mode);
->>   int zynqmp_pm_get_node_status(const u32 node, u32 *const status,
->>                     u32 *const requirements, u32 *const usage);
->> +int zynqmp_pm_get_rpu_node_status(const u32 node, u32 *const status,
->> +                  u32 *const requirements, u32 *const usage);
->>   int zynqmp_pm_set_sd_config(u32 node, enum pm_sd_config_type config,
->> u32 value);
->>   int zynqmp_pm_set_gem_config(u32 node, enum pm_gem_config_type config,
->>                    u32 value);
->> @@ -939,6 +953,13 @@ static inline int zynqmp_pm_get_node_status(const
->> u32 node, u32 *const status,
->>       return -ENODEV;
->>   }
->>   +static inline int zynqmp_pm_get_rpu_node_status(const u32 node, u32
->> *const status,
->> +                        u32 *const requirements,
->> +                        u32 *const usage)
->> +{
->> +    return -ENODEV;
->> +}
->> +
->>   static inline int zynqmp_pm_set_sd_config(u32 node,
->>                         enum pm_sd_config_type config,
->>                         u32 value)
->>
->> base-commit: 6f860d238b44da8ac57be25289b9f4410691c4e2
-
+diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-ini=
+t.c
+index cea8e963ade66..865d6b125c2b2 100644
+--- a/arch/arm64/kvm/vgic/vgic-init.c
++++ b/arch/arm64/kvm/vgic/vgic-init.c
+@@ -192,6 +192,11 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
+ 			goto out_unlock;
+ 		}
+=20
++		/*
++		 * Initialization happens later, for now just explicitly
++		 * disable the device and undef its base address.
++		 */
++		kvm->arch.vgic.vgic_v5_irs_data->vgic_v5_irs_base =3D VGIC_ADDR_UNDEF;
+=20
+ 		/*
+ 		 * We now know that we have a GICv5. The Arch Timer PPI
+@@ -638,7 +643,6 @@ int vgic_lazy_init(struct kvm *kvm)
+ int kvm_vgic_map_resources(struct kvm *kvm)
+ {
+ 	struct vgic_dist *dist =3D &kvm->arch.vgic;
+-	bool needs_dist =3D true;
+ 	enum vgic_type type;
+ 	gpa_t dist_base;
+ 	int ret =3D 0;
+@@ -663,13 +667,12 @@ int kvm_vgic_map_resources(struct kvm *kvm)
+ 	} else {
+ 		ret =3D vgic_v5_map_resources(kvm);
+ 		type =3D VGIC_V5;
+-		needs_dist =3D false;
+ 	}
+=20
+ 	if (ret)
+ 		goto out;
+=20
+-	if (needs_dist) {
++	if (type !=3D VGIC_V5) {
+ 		dist_base =3D dist->vgic_dist_base;
+ 		mutex_unlock(&kvm->arch.config_lock);
+=20
+@@ -680,6 +683,20 @@ int kvm_vgic_map_resources(struct kvm *kvm)
+ 		}
+ 	} else {
+ 		mutex_unlock(&kvm->arch.config_lock);
++
++		if (IS_VGIC_ADDR_UNDEF(
++			    dist->vgic_v5_irs_data->vgic_v5_irs_base)) {
++			kvm_err("No IRS address provided\n");
++			ret =3D -ENXIO;
++			goto out_slots;
++		}
++
++		ret =3D vgic_v5_register_irs_iodev(
++			kvm, dist->vgic_v5_irs_data->vgic_v5_irs_base);
++		if (ret) {
++			kvm_err("Unable to register VGIC IRS MMIO regions\n");
++			goto out_slots;
++		}
+ 	}
+=20
+ 	smp_store_release(&dist->ready, true);
+diff --git a/arch/arm64/kvm/vgic/vgic-kvm-device.c b/arch/arm64/kvm/vgic/vg=
+ic-kvm-device.c
+index 90be99443df3b..fd3b9cfbc2660 100644
+--- a/arch/arm64/kvm/vgic/vgic-kvm-device.c
++++ b/arch/arm64/kvm/vgic/vgic-kvm-device.c
+@@ -181,6 +181,14 @@ static int kvm_vgic_addr(struct kvm *kvm, struct kvm_d=
+evice_attr *attr, bool wri
+ 		addr |=3D (u64)rdreg->count << KVM_VGIC_V3_RDIST_COUNT_SHIFT;
+ 		goto out;
+ 	}
++	case KVM_VGIC_V5_ADDR_TYPE_IRS:
++		r =3D vgic_check_type(kvm, KVM_DEV_TYPE_ARM_VGIC_V5);
++		if (r)
++			break;
++		addr_ptr =3D &vgic->vgic_v5_irs_data->vgic_v5_irs_base;
++		alignment =3D SZ_64K;
++		size =3D KVM_VGIC_V5_IRS_SIZE;
++		break;
+ 	default:
+ 		r =3D -ENODEV;
+ 	}
+@@ -224,31 +232,39 @@ static int vgic_set_common_attr(struct kvm_device *de=
+v,
+ 		if (get_user(val, uaddr))
+ 			return -EFAULT;
+=20
+-		/*
+-		 * We require:
+-		 * - at least 32 SPIs on top of the 16 SGIs and 16 PPIs
+-		 * - at most 1024 interrupts
+-		 * - a multiple of 32 interrupts
+-		 */
+-		if (val < (VGIC_NR_PRIVATE_IRQS + 32) ||
+-		    val > VGIC_MAX_RESERVED ||
+-		    (val & 31))
+-			return -EINVAL;
++		if (!vgic_is_v5(dev->kvm)) {
++			/*
++			 * We require:
++			 * - at least 32 SPIs on top of the 16 SGIs and 16 PPIs
++			 * - at most 1024 interrupts
++			 * - a multiple of 32 interrupts
++			 */
++			if (val < (VGIC_NR_PRIVATE_IRQS + 32) ||
++			    val > VGIC_MAX_RESERVED || (val & 31))
++				return -EINVAL;
+=20
+-		mutex_lock(&dev->kvm->arch.config_lock);
++			mutex_lock(&dev->kvm->arch.config_lock);
+=20
+-		/*
+-		 * Either userspace has already configured NR_IRQS or
+-		 * the vgic has already been initialized and vgic_init()
+-		 * supplied a default amount of SPIs.
+-		 */
+-		if (dev->kvm->arch.vgic.nr_spis)
+-			ret =3D -EBUSY;
+-		else
+-			dev->kvm->arch.vgic.nr_spis =3D
+-				val - VGIC_NR_PRIVATE_IRQS;
++			/*
++			 * Either userspace has already configured NR_IRQS or
++			 * the vgic has already been initialized and vgic_init()
++			 * supplied a default amount of SPIs.
++			 */
++			if (dev->kvm->arch.vgic.nr_spis)
++				ret =3D -EBUSY;
++			else
++				dev->kvm->arch.vgic.nr_spis =3D
++					val - VGIC_NR_PRIVATE_IRQS;
+=20
+-		mutex_unlock(&dev->kvm->arch.config_lock);
++			mutex_unlock(&dev->kvm->arch.config_lock);
++		} else {
++			mutex_lock(&dev->kvm->arch.config_lock);
++			if (vgic_initialized(dev->kvm) || dev->kvm->arch.vgic.nr_spis)
++				ret =3D -EBUSY;
++			else
++				dev->kvm->arch.vgic.nr_spis =3D val;
++			mutex_unlock(&dev->kvm->arch.config_lock);
++		}
+=20
+ 		return ret;
+ 	}
+@@ -299,9 +315,14 @@ static int vgic_get_common_attr(struct kvm_device *dev=
+,
+ 		return (r =3D=3D -ENODEV) ? -ENXIO : r;
+ 	case KVM_DEV_ARM_VGIC_GRP_NR_IRQS: {
+ 		u32 __user *uaddr =3D (u32 __user *)(long)attr->addr;
+-
+-		r =3D put_user(dev->kvm->arch.vgic.nr_spis +
+-			     VGIC_NR_PRIVATE_IRQS, uaddr);
++		/* Older GICs */
++		if (!vgic_is_v5(dev->kvm)) {
++			r =3D put_user(dev->kvm->arch.vgic.nr_spis +
++					     VGIC_NR_PRIVATE_IRQS,
++				     uaddr);
++		} else {
++			r =3D put_user(dev->kvm->arch.vgic.nr_spis, uaddr);
++		}
+ 		break;
+ 	}
+ 	}
+@@ -748,21 +769,25 @@ static int vgic_v5_set_attr(struct kvm_device *dev,
+ {
+ 	switch (attr->group) {
+ 	case KVM_DEV_ARM_VGIC_GRP_ADDR:
++		break;
+ 	case KVM_DEV_ARM_VGIC_GRP_CPU_SYSREGS:
+-	case KVM_DEV_ARM_VGIC_GRP_NR_IRQS:
+ 		return -ENXIO;
++	case KVM_DEV_ARM_VGIC_GRP_NR_IRQS:
++		break;
+ 	case KVM_DEV_ARM_VGIC_GRP_CTRL:
+ 		switch (attr->attr) {
+ 		case KVM_DEV_ARM_VGIC_CTRL_INIT:
+-			return vgic_set_common_attr(dev, attr);
++			break;
+ 		case KVM_DEV_ARM_VGIC_USERSPACE_PPIS:
+ 		default:
+ 			return -ENXIO;
+ 		}
++		break;
+ 	default:
+ 		return -ENXIO;
+ 	}
+=20
++	return vgic_set_common_attr(dev, attr);
+ }
+=20
+ static int vgic_v5_get_attr(struct kvm_device *dev,
+@@ -770,21 +795,26 @@ static int vgic_v5_get_attr(struct kvm_device *dev,
+ {
+ 	switch (attr->group) {
+ 	case KVM_DEV_ARM_VGIC_GRP_ADDR:
++		break;
+ 	case KVM_DEV_ARM_VGIC_GRP_CPU_SYSREGS:
+-	case KVM_DEV_ARM_VGIC_GRP_NR_IRQS:
+ 		return -ENXIO;
++	case KVM_DEV_ARM_VGIC_GRP_NR_IRQS:
++		break;
+ 	case KVM_DEV_ARM_VGIC_GRP_CTRL:
+ 		switch (attr->attr) {
+ 		case KVM_DEV_ARM_VGIC_CTRL_INIT:
+-			return vgic_get_common_attr(dev, attr);
++			break;
+ 		case KVM_DEV_ARM_VGIC_USERSPACE_PPIS:
+ 			return vgic_v5_get_userspace_ppis(dev, attr);
+ 		default:
+ 			return -ENXIO;
+ 		}
++		break;
+ 	default:
+ 		return -ENXIO;
+ 	}
++
++	return vgic_get_common_attr(dev, attr);
+ }
+=20
+ static int vgic_v5_has_attr(struct kvm_device *dev,
+@@ -792,15 +822,22 @@ static int vgic_v5_has_attr(struct kvm_device *dev,
+ {
+ 	switch (attr->group) {
+ 	case KVM_DEV_ARM_VGIC_GRP_ADDR:
++		switch (attr->attr) {
++		case KVM_VGIC_V5_ADDR_TYPE_IRS:
++			return 0;
++		}
++		return -ENXIO;
+ 	case KVM_DEV_ARM_VGIC_GRP_CPU_SYSREGS:
+-	case KVM_DEV_ARM_VGIC_GRP_NR_IRQS:
+ 		return -ENXIO;
++	case KVM_DEV_ARM_VGIC_GRP_NR_IRQS:
++		return 0;
+ 	case KVM_DEV_ARM_VGIC_GRP_CTRL:
+ 		switch (attr->attr) {
+ 		case KVM_DEV_ARM_VGIC_CTRL_INIT:
+ 			return 0;
+ 		case KVM_DEV_ARM_VGIC_USERSPACE_PPIS:
+ 			return 0;
++		case KVM_DEV_ARM_VGIC_SAVE_PENDING_TABLES:
+ 		default:
+ 			return -ENXIO;
+ 		}
+--=20
+2.34.1
 
