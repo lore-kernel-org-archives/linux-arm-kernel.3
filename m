@@ -4,74 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1582FF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 20:20:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85C4FFF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 20:28:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X2bI2UoaLvX4gCevaU7qNOHhhCPcAax0k/u3+iPwhos=; b=BDCXCGeUG2M1QWSjwn1aBULYJK
-	TOf3lX8pMS4Y4nIxfh1rEcI9WiYMGRK5D8LNGJk7PqZWCZ/0c+OplCvW+76JhKq5iWeBGu2HWsumu
-	Ll0UJb1lU1R1ZWkdbb9DVQ7VG+CqfF4LjnKZVjLTf2o+dAB1aqrX7d3e8gzHwdTStT47PhP1cG8V5
-	8putcedXcMSuCY9PtRswnC56BvXkG7Plw+KDFdX2JGo3kJlR83hdduovpB7eHpKaUvsv41hxKd+gp
-	bTcPtt9RPAhtqwXW1RlkL9TUUElSLb9RTAD5gbX/Dp24wd9j9+Lp7ol+EWDX6/cuJ4sd34kJ6msG0
-	WAmvDxdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bCKUIAH5AFpDTEzRcLChuiZZK/DaK7fLHicMM3GjPeU=; b=Vw1rf6Gw59T+kxLFAObcq/nmRk
+	RdJObGyUKRpJrLIbgdNaasQC7MeTEZD/KbP5LqGLMVFUf4qd/KI5Blxp0clL7c0UM4A0WChmZer/g
+	7rM54fcYeslKdXT9AiGPMVlkUVtb9dpJqRnQmUFRCFZQ6xPljMqD2vqwWlND7B56vdDA35TaORG3g
+	rFnoLPl5cF99cuVs/Zsa7WGGjG1Mjh+/gSlazl4mePidqyYzgOczP37x/A5E8VVgxDHjxuwt72fQS
+	fboKshp8rEKxifheEoGZ/n3YD/52ZypJWG4rY8zTfalBfvCx0hfMScNbg3uYAzkNarYkWGL9I4XU6
+	mk/P7hSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHSRC-000000007M7-1bit;
-	Mon, 27 Apr 2026 20:20:14 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wHSZ1-000000007n2-1U5I;
+	Mon, 27 Apr 2026 20:28:19 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHSRA-000000007Lj-20Jx
+	id 1wHSYz-000000007lu-2oq6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 20:20:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E6D4B60142
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 20:20:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B6F8C4AF09
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 20:20:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777321211;
-	bh=X2bI2UoaLvX4gCevaU7qNOHhhCPcAax0k/u3+iPwhos=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=hy+7mITxsY3RF9VGJWL98ljKzomsIoVK2oIa2YDlwLMIUaCCYD4eNixLrsMYXtsmR
-	 AIRHtSZWpFRDRDqp3k65eLE984AYxIAWHqla3UNhGY2HBXHCsii4MunlzQZPCD+elC
-	 UF+zR0neDgrXsafnEilm7MpJOD9/wzaWVLXgIjK3UH5X14DlAqXYCK7EzfQ4en9htp
-	 VPw+61liIAZGZATE2rXPbohATDSeqQGDdji0bgp+lHA3+mp4fPFKgb3uFPKrZfM9jm
-	 4u2PmyhX+YD4cn5gmYBoeKpdICvenvNqPk0fnTJGpV1ex6n8wtThP313jPv1ECjBkJ
-	 n0suIDTqNI5ZQ==
-Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-59e4a04f059so13025746e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 13:20:11 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+sE/jUvJcCowpM3gyxp7iKSV7EU0xNuoGb2AEz5xUBkNMiicrbOvwquQe3TuGJX7GOMfymtD2S2w+MHidFRj4b@lists.infradead.org
-X-Gm-Message-State: AOJu0YxR+fB2DAmbAp3Mqat3+RZvs39YFuKnhyHpdh6L+5JO+A14uUSf
-	ktRJZUIor4g7ICg398liHLRJKdfqaq0HmpPD+GkU1/UdCKn3zpPtTsfB11pRMbyz5NJT1TaLtGE
-	SX08cnr0D5UMFTBatwNbuOWyA2ORaSu8=
-X-Received: by 2002:a05:6512:2203:b0:5a3:cc81:efdb with SMTP id
- 2adb3069b0e04-5a7466234c2mr101158e87.21.1777321210358; Mon, 27 Apr 2026
- 13:20:10 -0700 (PDT)
+	Mon, 27 Apr 2026 20:28:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=bCKUIAH5AFpDTEzRcLChuiZZK/DaK7fLHicMM3GjPeU=; b=rLlesqLi6cgTfWUu5jNjMHVnJc
+	WFSU29sFZ7PYpE/EtDJrxlyl9K4R4lTFz3LpB3gxa3gy6IjKwY0rG8OaHwJUN5RJGxmXdMCZuuAfW
+	AhzQWMvhNGLPqSnoCVhJCMAATNyF4t3Z8rO3EO6V0Zj2ca/0yQjQaKX7UIsq5FxqX4+M=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1wHSYk-000Dgw-4C; Mon, 27 Apr 2026 22:28:02 +0200
+Date: Mon, 27 Apr 2026 22:28:02 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Shenwei Wang <shenwei.wang@nxp.com>
+Cc: "Padhi, Beleswar" <b-padhi@ti.com>, Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Frank Li <frank.li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	dl-linux-imx <linux-imx@nxp.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>
+Subject: Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
+Message-ID: <6412a758-4560-4cf1-a0d0-5b24d1a715f1@lunn.ch>
+References: <20260422212849.1240591-1-shenwei.wang@nxp.com>
+ <20260422212849.1240591-4-shenwei.wang@nxp.com>
+ <22fb5fac-2568-42be-a7e3-7e89d0017eb3@ti.com>
+ <PAXPR04MB91850A11C58419C03909145F89362@PAXPR04MB9185.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-References: <20260410070935.9540-1-bartosz.golaszewski@oss.qualcomm.com>
- <trinity-5e6f6a95-e576-4f97-9085-c6de21945eab-1775813076268@trinity-msg-rest-gmx-gmx-live-5cf7d7879b-qwfn5>
- <CAD++jLnjN-gUdCbmdmLaMYck=sP9wrhT2fFRB0TGCAVGvSsY1w@mail.gmail.com>
- <dc46f7d784281642aad6d47e79a3e91652eec667@linux.dev> <CAD++jLkz189qT1kJr34ratZT_n20oWEAQg8q0ttQ-VrsFchp7g@mail.gmail.com>
- <CAMRc=McRuH5Fi-5UQWLRe4+wXKH8qikaYqiqbGXrPOgaifEesw@mail.gmail.com>
-In-Reply-To: <CAMRc=McRuH5Fi-5UQWLRe4+wXKH8qikaYqiqbGXrPOgaifEesw@mail.gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 27 Apr 2026 22:19:58 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=m6RGc8Lv0Cn2xsnn8kzV-paAMos4saYNFTpjUcxwcvg@mail.gmail.com>
-X-Gm-Features: AVHnY4I-QfyRqRKRQSMK3sajFg1wZNjagZwtf7cBxvDJnumElCFBOdrk7T_ZX5A
-Message-ID: <CAD++jL=m6RGc8Lv0Cn2xsnn8kzV-paAMos4saYNFTpjUcxwcvg@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: mediatek: moore: implement gpio_chip::get_direction()
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Frank Wunderlich <frank.wunderlich@linux.dev>, Frank Wunderlich <frank-w@public-files.de>, 
-	bartosz.golaszewski@oss.qualcomm.com, linux@fw-web.de, sean.wang@kernel.org, 
-	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
-	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <PAXPR04MB91850A11C58419C03909145F89362@PAXPR04MB9185.eurprd04.prod.outlook.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260427_132817_740463_DBBCC8C6 
+X-CRM114-Status: GOOD (  21.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,22 +88,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 27, 2026 at 12:33=E2=80=AFPM Bartosz Golaszewski <brgl@kernel.o=
-rg> wrote:
+> > > +struct rpmsg_gpio_packet {
+> > > +     u8 type;        /* Message type */
+> > > +     u8 cmd;         /* Command code */
+> > > +     u8 port_idx;
+> > > +     u8 line;
+> > > +     u8 val1;
+> > > +     u8 val2;
+> > > +};
+> > 
+> > 
+> > Could you please document the fields in these structs (and the below ones too)?
+> > From the code, it looks like while sending a message from Linux to Firmware; val1
+> > and val2 are used to describe the values to set. Whereas while receiving a
+> > response, val1 represents a possible error code, and val2 represents the actual
+> > message of get type queries. If that is so, you might want to change the variable
+> > names to be more descriptive and also use a union.
+> > 
+> 
+> The fields in the two structs are fairly self-explanatory. Do we really need the additional comments?
+> The previous version of the patch used a union, which was updated to support the fixed_up hooks. 
+> Now that the fixed_up hooks have been removed, I can revert this back to the union-based implementation.
 
-> > Fixed up and applied. Will be going in as fix for v7.1.
-> >
-> > Yours,
-> > Linus Walleij
-> >
->
-> Hi Linus!
->
-> It seems this one got lost somewhere along the way? I don't see it in
-> mainline nor next.
+I thought you had already adopted the virtio message format?
 
-I'm just slow at pushing out my tree, it's on its way!
 
-Yours,
-Linus Walleij
+/* Possible values of the status field */
+#define VIRTIO_GPIO_STATUS_OK			0x0
+#define VIRTIO_GPIO_STATUS_ERR			0x1
+
+struct virtio_gpio_response {
+	__u8 status;
+	__u8 value;
+};
+
+Seems pretty obvious what status means. value depends on the request,
+get_direction actually uses it, and it can be one of
+
+#define VIRTIO_GPIO_DIRECTION_NONE		0x00
+#define VIRTIO_GPIO_DIRECTION_OUT		0x01
+#define VIRTIO_GPIO_DIRECTION_IN		0x02
+
+and gpio_get uses it as a bool for the state of the GPIO.
+
+Why do we need all the complexity for val1, val2, etc?
+
+  Andrew
 
