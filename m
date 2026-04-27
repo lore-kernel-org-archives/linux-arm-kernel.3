@@ -4,100 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F7D1FF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 16:33:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D55E2FF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 16:37:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bl/XCw0/NlDvZucl8fmIFkULRBGXTZv9TzNsGmOAeb0=; b=d+hCT7iRfFfaboC3X0Q72kzPmi
-	vTQLL6jpdsbNvMqlHdSTnhWm32aHAM1SopILVUkikIQRyeJJUWVhlH22Se5QGdoErykMGrJsZT79g
-	baj0DbbFqexWmjfhsluGZITX4tmZfNcbp7iQvKf1RzNw68KHsvI4M7Fd77BsT/mEUuxpvrjDVlpTy
-	stkoU2snWF9OGwEYEsVoKb3C9Ko03gxJ1HmLo5l+3NlAX379FuEy4+AueOhpfed8MxBYhXGHTbjBy
-	kBfW0IMhlssrE3IKsDcWCZV13urUSvkCQGS/5Hgl49Q0CENZKv806B/FUd5fL9niXN5pH9uLmnp2S
-	4MqEmE0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hCANRpY3mJCsw/i4kg7zBkjiC6GuDLjAsTEkNFxuRDE=; b=JmkZlKDLji8BL8FgUynacYiKH8
+	OG3DIjuIUbOl3LdmF+srEwWlQVtHgvUZDNR9/cbcC5lERVXW9E1yrr0qqgirjeSbkQx8Ed2WlWeVe
+	etW8jwxYpfW00uZ1YvHLIHc1Mg/DeIlnTdwdiDcSTdltyWN8IcRXjAuoNr/tyhHFljCUH+EyB2CxD
+	y9X6Q9lFUS/S1Iqxe89Vm6G8wASRy4DunKZ/WeAUFw7YW39JzWYrANtXLcoVpTDkDS2P6WSNztpRh
+	spc07wnh2//ajrQEugFp+s5tqu7/FX82aONZH4IeT8wAIsr6CnhI4kK+bmO3W/ir5mgAnJbmfFXrc
+	IjRIjRRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHOtU-0000000HN6B-2wlg;
-	Mon, 27 Apr 2026 16:33:12 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	id 1wHOxq-0000000HNSC-1NcM;
+	Mon, 27 Apr 2026 16:37:42 +0000
+Received: from mgamail.intel.com ([192.198.163.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHOtR-0000000HN5K-2qHa
+	id 1wHOxn-0000000HNRf-3HQF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 16:33:10 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-c7973f67f4dso3072326a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 09:33:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777307589; x=1777912389; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=bl/XCw0/NlDvZucl8fmIFkULRBGXTZv9TzNsGmOAeb0=;
-        b=r8yB8RPMh3RMcGsxqAO/mhtfTd18E4p5AnnE8b2C88+VXQSF5IoROL579uYG9wLw4t
-         jK5XYEzv+wc7Oz+pHPLdwUU4YobwVLnbRP6tRi3F/S4fg0V6YS8wXJ569/JS3XPjtcTA
-         MCSEO9eUXxSZIfeOxfeL2eCQaZDHBda82NOhZ9EVRJQswx179/XZ6X7rTniYDj4CN859
-         T9JobjXDHS3exsUp4za+gWt8NT90/iaP+50su1PHrCA8Rh/jV3JqzuaxBwUOrN2dAAOO
-         /B2kooISBhNMa9oAq39L/gGZ4TFkkUhzqC2Xd0no7b3MO1rp2Jx5O3dBBVNSw2+vbNkK
-         hPPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777307589; x=1777912389;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bl/XCw0/NlDvZucl8fmIFkULRBGXTZv9TzNsGmOAeb0=;
-        b=qwlUWBxux2j8BIn9jxVBILkLchDDt8Ive+oaVdWIo7QPNasuULTMk87ztpFnknr7sl
-         gQdiyvZtwSeNYjOWO4EBCbsw3sYRECq7Ze7uQbuTB7MFUKPU6MOqu1/GbH7kWptu4pV1
-         CUnSbVwQbK4wmB3RQAr4M3PkcU7Zcvk7zBpvEQfb2NLE6Rf+67ntAc58n7i92ycJm1W7
-         QLOxWveG87dj7PsYk2IZQHn6zpTcPMLS8U1BZcBx0ZNBTUtXOHl4q4S4PA9twjE9aTp8
-         PicBWyQK1tzKk0OxWiNh/io1a+oQ7d6qHlJiHBho+0BtIcojTeFnYBj8yNaSrtowx+pY
-         B0zw==
-X-Forwarded-Encrypted: i=1; AFNElJ9ZZ0jLM6y4RV+27lbqAVkHA851FZ6n6YuNDQwmkH/T/bf4Mw8gpFGrIH+f2V52j9zLFbho58Fv0lNaOYqMNMFW@lists.infradead.org
-X-Gm-Message-State: AOJu0YweyZeZGtYhqKFTF3Oii0knSPNRsUMTNedMvoVJvLJ1KCzK5XkZ
-	13c/rHwDEs3NajmEOfbyhiC3A7/s8rX9PCmR0K+BvSMVwyrDbZBzGRFo
-X-Gm-Gg: AeBDievJRX/RR63sASZSiGDn9/cc6qg9VAnvqb4O9pn3LIs1p0Z3KcYAqDIfNwkqGg5
-	OvlGeBSS565PVmtmbhO8sbHG+vVA15GrGkmJqzgY57/OUXoZ4Nf+iNLXOi3H4vKwMpnyyBTI3VS
-	ZKRXVYrbDvL7IMjJxfytA1uk6hOYS1F/4HiP9AdXvEualuL1kazuEZs9r2pd5FMWf1Ec3IMYy1Z
-	eFg42YqT5oXU1iwvGBwKOADQXx7nkyW26RZKAZ3zOosCzUvvt68lodQ84flvPQUALpTtH+5KDA0
-	zB8hSqFruRShx9AsbnR7h9O7XXkV1o/dcffOfVGcsCSLx6amWauif/MCX4oApY2OQAjAdG6O5No
-	JcJd0s/YEUN0tQb19PksYN/u33Qxc5Vl2pcRI5iIRK3lLxpKznt8uu9vd3r36M6nWgMOX+bL9T9
-	nRZEFXcKgMeRhhZ3SonjfgWUzfNYoRKx2+yATCx1DmwbcbjuHztZ4LuRbMiHAm8+VOGxtDNAEiN
-	W77SsoGeITnP1phFn04FNQ6VV0HMJo=
-X-Received: by 2002:a17:902:7615:b0:2ae:47b0:dc80 with SMTP id d9443c01a7336-2b5f9df6fc9mr269245635ad.11.1777307588432;
-        Mon, 27 Apr 2026 09:33:08 -0700 (PDT)
-Received: from junjungu-PC.localdomain ([223.167.147.125])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b5faa174c3sm309346485ad.21.2026.04.27.09.33.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Apr 2026 09:33:08 -0700 (PDT)
-From: Felix Gu <ustc.gu@gmail.com>
-Date: Tue, 28 Apr 2026 00:33:04 +0800
-Subject: [PATCH] spi: axiado: replace usleep_range() with udelay() in IRQ
- path
+	Mon, 27 Apr 2026 16:37:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1777307859; x=1808843859;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=YIh4WeN8QUAy34rQE95nzKe8DABTjUVlxtRPaQcJnk4=;
+  b=OqiLv32gibQekRYprBluilWopDYof+5aJpUcHxb/Tsb2hy+nZSuX2NBV
+   lLwhWweh7aGsHi9pnJXqJr98+SkkOLXJFPSo+tBmATC51ynhF24lkEtrY
+   8FbpLxFKNn+iKMK5fGf2/dKfxgKbw2xtWExoLAxGlO0GIRdP7CgyvoYYf
+   CTkgIuSk05h3uej/g+ye9EP7SSjOxl6NjbKW9ldLoK7wEC02kiWQ/vyya
+   WxhrY8wx9vvpU2h2lnoCezO5km9rljTQQoLLWRkR1cxW9BGs3xbr9F0x4
+   KTkd3uZhwnRAUsQ5oDSFjh8VH2YBCN27wmgLHv6xf1h//DOyvmCHCo7s6
+   Q==;
+X-CSE-ConnectionGUID: eD4JO8SkTe+9Xf8ld/oXdQ==
+X-CSE-MsgGUID: CggQalRASkWjkH3PjQHkTQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11769"; a="77231921"
+X-IronPort-AV: E=Sophos;i="6.23,202,1770624000"; 
+   d="scan'208";a="77231921"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Apr 2026 09:37:36 -0700
+X-CSE-ConnectionGUID: n0jX+b1ESp2QJU2StdRyxA==
+X-CSE-MsgGUID: m5gUBWOhT5Gq4mf82ZIymw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,202,1770624000"; 
+   d="scan'208";a="235438818"
+Received: from msatwood-mobl.amr.corp.intel.com (HELO [10.125.108.172]) ([10.125.108.172])
+  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Apr 2026 09:37:34 -0700
+Message-ID: <4389deb3-2c25-45ce-bbd5-ae36760d2619@intel.com>
+Date: Mon, 27 Apr 2026 09:37:33 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 3/3] iommu/arm-smmu-v3: Allow ATS to be always on
+To: Nicolin Chen <nicolinc@nvidia.com>, jgg@nvidia.com, will@kernel.org,
+ robin.murphy@arm.com, bhelgaas@google.com
+Cc: joro@8bytes.org, praan@google.com, baolu.lu@linux.intel.com,
+ kevin.tian@intel.com, miko.lenczewski@arm.com,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+ dan.j.williams@intel.com, jonathan.cameron@huawei.com, vsethi@nvidia.com,
+ linux-cxl@vger.kernel.org, nirmoyd@nvidia.com
+References: <cover.1777269009.git.nicolinc@nvidia.com>
+ <7403163ebf59380f88c7503b3adf0dae07428df8.1777269009.git.nicolinc@nvidia.com>
+Content-Language: en-US
+From: Dave Jiang <dave.jiang@intel.com>
+In-Reply-To: <7403163ebf59380f88c7503b3adf0dae07428df8.1777269009.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260428-axiado-v1-1-cd767500af72@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAL+P72kC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDEyML3cSKzMSUfF2jJPNUMwNjM9NUy0QloOKCotS0zAqwQdGxtbUAO8K
- 1G1gAAAA=
-X-Change-ID: 20260428-axiado-2b7e60365e9a
-To: Vladimir Moravcevic <vmoravcevic@axiado.com>, 
- Tzu-Hao Wei <twei@axiado.com>, Swark Yang <syang@axiado.com>, 
- Prasad Bolisetty <pbolisetty@axiado.com>, Mark Brown <broonie@kernel.org>, 
- Harshit Shah <hshah@axiado.com>
-Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Felix Gu <ustc.gu@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777307586; l=1029;
- i=ustc.gu@gmail.com; h=from:subject:message-id;
- bh=8W6ejA4JywJSSKQL7Q25kMUHMTPo2Ypf1rOgcW6fZAM=;
- b=evbJ5bCAUbuUcCQyFS8QvVajCnmBYUG5ma1I9W/857WZuf/FziNv4+AYnXR8V9fsnELVLdqY6
- IGVWiI+OvOoBMcaRfQHvbp9q5ibD0wwzHWa++Qh8GbMwiuDKyEsN4CW
-X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
- pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_093309_722207_ECAEDAA3 
-X-CRM114-Status: GOOD (  11.14  )
+X-CRM114-CacheID: sfid-20260427_093739_850979_67F1010E 
+X-CRM114-Status: GOOD (  43.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,36 +91,198 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ax_spi_fill_tx_fifo() can be called from ax_spi_irq() which is a hard
-irq handler. Replace usleep_range(10, 10) with udelay(10) in atomic
-context.
 
-Fixes: e75a6b00ad79 ("spi: axiado: Add driver for Axiado SPI DB controller")
-Signed-off-by: Felix Gu <ustc.gu@gmail.com>
----
- drivers/spi/spi-axiado.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/spi/spi-axiado.c b/drivers/spi/spi-axiado.c
-index 9057a0a8df4a..649f149617ce 100644
---- a/drivers/spi/spi-axiado.c
-+++ b/drivers/spi/spi-axiado.c
-@@ -201,7 +201,7 @@ static void ax_spi_fill_tx_fifo(struct ax_spi *xspi)
- 		 * then spi control did't work thoroughly, add one byte delay
- 		 */
- 		if (ax_spi_read(xspi, AX_SPI_IVR) & AX_SPI_IVR_TFOV)
--			usleep_range(10, 10);
-+			udelay(10);
- 		if (xspi->tx_buf)
- 			ax_spi_write_b(xspi, AX_SPI_TXFIFO, *xspi->tx_buf++);
- 		else
+On 4/26/26 10:54 PM, Nicolin Chen wrote:
+> When a device's default substream attaches to an identity domain, the SMMU
+> driver currently sets the device's STE between two modes:
+> 
+>   Mode 1: Cfg=Translate, S1DSS=Bypass, EATS=1
+>   Mode 2: Cfg=bypass (EATS is ignored by HW)
+> 
+> When there is an active PASID (non-default substream), mode 1 is used. And
+> when there is no PASID support or no active PASID, mode 2 is used.
+> 
+> The driver will also downgrade an STE from mode 1 to mode 2, when the last
+> active substream becomes inactive.
+> 
+> However, there are PCIe devices that demand ATS to be always on. For these
+> devices, their STEs have to use the mode 1 as HW ignores EATS with mode 2.
+> 
+> Change the driver accordingly:
+>   - always use the mode 1
+>   - never downgrade to mode 2
+>   - allocate and retain a CD table (see note below)
+> 
+> Note that these devices might not support PASID, i.e. doing non-PASID ATS.
+> In such a case, the ssid_bits is set to 0. However, s1cdmax must be set to
+> a !0 value in order to keep the S1DSS field effective. Thus, when a master
+> requires ats_always_on, set its s1cdmax to at least 1, meaning that the CD
+> table will have a dummy entry (SSID=1) that will never be used.
+> 
+> Now for these devices, arm_smmu_cdtab_allocated() will always return true,
+> v.s. false prior to this change. When its default substream is attached to
+> an IDENTITY domain, its first CD is NULL in the table, which is a totally
+> valid case. Thus, add "!master->ats_always_on" to the condition.
+> 
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> Tested-by: Nirmoy Das <nirmoyd@nvidia.com>
+> Acked-by: Nirmoy Das <nirmoyd@nvidia.com>
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> Reviewed-by: Kevin Tian <kevin.tian@intel.com>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 
----
-base-commit: 7080e32d3f09d8688c4a87d81bdcc71f7f606b16
-change-id: 20260428-axiado-2b7e60365e9a
+Reviewed-by: Dave Jiang <dave.jiang@intel.com>
 
-Best regards,
--- 
-Felix Gu <ustc.gu@gmail.com>
+
+> ---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  1 +
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 75 ++++++++++++++++++---
+>  2 files changed, 68 insertions(+), 8 deletions(-)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> index ef42df4753ec4..8c3600f4364c5 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> @@ -943,6 +943,7 @@ struct arm_smmu_master {
+>  	bool				ats_enabled : 1;
+>  	bool				ste_ats_enabled : 1;
+>  	bool				stall_enabled;
+> +	bool				ats_always_on;
+>  	unsigned int			ssid_bits;
+>  	unsigned int			iopf_refcount;
+>  };
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index e8d7dbe495f03..d478f148cd34b 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -1742,8 +1742,11 @@ void arm_smmu_clear_cd(struct arm_smmu_master *master, ioasid_t ssid)
+>  	if (!arm_smmu_cdtab_allocated(&master->cd_table))
+>  		return;
+>  	cdptr = arm_smmu_get_cd_ptr(master, ssid);
+> -	if (WARN_ON(!cdptr))
+> +	if (!cdptr) {
+> +		/* Only ats_always_on allows a NULL CD on default substream */
+> +		WARN_ON(!master->ats_always_on || ssid);
+>  		return;
+> +	}
+>  	arm_smmu_write_cd_entry(master, ssid, cdptr, &target);
+>  }
+>  
+> @@ -1756,6 +1759,22 @@ static int arm_smmu_alloc_cd_tables(struct arm_smmu_master *master)
+>  	struct arm_smmu_ctx_desc_cfg *cd_table = &master->cd_table;
+>  
+>  	cd_table->s1cdmax = master->ssid_bits;
+> +
+> +	/*
+> +	 * When a device doesn't support PASID (non default SSID), ssid_bits is
+> +	 * set to 0. This also sets S1CDMAX to 0, which disables the substreams
+> +	 * and ignores the S1DSS field.
+> +	 *
+> +	 * On the other hand, if a device demands ATS to be always on even when
+> +	 * its default substream is IOMMU bypassed, it has to use EATS that is
+> +	 * only effective with an STE (CFG=S1translate, S1DSS=Bypass). For such
+> +	 * use cases, S1CDMAX has to be !0, in order to make use of S1DSS/EATS.
+> +	 *
+> +	 * Set S1CDMAX no lower than 1. This would add a dummy substream in the
+> +	 * CD table but it should never be used by an actual CD.
+> +	 */
+> +	if (master->ats_always_on)
+> +		cd_table->s1cdmax = max_t(u8, cd_table->s1cdmax, 1);
+>  	max_contexts = 1 << cd_table->s1cdmax;
+>  
+>  	if (!(smmu->features & ARM_SMMU_FEAT_2_LVL_CDTAB) ||
+> @@ -3851,7 +3870,8 @@ static int arm_smmu_blocking_set_dev_pasid(struct iommu_domain *new_domain,
+>  	 * When the last user of the CD table goes away downgrade the STE back
+>  	 * to a non-cd_table one, by re-attaching its sid_domain.
+>  	 */
+> -	if (!arm_smmu_ssids_in_use(&master->cd_table)) {
+> +	if (!master->ats_always_on &&
+> +	    !arm_smmu_ssids_in_use(&master->cd_table)) {
+>  		struct iommu_domain *sid_domain =
+>  			iommu_driver_get_domain_for_dev(master->dev);
+>  
+> @@ -3875,6 +3895,8 @@ static void arm_smmu_attach_dev_ste(struct iommu_domain *domain,
+>  		.old_domain = old_domain,
+>  		.ssid = IOMMU_NO_PASID,
+>  	};
+> +	bool ats_always_on = master->ats_always_on &&
+> +			     s1dss != STRTAB_STE_1_S1DSS_TERMINATE;
+>  
+>  	/*
+>  	 * Do not allow any ASID to be changed while are working on the STE,
+> @@ -3886,7 +3908,7 @@ static void arm_smmu_attach_dev_ste(struct iommu_domain *domain,
+>  	 * If the CD table is not in use we can use the provided STE, otherwise
+>  	 * we use a cdtable STE with the provided S1DSS.
+>  	 */
+> -	if (arm_smmu_ssids_in_use(&master->cd_table)) {
+> +	if (ats_always_on || arm_smmu_ssids_in_use(&master->cd_table)) {
+>  		/*
+>  		 * If a CD table has to be present then we need to run with ATS
+>  		 * on because we have to assume a PASID is using ATS. For
+> @@ -4215,6 +4237,42 @@ static void arm_smmu_remove_master(struct arm_smmu_master *master)
+>  	kfree(master->build_invs);
+>  }
+>  
+> +static int arm_smmu_master_prepare_ats(struct arm_smmu_master *master)
+> +{
+> +	bool s1p = master->smmu->features & ARM_SMMU_FEAT_TRANS_S1;
+> +	unsigned int stu = __ffs(master->smmu->pgsize_bitmap);
+> +	struct pci_dev *pdev;
+> +	int ret;
+> +
+> +	if (!arm_smmu_ats_supported(master))
+> +		return 0;
+> +
+> +	pdev = to_pci_dev(master->dev);
+> +
+> +	if (!pci_ats_always_on(pdev))
+> +		goto out_prepare;
+> +
+> +	/*
+> +	 * S1DSS is required for ATS to be always on for identity domain cases.
+> +	 * However, the S1DSS field is ignored if !IDR0_S1P or !IDR1_SSIDSIZE.
+> +	 */
+> +	if (!s1p || !master->smmu->ssid_bits) {
+> +		dev_info_once(master->dev,
+> +			      "SMMU doesn't support ATS to be always on\n");
+> +		goto out_prepare;
+> +	}
+> +
+> +	master->ats_always_on = true;
+> +
+> +	ret = arm_smmu_alloc_cd_tables(master);
+> +	if (ret)
+> +		return ret;
+> +
+> +out_prepare:
+> +	pci_prepare_ats(pdev, stu);
+> +	return 0;
+> +}
+> +
+>  static struct iommu_device *arm_smmu_probe_device(struct device *dev)
+>  {
+>  	int ret;
+> @@ -4263,14 +4321,15 @@ static struct iommu_device *arm_smmu_probe_device(struct device *dev)
+>  	    smmu->features & ARM_SMMU_FEAT_STALL_FORCE)
+>  		master->stall_enabled = true;
+>  
+> -	if (dev_is_pci(dev)) {
+> -		unsigned int stu = __ffs(smmu->pgsize_bitmap);
+> -
+> -		pci_prepare_ats(to_pci_dev(dev), stu);
+> -	}
+> +	ret = arm_smmu_master_prepare_ats(master);
+> +	if (ret)
+> +		goto err_disable_pasid;
+>  
+>  	return &smmu->iommu;
+>  
+> +err_disable_pasid:
+> +	arm_smmu_disable_pasid(master);
+> +	arm_smmu_remove_master(master);
+>  err_free_master:
+>  	kfree(master);
+>  	return ERR_PTR(ret);
 
 
