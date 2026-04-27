@@ -4,67 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 601A4FF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 20:18:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1582FF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 20:20:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vIpoYo8mg2F8TqqpFA/ShdThKE3hDl3W8aeDKomZNEM=; b=e+M3cy1vWdv8Y4uVzHY8DRnyFJ
-	T6tLB/7Iszx7fyXZaa8dqdHJBV+KqC699+4SWB8Yw8VvtMSj5WlIEHVmxu8UBmeHwCMImpWhfDpxL
-	iorpHMGqZfpdzd0Uf67KJLUL5dxFaKWLePAtAdYyOhlbGORgSyYT5r2eGJMEOa0yRbMgRLiNcOGAx
-	X8IfR4hutEuC7bkirRpzbaXF58Xu/A/Qg8P+UwSaB4WQKMx+gxgwBAVzzjidYc9ogbqbCfeixfZzz
-	dNkOkKjBASOMTQ6COam25xAC5MHNUfxyDu/oqBmGpTYQGlmhfBmuF1hBWfzzQy6bDXS/5Zt2qNL8d
-	+aTjLoeA==;
+	bh=X2bI2UoaLvX4gCevaU7qNOHhhCPcAax0k/u3+iPwhos=; b=BDCXCGeUG2M1QWSjwn1aBULYJK
+	TOf3lX8pMS4Y4nIxfh1rEcI9WiYMGRK5D8LNGJk7PqZWCZ/0c+OplCvW+76JhKq5iWeBGu2HWsumu
+	Ll0UJb1lU1R1ZWkdbb9DVQ7VG+CqfF4LjnKZVjLTf2o+dAB1aqrX7d3e8gzHwdTStT47PhP1cG8V5
+	8putcedXcMSuCY9PtRswnC56BvXkG7Plw+KDFdX2JGo3kJlR83hdduovpB7eHpKaUvsv41hxKd+gp
+	bTcPtt9RPAhtqwXW1RlkL9TUUElSLb9RTAD5gbX/Dp24wd9j9+Lp7ol+EWDX6/cuJ4sd34kJ6msG0
+	WAmvDxdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHSPp-0000000077q-0cOq;
-	Mon, 27 Apr 2026 20:18:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wHSRC-000000007M7-1bit;
+	Mon, 27 Apr 2026 20:20:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHSPn-0000000077C-1FP7
+	id 1wHSRA-000000007Lj-20Jx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 20:18:47 +0000
+	Mon, 27 Apr 2026 20:20:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9310160139
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 20:18:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 429DCC19425
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 20:18:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E6D4B60142
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 20:20:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B6F8C4AF09
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 20:20:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777321126;
-	bh=2m3w2eF3ySbCRlzKKfWno16CUj5QKOxf9WIS6YvqOy4=;
+	s=k20201202; t=1777321211;
+	bh=X2bI2UoaLvX4gCevaU7qNOHhhCPcAax0k/u3+iPwhos=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=oqUnmZVbutl6/yxt4+cqgVCczSJIkB6dH3yocAbV7lESi32RXPrsTItrwzCKOPd72
-	 fODgAQ2MNlBIEL02i7IDfifh/70W4gi2Frh0dYSuM0l/Q9eX5q18Yz34gvLsUTbJm0
-	 bbBgft3QlAAk2KNmM5roTtXH2E54BW+N2o1QLTyZCsDu5MHxUqYCbBvXMvd3aMLRJR
-	 Zj1rMiJKGkLUdYuriT8QUZblm08tyhtlwKK5ijvF8y7YeST+clqIh9D7et9mbssvDy
-	 cTuBuiGw7GVbQX1GFUtGV7ND7JdXE5ldQHQ6E+gUuwBAlupevbdGwSRNoIdMLRVa2C
-	 j/plYrbnR/ABA==
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5a3cee3a271so10581401e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 13:18:46 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+1w1Y2sW0AIE6MGfLPnWUu4Sk54Y3q5VbzvNB63vJUj1uWb9O0k5XznaUN+UiFDGNg9TkjNY05U3RCw7fG8oba@lists.infradead.org
-X-Gm-Message-State: AOJu0YzSdsZuL83nu1xlZ0lFa1BJKnHgyVGg/4yOMubl39aWfcTqCivI
-	h+i5VgzQm4ZIHPgsIBa39xmgB0c3HBj/e2AsbkbIHTtnjhBKaBBHCmyrpI6ND29dkNMty/7wAjJ
-	rWGcwlTw7VCkjarjBZVTjG09DGIUQL2o=
-X-Received: by 2002:a05:6512:3f18:b0:5a3:fe5e:3d49 with SMTP id
- 2adb3069b0e04-5a746626a7dmr91838e87.23.1777321124983; Mon, 27 Apr 2026
- 13:18:44 -0700 (PDT)
+	b=hy+7mITxsY3RF9VGJWL98ljKzomsIoVK2oIa2YDlwLMIUaCCYD4eNixLrsMYXtsmR
+	 AIRHtSZWpFRDRDqp3k65eLE984AYxIAWHqla3UNhGY2HBXHCsii4MunlzQZPCD+elC
+	 UF+zR0neDgrXsafnEilm7MpJOD9/wzaWVLXgIjK3UH5X14DlAqXYCK7EzfQ4en9htp
+	 VPw+61liIAZGZATE2rXPbohATDSeqQGDdji0bgp+lHA3+mp4fPFKgb3uFPKrZfM9jm
+	 4u2PmyhX+YD4cn5gmYBoeKpdICvenvNqPk0fnTJGpV1ex6n8wtThP313jPv1ECjBkJ
+	 n0suIDTqNI5ZQ==
+Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-59e4a04f059so13025746e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 13:20:11 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+sE/jUvJcCowpM3gyxp7iKSV7EU0xNuoGb2AEz5xUBkNMiicrbOvwquQe3TuGJX7GOMfymtD2S2w+MHidFRj4b@lists.infradead.org
+X-Gm-Message-State: AOJu0YxR+fB2DAmbAp3Mqat3+RZvs39YFuKnhyHpdh6L+5JO+A14uUSf
+	ktRJZUIor4g7ICg398liHLRJKdfqaq0HmpPD+GkU1/UdCKn3zpPtTsfB11pRMbyz5NJT1TaLtGE
+	SX08cnr0D5UMFTBatwNbuOWyA2ORaSu8=
+X-Received: by 2002:a05:6512:2203:b0:5a3:cc81:efdb with SMTP id
+ 2adb3069b0e04-5a7466234c2mr101158e87.21.1777321210358; Mon, 27 Apr 2026
+ 13:20:10 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260425155505.83688-2-krzysztof.kozlowski@oss.qualcomm.com>
-In-Reply-To: <20260425155505.83688-2-krzysztof.kozlowski@oss.qualcomm.com>
+References: <20260410070935.9540-1-bartosz.golaszewski@oss.qualcomm.com>
+ <trinity-5e6f6a95-e576-4f97-9085-c6de21945eab-1775813076268@trinity-msg-rest-gmx-gmx-live-5cf7d7879b-qwfn5>
+ <CAD++jLnjN-gUdCbmdmLaMYck=sP9wrhT2fFRB0TGCAVGvSsY1w@mail.gmail.com>
+ <dc46f7d784281642aad6d47e79a3e91652eec667@linux.dev> <CAD++jLkz189qT1kJr34ratZT_n20oWEAQg8q0ttQ-VrsFchp7g@mail.gmail.com>
+ <CAMRc=McRuH5Fi-5UQWLRe4+wXKH8qikaYqiqbGXrPOgaifEesw@mail.gmail.com>
+In-Reply-To: <CAMRc=McRuH5Fi-5UQWLRe4+wXKH8qikaYqiqbGXrPOgaifEesw@mail.gmail.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 27 Apr 2026 22:18:33 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=yCM80YHV3bKTVVfNoYsbTLJ9oV=3sJ8JcL6ftvWa3_g@mail.gmail.com>
-X-Gm-Features: AVHnY4JDVHbJjkTqLXSL4th_cNweCpaDB9wF_OCiODgBCzqsZyGQqWQgB4pLxPc
-Message-ID: <CAD++jL=yCM80YHV3bKTVVfNoYsbTLJ9oV=3sJ8JcL6ftvWa3_g@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: qcom: Make important drivers default
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Russell King <linux@armlinux.org.uk>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	linux-gpio@vger.kernel.org
+Date: Mon, 27 Apr 2026 22:19:58 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=m6RGc8Lv0Cn2xsnn8kzV-paAMos4saYNFTpjUcxwcvg@mail.gmail.com>
+X-Gm-Features: AVHnY4I-QfyRqRKRQSMK3sajFg1wZNjagZwtf7cBxvDJnumElCFBOdrk7T_ZX5A
+Message-ID: <CAD++jL=m6RGc8Lv0Cn2xsnn8kzV-paAMos4saYNFTpjUcxwcvg@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: mediatek: moore: implement gpio_chip::get_direction()
+To: Bartosz Golaszewski <brgl@kernel.org>
+Cc: Frank Wunderlich <frank.wunderlich@linux.dev>, Frank Wunderlich <frank-w@public-files.de>, 
+	bartosz.golaszewski@oss.qualcomm.com, linux@fw-web.de, sean.wang@kernel.org, 
+	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
+	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -81,37 +86,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Apr 25, 2026 at 5:55=E2=80=AFPM Krzysztof Kozlowski
-<krzysztof.kozlowski@oss.qualcomm.com> wrote:
+On Mon, Apr 27, 2026 at 12:33=E2=80=AFPM Bartosz Golaszewski <brgl@kernel.o=
+rg> wrote:
 
-> The main SoC TLMM (Top-Level Multiplexer) pin controller drivers are
-> essential for booting up SoCs and are not really optional for a given
-> platform.  Kernel should not ask users choice of drivers when that
-> choice is obvious and known to the developers that answer should be
-> 'yes' or 'module'.
+> > Fixed up and applied. Will be going in as fix for v7.1.
+> >
+> > Yours,
+> > Linus Walleij
+> >
 >
-> Switch all Qualcomm TLMM pin controller drivers to a default 'yes' for
-> ARCH_QCOM.  This has impact:
+> Hi Linus!
 >
-> 1. arm64 defconfig: enable PINCTRL_SM7150 and PINCTRL_HAWI, which were
->    not selected before but should be, because these platforms need them
->    for proper boot.
->
-> 2. arm qcom_defconfig: no changes.
->
-> 3. arm multi_v7 defconfig: enable drivers necessary to boot ARM 32-bit
->    platforms, which are already enabled on qcom_defconfig.
->
-> 4. COMPILE_TEST builds: enable by default all drivers for arm or arm64
->    builds, whenever ARCH_QCOM is selected.  This has impact on build
->    time and feels logical, because if one selects ARCH_QCOM then
->    probably by default wants to build test it entirely.  Kernels with
->    COMPILE_TEST are not supposed to be used for booting.
->
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> It seems this one got lost somewhere along the way? I don't see it in
+> mainline nor next.
 
-Way better like this.
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+I'm just slow at pushing out my tree, it's on its way!
 
 Yours,
 Linus Walleij
