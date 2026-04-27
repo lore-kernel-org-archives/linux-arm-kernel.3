@@ -4,114 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05DACFF8860
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 17:36:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43745FF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 17:36:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mTylmpgaZ0jhgYjEQvu43uNWIUtaitxie7wYdhQCPmM=; b=xmdeTyEQtuNEg3hYx2MEJ91PTA
-	uXGQ6NIIeWNflQXJkMOg2AAFCkinSbGphhwcx96WPYDs5dnfU7rC7GGBWXownO7C+ytLeL1sv50eV
-	prtPSgjeRYHcj4iITL6O4CP6zcn/F+tKLZ3H4hLwfh32WDisxOeVRfJWlpyWtsM0IVjFChAaVOX8F
-	SEbi4GFKegUMGXh5UXV8+MW0qIXxjOdK8hPfJzJAsKportBLZq4F1iLIpOZAmmb3YqSPssjl6rq5X
-	DQr+C0ppzxkX0f/sZypA5AjZ5Eq1hjVwKgjlHlGpuYNNPEU4QvfLl8QlWRlh2qp5f0VOT+TJpEBPw
-	aO9imRdQ==;
+	bh=1rRdDX/+Ei5K81nWEVyfEKN/cB2TrHg+BZ3igx5GLKU=; b=nMUkhGHuVeie7XVGey4RMkvZMl
+	WU7KHT3qnMy0mJ1AnCcCwXUMdOKC88M7rQYHfRevH3wKyZX63hV67U7xIywrjBCXt9sFGPAwfGxkW
+	HmfIe43c5BvZ5A9DjMJYSLgFJRz/F95ogxMn/nUU9xHPlq0TvVp9zAVS9vyIX2OKuFcgNu6h6XYKD
+	kEELIPAnK0UKmmqfyL6KEd6L12FjRIpaYi9PkMAbHGmnlfwCxt7/RsVE68Fs5XgQ7hD9444GmxQio
+	wG+m4x3J798z3PcE9drPA0LrNKvI2cYwlaQHcbmEoY42ASGsLIamsHKXkEWavxZvk3YwEYMvOJLEl
+	gVK1zFEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHPsy-0000000HUDA-11hH;
-	Mon, 27 Apr 2026 17:36:44 +0000
+	id 1wHPt6-0000000HUIq-0ihL;
+	Mon, 27 Apr 2026 17:36:52 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHPsw-0000000HUBv-0Y3p
+	id 1wHPt4-0000000HUHL-0z8r
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 27 Apr 2026 17:36:42 +0000
+	Mon, 27 Apr 2026 17:36:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=mTylmpgaZ0jhgYjEQvu43uNWIUtaitxie7wYdhQCPmM=; b=E3y8BDnSftNtmWPYeDzI1PbxK7
-	vd/kDFTkEDNkB+y8jqJvFzmcmXob3gCKDcI1ePVtHAdOdWyZBcHrJJoPoiRda0qzC9Ktb96jMx7PR
-	QhHtjDmcfuBqvAKHH3ch1FozXrrq7niIoqeXSeDaBS2ET59G0fMDVSzPRVou9LTuj28kYL1Z4CIhA
-	zP4NUpDTt02djB8tS5o85aQ7Ze68QXClEIafXaThwfnn4s/3qJn5Pp7OlNL6W0zsczk3i/f6HY+Fw
-	8gy908/7VB6es89oiQ4QEAZSqplULnfFB/ywrZQjqfZ7mPAOOFtjxQtjOcTK/bL2nr0FgeIWjPFCC
-	8yrZajaQ==;
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	bh=1rRdDX/+Ei5K81nWEVyfEKN/cB2TrHg+BZ3igx5GLKU=; b=ImKFutFv8QipznGNKyFni3dl4S
+	ObmIiRZVFDQV/ZTCukNGozDOyg8S/bJp4vvJ3CJTZFX2b4SYTKySIODtL33v9hxGl7chpCkSR6ms+
+	KTaT7V7WSrHzYMRReq50ax1DNQaXGo1dDk9TkNZlcDVwcUSivab5jkldhdPuXjDz5UZE9yPvcAmtk
+	C0RMAAbyXVV0sW5y5jbqj8yzBmFXVDkPyOHli1TfoZuyTGA32s8u8/xpdkoeQKwuMEKi4pp1Sl35u
+	36vx4iTj0XiPXja6jNpZKInFlwuIA98S7i1mFWJ/6xoOfqVe1alV3wFJqkRRpYnAXp9pwVGdfBZOB
+	1mHfIS2w==;
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHPss-00000001GTO-3GPP
+	id 1wHPt0-00000001GXR-40dq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 17:36:40 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63RDYaDY3962085
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 17:36:35 GMT
+	Mon, 27 Apr 2026 17:36:49 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63RCYRD9429032
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 17:36:45 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	mTylmpgaZ0jhgYjEQvu43uNWIUtaitxie7wYdhQCPmM=; b=T12XypqnQnquQ8mC
-	ng1tcHHYGf3IDDJ0HFnTlGkA0m4XQU3DRNKv8t+IFWYJJSaA8EYdx+pQKyJgIkkb
-	QYb+aTcPHcmLzZMN/+saSCSmi8+bAa5wu//Xvpq6sECD4pgbLPw/zBavv6wc6AeQ
-	gojy27n40JkkXRLDuqf/HBrVM3HGIntDvAeyAdTDXGF5OqEUSez/FB6nR/5oOGAA
-	QEt5bTJ8XiTvoLLXBQ4sMF8QVFf+5tuL35rJF2OjSvM0jo0QDvJfPZ9q1o9VFnl/
-	rt5RZYkzo2NJqlxK38YECYUl6WzlrGcYM3z7ESuPPl3YHQPUjDnqaaGUNg/jbFUU
-	2WCB7Q==
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dt4k3282y-1
+	1rRdDX/+Ei5K81nWEVyfEKN/cB2TrHg+BZ3igx5GLKU=; b=ft0GGhE+1wbfjrdu
+	3UjvbIr8PduzRljaiMay81Vl1zPBrBHl2MUbHVJybpCx+zzNnfuvrdosPj/umQBh
+	KH70qUsgOv77c+6mLhBQNTtzEXsjusarX3To7O7lowp9puR/ZEoePpO8efJiCBk4
+	YNTaR6gYakUMoU5fwEo6ydW/0oGKch5VcOvjSzHn/iFiCeuuzDjVeFgO9JFpXbmA
+	RRoZSBeosb3UMRWi8F21MhbWc05fpP9h3pROU79uxevHNZeEPxMWF/IcEXKQ2rmV
+	lfagU1dmn+nL1fOtmhoFLTdRx1RaFzohsi9cCk8elCs8aRHtFrA8mHOPRQdJDSl7
+	lZOu1A==
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dt7x315aj-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 17:36:35 +0000 (GMT)
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2b2d0c1ead1so195302265ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 10:36:35 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 17:36:45 +0000 (GMT)
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2b24a00d12cso106652295ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 10:36:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1777311394; x=1777916194; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1777311404; x=1777916204; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=mTylmpgaZ0jhgYjEQvu43uNWIUtaitxie7wYdhQCPmM=;
-        b=YdCZNO/HqKSSJYb/ucFEQzz7Geuo2NqoMG+tzunwnXwQB4hPlnxY614lkxyzcGqu7a
-         qHfRLbWlYjWZ3nKWRSplvanNSQLXvFiYgu77Xc8sCWVc4UbYKzEbdzHqNRbnZCwcJOCB
-         D7UHJnikvyRYclfD14hLdziLae0pGzFX/FqjGsZFuTvwWI/e9vIAzAbHdAOGmHxnrxRJ
-         +WFTH9xZkJu7RFoF/PD5iorFehLNV4gANRPhdojuyv+so4+RZmHzSgbgkPAoPMLi5s8E
-         nq5pZlul8flw7aUgb7hoducI9GIeSV/11TRCRTXBxvM2I2yvxl7tmDjCQDlWr3ORtgyS
-         864g==
+        bh=1rRdDX/+Ei5K81nWEVyfEKN/cB2TrHg+BZ3igx5GLKU=;
+        b=dxRTSauaumvngsjPuhMaABTPsXRvcmQNy/EZjmFpa3DQJ8WXZ9qn8tP2fTntzYQfuS
+         e49gmaQ5HaGurcXixEEdw8Y5FloxaP1RLJ+shnqBgo+wuTh3NeF6pfiJiRRsbe/CT77S
+         /n2+g26YTwTs42CFNaWea774u6KxaYy6RrsbNZon/JKbgshnSTsOMl+2LJNtABebVTCm
+         W1KX0RuYzG10T5fdAMdmjEMxq0wiz5YU1/+pwlgk1n2es6q1W4wPy1zZ4eQqzCiO+Rux
+         HmCdxZ/XLKP3Afd0EriuwR8ddwAsb2eDFakPfbGC9jBBFz6j1w1K5rgZDQTjuLr1BgK1
+         UIQQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777311394; x=1777916194;
+        d=1e100.net; s=20251104; t=1777311404; x=1777916204;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=mTylmpgaZ0jhgYjEQvu43uNWIUtaitxie7wYdhQCPmM=;
-        b=L3OW0D1D8tm0P+StAh55b16N9KZPyKcoUAm7NGFTFu81QZUm22QGCxVV6/dY7+hd5K
-         QVH7wUS/y0z6wJeXsqzlTyqWBgS+KaiEUj45v3eLFmrAZevhVWgah6l8NSYHu8w2uKo8
-         2VB+9tRjNUQ32EGSGMZ3keolZA5gNKIjCW6VPbN1ft2LEEIRN1yZBSwvrp5XupGADeRH
-         MUKgPd+ncylo9ejlbu29tA3PQkyIXioXIihcMSuoWnvDLF/4J6GGIVtYRJTyMIgfQXX2
-         8bmyIg5E1uT3CWWzi0b705wSzYeAkB1bRn/atXMEKRWcYNkOa6ZO1J1dAXQU+qZeChhM
-         baEw==
-X-Forwarded-Encrypted: i=1; AFNElJ8LTReo6Rw521tdzl/+Lj1Hzv2I7yyTphZ1q/XA7VHKiKkE7BLmSflN0bKRXCv79rSuuP7aYmipHER9sN15Is7B@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzbb7VNuopW/syyJVpinU9opuJFQl04tQd2OR+Z6Av6GZ3QeCOT
-	ZgI9d83ct9aI8Hgrip/q7q2n5CkCNwIeCO9kZAgPLmusvYWFpR3DXGxAo4Kb2Tzhz6KdWJqzeAv
-	7J8xtVZV2pC8HsB9snISu02jDWtiAZH+xwnX0lFiZVPaU4pIHXyiqRg0G2D+N5FbM7v75karDPT
-	+vJA==
-X-Gm-Gg: AeBDiethCbcKvaQPZO3/MMhkstp+ojFzw8FqRyjlHwg0W1qObCWbuQJWHEKD86ax3cP
-	HSeL/ZcZoa0nmF4LL79eDdtkBnr9YCXjuzLGauQc319BI7mF5AHZrc9/BbADhwnjHHDf8EkTAGv
-	UUSZFomkstOIrwPE1owKn78zAsll1og1CIopSGsqoWFGeFEjkb+d9mUgK9OczYK3J0eGaDqE0kY
-	T0ESiKIJsJoPIw74uB8D2TR9SpdA9XxeLiw45r81jTmWhovKPObV+iT+k+S/oRR++ehT4aC5r4i
-	Z50MMXyPEa7lPX5daRAvzFDZqIsNBhAUXtoH6BN/G3D52zAauPrnrVWgz5WMtClCNDwSZISQkZJ
-	vIGhbMBxAbx9u37PQk+fYbnhh0cHMCxWitaIpg0NdFWubBf4RXT2JXRnzZGo5egWTM7Xn
-X-Received: by 2002:a17:902:968a:b0:2b2:5091:1c0a with SMTP id d9443c01a7336-2b97a97d026mr1052505ad.41.1777311394476;
-        Mon, 27 Apr 2026 10:36:34 -0700 (PDT)
-X-Received: by 2002:a17:902:968a:b0:2b2:5091:1c0a with SMTP id d9443c01a7336-2b97a97d026mr1052025ad.41.1777311393841;
-        Mon, 27 Apr 2026 10:36:33 -0700 (PDT)
+        bh=1rRdDX/+Ei5K81nWEVyfEKN/cB2TrHg+BZ3igx5GLKU=;
+        b=gXqjEtugUEpvlVQjAJJSMTBxwxsE9hl+/zVVj9JJN+RA/bAeQiPIld6+N3Vq2Zh009
+         CAsBIq9kbiTznxgMzRtDRcuiMzmONyrl4d7iLoOUOY3FVvcU/tUlSEnH2G6yuuG4bRje
+         Rlzqnt6+tr5xNoJgjP5OGmCk/tJ62WBTXYIlQwXaeNxixpWh0iKHB0Pm/qFagwyv2uH5
+         bYAeB9cwVlEZquY7IgBYgjJcaN40LGsfuSEYZtQZCyiZuzO0VeCY5Wa4isbFyM+8Do6m
+         xR+l5Tr22Kho7VGax2ItSvhW9KwN+CZONilCsCeu+fn1NEUOsdI0UZI0Ozq6qmHrsh4Z
+         kORw==
+X-Forwarded-Encrypted: i=1; AFNElJ9rzdXsQshVgyIichtAzrCx0+gmghW3RM8ZHX15bWTq4IZJ57jTC+LLks9solR6XfaQw3k5CcAZEuZozHaeU6j4@lists.infradead.org
+X-Gm-Message-State: AOJu0YzfzMXkOwdFgWV5YJMpuBt87xAmwaDAS2LRaC9PuE9KHsWcHTU2
+	BJXxYN1QJJSeFoy3R9IxgESRLh5VpLaaYb6XLHft71DcJw4N6LcFUSAOseEiICIPFAlq7EJEain
+	v6sHlCv9wHjumbYF5Nx6A8tLpS+jZddVC/4zf77WGLF0fOo8BdeBxsWlTBzIZMEgFkG6vBbP+jp
+	DCKg==
+X-Gm-Gg: AeBDieuQg0PP6ww/X/Gd9DQeqJynK0UIdWEroyqRlZNT39msljp89XG7AbHKquRSDXL
+	bmANzj9xx1Ud2qSSSboHL0+gR3APQTQTTKkfb8cE5/vhh72PM6FOrBXqmRBWqVYQ/Lvp9Cl23wV
+	osDYMV1d4LJV+9km2vLM0bj2SX8yODFBz2rnAp2bdnhHxqVkvJxZGCRKUdqZl8rZvt2p1oKmG+9
+	DZFRr1KojLAmGEZFJ5U1NAIQ+bBd4jNZ+8jQn+1xRnG98CCW0o2ONIimCVoe2kDx4WrriV2Kw9S
+	xhqJx6+rYEE69RVs+8qYAjPDQ8r1MK+dIIe1OM5qNXFPKrZ7Vm2mQWQ0+aenwvqeE/pGe8i9Hr5
+	uYiAFXt5af1TIoR86K1Xo6U73fl2w/IWYLPzgXMJ+GNK6ksD7RncVRmdiWvtN+Kjph6CP
+X-Received: by 2002:a17:902:c40a:b0:2b0:7d3d:756a with SMTP id d9443c01a7336-2b97a951600mr1711395ad.35.1777311404423;
+        Mon, 27 Apr 2026 10:36:44 -0700 (PDT)
+X-Received: by 2002:a17:902:c40a:b0:2b0:7d3d:756a with SMTP id d9443c01a7336-2b97a951600mr1711145ad.35.1777311403899;
+        Mon, 27 Apr 2026 10:36:43 -0700 (PDT)
 Received: from hu-spratap-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b97aca8369sm329115ad.75.2026.04.27.10.36.24
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b97aca8369sm329115ad.75.2026.04.27.10.36.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Apr 2026 10:36:33 -0700 (PDT)
+        Mon, 27 Apr 2026 10:36:43 -0700 (PDT)
 From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Date: Mon, 27 Apr 2026 23:04:48 +0530
-Subject: [PATCH v21 08/13] mfd: core: Add firmware-node support to MFD
- cells
+Date: Mon, 27 Apr 2026 23:04:49 +0530
+Subject: [PATCH v21 09/13] mfd: psci-mfd: Add psci-reboot-mode child cell
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260427-arm-psci-system_reset2-vendor-reboots-v21-8-dcf937775e73@oss.qualcomm.com>
+Message-Id: <20260427-arm-psci-system_reset2-vendor-reboots-v21-9-dcf937775e73@oss.qualcomm.com>
 References: <20260427-arm-psci-system_reset2-vendor-reboots-v21-0-dcf937775e73@oss.qualcomm.com>
 In-Reply-To: <20260427-arm-psci-system_reset2-vendor-reboots-v21-0-dcf937775e73@oss.qualcomm.com>
 To: Sebastian Reichel <sre@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
@@ -145,40 +144,40 @@ Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
         Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
         Srinivas Kandagatla <srini@kernel.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777311301; l=2427;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777311301; l=2384;
  i=shivendra.pratap@oss.qualcomm.com; s=20250710; h=from:subject:message-id;
- bh=fNH9qCYe4Y0NmzftG8HGe9p8tkk1iIJgMKEMMVyfJQY=;
- b=ZRQqaXwPk9eM6B4nM1bogpDoTT6JjboYi/afKdttQA9pSYuU0vd20Tg8Ykkl7Zc2sqmXOR127
- TjkQY84p39bA3wuq+0W6rtvlHbI8XeqZqvU4Lvz1j5Jn7/SwHMWXP5G
+ bh=5h0sjs2AZBoFyTJm/Doy48a/B0F/c/N7jdCV3GRQDUw=;
+ b=Qqi4nd9Oe7ndBnF8ZRdQ3G26kUFOzIzSxH9DDzNSNYCgqcDhJbsJtVvuTk/fVa0pziIz8yF/2
+ 8/c9Fcztj1LBvM1CFWuC/OpeCF2cn5Yk6nAidAkkX+114fRCTDwy15I
 X-Developer-Key: i=shivendra.pratap@oss.qualcomm.com; a=ed25519;
  pk=CpsuL7yZ8NReDPhGgq6Xn/SRoa59mAvzWOW0QZoo4gw=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI3MDE4NyBTYWx0ZWRfX3OzYQPo8xBmC
- HxcsP2TRAqESyyEzUWpnCNDs+RUol6lUCksKS3PmhHQip71v2LjdmKiH6/0HAYVs1Tdef5q8tcj
- IMG6/I5ty4LiOuUk829EqZfz0cCf85WMOX5n8FUwzk4Wz6f0CmXBncqU4ET9fZsRybUcMX8WEbu
- z3eriFqYGRDiG6H5R/v926EQs+KQyCXQcRdoo7qDNqnl0pdse4y0D8RYzO2AOwGSj55kQJ+KXec
- kI/2iJCWft4Ur7bKJywcfytb8QsAAPQ808XPMKNkEDcB8kKRnc99emeEk72jxvMDjWJ3p1AWPpN
- mcEDorb/nQHaYHKOilx0NMl9sSPP+NadbBbDG6RBS0FKw0UM4lFfK9xdYz9IayczlNFNv0esV/I
- AlOyLKwBCA8AtjoQdqRdZ+lW3KTR2r5Yth0Mr7H8/QbYWKjUQyjF9unSBvsJd4wEfrcTNHhVkXx
- vWASO62g2dtIJjBCLLw==
-X-Authority-Analysis: v=2.4 cv=a7QAM0SF c=1 sm=1 tr=0 ts=69ef9ea3 cx=c_pps
- a=IZJwPbhc+fLeJZngyXXI0A==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI3MDE4NyBTYWx0ZWRfX/vcTJsHz/ChR
+ uVpy0WOF0JwgDhKRhK9R4xaWR7fhGY+50hlJgazuSzi9g9pmgY/xM9pxqTANPvTOK1OI1D+oOtp
+ qlOuj+UApqtY46DC2LWYOrovZF+spbwLsaO8Z7PPncWsVqAGt7aKNHTVZbOeIOLi7qIxONTM0Vs
+ sABZUXi8Rd/AHU5WzvJmnAVnQfwoEQbgwZ4SfTnlh+MIJ4aQoOq/gjUN8L6FrS8pTjDTTT4Xftk
+ nVTm0WkzsmEHSq+tREIMseLCaGBBl1WlITPFsUSN7TqPnrZGniZ1UV8ewiiruE7i1UHJdT9wsVN
+ zTVGJV1r7gBwp4uCzG9CLFJ66K8RqWEdOE4gOcuQKIliloHMmvsAQDTNZ2no+Xt8xJ5kNyu+F3w
+ PA+lev4dJaJaJBvxcEND78la3nBmR4/U51wX1u8DG9W02VCRoNBCisDD44FdE6YZeZLFGtQZMIB
+ mNkbauACB7EXbeXUGqA==
+X-Proofpoint-ORIG-GUID: KsJ6hSGZxv_bd9Arptlvnup-8aAVtUp9
+X-Authority-Analysis: v=2.4 cv=AJEsYPsu c=1 sm=1 tr=0 ts=69ef9ead cx=c_pps
+ a=JL+w9abYAAE89/QcEU+0QA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
  a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=EUspDBNiAAAA:8 a=JnGLTex25XOQSkTSfOwA:9 a=QEXdDO2ut3YA:10
- a=uG9DUKGECoFWVXl0Dc02:22
-X-Proofpoint-GUID: rMBpjQMaCt3XXktR9WRKXrc7XLfmZ-lF
-X-Proofpoint-ORIG-GUID: rMBpjQMaCt3XXktR9WRKXrc7XLfmZ-lF
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
+ a=EUspDBNiAAAA:8 a=tQ_U0J7R6L3XYHxJwYQA:9 a=QEXdDO2ut3YA:10
+ a=324X-CrmTo6CU4MGRt3R:22
+X-Proofpoint-GUID: KsJ6hSGZxv_bd9Arptlvnup-8aAVtUp9
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-04-27_04,2026-04-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 malwarescore=0 spamscore=0 phishscore=0 impostorscore=0
- lowpriorityscore=0 suspectscore=0 bulkscore=0 priorityscore=1501 adultscore=0
+ phishscore=0 impostorscore=0 priorityscore=1501 suspectscore=0 bulkscore=0
+ malwarescore=0 adultscore=0 lowpriorityscore=0 clxscore=1015 spamscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604270187
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_183639_134965_A7A2E32F 
-X-CRM114-Status: GOOD (  20.68  )
+X-CRM114-CacheID: sfid-20260427_183647_424074_FABCC37C 
+X-CRM114-Status: GOOD (  20.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -193,73 +192,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MFD core has no way to register a child device using an explicit firmware
-node. This prevents drivers from registering child nodes when those nodes
-do not define a compatible string. One such example is the PSCI
-"reboot-mode" node, which omits a compatible string as it describes
-boot-states provided by the underlying firmware.
+The PSCI "reboot-mode" node does not define a compatible because it is a
+configuration of boot-states provided by the underlying firmware. With
+the new firmware-node based cells in mfd-core, this node can now be
+exposed as a proper child cell.
 
-Extend struct mfd_cell with an optional fwnode pointer and attach it to the
-child device during registration when no firmware node is already assigned.
+Add the psci-reboot-mode child cell to the psci-mfd driver and associate
+the reboot-mode node as its firmware-node.
 
 Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
 ---
- drivers/mfd/mfd-core.c   | 10 ++++++++++
- include/linux/mfd/core.h |  6 ++++++
- 2 files changed, 16 insertions(+)
+ drivers/mfd/psci-mfd.c      | 23 +++++++++++++++++++++--
+ drivers/power/reset/Kconfig |  2 +-
+ 2 files changed, 22 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/mfd/mfd-core.c b/drivers/mfd/mfd-core.c
-index 7aa32b90cf1eb7fa0a05bf3dc506e60a262c9850..d2153d9b6dd75a5f55d232ba87bd9e4abc93c8be 100644
---- a/drivers/mfd/mfd-core.c
-+++ b/drivers/mfd/mfd-core.c
-@@ -10,6 +10,7 @@
- #include <linux/kernel.h>
+diff --git a/drivers/mfd/psci-mfd.c b/drivers/mfd/psci-mfd.c
+index 7affd6bb09dd83452664edeccb09290fe4f43186..dbb7c23b57d89765996ac887beda24fec76e8373 100644
+--- a/drivers/mfd/psci-mfd.c
++++ b/drivers/mfd/psci-mfd.c
+@@ -7,17 +7,36 @@
+ #include <linux/module.h>
+ #include <linux/of.h>
  #include <linux/platform_device.h>
- #include <linux/acpi.h>
-+#include <linux/fwnode.h>
- #include <linux/list.h>
- #include <linux/property.h>
- #include <linux/mfd/core.h>
-@@ -224,6 +225,15 @@ static int mfd_add_device(struct device *parent, int id,
- 
- 	mfd_acpi_add_device(cell, pdev);
- 
-+	/* Use explicit cell fwnode only when no firmware node has been assigned. */
-+	if (!pdev->dev.fwnode && cell->fwnode) {
-+		/* Get a refcount if fwnode is a device-tree node. */
-+		if (is_of_node(cell->fwnode))
-+			of_node_get(to_of_node(cell->fwnode));
++#include <linux/string.h>
 +
-+		device_set_node(&pdev->dev, cell->fwnode);
-+	}
++#define PSCI_REBOOT_MODE_CELL_IDX 1
+ 
+ static const struct mfd_cell psci_cells[] = {
+ 	{
+ 		.name = "psci-cpuidle-domain",
+ 	},
++	{
++		.name = "psci-reboot-mode",
++	},
+ };
+ 
+ static int psci_mfd_probe(struct platform_device *pdev)
+ {
+-	return devm_mfd_add_devices(&pdev->dev, PLATFORM_DEVID_AUTO, psci_cells,
+-				   ARRAY_SIZE(psci_cells), NULL, 0, NULL);
++	struct mfd_cell cells[ARRAY_SIZE(psci_cells)];
++	struct device_node *np = NULL;
++	int ret;
 +
- 	if (cell->pdata_size) {
- 		ret = platform_device_add_data(pdev,
- 					cell->platform_data, cell->pdata_size);
-diff --git a/include/linux/mfd/core.h b/include/linux/mfd/core.h
-index faeea7abd688f223fb0b31cde0a9b69dfe2a61ff..8a461b43fac360672a489ffffeb8d0e1acd193ac 100644
---- a/include/linux/mfd/core.h
-+++ b/include/linux/mfd/core.h
-@@ -50,6 +50,7 @@
- #define MFD_DEP_LEVEL_HIGH 1
++	memcpy(cells, psci_cells, sizeof(cells));
++
++	if (pdev->dev.of_node)
++		np = of_get_child_by_name(pdev->dev.of_node, "reboot-mode");
++	cells[PSCI_REBOOT_MODE_CELL_IDX].fwnode = of_fwnode_handle(np);
++
++	ret = devm_mfd_add_devices(&pdev->dev, PLATFORM_DEVID_AUTO, cells,
++				   ARRAY_SIZE(cells), NULL, 0, NULL);
++	of_node_put(np);
++
++	return ret;
+ }
  
- struct irq_domain;
-+struct fwnode_handle;
- struct software_node;
+ static const struct of_device_id psci_mfd_of_match[] = {
+diff --git a/drivers/power/reset/Kconfig b/drivers/power/reset/Kconfig
+index d9d1f768b8691abc3b32f2675519f2ddbaf19b84..79559206d5852ae5eae4c8eb2c390901cea7531c 100644
+--- a/drivers/power/reset/Kconfig
++++ b/drivers/power/reset/Kconfig
+@@ -350,7 +350,7 @@ config NVMEM_REBOOT_MODE
  
- /* Matches ACPI PNP id, either _HID or _CID, or ACPI _ADR */
-@@ -80,6 +81,11 @@ struct mfd_cell {
- 
- 	/* Software node for the device. */
- 	const struct software_node *swnode;
-+	/*
-+	 * Firmware node for the device.
-+	 * Caller owns the pointer; mfd-core takes an OF node reference.
-+	 */
-+	struct fwnode_handle *fwnode;
- 
- 	/*
- 	 * Device Tree compatible string
+ config PSCI_REBOOT_MODE
+ 	bool "PSCI reboot mode driver"
+-	depends on OF && ARM_PSCI_FW
++	depends on OF && ARM_PSCI_FW && MFD_PSCI
+ 	select REBOOT_MODE
+ 	help
+ 	  Say y here will enable PSCI reboot mode driver. This gets
 
 -- 
 2.34.1
