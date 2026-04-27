@@ -4,110 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2128FF885E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 12:20:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AF9FFF885E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 12:22:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PJcxGiVkZlfjJqmXJdSpcQcuZLHP2CGOgvZ7uSde88A=; b=Qm9nql+lyLySiy/4HpSm5SAJlI
-	9+vcoxuhYu7dVgioaQGRHoJMzXNTQdtrey6C0SEcPyTMNLZY5oMCIl7DjtQTuzVeQ1Ap2W3QxDYj2
-	gRkwRv1OA0l3TShtUaK08+urTQfi5qx/O2WCsgy5PWhhffJSB1mQiihyN67yyz0GSvnIqkku/RgQA
-	lLPEUkGVJQRRO2cEO14qcHqRSE0ahfgYjTLnFj/4wi4T7r4NHGcJ8QsCR7O4bci9hx2nIAVzkwJ4Y
-	uxyvVIQ+7c9DWLf/NWIx3eMxWg+XR8oxEH765GWqYWbxklJIj4oCGA1DDJdHqBgOR6olWd6+8HYkZ
-	BtwLoQGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=qjy308hK9rOO1ChSh0zTpRRW8vgUyHGi0LBb/z6ARhg=; b=ngZ6cfgHBOtjcB
+	0IuptTXfyu7G9kz52V4Wm01VdoKkMtzRO28VibOOjBG6gAguzKiZyX83gLZBVTIRK1Rd7S+np40j8
+	AIxoicW9XGDOlj6CGRROAkIIBHN7FmSK11KE/NBey7Y7+XZRnJWjFtcDHqL8aLaiit27ZPg5aOrz0
+	Mf0tWu5DxCh8FWKLcaZvtsCDWVq5EWzqFPW4j/Q1TLgam146qI3bjVbV/I4sJ0zA+aL7UVZ2BpYDB
+	pgtqqQHFsZ4XrcXXFYvSy8FjH7hV3bvBNw5YWMHmfMG4LfH/q0MJ0748Kb/1Nq6Iy5KqGg7i2iH8e
+	9MAI18AwHiDdAkFhEViQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHKwR-0000000GsNf-29IQ;
-	Mon, 27 Apr 2026 12:19:59 +0000
-Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
+	id 1wHKyc-0000000Gscf-3zxI;
+	Mon, 27 Apr 2026 12:22:14 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHKwO-0000000GsMu-1swT
+	id 1wHKyZ-0000000Gsav-3tRV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 12:19:57 +0000
-Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-50e5b55062fso71406621cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 05:19:55 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1777292395; cv=none;
-        d=google.com; s=arc-20240605;
-        b=jj7TeJ7MVYKYIodjI3ziPFHcELLWRKfeAupuAcNporqgPZZGImdR+2KDCyk0ZbwZAb
-         wwVEGa0UIOTn/xGAUGsbAZmo5fTdb1lYexWsKAy+IVAQS8N8eQNHiI+m9xtTMyz50eVb
-         WUvFdwfuWUvGHJuRMh1A6WGZpgPVc0Yr0hQJWwAFG+7ZU/YGGz9RscMTcvQYGyTXYM1g
-         0U4BpqxxgCceoNoITUJY/zajl3/w5kQ1r5WgMsuuvCmIqKSqJi1sulynxHFl/zcoOdex
-         AsjVHu5RCAgTrpxWePRP7IIh5u7Kt2v6BUSiypO0sdzYHGMllnTydSTD+3miukg/mM6e
-         ZSrw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=PJcxGiVkZlfjJqmXJdSpcQcuZLHP2CGOgvZ7uSde88A=;
-        fh=+xF0yBWExz5S9GqXN1/AJ1Hsno9DdR+wxBhixpJZXME=;
-        b=XgjqeMZCMsbLHq3yAIKLeRVH0ypt2r+NI4LqSbFitsRQFJdMQr7kr3P5QZTcHGeS8U
-         uA/LUD7t0F86TDq5ACXnzETaoi/FEYPDsPOjvBFcug82K/A89M8fHSTyrSE4FbaSCXGP
-         jBxjcCKRHEux1PHi7hqEbZwGCP9L9EiPEmJlOiLHTKeKmL0sSQh8dRyI6kF2fRpH5tmW
-         w67BHmnse46ZA1h52SzySfSzcmUTOVNSeIby2oKI0sh/O144gZu84dCxofB2oqKiH0tL
-         URxaP9zolIASxJ0BJtrKJ6owMbsMWP0KTiV/6uRcFlEYz4S0jfeyRJ9qtbSxYtX0ZDtU
-         mLrA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777292395; x=1777897195; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PJcxGiVkZlfjJqmXJdSpcQcuZLHP2CGOgvZ7uSde88A=;
-        b=fzANUqYgUGAup1Vz6dzAezQpTMD7xtt2xQ0fEgsPNKwUpUbibukam4g3FXq3nlA84S
-         6jWvDOuWAFM99/KbzsRRcXdQ+uPnTybf8DbJUHXChfKY/NEiWYwYNmcGaw58Jtw8r9oC
-         feMSj8o0W7cDxOlAEt9U88088DcwtA4TaBOlc2dVcUGMYDjsorOTKHI++TW4hH5tgqu0
-         8LFOjn1m4wn+qCXEQcLK5EZ2llnoQ+YPK2SXMNcVTD2fBJuXbTeFLOKyTp7QrxRLENI6
-         ABKWNdD7p4HhbS/BOb3kTEB5GisRzqAs3tjeEJo1ROyE+/zeXAon547w5tpgkVV2oNxO
-         p/ug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777292395; x=1777897195;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=PJcxGiVkZlfjJqmXJdSpcQcuZLHP2CGOgvZ7uSde88A=;
-        b=sP0xaGZCH/ba3xK/nBsgK2jqO5SpHuG5t01ImI/L9YQK4hqUBUL7vKNG72WGvuzgMG
-         TrdXhjwScWjNV79B47zG2OY7R/TsriYeyckS9wzTvkkKGZURDFREcFJsMdPBMi6a0LEU
-         FAxXOfJgPVQSD2DVOJG4i+dIRz+iqvil7l/Y9lkcykLvLpyMcoYa5lRSFE/ezHeu1Z4I
-         2Fhxp9z6ytMttIjSoPB4vxtcw8zBFLSej8EdBbA5wwKeYjSVe8X/nPU1C/8CLS9oAUEt
-         S7CUxMgRKSFpw9oKq3R4YVS+RNljetFkCL5rpza3EXY1YNpPY2HCe4QA0XOmfDUzrHx8
-         wLMA==
-X-Forwarded-Encrypted: i=1; AFNElJ/IV/BANUnR5GbrOo/aghmGOy5qlVNspVTGUd/n6DjkFtZeQTvOW8a8ocDP6S2F9pmeDnvtDqB64UbSuHkCk6rO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyj4vrMRDfNKcVwZK9r4UlPXSqg/qlSlBGlNa490RUHegx6sokf
-	P5gYfcDclDlRgwfILDDKmabkvgVAsuDKQKQy1UCbie2D3ZMsOc4GE8SbxkSCIhyVnYo7UvGhboO
-	UoySl7PzF/zBXD3UBgMq5x8Uzi/IsqMg=
-X-Gm-Gg: AeBDiet8PuPzR3jAX08HXhNwi+bTSQPSK/JxDPf8hmYWcwIKfJtHaEcmACmyYZqwtc4
-	FQwv0/XfV9DTgjghqDLpS7u5QsS91BuG/2lfSmGxtrvXw9ReEwVMB6MzbrhH6J1VXiP44aLuHLh
-	AD2L/CBniUWzjNDTKV5pDB4CR7IkXgdteduistXt/dTy/W8wTiWL79sT0veWwi7IQ6xYIb0irIb
-	xnnqemssjn/CcZlvGk/bHFiUN4PDDzJu2lqjC47CjOHB/2rFdzUkzmcvMcfj/gy6ICvsJN32TU5
-	X0biC94qX4gzg6phRw==
-X-Received: by 2002:ac8:7e8f:0:b0:50f:817c:5d45 with SMTP id
- d75a77b69052e-50f817c676cmr442478311cf.23.1777292391770; Mon, 27 Apr 2026
- 05:19:51 -0700 (PDT)
+	Mon, 27 Apr 2026 12:22:13 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 1209B4E42B34;
+	Mon, 27 Apr 2026 12:22:07 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id D2B5A600D1;
+	Mon, 27 Apr 2026 12:22:06 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E526C1072807D;
+	Mon, 27 Apr 2026 14:22:02 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1777292526; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=qjy308hK9rOO1ChSh0zTpRRW8vgUyHGi0LBb/z6ARhg=;
+	b=rDOkO/MZAUJOlKdGgmkOyPpeLucFU/A4d8JtDw1hr14+berrOgVx7z0HTFV5PLQ25v5NlL
+	TF6EXn5O3SkhOs+8L4kRZV0dy98pKmlAk5gAzQ9S+8CTlfEkeVzJxpUiedtqLSNJiUSqJ9
+	2yInqSDi7Dbk+luzJXQ3pfHzhcr9oA8kqvwO77ut9cYEMCPSaQj8mIRFFiHayJxj6sGMbd
+	zDkgXpHFcjgVYoB6fo22SJQDpiWEbXmI/4hvy94NRctujZ8NZCR5jjcGYYyRmfo8v3uRW8
+	puIGtSfG+32VlZZycOZ0b3ZtunssAaGWwRiuFoKIxokPJVOAXYQ0rLDWGTHUVQ==
+From: "Thomas Richard (TI)" <thomas.richard@bootlin.com>
+Subject: [PATCH v6 0/4] firmware: ti_sci: Introduce BOARDCFG_MANAGED mode
+ for Jacinto family
+Date: Mon, 27 Apr 2026 14:21:33 +0200
+Message-Id: <20260427-ti-sci-jacinto-s2r-restore-irq-v6-0-72c6468cb2ab@bootlin.com>
 MIME-Version: 1.0
-References: <20260425031011.2529364-1-dennis@ausil.us> <20260425031011.2529364-7-dennis@ausil.us>
-In-Reply-To: <20260425031011.2529364-7-dennis@ausil.us>
-From: Alexey Charkov <alchark@gmail.com>
-Date: Mon, 27 Apr 2026 16:19:37 +0400
-X-Gm-Features: AVHnY4JMQA7P3RUKZV7Q2ZiP4ijZr_0utVOWXuWYUEbZIgaWmckkoQwwj3mXN60
-Message-ID: <CABjd4Yw_bqi-Lj5MX--y34X_4GZPwa+ajwRGim7=nLGdqEOjEA@mail.gmail.com>
-Subject: Re: [PATCH v8 6/6] arm64: dts: rockchip: Add Orange Pi 5 Pro board support
-To: Dennis Gilmore <dennis@ausil.us>
-Cc: Heiko Stuebner <heiko@sntech.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Maxime Ripard <mripard@kernel.org>, 
-	devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAM1U72kC/4XPTU7DMBAF4KtUXmM0Hk/suCvugVi4/qFGEFM7R
+ KAqd8cpqiKURZZvNPrezJXVUFKo7Hi4shKmVFMeWlAPB+bOdngNPPmWGQJ2AgTwMfHqEn+zLg1
+ j5hULL6GOubTNcuGEfQDooxfgWEM+S4jp+1bw/PKXS7h8tZ5xHZ7TAvzcjpjEMr336b2+SXDgk
+ jxJaTyStk+nnMf3NDy6/MEWfMIVFLgPYgMt9TpaGSOi2IJyBRG6XVA20IMyShpN1tMWpDuoAIF
+ 2QWqg0j2CjdIE67Zgt4IE+y93DTT6hH1Eb2Q0/8F5nn8BXZ+u5icCAAA=
+X-Change-ID: 20251010-ti-sci-jacinto-s2r-restore-irq-428e008fd10c
+To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, 
+ Santosh Shilimkar <ssantosh@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>
+Cc: Gregory CLEMENT <gregory.clement@bootlin.com>, 
+ richard.genoud@bootlin.com, Udit Kumar <u-kumar1@ti.com>, 
+ Abhash Kumar <a-kumar2@ti.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-clk@vger.kernel.org, 
+ "Thomas Richard (TI)" <thomas.richard@bootlin.com>, 
+ Dhruva Gole <d-gole@ti.com>, Kendall Willis <k-willis@ti.com>
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_051956_523828_D2E022D9 
-X-CRM114-Status: GOOD (  14.40  )
+X-CRM114-CacheID: sfid-20260427_052212_151952_87EBE09F 
+X-CRM114-Status: UNSURE (   6.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,35 +89,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Apr 25, 2026 at 7:10=E2=80=AFAM Dennis Gilmore <dennis@ausil.us> wr=
-ote:
->
-> Add device tree for the Xunlong Orange Pi 5 Pro (RK3588S).
->
-> - eMMC module, you can optionally solder a SPI NOR in place and turn
->  off the eMMC
-> - PCIe-attached NIC (pcie2x1l2)
-> - PCIe NVMe slot (pcie2x1l1)
-> - AP6256 WiFi (BCM43456) via SDIO with mmc-pwrseq
-> - BCM4345C5 Bluetooth
-> - es8388 audio
-> - USB 2.0 and USB 3.0
-> - Two HDMI ports, the second is connected to the SoC's DP controller
->   driven through a Lontium LT8711UXD bridge.
->
-> Vendors schematics are available at:
-> https://drive.google.com/file/d/1qs1DratHuh7C6J6MEtQIwUsiSrg8qgTi/view
->
-> Signed-off-by: Dennis Gilmore <dennis@ausil.us>
-> ---
->  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
->  .../dts/rockchip/rk3588s-orangepi-5-pro.dts   | 440 ++++++++++++++++++
->  2 files changed, 441 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-pro.d=
-ts
+This is the 6th iteration of this series. The only changes are in sci-clk
+driver. As suggested by Brian, during restore_context(), the set_parent()
+operation is done only for clocks which have more than one parent. Also the
+rate returned by recalc_rate() is saved. And I added Kendall's RB tag.
 
-Reviewed-by: Alexey Charkov <alchark@gmail.com>
+Best Regards,
+Thomas
+
+Signed-off-by: Thomas Richard (TI) <thomas.richard@bootlin.com>
+---
+Changes in v6:
+- rebase on v7.1-rc1.
+- add Kendall's RB tag.
+- sci-clk: call set_parent() during restore_context() only for clocks which
+  have more than one parent.
+- sci-clk: save also rate returned by recalc_rate().
+- Link to v5: https://lore.kernel.org/r/20260407-ti-sci-jacinto-s2r-restore-irq-v5-0-97b28f2d93f9@bootlin.com
+
+Changes in v5:
+- rebase on v7.0-rc7.
+- add Dhruva's RB tag.
+- use kzalloc_obj() in ti_sci driver.
+- Link to v4: https://lore.kernel.org/r/20260204-ti-sci-jacinto-s2r-restore-irq-v4-0-67820af39eac@bootlin.com
+
+Changes in v4:
+- rebase on linux-next next-20260202.
+- fix BOARDCFG_MANAGED value.
+- add MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST firmware capability.
+- add MSG_FLAG_CAPS_LPM_CLK_CONTEXT_LOST firmware capability.
+- Link to v3: https://lore.kernel.org/r/20251205-ti-sci-jacinto-s2r-restore-irq-v3-0-d06963974ad4@bootlin.com
+
+Changes in v3:
+- rebased on linux-next
+- sci-clk: context_restore() operation restores also rate.
+- Link to v2: https://lore.kernel.org/r/20251127-ti-sci-jacinto-s2r-restore-irq-v2-0-a487fa3ff221@bootlin.com
+
+Changes in v2:
+- ti_sci: use hlist to store IRQs.
+- sci-clk: add context_restore operation
+- ti_sci: restore clock parents during resume
+- Link to v1: https://lore.kernel.org/r/20251017-ti-sci-jacinto-s2r-restore-irq-v1-0-34d4339d247a@bootlin.com
+
+---
+Thomas Richard (TI) (4):
+      firmware: ti_sci: add BOARDCFG_MANAGED mode support
+      firmware: ti_sci: add support for restoring IRQs during resume
+      clk: keystone: sci-clk: add restore_context() operation
+      firmware: ti_sci: add support for restoring clock context during resume
+
+ drivers/clk/keystone/sci-clk.c |  44 +++++++++--
+ drivers/firmware/ti_sci.c      | 164 ++++++++++++++++++++++++++++++++++++++---
+ drivers/firmware/ti_sci.h      |   6 ++
+ 3 files changed, 194 insertions(+), 20 deletions(-)
+---
+base-commit: 0b8124777bdaeed16d8165f1e6f621d3df6e85a3
+change-id: 20251010-ti-sci-jacinto-s2r-restore-irq-428e008fd10c
 
 Best regards,
-Alexey
+-- 
+Thomas Richard (TI) <thomas.richard@bootlin.com>
+
 
