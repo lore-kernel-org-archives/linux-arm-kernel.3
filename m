@@ -4,148 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17562FF8867
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 21:54:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 055EEFF8870
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 21:57:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SX13csyuB/QEm6z97KDEVCbw9bOnr8oHQXxFaeduZ78=; b=0ehFP2t2iDSuPgfXQna/DtztIK
-	66EkNG8JTmmgbPLE6c3KT5JaHCJoEneqA9kGlVH1chQ8pdnmofi/DuESxge2Y7WSH0qV2/iiQQSHN
-	zEe/bXsla3KBI+SPw9i+Jwah8I7T/wHwNZjA2E/k6chaFLrj7xuNB7km81XVbMwL2Tt0H/8/G5QQF
-	Lvyqs96T0YshCwA+Cfi6IR3wySnXLoGT14myU80blV5B7Pi/36PwE9jkkkgNW7/kIgvT/P25AU9gF
-	CfwsFfS+OT81myvazuyf3TeVQSbxg9LDXj67HDHx4hhij99ym9GVztgmh3tokpivm5/N29ZE8T9oC
-	XPxPrAdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x9XUAZ1Bmfg9+W78qrTFfG5OCNZ8m4Q9smFbuee35vE=; b=GC9ndGAY4ksyJVZ3DYZHNagxd/
+	Hr8vTeAGBaKPrqhPucCAocEAtrkD0tWRVFvCAot2QJShz1UPpYBM13veKr9cKRsUPYiRCRgfhMyrM
+	EcrQ2T1QNF8z1kTPMis3aikX0NM0qp9w8Aosyb1cx6tE2PJIbBm1N1/NuuuejDCvYhvBwBH9VcWIk
+	LvWJ1dBdJ687u1fTfm25lpurO2b0wSLYIjAUPvlcMVVviZUfpKgG7y2bAspeyFlkvuyfxjB25AMax
+	UPxK4lIdjoZ1Xqs7td4HpRsgFsqm1hyTPW713RujeDwCY+u1PG4wN43uBMwgl8sKMoCgJA1pHQAqf
+	GdjcSikw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHTuH-00000000D3C-2ZUU;
-	Mon, 27 Apr 2026 21:54:21 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wHTxd-00000000DGe-367C;
+	Mon, 27 Apr 2026 21:57:49 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHTuE-00000000D2C-0rWh
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 21:54:20 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63RHc5LA1238182
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 21:54:17 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=SX13csyuB/QEm6z97KDEVCbw
-	9bOnr8oHQXxFaeduZ78=; b=H+CIdJUBMILCMgyJ144jJwXAlvJV5yyaVBS5bJjy
-	GLd96Tpw25a1OY3u/a9vsnIY4fbi8YxinUX3lFNLIIW4R78bA4hrgGi/5Q23OwKq
-	Ti8TKZOnc30BwNixB5AYfNJJQHGCgddB9MNAExtOqk3276v5ESpiJ4LVz4ZRWaqj
-	CGJoAU5S785kRqJXd3qu8RFpADqji41R4+pkQz1hhrY4hBXbX2jX8LyzTV8jXa6u
-	61HItosx+npqHvAyu4KogzTV5dkH8TikuDmNE8869YT+95phmdzB1K3cVdVJ6uas
-	82+9QSqxHtzNjsUH9jKxdnMzv0iCG660R6DR237VFdVKUg==
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dt6n4jbs2-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 21:54:17 +0000 (GMT)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-50df4c130dbso184131811cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 14:54:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1777326856; x=1777931656; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=SX13csyuB/QEm6z97KDEVCbw9bOnr8oHQXxFaeduZ78=;
-        b=iwUgQ7NutiBQmaBaHyiiyL4q8/yJKNQ62JpVhsUjIDhQ/sPAF2WVYLIuulq/vZ9Vfj
-         GwonLK8VzwihxvhkMtb+hu+XVR5TNvAk6cZ+iFJ6jUf2PqbqXZQsdW2OKrlg/iD/R381
-         Mh/PlNqEx2aI1SQyKH90wZG61mODEl9EyjQankM1aLmdhnEEktb8utxlUYgWt9kUdL2c
-         x2gpZq04Ajgdi7zuWty/s3sly5+WF4V1NXGwCbdcn04CCBmSaHG6dV/xsubo7nFywXxn
-         DULhk1e83ClzZnuNe7HO1PU1zDXCg1Eo9Y1paTa05B0+43U7P5qxGKaoT0HI4tme4h+F
-         4YSA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777326856; x=1777931656;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=SX13csyuB/QEm6z97KDEVCbw9bOnr8oHQXxFaeduZ78=;
-        b=S3MS0UJNStdFoGJ15o9cJkotjOBZHhfLv/9seazQMOUykSOZlWVfb306Qnfl9Kb/Zy
-         HxzUiUWY+i30KJt0yX+uq5K5DBsnB3cgE7hbdceij0cqBxJ4r9ooyRfDRrgrz5IgbqN2
-         jcylgz3rhbhiFSIE4JG1G9cHOi7H2RJylMXym7V7Imx2Ysw6t/2M1YjH6NovVVtQ6mut
-         Fw4XRsDvCbIUsFqLIMR5abG2lVm4iRgSmXdUE5E/zp5Q1kIFNQNDCCVUiLvOR5zXY+Dr
-         9SuKyjh27ZoAvUPQcDmfqAh2jrjvZ2vziDmhmBfy0FsVIjJLZe7MFq4umoPIklzrtcew
-         cJdQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/9PZZImdRJftQY66Pm/b4N3SWfC/YkuvkpnAA6CHWd5bfyFcO+/3lFHECwJTtnc1Dq4uRFCC4OEW726Zf/A2IA@lists.infradead.org
-X-Gm-Message-State: AOJu0YxvAYkAyTnp8sawBfv3RlXn0HErO82CrBWPrADCQMQR3rMUcVOF
-	ogG7UkJsvWAhCUQN1SZkf1meaSpbdfrCK7XXDC5DhGsLXHPMZrugChlcfejdtCNgkFtonRt1tVm
-	FWj/mGOjxU2Ks5qiNiOcii9zS4vo8mUaEzg3E7dBbQXRMWQaxcPThcMYJ37Jonb2M3ysb0S4dbQ
-	dDUQ==
-X-Gm-Gg: AeBDievapCEry8udQSA5eYK2Dc0JusT9tYi7sgGFInOE6VmmaeKfm/lBl8EtYBjCwro
-	/J6ZFhiUhSMaXWbLldWADJjkIh3IzunxquZwa5+uZvwGAixWcIkKYJJHGhwK9mxvJ0SDMmsGd84
-	OrPSzfjkqvBKWDtnRyhUdnTHhTkb13dyJw6YFi7l0d4va/KTVKBk5eE8qSUgbadxDaSoNcbJva6
-	P/+Th9gzK2Bw2B6Lyi73uKUJI2ygTb4atBf6TpjoyQQVQ57wKjTKQ/ejYmNf5pkvU63e7zCdGbR
-	XV8ViTP68Mqt0MVKBtdBbsa8NFXvTFiOFviiz3ztSKBHYFQl1w/2LH2igjdinQ/9rUWOI5INPLh
-	sq1Nw92jHNkC2368I9tV6kCEwKHDfzf4afwCfKcWAsaQjgGGFsJL8QFQOFYiV65UpAYoIIC4n6Y
-	9IKbGCRFLJgJ1KjM96lZ44jbp8OiqJf402MRYjH+TgLuhVyw==
-X-Received: by 2002:ac8:5f12:0:b0:50f:b427:7525 with SMTP id d75a77b69052e-5100da98d86mr8185841cf.42.1777326856488;
-        Mon, 27 Apr 2026 14:54:16 -0700 (PDT)
-X-Received: by 2002:ac8:5f12:0:b0:50f:b427:7525 with SMTP id d75a77b69052e-5100da98d86mr8185521cf.42.1777326856041;
-        Mon, 27 Apr 2026 14:54:16 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a7462d588asm105499e87.34.2026.04.27.14.54.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Apr 2026 14:54:14 -0700 (PDT)
-Date: Tue, 28 Apr 2026 00:54:13 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Sandy Huang <hjc@rock-chips.com>,
-        Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>,
-        Andy Yan <andy.yan@rock-chips.com>, kernel@collabora.com,
-        dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org,
-        Diederik de Haas <diederik@cknow-tech.com>,
-        Maud Spierings <maud_spierings@hotmail.com>
-Subject: Re: [PATCH v5 04/10] drm/bridge-connector: Switch to .detect_ctx()
- for connector detection
-Message-ID: <znjgxzoyavxctvmec4j376a5cjg4s2oqhn3s3ubkbkuiluguao@pve7siqulhxp>
-References: <20260426-dw-hdmi-qp-scramb-v5-0-d778e70c317b@collabora.com>
- <20260426-dw-hdmi-qp-scramb-v5-4-d778e70c317b@collabora.com>
+	id 1wHTxa-00000000DEf-3EmA;
+	Mon, 27 Apr 2026 21:57:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1777327063;
+	bh=jsP9HGoABouAJrSx9y3RVxvt/zIaKtzWEMQhaHCYUfQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=DWXVOukJZ3oEF3p1EXUMYrGtmD0EHvky0RHc5sAHnirTD6R2h23xVYTzrMUFlPoRY
+	 VMoQ2qRoRINB65TY9KdLohW6LxECLnFQtI6xtt12P8jxDBk3H1feIOe/0DQkKpDhjE
+	 ms68ITMQIx3wJYkcEustd/0iDPKdpPjcLu2oga4KQp7mlUGWhHPJqc4axtTOHhJD7b
+	 AURzSdPb5b+oh163hfs2KMBeWQSZ9Wc+55/uhKgFR8idAURl+RbYcl9OLoKdKLvpBY
+	 911T9rcSoTLYRn4JLhWpoAaqDuJ4haWlDu6Pn6T54KtI+y6oxlkIulw+1PkULPO5+x
+	 wQpxDgpZt/ACw==
+Received: from localhost (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7A37C17E0ED6;
+	Mon, 27 Apr 2026 23:57:43 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Tue, 28 Apr 2026 00:57:19 +0300
+Subject: [PATCH v2 01/13] arm64: dts: rockchip: Add frl-enable-gpios to
+ rk3576 boards
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260426-dw-hdmi-qp-scramb-v5-4-d778e70c317b@collabora.com>
-X-Proofpoint-ORIG-GUID: 86ykNlGlP1VvoUO-Ld6NRB0oEE8TSZJ3
-X-Authority-Analysis: v=2.4 cv=Xba5Co55 c=1 sm=1 tr=0 ts=69efdb09 cx=c_pps
- a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22 a=MTERcTr8AAAA:8
- a=69EAbJreAAAA:8 a=QX4gbG5DAAAA:8 a=EUspDBNiAAAA:8 a=5Ozh1E2pZYoiRNblH9EA:9
- a=CjuIK1q_8ugA:10 a=dawVfQjAaf238kedN5IG:22 a=1w2Y23rLpnaGpkO2nlKf:22
- a=AbAUZ8qAyYyZVLSsDulk:22
-X-Proofpoint-GUID: 86ykNlGlP1VvoUO-Ld6NRB0oEE8TSZJ3
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI3MDIzMSBTYWx0ZWRfX8WQjM8KZkI+s
- SBx3a2RMQBUKSiJ9TdiarEoorbnFlLNIZhytQR2SNbEUnGBVQ/0o1W6uVBBiGF2STQAAxWWRTNx
- konmY8iZoIF760wfzut9B7C1+rLHfmyVlrIR5GDZsg9/SyN6mSr+9MAvmKWNvdydtqS+H57Xf7D
- rzboJ5Vvc/MeuaHwJXG/DuQrSxx82Q6XdChSPss3RpBBt1NslHoBQsm5BuB3F7Yq5z0Cn5cWK85
- /oMeSOZ3tkIW1GhUaXQQLr01/Q54EIzvaT9DNXhZhFqcbX51VeFPzw1EzZEidJxUwD+L59lBiQm
- tFzZ0LmKXPSKrfBF29iJSS9fUEr9Qzz9g+EdUQ4lJhw09aceIZ28wqMSqJPzBi8yyqgR4mR2p7L
- VsNRw6HuOB4jHvf9ZyWlmTLpVeQYhgxnIMqYN3zerU1i6TLXTyBQxu9yPR4Ce+4AedfQiKgHdLs
- Xx5zlgQrT9F+FT/oNcw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-27_04,2026-04-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 bulkscore=0 suspectscore=0 phishscore=0 adultscore=0
- impostorscore=0 lowpriorityscore=0 spamscore=0 clxscore=1015 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604270231
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260428-dts-rk-frl-enable-gpios-v2-1-924df9db884a@collabora.com>
+References: <20260428-dts-rk-frl-enable-gpios-v2-0-924df9db884a@collabora.com>
+In-Reply-To: <20260428-dts-rk-frl-enable-gpios-v2-0-924df9db884a@collabora.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.15.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_145418_383272_65515052 
-X-CRM114-Status: GOOD (  15.15  )
+X-CRM114-CacheID: sfid-20260427_145746_963038_E05A88ED 
+X-CRM114-Status: UNSURE (   9.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,27 +77,225 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 26, 2026 at 03:20:16AM +0300, Cristian Ciocaltea wrote:
-> Use the atomic .detect_ctx() connector helper hook and invoke
-> drm_bridge_detect_ctx() to propagate the modeset acquire context to
-> bridge drivers.
-> 
-> This enables bridge drivers to perform modeset operations during
-> detection, which is needed for managing SCDC state lost on sink
-> disconnects in HDMI 2.0 scenarios.
-> 
-> Tested-by: Diederik de Haas <diederik@cknow-tech.com>
-> Tested-by: Maud Spierings <maud_spierings@hotmail.com>
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> ---
->  drivers/gpu/drm/display/drm_bridge_connector.c | 71 ++++++++++++++------------
->  1 file changed, 37 insertions(+), 34 deletions(-)
-> 
+The following RK3576 boards expose a GPIO pin to control the voltage
+bias on the HDMI data lines:
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+- rk3576-100ask-dshanpi-a1
+- rk3576-armsom-sige5
+- rk3576-evb1-v10
+- rk3576-evb2-v10
+- rk3576-nanopi-m5
+- rk3576-roc-pc
+- rk3576-rock-4d
 
+The pin must be asserted when operating in HDMI 2.1 FRL mode and
+deasserted for HDMI 1.4/2.0 TMDS mode.
+
+Wire up the hdmi node to its dedicated GPIO via frl-enable-gpios to
+allow adjusting the bias when transitioning between TMDS and FRL modes.
+
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dts | 9 +++++++++
+ arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts      | 9 +++++++++
+ arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts          | 9 +++++++++
+ arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts          | 9 +++++++++
+ arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts         | 9 +++++++++
+ arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dts            | 9 +++++++++
+ arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts           | 9 +++++++++
+ 7 files changed, 63 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dts b/arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dts
+index b19f9b6be6bf..a9e3beb3ee5e 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dts
+@@ -278,6 +278,9 @@ &gpu {
+ };
+ 
+ &hdmi {
++	frl-enable-gpios = <&gpio2 RK_PB0 GPIO_ACTIVE_LOW>;
++	pinctrl-0 = <&hdmi_txm0_pins &hdmi_tx_scl &hdmi_tx_sda &hdmi_tx_on_h>;
++	pinctrl-names = "default";
+ 	status = "okay";
+ };
+ 
+@@ -738,6 +741,12 @@ hp_det: hp-det {
+ 		};
+ 	};
+ 
++	hdmi {
++		hdmi_tx_on_h: hdmi-tx-on-h {
++			rockchip,pins = <2 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
+ 	pcie {
+ 		pcie_reset: pcie-reset {
+ 			rockchip,pins = <1 RK_PB7 RK_FUNC_GPIO &pcfg_pull_none>;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+index 1c100ffd1518..c3e8966c09c4 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+@@ -304,6 +304,9 @@ &gpu {
+ };
+ 
+ &hdmi {
++	frl-enable-gpios = <&gpio2 RK_PB0 GPIO_ACTIVE_LOW>;
++	pinctrl-0 = <&hdmi_txm0_pins &hdmi_tx_scl &hdmi_tx_sda &hdmi_tx_on_h>;
++	pinctrl-names = "default";
+ 	status = "okay";
+ };
+ 
+@@ -819,6 +822,12 @@ hp_det_l: hp-det-l {
+ 		};
+ 	};
+ 
++	hdmi {
++		hdmi_tx_on_h: hdmi-tx-on-h {
++			rockchip,pins = <2 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
+ 	hym8563 {
+ 		hym8563_int: hym8563-int {
+ 			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_up>;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
+index fb0dd1bc5148..4c82980a9f63 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
+@@ -370,6 +370,9 @@ &gpu {
+ };
+ 
+ &hdmi {
++	frl-enable-gpios = <&gpio2 RK_PB0 GPIO_ACTIVE_LOW>;
++	pinctrl-0 = <&hdmi_txm0_pins &hdmi_tx_scl &hdmi_tx_sda &hdmi_tx_on_h>;
++	pinctrl-names = "default";
+ 	status = "okay";
+ };
+ 
+@@ -895,6 +898,12 @@ host_wake_bt: host-wake-bt {
+ 		};
+ 	};
+ 
++	hdmi {
++		hdmi_tx_on_h: hdmi-tx-on-h {
++			rockchip,pins = <2 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
+ 	hym8563 {
+ 		rtc_int: rtc-int {
+ 			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_up>;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts b/arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts
+index 98d5d00d63b5..dfc756d5ec5e 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts
+@@ -375,6 +375,9 @@ &gpu {
+ };
+ 
+ &hdmi {
++	frl-enable-gpios = <&gpio4 RK_PC6 GPIO_ACTIVE_LOW>;
++	pinctrl-0 = <&hdmi_txm0_pins &hdmi_tx_scl &hdmi_tx_sda &hdmi_tx_on_h>;
++	pinctrl-names = "default";
+ 	status = "okay";
+ };
+ 
+@@ -832,6 +835,12 @@ image_pwren: image-pwren {
+ 		};
+ 	};
+ 
++	hdmi {
++		hdmi_tx_on_h: hdmi-tx-on-h {
++			rockchip,pins = <4 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
+ 	hym8563 {
+ 		rtc_int: rtc-int {
+ 			rockchip,pins = <0 RK_PA5 RK_FUNC_GPIO &pcfg_pull_up>;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts b/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
+index 7406a4adf810..227fe6f3ec7c 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
+@@ -327,6 +327,9 @@ &gpu {
+ };
+ 
+ &hdmi {
++	frl-enable-gpios = <&gpio4 RK_PC6 GPIO_ACTIVE_LOW>;
++	pinctrl-0 = <&hdmi_txm0_pins &hdmi_tx_scl &hdmi_tx_sda &hdmi_tx_on_h>;
++	pinctrl-names = "default";
+ 	status = "okay";
+ };
+ 
+@@ -813,6 +816,12 @@ gmac1_rst: gmac1-rst {
+ 		};
+ 	};
+ 
++	hdmi {
++		hdmi_tx_on_h: hdmi-tx-on-h {
++			rockchip,pins = <4 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
+ 	hym8563 {
+ 		hym8563_int: hym8563-int {
+ 			rockchip,pins = <0 RK_PA5 RK_FUNC_GPIO &pcfg_pull_up>;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dts b/arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dts
+index d0ab1d1e0e11..54de3a50571f 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dts
+@@ -283,6 +283,9 @@ &eth0m0_rgmii_bus
+ };
+ 
+ &hdmi {
++	frl-enable-gpios = <&gpio2 RK_PB0 GPIO_ACTIVE_LOW>;
++	pinctrl-0 = <&hdmi_txm0_pins &hdmi_tx_scl &hdmi_tx_sda &hdmi_tx_on_h>;
++	pinctrl-names = "default";
+ 	status = "okay";
+ };
+ 
+@@ -720,6 +723,12 @@ &sdmmc {
+ };
+ 
+ &pinctrl {
++	hdmi {
++		hdmi_tx_on_h: hdmi-tx-on-h {
++			rockchip,pins = <2 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
+ 	hym8563 {
+ 		rtc_int_l: rtc-int-l {
+ 			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_up>;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
+index 899a84b1fbf9..cc054c837317 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
+@@ -289,6 +289,9 @@ &gpu {
+ };
+ 
+ &hdmi {
++	frl-enable-gpios = <&gpio2 RK_PB0 GPIO_ACTIVE_LOW>;
++	pinctrl-0 = <&hdmi_txm0_pins &hdmi_tx_scl &hdmi_tx_sda &hdmi_tx_on_h>;
++	pinctrl-names = "default";
+ 	status = "okay";
+ };
+ 
+@@ -720,6 +723,12 @@ &pcie0 {
+ };
+ 
+ &pinctrl {
++	hdmi {
++		hdmi_tx_on_h: hdmi-tx-on-h {
++			rockchip,pins = <2 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
+ 	hym8563 {
+ 		hym8563_int: hym8563-int {
+ 			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_up>;
 
 -- 
-With best wishes
-Dmitry
+2.53.0
+
 
