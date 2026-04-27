@@ -4,87 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECC73FF8850
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 06:17:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94282FF8850
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 06:23:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EIIdNRJ9w0CAu5OepNld+STP1bHH56eIhQu2O8kdVlY=; b=GbwQZQFe9owKh1ZGg7xbelNx64
-	d/FsfjR2XQ07RMDq/XO9gwOuCmTFtsOcOWkJENWWwjANTJ+IWQGrgiIs5FPkdkkqtyXKDqNBUu9l0
-	gOzK7vUPaFfx5z5jV9arij3VWqAxfd30ZSbSfYlP1xOniFyVNYhV/WKVgnqd1gWbjeRW/T20g1NZh
-	o/xg9vbfKxu6M7hSs7he09mDTlZIyTyBiLZKUspuT59/XUk9NXqYsoqT78vAjvwvYs8i5gBoifZkE
-	srNxLQpoZcyOPPKZsOu+WhzVDlmJ3+adnzDr/QaSROJrAwZxFezV7k/c28IU2fSYF9oWH6Wljuxj8
-	czR7CUGg==;
+	bh=77u5SnqzYB1kLOAl7anj33qdv0Ahp9BFyG5sDgjr5/w=; b=jWW+iQzUJkZ7YcgeyReaWJ0zqP
+	vhrziNJCqYc4gA7Ou+7UV20zgaTSayzBk3CkyFHGBxOE+RjpOcQO8qL+K7Q2FSgegQRVQsGOnbIX6
+	/qXNYVENV+JYlKpiLNGZ/B8G/K2THYVpnm9S4e1yNR++8GoUGtldctvR0/Doq4Iem48E/DDv7M4tu
+	dydw0dShHRKfdD1ILsDQiCbykdWZ5QO7uN7HEx/hdl7rQeg3tYC32VhY6k7OARLa9ntdQ0qDLOMnR
+	PBoLQo+13NrJeKeSLC1sCL6KuLnLGnAKkKA/6xbhLDUz9DtxhUE4VLloddt/S2duThhlC+TmYFN4j
+	dJRXjE7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHFHh-0000000GFUC-26g0;
-	Mon, 27 Apr 2026 06:17:33 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1wHFNX-0000000GFnC-1Mbw;
+	Mon, 27 Apr 2026 06:23:35 +0000
+Received: from mail-m10152.netease.com ([154.81.10.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHFHe-0000000GFSi-1MgD
+	id 1wHFNT-0000000GFlo-0k81
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 06:17:32 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-82faf871346so6118677b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Apr 2026 23:17:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1777270649; x=1777875449; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=EIIdNRJ9w0CAu5OepNld+STP1bHH56eIhQu2O8kdVlY=;
-        b=RP561/yG/6CSPDRu0FJt46WplLRvwITHqYx3RABtmMh587bTBIQoKsJccRtDgj/1Jp
-         q9sinLSwltTu0D3TIJlorNAEwmu/N10HMe0SdIapdHS0L9mKE/jC666DZmWNsIOHHLnH
-         wXIRr74qbnzCnU/hA8FTTy8kpKJAloWnbCI7o=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777270649; x=1777875449;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EIIdNRJ9w0CAu5OepNld+STP1bHH56eIhQu2O8kdVlY=;
-        b=HV1SIUmM+QC4utWkCopjyYjU5WeyQmaTTEuWLqeEdA8K7D0o3F9P10MDTPrgGz6uOD
-         Rw5WY4k5GMM963WhewaDblc00dBO0QLyS4tbhBFVeAD2XHi3pitdfFqPiv6oCSy72JWh
-         7CBhOd+D1uu7fDa9w+3fA7JzNfd7Ev8kxvqMU9IAt5b7tdghxkWzkbkbnwvdaw2gJuSc
-         XCVqwm5wTtqISEmowKofDq3VvUcQzWF9N9YN3ra5eZYDJyP0IZ8w6mOlbODUSPeMHjIe
-         wR2quOSbVFuwZnaQ51Nw8Edik1lo7FMJGzvYfZPnzJROYskBuw3S80BCcz+miBu5k/oM
-         N1xA==
-X-Forwarded-Encrypted: i=1; AFNElJ9VGDofITZsYFGQt+PdCL2mzw6KkRwOqPSqAkPgq5BFPtG9IjnywaUIcp2TLuuD0wKF9CTH5DD1SKBSBtK3Ltcf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/EuzqOpx2kZuCBKVUSQSxZDcy9FCm371Zg+DvFyiYFw71P9/0
-	ud1N8vMZPq5Chn+2PtHHur4z42MCQGeOucgnsmz5WLFNzlMkknNSlg2iIql6iybuMQ==
-X-Gm-Gg: AeBDievgaenQH2JoUjYrz/jpOLfH9YY8fQE3ydhnF6YLDwuFW1WeoSQ63jcljdpK0F2
-	CAHBVbJsV5X8/Bbd2cOj9hxTef8azBQ6oDNyzNGxtWrhCklGdzW7K8LXCxeiZohclwLmxXlnEQ9
-	mh2m3TDI8CbYkFXkEO63CItgRLEEXF5yc59unpDZVjPByA+j7gLgBi9/kAyza4ACntxZQyRSBPU
-	ho8fYOnRq8myLjMO+yYI3IUbT/KRoHL0679Wir05RE93AJIWM1Xw0OcquLfLW0l3x9x/XDXJ2eT
-	UiRzbgzGQEhR4jW8lRZHoj8K8LA4bKcXL+aF1FS8YhJQybLX7Ymohdat5dV3LX4cT/iGxrHZ21+
-	m+xro24iAVoBuU1BNYELrKHvOzuI04LUKZ/Q6xo7QksWDIEk3m12SBOsnuTi1qqEAENBMstZaZ+
-	wPiFW6puvF3oq03R87YHiODTOWjWM+qMuBP/xwqza6wDIkx7Z9oFKUfNahDtQAent3Y0adh6pQh
-	VLTtzu87bXqwK1a7NCnwAW4+uIKFw==
-X-Received: by 2002:a05:6a00:4b4d:b0:82c:6b46:271d with SMTP id d2e1a72fcca58-82f8c93a983mr44134092b3a.48.1777270649269;
-        Sun, 26 Apr 2026 23:17:29 -0700 (PDT)
-Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:8f3b:cb24:e20a:84bd])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f8ea02ef7sm28824635b3a.25.2026.04.26.23.17.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 26 Apr 2026 23:17:28 -0700 (PDT)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Sean Wang <sean.wang@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Linus Walleij <linusw@kernel.org>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	linux-mediatek@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
+	Mon, 27 Apr 2026 06:23:34 +0000
+Received: from albert-OptiPlex-7080.. (unknown [112.65.126.162])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 3c40fa9d4;
+	Mon, 27 Apr 2026 14:23:26 +0800 (GMT+08:00)
+From: Albert Yang <yangzh0906@thundersoft.com>
+To: gordon.ge@bst.ai,
+	krzk@kernel.org,
+	krzk+dt@kernel.org,
+	robh@kernel.org,
+	conor+dt@kernel.org,
+	arnd@arndb.de,
+	catalin.marinas@arm.com,
+	will@kernel.org
+Cc: bst-upstream@bstai.top,
 	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] pinctrl: mediatek: common-v1: Directly modify registers to set GPIO direction
-Date: Mon, 27 Apr 2026 14:17:17 +0800
-Message-ID: <20260427061720.2393355-1-wenst@chromium.org>
-X-Mailer: git-send-email 2.54.0.rc2.544.gc7ae2d5bb8-goog
+Subject: [PATCH v8 0/2] arm64: dts/defconfig: enable BST C1200 eMMC
+Date: Mon, 27 Apr 2026 14:23:23 +0800
+Message-ID: <20260427062326.3715732-1-yangzh0906@thundersoft.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9dcd9b64e109cckunm8f7dadf41a3099
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaT00eVkkaQxpITE1JGh1DQ1YVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlKSklVTU5VSklNVUpNSVlXWRYaDxIVHRRZQVlPS0hVSk
+	tJT09PSFVKS0tVSkJLS1kG
+DKIM-Signature: a=rsa-sha256;
+	b=YtrZA+yV6LuOQX9hw2Zf2NeRM/Z8WwrqgNm7POYqiqqThJGY7XVhH/smOhYbpe1L85qpoJWPFWPvRG2eyB3EAtmqUl8C6PZklugJTpHwxe0RgdQMIAnYAI8RuUu8stdc0fa2pr0wWh5bJcYrMA6u3MJnbE6qT5THbaBX+NC8CB0=; c=relaxed/relaxed; s=default; d=thundersoft.com; v=1;
+	bh=77u5SnqzYB1kLOAl7anj33qdv0Ahp9BFyG5sDgjr5/w=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_231730_503424_371CE9CE 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20260426_232332_201974_7A258C38 
+X-CRM114-Status: UNSURE (   8.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,67 +77,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pinctrl_gpio_direction_input() / pinctrl_gpio_direction_output() take
-the pinctrl mutex. This causes a gpiochip operations to need to sleep.
-Worse yet, the .can_sleep field in the gpiochip is not set. This causes
-the shared GPIO proxy to trip over, as it uses gpiod_cansleep() to check
-whether it can use a spinlock or needs a mutex. In this case, it ends
-up taking a spinlock, then calls pinctrl_gpio_direction_output(), which
-takes a mutex. This causes a huge warning.
+This series adds DTS and defconfig support for the eMMC controller on
+Black Sesame Technologies C1200 SoC, split from the v5 MMC series [1].
 
-Since the Mediatek hardware has separate clear/set registers, there is
-no risk of clobbering other bits like with a read-modify-write pattern.
-Switch to directly setting the GPIO direction register bits to avoid
-the mutex.
+The MMC driver patches (dt-bindings, sdhci bounce buffer, BST SDHCI
+driver, and MAINTAINERS update) were merged via mmc-next during the
+v7.1 merge window and are now in mainline as of Linux 7.1-rc1 [2].
+These remaining DTS and defconfig patches are submitted to the mailing
+lists for review (per Krzysztof's feedback on v6 [3])
 
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
----
-Only compile tested. Accidentally fixed the wrong file when my target
-actually used pinctrl-paris.c
----
- drivers/pinctrl/mediatek/pinctrl-mtk-common.c | 12 ++++++++++--
- 1 file changed, 10 insertions(+), 2 deletions(-)
+Both patches now carry Acked-by: Gordon Ge <gordon.ge@bst.ai> (BST
+maintainer), collected from the v7 thread [4][5].
 
-diff --git a/drivers/pinctrl/mediatek/pinctrl-mtk-common.c b/drivers/pinctrl/mediatek/pinctrl-mtk-common.c
-index 3f518dce6d23..9c258e205e39 100644
---- a/drivers/pinctrl/mediatek/pinctrl-mtk-common.c
-+++ b/drivers/pinctrl/mediatek/pinctrl-mtk-common.c
-@@ -806,16 +806,24 @@ static const struct pinmux_ops mtk_pmx_ops = {
- 	.gpio_request_enable	= mtk_pmx_gpio_request_enable,
- };
- 
-+static int mtk_gpio_direction_input(struct gpio_chip *chip, unsigned offset)
-+{
-+	struct mtk_pinctrl *pctl = gpiochip_get_data(chip);
-+
-+	return mtk_pmx_gpio_set_direction(pctl->pctl_dev, NULL, offset, true);
-+}
-+
- static int mtk_gpio_direction_output(struct gpio_chip *chip,
- 					unsigned offset, int value)
- {
-+	struct mtk_pinctrl *pctl = gpiochip_get_data(chip);
- 	int ret;
- 
- 	ret = mtk_gpio_set(chip, offset, value);
- 	if (ret)
- 		return ret;
- 
--	return pinctrl_gpio_direction_output(chip, offset);
-+	return mtk_pmx_gpio_set_direction(pctl->pctl_dev, NULL, offset, true);
- }
- 
- static int mtk_gpio_get_direction(struct gpio_chip *chip, unsigned offset)
-@@ -895,7 +903,7 @@ static const struct gpio_chip mtk_gpio_chip = {
- 	.request		= gpiochip_generic_request,
- 	.free			= gpiochip_generic_free,
- 	.get_direction		= mtk_gpio_get_direction,
--	.direction_input	= pinctrl_gpio_direction_input,
-+	.direction_input	= mtk_gpio_direction_input,
- 	.direction_output	= mtk_gpio_direction_output,
- 	.get			= mtk_gpio_get,
- 	.set			= mtk_gpio_set,
+Changes since v7 [6]:
+- Collected Acked-by: Gordon Ge <gordon.ge@bst.ai> on patch 1/2 [4]
+- Collected Acked-by: Gordon Ge <gordon.ge@bst.ai> on patch 2/2 [5]
+- Rebased onto v7.1-rc1
+- No code changes
+
+Changes since v6:
+- Resend with corrected recipients: send to mailing lists for review
+  first, not directly to soc@ (BST has a platform maintainer in
+  MAINTAINERS), per Krzysztof's feedback [3].
+
+Changes since v5:
+- Patch 2 (defconfig): fix CONFIG_MMC_SDHCI_BST ordering to match
+  Kconfig position (between CONFIG_MMC_SDHCI_TEGRA and
+  CONFIG_MMC_SDHCI_F_SDH30), as pointed out by Krzysztof Kozlowski.
+  Confirmed via savedefconfig.
+
+Build/check on v7.1-rc1:
+- arch/arm64 defconfig: clean (savedefconfig keeps CONFIG_MMC_SDHCI_BST
+  at its Kconfig-ordered position; no diff in the MMC_SDHCI section)
+- arch/arm64/boot/dts/bst/bstc1200-cdcu1.0-adas_4c2g.dtb: builds clean
+  with W=1 and CHECK_DTBS=y (no new warnings)
+- checkpatch.pl --strict: 0 errors, 0 warnings, 0 checks on both patches
+
+[1] https://lore.kernel.org/lkml/20260123095342.272505-1-yangzh0906@thundersoft.com/
+[2] https://lore.kernel.org/lkml/CAPDyKFrcXFAiYouOpjDx3NN-xWACU9jAzEfTU2m_-yvQ9SpC_A@mail.gmail.com/
+[3] https://lore.kernel.org/lkml/12058c14-67c7-4b43-bbbc-ef0ccb813e61@kernel.org/
+[4] https://lore.kernel.org/lkml/20260417.164709-gordon.ge@bst.ai/
+[5] https://lore.kernel.org/lkml/20260417.163754-gordon.ge@bst.ai/
+[6] https://lore.kernel.org/lkml/20260310091211.4171307-1-yangzh0906@thundersoft.com/
+
+Albert Yang (2):
+  arm64: dts: bst: enable eMMC controller in C1200 CDCU1.0 board
+  arm64: defconfig: enable BST SDHCI controller
+
+ .../dts/bst/bstc1200-cdcu1.0-adas_4c2g.dts    | 19 +++++++++++++++++++
+ arch/arm64/boot/dts/bst/bstc1200.dtsi         | 18 ++++++++++++++++++
+ arch/arm64/configs/defconfig                  |  1 +
+ 3 files changed, 38 insertions(+)
+
+
+base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
 -- 
-2.54.0.rc2.544.gc7ae2d5bb8-goog
+2.43.0
 
 
