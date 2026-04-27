@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D11FFFF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 16:52:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BFEAFF8860
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 16:58:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=o3ZI0LJNGOCBI20WP1P2qZ+bTqh4ah0JmxhMCroQ3y8=; b=jEdlhde9YpZBT4pDdnWUxp8pF5
-	fB8EFeuADBXQvqsAo+vhmWUzY7T84/jns1EI+pcZT0yKn3acyOZS8xpp8aliPjCqHfnTXl4KWTINj
-	ilfPv3IlH4YbugzMHqF3rMUvb8E2xzpxSPDMM8XXS5CLhN+To4f0CaPtfLSmEuIpJRnrgXuJCQ8Qh
-	wGmp+o3bIAQZ0uaKGPXMmOE8JtQf05f2tkQQs/yvqIDNVLKbYLcqdgOZ7aXKMYVuL5S6qBsb9dGLg
-	H8aY/NmbPeJ83rnlZv3R/oV3vO9f3j2+hp35ppqz41WAdkmBJkocuAMYgag9OOFFwXFvB2Ocfg39j
-	Ms5fbW1w==;
+	bh=o3ZI0LJNGOCBI20WP1P2qZ+bTqh4ah0JmxhMCroQ3y8=; b=ulDa8yY4+nCTEPzHPfB5aQQUQS
+	5uUQZSoBI7vAdBNpyxPhWysJnnnGhi2IDgjN2XY8frsIcVTIY6yYXfYmleMsvQiAW17s4sP4fvaOF
+	m52yIzHNlf5DJzBvPYWQURyeM5Kqh49jX/HlJdDuJhw4kPsFs7plCsDv4L01S+GYOhvK5SZ6Hd/Y9
+	O4054oua7iIIsD9dYQMfUNTh+fQeBEP6fZftfLhil9HvR1wvJtJv8+WGF911sUOnpNTa3kkDh9V8a
+	UykLULNAjfKkxXyP+LGu5qhQEA4gd7MH94abCSrG4pJlyb4DuEA2QbB1ljOnrSYUMMUFUdp7qNJ1G
+	DCjrJsUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHPBp-0000000HOHx-15YI;
-	Mon, 27 Apr 2026 16:52:09 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1wHPHd-0000000HOcY-3OAy;
+	Mon, 27 Apr 2026 16:58:09 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHPBm-0000000HOH8-3YJl
+	id 1wHPHa-0000000HObP-40gG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 16:52:07 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-488a88aeec9so130023925e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 09:52:06 -0700 (PDT)
+	Mon, 27 Apr 2026 16:58:08 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-48334ee0aeaso110122545e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 09:58:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777308725; x=1777913525; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1777309085; x=1777913885; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
         bh=o3ZI0LJNGOCBI20WP1P2qZ+bTqh4ah0JmxhMCroQ3y8=;
-        b=mdYKTQKSY0zu2N52TvU/WTE+4Hge3b2wxlDhPZJw4qSQ49b4BrrFOTPOD3/oC5RcTc
-         x/G41GtDDx3c2C8iAIsRldRQ3GVr1FraYqd/dcp7OqPlb4YhJI0GOxMW15mvLk7ayDlU
-         0tyv2crbFiG6mQr3caeuIDYqZdos4lshS1rVwjoqVW3XA7L6LCS5yVeAUFGYkwVd6+ok
-         EVEibz9NpN7o+9xuD9EnejFRkgTbIyPRhglbE7t3Ziunt8raIp/XzUVhqlqFLkPAhxzY
-         ROK9OaeYEwhBdjgXnORSDbzosx9gckZvZ0NAOT5B8C/wJz093AsdEx4cIMKU9rxzPOVo
-         I96g==
+        b=VwkZYsQlZfmVuY+N6x6ZjKYQz6/3ntZaHqp6a7VWY98+OVKxjKa9vH0ZFbShGfMomv
+         /ThglZXT0NO6lsbIrXz1OT5Vh+LRynwQTvxsQXD6EndjyUzYUEb6xjRqG7i8Y0GZiiVd
+         hVIi7QpUXz2kkjI8yzNgQGSxCcimMjXr+/UiLpw8xbOC3imsS3s5cFodqqMYRuxJMDrr
+         ke5PUqViwaGslgqQIP3Lp0IFrQPw71bU7dqm8m1BeU5SUMQpkUPKCiRiOym+2kRlWQnc
+         SJpNGHnmQFq1MZIgKkLaK+6Bul/HXEHN6HjtWD25sw9UBaID/TKxw2ev6JTbh3EfVCOi
+         uk4w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777308725; x=1777913525;
+        d=1e100.net; s=20251104; t=1777309085; x=1777913885;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
         bh=o3ZI0LJNGOCBI20WP1P2qZ+bTqh4ah0JmxhMCroQ3y8=;
-        b=A08iNoG7p5lmXydPFOBbSYxguzvb7F3UkS0P14hjWYIkfkb7NWhQaB2iSeW2Yuvv97
-         JXrgxNHlQjCDjUCg66Jmt7exunonhGd25KD4AR6mOFq2c1b12t9exNrDEazfpns54qz3
-         EzYNgvFOkJxerwmxKmPbik9YZopaozJsyWRZBr7lbSw8GK/+JwjArwtFAqPMpygpEFL/
-         WLKjl3DCYwWqWjRRP08BAJo2wWGz29dzYwiJxpyBga+GF2k79u4mDgSaR1CPvNbl+/Ik
-         /124qr/F3weQJBoKey2p01fGcOG3ofG97jeIEzC79XL+teuiQveEs6ELLFSpH2WmrqEt
-         nJkw==
-X-Forwarded-Encrypted: i=1; AFNElJ9B4kNDqf/xzDQNyIfTyisYi8OlVPh30B655SaxTOd9VqwA15IW0UDVVvUWcLxqkqnCa1iLnMSf9RTbrZ3wUh3i@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHZrugLm8E2h13t8uC0bsTuIiF0/jJbbdUMzFKtLEEaqFpDiWH
-	G3YdERmaDuw+d6JuKgotk+wfQiftyZleruPiO4Jih5S9CoVrpQHf3YnZ
-X-Gm-Gg: AeBDies7+bwKAk30WsD2tl4r6pL80UAoN+gLt3DrYyYq/VefMniFdOg6GcHvL1lAWOh
-	68WEGyRWmq7E8UnIPGp0zyVeT0dVeV13Roi8EbK+8fAImglyfXXYyEXea01jA1tqIbY9zU1x2K7
-	/GLpd+TRt+Ltasx9CklvYRqE+Zc5jEE36OPUUGjaFDh1gY2U2yjb0xeLV0xdvbN82ZBSQbmDvGN
-	TQXbyTfcjQIbe2urb1RfRNYNYO7s+w2r+yPZojsFc8GhLQ6OYRnURfSngcG/ORAS+BO2+QXYMSF
-	Ilz5C5tVifSuawOdMKOJGIdtvRxBluDOn4hll4FRl5miMiI2oTx8x5tUQbJ1s4iZIBQSf3+Ff1r
-	YSMrdipdn1lJwVGL8snxKW7Vd5XsAyM3mX5Z60VglM33dazIwJnOfemnnlSVU+t+Nt3kQuvFuUt
-	Iw5SGWJdaPvNd2R5a+hzUZoRCaN6l8Ef77BKtICQM0gWQHo2oz
-X-Received: by 2002:a05:600c:6216:b0:489:5022:39a4 with SMTP id 5b1f17b1804b1-48a76f53addmr2241825e9.9.1777308724693;
-        Mon, 27 Apr 2026 09:52:04 -0700 (PDT)
+        b=gPOpxtweQoVWUMRRqtwPw8NnLLKI7J01r3wMyyy8KnOTdE92HxmwOHctcFlQoyVPGD
+         uz/2FAkxHrp0maic1K6OrGlk9Y/43+wLllr59mW4VSzbFsF9bQfLxqlIycWKwc99u5F0
+         QvrnpGWJvU/pVN0tmm/oI60IsbXIg/rKZYDE40oXRzi8DuwhK6HiMXKm8FDFKeh5QWF5
+         aFT5SgxVmgl2CP6Q9b4bcP1RmXYKVPxEFIVmVMQSeytYmc0MCIuIN0wC16RmHKr6gC8i
+         j7txBIc0N332Gk8RMcnG0+Iw+iLj0Yw0nqw/zkSYZHPtE2R+RMinJi54aPHSmpeaK25K
+         mUgg==
+X-Forwarded-Encrypted: i=1; AFNElJ/puiJ6ghTttWXoxXjwZt0cUAGCPe5cEqa+hVMdmpMlpzSrXJsPPchYPfjVQ5peI3RkH/Aw9UZn4KybYqUrp/NV@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVLohO8/mxB1gFKKCylZ8hlUcEq20h26yKh1Up1hw6JB9nXTYq
+	5KoEMPvZsxYU9YvbmPpEtJKXoaANDj15xnC6nzkhMmfjhmxnAdlif56CDWrAnEUV
+X-Gm-Gg: AeBDietl0lmpXU1+G0wtT7OzFtsJV6yAXq7B/04M3uxa0ALIc3RahvYFjM7W389Y7om
+	wwdg2PQdLvm+4roWbKs2Pt6gSbHeHJsJfUTUdbjYzs1RLB0L/WBN+o+6YfFDEyAw981CR9xgXZZ
+	mqFYURfUGobyZTq1dAQ51ZL9Qulmmz/lcuBgQ68bxQyAxChUozRFikFtgjz8ne/L0F95fguM2b6
+	2uR3LKx8ym7OAaHow8S0/m0oNrFJUmEsqfj2ER00vcT0Nryk5zz8g0RzMyXeSF1Q2EIy+CfKOwa
+	4LlSPKmlYn3IWZTl6HGTVQkC7spvoYtyF6Tjycmy5HVFDZ7lswZjamJ+WZ62J37mD9ta89J6ubr
+	YK9nlid1Qj+Kw8JQmlxh40rZ0/eI53xqn2OL2g7QZUliT4moJS1XxPb98J6uckjH9lJPtQ9vx9B
+	39xsU8ot9MhuJiwA4GeOMCL5jrYXHFieFs/n9bAkwJ3f1l+DAY
+X-Received: by 2002:a05:600c:a319:b0:488:fd7e:1063 with SMTP id 5b1f17b1804b1-48a76f91970mr1400915e9.29.1777309084799;
+        Mon, 27 Apr 2026 09:58:04 -0700 (PDT)
 Received: from localhost.localdomain ([196.235.239.18])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48a773aeb6dsm1483495e9.5.2026.04.27.09.51.57
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48a76f7f483sm2721465e9.0.2026.04.27.09.58.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Apr 2026 09:52:03 -0700 (PDT)
+        Mon, 27 Apr 2026 09:58:04 -0700 (PDT)
 From: Salah Triki <salah.triki@gmail.com>
 To: Jonathan Cameron <jic23@kernel.org>,
 	David Lechner <dlechner@baylibre.com>,
@@ -80,15 +80,15 @@ Cc: linux-iio@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	Salah Triki <salah.triki@gmail.com>
-Subject: [PATCH] iio: adc: mt6359: fix unchecked return value in mt6358_read_imp
-Date: Mon, 27 Apr 2026 17:51:51 +0100
-Message-ID: <20260427165152.5583-1-salah.triki@gmail.com>
+Subject: [PATCH v2] iio: adc: mt6359: fix unchecked return value in mt6358_read_imp
+Date: Mon, 27 Apr 2026 17:57:59 +0100
+Message-ID: <20260427165759.5756-1-salah.triki@gmail.com>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_095206_911572_B5FB9BE2 
-X-CRM114-Status: GOOD (  18.44  )
+X-CRM114-CacheID: sfid-20260427_095806_999945_F79559AC 
+X-CRM114-Status: GOOD (  18.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
