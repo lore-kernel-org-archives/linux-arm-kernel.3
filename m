@@ -4,66 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80505FF8860
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 14:33:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34942FF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 14:36:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hboQdrGukEdC14jWcUCG/kuJLHmOpryDVmoOEJnggKY=; b=MmFv54vafM+Vw9zFTS91zxYZ8c
-	YyDOmCK+93T80AVF8jbqjNiTsyOTIJZKAePINFq+H+HjrOkeMM4c19nexxHrLP5RxQd0flOP1Jzvf
-	Rd4GX+BoI27T4vCCtZ4kMjP5SuWZtzWCnAbI7pWBQjsaXHrqilJhw/++kBT2rbPysq0pwJazeMOsO
-	RyYXT/fGANAGEqNhSYkcefh2JEuD/xZMTwOzvTOMqKciX5k2SJvMsSAsVgBvrMXi5/xIwgKygVLa7
-	ToXZJtWGlB0YUIXwngErzragXNOgIa5NAbtvEMwc8EWyhGtT4zqyiXFC9OPopoiOfXTzhh6FG1YtK
-	cGoXd6TA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e/t2Y0fFYadHf+1aEqYDbSOcm9qWh0SUm65urm7yUFI=; b=Gxu3/DdtCfHdpKQ3dyf6ENTuPW
+	apIZOla+2qs+sQB33sjD8DB4k2KdFQG7TdTFemFv1UlOv2MD3ucwSn0sTh12mk0lLD8PUuHKfGiD/
+	DwG5a/Ck3vehO7pR5G/1SIHO/mZQp6yC9diPAV6pZn9JjK8P+uY/ScO8pclUkLA8HFumJHp4amzfL
+	udeZuMUfsA0YUyMG6dCrmHgtk/+fqN8+669ry05beOV7l/3qbB7ySNbEZU2mD2gjMdkriOGDF8Pra
+	oSwn1e4DyCAkC5aFreEa+KZ4sNszcCbhR22cTxPU7PhA6Jd8AbC1siJ6sRn/YO8bBUCGsbLIms1hx
+	KhzXnMzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHN1J-0000000H6of-0a7P;
-	Mon, 27 Apr 2026 14:33:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wHN3z-0000000H712-3KdZ;
+	Mon, 27 Apr 2026 14:35:55 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHN1H-0000000H6oF-1ClC
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 14:33:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 67FCA44194;
-	Mon, 27 Apr 2026 14:33:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C66B0C19425;
-	Mon, 27 Apr 2026 14:33:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777300386;
-	bh=aklo0BvFPwrv13d7sJo9gJ9uyM2H4r+9uf4mxWiltQ8=;
-	h=From:To:Cc:Subject:Date:From;
-	b=crfgzi4tVgO6PX+CyBmsSwJTBG27MeyqYR5JSegwhsnakb1kVysXlGkVcmmIKHQxb
-	 +JAw3tSgePgN89iAsyv7Ync+7LLU4WK6hLssPT2B/tbtN04YzhnGwbYOwnWKHbbOLi
-	 dafhThm6fc+x4uFGOE5hO7Vg7XpXQKv1sGUYEopxe/cb3kmvaE4ayFaJTOUf458XQ8
-	 mwW1WoNbdJ8EQQ97sL8DoatPRvqpRae2AcLNqLOdhawViMjSRbWDOSXEco3BttzckJ
-	 XRp4Je4tc8Ch5sO52tRUUtZi/ILCACq786acytfKXeYj6Jb6JHoZ2/DlUB6E2uunv4
-	 Krbk1+jiMW9lA==
-From: Arnd Bergmann <arnd@kernel.org>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-usb@vger.kernel.org,
-	linux-gpio@vger.kernel.org
-Subject: [PATCH] usb: udc: pxa: remove unused platform_data
-Date: Mon, 27 Apr 2026 16:32:10 +0200
-Message-Id: <20260427143300.2887692-1-arnd@kernel.org>
-X-Mailer: git-send-email 2.39.5
+	id 1wHN3w-0000000H70D-3fzB;
+	Mon, 27 Apr 2026 14:35:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=P/ZJdF926lJ1j978yvDb3c7MGWtfR5W4iCPlIk8Re4vqpN+MOZVyAH6fjC99VYcBgKegsqjYyHJ7y3oClzD/KLJSHh3auu3VyqvTxBAJhyI3cJJKhAXsFw3/Qo5nTbu/GA60Kbc/3jU41LmbiJdIekAIBPr6T6cVG4q6uEumcEJBSBL0aKzUoLgpK/CNVYYeE1ZfU9OtA+8mHaVkLq6AaJmxCqIwm8zCWMStxgzphw34itPVg2+lecoUrStv22Zx8KdyV1hn4ppD6bjldIKjwZZJApvrIBwP5BGozo/Vr2dyR9C9CMkkoPha9u+BlOw+ZP3/3r85Vw3zYlNh6Evq1g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=e/t2Y0fFYadHf+1aEqYDbSOcm9qWh0SUm65urm7yUFI=;
+ b=YS5cMEETieIekFYLhd/534AnuALWeOd/HcrTZU+2xo+W73l9S1bFC386YURYKimEO6RnGHNm5I/KVtA4JMmAvhEzsb2LO3AVkC5StueVTt5UXpSjxpwypmir9/9Y2mnfhjKGiyzQwKoc/OIA7HSi9CDBsSn7h1AQ92NJx7CuK9pjqO32PB0xPF5a+KULLX5E+zxY1mSKFIUOe15Wk05icnrtszoyTtOPABH87u81bZaM2iAIP/GuoCRJJlP/ezQRKoEEWAQfZjut7Or0wGWhyCyCxsAP0+7ueM1hqy9tKRyYCtkefC2IoNOgjt6Y1Ipw9eGwlzBDqTBiBPbysLBCUA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=e/t2Y0fFYadHf+1aEqYDbSOcm9qWh0SUm65urm7yUFI=;
+ b=wPB8fHLCAbdVSfhgN3xXiAHcz96RwYaBdsngipOAuv7P9WO5iguX3XWe7Ae+h3wNsV4QDbyeZtE0TQLLWlwmIYBhATEbXlULW/D0tlD76ODcXgEggwgD0ej9I07QLWRiWw7QU6DyZIjMyc3WiDKH3TsYgGe1UT35tpLue2h1VJi7uFAveI2vzkLeP5+piiaPqYEjdyDCZbbys8mWjClLRRbRonRCmXrUJt62n/SjPPwBHJn7RapjqiGEU/NRDo0URK6FuprMha1AHHWNNG1/7fMxZ1v+gMj4UMbo2eReaWBpz+N0+C9yrV1TQy6EDO0DuhPFRL1QSpm9uBe5YMeQXg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV1PR04MB9135.eurprd04.prod.outlook.com (2603:10a6:150:26::19)
+ by AM9PR04MB8748.eurprd04.prod.outlook.com (2603:10a6:20b:409::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Mon, 27 Apr
+ 2026 14:35:46 +0000
+Received: from GV1PR04MB9135.eurprd04.prod.outlook.com
+ ([fe80::3826:2706:1e81:c9e2]) by GV1PR04MB9135.eurprd04.prod.outlook.com
+ ([fe80::3826:2706:1e81:c9e2%5]) with mapi id 15.20.9846.025; Mon, 27 Apr 2026
+ 14:35:46 +0000
+Date: Mon, 27 Apr 2026 17:35:41 +0300
+From: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux@ew.tq-group.com, 
+	Alexander Stein <alexander.stein@ew.tq-group.com>, Ying Liu <victor.liu@nxp.com>
+Subject: Re: [PATCH v22 5/8] dt-bindings: phy: Add Freescale iMX8MQ DP and
+ HDMI PHY
+Message-ID: <f6rf5d6nhglkwendf5yvaklfn2ovlwkqstsz7vvl5zefibtiun@wic7bchohmwv>
+References: <20260424-dcss-hdmi-upstreaming-v22-0-30a28f89298d@oss.nxp.com>
+ <20260424-dcss-hdmi-upstreaming-v22-5-30a28f89298d@oss.nxp.com>
+ <DI3YF5Y2B3GZ.25AP4NKQAXH36@bootlin.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <DI3YF5Y2B3GZ.25AP4NKQAXH36@bootlin.com>
+X-ClientProxiedBy: FR2P281CA0086.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:9b::14) To GV1PR04MB9135.eurprd04.prod.outlook.com
+ (2603:10a6:150:26::19)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV1PR04MB9135:EE_|AM9PR04MB8748:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0469b009-8117-4c92-8994-08dea46a448c
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|19092799006|1800799024|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: U7pSl498n9vewhkBDnCQWXP99rqaTFNmBT4/1EOQzPGrVZrkCPXaUnqojkQdI4/Awx6PWuE0RVduorxh/w5AfaX3fdi0ZTsuOWTCWa/nWL3HAV9YEYStYqUdXgJijLB+bF3/AGA90aO1ztfqh4b4x/9rFYO42I9eXsxAHLXwvDtqaMZ5vMhuIFtZeZUWI7EJlO86dNRkZ8JGmMzEFDie4tCLrYFsb+8covKe7vkd72xZgrBoQmXaUPOhab4fk/k34OqjAq+utfVeflpZp5GakyEH1+9Yxw8EV6qHx5lCW19hQIvRZ4QinloEcwyJosuNMCLiJepUbDhDQtXe9/u8cTmR1cMBxqtA6Gx+z9lCd6OMUflMDgHbc7jSZZr/3DHhtMxKRTGQeCZ+FE6as9NZx3V8ceCxj+ZJS+CjLIdf3pnwMmq1zUwKg4zlKpCN9alqQs7KQN+MjxJggn5+q98Tu2FrZLSpJnmmKmy936727Xmht6QfIiaTFLMmRQ6uShlSoFWWJSKDrPzDKxTXJqa5nJoU9mm1/57DIjsqBuorHNr7gNGUE6F8StHr9xNCOjMuy9QLbOvOB3aNaA4B51MXGCtEnGTaM2UV3wTnNJl2AQueMCFj0ROThLOs16u54oWhOLvi4ddDbOu9r2mOTnjpd0hQq8egSTPlOfVUDyawRyMmZcx4kYxk8tFS2ojtqRq2
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR04MB9135.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(19092799006)(1800799024)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?3/wD+Oc/H8/8GMFmYyaHAta9wa3ca7Aj1HKxiV+24uPcYWbzRopHL+Lw9osV?=
+ =?us-ascii?Q?MRCaYtssEUWdUSQT+WmT5+LZhoWwpGljp4j6Glbc7Y/Lbq0KK9yMPXu2lqUJ?=
+ =?us-ascii?Q?b4lenX++JWAirgJAHJxgSbUA4rqV2qT9AN7l7G56ckjcchlaP//wRjWO03Xt?=
+ =?us-ascii?Q?UhMzPl5fFly3YV0zbvcQg35vxMI67bZixpYbxjDyucDp9fn7fC85pT8BLjVv?=
+ =?us-ascii?Q?8lSbGHmPA6IDa8PiukuMTIW7bsH9HSqhhwWHQa+nBzn6odIjwqgGds8VFaYd?=
+ =?us-ascii?Q?00ZSOD94zwzeWXGt2wLDaak8mTnIuJ+Doom6XE2T7zNRvmNfob/uYtoiag9E?=
+ =?us-ascii?Q?QPPv2gWeaxiUAeur/otYMXfV39U+Xj9sjHw7pmkqkMJ6fxLGOHedD+GOZPlK?=
+ =?us-ascii?Q?ITTXutVCeSLFEwBv2lLkTbxNPfM9Ih+jBhbf5azW2mKma+dLAyJyFJBoGf9w?=
+ =?us-ascii?Q?6wIFtzAytKVK4vY3QXBLjt6wknzU7ByJsj8LC7Mc+Xq4H4zKJYIQvvtmAd/N?=
+ =?us-ascii?Q?l4naC8nI2lNrBDnW8eFVz2dRFnzdDL0uZlJoQ7SanFtOkQn3Wjv1LkoeoLXm?=
+ =?us-ascii?Q?RNiqfsbMMRogDchrgBnvNrwd9NB6AiRZtxPCmVB6ocaxJMm+80Ih4Z1z9nDV?=
+ =?us-ascii?Q?s67rVanwZYRA/Zdz73wv9gGbGatmxtXivFfYbMp4qHhFC6HRVT3apj9tWgd2?=
+ =?us-ascii?Q?iAno/F3kUDMPaqa8XSOSXXV5PtCgLJqqpJ+m+/HBTnTs3ptAwPaeqKs/Zmj+?=
+ =?us-ascii?Q?EZM9TxU8Q3sjUtixWfCxSs1N/bEsh+1LLsesbq6cljL+/zT7QzsHEzK76XKJ?=
+ =?us-ascii?Q?MvqCrZKuiuuIbuAbu8tovwCJ6PbEXf+rAgwujjKiVy37Jh64svtjOvG9nvcB?=
+ =?us-ascii?Q?mcHTB4V9DMrg667UOzjdJUHBuBvY/ufFdlqqn6JYQJYJ7MhHwK7brEs7kQ3I?=
+ =?us-ascii?Q?2wCQ0rkrbI7JS2Ozc7rpp8cdG1uGZsi15Q4+1z0317amVAkxL+XbytkjmVBf?=
+ =?us-ascii?Q?jN/rTbGu+3SDal4Sn9teiFX+vIhQV81lC/PYNy0UNGHNHVde+R5vcUq6GMaJ?=
+ =?us-ascii?Q?ZlOWwdvdOvzae5HcBJ3Nq0UKD1H/305IZ7N6JPyRYBETeqf5FAgUTQ83Ek6g?=
+ =?us-ascii?Q?qzeSkHpZ7YbhPdDfYecKiLtqysu60fWJR/WWmNOiykdcxulpW6AY/fAKd8tM?=
+ =?us-ascii?Q?jquYLN84KaTxF+cSJ9OewYgXvhXAV15IKARE8ogQAQCOz992DwkQ38U1ptzP?=
+ =?us-ascii?Q?WFzhb5uX+sJ5U0PZclw8M3LTw/mMvwCN/j/xHlLqvqvc7YiakwnsflTlhSgL?=
+ =?us-ascii?Q?0WJY/C9pGUppOCFLCMN4zmguPRdAwlQZvFjhXmO5o88ehzTlIzet3FRXfEBn?=
+ =?us-ascii?Q?ir4hD21wCwOYQDqNtOnV5NKKm9zykvTaNA9NlMQ6bWMx/yedLLVeTiBkm4A2?=
+ =?us-ascii?Q?1sLLNrSiJxBg/ZoDMMEEppgVQm5Ki2SWtxf5ACfwtgp8CTEfL2twxKVGGpf7?=
+ =?us-ascii?Q?COn8njTdR4pf2g122hRu1pMcGH8fOziAy79EZPQcl0kEx/1qYjtdGE76x0w0?=
+ =?us-ascii?Q?AnlyOyXWBcH2MMOjBecwQNneWH57UOx4xs6cePm6hNVyg0DcSRocjleqBx/P?=
+ =?us-ascii?Q?yJDgUHHVwrSBu4ULccGN7/QEjZUkP9bEopfrFc557OiIIiGnstPXi1vXp8g2?=
+ =?us-ascii?Q?GiErZ+7tGz+fRO2uSlsPpXS7L8NZsxJeU9HJJIKpkfEqatn1sHJBD/tFYBQZ?=
+ =?us-ascii?Q?qL4KTqI3I3E8NcF/MfEclh3Swh6ifr0=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0469b009-8117-4c92-8994-08dea46a448c
+X-MS-Exchange-CrossTenant-AuthSource: GV1PR04MB9135.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Apr 2026 14:35:45.9800
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZaXpX9XrCYhDwYooJSvVZioqqENYZIM0W2FWrbHlHKsD0gYXie29habmwPqCUcKiiFlGUDhNsXgL9ep7jdnpYw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8748
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_073307_373402_D6364A3C 
-X-CRM114-Status: GOOD (  28.00  )
+X-CRM114-CacheID: sfid-20260427_073552_979994_B317B727 
+X-CRM114-Status: GOOD (  22.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,313 +145,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+Hi Luca,
 
-None of the remaining boards put useful data into the platform_data
-structures, so effectively this only works with DT based probing.
+On Mon, Apr 27, 2026 at 02:59:47PM +0200, Luca Ceresoli wrote:
+> Hello Laurentiu,
+> 
+> On Fri Apr 24, 2026 at 1:07 PM CEST, Laurentiu Palcu wrote:
+> > From: Sandor Yu <Sandor.yu@nxp.com>
+> >
+> > Add bindings for Freescale iMX8MQ DP and HDMI PHY.
+> >
+> > Signed-off-by: Sandor Yu <Sandor.yu@nxp.com>
+> > Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+> > ---
+> >  .../bindings/phy/fsl,imx8mq-hdptx-phy.yaml         | 80 ++++++++++++++++++++++
+> >  1 file changed, 80 insertions(+)
+> >
+> > diff --git a/Documentation/devicetree/bindings/phy/fsl,imx8mq-hdptx-phy.yaml b/Documentation/devicetree/bindings/phy/fsl,imx8mq-hdptx-phy.yaml
+> > new file mode 100644
+> > index 0000000000000..a24435139b8b3
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/phy/fsl,imx8mq-hdptx-phy.yaml
+> > @@ -0,0 +1,80 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/phy/fsl,imx8mq-hdptx-phy.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: Cadence HDP-TX DP/HDMI PHY for Freescale i.MX8MQ SoC
+> > +
+> > +maintainers:
+> > +  - Sandor Yu <sandor.yu@nxp.com>
+> 
+> Based on what you said in the cover, I guess this line will have to be
+> changed. Are you willing to maintain this binding?
 
-Remove all code that references this data, to stop using the legacy
-gpiolib interfaces. The pxa27x version already supports gpio
-descriptors, while the pxa25x version now does it the same way.
+Yes, I'll update it in the next iteration.
 
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
-v2: add devm_gpiod_get() error check in pxa27x
-    use GPIOD_OUT_HIGH instead of low for pxa25x pullup
----
- arch/arm/mach-pxa/devices.c              |  7 ----
- arch/arm/mach-pxa/gumstix.c              |  1 -
- arch/arm/mach-pxa/udc.h                  |  8 -----
- drivers/usb/gadget/udc/pxa25x_udc.c      | 41 ++++++++----------------
- drivers/usb/gadget/udc/pxa25x_udc.h      |  2 +-
- drivers/usb/gadget/udc/pxa27x_udc.c      | 37 ++++-----------------
- drivers/usb/gadget/udc/pxa27x_udc.h      |  2 --
- include/linux/platform_data/pxa2xx_udc.h | 15 ---------
- 8 files changed, 21 insertions(+), 92 deletions(-)
- delete mode 100644 arch/arm/mach-pxa/udc.h
+> 
+> > +description:
+> > +  The Cadence HDP-TX DP/HDMI PHY is a child node of the MHDP8501 bridge,
+> > +  sharing the same MMIO region as the parent bridge node.
+> > +
+> > +properties:
+> > +  compatible:
+> > +    const: fsl,imx8mq-hdptx-phy
+> > +
+> > +  clocks:
+> > +    items:
+> > +      - description: PHY reference clock.
+> > +      - description: APB clock.
+> > +
+> > +  clock-names:
+> > +    items:
+> > +      - const: ref
+> > +      - const: apb
+> > +
+> > +  "#phy-cells":
+> > +    const: 0
+> > +
+> > +required:
+> > +  - compatible
+> > +  - clocks
+> > +  - clock-names
+> > +  - "#phy-cells"
+> > +
+> > +additionalProperties: false
+> > +
+> > +examples:
+> > +  - |
+> > +    #include <dt-bindings/clock/imx8mq-clock.h>
+> > +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> > +
+> > +    display-bridge@32c00000 {
+> > +        compatible = "fsl,imx8mq-mhdp8501";
+> > +        reg = <0x32c00000 0x100000>;
+> > +        interrupts = <GIC_SPI 16 IRQ_TYPE_LEVEL_HIGH>,
+> > +                     <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>;
+> > +        interrupt-names = "plug_in", "plug_out";
+> > +        clocks = <&clk IMX8MQ_CLK_DISP_APB_ROOT>;
+> > +        phys = <&dp_phy>;
+> > +
+> > +        ports {
+> > +            #address-cells = <1>;
+> > +            #size-cells = <0>;
+> 
+> The ports are not mentioned in the properties. I'm not a DT maintainer, but
+> I think they should, e.g. to mention which port is the input and which is
+> the output.
+> 
+> > +
+> > +            port@0 {
+> > +                reg = <0>;
+> > +                endpoint {
+> > +                    remote-endpoint = <&dcss_out>;
+> > +                };
+> > +            };
+> > +
+> > +            port@1 {
+> > +                reg = <1>;
+> > +                endpoint {
+> > +                    data-lanes = <2 1 0 3>;
+> 
+> Having a remote-endpoint property would be nice here, to make the example
+> more complete.
 
-diff --git a/arch/arm/mach-pxa/devices.c b/arch/arm/mach-pxa/devices.c
-index 7695cfce01a1..edad956a1483 100644
---- a/arch/arm/mach-pxa/devices.c
-+++ b/arch/arm/mach-pxa/devices.c
-@@ -11,7 +11,6 @@
- #include <linux/platform_data/i2c-pxa.h>
- #include <linux/soc/pxa/cpu.h>
- 
--#include "udc.h"
- #include <linux/platform_data/video-pxafb.h>
- #include <linux/platform_data/mmc-pxamci.h>
- #include "irqs.h"
-@@ -83,10 +82,6 @@ void __init pxa_set_mci_info(const struct pxamci_platform_data *info,
- 		pr_err("Unable to create mci device: %d\n", err);
- }
- 
--static struct pxa2xx_udc_mach_info pxa_udc_info = {
--	.gpio_pullup = -1,
--};
--
- static struct resource pxa2xx_udc_resources[] = {
- 	[0] = {
- 		.start	= 0x40600000,
-@@ -108,7 +103,6 @@ struct platform_device pxa25x_device_udc = {
- 	.resource	= pxa2xx_udc_resources,
- 	.num_resources	= ARRAY_SIZE(pxa2xx_udc_resources),
- 	.dev		=  {
--		.platform_data	= &pxa_udc_info,
- 		.dma_mask	= &udc_dma_mask,
- 	}
- };
-@@ -119,7 +113,6 @@ struct platform_device pxa27x_device_udc = {
- 	.resource	= pxa2xx_udc_resources,
- 	.num_resources	= ARRAY_SIZE(pxa2xx_udc_resources),
- 	.dev		=  {
--		.platform_data	= &pxa_udc_info,
- 		.dma_mask	= &udc_dma_mask,
- 	}
- };
-diff --git a/arch/arm/mach-pxa/gumstix.c b/arch/arm/mach-pxa/gumstix.c
-index 1af3f9eccb8b..7ab0cb015d1b 100644
---- a/arch/arm/mach-pxa/gumstix.c
-+++ b/arch/arm/mach-pxa/gumstix.c
-@@ -39,7 +39,6 @@
- 
- #include "pxa25x.h"
- #include <linux/platform_data/mmc-pxamci.h>
--#include "udc.h"
- #include "gumstix.h"
- #include "devices.h"
- 
-diff --git a/arch/arm/mach-pxa/udc.h b/arch/arm/mach-pxa/udc.h
-deleted file mode 100644
-index 9a827e32db98..000000000000
---- a/arch/arm/mach-pxa/udc.h
-+++ /dev/null
-@@ -1,8 +0,0 @@
--/*
-- * arch/arm/mach-pxa/include/mach/udc.h
-- *
-- */
--#include <linux/platform_data/pxa2xx_udc.h>
--
--extern void pxa_set_udc_info(struct pxa2xx_udc_mach_info *info);
--
-diff --git a/drivers/usb/gadget/udc/pxa25x_udc.c b/drivers/usb/gadget/udc/pxa25x_udc.c
-index b3d58d7c3a77..594d67193763 100644
---- a/drivers/usb/gadget/udc/pxa25x_udc.c
-+++ b/drivers/usb/gadget/udc/pxa25x_udc.c
-@@ -12,7 +12,7 @@
- /* #define VERBOSE_DEBUG */
- 
- #include <linux/device.h>
--#include <linux/gpio.h>
-+#include <linux/gpio/consumer.h>
- #include <linux/module.h>
- #include <linux/kernel.h>
- #include <linux/ioport.h>
-@@ -261,24 +261,12 @@ static void nuke (struct pxa25x_ep *, int status);
- /* one GPIO should control a D+ pullup, so host sees this device (or not) */
- static void pullup_off(void)
- {
--	struct pxa2xx_udc_mach_info		*mach = the_controller->mach;
--	int off_level = mach->gpio_pullup_inverted;
--
--	if (gpio_is_valid(mach->gpio_pullup))
--		gpio_set_value(mach->gpio_pullup, off_level);
--	else if (mach->udc_command)
--		mach->udc_command(PXA2XX_UDC_CMD_DISCONNECT);
-+	gpiod_set_value(the_controller->pullup_gpio, 0);
- }
- 
- static void pullup_on(void)
- {
--	struct pxa2xx_udc_mach_info		*mach = the_controller->mach;
--	int on_level = !mach->gpio_pullup_inverted;
--
--	if (gpio_is_valid(mach->gpio_pullup))
--		gpio_set_value(mach->gpio_pullup, on_level);
--	else if (mach->udc_command)
--		mach->udc_command(PXA2XX_UDC_CMD_CONNECT);
-+	gpiod_set_value(the_controller->pullup_gpio, 1);
- }
- 
- #if defined(CONFIG_CPU_BIG_ENDIAN)
-@@ -1190,8 +1178,7 @@ static int pxa25x_udc_pullup(struct usb_gadget *_gadget, int is_active)
- 
- 	udc = container_of(_gadget, struct pxa25x_udc, gadget);
- 
--	/* not all boards support pullup control */
--	if (!gpio_is_valid(udc->mach->gpio_pullup) && !udc->mach->udc_command)
-+	if (!udc->pullup_gpio)
- 		return -EOPNOTSUPP;
- 
- 	udc->pullup = (is_active != 0);
-@@ -2343,19 +2330,17 @@ static int pxa25x_udc_probe(struct platform_device *pdev)
- 
- 	/* other non-static parts of init */
- 	dev->dev = &pdev->dev;
--	dev->mach = dev_get_platdata(&pdev->dev);
- 
- 	dev->transceiver = devm_usb_get_phy(&pdev->dev, USB_PHY_TYPE_USB2);
- 
--	if (gpio_is_valid(dev->mach->gpio_pullup)) {
--		retval = devm_gpio_request_one(&pdev->dev, dev->mach->gpio_pullup,
--					       GPIOF_OUT_INIT_LOW, "pca25x_udc GPIO PULLUP");
--		if (retval) {
--			dev_dbg(&pdev->dev,
--				"can't get pullup gpio %d, err: %d\n",
--				dev->mach->gpio_pullup, retval);
--			goto err;
--		}
-+	dev->pullup_gpio = devm_gpiod_get_index_optional(&pdev->dev, "pullup", 0,
-+						    GPIOD_OUT_HIGH);
-+	if (IS_ERR(dev->pullup_gpio)) {
-+		dev_dbg(&pdev->dev,
-+			"can't get pullup gpio err: %ld\n",
-+			PTR_ERR(dev->pullup_gpio));
-+		retval = PTR_ERR(dev->pullup_gpio);
-+		goto err;
- 	}
- 
- 	timer_setup(&dev->timer, udc_watchdog, 0);
-@@ -2439,7 +2424,7 @@ static int pxa25x_udc_suspend(struct platform_device *dev, pm_message_t state)
- 	struct pxa25x_udc	*udc = platform_get_drvdata(dev);
- 	unsigned long flags;
- 
--	if (!gpio_is_valid(udc->mach->gpio_pullup) && !udc->mach->udc_command)
-+	if (!udc->pullup_gpio)
- 		WARNING("USB host won't detect disconnect!\n");
- 	udc->suspended = 1;
- 
-diff --git a/drivers/usb/gadget/udc/pxa25x_udc.h b/drivers/usb/gadget/udc/pxa25x_udc.h
-index 6ab6047edc83..3452cf54286c 100644
---- a/drivers/usb/gadget/udc/pxa25x_udc.h
-+++ b/drivers/usb/gadget/udc/pxa25x_udc.h
-@@ -112,7 +112,7 @@ struct pxa25x_udc {
- 
- 	struct device				*dev;
- 	struct clk				*clk;
--	struct pxa2xx_udc_mach_info		*mach;
-+	struct gpio_desc			*pullup_gpio;
- 	struct usb_phy				*transceiver;
- 	u64					dma_mask;
- 	struct pxa25x_ep			ep [PXA_UDC_NUM_ENDPOINTS];
-diff --git a/drivers/usb/gadget/udc/pxa27x_udc.c b/drivers/usb/gadget/udc/pxa27x_udc.c
-index 1abea0d48c35..640f81988c04 100644
---- a/drivers/usb/gadget/udc/pxa27x_udc.c
-+++ b/drivers/usb/gadget/udc/pxa27x_udc.c
-@@ -17,7 +17,6 @@
- #include <linux/proc_fs.h>
- #include <linux/clk.h>
- #include <linux/irq.h>
--#include <linux/gpio.h>
- #include <linux/gpio/consumer.h>
- #include <linux/slab.h>
- #include <linux/string_choices.h>
-@@ -1423,14 +1422,7 @@ static const struct usb_ep_ops pxa_ep_ops = {
-  */
- static void dplus_pullup(struct pxa_udc *udc, int on)
- {
--	if (udc->gpiod) {
--		gpiod_set_value(udc->gpiod, on);
--	} else if (udc->udc_command) {
--		if (on)
--			udc->udc_command(PXA2XX_UDC_CMD_CONNECT);
--		else
--			udc->udc_command(PXA2XX_UDC_CMD_DISCONNECT);
--	}
-+	gpiod_set_value(udc->gpiod, on);
- 	udc->pullup_on = on;
- }
- 
-@@ -1521,7 +1513,7 @@ static int pxa_udc_pullup(struct usb_gadget *_gadget, int is_active)
- 	struct pxa_udc *udc = to_gadget_udc(_gadget);
- 	int ret;
- 
--	if (!udc->gpiod && !udc->udc_command)
-+	if (!udc->gpiod)
- 		return -EOPNOTSUPP;
- 
- 	dplus_pullup(udc, is_active);
-@@ -2380,26 +2372,11 @@ MODULE_DEVICE_TABLE(of, udc_pxa_dt_ids);
- static int pxa_udc_probe(struct platform_device *pdev)
- {
- 	struct pxa_udc *udc = &memory;
--	int retval = 0, gpio;
--	struct pxa2xx_udc_mach_info *mach = dev_get_platdata(&pdev->dev);
--
--	if (mach) {
--		gpio = mach->gpio_pullup;
--		if (gpio_is_valid(gpio)) {
--			retval = devm_gpio_request_one(&pdev->dev, gpio,
--						       GPIOF_OUT_INIT_LOW,
--						       "USB D+ pullup");
--			if (retval)
--				return retval;
--			udc->gpiod = gpio_to_desc(mach->gpio_pullup);
--
--			if (mach->gpio_pullup_inverted ^ gpiod_is_active_low(udc->gpiod))
--				gpiod_toggle_active_low(udc->gpiod);
--		}
--		udc->udc_command = mach->udc_command;
--	} else {
--		udc->gpiod = devm_gpiod_get(&pdev->dev, NULL, GPIOD_ASIS);
--	}
-+	int retval = 0;
-+
-+	udc->gpiod = devm_gpiod_get(&pdev->dev, NULL, GPIOD_ASIS);
-+	if (IS_ERR(udc->gpiod))
-+		return PTR_ERR(udc->gpiod);
- 
- 	udc->regs = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(udc->regs))
-diff --git a/drivers/usb/gadget/udc/pxa27x_udc.h b/drivers/usb/gadget/udc/pxa27x_udc.h
-index 31bf79ce931c..2c28b691010a 100644
---- a/drivers/usb/gadget/udc/pxa27x_udc.h
-+++ b/drivers/usb/gadget/udc/pxa27x_udc.h
-@@ -426,7 +426,6 @@ struct udc_stats {
-  * @usb_gadget: udc gadget structure
-  * @driver: bound gadget (zero, g_ether, g_mass_storage, ...)
-  * @dev: device
-- * @udc_command: machine specific function to activate D+ pullup
-  * @gpiod: gpio descriptor of gpio for D+ pullup (or NULL if none)
-  * @transceiver: external transceiver to handle vbus sense and D+ pullup
-  * @ep0state: control endpoint state machine state
-@@ -452,7 +451,6 @@ struct pxa_udc {
- 	struct usb_gadget			gadget;
- 	struct usb_gadget_driver		*driver;
- 	struct device				*dev;
--	void					(*udc_command)(int);
- 	struct gpio_desc			*gpiod;
- 	struct usb_phy				*transceiver;
- 
-diff --git a/include/linux/platform_data/pxa2xx_udc.h b/include/linux/platform_data/pxa2xx_udc.h
-index bc99cc6a3c5f..c1e4d03bae2c 100644
---- a/include/linux/platform_data/pxa2xx_udc.h
-+++ b/include/linux/platform_data/pxa2xx_udc.h
-@@ -10,21 +10,6 @@
- #ifndef PXA2XX_UDC_H
- #define PXA2XX_UDC_H
- 
--struct pxa2xx_udc_mach_info {
--        int  (*udc_is_connected)(void);		/* do we see host? */
--        void (*udc_command)(int cmd);
--#define	PXA2XX_UDC_CMD_CONNECT		0	/* let host see us */
--#define	PXA2XX_UDC_CMD_DISCONNECT	1	/* so host won't see us */
--
--	/* Boards following the design guidelines in the developer's manual,
--	 * with on-chip GPIOs not Lubbock's weird hardware, can have a sane
--	 * VBUS IRQ and omit the methods above.  Store the GPIO number
--	 * here.  Note that sometimes the signals go through inverters...
--	 */
--	bool	gpio_pullup_inverted;
--	int	gpio_pullup;			/* high == pullup activated */
--};
--
- #ifdef CONFIG_PXA27x
- extern void pxa27x_clear_otgph(void);
- #else
+The ports and the remote endpoints are documented in the bridge binding...
+
+However, I believe I screwed this example up by adding the entire bridge node,
+instead of just a simple:
+
+mhdp {
+    phy {
+        compatible = "fsl,imx8mq-hdptx-phy";
+        #phy-cells = <0>;
+        clocks = <&hdmi_phy_27m>, <&clk IMX8MQ_CLK_DISP_APB_ROOT>;
+        clock-names = "ref", "apb";
+    };
+};
+
+I'll simplify the example in the next iteration.
+
 -- 
-2.39.5
-
+Thanks,
+Laurentiu
 
