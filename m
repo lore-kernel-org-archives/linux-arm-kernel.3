@@ -4,166 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC828FF8860
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 17:35:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37244FF8860
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 17:36:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fxZRWFWfF2A2YEPPEjNfyo8rVBY3ZeJbdzkncV/rJ3s=; b=leu1LEpCTcvlecJG3M9pqBrDnv
-	3vvURMijnVtl+ZEP7sgG5p0dxL4Ksx3N+YcXaNLgKu9l31OiDZ2xqCbTAI5ryqrT30jpwP9CeoDA5
-	ldS0xlCS7lUIs1UohAKASOYEjNvAtfAFGkuZGXUrlIHbxfbZS+DvQzpVKk3CgvNZzDgZVnwZQibgl
-	5G76UMmJvVhebTmdb9KSphxhYAM/7/QiF624zII6L+RKx77ibLj1zs/knTQaQjtnEixwX5UW//MJM
-	tHEWQvCvdr2MVuBN25ucnbyYibpqsFwdjL3NHV4CNGNEC3W6Lj3uZ9lRCtdEp0PRTrKiPRVhdnL29
-	eib02b0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UmdZibbd/+Riw2ttNnhE20ZsNtrexm4/ybN5Xvwgvow=; b=V+MhYbx7Dgi9gHBSIMHCflKcrI
+	cnB9Mn48WAjOhORX0ZABXqgMjYvkEOrMwEx1Gxy/SbWCR0gbfbTSiTFIKEdBSjT/luBmVZJieIKwI
+	bOSgkOU9s/WpywEzIOmBRjc+fKop72aCckIuoCpw/8ic0HTb4zT26eKj2JylkptVbYwn06F9ZxZQm
+	ZToB20GN8iSLuSIrbig5Wj5gWdc8VYGtwXq89+OQdAb9vUm0E+I+5YG/scw1N2rJXM2LWsbwoRXmm
+	1w8ouNjsHRgv7m9QgWOs0X/m6hWXBqPrXObSR1Z99k5/6JYgnMFUcStkbGfIev8x5gNKWNwkH+SNQ
+	2J7QGdMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHPs4-0000000HTem-2LD9;
-	Mon, 27 Apr 2026 17:35:48 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wHPsB-0000000HThy-0TRb;
+	Mon, 27 Apr 2026 17:35:55 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHPs1-0000000HTcm-1cAm
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 17:35:46 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63RFLnCN3761309
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 17:35:44 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	fxZRWFWfF2A2YEPPEjNfyo8rVBY3ZeJbdzkncV/rJ3s=; b=QBKosTeOF71N9QCt
-	kLy1Efm3v4kFG1+wh8nkNK/kyONRsZ4ZbzHnfXfaLDMkcJKzDiF3b1XvZGzqzs1r
-	85Zbj1DDir05ZpezCuH5kpZEX18cmOpIwQHSAuzYFX8p4kBVCcy4izHAFjRttx4p
-	OLktxLV0QltuiBGEVbonzR0iTGZk0UsQ122K+7WXxX+n+nGL+qw5c4JdCSFKqzBY
-	m+Kyq+EgrM/7b6GBSXhRBhdOkKs7keHAPP4VQl+rHBhC/baj0vZKK+QpjP/t1Bfy
-	gG4DV4ITl5TpQidR94hNWp87dvZaMvqQD+CA30l4/GfH+W9rE2oQZ0WIMDYVqFOP
-	0pI4zQ==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dtacdrghx-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 17:35:44 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2b454cac322so99855695ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 10:35:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1777311344; x=1777916144; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=fxZRWFWfF2A2YEPPEjNfyo8rVBY3ZeJbdzkncV/rJ3s=;
-        b=A7d4mZdrQLG+2MNUbtQJztBCzTpEek0aR919JckDOXsyIHdgC60hFfMPcZp9RVkCUd
-         fPdbjN4hK4zChH+ldah223ZA8R1TPDbNz4AyL8ghTto31FyakD1dfAjfXCFKuUAaVOCY
-         1BDZCeUo6eEW4ieoEPw4zoRHWNRrztvlmfpgE+mnFMQu+NBYc/SOLG0mH0wJRtd//PiH
-         jbr7qZQCis+bDQMfCsGe+FB1sxAT0j+nhOnzI05+LK6vdKYjJwhjmur3xj0fRnjn4csW
-         Lz5de6ZV1p6PAkdKh+ZGkyGTChmD8eJ7tU9tuozEgbdX9mjtvV2sbKciZaCOXVNJR/q3
-         biRw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777311344; x=1777916144;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=fxZRWFWfF2A2YEPPEjNfyo8rVBY3ZeJbdzkncV/rJ3s=;
-        b=aVcX40MG1jtAbKk+px8vIutKsfqPkX2zGm4jr8Nj8W5cThfThCSy7XKPOKFZ6TcjwD
-         Kih1XipdE+4/uPMsm4XD/vg2XJFjbOxKAF3zD9vTcXtCzITFfzADuWk/nzlfeb8joSR2
-         jU7kGfsWsZbU9NnhdndXll72YAiVwighAoElhdB9N9/O+DSupk5vakHos0wo4wu13O6E
-         GgIp/4Z7zebI61RCJKPncCEwNGMlrf3r9m08QZfV0AC2p9iuuPZpYF7/Ox0IIofvvpWC
-         XupEwZL42uuAg6zQ0H8jyd4BTdF+B6Oi2GLkRKqc5BM2W02KAvI7MPpHNCu0ct1unXuQ
-         7yuw==
-X-Forwarded-Encrypted: i=1; AFNElJ/gjwvkWEn1OWwSAHM0kbOH1EO5TxRY9mjOXroKxW0cJ8WTizj0JxRhPrGkd0nWN42W59yKlGeE6yCzRPS7CfEo@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhvlGUOnnDYv5u2TVsQUu7UEMnZH9w1snR4SXn2qRYNWp3LxfH
-	JkOnkFLQ9Q91igpsqxS5YOvwbGYRB8UYA9JodwV93FiukrkrBRfPvRIdzDm8VH6+iRsMG/cya6U
-	wf55JVziknlQ+BGyo9tW4fkITkkSdavucfZ/yqAPu1YUNkOtjoYMvixgY0KR7H8bduRD55eMs0g
-	ZOZA==
-X-Gm-Gg: AeBDieuNEk+oiSwB1n1u3cHv3FUJtS3W+yI8U9UL1vFuj2N6ezZv0u39TNNAPpLtj0H
-	AHlAqw6XzQgpLEwBVMKGu4KSB5giG9F+TbeLj5a4tWpzyvd02+sQiZiLGKql6DNuZx7ZWUXq8TN
-	Rg0nyGZe+mMhjxNH/Bpd2TMaIh2mPRVjhkwrBPV5XXOMfGk/pcgC06evjVd7K8azoYD8f1Nfe1U
-	0tVh7QSd5sgCBbX5lGvZaG1fAkS1IdG9reB2L/nOgo1BphFjULQTPgcgaBzWYQXqja/B12ijujD
-	FA3tkdsU70pi46twOKuSuAMBx1QVS9isF11LUPv2Z4Okq5BXp/8l1I3xe64TEOP6T5q8DVslymw
-	foNLSiSFlRHGmAbE0xWhseBXIyE7ZCQwfbpoq4u6UNU/Cen6yMLiXdCb0zc4qzVWt8GT5
-X-Received: by 2002:a17:902:d701:b0:2b2:45b7:306e with SMTP id d9443c01a7336-2b97a78f4d7mr1241695ad.3.1777311343930;
-        Mon, 27 Apr 2026 10:35:43 -0700 (PDT)
-X-Received: by 2002:a17:902:d701:b0:2b2:45b7:306e with SMTP id d9443c01a7336-2b97a78f4d7mr1241385ad.3.1777311343260;
-        Mon, 27 Apr 2026 10:35:43 -0700 (PDT)
-Received: from hu-spratap-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b97aca8369sm329115ad.75.2026.04.27.10.35.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Apr 2026 10:35:42 -0700 (PDT)
-From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Date: Mon, 27 Apr 2026 23:04:43 +0530
-Subject: [PATCH v21 03/13] power: reset: reboot-mode: Add support for
- predefined reboot modes
+	id 1wHPs8-0000000HTgW-1In2;
+	Mon, 27 Apr 2026 17:35:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1777311340; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=AD31+MNPTHWPoTYCQMpX7n3R0Er4g3R9tw0h41WKv3hmOvvgViSemwhfzgvt0V/Xr18hI/13AuZ0oc0jPRO1vaW8c/KDAqRL2r30pWhwGATOtKWmuq12DKZQQTOg1LqmiiHzVlG6YN2u+grPU4bwOqHmSMG/tOYf69jDCalMJLw=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1777311340; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=UmdZibbd/+Riw2ttNnhE20ZsNtrexm4/ybN5Xvwgvow=; 
+	b=LXggAq9qe3W+IUdyL2SssQt6RWKdrnslU1yGMFBo6D1XXM6lNMqddmD0wdndgrl7EWNOY6exIK0HAQ6yvlpkbRDJCviTPe9oD481ycqCzL3J9zoN6jg2Deoji6iwl5sUZScIEeeKqVMnoeHYRZ/tLdLuJClButw5EBNT31hnOHE=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1777311340;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=UmdZibbd/+Riw2ttNnhE20ZsNtrexm4/ybN5Xvwgvow=;
+	b=Zk7ogawB1ZqlMX1b33i7nQ48RAsz7BPFAlhFSMtpmi8D4JtbDjXDFb4ZwdMH1rlr
+	lehBH8gAk6rM/QAG7ZaQYWhFns4VQdtZ3tGA53rooZDa9H+oXX7voL4Z8XxCgCBA45i
+	s9i7M6LHzBfPYjGKSjicMwGrYclXUYxOUUbKXPDc=
+Received: by mx.zohomail.com with SMTPS id 1777311337704981.5046370792685;
+	Mon, 27 Apr 2026 10:35:37 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <ukleinek@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Lee Jones <lee@kernel.org>, William Breathitt Gray <wbg@kernel.org>,
+ Damon Ding <damon.ding@rock-chips.com>
+Cc: kernel@collabora.com, Jonas Karlman <jonas@kwiboo.se>,
+ Alexey Charkov <alchark@gmail.com>, linux-rockchip@lists.infradead.org,
+ linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-iio@vger.kernel.org
+Subject: Re: [PATCH v5 4/6] counter: Add rockchip-pwm-capture driver
+Date: Mon, 27 Apr 2026 19:35:32 +0200
+Message-ID: <q0kG3ZZyT92lQlYsvZD_qg@collabora.com>
+In-Reply-To: <91eed9a4-4dc3-4846-baf3-e9cef53be79b@rock-chips.com>
+References: <20260420-rk3576-pwm-v5-0-ae7cfbbe5427@collabora.com>
+ <20260420-rk3576-pwm-v5-4-ae7cfbbe5427@collabora.com>
+ <91eed9a4-4dc3-4846-baf3-e9cef53be79b@rock-chips.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 7Bit
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260427-arm-psci-system_reset2-vendor-reboots-v21-3-dcf937775e73@oss.qualcomm.com>
-References: <20260427-arm-psci-system_reset2-vendor-reboots-v21-0-dcf937775e73@oss.qualcomm.com>
-In-Reply-To: <20260427-arm-psci-system_reset2-vendor-reboots-v21-0-dcf937775e73@oss.qualcomm.com>
-To: Sebastian Reichel <sre@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Daniel Lezcano <daniel.lezcano@kernel.org>,
-        Christian Loehle <christian.loehle@arm.com>,
-        Ulf Hansson <ulfh@kernel.org>, Lee Jones <lee@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        John Stultz <john.stultz@linaro.org>,
-        Moritz Fischer <moritz.fischer@ettus.com>,
-        Bartosz Golaszewski <brgl@kernel.org>,
-        Sudeep Holla <sudeep.holla@kernel.org>, Ulf Hansson <ulfh@kernel.org>
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        devicetree@vger.kernel.org,
-        Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Andre Draszik <andre.draszik@linaro.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-        Srinivas Kandagatla <srini@kernel.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777311301; l=6644;
- i=shivendra.pratap@oss.qualcomm.com; s=20250710; h=from:subject:message-id;
- bh=EC3OzX+vlwTXZBvlIcPgyWjHlhMJkLSif/QwxZigrFk=;
- b=v35u8Vt9MgTrbyAf/bRq2etw0DetCOIumFaOM7bzxAKqnOpnWiOGSWotj3nmrczUNvz4EL1BJ
- duqswEM53jlASaft5eijjxAoyI6ICnmXloH3LZyieplndeuH8v5S8Wm
-X-Developer-Key: i=shivendra.pratap@oss.qualcomm.com; a=ed25519;
- pk=CpsuL7yZ8NReDPhGgq6Xn/SRoa59mAvzWOW0QZoo4gw=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI3MDE4NyBTYWx0ZWRfXylKd0VmZX6Ls
- jUnlJVdFElYV0v0cUqA+0wbRtNJBcfg6Lv2k66//IYeeVDJhCb588XrdspU65qNw6qQ4GYQC+C6
- aS8nXIa/uY9nuq5qKD1ceMfBxWWe3ZnZcX2Nsbcva2LR0RL2gFBwsRUED9oqGGGPb1hosEpKXQa
- 8xjU0tLhEEn7nZbMWB4GEhFQAFnTczzfZ/GeY+Qab9k+k8tAZ5+GjXChmuCoz7E238Qb3u4TEbr
- Pc+fe5uIvqeUdaFQEEFiQiqmUG4Ff0LanWbY1FOq/TJCYVKVNyBJRLZl3sLCD72cNwhH+CvFbQu
- lMipfTYHOuRjliAa+CrHiVgLzP75C0HXd4OZ0zBGGRsyOSOOAKw+6llwOuABliNnLYEIdg8b3M4
- XH4t9V5ZL7Eg8jIvKaZkSMkA0nPchTwAzZCOqruFmW24BzYFDjjsaFJ8zz6mnJdpQEvRMZN2HTF
- eEuORLWGN9VmheblsZg==
-X-Authority-Analysis: v=2.4 cv=QsduG1yd c=1 sm=1 tr=0 ts=69ef9e70 cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=EUspDBNiAAAA:8 a=Z8KYaV7TWDb2btNTYxwA:9 a=QEXdDO2ut3YA:10
- a=324X-CrmTo6CU4MGRt3R:22
-X-Proofpoint-GUID: UZvQ045njSwjuundxOHsFe-VPSFL-ev-
-X-Proofpoint-ORIG-GUID: UZvQ045njSwjuundxOHsFe-VPSFL-ev-
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-27_04,2026-04-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 adultscore=0 priorityscore=1501 bulkscore=0 malwarescore=0
- suspectscore=0 lowpriorityscore=0 clxscore=1015 spamscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604270187
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_103545_441202_0C1BBAE8 
-X-CRM114-Status: GOOD (  25.36  )
+X-CRM114-CacheID: sfid-20260427_103553_195040_331082D1 
+X-CRM114-Status: GOOD (  39.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,198 +84,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-reboot-mode based drivers can define a reboot-mode by adding it under
-the reboot-mode node in device tree. This limits such drivers, to define
-any predefined reboot-modes statically within the driver and creates a
-dependency on device-tree.
+Hi Damon,
 
-Introduce a list for predefined modes in the reboot-mode framework and
-process the predefined reboot-modes along with the device-tree defined
-reboot-modes. Modify existing reboot-mode based drivers to initialize
-the predefined list-head as empty.
+On Sunday, 26 April 2026 12:55:20 Central European Summer Time Damon Ding wrote:
+> Hi Nicolas,
+> 
+> On 4/20/2026 9:52 PM, Nicolas Frattaroli wrote:
+> > Among many other things, Rockchip's new PWMv4 IP in the RK3576 supports
+> > PWM capture functionality.
+> > 
+> > Add a basic driver for this that works to expose HPC/LPC counts and
+> > state change events to userspace through the counter framework. It's
+> > quite basic, but works well enough to demonstrate the device function
+> > exclusion stuff that mfpwm does, in order to eventually support all the
+> > functions of this device in drivers within their appropriate subsystems,
+> > without them interfering with each other.
+> > 
+> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > ---
+> >   MAINTAINERS                            |   1 +
+> >   drivers/counter/Kconfig                |  11 ++
+> >   drivers/counter/Makefile               |   1 +
+> >   drivers/counter/rockchip-pwm-capture.c | 307 +++++++++++++++++++++++++++++++++
+> >   4 files changed, 320 insertions(+)
+> > 
+> 
+> For functional validation, I connected PWM0/PWM1 (continuous output)
+> to PWM2 (capture input) pairwise.
+> 
+> I enabled the counter via:
+> /sys/bus/counter/devices/counter0/count0/enable
+> 
+> Then I verified the functionality by reading the count values from:
+> /sys/bus/counter/devices/counter0/count0/count
+> /sys/bus/counter/devices/counter0/count1/count
+> 
+> Tested-by: Damon Ding <damon.ding@rock-chips.com>
 
-This patch enables a reboot mode driver to define reboot-modes through a
-predefined static list, in addition to the device-tree based reboot-modes.
+Thanks for testing! To make sure a bug on the pwm output driver won't
+be cancelled out by an equivalent bug in the counter driver, I did
+my counter driver testing by using an RK3588 as the source of the
+PWM signal, with the two boards sharing a common ground. Maybe I
+should get a proper function generator. :)
 
-Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
----
- drivers/power/reset/nvmem-reboot-mode.c  |  1 +
- drivers/power/reset/qcom-pon.c           |  1 +
- drivers/power/reset/reboot-mode.c        | 66 ++++++++++++++++++++------------
- drivers/power/reset/syscon-reboot-mode.c |  1 +
- include/linux/reboot-mode.h              |  8 ++++
- 5 files changed, 52 insertions(+), 25 deletions(-)
+> BTW: Is there any user-space test tool similar to libpwm for the
+> counter subsystem?
 
-diff --git a/drivers/power/reset/nvmem-reboot-mode.c b/drivers/power/reset/nvmem-reboot-mode.c
-index bd05d660490c686b43134f82f1eadd7665403d20..83a8d80fd7d1ccb1b736aee5f2d675246a63b8f8 100644
---- a/drivers/power/reset/nvmem-reboot-mode.c
-+++ b/drivers/power/reset/nvmem-reboot-mode.c
-@@ -53,6 +53,7 @@ static int nvmem_reboot_mode_probe(struct platform_device *pdev)
- 
- 	nvmem_rbm->reboot.dev = &pdev->dev;
- 	nvmem_rbm->reboot.write = nvmem_reboot_mode_write;
-+	INIT_LIST_HEAD(&nvmem_rbm->reboot.predefined_modes);
- 
- 	nvmem_rbm->cell = devm_nvmem_cell_get(&pdev->dev, "reboot-mode");
- 	if (IS_ERR(nvmem_rbm->cell)) {
-diff --git a/drivers/power/reset/qcom-pon.c b/drivers/power/reset/qcom-pon.c
-index 57b36e6186f80aff947fd7f5aae5ce280c65dc6b..9d0e3fc621a6173438c6da4cce38394199451881 100644
---- a/drivers/power/reset/qcom-pon.c
-+++ b/drivers/power/reset/qcom-pon.c
-@@ -73,6 +73,7 @@ static int qcom_pon_probe(struct platform_device *pdev)
- 		pon->reboot_mode.dev = &pdev->dev;
- 		pon->reason_shift = reason_shift;
- 		pon->reboot_mode.write = qcom_pon_reboot_mode_write;
-+		INIT_LIST_HEAD(&pon->reboot_mode.predefined_modes);
- 		error = devm_reboot_mode_register(&pdev->dev, &pon->reboot_mode);
- 		if (error) {
- 			dev_err(&pdev->dev, "can't register reboot mode\n");
-diff --git a/drivers/power/reset/reboot-mode.c b/drivers/power/reset/reboot-mode.c
-index f1372dc700e48043320812c3d3619ab1539e1854..a84f7c67a4746d4d5c932d4df018aae10bd5518c 100644
---- a/drivers/power/reset/reboot-mode.c
-+++ b/drivers/power/reset/reboot-mode.c
-@@ -20,12 +20,6 @@
- 
- #define PREFIX "mode-"
- 
--struct mode_info {
--	const char *mode;
--	u64 magic;
--	struct list_head list;
--};
--
- struct reboot_mode_sysfs_data {
- 	struct device *reboot_mode_device;
- 	struct list_head head;
-@@ -116,6 +110,33 @@ static int reboot_mode_notify(struct notifier_block *this,
- 	return NOTIFY_DONE;
- }
- 
-+static int reboot_mode_add_mode(struct reboot_mode_driver *reboot,
-+				const char *mode, u64 magic,
-+				const char *name)
-+{
-+	struct mode_info *info;
-+
-+	if (!mode || mode[0] == '\0') {
-+		pr_err("invalid mode name(%s): too short!\n", name);
-+		return -EINVAL;
-+	}
-+
-+	info = kzalloc_obj(*info, GFP_KERNEL);
-+	if (!info)
-+		return -ENOMEM;
-+
-+	info->mode = kstrdup_const(mode, GFP_KERNEL);
-+	if (!info->mode) {
-+		kfree(info);
-+		return -ENOMEM;
-+	}
-+
-+	info->magic = magic;
-+	list_add_tail(&info->list, &reboot->head);
-+
-+	return 0;
-+}
-+
- static int reboot_mode_create_device(struct reboot_mode_driver *reboot)
- {
- 	struct reboot_mode_sysfs_data *priv;
-@@ -180,9 +201,11 @@ int reboot_mode_register(struct reboot_mode_driver *reboot)
- 
- 	INIT_LIST_HEAD(&reboot->head);
- 
-+	if (!np)
-+		goto predefined_modes;
-+
- 	for_each_property_of_node(np, prop) {
- 		memset(magic, 0, sizeof(magic));
--
- 		if (strncmp(prop->name, PREFIX, len))
- 			continue;
- 
-@@ -194,26 +217,20 @@ int reboot_mode_register(struct reboot_mode_driver *reboot)
- 			continue;
- 		}
- 
--		info = kzalloc(sizeof(*info), GFP_KERNEL);
--		if (!info) {
--			ret = -ENOMEM;
-+		ret = reboot_mode_add_mode(reboot, prop->name + len,
-+					   REBOOT_MODE_MAGIC(magic[0], magic[1]),
-+					   prop->name);
-+		if (ret)
- 			goto error;
--		}
-+	}
- 
--		info->magic = REBOOT_MODE_MAGIC(magic[0], magic[1]);
--		info->mode = kstrdup_const(prop->name + len, GFP_KERNEL);
--		if (!info->mode) {
--			ret =  -ENOMEM;
-+predefined_modes:
-+	list_for_each_entry(info, &reboot->predefined_modes, list) {
-+		ret = reboot_mode_add_mode(reboot, info->mode,
-+					   info->magic,
-+					   info->mode);
-+		if (ret)
- 			goto error;
--		} else if (info->mode[0] == '\0') {
--			kfree_const(info->mode);
--			ret = -EINVAL;
--			pr_err("invalid mode name(%s): too short!\n", prop->name);
--			goto error;
--		}
--
--		list_add_tail(&info->list, &reboot->head);
--		info = NULL;
- 	}
- 
- 	reboot->reboot_notifier.notifier_call = reboot_mode_notify;
-@@ -226,7 +243,6 @@ int reboot_mode_register(struct reboot_mode_driver *reboot)
- 	return 0;
- 
- error:
--	kfree(info);
- 	reboot_mode_unregister(reboot);
- 	return ret;
- }
-diff --git a/drivers/power/reset/syscon-reboot-mode.c b/drivers/power/reset/syscon-reboot-mode.c
-index 9f4b18c5e46f6a8bf197773ceceb80b250f57541..0218b71541a0cefe1534e306f956ae51ea9ee870 100644
---- a/drivers/power/reset/syscon-reboot-mode.c
-+++ b/drivers/power/reset/syscon-reboot-mode.c
-@@ -48,6 +48,7 @@ static int syscon_reboot_mode_probe(struct platform_device *pdev)
- 	syscon_rbm->reboot.dev = &pdev->dev;
- 	syscon_rbm->reboot.write = syscon_reboot_mode_write;
- 	syscon_rbm->mask = 0xffffffff;
-+	INIT_LIST_HEAD(&syscon_rbm->reboot.predefined_modes);
- 
- 	syscon_rbm->map = syscon_node_to_regmap(pdev->dev.parent->of_node);
- 	if (IS_ERR(syscon_rbm->map))
-diff --git a/include/linux/reboot-mode.h b/include/linux/reboot-mode.h
-index 2ce189fdfff4b396d7cc6f175b30016781ae4fe9..f4518528fcc1fac49209de91cec7e050088ef8ec 100644
---- a/include/linux/reboot-mode.h
-+++ b/include/linux/reboot-mode.h
-@@ -15,9 +15,17 @@
- /* Get 32 bit arg2 from 64 bit magic */
- #define REBOOT_MODE_ARG2(magic) FIELD_GET(GENMASK_ULL(63, 32), magic)
- 
-+struct mode_info {
-+	const char *mode;
-+	u64 magic;
-+	struct list_head list;
-+};
-+
- struct reboot_mode_driver {
- 	struct device *dev;
- 	struct list_head head;
-+	/* List of predefined reboot-modes, a reboot-mode-driver may populate. */
-+	struct list_head predefined_modes;
- 	int (*write)(struct reboot_mode_driver *reboot, u64 magic);
- 	struct notifier_block reboot_notifier;
- };
+I've tried looking for this as well, and couldn't find anything. If
+it exists then adding a mention of it to generic-counter.rst would
+be in order I think.
 
--- 
-2.34.1
+> 
+> ......
+> > diff --git a/drivers/counter/rockchip-pwm-capture.c b/drivers/counter/rockchip-pwm-capture.c
+> > new file mode 100644
+> > index 000000000000..09a92f2bc409
+> > --- /dev/null
+> > +++ b/drivers/counter/rockchip-pwm-capture.c
+> > @@ -0,0 +1,307 @@
+> > +// SPDX-License-Identifier: GPL-2.0-or-later
+> > +/*
+> > + * Copyright (c) 2025 Collabora Ltd.
+> > + *
+> > + * A counter driver for the Pulse-Width-Modulation (PWM) hardware found on
+> > + * Rockchip SoCs such as the RK3576, internally referred to as "PWM v4". It
+> > + * allows for measuring the high cycles and low cycles of a PWM signal through
+> > + * the generic counter framework, while guaranteeing exclusive use over the
+> > + * MFPWM device while the counter is enabled.
+> > + *
+> > + * Authors:
+> > + *     Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > + */
+> > +
+> > +#include <linux/cleanup.h>
+> > +#include <linux/counter.h>
+> > +#include <linux/devm-helpers.h>
+> > +#include <linux/interrupt.h>
+> > +#include <linux/mfd/rockchip-mfpwm.h>
+> > +#include <linux/mod_devicetable.h>
+> > +#include <linux/of.h>
+> > +#include <linux/platform_device.h>
+> > +#include <linux/spinlock.h>
+> > +
+> > +#define RKPWMC_INT_MASK			(PWMV4_INT_LPC | PWMV4_INT_HPC)
+> > +
+> > +struct rockchip_pwm_capture {
+> > +	struct rockchip_mfpwm_func *pwmf;
+> > +	struct counter_device *counter;
+> > +};
+> > +
+> > +static struct counter_signal rkpwmc_signals[] = {
+> > +	{
+> > +		.id = 0,
+> > +		.name = "PWM Clock"
+> > +	},
+> > +};
+> > +
+> > +static const enum counter_synapse_action rkpwmc_hpc_lpc_actions[] = {
+> > +	COUNTER_SYNAPSE_ACTION_BOTH_EDGES,
+> > +	COUNTER_SYNAPSE_ACTION_NONE,
+> > +};
+> 
+> For the capture function, it uses the PWM's reference clock (dclk) as 
+> the time base to measure how many reference cycles the high and low 
+> levels of the input waveform last respectively.
+> 
+> I find it a bit strange to set COUNTER_SYNAPSE_ACTION_BOTH_EDGES for 
+> counting. If we treat the input waveform as a sequence of square waves 
+> sampled by dclk cycles, it feels like we should count on a single edge 
+> (rising edge only) rather than both edges.
+> 
+
+Yeah, that's a good point. I think I've been struggling to wrap my head
+around what the signal is and what the synapse should trigger on because
+the signal isn't something exposed in this case.
+
+Your explanation makes sense, and perhaps I should rename
+rkpwmc_hpc_lpc_actions as well. Currently it makes it seem like HPC
+and LPC are the signal, when actually the waveform is the signal, HPC
+and LPC are the counts, and the synapse is a sample every dclk spotting
+a transition if I understand this correctly.
+
+> > +
+> > +static struct counter_synapse rkpwmc_pwm_synapses[] = {
+> > +	{
+> > +		.actions_list = rkpwmc_hpc_lpc_actions,
+> > +		.num_actions = ARRAY_SIZE(rkpwmc_hpc_lpc_actions),
+> > +		.signal = &rkpwmc_signals[0]
+> > +	},
+> > +};
+> > +
+> 
+> Best regards,
+> Damon
+> 
+
+Kind regards,
+Nicolas Frattaroli
+
 
 
