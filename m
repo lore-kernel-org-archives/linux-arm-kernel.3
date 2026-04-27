@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EA8AFF8861
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 10:09:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98C53FF885E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 10:11:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4eiUPB20olboYzLGxwVsjmcLRmImAdajLHbAqwdJJTs=; b=YNJsW/aTqgt4UEl4lFeKbXVKu+
-	7LvSp+WhRz/+Dv41ku5ea4eoFjquP5EWLnsyWLdDivRx53ky3Xv73Ls5h4QixcQSkROXA3iU7arvq
-	mw7q6yCAgvNTGKXIcSLa5jryyVuay5cLfEVRufI5eN+ZMmMzN84q9v51Qy5231+ZHemDHTmOU7bpF
-	/ngGxZoTlbw848KPQVEMtXpEBtclhpyDyUUkGgp/tmw5VlPCeNujYOZFCJLYOg3/FcxDOTuwobyeC
-	0S4lQHEqJmUCt5BM4M3no1/gqEOr8u8VG3q6ofbGTDj5roaTfkQcaYWmWImXod7vh8REq/aHKfVYL
-	IzSZFDzw==;
+	bh=cwfVkr0UOUwn+x+uMm0tm2aNi88wncm2E+3QATUM66I=; b=Cd530SPJUGt4oElMNYM9ltWnDs
+	/nbcUEfFwacDaxEdEu8SKANBJbvCs4HZzcj4hpFd1XsMdkgrd3QNaty1Dwo/0CnCEB7a5JbIFbuOq
+	TXWT+VbpOAAJDjze/sBfeO1g8mHOcgj+BYv9XlaGcNIuTZ0Ssc18DQdHTBeaQQtFJdcCvnpv+BlCT
+	QIuOgH9BvICgpzwnu318R6AaoDcy/jqkKGT1Ss7qC/O7f4IbGWSs4pwhqEMzxwBfyzaK97nnciTGN
+	/PTWNFDRWGVIm4aioX67/HoLakq+UpL7bsJr9NL8qxBNMA++lkPSRO9145MttQKlIO5fA/GlfFrE7
+	ekG0kgBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHIti-0000000Geuz-1ELk;
-	Mon, 27 Apr 2026 10:09:02 +0000
+	id 1wHIvf-0000000Gf8P-3fAM;
+	Mon, 27 Apr 2026 10:11:03 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHItf-0000000GeuL-2spo
+	id 1wHIvd-0000000Gf7u-1MaE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 10:09:00 +0000
+	Mon, 27 Apr 2026 10:11:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F235543501;
-	Mon, 27 Apr 2026 10:08:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C4E8C2BCB4;
-	Mon, 27 Apr 2026 10:08:55 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0E438401A9;
+	Mon, 27 Apr 2026 10:11:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 083B9C2BCB6;
+	Mon, 27 Apr 2026 10:10:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777284538;
-	bh=/mPQLeHupRSRLsmcAjweHGpm/avj6Qhw5mgYiS669Nw=;
+	s=k20201202; t=1777284660;
+	bh=hTQ+Nm3408VfTS6qIZ7SJIR7a4UET8p2wzXRUI2N2Uc=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=dwwLHypFL3Vu7SN74THQy72oh3hKaW60ohna3WTxkcV4aemcVBdKHiQZ9LUsA0H09
-	 W6ZynK29DFaxpTcaJ5Gc7QVz2zW4o9fcHZkiVIdWJTcams8sntT2z9ycbNCl3QY4mY
-	 wv0X9hM/f7YXvFFJql94zMgNIgXw41AyW1fNTG2Tdm6k3qejyqWBgQBiEjMQw/nzhM
-	 KLFGAneJIP7DHwuE0dvtF32r+Xze0wPW1cwX3xEayfxfWM54V1RpTLjS1wX2VEG2w/
-	 TD/Jqbn+ZYxvACqdEDN7YYH6r3XRGPya76okYZjoCWppQ5EGvSjLf2nPV3HzNcSeSR
-	 sD9gjlq2xiodA==
-Date: Mon, 27 Apr 2026 11:08:49 +0100
+	b=myRy1y0SwFinU1uPzxc1hL5qGx1+kLTlJ9Dlp5AB5O4+KIxoDbo1saHPgDTJNHcra
+	 Kt1aGX7djF+l3UnKvV+YBGpJ3Hxk3zcMM5rk+wC+m+gfyOUD9FndV8kj1Vzg5Y6wh3
+	 SrQnIBPxJnX6tAUyrZ23tl1yiCsvmKbUquVj71chriRHUamvvcXPn7Nq/blq4Ouez1
+	 yG8DTcO0bOQ21Z5/lzqhgLe1FtAQLDpRFpkfwhCnbWI1ITOo7xLRXMWFBkvQP4IqNH
+	 UH4Z46PdddCXiZQwpSky/4rg9Xi2JOTk3/iXrXyY8KJu2cXlLaFA1MUAzi68g0cFdS
+	 JgENA8/LjAC9Q==
+Date: Mon, 27 Apr 2026 11:10:50 +0100
 From: Jonathan Cameron <jic23@kernel.org>
 To: Caio Morais <caiomorais@usp.br>
 Cc: andy@kernel.org, dlechner@baylibre.com, michal.simek@amd.com,
  nuno.sa@analog.com, linux-arm-kernel@lists.infradead.org,
  linux-iio@vger.kernel.org
-Subject: Re: [PATCH 2/3] iio: buffer: industrialio-triggered-buffer: fix
- includes with IWYU
-Message-ID: <20260427110849.44bc83b3@jic23-huawei>
-In-Reply-To: <20260426211834.3318306-3-caiomorais@usp.br>
+Subject: Re: [PATCH 3/3] iio: common: st_sensors: fix includes with IWYU
+Message-ID: <20260427111050.7fbf88a1@jic23-huawei>
+In-Reply-To: <20260426211834.3318306-4-caiomorais@usp.br>
 References: <20260426211834.3318306-1-caiomorais@usp.br>
-	<20260426211834.3318306-3-caiomorais@usp.br>
+	<20260426211834.3318306-4-caiomorais@usp.br>
 X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_030859_759202_201FEF62 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20260427_031101_386443_736034D2 
+X-CRM114-Status: GOOD (  14.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,42 +74,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 26 Apr 2026 18:18:01 -0300
+On Sun, 26 Apr 2026 18:18:02 -0300
 Caio Morais <caiomorais@usp.br> wrote:
 
 > From: Caio Morais <caiomorais@usp.br>
 > 
 > Signed-off-by: Caio Morais <caiomorais@usp.br>
 > ---
->  drivers/iio/buffer/industrialio-triggered-buffer.c | 6 ++++--
->  1 file changed, 4 insertions(+), 2 deletions(-)
+>  drivers/iio/common/st_sensors/st_sensors_i2c.c | 7 +++++--
+>  drivers/iio/common/st_sensors/st_sensors_spi.c | 9 +++++++--
+>  2 files changed, 12 insertions(+), 4 deletions(-)
 > 
-> diff --git a/drivers/iio/buffer/industrialio-triggered-buffer.c b/drivers/iio/buffer/industrialio-triggered-buffer.c
-> index 9bf75dee7..a91d439d7 100644
-> --- a/drivers/iio/buffer/industrialio-triggered-buffer.c
-> +++ b/drivers/iio/buffer/industrialio-triggered-buffer.c
-> @@ -4,9 +4,11 @@
->   *  Author: Lars-Peter Clausen <lars@metafoo.de>
+> diff --git a/drivers/iio/common/st_sensors/st_sensors_i2c.c b/drivers/iio/common/st_sensors/st_sensors_i2c.c
+> index 7156302fe..04d106def 100644
+> --- a/drivers/iio/common/st_sensors/st_sensors_i2c.c
+> +++ b/drivers/iio/common/st_sensors/st_sensors_i2c.c
+> @@ -7,12 +7,15 @@
+>   * Denis Ciocca <denis.ciocca@st.com>
+>   */
+>  
+> +#include <linux/device.h>
+> +#include <linux/err.h>
+>  #include <linux/i2c.h>
+> -#include <linux/kernel.h>
+> +#include <linux/linkage.h>
+>  #include <linux/module.h>
+> -#include <linux/iio/iio.h>
+>  #include <linux/regmap.h>
+>  
+> +#include <linux/iio/iio.h>
+> +
+>  #include <linux/iio/common/st_sensors_i2c.h>
+>  
+>  #define ST_SENSORS_I2C_MULTIREAD	0x80
+> diff --git a/drivers/iio/common/st_sensors/st_sensors_spi.c b/drivers/iio/common/st_sensors/st_sensors_spi.c
+> index 0da270139..884077d51 100644
+> --- a/drivers/iio/common/st_sensors/st_sensors_spi.c
+> +++ b/drivers/iio/common/st_sensors/st_sensors_spi.c
+> @@ -7,12 +7,17 @@
+>   * Denis Ciocca <denis.ciocca@st.com>
 >   */
 >  
 > -#include <linux/kernel.h>
-> -#include <linux/export.h>
+> +#include <linux/device.h>
+This one is similar to kernel.h in that it's mostly a catch all header
+that we prefer to replace if possible with more specific ones.
 
-Why?  There are numerous uses of EXPORT_SYMBOL() in this file.
+Now the driver might directly dereference a struct device, but if
+so that normally indicates something we should clean up.
+Maybe it's something else.  As mentioned in previous review
+providing that info under the --- in the patch can save time on
+questions like this.
 
-> +#include <linux/errno.h>
+> +#include <linux/err.h>
 > +#include <linux/linkage.h>
-
-Wow. That one is obscure.  What needed that?  
-
-For these, IWYU patches, I prefer to add that info after the ---
-so it's easy to review them without opening the code up to take a closer look.
-
 >  #include <linux/module.h>
+> -#include <linux/iio/iio.h>
+>  #include <linux/property.h>
+>  #include <linux/regmap.h>
+>  #include <linux/spi/spi.h>
 > +#include <linux/stddef.h>
+> +#include <linux/types.h>
 > +
->  #include <linux/iio/iio.h>
->  #include <linux/iio/buffer.h>
->  #include <linux/iio/buffer_impl.h>
+> +#include <linux/iio/iio.h>
+>  
+>  #include <linux/iio/common/st_sensors_spi.h>
+>  
 
 
