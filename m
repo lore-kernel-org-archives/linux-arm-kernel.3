@@ -4,88 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4149FF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 15:36:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E868FF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 15:42:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DT4zvpGacxHRk/WPHA3P347efnejtMNVhL3FmZpnqUQ=; b=0kXwDFzhY5KeLBVobB5rALNm01
-	fxgFYvMgXBwjoTpZDULOg5gQ5l9lloZ417snxJRNQjLu0JAJ1AKtoUKppxEllyVy3K3oS68odN3kl
-	bg9tT88DY+Tz+Tg5KcKKQWWLdEHCf5ZvbgeqHGN08pL4QkWrZ1uUrW/T7MlZzKBQUtnTMYnwSQyPo
-	GBVWeUipR4Igb8uUhQNAeVCqq+yqC6L/vYiP7Q2Gi/3u3XQjBQLu8OIrWPT8gSeNd4NNq9eCdRviE
-	/DfouP6LbCBqRQZQYFARiipes0IXp87cUpC/xvczDzH0toOwVlFWWYvHkxPH70cyjFdhkC549Tjd+
-	ewpEm61w==;
+	bh=IQLovIVVNlt3sbk+HS3nizKbf7CXEbobD3FQnQghx3g=; b=aRVX6K4irENJOawYckIy6GfrTu
+	D6v+5ULmQBefFVcRpV9YvWjBmB+PLThKTIvlDwdQcnnWUojzeEp4A6eWHdCtoDDBKkNqxQcW512Ib
+	cRmuw0p1qTC2mm+AdiKwFVVl0nQMrZkEqoPxEoC94tK+HAJ9yZyXbT0Wv3vxLWx5K+bFOEwdwgqBm
+	gACDO55IuSswRtVa73RH1Cecc2UdHnzPMLwJg69r+2JkVOUowaXVSUFsbnwdh6nGa6ZD6b10wk7u5
+	ebge5/b+TQnsgY6uYHl7DwPhvpnp8DMjrgUNeauzBEDoqHXJm5yiVFTWY1JPnneOTjZ+GMLoGR96E
+	VVMKt70A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHO0O-0000000HCxJ-1q0u;
-	Mon, 27 Apr 2026 15:36:16 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1wHO6X-0000000HE6v-3zGn;
+	Mon, 27 Apr 2026 15:42:37 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHO00-0000000HCaP-3ZCn
+	id 1wHO6V-0000000HE6Q-0LCU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 15:35:54 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4837b6f6b93so111416745e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 08:35:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777304151; x=1777908951; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=DT4zvpGacxHRk/WPHA3P347efnejtMNVhL3FmZpnqUQ=;
-        b=Ik50435pp521X8we4gN8zqkEg34f0Cu6ZNTIRuDsyDMMHW4X4brtY3NnO02IhCzHBO
-         ypvTVAo50YUfnZk6YJGsYYoyDDpYOPOJ4NtSd7i+0hs4zd04312Qnh3w25+itLjij95F
-         SYWe4osSvl/IEHTNX+fMg3Ypi2gpvAdiDTb6v4PhuUMVWF5TOSAuVLFJEEtfCH6OIeYu
-         ogmJAREfn4wPQr0+Th1Ep1sH4dm4MCjymDm5ISTUmdsc/T5MKFFIWCKOxySP0J8aoeTu
-         FTUjXqP+3fAx2e204F9S9q9xaBNw1Fnuf4e4rewxtUW68Hqr9WQoPk7S87AdVSP5i6Le
-         bD8Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777304151; x=1777908951;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=DT4zvpGacxHRk/WPHA3P347efnejtMNVhL3FmZpnqUQ=;
-        b=osgwOURU2kNbpM8ugXjIrpPc1FEuV1u75xU7tluo9ssrfMjkgxQ4RQBYJu1qvgxLH7
-         MBZ4jfkD+BCRKDSSfEPinSj6+PRSjv2mwNKh0g9aKB6ntnSYlrGZ7uk8t34PC389gcPG
-         uSczV9v3A36AmD8k4/78jcDLsbY4b+GGAmy1udBm+2hwOvRLw1K4HnvO/O2LXXoT0gt8
-         OQ/rLkfsMNsYt3wlVZ/yNtLFGXBV0zcBpxKgIwsM72sMa0DUvBFtoZRU+/Tx7/rxSzEf
-         wb11NrX0JJkkwcbmvIVWyeZGsHdGCBs1Jp+oQMVObmqEjzHAvEiMktPGq+hRsBEjPSOx
-         4CJg==
-X-Gm-Message-State: AOJu0YwixQbTxaxqJ06I40iSX3OUgnyD65+hk3KdISDgLVybINQxIiF1
-	DHXiIkFLWIQZxw4xJEI7mkDNClfow6InG3KRj1tKZgZRtDIRJdck6DFIVd9+x5/mLGGZu+8ZhMR
-	PWaoyu0RhzfdGL6MR1dpnm8SFSbZj7eCnvF3NToXTQXFpHHjtuSPpaYxhe8aTu28ss3xfazIZGD
-	OfPMRN1DeGP8nMj/Qdq93dX+m7B7bfEVH0JXJyTwR1EaZ8
-X-Received: from wmbdn19.prod.google.com ([2002:a05:600c:6553:b0:48a:55e6:d5c4])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:888b:b0:488:c40b:c8bf
- with SMTP id 5b1f17b1804b1-488fb73d234mr529149015e9.2.1777304150888; Mon, 27
- Apr 2026 08:35:50 -0700 (PDT)
-Date: Mon, 27 Apr 2026 17:34:32 +0200
-In-Reply-To: <20260427153416.2103979-17-ardb+git@google.com>
-Mime-Version: 1.0
-References: <20260427153416.2103979-17-ardb+git@google.com>
-X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3660; i=ardb@kernel.org;
- h=from:subject; bh=5/WaFTKUieGOECS5oMgCFK1ktF6MkiLzxXcp+K6DIKQ=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIfN9E3/1lYfbJ77dJSXx5Ty7SW+1FL9kwrFd8h9mz9lz8
- P9LxbYTHaUsDGJcDLJiiiwCs/++23l6olSt8yxZmDmsTCBDGLg4BWAibycx/M9OuztxTuOemrh5
- 3P/U/VdeN3wn/f+WxmsXu7Ztgtv4VhYz/HfpvK1unhEare1hsj3hZmaG3YWulTsrSjxvCd3xnTH xNxMA
-X-Mailer: git-send-email 2.54.0.rc2.544.gc7ae2d5bb8-goog
-Message-ID: <20260427153416.2103979-32-ardb+git@google.com>
-Subject: [PATCH v4 15/15] arm64: mm: Remap linear aliases of the fixmap page
- tables read-only
-From: Ard Biesheuvel <ardb+git@google.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com, 
-	mark.rutland@arm.com, Ard Biesheuvel <ardb@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, 
-	Anshuman Khandual <anshuman.khandual@arm.com>, Liz Prucka <lizprucka@google.com>, 
-	Seth Jenkins <sethjenkins@google.com>, Kees Cook <kees@kernel.org>, 
-	Mike Rapoport <rppt@kernel.org>, David Hildenbrand <david@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org, 
-	linux-hardening@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	Mon, 27 Apr 2026 15:42:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1777304555; x=1808840555;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=jpeqo3blo68qkWdVPmQrUuVlGinKzd6r+L8pS5ET8wc=;
+  b=V6UFk3Ek6NnJTVSuUUGJbsuFlZxtitJ/y2vTGGwRlMXdASf1LbQAgcxy
+   Etwy/Lyb1B1q7R61SmCHxutJ3C2GcVnyjDA1QoMl9dgK5s+bFVGiuuPTP
+   5p+s0okbxThasOa7WB0rd+yUpEZ73YtHTwboPk8Y60ZfBXY22ziTy3PIi
+   jOaQMoF8SWax40/eCfNf4qr1skPs+LEo1jap8ctx1UHWqoR09cIdVSO7M
+   x5PV6s16B8dMhUuURKcIF3e6f47wkgOZxc9BNjy35MxkBrLBo4DjrR+Wu
+   Bk8ratN3Z+Hh+7Ptx6h6ilFfgriQ/4Sdq6bVf6fO4SmiuC0hNl/LZ6xwM
+   g==;
+X-CSE-ConnectionGUID: f7815X07SLa3uAjDXqPvEQ==
+X-CSE-MsgGUID: G9et5JuxQjGGOGAPSwQyOQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11769"; a="95758805"
+X-IronPort-AV: E=Sophos;i="6.23,202,1770624000"; 
+   d="scan'208";a="95758805"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Apr 2026 08:42:31 -0700
+X-CSE-ConnectionGUID: YGGLeOhSQYyz1BHpkVsziQ==
+X-CSE-MsgGUID: aLLViqwXTyqs3NaMC227iQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,202,1770624000"; 
+   d="scan'208";a="235425461"
+Received: from fpallare-mobl4.ger.corp.intel.com (HELO localhost) ([10.245.244.2])
+  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Apr 2026 08:42:28 -0700
+Date: Mon, 27 Apr 2026 18:42:25 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Arnd Bergmann <arnd@arndb.de>, Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-usb@vger.kernel.org, linux-gpio@vger.kernel.org
+Subject: Re: [PATCH] usb: udc: pxa: remove unused platform_data
+Message-ID: <ae-D4Qki41GpOHyx@ashevche-desk.local>
+References: <20260427143300.2887692-1-arnd@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260427143300.2887692-1-arnd@kernel.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_083552_991200_2855FB56 
-X-CRM114-Status: GOOD (  15.62  )
+X-CRM114-CacheID: sfid-20260427_084235_239877_B373B168 
+X-CRM114-Status: GOOD (  14.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,94 +91,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ard Biesheuvel <ardb@kernel.org>
+On Mon, Apr 27, 2026 at 04:32:10PM +0200, Arnd Bergmann wrote:
 
-The fixmap page tables are statically allocated, and are currently
-mapped read-write both in the kernel mapping as well as its linear
-alias. Due to lack of randomization of the linear map, these tables will
-appear at a priori known offsets in the virtual address space when
-booting without physical randomization, which means that a single kernel
-write primitive is sufficient for an attacker to map memory of their own
-choosing with any permissions at a known virtual address in the kernel's
-address space.
+> None of the remaining boards put useful data into the platform_data
+> structures, so effectively this only works with DT based probing.
+> 
+> Remove all code that references this data, to stop using the legacy
+> gpiolib interfaces. The pxa27x version already supports gpio
+> descriptors, while the pxa25x version now does it the same way.
 
-To harden against this, move the fixmap PUD and PMD tables to
-.pgdir_rodata, so that both their kernel mappings as well as their
-linear aliases are mapped read-only during ordinary execution.
-The PTE table needs to remain read-write accessible via the kernel
-mapping, but its linear alias can be remapped read-only as well.
+...
 
-Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
----
- arch/arm64/include/asm/pgtable.h | 6 ++++--
- arch/arm64/kernel/vmlinux.lds.S  | 1 +
- arch/arm64/mm/fixmap.c           | 5 +++--
- arch/arm64/mm/mmu.c              | 5 +++++
- 4 files changed, 13 insertions(+), 4 deletions(-)
+> +	dev->pullup_gpio = devm_gpiod_get_index_optional(&pdev->dev, "pullup", 0,
+> +						    GPIOD_OUT_HIGH);
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 94235dd428be..21afe923cd71 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -822,8 +822,10 @@ extern void set_rodata_pte(pte_t *ptep, pte_t pte);
- 
- static inline bool in_pgdir_rodata(void *addr)
- {
--	return addr >= (void *)__pgdir_rodata_start &&
--	       addr < (void *)__pgdir_rodata_end;
-+	phys_addr_t pa = __pa_nodebug(addr);
-+
-+	return pa >= __pa_symbol_nodebug(__pgdir_rodata_start) &&
-+	       pa < __pa_symbol_nodebug(__pgdir_rodata_end);
- }
- 
- static inline void set_pmd(pmd_t *pmdp, pmd_t pmd)
-diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
-index e5e1d0fd7f27..9b346dd24d1c 100644
---- a/arch/arm64/kernel/vmlinux.lds.S
-+++ b/arch/arm64/kernel/vmlinux.lds.S
-@@ -247,6 +247,7 @@ SECTIONS
- 		__pgdir_rodata_start = .;
- 		swapper_pg_dir = .;
- 		. += PAGE_SIZE;
-+		*(.fixmap_rodata)
- 		__pgdir_rodata_end = .;
- 	}
- 
-diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
-index b649ea1a46e4..ad6d46e5c23e 100644
---- a/arch/arm64/mm/fixmap.c
-+++ b/arch/arm64/mm/fixmap.c
-@@ -32,9 +32,10 @@ static_assert(NR_BM_PMD_TABLES == 1);
- #define BM_PTE_TABLE_IDX(addr)	__BM_TABLE_IDX(addr, PMD_SHIFT)
- 
- #define __fixmap_bss	__section(".fixmap_bss") __aligned(PAGE_SIZE)
-+#define __fixmap_rodata	__section(".fixmap_rodata") __aligned(PAGE_SIZE)
- static pte_t bm_pte[NR_BM_PTE_TABLES][PTRS_PER_PTE] __fixmap_bss;
--static pmd_t bm_pmd[PTRS_PER_PMD] __fixmap_bss __maybe_unused;
--static pud_t bm_pud[PTRS_PER_PUD] __fixmap_bss __maybe_unused;
-+static pmd_t bm_pmd[PTRS_PER_PMD] __fixmap_rodata __maybe_unused;
-+static pud_t bm_pud[PTRS_PER_PUD] __fixmap_rodata __maybe_unused;
- 
- static inline pte_t *fixmap_pte(unsigned long addr)
- {
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 84d81bae07a7..e76fe5b0c5fe 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -1076,6 +1076,11 @@ void __init mark_linear_text_alias_ro(void)
- 			    (unsigned long)__init_begin - (unsigned long)_text,
- 			    pgprot_tagged(PAGE_KERNEL_RO));
- 
-+	/* Map the fixmap PTE table at __fixmap_pgdir_start R/O in linear map too */
-+	update_mapping_prot(__pa_symbol(__fixmap_pgdir_start),
-+			    (unsigned long)lm_alias(__fixmap_pgdir_start),
-+			    PAGE_SIZE, pgprot_tagged(PAGE_KERNEL_RO));
-+
- 	remap_linear_data_alias(true);
- 
- 	if (IS_ENABLED(CONFIG_HIBERNATION)) {
+While I gave a tag some time ago, I still wonder why we use _index variant here.
+With
+
+	struct device *dev = &pdev->dev;
+
+it becomes just a single line (yes, 82 characters long).
+
+	dev->pullup_gpio = devm_gpiod_get_optional(dev, "pullup", GPIOD_OUT_HIGH);
+
+> +	if (IS_ERR(dev->pullup_gpio)) {
+> +		dev_dbg(&pdev->dev,
+> +			"can't get pullup gpio err: %ld\n",
+> +			PTR_ERR(dev->pullup_gpio));
+
+This occupies more LOC than needed (also gpio --> GPIO).
+
+		dev_dbg(dev, "can't get pullup GPIO err: %ld\n",
+			PTR_ERR(dev->pullup_gpio));
+
+I even wouldn't mind this to be long single line
+
+		dev_dbg(dev, "can't get pullup GPIO: %ld\n", PTR_ERR(dev->pullup_gpio));
+
+(I dropped ' err' part in this variant, though).
+
+> +		retval = PTR_ERR(dev->pullup_gpio);
+> +		goto err;
+>  	}
+
 -- 
-2.54.0.rc2.544.gc7ae2d5bb8-goog
+With Best Regards,
+Andy Shevchenko
+
 
 
