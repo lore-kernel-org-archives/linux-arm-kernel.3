@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E593EFF8861
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 10:03:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA3F0FF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 10:05:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=URy40lWa+lQUJ0uoSDlws9H3+O7vKjCBby8w7d+mcdQ=; b=2IbbxTJMWFHA/+o4xPd6MG4mBF
-	7FlXOqgy41OL6ZupvllIi0tTkQaaG9mEtdjrUmo4Jb5HxHPXdKMytgIlOzF5JkbmN+WH25POx784o
-	Xsyru9RvBRUjY6GHo6/7lHrGG/BpzG+R6r13A/ffewyjGXUw8kW/EJ55DXraUVY+9uiH6GmzZXnHU
-	dLoY0mQAWdWTIR5AikLkNX/0P+hBY7E/JOcYZ33QVFx0riUy4DJ769MfQVYd5YL4+XXDcQUKjISIr
-	So1badtpnwMvMRh1nVSXJtCERtIrrJK0pm8AKKroT01mxNje1YIrOwOAYBQJsBkmMyujS0Hkku7+Y
-	vetX9rTg==;
+	bh=ser3eieeOnNkgLnvZeJ1R6ajCFLeZD4XVZuYnkwDiBY=; b=RJjijbVJFnyo7FuKGgQ4jabeXG
+	CBAlVnE/WE3zXj/W2EFjAP0ooA96QQXJUMp35dLuP0Uqwt5MbKypLSEdNY8l9YdjQb4bwvqrKqY8w
+	qKymuwmDwY9VTgOsPa7WjrHWsiOHm+4ZGAHnzYlAu2dnOC9rklMtJnxGEXQCXOWCOiovCM+87gRdm
+	ut5HdFoidRnclkvI5UUiXSHsGdb08w8mj2fGNBNUEGMzZF+Z6WuvPxDdRWsz7pM3AOthFP3bs6qnH
+	9MTY091DsIdLV2TI4l6XOBn+zBB1ksmIgUBn/uWk463R2cRCAaxFsKGg6mkAqUB18jy7sDG9G3q/I
+	sM+edJzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHIog-0000000GeZS-01o1;
-	Mon, 27 Apr 2026 10:03:50 +0000
+	id 1wHIqg-0000000GeiI-2Y1d;
+	Mon, 27 Apr 2026 10:05:54 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHIoe-0000000GeZ6-1mQB
+	id 1wHIqe-0000000Gehs-21nR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 10:03:49 +0000
+	Mon, 27 Apr 2026 10:05:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D2EAA43973;
-	Mon, 27 Apr 2026 10:03:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F98FC19425;
-	Mon, 27 Apr 2026 10:03:45 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 359AC43731;
+	Mon, 27 Apr 2026 10:05:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0E57C2BCB4;
+	Mon, 27 Apr 2026 10:05:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777284227;
-	bh=XYLE9TA0IWpeumy+gSbuXKXmhKHtKngemJgMUFhgkQM=;
+	s=k20201202; t=1777284352;
+	bh=iN3RRfDRMGCCfBob1PEuXCevWsmAld3vlfxzFx505ZA=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=LlCflqhkt+ULH/QWfcyI10bsms/b5DLgemMJvCYeVtxujGr4hly024vkJhZgFakjI
-	 HTLTkC958B1q1NeO2kCzzFTPABDMwi0c5uvU6lHVo3ByZGJ5HjCb5TyZ9jhwjl1IMW
-	 r89vGvgtwd0TwmblGFCSsJf5qr+2NkKDQSnefq4B/cuGeUXKwdULsLzYl7WnvthQWI
-	 KutuIwfcMDJ0lcC5f/2S1N0V0lU6flfgLfQYO2gVZqfxEcfgiB7hGvU3Ed14eXCm/z
-	 BEGCsbVdgQqdOcZ3EAjTPlMeeISj4rTpI8+z4SGm6lq71LzvkXKgieVz7GBG1iXMNg
-	 ilW+2Zfm6n3zA==
-Date: Mon, 27 Apr 2026 11:03:37 +0100
+	b=pJHgM31xuoP6R8KfaT8wg7EUB42bfO1I6+x8uTP9GyF6tnua1kODX5VH0s42RUMhC
+	 sVDD7A5M2Y4Pxc6BMrXeC0j3gpac3nGtbSmTk3Ny1Ui1nMCUzLYJs02hF2CJ6OJCl8
+	 HzT+mFm3QZSOVNEZY9Awu3qng4hlZ6/Ahzq5Prq2Ej7R0/VgLOXVDi61VLzJJ1HSX3
+	 dSnVumV16H/+oslJTsDU4lujHKmbhLcWJ/KD0W0aiOWTiAupFMXbuThgJy8++X1sxZ
+	 lV45EEy4Jjhc9MyMTzwczk0shyuERypSahKWq9aAYtRmitp+1OvuxyyXSzTDmSFEQK
+	 8BdT2lPLLPjJQ==
+Date: Mon, 27 Apr 2026 11:05:42 +0100
 From: Jonathan Cameron <jic23@kernel.org>
-To: Caio Morais <caiomorais@usp.br>
-Cc: andy@kernel.org, dlechner@baylibre.com, michal.simek@amd.com,
- nuno.sa@analog.com, linux-arm-kernel@lists.infradead.org,
- linux-iio@vger.kernel.org
-Subject: Re: [PATCH v2 0/3]: fix unnecessary includes and add missing ones
- across multiple drivers
-Message-ID: <20260427110337.32bfc6d3@jic23-huawei>
-In-Reply-To: <20260426211834.3318306-1-caiomorais@usp.br>
+To: Joshua Crofts <joshua.crofts1@gmail.com>
+Cc: Caio Morais <caiomorais@usp.br>, andy@kernel.org, dlechner@baylibre.com,
+ michal.simek@amd.com, nuno.sa@analog.com,
+ linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org
+Subject: Re: [PATCH 1/3] iio: adc: xilinx-xadc: remove unnecessary includes
+ and add missing ones
+Message-ID: <20260427110542.1dd0b855@jic23-huawei>
+In-Reply-To: <CALoEA-zz-2cG7SJr1iKNQ0H81TVMXLQh3omkxJc9YRW673Kqqw@mail.gmail.com>
 References: <20260426211834.3318306-1-caiomorais@usp.br>
+	<20260426211834.3318306-2-caiomorais@usp.br>
+	<CALoEA-zz-2cG7SJr1iKNQ0H81TVMXLQh3omkxJc9YRW673Kqqw@mail.gmail.com>
 X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_030348_559533_1A250F60 
-X-CRM114-Status: GOOD (  10.47  )
+X-CRM114-CacheID: sfid-20260427_030552_590488_5215F9B1 
+X-CRM114-Status: GOOD (  14.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,31 +76,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 26 Apr 2026 18:17:59 -0300
-Caio Morais <caiomorais@usp.br> wrote:
+On Mon, 27 Apr 2026 08:42:55 +0200
+Joshua Crofts <joshua.crofts1@gmail.com> wrote:
 
-> From: Caio Morais <caiomorais@usp.br>
+> On Sun, 26 Apr 2026 at 23:20, Caio Morais <caiomorais@usp.br> wrote:
+> >
+> > From: Caio Morais <caiomorais@usp.br>
+> >
+> > Signed-off-by: Caio Morais <caiomorais@usp.br>
+> > ---  
 > 
-> This series removes unnecessary includes and adds missing ones as reported
-> by the include-what-you-use (IWYU) tool across different IIO drivers.
+> You're missing the commit message body. While it's understandable
+> what changes you've done in this patch, it's good to expand the idea
+> further (what you did, how you did it, why you did it). This goes for all
+> of the patches in your series.
 
-One series per driver.  Having a shared one for the core is fine but definitely
-don't mix core and drivers. Tend to have entirely different sets of
-reviewers!
+Also, why only this file of the several that make up that driver?
+Looks like kernel.h is included in xilinx-xadc-core.c as well.
 
-J
+I'd talk about kernel.h specifically in the patch description and
+why stopping including that is seen as a nice to have.
+
 > 
-> Caio Morais (3):
->   iio: adc: xilinx-xadc: remove unnecessary includes and add missing
->     ones
->   iio: buffer: industrialio-triggered-buffer: fix includes with IWYU
->   iio: common: st_sensors: fix includes with IWYU
-> 
->  drivers/iio/adc/xilinx-xadc-events.c               | 6 +++++-
->  drivers/iio/buffer/industrialio-triggered-buffer.c | 6 ++++--
->  drivers/iio/common/st_sensors/st_sensors_i2c.c     | 7 +++++--
->  drivers/iio/common/st_sensors/st_sensors_spi.c     | 9 +++++++--
->  4 files changed, 21 insertions(+), 7 deletions(-)
-> 
+> > +#include <linux/bitmap.h>
+> > +#include <linux/errno.h>
+> > +#include <linux/mutex.h>
+> > +#include <linux/types.h>
+> > +
+> >  #include <linux/iio/events.h>
+> >  #include <linux/iio/iio.h>
+> > -#include <linux/kernel.h>
+> >
+> >  #include "xilinx-xadc.h"
+> >
+> > --
+> > 2.54.0
+> >
+> >  
 
 
