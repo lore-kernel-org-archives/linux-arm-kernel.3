@@ -4,104 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71C24FF8864
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 21:37:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B9E1FF8864
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 21:39:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8XKtJc4DO9XTE2eYRlXe/gcxi3hvK1ItEFqJbW+SysQ=; b=TjBpd6DEp5xx1ZrCFpBvcxmk3I
-	hFOyS8yTu85h4d8sw7NIvA5I9zov2VNGxHJsVO6uHLnkshGVCI5q9EpUqg4S8am0UVm79eKtVJGIm
-	JQlp3RMdixgFHDRYs76U1SF2IVo8krifFKLj7HUHOV2VqtpfSjq93Lpc2ase+4sD3lLeAsy1QBSMI
-	VadrRyM+BtFrTyTCHSznyLCpZan2nukp+UtyTSK98W2q5nvaKCe/csVIRdww4j5+ohHvyoDOG9iTR
-	0cOQ4F9jjNKNidIOBLb2RBiqUOQjsTTul6z6k16mV6LXpI3kS4rBHOoxZl3djY8SIcBPvpjpx5vBC
-	WPNdVy/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DjF1Jdn4Kp6xFyaBmAP2391GfFF2q7kuOVlruTChM90=; b=tvzREZodPBEmdYR4EGNCfkoPCG
+	zOKUKWtlDNWl/LCIyIyftDJibIUIErNRa3Ipr01PFhwwDH6ommWIlovg+NfGYXX0WCw1n5W4fiNRG
+	k8vfYzX0s4JeSZo7mmazVt3veMOw5YiMstaQgxUno/dKXDGxFL1gx3JI1XEdNjrRU3rthapKQudB8
+	3Q3QEmlWk4DAKXoh51OnauJtir+vnIpd60bTgqsHTwPHcaBLsdRTMSVXRacvk2nFMOAFZNwrEF8TL
+	5YIN3zsbaa7+HjYkI+AgE+MaGGh8Vz3rW6/yYDAKqCPRHJOciktKEThYsWEvtwGoRt2I9hG1qxl+z
+	H5K5I5Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHTdt-00000000BST-0BWW;
-	Mon, 27 Apr 2026 21:37:25 +0000
-Received: from mail-dl1-x122c.google.com ([2607:f8b0:4864:20::122c])
+	id 1wHTg4-00000000Be8-46Xq;
+	Mon, 27 Apr 2026 21:39:40 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHTdq-00000000BS6-1mn7
+	id 1wHTg3-00000000Bcy-0xip
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 21:37:23 +0000
-Received: by mail-dl1-x122c.google.com with SMTP id a92af1059eb24-12c45281a06so14568168c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 14:37:21 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1777325841; cv=none;
-        d=google.com; s=arc-20240605;
-        b=Y5pjY/eAH2B+CYhTk8CDd+kb3uLIfxj5aSYnRpwJ++kDbjV2uf9gjctPNEM9tHl97g
-         WUBALF9ls+j5CFdNf4FakfZ2Bi9avCeZT2h1hnkEGiVSgAaylkfn92eEke8MGWHsA6Vo
-         npfNpLwR0L1ZN3IH2SiUnMTPx85dTLee2W/3aGktBBAzSl7zZX7NyAc19486z1jlG7Cn
-         hXkCorSaPiEJnm1ilZ05D0FOY5JpSvJyDbZ5bEIII8aSkxhYFLH3Wyt8hxut08LtEmHw
-         5ypLp/Bnfil5LE0XUWooTe8R9DBKSX925DI7FjyyZ2U2mWu4Day0w0nzqo5xc1vDkKc+
-         011w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=8XKtJc4DO9XTE2eYRlXe/gcxi3hvK1ItEFqJbW+SysQ=;
-        fh=uvuXMobY/jYYtyqslh5EGA6GlwrwH8E3DnietUgaAdI=;
-        b=IuNSWJZZrEeYOkgYE2qEPmH2q6K26qZ3GhEgjMiMX0pI3t/+OCe0CNlThe4E2fKXWk
-         3OXRiQtCH+QQW8bRoq5MhRtPqWa3wZwCJqVqMEBq0lw++QwxoQ8UooOvTOqKD1OQMDkL
-         GuSskrnhuhMWCpWKR/Z2VBHEUeg8jYrNsloFQ4abeHZt0ekoZIjuRSFZtC8yPN2MqQe3
-         qfuBAsdskI8zHq3Vd8MLl58NmN68aFtr0x5+jw0SmycXgL97lPf/bStC6ouSPEV/XTM4
-         vbh1xC1a82RmwzhZnWxLspyDHcjRA+UwAjsjr3lhRZRiicdRJn7+a7lg7OdYL9h4YKEU
-         +i5Q==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Mon, 27 Apr 2026 21:39:40 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-bb3c4d8cc29so236175266b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 14:39:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777325841; x=1777930641; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8XKtJc4DO9XTE2eYRlXe/gcxi3hvK1ItEFqJbW+SysQ=;
-        b=YWFZ3tSEZ7Xxd+QnqaQh5DtZgtsyGAE8WDS04cD62GV1RUvPaW+I0MSu/suM0YeesO
-         WwWrVrPzLocn1NNbK3AHIYh85+UfjiVWav4VwHuwORsVCTAWTsxrHu0etIib0LlsG941
-         ae6j5lWdDY1DQB841VYj5eW4ePS7waTGJi4rFkvOZvEj7A1FpE3D5HhZ55TjqviSeVrh
-         ilp3ankwmYUvW3j+1aprTVNFaKASjp2vwsa6ci5PtpzLzKQcELDo+wmUdScSb4GNa56F
-         eSEfhzi96zVXMbHMbS+v8tVI4XgwDyMTYdicEAYrLJi9xEUGeOh9CmegwDsXvYG5nfVY
-         BjbA==
+        d=linux-foundation.org; s=google; t=1777325977; x=1777930777; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=DjF1Jdn4Kp6xFyaBmAP2391GfFF2q7kuOVlruTChM90=;
+        b=Yv+o7R5eBLhTVpxe8c3kmlZ7vm56bxohD9cxeoZCHfB0O74QsNnh4MndSR88d4/+Xf
+         US1Mfll85aqBPgYQexKJ71XTSw16ifIHeeoEWg6KOjbaMUEis8sVez4I09gvcYgxOo6M
+         jp4iapPfLY8Un6uER+pKNW/SLEezTaz1CwpDk=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777325841; x=1777930641;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=8XKtJc4DO9XTE2eYRlXe/gcxi3hvK1ItEFqJbW+SysQ=;
-        b=lAfftj5hyevFvyeXdyYrDyy4J8Ltai0e0iqq9CyLcWCw3i6lKyV0W/GaMbka4Lr2Uw
-         nDaaZv9UzcERghbniYJwgzzdXXLtFDT7HvAxvKSH33N91xpd1QmoO5psojFmhpxfX/v9
-         aNm8aLXJ0cgADyiADRes48SwYTSV61goCmqCtNXWo+LRI7ZaFpcq2iYdZ08NrLSEZEGH
-         K1/fWHaWBP15RVJrMbyh5NCTxFqLKaGKeiNBSQGNJO3430Q3fkGNiPemOHfvZgBXu1TL
-         wixal7JDOgj4Blq3GA/mTblrEl5rNrqI3yNBg08TDK/U+C4QHqVgUEVn9M8n1vx+0laV
-         YiYw==
-X-Forwarded-Encrypted: i=1; AFNElJ92ktHr7tsZNll13uWFOIwHOjwRdD5sn11QHoLShbKr1qA3CAJQAmoZ/KvYfqUeOmBKWKAwDln3RnslLG1oobFi@lists.infradead.org
-X-Gm-Message-State: AOJu0YxD//et5zlrR2r3hWH82eSiyQevppmhGdyMShFvpVdP8Pn5qSh2
-	efxYjlhd77Iu2SkltnLx58fsqyHzL/kSAu6AHxsKQzQsc/KQanRzBODyf7c9qyX56l/orxlYmsx
-	kQJarsT8tR7hp1XUt7AhIMpQTgpCTixc=
-X-Gm-Gg: AeBDietVCrhujlFF62m+8qesoY9D7jY+72Kr3u03kZF4f1v9pEZngTspOilH1eyxtob
-	+lh6TDCTXRTltmZaywAo3lc7U9AE0PiqOtmG8SFe1CjRVee6RRdAT0BpQC2awicwJLY+jZAIuBq
-	d2o+8ywibMACuUWcSOuSIHSH7XHb4nGq1qaQNDLrvFsmFlcl+nZGLFv7BS87v5zDokILYlnDDOs
-	k4xqTE0fqAlcvCDskUpt2dCtsLv3uAI9un1vRDNdYQ1fbCJLr5NdQTIqVcctPB3jIDDkTOoMoDZ
-	ordS8EED8W8eWA==
-X-Received: by 2002:a05:7300:d513:b0:2e2:4979:eb5 with SMTP id
- 5a478bee46e88-2ed09fcc180mr311495eec.10.1777325840960; Mon, 27 Apr 2026
- 14:37:20 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1777325977; x=1777930777;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DjF1Jdn4Kp6xFyaBmAP2391GfFF2q7kuOVlruTChM90=;
+        b=h+UW6t8c7xTbH5OaMnFH2vGmrcxs/t2duqgV8lGNJcMaQ8LPBY8utEZiov0cixsOCe
+         fujVdEsbh+yQt0JlzGl/vJK4Wo0CnBLMZRcsUetxpM2iE/w14XQwTWq1wUw+XGqGF1Ep
+         WO/kVt2XKN2upPJ54qj4lWX0Dtk4iG3eeU4INjXoolXdKiEZ076QqSshqN7jvGVp+D2U
+         017Iq3rv9dDqiYoQBegj7ecG3S//5IE0bk7fpzKr424cIPdP6c3TmtcTUXMV6TtUs6g7
+         cp5WcEFQR3x+lEBdTIvw+P0/kxp5Qf1oqer2qdoezKD66Fk4TrAgcoy8OmonWH3Wf/P4
+         w2yA==
+X-Forwarded-Encrypted: i=1; AFNElJ+cvUi2/FTvRXPR0XBZOb1Ua4WA/RxwNkZnzgkljwFQKypggqmI7kOvSZWjuuAoA4xxijI8/4UDyQ8Yvim1p9Xg@lists.infradead.org
+X-Gm-Message-State: AOJu0YyTI/uehcJkCfepYdtM88fkw5fqVfLqfc97M2W/eEn+kMlOg8Dy
+	7CijsLF3ZSTwDDwASscWfa9sOcCkcuH029CK3q9vG8NHgtMg4oBgYpBoXhjeL11l7OEdxGNGA13
+	NOEKup2seOg==
+X-Gm-Gg: AeBDietiE27fuMbJbXUnXW7LHlVTKd0205nlf9xx+C7nnlwCZa9ctwqLt2dT5SbHKwJ
+	6TuoL3vX7Zyzun5A0ltivDAVAVhJNIBsGtmV68uz0w3R3aY1C/zpWjix0/nkedC17dlA7S10fgH
+	HLOFOF7M10W4YrrOPzZpq7dOumVSCQ47CU3bewhZu7tvNesk98cbCe1HDaAN+8g7ezi+pWqKLyX
+	Fb0h+V3nCVNl8Qu0M8Y0qiryEBNdObw0R9iwsK+F8FllQPjzcAL1OlsTuOv5BFdPdFf+uzJPmeV
+	WeRQXCz8hqrfhtnan2kMBBx2fkMv3agcGW21FFgzG8Ogb8iAE8TYKgjuklVc33aXGjHBWUeaV58
+	4CRw4jP1LxOe3DUIGPTluQQsx/xtF/iOrdLY3rrVe4OBliDKylfbbUsPXOnXgdtZItkAH4r8524
+	+PDlH7NSasTC4MKBTPXyTh70BbNSRhhcPpvHAh+VAdjFNyZ3O4rMzXPsKvpw33PX369glgFAph3
+	5BlJIWxHoo=
+X-Received: by 2002:a17:907:cc08:b0:ba4:8288:b464 with SMTP id a640c23a62f3a-bb8020c9f1amr17571866b.6.1777325977234;
+        Mon, 27 Apr 2026 14:39:37 -0700 (PDT)
+Received: from mail-ed1-f49.google.com (mail-ed1-f49.google.com. [209.85.208.49])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-bb80bd9377bsm9062866b.53.2026.04.27.14.39.37
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 27 Apr 2026 14:39:37 -0700 (PDT)
+Received: by mail-ed1-f49.google.com with SMTP id 4fb4d7f45d1cf-678adefbd26so5624853a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 14:39:37 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ8sqZEOobXnoEBqhMAF683PdgzkK0q9sOUwMhynXtj1D2WBx8oU1/7d5ukJgvW5yVXw6EeqH3JHJfIrZVXlo+/n@lists.infradead.org
+X-Received: by 2002:a05:6402:5216:b0:679:1f4f:9d30 with SMTP id
+ 4fb4d7f45d1cf-679bb04c1a2mr179970a12.4.1777325976937; Mon, 27 Apr 2026
+ 14:39:36 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260426210255.73674-1-titouan.ameline@gmail.com> <84c292d8-d2a0-4c29-bd28-cc00f66c2f43@linaro.org>
-In-Reply-To: <84c292d8-d2a0-4c29-bd28-cc00f66c2f43@linaro.org>
-From: Titouan Ameline <titouan.ameline@gmail.com>
-Date: Mon, 27 Apr 2026 23:37:09 +0200
-X-Gm-Features: AVHnY4JpWy4zf4LeRSNZh6T-aSXl5OGcXxX7HkXcB9Hcxkw79B-CQPA74hur6GM
-Message-ID: <CABvHBc71N5NvYZ29W8hn9-gjOo40eh-hgcTAP3Nn1jrAfrgr2A@mail.gmail.com>
-Subject: Re: [PATCH] firmware: samsung: fix stale response flag in acpm_prepare_xfer()
-To: Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: krzk@kernel.org, alim.akhtar@samsung.com, linux-kernel@vger.kernel.org, 
-	linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <cover.1777306795.git.chleroy@kernel.org> <289b424e243ba2c4139ea04009cf8b9c448a87ff.1777306795.git.chleroy@kernel.org>
+ <CAHk-=whC1DZojwdMB1=sJWG2=dsCdfyU8N6tDE1qx50HRZ-WJQ@mail.gmail.com> <20260427222914.1cb2dd3b@pumpkin>
+In-Reply-To: <20260427222914.1cb2dd3b@pumpkin>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Mon, 27 Apr 2026 14:39:20 -0700
+X-Gmail-Original-Message-ID: <CAHk-=wg0SGbRYhdZ1kvJUTv1HEvmRJyQauFtBGV_fMcZVF8UpQ@mail.gmail.com>
+X-Gm-Features: AVHnY4I-AxqvQRk42MegvhKMp_z4sSEpEzhzpgw2GyV2bV8dezSPoI0JTlwB18Y
+Message-ID: <CAHk-=wg0SGbRYhdZ1kvJUTv1HEvmRJyQauFtBGV_fMcZVF8UpQ@mail.gmail.com>
+Subject: Re: [RFC PATCH v1 5/9] uaccess: Switch to copy_{to/from}_user_partial()
+ when relevant
+To: David Laight <david.laight.linux@gmail.com>
+Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Yury Norov <ynorov@nvidia.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	kvm@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, 
+	linux-um@lists.infradead.org, dmaengine@vger.kernel.org, 
+	linux-efi@vger.kernel.org, linux-fsi@lists.ozlabs.org, 
+	amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
+	intel-gfx@lists.freedesktop.org, linux-wpan@vger.kernel.org, 
+	netdev@vger.kernel.org, linux-wireless@vger.kernel.org, 
+	linux-spi@vger.kernel.org, linux-media@vger.kernel.org, 
+	linux-staging@lists.linux.dev, linux-serial@vger.kernel.org, 
+	linux-usb@vger.kernel.org, xen-devel@lists.xenproject.org, 
+	linux-fsdevel@vger.kernel.org, ocfs2-devel@lists.linux.dev, 
+	bpf@vger.kernel.org, kasan-dev@googlegroups.com, linux-mm@kvack.org, 
+	linux-x25@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+	linux-sound@vger.kernel.org, sound-open-firmware@alsa-project.org, 
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
+	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, 
+	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, 
+	linux-sh@vger.kernel.org, linux-arch@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_143722_472690_FBD0595D 
-X-CRM114-Status: GOOD (  24.66  )
+X-CRM114-CacheID: sfid-20260427_143939_311644_033F203C 
+X-CRM114-Status: UNSURE (   9.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,71 +128,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I was reading through the driver code and noticed that
-acpm_prepare_xfer() only enters the
+On Mon, 27 Apr 2026 at 14:29, David Laight <david.laight.linux@gmail.com> wrote:
+>
+> I think there is a slight difference in that the normal copy_to_user()
+> will determine the exact offset of the error by retrying with byte copies.
 
-if (xfer->rxd) branch to set response =3D true
-with no corresponding else to reset it to false.
+I have this dim memory that we decided that you can't reply on byte
+exactness anyway, because not all architectures gave that guarantee
+for the user copies.
 
-Since seqnum slots are recycled, I traced what happens when a slot
-previously used by a response-expecting transfer gets reused by a
-fire-and-forget one
+But that thing came up many years ago, I might mis-remember.
 
--> the stale true remains and the wrong branch is taken in acpm_get_rx().
-
-Le lun. 27 avr. 2026 =C3=A0 10:48, Tudor Ambarus <tudor.ambarus@linaro.org>=
- a =C3=A9crit :
->
-> Hi,
->
-> Thanks for the patch!
->
-> On 4/27/26 12:02 AM, Titouan Ameline de Cadeville wrote:
-> > acpm_prepare_xfer() only ever set rx_data->response to true, never
-> > false. A reused sequence number slot could therefore inherit a stale
-> > true from a previous transfer that expected a response, causing
-> > acpm_get_rx() to enter the response-copy path for a fire-and-forget
-> > transfer whose rxd is NULL.
-> >
-> > Unconditionally assign the correct boolean value so the slot is fully
-> > reset on every reuse.
-> >
->
-> How did you find this?
->
-> Sashiko identified this too when reviewing the ACPM thermal patches.
-> I sent some fixes last week, where this bug is squashed as well:
->
-> https://lore.kernel.org/linux-samsung-soc/20260423-acpm-fixes-sashiko-rep=
-orts-v1-0-2217b790925e@linaro.org/T/#m1c32aa4c84ea7e3909bc8fe7599585b71e95d=
-8b5
->
->
-> Thanks!
-> ta
->
-> > Fixes: a88927b534ba ("firmware: add Exynos ACPM protocol driver")
-> > Signed-off-by: Titouan Ameline de Cadeville <titouan.ameline@gmail.com>
-> > ---
-> >  drivers/firmware/samsung/exynos-acpm.c | 3 +--
-> >  1 file changed, 1 insertion(+), 2 deletions(-)
-> >
-> > diff --git a/drivers/firmware/samsung/exynos-acpm.c b/drivers/firmware/=
-samsung/exynos-acpm.c
-> > index 16c46ed60837..2fee6bb60efc 100644
-> > --- a/drivers/firmware/samsung/exynos-acpm.c
-> > +++ b/drivers/firmware/samsung/exynos-acpm.c
-> > @@ -380,8 +380,7 @@ static void acpm_prepare_xfer(struct acpm_chan *ach=
-an,
-> >       /* Clear data for upcoming responses */
-> >       rx_data =3D &achan->rx_data[achan->seqnum - 1];
-> >       memset(rx_data->cmd, 0, sizeof(*rx_data->cmd) * rx_data->n_cmd);
-> > -     if (xfer->rxd)
-> > -             rx_data->response =3D true;
-> > +     rx_data->response =3D !!xfer->rxd;
-> >
-> >       /* Flag the index based on seqnum. (seqnum: 1~63, bitmap: 0~62) *=
-/
-> >       set_bit(achan->seqnum - 1, achan->bitmap_seqnum);
->
+            Linus
 
