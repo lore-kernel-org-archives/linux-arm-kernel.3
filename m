@@ -4,115 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E34DFF8861
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 07:06:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1198BFF8861
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 07:24:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y7/7InQ3YxlIclzI7DLSo4lq3zCq3+EvHj491D6ofKI=; b=N45ITnEbkX4toGLm69LoIhXMFw
-	8NSjwAHZ4K8ZqJDGcNj2xYXgN17u20Euy4gk4CESJ+j4Jh8dXUBOPjLmXpO3UVwmbEhowrb4We8yu
-	HSY+p4I7MRF52PDxj5Fcj1DmWTaTbp256vjztJjhT9m6VR4gAmmASmIiS2LHX6CbBckmxTyUdneNi
-	LyOiubHjbpgEZ72GFYEqwrZlNMO4Os0gL5qdtyNEE9rD4vHElKRZpY56JSneM5V5OMTf6HNVC5aJ2
-	kSU38LQVkaMZVI4R93b4tDgnEGlYFvHZmIJ7TLSBZdIb0nz5KlyG1EZln2tOU+0skzxl+NZxloCkX
-	5H6IuKjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LuRz2bf0ienDmLStXt3NeAQu7iF8TrRC6CT7MwSaH/s=; b=1v6Z1cWAkpmsR0sl7zP/4UcsTu
+	xmkaeDkozRwAvC61RtnTIqVO+Tl8tBY3Ed3pP2Gc+TDz0HuJJ9E24Wz+Gp5CLraJNMgB/MkFOoq7Q
+	GPaW8gsZYsO0zb7K5M/xZjZJfyYywsTcoYis2W3rzHKdAh+wwPNZPgdICbfUMpvhwmPU+VWK5w0l/
+	Cz2Ik6YBNdpPzYTnnw1tSW+8dMu1m+3/Ds+B2nO4XOmn443fCNdnB8Pn3vp3s3ed4agvIZ1B5TgoU
+	nK/sWDbn7gJBFSyuf7hDK/XsN3QF4z6TCNxvGKDC9jXcu2Cuhde9xqz18WipiPpsNqLwBF1qM1MhS
+	y8rY/gCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHG3Q-0000000GL2l-3Tmc;
-	Mon, 27 Apr 2026 07:06:52 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHG3P-0000000GL2M-3J5e
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 27 Apr 2026 07:06:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:Message-ID:
-	Date:References:In-Reply-To:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=y7/7InQ3YxlIclzI7DLSo4lq3zCq3+EvHj491D6ofKI=; b=Rk2lzBR+7uAzB+WRvpSiD8fwAs
-	UrPnKPv7eQCAL1aF8J6LYp42ehLfKKDAgdFQgnXbu/4oqv/x885oVFXD9UCrOdZiIAibih0vVfKfF
-	RZocPv1lyHesEo5v2I4QaWmc6wrvlO6qkt3Py7+AT3CQkrHHDtdb7VFV0yolK+xEKnXSAsM3P/BnP
-	gZE4t5iLOJrPZd6KVOn900c5ugIge6gkdGLJOKLxdTlPV+r4Qd9EkKjupmrkux3sW7XhgOPnHte5X
-	xCKKNzQPoO6T9sGlCPsFwhXinMdYOM14VnRdq+OuoWHqfdA9sBWcoUI7UvnGP6nKD1ZPw0jtdy59l
-	dDLH5ZdA==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHG3D-0000000HXeI-0fm4
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 07:06:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1777273590;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=y7/7InQ3YxlIclzI7DLSo4lq3zCq3+EvHj491D6ofKI=;
-	b=AhNgSUb7SYqVIPfne92ZQJZqWzAjK2iP6K20RM3iMGoBF4LnATXHVhYhHTfYrTlj1Snq0u
-	p2LpIq0OzJpBrC23gG2V4fBxGheu58jvwtSm3csi9gSNnRtr6D8E7MMB5ZoY1lZcrXpEL+
-	i6SJl85F2ZD30pSWRqDzNVz5zL0xRfA=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1777273597;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=y7/7InQ3YxlIclzI7DLSo4lq3zCq3+EvHj491D6ofKI=;
-	b=HOWlCzMbn+hJdDviRTZX2pRFZJYdXskwX1gwGA3fl8HWVaFMyWqx+RbqxeTuWhLWIqRRLU
-	Bf8EJpLex2UjZnxY5CTkc7wvXif2XO1oJwRpSuNJ+FG3eNPPL9smV0hDwBpxVEOIl1beA2
-	TZV1rb2/g2PHniotGf/otmczL+/tYcU=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-330-COmrkNHAP0e5g2ifgSTz9g-1; Mon,
- 27 Apr 2026 03:06:26 -0400
-X-MC-Unique: COmrkNHAP0e5g2ifgSTz9g-1
-X-Mimecast-MFC-AGG-ID: COmrkNHAP0e5g2ifgSTz9g_1777273583
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0014F18004A9;
-	Mon, 27 Apr 2026 07:06:22 +0000 (UTC)
-Received: from fweimer-oldenburg.csb.redhat.com (unknown [10.44.48.4])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A35AC19560AB;
-	Mon, 27 Apr 2026 07:06:15 +0000 (UTC)
-From: Florian Weimer <fweimer@redhat.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Thomas Gleixner <tglx@kernel.org>,  Mathias Stearn
- <mathias@mongodb.com>,  Peter Zijlstra <peterz@infradead.org>,  Mathieu
- Desnoyers <mathieu.desnoyers@efficios.com>,  Catalin Marinas
- <catalin.marinas@arm.com>,  Will Deacon <will@kernel.org>,  Boqun Feng
- <boqun.feng@gmail.com>,  "Paul E. McKenney" <paulmck@kernel.org>,  Chris
- Kennelly <ckennelly@google.com>,  Dmitry Vyukov <dvyukov@google.com>,
-  regressions@lists.linux.dev,  linux-kernel@vger.kernel.org,
-  linux-arm-kernel@lists.infradead.org,  Ingo Molnar <mingo@kernel.org>,
-  Mark Rutland <mark.rutland@arm.com>,  Jinjie Ruan
- <ruanjinjie@huawei.com>,  Blake Oler <blake.oler@mongodb.com>
-Subject: Re: [REGRESSION] rseq: refactoring in v6.19 broke everyone on arm64
- and tcmalloc everywhere
-In-Reply-To: <CAHk-=wh=B3fqU9AaBsyViZR=eVTG5qa2CGyN=qxPROVxu9Gctg@mail.gmail.com>
-	(Linus Torvalds's message of "Thu, 23 Apr 2026 14:28:35 -0700")
-References: <CAHnCjA25b+nO2n5CeifknSKHssJpPrjnf+dtr7UgzRw4Zgu=oA@mail.gmail.com>
-	<20260422125647.GP3126523@noisy.programming.kicks-ass.net>
-	<20260422131338.GI3102924@noisy.programming.kicks-ass.net>
-	<CAHnCjA2fa+dP1+yCYNQrTXQaW-JdtfMj7wMikwMeeCRg-3NhiA@mail.gmail.com>
-	<87fr4l28zn.ffs@tglx>
-	<CAHnCjA07ER=9xBqXq4jf5yn052W-E9ZXD86HxnRGtai6bpXbbQ@mail.gmail.com>
-	<87cxzp1tn6.ffs@tglx>
-	<CAHk-=wjsEqWJxXArS-P5+ksSY2Apaox8u6FtUrtyWSBEOL4Q2Q@mail.gmail.com>
-	<874il11jac.ffs@tglx>
-	<CAHk-=wh=B3fqU9AaBsyViZR=eVTG5qa2CGyN=qxPROVxu9Gctg@mail.gmail.com>
-Date: Mon, 27 Apr 2026 09:06:13 +0200
-Message-ID: <lhuqzo051cq.fsf@oldenburg.str.redhat.com>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	id 1wHGKZ-0000000GMpM-3bAR;
+	Mon, 27 Apr 2026 07:24:35 +0000
+Received: from azure-sdnproxy.icoremail.net ([52.237.72.81])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHGKV-0000000GMod-3rCC;
+	Mon, 27 Apr 2026 07:24:34 +0000
+Received: from E0004057DT.eswin.cn (unknown [10.11.96.26])
+	by app2 (Coremail) with SMTP id TQJkCgAXLaAPD+9pVwkVAA--.22769S2;
+	Mon, 27 Apr 2026 15:24:01 +0800 (CST)
+From: lizhi2@eswincomputing.com
+To: devicetree@vger.kernel.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	netdev@vger.kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	maxime.chevallier@bootlin.com
+Cc: ningyu@eswincomputing.com,
+	linmin@eswincomputing.com,
+	pinkesh.vaghela@einfochips.com,
+	pritesh.patel@einfochips.com,
+	weishangjuan@eswincomputing.com,
+	horms@kernel.org,
+	Zhi Li <lizhi2@eswincomputing.com>
+Subject: [PATCH net-next v7 0/4] net: stmmac: eic7700: fix EIC7700 eth1 RX sampling timing
+Date: Mon, 27 Apr 2026 15:23:53 +0800
+Message-ID: <20260427072353.1114-1-lizhi2@eswincomputing.com>
+X-Mailer: git-send-email 2.52.0.windows.1
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
-X-Mimecast-MFC-PROC-ID: 00VoddaEIAn7PHlSwVuzaXb_VEtj07Pks9OmbclbFk8_1777273583
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: TQJkCgAXLaAPD+9pVwkVAA--.22769S2
+X-Coremail-Antispam: 1UD129KBjvJXoW3Gr1kAw4UCr47XrWfJw4kCrg_yoW3tw4xpF
+	WUWrn8JFsxJF1xAan7t3W09a4Sqan3GF4jgr1rJrnrXws09Fyqqr1S9F45ZFyDurZ7ZryY
+	vF15KF4jka4j9FJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9E14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26r4a6rW5MxAIw28IcxkI7VAKI4
+	8JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xv
+	wVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjx
+	v20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20E
+	Y4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267
+	AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7sRifHU3UUUUU==
+X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_080644_234426_E68F525F 
-X-CRM114-Status: GOOD (  12.47  )
+X-CRM114-CacheID: sfid-20260427_002432_137018_DBB86BB0 
+X-CRM114-Status: GOOD (  17.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,33 +100,206 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-* Linus Torvalds:
+From: Zhi Li <lizhi2@eswincomputing.com>
 
->>     // Note: this makes __rseq_abi.cpu_id_start unusable for its original purpose.
->>
->>     Do you seriously want to proliferate that?
->
-> Absolutely.
->
-> That's how clever hacks work - they take advantage of things past
-> their design parameters. "If it works, it's not stupid".
->
-> We don't then turn around and say "you were clever, and we did
-> something stupid, so now we'll hurt you".
->
-> This is all 100% on the RSEQ kernel code, not on users who took
-> advantage of it.
+v6 -> v7:
+  - Address checkpatch.pl --strict warnings for DTS changes:
+    - Split DT binding documentation and DTS board description into separate patches
+    - Fix DTS style issues reported by checkpatch:
+      - Reduce line length where applicable
+      - Add required description for rgmii-rxid
 
-RSEQ was intended to be modular, with more than one library using it
-within a process, without coordination (beyond sticking to the RSEQ
-protocol).  The tcmalloc approach is incompatible with that.  Once
-tcmalloc starts using RSEQ in its peculiar way, nothing else in the
-process can, and vice versa.  This is far from ideal because the
-particular descheduling notification that tcmalloc uses could be
-implemented in a much simpler way than full RSEQ, given its non-modular
-nature.
+  - DTS changes in this series are split into:
+    - Patch 3/4: syscon binding update (documentation / reference only)
+    - Patch 4/4: board DTS changes (architecture overview only)
 
-Thanks,
-Florian
+    These patches (3/4 and 4/4) are provided to facilitate review of the overall
+    Ethernet integration across binding, driver, and device tree, and are not
+    intended as final upstream submission in their current form.
+
+    A cleaned-up, upstream-ready DTS series will be submitted separately once
+    all dependencies and final hardware integration are completed.
+
+  - Note:
+    - Clock-related bindings referenced in earlier revisions are now already merged
+      into net-next, so dtbs_check warnings related to clock are no longer present
+      and are not relevant to this revision.
+
+  - No functional changes in the stmmac driver or binding semantics in this revision.
+
+  - Link to v6:
+    https://lore.kernel.org/lkml/20260423085501.760-1-lizhi2@eswincomputing.com/
+
+v5 -> v6:
+  - Update DTS/DTSI descriptions to fix invalid phandle references reported by DTC:
+    - Add missing GMAC provider nodes required for proper hardware description:
+      - HSP power domain: GMAC nodes moved under this domain to reflect
+        hardware power hierarchy.
+      - Clock nodes: added to provide clk phandles referenced by GMAC.
+      - Reset nodes: added to provide reset phandles referenced by GMAC.
+      - Pinctrl nodes: defines pinctrl settings for GMAC signals
+        (pinctrl_gpio106, pinctrl_gpio111).
+    - Move GMAC nodes under the correct HSP power domain.
+    - Ensure DTS builds without dtc errors and all phandle references
+      (clk/reset/pinctrl/power-domain) are valid.
+    - This update does not change runtime behavior; it only improves DTS
+      consistency and resolves issues reported by dtc.
+
+  - Note:
+    - The patch 3/3 for DTS changes in this series provide an overview of the GMAC
+      integration and its dependencies, as discussed previously:
+      https://lore.kernel.org/lkml/64bf6b40-b947-4ffa-8d48-4d6341931327@lunn.ch/
+
+    - It is **not intended for upstream inclusion** in its current form,
+      and is provided solely for architecture overview and integration
+      context.
+
+    - A fully cleaned and upstream-ready DTS series will be submitted
+      separately once all related components (pinctrl, clock, power-domain,
+      etc.) are finalized.
+
+  - dtbs_check has been run on top of net-next for reference purposes.
+    Remaining warnings are expected due to missing EIC7700 clock bindings[1]
+    in net-next and do not reflect issues in the DTS design itself.
+
+  - One remaining warning:
+    - eswin,eic7700-clock
+
+  - The clock binding has already been applied to upstream and is present
+    in mainline, but not yet available in net-next.
+
+  - The syscon binding is extended in this series to include the
+    eswin,eic7700-syscfg compatible.
+
+  - Any further refinement of the syscfg binding will be handled in
+    separate patches if needed.
+
+  - Dependencies:
+    - [1]EIC7700 clock binding:
+      https://lore.kernel.org/lkml/20260303080637.2100-1-dongxuyang@eswincomputing.com/
+      (already applied to upstream)
+
+  - Link to v5:
+    https://lore.kernel.org/lkml/20260324073017.376-1-lizhi2@eswincomputing.com/
+
+v4 -> v5:
+  - eswin,eic7700-eth.yaml:
+    - Add Acked-by from Conor Dooley
+    - No functional changes
+
+  - Update dwmac-eic7700.c:
+    - Disable clocks on the error path to fix a clock leak in
+      eic7700_dwmac_init() when regmap_set_bits() fails
+      (reported by Simon Horman <horms@kernel.org>)
+
+  - Link to v4:
+    https://lore.kernel.org/lkml/20260313075234.1567-1-lizhi2@eswincomputing.com/
+
+v3 -> v4:
+  - Update eswin,eic7700-eth.yaml:
+    - Improve commit message in dt-bindings patch to clarify the
+      hardware difference of the eth1 MAC and why a new compatible
+      string is required.
+    - Move the newly added eswin,hsp-sp-csr item to the end of the list
+      to avoid inserting entries in the middle of the binding schema.
+    - Simplify the compatible schema by replacing the previous oneOf
+      construct with an enum.
+
+  - Update dwmac-eic7700.c:
+    - Fix build issues.
+    - Adjust code to match the updated binding definition.
+
+  - Update DTS/DTSI descriptions:
+    - Move SoC-level descriptions to the .dtsi file.
+    - Keep board-specific configuration in the .dts file.
+
+  - Link to v3:
+    https://lore.kernel.org/lkml/20260303061525.846-1-lizhi2@eswincomputing.com/
+
+v2 -> v3:
+  - Update eswin,eic7700-eth.yaml:
+    - Extend rx-internal-delay-ps and tx-internal-delay-ps range
+      from 0-2400 to 0-2540 to match the full 7-bit hardware delay
+      field (127 * 20 ps).
+    - Add "multipleOf: 20" constraint to reflect the 20 ps hardware
+      step size.
+    - Make rx-internal-delay-ps and tx-internal-delay-ps optional.
+      A well-designed board should not require internal delay tuning.
+    - Remove rx-internal-delay-ps and tx-internal-delay-ps from the
+      example to avoid encouraging blind copy into board DTs.
+
+  - Update dwmac-eic7700.c:
+    - Treat rx-internal-delay-ps and tx-internal-delay-ps as optional
+      DT properties.
+    - Apply delay configuration only when properties are present.
+    - Keep TX/RX delay registers cleared by default to ensure a
+      deterministic state when no delay is specified.
+
+  - Describe Ethernet configuration for the HiFive Premier P550 board:
+    - Add GMAC controller nodes for the HiFive Premier P550 board
+      to describe the on-board Ethernet configuration.
+
+      The Ethernet controller depends on clock, reset, pinctrl
+      and HSP subsystem providers which are currently under
+      upstream review. These dependent nodes will be submitted
+      separately once the corresponding drivers are merged.
+
+      Due to these missing dependencies, dt-binding-check may
+      report warnings or failures for this series.
+
+  - No functional changes to RX clock inversion logic.
+
+  - Link to v2:
+    https://lore.kernel.org/lkml/20260209094628.886-1-lizhi2@eswincomputing.com/
+
+  - This series is based on the EIC7700 clock support series:
+    https://lore.kernel.org/all/20260210095008.726-1-dongxuyang@eswincomputing.com/
+    The clock series is currently under review.
+
+v1 -> v2:
+  - Update eswin,eic7700-eth.yaml:
+    - Drop the vendor-specific properties eswin,rx-clk-invert and
+      eswin,tx-clk-invert.
+    - Introduce a distinct compatible string
+      "eswin,eic7700-qos-eth-clk-inversion" to describe MAC instances that
+      require internal RGMII clock inversion.
+      This models the SoC-specific hardware difference directly via the
+      compatible string and avoids per-board configuration properties.
+    - Change rx-internal-delay-ps and tx-internal-delay-ps from enum to
+      minimum/maximum to reflect the actual delay range (0-2400 ps)
+    - Add reference to High-Speed Subsystem documentation in eswin,hsp-sp-csr
+      description. The HSP CSR block is described in Chapter 10
+      ("High-Speed Interface") of the EIC7700X SoC Technical Reference Manual,
+      Part 4 (EIC7700X_SoC_Technical_Reference_Manual_Part4.pdf):
+      https://github.com/eswincomputing/EIC7700X-SoC-Technical-Reference-Manual/releases
+
+  - Update dwmac-eic7700.c:
+    - Remove handling of eswin,rx-clk-invert and eswin,tx-clk-invert
+      properties.
+    - Select RX clock inversion based on the new
+      "eswin,eic7700-qos-eth-clk-inversion" compatible string, using
+      match data to apply the required configuration for affected MAC
+      instances (eth1).
+
+  - Link to v1:
+    https://lore.kernel.org/lkml/20260109080601.1262-1-lizhi2@eswincomputing.com/
+
+Zhi Li (4):
+  dt-bindings: ethernet: eswin: add clock sampling control
+  net: stmmac: eic7700: enable clocks before syscon access and correct
+    RX sampling timing
+  dt-bindings: mfd: syscon: add ESWIN EIC7700 compatible
+  riscv: dts: eswin: eic7700-hifive-premier-p550: enable Ethernet
+    controller
+
+ .../devicetree/bindings/mfd/syscon.yaml       |   2 +
+ .../bindings/net/eswin,eic7700-eth.yaml       |  69 ++++-
+ .../dts/eswin/eic7700-hifive-premier-p550.dts | 239 ++++++++++++++++++
+ arch/riscv/boot/dts/eswin/eic7700.dtsi        | 105 ++++++++
+ .../ethernet/stmicro/stmmac/dwmac-eic7700.c   | 183 ++++++++++----
+ 5 files changed, 541 insertions(+), 57 deletions(-)
+
+-- 
+2.25.1
 
 
