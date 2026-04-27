@@ -4,65 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F7BFFF8865
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 06:23:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B432FF8850
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 06:31:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=77u5SnqzYB1kLOAl7anj33qdv0Ahp9BFyG5sDgjr5/w=; b=2Dx+DXgRgIKFl42/00qlV9Nkm7
-	onvDQowaERJ5+p028Vx46QeAxarJ16LW4ocMXkmR67UWJd8tNSTB3hEGQ0VrSnzeKlJQobvIHN83m
-	Z34V2C5jDO0CBAZHbI8omqyXzm92auh3tSeAILbLcZG/qfoE/mPMj6oAZOui3AccVgPCuXy2sA3VC
-	Ev62Now/vf8OiVr7TJDpVMJrlJj8Qb0LsCNIoCwGs6qh3ygZzaxfMS0jgR/f92dNDrmVqO/mnRjLh
-	lipeiwiBe5UkuJDxYuGyR/iqZ1nQW5Ip6u0OA8A01WpF54elVskWUsL9/lykwo88JG6laNhLA9OWR
-	oTRXvvlg==;
+	bh=C+WzWmZGxytZvimCMV4gQU1Ld7CSCylOvbslEQrK6Rg=; b=vmTp3JvzMVjlolagQekSrwjG1D
+	KcH0khrb4p6++KimPday2183F3IJ2bo/aZ33vfncVYnOyI24PKeDoLavvGjQ6ph4IxonOjg45TrT/
+	nCElmhjF7a44cO34QSLJbJML++Ms6b08nj2PX1ozMotioipzZ+5HL0+B2qofzwBMZND9no5pWKFJ0
+	8Q+ud9O8z3zqHzSKXgLdOfX8v5o4t6EQJUkVoWJ4dZEWx1/OYfuKlpOk/904JX3MuBl5wFFBOhpYn
+	+6OQKdtHrN2HweuJov6YA4H8OnAg1QOPUFxA/TDofY41EPec6v+PqnLYjn7CaaxR6k/rVeLQv+sJl
+	2HdB636g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHFNd-0000000GFp1-0u5e;
-	Mon, 27 Apr 2026 06:23:41 +0000
-Received: from mail-m1973199.qiye.163.com ([220.197.31.99])
+	id 1wHFV2-0000000GGV6-2b5K;
+	Mon, 27 Apr 2026 06:31:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHFNW-0000000GFlt-10kn
+	id 1wHFUz-0000000GGUk-3hLP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 06:23:35 +0000
-Received: from albert-OptiPlex-7080.. (unknown [112.65.126.162])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 3c40fa9fc;
-	Mon, 27 Apr 2026 14:23:29 +0800 (GMT+08:00)
-From: Albert Yang <yangzh0906@thundersoft.com>
-To: gordon.ge@bst.ai,
-	krzk@kernel.org,
-	krzk+dt@kernel.org,
-	robh@kernel.org,
-	conor+dt@kernel.org,
-	arnd@arndb.de,
-	catalin.marinas@arm.com,
-	will@kernel.org
-Cc: bst-upstream@bstai.top,
+	Mon, 27 Apr 2026 06:31:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B94054091D;
+	Mon, 27 Apr 2026 06:31:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9294DC19425;
+	Mon, 27 Apr 2026 06:31:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777271476;
+	bh=TT3ZABo3gdbLCPLVCA/3gAb1IpW94r3+NRwJmZ4Vdas=;
+	h=From:To:Cc:Subject:Date:From;
+	b=r44Pt2ZR8rT+xlusdriUwtEEiy0YDkqD78pNWIlbVj1zLLqmVZqNduCbhvByi5Gj1
+	 EY0vxn4WO9IibbXFwfukUBlRyxBywJQDBgAsApZqir9RmRIX4wWwnCKMPhd8rFvkW9
+	 rM+wvm9fdz+dI/adkMdR5TWdwGljh/eQxGjfEOCHvOC/iq7w1U9A9mVM3beYdOqvFY
+	 IeuXC0ThOAbGcl9mBXzDBj9DzSRRtv6lshW7bFFILIha/gOM3qsAL9O7TiP42nXf04
+	 x+kpAWvF/LB0JbnIZ1fqUqkSZ/YSEm8UajaIMvm3/AhI4Ps4rMbwvyp7YkLJyAIMi9
+	 igb4TCgupRd1A==
+From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev,
+	linux-coco@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v8 0/2] arm64: dts/defconfig: enable BST C1200 eMMC
-Date: Mon, 27 Apr 2026 14:23:27 +0800
-Message-ID: <20260427062329.3715925-1-yangzh0906@thundersoft.com>
+	kvmarm@lists.linux.dev
+Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Marc Zyngier <maz@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Will Deacon <will@kernel.org>
+Subject: [PATCH v4 0/3] Enforce host page-size alignment for shared buffers
+Date: Mon, 27 Apr 2026 12:01:05 +0530
+Message-ID: <20260427063108.909019-1-aneesh.kumar@kernel.org>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9dcd9b729209cckunmcd249b321a30c8
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaS0pMVkhOHkhCHU9KTE9NTlYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlKSklVTU5VSklNVUpNSVlXWRYaDxIVHRRZQVlPS0hVSk
-	tJT09PSFVKS0tVSkJLS1kG
-DKIM-Signature: a=rsa-sha256;
-	b=DKA68PBru2D4eT/6NocWZbaGuxh8T116UNor2n8Jq1iy5xLaJNMKiTrSdffbeC58cNmNTn4cOQAzPBUVCpM2jCd5/OEWl1bRkf6rr1OrBrWp8iPnHoGYyi+ur+V2ug06NFOgbshM1voDdECTSn12M5MHXsiDJP+TUyw+Gd6mJHM=; c=relaxed/relaxed; s=default; d=thundersoft.com; v=1;
-	bh=77u5SnqzYB1kLOAl7anj33qdv0Ahp9BFyG5sDgjr5/w=;
-	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_232334_465261_80606D0D 
-X-CRM114-Status: UNSURE (   8.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260426_233117_977730_C75D8A20 
+X-CRM114-Status: GOOD (  18.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,60 +82,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds DTS and defconfig support for the eMMC controller on
-Black Sesame Technologies C1200 SoC, split from the v5 MMC series [1].
+Hi all,
 
-The MMC driver patches (dt-bindings, sdhci bounce buffer, BST SDHCI
-driver, and MAINTAINERS update) were merged via mmc-next during the
-v7.1 merge window and are now in mainline as of Linux 7.1-rc1 [2].
-These remaining DTS and defconfig patches are submitted to the mailing
-lists for review (per Krzysztof's feedback on v6 [3])
+This patch series addresses alignment requirements for buffers shared between
+private-memory guests and the host.
 
-Both patches now carry Acked-by: Gordon Ge <gordon.ge@bst.ai> (BST
-maintainer), collected from the v7 thread [4][5].
+When running private-memory guests, the guest kernel must apply additional
+constraints when allocating buffers that are shared with the hypervisor. These
+shared buffers are also accessed by the host kernel and therefore must be
+aligned to the host’s page size.
 
-Changes since v7 [6]:
-- Collected Acked-by: Gordon Ge <gordon.ge@bst.ai> on patch 1/2 [4]
-- Collected Acked-by: Gordon Ge <gordon.ge@bst.ai> on patch 2/2 [5]
-- Rebased onto v7.1-rc1
-- No code changes
+Architectures such as Arm can tolerate realm physical address space PFNs being
+mapped as shared memory, as incorrect accesses are detected and reported as GPC
+faults. However, relying on this mechanism alone is unsafe and can still lead to
+kernel crashes.
 
-Changes since v6:
-- Resend with corrected recipients: send to mailing lists for review
-  first, not directly to soc@ (BST has a platform maintainer in
-  MAINTAINERS), per Krzysztof's feedback [3].
+This is particularly likely when guest_memfd allocations are mmapped and
+accessed from userspace. Once exposed to userspace, it is not possible to
+guarantee that applications will only access the intended 4K shared region
+rather than the full 64K page mapped into their address space. Such userspace
+addresses may also be passed back into the kernel and accessed via the linear
+map, potentially resulting in a GPC fault and a kernel crash.
 
-Changes since v5:
-- Patch 2 (defconfig): fix CONFIG_MMC_SDHCI_BST ordering to match
-  Kconfig position (between CONFIG_MMC_SDHCI_TEGRA and
-  CONFIG_MMC_SDHCI_F_SDH30), as pointed out by Krzysztof Kozlowski.
-  Confirmed via savedefconfig.
+To address this, the series introduces a new helpers,
+mem_decrypt_granule_size() and mem_decrypt_align(), which allows callers to
+enforce the required alignment for shared buffers.
 
-Build/check on v7.1-rc1:
-- arch/arm64 defconfig: clean (savedefconfig keeps CONFIG_MMC_SDHCI_BST
-  at its Kconfig-ordered position; no diff in the MMC_SDHCI section)
-- arch/arm64/boot/dts/bst/bstc1200-cdcu1.0-adas_4c2g.dtb: builds clean
-  with W=1 and CHECK_DTBS=y (no new warnings)
-- checkpatch.pl --strict: 0 errors, 0 warnings, 0 checks on both patches
+Changes from v3:
+https://lore.kernel.org/all/20260309102625.2315725-1-aneesh.kumar@kernel.org
+* Fix build error reported by kernel test robot <lkp@intel.com>
 
-[1] https://lore.kernel.org/lkml/20260123095342.272505-1-yangzh0906@thundersoft.com/
-[2] https://lore.kernel.org/lkml/CAPDyKFrcXFAiYouOpjDx3NN-xWACU9jAzEfTU2m_-yvQ9SpC_A@mail.gmail.com/
-[3] https://lore.kernel.org/lkml/12058c14-67c7-4b43-bbbc-ef0ccb813e61@kernel.org/
-[4] https://lore.kernel.org/lkml/20260417.164709-gordon.ge@bst.ai/
-[5] https://lore.kernel.org/lkml/20260417.163754-gordon.ge@bst.ai/
-[6] https://lore.kernel.org/lkml/20260310091211.4171307-1-yangzh0906@thundersoft.com/
+Changes from v2:
+https://lore.kernel.org/all/20251221160920.297689-1-aneesh.kumar@kernel.org
+* Rebase to latest kernel
+* Consider swiotlb always decrypted and don't align when allocating from swiotlb.
 
-Albert Yang (2):
-  arm64: dts: bst: enable eMMC controller in C1200 CDCU1.0 board
-  arm64: defconfig: enable BST SDHCI controller
+Changes from v1:
+* Rename the helper to mem_encrypt_align
+* Improve the commit message
+* Handle DMA allocations from contiguous memory
+* Handle DMA allocations from the pool
+* swiotlb is still considered unencrypted. Support for an encrypted swiotlb pool
+  is left as TODO and is independent of this series.
 
- .../dts/bst/bstc1200-cdcu1.0-adas_4c2g.dts    | 19 +++++++++++++++++++
- arch/arm64/boot/dts/bst/bstc1200.dtsi         | 18 ++++++++++++++++++
- arch/arm64/configs/defconfig                  |  1 +
- 3 files changed, 38 insertions(+)
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: Robin Murphy <robin.murphy@arm.com>
+Cc: Steven Price <steven.price@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Thomas Gleixner <tglx@kernel.org>
+Cc: Will Deacon <will@kernel.org>
 
+Aneesh Kumar K.V (Arm) (3):
+  dma-direct: swiotlb: handle swiotlb alloc/free outside
+    __dma_direct_alloc_pages
+  swiotlb: dma: its: Enforce host page-size alignment for shared buffers
+  coco: guest: arm64: Query host IPA-change alignment via RHI
 
-base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
+ arch/arm64/include/asm/mem_encrypt.h |  3 ++
+ arch/arm64/include/asm/rhi.h         | 24 ++++++++++++
+ arch/arm64/include/asm/rsi.h         |  2 +
+ arch/arm64/include/asm/rsi_cmds.h    | 10 +++++
+ arch/arm64/include/asm/rsi_smc.h     |  7 ++++
+ arch/arm64/kernel/Makefile           |  2 +-
+ arch/arm64/kernel/rhi.c              | 54 ++++++++++++++++++++++++++
+ arch/arm64/kernel/rsi.c              | 13 +++++++
+ arch/arm64/mm/mem_encrypt.c          | 27 +++++++++++--
+ drivers/irqchip/irq-gic-v3-its.c     | 20 ++++++----
+ include/linux/mem_encrypt.h          | 14 +++++++
+ kernel/dma/contiguous.c              | 10 +++++
+ kernel/dma/direct.c                  | 58 ++++++++++++++++++++++++----
+ kernel/dma/pool.c                    |  4 +-
+ kernel/dma/swiotlb.c                 | 21 ++++++----
+ 15 files changed, 240 insertions(+), 29 deletions(-)
+ create mode 100644 arch/arm64/include/asm/rhi.h
+ create mode 100644 arch/arm64/kernel/rhi.c
+
 -- 
 2.43.0
 
