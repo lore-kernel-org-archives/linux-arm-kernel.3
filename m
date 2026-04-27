@@ -4,66 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCFE2FF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 18:16:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF7E9FF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 18:21:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HeS3u4LScDK25DMggi+s3iMFRhJgq6Ku3xN7NiKkpWY=; b=ob6TDT6fxNvH3WbFqeGmlm2aM7
-	PL0K0bVl5T2B9KkzQhFChj8gl0J+P2A0DNv9EHs8RsHl3bbDHQL4+UVfVcVGylLRm7RUyGQIyGM5D
-	IuzHsGue4rqfnbugDTnV5l0YCQobePSOqZq/BK0ZvWdBbYoB4FsZV8pVtde+vwEZ+HkadO6nNw8vl
-	bKttDgqMBA57RxgTlxuca2RxkUYKEEjDjxZx7DEsQLkwgEqmNJsFsqk48JrgpjzRhJhj86xx34IEV
-	nRYLJ2EUkFSCxQZcF1xHG7AnCJt3uwtduh/gUNs7GbpR7m28GIW4kd7wkUk/hlAdbVT9COH0xgJ+c
-	nATm8fIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jRL0edEqnjRKMMuAf8kNDWGdxE3K4+zobIK6wBqidRA=; b=Fd1dRZL7qhNk68IN5NzEU5YcL9
+	Sc5pz7jW99zuYG3c346yKXAkL8pOhVANsGZduO4NN66nUsrkF1AvhlAfNLQQCGbNSk4hjKqW3eON3
+	TKOJ1zRM8p+KlxZbzdakvNEKcL5O2wqgdBzR+Wws6UDpAqL5IIdg1l/DosfTqai4Ajvai74HWc1wA
+	lbL4x2NMZN8RLTquyfjXCSMRxI0W/y9g7l534Q4Lhtxj4/NCXo8Gsh+KSRpahxjjCCmw/MwKZafWw
+	879JQmE9T2GOnGwvgH2npP8xljuayyqSAEpFl4X7kiQGuojqHHHiiRanTesg4zmdwV3yEfNylV4EK
+	uZLnO7mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHQV2-0000000HYvX-1hh6;
-	Mon, 27 Apr 2026 18:16:04 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHQV0-0000000HYvA-00ck
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 18:16:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 265B3202C;
-	Mon, 27 Apr 2026 11:15:54 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 469703F763;
-	Mon, 27 Apr 2026 11:15:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777313759; bh=ACljZHaJXDWWo3KsuPklvBKX5osHaF3OHqjq1FWimAY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZopmOAXeyH32KlGCBGqNDXyu19rK+2znV5qmuL6PJA7mimU6Oc+SKnYg1/H0vDLp5
-	 uYzMS4Vv17gPGguTlkQXqWOg/q2/g8szaE/GTN1VCvKsLqE3YlhDgehhZuB6MqVIrQ
-	 /dQGBqskJ7TeuiNmPahrOI2PQa2VlylsGsI4pGBE=
-Date: Mon, 27 Apr 2026 19:15:57 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	quic_yingdeng@quicinc.com,
-	Jinlong Mao <jinlong.mao@oss.qualcomm.com>,
-	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-	Jie Gan <jie.gan@oss.qualcomm.com>
-Subject: Re: [PATCH v8 4/4] coresight: cti: expose banked sysfs registers for
- Qualcomm extended CTI
-Message-ID: <20260427181557.GC16537@e132581.arm.com>
-References: <20260426-extended-cti-v8-0-23b900a4902f@oss.qualcomm.com>
- <20260426-extended-cti-v8-4-23b900a4902f@oss.qualcomm.com>
+	id 1wHQaE-0000000HZK8-33AU;
+	Mon, 27 Apr 2026 18:21:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHQaC-0000000HZJc-0L84;
+	Mon, 27 Apr 2026 18:21:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 46E9540246;
+	Mon, 27 Apr 2026 18:20:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CCCFC2BCB5;
+	Mon, 27 Apr 2026 18:20:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777314053;
+	bh=fSfdZ5/fBIJBn92+lTQ8RknrFiSruKk4Zm5FPbyuhQI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=J2scZpbKenpOejPaCkxdr8Fr6c4RornKyxLjF0dKFYhSlw+matCdj3SDWlLeqEo9E
+	 a373XI9Iold2YwxLkAFI1OVkbxbR9JLgxu/comiCZJeBJjQK8IiPFbF3a0OQIu5zFJ
+	 z32D8XDVz5Fo00XfpR09lc3WO+fPx7ont3FOA+TL4jxGM7w1J5Z2cHWcv2Vi05coRU
+	 6lIPjD/Eh4XtMiOh4PUlJfQ+hbcnF50oIaF0Y5is14Jb9Uy7pNbq6e4WVWxwPn3QZF
+	 F5175xYuXBtUSK+HvgeuPZTDTXog5e6524IUP62vgqpWl/U/vR5Pqvo+DbOYeGkne+
+	 cSOzK+yVIhXWw==
+Message-ID: <63a4d0f6-0eb3-48cd-9f98-bf7b223b2606@kernel.org>
+Date: Mon, 27 Apr 2026 20:20:38 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260426-extended-cti-v8-4-23b900a4902f@oss.qualcomm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v1 7/9] x86: Add unsafe_copy_from_user()
+To: Yury Norov <ynorov@nvidia.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ David Laight <david.laight.linux@gmail.com>,
+ Thomas Gleixner <tglx@linutronix.de>, linux-alpha@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+ dmaengine@vger.kernel.org, linux-efi@vger.kernel.org,
+ linux-fsi@lists.ozlabs.org, amd-gfx@lists.freedesktop.org,
+ dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+ linux-wpan@vger.kernel.org, netdev@vger.kernel.org,
+ linux-wireless@vger.kernel.org, linux-spi@vger.kernel.org,
+ linux-media@vger.kernel.org, linux-staging@lists.linux.dev,
+ linux-serial@vger.kernel.org, linux-usb@vger.kernel.org,
+ xen-devel@lists.xenproject.org, linux-fsdevel@vger.kernel.org,
+ ocfs2-devel@lists.linux.dev, bpf@vger.kernel.org,
+ kasan-dev@googlegroups.com, linux-mm@kvack.org, linux-x25@vger.kernel.org,
+ rust-for-linux@vger.kernel.org, linux-sound@vger.kernel.org,
+ sound-open-firmware@alsa-project.org, linux-csky@vger.kernel.org,
+ linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linux-sh@vger.kernel.org,
+ linux-arch@vger.kernel.org
+References: <cover.1777306795.git.chleroy@kernel.org>
+ <0ee46bb228d97163fbdc14f2a7c52b93d8bc34ce.1777306795.git.chleroy@kernel.org>
+ <ae-j2_QirCySZD02@yury>
+Content-Language: fr-FR
+From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+In-Reply-To: <ae-j2_QirCySZD02@yury>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_111602_381893_43B10611 
-X-CRM114-Status: GOOD (  24.69  )
+X-CRM114-CacheID: sfid-20260427_112124_188243_5F384290 
+X-CRM114-Status: GOOD (  15.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,156 +97,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 26, 2026 at 05:44:41PM +0800, Yingchao Deng wrote:
-> Qualcomm extended CTI implements banked trigger status and integration
-> registers, where each bank covers 32 triggers. Multiple instances of
-> these registers are required to expose the full trigger space.
+
+
+Le 27/04/2026 à 19:58, Yury Norov a écrit :
+> On Mon, Apr 27, 2026 at 07:13:48PM +0200, Christophe Leroy (CS GROUP) wrote:
+>> At the time being, x86 and arm64 are missing unsafe_copy_from_user().
 > 
-> Add static sysfs entries for the banked CTI registers and control their
-> visibility based on the underlying hardware configuration. Numbered
-> sysfs nodes are hidden on standard ARM CTIs, preserving the existing ABI.
-> On Qualcomm CTIs, only banked registers backed by hardware are exposed,
-> with the number of visible banks derived from nr_trig_max.
+> No, they don't. They (should) rely on a generic implementation from
+> linux/uaccess.h, like every other arch, except for  PPC and RISCV.
 > 
-> This ensures that userspace only sees registers that are actually
-> implemented, while maintaining compatibility with existing CTI tooling.
+> But they #define arch_unsafe_get_user, and the unsafe_copy_from_user()
+> becomes undefined conditionally on that.
 > 
-> Signed-off-by: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
-> ---
->  drivers/hwtracing/coresight/coresight-cti-sysfs.c | 58 +++++++++++++++++++++++
->  1 file changed, 58 insertions(+)
+> So please, fix that bug instead of introducing another arch flavor.
+> We'd always choose generic version, unless there's strong evidence
+> that arch one is better.
+
+But they both implement the exact same unsafe_copy_to_user(). What is 
+the difference here ?
+
+Should that function become generic too ?
+
+Christophe
+
 > 
-> diff --git a/drivers/hwtracing/coresight/coresight-cti-sysfs.c b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-> index 8b70e7e38ea3..046757e4e9b6 100644
-> --- a/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-> +++ b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-> @@ -512,18 +512,36 @@ static struct attribute *coresight_cti_regs_attrs[] = {
->  	&dev_attr_appclear.attr,
->  	&dev_attr_apppulse.attr,
->  	coresight_cti_reg(triginstatus, CTITRIGINSTATUS),
-> +	coresight_cti_reg(triginstatus1, CTI_REG_SET_NR_CONST(CTITRIGINSTATUS, 1)),
+> 
+> Thanks,
+> Yury
+>   
+>> Add it.
+>>
+>> Signed-off-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
+>> ---
+>>   arch/x86/include/asm/uaccess.h | 29 ++++++++++++++++++++++++-----
+>>   1 file changed, 24 insertions(+), 5 deletions(-)
+>>
+>> diff --git a/arch/x86/include/asm/uaccess.h b/arch/x86/include/asm/uaccess.h
+>> index 3a0dd3c2b233..10c458ffa399 100644
+>> --- a/arch/x86/include/asm/uaccess.h
+>> +++ b/arch/x86/include/asm/uaccess.h
+>> @@ -598,7 +598,7 @@ _label:									\
+>>    * We want the unsafe accessors to always be inlined and use
+>>    * the error labels - thus the macro games.
+>>    */
+>> -#define unsafe_copy_loop(dst, src, len, type, label)				\
+>> +#define unsafe_put_loop(dst, src, len, type, label)				\
+>>   	while (len >= sizeof(type)) {						\
+>>   		unsafe_put_user(*(type *)(src),(type __user *)(dst),label);	\
+>>   		dst += sizeof(type);						\
+>> @@ -611,10 +611,29 @@ do {									\
+>>   	char __user *__ucu_dst = (_dst);				\
+>>   	const char *__ucu_src = (_src);					\
+>>   	size_t __ucu_len = (_len);					\
+>> -	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u64, label);	\
+>> -	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u32, label);	\
+>> -	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u16, label);	\
+>> -	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u8, label);	\
+>> +	unsafe_put_loop(__ucu_dst, __ucu_src, __ucu_len, u64, label);	\
+>> +	unsafe_put_loop(__ucu_dst, __ucu_src, __ucu_len, u32, label);	\
+>> +	unsafe_put_loop(__ucu_dst, __ucu_src, __ucu_len, u16, label);	\
+>> +	unsafe_put_loop(__ucu_dst, __ucu_src, __ucu_len, u8, label);	\
+>> +} while (0)
+>> +
+>> +#define unsafe_get_loop(dst, src, len, type, label)				\
+>> +	while (len >= sizeof(type)) {						\
+>> +		unsafe_get_user(*(type __user *)(src),(type *)(dst),label);	\
+>> +		dst += sizeof(type);						\
+>> +		src += sizeof(type);						\
+>> +		len -= sizeof(type);						\
+>> +	}
+>> +
+>> +#define unsafe_copy_from_user(_dst,_src,_len,label)			\
+>> +do {									\
+>> +	char *__ucu_dst = (_dst);					\
+>> +	const char __user *__ucu_src = (_src);				\
+>> +	size_t __ucu_len = (_len);					\
+>> +	unsafe_get_loop(__ucu_dst, __ucu_src, __ucu_len, u64, label);	\
+>> +	unsafe_get_loop(__ucu_dst, __ucu_src, __ucu_len, u32, label);	\
+>> +	unsafe_get_loop(__ucu_dst, __ucu_src, __ucu_len, u16, label);	\
+>> +	unsafe_get_loop(__ucu_dst, __ucu_src, __ucu_len, u8, label);	\
+>>   } while (0)
+>>   
+>>   #ifdef CONFIG_CC_HAS_ASM_GOTO_OUTPUT
+>> -- 
+>> 2.49.0
+>>
 
-How about extend the cs_off_attribute struct:
-
-  struct cs_off_attribute {
-        struct device_attribute attr;
-        u32 off;
-        u32 index;
-  };
-
-  // by default, the index is 0
-  #define coresight_cti_reg(name, offset)                               \
-        (&((struct cs_off_attribute[]) {                                \
-           {                                                            \
-                __ATTR(name, 0444, coresight_cti_reg_show, NULL),       \
-                offset                                                  \
-                0                                                       \
-           }                                                            \
-  })[0].attr.attr)
-
-  // For the register with index
-  #define coresight_cti_reg_index(name, offset, index)                  \
-        (&((struct cs_off_attribute[]) {                                \
-           {                                                            \
-                __ATTR(name, 0444, coresight_cti_reg_show, NULL),       \
-                offset                                                  \
-                index                                                   \
-           }                                                            \
-  })[0].attr.attr)
-
-  coresight_cti_reg_index(triginstatus1, CTITRIGINSTATUS, 1),
-
-> +	coresight_cti_reg(triginstatus2, CTI_REG_SET_NR_CONST(CTITRIGINSTATUS, 2)),
-> +	coresight_cti_reg(triginstatus3, CTI_REG_SET_NR_CONST(CTITRIGINSTATUS, 3)),
->  	coresight_cti_reg(trigoutstatus, CTITRIGOUTSTATUS),
-> +	coresight_cti_reg(trigoutstatus1, CTI_REG_SET_NR_CONST(CTITRIGOUTSTATUS, 1)),
-> +	coresight_cti_reg(trigoutstatus2, CTI_REG_SET_NR_CONST(CTITRIGOUTSTATUS, 2)),
-> +	coresight_cti_reg(trigoutstatus3, CTI_REG_SET_NR_CONST(CTITRIGOUTSTATUS, 3)),
->  	coresight_cti_reg(chinstatus, CTICHINSTATUS),
->  	coresight_cti_reg(choutstatus, CTICHOUTSTATUS),
->  #ifdef CONFIG_CORESIGHT_CTI_INTEGRATION_REGS
->  	coresight_cti_reg_rw(itctrl, CORESIGHT_ITCTRL),
->  	coresight_cti_reg(ittrigin, ITTRIGIN),
-> +	coresight_cti_reg(ittrigin1, CTI_REG_SET_NR_CONST(ITTRIGIN, 1)),
-> +	coresight_cti_reg(ittrigin2, CTI_REG_SET_NR_CONST(ITTRIGIN, 2)),
-> +	coresight_cti_reg(ittrigin3, CTI_REG_SET_NR_CONST(ITTRIGIN, 3)),
->  	coresight_cti_reg(itchin, ITCHIN),
->  	coresight_cti_reg_rw(ittrigout, ITTRIGOUT),
-> +	coresight_cti_reg_rw(ittrigout1, CTI_REG_SET_NR_CONST(ITTRIGOUT, 1)),
-> +	coresight_cti_reg_rw(ittrigout2, CTI_REG_SET_NR_CONST(ITTRIGOUT, 2)),
-> +	coresight_cti_reg_rw(ittrigout3, CTI_REG_SET_NR_CONST(ITTRIGOUT, 3)),
->  	coresight_cti_reg_rw(itchout, ITCHOUT),
->  	coresight_cti_reg(itchoutack, ITCHOUTACK),
->  	coresight_cti_reg(ittrigoutack, ITTRIGOUTACK),
-> +	coresight_cti_reg(ittrigoutack1, CTI_REG_SET_NR_CONST(ITTRIGOUTACK, 1)),
-> +	coresight_cti_reg(ittrigoutack2, CTI_REG_SET_NR_CONST(ITTRIGOUTACK, 2)),
-> +	coresight_cti_reg(ittrigoutack3, CTI_REG_SET_NR_CONST(ITTRIGOUTACK, 3)),
->  	coresight_cti_reg_wo(ittriginack, ITTRIGINACK),
-> +	coresight_cti_reg_wo(ittriginack1, CTI_REG_SET_NR_CONST(ITTRIGINACK, 1)),
-> +	coresight_cti_reg_wo(ittriginack2, CTI_REG_SET_NR_CONST(ITTRIGINACK, 2)),
-> +	coresight_cti_reg_wo(ittriginack3, CTI_REG_SET_NR_CONST(ITTRIGINACK, 3)),
->  	coresight_cti_reg_wo(itchinack, ITCHINACK),
->  #endif
->  	NULL,
-> @@ -534,10 +552,50 @@ static umode_t coresight_cti_regs_is_visible(struct kobject *kobj,
->  {
->  	struct device *dev = kobj_to_dev(kobj);
->  	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> +	static const char * const qcom_suffix_registers[] = {
-> +		"triginstatus",
-> +		"trigoutstatus",
-> +#ifdef CONFIG_CORESIGHT_CTI_INTEGRATION_REGS
-> +		"ittrigin",
-> +		"ittrigout",
-> +		"ittriginack",
-> +		"ittrigoutack",
-> +#endif
-> +	};
-> +	int i, nr, max_bank;
-> +	size_t len;
->  
->  	if (attr == &dev_attr_asicctl.attr && !drvdata->config.asicctl_impl)
->  		return 0;
->  
-> +	/*
-> +	 * Banked regs are exposed as <qcom_suffix_registers><nr> (nr = 1..3).
-> +	 * - Hide them on standard CTIs.
-> +	 * - On QCOM CTIs, hide suffixes beyond the number of banks implied
-> +	 *   by nr_trig_max (32 triggers per bank).
-> +	 */
-> +	for (i = 0; i < ARRAY_SIZE(qcom_suffix_registers); i++) {
-
-This can be general for a register with index?  Like:
-
-  for (i = 0; i < ARRAY_SIZE(registers_with_index); i++) {
-
-> +		len = strlen(qcom_suffix_registers[i]);
-> +
-> +		if (strncmp(attr->name, qcom_suffix_registers[i], len))
-> +			continue;
-> +
-> +		if (kstrtoint(attr->name + len, 10, &nr))
-> +			continue;
-> +
-> +		if (!drvdata->is_qcom_cti)
-> +			return 0;
-> +
-> +		if (nr < 1 || nr > 3)
-> +			return 0;
-> +
-> +		max_bank = DIV_ROUND_UP(drvdata->config.nr_trig_max, 32) - 1;
-> +		if (nr > max_bank)
-> +			return 0;
-
-Directly check the attr's index here?
-
-  struct cs_off_attribute *cti_attr =
-                container_of(attr, struct cs_off_attribute, attr);
-
-  max_bank = DIV_ROUND_UP(drvdata->config.nr_trig_max, 32);
-  if (cti_attr->index >= max_bank)
-      return 0;
-
-Thanks,
-Leo
 
