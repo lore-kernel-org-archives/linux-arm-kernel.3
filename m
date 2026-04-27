@@ -4,85 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67810FF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 15:52:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F64AFF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 15:55:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aFAG4VMl/JrvmU+mQ4HzgZSqyLnCpsKHU4Ha1Y4GQNY=; b=KMoMmKx4OW/6b1ZE5ESza3Pt6r
-	z4pLs6MwFTs7XsFGZDi5eM7BdWNsg8k2/hDAODJDiiMQKAcPpBa7jjizPLWpxOgWKrGQ6WT82bit5
-	/CsOA19ptPBwgVUEp1d/LJtn8s8P3jz93OT0s+nTfTaEfbulvaEsTsFWJTq0hLNvPd+o5+pu1judw
-	PK/UXEXLg04B2TDCBucIiEJgM7CD01TpwOYU7W5oQWCB2ne71vwgGi3jbsEkEk9CWczmNMmWD8rnT
-	AvR7GUmTDWpzPZmm+h0WDcK1yQpxga+MB2XfBnbm9e+h1nTPfb/WilSIH6v6JzD3Hb+bQtMm/R9Oj
-	m9fHfNqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N44/hUn/rxHKj0zNAbb1s+J5HUDW8JRG1lbLFljrYmY=; b=RFHsj6yNdDtcdgO4l982cL8y1e
+	qm0N3hUc5lDdWPiBKRZJn2gBWrPKnlUf0CxDYhhzXv7fgju1lAs7bfsIULhbZfd+55z499UavXyxd
+	rV4eWlhfNQhzsVebX6Fk7WOrhUTNZ158TX0QbEhzAI3YywZHFPJaBjgkve+EZpDVLPuHLbbWc4b/K
+	G4ie/+skELX90+7abRPat5aNoNrg1F8RSW0cdgQq6GEGFticktSsb+l4ME5gB/MzVaMiTsuKXD8og
+	SUwfYOHUkRv36UabqwDrFTJTIv9QBHL/Eh4IL6ZzGGHHcoH2wXhMrc7KG/Gp3f3Na4kzTHB/THluE
+	vNI6p9ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHOGB-0000000HF4I-32TS;
-	Mon, 27 Apr 2026 15:52:35 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1wHOJA-0000000HFNh-1Gls;
+	Mon, 27 Apr 2026 15:55:40 +0000
+Received: from 013.lax.mailroute.net ([199.89.1.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHOG9-0000000HF3l-1fAS
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 15:52:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1777305153; x=1808841153;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=hZzygghIaYNoBXzjbpF+bp1gCuinbN7CeWYke3oLa4U=;
-  b=BQBRBtYxiA0xTSJWR54Zqk43OMcLIj+5CKxzgOD5wu9GxC0vgZ96WN7P
-   hQHLabqyRGPxlYMLphXFqL/LYhQnWfkp0nCRBDbHtaue41Yk2HUlxb+2f
-   0gx1Np1i++0fJlybiS0I5AV4AImnvDolHy4T+qQB3ldiTxE35CJpv8wRA
-   Pk+cjofyohPSRdCq/vG7Yj9ZrXz1ilLtOihKKRo0faKZyb7Fz29ZUVooU
-   Q/3gEKNuAKvnkyoPLsfNR/3O438BSDRGgrQA3pBzy/akyJ1BFpwUNE6aE
-   6K1fDzfgrzFNCRX8INLLRIlG+KEG8ODJjD+Rbfy/jWqileCAtKpw0e4lI
-   Q==;
-X-CSE-ConnectionGUID: Jmmm4s7kSlCUb5drTyOhhQ==
-X-CSE-MsgGUID: RbdiVMiYR6+Q1aVL/o2cGw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11769"; a="65728613"
-X-IronPort-AV: E=Sophos;i="6.23,202,1770624000"; 
-   d="scan'208";a="65728613"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Apr 2026 08:52:32 -0700
-X-CSE-ConnectionGUID: QaxYEsZuSQqV1Lg0u0bCBQ==
-X-CSE-MsgGUID: Uqme4H9aRTmYVVKbBLbUXQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,202,1770624000"; 
-   d="scan'208";a="233517889"
-Received: from fpallare-mobl4.ger.corp.intel.com (HELO localhost) ([10.245.244.2])
-  by orviesa009-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Apr 2026 08:52:28 -0700
-Date: Mon, 27 Apr 2026 18:52:25 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Peng Fan <peng.fan@nxp.com>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	Kees Cook <kees@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org
-Subject: Re: [PATCH 3/3] ASoC: pxa: integrate sound/arm/pxa2xx into
- sound/soc/pxa2xx
-Message-ID: <ae-GOQjD4Kq0ve8D@ashevche-desk.local>
-References: <20260427144658.3609647-1-arnd@kernel.org>
- <20260427144658.3609647-3-arnd@kernel.org>
+	id 1wHOJ7-0000000HFN7-1uet;
+	Mon, 27 Apr 2026 15:55:38 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by 013.lax.mailroute.net (Postfix) with ESMTP id 4g47Sk47zbzlfl8H;
+	Mon, 27 Apr 2026 15:55:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
+	content-transfer-encoding:content-type:content-type:in-reply-to
+	:from:from:content-language:references:subject:subject
+	:user-agent:mime-version:date:date:message-id:received:received;
+	 s=mr01; t=1777305324; x=1779897325; bh=N44/hUn/rxHKj0zNAbb1s+J5
+	HUDW8JRG1lbLFljrYmY=; b=AS9ot/w/9A9vR1R65POxmh5t9/Aj96s4ZI0AEiD+
+	jcCrQU7rczUOWUSNHe9o0Z92MUJtXOvW6XAYI8TRdwA2nH5XXByKhCCgWK/RzEVC
+	F57InLaCupU3IavRMmDPIhWuVCD2sr+P4dBKj7Cc0KEwcbDsEt61J7xAgzIC6I3S
+	5WwoMJb6Xop8pJzgmTFNGmbGWDV6aJb40z6vT8zNuzo1Jgu4aYsMTj69odB1QHu1
+	FwofbHUg3GgRxVWW2XQje7XeKU3hOs/nV0rzlJfMcMiHp0ROh134ZUtd2tA5l44N
+	jJWbTsX6uMFo1exml2S6aFVOf3AzbYJatMHFGeYijHUg0g==
+X-Virus-Scanned: by MailRoute
+Received: from 013.lax.mailroute.net ([127.0.0.1])
+ by localhost (013.lax [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
+ id RxkvdlmE0D7E; Mon, 27 Apr 2026 15:55:24 +0000 (UTC)
+Received: from [100.119.48.131] (unknown [104.135.180.219])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bvanassche@acm.org)
+	by 013.lax.mailroute.net (Postfix) with ESMTPSA id 4g47SN4npKzlfl7s;
+	Mon, 27 Apr 2026 15:55:16 +0000 (UTC)
+Message-ID: <4190071d-0eb0-4b3a-b2a7-78ea31d4fe37@acm.org>
+Date: Mon, 27 Apr 2026 08:55:15 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260427144658.3609647-3-arnd@kernel.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/1] scsi: ufs: remove ucd_rsp_dma_addr and
+ ucd_prdt_dma_addr from ufshcd_lrb
+To: ed.tsai@mediatek.com, Alim Akhtar <alim.akhtar@samsung.com>,
+ Avri Altman <avri.altman@wdc.com>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ "Martin K. Petersen" <martin.petersen@oracle.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, wsd_upstream@mediatek.com,
+ peter.wang@mediatek.com, alice.chao@mediatek.com, naomi.chu@mediatek.com,
+ chun-hung.wu@mediatek.com, stable@vger.kernel.org, linux-scsi@vger.kernel.org
+References: <20260427035856.1610363-1-ed.tsai@mediatek.com>
+Content-Language: en-US
+From: Bart Van Assche <bvanassche@acm.org>
+In-Reply-To: <20260427035856.1610363-1-ed.tsai@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_085233_491861_80FC0EC3 
-X-CRM114-Status: GOOD (  14.57  )
+X-CRM114-CacheID: sfid-20260427_085537_513933_831C5764 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,74 +90,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 27, 2026 at 04:46:31PM +0200, Arnd Bergmann wrote:
+On 4/26/26 8:58 PM, ed.tsai@mediatek.com wrote:
+> diff --git a/drivers/ufs/core/ufshcd.c b/drivers/ufs/core/ufshcd.c
+> index 4805e40ed4d7..02fa61322e77 100644
+> --- a/drivers/ufs/core/ufshcd.c
+> +++ b/drivers/ufs/core/ufshcd.c
+> @@ -621,7 +621,8 @@ static void ufshcd_print_tr(struct ufs_hba *hba, st=
+ruct scsi_cmnd *cmd,
+>   	ufshcd_hex_dump("UPIU REQ: ", lrbp->ucd_req_ptr,
+>   			sizeof(struct utp_upiu_req));
+>   	dev_err(hba->dev, "UPIU[%d] - Response UPIU phys@0x%llx\n", tag,
+> -		(u64)lrbp->ucd_rsp_dma_addr);
+> +		(u64)(lrbp->ucd_req_dma_addr +
+> +		offsetof(struct utp_transfer_cmd_desc, response_upiu)));
+>   	ufshcd_hex_dump("UPIU RSP: ", lrbp->ucd_rsp_ptr,
+>   			sizeof(struct utp_upiu_rsp));
+>  =20
+> @@ -633,7 +634,8 @@ static void ufshcd_print_tr(struct ufs_hba *hba, st=
+ruct scsi_cmnd *cmd,
+>   	dev_err(hba->dev,
+>   		"UPIU[%d] - PRDT - %d entries  phys@0x%llx\n",
+>   		tag, prdt_length,
+> -		(u64)lrbp->ucd_prdt_dma_addr);
+> +		(u64)(lrbp->ucd_req_dma_addr +
+> +		offsetof(struct utp_transfer_cmd_desc, prd_table)));
 
-> The pxa2xx sound library modules are only used by the ASoC driver since
-> commit b094de7810f3 ("ASoC: codec: Remove pxa2xx-ac97.c"), so move the
-> code into the one module that uses as a simpliciation.
+I don't think that it is useful to log DMA addresses and I prefer that=20
+this information would not be logged at all. Logging this information
+might even involve a security risk. Here is some information about this
+topic that comes from an LLM:
+------------------------------------------------------------------------
+Why is logging pointer addresses from kernel code considered a security=20
+risk?
 
-Is this part of the series that touches UDC? Btw, the UDC one despite on being
-mentioned as v2 in the changelog still have no versioning in the Subject.
+Exposing kernel pointer addresses=E2=80=94a practice often referred to as=
+=20
+pointer leaking=E2=80=94is considered a major security risk because it by=
+passes=20
+a fundamental defense mechanism called KASLR (Kernel Address Space=20
+Layout Randomization).
+[ ... ]
+2. Facilitating Exploit Chains
 
-...
+A pointer leak is rarely an exploit on its own, but it is almost always=20
+the first step in a sophisticated attack.
 
-What a lovely change! I would like to give a tag, but see a comment below.
+* Return-Oriented Programming (ROP): To hijack execution flow, an=20
+attacker needs "gadgets" (small snippets of existing code). Without=20
+knowing the exact addresses of these gadgets, their exploit will simply=20
+crash the system (a Denial of Service).
 
-...
+* Targeted Corruption: If an attacker wants to overwrite a specific=20
+security structure (like a process's UID to gain root access), they need=20
+the pointer to that specific object in kernel memory.
+[ ... ]
+------------------------------------------------------------------------
 
-> +#ifndef __PXA2XX_LIB_H
-> +#define __PXA2XX_LIB_H
-> +
-> +#include <uapi/sound/asound.h>
-> +#include <linux/platform_device.h>
-> +
-> +/* PCM */
-> +struct snd_pcm_substream;
-> +struct snd_pcm_hw_params;
-> +struct snd_soc_pcm_runtime;
-> +struct snd_pcm;
-> +struct snd_soc_component;
-> +
-> +extern int pxa2xx_soc_pcm_new(struct snd_soc_component *component,
-> +			      struct snd_soc_pcm_runtime *rtd);
+Thanks,
 
-Can we kill 'extern' while at it?
-
-> +extern int pxa2xx_soc_pcm_open(struct snd_soc_component *component,
-> +			       struct snd_pcm_substream *substream);
-> +extern int pxa2xx_soc_pcm_close(struct snd_soc_component *component,
-> +				struct snd_pcm_substream *substream);
-> +extern int pxa2xx_soc_pcm_hw_params(struct snd_soc_component *component,
-> +				    struct snd_pcm_substream *substream,
-> +				    struct snd_pcm_hw_params *params);
-> +extern int pxa2xx_soc_pcm_prepare(struct snd_soc_component *component,
-> +				  struct snd_pcm_substream *substream);
-> +extern int pxa2xx_soc_pcm_trigger(struct snd_soc_component *component,
-> +				  struct snd_pcm_substream *substream, int cmd);
-> +extern snd_pcm_uframes_t
-> +pxa2xx_soc_pcm_pointer(struct snd_soc_component *component,
-> +		       struct snd_pcm_substream *substream);
-> +
-> +/* AC97 */
-> +
-> +extern int pxa2xx_ac97_read(int slot, unsigned short reg);
-> +extern int pxa2xx_ac97_write(int slot, unsigned short reg, unsigned short val);
-> +
-> +extern bool pxa2xx_ac97_try_warm_reset(void);
-> +extern bool pxa2xx_ac97_try_cold_reset(void);
-> +extern void pxa2xx_ac97_finish_reset(void);
-> +
-> +extern int pxa2xx_ac97_hw_suspend(void);
-> +extern int pxa2xx_ac97_hw_resume(void);
-> +
-> +extern int pxa2xx_ac97_hw_probe(struct platform_device *dev);
-> +extern void pxa2xx_ac97_hw_remove(struct platform_device *dev);
-> +
-> +#endif
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+Bart.
 
