@@ -4,88 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 943EAFF885E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 09:30:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72963FF8861
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 09:31:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x+SZvW/F4GOHW6PySXy0XMzRT2W7+eZbjrzSkalzGFo=; b=wK1XrHqpFNbD8nnaK6JW9cxzai
-	m7ZEA2q59uyJR9+6p3XBArzRmoErPS4xskMQSIzmKRCio3d1dtI9fZvYV9/JeqmwjpjnoFiRUQpGR
-	TSyQLgo/2x5RuMVhjTb/+hAvGNlLOj/FNMVkInBkGX97P/sYTblf39ZuA8knjCTUbdD2GyzfVEucf
-	wBei5yAhMau+/tev/FYWU3WpnASt82PEJYg1zDifNABYzaNtGWR6QwNqXsGUwrV4LFgwuPJMlcvsG
-	IekeBvJ+qonW42aT9UmR3kwek1IOXodRoF9Vhwoab/hgtU8n/HZ0b6nGrHO2RMRUMVYAzRQrl9iFy
-	OSA7RRjA==;
+	bh=3f+ipyipbG9ve74SWingHtpF8ckpjt3qTGqxppXfFzY=; b=ULAv8VUdxpw+bqaDoM/hNwWmyY
+	N+GSeTsJQ9Dm5UvsHjdP93qdJtEUJaVO3ukK5NxUWZPPkSE01/7G/Yzn432u11Bq6k9iL/VxZL+Zm
+	PBIlv0aErya5bsBSbCOaHUc+V6Bh6Q6PZOnf8IrWLFxdyPtu4G0vqUyF0MJuFzsmTdlhXJ5PwzJ/j
+	ZLjRZE1iM+1J6cfDtD0AF8Vbt8QgWX8Nr5wCsXoNPKc2+ULiXSp4qR3y1RRp+S5yOrl/au0Qf7/Vc
+	1Tiywl7kbyqV8WImS4zerdr4Sr1LwLdoriIoHofu4+fuSNwBGmHm55VodR1popBCqdTaWhLd6UshZ
+	gbJgstsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHIIW-0000000Gama-2DSP;
-	Mon, 27 Apr 2026 09:30:36 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1wHIJV-0000000Gayz-1IHc;
+	Mon, 27 Apr 2026 09:31:37 +0000
+Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHIIT-0000000Galk-3utb
+	id 1wHIJS-0000000Gay3-3i33
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 09:30:35 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4891ad5c074so973775e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 02:30:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777282231; x=1777887031; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=x+SZvW/F4GOHW6PySXy0XMzRT2W7+eZbjrzSkalzGFo=;
-        b=tDkKsLYFVJuDo43sLnKUR3fZbH+/LaCnlq5AHS79rTP76OVVcDqodIcnRh8rLrzyCx
-         GpvPeR0tXoAjws8CTdz8uxf1GQpYaRASy3enzrAxQ2LQKemCaNu+RuyQN8C2EBCXVP6P
-         i/B3hbA2CM6gpI5hxW+EobvyfbgwosacQgjINKiFwzi2aHE/EozTmQzhL+97VXrRfftz
-         wvoRI5w/aDU7VGywJ1DnKCtCYr9ue62AUfpNUrDi5GQKWhw08B8IoQOJQ6DGfKBAzcGH
-         V0ikKhSaXq9/k8i2JiZq0G6HzhuAPp9Ky4UvmXfIH7wTtbuEAZlZAHx1lPOuZXORQ0MT
-         3fcg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777282231; x=1777887031;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=x+SZvW/F4GOHW6PySXy0XMzRT2W7+eZbjrzSkalzGFo=;
-        b=qy4ENt0hXa5vFcIrM8BHWN6vSecZ8Xm75taruA192y79YCDquAYvgsWO2Y28NonlWd
-         W7z2kkLH/7DosRO7oejNHcZHF9H3M4lTKKIiYtpETfrGJxKkGrgKgJghPi0S0Q4jjlpM
-         NqN4Z+bo8v+4hc7nLFkKQ6sYBeaOcHa0rfSJ2S/ajyGTbBtKCpqbcM+Racl4YOaCDtFF
-         mZpGUnerupcmJGtS9moewG3EsLbHe8IfJZ5LjaU18J1MuDp4bciV3zFiSwKJ9uLYSfZJ
-         x83AGM6Qo6RrWagDBt5dn5UPfGJ+EzCeajL8l8Jze49AYn6E5c+dZKVhJ95c2rcBynqk
-         Zb3w==
-X-Forwarded-Encrypted: i=1; AFNElJ9vY+2J9rsH2a1InlcQA5TxcRAFBygUulP/mvjCx0grCE+sukHVReHQye+Ud3wlo7z0Z5/4Nub9/OJGq0hoGsbD@lists.infradead.org
-X-Gm-Message-State: AOJu0YyLhVbwYSWERe5e8CvXaDfgSkOvrgDDYXgW31urFXHsLR4DwRRT
-	H5nG7SWi70msRPm4XSWd1EwLMy6umJhXm5R3ONsrereuO9nYlWIccTncgGET+UqMDg==
-X-Gm-Gg: AeBDiesArs7j13NhnwUNSihGPDggHvMzXyfIeJMdB2ZQKmkPcTr+fkfA+mswicySzii
-	afMHrHrBoXEy+gdWNkxoGtHFganVZFFmeFN5yxQLU6aBDUnFqO/aQAi1bxv8u7JnuWyLWRKDWvx
-	lYaFVAjyxLZ6QcjeFpnaKhQ23OCm2Y+1DFO9zlp547V4OjMnd+ulQ31K320iGHt486NAgHSs2nn
-	7q9q2Q2J410Rn+0HhdUuxODpLeB2LfGJNMth/q0A/2rDnS2rSiOQ/BxrRkx1mPN3qRRXqg63g1/
-	7C4qb/W5l4O5r1kwS5/+36yPMMUut/egJwT8SibsJ9Ap17eCYaCR2OeppM/v0AObTFDQqhDPYyB
-	VXR0Ham7vkWHlYIU6x8j7AOg36fsupYFROZi0hztikOgIoArqN2ZtGPwFrJGQCiLrFF3HGdpatB
-	FSdx8sfCLbCWEW8J4elpk07dPqrS+BilaXKJJ6dY3RP4SabHTWc9N5QUwz+gC+/8XwqUgf1X9we
-	lZ9idZu8MMNkntLOFY=
-X-Received: by 2002:a05:600c:8a0c:20b0:48a:5d55:c194 with SMTP id 5b1f17b1804b1-48a5d55c46fmr1545e9.7.1777282230673;
-        Mon, 27 Apr 2026 02:30:30 -0700 (PDT)
-Received: from google.com (117.15.199.104.bc.googleusercontent.com. [104.199.15.117])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488fb7a0b60sm231015525e9.17.2026.04.27.02.30.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Apr 2026 02:30:30 -0700 (PDT)
-Date: Mon, 27 Apr 2026 09:30:17 +0000
-From: Sebastian Ene <sebastianene@google.com>
-To: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Jens Wiklander <jens.wiklander@linaro.org>
-Subject: Re: [PATCH 3/8] firmware: arm_ffa: Align RxTx buffer size before
- mapping
-Message-ID: <ae8sqehR7yQFheuj@google.com>
-References: <20260423-ffa_fixes-v1-0-61189661affe@kernel.org>
- <20260423-ffa_fixes-v1-3-61189661affe@kernel.org>
+	Mon, 27 Apr 2026 09:31:36 +0000
+Received: from francesco-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch [83.173.201.248])
+	by mail11.truemail.it (Postfix) with ESMTPA id 39F831FB1B;
+	Mon, 27 Apr 2026 11:31:31 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1777282292;
+	bh=3f+ipyipbG9ve74SWingHtpF8ckpjt3qTGqxppXfFzY=; h=From:To:Subject;
+	b=Oui0MOT0x94+2dM3R5uOpRffJ9Wx9j6ylSA9QAkTg92XTx+dn56JG7xkyoASs/fa6
+	 jeurKD+LfLijfHlA9mg6wH5OqqjaEOvDVucHz17xzhALz3mdyDx+/MsPHaZVp+YVxJ
+	 VIU34BPvnoFHTPl+YThEFIUGqU6HzI1TbxO1HNl3JHKluUYtK9yGDDeiUXDnyOF/Yz
+	 U9rQ8naikD2oQ8qGchfq7QlTttc7kMhUh/sUuzk97naTvYQq6FTtCPfwqgnIJIqwXO
+	 eWElkycEwmM5cl9ZVK2doQf8R3IWlYTNVaMEWuAXQbf20IyJv35NG87Vt7cb+pgGT3
+	 aaV344jJwI6MA==
+Date: Mon, 27 Apr 2026 11:31:27 +0200
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Francesco Dolcini <francesco@dolcini.it>, peng.fan@oss.nxp.com,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>, Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>, Frank Li <Frank.Li@nxp.com>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	imx@lists.linux.dev, linux-renesas-soc@vger.kernel.org,
+	linux-sunxi@lists.linux.dev, driver-core@lists.linux.dev,
+	regressions@lists.linux.dev
+Subject: Re: [PATCH v2 6/9] soc: imx8m: don't access of_root directly
+Message-ID: <20260427093127.GA50667@francesco-nb>
+References: <20260223-soc-of-root-v2-0-b45da45903c8@oss.qualcomm.com>
+ <20260223-soc-of-root-v2-6-b45da45903c8@oss.qualcomm.com>
+ <6593091.DvuYhMxLoT@steina-w>
+ <20260427064704.GA17710@francesco-nb>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260423-ffa_fixes-v1-3-61189661affe@kernel.org>
+In-Reply-To: <20260427064704.GA17710@francesco-nb>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_023034_014321_19788C5F 
-X-CRM114-Status: GOOD (  20.25  )
+X-CRM114-CacheID: sfid-20260427_023135_078097_F0981057 
+X-CRM114-Status: GOOD (  22.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,53 +89,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 23, 2026 at 06:22:53PM +0100, Sudeep Holla wrote:
-> Commit 83210251fd70 ("firmware: arm_ffa: Use the correct buffer size during
-> RXTX_MAP") advertises PAGE_ALIGN(rxtx_bufsz) to firmware when mapping the
-> buffers but the driver continues to stores the minimum FF-A buffer size
-> in drv_info->rxtx_bufsz which is used elsewhere in the driver.
++Peng
 
-Hello Sudeep,
+Hello all,
 
+On Mon, Apr 27, 2026 at 08:47:04AM +0200, Francesco Dolcini wrote:
+> On Tue, Mar 24, 2026 at 11:24:09AM +0100, Alexander Stein wrote:
+> > Hi,
+> > 
+> > Am Montag, 23. Februar 2026, 14:37:21 CET schrieb Bartosz Golaszewski:
+> > > Don't access of_root directly as it reduces the build test coverage for
+> > > this driver with COMPILE_TEST=y and OF=n. Use existing helper functions
+> > > to retrieve the relevant information.
+> > > 
+> > > Suggested-by: Rob Herring <robh@kernel.org>
+> > > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> > 
+> > today I noticed the following warning running next-20260323:
+> > > caam 30900000.crypto: No clock data provided for i.MX SoC
+> > 
+> > This happens when there is no matching against the soc_id.
+> > 
+> > Checking the source it turns out this patch is the cause that the SoC info
+> > does not provide soc_id anymore.
+> > next-20260323:
+> > > $ grep . /sys/devices/soc0/*
+> > > /sys/devices/soc0/family:Freescale i.MX
+> > > /sys/devices/soc0/machine:TQ-Systems i.MX8MPlus TQMa8MPxL on MBa8MP-RAS314
+> > > grep: /sys/devices/soc0/power: Is a directory
+> > > /sys/devices/soc0/revision:unknown
+> > > /sys/devices/soc0/serial_number:0000000000000000
+> > > grep: /sys/devices/soc0/subsystem: Is a directory
+> > 
+> > reverting this patch (2524b293a59e586afd06358d0b191ab57208a920):
+> > > $ grep . /sys/devices/soc0/*
+> > > /sys/devices/soc0/family:Freescale i.MX
+> > > /sys/devices/soc0/machine:TQ-Systems i.MX8MPlus TQMa8MPxL on MBa8MP-RAS314
+> > > grep: /sys/devices/soc0/power: Is a directory
+> > > /sys/devices/soc0/revision:1.1
+> > > /sys/devices/soc0/serial_number:469677A693A4B8CE131D180033E44903
+> > > /sys/devices/soc0/soc_id:i.MX8MP
+> > > grep: /sys/devices/soc0/subsystem: Is a directory
+> > 
+> > soc_id is restored. Now that I write these lines I noticed that
+> > serial_number also contained empty value which is restored with the revert.
 > 
-> Align the size before storing it so that the allocation, validation and
-> FFA_RXTX_MAP all use the same buffer size.
+> Any update on this? I would say this is a regression in 7.1-rc1.
 > 
+> I noticed the same issue, and CAAM is not working.
+> 
+> [    0.000000] Linux version 7.1.0-rc1-0.0.0-devel (oe-user@oe-host) (aarch64-tdx-linux-gcc (GCC) 15.2.0, GNU ld (GNU Binutils) 2.46) #1 SMP PREEMPT Sun Apr 26 21:19:00 UTC 2026
+> ...
+> [   10.611139] caam 30900000.crypto: No clock data provided for i.MX SoC
+> [   10.611211] caam 30900000.crypto: probe with driver caam failed with error -22
 
-Thanks for fixing this,
-Reviewed-by: Sebastian Ene <sebastianene@google.com>.
+I guess this is the fix
 
-> Fixes: 83210251fd70 ("firmware: arm_ffa: Use the correct buffer size during RXTX_MAP")
-> Cc: Sebastian Ene <sebastianene@google.com>
-> Link: https://sashiko.dev/#/patchset/20260402113939.930221-1-sebastianene@google.com
-> Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
-> ---
->  drivers/firmware/arm_ffa/driver.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
-> index e6a051b20cb7..4dec7ca52f8c 100644
-> --- a/drivers/firmware/arm_ffa/driver.c
-> +++ b/drivers/firmware/arm_ffa/driver.c
-> @@ -2063,6 +2063,7 @@ static int __init ffa_init(void)
->  			rxtx_bufsz = SZ_4K;
->  	}
->  
-> +	rxtx_bufsz = PAGE_ALIGN(rxtx_bufsz);
->  	drv_info->rxtx_bufsz = rxtx_bufsz;
->  	drv_info->rx_buffer = alloc_pages_exact(rxtx_bufsz, GFP_KERNEL);
->  	if (!drv_info->rx_buffer) {
-> @@ -2078,7 +2079,7 @@ static int __init ffa_init(void)
->  
->  	ret = ffa_rxtx_map(virt_to_phys(drv_info->tx_buffer),
->  			   virt_to_phys(drv_info->rx_buffer),
-> -			   PAGE_ALIGN(rxtx_bufsz) / FFA_PAGE_SIZE);
-> +			   rxtx_bufsz / FFA_PAGE_SIZE);
->  	if (ret) {
->  		pr_err("failed to register FFA RxTx buffers\n");
->  		goto free_pages;
-> 
-> -- 
-> 2.43.0
-> 
+https://lore.kernel.org/all/20260427-soc-imx8m-fix-v1-1-1fe5b43d8090@nxp.com/
+
 
