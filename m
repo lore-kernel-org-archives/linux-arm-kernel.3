@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02ACAFF885E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 08:29:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A465EFF8861
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 08:29:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xhwCNidudwnOCBO6crXrBOfj6BdeLRjx93te08MVXlY=; b=uJf6xqUAuNYWUNskxlJCd86e/i
-	vphGcblYP1VY5V0AOU0IQ6m0LPyxTJ6KxWGmTEUgf3eLGvtztzoGZ30WZuFgWR7xw1+hGGaMCDHpn
-	BTfrB/OJEAuoAbLx0ZOAohPAV6/HfvRnJWp1f2eEWp1U/auKMX5z/eQZWDKJ2apdz2rsCnknSlvh/
-	IzD480grdmStRN63o+qFbH94Hm/ZA81XmEbA38BPmC4kdXYxzf+f578dc8EFUfitIQMnEEiIR7xXR
-	18wtWzKse4gdbWYkfRW8JO54hdHCz0LgxU9ekAr5kan1sWZ6RBXor8XRXmOz5Nt3P5ZZ+U18UHTLK
-	WD001irA==;
+	bh=wtz6p44ZR9oWYbevzH7AgXKOemzBnxa8yL3vHE3IEEU=; b=MPNWyDAqwXrmtQuTBeu3q9T/2Y
+	1YqQEaqQNJCioSpzbrIRlq+kZSMRQAAead3LdRCQukoWie0cQ1/af+TT7N5CbtCqXgxK16ot3q6cK
+	x/lUbGqe4uHyoXBpcq8rhFfm1uFzsjeLJmMW8hlPKnEJWx1SPj9EVMfIZSRLU8qPjB9CpYxdW18NP
+	D8Ofse0pFnXE+wtp7Yoa5a4dmVP+g2JFl2e2KCiKcDPimAfKr38N14IxPvb6SBg033pvzMjaperNd
+	Lh3C0J/CT9OqXT50RIJjn/33Frsl06mUza4X9jGvLuOd+mfRMZBPph11vdDPCfP+yiNhkMr9+3XPC
+	kRaZTyhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHHL9-0000000GSrC-1t7q;
-	Mon, 27 Apr 2026 08:29:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wHHLE-0000000GSvU-3GBi;
+	Mon, 27 Apr 2026 08:29:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHHL7-0000000GSos-0xJA
+	id 1wHHLA-0000000GSrj-1NC2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 08:29:14 +0000
+	Mon, 27 Apr 2026 08:29:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 74E3243DBE;
-	Mon, 27 Apr 2026 08:29:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77652C19425;
-	Mon, 27 Apr 2026 08:29:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B5EA660181;
+	Mon, 27 Apr 2026 08:28:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9E03C19425;
+	Mon, 27 Apr 2026 08:28:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777278552;
-	bh=yxjevm5oUKp+Ad1dbtRsU+HvpruAP9tlDylolCjcQ68=;
+	s=k20201202; t=1777278525;
+	bh=lETn6Kr3OyzzZutG3/vCFA7uINmnc95y+RJn66EJb2Q=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=BdZ6qEdV33fGBqfrtAflGDSklSvA6FcI9KLrVk1QUhbCkYpPMy/ZkPSrpPVgc6/um
-	 lUREXGnjfWyG88dp9nr3czFBv/PMa5A1EIs4YjlhdPVar1qCP/MKls/M2vcLSyUalq
-	 Lfyp3BlIQhmP/P133zjsn7g9O7o6/RkRmK7gu8UL9lu0APc/s6VN2UpmEYV8no7JrS
-	 G4FXJQS+WpeqV6ym/+UCkV47BKJfAab7qruaGsBbPyxjcsBIjMlntgUPsGNT1FXcGy
-	 7nMV1b1pQFrtsP4TtOjzMy0pzSqqDJD7NixxXxu3D6LR86pV4YKNpBGilq8VsVOdIs
-	 Lv4QSltx5nDZQ==
+	b=h243qLzFJ5S339UPMeg3rROQnMZbIdibcNdwFIKHzxamct4S2+cC388t517yyZllG
+	 pqP1sSxWRaZDbWjozrsummi7AC1yluW5uxk9LF+4c+V88WvqNi8o8e4+gPD+HZVKDc
+	 X4hQfHj3yx2Cn5kwoJkvN4v2pNWlK9TilJXpbY3sL187+xwPRkJ/TFz3Hp22BtoFyP
+	 E7ZytP3oG9gxgP5kHgolNT9YQCSyqG46tW558h+BTTamwXhQ38MvgTS2T/odUHbI6L
+	 T6GzY57L51s1mDJ5Ah1a0eO8hHTnt5nCzr7wIHuSPb43En8r/z3tFAiyTT38YcJP7D
+	 BUlrifBNuRCnQ==
 From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 To: linux-coco@lists.linux.dev,
 	kvmarm@lists.linux.dev,
@@ -58,19 +58,15 @@ Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
 	Steven Price <steven.price@arm.com>,
 	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
 	Will Deacon <will@kernel.org>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>
-Subject: [RFC PATCH v4 11/11] coco: guest: arm64: Enable vdev DMA after attestation
-Date: Mon, 27 Apr 2026 13:58:05 +0530
-Message-ID: <20260427082805.931832-12-aneesh.kumar@kernel.org>
+	Xu Yilun <yilun.xu@linux.intel.com>
+Subject: [RFC PATCH v4 06/11] coco: guest: arm64: Add measurement refresh via RHI_DA_VDEV_GET_MEASUREMENTS
+Date: Mon, 27 Apr 2026 13:58:00 +0530
+Message-ID: <20260427082805.931832-7-aneesh.kumar@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260427082805.931832-1-aneesh.kumar@kernel.org>
 References: <20260427082805.931832-1-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_012913_359903_88CC9D6B 
-X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,91 +81,235 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-- define SMC_RSI_VDEV_DMA_ENABLE and add wrapper in rsi_cmds.h
-- invoke the new helper from the guest accept path once the device
-  passes attestation, rolling back to TDI_LOCKED on failure
+Add guest support to request fresh device measurements using
+RHI_DA_VDEV_GET_MEASUREMENTS.
 
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+Define measurement request parameters (flags + nonce), request RAW
+measurements, and implement cookie-based continuation for incomplete DA
+operations. Extend cca_update_device_object_cache() to refresh both
+interface report and measurements.
+
+Because RHI buffers are shared with the host, add shared-page allocation
+helpers that convert pages to decrypted/shared memory before use and restore
+them to encrypted/private state on free.
+
 Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 ---
- arch/arm64/include/asm/rsi_cmds.h        | 16 ++++++++++++++++
- arch/arm64/include/asm/rsi_smc.h         |  2 ++
- drivers/virt/coco/arm-cca-guest/rsi-da.c | 14 ++++++++++++++
- 3 files changed, 32 insertions(+)
+ arch/arm64/include/asm/rhi.h              | 11 ++++
+ drivers/virt/coco/arm-cca-guest/arm-cca.c |  1 +
+ drivers/virt/coco/arm-cca-guest/rhi-da.c  | 78 +++++++++++++++++++++++
+ drivers/virt/coco/arm-cca-guest/rhi-da.h  |  1 +
+ drivers/virt/coco/arm-cca-guest/rsi-da.c  | 42 +++++++++++-
+ drivers/virt/coco/arm-cca-guest/rsi-da.h  |  2 +
+ 6 files changed, 134 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/rsi_cmds.h b/arch/arm64/include/asm/rsi_cmds.h
-index f72d8e0cd422..1e0d1cd8841a 100644
---- a/arch/arm64/include/asm/rsi_cmds.h
-+++ b/arch/arm64/include/asm/rsi_cmds.h
-@@ -226,4 +226,20 @@ static inline unsigned long rsi_vdev_get_info(unsigned long vdev_id,
- 	return res.a0;
- }
+diff --git a/arch/arm64/include/asm/rhi.h b/arch/arm64/include/asm/rhi.h
+index 15946fe64484..2b56a7760904 100644
+--- a/arch/arm64/include/asm/rhi.h
++++ b/arch/arm64/include/asm/rhi.h
+@@ -50,6 +50,17 @@ unsigned long rhi_get_ipa_change_alignment(void);
  
-+static inline unsigned long __rsi_vdev_dma_enable(unsigned long vdev_id,
-+						  unsigned long flags,
-+						  unsigned long non_ats_plane,
-+						  unsigned long lock_nonce,
-+						  unsigned long meas_nonce,
-+						  unsigned long report_nonce)
+ #define RHI_DA_VDEV_CONTINUE		SMC_RHI_CALL(0x0051)
+ 
++#define RHI_VDEV_MEASURE_HASH	0x0
++#define RHI_VDEV_MEASURE_RAW	0x1
++struct rhi_vdev_measurement_params {
++	union {
++		u64 flags;
++		u8 padding0[0x100];
++	};
++	u8 nonce[32];
++};
++#define RHI_DA_VDEV_GET_MEASUREMENTS	SMC_RHI_CALL(0x0052)
++
+ #define RHI_DA_VDEV_GET_INTERFACE_REPORT SMC_RHI_CALL(0x0053)
+ 
+ enum rhi_tdi_state {
+diff --git a/drivers/virt/coco/arm-cca-guest/arm-cca.c b/drivers/virt/coco/arm-cca-guest/arm-cca.c
+index 411cbbaa5d26..0f9cfb329a06 100644
+--- a/drivers/virt/coco/arm-cca-guest/arm-cca.c
++++ b/drivers/virt/coco/arm-cca-guest/arm-cca.c
+@@ -215,6 +215,7 @@ static struct pci_tsm *cca_tsm_lock(struct tsm_dev *tsm_dev, struct pci_dev *pde
+ 	if (ret)
+ 		return ERR_PTR(ret);
+ 
++	/* collect evidence without nonce */
+ 	ret = cca_update_device_object_cache(pdev, NULL);
+ 	if (ret) {
+ 		cca_device_unlock(pdev);
+diff --git a/drivers/virt/coco/arm-cca-guest/rhi-da.c b/drivers/virt/coco/arm-cca-guest/rhi-da.c
+index 5078136a4cc6..d0f5ae320f83 100644
+--- a/drivers/virt/coco/arm-cca-guest/rhi-da.c
++++ b/drivers/virt/coco/arm-cca-guest/rhi-da.c
+@@ -205,3 +205,81 @@ int rhi_update_vdev_interface_report_cache(struct pci_dev *pdev)
+ 
+ 	return ret;
+ }
++
++static inline int rhi_vdev_get_measurements(unsigned long vdev_id,
++		phys_addr_t vdev_meas_phys, unsigned long *cookie)
 +{
-+	struct arm_smccc_res res;
++	unsigned long ret;
 +
-+	arm_smccc_1_1_invoke(SMC_RSI_VDEV_DMA_ENABLE, vdev_id, flags,
-+			     non_ats_plane, lock_nonce,
-+			     meas_nonce, report_nonce, &res);
++	struct rsi_host_call *rhi_call __free(kfree) =
++		kmalloc(sizeof(*rhi_call), GFP_KERNEL);
++	if (!rhi_call)
++		return -ENOMEM;
 +
-+	return res.a0;
++	rhi_call->imm = 0;
++	rhi_call->gprs[0] = RHI_DA_VDEV_GET_MEASUREMENTS;
++	rhi_call->gprs[1] = vdev_id;
++	rhi_call->gprs[2] = vdev_meas_phys;
++
++	ret = rsi_host_call(rhi_call);
++	if (ret != RSI_SUCCESS)
++		return -EIO;
++
++	*cookie = rhi_call->gprs[1];
++	return map_rhi_da_error(rhi_call->gprs[0]);
 +}
 +
- #endif /* __ASM_RSI_CMDS_H */
-diff --git a/arch/arm64/include/asm/rsi_smc.h b/arch/arm64/include/asm/rsi_smc.h
-index 99b34b37b693..1d98a3b47c89 100644
---- a/arch/arm64/include/asm/rsi_smc.h
-+++ b/arch/arm64/include/asm/rsi_smc.h
-@@ -186,6 +186,8 @@ struct realm_config {
-  */
- #define SMC_RSI_IPA_STATE_GET			SMC_RSI_FID(0x198)
- 
-+#define SMC_RSI_VDEV_DMA_ENABLE			SMC_RSI_FID(0x19C)
++static inline struct rhi_vdev_measurement_params *alloc_vdev_meas_params(void)
++{
++	struct page *pages;
 +
- #define RSI_VDEV_REPORT_FORMAT_TDISP 0x1
- struct rsi_vdevice_info {
- 	union {
++	pages = alloc_shared_pages(NUMA_NO_NODE, GFP_KERNEL,
++				   sizeof(struct rhi_vdev_measurement_params));
++	if (!pages)
++		return NULL;
++	return page_address(pages);
++}
++
++static inline void vdev_meas_params_free(struct rhi_vdev_measurement_params *params)
++{
++	struct page *pages = virt_to_page(params);
++
++	free_shared_pages(pages, sizeof(struct rhi_vdev_measurement_params));
++}
++
++DEFINE_FREE(vdev_meas_params_free, struct rhi_vdev_measurement_params *, if (_T) vdev_meas_params_free(_T))
++int rhi_update_vdev_measurements_cache(struct pci_dev *pdev, const u8 *nonce)
++{
++	int ret;
++	unsigned long cookie;
++	int vdev_id = rsi_vdev_id(pdev);
++	phys_addr_t vdev_meas_phys;
++
++	struct rhi_vdev_measurement_params *dev_meas __free(vdev_meas_params_free) =
++		alloc_vdev_meas_params();
++	if (!dev_meas)
++		return -ENOMEM;
++
++	vdev_meas_phys = virt_to_phys(dev_meas);
++	/* request for raw bitstream */
++	dev_meas->flags = RHI_VDEV_MEASURE_RAW;
++	if (nonce)
++		memcpy(dev_meas->nonce, nonce, 32);
++
++	for (;;) {
++		ret = rhi_vdev_get_measurements(vdev_id, vdev_meas_phys, &cookie);
++		if (ret != -EBUSY)
++			break;
++		cond_resched();
++	}
++
++	while (ret == RHI_DA_INCOMPLETE) {
++		if (should_abort_rhi_call_loop(vdev_id))
++			return -EINTR;
++		ret = rhi_vdev_continue(vdev_id, cookie);
++	}
++
++	if (ret)
++		pci_err(pdev, "failed to get device measurement (%d)\n", ret);
++	return ret;
++}
+diff --git a/drivers/virt/coco/arm-cca-guest/rhi-da.h b/drivers/virt/coco/arm-cca-guest/rhi-da.h
+index 8b7faf4d1c8a..d32ccc48c0d0 100644
+--- a/drivers/virt/coco/arm-cca-guest/rhi-da.h
++++ b/drivers/virt/coco/arm-cca-guest/rhi-da.h
+@@ -12,4 +12,5 @@ struct pci_dev;
+ bool rhi_has_da_support(void);
+ int rhi_vdev_set_tdi_state(struct pci_dev *pdev, enum rhi_tdi_state target_state);
+ int rhi_update_vdev_interface_report_cache(struct pci_dev *pdev);
++int rhi_update_vdev_measurements_cache(struct pci_dev *pdev, const u8 *nonce);
+ #endif
 diff --git a/drivers/virt/coco/arm-cca-guest/rsi-da.c b/drivers/virt/coco/arm-cca-guest/rsi-da.c
-index 7c2b28fa43a1..77267479df19 100644
+index 6c78f0e2f3a1..9f9e54174813 100644
 --- a/drivers/virt/coco/arm-cca-guest/rsi-da.c
 +++ b/drivers/virt/coco/arm-cca-guest/rsi-da.c
-@@ -231,9 +231,17 @@ int cca_verify_digests(u64 hash_algo,
+@@ -4,6 +4,7 @@
+  */
+ 
+ #include <linux/pci.h>
++#include <linux/mem_encrypt.h>
+ #include <asm/rsi_cmds.h>
+ 
+ #include "rsi-da.h"
+@@ -33,6 +34,45 @@ int cca_device_unlock(struct pci_dev *pdev)
  	return 0;
  }
  
-+static inline int rsi_vdev_enable_dma(int vdev_id, struct dsm_device_info *dev_info)
++struct page *alloc_shared_pages(int nid, gfp_t gfp_mask, unsigned long min_size)
 +{
-+	/* No ATS support */
-+	return __rsi_vdev_dma_enable(vdev_id, 0, 0, dev_info->lock_nonce,
-+				     dev_info->meas_nonce, dev_info->report_nonce);
++	int ret;
++	struct page *page;
++	/* We should normalize the size based on hypervisor page size */
++	int page_order = get_order(min_size);
++
++	page = alloc_pages_node(nid, gfp_mask | __GFP_ZERO, page_order);
++	if (!page)
++		return NULL;
++
++	ret = set_memory_decrypted((unsigned long)page_address(page),
++				   1 << page_order);
++	/*
++	 * If set_memory_decrypted() fails then we don't know what state the
++	 * page is in, so we can't free it. Instead we leak it.
++	 * set_memory_decrypted() will already have WARNed.
++	 */
++	if (ret)
++		return NULL;
++
++	return page;
 +}
 +
- int cca_device_accept(struct pci_dev *pdev, unsigned long lock_nonce)
++int free_shared_pages(struct page *page, unsigned long size)
++{
++	int ret;
++	/* We should normalize the size based on hypervisor page size */
++	int page_order = get_order(size);
++
++	ret = set_memory_encrypted((unsigned long)page_address(page), 1 << page_order);
++	/* If we fail to mark it encrypted don't free it back */
++	if (ret)
++		return ret;
++
++	__free_pages(page, page_order);
++	return 0;
++}
++
+ int cca_update_device_object_cache(struct pci_dev *pdev, const u8 *nonce)
  {
  	int ret;
-+	int vdev_id = rsi_vdev_id(pdev);
- 	struct cca_guest_dsc *dsc = to_cca_guest_dsc(pdev);
- 
- 	if (lock_nonce != dsc->dev_info.lock_nonce) {
-@@ -270,6 +278,12 @@ int cca_device_accept(struct pci_dev *pdev, unsigned long lock_nonce)
+@@ -43,5 +83,5 @@ int cca_update_device_object_cache(struct pci_dev *pdev, const u8 *nonce)
  		return ret;
  	}
  
-+	if (rsi_vdev_enable_dma(vdev_id, &dsc->dev_info)) {
-+		rhi_vdev_set_tdi_state(pdev, RHI_DA_TDI_CONFIG_LOCKED);
-+		pci_err(pdev, "failed to enable DMA from the device\n");
-+		return -EIO;
-+	}
-+
- 	dsc->pci.mmio = no_free_ptr(tsm_mmio);
- 	return 0;
+-	return 0;
++	return rhi_update_vdev_measurements_cache(pdev, nonce);
  }
+diff --git a/drivers/virt/coco/arm-cca-guest/rsi-da.h b/drivers/virt/coco/arm-cca-guest/rsi-da.h
+index dda8026a1c3f..297cb800edc0 100644
+--- a/drivers/virt/coco/arm-cca-guest/rsi-da.h
++++ b/drivers/virt/coco/arm-cca-guest/rsi-da.h
+@@ -35,5 +35,7 @@ static inline int rsi_vdev_id(struct pci_dev *pdev)
+ int cca_device_lock(struct pci_dev *pdev);
+ int cca_device_unlock(struct pci_dev *pdev);
+ int cca_update_device_object_cache(struct pci_dev *pdev, const u8 *nonce);
++struct page *alloc_shared_pages(int nid, gfp_t gfp_mask, unsigned long min_size);
++int free_shared_pages(struct page *page, unsigned long min_size);
+ 
+ #endif
 -- 
 2.43.0
 
