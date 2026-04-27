@@ -4,72 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B62FFF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 19:10:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAB2AFF8860
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 19:10:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/+537DeOzdoa8NSn6MBJfjhR1eh4h4m+gHKWGpVaQUA=; b=hb/InzC+0EYlijK4DC44Xy19sg
-	ZeA6QwRJ/3PlcSacQVTWqIWzeJs8FgxQGa+ao37TDrg+YrI3ZqISUJdboz3AwfQSnZW00yM6uvdkv
-	aQep6q/ARk8zTs+p9P4j7o8OcFSnhV6fzIH/dc2mznfukDDirSxQGeuA5THQ+WWr6YyQcnmUARROw
-	3R8eEVHk+nBEE+4UGoFRZbLjcUYomCwX6VjfhPJwU/1HqkD4neHYYKbdJ46EK63Zwx8r3wuZTMEU5
-	TRBU+Yv4JDUuu3Fuvz3d2eZgAyUAtBk/0cANYzzi+gOLiysNm1xjqhDAmzEDP74k/sRJZRFBSnxyC
-	RGmk/IYQ==;
+	bh=Rb4LC4RoKjMwkAoMYkZMORsdxxUBkkBcuhhkQcQ9qHU=; b=x9XsLwl+qMR4sfu/+uhhu0U62a
+	5jJ0Ox5kN2pjDy23A+hikyuin7aZODHzPz7Viw5dmFfBExuX69Dbt+XYBQlpckpCNXBxBVXOC8Dq6
+	qK93Dxid1M6VThU4OfhXq6fQY1jhBl1CcV7fFC8UoEUpjhSFfiiqKEdN/c5Iqd+nzRnfFH6ZWlBIF
+	b+YhBNJHIGklRphLGfs7br7lnX++AghLVS35qOITb2+SjQkcCPU4ae7su0tFNY7PYIH4prcZSdmw9
+	NTy2H1qzh22EowL1OhDIEUSMboPCMxbNT8ezHNNl4RknFEqONfP6Enn7icGfseDixmmljjX6PwxAZ
+	61sZnewQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHRLE-00000000248-1ERQ;
-	Mon, 27 Apr 2026 19:10:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wHRLK-00000000271-46SA;
+	Mon, 27 Apr 2026 19:10:06 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHRLC-0000000023r-3STd;
-	Mon, 27 Apr 2026 19:09:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 82D3960141;
-	Mon, 27 Apr 2026 19:09:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB534C19425;
-	Mon, 27 Apr 2026 19:09:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777316997;
-	bh=S2QFyYO98/VeGN/skPl8gjEfWZ0lmpn91ZH1v5evmfc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oy1TTQzabSaSuoEPs9nMY1DcOZHjLDMVdinWJwVSlLiubHWfCdGTVDrBoiffUnV42
-	 4lR3iRcdRoRm6WmErZB7xmwE+o0aok1TZr1gwQZZcMF/yREI/KReJwtBaDBanAXqWX
-	 TfhlFacma5zyeE/lMesNtd8p1bGd0mlgCuYcBVgQKiBOZuO5gLxEp2OxhkJ8/ui9We
-	 1EHCy0xQa2AOpklCXJB1L/n/Ayy5PTYKEtFKHBzU4E8+TgcW9+pFZ4yNaV0pCoERhj
-	 XNq7M8lMiRHMiGR0gSTnuKUyaqDXJruookoppjFCDKseviChNfSmsd40xnEbV7T3hs
-	 /TvYi7Y59+Oqw==
-Date: Mon, 27 Apr 2026 20:09:51 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Rosen Penev <rosenp@gmail.com>
-Cc: devicetree@vger.kernel.org, Felix Fietkau <nbd@nbd.name>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Shayne Chen <shayne.chen@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	"open list:MEDIATEK MT76 WIRELESS LAN DRIVER" <linux-wireless@vger.kernel.org>,
-	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>,
-	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>,
-	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>,
-	"open list:MIPS" <linux-mips@vger.kernel.org>
-Subject: Re: [PATCH 3/3] wifi: mt76: remove mt76_get_of_data_from_mtd
-Message-ID: <20260427-hug-baboon-d60bb8fdfa51@spud>
-References: <20260427034427.881389-1-rosenp@gmail.com>
- <20260427034427.881389-4-rosenp@gmail.com>
+	id 1wHRLI-0000000025o-2uuQ;
+	Mon, 27 Apr 2026 19:10:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=Rb4LC4RoKjMwkAoMYkZMORsdxxUBkkBcuhhkQcQ9qHU=; b=VaiZ0EuMs/V/UpaUqhIxQT4kOQ
+	m2fmNRxLnBGy786PBF2Z0XkvBMAdhyEjrVoKui6GQ8giNSHAgxOJ65AnNm08rjG9ZcemAVGmlbYo/
+	x0vLZwJUF06BH6iWuyebP6piC19SdZ3GLQlXRGSEATGAP7cM7uguCYD7l8bg82hup8QcS5AT6NLAK
+	O1rudfGXB/blSVVheseL8grFMm70H+C1ElnAg1J4VOHI1ueOm2U+FYROlQkL8Vzg77Rlg4y8VwKlq
+	IekUEQ9uAOQ5SFiBYkhiDulThCYOT1lPRHpbX2efjvngHBt09pilTEDB+hXdcnKs1SbNOdXWus5zo
+	4MNyAfbg==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org,
+ Diederik de Haas <diederik@cknow-tech.com>,
+ Maud Spierings <maud_spierings@hotmail.com>
+Subject: Re: [PATCH v5 05/10] drm/bridge: dw-hdmi-qp: Add HDMI 2.0 SCDC scrambling and
+ high TMDS clock ratio support
+Date: Mon, 27 Apr 2026 21:09:09 +0200
+Message-ID: <890451008.0ifERbkFSE@phil>
+In-Reply-To: <d3b5239b-e3d9-4d81-9220-d6057d670ff3@collabora.com>
+References: <20260426-dw-hdmi-qp-scramb-v5-0-d778e70c317b@collabora.com>
+ <3826043.PYKUYFuaPT@phil>
+ <d3b5239b-e3d9-4d81-9220-d6057d670ff3@collabora.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="h8E0ijeg3Rf1YQAF"
-Content-Disposition: inline
-In-Reply-To: <20260427034427.881389-4-rosenp@gmail.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260427_121004_764703_F7527100 
+X-CRM114-Status: GOOD (  27.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,187 +78,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---h8E0ijeg3Rf1YQAF
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Sun, Apr 26, 2026 at 08:44:27PM -0700, Rosen Penev wrote:
-> mt76_get_of_data_from_mtd has been replaced by
-> mt76_get_of_data_from_nvmem in all usages.
-
-All users in the kernel, but what about other sources of devicetrees?
-Those built into firmware etc? Are there none of those too?
-
-Conor.
-
+Am Montag, 27. April 2026, 18:39:44 Mitteleurop=C3=A4ische Sommerzeit schri=
+eb Cristian Ciocaltea:
+> Hello Heiko,
 >=20
-> Remove it to prevent people from using the deprecated
-> mediatek,mtd-eeprom binding.
+> Thanks for the quick reviews!
 >=20
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> ---
->  drivers/net/wireless/mediatek/mt76/eeprom.c   | 87 -------------------
->  drivers/net/wireless/mediatek/mt76/mt76.h     |  1 -
->  .../wireless/mediatek/mt76/mt7915/eeprom.c    |  4 -
->  3 files changed, 92 deletions(-)
+> On 4/27/26 1:49 PM, Heiko Stuebner wrote:
+> > Am Sonntag, 26. April 2026, 02:20:17 Mitteleurop=C3=A4ische Sommerzeit =
+schrieb Cristian Ciocaltea:
+> >> Enable HDMI 2.0 display modes (e.g. 4K@60Hz) by adding SCDC management
+> >> for the high TMDS clock ratio and scrambling, required when the TMDS
+> >> character rate exceeds the 340 MHz HDMI 1.4b limit.
+> >>
+> >> A periodic work item monitors the sink's scrambling status to recover
+> >> from sink-side resets.  On hotplug detect, if SCDC scrambling state is
+> >> out of sync with the driver, trigger a CRTC reset to re-establish the
+> >> link.
+> >>
+> >> Reject modes requiring TMDS rates above 600 MHz, as those fall in the
+> >> HDMI 2.1 FRL domain which is not supported. In no_hpd configurations,
+> >> further restrict to 340 MHz since SCDC requires a connected sink.
+> >>
+> >> Tested-by: Diederik de Haas <diederik@cknow-tech.com>
+> >> Tested-by: Maud Spierings <maud_spierings@hotmail.com>
+> >> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> >> ---
+> >>  drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 188 ++++++++++++++++++=
+++++++---
+> >>  1 file changed, 172 insertions(+), 16 deletions(-)
+> >>
+> >> diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gp=
+u/drm/bridge/synopsys/dw-hdmi-qp.c
+> >> index d649a1cf07f5..c482a8e7da25 100644
+> >> --- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+> >> +++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+> >> @@ -2,6 +2,7 @@
+> >>  /*
+> >>   * Copyright (c) 2021-2022 Rockchip Electronics Co., Ltd.
+> >>   * Copyright (c) 2024 Collabora Ltd.
+> >> + * Copyright (c) 2025 Amazon.com, Inc. or its affiliates.
+> >=20
+> > I have no real clue about the inner workings of hdmi, but that line
+> > does make me curious, because no part of the patch authorship does
+> > mention Amazon ;-) .
 >=20
-> diff --git a/drivers/net/wireless/mediatek/mt76/eeprom.c b/drivers/net/wi=
-reless/mediatek/mt76/eeprom.c
-> index afdb73661866..092804323d81 100644
-> --- a/drivers/net/wireless/mediatek/mt76/eeprom.c
-> +++ b/drivers/net/wireless/mediatek/mt76/eeprom.c
-> @@ -35,89 +35,6 @@ static int mt76_get_of_eeprom_data(struct mt76_dev *de=
-v, void *eep, int len)
->  	return 0;
->  }
-> =20
-> -int mt76_get_of_data_from_mtd(struct mt76_dev *dev, void *eep, int offse=
-t, int len)
-> -{
-> -#ifdef CONFIG_MTD
-> -	struct device_node *np =3D dev->dev->of_node;
-> -	struct mtd_info *mtd;
-> -	const __be32 *list;
-> -	const char *part;
-> -	phandle phandle;
-> -	size_t retlen;
-> -	int size;
-> -	int ret;
-> -
-> -	list =3D of_get_property(np, "mediatek,mtd-eeprom", &size);
-> -	if (!list)
-> -		return -ENOENT;
-> -
-> -	phandle =3D be32_to_cpup(list++);
-> -	if (!phandle)
-> -		return -ENOENT;
-> -
-> -	np =3D of_find_node_by_phandle(phandle);
-> -	if (!np)
-> -		return -EINVAL;
-> -
-> -	part =3D of_get_property(np, "label", NULL);
-> -	if (!part)
-> -		part =3D np->name;
-> -
-> -	mtd =3D get_mtd_device_nm(part);
-> -	if (IS_ERR(mtd)) {
-> -		ret =3D  PTR_ERR(mtd);
-> -		goto out_put_node;
-> -	}
-> -
-> -	if (size <=3D sizeof(*list)) {
-> -		ret =3D -EINVAL;
-> -		goto out_put_node;
-> -	}
-> -
-> -	offset +=3D be32_to_cpup(list);
-> -	ret =3D mtd_read(mtd, offset, len, &retlen, eep);
-> -	put_mtd_device(mtd);
-> -	if (mtd_is_bitflip(ret))
-> -		ret =3D 0;
-> -	if (ret) {
-> -		dev_err(dev->dev, "reading EEPROM from mtd %s failed: %i\n",
-> -			part, ret);
-> -		goto out_put_node;
-> -	}
-> -
-> -	if (retlen < len) {
-> -		ret =3D -EINVAL;
-> -		goto out_put_node;
-> -	}
-> -
-> -	if (of_property_read_bool(dev->dev->of_node, "big-endian")) {
-> -		u8 *data =3D (u8 *)eep;
-> -		int i;
-> -
-> -		/* convert eeprom data in Little Endian */
-> -		for (i =3D 0; i < round_down(len, 2); i +=3D 2)
-> -			put_unaligned_le16(get_unaligned_be16(&data[i]),
-> -					   &data[i]);
-> -	}
-> -
-> -#ifdef CONFIG_NL80211_TESTMODE
-> -	dev->test_mtd.name =3D devm_kstrdup(dev->dev, part, GFP_KERNEL);
-> -	if (!dev->test_mtd.name) {
-> -		ret =3D -ENOMEM;
-> -		goto out_put_node;
-> -	}
-> -	dev->test_mtd.offset =3D offset;
-> -#endif
-> -
-> -out_put_node:
-> -	of_node_put(np);
-> -	return ret;
-> -#else
-> -	return -ENOENT;
-> -#endif
-> -}
-> -EXPORT_SYMBOL_GPL(mt76_get_of_data_from_mtd);
-> -
->  int mt76_get_of_data_from_nvmem(struct mt76_dev *dev, void *eep,
->  				const char *cell_name, int len)
->  {
-> @@ -163,10 +80,6 @@ static int mt76_get_of_eeprom(struct mt76_dev *dev, v=
-oid *eep, int len)
->  	if (!ret)
->  		return 0;
-> =20
-> -	ret =3D mt76_get_of_data_from_mtd(dev, eep, 0, len);
-> -	if (!ret)
-> -		return 0;
-> -
->  	return mt76_get_of_data_from_nvmem(dev, eep, "eeprom", len);
->  }
-> =20
-> diff --git a/drivers/net/wireless/mediatek/mt76/mt76.h b/drivers/net/wire=
-less/mediatek/mt76/mt76.h
-> index 527bef97e122..f447ecac664d 100644
-> --- a/drivers/net/wireless/mediatek/mt76/mt76.h
-> +++ b/drivers/net/wireless/mediatek/mt76/mt76.h
-> @@ -1339,7 +1339,6 @@ void mt76_seq_puts_array(struct seq_file *file, con=
-st char *str,
-> =20
->  int mt76_eeprom_init(struct mt76_dev *dev, int len);
->  int mt76_eeprom_override(struct mt76_phy *phy);
-> -int mt76_get_of_data_from_mtd(struct mt76_dev *dev, void *eep, int offse=
-t, int len);
->  int mt76_get_of_data_from_nvmem(struct mt76_dev *dev, void *eep,
->  				const char *cell_name, int len);
-> =20
-> diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/eeprom.c b/drivers=
-/net/wireless/mediatek/mt76/mt7915/eeprom.c
-> index eb92cbf1a284..c24e1276700b 100644
-> --- a/drivers/net/wireless/mediatek/mt76/mt7915/eeprom.c
-> +++ b/drivers/net/wireless/mediatek/mt76/mt7915/eeprom.c
-> @@ -29,10 +29,6 @@ static int mt7915_eeprom_load_precal(struct mt7915_dev=
- *dev)
-> =20
->  	offs =3D is_mt7915(&dev->mt76) ? MT_EE_PRECAL : MT_EE_PRECAL_V2;
-> =20
-> -	ret =3D mt76_get_of_data_from_mtd(mdev, dev->cal, offs, size);
-> -	if (!ret)
-> -		return ret;
-> -
->  	ret =3D mt76_get_of_data_from_nvmem(mdev, dev->cal, "precal", size);
->  	if (!ret)
->  		return ret;
-> --=20
-> 2.54.0
+> That was intentional: although the code was written by Collabora, the cop=
+yright
+> belongs to Amazon.
+
+They selected a nice chip then :-D
+
+
+> > Also I think "or it's affiliates" might be way too broad, because this
+> > can be essentially everyone. So noone in the future will know who to
+> > ask on copyright questions.
+> >=20
+> > Similarly when _somebody_ comes forward with "I hold a copyright on thi=
+s"
+> > no-one could verify this claim as well.
+> >=20
+> > I somehow expect _one_ entity being specified, not possibly hundreds.
 >=20
+> Hmm, I followed the wording already used elsewhere in the kernel tree:
+>=20
+> $ git grep 'Copyright.*Amazon.*affiliates' | wc -l
+> 93
+>=20
+> There appears to be only a single instance that omits =E2=80=9Caffiliates=
+=E2=80=9D:
+>=20
+> $ git grep 'Copyright.*Amazon' | grep -v affiliates
+> drivers/power/supply/max14656_charger_detector.c: * Copyright (C) Amazon =
+Technologies Inc. All rights reserved.
+>=20
+> Which was added nearly ten years ago, so I=E2=80=99m not sure it makes se=
+nse to adopt
+> that form now.
+>=20
+> Actually, this seems to be fairly common among other vendors as well:
+>=20
+> $ git grep 'Copyright.*affiliates' | wc -l
+> 1014
 
---h8E0ijeg3Rf1YQAF
-Content-Type: application/pgp-signature; name="signature.asc"
+okay then ... if that is already used a lot, and nobody else complained
+then it should be fine I guess :-) .
 
------BEGIN PGP SIGNATURE-----
+It just sounded strange to me when reading that earlier.
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCae+0fwAKCRB4tDGHoIJi
-0p6UAQCh7xiqZv6vZTQVkekaR1PoBZs8cZSa9cGLXxrA5TBPXAD+NdxdB4FFY1+K
-5yFpUApYxWTCs8eeSKv6+VAqqrq7lAE=
-=hLdb
------END PGP SIGNATURE-----
 
---h8E0ijeg3Rf1YQAF--
+Thanks a lot for digging those stats up
+Heiko
+
+
 
