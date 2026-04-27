@@ -4,77 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED937FF8861
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 09:51:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3254FF8861
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 09:54:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fHr9re7c+MC9vs7acP5SkgKfaBkyLESOUyri7tbOzhY=; b=unY6dVxexWdrwIexhsAWa9gOj8
-	+73ohsjFpPqz6zB6MArSh2v/Ye8d3NUW60tBkgnCb1oKHUhso8ydAfQEsBzeoJqawHcfbLiEnM4S6
-	n4ICOYzaL3hmqvUdst5emWpNYml9+zUScb/SqOMZkWJ4LqzhA9ENPGb4HD08F4MxW1wDNPxAkFDdS
-	JWnBD0K6XGaln8u4AaRk3qzLX9JNG6xzwsQ+aZgiqBfz40MdjusffwagpWStgzU5XLJMAlxQDghqY
-	1aPbJ1ZcgbEiSo7ws1rHLS2o/gXvANeW5hkh/xlnQAPwZG/dQwHflXoIOMHF7rtkcktspvBKSFoGO
-	EN/+AnkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CDL00mNehTnU03tGXQ5syJNde/P/tKrMirMV7wN+H8o=; b=3BcicPVA23vw5vGBqNpfHFuYS4
+	AjIJZsFMQH+D31JK6JcyjAZ+KI2CN6e2ow9JOo7zPpXIJ4HOCHjadjdHB1gxJ3xw8P/dHRygtmHir
+	6IRU1rx7ZgyfXRFGzyHhMCkZUdr0tDKAHZB5EQB5l5dEH5p/dXN5RevxZlSjMoLZzBvHGO3bOq+In
+	kl8Ei1qoGHPwpkWeti5PhBDKqJnozroRd026Lcko/lVFgMT9HuKhkPnTbHuW3XU6Lr+zN4clzGlPd
+	1cmGe5rbAgaH2jq8+V9wzt1mnXENBFwRQgjMvRE96iymJHjTBDB6eiNP1/tB4AKGj2dwnRGyqABL8
+	yALNp3pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHIcC-0000000Gc3I-0ozm;
-	Mon, 27 Apr 2026 09:50:56 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1wHIg0-0000000GcHw-2nq5;
+	Mon, 27 Apr 2026 09:54:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHIc9-0000000Gc2x-1nNX
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 09:50:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1777283454; x=1808819454;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=K16jtHwF4yPp9JMkktT1aUmSgbxm+THDb6sgljMPb2c=;
-  b=ciWngVOXrAT8c5QQ8UP+AIhYKUBRplYoBN6UxdOuCPfWe/hNY+n+7Gkt
-   uq3uTAepsBoNFQb3vO6wpWktBMSH4ozA/cRSWRl5rYgPF9GuaQ06Ac4+f
-   4mLzdUQG0mSkv4fZRp2M7/RfuSyK0+RR63GAckyS9U4ryU8zgFlLPAtvP
-   OY+Xav5hoeeyCy2tDQ2BwwXRB8JMgxnADpB3D7K95RshoSfpguWg9LMKM
-   llY4YI4Zr5HgHoiZEQ91Dc+gh3r2VZ6WeVBOwbduKSh8D7Z6QDavu0Isk
-   WdRX4K180y7UgRuuPX9rt3WWlG1lCg8Evltu4MgaW9R52HvfWdowPuS5K
-   w==;
-X-CSE-ConnectionGUID: itk7a7xNRsmlQijiooSqGg==
-X-CSE-MsgGUID: n5gzV6gURCyDEJoNpUfTMg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11768"; a="81775566"
-X-IronPort-AV: E=Sophos;i="6.23,201,1770624000"; 
-   d="scan'208";a="81775566"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Apr 2026 02:50:53 -0700
-X-CSE-ConnectionGUID: 5qUJxnBrSHmyDPhP+Wj8bg==
-X-CSE-MsgGUID: diT0lo2hQ7OD2PTyqy3B/Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,201,1770624000"; 
-   d="scan'208";a="237555452"
-Received: from fpallare-mobl4.ger.corp.intel.com (HELO localhost) ([10.245.244.2])
-  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Apr 2026 02:50:50 -0700
-Date: Mon, 27 Apr 2026 12:50:48 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Joshua Crofts <joshua.crofts1@gmail.com>
-Cc: Caio Morais <caiomorais@usp.br>, andy@kernel.org, dlechner@baylibre.com,
-	jic23@kernel.org, michal.simek@amd.com, nuno.sa@analog.com,
-	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org
-Subject: Re: [PATCH 1/3] iio: adc: xilinx-xadc: remove unnecessary includes
- and add missing ones
-Message-ID: <ae8xeI8VVUWn6OqQ@ashevche-desk.local>
-References: <20260426211834.3318306-1-caiomorais@usp.br>
- <20260426211834.3318306-2-caiomorais@usp.br>
- <CALoEA-zz-2cG7SJr1iKNQ0H81TVMXLQh3omkxJc9YRW673Kqqw@mail.gmail.com>
+	id 1wHIfy-0000000GcHC-463n;
+	Mon, 27 Apr 2026 09:54:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2902260145;
+	Mon, 27 Apr 2026 09:54:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAD6DC19425;
+	Mon, 27 Apr 2026 09:54:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777283689;
+	bh=3GJbd01BMV46KOqmSsQTOMiZH5IiF+nQeyc2rgr2Oy0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=N0e1xCma1Yv/JFQEVHz6rAqbo4SzecdgubW5eAeuFBxPfZLFcSpHZifv3smJyUZL4
+	 wLX+78hNXVoT6Us5dXRipin+RcIYZEnW0Nc87BCRW7eJGKnV+3E46tVwFrj672qevA
+	 cBfkymnQOHyjd7cH5I+NxJHloek91K2y156YPIVQ9g07CgGrd/RBlJS5tVYNmVJBwH
+	 0LL49GtkSA7wTOsuTxWqeCgpW6da9FIc3lwpnrt7SSpHsDlUEvdjULzHYeX7safi59
+	 T4hMOD87cDj4NWOjQ0hA6Xxs5AmhqbAaDaxj3AvBdtKD7jE11dz222IpZr0ITdM/6I
+	 XD1R17oZGM81g==
+Date: Mon, 27 Apr 2026 10:54:38 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Felix Gu <ustc.gu@gmail.com>
+Cc: Rosen Penev <rosenp@gmail.com>, David Lechner <dlechner@baylibre.com>,
+ Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko
+ <andy@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman
+ <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, Martin
+ Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] iio: adc: meson-saradc: fix calibration buffer leak on
+ error
+Message-ID: <20260427105438.2a9541f6@jic23-huawei>
+In-Reply-To: <CAN4SLj1_45OG+1AdzCfNiV7T3VX9tpQTcX8krsTDruhtYLzEGw@mail.gmail.com>
+References: <20260426-meson_saradc-v1-1-6e96b2982c43@gmail.com>
+	<CAKxU2N9_Nmk_apUZLSCGssXpwxYOz9k99ggRcUM3EPGUzaVi7w@mail.gmail.com>
+	<20260426114118.7ad8b130@jic23-huawei>
+	<CAN4SLj1_45OG+1AdzCfNiV7T3VX9tpQTcX8krsTDruhtYLzEGw@mail.gmail.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CALoEA-zz-2cG7SJr1iKNQ0H81TVMXLQh3omkxJc9YRW673Kqqw@mail.gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_025053_597270_0A324752 
-X-CRM114-Status: GOOD (  11.58  )
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,25 +77,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 27, 2026 at 08:42:55AM +0200, Joshua Crofts wrote:
-> On Sun, 26 Apr 2026 at 23:20, Caio Morais <caiomorais@usp.br> wrote:
+On Sun, 26 Apr 2026 23:26:33 +0800
+Felix Gu <ustc.gu@gmail.com> wrote:
+
+> On Sun, Apr 26, 2026 at 6:41=E2=80=AFPM Jonathan Cameron <jic23@kernel.or=
+g> wrote:
 > >
-> > Signed-off-by: Caio Morais <caiomorais@usp.br>
-> > ---
-> 
-> You're missing the commit message body. While it's understandable
-> what changes you've done in this patch, it's good to expand the idea
-> further (what you did, how you did it, why you did it). This goes for all
-> of the patches in your series.
+> > That is the minimal fix, so we should probably do that first
+> > even if we then circle back to consider if __free() magic is worth usin=
+g here.
+> >
+> > J =20
+>=20
+> Hi Jonathan,
+> You prefer a minimal fix here?
+Yes please.  Then if you like we can carry on discussion about whether
+__free() is a good change here as a follow up.
 
-Dunno if it's your first review (congrats in that case!), but I fully agree with.
-We do not accept patches with the empty commit message bodies.
-(*Yes, it used to be okay twenty ears ago, but now.)
+That can include the fact that it would have avoided this bug ever being
+introduced.
 
+Thanks,
 
--- 
-With Best Regards,
-Andy Shevchenko
+Jonathan
 
+>=20
+> Best regards,
+> Felix
 
 
