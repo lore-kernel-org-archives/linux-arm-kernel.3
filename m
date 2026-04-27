@@ -4,116 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2CCAFF885E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 10:52:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9396AFF885E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 10:58:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VszaiiOS69LMCrF4cs+T+KN9spCJ8nVeRr4kSbOs1XQ=; b=0zHMYvnTtja8w13CXTJ2wEIXBq
-	ft+FWR97Nmggxie/8U62gmGlJHIkGG/2XHs4YOKhxI8Bf3TzcI7MMTH56AFIOsv9EAOq4KLXo0fz7
-	Eb/GRc4a9vlUrGqZJnwW93fyD7HZAvDt43X0j0hNXVI/4HAyHl2nvITe3cM93PvORVy3zEjNYk1eX
-	lKwRTU0A1VVCWq3Ub6cQZ84Tnwa0hZpPjoN5C/AZtWRob1pzqVQaKnrR30iJKBV3LQWqWCEQrjpcS
-	6BigMFO9kv2OmITQ/bK+3sVR14QrAVCoYq192KN1FPNCKKn9EPKi9+S99JLpwGkQtL7fEkks7GWLg
-	HC1oFFMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dGBdavIaqnVL2bFEtTe5Ml/xW7w8rZK2JeFY/jWQ3kI=; b=isPj6IYuXPImXozH4Sgwvi9prw
+	kUHW8teqWZiMUKroWL1Q4dZ5iOPHeLHbIWVg3lRGoSlPRk+eJ0vXXFUlFsBPp0DFHATYGJtZUH352
+	ujm6GTGr2TaBar0gFyHysFZWI2j/cUqxz0w0nXZnFuXSq/xRNdUg7tGrZrXpdwuKjLqtUXOQkY//u
+	8aNQg5UcFWyEgCYo5CZGVBPiILtpI6O2EKNMXxFtJCtEvByo0giwJMQVoIw/ajT7eXitfKzo0+Lbt
+	4r7liOzFqJOxmCED0Y1z5VVMuDa7HH91UooNsUXPOdNPOhsbBztHusQHQC3IcpLaruPbYY3Zip1ne
+	D9bytLNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHJZn-0000000GjU9-1zfc;
-	Mon, 27 Apr 2026 10:52:31 +0000
-Received: from fhigh-b5-smtp.messagingengine.com ([202.12.124.156])
+	id 1wHJfd-0000000GjwB-0yDe;
+	Mon, 27 Apr 2026 10:58:33 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHJZk-0000000GjTW-1PbJ
+	id 1wHJfa-0000000GjvF-0b3e
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 10:52:29 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id D7B677A00BC;
-	Mon, 27 Apr 2026 06:52:26 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Mon, 27 Apr 2026 06:52:27 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1777287146;
-	 x=1777373546; bh=VszaiiOS69LMCrF4cs+T+KN9spCJ8nVeRr4kSbOs1XQ=; b=
-	i3lKiaXV1DkZ7dW7YxB0zQBj7iLHSfc30tdPzrsF+LdH55SqyMKCJp5g45zn9wpb
-	wQnu/3lSs6alP0zb/RlIstJWCRPxrcVVZ/LVhFGns8vlj5EVZzSH6gnARb4HunHT
-	UFlAdlTGiW7+C8gTkm0rZpuOdFmzhvXJ8TboWVUDBmSH/9HmmJocBOLF/RN92dCj
-	0VxSNh1U1r/D9GcXq7qya7oApU+AkVwTsoPW3dZ1JetNjc8Ln4YYWUCdxHnR67kz
-	PUnwReYoqBj13a4QRbd8Hl6mPdYkPMDDIjsDdCH0LaojvzgH5zGggaD/PundXGd2
-	RpeZ7fjKpJFIYTGMwsSW+Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1777287146; x=
-	1777373546; bh=VszaiiOS69LMCrF4cs+T+KN9spCJ8nVeRr4kSbOs1XQ=; b=s
-	q0xlL49/jJdl1t2cEtLucmn0Q9bXqfkKBiXTm5f3kSlshyH+XuoJOVTqCT4/7lyt
-	lQfJ5my5YtLb/b22yJJ1ewi8bnmCDDr4tS7gX3lM9Qdq49UcSa6j0j7OXQ6DX4kL
-	jmYOpP1P8KHwdv7CW25yUWB4jm4Xa1WIDWHYzAIrtLXnNsZsNGbuarNMlS1tE/5k
-	0q7ZA/5kN8274gO62/WZC9AKpPZfgIYtGsjc4NOHDAvLoWsrPKiWh9OSjHpb18Gq
-	FljH+v9gBbqniVnE3AO57oaCUNtPEH363bIshQH07MPgQuHXd3KN1VQOaDrLljhR
-	FCtmRAfYzfqWcrqTkqYeg==
-X-ME-Sender: <xms:6j_vae90RTOVVNevnRVJ7_7NkpEW2pW4JrnqAC6w5ePkOAZXnSWZ1A>
-    <xme:6j_vaZhXhCUtRtYEnMWD6jbEzzdLhuVoM1AzsFeq-MCe_cjVnq_XK6DSN1xFBNE2l
-    eGz8XatgZi6K8dfspSEfMN7lgfpYA-0Ler7ub4GKtbCX6EXYdOnSjs>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdejkeehtdcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
-    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
-    hnpefhtdfhvddtfeehudekteeggffghfejgeegteefgffgvedugeduveelvdekhfdvieen
-    ucevlhhushhtvghrufhiiigvpedunecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
-    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopedvtddpmhhouggvpehsmhhtphhouhht
-    pdhrtghpthhtoheplhhinhhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtth
-    hopehtohhnhiesrghtohhmihguvgdrtghomhdprhgtphhtthhopehkhhhilhhmrghnsegs
-    rgihlhhisghrvgdrtghomhdprhgtphhtthhopegujhhrshgtrghllhihsehgmhgrihhlrd
-    gtohhmpdhrtghpthhtohepughmihhtrhihrdhtohhrohhkhhhovhesghhmrghilhdrtgho
-    mhdprhgtphhtthhopehjmhhkrhiihihsiihtsehgmhgrihhlrdgtohhmpdhrtghpthhtoh
-    eprggrrhhordhkohhskhhinhgvnhesihhkihdrfhhipdhrtghpthhtohepsghrghhlsehk
-    vghrnhgvlhdrohhrghdprhgtphhtthhopegurghkrheskhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:6j_vacMXLOCRI7xDUznXTth8jdPsep2YclT8G2_FhbPaB3u1JYokhQ>
-    <xmx:6j_vaQKnGyjQT2V7a9bokjAPQlndHf3khTSONj8OIR8S2dMInAIoiA>
-    <xmx:6j_vaXxgYZU7PKY05SkCYggqJddVDeQi6MeiOqc8SeGwdsj6wLqcfA>
-    <xmx:6j_vaQ6EPqeScOkCDw-NObr5fpNmf2LvgLqTcSUZ2s4j5itKTbMAoA>
-    <xmx:6j_vaUSzpLA04WEL2-l84ubvlS_Eq2ohIFp_r3RJzzp9oCnpyJ2Hjha8>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 849C770006A; Mon, 27 Apr 2026 06:52:26 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Mon, 27 Apr 2026 10:58:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=dGBdavIaqnVL2bFEtTe5Ml/xW7w8rZK2JeFY/jWQ3kI=; b=mLv5x2ELnnYv8KJwqrsZ6PgyMF
+	xIRHSKxzYv/IWoSBMYF+aHJxWRNUmzb25/HRQlzPl0kBlk/xwvz/mCaXX8qarfsw4a3rdhzQCxDwq
+	DNKhiPptxpL1nEakVi7Fm4053EN+BaAbPTQyC4p0L/iQdvXOwEFrJummjJNqUKDR0nHE5vOsfefAV
+	+5mVEwhxV3pdCWhPI8eZn0ruQn2KdC3ICZbvpjXapeQ6Z2k3ZOIL49UX4QNB/wWLsfyNkcSE69+fG
+	EZOcFlQ6x0OB3rBVLdwNo/0Z/WJ2j8D21QBnQj2xDG1U3lBeUZFghSaJE80b39SSyBCaPQHSXQ5dd
+	IDYlSPxg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:48392)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1wHJfO-000000006tA-0MDk;
+	Mon, 27 Apr 2026 11:58:18 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1wHJfL-000000005JE-339f;
+	Mon, 27 Apr 2026 11:58:15 +0100
+Date: Mon, 27 Apr 2026 11:58:15 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Cc: Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Arnd Bergmann <arnd@kernel.org>, Linus Walleij <linusw@kernel.org>,
+	brgl@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 3/4] ARM: pxa: pxa25x: attach software node to its
+ target GPIO controller
+Message-ID: <ae9BR5vW_6jvNOYY@shell.armlinux.org.uk>
+References: <20260427-pxa-gpio-swnodes-v2-0-86fc24b9e714@oss.qualcomm.com>
+ <20260427-pxa-gpio-swnodes-v2-3-86fc24b9e714@oss.qualcomm.com>
 MIME-Version: 1.0
-X-ThreadId: AGuRs2470qq3
-Date: Mon, 27 Apr 2026 12:52:04 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Bartosz Golaszewski" <bartosz.golaszewski@oss.qualcomm.com>,
- "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>,
- "Danilo Krummrich" <dakr@kernel.org>,
- "Andy Shevchenko" <andriy.shevchenko@linux.intel.com>,
- "Daniel Scally" <djrscally@gmail.com>,
- "Heikki Krogerus" <heikki.krogerus@linux.intel.com>,
- "Sakari Ailus" <sakari.ailus@linux.intel.com>,
- "Aaro Koskinen" <aaro.koskinen@iki.fi>,
- "Janusz Krzysztofik" <jmkrzyszt@gmail.com>,
- "Tony Lindgren" <tony@atomide.com>, "Russell King" <linux@armlinux.org.uk>,
- "Dmitry Torokhov" <dmitry.torokhov@gmail.com>,
- "Kevin Hilman" <khilman@baylibre.com>
-Cc: "Bartosz Golaszewski" <brgl@kernel.org>, driver-core@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Linux-OMAP <linux-omap@vger.kernel.org>
-Message-Id: <94985c72-fd4c-4afd-aee6-881d1f17b2f6@app.fastmail.com>
-In-Reply-To: <20260427-nokia770-gpio-swnodes-v6-1-b693296c1985@oss.qualcomm.com>
-References: <20260427-nokia770-gpio-swnodes-v6-0-b693296c1985@oss.qualcomm.com>
- <20260427-nokia770-gpio-swnodes-v6-1-b693296c1985@oss.qualcomm.com>
-Subject: Re: [PATCH v6 1/3] ARM: omap1: drop unused variable from omap16xx_gpio_init()
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260427-pxa-gpio-swnodes-v2-3-86fc24b9e714@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_035228_466211_7F679F38 
-X-CRM114-Status: UNSURE (   7.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260427_035830_489542_12596ECB 
+X-CRM114-Status: GOOD (  23.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,12 +85,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 27, 2026, at 12:46, Bartosz Golaszewski wrote:
-> The pdata variable is set but not used. Remove it.
->
+On Mon, Apr 27, 2026 at 12:14:34PM +0200, Bartosz Golaszewski wrote:
+> Software node describing the GPIO controller for the pxa25x platforms is
+> currently "dangling" - it's not actually attached to the relevant
+> controller and doesn't allow real fwnode lookup. Attach it once it's
+> registered as a firmware node before adding the platform device.
+> 
+> Reviewed-by: Linus Walleij <linusw@kernel.org>
 > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 > ---
->  arch/arm/mach-omap1/gpio16xx.c | 2 --
+>  arch/arm/mach-pxa/pxa25x.c | 5 ++++-
+>  1 file changed, 4 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm/mach-pxa/pxa25x.c b/arch/arm/mach-pxa/pxa25x.c
+> index 70509a5998142ec6b9c484e5f094751eda6db6cd..6875774f2cae1db4798d18c813f445bdc31b15de 100644
+> --- a/arch/arm/mach-pxa/pxa25x.c
+> +++ b/arch/arm/mach-pxa/pxa25x.c
+> @@ -179,7 +179,6 @@ void __init pxa25x_map_io(void)
+>  }
+>  
+>  static struct platform_device *pxa25x_devices[] __initdata = {
+> -	&pxa25x_device_gpio,
+>  	&pxa25x_device_udc,
+>  	&pxa_device_pmu,
+>  	&pxa_device_i2s,
+> @@ -240,6 +239,10 @@ static int __init pxa25x_init(void)
+>  
+>  		if (!of_have_populated_dt()) {
+>  			software_node_register(&pxa2xx_gpiochip_node);
+> +			pxa25x_device_gpio.dev.fwnode = software_node_fwnode(
+> +								&pxa2xx_gpiochip_node);
+> +			platform_device_register(&pxa25x_device_gpio);
+> +
+>  			pxa2xx_set_dmac_info(&pxa25x_dma_pdata);
+>  			ret = platform_add_devices(pxa25x_devices,
+>  						   ARRAY_SIZE(pxa25x_devices));
 
-Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+Why do you need to explicitly register using platform_device_register()
+rather than leaving the device in the pxa25x_devices list and letting
+platform_add_devices() do that for you? platform_add_devices() is just
+a wrapper around platform_device_register() which calls that for all
+devices in the array.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
