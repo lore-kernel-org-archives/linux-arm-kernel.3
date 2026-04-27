@@ -4,62 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB806FF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 15:05:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BBB2FF8860
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 15:07:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lKmktgMsLT8bswV/+6qn/5r6AsKY+Ic+6aIWG845vb4=; b=bNKS5DjlT+Nnm9C7NgCGL72fhC
-	1+MUadRTUc0mfuyKFSlqrFHupOH2n/02eeg875mzeVsKfgIQIel4xYlRNObkGd2CVUO2y8YchKC0y
-	hdtuA+d+ikGIGv/DBAqm8lty8EgN5mdYBFUmrXU16z64Y4n4pP8ul+8TA4F2+rxTye6/4qbGhyXdo
-	9ghez5n1pibrVIVn49iA6+dEko1f5wZe6x3n+zZQZbh9c4xSQZy8twg7M0RlZ3zWmv0JlXpHrA14E
-	t0dneADkv2TQDX2tHNSVYvJgmR9cWsFIdwZiFXPPOksoJsMem/uaC/MHjhjGtTjlzoSnOdZaE6GFN
-	R5UEq0dQ==;
+	bh=gMNoBFW05PGN89Lx84+WtOyYzlPOjlTQR1HX96yjry0=; b=J+87FbDwqbE78iSNo7kgmUdlOB
+	ChD95lmTCSDQnnnjTAMcxFb4+JiWxy+IxQ81NlddjBS+K76Stm+0sk9oXWvAZ2OvlORXb7nypE+FJ
+	0K9ZiKSPHmhzVz53DY6MWj+ERZKSjf2qdtLBGhb4mWKf9tv4/rEFWGQOg4FxR4Qc7ERKWM4wRbF7o
+	NtDQfCgZNEGRncy6evPjBqxJqak515X/BYLzt6qZmvzC8OsX8idjJL8T6acAa44ZxDFREYC+e+lef
+	zcF6DzW5knvtvO1YTZfJffp7V2CQxuvWZhsGBQTDbJ4RygfYAlYdzzS8XVc56jOTK6jPYXo9lR4AK
+	VN1vZeaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHNWS-0000000H9rJ-0vfJ;
-	Mon, 27 Apr 2026 15:05:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHNWM-0000000H9o2-05Bc
+	id 1wHNYD-0000000HA9r-3fkt;
+	Mon, 27 Apr 2026 15:07:09 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHNYA-0000000HA8w-3wfV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 15:05:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0699B1FC7;
-	Mon, 27 Apr 2026 08:05:05 -0700 (PDT)
-Received: from [10.164.148.37] (MacBook-Pro.blr.arm.com [10.164.148.37])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 952753F7B4;
-	Mon, 27 Apr 2026 08:05:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777302310; bh=LF4eMdK0ID4NJDAUmuKQ8VsmPWmO7w6FTTlpJhcDycs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ZvPqTD/8uz+vouJEXQWe5V4WnPgvNPoD0zRcg/+h/FtE7s8IlA6PhWIUySQ6Ot+HJ
-	 7KCalBDGW0j/7MxTtrtqV9TDUTDg/99gV52ADTb5nu8Ml/zvWGSKnJ6WAsgr+vS0FR
-	 BRD/orHCUaiFgQi9kEUiKiBo8YlSGbTrzSKMfScs=
-Message-ID: <fb022a6f-0faf-4742-8934-8a7ffae806f6@arm.com>
-Date: Mon, 27 Apr 2026 20:34:57 +0530
+	Mon, 27 Apr 2026 15:07:08 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 6360C4E42A8E
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 15:07:04 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 155A0600D1;
+	Mon, 27 Apr 2026 15:07:04 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CD5101072822D;
+	Mon, 27 Apr 2026 17:06:59 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1777302423; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=gMNoBFW05PGN89Lx84+WtOyYzlPOjlTQR1HX96yjry0=;
+	b=iPoYCp2Q3BZkyngYDlFdBLey+pjeV/cHso3bV3Ev9SH7ZwK/Ph+ThDhIUdsWAjIAidna+P
+	3ehE4OUWBkBeKBsPept5h7+UjFJzC43vdRtPcS96/UMSKc6bI+/tMOrjn24RH0o/Qh8kSD
+	ZYtvR1xkxPRrY4Nsl/81kzq3IhHUryb2uOY5HyGXnLnAwdi1FbIjmI/uHhWICwuCBTm/kb
+	yb7adJu6DrK7iNdh/R+YnenQBw4gou837NPLjsNfQOhpCepJ2/IBELq39GzhJcDWDA4TzT
+	+Ya6hjdPjMRUOuKiiMpXfEvb7bzdeKRXDuUGyynMQiloNDU44Rg6DhKNUTjYBA==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
+ <vigneshr@ti.com>,  Nicolas Ferre <nicolas.ferre@microchip.com>,
+  Alexandre Belloni <alexandre.belloni@bootlin.com>,  Claudiu Beznea
+ <claudiu.beznea@tuxon.dev>,  Russell King <linux@armlinux.org.uk>,
+  linux-mtd@lists.infradead.org,  linux-arm-kernel@lists.infradead.org,
+  linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 3/3] ARM: at91: remove unnecessary
+ of_platform_default_populate calls
+In-Reply-To: <20260424-worried-renewal-924d34ed945c@thorsis.com> (Alexander
+	Dahl's message of "Fri, 24 Apr 2026 12:56:27 +0200")
+References: <20260105-at91-probe-v3-0-594013ff2965@kernel.org>
+	<20260105-at91-probe-v3-3-594013ff2965@kernel.org>
+	<20260423-stoke-ocean-139dbe306256@thorsis.com>
+	<20260424-worried-renewal-924d34ed945c@thorsis.com>
+User-Agent: mu4e 1.12.7; emacs 30.2
+Date: Mon, 27 Apr 2026 17:07:01 +0200
+Message-ID: <87tsswfnmy.fsf@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 0/8] mm/vmalloc: Speed up ioremap, vmalloc and vmap
- with contiguous memory
-To: "Barry Song (Xiaomi)" <baohua@kernel.org>, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
- will@kernel.org, akpm@linux-foundation.org, urezki@gmail.com
-Cc: linux-kernel@vger.kernel.org, anshuman.khandual@arm.com,
- ryan.roberts@arm.com, ajd@linux.ibm.com, rppt@kernel.org, david@kernel.org,
- Xueyuan.chen21@gmail.com
-References: <20260408025115.27368-1-baohua@kernel.org>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <20260408025115.27368-1-baohua@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_080514_106767_E02FB205 
-X-CRM114-Status: GOOD (  13.99  )
+X-CRM114-CacheID: sfid-20260427_080707_102239_9800072A 
+X-CRM114-Status: GOOD (  14.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,60 +84,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Alexander,
 
+On 24/04/2026 at 12:56:27 +02, Alexander Dahl <ada@thorsis.com> wrote:
 
-On 08/04/26 8:21 am, Barry Song (Xiaomi) wrote:
-> This patchset accelerates ioremap, vmalloc, and vmap when the memory
-> is physically fully or partially contiguous. Two techniques are used:
-> 
-> 1. Avoid page table zigzag when setting PTEs/PMDs for multiple memory
->    segments
-> 2. Use batched mappings wherever possible in both vmalloc and ARM64
->    layers
-> 
-> Patches 1–2 extend ARM64 vmalloc CONT-PTE mapping to support multiple
-> CONT-PTE regions instead of just one.
-> 
-> Patches 3–4 extend vmap_small_pages_range_noflush() to support page
-> shifts other than PAGE_SHIFT. This allows mapping multiple memory
-> segments for vmalloc() without zigzagging page tables.
-> 
-> Patches 5–8 add huge vmap support for contiguous pages. This not only
-> improves performance but also enables PMD or CONT-PTE mapping for the
-> vmapped area, reducing TLB pressure.
-> 
-> Many thanks to Xueyuan Chen for his substantial testing efforts
-> on RK3588 boards.
-> 
-> On the RK3588 8-core ARM64 SoC, with tasks pinned to CPU2 and
-> the performance CPUfreq policy enabled, Xueyuan’s tests report:
-> 
-> * ioremap(1 MB): 1.2× faster
-> * vmalloc(1 MB) mapping time (excluding allocation) with
->   VM_ALLOW_HUGE_VMAP: 1.5× faster
-> * vmap(): 5.6× faster when memory includes some order-8 pages,
->   with no regression observed for order-0 pages
-> 
-> Barry Song (Xiaomi) (8):
->   arm64/hugetlb: Extend batching of multiple CONT_PTE in a single PTE
->     setup
->   arm64/vmalloc: Allow arch_vmap_pte_range_map_size to batch multiple
->     CONT_PTE
->   mm/vmalloc: Extend vmap_small_pages_range_noflush() to support larger
->     page_shift sizes
->   mm/vmalloc: Eliminate page table zigzag for huge vmalloc mappings
->   mm/vmalloc: map contiguous pages in batches for vmap() if possible
->   mm/vmalloc: align vm_area so vmap() can batch mappings
->   mm/vmalloc: Coalesce same page_shift mappings in vmap to avoid pgtable
->     zigzag
->   mm/vmalloc: Stop scanning for compound pages after encountering small
->     pages in vmap
-> 
->  arch/arm64/include/asm/vmalloc.h |   6 +-
->  arch/arm64/mm/hugetlbpage.c      |  10 ++
->  mm/vmalloc.c                     | 178 +++++++++++++++++++++++++------
->  3 files changed, 161 insertions(+), 33 deletions(-)
-> 
+> Hei hei,
+>
+> after few hints in IRC yesterday, I tried to understand why neither
+> the ebi driver nor the nand driver are probed, but I failed.  See
+> below.
 
-Hi Barry, have you got the chance to work on v2?
+Just to be clear, I would not expect the NAND driver to probe "alone",
+it is described as a child node of the EBI controller which has its own
+compatible. As a result, only the of_platform_populate() at the end of
+the probe of the EBI can lead to the NAND controller to probe. The EBI
+node being a child node of a "simple-bus", this is the one we should
+focus on, because it should be probed.
+
+One reason (trying to be creative) could the that Rob's patch is
+dropping an explicit populate that maybe kind of bypasses checks that
+the "official" populate does. So maybe there is one resource that is
+missing and which is not ignored as it used to be by the core device
+driver (likely, dd.c).
+
+Can you enable CONFIG_DEBUG_DRIVER and see in the logs if anything pops
+up? Maybe trying to trace (manually) in the core why we do not attempt
+to probe the EBI controller by looking for possible conditions to bail
+out early. Pinctrl is one of them, so maybe just removing all pinctrl
+references in the DT may help troubleshooting this (obviously probe will
+fail if pinctrl is incorrect, but if it is attempted we will have a
+culprit).
+
+Good luck,
+Miqu=C3=A8l
 
