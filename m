@@ -4,132 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 554B9FF8861
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 08:25:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B858CFF8861
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 08:28:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P8hA1XJI+tcg1ndL0cLATeysR4Rkt9sfvGka3arDDeQ=; b=nHaS/fNinD++KebRSwUTOseDhg
-	XNzW4XDg0s1OXeN/1dAutvXtAdbF0Hk5ZI78/r+YcpE0ieoU6AzBus3IPouVGqbXu1ltCgqx2bMRW
-	ljj3oVR5l61Fjcs9E1IJT0ZrF/YSTzm5SC1NjvvK2wBLX1AxUred5qyBkWp2D8UIszqXrgAgIzuAP
-	t86Yz/6WQP9Rf/lYYiBk/dJmJztZoGdTJnEyfjnL3AUPaAODAF/x3rUQ2VIfX4Y9X2caWfoxE/Kxg
-	p1J19U9DeSkAERc2JXmUMS6052mDTjxqs3ihR3ClSQ+hYMN8XllG64V/+cTc/adZgxEf2CI7Qh6TP
-	WCCmwjvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=057XLyBfQUJ2BsGzIphCqL7Kk0+8mETNmOCoiI5FJzM=; b=fxXegkOzSqe5izrMwYv1k0WzQ5
+	3gxGuYKEZMGbrytU5YoZb/ihSlGhoUvvFV6ZMFrzOMheAHdxVlXbX338A4z4nEFaXe+G5kJmHxwa4
+	6wYPSZytUUGwX3zMPBViRx6ZZ/d664PM3Vai+A5h7Oo6EHtycvNV9p6g9Co/Eejxon5t4UZieuaoh
+	kDQeHWjG7/a61A0gqhlnxA0/Zh8V5awBD4C7fP9PanRuyRf74TTHbRVbu8EP+fMGaKoxbCnF1vcSb
+	uSqQQfpVqSGCJ5J2ZkoyB0qhhK1Z0nfYYjNsM996/cmWsQAk+BgCx+uMNVohL6P4KhyTS/azQpdqH
+	QGxBHZnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHHHd-0000000GRkL-2nYP;
-	Mon, 27 Apr 2026 08:25:37 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1wHHKD-0000000GSNn-1HVv;
+	Mon, 27 Apr 2026 08:28:17 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHHHX-0000000GRcc-3bFE
+	id 1wHHKA-0000000GSN3-3MS5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 08:25:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ad6Y6ncMa2Lip6JgNBkO+8xxwu7mcg14W5//lRVfjaRVx9bIaB0jsOswe7FX6Xbt/1J3uWA76uBpgeMGubVakYMp1PRPgI6/HloaVo9lm2k+5Mmbi84WCG7YFr7RM74qPTZQ57wVaszWimaKGeLsc9TRhrrjLqCDwIqE8EcLWpy9WCWCvdeYNSdG5o/BjbXzcK8hk2LI5TDMjK7E4niGlQEZt8/LTRwpHpGAXKtjcE6DDPHW6rN003faWmyxhhVFYhuHR/zH0zRGqSGUiVzOt6COYvjG7Nux30386kxcGgZQp4A8CAiSNy23KFIic8VXNB/XqE3KZGpBtC9z8Q8QIA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=P8hA1XJI+tcg1ndL0cLATeysR4Rkt9sfvGka3arDDeQ=;
- b=KhF5Q9xqln/XwwykB3EKy2CgtRLSI3yaLfnZ00D3cdxims7htULjumXiEiohOT73oEMZtqf0HTVhL9CFYVbgTx9tll12L4F8C+dvW+47S+QXeqcXe0uE+I/XySj77Ai7wPienjq+Z4dxXnJ3dmVTBAYTEPuxjUs9Kdu7C+iRDAxJiU+UW6hwzlMBBb2q3FaQmPci2qo1PxQkKIshbTf5zfDAyw0ARezk8OWsYKa2RnqUUSaruw6CjdI3o5kuLWx8odB44QMovyZRHAndKJ37dSVEs8WHeFcjnipIZIT40tZk51xy8c+cTEIDLetjKsEqnQww9GLY27CIFMfty5dL+w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=P8hA1XJI+tcg1ndL0cLATeysR4Rkt9sfvGka3arDDeQ=;
- b=WMTt4JSXXwz1zn0fWIK+sgW5d+Ca4fRoc1r+dNbi1KJF/r5u4/52ykPl6ea9DkrT2cLtMtWxXsN/lQuE5IJAJNcMFohrKrwf2X2fcU5w8236W87Tqo5fjKcYMFn03Z1rKMxKLTI1pwkrEIxQwnNa1zyzMvi4BbRfLJM+W9+5h9L2/jwFvRIUZxyDCi6If3GRw9sJGosh7fggVevZWcTqpjSCBhh9uYZr5Dc2ZZmhLYGKs1M1PfLgO7/gKwlFDSFtUWn3f1AJQvrcL87Mml/AzvVjWcQ+0Xkjq+cB/myvMA+SOmHGP/6NC5ZBFgKJPr1hmjU5K+XU3IFlGVoPJC348A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
- by VI0PR04MB10806.eurprd04.prod.outlook.com (2603:10a6:800:262::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Mon, 27 Apr
- 2026 08:25:29 +0000
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::c67b:71cd:6338:9dce]) by DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::c67b:71cd:6338:9dce%5]) with mapi id 15.20.9846.025; Mon, 27 Apr 2026
- 08:25:28 +0000
-From: Xu Yang <xu.yang_2@nxp.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
+	Mon, 27 Apr 2026 08:28:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E810740374;
+	Mon, 27 Apr 2026 08:28:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A4D8C19425;
+	Mon, 27 Apr 2026 08:28:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777278493;
+	bh=gWkVVxSq7S/AnFhRjhjyX3b4YhmSCwNgWZUHpsa5BLk=;
+	h=From:To:Cc:Subject:Date:From;
+	b=QFYJ/60lml/EF+AS1cuBMCTd+OGx7qntiObO9eSix7wWQPVNTyR1h0Il6kKbuKBfN
+	 rXfEU8BAPOarfboNzoqEJ2teq/TXeJfzZCSpRP80TjnkFPAfp7voeYD0qdGcGYz0+C
+	 5J4j/uyftxLSb1ol0w0cffY/KTVm0en2p7InEQTs+MOTO0+YEsWRaGrIDsjFnCC7Wm
+	 XEb4yboQMZazA0vZX49sFlalS5vSczzI0lUVA3xgS1YIwwHjkigboaWOT2OR215s5x
+	 TJY8IYF4zYA3F+ZL0uKlqqTZZA9REJgWxJ0l4JAbAhshl7AH0yfZWq8Sbkp/uUTFAr
+	 tU8pwxLNYP/4w==
+From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+To: linux-coco@lists.linux.dev,
+	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	jun.li@nxp.com
-Subject: [PATCH v2 6/6] arm64: dts: imx8mq-evk: add typec node
-Date: Mon, 27 Apr 2026 16:27:28 +0800
-Message-Id: <20260427082728.3641872-6-xu.yang_2@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260427082728.3641872-1-xu.yang_2@nxp.com>
-References: <20260427082728.3641872-1-xu.yang_2@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR02CA0001.apcprd02.prod.outlook.com
- (2603:1096:4:194::10) To DU2PR04MB8822.eurprd04.prod.outlook.com
- (2603:10a6:10:2e1::11)
+	linux-kernel@vger.kernel.org
+Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Samuel Ortiz <sameo@rivosinc.com>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Xu Yilun <yilun.xu@linux.intel.com>
+Subject: [RFC PATCH v4 00/11] coco/TSM: Arm CCA guest TDISP lock/accept flow with verification and DMA enable
+Date: Mon, 27 Apr 2026 13:57:54 +0530
+Message-ID: <20260427082805.931832-1-aneesh.kumar@kernel.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|VI0PR04MB10806:EE_
-X-MS-Office365-Filtering-Correlation-Id: d2a69a7b-3e9f-4837-b88c-08dea4368a19
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|1800799024|366016|19092799006|38350700014|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: XWKY07fFJo40np3OT2sdPzHhSIiDK6CZOCxZeSzmaEnB7n9hHb952+oNCtDBlvwnRJutZVxHAaRXWu7Cs7jpWmBYIPQrxzdAi8xrkZXSGfFw1sTMMSa4AxCQpX/6jlORA7tt4SN8Dxen2G0rJ2mj4zriezJYilgqdYMddt056V7sNyOb2Vyl27WpCs/POWHcPWVVrl5MsUscflnwhfXu5OC394OGLdOhTChZYPTailOGaAbGXofL5lFI5I2fJJ76/xgdKCxV78Tbe83nnrEYUZUZpIV8H3j92mTzZaOfAwTXKHzZMJsjhUaKgBnTcxNUQQpSOQ0xX4ouq/AqKDxsAzrWgTiL0d653ivjZR1ut0Xvpr3lz5zzO8x92bdcFMe88QykEfp7EzsYkk8n77Et72Ya29ImaMtpX1TB4qGMofScu5qTb7l3uFFIdHO0rjR6HPyo1pRjEd9yJgIN1r18iYmlGGuijco+XCcPCy25E2vjyM2d7pNmk15gj86rTDHpYhieaB1xYp18Ov51+7WshaFmlrNlTYtyE6SKTVXNln3+6tN+P4XXjL4ADqT751MtrAP5lKKIG/7KQ482ujqSwb/hfx4l4AwFHTOOoYD9FeChkDeYsUakSeZ1/mJO6/YmqDmdFR1+AWgt6yDDct9Hha2rVlOT+2LtZlmJqaKHqIt+4hPv+DSqpB6/ssSH7ltiB70jTfMn3OCLhvOpbzaYURh26DYQfW2nlfAqAeiejMphXg2ODDcXsaUHnV50IoBS6x0uZ0FUtNfo6pdLHDT3DM6YNd2YNf5CuxFjwUPRoYQ=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(1800799024)(366016)(19092799006)(38350700014)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kUNmaa4T4KLWzssrkYOG1Y0mQLZ7b4p4dZSXdR35b6CFGHKnjva0b/p18cQs?=
- =?us-ascii?Q?gAW72TNNLenTHxOUEGCxH+qxN8K/TQWy6e7sM8xRrob3OeG2zyM2/O1xYM/7?=
- =?us-ascii?Q?IYTiV3KfaVYwO75LQkeS+nqyR6SE3XIPiRtHXYuIiW3vvbmCJSmuYdjEb8ex?=
- =?us-ascii?Q?7IlL2kS3K3RbUEve9C7EQPt2W+ETGBLSv266dtOnWsNvOqnYeb8CoBx9h6vn?=
- =?us-ascii?Q?0fYILLxCxy2W5F2EFn6afIrTMx3G17zkXiKFW0gQZUzaX1z9kDeLh/NLYLgx?=
- =?us-ascii?Q?u4lqu5SGvVJJhWcDKZNNMpzlxjLRlkNySi6TkBugBAFsvt1ZVMwzWh8eEfe6?=
- =?us-ascii?Q?JoiGccRqA4JqdjCvlYJwwPc6RCgieE67EXQSiXAkt04Pt4aQY5GMc19kaWRf?=
- =?us-ascii?Q?Y6DB+zKXlcL72BX4HY3QX/b0LKKuW+jBXbYF3H5Kwq/uVGw6LNsWrbK4dqO6?=
- =?us-ascii?Q?9hAUG0GDu1gpc6K4WhtUMTdq16aU271GrMHCocCb1puH44mrA7X5rdr/Cw18?=
- =?us-ascii?Q?k13Sgx9rIZ8igAJgjJLVzGIZ/U1r5xeuDwQOOeXURmvLRSraRLpB8hzpgOuh?=
- =?us-ascii?Q?1F/d5gOmtGPxMispeoSO4g4mROcMJTSnsQa2zCtlvl8AR0dhGxRifjYEo+e8?=
- =?us-ascii?Q?lIPx2FYe8Uq6gOCa217GF4I9odkktVr3JDXYZUccvuQiSEoSHYakJugHJNa4?=
- =?us-ascii?Q?FwDJwZpvz6fWfMDBrf3NeXThEF9a3nvT2uIRqGs2Fx53khlsXDNf9+zlZ76F?=
- =?us-ascii?Q?Haaka+77Ba4MUr1bq1u5Al3f+H6++JfGbdoKng/57hoF31XIILFMyPWFTkwJ?=
- =?us-ascii?Q?eFAznAiVB9Zb295Al0lhlfm2qJS8uucpBn0D4XszuSQop2K4P8Y7yni3Ehab?=
- =?us-ascii?Q?+7Qyfw81iS+tGpZAY+0Zrsc6BIzUXM872WAcQey0RmQB9rPG7a6LAJWf2P+u?=
- =?us-ascii?Q?8bN7slUhFbVixEYu9r2xnzEkZKAQmdw83dnkIlQr74byfSbCK5nxyBFpgyJ+?=
- =?us-ascii?Q?P7etuoeV7pzWGMY+rNGEVPrNZU45uaSKwisDlhHbgQRQKRj+WuPMRAnaMZHA?=
- =?us-ascii?Q?VT8JAiW/bM1zEXvKVNR+MvG9n1exOm1wxmrJaTi4dP8acLBZGfujFtF5LROp?=
- =?us-ascii?Q?0vbgUNCg2VP01pJyRFjRyGDtzAz9+kqxu4E3Gpatv4UGeCxLF2kZU7zARRuN?=
- =?us-ascii?Q?PH+yTb53N8YCarlGv6ytDTyqF3taDN/nmH2lg3Awk0q/7qy9nvBJKxT4j/cb?=
- =?us-ascii?Q?HJqwVAvR64k+tbzWzH24PNSuO5jwm02CVOaF7mUXNkrz8XQF/8eG3tYVvviU?=
- =?us-ascii?Q?zeoSpN8rbIRizS+NCivbi3AqcrQDxhulUOsiE7c55ldSxLgRzvCFp89ChTeZ?=
- =?us-ascii?Q?w33DFvB/pBNOtVxx8h1BBDJzER+Z29L1yyFPaQ2xGSEIN/ZAUDPbDoa+7yeT?=
- =?us-ascii?Q?ymC0osO/W64f+wIPm13o88Tjwir2aBloGryTRGT9ZilKSTymqKNYO83i0rw3?=
- =?us-ascii?Q?VGCpZFUyN/xQbksoCYEWjpkoKWptBwNYBQLUMi61H1tgwXwO6LNyQgtY4+dj?=
- =?us-ascii?Q?HkH/gy324SUYWfq1oCYVT9AK/XVBHfzDRcnLHSZ212/+Rmrm7tsZ5XYBpx16?=
- =?us-ascii?Q?qdGiVe8yq65T1TAUorlz+PLedDyPOYgG3DAjQV7HchhrUfi1dxjbRQqmj/W1?=
- =?us-ascii?Q?n97keYv6pxN6Dl7yOLSwaDK9mYV3auKz/6xOyP+PAji/Y7pbeUb2FXI3Lpvl?=
- =?us-ascii?Q?bTJEvPJZ0Q=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d2a69a7b-3e9f-4837-b88c-08dea4368a19
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Apr 2026 08:25:28.8740
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: x3sII4VSkU/iS3pX0J3VzEUiNknDqoQlY7zyOhkN0Y6O625k2ykx8GC6UXHeXUigKn8CMWPfLzKdplM0bDolcg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10806
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_012531_961693_02DD3397 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20260427_012814_879938_B3AB6230 
+X-CRM114-Status: GOOD (  17.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,111 +83,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The first USB port features a Type-C connector with dual data role
-and dual power role capabilities. Add the Type-C device node and
-enable the corresponding USB controller and phy node.
+This patch series implements the TSM ->lock(), ->unlock(), and ->accept()
+callbacks required for the TDISP setup with Arm CCA as per as per the RMM
+2.0bet1 specification [1].
 
-Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+The series adds the guest-side DA plumbing needed to transition a device
+through TDI LOCK and RUN states, verify host-provided evidence against
+RMM-provided digests, validate interface-report MMIO mappings, and enable
+DMA only after attestation succeeds.
 
----
-Changes in v2:
- - no changes
----
- arch/arm64/boot/dts/freescale/imx8mq-evk.dts | 59 ++++++++++++++++++++
- 1 file changed, 59 insertions(+)
+At a high level, the series includes:
+- guest TSM callback registration and lock/unlock/accept hooks
+- RHI DA helper support for TDI state transitions and object refresh
+- host-cached DA object fetch APIs in guest
+- RSI_VDEV_GET_INFO digest verification of certificate/VCA/report/measurement
+- mapping validation for interface-report ranges and teardown on unlock
+- DMA behavior updates for accepted devices (including swiotlb restrictions)
+- vdev DMA enable after successful attestation
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mq-evk.dts b/arch/arm64/boot/dts/freescale/imx8mq-evk.dts
-index d48f901487d4..1b93d80744be 100644
---- a/arch/arm64/boot/dts/freescale/imx8mq-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mq-evk.dts
-@@ -6,6 +6,7 @@
- 
- /dts-v1/;
- 
-+#include <dt-bindings/usb/pd.h>
- #include "imx8mq.dtsi"
- 
- / {
-@@ -330,6 +331,35 @@ vgen6_reg: vgen6 {
- 			};
- 		};
- 	};
-+
-+	ptn5110: tcpc@50 {
-+		compatible = "nxp,ptn5110", "tcpci";
-+		reg = <0x50>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_typec>;
-+		interrupt-parent = <&gpio3>;
-+		interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
-+		orientation-gpios = <&gpio3 15 GPIO_ACTIVE_LOW>;
-+
-+		usb_con: connector {
-+			compatible = "usb-c-connector";
-+			label = "USB-C";
-+			power-role = "dual";
-+			data-role = "dual";
-+			try-power-role = "sink";
-+			source-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
-+			sink-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)
-+				     PDO_VAR(5000, 20000, 3000)>;
-+			op-sink-microwatt = <15000000>;
-+			self-powered;
-+
-+			port {
-+				typec_con_hs: endpoint {
-+					remote-endpoint = <&usb3_data_hs>;
-+				};
-+			};
-+		};
-+	};
- };
- 
- &lcdif {
-@@ -488,6 +518,28 @@ &uart1 {
- 	status = "okay";
- };
- 
-+&usb3_phy0 {
-+	status = "okay";
-+};
-+
-+&usb_dwc3_0 {
-+	dr_mode = "otg";
-+	hnp-disable;
-+	srp-disable;
-+	adp-disable;
-+	usb-role-switch;
-+	role-switch-default-mode = "peripheral";
-+	snps,dis-u1-entry-quirk;
-+	snps,dis-u2-entry-quirk;
-+	status = "okay";
-+
-+	port {
-+		usb3_data_hs: endpoint {
-+			remote-endpoint = <&typec_con_hs>;
-+		};
-+	};
-+};
-+
- &usb3_phy1 {
- 	status = "okay";
- };
-@@ -640,6 +692,13 @@ MX8MQ_IOMUXC_SPDIF_RX_SPDIF1_IN		0xd6
- 		>;
- 	};
- 
-+	pinctrl_typec: typecgrp {
-+		fsl,pins = <
-+			MX8MQ_IOMUXC_NAND_CE2_B_GPIO3_IO3		0x17059
-+			MX8MQ_IOMUXC_NAND_RE_B_GPIO3_IO15		0x16
-+		>;
-+	};
-+
- 	pinctrl_uart1: uart1grp {
- 		fsl,pins = <
- 			MX8MQ_IOMUXC_UART1_RXD_UART1_DCE_RX		0x49
+The series builds upon the TSM framework patches posted at [2]. A git repository
+containing all the related changes is available at [3].
+
+Testing / Usage
+
+echo ${DEVICE} > /sys/bus/pci/devices/${DEVICE}/driver/unbind
+
+To transition the device to TDISP LOCK state:
+echo tsm0 > /sys/bus/pci/devices/${DEVICE}/tsm/lock
+
+To transition the device to TDISP RUN state:
+echo 1 > /sys/bus/pci/devices/${DEVICE}/tsm/accept
+
+echo ${DEVICE} > /sys/bus/pci/drivers_probe
+
+Changes from v3:
+https://lore.kernel.org/all/20260312080442.3485633-1-aneesh.kumar@kernel.org
+* updated the patches to follow the RMM 2.0bet1 specification
+* updated the guest-side DA code to use the renamed identity/protocol digest
+  fields and id_index
+
+Changes from v2:
+rfc-v2: https://lore.kernel.org/all/20251117140007.122062-1-aneesh.kumar@kernel.org
+* rebase to latest kernel and core TSM changes
+* Address review feedback.
+* Interface report is now collected using core TSM framework
+* swiotlb is now considered shared-memory pool and is not allowed to be used by accepted devices.
+
+v1:
+rfc-v1: https://lore.kernel.org/all/20250728135216.48084-1-aneesh.kumar@kernel.org
+
+[1] https://developer.arm.com/documentation/den0137/2-0bet1/
+[2] https://lore.kernel.org/all/20260303000207.1836586-1-dan.j.williams@intel.com
+[3] https://gitlab.arm.com/linux-arm/linux-cca.git cca/topics/cca-tdisp-upstream-rfc-v4
+
+Cc: Alexey Kardashevskiy <aik@amd.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Dan Williams <dan.j.williams@intel.com>
+Cc: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Jonathan Cameron <jic23@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Samuel Ortiz <sameo@rivosinc.com>
+Cc: Steven Price <steven.price@arm.com>
+Cc: Suzuki K Poulose <Suzuki.Poulose@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Xu Yilun <yilun.xu@linux.intel.com>
+
+Aneesh Kumar K.V (Arm) (11):
+  coco: guest: arm64: Guest TSM callback and realm device lock support
+  coco: guest: arm64: Fix a typo in the ARM_CCA_GUEST Kconfig help
+    string ("and" -> "an").
+  coco: guest: arm64: Add Realm Host Interface and guest DA helper
+  coco: guest: arm64: Support guest-initiated TDI lock/unlock
+    transitions
+  coco: guest: arm64: Refresh interface-report cache during device lock
+  coco: guest: arm64: Add measurement refresh via
+    RHI_DA_VDEV_GET_MEASUREMENTS
+  coco: guest: arm64: Add guest APIs to read host-cached DA objects
+  coco: guest: arm64: Verify DA evidence with RSI_VDEV_GET_INFO digests
+  coco: guest: arm64: Hook TSM accept to Realm TDISP RUN transition
+  coco: arm64: dma: Update force_dma_unencrypted for accepted devices
+  coco: guest: arm64: Enable vdev DMA after attestation
+
+ arch/arm64/include/asm/mem_encrypt.h      |   6 +-
+ arch/arm64/include/asm/rhi.h              |  59 ++++
+ arch/arm64/include/asm/rsi.h              |   1 +
+ arch/arm64/include/asm/rsi_cmds.h         |  73 +++++
+ arch/arm64/include/asm/rsi_smc.h          |  63 ++++
+ arch/arm64/kernel/rsi.c                   |  10 +
+ arch/arm64/mm/mem_encrypt.c               |  10 +
+ drivers/virt/coco/Makefile                |   2 +-
+ drivers/virt/coco/arm-cca-guest/Kconfig   |   9 +-
+ drivers/virt/coco/arm-cca-guest/Makefile  |   1 +
+ drivers/virt/coco/arm-cca-guest/arm-cca.c | 358 +++++++++++++++++++++-
+ drivers/virt/coco/arm-cca-guest/rhi-da.c  | 356 +++++++++++++++++++++
+ drivers/virt/coco/arm-cca-guest/rhi-da.h  |  17 +
+ drivers/virt/coco/arm-cca-guest/rsi-da.c  | 289 +++++++++++++++++
+ drivers/virt/coco/arm-cca-guest/rsi-da.h  |  66 ++++
+ include/linux/swiotlb.h                   |   3 +
+ kernel/dma/direct.c                       |   8 +
+ kernel/dma/swiotlb.c                      |   3 +
+ 18 files changed, 1326 insertions(+), 8 deletions(-)
+ create mode 100644 drivers/virt/coco/arm-cca-guest/rhi-da.c
+ create mode 100644 drivers/virt/coco/arm-cca-guest/rhi-da.h
+ create mode 100644 drivers/virt/coco/arm-cca-guest/rsi-da.c
+ create mode 100644 drivers/virt/coco/arm-cca-guest/rsi-da.h
+
 -- 
-2.34.1
+2.43.0
 
 
