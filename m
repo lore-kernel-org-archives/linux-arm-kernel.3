@@ -4,114 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF184FF8860
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 03:37:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77891FF8865
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 03:44:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yY8YvWI2HmyyWPEE65aEh7he5GvSnkG8URbkSSv3y8Q=; b=r6i1o9hI2X2K/pLLLEMrerBmOM
-	py8pgX16Zv1nBx7Ps4rD0SGYRLQ8W3ZDx5NFI2kc9FBeolo42jGGWarJooqJAFbhvZkGhRO43Yx0p
-	oiS+vLvLT2za8glW10xQX+XAz8gw1uTtS4T0qBx6eg7fcq5Q8vSP+uwcBIxHuVbj7p6kWeBoAcadj
-	7ZfM/OSvqmHXjqc/XCXS8lU5LSsxtga1W3kE/sALmrKDsGBt9ea5MirLuC5b4nfAQL8r8r5nMOX/4
-	u6j4syPpOA9jlPzR27DRJmUlO3yx/r3+bTooEXLKbTEyhuwJnx2V9rBTGHK4ctLjm96gNKJx/T5Uj
-	hdBnAt8A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=X2qzCgeGAG/9ExzGWv8XT18Hv2KRSoOvDRLW3k4Gl2g=; b=3fvsM97SRyXfKebp7aVg0BTPLF
+	GwBruovOmqhz9NFvawtXWFgwfXQpbkPI9G9JcRa7Fl450ZOBB4M/irc4TlX1xVumIKWB2Ssfjot4K
+	3uQ/9pPU0hdUolocKvmXfByv/BebS9oVGke/DNpigKgBiyTJjtAz3zuYJEm5vuPIVjYUchwG4ioZd
+	jAa+wppulmlmog/eCZ64bYrULUoatEgdEMri0Cwl+j40mrONVNzHU/J5/0KqgxlwMOQ3QaGCOUIfF
+	dd+UN6cXHOJDfRE87f7rSymsvcEuMrDJMuIxWkSxHlOWKUg9ApWqID8uAl+EkagI+pcx5webAeiUu
+	FBYvdB8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHCmN-0000000G6Wd-1hc0;
-	Mon, 27 Apr 2026 03:37:03 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wHCtu-0000000G71D-1qvn;
+	Mon, 27 Apr 2026 03:44:50 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHCmK-0000000G6VT-2L5j
+	id 1wHCtr-0000000G6zU-1lts
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 03:37:02 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63R2jU8f2884198;
-	Mon, 27 Apr 2026 03:36:54 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	yY8YvWI2HmyyWPEE65aEh7he5GvSnkG8URbkSSv3y8Q=; b=iMP6Be/+sHmEvjJD
-	CTjvj1hBoXEZJn6QefReaiD5PxxoKDJ3mh/XJR8G+I7CC4ZFYtlWjAscIgHHMM24
-	HencxrD/dSb4NnchL9lvXz9TH6Zk3GkT2x+qR65E3pXvLRaqRpgbb4VcvjYXPJTe
-	eydvoI2gduKvmf8GOwcr4ciu0tsjawM4FK0yeNLitfsvvbX8YpfgRGwGP2l8OmO9
-	LA8jmBzWkOMpvf6tkcF42wI7hPLo2esMQ5+OOXBfQj7CC9+l2R37oLkmDy8F4sHn
-	rrK0yn932+Fi9GB8/iXRJJ12T72tJKQLgpvBYx+7wh66xgYdUuENYzKKIfP0A2VK
-	HWthXg==
-Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dsya004a4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 27 Apr 2026 03:36:53 +0000 (GMT)
-Received: from nasanex01a.na.qualcomm.com (nasanex01a.na.qualcomm.com [10.52.223.231])
-	by NASANPPMTA04.qualcomm.com (8.18.1.7/8.18.1.7) with ESMTPS id 63R3aqwg019242
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 27 Apr 2026 03:36:52 GMT
-Received: from [10.233.71.148] (10.80.80.8) by nasanex01a.na.qualcomm.com
- (10.52.223.231) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Sun, 26 Apr
- 2026 20:36:49 -0700
-Message-ID: <34dce0de-334a-4b02-8a18-fb712d0ad4c3@quicinc.com>
-Date: Mon, 27 Apr 2026 11:36:47 +0800
+	Mon, 27 Apr 2026 03:44:49 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2b2429f98d0so56003235ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Apr 2026 20:44:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1777261486; x=1777866286; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=X2qzCgeGAG/9ExzGWv8XT18Hv2KRSoOvDRLW3k4Gl2g=;
+        b=C5jWIzB4a4Hac985RQUP3GExZ1RkB1WX27umfK8PVvus6UWw4441O8p+sODsqS0FJu
+         7J/UjOKOrajMPhogXa06lcMTbLyaPT6dwsGLC6Wkav4BJDwIO/BdaekHOl5De10AsbjT
+         LCn9mF2snXgGDXG2jq7LxeR6AbaVykTFNePqcnZUS/K0UdO6qr6O2uAdazeIUxAeLIRe
+         FnUMe+xwKag8H+ieUOIgpv0BwiRMGGA6h84t4zEOWlrGmBBT5ZeMOCdzAuIrK3lsoThl
+         3vnA8uVPSVdou6smfxBlrQL4IjDLfNo+GIaCEU5r5ozkiwRiCVAasY49pdr9REKfKuQJ
+         WTXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777261486; x=1777866286;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=X2qzCgeGAG/9ExzGWv8XT18Hv2KRSoOvDRLW3k4Gl2g=;
+        b=GGPqcBslxynf66JXEdV1PyHIupQgkla7g1/o0o33PzDz8O9oUr7776LEXBT3tQj0jD
+         ueIM+KnIOV+6KA1Hhgq+ECNicAFW4ikcvV5Aer2YyevXu0Ask1m+w8Y2jzHoWfP2sb9/
+         ou0fwLZendNRzSXgYUzYyy8jQHNxHre2E6VguRnzNX7Td4HrOcZoZJKiAIhNDKTmJic8
+         P4iMZaz2n3sd264Pvru6AI/TnBEUKjG0rXKp0fqjUg/MqEKzs3YMUXYKji4CUTXRfEw7
+         NZNMVrfhpLWQ86n33u2dqOqCoRL3x5zWt4ZUosHCdlWPUOw3qOGOZ2+8h9CFJXc2T64c
+         7esA==
+X-Forwarded-Encrypted: i=1; AFNElJ9F2usUN7RgQvZBG5/bPfngS+mnkgZcOlbheLvNvREihki2xpZK25qdDxuODBExO5M9R5Zjh2FbjMLvCp9hukXm@lists.infradead.org
+X-Gm-Message-State: AOJu0YxdFzMitcN68bxVghfphCfpyRIFtL5UnzsJqxGAiBhCWW5iBMoK
+	2tpa3RKXHVm1YzIpPpS5Vi2poNL63m+E6NFKp2RUr9SKMCZD6RF6WISF
+X-Gm-Gg: AeBDieu/AdEXmmf2jr9l4Lc+N67V+eoXCJ1P5x+dKk0fckVpz0bPYde90Mqfe/+3/w7
+	2b9rLVUUIDOQO1jfRLPfE90ujYXlVy50zpX7Ren7vk+NJaqaIM0cbnGkD6lhoh3xMjuIwK6ruIP
+	ttqjQRG8EB1s5PphJtyVRxp/gZRwPUpp+0xCZ90FZpBC2OdXpdw7//FSaCTrsygbfJo3Ypss7Ox
+	Oaz1OPIDcfrwdxmTzrNkaRr1Vt7lkLMJBeHOfnO50OUCiD1V+sKxdp9ZrAgrogkajvVameYgeKD
+	lzjPwlHSyzT9SAk9Aur1MpMeVy4fqqU/vV6ytSgJ1t87xZEm43xj8JsdbCrPzAhReEttg2eKfDM
+	IqnjNKP7ilu/8tpUbPB71aaHXpMy3i5Nk3en/mR1SAZDenfBQAsAgyIe5MCaWd4mJfJriS1UqCQ
+	5Fwn83bMempBDmKZkW/ua8QXU76rD7Pa15G4lfEyKkRuAmxAP+n18Js/YSRMq9xcfYUUgv7sPYA
+	BqAmADnh5NLPUwVITQR7ScM2g==
+X-Received: by 2002:a17:903:1ac8:b0:2b0:70c8:ccea with SMTP id d9443c01a7336-2b5f9eaeba2mr422778205ad.13.1777261485859;
+        Sun, 26 Apr 2026 20:44:45 -0700 (PDT)
+Received: from ryzen ([2601:644:8000:5b5d::8bd])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b5faa4f092sm290610585ad.36.2026.04.26.20.44.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 26 Apr 2026 20:44:45 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: devicetree@vger.kernel.org
+Cc: Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	linux-wireless@vger.kernel.org (open list:MEDIATEK MT76 WIRELESS LAN DRIVER),
+	linux-kernel@vger.kernel.org (open list:ARM/Mediatek SoC support),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
+	linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
+	linux-mips@vger.kernel.org (open list:MIPS)
+Subject: [PATCH 0/3] wifi: mt76: remove mediatek,mtd-eeprom
+Date: Sun, 26 Apr 2026 20:44:24 -0700
+Message-ID: <20260427034427.881389-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 2/4] coresight: cti: encode trigger register index in
- register offsets
-To: Jie Gan <jie.gan@oss.qualcomm.com>,
-        Yingchao Deng
-	<yingchao.deng@oss.qualcomm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
-        "Leo
- Yan" <leo.yan@arm.com>,
-        Alexander Shishkin
-	<alexander.shishkin@linux.intel.com>
-CC: <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        Jinlong Mao
-	<jinlong.mao@oss.qualcomm.com>,
-        Tingwei Zhang
-	<tingwei.zhang@oss.qualcomm.com>
-References: <20260426-extended-cti-v8-0-23b900a4902f@oss.qualcomm.com>
- <20260426-extended-cti-v8-2-23b900a4902f@oss.qualcomm.com>
- <11376a1b-923d-4bee-bdc6-fecea43a256d@oss.qualcomm.com>
-Content-Language: en-US
-From: "Yingchao Deng (Consultant)" <quic_yingdeng@quicinc.com>
-In-Reply-To: <11376a1b-923d-4bee-bdc6-fecea43a256d@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01a.na.qualcomm.com (10.52.223.231)
-X-QCInternal: smtphost
-X-Proofpoint-GUID: yxnRMOiEGlRCyvtopx0NQLpHb3Yo2qzx
-X-Proofpoint-ORIG-GUID: yxnRMOiEGlRCyvtopx0NQLpHb3Yo2qzx
-X-Authority-Analysis: v=2.4 cv=DZEnbPtW c=1 sm=1 tr=0 ts=69eed9d5 cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
- a=EUspDBNiAAAA:8 a=HjV8xp-4hyBqE0_XzRwA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI3MDAzNCBTYWx0ZWRfX/Axaqd8183hA
- RP/ZAVwywhKaRJgluyK/cm4XJCCv2CZis4mlP+iJMkPa58wHrJczDdS7XYaKItzn9w07yB2HnR+
- G2WUKl/m1wh0QYtUKybgCzfnpGCkO7LaTQlsdwU4j9lnisn4NHv9TRoUvgszEA4uKFUFdlOdROK
- 8seJGXxgT+H+N0gT9eRZdxIQZJN9udtn84m1Ph/zsjwr6GLiPDyi7Yx9OOBUiF5Ia7+kX7nbxAI
- EkOABYkm0qDLVWRWhg2VYmLifLuaQxg2Y8dOkn9V/Ryy7+JQOrkPg62qylclJ3QzmJJio01Zmao
- ITqfdn/zzc/tqXTr1rYQh1TwsEdaf1FHD/CLvXH3CZL770S9kRVl3OB1dR4wxzqc09f6sWcTIWp
- 3Hy5z8ia22Yd55s11wgHxYEUzwz0nLItFPByioGYyB5STwYqjf4yyHCgmymyp1XFbOCK5s0SzD/
- fgWsbE5TJwOXWJ+Rq1g==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-27_01,2026-04-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 phishscore=0 spamscore=0 adultscore=0 bulkscore=0
- lowpriorityscore=0 priorityscore=1501 malwarescore=0 impostorscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
- definitions=main-2604270034
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_203700_756851_1D035D05 
-X-CRM114-Status: GOOD (  22.73  )
+X-CRM114-CacheID: sfid-20260426_204447_461924_B9C194A9 
+X-CRM114-Status: UNSURE (   7.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,193 +112,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+mediatek,mtd-eeprom predates nvmem which is used everywhere to grab
+eeprom and mac-address data from MTD devices.
 
-On 4/27/2026 10:22 AM, Jie Gan wrote:
->
->
-> On 4/26/2026 5:44 PM, Yingchao Deng wrote:
->> Introduce a small encoding to carry the register index together with the
->> base offset in a single u32, and use a common helper to compute the 
->> final
->> MMIO address. This refactors register access to be based on the encoded
->> (reg, nr) pair, reducing duplicated arithmetic and making it easier to
->> support variants that bank or relocate trigger-indexed registers.
->>
->> Signed-off-by: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
->> ---
->>   drivers/hwtracing/coresight/coresight-cti-core.c  | 31 
->> +++++++++++++++--------
->>   drivers/hwtracing/coresight/coresight-cti-sysfs.c |  4 +--
->>   drivers/hwtracing/coresight/coresight-cti.h       | 16 ++++++++++--
->>   3 files changed, 36 insertions(+), 15 deletions(-)
->>
->> diff --git a/drivers/hwtracing/coresight/coresight-cti-core.c 
->> b/drivers/hwtracing/coresight/coresight-cti-core.c
->> index 4e7d12bd2d3e..c4cbeb64365b 100644
->> --- a/drivers/hwtracing/coresight/coresight-cti-core.c
->> +++ b/drivers/hwtracing/coresight/coresight-cti-core.c
->> @@ -42,6 +42,14 @@ static DEFINE_MUTEX(ect_mutex);
->>   #define csdev_to_cti_drvdata(csdev)    \
->>       dev_get_drvdata(csdev->dev.parent)
->>   +static void __iomem *cti_reg_addr(struct cti_drvdata *drvdata, int 
->> reg)
->
-> u32 reg would be better.
->
->> +{
->> +    u32 offset = CTI_REG_CLR_NR(reg);
->
-> No functional error but a little bit tricky here.
->
-> CTI_REG_CLR_NR(reg) will produce a offset for the bits[0:23], but in 
-> the comment, you mentioned the base register offset ranges from [0:11].
->
-> With my understanding, all CTI register offsets fall within the range 
-> b 0 to 0XFAC, that's why we have bits[0:11]?
->
-> Thanks,
-> Jie
-   Thanks for the review.
-  While current CoreSight components fit within a single 4KB
-   block, IHI0029 states that a component can occupy up to 64MB (16,384
-   x 4KB blocks), requiring up to 26 bits for the offset. I will change
-   CTI_REG_NR_MASK to GENMASK(31, 28) to avoid any potential conflict
-   with bits[24:25].
+Transition the one place to nvmem and remove the binding to discourage
+use.
 
+Rosen Penev (3):
+  MIPS: dts: ralink: gardena_smart_gateway_mt7688: use nvmem for EEPROM
+  dt-bindings: net: wireless: mt76: remove mediatek,mtd-eeprom
+  wifi: mt76: remove mt76_get_of_data_from_mtd
 
-Thanks,
-Yingchao
->> +    u32 nr = CTI_REG_GET_NR(reg);
->> +
->> +    return drvdata->base + offset + sizeof(u32) * nr;
->> +}
->> +
->>   /* write set of regs to hardware - call with spinlock claimed */
->>   void cti_write_all_hw_regs(struct cti_drvdata *drvdata)
->>   {
->> @@ -55,16 +63,17 @@ void cti_write_all_hw_regs(struct cti_drvdata 
->> *drvdata)
->>         /* write the CTI trigger registers */
->>       for (i = 0; i < config->nr_trig_max; i++) {
->> -        writel_relaxed(config->ctiinen[i], drvdata->base + CTIINEN(i));
->> +        writel_relaxed(config->ctiinen[i],
->> +                   cti_reg_addr(drvdata, CTI_REG_SET_NR(CTIINEN, i)));
->>           writel_relaxed(config->ctiouten[i],
->> -                   drvdata->base + CTIOUTEN(i));
->> +                   cti_reg_addr(drvdata, CTI_REG_SET_NR(CTIOUTEN, i)));
->>       }
->>         /* other regs */
->> -    writel_relaxed(config->ctigate, drvdata->base + CTIGATE);
->> +    writel_relaxed(config->ctigate, cti_reg_addr(drvdata, CTIGATE));
->>       if (config->asicctl_impl)
->> -        writel_relaxed(config->asicctl, drvdata->base + ASICCTL);
->> -    writel_relaxed(config->ctiappset, drvdata->base + CTIAPPSET);
->> +        writel_relaxed(config->asicctl, cti_reg_addr(drvdata, 
->> ASICCTL));
->> +    writel_relaxed(config->ctiappset, cti_reg_addr(drvdata, 
->> CTIAPPSET));
->>         /* re-enable CTI */
->>       writel_relaxed(1, drvdata->base + CTICONTROL);
->> @@ -127,7 +136,7 @@ u32 cti_read_single_reg(struct cti_drvdata 
->> *drvdata, int offset)
->>       int val;
->>         CS_UNLOCK(drvdata->base);
->> -    val = readl_relaxed(drvdata->base + offset);
->> +    val = readl_relaxed(cti_reg_addr(drvdata, offset));
->>       CS_LOCK(drvdata->base);
->>         return val;
->> @@ -136,7 +145,7 @@ u32 cti_read_single_reg(struct cti_drvdata 
->> *drvdata, int offset)
->>   void cti_write_single_reg(struct cti_drvdata *drvdata, int offset, 
->> u32 value)
->>   {
->>       CS_UNLOCK(drvdata->base);
->> -    writel_relaxed(value, drvdata->base + offset);
->> +    writel_relaxed(value, cti_reg_addr(drvdata, offset));
->>       CS_LOCK(drvdata->base);
->>   }
->>   @@ -344,8 +353,7 @@ int cti_channel_trig_op(struct device *dev, 
->> enum cti_chan_op op,
->>         /* update the local register values */
->>       chan_bitmask = BIT(channel_idx);
->> -    reg_offset = (direction == CTI_TRIG_IN ? CTIINEN(trigger_idx) :
->> -              CTIOUTEN(trigger_idx));
->> +    reg_offset = (direction == CTI_TRIG_IN ? CTIINEN : CTIOUTEN);
->>         guard(raw_spinlock_irqsave)(&drvdata->spinlock);
->>   @@ -365,8 +373,9 @@ int cti_channel_trig_op(struct device *dev, 
->> enum cti_chan_op op,
->>         /* write through if enabled */
->>       if (cti_is_active(config))
->> -        cti_write_single_reg(drvdata, reg_offset, reg_value);
->> -
->> +        cti_write_single_reg(drvdata,
->> +                     CTI_REG_SET_NR(reg_offset, trigger_idx),
->> +                     reg_value);
->>       return 0;
->>   }
->>   diff --git a/drivers/hwtracing/coresight/coresight-cti-sysfs.c 
->> b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
->> index 2bbfa405cb6b..8b70e7e38ea3 100644
->> --- a/drivers/hwtracing/coresight/coresight-cti-sysfs.c
->> +++ b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
->> @@ -386,7 +386,7 @@ static ssize_t inen_store(struct device *dev,
->>         /* write through if enabled */
->>       if (cti_is_active(config))
->> -        cti_write_single_reg(drvdata, CTIINEN(index), val);
->> +        cti_write_single_reg(drvdata, CTI_REG_SET_NR(CTIINEN, 
->> index), val);
->>         return size;
->>   }
->> @@ -427,7 +427,7 @@ static ssize_t outen_store(struct device *dev,
->>         /* write through if enabled */
->>       if (cti_is_active(config))
->> -        cti_write_single_reg(drvdata, CTIOUTEN(index), val);
->> +        cti_write_single_reg(drvdata, CTI_REG_SET_NR(CTIOUTEN, 
->> index), val);
->>         return size;
->>   }
->> diff --git a/drivers/hwtracing/coresight/coresight-cti.h 
->> b/drivers/hwtracing/coresight/coresight-cti.h
->> index ef079fc18b72..dd1ba44518c4 100644
->> --- a/drivers/hwtracing/coresight/coresight-cti.h
->> +++ b/drivers/hwtracing/coresight/coresight-cti.h
->> @@ -7,6 +7,7 @@
->>   #ifndef _CORESIGHT_CORESIGHT_CTI_H
->>   #define _CORESIGHT_CORESIGHT_CTI_H
->>   +#include <linux/bitfield.h>
->>   #include <linux/coresight.h>
->>   #include <linux/device.h>
->>   #include <linux/list.h>
->> @@ -30,8 +31,8 @@ struct fwnode_handle;
->>   #define CTIAPPSET        0x014
->>   #define CTIAPPCLEAR        0x018
->>   #define CTIAPPPULSE        0x01C
->> -#define CTIINEN(n)        (0x020 + (4 * n))
->> -#define CTIOUTEN(n)        (0x0A0 + (4 * n))
->> +#define CTIINEN            0x020
->> +#define CTIOUTEN        0x0A0
->>   #define CTITRIGINSTATUS        0x130
->>   #define CTITRIGOUTSTATUS    0x134
->>   #define CTICHINSTATUS        0x138
->> @@ -59,6 +60,17 @@ struct fwnode_handle;
->>    */
->>   #define CTIINOUTEN_MAX        32
->>   +/*
->> + * Encode CTI register offset and register index in one u32:
->> + *   - bits[0:11]  : base register offset (0x000 to 0xFFF)
->> + *   - bits[24:31] : register index (nr)
->> + */
->> +#define CTI_REG_NR_MASK            GENMASK(31, 24)
->> +#define CTI_REG_GET_NR(reg)        FIELD_GET(CTI_REG_NR_MASK, (reg))
->> +#define CTI_REG_SET_NR_CONST(reg, nr)    ((reg) | 
->> FIELD_PREP_CONST(CTI_REG_NR_MASK, (nr)))
->> +#define CTI_REG_SET_NR(reg, nr)        ((reg) | 
->> FIELD_PREP(CTI_REG_NR_MASK, (nr)))
->> +#define CTI_REG_CLR_NR(reg)        ((reg) & (~CTI_REG_NR_MASK))
->> +
->>   /**
->>    * Group of related trigger signals
->>    *
->>
->
+ .../bindings/net/wireless/mediatek,mt76.yaml  | 19 +---
+ .../ralink/gardena_smart_gateway_mt7688.dts   | 17 +++-
+ drivers/net/wireless/mediatek/mt76/eeprom.c   | 87 -------------------
+ drivers/net/wireless/mediatek/mt76/mt76.h     |  1 -
+ .../wireless/mediatek/mt76/mt7915/eeprom.c    |  4 -
+ 5 files changed, 17 insertions(+), 111 deletions(-)
+
+--
+2.54.0
+
 
