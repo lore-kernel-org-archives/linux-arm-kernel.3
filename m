@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA68FFF885E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 08:54:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 373E5FF8861
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 08:54:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tgBGkEBwHEP2ZJytzCulPLbx2/rNMvsHtaAvCI3IiZ4=; b=DHHVfnGtClu4S15/H0t6osz4VA
-	p+G04SQmzV80WPgKWYzDlB37DeTDk4j53GlBf7dTFYfRj33QFDuT3nl0Z1IkVkFbqPxcNq/yzVo7d
-	DTINpnyfJdkpsup3GNBZnpL5GqRWe2ZkucrsG4oFrYYRj776qzE22KsYaUAcKS1c1UD1WlXOWhIXY
-	PFmp2uHM6lcbOViyfU6Ot2sxecnA7mngogzg08eO9ZJGulCRoKdInzWd8HJsNRamXDmAGtztnyqdx
-	ynnorzuv/robt+v6er7GdVwQQ5tmhXM1+eNBLKEyByvHIkkVAasUsptW9QEzPanisaeIav9YV7v+o
-	nqlCU61A==;
+	bh=h0ZpMVd3jiiizUOlQQfF5UCHE+voIRolqeaCl2NfJ1Y=; b=hoFDfArzdkY1jHXKHhFlzqd78h
+	SfUkVYX8HKB9FcnDiHQA/2OuY3Xt8lxfyU1Tw8WQ4xWdt12jJAsL5kdyMi8vR88c5FyoIvBVDFoHc
+	XDyIeTkkYDt/fQoVoiFpRCEBQayPgIZ6QoIdAJTYnHl8Nmv4Cj13BeHWRASN3RZUXfeGAn9tzjrKf
+	u1qm36WKl3rsKDVZeTPHgZb9TBhqy2B+V/Rg7Tq7uSS+zP+HmfbSrzDuKtSaQrzj2zdPL0INyPYo3
+	4o+Q0SL8SigOSCoS+Dd+Wk3oy4q0TtInmLXgIAf+5flAewFt7/JGUaax3TCFoiNIp/Rh1rIlrDIKT
+	qpTDbVIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHHjU-0000000GUra-0TxQ;
-	Mon, 27 Apr 2026 08:54:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wHHjb-0000000GUw3-1l1h;
+	Mon, 27 Apr 2026 08:54:31 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHHjT-0000000GUqI-0yAc
+	id 1wHHjY-0000000GUuN-3Jt8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 08:54:23 +0000
+	Mon, 27 Apr 2026 08:54:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6CD6561143;
+	by sea.source.kernel.org (Postfix) with ESMTP id 7CF17419DD;
+	Mon, 27 Apr 2026 08:54:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B94EEC2BCB4;
 	Mon, 27 Apr 2026 08:54:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88A8AC2BCC7;
-	Mon, 27 Apr 2026 08:54:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777280062;
-	bh=5JldwqOz6d/PQ2tCB2GyOBMM1LTQvdiuh2P5MyoFZj8=;
+	s=k20201202; t=1777280068;
+	bh=FOF/N6svtbYXkGkRtOl5nbIuWVYKzN47ZE69SrsJ4UY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kQyUFNwHTNq2nEzzkyEHIG3YexRLfjKtRrIW3nX86jeTpN/EsGThSRpCTBF8UY6Ac
-	 Qndek+3O6W4fP1zkWtklb4FSyaxwmhYzpQKK4L/e8zG5Pg1ealJqcMHUxhzEoWoA0x
-	 kjceO2++YsQi0chVfMPOzH3IGpJcgNxKtR1L10ElbvTgQ3BLeECbkmH5PlyZEOFJ7A
-	 2tn7VyXCq704khvDIPMz1oRf5SYfJKsYenfHmTqQoe3wZe7uhhZDRhsxgR9iEd6YIn
-	 324My719A/DRmp3L0JnZHaSUGgk4IUYCV4kswIM0gEYfLQGnVLOer0Tj1anC6qCC0A
-	 dhSDPubODbADA==
+	b=JA6emOxfNKuMPIpJNxD+2IadSL623hobFCmhFlWMSMbQjYFishDijB7/UtSX0Pe+h
+	 xWbIHh2Pa7DtK4ROee/n4yIFqpw9yWlBY5sk5y1l++Nz0XgRKuGdVA4+7mmzphHVTs
+	 8SzFpmrNc11xxEl5MDjsFKwvfDu76kIZkGZ45q/m8Zl+jfgiYMLDiT8SLPVSKUnOb8
+	 fmNWCALzAZ9PKceFAuXwcj9rndedMWmHoUR/tQRJN+72rU2bahiZuA7bgCMoMoDH1d
+	 t8KjCLtQtDVo8FO/slKUtXFanJKJX73/RUL/5TDsu5Gk7jii73V8gHeg47GG6C3P8d
+	 wFiIDcLkGCp7Q==
 From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 To: linux-coco@lists.linux.dev,
 	kvmarm@lists.linux.dev,
@@ -63,14 +63,17 @@ Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
 	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Xu Yilun <yilun.xu@linux.intel.com>
-Subject: [RFC PATCH v4 04/16] iommu/arm-smmu-v3: Track realm pSMMU users with refcount_t
-Date: Mon, 27 Apr 2026 14:23:32 +0530
-Message-ID: <20260427085344.941627-5-aneesh.kumar@kernel.org>
+Subject: [RFC PATCH v4 05/16] coco: host: arm64: Add support for virtual device communication
+Date: Mon, 27 Apr 2026 14:23:33 +0530
+Message-ID: <20260427085344.941627-6-aneesh.kumar@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260427085344.941627-1-aneesh.kumar@kernel.org>
 References: <20260427085344.941627-1-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260427_015428_867750_CBA8512B 
+X-CRM114-Status: GOOD (  19.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,193 +88,261 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace the realm pSMMU active-state boolean with a refcount so
-activation/deactivation is tied to actual Realm vIOMMU lifetime.
-
-- add realm_mutex and realm_users (refcount_t) to struct arm_smmu_device
-- on first Realm init, activate pSMMU and set realm_users to 1
-- on subsequent Realm inits, increment realm_users
-- on Realm viommu destroy, decrement realm_users and call
-  rmi_psmmu_deactivate() when the last user drops the count to 0
-
-This removes duplicated state tracking and ensures pSMMU is deactivated only
-after the last Realm user is gone.
+Add support for vdev_communicate with RMM.
 
 Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 ---
- arch/arm64/include/asm/rmi_cmds.h             |  1 +
- arch/arm64/kernel/rmi.c                       | 12 ++++++
- .../iommu/arm/arm-smmu-v3/arm-smmu-v3-realm.c | 39 +++++++++++++++----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |  3 +-
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  4 +-
- 5 files changed, 50 insertions(+), 9 deletions(-)
+ arch/arm64/include/asm/rmi_cmds.h       | 32 ++++++++++
+ arch/arm64/include/asm/rmi_smc.h        |  7 +++
+ drivers/virt/coco/arm-cca-host/rmi-da.c | 83 ++++++++++++++++++++++---
+ drivers/virt/coco/arm-cca-host/rmi-da.h | 20 ++++++
+ 4 files changed, 135 insertions(+), 7 deletions(-)
 
 diff --git a/arch/arm64/include/asm/rmi_cmds.h b/arch/arm64/include/asm/rmi_cmds.h
-index 659d68ad5f1d..205fc200d1db 100644
+index 205fc200d1db..2925abde3882 100644
 --- a/arch/arm64/include/asm/rmi_cmds.h
 +++ b/arch/arm64/include/asm/rmi_cmds.h
-@@ -865,6 +865,7 @@ static inline unsigned long rmi_psmmu_event_consume(unsigned long psmmu_phys,
- 
- int rmi_psmmu_activate(unsigned long psmmu_phys,
- 	       unsigned long psmmu_params_phys, unsigned long *rmi_ret);
-+int rmi_psmmu_deactivate(unsigned long psmmu_phys, unsigned long *rmi_ret);
- int rmi_psmmu_st_l2_create(unsigned long psmmu_phys,
- 		   unsigned long stream_id, unsigned long *rmi_ret);
+@@ -871,4 +871,36 @@ int rmi_psmmu_st_l2_create(unsigned long psmmu_phys,
  int rmi_psmmu_st_l2_destroy(unsigned long psmmu_phys,
-diff --git a/arch/arm64/kernel/rmi.c b/arch/arm64/kernel/rmi.c
-index cc4050db5a6a..884ab3f99f2f 100644
---- a/arch/arm64/kernel/rmi.c
-+++ b/arch/arm64/kernel/rmi.c
-@@ -436,6 +436,18 @@ int rmi_psmmu_activate(unsigned long psmmu_phys,
+ 		    unsigned long stream_id, unsigned long *rmi_ret);
+ 
++static inline unsigned long rmi_vdev_communicate(unsigned long rd_phys,
++		unsigned long pdev_phys, unsigned long vdev_phys,
++		unsigned long vdev_comm_data_phys)
++{
++	struct arm_smccc_res res;
++
++	arm_smccc_1_1_invoke(SMC_RMI_VDEV_COMMUNICATE, rd_phys, pdev_phys,
++			     vdev_phys, vdev_comm_data_phys, &res);
++
++	return res.a0;
++}
++
++static inline unsigned long rmi_vdev_get_state(unsigned long vdev_phys,
++		enum rmi_vdev_state *state)
++{
++	struct arm_smccc_res res;
++
++	arm_smccc_1_1_invoke(SMC_RMI_VDEV_GET_STATE, vdev_phys, &res);
++
++	*state = res.a1;
++	return res.a0;
++}
++
++static inline unsigned long rmi_vdev_abort(unsigned long vdev_phys)
++{
++	struct arm_smccc_res res;
++
++	arm_smccc_1_1_invoke(SMC_RMI_VDEV_ABORT, vdev_phys, &res);
++
++	return res.a0;
++}
++
+ #endif /* __ASM_RMI_CMDS_H */
+diff --git a/arch/arm64/include/asm/rmi_smc.h b/arch/arm64/include/asm/rmi_smc.h
+index 5b540d25914e..72e4a53b74b0 100644
+--- a/arch/arm64/include/asm/rmi_smc.h
++++ b/arch/arm64/include/asm/rmi_smc.h
+@@ -643,4 +643,11 @@ struct rmi_psmmu_params {
+ 	};
+ };
+ 
++enum rmi_vdev_state {
++	RMI_VDEV_NEW,
++	RMI_VDEV_UNLOCKED,
++	RMI_VDEV_LOCKED,
++	RMI_VDEV_STARTED,
++	RMI_VDEV_ERROR,
++};
+ #endif /* __ASM_RMI_SMC_H */
+diff --git a/drivers/virt/coco/arm-cca-host/rmi-da.c b/drivers/virt/coco/arm-cca-host/rmi-da.c
+index 33a2551fd09f..d61c3191c038 100644
+--- a/drivers/virt/coco/arm-cca-host/rmi-da.c
++++ b/drivers/virt/coco/arm-cca-host/rmi-da.c
+@@ -11,6 +11,8 @@
+ #include <crypto/internal/rsa.h>
+ #include <keys/asymmetric-type.h>
+ #include <keys/x509-parser.h>
++#include <linux/kvm_types.h>
++#include <asm/kvm_rmi.h>
+ 
+ #include "rmi-da.h"
+ 
+@@ -217,6 +219,7 @@ static int _do_dev_communicate(enum dev_comm_type type, struct pci_tsm *tsm, int
+ 	gfp_t cache_alloc_flags;
+ 	int nbytes, cp_len;
+ 	struct cache_object **cache_objp, *cache_obj;
++	struct cca_host_tdi *host_tdi = to_cca_host_tdi(tsm->pdev);
+ 	struct cca_host_pdev_dsc *pdev_dsc = to_cca_pdev_dsc(tsm->dsm_dev);
+ 	struct cca_host_comm_data *comm_data = to_cca_comm_data(tsm->pdev);
+ 	struct rmi_dev_comm_enter *io_enter = &comm_data->io_params->enter;
+@@ -228,7 +231,10 @@ static int _do_dev_communicate(enum dev_comm_type type, struct pci_tsm *tsm, int
+ 		rmi_ret = rmi_pdev_communicate(virt_to_phys(pdev_dsc->rmm_pdev),
+ 					       virt_to_phys(comm_data->io_params));
+ 	else
+-		rmi_ret = RMI_ERROR_INPUT;
++		rmi_ret = rmi_vdev_communicate(virt_to_phys(host_tdi->realm->rd),
++					       virt_to_phys(pdev_dsc->rmm_pdev),
++					       virt_to_phys(host_tdi->rmm_vdev),
++					       virt_to_phys(comm_data->io_params));
+ 	if (rmi_ret != RMI_SUCCESS) {
+ 		if (rmi_ret == RMI_BUSY)
+ 			return -EBUSY;
+@@ -252,6 +258,12 @@ static int _do_dev_communicate(enum dev_comm_type type, struct pci_tsm *tsm, int
+ 		case RMI_DEV_CERTIFICATE:
+ 			cache_objp = &pf0_ep_dsc->cert_chain.cache;
+ 			break;
++		case RMI_DEV_INTERFACE_REPORT:
++			cache_objp = &host_tdi->interface_report;
++			break;
++		case RMI_DEV_MEASUREMENTS:
++			cache_objp = &host_tdi->measurements;
++			break;
+ 		default:
+ 			return -EINVAL;
+ 		}
+@@ -355,9 +367,11 @@ static int _do_dev_communicate(enum dev_comm_type type, struct pci_tsm *tsm, int
+ static int do_dev_communicate(enum dev_comm_type type,
+ 		struct pci_tsm *tsm, unsigned long error_state, int *stream_wait)
+ {
+-	int ret, state = error_state;
++	int ret, state;
++	unsigned long rmi_ret;
+ 	struct rmi_dev_comm_enter *io_enter;
+ 	struct cca_host_pdev_dsc *pdev_dsc = to_cca_pdev_dsc(tsm->dsm_dev);
++	struct cca_host_tdi *host_tdi = to_cca_host_tdi(tsm->pdev);
+ 
+ 	io_enter = &pdev_dsc->comm_data.io_params->enter;
+ 	io_enter->resp_len = 0;
+@@ -369,16 +383,23 @@ static int do_dev_communicate(enum dev_comm_type type,
+ 	if (ret) {
+ 		if (type == PDEV_COMMUNICATE)
+ 			rmi_pdev_abort(virt_to_phys(pdev_dsc->rmm_pdev));
++		else
++			rmi_vdev_abort(virt_to_phys(host_tdi->rmm_vdev));
++
++		state = error_state;
+ 	} else {
+ 		/*
+ 		 * Some device communication error will transition the
+ 		 * device to error state. Report that.
+ 		 */
+-		if (type == PDEV_COMMUNICATE) {
+-			if (rmi_pdev_get_state(virt_to_phys(pdev_dsc->rmm_pdev),
+-					       (enum rmi_pdev_state *)&state))
+-				state = error_state;
+-		}
++		if (type == PDEV_COMMUNICATE)
++			rmi_ret = rmi_pdev_get_state(virt_to_phys(pdev_dsc->rmm_pdev),
++						     (enum rmi_pdev_state *)&state);
++		else
++			rmi_ret = rmi_vdev_get_state(virt_to_phys(host_tdi->rmm_vdev),
++						     (enum rmi_vdev_state *)&state);
++		if (rmi_ret)
++			state = error_state;
+ 	}
+ 
+ 	if (state == error_state)
+@@ -408,6 +429,11 @@ static int wait_for_pdev_state(struct pci_tsm *tsm, enum rmi_pdev_state target_s
+ 	return wait_for_dev_state(PDEV_COMMUNICATE, tsm, target_state, RMI_PDEV_ERROR);
+ }
+ 
++static int wait_for_vdev_state(struct pci_tsm *tsm, enum rmi_vdev_state target_state)
++{
++	return wait_for_dev_state(VDEV_COMMUNICATE, tsm, target_state, RMI_VDEV_ERROR);
++}
++
+ static int parse_certificate_chain(struct pci_tsm *tsm)
+ {
+ 	struct cca_host_pf0_ep_dsc *pf0_ep_dsc;
+@@ -603,6 +629,49 @@ static int submit_pdev_state_transition_work(struct pci_dev *pdev,
  	return 0;
  }
  
-+int rmi_psmmu_deactivate(unsigned long psmmu_phys, unsigned long *rmi_ret)
++static void vdev_state_transition_workfn(struct work_struct *work)
 +{
-+	struct rmi_sro_state *sro __free(sro) =
-+		rmi_sro_init(SMC_RMI_PSMMU_DEACTIVATE, psmmu_phys);
-+	if (!sro)
-+		return -ENOMEM;
++	unsigned long state;
++	struct pci_tsm *tsm;
++	struct dev_comm_work *setup_work;
++	struct cca_host_pdev_dsc *pdev_dsc;
 +
-+	*rmi_ret = rmi_sro_execute(sro);
++	setup_work = container_of(work, struct dev_comm_work, work);
++	tsm = setup_work->tsm;
 +
++	pdev_dsc = to_cca_pdev_dsc(tsm->dsm_dev);
++	guard(mutex)(&pdev_dsc->object_lock);
++
++	state = wait_for_vdev_state(tsm, setup_work->target_state);
++	WARN_ON(state != setup_work->target_state);
++}
++
++static int __maybe_unused submit_vdev_state_transition_work(struct pci_dev *pdev, int target_state)
++{
++	enum rmi_vdev_state state;
++	struct dev_comm_work comm_work;
++	struct cca_host_comm_data *comm_data = to_cca_comm_data(pdev);
++	struct cca_host_tdi *host_tdi = to_cca_host_tdi(pdev);
++
++	INIT_WORK_ONSTACK(&comm_work.work, vdev_state_transition_workfn);
++	comm_work.tsm = pdev->tsm;
++	comm_work.target_state = target_state;
++
++	queue_work(comm_data->work_queue, &comm_work.work);
++
++	flush_work(&comm_work.work);
++	destroy_work_on_stack(&comm_work.work);
++
++	/* check if we reached target state */
++	if (rmi_vdev_get_state(virt_to_phys(host_tdi->rmm_vdev), &state))
++		return -ENXIO;
++
++	if (state != target_state)
++		/* Protocol didn't take it to expected target state */
++		return -EPROTO;
 +	return 0;
 +}
 +
- int rmi_psmmu_st_l2_create(unsigned long psmmu_phys,
- 		   unsigned long stream_id, unsigned long *rmi_ret)
+ static void pdev_collect_identity_workfn(struct work_struct *work)
  {
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-realm.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-realm.c
-index 6f8de7cead9d..dfff493f96d0 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-realm.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-realm.c
-@@ -124,9 +124,25 @@ void arm_smmu_setup_realm_irqs(struct arm_smmu_device *smmu)
- 	}
- }
+ 	struct pci_tsm *tsm;
+diff --git a/drivers/virt/coco/arm-cca-host/rmi-da.h b/drivers/virt/coco/arm-cca-host/rmi-da.h
+index 798a8ed7505f..88fa428f788e 100644
+--- a/drivers/virt/coco/arm-cca-host/rmi-da.h
++++ b/drivers/virt/coco/arm-cca-host/rmi-da.h
+@@ -116,6 +116,16 @@ struct cca_host_fn_dsc {
  
-+static bool arm_realm_smmu_active(struct arm_smmu_device *smmu)
-+{
-+	lockdep_assert_held(&smmu->realm_mutex);
-+	return refcount_read(&smmu->realm_users) > 0;
-+}
+ enum dev_comm_type {
+ 	PDEV_COMMUNICATE = 0x1,
++	VDEV_COMMUNICATE = 0x2,
++};
 +
- static void arm_realm_smmu_v3_destroy(struct iommufd_viommu *viommu)
- {
--	/* When we add refcount psmmu deactivate here. */
-+	unsigned long rmi_ret;
-+	struct arm_smmu_device *smmu =
-+		container_of(viommu->iommu_dev, struct arm_smmu_device, iommu);
-+
-+	guard(mutex)(&smmu->realm_mutex);
-+	if (WARN_ON(!arm_realm_smmu_active(smmu)))
-+		return;
-+
-+	if (refcount_dec_and_test(&smmu->realm_users) &&
-+	    (rmi_psmmu_deactivate(smmu->base_phys, &rmi_ret) || rmi_ret))
-+		dev_warn(smmu->dev, "failed to deactivate realm pSMMU\n");
- }
- 
- static void arm_realm_smmu_v3_vdevice_destroy(struct iommufd_vdevice *vdev)
-@@ -140,7 +156,8 @@ static void arm_realm_smmu_v3_vdevice_destroy(struct iommufd_vdevice *vdev)
- 	unsigned long rmi_ret = 0;
- 	int ret;
- 
--	if (!smmu->realm_initialized)
-+	guard(mutex)(&smmu->realm_mutex);
-+	if (!arm_realm_smmu_active(smmu))
- 		return;
- 
- 	ret = rmi_psmmu_st_l2_destroy(smmu->base_phys,
-@@ -168,7 +185,8 @@ static int arm_realm_smmu_v3_vdevice_init(struct iommufd_vdevice *vdev)
- 	unsigned long rmi_ret = 0;
- 	int ret;
- 
--	if (!smmu->realm_initialized)
-+	guard(mutex)(&smmu->realm_mutex);
-+	if (!arm_realm_smmu_active(smmu))
- 		return -EINVAL;
- 
- 	ret = rmi_psmmu_st_l2_create(smmu->base_phys,
-@@ -229,12 +247,17 @@ int arm_realm_smmu_v3_init(struct iommufd_viommu *viommu,
- 	if (!(smmu->features & ARM_SMMU_FEAT_RME))
- 		return -EOPNOTSUPP;
- 
--	if (smmu->realm_initialized)
-+	mutex_lock(&smmu->realm_mutex);
-+	if (arm_realm_smmu_active(smmu)) {
-+		refcount_inc(&smmu->realm_users);
- 		goto psmmu_already_active;
-+	}
- 
- 	params = (struct rmi_psmmu_params *)get_zeroed_page(GFP_KERNEL);
--	if (!params)
--		return -ENOMEM;
-+	if (!params) {
-+		ret = -ENOMEM;
-+		goto out_unlock;
-+	}
- 
- 	/* No ATS and PRI support */
- 	if (!(smmu->features & ARM_SMMU_FEAT_MSI))
-@@ -261,12 +284,14 @@ int arm_realm_smmu_v3_init(struct iommufd_viommu *viommu,
- 		dev_warn(smmu->dev, "failed to activate realm pSMMU\n");
- 		ret = -EIO;
- 	} else {
--		smmu->realm_initialized = true;
-+		refcount_set(&smmu->realm_users, 1);
- 	}
- out_free:
- 	free_page((unsigned long)params);
- psmmu_already_active:
- 	if (!ret)
- 		viommu->ops = &arm_realm_smmu_v3_ops;
-+out_unlock:
-+	mutex_unlock(&smmu->realm_mutex);
- 	return ret;
- }
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 1e3d4d682e32..e458c3818c34 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -3946,6 +3946,8 @@ static int arm_smmu_init_structures(struct arm_smmu_device *smmu)
- 	int ret;
- 
- 	mutex_init(&smmu->streams_mutex);
-+	mutex_init(&smmu->realm_mutex);
-+	refcount_set(&smmu->realm_users, 0);
- 	smmu->streams = RB_ROOT;
- 
- 	ret = arm_smmu_init_queues(smmu);
-@@ -3956,7 +3958,6 @@ static int arm_smmu_init_structures(struct arm_smmu_device *smmu)
- 	if (ret)
- 		return ret;
- 
--	smmu->realm_initialized = false;
- 	if (smmu->impl_ops && smmu->impl_ops->init_structures)
- 		return smmu->impl_ops->init_structures(smmu);
- 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index d528b3212d38..b5d0e1341236 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -13,6 +13,7 @@
- #include <linux/iommufd.h>
- #include <linux/kernel.h>
- #include <linux/mmzone.h>
-+#include <linux/refcount.h>
- #include <linux/sizes.h>
- 
- struct arm_smmu_device;
-@@ -812,7 +813,8 @@ struct arm_smmu_device {
- 	struct rb_root			streams;
- 	struct mutex			streams_mutex;
- 
--	bool realm_initialized;
-+	struct mutex			realm_mutex;
-+	refcount_t			realm_users;
++struct cca_host_tdi {
++	struct pci_tdi tdi;
++	struct realm *realm;
++	void *rmm_vdev;
++	/* protected by cca_host_pdev_dsc.object_lock */
++	struct cache_object *interface_report;
++	struct cache_object *measurements;
  };
  
- struct arm_smmu_stream {
+ static inline int insert_addr_range_sorted(struct rmi_addr_range *addr_range,
+@@ -203,6 +213,16 @@ static inline struct cca_host_comm_data *to_cca_comm_data(struct pci_dev *pdev)
+ 	return NULL;
+ }
+ 
++static inline struct cca_host_tdi *to_cca_host_tdi(struct pci_dev *pdev)
++{
++	struct pci_tsm *tsm = pdev->tsm;
++
++	if (!tsm || !tsm->tdi)
++		return NULL;
++
++	return container_of(tsm->tdi, struct cca_host_tdi, tdi);
++}
++
+ int cca_pdev_create(struct pci_dev *pdev);
+ int cca_pdev_collect_identity(struct pci_dev *pdev);
+ bool cca_pdev_needs_key(struct pci_dev *pdev);
 -- 
 2.43.0
 
