@@ -4,79 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B820FF8869
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 16:32:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F7D1FF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 16:33:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L+kcS+RF7ul139+IsLW+SJd1rc+dwFZPBm+wKeOEa6E=; b=p/8d7H+A+BiEYOse6mr+OVzZoQ
-	DT6uRuKYE24hD9sbZnSMq2INcyOy9ZR1CFuy3kodlaROxqHkQ68tkoTzckCKnKxx2S9QsWNA1tQ2R
-	arzk3JVBbOQWLXi9zTTsVuUl+ojIAS+N0TK9fB/4VZZ1i9nUKmy/df/4kA3jtTYnYHHAgy+Aq7/CN
-	n+9J1G6WrWs2x1R2lhbtFUI/XXvTyp88xrrMsSWI7dmNhrN6PS3kwhi+ZupOkUMHPi8QcAXOTCSAf
-	mQU9/UkU9l4LShE4C/nFIqZueLtKSFQ6SJQ5DRsd+mDY4C3otC3Vdm8dkgHOey5SgkAjB01pkdT9y
-	ZTVjdavA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bl/XCw0/NlDvZucl8fmIFkULRBGXTZv9TzNsGmOAeb0=; b=d+hCT7iRfFfaboC3X0Q72kzPmi
+	vTQLL6jpdsbNvMqlHdSTnhWm32aHAM1SopILVUkikIQRyeJJUWVhlH22Se5QGdoErykMGrJsZT79g
+	baj0DbbFqexWmjfhsluGZITX4tmZfNcbp7iQvKf1RzNw68KHsvI4M7Fd77BsT/mEUuxpvrjDVlpTy
+	stkoU2snWF9OGwEYEsVoKb3C9Ko03gxJ1HmLo5l+3NlAX379FuEy4+AueOhpfed8MxBYhXGHTbjBy
+	kBfW0IMhlssrE3IKsDcWCZV13urUSvkCQGS/5Hgl49Q0CENZKv806B/FUd5fL9niXN5pH9uLmnp2S
+	4MqEmE0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHOt4-0000000HN12-1XdC;
-	Mon, 27 Apr 2026 16:32:46 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1wHOtU-0000000HN6B-2wlg;
+	Mon, 27 Apr 2026 16:33:12 +0000
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHOt1-0000000HN0R-3Fhy
+	id 1wHOtR-0000000HN5K-2qHa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 16:32:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1777307564; x=1808843564;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=Y0roxTXaVRo9dgpe+WBRbf1u7DnmhCufjiiekE3A1aw=;
-  b=SLV7DphtTtGQYhRq7XWALzd68nBG3sz6HrCNNVGe0CSwASMnZLNU5ZGN
-   H6+gdtdNRv+wJTthNLMk7Xfo6H2+UqCInKG3gY+/fukvhBQ7daWeTnvIW
-   /WTaw/Movrk/7Hy9tmG+pBzRJ7D0ewrhcOhyU43+KHksLWc1qp05zAGgx
-   IHVmja+vGabMieqA/o5zdh5RsE71OYK2SyFftbjt3WGxDK22VVy5wVE3I
-   AOkj2jKVZgoy5lrwD2ApzhgvAmot8EFNCc7K54P0xB0chm2sFUHxWZM5D
-   czkoGFE9uZY0xvI6xMFBuUi8bGas6gLIo86teYFLx8bG0xzpZPLQxZv5I
-   g==;
-X-CSE-ConnectionGUID: H/jIFQ0bRzGAHU+/EC7IPw==
-X-CSE-MsgGUID: 7nzZxlPhQSqnQDdWWcDJbA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11769"; a="78093718"
-X-IronPort-AV: E=Sophos;i="6.23,202,1770624000"; 
-   d="scan'208";a="78093718"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Apr 2026 09:32:44 -0700
-X-CSE-ConnectionGUID: 1RUd+HJWR5uLHpUSBZOvmg==
-X-CSE-MsgGUID: cCHic7IMRuiseDsi8VPeig==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,202,1770624000"; 
-   d="scan'208";a="271816409"
-Received: from msatwood-mobl.amr.corp.intel.com (HELO [10.125.108.172]) ([10.125.108.172])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Apr 2026 09:32:42 -0700
-Message-ID: <b8ebf835-fc0a-4c28-ae8a-5b165d11775d@intel.com>
-Date: Mon, 27 Apr 2026 09:32:41 -0700
+	Mon, 27 Apr 2026 16:33:10 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-c7973f67f4dso3072326a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 09:33:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1777307589; x=1777912389; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=bl/XCw0/NlDvZucl8fmIFkULRBGXTZv9TzNsGmOAeb0=;
+        b=r8yB8RPMh3RMcGsxqAO/mhtfTd18E4p5AnnE8b2C88+VXQSF5IoROL579uYG9wLw4t
+         jK5XYEzv+wc7Oz+pHPLdwUU4YobwVLnbRP6tRi3F/S4fg0V6YS8wXJ569/JS3XPjtcTA
+         MCSEO9eUXxSZIfeOxfeL2eCQaZDHBda82NOhZ9EVRJQswx179/XZ6X7rTniYDj4CN859
+         T9JobjXDHS3exsUp4za+gWt8NT90/iaP+50su1PHrCA8Rh/jV3JqzuaxBwUOrN2dAAOO
+         /B2kooISBhNMa9oAq39L/gGZ4TFkkUhzqC2Xd0no7b3MO1rp2Jx5O3dBBVNSw2+vbNkK
+         hPPA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777307589; x=1777912389;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bl/XCw0/NlDvZucl8fmIFkULRBGXTZv9TzNsGmOAeb0=;
+        b=qwlUWBxux2j8BIn9jxVBILkLchDDt8Ive+oaVdWIo7QPNasuULTMk87ztpFnknr7sl
+         gQdiyvZtwSeNYjOWO4EBCbsw3sYRECq7Ze7uQbuTB7MFUKPU6MOqu1/GbH7kWptu4pV1
+         CUnSbVwQbK4wmB3RQAr4M3PkcU7Zcvk7zBpvEQfb2NLE6Rf+67ntAc58n7i92ycJm1W7
+         QLOxWveG87dj7PsYk2IZQHn6zpTcPMLS8U1BZcBx0ZNBTUtXOHl4q4S4PA9twjE9aTp8
+         PicBWyQK1tzKk0OxWiNh/io1a+oQ7d6qHlJiHBho+0BtIcojTeFnYBj8yNaSrtowx+pY
+         B0zw==
+X-Forwarded-Encrypted: i=1; AFNElJ9ZZ0jLM6y4RV+27lbqAVkHA851FZ6n6YuNDQwmkH/T/bf4Mw8gpFGrIH+f2V52j9zLFbho58Fv0lNaOYqMNMFW@lists.infradead.org
+X-Gm-Message-State: AOJu0YweyZeZGtYhqKFTF3Oii0knSPNRsUMTNedMvoVJvLJ1KCzK5XkZ
+	13c/rHwDEs3NajmEOfbyhiC3A7/s8rX9PCmR0K+BvSMVwyrDbZBzGRFo
+X-Gm-Gg: AeBDievJRX/RR63sASZSiGDn9/cc6qg9VAnvqb4O9pn3LIs1p0Z3KcYAqDIfNwkqGg5
+	OvlGeBSS565PVmtmbhO8sbHG+vVA15GrGkmJqzgY57/OUXoZ4Nf+iNLXOi3H4vKwMpnyyBTI3VS
+	ZKRXVYrbDvL7IMjJxfytA1uk6hOYS1F/4HiP9AdXvEualuL1kazuEZs9r2pd5FMWf1Ec3IMYy1Z
+	eFg42YqT5oXU1iwvGBwKOADQXx7nkyW26RZKAZ3zOosCzUvvt68lodQ84flvPQUALpTtH+5KDA0
+	zB8hSqFruRShx9AsbnR7h9O7XXkV1o/dcffOfVGcsCSLx6amWauif/MCX4oApY2OQAjAdG6O5No
+	JcJd0s/YEUN0tQb19PksYN/u33Qxc5Vl2pcRI5iIRK3lLxpKznt8uu9vd3r36M6nWgMOX+bL9T9
+	nRZEFXcKgMeRhhZ3SonjfgWUzfNYoRKx2+yATCx1DmwbcbjuHztZ4LuRbMiHAm8+VOGxtDNAEiN
+	W77SsoGeITnP1phFn04FNQ6VV0HMJo=
+X-Received: by 2002:a17:902:7615:b0:2ae:47b0:dc80 with SMTP id d9443c01a7336-2b5f9df6fc9mr269245635ad.11.1777307588432;
+        Mon, 27 Apr 2026 09:33:08 -0700 (PDT)
+Received: from junjungu-PC.localdomain ([223.167.147.125])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b5faa174c3sm309346485ad.21.2026.04.27.09.33.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Apr 2026 09:33:08 -0700 (PDT)
+From: Felix Gu <ustc.gu@gmail.com>
+Date: Tue, 28 Apr 2026 00:33:04 +0800
+Subject: [PATCH] spi: axiado: replace usleep_range() with udelay() in IRQ
+ path
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/3] PCI: Allow ATS to be always on for pre-CXL devices
-To: Nicolin Chen <nicolinc@nvidia.com>, jgg@nvidia.com, will@kernel.org,
- robin.murphy@arm.com, bhelgaas@google.com
-Cc: joro@8bytes.org, praan@google.com, baolu.lu@linux.intel.com,
- kevin.tian@intel.com, miko.lenczewski@arm.com,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
- dan.j.williams@intel.com, jonathan.cameron@huawei.com, vsethi@nvidia.com,
- linux-cxl@vger.kernel.org, nirmoyd@nvidia.com
-References: <cover.1777269009.git.nicolinc@nvidia.com>
- <1a8cf5e88051ab5c10417edb94df598ecbc810cf.1777269009.git.nicolinc@nvidia.com>
-Content-Language: en-US
-From: Dave Jiang <dave.jiang@intel.com>
-In-Reply-To: <1a8cf5e88051ab5c10417edb94df598ecbc810cf.1777269009.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260428-axiado-v1-1-cd767500af72@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAL+P72kC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDEyML3cSKzMSUfF2jJPNUMwNjM9NUy0QloOKCotS0zAqwQdGxtbUAO8K
+ 1G1gAAAA=
+X-Change-ID: 20260428-axiado-2b7e60365e9a
+To: Vladimir Moravcevic <vmoravcevic@axiado.com>, 
+ Tzu-Hao Wei <twei@axiado.com>, Swark Yang <syang@axiado.com>, 
+ Prasad Bolisetty <pbolisetty@axiado.com>, Mark Brown <broonie@kernel.org>, 
+ Harshit Shah <hshah@axiado.com>
+Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Felix Gu <ustc.gu@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777307586; l=1029;
+ i=ustc.gu@gmail.com; h=from:subject:message-id;
+ bh=8W6ejA4JywJSSKQL7Q25kMUHMTPo2Ypf1rOgcW6fZAM=;
+ b=evbJ5bCAUbuUcCQyFS8QvVajCnmBYUG5ma1I9W/857WZuf/FziNv4+AYnXR8V9fsnELVLdqY6
+ IGVWiI+OvOoBMcaRfQHvbp9q5ibD0wwzHWa++Qh8GbMwiuDKyEsN4CW
+X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
+ pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_093243_870120_B3930A76 
-X-CRM114-Status: GOOD (  21.49  )
+X-CRM114-CacheID: sfid-20260427_093309_722207_ECAEDAA3 
+X-CRM114-Status: GOOD (  11.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,118 +112,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+ax_spi_fill_tx_fifo() can be called from ax_spi_irq() which is a hard
+irq handler. Replace usleep_range(10, 10) with udelay(10) in atomic
+context.
 
+Fixes: e75a6b00ad79 ("spi: axiado: Add driver for Axiado SPI DB controller")
+Signed-off-by: Felix Gu <ustc.gu@gmail.com>
+---
+ drivers/spi/spi-axiado.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-On 4/26/26 10:54 PM, Nicolin Chen wrote:
-> Some NVIDIA GPU/NIC devices, though they don't implement CXL config space,
-> have many CXL-like properties. Call this kind "pre-CXL".
-> 
-> Similar to CXL.cache capability, these pre-CXL devices also require the ATS
-> function even when their RIDs are IOMMU bypassed, i.e. keep ATS "always on"
-> v.s. "on demand" when a non-zero PASID line gets enabled in SVA use cases.
-> 
-> Introduce pci_dev_specific_ats_always_on() quirk function to scan a list of
-> IDs for these devices. Then, include it in pci_ats_always_on().
-> 
-> Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
-> Reviewed-by: Nirmoy Das <nirmoyd@nvidia.com>
-> Tested-by: Nirmoy Das <nirmoyd@nvidia.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> Reviewed-by: Kevin Tian <kevin.tian@intel.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+diff --git a/drivers/spi/spi-axiado.c b/drivers/spi/spi-axiado.c
+index 9057a0a8df4a..649f149617ce 100644
+--- a/drivers/spi/spi-axiado.c
++++ b/drivers/spi/spi-axiado.c
+@@ -201,7 +201,7 @@ static void ax_spi_fill_tx_fifo(struct ax_spi *xspi)
+ 		 * then spi control did't work thoroughly, add one byte delay
+ 		 */
+ 		if (ax_spi_read(xspi, AX_SPI_IVR) & AX_SPI_IVR_TFOV)
+-			usleep_range(10, 10);
++			udelay(10);
+ 		if (xspi->tx_buf)
+ 			ax_spi_write_b(xspi, AX_SPI_TXFIFO, *xspi->tx_buf++);
+ 		else
 
-Reviewed-by: Dave Jiang <dave.jiang@intel.com>
+---
+base-commit: 7080e32d3f09d8688c4a87d81bdcc71f7f606b16
+change-id: 20260428-axiado-2b7e60365e9a
 
-
-> ---
->  drivers/pci/pci.h    |  9 +++++++++
->  drivers/pci/ats.c    |  3 ++-
->  drivers/pci/quirks.c | 38 ++++++++++++++++++++++++++++++++++++++
->  3 files changed, 49 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
-> index 4a14f88e543a2..4e0077478cd7a 100644
-> --- a/drivers/pci/pci.h
-> +++ b/drivers/pci/pci.h
-> @@ -1155,6 +1155,15 @@ static inline int pci_dev_specific_reset(struct pci_dev *dev, bool probe)
->  }
->  #endif
->  
-> +#if defined(CONFIG_PCI_QUIRKS) && defined(CONFIG_PCI_ATS)
-> +bool pci_dev_specific_ats_always_on(struct pci_dev *dev);
-> +#else
-> +static inline bool pci_dev_specific_ats_always_on(struct pci_dev *dev)
-> +{
-> +	return false;
-> +}
-> +#endif
-> +
->  #if defined(CONFIG_PCI_QUIRKS) && defined(CONFIG_ARM64)
->  int acpi_get_rc_resources(struct device *dev, const char *hid, u16 segment,
->  			  struct resource *res);
-> diff --git a/drivers/pci/ats.c b/drivers/pci/ats.c
-> index fc871858b65bc..3846447ea322f 100644
-> --- a/drivers/pci/ats.c
-> +++ b/drivers/pci/ats.c
-> @@ -244,7 +244,8 @@ bool pci_ats_always_on(struct pci_dev *pdev)
->  	if (pdev->is_virtfn)
->  		pdev = pci_physfn(pdev);
->  
-> -	return pci_cxl_ats_always_on(pdev);
-> +	return pci_cxl_ats_always_on(pdev) ||
-> +	       pci_dev_specific_ats_always_on(pdev);
->  }
->  EXPORT_SYMBOL_GPL(pci_ats_always_on);
->  
-> diff --git a/drivers/pci/quirks.c b/drivers/pci/quirks.c
-> index caaed1a01dc02..887babba97cc7 100644
-> --- a/drivers/pci/quirks.c
-> +++ b/drivers/pci/quirks.c
-> @@ -5715,6 +5715,44 @@ DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_INTEL, 0x1457, quirk_intel_e2000_no_ats);
->  DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_INTEL, 0x1459, quirk_intel_e2000_no_ats);
->  DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_INTEL, 0x145a, quirk_intel_e2000_no_ats);
->  DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_INTEL, 0x145c, quirk_intel_e2000_no_ats);
-> +
-> +static bool quirk_nvidia_gpu_ats_always_on(struct pci_dev *pdev)
-> +{
-> +	switch (pdev->device) {
-> +	case 0x2e00 ... 0x2e3f: /* GB20B */
-> +		return true;
-> +	}
-> +	return false;
-> +}
-> +
-> +static const struct pci_dev_ats_always_on {
-> +	u16 vendor;
-> +	u16 device;
-> +	bool (*ats_always_on)(struct pci_dev *dev);
-> +} pci_dev_ats_always_on[] = {
-> +	/* NVIDIA GPUs */
-> +	{ PCI_VENDOR_ID_NVIDIA, PCI_ANY_ID, quirk_nvidia_gpu_ats_always_on },
-> +	/* NVIDIA CX10 Family NVlink-C2C */
-> +	{ PCI_VENDOR_ID_MELLANOX, 0x2101, NULL },
-> +	{ 0 }
-> +};
-> +
-> +/* Some pre-CXL devices require ATS when it is IOMMU-bypassed */
-> +bool pci_dev_specific_ats_always_on(struct pci_dev *pdev)
-> +{
-> +	const struct pci_dev_ats_always_on *i;
-> +
-> +	for (i = pci_dev_ats_always_on; i->vendor; i++) {
-> +		if (i->vendor != pdev->vendor)
-> +			continue;
-> +		if (i->ats_always_on && i->ats_always_on(pdev))
-> +			return true;
-> +		if (!i->ats_always_on && i->device == pdev->device)
-> +			return true;
-> +	}
-> +
-> +	return false;
-> +}
->  #endif /* CONFIG_PCI_ATS */
->  
->  /* Freescale PCIe doesn't support MSI in RC mode */
+Best regards,
+-- 
+Felix Gu <ustc.gu@gmail.com>
 
 
