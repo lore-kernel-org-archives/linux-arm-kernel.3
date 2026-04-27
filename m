@@ -4,117 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 418D9FF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 19:17:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A488AFF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Apr 2026 19:19:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QEwJ0lK1FRVhZ82nSuKWtqBlS4HOBMbpzPCG8GR79rM=; b=G26Gvune3/ROWsjXyLeix6PiQF
-	Ssp9+uu1MreXe9t9haXPpweSC8z+4j0jUbft18sU0xpZICenvy3rkqmMKqGK2Vy+OAXE64GS2GmPp
-	chL2jJVMNYLiCvkAH8paQQzTQ0RtgrNa62/NG0tkubZwW5i91mDhnah/pnNyhHx9frknP9eNUzidw
-	tZrwQqHDT4oN032gHUblA5lsJbvVaE4ApsAr1Qfr5C3jimkWAh2uOzac4eTozO0eebAxVpuFqhGj3
-	6nAoP4/ZXV6xRFpf/uE+3hhIhY7si0/CgzXeRtqmpCjLnjmf1Eo2p84Zt3BdQB32OC4uIGBfNzE10
-	R0Wf2rog==;
+	bh=Bn1XEoBn5w70ry5cKdhd7NblMGBJeki9ISIgbMZwS50=; b=TKvlOq1u/rOysKJwW64pvEdIxl
+	vCOY0vNQA8EBprTLwXZWZqmD/lhHvsoOlhWL39Md2BJgRrYW0K2CiFHrP1AnVRoF6Nse6zz4C+sIo
+	wLR2b/+VK9Quohejbi8bEwAeOxvBD9KbTQbVfeI9zdvsETALRJl/uR7d0kuZ4aZkr4JLEdODo+CW0
+	2RGJzgzuKAATo95X+Ji3ndrKunAd3fuSqefXamwUHNFjQofyptdXKsZQ4Y3QgPVN79imfB79naB3f
+	aZvAr2Y/RFHSyZr1WmUg8fHNNV4tjizA/FqndUIRkrbjQ7OYmPbBl/EvolG0X//iP7dFSvAhXHZ9T
+	ZZyH8PvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHRSN-000000003Gn-0o4v;
-	Mon, 27 Apr 2026 19:17:23 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1wHRUp-000000003TM-0972;
+	Mon, 27 Apr 2026 19:19:55 +0000
+Received: from mail-centralusazon11011014.outbound.protection.outlook.com ([52.101.62.14] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHRSJ-000000003FZ-3ui9
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Apr 2026 19:17:21 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-65c4152313fso14548650a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 12:17:19 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1777317438; cv=none;
-        d=google.com; s=arc-20240605;
-        b=BPFJ5gSvBArGySlDWDk1oK1H12J4p0vO5SF8+DVqwWk4j1pL+B0KIM3aDXodNthNd1
-         RsDpmgM48KZ5lRJuSP2VxKC10McX835ae7ueCp4d4QvW5XxyeovBYpRNaqreTOp3pF7X
-         t+Oqxv4KB+wuPKJFCRa5CkQogjDY79pVWP8kcuDxzfn2r6WSiGLfqkrdjPXaxGaHHxek
-         lPAnwQR/SSsINUjIMDGm09cUuVYMPCT3fim47CQjonmkAPXSYFht+mHSp9A9Ye+HRtV5
-         NFlIPhasUpUxW66YxLfwC0I1JZJV3y+BGG23woxbMqPvx8qK+orf+wTqhXJmiueIFD3U
-         UcCg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=QEwJ0lK1FRVhZ82nSuKWtqBlS4HOBMbpzPCG8GR79rM=;
-        fh=U3HntYTGO49hxAFnpgtpN2lJGluKZYScr2eb6cgIbWk=;
-        b=TI577QBn4PErTn+gzSrAXCC2Ci0Sd5rxxyB8+Kf7EzaYE8+v+KyxoGw2+rDonIg0lw
-         D2qw7SIDeh7LCmNwjqozie9zyL+4Hyoc7kF4H/PoWqV6YygY18pVAlMi8hGe0Q+meKX1
-         mlO1YUkA5vz80+ipfOf9Jz27atKRv2rVYLk0fuwXxNX3oqsEFUHcsGl8hnrwLVoQTV5j
-         zZ2muKkJG1FNLtX+Uwo+BwFGLT8goHcFlY8CueVoj7Czg5WfMDu5REzwNdc5XXlEYdlw
-         QgnjWK/PRD9gAaZrbHlbOoxyV9MAUDbO/E+RFtqa1GQiDLLU9hB/3AjpAKFldlVwPy+v
-         s5NQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777317438; x=1777922238; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QEwJ0lK1FRVhZ82nSuKWtqBlS4HOBMbpzPCG8GR79rM=;
-        b=kNa9xscH3SNai0sQnpVgmWVEf5AIEHCfMsCtYm0mLllRLXPb5CSJGis7o3QSENJ08U
-         o/t8c8vq1Un90yUijKEM/+EtdttlDjyYatbnNFPjGN11m2PIH12xOXxdT+rY+oVA14rE
-         p4bH8qDXSqUruRsomTYLJelwZ9KIyJiFwXV3P6NP7sbHf5uN+cuIOzWT+gy0uD3PuqaL
-         xnCgVQcF2d4ThD2qOssGzww130kr55qnvYsL+6iZ39ZFUL7S1bV5hqkTdLSXrf9enjZi
-         iMwv7yqhoNTxPtVsc3fcxQQqYhf6GweNLTGGPrhdoIelyu42srlsi1eoB1T7GWnUlIea
-         LYWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777317438; x=1777922238;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=QEwJ0lK1FRVhZ82nSuKWtqBlS4HOBMbpzPCG8GR79rM=;
-        b=MSU4H4Ni6B6vRfALbeev3w792n9P/WiU5PRZMCqOpUcxWdrXtYQ/EZDpV9n+jODPi0
-         P7a31MT7Jbgm87b3ZrRgxHQAtFfurC8lTkArIgNOvYvnnLQbmqZ54xl+ueDv6J3BE3P9
-         /o9vGM1ei+nXBa+Wh+5DRfWdj51h+n2XZ95TrkNnE9JoS9Ll0OwpWqELaUc9i9Mib2xl
-         Sc9djCLRwKIU7zU1DVW5ouUOo8Kv2u8dtj14HnIV8K/Vwbt4ayTQrSG7cgFZNZlXV0se
-         KP5fYE/oTfB3ZZC1qPYpQsPhVAY2eHJHKLp/euQKYXgqE9/HWl6xqiUb0+3aJxA44CoZ
-         sGmg==
-X-Forwarded-Encrypted: i=1; AFNElJ/V0KrQBQjyvJba1kXeOJXX2WUMkXSdtQ2kTzvL57KEq8iWY2uy7ShrW5uSRHedfigFMSPkikD2oH/Jzmbvfsyx@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzv3mT4vUQATIQ4UfA84lCH3xjqWw9PLhPqIu0NfWlQlujD+VaH
-	xhaXb7i8cOhK+182l7tUDyAHUXlH0Jr1/A9tNmxejxEuSNspSDXYboih6uCY1Bb65RbLG+Vs4uS
-	xHgwE8hrkZn48mprqDcHQTTkwIYI3Ejk=
-X-Gm-Gg: AeBDiesy+c+fcgv+NIzeIO2Bo05EWKRpMdOdiS2yHedD/wutEGI/Q/LZud6khZFCrGK
-	Uiw3rdetHA9eLSuiyCo9yJheJequSjuNDGHLP0kbqZfG4m7/eS6ODMa+ghZaftCk+/xVX7C0bO9
-	QcJ4GALmHZJXBjW0J6WfsXcPbKObxjOz5UeKsVnb7278mzQViR5U/+n36ygbPfmdBxtiyUrUWp7
-	RPgjJvcrQyU83HahE9he332YtlOOw5adofqVYraFYsdrsE6gzkiKLf/FKjYqMSooFgUxsyt3sNf
-	yVHfXM4SCHgXUBn8nZJttIiYVQdMDr1Zc/6WY3g4Sv1j8PPRMM2OhP+9xaOXvk763nFwdYH0MK/
-	rUe6SmGPBCs92wzfw0IkGL+xWOy3tN4vxejMvDCmHXa1koHb0
-X-Received: by 2002:a17:907:9453:b0:ba4:73da:c with SMTP id
- a640c23a62f3a-bb80530197fmr4956166b.47.1777317437558; Mon, 27 Apr 2026
- 12:17:17 -0700 (PDT)
+	id 1wHRUm-000000003Sg-0TUi;
+	Mon, 27 Apr 2026 19:19:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DVhEHbKse9FapnN2cz2aJUX+HTxcItqfquBUQFwLCiP5WPrtNQiNPTnGI4MIon3AgmkAQl5HhYuSQnuQt8IDeRYhgInyB/AOQdBwrpUiHITV3f694UVLHuUrOiv9b2cfG6r3+auR6MSVkkcLuQ4Y+tF/rhfDNeBCXess0F+F/TkXrV+dz92vsSLlL5tn1Ynl2fbpcNoIAef0KBxuv6gcdjE4t82LvHJAaDNASNUKyKFm7x4T0BsLAz0/sYnIg36y560VeNc7zOL4T4Ud5AI185ZovsKb5e37aJIb1I3/TkqG0ULl2gwnmAIb6WWT/tvMtVulTJ6c/93Ndgr0CuF4fg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/kehAw/qIO6D93HVE5am8hZKsLTTbdaFhcjGhCC5rQk=;
+ b=barriPy2JoAhTOU2YWoiBczra9jgxyFIS6Vn5fMeLmZuoQbamS7hXIudelNBWOJlYCTT4fz6sLrJvnhUdW9BOtoGyJggKAsOzpYbdXTAoZYuiChGWVjjK4zj5T6ViLKFtxvsysAksVjZEfM7DJVmWiyYI9e45cpEy9i20IgZjrl32t2DE427qEOO5vlB9eYx56Yl/nXGgL4VLYapDOlIgCcuJftQuYsdND79AhJHc1YvPlUNuHXQ+n3CfukGLrY/uuf3W2l/Yujue6iK9C39RkCuvxgHmU04+3GeYVYQvrsxPBRvQZHz5V/LPu92hWZsyj93vuK0RwQezDTTJlGlNw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/kehAw/qIO6D93HVE5am8hZKsLTTbdaFhcjGhCC5rQk=;
+ b=YPchTHpLT9QyaGFbz/V/HaxoYwml60CPwBCohwTGccSxQF5xp4aCWy87+9L75FNFxG+fxrmiBfrijK9S2U71MhRFySlXZXPcGWovjvdfkNvvp25q1PAB1mr+HmzjdR2xRedKx7NR5nzOddAsQnNEGyggXH0WqDfgUQo8MCzVvhQJIRQ9THI7KbDluLzImajEqpi/FOh1jFu/Gzsx5Px0K5iD8tBWuFPua2hJduhxINK682Oc8hT1rNV3ppOrrAFmrK5A2egSfIVt/1zbLX+OPjABfYsc675DnlpFoxG5tXvBSDdEGGHoW1lpS7Myqc3PGBqojvAzWyzSfMH/AHuVBg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CY8PR12MB8300.namprd12.prod.outlook.com (2603:10b6:930:7d::16)
+ by CY3PR12MB9678.namprd12.prod.outlook.com (2603:10b6:930:101::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.12; Mon, 27 Apr
+ 2026 19:19:39 +0000
+Received: from CY8PR12MB8300.namprd12.prod.outlook.com
+ ([fe80::ce75:8187:3ac3:c5de]) by CY8PR12MB8300.namprd12.prod.outlook.com
+ ([fe80::ce75:8187:3ac3:c5de%3]) with mapi id 15.20.9870.013; Mon, 27 Apr 2026
+ 19:19:39 +0000
+Date: Mon, 27 Apr 2026 15:19:36 -0400
+From: Yury Norov <ynorov@nvidia.com>
+To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	David Laight <david.laight.linux@gmail.com>,
+	Thomas Gleixner <tglx@linutronix.de>, linux-alpha@vger.kernel.org,
+	Yury Norov <yury.norov@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+	dmaengine@vger.kernel.org, linux-efi@vger.kernel.org,
+	linux-fsi@lists.ozlabs.org, amd-gfx@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+	linux-wpan@vger.kernel.org, netdev@vger.kernel.org,
+	linux-wireless@vger.kernel.org, linux-spi@vger.kernel.org,
+	linux-media@vger.kernel.org, linux-staging@lists.linux.dev,
+	linux-serial@vger.kernel.org, linux-usb@vger.kernel.org,
+	xen-devel@lists.xenproject.org, linux-fsdevel@vger.kernel.org,
+	ocfs2-devel@lists.linux.dev, bpf@vger.kernel.org,
+	kasan-dev@googlegroups.com, linux-mm@kvack.org,
+	linux-x25@vger.kernel.org, rust-for-linux@vger.kernel.org,
+	linux-sound@vger.kernel.org, sound-open-firmware@alsa-project.org,
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linux-sh@vger.kernel.org, linux-arch@vger.kernel.org
+Subject: Re: [RFC PATCH v1 7/9] x86: Add unsafe_copy_from_user()
+Message-ID: <ae-2yLWSGnfeTvh1@yury>
+References: <cover.1777306795.git.chleroy@kernel.org>
+ <0ee46bb228d97163fbdc14f2a7c52b93d8bc34ce.1777306795.git.chleroy@kernel.org>
+ <ae-j2_QirCySZD02@yury>
+ <63a4d0f6-0eb3-48cd-9f98-bf7b223b2606@kernel.org>
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <63a4d0f6-0eb3-48cd-9f98-bf7b223b2606@kernel.org>
+X-ClientProxiedBy: BLAPR03CA0031.namprd03.prod.outlook.com
+ (2603:10b6:208:32d::6) To CY8PR12MB8300.namprd12.prod.outlook.com
+ (2603:10b6:930:7d::16)
 MIME-Version: 1.0
-References: <20260427034427.881389-1-rosenp@gmail.com> <20260427034427.881389-4-rosenp@gmail.com>
- <20260427-hug-baboon-d60bb8fdfa51@spud>
-In-Reply-To: <20260427-hug-baboon-d60bb8fdfa51@spud>
-From: Rosen Penev <rosenp@gmail.com>
-Date: Mon, 27 Apr 2026 12:17:04 -0700
-X-Gm-Features: AVHnY4JrG3QUmyGyx0Gb_wy-V9vfTB4Vk66pF2gttwnm5MDKbGyJbNEFCLFWIDI
-Message-ID: <CAKxU2N-mhrhjDEc2MnOvDZC5PpMzj=vRgMemNK4qSQzNQ-=BPQ@mail.gmail.com>
-Subject: Re: [PATCH 3/3] wifi: mt76: remove mt76_get_of_data_from_mtd
-To: Conor Dooley <conor@kernel.org>
-Cc: devicetree@vger.kernel.org, Felix Fietkau <nbd@nbd.name>, 
-	Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>, 
-	Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
-	Johannes Berg <johannes@sipsolutions.net>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-	"open list:MEDIATEK MT76 WIRELESS LAN DRIVER" <linux-wireless@vger.kernel.org>, 
-	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>, 
-	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>, 
-	"open list:MIPS" <linux-mips@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY8PR12MB8300:EE_|CY3PR12MB9678:EE_
+X-MS-Office365-Filtering-Correlation-Id: c742778b-fa9b-44f9-51b3-08dea491ed5d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|10070799003|1800799024|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: shZ1u0REr6wDLRLPyyEdIcR7HSBaBLI9bkPwQrtikVH2FtKB2JxFo1blEpu1cI3NJl8SRfbhAKLYIVGCuUMzmvBnxw+FuY/TWQm+eDHPdr22c6rn1JUuzt3nYVxIbuuLTVTRWsq+e+SUyzbYaEEs9iTQJbTfJiMIr1QcnMs7HyZ09hEYM4Y4qXo4Dqr7nhb5zdIkE0fiLtqy/Zisxe0E2yKOvU4HmFcaFOiR7Aq6DJwZzTG+BR733bn5EC71RBcWvOANFgJM2znxVv/dOuQYufc4G4dUHtXgydGyNUS+fngDUjvyX5MkmDLhOMznjZqXlYqgeu5lMUCpG8HffRFHlOXhBcrYgf+ovMMHaCYbFuDT66UC1VDFvb4rz83Hk2Lnl6vSSpPTv8rxpTSPpx4cdJdNmo0Mn5Mi/3x46vGIX9O5JTAct5Ir50zvkKLZe7/Kp1qSfB39msc26Lzz7LD733/o3mPnQXyAGLurnHZgJ5jM3FLt650dCqhJcZlPMaXHq6+AjtwJTG6y+mX2JUt2792E1LYJn7KjXVu8/xqn/7IpL5oC4IQQUgghT221wDL3lrh3xCL1IuqFJShNLP2kKxWwgFBJzIfU0pnScVGPPU9YsipaXNEtmsuD5RQqnXWq43E7KCoMjIP73gvWalBIhJkqTKcX6NUkX7ot5JSYyuNq1A833Lgaec6O0C//zC9ubi3rz9CymfV/P6BrxHZIhmtQ5semmv0gY0c6C5hRnqM=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY8PR12MB8300.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(10070799003)(1800799024)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?T8W6XhUXwT9dv5kuj9kFMa1Pc+caKbpom/7i+ro0mWLEx/WsMCf7Uv+yLt?=
+ =?iso-8859-1?Q?gAyF6hz8bSDC1bWR1FTEkkI65aMUmC7iyx7e6/xfNDa3Fqe7SiC1j77stI?=
+ =?iso-8859-1?Q?LrG24onu6fFBF8DWYf6MIuIlkdgrbAd2EiVVGxnofgYgHTQhw5136OB8qO?=
+ =?iso-8859-1?Q?CnzmyDAwjI33B1CjeJnNBBJkCzrksdZvxIcHW0uIe6E0PZHf537RLpIETM?=
+ =?iso-8859-1?Q?s+cBh7JvH4GNxPjZACl7GXrozKiFqXSwFIzHaU9Zd4jSjyzd0KPJpIHPKf?=
+ =?iso-8859-1?Q?8h/I+NEnIGw4Lnjlmh9mYKMwd0qS2GIHpVaOy1bH5MCjGmjowRaXjQ79be?=
+ =?iso-8859-1?Q?jGRLn+Oomml9guRrsFzOQ7DbbOlFy8pqy9R+D9ZnGVn8wEgYSRw75xgmry?=
+ =?iso-8859-1?Q?2ACNauoKPoUzpnRmfqW3sPF9JS/tvt2t2PPNVTZJLV6vuJBnNmyWilx/9u?=
+ =?iso-8859-1?Q?SrlYzTyazTZWIZbUeG2soKD4eNVokxFYJQoBgEsGEV2njiNv6HUubbi0pF?=
+ =?iso-8859-1?Q?Vqp14jJqz5sSfFayA6WZcArZ+USE5vjanuqRtNQfdkNsKj0R4pEMc493o0?=
+ =?iso-8859-1?Q?NCXeFBw/ojt6aGg8g6h7tHIHZcYuw7ohhZUMOvg3ffhlK9u79tO7oKpC3u?=
+ =?iso-8859-1?Q?wiPOjYl6brt/0GKfD3iRNbrV6TRbbioNcjuDS7LZqgWxe6vMy7NndX+woA?=
+ =?iso-8859-1?Q?uRdr5blnc5k3cJWHAzCHgJ5WF2JWGApq1uyN9UWgvqNw083HRffGg6P5ix?=
+ =?iso-8859-1?Q?cG24FhHq+kscs9DSxIC+Aujk67lP+3jqbld/7XWy8cKm8qvSHwRqhWblhk?=
+ =?iso-8859-1?Q?2okcTJPbDNOuvYYOSGTPE+vmAEFbkK1UHPvMUY9ATxehETfXPZs7yjb3aq?=
+ =?iso-8859-1?Q?w3hdW7xtyg3/7tDEWG7+fOEy9FFT/gEBpvxotxF6oySrb2HXqp/fqrjhbq?=
+ =?iso-8859-1?Q?+CZwwgugua6eO4UL5qPz9hiIFbMAfNaGqRykJRiykn+pL+t1YHattmJ89+?=
+ =?iso-8859-1?Q?zMjzPmRht5LCTdelXGsXfPIKJiFXD3T9vDfN3lmWj4Ts7wlilxpgiOpMaL?=
+ =?iso-8859-1?Q?p7E3h5ji6cLKiR9cNwmzJTNOGBx5zvsEG4+PNQXhBDGMpxOVgOl+EeAV9d?=
+ =?iso-8859-1?Q?2s3FGgMUZVYPP9cV5NsthWoh6iNfuRN7NkopE2q3yxMVZlN6dt7HdpbO1Y?=
+ =?iso-8859-1?Q?0fu25Ra/a3yy2XE0TtJPHqDm12P85rdM3CgNkUv822FbtecXgL64Qkuo5p?=
+ =?iso-8859-1?Q?bU1qrEG+LOPjM/jMvPhwRHc5ppnq/gaXYhFU5FH0G3K5d4d0ixkRyi37Wv?=
+ =?iso-8859-1?Q?QFsdW6QrX/SrL3DsdbaAqQnL1rxC0EQG3YCsMUYGRLPRYd9ad5xPY0x+Rq?=
+ =?iso-8859-1?Q?pi74xEsiw9PrH9X+6nGn6Y3d7VcpnV6Av8/J+hqLZLRt6W9B7IXfCaTIAV?=
+ =?iso-8859-1?Q?8KCRWdm4ExrgkDdvMYea8olZLEBlvgMeZtCVoxZ810+OR4vZKUUMbB37Ha?=
+ =?iso-8859-1?Q?gwC1ZTD4TpsWjGJNj5Ry/c9tX5RkpCdCKRBegPQIrqdU1WX41QArSPS9fb?=
+ =?iso-8859-1?Q?xDEYSUCFDpxyHnIl4mh4MFcUHTIxFSpQAIB1z5w75JzJg+rYBE9y0Z0uA2?=
+ =?iso-8859-1?Q?hx89znOZLi5+tvIZldfaxSE1Dk0RrYzkMtqQuuDh61/I6rksRc2kt6jYug?=
+ =?iso-8859-1?Q?hvJgjrdcklYMst8NSnorft9iaeq41s5Z02Our3r1w88xwCK/RrRq8aIdSR?=
+ =?iso-8859-1?Q?gpisMPDwKRAml31b4cWNg8wz9VF+bGszAp5BtKObcEufaeReWjiKmyXNV3?=
+ =?iso-8859-1?Q?qbI4euw+Po2OswoqiwgiX8xIAeThU5sXrO2JRJTwu37/nYFGOi2s?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c742778b-fa9b-44f9-51b3-08dea491ed5d
+X-MS-Exchange-CrossTenant-AuthSource: CY8PR12MB8300.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Apr 2026 19:19:39.4410
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 40kb2lLpGDA1U6OK1K/FxB8sAmuWJ+U6w4mJNOJ6ae5Bq52M+Y3YVxXlUqHMzI9liQk01DjxzLicYADua7DWLw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY3PR12MB9678
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_121720_007460_12D01E0B 
-X-CRM114-Status: GOOD (  22.62  )
+X-CRM114-CacheID: sfid-20260427_121952_156686_1E487B57 
+X-CRM114-Status: GOOD (  14.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,176 +163,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 27, 2026 at 12:09=E2=80=AFPM Conor Dooley <conor@kernel.org> wr=
-ote:
+On Mon, Apr 27, 2026 at 08:20:38PM +0200, Christophe Leroy (CS GROUP) wrote:
+> 
+> 
+> Le 27/04/2026 à 19:58, Yury Norov a écrit :
+> > On Mon, Apr 27, 2026 at 07:13:48PM +0200, Christophe Leroy (CS GROUP) wrote:
+> > > At the time being, x86 and arm64 are missing unsafe_copy_from_user().
+> > 
+> > No, they don't. They (should) rely on a generic implementation from
+> > linux/uaccess.h, like every other arch, except for  PPC and RISCV.
+> > 
+> > But they #define arch_unsafe_get_user, and the unsafe_copy_from_user()
+> > becomes undefined conditionally on that.
+> > 
+> > So please, fix that bug instead of introducing another arch flavor.
+> > We'd always choose generic version, unless there's strong evidence
+> > that arch one is better.
+> 
+> But they both implement the exact same unsafe_copy_to_user(). What is the
+> difference here ?
 >
-> On Sun, Apr 26, 2026 at 08:44:27PM -0700, Rosen Penev wrote:
-> > mt76_get_of_data_from_mtd has been replaced by
-> > mt76_get_of_data_from_nvmem in all usages.
->
-> All users in the kernel, but what about other sources of devicetrees?
-> Those built into firmware etc? Are there none of those too?
-I'm actively removing those: https://github.com/openwrt/openwrt/pull/23113
+> Should that function become generic too ?
 
-Anyway, irrelevant here.
->
-> Conor.
->
-> >
-> > Remove it to prevent people from using the deprecated
-> > mediatek,mtd-eeprom binding.
-> >
-> > Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> > ---
-> >  drivers/net/wireless/mediatek/mt76/eeprom.c   | 87 -------------------
-> >  drivers/net/wireless/mediatek/mt76/mt76.h     |  1 -
-> >  .../wireless/mediatek/mt76/mt7915/eeprom.c    |  4 -
-> >  3 files changed, 92 deletions(-)
-> >
-> > diff --git a/drivers/net/wireless/mediatek/mt76/eeprom.c b/drivers/net/=
-wireless/mediatek/mt76/eeprom.c
-> > index afdb73661866..092804323d81 100644
-> > --- a/drivers/net/wireless/mediatek/mt76/eeprom.c
-> > +++ b/drivers/net/wireless/mediatek/mt76/eeprom.c
-> > @@ -35,89 +35,6 @@ static int mt76_get_of_eeprom_data(struct mt76_dev *=
-dev, void *eep, int len)
-> >       return 0;
-> >  }
-> >
-> > -int mt76_get_of_data_from_mtd(struct mt76_dev *dev, void *eep, int off=
-set, int len)
-> > -{
-> > -#ifdef CONFIG_MTD
-> > -     struct device_node *np =3D dev->dev->of_node;
-> > -     struct mtd_info *mtd;
-> > -     const __be32 *list;
-> > -     const char *part;
-> > -     phandle phandle;
-> > -     size_t retlen;
-> > -     int size;
-> > -     int ret;
-> > -
-> > -     list =3D of_get_property(np, "mediatek,mtd-eeprom", &size);
-> > -     if (!list)
-> > -             return -ENOENT;
-> > -
-> > -     phandle =3D be32_to_cpup(list++);
-> > -     if (!phandle)
-> > -             return -ENOENT;
-> > -
-> > -     np =3D of_find_node_by_phandle(phandle);
-> > -     if (!np)
-> > -             return -EINVAL;
-> > -
-> > -     part =3D of_get_property(np, "label", NULL);
-> > -     if (!part)
-> > -             part =3D np->name;
-> > -
-> > -     mtd =3D get_mtd_device_nm(part);
-> > -     if (IS_ERR(mtd)) {
-> > -             ret =3D  PTR_ERR(mtd);
-> > -             goto out_put_node;
-> > -     }
-> > -
-> > -     if (size <=3D sizeof(*list)) {
-> > -             ret =3D -EINVAL;
-> > -             goto out_put_node;
-> > -     }
-> > -
-> > -     offset +=3D be32_to_cpup(list);
-> > -     ret =3D mtd_read(mtd, offset, len, &retlen, eep);
-> > -     put_mtd_device(mtd);
-> > -     if (mtd_is_bitflip(ret))
-> > -             ret =3D 0;
-> > -     if (ret) {
-> > -             dev_err(dev->dev, "reading EEPROM from mtd %s failed: %i\=
-n",
-> > -                     part, ret);
-> > -             goto out_put_node;
-> > -     }
-> > -
-> > -     if (retlen < len) {
-> > -             ret =3D -EINVAL;
-> > -             goto out_put_node;
-> > -     }
-> > -
-> > -     if (of_property_read_bool(dev->dev->of_node, "big-endian")) {
-> > -             u8 *data =3D (u8 *)eep;
-> > -             int i;
-> > -
-> > -             /* convert eeprom data in Little Endian */
-> > -             for (i =3D 0; i < round_down(len, 2); i +=3D 2)
-> > -                     put_unaligned_le16(get_unaligned_be16(&data[i]),
-> > -                                        &data[i]);
-> > -     }
-> > -
-> > -#ifdef CONFIG_NL80211_TESTMODE
-> > -     dev->test_mtd.name =3D devm_kstrdup(dev->dev, part, GFP_KERNEL);
-> > -     if (!dev->test_mtd.name) {
-> > -             ret =3D -ENOMEM;
-> > -             goto out_put_node;
-> > -     }
-> > -     dev->test_mtd.offset =3D offset;
-> > -#endif
-> > -
-> > -out_put_node:
-> > -     of_node_put(np);
-> > -     return ret;
-> > -#else
-> > -     return -ENOENT;
-> > -#endif
-> > -}
-> > -EXPORT_SYMBOL_GPL(mt76_get_of_data_from_mtd);
-> > -
-> >  int mt76_get_of_data_from_nvmem(struct mt76_dev *dev, void *eep,
-> >                               const char *cell_name, int len)
-> >  {
-> > @@ -163,10 +80,6 @@ static int mt76_get_of_eeprom(struct mt76_dev *dev,=
- void *eep, int len)
-> >       if (!ret)
-> >               return 0;
-> >
-> > -     ret =3D mt76_get_of_data_from_mtd(dev, eep, 0, len);
-> > -     if (!ret)
-> > -             return 0;
-> > -
-> >       return mt76_get_of_data_from_nvmem(dev, eep, "eeprom", len);
-> >  }
-> >
-> > diff --git a/drivers/net/wireless/mediatek/mt76/mt76.h b/drivers/net/wi=
-reless/mediatek/mt76/mt76.h
-> > index 527bef97e122..f447ecac664d 100644
-> > --- a/drivers/net/wireless/mediatek/mt76/mt76.h
-> > +++ b/drivers/net/wireless/mediatek/mt76/mt76.h
-> > @@ -1339,7 +1339,6 @@ void mt76_seq_puts_array(struct seq_file *file, c=
-onst char *str,
-> >
-> >  int mt76_eeprom_init(struct mt76_dev *dev, int len);
-> >  int mt76_eeprom_override(struct mt76_phy *phy);
-> > -int mt76_get_of_data_from_mtd(struct mt76_dev *dev, void *eep, int off=
-set, int len);
-> >  int mt76_get_of_data_from_nvmem(struct mt76_dev *dev, void *eep,
-> >                               const char *cell_name, int len);
-> >
-> > diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/eeprom.c b/drive=
-rs/net/wireless/mediatek/mt76/mt7915/eeprom.c
-> > index eb92cbf1a284..c24e1276700b 100644
-> > --- a/drivers/net/wireless/mediatek/mt76/mt7915/eeprom.c
-> > +++ b/drivers/net/wireless/mediatek/mt76/mt7915/eeprom.c
-> > @@ -29,10 +29,6 @@ static int mt7915_eeprom_load_precal(struct mt7915_d=
-ev *dev)
-> >
-> >       offs =3D is_mt7915(&dev->mt76) ? MT_EE_PRECAL : MT_EE_PRECAL_V2;
-> >
-> > -     ret =3D mt76_get_of_data_from_mtd(mdev, dev->cal, offs, size);
-> > -     if (!ret)
-> > -             return ret;
-> > -
-> >       ret =3D mt76_get_of_data_from_nvmem(mdev, dev->cal, "precal", siz=
-e);
-> >       if (!ret)
-> >               return ret;
-> > --
-> > 2.54.0
-> >
+This is what Linus said when added x86 implementation for copy_from_user()
+in c512c69187197:
+
+  Note that it only does this [arch version] for the copying _to_ user space,
+  and we still don't have a unsafe version of copy_from_user().
+  
+  That's partly because we have no current users of it, but also partly
+  because the copy_from_user() case is slightly different and cannot
+  efficiently be implemented in terms of a unsafe_get_user() loop (because
+  gcc can't do asm goto with outputs).
+
+In the unsafe_copy_to_user case, arch versions were justified. Just as
+said, I'm not against arch version for unsafe_copy_from_user(), but it
+should be explained very well.
 
