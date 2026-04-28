@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 340FFFF8873
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 199D3FF8870
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 10:30:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,60 +12,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GmmNYOk+NsHl9ECni3ZP17QcbrO127/DqtR017v434Y=; b=HmTHT5DHexSzn4B84tamtoZhv8
-	FvLCUbJFWvskar5MH506/61sxWZSwuCsa/EuAvZZ9WdQq9QX+OTtIm5E5YhDemMAqnl+CwzdGRRyj
-	Raj5WfGWhdHez8UqM5+LKFTFyx5wmYlGAyPAk0Cs2AId+kXrpobo7Sq2aNx0ONG55GhpkCsnbzYlv
-	89SKvuUShp5834PC2/3eJU6d1rSDknGXC4y0dSifAMrJJD26H29mpK218/A3aYjl/4MRC5Dg8UZ+b
-	yhCX/MpcCo1Uy0l7lIfvPFIr/k4AMzx3ENoDqD2pnYn+ba8uLer7o7jxTWXOtNHU6y1abYW8OeTDl
-	oSYKZFHw==;
+	bh=xE/iPxwYzw+NNX7wEA81VsFDw/XB5o3T+Ctb9g0a1xk=; b=1dlo3UKLowVW/eOu8jBZoep7LP
+	i4Fsou780iprdFxbaQmjABRFDA6uHIWRhuybeVRKzW7OIDWD4vn+dNSAadxo+jIvX5VPrpKsryVbd
+	l5Qc+45kClXr0I/59izQ9tzT4XJfOlncw/mUYadmUOBUpJJZfjsXO0O2nMW5PFjkMgUVUbDqareJ9
+	qmUoshm3S4/jEFWm6P88KF1yXcGylQRNHhcuHsiM/jiq5iLqq2HrfXksOPQZKRhYDGCTksDksDwKv
+	8FyE/nqGTp1IJE/GzdvScDaHLnJRCSJibHmPHyN/TACnza7jSO7XFA1PFSJO3JRYCo337abSIqOxj
+	oRfv87ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHfhr-00000001AlD-3wXu;
+	id 1wHfhr-00000001Ajq-16im;
 	Tue, 28 Apr 2026 10:30:19 +0000
-Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
+Received: from mail-ej1-x64a.google.com ([2a00:1450:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHfho-00000001Agi-25Er
+	id 1wHfhm-00000001AfZ-2Nbu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 10:30:17 +0000
-Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-4411a36715dso6672885f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 03:30:15 -0700 (PDT)
+	Tue, 28 Apr 2026 10:30:15 +0000
+Received: by mail-ej1-x64a.google.com with SMTP id a640c23a62f3a-b9ca1ef3403so977949966b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 03:30:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777372214; x=1777977014; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777372212; x=1777977012; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=GmmNYOk+NsHl9ECni3ZP17QcbrO127/DqtR017v434Y=;
-        b=osrziJNraSiBITho+2X4oZ4euf93vKEbiKHrCdvvLJyekrBGL+mISfAj94Tlk62UjW
-         0kLZvHH2lxVHo+Ux5lqv6kanVmTXDwTM0kqco42HsSQY7bMSCrLA2i2NRTiT+9yY/q2j
-         jFIxeesd4bg3XseEBXtztNlZVRctN9rTe9/GS8gyIAfh2kmMirOt9XEGABFqrDs8w/xu
-         TbxTtwuNxHREgkbG+fuWH7CBZmXvm327o4212PhGKc4Yc0I/24YjifVrE6d02zM9teQ3
-         6zytzGKgOeyutLyYV322S39NN1kz/VsWFGvWDA28mH2b6ye6mOM34IF8zqKvLnQg/e/n
-         aJrg==
+        bh=xE/iPxwYzw+NNX7wEA81VsFDw/XB5o3T+Ctb9g0a1xk=;
+        b=igxm/YlCfoFDq7THj4mmsdlF66bJa6b/8NHS1BLzc88Iq3wjU6RKl45H2XoYTHytfz
+         emGxZaeayFc7W2/lLJ+54zT3RjOMKQ7MkApSK21X87Jc0VKB2EzzSh5KxMcgeuRDzKMs
+         BDs1/AohNxY69RGmt/Lzbs+8ewCx1z9yoEH8lO/th92jlGakDgOTF35gdrP3H4/CMyqi
+         AHu15K7g6myjie5Oq+okNSXdiSbghsiOiWFx/I6Q9rewEuuRHezML5CsTtxfWtul41oG
+         t8vPLc3DJTsMj3CSXAR3/phJt3olB+Yv2I5A+uATXHnGJegXz4OzoppOjFbBBt2Xte7q
+         Wazw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777372214; x=1777977014;
+        d=1e100.net; s=20251104; t=1777372212; x=1777977012;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=GmmNYOk+NsHl9ECni3ZP17QcbrO127/DqtR017v434Y=;
-        b=RQNKpznND6rLHDO+XIk7TegTQkC/a9ARhk3+N37TTMb6xEAMJilFvjjcug9cmhO5Yz
-         zV5zKJLtUlKilPR3Mp5rz/eECHTAj/qQE+7x9QUKyaxtw7ieV5ErngafKvIax+q26PGC
-         5Q2zU4ZsGz2faF6fBjxGWJCZemXyfjv7LuiYQZdI6WT6slBngjQ10VegQ2Zgrn+BcWJt
-         t050gnWcN2QF5D25GdjdMG6niovle0omMY8+36g+Nqizd4I0zT4SzkVGEU1Cqqb726y0
-         KG7abaMbcnL5uPwfpJoeU5bawfDBVTHf8O6x3CwTTmYFmAWTjlYJt5rW3TV4BLymQYgX
-         wgsQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8PshF8+V0m1X432pwGGQ0Bkqy/1zeZFw8u9OZgsqejgJVSmfQEeDOivc1RFLCOVT/3xxqiMp6pb+yk4X8C8bgJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwIkGf7mnbXQ7+pKcfhMPGdjZPTWgaJU+DTyvHOWDNIYqXk7E6b
-	uJhhN7rHC/X49SVUeSFc2LwfhJS0FTLWh0aqGeKPBY/khuRY+MfE0SPNu+q4Tm+C4kAvTwEPxip
-	oow==
-X-Received: from wrrn5.prod.google.com ([2002:adf:fe05:0:b0:439:d2b7:2393])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:26c6:b0:43f:e7c9:2402
- with SMTP id ffacd0b85a97d-4464761c29fmr4504996f8f.3.1777372213972; Tue, 28
- Apr 2026 03:30:13 -0700 (PDT)
-Date: Tue, 28 Apr 2026 11:30:04 +0100
+        bh=xE/iPxwYzw+NNX7wEA81VsFDw/XB5o3T+Ctb9g0a1xk=;
+        b=Wsf90q05i0/34CAAFTjYGq6miLqSYNl6n20ndyJGjJCYkepLGY4T2csyUGrqutz/MT
+         5TgDLC4OY0zj7YsZAUxyULWbZsQyAuh8eW2H/NYqfRDk7S5WHAhlBlKbhoPE3v6DNcnl
+         2TKrkqQuVLb7oEQEHKYbqTZOM12SqsCLo5o8xTYLHoZohlzOXvbXshpNRWvXZAqG8gIq
+         DVH+BlTq7HprdoGVo9R3UcxMiXBYSoBALh88wNwotDj/a/FvbIP0yXOyJhL2EPQ3u9c8
+         cwjoF9wqaKDvpkUN4QLpe8rS8RrPanDea9/TOdv84kl/ksNsqlx5sH/ZmBhBtYizugJ+
+         VGzA==
+X-Forwarded-Encrypted: i=1; AFNElJ/BxYEuIV2mPjkzSs7a5k/anmobEsoqBSfcacHKWWX/Cztr9MMouB3cL/0rDnQYOF7kEsHfbA8tgAYKGNq7UXwy@lists.infradead.org
+X-Gm-Message-State: AOJu0YzGb/0X9gaLF8ThEr4sdUXfxK6D9NhXymjj51jHutUjqpOgxmdF
+	+aF08J2h3ZrPl9O8102kBsaFByG+nJSWJc1hZrdoSrLIbue4ZLH+wjF0N3J8ByaSe3AqQ2v2k8s
+	wFA==
+X-Received: from ejchp42.prod.google.com ([2002:a17:907:3e2a:b0:b9e:2534:71c9])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a17:906:5194:20b0:bae:656b:2953
+ with SMTP id a640c23a62f3a-bb8022c28ebmr102260866b.11.1777372211619; Tue, 28
+ Apr 2026 03:30:11 -0700 (PDT)
+Date: Tue, 28 Apr 2026 11:30:02 +0100
 In-Reply-To: <20260428103008.696141-1-tabba@google.com>
 Mime-Version: 1.0
 References: <20260428103008.696141-1-tabba@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260428103008.696141-5-tabba@google.com>
-Subject: [PATCH 4/8] KVM: arm64: Fix __deactivate_fgt macro parameter typo
+Message-ID: <20260428103008.696141-3-tabba@google.com>
+Subject: [PATCH 2/8] KVM: arm64: Synchronise HCR_EL2 writes on the guest exit path
 From: Fuad Tabba <tabba@google.com>
 To: maz@kernel.org, oliver.upton@linux.dev
 Cc: james.morse@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
@@ -75,8 +75,8 @@ Cc: james.morse@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
 	linux-kernel@vger.kernel.org, stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_033016_542032_76DC2926 
-X-CRM114-Status: GOOD (  12.55  )
+X-CRM114-CacheID: sfid-20260428_033014_629577_3DE0C6D4 
+X-CRM114-Status: GOOD (  14.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,39 +91,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-__deactivate_fgt() declares its first parameter as "htcxt" but the body
-references "hctxt". The parameter is unused; the macro silently captures
-"hctxt" from the enclosing scope. Both existing callers
-(__deactivate_traps_hfgxtr() and __deactivate_traps_ich_hfgxtr()) happen
-to define a local "struct kvm_cpu_context *hctxt", so the macro works
-by coincidence.
+MSR HCR_EL2 is not self-synchronising. Per ARM DDI 0487 M.b K1.2.4
+(p.K1-16823) and B2.6.1 (p.B2-297), a Context Synchronisation Event
+is required between an HCR_EL2 write and any subsequent direct
+register access at the same EL that depends on the new value being
+in effect.
 
-A future caller without an "hctxt" local in scope, or naming it
-differently, would compile but bind to the wrong context. Align the
-parameter name with the sibling __activate_fgt() macro.
+On the entry path, the HCR_EL2 write in __activate_traps is followed
+by further EL2 sysreg work (MDCR_EL2, CPTR_EL2, VBAR_EL2, and on the
+speculative-AT errata path SCTLR_EL1/TCR_EL1) before ERET into the
+guest. None of those intervening accesses depend on the new HCR_EL2
+value, and ERET is a CSE per ARM DDI 0487 M.b D1.4.4.1 rule RBWCFK
+(p. D1-7209) conditional on SCTLR_EL2.EOS=1, which is set
+unconditionally by INIT_SCTLR_EL2_MMU_ON (see the prerequisite patch
+in this series). The requirement is therefore satisfied implicitly
+on the activate path.
 
-The "vcpu" parameter remains unused in the body, kept for API symmetry
-with __activate_fgt() (which uses it).
+The deactivate path is different: after write_sysreg_hcr() in
+__deactivate_traps() further EL2 sysreg work runs before any natural
+CSE - on nVHE, __deactivate_cptr_traps and the VBAR_EL2 write; on
+VHE, the timer context save which reads CNTP_CVAL_EL0 under the new
+TGE/E2H, and the EL1 sysreg restore. Add an explicit isb() at each
+of the two deactivate sites.
 
-Fixes: f5a5a406b4b8 ("KVM: arm64: Propagate and handle Fine-Grained UNDEF bits")
+The practical impact today is bounded: HCR_EL2.E2H does not toggle
+in either path, and the trap bits being changed primarily affect
+EL1&0 behaviour. But the architectural rule should be honoured.
+Note that write_sysreg_hcr() itself already issues isb() on the
+Ampere errata path (sysreg.h), confirming the architectural
+expectation; the fast path optimises that away.
+
+The fix is at the call sites rather than inside write_sysreg_hcr()
+because the macro has many users (e.g. the activate path, at.c,
+hardirq.h, ptrauth alternatives) where the immediately-following
+code either reaches ERET or has another CSE; making the macro emit
+an unconditional ISB would impose unnecessary cost on those
+well-formed users.
+
+Fixes: 9404673293b0 ("KVM: arm64: timers: Correctly handle TGE flip with CNTPOFF_EL2")
 Signed-off-by: Fuad Tabba <tabba@google.com>
 ---
- arch/arm64/kvm/hyp/include/hyp/switch.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/kvm/hyp/nvhe/switch.c | 11 +++++++++++
+ arch/arm64/kvm/hyp/vhe/switch.c  | 11 +++++++++++
+ 2 files changed, 22 insertions(+)
 
-diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-index 98b2976837b1..bf0eb5e43427 100644
---- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-@@ -245,7 +245,7 @@ static inline void __activate_traps_ich_hfgxtr(struct kvm_vcpu *vcpu)
- 	__activate_fgt(hctxt, vcpu, ICH_HFGITR_EL2);
- }
+diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
+index 8d1df3d33595..9d7ead5a5503 100644
+--- a/arch/arm64/kvm/hyp/nvhe/switch.c
++++ b/arch/arm64/kvm/hyp/nvhe/switch.c
+@@ -105,6 +105,17 @@ static void __deactivate_traps(struct kvm_vcpu *vcpu)
+ 	__deactivate_traps_common(vcpu);
  
--#define __deactivate_fgt(htcxt, vcpu, reg)				\
-+#define __deactivate_fgt(hctxt, vcpu, reg)				\
- 	do {								\
- 		write_sysreg_s(ctxt_sys_reg(hctxt, reg),		\
- 			       SYS_ ## reg);				\
+ 	write_sysreg_hcr(this_cpu_ptr(&kvm_init_params)->hcr_el2);
++	/*
++	 * MSR HCR_EL2 is not self-synchronising. Per ARM ARM K1.2.4 p.K1-16823
++	 * and B2.6.1 p.B2-297, a Context Synchronisation Event is required
++	 * between an HCR_EL2 write and any subsequent direct register access at
++	 * the same EL that depends on the new value being in effect.
++	 * The activate_traps path falls through to ERET (a CSE), but the
++	 * deactivate path still executes further EL2 sysreg work (CPTR/VBAR
++	 * writes below) before any natural CSE, so make the synchronisation
++	 * explicit.
++	 */
++	isb();
+ 
+ 	__deactivate_cptr_traps(vcpu);
+ 	write_sysreg(__kvm_hyp_host_vector, vbar_el2);
+diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
+index 9db3f11a4754..140d3bcb5651 100644
+--- a/arch/arm64/kvm/hyp/vhe/switch.c
++++ b/arch/arm64/kvm/hyp/vhe/switch.c
+@@ -149,6 +149,17 @@ static void __deactivate_traps(struct kvm_vcpu *vcpu)
+ 	___deactivate_traps(vcpu);
+ 
+ 	write_sysreg_hcr(HCR_HOST_VHE_FLAGS);
++	/*
++	 * MSR HCR_EL2 is not self-synchronising. Per ARM ARM K1.2.4 p.K1-16823
++	 * and B2.6.1 p.B2-297, a Context Synchronisation Event is required
++	 * between an HCR_EL2 write and any subsequent direct register access at
++	 * the same EL that depends on the new value being in effect.
++	 * The activate_traps path falls through to ERET (a CSE), but the
++	 * deactivate path still executes further EL2 sysreg work (CPTR/VBAR
++	 * writes below) before any natural CSE, so make the synchronisation
++	 * explicit.
++	 */
++	isb();
+ 
+ 	if (has_cntpoff()) {
+ 		struct timer_map map;
 -- 
 2.54.0.545.g6539524ca2-goog
 
