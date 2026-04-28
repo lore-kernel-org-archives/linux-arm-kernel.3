@@ -4,69 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 948E1FF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 07:33:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8048BFF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 07:39:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f6JQRY/TB7lrdWItc9QstnyijSZASNOxZVp+OY/fTZQ=; b=GEJWBU3szS7eze45OAUVbVYfop
-	RTc3iwZ/lOtzZ6Hc8ECkLbYHxSbZkX2Vmv4V6Coymt7t4LO4MVjwGAsxoImnxNdj9N7AOp4wAZWoM
-	SDLVZMRmxFWg5jpekulZDPpBd2eNJCVNJRb15PMGDYMVbRBVzIIPZNlWfecaGW4M6tvy7I/GF6fVw
-	xIPQlO0MwCAuWQVdP5ZcNcxwSPMaEpMNwtUXLSwAYrw7a07iLdAdPLv6NZrX/KN9E79kTqE+gaEQH
-	lvjL300ToEJdiRxCRSvilZyK7nKdinrsxDALGQgKTgrO6hAjTUinGM1wfugmEp768Xuva8bgBbpNj
-	qm5lRZbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LOmVa5HEYXAhxFxX5dmA5ibLhZjG/rAPjw3EsQuigAE=; b=trR9YWQio77zxgA3vUfS73sK8c
+	I2t7jRt/1mmArbBbY/bzt4UbP5PodvhFHnaVUh3/rME9/23bvoJsx36HAmlXxERqoEg+4QsVqLC5b
+	dCOOq+u89gH6O30DOdkOF9kTIOAIBPGLeaq6yrnHa6ffiCyu0sWlw0EQ+kehsEg76GNLnnjminIEZ
+	ndWD96M6s7Py0jIy0yPeB3ZfSCq8qhyhG05FZ2H+nqZ+iuw5vuDJ5lagnpfmGuNW/S5nxCs2viZLQ
+	k/zPkggCnc11CioqPe8olzUrqYTw0lRSCZf4740QxNn1q3uRKDd5AS5t/vNbQEtnkKMx2G1h5zOkV
+	SRJwYdTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHcwS-00000000mc2-3Evm;
-	Tue, 28 Apr 2026 07:33:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wHd29-00000000n1y-0AQW;
+	Tue, 28 Apr 2026 07:39:05 +0000
+Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHcwP-00000000maf-2cKW;
-	Tue, 28 Apr 2026 07:33:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8C0894010A;
-	Tue, 28 Apr 2026 07:33:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1A9AC2BCB8;
-	Tue, 28 Apr 2026 07:33:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777361583;
-	bh=6fTlJi+u/tA4P3ALw32S+WETC0LTfCt2D17LQA//3Lo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MpGy7DVFCqc2tz+PaWmZ2p7pRNgg8LFETk0UaUVr5ifYJTOWvPRBN+vpeP22WoWDq
-	 C56OEtBNx7Q1r3apdzOEvOAq1SMo8UctK/m1K2F1bGNwyIU+N1WEjfDXxisU1KM4xg
-	 BjlHJzkvzY3wzGUoPkAmSdvm5YxZgECJPhZ9OMPH6fdM+B+h4498MOM+78ScIjw5/u
-	 fB46I4mKXaiN4n4YiZgYyk58xm3XVdkWLXwNVlXTGehM53Xc9jRizBsA4LXTZxredB
-	 6a1BmClEmFGmfrQPJPr1IVj8i7gFV4T4F850Sg0qTXIIw8fAJLEPqQgHbD8Y9B80F1
-	 TCH5DwTMzfA1Q==
-Date: Tue, 28 Apr 2026 09:33:00 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Rosen Penev <rosenp@gmail.com>
-Cc: devicetree@vger.kernel.org, Felix Fietkau <nbd@nbd.name>, 
-	Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>, 
-	Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
-	Johannes Berg <johannes@sipsolutions.net>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-	"open list:MEDIATEK MT76 WIRELESS LAN DRIVER" <linux-wireless@vger.kernel.org>, 
-	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>, 
-	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>, "open list:MIPS" <linux-mips@vger.kernel.org>
-Subject: Re: [PATCH 2/3] dt-bindings: net: wireless: mt76: remove
- mediatek,mtd-eeprom
-Message-ID: <20260428-mustang-of-therapeutic-upgrade-a95f9a@quoll>
-References: <20260427034427.881389-1-rosenp@gmail.com>
- <20260427034427.881389-3-rosenp@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260427034427.881389-3-rosenp@gmail.com>
+	id 1wHd27-00000000n1H-0uu7
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Apr 2026 07:39:04 +0000
+Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-c797d8c9c2dso12048183a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 00:39:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1777361942; x=1777966742; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=LOmVa5HEYXAhxFxX5dmA5ibLhZjG/rAPjw3EsQuigAE=;
+        b=fRdRgiCx9lE0n5SivfW6wapR1OOC4FjCr2VSGbIgn5Zl6rqfZdlE0uqSPfrYPUTXdr
+         A0B/iL+cUEyovtPT6hnq4a2im9CRlH+0IrFfJlbBh6+9d+UJBr/arXwewjpceoIdkW9l
+         qsx4s3LVWRde1Bs2Ze5gcS6MZQteMbHnqPCoE7irmvWaz3tMmrNMt1kuaupM/I9K3XqR
+         aClyb4Ee2BrvO46ViZamGDEgE92gklR/BTYiEO05i4cxo+T2pTpZd2ABcrP7rTc+nJfp
+         sYmEsOkw1iTj7rNDObDc/NinAJUTUqyLlRXK2oDkQBXCvhsM/Heoga6eUy9p5QHJt/OE
+         kYCg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777361942; x=1777966742;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=LOmVa5HEYXAhxFxX5dmA5ibLhZjG/rAPjw3EsQuigAE=;
+        b=oc+wouzVqEaNlU2XshpatZnIgDlHJCtYScHjX/YXJnYWN/FMBw48sT47wnQVV3vpi8
+         BQPrfG8Y+l5H6kBiE/ZE4yCGuQBuIuAX8TYxmXDXtdADxRK45dld4K6oU1eMbrlvYsEx
+         fwGLsz9L9MEMTQATWFm38cA8iQ/PifKUUWCupPK83RoVND5XofzU4aCtX/55KBkODRoq
+         KQ2Uvr23ZIHqFFfDTxVt9Di4EnEFgr1s/sWIKRSQQ25hijHVaA+kEYSAlwC/kr91aEHB
+         9wlizJRwxZeADGbjNhRKE1VoAnfxMLseDYO+oSR2yuTk1ZUoZSw9Upb62FMh+L/Ve8d5
+         jaPA==
+X-Forwarded-Encrypted: i=1; AFNElJ+HVgSlqsy23V0jghCZFx5g7lJc6vQREmOMtAXCw5DhV87S+l56rWFrjC02kyLGeiiOMlvQ4eUjLjMSOIegiwzG@lists.infradead.org
+X-Gm-Message-State: AOJu0YwbD1XAA/YH+W3CLeJsxo+qKouab7YObd73/ZcQVB8puOXNun0k
+	n7ZkXH3wl1vf0B0TzNQCXvUacoUClddNtAVP9qZMeHsBSfgehDk0sEnsGGFt1N+E2L39Hkcsvl0
+	4wbbY2bv64YttSLip3XKqp342ew==
+X-Received: from pfwy28.prod.google.com ([2002:a05:6a00:1c9c:b0:82f:a201:42c7])
+ (user=joonwonkang job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6a00:2d22:b0:81e:12f1:d8a with SMTP id d2e1a72fcca58-834ddbe707fmr2002397b3a.34.1777361941509;
+ Tue, 28 Apr 2026 00:39:01 -0700 (PDT)
+Date: Tue, 28 Apr 2026 07:38:59 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
+Message-ID: <20260428073859.1502047-1-joonwonkang@google.com>
+Subject: [QUESTION] Is the ARM SMMU v3 implementation designed to always
+ ignore SSID when SSID_VALID == 0?
+From: Joonwon Kang <joonwonkang@google.com>
+To: will@kernel.org, robin.murphy@arm.com, jpb@kernel.org
+Cc: joro@8bytes.org, jgg@ziepe.ca, baolu.lu@linux.intel.com, 
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, stimim@google.com, cychu@google.com, 
+	hhchung@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_003310_446714_498121C8 
-X-CRM114-Status: GOOD (  10.73  )
+X-CRM114-CacheID: sfid-20260428_003903_258657_03A48E1E 
+X-CRM114-Status: GOOD (  10.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,22 +89,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 26, 2026 at 08:44:26PM -0700, Rosen Penev wrote:
-> mediatek,mtd-eeprom is a widely unused binding that predates and has
+Hi team,
 
-I clearly see a user. Please use `git grep`.
- 
-> been replaced by NVMEM. As there are no users, remove it.
-> 
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> ---
->  .../bindings/net/wireless/mediatek,mt76.yaml  | 19 ++-----------------
->  1 file changed, 2 insertions(+), 17 deletions(-)
-> 
+According to the ARM SMMU v3 spec, I believe that SSID should always be
+ignored when SSID_VALID == 0 and the current ARM SMMU v3 module
+implementation in the kernel seems to comply with this without exception.
+For example, when handling an event from SMMU, the implementation checks
+SSID_VALID(SSV) first and ignores SSID accordingly. If there is any
+exception to this rule, I believe it is a bug.
 
-Wrong order of patches, you have undocumented ABI.
+Is it true for all the current and future cases? In other words, is it
+**mandatory** that the ARM SMMU v3 implementation ignores SSID when
+SSID_VALID == 0? or there might be some cases where the implementation
+needs to refer to SSID even when SSID_VALID == 0?
 
-Best regards,
-Krzysztof
+Asking this question since our HW may not be able to clear SSID when
+SSID_VALID == 0 and so there might be some garbage value in SSID at some
+point of time(the HW will have a correct SSID when SSID_VALID == 1,
+though). If the ARM SMMU v3 implementation is to refer to that garbage
+value for any reason, the result would be devastating.
 
+Thanks,
+Joonwon Kang
 
