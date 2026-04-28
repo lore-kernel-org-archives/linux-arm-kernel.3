@@ -4,41 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D9F4FF8875
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 09:03:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95749FF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 09:03:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0uxHC6f+WxXj2lWQbHrEhbwJV63kDuxlfZqMF+sC6Bs=; b=0Fq4b4idaOzZQDCi9mAY9H8Y85
-	+/ijtWVGyB7cKJ7Rd7Urza1088naChekx4bZFJ8O5ZFpkN3whP+qQ9AS9eS/Y14rPpWuZUYXacJqu
-	jMbbqB4QoaK+MSvIsxBguvwr3CudpmQSeZWPWgaIlZK0dGMdV4Mxti4EHSQJNNyk3SFyhrHssoMWh
-	dn8HSWZdRBJz5Bjr1KBUbUBy7iFG+mmegbQ9sJnsApMphbVnObts22t9PCIE8YHYQOr/AYQOyMp+T
-	RAO1EEWkCyfXwRIEN/Zg7XYC6UaC8pV/z5N1okk4d+a/WO13KfTRvqSNSvmzmlcdfKCfrb6uDhvzL
-	5NClDjBA==;
+	bh=KXoaKYpqrp33Xre4NYTE2kQqgDTEdvC2Dtrhw0jg2mY=; b=1yZajWEJ3d7Oa3gPmSSpeQCf9y
+	4T9VkMRwOI176E22yTgruyeUCMrG9wVMdEQ4q5JYmcX3YOlZdN0j7kAokQvmrgmfWgYYGwm0U6U0i
+	bv3qFxGyOugo8HY86mAU9Rg5Osflpylhq8RaxJY3KZ7Tl6XZtV8+zBr0f/ttA8jjlSZIE/9fHxP4o
+	ylwMQJcZ/8gA/RGlNvJUhHfQtdDlxM7lxrYiMRxvZNpaiuOaJXE9fyEhZM/MmBn0zfZr9W5MSZm3f
+	Mxs7FLuWz44bsDOQOyUOL1reWPTIuRYMgC7F6OLauWll1kg0kZVOKyWT/S9NuPR1SqeOuCuKq+ev3
+	5GRV6qHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeLO-00000000zc2-3EKN;
-	Tue, 28 Apr 2026 09:03:02 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([185.203.201.7])
+	id 1wHeLR-00000000zfH-29iP;
+	Tue, 28 Apr 2026 09:03:05 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeK7-00000000y3h-0jvX
+	id 1wHeKD-00000000yFT-3ixK
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 28 Apr 2026 09:01:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Cc:To:In-Reply-To:References:Message-Id
+	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=KXoaKYpqrp33Xre4NYTE2kQqgDTEdvC2Dtrhw0jg2mY=; b=GfgdbdV/KVjXSJ79HKB7JVyV/m
+	JqQINsFR8bHtgPz+X6zaIiR8IOdh/lnvUyEdfmWq7DrjZ/ikHcLp5Tv1owulNPB7coG4ApEC3hODm
+	lakjUfxtc56laQNPq+Rbd+Bf1YVBShV3Y2SDYET/zwn895EHrk5EtqplxgPtso5jC4t0NCvvg6Q2s
+	T05Cy4u1j9otTCrAew0YtrK1m45mTaWQR8jCidWD9HAqSyc+WsssAbDfNSstTw9U0+lo2UTmYlq4w
+	hnSTlxe+l0l8v0k5Cr9CmDfYOaN1fkLP0ORZCVP3aaVkslsCdXqJgsYrM7kazx9TaAuoQ4Fsgn8nd
+	eRoNqwWg==;
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHeK8-00000003VN5-3Zvf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 09:01:49 +0000
+	Tue, 28 Apr 2026 09:01:48 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1wHeJ9-0004Lz-DG; Tue, 28 Apr 2026 11:00:43 +0200
+	id 1wHeJI-0004Lz-DQ; Tue, 28 Apr 2026 11:00:52 +0200
 From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Tue, 28 Apr 2026 11:00:39 +0200
-Subject: [PATCH v5 04/29] media: v4l2-common: add has_alpha to
- v4l2_format_info
+Date: Tue, 28 Apr 2026 11:00:55 +0200
+Subject: [PATCH v5 20/29] media: rockchip: rga: change offset to
+ dma_addresses
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260428-spu-rga3-v5-4-eb7f5d019d86@pengutronix.de>
+Message-Id: <20260428-spu-rga3-v5-20-eb7f5d019d86@pengutronix.de>
 References: <20260428-spu-rga3-v5-0-eb7f5d019d86@pengutronix.de>
 In-Reply-To: <20260428-spu-rga3-v5-0-eb7f5d019d86@pengutronix.de>
 To: Jacob Chen <jacob-chen@iotwrt.com>, 
@@ -59,8 +74,8 @@ X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_020143_439154_B22456A6 
-X-CRM114-Status: GOOD (  13.14  )
+X-CRM114-CacheID: sfid-20260428_100144_963668_89F5CE7F 
+X-CRM114-Status: GOOD (  19.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,111 +90,290 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a has_alpha value to the v4l2_format_info struct to indicate if the
-format contains an alpha component. This information can currently not
-be queried in a generic way, but might be useful for potential drivers
-to properly setup alpha blending to copy or set the alpha value.
-The implementation is based on the drm_format_info implementation.
+Change the offset to dma_addresses, as the current naming is misleading.
+The offset naming comes from the fact that it references the offset in
+the mapped iommu address space. But from the hardware point of view this
+is an address, as also pointed out by the register naming
+(e.g. RGA_DST_Y_RGB_BASE_ADDR). Therefore also change the type to
+dma_addr_t, as with an external iommu driver this would also be the
+correct type.
+
+This change is a preparation for the RGA3 support, which uses an external
+iommu and therefore just gets an dma_addr_t for each buffer. The field
+renaming allows to reuse the existing fields of rga_vb_buffer to store
+these values.
 
 Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 ---
- drivers/media/v4l2-core/v4l2-common.c | 32 ++++++++++++++++----------------
- include/media/v4l2-common.h           |  2 ++
- 2 files changed, 18 insertions(+), 16 deletions(-)
+ drivers/media/platform/rockchip/rga/rga-buf.c |  12 +--
+ drivers/media/platform/rockchip/rga/rga-hw.c  | 105 +++++++++++++-------------
+ drivers/media/platform/rockchip/rga/rga.h     |  12 +--
+ 3 files changed, 64 insertions(+), 65 deletions(-)
 
-diff --git a/drivers/media/v4l2-core/v4l2-common.c b/drivers/media/v4l2-core/v4l2-common.c
-index 58a4b372cf5be..2b5ccedeb6841 100644
---- a/drivers/media/v4l2-core/v4l2-common.c
-+++ b/drivers/media/v4l2-core/v4l2-common.c
-@@ -248,26 +248,26 @@ const struct v4l2_format_info *v4l2_format_info(u32 format)
- 		/* RGB formats (1 or 2 bytes per pixel) */
- 		{ .format = V4L2_PIX_FMT_RGB332,   .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 1, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
- 		{ .format = V4L2_PIX_FMT_RGB444,   .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
--		{ .format = V4L2_PIX_FMT_ARGB444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_ARGB444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1, .has_alpha = true },
- 		{ .format = V4L2_PIX_FMT_XRGB444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
--		{ .format = V4L2_PIX_FMT_RGBA444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_RGBA444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1, .has_alpha = true },
- 		{ .format = V4L2_PIX_FMT_RGBX444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
--		{ .format = V4L2_PIX_FMT_ABGR444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_ABGR444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1, .has_alpha = true },
- 		{ .format = V4L2_PIX_FMT_XBGR444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
--		{ .format = V4L2_PIX_FMT_BGRA444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_BGRA444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1, .has_alpha = true },
- 		{ .format = V4L2_PIX_FMT_BGRX444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
- 		{ .format = V4L2_PIX_FMT_RGB555,   .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
--		{ .format = V4L2_PIX_FMT_ARGB555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_ARGB555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1, .has_alpha = true },
- 		{ .format = V4L2_PIX_FMT_XRGB555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
--		{ .format = V4L2_PIX_FMT_RGBA555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_RGBA555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1, .has_alpha = true },
- 		{ .format = V4L2_PIX_FMT_RGBX555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
--		{ .format = V4L2_PIX_FMT_ABGR555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_ABGR555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1, .has_alpha = true },
- 		{ .format = V4L2_PIX_FMT_XBGR555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
--		{ .format = V4L2_PIX_FMT_BGRA555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_BGRA555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1, .has_alpha = true },
- 		{ .format = V4L2_PIX_FMT_BGRX555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
- 		{ .format = V4L2_PIX_FMT_RGB565,   .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
- 		{ .format = V4L2_PIX_FMT_RGB555X,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
--		{ .format = V4L2_PIX_FMT_ARGB555X, .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_ARGB555X, .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1, .has_alpha = true },
- 		{ .format = V4L2_PIX_FMT_XRGB555X, .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
- 		{ .format = V4L2_PIX_FMT_RGB565X,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
+diff --git a/drivers/media/platform/rockchip/rga/rga-buf.c b/drivers/media/platform/rockchip/rga/rga-buf.c
+index ffc6162b2e681..bc349d0a46365 100644
+--- a/drivers/media/platform/rockchip/rga/rga-buf.c
++++ b/drivers/media/platform/rockchip/rga/rga-buf.c
+@@ -121,7 +121,7 @@ static int rga_buf_prepare(struct vb2_buffer *vb)
+ 	size_t curr_desc = 0;
+ 	int i;
+ 	const struct v4l2_format_info *info;
+-	unsigned int offsets[VIDEO_MAX_PLANES];
++	unsigned int dma_addrs[VIDEO_MAX_PLANES];
  
-@@ -276,24 +276,24 @@ const struct v4l2_format_info *v4l2_format_info(u32 format)
- 		{ .format = V4L2_PIX_FMT_BGR24,       .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 3, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
- 		{ .format = V4L2_PIX_FMT_RGB24,       .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 3, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
- 		{ .format = V4L2_PIX_FMT_BGR32,       .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 4, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
--		{ .format = V4L2_PIX_FMT_ABGR32,      .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 4, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_ABGR32,      .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 4, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1, .has_alpha = true },
- 		{ .format = V4L2_PIX_FMT_XBGR32,      .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 4, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
--		{ .format = V4L2_PIX_FMT_BGRA32,      .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 4, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_BGRA32,      .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 4, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1, .has_alpha = true },
- 		{ .format = V4L2_PIX_FMT_BGRX32,      .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 4, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
- 		{ .format = V4L2_PIX_FMT_RGB32,       .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 4, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
--		{ .format = V4L2_PIX_FMT_RGBA32,      .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 4, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_RGBA32,      .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 4, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1, .has_alpha = true },
- 		{ .format = V4L2_PIX_FMT_RGBX32,      .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 4, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
--		{ .format = V4L2_PIX_FMT_ARGB32,      .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 4, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_ARGB32,      .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 4, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1, .has_alpha = true },
- 		{ .format = V4L2_PIX_FMT_XRGB32,      .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 4, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
- 		{ .format = V4L2_PIX_FMT_RGBX1010102, .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 4, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
--		{ .format = V4L2_PIX_FMT_RGBA1010102, .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 4, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
--		{ .format = V4L2_PIX_FMT_ARGB2101010, .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 4, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_RGBA1010102, .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 4, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1, .has_alpha = true },
-+		{ .format = V4L2_PIX_FMT_ARGB2101010, .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 4, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1, .has_alpha = true },
+ 	if (IS_ERR(f))
+ 		return PTR_ERR(f);
+@@ -145,18 +145,18 @@ static int rga_buf_prepare(struct vb2_buffer *vb)
+ 				 "Failed to map video buffer to RGA\n");
+ 			return n_desc;
+ 		}
+-		offsets[i] = curr_desc << PAGE_SHIFT;
++		dma_addrs[i] = curr_desc << PAGE_SHIFT;
+ 		curr_desc += n_desc;
+ 	}
  
- 		/* RGB formats (6 or 8 bytes per pixel) */
- 		{ .format = V4L2_PIX_FMT_BGR48_12,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 6, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
- 		{ .format = V4L2_PIX_FMT_BGR48,     .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 6, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
- 		{ .format = V4L2_PIX_FMT_RGB48,     .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 6, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
--		{ .format = V4L2_PIX_FMT_ABGR64_12, .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 8, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_ABGR64_12, .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 8, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1, .has_alpha = true },
+ 	/* Fill the remaining planes */
+ 	info = v4l2_format_info(f->fmt->fourcc);
+ 	for (i = info->mem_planes; i < info->comp_planes; i++)
+-		offsets[i] = get_plane_offset(f, info, i);
++		dma_addrs[i] = dma_addrs[0] + get_plane_offset(f, info, i);
  
- 		/* HSV formats */
- 		{ .format = V4L2_PIX_FMT_HSV24, .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 3, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-diff --git a/include/media/v4l2-common.h b/include/media/v4l2-common.h
-index f8b1faced79c8..401d8506c24b5 100644
---- a/include/media/v4l2-common.h
-+++ b/include/media/v4l2-common.h
-@@ -520,6 +520,7 @@ enum v4l2_pixel_encoding {
-  * @vdiv: Vertical chroma subsampling factor
-  * @block_w: Per-plane macroblock pixel width (optional)
-  * @block_h: Per-plane macroblock pixel height (optional)
-+ * @has_alpha: Does the format embeds an alpha component?
-  */
- struct v4l2_format_info {
- 	u32 format;
-@@ -532,6 +533,7 @@ struct v4l2_format_info {
- 	u8 vdiv;
- 	u8 block_w[4];
- 	u8 block_h[4];
-+	bool has_alpha;
+-	rbuf->offset.y_off = offsets[0];
+-	rbuf->offset.u_off = offsets[1];
+-	rbuf->offset.v_off = offsets[2];
++	rbuf->dma_addrs.y_addr = dma_addrs[0];
++	rbuf->dma_addrs.u_addr = dma_addrs[1];
++	rbuf->dma_addrs.v_addr = dma_addrs[2];
+ 
+ 	return 0;
+ }
+diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media/platform/rockchip/rga/rga-hw.c
+index 931b4c4074a29..8f60482f538c5 100644
+--- a/drivers/media/platform/rockchip/rga/rga-hw.c
++++ b/drivers/media/platform/rockchip/rga/rga-hw.c
+@@ -16,11 +16,11 @@ enum e_rga_start_pos {
+ 	RB = 3,
  };
  
- static inline bool v4l2_is_format_rgb(const struct v4l2_format_info *f)
+-struct rga_corners_addr_offset {
+-	struct rga_addr_offset left_top;
+-	struct rga_addr_offset right_top;
+-	struct rga_addr_offset left_bottom;
+-	struct rga_addr_offset right_bottom;
++struct rga_corners_addrs {
++	struct rga_addrs left_top;
++	struct rga_addrs right_top;
++	struct rga_addrs left_bottom;
++	struct rga_addrs right_bottom;
+ };
+ 
+ static unsigned int rga_get_scaling(unsigned int src, unsigned int dst)
+@@ -36,20 +36,20 @@ static unsigned int rga_get_scaling(unsigned int src, unsigned int dst)
+ 	return (src > dst) ? ((dst << 16) / src) : ((src << 16) / dst);
+ }
+ 
+-static struct rga_corners_addr_offset
+-rga_get_addr_offset(struct rga_frame *frm, struct rga_addr_offset *offset,
+-		    unsigned int x, unsigned int y, unsigned int w, unsigned int h)
++static struct rga_corners_addrs
++rga_get_corner_addrs(struct rga_frame *frm, struct rga_addrs *addrs,
++		     unsigned int x, unsigned int y, unsigned int w, unsigned int h)
+ {
+-	struct rga_corners_addr_offset offsets;
+-	struct rga_addr_offset *lt, *lb, *rt, *rb;
++	struct rga_corners_addrs corner_addrs;
++	struct rga_addrs *lt, *lb, *rt, *rb;
+ 	const struct v4l2_format_info *format_info;
+ 	unsigned int x_div = 0,
+ 		     y_div = 0, uv_stride = 0, pixel_width = 0;
+ 
+-	lt = &offsets.left_top;
+-	lb = &offsets.left_bottom;
+-	rt = &offsets.right_top;
+-	rb = &offsets.right_bottom;
++	lt = &corner_addrs.left_top;
++	lb = &corner_addrs.left_bottom;
++	rt = &corner_addrs.right_top;
++	rb = &corner_addrs.right_bottom;
+ 
+ 	format_info = v4l2_format_info(frm->pix.pixelformat);
+ 	/* x_div is only used for the u/v planes.
+@@ -64,29 +64,28 @@ rga_get_addr_offset(struct rga_frame *frm, struct rga_addr_offset *offset,
+ 	uv_stride = frm->stride / x_div;
+ 	pixel_width = frm->stride / frm->pix.width;
+ 
+-	lt->y_off = offset->y_off + y * frm->stride + x * pixel_width;
+-	lt->u_off = offset->u_off + (y / y_div) * uv_stride + x / x_div;
+-	lt->v_off = offset->v_off + (y / y_div) * uv_stride + x / x_div;
++	lt->y_addr = addrs->y_addr + y * frm->stride + x * pixel_width;
++	lt->u_addr = addrs->u_addr + (y / y_div) * uv_stride + x / x_div;
++	lt->v_addr = addrs->v_addr + (y / y_div) * uv_stride + x / x_div;
+ 
+-	lb->y_off = lt->y_off + (h - 1) * frm->stride;
+-	lb->u_off = lt->u_off + (h / y_div - 1) * uv_stride;
+-	lb->v_off = lt->v_off + (h / y_div - 1) * uv_stride;
++	lb->y_addr = lt->y_addr + (h - 1) * frm->stride;
++	lb->u_addr = lt->u_addr + (h / y_div - 1) * uv_stride;
++	lb->v_addr = lt->v_addr + (h / y_div - 1) * uv_stride;
+ 
+-	rt->y_off = lt->y_off + (w - 1) * pixel_width;
+-	rt->u_off = lt->u_off + w / x_div - 1;
+-	rt->v_off = lt->v_off + w / x_div - 1;
++	rt->y_addr = lt->y_addr + (w - 1) * pixel_width;
++	rt->u_addr = lt->u_addr + w / x_div - 1;
++	rt->v_addr = lt->v_addr + w / x_div - 1;
+ 
+-	rb->y_off = lb->y_off + (w - 1) * pixel_width;
+-	rb->u_off = lb->u_off + w / x_div - 1;
+-	rb->v_off = lb->v_off + w / x_div - 1;
++	rb->y_addr = lb->y_addr + (w - 1) * pixel_width;
++	rb->u_addr = lb->u_addr + w / x_div - 1;
++	rb->v_addr = lb->v_addr + w / x_div - 1;
+ 
+-	return offsets;
++	return corner_addrs;
+ }
+ 
+-static struct rga_addr_offset *rga_lookup_draw_pos(struct
+-		rga_corners_addr_offset
+-		* offsets, u32 rotate_mode,
+-		u32 mirr_mode)
++static struct rga_addrs *rga_lookup_draw_pos(struct rga_corners_addrs *corner_addrs,
++					     u32 rotate_mode,
++					     u32 mirr_mode)
+ {
+ 	static enum e_rga_start_pos rot_mir_point_matrix[4][4] = {
+ 		{
+@@ -103,18 +102,18 @@ static struct rga_addr_offset *rga_lookup_draw_pos(struct
+ 		},
+ 	};
+ 
+-	if (!offsets)
++	if (!corner_addrs)
+ 		return NULL;
+ 
+ 	switch (rot_mir_point_matrix[rotate_mode][mirr_mode]) {
+ 	case LT:
+-		return &offsets->left_top;
++		return &corner_addrs->left_top;
+ 	case LB:
+-		return &offsets->left_bottom;
++		return &corner_addrs->left_bottom;
+ 	case RT:
+-		return &offsets->right_top;
++		return &corner_addrs->right_top;
+ 	case RB:
+-		return &offsets->right_bottom;
++		return &corner_addrs->right_bottom;
+ 	}
+ 
+ 	return NULL;
+@@ -326,9 +325,9 @@ static void rga_cmd_set_format_scale_info(struct rga_ctx *ctx)
+ }
+ 
+ static void rga_cmd_set_src_info(struct rga_ctx *ctx,
+-				 struct rga_addr_offset *offset)
++				 struct rga_addrs *addrs)
+ {
+-	struct rga_corners_addr_offset src_offsets;
++	struct rga_corners_addrs src_corner_addrs;
+ 	u32 *dest = ctx->cmdbuf_virt;
+ 	unsigned int src_h, src_w, src_x, src_y;
+ 
+@@ -340,22 +339,22 @@ static void rga_cmd_set_src_info(struct rga_ctx *ctx,
+ 	/*
+ 	 * Calculate the source framebuffer base address with offset pixel.
+ 	 */
+-	src_offsets = rga_get_addr_offset(&ctx->in, offset,
+-					  src_x, src_y, src_w, src_h);
++	src_corner_addrs = rga_get_corner_addrs(&ctx->in, addrs,
++						src_x, src_y, src_w, src_h);
+ 
+ 	dest[(RGA_SRC_Y_RGB_BASE_ADDR - RGA_MODE_BASE_REG) >> 2] =
+-		src_offsets.left_top.y_off;
++		src_corner_addrs.left_top.y_addr;
+ 	dest[(RGA_SRC_CB_BASE_ADDR - RGA_MODE_BASE_REG) >> 2] =
+-		src_offsets.left_top.u_off;
++		src_corner_addrs.left_top.u_addr;
+ 	dest[(RGA_SRC_CR_BASE_ADDR - RGA_MODE_BASE_REG) >> 2] =
+-		src_offsets.left_top.v_off;
++		src_corner_addrs.left_top.v_addr;
+ }
+ 
+ static void rga_cmd_set_dst_info(struct rga_ctx *ctx,
+-				 struct rga_addr_offset *offset)
++				 struct rga_addrs *addrs)
+ {
+-	struct rga_addr_offset *dst_offset;
+-	struct rga_corners_addr_offset offsets;
++	struct rga_addrs *dst_addrs;
++	struct rga_corners_addrs corner_addrs;
+ 	u32 *dest = ctx->cmdbuf_virt;
+ 	unsigned int dst_h, dst_w, dst_x, dst_y;
+ 	unsigned int mir_mode = 0;
+@@ -389,15 +388,15 @@ static void rga_cmd_set_dst_info(struct rga_ctx *ctx,
+ 	/*
+ 	 * Configure the dest framebuffer base address with pixel offset.
+ 	 */
+-	offsets = rga_get_addr_offset(&ctx->out, offset, dst_x, dst_y, dst_w, dst_h);
+-	dst_offset = rga_lookup_draw_pos(&offsets, rot_mode, mir_mode);
++	corner_addrs = rga_get_corner_addrs(&ctx->out, addrs, dst_x, dst_y, dst_w, dst_h);
++	dst_addrs = rga_lookup_draw_pos(&corner_addrs, rot_mode, mir_mode);
+ 
+ 	dest[(RGA_DST_Y_RGB_BASE_ADDR - RGA_MODE_BASE_REG) >> 2] =
+-		dst_offset->y_off;
++		dst_addrs->y_addr;
+ 	dest[(RGA_DST_CB_BASE_ADDR - RGA_MODE_BASE_REG) >> 2] =
+-		dst_offset->u_off;
++		dst_addrs->u_addr;
+ 	dest[(RGA_DST_CR_BASE_ADDR - RGA_MODE_BASE_REG) >> 2] =
+-		dst_offset->v_off;
++		dst_addrs->v_addr;
+ }
+ 
+ static void rga_cmd_set_mode(struct rga_ctx *ctx)
+@@ -436,8 +435,8 @@ static void rga_cmd_set(struct rga_ctx *ctx,
+ 
+ 	rga_cmd_set_dst_addr(ctx, dst->dma_desc_pa);
+ 
+-	rga_cmd_set_src_info(ctx, &src->offset);
+-	rga_cmd_set_dst_info(ctx, &dst->offset);
++	rga_cmd_set_src_info(ctx, &src->dma_addrs);
++	rga_cmd_set_dst_info(ctx, &dst->dma_addrs);
+ 	rga_cmd_set_flip_rotate_info(ctx);
+ 
+ 	rga_write(rga, RGA_CMD_BASE, ctx->cmdbuf_phy);
+diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
+index dc6f90b843c32..025b1df594e9a 100644
+--- a/drivers/media/platform/rockchip/rga/rga.h
++++ b/drivers/media/platform/rockchip/rga/rga.h
+@@ -96,10 +96,10 @@ struct rockchip_rga {
+ 	const struct rga_hw *hw;
+ };
+ 
+-struct rga_addr_offset {
+-	unsigned int y_off;
+-	unsigned int u_off;
+-	unsigned int v_off;
++struct rga_addrs {
++	dma_addr_t y_addr;
++	dma_addr_t u_addr;
++	dma_addr_t v_addr;
+ };
+ 
+ struct rga_vb_buffer {
+@@ -111,8 +111,8 @@ struct rga_vb_buffer {
+ 	dma_addr_t dma_desc_pa;
+ 	size_t n_desc;
+ 
+-	/* Plane offsets of this buffer into the mapping */
+-	struct rga_addr_offset offset;
++	/* Plane DMA addresses after the MMU mapping of the buffer */
++	struct rga_addrs dma_addrs;
+ };
+ 
+ static inline struct rga_vb_buffer *vb_to_rga(struct vb2_v4l2_buffer *vb)
 
 -- 
 2.54.0
