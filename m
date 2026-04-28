@@ -4,85 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E699FF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 13:20:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D58C2FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 13:21:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/aAmCRebqazUQNBKgBXCiYfFsMA4sAwZ/UUaHHc6oSE=; b=YaiClKkWxNLszyg9bqxrdM0h4a
-	CimByaa9gw0XoVv9q0xfSRlcDJgArseuXYWNbu7l/pY8509IQExmrjOd6SB4rqEwreoTHXjqSL0VO
-	6NhyT0etHz2VL1bW4bs1IvnX33R/ahseN48ouItCz7y8pf7C2smoCtsEE6xcnv3iRJix28JxO4Cg0
-	UoHlXOGWyOq86aU5kF51D/vy51MJU4WNzT6JZYL7+vmZEp6/w6iLUJNUFVGPa5FNmMyq9XilSxPee
-	SUb4flvoop+rFTUi/LQiaZQtblSwAuv6AtLOiEf9SfSbTU5D/Gz8vG2uxKJOnl5xuwG0d3Hn2RbzS
-	2tI4mibw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UB3CDI+mylgRjieE5aEKSHoXj3T/nTJ0KbppMNT5pLo=; b=uJVN2KOkxS7h22QTeT/hE6/qZ9
+	xyp6Uxir45d07TLRGcvb9kPJTOsGgBLCJe8h79YgvRA4JIJ/TRK+05ryHcBjOC6Dh7KfjQLlxT2aO
+	7YrxRxeOMKADIi6c7RiPcZ39Oad6MFAAVPP1wcu6pt0zCyaBWJ3UIw3ynFcbUZPqNQPoIql30wNRB
+	BQA1tFdfazO9k3GxK92jFZMicbqrtY4letlhaf7KLhTARr3W/jhu3seSbqVisIMUhgSGDUfuBSrrn
+	lj+f3ATlfz6UN17qcungzcfkUdVtfA90Hqk4yDj2epRQQuKZQgR4KvVvKIatTfZAGF5zCMwtESm3X
+	USSWBHrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHiM1-00000001Wlm-3Dgo;
-	Tue, 28 Apr 2026 13:19:57 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHiLx-00000001WiR-47LW
+	id 1wHiNa-00000001X16-04Kq;
+	Tue, 28 Apr 2026 13:21:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHiNW-00000001X0J-1xp8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 13:19:56 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id E1DC2C5EF0B;
-	Tue, 28 Apr 2026 13:20:32 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 35812601D0;
-	Tue, 28 Apr 2026 13:19:49 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8F75A10728B8B;
-	Tue, 28 Apr 2026 15:19:36 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1777382387; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=/aAmCRebqazUQNBKgBXCiYfFsMA4sAwZ/UUaHHc6oSE=;
-	b=sWOth0lnhQkt1SKJlEOb35K37SRf1IZJdLJs1KtiRkwzxIW3XgVAjw0s+sltiQox7EIO/q
-	RHhfsWsgSTSSEhF93sPb0/Dy3zu9Dmw7mAsyViz9qMwLm+Qq12w9/OaVoMn8gQL6XhCiUh
-	wrg3ym3JZEBGoe4ISfu02867GIQoCSEy33t7hxBysza/OCCiq1nQZOzCHguDaXJnIFrMIT
-	6+n/b2bYml2USn5ypFL1JD5gOVqcs/K5HXR9RZj9aD362Ai7NHp7VTR2x946YYQ77/2bRJ
-	HY/SPjD4ROWVUHhOKQMazhZ1NiAQkUCEi1gDLWKzrWF1hdpY+ETyTFBs3Srhpg==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 28 Apr 2026 15:19:35 +0200
-Message-Id: <DI4TGV2WURTY.39OXE7WWKRLA1@bootlin.com>
-Subject: Re: [PATCH v2 08/11] drm/bridge: adv7511: switch to
- of_drm_get_bridge_by_endpoint()
-Cc: "Hui Pu" <Hui.Pu@gehealthcare.com>, "Ian Ray"
- <ian.ray@gehealthcare.com>, "Thomas Petazzoni"
- <thomas.petazzoni@bootlin.com>, "dri-devel@lists.freedesktop.org"
- <dri-devel@lists.freedesktop.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, "linux-arm-msm@vger.kernel.org"
- <linux-arm-msm@vger.kernel.org>, "freedreno@lists.freedesktop.org"
- <freedreno@lists.freedesktop.org>, "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>
-To: "Biju Das" <biju.das.jz@bp.renesas.com>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
- "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
- <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Rob Clark"
- <robin.clark@oss.qualcomm.com>, "Dmitry Baryshkov" <lumag@kernel.org>,
- "Abhinav Kumar" <abhinav.kumar@linux.dev>, "Jessica Zhang"
- <jesszhan0024@gmail.com>, "Sean Paul" <sean@poorly.run>, "Marijn Suijten"
- <marijn.suijten@somainline.org>, "Tian Tao" <tiantao6@hisilicon.com>,
- "Xinwei Kong" <kong.kongxinwei@hisilicon.com>, "Sumit Semwal"
- <sumit.semwal@linaro.org>, "John Stultz" <jstultz@google.com>, "Andrzej
- Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
- <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>,
- "laurent.pinchart" <laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
- <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>,
- "tomi.valkeinen" <tomi.valkeinen@ideasonboard.com>, "Michal Simek"
- <michal.simek@amd.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-X-Mailer: aerc 0.20.1
-References: <20260428-drm-bridge-alloc-getput-panel_or_bridge-v2-0-4300744a1c47@bootlin.com> <20260428-drm-bridge-alloc-getput-panel_or_bridge-v2-8-4300744a1c47@bootlin.com> <TY3PR01MB113466B70BFD2899AB0CF47AD86372@TY3PR01MB11346.jpnprd01.prod.outlook.com> <TY3PR01MB1134674FDD088299A4382D3D286372@TY3PR01MB11346.jpnprd01.prod.outlook.com>
-In-Reply-To: <TY3PR01MB1134674FDD088299A4382D3D286372@TY3PR01MB11346.jpnprd01.prod.outlook.com>
-X-Last-TLS-Session-Version: TLSv1.3
+	Tue, 28 Apr 2026 13:21:32 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 830982BCB;
+	Tue, 28 Apr 2026 06:21:21 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DADBE3F62B;
+	Tue, 28 Apr 2026 06:21:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1777382487; bh=bsvWlDxYnAplPFAgfU//71QRl4oKYiApqcT8JyjzfgE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pdhUfWsdmeN3C7bkilDKrPemnn+Oq83RRdC0jvgk7oqYcB095DXFCXxYuWkk0UNEX
+	 fIpcey6sslxOGabc6XfGzmecVE2summH/DK2QVGNggJHiRT0Sc7B2RNU7tnq4Eh50E
+	 BfHAUUmAgFezutGPVgqHQ6FZ1hjcTqgpvtFQwlmg=
+Date: Tue, 28 Apr 2026 14:21:20 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Paul Moore <paul@paul-moore.com>
+Cc: Mimi Zohar <zohar@linux.ibm.com>, roberto.sassu@huawei.com,
+	Jonathan McDowell <noodles@earth.li>,
+	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-integrity@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	jmorris@namei.org, serge@hallyn.com, dmitry.kasatkin@gmail.com,
+	eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
+	sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
+	sebastianene@google.com
+Subject: Re: [RFC PATCH v2 1/4] security: ima: call ima_init() again at
+ late_initcall_sync for defered TPM
+Message-ID: <afC0UPfGhNTsXnyi@e129823.arm.com>
+References: <aephL3MzYoqFGaT5@e129823.arm.com>
+ <CAHC9VhRQWHEWQ5NzOPiu8jtYv6UsRm8WVS4fd74AbkOcAd4y_g@mail.gmail.com>
+ <aesGU8a3mbVzvteH@e129823.arm.com>
+ <CAHC9VhSaT_quKYnpFjAfqvL07JNbWMgM6c4pB9F46NHawX3DCA@mail.gmail.com>
+ <014cf39aa8d6a0bcfa1a95c069675977ac67b843.camel@linux.ibm.com>
+ <CAHC9VhTW3=RJ8L91RWXYYA9tFjfSXGN-DMEEwdiD6big9H57Ew@mail.gmail.com>
+ <1f78fc75b2e95239973612a4b6c4cc782960b7ac.camel@linux.ibm.com>
+ <CAHC9VhS4JmPmCJrYTdbjxb3TO-uK6cB3Zij-ef=wswGce2BGzg@mail.gmail.com>
+ <1e51c2fd090e5ceb07b1d09e50650c70fd3ccdb1.camel@linux.ibm.com>
+ <CAHC9VhS_WgwhW_NDO91LoTeSzdieGqbwqnwPq8KpavH1_Lwi7g@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAHC9VhS_WgwhW_NDO91LoTeSzdieGqbwqnwPq8KpavH1_Lwi7g@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_061954_309630_C226A540 
-X-CRM114-Status: GOOD (  27.23  )
+X-CRM114-CacheID: sfid-20260428_062130_625528_87CC96AB 
+X-CRM114-Status: GOOD (  22.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,134 +88,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue Apr 28, 2026 at 1:58 PM CEST, Biju Das wrote:
-> Hi all,
+Hi Paul,
+
+> On Fri, Apr 24, 2026 at 6:49 PM Mimi Zohar <zohar@linux.ibm.com> wrote:
+> > On Fri, 2026-04-24 at 18:10 -0400, Paul Moore wrote:
+> > > (I'm assuming you meant initcall and not syscall above, but if you're
+> > > talking about something else, please let me know.)
+> > >
+> > > Saying that you aren't comfortable moving IMA initialization to
+> > > late-sync is inconsistent with allowing IMA initialization to be
+> > > deferred to late-sync.  Either it is okay to initialize IMA in
+> > > late-sync or it isn't.  You must pick one.
+> >
+> > Yes, we're discussing late_initcall and late_initcall_sync.
+> >
+> > I prefer to look at it as being pragmatic. I'd rather err on the side of caution
+> > and not move the syscall to late_initcall_sync, than move it.
 >
->> -----Original Message-----
->> From: dri-devel <dri-devel-bounces@lists.freedesktop.org> On Behalf Of B=
-iju Das
->> Sent: 28 April 2026 12:50
->> Subject: RE: [PATCH v2 08/11] drm/bridge: adv7511: switch to of_drm_get_=
-bridge_by_endpoint()
->>
->>
->> Hi,
->>
->> Thanks for the patch.
->>
->> > -----Original Message-----
->> > From: dri-devel <dri-devel-bounces@lists.freedesktop.org> On Behalf Of
->> > Luca Ceresoli
->> > Sent: 28 April 2026 10:16
->> > Subject: [PATCH v2 08/11] drm/bridge: adv7511: switch to
->> > of_drm_get_bridge_by_endpoint()
->> >
->> > This driver calls drm_of_find_panel_or_bridge() with a NULL pointer in
->> > the @panel parameter, thus using a reduced feature set of that functio=
-n.
->> > Replace this call with the simpler of_drm_get_bridge_by_endpoint().
->> >
->> > Since of_drm_get_bridge_by_endpoint() increases the refcount of the
->> > returned bridge, ensure it is put on removal. To achieve this, instead
->> > of adding an explicit drm_bridge_put(), migrate to the bridge::next_br=
-idge pointer which is
->> automatically put when the bridge is eventually freed.
->> >
->> > Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
->> > ---
->> >  drivers/gpu/drm/bridge/adv7511/adv7511.h     |  1 -
->> >  drivers/gpu/drm/bridge/adv7511/adv7511_drv.c | 11 +++++------
->> >  2 files changed, 5 insertions(+), 7 deletions(-)
->> >
->> > diff --git a/drivers/gpu/drm/bridge/adv7511/adv7511.h
->> > b/drivers/gpu/drm/bridge/adv7511/adv7511.h
->> > index 8be7266fd4f4..12c95198d9a4 100644
->> > --- a/drivers/gpu/drm/bridge/adv7511/adv7511.h
->> > +++ b/drivers/gpu/drm/bridge/adv7511/adv7511.h
->> > @@ -354,7 +354,6 @@ struct adv7511 {
->> >  	enum drm_connector_status status;
->> >  	bool powered;
->> >
->> > -	struct drm_bridge *next_bridge;
->> >  	struct drm_display_mode curr_mode;
->> >
->> >  	unsigned int f_tmds;
->> > diff --git a/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c
->> > b/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c
->> > index 6bd76c1fb007..498e38579a0f 100644
->> > --- a/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c
->> > +++ b/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c
->> > @@ -851,8 +851,8 @@ static int adv7511_bridge_attach(struct drm_bridge=
- *bridge,
->> >  	struct adv7511 *adv =3D bridge_to_adv7511(bridge);
->> >  	int ret =3D 0;
->> >
->> > -	if (adv->next_bridge) {
->> > -		ret =3D drm_bridge_attach(encoder, adv->next_bridge, bridge,
->> > +	if (adv->bridge.next_bridge) {
->> > +		ret =3D drm_bridge_attach(encoder, adv->bridge.next_bridge, bridge,
->> >  					flags | DRM_BRIDGE_ATTACH_NO_CONNECTOR);
->> >  		if (ret)
->> >  			return ret;
->> > @@ -1251,10 +1251,9 @@ static int adv7511_probe(struct i2c_client
->> > *i2c)
->> >
->> >  	memset(&link_config, 0, sizeof(link_config));
->> >
->> > -	ret =3D drm_of_find_panel_or_bridge(dev->of_node, 1, -1, NULL,
->> > -					  &adv7511->next_bridge);
->> > -	if (ret && ret !=3D -ENODEV)
->> > -		return ret;
->> > +	adv7511->bridge.next_bridge =3D of_drm_get_bridge_by_endpoint(dev->o=
-f_node, 1, -1);
->> > +	if (IS_ERR(adv7511->bridge.next_bridge) && PTR_ERR(adv7511->bridge.n=
-ext_bridge) !=3D -ENODEV)
->> > +		return PTR_ERR(adv7511->bridge.next_bridge);
->>
->> Does it crash, if the error is  -EPROBE_DEFER?
->
-> I see a crash with patch [1], which is fixed by avoiding the direct assig=
-nment.
+> If you were truly erring on the side of caution you wouldn't allow
+> late-sync initialization without knowing if it was safe or not.
+> Determine whether IMA initialization is safe at late-sync.  If it is
+> safe, move the init to late-sync; if not, keep it at late and figure
+> out another mechanism to sync with the TPM availability.  If needed,
+> you could probably use the LSM notifier to enable the TPM driver to
+> signal when it is up and running.
 
-Ah, dammit! Good catch, thanks for the quick testing and follow-up!
+I don't think LSM notifier wouldn't be good since it a one time
+notification for initailisation and it wouldn't tell properly
+whehter TPM isn't present in system or present unless functions
+ima_init() are rewritten to discern the "TPM deferred" and
+"TPM doesn't exist" in the system (e.x) boot-aggregate log creation.
 
-Indeed this driver assumes next_bridge is either NULL or a valid pointer,
-but due to the 'if(IS_ERR() && some_other_condition)' now it can also be
--ENODEV (not -EPROBE_DEFER, but that's irrelevant).
+One question, though.
+In the end, for systems where the TPM has already been probed by late_initcall(),
+init_ima() continues to be called at late_initcall(), while the above approach
+is introduced for systems where the TPM is not properly initialized by that point.
 
-This affects the msm and zynqmp_dp patches equally.
+If init_ima(), which used to be called at late_initcall(),
+were instead called at late_initcall_sync(), could this break system integration?
+In my view, both late_initcall and late_initcall_sync run during the do_basic_setup() phase,
+so it doesn’t seem like this would cause tampering or affect things like the creation of the boot-aggregate log.
 
-I'm sending a v3 soon with these fixed. I'm just not sure which approach to
-use to fix (same for all the 3 patches). Alternatives are:
+Is there any particular reason why init_ima() must be called specifically at late_initcall()?
 
- 1. -ENODEV is accepted, set next_bridge to NULL when it happens:
-
-      -       if (IS_ERR(adv7511->bridge.next_bridge) && PTR_ERR(adv7511->b=
-ridge.next_bridge) !=3D -ENODEV)
-      -               return PTR_ERR(adv7511->bridge.next_bridge);
-      +       if (IS_ERR(adv7511->bridge.next_bridge)) {
-      +               if (PTR_ERR(adv7511->bridge.next_bridge) =3D=3D -ENOD=
-EV)
-      +                       adv7511->bridge.next_bridge =3D NULL;
-      +               else
-      +                       return PTR_ERR(adv7511->bridge.next_bridge);
-      +       }
-
- 2. let nexxt_bridge hold -ENODEV but ignore it when it is used (only in
-    the attach op, for all 3 drivers):
-
-      -       if (adv->bridge.next_bridge) {
-      +       if (!IS_ERR_OR_NULL(adv->bridge.next_bridge)) {
-
-While the latter approach involves less code, it might let errors sneak in
-in case new usages of next_bridge are added with just a NULL check.
-
-Opinions about the two?
-
-Luca
+Thanks.
 
 --
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Sincerely,
+Yeoreum Yun
 
