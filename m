@@ -4,121 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96C59FF886C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 08:54:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5745FF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 09:01:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YNvSzmo8PxtYDxH+iUZiaWOO2AJ7iRrwNgPX/z2xyYA=; b=2g09p92WN7fQ2dEyvTWeS4rvzB
-	ur8Yugn7zl0hO4cu3h3SYIe29oCJ1HtEp1a1/6nKDWaqenhRH6aS0gPJ3wemc6GMmQG2gL75JiCaW
-	Njv7/SThFZ2JcyaKMDi0k7oO+Rqa+HgnHw5zEJWz0PMwSfg5ShMMRN65xGWOCu32OoRpxpl/sWnG1
-	l9i5jM5uH/fLmfU1yGPcZUiLGyMwyXH/JSi47AIcJ0zWtAHNGQwFzk9nROb2A2WV57vlI6pDNiqcY
-	/OHDC9nEIoNWy0Defb82tWoDHrwPWFxQvQEXEe33JhXAn5dblWuY8FATU/9hNWae9xm6lHAe6RVH4
-	NI8A/ZOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=FrtVAVUJe+Ax+E56yCG4JIRUfUH9HNHfSItWzIin/9A=; b=pR/Vj8s4Jlkiy7
+	G8I6rg2ImU43a0Um6nXEUfxY80/TKIou4DsMFwBMiJCVTxco6BBNQjFAkP2Ba7Wjoymz4xL6durho
+	9iSQeSaTMvvnv+Zo5/OyBkRz0XzHKNwZ4BSYxpa9YZA5Cx2QigKkzJBMoPMAdJlxIKHwCo5RV2gQ6
+	jbl5wBeZJeunc3c9goETw3fFyOYNA8VQ6ePBjr/O0ZZ1Zkc0I7psQr1iY0Sc6QZjc5Ebf6lPYBFjl
+	mPYzKyk+K7B6TPWD5kLUHX9KBP6FSh2wA9/Tsdb3efytncSQFh1GIznYfkMhCQu7DLfb3UMgoYDG+
+	r/HuNN80TN18TcKPy5rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeCu-00000000weZ-0xhn;
-	Tue, 28 Apr 2026 08:54:16 +0000
-Received: from mail-westusazon11012019.outbound.protection.outlook.com ([52.101.43.19] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	id 1wHeJT-00000000xPA-3ZyO;
+	Tue, 28 Apr 2026 09:01:03 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeCX-00000000wJZ-3dXJ
+	id 1wHeJO-00000000xNc-0E3e
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 08:54:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GUjG8g2ymZTTmNFx3Tn0fmkWxy8Kk5UCuF1aC64odMqvF4J4wc+ZqERBqfzRRsqX2YdCUG/E5NMU0AqWcgfQZmt5IWqobXbY+rwhGDYol23kjj0ihFWFHmqy3A9O59YwaQ0JhgN3gIh+sVk54ra0THPOHLbPHkh+w6Ms0u21Hccf/OI3ezknkAvg+PD8rSByGdU7GytiwP2ljLWDArjvOEsmLH3CbdJH5Cl2JGArz8o/TuR9OqLecv6ed0XNHACCHVvkCvX3fuq0JTi4XAfIJ+wrTszWdmPmmEebqBiGyeQ+YbFyeQ0O22hGDQVFlitGQaPgD+uFo1LNZqTmh28wUA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YNvSzmo8PxtYDxH+iUZiaWOO2AJ7iRrwNgPX/z2xyYA=;
- b=ySiiljqGm1VUh4UTmOYZa/4Lyf3qk68ke6l87sz3S1K17F1I12UnSgknj/z6C4xJv4iz+HJddeRtESfJ4zsoq1aMcCI5JQ1WngGPU580T+RJPRITtXda8FOHD39HkmeiBIe39WxyngeWC88vTYBVYydSEtLS13cJ7SnLbZF1SOdGSn97gnfQFHTzLB31HN2QMR6S7dUvaK2kQeaggnXq6d33sSjjtirdcqJnWK+OHsXy+Ku0eZPj85rkhuvRj15VOskIWYvgbVkCiUgHCXYSzpWtMlF2j2hilrQOnOw+Ywx2YhFgWdPjaHmSRMRLcUM7aPSh0j9Mg1MGh1PT4nLL8A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=nxp.com smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YNvSzmo8PxtYDxH+iUZiaWOO2AJ7iRrwNgPX/z2xyYA=;
- b=M52iA5ekDS6qSGpJeNP/JUJJILayNfzMI4RTZIz/0+e+r79t2f9TzvWW5KP39ENYXy7oN0qkk5kRxHyDXHUOthsL9WanDvcLmZ7rZXxRxX1tTTMHzB/z1aXzDdFcjgaHymSUqHrs67kp53w4ib57n9JhmheBhdFw4bJKCkw4kis=
-Received: from PH8PR05CA0020.namprd05.prod.outlook.com (2603:10b6:510:2cc::27)
- by DS7PR10MB4959.namprd10.prod.outlook.com (2603:10b6:5:3a0::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Tue, 28 Apr
- 2026 08:53:50 +0000
-Received: from SN1PEPF00036F40.namprd05.prod.outlook.com
- (2603:10b6:510:2cc:cafe::19) by PH8PR05CA0020.outlook.office365.com
- (2603:10b6:510:2cc::27) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.27 via Frontend Transport; Tue,
- 28 Apr 2026 08:53:49 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- SN1PEPF00036F40.mail.protection.outlook.com (10.167.248.24) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9846.18 via Frontend Transport; Tue, 28 Apr 2026 08:53:48 +0000
-Received: from DFLE206.ent.ti.com (10.64.6.64) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 28 Apr
- 2026 03:53:16 -0500
-Received: from DFLE205.ent.ti.com (10.64.6.63) by DFLE206.ent.ti.com
- (10.64.6.64) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 28 Apr
- 2026 03:53:16 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE205.ent.ti.com
- (10.64.6.63) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 28 Apr 2026 03:53:16 -0500
-Received: from uda0498651.dhcp.ti.com (uda0498651.dhcp.ti.com [172.24.233.239])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 63S8q6MW623293;
-	Tue, 28 Apr 2026 03:53:12 -0500
-From: Sai Sree Kartheek Adivi <s-adivi@ti.com>
-To: <peter.ujfalusi@gmail.com>, <vkoul@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nm@ti.com>,
-	<ssantosh@kernel.org>, <dmaengine@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <vigneshr@ti.com>,
-	<Frank.li@nxp.com>, <s-adivi@ti.com>
-CC: <r-sharma3@ti.com>, <gehariprasath@ti.com>
-Subject: [PATCH v6 14/19] dt-bindings: dma: ti: Add K3 PKTDMA V2
-Date: Tue, 28 Apr 2026 14:21:43 +0530
-Message-ID: <20260428085202.1724548-15-s-adivi@ti.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260428085202.1724548-1-s-adivi@ti.com>
-References: <20260428085202.1724548-1-s-adivi@ti.com>
+	Tue, 28 Apr 2026 09:01:03 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <s.pueschel@pengutronix.de>)
+	id 1wHeJ7-0004Lz-Aw; Tue, 28 Apr 2026 11:00:41 +0200
+From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
+Subject: [PATCH v5 00/29] media: platform: rga: Add RGA3 support
+Date: Tue, 28 Apr 2026 11:00:35 +0200
+Message-Id: <20260428-spu-rga3-v5-0-eb7f5d019d86@pengutronix.de>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF00036F40:EE_|DS7PR10MB4959:EE_
-X-MS-Office365-Filtering-Correlation-Id: e9dcfca8-daf5-4768-e903-08dea503a9b9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|82310400026|376014|7416014|56012099003|18002099003|22082099003|921020;
-X-Microsoft-Antispam-Message-Info: 2qgHDO51QND2SG3RWpQTfZxTW4t1NIcN0jx0L/cXb5AQT5Nd0ROO+tq4gT4ZI/g0OplZ7w176rQymU2SYIccEzKOPiUXh3lIdq1UHkHyR7/RDYfMuI0W5xen2hYmrs2tDzVXJ8+94aBMP114uzevSPzGg+wLFZlcach4M5KOUAmNV9/6m0wc8WSSvc8LfyLT8npSGdsoCGKIhXjSQ8MSMYb1cfUi0NcOPJIIaOL4D8SNs9RMr17vdYrzfJhM/+oylS8ZalOvRbdu4EbJVVZqnmpZtIYuhuGtYbb8gf6UpZKfZSZFmQ1mUo9Gu83Jk2dm41Zw/XpPh7e1djdHw0L09QkfBF46c3I1h+iqjTCmT91ActVsFEhOeLWbBxzJSTtwi5E3exuAf0kgNsxUkprBDp0sp9QiGocZV3Rdayy+hm6uCdKtFVGngQX+5+tu7g36eqdbcqqhWwVSNpbSnAQW/OcBZZq+Ize4ozJTYzkBSWPXEVGKz23WurqAbxvUhnXht5Z45hV2NLUig3qkIiybINmhbH5tTqDpKjpz0Yla75jrJF+o42vvrbUJhAZ5+aqDlxixlc8Mkcjnxaj4GOan9oMF7i+7n9sPdQQHjOMV69NwTohOF0hkOx44amUqKQQazgyuLhitTgMadAdLe5dzeBPq0wOXgH4WWiymt45YdhsBtW1T4d+lTm4DJ81DEz+XSbz8Ys09S6+QiBLP3xgM0JM3AgPm793B6d5ouQS7ZOrWYApz5Tu29U5MordKYufTqJrHi/W9/af0JIcW2yjnHw==
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(82310400026)(376014)(7416014)(56012099003)(18002099003)(22082099003)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: AOtNrfAKW1KrMFfo9IgiXt6OCVYVzJyIEJthOoKGSyjfpyyHg2fuc4Ar/yu/EVTed7bYTa/aWRLMF0cyucaJcqIyVxWLWynH6EWH0LfhGkrOc4fymQdyPQ/eg4jEG2cX7LZIddiAuzOabFazChza+6LB0Sm5oK8AU326EoQamigQmq2IQIEKDhjGE5O9yrjml4D/hHg0iGY9oJAqKHlGgOHCC5lIBBqN2vqWjW9j4vujpUvaPxysLHhu6LDO5BiXXoEfZvw8kR3SfxxVk6dEmZ7AV/XlxTAnv/BzO1rUZEW+TCYmx+dpMdqhDZNxYBeJuggpypReHtbQ/7PmnbDM3ISHf5HKB0Kzr6/Xk2XZH/RKMbhts3B6WZiXDe3zpFszQXeokDVo5RmUVgSxNIGvSTmAb9mzyU3md3bOfp0VCc7nnDW/vUvj1Tld3ATNXkRr
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2026 08:53:48.3430
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e9dcfca8-daf5-4768-e903-08dea503a9b9
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF00036F40.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR10MB4959
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/22Qy26DMBAAfwX5XLfrN3Dqf1Q9GLMhPvCobRBVl
+ H+vIYpAao5r7czKcyMRg8dI6uJGAi4++nHIg3oriLvaoUPq2zwTDlwxAEbjNNPQWUFLC4DAyoZ
+ xIHl9Cnjx6676+s7z1cc0ht/dvLDt9Skxh2RhFKjQti2VMiCBf044dHMK4+DX9xbJZlr4QXMQJ
+ 5pnuiorq00lzcWwl7R40hoYP98WmTam4UaANg02L2l50IKrEy0zjRWgY04zoeQ/+v6IEvBnzln
+ To8xRtS72DzGud6kf+35u09aQuhac4lI6I22d22VRYyNSl3d8qoseW28/BlxTvnL/AwLwIi3EA
+ QAA
+X-Change-ID: 20251001-spu-rga3-8a00e018b120
+To: Jacob Chen <jacob-chen@iotwrt.com>, 
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Hans Verkuil <hverkuil@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, kernel@pengutronix.de, nicolas@ndufresne.ca, 
+ sebastian.reichel@collabora.com, 
+ =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>, 
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Michael Olbrich <m.olbrich@pengutronix.de>
+X-Mailer: b4 0.15.2
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_015353_991382_F753AE78 
-X-CRM114-Status: GOOD (  14.93  )
+X-CRM114-CacheID: sfid-20260428_020058_266503_F5003B92 
+X-CRM114-Status: GOOD (  29.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,125 +80,198 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-New binding document for
-Texas Instruments K3 Packet DMA (PKTDMA) V2.
+This series adds support for the Raster Graphic Acceleration 3 (RGA3)
+peripheral, which is included in the RK3588 SoC. The RK3588
+contains one RGA2-Enhanced core (which is already implemented by the
+rockchip rga driver) and two independent RGA3 cores. They feature
+a similar functionality of scaling, cropping and rotating of up to two input
+images into one output image. Key differences of the RGA3 are:
 
-PKTDMA V2 is introduced as part of AM62L.
+- supports 10bit YUV output formats
+- supports 8x8 tiles and FBCD as inputs and outputs
+- supports BT2020 color space conversion
+- max output resolution of (8192-64)x(8192-64)
+- MMU can map up to 32G DDR RAM
+- fully planar formats (3 planes) are not supported
+- max scale up/down factor of 8 (RGA2 allows up to 16)
 
-Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
+This patch set adds support for one RGA3 core in the existing
+rga m2m driver. The feature set of the PR is limited to scaling,
+format and color space conversions between common 8bit RGB/YUV formats.
+This already allows a practical usage of the RGA3.
+
+During testing it has been noted that the scaling of the hardware is
+slightly incorrect. A test conversion of 128x128 RGBA to 256x256 RGBA
+causes a slight shift to the bottom right. The shift is suddle, as it seems
+that the image is shifted by about 2px down and right and then cropped to
+it's final size (probably caused by the source sampling).
+The same behavior has been observed when using the vendor driver
+with the librga library.
+
+Furthermore comparing the RGA3 conversion with the GStreamer
+videoconvertscale element, the chroma-site is different. A quick testing
+didn't reveal a chroma-site that creates the same image with the
+GStreamer Element. Also when converting from YUV to RGB the RGB values
+differ by 1 or 2. This doesn't seem to be a colorspace conversion issue
+but rather a slightly different precision on the calculation.
+
+This was tested on a Radxa Rock 5T. Around 80 fps were measured when
+scaling and converting from RGBA 480x360 to NV12 3840x2160 in a single
+gstreamer pipeline. Format conversions were tested with a single
+gstreamer pipeline converting a fixed input to a given input format.
+Afterwards it's piped through the RGA3 and the result is converted back
+to rgba and compared against a given hash value (generated after
+comparing the output manually to the input).
+
+The patchset also fixes the failing v4l2-compliance tests due to the
+missing colorimetry propagation from output to capture:
+
+  v4l2-compliance 1.32.0, 64 bits, 64-bit time_t
+  ...
+  	Card type        : rga2
+  ...
+  Total for rockchip-rga device /dev/video0: 48, Succeeded: 48, Failed: 0, Warnings: 0
+
+  v4l2-compliance 1.32.0, 64 bits, 64-bit time_t
+  ...
+	Card type        : rga3
+  ...
+  Total for rockchip-rga device /dev/video1: 48, Succeeded: 48, Failed: 0, Warnings: 0
+
+To distinguish the RGA2 core from the RGA3 cores the Card type is set
+accordingly. Scheduling operations between both RGA3 cores to double
+the possible frame rate might be a future improvement. Until then
+additional RGA3 cores are disabled to only provide one video device to
+the user space. This prevents a potential ABI breakage when multi core
+support is implemented.
+
+The DTS change at the end is just as a preview, as this series targets
+media/next. After it's merged the DTS change will be sent as a new
+patch not targeting media.
+
+Patch 1 updates the dtb bindings doc to support the RGA3
+Patch 2-5 extend v4l2 common functionality
+Patch 6-10 are general cleanups
+Patch 11-27 prepare the rga driver for the RGA3
+Patch 28 adds RGA3 support to the rga driver
+Patch 29 dtsi additions for the RGA3
+
+Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 ---
- .../bindings/dma/ti/ti,am62l-dmss-pktdma.yaml | 101 ++++++++++++++++++
- 1 file changed, 101 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/dma/ti/ti,am62l-dmss-pktdma.yaml
+Changes in v5:
+- Fixed cmdbuf allocation size being only a quarter
+- Fixed streamon cmdbuf preparation to not set
+  rotation/flipping which prevents changing it during streaming
+- Link to v4: https://patch.msgid.link/20260325-spu-rga3-v4-0-e90ec1c61354@pengutronix.de
 
-diff --git a/Documentation/devicetree/bindings/dma/ti/ti,am62l-dmss-pktdma.yaml b/Documentation/devicetree/bindings/dma/ti/ti,am62l-dmss-pktdma.yaml
-new file mode 100644
-index 0000000000000..32bcb0ba502c1
---- /dev/null
-+++ b/Documentation/devicetree/bindings/dma/ti/ti,am62l-dmss-pktdma.yaml
-@@ -0,0 +1,101 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+# Copyright (C) 2024-2025 Texas Instruments Incorporated
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/dma/ti/ti,am62l-dmss-pktdma.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Texas Instruments K3 DMSS PKTDMA V2
-+
-+maintainers:
-+  - Sai Sree Kartheek Adivi <s-adivi@ti.com>
-+
-+description:
-+  The PKTDMA V2 is intended to perform similar functions as the packet mode
-+  channels of K3 UDMA-P. PKTDMA V2 only includes Split channels to service
-+  PSI-L based peripherals.
-+
-+  The peripherals can be PSI-L native or legacy, non PSI-L native peripherals
-+  with PDMAs. PDMA is tasked to act as a bridge between the PSI-L fabric and the
-+  legacy peripheral.
-+
-+allOf:
-+  - $ref: /schemas/dma/dma-controller.yaml#
-+
-+properties:
-+  compatible:
-+    const: ti,am62l-dmss-pktdma
-+
-+  reg:
-+    items:
-+      - description: Packet DMA Control & Status
-+      - description: Channel Realtime
-+      - description: Ring Realtime
-+
-+  reg-names:
-+    items:
-+      - const: gcfg
-+      - const: chanrt
-+      - const: ringrt
-+
-+  "#address-cells":
-+    const: 0
-+
-+  "#dma-cells":
-+    const: 2
-+    description: |
-+      cell 1: Channel identification for the peripheral
-+        PSI-L thread ID of the remote (to PKTDMA) end.
-+        Valid ranges for thread ID depends on the data movement direction:
-+        for source thread IDs (rx): 0 - 0x7fff
-+        for destination thread IDs (tx): 0x8000 - 0xffff
-+
-+        Please refer to the device documentation for the PSI-L thread map and
-+        also the PSI-L peripheral chapter for the correct thread ID.
-+
-+      cell 2: ASEL value for the channel
-+
-+  interrupts:
-+    minItems: 1
-+    maxItems: 112
-+    description:
-+      Interrupts for DMA channels.
-+
-+  interrupt-names:
-+    minItems: 1
-+    maxItems: 112
-+    items:
-+      pattern: "^chan[0-9]+$"
-+    description:
-+      The name of the interrupt corresponding to the DMA channel.
-+
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - "#address-cells"
-+  - "#dma-cells"
-+  - interrupts
-+  - interrupt-names
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    dma-controller@485c0000 {
-+        compatible = "ti,am62l-dmss-pktdma";
-+        reg = <0x485c0000 0x4000>,
-+              <0x48900000 0x80000>,
-+              <0x47200000 0x100000>;
-+        reg-names = "gcfg", "chanrt", "ringrt";
-+
-+        #address-cells = <0>;
-+        #dma-cells = <2>;
-+
-+        interrupts = <GIC_SPI 500 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 501 IRQ_TYPE_LEVEL_HIGH>;
-+        interrupt-names = "chan64", "chan65";
-+    };
--- 
-2.53.0
+Changes in v4:
+- Add Nicolas to Cc for potential reviews and Sebastian for the nice
+  RK3588 mainline status table
+- Improved single memory plane y stride alignment adjustments
+- Adjusted scaling inaccuracy description
+- Dropped required iommu property from the binding yaml
+- Fixed binding yaml indentation
+- Link to v3: https://lore.kernel.org/r/20260127-spu-rga3-v3-0-77b273067beb@pengutronix.de
+
+Changes in v3:
+- Add iommus property to the dtb bindings documentation
+- Drop interrupt name from the dtsi
+- Added v4l2_format_info for missing 2 byte RGB formats
+- Fixed incorrect dt node reference in the binding patch commit message
+- Removed now unused depth member of rga_frame
+- Replaced RGA3 semi planar bool with v4l2_format_info check
+- Calculated x_div/y_div variables instead of storing them
+- Limited width/height to even values for YUV formats
+- Support all 4 CSC modes: BT601L, BT601F, BT709L, BT2020L
+- Note slightly incorrect scaling by the hardware
+- Fix stride alignment to bytes
+- Use early returns in rga-buf init/cleanup
+- Fix incorrect devm_clk_bulk_get with devm_clk_bulk_get_all
+- Don't enforce max scaling factor in try_fmt (only in s_fmt)
+- Merge single register editing RGA3 functions into the other functions
+- Link to v2: https://lore.kernel.org/r/20251203-spu-rga3-v2-0-989a67947f71@pengutronix.de
+
+Changes in v2:
+- Removed overclocking (assigning higher clock speeds in the dts)
+- Disable the second RGA3 core
+- Improved RGA3 feature documentation and code comments
+- Don't write the whole command buffer in each frame
+- Don't announce CIDs for the RGA3 and error out on s_selection
+- Check the max scaling factor of 16 (RGA2) and 8 (RGA3)
+- Move stride alignment and alpha checking to v4l2 common
+- Register the interrupt as shared for an external IOMMU
+- Add IOMMU patch as dependency to fix sporadic hangups
+- Link to v1: https://lore.kernel.org/r/20251007-spu-rga3-v1-0-36ad85570402@pengutronix.de
+
+To: Jacob Chen <jacob-chen@iotwrt.com>
+To: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Heiko Stuebner <heiko@sntech.de>
+To: Hans Verkuil <hverkuil@kernel.org>
+Cc: linux-media@vger.kernel.org
+Cc: linux-rockchip@lists.infradead.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+
+---
+Michael Olbrich (1):
+      media: rockchip: rga: share the interrupt when an external iommu is used
+
+Sven Püschel (28):
+      media: dt-bindings: media: rockchip-rga: add rockchip,rk3588-rga3
+      media: v4l2-common: sort RGB formats in v4l2_format_info
+      media: v4l2-common: add missing 1 and 2 byte RGB formats to v4l2_format_info
+      media: v4l2-common: add has_alpha to v4l2_format_info
+      media: v4l2-common: add v4l2_fill_pixfmt_mp_aligned helper
+      media: rockchip: rga: fix too small buffer size
+      media: rockchip: rga: use clk_bulk api
+      media: rockchip: rga: use stride for offset calculation
+      media: rockchip: rga: remove redundant rga_frame variables
+      media: rockchip: rga: announce and sync colorimetry
+      media: rockchip: rga: move hw specific parts to a dedicated struct
+      media: rockchip: rga: avoid odd frame sizes for YUV formats
+      media: rockchip: rga: calculate x_div/y_div using v4l2_format_info
+      media: rockchip: rga: move cmdbuf to rga_ctx
+      media: rockchip: rga: align stride to 4 bytes
+      media: rockchip: rga: split flip and rotate into separate function
+      media: rockchip: rga: prepare cmdbuf on streamon
+      media: rockchip: rga: check scaling factor
+      media: rockchip: rga: use card type to specify rga type
+      media: rockchip: rga: change offset to dma_addresses
+      media: rockchip: rga: support external iommus
+      media: rockchip: rga: remove size from rga_frame
+      media: rockchip: rga: remove stride from rga_frame
+      media: rockchip: rga: move rga_fmt to rga-hw.h
+      media: rockchip: rga: add feature flags
+      media: rockchip: rga: disable multi-core support
+      media: rockchip: rga: add rga3 support
+      arm64: dts: rockchip: add rga3 dt nodes
+
+ .../devicetree/bindings/media/rockchip-rga.yaml    |  10 +-
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      |  44 ++
+ drivers/media/platform/rockchip/rga/Makefile       |   2 +-
+ drivers/media/platform/rockchip/rga/rga-buf.c      |  61 ++-
+ drivers/media/platform/rockchip/rga/rga-hw.c       | 413 ++++++++++-----
+ drivers/media/platform/rockchip/rga/rga-hw.h       |  16 +-
+ drivers/media/platform/rockchip/rga/rga.c          | 577 ++++++++++-----------
+ drivers/media/platform/rockchip/rga/rga.h          |  85 +--
+ drivers/media/platform/rockchip/rga/rga3-hw.c      | 507 ++++++++++++++++++
+ drivers/media/platform/rockchip/rga/rga3-hw.h      | 192 +++++++
+ drivers/media/v4l2-core/v4l2-common.c              | 128 +++--
+ include/media/v4l2-common.h                        |   6 +
+ 12 files changed, 1514 insertions(+), 527 deletions(-)
+---
+base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
+change-id: 20251001-spu-rga3-8a00e018b120
+prerequisite-change-id: 20251126-spu-iommudtefix-cd0c5244c74a:v1
+prerequisite-patch-id: 10c6c977c0f71400931941b42da73adcaf63e810
+
+Best regards,
+--  
+Sven Püschel <s.pueschel@pengutronix.de>
 
 
