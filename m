@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6299FF8867
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 00:18:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C501DFF886D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 00:18:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1NraBjweROqpLg6hW2dgHOEA0a8lbT4jbtHuBr1RDWo=; b=WRP0eSAsnOKM4gra/ZW+iWT1ht
-	9GXbNN3yy2esqDE76/34eWVvx03QbKr69BvFv+saVAI8+tEATBq+qDIw8xodSmwtLe0C1N/R2t3mh
-	kOjvIyfMz9XE3wXburSi8NNkfnGGMD7v11ykEcxGD3/TEWatKkRnqaFitJMeZlMR2SMvG0a59MzbV
-	Aqmkevt9OWeCBU+jPiHmIYvFIdFqIALO9G+nIYfPY9rUW1RQPvuJt/1fe0OAoA6GnTp34tQqI1X+U
-	JCSb63cJsJa28bQWM2K77NtyeDxizdrKT8VUddVvS+EQ762jaYKZbVUEa2Rxxb3zD713bl4BC/DwP
-	K7WIDFBA==;
+	bh=f/UzBoVYRWWvvqiuIVeXO1qjbaupyhKMOUsVSUfvfxw=; b=PByipTutcPBHXTytmuPqZQoqrm
+	fBg0dtjEk2PmVed4upnKgzZuxGJgL9KEICS+y+2VAJ2V8L412hP3qCiaOXz+jVlnmG3fgbKBEy3Y5
+	B9K93KqPEBuZ9Jt2uY1U+rOQtMDxq19rsHb6D2GoWOT/XXzjb39Qz0Bw8t7wYMETiNe+2sQ/7Yr1T
+	0n9XPIv1T/icBmShGnszBNFlb8Sg+40XZeOPadf2rhgyjwD9VL5Af+1uINQH3LWh4j2iufoNOBEGX
+	Aa+xdcjPe3cDLXrF8wc2qxCApwAJI28ELUxNXUtxDGCFlD4HDRWK4YG0Lhp+HPOxUjpRFznvBliEp
+	yWk4eJxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHW9U-00000000Kbg-3zVd;
+	id 1wHW9U-00000000KbX-2ggB;
 	Tue, 28 Apr 2026 00:18:12 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHW9T-00000000Kac-3Nnn
+	id 1wHW9T-00000000Kab-3Eap
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 28 Apr 2026 00:18:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CE06860133;
+	by tor.source.kernel.org (Postfix) with ESMTP id B04D26012B;
 	Tue, 28 Apr 2026 00:18:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 7C9FDC2BCC4;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 64E53C2BCB7;
 	Tue, 28 Apr 2026 00:18:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1777335490;
-	bh=socDHfUvQqpc9gwIt9f18GJimPy7QixuJ0SteirtT0o=;
+	bh=pX6+8HgPg+/75SzAsHB9znme86Aih5ZL9FPNk75ERIc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=oW+MLxvpS4tM91Fej4aIsS9mAPEi0PcRTJu5CH+oCKIaAfH9IIFPdT6p6k19DPPgG
-	 B3LLM/5JRKhLaT6XUuicL3Vg/Xl4GAxBYmkSJAKQh4RbXq31FKPU3yl2bVmLujLEu/
-	 i3erW4YmZsTV3pcSz+Z31L7BUAtyvIFSyjbI7aa6rvNsUt32u1WmKeoc4K5qgUdnkJ
-	 /EtAamfuFYMYxZ0IOTALVrxMVV+bP4o8dZC0AdFPlFv7+atxm9LYb2ffw49tj2CF4p
-	 wkER2m0yN+qdHhzD7Hj0j2xM+bM4VwczQcvUafhX5ORVx+evuErR+oVwP4TKgcRuuQ
-	 oPokcYzNBwGvg==
+	b=FTZO1ACond1QyuWms2yeUh6w2WvZrK/37C6xfPBDNsQn/yZ915BFqTI8hSl3MyPGq
+	 7UX62Cia71C7Hk91H6CuY0lNqX1S03nNgzqrDhRmTD7DsbAHuzpBreCfS5DkivpPhA
+	 y3OARf6rlex1UMgYomJpBEHx3TkleSjfc8GIledGH+uw5M/SQZJxAbKs/ljFKtG0qk
+	 UoYiS0Xww6ECLlYUY3XvIm6h3j5mgL9Nl3VZL1AykUCKyWJfVFT9UDXHXKZSFpABXC
+	 1QtFsceu0F9Bd6Ok2uP0Zh+wgeECWmay9hU6lc6NtVaWqTLhno4vMzNTrVOd10sLut
+	 umrHOd78wosHw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6EDFAFF8864;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 524F9FF8867;
 	Tue, 28 Apr 2026 00:18:10 +0000 (UTC)
 From: Abdurrahman Hussain via B4 Relay <devnull+abdurrahman.nexthop.ai@kernel.org>
-Date: Mon, 27 Apr 2026 17:18:08 -0700
-Subject: [PATCH 3/3] i2c: xiic: don't clobber msg->len to signal block-read
- completion
+Date: Mon, 27 Apr 2026 17:18:06 -0700
+Subject: [PATCH 1/3] i2c: xiic: preserve PEC byte length in SMBus block
+ read setup
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260427-i2c-xiic-v1-3-e6207f9aa5ad@nexthop.ai>
+Message-Id: <20260427-i2c-xiic-v1-1-e6207f9aa5ad@nexthop.ai>
 References: <20260427-i2c-xiic-v1-0-e6207f9aa5ad@nexthop.ai>
 In-Reply-To: <20260427-i2c-xiic-v1-0-e6207f9aa5ad@nexthop.ai>
 To: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Abdurrahman Hussain <abdurrahman@nexthop.ai>
 X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1863;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2279;
  i=abdurrahman@nexthop.ai; h=from:subject:message-id;
- bh=OktgHJV/MKY6BGPhmYAbpjHL8E9xIEfPx0WNo7EeXKg=;
- b=owJ4nJvAy8zAJbYltPXv6rsCXxhPqyUxZL7/c1D+/YWV3ude8c44uo171kVreYnc4A9ndzgYc
- 5v1WZ2R7P3SUcrCIMbFICumyDLnkf+bto62iA0xh+xh5rAygQxh4OIUgImUhDIy/OkTW7nm6/x5
- 1+NvPnzWVc+QrPBm6t+rbz7kn9jLVvuo14uRYXtA04SNf9iNs+V+fn4mfn3LJqP/D0ptNn9M092
- 1Lc5uBxsA3YtVpw==
+ bh=WbRNSgR6fF75ujIFRpZT+WIk0CWNPjAlMacuue3U6KE=;
+ b=owJ4nJvAy8zAJbYltPXv6rsCXxhPqyUxZL7/c3B1ziaWhgZtFrFK/7l1X/ruSL6cYMDSVjL1j
+ c2+ms//ngV2lLIwiHExyIopssx55P+mraMtYkPMIXuYOaxMIEMYuDgFYCJT7jAydHBtfsJ7Ujyo
+ QjBN2L0pu0lRwTj1x/cph3/Ku6i+WVcWz/BPQZ3xXJja3qblId0ujyKkJq17U3jguKjB1QquM6I
+ zzQ/zAgDNJ07Z
 X-Developer-Key: i=abdurrahman@nexthop.ai; a=openpgp;
  fpr=9CE24FEC86888658B05CC23FB45585FDABDD10F4
 X-Endpoint-Received: by B4 Relay for abdurrahman@nexthop.ai/default with
@@ -88,50 +88,60 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 
-At the end of a SMBus block read the BNB handler force-set
-tx_msg->len = 1 to push xiic_tx_space() to zero so the STATE_DONE
-branch would fire. Two problems:
+xiic_smbus_block_read_setup() overwrites rx_msg->len based on the
+announced block length byte, but the i2c core appends an extra byte to
+msg->len when PEC is enabled on the client (see
+__i2c_smbus_xfer_emulated in i2c-core-smbus.c). Before this handler
+runs, rx_msg->len is therefore 1 + pec_len, where pec_len is 0 or 1.
 
-1. tx_msg and rx_msg alias the same i2c_msg struct during a receive
-   (see xiic_start_recv), so overwriting tx_msg->len also changes
-   rx_msg->len. The i2c core's i2c_smbus_check_pec() then reads the
-   PEC from the wrong offset -- buf[0] instead of buf[rxmsg_len + 1]
-   -- and either mis-validates or returns -EBADMSG.
+Overwriting rx_msg->len to rxmsg_len + 1 drops that PEC byte from the
+caller's buffer: the PEC byte is never drained from the FIFO and the
+core's i2c_smbus_check_pec() reads the last payload byte instead of
+the actual PEC, returning -EBADMSG even on clean transfers. Capture
+pec_len before the overwrite and add it back when recomputing
+rx_msg->len.
 
-2. xiic_start_recv sets tx_pos = msg->len (typically 2 when PEC is
-   enabled). xiic_tx_space() is unsigned msg->len - tx_pos, so
-   setting msg->len = 1 with tx_pos = 2 underflows to 0xFFFFFFFF and
-   xiic_tx_space() never compares equal to 0 -- the STATE_DONE check
-   falls through to STATE_ERROR, giving -EIO.
-
-Instead, advance tx_pos up to msg->len. That drives tx_space to 0
-without touching msg->len, preserving the buffer length that
-xiic_smbus_block_read_setup() already grew to cover the length byte,
-the payload and the optional PEC byte.
+This is a pure bug fix; non-PEC behaviour is unchanged (pec_len == 0).
+Tested on a Xilinx AXI IIC FPGA block driving an adm1266 PMBus
+blackbox read -- with PEC enabled the full 64-byte record transfers
+cleanly after this change.
 
 Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 ---
- drivers/i2c/busses/i2c-xiic.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+ drivers/i2c/busses/i2c-xiic.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/i2c/busses/i2c-xiic.c b/drivers/i2c/busses/i2c-xiic.c
-index 946e3ed2d760..27715646a9fb 100644
+index 3e7735e1dae0..959a47b645a5 100644
 --- a/drivers/i2c/busses/i2c-xiic.c
 +++ b/drivers/i2c/busses/i2c-xiic.c
-@@ -864,8 +864,11 @@ static irqreturn_t xiic_process(int irq, void *dev_id)
+@@ -539,6 +539,8 @@ static void xiic_smbus_block_read_setup(struct xiic_i2c *i2c)
  
- 		if (i2c->tx_msg && i2c->smbus_block_read) {
- 			i2c->smbus_block_read = false;
--			/* Set requested message len=1 to indicate STATE_DONE */
--			i2c->tx_msg->len = 1;
-+			/*
-+			 * Drive xiic_tx_space() to 0 to signal STATE_DONE
-+			 * without truncating the rx_msg length.
-+			 */
-+			i2c->tx_pos = i2c->tx_msg->len;
+ 	/* Check if received length is valid */
+ 	if (rxmsg_len <= I2C_SMBUS_BLOCK_MAX) {
++		unsigned int pec_len = i2c->rx_msg->len - 1;
++
+ 		/* Set Receive fifo depth */
+ 		if (rxmsg_len > IIC_RX_FIFO_DEPTH) {
+ 			/*
+@@ -546,7 +548,7 @@ static void xiic_smbus_block_read_setup(struct xiic_i2c *i2c)
+ 			 * Receive fifo depth should set to Rx fifo capacity minus 1
+ 			 */
+ 			rfd_set = IIC_RX_FIFO_DEPTH - 1;
+-			i2c->rx_msg->len = rxmsg_len + 1;
++			i2c->rx_msg->len = rxmsg_len + 1 + pec_len;
+ 		} else if ((rxmsg_len == 1) ||
+ 			(rxmsg_len == 0)) {
+ 			/*
+@@ -562,7 +564,7 @@ static void xiic_smbus_block_read_setup(struct xiic_i2c *i2c)
+ 			 * Receive fifo depth should set to Rx msg len minus 2
+ 			 */
+ 			rfd_set = rxmsg_len - 2;
+-			i2c->rx_msg->len = rxmsg_len + 1;
++			i2c->rx_msg->len = rxmsg_len + 1 + pec_len;
  		}
+ 		xiic_setreg8(i2c, XIIC_RFD_REG_OFFSET, rfd_set);
  
- 		if (!i2c->tx_msg)
 
 -- 
 2.53.0
