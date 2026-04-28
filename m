@@ -4,73 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49A1BFF886C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 08:08:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D717FF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 08:08:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jR/QPrnACdsdO0/KY/ZNEVbUuXYYjJD9CqgzSXSt5fA=; b=3HJf+BvscmhrVxuat06SQic7o9
-	w5hJ53Tkfj8gKNdQLdLtNQMm/+A7y3Z7lc6czbeS8K7eHttDH+QzztJkFTC6p/5cjZn1+9Y32MNwb
-	gx9C8kNgpSvHuX8g5mBCmp9g3KX7hLtqE3uxXMDzrTijpZVdNP7dFVocSrXkZr0ge3HfbAGLDNBJM
-	b3JCZO9zwRQG/IkFrZCmDcYVTzM5SRLjXOp/i0vSg2Coum4NdQfeMNKkcZt6f16nZD5VkUI/1NTkU
-	YP9jyieN5YCTjiEEX4CTiHwveaFgbWeZOfkyfze3dZnqQUPQSSmOUzH5toLcWm49xK5Mp+BchUM/B
-	wG/I9pAQ==;
+	bh=y0YR3KYyrJHMzK7TT5yINHRIV+CmuyKhWAYd7Ad/XHk=; b=OVUvvIx6F0PZ6w4m+z5mJzuTCh
+	ypngl/KYO0MJHJEAA3NrVyoHa7dFxOZNuGmj2P9q7KRBuwSezI0Y2/3SE2uNH04IruaVkptsXJgKZ
+	ybkiSj2EVJMDyQ5MJ653XHbjTq6TgLML6Q+5WYOFKZFBEfyWmeCJfuXBg90TmtSwV8ntOnf2gT8Ri
+	EN80tks2HH8iDLjn0YlKYbdbXfUzh3KrD2efrn2+jUx+ZCBhINZREgpLRrAI494+/Jcog7p69NxsC
+	Jz+AmtWKSYSVlmfwQXN10ikGrjEmzu7ExQg97t9sRnb+9T/c+XKJS+UvhXDgLHmbyv6sA1Bqw1pbI
+	OYu5DinA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHdUH-00000000r0F-1qv7;
-	Tue, 28 Apr 2026 08:08:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wHdUi-00000000r7Z-1M2w;
+	Tue, 28 Apr 2026 08:08:36 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHdUG-00000000r03-0Hsb
+	id 1wHdUf-00000000r6h-3idh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 08:08:08 +0000
+	Tue, 28 Apr 2026 08:08:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6A75C60141
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 08:08:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 209EDC2BCB5
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 08:08:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E6A6E4485E
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 08:08:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 116F6C2BCB6
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 08:08:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777363687;
-	bh=jR/QPrnACdsdO0/KY/ZNEVbUuXYYjJD9CqgzSXSt5fA=;
+	s=k20201202; t=1777363710;
+	bh=wQ7+PJSmEwuKa5Wm9vVOQl441ts5aBzLQ2j+pt+YQsM=;
 	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
-	b=AU0kWrW+liEaSsXff5W2v0MsU1Q3s+Hiy/43Ofc30rIEHTQ9fIdl9EeBuYEPJDGdX
-	 RoFruUCAVqbuHsEoPMBpPsUidf+TjKlVzjcXlBf6cwCo5dfFrcG/fV2+eTEpMDAC42
-	 ZNynsd26hhnGeo+sHc21lfrf57sAjf6rfouDoprMvXDscnKrbsyEXaVTbJa0hT564n
-	 uf3RCi6Cga9LcFaZ/FHRyvWjtOmnL5KvW/XJhAh9KEJhWl5nPddflQlLK/NHHZA4Bu
-	 KSfqDJ3qVnZ2Ad7KjNgcGU4wFNbhzncv/CdnZvREms9Hf8DSLkTUOkdFlxZgTOa7tY
-	 j1UWZ8aA+9Hyw==
-Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-38eab6cf7d8so105745321fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 01:08:07 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/+bSHh7ocy/wTKiUqI1bha07ZDJeJPJtBXCYQiGM/NQuVqt+3eTH6OxqdyGvRh3I10l+zmhZP84B5o+3XqywtV@lists.infradead.org
-X-Gm-Message-State: AOJu0YxiRqfukTMDGTKnxNVCegRSBOYl8HZEBMdg//O5a+tDjQ9CYVOA
-	ezFQ1ZAKxAtswAQ93Z9gvtylzNWfgpnW2mfLKyvLd3a+vopsgyaiJO371bz7t1/d3O5DfKtgAjG
-	cciSjR2FWkVU6cVoeC/q/u0T3E1CFweLGpGAim3AGQw==
-X-Received: by 2002:a2e:be08:0:b0:38c:6b42:3d77 with SMTP id
- 38308e7fff4ca-39240cc20ccmr6706361fa.2.1777363685836; Tue, 28 Apr 2026
- 01:08:05 -0700 (PDT)
+	b=kYMONDpPMl064k9Bnk/LCuTXAdtBo1J4GX1HgwnWrg+YqA0iM8lMAMv0sKz3T0wHM
+	 7P2iZMkfhuco+XKS4MB4tEZhUPmLuvlWquFLryXRuqOXB8RXZ7VlEveKC2ufMCHfO/
+	 CEMcvAzegBXZfB/ownWI/xabOqCvhVBVSjNPCYOTbORmbBR3q9H/nOP6Nbef5x/6EO
+	 BQGJy09lDdcp6txWaI70T9BunnDcN0YK/ZvapZZX3/e/KGqeCVJb1Bv8ZKqgN3+Ve/
+	 4UKMRoqkHu7AWpQeItp8uqyoO0K/AdGy/h3pQMl1fXm+zBr9XWccGKRAnXEtEku1zu
+	 JVD4SCkesh3AA==
+Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5a2c9c5ff87so11570375e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 01:08:29 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ9DjTlV4Kq7b12tRXvqKMLk/8qf4qAFXVBO1Z3f4Wl4RvdAmR/65La48vmn85qR4oMdgfkQLMh5mFRMthUh4Gpm@lists.infradead.org
+X-Gm-Message-State: AOJu0YwpZZgCrGZ0YdEqYb41EVHtZIZ0OfOlcKmr9maGwZqxOQ0wSw0Q
+	8osr6GCRzofK+Qs1ZiPvhdBtST2f26cjOUsufIzIO2fnnu+Yay4b3nOB+x2wg8JDCHvBQq02yz9
+	uJHavAL5B73oMfA3SOKa1Xq7fNTs+bL9ZPnrayr8f8Q==
+X-Received: by 2002:a05:6512:2247:b0:5a2:d239:cb9c with SMTP id
+ 2adb3069b0e04-5a746626970mr854062e87.28.1777363708792; Tue, 28 Apr 2026
+ 01:08:28 -0700 (PDT)
 Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 28 Apr 2026 01:08:04 -0700
+ HTTPREST; Tue, 28 Apr 2026 01:08:27 -0700
 Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 28 Apr 2026 01:08:04 -0700
+ HTTPREST; Tue, 28 Apr 2026 01:08:27 -0700
 From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260427143546.3098519-1-arnd@kernel.org>
+In-Reply-To: <1441dc76-764b-4490-8d7a-85dc3b01edac@app.fastmail.com>
 MIME-Version: 1.0
-References: <20260427143546.3098519-1-arnd@kernel.org>
-Date: Tue, 28 Apr 2026 01:08:04 -0700
-X-Gmail-Original-Message-ID: <CAMRc=McpfT-Ph3S4yDfhb3ydc-vP9fBVn9Nq0P7+BmFNr_69qQ@mail.gmail.com>
-X-Gm-Features: AVHnY4Jzxwbh3hg_OkvmtqMYURBrWE3b_ixHf74HXsaHbAsWE-SCzGz3iCDPxv4
-Message-ID: <CAMRc=McpfT-Ph3S4yDfhb3ydc-vP9fBVn9Nq0P7+BmFNr_69qQ@mail.gmail.com>
+References: <20260427143546.3098519-1-arnd@kernel.org> <1441dc76-764b-4490-8d7a-85dc3b01edac@app.fastmail.com>
+Date: Tue, 28 Apr 2026 01:08:27 -0700
+X-Gmail-Original-Message-ID: <CAMRc=MegU6W8pQm+CQEZ4eOESX1HykaXLaA6k62CY-PL7e92NA@mail.gmail.com>
+X-Gm-Features: AVHnY4Kzvp3OPVMuci59w2HJynq7CNcwzE5dgFc8-UQ4n_fxMJn7lfLy70-B3RY
+Message-ID: <CAMRc=MegU6W8pQm+CQEZ4eOESX1HykaXLaA6k62CY-PL7e92NA@mail.gmail.com>
 Subject: Re: [PATCH] ARM: s3c: use gpio lookup table for LEDs
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Linus Walleij <linusw@kernel.org>, Charles Keepax <ckeepax@opensource.cirrus.com>, 
-	Bartosz Golaszewski <brgl@kernel.org>, patches@opensource.cirrus.com, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>, Linus Walleij <linusw@kernel.org>, 
+	Charles Keepax <ckeepax@opensource.cirrus.com>, Bartosz Golaszewski <brgl@kernel.org>, 
+	patches@opensource.cirrus.com, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Arnd Bergmann <arnd@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260428_010833_978438_F3533D69 
+X-CRM114-Status: GOOD (  11.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,13 +88,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 27 Apr 2026 16:35:27 +0200, Arnd Bergmann <arnd@kernel.org> said:
-> From: Arnd Bergmann <arnd@arndb.de>
+On Mon, 27 Apr 2026 16:38:42 +0200, Arnd Bergmann <arnd@arndb.de> said:
+> On Mon, Apr 27, 2026, at 16:35, Arnd Bergmann wrote:
+>> From: Arnd Bergmann <arnd@arndb.de>
+>>
+>> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 >
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
+> Sorry, I accidentally sent this without a changelog text, this should
+> have contained
+>
+> "The crag6410 board is one of the last users of the gpio-led driver
+> with plain gpio numbers. The driver has several ways to pass this
+> information without using gpio numbers, using a lookup table is
+> the easiest way."
+>
+>       Arnd
+>
 
-I think you need a commit message here?
+Ah, here it is. You probably need to resend it.
+
+With that:
+
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
 Bart
 
