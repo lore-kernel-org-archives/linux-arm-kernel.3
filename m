@@ -4,71 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC495FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 07:20:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72AD4FF886F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 07:20:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
-	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6sahKJvPYK/S4CHAoa7CrRKQ8bQPw/KxUqX7TzwFNxc=; b=JKxNAIPwxMjc71gs0gwxTBob8y
-	pOVIxRohIxPdyeTX3dpaDSmAH0Qdczfgu+Gu/9aofWam3X4g3I/LorwGkuf3RGTozl3USuYd0bm6J
-	5G26aS1fSLZLhy/07hfGgEabjw2sudxVtI9VUi6ozrjvy6OcTuADZ0Za7QThdIL1MtV4n0VCwcpJZ
-	eEHd+gV3vcNR+PpIV4HWH5NyxXlT2WAMDiOx7oHxn3zV/2vcWDFpwwHA8RMmy5XXaBEHar2HFfK87
-	PWZPaQYJ1FDm9+EraU8MtTG/nXrQSm/UDsfar4h/CfUO17eWtGiR8IKvTIfTDF4NkHEVRqFzYprAv
-	Kv3Bpr8Q==;
+	bh=NdX+qNOJ5NUfnGZr60SGKErdhVkQjle7yzI2RtJN1kY=; b=mneif/gZltHYy4EEq2fgUqDP6R
+	TJeuObwiPX9xb/pHFaVVGtVwqF3ej7o/sO95Z+CrtcwwGvdpaK8/kpfGANj1nomw0G87bnnDH8n/w
+	ZSAB/wOAFswaz0kTLGn68jxmUpPyG6bHiVjFn7ml/l5ifvVdK9GK0dPf1B+ZRTj0bPwSUMlbxJ859
+	TrMTCAG9pnMubJVxgFdyFMMx3DLlLH5JGIpJU6AU0YzDPWhrQhLOvPLjllUByjjkJLk8ESfSo07ku
+	tsRpf30U7CQQWKdYeIJPJmwDlrI1+y/hS52tDrDgvxq/hoYtPLjRL3c4uE/MXZ+g6OLawq6oKqwrB
+	haa9qRfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHcjf-00000000glX-3ckb;
-	Tue, 28 Apr 2026 07:19:59 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1wHcjc-00000000ghY-15a1;
+	Tue, 28 Apr 2026 07:19:56 +0000
+Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHcjU-00000000gYu-2iXw
+	id 1wHcjM-00000000gRm-102w
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 07:19:50 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2b2ead99f5dso138076215ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 00:19:47 -0700 (PDT)
+	Tue, 28 Apr 2026 07:19:41 +0000
+Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2de07c12745so36433563eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 00:19:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777360787; x=1777965587; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=6sahKJvPYK/S4CHAoa7CrRKQ8bQPw/KxUqX7TzwFNxc=;
-        b=wWkXNFz53sR2YCPOVsUAgh5uKQjDcxAmnGCYOt5VL83S0vnpB7VsY6pj5mXS8ois2B
-         lCyapPGFXFtqgOpMSdummdNdizaNQCEEf3QdLKAThE7JT4X2UsPLbo95TMmFV5A7yCFb
-         EcQoRggFn7snNaxyo6ZY2cPKj3kJgKtClq9XmXFTkMJnmlj2C3QMJQb6A/vmMviGRdL2
-         /f/3en1fOSUVFsrbryePLiBEMXcu2WeLjS2XWk81jNUPlLBt13LBOVa0u4e30r5RV9Yq
-         OTQBbspW1R7za/6V8zcXeiVZrEooyz17R8tWfIQgRpsf+Km658oI342LNZz3G9IZ70qA
-         rSFw==
+        d=google.com; s=20251104; t=1777360779; x=1777965579; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=NdX+qNOJ5NUfnGZr60SGKErdhVkQjle7yzI2RtJN1kY=;
+        b=MKaMwcvdsfCuCjBCO6pBmkPg4k4GgCwB/cYVzs0gJV4yfhP9dM9khPyWuEcpiDiTzL
+         PkZnXhx9ka8S2Y//ybR2PHR3ySdhNsX9hgcQ9+t/M9/Z8TeagAonGPmdb3syYjheud2e
+         c4/TWe5NrcO6geEjJ705jYaH6epEHL+HikUWIoYJNc8WV+8NA9BGL12yXavGpqPb1Edn
+         ZftbKyEs0emHE9KAXoCRTOtyHiMGLWxGMe3Srcaz7WW6kw9qN+K4gpIzn3Y7xBqjGXo5
+         jry7lfHjTKbUdJum1uDAnvecPohVhR0kFloMZfimpQB4I/KKwTxLQzHrbbcEMFO93dIW
+         GEHw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777360787; x=1777965587;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=6sahKJvPYK/S4CHAoa7CrRKQ8bQPw/KxUqX7TzwFNxc=;
-        b=pxP6q8uGeG5n1PSMHaIai+B05fValZy5eZLxVlBtNCVgHV7xdQnkPs/VzcYwOk+giO
-         xz6JOtlrSeaOu1/ikFfJCrmS7YTB/9ZAbnirNjdlF6ZsydDWMLgAlrzCVqRhLksPei+U
-         d12pJuC5FmdijRYF0vgMlYK3YyNPdys/5ckS/GRoCk/771xnEde+SZB8my+9iqikjC3Z
-         WtJartTIyapdBQry9/tVHkuVwxJAAenUrwsYyjTaOhXSD3YdUktuMMVF7d9jPtDZOFxx
-         NKid6gBLOMNBYQwKzvN8e+W0Jpr1YgtaomFCIGBcZfqFBkAT7FAXgo9XLqv1gfb4YOdG
-         sR6Q==
-X-Forwarded-Encrypted: i=1; AFNElJ/WlqoUh/qhi1/TA2ysuJJEIJncTWfV1V1jIpLfm9wpqOuK4GJTdub3LmJbxSpEzFzQATKm1R4fbygODGUBBf8g@lists.infradead.org
-X-Gm-Message-State: AOJu0YwEivH7s4OfMU3DqFv6R8Rr5EVgde5q80MxPfA0GgwMR37rlys9
-	4is/dDaypISnwl4zMKcJNJkLv18BmuGh5tj2w30BeWgWetM58hRWRvROSsnuMKK9sIZE7j6LbPO
-	tLTQvZsGr+Q==
-X-Received: from pger2.prod.google.com ([2002:a63:a002:0:b0:c79:5fb7:acae])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:1593:b0:39f:3559:7501
- with SMTP id adf61e73a8af0-3a39c2578b9mr2450797637.41.1777360786661; Tue, 28
- Apr 2026 00:19:46 -0700 (PDT)
-Date: Tue, 28 Apr 2026 00:18:19 -0700
+        d=1e100.net; s=20251104; t=1777360779; x=1777965579;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=NdX+qNOJ5NUfnGZr60SGKErdhVkQjle7yzI2RtJN1kY=;
+        b=tBxIw5JUIzdnFT9fceJCMQI5out8cnPQ6HRQjVKE4WmKCO9+9mkwdFtwaqKh3s8NH8
+         y95h0WWlnGYNIirIURc/wPF5EzKmXg5TQSdG+g5OGNDPd2MuGCYvgZ9+glt2PTrRPiSY
+         eiGNavIRwLBDIxR8dbe1biYzklgs1GkzRF1DTRchVolJPluCQvGcj7pBLieLjbCGb0Wi
+         Bw2GWaQ6K/MS5INQ1p5Ez5f7MIMCqDMJeQ8VzYYVZYX34QchKopAp2WOgTnsUTnkF6uI
+         eV6FT3QMcJQWzOOOVrR07O9IH6OCuhDTRVK0g+dSaZAZGBwTCrDLTK/m7saCUebFYZbh
+         RBdQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8RDGw1zTj5Y6oaOqwn3iqfOI653YDh1Lox8O0jx4FK7DwUDvZ1jGWWrWgsgm2rx4kCK4K9oS01RSwdFwZ8a4ov@lists.infradead.org
+X-Gm-Message-State: AOJu0YyAMlZeyPkI04EZl5EiZ5af2t503IWtnZSz3WziP85Lis+otSba
+	5BVJXwRQIXEcpHtr1nMK2HZJiZRHnaWOu2ntpSFAl8D/AaTnCIG6Tz6YSHeXuj6uKV+n7L62aIO
+	M17Aho23OBg==
+X-Received: from dybmc15.prod.google.com ([2002:a05:7301:198f:b0:2d7:e13b:ef99])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:2c97:b0:2ea:5057:a32b
+ with SMTP id 5a478bee46e88-2ed0a11fd4emr1082155eec.17.1777360779058; Tue, 28
+ Apr 2026 00:19:39 -0700 (PDT)
+Date: Tue, 28 Apr 2026 00:18:15 -0700
 In-Reply-To: <20260428071903.1886173-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260425224951.174663-1-irogers@google.com> <20260428071903.1886173-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260428071903.1886173-15-irogers@google.com>
-Subject: [PATCH v8 14/58] perf python: Add python session abstraction wrapping
- perf's session
+Message-ID: <20260428071903.1886173-11-irogers@google.com>
+Subject: [PATCH v8 10/58] perf evsel: Add reference count
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, namhyung@kernel.org
 Cc: adrian.hunter@intel.com, alice.mei.rogers@gmail.com, 
@@ -77,10 +74,9 @@ Cc: adrian.hunter@intel.com, alice.mei.rogers@gmail.com,
 	linux-perf-users@vger.kernel.org, mingo@redhat.com, peterz@infradead.org, 
 	tmricht@linux.ibm.com, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_001948_744670_41741892 
-X-CRM114-Status: GOOD (  22.71  )
+X-CRM114-CacheID: sfid-20260428_001940_319233_553D338E 
+X-CRM114-Status: GOOD (  27.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,485 +91,777 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sessions are necessary to be able to use perf.data files within a
-tool. Add a wrapper python type that incorporates the tool. Allow a
-sample callback to be passed when creating the session. When
-process_events is run this callback will be called, if supplied, for
-sample events.
+As with evlist this a no-op for most of the perf tool. The reference
+count is set to 1 at allocation, the put will see the 1, decrement it
+and perform the delete. The purpose for adding the reference count is
+for the python code. Prior to this change the python code would clone
+evsels, but this has issues if events are opened, etc. leading to
+assertion failures. With a reference count the same evsel can be used
+and the reference count incremented for the python usage.  To not
+change the python evsel API getset functions are added for the evsel
+members, no set function is provided for size as it doesn't make sense
+to alter this.
 
-An example use looks like:
-```
-$ perf record -e cycles,instructions -a sleep 3
-$ PYTHONPATH=3D..../perf/python python3
-Python 3.13.7 (main, Aug 20 2025, 22:17:40) [GCC 14.2.0] on linux
-Type "help", "copyright", "credits" or "license" for more information.
->>> import perf
->>> count=3D0
-... def handle_sample(x):
-...   global count
-...   if count < 3:
-...     print(dir(x))
-...   count =3D count + 1
-... perf.session(perf.data("perf.data"),sample=3Dhandle_sample).process_eve=
-nts()
-...
-['__class__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', =
-'__ge__', '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init=
-__', '__init_subclass__', '__le__', '__lt__', '__ne__', '__new__', '__reduc=
-e__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', =
-'__subclasshook__', 'sample_addr', 'sample_cpu', 'sample_id', 'sample_ip', =
-'sample_period', 'sample_pid', 'sample_stream_id', 'sample_tid', 'sample_ti=
-me', 'type']
-['__class__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', =
-'__ge__', '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init=
-__', '__init_subclass__', '__le__', '__lt__', '__ne__', '__new__', '__reduc=
-e__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', =
-'__subclasshook__', 'sample_addr', 'sample_cpu', 'sample_id', 'sample_ip', =
-'sample_period', 'sample_pid', 'sample_stream_id', 'sample_tid', 'sample_ti=
-me', 'type']
-['__class__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', =
-'__ge__', '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init=
-__', '__init_subclass__', '__le__', '__lt__', '__ne__', '__new__', '__reduc=
-e__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', =
-'__subclasshook__', 'sample_addr', 'sample_cpu', 'sample_id', 'sample_ip', =
-'sample_period', 'sample_pid', 'sample_stream_id', 'sample_tid', 'sample_ti=
-me', 'type']
-```
-
-Also, add the ability to get the thread associated with a session. For
-threads, allow the comm string to be retrieved. This can be useful for
-filtering threads. Connect up some of the standard event handling in
-psession->tool to better support queries of the machine. Also connect
-up the symbols.
-
-Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
 v2:
+1. Fixed Potential Crash in pyrf_event__new : Initialized
+   pevent->evsel = NULL; to avoid garbage pointer dereference if
+   evlist__event2evsel() fails in read_on_cpu .
 
-1. Fixed Potential Crash in pyrf_thread__comm : Used
-   thread__comm_str() to safely retrieve the command name, avoiding a
-   crash if thread__comm() returns NULL.
+2. Fixed Memory Leak in pyrf_evsel__init : Added
+   evsel__put(pevsel->evsel) before overwriting it to handle repeated
+   __init__ calls.
 
-2. Fixed Double Free Risk: Zeroed out user_regs , intr_regs , and
-   callchain in the shallow copy of perf_sample to prevent Python from
-   attempting to free pointers it doesn't own.
+3. Fixed Exception Contract: Added PyErr_NoMemory() when evsel__new()
+   fails in pyrf_evsel__init .
 
-3. Fixed Memory Leak & Exception Handling in Callback: Handled the
-   return value of PyObject_CallFunction() to avoid leaks, and checked
-   for failure to abort the loop and propagate Python exceptions
-   cleanly.
+4. Fixed NULL Pointer Dereference on Property Access: Added a custom
+   tp_getattro ( pyrf_evsel__getattro ) to pyrf_evsel__type to check
+   if pevsel->evsel is NULL and raise a ValueError if so, covering all
+   property accesses.
 
-4. Enforced Type Safety: Used O!  with &pyrf_data__type in
-   PyArg_ParseTupleAndKeywords to prevent bad casts from passing
-   arbitrary objects as perf.data.
+5. Fixed Reference Count in pyrf_evlist__add : Added evsel__get(evsel)
+   when adding to the evlist .
 
-5. Added Missing Build ID Handler: Registered
-   perf_event__process_build_id to allow correct symbol resolution.
-
-6. Fixed Double Free Crash on Init Failure: Set session and pdata to
-   NULL on failure to prevent tp_dealloc from double-freeing them.
-
-7. Preserved C-level Errors: Made pyrf_session__process_events return
-   the error code integer rather than always returning None .
+6. Fixed Reference Count in pyrf_evlist__read_on_cpu : Added
+   evsel__get(evsel) when assigning to pevent->evsel .
 
 v7:
-- Fixed NULL comm handling.
-- Avoided swallowing exceptions in module init.
-- Fixed checkpatch warning for missing blank line.
+- Added pyrf_evsel__new to zero-initialize pevsel->evsel to fix
+  crash on re-initialization.
 
 v8:
-- Switch from pyrf_session__init to pyrf_session__new to avoid dealing with=
- a
-  potentially NULL session variable.
-    - Added pid, tid, ppid, and cpu attributes to perf.thread.
+- Added O! type validation to pyrf_evlist__add to prevent type
+  confusion.
 ---
- tools/perf/util/python.c | 310 ++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 304 insertions(+), 6 deletions(-)
+ tools/perf/builtin-trace.c                 |  12 +-
+ tools/perf/tests/evsel-tp-sched.c          |   4 +-
+ tools/perf/tests/openat-syscall-all-cpus.c |   6 +-
+ tools/perf/tests/openat-syscall.c          |   6 +-
+ tools/perf/util/bpf_counter_cgroup.c       |   2 +-
+ tools/perf/util/cgroup.c                   |   2 +-
+ tools/perf/util/evlist.c                   |   2 +-
+ tools/perf/util/evsel.c                    |  26 ++-
+ tools/perf/util/evsel.h                    |  11 +-
+ tools/perf/util/parse-events.y             |   2 +-
+ tools/perf/util/pfm.c                      |   2 +-
+ tools/perf/util/print-events.c             |   2 +-
+ tools/perf/util/python.c                   | 245 +++++++++++++++++----
+ tools/perf/util/session.c                  |   1 +
+ 14 files changed, 249 insertions(+), 74 deletions(-)
 
+diff --git a/tools/perf/builtin-trace.c b/tools/perf/builtin-trace.c
+index da703d762433..6ea935c13538 100644
+--- a/tools/perf/builtin-trace.c
++++ b/tools/perf/builtin-trace.c
+@@ -448,10 +448,10 @@ static int evsel__init_tp_ptr_field(struct evsel *evsel, struct tp_field *field,
+ 	({ struct syscall_tp *sc = __evsel__syscall_tp(evsel);\
+ 	   evsel__init_tp_ptr_field(evsel, &sc->name, #name); })
+ 
+-static void evsel__delete_priv(struct evsel *evsel)
++static void evsel__put_and_free_priv(struct evsel *evsel)
+ {
+ 	zfree(&evsel->priv);
+-	evsel__delete(evsel);
++	evsel__put(evsel);
+ }
+ 
+ static int evsel__init_syscall_tp(struct evsel *evsel)
+@@ -531,7 +531,7 @@ static struct evsel *perf_evsel__raw_syscall_newtp(const char *direction, void *
+ 	return evsel;
+ 
+ out_delete:
+-	evsel__delete_priv(evsel);
++	evsel__put_and_free_priv(evsel);
+ 	return NULL;
+ }
+ 
+@@ -3584,7 +3584,7 @@ static bool evlist__add_vfs_getname(struct evlist *evlist)
+ 
+ 		list_del_init(&evsel->core.node);
+ 		evsel->evlist = NULL;
+-		evsel__delete(evsel);
++		evsel__put(evsel);
+ 	}
+ 
+ 	return found;
+@@ -3698,9 +3698,9 @@ static int trace__add_syscall_newtp(struct trace *trace)
+ 	return ret;
+ 
+ out_delete_sys_exit:
+-	evsel__delete_priv(sys_exit);
++	evsel__put_and_free_priv(sys_exit);
+ out_delete_sys_enter:
+-	evsel__delete_priv(sys_enter);
++	evsel__put_and_free_priv(sys_enter);
+ 	goto out;
+ }
+ 
+diff --git a/tools/perf/tests/evsel-tp-sched.c b/tools/perf/tests/evsel-tp-sched.c
+index 226196fb9677..9e456f88a13a 100644
+--- a/tools/perf/tests/evsel-tp-sched.c
++++ b/tools/perf/tests/evsel-tp-sched.c
+@@ -64,7 +64,7 @@ static int test__perf_evsel__tp_sched_test(struct test_suite *test __maybe_unuse
+ 	if (evsel__test_field(evsel, "next_prio", 4, true))
+ 		ret = TEST_FAIL;
+ 
+-	evsel__delete(evsel);
++	evsel__put(evsel);
+ 
+ 	evsel = evsel__newtp("sched", "sched_wakeup");
+ 
+@@ -85,7 +85,7 @@ static int test__perf_evsel__tp_sched_test(struct test_suite *test __maybe_unuse
+ 	if (evsel__test_field(evsel, "target_cpu", 4, true))
+ 		ret = TEST_FAIL;
+ 
+-	evsel__delete(evsel);
++	evsel__put(evsel);
+ 	return ret;
+ }
+ 
+diff --git a/tools/perf/tests/openat-syscall-all-cpus.c b/tools/perf/tests/openat-syscall-all-cpus.c
+index 0be43f8db3bd..cc63df2b3bc5 100644
+--- a/tools/perf/tests/openat-syscall-all-cpus.c
++++ b/tools/perf/tests/openat-syscall-all-cpus.c
+@@ -59,7 +59,7 @@ static int test__openat_syscall_event_on_all_cpus(struct test_suite *test __mayb
+ 			 "tweak /proc/sys/kernel/perf_event_paranoid?\n",
+ 			 str_error_r(errno, sbuf, sizeof(sbuf)));
+ 		err = TEST_SKIP;
+-		goto out_evsel_delete;
++		goto out_evsel_put;
+ 	}
+ 
+ 	perf_cpu_map__for_each_cpu(cpu, idx, cpus) {
+@@ -116,8 +116,8 @@ static int test__openat_syscall_event_on_all_cpus(struct test_suite *test __mayb
+ 	evsel__free_counts(evsel);
+ out_close_fd:
+ 	perf_evsel__close_fd(&evsel->core);
+-out_evsel_delete:
+-	evsel__delete(evsel);
++out_evsel_put:
++	evsel__put(evsel);
+ out_cpu_map_delete:
+ 	perf_cpu_map__put(cpus);
+ out_thread_map_delete:
+diff --git a/tools/perf/tests/openat-syscall.c b/tools/perf/tests/openat-syscall.c
+index b54cbe5f1808..9f16f0dd3a29 100644
+--- a/tools/perf/tests/openat-syscall.c
++++ b/tools/perf/tests/openat-syscall.c
+@@ -42,7 +42,7 @@ static int test__openat_syscall_event(struct test_suite *test __maybe_unused,
+ 			 "tweak /proc/sys/kernel/perf_event_paranoid?\n",
+ 			 str_error_r(errno, sbuf, sizeof(sbuf)));
+ 		err = TEST_SKIP;
+-		goto out_evsel_delete;
++		goto out_evsel_put;
+ 	}
+ 
+ 	for (i = 0; i < nr_openat_calls; ++i) {
+@@ -64,8 +64,8 @@ static int test__openat_syscall_event(struct test_suite *test __maybe_unused,
+ 	err = TEST_OK;
+ out_close_fd:
+ 	perf_evsel__close_fd(&evsel->core);
+-out_evsel_delete:
+-	evsel__delete(evsel);
++out_evsel_put:
++	evsel__put(evsel);
+ out_thread_map_delete:
+ 	perf_thread_map__put(threads);
+ 	return err;
+diff --git a/tools/perf/util/bpf_counter_cgroup.c b/tools/perf/util/bpf_counter_cgroup.c
+index 519fee3dc3d0..339df94ef438 100644
+--- a/tools/perf/util/bpf_counter_cgroup.c
++++ b/tools/perf/util/bpf_counter_cgroup.c
+@@ -316,7 +316,7 @@ static int bperf_cgrp__destroy(struct evsel *evsel)
+ 		return 0;
+ 
+ 	bperf_cgroup_bpf__destroy(skel);
+-	evsel__delete(cgrp_switch);  // it'll destroy on_switch progs too
++	evsel__put(cgrp_switch);  // it'll destroy on_switch progs too
+ 
+ 	return 0;
+ }
+diff --git a/tools/perf/util/cgroup.c b/tools/perf/util/cgroup.c
+index 652a45aac828..914744724467 100644
+--- a/tools/perf/util/cgroup.c
++++ b/tools/perf/util/cgroup.c
+@@ -469,7 +469,7 @@ int evlist__expand_cgroup(struct evlist *evlist, const char *str, bool open_cgro
+ 
+ 		/* copy the list and set to the new cgroup. */
+ 		evlist__for_each_entry(orig_list, pos) {
+-			struct evsel *evsel = evsel__clone(/*dest=*/NULL, pos);
++			struct evsel *evsel = evsel__clone(pos);
+ 
+ 			if (evsel == NULL)
+ 				goto out_err;
+diff --git a/tools/perf/util/evlist.c b/tools/perf/util/evlist.c
+index b5a7895debf5..a362f338f104 100644
+--- a/tools/perf/util/evlist.c
++++ b/tools/perf/util/evlist.c
+@@ -194,7 +194,7 @@ static void evlist__purge(struct evlist *evlist)
+ 	evlist__for_each_entry_safe(evlist, n, pos) {
+ 		list_del_init(&pos->core.node);
+ 		pos->evlist = NULL;
+-		evsel__delete(pos);
++		evsel__put(pos);
+ 	}
+ 
+ 	evlist->core.nr_entries = 0;
+diff --git a/tools/perf/util/evsel.c b/tools/perf/util/evsel.c
+index e03727d395e9..a54aae079c22 100644
+--- a/tools/perf/util/evsel.c
++++ b/tools/perf/util/evsel.c
+@@ -388,10 +388,11 @@ bool evsel__is_function_event(struct evsel *evsel)
+ #undef FUNCTION_EVENT
+ }
+ 
+-void evsel__init(struct evsel *evsel,
++static void evsel__init(struct evsel *evsel,
+ 		 struct perf_event_attr *attr, int idx)
+ {
+ 	perf_evsel__init(&evsel->core, attr, idx);
++	refcount_set(&evsel->refcnt, 1);
+ 	evsel->tracking	   = !idx;
+ 	evsel->unit	   = strdup("");
+ 	evsel->scale	   = 1.0;
+@@ -472,7 +473,7 @@ static int evsel__copy_config_terms(struct evsel *dst, struct evsel *src)
+  * The assumption is that @orig is not configured nor opened yet.
+  * So we only care about the attributes that can be set while it's parsed.
+  */
+-struct evsel *evsel__clone(struct evsel *dest, struct evsel *orig)
++struct evsel *evsel__clone(struct evsel *orig)
+ {
+ 	struct evsel *evsel;
+ 
+@@ -485,11 +486,7 @@ struct evsel *evsel__clone(struct evsel *dest, struct evsel *orig)
+ 	if (orig->bpf_obj)
+ 		return NULL;
+ 
+-	if (dest)
+-		evsel = dest;
+-	else
+-		evsel = evsel__new(&orig->core.attr);
+-
++	evsel = evsel__new(&orig->core.attr);
+ 	if (evsel == NULL)
+ 		return NULL;
+ 
+@@ -574,7 +571,7 @@ struct evsel *evsel__clone(struct evsel *dest, struct evsel *orig)
+ 	return evsel;
+ 
+ out_err:
+-	evsel__delete(evsel);
++	evsel__put(evsel);
+ 	return NULL;
+ }
+ 
+@@ -633,6 +630,12 @@ struct evsel *evsel__newtp_idx(const char *sys, const char *name, int idx, bool
+ 	return ERR_PTR(err);
+ }
+ 
++struct evsel *evsel__get(struct evsel *evsel)
++{
++	refcount_inc(&evsel->refcnt);
++	return evsel;
++}
++
+ #ifdef HAVE_LIBTRACEEVENT
+ struct tep_event *evsel__tp_format(struct evsel *evsel)
+ {
+@@ -1857,7 +1860,7 @@ void evsel__set_priv_destructor(void (*destructor)(void *priv))
+ 	evsel__priv_destructor = destructor;
+ }
+ 
+-void evsel__exit(struct evsel *evsel)
++static void evsel__exit(struct evsel *evsel)
+ {
+ 	assert(list_empty(&evsel->core.node));
+ 	assert(evsel->evlist == NULL);
+@@ -1892,11 +1895,14 @@ void evsel__exit(struct evsel *evsel)
+ 		xyarray__delete(evsel->start_times);
+ }
+ 
+-void evsel__delete(struct evsel *evsel)
++void evsel__put(struct evsel *evsel)
+ {
+ 	if (!evsel)
+ 		return;
+ 
++	if (!refcount_dec_and_test(&evsel->refcnt))
++		return;
++
+ 	evsel__exit(evsel);
+ 	free(evsel);
+ }
+diff --git a/tools/perf/util/evsel.h b/tools/perf/util/evsel.h
+index b099c8e5dd86..35b1bbca9036 100644
+--- a/tools/perf/util/evsel.h
++++ b/tools/perf/util/evsel.h
+@@ -6,6 +6,7 @@
+ 
+ #include <linux/list.h>
+ #include <linux/perf_event.h>
++#include <linux/refcount.h>
+ #include <linux/types.h>
+ #include <sys/types.h>
+ 
+@@ -47,6 +48,7 @@ typedef int (evsel__sb_cb_t)(union perf_event *event, void *data);
+ struct evsel {
+ 	struct perf_evsel	core;
+ 	struct evlist		*evlist;
++	refcount_t		refcnt;
+ 	off_t			id_offset;
+ 	int			id_pos;
+ 	int			is_pos;
+@@ -262,7 +264,7 @@ static inline struct evsel *evsel__new(struct perf_event_attr *attr)
+ 	return evsel__new_idx(attr, 0);
+ }
+ 
+-struct evsel *evsel__clone(struct evsel *dest, struct evsel *orig);
++struct evsel *evsel__clone(struct evsel *orig);
+ 
+ int copy_config_terms(struct list_head *dst, struct list_head *src);
+ void free_config_terms(struct list_head *config_terms);
+@@ -277,14 +279,13 @@ static inline struct evsel *evsel__newtp(const char *sys, const char *name)
+ 	return evsel__newtp_idx(sys, name, 0, true);
+ }
+ 
++struct evsel *evsel__get(struct evsel *evsel);
++void evsel__put(struct evsel *evsel);
++
+ #ifdef HAVE_LIBTRACEEVENT
+ struct tep_event *evsel__tp_format(struct evsel *evsel);
+ #endif
+ 
+-void evsel__init(struct evsel *evsel, struct perf_event_attr *attr, int idx);
+-void evsel__exit(struct evsel *evsel);
+-void evsel__delete(struct evsel *evsel);
+-
+ void evsel__set_priv_destructor(void (*destructor)(void *priv));
+ 
+ struct callchain_param;
+diff --git a/tools/perf/util/parse-events.y b/tools/perf/util/parse-events.y
+index c194de5ec1ec..b531b1f0ceb3 100644
+--- a/tools/perf/util/parse-events.y
++++ b/tools/perf/util/parse-events.y
+@@ -47,7 +47,7 @@ static void free_list_evsel(struct list_head* list_evsel)
+ 
+ 	list_for_each_entry_safe(evsel, tmp, list_evsel, core.node) {
+ 		list_del_init(&evsel->core.node);
+-		evsel__delete(evsel);
++		evsel__put(evsel);
+ 	}
+ 	free(list_evsel);
+ }
+diff --git a/tools/perf/util/pfm.c b/tools/perf/util/pfm.c
+index d9043f4afbe7..5f53c2f68a96 100644
+--- a/tools/perf/util/pfm.c
++++ b/tools/perf/util/pfm.c
+@@ -159,7 +159,7 @@ static bool is_libpfm_event_supported(const char *name, struct perf_cpu_map *cpu
+ 		result = false;
+ 
+ 	evsel__close(evsel);
+-	evsel__delete(evsel);
++	evsel__put(evsel);
+ 
+ 	return result;
+ }
+diff --git a/tools/perf/util/print-events.c b/tools/perf/util/print-events.c
+index cb27e2898aa0..0242243681b6 100644
+--- a/tools/perf/util/print-events.c
++++ b/tools/perf/util/print-events.c
+@@ -174,7 +174,7 @@ bool is_event_supported(u8 type, u64 config)
+ 		}
+ 
+ 		evsel__close(evsel);
+-		evsel__delete(evsel);
++		evsel__put(evsel);
+ 	}
+ 
+ 	perf_thread_map__put(tmap);
 diff --git a/tools/perf/util/python.c b/tools/perf/util/python.c
-index c002181d96f4..4e7add7d18c4 100644
+index aeecdb497fac..3573c7dd312b 100644
 --- a/tools/perf/util/python.c
 +++ b/tools/perf/util/python.c
-@@ -9,8 +9,10 @@
- #include <perf/mmap.h>
-=20
- #include "callchain.h"
-+#include "comm.h"
- #include "counts.h"
- #include "data.h"
-+#include "debug.h"
- #include "event.h"
- #include "evlist.h"
- #include "evsel.h"
-@@ -20,8 +22,12 @@
- #include "pmus.h"
- #include "print_binary.h"
- #include "record.h"
-+#include "session.h"
- #include "strbuf.h"
-+#include "symbol.h"
-+#include "thread.h"
- #include "thread_map.h"
-+#include "tool.h"
- #include "tp_pmu.h"
- #include "trace-event.h"
- #include "util/sample.h"
-@@ -2413,6 +2419,287 @@ static int pyrf_data__setup_types(void)
- 	return PyType_Ready(&pyrf_data__type);
+@@ -274,6 +274,7 @@ static PyMemberDef pyrf_sample_event__members[] = {
+ 
+ static void pyrf_sample_event__delete(struct pyrf_event *pevent)
+ {
++	evsel__put(pevent->evsel);
+ 	perf_sample__exit(&pevent->sample);
+ 	Py_TYPE(pevent)->tp_free((PyObject*)pevent);
  }
-=20
-+struct pyrf_thread {
-+	PyObject_HEAD
-+
-+	struct thread *thread;
-+};
-+
-+static void pyrf_thread__delete(struct pyrf_thread *pthread)
-+{
-+	thread__put(pthread->thread);
-+	Py_TYPE(pthread)->tp_free((PyObject *)pthread);
-+}
-+
-+static PyObject *pyrf_thread__comm(PyObject *obj)
-+{
-+	struct pyrf_thread *pthread =3D (void *)obj;
-+	const char *str =3D thread__comm_str(pthread->thread);
-+
-+	if (!str)
-+		Py_RETURN_NONE;
-+
-+	return PyUnicode_FromString(str);
-+}
-+
-+static PyMethodDef pyrf_thread__methods[] =3D {
-+	{
-+		.ml_name  =3D "comm",
-+		.ml_meth  =3D (PyCFunction)pyrf_thread__comm,
-+		.ml_flags =3D METH_NOARGS,
-+		.ml_doc	  =3D PyDoc_STR("Comm(and) associated with this thread.")
-+	},
-+	{ .ml_name =3D NULL, }
-+};
-+
-+static PyObject *pyrf_thread__get_pid(struct pyrf_thread *pthread, void *c=
-losure __maybe_unused)
-+{
-+	return PyLong_FromLong(thread__pid(pthread->thread));
-+}
-+
-+static PyObject *pyrf_thread__get_tid(struct pyrf_thread *pthread, void *c=
-losure __maybe_unused)
-+{
-+	return PyLong_FromLong(thread__tid(pthread->thread));
-+}
-+
-+static PyObject *pyrf_thread__get_ppid(struct pyrf_thread *pthread, void *=
-closure __maybe_unused)
-+{
-+	return PyLong_FromLong(thread__ppid(pthread->thread));
-+}
-+
-+static PyObject *pyrf_thread__get_cpu(struct pyrf_thread *pthread, void *c=
-losure __maybe_unused)
-+{
-+	return PyLong_FromLong(thread__cpu(pthread->thread));
-+}
-+
-+static PyGetSetDef pyrf_thread__getset[] =3D {
-+	{ .name =3D "pid", .get =3D (getter)pyrf_thread__get_pid, .doc =3D "proce=
-ss ID" },
-+	{ .name =3D "tid", .get =3D (getter)pyrf_thread__get_tid, .doc =3D "threa=
-d ID" },
-+	{ .name =3D "ppid", .get =3D (getter)pyrf_thread__get_ppid, .doc =3D "par=
-ent process ID" },
-+	{ .name =3D "cpu", .get =3D (getter)pyrf_thread__get_cpu, .doc =3D "cpu n=
-umber" },
-+	{ .name =3D NULL }
-+};
-+
-+static const char pyrf_thread__doc[] =3D PyDoc_STR("perf thread object.");
-+
-+static PyTypeObject pyrf_thread__type =3D {
-+	PyVarObject_HEAD_INIT(NULL, 0)
-+	.tp_name	=3D "perf.thread",
-+	.tp_basicsize	=3D sizeof(struct pyrf_thread),
-+	.tp_dealloc	=3D (destructor)pyrf_thread__delete,
-+	.tp_flags	=3D Py_TPFLAGS_DEFAULT|Py_TPFLAGS_BASETYPE,
-+	.tp_methods	=3D pyrf_thread__methods,
-+	.tp_getset	=3D pyrf_thread__getset,
-+	.tp_doc		=3D pyrf_thread__doc,
-+};
-+
-+static int pyrf_thread__setup_types(void)
-+{
-+	return PyType_Ready(&pyrf_thread__type);
-+}
-+
-+static PyObject *pyrf_thread__from_thread(struct thread *thread)
-+{
-+	struct pyrf_thread *pthread =3D PyObject_New(struct pyrf_thread, &pyrf_th=
-read__type);
-+
-+	if (!pthread)
-+		return NULL;
-+
-+	pthread->thread =3D thread__get(thread);
-+	return (PyObject *)pthread;
-+}
-+
-+struct pyrf_session {
-+	PyObject_HEAD
-+
-+	struct perf_session *session;
-+	struct perf_tool tool;
-+	struct pyrf_data *pdata;
-+	PyObject *sample;
-+};
-+
-+static int pyrf_session_tool__sample(const struct perf_tool *tool,
-+				     union perf_event *event,
-+				     struct perf_sample *sample,
-+				     struct evsel *evsel,
-+				     struct machine *machine __maybe_unused)
-+{
-+	struct pyrf_session *psession =3D container_of(tool, struct pyrf_session,=
- tool);
-+	PyObject *pyevent =3D pyrf_event__new(event);
-+	struct pyrf_event *pevent =3D (struct pyrf_event *)pyevent;
-+	PyObject *ret;
-+
-+	if (pyevent =3D=3D NULL)
-+		return -ENOMEM;
-+
-+	memcpy(&pevent->event, event, event->header.size);
-+	if (evsel__parse_sample(evsel, &pevent->event, &pevent->sample) < 0) {
-+		Py_DECREF(pyevent);
+@@ -506,8 +507,10 @@ static PyObject *pyrf_event__new(const union perf_event *event)
+ 
+ 	ptype = pyrf_event__type[event->header.type];
+ 	pevent = PyObject_New(struct pyrf_event, ptype);
+-	if (pevent != NULL)
++	if (pevent != NULL) {
+ 		memcpy(&pevent->event, event, event->header.size);
++		pevent->evsel = NULL;
++	}
+ 	return (PyObject *)pevent;
+ }
+ 
+@@ -945,7 +948,7 @@ static int pyrf_counts_values__setup_types(void)
+ struct pyrf_evsel {
+ 	PyObject_HEAD
+ 
+-	struct evsel evsel;
++	struct evsel *evsel;
+ };
+ 
+ static int pyrf_evsel__init(struct pyrf_evsel *pevsel,
+@@ -1053,20 +1056,25 @@ static int pyrf_evsel__init(struct pyrf_evsel *pevsel,
+ 	attr.sample_id_all  = sample_id_all;
+ 	attr.size	    = sizeof(attr);
+ 
+-	evsel__init(&pevsel->evsel, &attr, idx);
++	evsel__put(pevsel->evsel);
++	pevsel->evsel = evsel__new(&attr);
++	if (!pevsel->evsel) {
++		PyErr_NoMemory();
 +		return -1;
 +	}
+ 	return 0;
+ }
+ 
+ static void pyrf_evsel__delete(struct pyrf_evsel *pevsel)
+ {
+-	evsel__exit(&pevsel->evsel);
++	evsel__put(pevsel->evsel);
+ 	Py_TYPE(pevsel)->tp_free((PyObject*)pevsel);
+ }
+ 
+ static PyObject *pyrf_evsel__open(struct pyrf_evsel *pevsel,
+ 				  PyObject *args, PyObject *kwargs)
+ {
+-	struct evsel *evsel = &pevsel->evsel;
++	struct evsel *evsel = pevsel->evsel;
+ 	struct perf_cpu_map *cpus = NULL;
+ 	struct perf_thread_map *threads = NULL;
+ 	PyObject *pcpus = NULL, *pthreads = NULL;
+@@ -1102,7 +1110,7 @@ static PyObject *pyrf_evsel__cpus(struct pyrf_evsel *pevsel)
+ 	struct pyrf_cpu_map *pcpu_map = PyObject_New(struct pyrf_cpu_map, &pyrf_cpu_map__type);
+ 
+ 	if (pcpu_map)
+-		pcpu_map->cpus = perf_cpu_map__get(pevsel->evsel.core.cpus);
++		pcpu_map->cpus = perf_cpu_map__get(pevsel->evsel->core.cpus);
+ 
+ 	return (PyObject *)pcpu_map;
+ }
+@@ -1113,7 +1121,7 @@ static PyObject *pyrf_evsel__threads(struct pyrf_evsel *pevsel)
+ 		PyObject_New(struct pyrf_thread_map, &pyrf_thread_map__type);
+ 
+ 	if (pthread_map)
+-		pthread_map->threads = perf_thread_map__get(pevsel->evsel.core.threads);
++		pthread_map->threads = perf_thread_map__get(pevsel->evsel->core.threads);
+ 
+ 	return (PyObject *)pthread_map;
+ }
+@@ -1147,7 +1155,7 @@ static int evsel__ensure_counts(struct evsel *evsel)
+ static PyObject *pyrf_evsel__read(struct pyrf_evsel *pevsel,
+ 				  PyObject *args, PyObject *kwargs)
+ {
+-	struct evsel *evsel = &pevsel->evsel;
++	struct evsel *evsel = pevsel->evsel;
+ 	int cpu = 0, cpu_idx, thread = 0, thread_idx;
+ 	struct perf_counts_values *old_count, *new_count;
+ 	struct pyrf_counts_values *count_values = PyObject_New(struct pyrf_counts_values,
+@@ -1192,7 +1200,7 @@ static PyObject *pyrf_evsel__read(struct pyrf_evsel *pevsel,
+ static PyObject *pyrf_evsel__str(PyObject *self)
+ {
+ 	struct pyrf_evsel *pevsel = (void *)self;
+-	struct evsel *evsel = &pevsel->evsel;
++	struct evsel *evsel = pevsel->evsel;
+ 
+ 	return PyUnicode_FromFormat("evsel(%s/%s/)", evsel__pmu_name(evsel), evsel__name(evsel));
+ }
+@@ -1225,30 +1233,183 @@ static PyMethodDef pyrf_evsel__methods[] = {
+ 	{ .ml_name = NULL, }
+ };
+ 
+-#define evsel_member_def(member, ptype, help) \
+-	{ #member, ptype, \
+-	  offsetof(struct pyrf_evsel, evsel.member), \
+-	  0, help }
++static PyObject *pyrf_evsel__get_tracking(PyObject *self, void */*closure*/)
++{
++	struct pyrf_evsel *pevsel = (void *)self;
+ 
+-#define evsel_attr_member_def(member, ptype, help) \
+-	{ #member, ptype, \
+-	  offsetof(struct pyrf_evsel, evsel.core.attr.member), \
+-	  0, help }
++	if (pevsel->evsel->tracking)
++		Py_RETURN_TRUE;
++	else
++		Py_RETURN_FALSE;
++}
+ 
+-static PyMemberDef pyrf_evsel__members[] = {
+-	evsel_member_def(tracking, T_BOOL, "tracking event."),
+-	evsel_attr_member_def(type, T_UINT, "attribute type."),
+-	evsel_attr_member_def(size, T_UINT, "attribute size."),
+-	evsel_attr_member_def(config, T_ULONGLONG, "attribute config."),
+-	evsel_attr_member_def(sample_period, T_ULONGLONG, "attribute sample_period."),
+-	evsel_attr_member_def(sample_type, T_ULONGLONG, "attribute sample_type."),
+-	evsel_attr_member_def(read_format, T_ULONGLONG, "attribute read_format."),
+-	evsel_attr_member_def(wakeup_events, T_UINT, "attribute wakeup_events."),
+-	{ .name = NULL, },
++static int pyrf_evsel__set_tracking(PyObject *self, PyObject *val, void */*closure*/)
++{
++	struct pyrf_evsel *pevsel = (void *)self;
 +
-+	ret =3D PyObject_CallFunction(psession->sample, "O", pyevent);
-+	if (!ret) {
-+		Py_DECREF(pyevent);
-+		return -1;
-+	}
-+	Py_DECREF(ret);
-+	Py_DECREF(pyevent);
++	pevsel->evsel->tracking = Py_IsTrue(val) ? true : false;
 +	return 0;
 +}
 +
-+static PyObject *pyrf_session__find_thread(struct pyrf_session *psession, =
-PyObject *args)
++static int pyrf_evsel__set_attr_config(PyObject *self, PyObject *val, void */*closure*/)
 +{
-+	struct machine *machine;
-+	struct thread *thread =3D NULL;
-+	PyObject *result;
-+	int pid;
++	struct pyrf_evsel *pevsel = (void *)self;
 +
-+	if (!PyArg_ParseTuple(args, "i", &pid))
-+		return NULL;
-+
-+	machine =3D &psession->session->machines.host;
-+	thread =3D machine__find_thread(machine, pid, pid);
-+
-+	if (!thread) {
-+		machine =3D perf_session__find_machine(psession->session, pid);
-+		if (machine)
-+			thread =3D machine__find_thread(machine, pid, pid);
-+	}
-+
-+	if (!thread) {
-+		PyErr_Format(PyExc_TypeError, "Failed to find thread %d", pid);
-+		return NULL;
-+	}
-+	result =3D pyrf_thread__from_thread(thread);
-+	thread__put(thread);
-+	return result;
++	pevsel->evsel->core.attr.config = PyLong_AsUnsignedLongLong(val);
++	return PyErr_Occurred() ? -1 : 0;
 +}
 +
-+static PyObject *pyrf_session__new(PyTypeObject *type, PyObject *args, PyO=
-bject *kwargs)
++static PyObject *pyrf_evsel__get_attr_config(PyObject *self, void */*closure*/)
 +{
-+	struct pyrf_data *pdata;
-+	PyObject *sample =3D NULL;
-+	static char *kwlist[] =3D { "data", "sample", NULL };
-+	struct pyrf_session *psession;
-+	struct perf_session *session;
++	struct pyrf_evsel *pevsel = (void *)self;
 +
-+	if (!PyArg_ParseTupleAndKeywords(args, kwargs, "O!|O", kwlist, &pyrf_data=
-__type, &pdata,
-+					 &sample))
-+		return NULL;
-+
-+	psession =3D PyObject_New(struct pyrf_session, type);
-+	if (!psession)
-+		return NULL;
-+
-+	psession->session =3D NULL;
-+	psession->sample =3D NULL;
-+
-+	Py_INCREF(pdata);
-+	psession->pdata =3D pdata;
-+
-+	perf_tool__init(&psession->tool, /*ordered_events=3D*/true);
-+	psession->tool.ordering_requires_timestamps =3D true;
-+
-+	#define ADD_TOOL(name)						\
-+	do {								\
-+		if (name) {						\
-+			if (!PyCallable_Check(name)) {			\
-+				PyErr_SetString(PyExc_TypeError, #name " must be callable"); \
-+				goto err_out;				\
-+			}						\
-+			psession->tool.name =3D pyrf_session_tool__##name; \
-+			Py_INCREF(name);				\
-+			psession->name =3D name;				\
-+		}							\
-+	} while (0)
-+
-+	ADD_TOOL(sample);
-+	#undef ADD_TOOL
-+
-+	psession->tool.comm		=3D perf_event__process_comm;
-+	psession->tool.mmap		=3D perf_event__process_mmap;
-+	psession->tool.mmap2            =3D perf_event__process_mmap2;
-+	psession->tool.namespaces       =3D perf_event__process_namespaces;
-+	psession->tool.cgroup           =3D perf_event__process_cgroup;
-+	psession->tool.exit             =3D perf_event__process_exit;
-+	psession->tool.fork             =3D perf_event__process_fork;
-+	psession->tool.ksymbol          =3D perf_event__process_ksymbol;
-+	psession->tool.text_poke        =3D perf_event__process_text_poke;
-+	psession->tool.build_id         =3D perf_event__process_build_id;
-+	session =3D perf_session__new(&pdata->data, &psession->tool);
-+	if (IS_ERR(session)) {
-+		PyErr_Format(PyExc_IOError, "failed to create session: %ld", PTR_ERR(ses=
-sion));
-+		goto err_out;
-+	}
-+	psession->session =3D session;
-+
-+	if (symbol__init(perf_session__env(session)) < 0) {
-+		PyErr_SetString(PyExc_OSError, "perf: symbol__init failed");
-+		goto err_out;
-+	}
-+
-+	if (perf_session__create_kernel_maps(session) < 0)
-+		pr_warning("Cannot read kernel map\n");
-+
-+	return (PyObject *)psession;
-+err_out:
-+	Py_DECREF(psession);
-+	return NULL;
++	return PyLong_FromUnsignedLongLong(pevsel->evsel->core.attr.config);
 +}
 +
-+static void pyrf_session__delete(struct pyrf_session *psession)
++static int pyrf_evsel__set_attr_read_format(PyObject *self, PyObject *val, void */*closure*/)
 +{
-+	perf_session__delete(psession->session);
-+	Py_XDECREF(psession->pdata);
-+	Py_XDECREF(psession->sample);
-+	Py_TYPE(psession)->tp_free((PyObject *)psession);
++	struct pyrf_evsel *pevsel = (void *)self;
++
++	pevsel->evsel->core.attr.read_format = PyLong_AsUnsignedLongLong(val);
++	return PyErr_Occurred() ? -1 : 0;
 +}
 +
-+static PyObject *pyrf_session__find_thread_events(struct pyrf_session *pse=
-ssion)
++static PyObject *pyrf_evsel__get_attr_read_format(PyObject *self, void */*closure*/)
 +{
-+	int err =3D perf_session__process_events(psession->session);
++	struct pyrf_evsel *pevsel = (void *)self;
 +
-+	if (PyErr_Occurred())
-+		return NULL;
-+
-+	return PyLong_FromLong(err);
++	return PyLong_FromUnsignedLongLong(pevsel->evsel->core.attr.read_format);
 +}
 +
-+static PyMethodDef pyrf_session__methods[] =3D {
++static int pyrf_evsel__set_attr_sample_period(PyObject *self, PyObject *val, void */*closure*/)
++{
++	struct pyrf_evsel *pevsel = (void *)self;
++
++	pevsel->evsel->core.attr.sample_period = PyLong_AsUnsignedLongLong(val);
++	return PyErr_Occurred() ? -1 : 0;
++}
++
++static PyObject *pyrf_evsel__get_attr_sample_period(PyObject *self, void */*closure*/)
++{
++	struct pyrf_evsel *pevsel = (void *)self;
++
++	return PyLong_FromUnsignedLongLong(pevsel->evsel->core.attr.sample_period);
++}
++
++static int pyrf_evsel__set_attr_sample_type(PyObject *self, PyObject *val, void */*closure*/)
++{
++	struct pyrf_evsel *pevsel = (void *)self;
++
++	pevsel->evsel->core.attr.sample_type = PyLong_AsUnsignedLongLong(val);
++	return PyErr_Occurred() ? -1 : 0;
++}
++
++static PyObject *pyrf_evsel__get_attr_sample_type(PyObject *self, void */*closure*/)
++{
++	struct pyrf_evsel *pevsel = (void *)self;
++
++	return PyLong_FromUnsignedLongLong(pevsel->evsel->core.attr.sample_type);
++}
++
++static PyObject *pyrf_evsel__get_attr_size(PyObject *self, void */*closure*/)
++{
++	struct pyrf_evsel *pevsel = (void *)self;
++
++	return PyLong_FromUnsignedLong(pevsel->evsel->core.attr.size);
++}
++
++static int pyrf_evsel__set_attr_type(PyObject *self, PyObject *val, void */*closure*/)
++{
++	struct pyrf_evsel *pevsel = (void *)self;
++
++	pevsel->evsel->core.attr.type = PyLong_AsUnsignedLong(val);
++	return PyErr_Occurred() ? -1 : 0;
++}
++
++static PyObject *pyrf_evsel__get_attr_type(PyObject *self, void */*closure*/)
++{
++	struct pyrf_evsel *pevsel = (void *)self;
++
++	return PyLong_FromUnsignedLong(pevsel->evsel->core.attr.type);
++}
++
++static int pyrf_evsel__set_attr_wakeup_events(PyObject *self, PyObject *val, void */*closure*/)
++{
++	struct pyrf_evsel *pevsel = (void *)self;
++
++	pevsel->evsel->core.attr.wakeup_events = PyLong_AsUnsignedLong(val);
++	return PyErr_Occurred() ? -1 : 0;
++}
++
++static PyObject *pyrf_evsel__get_attr_wakeup_events(PyObject *self, void */*closure*/)
++{
++	struct pyrf_evsel *pevsel = (void *)self;
++
++	return PyLong_FromUnsignedLong(pevsel->evsel->core.attr.wakeup_events);
++}
++
++static PyGetSetDef pyrf_evsel__getset[] = {
 +	{
-+		.ml_name  =3D "process_events",
-+		.ml_meth  =3D (PyCFunction)pyrf_session__find_thread_events,
-+		.ml_flags =3D METH_NOARGS,
-+		.ml_doc	  =3D PyDoc_STR("Iterate and process events.")
++		.name = "tracking",
++		.get = pyrf_evsel__get_tracking,
++		.set = pyrf_evsel__set_tracking,
++		.doc = "tracking event.",
 +	},
 +	{
-+		.ml_name  =3D "find_thread",
-+		.ml_meth  =3D (PyCFunction)pyrf_session__find_thread,
-+		.ml_flags =3D METH_VARARGS,
-+		.ml_doc	  =3D PyDoc_STR("Returns the thread associated with a pid.")
++		.name = "config",
++		.get = pyrf_evsel__get_attr_config,
++		.set = pyrf_evsel__set_attr_config,
++		.doc = "attribute config.",
 +	},
-+	{ .ml_name =3D NULL, }
-+};
-+
-+static const char pyrf_session__doc[] =3D PyDoc_STR("perf session object."=
-);
-+
-+static PyTypeObject pyrf_session__type =3D {
-+	PyVarObject_HEAD_INIT(NULL, 0)
-+	.tp_name	=3D "perf.session",
-+	.tp_basicsize	=3D sizeof(struct pyrf_session),
-+	.tp_dealloc	=3D (destructor)pyrf_session__delete,
-+	.tp_flags	=3D Py_TPFLAGS_DEFAULT|Py_TPFLAGS_BASETYPE,
-+	.tp_methods	=3D pyrf_session__methods,
-+	.tp_doc		=3D pyrf_session__doc,
-+	.tp_new		=3D pyrf_session__new,
-+};
-+
-+static int pyrf_session__setup_types(void)
++	{
++		.name = "read_format",
++		.get = pyrf_evsel__get_attr_read_format,
++		.set = pyrf_evsel__set_attr_read_format,
++		.doc = "attribute read_format.",
++	},
++	{
++		.name = "sample_period",
++		.get = pyrf_evsel__get_attr_sample_period,
++		.set = pyrf_evsel__set_attr_sample_period,
++		.doc = "attribute sample_period.",
++	},
++	{
++		.name = "sample_type",
++		.get = pyrf_evsel__get_attr_sample_type,
++		.set = pyrf_evsel__set_attr_sample_type,
++		.doc = "attribute sample_type.",
++	},
++	{
++		.name = "size",
++		.get = pyrf_evsel__get_attr_size,
++		.doc = "attribute size.",
++	},
++	{
++		.name = "type",
++		.get = pyrf_evsel__get_attr_type,
++		.set = pyrf_evsel__set_attr_type,
++		.doc = "attribute type.",
++	},
++	{
++		.name = "wakeup_events",
++		.get = pyrf_evsel__get_attr_wakeup_events,
++		.set = pyrf_evsel__set_attr_wakeup_events,
++		.doc = "attribute wakeup_events.",
++	},
++	{ .name = NULL},
+ };
+ 
+ static const char pyrf_evsel__doc[] = PyDoc_STR("perf event selector list object.");
+ 
++static PyObject *pyrf_evsel__getattro(struct pyrf_evsel *pevsel, PyObject *attr_name)
 +{
-+	return PyType_Ready(&pyrf_session__type);
++	if (!pevsel->evsel) {
++		PyErr_SetString(PyExc_ValueError, "evsel not initialized");
++		return NULL;
++	}
++	return PyObject_GenericGetAttr((PyObject *) pevsel, attr_name);
 +}
 +
- static PyMethodDef perf__methods[] =3D {
- 	{
- 		.ml_name  =3D "metrics",
-@@ -2467,8 +2754,10 @@ PyMODINIT_FUNC PyInit_perf(void)
- 	};
- 	PyObject *module =3D PyModule_Create(&moduledef);
-=20
--	if (module =3D=3D NULL ||
--	    pyrf_event__setup_types() < 0 ||
-+	if (module =3D=3D NULL)
-+		return NULL;
+ static PyTypeObject pyrf_evsel__type = {
+ 	PyVarObject_HEAD_INIT(NULL, 0)
+ 	.tp_name	= "perf.evsel",
+@@ -1256,16 +1417,27 @@ static PyTypeObject pyrf_evsel__type = {
+ 	.tp_dealloc	= (destructor)pyrf_evsel__delete,
+ 	.tp_flags	= Py_TPFLAGS_DEFAULT|Py_TPFLAGS_BASETYPE,
+ 	.tp_doc		= pyrf_evsel__doc,
+-	.tp_members	= pyrf_evsel__members,
++	.tp_getset	= pyrf_evsel__getset,
+ 	.tp_methods	= pyrf_evsel__methods,
+ 	.tp_init	= (initproc)pyrf_evsel__init,
+ 	.tp_str         = pyrf_evsel__str,
+ 	.tp_repr        = pyrf_evsel__str,
++	.tp_getattro	= (getattrofunc) pyrf_evsel__getattro,
+ };
+ 
++static PyObject *pyrf_evsel__new(PyTypeObject *type, PyObject *args, PyObject *kwargs)
++{
++	struct pyrf_evsel *pevsel;
 +
-+	if (pyrf_event__setup_types() < 0 ||
- 	    pyrf_evlist__setup_types() < 0 ||
- 	    pyrf_evsel__setup_types() < 0 ||
- 	    pyrf_thread_map__setup_types() < 0 ||
-@@ -2476,8 +2765,12 @@ PyMODINIT_FUNC PyInit_perf(void)
- 	    pyrf_pmu_iterator__setup_types() < 0 ||
- 	    pyrf_pmu__setup_types() < 0 ||
- 	    pyrf_counts_values__setup_types() < 0 ||
--	    pyrf_data__setup_types() < 0)
--		return module;
-+	    pyrf_data__setup_types() < 0 ||
-+	    pyrf_session__setup_types() < 0 ||
-+	    pyrf_thread__setup_types() < 0) {
-+		Py_DECREF(module);
-+		return NULL;
-+	}
-=20
- 	/* The page_size is placed in util object. */
- 	page_size =3D sysconf(_SC_PAGE_SIZE);
-@@ -2527,6 +2820,9 @@ PyMODINIT_FUNC PyInit_perf(void)
- 	Py_INCREF(&pyrf_data__type);
- 	PyModule_AddObject(module, "data", (PyObject *)&pyrf_data__type);
-=20
-+	Py_INCREF(&pyrf_session__type);
-+	PyModule_AddObject(module, "session", (PyObject *)&pyrf_session__type);
++	pevsel = (struct pyrf_evsel *)PyType_GenericNew(type, args, kwargs);
++	if (pevsel)
++		pevsel->evsel = NULL;
++	return (PyObject *)pevsel;
++}
 +
- 	dict =3D PyModule_GetDict(module);
- 	if (dict =3D=3D NULL)
- 		goto error;
-@@ -2540,7 +2836,9 @@ PyMODINIT_FUNC PyInit_perf(void)
- 	}
-=20
- error:
--	if (PyErr_Occurred())
--		PyErr_SetString(PyExc_ImportError, "perf: Init failed!");
-+	if (PyErr_Occurred()) {
-+		Py_XDECREF(module);
-+		return NULL;
-+	}
- 	return module;
+ static int pyrf_evsel__setup_types(void)
+ {
+-	pyrf_evsel__type.tp_new = PyType_GenericNew;
++	pyrf_evsel__type.tp_new = pyrf_evsel__new;
+ 	return PyType_Ready(&pyrf_evsel__type);
  }
---=20
+ 
+@@ -1562,13 +1734,13 @@ static PyObject *pyrf_evlist__add(struct pyrf_evlist *pevlist,
+ 	PyObject *pevsel;
+ 	struct evsel *evsel;
+ 
+-	if (!PyArg_ParseTuple(args, "O", &pevsel))
++	if (!PyArg_ParseTuple(args, "O!", &pyrf_evsel__type, &pevsel))
+ 		return NULL;
+ 
+ 	Py_INCREF(pevsel);
+-	evsel = &((struct pyrf_evsel *)pevsel)->evsel;
++	evsel = ((struct pyrf_evsel *)pevsel)->evsel;
+ 	evsel->core.idx = evlist->core.nr_entries;
+-	evlist__add(evlist, evsel);
++	evlist__add(evlist, evsel__get(evsel));
+ 
+ 	return Py_BuildValue("i", evlist->core.nr_entries);
+ }
+@@ -1626,7 +1798,7 @@ static PyObject *pyrf_evlist__read_on_cpu(struct pyrf_evlist *pevlist,
+ 			return Py_None;
+ 		}
+ 
+-		pevent->evsel = evsel;
++		pevent->evsel = evsel__get(evsel);
+ 
+ 		perf_mmap__consume(&md->core);
+ 
+@@ -1803,12 +1975,7 @@ static PyObject *pyrf_evsel__from_evsel(struct evsel *evsel)
+ 	if (!pevsel)
+ 		return NULL;
+ 
+-	memset(&pevsel->evsel, 0, sizeof(pevsel->evsel));
+-	evsel__init(&pevsel->evsel, &evsel->core.attr, evsel->core.idx);
+-
+-	evsel__clone(&pevsel->evsel, evsel);
+-	if (evsel__is_group_leader(evsel))
+-		evsel__set_leader(&pevsel->evsel, &pevsel->evsel);
++	pevsel->evsel = evsel__get(evsel);
+ 	return (PyObject *)pevsel;
+ }
+ 
+diff --git a/tools/perf/util/session.c b/tools/perf/util/session.c
+index 1ac6cd43c38b..deb5b9dfe44c 100644
+--- a/tools/perf/util/session.c
++++ b/tools/perf/util/session.c
+@@ -1373,6 +1373,7 @@ static int evlist__deliver_deferred_callchain(struct evlist *evlist,
+ 		sample->evsel = evlist__id2evsel(evlist, sample->id);
+ 		ret = tool->callchain_deferred(tool, event, sample,
+ 					       sample->evsel, machine);
++		evsel__put(sample->evsel);
+ 		sample->evsel = saved_evsel;
+ 		return ret;
+ 	}
+-- 
 2.54.0.545.g6539524ca2-goog
 
 
