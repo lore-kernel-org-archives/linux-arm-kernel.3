@@ -4,111 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4955FF886C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 21:34:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FF35FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 21:38:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RkVxirn7pSspooJU84wz8D3Q6wwUo/rydX5W69TUoos=; b=06wihTen+AlCg3CU3cYa32YlHR
-	BkrcmpYim4SxRbvKfwLgDtVrnVaLPugtqdRyq+4q2Ej3bHCZtrTtrHT8tLg9GjtlfFxpIZHwiMvVN
-	Jo8VMyetWzJbSfFiiGGNORnJmTol8R181JCVNwFKUNbsBXejW6hU77nKumB5iI6qHpnDwKOTzeBYo
-	SOBGrtt4z4GVYIoY7MaClaaZE3Qy13CIoa0F1dAFBhcWE2iwgvg0gBeWUYTBEljRQytPobrojMdCg
-	Ez132MfUfSULPjJZ3iI/YhsuI+O1NDGov4hLPjgE+iKdoB5PLQTIIFMkoAsJ4AwCclX+xv066oUAG
-	WFDMwSEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m2SIkG8G4dme99QjBJF700FHzCmI2Nw1YXi++Sm72C8=; b=RQ+96j/09COVWavjIyWpw0Hchn
+	JGkHad/i+JDXcH2qyDeLdqIIE3rJrqe1bMmxBPHuEYiipkmF6yO7odXjPf0/jSLD/DhSbqb1/vS6U
+	SdV9ZmhAKAC271g7nF39m2MsArpQ4eSsrzPtQKGvuIBfqoAirpCwxX+rkf/7nv/xpmcJVooi+Xq17
+	8vLmCimQB4ANZQg6NDYwFfBcBPYz7ej6BS5quQpbJvljaqo8Fol2yrqZ2axOjan0Fyh5e592JO/Xe
+	mr6VF4XuRCziIh0P+On+K56p/PNAHuyD8py74K60joFgvtrLtXmzCmFualbN9pskQW49ISEUsu6DT
+	XVnc4d7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHq46-00000002Wdv-3KIA;
-	Tue, 28 Apr 2026 21:33:58 +0000
-Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1wHq88-00000002Wvj-24CG;
+	Tue, 28 Apr 2026 21:38:08 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHq43-00000002WdV-46md
+	id 1wHq84-00000002WvA-2eDm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 21:33:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fXWwqKvKVPFWT82dq7klm78e6tAcREwTZOTmozEp+ZSe76Rz7/PI3zm2cZoWQkUc13IwkqToraBXDYO+3WRIEutkunDciCxOnFT3ZPoEMeIVuaPxZpwQaqmiUBbQIqq+fu4U7GreRdv+Cz7/RDZy1rKhmAAYo18hyp/C56+8+4yD8fVxSWm/ZM3X0g3QPELfKVP64ZjshyBO2WPx6Yt8sgo1um2UvUV7R3WzSbF572lXF7ZS/5Tj9AOJYM5vByuwZ8rqgcTDn5724ZfsTsxdKVBTdaAMtretCCb8y4AyfL0h+hj5exoUaKy256JfuxxH4rDN4xZfbtJUPuqXg7Y/Vw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RkVxirn7pSspooJU84wz8D3Q6wwUo/rydX5W69TUoos=;
- b=LIhN/e7rAwYLOszcU6rGKHAOuXosv+X5P3uO+8F0A+PNBlhHpLvlTAN2n9baWl7ZPbCZ/FEfizUUmQO0J8qJBmGWZLCpKro2tcbuDDu2NrXiTNQVzDlhqALbGjeURBfNc2kMp2MSed80HqdUkjlXvvFJsCmwiCxHApOHUK/x4o+69aDMxz2FTyuMuZu6t/xHPYACIjdTXQnzyRBBN5p2xiT5tfWbv0bmrISaABWCVW8KuY7HHOjTN/s0Z2Oe9XsB8XbXU1Urr2k/oQ6o4MOXCFTXQYGltVXngHOfFOoDQxA7Tj7ClBNpJidC9TtnzBeIZq2kfTxWtx6v27aYXm7cHQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RkVxirn7pSspooJU84wz8D3Q6wwUo/rydX5W69TUoos=;
- b=Lgfh8/kKUcA50dag5pfgz6as9WH2mAzWTiDj9wWI4b81fBeBDu3bt0IQiV+qb2IFChCo2Y0TokiUICU1iI2+AUg2SDZ0hNg1LIfOIxxSqt0boHJ/Thorr32Po8M+dEFVgOvVYClE9hN3XvP+jjm4tQOPL2IkLdZAA4iHLcWc31I=
-Received: from SJ0PR13CA0206.namprd13.prod.outlook.com (2603:10b6:a03:2c3::31)
- by CH3PR12MB9282.namprd12.prod.outlook.com (2603:10b6:610:1cb::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.17; Tue, 28 Apr
- 2026 21:33:44 +0000
-Received: from SJ1PEPF00001CEA.namprd03.prod.outlook.com
- (2603:10b6:a03:2c3:cafe::52) by SJ0PR13CA0206.outlook.office365.com
- (2603:10b6:a03:2c3::31) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9870.16 via Frontend Transport; Tue,
- 28 Apr 2026 21:33:44 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- SJ1PEPF00001CEA.mail.protection.outlook.com (10.167.242.26) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9846.18 via Frontend Transport; Tue, 28 Apr 2026 21:33:44 +0000
-Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Tue, 28 Apr
- 2026 16:33:43 -0500
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb10.amd.com
- (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Tue, 28 Apr
- 2026 16:33:43 -0500
-Received: from xsjtanmays50.xilinx.com (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Tue, 28 Apr 2026 16:33:42 -0500
-From: Tanmay Shah <tanmay.shah@amd.com>
-To: <michal.simek@amd.com>, <andersson@kernel.org>,
-	<mathieu.poirier@linaro.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-remoteproc@vger.kernel.org>
-Subject: [PATCH v2] remoteproc: xlnx: check remote core state
-Date: Tue, 28 Apr 2026 14:33:27 -0700
-Message-ID: <20260428213327.210574-1-tanmay.shah@amd.com>
-X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CEA:EE_|CH3PR12MB9282:EE_
-X-MS-Office365-Filtering-Correlation-Id: 647c5ebf-f018-4458-2a8b-08dea56dd308
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|1800799024|36860700016|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: a3lxhqGMyyaYiua/0PmUJV+t/r+Ck1a+0n7przUwE/S9P3jjqGwq86aXSvrD8d15Jmeemx63fVYBt1YFY1fQK5BKlxPPWbUM+zOwjtGis3XOC19LJO84lMlbeOBRM3+3yZUtyYKUznUrtssANEZEdOGe68xWLQVjjyoGv8wuN84j1AXFzJOgOTzIkDsKSVYlxQEYN8jFcJ4lzcBNncNNgeOE7B0192ypEDSuyqR/R8RulrQbzP5lhcSlrnNcn9dZIaE6UIUmam4IPqoLQJK3pmaz+7i5W1xQAkSCBNlJtVsEz1oKDlB0oqmbqkn9FnWiU2AMGCi+VwpIJa0xqhpqSdMnFzvxTXAVZZnj4XClAVvCFIxzhPlwg7EkV3+GZL19GnnemMcEROWePY3+cx4xiSCXyMMHsR3/LQGh8itnMZgzMK8bgzIeXy8b9qRgJXcKYrOME/VVLQSTkSfD+qQZg2sien6jerDuQQotHaQkXm0H/w8f/OKz1/q9aI42aGUdSM8zoTWvUaolNOX7WsVlIvklvTUQQW+4bmdOazKzfehuRVFJiOlmxHW7W/LwPEkSZmRcyXiD+PMaEC6SJWq7fS9jYwn+0crk3/qAmO63MOagDR8yizOAKjZrUx05N5BYUUOS6uCDECbqd5NmQmIcFHZCz5/6VvtPOCIMWIp8pvEXUbBvmjxoyW2i5clMsw93FJMZcTFTP9wJInXPWWggWuzNh0+My4/S16naXNgkIH3g0o79Bi4qVRopbVCPW+6JoUTynmnobUVkQV1zohRrkA==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(1800799024)(36860700016)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: ITUaI9relxusjn80TgphpRususyW9VGvO0LQtnkKA8DFBtmFSxXc//cO1VuETEOOgrEdTb4YrG2YghBMycJoKuA4sJmJ8PTACJ1DTHIO+/z9UZt01nUrmyAePw2ZCZdr3LqkDvNHZBDA86iF0ee2fToOmD75seYhDh7SkzgU0Zs5Upg+0/YzAvGJkhC9WacJkKWaE4Pjr0QGu1sFuHmaCY0fhOmdluhxLyHiTGCaWsnItfu9rmcSPlOOooz3TwG9WvNG9jcnhJ+lqV3EIBuB7csiL5xD1XLsye29cHkE+Bd857p9+cqVB/L2AoYgUv7GEDn+1gMHSj+duwfAYaR2DcBJCbNSIdNnoQeWpfi0/HuXEpY3gphf8YZo4ugmkxwWSfaZT4TXSbt/d+TAAN75G0Lmh0STexKF157dlNL2BTyQ36I1GFGISs0bkFoqzRxq
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2026 21:33:44.2395
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 647c5ebf-f018-4458-2a8b-08dea56dd308
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CEA.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9282
+	Tue, 28 Apr 2026 21:38:07 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 3E99A1A3479;
+	Tue, 28 Apr 2026 21:37:59 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id E94DD601D0;
+	Tue, 28 Apr 2026 21:37:58 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 049BC1072939F;
+	Tue, 28 Apr 2026 23:37:43 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1777412276; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=m2SIkG8G4dme99QjBJF700FHzCmI2Nw1YXi++Sm72C8=;
+	b=BKpyABXYUA3W1yBGbOawA4h4lg+xP/ujDg9fnM/GDmfVvQtFe4V86zv2jRnYLbIW85egeu
+	gzsW7by84jCsCEyDe38rcP0G9Lu0O5PyhiJVlX1VH0lqEiLpLLVqCPQ6zb2WFjm+11Eb5Y
+	n8RhoTuzI6NlP3mUu2V0iIjtY0wmrD64vrUUDjJFf8c9e/GfSIul/+IfTbDMPsSiDwMCw7
+	iSMV2XUHFoLSDmaAwdjiKsMThFnyCYBB9t0d5djhof0yNcYWt/373RotXiqc8RA8Tj6M7F
+	lFivzfSQqW2W19Ln1HG5awMplQ6C4gwNMrAWCyzv+PL9twiFGEXnUYVU/us/rQ==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 28 Apr 2026 23:37:43 +0200
+Message-Id: <DI5429HR7UGP.IJHX75ZB16AZ@bootlin.com>
+Subject: Re: [PATCH RFC bpf-next 2/8] bpf: mark instructions accessing
+ program stack
+Cc: <ebpf@linuxfoundation.org>, "Bastien Curutchet"
+ <bastien.curutchet@bootlin.com>, "Thomas Petazzoni"
+ <thomas.petazzoni@bootlin.com>, "Xu Kuohai" <xukuohai@huawei.com>,
+ <bpf@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <netdev@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
+ <linux-stm32@st-md-mailman.stormreply.com>,
+ <linux-arm-kernel@lists.infradead.org>, <kasan-dev@googlegroups.com>,
+ <linux-mm@kvack.org>
+From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
+To: "Ihor Solodrai" <ihor.solodrai@linux.dev>,
+ =?utf-8?b?QWxleGlzIExvdGhvcsOpIChlQlBGIEZvdW5kYXRpb24p?=
+ <alexis.lothore@bootlin.com>, "Alexei Starovoitov" <ast@kernel.org>,
+ "Daniel Borkmann" <daniel@iogearbox.net>, "Andrii Nakryiko"
+ <andrii@kernel.org>, "Martin KaFai Lau" <martin.lau@linux.dev>, "Eduard
+ Zingerman" <eddyz87@gmail.com>, "Kumar Kartikeya Dwivedi"
+ <memxor@gmail.com>, "Song Liu" <song@kernel.org>, "Yonghong Song"
+ <yonghong.song@linux.dev>, "Jiri Olsa" <jolsa@kernel.org>, "John Fastabend"
+ <john.fastabend@gmail.com>, "David S. Miller" <davem@davemloft.net>, "David
+ Ahern" <dsahern@kernel.org>, "Thomas Gleixner" <tglx@kernel.org>, "Ingo
+ Molnar" <mingo@redhat.com>, "Borislav Petkov" <bp@alien8.de>, "Dave Hansen"
+ <dave.hansen@linux.intel.com>, <x86@kernel.org>, "H. Peter Anvin"
+ <hpa@zytor.com>, "Shuah Khan" <shuah@kernel.org>, "Maxime Coquelin"
+ <mcoquelin.stm32@gmail.com>, "Alexandre Torgue"
+ <alexandre.torgue@foss.st.com>, "Andrey Ryabinin" <ryabinin.a.a@gmail.com>,
+ "Alexander Potapenko" <glider@google.com>, "Andrey Konovalov"
+ <andreyknvl@gmail.com>, "Dmitry Vyukov" <dvyukov@google.com>, "Vincenzo
+ Frascino" <vincenzo.frascino@arm.com>, "Andrew Morton"
+ <akpm@linux-foundation.org>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20260413-kasan-v1-0-1a5831230821@bootlin.com>
+ <20260413-kasan-v1-2-1a5831230821@bootlin.com>
+ <7dd64547-25a4-46de-a896-98fcec04468e@linux.dev>
+In-Reply-To: <7dd64547-25a4-46de-a896-98fcec04468e@linux.dev>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_143356_048985_EB004E22 
-X-CRM114-Status: GOOD (  26.52  )
+X-CRM114-CacheID: sfid-20260428_143805_121638_3544AB6B 
+X-CRM114-Status: GOOD (  24.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,185 +102,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The remote state is set to RPROC_DETACHED if the resource table is found
-in the memory. However, this can be wrong if the remote is not started,
-but firmware is still loaded in the memory. Use PM_GET_NODE_STATUS call
-to the firmware to request the state of the RPU node. If the RPU is
-actually out of reset and running, only then move the remote state to
-RPROC_DETACHED, otherwise keep the remote state to RPROC_OFFLINE.
+On Sat Apr 25, 2026 at 1:18 AM CEST, Ihor Solodrai wrote:
+> On 4/13/26 11:28 AM, Alexis Lothor=C3=83=C2=A9 (eBPF Foundation) wrote:
+>> In order to prepare to emit KASAN checks in JITed programs, JIT
+>> compilers need to be aware about whether some load/store instructions
+>> are targeting the bpf program stack, as those should not be monitored
+>> (we already have guard pages for that, and it is difficult anyway to
+>> correctly monitor any kind of data passed on stack).
+>>=20
+>> To support this need, make the BPF verifier mark the instructions that
+>> access program stack:
+>> - add a setter that allows the verifier to mark instructions accessing
+>>   the program stack
+>> - add a getter that allows JIT compilers to check whether instructions
+>>   being JITed are accessing the stack
+>>=20
+>> Signed-off-by: Alexis Lothor=C3=A9 (eBPF Foundation) <alexis.lothore@boo=
+tlin.com>
+>> ---
+>>  include/linux/bpf.h          |  2 ++
+>>  include/linux/bpf_verifier.h |  2 ++
+>>  kernel/bpf/core.c            | 10 ++++++++++
+>>  kernel/bpf/verifier.c        |  7 +++++++
+>>  4 files changed, 21 insertions(+)
+>>=20
+>> diff --git a/include/linux/bpf.h b/include/linux/bpf.h
+>> index b4b703c90ca9..774a0395c498 100644
+>> --- a/include/linux/bpf.h
+>> +++ b/include/linux/bpf.h
+>> @@ -1543,6 +1543,8 @@ void bpf_jit_uncharge_modmem(u32 size);
+>>  bool bpf_prog_has_trampoline(const struct bpf_prog *prog);
+>>  bool bpf_insn_is_indirect_target(const struct bpf_verifier_env *env, co=
+nst struct bpf_prog *prog,
+>>  				 int insn_idx);
+>> +bool bpf_insn_accesses_stack(const struct bpf_verifier_env *env,
+>> +			     const struct bpf_prog *prog, int insn_idx);
+>>  #else
+>>  static inline int bpf_trampoline_link_prog(struct bpf_tramp_link *link,
+>>  					   struct bpf_trampoline *tr,
+>> diff --git a/include/linux/bpf_verifier.h b/include/linux/bpf_verifier.h
+>> index b148f816f25b..ab99ed4c4227 100644
+>> --- a/include/linux/bpf_verifier.h
+>> +++ b/include/linux/bpf_verifier.h
+>> @@ -660,6 +660,8 @@ struct bpf_insn_aux_data {
+>>  	u16 const_reg_map_mask;
+>>  	u16 const_reg_subprog_mask;
+>>  	u32 const_reg_vals[10];
+>> +	/* instruction accesses stack */
+>> +	bool accesses_stack;
+>>  };
+>> =20
+>>  #define MAX_USED_MAPS 64 /* max number of maps accessed by one eBPF pro=
+gram */
+>> diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
+>> index 8b018ff48875..340abfdadbed 100644
+>> --- a/kernel/bpf/core.c
+>> +++ b/kernel/bpf/core.c
+>> @@ -1582,6 +1582,16 @@ bool bpf_insn_is_indirect_target(const struct bpf=
+_verifier_env *env, const struc
+>>  	insn_idx +=3D prog->aux->subprog_start;
+>>  	return env->insn_aux_data[insn_idx].indirect_target;
+>>  }
+>> +
+>> +bool bpf_insn_accesses_stack(const struct bpf_verifier_env *env,
+>> +			     const struct bpf_prog *prog, int insn_idx)
+>> +{
+>> +	if (!env)
+>> +		return false;
+>> +	insn_idx +=3D prog->aux->subprog_start;
+>> +	return env->insn_aux_data[insn_idx].accesses_stack;
+>> +}
+>> +
+>>  #endif /* CONFIG_BPF_JIT */
+>> =20
+>>  /* Base function for offset calculation. Needs to go into .text section=
+,
+>> diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+>> index 1e36b9e91277..7bce4fb4e540 100644
+>> --- a/kernel/bpf/verifier.c
+>> +++ b/kernel/bpf/verifier.c
+>> @@ -3502,6 +3502,11 @@ static void mark_indirect_target(struct bpf_verif=
+ier_env *env, int idx)
+>>  	env->insn_aux_data[idx].indirect_target =3D true;
+>>  }
+>> =20
+>> +static void mark_insn_accesses_stack(struct bpf_verifier_env *env, int =
+idx)
+>> +{
+>> +	env->insn_aux_data[idx].accesses_stack =3D true;
+>> +}
+>> +
+>>  #define LR_FRAMENO_BITS	3
+>>  #define LR_SPI_BITS	6
+>>  #define LR_ENTRY_BITS	(LR_SPI_BITS + LR_FRAMENO_BITS + 1)
+>> @@ -6490,6 +6495,8 @@ static int check_mem_access(struct bpf_verifier_en=
+v *env, int insn_idx, u32 regn
+>>  		else
+>>  			err =3D check_stack_write(env, regno, off, size,
+>>  						value_regno, insn_idx);
+>> +
+>> +		mark_insn_accesses_stack(env, insn_idx);
+>
+> I am not sure this can be done unconditionally here.
+>
+> It may be possible in different states to have different pointer
+> types for the affected reg (PTR_TO_STACK in one execution path and say
+> PTR_TO_MAP_VALUE in another). And if set uncoditionally,
+> instrumentation may be skipped for legitimate targets.
+>
+> Maybe reset by default in check_mem_access()?
 
-Signed-off-by: Tanmay Shah <tanmay.shah@amd.com>
----
+Hmm, ok, thanks, I missed this subtlety. I still need to dig in there to
+make sure to really understand how the verifier handles those states,
+but if I understand correctly your point, I guess that just resetting
+the "accesses stack" flag at the entry of check_mem_access is not
+enough: it would make the final result depend on the order of the states
+being checked, eg:
+- first state being checked result in PTR_TO_MAP_VALUE, no flag set
+- second (and final) state being checked result in PTR_TO_STACK, flag is
+  now set
+- if no other state: insn ends up being (wrongly) marked to be ignored=20
 
-Changes in v2:
-  - fix subject line: %s/node/core/
-  - add comment explaining optional resource table availability in the
-    fw
+So unless I am misunderstanding things here, the question rather becomes
+"for this specific insn, is there any state in which the accessed memory
+is anything else other than PTR_TO_STACK". The flag could just be
+inverted (ie set to true by default), and reset by any state resulting
+in something other than PTR_TO_STACK.
 
- drivers/firmware/xilinx/zynqmp.c        | 28 +++++++++++++++
- drivers/remoteproc/xlnx_r5_remoteproc.c | 46 +++++++++++++++++++------
- include/linux/firmware/xlnx-zynqmp.h    | 21 +++++++++++
- 3 files changed, 85 insertions(+), 10 deletions(-)
-
-diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/zynqmp.c
-index fbe8510f4927..af838b2dc327 100644
---- a/drivers/firmware/xilinx/zynqmp.c
-+++ b/drivers/firmware/xilinx/zynqmp.c
-@@ -1450,6 +1450,34 @@ int zynqmp_pm_get_node_status(const u32 node, u32 *const status,
- }
- EXPORT_SYMBOL_GPL(zynqmp_pm_get_node_status);
- 
-+/**
-+ * zynqmp_pm_get_rpu_node_status - PM call to request a RPU node's current power state
-+ * @node:		ID of the RPU component or sub-system in question
-+ * @status:		Current operating state of the requested RPU node.
-+ * @requirements:	Current requirements asserted on the RPU node.
-+ * @usage:		Usage information, used for RPU slave nodes only:
-+ *			PM_USAGE_NO_MASTER	- No master is currently using
-+ *						  the node
-+ *			PM_USAGE_CURRENT_MASTER	- Only requesting master is
-+ *						  currently using the node
-+ *			PM_USAGE_OTHER_MASTER	- Only other masters are
-+ *						  currently using the node
-+ *			PM_USAGE_BOTH_MASTERS	- Both the current and at least
-+ *						  one other master is currently
-+ *						  using the node
-+ *
-+ * Return:		Returns status, either success or error+reason
-+ */
-+int zynqmp_pm_get_rpu_node_status(const u32 node, u32 *const status,
-+				  u32 *const requirements, u32 *const usage)
-+{
-+	if (zynqmp_pm_feature(PM_GET_NODE_STATUS) < PM_API_VERSION_2)
-+		return -EOPNOTSUPP;
-+
-+	return zynqmp_pm_get_node_status(node, status, requirements, usage);
-+}
-+EXPORT_SYMBOL_GPL(zynqmp_pm_get_rpu_node_status);
-+
- /**
-  * zynqmp_pm_force_pwrdwn - PM call to request for another PU or subsystem to
-  *             be powered down forcefully
-diff --git a/drivers/remoteproc/xlnx_r5_remoteproc.c b/drivers/remoteproc/xlnx_r5_remoteproc.c
-index 50a9974f3202..45a62cb98072 100644
---- a/drivers/remoteproc/xlnx_r5_remoteproc.c
-+++ b/drivers/remoteproc/xlnx_r5_remoteproc.c
-@@ -948,16 +948,6 @@ static struct zynqmp_r5_core *zynqmp_r5_add_rproc_core(struct device *cdev)
- 		goto free_rproc;
- 	}
- 
--	/*
--	 * If firmware is already available in the memory then move rproc state
--	 * to DETACHED. Firmware can be preloaded via debugger or by any other
--	 * agent (processors) in the system.
--	 * If firmware isn't available in the memory and resource table isn't
--	 * found, then rproc state remains OFFLINE.
--	 */
--	if (!zynqmp_r5_get_rsc_table_va(r5_core))
--		r5_rproc->state = RPROC_DETACHED;
--
- 	r5_core->rproc = r5_rproc;
- 	return r5_core;
- 
-@@ -1210,6 +1200,7 @@ static int zynqmp_r5_core_init(struct zynqmp_r5_cluster *cluster,
- {
- 	struct device *dev = cluster->dev;
- 	struct zynqmp_r5_core *r5_core;
-+	u32 req, usage, status;
- 	int ret = -EINVAL, i;
- 
- 	r5_core = cluster->r5_cores[0];
-@@ -1255,6 +1246,41 @@ static int zynqmp_r5_core_init(struct zynqmp_r5_cluster *cluster,
- 		ret = zynqmp_r5_get_sram_banks(r5_core);
- 		if (ret)
- 			return ret;
-+
-+		/*
-+		 * It is possible that firmware is loaded into the memory, but
-+		 * RPU (remote) is not running. In such case, RPU state will be
-+		 * moved to RPROC_DETACHED wrongfully. To avoid it first make
-+		 * sure RPU is power-on and out of reset before parsing for the
-+		 * resource table.
-+		 */
-+		ret = zynqmp_pm_get_rpu_node_status(r5_core->pm_domain_id,
-+						    &status, &req, &usage);
-+		if (ret) {
-+			dev_warn(r5_core->dev,
-+				 "failed to get rpu node status, err %d\n", ret);
-+			continue;
-+		}
-+
-+		/*
-+		 * If RPU state is power on and out of reset i.e. running, then
-+		 * assign RPROC_DETACHED state. If the RPU is not out of reset
-+		 * then do not attempt to attach to the remote processor.
-+		 */
-+		if (status == PM_NODE_RUNNING) {
-+			/*
-+			 * Not all the firmware that is running on the remote
-+			 * core is expected to have the resource table. The
-+			 * firmware might not use RPMsg at all, and in that case
-+			 * resource table becomes irrelevant. However, we still
-+			 * need to make sure that running core is not reported
-+			 * as offline. so do not decide remote core state based
-+			 * on the resource table availability
-+			 */
-+			if (zynqmp_r5_get_rsc_table_va(r5_core))
-+				dev_dbg(r5_core->dev, "rsc tbl not found\n");
-+			r5_core->rproc->state = RPROC_DETACHED;
-+		}
- 	}
- 
- 	return 0;
-diff --git a/include/linux/firmware/xlnx-zynqmp.h b/include/linux/firmware/xlnx-zynqmp.h
-index d70dcd462b44..7e27b0f7bf7e 100644
---- a/include/linux/firmware/xlnx-zynqmp.h
-+++ b/include/linux/firmware/xlnx-zynqmp.h
-@@ -542,6 +542,18 @@ enum pm_gem_config_type {
- 	GEM_CONFIG_FIXED = 2,
- };
- 
-+/**
-+ * enum pm_node_status - Device node status provided by xilpm fw
-+ * @PM_NODE_UNUSED: Device is not used
-+ * @PM_NODE_RUNNING: Device is power-on and out of reset
-+ * @PM_NODE_HALT: Device is power-on but in the reset state
-+ */
-+enum pm_node_status {
-+	PM_NODE_UNUSED = 0,
-+	PM_NODE_RUNNING = 1,
-+	PM_NODE_HALT = 12,
-+};
-+
- /**
-  * struct zynqmp_pm_query_data - PM query data
-  * @qid:	query ID
-@@ -630,6 +642,8 @@ int zynqmp_pm_set_rpu_mode(u32 node_id, enum rpu_oper_mode rpu_mode);
- int zynqmp_pm_set_tcm_config(u32 node_id, enum rpu_tcm_comb tcm_mode);
- int zynqmp_pm_get_node_status(const u32 node, u32 *const status,
- 			      u32 *const requirements, u32 *const usage);
-+int zynqmp_pm_get_rpu_node_status(const u32 node, u32 *const status,
-+				  u32 *const requirements, u32 *const usage);
- int zynqmp_pm_set_sd_config(u32 node, enum pm_sd_config_type config, u32 value);
- int zynqmp_pm_set_gem_config(u32 node, enum pm_gem_config_type config,
- 			     u32 value);
-@@ -939,6 +953,13 @@ static inline int zynqmp_pm_get_node_status(const u32 node, u32 *const status,
- 	return -ENODEV;
- }
- 
-+static inline int zynqmp_pm_get_rpu_node_status(const u32 node, u32 *const status,
-+						u32 *const requirements,
-+						u32 *const usage)
-+{
-+	return -ENODEV;
-+}
-+
- static inline int zynqmp_pm_set_sd_config(u32 node,
- 					  enum pm_sd_config_type config,
- 					  u32 value)
-
-base-commit: fcdf2df56d34a3f04cab0725c5bc3abdaa73c2be
--- 
-2.34.1
+Alexis
+--=20
+Alexis Lothor=C3=A9, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
 
