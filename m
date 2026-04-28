@@ -4,144 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 802C3FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 15:25:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE6DFFF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 15:30:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CGD6RxoxX6lDKGlM5omIho+1cUcv4EKjDXw5+y7M/iM=; b=KOCY16oxInAgBSkAgDNWTIjGdW
-	y2fEwaUTNVF7Ihkog6T7LQJHGw50plviffRC+rRPyTGtxJX76nLcg0H2rQQ12X+jE7VJLOJKFMtcS
-	UlAfvuW0SPtzotPW3hQE+eh3j1sE3XvcXu8cCcekOoVNHmh9mUT1CXPqA/EpDivwP4F/TrsB0yJiO
-	FoEGP6EPka+2UKVZ854rolRbR9dtfPb6v+T1PqKjJZ0OFmxbSBCAluJuO4NPjGFzYfIRBCCilt2TX
-	YFYMmX6Ak1mjNubT7A7yLJbq1F2XD6yC188P0CZ4F5i2mqri2+tIeKkMP6Cdtn663KBC/3534mDkv
-	lXcMYsNg==;
+	bh=J/jChz6sjr+zrCpBnIRaHvUti3M8eQoxf0csRWJFl5E=; b=EQEHO5xaM2O7mdIOfuV3XLsDLg
+	ud2tFQUuSsiD+O01jO4PawIcZMypmM9+M4M2+Gg0zvF+IHCpIA6NCYALgDD5T3td/F9/ueIkMycNk
+	Ii/XOIJeZaXb18iVit4UxaOqq/JKjIXuNad4yrU2XNCIDiP90g4coSbInAz4P7f8f0aSsz1VJW/qj
+	5LsYyUb0HSpvmlnxI0OdIyuUhJXWEJIrEXdMo7B4GQ2i/miAvDg36Z45ieHgSckTIscDVstJWikCJ
+	9DKxHZpROe1fnepDdPnPGIqQE7J+6HIL7eZtWwQTpRggyBL+Ablmlri2/oc76qfm5m7ECpBYvK2Ap
+	CXSY9W9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHkJF-00000001jQQ-2fqq;
-	Tue, 28 Apr 2026 15:25:13 +0000
-Received: from mail-northeuropeazon11010049.outbound.protection.outlook.com ([52.101.84.49] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wHkNq-00000001jha-3W1D;
+	Tue, 28 Apr 2026 15:29:58 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHkJD-00000001jPu-0vco
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 15:25:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gZteZxObMFBP7uuEJ3/251fqN7oY6fHHmH/2C2JVeC9EZIxmLfHzebEC9RESJym3dMzHJANvTVwtBnQRHwa+rOx3lAMYrVrLfkn7zE/ze0f59cmN2yzOHkJjjNyMwmeNl9NGMZpKzSTFbj8XqAJZpxCo9b7HLQj7TvsqaT1nVH8w60RUnsf71iJQdOC1hG/8QqQF2IjDsgjOuzPWWY75N6xOOHqpyaY57qZs5ZKDycljICxevvTbo0hmmx7F/rHExpRxh+Qq5b86gQ0F9O8fAqXRxL6whyXCk1Yu2VdSR8WwnzjBn18XRT5tJOJ3B5l2bLgQNEtgPrZH0eHsoT/DDw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CGD6RxoxX6lDKGlM5omIho+1cUcv4EKjDXw5+y7M/iM=;
- b=hp0PkCUNHgBZ+rjEW30gjkLVsMW0R/8jgIV9aehVnHdF7FzEqeJw5HeNql/A40mB1GwnGYxftV7FOUWcyGE3gseUDcOBp8uav9VJck8lsFe+UcwtK6F7Jc/cj8N4EBgOAI4cWkDrnk/gvpUYizGEp/krex2Olz65DaYCqFp71yKfjUwcZVjBk7xjLArlL94z3sjhZQJyzdPQ2EvWn2kysNc7vOwqHds3S+MrTwFKYy3pepEYe2W91seei/gAjQbe9QzrF2Y77/rIBtg9858AfsWiseukB/Dj0M81+nF5tM+fmlhDcq4yeDVigxYPkotamkuj8xs4J3jjNgiuiHQ4cQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CGD6RxoxX6lDKGlM5omIho+1cUcv4EKjDXw5+y7M/iM=;
- b=ZuLUDVVbdPGgKczXlSe3BU0625MDxIcvcUbONfxjzxFomJZ/3qQ25qEDiO4QEBb+Pq1f+fwUS7BvMJ7FKLwFfncJHfMfmUeGfuPH0wO4gnQW06PvCRm2WJD9ZcLG/kE3k7Evv00Tj/GN9P5KATmheFU7rUuEikYKvjVyBJXhFoQO39C9Wpdzz8ttTRuG9fazJjLeqqTneucVA/k6yVdNH//CKwxHXKZoKqrFUHjdxkYy1cuShwInbysCSPWjznP8C3BDt0HcDEiAWXVNedCeNndCmDc/l0l7dgQqm9HjRL2Xmcclfq2eqg4Ai9k6tyhImudgeHb8XtCSFZdMsZFhmA==
-Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
- by GV1PR04MB9197.eurprd04.prod.outlook.com (2603:10a6:150:28::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Tue, 28 Apr
- 2026 15:24:59 +0000
-Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
- ([fe80::b4c0:6119:2228:2ceb]) by PAXPR04MB9185.eurprd04.prod.outlook.com
- ([fe80::b4c0:6119:2228:2ceb%4]) with mapi id 15.20.9846.025; Tue, 28 Apr 2026
- 15:24:59 +0000
-From: Shenwei Wang <shenwei.wang@nxp.com>
-To: Andrew Lunn <andrew@lunn.ch>
-CC: "Padhi, Beleswar" <b-padhi@ti.com>, Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>, Mathieu
- Poirier <mathieu.poirier@linaro.org>, Frank Li <frank.li@nxp.com>, Sascha
- Hauer <s.hauer@pengutronix.de>, Shuah Khan <skhan@linuxfoundation.org>,
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng
- Fan <peng.fan@nxp.com>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-remoteproc@vger.kernel.org"
-	<linux-remoteproc@vger.kernel.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>
-Subject: Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
-Thread-Topic: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
-Thread-Index: AQHc1yMsF6UDQFRi6kOYiNzJyAtVRg==
-Date: Tue, 28 Apr 2026 15:24:59 +0000
-Message-ID: <PAXPR04MB9185A098D894B6A6EBCC13F889372@PAXPR04MB9185.eurprd04.prod.outlook.com>
-References: <20260422212849.1240591-1-shenwei.wang@nxp.com>
- <20260422212849.1240591-4-shenwei.wang@nxp.com>
- <22fb5fac-2568-42be-a7e3-7e89d0017eb3@ti.com>
- <PAXPR04MB91850A11C58419C03909145F89362@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <6412a758-4560-4cf1-a0d0-5b24d1a715f1@lunn.ch>
- <PAXPR04MB9185009A17DFDF3D6C8B44E789362@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <6e01e114-e336-4744-b6b4-563ec42e321b@lunn.ch>
-In-Reply-To: <6e01e114-e336-4744-b6b4-563ec42e321b@lunn.ch>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB9185:EE_|GV1PR04MB9197:EE_
-x-ms-office365-filtering-correlation-id: abbc6569-66e5-4d38-63db-08dea53a4f69
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|19092799006|7416014|38070700021|18002099003|56012099003|22082099003;
-x-microsoft-antispam-message-info: 0TYPigsvZxBj4EEEQRV+sGI4d9vzzbWF9Hw1R8Lb9S49wNXg5TuBufwBIUnDrXt+g/KuixUy849l7W2BeH5b0aKd2asgBfdxMBA1dVeoH3X0k2jo8Fhum2vKLKUExdcruLi9np6f3T85mr0Tgn7q5vI9UdkNQDUXqeXeGqPqtH75DmrbcVDupYt2iHSL0xFP3kUT+lzP7I0sKs0Dmqpfi+njt6escSY2scDuHchn/3vpbSDwsmCTPgkJUqo4U82QE13w8NY+v8yAqUZZY06VGPTvW7ID9h1HgWqAFoIcyIUBzWH97ZesTuF8OgmqEN5/R9LOj85L0+D7HbLPPbv9mDRjiRQ3TuaQIh1TDNOGuKcATfriy0ptFMWbkwWi6C9a1eZA/T2fkd7+Or8/RooOFHU69hVYicNz1Z5W6qvl4OROHuFqxWZW9qNVrSTh+pvHaznAludUOVB9m2b38+fYSw99saLvdtHyvlcw/GVDdCTVtQ+xcIesObHAXNSR6gW0NvZ4Df+/+FSqgQy7qnyeKkGGHtkH5CNPaqj9T109sxQ3YuZrI488tjrDRT7agKmVYgJ+NVtQ/1s7gFmUBeNLLHfvAB6TNep8BuUHN2TmijdnAHY1cfEH4K8YaZPfZuPdw6EITmPIaesOGy3onKh0FUlakIDh6Z250paB51sKPrv1UhaLeGJUl0zpniAygY1sSr9ryq3i9KQVJ5H5zV0PZDOsCD5PgpyKxw5siAr9HhOeMjCQeSwVcg5jhSKEA2ofH/Izuziiib6vprE5oU4yR/U/K7ykhV/jKiOynN51yuo=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(19092799006)(7416014)(38070700021)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?avPgPfLv3nbZm0Zwo8osJbZMaw6n5GEEVqwB/zBVYATie9TR8iaRBL+ziO/K?=
- =?us-ascii?Q?CahVp4RP0uyIuEJzTRwCHBgAPZsiL6xMXnwwOH4JblZQHnmt7LctWQiee/X5?=
- =?us-ascii?Q?KgBYDo8Jj0ntlbe5gJptk2DLiAytDDeInIh/wobSvngcf3TEgpXa6P8gJ+Qu?=
- =?us-ascii?Q?wu9Gk3l7eAE4FfzUo04G2xo7zp9H/3/2pQyXYpveYKgGLlsVSfGqqiLj4/tI?=
- =?us-ascii?Q?AusMeXngUc/pefc7Hy6ZNwAZXSjgGE53i02sfmTDEeZV2RGm+kSK2N7BeJrt?=
- =?us-ascii?Q?+WCwdAWC4XumG0LaFJjAF6SB3OFhG2o9aSF2737YsrT+mLx9SkiJeYIhdDOB?=
- =?us-ascii?Q?u3UBiH5mqkNtXJIJMFb0uhtBvqffmyh/ikBCmzLt0iKlidkpXQ7Db7Yu4V69?=
- =?us-ascii?Q?eRhCY+h3zR7vuK1sj3Itvy1jW0HHQvMLrvfZBUmVy0bGsIA08pQ+8tw4UDHO?=
- =?us-ascii?Q?ypWVasv38dqx12S8jtygG9RknCqP4vMfVDrE8Fcr36HOQ49N95DoA+lR78Xo?=
- =?us-ascii?Q?UDLu/Osq6ENdLK9BILRacPTwCK3xCAl1+Tp5SOXGyMPCUjH6ugTEnAF7QhpO?=
- =?us-ascii?Q?wXcBUKXpI4EoeFfrpYqI0iQZDGU5b1CUQji44XG9b94txhpF2ij3RQPZH4nM?=
- =?us-ascii?Q?/FzlbEn7OKPJrtemvUIzzL7GsLVwzCcVTS+mkgFFuJGzK2byE/TWBsXomJXp?=
- =?us-ascii?Q?cE40c5dbaccTABd1E0nPSYbIUeVfnkTMKCJLv1WJWXDysUECAh5U8EbrEXfz?=
- =?us-ascii?Q?Hbsc0vm7XCld04jNDnF7bQ2SkGamysDu9wWLu98Ox9qWIOwT0RqJS5TgdRgH?=
- =?us-ascii?Q?lvJeUV3du3izI2oi/XRBYCXlOttNjDPSVbUV5E91xiknyBWFLmrXeNVLqWZ5?=
- =?us-ascii?Q?rzx5VWUWhy63/vTfnhtSPmRAncNKOKOkHjd6FhDnvrWu6l/N+4ZG+P5kxTMa?=
- =?us-ascii?Q?AqhOuYhUkH5kpiHvIrzCd6bslIWWIddEU5LN9WfNYLibDR/eQ9yn4knXmsh0?=
- =?us-ascii?Q?pxsbJhEq6wKgXdfjWE+H9xJ878O+Pa4bx+IwapDUQO8ju9+mgpI7+Ov0B2BG?=
- =?us-ascii?Q?lvPS0oAv6RZCQeT47yLSL4It0GniCykJE6V/6dBvxd8VNSNLY9e0DofaUQEN?=
- =?us-ascii?Q?Xz8N7p6bY2w54MWvZb05Ri2lh+GGwVGEnQWDpUETSRhswXpuC2/iWV14+Vqm?=
- =?us-ascii?Q?YAHHdN7VLvKVxlbqOlYgWQzRij07AnAM0biQqgmzJpKwMvErlutRJ3DPJ8xE?=
- =?us-ascii?Q?FeVwqSCdxmr6dyfsdOJrmSu+rk1XsHWjTrzujiGFQI4QGa9Gifhfwoe9dKwx?=
- =?us-ascii?Q?mV7JulsDunBkOVE0gsdgciDdjDs8hT8uVgie6G9LF4a6MrvhtlgEFDxIqobp?=
- =?us-ascii?Q?xmouL3v2IYNTD9YcnAh5iyu3DXS/3REPNxExPQhFyFQpadj+Qx27gK/p60ng?=
- =?us-ascii?Q?aKC+nS562WOymZuoJbv/Tkg1gGDR7/r9YCN9YzAdHKBLBM24oIYxBoJKpp2c?=
- =?us-ascii?Q?bMrEOJ21SAq7L6Pmrzk2odTSBoZGZMN8SG9g0nkPLIquoIHZs51PhOC3B+Ej?=
- =?us-ascii?Q?EWkQZ3jO7h/STds349swNcdMPtSNZwlFuK+lRm9jYdUbVlIbO7XD7EHoGViF?=
- =?us-ascii?Q?NDnLqsYaf+ajt+YesN7dn/la8UI7ZbVtAi6Swb4aD9hFbXHpfRqYXP9krhsn?=
- =?us-ascii?Q?DAwLPoXiAH1HpHgcmKOSxv+VnJ2geWAWM9aTP75cfjglah7x?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1wHkNo-00000001jgy-1mY0;
+	Tue, 28 Apr 2026 15:29:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=J/jChz6sjr+zrCpBnIRaHvUti3M8eQoxf0csRWJFl5E=; b=kk2CPk3wqtMV0MItlwGDeU9Y7T
+	+Kbtlcbmt9w+KIgiLd8tiFmLjqa3QioEtuNmPAhviIHiXn3voURz7hK4AeEC49zd3yb/wz06yf9ej
+	ECvlnDkEof03pZg/1HA1Uk1TQg50bBqvs5LMlbZlDk89zS3gkjyBiaREeiXWB+Q9Iq/T9F3gKIY11
+	M9T/jir/dOWsgDZTZI19EKTcJeyPA55KRJFS8++DH0xAaYLjZ5IB/QC6vSBKZ5sUxlbvEQqyQMudj
+	nI60BYAvqTLEOWzkdPjNKK6G5NV2g1SqnYLDIo7wTsIIGvXC9Z1VdyCpchvmc7/NNAssrhA1qDsEd
+	s/gySzEw==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Shawn Lin <shawn.lin@rock-chips.com>, Joerg Roedel <joro@8bytes.org>,
+ Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+ Sven =?UTF-8?B?UMO8c2NoZWw=?= <s.pueschel@pengutronix.de>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Simon Xue <xxm@rock-chips.com>, kernel@pengutronix.de
+Subject: Re: [PATCH] iommu/rockchip: disable fetch dte time limit
+Date: Tue, 28 Apr 2026 17:29:33 +0200
+Message-ID: <4696766.BEx9A2HvPv@phil>
+In-Reply-To: <ece1961d-d16c-40c8-8f42-55bd0f0eda27@pengutronix.de>
+References: <20251126-spu-iommudtefix-v1-1-f90003dbfcc4@pengutronix.de>
+ <cea54dcb-6236-4363-8b46-e2213a190894@pengutronix.de>
+ <ece1961d-d16c-40c8-8f42-55bd0f0eda27@pengutronix.de>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: abbc6569-66e5-4d38-63db-08dea53a4f69
-X-MS-Exchange-CrossTenant-originalarrivaltime: 28 Apr 2026 15:24:59.1673
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: q68oycKNYc/1VV/w//tcE2N6xMOoX5Z0M9k7ZZSFmx21pO5ehKRbCBPgj77YmIlUhC84ljVVTVm/MT/ZWSsUgA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB9197
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_082511_273407_66DC4297 
-X-CRM114-Status: GOOD (  15.04  )
+X-CRM114-CacheID: sfid-20260428_082956_497419_4584A03B 
+X-CRM114-Status: GOOD (  37.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,60 +69,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Sven,
 
-
-> -----Original Message-----
-> From: Andrew Lunn <andrew@lunn.ch>
-> Sent: Monday, April 27, 2026 3:49 PM
-> To: Shenwei Wang <shenwei.wang@nxp.com>
-> Cc: Padhi, Beleswar <b-padhi@ti.com>; Linus Walleij <linusw@kernel.org>;
-> Bartosz Golaszewski <brgl@kernel.org>; Jonathan Corbet <corbet@lwn.net>;
-> Rob Herring <robh@kernel.org>; Krzysztof Kozlowski <krzk+dt@kernel.org>;
-> Conor Dooley <conor+dt@kernel.org>; Bjorn Andersson
-> <andersson@kernel.org>; Mathieu Poirier <mathieu.poirier@linaro.org>; Fra=
-nk Li
-> <frank.li@nxp.com>; Sascha Hauer <s.hauer@pengutronix.de>; Shuah Khan
-> <skhan@linuxfoundation.org>; linux-gpio@vger.kernel.org; linux-
-> doc@vger.kernel.org; linux-kernel@vger.kernel.org; Pengutronix Kernel Tea=
-m
-> <kernel@pengutronix.de>; Fabio Estevam <festevam@gmail.com>; Peng Fan
-> <peng.fan@nxp.com>; devicetree@vger.kernel.org; linux-
-> remoteproc@vger.kernel.org; imx@lists.linux.dev; linux-arm-
-> kernel@lists.infradead.org; dl-linux-imx <linux-imx@nxp.com>; Bartosz
-> Golaszewski <brgl@bgdev.pl>
-> Subject: [EXT] Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO dr=
-iver
-> > > struct virtio_gpio_response {
-> > >         __u8 status;
-> > >         __u8 value;
-> > > };
+Am Dienstag, 28. April 2026, 14:15:45 Mitteleurop=C3=A4ische Sommerzeit sch=
+rieb Sven P=C3=BCschel:
+> Hi,
 >=20
-> > It is the same message format. Please see the message definition
-> (GET_DIRECTION) below:
+> pinging this Patch, as I didn't receive any more feedback/reviews. The=20
+> feedback only affects the comment and doesn't affect the commit,=20
+> therefore I currently don't see a reason for a v2.
+
+it's been 5 months since the original submission, so I'd disagree :-)
+It may very well have already been discarded from maintainers' inboxes.
+
+So I do think a v2 or at least a resend is waranted here.
+
+
+Heiko
+
+
+> We've noticed that this patches fixes hangups when using the RGA3=20
+> peripheral on the rk3588 (where I'm in the process of upstreaming a=20
+> driver [1], which depends on this changeset). Based on the vendor commit=
+=20
+> messages, it should also fix VOP and screen black issues.
 >=20
-> > +   +-----+-----+-----+-----+-----+----+
-> > +   |0x00 |0x01 |0x02 |0x03 |0x04 |0x05|
-> > +   | 1   | 2   |port |line | err | dir|
-> > +   +-----+-----+-----+-----+-----+----+
+> Sincerely
+>      Sven
 >=20
-> Sorry, but i don't see how two u8 vs six u8 are the same message format.
+> [1]=20
+> https://lore.kernel.org/linux-media/20260428-spu-rga3-v5-0-eb7f5d019d86@p=
+engutronix.de/
+>=20
+> On 11/28/25 8:26 AM, Sven P=C3=BCschel wrote:
+> >
+> > On 11/27/25 5:32 AM, Shawn Lin wrote:
+> >> =E5=9C=A8 2025/11/26 =E6=98=9F=E6=9C=9F=E4=B8=89 19:45, Sven P=C3=BCsc=
+hel =E5=86=99=E9=81=93:
+> >>> From: Simon Xue <xxm@rock-chips.com>
+> >>>
+> >>> Disable the Bit 31 of the AUTO_GATING iommu register, as it causes
+> >>> hangups with the RGA3 (Raster Graphics Acceleration 3) peripheral.
+> >>> The RGA3 register description of the TRM already states that the bit
+> >>> must be set to 1. The vendor kernel sets the bit unconditionally to
+> >>> 1 to fix VOP (Video Output Processor) screen black issues. This patch
+> >>> squashes the 2 vendor kernel commits with the following commit=20
+> >>> messages:
+> >>>
+> >>> Master fetch data and cpu update page table may work in parallel, may
+> >>> have the following procedure:
+> >>>
+> >>>     master                  cpu
+> >>>     fetch dte               update page tabl
+> >>>             |                       |
+> >>>     (make dte invalid)  <-  zap iotlb entry
+> >>>             |                       |
+> >>>     fetch dte again
+> >>>     (make dte invalid)  <-  zap iotlb entry
+> >>>             |                       |
+> >>>     fetch dte again
+> >>>     (make dte invalid)  <-  zap iotlb entry
+> >>>             |                       |
+> >>>     fetch dte again
+> >>>     (make iommu block)  <-  zap iotlb entry
+> >>>
+> >>> New iommu version has the above bug, if fetch dte consecutively four
+> >>> times, then it will be blocked. Fortunately, we can set bit 31 of
+> >>> register MMU_AUTO_GATING to 1 to make it work as old version which do=
+es
+> >>> not have this issue.
+> >>>
+> >>> This issue only appears on RV1126 so far, so make a workaround=20
+> >>> dedicated
+> >>> to "rockchip,rv1126" machine type.
+> >>>
+> >>> iommu/rockchip: fix vop blocked and screen black on RK356X and RK3588
+> >>>
+> >>> RK3568 and RK3588 has the same issue as RV1126/RV1109 that caused by
+> >>> dte fetch time limit, So we can set BIT(31) of register 0x24 default
+> >>> to 1 as a workaround.
+> >>>
+> >>> Signed-off-by: Simon Xue <xxm@rock-chips.com>
+> >>> Signed-off-by: Sven P=C3=BCschel <s.pueschel@pengutronix.de>
+> >>> ---
+> >>> During testing of a newly developed driver for the RGA3 peripheral [1]
+> >>> (Raster Graphic Acceleration 3) of the RK3588 some sporadic hangs
+> >>> have been observed. The upstream rockchip-iommu driver is used to=20
+> >>> handle
+> >>> the RGA3 IOMMU register space.
+> >>>
+> >>> After a closer look at the TRM for the RK3588, the RGA3 iommu register
+> >>> description of the RGA3_MMU_AUTO_GATING register (offset 0x24) mentio=
+ns
+> >>
+> >> It's 0xF24 per RGA3 chapter.
+> >
+> > yeah, sorry. I was already thinking relative to the rga3 iommu address=
+=20
+> > space in my head, but didn't really mention that the chapter says=20
+> > 0xF24 with the iommu related registers starting at 0xF00.
+> >
+> > Sincerely
+> >     Sven
+> >
+> >>
+> >>> a mmu_bug_fixed_disable bit, which must be set to 1 but defaults to 0.
+> >>>
+> >>> Looking at the commits in the vendor kernel, the bit is unconditional=
+ly
+> >>> set to 1 and mentions that it fixes a blocked VOP (Video Output
+> >>> Processor) [3]. Therefore squash the relevant vendor commits
+> >>> [2] and [3] into a single patch, combine the commit messages and keep
+> >>> the Signed-off-by line from the original author.
+> >>>
+> >>> [1]=20
+> >>> https://lore.kernel.org/all/20251007-spu-rga3-v1-0-36ad85570402@pengu=
+tronix.de/
+> >>> [2]=20
+> >>> https://github.com/rockchip-linux/kernel/commit/7f8158fb41b5cc8e738aa=
+eebc3637c50ebd74cae
+> >>> [3]=20
+> >>> https://github.com/rockchip-linux/kernel/commit/6a355e5f9a2069a2309e2=
+40791bc3aad63b7324e
+> >>> ---
+> >>>   drivers/iommu/rockchip-iommu.c | 8 ++++++++
+> >>>   1 file changed, 8 insertions(+)
+> >>>
+> >>> diff --git a/drivers/iommu/rockchip-iommu.c=20
+> >>> b/drivers/iommu/rockchip-iommu.c
+> >>> index 0861dd469bd86..2d0dabb0d101a 100644
+> >>> --- a/drivers/iommu/rockchip-iommu.c
+> >>> +++ b/drivers/iommu/rockchip-iommu.c
+> >>> @@ -76,6 +76,8 @@
+> >>>   #define SPAGE_ORDER 12
+> >>>   #define SPAGE_SIZE (1 << SPAGE_ORDER)
+> >>>   +#define DISABLE_FETCH_DTE_TIME_LIMIT BIT(31)
+> >>> +
+> >>>    /*
+> >>>     * Support mapping any size that fits in one page table:
+> >>>     *   4 KiB to 4 MiB
+> >>> @@ -930,6 +932,7 @@ static int rk_iommu_enable(struct rk_iommu *iommu)
+> >>>       struct iommu_domain *domain =3D iommu->domain;
+> >>>       struct rk_iommu_domain *rk_domain =3D to_rk_domain(domain);
+> >>>       int ret, i;
+> >>> +    u32 auto_gate;
+> >>>         ret =3D clk_bulk_enable(iommu->num_clocks, iommu->clocks);
+> >>>       if (ret)
+> >>> @@ -948,6 +951,11 @@ static int rk_iommu_enable(struct rk_iommu *iomm=
+u)
+> >>> rk_ops->mk_dtentries(rk_domain->dt_dma));
+> >>>           rk_iommu_base_command(iommu->bases[i], RK_MMU_CMD_ZAP_CACHE=
+);
+> >>>           rk_iommu_write(iommu->bases[i], RK_MMU_INT_MASK,=20
+> >>> RK_MMU_IRQ_MASK);
+> >>> +
+> >>> +        /* Workaround for iommu blocked, BIT(31) default to 1 */
+> >>> +        auto_gate =3D rk_iommu_read(iommu->bases[i],=20
+> >>> RK_MMU_AUTO_GATING);
+> >>> +        auto_gate |=3D DISABLE_FETCH_DTE_TIME_LIMIT;
+> >>> +        rk_iommu_write(iommu->bases[i], RK_MMU_AUTO_GATING,=20
+> >>> auto_gate);
+> >>>       }
+> >>>         ret =3D rk_iommu_enable_paging(iommu);
+> >>>
+> >>> ---
+> >>> base-commit: 30f09200cc4aefbd8385b01e41bde2e4565a6f0e
+> >>> change-id: 20251126-spu-iommudtefix-cd0c5244c74a
+> >>>
+> >>> Best regards,
+> >>
+> >>
 >=20
 
-Some changes to the message format are necessary.
 
-Virtio uses two communication channels (virtqueues): one for requests and r=
-eplies, and a second one for events.=20
-In contrast, rpmsg provides only a single communication channel, so a type =
-field is required to distinguish between=20
-different kinds of messages.
 
-Since rpmsg replies and events share the same message format, an additional=
- line is introduced to handle both cases.
 
-Finally, rpmsg supports multiple GPIO controllers, so a port field is added=
- to uniquely identify the target controller.
-
-Shenwei
-
->        Andrew
 
