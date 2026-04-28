@@ -4,76 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D58C2FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 13:21:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EDDAFF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 13:25:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UB3CDI+mylgRjieE5aEKSHoXj3T/nTJ0KbppMNT5pLo=; b=uJVN2KOkxS7h22QTeT/hE6/qZ9
-	xyp6Uxir45d07TLRGcvb9kPJTOsGgBLCJe8h79YgvRA4JIJ/TRK+05ryHcBjOC6Dh7KfjQLlxT2aO
-	7YrxRxeOMKADIi6c7RiPcZ39Oad6MFAAVPP1wcu6pt0zCyaBWJ3UIw3ynFcbUZPqNQPoIql30wNRB
-	BQA1tFdfazO9k3GxK92jFZMicbqrtY4letlhaf7KLhTARr3W/jhu3seSbqVisIMUhgSGDUfuBSrrn
-	lj+f3ATlfz6UN17qcungzcfkUdVtfA90Hqk4yDj2epRQQuKZQgR4KvVvKIatTfZAGF5zCMwtESm3X
-	USSWBHrg==;
+	bh=fP7ePjTcwfa8sYcTj+QY4Q4HIO8JodrbqgkRfuKs+58=; b=xA3zcLypH6Rs5ZN1B7Og8eLKpN
+	GcsxBLiM/npeaGkDJ0Sl2wt3QJFcJO5b+/C/XAGw7ji0Ep71QI3sGH8XwrcMVB+4Qd8f6PBUbj1kc
+	Lyzw6+ngNQJIDjTGIhV/d/+gvZakaYC3VEXrZq5ZQQzmoYyuvKxWoojZ06FmfWCQZgi7Q7+d7RUrW
+	XxS3FCxx/vBc08xLc2HxSVtzaHUrtxGo5B8dhd5Xo6p9CzGsSFB7mDM9Ji6x5/XTAgzEnJoKvOokZ
+	wjlGxUUzRrYmWZbzKe5U2foM6mCWNeAyaWLajnyYxvTACoo2zYbHmpH0QMpqRIDc3pMd/1Rtk2/13
+	bqC40flg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHiNa-00000001X16-04Kq;
-	Tue, 28 Apr 2026 13:21:34 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHiNW-00000001X0J-1xp8
+	id 1wHiQw-00000001XF2-2oM1;
+	Tue, 28 Apr 2026 13:25:02 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHiQv-00000001XEX-29Bi
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 28 Apr 2026 13:25:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=fP7ePjTcwfa8sYcTj+QY4Q4HIO8JodrbqgkRfuKs+58=; b=SZxm8wdi6UulXSjZbG7jBrbwMa
+	ztgGnofpmMjh/BcBFtE2Zi0AvYOjI9SvPw/JBf1mIE69EgpQeMZecQOqBCLp1e/hdyTyOZDRAyZsx
+	o/JdXvsDqe/54W+kmeH/z7wqSzO6bo2BFWp7uZ4IViQs38OKsZuD2ZopTcZh3UkVeIwymetR+9Olk
+	BGHTs/GeDF+PedLyr2oRYTpUSnFLQWicl0U8KOUZheQZsIoSNRdYVGay1AUBirBRVLM3Nkx8lcKmW
+	6LpkaItYov6kk2J1pImFLNxP9aIJnsthjyr2A02uv/WnLA2SmFqjDVUqLfG8R1Z/OyurGEnqozQxs
+	m31X1w+A==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHiQs-000000039ll-0mFj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 13:21:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 830982BCB;
-	Tue, 28 Apr 2026 06:21:21 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DADBE3F62B;
-	Tue, 28 Apr 2026 06:21:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777382487; bh=bsvWlDxYnAplPFAgfU//71QRl4oKYiApqcT8JyjzfgE=;
+	Tue, 28 Apr 2026 13:25:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 489F440229;
+	Tue, 28 Apr 2026 13:24:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40F96C2BCAF;
+	Tue, 28 Apr 2026 13:24:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777382694;
+	bh=Mbk7GJhzzHEOvI4/qFSYDMc92u86YKebUsjdgehgAuA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pdhUfWsdmeN3C7bkilDKrPemnn+Oq83RRdC0jvgk7oqYcB095DXFCXxYuWkk0UNEX
-	 fIpcey6sslxOGabc6XfGzmecVE2summH/DK2QVGNggJHiRT0Sc7B2RNU7tnq4Eh50E
-	 BfHAUUmAgFezutGPVgqHQ6FZ1hjcTqgpvtFQwlmg=
-Date: Tue, 28 Apr 2026 14:21:20 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Paul Moore <paul@paul-moore.com>
-Cc: Mimi Zohar <zohar@linux.ibm.com>, roberto.sassu@huawei.com,
-	Jonathan McDowell <noodles@earth.li>,
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-integrity@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	jmorris@namei.org, serge@hallyn.com, dmitry.kasatkin@gmail.com,
-	eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
-	sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
-	sebastianene@google.com
-Subject: Re: [RFC PATCH v2 1/4] security: ima: call ima_init() again at
- late_initcall_sync for defered TPM
-Message-ID: <afC0UPfGhNTsXnyi@e129823.arm.com>
-References: <aephL3MzYoqFGaT5@e129823.arm.com>
- <CAHC9VhRQWHEWQ5NzOPiu8jtYv6UsRm8WVS4fd74AbkOcAd4y_g@mail.gmail.com>
- <aesGU8a3mbVzvteH@e129823.arm.com>
- <CAHC9VhSaT_quKYnpFjAfqvL07JNbWMgM6c4pB9F46NHawX3DCA@mail.gmail.com>
- <014cf39aa8d6a0bcfa1a95c069675977ac67b843.camel@linux.ibm.com>
- <CAHC9VhTW3=RJ8L91RWXYYA9tFjfSXGN-DMEEwdiD6big9H57Ew@mail.gmail.com>
- <1f78fc75b2e95239973612a4b6c4cc782960b7ac.camel@linux.ibm.com>
- <CAHC9VhS4JmPmCJrYTdbjxb3TO-uK6cB3Zij-ef=wswGce2BGzg@mail.gmail.com>
- <1e51c2fd090e5ceb07b1d09e50650c70fd3ccdb1.camel@linux.ibm.com>
- <CAHC9VhS_WgwhW_NDO91LoTeSzdieGqbwqnwPq8KpavH1_Lwi7g@mail.gmail.com>
+	b=tlkFwXz0zkNo/cS4uLIzu8CJsJA+Gy7EPJmTOv8jt5oOyjTHBpxdBg+ZaeE9UJW95
+	 kedR9fTTgN57okQTaM4Gc8uQDIwuae5pRI41THfuXii83zd4ZVLFEn5m0mJVF/wx1u
+	 OrSWGzqHcpIgtX6u2SeJ2bvUOnBTjgRi/5ejvOR707E6dfieaBBIwSAbX2fRwVkJKM
+	 +eGjG0f1J/WooMr/yU+3UvUnNgeJn56Rj2h8JqMopfBiAYryhWKzBUWGhssSSbhaNI
+	 CzxgFSlNyfeaVsdXgnTgkN7Gdap15ZEOZarc9TcUkvhh1C5X/5RakRkAxFJHm0P5vX
+	 CO4oo/GbqRnmQ==
+Date: Tue, 28 Apr 2026 15:24:48 +0200
+From: Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>
+To: Thorsten Blum <thorsten.blum@linux.dev>
+Cc: Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>, 
+	Bill Cox <waywardgeek@gmail.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
+	"David S. Miller" <davem@davemloft.net>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Linus Walleij <linusw@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, stable@vger.kernel.org, 
+	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] crypto: atmel-sha204a - drop hwrng quality reduction
+ for ATSHA204A
+Message-ID: <cbk4ho3bpprjxvcywv4sudbmb2fhfsgaguoywv5mhtoql4vhd6@f7oisxcrvii4>
+References: <20260428101430.514838-3-thorsten.blum@linux.dev>
+ <25ntssyy6t5uwxlwfpmrpzpcq6xv62l643hflf26hxi6lv5wqu@6vub6ysczjvd>
+ <afCo9PbDpTYeqGd4@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAHC9VhS_WgwhW_NDO91LoTeSzdieGqbwqnwPq8KpavH1_Lwi7g@mail.gmail.com>
+In-Reply-To: <afCo9PbDpTYeqGd4@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_062130_625528_87CC96AB 
-X-CRM114-Status: GOOD (  22.29  )
+X-CRM114-CacheID: sfid-20260428_142458_418662_A516D76F 
+X-CRM114-Status: GOOD (  18.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,52 +94,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Paul,
+Hi Thorsten,
 
-> On Fri, Apr 24, 2026 at 6:49 PM Mimi Zohar <zohar@linux.ibm.com> wrote:
-> > On Fri, 2026-04-24 at 18:10 -0400, Paul Moore wrote:
-> > > (I'm assuming you meant initcall and not syscall above, but if you're
-> > > talking about something else, please let me know.)
-> > >
-> > > Saying that you aren't comfortable moving IMA initialization to
-> > > late-sync is inconsistent with allowing IMA initialization to be
-> > > deferred to late-sync.  Either it is okay to initialize IMA in
-> > > late-sync or it isn't.  You must pick one.
-> >
-> > Yes, we're discussing late_initcall and late_initcall_sync.
-> >
-> > I prefer to look at it as being pragmatic. I'd rather err on the side of caution
-> > and not move the syscall to late_initcall_sync, than move it.
+Bill also wrote about ATSHA204A [1]
+
+  My best guess as to what's going on here is that the device has a
+  ring-oscillator based entropy source, but that it generates only a few bits
+  of entropy for each use.  It seems to be called before generating each
+  32-byte "random" value, which is why the second set of 32-bit values have
+  more possible values, and the 3rd has even more.  However, the number of
+  unique values in the final column of 32*N byte values is always equal to
+  the number of unique values of the entire string of bytes.
+
+If this is true that the device generates <256 true random bits and then
+mixes in non-volatile pseudorandom number generator to produce 256 bits,
+then the quality should not be set to full 1024.
+
+Marek
+
+[1] https://www.metzdowd.com/pipermail/cryptography/2014-December/023858.html
+
+On Tue, Apr 28, 2026 at 02:32:52PM +0200, Thorsten Blum wrote:
 >
-> If you were truly erring on the side of caution you wouldn't allow
-> late-sync initialization without knowing if it was safe or not.
-> Determine whether IMA initialization is safe at late-sync.  If it is
-> safe, move the init to late-sync; if not, keep it at late and figure
-> out another mechanism to sync with the TPM availability.  If needed,
-> you could probably use the LSM notifier to enable the TPM driver to
-> signal when it is up and running.
-
-I don't think LSM notifier wouldn't be good since it a one time
-notification for initailisation and it wouldn't tell properly
-whehter TPM isn't present in system or present unless functions
-ima_init() are rewritten to discern the "TPM deferred" and
-"TPM doesn't exist" in the system (e.x) boot-aggregate log creation.
-
-One question, though.
-In the end, for systems where the TPM has already been probed by late_initcall(),
-init_ima() continues to be called at late_initcall(), while the above approach
-is introduced for systems where the TPM is not properly initialized by that point.
-
-If init_ima(), which used to be called at late_initcall(),
-were instead called at late_initcall_sync(), could this break system integration?
-In my view, both late_initcall and late_initcall_sync run during the do_basic_setup() phase,
-so it doesn’t seem like this would cause tampering or affect things like the creation of the boot-aggregate log.
-
-Is there any particular reason why init_ima() must be called specifically at late_initcall()?
-
-Thanks.
-
---
-Sincerely,
-Yeoreum Yun
+> Bill wrote in his review:
+> 
+>   "If I made no mistake (and I do make a lot), the "random" data from
+>    the Atmel ATSHA204A is highly predictable when you disable the seed
+>    update to EEPROM."
+> 
+> However, the atmel-sha204a driver doesn't operate the device in that
+> mode. It uses the Random command with seed updates enabled, which is
+> also what the datasheet recommends for highest security:
+> 
+>   "Microchip recommends that the EEPROM seed always be updated."
+> 
+> So the reported behavior doesn't reflect how the driver uses the device.
+> 
+> Thanks,
+> Thorsten
 
