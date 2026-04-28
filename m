@@ -4,80 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21A83FF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 08:04:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2372AFF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 08:04:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3OaSAgTxjK2QR1QU0n+b0SIWBdszlU+aMsuYQB2OmPg=; b=BHpuMuY4xLW4C0mKBJL+zKui2/
-	IYukRTOiZTXmgaLOy/8BDukGrE6OvsiUby11vBLt0xP9LeUMv9lm6SGZJaAcf6XVSgdYJeTsIN616
-	AYDhStLal2kx3nKasINKnupl9QzJPazNLsadwMQ0iKD8WxFJPxGzaxL9T3djKP2zexnFQjHDbTJAh
-	VWqx4tjuNRlaB+kkONiZiY5Yt3I54dHblpufQ1NPCokJn1dKlEqEzAN4F7/BACjGvOWIlaNR/XHvF
-	TPNyPtmnx+khgmYNiyGjbOQrKVpTen5v4ZxesGwFwDRECuSSXW09aW5mTJAHzwJSPo1dtHdNbRmiG
-	IWCQNCKQ==;
+	bh=KzeTCn090BT+IXJd5Slkei7HBefLVXYutmmcU3lypxk=; b=GodwMWNO9fIzQ0VH/saT7wqh2+
+	bfWufgnbBICmHYC9gO3ab6dGwghn32tWZV3woB7s3GKSRZXmVfb2o5nWDYQf0DYvmen6hkTdAWEWn
+	Qp3nLX32ecXbyBOEmoh5l6/Jua6T6c33KisKeSYuklGzgtQidANoiVtX+nfoANbLswFlhv0qaZVno
+	laMDPtM369wYuI3dT9FnrRv2Pj9axFG7e0ayI6Ey/iPLgV+TmkYthYrKuYep8S550f6hRlLWENmY7
+	P/wThc4lqp9xo/Ak8x+TABLJQv65Vl7iy6A+aEl3UhKWBmJTSblu4MBbruh0AT9tMe9EvbABOm+dC
+	I0gb8flQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHdQL-00000000qEY-1buG;
-	Tue, 28 Apr 2026 08:04:05 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wHdQS-00000000qJA-2xNp;
+	Tue, 28 Apr 2026 08:04:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHdQK-00000000qDi-0ao0
-	for linux-arm-kernel@bombadil.infradead.org;
+	id 1wHdQK-00000000qEA-2wR1
+	for linux-arm-kernel@lists.infradead.org;
 	Tue, 28 Apr 2026 08:04:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=3OaSAgTxjK2QR1QU0n+b0SIWBdszlU+aMsuYQB2OmPg=; b=TeID8aFq3/o1MU7dAA0ZD5tQ4e
-	sJexAflc0AubSphjKCeh8h+XA92B8ybTs7Jd2NQGp9ap+wkST6tykVFBs3VTiU4lpmCBub2DrOC/j
-	RT+ZkfpgNSxXdXAfMPKK/wme/PPAYKCXVFnhNjVWzPluO7vYSkDlC2EcWt1yhPCuS6zxIV9pC2L8Y
-	flWWh7ed5kDhru4zofOYYPcIDVjb4fWj/csMrYhgBlb8aCHGfoLI5zpOn86dU+sXRdT6C+3E1tjD1
-	SjgSMYAcFLyH+Ky/l9IX9VT5u26fTLI3dxgJWwtbZZJE7Wi4WTe5X8y8DcfjC1KYtWIFP0FVBxIZZ
-	ObGgwntQ==;
-Received: from 2001-1c00-8d85-4b00-266e-96ff-fe07-7dcc.cable.dynamic.v6.ziggo.nl ([2001:1c00:8d85:4b00:266e:96ff:fe07:7dcc] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHdQG-00000002LuV-3bGW;
-	Tue, 28 Apr 2026 08:04:01 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 5DB3E301CEB; Tue, 28 Apr 2026 10:03:59 +0200 (CEST)
-Date: Tue, 28 Apr 2026 10:03:59 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Thomas Gleixner <tglx@kernel.org>
-Cc: Mathias Stearn <mathias@mongodb.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Jinjie Ruan <ruanjinjie@huawei.com>, linux-man@vger.kernel.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Boqun Feng <boqun.feng@gmail.com>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Chris Kennelly <ckennelly@google.com>, regressions@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Ingo Molnar <mingo@kernel.org>, Blake Oler <blake.oler@mongodb.com>,
-	Florian Weimer <fweimer@redhat.com>, Rich Felker <dalias@libc.org>,
-	Matthew Wilcox <willy@infradead.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Linus Torvalds <torvalds@linuxfoundation.org>
-Subject: Re: [REGRESSION] rseq: refactoring in v6.19 broke everyone on arm64
- and tcmalloc everywhere
-Message-ID: <20260428080359.GI3126523@noisy.programming.kicks-ass.net>
-References: <CACT4Y+bxnQyHGdVNE1BYTx+Z2-cscLb38HYS9jBM5gPAz8=4bw@mail.gmail.com>
- <87ik9i0xlj.ffs@tglx>
- <CAHnCjA0UBNXfjHw=Y34OrAyGRNUtVF+zWd3ugyX6pd_mCk8K9w@mail.gmail.com>
- <87a4ut1njh.ffs@tglx>
- <CACT4Y+bBD7uCHXKqGo=epBXeEmsZ67Og2YO9kjNMT3ryjUY_sA@mail.gmail.com>
- <CAHnCjA1LqbaUGkPe79EeP6Mpaki8QWeR-JBSbrG0z6pTm9CmUg@mail.gmail.com>
- <87v7dgzbo7.ffs@tglx>
- <20260424150318.GE641209@noisy.programming.kicks-ass.net>
- <87se8kywhb.ffs@tglx>
- <87jyttz8cf.ffs@tglx>
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0B4096014C
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 08:04:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4220C2BCC7
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 08:04:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777363443;
+	bh=IoirFoe03mX/ctRgHP5OpPVgaiIaPeHRPHwGzkpjrfs=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
+	b=YfFCV9k+BZYhWnN0htmAA7TEblQEBIOZMmkKLT9ppkoHP+EPaAHnRPo/usK+MnIDz
+	 lKQ5X+bLGt5Ktn7rSdCg9HYrEBnuxq+38G00QcQZQqPSAfg3R1l7duUFV19f3S5WLU
+	 6X1Lqe01mhvmvMgdK/uHRP3K1iP4rIMIvW8lc+3V1vWSqIDgluBehZ54fKgIjqDRAC
+	 +gM4bSE+MTT5LXzGQ8F0TdNcfeatwIRde4vcgwPt9PRKC7OEAq00WFqvVdXEQxzgft
+	 eplmJI8bhZRIDW3WHqfXy/KcHZvMnwvH9nzaiOiGfXC/xYDpwOSOPp19xPAOLOPCzC
+	 hpPaYYQhQwxeA==
+Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-5a2c9c5ff87so11565687e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 01:04:03 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+JAe9IORMaXKmJOLSbnkfNvVGppMd80nlxVqSksmoh1HZKXO9Ze3M5C07t0yvXYwUMy4zrEpwEOzg1oU8C0Zh1@lists.infradead.org
+X-Gm-Message-State: AOJu0YzfT/caVmXcBTT2xmxKAEILs+iUOPqgM8G7TLvLqScOTtEhbQHe
+	/VPaHFLtJEYQYGgVNLiH5IsJao/VBJeNmxnglLe/pcCXKYuTERevdLQFFiecDJRm9bw7JXHPuTr
+	vXbN2sVbXD76V7YUIGEKFA6EVAAHd1liqigKn0s8HFA==
+X-Received: by 2002:a05:6512:3b11:b0:5a2:b903:3b43 with SMTP id
+ 2adb3069b0e04-5a74660485amr881966e87.7.1777363442347; Tue, 28 Apr 2026
+ 01:04:02 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 28 Apr 2026 01:04:01 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 28 Apr 2026 01:04:01 -0700
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260427-arm-psci-system_reset2-vendor-reboots-v21-11-dcf937775e73@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <87jyttz8cf.ffs@tglx>
+References: <20260427-arm-psci-system_reset2-vendor-reboots-v21-0-dcf937775e73@oss.qualcomm.com>
+ <20260427-arm-psci-system_reset2-vendor-reboots-v21-11-dcf937775e73@oss.qualcomm.com>
+Date: Tue, 28 Apr 2026 01:04:01 -0700
+X-Gmail-Original-Message-ID: <CAMRc=Mc0mjrzLv9qi87nr4TAW_LYn_Ndut=H8WfJPZeSZd6+TA@mail.gmail.com>
+X-Gm-Features: AVHnY4LZVg57jPaWekGSSk4DejeTI2gwQWeR0zCi-FpgzjFW0MFsND6PRyA_w6Y
+Message-ID: <CAMRc=Mc0mjrzLv9qi87nr4TAW_LYn_Ndut=H8WfJPZeSZd6+TA@mail.gmail.com>
+Subject: Re: [PATCH v21 11/13] arm64: dts: qcom: Add psci reboot-modes for
+ lemans boards
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, Andre Draszik <andre.draszik@linaro.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>, 
+	Srinivas Kandagatla <srini@kernel.org>, Sebastian Reichel <sre@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Daniel Lezcano <daniel.lezcano@kernel.org>, Christian Loehle <christian.loehle@arm.com>, 
+	Ulf Hansson <ulfh@kernel.org>, Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Arnd Bergmann <arnd@arndb.de>, Souvik Chakravarty <Souvik.Chakravarty@arm.com>, 
+	Andy Yan <andy.yan@rock-chips.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	John Stultz <john.stultz@linaro.org>, Moritz Fischer <moritz.fischer@ettus.com>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,82 +99,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 27, 2026 at 12:04:48AM +0200, Thomas Gleixner wrote:
+On Mon, 27 Apr 2026 19:34:51 +0200, Shivendra Pratap
+<shivendra.pratap@oss.qualcomm.com> said:
+> Add PSCI SYSTEM_RESET2 reboot-modes for lemans-evk and
+> lemans-ride-common(sa8775p-ride, sa8775p-ride-r3, qcs9100-ride,
+> qcs9100-ride-r3) for use by the psci-reboot-mode driver.
+>
+> The following modes are defined:
+> - bootloader: reboot into fastboot mode for fastboot flashing.
+> - edl: reboot into emergency download mode for image loading via
+>   the Firehose protocol.
+>
+> Support for these modes is firmware dependent.
+>
+> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+> ---
 
-> +Optimized RSEQ V2
-> +-----------------
-> +
-> +On architectures which utilize the generic entry code and generic TIF bits
-> +the kernel supports runtime optimizations for RSEQ, which also enable
-> +enhanced features like scheduler time slice extensions.
-> +
-> +To enable them a task has to register the RSEQ region with at least the
-> +length advertised by getauxval(AT_RSEQ_FEATURE_SIZE).
-> +
-> +If existing binaries register with RSEQ_ORIG_SIZE (32 bytes), the kernel
-> +keeps the legacy low performance mode enabled to fulfil the expectations
-> +existing users regarding the original RSEQ implementation behaviour.
-> +
-> +The following table documents the ABI and behavioral guarantees of the
-> +legacy and the optimized V2 mode.
-> +
-> +.. list-table:: RSEQ modes
-> +   :header-rows: 1
-> +
-> +   * - Nr
-> +     - What
-> +     - Legacy
-> +     - Optimized V2
-> +   * - 1
-> +     - The cpu_id_start, cpu_id, node_id and mm_cid fields (User mode read
-> +       only)
-> +     - Updated by the kernel unconditionally after each context switch and
-> +       before signal delivery
-> +     - Updated by the kernel if and only if they change, i.e. if the task
-> +       is migrated or mm_cid changes
-> +   * - 2
-> +     - The rseq_cs critical section field
-> +     - Evaluated and handled unconditionally after each context switch and
-> +       before signal delivery
-> +     - Evaluated and handled conditionally only when user space was
-> +       interrupted. Either after being preempted or before signal delivery
-> +       in the interrupted context.
-> +   * - 3
-> +     - Read only fields
-> +     - No strict enforcement except in debug mode
-> +     - Strict enforcement
-> +   * - 4
-> +     - membarrier(...RSEQ)
-> +     - All running threads of the process are interrupted and the ID fields
-> +       are rewritten and eventually active critical sections are aborted
-> +       before they return to user space.  All threads which are scheduled
-> +       out whether voluntary or not are covered by #1/#2 above.
-> +     - All running threads of the process are interrupted and eventually
-> +       active critical sections are aborted before these threads return to
-> +       user space. The ID fields are only updated if changed as a
-> +       consequence of the interrupt. All threads which are scheduled out
-> +       whether voluntary not are covered by #1/#2 above.
-> +   * - 5
-> +     - Time slice extensions
-> +     - Not supported
-> +     - Supported
-
-I'm sure its cute when rendered, but when read as text this is nigh on
-unreadable.
-
-> +The legacy mode is obviously less performant as it does unconditional
-> +updates and critical section checks even if not strictly required by the
-> +ABI contract. That can't be changed anymore as some users depend on that
-> +observed behavior, which in turn enables them to violate the ABI and
-> +overwrite the cpu_id_start field for their own purposes. This is obviously
-> +discouraged as it renders RSEQ incompatible with the intended usage and
-> +breaks the expectation of other libraries in the same application.
-> +
-> +The ABI compliant optimized mode, which respects the read only fields, does
-> +not require unconditional updates and therefore is way more performant. The
-> +kernel validates the read only fields for compliance. If user space
-> +modifies them, the process is killed. Compliant usage allows multiple
-> +libraries in the same application to benefit from the RSEQ functionality
-> +without disturbing each other.
-> +
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
