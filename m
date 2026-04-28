@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55558FF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 16:29:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D35FFF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 16:29:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qe8+erd3ATmRXcw/RE05XoQwx+r6eTzDQ+NZAClJ7ws=; b=zR/KjG+7bCFI6HCoB/oRvWHiz1
-	F/cwQVyxaxk6ya/yZSLKlNQ+A+Ent3z+7pV8yKZ9FHo+5dNN3ejVzRnlq/OaNKGN7CMgYAK6dLGJu
-	T+xSR30pgf+pbtXogXnZyBU6mronHV4flJ55rkGiLnvdH271qpv36mN8sAIkZEbuXfgUKuLh8i1YZ
-	9XmVMp5vUmM44X6O/J/1yTBq/4vtLPChQb/OpPu/edt9jF99gVcp1atixLC8g+YviiFuBWROk89yl
-	rE+uNbtLzLZYZOyKm6WUjfKrcN3EpBEVbNm7f82o9XsJ7LWPP5O125pnN+5RSnfx/ZKabOYU2BkW/
-	f5ANHraw==;
+	bh=uNFzzd95mcTYhcO+wG3xMSmWT3vJi7xx2yg5IbFJlII=; b=1Ng+V0pL47nJMMrJopL3JRmwxF
+	Fd87L8YxqQMbBn9sF03l6x0Wohh8q0dKwl4PojHzaJR4lRyTWCa6roQdWBt0MogaJO39iVDfajRNK
+	FtYklmP1iHXOg8fH6IZVGfGQV8ivNjDr6R/iKEPCphOg0JIVgFtIw37vkfCUNJ4IWo/hFw4w+bUu/
+	FSd/b11Q14WfxY/rfd5rt9W3angk9c+5ks8BJ6oNzcIIRwpGROXarin7cR8KzW1+L3Pa8Eyn9Xnpa
+	H7otTU38OOIcE2zuN3uQK/xCmez9eGZS8KM4DfbumAJ4oBB/h+ddzQsDeEgW96oY9EKT2mOjXHIIM
+	Mh/6WURw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHlJW-00000001wEd-3RjO;
-	Tue, 28 Apr 2026 16:29:34 +0000
+	id 1wHlJe-00000001wHq-3HXF;
+	Tue, 28 Apr 2026 16:29:42 +0000
 Received: from s106b.cyber-folks.pl ([195.78.66.88])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHlJS-00000001wBW-3NKg
+	id 1wHlJV-00000001wCF-0Lb2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 16:29:32 +0000
+	Tue, 28 Apr 2026 16:29:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=mmpsystems.pl; s=x; h=Cc:To:In-Reply-To:References:Message-Id:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
 	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Qe8+erd3ATmRXcw/RE05XoQwx+r6eTzDQ+NZAClJ7ws=; b=x8GowFnrAjfX8ib/qwlXmO6cnM
-	wwzYEean0JaCy0vYjT6nXjrGzDQelBRPnVfAZkWUjte2g4BWVtYKsp06Z8PfcJsHP9VFWd/u9ZeUI
-	1R2cst1qfcASPkDEwxpHMu7f8aj2psVx546rdPO0hqWCHvAf8X3f+DzLXonr2L9B0aJPt2sre8mlG
-	IYAaeo0Y15C4gomD9fZj9J04u6NiJ5yULl6n8VG7rrmuU+PH+MVhi7zO+YghmxieQuoEme5WTqjB8
-	tJeUn9MojQPlK5xnlbmoK18Xg2q+Tfn+0NK146Oz6uOAkUn7iuVNLzNTf70drDmHHt9JfSfztEnk1
-	/3URn4kA==;
+	bh=uNFzzd95mcTYhcO+wG3xMSmWT3vJi7xx2yg5IbFJlII=; b=LpdUe6vWV8GUx6T658P2IK+BBb
+	e8Llc/HH+kyKSsjFa1nxnEfOkrUs1Bv9oGzPrX+P/8SZ0BbR7Pby05UQ2X1xvvCH7GShWW5tJJnMG
+	LOA8pKZBm2I8zWzLiVET0M9wCT3M3rrg1vcqGij2lGhgXNB7YqHOuZd/+GnaAXZr7CeWDGBL+w2E1
+	qYXR0WVan1GWrI6utM3WWp3CQz/mZZBHTbKhgOrOmvqEsriwB1PGXq2bpyeNGrtIemj/+hbmOQ+jG
+	RQ5zeRZqNo0Vxi/ExRXbPDkV29Smb5z+0pYHRvG9VzvY12ucuc8LAjsnSleUi33MKbcyWDwGdDzyv
+	kHDk9uIQ==;
 Received: from user-188-33-36-99.play-internet.pl ([188.33.36.99] helo=localhost)
 	by s106.cyber-folks.pl with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <michal.piekos@mmpsystems.pl>)
-	id 1wHlJQ-0000000Ay6i-1iSc;
-	Tue, 28 Apr 2026 18:29:28 +0200
+	id 1wHlJS-0000000AyAH-33fe;
+	Tue, 28 Apr 2026 18:29:30 +0200
 From: Michal Piekos <michal.piekos@mmpsystems.pl>
-Date: Tue, 28 Apr 2026 18:26:58 +0200
-Subject: [PATCH v3 1/4] dt-bindings: timer: allwinner,sun5i-a13-hstimer:
- add H616 and D1
+Date: Tue, 28 Apr 2026 18:27:01 +0200
+Subject: [PATCH v3 4/4] arm64: dts: allwinner: h616: add hstimer node
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260428-h616-t113s-hstimer-v3-1-7e02178a93ee@mmpsystems.pl>
+Message-Id: <20260428-h616-t113s-hstimer-v3-4-7e02178a93ee@mmpsystems.pl>
 References: <20260428-h616-t113s-hstimer-v3-0-7e02178a93ee@mmpsystems.pl>
 In-Reply-To: <20260428-h616-t113s-hstimer-v3-0-7e02178a93ee@mmpsystems.pl>
 To: Daniel Lezcano <daniel.lezcano@kernel.org>, 
@@ -64,20 +63,19 @@ To: Daniel Lezcano <daniel.lezcano@kernel.org>,
 Cc: Michal Piekos <michal.piekos@mmpsystems.pl>, 
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- Andre Przywara <andre.przywara@arm.com>, 
- Conor Dooley <conor.dooley@microchip.com>
+ Andre Przywara <andre.przywara@arm.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777393718; l=1635;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777393718; l=1212;
  i=michal.piekos@mmpsystems.pl; s=20260301; h=from:subject:message-id;
- bh=qh9sEc57bKsGot5lE2/m8eNigSmNqLcdmef/IL3Fdfc=;
- b=qZpLCw+wrAJsF4G8/+1yRLu0Hy+1pGSqIursXJzKh2gfawBEHa96O7LKTtjNdtJ3/lkXgakcC
- ggXYALl7/QBClz8aezK217dHYM0oQZH0QAzwDhORe1NZCfFzvo7j7tA
+ bh=cCHCvUuPpHPu5/1mgf/ezZ1u0bRGr6TqCo7i9RhbRKk=;
+ b=eFK3ao3uugOuv143hz0liRBNNc2Xesw0yOGSCckqUgPwCm5JUa2FLamO0kXHGhWPW9uAVb/3s
+ 0sqvXLmq0WhBVS/BrEBPdbZ4YK6th3qxM4WgPB7NxXjKfqpDzkuhzZz
 X-Developer-Key: i=michal.piekos@mmpsystems.pl; a=ed25519;
  pk=Aixyx03If7ZDamiKKN0lsa+0mtA+WjIuIf2ZQVYNBqg=
 X-Authenticated-Id: michal.piekos@mmpsystems.pl
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_092931_020602_6118B264 
-X-CRM114-Status: UNSURE (   8.98  )
+X-CRM114-CacheID: sfid-20260428_092933_315171_D51E1D91 
+X-CRM114-Status: UNSURE (   9.16  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -93,50 +91,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-D1 is similar to existing sun5i, but with different register offsets.
-H616 uses same offsets as D1.
+Describe high speed timer block on Allwinner H616.
 
-Add allwinner,sun20i-d1-hstimer
-Add allwinner,sun50i-h616-hstimer with fallback to
-allwinner,sun20i-d1-hstimer
-Extend schema condition for interrupts to cover D1 compatible variant.
+Tested on Orange Pi Zero 3:
+- hstimer is registered as clocksource
+- switching clocksource at runtime works
+- after rating increase hstimer operates as a broadcast clockevent device
 
 Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../devicetree/bindings/timer/allwinner,sun5i-a13-hstimer.yaml   | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/timer/allwinner,sun5i-a13-hstimer.yaml b/Documentation/devicetree/bindings/timer/allwinner,sun5i-a13-hstimer.yaml
-index f1853daec2f9..3e2725c56995 100644
---- a/Documentation/devicetree/bindings/timer/allwinner,sun5i-a13-hstimer.yaml
-+++ b/Documentation/devicetree/bindings/timer/allwinner,sun5i-a13-hstimer.yaml
-@@ -15,9 +15,13 @@ properties:
-     oneOf:
-       - const: allwinner,sun5i-a13-hstimer
-       - const: allwinner,sun7i-a20-hstimer
-+      - const: allwinner,sun20i-d1-hstimer
-       - items:
-           - const: allwinner,sun6i-a31-hstimer
-           - const: allwinner,sun7i-a20-hstimer
-+      - items:
-+          - const: allwinner,sun50i-h616-hstimer
-+          - const: allwinner,sun20i-d1-hstimer
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
+index bf054869e78b..1356e5df2562 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
+@@ -237,6 +237,16 @@ timer0: timer@3009000 {
+ 			clocks = <&osc24M>;
+ 		};
  
-   reg:
-     maxItems: 1
-@@ -45,7 +49,10 @@ required:
- if:
-   properties:
-     compatible:
--      const: allwinner,sun5i-a13-hstimer
-+      anyOf:
-+        - const: allwinner,sun5i-a13-hstimer
-+        - contains:
-+            const: allwinner,sun20i-d1-hstimer
- 
- then:
-   properties:
++		hstimer@3005000 {
++			compatible = "allwinner,sun50i-h616-hstimer",
++				     "allwinner,sun20i-d1-hstimer";
++			reg = <0x03005000 0x1000>;
++			interrupts = <GIC_SPI 45 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 46 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&ccu CLK_BUS_HSTIMER>;
++			resets = <&ccu RST_BUS_HSTIMER>;
++		};
++
+ 		watchdog: watchdog@30090a0 {
+ 			compatible = "allwinner,sun50i-h616-wdt",
+ 				     "allwinner,sun6i-a31-wdt";
 
 -- 
 2.43.0
