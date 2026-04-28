@@ -4,57 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D549CFF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 10:42:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24715FF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 10:42:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1oSlw3JhftyX++CYILhYKpAJgHLDCCW4UBZ2qiUL1GM=; b=SqSFpROJIGnX69MMpg5EPTzTZW
-	zjLgczwj4lWoxBhysJQ08EOkfjX7BCFFdf7ZysBTtP5cj9gVWcHddu1ycK+elKJgeDsAasi3sgKzL
-	28NPhjdqVBONP2ifs90/o/mfpCuZDIZ0fCagrJ5bKr/s7XG7X3WR6D/6FWuBGJWPvFn11IMKb/3Vd
-	ruuI0sYvrQ6mSML4SvdrqnOJHNzwfZX/UfxWlk5tqEebm40Yp4JTVOPTHiuwkRZkhmMhE7fRxKBSk
-	9eS0l2EjRFv0t9QmP26vP7fyVWzeaZsejcjBGNkXARpljzKiBcewwHeYRAUJ1hvEwyRZBro4DOfDy
-	IwNwvWrw==;
+	bh=sks81t5EJwxrfLopXM22YTOlvZRs/RBnCWrr2l4KqwQ=; b=UonzjkFUZLhXNqky97v/0FV0i8
+	34Lwvta/1TEfFI6RjIGZvOaVqPnzcIvFeRkCgtpQy0BM748uEdtg0hyPdwQybnAWE0YWIWmy3O7Og
+	umKiScqvqNyln2PprXa6a3SP4KI6lUsqjfSwV3ekauKgtrtZj3OgCs+yDISvxepIzX+r8bWQVgIoh
+	L4euFzdf7pFYKu6fo0TtA1JzqLassOjI6WAhvvx/UYHj0/Na0IIPfpLlrw6OKnJnuybbxg4VCt9Il
+	xvJQR3LT7pmKN/BONlPbnZW69WQ4FEqlb72KbBQDBwsPjcqX3TnISWt/dk2UadRz64D2W2DCgnix1
+	WOJKt93Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHftA-00000001CCK-0Khx;
-	Tue, 28 Apr 2026 10:42:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wHftK-00000001CJR-49qX;
+	Tue, 28 Apr 2026 10:42:10 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHft8-00000001CBB-0271;
-	Tue, 28 Apr 2026 10:41:59 +0000
+	id 1wHftJ-00000001CIG-1pNh
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Apr 2026 10:42:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A9590418C4;
-	Tue, 28 Apr 2026 10:41:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 900A6C2BCB5;
-	Tue, 28 Apr 2026 10:41:56 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 656FE61145;
+	Tue, 28 Apr 2026 10:42:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9E26C2BCB5;
+	Tue, 28 Apr 2026 10:42:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777372917;
-	bh=jqLL9PMWQLPxYzTigBKojWpIaxGpzTrfi+7oTZFBti8=;
+	s=k20201202; t=1777372928;
+	bh=32abhNWO89cs2JwkXa0XH5ZqG1v/L7wT581ifHEbNSo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=iL8p3xlHYp2DBXLC11N35f7WM5g+yQ3PMBb+VkwZpi3Vqf7Y26w6lo9H+Y0+EEJZZ
-	 xQz69TL6iMhXmjJiygNL5rjv6DWPhfxArJWQRkqrDrOHMcNPwSdY+VzxoY71J3dLPm
-	 jKjcuFNd68Z4g9vW5H/CgO1SUmTJtZRPR4FsGhKWmB61pEjYYwmaaZqdLD8PwuO2VU
-	 2UUFd07+rvQ+iGjlxGn1jrelh08JXiFcpu3e7kBqfrRlEZGKtRKWT7AXkEiYkdw1AV
-	 3QC2OVexfiJNEYmbd+TcMd/uFpe7NklNHJLO1kb2G85kW63Z7PrAc18zq53wfao829
-	 t5KMwsdL8fNHA==
+	b=CNEOdlEVV/wPN8bR5EDj70Aue0OASPmqHvdUgczIC5vNRxxkLsoMwatdqGnVni72S
+	 BMps/zP9GzQMd2Ux57sTlW7hsuvJ1Huw+vhutOwvz4iK7rmGmwII68WUjipr0Tk5Ke
+	 uXuVgkeQ9eztfK2c5nCMB+oHh7wvnAg31YaPa2Ckqej/o93PBWRAfpC9THUbv00+Z4
+	 Hr7u3u0sogQflfmDd9hgfyGrKO1225cE9Fd42H2L84pHZM/uLrrtLZsCEVQ8xfCPaD
+	 yw96a5xdd54Jiscghmdg6jfCbWW/H2uOORqmdddokXi2TK9G1Dun7jHDFsTzeSigF8
+	 FHbql6Q6j2l8A==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Akari Tsuyukusa <akkun11.open@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Lee Jones <lee@kernel.org>,
+Cc: Elad Nachman <enachman@marvell.com>,
+	"Rob Herring (Arm)" <robh@kernel.org>,
+	Gregory CLEMENT <gregory.clement@bootlin.com>,
 	Sasha Levin <sashal@kernel.org>,
-	matthias.bgg@gmail.com,
-	linux-kernel@vger.kernel.org,
+	andrew@lunn.ch,
+	sebastian.hesselbarth@gmail.com,
+	robh+dt@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org,
+	conor+dt@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 7.0-6.18] mfd: mt6397: Properly fix CID of MT6328, MT6331 and MT6332
-Date: Tue, 28 Apr 2026 06:40:28 -0400
-Message-ID: <20260428104133.2858589-17-sashal@kernel.org>
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH AUTOSEL 7.0-5.10] dt-bindings: arm64: add Marvell 7k COMe boards
+Date: Tue, 28 Apr 2026 06:40:35 -0400
+Message-ID: <20260428104133.2858589-24-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260428104133.2858589-1-sashal@kernel.org>
 References: <20260428104133.2858589-1-sashal@kernel.org>
@@ -64,9 +69,6 @@ X-Patchwork-Hint: Ignore
 X-stable-base: Linux 7.0.2
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_034158_102606_6941472E 
-X-CRM114-Status: GOOD (  24.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,449 +83,333 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Akari Tsuyukusa <akkun11.open@gmail.com>
+From: Elad Nachman <enachman@marvell.com>
 
-[ Upstream commit a09506820afa391e0a8ecc4b05c954f21e50b1de ]
+[ Upstream commit 283822a64d6bd9aca55b5e2718bc63e9815b443d ]
 
-CIDs set for MT6328, MT6331 and MT6332 are not appropriate.
-Many Android downstream kernels define CID as below,
+Add dt bindings for:
+Armada 7020 COM Express CPU module
+Falcon DB-98CX85x0 COM Express type 7 Carrier board
+Falcon DB-98CX85x0 COM Express type 7 Carrier board
+with an Armada 7020 COM Express CPU module
 
-MT6328:
-
-    #define PMIC6328_E1_CID_CODE    0x2810
-    #define PMIC6328_E2_CID_CODE    0x2820
-    #define PMIC6328_E3_CID_CODE    0x2830
-
-MT6331/MT6332:
-
-    #define PMIC6331_E1_CID_CODE    0x3110
-    #define PMIC6331_E2_CID_CODE    0x3120
-    #define PMIC6331_E3_CID_CODE    0x3130
-
-    #define PMIC6332_E1_CID_CODE    0x3210
-    #define PMIC6332_E2_CID_CODE    0x3220
-    #define PMIC6332_E3_CID_CODE    0x3230
-
-The current configuration incorrectly uses the revision code as the CID.
-Therefore, the driver cannot detect the same PMIC of different revisions.
-(E1/E2 for MT6328, E1/E3 for MT6331/MT6332)
-Based on these, the CID of MT6328, MT6331 and MT6332 should be corrected.
-
-Additionally, the incorrect MT6331/MT6332 CID overlaps with the MT6320's
-actual CID:
-
-    #define PMIC6320_E1_CID_CODE    0x1020
-    #define PMIC6320_E2_CID_CODE    0x2020
-
-This causes a conflict in the switch-case statement of mt6397-irq.c,
-this prevents adding support for MT6320.
-
-Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Link: https://patch.msgid.link/20260302140045.651727-1-akkun11.open@gmail.com
-Signed-off-by: Lee Jones <lee@kernel.org>
+Signed-off-by: Elad Nachman <enachman@marvell.com>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Gregory CLEMENT <gregory.clement@bootlin.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-Now I have all the information I need. Let me provide the complete
+Based on my investigation, I have enough information to complete the
 analysis.
 
 ## PHASE 1: COMMIT MESSAGE FORENSICS
 
 **Step 1.1: Subject Line**
-- Subsystem prefix: `mfd: mt6397`
-- Action verb: "Properly fix" — explicit bug-fix language
-- One-line summary: Corrects wrongly configured CID values for MT6328,
-  MT6331, and MT6332 PMICs
-- **Record:** `[mfd/mt6397]` `[fix]` — Properly fix CID values for
-  MT6328/MT6331/MT6332 PMICs so they get correctly recognized
+Record: Subsystem `dt-bindings: arm64`, action verb `add`, summary: "Add
+DT binding descriptions for the Marvell Falcon DB-98CX85x0 COM Express
+carrier board and Armada 7020 CPU module."
 
 **Step 1.2: Tags**
-- `Signed-off-by:` Akari Tsuyukusa (author)
-- `Reviewed-by:` AngeloGioacchino Del Regno
-  <angelogioacchino.delregno@collabora.com>
-- `Link:` https://patch.msgid.link/20260302140045.651727-1-
-  akkun11.open@gmail.com
-- `Signed-off-by:` Lee Jones <lee@kernel.org> (MFD maintainer)
-- No `Fixes:` tag, no `Cc: stable` — expected, and why the commit is
-  under review
-- **Record:** Reviewed by the subsystem expert who authored the original
-  MT6331 support (AngeloGioacchino Del Regno) and committed by the
-  subsystem maintainer (Lee Jones).
+Record: `Signed-off-by: Elad Nachman` (author), `Acked-by: Rob Herring
+(Arm) <robh@kernel.org>` (DT maintainer), `Signed-off-by: Gregory
+CLEMENT <gregory.clement@bootlin.com>` (mvebu maintainer). No `Fixes:`,
+no `Cc: stable`, no `Reported-by:`, no `Link:`.
 
-**Step 1.3: Body Analysis**
-- Bug description: The values previously assigned to `MT6328_CHIP_ID`,
-  `MT6331_CHIP_ID`, and `MT6332_CHIP_ID` were revision codes (E3 in the
-  MT6328 case, E2 in the MT6331/MT6332 case), not the actual chip
-  identifiers. The `cid_shift=0` for these chips extracts the lower byte
-  (= revision), so only one specific revision matches.
-- Symptom: Same PMIC of a different revision is not detected; driver
-  probe fails.
-- Secondary effect: The old (incorrect) MT6331/MT6332 CID value 0x20
-  collides with the real MT6320 CID, blocking future MT6320 support.
-- Explicit reference to downstream Android kernels that document the
-  real CID layout: E-revision occupies bits 0-7, PMIC model occupies
-  bits 8-15.
-- **Record:** Clear explanation of a correctness bug with concrete
-  hardware consequences.
+**Step 1.3: Commit Body**
+Record: The commit body lists the three binding descriptions added but
+provides no bug description or symptom. However, the subject does not
+use "fix" and reads as a feature addition. Body does not discuss impact.
 
 **Step 1.4: Hidden Bug Fix Detection**
-Not hidden — the title uses "Properly fix". This is a straightforward
-correctness fix for a mis-identified register layout.
+Record: Based on subject alone, looks like pure feature addition.
+However, based on mailing list discussion (see Phase 4), this is a fix
+for a binding/DTS mismatch where the DTS files reference compatibles not
+documented in the bindings.
 
 ## PHASE 2: DIFF ANALYSIS
 
 **Step 2.1: Inventory**
-- `drivers/mfd/mt6397-core.c`: 2 lines changed (cid_shift 0→8 for
-  mt6328_core and mt6331_mt6332_core)
-- `include/linux/mfd/mt6397/core.h`: 3 enum values changed
-  (MT6328=0x30→0x28, MT6331=0x20→0x31, MT6332=0x20→0x32)
-- Total: 5 insertions, 5 deletions, 2 files — extremely small, surgical
-- **Record:** 2 files, ~5 effective lines of value changes, no logic
-  changes.
+Record: 1 file changed
+(`Documentation/devicetree/bindings/arm/marvell/armada-7k-8k.yaml`), +11
+lines, -0 lines. Single surgical YAML addition.
 
-**Step 2.2: Code Flow Change**
-In `mt6397_probe()`:
-
-```346:398:/home/sasha/linux-autosel-7.0/drivers/mfd/mt6397-core.c
-static int mt6397_probe(struct platform_device *pdev)
-{
-        ...
-        ret = regmap_read(pmic->regmap, pmic_core->cid_addr, &id);
-        ...
-        pmic->chip_id = (id >> pmic_core->cid_shift) & 0xff;
-        ...
-```
-
-The chip_id is read from the hardware CID register (MT6328_HWCID=0x200,
-MT6331_HWCID=0x100), then shifted and masked.
-
-- Before fix (`cid_shift=0`): reads low byte = revision code (e.g.,
-  0x10, 0x20, 0x30)
-- After fix (`cid_shift=8`): reads high byte = actual chip model (0x28,
-  0x31, 0x32), same across all revisions
-
-The enum values are updated correspondingly so that the old "only
-revision X works" behavior is preserved for revision X, and the new
-behavior additionally supports all revisions.
-- **Record:** The fix changes what portion of the 16-bit HWCID register
-  is used for chip identification.
+**Step 2.2: Code Flow**
+Record: Before: Binding file did not describe the
+`marvell,armada7020-cpu-module`, `marvell,db-falcon-carrier`, or
+`marvell,armada7020-falcon-carrier` compatibles. After: New `oneOf`
+entry documents this 6-level compatible stack. No runtime code affected.
 
 **Step 2.3: Bug Mechanism**
-Category (g) Logic / correctness fix — specifically, wrong bit-field
-extraction from a hardware register.
-
-Concretely, MT6328 HWCID returns e.g. 0x2810 (E1), 0x2820 (E2), 0x2830
-(E3):
-- Old: chip_id = 0x2810 & 0xff = 0x10 / 0x20 / 0x30 — only E3 matches
-  MT6328_CHIP_ID=0x30
-- New: chip_id = (0x28XX >> 8) & 0xff = 0x28 for all revisions → matches
-  MT6328_CHIP_ID=0x28
-
-Same analysis for MT6331 (only E2=0x3120 matches old 0x20) and MT6332
-(only E2=0x3220 matches old 0x20).
-
-When chip_id doesn't match in `mt6397_irq_init()`'s switch statement:
-
-```207:210:/home/sasha/linux-autosel-7.0/drivers/mfd/mt6397-irq.c
-        default:
-                dev_err(chip->dev, "unsupported chip: 0x%x\n",
-chip->chip_id);
-                return -ENODEV;
-```
-
-→ probe fails → entire MFD (regulators, RTC, keys) is absent → device
-unbootable/unusable.
+Record: This falls in category (h) Hardware workarounds/documentation
+additions - DT binding additions for board compatibles. The "bug" is
+that the DTS files already in the tree (b3370479a5f7e) reference
+compatibles that are undocumented, causing `make CHECK_DTBS=y` to
+produce schema validation warnings.
 
 **Step 2.4: Fix Quality**
-- Obviously correct given the documented hardware register layout.
-- Pure value change; no new control flow.
-- The fix preserves the previous working behavior: hardware that matched
-  before (MT6328 E3, MT6331/MT6332 E2) still matches after, because the
-  enum value is updated in lockstep with the shift.
-- No API change, no locking change, no memory operations touched.
-- **Record:** High-quality fix, zero added regression surface.
+Record: Obviously correct - YAML schema change only. Zero runtime risk.
+Minimal and surgical. Cannot introduce regression as DT schema is not
+used at runtime.
 
-## PHASE 3: GIT HISTORY
+## PHASE 3: GIT HISTORY INVESTIGATION
 
 **Step 3.1: Blame**
-- MT6328 chip_data and enum entry introduced in `6e31bb8d3a63b` ("mfd:
-  mt6397: Add initial support for MT6328") — kernel v6.13.
-- MT6331/MT6332 chip_data and enum entries introduced in `d9cd0bc604705`
-  ("mfd: mt6397: Add basic support for MT6331+MT6332 PMIC") — kernel
-  v6.0.
-- **Record:** Buggy code has been present since v6.0 (MT6331/MT6332) and
-  v6.13 (MT6328).
+Record: The existing "Armada 7020 SoC" entry that precedes the added
+block was present from file creation. New entry inserted after it.
 
-**Step 3.2: Fixes: Tag**
-No Fixes: tag provided. The natural "Fixes:" targets would be the two
-commits above. Both are in mainline and in stable trees (since v6.0 /
-v6.13).
+**Step 3.2: Fixes Tag**
+Record: No `Fixes:` tag. However, the related DTS commit `b3370479a5f7e`
+("arm64: dts: a7k: add COM Express boards", Jan 22 2026) is the commit
+that introduced the DTS files referencing the new compatibles, and is
+already present in HEAD.
 
-**Step 3.3: File History** — recent `mt6397-core.c` history shows only
-incremental PMIC additions and minor cleanups; no concurrent refactors
-that would block a backport.
+**Step 3.3: File History**
+Record: Recent related file history: `4c9bc78fa22d6` (missing 7040/8040
+compatibles), `242aa69df6ed8` (8KPlus schema move), `099e1d034f009`
+(solidrun cn9132), `5f5eb24090bec` (solidrun cn9130), `c604a4d1833c1`
+(earlier Marvell COM Express boards). Part of a typical incremental
+binding maintenance flow.
 
-**Step 3.4: Author's Other Commits** — First-time author; the Reviewed-
-by is from AngeloGioacchino Del Regno (Collabora), the original author
-of the MT6331/MT6332 support and a prolific MediaTek-platform developer.
+**Step 3.4: Author**
+Record: Author Elad Nachman from Marvell has been contributing
+Armada/CN913x and ac5 patches. Gregory Clement (mvebu subsystem
+maintainer) handled the commit. Rob Herring (top-level DT maintainer)
+Acked it.
 
-**Step 3.5: Dependencies** — Standalone, self-contained. No other
-commits needed.
+**Step 3.5: Dependencies**
+Record: Standalone binding addition, no code dependencies. However,
+contextually linked to DTS commit `b3370479a5f7e` (already in
+HEAD/v7.0).
 
 ## PHASE 4: MAILING LIST RESEARCH
 
-**Step 4.1: Original Patch Discussion**
-Retrieved the full thread via b4
-(lore.kernel.org/all/20260302140045.651727-1-akkun11.open@gmail.com/):
-- v1 posted 2026-02-28 by Akari Tsuyukusa
-- AngeloGioacchino Del Regno reviewed v1 on 2026-03-02, asked for GitHub
-  links to be removed, gave Reviewed-by.
-- v2 posted 2026-03-02 with Reviewed-by, no code changes.
-- Lee Jones applied v2 as commit
-  `f59b2bc3e6dbcd75c53f1881c1f08a6d3c2a72e5` on 2026-03-06.
-- **Record:** Latest version applied; no objections, no stable-specific
-  discussion either way, no NAKs.
+**Step 4.1: Lore Discussion**
+Record: Found via `b4 dig`: https://lore.kernel.org/all/20260122165923.2
+316510-2-enachman@marvell.com/ — Patch 1/3 of series "arm64: dts: a7k:
+add COM Express boards". Crucial reviewer feedback found:
 
-**Step 4.2: Reviewers** — Correct subsystem parties included: Lee Jones
-(MFD maintainer), Matthias Brugger (MediaTek), AngeloGioacchino Del
-Regno (MediaTek expert), Yassine Oudjana (original MT6328 author), and
-the linux-mediatek/arm/kernel lists.
+- Rob Herring (Mar 6, 2026): *"It seems the .dts files are in 7.0 and
+  the binding is only in next. The binding needs to go into 7.0 too.
+  Please pay attention to the warnings."*
+- Gregory Clement (Mar 13, 2026): *"Sorry for this. I have now applied
+  the binding, and it will be included in my next fixes PR."*
 
-**Step 4.3–4.5: Bug Report Links** — No external bug report; the
-reporter is also the author who likely hit this on their own hardware.
-No prior stable-list discussion found.
+This is an **explicit stable nomination from the DT maintainer** for
+7.0.y.
+
+**Step 4.2: Reviewers**
+Record: Rob Herring (DT maintainer) Acked it, Gregory Clement (mvebu
+maintainer) applied and explicitly targeted 7.0 fixes. Proper subsystem
+review occurred.
+
+**Step 4.3: Bug Report**
+Record: Rob's dt-schema bot flagged "new warnings" on the series.
+Warnings are DT validation errors produced by the DTS files without
+matching bindings.
+
+**Step 4.4: Series**
+Record: Part of a 3-patch series. Patch 2 (DTS) already merged to 7.0.
+Patch 3 (MAINTAINERS) has its own destiny. This patch 1 (bindings) is
+the reviewer-requested sync.
+
+**Step 4.5: Stable Mailing List**
+Record: Not discussed on stable list; this is being handled as a 7.0
+fixes path.
 
 ## PHASE 5: CODE SEMANTIC ANALYSIS
 
-**Step 5.1: Key Entities Modified**
-- `struct chip_data mt6328_core` (initializer constant)
-- `struct chip_data mt6331_mt6332_core` (initializer constant)
-- `enum chip_id` members MT6328_CHIP_ID, MT6331_CHIP_ID, MT6332_CHIP_ID
+Not applicable — no code functions involved, only DT YAML schema. DT
+binding files have no runtime callers; they are consumed only by `dt-
+schema` validation tools (`make dt_binding_check`, `make CHECK_DTBS=y`).
 
-**Step 5.2: Callers/Use sites**
-- `mt6328_core` / `mt6331_mt6332_core` referenced as `.data` in the
-  of_device_id table → consumed once per probe by `mt6397_probe()`.
-- `MT6328_CHIP_ID` / `MT6331_CHIP_ID` used in the `switch
-  (chip->chip_id)` inside `mt6397_irq_init()`
-  (drivers/mfd/mt6397-irq.c).
-- `MT6332_CHIP_ID` is only defined; not referenced in switch (MT6332 is
-  dispatched through MT6331's IRQ path per the combination comment in
-  mt6397-core.c line 185).
-- No users outside the driver — confirmed via repository-wide search.
-- **Record:** Very small impact surface; isolated to mt6397 MFD driver.
-
-**Step 5.3–5.4: Call chain** — Only reachable at device probe
-(`mt6397_probe`), triggered by the PMIC node in device tree. User impact
-path is: boot → PMIC probe reads HWCID → chip_id mismatch → ENODEV → no
-regulators/RTC/keys.
-
-**Step 5.5: Similar patterns** — Other PMICs in the same file
-(mt6357/mt6358/mt6359) already use `cid_shift = 8` with their SWCID
-addresses. The fix brings the three broken entries into line with the
-rest of the driver.
+Record: Zero runtime call paths, zero runtime consumers. Binding file
+affects only build-time validation.
 
 ## PHASE 6: CROSS-REFERENCING AND STABLE TREE ANALYSIS
 
-**Step 6.1: Buggy Code in Stable Trees**
-Verified directly against local tracked branches:
-- `for-greg/6.6-200` (6.6.y): contains MT6331/MT6332 with `cid_shift =
-  0` and MT6331/MT6332 CHIP_ID = 0x20. MT6328 not present. →
-  MT6331/MT6332 part of the fix is needed.
-- `for-greg/6.12-200` (6.12.y): same state as 6.6.y. → MT6331/MT6332
-  part needed.
-- `for-greg/6.18-200` (6.18.y): has MT6328=0x30 present plus
-  MT6331/MT6332=0x20. → Full fix applies.
-- `for-greg/6.19-200` and `stable/linux-7.0.y`: have both; full fix
-  applies.
+**Step 6.1: Buggy Code in Stable**
+Record: Verified with `git merge-base --is-ancestor b3370479a5f7e HEAD`
+-> IN HEAD. The DTS files (`db-falcon-carrier-a7k.dts`, `db-falcon-
+carrier.dtsi`, `armada-7020-comexpress.dtsi`) are present in
+stable/linux-7.0.y via mvebu-dt64-6.20-1 merge. The mismatched bindings
+cause the validation gap in 7.0.y. Not in older stable trees (6.6.y,
+6.1.y etc.), so they aren't affected.
 
 **Step 6.2: Backport Complications**
-- 6.6.y and 6.12.y: need a minor adaptation — drop the MT6328 hunks (2
-  lines) and the MT6328_CHIP_ID enum line. The rest applies cleanly.
-  Trivial adjustment.
-- 6.18.y+: applies cleanly.
+Record: Binding file in HEAD matches the pre-patch state from mainline.
+Patch should apply cleanly to 7.0.y. Verified file context still has the
+"Armada 7040 SoC" entry right after the "Armada 7020 SoC" entry -
+insertion point unchanged.
 
-**Step 6.3: Related Fixes in Stable** — None; this is the first and only
-fix for this issue.
+**Step 6.3: Related Fixes in Stable**
+Record: No related binding fixes already in stable.
 
-## PHASE 7: SUBSYSTEM CONTEXT
+## PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
 
-**Step 7.1–7.2:** `drivers/mfd/` is an important subsystem but this
-particular driver is device-specific (MediaTek PMIC companion chips for
-specific SoCs). Criticality: IMPORTANT for owners of affected MediaTek
-hardware (MT6735, MT6795 Helio X10 phones like Sony Xperia M5). Mature
-code with steady activity (new PMIC support added periodically).
+**Step 7.1: Subsystem Criticality**
+Record: Subsystem = `Documentation/devicetree/bindings/arm/marvell/`, DT
+binding documentation. Criticality: PERIPHERAL (affects only DT schema
+validators, not any runtime path).
+
+**Step 7.2: Activity Level**
+Record: Moderately active file, typical maintenance pace.
 
 ## PHASE 8: IMPACT AND RISK ASSESSMENT
 
-**Step 8.1: Affected Users**
-Driver-specific: users of MediaTek SoCs paired with MT6328 (MT6735-based
-devices), MT6331/MT6332 (MT6795 Helio X10, e.g. Sony Xperia M5 — present
-as `mt6795-sony-xperia-m5.dts` and `mt6795-xperia-m5.dts` upstream).
+**Step 8.1: Who is Affected**
+Record: Developers/testers running `make dt_binding_check` or `make
+CHECK_DTBS=y` on the arm64 marvell DTS tree. No end users affected (DT
+schema files are not compiled into the kernel or used at runtime).
 
 **Step 8.2: Trigger Conditions**
-Every boot on an affected hardware revision (any MT6328 E1/E2, any
-MT6331/MT6332 E1/E3). The revision shipped in each product is fixed by
-manufacturing, so a given user will either always hit or never hit the
-bug.
+Record: The "bug" (validation warning) triggers only when someone runs
+DT schema validation against the shipped DTS files. Not runtime
+reachable.
 
-**Step 8.3: Failure Mode**
-When triggered: `mt6397_irq_init` returns -ENODEV → `mt6397_probe` fails
-→ regulator/RTC/keys sub-devices never register → platform effectively
-non-functional (no voltage rails programmed, no RTC, no power button).
-Severity: HIGH (device unbootable for affected revisions).
+**Step 8.3: Failure Mode Severity**
+Record: LOW - generates `CHECK_DTBS` warnings/failures for validator
+users; no crashes, no data corruption, no security impact, no runtime
+behavior change.
 
-**Step 8.4: Risk-Benefit**
-- BENEFIT: HIGH — enables full PMIC support for a population of MediaTek
-  devices that currently cannot boot properly.
-- RISK: VERY LOW — 5-line pure value change; the behavior for
-  previously-working revisions (MT6328 E3, MT6331/MT6332 E2) is
-  preserved exactly because both the `cid_shift` and enum value move in
-  lockstep; no new code paths, no locking/memory changes.
+**Step 8.4: Risk vs Benefit**
+Record:
+- Benefit: LOW severity, fixes validation inconsistency explicitly
+  requested by the DT maintainer; keeps 7.0.y internally consistent.
+- Risk: Near-zero. 11-line YAML file touching schema metadata only;
+  cannot affect compile or runtime.
+- Ratio: LOW/near-zero = favorable.
 
 ## PHASE 9: FINAL SYNTHESIS
 
-**Evidence FOR:**
-- Fixes real, user-visible bug preventing PMIC probe on non-matching
-  hardware revisions.
-- Failure mode is severe (device boot regression).
-- Fix is small (5 effective lines), obviously correct, and aligns with
-  all other PMIC entries in the same driver.
-- Reviewed and Acked by subsystem expert (original MT6331 author);
-  applied by subsystem maintainer.
-- Buggy code has been in mainline since v6.0 (MT6331/MT6332) and v6.13
-  (MT6328), so stable users have been exposed for a long time.
-- Preserves backward-compatibility for revisions that previously
-  happened to work.
+**Step 9.1: Evidence**
 
-**Evidence AGAINST:**
-- Minor: requires dropping two MT6328 hunks for pre-6.13 stable trees
-  (trivial adaptation).
-- Not accompanied by `Cc: stable` (expected; that's why it's under
-  review).
+FOR backport:
+- DT maintainer (Rob Herring) explicitly stated: "The binding needs to
+  go into 7.0 too."
+- Companion DTS commit `b3370479a5f7e` is already in stable/linux-7.0.y
+  (verified)
+- Fixes DT schema validation warnings against the already-shipped DTS
+- Zero runtime risk (YAML metadata only)
+- Acked-by DT maintainer, applied to mvebu/fixes (7.0 fixes) by mvebu
+  maintainer
+- Small (11 lines), contained, obviously correct
+- Falls under the "Documentation" and "DT updates for existing hardware
+  (in tree)" exception categories
 
-**Stable Rules Check:**
-1. Obviously correct: YES (pure value change, documented hardware
-   register layout).
-2. Fixes real bug that affects users: YES (broken probe on specific
-   revisions).
-3. Important issue: YES (device unusable without PMIC).
-4. Small and contained: YES (5 effective lines).
-5. No new features/APIs: YES.
-6. Applies to stable: YES (clean on 6.18+/7.0; trivial hunk drop on
-   6.6/6.12).
+AGAINST backport:
+- Subject reads as feature addition ("add Marvell 7k COMe boards")
+- No `Fixes:` tag, no `Cc: stable` tag
+- Technically describes new boards not previously documented
+- Doesn't fix any runtime behavior
 
-**Exception categories:** Not a device-ID/quirk/DT/doc/build-fix per se,
-but is a narrow hardware-identification correctness fix — equivalent
-spirit to a quirk/device-ID update.
+Unresolved: None — the mailing list discussion resolves the intent.
+
+**Step 9.2: Stable Rules Checklist**
+1. Obviously correct and tested? YES (YAML schema addition, acked by DT
+   maintainer)
+2. Fixes a real bug affecting users? BORDERLINE - fixes validator bug
+   for shipped DTS
+3. Important issue? LOW severity (validation warnings, not runtime)
+4. Small and contained? YES (11 lines, one file)
+5. No new features? YES (no runtime features, binding matches DTS
+   already in tree)
+6. Can apply to stable? YES (applies cleanly to 7.0.y)
+
+**Step 9.3: Exception Categories**
+Applicable exceptions:
+- "DEVICE TREE (DT) UPDATES: DT binding additions for existing hardware,
+  DT fixes for incorrect hardware descriptions, enabling already-
+  supported hardware on new boards - Usually safe because they only
+  affect specific ARM/embedded platforms."
+- "DOCUMENTATION and COMMENT FIXES: Fixing incorrect documentation,
+  updating obsolete comments - Zero risk of runtime regression"
+
+The DTS files for this hardware are already present in 7.0; adding the
+matching bindings is a documentation sync.
+
+**Step 9.4: Decision**
+For 7.0.y specifically, the DTS files exist in the tree, the DT
+maintainer explicitly asked for this to land in 7.0, and the risk is
+zero. This matches the exception for DT updates / documentation fixes.
 
 ## Verification
 
-- [Phase 1] Parsed tags: Signed-off-by Akari Tsuyukusa, Reviewed-by
-  AngeloGioacchino Del Regno, Link to patch.msgid.link, Signed-off-by
-  Lee Jones (MFD maintainer). No stable tag, no Fixes tag.
-- [Phase 2] Diff analysis: 2 files, 5 insertions, 5 deletions — verified
-  by reading the diff; matches b4-retrieved v2 mbox.
-- [Phase 2] Verified code flow: read `drivers/mfd/mt6397-core.c` lines
-  280–398 and confirmed `pmic->chip_id = (id >> pmic_core->cid_shift) &
-  0xff;`.
-- [Phase 2] Verified failure path: read `drivers/mfd/mt6397-irq.c`
-  switch 178–210; unmatched chip_id returns -ENODEV.
-- [Phase 2] Verified enum collision claim: `MT6331/MT6332_CHIP_ID =
-  0x20` in `include/linux/mfd/mt6397/core.h`.
-- [Phase 3] git log on `drivers/mfd/mt6397-core.c`: `6e31bb8d3a63b`
-  added MT6328 support, `d9cd0bc604705` added MT6331/MT6332 support.
-- [Phase 3] `git tag --contains 6e31bb8d3a63b | sort -V` shows v6.13 as
-  earliest tag.
-- [Phase 3] `git tag --contains d9cd0bc604705 | sort -V` shows v6.0 as
-  earliest tag.
-- [Phase 4] `b4 am` retrieved patch thread (4 messages): v1 submitted
-  2026-02-28, v2 submitted 2026-03-02 with Reviewed-by added and GitHub
-  links removed, applied as `f59b2bc3e6dbcd75c53f1881c1f08a6d3c2a72e5`
-  by Lee Jones 2026-03-06.
-- [Phase 4] Full thread read at `/tmp/mt6397_mbox/...mbx`; only review
-  feedback was to remove GitHub links; no NAK, no stable nomination, no
-  concerns raised.
-- [Phase 5] Searched the whole repo for
-  `MT6328_CHIP_ID|MT6331_CHIP_ID|MT6332_CHIP_ID` — only appear in the
-  header and `mt6397-irq.c` switch statement.
-- [Phase 5] `drivers/mfd/mt6397-core.c` verified: other PMICs
-  (mt6357/58/59) already use `cid_shift = 8` pattern.
-- [Phase 6] `git show for-greg/6.6-200:include/linux/mfd/mt6397/core.h`
-  — MT6331/MT6332=0x20 present, MT6328 absent.
-- [Phase 6] `git show for-greg/6.12-200:include/linux/mfd/mt6397/core.h`
-  — same as 6.6.y.
-- [Phase 6] `git show for-greg/6.18-200:include/linux/mfd/mt6397/core.h`
-  — MT6328=0x30 and MT6331/MT6332=0x20 present.
-- [Phase 6] `git show for-greg/6.6-200:drivers/mfd/mt6397-core.c` —
-  `mt6331_mt6332_core` with `cid_shift = 0`. Patch hunk for
-  MT6331/MT6332 applies identically.
-- [Phase 8] Device tree usage verified:
-  `arch/arm64/boot/dts/mediatek/mt6331.dtsi` and
-  `arch/arm64/boot/dts/mediatek/mt6795-sony-xperia-m5.dts` use these
-  compatibles.
-- UNVERIFIED: exact distribution of revisions in shipping devices (E1 vs
-  E2 vs E3) — claim about which specific revisions fail is taken from
-  commit message and is consistent with the bit-field math, which I
-  verified.
+- [Phase 1] Parsed tags: `Acked-by: Rob Herring`, `Signed-off-by:
+  Gregory CLEMENT`, no `Fixes:`/`Cc: stable`.
+- [Phase 2] Diff analysis: +11 lines of YAML added to
+  `armada-7k-8k.yaml`, single file, new `oneOf` entry for the Falcon
+  carrier + Armada 7020 CPU module compatible stack.
+- [Phase 3] `git log --oneline -- <file>`: file churn is typical
+  incremental binding maintenance.
+- [Phase 3] `git log -1 --format="%H %ci %s" edb7efa767da8` -> March 13,
+  2026; `b3370479a5f7e` -> January 23, 2026 (DTS, earlier).
+- [Phase 3] `git merge-base --is-ancestor b3370479a5f7e HEAD` -> **IN
+  HEAD** (DTS already in 7.0.y).
+- [Phase 3] `git merge-base --is-ancestor edb7efa767da8 HEAD` -> **NOT
+  IN HEAD** (binding not yet in 7.0.y).
+- [Phase 3] `git tag --contains b3370479a5f7e` -> `v7.0` confirms DTS is
+  in the 7.0 release.
+- [Phase 4] `b4 dig -c edb7efa767da8` -> found thread at
+  lore.kernel.org/all/20260122165923.2316510-2-enachman@marvell.com/.
+- [Phase 4] `b4 dig -c edb7efa767da8 -w` -> recipients include robh+dt,
+  krzysztof.kozlowski+dt, conor+dt, andrew@lunn.ch,
+  gregory.clement@bootlin.com (all relevant DT/maintainer parties).
+- [Phase 4] `b4 dig -c edb7efa767da8 -m /tmp/thread.mbox` -> saved full
+  thread; confirmed Rob Herring's explicit "The binding needs to go into
+  7.0 too" and Gregory Clement's response "I have now applied the
+  binding, and it will be included in my next fixes PR."
+- [Phase 4] Rob's dt-bot reported DTB warnings on the series
+  (`arch/arm64/boot/dts/marvell/db-falcon-carrier-a7k.dtb: ...phy-
+  mode:0: '10gbase-kr' is not one of [...]`), a separate phy-mode issue,
+  but confirms validation is run.
+- [Phase 5] Not applicable (YAML schema file has no runtime callers).
+- [Phase 6] Verified DTS files (`db-falcon-carrier-a7k.dts`, `db-falcon-
+  carrier.dtsi`, `armada-7020-comexpress.dtsi`) exist in HEAD via `git
+  show b3370479a5f7e:...` - confirmed they use the compatibles added in
+  this binding commit.
+- [Phase 7] File path: `Documentation/devicetree/bindings/arm/marvell/`
+  - DT binding docs for Marvell Armada platforms.
+- [Phase 8] Severity determined by examining what consumes DT binding
+  YAMLs (dt-schema validators only); verified no runtime code path uses
+  these YAML files.
 
-This is a correctness fix for a mis-decoded PMIC identification register
-that makes the driver unable to probe on specific hardware revisions
-shipping in real products (MT6735-based phones, MT6795 Helio X10 phones
-including Sony Xperia M5). The change is tiny and preserves behavior for
-revisions that happened to work before. It has been reviewed by the
-MediaTek PMIC expert and landed by the MFD maintainer. Buggy code has
-been in stable since v6.0 (MT6331/MT6332) and v6.13 (MT6328).
-Backporting is low risk and high benefit; pre-6.13 trees need only to
-drop the MT6328 hunks.
+The mailing list evidence is unambiguous: the DT maintainer explicitly
+flagged that the DTS files landed in v7.0 but the matching bindings did
+not, and requested they go into 7.0 to fix the CHECK_DTBS validation
+warnings. The mvebu maintainer applied it to the fixes branch
+accordingly. The change is 11 lines of YAML with zero runtime risk,
+acked by the DT maintainer, matching already-shipped DTS files in the
+7.0 tree.
 
 **YES**
 
- drivers/mfd/mt6397-core.c       | 4 ++--
- include/linux/mfd/mt6397/core.h | 6 +++---
- 2 files changed, 5 insertions(+), 5 deletions(-)
+ .../devicetree/bindings/arm/marvell/armada-7k-8k.yaml | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-diff --git a/drivers/mfd/mt6397-core.c b/drivers/mfd/mt6397-core.c
-index 3e58d0764c7e0..1bdacda9a933f 100644
---- a/drivers/mfd/mt6397-core.c
-+++ b/drivers/mfd/mt6397-core.c
-@@ -297,7 +297,7 @@ static const struct chip_data mt6323_core = {
+diff --git a/Documentation/devicetree/bindings/arm/marvell/armada-7k-8k.yaml b/Documentation/devicetree/bindings/arm/marvell/armada-7k-8k.yaml
+index 4bc7454a5d3ac..7e77310da626f 100644
+--- a/Documentation/devicetree/bindings/arm/marvell/armada-7k-8k.yaml
++++ b/Documentation/devicetree/bindings/arm/marvell/armada-7k-8k.yaml
+@@ -21,6 +21,17 @@ properties:
+           - const: marvell,armada-ap806-dual
+           - const: marvell,armada-ap806
  
- static const struct chip_data mt6328_core = {
- 	.cid_addr = MT6328_HWCID,
--	.cid_shift = 0,
-+	.cid_shift = 8,
- 	.cells = mt6328_devs,
- 	.cell_size = ARRAY_SIZE(mt6328_devs),
- 	.irq_init = mt6397_irq_init,
-@@ -313,7 +313,7 @@ static const struct chip_data mt6357_core = {
- 
- static const struct chip_data mt6331_mt6332_core = {
- 	.cid_addr = MT6331_HWCID,
--	.cid_shift = 0,
-+	.cid_shift = 8,
- 	.cells = mt6331_mt6332_devs,
- 	.cell_size = ARRAY_SIZE(mt6331_mt6332_devs),
- 	.irq_init = mt6397_irq_init,
-diff --git a/include/linux/mfd/mt6397/core.h b/include/linux/mfd/mt6397/core.h
-index b774c3a4bb62e..340fc72e22aa6 100644
---- a/include/linux/mfd/mt6397/core.h
-+++ b/include/linux/mfd/mt6397/core.h
-@@ -12,9 +12,9 @@
- 
- enum chip_id {
- 	MT6323_CHIP_ID = 0x23,
--	MT6328_CHIP_ID = 0x30,
--	MT6331_CHIP_ID = 0x20,
--	MT6332_CHIP_ID = 0x20,
-+	MT6328_CHIP_ID = 0x28,
-+	MT6331_CHIP_ID = 0x31,
-+	MT6332_CHIP_ID = 0x32,
- 	MT6357_CHIP_ID = 0x57,
- 	MT6358_CHIP_ID = 0x58,
- 	MT6359_CHIP_ID = 0x59,
++      - description:
++          Falcon (DB-98CX85x0) Development board COM Express Carrier plus
++          Armada 7020 SoC COM Express CPU module
++        items:
++          - const: marvell,armada7020-falcon-carrier
++          - const: marvell,db-falcon-carrier
++          - const: marvell,armada7020-cpu-module
++          - const: marvell,armada7020
++          - const: marvell,armada-ap806-dual
++          - const: marvell,armada-ap806
++
+       - description: Armada 7040 SoC
+         items:
+           - enum:
 -- 
 2.53.0
 
