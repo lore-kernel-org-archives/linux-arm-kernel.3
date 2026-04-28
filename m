@@ -4,118 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F622FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 20:38:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 640F8FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 20:49:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b6d3l70lYqSnvJpMpEGZJLw4o8TwsL0Q+e8A9O8Mofs=; b=RtvHwwlAVx1NFEQuZjEYsKw2H1
-	7In8YEkuAZABouHjLuv0Xh83kTtRlu1hcwqBg6eZ9JBFufyP6K1ngUfz0uccTGr1HeiDScm1Su9xz
-	L26loucNHCeu9UPc2QIqqpGE+JjJBxY/DFFNnJ9mFAXwMTGn27f1Y9IVv3s/4K26KJrrlIfItaOTc
-	iqad0guefOVTN1xemUeWg6pGYVOD2M8ewF2e0C06uGYGK+l90v1I+xsa/GCWohQhq5s+FNwOj5uvI
-	4Ud1wp6qgsSz0E0zVwqFYdJpLo1uPD3kiDWRDp5xuwXWdzKk30+6HvML4SWSVOOtV1n8WyN4DQYpo
-	LGjFnU4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KxmAjhkR2AzcW8nmiAYVzvrYXiY3Tg7vT2+EijDw31A=; b=b//Km8AS+IsxHGj5o6i/AZM36u
+	MBQVp1nQ1ssiFFWgCdcfZsBk4SqAEG3gL4e5Wl6qa1Xs7mXk+nBpTOoERMFzFhwfrDmb3CmDhK4Ux
+	MBOEvu7qyptTpikAzSMxXZmPAWZQSY3b7dXemDIyzgxRkfPvwSje6o7mw1IFdfpG134tc++xjvpw8
+	ZGwGE1ZdEjkWd00xBV1mJ2iinH7pV/mf3kLSxaigpOEJLmpckKnJS6E9Vt7gIPCoYjn6CTjICI+bq
+	Pu+w0N3zfhAk3klc8e69wqPq8zettFY5aO92hZq2XAkf5kMN5QSY1uMtcf2bhyefA3ZVkYXU3e+i+
+	QnaChBbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHpCS-00000002TIg-3X40;
-	Tue, 28 Apr 2026 20:38:32 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wHpN9-00000002U3J-1nlp;
+	Tue, 28 Apr 2026 20:49:35 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHpCQ-00000002TI8-2t8b
+	id 1wHpN7-00000002U2j-0ujR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 20:38:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1777408709;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=b6d3l70lYqSnvJpMpEGZJLw4o8TwsL0Q+e8A9O8Mofs=;
-	b=V9YpFNj7NGViHZJoAbmz5tpWQt77RUyGBSnHolY4IyUXf8NBhs+0QcQNVBLUacvQUpvdMp
-	5eycBjG6iuYb+zLWGR9zza0Fy1hvIi9D1MOWKmwzjbcyRJKlUCWuJg9waxupndsCGWhfCt
-	Ye02hBE0qzZJiao9X2Lk3X2MfEw0nvw=
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com
- [209.85.219.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-260-Hjk2J6XPPKeWI7FeIgiq4g-1; Tue, 28 Apr 2026 16:38:26 -0400
-X-MC-Unique: Hjk2J6XPPKeWI7FeIgiq4g-1
-X-Mimecast-MFC-AGG-ID: Hjk2J6XPPKeWI7FeIgiq4g_1777408705
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-8acb26fbbb2so175940466d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 13:38:26 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777408705; x=1778013505;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=b6d3l70lYqSnvJpMpEGZJLw4o8TwsL0Q+e8A9O8Mofs=;
-        b=OLIO6aHqCEpAoQob7MLma6CTea9xtnCxRk9y8+GvMwfMOXxtWWDzgF472xXpeA8cq1
-         zFuKNWWt9sASZ5K09MoY05GdvDYBHXGznV6Kt6AHXxjLK1v8AjcpulZIYLEaRWBGRS8q
-         mpDzNRdLf7pEdMu2iWYKybdpvWDZLGoR2JLdDRbq0s8CUZLEj+xobhh4AySC0UF8r/1J
-         mZ72Qih8vc7Hc/SjXTtpwpZXQtQNv9BePTIjamrrmQbtKyBcVFYGljna+S+41Ga9hYZ6
-         8hKVzcEnYn1WTZBeRURtFmYD2IYVolNKSPNfmoU+vTVtrokgz1F8tBhGIyVSBqQ0m/cs
-         mBHQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+ioV8e4nKKTp0zQcZkIjVntHXZzC2FEqZQWpjpOt06wjqbT6G+kLMJpsLr2mwD3mXhF5cBP4tIeL7jW98Jfx1y@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx92BVLckh+ftFgXcc2epRMP7nrHqMKTdS+tsnQgqAGgSvjTm9I
-	4qe34zDLx913D2kbLx6I+NCR+z0MD/9mdO0+L6bMt8iALtIJk1I9rTnkl0oet6OeEpH9FmmhNrq
-	DqpuWey4ALZMdO/Fg2z1bi6pQFvvsCQYj2huL/qlECgsH7Y2o/ZWOjXurbNPtgKGV8fXHC1u5+F
-	SL
-X-Gm-Gg: AeBDieuDooo5QDNvvny/va5G0X86LBN8iAF1E3+B7WGBfEeTDjEtaLAokJnBiPUWX6N
-	oh4KPBmUSjBGNTcrKiYDwVPNcztUhj8hzmunP9XwK0g8kgAyxeL0TnfRGo6alo3/AJ7MR2RVrl7
-	L1dRPOch2WAC/SJLMABxtzyxe33tBWw8lsaSaolkRB3zVzKkiUyH7fpXXemvayGVnPHDiWWkCP6
-	tsvlfBujVpkilsPeMpntqnjppLe2dL1MrYtBluKU+uy7ibysE2U+0Ux447eaLoidTybVwkPmU9X
-	SWp73tyGA9Mn69b8MnAxUko+aeBH7oxf9rTNF8QjPABip2nKuj5UhJ/s0nq+EBm5uE2s88rFnUF
-	PnhxttAqjTMZB1sn14ZbkipCHOrNBaLY=
-X-Received: by 2002:a05:6214:318d:b0:8ac:a914:c2da with SMTP id 6a1803df08f44-8b3edcea9a6mr22408106d6.2.1777408705542;
-        Tue, 28 Apr 2026 13:38:25 -0700 (PDT)
-X-Received: by 2002:a05:6214:318d:b0:8ac:a914:c2da with SMTP id 6a1803df08f44-8b3edcea9a6mr22407456d6.2.1777408705068;
-        Tue, 28 Apr 2026 13:38:25 -0700 (PDT)
-Received: from redhat.com ([2600:382:8104:bdc6:d862:7b9c:1d01:62e0])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8b3ef7ef50fsm699056d6.32.2026.04.28.13.38.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Apr 2026 13:38:24 -0700 (PDT)
-Date: Tue, 28 Apr 2026 16:38:19 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>
-Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Abel Vesa <abelvesa@kernel.org>,
-	Andrea della Porta <andrea.porta@suse.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Chanwoo Choi <cw00.choi@samsung.com>, Frank Li <Frank.Li@nxp.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>, arm-scmi@vger.kernel.org,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org, Peng Fan <peng.fan@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH v2 00/12] clk: add new flag CLK_ROUNDING_NOOP
-Message-ID: <afEau1Ny-7RTz4vc@redhat.com>
-References: <20260309-clk-det-rate-fw-managed-v2-0-c48ef5a3100a@redhat.com>
+	Tue, 28 Apr 2026 20:49:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xre3r+s6xA0+Tcwux21VhFc5dEIutFqHMBl+b+g7FxI4IVYtYAOeadboSbWTEWuznGwy39LOmYM3dJO/QaOOio66jqCVQWgE48fw5Rp9i5ewL17zARgx2l+jC2rb7AM249FV0iDQnpuvTBeKvqMfgrNKd2pnuZqwdrZcpml9TMGMGZyAghpxi7PgFBgGAZHP/DNlVuyBeKNAfy9OH7Hn2uw2TFHaAh2Nk1FndTNXIrMQybJVeJV+xH5WPqv1qeXCC9aVc7Zq+daFJFVmSdgcuPxQ8Hym8ElnyLoDw9v0sjDabQJu4XTis6I5i3Mgj2mgESD52N5ZTdOFgecUYGALow==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=KxmAjhkR2AzcW8nmiAYVzvrYXiY3Tg7vT2+EijDw31A=;
+ b=yV3wjcsShan82zFDP04etOum/Rvfc9kM2Kp3kdDlKYTt4BO6i3EkYya8lAcH0S9KC3WjvuLu1LOnOV0ceC7Pi3HOVZQy8b502o82kIC/DmQmvixms/is5IS1nUyxdMYV96ePr4XNehwaKo1yh9ikjrdEC1YdWUzGxbay4bpYRv0wSZYk77pRpJid9YAFLUfdDzRjjickFlJiVMPEfPVr/99zVTnqlAhneMvUZ4UwWfkWit1XhMXmBCzJGcozYpA6t/1tAMpMU9in0w/S7usTt7rpU02WzC0Bb1C5oy+EVE57caR0VpYDpoIJVAoAsb8jmwyBNFQw6N7KHRlQojeY0Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=est.tech; dmarc=pass action=none header.from=est.tech;
+ dkim=pass header.d=est.tech; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=est.tech; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KxmAjhkR2AzcW8nmiAYVzvrYXiY3Tg7vT2+EijDw31A=;
+ b=aeBi/F7qXzImuinaWpBOjFoJiVEIPr2eRBDwn8P5jRJlrpQxIMpZ/9QwOoeN7MOYStfRf95gUktRzHi5/Sj/wRZjY3iC4VqbjO8PEEjZSRoEWbsP5it8ZqOjNABBst2tEXfIloXuzdekwTmOkUXxKIV+GsGZg+Sn6xBGePxAXlGzOYk8arrotuDbAaOc03e/vLaufgnGfA2lS5QAuVCSo21nEdhQ+I7EWC8Xsqml9AdCceBSiJ3i9XfKbHROZxH4o4DtEIGLy6ZwFz+gFuaHcacO8/HxFzbYEztKTmLQMniEFEwbtxIHM1QtpP7JgJp3BkIpuxgFZkkTqec0o3B3uQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=est.tech;
+Received: from PAWP189MB2611.EURP189.PROD.OUTLOOK.COM (2603:10a6:102:336::8)
+ by AS4P189MB1894.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:4b5::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.18; Tue, 28 Apr
+ 2026 20:49:24 +0000
+Received: from PAWP189MB2611.EURP189.PROD.OUTLOOK.COM
+ ([fe80::b400:cf4f:b2e1:d884]) by PAWP189MB2611.EURP189.PROD.OUTLOOK.COM
+ ([fe80::b400:cf4f:b2e1:d884%6]) with mapi id 15.20.9846.025; Tue, 28 Apr 2026
+ 20:49:24 +0000
+From: Fredrik Markstrom <fredrik.markstrom@est.tech>
+Subject: [PATCH 0/3] arm64: perf: Skip device memory during user callchain
+ unwinding
+Date: Tue, 28 Apr 2026 22:48:57 +0200
+Message-Id: <20260428-master-with-pfix-v3-v1-0-c384d3e53092@est.tech>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIADkd8WkC/x2MywqAIBAAf0X23IKPyuhXooPUWnvIRKOC6N+Tj
+ sMw80CmxJShFw8kOjnzHgqoSsC0urAQ8lwYtNStrLXFzeWDEl58rBg933gadGSVNb4x3eSglDF
+ RMf91GN/3AxeNnXBlAAAA
+X-Change-ID: 20260427-master-with-pfix-v3-ae7173f538ca
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>, 
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, 
+ James Clark <james.clark@linaro.org>, 
+ Santosh Shilimkar <santosh.shilimkar@ti.com>, 
+ Olof Johansson <olof@lixom.net>, Tony Lindgren <tony@atomide.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-kselftest@vger.kernel.org, linux-perf-users@vger.kernel.org, 
+ Nicolas Pitre <nico@fluxnic.net>, 
+ Fredrik Markstrom <fredrik.markstrom@est.tech>, 
+ Ivar Holmqvist <ivar.holmqvist@est.tech>, 
+ Malin Jonsson <malin.jonsson@est.tech>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777409361; l=2932;
+ i=fredrik.markstrom@est.tech; h=from:subject:message-id;
+ bh=WcNa5lgwRqyYlPhgtSu9SZtFyBWPxnCJpYYbdDPxHwk=;
+ b=YVgxDT6iQHwbCBBrHPO0HkqqW2xxU3myrxeXURPqBQB+9UHE3VQjRI/grEAicq7LUsD9LFfxk
+ 3COY2IRRWIxARuVuzndw3icdBLJzbI6kLtYXkEG6I7cm5DkjIFsUH+G
+X-Developer-Key: i=fredrik.markstrom@est.tech; a=ed25519;
+ pk=0a8IXHEgAX55JPS8VZfTf1sDp7q/oAOf459tDQd40Eg=
+X-ClientProxiedBy: GVZP280CA0031.SWEP280.PROD.OUTLOOK.COM
+ (2603:10a6:150:276::11) To PAWP189MB2611.EURP189.PROD.OUTLOOK.COM
+ (2603:10a6:102:336::8)
 MIME-Version: 1.0
-In-Reply-To: <20260309-clk-det-rate-fw-managed-v2-0-c48ef5a3100a@redhat.com>
-User-Agent: Mutt/2.3.1 (2026-03-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: c0SRwN6vl_4uOFrrAdT6Lb3CHpSg3XoxQblcXnHTeaI_1777408705
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAWP189MB2611:EE_|AS4P189MB1894:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9a70f8a0-4ef1-4f1c-d9e5-08dea567a18f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|921020|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 3mkep9zQWGeRIT94bADVwWYUMq8UIOCgi9wrWPGZFfy2yiJkMdv2vRkWPyTZPwNFu6wgpumA/SflFwe3VP5XQaL6mu6pfK2KzN/kB8GZA8iwQVZgnE2dtCPhxZWIW0b/dBI5/F2yE8DN7zzrW9K6cDdJaZj6XYEKVGo9BJoTiR1u1Su1BNrgyp5t5YIyM16vmmP3d7z2kDnmQMSRNB2uQGycjU0OIK/3SAjZC/nqW56cM7hdmOWZoFjtOAYN8eU08vGm/1F3KrrXvCwuqKqwHbmsI1loHnYN8Roc4Xf1s4G3GhOf3tRuhYyoGdM51HhadnJJe1uKZiuWIWN+1OTUYblv3V6A+LLJearQwLzZya+84k/qiM7W+8LmZj46qbvFscFvlXtO7OduJgYzMA1kjnOf/AvqY+LtGoAP6y3uosAAze+er/RZrDK7YVb/NYPAipGC/lim8i4qqDvhzmMQQAa37BOX57swBBJtP4uVnV6HI7bTZfiWq5vRsN6wbUiyLl9GlytZgGIzZIZzW5OaJyVjkbdwD23F4ZDVQzEf9K4TrNixqKfY36bu/AlN9zP2pHiMXYrPQ8YLe8eJ6CDt5PB5eHJhhnSFVWNrJq21ME2IF4LVRUqHgUsnsiE9wSdepTIE/uXqdlbg9B0pTqUMDi/eAaW3jAKx9Ln2femRhgSankDAGJkghIeyuKk0k0c6VAI13nlwS2VkuGinzeYS/Ai2jFC18f3yubK7LAGuGeIr+nRe1kjWf7Snf1NxxkTQunWQxBW7DclIN5Y+asW/fJUlq8DNXrClrs7LFD78FL4=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAWP189MB2611.EURP189.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(921020)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SHlsYzEzbTBmT0dzWEZ1bmZ2RFFRUWZzd1ZFeVFjOEZ1RmFpbGtlRWtFemVS?=
+ =?utf-8?B?c1VBb3JhTGZmWHByZTBhdGR2elUxakxLS0FOeDljcDBVRnBLdjVmZE9JWXM5?=
+ =?utf-8?B?cWN6TjRITmx4TEV3cERQQzhKU3NYYTEyVGV5bnJvMTlBT3NhNzlVRWlScUxY?=
+ =?utf-8?B?aCt6a2tnN09OV3NNTENRb29NTFU3RXAwaFhZc1Y2YWVSeEY4WldCZUUrWnFB?=
+ =?utf-8?B?V2N0bDJHRjNrWEdvMWpxZmtsVmE2Z3dqYVZhTGRZMkpzRXJvejQzQS9nSzVE?=
+ =?utf-8?B?NlhISVJzY1NoM1VxRTVEZFZSdXRoWElrYjROcGhPZ1dIKzNhRElxaVM4NWJF?=
+ =?utf-8?B?YWpIbklXajVidlNUYTBESkJtM3NibWhzbGdOWXluaUM0VDZMNHZrQkZtODlt?=
+ =?utf-8?B?Tis5dHh2QnpDNTNXWHVvNzNMcUJYd2lVLzBTb0xkSzRibFdLOU5FdDJSb0c5?=
+ =?utf-8?B?MjRhN0c5bU5ONGtnRkJvdDZKUW9zQ1duSGwyZ1YwdldJUk5GSmp5aHZlWW1R?=
+ =?utf-8?B?eEVydDNwRDJtRDdSYWJ5dXhkcnJFNWJSZlhSZnc1WmoxVS9yYngyeFl6eGhX?=
+ =?utf-8?B?MFMrZjJmTGtFK1BlRTlZM0tQZlNsaEYyMlNJcWpmU2dIWmxpdEpMbjFvUFU3?=
+ =?utf-8?B?UU5TOWJSdFpLb2IzTklxNEZQNFM1T0kwQXJXb3o0emMxNTh5QkdEMm11T0di?=
+ =?utf-8?B?czlqOWd3eGZyODF6eElMYzJXZTBBT2tHSWhMUytvV1RoSzF4WmNkeTRqSkE1?=
+ =?utf-8?B?WGloa0UxRFc5RGNDSnB2S25NWXEyYlhsWUZRU09CNHU0N2cxY2lyQ3ZBZ3R3?=
+ =?utf-8?B?aGJDRjlGNkpadGUrSXBmOHRER2VRWUg3VldBeUhtNFNLekliQVNPZm5jNkRO?=
+ =?utf-8?B?S1Q3K0x0eng5RGpDZW1idnhqVVF1MDhyQ3RUNCtybVJjeGFmSnlMRWdFUmNY?=
+ =?utf-8?B?Nk14bXdDNWluWHpYa0diRStMbktlZ014WTUxVUxKckxPV0EvYndsNE9iSW0w?=
+ =?utf-8?B?Y2VsdjBJNFRBSTR6R1grUWxVM0xlQWxYU0hLMi8wU0ZyUVZmUGhpMjJmTjhS?=
+ =?utf-8?B?VXpGSndmajIrWjh6L1VtcHVCNjJMekhJUmdoSW1LemNKOVRIM256YXRrdklF?=
+ =?utf-8?B?d1IwdjVGMFVjM051R25PQjBSZTBDRWhWNFhMZFdyajk1enpCWWZYbnZQWVV6?=
+ =?utf-8?B?T1hGSEJIQ25ZTkEyRkNuZWJzYXB1UjZ6VXh5TmZlMmlyZVdibDZvU0hacXBo?=
+ =?utf-8?B?cWw1N29zWC96UlU5UWNHRFdzZGtUdzNROFhLNW53bzJFQXV5OXlCTTdlUjIv?=
+ =?utf-8?B?cVBxeDVzNSs3ZnN0SjNDQ1FFcVdvdDN3TGtTd3pBTE1SbGkwQjJsSnE4ZW9q?=
+ =?utf-8?B?dVVMa1hSVktqWjRYK25HSHJOVGFDN2VqcVpza0FxbEdUWE5qZUlGK2tWUXVE?=
+ =?utf-8?B?RkxYemdaVWFCWFRvUTh1STVHcUNCaDBQemgvWWFkV3V3WDF3NDltNEFuRlIy?=
+ =?utf-8?B?TFhKU2R0UUpScWV1N0plbmpmK2VubjJQN2NYbFVSRTlDS25ydTNmNzQ4cm8w?=
+ =?utf-8?B?bzZIZ2ZRY2o0YldMZSsyelJMbVl0eStkMngzQWl5MFZhbVhqeGhmM3U0MFJi?=
+ =?utf-8?B?NWNSTGZGZDFFSWZ0STFSamdVeXczNVY2TUpFT2hNbVF2SlRKOHB1em1keDR0?=
+ =?utf-8?B?TFlSR003WUFSTzN4dnBxeFUzLy9jZUpYckpHQ2UwcWRKTXE3QXBkR1oxeUNO?=
+ =?utf-8?B?YW9uTHltZm5BNytDV2VoSzFYMzFaQ1kzcnlCeWRyWHpuRnY4ZEFjNkpuZU90?=
+ =?utf-8?B?NlZsWGowSFl5bmQ2aWdLQnFZRTM3WUFzbzB4SnBFN0JTeVF5S1NLMUFKVDVh?=
+ =?utf-8?B?dis5L0tML3VmRWdWRHF3WDg5MEdOWWJPMDcxN2JvUnhPcFRsVGg5ZEFMMXJw?=
+ =?utf-8?B?WnpvcFBGbFNpZm1rMmwrSjFVcHBjNU1aYTZlY1d2d0hSWmRiMkQvVjN5bGky?=
+ =?utf-8?B?VHVJM3pxTmhpNXlQczMvanNFRmdBVndWODkrb21vUnFzVUJIL3h5TjQ0RVlG?=
+ =?utf-8?B?TDg4NHh0UG1oUFM1bE41UGdtM3AvVTVveUl2WVY5NTAwLzFkVzNZN21ESXRi?=
+ =?utf-8?B?QkQzM2ljM213cndoZlluQU9rYjJCaURwR3NpYlg1RzRIQ3ZqNitrcTV2d0JR?=
+ =?utf-8?B?dDlGOE1sTkRCWXBaZXM3Tnc1VkZBM01aWXJPT2pYWFh0WDJ4NVcvNjZRU1dB?=
+ =?utf-8?B?K3pqR0hBdklWRm1NYVRqWURJSjlWbUF2SGxQZm9ubmNVZzF0bTZNZzlhcTNT?=
+ =?utf-8?B?OVAwaTdkUTkxeXVHd0FzSElxSk1rUWNLUWhBOVhkSCsrQVNkTURyamdnVjg1?=
+ =?utf-8?Q?QarsscF7inabZeFI=3D?=
+X-OriginatorOrg: est.tech
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9a70f8a0-4ef1-4f1c-d9e5-08dea567a18f
+X-MS-Exchange-CrossTenant-AuthSource: PAWP189MB2611.EURP189.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2026 20:49:24.6159
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: d2585e63-66b9-44b6-a76e-4f4b217d97fd
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: q7h+S7QsZKHfcWwQFC1yWocplE3b0yxHNW9T5rdGy1uu9c69FKVYMjAE5VOheso7FW6dK/S7ToV5dg/yvG5s/M9IWSKP6RpZhcSLsYlFAMQ=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4P189MB1894
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_133830_796248_2978ED45 
-X-CRM114-Status: GOOD (  24.59  )
+X-CRM114-CacheID: sfid-20260428_134933_281466_D27223A5 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,50 +169,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stephen,
+Perf callchain unwinding follows userspace frame pointers via
+copy_from_user. A corrupted or malicious frame pointer can point
+into device I/O memory mapped into the process (e.g. via UIO or
+/dev/mem), causing the kernel to read from MMIO regions in PMU
+interrupt context. Such reads can have side effects on hardware
+(clearing status registers, advancing FIFOs, triggering DMA) and
+on arm64 can produce a synchronous external abort that panics the
+kernel.
 
-On Mon, Mar 09, 2026 at 10:38:39AM -0400, Brian Masney wrote:
-> There are some clocks where the determine_rate clk op is just an empty
-> function that returns 0. This can be either because the rounding is
-> managed by the firmware, or the clock is capable of any rate. Add a
-> new flag for these type of clocks, and update the clk core so that the
-> determine_rate() clk op is not required when this flag is set.
-> 
-> Based on discussions with Stephen at Linux Plumbers Conference, he
-> suggested adding a flag for this particular case. So let's add a new
-> flag, and update the clk core so that the determine_rate() clk op is
-> not required when this flag is set.
-> 
-> This series adds the flag, some kunit tests, and updates all of the
-> relevant drivers under drivers/clk to use the new flag.
-> 
-> Once this is merged, and in Linus's tree, I can update the few remaining
-> clk drivers that are outside of drivers/clk via those subsystems at a
-> later time.
-> 
-> Merge Strategy
-> --------------
-> All of this needs to be directly merged by Stephen as one series into
-> his tree. Subsystem maintainers: please leave a Reviewed-by or Acked-by.
-> To reduce the noise, I am only CCing people on their respective drivers.
-> 
-> Note this series depends on 3 previously-posted patches in this git pull
-> to Stephen for v7.1.
-> https://lore.kernel.org/linux-clk/aZuK4-QJCXUeSxtL@redhat.com/
-> 
-> Signed-off-by: Brian Masney <bmasney@redhat.com>
+This series adds a guard that detects device memory before each
+frame pointer read and skips the frame.
 
-We talked about this change at LPC in Tokyo, and you were the one that
-suggested adding a new flag. I initially wanted to add a new shared noop
-function to drivers/clk/clk.c. This series implements everything we
-talked about in person. The only thing that we didn't talk about in
-person was the name of this new flag.
+Patch 1: Lockless page table walk checking the MAIR attribute index
+          in the leaf PTE to identify device memory types
+          (MT_DEVICE_nGnRnE, MT_DEVICE_nGnRE). Follows the same
+          pattern as perf_get_pgtable_size() in kernel/events/core.c.
 
-Anyways, let me know if you are interested in this change, and if you
-want any changes. If there's no changes then would it be possible to
-pick this up?
+Patch 2: (DO NOT MERGE) Module parameter to disable the guard at
+          runtime for regression testing.
 
-Thanks,
-Brian
+Patch 3: (DO NOT MERGE) kselftest that exercises the attack vector:
+          maps /dev/mem, points FP into it, and verifies the kernel
+          survives perf sampling.
+
+Alternatives considered:
+
+ - VMA lookup (mmap_read_trylock + vma_lookup checking VM_IO):
+   requires the mmap lock on every frame.
+ - RCU maple tree lookup: lock-free but still a tree traversal
+   per frame.
+ - lock_vma_under_rcu: sleeping lock, unusable from IRQ context.
+
+The page table walk requires no locks and costs only 4 pointer
+dereferences per frame.
+
+Limitations:
+
+ - The MAIR attribute check is arm64-specific. Other architectures
+   use different mechanisms to identify device memory and would need
+   their own PTE inspection logic.
+ - The walk only detects memory types visible in the PTE. If a VM_IO
+   region has not been faulted in, the walk sees no PTE and fails
+   safe (skips the frame). This is conservative — it may skip frames
+   that would not actually fault.
+
+A QEMU-based reproducer is available at:
+https://gitlab.com/frma71/qemu-kernel-tests/-/tree/vmio_perf_test?ref_type=tags
+
+Signed-off-by: Fredrik Markstrom <fredrik.markstrom@est.tech>
+---
+Fredrik Markstrom (3):
+      arm64: perf: Skip device memory during user callchain unwinding
+      DO NOT MERGE: arm64: perf: Add skip_vmio parameter to control device memory callchain guard
+      DO NOT MERGE: selftests: perf_events: Add device memory callchain unwinding test
+
+ MAINTAINERS                                        |   1 +
+ arch/arm64/kernel/stacktrace.c                     | 103 +++++++++++++++++++
+ tools/testing/selftests/perf_events/Makefile       |   2 +-
+ .../testing/selftests/perf_events/test_perf_vmio.c | 114 +++++++++++++++++++++
+ 4 files changed, 219 insertions(+), 1 deletion(-)
+---
+base-commit: dca922e019dd758b4c1b4bec8f1d509efddeaab4
+change-id: 20260427-master-with-pfix-v3-ae7173f538ca
+
+Best regards,
+-- 
+Fredrik Markstrom <fredrik.markstrom@est.tech>
 
 
