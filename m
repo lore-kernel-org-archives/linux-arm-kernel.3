@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45112FF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 10:06:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75C4FFF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 10:15:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F6NiVM+FcqKtdb/sqcUTVrGuVbWGle0JubOydHUeo5o=; b=maYNXkrpS6iWwhutLt4/ZplQYc
-	wI7CeyaCIzHAqcwB5v4J0MAQkNaUcRGhOVw+SGIfjdRr6qHtRYBnM1SjZmOtewRWKFY4+tJgLb93l
-	yBW9qxO7p9q0PZo9K+6Tx4/kKleB37nn+QYTMnFzq0N9Op1jLlgBr+B+0yWvbja/tSIg8WvOAld2/
-	agK5IHY6LpgTiLRAyptODk0c4jRhF6DuffJgYu3LFaO++i2yfIe0ZtrcSVJ4/XRbtuqs/GJ+F6mX8
-	CFm4EjfF59UnqudWW1ruMqEXVCbASHIMuY5YHeHVMYpne70ASEKlPwAtY6eU6M56ZxudAagIo4hTq
-	FaCEpmAQ==;
+	bh=KYtNEMdrWB8ReB7g8yxnTxUPyAfBI79tAY+sZKCDKTw=; b=h4TFR1Hf/XiF7uW7Z8qPX7SHnu
+	xaMKIRm0N5Cdcrq5Pj0MzbIMLSsw1Kg7z5jxcX8b8vgoUa6Q3fxI9+U2I5lqlj7EY74x5jIObee1U
+	DY07/+lqWQL6IUghRqCFKu3OdTBRRt9wHCL3Nw0SWxcbwssQD6ca69plxPnrlxyJGz2QDGjFaO06o
+	fz9UkUqVLmCJQ8aMi1rtt6zv5wwJjdmfiwjeWSiSOncnCcLSzvYqKEt06En6eohg9SQHwFMm2nD6+
+	HNgmuLfwrykbJl9Tkyx6sgcXzbncL+W6Ap7tsFdbLl9/tnofxRMw7Dje/pZfYzv5CTNlNYHaWEOgq
+	fPLqOd+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHfKK-000000018n9-1cYs;
-	Tue, 28 Apr 2026 10:06:00 +0000
-Received: from out-179.mta0.migadu.com ([2001:41d0:1004:224b::b3])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHfKG-000000018mc-3ZyO
+	id 1wHfTP-000000019NO-0ypn;
+	Tue, 28 Apr 2026 10:15:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHfTM-000000019M7-2dYW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 10:05:58 +0000
-Date: Tue, 28 Apr 2026 12:05:45 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1777370751;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=F6NiVM+FcqKtdb/sqcUTVrGuVbWGle0JubOydHUeo5o=;
-	b=C2tvSgRoc9Rwd5HDBOTSOX3/BUYtGIOIUbowRvaIbS1C/rncw+UmBZ1O5rRCo9xQk8rzxf
-	z0bjNVDH+ioOZ42m0u/uPjHi9NKFCba9keqic7OenW9a1q/9+rsROB+Q3JLDTz3+2E+dQu
-	iR9keTnJI7vDrTQSUISieZim/PAXgD8=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Thorsten Blum <thorsten.blum@linux.dev>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
-	Linus Walleij <linusw@kernel.org>, stable@vger.kernel.org,
-	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] crypto: atmel-sha204a - drop hwrng quality reduction for
- ATSHA204A
-Message-ID: <afCGefyZV_ujj41K@linux.dev>
-References: <20260427124030.315590-3-thorsten.blum@linux.dev>
- <2d42b1fc-b5d5-4dcb-8dc8-62580502f586@app.fastmail.com>
+	Tue, 28 Apr 2026 10:15:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 81DE21650;
+	Tue, 28 Apr 2026 03:15:10 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 81AC23F763;
+	Tue, 28 Apr 2026 03:15:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1777371316; bh=ofVz5HqdphQZ+WDXJPcnWX4aaxd9tyeydKj7LMa8neo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MW6wK6sIVeDlOJOa9WK9oww+c9ipPg8oKl+MTzOK+fJXwVRQTMDVQmbUIjr5R9IgA
+	 8bMwCHgpOKZWAvaiTJrg1nrHUQn9EJHLnDsGuz/ZdsxhVvW+/lil360K+9/bYH1BHb
+	 zI5gylqOvy72EuXy1nrC6BvtE3BGJdBLrrNEnK/A=
+Date: Tue, 28 Apr 2026 11:15:13 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
+	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] kselftest/arm64: Fix build failure with GCC-15
+Message-ID: <20260428101513.GE16537@e132581.arm.com>
+References: <20260422-selftests_arm64_gcc15-v2-1-c0134de8838a@arm.com>
+ <aeuRfEeOUWEHzPix@arm.com>
+ <63409143-f4eb-48c3-89de-1aef4fb57381@sirena.org.uk>
+ <aeud4Hqxq4PNitMc@arm.com>
+ <b94bce09-69d5-4454-b4a0-81612f286f0a@sirena.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <2d42b1fc-b5d5-4dcb-8dc8-62580502f586@app.fastmail.com>
-X-Migadu-Flow: FLOW_OUT
+In-Reply-To: <b94bce09-69d5-4454-b4a0-81612f286f0a@sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_030557_060028_AA913A4D 
-X-CRM114-Status: GOOD (  24.76  )
+X-CRM114-CacheID: sfid-20260428_031520_883011_57920822 
+X-CRM114-Status: GOOD (  21.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,68 +75,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 28, 2026 at 07:58:39AM +0200, Ard Biesheuvel wrote:
-> Hi Thorsten,
+On Fri, Apr 24, 2026 at 06:09:01PM +0100, Mark Brown wrote:
+> On Fri, Apr 24, 2026 at 05:44:16PM +0100, Catalin Marinas wrote:
 > 
-> On Mon, 27 Apr 2026, at 14:40, Thorsten Blum wrote:
-> > Commit 8006aff15516 ("crypto: atmel-sha204a - Set hwrng quality to
-> > lowest possible") reduced the hwrng quality to 1 based on a review by
-> > Bill Cox [1]. However, despite its title, the review only tested the
-> > ATSHA204, not the ATSHA204A.
-> >
-> > In the same thread, Atmel engineer Landon Cox wrote "this behavior has
-> > been eliminated entirely"[2] in the ATSHA204A and "this problem does not
-> > affect the ATECC108 or the ATECC108A (or the ATSHA204A)"[3].
-> >
-> > According to the official ATSHA204A datasheet [4], the device contains a
-> > high-quality hardware RNG that combines its output with an internal seed
-> > value stored in EEPROM or SRAM to generate random numbers. The device
-> > also implements all security functions using SHA-256, and the driver
-> > uses the chip's Random command in seed-update mode.
-> >
-> > Keep 'quality = 1' for ATSHA204, but drop the explicit hwrng quality
-> > reduction for ATSHA204A and fall back to the hwrng core default.
-> >
-> 
-> Interesting! Thanks for digging this up.
-> 
-> > [1] 
-> > https://www.metzdowd.com/pipermail/cryptography/2014-December/023858.html
-> > [2] 
-> > https://www.metzdowd.com/pipermail/cryptography/2014-December/023852.html
-> > [3] 
-> > https://www.metzdowd.com/pipermail/cryptography/2014-December/023886.html
-> > [4] 
-> > https://ww1.microchip.com/downloads/en/DeviceDoc/ATSHA204A-Data-Sheet-40002025A.pdf
-> >
-> > Fixes: 8006aff15516 ("crypto: atmel-sha204a - Set hwrng quality to 
-> > lowest possible")
-> > Cc: stable@vger.kernel.org
-> > Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
-> > ---
-> >  drivers/crypto/atmel-sha204a.c | 40 ++++++++++++++++++----------------
-> >  1 file changed, 21 insertions(+), 19 deletions(-)
-> >
-> > diff --git a/drivers/crypto/atmel-sha204a.c b/drivers/crypto/atmel-sha204a.c
-> > index dbb39ed0cea1..df69fb190e52 100644
-> > --- a/drivers/crypto/atmel-sha204a.c
-> > +++ b/drivers/crypto/atmel-sha204a.c
-> > @@ -19,6 +19,25 @@
-> >  #include <linux/workqueue.h>
-> >  #include "atmel-i2c.h"
-> > 
-> > +enum atmel_sha204a_variant {
-> > +	ATSHA204 = 1,
-> > +	ATSHA204A,
-> > +};
-> > +
-> 
-> I agree that setting quality to '1' is only appropriate for the ATSHA204
-> but this looks a bit clunky to me.
+> > OK, so it does look like it picks the kernel uapi/asm/ptrace.h. It
+> > builds fine on Debian stable (no GCS anywhere) with including
+> > asm/ptrace.h and removing struct user_gcs.
 
-Moving the declarations to the top was also a leftover from a previous
-approach and not necessary anymore. I'll send a v2.
+kselftest has the GCC option: "-isystem $(top_srcdir)/usr/include",
+So asm/ptrace.h does come from kernel's usr/include/asm/ptrace.h.
 
-Thanks,
-Thorsten
+NT_ARM_GCS comes from /usr/aarch64-linux-gnu/include/elf.h.
+
+> > But I think we should include asm/ptrace.h in libc-gcs.h and not the
+> > gcs-util.h header (for NT_ARM_GCS it's fine to keep in gcs-util.h).
+> 
+> It's not glibc specific so it seems reasonable to keep it in gcs-util.h,
+> even though we don't currently have any nolibc stuff that uses ptrace.
+> That said this isn't particularly strongly held opinion so I don't
+> *really* mind either way.
+
+Does below change make sense to you?
+
+Subject: [PATCH] kselftest/arm64: Include <asm/ptrace.h> for user_gcs definition
+
+kselftest includes kernel uAPI headers with option:
+
+  -isystem $(top_srcdir)/usr/include
+
+Include <asm/ptrace.h> in libc-gcs.c for the definition of struct
+user_gcs from the uAPI headers, and remove the redundant
+definition in gcs-util.h.
+
+Fixes: a505a52b4e29 ("kselftest/arm64: Add a GCS test program built with the system libc")
+Signed-off-by: Leo Yan <leo.yan@arm.com>
+---
+ tools/testing/selftests/arm64/gcs/gcs-util.h | 6 ------
+ tools/testing/selftests/arm64/gcs/libc-gcs.c | 1 +
+ 2 files changed, 1 insertion(+), 6 deletions(-)
+
+diff --git a/tools/testing/selftests/arm64/gcs/gcs-util.h b/tools/testing/selftests/arm64/gcs/gcs-util.h
+index c99a6b39ac14..7a81bb07ed4b 100644
+--- a/tools/testing/selftests/arm64/gcs/gcs-util.h
++++ b/tools/testing/selftests/arm64/gcs/gcs-util.h
+@@ -18,12 +18,6 @@
+ 
+ #ifndef NT_ARM_GCS
+ #define NT_ARM_GCS 0x410
+-
+-struct user_gcs {
+-	__u64 features_enabled;
+-	__u64 features_locked;
+-	__u64 gcspr_el0;
+-};
+ #endif
+ 
+ /* Shadow Stack/Guarded Control Stack interface */
+diff --git a/tools/testing/selftests/arm64/gcs/libc-gcs.c b/tools/testing/selftests/arm64/gcs/libc-gcs.c
+index 17b2fabfec38..72e82bfbecc9 100644
+--- a/tools/testing/selftests/arm64/gcs/libc-gcs.c
++++ b/tools/testing/selftests/arm64/gcs/libc-gcs.c
+@@ -16,6 +16,7 @@
+ 
+ #include <asm/hwcap.h>
+ #include <asm/mman.h>
++#include <asm/ptrace.h>
+ 
+ #include <linux/compiler.h>
+ 
+-- 
+2.34.1
+
 
