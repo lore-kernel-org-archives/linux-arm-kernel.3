@@ -4,99 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 343EAFF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 14:04:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 266F5FF886F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 14:10:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1dnnnifmIzpF9Ebh8L++t76XOo1eryK5OY/IV/cdBnI=; b=3FbOlmJkespSieUAPmR27/l/vR
-	p96sx8Yk5oiuzI48EsWBJ8PJyXnjUWbwLXd6suucW1zTjRsVx1VRmkOHYb3zFrwLOHGW4J8zIHC+b
-	nolgwDcTIb+PU+1rwCRfR7DIBe0lGRdtalOmY6gycBq1IUt/O33OlgrfveyZeqsZ2cQtJ9/Tf3Sp6
-	0lyq3vyiyhRb602jB2HthZ2h784oH6cT5i7znZ6iuA0fzCONcMsaVsPdAtmp7HPLL5s6yRNLP2XQc
-	OwmA9Y4FmkasPloobv3KF9l4ixESDMekmmxwNa3n2zM+yE4Hf9Gq/Hl1oO7Rz/Po3w0igzGXqhWEM
-	mgh+tjcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IUWC6ygKS31EeG3tqLm7a0Mloz7UW2PL/4aW58I4ubw=; b=gMlTymVxy2UYyTL+KPQNUMpZ6n
+	rJjlXt5sXg26/FFCttQ7//JkffwU6LkCFM07InIlFgPGJ91BvHx5SX6sEg0xA56WeVlUQqueCVfoC
+	UkEKJ0wKNoIShrde0CFMJhseX6KnUOOuQnotEB8jA+3WbrcCZ5O1Q+9glfYnSSTyMRblp0mLruJM5
+	EzHx4KQWxK61pNMgCjBQXyWksxXLJAjjTF+y+1kfzGIhAhLnsXut9WAuHvVBWiM20khZMKUUSGA9r
+	5fJ7nG1mTEhX2ZnbYjD7ucQLRQq+cOBLDZ/xRSYeVgYqZPTabt+ZfE+YbQH+EnmIXOWuoAKXdFGnF
+	kZ4OIMQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHj2p-00000001byH-3fmw;
-	Tue, 28 Apr 2026 14:04:11 +0000
-Received: from 5.mo560.mail-out.ovh.net ([87.98.181.248])
+	id 1wHj9C-00000001cMj-40Bl;
+	Tue, 28 Apr 2026 14:10:46 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHj2i-00000001bxY-2PNb
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 14:04:10 +0000
-Received: from director5.ghost.mail-out.ovh.net (unknown [10.110.0.24])
-	by mo560.mail-out.ovh.net (Postfix) with ESMTP id 4g4hxT5YKwzBNPP
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 14:03:57 +0000 (UTC)
-Received: from ghost-submission-7d8d68f679-f6m5b (unknown [10.110.118.251])
-	by director5.ghost.mail-out.ovh.net (Postfix) with ESMTPS id 9E6451001E8;
-	Tue, 28 Apr 2026 14:03:56 +0000 (UTC)
-Received: from armadeus.com ([37.59.142.98])
-	by ghost-submission-7d8d68f679-f6m5b with ESMTPSA
-	id e7i0HEy+8Gn7awkAA7T7Mg
-	(envelope-from <sebastien.szymanski@armadeus.com>); Tue, 28 Apr 2026 14:03:56 +0000
-Authentication-Results: garm.ovh; auth=pass (GARM-98R00242a48d6a-e56a-480c-88df-638997601774,
-                    74DB1B90E6E4B7223053899FBA067BA27D68656B) smtp.auth=sebastien.szymanski@armadeus.com
-X-OVh-ClientIp: 86.243.239.229
-Message-ID: <ab6b9b36-f08d-451a-9c2d-ef27b813d744@armadeus.com>
-Date: Tue, 28 Apr 2026 16:03:56 +0200
+	id 1wHj9A-00000001cLf-0DZG;
+	Tue, 28 Apr 2026 14:10:46 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.99)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1wHj8l-000000000f7-1M6S;
+	Tue, 28 Apr 2026 14:10:19 +0000
+Date: Tue, 28 Apr 2026 15:10:14 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: "Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>, Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Christian Marangi <ansuelsmth@gmail.com>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH net v4] net: dsa: mt7530: fix .get_stats64 sleeping in atomic
+ context
+Message-ID: <16efd278e4f17776ccfbf8491e5be71a4689c137.1777385305.git.daniel@makrotopia.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [GIT PULL 2/4] i.MX arm dts changes for v7.1
-To: Frank Li <Frank.Li@nxp.com>, soc@kernel.org, arm@kernel.org
-Cc: Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
- kernel@pengutronix.de, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <20260330141444.3789193-1-Frank.Li@nxp.com>
- <20260330141444.3789193-3-Frank.Li@nxp.com>
-Content-Language: en-US
-From: =?UTF-8?Q?S=C3=A9bastien_Szymanski?= <sebastien.szymanski@armadeus.com>
-Autocrypt: addr=sebastien.szymanski@armadeus.com; keydata=
- xsBNBFNfZLEBCACv1lqSePHJNpRgcnER+3emy+Arjz84zFax3XkogjY/e3ZneihIgWrVKe5M
- ql16pX4KTkzNgMUKz4bG/XwT3kjcrXshxFLlg7KrHMl287C+W+QOUjnjVeRi/su+SPmjz8VD
- yr11h+ZkVLAWhS+uQJ93jy1NwG8M4t1kBLAVHHD5Vw4FJ+3ouaVYIp1X1Cr8bVKQw33Q1aTd
- ro0kMBb96B9vNu7ciJZ3gvlaBzUEKOgNnq9KaywuLnqrqr4HUIn5JuxZjCjJzt9kTAKcTfp2
- cJM8qpp+2FF5qtbkse9fZ6M64qozgOPr9Tk4Amf9fZEUQ6UNw14mmBZuXSzoHe75gI7TABEB
- AAHNN1PDqWJhc3RpZW4gU1pZTUFOU0tJIDxzZWJhc3RpZW4uc3p5bWFuc2tpQGFybWFkZXVz
- LmNvbT7CwJAEEwEIADoCGyMHCwkIBwMCAQYVCAIJCgsEFgIDAQIeAQIXgBYhBJwGygpYm/1C
- /GCmwbCaKeiBMmTiBQJdhIHLAAoJELCaKeiBMmTixXIH/2W3kbzRG0UF81jtRRnp0H83rjDT
- v0H+8fgFMRL/7HCJ1QPArkfRJlM2wlJkN+ChP09CCarYfUEHfRCHlTb7At6Yyrz1jziD7ZwX
- 8IWHYRXnZkY5eZc5DsiUgq6JH49kt+GPzK8UVP9MTa6zkBpPCUf7LzZ4pD3FihdkT52BU3gI
- d9P49fSI0TYySlb/VKn815aOhvwEr7+Dh3mZUjSh7saofbRmVUOr7p+R3MvvGI19/IJZjeOE
- ZWliODDOt6HnBOtoGSXMcNIFF6snH52D5N5gY88njZjTwhgGGUBix1bsgf/EY0v4R5itZBXB
- B/Ze4Tm++YHaB75hZK6PQu/YRv7OwE0EU19ksQEIALo7jhXddrXBTRu5SAjelV53jyHBJTX/
- vN4nL/VbbW/saca+NJjDSxx5DBmotZbQdWIyZiSIjU/xnTREvtDrl6ZeSsKWd7ZqiuiY4fSR
- zwuQp9rd0yqRuxesrWeyJB1zCSdEvLyKASERt+nxkOA+IzJ4y1qLtvnWr+SL1AXgTMw+Tkyw
- KIDCRWHTIYas11ldGj82gOIpYeXnapeNLHfT4EQwg0NeWYHynJxAQWiX5aPlw0uSpAQSsBXQ
- FIe3fpoveMSnXK+PG2BBOzexYv7r4S70a6sF9sgTTPpfKqUaqqC+u1+bUX6alTAKhGKJywaF
- 6ViqLlgY8PfwohSyAlqlTRMAEQEAAcLAdgQYAQgAIAIbDBYhBJwGygpYm/1C/GCmwbCaKeiB
- MmTiBQJdhIHSAAoJELCaKeiBMmTitU8IAK7NQM3fEwaF5XaKtepYWsVka44CD8A9e4r7NVK9
- ugirKvXirIxBSDmN/Db862NmVpITsZ6ERNSNZLm/7k55N+TexKYiFZeU7G92TEfAM6qPElvx
- DLEcrkNMq9r08YZeUloacsq31AL5fK4LW+xdvXudkdiKRMJsdTpmff3x5kIziGOHjwFP9wve
- ZgEH52gpbRsP8Whx/Z2lNX/BBRmFM8OnEXFsjjqDzYThdxTq85wGPpkgvvUGyPNRD7TpbB1C
- pajOUUkPxgj5LKt77HD1afeZNudWhgcdkbtT5PMQTT0WY6wvMEj9S1+bGPeXRGWLYB7gHQ+L
- JNoSD7Kz6Y9qnKo=
-In-Reply-To: <20260330141444.3789193-3-Frank.Li@nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-x-ovh-tracer-id: 13712616442643404459
-X-VR-SPAMSTATE: OK
-X-VR-SPAMSCORE: -100
-X-VR-SPAMCAUSE: dmFkZTEw9tve48xeuW/0pHIXopn/l2+Ei/S3Czvgzi950ns5mJJQ7Ihj5Jwxq/suGN/tS2DUQJj0rlIDVk7jNsZz1bo8ZN6Fg51uKKRXF8P8gKa91T1u84S0h3RlUMCs7Ta43+n6OBx5uJmfLeoH58RspEz+qWrXAL98LU65IIyamgtukazoUmw2z+jvgRqJJWqXZAEmgZhPVG+EQgxULZE9p5QtfEyIyNHhMiOsrVadKWfn1BJyg/zC0QmEJKj+JnkEEYbqfvNkh3jFXMjsEazYHhhG7sXgMnNEvD953xwzvI97N68+Dpt39gZx+j6hZ2WphiS6MYxUF2JOQAQqH7quLF7kMCjPkNIv9xMbXbNMoHb2RAuMMMce2kCMyAylRlS3E/ak3pRIydmHmngo6n9/i33SJLHZ+RfS6agrv3jUEdg14yljJIjNgnPodUCG/9iaFOwQ8YEa0xX3a9SFBXwtyIb6syj02oN6yr4FwZO+BUX0iyf6SdhyxCJqPHJH04YC1PTpy3eRtE/F+zp0Pl/5izFiA0YX/Jj+ZKZvV+sDj/wYSADhpA/8RaJkKNe009Cal3iGWIchvcBacsKbO3FKQp3QMd4FH8KmrgTwCtM2qSqsIgSwbf6TLNOHrb0hqvDFR+3LMo0FjrGGcum8u1B0Z4L4iK2VQFH3/25lvBBta1UhRw
-DKIM-Signature: a=rsa-sha256; bh=1dnnnifmIzpF9Ebh8L++t76XOo1eryK5OY/IV/cdBnI=;
- c=relaxed/relaxed; d=armadeus.com; h=From; s=ovhmo103079-selector1;
- t=1777385037; v=1;
- b=ZkpXMjmVLYC9A9pg4wmWmdqk76BC3hBDDXQtA/D56Kq8E8T0/7tbpq4Cwiw55blz/P4qQY8m
- aeD+HUMWH4DXpkpiLMSnw9q7wEqePBQFN45Bqp0MeQLuoBFWj+L8VXHCxCjL1Gs0KClDpXJcceT
- TSKqofDzgm8zGct3MWbcq0wxSsQQKnwwScekth7F8ZW0BsPANHbgjevDcwvz+iU+06qEjk8I50w
- P9KC31DH2MP2Lc8/49lk1qI5ks48mSjgDHpx5wXpqjTFd+SUjY9Y1LhJLBk1T/saoUoBiDEelgP
- Jak3a6OVXpAR4mL+aIprl/rM/rh6Lgrq1XUkVKQvALXgA==
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_070405_770901_C4953208 
-X-CRM114-Status: UNSURE (   6.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260428_071044_255330_96E3E76B 
+X-CRM114-Status: GOOD (  18.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,43 +69,246 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+The .get_stats64 callback runs in atomic context, but on
+MDIO-connected switches every register read acquires the MDIO bus
+mutex, which can sleep:
+[   12.645973] BUG: sleeping function called from invalid context at kernel/locking/mutex.c:609
+[   12.654442] in_atomic(): 0, irqs_disabled(): 0, non_block: 0, pid: 759, name: grep
+[   12.663377] preempt_count: 0, expected: 0
+[   12.667410] RCU nest depth: 1, expected: 0
+[   12.671511] INFO: lockdep is turned off.
+[   12.675441] CPU: 0 UID: 0 PID: 759 Comm: grep Tainted: G S      W           7.0.0+ #0 PREEMPT
+[   12.675453] Tainted: [S]=CPU_OUT_OF_SPEC, [W]=WARN
+[   12.675456] Hardware name: Bananapi BPI-R64 (DT)
+[   12.675459] Call trace:
+[   12.675462]  show_stack+0x14/0x1c (C)
+[   12.675477]  dump_stack_lvl+0x68/0x8c
+[   12.675487]  dump_stack+0x14/0x1c
+[   12.675495]  __might_resched+0x14c/0x220
+[   12.675504]  __might_sleep+0x44/0x80
+[   12.675511]  __mutex_lock+0x50/0xb10
+[   12.675523]  mutex_lock_nested+0x20/0x30
+[   12.675532]  mt7530_get_stats64+0x40/0x2ac
+[   12.675542]  dsa_user_get_stats64+0x2c/0x40
+[   12.675553]  dev_get_stats+0x44/0x1e0
+[   12.675564]  dev_seq_printf_stats+0x24/0xe0
+[   12.675575]  dev_seq_show+0x14/0x3c
+[   12.675583]  seq_read_iter+0x37c/0x480
+[   12.675595]  seq_read+0xd0/0xec
+[   12.675605]  proc_reg_read+0x94/0xe4
+[   12.675615]  vfs_read+0x98/0x29c
+[   12.675625]  ksys_read+0x54/0xdc
+[   12.675633]  __arm64_sys_read+0x18/0x20
+[   12.675642]  invoke_syscall.constprop.0+0x54/0xec
+[   12.675653]  do_el0_svc+0x3c/0xb4
+[   12.675662]  el0_svc+0x38/0x200
+[   12.675670]  el0t_64_sync_handler+0x98/0xdc
+[   12.675679]  el0t_64_sync+0x158/0x15c
 
-On 3/30/26 4:14 PM, Frank Li wrote:
-> ARM: dts: imx: remove redundant intermediate node in pinmux hierarchy
+For MDIO-connected switches, poll MIB counters asynchronously using a
+delayed workqueue every second and let .get_stats64 return the cached
+values under a spinlock. A mod_delayed_work() call on each read
+triggers an immediate refresh so counters stay responsive when queried
+more frequently.
 
-This commit breaks Linux 7.1-rc1 boot on my APF27Dev board. I see the 
-following errors with earlyprintk enabled:
+MMIO-connected switches (MT7988, EN7581, AN7583) are not affected
+because their regmap does not sleep, so they continue to read MIB
+counters directly in .get_stats64.
 
-[    0.346162] imx27-pinctrl 10015000.pinmux: unable to find group for 
-node i2c1grp
-[    0.354438] imx27-pinctrl 10015000.pinmux: unable to find group for 
-node i2c2grp
-...
-[    0.636217] imx27-pinctrl 10015000.pinmux: unable to find group for 
-node pwmgrp
-[    0.644346] imx27-pinctrl 10015000.pinmux: unable to find group for 
-node gpioledsgrp
-[    0.657247] imx27-pinctrl 10015000.pinmux: unable to find group for 
-node uart1grp
-...
-[    0.868102] imx27-pinctrl 10015000.pinmux: unable to find group for 
-node cspi1grp
-[    0.876513] imx27-pinctrl 10015000.pinmux: unable to find group for 
-node cspi2grp
-[    0.888903] imx27-pinctrl 10015000.pinmux: unable to find group for 
-node fec1grp
-...
-[    2.413181] imx27-pinctrl 10015000.pinmux: unable to find group for 
-node gpiokeysgrp
+Fixes: 88c810f35ed5 ("net: dsa: mt7530: implement .get_stats64")
+Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+Acked-by: Chester A. Unal <chester.a.unal@arinc9.com>
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+---
+v4:
+ * extract mt7530_stats_refresh() helper from mt7530_stats_poll()
+   -> mt7530_stats_poll() now just refreshes and re-arms
+ * call helper synchronously in mt753x_setup() to seed the cache
+ * avoid zeroed counters during the first poll interval
+ * avoid INITIAL_JIFFIES vs stats_last==0 wraparound on 32-bit
+ * swap deprecated system_wq for system_percpu_wq in get_stats64
+ * keeps on-demand refresh on the same queue as schedule_*_work
 
-Reverting the commit makes the errors disappear and the board boot again.
+v3:
+ * move `stats_last` access under the spinlock to avoid potential race
 
-Should I send a patch reverting this commit ?
+v2:
+ * use spin_lock_bh()/spin_unlock_bh() to prevent potential deadlock
+ * rate-limit mod_delayed_work() refresh to at most once per 100ms
+ * move cancel_delayed_work_sync() after dsa_unregister_switch()
+ * add mt753x_teardown() callback to cancel the stats work
+ * fix commit message
 
-Regards,
+ drivers/net/dsa/mt7530.c | 76 ++++++++++++++++++++++++++++++++++++++--
+ drivers/net/dsa/mt7530.h |  8 +++++
+ 2 files changed, 81 insertions(+), 3 deletions(-)
 
+diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+index b9423389c2ef..66bff861a921 100644
+--- a/drivers/net/dsa/mt7530.c
++++ b/drivers/net/dsa/mt7530.c
+@@ -25,6 +25,9 @@
+ 
+ #include "mt7530.h"
+ 
++#define MT7530_STATS_POLL_INTERVAL	(1 * HZ)
++#define MT7530_STATS_RATE_LIMIT		(HZ / 10)
++
+ static struct mt753x_pcs *pcs_to_mt753x_pcs(struct phylink_pcs *pcs)
+ {
+ 	return container_of(pcs, struct mt753x_pcs, pcs);
+@@ -906,10 +909,9 @@ static void mt7530_get_rmon_stats(struct dsa_switch *ds, int port,
+ 	*ranges = mt7530_rmon_ranges;
+ }
+ 
+-static void mt7530_get_stats64(struct dsa_switch *ds, int port,
+-			       struct rtnl_link_stats64 *storage)
++static void mt7530_read_port_stats64(struct mt7530_priv *priv, int port,
++				     struct rtnl_link_stats64 *storage)
+ {
+-	struct mt7530_priv *priv = ds->priv;
+ 	uint64_t data;
+ 
+ 	/* MIB counter doesn't provide a FramesTransmittedOK but instead
+@@ -951,6 +953,54 @@ static void mt7530_get_stats64(struct dsa_switch *ds, int port,
+ 			       &storage->rx_crc_errors);
+ }
+ 
++static void mt7530_stats_refresh(struct mt7530_priv *priv)
++{
++	struct rtnl_link_stats64 stats = {};
++	struct dsa_port *dp;
++	int port;
++
++	dsa_switch_for_each_user_port(dp, priv->ds) {
++		port = dp->index;
++
++		mt7530_read_port_stats64(priv, port, &stats);
++
++		spin_lock_bh(&priv->stats_lock);
++		priv->ports[port].stats = stats;
++		priv->stats_last = jiffies;
++		spin_unlock_bh(&priv->stats_lock);
++	}
++}
++
++static void mt7530_stats_poll(struct work_struct *work)
++{
++	struct mt7530_priv *priv = container_of(work, struct mt7530_priv,
++						stats_work.work);
++
++	mt7530_stats_refresh(priv);
++	schedule_delayed_work(&priv->stats_work,
++			      MT7530_STATS_POLL_INTERVAL);
++}
++
++static void mt7530_get_stats64(struct dsa_switch *ds, int port,
++			       struct rtnl_link_stats64 *storage)
++{
++	struct mt7530_priv *priv = ds->priv;
++	bool refresh;
++
++	if (priv->bus) {
++		spin_lock_bh(&priv->stats_lock);
++		*storage = priv->ports[port].stats;
++		refresh = time_after(jiffies, priv->stats_last +
++					      MT7530_STATS_RATE_LIMIT);
++		spin_unlock_bh(&priv->stats_lock);
++		if (refresh)
++			mod_delayed_work(system_percpu_wq,
++					 &priv->stats_work, 0);
++	} else {
++		mt7530_read_port_stats64(priv, port, storage);
++	}
++}
++
+ static void mt7530_get_eth_ctrl_stats(struct dsa_switch *ds, int port,
+ 				      struct ethtool_eth_ctrl_stats *ctrl_stats)
+ {
+@@ -3137,9 +3187,25 @@ mt753x_setup(struct dsa_switch *ds)
+ 	if (ret && priv->irq_domain)
+ 		mt7530_free_mdio_irq(priv);
+ 
++	if (!ret && priv->bus) {
++		spin_lock_init(&priv->stats_lock);
++		INIT_DELAYED_WORK(&priv->stats_work, mt7530_stats_poll);
++		mt7530_stats_refresh(priv);
++		schedule_delayed_work(&priv->stats_work,
++				      MT7530_STATS_POLL_INTERVAL);
++	}
++
+ 	return ret;
+ }
+ 
++static void mt753x_teardown(struct dsa_switch *ds)
++{
++	struct mt7530_priv *priv = ds->priv;
++
++	if (priv->bus)
++		cancel_delayed_work_sync(&priv->stats_work);
++}
++
+ static int mt753x_set_mac_eee(struct dsa_switch *ds, int port,
+ 			      struct ethtool_keee *e)
+ {
+@@ -3257,6 +3323,7 @@ static int mt7988_setup(struct dsa_switch *ds)
+ static const struct dsa_switch_ops mt7530_switch_ops = {
+ 	.get_tag_protocol	= mtk_get_tag_protocol,
+ 	.setup			= mt753x_setup,
++	.teardown		= mt753x_teardown,
+ 	.preferred_default_local_cpu_port = mt753x_preferred_default_local_cpu_port,
+ 	.get_strings		= mt7530_get_strings,
+ 	.get_ethtool_stats	= mt7530_get_ethtool_stats,
+@@ -3409,6 +3476,9 @@ mt7530_remove_common(struct mt7530_priv *priv)
+ 
+ 	dsa_unregister_switch(priv->ds);
+ 
++	if (priv->bus)
++		cancel_delayed_work_sync(&priv->stats_work);
++
+ 	mutex_destroy(&priv->reg_mutex);
+ }
+ EXPORT_SYMBOL_GPL(mt7530_remove_common);
+diff --git a/drivers/net/dsa/mt7530.h b/drivers/net/dsa/mt7530.h
+index 3e0090bed298..dd33b0df3419 100644
+--- a/drivers/net/dsa/mt7530.h
++++ b/drivers/net/dsa/mt7530.h
+@@ -796,6 +796,7 @@ struct mt7530_fdb {
+  * @pvid:	The VLAN specified is to be considered a PVID at ingress.  Any
+  *		untagged frames will be assigned to the related VLAN.
+  * @sgmii_pcs:	Pointer to PCS instance for SerDes ports
++ * @stats:	Cached port statistics for MDIO-connected switches
+  */
+ struct mt7530_port {
+ 	bool enable;
+@@ -803,6 +804,7 @@ struct mt7530_port {
+ 	u32 pm;
+ 	u16 pvid;
+ 	struct phylink_pcs *sgmii_pcs;
++	struct rtnl_link_stats64 stats;
+ };
+ 
+ /* Port 5 mode definitions of the MT7530 switch */
+@@ -875,6 +877,9 @@ struct mt753x_info {
+  * @create_sgmii:	Pointer to function creating SGMII PCS instance(s)
+  * @active_cpu_ports:	Holding the active CPU ports
+  * @mdiodev:		The pointer to the MDIO device structure
++ * @stats_lock:		Protects cached per-port stats from concurrent access
++ * @stats_work:		Delayed work for polling MIB counters on MDIO switches
++ * @stats_last:		Jiffies timestamp of last MIB counter poll
+  */
+ struct mt7530_priv {
+ 	struct device		*dev;
+@@ -900,6 +905,9 @@ struct mt7530_priv {
+ 	int (*create_sgmii)(struct mt7530_priv *priv);
+ 	u8 active_cpu_ports;
+ 	struct mdio_device *mdiodev;
++	spinlock_t stats_lock; /* protects cached stats counters */
++	struct delayed_work stats_work;
++	unsigned long stats_last;
+ };
+ 
+ struct mt7530_hw_vlan_entry {
 -- 
-Sébastien Szymanski, Armadeus Systems
-Software engineer
+2.54.0
 
