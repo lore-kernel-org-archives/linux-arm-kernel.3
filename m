@@ -4,88 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13C14FF886F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 19:52:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37028FF886D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 19:55:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AH3leimZQNaQooLaaL2o5U1miRlZsWgMsWKgQcdZ0xs=; b=smFkHlUCn5kDBdC+aNiSOD8rb0
-	q6+qiG2W0r7S3ZNDiSqnOvpUK/35u6JGKWffTedyDih3qeQtR08aORcFKs1C9vmA8oiWvggsBZzXV
-	E9QV4uWEPPGmlucRxgSFLwcjmy9oL5X2QKeuPopBUM1Brb1FdNdg8UtSB27JqoibKrNJy33r2wIvS
-	auWx/+WT3lavujWjeyEPOdZ/qngN1h2cpqQXazDO6mqEOlqAYD9xL0L1zkHzlbMcTOiWhMFGPH7ke
-	4WE2pYlMsAxQSx6AB2596qJsh2AaolvHQYDlW9CqF47ussqOljJVMX5vqsEelLJx084rnyU4/xfvN
-	zJmmx5lA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q4kpoyGQaFwqCc/YpITTHLP1CsRwCUcCgkMn7cdib6k=; b=p3IVJYUXInMQ1x8oazpS4Wg2l2
+	MEZ3Nn3Z8yj5uvPzTOgP0u3n6wL6qoj/ljSj/Kfm0rU1XkdX2JXACeIPsu98FSqC7UnUPIMw38b6C
+	fB+HxM09C3ziuJg/G53iuluIADwXiJt8hHKIwHMknPmhjvzvgzrKXDXDaz8hZSR41jYXLQ00mzEfe
+	6f99pv8BlZvnxFV5oxjje0a+oXMLcSH0QGJY+MQw5y4s/B+g+2rzVxQMtfVwNyseJdE5jEEkj/DT9
+	B8vYgAZ66IWxX7MjeLpr1hbFMDRkC9wsPjHp9glo7POyj3xI9ukQrj3ol42CLCeQenQlJe6hjhNmE
+	gfRkdrcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHoTn-00000002BRM-1tkv;
-	Tue, 28 Apr 2026 19:52:23 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wHoWN-00000002Bfr-1ywK;
+	Tue, 28 Apr 2026 19:55:03 +0000
+Received: from smtprelay0013.hostedemail.com ([216.40.44.13] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHoTl-00000002BQo-0a4d;
-	Tue, 28 Apr 2026 19:52:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1777405938;
-	bh=AH3leimZQNaQooLaaL2o5U1miRlZsWgMsWKgQcdZ0xs=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=I7y91iV6D1SxsKsac2nK4RZTn3J3s0OIzeLhio2TgvqoWHsTZlcAbxbLFQkeSs83A
-	 GTucjVJM9ARxjT849GroUfTYbJeWhfIalwjqLEksLLQ1gqfDk2wF2JHRzq8EbCl6IP
-	 wm4rWguC4Lf7aL9kITGUIna8aOXFvWwWH3SyNCNK+G2I7blZN2dCRm1Sjj7yHN9Moq
-	 v73c0b73UEvEz7T8W/7OG8I1E5CEBM+6WsdYURzfio0q2MNJhIIvzjy+88QXqxkrxw
-	 a3e0UBQw7vtD+vo+5+by5oXqwC7/pQRFAR0YGQYCH6GWbRnsanxwj+r2LTtTxBV0SZ
-	 rAzM/4SNGHZAQ==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0CE4117E0EB6;
-	Tue, 28 Apr 2026 21:52:15 +0200 (CEST)
-Message-ID: <4c216c195d237e71188dfbdd54bbc1e234eff434.camel@collabora.com>
-Subject: Re: [PATCH 00/11] v4l2: Add tracing for stateless codecs
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Detlev Casanova <detlev.casanova@collabora.com>, 
-	linux-kernel@vger.kernel.org
-Cc: Benjamin Gaignard <benjamin.gaignard@collabora.com>, Philipp Zabel	
- <p.zabel@pengutronix.de>, Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko
- Stuebner <heiko@sntech.de>, Daniel Almeida <daniel.almeida@collabora.com>,
- Steven Rostedt	 <rostedt@goodmis.org>, Masami Hiramatsu
- <mhiramat@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Hans Verkuil <hverkuil@kernel.org>, Laurent Pinchart	
- <laurent.pinchart+renesas@ideasonboard.com>, Ricardo Ribalda	
- <ribalda@chromium.org>, Yunke Cao <yunkec@google.com>, Sakari Ailus	
- <sakari.ailus@linux.intel.com>, Pavan Bobba <opensource206@gmail.com>,
- James Cowgill <james.cowgill@blaize.com>, Ma Ke <make24@iscas.ac.cn>,
- Jacopo Mondi	 <jacopo.mondi@ideasonboard.com>, Daniel Scally
- <dan.scally@ideasonboard.com>, 	linux-media@vger.kernel.org,
- linux-rockchip@lists.infradead.org, 	linux-arm-kernel@lists.infradead.org,
- linux-trace-kernel@vger.kernel.org, 	kernel@collabora.com
-Date: Tue, 28 Apr 2026 15:52:14 -0400
-In-Reply-To: <20260212162328.192217-1-detlev.casanova@collabora.com>
-References: <20260212162328.192217-1-detlev.casanova@collabora.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-dFN5ga/fGZ8ocfYM8b1y"
-User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
+	id 1wHoWL-00000002Bf8-0U9f
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Apr 2026 19:55:02 +0000
+Received: from omf05.hostedemail.com (lb01a-stub [10.200.18.249])
+	by unirelay09.hostedemail.com (Postfix) with ESMTP id 65FF68B4EF;
+	Tue, 28 Apr 2026 19:54:55 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf05.hostedemail.com (Postfix) with ESMTPA id 6158820016;
+	Tue, 28 Apr 2026 19:54:53 +0000 (UTC)
+Date: Tue, 28 Apr 2026 15:55:08 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
+ <will@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Ian
+ Rogers <irogers@google.com>, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v18 3/8] ring-buffer: Skip invalid sub-buffers when
+ validating persistent ring buffer
+Message-ID: <20260428155508.4f47279e@gandalf.local.home>
+In-Reply-To: <177701354681.2223789.14633430761021638378.stgit@mhiramat.tok.corp.google.com>
+References: <177701351903.2223789.17087009302463188638.stgit@mhiramat.tok.corp.google.com>
+	<177701354681.2223789.14633430761021638378.stgit@mhiramat.tok.corp.google.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Stat-Signature: m9mastd5se131aaz4xejahg9oauwro5m
+X-Rspamd-Server: rspamout02
+X-Rspamd-Queue-Id: 6158820016
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX18m48WcMR0YIPxC0AO+Xbj94B0nP/3Lxys=
+X-HE-Tag: 1777406093-875647
+X-HE-Meta: U2FsdGVkX1/lgOk4DwxGNl45o43+EDq39Zqwt0Ndd1cEsKemzPRyqUO+pIk9qv0n/P7XUAi3kvadBvvbT7bucgbRICT5LD6cao+Y3OQizFwbJFlAqaqjen30sMCEstI2dYmZ1S4zjl+YiVSQX+mk6zFx/HgCdQLWr0/snJP7Ra1xo8CUYkax2gDa2WZWA0BAOZqLARQiVGzSWChXkBUhgMTw8FhenhSsELu4HgFsuAPgjhiWrV9D7TdrvQ3nmbfGqBXm9NjD+2XDPmGhUSkP8HRp0Hexbv/c9ImW8r1i6vnMdaGZbm87WEyKsOUHwv/O3Chh39tngpNDVIUxqTr+OHD8ZGc2xgX+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_125221_324454_3585819B 
-X-CRM114-Status: GOOD (  23.95  )
+X-CRM114-CacheID: sfid-20260428_125501_216154_B0C8DC16 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,169 +73,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, 24 Apr 2026 15:52:27 +0900
+"Masami Hiramatsu (Google)" <mhiramat@kernel.org> wrote:
 
---=-dFN5ga/fGZ8ocfYM8b1y
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+> @@ -5648,11 +5668,12 @@ __rb_get_reader_page(struct ring_buffer_per_cpu *cpu_buffer)
+>   again:
+>  	/*
+>  	 * This should normally only loop twice. But because the
+> -	 * start of the reader inserts an empty page, it causes
+> -	 * a case where we will loop three times. There should be no
+> -	 * reason to loop four times (that I know of).
+> +	 * start of the reader inserts an empty page, it causes a
+> +	 * case where we will loop three times. There should be no
+> +	 * reason to loop four times unless the ring buffer is a
+> +	 * recovered persistent ring buffer.
 
-Le jeudi 12 f=C3=A9vrier 2026 =C3=A0 11:23 -0500, Detlev Casanova a =C3=A9c=
-rit=C2=A0:
-> Hi !
->=20
-> This patchset aims to improve codec event tracing in v4l2.
->=20
-> The traces added in visl by Daniel Almeida are moved to the global trace
-> events and slightly reworked to be printed in a more consistent format.
->=20
-> To each trace are also added a tgid and fd fields, helping userspace trac=
-k
-> different decoding sessions (contexts) based on the given file descriptor
-> used by the given process id.
->=20
-> Also for better tracking, stream on and stream off events are added as
-> well as HW run and HW done events to track decoder core usage.
->=20
-> Finally, add a show_fdinfo callback on video device files, allowing drive=
-rs
-> to expose usage information.
-> Currently only used for frame buffer memory usage.
->=20
-> The main focus is to be able to generate perfetto traces to show VPU usag=
-e,
-> a perfetto producer using this can be found at [1].
->=20
-> [1]:
-> https://gitlab.collabora.com/detlev/hantro-perf/-/tree/hantro-improved-in=
-fo
+Can you explain more to why this is allowed for persistent ring buffer?
 
-I would recommend renaming this repo, as its not really evolving toward
-something truly hantro specific anymore, same goes for the code below appar=
-t
-from the run/done traces and the fdinfo that has to be opted in.
+Note, I do not like any loops that can go into an infinite loop and lock up
+the machine. If something goes wrong with a persistent ring buffer, then
+this could possibly go into an infinite loop.
 
-There is effectively a bit of an overlap with the v4l2-tracer, but there is=
- also
-advantages having it in the kernel, as you source all the event, for the en=
-tire
-system, in one place, so I'm fine with that. Considering the possible large
-overhead of the full trace, I'd like to see the ability to filter what we w=
-ant
-to trace, with some level of granularity. Maybe we only need decode_params =
-for
-specific use case to be debugged, and don't care about large scaling list/m=
-atrix
-? I would also like to see some Documentation on the tracing, so that its u=
-sage
-is not only explained in a tool.
+I want to understand why this is allowed, and possibly add a check that
+prevents this from never ending.
 
-To Hans, there is nice tools idea in there, the perfetto producer is simply=
- C++,
-and the v4l2top utility is Rust. Would you see these as tools v4l2-utils ? =
-For
-the rust part, we can either leave the build independent, and cargo would b=
-e
-used to build and run, or we can implement a meson wrapper around cargo. Bu=
-t I
-don't believe its a good idea to use native rustc support in meson for that=
- one
-because of the large number of third party crate needed.
+-- Steve
 
-I like the direction, hope the feedback suite you well.
 
-Nicolas
-
->=20
-> Detlev Casanova (11):
-> =C2=A0 media: Move visl traces to v4l2-core
-> =C2=A0 media: Reformat v4l2-requests trace event printk
-> =C2=A0 media: Add tgid and fd fields in v4l2_fh struct
-> =C2=A0 media: Add tgid and fd to the v4l2-requests trace fields
-> =C2=A0 media: Add missing types to v4l2_ctrl_ptr
-> =C2=A0 media: Trace the stateless controls when set in v4l2-ctrls-core.c
-> =C2=A0 media: Add stream on/off traces and run them in the ioctl
-> =C2=A0 media: Add HW run/done trace events
-> =C2=A0 media: hantro: Add v4l2_hw run/done traces
-> =C2=A0 media: v4l2: Add callback for show_fdinfo
-> =C2=A0 media: hantro: Add fdinfo callback
->=20
-> =C2=A0drivers/media/platform/verisilicon/hantro.h=C2=A0=C2=A0 |=C2=A0=C2=
-=A0=C2=A0 2 +
-> =C2=A0.../media/platform/verisilicon/hantro_drv.c=C2=A0=C2=A0 |=C2=A0=C2=
-=A0 25 +
-> =C2=A0.../media/platform/verisilicon/hantro_v4l2.c=C2=A0 |=C2=A0=C2=A0 10=
- +-
-> =C2=A0.../verisilicon/rockchip_vpu981_regs.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 |=C2=A0=C2=A0=C2=A0 1 +
-> =C2=A0.../platform/verisilicon/rockchip_vpu_hw.c=C2=A0=C2=A0=C2=A0 |=C2=
-=A0=C2=A0=C2=A0 4 +
-> =C2=A0drivers/media/test-drivers/visl/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 |=C2=A0=C2=A0=C2=A0 2 +-
-> =C2=A0drivers/media/test-drivers/visl/visl-dec.c=C2=A0=C2=A0=C2=A0 |=C2=
-=A0=C2=A0 76 -
-> =C2=A0.../media/test-drivers/visl/visl-trace-av1.h=C2=A0 |=C2=A0 314 ---
-> =C2=A0.../media/test-drivers/visl/visl-trace-fwht.h |=C2=A0=C2=A0 66 -
-> =C2=A0.../media/test-drivers/visl/visl-trace-h264.h |=C2=A0 349 ----
-> =C2=A0.../media/test-drivers/visl/visl-trace-hevc.h |=C2=A0 464 -----
-> =C2=A0.../test-drivers/visl/visl-trace-mpeg2.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 |=C2=A0=C2=A0 99 -
-> =C2=A0.../test-drivers/visl/visl-trace-points.c=C2=A0=C2=A0=C2=A0=C2=A0 |=
-=C2=A0=C2=A0 11 -
-> =C2=A0.../media/test-drivers/visl/visl-trace-vp8.h=C2=A0 |=C2=A0 156 --
-> =C2=A0.../media/test-drivers/visl/visl-trace-vp9.h=C2=A0 |=C2=A0 292 ---
-> =C2=A0drivers/media/v4l2-core/v4l2-ctrls-api.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 |=C2=A0=C2=A0 10 +
-> =C2=A0drivers/media/v4l2-core/v4l2-ctrls-core.c=C2=A0=C2=A0=C2=A0=C2=A0 |=
-=C2=A0 114 +
-> =C2=A0drivers/media/v4l2-core/v4l2-dev.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 10 +
-> =C2=A0drivers/media/v4l2-core/v4l2-fh.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0=C2=A0 1 +
-> =C2=A0drivers/media/v4l2-core/v4l2-ioctl.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 37 +-
-> =C2=A0drivers/media/v4l2-core/v4l2-trace.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 48 +
-> =C2=A0include/media/v4l2-ctrls.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
- |=C2=A0=C2=A0 19 +
-> =C2=A0include/media/v4l2-dev.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 |=C2=A0=C2=A0=C2=A0 1 +
-> =C2=A0include/media/v4l2-fh.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 |=C2=A0=C2=A0=C2=A0 4 +
-> =C2=A0include/trace/events/v4l2.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=
-=A0=C2=A0 58 +
-> =C2=A0include/trace/events/v4l2_requests.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0 | 1836 +++++++++++++++++
-> =C2=A026 files changed, 2178 insertions(+), 1831 deletions(-)
-> =C2=A0delete mode 100644 drivers/media/test-drivers/visl/visl-trace-av1.h
-> =C2=A0delete mode 100644 drivers/media/test-drivers/visl/visl-trace-fwht.=
-h
-> =C2=A0delete mode 100644 drivers/media/test-drivers/visl/visl-trace-h264.=
-h
-> =C2=A0delete mode 100644 drivers/media/test-drivers/visl/visl-trace-hevc.=
-h
-> =C2=A0delete mode 100644 drivers/media/test-drivers/visl/visl-trace-mpeg2=
-.h
-> =C2=A0delete mode 100644 drivers/media/test-drivers/visl/visl-trace-point=
-s.c
-> =C2=A0delete mode 100644 drivers/media/test-drivers/visl/visl-trace-vp8.h
-> =C2=A0delete mode 100644 drivers/media/test-drivers/visl/visl-trace-vp9.h
-> =C2=A0create mode 100644 include/trace/events/v4l2_requests.h
-
---=-dFN5ga/fGZ8ocfYM8b1y
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCafEP7gAKCRDZQZRRKWBy
-9NTJAP0YqNvV/84O5hkBh9cwbKajYgaeQztw7Mq1P5Rs+Ez7NQEAyYF4bxhDutfM
-ReHPqltREMum1sN79ByfaFmlDan+wQ4=
-=9UP6
------END PGP SIGNATURE-----
-
---=-dFN5ga/fGZ8ocfYM8b1y--
+>  	 */
+> -	if (RB_WARN_ON(cpu_buffer, ++nr_loops > 3)) {
+> +	if (RB_WARN_ON(cpu_buffer, ++nr_loops > 3 && !cpu_buffer->ring_meta)) {
+>  		reader = NULL;
+>  		goto out;
+>  	}
 
