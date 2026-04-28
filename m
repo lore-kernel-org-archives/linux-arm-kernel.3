@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4958FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 07:23:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C7ACFF8870
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 07:23:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qbPEhnMlYjLIyQYaNXILQynFaRfheBD/Hl8QlXDxSqM=; b=aH/88wlSG2WbmdvGxuQHOaAgJR
-	Pe1Smj1gmTyhhdi9fCt+6r2J7rSWuskdojyLSs9iJ9JlC0gAsP9nhip6A4bISedAtuxEXPUpYKVFd
-	HIpNiSviqoNwPmTpZoU/5im7eFOcTX0NHDncNYsEfQVINxL3wD6EBXR+VfOwvMMY1JLKfzVR9PQOB
-	JdjVJckgZxUhUeBIF8jnVPQT3swVnUeiYRn2JNpA8YlvN6899T6aNTwQtUov3jcn8RR+rKj4Fj3E7
-	4n5PEbsB1CwUZzzupimHOu6kZtmyVnZ9fhKZrkpRn7IMCWliIDIFhkvDiY1UDik+AHSaTfNlOxnGb
-	Tw5Ph5EA==;
+	bh=4vO51mkUv8czx4QMNQNbvlHwQFmUDbpKAVfeUaPjKEk=; b=yQxKgHwad4n38WbQ4W+QE6YI8D
+	BeFMUu94qO8UgwxfBlkOAErWVTv+SFj7d08E4eDs/S1WWBmVD1UhN6VvmmQUenW4z3sJu0sVgU2dw
+	bdAq35zf10n2uIRDMRV+HA1bfw0O7Nn85Pf3H51ZLDZ872wcRKXnWDs+fE1W6Mu7nAIlaBWNfaCpT
+	658W6J0HGQ6PUEE4hpb+F0EKWPUpRe5dr+7LmWtCiSbRh8oOtZpB94VFpNwkEeFKmXl+iPLLwisWo
+	XFCBUP7tIVLzixHAtBB/id+DpmUBowbXJwGPS+us1nl3pZBQw1io/2CFRAaiChiROdihqhLlUVaH+
+	5lRH7qOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHcms-00000000kEe-04Rk;
-	Tue, 28 Apr 2026 07:23:18 +0000
-Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
+	id 1wHcmu-00000000kHv-2zDl;
+	Tue, 28 Apr 2026 07:23:20 +0000
+Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHckc-00000000hrU-1a4j
+	id 1wHckg-00000000hvk-2lF1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 07:21:17 +0000
-Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2eaed3d96d7so3084753eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 00:20:57 -0700 (PDT)
+	Tue, 28 Apr 2026 07:21:21 +0000
+Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-c79798cd9b9so4095829a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 00:21:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777360857; x=1777965657; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777360861; x=1777965661; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=qbPEhnMlYjLIyQYaNXILQynFaRfheBD/Hl8QlXDxSqM=;
-        b=tOUOAQaEfYApGqWcRK48diS2qTX+idz3XOUIYBOR5DZwVRXC36pSYiMx4S2VE5mL1V
-         HUAa2n2idcHelG4HNYX2A5LjbWhupuw5JLWANxX+9kW8Wn2PWBjftmBxhx2r1+e6EGks
-         Lh5FKSCgm2H3vQVNwyMvcrNcTSVLCAtMMte8cXDdDWIuG7qD1YizVnX92VO9O1F1c4Ge
-         WVHKvzD73tR35NNB7TAdnBT5qu4rCM32Zo0abvv6w3wk5rcWvUM9oAVKsyiMZSla9C2o
-         MKhcq1WwzNLiHvJBdVf9ov/3MYwvvWTuufGz8NxGDgDLI88nSF85X1YiDCtAkYh6O8AF
-         TmJQ==
+        bh=4vO51mkUv8czx4QMNQNbvlHwQFmUDbpKAVfeUaPjKEk=;
+        b=LEwl+h/l2YUdFPiNjhf8cOntY+M5dH5/GOgQ/UekJ1R78jLVvt9Sx+HanzDKHGGQ6d
+         3x48J+dHCCh6ztOE4YE5xT32D3i3tHCjvjKCVAijhfl/7o8NYAdI7TNWpkZZgl4aJWed
+         nlXkDQVVHJLNDX+2t50N9NKJyEviWYsn7BHx58qld1OlfwVhugUHVIb+zdgiymYg0+6z
+         V9sNdMMuG13r2gLLCLd9emTyDv7ghjAyP02vD0B3XJ772+J0syZSMBysgbPV3sJO0ApY
+         FlEdOfrryeHl6SMgupdWPTZ2Bk1FOAOIJDPiPrjuT5OoPskkJZHS8JZjt/jDy06z8AXA
+         rc3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777360857; x=1777965657;
+        d=1e100.net; s=20251104; t=1777360861; x=1777965661;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=qbPEhnMlYjLIyQYaNXILQynFaRfheBD/Hl8QlXDxSqM=;
-        b=czRXVSa7Q2UL6+xzYVA/DwvnvThdTxd9TlLIRHhghVtP8WjbpfJDOUqj91EXZb1qaH
-         eoZAJyHA9dZTynmJ6WxsYCarlGOLVY9Oxkbiyp9ilj/ST2yrwbxoDQjtzPlrtKXmKZXZ
-         IXH9Y7Gk2Y4nQ5rAL9UgZTFT4O1pyXe5gWPr0d+eJeFI/4WgVqjPgCiFvJyzED1FEpXP
-         7yXOpUcDdSjcIIpjyJp3YiFxKLz/ydCWFwouebGL8LqftgskMOORSZLVWHLRk8Vh+vBw
-         pQdAs3EFdU7LGsFCBQaPTwLUBRwynumxXXr+wSA+hTgsLgD8EceAk0BlA8UliTB4+q3f
-         YM+w==
-X-Forwarded-Encrypted: i=1; AFNElJ+RFNt0yeYCg2e4OntO+9/tMUEokO+issHMQ+fGHnz+53duuGlqTAMs9fSVHU/oBbC2auQ9bMeHr4Kggf01Nvdb@lists.infradead.org
-X-Gm-Message-State: AOJu0YzcmMYKP5OOt/rOZQIOgy5ycMKsDUaB1a/AvWqSI0+TOt8vvJgs
-	PPftEkrRR+eQXfZ10WJy80I9tkm0nDpOabSYW/udg53NZw9m+Q9sykMWC4nVBGSwNWbGyUGsgUa
-	LL5gj6BXCqw==
-X-Received: from dlbto2.prod.google.com ([2002:a05:7022:3b02:b0:12d:c585:f600])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:6ba1:b0:12d:de3f:f3dc
- with SMTP id a92af1059eb24-12dde3ff91emr366117c88.38.1777360856946; Tue, 28
- Apr 2026 00:20:56 -0700 (PDT)
-Date: Tue, 28 Apr 2026 00:18:54 -0700
+        bh=4vO51mkUv8czx4QMNQNbvlHwQFmUDbpKAVfeUaPjKEk=;
+        b=gDo2BQW7BppKpoMDJu/+l2/+rFg7hiHNCAHN1et6aS0T6O8LQOldliAWPVqFkk1YYf
+         i7xeE9YHeVSG5y2gAAQxJSSDx3EptVwCSUtkF/eu/koJ9g4MmX52tvXtnhfNNLlaNiHY
+         UM+mR1as/KumpgVmR64Cp9TZJpey4TZyGa8NDplxsrQf8wf2fTrlhG8LkSOEhZqADyD0
+         cnqc7TeESxOWas09zCUqTui+UAZaHglT+1z75bBMpS3FOxmjH4ATEbuf9Ejq28dykndr
+         6BYwdp7lWYXN1vJOPfKbwDEiTfaRGNTd1o0jLqzM75spJuxS5PZiuQBLHiK+ZfsPlK1Y
+         SDug==
+X-Forwarded-Encrypted: i=1; AFNElJ9uRi2h/8FqWHDhu0QS67/Ep1RljuoT/UAg/RQiwjF1G16vu5zz9kMvFPxMBRJiTJAguOItSwYVLMR03LbLa3W/@lists.infradead.org
+X-Gm-Message-State: AOJu0YxdARyU79qRyEGSw7Tlx1zNUakQxaZD5BRDcky+4OH5PtFh9Mdb
+	aMpiZlP3JIcZaMG1koWRe6h/qbD1oO0afeTVkt9lTB0YPdMtDZTELbjJlaKsXBZV2PhQc65Zcoi
+	AnPEr8UwXdw==
+X-Received: from pgac11.prod.google.com ([2002:a05:6a02:294b:b0:c76:a6b1:ed23])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:a120:b0:3a2:f14a:4290
+ with SMTP id adf61e73a8af0-3a39c27ff64mr2278598637.38.1777360860923; Tue, 28
+ Apr 2026 00:21:00 -0700 (PDT)
+Date: Tue, 28 Apr 2026 00:18:56 -0700
 In-Reply-To: <20260428071903.1886173-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260425224951.174663-1-irogers@google.com> <20260428071903.1886173-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260428071903.1886173-50-irogers@google.com>
-Subject: [PATCH v8 49/58] perf rw-by-pid: Port rw-by-pid to use python module
+Message-ID: <20260428071903.1886173-52-irogers@google.com>
+Subject: [PATCH v8 51/58] perf wakeup-latency: Port wakeup-latency to use
+ python module
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, namhyung@kernel.org
 Cc: adrian.hunter@intel.com, alice.mei.rogers@gmail.com, 
@@ -75,8 +76,8 @@ Cc: adrian.hunter@intel.com, alice.mei.rogers@gmail.com,
 	tmricht@linux.ibm.com, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_002058_464943_C83CB930 
-X-CRM114-Status: GOOD (  17.09  )
+X-CRM114-CacheID: sfid-20260428_002102_742565_2BDEA9F3 
+X-CRM114-Status: GOOD (  16.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,20 +92,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Port the legacy Perl script rw-by-pid.pl to a python script using the
-perf module in tools/perf/python.
+Port the legacy Perl script wakeup-latency.pl to a python script using
+the perf module in tools/perf/python.
 
 The new script uses a class-based architecture and leverages the
 perf.session API for event processing.
 
-It tracks read and write activity by PID for all processes,
-aggregating bytes requested, bytes read, total reads, and errors.
+It measures wakeup latency by tracking timestamps of
+sched:sched_wakeup and sched:sched_switch events.
 
 Complications:
-- Refactored process_event to extract helper methods
-  (_handle_sys_enter_read, etc.) to reduce the number of branches and
-  satisfy pylint.
-- Split long lines to comply with line length limits.
+- Used min() and max() built-in functions instead of if blocks to
+  satisfy pylint recommendations.
 - pylint warns about the module name not being snake_case, but it is
   kept for consistency with the original script name.
 
@@ -113,164 +112,90 @@ Signed-off-by: Ian Rogers <irogers@google.com>
 ---
 v2:
 
- - Fixed Substring Matching: Replaced loose substring checks like if
-   "sys_enter_read" in event_name: with exact matches against
-   syscalls:sys_enter_read and raw_syscalls:sys_enter_read using
-   sample.evsel.name . This prevents unrelated syscalls with similar
-   names (like readahead ) from being incorrectly aggregated. Similar
-   fixes were applied for exit events and write events.
+ - Fixed Wakeup Latency Logic: Modified the script to track wakeup
+   timestamps per task (using sample.pid as the key) instead of per
+   CPU.  This ensures that context switches are correctly paired with
+   the specific task that was woken up, even if multiple tasks are
+   woken up on the same CPU or if a task is migrated to a different
+   CPU before running.
 
- - Inlined Handlers and Tracked Errors: Inlined the _handle_sys_*
-   helper methods into process_event() to make error handling
-   easier. Now, if a sample lacks expected fields (raising
-   AttributeError ), it is added to the self.unhandled tracker instead
-   of being silently dropped, providing better visibility to the user.
+ - Prevented Memory Growth: Added del self.last_wakeup[next_pid] after
+   successful latency calculation to prevent the dictionary from
+   growing unbounded over time.
 
- - Code Cleanup: Fixed trailing whitespace and added a pylint disable
-   comment for too-many-branches caused by the inlining.
-
-v6:
-- Fixed `AttributeError` by using `str(sample.evsel)` to get event name.
+ - Added Error Tracking: Added try-except blocks around tracepoint
+   field access in process_event() and tracked missing fields in self.
+   unhandled instead of ignoring them.
 ---
- tools/perf/python/rw-by-pid.py | 158 +++++++++++++++++++++++++++++++++
- 1 file changed, 158 insertions(+)
- create mode 100755 tools/perf/python/rw-by-pid.py
+ tools/perf/python/wakeup-latency.py | 88 +++++++++++++++++++++++++++++
+ 1 file changed, 88 insertions(+)
+ create mode 100755 tools/perf/python/wakeup-latency.py
 
-diff --git a/tools/perf/python/rw-by-pid.py b/tools/perf/python/rw-by-pid.py
+diff --git a/tools/perf/python/wakeup-latency.py b/tools/perf/python/wakeup-latency.py
 new file mode 100755
-index 000000000000..b206d2a575cd
+index 000000000000..1b0db115abcf
 --- /dev/null
-+++ b/tools/perf/python/rw-by-pid.py
-@@ -0,0 +1,158 @@
++++ b/tools/perf/python/wakeup-latency.py
+@@ -0,0 +1,88 @@
 +#!/usr/bin/env python3
 +# SPDX-License-Identifier: GPL-2.0-only
-+"""Display r/w activity for all processes."""
++"""Display avg/min/max wakeup latency."""
 +
 +import argparse
 +from collections import defaultdict
 +import sys
-+from typing import Optional, Dict, List, Tuple, Any
++from typing import Optional, Dict
 +import perf
 +
-+class RwByPid:
-+    """Tracks and displays read/write activity by PID."""
++class WakeupLatency:
++    """Tracks and displays wakeup latency statistics."""
 +    def __init__(self) -> None:
-+        self.reads: Dict[int, Dict[str, Any]] = defaultdict(
-+            lambda: {
-+                "bytes_requested": 0,
-+                "bytes_read": 0,
-+                "total_reads": 0,
-+                "comm": "",
-+                "errors": defaultdict(int),
-+            }
-+        )
-+        self.writes: Dict[int, Dict[str, Any]] = defaultdict(
-+            lambda: {
-+                "bytes_written": 0,
-+                "total_writes": 0,
-+                "comm": "",
-+                "errors": defaultdict(int),
-+            }
-+        )
++        self.last_wakeup: Dict[int, int] = defaultdict(int)
++        self.max_wakeup_latency = 0
++        self.min_wakeup_latency = 1000000000
++        self.total_wakeup_latency = 0
++        self.total_wakeups = 0
 +        self.unhandled: Dict[str, int] = defaultdict(int)
 +        self.session: Optional[perf.session] = None
 +
-+    def process_event(self, sample: perf.sample_event) -> None:  # pylint: disable=too-many-branches
++    def process_event(self, sample: perf.sample_event) -> None:
 +        """Process events."""
-+        event_name = str(sample.evsel)[6:-1]
-+        pid = sample.sample_pid
++        event_name = str(sample.evsel)
++        sample_time = sample.sample_time
 +
-+        assert self.session is not None
-+        try:
-+            comm = self.session.find_thread(pid).comm()
-+        except Exception:  # pylint: disable=broad-except
-+            comm = "unknown"
-+
-+        if event_name in ("syscalls:sys_enter_read", "raw_syscalls:sys_enter_read"):
++        if "sched:sched_wakeup" in event_name:
 +            try:
-+                count = sample.count
-+                self.reads[pid]["bytes_requested"] += count
-+                self.reads[pid]["total_reads"] += 1
-+                self.reads[pid]["comm"] = comm
++                pid = sample.pid
++                self.last_wakeup[pid] = sample_time
 +            except AttributeError:
 +                self.unhandled[event_name] += 1
-+        elif event_name in ("syscalls:sys_exit_read", "raw_syscalls:sys_exit_read"):
++        elif "sched:sched_switch" in event_name:
 +            try:
-+                ret = sample.ret
-+                if ret > 0:
-+                    self.reads[pid]["bytes_read"] += ret
-+                else:
-+                    self.reads[pid]["errors"][ret] += 1
-+            except AttributeError:
-+                self.unhandled[event_name] += 1
-+        elif event_name in ("syscalls:sys_enter_write", "raw_syscalls:sys_enter_write"):
-+            try:
-+                count = sample.count
-+                self.writes[pid]["bytes_written"] += count
-+                self.writes[pid]["total_writes"] += 1
-+                self.writes[pid]["comm"] = comm
-+            except AttributeError:
-+                self.unhandled[event_name] += 1
-+        elif event_name in ("syscalls:sys_exit_write", "raw_syscalls:sys_exit_write"):
-+            try:
-+                ret = sample.ret
-+                if ret <= 0:
-+                    self.writes[pid]["errors"][ret] += 1
++                next_pid = sample.next_pid
++                wakeup_ts = self.last_wakeup.get(next_pid, 0)
++                if wakeup_ts:
++                    latency = sample_time - wakeup_ts
++                    self.max_wakeup_latency = max(self.max_wakeup_latency, latency)
++                    self.min_wakeup_latency = min(self.min_wakeup_latency, latency)
++                    self.total_wakeup_latency += latency
++                    self.total_wakeups += 1
++                    del self.last_wakeup[next_pid]
 +            except AttributeError:
 +                self.unhandled[event_name] += 1
 +        else:
 +            self.unhandled[event_name] += 1
 +
 +    def print_totals(self) -> None:
-+        """Print summary tables."""
-+        print("read counts by pid:\n")
-+        print(
-+            f"{'pid':>6s}  {'comm':<20s}  {'# reads':>10s}  "
-+            f"{'bytes_requested':>15s}  {'bytes_read':>10s}"
-+        )
-+        print(f"{'-'*6}  {'-'*20}  {'-'*10}  {'-'*15}  {'-'*10}")
-+
-+        for pid, data in sorted(self.reads.items(),
-+                                key=lambda kv: kv[1]["bytes_read"], reverse=True):
-+            print(
-+                f"{pid:6d}  {data['comm']:<20s}  {data['total_reads']:10d}  "
-+                f"{data['bytes_requested']:15d}  {data['bytes_read']:10d}"
-+            )
-+
-+        print("\nfailed reads by pid:\n")
-+        print(f"{'pid':>6s}  {'comm':<20s}  {'error #':>6s}  {'# errors':>10s}")
-+        print(f"{'-'*6}  {'-'*20}  {'-'*6}  {'-'*10}")
-+
-+        errcounts: List[Tuple[int, str, int, int]] = []
-+        for pid, data in self.reads.items():
-+            for error, count in data["errors"].items():
-+                errcounts.append((pid, data["comm"], error, count))
-+
-+        for pid, comm, error, count in sorted(errcounts, key=lambda x: x[3], reverse=True):
-+            print(f"{pid:6d}  {comm:<20s}  {error:6d}  {count:10d}")
-+
-+        print("\nwrite counts by pid:\n")
-+        print(f"{'pid':>6s}  {'comm':<20s}  {'# writes':>10s}  {'bytes_written':>15s}")
-+        print(f"{'-'*6}  {'-'*20}  {'-'*10}  {'-'*15}")
-+
-+        for pid, data in sorted(self.writes.items(),
-+                                key=lambda kv: kv[1]["bytes_written"], reverse=True):
-+            print(
-+                f"{pid:6d}  {data['comm']:<20s}  "
-+                f"{data['total_writes']:10d}  {data['bytes_written']:15d}"
-+            )
-+
-+        print("\nfailed writes by pid:\n")
-+        print(f"{'pid':>6s}  {'comm':<20s}  {'error #':>6s}  {'# errors':>10s}")
-+        print(f"{'-'*6}  {'-'*20}  {'-'*6}  {'-'*10}")
-+
-+        errcounts = []
-+        for pid, data in self.writes.items():
-+            for error, count in data["errors"].items():
-+                errcounts.append((pid, data["comm"], error, count))
-+
-+        for pid, comm, error, count in sorted(errcounts, key=lambda x: x[3], reverse=True):
-+            print(f"{pid:6d}  {comm:<20s}  {error:6d}  {count:10d}")
++        """Print summary statistics."""
++        print("wakeup_latency stats:\n")
++        print(f"total_wakeups: {self.total_wakeups}")
++        if self.total_wakeups:
++            avg = self.total_wakeup_latency // self.total_wakeups
++            print(f"avg_wakeup_latency (ns): {avg}")
++        else:
++            print("avg_wakeup_latency (ns): N/A")
++        print(f"min_wakeup_latency (ns): {self.min_wakeup_latency}")
++        print(f"max_wakeup_latency (ns): {self.max_wakeup_latency}")
 +
 +        if self.unhandled:
 +            print("\nunhandled events:\n")
@@ -287,11 +212,11 @@ index 000000000000..b206d2a575cd
 +
 +def main() -> None:
 +    """Main function."""
-+    parser = argparse.ArgumentParser(description="Trace r/w activity by PID")
++    parser = argparse.ArgumentParser(description="Trace wakeup latency")
 +    parser.add_argument("-i", "--input", default="perf.data", help="Input file")
 +    args = parser.parse_args()
 +
-+    analyzer = RwByPid()
++    analyzer = WakeupLatency()
 +    try:
 +        analyzer.run(args.input)
 +    except IOError as e:
