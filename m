@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA060FF8870
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4DCAFF885D
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 09:02:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,47 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qaRwSJkj71DNE0YbfTf14VRRvxVSfW5xkQ+x+0djFaM=; b=oYteMsZVAeYsQ0FTb0M3bNp3h0
-	iW2v9Llmu6x1I8hUXRrFbwjfxx7re2jmuP2oXOL78DGgZzhieSrPq+H+uBzUgg1w/xvSFtWWjdS9C
-	yiaQC8uIvxALOc350M/b1Mk4438snFabv20cL4/sYYCWVuXFEWBjRPBIHu+/RpqbWVfaNeXjyOQ8j
-	4GrnOJFO858QDf7VNi24PpdX8thVd35m7iZmJSIlVol0Su3nLqR3iLE+o1PTunvAdmCHQhJopMAMh
-	qOYq5Gmr4G0MyioLusPBsSG/RyvB/trxOn1PM9gTqQyZCJIAPZSokgI6zHbZB5qEaP3p0fMDw0NYW
-	n3EUmqCw==;
+	bh=tQvOUkj7iNT/AEbIK+gaqCq6j/dYqHrK2T/F114eAZE=; b=H2eenkOUUeLnsgWIP18oEA4klq
+	6qDf95rTRkKZmSzMoK7ZIEpfouqfcjdXgVc2h0nN5CoTe9kVs4aw79iBPYSUxgcDM4Ja+Brdl9RAx
+	A0pFXEN8PNx8hR5JdwJ3suzrBi7EOJLxfJaDUrM2FBzTFoeXnbwY0cPBZ5mB6P++/kvJporlOM9iL
+	ix5FX93jPkpRsNxF2e7dcbGBoMnlX02hXyrynAldjRktO4PeRPk5pyPqKafiV1JFjJcwAHwJIAjtr
+	xfdhW5TmnJnsYWnWHQRN1Q3yo/qh+pZdSA2+Vgsu2VVp1zweOQa60XTiGN1LipdoJ10gL92bROsjy
+	Xspm05pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeLB-00000000zLs-0iTG;
-	Tue, 28 Apr 2026 09:02:49 +0000
+	id 1wHeL7-00000000zHx-48mi;
+	Tue, 28 Apr 2026 09:02:46 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeKB-00000000yD5-49Ni
+	id 1wHeKB-00000000yD0-43Ql
 	for linux-arm-kernel@bombadil.infradead.org;
 	Tue, 28 Apr 2026 09:01:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=qaRwSJkj71DNE0YbfTf14VRRvxVSfW5xkQ+x+0djFaM=; b=ixaW6Nw6qVX9gcOxzL94wA4VgX
-	5uPdQsquxx22t8jHl3OkcjvmQE+ELgfkirMYK/whgrW6lvDDVkWoQKfeixd6vviFreLWeC9WBW62T
-	oA/Tlo5s6uMaAILt1PbJtpO9F/GIbPO4rmCOjMos2WTDSihRyvYWBBFNwg8PDEy2BvJ+eLcm4CVfb
-	xDeFenWUi1b5Sl0nKprlAmOzoMGnL3pZ5g01ugFQ/vIhdGgWgjVzI793/92Ty2ZZOaeVD94ZFb4WF
-	schKWqjSLOYb7d213afx2DCUGQ4DMIS5YMkkHrlSzZ125lVIbhVRf03lBSKSqFWq6NnmMsaINJrkF
-	d7hA0G6Q==;
+	bh=tQvOUkj7iNT/AEbIK+gaqCq6j/dYqHrK2T/F114eAZE=; b=nF44UW4blgcCI8QTi3d2077XZf
+	LXz37eUogJ2dLO/DXXMdeUXsv6yRvh9H6tfT4F1E4L/GamZaFBi+BcIhX/6s3c8Nxr65/cOBdlDae
+	NFIdgAYWCkBvalpVO4QUksC0JA/v5yovXUz/z7SS/VeTx8hIlcif8WhoFRWOodom0bu9evKr9cCkN
+	vGtacZQxuQka6O0sbDBL58QWq2HqxwX4JbOjJnV9Aq8YEVurDpjWnxvxauvyD8gliW6ch5XnI98BM
+	GBTeODuUV2SkvpUmnEY2bmt55zUfJ7nlKviBaqqhYnboMF+LpN3RDwjDTGoLrr38qXwdJMSkxOItv
+	evrbTsOQ==;
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeJy-00000002VWa-0xZQ
+	id 1wHeJy-00000002VWb-1ZrM
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 28 Apr 2026 09:01:46 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1wHeJF-0004Lz-96; Tue, 28 Apr 2026 11:00:49 +0200
+	id 1wHeJO-0004Lz-Pk; Tue, 28 Apr 2026 11:00:58 +0200
 From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Tue, 28 Apr 2026 11:00:49 +0200
-Subject: [PATCH v5 14/29] media: rockchip: rga: move cmdbuf to rga_ctx
+Date: Tue, 28 Apr 2026 11:01:04 +0200
+Subject: [PATCH v5 29/29] arm64: dts: rockchip: add rga3 dt nodes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260428-spu-rga3-v5-14-eb7f5d019d86@pengutronix.de>
+Message-Id: <20260428-spu-rga3-v5-29-eb7f5d019d86@pengutronix.de>
 References: <20260428-spu-rga3-v5-0-eb7f5d019d86@pengutronix.de>
 In-Reply-To: <20260428-spu-rga3-v5-0-eb7f5d019d86@pengutronix.de>
 To: Jacob Chen <jacob-chen@iotwrt.com>, 
@@ -65,16 +65,15 @@ Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  devicetree@vger.kernel.org, kernel@pengutronix.de, nicolas@ndufresne.ca, 
  sebastian.reichel@collabora.com, 
- =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>, 
- Nicolas Dufresne <nicolas.dufresne@collabora.com>
+ =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
 X-Mailer: b4 0.15.2
 X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
 X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_100134_750421_9DE53D75 
-X-CRM114-Status: GOOD (  19.75  )
+X-CRM114-CacheID: sfid-20260428_100134_775676_E093F096 
+X-CRM114-Status: GOOD (  10.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,249 +88,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the command buffer to the rga_ctx struct in preparation to reuse
-an already prepared command buffer. This allows to split the command
-buffer setup in a further commit to setup a template for the command
-buffer at streamon and only update the buffer addresses in device_run
-and trigger the command stream. No sync point is added, as one command
-buffer should only be used for one conversion at a time.
+Add devicetree nodes for the RGA3 (Raster Graphics Acceleration 3)
+peripheral in the RK3588.
 
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+The existing rga node refers to the RGA2-Enhanced peripheral. The RK3588
+contains one RGA2-Enhanced core and two RGA3 cores. Both feature a similar
+functionality of scaling, cropping and rotating of up to two input
+images into one output image. Key differences of the RGA3 are:
+
+- supports 10bit YUV output formats
+- supports 8x8 tiles and FBCD as inputs and outputs
+- supports BT2020 color space conversion
+- max output resolution of (8192-64)x(8192-64)
+- MMU can map up to 32G DDR RAM
+- fully planar formats (3 planes) are not supported
+- max scale up/down factor of 8 (RGA2 allows up to 16)
+
 Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 ---
- drivers/media/platform/rockchip/rga/rga-hw.c | 28 +++++++---------
- drivers/media/platform/rockchip/rga/rga.c    | 48 ++++++++++++++++------------
- drivers/media/platform/rockchip/rga/rga.h    |  5 +--
- 3 files changed, 41 insertions(+), 40 deletions(-)
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 44 +++++++++++++++++++++++++++
+ 1 file changed, 44 insertions(+)
 
-diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media/platform/rockchip/rga/rga-hw.c
-index 17f7a67c0b4bb..9881c14f908d5 100644
---- a/drivers/media/platform/rockchip/rga/rga-hw.c
-+++ b/drivers/media/platform/rockchip/rga/rga-hw.c
-@@ -122,8 +122,7 @@ static struct rga_addr_offset *rga_lookup_draw_pos(struct
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+index 4fb8888c281c8..c8ac419f51cf9 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+@@ -1273,6 +1273,50 @@ rga: rga@fdb80000 {
+ 		power-domains = <&power RK3588_PD_VDPU>;
+ 	};
  
- static void rga_cmd_set_src_addr(struct rga_ctx *ctx, dma_addr_t dma_addr)
- {
--	struct rockchip_rga *rga = ctx->rga;
--	u32 *dest = rga->cmdbuf_virt;
-+	u32 *dest = ctx->cmdbuf_virt;
- 	unsigned int reg;
- 
- 	reg = RGA_MMU_SRC_BASE - RGA_MODE_BASE_REG;
-@@ -135,8 +134,7 @@ static void rga_cmd_set_src_addr(struct rga_ctx *ctx, dma_addr_t dma_addr)
- 
- static void rga_cmd_set_src1_addr(struct rga_ctx *ctx, dma_addr_t dma_addr)
- {
--	struct rockchip_rga *rga = ctx->rga;
--	u32 *dest = rga->cmdbuf_virt;
-+	u32 *dest = ctx->cmdbuf_virt;
- 	unsigned int reg;
- 
- 	reg = RGA_MMU_SRC1_BASE - RGA_MODE_BASE_REG;
-@@ -148,8 +146,7 @@ static void rga_cmd_set_src1_addr(struct rga_ctx *ctx, dma_addr_t dma_addr)
- 
- static void rga_cmd_set_dst_addr(struct rga_ctx *ctx, dma_addr_t dma_addr)
- {
--	struct rockchip_rga *rga = ctx->rga;
--	u32 *dest = rga->cmdbuf_virt;
-+	u32 *dest = ctx->cmdbuf_virt;
- 	unsigned int reg;
- 
- 	reg = RGA_MMU_DST_BASE - RGA_MODE_BASE_REG;
-@@ -162,7 +159,7 @@ static void rga_cmd_set_dst_addr(struct rga_ctx *ctx, dma_addr_t dma_addr)
- static void rga_cmd_set_trans_info(struct rga_ctx *ctx)
- {
- 	struct rockchip_rga *rga = ctx->rga;
--	u32 *dest = rga->cmdbuf_virt;
-+	u32 *dest = ctx->cmdbuf_virt;
- 	unsigned int scale_dst_w, scale_dst_h;
- 	unsigned int src_h, src_w, dst_h, dst_w;
- 	union rga_src_info src_info;
-@@ -322,8 +319,7 @@ static void rga_cmd_set_src_info(struct rga_ctx *ctx,
- 				 struct rga_addr_offset *offset)
- {
- 	struct rga_corners_addr_offset src_offsets;
--	struct rockchip_rga *rga = ctx->rga;
--	u32 *dest = rga->cmdbuf_virt;
-+	u32 *dest = ctx->cmdbuf_virt;
- 	unsigned int src_h, src_w, src_x, src_y;
- 
- 	src_h = ctx->in.crop.height;
-@@ -350,8 +346,7 @@ static void rga_cmd_set_dst_info(struct rga_ctx *ctx,
- {
- 	struct rga_addr_offset *dst_offset;
- 	struct rga_corners_addr_offset offsets;
--	struct rockchip_rga *rga = ctx->rga;
--	u32 *dest = rga->cmdbuf_virt;
-+	u32 *dest = ctx->cmdbuf_virt;
- 	unsigned int dst_h, dst_w, dst_x, dst_y;
- 	unsigned int mir_mode = 0;
- 	unsigned int rot_mode = 0;
-@@ -397,8 +392,7 @@ static void rga_cmd_set_dst_info(struct rga_ctx *ctx,
- 
- static void rga_cmd_set_mode(struct rga_ctx *ctx)
- {
--	struct rockchip_rga *rga = ctx->rga;
--	u32 *dest = rga->cmdbuf_virt;
-+	u32 *dest = ctx->cmdbuf_virt;
- 	union rga_mode_ctrl mode;
- 	union rga_alpha_ctrl0 alpha_ctrl0;
- 	union rga_alpha_ctrl1 alpha_ctrl1;
-@@ -423,7 +417,7 @@ static void rga_cmd_set(struct rga_ctx *ctx,
- {
- 	struct rockchip_rga *rga = ctx->rga;
- 
--	memset(rga->cmdbuf_virt, 0, RGA_CMDBUF_SIZE);
-+	memset(ctx->cmdbuf_virt, 0, RGA_CMDBUF_SIZE);
- 
- 	rga_cmd_set_src_addr(ctx, src->dma_desc_pa);
- 	/*
-@@ -439,11 +433,11 @@ static void rga_cmd_set(struct rga_ctx *ctx,
- 	rga_cmd_set_dst_info(ctx, &dst->offset);
- 	rga_cmd_set_trans_info(ctx);
- 
--	rga_write(rga, RGA_CMD_BASE, rga->cmdbuf_phy);
-+	rga_write(rga, RGA_CMD_BASE, ctx->cmdbuf_phy);
- 
- 	/* sync CMD buf for RGA */
--	dma_sync_single_for_device(rga->dev, rga->cmdbuf_phy,
--		PAGE_SIZE, DMA_BIDIRECTIONAL);
-+	dma_sync_single_for_device(rga->dev, ctx->cmdbuf_phy,
-+				   PAGE_SIZE, DMA_BIDIRECTIONAL);
- }
- 
- static void rga_hw_start(struct rockchip_rga *rga,
-diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
-index 77b8c7ab74274..bf6bbcbfc869b 100644
---- a/drivers/media/platform/rockchip/rga/rga.c
-+++ b/drivers/media/platform/rockchip/rga/rga.c
-@@ -219,6 +219,16 @@ static int rga_open(struct file *file)
- 	ctx = kzalloc_obj(*ctx);
- 	if (!ctx)
- 		return -ENOMEM;
++	rga3_core0: rga@fdb60000 {
++		compatible = "rockchip,rk3588-rga3";
++		reg = <0x0 0xfdb60000 0x0 0x200>;
++		interrupts = <GIC_SPI 114 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru ACLK_RGA3_0>, <&cru HCLK_RGA3_0>, <&cru CLK_RGA3_0_CORE>;
++		clock-names = "aclk", "hclk", "sclk";
++		resets = <&cru SRST_RGA3_0_CORE>, <&cru SRST_A_RGA3_0>, <&cru SRST_H_RGA3_0>;
++		reset-names = "core", "axi", "ahb";
++		power-domains = <&power RK3588_PD_RGA30>;
++		iommus = <&rga3_0_mmu>;
++	};
 +
-+	/* Create CMD buffer */
-+	ctx->cmdbuf_virt = dma_alloc_attrs(rga->dev, rga->hw->cmdbuf_size,
-+					   &ctx->cmdbuf_phy, GFP_KERNEL,
-+					   DMA_ATTR_WRITE_COMBINE);
-+	if (!ctx->cmdbuf_virt) {
-+		ret = -ENOMEM;
-+		goto rel_ctx;
-+	}
++	rga3_0_mmu: iommu@fdb60f00 {
++		compatible = "rockchip,rk3588-iommu", "rockchip,rk3568-iommu";
++		reg = <0x0 0xfdb60f00 0x0 0x100>;
++		interrupts = <GIC_SPI 114 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru ACLK_RGA3_0>, <&cru HCLK_RGA3_0>;
++		clock-names = "aclk", "iface";
++		#iommu-cells = <0>;
++		power-domains = <&power RK3588_PD_RGA30>;
++	};
 +
- 	ctx->rga = rga;
- 	/* Set default formats */
- 	ctx->in = def_frame;
-@@ -230,15 +240,13 @@ static int rga_open(struct file *file)
- 			    ctx->out.fmt->fourcc, def_width, def_height);
- 
- 	if (mutex_lock_interruptible(&rga->mutex)) {
--		kfree(ctx);
--		return -ERESTARTSYS;
-+		ret = -ERESTARTSYS;
-+		goto rel_cmdbuf;
- 	}
- 	ctx->fh.m2m_ctx = v4l2_m2m_ctx_init(rga->m2m_dev, ctx, &queue_init);
- 	if (IS_ERR(ctx->fh.m2m_ctx)) {
- 		ret = PTR_ERR(ctx->fh.m2m_ctx);
--		mutex_unlock(&rga->mutex);
--		kfree(ctx);
--		return ret;
-+		goto unlock_mutex;
- 	}
- 	v4l2_fh_init(&ctx->fh, video_devdata(file));
- 	v4l2_fh_add(&ctx->fh, file);
-@@ -252,6 +260,15 @@ static int rga_open(struct file *file)
- 	mutex_unlock(&rga->mutex);
- 
- 	return 0;
++	rga3_core1: rga@fdb70000 {
++		compatible = "rockchip,rk3588-rga3";
++		reg = <0x0 0xfdb70000 0x0 0x200>;
++		interrupts = <GIC_SPI 115 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru ACLK_RGA3_1>, <&cru HCLK_RGA3_1>, <&cru CLK_RGA3_1_CORE>;
++		clock-names = "aclk", "hclk", "sclk";
++		resets = <&cru SRST_RGA3_1_CORE>, <&cru SRST_A_RGA3_1>, <&cru SRST_H_RGA3_1>;
++		reset-names = "core", "axi", "ahb";
++		power-domains = <&power RK3588_PD_RGA31>;
++		iommus = <&rga3_1_mmu>;
++	};
 +
-+unlock_mutex:
-+	mutex_unlock(&rga->mutex);
-+rel_cmdbuf:
-+	dma_free_attrs(rga->dev, rga->hw->cmdbuf_size, ctx->cmdbuf_virt,
-+		       ctx->cmdbuf_phy, DMA_ATTR_WRITE_COMBINE);
-+rel_ctx:
-+	kfree(ctx);
-+	return ret;
- }
- 
- static int rga_release(struct file *file)
-@@ -266,6 +283,10 @@ static int rga_release(struct file *file)
- 	v4l2_ctrl_handler_free(&ctx->ctrl_handler);
- 	v4l2_fh_del(&ctx->fh, file);
- 	v4l2_fh_exit(&ctx->fh);
++	rga3_1_mmu: iommu@fdb70f00 {
++		compatible = "rockchip,rk3588-iommu", "rockchip,rk3568-iommu";
++		reg = <0x0 0xfdb70f00 0x0 0x100>;
++		interrupts = <GIC_SPI 115 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru ACLK_RGA3_1>, <&cru HCLK_RGA3_1>;
++		clock-names = "aclk", "iface";
++		#iommu-cells = <0>;
++		power-domains = <&power RK3588_PD_RGA31>;
++	};
 +
-+	dma_free_attrs(rga->dev, rga->hw->cmdbuf_size, ctx->cmdbuf_virt,
-+		       ctx->cmdbuf_phy, DMA_ATTR_WRITE_COMBINE);
-+
- 	kfree(ctx);
- 
- 	mutex_unlock(&rga->mutex);
-@@ -720,19 +741,10 @@ static int rga_probe(struct platform_device *pdev)
- 
- 	pm_runtime_put(rga->dev);
- 
--	/* Create CMD buffer */
--	rga->cmdbuf_virt = dma_alloc_attrs(rga->dev, rga->hw->cmdbuf_size,
--					   &rga->cmdbuf_phy, GFP_KERNEL,
--					   DMA_ATTR_WRITE_COMBINE);
--	if (!rga->cmdbuf_virt) {
--		ret = -ENOMEM;
--		goto rel_m2m;
--	}
--
- 	ret = video_register_device(vfd, VFL_TYPE_VIDEO, -1);
- 	if (ret) {
- 		v4l2_err(&rga->v4l2_dev, "Failed to register video device\n");
--		goto free_dma;
-+		goto rel_m2m;
- 	}
- 
- 	v4l2_info(&rga->v4l2_dev, "Registered %s as /dev/%s\n",
-@@ -740,9 +752,6 @@ static int rga_probe(struct platform_device *pdev)
- 
- 	return 0;
- 
--free_dma:
--	dma_free_attrs(rga->dev, rga->hw->cmdbuf_size, rga->cmdbuf_virt,
--		       rga->cmdbuf_phy, DMA_ATTR_WRITE_COMBINE);
- rel_m2m:
- 	v4l2_m2m_release(rga->m2m_dev);
- rel_vdev:
-@@ -759,9 +768,6 @@ static void rga_remove(struct platform_device *pdev)
- {
- 	struct rockchip_rga *rga = platform_get_drvdata(pdev);
- 
--	dma_free_attrs(rga->dev, rga->hw->cmdbuf_size, rga->cmdbuf_virt,
--		       rga->cmdbuf_phy, DMA_ATTR_WRITE_COMBINE);
--
- 	v4l2_info(&rga->v4l2_dev, "Removing\n");
- 
- 	v4l2_m2m_release(rga->m2m_dev);
-diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
-index 27b3c9b4f220c..04aeb7b429523 100644
---- a/drivers/media/platform/rockchip/rga/rga.h
-+++ b/drivers/media/platform/rockchip/rga/rga.h
-@@ -53,6 +53,9 @@ struct rga_ctx {
- 	struct rga_frame out;
- 	struct v4l2_ctrl_handler ctrl_handler;
- 
-+	void *cmdbuf_virt;
-+	dma_addr_t cmdbuf_phy;
-+
- 	int osequence;
- 	int csequence;
- 
-@@ -89,8 +92,6 @@ struct rockchip_rga {
- 	spinlock_t ctrl_lock;
- 
- 	struct rga_ctx *curr;
--	dma_addr_t cmdbuf_phy;
--	void *cmdbuf_virt;
- 
- 	const struct rga_hw *hw;
- };
+ 	vepu121_0: video-codec@fdba0000 {
+ 		compatible = "rockchip,rk3588-vepu121";
+ 		reg = <0x0 0xfdba0000 0x0 0x800>;
 
 -- 
 2.54.0
