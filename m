@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A507FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 18:20:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8A9AFF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 18:33:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CUGPWmhBz4nyHLX2mwZvhw8zHxaTTBi4rDQIbJ6SSgE=; b=TQuXMFGr2l22O6ehMUJmAeQAuy
-	VEADDdl0zUun+7jMAh7oGqW9Nr82pEsv5GCq11RYs/Y2eZ2jAE1MnSPixqtzz1qlTY3458Ni/z+zZ
-	p4NiAgLsKkwIWDo4EedaMa3NI5avDtRMuM8j8QyO4zThIrxVnbiCj3f8AN1D9lJFoakbXKNbb3HEg
-	KcFFofVVfXXRUTBwRt0t1fyb1f0vxCP/MvJOPQQk92wobzCSFKgG2ZiLVD10H4v+d9+mpu/QtEYQZ
-	qi27p9tFxQTkaSxI3iMhKlb2lTpYi5JgnzUIb2x6/apnq8GcPykVjueWV2LY/IKvvPfcfxnQl3tuL
-	ONOMaXCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=1u08TvS5VZO19pH9mSpqHqvpUM9p0a4DMxk/QlMnzyU=; b=nROMGfsCq9aEmx
+	uzqTI11/dwLTAEMbPN9G4dSrlkoYEc7LERomZ440C8AVqMUVxcNxQecuUkeZO5quwZFc6mYb/nqxf
+	Hx/HN11rMYNa1++Ph6GA/5Dfh5Se/Heh9Bf8MVCaGqRlYvoKh5+fHWLOPVc/ZHNRmRBFLK+d0S4M8
+	OrOoKF+j1fVWlTJ3vkBEhJ5+UEmoeN1GTBQ2zNlkI61Y8kvqNa8RNAPQCPnIedDyyoagiYd6wX3at
+	is9AlICp8MomwYn2b4eVFvy0CFX/O7jh4RxisF6tK3Nk28KCaW5saKSlpnj9QC2RnqejZEGjLMAjZ
+	KMbashpaJ8JT+lU/QQ3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHn2K-000000024eD-0IbX;
-	Tue, 28 Apr 2026 18:19:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wHnFn-000000025D9-2dm3;
+	Tue, 28 Apr 2026 18:33:51 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHn2H-000000024df-1Ftw
+	id 1wHnFn-000000025D1-07XK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 18:19:54 +0000
+	Tue, 28 Apr 2026 18:33:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BB519442C2;
-	Tue, 28 Apr 2026 18:19:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6FC6C2BCAF;
-	Tue, 28 Apr 2026 18:19:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0C86E61119;
+	Tue, 28 Apr 2026 18:33:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CED86C2BCAF;
+	Tue, 28 Apr 2026 18:33:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777400392;
-	bh=IIgS0AwRcjrTKP1+26SpC0X687fjJgcOkUNS9W2I8Ho=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bsdXeF8vvCoI3aZG24eKRZxfzdAWS24Tyr5d/guTbpbNgNaP/scHtndlMkIvnsRG3
-	 o02p+aLeVmg5gOspT/wd38/dB9ma4bujRwhMl5g96bFFgzJa83AiQtBGrtkRH6XKrG
-	 U55JrlD4WY+Wyj8wOKDV1HA/dY7e8JTy8tZUJIDNB9QjsDMnPL/z/1Rn1NpUxNBBAr
-	 TBKebtrYO3ZkEvAPO3ftapCQLd0Fy2O5jsAIh6U/T8ehEp+HbUdGrI0KFJXKwiUGk+
-	 4nzkaNpxVqeK7rAJ+H7tgegYCsjzhaSLloyT54UfhJr92j2WLSJujfzTwIkpv83BX1
-	 wA1s57OlQIt/w==
-From: Sasha Levin <sashal@kernel.org>
-To: stable@vger.kernel.org
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	"David Hildenbrand (Arm)" <david@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 6.1.y] arm64/mm: Enable batched TLB flush in unmap_hotplug_range()
-Date: Tue, 28 Apr 2026 14:19:49 -0400
-Message-ID: <20260428181949.3127002-1-sashal@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <2026042727-detonate-paging-829b@gregkh>
-References: <2026042727-detonate-paging-829b@gregkh>
+	s=k20201202; t=1777401229;
+	bh=EMyzlxpVvJDbrhhvh1Vj6X1lXlKjwC8Q+i5uCO+iUBA=;
+	h=From:Subject:Date:To:Cc:From;
+	b=B0eOsdtp0k+5cIjV70VycURCtopArbuJg0Cet0+PCQZkhRfiG54e631fHkcrEcyX2
+	 jnyX/ak3xHJGBX3ZcU9YkMDa9nhb+Fm4Jz+nR8Pa3gF9140ZCDXivcr+Nuu8h9RrGo
+	 nYf5tqSG2xIWv5+S1JsngAWOiH7CWRjFHDTH4syqru9LTnzQL4s5NoWoAl0zmqskh/
+	 J9DUNy5ZAdKwGHf+aVvMLbnTFW68ZW2l29FTxFCRYSwy11AZaJWN/3J8Hg9vjaqoZ3
+	 fqzStatm3Vdhn43/XuUzN+APcIHvc3FEX/hRV/otS0p6J3mpjITcRZBuyyeSaf0C8l
+	 jcuX3WmyKHt7Q==
+From: Sudeep Holla <sudeep.holla@kernel.org>
+Subject: [PATCH v2 00/11] firmware: arm_ffa: Fix cleanup, notification, and
+ discovery paths
+Date: Tue, 28 Apr 2026 19:33:24 +0100
+Message-Id: <20260428-ffa_fixes-v2-0-8595ae450034@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_111953_380775_95EE7A52 
-X-CRM114-Status: GOOD (  17.02  )
+X-B4-Tracking: v=1; b=H4sIAHj98GkC/22NywrCMBBFf6XM2kgeNagr/0OKxHbSRiWRTA1Ky
+ b+b1K3Lwz2cuwBhdEhwbBaImBy54AvITQP9ZPyIzA2FQXKpeSsVs9ZcrHsjsdYMSlmOKHcciv+
+ MuA5FP3c/ptf1hv1cA9WYHM0hftazJKr3r5sE40wLsT9oLYy1eLpj9PjYhjhCl3P+Amb28QS1A
+ AAA
+X-Change-ID: 20260423-ffa_fixes-4ad33f0ee250
+To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Jens Wiklander <jens.wiklander@linaro.org>, 
+ Sudeep Holla <sudeep.holla@kernel.org>, 
+ Sebastian Ene <sebastianene@google.com>
+X-Mailer: b4 0.15.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,137 +74,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Anshuman Khandual <anshuman.khandual@arm.com>
+Hi all,
 
-[ Upstream commit 48478b9f791376b4b89018d7afdfd06865498f65 ]
+This series fixes a set of issues in the FF-A driver around init
+cleanup, framework notification handling, v1.0 notifier lifetime, and
+partition discovery.
 
-During a memory hot remove operation, both linear and vmemmap mappings for
-the memory range being removed, get unmapped via unmap_hotplug_range() but
-mapped pages get freed only for vmemmap mapping. This is just a sequential
-operation where each table entry gets cleared, followed by a leaf specific
-TLB flush, and then followed by memory free operation when applicable.
+The fixes are all small and localized, but together they tighten a few
+important paths:
 
-This approach was simple and uniform both for vmemmap and linear mappings.
-But linear mapping might contain CONT marked block memory where it becomes
-necessary to first clear out all entire in the range before a TLB flush.
-This is as per the architecture requirement. Hence batch all TLB flushes
-during the table tear down walk and finally do it in unmap_hotplug_range().
+- fix the early init unwind path when RX buffer allocation fails
+- align the stored RX/TX buffer size with the size actually mapped to
+  firmware
+- ensure the framework notification handler always releases the RX
+  buffer correctly
+- validate framework notification payload bounds before copying data out
+  of the shared RX buffer
+- fix the partition lookup used for sched-recv callback registration
+- unregister the FF-A v1.0 bus notifier during teardown
+- bound the register-based partition discovery copies against the caller
+  buffer
+- reject FF-A driver registration without an ID table
+- fix per-vcpu drivers own notifications handling in workqueue
+- make NPI per cpu work item to avoid collapsing already queued work
 
-Prior to this fix, it was hypothetically possible for a speculative access
-to a higher address in the contiguous block to fill the TLB with shattered
-entries for the entire contiguous range after a lower address had already
-been cleared and invalidated. Due to the table entries being shattered, the
-subsequent TLB invalidation for the higher address would not then clear the
-TLB entries for the lower address, meaning stale TLB entries could persist.
+This is the outcome of the self-initiated review of the entire driver
+following the oversight of Sashiko’s review on one of the patches that
+was merged.
 
-Besides it also helps in improving the performance via TLBI range operation
-along with reduced synchronization instructions. The time spent executing
-unmap_hotplug_range() improved 97% measured over a 2GB memory hot removal
-in KVM guest.
+https://sashiko.dev/#/patchset/20260402113939.930221-1-sebastianene@google.com
 
-This scheme is not applicable during vmemmap mapping tear down where memory
-needs to be freed and hence a TLB flush is required after clearing out page
-table entry.
-
-Cc: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Closes: https://lore.kernel.org/all/aWZYXhrT6D2M-7-N@willie-the-truck/
-Fixes: bbd6ec605c0f ("arm64/mm: Enable memory hot remove")
-Cc: stable@vger.kernel.org
-Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-[ replaced `__pte_clear()` with `pte_clear()` ]
-Signed-off-by: Sasha Levin <sashal@kernel.org>
+Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 ---
- arch/arm64/mm/mmu.c | 36 ++++++++++++++++++++----------------
- 1 file changed, 20 insertions(+), 16 deletions(-)
+Changes in v2:
+- Addressed valid comments from sashiko
+  (https://sashiko.dev/#/patchset/20260423-ffa_fixes-v1-0-61189661affe@kernel.org)
+- Added couple of new fixes based on the review
+- Link to v1: https://patch.msgid.link/20260423-ffa_fixes-v1-0-61189661affe@kernel.org
 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index e9288b28cb1e3..cbba5e73099fe 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -925,10 +925,14 @@ static void unmap_hotplug_pte_range(pmd_t *pmdp, unsigned long addr,
- 
- 		WARN_ON(!pte_present(pte));
- 		pte_clear(&init_mm, addr, ptep);
--		flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
--		if (free_mapped)
-+		if (free_mapped) {
-+			/* CONT blocks are not supported in the vmemmap */
-+			WARN_ON(pte_cont(pte));
-+			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
- 			free_hotplug_page_range(pte_page(pte),
- 						PAGE_SIZE, altmap);
-+		}
-+		/* unmap_hotplug_range() flushes TLB for !free_mapped */
- 	} while (addr += PAGE_SIZE, addr < end);
- }
- 
-@@ -949,15 +953,14 @@ static void unmap_hotplug_pmd_range(pud_t *pudp, unsigned long addr,
- 		WARN_ON(!pmd_present(pmd));
- 		if (pmd_sect(pmd)) {
- 			pmd_clear(pmdp);
--
--			/*
--			 * One TLBI should be sufficient here as the PMD_SIZE
--			 * range is mapped with a single block entry.
--			 */
--			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
--			if (free_mapped)
-+			if (free_mapped) {
-+				/* CONT blocks are not supported in the vmemmap */
-+				WARN_ON(pmd_cont(pmd));
-+				flush_tlb_kernel_range(addr, addr + PMD_SIZE);
- 				free_hotplug_page_range(pmd_page(pmd),
- 							PMD_SIZE, altmap);
-+			}
-+			/* unmap_hotplug_range() flushes TLB for !free_mapped */
- 			continue;
- 		}
- 		WARN_ON(!pmd_table(pmd));
-@@ -982,15 +985,12 @@ static void unmap_hotplug_pud_range(p4d_t *p4dp, unsigned long addr,
- 		WARN_ON(!pud_present(pud));
- 		if (pud_sect(pud)) {
- 			pud_clear(pudp);
--
--			/*
--			 * One TLBI should be sufficient here as the PUD_SIZE
--			 * range is mapped with a single block entry.
--			 */
--			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
--			if (free_mapped)
-+			if (free_mapped) {
-+				flush_tlb_kernel_range(addr, addr + PUD_SIZE);
- 				free_hotplug_page_range(pud_page(pud),
- 							PUD_SIZE, altmap);
-+			}
-+			/* unmap_hotplug_range() flushes TLB for !free_mapped */
- 			continue;
- 		}
- 		WARN_ON(!pud_table(pud));
-@@ -1020,6 +1020,7 @@ static void unmap_hotplug_p4d_range(pgd_t *pgdp, unsigned long addr,
- static void unmap_hotplug_range(unsigned long addr, unsigned long end,
- 				bool free_mapped, struct vmem_altmap *altmap)
- {
-+	unsigned long start = addr;
- 	unsigned long next;
- 	pgd_t *pgdp, pgd;
- 
-@@ -1041,6 +1042,9 @@ static void unmap_hotplug_range(unsigned long addr, unsigned long end,
- 		WARN_ON(!pgd_present(pgd));
- 		unmap_hotplug_p4d_range(pgdp, addr, next, free_mapped, altmap);
- 	} while (addr = next, addr < end);
-+
-+	if (!free_mapped)
-+		flush_tlb_kernel_range(start, end);
- }
- 
- static void free_empty_pte_table(pmd_t *pmdp, unsigned long addr,
+---
+Sudeep Holla (11):
+      firmware: arm_ffa: Check for NULL FF-A ID table while driver registration
+      firmware: arm_ffa: Skip free_pages on RX buffer alloc failure
+      firmware: arm_ffa: Avoid collapsing NPI work from different CPUs
+      firmware: arm_ffa: Fix per-vcpu self notifications handling in workqueue
+      firmware: arm_ffa: Unregister bus notifier on teardown for FF-A v1.0
+      firmware: arm_ffa: Bound PARTITION_INFO_GET_REGS copies
+      firmware: arm_ffa: Keep framework RX release under lock
+      firmware: arm_ffa: Validate framework notification message layout
+      firmware: arm_ffa: Align RxTx buffer size before mapping
+      firmware: arm_ffa: Snapshot notifier callbacks under lock
+      firmware: arm_ffa: Fix sched-recv callback partition lookup
+
+ drivers/firmware/arm_ffa/bus.c    |   4 +-
+ drivers/firmware/arm_ffa/driver.c | 138 +++++++++++++++++++++++++++-----------
+ 2 files changed, 102 insertions(+), 40 deletions(-)
+---
+base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
+change-id: 20260423-ffa_fixes-4ad33f0ee250
+
+
 -- 
-2.53.0
+Regards,
+Sudeep
 
 
