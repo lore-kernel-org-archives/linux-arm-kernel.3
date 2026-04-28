@@ -4,62 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6835BFF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 13:45:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF0CEFF886D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 13:46:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xj43fmA92xTaWjtulGJ0Hz/Ajlax6eTpQtBMorT2rls=; b=Eq+UMxvLIRdP3NwPAdHh99/sQV
-	5EfGBhI+mZfW4n674SobhHl+/8oAC+7aXGHiBj+dC/58OYvr4yVtohf/ojtwLX4wmnS7v3PtgISLL
-	By+fPODTF7IxRnjxnqooQjsBIcVsCoMYapHTXka7BLZnAkSHT8j8+gDZmh/cSHZwEm+4e3eWXPIge
-	PoHODL5y/pHyB4Gvnebzxhk12I8sr8cjBFRQ+AfcjfKu8Nyr2Fervgt1y1+BXjY6Jn603bk0WLx5r
-	8n65dQBbAKJZYSkKoyc2D1yq1kHAXUTSdG/GBRnj4zDpDoLFgoks85weDV3rQUT5nkjf40LqaDutp
-	I3Em7R5g==;
+	bh=s/BbR1sgh93yDXEabIBXbN60lFNHSry52ZI7x94pCZ4=; b=NYTmw6MRYjQMleAka1DLl35c0M
+	Ki7G260/9UfkwA85E0JqYlBmdX+jleX08ekczM+d57f2D+oAYEkDTRDNIko5pLw4HHRwW6KBZQLeO
+	R9sOyE3ab8xmCflQuTGPy3a46zYCTfUNL+Zi95LYJF6WI1hLU6CbcAZ9gtYyq9JuL5lJ0XJcZXPIa
+	3kS2M4c4QZS4tv687YDg2XsjD9MsKxU7fWm84+rnTfsLFPDuZVtxmStotAycE5dlS9KkcFqJ2qw3+
+	1ftk86WdTqTKa8stJFoDARavh5cKB8tw0ejMmlkLk8BxDQgRfX6MIhC59t+CcxYpDKCcZv3C0y+0g
+	yjpieEpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHikw-00000001ZvG-0SX4;
-	Tue, 28 Apr 2026 13:45:42 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wHilR-00000001a1N-3vCB;
+	Tue, 28 Apr 2026 13:46:13 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHikv-00000001Zux-123p
+	id 1wHilP-00000001a05-45d8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 13:45:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4CBCB60008;
-	Tue, 28 Apr 2026 13:45:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80E67C2BCAF;
-	Tue, 28 Apr 2026 13:45:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777383940;
-	bh=GYj8nB60I1VHypw+mOX3Mu/8peTbqovz5p67Koi3YFc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Rypw4e10B/yE8h5zP02oFqJax3GmBY+hiezSZHP7i2YneSyZMYRHOybPhmxqVJ0hP
-	 Apb/7+q9T6BLVwD+vGJjFrz8Oi3jOdbXySKacDs/V/ilE1587Kl8Zax1ynObH6j30g
-	 /qCaPg3LVQ5Qvc6mAGP2BM3UGMTBQ4K7vIbz2HwtxiX4wNRz34u17K05TL3zkaMM+W
-	 cI76sx9EJZRN96uaYu22mYolJli//JqM8x2OjGJfOn5kC82gZxxK4TrpRU9/UBj6Zv
-	 b54062dNzC7BaMHhemZP6cWuEot+DOkVa3uMT1DAHByPthdd6Q64dcTOvFGM2ZydO6
-	 A/Sy3pcXq4OGw==
-Date: Tue, 28 Apr 2026 14:45:34 +0100
-From: Will Deacon <will@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: maz@kernel.org, oliver.upton@linux.dev, james.morse@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, qperret@google.com,
-	vdonnefort@google.com, catalin.marinas@arm.com,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH 6/8] KVM: arm64: Propagate stage-2 map failure on
- host->guest donation
-Message-ID: <afC5_jrTEVRfJ77x@willie-the-truck>
-References: <20260428103008.696141-1-tabba@google.com>
- <20260428103008.696141-7-tabba@google.com>
+	Tue, 28 Apr 2026 13:46:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=APNDG/3Y12uPaE9qkUq+ao2CFWjTMNclLA3whmzShCHeUIhv9gwI+M0ZhzBOQNEAPEQOpaj/Uhe+YIjyHUXhZLAmRHR945QyX7Ode6XHeXuITBE5Dyj6lsDZQXREMStZSnQzzrQlkN1kWTjBRFh1tryJK0jN0ntG9YwSZWOznid+4oOSrTkl8zg94I7SVIlmtPixDssSVDtvmTDPyK1cpOxzIQhI4PsmMP6n6aqGOgv8VPu+kODwQObZlnwqUsVKGlY6+9G8nLJFCdJUtP20y8JTHifRUq640U2MEnMALOn+eWNU1jy1l0h7yvhi9Ygikr6XIH8HNUHQJe+NixX52g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=s/BbR1sgh93yDXEabIBXbN60lFNHSry52ZI7x94pCZ4=;
+ b=u0vWdrOFJVke5ZkHirSu1ejc9EmIAIImD1Psfo+1n3gdfH0EYXhCwc+EMLoPWubpOA/bo+9u47Z8Fy3AqDIULTQfgwm+4KclRKxcojop0mpf698GLJBPtcMbGpb3hUPYn1Lpv7qPnAmyFsELchRm8btnPrjLzhm/qOVzjP9AhhwSoobzFgB39OK5gmEHyoMlBJ/6DI6SI7p3f9TLnVRTfRbdiBMwjqC4Zd2+FLMk736fWgDdf/bLMjX0ulhi3JKMTgm4Bo36bqsLpMHHmCrEd7tKifjkS7BqfLwWkDsWMzLmtj0t7AdikPEpBUnLaBS3C0fF8DS4M0XDTsfQhJe+gg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=s/BbR1sgh93yDXEabIBXbN60lFNHSry52ZI7x94pCZ4=;
+ b=avH70ytaNQkWyBcU6P3E0msBbTXidiHiYOUf2KRV9mOpB5fOrvVbUyeBiHcl/i9khMuuAmkvPIIo9j2s7LMsbAotbXx3XlI3gf/Kcn8mJxf1Ti6Q3H0PcTtTqAhP5L8VZtb1R1Qojqw90tSPAok/eWnFgpFCqMFbl49cVI3d9B6HLaE/lboRLTMnrxzYmHTxXzcwKgHeuU556GsStbr3L68m7V0oy9dvLE646y7REaH7J9Nw0uUmCjFyUyfXkN3tSYCOHmVDN2BxQXBov4vKVOiNDAge/8XJ8nVFA1bbdvETay35pF9uXj4ddq65d6G2NzTM+ZIASJLw0pn87BMwVQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GVXPR04MB12316.eurprd04.prod.outlook.com (2603:10a6:150:2c6::8)
+ by PR3PR04MB7308.eurprd04.prod.outlook.com (2603:10a6:102:80::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.46; Tue, 28 Apr
+ 2026 13:46:03 +0000
+Received: from GVXPR04MB12316.eurprd04.prod.outlook.com
+ ([fe80::fc6e:ca22:f065:def4]) by GVXPR04MB12316.eurprd04.prod.outlook.com
+ ([fe80::fc6e:ca22:f065:def4%6]) with mapi id 15.20.9846.025; Tue, 28 Apr 2026
+ 13:46:03 +0000
+Message-ID: <dfc04c5d-253f-470c-b32c-2da080e91139@oss.nxp.com>
+Date: Tue, 28 Apr 2026 16:49:17 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/5] drivers: remoteproc: imx: add autoboot support for
+ A-core remoteproc
+To: Jiafei Pan <Jiafei.Pan@nxp.com>, andersson@kernel.org,
+ mathieu.poirier@linaro.org, peng.fan@nxp.com, Frank.Li@nxp.com,
+ s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Cc: Zhiqiang.Hou@nxp.com, mingkai.hu@nxp.com
+References: <20260428090819.17761-1-Jiafei.Pan@nxp.com>
+ <20260428090819.17761-4-Jiafei.Pan@nxp.com>
+Content-Language: en-US
+From: Daniel Baluta <daniel.baluta@oss.nxp.com>
+In-Reply-To: <20260428090819.17761-4-Jiafei.Pan@nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: FR4P281CA0140.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:b8::8) To GVXPR04MB12316.eurprd04.prod.outlook.com
+ (2603:10a6:150:2c6::8)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260428103008.696141-7-tabba@google.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GVXPR04MB12316:EE_|PR3PR04MB7308:EE_
+X-MS-Office365-Filtering-Correlation-Id: 24974c79-aaf9-4d1e-23e0-08dea52c7d7d
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|19092799006|1800799024|921020|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: L/oumAJUX88lNriSuyY1d9lnCxBp1mAwxqqEL6ZO9nXyMvRmvfLa6epO0kUKVsXU+Xd24eAq4VPQnGWupm+F6aUIRni2jcV3TG5PLJvBKW9yWlFvgdM9+T+/xr725IK7dXZjNPb7wOcHjzMEutLjbYwMLqDRW0OuiC0urbl+5hxnR+gL6sE6YGqoJ8iJLnjjaJXY2C+UuAJcLU5hte9GRIgt0euT1YBWDLfYcO4UVTxKBSZyUuYB/bwaH87UE1GZqmwN6dXKs/8vYio6JH2xKCwnxHu4IY+/0eKDjC66/e+be3+hRebVyoSSRfbAXRDk0OzSprHYa0cyIyEW3kXyqImJlIgr7XmoejXanKawct1yAN54QWq/tjbtilbhGbcYQTuF5GWJgg/vjVRLmnyfB2ni6rL1fpB3qAJOutzPMJ/51lvMzhIrHAlrC8dH3HHXEF/MOPzDoPR5DvqG0VKlBCu4igEIbOZ5OsGnxj+LJOnnqiBAou81B+zGnHpXW/9hS2LURLY5miChKqTNN/FO8tw/GjpUCp4ukBX9/1ybIGLto3PTddwQSe5m0CBzheaWxaKOx/AZU7LtaAPPxvsG/YAYzMYr+Y3oprp4OqaROhYa90jBydftnAcYYH/GlhMIZajNdhf8OGtQh1cqoDfNet/CsAau2gXekb8KwZ4QsmmAz9Cw56VAnFTSOVzXLjieY3VHnciqyjdJ4dA0Oq/KZwJUcMWoajWmuCVEzxc55KI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12316.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(19092799006)(1800799024)(921020)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MmlIZ2pLYXlMdnVMWXZkUktBSk1tVytDR0JXcHpXTGRYYXk4SGJmMVF6WW9w?=
+ =?utf-8?B?VnVSSlpWb2o2THNpemxUTlAvaGt2NDZiMWZDUXMxWWtUQ1hReEZ1NXBBVjVa?=
+ =?utf-8?B?VFo1Vm5BczREU1FUcFdIZGt5eXFNZXpDQUNjTUdoZmM5ZkFnSGIxVEdZeGtP?=
+ =?utf-8?B?KzRPOVc0bzRUQ2JLNUF4NzZyVEZBZlRjSGFlM2tqZlRNTFJZdUFndlNMemFq?=
+ =?utf-8?B?VjFvK3EzRzI1UDB3djAzMVArV25ybkxyaGoxNW9sRXQ4TXBMUnF6em1HWmxM?=
+ =?utf-8?B?dFFOL21jSTBoL3J2bmNtYnRpTEhzYW1TbzFXaEJrbktaaDlmQWVLUjl0WmRY?=
+ =?utf-8?B?Z0lWbWwwbktuR0JHM2ZUL3Vlc2tkZndoOUdiY1pEQkI2QW0xL1ZHcWtpY09P?=
+ =?utf-8?B?UWVPSnYrYjdxcHkvZklRWkNIWWdHL0NweFpEbzJDSVdvZkczd05FQnV0RytR?=
+ =?utf-8?B?cDYrVnpHOVorUExZSEx4RFFuY3drMGVybFU2dmlFWDArQld6Sm84VkdocWk3?=
+ =?utf-8?B?SmtBYVBZN0dOSTJuM25ZVG9MdUNxL2t0YzRmNnMwSG4xYXpWL09wTjRYcWpF?=
+ =?utf-8?B?Vm5RbXRyUUROdmNuVzZwSjdrc0JvYm5wVTVjdklHcTZqam9hS2pMOGFwbW8y?=
+ =?utf-8?B?WFBlRWFIR0JsNzk4bkd5NjlNcFpqcFk2dE1oTWlpZ3hrT21maHMyVUx2SWFv?=
+ =?utf-8?B?RkJsUFYrOFl5dmluZHFGOE50dmxhRVBJZ2h1Tk1wVU42b0VHdzJtdHlKNmpL?=
+ =?utf-8?B?M0trNDhtbm82TytUajBhSC9vTmhwVnFTUldKYVFHUGV4RWdoVDdEeXZEZDU3?=
+ =?utf-8?B?WDJ5SXA5bUNHTUw4N2xxYTZLcnpGbEdibXFLZ3FVaCtWT1ZsZFVaRG55dXM4?=
+ =?utf-8?B?TDM3SzN1dzBXZkxjdGlyMlhoTFZxZEora1F6LzdrVG9uWTc5UGY5Q3FSVVhz?=
+ =?utf-8?B?dEJYRWREK2w0TXNnMFoyOXhjNERSNkVjSXliWm50a2NhQU1ON2JTZ0FOUTB2?=
+ =?utf-8?B?R1lYWDF4dGJCRWM5YkpQNitIYlFQb1ZkMUhrallMSFAvZUdiQy9oZXpnZmdx?=
+ =?utf-8?B?b1gxMjZqbkdsbjZVYWkyNW9tVEg2RFNtMGlzeDV3QllFK2tsclV4bDc3b3A2?=
+ =?utf-8?B?VHpDUThKaUFjc21QazBiYTY5SHVreCtuWjJPb005QWZKeEF4UVRoS2h6STYr?=
+ =?utf-8?B?TXFpY2RFanZqdlhZcVRoM3c5c1gwbG5SWXhoNkI0TURSVDl2WUVRaVVCWVQx?=
+ =?utf-8?B?WEZuQlY5Rk9Ua2I2Y3BJcFdNT3JFZVg2UnhpdmtXZXlmODhtMkxic1pEV2s1?=
+ =?utf-8?B?ZEgyTXFsV205RDQxckMvVmxvZk9KTERQWnRQY0wxRHZBLzFITWErTHVESjZC?=
+ =?utf-8?B?cGxobklkMlFKYWY4N1E5MUREZCtKMEZTUDF6cTVUVExqWk4vZE51QzlXT3Vn?=
+ =?utf-8?B?UWltaHJJbEQ2MmVHME1pMVhHYnlJRkdiaVNTODFNbTk1ZzJIRUN5Snk0U29E?=
+ =?utf-8?B?WHEwelh1RUgxN3VWL3RGT3o3eHNWMG91TW9BSHE0bUZScURoVDFHN1psYzZw?=
+ =?utf-8?B?dTdTVjkxS1NzT1pSb1lTUVJDNWhoNU5JVTlTYzBma09yZDRwcFg4UDdyOFZ3?=
+ =?utf-8?B?bTQxOGRLSWk2VHVVL2F0RHRDbVREelVsMG9mTzRjSURWK1A3cm05ajBKN1J0?=
+ =?utf-8?B?SFQzZy9LOGVXZVErZEJpNlZUNWNZckY0aENzUXlqUVVNbmVlc21vQUtBYTVh?=
+ =?utf-8?B?QmFmNm42WXFLSjUwRHJZYmdlRWJaNjZYbzdMSkFNVEgzbktkSnp6V1prZ2h3?=
+ =?utf-8?B?bElOREh1Sy9nckNpL01YbUVYVXBqWCtwNU5XQUlTY3MyeS9FNzhqblJ4VGVT?=
+ =?utf-8?B?YmRaZzhPTWs2eVIraDllb1YzbHpQeXRzdlVwU09EUkwzRVp1d2VOUTFYRGNv?=
+ =?utf-8?B?UHBhdGFBOVQ0NXRucFp6eVpwQnM3bFpTSmNmUS9lWlNGTTQrNFpMREQzc2t4?=
+ =?utf-8?B?ZkVxK1BFZll3Q05iNmJjUDhmWUdnZEhBMU41S2lrNFpuRmhBWlFjY0taOTRZ?=
+ =?utf-8?B?MXUxTFRSREdmc1hCa2gzY2g4bTJqWS9rbDZDMTVSR1U4RjhWdlMycy9lTnR5?=
+ =?utf-8?B?ZU91amI3QXJsOWNpU1hXRThER2NhYlhSeGNHNkQ0MHJneUN0NlJmUFlkdm9s?=
+ =?utf-8?B?UWhuM3ZVVHcrbnUwbThmUGF0T0JPY0s0ak9lNEZnM1F2a2M3Nzk3dnV3ZzZS?=
+ =?utf-8?B?L0NzNHJoMjM4cXI2R1p4dHJMcld0ZjFoaHN0d1NaZnlnd0dpNDFwbk9NN2lr?=
+ =?utf-8?B?TzEycXFSVGFobE9RSWtFNDVqdHZLTlFCR21uME81OFZRbmkrOXIrQT09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 24974c79-aaf9-4d1e-23e0-08dea52c7d7d
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12316.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2026 13:46:03.7509
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 5tguW/wIhktjWivc5GiA8unxIkXa3hJDwBUTnP8UVqsTEiA5SLvMY7cwUO4Bk12GHzGrsIAWKk6SuQ4HNdjXiw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7308
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260428_064612_017400_940A55F7 
+X-CRM114-Status: UNSURE (   7.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,106 +154,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 28, 2026 at 11:30:06AM +0100, Fuad Tabba wrote:
-> __pkvm_host_donate_guest() flips the host stage-2 PTE for the donated
-> page to a non-valid annotation (KVM_HOST_INVALID_PTE_TYPE_DONATION,
-> owner = PKVM_ID_GUEST) via host_stage2_set_owner_metadata_locked()
-> and then calls kvm_pgtable_stage2_map() to install the matching guest
-> stage-2 mapping. The map's return value was wrapped in WARN_ON() and
-> otherwise discarded.
+On 4/28/26 12:08, Jiafei Pan wrote:
+> [You don't often get email from jiafei.pan@nxp.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
 > 
-> At EL2 in nVHE/pKVM, WARN_ON() is not warn-and-continue: it expands
-> to a BRK that enters the invalid-host-el2 vector and branches to
-> hyp_panic(), declared __noreturn. WARN_ON of a reachable failure at
-> EL2 is a panic primitive, not a debug aid.
+> From: Hou Zhiqiang <Zhiqiang.Hou@nxp.com>
 > 
-> kvm_pgtable_stage2_map() can fail in reachable ways even at PAGE_SIZE
-> granularity: __pkvm_host_donate_guest() verifies PKVM_NOPAGE for the
-> guest IPA before the map, meaning no valid stage-2 entry exists. The
-> walker must allocate new page-table pages from the vcpu memcache to
-> install the mapping, returning -ENOMEM if exhausted. The host
-> controls the vcpu memcache via the topup interface, so an
-> under-provisioned donation request converts a recoverable error into
-> a fatal hyp panic.
+> Add autoboot support for Cortex-A Core remoteproc.
 > 
-> Capture the stage-2 map return value and propagate it. The walker
-> may have installed partial leaf entries for the IPA before failing,
-> so unmap the range to clear them; otherwise the guest would retain
-> stage-2 access to a page the host is about to reclaim as
-> PKVM_PAGE_OWNED. Then roll back the host stage-2 mutation: the only
-> forward mutation is host_stage2_set_owner_metadata_locked() flipping
-> the host vmemmap from PKVM_PAGE_OWNED to PKVM_NOPAGE and the host
-> stage-2 PTE from idmap to invalid+annotation.
-> host_stage2_set_owner_locked(_, _, PKVM_ID_HOST) restores both.
-> 
-> The rollback calls host_stage2_set_owner_locked() under WARN_ON.
-> This is the correct use: host_stage2_set_owner_metadata_locked()
-> just wrote the host leaf PTE as an invalid+annotation entry, so the
-> reverse idmap rewrite cannot require new page-table allocation — it
-> rewrites the leaf in-place. The WARN_ON asserts an impossible state
-> under correct EL2 execution, semantically distinct from the misuse
-> being fixed.
-> 
-> Fixes: 1e579adca177 ("KVM: arm64: Introduce __pkvm_host_donate_guest()")
-> Signed-off-by: Fuad Tabba <tabba@google.com>
-> ---
->  arch/arm64/kvm/hyp/nvhe/mem_protect.c | 27 ++++++++++++++++++++++++---
->  1 file changed, 24 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> index 7044913a0758..b8c57a95e9bf 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> @@ -1391,9 +1391,30 @@ int __pkvm_host_donate_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu)
->  	meta = host_stage2_encode_gfn_meta(vm, gfn);
->  	WARN_ON(host_stage2_set_owner_metadata_locked(phys, PAGE_SIZE,
->  						      PKVM_ID_GUEST, meta));
-> -	WARN_ON(kvm_pgtable_stage2_map(&vm->pgt, ipa, PAGE_SIZE, phys,
-> -				       pkvm_mkstate(KVM_PGTABLE_PROT_RWX, PKVM_PAGE_OWNED),
-> -				       &vcpu->vcpu.arch.pkvm_memcache, 0));
-> +	ret = kvm_pgtable_stage2_map(&vm->pgt, ipa, PAGE_SIZE, phys,
-> +				     pkvm_mkstate(KVM_PGTABLE_PROT_RWX, PKVM_PAGE_OWNED),
-> +				     &vcpu->vcpu.arch.pkvm_memcache, 0);
-> +	if (ret) {
-> +		/*
-> +		 * Stage-2 map can fail mid-walk (e.g. -ENOMEM from the
-> +		 * memcache), leaving partial leaf entries installed in the
-> +		 * guest stage-2. Tear them down before rolling back the host
-> +		 * stage-2; otherwise the guest would retain access to a page
-> +		 * the host is about to reclaim as PKVM_PAGE_OWNED.
-> +		 */
-> +		kvm_pgtable_stage2_unmap(&vm->pgt, ipa, PAGE_SIZE);
+> Signed-off-by: Hou Zhiqiang <Zhiqiang.Hou@nxp.com>
 
-Whoa, whoa, whoa.
+Please also add your Signed-off-by tag here.
 
-First of all, this is mapping a single page, so the comment talking about
-"leaf entries" (plural) is bogus. If an operation to map a single page
-fails, then it makes no sense to try unmapping the mapping which we
-failed to create. What do you expect it to do?
-
-On the other hand, if we extend this to handle ranges in future (which
-presumably we'll want as part of the THP support) then wouldn't this
-mean that a concurrent vCPU could have transiently written to the pages
-that _did_ get mapped, and now we're going to give those back to the
-host? That's really not ok! We're relying on these WARN_ON()s being
-fatal and they shouldn't fail because we perform all the permission
-checks first, in a separate pass.
-
-If you want to improve this, then I think the options are either:
-
-  1. Check that the the memcache is topped up first
-  2. Poison the page (similar to the forced-reclaim path)
-  3. Tell the host about the pages it's lost and maybe it can leak them
-
-(I vote for (1))
-
-But we absolutely cannot do the simple rollback for the ownership
-changes; that's why the code is written to do the checks up-front. Your
-other patches at the end of this series have different flavours of the
-same issue.
-
-If it's just about keeping the LLM happy, then either fix the LLM or
-make these BUG_ON() (in conjunction with (1) above).
-
-Will
+See: https://developercertificate.org/
 
