@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26653FF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 08:52:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B46C6FF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 08:52:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h4NUNmYF+CO+az25QPxWZ5I/pLHmtskBlouiOlxq5wQ=; b=34GgsG2pvHOzOzhygbEz/6rBag
-	kQF/lV3IMKpLy8pxsFPZU2kEvNY6ZpI9qbxQW+KnX8OYK9aa010Pn/TV03h0slvDHnDyK6RYKKIQa
-	4UCVHh4urljlXK+OmjFqTYvkevNQ993KPitEX1LADojegP4VqkrGwKTacxGrJwvmRr3Ike5tw5NFa
-	onShimRee31dCpreV0WQQqOMjcEf9xlXNmXq99PeJsdH0EAPEdv8gvpHG1oNk+xr/yjMJS3woQ6K5
-	hLfaZUPXox113gj3zX4Gi0DvNn8NL//4elGkT3NgKLxSWLJAy61266pbD9pUTZmdpHuNWbEB8CvpA
-	eLBYu7nA==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gpxIoxDMIuDwGhFhUsSNJT8jkrPzYIt3kEp/GIogvFo=; b=gVOcwTUYhdRnjXGs4MzCuLjoyd
+	ZoNx8TS3HAQMZtA39/83QupuuXfaPtdFnsZtVgGCToQxQAFvGeTGHS9tyuGj5HN1zGUmZqODiYKkZ
+	pAHBP82jia/c4OHAdgPdcqMGjM4QK5dlEPYFEErnmrKYK12aF9pxxjnX6iRQpRt7QR8oZwV6elyRJ
+	7hnj28nnXAStOjz9UNKUTHPcCQUnstw1yJmA8im7zmUIR+w7J4b4UsrSBEl2Cc3YIHv/m9Bu3CgH3
+	jCNt+7yoTI0ffTztzLavhTo/R3KZMTwAXQEt0f2l3COVGyMRaR8nUgMPTOUFix5TP2xcahls0+pkl
+	hmk21xww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeBJ-00000000vG0-0p78;
-	Tue, 28 Apr 2026 08:52:37 +0000
-Received: from mail-westcentralusazon11010038.outbound.protection.outlook.com ([40.93.198.38] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1wHeBZ-00000000vNZ-1211;
+	Tue, 28 Apr 2026 08:52:53 +0000
+Received: from mail-southcentralusazon11012025.outbound.protection.outlook.com ([40.93.195.25] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeBG-00000000vF3-0Bgv
+	id 1wHeBV-00000000vL7-0WxB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 08:52:35 +0000
+	Tue, 28 Apr 2026 08:52:50 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XOc1T8TiESZNGu9PBKnYffdX5R7XwBrI9fysjoCtVZLubYxrTNXaaK4Rh3lxvyrhe+reP4/XnfwcB5GX5bk7nmKMpct9Yr+37RB5LTi1xT+M4Z1upJZ5o7NRV9nawuKyZqNzb1CXACjRQKQqu8QDlJc3VRlrTn5GzziFhA2bEiykTLbxBaGzmDFkQHt4GmDUtGlYcub82mRpx6jdeiR+Vtjk4S+EnPkdVufcl4Vb88Y3r9WUtseCWfuMYzUfoEWrXy12xsDtiHlHQpYxPpZIcrf0XHRo9jJ2sCCE7N81wA2i8IKf/TsmwJE1oq0Ufo4o5mHXOBRvxtTO6TYFJuNmlA==
+ b=XxImIP5w5y2zl+oafrYD5I/4XcpMb6GzPIrg+EJG2O+eumW0I5Ep6oqdrjILhZzfxUNisyeS2gZj8Dig8gdbr6b2NiQlOb4fqUbjpgcmLuoNTy8OP50guoKi3M/suXNZ6cu08cBqDzuQax7dOMkLSB3a72gwORjg8TjRtFNKYmtLTrza5hutGPvDZLtlxTjWA8fpxCdCewcvSbiZsMBlm9WTkb9dv5GyuiKn1ZxsjppFmQsBZ79gQkEkCqkS2OS7j7A4ieH8vb8aKYy3JpColGV5L/6rMG1xXKM9lTNK5OpfseLPpxr0RTcqHqVpKwme3iKeNLvt2s8X5DmFhhv73A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=h4NUNmYF+CO+az25QPxWZ5I/pLHmtskBlouiOlxq5wQ=;
- b=XwzHeU09+tZUUZKPMr5FlyF74PnL8TY0r9OJ/S61P79CoA+NtIdtAww7bRBrc5aGSs44Fr0bvpDTPMFJQc0lHOVHqzm7JEVmVBO01B6n4LYR4ByqQXAVwdi4TawoZn/RvVa0z6uc8TlUSxweUSpRlI2Q384rguSqBlVmddMR+syjU6RbGPXuRYF98GtI7gvg0R/eZoKmTuJExhz+3eWDZJx6eaR/MX1Vt/1dkesFuji+68Qm+QPv2O1NPaKuMCOzavzVtRbbK7JMXL1h9zF/oT6UOD/7Vra10XajlJbp3i607gRrXJOJaKKgQjSFqzppY7YyDDiZQB1gjs/NL21EYw==
+ bh=gpxIoxDMIuDwGhFhUsSNJT8jkrPzYIt3kEp/GIogvFo=;
+ b=falBDFOwLN4c3T4okGofx1zS7BJIPDmautU1Ft5tOAJBMS3VGgCS0kmRL2lGuu56Jq0KWk6o2Qr3znT632vnPMEwBi4n+mAy+yHitZ/xs49aVvMA3/SHGbSr33sjK0NByUmYW+Izk9Xs6Ycp+7zwoa/8pWpHt/PzUDqt2EYDFwPqgea+QkFxCya7g4lQzJ5I6b0Ep9ghVFwx1yeUfmWqGRkjUbyEHGT7PHihdKwGZZnVK9dNiweImGOEVquRWIQCZTYJf/XpKzEURKy3AZ6EiAZYKLVQMSMF4xq/Tr5hbOffw2PmeTavJMe9boGIHIUZy4S2bWuSsJRnMyXDCdlH1A==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=nxp.com smtp.mailfrom=ti.com; dmarc=pass
+ 198.47.21.194) smtp.rcpttodomain=nxp.com smtp.mailfrom=ti.com; dmarc=pass
  (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
  (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=h4NUNmYF+CO+az25QPxWZ5I/pLHmtskBlouiOlxq5wQ=;
- b=vvQOVOeJkskiqtzyQXYcj6AsBFGEHPWD//4Oaf9NQkdWLQ3odpzEWVFUG5Kxfr1uA7UtKCXgIRzE96K19Alm1v95ipZbPQMGCF/fRqYjmE8tmuqHiIM3I2bM/LAMUS/WVMGELAMxcx/76J4nm1bRdjhLwojskSayVcAn9Ld1FiA=
-Received: from CH2PR18CA0034.namprd18.prod.outlook.com (2603:10b6:610:55::14)
- by MW4PR10MB6533.namprd10.prod.outlook.com (2603:10b6:303:21b::7) with
+ bh=gpxIoxDMIuDwGhFhUsSNJT8jkrPzYIt3kEp/GIogvFo=;
+ b=q0JwYACVWrgnnUPUSYmNQ38iDkSAVJdv2tlA6tBTgoyzquEy15QZk9Tp7SPwLy6AX6W8Nn5Enb+AmNmUcIg5MG7p8vmskQvYLhVQA2bkPTY2Oxfy4j5iuF6KFVOE2XbsJaIfm2b/Uhrka+R9GAmyZeCIow1tHu1YsroZgDBpCiY=
+Received: from MW4PR03CA0183.namprd03.prod.outlook.com (2603:10b6:303:b8::8)
+ by SA2PR10MB4729.namprd10.prod.outlook.com (2603:10b6:806:11c::9) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Tue, 28 Apr
- 2026 08:52:29 +0000
-Received: from CH2PEPF000000A0.namprd02.prod.outlook.com
- (2603:10b6:610:55:cafe::fe) by CH2PR18CA0034.outlook.office365.com
- (2603:10b6:610:55::14) with Microsoft SMTP Server (version=TLS1_3,
+ 2026 08:52:45 +0000
+Received: from SJ5PEPF000001F2.namprd05.prod.outlook.com
+ (2603:10b6:303:b8:cafe::ea) by MW4PR03CA0183.outlook.office365.com
+ (2603:10b6:303:b8::8) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.26 via Frontend Transport; Tue,
- 28 Apr 2026 08:52:29 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ 28 Apr 2026 08:52:44 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
  smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
  action=none header.from=ti.com;
 Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- CH2PEPF000000A0.mail.protection.outlook.com (10.167.244.26) with Microsoft
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ SJ5PEPF000001F2.mail.protection.outlook.com (10.167.242.70) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9846.18 via Frontend Transport; Tue, 28 Apr 2026 08:52:28 +0000
-Received: from DFLE215.ent.ti.com (10.64.6.73) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ 15.20.9846.18 via Frontend Transport; Tue, 28 Apr 2026 08:52:42 +0000
+Received: from DFLE210.ent.ti.com (10.64.6.68) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 28 Apr
- 2026 03:52:21 -0500
-Received: from DFLE215.ent.ti.com (10.64.6.73) by DFLE215.ent.ti.com
- (10.64.6.73) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 03:52:12 -0500
+Received: from DFLE207.ent.ti.com (10.64.6.65) by DFLE210.ent.ti.com
+ (10.64.6.68) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 28 Apr
- 2026 03:52:20 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE215.ent.ti.com
- (10.64.6.73) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 03:52:11 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE207.ent.ti.com
+ (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 28 Apr 2026 03:52:20 -0500
+ Transport; Tue, 28 Apr 2026 03:52:11 -0500
 Received: from uda0498651.dhcp.ti.com (uda0498651.dhcp.ti.com [172.24.233.239])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 63S8q6MK623293;
-	Tue, 28 Apr 2026 03:52:16 -0500
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 63S8q6MI623293;
+	Tue, 28 Apr 2026 03:52:07 -0500
 From: Sai Sree Kartheek Adivi <s-adivi@ti.com>
 To: <peter.ujfalusi@gmail.com>, <vkoul@kernel.org>, <robh@kernel.org>,
 	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nm@ti.com>,
@@ -85,40 +85,38 @@ To: <peter.ujfalusi@gmail.com>, <vkoul@kernel.org>, <robh@kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <vigneshr@ti.com>,
 	<Frank.li@nxp.com>, <s-adivi@ti.com>
 CC: <r-sharma3@ti.com>, <gehariprasath@ti.com>
-Subject: [PATCH v6 02/19] dmaengine: ti: k3-udma: move macros to header file
-Date: Tue, 28 Apr 2026 14:21:31 +0530
-Message-ID: <20260428085202.1724548-3-s-adivi@ti.com>
+Subject: [PATCH v6 00/19] dmaengine: ti: Add support for BCDMA v2 and PKTDMA v2
+Date: Tue, 28 Apr 2026 14:21:29 +0530
+Message-ID: <20260428085202.1724548-1-s-adivi@ti.com>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260428085202.1724548-1-s-adivi@ti.com>
-References: <20260428085202.1724548-1-s-adivi@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF000000A0:EE_|MW4PR10MB6533:EE_
-X-MS-Office365-Filtering-Correlation-Id: 05201224-ca80-4843-394c-08dea50379dc
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001F2:EE_|SA2PR10MB4729:EE_
+X-MS-Office365-Filtering-Correlation-Id: a631c869-50bb-4f04-a8dd-08dea503826f
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|376014|7416014|1800799024|56012099003|22082099003|18002099003|921020;
-X-Microsoft-Antispam-Message-Info: wORNJvwlRE67Fylm83cD1KBhXLejqcJpA08Q2tXhpPfhwIQWiRXuB+iCgAs2t4++7lC5DT9leebFkNuZl2ncpk1Dk/SewMu3tjciBNFgkvlZAgctrRBbylWcdbccNQgmFkdeD1/R3YGsecBfpDFZY2ysKxiKqd4AEUulbuuHK35eo83TsHhd0v1zPksLZBcbE4Gl3QGxe6r+GQ0eAdLlyEt+otRlJfv2wW0Ph2hobYetI83aCxqjSoQk0b1soMmU0yekNxbuW98RK+UyWVDBJJxLNO6k/+4ozKgcNvCrJTmQVBbIHquuJGb8arqU27imYC2tgHV8QUup5khy7rE3kE0HrgjAqSzJXdX4VYxvf/tKUQip1JRCdcmw4RWIZeo875AAlL/gldc9TFm7J9kD8tPWp8zJR4HUbb3axC3i3hP3THhNu1qeIfj5LvN5rs6t0RztgBen1+AylqVymaRc/FDdA9LIyiiVDthqIg1oARqfQ340fhNwA+IHyXZGUuq0cnoxfgM1Ik/f36e6mocdtX5F5SpAkkKKLAJeLZDKgVYoZY8WPGXB69pZY0kzRJSBvamhclp1F+h4HiyrfVq8UXkIrs0TCFOLsqdYz6ujIM+FmaWAkQizyfF0XOCzvZJMzbbQ8SYx+loebOEAAHKFcbx85Lmm3G+8vASrO4KYM2mliA3/Lzyc2zAfC0zfUUquPgaLi13mnA9kAyVP1l9UqwLF3PqrNd50thgexE4ctHxRR3Z+tilKEf6GBEIfeDOsHpxAaI6E07iibkkkSkTzsspAE37w2Zhdv2VyfbIUPGzEOJJeubXFoihf5uelZnVa
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(376014)(7416014)(1800799024)(56012099003)(22082099003)(18002099003)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|82310400026|7416014|36860700016|921020|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: lYcFMAmo2VbJzXIFKpUtBem1qz0r38Ctb+4jSd7ayiIWSNeKFXqq042Nlyerv6Buni2dEsgbma+5Ba7QzlQB/LeYlwy4ITavpwypDAXEoRyg33893TE9ljyuXUggBL12ImB31uw8g2ze6xxqIJQHsGDE4tNZhpYc9fyae/iZmfSzoBT0lPSet8f92pIZSU00fVjK1ajU/gvzLvKL++Hdzt/woXUgZsjRPXnUv/i7xwkhjtBfetSGPjVdtfBjC5xcf9Nz6oVoreN+v2pY5Rd3UP4q96/uxlNIuuPXLVFgC+fakbysJcMy0SeGZ/d20BBahNFKgf75xPMGQRre3N5RuhAgrYN9EFQDz6JCUX5B/j/MRcOLDKjYFQfGYSOVAahUZs5frhLO2vOodjSeZPrlgnPov3kifOU00B+aBi0ZnqsiHDn/N4vujGv3nAgVs+5KJNbQ9+Z+Y4s0VEMyJ7bG/TGuS4wO8y970zfIuAIvdxL028Fkwo2Cihlb7rVJy1GdGH6oCdhaBLPGYWDvFVUvtIn7//2wq1dF03SJEyWBN4B+OW4CeTUKkaIIQHvkXI6KfX0lccjvwjnyUBXx5GesIAYc3nepSSAqy+17msLHa3a/HWqkncxF5UI1UOfTnW13tvqyraUa0pRjpvtTNQMts+6YVg31Y1B4/txbcnnGpjCJ3qANGxbNLxWae7K2zPAqkqfr+AYfnytZYOzGt3tzk3yOSpNa/AZgdvabaE3GeKdAlA3B6ylb2pZgVzOZbq41fJDCtkSxTsgkgakXEAL7SRJCeQ1FR2G6mAtYb4YPLaFAYssoU2+nR9QH3wPjLBC3y3l3JdnJciQkfns8mHufbg==
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(376014)(82310400026)(7416014)(36860700016)(921020)(18002099003)(56012099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: NvoucXrq9vSs0S+bEMA57sgo1izdOy2vCoX7+De8qsrWrJPQcVf6kdAHcbLPh7hshlAMx4XKER9fUENjn9BwnVZUC2geB/n6/HyXtGbsmAJpFp+++TGQDnceILRlNRE5X1I3N4GJuXlHy7CPDLUvPI3RT9sbQ/HxlB/EduTYsHuLDhpMxBZrBK96Th6Mwtlz3ihiNdMzGY20waLsD3GH/LKG9GEOeMeK0sEjY0sAxxds0CQ6/hifXCsQE7xR92HySrf9o183DaByl0Z94p04OY/aAxcjGv9F5MoDAaVzza2fj3mP9BEhYdVlNvALfP0qq76JbsxPSUt+moqmgsmFBOFSPBxM0SiCksPvUhjGSw3MIhTP00wPQGPIRi9qEj2m7lmxOpLN3aiAxFwIql+zOkojgntbG8Y1W2e5PwC36MUgwdiyPnfvwNqsxtZmq/td
+X-MS-Exchange-AntiSpam-MessageData-0: jAu5/2MdqOl+czl8jRhbkGDTDUVJwir/RuBdNoWQ3Pl5vqwpy0HN71W+jiJW/5yIQaaf5ImAU2EhJIqegKePlWB/RkO28jhNwU1N88PZ1xwxA/aVUagOurwP0CczN2Zk7VrOJxZhThhuVCynusTu49ufXEjwV38K195L3eV0s9tok1C6qBNp9OzG06/rvHBedHKq3UXJinAFp//0a5ofOpFMWgnBYG2uwrRFDiriOYzIGkWepVjGESoKLVVPJoIyRPZPGi9IsMS4YTsOGtvgO5gPczd7mHquy5geNnMkDutqqr2luBJfc3oOOeHHshob2iNQGvM7X8hq2lg9ndW1z1GsjyDQAmHYVh2EFKMqySfRNdrP2AbDRvbjK+45GIN8IQPfWp2JRN/f8oSYpN52eiYXHmuz3XUKoW9Qkc70sOKfUxsXCCm5JiSlJm2RdNTw
 X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2026 08:52:28.0238
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2026 08:52:42.3672
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 05201224-ca80-4843-394c-08dea50379dc
+X-MS-Exchange-CrossTenant-Network-Message-Id: a631c869-50bb-4f04-a8dd-08dea503826f
 X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF000000A0.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001F2.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR10MB6533
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA2PR10MB4729
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_015234_089267_80CFA7C7 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20260428_015249_172581_8C221443 
+X-CRM114-Status: GOOD (  21.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,184 +131,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move macros defined in k3-udma.c to k3-udma.h for better separation and
-reuse.
+This series adds support for the BCDMA_V2 and PKTDMA_V2 which is
+introduced in AM62L.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
----
- drivers/dma/ti/k3-udma.c | 62 ---------------------------------------
- drivers/dma/ti/k3-udma.h | 63 ++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 63 insertions(+), 62 deletions(-)
+The key differences between the existing DMA and DMA V2 are:
+- Absence of TISCI: Instead of configuring via TISCI calls, direct
+  register writes are required.
+- Autopair: There is no longer a need for PSIL pair and instead AUTOPAIR
+  bit needs to set in the RT_CTL register.
+- Static channel mapping: Each channel is mapped to a single peripheral.
+- Direct IRQs: There is no INT-A and interrupt lines from DMA are
+  directly connected to GIC.
+- Remote side configuration handled by DMA. So no need to write to PEER
+  registers to START / STOP / PAUSE / TEARDOWN.
+- Unified Channel Space: Tx and Rx channels share a single register
+  space. Each channel index is specifically fixed in hardware as either
+  Tx or Rx in an interleaved manner.
 
-diff --git a/drivers/dma/ti/k3-udma.c b/drivers/dma/ti/k3-udma.c
-index 3e9792136906a..e4ba5ce28c214 100644
---- a/drivers/dma/ti/k3-udma.c
-+++ b/drivers/dma/ti/k3-udma.c
-@@ -39,21 +39,6 @@ struct udma_static_tr {
- 	u16 bstcnt; /* RPSTR1 */
- };
- 
--#define K3_UDMA_MAX_RFLOWS		1024
--#define K3_UDMA_DEFAULT_RING_SIZE	16
--
--/* How SRC/DST tag should be updated by UDMA in the descriptor's Word 3 */
--#define UDMA_RFLOW_SRCTAG_NONE		0
--#define UDMA_RFLOW_SRCTAG_CFG_TAG	1
--#define UDMA_RFLOW_SRCTAG_FLOW_ID	2
--#define UDMA_RFLOW_SRCTAG_SRC_TAG	4
--
--#define UDMA_RFLOW_DSTTAG_NONE		0
--#define UDMA_RFLOW_DSTTAG_CFG_TAG	1
--#define UDMA_RFLOW_DSTTAG_FLOW_ID	2
--#define UDMA_RFLOW_DSTTAG_DST_TAG_LO	4
--#define UDMA_RFLOW_DSTTAG_DST_TAG_HI	5
--
- struct udma_chan;
- 
- enum k3_dma_type {
-@@ -118,15 +103,6 @@ struct udma_oes_offsets {
- 	u32 pktdma_rchan_flow;
- };
- 
--#define UDMA_FLAG_PDMA_ACC32		BIT(0)
--#define UDMA_FLAG_PDMA_BURST		BIT(1)
--#define UDMA_FLAG_TDTYPE		BIT(2)
--#define UDMA_FLAG_BURST_SIZE		BIT(3)
--#define UDMA_FLAGS_J7_CLASS		(UDMA_FLAG_PDMA_ACC32 | \
--					 UDMA_FLAG_PDMA_BURST | \
--					 UDMA_FLAG_TDTYPE | \
--					 UDMA_FLAG_BURST_SIZE)
--
- struct udma_match_data {
- 	enum k3_dma_type type;
- 	u32 psil_base;
-@@ -1837,38 +1813,6 @@ static int udma_alloc_rx_resources(struct udma_chan *uc)
- 	return ret;
- }
- 
--#define TISCI_BCDMA_BCHAN_VALID_PARAMS (			\
--	TI_SCI_MSG_VALUE_RM_UDMAP_CH_PAUSE_ON_ERR_VALID |	\
--	TI_SCI_MSG_VALUE_RM_UDMAP_CH_EXTENDED_CH_TYPE_VALID)
--
--#define TISCI_BCDMA_TCHAN_VALID_PARAMS (			\
--	TI_SCI_MSG_VALUE_RM_UDMAP_CH_PAUSE_ON_ERR_VALID |	\
--	TI_SCI_MSG_VALUE_RM_UDMAP_CH_TX_SUPR_TDPKT_VALID)
--
--#define TISCI_BCDMA_RCHAN_VALID_PARAMS (			\
--	TI_SCI_MSG_VALUE_RM_UDMAP_CH_PAUSE_ON_ERR_VALID)
--
--#define TISCI_UDMA_TCHAN_VALID_PARAMS (				\
--	TI_SCI_MSG_VALUE_RM_UDMAP_CH_PAUSE_ON_ERR_VALID |	\
--	TI_SCI_MSG_VALUE_RM_UDMAP_CH_TX_FILT_EINFO_VALID |	\
--	TI_SCI_MSG_VALUE_RM_UDMAP_CH_TX_FILT_PSWORDS_VALID |	\
--	TI_SCI_MSG_VALUE_RM_UDMAP_CH_CHAN_TYPE_VALID |		\
--	TI_SCI_MSG_VALUE_RM_UDMAP_CH_TX_SUPR_TDPKT_VALID |	\
--	TI_SCI_MSG_VALUE_RM_UDMAP_CH_FETCH_SIZE_VALID |		\
--	TI_SCI_MSG_VALUE_RM_UDMAP_CH_CQ_QNUM_VALID |		\
--	TI_SCI_MSG_VALUE_RM_UDMAP_CH_ATYPE_VALID)
--
--#define TISCI_UDMA_RCHAN_VALID_PARAMS (				\
--	TI_SCI_MSG_VALUE_RM_UDMAP_CH_PAUSE_ON_ERR_VALID |	\
--	TI_SCI_MSG_VALUE_RM_UDMAP_CH_FETCH_SIZE_VALID |		\
--	TI_SCI_MSG_VALUE_RM_UDMAP_CH_CQ_QNUM_VALID |		\
--	TI_SCI_MSG_VALUE_RM_UDMAP_CH_CHAN_TYPE_VALID |		\
--	TI_SCI_MSG_VALUE_RM_UDMAP_CH_RX_IGNORE_SHORT_VALID |	\
--	TI_SCI_MSG_VALUE_RM_UDMAP_CH_RX_IGNORE_LONG_VALID |	\
--	TI_SCI_MSG_VALUE_RM_UDMAP_CH_RX_FLOWID_START_VALID |	\
--	TI_SCI_MSG_VALUE_RM_UDMAP_CH_RX_FLOWID_CNT_VALID |	\
--	TI_SCI_MSG_VALUE_RM_UDMAP_CH_ATYPE_VALID)
--
- static int udma_tisci_m2m_channel_config(struct udma_chan *uc)
- {
- 	struct udma_dev *ud = uc->ud;
-@@ -5398,12 +5342,6 @@ static enum dmaengine_alignment udma_get_copy_align(struct udma_dev *ud)
- 	}
- }
- 
--#define TI_UDMAC_BUSWIDTHS	(BIT(DMA_SLAVE_BUSWIDTH_1_BYTE) | \
--				 BIT(DMA_SLAVE_BUSWIDTH_2_BYTES) | \
--				 BIT(DMA_SLAVE_BUSWIDTH_3_BYTES) | \
--				 BIT(DMA_SLAVE_BUSWIDTH_4_BYTES) | \
--				 BIT(DMA_SLAVE_BUSWIDTH_8_BYTES))
--
- static int udma_probe(struct platform_device *pdev)
- {
- 	struct device_node *navss_node = pdev->dev.parent->of_node;
-diff --git a/drivers/dma/ti/k3-udma.h b/drivers/dma/ti/k3-udma.h
-index 9062a237cd167..750720cd06911 100644
---- a/drivers/dma/ti/k3-udma.h
-+++ b/drivers/dma/ti/k3-udma.h
-@@ -97,6 +97,69 @@
- /* Address Space Select */
- #define K3_ADDRESS_ASEL_SHIFT		48
- 
-+#define K3_UDMA_MAX_RFLOWS		1024
-+#define K3_UDMA_DEFAULT_RING_SIZE	16
-+
-+/* How SRC/DST tag should be updated by UDMA in the descriptor's Word 3 */
-+#define UDMA_RFLOW_SRCTAG_NONE		0
-+#define UDMA_RFLOW_SRCTAG_CFG_TAG	1
-+#define UDMA_RFLOW_SRCTAG_FLOW_ID	2
-+#define UDMA_RFLOW_SRCTAG_SRC_TAG	4
-+
-+#define UDMA_RFLOW_DSTTAG_NONE		0
-+#define UDMA_RFLOW_DSTTAG_CFG_TAG	1
-+#define UDMA_RFLOW_DSTTAG_FLOW_ID	2
-+#define UDMA_RFLOW_DSTTAG_DST_TAG_LO	4
-+#define UDMA_RFLOW_DSTTAG_DST_TAG_HI	5
-+
-+#define UDMA_FLAG_PDMA_ACC32		BIT(0)
-+#define UDMA_FLAG_PDMA_BURST		BIT(1)
-+#define UDMA_FLAG_TDTYPE		BIT(2)
-+#define UDMA_FLAG_BURST_SIZE		BIT(3)
-+#define UDMA_FLAGS_J7_CLASS		(UDMA_FLAG_PDMA_ACC32 | \
-+					 UDMA_FLAG_PDMA_BURST | \
-+					 UDMA_FLAG_TDTYPE | \
-+					 UDMA_FLAG_BURST_SIZE)
-+
-+#define TI_UDMAC_BUSWIDTHS	(BIT(DMA_SLAVE_BUSWIDTH_1_BYTE) | \
-+				 BIT(DMA_SLAVE_BUSWIDTH_2_BYTES) | \
-+				 BIT(DMA_SLAVE_BUSWIDTH_3_BYTES) | \
-+				 BIT(DMA_SLAVE_BUSWIDTH_4_BYTES) | \
-+				 BIT(DMA_SLAVE_BUSWIDTH_8_BYTES))
-+
-+/* TI_SCI Params */
-+#define TISCI_BCDMA_BCHAN_VALID_PARAMS (			\
-+	TI_SCI_MSG_VALUE_RM_UDMAP_CH_PAUSE_ON_ERR_VALID |	\
-+	TI_SCI_MSG_VALUE_RM_UDMAP_CH_EXTENDED_CH_TYPE_VALID)
-+
-+#define TISCI_BCDMA_TCHAN_VALID_PARAMS (			\
-+	TI_SCI_MSG_VALUE_RM_UDMAP_CH_PAUSE_ON_ERR_VALID |	\
-+	TI_SCI_MSG_VALUE_RM_UDMAP_CH_TX_SUPR_TDPKT_VALID)
-+
-+#define TISCI_BCDMA_RCHAN_VALID_PARAMS (			\
-+	TI_SCI_MSG_VALUE_RM_UDMAP_CH_PAUSE_ON_ERR_VALID)
-+
-+#define TISCI_UDMA_TCHAN_VALID_PARAMS (				\
-+	TI_SCI_MSG_VALUE_RM_UDMAP_CH_PAUSE_ON_ERR_VALID |	\
-+	TI_SCI_MSG_VALUE_RM_UDMAP_CH_TX_FILT_EINFO_VALID |	\
-+	TI_SCI_MSG_VALUE_RM_UDMAP_CH_TX_FILT_PSWORDS_VALID |	\
-+	TI_SCI_MSG_VALUE_RM_UDMAP_CH_CHAN_TYPE_VALID |		\
-+	TI_SCI_MSG_VALUE_RM_UDMAP_CH_TX_SUPR_TDPKT_VALID |	\
-+	TI_SCI_MSG_VALUE_RM_UDMAP_CH_FETCH_SIZE_VALID |		\
-+	TI_SCI_MSG_VALUE_RM_UDMAP_CH_CQ_QNUM_VALID |		\
-+	TI_SCI_MSG_VALUE_RM_UDMAP_CH_ATYPE_VALID)
-+
-+#define TISCI_UDMA_RCHAN_VALID_PARAMS (				\
-+	TI_SCI_MSG_VALUE_RM_UDMAP_CH_PAUSE_ON_ERR_VALID |	\
-+	TI_SCI_MSG_VALUE_RM_UDMAP_CH_FETCH_SIZE_VALID |		\
-+	TI_SCI_MSG_VALUE_RM_UDMAP_CH_CQ_QNUM_VALID |		\
-+	TI_SCI_MSG_VALUE_RM_UDMAP_CH_CHAN_TYPE_VALID |		\
-+	TI_SCI_MSG_VALUE_RM_UDMAP_CH_RX_IGNORE_SHORT_VALID |	\
-+	TI_SCI_MSG_VALUE_RM_UDMAP_CH_RX_IGNORE_LONG_VALID |	\
-+	TI_SCI_MSG_VALUE_RM_UDMAP_CH_RX_FLOWID_START_VALID |	\
-+	TI_SCI_MSG_VALUE_RM_UDMAP_CH_RX_FLOWID_CNT_VALID |	\
-+	TI_SCI_MSG_VALUE_RM_UDMAP_CH_ATYPE_VALID)
-+
- struct udma_dev;
- struct udma_tchan;
- struct udma_rchan;
+Full tree with device tree patches can be reviewed at:
+https://github.com/sskartheekadivi/linux/tree/dma-upstream
+
+Changes from v5 to v6:
+- Switch from interrupt-map to interrupts and interrupt-names in the
+  dt-bindings.
+- Reverse the if DMA version checks to check for v1 and else v2.
+- Add new patch [01/19] before refactoring to fix sporadic crash
+  observed on AM62x.
+link to v5:
+https://lore.kernel.org/all/20260218095243.2832115-1-s-adivi@ti.com/
+
+Changes from v4 to v5:
+- Introduce a new version variable in udma_match_data to differentiate
+  between K3 UDMA V1 and K3 UDMA V2. This simplifies the approach for
+  adding any future possible variants avoiding complex if conditions.
+- Fix both K3 BCDMA V2 and PKTDMA V2 dt bindings as per the comments
+  from previous versions.
+- Fix minor nitpicks like following the reverse christmas tree order for
+  variable declarations.
+- Remove the patch [v4 19/19] that switches to synchronous descriptor
+  freeing. With this patch, dma_free_coherent gets called in irq
+  context and hence a WARN().
+link to v4:
+https://lore.kernel.org/all/20260130110159.359501-1-s-adivi@ti.com/
+
+Changes from v3 to v4:
+- Rename the dt-binding files to add "ti," prefix.
+- Update cell description in dt-bindings and add client examples.
+- Update k3_ring_intr_regs reg names
+- Rename soc specific data to bcdma_v2_data and pktdma_v2_data to
+  bcdma_v2_am62l_data and pktdma_v2_am62l_data.
+- Add a new patch [18/19] to fix a null pointer dereference issue when
+  trying to reserve a channel id that is out of bounds in
+  udma_reserve_##res macro. Also fix logging issues in this macro.
+- Add a new patch [19/19] to switch to synchronous descriptor freeing to
+  avoid running out of memory during stress tests.
+- Fix checkpatch warnings.
+link to v3:
+https://lore.kernel.org/linux-arm-kernel/20250623053716.1493974-1-s-adivi@ti.com
+
+Changes from v2 to v3:
+- Fix checkpatch errors & spellings.
+link to v2:
+https://lore.kernel.org/linux-arm-kernel/20250612071521.3116831-1-s-adivi@ti.com
+
+Changes from v1 to v2:
+- Split refactoring of k3-udma driver into multiple commits
+- Fix bcdma v2 and pktdma v2 dt-binding examples
+- Fix compatibles in k3-udma-v2.c
+- move udma_is_desc_really_done to k3-udma-common.c as the difference
+  between k3-udma and k3-udma-v2 implementation is minor.
+- remove udma_ prefix to function pointers in udma_dev
+- reorder the commits to first refactor the existing code completely and
+  then introduce k3-udma-v2 related commits.
+- remove redundant includes in k3-udma-common.c
+- remove ti_sci_ dependency for k3_ringacc in Kconfig
+- refactor setup_resources functions to remove ti_sci_ code from common
+  logic.
+link to v1:
+https://lore.kernel.org/linux-arm-kernel/20250428072032.946008-1-s-adivi@ti.com
+
+Sai Sree Kartheek Adivi (18):
+  dmaengine: ti: k3-udma: move macros to header file
+  dmaengine: ti: k3-udma: move structs and enums to header file
+  dmaengine: ti: k3-udma: move static inline helper functions to header
+    file
+  dmaengine: ti: k3-udma: move descriptor management to k3-udma-common.c
+  dmaengine: ti: k3-udma: move ring management functions to
+    k3-udma-common.c
+  dmaengine: ti: k3-udma: Add variant-specific function pointers to
+    udma_dev
+  dmaengine: ti: k3-udma: move udma utility functions to
+    k3-udma-common.c
+  dmaengine: ti: k3-udma: move resource management functions to
+    k3-udma-common.c
+  dmaengine: ti: k3-udma: refactor resource setup functions
+  dmaengine: ti: k3-udma: move inclusion of k3-udma-private.c to
+    k3-udma-common.c
+  drivers: soc: ti: k3-ringacc: handle absence of tisci
+  dt-bindings: dma: ti: Add K3 BCDMA V2
+  dt-bindings: dma: ti: Add K3 PKTDMA V2
+  dmaengine: ti: k3-psil-am62l: Add AM62Lx PSIL and PDMA data
+  dmaengine: ti: k3-udma-v2: New driver for K3 BCDMA_V2
+  dmaengine: ti: k3-udma-v2: Add support for PKTDMA V2
+  dmaengine: ti: k3-udma-v2: Update glue layer to support PKTDMA V2
+  dmaengine: ti: k3-udma: Validate resource ID and fix logging in
+    reservation
+
+Vignesh Raghavendra (1):
+  dmaengine: ti: k3-udma: Fix sporadic crash on AM62x
+
+ .../bindings/dma/ti/ti,am62l-dmss-bcdma.yaml  |  121 +
+ .../bindings/dma/ti/ti,am62l-dmss-pktdma.yaml |  101 +
+ drivers/dma/ti/Kconfig                        |   21 +-
+ drivers/dma/ti/Makefile                       |    5 +-
+ drivers/dma/ti/k3-psil-am62l.c                |  132 +
+ drivers/dma/ti/k3-psil-priv.h                 |    1 +
+ drivers/dma/ti/k3-psil.c                      |    1 +
+ drivers/dma/ti/k3-udma-common.c               | 2610 ++++++++++++++
+ drivers/dma/ti/k3-udma-glue.c                 |   91 +-
+ drivers/dma/ti/k3-udma-private.c              |   37 +-
+ drivers/dma/ti/k3-udma-v2.c                   | 1467 ++++++++
+ drivers/dma/ti/k3-udma.c                      | 3104 +----------------
+ drivers/dma/ti/k3-udma.h                      |  590 ++++
+ drivers/soc/ti/k3-ringacc.c                   |  188 +-
+ include/linux/soc/ti/k3-ringacc.h             |   20 +
+ 15 files changed, 5449 insertions(+), 3040 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/dma/ti/ti,am62l-dmss-bcdma.yaml
+ create mode 100644 Documentation/devicetree/bindings/dma/ti/ti,am62l-dmss-pktdma.yaml
+ create mode 100644 drivers/dma/ti/k3-psil-am62l.c
+ create mode 100644 drivers/dma/ti/k3-udma-common.c
+ create mode 100644 drivers/dma/ti/k3-udma-v2.c
+
 -- 
 2.53.0
 
