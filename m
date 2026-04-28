@@ -4,64 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D480FFF8877
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 14:27:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FF47FF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 14:28:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U2oBWOs7qNeQtQs9uajzTb/RFlJL08+41eY7WV4/q3E=; b=y5qvdJ6G8pb8/ZqnadPffDdOAX
-	L2eX/kmOPsCk4qWLsqPuEWNWyTm3sj0RWAth5rX1hZ2OtOZ/QDAQSJl/9xvsjDd/ilDvYCM2lYd5y
-	j/ME5dmjoC32Hr/rEsv622NzRYCI2xLxDOfUIXxVKB7mM2dBohlCk8s9dcWtByCLdQ0WU0e//GO0A
-	d686Eb/eVg02eIuJ+lkHb83uHRY6H9/9OoVF9ybkwgmcxyegiY4z5+7lqB40stmmX/3Knule2VVsR
-	cZbHJvX4q3EUYVfK//lor7mW49S9jMra1wbChpo6QAilEOXIC9KNg/z9C83qznj4LpvM8kmpg/DXo
-	NMr1bvrw==;
+	bh=pDrfHDlgN9l9He5F9nGqk30jxyrFI+SgcwAlBa0/IEE=; b=NeRuByT+4nIaGX/ZZdsgXn07aD
+	/86pEZ1Xds4y90mIh0iQjuIc0u7kSKptmxcA7412WWEp+x351vpL95jI9JHv8a5R5lE8e3w9PgivW
+	e+RBYVY2ZlOt57Z6z0/+iICiuUdB6bsOTUtPpLSq3+13luUic4Lao8pmPOBQWGKeMG88YIQotUvbj
+	6tkzYWPuFtzpYBaz39IOsmOGAiMah6DrXp75A1+QE+PDgDZ27dN1CmOEgVp5eX9yazlZjAW34Mtp9
+	ByBeAvkaMCxcOyz9hPqcN5nIGxKyqTz6GIBWIeFEFDv68Kguw3XKC9/b0p2uZnNZZC1eFUkqv3wr+
+	vPaENGng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHjPl-00000001eeJ-2TzT;
-	Tue, 28 Apr 2026 14:27:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wHjQF-00000001ejb-0ofH;
+	Tue, 28 Apr 2026 14:28:23 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHjPk-00000001eeA-163r;
-	Tue, 28 Apr 2026 14:27:52 +0000
+	id 1wHjQE-00000001ejM-0rzu
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Apr 2026 14:28:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3F0BB60008;
-	Tue, 28 Apr 2026 14:27:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 952C8C2BCAF;
-	Tue, 28 Apr 2026 14:27:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4567261145;
+	Tue, 28 Apr 2026 14:28:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAE31C2BCAF;
+	Tue, 28 Apr 2026 14:28:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777386470;
-	bh=qR6Y7sdK6qSuJkg49zUGOwPy3lhyzMqz+waaO0XxmjY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=njqDm8qPiV1Sh5NASc3Ec4k9OZRbZkbS2KnG8XY16zmgjZSrECOHanUuqoiSmZ8YH
-	 5jro2WLsL4BJ3xcbZDlkuRJjfNdoTRtbqn35ZV14xgt0NY+E2ycji9zChkEfr1WWOM
-	 Ittoh1oFA0YwlhbGlxhYG2YeBE19Bb6WsPwd4SpqCPBgpyVcdYxMkv5kaom6ewIE00
-	 7TMHy7b6KiOp/5IIMWh+zIONW7kDD3el/ola0XlWW3XkapuYbe2jvlfxnCHDzqyqEU
-	 RLdpPRUzdDuVv3dury1x5D0eSGL5OrHwsA/Aw8jQKzrDaUHrKJqWLn2sXLiFn3FNzf
-	 FeDh36qmGtD9A==
-Date: Tue, 28 Apr 2026 16:27:48 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Paolo Abeni <pabeni@redhat.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jacob Keller <jacob.e.keller@intel.com>,
-	Simon Horman <horms@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net] net: airoha: Move entries to queue head in case of
- DMA mapping failure in airoha_dev_xmit()
-Message-ID: <afDD5EJtYUx6sgRb@lore-desk>
-References: <20260428-airoha-xmit-unmap-error-path-v1-1-aec44c6765c1@kernel.org>
- <679ebe0a-5889-4a84-afd6-3da50a07bced@redhat.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="usYxARcXN3Cq7GA5"
-Content-Disposition: inline
-In-Reply-To: <679ebe0a-5889-4a84-afd6-3da50a07bced@redhat.com>
+	s=k20201202; t=1777386501;
+	bh=N3nXriKx5khER2Xv5VyWtRPDcydBXoio22I4HKHD20c=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=GAfM+8T8+2VJI0rHHswSdt1CdXDB3TJ30naZPaG1e1YudqyGXuzsI/01+NDWloZ0R
+	 inQxcS6gAbEX0+9edyZg5jcLQyFms/9Pn0XlV9Ux/QwY9zruQNxW0pYfcTFT3Oh410
+	 mhc18QtBXFqpNyfd8ZgMhtF4PCI4YWXHZLxwhIYV4T9rJ0oOjXgZXxTan46232eaJk
+	 eGn9dp2sgVvjv4Zj01higFm05t7oV7M9GleZGlNKG0fcPs3wmenyDUTmhbMPk6tOQv
+	 SWnjA3K1+eWthYOBkjFVybJurpikkyYcS1Ct/HyjjO+fSPN4RDNZK1UNV/ozT6ietn
+	 3ZZ28Vxk1bVFA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wHjQA-0000000FXVS-1nvU;
+	Tue, 28 Apr 2026 14:28:18 +0000
+Date: Tue, 28 Apr 2026 15:28:18 +0100
+Message-ID: <86se8fyxa5.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	nd <nd@arm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Joey Gouly
+	<Joey.Gouly@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org"
+	<peter.maydell@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>
+Subject: Re: [PATCH 03/43] KVM: arm64: gic-v5: Add resident/non-resident hyp calls
+In-Reply-To: <20260427160547.3129448-4-sascha.bischoff@arm.com>
+References: <20260427160547.3129448-1-sascha.bischoff@arm.com>
+	<20260427160547.3129448-4-sascha.bischoff@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,67 +94,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, 27 Apr 2026 17:07:03 +0100,
+Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+> 
+> So far the KVM GICv5 support has been limited to PPIs. These only go
+> as far out as the CPU interface, and have no interaction with the
+> host's IRS. Therefore, PPIs can be directly used for guests without
+> host IRS involvement. However, in order to support both SPIs and LPIs
+> IRS involvement is required.
 
---usYxARcXN3Cq7GA5
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Please keep this in the cover letter. It isn't required to understand
+this patch.
 
-> On 4/28/26 10:44 AM, Lorenzo Bianconi wrote:
-> > In order to respect the original descriptor order and avoid any
-> > potential IOMMU fault or memory corruption, move pending queue entries
-> > to the head of hw queue tx_list if the DMA mapping of current inflight
-> > packet fails in airoha_dev_xmit routine.
-> >=20
-> > Fixes: 3f47e67dff1f7 ("net: airoha: Add the capability to consume out-o=
-f-order DMA tx descriptors")
-> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> > ---
-> >  drivers/net/ethernet/airoha/airoha_eth.c | 4 ++--
-> >  1 file changed, 2 insertions(+), 2 deletions(-)
-> >=20
-> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/eth=
-ernet/airoha/airoha_eth.c
-> > index 5effb4a4ae84..82018a085e46 100644
-> > --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> > +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> > @@ -2123,14 +2123,14 @@ static netdev_tx_t airoha_dev_xmit(struct sk_bu=
-ff *skb,
-> >  	return NETDEV_TX_OK;
-> > =20
-> >  error_unmap:
-> > -	while (!list_empty(&tx_list)) {
-> > +	list_for_each_entry(e, &tx_list, list) {
-> >  		e =3D list_first_entry(&tx_list, struct airoha_queue_entry,
-> >  				     list);
->=20
-> Coccinelle says:
->=20
-> +/srv/nipa-builds-contest/testing/wt-cocci/drivers/net/ethernet/airoha/ai=
-roha_eth.c:2123:1-20:
-> iterator with update on line 2124
->=20
-> I guess you should additionally drop the statement above.
+> 
+> GICv5 introduces the concept of VPE residency - a VPE can be either
+> resident or non-resident. When the VPE is resident, the IRS is allowed
+> to select interrupts that target that VPE (or the VM) as the HPPI
+> (Highest Priority Pending Interrupt). As the IRS handles both SPIs and
+> LPIs, these will only be picked as the IRS's HPPI when a VPE is
+> resident.
+> 
+> A GICv5 VPE is made resident by writing to the ICH_CONTEXTR_EL2 with a
+> valid VM and VPE ID, and marking it valid in the process. This informs
+> the IRS that a specific VPE is running, and that it can begin HPPI
+> selection for that VPE. Making a VPE non-resident (by making the
+> ICH_CONTEXTR_EL2 invalid) informs the IRS that the VPE is no longer
+> running, and it stops HPPI selection for it.
+> 
+> This change introduces two new hyp calls - one to make a VPE resident
+> and its counterpart to make a VPE non-resident. As part of making a
+> VPE resident, the ICH_CONTEXTR_EL2.F bit is checked in order to catch
+> faults, at which point the kernel will WARN. If everything is
+> configured correctly, this should not happen.
+> 
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> ---
+>  arch/arm64/include/asm/kvm_asm.h   |  2 ++
+>  arch/arm64/include/asm/kvm_hyp.h   |  2 ++
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 15 +++++++++++++++
+>  arch/arm64/kvm/hyp/vgic-v5-sr.c    | 25 +++++++++++++++++++++++++
+>  include/kvm/arm_vgic.h             |  3 +++
+>  5 files changed, 47 insertions(+)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+> index fa033be6141ad..8c69f1f4de534 100644
+> --- a/arch/arm64/include/asm/kvm_asm.h
+> +++ b/arch/arm64/include/asm/kvm_asm.h
+> @@ -79,6 +79,8 @@ enum __kvm_host_smccc_func {
+>  	__KVM_HOST_SMCCC_FUNC___kvm_timer_set_cntvoff,
+>  	__KVM_HOST_SMCCC_FUNC___vgic_v3_save_aprs,
+>  	__KVM_HOST_SMCCC_FUNC___vgic_v3_restore_vmcr_aprs,
+> +	__KVM_HOST_SMCCC_FUNC___vgic_v5_make_resident,
+> +	__KVM_HOST_SMCCC_FUNC___vgic_v5_make_non_resident,
+>  	__KVM_HOST_SMCCC_FUNC___vgic_v5_save_apr,
+>  	__KVM_HOST_SMCCC_FUNC___vgic_v5_restore_vmcr_apr,
+>  
+> diff --git a/arch/arm64/include/asm/kvm_hyp.h b/arch/arm64/include/asm/kvm_hyp.h
+> index 8d06b62e7188c..5f9184276b04e 100644
+> --- a/arch/arm64/include/asm/kvm_hyp.h
+> +++ b/arch/arm64/include/asm/kvm_hyp.h
+> @@ -88,6 +88,8 @@ void __vgic_v3_restore_vmcr_aprs(struct vgic_v3_cpu_if *cpu_if);
+>  int __vgic_v3_perform_cpuif_access(struct kvm_vcpu *vcpu);
+>  
+>  /* GICv5 */
+> +void __vgic_v5_make_resident(struct vgic_v5_cpu_if *cpu_if);
+> +void __vgic_v5_make_non_resident(struct vgic_v5_cpu_if *cpu_if);
+>  void __vgic_v5_save_apr(struct vgic_v5_cpu_if *cpu_if);
+>  void __vgic_v5_restore_vmcr_apr(struct vgic_v5_cpu_if *cpu_if);
+>  /* No hypercalls for the following */
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> index 9e44c05cf780e..804a9ffdc8594 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> @@ -672,6 +672,19 @@ static void handle___tracing_write_event(struct kvm_cpu_context *host_ctxt)
+>  	trace_selftest(id);
+>  }
+>  
+> +static void handle___vgic_v5_make_resident(struct kvm_cpu_context *host_ctxt)
+> +{
+> +	DECLARE_REG(struct vgic_v5_cpu_if *, cpu_if, host_ctxt, 1);
+> +
+> +	__vgic_v5_make_resident(kern_hyp_va(cpu_if));
+> +}
+> +static void handle___vgic_v5_make_non_resident(struct kvm_cpu_context *host_ctxt)
+> +{
+> +	DECLARE_REG(struct vgic_v5_cpu_if *, cpu_if, host_ctxt, 1);
+> +
+> +	__vgic_v5_make_non_resident(kern_hyp_va(cpu_if));
+> +}
+> +
+>  static void handle___vgic_v5_save_apr(struct kvm_cpu_context *host_ctxt)
+>  {
+>  	DECLARE_REG(struct vgic_v5_cpu_if *, cpu_if, host_ctxt, 1);
+> @@ -711,6 +724,8 @@ static const hcall_t host_hcall[] = {
+>  	HANDLE_FUNC(__kvm_timer_set_cntvoff),
+>  	HANDLE_FUNC(__vgic_v3_save_aprs),
+>  	HANDLE_FUNC(__vgic_v3_restore_vmcr_aprs),
+> +	HANDLE_FUNC(__vgic_v5_make_resident),
+> +	HANDLE_FUNC(__vgic_v5_make_non_resident),
+>  	HANDLE_FUNC(__vgic_v5_save_apr),
+>  	HANDLE_FUNC(__vgic_v5_restore_vmcr_apr),
+>  
+> diff --git a/arch/arm64/kvm/hyp/vgic-v5-sr.c b/arch/arm64/kvm/hyp/vgic-v5-sr.c
+> index 6d69dfe89a96c..04c5846b9abac 100644
+> --- a/arch/arm64/kvm/hyp/vgic-v5-sr.c
+> +++ b/arch/arm64/kvm/hyp/vgic-v5-sr.c
+> @@ -7,6 +7,31 @@
+>  
+>  #include <asm/kvm_hyp.h>
+>  
+> +void __vgic_v5_make_resident(struct vgic_v5_cpu_if *cpu_if)
+> +{
+> +	write_sysreg_s(cpu_if->vgic_contextr, SYS_ICH_CONTEXTR_EL2);
+> +	isb();
+> +
+> +	/* Catch any faults */
+> +	cpu_if->vgic_contextr = read_sysreg_s(SYS_ICH_CONTEXTR_EL2);
+> +	if (WARN_ON(FIELD_GET(ICH_CONTEXTR_EL2_F, cpu_if->vgic_contextr)))
+> +		return;
 
-ack, sorry. I will fix it in v2.
+I don't think this is particularly useful here. With non-VHE, this
+results in a panic. If there is a problem, you need to fail the vcpu
+entry early, and let the caller find out.
 
-Regards,
-Lorenzo
+> +
+> +	cpu_if->gicv5_vpe.resident = true;
+> +}
+> +
+> +void __vgic_v5_make_non_resident(struct vgic_v5_cpu_if *cpu_if)
+> +{
+> +	/*
+> +	 * Make as non-resident before actually making non-resident. Avoids race
+> +	 * with doorbell arriving.
+> +	 */
+> +	cpu_if->gicv5_vpe.resident = false;
 
->=20
-> /P
->=20
+Stores and sysreg accesses are not ordered without a DSB ST in between.
 
---usYxARcXN3Cq7GA5
-Content-Type: application/pgp-signature; name=signature.asc
+> +
+> +	write_sysreg_s(cpu_if->vgic_contextr, SYS_ICH_CONTEXTR_EL2);
 
------BEGIN PGP SIGNATURE-----
+Is this really making anything non-resident? Who clears the V bit?
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCafDD5AAKCRA6cBh0uS2t
-rEryAP93+3om9/MyBd5xMoBvLsJPmTDWfbzGmYwYQDzdPQw5VQEAorMCm2iUQpMc
-97tysFlJONWC+zZF/0tdEL4Ufh+aJQ8=
-=RFuK
------END PGP SIGNATURE-----
+> +	isb();
+> +}
+> +
+>  void __vgic_v5_save_apr(struct vgic_v5_cpu_if *cpu_if)
+>  {
+>  	cpu_if->vgic_apr = read_sysreg_s(SYS_ICH_APR_EL2);
+> diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
+> index fe49fb56dc3c9..d14cf4771d606 100644
+> --- a/include/kvm/arm_vgic.h
+> +++ b/include/kvm/arm_vgic.h
+> @@ -495,6 +495,9 @@ struct vgic_v5_cpu_if {
+>  	 */
+>  	u64	vgic_icsr;
+>  
+> +	/* The contextr used to make VPEs resident and non-resident */
+> +	u64	vgic_contextr;
+> +
+>  	struct gicv5_vpe gicv5_vpe;
+>  };
+>  
 
---usYxARcXN3Cq7GA5--
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
