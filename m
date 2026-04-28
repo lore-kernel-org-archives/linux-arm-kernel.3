@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79B4AFF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 09:55:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84854FF886D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 09:55:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DpjJGkWZ9f8USzTRkjIyhIAw9JA9QIlcp4R7pCmXPVE=; b=TdMc6NqGHOz/je8CWeM4EaXw/L
-	bXoVDDRpsSvxGQS3Sr7nUAd4bFaxACyGO46PMAZcvMx3N4gnyMzHh5cbJH6WFbisHEFdamJj0OcO9
-	3kCVoHQnDWN09FUk87ZsSBUE/j52vChQ2qHIi2Tjri4naDaRFV+pcAwmLDqTmfMSgwQ08L6iO1noj
-	hRlIoXjNX4AQ8PIALNwenz5Zt7yVAwo5cLecfYbtjkgeswwiZUrWBbtKgePiSdSkqmMN2iZ5GxQSl
-	fhd9jovjanNo12qCFIc6ppwthmVS4wb/+aMFKyQp60laXNp3aOZaEsm2rYMEqw5G0qvFwWKIogCAJ
-	W+p3FGZQ==;
+	bh=EhgW1JlYF9B1Go+gSCZ+kMZnTDafbz710Shygv/ybog=; b=iZqhKJuuGQ5VQhIAGkp5zzk4Ev
+	rXmjCwX8TfM8IuaeOswGq9EytL07m/etMxQ53ORVqXtYQgYVfiwhV+qTHfM6STOPMjMrQTtCe2gWR
+	DNsAJrNM8+xLT8+UKbsjJSRcCk5sxXPIZWA+KIfJaZE7vR+mANsV9Jss95AhoS3+j+zxGR2QTo6Qq
+	QnJ5a35J0lGXs+mC4yHsVxHqjUWN73LWaS5M2FiaQxd8S4/zjjlDQZSILcuw41CJ/INVWZNq6MbRp
+	DMLx1D45nEaRlVPpsHcrvbLHShQjwmYShrtZBjcvzlErDXANKrmWUowtEA+ZXRBkqiwS3pMjYM2qR
+	N8DKY8LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHf9k-00000001808-0HJ3;
+	id 1wHf9k-0000000180U-1Ydz;
 	Tue, 28 Apr 2026 09:55:04 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHf9e-000000017xT-3Rl6
+	id 1wHf9g-000000017xT-2TJ3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 09:55:00 +0000
+	Tue, 28 Apr 2026 09:55:01 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Tue, 28 Apr
- 2026 17:54:41 +0800
+ 2026 17:54:42 +0800
 Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Tue, 28 Apr 2026 17:54:41 +0800
+ Transport; Tue, 28 Apr 2026 17:54:42 +0800
 From: Billy Tsai <billy_tsai@aspeedtech.com>
-Date: Tue, 28 Apr 2026 17:49:45 +0800
-Subject: [PATCH v8 1/3] dt-bindings: pinctrl: Add
- aspeed,ast2700-soc0-pinctrl
+Date: Tue, 28 Apr 2026 17:49:46 +0800
+Subject: [PATCH v8 2/3] dt-bindings: mfd: aspeed,ast2x00-scu: Describe
+ AST2700 SCU0
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260428-upstream_pinctrl-v8-1-eb8ef9ab0498@aspeedtech.com>
+Message-ID: <20260428-upstream_pinctrl-v8-2-eb8ef9ab0498@aspeedtech.com>
 References: <20260428-upstream_pinctrl-v8-0-eb8ef9ab0498@aspeedtech.com>
 In-Reply-To: <20260428-upstream_pinctrl-v8-0-eb8ef9ab0498@aspeedtech.com>
 To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
@@ -54,16 +54,17 @@ CC: Andrew Jeffery <andrew@aj.id.au>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <openbmc@lists.ozlabs.org>,
 	<linux-gpio@vger.kernel.org>, <linux-clk@vger.kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777370081; l=5360;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777370081; l=5291;
  i=billy_tsai@aspeedtech.com; s=20251118; h=from:subject:message-id;
- bh=nrVpImuF5VsXwpc/t17ssjmB+g611dGvOatKoycv6KU=;
- b=8bkOVn/Gk0dDpToBliPJp1TLizr+fFCgoWXTYNac6xImgyzFMrY7VbxMuNjHdn/fGk8CYOFW/
- j715ODzDE6aCVa0enT/RgX1qRvYaPEMngeeXbxYl1A7rMXmylfuELoC
+ bh=mrdhNPya3jJ61yZHR8p2pd3TxVaF8xWbxCDhBpD9L1w=;
+ b=qnsT6QW0wFMWJxBnDEcDkCSRh2R9he1t+g4varVLV/zfZVtvlEYCofpsTBarULV55gZbC5j93
+ Bfe6McMuKHnDdG1ZH+u+bWwIWcPTWLrSjdOvVFNfmJxbsgRSflJRmHw
 X-Developer-Key: i=billy_tsai@aspeedtech.com; a=ed25519;
  pk=/A8qvgZ6CPfnwKgT6/+k+nvXOkN477MshEGJvVdzeeQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_025458_868981_87CEC897 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20260428_025500_638400_02AC29C8 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,213 +79,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a device tree binding for the pin controller found in the
-ASPEED AST2700 SoC0.
+AST2700 consists of two interconnected SoC instances, each with its own
+System Control Unit (SCU). The SCU0 provides pin control, interrupt
+controllers, clocks, resets, and address-space mappings for the
+Secondary and Tertiary Service Processors (SSP and TSP).
 
-The controller manages various peripheral functions such as eMMC, USB,
-VGA DDC, JTAG, and PCIe root complex signals.
+Describe the SSP/TSP address mappings using the standard
+memory-region and memory-region-names properties.
 
-Describe the AST2700 SoC0 pin controller using standard pin multiplexing
-and configuration properties.
+Disallow legacy child nodes that are not present on AST2700, including
+p2a-control and smp-memram. The latter is unnecessary as software can
+access the scratch registers via the SCU syscon.
+
+Also allow the AST2700 SoC0 pin controller to be described as a child
+node of the SCU0, and add an example illustrating the SCU0 layout,
+including reserved-memory, interrupt controllers, and pinctrl.
 
 Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
 ---
- .../pinctrl/aspeed,ast2700-soc0-pinctrl.yaml       | 187 +++++++++++++++++++++
- 1 file changed, 187 insertions(+)
+ .../bindings/mfd/aspeed,ast2x00-scu.yaml           | 114 +++++++++++++++++++++
+ 1 file changed, 114 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/aspeed,ast2700-soc0-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/aspeed,ast2700-soc0-pinctrl.yaml
-new file mode 100644
-index 000000000000..ef500209d81e
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pinctrl/aspeed,ast2700-soc0-pinctrl.yaml
-@@ -0,0 +1,187 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pinctrl/aspeed,ast2700-soc0-pinctrl.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml b/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml
+index a87f31fce019..0d5e168b0309 100644
+--- a/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml
++++ b/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml
+@@ -46,6 +46,18 @@ properties:
+   '#reset-cells':
+     const: 1
+ 
++  memory-region:
++    items:
++      - description: Region mapped through the first SSP address window.
++      - description: Region mapped through the second SSP address window.
++      - description: Region mapped through the TSP address window.
 +
-+title: ASPEED AST2700 SoC0 Pin Controller
++  memory-region-names:
++    items:
++      - const: ssp-0
++      - const: ssp-1
++      - const: tsp
 +
-+maintainers:
-+  - Billy Tsai <billy_tsai@aspeedtech.com>
-+
-+description:
-+  The AST2700 features a dual-SoC architecture with two interconnected SoCs,
-+  each having its own System Control Unit (SCU) for independent pin control.
-+  This pin controller manages the pin multiplexing for SoC0.
-+
-+  The SoC0 pin controller manages pin functions including eMMC, VGA DDC,
-+  dual USB3/USB2 ports (A and B), JTAG, and PCIe root complex interfaces.
-+
-+properties:
-+  compatible:
-+    const: aspeed,ast2700-soc0-pinctrl
-+  reg:
-+    maxItems: 1
-+
-+patternProperties:
-+  '-state$':
-+    description: |
-+      Pin control state.
-+
-+      If `function` is present, the node describes a pinmux state and must
-+      specify `groups`.
-+
-+      For pin configuration, exactly one of `groups` or `pins` must be
-+      specified in each state node. Group-level configuration applies to all
-+      pins in the group. Pin-level configuration may be supplied in a
-+      separate state node for individual pins; when both group-level and
-+      pin-level configuration apply to the same pin, the pin-level
-+      configuration takes precedence.
-+
-+    type: object
-+    allOf:
-+      - $ref: pinmux-node.yaml#
-+      - $ref: pincfg-node.yaml#
-+      - if:
-+          required:
-+            - function
-+        then:
-+          required:
-+            - groups
-+      - oneOf:
-+          - required:
-+              - groups
-+          - required:
-+              - pins
-+
-+    additionalProperties: false
-+
-+    properties:
-+      function:
-+        enum:
-+          - EMMC
-+          - JTAGDDR
-+          - JTAGM0
-+          - JTAGPCIEA
-+          - JTAGPCIEB
-+          - JTAGPSP
-+          - JTAGSSP
-+          - JTAGTSP
-+          - JTAGUSB3A
-+          - JTAGUSB3B
-+          - PCIERC0PERST
-+          - PCIERC1PERST
-+          - TSPRSTN
-+          - UFSCLKI
-+          - USB2AD0
-+          - USB2AD1
-+          - USB2AH
-+          - USB2AHP
-+          - USB2AHPD0
-+          - USB2AXH
-+          - USB2AXH2B
-+          - USB2AXHD1
-+          - USB2AXHP
-+          - USB2AXHP2B
-+          - USB2AXHPD1
-+          - USB2BD0
-+          - USB2BD1
-+          - USB2BH
-+          - USB2BHP
-+          - USB2BHPD0
-+          - USB2BXH
-+          - USB2BXH2A
-+          - USB2BXHD1
-+          - USB2BXHP
-+          - USB2BXHP2A
-+          - USB2BXHPD1
-+          - USB3AXH
-+          - USB3AXH2B
-+          - USB3AXHD
-+          - USB3AXHP
-+          - USB3AXHP2B
-+          - USB3AXHPD
-+          - USB3BXH
-+          - USB3BXH2A
-+          - USB3BXHD
-+          - USB3BXHP
-+          - USB3BXHP2A
-+          - USB3BXHPD
-+          - VB
-+          - VGADDC
-+
-+      groups:
-+        enum:
-+          - EMMCCDN
-+          - EMMCG1
-+          - EMMCG4
-+          - EMMCG8
-+          - EMMCWPN
-+          - JTAG0
-+          - PCIERC0PERST
-+          - PCIERC1PERST
-+          - TSPRSTN
-+          - UFSCLKI
-+          - USB2A
-+          - USB2AAP
-+          - USB2ABP
-+          - USB2ADAP
-+          - USB2AH
-+          - USB2AHAP
-+          - USB2B
-+          - USB2BAP
-+          - USB2BBP
-+          - USB2BDBP
-+          - USB2BH
-+          - USB2BHBP
-+          - USB3A
-+          - USB3AAP
-+          - USB3ABP
-+          - USB3B
-+          - USB3BAP
-+          - USB3BBP
-+          - VB0
-+          - VB1
-+          - VGADDC
-+
-+      pins:
-+        enum:
-+          - AB13
-+          - AB14
-+          - AC13
-+          - AC14
-+          - AD13
-+          - AD14
-+          - AE13
-+          - AE14
-+          - AE15
-+          - AF13
-+          - AF14
-+          - AF15
-+
-+      drive-strength:
-+        enum: [3, 6, 8, 11, 16, 18, 20, 23, 30, 32, 33, 35, 37, 38, 39, 41]
-+
-+      bias-disable: true
-+      bias-pull-up: true
-+      bias-pull-down: true
-+
-+required:
-+  - compatible
-+  - reg
-+
+ patternProperties:
+   '^p2a-control@[0-9a-f]+$':
+     description: >
+@@ -87,6 +99,7 @@ patternProperties:
+             - aspeed,ast2400-pinctrl
+             - aspeed,ast2500-pinctrl
+             - aspeed,ast2600-pinctrl
++            - aspeed,ast2700-soc0-pinctrl
+ 
+     required:
+       - compatible
+@@ -156,6 +169,30 @@ required:
+   - '#clock-cells'
+   - '#reset-cells'
+ 
 +allOf:
-+  - $ref: pinctrl.yaml#
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - aspeed,ast2700-scu0
++              - aspeed,ast2700-scu1
++    then:
++      patternProperties:
++        '^p2a-control@[0-9a-f]+$': false
++        '^smp-memram@[0-9a-f]+$': false
 +
-+additionalProperties: false
++  - if:
++      not:
++        properties:
++          compatible:
++            contains:
++              const: aspeed,ast2700-scu0
++    then:
++      properties:
++        memory-region: false
++        memory-region-names: false
 +
-+examples:
+ additionalProperties: false
+ 
+ examples:
+@@ -180,4 +217,81 @@ examples:
+             reg = <0x7c 0x4>, <0x150 0x8>;
+         };
+     };
++
 +  - |
-+    pinctrl@400 {
-+        compatible = "aspeed,ast2700-soc0-pinctrl";
-+        reg = <0x400 0x318>;
-+        emmc-state {
-+            function = "EMMC";
-+            groups = "EMMCG1";
++    / {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        reserved-memory {
++            #address-cells = <2>;
++            #size-cells = <2>;
++            ranges;
++
++            ssp_region_0: memory@400000000 {
++                reg = <0x4 0x00000000 0x0 0x01000000>;
++                no-map;
++            };
++
++            ssp_region_1: memory@401000000 {
++                reg = <0x4 0x01000000 0x0 0x01000000>;
++                no-map;
++            };
++
++            tsp_region: memory@402000000 {
++                reg = <0x4 0x02000000 0x0 0x01000000>;
++                no-map;
++            };
++        };
++
++        bus {
++            #address-cells = <2>;
++            #size-cells = <2>;
++
++            syscon@12c02000 {
++                compatible = "aspeed,ast2700-scu0", "syscon", "simple-mfd";
++                reg = <0 0x12c02000 0 0x1000>;
++                ranges = <0x0 0x0 0x12c02000 0x1000>;
++                #address-cells = <1>;
++                #size-cells = <1>;
++                #clock-cells = <1>;
++                #reset-cells = <1>;
++
++                memory-region = <&ssp_region_0>, <&ssp_region_1>,
++                                <&tsp_region>;
++                memory-region-names = "ssp-0", "ssp-1", "tsp";
++
++                silicon-id@0 {
++                    compatible = "aspeed,ast2700-silicon-id", "aspeed,silicon-id";
++                    reg = <0x0 0x4>;
++                };
++
++                interrupt-controller@1b0 {
++                    compatible = "aspeed,ast2700-scu-ic0";
++                    reg = <0x1b0 0x4>;
++                    #interrupt-cells = <1>;
++                    interrupts-extended = <&intc0 97>;
++                    interrupt-controller;
++                };
++
++                interrupt-controller@1e0 {
++                    compatible = "aspeed,ast2700-scu-ic1";
++                    reg = <0x1e0 0x4>;
++                    #interrupt-cells = <1>;
++                    interrupts-extended = <&intc0 98>;
++                    interrupt-controller;
++                };
++
++                pinctrl@400 {
++                    compatible = "aspeed,ast2700-soc0-pinctrl";
++                    reg = <0x400 0x318>;
++                    emmc-state {
++                        function = "EMMC";
++                        groups = "EMMCG1";
++                    };
++                };
++            };
 +        };
 +    };
++
+ ...
 
 -- 
 2.34.1
