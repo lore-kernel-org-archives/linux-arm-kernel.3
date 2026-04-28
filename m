@@ -4,139 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60C0AFF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 15:53:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79F9EFF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 15:55:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5UStshenfl68evDw2oqhtmkvKFIf5e8GSvhJpCiE/Q0=; b=uJyS+kE1DNwvK+J8LC0hPHzSne
-	Ox7D43MrzuyEKpcNk384Lz0lRp0pPWzBfW0EqDGm+z35y6zA5sHAYBC78hy6asxLnEgtemvblpWST
-	Kluzj8QepmoXoTDXRsWhQ7k1IKcu5ZNlONlE+RzcIE2+9qH2j+Prdv6cBUlgsyuqFdkvxJAlZCNx2
-	NyDkb8QgETkt21kZtRn84/bcz0OEUZiX+jjdBY9zZrSMiqbC0HVGkJSnCOb1ZoqBH8TLifK/P+CWV
-	7fSjKnIqfijzTj0ltW2KS/qQ/NVxc2wGYaePnksOQQva3D/5djxeHgtowjxYd8o1Ii5ytn5dpKL2f
-	IPgVPcKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2XyCSaeJc6mBcOxysco7XzoZTU+6jmk7xIgs7vPrMrU=; b=tNi0iR7ZsQ5fmet+H66YvMlWjJ
+	CeJSpm2rgDkPTDwwDDIjHu3McfOJiMdGVkOUWKreMB1H3Xcp4cA7ZBw1V+Df6WoXEiGx186N/NKRU
+	fPovdQvF0OHVNuMAvTLYIgt/fzYA1k/oK+/5eHKBz8V5H885dcv9stUR8U83LGdiDBScgvMvWVrFf
+	Q3NrF2L+/2LXu6x2fJ1qGoNbaLodbUk+d9XhkGjpVyoFMPm8dMYwSrRLV7j6pfwKgsw4svyr9IXXC
+	oGeEVj0j7yhTTUiRHrVgsjtxljyUho3PdigljNuak5X6Ifdp7HFw54+FbQlPeMYo15yAKRn3qDY1+
+	V6sq2eyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHkkU-00000001mAk-2lQk;
-	Tue, 28 Apr 2026 15:53:22 +0000
-Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHkkS-00000001mAO-1cyV
+	id 1wHkmV-00000001mM4-2Nbx;
+	Tue, 28 Apr 2026 15:55:27 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHkmS-00000001mLS-1rKN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 15:53:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HruA0eW3NYvLDOWfAWJH0DDhUiDG7h1Q572CyA6mZ8YEdEiImjJHMkbZrDn7TiQE66v+8dMEtlqKJGzSPLe6uXxteIr9VCAgOarBctFYh0bmoFoiuC/4DPdNNDRtDWegiHr1nTpXNRmmFgeoE/oe9fcblu3vJMjMSSqYVLSNPUw9BgXVSu06Ijl8aHx7PHWj1p8YkaKP10E9fMe5I4/R454g0S7T9mOv8TORPTOUR+5Fa2YmTjTi4rgL4j5e9qfMuzY2zuC2/Zto3hVN+75RbAIq3Z708upX39rdrqrPbSBm0TZlJxqLhf7qNNUvTaAduuwV+GNJCoijrcKQXMjiEw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5UStshenfl68evDw2oqhtmkvKFIf5e8GSvhJpCiE/Q0=;
- b=IYwL57UEyVn86aZrNjagmIHg0KAlPbk9MQw0lBQ9Uxrv5cdtmKG+z6huC5IHMyPxsPrc4tVubfk0XLBtxN7f6hktZp8Wf4LutHfuz+e/BaRg5Jt/lwcpkOMeGWZwBJ7wqUHAsjjMHuFKt3dgTvzSWNm9RzQwB3OFcnst3o6tX4IYXzQZ8Whsw/Xv6Hdm1yAqcQYFWvIGvixsDEF/BtxACEr1FtLE+nVwZYTePlilQXcZyXzvpOu0YEF2BbJJ4w8avW3GOw3n2abD4mXy69Z65tDwDvrcWsbUR/YM5jvDvsZakwL+qjBVoDX3PJiLPTlHGLYJNMpQU+XmqbhG3li3xw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=lunn.ch smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5UStshenfl68evDw2oqhtmkvKFIf5e8GSvhJpCiE/Q0=;
- b=wUNsd3ieYJcbQ12ceNFAH5RdAZambVJsXFUt2S7hxKuPe24rXdQGkFjSpOrsEwTs31QRrHl/eNb6csBh6k7BgCTUR29NNWPNlUOpQBHlyUY8ZtJVdNWNYq6HfL8Z1ZE82oSY6TLt3r37KYuKI3yhXp9Xyy2v3o0B5FblUnobTcE=
-Received: from MW4PR04CA0141.namprd04.prod.outlook.com (2603:10b6:303:84::26)
- by PH3PPF654CF2C22.namprd10.prod.outlook.com (2603:10b6:518:1::7a9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Tue, 28 Apr
- 2026 15:53:14 +0000
-Received: from MWH0EPF000A6735.namprd04.prod.outlook.com
- (2603:10b6:303:84:cafe::3a) by MW4PR04CA0141.outlook.office365.com
- (2603:10b6:303:84::26) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.26 via Frontend Transport; Tue,
- 28 Apr 2026 15:53:14 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- MWH0EPF000A6735.mail.protection.outlook.com (10.167.249.27) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9846.18 via Frontend Transport; Tue, 28 Apr 2026 15:53:12 +0000
-Received: from DFLE215.ent.ti.com (10.64.6.73) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 28 Apr
- 2026 10:52:54 -0500
-Received: from DFLE214.ent.ti.com (10.64.6.72) by DFLE215.ent.ti.com
- (10.64.6.73) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 28 Apr
- 2026 10:52:54 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE214.ent.ti.com
- (10.64.6.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 28 Apr 2026 10:52:54 -0500
-Received: from [10.249.130.12] ([10.249.130.12])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 63SFqjvA1490451;
-	Tue, 28 Apr 2026 10:52:46 -0500
-Message-ID: <8c8cefaa-7d9e-4b73-b92f-40cb52b37f2e@ti.com>
-Date: Tue, 28 Apr 2026 21:22:44 +0530
+	Tue, 28 Apr 2026 15:55:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0E23A1655;
+	Tue, 28 Apr 2026 08:55:15 -0700 (PDT)
+Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EEC323F7B4;
+	Tue, 28 Apr 2026 08:55:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1777391720; bh=0MrlCeQkWta6GQGWNw4br42If1RV8a1J63vs2z+KL24=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=q1RBuTxYCunbL6a7rte99MM/FGPUmOTanaK943G5zog1HBsgKHRIkjtlbaJkJs8vW
+	 R53FpJhnHlJtyEk5OqA5DF3Thf8KDGw9mSG+XqaPzfGbsQ93HuUPBOqgmbsbZ5sVtD
+	 DMPao+bv69FBV2IQ9jUh960bueqQ3Z1SgqmgePd0=
+Date: Tue, 28 Apr 2026 16:55:13 +0100
+From: Joey Gouly <joey.gouly@arm.com>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd <nd@arm.com>,
+	"maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>
+Subject: Re: [PATCH 07/43] KVM: arm64: gic-v5: Create & manage VM and VPE
+ tables
+Message-ID: <20260428155513.GA708848@e124191.cambridge.arm.com>
+References: <20260427160547.3129448-1-sascha.bischoff@arm.com>
+ <20260427160547.3129448-8-sascha.bischoff@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
-To: Shenwei Wang <shenwei.wang@nxp.com>, Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>, Jonathan Corbet <corbet@lwn.net>, "Rob
- Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
-	"Mathieu Poirier" <mathieu.poirier@linaro.org>, Frank Li <frank.li@nxp.com>,
-	"Sascha Hauer" <s.hauer@pengutronix.de>
-CC: Shuah Khan <skhan@linuxfoundation.org>, "linux-gpio@vger.kernel.org"
-	<linux-gpio@vger.kernel.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng Fan
-	<peng.fan@nxp.com>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-remoteproc@vger.kernel.org"
-	<linux-remoteproc@vger.kernel.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>, Andrew Lunn <andrew@lunn.ch>
-References: <20260422212849.1240591-1-shenwei.wang@nxp.com>
- <20260422212849.1240591-4-shenwei.wang@nxp.com>
- <22fb5fac-2568-42be-a7e3-7e89d0017eb3@ti.com>
- <PAXPR04MB91850A11C58419C03909145F89362@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <29485742-6e49-482e-b73d-228295daaeec@ti.com>
- <PAXPR04MB918568939EC7DAEB4BB6C8F989372@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <32c119af-96ad-4da0-86f2-cdc4ba57ef0b@ti.com>
- <PAXPR04MB9185C7741DCC422212F952CD89372@PAXPR04MB9185.eurprd04.prod.outlook.com>
-Content-Language: en-US
-From: "Padhi, Beleswar" <b-padhi@ti.com>
-In-Reply-To: <PAXPR04MB9185C7741DCC422212F952CD89372@PAXPR04MB9185.eurprd04.prod.outlook.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000A6735:EE_|PH3PPF654CF2C22:EE_
-X-MS-Office365-Filtering-Correlation-Id: 44843551-f79e-41dc-a1aa-08dea53e40d3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|82310400026|36860700016|921020|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: khVw6HnJblGWI6nschW9vDJPmY6vXs5lOxRoLXee2LtlAjQkLFTeNqlyw86TDEkWSilDze34HgNR1Fjx6gRAf//5pzvpISDJe/NYWG2JhZO8Qv+BS1IiEJ0dWxDX3FPuPO9CezGHhHwH0O7RVUBkiSsdmGRYTSSMZ8DYbufV051iwz/6Ov8VH8FZHsQtFqr0ZU+bA9SRoMt87GZ1aiuU5iothH1Q1FtXg1f4u27avW+7BQ/8guT/wy6nfueud02aC5ts0LMkdHURn1kt7mwr2r30xV3a8joEt/fs/WLCgykPSM19DJZ4OHmnLcblNgb0WVjriMZF4IXI9W7jFxR6r3VWFtdh4MC7jIgUrg4vcFriQXZf6AQhrGHw1S+Bg/5ZKFA7lX3vKzZYqzqSkapaoNlmGpbMrbH7rkkrbHWHMzlmxLgj+0wl0oUqGAuhOmQ65gZbBNVrnY3x7o/6h2lW/qrpFfT/A14ByUsV0DgQEO8nTLlW7hGbUIh+B7szeuVgfRvP8NhRX1er5oRskSc1nuSg2y8LVFC/5N1lWOJhdQZrlRTIizy+TKwKk9GHI74ZPBY0gNqMGOjwUY1ojZkYB0z7j8CgkopJ0snsQ5Ob+f+qNKzaf79NLAKsD7cfAGGhbYklscmTOwZict0ezD8tbbdVgUaj+uRFx62qx8QwmwNPM4Z9cXEWDiLwanJS6gIZomAgRNBbJcDyaPuL9zZymUpFB8yXRXjqgmUVXpDWmqzXbdUpEkYfobZY/BMWqbXrc6rRVt+nWC/WeaLiT6tqMA==
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(82310400026)(36860700016)(921020)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: or24YdhpPzw8ZHHYFITXLjGnydT9c2ScOM1l8RS/RX6qVa23ZZi/e6CEeorXw7x0EF/OjqhjOEjj7z4NmDPNQA6W6wXFRnIf0H7vfaGaWtGa2oXjE5F7s96KDkyI1JjUQnsZAtCTHpTC4hwaFGM0D05MlVTF0NrQNwPbOCEAeGm21SeYSUFVnb5xoGAAimizVzeu9reW7c1WhxU9FjxKA1Ylha62lsXQaGJphWShLfick9r0qXZKuhL41aVAF4yJJfnhxMMemaMqFCfaTkvJ30KB9j6qcaRPojwzjKhIfjx6LWN8w410eu6mkuNd9wgb49nda1THIXy9fvH+ozbFEuGIEVeHzcT+0gnecX5jtq5tc9lZHTBxtk69ouIS/tj4/uiG1ZostlwkMSKyXlcMEFDKURalI1o0glA4gk0qL3bpYc4CLIj/QIrVRrtQ6bz1
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2026 15:53:12.6043
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 44843551-f79e-41dc-a1aa-08dea53e40d3
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000A6735.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH3PPF654CF2C22
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260427160547.3129448-8-sascha.bischoff@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_085320_459316_BF0F2142 
-X-CRM114-Status: GOOD (  21.95  )
+X-CRM114-CacheID: sfid-20260428_085524_721452_D9355A37 
+X-CRM114-Status: GOOD (  50.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,168 +78,862 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+A lot to look into here, just some first read through nits.
 
-On 4/28/2026 9:01 PM, Shenwei Wang wrote:
->
->> -----Original Message-----
->> From: Padhi, Beleswar <b-padhi@ti.com>
->> Sent: Tuesday, April 28, 2026 10:11 AM
->> To: Shenwei Wang <shenwei.wang@nxp.com>; Linus Walleij
->> <linusw@kernel.org>; Bartosz Golaszewski <brgl@kernel.org>; Jonathan Corbet
->> <corbet@lwn.net>; Rob Herring <robh@kernel.org>; Krzysztof Kozlowski
->> <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Bjorn Andersson
->> <andersson@kernel.org>; Mathieu Poirier <mathieu.poirier@linaro.org>; Frank Li
->> <frank.li@nxp.com>; Sascha Hauer <s.hauer@pengutronix.de>
->> Cc: Shuah Khan <skhan@linuxfoundation.org>; linux-gpio@vger.kernel.org; linux-
->> doc@vger.kernel.org; linux-kernel@vger.kernel.org; Pengutronix Kernel Team
->> <kernel@pengutronix.de>; Fabio Estevam <festevam@gmail.com>; Peng Fan
->> <peng.fan@nxp.com>; devicetree@vger.kernel.org; linux-
->> remoteproc@vger.kernel.org; imx@lists.linux.dev; linux-arm-
->> kernel@lists.infradead.org; dl-linux-imx <linux-imx@nxp.com>; Bartosz
->> Golaszewski <brgl@bgdev.pl>; Andrew Lunn <andrew@lunn.ch>
->> Subject: Re: [EXT] Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO
->> driver
->>
->> Caution: This is an external email. Please take care when clicking links or opening
->> attachments. When in doubt, report the message using the 'Report this email'
->> button
->>
->>
->> On 4/28/2026 8:13 PM, Shenwei Wang wrote:
->>>> -----Original Message-----
->>>> From: Beleswar Prasad Padhi <b-padhi@ti.com>
->>>> Sent: Tuesday, April 28, 2026 2:25 AM
->>>> To: Shenwei Wang <shenwei.wang@nxp.com>; Linus Walleij
->>>> <linusw@kernel.org>; Bartosz Golaszewski <brgl@kernel.org>; Jonathan
->>>> Corbet <corbet@lwn.net>; Rob Herring <robh@kernel.org>; Krzysztof
->>>> Kozlowski <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>;
->>>> Bjorn Andersson <andersson@kernel.org>; Mathieu Poirier
->>>> <mathieu.poirier@linaro.org>; Frank Li <frank.li@nxp.com>; Sascha
->>>> Hauer <s.hauer@pengutronix.de>
->>>> Cc: Shuah Khan <skhan@linuxfoundation.org>;
->>>> linux-gpio@vger.kernel.org; linux- doc@vger.kernel.org;
->>>> linux-kernel@vger.kernel.org; Pengutronix Kernel Team
->>>> <kernel@pengutronix.de>; Fabio Estevam <festevam@gmail.com>; Peng Fan
->>>> <peng.fan@nxp.com>; devicetree@vger.kernel.org; linux-
->>>> remoteproc@vger.kernel.org; imx@lists.linux.dev; linux-arm-
->>>> kernel@lists.infradead.org; dl-linux-imx <linux-imx@nxp.com>; Bartosz
->>>> Golaszewski <brgl@bgdev.pl>; Andrew Lunn <andrew@lunn.ch>
->>>> Subject: [EXT] Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg
->>>> GPIO driver On 28/04/26 00:53, Shenwei Wang wrote:
->>>> [...]
->>>>
->>>>>>> +     void *channel_devices[MAX_PORT_PER_CHANNEL];
->>>>>> So this is technically a rpmsg endpoint (struct rpmsg_endpoint)
->>>>>> without naming it "endpoint". Every rpmsg endpoint has a reference
->>>>>> to its parent rpmsg channel (struct rpmsg_device) which represents
->>>>>> the same information here. So we should use the framework standard here.
->>>>>>
->>>>> Yes, agree to use "endpoint_devices".
->>>> I did not mean to say to just change the variable name from
->>>> "channel_devices" to "endpoint_devices". Infact you would not need to
->>>> have this field & struct anymore.
->>>>
->>>> Pseudo-code:
->>>> 1. Add a 'struct rpmsg_endpoint *ept' field to struct rpmsg_gpio_port
->>>>       to maintain the ept to port idx map.
->>>>
->>>> 2. Call port->ept = rpmsg_create_ept(rpdev,
->>>>                                                               rpmsg_gpio_channel_callback,
->>>>                                                               port, {rpdev.id.name,
->>>>                                                               RPMSG_ADDR_ANY,
->>>>                                                               RPMSG_ADDR_ANY})
->>>>       from rpmsg_gpiochip_register().
->>>>
->>> On the Linux side, we invoke rpmsg_create_ept. What is expected from the
->> remote system in this case?
->>
->>
->> Nothing extra in my opinion. rpmsg_create_ept() just creates a dynamic local
->> endpoint address for Linux's usage. The firmware just has to make sure to reply
->> to the same endpoint address where it received the message. This should already
->> be in place IMO, because currently you are sending all messages in the default
-> Since rpmsg_create_ept creates a new local endpoint address on the Linux side, how is
-> the remote system expected to learn and use this new address for communication if no
-> additional logic is added on the remote side?
+On Mon, Apr 27, 2026 at 04:08:25PM +0000, Sascha Bischoff wrote:
+> GICv5 uses a set of in-memory tables to track and manage VM
+> state. These must be allocated by the hypervisor, and provided to the
+> IRS to use.
+> 
+> The VMT (Virtual Machine Table) is a linear or two level table
+> comprising VMT Entries (VMTE). Each VMTE describes the state for a
+> single VM. This state includes things such as the SPI and LPI IST
+> configuration (coming in a future commit), an implementation-defined
+> VM Descriptor, and a VPE Table (VPET).
+> 
+> The VPET contains one entry per VPE belonging to a VM, and is used to
+> mark a VPE as valid, as well as providing the address of an
+> implementation-defined VPE Descriptor, which is used by the hardware
+> to track and manage VPE state.
+> 
+> This commit adds support for allocating the VMT, and managing the
+> VMTEs. The VMTEs can be initialised or released for re-use. Allocation
+> and tracking of unused VMTEs is handled with an IDA.
+> 
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> ---
+>  arch/arm64/kvm/vgic/vgic-v5-tables.c | 628 +++++++++++++++++++++++++++
+>  arch/arm64/kvm/vgic/vgic-v5-tables.h | 108 +++++
+>  include/kvm/arm_vgic.h               |   2 +
+>  include/linux/irqchip/arm-gic-v5.h   |  13 +
+>  4 files changed, 751 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/vgic/vgic-v5-tables.c b/arch/arm64/kvm/vgic/vgic-v5-tables.c
+> index 30e2b108b1aa3..502d05d46cccf 100644
+> --- a/arch/arm64/kvm/vgic/vgic-v5-tables.c
+> +++ b/arch/arm64/kvm/vgic/vgic-v5-tables.c
+> @@ -3,6 +3,634 @@
+>   * Copyright (C) 2025, 2026 Arm Ltd.
+>   */
+>  
+> +#include <kvm/arm_vgic.h>
+> +#include <linux/kernel.h>
+> +#include <linux/mm.h>
+> +#include <linux/sizes.h>
+> +#include <linux/slab.h>
+> +#include <linux/xarray.h>
+> +#include <asm/kvm_mmu.h>
+> +
+> +#include "vgic.h"
+>  #include "vgic-v5-tables.h"
+>  
+>  struct vgic_v5_host_ist_caps gicv5_host_ist_caps;
+> +
+> +static struct vgic_v5_vmt *vmt_info;
+> +DEFINE_XARRAY(vm_info);
+> +
+> +static bool vgic_v5_vmt_allocated(void)
+> +{
+> +	return vmt_info != NULL;
+> +}
+> +
+> +static int vgic_v5_check_vm_id(u16 vm_id)
+> +{
+> +	if (vm_id >= vmt_info->num_entries)
+> +		return -EINVAL;
+> +
+> +	return 0;
+> +}
+> +
+> +/*
+> + * Our IRS might be coherent or non-coherent. If coherent, we can just emit a
+> + * DSB to ensure that we're in sync. However, when non-coherent, we need to
+> + * manage our cached data explicitly.
+> + *
+> + * This helper is used to handle both coherent and non-coherent IRSes, and
+> + * handles all combinations of cleaning and invalidating to the PoC.
+> + */
+> +static void vgic_v5_clean_inval(void *va, size_t size, bool clean, bool inval)
+> +{
+> +	unsigned long base = (unsigned long)va;
+> +
+> +	/* Catch any accidental NOPs */
+> +	BUILD_BUG_ON(!(clean || inval));
+> +
+> +	/* Coherent; emit DSB. */
+> +	if (!gicv5_host_ist_caps.irs_non_coherent) {
+> +		dsb(ishst);
+> +		return;
+> +	}
+> +
+> +	if (clean && inval)
+> +		dcache_clean_inval_poc(base, base + size);
+> +	else if (clean)
+> +		dcache_clean_poc(base, base + size);
+> +	else if (inval)
+> +		dcache_inval_poc(base, base + size);
+> +}
+> +
+> +/*
+> + * Create a linear VM table, rounding up the number of entries to at least one
+> + * whole page to give us nicer alignment.
+> + *
+> + * Note: We don't update the number of entries tracked in our tracking structure
+> + * as this might be higher than the number of bits supported by the HW.
+> + */
+> +static int vgic_v5_alloc_vmt_linear(unsigned int num_entries)
+> +{
+> +	unsigned int l2_entries_per_page;
+> +	size_t alloc_size;
+> +
+> +	/* Potentially throw away a bit of memory for the sake of alignment! */
+> +	l2_entries_per_page = PAGE_SIZE / GICV5_VMTEL2E_SIZE;
+> +	if (num_entries < l2_entries_per_page)
+> +		num_entries = l2_entries_per_page;
+> +
+> +	alloc_size = num_entries * sizeof(struct vmtl2_entry);
+> +
+> +	vmt_info->linear.vmt_base = kzalloc(alloc_size, GFP_KERNEL);
+> +	if (vmt_info->linear.vmt_base == NULL)
+> +		return -ENOMEM;
+> +
+> +	vgic_v5_clean_inval(vmt_info->linear.vmt_base, alloc_size, true, true);
+> +
+> +	return 0;
+> +}
+> +
+> +/*
+> + * Allocate the first level of a two-level VM table. The second-level VM tables
+> + * are allocated on demand (by vgic_v5_alloc_l2_vmt()).
+> + *
+> + * Note: If there are too few entries, these are rounded up to the size of an L2
+> + * table (4k) to ensure sane alignment. As with the linear table, the tracked
+> + * number of entries is not increased to avoid the case of going above what the
+> + * hardware supports.
+> + */
+> +static int vgic_v5_alloc_vmt_two_level(unsigned int num_entries)
+> +{
+> +	size_t alloc_size;
+> +
+> +	/* Potentially throw away a bit of memory for the sake of alignment! */
+> +	if (num_entries < GICV5_VMT_L2_TABLE_ENTRIES)
+> +		num_entries = GICV5_VMT_L2_TABLE_ENTRIES;
+> +
+> +	/*
+> +	 * Let's make sure that we always allocate a whole power of 2
+> +	 * of entries. Note that we need to subtract 1 from the fls()
+> +	 * result in order to give the correct number of bits as we
+> +	 * are operating on a whole power of 2.
 
+This fls() seems unrelated? There is an fls() - 1 in vgic_v5_vmte_init().
 
-Remote side learns the endpoint when it receives any message from Linux
-from the dynamic endpoint.
+> +	 */
+> +	num_entries = roundup_pow_of_two(num_entries);
+> +
+> +	vmt_info->l2.num_l1_ents = (num_entries / GICV5_VMT_L2_TABLE_ENTRIES);
+> +	alloc_size = vmt_info->l2.num_l1_ents * sizeof(vmtl1_entry);
+> +
+> +	vmt_info->l2.vmt_base = kzalloc(alloc_size, GFP_KERNEL);
+> +	if (vmt_info->l2.vmt_base == NULL)
+> +		return -ENOMEM;
+> +
+> +	vgic_v5_clean_inval(vmt_info->l2.vmt_base, alloc_size, true, true);
+> +
+> +	vmt_info->l2.l2ptrs = kzalloc_objs(*vmt_info->l2.l2ptrs,
+> +					   vmt_info->l2.num_l1_ents,
+> +					   GFP_KERNEL);
+> +	if (vmt_info->l2.l2ptrs == NULL) {
+> +		kfree(vmt_info->l2.vmt_base);
+> +		return -ENOMEM;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +
+> +/*
+> + * Allocate a second level VMT, if required. This can be called eagerly, and
+> + * will only perform the allocation if required.
+> + */
+> +static int vgic_v5_alloc_l2_vmt(struct kvm *kvm)
+> +{
+> +	unsigned int l1_index;
+> +	struct vmtl2_entry *l2_table;
+> +	vmtl1_entry tmp;
+> +	u16 vm_id = vgic_v5_vm_id(kvm);
+> +	struct kvm_vcpu *vcpu0 = kvm_get_vcpu(kvm, 0);
+> +	struct gicv5_cmd_info cmd_info;
+> +	int ret;
+> +
+> +	if (!vgic_v5_vmt_allocated())
+> +		return -ENXIO;
+> +
+> +	/* Nothing to do if we have linear tables! */
+> +	if (!vmt_info->two_level)
+> +		return 0;
+> +
+> +	ret = vgic_v5_check_vm_id(vm_id);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/*
+> +	 * We have 4k-sized L2 tables - this is mandated by the spec for
+> +	 * two-level VMTs. This means that we have 128 entries per L1 VMTE.
+> +	 */
+> +	l1_index = vm_id / GICV5_VMT_L2_TABLE_ENTRIES;
+> +
+> +	if (l1_index > vmt_info->l2.num_l1_ents)
+> +		return -E2BIG;
+> +
+> +	/* Already valid? Great! */
+> +	if (vmt_info->l2.l2ptrs[l1_index] != NULL)
+> +		return 0;
+> +
+> +	l2_table = kzalloc(GICV5_VMT_L2_TABLE_SIZE, GFP_KERNEL);
+> +	if (l2_table == NULL)
+> +		return -ENOMEM;
+> +
+> +	if (virt_to_phys(l2_table) & ~GICV5_VMTEL1E_L2_ADDR) {
+> +		kfree(l2_table);
+> +		return -EINVAL;
+> +	}
 
-Lets say rpmsg_create_ept() allocates a dynamic local ept of 1026. When
-you send the message from this endpoint, the standard rpmsg header
-would have:
+Duplicated code below this. I guess move the comment up and delete the same checks below.
+> +
+> +	vmt_info->l2.l2ptrs[l1_index] = l2_table;
+> +
+> +	/* Alignment issue! */
+> +	if (virt_to_phys(l2_table) & ~GICV5_VMTEL1E_L2_ADDR) {
+> +		kfree(l2_table);
+> +		return -EFAULT;
+> +	}
+> +
+> +	tmp = virt_to_phys(l2_table) & GICV5_VMTEL1E_L2_ADDR;
 
-     85 struct rpmsg_hdr {
-     86         __rpmsg32 src; // 1026
-     87         __rpmsg32 dst; // rpdev->dst (e.g. 400)
-     88         __rpmsg32 reserved;
-     89         __rpmsg16 len;
-     90         __rpmsg16 flags;
-     91         u8 data[];
-     92 } __packed;
+Can we rename tmp to vmte_l2_addr or something? (Although reading on I see tmp
+is used more often.. so maybe it's consistent here)
 
-Remote side tracks the dynamic endpoint by reading src = 1026. And while
-sending the response it fills the header as:
+> +	WRITE_ONCE(vmt_info->l2.vmt_base[l1_index], cpu_to_le64(tmp));
+> +
+> +	vgic_v5_clean_inval(l2_table, GICV5_VMT_L2_TABLE_SIZE, true, true);
+> +	/* Skip inval for now - wait until table is made valid by HW */
+> +	vgic_v5_clean_inval(vmt_info->l2.vmt_base + l1_index,
+> +			    sizeof(vmtl1_entry), true, false);
+> +
+> +	/* VMAP in the L2 VMT via the IRS */
+> +	cmd_info.cmd_type = VMT_L2_MAP;
+> +	ret = irq_set_vcpu_affinity(vgic_v5_vpe_db(vcpu0), &cmd_info);
+> +
+> +	/* We've failed to make the L2 VMT valid - things are very broken! */
+> +	if (ret) {
+> +		/* Remove the pointer from L1 table */
+> +		WRITE_ONCE(vmt_info->l2.vmt_base[l1_index], 0);
+> +
+> +		kfree(l2_table);
+> +		vmt_info->l2.l2ptrs[l1_index] = NULL;
+> +
+> +		return ret;
+> +	}
+> +
+> +	/* Table updated; inval our copy */
+> +	vgic_v5_clean_inval(vmt_info->l2.vmt_base + l1_index,
+> +			    sizeof(vmtl1_entry), false, true);
+> +
+> +	return ret;
+> +}
+> +
+> +/*
+> + * Allocate the top-level VMT. This can either be linear or two-level.
+> + */
+> +int vgic_v5_vmt_allocate(bool two_level, unsigned int num_entries,
+> +			 size_t vmd_size, size_t vped_size,
+> +			 unsigned int max_vpes)
+> +{
+> +	int ret = 0;
+> +
+> +	if (vgic_v5_vmt_allocated())
+> +		return -EBUSY;
+> +
+> +	/* VMD is optional; using 0 to signal that it not needed. */
+> +	if (vmd_size != 0 &&
+> +	    (vmd_size < VMD_MIN_SIZE || vmd_size > VMD_MAX_SIZE))
+> +		return -EINVAL;
+> +
+> +	if (vped_size < VPED_MIN_SIZE || vped_size > VPED_MAX_SIZE)
+> +		return -EINVAL;
+> +
+> +	/* Allocate the tracking structure */
+> +	vmt_info = kzalloc_obj(*vmt_info, GFP_KERNEL);
+> +	if (vmt_info == NULL)
+> +		return -ENOMEM;
+> +
+> +	ida_init(&vmt_info->vm_id_ida);
+> +	vmt_info->max_vpes = max_vpes;
+> +	vmt_info->vmd_size = vmd_size;
+> +	vmt_info->vped_size = vped_size;
+> +	vmt_info->two_level = two_level;
+> +	vmt_info->num_entries = num_entries;
+> +
+> +	if (!two_level)
+> +		ret = vgic_v5_alloc_vmt_linear(num_entries);
+> +	else
+> +		ret = vgic_v5_alloc_vmt_two_level(num_entries);
+> +
+> +	/* If anything failed, free our tracking structure before returning */
+> +	if (ret) {
+> +		kfree(vmt_info);
+> +		vmt_info = NULL;
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+> +/*
+> + * Free the VMT and associated tracking structures. This isn't strictly expected
+> + * to be called in general operation, but instead exists for completeness.
+> + */
+> +int vgic_v5_vmt_free(void)
+> +{
+> +	if (!vgic_v5_vmt_allocated())
+> +		return -EINVAL;
+> +
+> +	if (!vmt_info->two_level) {
+> +		kfree(vmt_info->linear.vmt_base);
+> +	} else {
+> +		/* Free the L2 tables; kfree(NULL) is safe */
+> +		for (int i = 0; i < vmt_info->l2.num_l1_ents; ++i)
+> +			kfree(vmt_info->l2.l2ptrs[i]);
+> +		kfree(vmt_info->l2.l2ptrs);
+> +
+> +		/* And now free the L1 table */
+> +		kfree(vmt_info->l2.vmt_base);
+> +	}
+> +
+> +	ida_destroy(&vmt_info->vm_id_ida);
+> +	kfree(vmt_info);
+> +	vmt_info = NULL;
+> +
+> +	return 0;
+> +}
+> +
+> +/*
+> + * Look up a VMT Entry by VM ID.
+> + */
+> +static int vgic_v5_get_l2_vmte(u16 vm_id, struct vmtl2_entry **vmte)
+> +{
+> +	unsigned int l1_index, l2_index;
+> +	struct vmtl2_entry *l2_table;
+> +	int ret;
+> +
+> +	ret = vgic_v5_check_vm_id(vm_id);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (!vmt_info->two_level) {
+> +		/* All entries always valid for Linear table */
+> +		*vmte = &vmt_info->linear.vmt_base[vm_id];
+> +	} else {
+> +		l1_index = vm_id / GICV5_VMT_L2_TABLE_ENTRIES;
+> +		l2_index = vm_id % GICV5_VMT_L2_TABLE_ENTRIES;
+> +
+> +		if (l1_index > vmt_info->l2.num_l1_ents)
+> +			return -E2BIG;
+> +
+> +		if (vmt_info->l2.l2ptrs[l1_index] == NULL)
+> +			return -EINVAL;
+> +
+> +		l2_table = vmt_info->l2.l2ptrs[l1_index];
+> +		*vmte = &l2_table[l2_index];
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +/*
+> + * Zero a VMT Entry, and flush & invalidate to the PoC, if required.
+> + */
+> +static int vgic_v5_reset_vmte(struct kvm *kvm)
+> +{
+> +	u16 vm_id = vgic_v5_vm_id(kvm);
+> +	struct vmtl2_entry *vmte;
+> +	int ret;
+> +
+> +	ret = vgic_v5_get_l2_vmte(vm_id, &vmte);
+> +	if (ret)
+> +		return ret;
+> +
+> +	WRITE_ONCE(vmte->val[0], 0ULL);
+> +	WRITE_ONCE(vmte->val[1], 0ULL);
+> +	WRITE_ONCE(vmte->val[2], 0ULL);
+> +	WRITE_ONCE(vmte->val[3], 0ULL);
+> +
+> +	vgic_v5_clean_inval(vmte, sizeof(*vmte), true, true);
+> +
+> +	return 0;
+> +}
+> +
+> +/*
+> + * Use the IDA to allocate a new VM ID, and track it in the gicv5_vm data
+> + * structure. If we're out of VM IDs, the IDA catches that, and we return the
+> + * error (-ENOSPC).
+> + */
+> +int vgic_v5_allocate_vm_id(struct kvm *kvm)
+> +{
+> +	int id;
+> +
+> +	id = ida_alloc_max(&vmt_info->vm_id_ida, vmt_info->num_entries - 1u,
+> +			   GFP_KERNEL);
+> +	if (id < 0)
+> +		return id;
+> +
+> +	kvm->arch.vgic.gicv5_vm.vm_id = id;
+> +	kvm->arch.vgic.gicv5_vm.vm_id_valid = true;
+> +
+> +	return 0;
+> +}
+> +
+> +/*
+> + * Release the VM ID to allow it to be reallocated in the future.
+> + */
+> +void vgic_v5_release_vm_id(struct kvm *kvm)
+> +{
+> +	ida_free(&vmt_info->vm_id_ida, kvm->arch.vgic.gicv5_vm.vm_id);
+> +	kvm->arch.vgic.gicv5_vm.vm_id_valid = false;
+> +}
+> +
+> +/*
+> + * Initialise an entry in the VMT based on the index of the VM.
+> + *
+> + * Note: We don't mark the VMTE as valid as this needs to be done by
+> + * the hardware.
+> + */
+> +int vgic_v5_vmte_init(struct kvm *kvm)
+> +{
+> +	int nr_cpus = atomic_read(&kvm->online_vcpus);
+> +	struct vgic_v5_vm_info *vmi = NULL;
+> +	u16 vm_id = vgic_v5_vm_id(kvm);
+> +	void *vmd = NULL, *vpet = NULL;
+> +	struct vmtl2_entry *vmte;
+> +	void **vped_ptrs = NULL;
+> +	size_t vpet_alloc_size;
+> +	int ret;
+> +	u64 tmp;
+> +
+> +	if (nr_cpus > vmt_info->max_vpes)
+> +		return -E2BIG;
+> +
+> +	/*
+> +	 * If we're using two-level VMTs, L2 is allocated on demand. For linear
+> +	 * VMTs, this is a NOP.
+> +	 */
+> +	if (vgic_v5_alloc_l2_vmt(kvm))
+> +		return -EIO;
+> +
+> +	ret = vgic_v5_get_l2_vmte(vm_id, &vmte);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/* If the entry is already valid, something went wrong */
+> +	if (FIELD_GET(GICV5_VMTEL2E_VALID, le64_to_cpu(READ_ONCE(vmte->val[0])))) {
+> +		vgic_v5_clean_inval(vmte, sizeof(*vmte), true, true);
+> +		return -EINVAL;
+> +	}
+> +
+> +	ret = vgic_v5_reset_vmte(kvm);
+> +	if (ret)
+> +		return ret;
+> +
+> +	vmi = kzalloc_objs(*vmi, GFP_KERNEL);
+> +	if (vmi == NULL) {
+> +		ret = -ENOMEM;
+> +		goto out_fail;
+> +	}
+> +
+> +	ret = xa_insert(&vm_info, vm_id, vmi, GFP_KERNEL);
+> +	if (ret)
+> +		goto out_fail;
+> +
+> +	/* Allocate and assign the VM Descriptor, if required. */
+> +	if (vmt_info->vmd_size != 0) {
+> +		vmd = kzalloc(vmt_info->vmd_size, GFP_KERNEL);
+> +		if (!vmd) {
+> +			ret = -ENOMEM;
+> +			goto out_fail;
+> +		}
+> +
+> +		/* Stash the VA so we can free it later */
+> +		vmi->vmd_base = vmd;
+> +
+> +		tmp = FIELD_PREP(GICV5_VMTEL2E_VMD_ADDR,
+> +				virt_to_phys(vmd) >>
+> +				GICV5_VMTEL2E_VMD_ADDR_SHIFT);
+> +		WRITE_ONCE(vmte->val[0], cpu_to_le64(tmp));
+> +	}
+> +
+> +	/*
+> +	 * Allocate and assign the VPE Table. We can only describe the number of
+> +	 * VPE ID Bits in the VMTE, and therefore we round up the number of CPUs
+> +	 * to a whole power of two.
 
-     85 struct rpmsg_hdr {
-     86         __rpmsg32 src; // 400
-     87         __rpmsg32 dst; // 1026
-     88         __rpmsg32 reserved;
-     89         __rpmsg16 len;
-     90         __rpmsg16 flags;
-     91         u8 data[];
-     92 } __packed;
+This comment is a bit confusing, would try reword it somewhere along the lines of:
 
-Note: Remote firmware can also send messages from dynamically created
-endpoints on its side, and Linux can learn those in the same manner. The
-dynamic endpoint address is passed to the callback as 'u32 src'. So you
-could pass on the 'src' from rpmsg_gpio_channel_callback() to
-rpmsg_gpio_send_message() as 'dst' and call
-rpmsg_sendto(port->ept, msg, sizeof(*msg), dst) to reply to the dynamic
-endpoint on firmware's side.
+     Round up the number of CPUs to a whole power of two, as the VMTE describes the ID bits as log2()
+
+Something like that. "We can only describe the number of VPE ID Bits in the
+VMTE", the emphasis on 'Bits' is hard to make out.
+
+> +	 */
+> +	nr_cpus = roundup_pow_of_two(nr_cpus);
+> +	vmi->vpe_id_bits = fls(nr_cpus) - 1;
+> +
+> +	vpet_alloc_size = sizeof(vpe_entry) * nr_cpus;
+> +	vpet = kzalloc(vpet_alloc_size, GFP_KERNEL);
+
+kzalloc_objs()? Or is there some alignment thing here?
+
+> +	if (!vpet) {
+> +		ret = -ENOMEM;
+> +		goto out_fail;
+> +	}
+> +
+> +	/* Stash the VA so we can free it later */
+> +	vmi->vpet_base = vpet;
+> +
+> +	tmp = FIELD_PREP(GICV5_VMTEL2E_VPET_ADDR,
+> +			virt_to_phys(vpet) >> GICV5_VMTEL2E_VPET_ADDR_SHIFT);
+> +	tmp |= FIELD_PREP(GICV5_VMTEL2E_VPE_ID_BITS, vmi->vpe_id_bits);
+> +	WRITE_ONCE(vmte->val[1], cpu_to_le64(tmp));
+> +
+> +	vped_ptrs = kzalloc_objs(*vped_ptrs, nr_cpus, GFP_KERNEL);
+> +	if (vped_ptrs == NULL) {
+> +		ret = -ENOMEM;
+> +		goto out_fail;
+> +	}
+> +	vmi->vped_ptrs = vped_ptrs;
+> +
+> +	if (vmd)
+> +		vgic_v5_clean_inval(vmd, vmt_info->vmd_size, true, true);
+> +	vgic_v5_clean_inval(vpet, vpet_alloc_size, true, true);
+> +	vgic_v5_clean_inval(vmte, sizeof(*vmte), true, true);
+> +
+> +	kvm->arch.vgic.gicv5_vm.vmte_allocated = true;
+> +
+> +	return 0;
+> +
+> +out_fail:
+> +	/* kfree(NULL) is safe so we can just kfree() at leisure */
+> +	kfree(vmd);
+> +	kfree(vpet);
+> +	kfree(vped_ptrs);
+> +	if (vmi)
+> +		xa_erase(&vm_info, vm_id);
+> +	kfree(vmi);
+> +
+> +	vgic_v5_reset_vmte(kvm);
+> +
+> +	return ret;
+> +}
+> +
+> +/*
+> + * Release the VMT Entry, freeing up any allocated data structures before
+> + * zeroing the VMTE.
+> + *
+> + * The VMTE must be marked as invalid before it is released.
+> + */
+> +int vgic_v5_vmte_release(struct kvm *kvm)
+> +{
+> +	u16 vm_id = vgic_v5_vm_id(kvm);
+> +	struct vgic_v5_vm_info *vmi;
+> +	struct vmtl2_entry *vmte;
+> +	int ret;
+> +
+> +	ret = vgic_v5_get_l2_vmte(vm_id, &vmte);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/* Reject if the VMTE has not been marked as invalid! */
+> +	if (FIELD_GET(GICV5_VMTEL2E_VALID, le64_to_cpu(READ_ONCE(vmte->val[0])))) {
+> +		vgic_v5_clean_inval(vmte, sizeof(*vmte), true, true);
+> +		return -EINVAL;
+> +	}
+> +
+> +	vmi = xa_load(&vm_info, vm_id);
+> +	if (WARN_ON_ONCE(!vmi))
+> +		goto no_vmi;
+> +
+> +	kfree(vmi->vmd_base);
+> +	kfree(vmi->vpet_base);
+> +
+> +	xa_erase(&vm_info, vm_id);
+> +	kfree(vmi);
+> +
+> +no_vmi:
+> +	/*
+> +	 * If we didn't get far enough into allocating a VMTE to create the VM
+> +	 * info structure, then we just zero the VMTE and move on. There's
+> +	 * nothing else we can realistically do here.
+> +	 */
+> +	ret = vgic_v5_reset_vmte(kvm);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return 0;
+> +}
+> +
+> +/*
+> + * Allocate a VPE descriptor and provide it to the hardware via the VPE Table.
+> + */
+> +int vgic_v5_vmte_alloc_vpe(struct kvm_vcpu *vcpu)
+> +{
+> +	u16 vm_id = vgic_v5_vm_id(vcpu->kvm);
+> +	u16 vpe_id = vgic_v5_vpe_id(vcpu);
+> +	struct vgic_v5_vm_info *vmi;
+> +	vpe_entry tmp, *vpet_base;
+> +	void *vped;
+> +
+> +	/* Make sure we're not over what the hardware supports */
+> +	if (vpe_id >= vmt_info->max_vpes)
+> +		return -E2BIG;
+> +
+> +	vmi = xa_load(&vm_info, vm_id);
+> +	if (WARN_ON_ONCE(!vmi))
+> +		return -EINVAL;
+> +
+> +	if (vpe_id >= 1 << vmi->vpe_id_bits)
+> +		return -E2BIG;
+> +
+> +	vpet_base = vmi->vpet_base;
+> +
+> +	/* If the VPETE for this CPU is already valid we've gone wrong */
+> +	if (FIELD_GET(GICV5_VPE_VALID, le64_to_cpu(READ_ONCE(vpet_base[vpe_id])))) {
+> +		vgic_v5_clean_inval(&vpet_base[vpe_id], sizeof(*vpet_base), true, true);
+> +		return -EBUSY;
+> +	}
+> +
+> +	/* Alloc VPE Descriptor. Only used by IRS. */
+> +	vped = kzalloc(vmt_info->vped_size, GFP_KERNEL);
+> +	if (vped == NULL)
+> +		return -ENOMEM;
+> +
+> +	vmi->vped_ptrs[vpe_id] = vped;
+> +
+> +	tmp = FIELD_PREP(GICV5_VPED_ADDR, virt_to_phys(vped) >> GICV5_VPED_ADDR_SHIFT);
+> +	WRITE_ONCE(vpet_base[vpe_id], cpu_to_le64(tmp));
+> +
+> +	vgic_v5_clean_inval(vped, vmt_info->vped_size, true, true);
+> +	vgic_v5_clean_inval(vpet_base + vpe_id, sizeof(vpe_entry), true, true);
+> +
+> +	return 0;
+> +}
+> +
+> +/*
+> + * Free the memory allocated for the VPE descriptor.
+> + */
+> +int vgic_v5_vmte_free_vpe(struct kvm_vcpu *vcpu)
+> +{
+> +	u16 vm_id = vgic_v5_vm_id(vcpu->kvm);
+> +	u16 vpe_id = vgic_v5_vpe_id(vcpu);
+> +	struct vgic_v5_vm_info *vmi;
+> +	struct vmtl2_entry *vmte;
+> +	vpe_entry *vpet_base;
+> +	void *vped;
+> +	int ret;
+> +
+> +	ret = vgic_v5_get_l2_vmte(vm_id, &vmte);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (FIELD_GET(GICV5_VMTEL2E_VALID, le64_to_cpu(READ_ONCE(vmte->val[0])))) {
+> +		vgic_v5_clean_inval(vmte, sizeof(*vmte), true, true);
+> +		return -EBUSY;
+> +	}
+> +
+> +	vmi = xa_load(&vm_info, vm_id);
+> +	if (!vmi)
+> +		return -EINVAL;
+> +
+> +	if (vpe_id >= 1 << vmi->vpe_id_bits)
+> +		return -E2BIG;
+> +
+> +	vpet_base = vmi->vpet_base;
+> +	WRITE_ONCE(vpet_base[vpe_id], 0ULL);
+> +
+> +	vgic_v5_clean_inval(vpet_base + vpe_id, sizeof(vpe_entry), true, true);
+> +
+> +	/* Free VPE Descriptor. Only used by IRS. */
+> +	vped = vmi->vped_ptrs[vpe_id];
+> +	vmi->vped_ptrs[vpe_id] = NULL;
+> +	kfree(vped);
+> +
+> +	return 0;
+> +}
+> diff --git a/arch/arm64/kvm/vgic/vgic-v5-tables.h b/arch/arm64/kvm/vgic/vgic-v5-tables.h
+> index cf00a248eabd5..5501a44308362 100644
+> --- a/arch/arm64/kvm/vgic/vgic-v5-tables.h
+> +++ b/arch/arm64/kvm/vgic/vgic-v5-tables.h
+> @@ -8,6 +8,86 @@
+>  
+>  #include <linux/irqchip/arm-gic-v5.h>
+>  
+> +#define VM_ID_BITS_MIN	8
+> +#define VM_ID_BITS_MAX	16
+> +#define VMD_MIN_SIZE	8
+> +#define VMD_MAX_SIZE	4096
+> +#define VPED_MIN_SIZE	8
+> +#define VPED_MAX_SIZE	4096
+> +#define VPE_ID_BITS_MIN	8
+> +#define VPE_ID_BITS_MAX	16
+> +
+> +/* Level 1 Virtual Machine Table Entry */
+> +typedef __le64 vmtl1_entry;
+> +#define GICV5_VMTEL1E_VALID		BIT_ULL(0)
+> +/* Note that there is no shift for the address by design */
+> +#define GICV5_VMTEL1E_L2_ADDR		GENMASK(51, 12)
+> +
+> +#define GICV5_VMTEL2E_SIZE		32ULL
+> +/* An L2 table (two-level VMT) is ALWAYS 4kB! */
+> +#define GICV5_VMT_L2_TABLE_SIZE		4096ULL
+> +#define GICV5_VMT_L2_TABLE_ENTRIES	(GICV5_VMT_L2_TABLE_SIZE / GICV5_VMTEL2E_SIZE)
+> +
+> +/* Level 2 Virtual Machine Table Entry */
+> +struct vmtl2_entry {
+> +	__le64 val[4];
+> +};
+> +
+> +/*
+> + * As the L2 VMTE is a large data structure, we are splitting it into 4 parts.
+> + * We only mask and shift WITHIN each part for simplicity.
+> + */
+> +/* First 64-bit chunk */
+> +#define GICV5_VMTEL2E_VALID		BIT_ULL(0)
+> +#define GICV5_VMTEL2E_VMD_ADDR_SHIFT	3ULL
+> +#define GICV5_VMTEL2E_VMD_ADDR		GENMASK_ULL(55, 3)
+> +/* Second 64-bit chunk */
+> +#define GICV5_VMTEL2E_VPET_ADDR_SHIFT	3ULL
+> +#define GICV5_VMTEL2E_VPET_ADDR		GENMASK_ULL(55, 3)
+> +#define GICV5_VMTEL2E_VPE_ID_BITS	GENMASK_ULL(63, 59)
+> +/* Third & fourth 64-bit chunks (the encodings are the same for each) */
+> +#define GICV5_VMTEL2E_IST_VALID		BIT_ULL(0)
+> +#define GICV5_VMTEL2E_IST_L2SZ		GENMASK_ULL(2, 1)
+> +#define GICV5_VMTEL2E_IST_ADDR_SHIFT	6ULL
+> +#define GICV5_VMTEL2E_IST_ADDR		GENMASK_ULL(55, 6)
+> +#define GICV5_VMTEL2E_IST_ISTSZ		GENMASK_ULL(57, 56)
+> +#define GICV5_VMTEL2E_IST_STRUCTURE	BIT_ULL(58)
+> +#define GICV5_VMTEL2E_IST_ID_BITS	GENMASK_ULL(63, 59)
+> +
+> +/* Virtual PE Table Entry */
+> +typedef __le64 vpe_entry;
+> +#define GICV5_VPE_VALID			BIT_ULL(0)
+> +/* Note that there is no shift for the address by design. */
+> +#define GICV5_VPED_ADDR_SHIFT		3ULL
+> +#define GICV5_VPED_ADDR			GENMASK_ULL(55, 3)
+> +
+> +struct vgic_v5_vm_info {
+> +	void __iomem		*vmd_base;
+> +	vpe_entry __iomem	*vpet_base;
+> +	void __iomem		**vped_ptrs;
+> +	u8			vpe_id_bits;
+> +};
+> +
+> +struct vgic_v5_vmt {
+> +	union {
+> +		struct {
+> +			struct vmtl2_entry *vmt_base;
+> +			unsigned int num_ents;
+> +		} linear;
+> +		struct {
+> +			vmtl1_entry *vmt_base;
+> +			struct vmtl2_entry **l2ptrs;
+> +			unsigned int num_l1_ents;
+> +		} l2;
+> +	};
+> +	bool		two_level;
+> +	unsigned int	num_entries;
+> +	unsigned int	max_vpes;
+> +	size_t		vmd_size;
+> +	size_t		vped_size;
+> +	struct ida	vm_id_ida;
+> +};
+> +
+>  struct vgic_v5_host_ist_caps {
+>  	/* IST Capabilities */
+>  
+> @@ -38,4 +118,32 @@ static inline struct vgic_v5_host_ist_caps *vgic_v5_host_caps(void)
+>  	return &gicv5_host_ist_caps;
+>  }
+>  
+> +static inline u16 vgic_v5_vm_id(struct kvm *kvm)
+> +{
+> +	return kvm->arch.vgic.gicv5_vm.vm_id;
+> +}
+> +
+> +static inline u16 vgic_v5_vpe_id(struct kvm_vcpu *vcpu)
+> +{
+> +	return vcpu->vcpu_id;
+> +}
+> +
+> +static inline int vgic_v5_vpe_db(struct kvm_vcpu *vcpu)
+> +{
+> +	return vcpu->arch.vgic_cpu.vgic_v5.gicv5_vpe.db;
+> +}
+> +
+> +int vgic_v5_vmt_allocate(bool two_level, unsigned int num_entries,
+> +			 size_t vmd_size, size_t vped_size,
+> +			 unsigned int vpe_id_bits);
+> +int vgic_v5_vmt_free(void);
+> +
+> +int vgic_v5_allocate_vm_id(struct kvm *kvm);
+> +void vgic_v5_release_vm_id(struct kvm *kvm);
+> +
+> +int vgic_v5_vmte_init(struct kvm *kvm);
+> +int vgic_v5_vmte_release(struct kvm *kvm);
+> +int vgic_v5_vmte_alloc_vpe(struct kvm_vcpu *vcpu);
+> +int vgic_v5_vmte_free_vpe(struct kvm_vcpu *vcpu);
+> +
+>  #endif
+> diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
+> index 05dbd01f6fd21..0bcbc751593cc 100644
+> --- a/include/kvm/arm_vgic.h
+> +++ b/include/kvm/arm_vgic.h
+> @@ -372,6 +372,8 @@ struct vgic_v5_vm {
+>  	int			vpe_db_base;
+>  	int			nr_vpes;
+>  	u16			vm_id;
+> +	bool			vm_id_valid;
+> +	bool			vmte_allocated;
+>  };
+>  
+>  struct vgic_dist {
+> diff --git a/include/linux/irqchip/arm-gic-v5.h b/include/linux/irqchip/arm-gic-v5.h
+> index 087d94f739672..89579ee04f5d1 100644
+> --- a/include/linux/irqchip/arm-gic-v5.h
+> +++ b/include/linux/irqchip/arm-gic-v5.h
+> @@ -182,6 +182,7 @@
+>  #define GICV5_IRS_MAP_L2_ISTR_ID	GENMASK(23, 0)
+>  
+>  #define GICV5_ISTL1E_VALID		BIT_ULL(0)
+> +#define GICV5_IRS_ISTL1E_SIZE		8UL
+>  
+>  #define GICV5_ISTL1E_L2_ADDR_MASK	GENMASK_ULL(55, 12)
+>  
+> @@ -444,4 +445,16 @@ void gicv5_free_lpi(u32 lpi);
+>  
+>  void __init gicv5_its_of_probe(struct device_node *parent);
+>  void __init gicv5_its_acpi_probe(void);
+> +
+> +enum gicv5_vcpu_info_cmd_type {
+> +	VMT_L2_MAP,		/* Map in a L2 VMT - *may* happen on VM init */
+> +	VMTE_MAKE_VALID,	/* Make the VMTE valid */
+> +	VMTE_MAKE_INVALID,	/* Make the VMTE (et al.) invalid */
+> +};
+> +
+> +struct gicv5_cmd_info {
+> +	enum gicv5_vcpu_info_cmd_type	cmd_type;
+> +	u64				data;
+> +};
+> +
+>  #endif
 
 Thanks,
-Beleswar
-
->
-> Is this handled automatically by the rpmsg stack software, or does it require explicit support
-> on the remote system to exchange and track endpoint addresses?
->
-> Thanks,
-> Shenwei
->
->> endpoint (rpdev->ept) which is also dynamic[1] and is created when the channel
->> is created. And you receive the responses correctly. (Unless you have hard-coded
->> the default ept address in the firmware)
->>
->> [1]:
->> https://github.co/
->> m%2Ftorvalds%2Flinux%2Fblob%2Fmaster%2Fdrivers%2Frpmsg%2Frpmsg_core.
->> c%23L480&data=05%7C02%7Cshenwei.wang%40nxp.com%7C4ec06bf01bb14dd
->> 2625708dea5387471%7C686ea1d3bc2b4c6fa92cd99c5c301635%7C0%7C0%7C6
->> 39129859078622527%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRyd
->> WUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%
->> 3D%7C0%7C%7C%7C&sdata=OUmjqOdWqiXSTjPDv1TUvrjKP1YTx9ji44SdGlIR2n
->> Q%3D&reserved=0
->> (chinfo.src is RPMSG_ADDR_ANY)
->>
->> Thanks,
->> Beleswar
->>
->>> If the remote side does not need any extra support, this would be an excellent
->> solution.
->>> Thanks,
->>> Shenwei
->>>
->>>> 3. Send msgs from local ept in rpmsg_gpio_send_message() by:
->>>>       rpmsg_send(port->ept, msg, sizeof(*msg));
->>>>
->>>> 4. Get the port info in rpmsg_gpio_channel_callback() by:
->>>>       struct rpmsg_gpio_port *port = priv;
->>>>
->>>> Which also eliminates the need for struct rpdev_drvdata as you can
->>>> just do
->>>> rpmsg_get_rproc_node_name(rpdev) from rpmsg_gpiochip_register().
->>>>
+Joey
 
