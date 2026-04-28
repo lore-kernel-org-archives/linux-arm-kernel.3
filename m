@@ -4,96 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8ED2FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 15:06:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EB1EFF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 15:08:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OfbUgiQnGWlnScYJSuysWPKlVFUYfQRRK1nJfSaqXew=; b=nrYtbbeWq8E8bu7NifG/xlCuDq
-	qbDLqA/dn/0cwQN1UZHSK4WrzE1SL0GMHT8h4CNX0EHQ6GWWfBIFse1A5yBL0ReQg8nyxgAQ3kIyr
-	vBTPf+/dI9CKPkL+iTgILWeChTS4xyivRmrBlgvGVju2kzun3G3VUtDFVjRM6DQINnjK+6gTGH4Cj
-	DOPj7+3G6txebCVd9O8bXBaMkPztyNWFfXezkSH1ARyqnlugKoPxCz3UUxmsPaAttdnQqzRJYtOb4
-	UenZhkBlNUpmxTNttGD7RG8aCx5bZr0Zi4UkkPzp50Vt8eCSfbt3p0NTv7erVdbXgekUgxX4eWHt0
-	MItg50PQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lQvr3HqZaYp+UEyF/WHggwgU/+Wku1+tGGZLVfhVsJ0=; b=B3E0Krax8B7InNWZALPipNrptJ
+	V69O8SHHKxZ9OBOv2omanVDefDGHCjREaod7avZNgo0w9f4l8gpbhbiO1U43A/nXbYITwLavfRkdj
+	Qsk8fA49W5LUkEuFdXJXik0ePArcWehoDN8Jom2zI0oJ77Jza9NJHSo9xU6aDvdiU/yIhh4ok1VAW
+	vjX9AAxIpwrRDrOc7IzqDLOaIZE4p5yzO6hat9o0B9JDYxZPg1lq5cvlrq5my4wDMsCru7AesfRA+
+	B95CMSWkNaL6d5UXrsqjsQHGJeUljCr0Ta/9FsIv5Q4K8jCpiTx8CU+X1mvtQKFPdFAhsQjVJQoC8
+	9pRjFJBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHk0k-00000001hqN-2QWP;
-	Tue, 28 Apr 2026 15:06:06 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1wHk2b-00000001hzB-19ZW;
+	Tue, 28 Apr 2026 15:08:01 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHk0h-00000001hq1-10N8
+	id 1wHk2Y-00000001hyL-0qRB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 15:06:05 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-35d965648a2so10349894a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 08:06:02 -0700 (PDT)
+	Tue, 28 Apr 2026 15:07:59 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63SA2s4j984964
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 15:07:57 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	lQvr3HqZaYp+UEyF/WHggwgU/+Wku1+tGGZLVfhVsJ0=; b=ZCsSoChGlKhfmAsA
+	HZgYdwPv9KNoOwnzQKU5JsawlehAw7BIfRIsxCDfxisRqIrhj0q8aUsa4yFx6+Z+
+	VRjFASQgTzz/6ez0t5C4PWhVoCGxr8W1ww5/4f/lM/dTxIioJFIQ+XpKi0OtL73J
+	7Mmo/ErQOeFbAdaMVK5ZQm9HPQDBbB15j9sbhA4mhjFp0XohDDy9lSU3uqrGlgq2
+	INlcD6Re7EkQRUdCvVrt+0dJgEs9wG/DBrupKRrslMIsHrgCnfsP233RuflXc8Yp
+	HMKfP418NcCBHMLO5Tr0FIug/FKkA0S3UrX4k3aRWY0q5Vx53WAJhttTSwLOyPGC
+	wubAnQ==
+Received: from mail-ua1-f72.google.com (mail-ua1-f72.google.com [209.85.222.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dttt2s8gw-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 15:07:57 +0000 (GMT)
+Received: by mail-ua1-f72.google.com with SMTP id a1e0cc1a2514c-94ad0ada31bso19796046241.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 08:07:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1777388762; x=1777993562; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=OfbUgiQnGWlnScYJSuysWPKlVFUYfQRRK1nJfSaqXew=;
-        b=GEybo8MW63zL4jdmGHEnge7UCwgtaFYtIZxGOkwR6HiR6hFkUoSyZEQriikqtJeh4G
-         MQSzjFzGQGoWwhmGbR3yevwgONmTV+PWL8xW989BeulDaWbemicnQl75AOoX0ZIc9387
-         xlzXK6AOEYy9adMRhhHdBTQYi8e6F0HHpvB2qWo4y4Td8IhgVZKw/95IGvfoAiJYZTnm
-         s/40OGe5sqwbGuDJvC0X+IGQwFVZYJQTWn9s1EOELAQXERUbilkLcu27g6HpRFxu6Pqi
-         VJIk97XHgx4AcSPGtUPMY0WWkxYZKHlYN/gBbpLwCfYBz1gxRj1IJObmCX2nhnlhKV0Z
-         Q7SQ==
+        d=oss.qualcomm.com; s=google; t=1777388876; x=1777993676; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=lQvr3HqZaYp+UEyF/WHggwgU/+Wku1+tGGZLVfhVsJ0=;
+        b=FeoF+0J7IjPQFi630720PSIZOBfqHowiMyb70TBg9Vh3sYuq2qp9L4OLbAiYI2zxQl
+         3ou4eHylIPyjP2jV4GTEt/NIgIKfnBimP1+XfV1m1CN+i41zustqjnnWfwbfIhhupFl5
+         y8/FMjBomVFndrG62sLskngZdzWASRVL6tNyz0NJSzBrWcaodr4TxWXCgp/aZbafWisR
+         cvSf/YeSN/dXO9aC220JNLpg2AmlUnLkR4wGpCafNaFftN0mhbcSovC1lA3o7RhAuLBg
+         1lKhedqaWR9XWMrYFWE4mVpYDcvEuPXEQHiM5jrcLbtMcfE6Aac18SRVg6+qt7LMU75W
+         6oFw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777388762; x=1777993562;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=OfbUgiQnGWlnScYJSuysWPKlVFUYfQRRK1nJfSaqXew=;
-        b=cZZIYjcd6V0wpmVRUGAe/8W/mtJDrk4N90uQ+aSY2RR7W/0naP5CAtDAnt11W+1ODb
-         v5ChPmvw3MSUuHhfBA93F7bzJ60Ou3Pl3I0QQUK4xEcvR9+Lx/s4WzBCmR7WbZkOo/kI
-         j81pVFTDqiOKynv3Dhdr99WY+eZgXiAjKr/ho2EaJgX/K4lGNvusmzcxdGNnpMu0kXti
-         Pa5E4g/wHS/qFV63C8r/GtXaGy8EQJ+MS62fjpAK9Yb0OkG6y9loSbj9l0Gorlkp9LRX
-         gOLX+do2ihelZvbaN2d4q1D9BYLef2CTZsGoHDRkYNBHGxh35ZTNySGSIDlEjEOcAlpO
-         MtaA==
-X-Forwarded-Encrypted: i=1; AFNElJ/Ch7ymVAvEZ2gA9Bk4z3U2L6AcXZC2zr9kZjaPGBGseRzZ4jvFc7QAPYonf/avB+pr8mkNIzaUcqPopfttNs19@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx0vk0qFZPiV43/4mQHreZHPcvd+BEnDGZpUeKvwqfXL0bZsJ5D
-	356py4JxwwTYfwmGxnAtny4R5XXC9P71VSRazl+ArkX8EqeJZ+t6WHGGXb+Lk7LHJRM=
-X-Gm-Gg: AeBDievNeomppmpSbxFABbSsrYzjQdgicHZeOsezMkPEUsbxWxFQoRcdtbd6mifhBGE
-	LRup6GmZtx70JMo14PNyPvO+bZvB4KZ8Sm0VXT1i1C45hgeW+eghM0iXec0ZlwPVg3Snht0BzXg
-	fXBWLSaFztR07+u1PlYTj40WIq6eCjDdehEmoSKJvVPeax/JSuo05kCocmKxDpVSVxqrZSyhh88
-	473+/N3KLNSubj4PXrL/CQsgzy8f8OWziYZs79jsvLf0PAhzhTvWuiMzbRM2H9mu+7ZGBkrktB0
-	qIKNaEjH54cL4fYNX+APtPa9QU4MLpC90VW8HpoClczT+FOlePtDS6zgxSPxDAp6WTntMfuRl5t
-	gFw1t38A4hvlJQ62YyeNAFjA2KEnvUQZUbJAsUAubcy9C3stnD2kEHN06MOlg4BmalaJQeyb9GH
-	OXMyGHrddkgkm1jAoF2EFpj9vwn7oUz9ulJDJFRw==
-X-Received: by 2002:a17:90b:5291:b0:35d:a90d:580e with SMTP id 98e67ed59e1d1-36492046369mr3453884a91.23.1777388761787;
-        Tue, 28 Apr 2026 08:06:01 -0700 (PDT)
-Received: from p14s ([2604:3d09:148c:c800:a4ee:17e1:59a1:f1e1])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b97aa7b9d2sm29165775ad.11.2026.04.28.08.05.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Apr 2026 08:06:01 -0700 (PDT)
-Date: Tue, 28 Apr 2026 09:05:57 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v4 0/3] Add i.MX94 remoteproc support and reset vector
- handling improvements
-Message-ID: <afDM1Vhw77l3zpCr@p14s>
-References: <20260427-imx943-rproc-v4-0-68d7c7253acd@nxp.com>
+        d=1e100.net; s=20251104; t=1777388876; x=1777993676;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=lQvr3HqZaYp+UEyF/WHggwgU/+Wku1+tGGZLVfhVsJ0=;
+        b=qivSzx8yVQe9URP+c8x5nwpBUoREJQB6+LF19+OnvR3BTve+b6qdaluLRVe/pzlDK+
+         WKlCEB6uUIDjfgVivfJYliN0e89Bi+W8KSbc0tfH/7dV2LONoU1vplEWio6HTadownAB
+         wSnIWfGQQWet6iSfRggnJbrdeK2rHLNpQonPUwd8zvrYIJS6DsVbS0oJXF67cZfITfEa
+         UDnNDURPSU3MYxCH7oiZazTW+hiT7h9DGMHaXmWOHt9klrS6LfbU2CVQH6lPoGx1TxjI
+         aygczIWSjEKzty69duLCLTNQf7lE89mKLftQmElCE2c2yR1iRq5EX1ExKXQGEjx5CRCQ
+         d8Jw==
+X-Forwarded-Encrypted: i=1; AFNElJ/4u/FMg4rpX3YTLGlLDOlfLPQrqPSM8BdG5Trw5T2aeA7vURgfSIvjUic/iCs2hNVR6n+NdOcCvImMlaKaJh/Q@lists.infradead.org
+X-Gm-Message-State: AOJu0YwiYeNMDrjkzJjX+aH2jY3D+E7R/C5zuGNwcFVoUYeB+DnF36nD
+	rCyeLrdMbbKaFkxWq6xqf+3t/VjR6ErRj7aflVMRM6QtSgqn+VL86EauIBlsO29JlilcPcjgUfj
+	QYD2fB1t5AuarYmEvJdoqIplUHzSc0HQhHGa4tMdKsLRcKQaVAjKPu/UyvQjUW8Bz7QCu9A9J3w
+	3O5fKfIjT9cw==
+X-Gm-Gg: AeBDieulsKOdab3yl4bF69ii6c+WaZRCYPswcysNdQxEreVzQXDPAhDPSKJ6nDTqYCz
+	S5l/mc9m4Z0fVYwAB76Qu5ksu4kMgOHEYMeh9Iv9kYY0j8eVm9k5rdecGl4Cfa4jgVJaZEidEJx
+	PIL5SUoOre1RWQQn6jyt/uCpl/TrcyTTQ6TLg1XvhIBiRsQ+TDxz8e/r1+VkSJfLIeOUoQXKDq4
+	GCwWZHzLlEx7snEkUe9rl9Gfqqz0Crzkxj530r3rfXscDwZOG6PHkSPZxfFBUk0szp/0A7BGalF
+	3s7hb+rbCgCaLLCX/p2EfhERPB12CQuqhAk/WLDHPnUyEDPrLVYz0cpwSCvs0SDuxaePD0849tb
+	aTaJRW/Q8xT5zCnqzaujpXp3PBHb8ocMqtF/5/bfdlMMrKw2cmqEpYKMi+JA=
+X-Received: by 2002:a05:6102:2d01:b0:600:3b3e:681a with SMTP id ada2fe7eead31-62800ef9c07mr1263545137.14.1777388876439;
+        Tue, 28 Apr 2026 08:07:56 -0700 (PDT)
+X-Received: by 2002:a05:6102:2d01:b0:600:3b3e:681a with SMTP id ada2fe7eead31-62800ef9c07mr1263490137.14.1777388875934;
+        Tue, 28 Apr 2026 08:07:55 -0700 (PDT)
+Received: from [192.168.1.29] ([178.197.219.94])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4463cb59e90sm6722120f8f.3.2026.04.28.08.07.54
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 28 Apr 2026 08:07:54 -0700 (PDT)
+Message-ID: <bb0e5f69-d451-4d95-8a4e-38d18582ccb2@oss.qualcomm.com>
+Date: Tue, 28 Apr 2026 17:07:53 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260427-imx943-rproc-v4-0-68d7c7253acd@nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm: mediatek: MAINTAINERS: Include SoC bindings
+To: Matthias Brugger <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-mediatek@lists.infradead.org
+References: <20260329085353.8649-2-krzysztof.kozlowski@oss.qualcomm.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Content-Language: en-US
+Autocrypt: addr=krzysztof.kozlowski@oss.qualcomm.com; keydata=
+ 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
+ cwzYbmi/Et7T2+47PN9NZAOyb771QoVr8A==
+In-Reply-To: <20260329085353.8649-2-krzysztof.kozlowski@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=HbIkiCE8 c=1 sm=1 tr=0 ts=69f0cd4d cx=c_pps
+ a=ULNsgckmlI/WJG3HAyAuOQ==:117 a=gOEeR9iKwsj33Yj5oN/cWg==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=EUspDBNiAAAA:8 a=iRksgOEJMbIMnSfDDU0A:9 a=QEXdDO2ut3YA:10
+ a=1WsBpfsz9X-RYQiigVTh:22
+X-Proofpoint-ORIG-GUID: 7Z7JgyLtxp3Sva5N9nOpWx6_KD3UG-9I
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI4MDE0MyBTYWx0ZWRfX5g8gvpNmtb9K
+ ki+AqKrb8/mbmJ4HouaVhBMMi782ACa2sl0f9v1bpO5j3JzyAYetIluKY2xqsPwqUQpiYfuk10d
+ ZEPUJd524uRTtu8v0rxiNRhRS7+JFQt6a1a2853v84mQ1L2bSKSKf+gTo1MBSTrBgAumh0Rw9am
+ BmvwcIriIQryvjXDWhVdlm9JO5UfBPRuYT+JImf4GseiOBwOiejs13MK/ssoPpRlownoofzdTop
+ wo3A30yKmQ4vGk6Kw43Jzeo9dIIegcl2ccRlP6z3JmkFm6e4h294f1+RxHiuwtyPJ6U4RcJUrZT
+ sJKDiRM0naoDG6PrA03ATe+Ocx5WgKb9es7RpxC0Gc0v+oTUAFIqkCH0TpyGMHlbCywyA+UYXWa
+ 53KYOelHjqgqMqSFlB9Q31FF2bLA16O99AGC4AoFYj6b20XJcppaJCiCScYzLtTmXPBr0kL+YAB
+ 3z90tALCfD+Ub5LPzug==
+X-Proofpoint-GUID: 7Z7JgyLtxp3Sva5N9nOpWx6_KD3UG-9I
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-28_04,2026-04-28_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 malwarescore=0 suspectscore=0 adultscore=0 clxscore=1015
+ bulkscore=0 lowpriorityscore=0 spamscore=0 impostorscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604280143
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_080603_300734_0A2DAB81 
-X-CRM114-Status: GOOD (  27.57  )
+X-CRM114-CacheID: sfid-20260428_080758_268068_784B33B6 
+X-CRM114-Status: GOOD (  14.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,86 +190,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 27, 2026 at 10:41:23AM +0800, Peng Fan (OSS) wrote:
-> This series adds remoteproc support for the i.MX94 family, including the
-> CM70, CM71, and CM33S cores, and derive the hardware reset vector for
-> Cortex‑M processors whose ELF entry point does not directly correspond to
-> the actual reset address.
+On 29/03/2026 10:53, Krzysztof Kozlowski wrote:
+> The ARM/ARM64 Mediatek SoC maintainer entry misses bindings directory
+> for SoC devices.
 > 
-> Background:
-> Cortex‑M processors fetch their initial SP and PC from a fixed reset vector
-> table. While ELF images embed the entry point (e_entry), this value is
-> not always aligned to the hardware reset address. On platforms such as
-> i.MX94 CM33S, masking is required to compute the correct reset vector
-> address before programming the SoC reset registers.
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 > 
-> Similarly, on i.MX95, the existing implementation always programs a reset
-> vector of 0x0, which only works when executing entirely from TCM. When
-> firmware is loaded into DDR, the driver must pass the correct reset vector
-> to the SM CPU/LMM interfaces.
-> 
-> Summary of patches:
-> [1]dt-bindings: remoteproc: imx-rproc: Introduce fsl,reset-vector-mask
-> Adds a new DT property allowing SoCs to specify a mask for deriving the
-> hardware reset vector from the ELF entry point.
-> 
-> [2]remoteproc: imx_rproc: Program non-zero SM CPU/LMM reset vector
-> Ensures the correct reset vector is passed to SM APIs by introducing a
-> helper (imx_rproc_sm_get_reset_vector()) that applies the reset‑vector
-> mask.
-> 
-> [3]remoteproc: imx_rproc: Add support for i.MX94 remoteproc
-> Adds address translation tables and configuration data for CM70, CM71,
-> and CM33S, enabling full remoteproc operation on i.MX94.
-> 
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 > ---
-> Changes in v4:
-> - Daniel raised the M33S secure region was not included, but since I not
->   have image to test secure region, so drop the Secure alias region for
->   all. Updated DDR region. R-b kept since this is a minor change.
-> - Add R-b for patch 2
-> - Link to v3: https://lore.kernel.org/r/20260415-imx943-rproc-v3-0-9fa7528db8ca@nxp.com
->
+> 
+> FYI, there are already patches on the list which used get_maintainers.pl
+> script and did not CC Mediatek maintainers, so they might get
+> forgotten/missed.
+> 
 
-I have applied this set.
- 
-> Changes in v3:
-> - Patch 2: 
->   Drop R-b because of changes in V3
-> 
->   Following suggestion from Mathieu that apply reset vector in
->   scmi_imx_[cpu,lmm]_reset_vector_set(), not change the meaning of
->   rproc->bootaddr, add helper imx_rproc_sm_get_reset_vector() to get reset
->   vector and use the hlper in scmi_imx_[cpu,lmm]_reset_vector_set().
-> 
->   Add reset-vector-mask for i.MX95 CM7 to avoid breaking i.MX95 CM7
->   boot.
-> 
-> - Link to v2: https://lore.kernel.org/r/20260327-imx943-rproc-v2-0-a547a3588730@nxp.com
-> 
-> Changes in v2:
-> - Drop fsl,reset-vector-mask by using fixed value in driver for per device
-> - Add R-b for i.MX94 dt-binding
-> - Update commit log to include dev addr and sys addr
-> - Link to v1: https://lore.kernel.org/r/20260312-imx943-rproc-v1-0-3e66596592a8@nxp.com
-> 
-> ---
-> Peng Fan (3):
->       dt-bindings: remoteproc: imx-rproc: Support i.MX94
->       remoteproc: imx_rproc: Program non-zero SM CPU/LMM reset vector
->       remoteproc: imx_rproc: Add support for i.MX94
-> 
->  .../bindings/remoteproc/fsl,imx-rproc.yaml         |  3 +
->  drivers/remoteproc/imx_rproc.c                     | 92 +++++++++++++++++++++-
->  drivers/remoteproc/imx_rproc.h                     |  2 +
->  3 files changed, 95 insertions(+), 2 deletions(-)
-> ---
-> base-commit: 724699d8d0523909da51fda8d1e10c1ff867b280
-> change-id: 20260311-imx943-rproc-2050e00b65f7
-> 
-> Best regards,
-> -- 
-> Peng Fan <peng.fan@nxp.com>
-> 
+This patch did not receive any comments from Mediatek maintainers - do
+you plan to apply it?
+
+Best regards,
+Krzysztof
 
