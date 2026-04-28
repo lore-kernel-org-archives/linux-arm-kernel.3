@@ -4,61 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED6B9FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 20:24:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EE32FF886D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 20:26:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OAY68vAtaRCOLH1dvRkRkALPnrOOXodvAp4UKmGj6dQ=; b=4iZ54B5Oal4pMaxdElwg+79v+u
-	tkcj7hXnnVclSYJCTbNL2NoxAKOxCxaF/GNRzajCSPXoRbbylpGbXYftkLbJBtcKYWgMNPfe1Ll2L
-	eQVELHgTU0goRGr8/1tfN0Gmf/PHhjjpBEfI9/ShkwRzIWPoGThmxWb42IKmmJZwdjYB2Jx2QcNkM
-	YTwrwD9eKWKJ6+2AAzk5ceT+LifyZQUu9amtJOjQD2VJ3Ymkr7IcPvBQucE1O+r0Ec/FhWsJgzLrz
-	UNy8yD7HI+QMVfj0nhbb88NnG21+weJtRFWjUwDMysGHgUOQoN3f5xy0XEo7Tz+mfyYOGv25SvltE
-	af1UIRMQ==;
+	bh=U2z5CJStQaZH5C1yDNgwonipIcrAGaww4SYiAIYI8F8=; b=LTwzVMLVtkrQz7UbC0zeDPKkum
+	xehn2JFFGm2DQ7MAC4p0bJZB7PZ5dOBWUizj8PPsjH1t7uV/pniPSOVwEhRuEAxWmFgC8qso4+lTW
+	NICwq6+FHdwjZKg2dcflxRFwanZvcfQ3QQVNk9VGur906JfAv5MfWcvPvQPApWJqMrez6NS3NtNYs
+	Oq4IPlOs5CGLV7vnzSGI5ABAm53QWnI3zr36qdgHe+GoPnuSxd+zhJLwlIfn3hCHqnha30H1gmVjR
+	UeV9oHRIWxNE1xBq8TDDxZeccOihEFf+NJ4vdFybOvAbUC8AIbUgCZjMh+yHWfef3Ym04EYruAMS/
+	4Xy6xG5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHozC-00000002Rnq-0M7r;
-	Tue, 28 Apr 2026 20:24:50 +0000
-Received: from smtprelay0012.hostedemail.com ([216.40.44.12] helo=relay.hostedemail.com)
+	id 1wHp0s-00000002S3f-24DZ;
+	Tue, 28 Apr 2026 20:26:34 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHoz9-00000002RmY-28tB
+	id 1wHp0q-00000002S3B-1iQ9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 20:24:48 +0000
-Received: from omf05.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay09.hostedemail.com (Postfix) with ESMTP id AD8D88B78A;
-	Tue, 28 Apr 2026 20:24:44 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf05.hostedemail.com (Postfix) with ESMTPA id 99FF720019;
-	Tue, 28 Apr 2026 20:24:42 +0000 (UTC)
-Date: Tue, 28 Apr 2026 16:24:57 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
- <will@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Ian
- Rogers <irogers@google.com>, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v18 7/8] ring-buffer: Cleanup persistent ring buffer
- validation
-Message-ID: <20260428162457.1ca8c4b6@gandalf.local.home>
-In-Reply-To: <177701357903.2223789.1327164275262010250.stgit@mhiramat.tok.corp.google.com>
-References: <177701351903.2223789.17087009302463188638.stgit@mhiramat.tok.corp.google.com>
-	<177701357903.2223789.1327164275262010250.stgit@mhiramat.tok.corp.google.com>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Stat-Signature: p71hyz9fekbjacrm1rsynhwxw4oh7391
-X-Rspamd-Server: rspamout08
-X-Rspamd-Queue-Id: 99FF720019
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX19qottaY6YWkTiSZoZRzTvuj+Q3AbUx4Rc=
-X-HE-Tag: 1777407882-289024
-X-HE-Meta: U2FsdGVkX1+93qCyUXSei14/xjvmWhmSi2zjKopXHQge2cNxtuzOS9yAEjE1qfVnWxubjc9zdF+l9P8J+cQh3bYspGXBSo5hiCzjBWUWrNUgoTdbqspXjp9VJOyPcw7VDHFagx3KAyps8QNKd0iFU7GLx4VzIAT+94X0n9bO/nK3+FFvd1ZsZnm7JyeHPtio1zjRT2TUnj6I82gtQSqpnxuHTycPiSR9yBi0fwpXplzsmDKhVtdGuWRaP9+tCYXhzT1UEwC0jywfvLutaSubmYJ31jUdJ7841H8j3vU6dHZUkRACPUeww9Qd8ofLgdzKglgU9fu56tJvDKpVrnbeT/kKVB/h0S3/
+	Tue, 28 Apr 2026 20:26:33 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-488b0046078so106616885e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 13:26:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1777407989; x=1778012789; darn=lists.infradead.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=U2z5CJStQaZH5C1yDNgwonipIcrAGaww4SYiAIYI8F8=;
+        b=yM5xc6S1YvlBHjQdrlvPZV5bANVuTG1ReEH+WJzMBj522PxFYt8ANDabnI/5o6XThl
+         4G34emU+i6AXdz6pK3JweqInUKPHHw9vA7AJPL2B9rPE1z7wZ8p77V7nsB4F28Qi+Z/X
+         10xvoLYhYnyzlRWB9GP6+9BAn4DJ0HfyW5bFKZ1zwu05L0mQ4DbnFZXm1ioLQ5fe2yho
+         2EJkMnWie/DBO5f2GellCg0emhQOv0a43H/SnygKMmEf3hGNbo2K3bbhqohMfXWB/G1N
+         OU2djjJ/Zvtl8q3VjDu/9sdgsA+yxVD4lzhwSARirly9crGBcoP5cx86ruD7GrR7nAa2
+         C32g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777407989; x=1778012789;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=U2z5CJStQaZH5C1yDNgwonipIcrAGaww4SYiAIYI8F8=;
+        b=QoZhF9jMpcVF9YSeYoa/HJGh/xm4Gixs37zINhdcIYpNdtNB1z/4v9XQwXIKtmQz8J
+         2m9jO+5hcGepb68AwDSUrQrKtMzU8mCjD1Q+EFI9tUkouPD5x9ATmkAHTR5c+vt/H+k0
+         zYd6kBui4b2TqemTxKH6OdIcJEWM/scCH/vsmPmXxO0tqzFczZaeW1ulti39m+vhSgtI
+         GH8YjCjFbf4n1q1+Ko2CGhQ5W1teavNPO4vEusiqZrzFKrmYZ8qRE/tgzJEo3bfEus6c
+         lvg1FYbhewM5kPvCQYEdYyuBpmRFVVXIZuxvAMUqicvvi9ars5z0+9QgFxBJNUZ+qs9c
+         L5CA==
+X-Forwarded-Encrypted: i=1; AFNElJ/4hF2xYEZhxQCfvk9YkcC2Wvxdvnyb0Ick+HBLHtqAQ9qw/JY2D7qAkKXk8+INW/gL3dtpvipgJ7OciY3vai/e@lists.infradead.org
+X-Gm-Message-State: AOJu0YzgS9sSWX0TUQ5MBlEZ58hQgehDy2kba66QISS988QsP2RGQ9GN
+	YPGocDIevKbp1r3idsY/ErCPHt3wy0TJdtJwcIRYP6xIJeC9lfIpc/PZNApF1tuT3R4=
+X-Gm-Gg: AeBDies92XMq1d8Ur0ETYvEeuZrhuZ7/K7OCsYpmHGeRP7gaGIdnFPmGTvYfXagVf95
+	A2opqE3RiA8qlZPU7vuRTn3mG8ramVlTwlRdc/FNaoj8MbPI7l2fUAX9VfcXA+jMfOZscv5gepy
+	4LjFkJ/nxz9vsUhhhnbFuZM3MM+39RPEWThnCzAUsSAJEi16XlG6sw7Y6KZNh1/PxqQpjDjnSEA
+	F4Mvy8UQWK/ZH2BSUvFSZnf+v9hR+lTF5QEQp/B9xaihr50l+8dZHu0tiGeRfFh0b/CChwlU9zO
+	ZT3gPTynoxoqOqI4FciFCWhOt3WqPDz/DgFHCVDlCZ9G6Wf/QsU9UJwD3SPLYyYOYCG8RriDTny
+	FzVAYTe6ko6RBrPJR9cpsccWx86XrOAKaeUGHk7Ev6E6R8PLt3NM6bBJ1Oso6UFU862uiG0gPfe
+	m29tIEy8ujj7uWlBcamle17vLQtigvYabTIqYZZ3fbOpWxTjjtj2HxGGf2clxorlG11r16uEsRD
+	Jd/tJTvFKazXoArWoGmGyU/
+X-Received: by 2002:a05:600c:4f0c:b0:489:1c2d:211e with SMTP id 5b1f17b1804b1-48a77ae5386mr75966715e9.5.1777407989369;
+        Tue, 28 Apr 2026 13:26:29 -0700 (PDT)
+Received: from localhost ([94.4.195.193])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48a7bc11fcbsm10511235e9.3.2026.04.28.13.26.28
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 28 Apr 2026 13:26:28 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 28 Apr 2026 21:26:27 +0100
+Message-Id: <DI52JP9JH6AH.3I5OKWOZ56MIU@linaro.org>
+Cc: "Krzysztof Kozlowski" <krzk@kernel.org>, "Sylwester Nawrocki"
+ <s.nawrocki@samsung.com>, "Chanwoo Choi" <cw00.choi@samsung.com>, "Alim
+ Akhtar" <alim.akhtar@samsung.com>, "Sam Protsenko"
+ <semen.protsenko@linaro.org>, "Michael Turquette"
+ <mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>, "Rob Herring"
+ <robh@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Jassi Brar"
+ <jassisinghbrar@gmail.com>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Peter Griffin" <peter.griffin@linaro.org>,
+ <linux-samsung-soc@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-clk@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 2/3] mailbox: exynos: Add support for Exynos850
+ mailbox
+From: "Alexey Klimov" <alexey.klimov@linaro.org>
+To: "Tudor Ambarus" <tudor.ambarus@linaro.org>
+X-Mailer: aerc 0.21.0
+References: <20260402-exynos850-ap2apm-mailbox-v2-0-ca5ffdff99d4@linaro.org>
+ <20260402-exynos850-ap2apm-mailbox-v2-2-ca5ffdff99d4@linaro.org>
+ <a02a693e-b06e-43bf-ac5f-8253f298c83d@linaro.org>
+ <DHNSP3FVR4ZQ.1PIRHF0KJGKI5@linaro.org>
+In-Reply-To: <DHNSP3FVR4ZQ.1PIRHF0KJGKI5@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_132447_615096_EE063D1D 
-X-CRM114-Status: GOOD (  16.89  )
+X-CRM114-CacheID: sfid-20260428_132632_488309_440B5AC8 
+X-CRM114-Status: GOOD (  12.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,56 +113,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 24 Apr 2026 15:52:59 +0900
-"Masami Hiramatsu (Google)" <mhiramat@kernel.org> wrote:
+On Wed Apr 8, 2026 at 2:08 PM BST, Alexey Klimov wrote:
 
-> From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-> 
-> Cleanup rb_meta_validate_events() function to make it easier to read.
-> This includes the following cleanups:
->  - Introduce rb_validatation_state to hold working variables in
->    validation.
->  - Move repleated validation state updates into rb_validate_buffer().
->  - Move reader_page injection code outside of rb_meta_validate_events().
-> 
-> Signed-off-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-> ---
->  kernel/trace/ring_buffer.c |  186 ++++++++++++++++++++++----------------------
->  1 file changed, 95 insertions(+), 91 deletions(-)
-> 
-> diff --git a/kernel/trace/ring_buffer.c b/kernel/trace/ring_buffer.c
-> index de653a8e3cec..9850a0d8d24b 100644
-> --- a/kernel/trace/ring_buffer.c
-> +++ b/kernel/trace/ring_buffer.c
-> @@ -1883,8 +1883,16 @@ static int rb_read_data_buffer(struct buffer_data_page *dpage, int tail, int cpu
->  	return events;
->  }
->  
-> -static int rb_validate_buffer(struct buffer_page *bpage, int cpu,
-> -			      struct ring_buffer_cpu_meta *meta, u64 prev_ts, u64 next_ts)
-> +struct rb_validation_state {
-> +	unsigned long entries;
-> +	unsigned long entry_bytes;
-> +	int discarded;
-> +	u64 ts;
-> +};
-> +
-> +static int __rb_validate_buffer(struct buffer_page *bpage, int cpu,
-> +				struct ring_buffer_cpu_meta *meta,
-> +				u64 prev_ts, u64 next_ts)
->  {
+[...]
 
-This can still use those comments (from patch 4).
+> On Thu Apr 2, 2026 at 9:42 AM BST, Tudor Ambarus wrote:
+>>>  static int exynos_mbox_send_data(struct mbox_chan *chan, void *data)
+>>> @@ -57,7 +104,8 @@ static int exynos_mbox_send_data(struct mbox_chan *c=
+han, void *data)
+>>>  		return -EINVAL;
+>>>  	}
+>>> =20
+>>> -	writel(BIT(msg->chan_id), exynos_mbox->regs + EXYNOS_MBOX_INTGR1);
+>>> +	writel(BIT(msg->chan_id) << exynos_mbox->data->irq_doorbell_shift,
+>>> +	       exynos_mbox->regs + exynos_mbox->data->irq_doorbell_offset);
+>>
+>> Use FIELD_PREP from <linux/bitfield.h> please. You will use a mask inste=
+ad of
+>> a shift.
+>>
+>> I would rename irq_doorbell_offset to intgr. It aligns with the register=
+ name
+>> from the datasheet. You won't need to prepend _offset to the name, we al=
+ready
+>> see it's an offset when doing the writel().
+>
+> Sure. Thanks. Let's use FIELD_PREP.
 
-Also, could you rebase on top of v7.1-rc1?
++       /* Ring the doorbell */
++       writel(BIT(msg->chan_id) << exynos_mbox->data->intgr_shift,
++              exynos_mbox->regs + exynos_mbox->data->intgr);
 
-Thanks Masami!
+FIELD_PREP() wants a mask as a compile-time constant. Unless you want me to
+add switch/case for different SoCs or I misunderstood something I don't see
+how this is gonna fly.
 
--- Steve
+Best regards,
+Alexey
 
->  	struct buffer_data_page *dpage = bpage->page;
->  	unsigned long long ts;
-> @@ -1914,16 +1922,82 @@ static int rb_validate_buffer(struct buffer_page *bpage, int cpu,
->  	return ret;
->  }
 
