@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E6F4FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 15:56:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ED8BFF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 15:56:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4DbylAnXMbOYZCzRGe5nBFa/Qn3vdQZrx32pjgwcTCQ=; b=klZFj5LuHLgPrJKNfRSxBLurm5
-	OInEUmlvrhX7rIV1C0mOpyNoqMZxK1zi1HzG9bTfdoLT6OTYC8Y2rYHTIuHpvrLWDD35BNmGAa3P+
-	YlhDnzD0O5ybcb/o71TiSqmseBKA/uiBJsQ/MySBtYhkVxxNqogzY06Io5klGi9zZw5YrWS4NslvO
-	ePrgiHeasIPHzo0KimZtCcxwKxifGWYXwJuRXZ5zQNlsIxBrhsv+ldEMnVHdp/K+Srxpb6K2FubX+
-	scG+l/7UM7FIq2rTl/zbBhiwvRNC8UWet0evkQ7pSKjiSDYO9bGtoU5xMSBqS8DlP/K9mTLy+fpx8
-	/tP1A/Zw==;
+	bh=PwEHQniqXdMxcfdD5244XT/z51Zh5/xASU3rwpu8hYY=; b=oCoqq4eAKfTTEEk8oAhQKw6nOD
+	LqskI3EsMpTcgHPBMIHVZBg4dNyEAjPFkjdEyQuJGec6wI1UqJNf9sJEl8JIPEfaSf0x1bcraMDsD
+	1CIGHlRvPHc75xMip2Vx0+nZh4wfIE4OHJ7oTc4muBCRpAmnNMDGybFKMh3SFCeCFSrJnANWQLGJs
+	31JZ7ZMYV1UeYKqTgvlnObkvPD6xZ19dqT3+KrRaeXuCYuXxrgoykSSAWSKMM6YW864HwfqzgvuCw
+	5QSo5Xrx6YQow0JkTtXwjzOkd2SaTP68RhCc5KHTzD2pQD128O55iTaicrOchH1BbXmCzzBjL4xy4
+	T3e3wAOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHknh-00000001mWT-07ul;
-	Tue, 28 Apr 2026 15:56:41 +0000
+	id 1wHknl-00000001mYp-3V8W;
+	Tue, 28 Apr 2026 15:56:45 +0000
 Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHkne-00000001mVt-2gg4
+	id 1wHknk-00000001mXo-0inU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 15:56:39 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63SB7Csc811499;
-	Tue, 28 Apr 2026 15:56:35 GMT
+	Tue, 28 Apr 2026 15:56:45 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63SCxpg71693197;
+	Tue, 28 Apr 2026 15:56:31 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=4DbylAnXMbOYZCzRG
-	e5nBFa/Qn3vdQZrx32pjgwcTCQ=; b=Him6J7NYU5WytZ621PXjvg5JporlcwX5e
-	hjlAvLPbGrOKp6GTq/Ekpyx1p4F69NnqxSMVdsjVLCDCrAVhR19pAf1ijmxyeV5T
-	XgtDOAomXWP2N0C1qQFU1Zp0KRowjv2c/0Y4oIsKF+Sj9cp7HXNlzCkuBiQ/k5gs
-	Zx6UuNcVUXNU6PjRDVuYsqRT2XIEe0hUi90FBcuqNPsi6dnJVmNODF0yMPWcjIpn
-	hNwsu0D2TI2zxAj3fcv4vXNkX+Ack5RRLMHK+wjYPoT7znkAi9Fw+s666QTSFGvn
-	n9S3Odr8fSN2ncNpG3VUxGKYhaiDFLMXt4pMcAmRjTPNyFfPIrLmw==
+	:mime-version:references:subject:to; s=pp1; bh=PwEHQniqXdMxcfdD5
+	244XT/z51Zh5/xASU3rwpu8hYY=; b=gF+gRWIt9z2/6kb4wRqOXZGba/dWxIW4U
+	pkOvIBvM4SF44nGa06iBPfFKD6JnXM6cQ4sraiUbILUcQyV4RFRWPyjVo5u2FLrF
+	Yiv9jRONecXMuJPwk+p8Gs+hMl4dBq0kgUS1wTYSzIAWz1bgVRVjvBbR31nA02jb
+	0rpiDxgBLHbrvLlMBQ9FW3v2Jsj+VGVHUs4a4ZQPzvLC2+3ZWbbAstl60WSoSWRb
+	WPAzaM1ui88pF+ooSAHt5YTIajGXL4fTr3iDxI9wCqRTtw/RCH6xfbGOycmFnw3s
+	I6Z4bPRlBMGJn43K9L2HQprOq5osrSreN24zI3jHj4DBtv8a7oCrw==
 Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4drnb56c8e-1
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4drn44pfaf-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 28 Apr 2026 15:56:35 +0000 (GMT)
+	Tue, 28 Apr 2026 15:56:30 +0000 (GMT)
 Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63SFrrk1002828;
-	Tue, 28 Apr 2026 15:56:34 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4ds8xk2d4a-1
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63SFrsPn002841;
+	Tue, 28 Apr 2026 15:56:29 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4ds8xk2d46-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 28 Apr 2026 15:56:33 +0000 (GMT)
+	Tue, 28 Apr 2026 15:56:29 +0000 (GMT)
 Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63SFuUfF59965928
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63SFuPjS13173040
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 28 Apr 2026 15:56:30 GMT
+	Tue, 28 Apr 2026 15:56:25 GMT
 Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id DD96820040;
-	Tue, 28 Apr 2026 15:56:29 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 6AD732004B;
+	Tue, 28 Apr 2026 15:56:25 +0000 (GMT)
 Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 8C56E20043;
-	Tue, 28 Apr 2026 15:56:29 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 1A36B20043;
+	Tue, 28 Apr 2026 15:56:25 +0000 (GMT)
 Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
 	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Tue, 28 Apr 2026 15:56:29 +0000 (GMT)
+	Tue, 28 Apr 2026 15:56:25 +0000 (GMT)
 From: Steffen Eiden <seiden@linux.ibm.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -81,41 +81,41 @@ Cc: Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
         Suzuki K Poulose <suzuki.poulose@arm.com>,
         Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
         Will Deacon <will@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v2 18/28] KVM: Remove KVM_MMIO as config option
-Date: Tue, 28 Apr 2026 17:56:10 +0200
-Message-ID: <20260428155622.1361364-19-seiden@linux.ibm.com>
+Subject: [PATCH v2 06/28] arm64: Provide arm64 API for non-native architectures
+Date: Tue, 28 Apr 2026 17:55:58 +0200
+Message-ID: <20260428155622.1361364-7-seiden@linux.ibm.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260428155622.1361364-1-seiden@linux.ibm.com>
 References: <20260428155622.1361364-1-seiden@linux.ibm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
-X-Authority-Analysis: v=2.4 cv=AqDeGu9P c=1 sm=1 tr=0 ts=69f0d8b3 cx=c_pps
+X-Proofpoint-ORIG-GUID: YAEJwXYuBcghpjy2Gj8k4qBq2rquzRlK
+X-Authority-Analysis: v=2.4 cv=Ft81OWrq c=1 sm=1 tr=0 ts=69f0d8ae cx=c_pps
  a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
  a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=U7nrCbtTmkRpXpFmAIza:22 a=VnNF1IyMAAAA:8 a=8UI0e4M0uH3UOGHAWE8A:9
- a=9IkURH4LAGRwoN1D:21
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI4MDE1MSBTYWx0ZWRfX58IDDqeSKSws
- Jyx12V46JtfjVONyGjfmCxxfE6M97HNCu9AvYpTponhjiXdEKfPHnNGVfBaA02SrLVP3bHFkCfU
- NUMmOA0/28R6fQ6MBaA003lbIUasb2vCfjTs8HEzN8JKrF/kARNht7Ky31KYieCwKQfJHvuR+Kj
- 5s8GAbDnw3tLAC4VqbqyRvk/HRbHMmBIjWsJFKBuTpBCKTz8IKFopMZ3bOCkJBULaNrt0jVT1Kt
- YBrwjiz+nR6wxUBPE5Asnzk9IKWtYrwikPlOyJFRV6KD16ZEXIDL6pk5ce5bPKn5b+viEv1qqZe
- 1JeynXjWkO2Sgn4v5uJRZywqrofqYfyTL6bSxDFPCNWhmssXwCc25/mOYxwe26NRRDx8NYRwGbe
- E7YDM8hKti895Fs2PBvBBtd8QgTTmjL3lRSgMgvEbDv5sldX2zXrf6yRI8XrgEV2PEE+jUAbd30
- NwkxDTxvoQ0GlrP0brA==
-X-Proofpoint-GUID: 8cO_MUAm4D4xggPJBTjVR4dILcSCFEP1
-X-Proofpoint-ORIG-GUID: 8cO_MUAm4D4xggPJBTjVR4dILcSCFEP1
+ a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8 a=VwQbUJbxAAAA:8 a=7CQSdrXTAAAA:8
+ a=dpC639kuH8ZWnzxCXqwA:9 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-GUID: YAEJwXYuBcghpjy2Gj8k4qBq2rquzRlK
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI4MDE1MSBTYWx0ZWRfX60rPJj0EGYIk
+ 5FG9Y8Q4k4wmL1lHADZiIi2TfTGrTwrrgaJojULbwoY8of0yBp3kYl0wRZ+q7QtAIE8hzJ8umKm
+ QL0CT+eNlz4jeWrwGm3IFX5fB3R1e/0JFryesLpMs9/NEsDu4U2F1lISUyJM3NiCwbaG2wS4WjZ
+ dPqGNOa4WfgMlEs6v1hqWKMlqTCQuxaPqyXQvcko8vdVa3Stg365op7Mqlc1b5N/emqWJn6Zkcj
+ 5/IAPwyUyFpXK6MBSNWLfQBGHyj1Uc+oA6OhHFvMGhXj1XjG+5rnGVbda4VcwKyUA0NP2++Dad0
+ vxFt0wWuof1R8DyKojbFvGm5H7h4rPy/6399FLqh2EuX+lx2vlRRFGZJJA3tVOsdbKWXOteM0xr
+ gj8vWSLJEFYVawrMDi1WPHSeHuqTyoe3u4CKF/fVXG9RS8F+rtYGG8sjLvr7pl1nj2eGj83mXvk
+ 2kZf2Z0pD4zUW7fyueg==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-04-28_05,2026-04-28_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 priorityscore=1501 phishscore=0 suspectscore=0 clxscore=1015
- lowpriorityscore=0 spamscore=0 bulkscore=0 impostorscore=0 malwarescore=0
+ priorityscore=1501 lowpriorityscore=0 bulkscore=0 spamscore=0 impostorscore=0
+ clxscore=1015 malwarescore=0 phishscore=0 suspectscore=0 adultscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604280151
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_085638_688835_12224119 
-X-CRM114-Status: GOOD (  20.01  )
+X-CRM114-CacheID: sfid-20260428_085644_240947_0DE775B3 
+X-CRM114-Status: GOOD (  17.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,325 +130,254 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Defining KVM_MMIO is not flexible enough for multi-KVM systems with
-different Kconfig options regarding KVM_MMIO. Therefore, remove KVM_MMIO
-from the config space and use the macro HAVE_KVM_MMIO instead.
+Enable the usage of arm64 asm headers independent of the CPU
+architecture. Introduce a new directory, include/arch/arm64/asm to store
+(host) architecture- agnostic headers for arm64 implementors.
 
-Suggested-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
+The new path is added to the include patch of native arm64. Therefore,
+arm64 will continue to reference to those headers via include
+<asm/header.h> without any code change. This means that the header names
+should be unique for arm64 asm headers. For native arm64, headers at the
+new path take precedence over any other include path.
+
+For other architectures to use the esr string names, move *esr_class_str
+from traps.c to esr.h.
+
+For a seamless integration non-native architectures must also include the
+new path to the include path.
+
 Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- arch/arm64/include/asm/kvm_host.h     | 2 ++
- arch/arm64/kvm/Kconfig                | 1 -
- arch/loongarch/include/asm/kvm_host.h | 2 ++
- arch/loongarch/kvm/Kconfig            | 1 -
- arch/mips/include/asm/kvm_host.h      | 2 ++
- arch/mips/kvm/Kconfig                 | 1 -
- arch/powerpc/include/asm/kvm_host.h   | 7 +++++++
- arch/powerpc/kvm/Kconfig              | 4 ----
- arch/riscv/include/asm/kvm_host.h     | 2 ++
- arch/riscv/kvm/Kconfig                | 1 -
- arch/x86/include/asm/kvm_host.h       | 2 ++
- arch/x86/kvm/Kconfig                  | 1 -
- include/linux/kvm_host.h              | 2 +-
- virt/kvm/Kconfig                      | 3 ---
- virt/kvm/Makefile.kvm                 | 3 +--
- virt/kvm/coalesced_mmio.c             | 3 +++
- virt/kvm/coalesced_mmio.h             | 2 +-
- virt/kvm/kvm_main.c                   | 8 ++++----
- 18 files changed, 27 insertions(+), 20 deletions(-)
+ MAINTAINERS                                   |  1 +
+ arch/arm64/Makefile                           |  2 +
+ arch/arm64/kernel/traps.c                     | 53 ----------------
+ .../arch/arm64}/asm/brk-imm.h                 |  6 +-
+ .../include => include/arch/arm64}/asm/esr.h  | 62 +++++++++++++++++--
+ .../arch/arm64}/asm/sysreg-defs.h             |  6 +-
+ 6 files changed, 65 insertions(+), 65 deletions(-)
+ rename {arch/arm64/include => include/arch/arm64}/asm/brk-imm.h (92%)
+ rename {arch/arm64/include => include/arch/arm64}/asm/esr.h (88%)
+ rename {arch/arm64/include => include/arch/arm64}/asm/sysreg-defs.h (99%)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index e3a2ac3979ac..39630e235a36 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -33,6 +33,8 @@
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 0752e340e569..b58399be11f7 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -3817,6 +3817,7 @@ S:	Maintained
+ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git
+ F:	Documentation/arch/arm64/
+ F:	arch/arm64/
++F:	include/arch/arm64/
+ F:	include/uapi/arch/arm64/
+ F:	drivers/virt/coco/arm-cca-guest/
+ F:	drivers/virt/coco/pkvm-guest/
+diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
+index 73a10f65ce8b..b244e837cedd 100644
+--- a/arch/arm64/Makefile
++++ b/arch/arm64/Makefile
+@@ -221,6 +221,8 @@ PHONY += virtconfig
+ virtconfig:
+ 	$(call merge_into_defconfig_override,defconfig,virt)
  
- #define KVM_HALT_POLL_NS_DEFAULT 500000
- 
-+#define HAVE_KVM_MMIO
++LINUXINCLUDE := -I$(srctree)/include/arch/arm64/ $(LINUXINCLUDE)
 +
- #include <kvm/arm_vgic.h>
- #include <kvm/arm_arch_timer.h>
- #include <kvm/arm_pmu.h>
-diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
-index 7d1f22fd490b..4761b5e7e75b 100644
---- a/arch/arm64/kvm/Kconfig
-+++ b/arch/arm64/kvm/Kconfig
-@@ -22,7 +22,6 @@ menuconfig KVM
- 	select KVM_COMMON
- 	select KVM_GENERIC_HARDWARE_ENABLING
- 	select HAVE_KVM_CPU_RELAX_INTERCEPT
--	select KVM_MMIO
- 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
- 	select VIRT_XFER_TO_GUEST_WORK
- 	select KVM_VFIO
-diff --git a/arch/loongarch/include/asm/kvm_host.h b/arch/loongarch/include/asm/kvm_host.h
-index 19eb5e5c3984..392e14302453 100644
---- a/arch/loongarch/include/asm/kvm_host.h
-+++ b/arch/loongarch/include/asm/kvm_host.h
-@@ -26,6 +26,8 @@
- 
- #define __KVM_HAVE_ARCH_INTC_INITIALIZED
- 
-+#define HAVE_KVM_MMIO
-+
- /* Loongarch KVM register ids */
- #define KVM_GET_IOC_CSR_IDX(id)		((id & KVM_CSR_IDX_MASK) >> LOONGARCH_REG_SHIFT)
- #define KVM_GET_IOC_CPUCFG_IDX(id)	((id & KVM_CPUCFG_IDX_MASK) >> LOONGARCH_REG_SHIFT)
-diff --git a/arch/loongarch/kvm/Kconfig b/arch/loongarch/kvm/Kconfig
-index 8e5213609975..a244f2aea7ff 100644
---- a/arch/loongarch/kvm/Kconfig
-+++ b/arch/loongarch/kvm/Kconfig
-@@ -28,7 +28,6 @@ config KVM
- 	select KVM_COMMON
- 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
- 	select KVM_GENERIC_HARDWARE_ENABLING
--	select KVM_MMIO
- 	select VIRT_XFER_TO_GUEST_WORK
- 	select SCHED_INFO
- 	select GUEST_PERF_EVENTS if PERF_EVENTS
-diff --git a/arch/mips/include/asm/kvm_host.h b/arch/mips/include/asm/kvm_host.h
-index c14b10821817..e3cb7c8c9461 100644
---- a/arch/mips/include/asm/kvm_host.h
-+++ b/arch/mips/include/asm/kvm_host.h
-@@ -26,6 +26,8 @@
- 
- #include <kvm/iodev.h>
- 
-+#define HAVE_KVM_MMIO
-+
- /* MIPS KVM register ids */
- #define MIPS_CP0_32(_R, _S)					\
- 	(KVM_REG_MIPS_CP0 | KVM_REG_SIZE_U32 | (8 * (_R) + (_S)))
-diff --git a/arch/mips/kvm/Kconfig b/arch/mips/kvm/Kconfig
-index b1b9a1d67758..c65596fdf54f 100644
---- a/arch/mips/kvm/Kconfig
-+++ b/arch/mips/kvm/Kconfig
-@@ -22,7 +22,6 @@ config KVM
- 	select EXPORT_UASM
- 	select KVM_COMMON
- 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
--	select KVM_MMIO
- 	select KVM_GENERIC_HARDWARE_ENABLING
- 	select HAVE_KVM_READONLY_MEM
- 	help
-diff --git a/arch/powerpc/include/asm/kvm_host.h b/arch/powerpc/include/asm/kvm_host.h
-index 2d139c807577..92d14438e31b 100644
---- a/arch/powerpc/include/asm/kvm_host.h
-+++ b/arch/powerpc/include/asm/kvm_host.h
-@@ -29,6 +29,13 @@
- 
- #define __KVM_HAVE_ARCH_VCPU_DEBUGFS
- 
-+#if defined(CONFIG_KVM_BOOK3S_32_HANDLER) || \
-+	defined(CONFIG_KVM_BOOK3S_PR_POSSIBLE) || \
-+	defined(CONFIG_KVM_E500V2) || \
-+	defined(CONFIG_KVM_E500MC)
-+#define HAVE_KVM_MMIO
-+#endif
-+
- #define KVM_MAX_VCPUS		NR_CPUS
- #define KVM_MAX_VCORES		NR_CPUS
- 
-diff --git a/arch/powerpc/kvm/Kconfig b/arch/powerpc/kvm/Kconfig
-index 9a0d1c1aca6c..d97a4a51ec55 100644
---- a/arch/powerpc/kvm/Kconfig
-+++ b/arch/powerpc/kvm/Kconfig
-@@ -29,7 +29,6 @@ config KVM_BOOK3S_HANDLER
- config KVM_BOOK3S_32_HANDLER
- 	bool
- 	select KVM_BOOK3S_HANDLER
--	select KVM_MMIO
- 
- config KVM_BOOK3S_64_HANDLER
- 	bool
-@@ -37,7 +36,6 @@ config KVM_BOOK3S_64_HANDLER
- 
- config KVM_BOOK3S_PR_POSSIBLE
- 	bool
--	select KVM_MMIO
- 
- config KVM_BOOK3S_HV_POSSIBLE
- 	bool
-@@ -200,7 +198,6 @@ config KVM_E500V2
- 	depends on PPC_E500 && !PPC_E500MC
- 	depends on !CONTEXT_TRACKING_USER
- 	select KVM
--	select KVM_MMIO
- 	help
- 	  Support running unmodified E500 guest kernels in virtual machines on
- 	  E500v2 host processors.
-@@ -215,7 +212,6 @@ config KVM_E500MC
- 	depends on PPC_E500MC
- 	depends on !CONTEXT_TRACKING_USER
- 	select KVM
--	select KVM_MMIO
- 	select KVM_BOOKE_HV
- 	help
- 	  Support running unmodified E500MC/E5500/E6500 guest kernels in
-diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-index 24585304c02b..a405cd30c6fa 100644
---- a/arch/riscv/include/asm/kvm_host.h
-+++ b/arch/riscv/include/asm/kvm_host.h
-@@ -25,6 +25,8 @@
- #include <asm/kvm_vcpu_timer.h>
- #include <asm/kvm_vcpu_pmu.h>
- 
-+#define HAVE_KVM_MMIO
-+
- #define KVM_MAX_VCPUS			1024
- 
- #define KVM_HALT_POLL_NS_DEFAULT	500000
-diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig
-index ec2cee0a39e0..3aea8d4939d2 100644
---- a/arch/riscv/kvm/Kconfig
-+++ b/arch/riscv/kvm/Kconfig
-@@ -28,7 +28,6 @@ config KVM
- 	select KVM_COMMON
- 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
- 	select KVM_GENERIC_HARDWARE_ENABLING
--	select KVM_MMIO
- 	select VIRT_XFER_TO_GUEST_WORK
- 	select SCHED_INFO
- 	select GUEST_PERF_EVENTS if PERF_EVENTS
-diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
-index 6e4e3ef9b8c7..4cdaf60c9217 100644
---- a/arch/x86/include/asm/kvm_host.h
-+++ b/arch/x86/include/asm/kvm_host.h
-@@ -45,6 +45,8 @@
- 
- #define __KVM_HAVE_ARCH_VCPU_DEBUGFS
- 
-+#define HAVE_KVM_MMIO
-+
- /*
-  * CONFIG_KVM_MAX_NR_VCPUS is defined iff CONFIG_KVM!=n, provide a dummy max if
-  * KVM is disabled (arbitrarily use the default from CONFIG_KVM_MAX_NR_VCPUS).
-diff --git a/arch/x86/kvm/Kconfig b/arch/x86/kvm/Kconfig
-index 801bf9e520db..da5d9fa8a11c 100644
---- a/arch/x86/kvm/Kconfig
-+++ b/arch/x86/kvm/Kconfig
-@@ -32,7 +32,6 @@ config KVM_X86
- 	select VHOST_TASK
- 	select KVM_ASYNC_PF
- 	select USER_RETURN_NOTIFIER
--	select KVM_MMIO
- 	select SCHED_INFO
- 	select PERF_EVENTS
- 	select GUEST_PERF_EVENTS
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index 44e6fe3d2d80..2aeda4c6af14 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -833,7 +833,7 @@ struct kvm {
- 	struct list_head ioeventfds;
- 	struct kvm_vm_stat stat;
- 	struct kvm_arch arch;
--#ifdef CONFIG_KVM_MMIO
-+#ifdef HAVE_KVM_MMIO
- 	struct kvm_coalesced_mmio_ring *coalesced_mmio_ring;
- 	spinlock_t ring_lock;
- 	struct list_head coalesced_zones;
-diff --git a/virt/kvm/Kconfig b/virt/kvm/Kconfig
-index 794976b88c6f..c4a983e41765 100644
---- a/virt/kvm/Kconfig
-+++ b/virt/kvm/Kconfig
-@@ -40,9 +40,6 @@ config NEED_KVM_DIRTY_RING_WITH_BITMAP
- 	bool
- 	depends on HAVE_KVM_DIRTY_RING
- 
--config KVM_MMIO
--       bool
--
- config KVM_ASYNC_PF
-        bool
- 
-diff --git a/virt/kvm/Makefile.kvm b/virt/kvm/Makefile.kvm
-index d047d4cf58c9..3c27c18b49a0 100644
---- a/virt/kvm/Makefile.kvm
-+++ b/virt/kvm/Makefile.kvm
-@@ -5,9 +5,8 @@
- 
- KVM ?= ../../../virt/kvm
- 
--kvm-y := $(KVM)/kvm_main.o $(KVM)/eventfd.o $(KVM)/binary_stats.o
-+kvm-y := $(KVM)/kvm_main.o $(KVM)/eventfd.o $(KVM)/binary_stats.o $(KVM)/coalesced_mmio.o
- kvm-$(CONFIG_KVM_VFIO) += $(KVM)/vfio.o
--kvm-$(CONFIG_KVM_MMIO) += $(KVM)/coalesced_mmio.o
- kvm-$(CONFIG_KVM_ASYNC_PF) += $(KVM)/async_pf.o
- kvm-$(CONFIG_HAVE_KVM_IRQ_ROUTING) += $(KVM)/irqchip.o
- kvm-$(CONFIG_HAVE_KVM_DIRTY_RING) += $(KVM)/dirty_ring.o
-diff --git a/virt/kvm/coalesced_mmio.c b/virt/kvm/coalesced_mmio.c
-index 6b1d90161099..070eba3c6534 100644
---- a/virt/kvm/coalesced_mmio.c
-+++ b/virt/kvm/coalesced_mmio.c
-@@ -12,6 +12,8 @@
- #include <kvm/iodev.h>
- 
- #include <linux/kvm_host.h>
-+
-+#ifdef HAVE_KVM_MMIO
- #include <linux/slab.h>
- #include <linux/kvm.h>
- 
-@@ -188,3 +190,4 @@ int kvm_vm_ioctl_unregister_coalesced_mmio(struct kvm *kvm,
- 	 */
- 	return 0;
+ define archhelp
+   echo  '* Image.gz      - Compressed kernel image (arch/$(ARCH)/boot/Image.gz)'
+   echo  '  Image         - Uncompressed kernel image (arch/$(ARCH)/boot/Image)'
+diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
+index 914282016069..ca679dcdf1c8 100644
+--- a/arch/arm64/kernel/traps.c
++++ b/arch/arm64/kernel/traps.c
+@@ -829,59 +829,6 @@ void do_el0_sys(unsigned long esr, struct pt_regs *regs)
+ 	do_el0_undef(regs, esr);
  }
-+#endif /* ifdef HAVE_KVM_MMIO */
-diff --git a/virt/kvm/coalesced_mmio.h b/virt/kvm/coalesced_mmio.h
-index 36f84264ed25..a8430d41945b 100644
---- a/virt/kvm/coalesced_mmio.h
-+++ b/virt/kvm/coalesced_mmio.h
-@@ -11,7 +11,7 @@
-  *
+ 
+-static const char *esr_class_str[] = {
+-	[0 ... ESR_ELx_EC_MAX]		= "UNRECOGNIZED EC",
+-	[ESR_ELx_EC_UNKNOWN]		= "Unknown/Uncategorized",
+-	[ESR_ELx_EC_WFx]		= "WFI/WFE",
+-	[ESR_ELx_EC_CP15_32]		= "CP15 MCR/MRC",
+-	[ESR_ELx_EC_CP15_64]		= "CP15 MCRR/MRRC",
+-	[ESR_ELx_EC_CP14_MR]		= "CP14 MCR/MRC",
+-	[ESR_ELx_EC_CP14_LS]		= "CP14 LDC/STC",
+-	[ESR_ELx_EC_FP_ASIMD]		= "ASIMD",
+-	[ESR_ELx_EC_CP10_ID]		= "CP10 MRC/VMRS",
+-	[ESR_ELx_EC_PAC]		= "PAC",
+-	[ESR_ELx_EC_CP14_64]		= "CP14 MCRR/MRRC",
+-	[ESR_ELx_EC_BTI]		= "BTI",
+-	[ESR_ELx_EC_ILL]		= "PSTATE.IL",
+-	[ESR_ELx_EC_SVC32]		= "SVC (AArch32)",
+-	[ESR_ELx_EC_HVC32]		= "HVC (AArch32)",
+-	[ESR_ELx_EC_SMC32]		= "SMC (AArch32)",
+-	[ESR_ELx_EC_SVC64]		= "SVC (AArch64)",
+-	[ESR_ELx_EC_HVC64]		= "HVC (AArch64)",
+-	[ESR_ELx_EC_SMC64]		= "SMC (AArch64)",
+-	[ESR_ELx_EC_SYS64]		= "MSR/MRS (AArch64)",
+-	[ESR_ELx_EC_SVE]		= "SVE",
+-	[ESR_ELx_EC_ERET]		= "ERET/ERETAA/ERETAB",
+-	[ESR_ELx_EC_FPAC]		= "FPAC",
+-	[ESR_ELx_EC_SME]		= "SME",
+-	[ESR_ELx_EC_IMP_DEF]		= "EL3 IMP DEF",
+-	[ESR_ELx_EC_IABT_LOW]		= "IABT (lower EL)",
+-	[ESR_ELx_EC_IABT_CUR]		= "IABT (current EL)",
+-	[ESR_ELx_EC_PC_ALIGN]		= "PC Alignment",
+-	[ESR_ELx_EC_DABT_LOW]		= "DABT (lower EL)",
+-	[ESR_ELx_EC_DABT_CUR]		= "DABT (current EL)",
+-	[ESR_ELx_EC_SP_ALIGN]		= "SP Alignment",
+-	[ESR_ELx_EC_MOPS]		= "MOPS",
+-	[ESR_ELx_EC_FP_EXC32]		= "FP (AArch32)",
+-	[ESR_ELx_EC_FP_EXC64]		= "FP (AArch64)",
+-	[ESR_ELx_EC_GCS]		= "Guarded Control Stack",
+-	[ESR_ELx_EC_SERROR]		= "SError",
+-	[ESR_ELx_EC_BREAKPT_LOW]	= "Breakpoint (lower EL)",
+-	[ESR_ELx_EC_BREAKPT_CUR]	= "Breakpoint (current EL)",
+-	[ESR_ELx_EC_SOFTSTP_LOW]	= "Software Step (lower EL)",
+-	[ESR_ELx_EC_SOFTSTP_CUR]	= "Software Step (current EL)",
+-	[ESR_ELx_EC_WATCHPT_LOW]	= "Watchpoint (lower EL)",
+-	[ESR_ELx_EC_WATCHPT_CUR]	= "Watchpoint (current EL)",
+-	[ESR_ELx_EC_BKPT32]		= "BKPT (AArch32)",
+-	[ESR_ELx_EC_VECTOR32]		= "Vector catch (AArch32)",
+-	[ESR_ELx_EC_BRK64]		= "BRK (AArch64)",
+-};
+-
+-const char *esr_get_class_string(unsigned long esr)
+-{
+-	return esr_class_str[ESR_ELx_EC(esr)];
+-}
+-
+ /*
+  * bad_el0_sync handles unexpected, but potentially recoverable synchronous
+  * exceptions taken from EL0.
+diff --git a/arch/arm64/include/asm/brk-imm.h b/include/arch/arm64/asm/brk-imm.h
+similarity index 92%
+rename from arch/arm64/include/asm/brk-imm.h
+rename to include/arch/arm64/asm/brk-imm.h
+index beb42c62b6ac..c311085886f5 100644
+--- a/arch/arm64/include/asm/brk-imm.h
++++ b/include/arch/arm64/asm/brk-imm.h
+@@ -3,8 +3,8 @@
+  * Copyright (C) 2012 ARM Ltd.
   */
  
--#ifdef CONFIG_KVM_MMIO
-+#ifdef HAVE_KVM_MMIO
+-#ifndef __ASM_BRK_IMM_H
+-#define __ASM_BRK_IMM_H
++#ifndef __ARM64_ASM_BRK_IMM_H
++#define __ARM64_ASM_BRK_IMM_H
  
- #include <linux/list.h>
+ /*
+  * #imm16 values used for BRK instruction generation
+@@ -39,4 +39,4 @@
+ #define CFI_BRK_IMM_BASE		0x8000
+ #define CFI_BRK_IMM_MASK		(CFI_BRK_IMM_TARGET | CFI_BRK_IMM_TYPE)
  
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index 60a5bb778993..ab3a0347bdd3 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -4041,7 +4041,7 @@ static vm_fault_t kvm_vcpu_fault(struct vm_fault *vmf)
- 	else if (vmf->pgoff == KVM_PIO_PAGE_OFFSET)
- 		page = virt_to_page(vcpu->arch.pio_data);
- #endif
--#ifdef CONFIG_KVM_MMIO
-+#ifdef HAVE_KVM_MMIO
- 	else if (vmf->pgoff == KVM_COALESCED_MMIO_PAGE_OFFSET)
- 		page = virt_to_page(vcpu->kvm->coalesced_mmio_ring);
- #endif
-@@ -4867,7 +4867,7 @@ static int kvm_vm_ioctl_check_extension_generic(struct kvm *kvm, long arg)
- 	case KVM_CAP_ENABLE_CAP_VM:
- 	case KVM_CAP_HALT_POLL:
- 		return 1;
--#ifdef CONFIG_KVM_MMIO
-+#ifdef HAVE_KVM_MMIO
- 	case KVM_CAP_COALESCED_MMIO:
- 		return KVM_COALESCED_MMIO_PAGE_OFFSET;
- 	case KVM_CAP_COALESCED_PIO:
-@@ -5208,7 +5208,7 @@ static long kvm_vm_ioctl(struct file *filp,
- 		break;
- 	}
- #endif
--#ifdef CONFIG_KVM_MMIO
-+#ifdef HAVE_KVM_MMIO
- 	case KVM_REGISTER_COALESCED_MMIO: {
- 		struct kvm_coalesced_mmio_zone zone;
+-#endif
++#endif /* __ARM64_ASM_BRK_IMM_H */
+diff --git a/arch/arm64/include/asm/esr.h b/include/arch/arm64/asm/esr.h
+similarity index 88%
+rename from arch/arm64/include/asm/esr.h
+rename to include/arch/arm64/asm/esr.h
+index 7e86d400864e..a7421cc966f9 100644
+--- a/arch/arm64/include/asm/esr.h
++++ b/include/arch/arm64/asm/esr.h
+@@ -4,11 +4,12 @@
+  * Author: Marc Zyngier <marc.zyngier@arm.com>
+  */
  
-@@ -5530,7 +5530,7 @@ static long kvm_dev_ioctl(struct file *filp,
- #ifdef CONFIG_X86
- 		r += PAGE_SIZE;    /* pio data page */
- #endif
--#ifdef CONFIG_KVM_MMIO
-+#ifdef HAVE_KVM_MMIO
- 		r += PAGE_SIZE;    /* coalesced mmio ring page */
- #endif
- 		break;
+-#ifndef __ASM_ESR_H
+-#define __ASM_ESR_H
++#ifndef __ARM64_ASM_ESR_H
++#define __ARM64_ASM_ESR_H
+ 
+-#include <asm/memory.h>
+-#include <asm/sysreg.h>
++#include <linux/const.h>
++#include <asm/sysreg-defs.h>
++#include <asm/brk-imm.h>
+ 
+ #define ESR_ELx_EC_UNKNOWN	UL(0x00)
+ #define ESR_ELx_EC_WFx		UL(0x01)
+@@ -541,7 +542,56 @@ static inline bool esr_iss_is_eretab(unsigned long esr)
+ 	return esr & ESR_ELx_ERET_ISS_ERETA;
+ }
+ 
+-const char *esr_get_class_string(unsigned long esr);
++static inline const char *esr_get_class_string(unsigned long esr)
++{
++	switch (ESR_ELx_EC(esr)) {
++	case ESR_ELx_EC_UNKNOWN:	return "Unknown/Uncategorized";
++	case ESR_ELx_EC_WFx:		return "WFI/WFE";
++	case ESR_ELx_EC_CP15_32:	return "CP15 MCR/MRC";
++	case ESR_ELx_EC_CP15_64:	return "CP15 MCRR/MRRC";
++	case ESR_ELx_EC_CP14_MR:	return "CP14 MCR/MRC";
++	case ESR_ELx_EC_CP14_LS:	return "CP14 LDC/STC";
++	case ESR_ELx_EC_FP_ASIMD:	return "ASIMD";
++	case ESR_ELx_EC_CP10_ID:	return "CP10 MRC/VMRS";
++	case ESR_ELx_EC_PAC:		return "PAC";
++	case ESR_ELx_EC_CP14_64:	return "CP14 MCRR/MRRC";
++	case ESR_ELx_EC_BTI:		return "BTI";
++	case ESR_ELx_EC_ILL:		return "PSTATE.IL";
++	case ESR_ELx_EC_SVC32:		return "SVC (AArch32)";
++	case ESR_ELx_EC_HVC32:		return "HVC (AArch32)";
++	case ESR_ELx_EC_SMC32:		return "SMC (AArch32)";
++	case ESR_ELx_EC_SVC64:		return "SVC (AArch64)";
++	case ESR_ELx_EC_HVC64:		return "HVC (AArch64)";
++	case ESR_ELx_EC_SMC64:		return "SMC (AArch64)";
++	case ESR_ELx_EC_SYS64:		return "MSR/MRS (AArch64)";
++	case ESR_ELx_EC_SVE:		return "SVE";
++	case ESR_ELx_EC_ERET:		return "ERET/ERETAA/ERETAB";
++	case ESR_ELx_EC_FPAC:		return "FPAC";
++	case ESR_ELx_EC_SME:		return "SME";
++	case ESR_ELx_EC_IMP_DEF:	return "EL3 IMP DEF";
++	case ESR_ELx_EC_IABT_LOW:	return "IABT (lower EL)";
++	case ESR_ELx_EC_IABT_CUR:	return "IABT (current EL)";
++	case ESR_ELx_EC_PC_ALIGN:	return "PC Alignment";
++	case ESR_ELx_EC_DABT_LOW:	return "DABT (lower EL)";
++	case ESR_ELx_EC_DABT_CUR:	return "DABT (current EL)";
++	case ESR_ELx_EC_SP_ALIGN:	return "SP Alignment";
++	case ESR_ELx_EC_MOPS:		return "MOPS";
++	case ESR_ELx_EC_FP_EXC32:	return "FP (AArch32)";
++	case ESR_ELx_EC_FP_EXC64:	return "FP (AArch64)";
++	case ESR_ELx_EC_GCS:		return "Guarded Control Stack";
++	case ESR_ELx_EC_SERROR:		return "SError";
++	case ESR_ELx_EC_BREAKPT_LOW:	return "Breakpoint (lower EL)";
++	case ESR_ELx_EC_BREAKPT_CUR:	return "Breakpoint (current EL)";
++	case ESR_ELx_EC_SOFTSTP_LOW:	return "Software Step (lower EL)";
++	case ESR_ELx_EC_SOFTSTP_CUR:	return "Software Step (current EL)";
++	case ESR_ELx_EC_WATCHPT_LOW:	return "Watchpoint (lower EL)";
++	case ESR_ELx_EC_WATCHPT_CUR:	return "Watchpoint (current EL)";
++	case ESR_ELx_EC_BKPT32:		return "BKPT (AArch32)";
++	case ESR_ELx_EC_VECTOR32:	return "Vector catch (AArch32)";
++	case ESR_ELx_EC_BRK64:		return "BRK (AArch64)";
++	default:			return "UNRECOGNIZED EC";
++	}
++}
+ #endif /* __ASSEMBLER__ */
+ 
+-#endif /* __ASM_ESR_H */
++#endif /* __ARM64_ASM_ESR_H */
+diff --git a/arch/arm64/include/asm/sysreg-defs.h b/include/arch/arm64/asm/sysreg-defs.h
+similarity index 99%
+rename from arch/arm64/include/asm/sysreg-defs.h
+rename to include/arch/arm64/asm/sysreg-defs.h
+index 311f882a992b..399ff6897c1b 100644
+--- a/arch/arm64/include/asm/sysreg-defs.h
++++ b/include/arch/arm64/asm/sysreg-defs.h
+@@ -1,7 +1,7 @@
+ /* SPDX-License-Identifier: GPL-2.0-only */
+ 
+-#ifndef __ASM_SYSREG_DEFS_H
+-#define __ASM_SYSREG_DEFS_H
++#ifndef __ARM64_ASM_SYSREG_DEFS_H
++#define __ARM64_ASM_SYSREG_DEFS_H
+ 
+ #include <linux/bits.h>
+ 
+@@ -968,4 +968,4 @@
+ 		 FIELD_PREP(reg##_##field##_MASK,	\
+ 			    SYS_FIELD_VALUE(reg, field, val))
+ #endif /* __ASSEMBLER__ */
+-#endif	/* __ASM_SYSREG_DEFS_H */
++#endif /* __ARM64_ASM_SYSREG_DEFS_H */
 -- 
 2.51.0
 
