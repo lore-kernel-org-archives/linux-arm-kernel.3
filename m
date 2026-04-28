@@ -4,78 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95749FF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 09:03:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8F93FF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 09:05:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KXoaKYpqrp33Xre4NYTE2kQqgDTEdvC2Dtrhw0jg2mY=; b=1yZajWEJ3d7Oa3gPmSSpeQCf9y
-	4T9VkMRwOI176E22yTgruyeUCMrG9wVMdEQ4q5JYmcX3YOlZdN0j7kAokQvmrgmfWgYYGwm0U6U0i
-	bv3qFxGyOugo8HY86mAU9Rg5Osflpylhq8RaxJY3KZ7Tl6XZtV8+zBr0f/ttA8jjlSZIE/9fHxP4o
-	ylwMQJcZ/8gA/RGlNvJUhHfQtdDlxM7lxrYiMRxvZNpaiuOaJXE9fyEhZM/MmBn0zfZr9W5MSZm3f
-	Mxs7FLuWz44bsDOQOyUOL1reWPTIuRYMgC7F6OLauWll1kg0kZVOKyWT/S9NuPR1SqeOuCuKq+ev3
-	5GRV6qHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ve315Lf5f26qmZRB9J04YWNRwxTZqT16jtAteB94H4c=; b=PWGOMSkPJ7CDCm7D4fxuRS7tgy
+	pU3W6na5ZO6lO2816SgzUGNkryzsKGo6/upOpGh0XlaGzdfDMSKD7Hv2LjCIu0G5a1B7QwMRt5pZU
+	yjyuWV6n3bJU0sQytCvbAJbKMvDICxTFqgm3L9+aXHk+Q+gkhbmMsPqWlbGExS0K07GdiOVPyfssJ
+	HC+Ko4SHlLMNJg6BjcxP4kNg3q+C2OyVnzsSwkp0HBTEmgDumTZY8bNhciLK6IB1PxBBRf2xu1laB
+	98H04iK/jKtIa/ixZrVFKKtNGAfg+U06sekyTHoN31BJ4iIudVMui56H2fdGIZLf6y/oBQavM2o2O
+	pYtLqzqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeLR-00000000zfH-29iP;
-	Tue, 28 Apr 2026 09:03:05 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wHeNd-000000010xV-2LgK;
+	Tue, 28 Apr 2026 09:05:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeKD-00000000yFT-3ixK
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 28 Apr 2026 09:01:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Cc:To:In-Reply-To:References:Message-Id
-	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=KXoaKYpqrp33Xre4NYTE2kQqgDTEdvC2Dtrhw0jg2mY=; b=GfgdbdV/KVjXSJ79HKB7JVyV/m
-	JqQINsFR8bHtgPz+X6zaIiR8IOdh/lnvUyEdfmWq7DrjZ/ikHcLp5Tv1owulNPB7coG4ApEC3hODm
-	lakjUfxtc56laQNPq+Rbd+Bf1YVBShV3Y2SDYET/zwn895EHrk5EtqplxgPtso5jC4t0NCvvg6Q2s
-	T05Cy4u1j9otTCrAew0YtrK1m45mTaWQR8jCidWD9HAqSyc+WsssAbDfNSstTw9U0+lo2UTmYlq4w
-	hnSTlxe+l0l8v0k5Cr9CmDfYOaN1fkLP0ORZCVP3aaVkslsCdXqJgsYrM7kazx9TaAuoQ4Fsgn8nd
-	eRoNqwWg==;
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeK8-00000003VN5-3Zvf
+	id 1wHeNb-000000010wg-1RM7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 09:01:48 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1wHeJI-0004Lz-DQ; Tue, 28 Apr 2026 11:00:52 +0200
-From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Tue, 28 Apr 2026 11:00:55 +0200
-Subject: [PATCH v5 20/29] media: rockchip: rga: change offset to
- dma_addresses
+	Tue, 28 Apr 2026 09:05:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 99A1844946;
+	Tue, 28 Apr 2026 09:05:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F96AC2BCAF;
+	Tue, 28 Apr 2026 09:05:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777367105;
+	bh=avdBPaIwZk7NkKkTLLHF3tk7Md9yMqY+C26UoHu11cY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mY55H+LxwhQCzaL+eZPT2a+NHi3q+LDHzejJWRa2EyNn2Us5tC7lLg9skNg0BzBZZ
+	 DdU4pfFsQSKIBW6WTfavxFUt+lOMnQ40qbpdtWASKwActV+QHreL7yOvR6N62rgUc2
+	 hL9/qNiFvU5dnvKE4URCV1RIQ2sFV7ddkdov7dqhNFOr/jXSvgqXR7FKz35/zWJ/Xc
+	 nHmopaRESLGWn4hWd6GzpFD9b8o8uqiMq0YG5q3tUoDwsw3d9BnGSN75WV7D/6CkSV
+	 CgluCWbAK5Yx3p1JjrxwZNbzWsYguIT12/29tMlYKnnI/1UEdI/zvugqKuZ24ozjfN
+	 WiMFWeElnBSyA==
+Date: Tue, 28 Apr 2026 10:05:22 +0100
+From: Jean-Philippe Brucker <jpb@kernel.org>
+To: Joonwon Kang <joonwonkang@google.com>
+Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jgg@ziepe.ca,
+	baolu.lu@linux.intel.com, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+	stimim@google.com, cychu@google.com, hhchung@google.com
+Subject: Re: [QUESTION] Is the ARM SMMU v3 implementation designed to always
+ ignore SSID when SSID_VALID == 0?
+Message-ID: <20260428090522.GA3048463@myrica>
+References: <20260428073859.1502047-1-joonwonkang@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260428-spu-rga3-v5-20-eb7f5d019d86@pengutronix.de>
-References: <20260428-spu-rga3-v5-0-eb7f5d019d86@pengutronix.de>
-In-Reply-To: <20260428-spu-rga3-v5-0-eb7f5d019d86@pengutronix.de>
-To: Jacob Chen <jacob-chen@iotwrt.com>, 
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Hans Verkuil <hverkuil@kernel.org>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, kernel@pengutronix.de, nicolas@ndufresne.ca, 
- sebastian.reichel@collabora.com, 
- =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>, 
- Nicolas Dufresne <nicolas.dufresne@collabora.com>
-X-Mailer: b4 0.15.2
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260428073859.1502047-1-joonwonkang@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_100144_963668_89F5CE7F 
-X-CRM114-Status: GOOD (  19.48  )
+X-CRM114-CacheID: sfid-20260428_020519_427237_50DDE9C3 
+X-CRM114-Status: GOOD (  18.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,292 +74,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Change the offset to dma_addresses, as the current naming is misleading.
-The offset naming comes from the fact that it references the offset in
-the mapped iommu address space. But from the hardware point of view this
-is an address, as also pointed out by the register naming
-(e.g. RGA_DST_Y_RGB_BASE_ADDR). Therefore also change the type to
-dma_addr_t, as with an external iommu driver this would also be the
-correct type.
+Hi,
 
-This change is a preparation for the RGA3 support, which uses an external
-iommu and therefore just gets an dma_addr_t for each buffer. The field
-renaming allows to reuse the existing fields of rga_vb_buffer to store
-these values.
+On Tue, Apr 28, 2026 at 07:38:59AM +0000, Joonwon Kang wrote:
+> Hi team,
+> 
+> According to the ARM SMMU v3 spec, I believe that SSID should always be
+> ignored when SSID_VALID == 0 and the current ARM SMMU v3 module
+> implementation in the kernel seems to comply with this without exception.
+> For example, when handling an event from SMMU, the implementation checks
+> SSID_VALID(SSV) first and ignores SSID accordingly. If there is any
+> exception to this rule, I believe it is a bug.
 
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
----
- drivers/media/platform/rockchip/rga/rga-buf.c |  12 +--
- drivers/media/platform/rockchip/rga/rga-hw.c  | 105 +++++++++++++-------------
- drivers/media/platform/rockchip/rga/rga.h     |  12 +--
- 3 files changed, 64 insertions(+), 65 deletions(-)
+Indeed
 
-diff --git a/drivers/media/platform/rockchip/rga/rga-buf.c b/drivers/media/platform/rockchip/rga/rga-buf.c
-index ffc6162b2e681..bc349d0a46365 100644
---- a/drivers/media/platform/rockchip/rga/rga-buf.c
-+++ b/drivers/media/platform/rockchip/rga/rga-buf.c
-@@ -121,7 +121,7 @@ static int rga_buf_prepare(struct vb2_buffer *vb)
- 	size_t curr_desc = 0;
- 	int i;
- 	const struct v4l2_format_info *info;
--	unsigned int offsets[VIDEO_MAX_PLANES];
-+	unsigned int dma_addrs[VIDEO_MAX_PLANES];
- 
- 	if (IS_ERR(f))
- 		return PTR_ERR(f);
-@@ -145,18 +145,18 @@ static int rga_buf_prepare(struct vb2_buffer *vb)
- 				 "Failed to map video buffer to RGA\n");
- 			return n_desc;
- 		}
--		offsets[i] = curr_desc << PAGE_SHIFT;
-+		dma_addrs[i] = curr_desc << PAGE_SHIFT;
- 		curr_desc += n_desc;
- 	}
- 
- 	/* Fill the remaining planes */
- 	info = v4l2_format_info(f->fmt->fourcc);
- 	for (i = info->mem_planes; i < info->comp_planes; i++)
--		offsets[i] = get_plane_offset(f, info, i);
-+		dma_addrs[i] = dma_addrs[0] + get_plane_offset(f, info, i);
- 
--	rbuf->offset.y_off = offsets[0];
--	rbuf->offset.u_off = offsets[1];
--	rbuf->offset.v_off = offsets[2];
-+	rbuf->dma_addrs.y_addr = dma_addrs[0];
-+	rbuf->dma_addrs.u_addr = dma_addrs[1];
-+	rbuf->dma_addrs.v_addr = dma_addrs[2];
- 
- 	return 0;
- }
-diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media/platform/rockchip/rga/rga-hw.c
-index 931b4c4074a29..8f60482f538c5 100644
---- a/drivers/media/platform/rockchip/rga/rga-hw.c
-+++ b/drivers/media/platform/rockchip/rga/rga-hw.c
-@@ -16,11 +16,11 @@ enum e_rga_start_pos {
- 	RB = 3,
- };
- 
--struct rga_corners_addr_offset {
--	struct rga_addr_offset left_top;
--	struct rga_addr_offset right_top;
--	struct rga_addr_offset left_bottom;
--	struct rga_addr_offset right_bottom;
-+struct rga_corners_addrs {
-+	struct rga_addrs left_top;
-+	struct rga_addrs right_top;
-+	struct rga_addrs left_bottom;
-+	struct rga_addrs right_bottom;
- };
- 
- static unsigned int rga_get_scaling(unsigned int src, unsigned int dst)
-@@ -36,20 +36,20 @@ static unsigned int rga_get_scaling(unsigned int src, unsigned int dst)
- 	return (src > dst) ? ((dst << 16) / src) : ((src << 16) / dst);
- }
- 
--static struct rga_corners_addr_offset
--rga_get_addr_offset(struct rga_frame *frm, struct rga_addr_offset *offset,
--		    unsigned int x, unsigned int y, unsigned int w, unsigned int h)
-+static struct rga_corners_addrs
-+rga_get_corner_addrs(struct rga_frame *frm, struct rga_addrs *addrs,
-+		     unsigned int x, unsigned int y, unsigned int w, unsigned int h)
- {
--	struct rga_corners_addr_offset offsets;
--	struct rga_addr_offset *lt, *lb, *rt, *rb;
-+	struct rga_corners_addrs corner_addrs;
-+	struct rga_addrs *lt, *lb, *rt, *rb;
- 	const struct v4l2_format_info *format_info;
- 	unsigned int x_div = 0,
- 		     y_div = 0, uv_stride = 0, pixel_width = 0;
- 
--	lt = &offsets.left_top;
--	lb = &offsets.left_bottom;
--	rt = &offsets.right_top;
--	rb = &offsets.right_bottom;
-+	lt = &corner_addrs.left_top;
-+	lb = &corner_addrs.left_bottom;
-+	rt = &corner_addrs.right_top;
-+	rb = &corner_addrs.right_bottom;
- 
- 	format_info = v4l2_format_info(frm->pix.pixelformat);
- 	/* x_div is only used for the u/v planes.
-@@ -64,29 +64,28 @@ rga_get_addr_offset(struct rga_frame *frm, struct rga_addr_offset *offset,
- 	uv_stride = frm->stride / x_div;
- 	pixel_width = frm->stride / frm->pix.width;
- 
--	lt->y_off = offset->y_off + y * frm->stride + x * pixel_width;
--	lt->u_off = offset->u_off + (y / y_div) * uv_stride + x / x_div;
--	lt->v_off = offset->v_off + (y / y_div) * uv_stride + x / x_div;
-+	lt->y_addr = addrs->y_addr + y * frm->stride + x * pixel_width;
-+	lt->u_addr = addrs->u_addr + (y / y_div) * uv_stride + x / x_div;
-+	lt->v_addr = addrs->v_addr + (y / y_div) * uv_stride + x / x_div;
- 
--	lb->y_off = lt->y_off + (h - 1) * frm->stride;
--	lb->u_off = lt->u_off + (h / y_div - 1) * uv_stride;
--	lb->v_off = lt->v_off + (h / y_div - 1) * uv_stride;
-+	lb->y_addr = lt->y_addr + (h - 1) * frm->stride;
-+	lb->u_addr = lt->u_addr + (h / y_div - 1) * uv_stride;
-+	lb->v_addr = lt->v_addr + (h / y_div - 1) * uv_stride;
- 
--	rt->y_off = lt->y_off + (w - 1) * pixel_width;
--	rt->u_off = lt->u_off + w / x_div - 1;
--	rt->v_off = lt->v_off + w / x_div - 1;
-+	rt->y_addr = lt->y_addr + (w - 1) * pixel_width;
-+	rt->u_addr = lt->u_addr + w / x_div - 1;
-+	rt->v_addr = lt->v_addr + w / x_div - 1;
- 
--	rb->y_off = lb->y_off + (w - 1) * pixel_width;
--	rb->u_off = lb->u_off + w / x_div - 1;
--	rb->v_off = lb->v_off + w / x_div - 1;
-+	rb->y_addr = lb->y_addr + (w - 1) * pixel_width;
-+	rb->u_addr = lb->u_addr + w / x_div - 1;
-+	rb->v_addr = lb->v_addr + w / x_div - 1;
- 
--	return offsets;
-+	return corner_addrs;
- }
- 
--static struct rga_addr_offset *rga_lookup_draw_pos(struct
--		rga_corners_addr_offset
--		* offsets, u32 rotate_mode,
--		u32 mirr_mode)
-+static struct rga_addrs *rga_lookup_draw_pos(struct rga_corners_addrs *corner_addrs,
-+					     u32 rotate_mode,
-+					     u32 mirr_mode)
- {
- 	static enum e_rga_start_pos rot_mir_point_matrix[4][4] = {
- 		{
-@@ -103,18 +102,18 @@ static struct rga_addr_offset *rga_lookup_draw_pos(struct
- 		},
- 	};
- 
--	if (!offsets)
-+	if (!corner_addrs)
- 		return NULL;
- 
- 	switch (rot_mir_point_matrix[rotate_mode][mirr_mode]) {
- 	case LT:
--		return &offsets->left_top;
-+		return &corner_addrs->left_top;
- 	case LB:
--		return &offsets->left_bottom;
-+		return &corner_addrs->left_bottom;
- 	case RT:
--		return &offsets->right_top;
-+		return &corner_addrs->right_top;
- 	case RB:
--		return &offsets->right_bottom;
-+		return &corner_addrs->right_bottom;
- 	}
- 
- 	return NULL;
-@@ -326,9 +325,9 @@ static void rga_cmd_set_format_scale_info(struct rga_ctx *ctx)
- }
- 
- static void rga_cmd_set_src_info(struct rga_ctx *ctx,
--				 struct rga_addr_offset *offset)
-+				 struct rga_addrs *addrs)
- {
--	struct rga_corners_addr_offset src_offsets;
-+	struct rga_corners_addrs src_corner_addrs;
- 	u32 *dest = ctx->cmdbuf_virt;
- 	unsigned int src_h, src_w, src_x, src_y;
- 
-@@ -340,22 +339,22 @@ static void rga_cmd_set_src_info(struct rga_ctx *ctx,
- 	/*
- 	 * Calculate the source framebuffer base address with offset pixel.
- 	 */
--	src_offsets = rga_get_addr_offset(&ctx->in, offset,
--					  src_x, src_y, src_w, src_h);
-+	src_corner_addrs = rga_get_corner_addrs(&ctx->in, addrs,
-+						src_x, src_y, src_w, src_h);
- 
- 	dest[(RGA_SRC_Y_RGB_BASE_ADDR - RGA_MODE_BASE_REG) >> 2] =
--		src_offsets.left_top.y_off;
-+		src_corner_addrs.left_top.y_addr;
- 	dest[(RGA_SRC_CB_BASE_ADDR - RGA_MODE_BASE_REG) >> 2] =
--		src_offsets.left_top.u_off;
-+		src_corner_addrs.left_top.u_addr;
- 	dest[(RGA_SRC_CR_BASE_ADDR - RGA_MODE_BASE_REG) >> 2] =
--		src_offsets.left_top.v_off;
-+		src_corner_addrs.left_top.v_addr;
- }
- 
- static void rga_cmd_set_dst_info(struct rga_ctx *ctx,
--				 struct rga_addr_offset *offset)
-+				 struct rga_addrs *addrs)
- {
--	struct rga_addr_offset *dst_offset;
--	struct rga_corners_addr_offset offsets;
-+	struct rga_addrs *dst_addrs;
-+	struct rga_corners_addrs corner_addrs;
- 	u32 *dest = ctx->cmdbuf_virt;
- 	unsigned int dst_h, dst_w, dst_x, dst_y;
- 	unsigned int mir_mode = 0;
-@@ -389,15 +388,15 @@ static void rga_cmd_set_dst_info(struct rga_ctx *ctx,
- 	/*
- 	 * Configure the dest framebuffer base address with pixel offset.
- 	 */
--	offsets = rga_get_addr_offset(&ctx->out, offset, dst_x, dst_y, dst_w, dst_h);
--	dst_offset = rga_lookup_draw_pos(&offsets, rot_mode, mir_mode);
-+	corner_addrs = rga_get_corner_addrs(&ctx->out, addrs, dst_x, dst_y, dst_w, dst_h);
-+	dst_addrs = rga_lookup_draw_pos(&corner_addrs, rot_mode, mir_mode);
- 
- 	dest[(RGA_DST_Y_RGB_BASE_ADDR - RGA_MODE_BASE_REG) >> 2] =
--		dst_offset->y_off;
-+		dst_addrs->y_addr;
- 	dest[(RGA_DST_CB_BASE_ADDR - RGA_MODE_BASE_REG) >> 2] =
--		dst_offset->u_off;
-+		dst_addrs->u_addr;
- 	dest[(RGA_DST_CR_BASE_ADDR - RGA_MODE_BASE_REG) >> 2] =
--		dst_offset->v_off;
-+		dst_addrs->v_addr;
- }
- 
- static void rga_cmd_set_mode(struct rga_ctx *ctx)
-@@ -436,8 +435,8 @@ static void rga_cmd_set(struct rga_ctx *ctx,
- 
- 	rga_cmd_set_dst_addr(ctx, dst->dma_desc_pa);
- 
--	rga_cmd_set_src_info(ctx, &src->offset);
--	rga_cmd_set_dst_info(ctx, &dst->offset);
-+	rga_cmd_set_src_info(ctx, &src->dma_addrs);
-+	rga_cmd_set_dst_info(ctx, &dst->dma_addrs);
- 	rga_cmd_set_flip_rotate_info(ctx);
- 
- 	rga_write(rga, RGA_CMD_BASE, ctx->cmdbuf_phy);
-diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
-index dc6f90b843c32..025b1df594e9a 100644
---- a/drivers/media/platform/rockchip/rga/rga.h
-+++ b/drivers/media/platform/rockchip/rga/rga.h
-@@ -96,10 +96,10 @@ struct rockchip_rga {
- 	const struct rga_hw *hw;
- };
- 
--struct rga_addr_offset {
--	unsigned int y_off;
--	unsigned int u_off;
--	unsigned int v_off;
-+struct rga_addrs {
-+	dma_addr_t y_addr;
-+	dma_addr_t u_addr;
-+	dma_addr_t v_addr;
- };
- 
- struct rga_vb_buffer {
-@@ -111,8 +111,8 @@ struct rga_vb_buffer {
- 	dma_addr_t dma_desc_pa;
- 	size_t n_desc;
- 
--	/* Plane offsets of this buffer into the mapping */
--	struct rga_addr_offset offset;
-+	/* Plane DMA addresses after the MMU mapping of the buffer */
-+	struct rga_addrs dma_addrs;
- };
- 
- static inline struct rga_vb_buffer *vb_to_rga(struct vb2_v4l2_buffer *vb)
+> Is it true for all the current and future cases? In other words, is it
+> **mandatory** that the ARM SMMU v3 implementation ignores SSID when
+> SSID_VALID == 0? or there might be some cases where the implementation
+> needs to refer to SSID even when SSID_VALID == 0?
+> 
+> Asking this question since our HW may not be able to clear SSID when
+> SSID_VALID == 0 and so there might be some garbage value in SSID at some
+> point of time(the HW will have a correct SSID when SSID_VALID == 1,
+> though). If the ARM SMMU v3 implementation is to refer to that garbage
+> value for any reason, the result would be devastating.
 
--- 
-2.54.0
+At least according to the architecture, SubstreamID is ignored when SSV=0.
+The SMMU is allowed to propagate the garbage:
 
+  7.3 Event record
+
+  * SSV: The SubstreamID validity flag
+    - 0: No SubstreamID was provided with the transaction and the SubstreamID field is UNKNOWN.
+
+But the driver will ignore it.
+
+Same for PRI queue but in that case the page request wouldn't have a PASID
+TLP prefix.
+
+Thanks,
+Jean
 
