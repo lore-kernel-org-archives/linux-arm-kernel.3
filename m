@@ -4,64 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 466B1FF886D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 13:50:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56F5CFF886D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 13:52:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gTmZ8pGGZ/hzLoGbHSM67x+yk0ufm7YBi5T4IeB0FBA=; b=o5wYyLiTpBh0mTKPQjVqVEmiJF
-	6NPFZU1PRz1tTt/G+1+LR/uODVio0cbzQuGsKcqG7fQeJi54pRnk6QlUUSwnJuJbRhtjRM7SoRUTu
-	RiTJD+GUZXMsgmpnjH/4qoX/6PBBJX0wS0ZIbJCedKVwMFwO/L7+D4BKcY2pJFL3+dLYWM3RAER8k
-	iy8NewtV3KmVM/d1R+7uNPGJLQV7DJy/H9ckvITxyTnt64ZXDpTOeF5Pcff1oSfZuxj1i5VyagfFG
-	XTQAWdsoskaU5MYtaMLeJb8N0Dpdt57zfh6dZA474W6PioD1HzavwLTtmGNGNhOfr6Wy5rRg6SpaG
-	PEzLh1sA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gz+sRNNrV+OWZzl6ReScXzJShm84uwuT8VOb9xqunNo=; b=cc+oEhfDGKKpvZDHIHPB0UcypA
+	EIP5OuILzZwpVcme+2Wm6C9Xeh0ToyKReDSeiOpDNITclw26MP2kQeGPBRlCtFg8OjJe6ztm8+sK1
+	PfwFDatk2PxrSu5T9hzZfG3f+4Gf3HJzuGA7w5r3c7S0tg3KTAb5RqA7GPClxCk2fKOnG/Je3Xkv5
+	OAsf2hRfhamT5aj7YSl0A7iFyW12zENvs6IImsBfqmrUZX/34K32h8nu2ZZaWngu7qnP3yQDnY0ZF
+	4QdDFiYJoOoRJc9FobJU/5QVB1LjHf6gI5h2BZwxwSWw9MOFz3GnmY6XastXoZ3TR2fDikzJvVpc+
+	HD1lO9HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHipb-00000001aY8-2pBH;
-	Tue, 28 Apr 2026 13:50:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wHiqy-00000001aiI-0ZoJ;
+	Tue, 28 Apr 2026 13:51:56 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHipZ-00000001aXW-3D46
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 13:50:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C31A543B9C;
-	Tue, 28 Apr 2026 13:50:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25837C2BCAF;
-	Tue, 28 Apr 2026 13:50:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777384228;
-	bh=C5KSRh53zUUnHlfowXZ4LbxgWa/gXflfi32aQpqJdG8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VCBmAicRsBEGMMPKnS6mfeRIsjZM73pool8RdEf0m7TaJhDQrMg9QCfOXrqATsCKn
-	 44me2Coqd+8h7Yg0OG1VpbvysEn9YkkzxGVM/d5GOlTADW0io+Jrv7AAn86R5b4q4o
-	 7n1UCPxhTWKr0ZUNuAn6fKDM6e7OBRYBx2/GAv2IW804DZyXN81aEfbnYLZQRD068d
-	 fqnWuMsPuZx0jLLcErSl++pqobVk14f+edlUxYz32ybKhVmICFjxecWaMO9DFYAoFy
-	 Wkz0SyJkruKD17nDeJ7aYrPIe/KzidwX7/CNNX1LJlihv/AFGGhOnraH4dZlMu1F3V
-	 85cgj+ud9i79A==
-Date: Tue, 28 Apr 2026 14:50:23 +0100
-From: Will Deacon <will@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: maz@kernel.org, oliver.upton@linux.dev, james.morse@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, qperret@google.com,
-	vdonnefort@google.com, catalin.marinas@arm.com,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH 2/8] KVM: arm64: Synchronise HCR_EL2 writes on the guest
- exit path
-Message-ID: <afC7H1fu4vFzTRTt@willie-the-truck>
-References: <20260428103008.696141-1-tabba@google.com>
- <20260428103008.696141-3-tabba@google.com>
+	id 1wHiqv-00000001ahW-0DNI;
+	Tue, 28 Apr 2026 13:51:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1777384307;
+	bh=sU4/cbZTlYJ898JgkXkK5rJKdiUsQhuw4mg7I7NDGRk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=LEmcaE/Qtt4L/l/wrTpaUoSyt1Uj387RyZH9OWWOqS5rEqDH6huIUWxMvCAXBfXmx
+	 ULPzJ9uTvJUJ3y6bXC6G9tCvWjlSxrWhZj+piKtgjQy6AeBp9QP6JcYatLLtnPYsEo
+	 qMnKSHTbzcd9F3nrKKyNNrAZeaB4hNo5yLjpwP916WULJDlK6sGdHCVHI5H6voltQF
+	 yp5k46alurfNpChtLk6Ew0zLAxqm+snYVCg86AZFC5Pm9u0oUzWK32tjoqgoSXy4iS
+	 676lVsMhPQ7fL+alBm+4S26VaM9eyiD+oXgKSfgvFgkcQYjonm+l+h3civ1kf8zvFF
+	 LMUoH3sFCvKtQ==
+Received: from [100.64.0.241] (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1F55917E128F;
+	Tue, 28 Apr 2026 15:51:47 +0200 (CEST)
+Message-ID: <539f1bb9-6509-40c7-8692-bb3cdee33f91@collabora.com>
+Date: Tue, 28 Apr 2026 16:51:46 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260428103008.696141-3-tabba@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 05/10] drm/bridge: dw-hdmi-qp: Add HDMI 2.0 SCDC
+ scrambling and high TMDS clock ratio support
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, kernel@collabora.com,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ Diederik de Haas <diederik@cknow-tech.com>,
+ Maud Spierings <maud_spierings@hotmail.com>
+References: <20260426-dw-hdmi-qp-scramb-v5-0-d778e70c317b@collabora.com>
+ <20260426-dw-hdmi-qp-scramb-v5-5-d778e70c317b@collabora.com>
+ <m5fxlfktxtvki5yaxhkx4h3hsjj5266stwvfdykhqkgcjbz5bk@s5gggcd45abm>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <m5fxlfktxtvki5yaxhkx4h3hsjj5266stwvfdykhqkgcjbz5bk@s5gggcd45abm>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_065029_853062_51C9C2E6 
-X-CRM114-Status: GOOD (  27.12  )
+X-CRM114-CacheID: sfid-20260428_065153_250702_0563690F 
+X-CRM114-Status: GOOD (  32.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,74 +88,302 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 28, 2026 at 11:30:02AM +0100, Fuad Tabba wrote:
-> MSR HCR_EL2 is not self-synchronising. Per ARM DDI 0487 M.b K1.2.4
-> (p.K1-16823) and B2.6.1 (p.B2-297), a Context Synchronisation Event
-> is required between an HCR_EL2 write and any subsequent direct
-> register access at the same EL that depends on the new value being
-> in effect.
-> 
-> On the entry path, the HCR_EL2 write in __activate_traps is followed
-> by further EL2 sysreg work (MDCR_EL2, CPTR_EL2, VBAR_EL2, and on the
-> speculative-AT errata path SCTLR_EL1/TCR_EL1) before ERET into the
-> guest. None of those intervening accesses depend on the new HCR_EL2
-> value, and ERET is a CSE per ARM DDI 0487 M.b D1.4.4.1 rule RBWCFK
-> (p. D1-7209) conditional on SCTLR_EL2.EOS=1, which is set
-> unconditionally by INIT_SCTLR_EL2_MMU_ON (see the prerequisite patch
-> in this series). The requirement is therefore satisfied implicitly
-> on the activate path.
-> 
-> The deactivate path is different: after write_sysreg_hcr() in
-> __deactivate_traps() further EL2 sysreg work runs before any natural
-> CSE - on nVHE, __deactivate_cptr_traps and the VBAR_EL2 write; on
-> VHE, the timer context save which reads CNTP_CVAL_EL0 under the new
-> TGE/E2H, and the EL1 sysreg restore. Add an explicit isb() at each
-> of the two deactivate sites.
-> 
-> The practical impact today is bounded: HCR_EL2.E2H does not toggle
-> in either path, and the trap bits being changed primarily affect
-> EL1&0 behaviour. But the architectural rule should be honoured.
-> Note that write_sysreg_hcr() itself already issues isb() on the
-> Ampere errata path (sysreg.h), confirming the architectural
-> expectation; the fast path optimises that away.
-> 
-> The fix is at the call sites rather than inside write_sysreg_hcr()
-> because the macro has many users (e.g. the activate path, at.c,
-> hardirq.h, ptrauth alternatives) where the immediately-following
-> code either reaches ERET or has another CSE; making the macro emit
-> an unconditional ISB would impose unnecessary cost on those
-> well-formed users.
-> 
-> Fixes: 9404673293b0 ("KVM: arm64: timers: Correctly handle TGE flip with CNTPOFF_EL2")
-> Signed-off-by: Fuad Tabba <tabba@google.com>
-> ---
->  arch/arm64/kvm/hyp/nvhe/switch.c | 11 +++++++++++
->  arch/arm64/kvm/hyp/vhe/switch.c  | 11 +++++++++++
->  2 files changed, 22 insertions(+)
-> 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
-> index 8d1df3d33595..9d7ead5a5503 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/switch.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/switch.c
-> @@ -105,6 +105,17 @@ static void __deactivate_traps(struct kvm_vcpu *vcpu)
->  	__deactivate_traps_common(vcpu);
->  
->  	write_sysreg_hcr(this_cpu_ptr(&kvm_init_params)->hcr_el2);
-> +	/*
-> +	 * MSR HCR_EL2 is not self-synchronising. Per ARM ARM K1.2.4 p.K1-16823
-> +	 * and B2.6.1 p.B2-297, a Context Synchronisation Event is required
-> +	 * between an HCR_EL2 write and any subsequent direct register access at
-> +	 * the same EL that depends on the new value being in effect.
-> +	 * The activate_traps path falls through to ERET (a CSE), but the
-> +	 * deactivate path still executes further EL2 sysreg work (CPTR/VBAR
-> +	 * writes below) before any natural CSE, so make the synchronisation
-> +	 * explicit.
-> +	 */
-> +	isb();
+Hi Dmitry,
 
-Sorry, but I don't understand this. Please can you explain why you think
-that CPTR and VBAR have an ordering dependency on HCR_EL2? Preferably,
-the comment would talk about the specific fields that are relevant.
+Thanks for taking the time to review the series!
 
-Will
+On 4/28/26 4:38 AM, Dmitry Baryshkov wrote:
+> On Sun, Apr 26, 2026 at 03:20:17AM +0300, Cristian Ciocaltea wrote:
+>> Enable HDMI 2.0 display modes (e.g. 4K@60Hz) by adding SCDC management
+>> for the high TMDS clock ratio and scrambling, required when the TMDS
+>> character rate exceeds the 340 MHz HDMI 1.4b limit.
+>>
+>> A periodic work item monitors the sink's scrambling status to recover
+>> from sink-side resets.  On hotplug detect, if SCDC scrambling state is
+>> out of sync with the driver, trigger a CRTC reset to re-establish the
+>> link.
+>>
+>> Reject modes requiring TMDS rates above 600 MHz, as those fall in the
+>> HDMI 2.1 FRL domain which is not supported. In no_hpd configurations,
+>> further restrict to 340 MHz since SCDC requires a connected sink.
+>>
+>> Tested-by: Diederik de Haas <diederik@cknow-tech.com>
+>> Tested-by: Maud Spierings <maud_spierings@hotmail.com>
+>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+>> ---
+>>  drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 188 ++++++++++++++++++++++++---
+>>  1 file changed, 172 insertions(+), 16 deletions(-)
+> 
+> My main issue with this patch (sorry) is that this adds yet another copy
+> of SCDC-related helpers into the driver which already OP_HDMI and other
+> helpers.
+> 
+>> @@ -39,7 +42,9 @@
+>>  #define DDC_SEGMENT_ADDR	0x30
+>>  
+>>  #define HDMI14_MAX_TMDSCLK	340000000
+>> +#define HDMI20_MAX_TMDSRATE	600000000
+>>  
+>> +#define SCDC_MAX_SOURCE_VERSION	0x1
+>>  #define SCRAMB_POLL_DELAY_MS	3000
+>>  
+>>  /*
+>> @@ -164,6 +169,11 @@ struct dw_hdmi_qp {
+>>  	} phy;
+>>  
+>>  	unsigned long ref_clk_rate;
+>> +
+>> +	struct drm_connector *curr_conn;
+>> +	struct delayed_work scramb_work;
+>> +	bool scramb_enabled;
+> 
+> s/scramb/scrambler/
+> 
+> Can we move those two to the drm_connector_hdmi
+
+Sure, will do.
+
+>> +
+>>  	struct regmap *regm;
+>>  	int main_irq;
+>>  
+>> @@ -749,28 +759,124 @@ static struct i2c_adapter *dw_hdmi_qp_i2c_adapter(struct dw_hdmi_qp *hdmi)
+>>  	return adap;
+>>  }
+>>  
+>> +static bool dw_hdmi_qp_supports_scrambling(struct drm_display_info *display)
+>> +{
+>> +	if (!display->is_hdmi)
+>> +		return false;
+>> +
+>> +	return display->hdmi.scdc.supported &&
+>> +		display->hdmi.scdc.scrambling.supported;
+>> +}
+>> +
+>> +static int dw_hdmi_qp_set_scramb(struct dw_hdmi_qp *hdmi)
+>> +{
+>> +	bool done;
+>> +
+>> +	dev_dbg(hdmi->dev, "set scrambling\n");
+>> +
+>> +	done = drm_scdc_set_high_tmds_clock_ratio(hdmi->curr_conn, true);
+>> +	if (!done)
+>> +		return -EIO;
+>> +
+>> +	done = drm_scdc_set_scrambling(hdmi->curr_conn, true);
+>> +	if (!done) {
+>> +		drm_scdc_set_high_tmds_clock_ratio(hdmi->curr_conn, false);
+>> +		return -EIO;
+>> +	}
+>> +
+>> +	schedule_delayed_work(&hdmi->scramb_work,
+>> +			      msecs_to_jiffies(SCRAMB_POLL_DELAY_MS));
+>> +	return 0;
+>> +}
+>> +
+>> +static void dw_hdmi_qp_scramb_work(struct work_struct *work)
+>> +{
+>> +	struct dw_hdmi_qp *hdmi = container_of(to_delayed_work(work),
+>> +					       struct dw_hdmi_qp,
+>> +					       scramb_work);
+>> +	if (READ_ONCE(hdmi->scramb_enabled) &&
+>> +	    !drm_scdc_get_scrambling_status(hdmi->curr_conn))
+>> +		dw_hdmi_qp_set_scramb(hdmi);
+>> +}
+>> +
+>> +static void dw_hdmi_qp_enable_scramb(struct dw_hdmi_qp *hdmi)
+>> +{
+>> +	int ret;
+>> +	u8 ver;
+>> +
+>> +	if (!dw_hdmi_qp_supports_scrambling(&hdmi->curr_conn->display_info))
+>> +		return;
+>> +
+>> +	ret = drm_scdc_readb(hdmi->bridge.ddc, SCDC_SINK_VERSION, &ver);
+>> +	if (ret) {
+>> +		dev_err(hdmi->dev, "Failed to read SCDC_SINK_VERSION: %d\n", ret);
+>> +		return;
+>> +	}
+>> +
+>> +	ret = drm_scdc_writeb(hdmi->bridge.ddc, SCDC_SOURCE_VERSION,
+>> +			      min_t(u8, ver, SCDC_MAX_SOURCE_VERSION));
+>> +	if (ret) {
+>> +		dev_err(hdmi->dev, "Failed to write SCDC_SOURCE_VERSION: %d\n", ret);
+>> +		return;
+>> +	}
+>> +
+>> +	WRITE_ONCE(hdmi->scramb_enabled, true);
+>> +
+>> +	ret = dw_hdmi_qp_set_scramb(hdmi);
+>> +	if (ret) {
+>> +		hdmi->scramb_enabled = false;
+>> +		return;
+>> +	}
+>> +
+>> +	dw_hdmi_qp_write(hdmi, 1, SCRAMB_CONFIG0);
+>> +
+>> +	/* Wait at least 1 ms before resuming TMDS transmission */
+>> +	usleep_range(1000, 5000);
+>> +}
+>> +
+>> +static void dw_hdmi_qp_disable_scramb(struct dw_hdmi_qp *hdmi)
+>> +{
+>> +	if (!hdmi->scramb_enabled)
+>> +		return;
+>> +
+>> +	dev_dbg(hdmi->dev, "disable scrambling\n");
+>> +
+>> +	WRITE_ONCE(hdmi->scramb_enabled, false);
+>> +	cancel_delayed_work_sync(&hdmi->scramb_work);
+>> +
+>> +	dw_hdmi_qp_write(hdmi, 0, SCRAMB_CONFIG0);
+>> +
+>> +	if (hdmi->curr_conn->status == connector_status_connected) {
+>> +		drm_scdc_set_scrambling(hdmi->curr_conn, false);
+>> +		drm_scdc_set_high_tmds_clock_ratio(hdmi->curr_conn, false);
+>> +	}
+>> +}
+> 
+> All of these feel like generic helpers.
+
+I'll factor these out.
+
+>> +
+>>  static void dw_hdmi_qp_bridge_atomic_enable(struct drm_bridge *bridge,
+>>  					    struct drm_atomic_state *state)
+>>  {
+>>  	struct dw_hdmi_qp *hdmi = bridge->driver_private;
+>>  	struct drm_connector_state *conn_state;
+>> -	struct drm_connector *connector;
+>>  	unsigned int op_mode;
+>>  
+>> -	connector = drm_atomic_get_new_connector_for_encoder(state, bridge->encoder);
+>> -	if (WARN_ON(!connector))
+>> +	hdmi->curr_conn = drm_atomic_get_new_connector_for_encoder(state,
+>> +								   bridge->encoder);
+>> +	if (WARN_ON(!hdmi->curr_conn))
+>>  		return;
+>>  
+>> -	conn_state = drm_atomic_get_new_connector_state(state, connector);
+>> +	conn_state = drm_atomic_get_new_connector_state(state, hdmi->curr_conn);
+>>  	if (WARN_ON(!conn_state))
+>>  		return;
+>>  
+>> -	if (connector->display_info.is_hdmi) {
+>> +	if (hdmi->curr_conn->display_info.is_hdmi) {
+>>  		dev_dbg(hdmi->dev, "%s mode=HDMI %s rate=%llu bpc=%u\n", __func__,
+>>  			drm_hdmi_connector_get_output_format_name(conn_state->hdmi.output_format),
+>>  			conn_state->hdmi.tmds_char_rate, conn_state->hdmi.output_bpc);
+>>  		op_mode = 0;
+>>  		hdmi->tmds_char_rate = conn_state->hdmi.tmds_char_rate;
+>> +
+>> +		if (conn_state->hdmi.tmds_char_rate > HDMI14_MAX_TMDSCLK)
+>> +			dw_hdmi_qp_enable_scramb(hdmi);
+>>  	} else {
+>>  		dev_dbg(hdmi->dev, "%s mode=DVI\n", __func__);
+>>  		op_mode = OPMODE_DVI;
+>> @@ -781,7 +887,7 @@ static void dw_hdmi_qp_bridge_atomic_enable(struct drm_bridge *bridge,
+>>  	dw_hdmi_qp_mod(hdmi, HDCP2_BYPASS, HDCP2_BYPASS, HDCP2LOGIC_CONFIG0);
+>>  	dw_hdmi_qp_mod(hdmi, op_mode, OPMODE_DVI, LINK_CONFIG0);
+>>  
+>> -	drm_atomic_helper_connector_hdmi_update_infoframes(connector, state);
+>> +	drm_atomic_helper_connector_hdmi_update_infoframes(hdmi->curr_conn, state);
+>>  }
+>>  
+>>  static void dw_hdmi_qp_bridge_atomic_disable(struct drm_bridge *bridge,
+>> @@ -791,14 +897,49 @@ static void dw_hdmi_qp_bridge_atomic_disable(struct drm_bridge *bridge,
+>>  
+>>  	hdmi->tmds_char_rate = 0;
+>>  
+>> +	dw_hdmi_qp_disable_scramb(hdmi);
+>> +
+>> +	hdmi->curr_conn = NULL;
+>>  	hdmi->phy.ops->disable(hdmi, hdmi->phy.data);
+>>  }
+>>  
+>> -static enum drm_connector_status
+>> -dw_hdmi_qp_bridge_detect(struct drm_bridge *bridge, struct drm_connector *connector)
+>> +static int dw_hdmi_qp_reset_crtc(struct dw_hdmi_qp *hdmi,
+>> +				 struct drm_connector *connector,
+>> +				 struct drm_modeset_acquire_ctx *ctx)
+>> +{
+>> +	u8 config;
+>> +	int ret;
+>> +
+>> +	ret = drm_scdc_readb(hdmi->bridge.ddc, SCDC_TMDS_CONFIG, &config);
+>> +	if (ret < 0) {
+>> +		dev_err(hdmi->dev, "Failed to read TMDS config: %d\n", ret);
+>> +		return ret;
+>> +	}
+>> +
+>> +	if (!!(config & SCDC_SCRAMBLING_ENABLE) == hdmi->scramb_enabled)
+>> +		return 0;
+> 
+> Also please check the high TMDS clock ration bit.
+
+Ack.
+
+>> +
+>> +	drm_atomic_helper_connector_hdmi_hotplug(connector,
+>> +						 connector_status_connected);
+> 
+> I don't see a forced hotplug event in the existing drivers. Why is it
+> necessary? This function is being called from the detect() path.
+
+For some reason, without it, the connector seems to lose its state after reset:
+
+[ 2142.982967] dwhdmiqp-rockchip fde80000.hdmi: resetting crtc
+[ 2142.994132] rockchip-drm display-subsystem: [drm] HDMI Sink doesn't support RGB, something's wrong.
+[ 2143.140827] dwhdmiqp-rockchip fde80000.hdmi: dw_hdmi_qp_bridge_atomic_enable mode=DVI
+
+Will recheck if that's still the case after the HPD handling rework.
+
+> 
+>> +	/*
+>> +	 * Conform to HDMI 2.0 spec by ensuring scrambled data is not sent
+>> +	 * before configuring the sink scrambling, as well as suspending any
+>> +	 * TMDS transmission while changing the TMDS clock rate in the sink.
+>> +	 */
+>> +
+>> +	dev_dbg(hdmi->dev, "resetting crtc\n");
+>> +
+>> +	return drm_bridge_helper_reset_crtc(&hdmi->bridge, ctx);
+>> +}
+>> +
+>> +static int dw_hdmi_qp_bridge_detect_ctx(struct drm_bridge *bridge,
+>> +					struct drm_connector *connector,
+>> +					struct drm_modeset_acquire_ctx *ctx)
+>>  {
+>>  	struct dw_hdmi_qp *hdmi = bridge->driver_private;
+>> +	enum drm_connector_status status;
+>>  	const struct drm_edid *drm_edid;
+>> +	int ret;
+>>  
+>>  	if (hdmi->no_hpd) {
+>>  		drm_edid = drm_edid_read_ddc(connector, bridge->ddc);
+>> @@ -808,7 +949,20 @@ dw_hdmi_qp_bridge_detect(struct drm_bridge *bridge, struct drm_connector *connec
+>>  			return connector_status_disconnected;
+>>  	}
+>>  
+>> -	return hdmi->phy.ops->read_hpd(hdmi, hdmi->phy.data);
+>> +	status = hdmi->phy.ops->read_hpd(hdmi, hdmi->phy.data);
+>> +
+>> +	dev_dbg(hdmi->dev, "%s status=%d scramb=%d\n", __func__,
+>> +		status, hdmi->scramb_enabled);
+>> +
+>> +	if (status == connector_status_connected && hdmi->scramb_enabled) {
+>> +		ret = dw_hdmi_qp_reset_crtc(hdmi, connector, ctx);
+>> +		if (ret == -EDEADLK)
+>> +			return ret;
+>> +		if (ret < 0)
+>> +			status = connector_status_unknown;
+> 
+> Ideally this should go to the drm_atomic_helper_connector_hdmi_update().
+> And once it goes, I don't think we'd need the detect_ctx() callback for
+> bridges.
+
+Ok, I'll try that.
+
+Regards,
+Cristian
 
