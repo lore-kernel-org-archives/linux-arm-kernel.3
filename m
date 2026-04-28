@@ -4,79 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F11AEFF886D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 16:29:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D32B4FF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 16:30:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=As6ZBk4C50Ztj8e2ha9+tle4FDPExjLzugeDmo/Ec94=; b=hvy07/cDpxeArD09Agh4ZCYJRE
-	Lq0JkOhEWUSHbprTPWV+bnIlFzqCrfYZodb9jPxVaOqY8ortDYO7j4QVEOwuF3U2vnZ5g4B7iX9t2
-	O77cvJ4Yv9ZJT4labQ7Y5K1apa4C7swA3awQmIbwt6TD33ZRV5NyVrVZ7LqU01QixrvzTUtXZw4gs
-	HYY8jq7ZO9fxHkD/xISrYLlrIBpasGCy375bBM4Fp6C3vuX8NwpifzUWJ7AbyM+TI2KZfPAfckXVG
-	zmoMdfSwTuNwN2p69M2fYDWLW/Sz2tYO71u2avSSxIZ9br23nlONLQR3cFRRQ2fuH4MPb7n3zYPyD
-	XksPATuw==;
+	bh=zfgcXIInCPQxg83Ely+lCYsyKSEsGZlard+xYL4BOww=; b=LZJg+dD/nVakLiSv0P++bQC/4c
+	d1DxxMosMC/xmoaSG7kZC5IDsSlwFbBZ0H7K2D8Clb7Amzpaez2pZFtP8nztTa3/xvjd2IZuzt4Dt
+	3lfsi+FvO7x92xUUH1Kjym4XZ/CtJElbaJR4yfxqbhekJpN1zEDP7O60TGQhNPHH4+Yy7gwLNPaEN
+	vDa947F8HSTXh7BwvL7PyxtB1uF8qPAb70wk0gdmmrQINmqcVrwhy5AJP7jmfFSvQN5Nswl9g+UJI
+	8uOmVY6bxYLRnf9B5wovwda3Vpcj7E87PKlR3KrFo0u7DSA6MP9TDlUy+XentTtJL/PvVz2pQojAN
+	TG4obVJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHlJf-00000001wIJ-0KWk;
-	Tue, 28 Apr 2026 16:29:43 +0000
-Received: from s106b.cyber-folks.pl ([195.78.66.88])
+	id 1wHlKQ-00000001wiF-1Q7B;
+	Tue, 28 Apr 2026 16:30:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHlJU-00000001wC4-1Mf0
+	id 1wHlKO-00000001whL-0UiN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 16:29:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=mmpsystems.pl; s=x; h=Cc:To:In-Reply-To:References:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=As6ZBk4C50Ztj8e2ha9+tle4FDPExjLzugeDmo/Ec94=; b=tS1ehIJcZ9mwCbgLBOWmQ6G/uH
-	/b/F+OrCEe7x28CAYJ0oCpM7vrhEDUv8f7ZfBVQsfvb13EiB0VjPkZo6vsFxJOHlVVkLEwNBs4kwO
-	c8lj8XGy8poOUhCeVv8T1YGUHPcczGaU5Oo2UudxXXnc6XBUCT7eTP6lRtdjmViKTksOrnvgup4P8
-	pW8Uww+V/YLewiGs/pQK0oVt4q09FQtZ9djRxqilZVaa2nrIHhZn3HS7+OP/VHkIntjTOKEUcOi0b
-	879/M/PQyGk2BGzQvjssegYWVbbKRUKh2K67MEYkS5+azXApm2iOzQ1wfJ/bR+BdLoigap8tGCRv+
-	CxdwtiQw==;
-Received: from user-188-33-36-99.play-internet.pl ([188.33.36.99] helo=localhost)
-	by s106.cyber-folks.pl with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <michal.piekos@mmpsystems.pl>)
-	id 1wHlJR-0000000Ay9T-49YO;
-	Tue, 28 Apr 2026 18:29:30 +0200
-From: Michal Piekos <michal.piekos@mmpsystems.pl>
-Date: Tue, 28 Apr 2026 18:27:00 +0200
-Subject: [PATCH v3 3/4] arm: dts: allwinner: t113s: add hstimer node
+	Tue, 28 Apr 2026 16:30:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8012043F5B;
+	Tue, 28 Apr 2026 16:30:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E56B1C4AF09;
+	Tue, 28 Apr 2026 16:30:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777393827;
+	bh=cT6jmt4+OY628kY0x9v/6nF8hRaDQ4Au465ssIAxw3M=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+	b=F3y9O+aEV2liAUh8duVwf15f7eF2F7pQp7XgzYRYG96dv2YDyXrG1XjtmGJT8NxKj
+	 ljx/29VNG6peiMYMKakDMz56w06QEZx3SSD6eR9/solDSIE88YU1nTAvu6QCK/JOeu
+	 6G0pGEi+dj9KwqClqwldkEPa5sXfeEMqeRAenqw6s2HXZGV81kyBnuIR+myppq1ygA
+	 8Xhv4zYF61zqC1rUiwriPLlwVNBz6aGT4hHW16pxiqzX3M5Hb6BDewTOC31xp9rp8V
+	 WX/hsyovH//iLhPL0puhEK0cYKCRy60F70fL1Q6ZOi8tCzE3KUyTA99PQpusOIsHzt
+	 F9toxrhrm+LfQ==
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfauth.phl.internal (Postfix) with ESMTP id F2CB6F4007A;
+	Tue, 28 Apr 2026 12:30:25 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-01.internal (MEProxy); Tue, 28 Apr 2026 12:30:26 -0400
+X-ME-Sender: <xms:oeDwaZ_SIJWZCzMsXdEmnR6abvrpCGjZom6lLJmF3sDs5t33kzZC7w>
+    <xme:oeDwaYhbV-QQbXUq9fxYdbDt5PO8bPgkARgkG4d_cai1QoysW-Lbl5DqnFOoqMiTF
+    4AE3F5nxHxQS6OHyEBhcWIkASLfpnls7n6SGRWypjo3ErgRYHzSM0qQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdekvddtgecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefoggffhffvvefkjghfufgtgfesthhqredtredtjeenucfhrhhomhepfdetrhguuceu
+    ihgvshhhvghuvhgvlhdfuceorghruggssehkvghrnhgvlhdrohhrgheqnecuggftrfgrth
+    htvghrnhepueetieduieegkeejvdehudeiheettefgtdeugffhjefghfeftdelhedvheff
+    hfdvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
+    hrugdomhgvshhmthhprghuthhhphgvrhhsohhnrghlihhthidqudeijedthedttdejledq
+    feefvdduieegudehqdgrrhgusgeppehkvghrnhgvlhdrohhrghesfihorhhkohhfrghrug
+    drtghomhdpnhgspghrtghpthhtohepudefpdhmohguvgepshhmthhpohhuthdprhgtphht
+    thhopegrlhgvgigrnhgurhgvrdgsvghllhhonhhisegsohhothhlihhnrdgtohhmpdhrtg
+    hpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopeifrgih
+    figrrhgughgvvghksehgmhgrihhlrdgtohhmpdhrtghpthhtohephhgvrhgsvghrthesgh
+    honhguohhrrdgrphgrnhgrrdhorhhgrdgruhdprhgtphhtthhopehkrggsvghlsehkvghr
+    nhgvlhdrohhrghdprhgtphhtthhopehlihhnuhhsfieskhgvrhhnvghlrdhorhhgpdhrtg
+    hpthhtohepthhhohhrshhtvghnrdgslhhumheslhhinhhugidruggvvhdprhgtphhtthho
+    pehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdroh
+    hrghdprhgtphhtthhopehnihgtohhlrghsrdhfvghrrhgvsehmihgtrhhotghhihhprdgt
+    ohhm
+X-ME-Proxy: <xmx:oeDwaZPggO74vB7wrQLF7speBYdfnd01gSe0p9olcABtb2uEr4k_lg>
+    <xmx:oeDwaYUwCBmRcyWxV06AW7L3pdaiAHk9hyDqPrYUrET4Ays-lW8Qng>
+    <xmx:oeDwacu3a1eHN6kzIEqhZTlEyREx2gFMMKD8GANLaBETYjhfi-r-2w>
+    <xmx:oeDwaT24VgAv82RcB8cX59TaC7YV83tddMfnlXMuGkno2m7_PmX1lg>
+    <xmx:oeDwad7fdXlfgR-kjIXQ9T6ds72LMlqq0snGUjuV0caTSefqdkAvQAcq>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id D56D4700065; Tue, 28 Apr 2026 12:30:25 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260428-h616-t113s-hstimer-v3-3-7e02178a93ee@mmpsystems.pl>
-References: <20260428-h616-t113s-hstimer-v3-0-7e02178a93ee@mmpsystems.pl>
-In-Reply-To: <20260428-h616-t113s-hstimer-v3-0-7e02178a93ee@mmpsystems.pl>
-To: Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>
-Cc: Michal Piekos <michal.piekos@mmpsystems.pl>, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- Andre Przywara <andre.przywara@arm.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777393718; l=1131;
- i=michal.piekos@mmpsystems.pl; s=20260301; h=from:subject:message-id;
- bh=WB+FLCQ1pB6/hLLpL8qe5azyJH79mgJP5EWQCmjzLQg=;
- b=3GNyRfpjDbtcqK/LKJuzrzfNjknCnh257Oxx/AACPv/6jmBonzBlC/rUmweHPXkCCV2s9ovxW
- +RWr7slZII6AWiXogzBlFfjGAxODMDIGJnMukfzR5ZNI2rzhBaiw/26
-X-Developer-Key: i=michal.piekos@mmpsystems.pl; a=ed25519;
- pk=Aixyx03If7ZDamiKKN0lsa+0mtA+WjIuIf2ZQVYNBqg=
-X-Authenticated-Id: michal.piekos@mmpsystems.pl
+Date: Tue, 28 Apr 2026 18:30:05 +0200
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: =?UTF-8?Q?Marek_Beh=C3=BAn?= <kabel@kernel.org>,
+ "Thorsten Blum" <thorsten.blum@linux.dev>
+Cc: "Bill Cox" <waywardgeek@gmail.com>,
+ "Herbert Xu" <herbert@gondor.apana.org.au>,
+ "David S. Miller" <davem@davemloft.net>,
+ "Nicolas Ferre" <nicolas.ferre@microchip.com>,
+ "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
+ "Claudiu Beznea" <claudiu.beznea@tuxon.dev>,
+ "Linus Walleij" <linusw@kernel.org>, stable@vger.kernel.org,
+ linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Message-Id: <e4091e56-0230-48fb-bd31-e617c32b6348@app.fastmail.com>
+In-Reply-To: <cbk4ho3bpprjxvcywv4sudbmb2fhfsgaguoywv5mhtoql4vhd6@f7oisxcrvii4>
+References: <20260428101430.514838-3-thorsten.blum@linux.dev>
+ <25ntssyy6t5uwxlwfpmrpzpcq6xv62l643hflf26hxi6lv5wqu@6vub6ysczjvd>
+ <afCo9PbDpTYeqGd4@linux.dev>
+ <cbk4ho3bpprjxvcywv4sudbmb2fhfsgaguoywv5mhtoql4vhd6@f7oisxcrvii4>
+Subject: Re: [PATCH v2] crypto: atmel-sha204a - drop hwrng quality reduction for
+ ATSHA204A
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_092932_531868_0FE8205B 
-X-CRM114-Status: UNSURE (   9.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260428_093028_209103_3D4A9C83 
+X-CRM114-Status: GOOD (  13.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,42 +119,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Describe high speed timer block on Allwinner T113-S3.
 
-Tested on LCPI-PC-T113/F113:
-- hstimer is registered as clocksource
-- switching clocksource at runtime works
-- after rating increase hstimer operates as a broadcast clockevent device
+On Tue, 28 Apr 2026, at 15:24, Marek Beh=C3=BAn wrote:
+> Hi Thorsten,
+>
+> Bill also wrote about ATSHA204A [1]
+>
+>   My best guess as to what's going on here is that the device has a
+>   ring-oscillator based entropy source, but that it generates only a f=
+ew bits
+>   of entropy for each use.  It seems to be called before generating ea=
+ch
+>   32-byte "random" value, which is why the second set of 32-bit values=
+ have
+>   more possible values, and the 3rd has even more.  However, the numbe=
+r of
+>   unique values in the final column of 32*N byte values is always equa=
+l to
+>   the number of unique values of the entire string of bytes.
+>
+> If this is true that the device generates <256 true random bits and th=
+en
+> mixes in non-volatile pseudorandom number generator to produce 256 bit=
+s,
+> then the quality should not be set to full 1024.
+>
 
-Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
----
- arch/arm/boot/dts/allwinner/sun8i-t113s.dtsi | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+This post is about the Hashlet, which has a ATSHA204 not ATSHA204A.
 
-diff --git a/arch/arm/boot/dts/allwinner/sun8i-t113s.dtsi b/arch/arm/boot/dts/allwinner/sun8i-t113s.dtsi
-index 424f4a2487e2..40e76cfc8a1d 100644
---- a/arch/arm/boot/dts/allwinner/sun8i-t113s.dtsi
-+++ b/arch/arm/boot/dts/allwinner/sun8i-t113s.dtsi
-@@ -34,6 +34,17 @@ cpu1: cpu@1 {
- 		};
- 	};
- 
-+	soc {
-+		hstimer@3008000 {
-+			compatible = "allwinner,sun20i-d1-hstimer";
-+			reg = <0x03008000 0x1000>;
-+			interrupts = <GIC_SPI 55 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 56 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_HSTIMER>;
-+			resets = <&ccu RST_BUS_HSTIMER>;
-+		};
-+	};
-+
- 	gic: interrupt-controller@1c81000 {
- 		compatible = "arm,gic-400";
- 		reg = <0x03021000 0x1000>,
-
--- 
-2.43.0
 
 
