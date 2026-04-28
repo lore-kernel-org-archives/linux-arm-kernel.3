@@ -4,90 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FF35FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 21:38:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFDA9FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 21:43:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m2SIkG8G4dme99QjBJF700FHzCmI2Nw1YXi++Sm72C8=; b=RQ+96j/09COVWavjIyWpw0Hchn
-	JGkHad/i+JDXcH2qyDeLdqIIE3rJrqe1bMmxBPHuEYiipkmF6yO7odXjPf0/jSLD/DhSbqb1/vS6U
-	SdV9ZmhAKAC271g7nF39m2MsArpQ4eSsrzPtQKGvuIBfqoAirpCwxX+rkf/7nv/xpmcJVooi+Xq17
-	8vLmCimQB4ANZQg6NDYwFfBcBPYz7ej6BS5quQpbJvljaqo8Fol2yrqZ2axOjan0Fyh5e592JO/Xe
-	mr6VF4XuRCziIh0P+On+K56p/PNAHuyD8py74K60joFgvtrLtXmzCmFualbN9pskQW49ISEUsu6DT
-	XVnc4d7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cUgK2Kfj5omPDpTxVPnIw7yYPrhwYT39UaRAh23oDLI=; b=kNMCwKq9sp97+Auc7EuTIe8ux6
+	H+A6fYjfbuYP/tweGhnhymHYGfYWO672fvRk6lWvSWuI1OxmXKZHFV51P1nZxWlvZWPtK4sUkcWr2
+	FOzNCGbBaS7gJYIbW1dOn6EOqg5/qSXP2ZAFX238diW+ju083Y7PgrcQVtnH5OsdiFxe8PNpoSEol
+	WEU55kl8jZkXBSunCZvs1CTBWiZaCDWXcAt+ikJ5WZ7wGZodCD42g4DUyga3ahXBDnvLvCwxdpzCv
+	45KT6aHh6PgfbDv6hMjXOQCRcx9VI5N9ONyQoeyTA4rtoz3w3ZKlTm+wDjU0+AJzz62zg6sviAYkn
+	UjB2vbWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHq88-00000002Wvj-24CG;
-	Tue, 28 Apr 2026 21:38:08 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wHqDT-00000002XDO-4BbX;
+	Tue, 28 Apr 2026 21:43:40 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHq84-00000002WvA-2eDm
+	id 1wHqDR-00000002XCc-1l5j
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 21:38:07 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 3E99A1A3479;
-	Tue, 28 Apr 2026 21:37:59 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id E94DD601D0;
-	Tue, 28 Apr 2026 21:37:58 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 049BC1072939F;
-	Tue, 28 Apr 2026 23:37:43 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1777412276; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=m2SIkG8G4dme99QjBJF700FHzCmI2Nw1YXi++Sm72C8=;
-	b=BKpyABXYUA3W1yBGbOawA4h4lg+xP/ujDg9fnM/GDmfVvQtFe4V86zv2jRnYLbIW85egeu
-	gzsW7by84jCsCEyDe38rcP0G9Lu0O5PyhiJVlX1VH0lqEiLpLLVqCPQ6zb2WFjm+11Eb5Y
-	n8RhoTuzI6NlP3mUu2V0iIjtY0wmrD64vrUUDjJFf8c9e/GfSIul/+IfTbDMPsSiDwMCw7
-	iSMV2XUHFoLSDmaAwdjiKsMThFnyCYBB9t0d5djhof0yNcYWt/373RotXiqc8RA8Tj6M7F
-	lFivzfSQqW2W19Ln1HG5awMplQ6C4gwNMrAWCyzv+PL9twiFGEXnUYVU/us/rQ==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 28 Apr 2026 23:37:43 +0200
-Message-Id: <DI5429HR7UGP.IJHX75ZB16AZ@bootlin.com>
-Subject: Re: [PATCH RFC bpf-next 2/8] bpf: mark instructions accessing
- program stack
-Cc: <ebpf@linuxfoundation.org>, "Bastien Curutchet"
- <bastien.curutchet@bootlin.com>, "Thomas Petazzoni"
- <thomas.petazzoni@bootlin.com>, "Xu Kuohai" <xukuohai@huawei.com>,
- <bpf@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <netdev@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
- <linux-stm32@st-md-mailman.stormreply.com>,
- <linux-arm-kernel@lists.infradead.org>, <kasan-dev@googlegroups.com>,
- <linux-mm@kvack.org>
-From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
-To: "Ihor Solodrai" <ihor.solodrai@linux.dev>,
- =?utf-8?b?QWxleGlzIExvdGhvcsOpIChlQlBGIEZvdW5kYXRpb24p?=
- <alexis.lothore@bootlin.com>, "Alexei Starovoitov" <ast@kernel.org>,
- "Daniel Borkmann" <daniel@iogearbox.net>, "Andrii Nakryiko"
- <andrii@kernel.org>, "Martin KaFai Lau" <martin.lau@linux.dev>, "Eduard
- Zingerman" <eddyz87@gmail.com>, "Kumar Kartikeya Dwivedi"
- <memxor@gmail.com>, "Song Liu" <song@kernel.org>, "Yonghong Song"
- <yonghong.song@linux.dev>, "Jiri Olsa" <jolsa@kernel.org>, "John Fastabend"
- <john.fastabend@gmail.com>, "David S. Miller" <davem@davemloft.net>, "David
- Ahern" <dsahern@kernel.org>, "Thomas Gleixner" <tglx@kernel.org>, "Ingo
- Molnar" <mingo@redhat.com>, "Borislav Petkov" <bp@alien8.de>, "Dave Hansen"
- <dave.hansen@linux.intel.com>, <x86@kernel.org>, "H. Peter Anvin"
- <hpa@zytor.com>, "Shuah Khan" <shuah@kernel.org>, "Maxime Coquelin"
- <mcoquelin.stm32@gmail.com>, "Alexandre Torgue"
- <alexandre.torgue@foss.st.com>, "Andrey Ryabinin" <ryabinin.a.a@gmail.com>,
- "Alexander Potapenko" <glider@google.com>, "Andrey Konovalov"
- <andreyknvl@gmail.com>, "Dmitry Vyukov" <dvyukov@google.com>, "Vincenzo
- Frascino" <vincenzo.frascino@arm.com>, "Andrew Morton"
- <akpm@linux-foundation.org>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260413-kasan-v1-0-1a5831230821@bootlin.com>
- <20260413-kasan-v1-2-1a5831230821@bootlin.com>
- <7dd64547-25a4-46de-a896-98fcec04468e@linux.dev>
-In-Reply-To: <7dd64547-25a4-46de-a896-98fcec04468e@linux.dev>
-X-Last-TLS-Session-Version: TLSv1.3
+	Tue, 28 Apr 2026 21:43:39 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4891ad5c074so26995e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 14:43:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1777412614; cv=none;
+        d=google.com; s=arc-20240605;
+        b=BDw21dqH7naS31qC7HRjEACLZZZIEqfpxGsUvUvO/QqRFjCeWX4UQPa7Qd9i64Dwpy
+         ger2MWU6QGLwxVQ+glfvHaLB9k3QAR6LuOqykTt8JjbUTHOcyaffr9sFcJgNCJauNPe2
+         zUuMQKnh0euPl1/kEO8hrjdlPiDSY6JSOSF1agV9jXAOj4reSspXfBLiPJmBTB4drFMS
+         oMdbSrh2ct5PuZcY38/SNXs1iwmkKaA0TlnhHxsyqbsTwafM9x6Q5pWS+R2fdk1OSiVX
+         aGiqFh8dRPKxO/RqS0zRQ6ZMBk24TRIUyVqS8c7hsU4xTs06VSQ671yeU2DHJFgHdIUV
+         WQYQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=cUgK2Kfj5omPDpTxVPnIw7yYPrhwYT39UaRAh23oDLI=;
+        fh=APU/qmA4YcIiajkgeO0QKETGMyTn7tGvptZyGOmMvPI=;
+        b=VAm81THlpJnZEwyUWA6XxCetfM/U9mWMG9f5k8OWyFiLi4So8nNUrSzMlaiSlUOnQJ
+         wnsVgFYxt8Ry9kMo5Jhu+MG+Jg1ovi1v8wS19Jx4vFWnVfXUK7FQXMElbGL8OPnYeHsF
+         j1JGKMARoFj7FN2FaUS8ydDI64dFVmvuSQsp8LDj2YkdkAlxN+eK3KjuUHIbHfWRIGc3
+         0N8ZFga+ePizyRiI4CCd2N4RToqCl6YHaQvqnKR+s5h+cmlNaUeKLpY17uZFWk7BtCaW
+         6tRxgCuMLDpdOTtKTT3TGbuaA3NdAE5LwCHF7gygTrP4Px7otUWQZNFIxsU/Bs7F3Tfp
+         /APg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1777412614; x=1778017414; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=cUgK2Kfj5omPDpTxVPnIw7yYPrhwYT39UaRAh23oDLI=;
+        b=QlVbooQQTLH55GabQiB/fdMbA0/7qoeIxFB+aw1ONV+Ol73yQWNK3+yQ+0tEvcLtvc
+         zMgLAyIDOuGWOk7A9Tj1fe1Vuf7+gizgt1xBPjpo8SZ7j2CG/MG7At0wFPjra5q4BuLb
+         R7OO4wjVwCeG2lA+oHPAwcn+UAgPXvmqSvTG4=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777412614; x=1778017414;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=cUgK2Kfj5omPDpTxVPnIw7yYPrhwYT39UaRAh23oDLI=;
+        b=GnJJXFMtT+T7ynjLUY1xnm3PCOG/J3OCF12Diinbxj5clPbNw/b8Un78I7bWwBpvAS
+         tYbrD5d6xN/HOlqHgIGnWyvDPpTKGAQARdYDoR4ZNru3e2v1r6P/Vl/g+CEVMVVKibUj
+         aE39ahQ4cXUfAIGt59c/jSTldKDbSyp40CPLpnyMqbmRwF27XWleLKPuRe1jAWeAga3r
+         Q4YGvqFg6DuOx8WQF3MAW3gTN2JHzeRPS0vL/FbcGkNrueHVcOZqS7Jv3/BaJQf/T3u+
+         96Zf/mtUIh5ThvGsyr/mW4f9CPCYVnhvEYm3kMrnRPRgeVm7V5TJFT8yZY7EDQ/iBgCq
+         Arew==
+X-Forwarded-Encrypted: i=1; AFNElJ9yj8UCHC8lRyOaslbq3jpVrBXgzqvn+m/mYg0xEzccfyeKTDRJ7J4ctOkl/eXKxeyVPlDCKIEDskSd+OVU0/+f@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx/PSVlrYq0G4JMn9c8GDh4ROEf5TktEBRP+62w6F3L/AwjZpeE
+	lFGxRsuaW5/FOWCPkjSQ6iwgfzEJxfHLUrMr7W7vxbFZ3uUV0W+Tri6r0+5Qr2XrwDLiwM7HNnj
+	JIH5hft8QyG7Kh0TJaETAG8ktzlxfw6SIhR0HdsYS
+X-Gm-Gg: AeBDiesPSskevGksVb3awPIBoM0xfosOqsb0I3TMJb42BxWdzV5QHri8vtU4CatwR8e
+	2UXOhJxPMBLQIIZUATxkseXGJBqo6AUlNCCT51cYnRB98ljWqRH52Ljv8M/Uu+YJRwE6b3vctyy
+	Ydk1naAGHkyRtJfMZZxXpcj13rGVl3fiGNxdojVDQY8si5P2QdtF3hm+GW2WO8eTBVJMe1SWIMD
+	4F00IDM/QP+gcWNm521Uu0QhOQQ4UxYFKUdbHAmrm/+dR/EdcYAT13vTdzy6gC0A0C0gm0lKdpI
+	NZu0Re2rUmZQyiUaEsvX43gYY1D3x7kPS3RexyUYoH0PLNlInPKZmRv33Q==
+X-Received: by 2002:a05:600c:530c:b0:48a:5f32:62d0 with SMTP id
+ 5b1f17b1804b1-48a7ba07d5dmr322355e9.12.1777412613805; Tue, 28 Apr 2026
+ 14:43:33 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260428200712.2660635-1-briannorris@chromium.org>
+In-Reply-To: <20260428200712.2660635-1-briannorris@chromium.org>
+From: Julius Werner <jwerner@chromium.org>
+Date: Tue, 28 Apr 2026 14:43:21 -0700
+X-Gm-Features: AVHnY4LgrR9BMoyPVl-dbhODH2S76f3l5WcQRNgpXekO-MzmQp39W8EwHdrUnso
+Message-ID: <CAODwPW-YuhQxyGSeahp8+i-bz_hAvPQQCNWxaZCjrbvkHOQa7A@mail.gmail.com>
+Subject: Re: [PATCH 0/7] dts: Add /firmware/#{address,size}-cells to
+ Chromium-based DTs
+To: Brian Norris <briannorris@chromium.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Thierry Reding <thierry.reding@kernel.org>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, Heiko Stuebner <heiko@sntech.de>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	devicetree@vger.kernel.org, Doug Anderson <dianders@chromium.org>, 
+	linux-arm-kernel@lists.infradead.org, Tzung-Bi Shih <tzungbi@kernel.org>, 
+	chrome-platform@lists.linux.dev, linux-rockchip@lists.infradead.org, 
+	Julius Werner <jwerner@chromium.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	cros-qcom-dts-watchers@chromium.org, linux-arm-msm@vger.kernel.org, 
+	linux-tegra@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_143805_121638_3544AB6B 
-X-CRM114-Status: GOOD (  24.69  )
+X-CRM114-CacheID: sfid-20260428_144337_482829_FDD0E323 
+X-CRM114-Status: GOOD (  12.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,137 +123,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat Apr 25, 2026 at 1:18 AM CEST, Ihor Solodrai wrote:
-> On 4/13/26 11:28 AM, Alexis Lothor=C3=83=C2=A9 (eBPF Foundation) wrote:
->> In order to prepare to emit KASAN checks in JITed programs, JIT
->> compilers need to be aware about whether some load/store instructions
->> are targeting the bpf program stack, as those should not be monitored
->> (we already have guard pages for that, and it is difficult anyway to
->> correctly monitor any kind of data passed on stack).
->>=20
->> To support this need, make the BPF verifier mark the instructions that
->> access program stack:
->> - add a setter that allows the verifier to mark instructions accessing
->>   the program stack
->> - add a getter that allows JIT compilers to check whether instructions
->>   being JITed are accessing the stack
->>=20
->> Signed-off-by: Alexis Lothor=C3=A9 (eBPF Foundation) <alexis.lothore@boo=
-tlin.com>
->> ---
->>  include/linux/bpf.h          |  2 ++
->>  include/linux/bpf_verifier.h |  2 ++
->>  kernel/bpf/core.c            | 10 ++++++++++
->>  kernel/bpf/verifier.c        |  7 +++++++
->>  4 files changed, 21 insertions(+)
->>=20
->> diff --git a/include/linux/bpf.h b/include/linux/bpf.h
->> index b4b703c90ca9..774a0395c498 100644
->> --- a/include/linux/bpf.h
->> +++ b/include/linux/bpf.h
->> @@ -1543,6 +1543,8 @@ void bpf_jit_uncharge_modmem(u32 size);
->>  bool bpf_prog_has_trampoline(const struct bpf_prog *prog);
->>  bool bpf_insn_is_indirect_target(const struct bpf_verifier_env *env, co=
-nst struct bpf_prog *prog,
->>  				 int insn_idx);
->> +bool bpf_insn_accesses_stack(const struct bpf_verifier_env *env,
->> +			     const struct bpf_prog *prog, int insn_idx);
->>  #else
->>  static inline int bpf_trampoline_link_prog(struct bpf_tramp_link *link,
->>  					   struct bpf_trampoline *tr,
->> diff --git a/include/linux/bpf_verifier.h b/include/linux/bpf_verifier.h
->> index b148f816f25b..ab99ed4c4227 100644
->> --- a/include/linux/bpf_verifier.h
->> +++ b/include/linux/bpf_verifier.h
->> @@ -660,6 +660,8 @@ struct bpf_insn_aux_data {
->>  	u16 const_reg_map_mask;
->>  	u16 const_reg_subprog_mask;
->>  	u32 const_reg_vals[10];
->> +	/* instruction accesses stack */
->> +	bool accesses_stack;
->>  };
->> =20
->>  #define MAX_USED_MAPS 64 /* max number of maps accessed by one eBPF pro=
-gram */
->> diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
->> index 8b018ff48875..340abfdadbed 100644
->> --- a/kernel/bpf/core.c
->> +++ b/kernel/bpf/core.c
->> @@ -1582,6 +1582,16 @@ bool bpf_insn_is_indirect_target(const struct bpf=
-_verifier_env *env, const struc
->>  	insn_idx +=3D prog->aux->subprog_start;
->>  	return env->insn_aux_data[insn_idx].indirect_target;
->>  }
->> +
->> +bool bpf_insn_accesses_stack(const struct bpf_verifier_env *env,
->> +			     const struct bpf_prog *prog, int insn_idx)
->> +{
->> +	if (!env)
->> +		return false;
->> +	insn_idx +=3D prog->aux->subprog_start;
->> +	return env->insn_aux_data[insn_idx].accesses_stack;
->> +}
->> +
->>  #endif /* CONFIG_BPF_JIT */
->> =20
->>  /* Base function for offset calculation. Needs to go into .text section=
-,
->> diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
->> index 1e36b9e91277..7bce4fb4e540 100644
->> --- a/kernel/bpf/verifier.c
->> +++ b/kernel/bpf/verifier.c
->> @@ -3502,6 +3502,11 @@ static void mark_indirect_target(struct bpf_verif=
-ier_env *env, int idx)
->>  	env->insn_aux_data[idx].indirect_target =3D true;
->>  }
->> =20
->> +static void mark_insn_accesses_stack(struct bpf_verifier_env *env, int =
-idx)
->> +{
->> +	env->insn_aux_data[idx].accesses_stack =3D true;
->> +}
->> +
->>  #define LR_FRAMENO_BITS	3
->>  #define LR_SPI_BITS	6
->>  #define LR_ENTRY_BITS	(LR_SPI_BITS + LR_FRAMENO_BITS + 1)
->> @@ -6490,6 +6495,8 @@ static int check_mem_access(struct bpf_verifier_en=
-v *env, int insn_idx, u32 regn
->>  		else
->>  			err =3D check_stack_write(env, regno, off, size,
->>  						value_regno, insn_idx);
->> +
->> +		mark_insn_accesses_stack(env, insn_idx);
->
-> I am not sure this can be done unconditionally here.
->
-> It may be possible in different states to have different pointer
-> types for the affected reg (PTR_TO_STACK in one execution path and say
-> PTR_TO_MAP_VALUE in another). And if set uncoditionally,
-> instrumentation may be skipped for legitimate targets.
->
-> Maybe reset by default in check_mem_access()?
+> I reviewed Depthcharge code history and found that this problematic
+> bootloader behavior dates back to at least 2014, with the Tegra/Nyan
+> device. Older devices may have similar DTB structures, but I'm not sure
+> if they have the same address-cells problems. In any case, these changes
+> shouldn't hurt even if a device was not affected.
 
-Hmm, ok, thanks, I missed this subtlety. I still need to dig in there to
-make sure to really understand how the verifier handles those states,
-but if I understand correctly your point, I guess that just resetting
-the "accesses stack" flag at the entry of check_mem_access is not
-enough: it would make the final result depend on the order of the states
-being checked, eg:
-- first state being checked result in PTR_TO_MAP_VALUE, no flag set
-- second (and final) state being checked result in PTR_TO_STACK, flag is
-  now set
-- if no other state: insn ends up being (wrongly) marked to be ignored=20
-
-So unless I am misunderstanding things here, the question rather becomes
-"for this specific insn, is there any state in which the accessed memory
-is anything else other than PTR_TO_STACK". The flag could just be
-inverted (ie set to true by default), and reset by any state resulting
-in something other than PTR_TO_STACK.
-
-Alexis
---=20
-Alexis Lothor=C3=A9, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
-
+I can confirm that Nyan was the first Arm device shipping with
+depthcharge. Note that the Exynos devices are all older and shipped
+with an old fork of U-Boot that probably handled this very differently
+(I believe they had `/firmware/chromeos` but not `/firmware/coreboot`,
+so they wouldn't have had a `reg` node and should need no `ranges`).
 
