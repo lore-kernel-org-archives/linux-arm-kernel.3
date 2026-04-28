@@ -4,68 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22568FF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 08:48:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52444FF886C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 08:51:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yRm2k79xTisXBIWWt8D5usInaBAOhjC3Ue5G7GGc7y0=; b=36hVboPnTVssVFWcar04/bWYIo
-	BsymoMSROS3bjRfGu7frPjSnHpYHJSxYA62xtb2SQGZKS/2gvf3PlNlLYnGIgsZJkBU+L3nkLvuEf
-	3MlS+ri3ORe5WBHZiQnkJXGmz7EuFIesNkMzofWDBRk88GxkU2QOddkaK3EyzhBPnQkCwKeIGW52J
-	w21+1kXaUeH1eMAW5HPudfW13WHMM564LPlAkoxg2oPgiIYRpgVpDHx293Q3rUL3iCX93wTm5Mh5a
-	SfZ1jCpN+DXT4EB4EKUoIz2Pd5hs4scCs2IJR+WJq7zwuchhFmZrh1o1v+s4NE5suEPRSQ2Ekp1rJ
-	JJOTizUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jE1t2E2anlw2zLaOIG8ncGkA66f5ejckm9+DlKNzizA=; b=tFa0ZZNV5BvRhh0w19GxpMma2B
+	onOxffMEb2gmWmi6LeCgYXGg2unjoD26ol3dP49vDQBeHoHtvOK8kC1dJmxCqNfYZmrM+VCHgRLse
+	ZaArECg7Q12amJxj0MWqDfVmTmEEG6ITljcfSnL7DBQVsT51clFeB2zld88eGNA3ulL9GSCWC82a7
+	jb42gaH0eB3z2OzZRUMtDX9jRA4uxkJeQsCQCtUj3dbJZdCUV5Ttn9J+23JgwYHf8MtQoKYqn4nyP
+	0zOfd2bIbRsP6cSYbK396sPU3RzwgGP7NNZqbsJKq0jj7tdaFpTbzFfyzDx171dz0pnNJIzlNeu1K
+	h4hZzx8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHe7J-00000000ul4-0SYk;
-	Tue, 28 Apr 2026 08:48:29 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wHeAB-00000000v1E-0yXp;
+	Tue, 28 Apr 2026 08:51:27 +0000
+Received: from server.couthit.com ([162.240.164.96])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHe7I-00000000uky-213g
+	id 1wHeA7-00000000uz2-3G0e
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 08:48:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A5CA660141;
-	Tue, 28 Apr 2026 08:48:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A22AC2BCAF;
-	Tue, 28 Apr 2026 08:48:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777366107;
-	bh=mYuU6MXaswUtoHhacsBHyqLEb3RQrKd2tVDX/wlE3eI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Z1UvRjJE6dflfyQhl8JY3L4hVKRTdb2yQn2oMGAXOIbVRq0ZE7yZrHlCJiQWzyqOO
-	 Ayl4xpG2K9JvWcjNz6M84OnOonhmyhzMHQSWPUKF70T+ZedmFx4i6rIq8l1oGhDjJH
-	 /p4D/qUIvM2cdbG/6+bIUxDPrDJSn+Dl6gwmVi0oh6fY9PCddZGxaVzSLwgaA7sSzQ
-	 j/F8H1o4gReMWS3wfLhSk+uW2mBiTSAYnrRi/6PWHd+4xq4UuHFidugqYKbhaopTOD
-	 ndEHGwLH3UfYPox7uUHMjZullYmSdqb+weGzUd5oNgqJovNthw4Vr8OTgr38Myi8q9
-	 NFTyzHQvLk4Yg==
-Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id EB9C01AC5841; Tue, 28 Apr 2026 09:48:24 +0100 (BST)
-Date: Tue, 28 Apr 2026 17:48:24 +0900
-From: Mark Brown <broonie@kernel.org>
-To: Chancel Liu <chancel.liu@nxp.com>
-Cc: lgirdwood@gmail.com, perex@perex.cz, tiwai@suse.com,
-	shengjiu.wang@gmail.com, Xiubo.Lee@gmail.com, festevam@gmail.com,
-	nicoleotsuka@gmail.com, Frank.Li@nxp.com, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, shumingf@realtek.com,
-	rander.wang@linux.intel.com, pierre-louis.bossart@linux.dev,
-	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 3/3] ASoC: fsl: imx-rpmsg: Switch to core
- ignore-suspend-widgets support
-Message-ID: <afB0WHueZ5AGF3Vi@sirena.co.uk>
-References: <20260415081942.4183108-1-chancel.liu@nxp.com>
- <20260415081942.4183108-4-chancel.liu@nxp.com>
+	Tue, 28 Apr 2026 08:51:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject
+	:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=jE1t2E2anlw2zLaOIG8ncGkA66f5ejckm9+DlKNzizA=; b=PTmqT9m6oeGSeeX4oNTzcG/l2a
+	gD4/lsxQ3MwCtARIwsvSrewev6H7sjwbC/Gq3tV7OtylAxJSZe4FSI8ZtnnCauz4evHMwhOeTU4My
+	FmtnmATd3ObF2aygMZ2VskYU18GNS17v8vTUnOIQD1ddlgO/DScx40LSrMMmjTAhtAEvMl7R2HaeN
+	KomA/w6hRw47j51gJe8TjV87Iqt1oYfxX0ls7L3t7MN++96qVg4chYHq2q7QJb9BmqqPfn9wxxzYE
+	U/c4SxdBNXRzKPJfeMlxtg+mQ5GhqIgVD4CWa6tvTQolV6Xijitx0ZCG4gt7SfptxYxmeZoyAZihY
+	Yg13Dn2A==;
+Received: from [115.246.246.98] (port=49202 helo=cypher.couthit.local)
+	by server.couthit.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.98.1)
+	(envelope-from <parvathi@couthit.com>)
+	id 1wHe9K-0000000Gi1m-3yU8;
+	Tue, 28 Apr 2026 04:50:35 -0400
+From: Parvathi Pudi <parvathi@couthit.com>
+To: nm@ti.com,
+	vigneshr@ti.com,
+	linux@armlinux.org.uk,
+	ardb@kernel.org,
+	ebiggers@kernel.org,
+	krzysztof.kozlowski@oss.qualcomm.com,
+	khilman@baylibre.com,
+	arnd@arndb.de,
+	geert+renesas@glider.be,
+	parvathi@couthit.com,
+	tiwai@suse.de,
+	kory.maincent@bootlin.com,
+	andreas@kemnade.info,
+	dmitry.baryshkov@oss.qualcomm.com,
+	prabhakar.mahadev-lad.rj@bp.renesas.com,
+	twoerner@gmail.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	pratheesh@ti.com,
+	j-rameshbabu@ti.com,
+	praneeth@ti.com,
+	srk@ti.com,
+	rogerq@ti.com,
+	danishanwar@ti.com,
+	m-malladi@ti.com,
+	krishna@couthit.com,
+	mohan@couthit.com,
+	pmohan@couthit.com,
+	basharath@couthit.com
+Subject: [PATCH v4] arm: multi_v7_defconfig: Enable BRIDGE and DP83848_PHY for TI AM57xx, AM437x and AM335x
+Date: Tue, 28 Apr 2026 14:17:31 +0530
+Message-ID: <20260428085003.3023464-1-parvathi@couthit.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="9UPrFDxvpRfQw9KX"
-Content-Disposition: inline
-In-Reply-To: <20260415081942.4183108-4-chancel.liu@nxp.com>
-X-Cookie: Victory uber allies!
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.couthit.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: parvathi@couthit.com
+X-Authenticated-Sender: server.couthit.com: parvathi@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260428_015123_862946_BFE24B49 
+X-CRM114-Status: UNSURE (   7.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,47 +109,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This patch enables BRIDGE and DP83848_PHY as kernel modules for AM57xx,
+AM437x and AM335x SoCs. BRIDGE is to support STP/RSTP Switch mode using
+PRU-ICSS which got recently merged and DP83848 PHY driver to support
+TI TLK10X PHY.
 
---9UPrFDxvpRfQw9KX
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
+---
+Changes from v3 to v4:
+*) No changes were made, only the version was updated.
+*) Rebased the series on latest linux-next.
 
-On Wed, Apr 15, 2026 at 05:19:42PM +0900, Chancel Liu wrote:
+Changes from v2 to v3 :
+*) No changes were made, only the version was updated.
+*) Rebased the series on latest linux-next.
 
-> @@ -274,6 +257,15 @@ static int imx_rpmsg_probe(struct platform_device *p=
-dev)
->  		}
->  	}
-> =20
-> +	if (data->lpa && of_property_present(np, "ignore-suspend-widgets")) {
-> +		ret =3D snd_soc_of_parse_ignore_suspend_widgets(&data->card,
-> +							      "ignore-suspend-widgets");
-> +		if (ret) {
-> +			dev_err(&pdev->dev, "failed to parse ignore-suspend-widgets: %d\n", r=
-et);
-> +			return ret;
-> +		}
-> +	}
-> +
+Changes from v1 to v2 :
+*) Addressed  Krzysztof's comments on this patch.
+*) Rebased the series on latest linux-next.
 
-The other error handling paths here have a goto fail to do cleanup of
-the of_node in the platform device.
+ arch/arm/configs/multi_v7_defconfig | 2 ++
+ 1 file changed, 2 insertions(+)
 
---9UPrFDxvpRfQw9KX
-Content-Type: application/pgp-signature; name="signature.asc"
+diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
+index bcc9aabc1202..13362286b111 100644
+--- a/arch/arm/configs/multi_v7_defconfig
++++ b/arch/arm/configs/multi_v7_defconfig
+@@ -149,6 +149,7 @@ CONFIG_INET6_IPCOMP=m
+ CONFIG_IPV6_MIP6=m
+ CONFIG_IPV6_TUNNEL=m
+ CONFIG_IPV6_MULTIPLE_TABLES=y
++CONFIG_BRIDGE=m
+ CONFIG_NET_DSA=m
+ CONFIG_QRTR=m
+ CONFIG_QRTR_SMD=m
+@@ -288,6 +289,7 @@ CONFIG_ICPLUS_PHY=y
+ CONFIG_MARVELL_PHY=y
+ CONFIG_AT803X_PHY=y
+ CONFIG_ROCKCHIP_PHY=y
++CONFIG_DP83848_PHY=m
+ CONFIG_DP83867_PHY=y
+ CONFIG_CAN_AT91=m
+ CONFIG_CAN_FLEXCAN=m
+-- 
+2.43.0
 
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnwdFgACgkQJNaLcl1U
-h9A7RQf/QUn+qnt2gIgZyXelbB3F/TVFy2HzRTJNgNigI/pP+0D9evGIAfFSilHe
-bY/DChXlgzVcbleDy0tYinjOEJCFWMFbM5geexzQDCeLBVttOFJBxGFg+6miD3ny
-XBfA3eBsgWML7fjtuVl8L9VvSoY/VqAxOlVd0ezQQhdPv1/+OTZ6tKMC2sfijJQi
-OEo5m8hZpyStL9ez+64ZtCGJp8YjUa4yCqjEnqqCRvVAiJZCySLZHY3qQx19x4F/
-biWimRE9KOg4o7MaSjodS1el8vIllMT13FpJMud9r3TnHhIgG9IRNrUdtdgBtriI
-lVH1KxPbEDVL6hP8ny9Ick5+7MOiaQ==
-=7KNo
------END PGP SIGNATURE-----
-
---9UPrFDxvpRfQw9KX--
 
