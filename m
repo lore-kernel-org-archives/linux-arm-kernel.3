@@ -4,82 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71890FF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 08:23:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C843AFF886C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 08:33:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jQIiIXCZ5qvuvQgj/BNqenYXfGi/E/Mnbuw0iFczWPg=; b=T63+RVziDmzwzk7dV4OfqcklU+
-	3LJjxonBCN1u8xE1sa3oTtQsIvKybdSZHE8keykkD3QPcpoKO4u0iEyJOjt9lpuwo/hAFQmVCczE4
-	WtI1zH3ONcRau92NuwSKxcGhrDDHkbMozQ+/RqzyRiLJG8C4ejtWbKeXZWZCpiZCOQxplpvWnEE6q
-	BzBtfq/hcHL9mhWzhz3CTlaz80hTm79G78KirzdhgvNYIsz9gyi57sBkkfpn+PUNduDEzeNXQRXOp
-	E2uX6aEHYmoFJw3RUVAyQdcJ32skMM7IEha0MakmQ57BCLQnOzbLL1X97fdXsb6l0A+bSKZfFm3jJ
-	dBD2ywJg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eQlNwiLvlPVIdumfZIrDCNpIyDicUAEpTDSiR0VcXbE=; b=MmE7+pYGw7AiDtXn6ifFjwLuTP
+	ZS+N56mxKilt+8FJWL6eFy4xEuEtsIXV5GsawIBOy7UcTCHHF+OOHMNBZ/0UjbTy9uGDmB1q4fzKs
+	n+g2Yt4YRFNCczO6Dk75dkZ5TkAEgIkw3xeGggMAz1iAKmQRRxs7VgbmrLHSBKPG1PceMhgQ9YMez
+	VzSZ3YN6+2VBcHOf0z2DVVU4ZyrhlXs44PvITgpDfNRCIca9xkEI2s0kzmAUpV3Pd4XxTwUp2RDo2
+	PJ40PGdU+JUuvYGq9f9MfIvlpIQZiBY/H3wuemKHzKUVg4w4djh9BG3GfN1bZ23Xq4pBfMdfqaRvT
+	9HOSMoJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHdii-00000000sZJ-3Ntc;
-	Tue, 28 Apr 2026 08:23:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wHdt5-00000000tXW-3ZZa;
+	Tue, 28 Apr 2026 08:33:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHdig-00000000sUi-1CuD;
-	Tue, 28 Apr 2026 08:23:03 +0000
+	id 1wHdt2-00000000tWv-0plE;
+	Tue, 28 Apr 2026 08:33:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 32DBB44899;
-	Tue, 28 Apr 2026 08:22:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id C34D9C4AF0C;
-	Tue, 28 Apr 2026 08:22:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 16220448BD;
+	Tue, 28 Apr 2026 08:33:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5745C2BCB8;
+	Tue, 28 Apr 2026 08:33:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777364574;
-	bh=PCmmP7rOGoVbafpRKiOOAPfPVCbMnwaOJ+ZUHtPfBlM=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=h9TWDpw6lpcfUpn56iA0a3kI6avu5jGxjRDxkCOmq7ivofr0kRiQ9zh5h0zzgO0QW
-	 2aR430KVGkiUmiDH5IVSrGARq3t6hps9V9gzkE36GtTsCN64B1ya8OVKioxN4mOg02
-	 h6OmBXjwhjloFJ8SE7t6QcVWq4cWGvSJMBAsfVonJPuTMZFjH4k0acJzhuUtOdc5oB
-	 nl90D0x97N5tsKaDgjXFS0S5z/6FN6seVsW7Q8qtKJJtnsySBb2UeVj9mdFuG3ssJm
-	 PbN/M9t12LYEWHcgQgMdvkSqbprjjAFfypEp6C/MwF6IQsk9+FoIohGA4NF+M3Y48+
-	 zryyP+iwyjhYQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B2D5AFF886C;
-	Tue, 28 Apr 2026 08:22:54 +0000 (UTC)
-From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
-Subject: [PATCH 0/2] pinctrl: add support amlogic a9
-Date: Tue, 28 Apr 2026 08:22:47 +0000
-Message-Id: <20260428-a9-pinctrl-v1-0-cd611bb5f52d@amlogic.com>
+	s=k20201202; t=1777365221;
+	bh=2nPWt8y0UuftwYQCEIiW1OXFPIwhT16kB5elrqeR8CA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=neludCdPyVuqwrZ3HkOG4iu+5k3xY8RLS92f/EliAvjRzWpnops+TtpkywG5JVHsL
+	 t+GlCsSuQcDxfAtinXOOLf9Ld7GLVJYrMQBa8HLEelbjzSKEzyBpFgRy1pOtnHVLCU
+	 Sf1o6bb1jIkVRu2SNym1PjP/fhu4GxMvY7e1LzNe+3h8MUc8JYBttKWYS8oSOARgbT
+	 VfR8BC38J5gxIjyBf4JCmOK9kuaLEUSOO2tQ0gdKPjz3k0H2Tvd316H3Q+3IFfrDx2
+	 LBtLGPomk0xokGpU4MifF4rICybi4m909rrvMY6xS6PopzvMZn75XoDp9dreo5hwbA
+	 +AZdCMsA2+zrw==
+Message-ID: <ce219aa2-0bb1-4a74-b40d-bd753f1a22dd@kernel.org>
+Date: Tue, 28 Apr 2026 10:33:35 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAFhu8GkC/x2NQQqDQAxFryJZN+AEW9CrlC4yY6YGJEpGiiDe3
- bG7//g83gFFXKXA0Bzg8tOii1UIjwbSxPYV1LEyUEuvNlCP3OOqljaf63yGwEzUxQxViFwEo7O
- l6Vby4miyb/e1umTd/5335zwvrtRp4XcAAAA=
-X-Change-ID: 20260129-a9-pinctrl-a9511aa224bf
-To: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-amlogic@lists.infradead.org, linux-gpio@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Xianwei Zhao <xianwei.zhao@amlogic.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777364572; l=623;
- i=xianwei.zhao@amlogic.com; s=20251216; h=from:subject:message-id;
- bh=PCmmP7rOGoVbafpRKiOOAPfPVCbMnwaOJ+ZUHtPfBlM=;
- b=e1FzcU/DdusnZod18ZyvkoyVW7rZNPse69uMZZc413BNyHmbbnJrbiwJ1VkPw9aQaSbXm8ifR
- wQV9Qv7WVVXAztSi4LRYKW0F4GH3ocNk3lCQV3uZqDvKoFUq937AHqX
-X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
- pk=dWwxtWCxC6FHRurOmxEtr34SuBYU+WJowV/ZmRJ7H+k=
-X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20251216 with
- auth_id=578
-X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] ASoC: dt-bindings: drop redundant wakeup-source
+ definitions
+To: Bui Duc Phuc <phucduc.bui@gmail.com>
+Cc: Lee Jones <lee@kernel.org>, Mark Brown <broonie@kernel.org>,
+ Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Joseph Chen <chenjh@rock-chips.com>, Chris Zhong <zyw@rock-chips.com>,
+ Zhang Qing <zhangqing@rock-chips.com>,
+ David Rau <David.Rau.opensource@dm.renesas.com>,
+ Animesh Agarwal <animeshagarwal28@gmail.com>, devicetree@vger.kernel.org,
+ linux-sound@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260423042831.21114-1-phucduc.bui@gmail.com>
+ <20260423042831.21114-2-phucduc.bui@gmail.com>
+ <20260423-ingenious-psychedelic-jaybird-40bb4d@quoll>
+ <CAABR9nGH4yZcgyzm=wNYVHB2vLhojZJSHKOC6dSeQPm0rbh4KQ@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <CAABR9nGH4yZcgyzm=wNYVHB2vLhojZJSHKOC6dSeQPm0rbh4KQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_012302_362650_60E99EFC 
-X-CRM114-Status: UNSURE (   6.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260428_013346_125948_97ADC5F9 
+X-CRM114-Status: GOOD (  23.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,28 +124,88 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add pinctrl bindings and driver about for amlogic a9.
+On 27/04/2026 01:40, Bui Duc Phuc wrote:
+> Hi,
+> 
+>>> The 'wakeup-source' property already has its type defined in the core
+> 
+> 
+>> TYPES. It is plural.
+> 
+> 
+> Thank you for pointing that out. That was a mistake in my wording.
+> Regarding the two data types, I’m already aware of this and have
+> discussed it in a previous patch.
+> 
+> https://lore.kernel.org/all/CAABR9nH3hr+Y5ksD0cn3Gd9XUvmb07X7zJw0b4k_yVbnAuz9=w@mail.gmail.com/
+> 
+>>> -  wakeup-source:
+> 
+>>> -    type: boolean
+> 
+>>> -    description:
+> 
+>>> -      Flag to indicate this device can wake system (suspend/resume).
+> 
+>>> +  wakeup-source: true
+> 
+>>
+> 
+>> That's wrong. Commit msg is making here false statements that it is
+> 
+>> redundant. I checked (and you should too!) and driver does clearly
+> 
+>> device_property_read_bool() thus the property CANNOT be the second type.
+> 
+> I think Device Tree bindings should describe the hardware capability.
 
-Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
----
-Xianwei Zhao (2):
-      dt-bindings: pinctl: amlogic,pinctrl-a4: Add compatible string for A9
-      pinctrl: meson: support amlogic A9 SoC
+Yes. And the ABI. You cannot have ABI which has an incompatible
+implementation. IOW, when implementation contradicts the ABI, something
+is wrong.
 
- .../bindings/pinctrl/amlogic,pinctrl-a4.yaml       |  1 +
- drivers/pinctrl/meson/pinctrl-amlogic-a4.c         | 61 ++++++++++++++++++++--
- 2 files changed, 57 insertions(+), 5 deletions(-)
----
-base-commit: bd7fd288490c64835a74c05e631c102ce056d5e1
-change-id: 20260129-a9-pinctrl-a9511aa224bf
+The question of course if read_bool() is here incompatible. From the
+actual code point of view, it is compatible, but how it is documented
+and how it is intended to use: it is not compatible.
+
+Also if future schema-kernel-ABI checker gets implemented, the tool
+might report here a mistake for that reason. read_bool() means property
+is bool.
+
+
+> If the hardware supports wakeup functionality,
+> referencing the core schema is sufficient. Hardware description should
+> not be constrained by the current driver implementation
+> ( e.g. the use of device_property_read_bool() ).
+> Bindings should remain stable and generic, while drivers can evolve over time.
+
+So you claim that bindings can define property as integer, but drivers
+can evolve and for example read it as string?
+
+> 
+> Re-defining the type locally duplicates the core definition. If the
+> core schema evolves,
+
+There is no re-definition here. This is choice of subset of types.
+
+> this approach would require touching many bindings instead of updating
+> one central place.
+> 
+> This follows the recent cleanups suggested by Rob
+> 
+> https://lore.kernel.org/all/177628888260.592110.11727813820499601669.robh@kernel.org/
+> https://lore.kernel.org/all/177679687272.1458365.1328485324673928433.robh@kernel.org/
+
+Where is Rob's suggestion to do such cleanups for EXISTING code? I only
+see that new code should come like that.
+
+Anyway, your commit msg is for me incorrect because it misses all this
+points I made. Whether the schema code is correct, I'll defer to Rob,
+although I still claim the same I claimed before at v2 or v3 of your
+previous work - this should have defined type.
 
 Best regards,
--- 
-Xianwei Zhao <xianwei.zhao@amlogic.com>
-
-
+Krzysztof
 
