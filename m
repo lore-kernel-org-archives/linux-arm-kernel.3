@@ -4,68 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF7BEFF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 07:21:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62BB8FF8870
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 07:21:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NR1gzF3F6kI5f0yQJQV926hkNwQ4+t7RNPW4Qp/LJSM=; b=NmCJV4Z+3/JpY+GwycsxEk+MSD
-	IeRpTCK+VsKwuLObnal/F5t3XL3wpivk6IoIS9c2nyXktUkgZ5WyOZiPeQ2IRW62+SHdnwi1iHnTs
-	TP0AdegnKFqgA78IDaZ/gl0XM7ZFTS95E7J50QGBkdwCeuhtLROVQ7CwH3VIUCMGYMt4wCXdB21Lj
-	HqDxfUQj8oJczLOTkv1FMmqDi6l5+2G3uz4NlVD1FqtQ94CzWPIFwnsb/SLE3TeJ1eeTXAXickKUx
-	RxWB72ezK8zSUzz6s105FpfITPl/mShcFmuBd6IWnazD6hUmal5MGXs9nkCgfWE+AkPtqCrD9Gy2c
-	+0zfPT8A==;
+	bh=N4Nf17+iE4TpFXICTEQCjer2ymy7/ZPQXwIyAydjrk8=; b=a0/o7Ld68lASiXgMS4658DlLXj
+	V5LEwRJbtQUgnJ8EzhGEykQXyAzxw+iVtDnoaJBe1Ds9IRVnlExJd8Ap3Zc7yJQonQieXirGJU44b
+	HQnt2owz5ErY/w/Ewtkx2lirj3XHyZv1+e1urR4v+v3xRWTao0uENvU9dYjrJR3R4OQcOPiBBRb9P
+	go7ItKPr63hVNyEiBnLSimow9iuIwpmzRfYZKPKxDm5uwIfs49iEFxVI/blMOtdYAWmV11GAx3D7N
+	wHSUZRZD2sKZXbYfIvyk+meMKeuUVwf23wlluhUjjqE3YddX+ZraNAqNGxDvBZgtokfBsL/RtxeUD
+	yX4x3JiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHckt-00000000iCl-0fGe;
-	Tue, 28 Apr 2026 07:21:15 +0000
-Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
+	id 1wHckv-00000000iGE-3393;
+	Tue, 28 Apr 2026 07:21:17 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHck2-00000000hGw-2llx
+	id 1wHckH-00000000hVl-3v68
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 28 Apr 2026 07:20:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=N4Nf17+iE4TpFXICTEQCjer2ymy7/ZPQXwIyAydjrk8=; b=JnzGjsbP/aKr29Pwj+v2j/VRPo
+	ez/m33+Jgp7Onke7l0r9gCR/2CJFzKyeMV17mTuYM03YPznVeI3MnzgcqoTctKIne4Paz3XulRoWW
+	TOuJ4vaBQkEeInBwVuMn6VlWbAG/Hg3gVZpw41T0+mjtIPbiTOGpHIKBTQOM8xqlx4b/AyTr7jUBH
+	EDfHvPR8gbILCDAMRkDviXd9vCTcsLeCOJSNFQEtCAzP9FORG3eDM+LdneGO6vy9S5xdyjRqDzZVX
+	jcKED7LdedNg3RyYxAuO+NBfkfRpwevLal/Ja4iqDpzoS1x6WY8sSTDnYsi2Q7H+UBmUPzXCbmYP3
+	M+kCY/Cg==;
+Received: from mail-dl1-x124a.google.com ([2607:f8b0:4864:20::124a])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHckE-00000002DcI-22ek
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 07:20:35 +0000
-Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2ddd8ef5343so10996449eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 00:20:22 -0700 (PDT)
+	Tue, 28 Apr 2026 07:20:36 +0000
+Received: by mail-dl1-x124a.google.com with SMTP id a92af1059eb24-12c66fdd4aeso16633347c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 00:20:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777360821; x=1777965621; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777360832; x=1777965632; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=NR1gzF3F6kI5f0yQJQV926hkNwQ4+t7RNPW4Qp/LJSM=;
-        b=fEcQQo80QQEM3P7ZqG+afmCjjUcTC9D08Rh+83YIrbr8TMf2r8upyCkzexWmflBUrA
-         Vmsra1yaeb+lkVEeecnmRjnHKNpVybYVZJ4qAprAfVkdf/4D7vuRAnJ7f9cm3PTBA6dU
-         VzK+k6gNFxUWNKnbhuwcvRbaXOMFJFz8fDjyUuR0R/cWT7iPrpT6WoVSr3L9mF5+L4FN
-         RiWgltAmEYE5FM5I18hL6PKZiCgD8MmO0uq4kjVtmTRm1aMnv0QvhCA1lYSN3KAvuDfr
-         v9D9/HWDYc5jZDxMyKtWf+FgoiOOQb1N/0uHX8b16l5MtV1on4d0+xQ8ejmM53Q5zNVS
-         uPSg==
+        bh=N4Nf17+iE4TpFXICTEQCjer2ymy7/ZPQXwIyAydjrk8=;
+        b=PVFbyWdepIghJOqz/ws/4A4U2BQfDz5fGoqe1uc161MgCfF36pamNAqDsnMxSRDhCi
+         5dmNTmPfKhDv98rhAq1TXkMNrYa8CGG0trP1ol3oRLLv8+/KQ0g8Z+WePoZcdXi7+ukd
+         Df8sMtT2pNRPr/ilLlgZr7PhL1BcwOcurangaT8IK52a1sxjJTRsHpYEIE9V208fqRbL
+         IolbmeMwyMIIl/2cNKZJEWioN0dpPa/xqxtnRWHdjp9kW6CYABiwLVR1zv4jsBMUNrYI
+         4XpBlSoLhyMyhj5LLDuOWrbfprrjr2TiVJhstwyPXxlN/IqPR0XY+S2aaJuYmLNScORk
+         MLTg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777360821; x=1777965621;
+        d=1e100.net; s=20251104; t=1777360832; x=1777965632;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=NR1gzF3F6kI5f0yQJQV926hkNwQ4+t7RNPW4Qp/LJSM=;
-        b=DpdxkFHLMb3lI9IoRRdbnpbaXGitEk4cN1XX61BqE9x7bQ0zGhy6lsLkoggUU1UyyR
-         pbFN6Su8uQ/JHy0arY3P6kMKlV6kzublim4EBGnMaktVJu10tBQFvpIT2L/TEqNO/oMM
-         YMToGjCXprb6YRD0fxu8tDr67IPbuDk5djps2smGPfbGekEP3pZhkrwLwT7hq+DeQtgJ
-         8lpwIN7hbCDMtwz12A3iu96CulT6TdOInaOKkeBMwB4zWTqQ9NYXIE2rilYC7kJNS9+J
-         9blR/xfgc4EpuIYveDqOr9y6wnB1u1ZWtKI00EFxezku113b6VDN2pvESznTimygEJox
-         PrAw==
-X-Forwarded-Encrypted: i=1; AFNElJ/TLXBEhSixgJWwtsSXrJAcqkDB0HJktkfbxyWT2l4XQZhpoGiZVOrtqnNx+wHwmDKOVmwBHeI4PRX4sudNnUD4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyd/Iz1E6+YpsBgYe9O14OrDb1CRKrQlVNS9elrM+NKPM4ScjKZ
-	8GvcWmnNGImkrEY2GcgxBg4iSh9uqo6ixwc0XDng5CbskJEN9eNfunoSC6oVJ0ks/afrpTCqpA2
-	9Pz7DMSfjSQ==
-X-Received: from dycns6.prod.google.com ([2002:a05:7300:f786:b0:2df:c53c:24a5])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:2290:b0:2ed:e14:42e6
- with SMTP id 5a478bee46e88-2ed0e1443e2mr519174eec.31.1777360820842; Tue, 28
- Apr 2026 00:20:20 -0700 (PDT)
-Date: Tue, 28 Apr 2026 00:18:36 -0700
+        bh=N4Nf17+iE4TpFXICTEQCjer2ymy7/ZPQXwIyAydjrk8=;
+        b=nZM8zJdyDkAevqFBmTFh1Gns3nCpWRGaNzg2ZNGDGlWdC1hFkQewoNkEmI8uXsVQhk
+         /d7JbGu8eH4Yq4ecc95bsBWT1D+N0dR10tTggLXdmwpqaScDqcuDKwusIF+o90NdjDMx
+         PiY3o0Wkja2a1gQVe7gKfPhrkAG99+N9UkrQLOpyj5pyPhTJKRgWE+lc8JKkuG61j0Ea
+         74uIRdguc6rQ3twinlTrmNesMSWHgnNv7BHJjoi8/sbtjUSbD8lzpYDuHw4jkHqqXSA6
+         Mr7HHCXGMjMaAVXB3jtYnmQf9r5aqOnWgJ4FtC/UG6+pyBX7+3RbxKS4Y9/soLyB3VBW
+         610Q==
+X-Forwarded-Encrypted: i=1; AFNElJ+dDha2MZSIuoTQrJVkg8ucA5U1Un++VbBALni1fjJYwd2a5RA1dBKyYCgpO8S+5hPG6QkzGAR9+kGBDval/jy4@lists.infradead.org
+X-Gm-Message-State: AOJu0YzKnnH+bwRhYFztWZctbc7u7hGObAgRRW+8ON5Orpo/5sCfk6Kb
+	qD9kZsBBVPAITw+zlLy0/cGHjl9SCaHJ7v/lFGiAkVFjY137wXV6MlXh1Sw+BnALVCcNTkacvyJ
+	FEeIHeCcU0w==
+X-Received: from dleb18-n1.prod.google.com ([2002:a05:701b:4252:10b0:12d:d43c:4120])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:698c:b0:12a:6fb7:8801
+ with SMTP id a92af1059eb24-12ddd99a48amr980737c88.14.1777360831732; Tue, 28
+ Apr 2026 00:20:31 -0700 (PDT)
+Date: Tue, 28 Apr 2026 00:18:41 -0700
 In-Reply-To: <20260428071903.1886173-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260425224951.174663-1-irogers@google.com> <20260428071903.1886173-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260428071903.1886173-32-irogers@google.com>
-Subject: [PATCH v8 31/58] perf gecko: Port gecko to use python module
+Message-ID: <20260428071903.1886173-37-irogers@google.com>
+Subject: [PATCH v8 36/58] perf export-to-sqlite: Port export-to-sqlite to use
+ python module
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, namhyung@kernel.org
 Cc: adrian.hunter@intel.com, alice.mei.rogers@gmail.com, 
@@ -75,8 +91,8 @@ Cc: adrian.hunter@intel.com, alice.mei.rogers@gmail.com,
 	tmricht@linux.ibm.com, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_002023_557633_307DE2E5 
-X-CRM114-Status: GOOD (  21.27  )
+X-CRM114-CacheID: sfid-20260428_082034_792852_B78223AD 
+X-CRM114-Status: GOOD (  17.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,439 +107,401 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a port of the gecko script that uses the perf python module
-directly. This approach is significantly faster than using perf script
-callbacks as it avoids creating intermediate dictionaries for all
-event fields.
+This commit ports the export-to-sqlite.py script to use the modern perf
+Python module and the standard library sqlite3 module. It drops the
+dependency on PySide2.QtSql.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
-v2:
-
-1. Improved Portability: Replaced the non-portable uname -op call with
-   platform.system() and platform.machine() , preventing potential
-   crashes on non-Linux platforms like macOS or BSD.
-
-2. Robust Fallbacks: Fixed getattr calls for symbol and dso to
-   explicitly handle None values, preventing literal "None (in None)"
-   strings in the output when resolution fails.
-
-3. Network Security: Bound the HTTP server to 127.0.0.1 (localhost)
-   instead of 0.0.0.0 (all interfaces), ensuring the current directory
-   is not exposed to the local network.
-
-4. Avoided Port Conflicts: Switched from hardcoded port 8000 to port
-   0, allowing the operating system to automatically select an
-   available free port.
-
-5. Fixed Race Condition: Moved HTTPServer creation to the main thread,
-   ensuring the server is bound and listening before the browser is
-   launched to fetch the file.
-
-6. Browser Spec Compliance: Used 127.0.0.1 instead of localhost in the
-   generated URL to ensure modern browsers treat the connection as a
-   secure origin, avoiding mixed content blocks.
-
-v6:
-- Fixed CWD exposure and symlink attack risks by using a secure
-  temporary directory for the HTTP server.
+v5:
+1. Fix Callchain Resolution: Corrected attribute lookups on callchain
+   nodes. The `dso` and `symbol` properties already return strings, so
+   attempting to get a `.name` attribute from them failed and caused
+   fallback to "Unknown_...".
 ---
- tools/perf/python/gecko.py | 385 +++++++++++++++++++++++++++++++++++++
- 1 file changed, 385 insertions(+)
- create mode 100755 tools/perf/python/gecko.py
+ tools/perf/python/export-to-sqlite.py | 372 ++++++++++++++++++++++++++
+ 1 file changed, 372 insertions(+)
+ create mode 100755 tools/perf/python/export-to-sqlite.py
 
-diff --git a/tools/perf/python/gecko.py b/tools/perf/python/gecko.py
+diff --git a/tools/perf/python/export-to-sqlite.py b/tools/perf/python/export-to-sqlite.py
 new file mode 100755
-index 000000000000..1f152e1eca52
+index 000000000000..736b56ff8d59
 --- /dev/null
-+++ b/tools/perf/python/gecko.py
-@@ -0,0 +1,385 @@
++++ b/tools/perf/python/export-to-sqlite.py
+@@ -0,0 +1,372 @@
 +#!/usr/bin/env python3
 +# SPDX-License-Identifier: GPL-2.0
 +"""
-+gecko.py - Convert perf record output to Firefox's gecko profile format
++Export perf data to a sqlite3 database.
++
++This script has been ported to use the modern perf Python module and the
++standard library sqlite3 module. It no longer requires PySide2 or QtSql
++for exporting.
++
++Examples of using this script with Intel PT:
++
++	$ perf record -e intel_pt//u ls
++	$ python tools/perf/python/export-to-sqlite.py -i perf.data -o pt_example
++
++To browse the database, sqlite3 can be used e.g.
++
++	$ sqlite3 pt_example
++	sqlite> .header on
++	sqlite> select * from samples_view where id < 10;
++	sqlite> .mode column
++	sqlite> select * from samples_view where id < 10;
++	sqlite> .tables
++	sqlite> .schema samples_view
++	sqlite> .quit
++
++An example of using the database is provided by the script
++exported-sql-viewer.py. Refer to that script for details.
++
++Ported from tools/perf/scripts/python/export-to-sqlite.py
 +"""
 +
 +import argparse
-+import functools
-+import json
 +import os
-+import platform
++import sqlite3
 +import sys
-+import tempfile
-+import threading
-+import urllib.parse
-+import webbrowser
-+from dataclasses import dataclass, field
-+from http.server import HTTPServer, SimpleHTTPRequestHandler
-+from typing import Dict, List, NamedTuple, Optional, Tuple
-+
++from typing import Dict, Optional
 +import perf
 +
 +
-+# https://github.com/firefox-devtools/profiler/blob/53970305b51b9b472e26d7457fee1d66cd4e2737/src/types/gecko-profile.js#L156
-+class Frame(NamedTuple):
-+    """A single stack frame in the gecko profile format."""
-+    string_id: int
-+    relevantForJS: bool
-+    innerWindowID: int
-+    implementation: None
-+    optimizations: None
-+    line: None
-+    column: None
-+    category: int
-+    subcategory: Optional[int]
++class DatabaseExporter:
++    """Handles database connection and exporting of perf events."""
 +
++    def __init__(self, db_path: str):
++        self.con = sqlite3.connect(db_path)
++        self.session: Optional[perf.session] = None
++        self.sample_count = 0
 +
-+# https://github.com/firefox-devtools/profiler/blob/53970305b51b9b472e26d7457fee1d66cd4e2737/src/types/gecko-profile.js#L216
-+class Stack(NamedTuple):
-+    """A single stack in the gecko profile format."""
-+    prefix_id: Optional[int]
-+    frame_id: int
-+
-+
-+# https://github.com/firefox-devtools/profiler/blob/53970305b51b9b472e26d7457fee1d66cd4e2737/src/types/gecko-profile.js#L90
-+class Sample(NamedTuple):
-+    """A single sample in the gecko profile format."""
-+    stack_id: Optional[int]
-+    time_ms: float
-+    responsiveness: int
-+
-+
-+@dataclass
-+class Tables:
-+    """Interned tables for the gecko profile format."""
-+    frame_table: List[Frame] = field(default_factory=list)
-+    string_table: List[str] = field(default_factory=list)
-+    string_map: Dict[str, int] = field(default_factory=dict)
-+    stack_table: List[Stack] = field(default_factory=list)
-+    stack_map: Dict[Tuple[Optional[int], int], int] = field(default_factory=dict)
-+    frame_map: Dict[str, int] = field(default_factory=dict)
-+
-+
-+@dataclass
-+class Thread:
-+    """A builder for a profile of the thread."""
-+    comm: str
-+    pid: int
-+    tid: int
-+    user_category: int
-+    kernel_category: int
-+    samples: List[Sample] = field(default_factory=list)
-+    tables: Tables = field(default_factory=Tables)
-+
-+    def _intern_stack(self, frame_id: int, prefix_id: Optional[int]) -> int:
-+        """Gets a matching stack, or saves the new stack. Returns a Stack ID."""
-+        key = (prefix_id, frame_id)
-+        stack_id = self.tables.stack_map.get(key)
-+        if stack_id is None:
-+            stack_id = len(self.tables.stack_table)
-+            self.tables.stack_table.append(Stack(prefix_id=prefix_id, frame_id=frame_id))
-+            self.tables.stack_map[key] = stack_id
-+        return stack_id
-+
-+    def _intern_string(self, string: str) -> int:
-+        """Gets a matching string, or saves the new string. Returns a String ID."""
-+        string_id = self.tables.string_map.get(string)
-+        if string_id is not None:
-+            return string_id
-+        string_id = len(self.tables.string_table)
-+        self.tables.string_table.append(string)
-+        self.tables.string_map[string] = string_id
-+        return string_id
-+
-+    def _intern_frame(self, frame_str: str) -> int:
-+        """Gets a matching stack frame, or saves the new frame. Returns a Frame ID."""
-+        frame_id = self.tables.frame_map.get(frame_str)
-+        if frame_id is not None:
-+            return frame_id
-+        frame_id = len(self.tables.frame_table)
-+        self.tables.frame_map[frame_str] = frame_id
-+        string_id = self._intern_string(frame_str)
-+
-+        category = self.user_category
-+        if (frame_str.find('kallsyms') != -1 or
-+                frame_str.find('/vmlinux') != -1 or
-+                frame_str.endswith('.ko)')):
-+            category = self.kernel_category
-+
-+        self.tables.frame_table.append(Frame(
-+            string_id=string_id,
-+            relevantForJS=False,
-+            innerWindowID=0,
-+            implementation=None,
-+            optimizations=None,
-+            line=None,
-+            column=None,
-+            category=category,
-+            subcategory=None,
-+        ))
-+        return frame_id
-+
-+    def add_sample(self, comm: str, stack: List[str], time_ms: float) -> None:
-+        """Add a timestamped stack trace sample to the thread builder."""
-+        if self.comm != comm:
-+            self.comm = comm
-+
-+        prefix_stack_id: Optional[int] = None
-+        for frame in stack:
-+            frame_id = self._intern_frame(frame)
-+            prefix_stack_id = self._intern_stack(frame_id, prefix_stack_id)
-+
-+        if prefix_stack_id is not None:
-+            self.samples.append(Sample(stack_id=prefix_stack_id,
-+                                       time_ms=time_ms,
-+                                       responsiveness=0))
-+
-+    def to_json_dict(self) -> Dict:
-+        """Converts current Thread to GeckoThread JSON format."""
-+        return {
-+            "tid": self.tid,
-+            "pid": self.pid,
-+            "name": self.comm,
-+            "markers": {
-+                "schema": {
-+                    "name": 0,
-+                    "startTime": 1,
-+                    "endTime": 2,
-+                    "phase": 3,
-+                    "category": 4,
-+                    "data": 5,
-+                },
-+                "data": [],
-+            },
-+            "samples": {
-+                "schema": {
-+                    "stack": 0,
-+                    "time": 1,
-+                    "responsiveness": 2,
-+                },
-+                "data": self.samples
-+            },
-+            "frameTable": {
-+                "schema": {
-+                    "location": 0,
-+                    "relevantForJS": 1,
-+                    "innerWindowID": 2,
-+                    "implementation": 3,
-+                    "optimizations": 4,
-+                    "line": 5,
-+                    "column": 6,
-+                    "category": 7,
-+                    "subcategory": 8,
-+                },
-+                "data": self.tables.frame_table,
-+            },
-+            "stackTable": {
-+                "schema": {
-+                    "prefix": 0,
-+                    "frame": 1,
-+                },
-+                "data": self.tables.stack_table,
-+            },
-+            "stringTable": self.tables.string_table,
-+            "registerTime": 0,
-+            "unregisterTime": None,
-+            "processType": "default",
++        # Caches and counters grouped to reduce instance attributes
++        self.caches: Dict[str, dict] = {
++            'threads': {},
++            'comms': {},
++            'dsos': {},
++            'symbols': {},
++            'events': {},
++            'branch_types': {},
++            'call_paths': {}
 +        }
 +
++        self.next_id = {
++            'thread': 1,
++            'comm': 1,
++            'dso': 1,
++            'symbol': 1,
++            'event': 1,
++            'branch_type': 1,
++            'call_path': 1
++        }
 +
-+class CORSRequestHandler(SimpleHTTPRequestHandler):
-+    """Enable CORS for requests from profiler.firefox.com."""
-+    def end_headers(self):
-+        self.send_header('Access-Control-Allow-Origin', 'https://profiler.firefox.com')
-+        super().end_headers()
++        self.create_tables()
 +
++    def create_tables(self) -> None:
++        """Create database tables."""
++        self.con.execute("""
++            CREATE TABLE IF NOT EXISTS selected_events (
++                    id      INTEGER         NOT NULL        PRIMARY KEY,
++                    name    VARCHAR(80))
++        """)
++        self.con.execute("""
++            CREATE TABLE IF NOT EXISTS machines (
++                    id      INTEGER         NOT NULL        PRIMARY KEY,
++                    pid     INTEGER,
++                    root_dir VARCHAR(4096))
++        """)
++        self.con.execute("""
++            CREATE TABLE IF NOT EXISTS threads (
++                    id      INTEGER         NOT NULL        PRIMARY KEY,
++                    machine_id BIGINT,
++                    process_id BIGINT,
++                    pid     INTEGER,
++                    tid     INTEGER)
++        """)
++        self.con.execute("""
++            CREATE TABLE IF NOT EXISTS comms (
++                    id      INTEGER         NOT NULL        PRIMARY KEY,
++                    comm    VARCHAR(16),
++                    c_thread_id BIGINT,
++                    c_time  BIGINT,
++                    exec_flag BOOLEAN)
++        """)
++        self.con.execute("""
++            CREATE TABLE IF NOT EXISTS comm_threads (
++                    id      INTEGER         NOT NULL        PRIMARY KEY,
++                    comm_id BIGINT,
++                    thread_id BIGINT)
++        """)
++        self.con.execute("""
++            CREATE TABLE IF NOT EXISTS dsos (
++                    id      INTEGER         NOT NULL        PRIMARY KEY,
++                    machine_id BIGINT,
++                    short_name VARCHAR(256),
++                    long_name VARCHAR(4096),
++                    build_id VARCHAR(64))
++        """)
++        self.con.execute("""
++            CREATE TABLE IF NOT EXISTS symbols (
++                    id      INTEGER         NOT NULL        PRIMARY KEY,
++                    dso_id  BIGINT,
++                    sym_start BIGINT,
++                    sym_end BIGINT,
++                    binding INTEGER,
++                    name    VARCHAR(2048))
++        """)
++        self.con.execute("""
++            CREATE TABLE IF NOT EXISTS branch_types (
++                    id      INTEGER         NOT NULL        PRIMARY KEY,
++                    name    VARCHAR(80))
++        """)
++        self.con.execute("""
++            CREATE TABLE IF NOT EXISTS samples (
++                    id              INTEGER         NOT NULL        PRIMARY KEY,
++                    evsel_id        BIGINT,
++                    machine_id      BIGINT,
++                    thread_id       BIGINT,
++                    comm_id         BIGINT,
++                    dso_id          BIGINT,
++                    symbol_id       BIGINT,
++                    sym_offset      BIGINT,
++                    ip              BIGINT,
++                    time            BIGINT,
++                    cpu             INTEGER,
++                    to_dso_id       BIGINT,
++                    to_symbol_id    BIGINT,
++                    to_sym_offset   BIGINT,
++                    to_ip           BIGINT,
++                    period          BIGINT,
++                    weight          BIGINT,
++                    transaction_    BIGINT,
++                    data_src        BIGINT,
++                    branch_type     INTEGER,
++                    in_tx           BOOLEAN,
++                    call_path_id    BIGINT,
++                    insn_count      BIGINT,
++                    cyc_count       BIGINT,
++                    flags           INTEGER)
++        """)
++        self.con.execute("""
++            CREATE TABLE IF NOT EXISTS call_paths (
++                    id              INTEGER         NOT NULL        PRIMARY KEY,
++                    parent_id       BIGINT,
++                    symbol_id       BIGINT,
++                    ip              BIGINT)
++        """)
++        self.con.execute("""
++            CREATE VIEW IF NOT EXISTS samples_view AS
++            SELECT s.id, e.name as event, t.pid, t.tid, c.comm,
++                   d.short_name as dso, sym.name as symbol, s.sym_offset,
++                   s.ip, s.time, s.cpu
++            FROM samples s
++            JOIN selected_events e ON s.evsel_id = e.id
++            JOIN threads t ON s.thread_id = t.id
++            JOIN comms c ON s.comm_id = c.id
++            JOIN dsos d ON s.dso_id = d.id
++            JOIN symbols sym ON s.symbol_id = sym.id;
++        """)
 +
-+@dataclass
-+class CategoryData:
-+    """Category configuration for the gecko profile."""
-+    user_index: int = 0
-+    kernel_index: int = 1
-+    categories: List[Dict] = field(default_factory=list)
++        # id == 0 means unknown. It is easier to create records for them than
++        # replace the zeroes with NULLs
++        self.con.execute("INSERT OR IGNORE INTO selected_events VALUES (0, 'unknown')")
++        self.con.execute("INSERT OR IGNORE INTO machines VALUES (0, 0, 'unknown')")
++        self.con.execute("INSERT OR IGNORE INTO threads VALUES (0, 0, 0, -1, -1)")
++        self.con.execute("INSERT OR IGNORE INTO comms VALUES (0, 'unknown', 0, 0, 0)")
++        self.con.execute("INSERT OR IGNORE INTO dsos VALUES (0, 0, 'unknown', 'unknown', '')")
++        self.con.execute("INSERT OR IGNORE INTO symbols VALUES (0, 0, 0, 0, 0, 'unknown')")
 +
++    def get_event_id(self, name: str) -> int:
++        """Get or create event ID."""
++        if name in self.caches['events']:
++            return self.caches['events'][name]
++        event_id = self.next_id['event']
++        self.con.execute("INSERT INTO selected_events VALUES (?, ?)",
++                         (event_id, name))
++        self.caches['events'][name] = event_id
++        self.next_id['event'] += 1
++        return event_id
 +
-+class GeckoCLI:
-+    """Command-line interface for converting perf data to Gecko format."""
-+    def __init__(self, args):
-+        self.args = args
-+        self.tid_to_thread: Dict[int, Thread] = {}
-+        self.start_time_ms: Optional[float] = None
-+        self.session = None
-+        self.product = f"{platform.system()} {platform.machine()}"
-+        self.cat_data = CategoryData(
-+            categories=[
-+                {
-+                    "name": 'User',
-+                    "color": args.user_color,
-+                    "subcategories": ['Other']
-+                },
-+                {
-+                    "name": 'Kernel',
-+                    "color": args.kernel_color,
-+                    "subcategories": ['Other']
-+                },
-+            ]
++    def get_thread_id(self, pid: int, tid: int) -> int:
++        """Get or create thread ID."""
++        key = (pid, tid)
++        if key in self.caches['threads']:
++            return self.caches['threads'][key]
++        thread_id = self.next_id['thread']
++        self.con.execute("INSERT INTO threads VALUES (?, ?, ?, ?, ?)",
++                         (thread_id, 0, pid, pid, tid))
++        self.caches['threads'][key] = thread_id
++        self.next_id['thread'] += 1
++        return thread_id
++
++    def get_comm_id(self, comm: str, thread_id: int) -> int:
++        """Get or create comm ID."""
++        if comm in self.caches['comms']:
++            return self.caches['comms'][comm]
++        comm_id = self.next_id['comm']
++        self.con.execute("INSERT INTO comms VALUES (?, ?, ?, ?, ?)",
++                         (comm_id, comm, thread_id, 0, 0))
++        self.con.execute("INSERT INTO comm_threads VALUES (?, ?, ?)",
++                         (comm_id, comm_id, thread_id))
++        self.caches['comms'][comm] = comm_id
++        self.next_id['comm'] += 1
++        return comm_id
++
++    def get_dso_id(self, short_name: str, long_name: str,
++                   build_id: str) -> int:
++        """Get or create DSO ID."""
++        if short_name in self.caches['dsos']:
++            return self.caches['dsos'][short_name]
++        dso_id = self.next_id['dso']
++        self.con.execute("INSERT INTO dsos VALUES (?, ?, ?, ?, ?)",
++                         (dso_id, 0, short_name, long_name, build_id))
++        self.caches['dsos'][short_name] = dso_id
++        self.next_id['dso'] += 1
++        return dso_id
++
++    def get_symbol_id(self, dso_id: int, name: str, start: int,
++                      end: int) -> int:
++        """Get or create symbol ID."""
++        key = (dso_id, name)
++        if key in self.caches['symbols']:
++            return self.caches['symbols'][key]
++        symbol_id = self.next_id['symbol']
++        self.con.execute("INSERT INTO symbols VALUES (?, ?, ?, ?, ?, ?)",
++                         (symbol_id, dso_id, start, end, 0, name))
++        self.caches['symbols'][key] = symbol_id
++        self.next_id['symbol'] += 1
++        return symbol_id
++
++    def get_call_path_id(self, parent_id: int, symbol_id: int,
++                         ip: int) -> int:
++        """Get or create call path ID."""
++        key = (parent_id, symbol_id, ip)
++        if key in self.caches['call_paths']:
++            return self.caches['call_paths'][key]
++        call_path_id = self.next_id['call_path']
++        self.con.execute("INSERT INTO call_paths VALUES (?, ?, ?, ?)",
++                         (call_path_id, parent_id, symbol_id, ip))
++        self.caches['call_paths'][key] = call_path_id
++        self.next_id['call_path'] += 1
++        return call_path_id
++
++    def process_event(self, sample: perf.sample_event) -> None:
++        """Callback for processing events."""
++        thread_id = self.get_thread_id(sample.sample_pid, sample.sample_tid)
++
++        comm = "Unknown_comm"
++        try:
++            if self.session is not None:
++                proc = self.session.find_thread(sample.sample_pid)
++                if proc:
++                    comm = proc.comm()
++        except TypeError:
++            pass
++        comm_id = self.get_comm_id(comm, thread_id)
++
++        dso_id = self.get_dso_id(
++            getattr(sample, 'dso', "Unknown_dso") or "Unknown_dso",
++            getattr(sample, 'dso_long_name', "Unknown_dso_long") or "Unknown_dso_long",
++            getattr(sample, 'dso_bid', "") or ""
 +        )
 +
-+    def process_event(self, sample) -> None:
-+        """Process a single perf sample event."""
-+        if self.args.event_name and self.args.event_name not in str(sample.evsel):
-+            return
++        symbol_id = self.get_symbol_id(
++            dso_id,
++            getattr(sample, 'symbol', "Unknown_symbol") or "Unknown_symbol",
++            getattr(sample, 'sym_start', 0) or 0,
++            getattr(sample, 'sym_end', 0) or 0
++        )
 +
-+        # sample_time is in nanoseconds. Gecko wants milliseconds.
-+        time_ms = sample.sample_time / 1000000.0
-+        pid = sample.sample_pid
-+        tid = sample.sample_tid
++        # Handle callchain
++        call_path_id = 0
++        if hasattr(sample, 'callchain') and sample.callchain:
++            parent_id = 0
++            for node in sample.callchain:
++                dso_name = getattr(node, 'dso', "Unknown_dso") or "Unknown_dso"
++                symbol_name = getattr(node, 'symbol', "Unknown_symbol") or "Unknown_symbol"
 +
-+        if self.start_time_ms is None:
-+            self.start_time_ms = time_ms
++                node_dso_id = self.get_dso_id(dso_name, dso_name, "")
++                node_symbol_id = self.get_symbol_id(node_dso_id, symbol_name, 0, 0)
 +
-+        try:
-+            thread_info = self.session.find_thread(tid)
-+            comm = thread_info.comm()
-+        except Exception:
-+            comm = "[unknown]"
-+
-+        stack = []
-+        callchain = sample.callchain
-+        if callchain:
-+            for entry in callchain:
-+                symbol = entry.symbol or "[unknown]"
-+                dso = entry.dso or "[unknown]"
-+                stack.append(f"{symbol} (in {dso})")
-+            # Reverse because Gecko wants root first.
-+            stack.reverse()
++                parent_id = self.get_call_path_id(parent_id, node_symbol_id, node.ip)
++            call_path_id = parent_id
 +        else:
-+            # Fallback if no callchain is present
-+            try:
-+                # If the perf module exposes symbol/dso directly on sample
-+                # when callchain is missing, we use them.
-+                symbol = getattr(sample, 'symbol', '[unknown]') or '[unknown]'
-+                dso = getattr(sample, 'dso', '[unknown]') or '[unknown]'
-+                stack.append(f"{symbol} (in {dso})")
-+            except AttributeError:
-+                stack.append("[unknown] (in [unknown])")
++            call_path_id = 0
 +
-+        thread = self.tid_to_thread.get(tid)
-+        if thread is None:
-+            thread = Thread(comm=comm, pid=pid, tid=tid,
-+                            user_category=self.cat_data.user_index,
-+                            kernel_category=self.cat_data.kernel_index)
-+            self.tid_to_thread[tid] = thread
-+        thread.add_sample(comm=comm, stack=stack, time_ms=time_ms)
++        # Insert sample
++        self.con.execute("""
++            INSERT INTO samples VALUES (
++                NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
++            )
++        """, (
++            self.get_event_id(getattr(sample.evsel, 'name', str(sample.evsel))),
++            0, thread_id, comm_id,
++            dso_id, symbol_id, getattr(sample, 'sym_offset', 0),
++            sample.sample_ip, sample.sample_time, sample.sample_cpu,
++            0, 0, 0, 0,  # to_dso, to_symbol, to_sym_offset, to_ip
++            getattr(sample, 'sample_period', 0) or 0,
++            getattr(sample, 'sample_weight', 0) or 0,
++            getattr(sample, 'transaction_', 0),
++            getattr(sample, 'data_src', 0),
++            0,  # branch_type
++            getattr(sample, 'in_tx', 0),
++            call_path_id,
++            getattr(sample, 'insn_count', 0),
++            getattr(sample, 'cyc_count', 0),
++            getattr(sample, 'flags', 0)
++        ))
 +
-+    def run(self) -> None:
-+        """Run the conversion process."""
-+        input_file = self.args.input or "perf.data"
-+        if not os.path.exists(input_file):
-+            print(f"Error: {input_file} not found.", file=sys.stderr)
-+            sys.exit(1)
++        self.sample_count += 1
++        if self.sample_count % 10000 == 0:
++            self.commit()
 +
-+        try:
-+            self.session = perf.session(perf.data(input_file), sample=self.process_event)
-+        except Exception as e:
-+            print(f"Error opening session: {e}", file=sys.stderr)
-+            sys.exit(1)
++    def commit(self) -> None:
++        """Commit transaction."""
++        self.con.commit()
 +
-+        self.session.process_events()
-+
-+        threads = [t.to_json_dict() for t in self.tid_to_thread.values()]
-+
-+        gecko_profile = {
-+            "meta": {
-+                "interval": 1,
-+                "processType": 0,
-+                "product": self.product,
-+                "stackwalk": 1,
-+                "debug": 0,
-+                "gcpoison": 0,
-+                "asyncstack": 1,
-+                "startTime": self.start_time_ms,
-+                "shutdownTime": None,
-+                "version": 24,
-+                "presymbolicated": True,
-+                "categories": self.cat_data.categories,
-+                "markerSchema": [],
-+            },
-+            "libs": [],
-+            "threads": threads,
-+            "processes": [],
-+            "pausedRanges": [],
-+        }
-+
-+        output_file = self.args.save_only
-+        if output_file is None:
-+            self._write_and_launch(gecko_profile)
-+        else:
-+            print(f'[ perf gecko: Captured and wrote into {output_file} ]')
-+            with open(output_file, 'w', encoding='utf-8') as f:
-+                json.dump(gecko_profile, f, indent=2)
-+
-+    def _write_and_launch(self, profile: Dict) -> None:
-+        """Write the profile to a file and launch the Firefox profiler."""
-+        print("Starting Firefox Profiler on your default browser...")
-+        
-+        with tempfile.TemporaryDirectory() as tmp_dir_name:
-+            filename = os.path.join(tmp_dir_name, 'gecko_profile.json')
-+            
-+            with open(filename, 'w', encoding='utf-8') as f:
-+                json.dump(profile, f, indent=2)
-+                
-+            handler = functools.partial(CORSRequestHandler, directory=tmp_dir_name)
-+            try:
-+                httpd = HTTPServer(('127.0.0.1', 0), handler)
-+            except OSError as e:
-+                print(f"Error starting HTTP server: {e}", file=sys.stderr)
-+                sys.exit(1)
-+                
-+            port = httpd.server_port
-+            
-+            def start_server():
-+                httpd.serve_forever()
-+                
-+            thread = threading.Thread(target=start_server, daemon=True)
-+            thread.start()
-+            
-+            # Open the browser
-+            safe_string = urllib.parse.quote_plus(f'http://127.0.0.1:{port}/gecko_profile.json')
-+            url = f'https://profiler.firefox.com/from-url/{safe_string}'
-+            webbrowser.open(url)
-+            
-+            print(f'[ perf gecko: Captured and wrote into {filename} ]')
-+            print("Press Ctrl+C to stop the local server.")
-+            try:
-+                # Keep the main thread alive so the daemon thread can serve requests
-+                stop_event = threading.Event()
-+                while True:
-+                    stop_event.wait(1)
-+            except KeyboardInterrupt:
-+                print("\nStopping server...")
-+                httpd.shutdown()
++    def close(self) -> None:
++        """Close connection."""
++        self.con.close()
 +
 +
 +if __name__ == "__main__":
-+    parser = argparse.ArgumentParser(
-+        description="Convert perf.data to Firefox's Gecko Profile format"
-+    )
-+    parser.add_argument('--user-color', default='yellow',
-+                        help='Color for the User category',
-+                        choices=['yellow', 'blue', 'purple', 'green', 'orange', 'red',
-+                                 'grey', 'magenta'])
-+    parser.add_argument('--kernel-color', default='orange',
-+                        help='Color for the Kernel category',
-+                        choices=['yellow', 'blue', 'purple', 'green', 'orange', 'red',
-+                                 'grey', 'magenta'])
-+    parser.add_argument('--save-only',
-+                        help='Save the output to a file instead of opening Firefox\'s profiler')
-+    parser.add_argument("-i", "--input", help="input perf.data file")
-+    parser.add_argument("-e", "--event", default="", dest="event_name", type=str,
-+                        help="specify the event to generate gecko profile for")
++    ap = argparse.ArgumentParser(
++        description="Export perf data to a sqlite3 database")
++    ap.add_argument("-i", "--input", default="perf.data",
++                    help="Input file name")
++    ap.add_argument("-o", "--output", default="perf.db",
++                    help="Output database name")
++    args = ap.parse_args()
 +
-+    cli_args = parser.parse_args()
-+    cli = GeckoCLI(cli_args)
-+    cli.run()
++    try:
++        fd = os.open(args.output, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
++        os.close(fd)
++    except FileExistsError:
++        print(f"Error: {args.output} already exists")
++        sys.exit(1)
++
++    exporter = DatabaseExporter(args.output)
++
++    session = None
++    error_occurred = False
++    try:
++        session = perf.session(perf.data(args.input),
++                               sample=exporter.process_event)
++        exporter.session = session
++        session.process_events()
++        exporter.commit()
++        print(f"Successfully exported to {args.output}")
++    except Exception as e:
++        print(f"Error processing events: {e}")
++        error_occurred = True
++    finally:
++        exporter.close()
++        if error_occurred:
++            if os.path.exists(args.output):
++                os.remove(args.output)
 -- 
 2.54.0.545.g6539524ca2-goog
 
