@@ -4,82 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE58AFF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 14:57:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8ED2FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 15:06:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HaMwJ5pw1dugp2h+3Jo3Q9ADwxPWGEGVvQfRV1ZUYgk=; b=3JpE+oTBA7UoGt9nwgk0McTeRb
-	9Ox6EBnL6zrSuwwBRzt1KOZ7tLI7FIqHfpy6+2lutSvklUJcWU83r8ISc9hzIz8KNdo58+gySwCT1
-	kU1fAQwtHWzlu39S3WeS9ilvn9xF1sx+biXJKdMPMKNz5yL0ytUG0khHOPfpocrOTEWcgL10DWjh4
-	eKSa0C4lWkYJ+9x+dnN9uwfXUPVGYQcKBuX3KQtM/Stqn7EdkUcXFuOWYRMvyMWMmlAmZo1jUEtmV
-	LCulcB0hGlCvFxvqCq4GCRkJHGEtgAF2w8EGOCbp4ftC/W71VUdcozITMXmb6Bci+Qi+2itxeRegl
-	MXTYYWFg==;
+	bh=OfbUgiQnGWlnScYJSuysWPKlVFUYfQRRK1nJfSaqXew=; b=nrYtbbeWq8E8bu7NifG/xlCuDq
+	qbDLqA/dn/0cwQN1UZHSK4WrzE1SL0GMHT8h4CNX0EHQ6GWWfBIFse1A5yBL0ReQg8nyxgAQ3kIyr
+	vBTPf+/dI9CKPkL+iTgILWeChTS4xyivRmrBlgvGVju2kzun3G3VUtDFVjRM6DQINnjK+6gTGH4Cj
+	DOPj7+3G6txebCVd9O8bXBaMkPztyNWFfXezkSH1ARyqnlugKoPxCz3UUxmsPaAttdnQqzRJYtOb4
+	UenZhkBlNUpmxTNttGD7RG8aCx5bZr0Zi4UkkPzp50Vt8eCSfbt3p0NTv7erVdbXgekUgxX4eWHt0
+	MItg50PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHjrq-00000001h7k-3sxU;
-	Tue, 28 Apr 2026 14:56:54 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wHk0k-00000001hqN-2QWP;
+	Tue, 28 Apr 2026 15:06:06 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHjrq-00000001h7e-17fI
+	id 1wHk0h-00000001hq1-10N8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 14:56:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6168861146;
-	Tue, 28 Apr 2026 14:56:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 102A5C2BCB5;
-	Tue, 28 Apr 2026 14:56:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777388213;
-	bh=YVMCAkCkVuCXxr4YLY8bi/zWdrSnhneLvdiGU/6OtME=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=jkatepTCvLfkM2z9Z/V4asFQmL8vVMnOfFwT44HuOn2mjCfoRZEJmHvRWvvdB8fDp
-	 IW00paivTQzxzFt7YHulUtDiB3qNjGMvyTlz7Qrk0ic0RsPXrrslrpFMOvSwyC2Yr0
-	 JdR3y6HrqQ2d+M2kLePPAr02vI7TKjtUWiaXqfyfYegZ+syQK7+WLiCfcFXNXKsmZX
-	 2xkZTlJKYXHnXPwOhRXDb5VJ0b8SIDb8FFHa2IBdHYGA0X/KwuOo3YY5KNmgOejvvC
-	 OMMumI0tpQU/BGDsHvPbD81hfLPvN5Xwc7O40x2gk3yZcd558e1tXBkaLGpYNOWqiI
-	 8HIJ+csRUBVqg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wHjrm-0000000FYDW-1gtE;
-	Tue, 28 Apr 2026 14:56:50 +0000
-Date: Tue, 28 Apr 2026 15:56:50 +0100
-Message-ID: <86qznzyvyl.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	nd <nd@arm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Joey Gouly
-	<Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>
-Subject: Re: [PATCH 04/43] irqchip/gic-v5: Provide IRS config frame attrs to KVM
-In-Reply-To: <20260427160547.3129448-5-sascha.bischoff@arm.com>
-References: <20260427160547.3129448-1-sascha.bischoff@arm.com>
-	<20260427160547.3129448-5-sascha.bischoff@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Tue, 28 Apr 2026 15:06:05 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-35d965648a2so10349894a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 08:06:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1777388762; x=1777993562; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=OfbUgiQnGWlnScYJSuysWPKlVFUYfQRRK1nJfSaqXew=;
+        b=GEybo8MW63zL4jdmGHEnge7UCwgtaFYtIZxGOkwR6HiR6hFkUoSyZEQriikqtJeh4G
+         MQSzjFzGQGoWwhmGbR3yevwgONmTV+PWL8xW989BeulDaWbemicnQl75AOoX0ZIc9387
+         xlzXK6AOEYy9adMRhhHdBTQYi8e6F0HHpvB2qWo4y4Td8IhgVZKw/95IGvfoAiJYZTnm
+         s/40OGe5sqwbGuDJvC0X+IGQwFVZYJQTWn9s1EOELAQXERUbilkLcu27g6HpRFxu6Pqi
+         VJIk97XHgx4AcSPGtUPMY0WWkxYZKHlYN/gBbpLwCfYBz1gxRj1IJObmCX2nhnlhKV0Z
+         Q7SQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777388762; x=1777993562;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=OfbUgiQnGWlnScYJSuysWPKlVFUYfQRRK1nJfSaqXew=;
+        b=cZZIYjcd6V0wpmVRUGAe/8W/mtJDrk4N90uQ+aSY2RR7W/0naP5CAtDAnt11W+1ODb
+         v5ChPmvw3MSUuHhfBA93F7bzJ60Ou3Pl3I0QQUK4xEcvR9+Lx/s4WzBCmR7WbZkOo/kI
+         j81pVFTDqiOKynv3Dhdr99WY+eZgXiAjKr/ho2EaJgX/K4lGNvusmzcxdGNnpMu0kXti
+         Pa5E4g/wHS/qFV63C8r/GtXaGy8EQJ+MS62fjpAK9Yb0OkG6y9loSbj9l0Gorlkp9LRX
+         gOLX+do2ihelZvbaN2d4q1D9BYLef2CTZsGoHDRkYNBHGxh35ZTNySGSIDlEjEOcAlpO
+         MtaA==
+X-Forwarded-Encrypted: i=1; AFNElJ/Ch7ymVAvEZ2gA9Bk4z3U2L6AcXZC2zr9kZjaPGBGseRzZ4jvFc7QAPYonf/avB+pr8mkNIzaUcqPopfttNs19@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx0vk0qFZPiV43/4mQHreZHPcvd+BEnDGZpUeKvwqfXL0bZsJ5D
+	356py4JxwwTYfwmGxnAtny4R5XXC9P71VSRazl+ArkX8EqeJZ+t6WHGGXb+Lk7LHJRM=
+X-Gm-Gg: AeBDievNeomppmpSbxFABbSsrYzjQdgicHZeOsezMkPEUsbxWxFQoRcdtbd6mifhBGE
+	LRup6GmZtx70JMo14PNyPvO+bZvB4KZ8Sm0VXT1i1C45hgeW+eghM0iXec0ZlwPVg3Snht0BzXg
+	fXBWLSaFztR07+u1PlYTj40WIq6eCjDdehEmoSKJvVPeax/JSuo05kCocmKxDpVSVxqrZSyhh88
+	473+/N3KLNSubj4PXrL/CQsgzy8f8OWziYZs79jsvLf0PAhzhTvWuiMzbRM2H9mu+7ZGBkrktB0
+	qIKNaEjH54cL4fYNX+APtPa9QU4MLpC90VW8HpoClczT+FOlePtDS6zgxSPxDAp6WTntMfuRl5t
+	gFw1t38A4hvlJQ62YyeNAFjA2KEnvUQZUbJAsUAubcy9C3stnD2kEHN06MOlg4BmalaJQeyb9GH
+	OXMyGHrddkgkm1jAoF2EFpj9vwn7oUz9ulJDJFRw==
+X-Received: by 2002:a17:90b:5291:b0:35d:a90d:580e with SMTP id 98e67ed59e1d1-36492046369mr3453884a91.23.1777388761787;
+        Tue, 28 Apr 2026 08:06:01 -0700 (PDT)
+Received: from p14s ([2604:3d09:148c:c800:a4ee:17e1:59a1:f1e1])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b97aa7b9d2sm29165775ad.11.2026.04.28.08.05.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 28 Apr 2026 08:06:01 -0700 (PDT)
+Date: Tue, 28 Apr 2026 09:05:57 -0600
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v4 0/3] Add i.MX94 remoteproc support and reset vector
+ handling improvements
+Message-ID: <afDM1Vhw77l3zpCr@p14s>
+References: <20260427-imx943-rproc-v4-0-68d7c7253acd@nxp.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260427-imx943-rproc-v4-0-68d7c7253acd@nxp.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260428_080603_300734_0A2DAB81 
+X-CRM114-Status: GOOD (  27.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,97 +108,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 27 Apr 2026 17:07:24 +0100,
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+On Mon, Apr 27, 2026 at 10:41:23AM +0800, Peng Fan (OSS) wrote:
+> This series adds remoteproc support for the i.MX94 family, including the
+> CM70, CM71, and CM33S cores, and derive the hardware reset vector for
+> Cortex‑M processors whose ELF entry point does not directly correspond to
+> the actual reset address.
 > 
-> KVM needs to interact with the host IRS in order to, for example, make
-> VMs or VPEs valid. There are two potential approaches here. Either the
-> host irqchip driver can provide an interface, or KVM can interact
-> directly with the host IRS. The latter of these two is chosen as the
-> set of MMIO registers that KVM needs to interact with is orthogonal to
-> the set used by the host irqchip driver (with the exception of some of
-> the read-only IRS_IDRx registers).
+> Background:
+> Cortex‑M processors fetch their initial SP and PC from a fixed reset vector
+> table. While ELF images embed the entry point (e_entry), this value is
+> not always aligned to the hardware reset address. On platforms such as
+> i.MX94 CM33S, masking is required to compute the correct reset vector
+> address before programming the SoC reset registers.
 > 
-> Pass KVM a pointer to an IRS config frame - the config frame belonging
-> to ANY IRS is fine as long as one IRS's config frame is used
-> consistently - in struct gic_kvm_info. Additionally, include a flag
-> telling KVM whether the IRS is coherent or non-coherent in order to
-> make sure that KVM can do the correct cache state management, if
-> required.
+> Similarly, on i.MX95, the existing implementation always programs a reset
+> vector of 0x0, which only works when executing entirely from TCM. When
+> firmware is loaded into DDR, the driver must pass the correct reset vector
+> to the SM CPU/LMM interfaces.
 > 
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> Summary of patches:
+> [1]dt-bindings: remoteproc: imx-rproc: Introduce fsl,reset-vector-mask
+> Adds a new DT property allowing SoCs to specify a mask for deriving the
+> hardware reset vector from the ELF entry point.
+> 
+> [2]remoteproc: imx_rproc: Program non-zero SM CPU/LMM reset vector
+> Ensures the correct reset vector is passed to SM APIs by introducing a
+> helper (imx_rproc_sm_get_reset_vector()) that applies the reset‑vector
+> mask.
+> 
+> [3]remoteproc: imx_rproc: Add support for i.MX94 remoteproc
+> Adds address translation tables and configuration data for CM70, CM71,
+> and CM33S, enabling full remoteproc operation on i.MX94.
+> 
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 > ---
->  drivers/irqchip/irq-gic-v5-irs.c      | 26 ++++++++++++++++++++++++++
->  drivers/irqchip/irq-gic-v5.c          |  3 +++
->  include/linux/irqchip/arm-gic-v5.h    |  2 ++
->  include/linux/irqchip/arm-vgic-info.h |  5 +++++
->  4 files changed, 36 insertions(+)
+> Changes in v4:
+> - Daniel raised the M33S secure region was not included, but since I not
+>   have image to test secure region, so drop the Secure alias region for
+>   all. Updated DDR region. R-b kept since this is a minor change.
+> - Add R-b for patch 2
+> - Link to v3: https://lore.kernel.org/r/20260415-imx943-rproc-v3-0-9fa7528db8ca@nxp.com
+>
+
+I have applied this set.
+ 
+> Changes in v3:
+> - Patch 2: 
+>   Drop R-b because of changes in V3
 > 
-> diff --git a/drivers/irqchip/irq-gic-v5-irs.c b/drivers/irqchip/irq-gic-v5-irs.c
-> index f3fce0b1e25d9..5dfa043cf9e34 100644
-> --- a/drivers/irqchip/irq-gic-v5-irs.c
-> +++ b/drivers/irqchip/irq-gic-v5-irs.c
-> @@ -50,6 +50,32 @@ static void irs_writeq_relaxed(struct gicv5_irs_chip_data *irs_data,
->  	writeq_relaxed(val, irs_data->irs_base + reg_offset);
->  }
->  
-> +void __iomem *gicv5_irs_get_config_frame_base(void)
-> +{
-> +	struct gicv5_irs_chip_data *irs_data = per_cpu(per_cpu_irs_data,
-> +						       smp_processor_id());
-> +
-> +	if (!irs_data)
-> +		return NULL;
-> +
-> +	return irs_data->irs_base;
-> +}
-> +
-> +bool gicv5_irs_is_non_coherent(void)
-> +{
-> +	struct gicv5_irs_chip_data *irs_data = per_cpu(per_cpu_irs_data,
-> +						       smp_processor_id());
-> +
-> +	if (!irs_data) {
-> +		pr_err("Failed to look up IRS for CPU %d\n",
-> +		       smp_processor_id());
-> +		return false;
-> +	}
-> +
-> +	return !!(irs_data->flags & IRS_FLAGS_NON_COHERENT);
-> +}
-> +
-
-Frankly, we don't need these micro-helpers. Just add *one* that
-returns a pointer to the IRS data for CPU0, and do the information
-cherry-picking in the caller.
-
-> +
->  /*
->   * The polling wait (in gicv5_wait_for_op_s_atomic()) on a GIC register
->   * provides the memory barriers (through MMIO accessors)
-> diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
-> index 58e457d4c1476..3329019722360 100644
-> --- a/drivers/irqchip/irq-gic-v5.c
-> +++ b/drivers/irqchip/irq-gic-v5.c
-> @@ -1134,6 +1134,9 @@ static void __init gic_of_setup_kvm_info(struct device_node *node)
->  
->  	gic_v5_kvm_info.type = GIC_V5;
->  
-> +	gic_v5_kvm_info.gicv5_irs.base = gicv5_irs_get_config_frame_base();
-> +	gic_v5_kvm_info.gicv5_irs.non_coherent = gicv5_irs_is_non_coherent();
-> +
->  	/* GIC Virtual CPU interface maintenance interrupt */
->  	gic_v5_kvm_info.no_maint_irq_mask = false;
->  	gic_v5_kvm_info.maint_irq = irq_of_parse_and_map(node, 0);
-
-While you're at it, you may want to fix the check on the maintenance
-interrupt, which gives up registering with KVM if no MI is found, even
-in the absence of FEAT_GCIE_LEGACY.
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+>   Following suggestion from Mathieu that apply reset vector in
+>   scmi_imx_[cpu,lmm]_reset_vector_set(), not change the meaning of
+>   rproc->bootaddr, add helper imx_rproc_sm_get_reset_vector() to get reset
+>   vector and use the hlper in scmi_imx_[cpu,lmm]_reset_vector_set().
+> 
+>   Add reset-vector-mask for i.MX95 CM7 to avoid breaking i.MX95 CM7
+>   boot.
+> 
+> - Link to v2: https://lore.kernel.org/r/20260327-imx943-rproc-v2-0-a547a3588730@nxp.com
+> 
+> Changes in v2:
+> - Drop fsl,reset-vector-mask by using fixed value in driver for per device
+> - Add R-b for i.MX94 dt-binding
+> - Update commit log to include dev addr and sys addr
+> - Link to v1: https://lore.kernel.org/r/20260312-imx943-rproc-v1-0-3e66596592a8@nxp.com
+> 
+> ---
+> Peng Fan (3):
+>       dt-bindings: remoteproc: imx-rproc: Support i.MX94
+>       remoteproc: imx_rproc: Program non-zero SM CPU/LMM reset vector
+>       remoteproc: imx_rproc: Add support for i.MX94
+> 
+>  .../bindings/remoteproc/fsl,imx-rproc.yaml         |  3 +
+>  drivers/remoteproc/imx_rproc.c                     | 92 +++++++++++++++++++++-
+>  drivers/remoteproc/imx_rproc.h                     |  2 +
+>  3 files changed, 95 insertions(+), 2 deletions(-)
+> ---
+> base-commit: 724699d8d0523909da51fda8d1e10c1ff867b280
+> change-id: 20260311-imx943-rproc-2050e00b65f7
+> 
+> Best regards,
+> -- 
+> Peng Fan <peng.fan@nxp.com>
+> 
 
