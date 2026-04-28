@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1991EFF885A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39629FF886F
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 15:31:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,46 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CNAywJbD55/79Kay7v4Z9jjJDlDuDprtAGni4uyb1B4=; b=yuZaus6AI2Na1Bvm9fYdz8ZEZ2
-	PeBm1DuRiDrPsMF2WkAmaZiOxLMKO8ac/U0JvfpSqp3ER6Wm8r9LwxQLe2m/hXWzhe2sB1t4fjskL
-	x20NtH4zDLKnH7+Yk9ZmTvAU28SrPbeAvk9UWbAFfjmPv7TkdoLntgrVfk/CrhBpEJ5oB8WwIgYpb
-	rmC46/MBRdSZb/XSxbkL7pBavtSXnmI+FoYixa0fV9DNOyYTw76oWPf0dnUFRqJMmT3NacGx/n979
-	H3iFNhBLiA+j2S55PM5sai9Rdg+gnY9Cz9mMj/hZVniTvDbTeXNyQbd8ibTTgpOTOgZtj5ZES4o+X
-	/z+xrf4A==;
+	bh=EjLii+UVAxxUE1lRMJnRgBpuZnA4/R7NKW2C9QtWbBE=; b=neaxy5QBgFepLPhL/LNqU2Xd57
+	Ww9lTad7xWwXdnEthybwL6B0ErHZMbxxS9GSPPNfZxIN8INweTnbXmDgxmyImgntUcWXbocTlCA09
+	Rq9KTqhU8St4PWBDDclxEqyqAgyMmxQ+KE8EEfXidkB31lAvMuf87okbqwSX1oDn1qn9M39cx+CF1
+	Ra6/YTHirNs7T/snvTCChwwoVmyQGTqYeqlZz0jTPOS81LoJRaYM3PSVCgHRtO7wN0eYuSnjgStq7
+	kE2VWYW/33JNw5NjGO8fkHCbLfmaqvQNFtZmkX6TavjMMQsAgiqscwzmVmGoPOIlylrHBKxPxPu9l
+	QRkL3FJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHkPg-00000001k63-1uCy;
+	id 1wHkPg-00000001k5g-0c8n;
 	Tue, 28 Apr 2026 15:31:52 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHkPZ-00000001k0q-1046
+	id 1wHkPU-00000001jxi-40th
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 15:31:47 +0000
+	Tue, 28 Apr 2026 15:31:42 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 6BE99C5EF13;
-	Tue, 28 Apr 2026 15:32:27 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 7DEDE1A3472;
+	Tue, 28 Apr 2026 15:31:39 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id B7F53601D0;
-	Tue, 28 Apr 2026 15:31:43 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1CE8E10728E27;
-	Tue, 28 Apr 2026 17:31:38 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 52458601D0;
+	Tue, 28 Apr 2026 15:31:39 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D11D010728E23;
+	Tue, 28 Apr 2026 17:31:33 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1777390302; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1777390297; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=CNAywJbD55/79Kay7v4Z9jjJDlDuDprtAGni4uyb1B4=;
-	b=NNAJv6nW5Qz5+LsU45maM5SIA9PGVapKt9FrrakFRoXfbzXyq2ZlAu8NB0zXKYA1NjX7WV
-	0B3kYHu8KGhNRyiUtROhz7NvCPUwKd1JgD9QB8oBc+t8YoYgyaum7pyVpJxYicnpPv/cln
-	wMm9xoM5Hh4UDufI7UKS5PosJ2scqXIdoDVDtwdJNMn2PC7cAQ9DjvmlDh/hiNtOdFEobG
-	PbV69xbMVI0DIhH1Wwc+X+LkaDYqX4LLGPa2QQTfM0e0mbgDPo/r1kGDqEnNqjJstukG7H
-	aHrp6qZzk3XP0ulxJt644hYEkkX5d156A7xi10JAQZPIKTFeW3HBlWppDHVbGg==
+	bh=EjLii+UVAxxUE1lRMJnRgBpuZnA4/R7NKW2C9QtWbBE=;
+	b=b8DzLl9gTG1JT65zLcbVq4R71KdFvjxRWNrzmpI0bttBQqIprm5sh+gU2uu8XtKDRt0Epo
+	fBjPRTsL/mTA1Bk1Rb/OxENx2XLmGVSN9Lj5bofvQh095I6lRyAdbm13Y4QH3gT2RSeJ27
+	Zdqxl8iSoKNhobWAEtbKrriFhY8+vo+33E8teDVmcL1I5uHRpOsZamLrT//Yq6Xxgn/mwK
+	1CTcx1/3XlFTR9owSKbcMg42RQ9J4+MtYXkMChUDbn6ygsGPiNvCdsNEQA9vpd73AhUhb0
+	HyXJ2JWyURD2BQ8t5LzQHbfn30OQ/xWgkX1tsWvHOE7qBDpvRySEa+fSpTuaGQ==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Tue, 28 Apr 2026 17:30:54 +0200
-Subject: [PATCH v3 05/11] drm/bridge: chrontel-ch7033: switch to
+Date: Tue, 28 Apr 2026 17:30:53 +0200
+Subject: [PATCH v3 04/11] drm/hisilicon/kirin: switch to
  of_drm_get_bridge_by_endpoint()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260428-drm-bridge-alloc-getput-panel_or_bridge-v3-5-a537b5567add@bootlin.com>
+Message-Id: <20260428-drm-bridge-alloc-getput-panel_or_bridge-v3-4-a537b5567add@bootlin.com>
 References: <20260428-drm-bridge-alloc-getput-panel_or_bridge-v3-0-a537b5567add@bootlin.com>
 In-Reply-To: <20260428-drm-bridge-alloc-getput-panel_or_bridge-v3-0-a537b5567add@bootlin.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -76,13 +76,12 @@ Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>,
  dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
  linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org, 
  linux-arm-kernel@lists.infradead.org, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
 X-Mailer: b4 0.15.2
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_083145_450104_0BEB0F89 
-X-CRM114-Status: GOOD (  14.03  )
+X-CRM114-CacheID: sfid-20260428_083141_124646_10318DB1 
+X-CRM114-Status: GOOD (  13.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,110 +101,40 @@ This driver calls drm_of_find_panel_or_bridge() with a NULL pointer in the
 Replace this call with the simpler of_drm_get_bridge_by_endpoint().
 
 Since of_drm_get_bridge_by_endpoint() increases the refcount of the
-returned bridge, ensure it is put on removal. To achieve this, instead of
-adding an explicit drm_bridge_put(), migrate to the bridge::next_bridge
-pointer which is automatically put when the bridge is eventually freed.
+returned bridge, ensure it is put on removal. Here the bridge pointer is
+only stored in a temporary variable, so a cleanup action is enough.
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 ---
- drivers/gpu/drm/bridge/chrontel-ch7033.c | 28 +++++++++++++---------------
- 1 file changed, 13 insertions(+), 15 deletions(-)
+ drivers/gpu/drm/hisilicon/kirin/dw_drm_dsi.c | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/gpu/drm/bridge/chrontel-ch7033.c b/drivers/gpu/drm/bridge/chrontel-ch7033.c
-index 54d49d4882c8..a237c65ebd69 100644
---- a/drivers/gpu/drm/bridge/chrontel-ch7033.c
-+++ b/drivers/gpu/drm/bridge/chrontel-ch7033.c
-@@ -199,7 +199,6 @@ enum {
- 
- struct ch7033_priv {
- 	struct regmap *regmap;
--	struct drm_bridge *next_bridge;
- 	struct drm_bridge bridge;
- 	struct drm_connector connector;
- };
-@@ -215,7 +214,7 @@ static enum drm_connector_status ch7033_connector_detect(
+diff --git a/drivers/gpu/drm/hisilicon/kirin/dw_drm_dsi.c b/drivers/gpu/drm/hisilicon/kirin/dw_drm_dsi.c
+index e80debdc4176..ab3cd309505a 100644
+--- a/drivers/gpu/drm/hisilicon/kirin/dw_drm_dsi.c
++++ b/drivers/gpu/drm/hisilicon/kirin/dw_drm_dsi.c
+@@ -778,17 +778,16 @@ static int dsi_host_init(struct device *dev, struct dw_dsi *dsi)
+ static int dsi_bridge_init(struct drm_device *dev, struct dw_dsi *dsi)
  {
- 	struct ch7033_priv *priv = conn_to_ch7033_priv(connector);
+ 	struct drm_encoder *encoder = &dsi->encoder;
+-	struct drm_bridge *bridge;
++	struct drm_bridge *bridge __free(drm_bridge_put) = NULL;
+ 	struct device_node *np = dsi->dev->of_node;
+-	int ret;
  
--	return drm_bridge_detect(priv->next_bridge, connector);
-+	return drm_bridge_detect(priv->bridge.next_bridge, connector);
- }
- 
- static const struct drm_connector_funcs ch7033_connector_funcs = {
-@@ -233,7 +232,7 @@ static int ch7033_connector_get_modes(struct drm_connector *connector)
- 	const struct drm_edid *drm_edid;
- 	int ret;
- 
--	drm_edid = drm_bridge_edid_read(priv->next_bridge, connector);
-+	drm_edid = drm_bridge_edid_read(priv->bridge.next_bridge, connector);
- 	drm_edid_connector_update(connector, drm_edid);
- 	if (drm_edid) {
- 		ret = drm_edid_connector_add_modes(connector);
-@@ -275,7 +274,7 @@ static int ch7033_bridge_attach(struct drm_bridge *bridge,
- 	struct drm_connector *connector = &priv->connector;
- 	int ret;
- 
--	ret = drm_bridge_attach(encoder, priv->next_bridge, bridge,
-+	ret = drm_bridge_attach(encoder, priv->bridge.next_bridge, bridge,
- 				DRM_BRIDGE_ATTACH_NO_CONNECTOR);
- 	if (ret)
- 		return ret;
-@@ -283,15 +282,15 @@ static int ch7033_bridge_attach(struct drm_bridge *bridge,
- 	if (flags & DRM_BRIDGE_ATTACH_NO_CONNECTOR)
- 		return 0;
- 
--	if (priv->next_bridge->ops & DRM_BRIDGE_OP_DETECT) {
-+	if (priv->bridge.next_bridge->ops & DRM_BRIDGE_OP_DETECT) {
- 		connector->polled = DRM_CONNECTOR_POLL_HPD;
- 	} else {
- 		connector->polled = DRM_CONNECTOR_POLL_CONNECT |
- 				    DRM_CONNECTOR_POLL_DISCONNECT;
- 	}
- 
--	if (priv->next_bridge->ops & DRM_BRIDGE_OP_HPD) {
--		drm_bridge_hpd_enable(priv->next_bridge, ch7033_hpd_event,
-+	if (priv->bridge.next_bridge->ops & DRM_BRIDGE_OP_HPD) {
-+		drm_bridge_hpd_enable(priv->bridge.next_bridge, ch7033_hpd_event,
- 				      priv);
- 	}
- 
-@@ -299,8 +298,8 @@ static int ch7033_bridge_attach(struct drm_bridge *bridge,
- 				 &ch7033_connector_helper_funcs);
- 	ret = drm_connector_init_with_ddc(bridge->dev, &priv->connector,
- 					  &ch7033_connector_funcs,
--					  priv->next_bridge->type,
--					  priv->next_bridge->ddc);
-+					  priv->bridge.next_bridge->type,
-+					  priv->bridge.next_bridge->ddc);
- 	if (ret) {
- 		DRM_ERROR("Failed to initialize connector\n");
- 		return ret;
-@@ -313,8 +312,8 @@ static void ch7033_bridge_detach(struct drm_bridge *bridge)
- {
- 	struct ch7033_priv *priv = bridge_to_ch7033_priv(bridge);
- 
--	if (priv->next_bridge->ops & DRM_BRIDGE_OP_HPD)
--		drm_bridge_hpd_disable(priv->next_bridge);
-+	if (priv->bridge.next_bridge->ops & DRM_BRIDGE_OP_HPD)
-+		drm_bridge_hpd_disable(priv->bridge.next_bridge);
- 	drm_connector_cleanup(&priv->connector);
- }
- 
-@@ -543,10 +542,9 @@ static int ch7033_probe(struct i2c_client *client)
- 
- 	dev_set_drvdata(dev, priv);
- 
--	ret = drm_of_find_panel_or_bridge(dev->of_node, 1, -1, NULL,
--					  &priv->next_bridge);
+ 	/*
+ 	 * Get the endpoint node. In our case, dsi has one output port1
+ 	 * to which the external HDMI bridge is connected.
+ 	 */
+-	ret = drm_of_find_panel_or_bridge(np, 1, 0, NULL, &bridge);
 -	if (ret)
 -		return ret;
-+	priv->bridge.next_bridge = of_drm_get_bridge_by_endpoint(dev->of_node, 1, -1);
-+	if (IS_ERR(priv->bridge.next_bridge))
-+		return PTR_ERR(priv->bridge.next_bridge);
++	bridge = of_drm_get_bridge_by_endpoint(np, 1, 0);
++	if (IS_ERR(bridge))
++		return PTR_ERR(bridge);
  
- 	priv->regmap = devm_regmap_init_i2c(client, &ch7033_regmap_config);
- 	if (IS_ERR(priv->regmap)) {
+ 	/* associate the bridge to dsi encoder */
+ 	return drm_bridge_attach(encoder, bridge, NULL, 0);
 
 -- 
 2.53.0
