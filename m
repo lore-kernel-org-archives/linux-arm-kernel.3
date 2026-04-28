@@ -4,72 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB4E0FF8867
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 03:37:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6B97FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 03:56:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=285hWYc/kFXdZ4MUmTwcW7eKNWuOlY/ZotYC0OPQCtY=; b=VoYuCF93Jne7EcA89+ZPZbRqI+
-	Jlld9x1nNC2QqQj4Yc9a9ZgGJnVr591pSrsFOoBoJd7ZatuYGXdciBwOmgrTcJJmgPO3ITU2kNVwj
-	G5ZgQVnVFpEPjkvUk0QDxoqQPKkFqNDhnMj5L//P6CtSL3zzp1eIIudIeOH1KgBIt/ae0amf7KlQ1
-	vd+rkemP/9J9hYXZ3PZtDyqOgMBRnaK6CQIw89p+y4CyJuGbBidAZNJQMh2lb+Xkz+X4rWVjf9vBS
-	OR+7hA+X9NwCvPBvM1uqGMw1DZ5bgtI8G6wXE4oYnj9IBwi1g3DkUGTJEmak9/KRjb7xtUWju777d
-	BTEEMJmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HihunxX0kG7LRmd3HrgFHUgeqCV95GWNLs7fwLAUqXc=; b=xdLwMPDxjpCGGLZreJDfA0OOHE
+	i7q3+mJXMTNU389t26ddk7UVNuHVnLfFN4dVz8X680VzbQ5WtfYKVnq2fK/WgkoBuj06eMq+0AtN2
+	bhqe/1fK4euLjWlMIRdqcfy4jPYtjdi0TNEE/39pCeIqKj2Q6REEHeImvJJ2Vhv7U4UGOkzoS6B4D
+	rn4Ojj/wAkWZBbGW5J654Xnr5WYMIzREaw2kI3y/EumeOH3A3y93mzPLgfhe5DD43BBuDXZ6AiCG7
+	hzmRjOQOLpUmretE6v8Rq9Qa2tey0R6bQ5etw6Cq4cZfkuT57da+wkABTI7PyNu+4FPVM/WcRAmdE
+	GYQGc8jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHZGV-00000000VR2-0Lb6;
-	Tue, 28 Apr 2026 03:37:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wHZYa-00000000W7p-0ODw;
+	Tue, 28 Apr 2026 03:56:20 +0000
+Received: from mgamail.intel.com ([192.198.163.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHZGU-00000000VQv-2y6I
+	id 1wHZYX-00000000W7T-0ZqV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 03:37:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2AD6860128;
-	Tue, 28 Apr 2026 03:37:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63B77C2BCB3;
-	Tue, 28 Apr 2026 03:37:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777347457;
-	bh=NEf/nz49Jg5cePXiflaKdHCDvgtTYKtPL33NG+khY4c=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=S603NHWzzyuuW6NGjbe45U+3g2zbeeyN+6WY7hmeqEFU49pCh/qP4icOtTAtOItMZ
-	 1HfjdtUWUgiUcVJoRkSXBAK+8CtIwLuHm9aDOYVB8Jg88sVryiwHRVPUDHJRwuKyeg
-	 DEShaIYqiLN5hnBAj/2fZVugNWLt4XIivYqfN+aiK9hl7099ErQ6hMrGhgOzFnh62M
-	 hBKdxSyk5wcTZ91qT1/QCBBi0Be3VDvhi5L+2lGhQ8cwXmhmI/si2CCeb/jvrX43Gj
-	 UTq/yWw8XSk7dCqMU/bjl577g5VSBXXcK+YDIvaX2VU9mnPNIlTUBAwemnI40H4Xj6
-	 bhH7iUA41xLsQ==
-From: Mark Brown <broonie@kernel.org>
-To: Vladimir Moravcevic <vmoravcevic@axiado.com>, 
- Tzu-Hao Wei <twei@axiado.com>, Swark Yang <syang@axiado.com>, 
- Prasad Bolisetty <pbolisetty@axiado.com>, Harshit Shah <hshah@axiado.com>, 
- Felix Gu <ustc.gu@gmail.com>
-Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20260428-axiado-v1-1-cd767500af72@gmail.com>
-References: <20260428-axiado-v1-1-cd767500af72@gmail.com>
-Subject: Re: [PATCH] spi: axiado: replace usleep_range() with udelay() in
- IRQ path
-Message-Id: <177733296453.324244.7720403151697677139.b4-ty@b4>
-Date: Tue, 28 Apr 2026 08:36:04 +0900
+	Tue, 28 Apr 2026 03:56:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1777348577; x=1808884577;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=xqcaIUX8QLlEguWmxNfjx0KBxYjMkol7RCbc5o2EAsU=;
+  b=Uo2WH9eQMMqpfpLlROe0OSOjuzg9QVm0jxIj5X3UGd8CWWkgQDjgx8u1
+   b3wlNdmco4F77XXA4OBOo8Vz5QyEfg5aRJVyoG3VPInq8R3qTph9LzthA
+   B+Rp1z7M808c0U1XfqW7il/b2PfqMKufIAVOMR3BQu5WiEHUhNX7uX2kj
+   +lasgU7y99bVK5P7a+GaJjsq46U4n/c/8uWkLJO8i4ivCjZpCs8c9n4Ro
+   C5mC00oFWKDx+RtSBlUNbiCxr8yuh67GN5zBZVhr4NtVpPqNq8l7hFWXd
+   pYIqlWsVN+BIRGugOl1kTRYXLQUwnuyUJd0k5+bht2PqMydqFuHXhPpbb
+   w==;
+X-CSE-ConnectionGUID: wIrdFTxYRJWOWRFL2/mPzA==
+X-CSE-MsgGUID: q/U0fF29Sxa3ABP9EFdPgA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11769"; a="88847365"
+X-IronPort-AV: E=Sophos;i="6.23,203,1770624000"; 
+   d="scan'208";a="88847365"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Apr 2026 20:56:14 -0700
+X-CSE-ConnectionGUID: 3nKhigtTTJGCsyK/LoClIg==
+X-CSE-MsgGUID: CQbrqSW3RcGMpUchpv+whg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,203,1770624000"; 
+   d="scan'208";a="229469506"
+Received: from yilunxu-optiplex-7050.sh.intel.com (HELO localhost) ([10.239.159.165])
+  by fmviesa010.fm.intel.com with ESMTP; 27 Apr 2026 20:56:08 -0700
+Date: Tue, 28 Apr 2026 11:33:37 +0800
+From: Xu Yilun <yilun.xu@linux.intel.com>
+To: Yury Norov <ynorov@nvidia.com>
+Cc: linux-kernel@vger.kernel.org,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Ingo Molnar <mingo@kernel.org>,
+	James Clark <james.clark@linaro.org>, Kees Cook <kees@kernel.org>,
+	Lukasz Luba <lukasz.luba@arm.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Mike Leach <mike.leach@linaro.org>, Moritz Fischer <mdf@kernel.org>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Russ Weight <russ.weight@linux.dev>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Suki K Poulose <suzuki.poulose@arm.com>, Tom Rix <trix@redhat.com>,
+	Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>,
+	Xu Yilun <yilun.xu@intel.com>, Yury Norov <yury.norov@gmail.com>,
+	Zhang Rui <rui.zhang@intel.com>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-fpga@vger.kernel.org,
+	linux-pm@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	Jakub Kicinski <kuba@kernel.org>
+Subject: Re: [PATCH 5/5] fpga: m10bmc-sec: switch show_canceled_csk() to
+ using sysfs_emit()
+Message-ID: <afAqkfe8iOU1cUyQ@yilunxu-OptiPlex-7050>
+References: <20260303200842.124996-1-ynorov@nvidia.com>
+ <20260303200842.124996-6-ynorov@nvidia.com>
+ <acJWNRb1t96yu/H6@yilunxu-OptiPlex-7050>
+ <acLaDFuCzt0d33Q_@yury>
+ <acON/EU/GFvxRO1e@yilunxu-OptiPlex-7050>
+ <afAh1hq_mkRN3q2t@yury>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1132; i=broonie@kernel.org;
- h=from:subject:message-id; bh=NEf/nz49Jg5cePXiflaKdHCDvgtTYKtPL33NG+khY4c=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBp8Ct/MjDAxn8mdGp6ObrdIsYa9KFm0Svgqfo4R
- hLW2izo2B6JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCafArfwAKCRAk1otyXVSH
- 0Hj7B/9yqUS9eo3ZW3/ugPvk+J9hVbs7T5ZfOhPCDnVLIwZgrsUNXbz5B98NkQ56+wqLz0YheZl
- SeGKo5ILY+W/5CLwYcM2jsmkeHxcijMXZvQ5kOPozbi/YC0CkHGpGHnORxyxbbEzFugDnfVNtVC
- +GXTRVcAh2ZRLsiNsEuXCljwRSCU2lXIn6jCkAyUcIbnKpl+k0zGQjj2fHg+qEGNsK969I6t/Q8
- 8RNz0u/rgM8QaPbcvwdmGw1wdayIUuINpuhiePyv+qMU7ZmsLqYxSXWxMuLt9y23dbdoLuXcXLU
- fpcrYfijy2bTh0m6llpKpz4ccjoI/XY7PvlDiCLlRHlDlnqC
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <afAh1hq_mkRN3q2t@yury>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260427_205617_217384_894EFCAA 
+X-CRM114-Status: GOOD (  24.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,35 +110,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 28 Apr 2026 00:33:04 +0800, Felix Gu wrote:
-> spi: axiado: replace usleep_range() with udelay() in IRQ path
+On Mon, Apr 27, 2026 at 10:56:22PM -0400, Yury Norov wrote:
+> On Wed, Mar 25, 2026 at 03:25:48PM +0800, Xu Yilun wrote:
+> > On Tue, Mar 24, 2026 at 02:38:04PM -0400, Yury Norov wrote:
+> > > On Tue, Mar 24, 2026 at 05:15:33PM +0800, Xu Yilun wrote:
+> > > > On Tue, Mar 03, 2026 at 03:08:41PM -0500, Yury Norov wrote:
+> > > > > Switch show_canceled_csk() to use the proper sysfs_emit("%*pbl").
+> > > > > 
+> > > > > Reviewed-by: Russ Weight <russ.weight@linux.dev>
+> > > > > Suggested-by: Thomas Weißschuh <linux@weissschuh.net>
+> > > > > Signed-off-by: Yury Norov <ynorov@nvidia.com>
+> > > > > ---
+> > > > >  drivers/fpga/intel-m10-bmc-sec-update.c | 3 ++-
+> > > > >  1 file changed, 2 insertions(+), 1 deletion(-)
+> > > > > 
+> > > > > diff --git a/drivers/fpga/intel-m10-bmc-sec-update.c b/drivers/fpga/intel-m10-bmc-sec-update.c
+> > > > > index 10f678b9ed36..ae364c6636eb 100644
+> > > > > --- a/drivers/fpga/intel-m10-bmc-sec-update.c
+> > > > > +++ b/drivers/fpga/intel-m10-bmc-sec-update.c
+> > > > > @@ -10,6 +10,7 @@
+> > > > >  #include <linux/firmware.h>
+> > > > >  #include <linux/mfd/intel-m10-bmc.h>
+> > > > >  #include <linux/mod_devicetable.h>
+> > > > > +#include <linux/mm.h>
+> > > > 
+> > > > Why add this header file?
+> > > 
+> > > When I was preparing the series, I had build issues without this. But
+> > > now I checked it against -rc5, and it's clean. Would you like me to
+> > > resend?
+> > 
+> > No need. Given that I'll pick this patch alone to fpga for-next with the
+> > fix.
+> > 
+> > Reviewed-by: Xu Yilun <yilun.xu@intel.com>
+> 
+> Hi Xu,
+> 
+> This patch is still not applied. This is the last non-lib user of
 
-Applied to
+I see it is already in v7.1-rc1, what's your expectation?
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.1
-
-Thanks!
-
-[1/1] spi: axiado: replace usleep_range() with udelay() in IRQ path
-      https://git.kernel.org/broonie/spi/c/f5c6a272b699
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+> the bitmap_print_to_pagebuf(), and it blocks me from removing the
+> function.
+> 
+> Are you still going to pick it yourself? I can move the patch with
+> bitmap-for-next if you prefer.
+> 
+> Thanks,
+> Yury
 
