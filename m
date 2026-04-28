@@ -4,71 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A918FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 07:56:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9500FFF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 08:03:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JDyyIsOimvOVYAykdNWZKhjjd5oP0AQTtkc3Kfujg3Y=; b=TGuKe0VrX/qlljsltJKZkVY0G8
-	C33QdzgfPoDONiimY2OZwiZVJOmT2v1Aarm1RUtnyoRDY5QCK+g+IXbR+N+f4LSOvCbbZ0IVxjApI
-	olZv02wefDsdycbQ0+z3iALGKTx2Arcdf1Yb224WscwKoIWq1TX072AXv/wOYDOUzXHpr9jLu/xCy
-	gD3qHir3R25d0gQbBrGVrh09iUWCsyed+F2H0OZeWDNjscVSXCM4Du/tuvrm9RvhbY4vLbSczzWZh
-	WJQZT+LBbrmjXQB74ivyFrKWuroPHkEmQ8T4Hjz3lQ7qPb97qrLyleTGsfJDaq75ZfDm0+rEnE9KA
-	WnqqO2YA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gakvkReg0fVWUJryauTzFRkfayEeCg9clm8BNqJgejI=; b=iIe8Bi9BJaXa98hX5lvNhe+UMC
+	ti6VeStw9wC8Yx08lYJaYma+KeSOqpTb9ObOFB/y8Wv8JqZbc5gY2jkW4w2AzPc5/A1VU3bGfzNgl
+	qYubVp/MwHaOjO0XxuO7D1HFl1kUb97KKFmyK8C89j+gzDP1gFEMYawMRdapnshI9DYFpDH/NdDfX
+	4ALBho+zP4pkCLq3Pim03oJ5ffNp4eu+7u5wY98zgDrHYMz4F/UHG+4K4Kyp71vmNyNMTCZlKWkSQ
+	d3rZZ2rxCiRIkwSFcxJ5OQ2smACkUY30JswPQGzR1ui9MkN+vLOdU0a3OUc0xpxVZVXo587ndXkj4
+	dSoxuZRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHdIs-00000000pI1-007X;
-	Tue, 28 Apr 2026 07:56:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wHdPe-00000000pwY-1IEl;
+	Tue, 28 Apr 2026 08:03:22 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHdIo-00000000pGP-0RFk
+	id 1wHdPY-00000000pvF-2xbc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 07:56:19 +0000
+	Tue, 28 Apr 2026 08:03:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5F86944826
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 07:56:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4288AC2BCB6
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 07:56:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D2EB844858
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 08:03:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54A7AC2BCC7
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 08:03:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777362977;
-	bh=mONgEit9R4vFoFOnQs/B2jlcGJaczQDqVeFYi/9tOPI=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=o6We98HuIasKWwwFlYwhX+BKxoUqi+zrJsC4aBmIZXLt3MH5sAdknnwoyflkpsCGM
-	 P1Q9FVIucai16wlwGsICKWarGHDUcq0X8CbbQL7qyp3JkqyoxdnrNR+JEAa49KNaNb
-	 +6wcFimWW3XNhkuPuI2YYwg55t/Sg7zHRyahY7GzK1uwd4KN86nP12acSd/GJRwukc
-	 ap7W+ZnZ0+48t86WUh+rDfdN+X85rL7Vi9k4rlXprlZ18Hn4LY7YVa+rwjABFMD7w7
-	 a1li2Sq9K9MMznS3uz57789JRz3a/pbc2m+TikvLx+Qd+h+WYuBk3yz8usk4un+C4u
-	 jDqTcxoz8NtKA==
-Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-3878de20527so84590761fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 00:56:17 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ9/sl6HNzKAL4NGNalLPPNHp6HgnS402+AdkMjxf3pn+6DOpm932LEnyEOnumsz6w1EA2W26UZ+0oqIVsmA4fKs@lists.infradead.org
-X-Gm-Message-State: AOJu0Yykux+OI8T/ZahZgJJvXv0bUqloudJnGenKWgfQycD8hX4c1vgI
-	RM4ZRR1aGUsS+LTEa2lLJBW1WsdR4oCpTEltdsTLSgOcznAcMG8EJyY6a7SsFmg5DwAHyxnVesk
-	ndzTWvc9aU2XP84ywKh8DydtRqitNrFo=
-X-Received: by 2002:a05:651c:3252:b0:38e:2822:a264 with SMTP id
- 38308e7fff4ca-39240ceb8dcmr6535031fa.12.1777362975988; Tue, 28 Apr 2026
- 00:56:15 -0700 (PDT)
+	s=k20201202; t=1777363391;
+	bh=gakvkReg0fVWUJryauTzFRkfayEeCg9clm8BNqJgejI=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
+	b=gCiU8DcVwQEowwEAwYG3MsLXklegyS09HYA2QCs3e6rYJLLSuDu4SxCyVK/2W3YTQ
+	 c4OVu/MwPcLnaGuDdakQNX9jF3K7FgFpCtLxeCgZnYxexquRWElzbN8IiTVf7h3/sH
+	 TjWwKhJ/vwNqnh6wMoUt0GXPslR3z+122nus16tJ8Oq2oSQUCzPvY6MNSq66TFLH6w
+	 BLy/DF4wCtHjzGSaqjiuGe9opjrUvHVnP2yqkgtQTkjWx8vCcSVtfqr6BHlCNqgF1X
+	 Jruz9Ja+u7JLPvVfJwGOu45gIIwSAx7oq8uVWzzStz7fIu2YHagpL4xuwlYEGrDnKV
+	 T06kp866Vry+Q==
+Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-38be5e86918so122472081fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 01:03:11 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ919TxTnzi9Zx0KHIZM8ezmB0qHbW8vGYKWMQ+MWE7l1P3dBnOPDbiTTwbs+u4bqsbDPhlhe4ABwgrlMKvqLdZ7@lists.infradead.org
+X-Gm-Message-State: AOJu0YwUvY7k8CsMGWCyHt/9wPYa5e7m3jL/WVFRk1daXUpiYTnHuTBp
+	5bcQMDw/TuKNIFPJ5Fj/ude7AbaseCHIKqXCvFixTfGLt8M/SShzwD2Y7vgA3mms9tXdoSRluCd
+	VbUd/xp1CQKJP0DsrjlxrxW9bORofTMm4LmfDf59bzA==
+X-Received: by 2002:a05:651c:b13:b0:38a:8199:1b60 with SMTP id
+ 38308e7fff4ca-39240e2f97fmr6452871fa.6.1777363389951; Tue, 28 Apr 2026
+ 01:03:09 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 28 Apr 2026 01:03:06 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 28 Apr 2026 01:03:06 -0700
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260427-arm-psci-system_reset2-vendor-reboots-v21-8-dcf937775e73@oss.qualcomm.com>
 MIME-Version: 1.0
-References: <20260427214311.331996-1-mohamedaymanworkspace@gmail.com>
-In-Reply-To: <20260427214311.331996-1-mohamedaymanworkspace@gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 28 Apr 2026 09:56:04 +0200
-X-Gmail-Original-Message-ID: <CAD++jLk-oJuFzDODKnJ+cdxz=SgorAQhSTcJTVQkvnheH=xNPA@mail.gmail.com>
-X-Gm-Features: AVHnY4LwETjjfhphkxYPHWzQ2Lf-bDt8NZvOiGfchSau94jYf8YV9Ei_wqqQVfQ
-Message-ID: <CAD++jLk-oJuFzDODKnJ+cdxz=SgorAQhSTcJTVQkvnheH=xNPA@mail.gmail.com>
-Subject: Re: [PATCH] gpio: ixp4xx: switch to dynamic GPIO base
-To: Mohamed Ayman <mohamedaymanworkspace@gmail.com>
-Cc: Imre Kaloz <kaloz@openwrt.org>, Bartosz Golaszewski <brgl@kernel.org>, 
-	"moderated list:ARM/INTEL IXP4XX ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
-	"open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>
+References: <20260427-arm-psci-system_reset2-vendor-reboots-v21-0-dcf937775e73@oss.qualcomm.com>
+ <20260427-arm-psci-system_reset2-vendor-reboots-v21-8-dcf937775e73@oss.qualcomm.com>
+Date: Tue, 28 Apr 2026 01:03:06 -0700
+X-Gmail-Original-Message-ID: <CAMRc=Mf+-04Zr7jjRoaxTzO3LKSMyQ7DzxJc=dHNSyThEUiq_Q@mail.gmail.com>
+X-Gm-Features: AVHnY4KzpDYlkP_BmYQb8Tu_NftXGx0jC5UQCJ6_82FV8dMIjk5ibCMQsX_dXwo
+Message-ID: <CAMRc=Mf+-04Zr7jjRoaxTzO3LKSMyQ7DzxJc=dHNSyThEUiq_Q@mail.gmail.com>
+Subject: Re: [PATCH v21 08/13] mfd: core: Add firmware-node support to MFD cells
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, Andre Draszik <andre.draszik@linaro.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>, 
+	Srinivas Kandagatla <srini@kernel.org>, Sebastian Reichel <sre@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Daniel Lezcano <daniel.lezcano@kernel.org>, Christian Loehle <christian.loehle@arm.com>, 
+	Ulf Hansson <ulfh@kernel.org>, Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Arnd Bergmann <arnd@arndb.de>, Souvik Chakravarty <Souvik.Chakravarty@arm.com>, 
+	Andy Yan <andy.yan@rock-chips.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	John Stultz <john.stultz@linaro.org>, Moritz Fischer <moritz.fischer@ettus.com>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_005618_170015_50E4E903 
-X-CRM114-Status: GOOD (  11.58  )
+X-CRM114-CacheID: sfid-20260428_010316_815281_A3EA9732 
+X-CRM114-Status: GOOD (  14.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,30 +101,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 27, 2026 at 11:43=E2=80=AFPM Mohamed Ayman
-<mohamedaymanworkspace@gmail.com> wrote:
+On Mon, 27 Apr 2026 19:34:48 +0200, Shivendra Pratap
+<shivendra.pratap@oss.qualcomm.com> said:
+> MFD core has no way to register a child device using an explicit firmware
+> node. This prevents drivers from registering child nodes when those nodes
+> do not define a compatible string. One such example is the PSCI
+> "reboot-mode" node, which omits a compatible string as it describes
+> boot-states provided by the underlying firmware.
+>
+> Extend struct mfd_cell with an optional fwnode pointer and attach it to the
+> child device during registration when no firmware node is already assigned.
+>
+> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+> ---
 
-> Most IXP4xx platforms are Device Tree-based, and GPIO consumers
-> use phandle-based descriptors rather than legacy integer GPIO numbers.
->
-> Audit of the IXP4xx platform shows:
-> - No gpio_request(), gpio_get_value(), or gpio_set_value() users
->   in arch/arm/mach-ixp4xx/
-> - No platform data using fixed GPIO numbers
->
-> This switches the gpiochip to dynamic base allocation, aligning
-> with modern gpiolib expectations where GPIO numbers are not globally
-> fixed and may be assigned dynamically.
->
-> Set gpiochip.base =3D -1 to allow gpiolib to assign the GPIO base
-> dynamically, avoiding global GPIO number space conflicts.
->
-> Signed-off-by: Mohamed Ayman <mohamedaymanworkspace@gmail.com>
+In the following patch you use this and violate the supposed constness of
+MFD cells. This also mean you need to modify the mfd_cell at run-time. I would
+prefer introducing a field in mfd_cell: bool use_parent_fwnode which would
+indicate to MFD core that - in case no fwnode was assigned from other sources:
+DT or software node - it should reuse the parent MFD device's node.
 
-You're right and you beat me to it! No-one is dependent on the
-fixed GPIO numbering for this platform.
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+How about that?
 
-Yours,
-Linus Walleij
+Bart
 
