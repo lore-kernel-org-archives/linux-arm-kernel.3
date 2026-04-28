@@ -4,68 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 664B1FF886C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 22:21:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5FCDFF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 22:21:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HDszigLPzrCmiRsGBatYg938R5Tj3XnM2EmWZ0cNUiw=; b=TiZHx2AiLvxJ6KEiT/ALs3VJVH
-	TtBzMO4ETMlzeJ4Q60nfFazknyFwzfkgn9KgiiI18NK03guy5ccs60Z3zBV0aQzTLZ3YriUVL/YUi
-	C0jpcItqWuBSJ5bOwIyyP5Cw5mZcIzCop81eGMXgbfT0tt6c/OBbitm15uVfGKkegA07wC8wuCSgS
-	W0xpFZmP7fcOLM0Mdrj8dIgkh9ZXfkqsWvH6lTQrdD4DoH+R9wf6zMgMXVu250ph2iRHBIYocANyP
-	XGRmAtXR31DsousPi6/SQ+12d7FKPUugH+SsJr0L3Kd3PnX14yga0PsJQnlBMw9f5MMOO6i6AlgZi
-	yCNDt5Xg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=yv9gRwspbo5yluuEF1nPVM91tB9+GO0z0cB/B0tzamA=; b=SjLu6r2awBBdp3
+	JM8QPRZVUQXh6UI6TfMWzOKG7epTVssN3GvczbFIU9ooqcE5YgDnXLiGMpjQbJtx6sVArgtNhH0bE
+	K3Qd0Mxa2C1K6/PRQB7xm/zzJi1Lc0t11EVAqWHH92arPxe9bhN/DhwZ3I8XKte/P3mQ66YRD9WAL
+	BW/Z9Mzb5mgAP/B2+U5rPCdtPhyLYFxQNtpP9EzlZNN9DiHjkb1U6ZVZxmkY67PRT6vd7E2cNBsFQ
+	T76DeZLZkWDkxGvISlIT3+sUthiJcjMAPAi80dJCDEASzbTTW97tWs+LRFF6TxLoFAkY9GThnJC7W
+	dokMBH0X7VTadDEkZygw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHqnv-00000002YwC-1RWm;
-	Tue, 28 Apr 2026 22:21:19 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHqns-00000002Yvo-23PT
+	id 1wHqoE-00000002YyY-2tWm;
+	Tue, 28 Apr 2026 22:21:38 +0000
+Received: from mail-eastusazon11012061.outbound.protection.outlook.com ([52.101.53.61] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHqoC-00000002Yy0-1r94
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 22:21:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6277C1650;
-	Tue, 28 Apr 2026 15:21:08 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7833F3F763;
-	Tue, 28 Apr 2026 15:21:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777414873; bh=0oXuZXWwTkgdhqDH8uG96AOPYmMlsgWr1XRmX4V3t88=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eIi55or15uZzRwFD8tshHMcSkHBRaNquAsw7E3sqdnb2b4dwEP5+wIufVG1JsM2LO
-	 7+ZBJ3l3IkDkZzvWYdyd7zUlWWOiu+skJJhCqa7Gy/9ktfeh641NJeHxXvL/Fs0hu/
-	 OzEoIf8GeLzHFH30PSiOSCKBXY5nwdF3pEsJTjh4=
-Date: Tue, 28 Apr 2026 23:20:57 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Brian Masney <bmasney@redhat.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org, sudeep.holla@arm.com,
-	philip.radford@arm.com, james.quinlan@broadcom.com,
-	f.fainelli@gmail.com, vincent.guittot@linaro.org,
-	etienne.carriere@foss.st.com, peng.fan@oss.nxp.com,
-	michal.simek@amd.com, geert+renesas@glider.be,
-	kuninori.morimoto.gx@renesas.com, marek.vasut+renesas@gmail.com,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>
-Subject: Re: [PATCH v3 03/15] clk: scmi: Use new determine_rate clock
- operation
-Message-ID: <afEyuvQx6KRq0WXT@pluto>
-References: <20260428201522.903875-1-cristian.marussi@arm.com>
- <20260428201522.903875-4-cristian.marussi@arm.com>
- <afEZotnIZYXEtMiC@redhat.com>
+	Tue, 28 Apr 2026 22:21:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OIuSXMtBouh1cmD/CA/q422ExayhiRYDpTXQoit2NyCZmaTwx73tgq9W5tOogU/m/Qq6y/e94PhURH7BQMaWvzPdIJSDurWgE9uOb6jE1boyoCLF0ADmP+evIbz7JCo8WYLnpPuv/LuexH3Ukeh1YM6tb3i1bA/zdszdL5JgYzoTr1seqVvBVq47R0n1yJseorKhlguhTm1yTQ3zmFK+UuPEdRTqtCo553AV78BPWlZ87ZHqyrmT2nGHQEDcBcN58RELbfnUB3Kec+r1N3E6Xkv93cd6CPxPwXOr30ePq6oDvaQuU4Hw+ojmHlf0FiBA3vZo6NU2SuUvCsD7dRk9jA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yv9gRwspbo5yluuEF1nPVM91tB9+GO0z0cB/B0tzamA=;
+ b=K9dmVVkHmQhnNi7SiohmSmSEckpuoYdQRJrEVC4HYSSfsqIvixl7pJ7CWgqF/soun2JlxnahcnxRhMBeA1uSYtQgbkgILA2L4y9VJHFSnDRUOL4WCFoNnlVxDjJDi9RNNVu8vOSSO04+4YZ3J7Lx8VE10F7XS0d+s2aaTKMeYZWuJedWqv3Nkhcxtn4xsRVgSyCxNIm2MAW08Hags7bXYnBxXHrc7kS3wiVBYb9D3K1lSSVJx8x49kIb+C/zzha1yJgC50O51Pxmu8bY4qHSJ+c7iVHwaQrCskpGUecqBldcCJx9NjwJZNuzEhStwsy7NgVHxmUHXISrawLxUcT4Ww==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yv9gRwspbo5yluuEF1nPVM91tB9+GO0z0cB/B0tzamA=;
+ b=ctDPttfWO8Ajj9vBBKZcomTYaR2qvOBTHqhwOyVo84C9UhLYCu10l0civlGdJUm9I3BeIRDxxfXst4XfjG/ICi+S3DT9TI5u2jzlconNhz9kbucIrbbAYuDQAEXfHG99/mOJ8h9ydefq+dmcjJt2VgfzVxX+MCkRc8Nxac+D580=
+Received: from BYAPR21CA0024.namprd21.prod.outlook.com (2603:10b6:a03:114::34)
+ by LV2PR12MB5773.namprd12.prod.outlook.com (2603:10b6:408:17b::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.16; Tue, 28 Apr
+ 2026 22:21:25 +0000
+Received: from SJ1PEPF00001CEB.namprd03.prod.outlook.com
+ (2603:10b6:a03:114:cafe::81) by BYAPR21CA0024.outlook.office365.com
+ (2603:10b6:a03:114::34) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.4 via Frontend Transport; Tue,
+ 28 Apr 2026 22:21:25 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ SJ1PEPF00001CEB.mail.protection.outlook.com (10.167.242.27) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9846.18 via Frontend Transport; Tue, 28 Apr 2026 22:21:25 +0000
+Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Tue, 28 Apr
+ 2026 17:21:24 -0500
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb10.amd.com
+ (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Tue, 28 Apr
+ 2026 17:21:24 -0500
+Received: from [172.31.134.241] (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Tue, 28 Apr 2026 17:21:23 -0500
+Message-ID: <c8cd8b38-3548-45ad-b92e-1096691dc45b@amd.com>
+Date: Tue, 28 Apr 2026 17:21:23 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <afEZotnIZYXEtMiC@redhat.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] remoteproc: xlnx: check remote core state
+To: Tanmay Shah <tanmay.shah@amd.com>, <michal.simek@amd.com>,
+	<andersson@kernel.org>, <mathieu.poirier@linaro.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-remoteproc@vger.kernel.org>
+References: <20260428213327.210574-1-tanmay.shah@amd.com>
+Content-Language: en-US
+From: "Shah, Tanmay" <tanmays@amd.com>
+In-Reply-To: <20260428213327.210574-1-tanmay.shah@amd.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CEB:EE_|LV2PR12MB5773:EE_
+X-MS-Office365-Filtering-Correlation-Id: 21d46818-c33c-4b70-5191-08dea5747c3e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|82310400026|376014|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: lSjuafJJU7LQzyolbaTYbs1LAGwLI0IRKRsVUijHV4Vx64AK7ZiiqSCWgZwfXrmlMZCmnHeONKHg2XZAijGVqD2yC+PKHNBeOejFcdkuxGliZ8s6XoIRFDN5lAuodTIcFyRSFJDxJRKhfn275+By77Q+RNkUqjc3dnOexL487fJPTfptomRV4cB78AOK5uNKeEHUuHAILAIjhjogiOJM8WWUN5xz/My9MM0U9mIzRkKiUBuXdLGcNeavydjHfGRlgGgMbjCFU4O57bd1NMfOi6izPvt1gz5EEjhuA7scxoarq6/M4CgQduWjVgsj+nkPTYUt7h1f3vO7GtajyKLlM7Yqy9Vu80yO/1CkF8wiGCBE1u20v09jd5DN7geuy3N0CSpPYlq2XxFZrRo+k3qipPLouWw5V2gOsN7eDyxOXS3WWi1L2VoH7PcpE2Szl60IDpj6AUMzF9YnkP60LUc7E2xk26NPML4QZAhqIv1DI3OFd/DYzGnJRrpr7Yd+JgyCpAIVFbG0+0lHrdFGAYqQxS2FpsUcufKHzKQdU6vlenpfAIe9zygd7PndKt8PL9K5dTmf4opjzwfgqJMGmE+qK34vS+cqzbMofmzlMdXIzmOstDmrTo8vR5kCYWX71UHMqG/bUsX54gwWNvjsngcrkH3s15DKwS0aQrtOgdXD4iw/iyFhaL3OzE6YQwM8U7XRjFFVgVcsLR4guud9B+pUVpe3kb1y6NY7bpp8eC1Lc1jgwOmGOIiC0oNSdAYXo/RekyJ0evPZlliYaY20KcPsDA==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(82310400026)(376014)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: XCiCZwL0Ugqgt3m3RCWt/YRhicvLrOYY86DGIZnXT88nWcwenLTlUqvKT0XlAtPElgQimoPxbYvnXcElU8HPplScmIt63ZXoJIRnpR2/boRMdiccR40Ee/4WoJ7CAYSlYdlpB6KESQYaNApIWJeIEHNawQ8grs+0zhuOXf5NGIng+L+gIhC1OiLogXIEjChTpRlLdKmuLEtLbmO6wR1QnBsSmQDTkgw/b3nPFlLEYW9POyyNBaTpBbli3sFVqAgRlTb1t1T5UmvOZ3MsjJotjXaZFYoQTf2o3u8Ngjc3H0mhhpWHd7pkYbYVwlpfkjD2wSRbsVxgJevMgi1+YX9Ra9bTaJReluD1Wg8Tx1KPCDH+2kMQ+44ZO9WNcn1p5d0ykJR31muKSM4CIogXh4HRShwe3GlJOes+Nc7r25GqpUPvYJ1fBNVsmQ0a2lQd4o/o
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2026 22:21:25.1353
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 21d46818-c33c-4b70-5191-08dea5747c3e
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CEB.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR12MB5773
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_152116_665230_8C426AFC 
-X-CRM114-Status: GOOD (  18.72  )
+X-CRM114-CacheID: sfid-20260428_152136_494468_EBDB8C24 
+X-CRM114-Status: GOOD (  37.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,45 +123,194 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: tanmay.shah@amd.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 28, 2026 at 04:33:38PM -0400, Brian Masney wrote:
-> Hi Cristian,
-> 
-> On Tue, Apr 28, 2026 at 09:15:10PM +0100, Cristian Marussi wrote:
-> > Use the Clock protocol layer determine_rate logic to calculate the closest
-> > rate that can be supported by a specific clock.
-> > 
-> > No functional change.
-> > 
-> > Cc: Brian Masney <bmasney@redhat.com>
-> > Cc: Michael Turquette <mturquette@baylibre.com>
-> > Cc: Stephen Boyd <sboyd@kernel.org>
-> > Cc: linux-clk@vger.kernel.org
-> > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
-> > ---
-> > @brian: I'd modify further this clk-scmi driver, with a patch on top of
-> > this series, to properly use your new CLK_ROUNDING_NOOP flag once your
-> > series AND another (already reviewed) series on clk-scmi from Peng are in.
+Rejected-by: Tanmay Shah <tanmay.shah@amd.com>
 
-Hi Brian,
+Sent v3 with Fixes tag in the commit text.
 
-> 
-> I don't know if Stephen is going to pick up my CLK_ROUNDING_NOOP series.
-> We talked about it in person at LPC in Tokyo, and he was the one that
-> suggested the flag rather than a new shared noop function. However he
-> didn't pick it up last development cycle.
-> 
-> I would recommend NOT basing on that series of mine to reduce
-> dependencies, and so that your stuff doesn't get held up by series.
-> 
+Thanks.
 
-Ok, thanks for the heads up, I was indeed not able to find the _NOOP in
-v7.1-rc1 and I was NOT sure...anyway a patch on top of this whenever
-your series goes in should not be a problem....maybe if you can ping me
-when it's merged, it would be easy NOT to miss/forget :P
+On 4/28/2026 4:33 PM, Tanmay Shah wrote:
+> The remote state is set to RPROC_DETACHED if the resource table is found
+> in the memory. However, this can be wrong if the remote is not started,
+> but firmware is still loaded in the memory. Use PM_GET_NODE_STATUS call
+> to the firmware to request the state of the RPU node. If the RPU is
+> actually out of reset and running, only then move the remote state to
+> RPROC_DETACHED, otherwise keep the remote state to RPROC_OFFLINE.
+> 
+> Signed-off-by: Tanmay Shah <tanmay.shah@amd.com>
+> ---
+> 
+> Changes in v2:
+>   - fix subject line: %s/node/core/
+>   - add comment explaining optional resource table availability in the
+>     fw
+> 
+>  drivers/firmware/xilinx/zynqmp.c        | 28 +++++++++++++++
+>  drivers/remoteproc/xlnx_r5_remoteproc.c | 46 +++++++++++++++++++------
+>  include/linux/firmware/xlnx-zynqmp.h    | 21 +++++++++++
+>  3 files changed, 85 insertions(+), 10 deletions(-)
+> 
+> diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/zynqmp.c
+> index fbe8510f4927..af838b2dc327 100644
+> --- a/drivers/firmware/xilinx/zynqmp.c
+> +++ b/drivers/firmware/xilinx/zynqmp.c
+> @@ -1450,6 +1450,34 @@ int zynqmp_pm_get_node_status(const u32 node, u32 *const status,
+>  }
+>  EXPORT_SYMBOL_GPL(zynqmp_pm_get_node_status);
+>  
+> +/**
+> + * zynqmp_pm_get_rpu_node_status - PM call to request a RPU node's current power state
+> + * @node:		ID of the RPU component or sub-system in question
+> + * @status:		Current operating state of the requested RPU node.
+> + * @requirements:	Current requirements asserted on the RPU node.
+> + * @usage:		Usage information, used for RPU slave nodes only:
+> + *			PM_USAGE_NO_MASTER	- No master is currently using
+> + *						  the node
+> + *			PM_USAGE_CURRENT_MASTER	- Only requesting master is
+> + *						  currently using the node
+> + *			PM_USAGE_OTHER_MASTER	- Only other masters are
+> + *						  currently using the node
+> + *			PM_USAGE_BOTH_MASTERS	- Both the current and at least
+> + *						  one other master is currently
+> + *						  using the node
+> + *
+> + * Return:		Returns status, either success or error+reason
+> + */
+> +int zynqmp_pm_get_rpu_node_status(const u32 node, u32 *const status,
+> +				  u32 *const requirements, u32 *const usage)
+> +{
+> +	if (zynqmp_pm_feature(PM_GET_NODE_STATUS) < PM_API_VERSION_2)
+> +		return -EOPNOTSUPP;
+> +
+> +	return zynqmp_pm_get_node_status(node, status, requirements, usage);
+> +}
+> +EXPORT_SYMBOL_GPL(zynqmp_pm_get_rpu_node_status);
+> +
+>  /**
+>   * zynqmp_pm_force_pwrdwn - PM call to request for another PU or subsystem to
+>   *             be powered down forcefully
+> diff --git a/drivers/remoteproc/xlnx_r5_remoteproc.c b/drivers/remoteproc/xlnx_r5_remoteproc.c
+> index 50a9974f3202..45a62cb98072 100644
+> --- a/drivers/remoteproc/xlnx_r5_remoteproc.c
+> +++ b/drivers/remoteproc/xlnx_r5_remoteproc.c
+> @@ -948,16 +948,6 @@ static struct zynqmp_r5_core *zynqmp_r5_add_rproc_core(struct device *cdev)
+>  		goto free_rproc;
+>  	}
+>  
+> -	/*
+> -	 * If firmware is already available in the memory then move rproc state
+> -	 * to DETACHED. Firmware can be preloaded via debugger or by any other
+> -	 * agent (processors) in the system.
+> -	 * If firmware isn't available in the memory and resource table isn't
+> -	 * found, then rproc state remains OFFLINE.
+> -	 */
+> -	if (!zynqmp_r5_get_rsc_table_va(r5_core))
+> -		r5_rproc->state = RPROC_DETACHED;
+> -
+>  	r5_core->rproc = r5_rproc;
+>  	return r5_core;
+>  
+> @@ -1210,6 +1200,7 @@ static int zynqmp_r5_core_init(struct zynqmp_r5_cluster *cluster,
+>  {
+>  	struct device *dev = cluster->dev;
+>  	struct zynqmp_r5_core *r5_core;
+> +	u32 req, usage, status;
+>  	int ret = -EINVAL, i;
+>  
+>  	r5_core = cluster->r5_cores[0];
+> @@ -1255,6 +1246,41 @@ static int zynqmp_r5_core_init(struct zynqmp_r5_cluster *cluster,
+>  		ret = zynqmp_r5_get_sram_banks(r5_core);
+>  		if (ret)
+>  			return ret;
+> +
+> +		/*
+> +		 * It is possible that firmware is loaded into the memory, but
+> +		 * RPU (remote) is not running. In such case, RPU state will be
+> +		 * moved to RPROC_DETACHED wrongfully. To avoid it first make
+> +		 * sure RPU is power-on and out of reset before parsing for the
+> +		 * resource table.
+> +		 */
+> +		ret = zynqmp_pm_get_rpu_node_status(r5_core->pm_domain_id,
+> +						    &status, &req, &usage);
+> +		if (ret) {
+> +			dev_warn(r5_core->dev,
+> +				 "failed to get rpu node status, err %d\n", ret);
+> +			continue;
+> +		}
+> +
+> +		/*
+> +		 * If RPU state is power on and out of reset i.e. running, then
+> +		 * assign RPROC_DETACHED state. If the RPU is not out of reset
+> +		 * then do not attempt to attach to the remote processor.
+> +		 */
+> +		if (status == PM_NODE_RUNNING) {
+> +			/*
+> +			 * Not all the firmware that is running on the remote
+> +			 * core is expected to have the resource table. The
+> +			 * firmware might not use RPMsg at all, and in that case
+> +			 * resource table becomes irrelevant. However, we still
+> +			 * need to make sure that running core is not reported
+> +			 * as offline. so do not decide remote core state based
+> +			 * on the resource table availability
+> +			 */
+> +			if (zynqmp_r5_get_rsc_table_va(r5_core))
+> +				dev_dbg(r5_core->dev, "rsc tbl not found\n");
+> +			r5_core->rproc->state = RPROC_DETACHED;
+> +		}
+>  	}
+>  
+>  	return 0;
+> diff --git a/include/linux/firmware/xlnx-zynqmp.h b/include/linux/firmware/xlnx-zynqmp.h
+> index d70dcd462b44..7e27b0f7bf7e 100644
+> --- a/include/linux/firmware/xlnx-zynqmp.h
+> +++ b/include/linux/firmware/xlnx-zynqmp.h
+> @@ -542,6 +542,18 @@ enum pm_gem_config_type {
+>  	GEM_CONFIG_FIXED = 2,
+>  };
+>  
+> +/**
+> + * enum pm_node_status - Device node status provided by xilpm fw
+> + * @PM_NODE_UNUSED: Device is not used
+> + * @PM_NODE_RUNNING: Device is power-on and out of reset
+> + * @PM_NODE_HALT: Device is power-on but in the reset state
+> + */
+> +enum pm_node_status {
+> +	PM_NODE_UNUSED = 0,
+> +	PM_NODE_RUNNING = 1,
+> +	PM_NODE_HALT = 12,
+> +};
+> +
+>  /**
+>   * struct zynqmp_pm_query_data - PM query data
+>   * @qid:	query ID
+> @@ -630,6 +642,8 @@ int zynqmp_pm_set_rpu_mode(u32 node_id, enum rpu_oper_mode rpu_mode);
+>  int zynqmp_pm_set_tcm_config(u32 node_id, enum rpu_tcm_comb tcm_mode);
+>  int zynqmp_pm_get_node_status(const u32 node, u32 *const status,
+>  			      u32 *const requirements, u32 *const usage);
+> +int zynqmp_pm_get_rpu_node_status(const u32 node, u32 *const status,
+> +				  u32 *const requirements, u32 *const usage);
+>  int zynqmp_pm_set_sd_config(u32 node, enum pm_sd_config_type config, u32 value);
+>  int zynqmp_pm_set_gem_config(u32 node, enum pm_gem_config_type config,
+>  			     u32 value);
+> @@ -939,6 +953,13 @@ static inline int zynqmp_pm_get_node_status(const u32 node, u32 *const status,
+>  	return -ENODEV;
+>  }
+>  
+> +static inline int zynqmp_pm_get_rpu_node_status(const u32 node, u32 *const status,
+> +						u32 *const requirements,
+> +						u32 *const usage)
+> +{
+> +	return -ENODEV;
+> +}
+> +
+>  static inline int zynqmp_pm_set_sd_config(u32 node,
+>  					  enum pm_sd_config_type config,
+>  					  u32 value)
+> 
+> base-commit: fcdf2df56d34a3f04cab0725c5bc3abdaa73c2be
 
-Thanks,
-Cristian
 
