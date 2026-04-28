@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C6EBFF886C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 08:45:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22568FF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 08:48:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xe5brPMVO+9g1Dw+xvEM8fY4F+u3qXzfLKVLAqh40G0=; b=YapQA5+dBmB6WCpB/FU2ryZiRL
-	pav0J7pBKdqmQpcQpKIEqMKr690DoMdpSHcJCMGN1f4lGNyxNB2kYO9t5y7w7TFJ6M2cutumwot9w
-	D49k1ldUUAxn6+SX17skfsliK8zJ+p5ufUFlXjNNpbbgmzO80De4t18JR+ejofjOPnG1a+BGN+GER
-	C4w3BtzqF0s1DKtxpTgclqmQQFmdzLUy46/Rc9FZ4UrFc8g77XOmF1aIlvbHs8Y70PR9+vIx++2xK
-	0oOGryOW5Y1rRBTkBwQcAOPAoXnEwvcLyoK3S2AQjZXiRS/wzjQzufV4PCn/NIHLR4yDqf+ZH3Wa9
-	IVBUg/7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yRm2k79xTisXBIWWt8D5usInaBAOhjC3Ue5G7GGc7y0=; b=36hVboPnTVssVFWcar04/bWYIo
+	BsymoMSROS3bjRfGu7frPjSnHpYHJSxYA62xtb2SQGZKS/2gvf3PlNlLYnGIgsZJkBU+L3nkLvuEf
+	3MlS+ri3ORe5WBHZiQnkJXGmz7EuFIesNkMzofWDBRk88GxkU2QOddkaK3EyzhBPnQkCwKeIGW52J
+	w21+1kXaUeH1eMAW5HPudfW13WHMM564LPlAkoxg2oPgiIYRpgVpDHx293Q3rUL3iCX93wTm5Mh5a
+	SfZ1jCpN+DXT4EB4EKUoIz2Pd5hs4scCs2IJR+WJq7zwuchhFmZrh1o1v+s4NE5suEPRSQ2Ekp1rJ
+	JJOTizUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHe4H-00000000uTi-1Bht;
-	Tue, 28 Apr 2026 08:45:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wHe7J-00000000ul4-0SYk;
+	Tue, 28 Apr 2026 08:48:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHe4F-00000000uT8-0SuC;
-	Tue, 28 Apr 2026 08:45:20 +0000
+	id 1wHe7I-00000000uky-213g
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Apr 2026 08:48:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BF8AA448AC;
-	Tue, 28 Apr 2026 08:45:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE61DC2BCB5;
-	Tue, 28 Apr 2026 08:45:11 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A5CA660141;
+	Tue, 28 Apr 2026 08:48:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A22AC2BCAF;
+	Tue, 28 Apr 2026 08:48:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777365912;
-	bh=7fk0VA5+cNoW7sx+mkYAgp0ak+eEVYN/A1DKtFhUDzQ=;
-	h=From:Date:Subject:To:Cc:From;
-	b=hhefmOqFMk/lzYcUZloW9IrHT1yZMBQfu/PqbsK7uGhhhWUhYzurKYnCzOsjzwNmP
-	 YGmkzWeBflNEs83iQV5a0GgmCShd2HykxBSieNCQ1ihXsAciKJZbcWEVHsKQeYXO6T
-	 /2ajj69aF1bVnq1IEO522qEb/exjULeLeot6AY3AT/DyubuUzBR7YxkYY1hWqAki5s
-	 iFkRMsnXd/O8gY95usOUtxuUCCk3JLT7pjo48BgmhyTyxVwqpNuXGXQclq8MCIzVo1
-	 dTnGwpeOCMnvUhwOXT6wvDMHXDhfGLqKIlCmaNUvevpITkiLFuuem2y0FLDKMJJ6le
-	 HoXR8pIfVFD9Q==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Tue, 28 Apr 2026 10:44:21 +0200
-Subject: [PATCH net] net: airoha: Move entries to queue head in case of DMA
- mapping failure in airoha_dev_xmit()
+	s=k20201202; t=1777366107;
+	bh=mYuU6MXaswUtoHhacsBHyqLEb3RQrKd2tVDX/wlE3eI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Z1UvRjJE6dflfyQhl8JY3L4hVKRTdb2yQn2oMGAXOIbVRq0ZE7yZrHlCJiQWzyqOO
+	 Ayl4xpG2K9JvWcjNz6M84OnOonhmyhzMHQSWPUKF70T+ZedmFx4i6rIq8l1oGhDjJH
+	 /p4D/qUIvM2cdbG/6+bIUxDPrDJSn+Dl6gwmVi0oh6fY9PCddZGxaVzSLwgaA7sSzQ
+	 j/F8H1o4gReMWS3wfLhSk+uW2mBiTSAYnrRi/6PWHd+4xq4UuHFidugqYKbhaopTOD
+	 ndEHGwLH3UfYPox7uUHMjZullYmSdqb+weGzUd5oNgqJovNthw4Vr8OTgr38Myi8q9
+	 NFTyzHQvLk4Yg==
+Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
+	id EB9C01AC5841; Tue, 28 Apr 2026 09:48:24 +0100 (BST)
+Date: Tue, 28 Apr 2026 17:48:24 +0900
+From: Mark Brown <broonie@kernel.org>
+To: Chancel Liu <chancel.liu@nxp.com>
+Cc: lgirdwood@gmail.com, perex@perex.cz, tiwai@suse.com,
+	shengjiu.wang@gmail.com, Xiubo.Lee@gmail.com, festevam@gmail.com,
+	nicoleotsuka@gmail.com, Frank.Li@nxp.com, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, shumingf@realtek.com,
+	rander.wang@linux.intel.com, pierre-louis.bossart@linux.dev,
+	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 3/3] ASoC: fsl: imx-rpmsg: Switch to core
+ ignore-suspend-widgets support
+Message-ID: <afB0WHueZ5AGF3Vi@sirena.co.uk>
+References: <20260415081942.4183108-1-chancel.liu@nxp.com>
+ <20260415081942.4183108-4-chancel.liu@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260428-airoha-xmit-unmap-error-path-v1-1-aec44c6765c1@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MOw6DMAwA0Ksgz7UE5iPaq1QMpjXEA0nkBISEu
- Hujjm95FyQxlQSv6gKTQ5MGX9A8Kvg49qugfouBahrqjkZkteAYz00z7n7jiGIWDCNnh2NDff/
- sZJmphVJEk0XPf/8GLxmm+/4BL6nh0nMAAAA=
-X-Change-ID: 20260428-airoha-xmit-unmap-error-path-8125594efb23
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Jacob Keller <jacob.e.keller@intel.com>
-Cc: Simon Horman <horms@kernel.org>, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_014519_202907_7E1AC011 
-X-CRM114-Status: GOOD (  10.23  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="9UPrFDxvpRfQw9KX"
+Content-Disposition: inline
+In-Reply-To: <20260415081942.4183108-4-chancel.liu@nxp.com>
+X-Cookie: Victory uber allies!
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,45 +80,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In order to respect the original descriptor order and avoid any
-potential IOMMU fault or memory corruption, move pending queue entries
-to the head of hw queue tx_list if the DMA mapping of current inflight
-packet fails in airoha_dev_xmit routine.
 
-Fixes: 3f47e67dff1f7 ("net: airoha: Add the capability to consume out-of-order DMA tx descriptors")
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_eth.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+--9UPrFDxvpRfQw9KX
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 5effb4a4ae84..82018a085e46 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -2123,14 +2123,14 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 	return NETDEV_TX_OK;
- 
- error_unmap:
--	while (!list_empty(&tx_list)) {
-+	list_for_each_entry(e, &tx_list, list) {
- 		e = list_first_entry(&tx_list, struct airoha_queue_entry,
- 				     list);
- 		dma_unmap_single(dev->dev.parent, e->dma_addr, e->dma_len,
- 				 DMA_TO_DEVICE);
- 		e->dma_addr = 0;
--		list_move_tail(&e->list, &q->tx_list);
- 	}
-+	list_splice(&tx_list, &q->tx_list);
- 
- 	spin_unlock_bh(&q->lock);
- error:
+On Wed, Apr 15, 2026 at 05:19:42PM +0900, Chancel Liu wrote:
 
----
-base-commit: 3bc179bc7146c26c9dff75d2943d10528274e301
-change-id: 20260428-airoha-xmit-unmap-error-path-8125594efb23
+> @@ -274,6 +257,15 @@ static int imx_rpmsg_probe(struct platform_device *p=
+dev)
+>  		}
+>  	}
+> =20
+> +	if (data->lpa && of_property_present(np, "ignore-suspend-widgets")) {
+> +		ret =3D snd_soc_of_parse_ignore_suspend_widgets(&data->card,
+> +							      "ignore-suspend-widgets");
+> +		if (ret) {
+> +			dev_err(&pdev->dev, "failed to parse ignore-suspend-widgets: %d\n", r=
+et);
+> +			return ret;
+> +		}
+> +	}
+> +
 
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+The other error handling paths here have a goto fail to do cleanup of
+the of_node in the platform device.
 
+--9UPrFDxvpRfQw9KX
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnwdFgACgkQJNaLcl1U
+h9A7RQf/QUn+qnt2gIgZyXelbB3F/TVFy2HzRTJNgNigI/pP+0D9evGIAfFSilHe
+bY/DChXlgzVcbleDy0tYinjOEJCFWMFbM5geexzQDCeLBVttOFJBxGFg+6miD3ny
+XBfA3eBsgWML7fjtuVl8L9VvSoY/VqAxOlVd0ezQQhdPv1/+OTZ6tKMC2sfijJQi
+OEo5m8hZpyStL9ez+64ZtCGJp8YjUa4yCqjEnqqCRvVAiJZCySLZHY3qQx19x4F/
+biWimRE9KOg4o7MaSjodS1el8vIllMT13FpJMud9r3TnHhIgG9IRNrUdtdgBtriI
+lVH1KxPbEDVL6hP8ny9Ick5+7MOiaQ==
+=7KNo
+-----END PGP SIGNATURE-----
+
+--9UPrFDxvpRfQw9KX--
 
