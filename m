@@ -4,71 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39E2FFF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 09:26:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88D2AFF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 09:32:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R+Q/yLECwnAIR7YmHJRfRY3fCxK/vQTGfudd0BK6psE=; b=OLLZkcmqmJJuWvxGHuewlAdh/d
-	TAevqbxc6LWbLqK0FOJwCA97BACDQolsSp/awS8I19oFJcb0rPTtt7BxzkoRJXCGD2LuM4+YAyBB8
-	fz26ZPLAbZSwScUdVfzMjhXUGAP/BwJXYVYihXdmAc4eUywya85/LIQqSfhc1ra+xuF0xZfZdgHov
-	8v31SZNCgwNXQtWHurTItdNlNavg38lXiNPEclHL/RLaNHZj3nQrPHZAgUkI2n0d8K+wLTxsrR035
-	NSSVClQgc5ldsfip8shczkq5j82zhaxe3nBrEt0M0hjTo2VZnGDtDN9W17fmBCzz5ilYoRSQ8qud7
-	O2szaUCQ==;
+	bh=65B2YLB3vk5bx9xaFfeUlXNE/6TryybgL7zyaR8z3G4=; b=Ze3FN0nXLJMvIq18FtMDp0Hjbe
+	2reubmipSKwgk/4TiKe3l/X9c6ucAI01hiof/z4a2MaTVcKff2JS3hS+eVCcSFP2CVGpt2qA9KFJB
+	w2v2JURANiFQFNRX7F/ULsgM5ZzZ7bqprV7yPGsqdZAqN25scYar2Mr0oTro34xM4BQT4DnDhCDSn
+	OSNTQ2baDR+EhV3jLJ1YmMb+Z1ri0J/hm68K9+5//PhcGxM/MgRXL88khWUkfJUzzVV4SK/Qnzsfl
+	Lvq8e7f+kRlTbDPwH+hoz55okxdza2b7jDPu1IPuY7dl839w0BmQNBaWn7xF5T25fv1Q1gmCYjZ+e
+	DVHSdVbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHehm-000000015WQ-3SSa;
-	Tue, 28 Apr 2026 09:26:10 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wHeo5-0000000160E-1p3N;
+	Tue, 28 Apr 2026 09:32:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHehl-000000015VT-08xT
+	id 1wHeo2-000000015zs-2jnL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 09:26:10 +0000
+	Tue, 28 Apr 2026 09:32:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5DA3D4493E;
-	Tue, 28 Apr 2026 09:26:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A86BBC2BCAF;
-	Tue, 28 Apr 2026 09:25:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0160E44959;
+	Tue, 28 Apr 2026 09:32:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4957EC2BCAF;
+	Tue, 28 Apr 2026 09:32:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777368365;
-	bh=uZMFcw4X6G4NyZ2AkpR/wzfhivGs4KeUY1ksxX5CYJk=;
+	s=k20201202; t=1777368748;
+	bh=fSNGOPBGa0A0LSj6PeTlCNVS7DnLh6qenN2QOZYXnKQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=KpT8hcZV0Gc1QMqlWdt6nVmZt47Mp3ucObkc8302hyQzOBtJEcfxgPqVQaCUl3RFl
-	 NUhIh76/2bSkTvKmX2h9HQjowxC5MtWQK2FnSdhW9P2ock+SupSZixrMX1bYFtqWGr
-	 EF0GnlMrjJ+zSdTzJuAlf/IvDqv+RkV4+kx8/mRk3tShOmjL4o5fUcMm9ks9Q68oMU
-	 S38f+9pdygkNLq0V9eWkD/6ZFG7N/MlyuO1eErtEp8NCSqsYtubsEbYqCIxDBcaTTp
-	 Hd6fA9a1WhactpOEwVikN7Q8fNDXyJ7Vj79Pq3SofYzb2N3MCevkNHdyYxNzLFdRW3
-	 xrwBRz4Rzjnsg==
-Message-ID: <a63d4dc7-b01a-4da2-ac1f-6679c9030db6@kernel.org>
-Date: Tue, 28 Apr 2026 11:25:57 +0200
+	b=lKdqO6YEw6QozffP+yWzUbIzB65pJLXLFpvxDDx2FFlj0NEvYrdhcRZXz+Mklg8IJ
+	 iVrs4r+bWXbZYQc6zkREHs264XdXRIP0hyms/qE3q1npYXXyswaMlAwzfR7REOow5P
+	 ufrs133aq8IZhS19VrQJ7t3HfTgle5R/ECXEz2cDgL5XACMoT0PnV9Mi+5h5hlYQ0D
+	 0RI5nZs/UJgZ4/JCeSntsWfU8+jMdfKtJgh3DB3ro4ByFr+dnN8hcaEfsrstnYufxH
+	 LuGscfvgUgGRtoWib2HA01kR+Ycw/6GZGX/cPlvyNjWG5JsfyEjTfrhDfUMW0B502n
+	 7W/Qb+LptBeBQ==
+Message-ID: <7d090781-4fb2-4b54-9f6c-8e9a4ec2749a@kernel.org>
+Date: Tue, 28 Apr 2026 11:32:25 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 02/11] firmware: samsung: acpm: Consolidate transfer
- initialization helper
-To: Tudor Ambarus <tudor.ambarus@linaro.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, Kees Cook <kees@kernel.org>,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Daniel Lezcano <daniel.lezcano@kernel.org>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Lee Jones <lee@kernel.org>
-Cc: willmcvicker@google.com, jyescas@google.com, shin.son@samsung.com,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
- linux-clk@vger.kernel.org
-References: <20260423-acpm-tmu-v4-0-8b59f8548634@linaro.org>
- <20260423-acpm-tmu-v4-2-8b59f8548634@linaro.org>
+Subject: Re: [PATCH] firmware: samsung: fix stale response flag in
+ acpm_prepare_xfer()
+To: Titouan Ameline <titouan.ameline@gmail.com>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: alim.akhtar@samsung.com, linux-kernel@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20260426210255.73674-1-titouan.ameline@gmail.com>
+ <84c292d8-d2a0-4c29-bd28-cc00f66c2f43@linaro.org>
+ <CABvHBc71N5NvYZ29W8hn9-gjOo40eh-hgcTAP3Nn1jrAfrgr2A@mail.gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -114,12 +100,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260423-acpm-tmu-v4-2-8b59f8548634@linaro.org>
+In-Reply-To: <CABvHBc71N5NvYZ29W8hn9-gjOo40eh-hgcTAP3Nn1jrAfrgr2A@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_022609_118283_5744748B 
-X-CRM114-Status: GOOD (  11.92  )
+X-CRM114-CacheID: sfid-20260428_023238_753414_F0AF04F1 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,35 +120,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/04/2026 17:22, Tudor Ambarus wrote:
->  	acpm_dvfs_init_get_rate_cmd(cmd, clk_id);
-> -	acpm_dvfs_set_xfer(&xfer, cmd, ARRAY_SIZE(cmd), acpm_chan_id, true);
-> +	acpm_set_xfer(&xfer, cmd, ARRAY_SIZE(cmd), acpm_chan_id, true);
->  
->  	ret = acpm_do_xfer(handle, &xfer);
->  	if (ret)
-> diff --git a/drivers/firmware/samsung/exynos-acpm-pmic.c b/drivers/firmware/samsung/exynos-acpm-pmic.c
-> index 0c50993cc9a8..f032f2c69685 100644
-> --- a/drivers/firmware/samsung/exynos-acpm-pmic.c
-> +++ b/drivers/firmware/samsung/exynos-acpm-pmic.c
-> @@ -58,16 +58,6 @@ static inline u32 acpm_pmic_get_bulk(u32 data, unsigned int i)
->  	return (data >> (ACPM_PMIC_BULK_SHIFT * i)) & ACPM_PMIC_BULK_MASK;
->  }
->  
-> -static void acpm_pmic_set_xfer(struct acpm_xfer *xfer, u32 *cmd, size_t cmdlen,
-> -			       unsigned int acpm_chan_id)
-> -{
-> -	xfer->txd = cmd;
-> -	xfer->rxd = cmd;
-> -	xfer->txcnt = cmdlen;
-> -	xfer->rxcnt = cmdlen;
-> -	xfer->acpm_chan_id = acpm_chan_id;
+On 27/04/2026 23:37, Titouan Ameline wrote:
+> I was reading through the driver code and noticed that
+> acpm_prepare_xfer() only enters the
+> 
+> if (xfer->rxd) branch to set response = true
+> with no corresponding else to reset it to false.
+> 
+> Since seqnum slots are recycled, I traced what happens when a slot
+> previously used by a response-expecting transfer gets reused by a
+> fire-and-forget one
+> 
+> -> the stale true remains and the wrong branch is taken in acpm_get_rx().
+> 
+> Le lun. 27 avr. 2026 à 10:48, Tudor Ambarus <tudor.ambarus@linaro.org> a écrit :
+>>
 
-The code is not equivalent. RX bits were always cleared. This should be
-explained in the commit msg which would also provide a proof that you
-actually analyzed if it has any impact.
-
-
+This seams to duplicate Tudor's earlier patches and his solution looks
+more complete, so I will take his work with Reported-by credits.
 
 Best regards,
 Krzysztof
