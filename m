@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4DCAFF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 09:02:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F9E7FF886D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 09:03:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tQvOUkj7iNT/AEbIK+gaqCq6j/dYqHrK2T/F114eAZE=; b=H2eenkOUUeLnsgWIP18oEA4klq
-	6qDf95rTRkKZmSzMoK7ZIEpfouqfcjdXgVc2h0nN5CoTe9kVs4aw79iBPYSUxgcDM4Ja+Brdl9RAx
-	A0pFXEN8PNx8hR5JdwJ3suzrBi7EOJLxfJaDUrM2FBzTFoeXnbwY0cPBZ5mB6P++/kvJporlOM9iL
-	ix5FX93jPkpRsNxF2e7dcbGBoMnlX02hXyrynAldjRktO4PeRPk5pyPqKafiV1JFjJcwAHwJIAjtr
-	xfdhW5TmnJnsYWnWHQRN1Q3yo/qh+pZdSA2+Vgsu2VVp1zweOQa60XTiGN1LipdoJ10gL92bROsjy
-	Xspm05pg==;
+	bh=SoakLqdzTJaiPdsOG9Tq37jQThilhxUcE71fHtnVtus=; b=DVe6XftBoun+c0i2m0GOo07GLF
+	0/1UnKRr8qYomUvOZYL6dDUQ58OkugkfacdD2Q9r1jiN7xY5g4JikK/7Z/abDYs4qwTQX6/k4XBw9
+	hGkncDi9TgokJ9lXA2oPiD6SVNhovQgY1ZmrORPuD7DmlqN5xsNWw5o9tHlaq7Ino9fXelJJx4Xmq
+	cAT4Y7MPk7BWOZCfflDo5AvPf/IenYKx12R1+55x5wmWe0R004p1IRhSELvThBsF6dNx+l1tjtkW1
+	Zq7UAtsoC4q0vlc7FENf7ppgRz9Oo41p/4eOC6eKqETl37dL2IToEraBGaWMLRvivx2K0RVhXxC8x
+	5NH4eaFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeL7-00000000zHx-48mi;
-	Tue, 28 Apr 2026 09:02:46 +0000
+	id 1wHeLG-00000000zRr-1P0L;
+	Tue, 28 Apr 2026 09:02:54 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeKB-00000000yD0-43Ql
+	id 1wHeKB-00000000yCO-2zpM
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 28 Apr 2026 09:01:48 +0000
+	Tue, 28 Apr 2026 09:01:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=tQvOUkj7iNT/AEbIK+gaqCq6j/dYqHrK2T/F114eAZE=; b=nF44UW4blgcCI8QTi3d2077XZf
-	LXz37eUogJ2dLO/DXXMdeUXsv6yRvh9H6tfT4F1E4L/GamZaFBi+BcIhX/6s3c8Nxr65/cOBdlDae
-	NFIdgAYWCkBvalpVO4QUksC0JA/v5yovXUz/z7SS/VeTx8hIlcif8WhoFRWOodom0bu9evKr9cCkN
-	vGtacZQxuQka6O0sbDBL58QWq2HqxwX4JbOjJnV9Aq8YEVurDpjWnxvxauvyD8gliW6ch5XnI98BM
-	GBTeODuUV2SkvpUmnEY2bmt55zUfJ7nlKviBaqqhYnboMF+LpN3RDwjDTGoLrr38qXwdJMSkxOItv
-	evrbTsOQ==;
+	bh=SoakLqdzTJaiPdsOG9Tq37jQThilhxUcE71fHtnVtus=; b=aE4VVR4Ff4pSoNUQisdm1kVQTW
+	SI0iwT5QwcHwQOpz3KegEekK9R3gsiXFMX3igqHbxuIm0RCvlpa+Lq3iEk9nXfasCsPcgksNUyRU6
+	RlBtfC7b68S1lqsKU9e76i3c5W8KOstvj1cy4bxG0d/QycslgaSM85YV9p7xNE4oCVHOIUPp+bndb
+	yIdKlsQwVFdxobtE4FI4RfutdYjlB2JxzHR9977ZgGW1nPeShYBQVeY8fJI/hivjyPBP98waE7K1+
+	67GASr14La5VJMmUNBaYSLrouJAlef3AHa9grY2ObmT87FWkqz0k6GEV7tyDeL4HC3KSacOV8wJs8
+	2IdsTaOA==;
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeJy-00000002VWb-1ZrM
+	id 1wHeJy-00000002VWY-0Nsb
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 28 Apr 2026 09:01:46 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1wHeJO-0004Lz-Pk; Tue, 28 Apr 2026 11:00:58 +0200
+	id 1wHeJK-0004Lz-HC; Tue, 28 Apr 2026 11:00:54 +0200
 From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Tue, 28 Apr 2026 11:01:04 +0200
-Subject: [PATCH v5 29/29] arm64: dts: rockchip: add rga3 dt nodes
+Date: Tue, 28 Apr 2026 11:00:58 +0200
+Subject: [PATCH v5 23/29] media: rockchip: rga: remove size from rga_frame
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260428-spu-rga3-v5-29-eb7f5d019d86@pengutronix.de>
+Message-Id: <20260428-spu-rga3-v5-23-eb7f5d019d86@pengutronix.de>
 References: <20260428-spu-rga3-v5-0-eb7f5d019d86@pengutronix.de>
 In-Reply-To: <20260428-spu-rga3-v5-0-eb7f5d019d86@pengutronix.de>
 To: Jacob Chen <jacob-chen@iotwrt.com>, 
@@ -65,15 +65,16 @@ Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  devicetree@vger.kernel.org, kernel@pengutronix.de, nicolas@ndufresne.ca, 
  sebastian.reichel@collabora.com, 
- =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
+ =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>, 
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>
 X-Mailer: b4 0.15.2
 X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
 X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_100134_775676_E093F096 
-X-CRM114-Status: GOOD (  10.14  )
+X-CRM114-CacheID: sfid-20260428_100134_636455_AE8CE426 
+X-CRM114-Status: GOOD (  15.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,82 +89,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add devicetree nodes for the RGA3 (Raster Graphics Acceleration 3)
-peripheral in the RK3588.
+The size member is only used for the mmu page table mapping.
+Therefore avoid storing the value and instead only calculate it
+in place. This also avoids the calculation entirely when an external
+iommu is used.
 
-The existing rga node refers to the RGA2-Enhanced peripheral. The RK3588
-contains one RGA2-Enhanced core and two RGA3 cores. Both feature a similar
-functionality of scaling, cropping and rotating of up to two input
-images into one output image. Key differences of the RGA3 are:
-
-- supports 10bit YUV output formats
-- supports 8x8 tiles and FBCD as inputs and outputs
-- supports BT2020 color space conversion
-- max output resolution of (8192-64)x(8192-64)
-- MMU can map up to 32G DDR RAM
-- fully planar formats (3 planes) are not supported
-- max scale up/down factor of 8 (RGA2 allows up to 16)
-
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 ---
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 44 +++++++++++++++++++++++++++
- 1 file changed, 44 insertions(+)
+ drivers/media/platform/rockchip/rga/rga-buf.c | 6 +++++-
+ drivers/media/platform/rockchip/rga/rga.c     | 8 ++------
+ drivers/media/platform/rockchip/rga/rga.h     | 1 -
+ 3 files changed, 7 insertions(+), 8 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-index 4fb8888c281c8..c8ac419f51cf9 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-@@ -1273,6 +1273,50 @@ rga: rga@fdb80000 {
- 		power-domains = <&power RK3588_PD_VDPU>;
+diff --git a/drivers/media/platform/rockchip/rga/rga-buf.c b/drivers/media/platform/rockchip/rga/rga-buf.c
+index 4e82ca1a5e8d9..c0cc885ba58a8 100644
+--- a/drivers/media/platform/rockchip/rga/rga-buf.c
++++ b/drivers/media/platform/rockchip/rga/rga-buf.c
+@@ -79,6 +79,8 @@ static int rga_buf_init(struct vb2_buffer *vb)
+ 	struct rockchip_rga *rga = ctx->rga;
+ 	struct rga_frame *f = rga_get_frame(ctx, vb->vb2_queue->type);
+ 	size_t n_desc = 0;
++	u32 size = 0;
++	u8 i;
+ 
+ 	if (IS_ERR(f))
+ 		return PTR_ERR(f);
+@@ -86,7 +88,9 @@ static int rga_buf_init(struct vb2_buffer *vb)
+ 	if (!rga_has_internal_iommu(rga))
+ 		return 0;
+ 
+-	n_desc = DIV_ROUND_UP(f->size, PAGE_SIZE);
++	for (i = 0; i < f->pix.num_planes; i++)
++		size += f->pix.plane_fmt[i].sizeimage;
++	n_desc = DIV_ROUND_UP(size, PAGE_SIZE);
+ 
+ 	rbuf->n_desc = n_desc;
+ 	rbuf->dma_desc = dma_alloc_coherent(rga->dev,
+diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
+index eb7b211a99e66..2695bc5077a03 100644
+--- a/drivers/media/platform/rockchip/rga/rga.c
++++ b/drivers/media/platform/rockchip/rga/rga.c
+@@ -221,7 +221,6 @@ static int rga_open(struct file *file)
  	};
  
-+	rga3_core0: rga@fdb60000 {
-+		compatible = "rockchip,rk3588-rga3";
-+		reg = <0x0 0xfdb60000 0x0 0x200>;
-+		interrupts = <GIC_SPI 114 IRQ_TYPE_LEVEL_HIGH 0>;
-+		clocks = <&cru ACLK_RGA3_0>, <&cru HCLK_RGA3_0>, <&cru CLK_RGA3_0_CORE>;
-+		clock-names = "aclk", "hclk", "sclk";
-+		resets = <&cru SRST_RGA3_0_CORE>, <&cru SRST_A_RGA3_0>, <&cru SRST_H_RGA3_0>;
-+		reset-names = "core", "axi", "ahb";
-+		power-domains = <&power RK3588_PD_RGA30>;
-+		iommus = <&rga3_0_mmu>;
-+	};
-+
-+	rga3_0_mmu: iommu@fdb60f00 {
-+		compatible = "rockchip,rk3588-iommu", "rockchip,rk3568-iommu";
-+		reg = <0x0 0xfdb60f00 0x0 0x100>;
-+		interrupts = <GIC_SPI 114 IRQ_TYPE_LEVEL_HIGH 0>;
-+		clocks = <&cru ACLK_RGA3_0>, <&cru HCLK_RGA3_0>;
-+		clock-names = "aclk", "iface";
-+		#iommu-cells = <0>;
-+		power-domains = <&power RK3588_PD_RGA30>;
-+	};
-+
-+	rga3_core1: rga@fdb70000 {
-+		compatible = "rockchip,rk3588-rga3";
-+		reg = <0x0 0xfdb70000 0x0 0x200>;
-+		interrupts = <GIC_SPI 115 IRQ_TYPE_LEVEL_HIGH 0>;
-+		clocks = <&cru ACLK_RGA3_1>, <&cru HCLK_RGA3_1>, <&cru CLK_RGA3_1_CORE>;
-+		clock-names = "aclk", "hclk", "sclk";
-+		resets = <&cru SRST_RGA3_1_CORE>, <&cru SRST_A_RGA3_1>, <&cru SRST_H_RGA3_1>;
-+		reset-names = "core", "axi", "ahb";
-+		power-domains = <&power RK3588_PD_RGA31>;
-+		iommus = <&rga3_1_mmu>;
-+	};
-+
-+	rga3_1_mmu: iommu@fdb70f00 {
-+		compatible = "rockchip,rk3588-iommu", "rockchip,rk3568-iommu";
-+		reg = <0x0 0xfdb70f00 0x0 0x100>;
-+		interrupts = <GIC_SPI 115 IRQ_TYPE_LEVEL_HIGH 0>;
-+		clocks = <&cru ACLK_RGA3_1>, <&cru HCLK_RGA3_1>;
-+		clock-names = "aclk", "iface";
-+		#iommu-cells = <0>;
-+		power-domains = <&power RK3588_PD_RGA31>;
-+	};
-+
- 	vepu121_0: video-codec@fdba0000 {
- 		compatible = "rockchip,rk3588-vepu121";
- 		reg = <0x0 0xfdba0000 0x0 0x800>;
+ 	def_frame.stride = (def_width * def_frame.fmt->depth) >> 3;
+-	def_frame.size = def_frame.stride * def_height;
+ 
+ 	ctx = kzalloc_obj(*ctx);
+ 	if (!ctx)
+@@ -459,9 +458,6 @@ static int vidioc_s_fmt(struct file *file, void *priv, struct v4l2_format *f)
+ 	frm = rga_get_frame(ctx, f->type);
+ 	if (IS_ERR(frm))
+ 		return PTR_ERR(frm);
+-	frm->size = 0;
+-	for (i = 0; i < pix_fmt->num_planes; i++)
+-		frm->size += pix_fmt->plane_fmt[i].sizeimage;
+ 	frm->fmt = rga_fmt_find(rga, pix_fmt->pixelformat);
+ 	frm->stride = pix_fmt->plane_fmt[0].bytesperline;
+ 
+@@ -485,10 +481,10 @@ static int vidioc_s_fmt(struct file *file, void *priv, struct v4l2_format *f)
+ 	frm->pix = *pix_fmt;
+ 
+ 	v4l2_dbg(debug, 1, &rga->v4l2_dev,
+-		 "[%s] fmt - %p4cc %dx%d (stride %d, sizeimage %d)\n",
++		 "[%s] fmt - %p4cc %dx%d (stride %d)\n",
+ 		  V4L2_TYPE_IS_OUTPUT(f->type) ? "OUTPUT" : "CAPTURE",
+ 		  &frm->fmt->fourcc, pix_fmt->width, pix_fmt->height,
+-		  frm->stride, frm->size);
++		  frm->stride);
+ 
+ 	for (i = 0; i < pix_fmt->num_planes; i++) {
+ 		v4l2_dbg(debug, 1, &rga->v4l2_dev,
+diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
+index 95fa7fd1c509a..2838fc7785f72 100644
+--- a/drivers/media/platform/rockchip/rga/rga.h
++++ b/drivers/media/platform/rockchip/rga/rga.h
+@@ -34,7 +34,6 @@ struct rga_frame {
+ 
+ 	/* Variables that can calculated once and reused */
+ 	u32 stride;
+-	u32 size;
+ };
+ 
+ struct rga_dma_desc {
 
 -- 
 2.54.0
