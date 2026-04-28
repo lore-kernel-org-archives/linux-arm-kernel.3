@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2080FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 20:17:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 546CCFF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 20:17:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qW+QVjbSbl42AeCb43SJ2UVqpZZ2uD49+T2/5K0He9U=; b=G4D59moQEtGl1IgcX/6s4/7CTj
-	YnCDmYIOEnUHWz4DDnnvkQ9CQ5ICQClZU3QiLaSN5RSIGmhu8PS5c6AEu1rGUo3Zf/8CIbI0tOBCj
-	okktY9R8gu7SZ1vdsS2sM85CFohlwkS6VtG7NOOZ93FGq0VkiRHCYotdHeZatf2xHKG/DwOMfpjh0
-	eVoZy7Yft4IdNpacCfItdN5fpxiVPNluve4Mc44X7mPQjVTrSQSUC2jVmnnJBSBtOzElblE9HDXDX
-	dNN6irrqceRg016ABnaqrzrvYFjXQewSgGqooxqd5nYNra8ULZAl2I5vyUe5LSrt4G9cNaZ8FofkK
-	LbJI/kRQ==;
+	bh=ZMVWvA9xyXsjgbkZBaPUAoqxx3GYcECmUBRp5YX4PGA=; b=3FAUqP3gDESuJsPRe19yv+EZDS
+	5jboVd22RBjIjZUMiiTfd9CR4egMoAGfQ4jNz0U9DVnrDRsA42TCP0LceTF25K6h2NpETXAWDQ6vr
+	Z5zM6WLUVtcXfHLxgEfjxanTWzvtiVg8U6lIl0PLRRnj7BBFpKUW8wDFZRDwbe8UaC7JV0AWQNykK
+	8bzS+ymPjE+JuwSIzwkuVCHbX1c6/hiP+6Z+U/Scg1KfbUUcyvo0I7dmPjGwMPj8vJRn60VXkkoN0
+	zyJD0/LIZAfTOAv12VAk9n8ZAobKJHOU7csFYzRrZ7xcafnIUMvgIxRQT9mGK4EWZWyQAmoT4frSk
+	LkUovo4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHos0-00000002PeE-1ZuO;
-	Tue, 28 Apr 2026 20:17:24 +0000
+	id 1wHos2-00000002Pga-1h58;
+	Tue, 28 Apr 2026 20:17:26 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHorV-00000002P1A-0Utz
+	id 1wHore-00000002PCY-3fLw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 20:17:10 +0000
+	Tue, 28 Apr 2026 20:17:12 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9C90E3297;
-	Tue, 28 Apr 2026 13:16:45 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 943063295;
+	Tue, 28 Apr 2026 13:16:55 -0700 (PDT)
 Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 324CD3F763;
-	Tue, 28 Apr 2026 13:16:48 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 16B9E3F763;
+	Tue, 28 Apr 2026 13:16:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777407411; bh=Jx+iLBHfzCZCNu0Rbo9kQcSH7PClpwB4Q84bljdtVgQ=;
+	t=1777407421; bh=ydGSxVs7029/nGMXlye2/Mws9V6mzCtDA5RxCjGimS4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=sr0/0rj5P8vzwkIIc0/cpwv1h5ZJ9lneWh5bUsnTMKh670rVMXPYa01dNXg2q5TKq
-	 /cpYwe9MsfAPSFDOrnIvNWdSZPiSETE10P1++Q2VCypLXHF4N8PHyMHDJMmZOzwhZC
-	 3LBrU2qq3dptQPMJEkEODWjL59PPy9F2fsFnj/A4=
+	b=a3Qh79FcFLY+WZHqhFshbyqDMI0ZEI/lttWBT2xTG/3PYcQvNakAhxiqIeYjiMCTb
+	 CM9c94RV3iQrnX/hV0LEF1PLliKKXLnV1ZjnxWvTSbKpDkXNe8NW5m9UNtWwdEbQ8E
+	 wxWd71AItpmxHq0RbICj7ttjf/+389AthdIPVSYE=
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -58,18 +58,17 @@ Cc: sudeep.holla@arm.com,
 	marek.vasut+renesas@gmail.com,
 	Cristian Marussi <cristian.marussi@arm.com>,
 	Peng Fan <peng.fan@nxp.com>
-Subject: [PATCH v3 06/15] firmware: arm_scmi: Drop unused clock rate interfaces
-Date: Tue, 28 Apr 2026 21:15:13 +0100
-Message-ID: <20260428201522.903875-7-cristian.marussi@arm.com>
+Subject: [PATCH v3 09/15] firmware: arm_scmi: Refactor iterators internal allocation
+Date: Tue, 28 Apr 2026 21:15:16 +0100
+Message-ID: <20260428201522.903875-10-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260428201522.903875-1-cristian.marussi@arm.com>
 References: <20260428201522.903875-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_131653_446392_6DDCFC5B 
-X-CRM114-Status: UNSURE (   7.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260428_131703_146121_B22F33CF 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,39 +83,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Only the unified interface exposing min_rate/max_rate is now used.
+Use cleanup handlers to manage iterator data structures.
+
+No functional change.
 
 Reviewed-by: Peng Fan <peng.fan@nxp.com>
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
-v1 --> v2
- - Collected Peng Reviewed-by tag
+v2 --> v3
+ - collected Reviewed tags
 ---
- include/linux/scmi_protocol.h | 11 -----------
- 1 file changed, 11 deletions(-)
+ drivers/firmware/arm_scmi/driver.c | 35 +++++++++++++++---------------
+ 1 file changed, 18 insertions(+), 17 deletions(-)
 
-diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index 7283302b0c85..d97b4e734744 100644
---- a/include/linux/scmi_protocol.h
-+++ b/include/linux/scmi_protocol.h
-@@ -53,17 +53,6 @@ struct scmi_clock_info {
- 	bool extended_config;
- 	u64 min_rate;
- 	u64 max_rate;
--	union {
--		struct {
--			int num_rates;
--			u64 rates[SCMI_MAX_NUM_RATES];
--		} list;
--		struct {
--			u64 min_rate;
--			u64 max_rate;
--			u64 step_size;
--		} range;
--	};
- 	int num_parents;
- 	u32 *parents;
- };
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index f167194f7cf6..66cb64c8ed3d 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -17,6 +17,7 @@
+ #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
+ 
+ #include <linux/bitmap.h>
++#include <linux/cleanup.h>
+ #include <linux/debugfs.h>
+ #include <linux/device.h>
+ #include <linux/export.h>
+@@ -1789,39 +1790,41 @@ static void *scmi_iterator_init(const struct scmi_protocol_handle *ph,
+ 				size_t tx_size, void *priv)
+ {
+ 	int ret;
+-	struct scmi_iterator *i;
+ 
+-	i = devm_kzalloc(ph->dev, sizeof(*i), GFP_KERNEL);
++	struct scmi_iterator *i __free(kfree) = kzalloc(sizeof(*i), GFP_KERNEL);
+ 	if (!i)
+ 		return ERR_PTR(-ENOMEM);
+ 
++	if (!ops || !ph)
++		return ERR_PTR(-EINVAL);
++
+ 	i->ph = ph;
+ 	i->ops = ops;
+ 	i->priv = priv;
+ 
+ 	ret = ph->xops->xfer_get_init(ph, msg_id, tx_size, 0, &i->t);
+-	if (ret) {
+-		devm_kfree(ph->dev, i);
++	if (ret)
+ 		return ERR_PTR(ret);
+-	}
+ 
+ 	i->state.max_resources = max_resources;
+ 	i->msg = i->t->tx.buf;
+ 	i->resp = i->t->rx.buf;
+ 
+-	return i;
++	return no_free_ptr(i);
+ }
+ 
+ static int scmi_iterator_run(void *iter)
+ {
+-	int ret = -EINVAL;
++	int ret;
+ 	struct scmi_iterator_ops *iops;
+ 	const struct scmi_protocol_handle *ph;
+ 	struct scmi_iterator_state *st;
+-	struct scmi_iterator *i = iter;
+ 
+-	if (!i || !i->ops || !i->ph)
+-		return ret;
++	if (!iter)
++		return -EINVAL;
++
++	/* Take ownership of the iterator */
++	struct scmi_iterator *i __free(kfree) = iter;
+ 
+ 	iops = i->ops;
+ 	ph = i->ph;
+@@ -1846,12 +1849,12 @@ static int scmi_iterator_run(void *iter)
+ 			break;
+ 		}
+ 
+-		for (st->loop_idx = 0; st->loop_idx < st->num_returned;
+-		     st->loop_idx++) {
++		for (st->loop_idx = 0; !ret && st->loop_idx < st->num_returned;
++		     st->loop_idx++)
+ 			ret = iops->process_response(ph, i->resp, st, i->priv);
+-			if (ret)
+-				goto out;
+-		}
++
++		if (ret)
++			break;
+ 
+ 		st->desc_index += st->num_returned;
+ 		ph->xops->reset_rx_to_maxsz(ph, i->t);
+@@ -1861,10 +1864,8 @@ static int scmi_iterator_run(void *iter)
+ 		 */
+ 	} while (st->num_returned && st->num_remaining);
+ 
+-out:
+ 	/* Finalize and destroy iterator */
+ 	ph->xops->xfer_put(ph, i->t);
+-	devm_kfree(ph->dev, i);
+ 
+ 	return ret;
+ }
 -- 
 2.53.0
 
