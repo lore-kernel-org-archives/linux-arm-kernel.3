@@ -4,83 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62BB8FF8870
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 07:21:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 738F5FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 07:21:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N4Nf17+iE4TpFXICTEQCjer2ymy7/ZPQXwIyAydjrk8=; b=a0/o7Ld68lASiXgMS4658DlLXj
-	V5LEwRJbtQUgnJ8EzhGEykQXyAzxw+iVtDnoaJBe1Ds9IRVnlExJd8Ap3Zc7yJQonQieXirGJU44b
-	HQnt2owz5ErY/w/Ewtkx2lirj3XHyZv1+e1urR4v+v3xRWTao0uENvU9dYjrJR3R4OQcOPiBBRb9P
-	go7ItKPr63hVNyEiBnLSimow9iuIwpmzRfYZKPKxDm5uwIfs49iEFxVI/blMOtdYAWmV11GAx3D7N
-	wHSUZRZD2sKZXbYfIvyk+meMKeuUVwf23wlluhUjjqE3YddX+ZraNAqNGxDvBZgtokfBsL/RtxeUD
-	yX4x3JiA==;
+	bh=GvyipB+WKy8Mcv0v2+aJKWVaY+2cmBCC6h1YFlumT4o=; b=J5eF0mVXfUG3mXjaMYcLlEWKMJ
+	DekDwfzsVvUBO2hEsaBdoWJX+8HTkt6vtwuZ9noErTN6w0FWTTUW9yT/7x3WE0UfkxAql9s+xT0bJ
+	CGuG4V7JENHiyM/GWleAJI3k//739OiOC18n8SF6f/qyeCR6qEF3N0Kjy0qZHeaCMm9WpJ3ZIv/j9
+	mz8910rbd4EqIgvNqi54hPLkSTTlpAITGKDLXxf8brZaGbRoN+Ur+G6pI0RYsI82zyW0vfpmLAgNA
+	f+PXHRKdWlY33bgOwXKdK6kykryo8539CNmz/F0I/khJ2XKQIWEsAnee6fT+ZGI7WoxHU+Oc62lPN
+	Lxt1anYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHckv-00000000iGE-3393;
-	Tue, 28 Apr 2026 07:21:17 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wHcl1-00000000iN1-44Cy;
+	Tue, 28 Apr 2026 07:21:24 +0000
+Received: from mail-dl1-x1249.google.com ([2607:f8b0:4864:20::1249])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHckH-00000000hVl-3v68
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 28 Apr 2026 07:20:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=N4Nf17+iE4TpFXICTEQCjer2ymy7/ZPQXwIyAydjrk8=; b=JnzGjsbP/aKr29Pwj+v2j/VRPo
-	ez/m33+Jgp7Onke7l0r9gCR/2CJFzKyeMV17mTuYM03YPznVeI3MnzgcqoTctKIne4Paz3XulRoWW
-	TOuJ4vaBQkEeInBwVuMn6VlWbAG/Hg3gVZpw41T0+mjtIPbiTOGpHIKBTQOM8xqlx4b/AyTr7jUBH
-	EDfHvPR8gbILCDAMRkDviXd9vCTcsLeCOJSNFQEtCAzP9FORG3eDM+LdneGO6vy9S5xdyjRqDzZVX
-	jcKED7LdedNg3RyYxAuO+NBfkfRpwevLal/Ja4iqDpzoS1x6WY8sSTDnYsi2Q7H+UBmUPzXCbmYP3
-	M+kCY/Cg==;
-Received: from mail-dl1-x124a.google.com ([2607:f8b0:4864:20::124a])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHckE-00000002DcI-22ek
+	id 1wHck9-00000000hNQ-0kZr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 07:20:36 +0000
-Received: by mail-dl1-x124a.google.com with SMTP id a92af1059eb24-12c66fdd4aeso16633347c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 00:20:33 -0700 (PDT)
+	Tue, 28 Apr 2026 07:20:41 +0000
+Received: by mail-dl1-x1249.google.com with SMTP id a92af1059eb24-126e8ee6227so12482279c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 00:20:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777360832; x=1777965632; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777360828; x=1777965628; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=N4Nf17+iE4TpFXICTEQCjer2ymy7/ZPQXwIyAydjrk8=;
-        b=PVFbyWdepIghJOqz/ws/4A4U2BQfDz5fGoqe1uc161MgCfF36pamNAqDsnMxSRDhCi
-         5dmNTmPfKhDv98rhAq1TXkMNrYa8CGG0trP1ol3oRLLv8+/KQ0g8Z+WePoZcdXi7+ukd
-         Df8sMtT2pNRPr/ilLlgZr7PhL1BcwOcurangaT8IK52a1sxjJTRsHpYEIE9V208fqRbL
-         IolbmeMwyMIIl/2cNKZJEWioN0dpPa/xqxtnRWHdjp9kW6CYABiwLVR1zv4jsBMUNrYI
-         4XpBlSoLhyMyhj5LLDuOWrbfprrjr2TiVJhstwyPXxlN/IqPR0XY+S2aaJuYmLNScORk
-         MLTg==
+        bh=GvyipB+WKy8Mcv0v2+aJKWVaY+2cmBCC6h1YFlumT4o=;
+        b=ldR3wMn3fkxcmOJ8CbPiohffhsumwk33HHjG/nZVpLczBToEkIbaKtPe06n+JdqRjg
+         J7dX13kHc0UlYf8IBKiO9+LrxP9WvyskNOIdp+bsXF/r062iIIbWQwaEXgXSoyLmRkZP
+         5x8H7a0f+rTHyhdF9M7tc4sKNguWxCY7wsoGjzXr2L86OfpqwH+vvRpbUCZHwF5uYfv+
+         X2fCtB8ENnQLYBG0GCQGbR3WzflHmfLnqgPeJrsbYMijBkW2D1+DTH8URpkkZMPiD8Pr
+         Jx3ATGywFETOxbaGRiRt7ZUNk/7PICbfjsMf30t9Ln3e7f91i/VnUn0XrvZQQu+MkN1m
+         n+LQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777360832; x=1777965632;
+        d=1e100.net; s=20251104; t=1777360828; x=1777965628;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=N4Nf17+iE4TpFXICTEQCjer2ymy7/ZPQXwIyAydjrk8=;
-        b=nZM8zJdyDkAevqFBmTFh1Gns3nCpWRGaNzg2ZNGDGlWdC1hFkQewoNkEmI8uXsVQhk
-         /d7JbGu8eH4Yq4ecc95bsBWT1D+N0dR10tTggLXdmwpqaScDqcuDKwusIF+o90NdjDMx
-         PiY3o0Wkja2a1gQVe7gKfPhrkAG99+N9UkrQLOpyj5pyPhTJKRgWE+lc8JKkuG61j0Ea
-         74uIRdguc6rQ3twinlTrmNesMSWHgnNv7BHJjoi8/sbtjUSbD8lzpYDuHw4jkHqqXSA6
-         Mr7HHCXGMjMaAVXB3jtYnmQf9r5aqOnWgJ4FtC/UG6+pyBX7+3RbxKS4Y9/soLyB3VBW
-         610Q==
-X-Forwarded-Encrypted: i=1; AFNElJ+dDha2MZSIuoTQrJVkg8ucA5U1Un++VbBALni1fjJYwd2a5RA1dBKyYCgpO8S+5hPG6QkzGAR9+kGBDval/jy4@lists.infradead.org
-X-Gm-Message-State: AOJu0YzKnnH+bwRhYFztWZctbc7u7hGObAgRRW+8ON5Orpo/5sCfk6Kb
-	qD9kZsBBVPAITw+zlLy0/cGHjl9SCaHJ7v/lFGiAkVFjY137wXV6MlXh1Sw+BnALVCcNTkacvyJ
-	FEeIHeCcU0w==
-X-Received: from dleb18-n1.prod.google.com ([2002:a05:701b:4252:10b0:12d:d43c:4120])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:698c:b0:12a:6fb7:8801
- with SMTP id a92af1059eb24-12ddd99a48amr980737c88.14.1777360831732; Tue, 28
- Apr 2026 00:20:31 -0700 (PDT)
-Date: Tue, 28 Apr 2026 00:18:41 -0700
+        bh=GvyipB+WKy8Mcv0v2+aJKWVaY+2cmBCC6h1YFlumT4o=;
+        b=eTjKgPP1WO8X1hZ/E8hvx4dBAcVZkMEoI4qA7MKQDD7RIJ+l8YDl8AolNQ20Yf0ioC
+         4GGb+QQBH+IYighyVolkM12fSFF1mZ+ErntCywmX28v3h2FIsrUIoXNAcLvjhwISzuEk
+         n60hAdIYSgl3RW+jSL5BU7m/SEOZ8H57GRb5zNC8dKKFVjD5Us71tcQIoVKEkr834fnD
+         /dJ8i/GOWLfwLYoizxOSS9UjxVjWi44iauDhuOPuce1pfFvAce3fwjl8ZrJ5l67m0yaE
+         6J4vqcqTgAPqOq2DKYHB30pzjczLYTUY5EeuH053vV2895nGq/prCBKyBY39sUBPqqpc
+         fKlQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/SLWSQfwNoewJjuaeKrPBP/Tbqo/qEuCIvqzfxFZod1gGaomhQIc4vo2kT8QV07krvsv6T65zm/VnhQFBh3MHe@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz6I8NBlDg+Ye+idEspp3+mfVW6wOI96/GMg08XfKQFg7tMrDGw
+	RWuLfX9LRaX2Uau/4M/dTpAAdK0L3YAa68RzXOXHwufSj55xRbLK8bk0s+1qMYSzRAgRiIneTc6
+	8OVmGKO2adQ==
+X-Received: from dlbvv18.prod.google.com ([2002:a05:7022:5f12:b0:12b:fbd9:da1f])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:e1c:b0:12d:ca32:5a7
+ with SMTP id a92af1059eb24-12ddd96d27fmr878925c88.10.1777360827966; Tue, 28
+ Apr 2026 00:20:27 -0700 (PDT)
+Date: Tue, 28 Apr 2026 00:18:39 -0700
 In-Reply-To: <20260428071903.1886173-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260425224951.174663-1-irogers@google.com> <20260428071903.1886173-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260428071903.1886173-37-irogers@google.com>
-Subject: [PATCH v8 36/58] perf export-to-sqlite: Port export-to-sqlite to use
+Message-ID: <20260428071903.1886173-35-irogers@google.com>
+Subject: [PATCH v8 34/58] perf compaction-times: Port compaction-times to use
  python module
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, namhyung@kernel.org
@@ -91,8 +76,8 @@ Cc: adrian.hunter@intel.com, alice.mei.rogers@gmail.com,
 	tmricht@linux.ibm.com, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_082034_792852_B78223AD 
-X-CRM114-Status: GOOD (  17.48  )
+X-CRM114-CacheID: sfid-20260428_002029_276478_E37B6A63 
+X-CRM114-Status: GOOD (  21.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,401 +92,366 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This commit ports the export-to-sqlite.py script to use the modern perf
-Python module and the standard library sqlite3 module. It drops the
-dependency on PySide2.QtSql.
+Add a port of the compaction-times script that uses the perf python
+module directly. This approach is significantly faster than using perf
+script callbacks as it avoids creating intermediate dictionaries for
+all event fields.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
-v5:
-1. Fix Callchain Resolution: Corrected attribute lookups on callchain
-   nodes. The `dso` and `symbol` properties already return strings, so
-   attempting to get a `.name` attribute from them failed and caused
-   fallback to "Unknown_...".
----
- tools/perf/python/export-to-sqlite.py | 372 ++++++++++++++++++++++++++
- 1 file changed, 372 insertions(+)
- create mode 100755 tools/perf/python/export-to-sqlite.py
+v2: Fixed Closure Call: Changed cls.fobj.filter(pid, comm) to
+    cls.fobj(pid, comm) . Since fobj is a function (closure) and not a
+    class instance, calling .filter() on it would raise an
+    AttributeError .
 
-diff --git a/tools/perf/python/export-to-sqlite.py b/tools/perf/python/export-to-sqlite.py
+v8:
+- Wrapped session.find_thread in a try-except block to prevent
+  crashing on untracked PIDs.
+---
+ tools/perf/python/compaction-times.py | 333 ++++++++++++++++++++++++++
+ 1 file changed, 333 insertions(+)
+ create mode 100755 tools/perf/python/compaction-times.py
+
+diff --git a/tools/perf/python/compaction-times.py b/tools/perf/python/compaction-times.py
 new file mode 100755
-index 000000000000..736b56ff8d59
+index 000000000000..3c9f29ba0d7a
 --- /dev/null
-+++ b/tools/perf/python/export-to-sqlite.py
-@@ -0,0 +1,372 @@
++++ b/tools/perf/python/compaction-times.py
+@@ -0,0 +1,333 @@
 +#!/usr/bin/env python3
 +# SPDX-License-Identifier: GPL-2.0
 +"""
-+Export perf data to a sqlite3 database.
++Report time spent in memory compaction.
 +
-+This script has been ported to use the modern perf Python module and the
-+standard library sqlite3 module. It no longer requires PySide2 or QtSql
-+for exporting.
++Memory compaction is a feature in the Linux kernel that defragments memory
++by moving used pages to create larger contiguous blocks of free memory. This
++is particularly useful for allocating huge pages.
 +
-+Examples of using this script with Intel PT:
++This script processes trace events related to memory compaction and reports:
++- Total time spent in compaction (stall time).
++- Statistics for page migration (moved vs. failed).
++- Statistics for the free scanner (scanned vs. isolated pages).
++- Statistics for the migration scanner (scanned vs. isolated pages).
 +
-+	$ perf record -e intel_pt//u ls
-+	$ python tools/perf/python/export-to-sqlite.py -i perf.data -o pt_example
++Definitions:
++- **Compaction**: Defragmenting memory by moving allocated pages.
++- **Migration**: Moving pages from their current location to free pages found by the free scanner.
++- **Free Scanner**: Scans memory (typically from the end of a zone) to find free pages.
++- **Migration Scanner**: Scans memory (typically from the beginning of a zone)
++  to find pages to move.
++- **Isolated Pages**: Pages that have been temporarily removed from the buddy
++  system for migration or as migration targets.
 +
-+To browse the database, sqlite3 can be used e.g.
-+
-+	$ sqlite3 pt_example
-+	sqlite> .header on
-+	sqlite> select * from samples_view where id < 10;
-+	sqlite> .mode column
-+	sqlite> select * from samples_view where id < 10;
-+	sqlite> .tables
-+	sqlite> .schema samples_view
-+	sqlite> .quit
-+
-+An example of using the database is provided by the script
-+exported-sql-viewer.py. Refer to that script for details.
-+
-+Ported from tools/perf/scripts/python/export-to-sqlite.py
++Ported from tools/perf/scripts/python/compaction-times.py to the modern perf Python module.
 +"""
 +
 +import argparse
-+import os
-+import sqlite3
++import enum
++import re
 +import sys
-+from typing import Dict, Optional
++from typing import Callable, Dict, List, Optional, Any
 +import perf
 +
++class Popt(enum.IntEnum):
++    """Process display options."""
++    DISP_DFL = 0
++    DISP_PROC = 1
++    DISP_PROC_VERBOSE = 2
 +
-+class DatabaseExporter:
-+    """Handles database connection and exporting of perf events."""
++class Topt(enum.IntFlag):
++    """Trace display options."""
++    DISP_TIME = 0
++    DISP_MIG = 1
++    DISP_ISOLFREE = 2
++    DISP_ISOLMIG = 4
++    DISP_ALL = DISP_MIG | DISP_ISOLFREE | DISP_ISOLMIG
 +
-+    def __init__(self, db_path: str):
-+        self.con = sqlite3.connect(db_path)
-+        self.session: Optional[perf.session] = None
-+        self.sample_count = 0
++# Globals to satisfy pylint when accessed in functions before assignment in main.
++OPT_NS = True
++opt_disp = Topt.DISP_ALL
++opt_proc = Popt.DISP_DFL
++session = None
 +
-+        # Caches and counters grouped to reduce instance attributes
-+        self.caches: Dict[str, dict] = {
-+            'threads': {},
-+            'comms': {},
-+            'dsos': {},
-+            'symbols': {},
-+            'events': {},
-+            'branch_types': {},
-+            'call_paths': {}
-+        }
++def get_comm_filter(regex: re.Pattern) -> Callable[[int, str], bool]:
++    """Returns a filter function based on command regex."""
++    def filter_func(_pid: int, comm: str) -> bool:
++        regex_match = regex.search(comm)
++        return regex_match is None or regex_match.group() == ""
++    return filter_func
 +
-+        self.next_id = {
-+            'thread': 1,
-+            'comm': 1,
-+            'dso': 1,
-+            'symbol': 1,
-+            'event': 1,
-+            'branch_type': 1,
-+            'call_path': 1
-+        }
++def get_pid_filter(low_str: str, high_str: str) -> Callable[[int, str], bool]:
++    """Returns a filter function based on PID range."""
++    low = 0 if low_str == "" else int(low_str)
++    high = 0 if high_str == "" else int(high_str)
 +
-+        self.create_tables()
++    def filter_func(pid: int, _comm: str) -> bool:
++        return not (pid >= low and (high == 0 or pid <= high))
++    return filter_func
 +
-+    def create_tables(self) -> None:
-+        """Create database tables."""
-+        self.con.execute("""
-+            CREATE TABLE IF NOT EXISTS selected_events (
-+                    id      INTEGER         NOT NULL        PRIMARY KEY,
-+                    name    VARCHAR(80))
-+        """)
-+        self.con.execute("""
-+            CREATE TABLE IF NOT EXISTS machines (
-+                    id      INTEGER         NOT NULL        PRIMARY KEY,
-+                    pid     INTEGER,
-+                    root_dir VARCHAR(4096))
-+        """)
-+        self.con.execute("""
-+            CREATE TABLE IF NOT EXISTS threads (
-+                    id      INTEGER         NOT NULL        PRIMARY KEY,
-+                    machine_id BIGINT,
-+                    process_id BIGINT,
-+                    pid     INTEGER,
-+                    tid     INTEGER)
-+        """)
-+        self.con.execute("""
-+            CREATE TABLE IF NOT EXISTS comms (
-+                    id      INTEGER         NOT NULL        PRIMARY KEY,
-+                    comm    VARCHAR(16),
-+                    c_thread_id BIGINT,
-+                    c_time  BIGINT,
-+                    exec_flag BOOLEAN)
-+        """)
-+        self.con.execute("""
-+            CREATE TABLE IF NOT EXISTS comm_threads (
-+                    id      INTEGER         NOT NULL        PRIMARY KEY,
-+                    comm_id BIGINT,
-+                    thread_id BIGINT)
-+        """)
-+        self.con.execute("""
-+            CREATE TABLE IF NOT EXISTS dsos (
-+                    id      INTEGER         NOT NULL        PRIMARY KEY,
-+                    machine_id BIGINT,
-+                    short_name VARCHAR(256),
-+                    long_name VARCHAR(4096),
-+                    build_id VARCHAR(64))
-+        """)
-+        self.con.execute("""
-+            CREATE TABLE IF NOT EXISTS symbols (
-+                    id      INTEGER         NOT NULL        PRIMARY KEY,
-+                    dso_id  BIGINT,
-+                    sym_start BIGINT,
-+                    sym_end BIGINT,
-+                    binding INTEGER,
-+                    name    VARCHAR(2048))
-+        """)
-+        self.con.execute("""
-+            CREATE TABLE IF NOT EXISTS branch_types (
-+                    id      INTEGER         NOT NULL        PRIMARY KEY,
-+                    name    VARCHAR(80))
-+        """)
-+        self.con.execute("""
-+            CREATE TABLE IF NOT EXISTS samples (
-+                    id              INTEGER         NOT NULL        PRIMARY KEY,
-+                    evsel_id        BIGINT,
-+                    machine_id      BIGINT,
-+                    thread_id       BIGINT,
-+                    comm_id         BIGINT,
-+                    dso_id          BIGINT,
-+                    symbol_id       BIGINT,
-+                    sym_offset      BIGINT,
-+                    ip              BIGINT,
-+                    time            BIGINT,
-+                    cpu             INTEGER,
-+                    to_dso_id       BIGINT,
-+                    to_symbol_id    BIGINT,
-+                    to_sym_offset   BIGINT,
-+                    to_ip           BIGINT,
-+                    period          BIGINT,
-+                    weight          BIGINT,
-+                    transaction_    BIGINT,
-+                    data_src        BIGINT,
-+                    branch_type     INTEGER,
-+                    in_tx           BOOLEAN,
-+                    call_path_id    BIGINT,
-+                    insn_count      BIGINT,
-+                    cyc_count       BIGINT,
-+                    flags           INTEGER)
-+        """)
-+        self.con.execute("""
-+            CREATE TABLE IF NOT EXISTS call_paths (
-+                    id              INTEGER         NOT NULL        PRIMARY KEY,
-+                    parent_id       BIGINT,
-+                    symbol_id       BIGINT,
-+                    ip              BIGINT)
-+        """)
-+        self.con.execute("""
-+            CREATE VIEW IF NOT EXISTS samples_view AS
-+            SELECT s.id, e.name as event, t.pid, t.tid, c.comm,
-+                   d.short_name as dso, sym.name as symbol, s.sym_offset,
-+                   s.ip, s.time, s.cpu
-+            FROM samples s
-+            JOIN selected_events e ON s.evsel_id = e.id
-+            JOIN threads t ON s.thread_id = t.id
-+            JOIN comms c ON s.comm_id = c.id
-+            JOIN dsos d ON s.dso_id = d.id
-+            JOIN symbols sym ON s.symbol_id = sym.id;
-+        """)
++def ns_to_time(ns: int) -> str:
++    """Format nanoseconds to string based on options."""
++    return f"{ns}ns" if OPT_NS else f"{round(ns, -3) // 1000}us"
 +
-+        # id == 0 means unknown. It is easier to create records for them than
-+        # replace the zeroes with NULLs
-+        self.con.execute("INSERT OR IGNORE INTO selected_events VALUES (0, 'unknown')")
-+        self.con.execute("INSERT OR IGNORE INTO machines VALUES (0, 0, 'unknown')")
-+        self.con.execute("INSERT OR IGNORE INTO threads VALUES (0, 0, 0, -1, -1)")
-+        self.con.execute("INSERT OR IGNORE INTO comms VALUES (0, 'unknown', 0, 0, 0)")
-+        self.con.execute("INSERT OR IGNORE INTO dsos VALUES (0, 0, 'unknown', 'unknown', '')")
-+        self.con.execute("INSERT OR IGNORE INTO symbols VALUES (0, 0, 0, 0, 0, 'unknown')")
++class Pair:
++    """Represents a pair of related counters (e.g., scanned vs isolated, moved vs failed)."""
++    def __init__(self, aval: int, bval: int,
++                 alabel: Optional[str] = None, blabel: Optional[str] = None):
++        self.alabel = alabel
++        self.blabel = blabel
++        self.aval = aval
++        self.bval = bval
 +
-+    def get_event_id(self, name: str) -> int:
-+        """Get or create event ID."""
-+        if name in self.caches['events']:
-+            return self.caches['events'][name]
-+        event_id = self.next_id['event']
-+        self.con.execute("INSERT INTO selected_events VALUES (?, ?)",
-+                         (event_id, name))
-+        self.caches['events'][name] = event_id
-+        self.next_id['event'] += 1
-+        return event_id
++    def __add__(self, rhs: 'Pair') -> 'Pair':
++        self.aval += rhs.aval
++        self.bval += rhs.bval
++        return self
 +
-+    def get_thread_id(self, pid: int, tid: int) -> int:
-+        """Get or create thread ID."""
-+        key = (pid, tid)
-+        if key in self.caches['threads']:
-+            return self.caches['threads'][key]
-+        thread_id = self.next_id['thread']
-+        self.con.execute("INSERT INTO threads VALUES (?, ?, ?, ?, ?)",
-+                         (thread_id, 0, pid, pid, tid))
-+        self.caches['threads'][key] = thread_id
-+        self.next_id['thread'] += 1
-+        return thread_id
++    def __str__(self) -> str:
++        return f"{self.alabel}={self.aval} {self.blabel}={self.bval}"
 +
-+    def get_comm_id(self, comm: str, thread_id: int) -> int:
-+        """Get or create comm ID."""
-+        if comm in self.caches['comms']:
-+            return self.caches['comms'][comm]
-+        comm_id = self.next_id['comm']
-+        self.con.execute("INSERT INTO comms VALUES (?, ?, ?, ?, ?)",
-+                         (comm_id, comm, thread_id, 0, 0))
-+        self.con.execute("INSERT INTO comm_threads VALUES (?, ?, ?)",
-+                         (comm_id, comm_id, thread_id))
-+        self.caches['comms'][comm] = comm_id
-+        self.next_id['comm'] += 1
-+        return comm_id
++class Cnode:
++    """Holds statistics for a single compaction event or an aggregated set of events."""
++    def __init__(self, ns: int):
++        self.ns = ns
++        self.migrated = Pair(0, 0, "moved", "failed")
++        self.fscan = Pair(0, 0, "scanned", "isolated")
++        self.mscan = Pair(0, 0, "scanned", "isolated")
 +
-+    def get_dso_id(self, short_name: str, long_name: str,
-+                   build_id: str) -> int:
-+        """Get or create DSO ID."""
-+        if short_name in self.caches['dsos']:
-+            return self.caches['dsos'][short_name]
-+        dso_id = self.next_id['dso']
-+        self.con.execute("INSERT INTO dsos VALUES (?, ?, ?, ?, ?)",
-+                         (dso_id, 0, short_name, long_name, build_id))
-+        self.caches['dsos'][short_name] = dso_id
-+        self.next_id['dso'] += 1
-+        return dso_id
++    def __add__(self, rhs: 'Cnode') -> 'Cnode':
++        self.ns += rhs.ns
++        self.migrated += rhs.migrated
++        self.fscan += rhs.fscan
++        self.mscan += rhs.mscan
++        return self
 +
-+    def get_symbol_id(self, dso_id: int, name: str, start: int,
-+                      end: int) -> int:
-+        """Get or create symbol ID."""
-+        key = (dso_id, name)
-+        if key in self.caches['symbols']:
-+            return self.caches['symbols'][key]
-+        symbol_id = self.next_id['symbol']
-+        self.con.execute("INSERT INTO symbols VALUES (?, ?, ?, ?, ?, ?)",
-+                         (symbol_id, dso_id, start, end, 0, name))
-+        self.caches['symbols'][key] = symbol_id
-+        self.next_id['symbol'] += 1
-+        return symbol_id
++    def __str__(self) -> str:
++        prev = False
++        s = f"{ns_to_time(self.ns)} "
++        if opt_disp & Topt.DISP_MIG:
++            s += f"migration: {self.migrated}"
++            prev = True
++        if opt_disp & Topt.DISP_ISOLFREE:
++            s += f"{' ' if prev else ''}free_scanner: {self.fscan}"
++            prev = True
++        if opt_disp & Topt.DISP_ISOLMIG:
++            s += f"{' ' if prev else ''}migration_scanner: {self.mscan}"
++        return s
 +
-+    def get_call_path_id(self, parent_id: int, symbol_id: int,
-+                         ip: int) -> int:
-+        """Get or create call path ID."""
-+        key = (parent_id, symbol_id, ip)
-+        if key in self.caches['call_paths']:
-+            return self.caches['call_paths'][key]
-+        call_path_id = self.next_id['call_path']
-+        self.con.execute("INSERT INTO call_paths VALUES (?, ?, ?, ?)",
-+                         (call_path_id, parent_id, symbol_id, ip))
-+        self.caches['call_paths'][key] = call_path_id
-+        self.next_id['call_path'] += 1
-+        return call_path_id
++    def complete(self, secs: int, nsecs: int) -> None:
++        """Complete the node with duration."""
++        self.ns = (secs * 1000000000 + nsecs) - self.ns
 +
-+    def process_event(self, sample: perf.sample_event) -> None:
-+        """Callback for processing events."""
-+        thread_id = self.get_thread_id(sample.sample_pid, sample.sample_tid)
++    def increment(self, migrated: Optional[Pair], fscan: Optional[Pair],
++                  mscan: Optional[Pair]) -> None:
++        """Increment statistics."""
++        if migrated is not None:
++            self.migrated += migrated
++        if fscan is not None:
++            self.fscan += fscan
++        if mscan is not None:
++            self.mscan += mscan
 +
-+        comm = "Unknown_comm"
++class Chead:
++    """Aggregates compaction statistics per process (PID) and maintains total statistics."""
++    heads: Dict[int, 'Chead'] = {}
++    val = Cnode(0)
++    fobj: Optional[Any] = None
++
++    @classmethod
++    def add_filter(cls, fobj: Any) -> None:
++        """Add a filter object."""
++        cls.fobj = fobj
++
++    @classmethod
++    def create_pending(cls, pid: int, comm: str, start_secs: int, start_nsecs: int) -> None:
++        """Create a pending node for a process."""
++        filtered = False
 +        try:
-+            if self.session is not None:
-+                proc = self.session.find_thread(sample.sample_pid)
-+                if proc:
-+                    comm = proc.comm()
-+        except TypeError:
-+            pass
-+        comm_id = self.get_comm_id(comm, thread_id)
++            head = cls.heads[pid]
++            filtered = head.is_filtered()
++        except KeyError:
++            if cls.fobj is not None:
++                filtered = cls.fobj(pid, comm)
++            head = cls.heads[pid] = Chead(comm, pid, filtered)
 +
-+        dso_id = self.get_dso_id(
-+            getattr(sample, 'dso', "Unknown_dso") or "Unknown_dso",
-+            getattr(sample, 'dso_long_name', "Unknown_dso_long") or "Unknown_dso_long",
-+            getattr(sample, 'dso_bid', "") or ""
-+        )
++        if not filtered:
++            head.mark_pending(start_secs, start_nsecs)
 +
-+        symbol_id = self.get_symbol_id(
-+            dso_id,
-+            getattr(sample, 'symbol', "Unknown_symbol") or "Unknown_symbol",
-+            getattr(sample, 'sym_start', 0) or 0,
-+            getattr(sample, 'sym_end', 0) or 0
-+        )
++    @classmethod
++    def increment_pending(cls, pid: int, migrated: Optional[Pair],
++                          fscan: Optional[Pair], mscan: Optional[Pair]) -> None:
++        """Increment pending stats for a process."""
++        if pid not in cls.heads:
++            return
++        head = cls.heads[pid]
++        if not head.is_filtered():
++            if head.is_pending():
++                head.do_increment(migrated, fscan, mscan)
++            else:
++                sys.stderr.write(f"missing start compaction event for pid {pid}\n")
 +
-+        # Handle callchain
-+        call_path_id = 0
-+        if hasattr(sample, 'callchain') and sample.callchain:
-+            parent_id = 0
-+            for node in sample.callchain:
-+                dso_name = getattr(node, 'dso', "Unknown_dso") or "Unknown_dso"
-+                symbol_name = getattr(node, 'symbol', "Unknown_symbol") or "Unknown_symbol"
++    @classmethod
++    def complete_pending(cls, pid: int, secs: int, nsecs: int) -> None:
++        """Complete pending stats for a process."""
++        if pid not in cls.heads:
++            return
++        head = cls.heads[pid]
++        if not head.is_filtered():
++            if head.is_pending():
++                head.make_complete(secs, nsecs)
++            else:
++                sys.stderr.write(f"missing start compaction event for pid {pid}\n")
 +
-+                node_dso_id = self.get_dso_id(dso_name, dso_name, "")
-+                node_symbol_id = self.get_symbol_id(node_dso_id, symbol_name, 0, 0)
++    @classmethod
++    def gen(cls):
++        """Generate heads for display."""
++        if opt_proc != Popt.DISP_DFL:
++            yield from cls.heads.values()
 +
-+                parent_id = self.get_call_path_id(parent_id, node_symbol_id, node.ip)
-+            call_path_id = parent_id
-+        else:
-+            call_path_id = 0
++    @classmethod
++    def get_total(cls) -> Cnode:
++        """Get total statistics."""
++        return cls.val
 +
-+        # Insert sample
-+        self.con.execute("""
-+            INSERT INTO samples VALUES (
-+                NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
-+            )
-+        """, (
-+            self.get_event_id(getattr(sample.evsel, 'name', str(sample.evsel))),
-+            0, thread_id, comm_id,
-+            dso_id, symbol_id, getattr(sample, 'sym_offset', 0),
-+            sample.sample_ip, sample.sample_time, sample.sample_cpu,
-+            0, 0, 0, 0,  # to_dso, to_symbol, to_sym_offset, to_ip
-+            getattr(sample, 'sample_period', 0) or 0,
-+            getattr(sample, 'sample_weight', 0) or 0,
-+            getattr(sample, 'transaction_', 0),
-+            getattr(sample, 'data_src', 0),
-+            0,  # branch_type
-+            getattr(sample, 'in_tx', 0),
-+            call_path_id,
-+            getattr(sample, 'insn_count', 0),
-+            getattr(sample, 'cyc_count', 0),
-+            getattr(sample, 'flags', 0)
-+        ))
++    def __init__(self, comm: str, pid: int, filtered: bool):
++        self.comm = comm
++        self.pid = pid
++        self.val = Cnode(0)
++        self.pending: Optional[Cnode] = None
++        self.filtered = filtered
++        self.list: List[Cnode] = []
 +
-+        self.sample_count += 1
-+        if self.sample_count % 10000 == 0:
-+            self.commit()
++    def mark_pending(self, secs: int, nsecs: int) -> None:
++        """Mark node as pending."""
++        self.pending = Cnode(secs * 1000000000 + nsecs)
 +
-+    def commit(self) -> None:
-+        """Commit transaction."""
-+        self.con.commit()
++    def do_increment(self, migrated: Optional[Pair], fscan: Optional[Pair],
++                     mscan: Optional[Pair]) -> None:
++        """Increment pending stats."""
++        if self.pending is not None:
++            self.pending.increment(migrated, fscan, mscan)
 +
-+    def close(self) -> None:
-+        """Close connection."""
-+        self.con.close()
++    def make_complete(self, secs: int, nsecs: int) -> None:
++        """Make pending stats complete."""
++        if self.pending is not None:
++            self.pending.complete(secs, nsecs)
++            Chead.val += self.pending
 +
++            if opt_proc != Popt.DISP_DFL:
++                self.val += self.pending
++
++                if opt_proc == Popt.DISP_PROC_VERBOSE:
++                    self.list.append(self.pending)
++            self.pending = None
++
++    def enumerate(self) -> None:
++        """Enumerate verbose stats."""
++        if opt_proc == Popt.DISP_PROC_VERBOSE and not self.is_filtered():
++            for i, pelem in enumerate(self.list):
++                sys.stdout.write(f"{self.pid}[{self.comm}].{i+1}: {pelem}\n")
++
++    def is_pending(self) -> bool:
++        """Check if node is pending."""
++        return self.pending is not None
++
++    def is_filtered(self) -> bool:
++        """Check if node is filtered."""
++        return self.filtered
++
++    def display(self) -> None:
++        """Display stats."""
++        if not self.is_filtered():
++            sys.stdout.write(f"{self.pid}[{self.comm}]: {self.val}\n")
++
++def trace_end() -> None:
++    """Called at the end of trace processing."""
++    sys.stdout.write(f"total: {Chead.get_total()}\n")
++    for i in Chead.gen():
++        i.display()
++        i.enumerate()
++
++def process_event(sample: perf.sample_event) -> None:
++    """Callback for processing events."""
++    event_name = str(sample.evsel)
++    pid = sample.sample_pid
++    comm = "[unknown]"
++    try:
++        if session:
++            thread = session.find_thread(pid)
++            if thread:
++                comm = thread.comm()
++    except (TypeError, AttributeError):
++        pass
++    secs = sample.sample_time // 1000000000
++    nsecs = sample.sample_time % 1000000000
++
++    if "evsel(compaction:mm_compaction_begin)" in event_name:
++        Chead.create_pending(pid, comm, secs, nsecs)
++    elif "evsel(compaction:mm_compaction_end)" in event_name:
++        Chead.complete_pending(pid, secs, nsecs)
++    elif "evsel(compaction:mm_compaction_migratepages)" in event_name:
++        Chead.increment_pending(pid, Pair(sample.nr_migrated, sample.nr_failed), None, None)
++    elif "evsel(compaction:mm_compaction_isolate_freepages)" in event_name:
++        Chead.increment_pending(pid, None, Pair(sample.nr_scanned, sample.nr_taken), None)
++    elif "evsel(compaction:mm_compaction_isolate_migratepages)" in event_name:
++        Chead.increment_pending(pid, None, None, Pair(sample.nr_scanned, sample.nr_taken))
 +
 +if __name__ == "__main__":
-+    ap = argparse.ArgumentParser(
-+        description="Export perf data to a sqlite3 database")
-+    ap.add_argument("-i", "--input", default="perf.data",
-+                    help="Input file name")
-+    ap.add_argument("-o", "--output", default="perf.db",
-+                    help="Output database name")
++    ap = argparse.ArgumentParser(description="Report time spent in compaction")
++    ap.add_argument("-p", action="store_true", help="display by process")
++    ap.add_argument("-pv", action="store_true", help="display by process (verbose)")
++    ap.add_argument("-u", action="store_true", help="display results in microseconds")
++    ap.add_argument("-t", action="store_true", help="display stall times only")
++    ap.add_argument("-m", action="store_true", help="display stats for migration")
++    ap.add_argument("-fs", action="store_true", help="display stats for free scanner")
++    ap.add_argument("-ms", action="store_true", help="display stats for migration scanner")
++    ap.add_argument("filter", nargs="?", help="pid|pid-range|comm-regex")
++    ap.add_argument("-i", "--input", default="perf.data", help="Input file name")
 +    args = ap.parse_args()
 +
-+    try:
-+        fd = os.open(args.output, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
-+        os.close(fd)
-+    except FileExistsError:
-+        print(f"Error: {args.output} already exists")
-+        sys.exit(1)
++    opt_proc = Popt.DISP_DFL
++    if args.pv:
++        opt_proc = Popt.DISP_PROC_VERBOSE
++    elif args.p:
++        opt_proc = Popt.DISP_PROC
 +
-+    exporter = DatabaseExporter(args.output)
++    OPT_NS = not args.u
 +
-+    session = None
-+    error_occurred = False
-+    try:
-+        session = perf.session(perf.data(args.input),
-+                               sample=exporter.process_event)
-+        exporter.session = session
-+        session.process_events()
-+        exporter.commit()
-+        print(f"Successfully exported to {args.output}")
-+    except Exception as e:
-+        print(f"Error processing events: {e}")
-+        error_occurred = True
-+    finally:
-+        exporter.close()
-+        if error_occurred:
-+            if os.path.exists(args.output):
-+                os.remove(args.output)
++    opt_disp = Topt.DISP_ALL
++    if args.t or args.m or args.fs or args.ms:
++        opt_disp = Topt(0)
++        if args.t:
++            opt_disp |= Topt.DISP_TIME
++        if args.m:
++            opt_disp |= Topt.DISP_MIG
++        if args.fs:
++            opt_disp |= Topt.DISP_ISOLFREE
++        if args.ms:
++            opt_disp |= Topt.DISP_ISOLMIG
++
++    if args.filter:
++        PID_PATTERN = r"^(\d*)-(\d*)$|^(\d*)$"
++        pid_re = re.compile(PID_PATTERN)
++        match = pid_re.search(args.filter)
++        filter_obj: Any = None
++        if match is not None and match.group() != "":
++            if match.group(3) is not None:
++                filter_obj = get_pid_filter(match.group(3), match.group(3))
++            else:
++                filter_obj = get_pid_filter(match.group(1), match.group(2))
++        else:
++            try:
++                comm_re = re.compile(args.filter)
++            except re.error:
++                sys.stderr.write(f"invalid regex '{args.filter}'\n")
++                sys.exit(1)
++            filter_obj = get_comm_filter(comm_re)
++        Chead.add_filter(filter_obj)
++
++    session = perf.session(perf.data(args.input), sample=process_event)
++    session.process_events()
++    trace_end()
 -- 
 2.54.0.545.g6539524ca2-goog
 
