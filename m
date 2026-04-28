@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E367FF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 08:53:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50EF8FF886C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 08:53:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KfDSNv9jMGKZpNtwMWxx0mHBqNLkd7cr64gkOMj98Pg=; b=elfBpx3rc8lxdS4i4QSGJrjD0S
-	LQ4XOGv6wCkuZEjmu5gBWBqrk7SgoclHFWKXnjf3UrD09vQgAbR8R1wH7MFpXG3A/jhwICau4SlMt
-	4Vuyl5TQPBA3kElUSMdktQBdySZjHYCnBiIaEVHZsherCLFbpx2A2AV5LYZmdimg7jqhFnsuSDfco
-	oUeNQ5f5VUj9F5ZQuBIxysq8aDJNVMysPCY+HcRFFW0QwVPszSZtoJ16DGqkw7btYnjcNX6vK6aLh
-	NKpws56taupwEESwbo2iWVUh6/p0j1maAXsPBAHzyd2EgAcnv50NEcYh1z6piRTpfpNSxmvis6hsA
-	khlJL1Sg==;
+	bh=32UW3WItZjTQK4hBD7qwUFuzTZyQat2a/lcPjzuiCLg=; b=emLVkmebx92qvr6/himXsxHMRr
+	1KxXhEm1MjFjkZPyKRxopUMiEIxc9AM681Fw4k10x0jKEipmMZkP50hpDaBx/0n2HYOk1DI/p0lS8
+	gAt575zWs2h2bYrYhLE/RsLriFl9NrK4h4OuH6fh1RyjCjAnJaTslthCvKm3fhOUu4f+1C/RLL32/
+	z7712v33rQPhIHEq68dXe6lDa2Jeise4CcxEsULD6+bCyl5gyctBcrMDePeHXQ3yRux5Mx3BfbOim
+	pp/yYneEUQRE7dBofe2yZFNcPi6OlcesT/fZVPBPKTXpQl5WM9GkF12zz4kR3Ee3tuLCHasnuHM3h
+	gphpsAow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeC4-00000000vnZ-1dDl;
-	Tue, 28 Apr 2026 08:53:24 +0000
-Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1wHeCI-00000000w4b-3nwn;
+	Tue, 28 Apr 2026 08:53:38 +0000
+Received: from mail-westus2azon11010052.outbound.protection.outlook.com ([52.101.46.52] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeBy-00000000vhW-1DAB
+	id 1wHeC6-00000000vpb-1FDh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 08:53:21 +0000
+	Tue, 28 Apr 2026 08:53:32 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fb9nQhwOcE4juB6W134vREylSo2rm6lQgbDqxJlS2YMMVVK0+2ofjdcpza4oYYJ/GQvVSbyckLe10WIFlDg2TBgrzntKc9cZILSFPKnVuPCS037YMGrArZ5XCXvqtQeLWincDUN6iIkP1ns/hyzq3Hq8QL47PWYkz2jh4LopgDzEd4XJL3duVH0gYfzIIRAzuvpXpAcYrI1KjQl9LJSTUmbrWsLvDzebAKf1+TSouHrDgtvgN3+u7dB53KTd4QINk45uipeLXEwL4gAITYMotjRn2JV8wtunLqhgi7Dzn6eW+o2paTI0Yae/6DJgnhvHWL/GYq14CqQgooKZuQ4jZg==
+ b=o6Heb5LFyJh5Ey+W0gdHiVLyy/sTCNxyBzJcnxk9NxY9vpfvub2XMkkgOWf34mwaTMWtGIBYt8kwdjB+RCJa+vCLz/KoFJSf+TU//1mTQn4+ThmZFayD9qzVabTkbLuVZg91wHyFmJnddSlgw4Y4+ahpJtcNgGgw+cufSe3KnjiO4BBnvBVsLI3PsURvfKoMo66Vp5pPbNQag4jnns6vVBGd37Aqzxy0JgDRDDbH3Y9/jsZxsHVA++lpAdA7ya3wWNT2OIzU01v/OHMxtbzIxreo4uM7+YcSXIhmpgVw253NcwhTMVqI/DMcpsvRyRoI5TymvMCY/UtJAnc9yt8xxg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KfDSNv9jMGKZpNtwMWxx0mHBqNLkd7cr64gkOMj98Pg=;
- b=wkxF1Jb5/LP/Q2TzLMugx7YUv2F6ZIciqYxCZr76/pe+6j0KCTtr/hH6gvuDje4h5PIJBfvO886SggMqSRPRcC4FmA5WH1eP4DQ1SunDGY9bYHgMFLKyBGWbU9iMQ6Hu3YyVbFCEUluXVN9kZndVV88jFzZApGdWMs0Qi+6DUex99FPLKsQgfEDhA2Tvz09Q10Lv2KvYdQkx146QeqlqUPSjhg/m9e5rHIpj1M1zm/ZCXFMx/OrApCnbEXD4stRt/kdfnPMfJXoA9Q+0NxGscq2V0BGNGub9oKZokjiSohF7DiQpA3ryDsegOa9xIJT9NEc4W4sJtYJuPkiSrYln0g==
+ bh=32UW3WItZjTQK4hBD7qwUFuzTZyQat2a/lcPjzuiCLg=;
+ b=tsyRUttm2XM6WJLBXyzgNXOL+rUvuL1Cd00iGON4tNjzNI5xr9bYB0HNRTUvOLJzulxMjhpUlugzqNzYKj6+tiWy1jAzbUX6jU4v6eKfH09R5XkvbFjVL9l9tywJmFhSu/TXvTiQ8wIwq55Gkl7lsldaK59/qYWMzNYtQog9qCxb/uwU9FTUBl7TvUGp2p54WUS0EH+ACaVRS4SXb6EFMgyF4VDSu0y57+N6DWBCIWdWDY5sOV5ndVjzAEgVfHN5Q/qfy8lhsT1G9YILsUv/ucmk+IK/bb2KBoAG1LQJRyTPt0E/t0Smq+MUnPDo7JL22RYU/RyqIGFl0HKZgRcYIQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=nxp.com smtp.mailfrom=ti.com; dmarc=pass
+ 198.47.23.195) smtp.rcpttodomain=nxp.com smtp.mailfrom=ti.com; dmarc=pass
  (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
  (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KfDSNv9jMGKZpNtwMWxx0mHBqNLkd7cr64gkOMj98Pg=;
- b=a0SxhA/QYoVaSObiIGpVU9BRB0Vyrb4jNxHc2etQxPnvUGmEjfzScWmDHO573ixAiLq+NWCJ6EaciKM2lSzR5Iy7r+IVbxoHeVmCbr8z/Ino5YblowZHvTQHDN6pq9Ocs3D7okrBbl8svHLXj1V60UJaX2ZS7kqWCY5SjJBF9Ak=
-Received: from BYAPR03CA0011.namprd03.prod.outlook.com (2603:10b6:a02:a8::24)
- by DM3PPF2867093BF.namprd10.prod.outlook.com (2603:10b6:f:fc00::c13) with
+ bh=32UW3WItZjTQK4hBD7qwUFuzTZyQat2a/lcPjzuiCLg=;
+ b=v02qDkH2d9o3fQqHGJwwHJ+EMU398Gsc3n+hkFnhKwRaJQuz0hzjVyu8IgjIyKa9z+/h5J6GEtawq1vfGofQnts0CiayMS+4qCX1X05/hLnLWgNpwhoS7jppMZrCwO9zNXtn2nUgky1NH2hFztra+SAfD75U3SG0SlBkObftjAc=
+Received: from BL1PR13CA0172.namprd13.prod.outlook.com (2603:10b6:208:2bd::27)
+ by IA4PR10MB8373.namprd10.prod.outlook.com (2603:10b6:208:565::5) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.25; Tue, 28 Apr
- 2026 08:53:11 +0000
-Received: from SJ5PEPF000001F4.namprd05.prod.outlook.com
- (2603:10b6:a02:a8:cafe::92) by BYAPR03CA0011.outlook.office365.com
- (2603:10b6:a02:a8::24) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.26 via Frontend Transport; Tue,
- 28 Apr 2026 08:53:11 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Tue, 28 Apr
+ 2026 08:53:22 +0000
+Received: from BL02EPF00021F68.namprd02.prod.outlook.com
+ (2603:10b6:208:2bd:cafe::13) by BL1PR13CA0172.outlook.office365.com
+ (2603:10b6:208:2bd::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.28 via Frontend Transport; Tue,
+ 28 Apr 2026 08:53:22 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
  smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
  action=none header.from=ti.com;
 Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- SJ5PEPF000001F4.mail.protection.outlook.com (10.167.242.72) with Microsoft
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ BL02EPF00021F68.mail.protection.outlook.com (10.167.249.4) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9846.18 via Frontend Transport; Tue, 28 Apr 2026 08:53:10 +0000
-Received: from DFLE204.ent.ti.com (10.64.6.62) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ 15.20.9846.18 via Frontend Transport; Tue, 28 Apr 2026 08:53:22 +0000
+Received: from DLEE213.ent.ti.com (157.170.170.116) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 28 Apr
- 2026 03:52:58 -0500
-Received: from DFLE205.ent.ti.com (10.64.6.63) by DFLE204.ent.ti.com
- (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 03:53:21 -0500
+Received: from DLEE201.ent.ti.com (157.170.170.76) by DLEE213.ent.ti.com
+ (157.170.170.116) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 28 Apr
- 2026 03:52:58 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE205.ent.ti.com
- (10.64.6.63) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 03:53:20 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE201.ent.ti.com
+ (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 28 Apr 2026 03:52:58 -0500
+ Transport; Tue, 28 Apr 2026 03:53:20 -0500
 Received: from uda0498651.dhcp.ti.com (uda0498651.dhcp.ti.com [172.24.233.239])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 63S8q6MS623293;
-	Tue, 28 Apr 2026 03:52:53 -0500
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 63S8q6MX623293;
+	Tue, 28 Apr 2026 03:53:16 -0500
 From: Sai Sree Kartheek Adivi <s-adivi@ti.com>
 To: <peter.ujfalusi@gmail.com>, <vkoul@kernel.org>, <robh@kernel.org>,
 	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nm@ti.com>,
@@ -85,9 +85,9 @@ To: <peter.ujfalusi@gmail.com>, <vkoul@kernel.org>, <robh@kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <vigneshr@ti.com>,
 	<Frank.li@nxp.com>, <s-adivi@ti.com>
 CC: <r-sharma3@ti.com>, <gehariprasath@ti.com>
-Subject: [PATCH v6 10/19] dmaengine: ti: k3-udma: refactor resource setup functions
-Date: Tue, 28 Apr 2026 14:21:39 +0530
-Message-ID: <20260428085202.1724548-11-s-adivi@ti.com>
+Subject: [PATCH v6 15/19] dmaengine: ti: k3-psil-am62l: Add AM62Lx PSIL and PDMA data
+Date: Tue, 28 Apr 2026 14:21:44 +0530
+Message-ID: <20260428085202.1724548-16-s-adivi@ti.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260428085202.1724548-1-s-adivi@ti.com>
 References: <20260428085202.1724548-1-s-adivi@ti.com>
@@ -97,28 +97,28 @@ Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF000001F4:EE_|DM3PPF2867093BF:EE_
-X-MS-Office365-Filtering-Correlation-Id: a6905ec0-0610-4d83-a76b-08dea5039323
+X-MS-TrafficTypeDiagnostic: BL02EPF00021F68:EE_|IA4PR10MB8373:EE_
+X-MS-Office365-Filtering-Correlation-Id: 322948b5-1f20-4910-1393-08dea5039a73
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|1800799024|36860700016|376014|22082099003|921020|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: C+VmJHc9MMkxacexXe82BwVJOIl7Apv6Y2aUSah7/kPIaz8NMTk3XJJrL6oQOXez1Er804BaOL73L3m0IHzcYxJQiAhakFCnaY9EbBAGtroie4h9UI7LMjlg/sTjspR0o8o7EANQGajnltEDbx8+IdDvYmbSPuCfFJWw3rVH36WfDIB/lStESgqnEQdlhWKamyvrA7rb6uXeNtVB4eS1XG2aASWp7gO1irvb1nku87qYsdPqdnUYaypGTvC8DpJhkKkIJTTB7R232dc/oKezt8hPcJzg+Ui37qJWHA9EexmpOFpspBUDThE8BYG/tlBbXR9KXc4BsjCUYPNddArXdObfMcMOK1HM9hDkkQhlRWxh7CqjlJcK96YZvn6IlDfTHCMkzgveQ4rRJg/FOZgR+6k3mWDzPTaVr9JJ3PJM/8QYvFU+fph/opItvEaqebCsrwKx8rUtoS+x/Z47/OEQ05Xdm54Pd31c08O6l4eVTIQfvqy9q73VfkO3rEE3/8yvAwClyIZCGZioCX1EmmCzqab89T+IRMwpRxWKMGeoWAEtddZAeLgZhtBdgR2hhLkxEYo1gxSiL4psEiDx/yOd7FtOo6JEwX6upnSq684DIkZKCAcYuoYO5+J+zga/M8gqXQQIRILEKPmH8Dm5vwtrlwRRueobLik6K1Acrv+tsUtWJqSeiz7aItEuGqaYUGc/eIh3eXjum00rOT7CFzETRKbI6/XB9/8UGMORuOyYpAaWc4GG7GudWEYsOxsrDSPGY2ZScX4+wo5RWtXbCHmCG9y0OUB+yOsfGP0HiTbS5J+fZjMjgzlQ+2VFulBVbHYB
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(1800799024)(36860700016)(376014)(22082099003)(921020)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|82310400026|376014|36860700016|921020|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: Z49uxjufDGFRcwsno9h4MXt3ox3bywapSeGlr0rqIjhB8fV4hLKOFeJa9+mHKLX+hhyEZhPnl5IO4fKiHgDs4RNVeZnDlv8Un6qDxvZyaMFYbizIiqqDN+NeAlqMWg2GiRvk9mAUxOT8wVse3hsclFHayyMl697gstMAyQLLb4vrLNCYTDTOMRM3GnnJ5pYSvX0It4tWdK4kfLoE1w9fT52hoyUj7ihjOu3Aq97b5merKwLOArmonfrDAGA4gv26x5XhQ5jvg0wRlEaH8JCCr5rCluEoiw3dSFt1kNo6Ao1BmfNbaNuLdpo6Gx3ThIeAF0yoesSpBr09qrQ1zLo9T/CN41+UaJP55LtNICkOAO4v3IlZCWWiMNhnEEnxf35W9dMZ2DZEDvR8Jq2DWmwvo6ua0kS4voX/3+hakCzB5n+OgAbz8H6EInwJKw7Sh5Ek4QNXRSzjTwoQ+S06uWrdRl9ouFqmPicgMVU9LkoJZ0aeuQaTERAMxpplLL9Qhz8sT6fAXzM2gMeNbB/iQpVjhxMBNFiSOJQHnhHF9/UY+AOsfrgZfJxgoSZIDuI4XU61PBaEKbiwFCbvfF1vvpw/VO3DHgm/D9DwpDwuVA7Po8RKIkDqU3oiAkObqjZfTDR+x9F+woJ5c8vyPGpkRA2NE8VPedUVx8LmxwDiAPsZuxO4cGNuyZxS9RFze3QKKucC1pDXEvrK7UKjaPs2JqP2eL55i/a6Y1ZuL3pfqTj1aJ5eJenGck7pvwROBddv5Vg7ex3br442Zxu+XC/vgKojJw==
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(82310400026)(376014)(36860700016)(921020)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: LEH8en4sR+CyN+yLmYUIuCiT6+R9R84tGvgu3LoPZ5fzoYQ5wKVxc1T28Sa9qNVwdUZWLvXCuw1qgI2qTERL+Bz4im0flcTeyCBFvjHllqi4bDq6I5PTwb2ih5In+EO8mAlzHreTBCXWZSFPlOFhpOGRs/BMbdVndFTOBGf5as5tO49iUsR2qgOUPfSwIQQ/UOrGIlkIEp0vYfbO4aywvvo6g8mscxZNoxKv9YESmuNeykRE/1mbshj3D33ZNaFHbwPn8QN8jSSFp3I/OCCHoJDDX1Gv9yV+BH6ogxNZGj31SA8GmEF0Jg8qoY0BAPadwQ3bp3r1eqDGsWxLwGXN7e5KaM5gtqvuLAZmvEJAmdqoXd45RX+SlzmSztxbKWTkocpJm8nylmx1wpCzrTXiozxfoj811259bQpTGjQ+haLfkKGrprKsdin9bsYVC+RT
+X-MS-Exchange-AntiSpam-MessageData-0: kNQakMJ1mcm9RA+MgsNGmNlHC2IhQssqHbIgluKKHzRFpUMQxtqiLT2MUhzU+iBha2sjRaXRExIK3U6vRIx/xskz1WjfHBpXiJekMl1EaXnxAspxc/DnExkYtf4qXi5JW9vsv+D3B9kMkCUWTXs4XCU34X+bK2vPnCcS5abHo27BXQdbQsT4oMWIABCOrDHzdjUBUQ752GUDbOqJzIS8iHhGWk7zx6HJWnegCH2TaRFzuilPFpJMxWXOnAP2xx1vpjp4maKac3vTNz0mGY1PFPF/LgSct0weQoLmwCKLT0bkJyq/Tc3DdW629HZCg/39HZEkuIBxwNQ8JvhXeAdoW0fe7niQeQq/kEWNrEFLScb4rpFuufMkXCEVm9rWSroWxCu/YF2DTz7TxpGFa62R0Cm9BI1S3ADivcpLtPfVmtMd0kt+MQ3Ds8UqzwTZVaj7
 X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2026 08:53:10.3941
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2026 08:53:22.6784
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a6905ec0-0610-4d83-a76b-08dea5039323
+X-MS-Exchange-CrossTenant-Network-Message-Id: 322948b5-1f20-4910-1393-08dea5039a73
 X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001F4.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL02EPF00021F68.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PPF2867093BF
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA4PR10MB8373
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_015318_408926_19B31F2A 
-X-CRM114-Status: GOOD (  15.09  )
+X-CRM114-CacheID: sfid-20260428_015326_407984_26B6AE3A 
+X-CRM114-Status: GOOD (  17.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,512 +133,191 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The implementation of setup_resources, bcdma_setup_resources and
-pktdma_setup_resources is largely shared between all K3 UDMA variants
-with the only major difference being SCI resources setup. So,
-- Move the functions to k3-udma-common.c.
-- Split SCI resource setup for bcdma and pktdma into separate functions
-  in variant specific driver (k3-udma.c).
-- Add function pointers for setup_sci_resources in udma_dev and call
-  them as part of the actual resource setup implementations in
-  k3-udma-common.c to retain the existing functionality.
-- Also since setup_resources call udma_setup_resources which is not
-  required for all K3 UDMA variants, Add a function pointer in udma_dev
-  and use that to call udma_setup_resources.
-
-This refactor improves code reuse and maintainability across multiple
-variants.
-
-No functional changes intended.
+Add PSIL and PDMA data for AM62Lx SoC.
 
 Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
 ---
- drivers/dma/ti/k3-udma-common.c | 204 ++++++++++++++++++++++++++++++++
- drivers/dma/ti/k3-udma.c        | 182 +---------------------------
- drivers/dma/ti/k3-udma.h        |   8 ++
- 3 files changed, 218 insertions(+), 176 deletions(-)
+ drivers/dma/ti/Makefile        |   3 +-
+ drivers/dma/ti/k3-psil-am62l.c | 132 +++++++++++++++++++++++++++++++++
+ drivers/dma/ti/k3-psil-priv.h  |   1 +
+ drivers/dma/ti/k3-psil.c       |   1 +
+ 4 files changed, 136 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/dma/ti/k3-psil-am62l.c
 
-diff --git a/drivers/dma/ti/k3-udma-common.c b/drivers/dma/ti/k3-udma-common.c
-index 882d27b3c9ee5..b419b23c401a1 100644
---- a/drivers/dma/ti/k3-udma-common.c
-+++ b/drivers/dma/ti/k3-udma-common.c
-@@ -8,7 +8,9 @@
- #include <linux/dmaengine.h>
- #include <linux/dma-mapping.h>
- #include <linux/dmapool.h>
-+#include <linux/of.h>
- #include <linux/platform_device.h>
-+#include <linux/soc/ti/ti_sci_inta_msi.h>
- #include <linux/soc/ti/k3-ringacc.h>
+diff --git a/drivers/dma/ti/Makefile b/drivers/dma/ti/Makefile
+index 3b91c02e55eaf..41bfba944dc6c 100644
+--- a/drivers/dma/ti/Makefile
++++ b/drivers/dma/ti/Makefile
+@@ -14,6 +14,7 @@ k3-psil-lib-objs := k3-psil.o \
+ 		    k3-psil-am62.o \
+ 		    k3-psil-am62a.o \
+ 		    k3-psil-j784s4.o \
+-		    k3-psil-am62p.o
++		    k3-psil-am62p.o \
++		    k3-psil-am62l.o
+ obj-$(CONFIG_TI_K3_PSIL) += k3-psil-lib.o
+ obj-$(CONFIG_TI_DMA_CROSSBAR) += dma-crossbar.o
+diff --git a/drivers/dma/ti/k3-psil-am62l.c b/drivers/dma/ti/k3-psil-am62l.c
+new file mode 100644
+index 0000000000000..45f5aac32f6a0
+--- /dev/null
++++ b/drivers/dma/ti/k3-psil-am62l.c
+@@ -0,0 +1,132 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ *  Copyright (C) 2024-2025 Texas Instruments Incorporated - https://www.ti.com
++ */
++
++#include <linux/kernel.h>
++
++#include "k3-psil-priv.h"
++
++#define PSIL_PDMA_XY_TR(x, ch)					\
++	{							\
++		.thread_id = x,					\
++		.ep_config = {					\
++			.ep_type = PSIL_EP_PDMA_XY,		\
++			.mapped_channel_id = ch,		\
++			.default_flow_id = -1,			\
++		},						\
++	}
++
++#define PSIL_PDMA_XY_PKT(x, ch)					\
++	{							\
++		.thread_id = x,					\
++		.ep_config = {					\
++			.ep_type = PSIL_EP_PDMA_XY,		\
++			.mapped_channel_id = ch,		\
++			.pkt_mode = 1,				\
++			.default_flow_id = -1			\
++		},						\
++	}
++
++#define PSIL_ETHERNET(x, ch, flow_base, flow_cnt)		\
++	{							\
++		.thread_id = x,					\
++		.ep_config = {					\
++			.ep_type = PSIL_EP_NATIVE,		\
++			.pkt_mode = 1,				\
++			.needs_epib = 1,			\
++			.psd_size = 16,				\
++			.mapped_channel_id = ch,		\
++			.flow_start = flow_base,		\
++			.flow_num = flow_cnt,			\
++			.default_flow_id = flow_base,		\
++		},						\
++	}
++
++#define PSIL_PDMA_MCASP(x, ch)				\
++	{						\
++		.thread_id = x,				\
++		.ep_config = {				\
++			.ep_type = PSIL_EP_PDMA_XY,	\
++			.pdma_acc32 = 1,		\
++			.pdma_burst = 1,		\
++			.mapped_channel_id = ch,	\
++		},					\
++	}
++
++/* PSI-L source thread IDs, used for RX (DMA_DEV_TO_MEM) */
++static struct psil_ep am62l_src_ep_map[] = {
++	/* PDMA_MAIN1 - UART0-6 */
++	PSIL_PDMA_XY_PKT(0x4400, 0),
++	PSIL_PDMA_XY_PKT(0x4401, 2),
++	PSIL_PDMA_XY_PKT(0x4402, 4),
++	PSIL_PDMA_XY_PKT(0x4403, 6),
++	PSIL_PDMA_XY_PKT(0x4404, 8),
++	PSIL_PDMA_XY_PKT(0x4405, 10),
++	PSIL_PDMA_XY_PKT(0x4406, 12),
++	/* PDMA_MAIN0 - SPI0 - CH0-3 */
++	PSIL_PDMA_XY_TR(0x4300, 16),
++	/* PDMA_MAIN0 - SPI1 - CH0-3 */
++	PSIL_PDMA_XY_TR(0x4301, 24),
++	/* PDMA_MAIN0 - SPI2 - CH0-3 */
++	PSIL_PDMA_XY_TR(0x4302, 32),
++	/* PDMA_MAIN0 - SPI3 - CH0-3 */
++	PSIL_PDMA_XY_TR(0x4303, 40),
++	/* PDMA_MAIN2 - MCASP0-2 */
++	PSIL_PDMA_MCASP(0x4500, 48),
++	PSIL_PDMA_MCASP(0x4501, 50),
++	PSIL_PDMA_MCASP(0x4502, 52),
++	/* PDMA_MAIN0 - AES */
++	PSIL_PDMA_XY_TR(0x4700, 65),
++	/* PDMA_MAIN0 - ADC */
++	PSIL_PDMA_XY_TR(0x4503, 80),
++	PSIL_PDMA_XY_TR(0x4504, 81),
++	PSIL_ETHERNET(0x4600, 96, 96, 16),
++};
++
++/* PSI-L destination thread IDs, used for TX (DMA_MEM_TO_DEV) */
++static struct psil_ep am62l_dst_ep_map[] = {
++	/* PDMA_MAIN1 - UART0-6 */
++	PSIL_PDMA_XY_PKT(0xC400, 1),
++	PSIL_PDMA_XY_PKT(0xC401, 3),
++	PSIL_PDMA_XY_PKT(0xC402, 5),
++	PSIL_PDMA_XY_PKT(0xC403, 7),
++	PSIL_PDMA_XY_PKT(0xC404, 9),
++	PSIL_PDMA_XY_PKT(0xC405, 11),
++	PSIL_PDMA_XY_PKT(0xC406, 13),
++	/* PDMA_MAIN0 - SPI0 - CH0-3 */
++	PSIL_PDMA_XY_TR(0xC300, 17),
++	/* PDMA_MAIN0 - SPI1 - CH0-3 */
++	PSIL_PDMA_XY_TR(0xC301, 25),
++	/* PDMA_MAIN0 - SPI2 - CH0-3 */
++	PSIL_PDMA_XY_TR(0xC302, 33),
++	/* PDMA_MAIN0 - SPI3 - CH0-3 */
++	PSIL_PDMA_XY_TR(0xC303, 41),
++	/* PDMA_MAIN2 - MCASP0-2 */
++	PSIL_PDMA_MCASP(0xC500, 49),
++	PSIL_PDMA_MCASP(0xC501, 51),
++	PSIL_PDMA_MCASP(0xC502, 53),
++	/* PDMA_MAIN0 - SHA */
++	PSIL_PDMA_XY_TR(0xC700, 64),
++	/* PDMA_MAIN0 - AES */
++	PSIL_PDMA_XY_TR(0xC701, 66),
++	/* PDMA_MAIN0 - CRC32 - CH0-1 */
++	PSIL_PDMA_XY_TR(0xC702, 67),
++	/* CPSW3G */
++	PSIL_ETHERNET(0xc600, 64, 64, 2),
++	PSIL_ETHERNET(0xc601, 66, 66, 2),
++	PSIL_ETHERNET(0xc602, 68, 68, 2),
++	PSIL_ETHERNET(0xc603, 70, 70, 2),
++	PSIL_ETHERNET(0xc604, 72, 72, 2),
++	PSIL_ETHERNET(0xc605, 74, 74, 2),
++	PSIL_ETHERNET(0xc606, 76, 76, 2),
++	PSIL_ETHERNET(0xc607, 78, 78, 2),
++};
++
++struct psil_ep_map am62l_ep_map = {
++	.name = "am62l",
++	.src = am62l_src_ep_map,
++	.src_count = ARRAY_SIZE(am62l_src_ep_map),
++	.dst = am62l_dst_ep_map,
++	.dst_count = ARRAY_SIZE(am62l_dst_ep_map),
++};
+diff --git a/drivers/dma/ti/k3-psil-priv.h b/drivers/dma/ti/k3-psil-priv.h
+index a577be97e3447..961b73df7a6bb 100644
+--- a/drivers/dma/ti/k3-psil-priv.h
++++ b/drivers/dma/ti/k3-psil-priv.h
+@@ -46,5 +46,6 @@ extern struct psil_ep_map am62_ep_map;
+ extern struct psil_ep_map am62a_ep_map;
+ extern struct psil_ep_map j784s4_ep_map;
+ extern struct psil_ep_map am62p_ep_map;
++extern struct psil_ep_map am62l_ep_map;
  
- #include "k3-udma.h"
-@@ -2333,5 +2335,207 @@ void bcdma_free_bchan_resources(struct udma_chan *uc)
- }
- EXPORT_SYMBOL_GPL(bcdma_free_bchan_resources);
- 
-+int bcdma_setup_resources(struct udma_dev *ud)
-+{
-+	int ret;
-+	struct device *dev = ud->dev;
-+	u32 cap;
-+
-+	/* Set up the throughput level start indexes */
-+	cap = udma_read(ud->mmrs[MMR_GCFG], 0x2c);
-+	if (BCDMA_CAP3_UBCHAN_CNT(cap)) {
-+		ud->bchan_tpl.levels = 3;
-+		ud->bchan_tpl.start_idx[1] = BCDMA_CAP3_UBCHAN_CNT(cap);
-+		ud->bchan_tpl.start_idx[0] = BCDMA_CAP3_HBCHAN_CNT(cap);
-+	} else if (BCDMA_CAP3_HBCHAN_CNT(cap)) {
-+		ud->bchan_tpl.levels = 2;
-+		ud->bchan_tpl.start_idx[0] = BCDMA_CAP3_HBCHAN_CNT(cap);
-+	} else {
-+		ud->bchan_tpl.levels = 1;
-+	}
-+
-+	cap = udma_read(ud->mmrs[MMR_GCFG], 0x30);
-+	if (BCDMA_CAP4_URCHAN_CNT(cap)) {
-+		ud->rchan_tpl.levels = 3;
-+		ud->rchan_tpl.start_idx[1] = BCDMA_CAP4_URCHAN_CNT(cap);
-+		ud->rchan_tpl.start_idx[0] = BCDMA_CAP4_HRCHAN_CNT(cap);
-+	} else if (BCDMA_CAP4_HRCHAN_CNT(cap)) {
-+		ud->rchan_tpl.levels = 2;
-+		ud->rchan_tpl.start_idx[0] = BCDMA_CAP4_HRCHAN_CNT(cap);
-+	} else {
-+		ud->rchan_tpl.levels = 1;
-+	}
-+
-+	if (BCDMA_CAP4_UTCHAN_CNT(cap)) {
-+		ud->tchan_tpl.levels = 3;
-+		ud->tchan_tpl.start_idx[1] = BCDMA_CAP4_UTCHAN_CNT(cap);
-+		ud->tchan_tpl.start_idx[0] = BCDMA_CAP4_HTCHAN_CNT(cap);
-+	} else if (BCDMA_CAP4_HTCHAN_CNT(cap)) {
-+		ud->tchan_tpl.levels = 2;
-+		ud->tchan_tpl.start_idx[0] = BCDMA_CAP4_HTCHAN_CNT(cap);
-+	} else {
-+		ud->tchan_tpl.levels = 1;
-+	}
-+
-+	ud->bchan_map = devm_kmalloc_array(dev, BITS_TO_LONGS(ud->bchan_cnt),
-+					   sizeof(unsigned long), GFP_KERNEL);
-+	ud->bchans = devm_kcalloc(dev, ud->bchan_cnt, sizeof(*ud->bchans),
-+				  GFP_KERNEL);
-+	ud->tchan_map = devm_kmalloc_array(dev, BITS_TO_LONGS(ud->tchan_cnt),
-+					   sizeof(unsigned long), GFP_KERNEL);
-+	ud->tchans = devm_kcalloc(dev, ud->tchan_cnt, sizeof(*ud->tchans),
-+				  GFP_KERNEL);
-+	ud->rchan_map = devm_kmalloc_array(dev, BITS_TO_LONGS(ud->rchan_cnt),
-+					   sizeof(unsigned long), GFP_KERNEL);
-+	ud->rchans = devm_kcalloc(dev, ud->rchan_cnt, sizeof(*ud->rchans),
-+				  GFP_KERNEL);
-+	/* BCDMA do not really have flows, but the driver expect it */
-+	ud->rflow_in_use = devm_kcalloc(dev, BITS_TO_LONGS(ud->rchan_cnt),
-+					sizeof(unsigned long),
-+					GFP_KERNEL);
-+	ud->rflows = devm_kcalloc(dev, ud->rchan_cnt, sizeof(*ud->rflows),
-+				  GFP_KERNEL);
-+
-+	if (!ud->bchan_map || !ud->tchan_map || !ud->rchan_map ||
-+	    !ud->rflow_in_use || !ud->bchans || !ud->tchans || !ud->rchans ||
-+	    !ud->rflows)
-+		return -ENOMEM;
-+
-+	if (ud->bcdma_setup_sci_resources) {
-+		ret = ud->bcdma_setup_sci_resources(ud);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+int pktdma_setup_resources(struct udma_dev *ud)
-+{
-+	int ret;
-+	struct device *dev = ud->dev;
-+	u32 cap3;
-+
-+	/* Set up the throughput level start indexes */
-+	cap3 = udma_read(ud->mmrs[MMR_GCFG], 0x2c);
-+	if (UDMA_CAP3_UCHAN_CNT(cap3)) {
-+		ud->tchan_tpl.levels = 3;
-+		ud->tchan_tpl.start_idx[1] = UDMA_CAP3_UCHAN_CNT(cap3);
-+		ud->tchan_tpl.start_idx[0] = UDMA_CAP3_HCHAN_CNT(cap3);
-+	} else if (UDMA_CAP3_HCHAN_CNT(cap3)) {
-+		ud->tchan_tpl.levels = 2;
-+		ud->tchan_tpl.start_idx[0] = UDMA_CAP3_HCHAN_CNT(cap3);
-+	} else {
-+		ud->tchan_tpl.levels = 1;
-+	}
-+
-+	ud->rchan_tpl.levels = ud->tchan_tpl.levels;
-+	ud->rchan_tpl.start_idx[0] = ud->tchan_tpl.start_idx[0];
-+	ud->rchan_tpl.start_idx[1] = ud->tchan_tpl.start_idx[1];
-+
-+	ud->tchan_map = devm_kmalloc_array(dev, BITS_TO_LONGS(ud->tchan_cnt),
-+					   sizeof(unsigned long), GFP_KERNEL);
-+	ud->tchans = devm_kcalloc(dev, ud->tchan_cnt, sizeof(*ud->tchans),
-+				  GFP_KERNEL);
-+	ud->rchan_map = devm_kmalloc_array(dev, BITS_TO_LONGS(ud->rchan_cnt),
-+					   sizeof(unsigned long), GFP_KERNEL);
-+	ud->rchans = devm_kcalloc(dev, ud->rchan_cnt, sizeof(*ud->rchans),
-+				  GFP_KERNEL);
-+	ud->rflow_in_use = devm_kcalloc(dev, BITS_TO_LONGS(ud->rflow_cnt),
-+					sizeof(unsigned long),
-+					GFP_KERNEL);
-+	ud->rflows = devm_kcalloc(dev, ud->rflow_cnt, sizeof(*ud->rflows),
-+				  GFP_KERNEL);
-+	ud->tflow_map = devm_kmalloc_array(dev, BITS_TO_LONGS(ud->tflow_cnt),
-+					   sizeof(unsigned long), GFP_KERNEL);
-+
-+	if (!ud->tchan_map || !ud->rchan_map || !ud->tflow_map || !ud->tchans ||
-+	    !ud->rchans || !ud->rflows || !ud->rflow_in_use)
-+		return -ENOMEM;
-+
-+	if (ud->pktdma_setup_sci_resources) {
-+		ret = ud->pktdma_setup_sci_resources(ud);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+int setup_resources(struct udma_dev *ud)
-+{
-+	struct device *dev = ud->dev;
-+	int ch_count, ret;
-+
-+	switch (ud->match_data->type) {
-+	case DMA_TYPE_UDMA:
-+		ret = ud->udma_setup_resources(ud);
-+		break;
-+	case DMA_TYPE_BCDMA:
-+		ret = bcdma_setup_resources(ud);
-+		break;
-+	case DMA_TYPE_PKTDMA:
-+		ret = pktdma_setup_resources(ud);
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	if (ret)
-+		return ret;
-+
-+	ch_count  = ud->bchan_cnt + ud->tchan_cnt + ud->rchan_cnt;
-+	if (ud->bchan_cnt)
-+		ch_count -= bitmap_weight(ud->bchan_map, ud->bchan_cnt);
-+	ch_count -= bitmap_weight(ud->tchan_map, ud->tchan_cnt);
-+	ch_count -= bitmap_weight(ud->rchan_map, ud->rchan_cnt);
-+	if (!ch_count)
-+		return -ENODEV;
-+
-+	ud->channels = devm_kcalloc(dev, ch_count, sizeof(*ud->channels),
-+				    GFP_KERNEL);
-+	if (!ud->channels)
-+		return -ENOMEM;
-+
-+	switch (ud->match_data->type) {
-+	case DMA_TYPE_UDMA:
-+		dev_info(dev,
-+			 "Channels: %d (tchan: %u, rchan: %u, gp-rflow: %u)\n",
-+			 ch_count,
-+			 ud->tchan_cnt - bitmap_weight(ud->tchan_map,
-+						       ud->tchan_cnt),
-+			 ud->rchan_cnt - bitmap_weight(ud->rchan_map,
-+						       ud->rchan_cnt),
-+			 ud->rflow_cnt - bitmap_weight(ud->rflow_gp_map,
-+						       ud->rflow_cnt));
-+		break;
-+	case DMA_TYPE_BCDMA:
-+		dev_info(dev,
-+			 "Channels: %d (bchan: %u, tchan: %u, rchan: %u)\n",
-+			 ch_count,
-+			 ud->bchan_cnt - bitmap_weight(ud->bchan_map,
-+						       ud->bchan_cnt),
-+			 ud->tchan_cnt - bitmap_weight(ud->tchan_map,
-+						       ud->tchan_cnt),
-+			 ud->rchan_cnt - bitmap_weight(ud->rchan_map,
-+						       ud->rchan_cnt));
-+		break;
-+	case DMA_TYPE_PKTDMA:
-+		dev_info(dev,
-+			 "Channels: %d (tchan: %u, rchan: %u)\n",
-+			 ch_count,
-+			 ud->tchan_cnt - bitmap_weight(ud->tchan_map,
-+						       ud->tchan_cnt),
-+			 ud->rchan_cnt - bitmap_weight(ud->rchan_map,
-+						       ud->rchan_cnt));
-+		break;
-+	default:
-+		break;
-+	}
-+
-+	return ch_count;
-+}
-+EXPORT_SYMBOL_GPL(setup_resources);
-+
- MODULE_DESCRIPTION("Texas Instruments K3 UDMA Common Library");
- MODULE_LICENSE("GPL v2");
-diff --git a/drivers/dma/ti/k3-udma.c b/drivers/dma/ti/k3-udma.c
-index 753acf1e13fa2..d9d6cbda46b2c 100644
---- a/drivers/dma/ti/k3-udma.c
-+++ b/drivers/dma/ti/k3-udma.c
-@@ -2083,7 +2083,7 @@ static const char * const range_names[] = {
- 	[RM_RANGE_TFLOW] = "ti,sci-rm-range-tflow",
+ #endif /* K3_PSIL_PRIV_H_ */
+diff --git a/drivers/dma/ti/k3-psil.c b/drivers/dma/ti/k3-psil.c
+index c4b6f0df46861..2a843f36261bc 100644
+--- a/drivers/dma/ti/k3-psil.c
++++ b/drivers/dma/ti/k3-psil.c
+@@ -28,6 +28,7 @@ static const struct soc_device_attribute k3_soc_devices[] = {
+ 	{ .family = "J784S4", .data = &j784s4_ep_map },
+ 	{ .family = "AM62PX", .data = &am62p_ep_map },
+ 	{ .family = "J722S", .data = &am62p_ep_map },
++	{ .family = "AM62LX", .data = &am62l_ep_map },
+ 	{ /* sentinel */ }
  };
  
--static int udma_setup_resources(struct udma_dev *ud)
-+int udma_setup_resources(struct udma_dev *ud)
- {
- 	int ret, i, j;
- 	struct device *dev = ud->dev;
-@@ -2245,74 +2245,13 @@ static int udma_setup_resources(struct udma_dev *ud)
- 	return 0;
- }
- 
--static int bcdma_setup_resources(struct udma_dev *ud)
-+static int bcdma_setup_sci_resources(struct udma_dev *ud)
- {
- 	int ret, i, j;
- 	struct device *dev = ud->dev;
- 	struct ti_sci_resource *rm_res, irq_res;
- 	struct udma_tisci_rm *tisci_rm = &ud->tisci_rm;
- 	const struct udma_oes_offsets *oes = &ud->soc_data->oes;
--	u32 cap;
--
--	/* Set up the throughput level start indexes */
--	cap = udma_read(ud->mmrs[MMR_GCFG], 0x2c);
--	if (BCDMA_CAP3_UBCHAN_CNT(cap)) {
--		ud->bchan_tpl.levels = 3;
--		ud->bchan_tpl.start_idx[1] = BCDMA_CAP3_UBCHAN_CNT(cap);
--		ud->bchan_tpl.start_idx[0] = BCDMA_CAP3_HBCHAN_CNT(cap);
--	} else if (BCDMA_CAP3_HBCHAN_CNT(cap)) {
--		ud->bchan_tpl.levels = 2;
--		ud->bchan_tpl.start_idx[0] = BCDMA_CAP3_HBCHAN_CNT(cap);
--	} else {
--		ud->bchan_tpl.levels = 1;
--	}
--
--	cap = udma_read(ud->mmrs[MMR_GCFG], 0x30);
--	if (BCDMA_CAP4_URCHAN_CNT(cap)) {
--		ud->rchan_tpl.levels = 3;
--		ud->rchan_tpl.start_idx[1] = BCDMA_CAP4_URCHAN_CNT(cap);
--		ud->rchan_tpl.start_idx[0] = BCDMA_CAP4_HRCHAN_CNT(cap);
--	} else if (BCDMA_CAP4_HRCHAN_CNT(cap)) {
--		ud->rchan_tpl.levels = 2;
--		ud->rchan_tpl.start_idx[0] = BCDMA_CAP4_HRCHAN_CNT(cap);
--	} else {
--		ud->rchan_tpl.levels = 1;
--	}
--
--	if (BCDMA_CAP4_UTCHAN_CNT(cap)) {
--		ud->tchan_tpl.levels = 3;
--		ud->tchan_tpl.start_idx[1] = BCDMA_CAP4_UTCHAN_CNT(cap);
--		ud->tchan_tpl.start_idx[0] = BCDMA_CAP4_HTCHAN_CNT(cap);
--	} else if (BCDMA_CAP4_HTCHAN_CNT(cap)) {
--		ud->tchan_tpl.levels = 2;
--		ud->tchan_tpl.start_idx[0] = BCDMA_CAP4_HTCHAN_CNT(cap);
--	} else {
--		ud->tchan_tpl.levels = 1;
--	}
--
--	ud->bchan_map = devm_kmalloc_array(dev, BITS_TO_LONGS(ud->bchan_cnt),
--					   sizeof(unsigned long), GFP_KERNEL);
--	ud->bchans = devm_kcalloc(dev, ud->bchan_cnt, sizeof(*ud->bchans),
--				  GFP_KERNEL);
--	ud->tchan_map = devm_kmalloc_array(dev, BITS_TO_LONGS(ud->tchan_cnt),
--					   sizeof(unsigned long), GFP_KERNEL);
--	ud->tchans = devm_kcalloc(dev, ud->tchan_cnt, sizeof(*ud->tchans),
--				  GFP_KERNEL);
--	ud->rchan_map = devm_kmalloc_array(dev, BITS_TO_LONGS(ud->rchan_cnt),
--					   sizeof(unsigned long), GFP_KERNEL);
--	ud->rchans = devm_kcalloc(dev, ud->rchan_cnt, sizeof(*ud->rchans),
--				  GFP_KERNEL);
--	/* BCDMA do not really have flows, but the driver expect it */
--	ud->rflow_in_use = devm_kcalloc(dev, BITS_TO_LONGS(ud->rchan_cnt),
--					sizeof(unsigned long),
--					GFP_KERNEL);
--	ud->rflows = devm_kcalloc(dev, ud->rchan_cnt, sizeof(*ud->rflows),
--				  GFP_KERNEL);
--
--	if (!ud->bchan_map || !ud->tchan_map || !ud->rchan_map ||
--	    !ud->rflow_in_use || !ud->bchans || !ud->tchans || !ud->rchans ||
--	    !ud->rflows)
--		return -ENOMEM;
- 
- 	/* Get resource ranges from tisci */
- 	for (i = 0; i < RM_RANGE_LAST; i++) {
-@@ -2476,51 +2415,13 @@ static int bcdma_setup_resources(struct udma_dev *ud)
- 	return 0;
- }
- 
--static int pktdma_setup_resources(struct udma_dev *ud)
-+static int pktdma_setup_sci_resources(struct udma_dev *ud)
- {
- 	int ret, i, j;
- 	struct device *dev = ud->dev;
- 	struct ti_sci_resource *rm_res, irq_res;
- 	struct udma_tisci_rm *tisci_rm = &ud->tisci_rm;
- 	const struct udma_oes_offsets *oes = &ud->soc_data->oes;
--	u32 cap3;
--
--	/* Set up the throughput level start indexes */
--	cap3 = udma_read(ud->mmrs[MMR_GCFG], 0x2c);
--	if (UDMA_CAP3_UCHAN_CNT(cap3)) {
--		ud->tchan_tpl.levels = 3;
--		ud->tchan_tpl.start_idx[1] = UDMA_CAP3_UCHAN_CNT(cap3);
--		ud->tchan_tpl.start_idx[0] = UDMA_CAP3_HCHAN_CNT(cap3);
--	} else if (UDMA_CAP3_HCHAN_CNT(cap3)) {
--		ud->tchan_tpl.levels = 2;
--		ud->tchan_tpl.start_idx[0] = UDMA_CAP3_HCHAN_CNT(cap3);
--	} else {
--		ud->tchan_tpl.levels = 1;
--	}
--
--	ud->rchan_tpl.levels = ud->tchan_tpl.levels;
--	ud->rchan_tpl.start_idx[0] = ud->tchan_tpl.start_idx[0];
--	ud->rchan_tpl.start_idx[1] = ud->tchan_tpl.start_idx[1];
--
--	ud->tchan_map = devm_kmalloc_array(dev, BITS_TO_LONGS(ud->tchan_cnt),
--					   sizeof(unsigned long), GFP_KERNEL);
--	ud->tchans = devm_kcalloc(dev, ud->tchan_cnt, sizeof(*ud->tchans),
--				  GFP_KERNEL);
--	ud->rchan_map = devm_kmalloc_array(dev, BITS_TO_LONGS(ud->rchan_cnt),
--					   sizeof(unsigned long), GFP_KERNEL);
--	ud->rchans = devm_kcalloc(dev, ud->rchan_cnt, sizeof(*ud->rchans),
--				  GFP_KERNEL);
--	ud->rflow_in_use = devm_kcalloc(dev, BITS_TO_LONGS(ud->rflow_cnt),
--					sizeof(unsigned long),
--					GFP_KERNEL);
--	ud->rflows = devm_kcalloc(dev, ud->rflow_cnt, sizeof(*ud->rflows),
--				  GFP_KERNEL);
--	ud->tflow_map = devm_kmalloc_array(dev, BITS_TO_LONGS(ud->tflow_cnt),
--					   sizeof(unsigned long), GFP_KERNEL);
--
--	if (!ud->tchan_map || !ud->rchan_map || !ud->tflow_map || !ud->tchans ||
--	    !ud->rchans || !ud->rflows || !ud->rflow_in_use)
--		return -ENOMEM;
- 
- 	/* Get resource ranges from tisci */
- 	for (i = 0; i < RM_RANGE_LAST; i++) {
-@@ -2631,80 +2532,6 @@ static int pktdma_setup_resources(struct udma_dev *ud)
- 	return 0;
- }
- 
--static int setup_resources(struct udma_dev *ud)
--{
--	struct device *dev = ud->dev;
--	int ch_count, ret;
--
--	switch (ud->match_data->type) {
--	case DMA_TYPE_UDMA:
--		ret = udma_setup_resources(ud);
--		break;
--	case DMA_TYPE_BCDMA:
--		ret = bcdma_setup_resources(ud);
--		break;
--	case DMA_TYPE_PKTDMA:
--		ret = pktdma_setup_resources(ud);
--		break;
--	default:
--		return -EINVAL;
--	}
--
--	if (ret)
--		return ret;
--
--	ch_count  = ud->bchan_cnt + ud->tchan_cnt + ud->rchan_cnt;
--	if (ud->bchan_cnt)
--		ch_count -= bitmap_weight(ud->bchan_map, ud->bchan_cnt);
--	ch_count -= bitmap_weight(ud->tchan_map, ud->tchan_cnt);
--	ch_count -= bitmap_weight(ud->rchan_map, ud->rchan_cnt);
--	if (!ch_count)
--		return -ENODEV;
--
--	ud->channels = devm_kcalloc(dev, ch_count, sizeof(*ud->channels),
--				    GFP_KERNEL);
--	if (!ud->channels)
--		return -ENOMEM;
--
--	switch (ud->match_data->type) {
--	case DMA_TYPE_UDMA:
--		dev_info(dev,
--			 "Channels: %d (tchan: %u, rchan: %u, gp-rflow: %u)\n",
--			 ch_count,
--			 ud->tchan_cnt - bitmap_weight(ud->tchan_map,
--						       ud->tchan_cnt),
--			 ud->rchan_cnt - bitmap_weight(ud->rchan_map,
--						       ud->rchan_cnt),
--			 ud->rflow_cnt - bitmap_weight(ud->rflow_gp_map,
--						       ud->rflow_cnt));
--		break;
--	case DMA_TYPE_BCDMA:
--		dev_info(dev,
--			 "Channels: %d (bchan: %u, tchan: %u, rchan: %u)\n",
--			 ch_count,
--			 ud->bchan_cnt - bitmap_weight(ud->bchan_map,
--						       ud->bchan_cnt),
--			 ud->tchan_cnt - bitmap_weight(ud->tchan_map,
--						       ud->tchan_cnt),
--			 ud->rchan_cnt - bitmap_weight(ud->rchan_map,
--						       ud->rchan_cnt));
--		break;
--	case DMA_TYPE_PKTDMA:
--		dev_info(dev,
--			 "Channels: %d (tchan: %u, rchan: %u)\n",
--			 ch_count,
--			 ud->tchan_cnt - bitmap_weight(ud->tchan_map,
--						       ud->tchan_cnt),
--			 ud->rchan_cnt - bitmap_weight(ud->rchan_map,
--						       ud->rchan_cnt));
--		break;
--	default:
--		break;
--	}
--
--	return ch_count;
--}
--
- static int udma_probe(struct platform_device *pdev)
- {
- 	struct device_node *navss_node = pdev->dev.parent->of_node;
-@@ -2747,6 +2574,9 @@ static int udma_probe(struct platform_device *pdev)
- 	ud->decrement_byte_counters = udma_decrement_byte_counters;
- 	ud->psil_pair = navss_psil_pair;
- 	ud->psil_unpair = navss_psil_unpair;
-+	ud->udma_setup_resources = udma_setup_resources;
-+	ud->bcdma_setup_sci_resources = bcdma_setup_sci_resources;
-+	ud->pktdma_setup_sci_resources = pktdma_setup_sci_resources;
- 
- 	ret = udma_get_mmrs(pdev, ud);
- 	if (ret)
-diff --git a/drivers/dma/ti/k3-udma.h b/drivers/dma/ti/k3-udma.h
-index e4b512d9ffb2e..6a95eb1ece064 100644
---- a/drivers/dma/ti/k3-udma.h
-+++ b/drivers/dma/ti/k3-udma.h
-@@ -353,6 +353,9 @@ struct udma_dev {
- 			 u32 dst_thread);
- 	int (*psil_unpair)(struct udma_dev *ud, u32 src_thread,
- 			   u32 dst_thread);
-+	int (*udma_setup_resources)(struct udma_dev *ud);
-+	int (*bcdma_setup_sci_resources)(struct udma_dev *ud);
-+	int (*pktdma_setup_sci_resources)(struct udma_dev *ud);
- };
- 
- struct udma_desc {
-@@ -675,6 +678,11 @@ struct udma_bchan *__udma_reserve_bchan(struct udma_dev *ud, enum udma_tp_level
- struct udma_tchan *__udma_reserve_tchan(struct udma_dev *ud, enum udma_tp_level tpl, int id);
- struct udma_rchan *__udma_reserve_rchan(struct udma_dev *ud, enum udma_tp_level tpl, int id);
- 
-+int udma_setup_resources(struct udma_dev *ud);
-+int bcdma_setup_resources(struct udma_dev *ud);
-+int pktdma_setup_resources(struct udma_dev *ud);
-+int setup_resources(struct udma_dev *ud);
-+
- /* Direct access to UDMA low lever resources for the glue layer */
- int xudma_navss_psil_pair(struct udma_dev *ud, u32 src_thread, u32 dst_thread);
- int xudma_navss_psil_unpair(struct udma_dev *ud, u32 src_thread,
 -- 
 2.53.0
 
