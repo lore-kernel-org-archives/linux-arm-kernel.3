@@ -4,138 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF5C4FF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 15:12:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A620FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 15:20:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:From:To:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K0c+qrs/gClkxq5tXcm9hTzsCZbcAtpodGQaBqTNm8o=; b=CxdjcYZY7YrUj+64iy5DfSBWH6
-	BfFN8p0ipVeCsPr8kEiseuIKy9cymHIy+Qj8mO9jz40/JVD90375cHZx25ex++JF+Y+c6nfOu2BY3
-	e97JVwmd0Ci27Bg7fNO/NFgo7gqh4x8hsJj4dJ2TbxBuUatS7wu1aEurYbF7Q42Pu11BMBYeZ+Tic
-	5+xkxKDjSqbNhL99nz0VAql+gu2+fE26Pfm2JeWQKyCXaFTrER8crQ9UK73F4a+eBWq6darIkbNsf
-	L9uO5v6APEVsum2RRqar6qcJ5JDCwM4fLzoHpAquJdzrc2IyOxAg9zvRR8hyPHHN78GM8H5E+a4VE
-	urhXkH4g==;
+	bh=RAgbK/PFrZxkYcwrI5Pr+C2og+72bnYc7J9cHzu5HUQ=; b=XBGy0hGpQCfAf1KELLi8LEp2wv
+	833W03mahrpMVUXmPEOxgZ5cyPCoCHsBypfKF0s9x4IVbWAOU8vYYzCi7OhtUjnuCl+GvrD9riVt1
+	fhLbX2OVzuKp4BoZLb2GAPjhPfoopDNJW2qh+Mtm9/PU6eX8GdjIfYDgNIXuIquxXoMLhkWmQbImQ
+	Y8F8I3yR9QCTxRZS2npW+awxvMm8HyyanSOHKf9HTV4w4bhAhrL838Gwl2LkW7u41equ95PIofVg1
+	O09emqCk2OA2Ip/mQ+MVlb+/8ZmroKN78/JznySn4S+7zsDx2JSSpb18xsSkJLQaJwM5PwwLCfxDd
+	5F0pQ8VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHk6M-00000001iLP-34Tw;
-	Tue, 28 Apr 2026 15:11:54 +0000
-Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1wHkE8-00000001isW-1uXO;
+	Tue, 28 Apr 2026 15:19:56 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHk6J-00000001iL2-1b3I
+	id 1wHkE4-00000001irm-37R6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 15:11:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KQTS6Akx8e5lJdZKsXDT9hgdHx0oidbkLH58HKSIgxbBaft+H66C4RzOPpYpYfflTfJ3lHsgmNhFTODMwsZqx+SJhFnWAE6wXJhftLwnLciyU7ITf1cviCjri5kjc443zCoNd8MUmqu8bpsOnNYkKStg8OJd/LhO/LHtsq1cqE9L2/j5/7FCHy/G6uOHlPApXp6T4An98znT9TDFqZ2Tl+FLSqPAoND6m6IvOVzpg6WqZazs4vEOx5q9mL1kQ84/RX4cd+n8XCTddJmszLZ2iYtbgjIuyIJobTkfXhi8BtZbrcwAPpuLer+5wzbx05WaitEToPjasbsRiDiiiRXaDw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=K0c+qrs/gClkxq5tXcm9hTzsCZbcAtpodGQaBqTNm8o=;
- b=g7Z386TzHpJi+ot375VInO3rV8Xp77Biye4DWHLQ1fUKkFH/oVLxohcGe98PUq+eQ2uZ8TaIl/Vft01iwlH6P/dT9zuPFXu4NKoxGopSuyJ5FjcS6RJihG5DFyhFHmMakQC8ZzEKSssQWMrPExD1sctRlVX1eBZHY6X9f515253sw0FYBXLGbHL/UreQe73u4jt+dDqD5D8sFHWg9vFNNgajTb+zBSMCKhGaB0IirOAxBEgf/IiLGqBsMyPoPH9pm/h9qQpylSZ8qJGOGFOREBrDIeUORlzm8HpR7D1HnMEuqmeO5GpHKxRrRIbULFH1gT4a1HxeFNoeEEZRDlVVvg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=lunn.ch smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=K0c+qrs/gClkxq5tXcm9hTzsCZbcAtpodGQaBqTNm8o=;
- b=FipIaiMKuf6G8RaqN9zPdLQZbo0EnbyMyHx551RcVANun5FrMcXVd4sYxbsAx08twZmUkihH9xv/4MtAPxI3wWK7fcQtSthnGXI3Ra8tql/iUClFKudQjTrIy01Wd+nsMMFbsuTOdlV9bTPDIDMJpAZXcP1uOHQ+LVEla3o/6Zs=
-Received: from BYAPR02CA0050.namprd02.prod.outlook.com (2603:10b6:a03:54::27)
- by DM3PPF3F503E3E3.namprd10.prod.outlook.com (2603:10b6:f:fc00::c21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Tue, 28 Apr
- 2026 15:11:38 +0000
-Received: from CO1PEPF00012E64.namprd05.prod.outlook.com
- (2603:10b6:a03:54:cafe::7b) by BYAPR02CA0050.outlook.office365.com
- (2603:10b6:a03:54::27) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.27 via Frontend Transport; Tue,
- 28 Apr 2026 15:11:38 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- CO1PEPF00012E64.mail.protection.outlook.com (10.167.249.73) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9846.18 via Frontend Transport; Tue, 28 Apr 2026 15:11:38 +0000
-Received: from DLEE211.ent.ti.com (157.170.170.113) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 28 Apr
- 2026 10:11:37 -0500
-Received: from DLEE200.ent.ti.com (157.170.170.75) by DLEE211.ent.ti.com
- (157.170.170.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 28 Apr
- 2026 10:11:37 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE200.ent.ti.com
- (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 28 Apr 2026 10:11:37 -0500
-Received: from [10.249.130.12] ([10.249.130.12])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 63SFBSel1195788;
-	Tue, 28 Apr 2026 10:11:29 -0500
-Message-ID: <32c119af-96ad-4da0-86f2-cdc4ba57ef0b@ti.com>
-Date: Tue, 28 Apr 2026 20:41:27 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [EXT] Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO
- driver
-To: Shenwei Wang <shenwei.wang@nxp.com>, Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>, Jonathan Corbet <corbet@lwn.net>, "Rob
- Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
-	"Mathieu Poirier" <mathieu.poirier@linaro.org>, Frank Li <frank.li@nxp.com>,
-	"Sascha Hauer" <s.hauer@pengutronix.de>
-CC: Shuah Khan <skhan@linuxfoundation.org>, "linux-gpio@vger.kernel.org"
-	<linux-gpio@vger.kernel.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng Fan
-	<peng.fan@nxp.com>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-remoteproc@vger.kernel.org"
-	<linux-remoteproc@vger.kernel.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>, Andrew Lunn <andrew@lunn.ch>
-References: <20260422212849.1240591-1-shenwei.wang@nxp.com>
- <20260422212849.1240591-4-shenwei.wang@nxp.com>
- <22fb5fac-2568-42be-a7e3-7e89d0017eb3@ti.com>
- <PAXPR04MB91850A11C58419C03909145F89362@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <29485742-6e49-482e-b73d-228295daaeec@ti.com>
- <PAXPR04MB918568939EC7DAEB4BB6C8F989372@PAXPR04MB9185.eurprd04.prod.outlook.com>
-Content-Language: en-US
-From: "Padhi, Beleswar" <b-padhi@ti.com>
-In-Reply-To: <PAXPR04MB918568939EC7DAEB4BB6C8F989372@PAXPR04MB9185.eurprd04.prod.outlook.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF00012E64:EE_|DM3PPF3F503E3E3:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0106b3d0-ef24-49e4-75d1-08dea5387214
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700016|7416014|1800799024|56012099003|18002099003|22082099003|921020;
-X-Microsoft-Antispam-Message-Info: FlyLp3yWrAZXBDlLKReKJdGAYPEfzPJQrEbgqZD8yHV9ELM6+9QHcnK+fB+J4ZJHcPRhNzSR/DsPNYR/4LmlMXG3oW43ej/jYa5QiWO37N9G59yVkwYpgfHy4c88h38mjBDM3vhz2MaW28d43Egl4rVYL8y5dUEHIC70XnR0OGjejjyxyOAESnj6P5lQ3kocQ0fHnOgULaj1aSmH3Z5WgAS5Nc6zbkHyYhouhxN8xDs8jIHtY3FlaQASZioeB3OTpdnAOBcveai2KebK4RJuYci4QvYjz0Juo1C3ZrkYBlIcTMo5XedrsU9FRGK7NfC1Nr7NJTTPYUbtrVNw36dG7LeZMg3M6V38pFDGhWOzOYX1XRS6GyBDaGPfp2gI1p9T2aixNCPgZkQH3JzPTPM4bpD/tZdxeqg17P/SBv7bggVc2dDgrn5xfSnwvJcdoVNU+Um0ClRISHQ3/Mw4TbWuYZWG5oLlkFOuDVHb/Zxb3H1C1iYR6ZeItIN5+GdH/K7ybkNDvP894+era3RgBKNBdSFDGAoCIz/2nxqHFgUnEkhoID97aVhLWAV+fZQ0I4pA1JKkxaRVT79POrD0HPSU/MUIars61hNUOUjXUM8MOE6mjo814Tx3/+Okpqx+usMZsowAr2hYOu2ohnsE5fy24wLcPaPwCdQsLS4M1Dwx8DZTcPEAQUJv/3e0fgAu5gXTXMotFi/MgYWNaTbReauM+rRRCvS7Kghy+PjRNcfd8x3OQ0uZRvYN7yMSAAslHjrVIeBZUNuANF9PwmZSIRRtsqVwx8W8ubJFgB9sqXm/Sjz76/k6CCZOyWiObJt2k1JI
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700016)(7416014)(1800799024)(56012099003)(18002099003)(22082099003)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 15IchVaeXB35DYOSULofuzjNXMYdFPuNq5Vieos2zAKAkWDC1/MFKYVQZtSc9Va+poMYZvmQLuNSQfxnVMqqpV96iJZNVUbxO3citwAh0hIr/aO8K6mDTv/gUAyv135eXm9LhFDc3FzIezCR2a2vMcLEeIKUflYyikGsdyXRqpzNqaHz27wzb6qqoQbJl5DkeoSQ9hKOikxZJSQy/9IMw9W+cVtTsImnQHp8Mu0jA0LJaJTQEcDGOcOOiwEleUHwVh2KKpQXTHR8j/IlQosssiTh9SxTATg4FVK7h5xoPTNPJNOVX1IxsiiZpUcuhzg8VvGVWphfBL/LANRnkvgMIsSh4vMVOEVakLVt4IUlKRV1GmD8WADh3WugAGvGjL2srqftugGpssTWhNauwSFj074g7MpHco1TrlslbbuaNJcPQwycFVntFXJuy5j/vAnG
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2026 15:11:38.2595
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0106b3d0-ef24-49e4-75d1-08dea5387214
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF00012E64.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PPF3F503E3E3
+	Tue, 28 Apr 2026 15:19:55 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 70C4B4E42B56;
+	Tue, 28 Apr 2026 15:19:48 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 405A9601D0;
+	Tue, 28 Apr 2026 15:19:48 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1450210728DF4;
+	Tue, 28 Apr 2026 17:19:33 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1777389585; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=RAgbK/PFrZxkYcwrI5Pr+C2og+72bnYc7J9cHzu5HUQ=;
+	b=gVVwineOM5SHRwLBuAnvbzeR1iW8sBeVyQOCO6ydDiC+I6Q6noSoS14xqbfcbsc6Bq+XMh
+	Jwt4B0Fpl3gGy3IymaPF/ZFT8FwKtuGn/v+SQ90iC48Uxw29etQeF8YLFXM3dVfjnyvU91
+	hg8zcXvJTlsYixVfQiKLFI+gcN+KJA7Kry+E1efUTE6iTJschzAPdGnz4DigimH/pzLS9X
+	KiRN1Qh6EHso0o/4V22kHeag1HWcNtY/MOmt7hj092mW1y6KB75TaUorTkoo2/VmrGw8xg
+	vKMzjq4xnXHQEXVNp/inBkeFygQdRZu48q2SMQElkOno5REAIgLdWi7rUD50ow==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 28 Apr 2026 17:19:32 +0200
+Message-Id: <DI4W0PE0FD0H.19OLT7KIRBT7H@bootlin.com>
+Cc: "Hui Pu" <Hui.Pu@gehealthcare.com>, "Ian Ray"
+ <ian.ray@gehealthcare.com>, "Thomas Petazzoni"
+ <thomas.petazzoni@bootlin.com>, "dri-devel@lists.freedesktop.org"
+ <dri-devel@lists.freedesktop.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>, "linux-arm-msm@vger.kernel.org"
+ <linux-arm-msm@vger.kernel.org>, "freedreno@lists.freedesktop.org"
+ <freedreno@lists.freedesktop.org>, "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>
+To: "Biju Das" <biju.das.jz@bp.renesas.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
+ <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Rob Clark"
+ <robin.clark@oss.qualcomm.com>, "Dmitry Baryshkov" <lumag@kernel.org>,
+ "Abhinav Kumar" <abhinav.kumar@linux.dev>, "Jessica Zhang"
+ <jesszhan0024@gmail.com>, "Sean Paul" <sean@poorly.run>, "Marijn Suijten"
+ <marijn.suijten@somainline.org>, "Tian Tao" <tiantao6@hisilicon.com>,
+ "Xinwei Kong" <kong.kongxinwei@hisilicon.com>, "Sumit Semwal"
+ <sumit.semwal@linaro.org>, "John Stultz" <jstultz@google.com>, "Andrzej
+ Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
+ <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>,
+ "laurent.pinchart" <laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
+ <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>,
+ "tomi.valkeinen" <tomi.valkeinen@ideasonboard.com>, "Michal Simek"
+ <michal.simek@amd.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH v2 08/11] drm/bridge: adv7511: switch to
+ of_drm_get_bridge_by_endpoint()
+X-Mailer: aerc 0.20.1
+References: <20260428-drm-bridge-alloc-getput-panel_or_bridge-v2-0-4300744a1c47@bootlin.com> <20260428-drm-bridge-alloc-getput-panel_or_bridge-v2-8-4300744a1c47@bootlin.com> <TY3PR01MB113466B70BFD2899AB0CF47AD86372@TY3PR01MB11346.jpnprd01.prod.outlook.com> <TY3PR01MB1134674FDD088299A4382D3D286372@TY3PR01MB11346.jpnprd01.prod.outlook.com> <DI4TGV2WURTY.39OXE7WWKRLA1@bootlin.com> <TY3PR01MB11346E82D19FBE8544F51624286372@TY3PR01MB11346.jpnprd01.prod.outlook.com> <DI4U2DT3OBMR.23T3F7X8P75RU@bootlin.com> <TY3PR01MB113465B0308DE16ACC48D1E8186372@TY3PR01MB11346.jpnprd01.prod.outlook.com> <TY3PR01MB11346293C9AAF8BC4B3FCAD6586372@TY3PR01MB11346.jpnprd01.prod.outlook.com> <TY3PR01MB113466FD12513A25C0126A55F86372@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+In-Reply-To: <TY3PR01MB113466FD12513A25C0126A55F86372@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_081151_528968_C73E4F53 
-X-CRM114-Status: GOOD (  15.42  )
+X-CRM114-CacheID: sfid-20260428_081953_365878_EFE58674 
+X-CRM114-Status: GOOD (  30.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,83 +97,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello Biju,
 
-On 4/28/2026 8:13 PM, Shenwei Wang wrote:
+On Tue Apr 28, 2026 at 4:45 PM CEST, Biju Das wrote:
+> Hi Luca,
 >
 >> -----Original Message-----
->> From: Beleswar Prasad Padhi <b-padhi@ti.com>
->> Sent: Tuesday, April 28, 2026 2:25 AM
->> To: Shenwei Wang <shenwei.wang@nxp.com>; Linus Walleij
->> <linusw@kernel.org>; Bartosz Golaszewski <brgl@kernel.org>; Jonathan Corbet
->> <corbet@lwn.net>; Rob Herring <robh@kernel.org>; Krzysztof Kozlowski
->> <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Bjorn Andersson
->> <andersson@kernel.org>; Mathieu Poirier <mathieu.poirier@linaro.org>; Frank Li
->> <frank.li@nxp.com>; Sascha Hauer <s.hauer@pengutronix.de>
->> Cc: Shuah Khan <skhan@linuxfoundation.org>; linux-gpio@vger.kernel.org; linux-
->> doc@vger.kernel.org; linux-kernel@vger.kernel.org; Pengutronix Kernel Team
->> <kernel@pengutronix.de>; Fabio Estevam <festevam@gmail.com>; Peng Fan
->> <peng.fan@nxp.com>; devicetree@vger.kernel.org; linux-
->> remoteproc@vger.kernel.org; imx@lists.linux.dev; linux-arm-
->> kernel@lists.infradead.org; dl-linux-imx <linux-imx@nxp.com>; Bartosz
->> Golaszewski <brgl@bgdev.pl>; Andrew Lunn <andrew@lunn.ch>
->> Subject: [EXT] Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
->> On 28/04/26 00:53, Shenwei Wang wrote:
->> [...]
+>> From: dri-devel <dri-devel-bounces@lists.freedesktop.org> On Behalf Of B=
+iju Das
+>> Sent: 28 April 2026 15:39
+>> Subject: RE: [PATCH v2 08/11] drm/bridge: adv7511: switch to of_drm_get_=
+bridge_by_endpoint()
 >>
->>>>> +     void *channel_devices[MAX_PORT_PER_CHANNEL];
->>>> So this is technically a rpmsg endpoint (struct rpmsg_endpoint)
->>>> without naming it "endpoint". Every rpmsg endpoint has a reference to
->>>> its parent rpmsg channel (struct rpmsg_device) which represents the
->>>> same information here. So we should use the framework standard here.
->>>>
->>> Yes, agree to use "endpoint_devices".
 >>
->> I did not mean to say to just change the variable name from "channel_devices" to
->> "endpoint_devices". Infact you would not need to have this field & struct
->> anymore.
 >>
->> Pseudo-code:
->> 1. Add a 'struct rpmsg_endpoint *ept' field to struct rpmsg_gpio_port
->>      to maintain the ept to port idx map.
+>> > -----Original Message-----
+>> > From: Biju Das
+>> > Sent: 28 April 2026 15:02
+>> > Subject: RE: [PATCH v2 08/11] drm/bridge: adv7511: switch to
+>> > of_drm_get_bridge_by_endpoint()
+>> >
+>> > Hi Luca,
+>> >
+>> > > -----Original Message-----
+>> > > From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+>> > > Sent: 28 April 2026 14:48
+>> > > Subject: Re: [PATCH v2 08/11] drm/bridge: adv7511: switch to
+>> > > of_drm_get_bridge_by_endpoint()
+>> > >
+>> > > Hello,
+>> > >
+>> > > On Tue Apr 28, 2026 at 3:31 PM CEST, Biju Das wrote:
+>> > > >> >> > @@ -1251,10 +1251,9 @@ static int adv7511_probe(struct
+>> > > >> >> > i2c_client
+>> > > >> >> > *i2c)
+>> > > >> >> >
+>> > > >> >> >  	memset(&link_config, 0, sizeof(link_config));
+>> > > >> >> >
+>> > > >> >> > -	ret =3D drm_of_find_panel_or_bridge(dev->of_node, 1, -1, N=
+ULL,
+>> > > >> >> > -					  &adv7511->next_bridge);
+>> > > >> >> > -	if (ret && ret !=3D -ENODEV)
+>> > > >> >> > -		return ret;
+>> > > >> >> > +	adv7511->bridge.next_bridge =3D of_drm_get_bridge_by_endpo=
+int(dev->of_node, 1, -1);
+>> > > >> >> > +	if (IS_ERR(adv7511->bridge.next_bridge) && PTR_ERR(adv7511=
+->bridge.next_bridge) !=3D -
+>> ENODEV)
+>> > > >> >> > +		return PTR_ERR(adv7511->bridge.next_bridge);
+>> > > >> >>
+>> > > >> >> Does it crash, if the error is  -EPROBE_DEFER?
+>> > > >> >
+>> > > >> > I see a crash with patch [1], which is fixed by avoiding the di=
+rect assignment.
+>> > > >>
+>> > > >> Ah, dammit! Good catch, thanks for the quick testing and follow-u=
+p!
+>> > > >>
+>> > > >> Indeed this driver assumes next_bridge is either NULL or a valid
+>> > > >> pointer, but due to the 'if(IS_ERR() && some_other_condition)'
+>> > > >> now it can also be -ENODEV (not -
+>> > > EPROBE_DEFER, but that's irrelevant).
+>> > > >>
+>> > > >> This affects the msm and zynqmp_dp patches equally.
+>> > > >>
+>> > > >> I'm sending a v3 soon with these fixed. I'm just not sure which
+>> > > >> approach to use to fix (same for all the 3 patches). Alternatives=
+ are:
+>> > > >>
+>> > > >>  1. -ENODEV is accepted, set next_bridge to NULL when it happens:
+>> > > >>
+>> > > >>       -       if (IS_ERR(adv7511->bridge.next_bridge) && PTR_ERR(=
+adv7511->bridge.next_bridge) !=3D
+>> -
+>> > > >> ENODEV)
+>> > > >>       -               return PTR_ERR(adv7511->bridge.next_bridge)=
+;
+>> > > >>       +       if (IS_ERR(adv7511->bridge.next_bridge)) {
+>> > > >>       +               if (PTR_ERR(adv7511->bridge.next_bridge) =
+=3D=3D -ENODEV)
+>> > > >>       +                       adv7511->bridge.next_bridge =3D NUL=
+L;
+>> > > >>       +               else
+>> > > >>       +                       return PTR_ERR(adv7511->bridge.next=
+_bridge);
+>> > > >
+>> > > > The point is you cannot return PTR_ERR as it will lead to crash,
+>> > > > if it is direct assignment.
+>> > >
+>> > > It would definitely crash when the next_bridge is dereferenced
+>> > > (which happens in
+>> > > adv7511_bridge_attach()) but I don't see how it can crash here. Here
+>> > > it _can_ be assigned -ENODEV, but it would be immediately be cleared
+>> > > to NULL, or to enother error, but we'd immediately return. And in
+>> > > case of return, when next_bridge is cleared by __drm_bridge_free ->
+>> > > drm_bridge_put, the error value would
+>> > be ignored thanks to patch 1.
+>> >
+>> > OK, I haven't noticed the newly introduced check in drm_bridge_put() i=
+n patch#1.
+>> >
+>> > I guess, we should avoid putting error values in bridge.next_bridge.
+>> > It should be either NULL or Valid pointer, not PTR_ERR.
 >>
->> 2. Call port->ept = rpmsg_create_ept(rpdev,
->>                                                              rpmsg_gpio_channel_callback,
->>                                                              port, {rpdev.id.name,
->>                                                              RPMSG_ADDR_ANY,
->>                                                              RPMSG_ADDR_ANY})
->>      from rpmsg_gpiochip_register().
+>> FTR, I get a crash in attach. I will apply the suggested changes and wil=
+l let you know the result.
 >>
-> On the Linux side, we invoke rpmsg_create_ept. What is expected from the remote system in this case?
-
-
-Nothing extra in my opinion. rpmsg_create_ept() just creates a dynamic
-local endpoint address for Linux's usage. The firmware just has to make
-sure to reply to the same endpoint address where it received the
-message. This should already be in place IMO, because currently you are
-sending all messages in the default endpoint (rpdev->ept) which is also
-dynamic[1] and is created when the channel is created. And you receive
-the responses correctly. (Unless you have hard-coded the default ept
-address in the firmware)
-
-[1]: 
-https://github.com/torvalds/linux/blob/master/drivers/rpmsg/rpmsg_core.c#L480
-(chinfo.src is RPMSG_ADDR_ANY)
-
-Thanks,
-Beleswar
-
-> If the remote side does not need any extra support, this would be an excellent solution.
+>> [   18.957324] pc : drm_bridge_attach+0x34/0x210 [drm]
+>> [   18.969425] lr : adv7511_bridge_attach+0x38/0xb8 [adv7511]
+>>
+>> [   18.969610]  drm_bridge_attach+0x34/0x210 [drm] (P)
+>> [   18.969845]  adv7511_bridge_attach+0x38/0xb8 [adv7511]
+>> [   18.969867]  drm_bridge_attach+0xf0/0x210 [drm]
+>> [   18.970042]  rzg2l_mipi_dsi_attach+0x24/0x3c [rzg2l_mipi_dsi]
+>> [   18.970064]  drm_bridge_attach+0xf0/0x210 [drm]
+>> [   18.970262]  rzg2l_du_encoder_init+0x9c/0x250 [rzg2l_du_drm]
+>> [   18.970293]  rzg2l_du_modeset_init+0x30c/0x4d0 [rzg2l_du_drm]
+>> [   18.970307]  rzg2l_du_probe+0xc8/0x174 [rzg2l_du_drm]
+>> [   18.970321]  platform_probe+0x5c/0xa4
+>> [   18.970336]  really_probe+0xbc/0x2c0
+>> [   18.970348]  __driver_probe_device+0x80/0x14c
+>> [   18.970359]  driver_probe_device+0x3c/0x164
+>> [   18.970369]  __driver_attach+0x90/0x1a4
+>> [   18.970379]  bus_for_each_dev+0x7c/0xdc
+>> [   18.970388]  driver_attach+0x24/0x30
+>> [   18.970397]  bus_add_driver+0xe4/0x208
+>> [   18.970406]  driver_register+0x68/0x130
+>> [   18.970416]  __platform_driver_register+0x24/0x30
+>>
 >
-> Thanks,
-> Shenwei
->
->> 3. Send msgs from local ept in rpmsg_gpio_send_message() by:
->>      rpmsg_send(port->ept, msg, sizeof(*msg));
->>
->> 4. Get the port info in rpmsg_gpio_channel_callback() by:
->>      struct rpmsg_gpio_port *port = priv;
->>
->> Which also eliminates the need for struct rpdev_drvdata as you can just do
->> rpmsg_get_rproc_node_name(rpdev) from rpmsg_gpiochip_register().
->>
+> I confirm the crash is fixed by your suggested changes for V3.
+
+Very quick feedback loop! Thanks a lot Biju.
+
+Sending v3 in a moment.
+
+Luca
+
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
