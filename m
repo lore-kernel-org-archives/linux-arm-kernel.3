@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94144FF8870
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA347FF8873
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 07:21:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,61 +12,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+1e9d0GFF8QSKEFlq8avcbJMHsTR7P2tC3S887pI/aQ=; b=opNUXyN6OqrQj81GBchn/PrFs0
-	5buvCxNATM1QAUmrATLCrBl5fCaKcrV63zXHwsmqavYJ5aOWDOUYcyVt/U/8XA3rIdtxi34Ed6QyI
-	8WmVRqKeS9UW6FEe4kgCtdrj1bKX9YogghqunG8UDDBMmxvPxYaoIcX14XMwvwvvTGGBVTSxTZ8VP
-	VEUqowOq50MRUvR9QG+K1sufksbBnh3NJRbbR95vJM941tvE8i4JZmW/5X1EACD5ELWG3VBBbKAFK
-	3ZZz1IUTRT+UrJ/v3tDft55f1c+nd7AMxdhwh3Q8wY2dhiqn0rXxoNIjtK1TcQQC8DJUC6bcbIw/U
-	YkSdxKSA==;
+	bh=P0hpHM6Q0qnz4rILJ4wjp6r0pWm8+LVx9WiZ78eUWKU=; b=CupNQ20POPvNQEGsYplgh5SkSy
+	afulE9P84Bmx2Sqgl7kF9mhFsn68e28kmP0b1fqi1r5XgoLrv6bgOVPfEEl6nccY8Sz5AYbsCVabA
+	2Z08FU9YQMdGQ4tIDe0JoQuB+DDntoreDxJJEHhMT729oQDyupjRh+VgPgFjL9zC/7TTnrdtNtniy
+	Ta4/QWmz/yA+06Q9PHT+or7RZYbGdpMwUZT2mmZ88VaFvFZN9ljhsdGKp8RIXL1tIa0bJAb4dTUld
+	axnrwrbdFa/WTp5HLE9PNvyKzPaM/YgOnD1vKY0RQ5GHVTTywLiN98LnpVT8xRxKR1lZnm2GSqGPb
+	WCNonEqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHcl8-00000000iU9-05W2;
-	Tue, 28 Apr 2026 07:21:30 +0000
-Received: from mail-dl1-x1249.google.com ([2607:f8b0:4864:20::1249])
+	id 1wHclB-00000000iYW-26wr;
+	Tue, 28 Apr 2026 07:21:33 +0000
+Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHckG-00000000hUk-2wEm
+	id 1wHckL-00000000hYx-1B7c
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 07:20:43 +0000
-Received: by mail-dl1-x1249.google.com with SMTP id a92af1059eb24-12c726f4019so14412326c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 00:20:36 -0700 (PDT)
+	Tue, 28 Apr 2026 07:20:45 +0000
+Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2d8c521be48so7390326eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 00:20:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777360836; x=1777965636; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777360840; x=1777965640; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=+1e9d0GFF8QSKEFlq8avcbJMHsTR7P2tC3S887pI/aQ=;
-        b=ZRWPhkzSjIWqQardSaq+lsiE0VR9/HTdH7DGUmtp4iZOdPyvCibOvsBxoSanW25wKI
-         lJLsJO8ldLtsHtABS5GTAl+OMYdXkZ1/cJmTYbEJGZSTSNAcMfz8oAqObrwwKs2e8otg
-         I0t+eTAHM5XA27V2xbhCtFArSA3SyPA05AzaTNYXd+1pY0Mr9pQlnRMs/jfc5wvUF/oN
-         nRf4ifnOzTKTcagChH8WWf5LVPu3IPXHAcya5rcWDsl2KmLphlhUeNmZtU7OHl0Y3ltC
-         FQZsW//dUa1FsEezhGEtmQpTjqU+Rc7uSzl69cMHtt6Nq/iAZB3cXZf5f5KoofWPpcWm
-         myVQ==
+        bh=P0hpHM6Q0qnz4rILJ4wjp6r0pWm8+LVx9WiZ78eUWKU=;
+        b=cxtlENdPuC2MjNTue3Z5l9hzdlmDRKcRO468SV4Mw14B+onkmOKaPMPIp6kYoU2syn
+         7w+/4pv4ouvLi7l4gZ+GluJcY2TICq3mJgfE3F0IQFMranxFloEneK55uiOSHES3LtuV
+         3iubkemioxj5wBwf96oK6zz8Xdewx7oLaCdKKHDfEguAtAHYpasUrnEAGEi5QKHd+mMq
+         /5Y4UQAU8A8cSHUMihz4uDOLABe8TYux86U9fIFTLzoH8vTF/HDYvnNbu39xGCSjPY7+
+         UPE3iuwnWZOrLjO/oV+YVkwxZRtYre6mFOsHCi45SJ9LChN9L8L/U4hK2z2Em6GOn/j7
+         9aEA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777360836; x=1777965636;
+        d=1e100.net; s=20251104; t=1777360840; x=1777965640;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+1e9d0GFF8QSKEFlq8avcbJMHsTR7P2tC3S887pI/aQ=;
-        b=IpBJSYjRZTipF2QzuEi1wjF3cJnKt9Vl0OZeqolc4SUOidkFcgMh0NDnEctYaMRk9e
-         kE1+mxvijPhV14E+szFYYGhwmMnZznUzrvDOLccG0SxW9SraqhFbDydKCGzj6+96H+aw
-         tbpdADAEfUOJbhKG+iD+6g4jCq5mgH4hVyQBho45D2TvkvarVqV4Dog9liZ5vtggBkIB
-         sgTgTK3rno1vbCWFNNSsAi0Y6mTb//UZ7/MDhyLrSP+xYjP76iHa06dV/QFhBeGpp7FJ
-         IapjAiRcZFEuh2K9XemCqm/Os6T2CMLuqMvfPmciOcSzarhXN500apRusKTDemD44NVk
-         w9kA==
-X-Forwarded-Encrypted: i=1; AFNElJ/WbHRGeHNr0yDgtaBzWMwHyNqYCmzGrf4cLenPbOiz/cBrBf14KW9B9AZLI7F4Pgdrs4FKsLwtuYfSiM3SSEb9@lists.infradead.org
-X-Gm-Message-State: AOJu0YzF+eib7Rt3w0QRF1yL/I3bMSHR8dB4j/jmk0xabEj1Ky03jClz
-	vEQeFRymJteiTcb80FFOYDk7duzjWqUis23F1QDQ9Vjcul1PXAysaKTFBE5HCUN3adDP/DBvvrt
-	5cx8h8ijGjg==
-X-Received: from dlaf13.prod.google.com ([2002:a05:701b:240d:b0:12d:b8e9:7851])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:927:b0:12d:de3e:86b4
- with SMTP id a92af1059eb24-12dde3e8939mr426608c88.36.1777360835574; Tue, 28
- Apr 2026 00:20:35 -0700 (PDT)
-Date: Tue, 28 Apr 2026 00:18:43 -0700
+        bh=P0hpHM6Q0qnz4rILJ4wjp6r0pWm8+LVx9WiZ78eUWKU=;
+        b=S/6CgGkm9i1lAGi/5/QSZJYaJdHx/au7AiQK2ydCAiaEq4Fq63hxs5tk/3lfCsinwF
+         K2pCUiqK9U6s/FQlt/dzDI1Ja7vW1+lc/lhSN+ghLq85VGQ/+nsoSJ++kmBZCXHo9J7A
+         ScLBBKy789+fgX4BOZr5HdhyvqEWmrylaF9bRFunvSlwe93a8IDNvSdzWiJM7BU9rDE2
+         zyZ/usEc/BVGH2+yNq9bJrqfBoGHgkIJWonXO9IotxU0uH8MzIYepx69KjXcSRhO/Z50
+         Z4nm8DiXTup92sKnQbqWcH2076Ffq2BF+1b3F2LEBl7z8qpXS7MNEnCjXFp2aUBLq67L
+         Gb3g==
+X-Forwarded-Encrypted: i=1; AFNElJ+dy/Sl8qSn4WkZ2PLnvFK2ldeFJs/HfPGapCZaXfxGFkYCiiGT5KbEFrxsnp2osPoLvMh9QtGsvoOe5zdq/iYr@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRIPdtQ3g3vpwAX8UyyzTugx7T2zNW4EFsZniQnQ6XkhYFvazt
+	Xx2G7mfBUjq3MZolc2kUFHhCjtAdXjLvwz8QpLv9kJj/ZIpf2jgPY0oKtX9FcetULRcBL4KhcJV
+	W8lrKqEY25g==
+X-Received: from dlbut2.prod.google.com ([2002:a05:7022:7e02:b0:12c:8ccc:748c])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:6181:b0:12d:b2ad:fded
+ with SMTP id a92af1059eb24-12ddda6b8bdmr760210c88.10.1777360839734; Tue, 28
+ Apr 2026 00:20:39 -0700 (PDT)
+Date: Tue, 28 Apr 2026 00:18:45 -0700
 In-Reply-To: <20260428071903.1886173-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260425224951.174663-1-irogers@google.com> <20260428071903.1886173-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260428071903.1886173-39-irogers@google.com>
-Subject: [PATCH v8 38/58] perf failed-syscalls-by-pid: Port
- failed-syscalls-by-pid to use python module
+Message-ID: <20260428071903.1886173-41-irogers@google.com>
+Subject: [PATCH v8 40/58] perf net_dropmonitor: Port net_dropmonitor to use
+ python module
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, namhyung@kernel.org
 Cc: adrian.hunter@intel.com, alice.mei.rogers@gmail.com, 
@@ -76,8 +76,8 @@ Cc: adrian.hunter@intel.com, alice.mei.rogers@gmail.com,
 	tmricht@linux.ibm.com, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_002036_770187_EE7DD309 
-X-CRM114-Status: GOOD (  15.51  )
+X-CRM114-CacheID: sfid-20260428_002041_357271_A5918069 
+X-CRM114-Status: GOOD (  15.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,155 +92,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ported from tools/perf/scripts/python/failed-syscalls-by-pid.py to use
-the perf Python module API.
-
-Key changes:
-- Used perf.syscall_name() to resolve syscall names instead of legacy
-  Util library.
-- Used standard collections.defaultdict for nested statistics
-  aggregation.
-- Used errno.errorcode for resolving error strings.
-- Supported optional filtering by COMM or PID via command line
-  arguments.
+Ported from tools/perf/scripts/python/.
+- Refactored the script to use a class structure (DropMonitor) to
+  encapsulate state.
+- Used perf.session for event processing instead of legacy global
+  handlers.
+- Maintained the manual /proc/kallsyms reading and binary search for
+  symbol resolution as in the original script.
+- Cleaned up Python 2 compatibility artifacts.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
-v2: Fixed Syscall Name Fallback: Handled the case where
-    perf.syscall_name() returns None , falling back to the string
-    representation of the syscall ID to avoid TypeError during string
-    formatting.
+v2:
 
-v7:
-- Removed dead code (unused self.unhandled dictionary).
+1. Fixed Sorting of Locations: Kept location as an integer in the
+   drop_log dictionary keys so that they are sorted numerically rather
+   than lexicographically when generating the report.
+
+2. Fixed Interrupt Handling: Moved the call to get_kallsyms_table()
+   and print_drop_table() outside the try-except block. This ensures
+   that the reporting phase happens exactly once, even if the user
+   interrupts the trace with Ctrl-C.
 ---
- tools/perf/python/failed-syscalls-by-pid.py | 116 ++++++++++++++++++++
- 1 file changed, 116 insertions(+)
- create mode 100755 tools/perf/python/failed-syscalls-by-pid.py
+ tools/perf/python/net_dropmonitor.py | 58 ++++++++++++++++++++++++++++
+ 1 file changed, 58 insertions(+)
+ create mode 100755 tools/perf/python/net_dropmonitor.py
 
-diff --git a/tools/perf/python/failed-syscalls-by-pid.py b/tools/perf/python/failed-syscalls-by-pid.py
+diff --git a/tools/perf/python/net_dropmonitor.py b/tools/perf/python/net_dropmonitor.py
 new file mode 100755
-index 000000000000..eecd553cbf8f
+index 000000000000..25ea2a66ed3c
 --- /dev/null
-+++ b/tools/perf/python/failed-syscalls-by-pid.py
-@@ -0,0 +1,116 @@
++++ b/tools/perf/python/net_dropmonitor.py
+@@ -0,0 +1,58 @@
 +#!/usr/bin/env python3
 +# SPDX-License-Identifier: GPL-2.0
 +"""
-+Displays system-wide failed system call totals, broken down by pid.
-+If a [comm] or [pid] arg is specified, only syscalls called by it are displayed.
-+
-+Ported from tools/perf/scripts/python/failed-syscalls-by-pid.py
++Monitor the system for dropped packets and produce a report of drop locations and counts.
++Ported from tools/perf/scripts/python/net_dropmonitor.py
 +"""
 +
 +import argparse
 +from collections import defaultdict
-+import errno
-+from typing import Optional
++import sys
 +import perf
 +
 +
-+def strerror(nr: int) -> str:
-+    """Return error string for a given errno."""
-+    try:
-+        return errno.errorcode[abs(nr)]
-+    except KeyError:
-+        return f"Unknown {nr} errno"
++class DropMonitor:
++    """Monitors dropped packets and aggregates counts by location."""
 +
++    def __init__(self):
++        self.drop_log: dict[tuple[str, int], int] = defaultdict(int)
++        self.unhandled: dict[str, int] = defaultdict(int)
 +
-+class SyscallAnalyzer:
-+    """Analyzes failed syscalls and aggregates counts."""
-+
-+    def __init__(self, for_comm: Optional[str] = None, for_pid: Optional[int] = None):
-+        self.for_comm = for_comm
-+        self.for_pid = for_pid
-+        self.session: Optional[perf.session] = None
-+        self.syscalls: dict[tuple[str, int, int, int], int] = defaultdict(int)
++    def print_drop_table(self) -> None:
++        """Print aggregated results."""
++        print(f"{'LOCATION':>25} {'OFFSET':>25} {'COUNT':>25}")
++        for (sym, off) in sorted(self.drop_log.keys()):
++            print(f"{sym:>25} {off:>25d} {self.drop_log[(sym, off)]:>25d}")
 +
 +    def process_event(self, sample: perf.sample_event) -> None:
 +        """Process a single sample event."""
-+        event_name = str(sample.evsel)
-+        if "sys_exit" not in event_name:
++        if str(sample.evsel) != "evsel(skb:kfree_skb)":
 +            return
 +
-+        pid = sample.sample_pid
-+        if hasattr(self, 'session') and self.session:
-+            comm = self.session.find_thread(pid).comm()
-+        else:
-+            comm = "Unknown"
-+
-+        if self.for_comm and comm != self.for_comm:
-+            return
-+        if self.for_pid and pid != self.for_pid:
-+            return
-+
-+        ret = getattr(sample, "ret", 0)
-+        if ret < 0:
-+            syscall_id = getattr(sample, "id", -1)
-+            if syscall_id == -1:
-+                syscall_id = getattr(sample, "sys_id", -1)
-+
-+            if syscall_id != -1:
-+                self.syscalls[(comm, pid, syscall_id, ret)] += 1
-+
-+    def print_summary(self) -> None:
-+        """Print aggregated statistics."""
-+        if self.for_comm is not None:
-+            print(f"\nsyscall errors for {self.for_comm}:\n")
-+        elif self.for_pid is not None:
-+            print(f"\nsyscall errors for PID {self.for_pid}:\n")
-+        else:
-+            print("\nsyscall errors:\n")
-+
-+        print(f"{'comm [pid]':<30}  {'count':>10}")
-+        print(f"{'-' * 30:<30}  {'-' * 10:>10}")
-+
-+        sorted_keys = sorted(self.syscalls.keys(), key=lambda k: (k[0], k[1], k[2]))
-+        current_comm_pid = None
-+        for comm, pid, syscall_id, ret in sorted_keys:
-+            if current_comm_pid != (comm, pid):
-+                print(f"\n{comm} [{pid}]")
-+                current_comm_pid = (comm, pid)
-+            try:
-+                name = perf.syscall_name(syscall_id) or str(syscall_id)
-+            except AttributeError:
-+                name = str(syscall_id)
-+            print(f"  syscall: {name:<16}")
-+            err_str = strerror(ret)
-+            count = self.syscalls[(comm, pid, syscall_id, ret)]
-+            print(f"    err = {err_str:<20}  {count:10d}")
++        try:
++            symbol = getattr(sample, "symbol", "[unknown]")
++            symoff = getattr(sample, "symoff", 0)
++            self.drop_log[(symbol, symoff)] += 1
++        except AttributeError:
++            self.unhandled[str(sample.evsel)] += 1
 +
 +
 +if __name__ == "__main__":
 +    ap = argparse.ArgumentParser(
-+        description="Displays system-wide failed system call totals, broken down by pid.")
-+    ap.add_argument("-i", "--input", default="perf.data",
-+                    help="Input file name")
-+    ap.add_argument("filter", nargs="?", help="COMM or PID to filter by")
++        description="Monitor the system for dropped packets and produce a "
++                    "report of drop locations and counts.")
++    ap.add_argument("-i", "--input", default="perf.data", help="Input file name")
 +    args = ap.parse_args()
 +
-+    F_COMM = None
-+    F_PID = None
-+
-+    if args.filter:
-+        try:
-+            F_PID = int(args.filter)
-+        except ValueError:
-+            F_COMM = args.filter
-+
-+    analyzer = SyscallAnalyzer(F_COMM, F_PID)
++    monitor = DropMonitor()
 +
 +    try:
-+        print("Press control+C to stop and show the summary")
-+        session = perf.session(perf.data(args.input), sample=analyzer.process_event)
-+        analyzer.session = session
++        session = perf.session(perf.data(args.input), sample=monitor.process_event)
 +        session.process_events()
-+        analyzer.print_summary()
 +    except KeyboardInterrupt:
-+        analyzer.print_summary()
++        print("\nStopping trace...")
 +    except Exception as e:
 +        print(f"Error processing events: {e}")
++        sys.exit(1)
++
++    monitor.print_drop_table()
 -- 
 2.54.0.545.g6539524ca2-goog
 
