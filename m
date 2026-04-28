@@ -4,88 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE99BFF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 20:16:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C56D8FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 20:16:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dN8g5IvF8YQ/kKz/8DwL2qnwEQpVz//ymxbpAPgSoLo=; b=ecEz+xRFBV3dRqr/MiMoxoHwnf
-	eoCN3SchLT0VWMS7Tf5SqaaOJnCK9i4BKNWBqlNv5ZCk5gSBE4OFmlmDRu3jGqie2cfwoDeDx2ZHn
-	ds0zRXh3gdxdLDNnKMSDxY8cakZeBsCZLiN77yqdpKkdq76UDsnwGyzhYEcWdJE3CTAWV4D4hhisP
-	+4CKrb6OstcZ9fUWGkcN2vb0eguYk64Q72wziMfv/+e9FxQxhIBbxq1BCDdOXx7pkq3P0uRcwSh99
-	Xbfz5tsKX+jjecVGvJyVHAN0bTvO/9F4K/mvGX7MKQPZKCdjPIZylUyYUKeSdsSDqOk0F6KpBwe59
-	yVD52KEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B3kVqp2D30ZiifaCkY7PynVemZLjHxNADA2gX5jVbtM=; b=NM2ZaP+GV33H7reZqutg2yOKU8
+	lPggBjia8N/Kep57MwrG0TBGlvmkgVB58R69AZBkVheCDuRuad0nJGB0WbgsLk4W5NJJUvIwuIU0B
+	1CkAvKTV0eb5VJxhBE5jZ51wr4Sf6hq8ZAl+UWZ6Bk5IVo2IFzIdVMeQJ+N9bSkURPRyYFA2DeEXJ
+	8lN4BzHz0GXMq4iLulDiOQvImKKLtjBvUrrhxFAUpeFVA/yVLTjJHAlXA6rutabl2DJRCW9ZEMRPh
+	jmDXlAzDq0ZhDpStsjwsiHVObYmHHfYrMxMJP/hLguuzsakWKvUNhPlQncYnocjyJG4oiQgydAYwR
+	eA+Yn39Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHor2-00000002OKe-1Lzu;
-	Tue, 28 Apr 2026 20:16:24 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wHorT-00000002OzL-0URH;
+	Tue, 28 Apr 2026 20:16:51 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHopG-00000002Llt-0vrT;
-	Tue, 28 Apr 2026 20:14:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1777407270;
-	bh=n52sIa7hBm6ai6W8sMRaiMmDFW4qaL5TUk9D2hKkq20=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=k6d8rESlbbQXJLC0eOlVys7JmTXCkRtMbKFikoYKF0BPGO3g2PygftkRdoBs6olR5
-	 yUUo7jEoxpMlbjArQY+htFNZEuAg6BARVt8b/f+uHcBxxUGiQJsu6wwURtYpEN9kW0
-	 1Ne/5sosvEtaYRykbjqQa0yvwkeLCHqDTi0xqVbZcIYEk+pI2x6OXywNGXs1EolgpU
-	 CWH4zKVDcYSF0CJnyCBqikaUf9TnQxZ22FknqfFA7HUTihuUYmDKZzycOSoA+ASiX+
-	 q/X8J98ez24x8n+qu5B6HGFCrDycgOkUk+qDDFvY3J+0RbzcS8kY8++3eqw34N+Shf
-	 rWQDSJ1JsJsAg==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C27D317E0EB6;
-	Tue, 28 Apr 2026 22:14:28 +0200 (CEST)
-Message-ID: <3bc30a4e04ad49e5b119b61e1e6392d8b454a7d6.camel@collabora.com>
-Subject: Re: [PATCH v6 3/6] media: ioctl: Add pixel formats NV12MT_COL128
- and NV12MT_10_COL128
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Dave Stevenson <dave.stevenson@raspberrypi.com>, Sakari Ailus	
- <sakari.ailus@linux.intel.com>, Laurent Pinchart	
- <laurent.pinchart@ideasonboard.com>, Mauro Carvalho Chehab
- <mchehab@kernel.org>,  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,  Florian Fainelli
- <florian.fainelli@broadcom.com>, Broadcom internal kernel review list	
- <bcm-kernel-feedback-list@broadcom.com>, John Cox
- <john.cox@raspberrypi.com>,  Dom Cobley <dom@raspberrypi.com>, review list
- <kernel-list@raspberrypi.com>, Ezequiel Garcia	
- <ezequiel@vanguardiasur.com.ar>
-Cc: John Cox <jc@kynesim.co.uk>, Stefan Wahren <wahrenst@gmx.net>, 
-	linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org
-Date: Tue, 28 Apr 2026 16:14:27 -0400
-In-Reply-To: <20260304-media-rpi-hevc-dec-v6-3-93868ae6dff8@raspberrypi.com>
-References: <20260304-media-rpi-hevc-dec-v6-0-93868ae6dff8@raspberrypi.com>
-	 <20260304-media-rpi-hevc-dec-v6-3-93868ae6dff8@raspberrypi.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-tGxzQtJlib/xM1/4dGWX"
-User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
+	id 1wHorP-00000002Ot2-2ujO
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 28 Apr 2026 20:16:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=B3kVqp2D30ZiifaCkY7PynVemZLjHxNADA2gX5jVbtM=; b=i87wXp8pY9N+HCJnZ5LX46CLl+
+	SXsod8zWzASVRuqJAV2LpA+9U+DGAmmXgK7g4pmTE8zY7RrBXaDid2f8dXKfbHmFgvCS8gx3P5bVq
+	IOCqfazD52Eil7Dx2gsnxpzh5naRFmMNxJiildifis5c4TLp+xFmw3xTvztmffe1CojmTh/lIHGL6
+	C1hGFx1zsr63fBPwQtg/yKhYK0WxjdK1tyizZ7/6StqHQyc54jJBv/QuoDevw5KhTqPicCBO80GxM
+	g31YHoxcA74Kd+wXk2/QUNMm6Dd9swzRf356OUq63X0Kv6k7XQYL4xbnNz9XVfAFJjGW7BLghm7N3
+	5LF/h8Pw==;
+Received: from foss.arm.com ([217.140.110.172])
+	by casper.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHorI-00000004Olk-46SJ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Apr 2026 20:16:46 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4BBC13295;
+	Tue, 28 Apr 2026 13:16:31 -0700 (PDT)
+Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 043A73F763;
+	Tue, 28 Apr 2026 13:16:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1777407396; bh=FouQA+bv5j1EdgH3z1eqPEIT8/R9xB/bagn+V+J4Zec=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=MFx+FfVS7ekISqM2rC0y9p6YaqHj+egphpXU1nI6RUH1Fy1d+2YVVCcd7mki2DfWg
+	 Q7AizXEqaBzeIjEhKDYugYignd54bKJCO9um69zP9UWvpFfw8pyiuO0GWBQSbNdlAP
+	 WtlVihIU7iFjXmcLmDZNPrE7Vd/0EnVPdUli5Mwg=
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org
+Cc: sudeep.holla@arm.com,
+	philip.radford@arm.com,
+	james.quinlan@broadcom.com,
+	f.fainelli@gmail.com,
+	vincent.guittot@linaro.org,
+	etienne.carriere@foss.st.com,
+	peng.fan@oss.nxp.com,
+	michal.simek@amd.com,
+	geert+renesas@glider.be,
+	kuninori.morimoto.gx@renesas.com,
+	marek.vasut+renesas@gmail.com,
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: [PATCH v3 02/15] firmware: arm_scmi: Add clock determine_rate operation
+Date: Tue, 28 Apr 2026 21:15:09 +0100
+Message-ID: <20260428201522.903875-3-cristian.marussi@arm.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260428201522.903875-1-cristian.marussi@arm.com>
+References: <20260428201522.903875-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_131434_589023_D994E81B 
-X-CRM114-Status: GOOD (  18.53  )
+X-CRM114-CacheID: sfid-20260428_211641_245985_2B9AA283 
+X-CRM114-Status: GOOD (  19.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,121 +97,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add a clock operation to help determining the effective rate, closest to
+the required one, that a specific clock can support.
 
---=-tGxzQtJlib/xM1/4dGWX
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Calculation is currently performed kernel side and the logic is taken
+directly from the SCMI Clock driver: embedding the determinate rate logic
+in the protocol layer enables simplifications in the SCMI Clock protocol
+interface and will more easily accommodate further evolutions where such
+determine_rate logic into is optionally delegated to the platform SCMI
+server.
 
-Le mercredi 04 mars 2026 =C3=A0 14:05 +0000, Dave Stevenson a =C3=A9crit=C2=
-=A0:
-> Add V4L2_PIXFMT_NV12MT_COL128 and V4L2_PIXFMT_NV12MT_10_COL128
-> to describe the Raspberry Pi HEVC decoder NV12 multiplanar formats.
->=20
-> NV12MT_COL128 has been added to v4l2_format_info.
-> NV12MT_10_COL128 has not as the block width is not a power of 2,
-> but the framework uses ALIGN with the value.
+Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+---
+v1 --> v2
+ - use the fixed rounding algo using div64_ul
 
-The performance of that code is not critical, any reason you can't just por=
-t
-everything to round up to the next multiple of ? (to be done in its own pat=
-ch).
+Spoiler alert next SCMI spec will most probably include a new
+CLOCK_DETERMINE_RATE command to delegate to the platform such calculations,
+so this clock proto_ops will be needed anyway sooner or later
+---
+ drivers/firmware/arm_scmi/clock.c | 42 +++++++++++++++++++++++++++++++
+ include/linux/scmi_protocol.h     |  6 +++++
+ 2 files changed, 48 insertions(+)
 
-Nicolas
+diff --git a/drivers/firmware/arm_scmi/clock.c b/drivers/firmware/arm_scmi/clock.c
+index ab36871650a1..54b55517b759 100644
+--- a/drivers/firmware/arm_scmi/clock.c
++++ b/drivers/firmware/arm_scmi/clock.c
+@@ -5,6 +5,7 @@
+  * Copyright (C) 2018-2022 ARM Ltd.
+  */
+ 
++#include <linux/math64.h>
+ #include <linux/module.h>
+ #include <linux/limits.h>
+ #include <linux/sort.h>
+@@ -624,6 +625,46 @@ static int scmi_clock_rate_set(const struct scmi_protocol_handle *ph,
+ 	return ret;
+ }
+ 
++static int scmi_clock_determine_rate(const struct scmi_protocol_handle *ph,
++				     u32 clk_id, unsigned long *rate)
++{
++	u64 fmin, fmax, ftmp;
++	struct scmi_clock_info *clk;
++	struct clock_info *ci = ph->get_priv(ph);
++
++	if (!rate)
++		return -EINVAL;
++
++	clk = scmi_clock_domain_lookup(ci, clk_id);
++	if (IS_ERR(clk))
++		return PTR_ERR(clk);
++
++	/*
++	 * If we can't figure out what rate it will be, so just return the
++	 * rate back to the caller.
++	 */
++	if (clk->rate_discrete)
++		return 0;
++
++	fmin = clk->range.min_rate;
++	fmax = clk->range.max_rate;
++	if (*rate <= fmin) {
++		*rate = fmin;
++		return 0;
++	} else if (*rate >= fmax) {
++		*rate = fmax;
++		return 0;
++	}
++
++	ftmp = *rate - fmin;
++	ftmp += clk->range.step_size - 1; /* to round up */
++	ftmp = div64_ul(ftmp, clk->range.step_size);
++
++	*rate = ftmp * clk->range.step_size + fmin;
++
++	return 0;
++}
++
+ static int
+ scmi_clock_config_set(const struct scmi_protocol_handle *ph, u32 clk_id,
+ 		      enum clk_state state,
+@@ -936,6 +977,7 @@ static const struct scmi_clk_proto_ops clk_proto_ops = {
+ 	.info_get = scmi_clock_info_get,
+ 	.rate_get = scmi_clock_rate_get,
+ 	.rate_set = scmi_clock_rate_set,
++	.determine_rate = scmi_clock_determine_rate,
+ 	.enable = scmi_clock_enable,
+ 	.disable = scmi_clock_disable,
+ 	.state_get = scmi_clock_state_get,
+diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
+index aafaac1496b0..28579c145045 100644
+--- a/include/linux/scmi_protocol.h
++++ b/include/linux/scmi_protocol.h
+@@ -91,6 +91,10 @@ enum scmi_clock_oem_config {
+  * @info_get: get the information of the specified clock
+  * @rate_get: request the current clock rate of a clock
+  * @rate_set: set the clock rate of a clock
++ * @determine_rate: determine the effective rate that can be supported by a
++ *		    clock calculating the closest allowed rate.
++ *		    Note that @rate is an input/output parameter used both to
++ *		    describe the requested rate and report the closest match
+  * @enable: enables the specified clock
+  * @disable: disables the specified clock
+  * @state_get: get the status of the specified clock
+@@ -108,6 +112,8 @@ struct scmi_clk_proto_ops {
+ 			u64 *rate);
+ 	int (*rate_set)(const struct scmi_protocol_handle *ph, u32 clk_id,
+ 			u64 rate);
++	int (*determine_rate)(const struct scmi_protocol_handle *ph, u32 clk_id,
++			      unsigned long *rate);
+ 	int (*enable)(const struct scmi_protocol_handle *ph, u32 clk_id,
+ 		      bool atomic);
+ 	int (*disable)(const struct scmi_protocol_handle *ph, u32 clk_id,
+-- 
+2.53.0
 
-p.s. we should really add a ktest for that table ...
-
->=20
-> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
-> ---
-> =C2=A0drivers/media/v4l2-core/v4l2-common.c | 2 ++
-> =C2=A0drivers/media/v4l2-core/v4l2-ioctl.c=C2=A0 | 2 ++
-> =C2=A0include/uapi/linux/videodev2.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0 | 4 ++++
-> =C2=A03 files changed, 8 insertions(+)
->=20
-> diff --git a/drivers/media/v4l2-core/v4l2-common.c b/drivers/media/v4l2-c=
-ore/v4l2-common.c
-> index 554c591e1113..20a7066df570 100644
-> --- a/drivers/media/v4l2-core/v4l2-common.c
-> +++ b/drivers/media/v4l2-core/v4l2-common.c
-> @@ -311,6 +311,8 @@ const struct v4l2_format_info *v4l2_format_info(u32 f=
-ormat)
-> =C2=A0		{ .format =3D V4L2_PIX_FMT_NV15_4L4, .pixel_enc =3D V4L2_PIXEL_EN=
-C_YUV, .mem_planes =3D 1, .comp_planes =3D 2, .bpp =3D { 5, 10, 0, 0 }, .bp=
-p_div =3D { 4, 4, 1, 1 }, .hdiv =3D 2, .vdiv =3D 2,
-> =C2=A0		=C2=A0 .block_w =3D { 4, 2, 0, 0 }, .block_h =3D { 1, 1, 0, 0 }},
-> =C2=A0		{ .format =3D V4L2_PIX_FMT_P010_4L4, .pixel_enc =3D V4L2_PIXEL_EN=
-C_YUV, .mem_planes =3D 1, .comp_planes =3D 2, .bpp =3D { 2, 4, 0, 0 }, .bpp=
-_div =3D { 1, 1, 1, 1 }, .hdiv =3D 2, .vdiv =3D 2 },
-> +		{ .format =3D V4L2_PIX_FMT_NV12MT_COL128, .pixel_enc =3D V4L2_PIXEL_EN=
-C_YUV, .mem_planes =3D 2, .comp_planes =3D 2, .bpp =3D { 1, 2, 0, 0 }, .bpp=
-_div =3D { 1, 1, 1, 1 }, .hdiv =3D 2, .vdiv =3D 2 },
-> +		/* V4L2_PIX_FMT_NV12MT_10_COL128 can not be described within the curre=
-nt constraints of v4l2_format_info as 96 pixels is not a power of 2 */
-> =C2=A0
-> =C2=A0		/* YUV planar formats, non contiguous variant */
-> =C2=A0		{ .format =3D V4L2_PIX_FMT_YUV420M, .pixel_enc =3D V4L2_PIXEL_ENC=
-_YUV, .mem_planes =3D 3, .comp_planes =3D 3, .bpp =3D { 1, 1, 1, 0 }, .bpp_=
-div =3D { 1, 1, 1, 1 }, .hdiv =3D 2, .vdiv =3D 2 },
-> diff --git a/drivers/media/v4l2-core/v4l2-ioctl.c b/drivers/media/v4l2-co=
-re/v4l2-ioctl.c
-> index 37d33d4a363d..2fe8f591cdb3 100644
-> --- a/drivers/media/v4l2-core/v4l2-ioctl.c
-> +++ b/drivers/media/v4l2-core/v4l2-ioctl.c
-> @@ -1379,7 +1379,9 @@ static void v4l_fill_fmtdesc(struct v4l2_fmtdesc *f=
-mt)
-> =C2=A0	case V4L2_PIX_FMT_NV16M:	descr =3D "Y/UV 4:2:2 (N-C)"; break;
-> =C2=A0	case V4L2_PIX_FMT_NV61M:	descr =3D "Y/VU 4:2:2 (N-C)"; break;
-> =C2=A0	case V4L2_PIX_FMT_NV12MT:	descr =3D "Y/UV 4:2:0 (64x32 MB, N-C)"; =
-break;
-> +	case V4L2_PIX_FMT_NV12MT_COL128: descr =3D "Y/CbCr 4:2:0 (128b cols)"; =
-break;
-> =C2=A0	case V4L2_PIX_FMT_NV12MT_16X16:	descr =3D "Y/UV 4:2:0 (16x16 MB, N=
--C)"; break;
-> +	case V4L2_PIX_FMT_NV12MT_10_COL128: descr =3D "10-bit Y/CbCr 4:2:0 (128=
-b cols)"; break;
-> =C2=A0	case V4L2_PIX_FMT_P012M:	descr =3D "12-bit Y/UV 4:2:0 (N-C)"; brea=
-k;
-> =C2=A0	case V4L2_PIX_FMT_YUV420M:	descr =3D "Planar YUV 4:2:0 (N-C)"; bre=
-ak;
-> =C2=A0	case V4L2_PIX_FMT_YVU420M:	descr =3D "Planar YVU 4:2:0 (N-C)"; bre=
-ak;
-> diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videodev=
-2.h
-> index eda4492e40dc..e466c816ff2f 100644
-> --- a/include/uapi/linux/videodev2.h
-> +++ b/include/uapi/linux/videodev2.h
-> @@ -697,6 +697,10 @@ struct v4l2_pix_format {
-> =C2=A0#define V4L2_PIX_FMT_NV12MT_16X16 v4l2_fourcc('V', 'M', '1', '2') /=
-* 12=C2=A0 Y/CbCr 4:2:0 16x16 tiles */
-> =C2=A0#define V4L2_PIX_FMT_NV12M_8L128=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 v4l2=
-_fourcc('N', 'A', '1', '2') /* Y/CbCr 4:2:0 8x128 tiles */
-> =C2=A0#define V4L2_PIX_FMT_NV12M_10BE_8L128 v4l2_fourcc_be('N', 'T', '1',=
- '2') /* Y/CbCr 4:2:0 10-bit 8x128 tiles */
-> +#define V4L2_PIX_FMT_NV12MT_COL128 v4l2_fourcc('N', 'c', '1', '2') /* 12=
-=C2=A0 Y/CbCr 4:2:0 128 pixel wide column */
-> +#define V4L2_PIX_FMT_NV12MT_10_COL128 v4l2_fourcc('N', 'c', '3', '0')
-> +			/* Y/CbCr 4:2:0 10bpc, 3x10 packed as 4 bytes in a 128 bytes / 96 pix=
-el wide column */
-> +
-> =C2=A0
-> =C2=A0/* Bayer formats - see http://www.siliconimaging.com/RGB%20Bayer.ht=
-m=C2=A0*/
-> =C2=A0#define V4L2_PIX_FMT_SBGGR8=C2=A0 v4l2_fourcc('B', 'A', '8', '1') /=
-*=C2=A0 8=C2=A0 BGBG.. GRGR.. */
-
---=-tGxzQtJlib/xM1/4dGWX
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCafEVIwAKCRDZQZRRKWBy
-9J8UAQCuP0morTUyDPD/NNdhubR85mByJNrNBbLzHV+uLAQNQQD/eQUcx2XK2E9+
-Cgs60mkBfDrXtJA0+lIklNYMLTrhJwM=
-=Qopn
------END PGP SIGNATURE-----
-
---=-tGxzQtJlib/xM1/4dGWX--
 
