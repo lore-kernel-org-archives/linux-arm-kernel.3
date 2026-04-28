@@ -4,103 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B36EDFF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 09:25:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39E2FFF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 09:26:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Al22kA6RCf7FSEzj29cZLSkjdM9EgXxihmBX7/SeSVI=; b=jqN+N30pw+s7tqXogb3XhxtFlU
-	tHjvc3cU17cGaR5uHVR9FSKD9dRTxD3zw2yDcOb/4C+BrzH2kWp8puz4YXf3ba5npR11yf30OH36J
-	gX9GpsZXeqL3CiJBOY3JOQGSMFGuWQWVgGLwjXRZflhQdRhjWjdkI/xxcX90Vwyn/ShD+B2m/BAFP
-	fcAhDki1v2GpuV1YlLTpZoL7xSupkcnR1SGXOsZh2KdIR7Yg3SfP9uA0riE1uVzj00aVw9PobaFQf
-	XH31JVBfS9EROZfJ41BUzWt9MhRpRAKDGppOQgl1U1IQFWMgjaxzQMiOnax0c0q7P1fhR+JI7X/lr
-	dYgl+/hA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R+Q/yLECwnAIR7YmHJRfRY3fCxK/vQTGfudd0BK6psE=; b=OLLZkcmqmJJuWvxGHuewlAdh/d
+	TAevqbxc6LWbLqK0FOJwCA97BACDQolsSp/awS8I19oFJcb0rPTtt7BxzkoRJXCGD2LuM4+YAyBB8
+	fz26ZPLAbZSwScUdVfzMjhXUGAP/BwJXYVYihXdmAc4eUywya85/LIQqSfhc1ra+xuF0xZfZdgHov
+	8v31SZNCgwNXQtWHurTItdNlNavg38lXiNPEclHL/RLaNHZj3nQrPHZAgUkI2n0d8K+wLTxsrR035
+	NSSVClQgc5ldsfip8shczkq5j82zhaxe3nBrEt0M0hjTo2VZnGDtDN9W17fmBCzz5ilYoRSQ8qud7
+	O2szaUCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeh9-000000015Q7-1zy2;
-	Tue, 28 Apr 2026 09:25:31 +0000
-Received: from mail-ed1-f54.google.com ([209.85.208.54])
+	id 1wHehm-000000015WQ-3SSa;
+	Tue, 28 Apr 2026 09:26:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeh7-000000015Pg-2qka
+	id 1wHehl-000000015VT-08xT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 09:25:31 +0000
-Received: by mail-ed1-f54.google.com with SMTP id 4fb4d7f45d1cf-678a526f374so7365169a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 02:25:28 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777368327; x=1777973127;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Al22kA6RCf7FSEzj29cZLSkjdM9EgXxihmBX7/SeSVI=;
-        b=fncxh7gXAJ4Rp7l9I1GS/gvnp7NZuWUiyxNuzSUlY13brcykh9yGUuJZ/hlTPdSSp9
-         OOM/rVXAuKzvfAqvAfNNTsZixEeLKyrhNUZgw0UejhMWxcO04YXrdy6OhTiP+Gh/PDUV
-         bzhqegQCDB/ACfGulH5PwR3w0eajVtCwpJpUUf6oaMXK0ts9zAT0/va8FXFNiE8+7BmY
-         6OXWBvpqECkNhnJhPaJemRaC/t6yFFnPR5RYeCGIfMXm/HiMVGw/dU4jKZObFzyCzd2v
-         avN+5tCdbP2prTq7asJ4GmtryeH5biQQAGwvxu7GsfUimKx5hFKENNI5PVh6qQMmub96
-         ZX6w==
-X-Forwarded-Encrypted: i=1; AFNElJ+8JBtMf+ADqmAS6XOM7QcDd9Y1RV5g0h7A8VzrQvBCFryRMb1jVrHivPGFSC7pWC8Tf2xlraAulvVxhTpjk5Du@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXrlrGaGZGdTRAC2e3ZbcUjCvakegZxDQ5bSzSDTTQMEEwPcKf
-	Z/NOq1pXNyN2GPtpwcL+fXvkIoiE8z+v6aNOjIV2qvOMnN7u0YoOIUChjYmP4vpSr9Y=
-X-Gm-Gg: AeBDies9LUEOlJvyM4eK8IWrmFFEcgvSkx+SQsIafT9ySQrBO/K97lKhtPvBz1u2fHY
-	DQ7lLersSse+ZdgPHHZu81m7zSRg4SCcXWNpH9A2Z9vaUhTVnfMTpOS+3ZUioGKgTooQ/q9dp8U
-	dJP884Y7/PslGoeCorrOTt++RsojT7tmVoKO68DYSYtgN6mqGVSe2hPABNyNLEUY7VMvAmaYazY
-	ik15IUG6jkTSJsjHwHJP5yvi8D8aUidwliXcCITMhCKO+r5tZTKWfLRE35JnUyROFN7rXECvXbm
-	63jac2c2eud+Q2Tvg/0QrvZXVCiTlBJRpiLaCISKHm8n2Qfn/kEMWzn7Jh2uPDXsCRIQABflYO2
-	ubyyFd9jK8dwIk5eQmxcXuSRCsajXuiCa+GNm40qd3zMOdC9NOp9v2oMKosK/9kKw3ouRV/Jb7q
-	tyUv6egaNRkVdfAsLKGlbZkCyRhc1tyY+ntOcOkkZqyKgTCVOzTmlDlfL2dsPt9N9PxTYXFDk=
-X-Received: by 2002:a05:6402:4316:b0:676:9c6d:5c4d with SMTP id 4fb4d7f45d1cf-679bb08f304mr995633a12.17.1777368327128;
-        Tue, 28 Apr 2026 02:25:27 -0700 (PDT)
-Received: from mail-ed1-f51.google.com (mail-ed1-f51.google.com. [209.85.208.51])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-679b68524cdsm548639a12.21.2026.04.28.02.25.24
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 28 Apr 2026 02:25:24 -0700 (PDT)
-Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-67389cf78b0so19496968a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 02:25:24 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/V3biO99P9SjY1l7evPtIPa6I6xffE070rCTWmRCshOmCNisLeYG09FR90WGz3m6HKAkKt2+eyHB2aWU1k7iH9@lists.infradead.org
-X-Received: by 2002:a05:6402:5056:b0:676:d8a1:7a04 with SMTP id
- 4fb4d7f45d1cf-679bb09a4admr915149a12.23.1777368324094; Tue, 28 Apr 2026
- 02:25:24 -0700 (PDT)
+	Tue, 28 Apr 2026 09:26:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5DA3D4493E;
+	Tue, 28 Apr 2026 09:26:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A86BBC2BCAF;
+	Tue, 28 Apr 2026 09:25:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777368365;
+	bh=uZMFcw4X6G4NyZ2AkpR/wzfhivGs4KeUY1ksxX5CYJk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=KpT8hcZV0Gc1QMqlWdt6nVmZt47Mp3ucObkc8302hyQzOBtJEcfxgPqVQaCUl3RFl
+	 NUhIh76/2bSkTvKmX2h9HQjowxC5MtWQK2FnSdhW9P2ock+SupSZixrMX1bYFtqWGr
+	 EF0GnlMrjJ+zSdTzJuAlf/IvDqv+RkV4+kx8/mRk3tShOmjL4o5fUcMm9ks9Q68oMU
+	 S38f+9pdygkNLq0V9eWkD/6ZFG7N/MlyuO1eErtEp8NCSqsYtubsEbYqCIxDBcaTTp
+	 Hd6fA9a1WhactpOEwVikN7Q8fNDXyJ7Vj79Pq3SofYzb2N3MCevkNHdyYxNzLFdRW3
+	 xrwBRz4Rzjnsg==
+Message-ID: <a63d4dc7-b01a-4da2-ac1f-6679c9030db6@kernel.org>
+Date: Tue, 28 Apr 2026 11:25:57 +0200
 MIME-Version: 1.0
-References: <cover.1777306795.git.chleroy@kernel.org> <c73b90236f2810edd47c84edd2a8d8e8e0c816da.1777306795.git.chleroy@kernel.org>
-In-Reply-To: <c73b90236f2810edd47c84edd2a8d8e8e0c816da.1777306795.git.chleroy@kernel.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 28 Apr 2026 11:25:11 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdUvTBWoDN_wUo2n8-gkoheJ+-rbwew53OvoAwo8G5n1qg@mail.gmail.com>
-X-Gm-Features: AVHnY4JEWBVPw4tSjHgbQTia8gZd2WGJ1sv6qLdKJbtvs4hms1blpvc35yb0VWw
-Message-ID: <CAMuHMdUvTBWoDN_wUo2n8-gkoheJ+-rbwew53OvoAwo8G5n1qg@mail.gmail.com>
-Subject: Re: [RFC PATCH v1 4/9] uaccess: Introduce copy_{to/from}_user_partial()
-To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-Cc: Yury Norov <ynorov@nvidia.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Linus Torvalds <torvalds@linux-foundation.org>, David Laight <david.laight.linux@gmail.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, linux-alpha@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-snps-arc@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org, 
-	dmaengine@vger.kernel.org, linux-efi@vger.kernel.org, 
-	linux-fsi@lists.ozlabs.org, amd-gfx@lists.freedesktop.org, 
-	dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org, 
-	linux-wpan@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-wireless@vger.kernel.org, linux-spi@vger.kernel.org, 
-	linux-media@vger.kernel.org, linux-staging@lists.linux.dev, 
-	linux-serial@vger.kernel.org, linux-usb@vger.kernel.org, 
-	xen-devel@lists.xenproject.org, linux-fsdevel@vger.kernel.org, 
-	ocfs2-devel@lists.linux.dev, bpf@vger.kernel.org, kasan-dev@googlegroups.com, 
-	linux-mm@kvack.org, linux-x25@vger.kernel.org, rust-for-linux@vger.kernel.org, 
-	linux-sound@vger.kernel.org, sound-open-firmware@alsa-project.org, 
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, 
-	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, 
-	linux-sh@vger.kernel.org, linux-arch@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 02/11] firmware: samsung: acpm: Consolidate transfer
+ initialization helper
+To: Tudor Ambarus <tudor.ambarus@linaro.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, Kees Cook <kees@kernel.org>,
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Daniel Lezcano <daniel.lezcano@kernel.org>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Lee Jones <lee@kernel.org>
+Cc: willmcvicker@google.com, jyescas@google.com, shin.son@samsung.com,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
+ linux-clk@vger.kernel.org
+References: <20260423-acpm-tmu-v4-0-8b59f8548634@linaro.org>
+ <20260423-acpm-tmu-v4-2-8b59f8548634@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260423-acpm-tmu-v4-2-8b59f8548634@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_022529_730412_DD1224EC 
-X-CRM114-Status: GOOD (  25.86  )
+X-CRM114-CacheID: sfid-20260428_022609_118283_5744748B 
+X-CRM114-Status: GOOD (  11.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,45 +134,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Christophe,
+On 23/04/2026 17:22, Tudor Ambarus wrote:
+>  	acpm_dvfs_init_get_rate_cmd(cmd, clk_id);
+> -	acpm_dvfs_set_xfer(&xfer, cmd, ARRAY_SIZE(cmd), acpm_chan_id, true);
+> +	acpm_set_xfer(&xfer, cmd, ARRAY_SIZE(cmd), acpm_chan_id, true);
+>  
+>  	ret = acpm_do_xfer(handle, &xfer);
+>  	if (ret)
+> diff --git a/drivers/firmware/samsung/exynos-acpm-pmic.c b/drivers/firmware/samsung/exynos-acpm-pmic.c
+> index 0c50993cc9a8..f032f2c69685 100644
+> --- a/drivers/firmware/samsung/exynos-acpm-pmic.c
+> +++ b/drivers/firmware/samsung/exynos-acpm-pmic.c
+> @@ -58,16 +58,6 @@ static inline u32 acpm_pmic_get_bulk(u32 data, unsigned int i)
+>  	return (data >> (ACPM_PMIC_BULK_SHIFT * i)) & ACPM_PMIC_BULK_MASK;
+>  }
+>  
+> -static void acpm_pmic_set_xfer(struct acpm_xfer *xfer, u32 *cmd, size_t cmdlen,
+> -			       unsigned int acpm_chan_id)
+> -{
+> -	xfer->txd = cmd;
+> -	xfer->rxd = cmd;
+> -	xfer->txcnt = cmdlen;
+> -	xfer->rxcnt = cmdlen;
+> -	xfer->acpm_chan_id = acpm_chan_id;
 
-Thanks for your patch!
+The code is not equivalent. RX bits were always cleared. This should be
+explained in the commit msg which would also provide a proof that you
+actually analyzed if it has any impact.
 
-On Mon, 27 Apr 2026 at 19:18, Christophe Leroy (CS GROUP)
-<chleroy@kernel.org> wrote:
-> Today there are approximately 3000 calls for copy_to_user() and
-> 3000 calls to copy_from_user().
->
-> The majority of callers of copy_{to/from}_user() don't care about the
-> return value, they only check whether it is 0 or not, and when it is
-> not 0 they handle it as a -EACCES.
 
-I think the "a" can be dropped.
 
-> In order to allow better optimisation of copy_{to/from}_user() when
-> the size of the copy is known at build time, create new fonctions
-
-functions
-
-> named copy_{to/from}_user_partial() to be used by the few callers
-> that are interested in partial copies and need to now how many
-
-know
-
-> bytes remain at the end of the copy.
->
-> For the time being it is just the same as copy_{to/from}_user().
->
-> Signed-off-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Best regards,
+Krzysztof
 
