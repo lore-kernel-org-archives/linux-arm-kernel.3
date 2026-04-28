@@ -4,60 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AD01FF8870
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 06:26:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B5CAFF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 06:34:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VVMW6CwJ9GS8iGsurnKGxoQ/sNx6USinsH3XsvT64Go=; b=V+votaTHw8bOmfUwb6x09FswH/
-	ZMi5vkgXMhIBgICr067XUm6OvGXfrL0C0aiUcspg4ZHWO+drHR0IvMcgSK74W7rXNWNr8WxjB0rdv
-	vX2G4pfUFzOGQvYIWDiLKbyU+1H3zDu7OhDYvIU/GI68s61YzfB1ezvXXMP1cRwEHDnWcdWac6hON
-	CbvqLTbGIr0bRXtIySg2B4lqeUsJdPFsrOwZbDk8t+s7tROYNjO7Nv0lb+IelouchJu1Yuma4x1uP
-	Kk1nDFjrUj5c+Mp1mU52hau46I2B5QfoXxilKj750iJ2zgUWCnuR6+ttbZmUK8UVLO5iZ4t5vgjkD
-	3/3gBlXg==;
+	bh=sxnJDsiLoEpa/m7NLqqTA9NgaVmiWqcUp6yYED16WIA=; b=JcW5d0SLf8b6rB/BVM6u8UBXOs
+	lzRN8edhas4Pm0fy66TQ6ODod5yUYH1PzCTTVW/s/LwlolGy2xbZceJyQ5CxQPMcOhrge+EdNuED1
+	QUZ5bnqE7Atpyj3AY8fgrx89soOr3eQIKaDeCbEoJD1veWMJCaJp9Knz4bOqxiDR63yor5CdAgWWq
+	FiOM9z/jLY3St/fHSiGGNClZvJ7lZpGQtYrLCkRvPBjs5DHIN8xqFLgttu8M8UzxCoTcZHjeDpLcl
+	J3KaB4fp2/JrBfBj2bQl2QZE3w1Y3KnB17/z8iRjGiCLvJIAyGOAh3mihmq/JkUocwPO05C7LWvf8
+	1soqtbww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHbtb-00000000d6y-2rHG;
-	Tue, 28 Apr 2026 06:26:11 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHbta-00000000d6g-4Bgs;
-	Tue, 28 Apr 2026 06:26:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 59C6460141;
-	Tue, 28 Apr 2026 06:26:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A34ADC2BCAF;
-	Tue, 28 Apr 2026 06:26:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777357570;
-	bh=Cs0va9ksutkltfw/gfiQLgiE4WIPRepYv8o4zvP4pTk=;
+	id 1wHc17-00000000ddn-35me;
+	Tue, 28 Apr 2026 06:33:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHc14-00000000ddB-31Gf
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Apr 2026 06:33:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CE0B11684;
+	Mon, 27 Apr 2026 23:33:46 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DA0303F763;
+	Mon, 27 Apr 2026 23:33:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1777358032; bh=YWZkQJ9h/l4InQ9uofXyJ+ye5Z9Xuqt0qS0AfrrKrA0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Rk9r+wOGldHCWKoV3gZDP9RF3hwTmvN8ykTAcsATsiZU8b/Mcj814GM4viziTI/22
-	 Y6v8iKEpQ2JP7L1L60iOuseFkFGqU7oj8p6G+Gci+MJFXUoEViKH1fCnrgY6tj9xbX
-	 h5VGUVLJ+NWqXcE9+UKm5G7j3lY1gO3vSpgl6NcYgX35Qw+O5K9m/2D8eTE0u9/wkP
-	 FuALcZtiWY5/dhpXI5XEd0hEygD5xqxqdaFYXW4u5caPbctuHTcFNe2v/eQzChRTqq
-	 jxD4R7YtJs6blf7zNBhZ4EHMWqsg+XFcoITlkNjYh9QbUlRQ4cKQ8mLlI0eM5c/vlX
-	 laScHgn7+FS6g==
-Date: Tue, 28 Apr 2026 08:26:07 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: mtk20898 <zhengnan.chen@mediatek.com>
-Cc: Yong Wu <yong.wu@mediatek.com>, Rob Herring <robh@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Project_Global_Chrome_Upstream_Group@mediatek.com
-Subject: Re: [RESEND,v2 1/2] dt-bindings: memory-controllers: mtk-smi: Add
- support for mt8189
-Message-ID: <20260428-topaz-turtle-of-support-f5b9ec@quoll>
-References: <20260427070444.20247-1-zhengnan.chen@mediatek.com>
- <20260427070444.20247-2-zhengnan.chen@mediatek.com>
+	b=S2Xn++cFmmQu5248cOji44fY/eMi8BJevcEh3M2220AM7CaQvnqARY5FplvC+PS10
+	 4iz+okyCYpf0DlRtOwQYdzny5aSVGEYjdCRYKEDiF5c70/sYXZmuYUcqlHelxcYqf1
+	 KRe3lPH1nJVHXIoAJjsZr9rXaNM3RhkobsAhrKeY=
+Date: Tue, 28 Apr 2026 07:33:49 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: "Yingchao Deng (Consultant)" <quic_yingdeng@quicinc.com>
+Cc: Yingchao Deng <yingchao.deng@oss.qualcomm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	Jinlong Mao <jinlong.mao@oss.qualcomm.com>,
+	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+	Jie Gan <jie.gan@oss.qualcomm.com>
+Subject: Re: [PATCH v8 1/4] coresight: cti: Convert trigger usage fields to
+ dynamic bitmaps and arrays
+Message-ID: <20260428063349.GD16537@e132581.arm.com>
+References: <20260426-extended-cti-v8-0-23b900a4902f@oss.qualcomm.com>
+ <20260426-extended-cti-v8-1-23b900a4902f@oss.qualcomm.com>
+ <20260427165913.GA16537@e132581.arm.com>
+ <b20a2f7c-4838-408f-94ed-ee9656d451c4@quicinc.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20260427070444.20247-2-zhengnan.chen@mediatek.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <b20a2f7c-4838-408f-94ed-ee9656d451c4@quicinc.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260427_233354_890737_C8CF86FA 
+X-CRM114-Status: UNSURE (   7.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,41 +82,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 27, 2026 at 03:04:28PM +0800, mtk20898 wrote:
->  properties:
->    compatible:
->      oneOf:
-> @@ -40,6 +55,8 @@ properties:
->            - mediatek,mt8186-smi-common
->            - mediatek,mt8188-smi-common-vdo
->            - mediatek,mt8188-smi-common-vpp
-> +          - mediatek,mt8189-smi-common
-> +          - mediatek,mt8189-smi-sub-common
->            - mediatek,mt8192-smi-common
->            - mediatek,mt8195-smi-common-vdo
->            - mediatek,mt8195-smi-common-vpp
-> @@ -108,19 +125,23 @@ allOf:
->          compatible:
->            contains:
->              enum:
-> +              - mediatek,mt8189-smi-sub-common
->                - mediatek,mt8195-smi-sub-common
->      then:
->        required:
->          - mediatek,smi
->        properties:
->          clocks:
-> -          minItems: 3
-> +          minItems: 2
+On Tue, Apr 28, 2026 at 10:25:11AM +0800, Yingchao Deng (Consultant) wrote:
 
-Same problem as v2 before resend.
+[...]
 
-Please explain me how mt8195 requires three clocks. You can prove it by
-trying a malformed DTS (past here the snippet/diff) and pasting here the
-validation error.
+> >    tg->used_mask = bitmap_zalloc(nr_filter_sigs, GFP_KERNEL);
 
+> "nr_filter_sigs" is the count of entries in the DT property array, if the DT
+> property is:
+>     arm,trig-filters = <22 23>;
+> Here nr_filter_sigs=2, so bitmap_zalloc(2) allocates only 1 unsigned long
+> (64 bits). set_bit(22/23, used_mask) still fits, but it's logically an OOB,
+> and any index >=64 would
+> write past the end.
 
-Best regards,
-Krzysztof
-
+Thanks for explanation. It is correct for me.
 
