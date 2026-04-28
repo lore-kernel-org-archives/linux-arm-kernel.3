@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15837FF886F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 07:20:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B97EAFF8870
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 07:20:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Ll97+HD6BzQ65Ca5mPa0Ggxu+0RlOIO3VnxuoiY1cY=; b=HzcDpDqLSEZoG5XitqdxQRyZyF
-	E0Evoq/x/35GmBs+ROpxVD8GKiu0YLJoPhtbGJJIStcZ1P3rF97YiAUAnSZdtL8Q4oKR1W+ToHj32
-	XEYhfy1qH+1btaC8MuWCCv4fG0BBS48tjG3dLto/YlXmcWrm0xJPj7tFjVu+eA9AOLRFeoB0jhefl
-	BgLrWpW5/Op0Nh51TlXuFMzFqA6uUlTP+FVTSN8MBvKVzxRo4aJsGynvOKeLcnQaPtIdOT9h3i4Mq
-	hB+06cZWl/TX9ucyueF/WExq0Rp/2vDYS+kr/MztW7lD5PUfhvYVRx17/+HW1O+RZ7sDN7AWV32K5
-	Z31FnHIA==;
+	bh=vjUrm2Qyvgkx7Jag5rBuEdveY6s6RY4+xQ1CxFiHLiQ=; b=3vTToWEtj2u+kWcE6IL7trcM9H
+	1nedfILgTrF0SZ5UP5nlt10qNCOPrgaRslNyCVt6x1iFflwxSleDgQzmAK28058PDBWW8PXCnSVzE
+	BRbf0A3ehoJFUhCNKCvc6FUeMIU2E72W9Qg9KxCAo5nDPjkpMaBMOI8b0q8vrT0ZD9t8XiesPd2NC
+	/lUnj/PiPDiGR5jRustExRkIDzVEeWMlohirY7Q7IsYgpU9EWD4VnnpSS0L7e1CA0Xt8LpU6MQTLf
+	prip9GLyff9Mjinht1u7KJKssrXqV44BziYfVHs1u+oSbIhBPAfPzZCgweAWBmLrVSo+K6dT8pv2F
+	FKILvAeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHcjg-00000000gnD-3PtL;
-	Tue, 28 Apr 2026 07:20:00 +0000
-Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
+	id 1wHcjb-00000000ggi-3JUr;
+	Tue, 28 Apr 2026 07:19:55 +0000
+Received: from mail-dl1-x1249.google.com ([2607:f8b0:4864:20::1249])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHcjV-00000000gaL-3nxW
+	id 1wHcjK-00000000gQc-3geh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 07:19:52 +0000
-Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2da19227bc1so27362621eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 00:19:49 -0700 (PDT)
+	Tue, 28 Apr 2026 07:19:41 +0000
+Received: by mail-dl1-x1249.google.com with SMTP id a92af1059eb24-12c21dbc9c1so42615973c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 00:19:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777360789; x=1777965589; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777360777; x=1777965577; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=3Ll97+HD6BzQ65Ca5mPa0Ggxu+0RlOIO3VnxuoiY1cY=;
-        b=mT2Y4vD5/rApH7/HqG07eibDlBQl7pQsDNeE68vetyG/cPHNziSWuYKgh6/8uWVlr9
-         unQdTPtyCiD43Dn4OVyWqmIC8j5N/k0KVKSROTfIv1js/ngdNtZdCrM9h6C7NxtTaV8r
-         UiHHtDBgZuCm8mzRGyyymp29qytkyxlSdCAjzs0SdBXAOVdD1PAH4RmoDGLibjmEBokA
-         DlslbVkknd1Mbn8V32oGC0AniRZksiLzSMsMUlZJTd7RmfoP0XU9VjJ5svRWD396APeE
-         qVxICERnKU7L4tNKyYgq/8jo7nQZ4oFafeuQuuxxsKB0rwb6S26db0+Lrm3+mQ3ToVHW
-         vS7g==
+        bh=vjUrm2Qyvgkx7Jag5rBuEdveY6s6RY4+xQ1CxFiHLiQ=;
+        b=lgg45Mt/SKKKb52Mqe3em37CaLBrHVcvM0fEUj5qfYnpQSz977sgGn6kv6VWUlRz+R
+         g8KAG61c7v9535PuZA+JDQjE0qNkHr9RxzY5LBelkd/98T/F7ifU9PKNa6tlfBBQCLKe
+         BN9rQR+3iBEJNlAZYYy5MV6GV3zygTeSZUyep0K+RHQtZnwv/iTmwuYBk8bR3mJwY5BK
+         iJnHKx8bmMJRfhovhMGWheLssJ7HvIHdkfs35A30tCOSHBidriqXptQscfUtcSmH5eoz
+         Ia0NwKKQ4VLxiJs4TPcUcvjcGYCUb1CNOFjZVCn/lOwqxcmC9KfBWxXHb+K6hx+zzNFL
+         7xEw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777360789; x=1777965589;
+        d=1e100.net; s=20251104; t=1777360777; x=1777965577;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=3Ll97+HD6BzQ65Ca5mPa0Ggxu+0RlOIO3VnxuoiY1cY=;
-        b=rwo7Sav2lagy2P1Y6czJvXU64Ku1DyDe2toE82GwUICkSelvGhS9BzUxnkZe86nQne
-         rdZBfxaPHgxt+YLesG0t2jUWaLAJYz2070diu7fAA+xtW1S8Z52X0aTCeGZztxQlj8mw
-         IRnGzQB8B63gagTt6GRy9vn4Mds42AqUekJge56TusItKkumIB2zUpuEnT9Hz7aYZsfI
-         jWLT9/6N5bP+drtrF2jy6ylGr26/mxTHqR+PNYT3F5XgZ3N53WhuNf/QHzn0TY6Q8kqd
-         xmp8rpujG4xXlJ4i1VQKcneuTzHMcbHLXkzgnsGMXsXT7RDGvGlwi2ko2aHOiO6yQbmL
-         6+sA==
-X-Forwarded-Encrypted: i=1; AFNElJ8KH4PVnbJswalGztrlPzvxpgDucPNGmXOhDuXgUt8otaOPUZWVkDQAd+Qzzb1DrjLgFTkbIIYezTlmn4WijUoT@lists.infradead.org
-X-Gm-Message-State: AOJu0YzRYzBKjZovgdNxmU1JHiRfn/KRUc2hKkH9F+VVYeSgfw2DiFOj
-	H2n+1Lm8TvWEyl8jZHAqBbTT2bSZ26mY7R/y2JEinbJvEytbBHqwTU8jUuJrWGafpGk9NA5M+3S
-	CwgdMjZudnw==
-X-Received: from dybzy3.prod.google.com ([2002:a05:7301:e103:b0:2df:af:8fde])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:dc94:b0:2ea:ed7c:912f
- with SMTP id 5a478bee46e88-2ed0a18457dmr1018487eec.27.1777360788441; Tue, 28
- Apr 2026 00:19:48 -0700 (PDT)
-Date: Tue, 28 Apr 2026 00:18:20 -0700
+        bh=vjUrm2Qyvgkx7Jag5rBuEdveY6s6RY4+xQ1CxFiHLiQ=;
+        b=jraSv6rkkz2OYXy24hwZDWjRxhQehN+zGKtm95iXQVANVk3C2wdS59NVxli6Z236N6
+         LnokPapmBqHVhGw1XrMxGp39I4qk81YicYcLF913zX/1DqfwhnSgVdxQk08ktSvrg8+L
+         HCcJ2+AnV+KU9XBtF+OUaLuo+Z0xg6lspWF1RdZwKIj/vLpQfEiUgJRl+A2J6sTN7qT0
+         s3J3ieMl5LajxPqspLKepirzRacJXnSPqyX0jMRhWY/aEmvxjl0L34gbHj1ubQ/VIsL3
+         Y6GiBXSULd4CipOnv6NXz/MD6VzSp2GKdQE2+7yqH/K9W2qdA/6iAAmG0wzqQMc8BdD/
+         32xA==
+X-Forwarded-Encrypted: i=1; AFNElJ9mIU8cj/OYwsRYVSTQEDY0QPgIwN4fGVACZtEmJi6tu2Tn+eLOxvgaRxtJo5RNEjZ/6jEM78gpMYV44HBRCN5c@lists.infradead.org
+X-Gm-Message-State: AOJu0YwG/hGq7v9kNwUcraDuq7y0BcWw8PzF1vYF7+JpWMgIxMhEigLr
+	j/MXLmjyNY8kKcDZJ9S37vWOMQJChr/2cuZ4lNE7mHDMhodUMapyeEyicmrDz10XNGvHQqA7HjZ
+	KJ79prYZvFQ==
+X-Received: from dlbrx24.prod.google.com ([2002:a05:7022:1718:b0:12d:b591:4bc6])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:698c:b0:124:abaa:7ff2
+ with SMTP id a92af1059eb24-12ddd993393mr943235c88.24.1777360777383; Tue, 28
+ Apr 2026 00:19:37 -0700 (PDT)
+Date: Tue, 28 Apr 2026 00:18:14 -0700
 In-Reply-To: <20260428071903.1886173-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260425224951.174663-1-irogers@google.com> <20260428071903.1886173-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260428071903.1886173-16-irogers@google.com>
-Subject: [PATCH v8 15/58] perf python: Refactor and add accessors to sample event
+Message-ID: <20260428071903.1886173-10-irogers@google.com>
+Subject: [PATCH v8 09/58] perf evlist: Add reference count
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, namhyung@kernel.org
 Cc: adrian.hunter@intel.com, alice.mei.rogers@gmail.com, 
@@ -75,8 +75,8 @@ Cc: adrian.hunter@intel.com, alice.mei.rogers@gmail.com,
 	tmricht@linux.ibm.com, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_001950_027233_36201ADF 
-X-CRM114-Status: GOOD (  20.60  )
+X-CRM114-CacheID: sfid-20260428_001939_002916_E937222A 
+X-CRM114-Status: GOOD (  23.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,885 +91,2264 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add common evsel field for events and move sample specific fields to
-only be present in sample events. Add accessors for sample
-events. Ensure offsets are within the bounds of the event. Allocate
-just enough memory for the copied event, don't make the maximum event
-size each time.
+This a no-op for most of the perf tool. The reference count is set to
+1 at allocation, the put will see the 1, decrement it and perform the
+delete. The purpose for adding the reference count is for the python
+code. Prior to this change the python code would clone evlists, but
+this has issues if events are opened, etc. This change adds a
+reference count for the evlists and a later change will add it to
+evsels. The combination is needed for the python code to operate
+correctly (not hit asserts in the evsel clone), but the changes are
+broken apart for the sake of smaller patches.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
-v5:
-1. Fix Uninitialized Memory: Restore zero-initialization of `pevent->sample`
-   in `pyrf_event__new()` to prevent wild free crashes on error paths.
+v2: Added evlist__put to pyrf_evlist__init in case init is called more
+    than once.
 
-v6:
-- Refactored `pyrf_event__new` to take `evsel` and `session`, and use
-  dynamic allocation based on event size. Updated callers.
+    I double-checked trace__replay() and confirmed that trace->evlist
+    is not assigned to session->evlist in that function.
+    trace__replay creates a new session and uses its own evlist for
+    processing file events, leaving trace->evlist pointing to the
+    empty list created at startup. Therefore, the
+    evlist__put(trace->evlist) call in trace__exit() is safe and
+    correct to avoid leaking that empty list.
 
-v8:
-- Ensure events are properly deallocated.
+v7:
+- Added pyrf_evlist__new to zero-initialize pevlist->evlist to fix
+  crash on re-initialization.
 ---
- tools/perf/util/python.c | 618 +++++++++++++++++++++++++++++++++------
- 1 file changed, 534 insertions(+), 84 deletions(-)
+ tools/perf/arch/x86/tests/hybrid.c          |   2 +-
+ tools/perf/arch/x86/tests/topdown.c         |   2 +-
+ tools/perf/arch/x86/util/iostat.c           |   2 +-
+ tools/perf/bench/evlist-open-close.c        |  18 +-
+ tools/perf/builtin-ftrace.c                 |   8 +-
+ tools/perf/builtin-kvm.c                    |   4 +-
+ tools/perf/builtin-lock.c                   |   2 +-
+ tools/perf/builtin-record.c                 |   4 +-
+ tools/perf/builtin-sched.c                  |   6 +-
+ tools/perf/builtin-script.c                 |   2 +-
+ tools/perf/builtin-stat.c                   |  10 +-
+ tools/perf/builtin-top.c                    |  52 ++---
+ tools/perf/builtin-trace.c                  |  26 +--
+ tools/perf/tests/backward-ring-buffer.c     |  18 +-
+ tools/perf/tests/code-reading.c             |   4 +-
+ tools/perf/tests/event-times.c              |   4 +-
+ tools/perf/tests/event_update.c             |   2 +-
+ tools/perf/tests/evsel-roundtrip-name.c     |   8 +-
+ tools/perf/tests/expand-cgroup.c            |   8 +-
+ tools/perf/tests/hists_cumulate.c           |   2 +-
+ tools/perf/tests/hists_filter.c             |   2 +-
+ tools/perf/tests/hists_link.c               |   2 +-
+ tools/perf/tests/hists_output.c             |   2 +-
+ tools/perf/tests/hwmon_pmu.c                |   2 +-
+ tools/perf/tests/keep-tracking.c            |   2 +-
+ tools/perf/tests/mmap-basic.c               |  18 +-
+ tools/perf/tests/openat-syscall-tp-fields.c |  18 +-
+ tools/perf/tests/parse-events.c             |   4 +-
+ tools/perf/tests/parse-metric.c             |   4 +-
+ tools/perf/tests/parse-no-sample-id-all.c   |   2 +-
+ tools/perf/tests/perf-record.c              |  18 +-
+ tools/perf/tests/perf-time-to-tsc.c         |   2 +-
+ tools/perf/tests/pfm.c                      |   4 +-
+ tools/perf/tests/pmu-events.c               |   6 +-
+ tools/perf/tests/pmu.c                      |   4 +-
+ tools/perf/tests/sw-clock.c                 |  14 +-
+ tools/perf/tests/switch-tracking.c          |   2 +-
+ tools/perf/tests/task-exit.c                |  14 +-
+ tools/perf/tests/tool_pmu.c                 |   2 +-
+ tools/perf/tests/topology.c                 |   2 +-
+ tools/perf/util/cgroup.c                    |   4 +-
+ tools/perf/util/data-convert-bt.c           |   2 +-
+ tools/perf/util/evlist.c                    |  20 +-
+ tools/perf/util/evlist.h                    |   7 +-
+ tools/perf/util/expr.c                      |   2 +-
+ tools/perf/util/header.c                    |  12 +-
+ tools/perf/util/metricgroup.c               |   6 +-
+ tools/perf/util/parse-events.c              |   4 +-
+ tools/perf/util/perf_api_probe.c            |   2 +-
+ tools/perf/util/python.c                    | 212 ++++++++------------
+ tools/perf/util/record.c                    |   2 +-
+ tools/perf/util/session.c                   |   2 +-
+ tools/perf/util/sideband_evlist.c           |  16 +-
+ 53 files changed, 279 insertions(+), 320 deletions(-)
 
+diff --git a/tools/perf/arch/x86/tests/hybrid.c b/tools/perf/arch/x86/tests/hybrid.c
+index e221ea104174..dfb0ffc0d030 100644
+--- a/tools/perf/arch/x86/tests/hybrid.c
++++ b/tools/perf/arch/x86/tests/hybrid.c
+@@ -268,7 +268,7 @@ static int test_event(const struct evlist_test *e)
+ 		ret = e->check(evlist);
+ 	}
+ 	parse_events_error__exit(&err);
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 
+ 	return ret;
+ }
+diff --git a/tools/perf/arch/x86/tests/topdown.c b/tools/perf/arch/x86/tests/topdown.c
+index 3ee4e5e71be3..2d0ae5b0d76c 100644
+--- a/tools/perf/arch/x86/tests/topdown.c
++++ b/tools/perf/arch/x86/tests/topdown.c
+@@ -56,7 +56,7 @@ static int event_cb(void *state, struct pmu_event_info *info)
+ 			*ret = TEST_FAIL;
+ 		}
+ 	}
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 	return 0;
+ }
+ 
+diff --git a/tools/perf/arch/x86/util/iostat.c b/tools/perf/arch/x86/util/iostat.c
+index 7442a2cd87ed..e0417552b0cb 100644
+--- a/tools/perf/arch/x86/util/iostat.c
++++ b/tools/perf/arch/x86/util/iostat.c
+@@ -337,7 +337,7 @@ int iostat_prepare(struct evlist *evlist, struct perf_stat_config *config)
+ 	if (evlist->core.nr_entries > 0) {
+ 		pr_warning("The -e and -M options are not supported."
+ 			   "All chosen events/metrics will be dropped\n");
+-		evlist__delete(evlist);
++		evlist__put(evlist);
+ 		evlist = evlist__new();
+ 		if (!evlist)
+ 			return -ENOMEM;
+diff --git a/tools/perf/bench/evlist-open-close.c b/tools/perf/bench/evlist-open-close.c
+index faf9c34b4a5d..304929d1f67f 100644
+--- a/tools/perf/bench/evlist-open-close.c
++++ b/tools/perf/bench/evlist-open-close.c
+@@ -76,7 +76,7 @@ static struct evlist *bench__create_evlist(char *evstr, const char *uid_str)
+ 		parse_events_error__exit(&err);
+ 		pr_err("Run 'perf list' for a list of valid events\n");
+ 		ret = 1;
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 	parse_events_error__exit(&err);
+ 	if (uid_str) {
+@@ -85,24 +85,24 @@ static struct evlist *bench__create_evlist(char *evstr, const char *uid_str)
+ 		if (uid == UINT_MAX) {
+ 			pr_err("Invalid User: %s", uid_str);
+ 			ret = -EINVAL;
+-			goto out_delete_evlist;
++			goto out_put_evlist;
+ 		}
+ 		ret = parse_uid_filter(evlist, uid);
+ 		if (ret)
+-			goto out_delete_evlist;
++			goto out_put_evlist;
+ 	}
+ 	ret = evlist__create_maps(evlist, &opts.target);
+ 	if (ret < 0) {
+ 		pr_err("Not enough memory to create thread/cpu maps\n");
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 
+ 	evlist__config(evlist, &opts, NULL);
+ 
+ 	return evlist;
+ 
+-out_delete_evlist:
+-	evlist__delete(evlist);
++out_put_evlist:
++	evlist__put(evlist);
+ 	return NULL;
+ }
+ 
+@@ -151,7 +151,7 @@ static int bench_evlist_open_close__run(char *evstr, const char *uid_str)
+ 		evlist->core.nr_entries, evlist__count_evsel_fds(evlist));
+ 	printf("  Number of iterations:\t%d\n", iterations);
+ 
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 
+ 	for (i = 0; i < iterations; i++) {
+ 		pr_debug("Started iteration %d\n", i);
+@@ -162,7 +162,7 @@ static int bench_evlist_open_close__run(char *evstr, const char *uid_str)
+ 		gettimeofday(&start, NULL);
+ 		err = bench__do_evlist_open_close(evlist);
+ 		if (err) {
+-			evlist__delete(evlist);
++			evlist__put(evlist);
+ 			return err;
+ 		}
+ 
+@@ -171,7 +171,7 @@ static int bench_evlist_open_close__run(char *evstr, const char *uid_str)
+ 		runtime_us = timeval2usec(&diff);
+ 		update_stats(&time_stats, runtime_us);
+ 
+-		evlist__delete(evlist);
++		evlist__put(evlist);
+ 		pr_debug("Iteration %d took:\t%" PRIu64 "us\n", i, runtime_us);
+ 	}
+ 
+diff --git a/tools/perf/builtin-ftrace.c b/tools/perf/builtin-ftrace.c
+index 8a7dbfb14535..676239148b87 100644
+--- a/tools/perf/builtin-ftrace.c
++++ b/tools/perf/builtin-ftrace.c
+@@ -1999,20 +1999,20 @@ int cmd_ftrace(int argc, const char **argv)
+ 
+ 	ret = evlist__create_maps(ftrace.evlist, &ftrace.target);
+ 	if (ret < 0)
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 
+ 	if (argc) {
+ 		ret = evlist__prepare_workload(ftrace.evlist, &ftrace.target,
+ 					       argv, false,
+ 					       ftrace__workload_exec_failed_signal);
+ 		if (ret < 0)
+-			goto out_delete_evlist;
++			goto out_put_evlist;
+ 	}
+ 
+ 	ret = cmd_func(&ftrace);
+ 
+-out_delete_evlist:
+-	evlist__delete(ftrace.evlist);
++out_put_evlist:
++	evlist__put(ftrace.evlist);
+ 
+ out_delete_filters:
+ 	delete_filter_func(&ftrace.filters);
+diff --git a/tools/perf/builtin-kvm.c b/tools/perf/builtin-kvm.c
+index 0c5e6b3aac74..d88855e3c7b4 100644
+--- a/tools/perf/builtin-kvm.c
++++ b/tools/perf/builtin-kvm.c
+@@ -1811,7 +1811,7 @@ static struct evlist *kvm_live_event_list(void)
+ 
+ out:
+ 	if (err) {
+-		evlist__delete(evlist);
++		evlist__put(evlist);
+ 		evlist = NULL;
+ 	}
+ 
+@@ -1942,7 +1942,7 @@ static int kvm_events_live(struct perf_kvm_stat *kvm,
+ out:
+ 	perf_session__delete(kvm->session);
+ 	kvm->session = NULL;
+-	evlist__delete(kvm->evlist);
++	evlist__put(kvm->evlist);
+ 
+ 	return err;
+ }
+diff --git a/tools/perf/builtin-lock.c b/tools/perf/builtin-lock.c
+index 5585aeb97684..c40d070f6c36 100644
+--- a/tools/perf/builtin-lock.c
++++ b/tools/perf/builtin-lock.c
+@@ -2145,7 +2145,7 @@ static int __cmd_contention(int argc, const char **argv)
+ 
+ out_delete:
+ 	lock_filter_finish();
+-	evlist__delete(con.evlist);
++	evlist__put(con.evlist);
+ 	lock_contention_finish(&con);
+ 	perf_session__delete(session);
+ 	perf_env__exit(&host_env);
+diff --git a/tools/perf/builtin-record.c b/tools/perf/builtin-record.c
+index 4a5eba498c02..b4fffa936e01 100644
+--- a/tools/perf/builtin-record.c
++++ b/tools/perf/builtin-record.c
+@@ -4289,7 +4289,7 @@ int cmd_record(int argc, const char **argv)
+ 			goto out;
+ 
+ 		evlist__splice_list_tail(rec->evlist, &def_evlist->core.entries);
+-		evlist__delete(def_evlist);
++		evlist__put(def_evlist);
+ 	}
+ 
+ 	if (rec->opts.target.tid && !rec->opts.no_inherit_set)
+@@ -4397,7 +4397,7 @@ int cmd_record(int argc, const char **argv)
+ 	auxtrace_record__free(rec->itr);
+ out_opts:
+ 	evlist__close_control(rec->opts.ctl_fd, rec->opts.ctl_fd_ack, &rec->opts.ctl_fd_close);
+-	evlist__delete(rec->evlist);
++	evlist__put(rec->evlist);
+ 	return err;
+ }
+ 
+diff --git a/tools/perf/builtin-sched.c b/tools/perf/builtin-sched.c
+index 9ecda631b3ab..b3d96c4774b6 100644
+--- a/tools/perf/builtin-sched.c
++++ b/tools/perf/builtin-sched.c
+@@ -3829,7 +3829,7 @@ static int perf_sched__schedstat_record(struct perf_sched *sched,
+ 	session = perf_session__new(&data, &sched->tool);
+ 	if (IS_ERR(session)) {
+ 		pr_err("Perf session creation failed.\n");
+-		evlist__delete(evlist);
++		evlist__put(evlist);
+ 		return PTR_ERR(session);
+ 	}
+ 
+@@ -3925,7 +3925,7 @@ static int perf_sched__schedstat_record(struct perf_sched *sched,
+ 	else
+ 		fprintf(stderr, "[ perf sched stats: Failed !! ]\n");
+ 
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 	close(fd);
+ 	return err;
+ }
+@@ -4787,7 +4787,7 @@ static int perf_sched__schedstat_live(struct perf_sched *sched,
+ 	free_cpu_domain_info(cd_map, sv, nr);
+ out:
+ 	free_schedstat(&cpu_head);
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 	return err;
+ }
+ 
+diff --git a/tools/perf/builtin-script.c b/tools/perf/builtin-script.c
+index 853b141a0d50..0ead134940d5 100644
+--- a/tools/perf/builtin-script.c
++++ b/tools/perf/builtin-script.c
+@@ -2269,7 +2269,7 @@ static int script_find_metrics(const struct pmu_metric *pm,
+ 	}
+ 	pr_debug("Found metric '%s' whose evsels match those of in the perf data\n",
+ 		 pm->metric_name);
+-	evlist__delete(metric_evlist);
++	evlist__put(metric_evlist);
+ out:
+ 	return 0;
+ }
+diff --git a/tools/perf/builtin-stat.c b/tools/perf/builtin-stat.c
+index 99d7db372b48..bfa3512e1686 100644
+--- a/tools/perf/builtin-stat.c
++++ b/tools/perf/builtin-stat.c
+@@ -2113,7 +2113,7 @@ static int add_default_events(void)
+ 							stat_config.user_requested_cpu_list,
+ 							stat_config.system_wide,
+ 							stat_config.hardware_aware_grouping) < 0) {
+-				evlist__delete(metric_evlist);
++				evlist__put(metric_evlist);
+ 				ret = -1;
+ 				break;
+ 			}
+@@ -2125,7 +2125,7 @@ static int add_default_events(void)
+ 			metricgroup__copy_metric_events(evlist, /*cgrp=*/NULL,
+ 							&evlist->metric_events,
+ 							&metric_evlist->metric_events);
+-			evlist__delete(metric_evlist);
++			evlist__put(metric_evlist);
+ 		}
+ 		list_sort(/*priv=*/NULL, &evlist->core.entries, default_evlist_evsel_cmp);
+ 
+@@ -2146,7 +2146,7 @@ static int add_default_events(void)
+ 	metricgroup__copy_metric_events(evsel_list, /*cgrp=*/NULL,
+ 					&evsel_list->metric_events,
+ 					&evlist->metric_events);
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 	return ret;
+ }
+ 
+@@ -2381,7 +2381,7 @@ static int __cmd_report(int argc, const char **argv)
+ 
+ 	perf_stat.session  = session;
+ 	stat_config.output = stderr;
+-	evlist__delete(evsel_list);
++	evlist__put(evsel_list);
+ 	evsel_list         = session->evlist;
+ 
+ 	ret = perf_session__process_events(session);
+@@ -3060,7 +3060,7 @@ int cmd_stat(int argc, const char **argv)
+ 	if (smi_cost && smi_reset)
+ 		sysfs__write_int(FREEZE_ON_SMI_PATH, 0);
+ 
+-	evlist__delete(evsel_list);
++	evlist__put(evsel_list);
+ 
+ 	evlist__close_control(stat_config.ctl_fd, stat_config.ctl_fd_ack, &stat_config.ctl_fd_close);
+ 
+diff --git a/tools/perf/builtin-top.c b/tools/perf/builtin-top.c
+index f6eb543de537..c509cfef8285 100644
+--- a/tools/perf/builtin-top.c
++++ b/tools/perf/builtin-top.c
+@@ -1652,14 +1652,14 @@ int cmd_top(int argc, const char **argv)
+ 	perf_env__init(&host_env);
+ 	status = perf_config(perf_top_config, &top);
+ 	if (status)
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	/*
+ 	 * Since the per arch annotation init routine may need the cpuid, read
+ 	 * it here, since we are not getting this from the perf.data header.
+ 	 */
+ 	status = perf_env__set_cmdline(&host_env, argc, argv);
+ 	if (status)
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 
+ 	status = perf_env__read_cpuid(&host_env);
+ 	if (status) {
+@@ -1680,30 +1680,30 @@ int cmd_top(int argc, const char **argv)
+ 		annotate_opts.disassembler_style = strdup(disassembler_style);
+ 		if (!annotate_opts.disassembler_style) {
+ 			status = -ENOMEM;
+-			goto out_delete_evlist;
++			goto out_put_evlist;
+ 		}
+ 	}
+ 	if (objdump_path) {
+ 		annotate_opts.objdump_path = strdup(objdump_path);
+ 		if (!annotate_opts.objdump_path) {
+ 			status = -ENOMEM;
+-			goto out_delete_evlist;
++			goto out_put_evlist;
+ 		}
+ 	}
+ 	if (addr2line_path) {
+ 		symbol_conf.addr2line_path = strdup(addr2line_path);
+ 		if (!symbol_conf.addr2line_path) {
+ 			status = -ENOMEM;
+-			goto out_delete_evlist;
++			goto out_put_evlist;
+ 		}
+ 	}
+ 
+ 	status = symbol__validate_sym_arguments();
+ 	if (status)
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 
+ 	if (annotate_check_args() < 0)
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 
+ 	status = target__validate(target);
+ 	if (status) {
+@@ -1718,15 +1718,15 @@ int cmd_top(int argc, const char **argv)
+ 		struct evlist *def_evlist = evlist__new_default(target, callchain_param.enabled);
+ 
+ 		if (!def_evlist)
+-			goto out_delete_evlist;
++			goto out_put_evlist;
+ 
+ 		evlist__splice_list_tail(top.evlist, &def_evlist->core.entries);
+-		evlist__delete(def_evlist);
++		evlist__put(def_evlist);
+ 	}
+ 
+ 	status = evswitch__init(&top.evswitch, top.evlist, stderr);
+ 	if (status)
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 
+ 	if (symbol_conf.report_hierarchy) {
+ 		/* disable incompatible options */
+@@ -1737,18 +1737,18 @@ int cmd_top(int argc, const char **argv)
+ 			pr_err("Error: --hierarchy and --fields options cannot be used together\n");
+ 			parse_options_usage(top_usage, options, "fields", 0);
+ 			parse_options_usage(NULL, options, "hierarchy", 0);
+-			goto out_delete_evlist;
++			goto out_put_evlist;
+ 		}
+ 	}
+ 
+ 	if (top.stitch_lbr && !(callchain_param.record_mode == CALLCHAIN_LBR)) {
+ 		pr_err("Error: --stitch-lbr must be used with --call-graph lbr\n");
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 
+ 	if (nr_cgroups > 0 && opts->record_cgroup) {
+ 		pr_err("--cgroup and --all-cgroups cannot be used together\n");
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 
+ 	if (branch_call_mode) {
+@@ -1772,7 +1772,7 @@ int cmd_top(int argc, const char **argv)
+ 		status = perf_env__read_core_pmu_caps(&host_env);
+ 		if (status) {
+ 			pr_err("PMU capability data is not available\n");
+-			goto out_delete_evlist;
++			goto out_put_evlist;
+ 		}
+ 	}
+ 
+@@ -1795,7 +1795,7 @@ int cmd_top(int argc, const char **argv)
+ 	if (IS_ERR(top.session)) {
+ 		status = PTR_ERR(top.session);
+ 		top.session = NULL;
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 	top.evlist->session = top.session;
+ 
+@@ -1805,7 +1805,7 @@ int cmd_top(int argc, const char **argv)
+ 		if (field_order)
+ 			parse_options_usage(sort_order ? NULL : top_usage,
+ 					    options, "fields", 0);
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 
+ 	if (top.uid_str) {
+@@ -1814,18 +1814,18 @@ int cmd_top(int argc, const char **argv)
+ 		if (uid == UINT_MAX) {
+ 			ui__error("Invalid User: %s", top.uid_str);
+ 			status = -EINVAL;
+-			goto out_delete_evlist;
++			goto out_put_evlist;
+ 		}
+ 		status = parse_uid_filter(top.evlist, uid);
+ 		if (status)
+-			goto out_delete_evlist;
++			goto out_put_evlist;
+ 	}
+ 
+ 	if (evlist__create_maps(top.evlist, target) < 0) {
+ 		ui__error("Couldn't create thread/CPU maps: %s\n",
+ 			  errno == ENOENT ? "No such process" : str_error_r(errno, errbuf, sizeof(errbuf)));
+ 		status = -errno;
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 
+ 	if (top.delay_secs < 1)
+@@ -1833,7 +1833,7 @@ int cmd_top(int argc, const char **argv)
+ 
+ 	if (record_opts__config(opts)) {
+ 		status = -EINVAL;
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 
+ 	top.sym_evsel = evlist__first(top.evlist);
+@@ -1848,14 +1848,14 @@ int cmd_top(int argc, const char **argv)
+ 
+ 	status = symbol__annotation_init();
+ 	if (status < 0)
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 
+ 	annotation_config__init();
+ 
+ 	symbol_conf.try_vmlinux_path = (symbol_conf.vmlinux_name == NULL);
+ 	status = symbol__init(NULL);
+ 	if (status < 0)
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 
+ 	sort__setup_elide(stdout);
+ 
+@@ -1875,13 +1875,13 @@ int cmd_top(int argc, const char **argv)
+ 		if (top.sb_evlist == NULL) {
+ 			pr_err("Couldn't create side band evlist.\n.");
+ 			status = -EINVAL;
+-			goto out_delete_evlist;
++			goto out_put_evlist;
+ 		}
+ 
+ 		if (evlist__add_bpf_sb_event(top.sb_evlist, &host_env)) {
+ 			pr_err("Couldn't ask for PERF_RECORD_BPF_EVENT side band events.\n.");
+ 			status = -EINVAL;
+-			goto out_delete_evlist;
++			goto out_put_evlist;
+ 		}
+ 	}
+ #endif
+@@ -1896,8 +1896,8 @@ int cmd_top(int argc, const char **argv)
+ 	if (!opts->no_bpf_event)
+ 		evlist__stop_sb_thread(top.sb_evlist);
+ 
+-out_delete_evlist:
+-	evlist__delete(top.evlist);
++out_put_evlist:
++	evlist__put(top.evlist);
+ 	perf_session__delete(top.session);
+ 	annotation_options__exit();
+ 	perf_env__exit(&host_env);
+diff --git a/tools/perf/builtin-trace.c b/tools/perf/builtin-trace.c
+index e58c49d047a2..da703d762433 100644
+--- a/tools/perf/builtin-trace.c
++++ b/tools/perf/builtin-trace.c
+@@ -4388,7 +4388,7 @@ static int trace__run(struct trace *trace, int argc, const char **argv)
+ 
+ 	if (trace->summary_bpf) {
+ 		if (trace_prepare_bpf_summary(trace->summary_mode) < 0)
+-			goto out_delete_evlist;
++			goto out_put_evlist;
+ 
+ 		if (trace->summary_only)
+ 			goto create_maps;
+@@ -4456,19 +4456,19 @@ static int trace__run(struct trace *trace, int argc, const char **argv)
+ 	err = evlist__create_maps(evlist, &trace->opts.target);
+ 	if (err < 0) {
+ 		fprintf(trace->output, "Problems parsing the target to trace, check your options!\n");
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 
+ 	err = trace__symbols_init(trace, argc, argv, evlist);
+ 	if (err < 0) {
+ 		fprintf(trace->output, "Problems initializing symbol libraries!\n");
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 
+ 	if (trace->summary_mode == SUMMARY__BY_TOTAL && !trace->summary_bpf) {
+ 		trace->syscall_stats = alloc_syscall_stats();
+ 		if (!trace->syscall_stats)
+-			goto out_delete_evlist;
++			goto out_put_evlist;
+ 	}
+ 
+ 	evlist__config(evlist, &trace->opts, &callchain_param);
+@@ -4477,7 +4477,7 @@ static int trace__run(struct trace *trace, int argc, const char **argv)
+ 		err = evlist__prepare_workload(evlist, &trace->opts.target, argv, false, NULL);
+ 		if (err < 0) {
+ 			fprintf(trace->output, "Couldn't run the workload!\n");
+-			goto out_delete_evlist;
++			goto out_put_evlist;
+ 		}
+ 		workload_pid = evlist->workload.pid;
+ 	}
+@@ -4525,7 +4525,7 @@ static int trace__run(struct trace *trace, int argc, const char **argv)
+ 
+ 	err = trace__expand_filters(trace, &evsel);
+ 	if (err)
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	err = evlist__apply_filters(evlist, &evsel, &trace->opts.target);
+ 	if (err < 0)
+ 		goto out_error_apply_filters;
+@@ -4642,12 +4642,12 @@ static int trace__run(struct trace *trace, int argc, const char **argv)
+ 		}
+ 	}
+ 
+-out_delete_evlist:
++out_put_evlist:
+ 	trace_cleanup_bpf_summary();
+ 	delete_syscall_stats(trace->syscall_stats);
+ 	trace__symbols__exit(trace);
+ 	evlist__free_syscall_tp_fields(evlist);
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 	cgroup__put(trace->cgroup);
+ 	trace->evlist = NULL;
+ 	trace->live = false;
+@@ -4672,21 +4672,21 @@ static int trace__run(struct trace *trace, int argc, const char **argv)
+ 
+ out_error:
+ 	fprintf(trace->output, "%s\n", errbuf);
+-	goto out_delete_evlist;
++	goto out_put_evlist;
+ 
+ out_error_apply_filters:
+ 	fprintf(trace->output,
+ 		"Failed to set filter \"%s\" on event %s: %m\n",
+ 		evsel->filter, evsel__name(evsel));
+-	goto out_delete_evlist;
++	goto out_put_evlist;
+ }
+ out_error_mem:
+ 	fprintf(trace->output, "Not enough memory to run!\n");
+-	goto out_delete_evlist;
++	goto out_put_evlist;
+ 
+ out_errno:
+ 	fprintf(trace->output, "%m\n");
+-	goto out_delete_evlist;
++	goto out_put_evlist;
+ }
+ 
+ static int trace__replay(struct trace *trace)
+@@ -5364,7 +5364,7 @@ static void trace__exit(struct trace *trace)
+ 		zfree(&trace->syscalls.table);
+ 	}
+ 	zfree(&trace->perfconfig_events);
+-	evlist__delete(trace->evlist);
++	evlist__put(trace->evlist);
+ 	trace->evlist = NULL;
+ 	ordered_events__free(&trace->oe.data);
+ #ifdef HAVE_LIBBPF_SUPPORT
+diff --git a/tools/perf/tests/backward-ring-buffer.c b/tools/perf/tests/backward-ring-buffer.c
+index c5e7999f2817..2b49b002d749 100644
+--- a/tools/perf/tests/backward-ring-buffer.c
++++ b/tools/perf/tests/backward-ring-buffer.c
+@@ -111,7 +111,7 @@ static int test__backward_ring_buffer(struct test_suite *test __maybe_unused, in
+ 	err = evlist__create_maps(evlist, &opts.target);
+ 	if (err < 0) {
+ 		pr_debug("Not enough memory to create thread/cpu maps\n");
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 
+ 	parse_events_error__init(&parse_error);
+@@ -124,7 +124,7 @@ static int test__backward_ring_buffer(struct test_suite *test __maybe_unused, in
+ 	if (err) {
+ 		pr_debug("Failed to parse tracepoint event, try use root\n");
+ 		ret = TEST_SKIP;
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 
+ 	evlist__config(evlist, &opts, NULL);
+@@ -133,19 +133,19 @@ static int test__backward_ring_buffer(struct test_suite *test __maybe_unused, in
+ 	if (err < 0) {
+ 		pr_debug("perf_evlist__open: %s\n",
+ 			 str_error_r(errno, sbuf, sizeof(sbuf)));
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 
+ 	ret = TEST_FAIL;
+ 	err = do_test(evlist, opts.mmap_pages, &sample_count,
+ 		      &comm_count);
+ 	if (err != TEST_OK)
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 
+ 	if ((sample_count != NR_ITERS) || (comm_count != NR_ITERS)) {
+ 		pr_err("Unexpected counter: sample_count=%d, comm_count=%d\n",
+ 		       sample_count, comm_count);
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 
+ 	evlist__close(evlist);
+@@ -154,16 +154,16 @@ static int test__backward_ring_buffer(struct test_suite *test __maybe_unused, in
+ 	if (err < 0) {
+ 		pr_debug("perf_evlist__open: %s\n",
+ 			 str_error_r(errno, sbuf, sizeof(sbuf)));
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 
+ 	err = do_test(evlist, 1, &sample_count, &comm_count);
+ 	if (err != TEST_OK)
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 
+ 	ret = TEST_OK;
+-out_delete_evlist:
+-	evlist__delete(evlist);
++out_put_evlist:
++	evlist__put(evlist);
+ 	return ret;
+ }
+ 
+diff --git a/tools/perf/tests/code-reading.c b/tools/perf/tests/code-reading.c
+index 47043a3a2fb4..fc65a17f67f7 100644
+--- a/tools/perf/tests/code-reading.c
++++ b/tools/perf/tests/code-reading.c
+@@ -807,7 +807,7 @@ static int do_test_code_reading(bool try_kcore)
+ 			}
+ 
+ 			perf_evlist__set_maps(&evlist->core, NULL, NULL);
+-			evlist__delete(evlist);
++			evlist__put(evlist);
+ 			evlist = NULL;
+ 			continue;
+ 		}
+@@ -844,7 +844,7 @@ static int do_test_code_reading(bool try_kcore)
+ out_put:
+ 	thread__put(thread);
+ out_err:
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 	perf_cpu_map__put(cpus);
+ 	perf_thread_map__put(threads);
+ 	machine__delete(machine);
+diff --git a/tools/perf/tests/event-times.c b/tools/perf/tests/event-times.c
+index ae3b98bb42cf..94ab54ecd3f9 100644
+--- a/tools/perf/tests/event-times.c
++++ b/tools/perf/tests/event-times.c
+@@ -186,7 +186,7 @@ static int test_times(int (attach)(struct evlist *),
+ 	err = attach(evlist);
+ 	if (err == TEST_SKIP) {
+ 		pr_debug("  SKIP  : not enough rights\n");
+-		evlist__delete(evlist);
++		evlist__put(evlist);
+ 		return err;
+ 	}
+ 
+@@ -205,7 +205,7 @@ static int test_times(int (attach)(struct evlist *),
+ 		 count.ena, count.run);
+ 
+ out_err:
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 	return !err ? TEST_OK : TEST_FAIL;
+ }
+ 
+diff --git a/tools/perf/tests/event_update.c b/tools/perf/tests/event_update.c
+index facc65e29f20..73141b122d2f 100644
+--- a/tools/perf/tests/event_update.c
++++ b/tools/perf/tests/event_update.c
+@@ -117,7 +117,7 @@ static int test__event_update(struct test_suite *test __maybe_unused, int subtes
+ 	TEST_ASSERT_VAL("failed to synthesize attr update cpus",
+ 			!perf_event__synthesize_event_update_cpus(&tmp.tool, evsel, process_event_cpus));
+ 
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 	return 0;
+ }
+ 
+diff --git a/tools/perf/tests/evsel-roundtrip-name.c b/tools/perf/tests/evsel-roundtrip-name.c
+index 1922cac13a24..6a220634c52f 100644
+--- a/tools/perf/tests/evsel-roundtrip-name.c
++++ b/tools/perf/tests/evsel-roundtrip-name.c
+@@ -33,7 +33,7 @@ static int perf_evsel__roundtrip_cache_name_test(void)
+ 				if (err) {
+ 					pr_debug("Failure to parse cache event '%s' possibly as PMUs don't support it",
+ 						name);
+-					evlist__delete(evlist);
++					evlist__put(evlist);
+ 					continue;
+ 				}
+ 				evlist__for_each_entry(evlist, evsel) {
+@@ -42,7 +42,7 @@ static int perf_evsel__roundtrip_cache_name_test(void)
+ 						ret = TEST_FAIL;
+ 					}
+ 				}
+-				evlist__delete(evlist);
++				evlist__put(evlist);
+ 			}
+ 		}
+ 	}
+@@ -66,7 +66,7 @@ static int perf_evsel__name_array_test(const char *const names[], int nr_names)
+ 		if (err) {
+ 			pr_debug("failed to parse event '%s', err %d\n",
+ 				 names[i], err);
+-			evlist__delete(evlist);
++			evlist__put(evlist);
+ 			ret = TEST_FAIL;
+ 			continue;
+ 		}
+@@ -76,7 +76,7 @@ static int perf_evsel__name_array_test(const char *const names[], int nr_names)
+ 				ret = TEST_FAIL;
+ 			}
+ 		}
+-		evlist__delete(evlist);
++		evlist__put(evlist);
+ 	}
+ 	return ret;
+ }
+diff --git a/tools/perf/tests/expand-cgroup.c b/tools/perf/tests/expand-cgroup.c
+index dd547f2f77cc..a7a445f12693 100644
+--- a/tools/perf/tests/expand-cgroup.c
++++ b/tools/perf/tests/expand-cgroup.c
+@@ -106,7 +106,7 @@ static int expand_default_events(void)
+ 	TEST_ASSERT_VAL("failed to get evlist", evlist);
+ 
+ 	ret = test_expand_events(evlist);
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 	return ret;
+ }
+ 
+@@ -133,7 +133,7 @@ static int expand_group_events(void)
+ 	ret = test_expand_events(evlist);
+ out:
+ 	parse_events_error__exit(&err);
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 	return ret;
+ }
+ 
+@@ -164,7 +164,7 @@ static int expand_libpfm_events(void)
+ 
+ 	ret = test_expand_events(evlist);
+ out:
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 	return ret;
+ }
+ 
+@@ -188,7 +188,7 @@ static int expand_metric_events(void)
+ 	ret = test_expand_events(evlist);
+ 
+ out:
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 	return ret;
+ }
+ 
+diff --git a/tools/perf/tests/hists_cumulate.c b/tools/perf/tests/hists_cumulate.c
+index 606aa926a8fc..eca4ecb63ca8 100644
+--- a/tools/perf/tests/hists_cumulate.c
++++ b/tools/perf/tests/hists_cumulate.c
+@@ -744,7 +744,7 @@ static int test__hists_cumulate(struct test_suite *test __maybe_unused, int subt
+ 
+ out:
+ 	/* tear down everything */
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 	machines__exit(&machines);
+ 	put_fake_samples();
+ 
+diff --git a/tools/perf/tests/hists_filter.c b/tools/perf/tests/hists_filter.c
+index cc6b26e373d1..0d09dc306019 100644
+--- a/tools/perf/tests/hists_filter.c
++++ b/tools/perf/tests/hists_filter.c
+@@ -332,7 +332,7 @@ static int test__hists_filter(struct test_suite *test __maybe_unused, int subtes
+ 
+ out:
+ 	/* tear down everything */
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 	reset_output_field();
+ 	machines__exit(&machines);
+ 	put_fake_samples();
+diff --git a/tools/perf/tests/hists_link.c b/tools/perf/tests/hists_link.c
+index 996f5f0b3bd1..9646c3b7b4de 100644
+--- a/tools/perf/tests/hists_link.c
++++ b/tools/perf/tests/hists_link.c
+@@ -352,7 +352,7 @@ static int test__hists_link(struct test_suite *test __maybe_unused, int subtest
+ 
+ out:
+ 	/* tear down everything */
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 	reset_output_field();
+ 	machines__exit(&machines);
+ 	put_fake_samples();
+diff --git a/tools/perf/tests/hists_output.c b/tools/perf/tests/hists_output.c
+index 7818950d786e..3f3bc978553e 100644
+--- a/tools/perf/tests/hists_output.c
++++ b/tools/perf/tests/hists_output.c
+@@ -631,7 +631,7 @@ static int test__hists_output(struct test_suite *test __maybe_unused, int subtes
+ 
+ out:
+ 	/* tear down everything */
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 	machines__exit(&machines);
+ 	put_fake_samples();
+ 
+diff --git a/tools/perf/tests/hwmon_pmu.c b/tools/perf/tests/hwmon_pmu.c
+index ada6e445c4c4..1b60c3a900f1 100644
+--- a/tools/perf/tests/hwmon_pmu.c
++++ b/tools/perf/tests/hwmon_pmu.c
+@@ -214,7 +214,7 @@ static int do_test(size_t i, bool with_pmu, bool with_alias)
+ 
+ out:
+ 	parse_events_error__exit(&err);
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 	return ret;
+ }
+ 
+diff --git a/tools/perf/tests/keep-tracking.c b/tools/perf/tests/keep-tracking.c
+index 729cc9cc1cb7..51cfd6522867 100644
+--- a/tools/perf/tests/keep-tracking.c
++++ b/tools/perf/tests/keep-tracking.c
+@@ -153,7 +153,7 @@ static int test__keep_tracking(struct test_suite *test __maybe_unused, int subte
+ out_err:
+ 	if (evlist) {
+ 		evlist__disable(evlist);
+-		evlist__delete(evlist);
++		evlist__put(evlist);
+ 	}
+ 	perf_cpu_map__put(cpus);
+ 	perf_thread_map__put(threads);
+diff --git a/tools/perf/tests/mmap-basic.c b/tools/perf/tests/mmap-basic.c
+index 8d04f6edb004..e6501791c505 100644
+--- a/tools/perf/tests/mmap-basic.c
++++ b/tools/perf/tests/mmap-basic.c
+@@ -94,7 +94,7 @@ static int test__basic_mmap(struct test_suite *test __maybe_unused, int subtest
+ 				/* Permissions failure, flag the failure as a skip. */
+ 				err = TEST_SKIP;
+ 			}
+-			goto out_delete_evlist;
++			goto out_put_evlist;
+ 		}
+ 
+ 		evsels[i]->core.attr.wakeup_events = 1;
+@@ -106,7 +106,7 @@ static int test__basic_mmap(struct test_suite *test __maybe_unused, int subtest
+ 			pr_debug("failed to open counter: %s, "
+ 				 "tweak /proc/sys/kernel/perf_event_paranoid?\n",
+ 				 str_error_r(errno, sbuf, sizeof(sbuf)));
+-			goto out_delete_evlist;
++			goto out_put_evlist;
+ 		}
+ 
+ 		nr_events[i] = 0;
+@@ -116,7 +116,7 @@ static int test__basic_mmap(struct test_suite *test __maybe_unused, int subtest
+ 	if (evlist__mmap(evlist, 128) < 0) {
+ 		pr_debug("failed to mmap events: %d (%s)\n", errno,
+ 			 str_error_r(errno, sbuf, sizeof(sbuf)));
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 
+ 	for (i = 0; i < nsyscalls; ++i)
+@@ -134,7 +134,7 @@ static int test__basic_mmap(struct test_suite *test __maybe_unused, int subtest
+ 		if (event->header.type != PERF_RECORD_SAMPLE) {
+ 			pr_debug("unexpected %s event\n",
+ 				 perf_event__name(event->header.type));
+-			goto out_delete_evlist;
++			goto out_put_evlist;
+ 		}
+ 
+ 		perf_sample__init(&sample, /*all=*/false);
+@@ -142,7 +142,7 @@ static int test__basic_mmap(struct test_suite *test __maybe_unused, int subtest
+ 		if (err) {
+ 			pr_err("Can't parse sample, err = %d\n", err);
+ 			perf_sample__exit(&sample);
+-			goto out_delete_evlist;
++			goto out_put_evlist;
+ 		}
+ 
+ 		err = -1;
+@@ -151,7 +151,7 @@ static int test__basic_mmap(struct test_suite *test __maybe_unused, int subtest
+ 		if (evsel == NULL) {
+ 			pr_debug("event with id %" PRIu64
+ 				 " doesn't map to an evsel\n", sample.id);
+-			goto out_delete_evlist;
++			goto out_put_evlist;
+ 		}
+ 		nr_events[evsel->core.idx]++;
+ 		perf_mmap__consume(&md->core);
+@@ -166,12 +166,12 @@ static int test__basic_mmap(struct test_suite *test __maybe_unused, int subtest
+ 				 expected_nr_events[evsel->core.idx],
+ 				 evsel__name(evsel), nr_events[evsel->core.idx]);
+ 			err = -1;
+-			goto out_delete_evlist;
++			goto out_put_evlist;
+ 		}
+ 	}
+ 
+-out_delete_evlist:
+-	evlist__delete(evlist);
++out_put_evlist:
++	evlist__put(evlist);
+ out_free_cpus:
+ 	perf_cpu_map__put(cpus);
+ out_free_threads:
+diff --git a/tools/perf/tests/openat-syscall-tp-fields.c b/tools/perf/tests/openat-syscall-tp-fields.c
+index 2a139d2781a8..3ff595c7a86a 100644
+--- a/tools/perf/tests/openat-syscall-tp-fields.c
++++ b/tools/perf/tests/openat-syscall-tp-fields.c
+@@ -51,7 +51,7 @@ static int test__syscall_openat_tp_fields(struct test_suite *test __maybe_unused
+ 	if (IS_ERR(evsel)) {
+ 		pr_debug("%s: evsel__newtp\n", __func__);
+ 		ret = PTR_ERR(evsel) == -EACCES ? TEST_SKIP : TEST_FAIL;
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 
+ 	evlist__add(evlist, evsel);
+@@ -59,7 +59,7 @@ static int test__syscall_openat_tp_fields(struct test_suite *test __maybe_unused
+ 	err = evlist__create_maps(evlist, &opts.target);
+ 	if (err < 0) {
+ 		pr_debug("%s: evlist__create_maps\n", __func__);
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 
+ 	evsel__config(evsel, &opts, NULL);
+@@ -70,14 +70,14 @@ static int test__syscall_openat_tp_fields(struct test_suite *test __maybe_unused
+ 	if (err < 0) {
+ 		pr_debug("perf_evlist__open: %s\n",
+ 			 str_error_r(errno, sbuf, sizeof(sbuf)));
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 
+ 	err = evlist__mmap(evlist, UINT_MAX);
+ 	if (err < 0) {
+ 		pr_debug("evlist__mmap: %s\n",
+ 			 str_error_r(errno, sbuf, sizeof(sbuf)));
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 
+ 	evlist__enable(evlist);
+@@ -115,7 +115,7 @@ static int test__syscall_openat_tp_fields(struct test_suite *test __maybe_unused
+ 				if (err) {
+ 					pr_debug("Can't parse sample, err = %d\n", err);
+ 					perf_sample__exit(&sample);
+-					goto out_delete_evlist;
++					goto out_put_evlist;
+ 				}
+ 
+ 				tp_flags = evsel__intval(evsel, &sample, "flags");
+@@ -123,7 +123,7 @@ static int test__syscall_openat_tp_fields(struct test_suite *test __maybe_unused
+ 				if (flags != tp_flags) {
+ 					pr_debug("%s: Expected flags=%#x, got %#x\n",
+ 						 __func__, flags, tp_flags);
+-					goto out_delete_evlist;
++					goto out_put_evlist;
+ 				}
+ 
+ 				goto out_ok;
+@@ -136,13 +136,13 @@ static int test__syscall_openat_tp_fields(struct test_suite *test __maybe_unused
+ 
+ 		if (++nr_polls > 5) {
+ 			pr_debug("%s: no events!\n", __func__);
+-			goto out_delete_evlist;
++			goto out_put_evlist;
+ 		}
+ 	}
+ out_ok:
+ 	ret = TEST_OK;
+-out_delete_evlist:
+-	evlist__delete(evlist);
++out_put_evlist:
++	evlist__put(evlist);
+ out:
+ 	return ret;
+ }
+diff --git a/tools/perf/tests/parse-events.c b/tools/perf/tests/parse-events.c
+index 05c3e899b425..19dc7b7475d2 100644
+--- a/tools/perf/tests/parse-events.c
++++ b/tools/perf/tests/parse-events.c
+@@ -2568,7 +2568,7 @@ static int test_event(const struct evlist_test *e)
+ 		ret = e->check(evlist);
+ 	}
+ 	parse_events_error__exit(&err);
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 
+ 	return ret;
+ }
+@@ -2594,7 +2594,7 @@ static int test_event_fake_pmu(const char *str)
+ 	}
+ 
+ 	parse_events_error__exit(&err);
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 
+ 	return ret;
+ }
+diff --git a/tools/perf/tests/parse-metric.c b/tools/perf/tests/parse-metric.c
+index 7c7f489a5eb0..3f0ec839c056 100644
+--- a/tools/perf/tests/parse-metric.c
++++ b/tools/perf/tests/parse-metric.c
+@@ -84,7 +84,7 @@ static int __compute_metric(const char *name, struct value *vals,
+ 
+ 	cpus = perf_cpu_map__new("0");
+ 	if (!cpus) {
+-		evlist__delete(evlist);
++		evlist__put(evlist);
+ 		return -ENOMEM;
+ 	}
+ 
+@@ -113,7 +113,7 @@ static int __compute_metric(const char *name, struct value *vals,
+ 	/* ... cleanup. */
+ 	evlist__free_stats(evlist);
+ 	perf_cpu_map__put(cpus);
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 	return err;
+ }
+ 
+diff --git a/tools/perf/tests/parse-no-sample-id-all.c b/tools/perf/tests/parse-no-sample-id-all.c
+index 50e68b7d43aa..d5a8d065809e 100644
+--- a/tools/perf/tests/parse-no-sample-id-all.c
++++ b/tools/perf/tests/parse-no-sample-id-all.c
+@@ -49,7 +49,7 @@ static int process_events(union perf_event **events, size_t count)
+ 	for (i = 0; i < count && !err; i++)
+ 		err = process_event(&evlist, events[i]);
+ 
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 
+ 	return err;
+ }
+diff --git a/tools/perf/tests/perf-record.c b/tools/perf/tests/perf-record.c
+index ad44cc68820b..f95752b2ed1c 100644
+--- a/tools/perf/tests/perf-record.c
++++ b/tools/perf/tests/perf-record.c
+@@ -105,7 +105,7 @@ static int test__PERF_RECORD(struct test_suite *test __maybe_unused, int subtest
+ 	err = evlist__create_maps(evlist, &opts.target);
+ 	if (err < 0) {
+ 		pr_debug("Not enough memory to create thread/cpu maps\n");
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 
+ 	/*
+@@ -117,7 +117,7 @@ static int test__PERF_RECORD(struct test_suite *test __maybe_unused, int subtest
+ 	err = evlist__prepare_workload(evlist, &opts.target, argv, false, NULL);
+ 	if (err < 0) {
+ 		pr_debug("Couldn't run the workload!\n");
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 
+ 	/*
+@@ -134,7 +134,7 @@ static int test__PERF_RECORD(struct test_suite *test __maybe_unused, int subtest
+ 		pr_debug("sched__get_first_possible_cpu: %s\n",
+ 			 str_error_r(errno, sbuf, sizeof(sbuf)));
+ 		evlist__cancel_workload(evlist);
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 
+ 	cpu = err;
+@@ -146,7 +146,7 @@ static int test__PERF_RECORD(struct test_suite *test __maybe_unused, int subtest
+ 		pr_debug("sched_setaffinity: %s\n",
+ 			 str_error_r(errno, sbuf, sizeof(sbuf)));
+ 		evlist__cancel_workload(evlist);
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 
+ 	/*
+@@ -158,7 +158,7 @@ static int test__PERF_RECORD(struct test_suite *test __maybe_unused, int subtest
+ 		pr_debug("perf_evlist__open: %s\n",
+ 			 str_error_r(errno, sbuf, sizeof(sbuf)));
+ 		evlist__cancel_workload(evlist);
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 
+ 	/*
+@@ -171,7 +171,7 @@ static int test__PERF_RECORD(struct test_suite *test __maybe_unused, int subtest
+ 		pr_debug("evlist__mmap: %s\n",
+ 			 str_error_r(errno, sbuf, sizeof(sbuf)));
+ 		evlist__cancel_workload(evlist);
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 
+ 	/*
+@@ -209,7 +209,7 @@ static int test__PERF_RECORD(struct test_suite *test __maybe_unused, int subtest
+ 					if (verbose > 0)
+ 						perf_event__fprintf(event, NULL, stderr);
+ 					pr_debug("Couldn't parse sample\n");
+-					goto out_delete_evlist;
++					goto out_put_evlist;
+ 				}
+ 
+ 				if (verbose > 0) {
+@@ -350,9 +350,9 @@ static int test__PERF_RECORD(struct test_suite *test __maybe_unused, int subtest
+ 		pr_debug("PERF_RECORD_MMAP for %s missing!\n", "[vdso]");
+ 		++errs;
+ 	}
+-out_delete_evlist:
++out_put_evlist:
+ 	CPU_FREE(cpu_mask);
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ out:
+ 	perf_sample__exit(&sample);
+ 	if (err == -EACCES)
+diff --git a/tools/perf/tests/perf-time-to-tsc.c b/tools/perf/tests/perf-time-to-tsc.c
+index cca41bd37ae3..d3538fa20af3 100644
+--- a/tools/perf/tests/perf-time-to-tsc.c
++++ b/tools/perf/tests/perf-time-to-tsc.c
+@@ -201,7 +201,7 @@ static int test__perf_time_to_tsc(struct test_suite *test __maybe_unused, int su
+ 	err = TEST_OK;
+ 
+ out_err:
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 	perf_cpu_map__put(cpus);
+ 	perf_thread_map__put(threads);
+ 	return err;
+diff --git a/tools/perf/tests/pfm.c b/tools/perf/tests/pfm.c
+index fca4a86452df..8d19b1bfecbc 100644
+--- a/tools/perf/tests/pfm.c
++++ b/tools/perf/tests/pfm.c
+@@ -80,7 +80,7 @@ static int test__pfm_events(struct test_suite *test __maybe_unused,
+ 				evlist__nr_groups(evlist),
+ 				0);
+ 
+-		evlist__delete(evlist);
++		evlist__put(evlist);
+ 	}
+ 	return 0;
+ }
+@@ -165,7 +165,7 @@ static int test__pfm_group(struct test_suite *test __maybe_unused,
+ 				evlist__nr_groups(evlist),
+ 				table[i].nr_groups);
+ 
+-		evlist__delete(evlist);
++		evlist__put(evlist);
+ 	}
+ 	return 0;
+ }
+diff --git a/tools/perf/tests/pmu-events.c b/tools/perf/tests/pmu-events.c
+index a99716862168..236bbbad5773 100644
+--- a/tools/perf/tests/pmu-events.c
++++ b/tools/perf/tests/pmu-events.c
+@@ -797,7 +797,7 @@ static int check_parse_id(const char *id, struct parse_events_error *error)
+ 			     /*warn_if_reordered=*/true, /*fake_tp=*/false);
+ 	free(dup);
+ 
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 	return ret;
+ }
+ 
+@@ -844,7 +844,7 @@ static int test__parsing_callback(const struct pmu_metric *pm,
+ 
+ 	cpus = perf_cpu_map__new("0");
+ 	if (!cpus) {
+-		evlist__delete(evlist);
++		evlist__put(evlist);
+ 		return -ENOMEM;
+ 	}
+ 
+@@ -899,7 +899,7 @@ static int test__parsing_callback(const struct pmu_metric *pm,
+ 	/* ... cleanup. */
+ 	evlist__free_stats(evlist);
+ 	perf_cpu_map__put(cpus);
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 	return err;
+ }
+ 
+diff --git a/tools/perf/tests/pmu.c b/tools/perf/tests/pmu.c
+index 0ebf2d7b2cb4..3d931c1f99dd 100644
+--- a/tools/perf/tests/pmu.c
++++ b/tools/perf/tests/pmu.c
+@@ -287,7 +287,7 @@ static int test__pmu_usr_chgs(struct test_suite *test __maybe_unused, int subtes
+ 	ret = TEST_OK;
+ err_out:
+ 	parse_events_terms__exit(&terms);
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 	test_pmu_put(dir, pmu);
+ 	return ret;
+ }
+@@ -339,7 +339,7 @@ static int test__pmu_events(struct test_suite *test __maybe_unused, int subtest
+ 	ret = TEST_OK;
+ err_out:
+ 	parse_events_error__exit(&err);
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 	test_pmu_put(dir, pmu);
+ 	return ret;
+ }
+diff --git a/tools/perf/tests/sw-clock.c b/tools/perf/tests/sw-clock.c
+index b6e46975379c..bb6b62cf51d1 100644
+--- a/tools/perf/tests/sw-clock.c
++++ b/tools/perf/tests/sw-clock.c
+@@ -59,7 +59,7 @@ static int __test__sw_clock_freq(enum perf_sw_ids clock_id)
+ 	evsel = evsel__new(&attr);
+ 	if (evsel == NULL) {
+ 		pr_debug("evsel__new\n");
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 	evlist__add(evlist, evsel);
+ 
+@@ -68,7 +68,7 @@ static int __test__sw_clock_freq(enum perf_sw_ids clock_id)
+ 	if (!cpus || !threads) {
+ 		err = -ENOMEM;
+ 		pr_debug("Not enough memory to create thread/cpu maps\n");
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 
+ 	perf_evlist__set_maps(&evlist->core, cpus, threads);
+@@ -80,14 +80,14 @@ static int __test__sw_clock_freq(enum perf_sw_ids clock_id)
+ 		pr_debug("Couldn't open evlist: %s\nHint: check %s, using %" PRIu64 " in this test.\n",
+ 			 str_error_r(errno, sbuf, sizeof(sbuf)),
+ 			 knob, (u64)attr.sample_freq);
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 
+ 	err = evlist__mmap(evlist, 128);
+ 	if (err < 0) {
+ 		pr_debug("failed to mmap event: %d (%s)\n", errno,
+ 			 str_error_r(errno, sbuf, sizeof(sbuf)));
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 
+ 	evlist__enable(evlist);
+@@ -113,7 +113,7 @@ static int __test__sw_clock_freq(enum perf_sw_ids clock_id)
+ 		if (err < 0) {
+ 			pr_debug("Error during parse sample\n");
+ 			perf_sample__exit(&sample);
+-			goto out_delete_evlist;
++			goto out_put_evlist;
+ 		}
+ 
+ 		total_periods += sample.period;
+@@ -131,10 +131,10 @@ static int __test__sw_clock_freq(enum perf_sw_ids clock_id)
+ 		err = -1;
+ 	}
+ 
+-out_delete_evlist:
++out_put_evlist:
+ 	perf_cpu_map__put(cpus);
+ 	perf_thread_map__put(threads);
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 	return err;
+ }
+ 
+diff --git a/tools/perf/tests/switch-tracking.c b/tools/perf/tests/switch-tracking.c
+index 72a8289e846d..306151c83af8 100644
+--- a/tools/perf/tests/switch-tracking.c
++++ b/tools/perf/tests/switch-tracking.c
+@@ -579,7 +579,7 @@ static int test__switch_tracking(struct test_suite *test __maybe_unused, int sub
+ out:
+ 	if (evlist) {
+ 		evlist__disable(evlist);
+-		evlist__delete(evlist);
++		evlist__put(evlist);
+ 	}
+ 	perf_cpu_map__put(cpus);
+ 	perf_thread_map__put(threads);
+diff --git a/tools/perf/tests/task-exit.c b/tools/perf/tests/task-exit.c
+index 4053ff2813bb..a46650b10689 100644
+--- a/tools/perf/tests/task-exit.c
++++ b/tools/perf/tests/task-exit.c
+@@ -74,7 +74,7 @@ static int test__task_exit(struct test_suite *test __maybe_unused, int subtest _
+ 	if (!cpus || !threads) {
+ 		err = -ENOMEM;
+ 		pr_debug("Not enough memory to create thread/cpu maps\n");
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 
+ 	perf_evlist__set_maps(&evlist->core, cpus, threads);
+@@ -82,7 +82,7 @@ static int test__task_exit(struct test_suite *test __maybe_unused, int subtest _
+ 	err = evlist__prepare_workload(evlist, &target, argv, false, workload_exec_failed_signal);
+ 	if (err < 0) {
+ 		pr_debug("Couldn't run the workload!\n");
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 
+ 	evsel = evlist__first(evlist);
+@@ -101,14 +101,14 @@ static int test__task_exit(struct test_suite *test __maybe_unused, int subtest _
+ 	if (err < 0) {
+ 		pr_debug("Couldn't open the evlist: %s\n",
+ 			 str_error_r(-err, sbuf, sizeof(sbuf)));
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 
+ 	if (evlist__mmap(evlist, 128) < 0) {
+ 		pr_debug("failed to mmap events: %d (%s)\n", errno,
+ 			 str_error_r(errno, sbuf, sizeof(sbuf)));
+ 		err = -1;
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 	}
+ 
+ 	evlist__start_workload(evlist);
+@@ -133,7 +133,7 @@ static int test__task_exit(struct test_suite *test __maybe_unused, int subtest _
+ 		if (retry_count++ > 1000) {
+ 			pr_debug("Failed after retrying 1000 times\n");
+ 			err = -1;
+-			goto out_delete_evlist;
++			goto out_put_evlist;
+ 		}
+ 
+ 		goto retry;
+@@ -144,10 +144,10 @@ static int test__task_exit(struct test_suite *test __maybe_unused, int subtest _
+ 		err = -1;
+ 	}
+ 
+-out_delete_evlist:
++out_put_evlist:
+ 	perf_cpu_map__put(cpus);
+ 	perf_thread_map__put(threads);
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 	return err;
+ }
+ 
+diff --git a/tools/perf/tests/tool_pmu.c b/tools/perf/tests/tool_pmu.c
+index 1e900ef92e37..e78ff9dcea97 100644
+--- a/tools/perf/tests/tool_pmu.c
++++ b/tools/perf/tests/tool_pmu.c
+@@ -67,7 +67,7 @@ static int do_test(enum tool_pmu_event ev, bool with_pmu)
+ 
+ out:
+ 	parse_events_error__exit(&err);
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 	return ret;
+ }
+ 
+diff --git a/tools/perf/tests/topology.c b/tools/perf/tests/topology.c
+index f54502ebef4b..4ecf5d750313 100644
+--- a/tools/perf/tests/topology.c
++++ b/tools/perf/tests/topology.c
+@@ -57,7 +57,7 @@ static int session_write_header(char *path)
+ 			!perf_session__write_header(session, session->evlist,
+ 						    perf_data__fd(&data), true));
+ 
+-	evlist__delete(session->evlist);
++	evlist__put(session->evlist);
+ 	perf_session__delete(session);
+ 
+ 	return 0;
+diff --git a/tools/perf/util/cgroup.c b/tools/perf/util/cgroup.c
+index 1b5664d1481f..652a45aac828 100644
+--- a/tools/perf/util/cgroup.c
++++ b/tools/perf/util/cgroup.c
+@@ -520,8 +520,8 @@ int evlist__expand_cgroup(struct evlist *evlist, const char *str, bool open_cgro
+ 	cgrp_event_expanded = true;
+ 
+ out_err:
+-	evlist__delete(orig_list);
+-	evlist__delete(tmp_list);
++	evlist__put(orig_list);
++	evlist__put(tmp_list);
+ 	metricgroup__rblist_exit(&orig_metric_events);
+ 	release_cgroup_list();
+ 
+diff --git a/tools/perf/util/data-convert-bt.c b/tools/perf/util/data-convert-bt.c
+index 3b8f2df823a9..a85ae53db7c5 100644
+--- a/tools/perf/util/data-convert-bt.c
++++ b/tools/perf/util/data-convert-bt.c
+@@ -1363,7 +1363,7 @@ static void cleanup_events(struct perf_session *session)
+ 		zfree(&evsel->priv);
+ 	}
+ 
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 	session->evlist = NULL;
+ }
+ 
+diff --git a/tools/perf/util/evlist.c b/tools/perf/util/evlist.c
+index 35d65fe50e06..b5a7895debf5 100644
+--- a/tools/perf/util/evlist.c
++++ b/tools/perf/util/evlist.c
+@@ -75,7 +75,7 @@ int sigqueue(pid_t pid, int sig, const union sigval value);
+ #define FD(e, x, y) (*(int *)xyarray__entry(e->core.fd, x, y))
+ #define SID(e, x, y) xyarray__entry(e->core.sample_id, x, y)
+ 
+-void evlist__init(struct evlist *evlist, struct perf_cpu_map *cpus,
++static void evlist__init(struct evlist *evlist, struct perf_cpu_map *cpus,
+ 		  struct perf_thread_map *threads)
+ {
+ 	perf_evlist__init(&evlist->core);
+@@ -88,6 +88,7 @@ void evlist__init(struct evlist *evlist, struct perf_cpu_map *cpus,
+ 	evlist->nr_br_cntr = -1;
+ 	metricgroup__rblist_init(&evlist->metric_events);
+ 	INIT_LIST_HEAD(&evlist->deferred_samples);
++	refcount_set(&evlist->refcnt, 1);
+ }
+ 
+ struct evlist *evlist__new(void)
+@@ -139,7 +140,7 @@ struct evlist *evlist__new_default(const struct target *target, bool sample_call
+ 
+ 	return evlist;
+ out_err:
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 	return NULL;
+ }
+ 
+@@ -148,13 +149,19 @@ struct evlist *evlist__new_dummy(void)
+ 	struct evlist *evlist = evlist__new();
+ 
+ 	if (evlist && evlist__add_dummy(evlist)) {
+-		evlist__delete(evlist);
++		evlist__put(evlist);
+ 		evlist = NULL;
+ 	}
+ 
+ 	return evlist;
+ }
+ 
++struct evlist *evlist__get(struct evlist *evlist)
++{
++	refcount_inc(&evlist->refcnt);
++	return evlist;
++}
++
+ /**
+  * evlist__set_id_pos - set the positions of event ids.
+  * @evlist: selected event list
+@@ -193,7 +200,7 @@ static void evlist__purge(struct evlist *evlist)
+ 	evlist->core.nr_entries = 0;
+ }
+ 
+-void evlist__exit(struct evlist *evlist)
++static void evlist__exit(struct evlist *evlist)
+ {
+ 	metricgroup__rblist_exit(&evlist->metric_events);
+ 	event_enable_timer__exit(&evlist->eet);
+@@ -202,11 +209,14 @@ void evlist__exit(struct evlist *evlist)
+ 	perf_evlist__exit(&evlist->core);
+ }
+ 
+-void evlist__delete(struct evlist *evlist)
++void evlist__put(struct evlist *evlist)
+ {
+ 	if (evlist == NULL)
+ 		return;
+ 
++	if (!refcount_dec_and_test(&evlist->refcnt))
++		return;
++
+ 	evlist__free_stats(evlist);
+ 	evlist__munmap(evlist);
+ 	evlist__close(evlist);
+diff --git a/tools/perf/util/evlist.h b/tools/perf/util/evlist.h
+index e54761c670b6..a9820a6aad5b 100644
+--- a/tools/perf/util/evlist.h
++++ b/tools/perf/util/evlist.h
+@@ -61,6 +61,7 @@ struct event_enable_timer;
+ 
+ struct evlist {
+ 	struct perf_evlist core;
++	refcount_t	 refcnt;
+ 	bool		 enabled;
+ 	bool		 no_affinity;
+ 	int		 id_pos;
+@@ -109,10 +110,8 @@ struct evsel_str_handler {
+ struct evlist *evlist__new(void);
+ struct evlist *evlist__new_default(const struct target *target, bool sample_callchains);
+ struct evlist *evlist__new_dummy(void);
+-void evlist__init(struct evlist *evlist, struct perf_cpu_map *cpus,
+-		  struct perf_thread_map *threads);
+-void evlist__exit(struct evlist *evlist);
+-void evlist__delete(struct evlist *evlist);
++struct evlist *evlist__get(struct evlist *evlist);
++void evlist__put(struct evlist *evlist);
+ 
+ void evlist__add(struct evlist *evlist, struct evsel *entry);
+ void evlist__remove(struct evlist *evlist, struct evsel *evsel);
+diff --git a/tools/perf/util/expr.c b/tools/perf/util/expr.c
+index 644769e92708..cf54bbbc8ddc 100644
+--- a/tools/perf/util/expr.c
++++ b/tools/perf/util/expr.c
+@@ -450,7 +450,7 @@ double expr__has_event(const struct expr_parse_ctx *ctx, bool compute_ids, const
+ 		ret = parse_event(tmp, id) ? 0 : 1;
+ 	}
+ out:
+-	evlist__delete(tmp);
++	evlist__put(tmp);
+ 	return ret;
+ }
+ 
+diff --git a/tools/perf/util/header.c b/tools/perf/util/header.c
+index f30e48eb3fc3..f9887d2fc8ed 100644
+--- a/tools/perf/util/header.c
++++ b/tools/perf/util/header.c
+@@ -4909,12 +4909,12 @@ int perf_session__read_header(struct perf_session *session)
+ 		evsel = evsel__new(&f_attr.attr);
+ 
+ 		if (evsel == NULL)
+-			goto out_delete_evlist;
++			goto out_put_evlist;
+ 
+ 		evsel->needs_swap = header->needs_swap;
+ 		/*
+ 		 * Do it before so that if perf_evsel__alloc_id fails, this
+-		 * entry gets purged too at evlist__delete().
++		 * entry gets purged too at evlist__put().
+ 		 */
+ 		evlist__add(session->evlist, evsel);
+ 
+@@ -4925,7 +4925,7 @@ int perf_session__read_header(struct perf_session *session)
+ 		 * hattr->ids threads.
+ 		 */
+ 		if (perf_evsel__alloc_id(&evsel->core, 1, nr_ids))
+-			goto out_delete_evlist;
++			goto out_put_evlist;
+ 
+ 		lseek(fd, f_attr.ids.offset, SEEK_SET);
+ 
+@@ -4944,7 +4944,7 @@ int perf_session__read_header(struct perf_session *session)
+ 				      perf_file_section__process);
+ 
+ 	if (evlist__prepare_tracepoint_events(session->evlist, session->tevent.pevent))
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ #else
+ 	perf_header__process_sections(header, fd, NULL, perf_file_section__process);
+ #endif
+@@ -4953,8 +4953,8 @@ int perf_session__read_header(struct perf_session *session)
+ out_errno:
+ 	return -errno;
+ 
+-out_delete_evlist:
+-	evlist__delete(session->evlist);
++out_put_evlist:
++	evlist__put(session->evlist);
+ 	session->evlist = NULL;
+ 	return -ENOMEM;
+ }
+diff --git a/tools/perf/util/metricgroup.c b/tools/perf/util/metricgroup.c
+index 4db9578efd81..191ec2d8a250 100644
+--- a/tools/perf/util/metricgroup.c
++++ b/tools/perf/util/metricgroup.c
+@@ -214,7 +214,7 @@ static void metric__free(struct metric *m)
+ 	zfree(&m->metric_refs);
+ 	expr__ctx_free(m->pctx);
+ 	zfree(&m->modifier);
+-	evlist__delete(m->evlist);
++	evlist__put(m->evlist);
+ 	free(m);
+ }
+ 
+@@ -1335,7 +1335,7 @@ static int parse_ids(bool metric_no_merge, bool fake_pmu,
+ 	parsed_evlist = NULL;
+ err_out:
+ 	parse_events_error__exit(&parse_error);
+-	evlist__delete(parsed_evlist);
++	evlist__put(parsed_evlist);
+ 	strbuf_release(&events);
+ 	return ret;
+ }
+@@ -1546,7 +1546,7 @@ static int parse_groups(struct evlist *perf_evlist,
+ 
+ 	if (combined_evlist) {
+ 		evlist__splice_list_tail(perf_evlist, &combined_evlist->core.entries);
+-		evlist__delete(combined_evlist);
++		evlist__put(combined_evlist);
+ 	}
+ 
+ 	list_for_each_entry(m, &metric_list, nd) {
+diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
+index 1497e1f2a08c..f0809be63ad8 100644
+--- a/tools/perf/util/parse-events.c
++++ b/tools/perf/util/parse-events.c
+@@ -2316,7 +2316,7 @@ int __parse_events(struct evlist *evlist, const char *str, const char *pmu_filte
+ 
+ 	/*
+ 	 * There are 2 users - builtin-record and builtin-test objects.
+-	 * Both call evlist__delete in case of error, so we dont
++	 * Both call evlist__put in case of error, so we dont
+ 	 * need to bother.
+ 	 */
+ 	return ret;
+@@ -2519,7 +2519,7 @@ int parse_events_option_new_evlist(const struct option *opt, const char *str, in
+ 	}
+ 	ret = parse_events_option(opt, str, unset);
+ 	if (ret) {
+-		evlist__delete(*args->evlistp);
++		evlist__put(*args->evlistp);
+ 		*args->evlistp = NULL;
+ 	}
+ 
+diff --git a/tools/perf/util/perf_api_probe.c b/tools/perf/util/perf_api_probe.c
+index e1904a330b28..f61c4ec52827 100644
+--- a/tools/perf/util/perf_api_probe.c
++++ b/tools/perf/util/perf_api_probe.c
+@@ -57,7 +57,7 @@ static int perf_do_probe_api(setup_probe_fn_t fn, struct perf_cpu cpu, const cha
+ 	err = 0;
+ 
+ out_delete:
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ 	return err;
+ }
+ 
 diff --git a/tools/perf/util/python.c b/tools/perf/util/python.c
-index 4e7add7d18c4..1ca296000351 100644
+index 1e6c99efff90..aeecdb497fac 100644
 --- a/tools/perf/util/python.c
 +++ b/tools/perf/util/python.c
-@@ -8,21 +8,28 @@
- #include <internal/lib.h>
- #include <perf/mmap.h>
- 
-+#include "addr_location.h"
-+#include "build-id.h"
- #include "callchain.h"
- #include "comm.h"
- #include "counts.h"
- #include "data.h"
- #include "debug.h"
-+#include "dso.h"
- #include "event.h"
- #include "evlist.h"
- #include "evsel.h"
- #include "expr.h"
-+#include "map.h"
- #include "metricgroup.h"
- #include "mmap.h"
- #include "pmus.h"
- #include "print_binary.h"
- #include "record.h"
-+#include "sample.h"
- #include "session.h"
-+#include "srccode.h"
-+#include "srcline.h"
- #include "strbuf.h"
- #include "symbol.h"
- #include "thread.h"
-@@ -30,7 +37,6 @@
- #include "tool.h"
- #include "tp_pmu.h"
- #include "trace-event.h"
--#include "util/sample.h"
- 
- #ifdef HAVE_LIBTRACEEVENT
- #include <event-parse.h>
-@@ -38,6 +44,8 @@
- 
- PyMODINIT_FUNC PyInit_perf(void);
- 
-+static PyObject *pyrf_evsel__from_evsel(struct evsel *evsel);
-+
- #define member_def(type, member, ptype, help) \
- 	{ #member, ptype, \
- 	  offsetof(struct pyrf_event, event) + offsetof(struct type, member), \
-@@ -50,21 +58,53 @@ PyMODINIT_FUNC PyInit_perf(void);
- 
- struct pyrf_event {
+@@ -1272,7 +1272,7 @@ static int pyrf_evsel__setup_types(void)
+ struct pyrf_evlist {
  	PyObject_HEAD
-+	/** @sample: The parsed sample from the event. */
- 	struct perf_sample sample;
--	union perf_event   event;
-+	/** @al: The address location from machine__resolve, lazily computed. */
-+	struct addr_location al;
-+	/** @al_resolved: True when machine__resolve been called. */
-+	bool al_resolved;
-+	/** @event: The underlying perf_event that may be in a file or ring buffer. */
-+	union perf_event event;
+ 
+-	struct evlist evlist;
++	struct evlist *evlist;
  };
  
- #define sample_members \
--	sample_member_def(sample_ip, ip, T_ULONGLONG, "event ip"),			 \
- 	sample_member_def(sample_pid, pid, T_INT, "event pid"),			 \
- 	sample_member_def(sample_tid, tid, T_INT, "event tid"),			 \
- 	sample_member_def(sample_time, time, T_ULONGLONG, "event timestamp"),		 \
--	sample_member_def(sample_addr, addr, T_ULONGLONG, "event addr"),		 \
- 	sample_member_def(sample_id, id, T_ULONGLONG, "event id"),			 \
- 	sample_member_def(sample_stream_id, stream_id, T_ULONGLONG, "event stream id"), \
- 	sample_member_def(sample_period, period, T_ULONGLONG, "event period"),		 \
- 	sample_member_def(sample_cpu, cpu, T_UINT, "event cpu"),
+ static int pyrf_evlist__init(struct pyrf_evlist *pevlist,
+@@ -1285,15 +1285,22 @@ static int pyrf_evlist__init(struct pyrf_evlist *pevlist,
+ 	if (!PyArg_ParseTuple(args, "OO", &pcpus, &pthreads))
+ 		return -1;
  
-+static PyObject *pyrf_event__get_evsel(PyObject *self, void *closure __maybe_unused)
-+{
-+	struct pyrf_event *pevent = (void *)self;
-+
-+	if (!pevent->sample.evsel)
-+		Py_RETURN_NONE;
-+
-+	return pyrf_evsel__from_evsel(pevent->sample.evsel);
-+}
-+
-+static PyGetSetDef pyrf_event__getset[] = {
-+	{
-+		.name = "evsel",
-+		.get = pyrf_event__get_evsel,
-+		.set = NULL,
-+		.doc = "tracking event.",
-+	},
-+	{ .name = NULL, },
-+};
-+
-+static void pyrf_event__delete(struct pyrf_event *pevent)
-+{
-+	if (pevent->al_resolved)
-+		addr_location__exit(&pevent->al);
-+	perf_sample__exit(&pevent->sample);
-+	Py_TYPE(pevent)->tp_free((PyObject *)pevent);
-+}
-+
- static const char pyrf_mmap_event__doc[] = PyDoc_STR("perf mmap event object.");
- 
- static PyMemberDef pyrf_mmap_event__members[] = {
-@@ -103,9 +143,11 @@ static PyTypeObject pyrf_mmap_event__type = {
- 	PyVarObject_HEAD_INIT(NULL, 0)
- 	.tp_name	= "perf.mmap_event",
- 	.tp_basicsize	= sizeof(struct pyrf_event),
-+	.tp_dealloc	= (destructor)pyrf_event__delete,
- 	.tp_flags	= Py_TPFLAGS_DEFAULT|Py_TPFLAGS_BASETYPE,
- 	.tp_doc		= pyrf_mmap_event__doc,
- 	.tp_members	= pyrf_mmap_event__members,
-+	.tp_getset	= pyrf_event__getset,
- 	.tp_repr	= (reprfunc)pyrf_mmap_event__repr,
- };
- 
-@@ -138,9 +180,11 @@ static PyTypeObject pyrf_task_event__type = {
- 	PyVarObject_HEAD_INIT(NULL, 0)
- 	.tp_name	= "perf.task_event",
- 	.tp_basicsize	= sizeof(struct pyrf_event),
-+	.tp_dealloc	= (destructor)pyrf_event__delete,
- 	.tp_flags	= Py_TPFLAGS_DEFAULT|Py_TPFLAGS_BASETYPE,
- 	.tp_doc		= pyrf_task_event__doc,
- 	.tp_members	= pyrf_task_event__members,
-+	.tp_getset	= pyrf_event__getset,
- 	.tp_repr	= (reprfunc)pyrf_task_event__repr,
- };
- 
-@@ -167,9 +211,11 @@ static PyTypeObject pyrf_comm_event__type = {
- 	PyVarObject_HEAD_INIT(NULL, 0)
- 	.tp_name	= "perf.comm_event",
- 	.tp_basicsize	= sizeof(struct pyrf_event),
-+	.tp_dealloc	= (destructor)pyrf_event__delete,
- 	.tp_flags	= Py_TPFLAGS_DEFAULT|Py_TPFLAGS_BASETYPE,
- 	.tp_doc		= pyrf_comm_event__doc,
- 	.tp_members	= pyrf_comm_event__members,
-+	.tp_getset	= pyrf_event__getset,
- 	.tp_repr	= (reprfunc)pyrf_comm_event__repr,
- };
- 
-@@ -199,9 +245,11 @@ static PyTypeObject pyrf_throttle_event__type = {
- 	PyVarObject_HEAD_INIT(NULL, 0)
- 	.tp_name	= "perf.throttle_event",
- 	.tp_basicsize	= sizeof(struct pyrf_event),
-+	.tp_dealloc	= (destructor)pyrf_event__delete,
- 	.tp_flags	= Py_TPFLAGS_DEFAULT|Py_TPFLAGS_BASETYPE,
- 	.tp_doc		= pyrf_throttle_event__doc,
- 	.tp_members	= pyrf_throttle_event__members,
-+	.tp_getset	= pyrf_event__getset,
- 	.tp_repr	= (reprfunc)pyrf_throttle_event__repr,
- };
- 
-@@ -234,9 +282,11 @@ static PyTypeObject pyrf_lost_event__type = {
- 	PyVarObject_HEAD_INIT(NULL, 0)
- 	.tp_name	= "perf.lost_event",
- 	.tp_basicsize	= sizeof(struct pyrf_event),
-+	.tp_dealloc	= (destructor)pyrf_event__delete,
- 	.tp_flags	= Py_TPFLAGS_DEFAULT|Py_TPFLAGS_BASETYPE,
- 	.tp_doc		= pyrf_lost_event__doc,
- 	.tp_members	= pyrf_lost_event__members,
-+	.tp_getset	= pyrf_event__getset,
- 	.tp_repr	= (reprfunc)pyrf_lost_event__repr,
- };
- 
-@@ -264,9 +314,11 @@ static PyTypeObject pyrf_read_event__type = {
- 	PyVarObject_HEAD_INIT(NULL, 0)
- 	.tp_name	= "perf.read_event",
- 	.tp_basicsize	= sizeof(struct pyrf_event),
-+	.tp_dealloc	= (destructor)pyrf_event__delete,
- 	.tp_flags	= Py_TPFLAGS_DEFAULT|Py_TPFLAGS_BASETYPE,
- 	.tp_doc		= pyrf_read_event__doc,
- 	.tp_members	= pyrf_read_event__members,
-+	.tp_getset	= pyrf_event__getset,
- 	.tp_repr	= (reprfunc)pyrf_read_event__repr,
- };
- 
-@@ -274,16 +326,17 @@ static const char pyrf_sample_event__doc[] = PyDoc_STR("perf sample event object
- 
- static PyMemberDef pyrf_sample_event__members[] = {
- 	sample_members
-+	sample_member_def(sample_ip, ip, T_ULONGLONG, "event ip"),
-+	sample_member_def(sample_addr, addr, T_ULONGLONG, "event addr"),
-+	sample_member_def(sample_phys_addr, phys_addr, T_ULONGLONG, "event physical addr"),
-+	sample_member_def(sample_weight, weight, T_ULONGLONG, "event weight"),
-+	sample_member_def(sample_data_src, data_src, T_ULONGLONG, "event data source"),
-+	sample_member_def(sample_insn_count, insn_cnt, T_ULONGLONG, "event instruction count"),
-+	sample_member_def(sample_cyc_count, cyc_cnt, T_ULONGLONG, "event cycle count"),
- 	member_def(perf_event_header, type, T_UINT, "event type"),
- 	{ .name = NULL, },
- };
- 
--static void pyrf_sample_event__delete(struct pyrf_event *pevent)
--{
--	perf_sample__exit(&pevent->sample);
--	Py_TYPE(pevent)->tp_free((PyObject*)pevent);
--}
--
- static PyObject *pyrf_sample_event__repr(const struct pyrf_event *pevent)
- {
- 	PyObject *ret;
-@@ -301,6 +354,8 @@ static PyObject *pyrf_sample_event__repr(const struct pyrf_event *pevent)
- #ifdef HAVE_LIBTRACEEVENT
- static bool is_tracepoint(const struct pyrf_event *pevent)
- {
-+	if (!pevent->sample.evsel)
-+		return false;
- 	return pevent->sample.evsel->core.attr.type == PERF_TYPE_TRACEPOINT;
- }
- 
-@@ -371,6 +426,199 @@ get_tracepoint_field(struct pyrf_event *pevent, PyObject *attr_name)
- }
- #endif /* HAVE_LIBTRACEEVENT */
- 
-+static int pyrf_sample_event__resolve_al(struct pyrf_event *pevent)
-+{
-+	struct evsel *evsel = pevent->sample.evsel;
-+	struct evlist *evlist = evsel ? evsel->evlist : NULL;
-+	struct perf_session *session = evlist ? evlist__session(evlist) : NULL;
-+
-+	if (pevent->al_resolved)
-+		return 0;
-+
-+	if (!session)
-+		return -1;
-+
-+	addr_location__init(&pevent->al);
-+	if (machine__resolve(&session->machines.host, &pevent->al, &pevent->sample) < 0) {
-+		addr_location__exit(&pevent->al);
++	evlist__put(pevlist->evlist);
++	pevlist->evlist = evlist__new();
++	if (!pevlist->evlist) {
++		PyErr_NoMemory();
 +		return -1;
 +	}
+ 	threads = ((struct pyrf_thread_map *)pthreads)->threads;
+ 	cpus = ((struct pyrf_cpu_map *)pcpus)->cpus;
+-	evlist__init(&pevlist->evlist, cpus, threads);
++	perf_evlist__set_maps(&pevlist->evlist->core, cpus, threads);
 +
-+	pevent->al_resolved = true;
-+	return 0;
-+}
-+
-+static PyObject *pyrf_sample_event__get_dso(struct pyrf_event *pevent,
-+					    void *closure __maybe_unused)
-+{
-+	if (pyrf_sample_event__resolve_al(pevent) < 0 || !pevent->al.map)
-+		Py_RETURN_NONE;
-+
-+	return PyUnicode_FromString(dso__name(map__dso(pevent->al.map)));
-+}
-+
-+static PyObject *pyrf_sample_event__get_dso_long_name(struct pyrf_event *pevent,
-+						      void *closure __maybe_unused)
-+{
-+	if (pyrf_sample_event__resolve_al(pevent) < 0 || !pevent->al.map)
-+		Py_RETURN_NONE;
-+
-+	return PyUnicode_FromString(dso__long_name(map__dso(pevent->al.map)));
-+}
-+
-+static PyObject *pyrf_sample_event__get_dso_bid(struct pyrf_event *pevent,
-+						void *closure __maybe_unused)
-+{
-+	char sbuild_id[SBUILD_ID_SIZE];
-+
-+	if (pyrf_sample_event__resolve_al(pevent) < 0 || !pevent->al.map)
-+		Py_RETURN_NONE;
-+
-+	build_id__snprintf(dso__bid(map__dso(pevent->al.map)), sbuild_id, sizeof(sbuild_id));
-+	return PyUnicode_FromString(sbuild_id);
-+}
-+
-+static PyObject *pyrf_sample_event__get_map_start(struct pyrf_event *pevent,
-+						  void *closure __maybe_unused)
-+{
-+	if (pyrf_sample_event__resolve_al(pevent) < 0 || !pevent->al.map)
-+		Py_RETURN_NONE;
-+
-+	return PyLong_FromUnsignedLong(map__start(pevent->al.map));
-+}
-+
-+static PyObject *pyrf_sample_event__get_map_end(struct pyrf_event *pevent,
-+						void *closure __maybe_unused)
-+{
-+	if (pyrf_sample_event__resolve_al(pevent) < 0 || !pevent->al.map)
-+		Py_RETURN_NONE;
-+
-+	return PyLong_FromUnsignedLong(map__end(pevent->al.map));
-+}
-+
-+static PyObject *pyrf_sample_event__get_map_pgoff(struct pyrf_event *pevent,
-+						  void *closure __maybe_unused)
-+{
-+	if (pyrf_sample_event__resolve_al(pevent) < 0 || !pevent->al.map)
-+		Py_RETURN_NONE;
-+
-+	return PyLong_FromUnsignedLongLong(map__pgoff(pevent->al.map));
-+}
-+
-+static PyObject *pyrf_sample_event__get_symbol(struct pyrf_event *pevent,
-+					       void *closure __maybe_unused)
-+{
-+	if (pyrf_sample_event__resolve_al(pevent) < 0 || !pevent->al.sym)
-+		Py_RETURN_NONE;
-+
-+	return PyUnicode_FromString(pevent->al.sym->name);
-+}
-+
-+static PyObject *pyrf_sample_event__get_sym_start(struct pyrf_event *pevent,
-+						  void *closure __maybe_unused)
-+{
-+	if (pyrf_sample_event__resolve_al(pevent) < 0 || !pevent->al.sym)
-+		Py_RETURN_NONE;
-+
-+	return PyLong_FromUnsignedLongLong(pevent->al.sym->start);
-+}
-+
-+static PyObject *pyrf_sample_event__get_sym_end(struct pyrf_event *pevent,
-+						void *closure __maybe_unused)
-+{
-+	if (pyrf_sample_event__resolve_al(pevent) < 0 || !pevent->al.sym)
-+		Py_RETURN_NONE;
-+
-+	return PyLong_FromUnsignedLongLong(pevent->al.sym->end);
-+}
-+
-+static PyObject *pyrf_sample_event__get_raw_buf(struct pyrf_event *pevent,
-+						void *closure __maybe_unused)
-+{
-+	if (pevent->event.header.type != PERF_RECORD_SAMPLE)
-+		Py_RETURN_NONE;
-+
-+	return PyBytes_FromStringAndSize((const char *)pevent->sample.raw_data,
-+					 pevent->sample.raw_size);
-+}
-+
-+static PyObject *pyrf_sample_event__srccode(PyObject *self, PyObject *args)
-+{
-+	struct pyrf_event *pevent = (void *)self;
-+	u64 addr = pevent->sample.ip;
-+	char *srcfile = NULL;
-+	char *srccode = NULL;
-+	unsigned int line = 0;
-+	int len = 0;
-+	PyObject *result;
-+	struct addr_location al;
-+
-+	if (!PyArg_ParseTuple(args, "|K", &addr))
-+		return NULL;
-+
-+	if (pyrf_sample_event__resolve_al(pevent) < 0)
-+		Py_RETURN_NONE;
-+
-+	if (addr != pevent->sample.ip) {
-+		addr_location__init(&al);
-+		thread__find_symbol_fb(pevent->al.thread, pevent->sample.cpumode, addr, &al);
-+	} else {
-+		addr_location__init(&al);
-+		al.thread = thread__get(pevent->al.thread);
-+		al.map = map__get(pevent->al.map);
-+		al.sym = pevent->al.sym;
-+		al.addr = pevent->al.addr;
-+	}
-+
-+	if (al.map) {
-+		struct dso *dso = map__dso(al.map);
-+
-+		if (dso) {
-+			srcfile = get_srcline_split(dso, map__rip_2objdump(al.map, addr),
-+						    &line);
-+		}
-+	}
-+	addr_location__exit(&al);
-+
-+	if (srcfile) {
-+		srccode = find_sourceline(srcfile, line, &len);
-+		result = Py_BuildValue("(sIs#)", srcfile, line, srccode, (Py_ssize_t)len);
-+		free(srcfile);
-+	} else {
-+		result = Py_BuildValue("(sIs#)", NULL, 0, NULL, (Py_ssize_t)0);
-+	}
-+
-+	return result;
-+}
-+
-+static PyObject *pyrf_sample_event__insn(PyObject *self, PyObject *args __maybe_unused)
-+{
-+	struct pyrf_event *pevent = (void *)self;
-+	struct thread *thread;
-+	struct machine *machine;
-+
-+	if (pyrf_sample_event__resolve_al(pevent) < 0)
-+		Py_RETURN_NONE;
-+
-+	thread = pevent->al.thread;
-+
-+	if (!thread || !thread__maps(thread))
-+		Py_RETURN_NONE;
-+
-+	machine = maps__machine(thread__maps(thread));
-+	if (!machine)
-+		Py_RETURN_NONE;
-+
-+	if (pevent->sample.ip && !pevent->sample.insn_len)
-+		perf_sample__fetch_insn(&pevent->sample, thread, machine);
-+
-+	if (!pevent->sample.insn_len)
-+		Py_RETURN_NONE;
-+
-+	return PyBytes_FromStringAndSize((const char *)pevent->sample.insn,
-+					 pevent->sample.insn_len);
-+}
-+
- static PyObject*
- pyrf_sample_event__getattro(struct pyrf_event *pevent, PyObject *attr_name)
- {
-@@ -384,13 +632,102 @@ pyrf_sample_event__getattro(struct pyrf_event *pevent, PyObject *attr_name)
- 	return obj ?: PyObject_GenericGetAttr((PyObject *) pevent, attr_name);
+ 	return 0;
  }
  
-+static PyGetSetDef pyrf_sample_event__getset[] = {
-+	{
-+		.name = "raw_buf",
-+		.get = (getter)pyrf_sample_event__get_raw_buf,
-+		.set = NULL,
-+		.doc = "event raw buffer.",
-+	},
-+	{
-+		.name = "evsel",
-+		.get = pyrf_event__get_evsel,
-+		.set = NULL,
-+		.doc = "tracking event.",
-+	},
-+	{
-+		.name = "dso",
-+		.get = (getter)pyrf_sample_event__get_dso,
-+		.set = NULL,
-+		.doc = "event dso short name.",
-+	},
-+	{
-+		.name = "dso_long_name",
-+		.get = (getter)pyrf_sample_event__get_dso_long_name,
-+		.set = NULL,
-+		.doc = "event dso long name.",
-+	},
-+	{
-+		.name = "dso_bid",
-+		.get = (getter)pyrf_sample_event__get_dso_bid,
-+		.set = NULL,
-+		.doc = "event dso build id.",
-+	},
-+	{
-+		.name = "map_start",
-+		.get = (getter)pyrf_sample_event__get_map_start,
-+		.set = NULL,
-+		.doc = "event map start address.",
-+	},
-+	{
-+		.name = "map_end",
-+		.get = (getter)pyrf_sample_event__get_map_end,
-+		.set = NULL,
-+		.doc = "event map end address.",
-+	},
-+	{
-+		.name = "map_pgoff",
-+		.get = (getter)pyrf_sample_event__get_map_pgoff,
-+		.set = NULL,
-+		.doc = "event map page offset.",
-+	},
-+	{
-+		.name = "symbol",
-+		.get = (getter)pyrf_sample_event__get_symbol,
-+		.set = NULL,
-+		.doc = "event symbol name.",
-+	},
-+	{
-+		.name = "sym_start",
-+		.get = (getter)pyrf_sample_event__get_sym_start,
-+		.set = NULL,
-+		.doc = "event symbol start address.",
-+	},
-+	{
-+		.name = "sym_end",
-+		.get = (getter)pyrf_sample_event__get_sym_end,
-+		.set = NULL,
-+		.doc = "event symbol end address.",
-+	},
-+	{ .name = NULL, },
-+};
-+
-+static PyMethodDef pyrf_sample_event__methods[] = {
-+	{
-+		.ml_name  = "srccode",
-+		.ml_meth  = (PyCFunction)pyrf_sample_event__srccode,
-+		.ml_flags = METH_VARARGS,
-+		.ml_doc	  = PyDoc_STR("Get source code for an address.")
-+	},
-+	{
-+		.ml_name  = "insn",
-+		.ml_meth  = (PyCFunction)pyrf_sample_event__insn,
-+		.ml_flags = METH_NOARGS,
-+		.ml_doc	  = PyDoc_STR("Get instruction bytes for a sample.")
-+	},
-+	{ .ml_name = NULL, }
-+};
-+
- static PyTypeObject pyrf_sample_event__type = {
- 	PyVarObject_HEAD_INIT(NULL, 0)
- 	.tp_name	= "perf.sample_event",
- 	.tp_basicsize	= sizeof(struct pyrf_event),
-+	.tp_dealloc	= (destructor)pyrf_event__delete,
- 	.tp_flags	= Py_TPFLAGS_DEFAULT|Py_TPFLAGS_BASETYPE,
- 	.tp_doc		= pyrf_sample_event__doc,
- 	.tp_members	= pyrf_sample_event__members,
-+	.tp_getset	= pyrf_sample_event__getset,
-+	.tp_methods	= pyrf_sample_event__methods,
- 	.tp_repr	= (reprfunc)pyrf_sample_event__repr,
- 	.tp_getattro	= (getattrofunc) pyrf_sample_event__getattro,
- };
-@@ -426,25 +763,17 @@ static PyTypeObject pyrf_context_switch_event__type = {
- 	PyVarObject_HEAD_INIT(NULL, 0)
- 	.tp_name	= "perf.context_switch_event",
- 	.tp_basicsize	= sizeof(struct pyrf_event),
-+	.tp_dealloc	= (destructor)pyrf_event__delete,
- 	.tp_flags	= Py_TPFLAGS_DEFAULT|Py_TPFLAGS_BASETYPE,
- 	.tp_doc		= pyrf_context_switch_event__doc,
- 	.tp_members	= pyrf_context_switch_event__members,
-+	.tp_getset	= pyrf_event__getset,
- 	.tp_repr	= (reprfunc)pyrf_context_switch_event__repr,
- };
- 
- static int pyrf_event__setup_types(void)
+ static void pyrf_evlist__delete(struct pyrf_evlist *pevlist)
  {
- 	int err;
--	pyrf_mmap_event__type.tp_new =
--	pyrf_task_event__type.tp_new =
--	pyrf_comm_event__type.tp_new =
--	pyrf_lost_event__type.tp_new =
--	pyrf_read_event__type.tp_new =
--	pyrf_sample_event__type.tp_new =
--	pyrf_context_switch_event__type.tp_new =
--	pyrf_throttle_event__type.tp_new = PyType_GenericNew;
--
--	pyrf_sample_event__type.tp_dealloc = (destructor)pyrf_sample_event__delete,
- 
- 	err = PyType_Ready(&pyrf_mmap_event__type);
- 	if (err < 0)
-@@ -488,33 +817,175 @@ static PyTypeObject *pyrf_event__type[] = {
- 	[PERF_RECORD_SWITCH_CPU_WIDE]  = &pyrf_context_switch_event__type,
- };
- 
--static PyObject *pyrf_event__new(const union perf_event *event)
-+static PyObject *pyrf_event__new(const union perf_event *event, struct evsel *evsel,
-+				 struct perf_session *session __maybe_unused)
- {
- 	struct pyrf_event *pevent;
--	PyTypeObject *ptype;
-+	size_t size;
-+	int err;
-+	size_t min_size = sizeof(struct perf_event_header);
- 
--	if ((event->header.type < PERF_RECORD_MMAP ||
--	     event->header.type > PERF_RECORD_SAMPLE) &&
--	    !(event->header.type == PERF_RECORD_SWITCH ||
--	      event->header.type == PERF_RECORD_SWITCH_CPU_WIDE)) {
--		PyErr_Format(PyExc_TypeError, "Unexpected header type %u",
-+	if (event->header.type >= ARRAY_SIZE(pyrf_event__type) ||
-+	    pyrf_event__type[event->header.type] == NULL) {
-+		return PyErr_Format(PyExc_TypeError, "Unexpected header type %u",
- 			     event->header.type);
--		return NULL;
- 	}
- 
--	// FIXME this better be dynamic or we need to parse everything
--	// before calling perf_mmap__consume(), including tracepoint fields.
--	if (sizeof(pevent->event) < event->header.size) {
--		PyErr_Format(PyExc_TypeError, "Unexpected event size: %zd < %u",
--			     sizeof(pevent->event), event->header.size);
--		return NULL;
-+	switch (event->header.type) {
-+	case PERF_RECORD_MMAP:
-+		min_size = offsetof(struct perf_record_mmap, filename) + 1;
-+		break;
-+	case PERF_RECORD_MMAP2:
-+		min_size = offsetof(struct perf_record_mmap2, filename) + 1;
-+		break;
-+	case PERF_RECORD_COMM:
-+		min_size = sizeof(struct perf_record_comm);
-+		break;
-+	case PERF_RECORD_FORK:
-+	case PERF_RECORD_EXIT:
-+		min_size = sizeof(struct perf_record_fork);
-+		break;
-+	case PERF_RECORD_THROTTLE:
-+	case PERF_RECORD_UNTHROTTLE:
-+		min_size = sizeof(struct perf_record_throttle);
-+		break;
-+	case PERF_RECORD_LOST:
-+		min_size = sizeof(struct perf_record_lost);
-+		break;
-+	case PERF_RECORD_READ:
-+		min_size = sizeof(struct perf_record_read);
-+		break;
-+	case PERF_RECORD_SWITCH:
-+	case PERF_RECORD_SWITCH_CPU_WIDE:
-+		min_size = sizeof(struct perf_record_switch);
-+		break;
-+	case PERF_RECORD_AUX:
-+		min_size = sizeof(struct perf_record_aux);
-+		break;
-+	case PERF_RECORD_ITRACE_START:
-+		min_size = sizeof(struct perf_record_itrace_start);
-+		break;
-+	case PERF_RECORD_LOST_SAMPLES:
-+		min_size = sizeof(struct perf_record_lost_samples);
-+		break;
-+	case PERF_RECORD_NAMESPACES:
-+		min_size = offsetof(struct perf_record_namespaces, link_info);
-+		break;
-+	case PERF_RECORD_KSYMBOL:
-+		min_size = sizeof(struct perf_record_ksymbol);
-+		break;
-+	case PERF_RECORD_BPF_EVENT:
-+		min_size = sizeof(struct perf_record_bpf_event);
-+		break;
-+	case PERF_RECORD_CGROUP:
-+		min_size = sizeof(struct perf_record_cgroup);
-+		break;
-+	case PERF_RECORD_TEXT_POKE:
-+		min_size = offsetof(struct perf_record_text_poke_event, bytes);
-+		break;
-+	case PERF_RECORD_AUX_OUTPUT_HW_ID:
-+		min_size = sizeof(struct perf_record_aux_output_hw_id);
-+		break;
-+	case PERF_RECORD_CALLCHAIN_DEFERRED:
-+		min_size = sizeof(struct perf_record_callchain_deferred);
-+		break;
-+	case PERF_RECORD_HEADER_ATTR:
-+		min_size = sizeof(struct perf_record_header_attr);
-+		break;
-+	case PERF_RECORD_HEADER_TRACING_DATA:
-+		min_size = sizeof(struct perf_record_header_tracing_data);
-+		break;
-+	case PERF_RECORD_HEADER_BUILD_ID:
-+		min_size = offsetof(struct perf_record_header_build_id, filename) + 1;
-+		break;
-+	case PERF_RECORD_ID_INDEX:
-+		min_size = offsetof(struct perf_record_id_index, entries);
-+		break;
-+	case PERF_RECORD_AUXTRACE_INFO:
-+		min_size = offsetof(struct perf_record_auxtrace_info, priv);
-+		break;
-+	case PERF_RECORD_AUXTRACE:
-+		min_size = sizeof(struct perf_record_auxtrace);
-+		break;
-+	case PERF_RECORD_AUXTRACE_ERROR:
-+		min_size = sizeof(struct perf_record_auxtrace_error);
-+		break;
-+	case PERF_RECORD_THREAD_MAP:
-+		min_size = offsetof(struct perf_record_thread_map, entries);
-+		break;
-+	case PERF_RECORD_CPU_MAP:
-+		min_size = sizeof(struct perf_record_cpu_map);
-+		break;
-+	case PERF_RECORD_STAT_CONFIG:
-+		min_size = offsetof(struct perf_record_stat_config, data);
-+		break;
-+	case PERF_RECORD_STAT:
-+		min_size = sizeof(struct perf_record_stat);
-+		break;
-+	case PERF_RECORD_STAT_ROUND:
-+		min_size = sizeof(struct perf_record_stat_round);
-+		break;
-+	case PERF_RECORD_EVENT_UPDATE:
-+		min_size = sizeof(struct perf_record_event_update);
-+		break;
-+	case PERF_RECORD_TIME_CONV:
-+		min_size = sizeof(struct perf_record_time_conv);
-+		break;
-+	case PERF_RECORD_HEADER_FEATURE:
-+		min_size = offsetof(struct perf_record_header_feature, data);
-+		break;
-+	case PERF_RECORD_COMPRESSED:
-+		min_size = offsetof(struct perf_record_compressed, data);
-+		break;
-+	case PERF_RECORD_COMPRESSED2:
-+		min_size = offsetof(struct perf_record_compressed2, data);
-+		break;
-+	case PERF_RECORD_BPF_METADATA:
-+		min_size = offsetof(struct perf_record_bpf_metadata, entries);
-+		break;
-+	case PERF_RECORD_SCHEDSTAT_CPU:
-+		min_size = sizeof(struct perf_record_schedstat_cpu);
-+		break;
-+	case PERF_RECORD_SCHEDSTAT_DOMAIN:
-+		min_size = sizeof(struct perf_record_schedstat_domain);
-+		break;
-+	default:
-+		break;
- 	}
-+	if (event->header.size < min_size)
-+		return PyErr_Format(PyExc_ValueError, "Event size %u too small for type %u",
-+				    event->header.size, event->header.type);
-+
-+	/* Allocate just enough memory for the size of event. */
-+	size = offsetof(struct pyrf_event, event) + event->header.size;
-+	pevent = (struct pyrf_event *)PyObject_Malloc(size);
-+	if (pevent == NULL)
-+		return PyErr_NoMemory();
-+
-+	/* Copy the event for memory safety and initilaize variables. */
-+	PyObject_Init((PyObject *)pevent, pyrf_event__type[event->header.type]);
-+	memcpy(&pevent->event, event, event->header.size);
-+
-+	if (event->header.type == PERF_RECORD_MMAP) {
-+		/* Ensure '\0' string termination. */
-+		size_t max_len = pevent->event.header.size - offsetof(struct perf_record_mmap, filename);
- 
--	ptype = pyrf_event__type[event->header.type];
--	pevent = PyObject_New(struct pyrf_event, ptype);
--	if (pevent != NULL) {
--		memcpy(&pevent->event, event, event->header.size);
--		perf_sample__init(&pevent->sample, /*all=*/false);
-+		pevent->event.mmap.filename[max_len - 1] = '\0';
-+	}
-+
-+	perf_sample__init(&pevent->sample, /*all=*/true);
-+	pevent->al_resolved = false;
-+	addr_location__init(&pevent->al);
-+
-+	if (!evsel)
-+		return (PyObject *)pevent;
-+
-+	/* Parse the sample again so that pointers are within the copied event. */
-+	err = evsel__parse_sample(evsel, &pevent->event, &pevent->sample);
-+	if (err < 0) {
-+		Py_DECREF(pevent);
-+		return PyErr_Format(PyExc_OSError,
-+				    "perf: can't parse sample, err=%d", err);
- 	}
- 	return (PyObject *)pevent;
- }
-@@ -1207,7 +1678,7 @@ static PyObject *pyrf_evsel__str(PyObject *self)
- 	struct pyrf_evsel *pevsel = (void *)self;
- 	struct evsel *evsel = pevsel->evsel;
- 
--	return PyUnicode_FromFormat("evsel(%s/%s/)", evsel__pmu_name(evsel), evsel__name(evsel));
-+	return PyUnicode_FromFormat("evsel(%s)", evsel__name(evsel));
+-	evlist__exit(&pevlist->evlist);
++	evlist__put(pevlist->evlist);
+ 	Py_TYPE(pevlist)->tp_free((PyObject*)pevlist);
  }
  
- static PyMethodDef pyrf_evsel__methods[] = {
-@@ -1769,9 +2240,11 @@ static PyObject *pyrf_evlist__read_on_cpu(struct pyrf_evlist *pevlist,
- {
- 	struct evlist *evlist = pevlist->evlist;
- 	union perf_event *event;
-+	struct evsel *evsel;
- 	int sample_id_all = 1, cpu;
- 	static char *kwlist[] = { "cpu", "sample_id_all", NULL };
- 	struct mmap *md;
-+	PyObject *pyevent;
- 	int err;
+@@ -1302,7 +1309,7 @@ static PyObject *pyrf_evlist__all_cpus(struct pyrf_evlist *pevlist)
+ 	struct pyrf_cpu_map *pcpu_map = PyObject_New(struct pyrf_cpu_map, &pyrf_cpu_map__type);
  
- 	if (!PyArg_ParseTupleAndKeywords(args, kwargs, "i|i", kwlist,
-@@ -1779,44 +2252,31 @@ static PyObject *pyrf_evlist__read_on_cpu(struct pyrf_evlist *pevlist,
+ 	if (pcpu_map)
+-		pcpu_map->cpus = perf_cpu_map__get(pevlist->evlist.core.all_cpus);
++		pcpu_map->cpus = perf_cpu_map__get(pevlist->evlist->core.all_cpus);
+ 
+ 	return (PyObject *)pcpu_map;
+ }
+@@ -1315,7 +1322,7 @@ static PyObject *pyrf_evlist__metrics(struct pyrf_evlist *pevlist)
+ 	if (!list)
  		return NULL;
  
- 	md = get_md(evlist, cpu);
--	if (!md) {
--		PyErr_Format(PyExc_TypeError, "Unknown CPU '%d'", cpu);
--		return NULL;
--	}
-+	if (!md)
-+		return PyErr_Format(PyExc_TypeError, "Unknown CPU '%d'", cpu);
+-	for (node = rb_first_cached(&pevlist->evlist.metric_events.entries); node;
++	for (node = rb_first_cached(&pevlist->evlist->metric_events.entries); node;
+ 	     node = rb_next(node)) {
+ 		struct metric_event *me = container_of(node, struct metric_event, nd);
+ 		struct list_head *pos;
+@@ -1421,7 +1428,7 @@ static PyObject *pyrf_evlist__compute_metric(struct pyrf_evlist *pevlist,
+ 	if (!PyArg_ParseTuple(args, "sii", &metric, &cpu, &thread))
+ 		return NULL;
  
--	if (perf_mmap__read_init(&md->core) < 0)
--		goto end;
-+	err = perf_mmap__read_init(&md->core);
-+	if (err < 0) {
-+		return PyErr_Format(PyExc_OSError,
-+				    "perf: error mmap read init, err=%d", err);
-+	}
+-	for (node = rb_first_cached(&pevlist->evlist.metric_events.entries);
++	for (node = rb_first_cached(&pevlist->evlist->metric_events.entries);
+ 	     mexp == NULL && node;
+ 	     node = rb_next(node)) {
+ 		struct metric_event *me = container_of(node, struct metric_event, nd);
+@@ -1437,7 +1444,7 @@ static PyObject *pyrf_evlist__compute_metric(struct pyrf_evlist *pevlist,
+ 			if (e->metric_events[0] == NULL)
+ 				continue;
  
- 	event = perf_mmap__read_event(&md->core);
--	if (event != NULL) {
--		PyObject *pyevent = pyrf_event__new(event);
--		struct pyrf_event *pevent = (struct pyrf_event *)pyevent;
--		struct evsel *evsel;
--
--		if (pyevent == NULL)
--			return PyErr_NoMemory();
--
--		evsel = evlist__event2evsel(evlist, event);
--		if (!evsel) {
--			Py_DECREF(pyevent);
--			Py_INCREF(Py_None);
--			return Py_None;
--		}
-+	if (event == NULL)
-+		Py_RETURN_NONE;
+-			evlist__for_each_entry(&pevlist->evlist, pos2) {
++			evlist__for_each_entry(pevlist->evlist, pos2) {
+ 				if (pos2->metric_leader != e->metric_events[0])
+ 					continue;
+ 				cpu_idx = perf_cpu_map__idx(pos2->core.cpus,
+@@ -1482,7 +1489,7 @@ static PyObject *pyrf_evlist__compute_metric(struct pyrf_evlist *pevlist,
+ static PyObject *pyrf_evlist__mmap(struct pyrf_evlist *pevlist,
+ 				   PyObject *args, PyObject *kwargs)
+ {
+-	struct evlist *evlist = &pevlist->evlist;
++	struct evlist *evlist = pevlist->evlist;
+ 	static char *kwlist[] = { "pages", "overwrite", NULL };
+ 	int pages = 128, overwrite = false;
  
-+	evsel = evlist__event2evsel(evlist, event);
-+	if (!evsel) {
-+		/* Unknown evsel. */
- 		perf_mmap__consume(&md->core);
--
--		err = evsel__parse_sample(evsel, &pevent->event, &pevent->sample);
--		if (err) {
--			Py_DECREF(pyevent);
--			return PyErr_Format(PyExc_OSError,
--					    "perf: can't parse sample, err=%d", err);
--		}
--
--		return pyevent;
-+		Py_RETURN_NONE;
- 	}
--end:
--	Py_INCREF(Py_None);
--	return Py_None;
-+	pyevent = pyrf_event__new(event, evsel, evlist__session(evlist));
-+	perf_mmap__consume(&md->core);
-+	if (pyevent == NULL)
-+		return PyErr_Occurred() ? NULL : PyErr_NoMemory();
-+
-+	return pyevent;
+@@ -1502,7 +1509,7 @@ static PyObject *pyrf_evlist__mmap(struct pyrf_evlist *pevlist,
+ static PyObject *pyrf_evlist__poll(struct pyrf_evlist *pevlist,
+ 				   PyObject *args, PyObject *kwargs)
+ {
+-	struct evlist *evlist = &pevlist->evlist;
++	struct evlist *evlist = pevlist->evlist;
+ 	static char *kwlist[] = { "timeout", NULL };
+ 	int timeout = -1, n;
+ 
+@@ -1522,7 +1529,7 @@ static PyObject *pyrf_evlist__get_pollfd(struct pyrf_evlist *pevlist,
+ 					 PyObject *args __maybe_unused,
+ 					 PyObject *kwargs __maybe_unused)
+ {
+-	struct evlist *evlist = &pevlist->evlist;
++	struct evlist *evlist = pevlist->evlist;
+         PyObject *list = PyList_New(0);
+ 	int i;
+ 
+@@ -1551,7 +1558,7 @@ static PyObject *pyrf_evlist__add(struct pyrf_evlist *pevlist,
+ 				  PyObject *args,
+ 				  PyObject *kwargs __maybe_unused)
+ {
+-	struct evlist *evlist = &pevlist->evlist;
++	struct evlist *evlist = pevlist->evlist;
+ 	PyObject *pevsel;
+ 	struct evsel *evsel;
+ 
+@@ -1583,7 +1590,7 @@ static struct mmap *get_md(struct evlist *evlist, int cpu)
+ static PyObject *pyrf_evlist__read_on_cpu(struct pyrf_evlist *pevlist,
+ 					  PyObject *args, PyObject *kwargs)
+ {
+-	struct evlist *evlist = &pevlist->evlist;
++	struct evlist *evlist = pevlist->evlist;
+ 	union perf_event *event;
+ 	int sample_id_all = 1, cpu;
+ 	static char *kwlist[] = { "cpu", "sample_id_all", NULL };
+@@ -1640,7 +1647,7 @@ static PyObject *pyrf_evlist__read_on_cpu(struct pyrf_evlist *pevlist,
+ static PyObject *pyrf_evlist__open(struct pyrf_evlist *pevlist,
+ 				   PyObject *args, PyObject *kwargs)
+ {
+-	struct evlist *evlist = &pevlist->evlist;
++	struct evlist *evlist = pevlist->evlist;
+ 
+ 	if (evlist__open(evlist) < 0) {
+ 		PyErr_SetFromErrno(PyExc_OSError);
+@@ -1653,7 +1660,7 @@ static PyObject *pyrf_evlist__open(struct pyrf_evlist *pevlist,
+ 
+ static PyObject *pyrf_evlist__close(struct pyrf_evlist *pevlist)
+ {
+-	struct evlist *evlist = &pevlist->evlist;
++	struct evlist *evlist = pevlist->evlist;
+ 
+ 	evlist__close(evlist);
+ 
+@@ -1679,7 +1686,7 @@ static PyObject *pyrf_evlist__config(struct pyrf_evlist *pevlist)
+ 		.no_buffering        = true,
+ 		.no_inherit          = true,
+ 	};
+-	struct evlist *evlist = &pevlist->evlist;
++	struct evlist *evlist = pevlist->evlist;
+ 
+ 	evlist__config(evlist, &opts, &callchain_param);
+ 	Py_INCREF(Py_None);
+@@ -1688,14 +1695,14 @@ static PyObject *pyrf_evlist__config(struct pyrf_evlist *pevlist)
+ 
+ static PyObject *pyrf_evlist__disable(struct pyrf_evlist *pevlist)
+ {
+-	evlist__disable(&pevlist->evlist);
++	evlist__disable(pevlist->evlist);
+ 	Py_INCREF(Py_None);
+ 	return Py_None;
  }
  
- static PyObject *pyrf_evlist__open(struct pyrf_evlist *pevlist,
-@@ -2011,10 +2471,7 @@ static PyObject *pyrf_evlist__str(PyObject *self)
- 	evlist__for_each_entry(pevlist->evlist, pos) {
+ static PyObject *pyrf_evlist__enable(struct pyrf_evlist *pevlist)
+ {
+-	evlist__enable(&pevlist->evlist);
++	evlist__enable(pevlist->evlist);
+ 	Py_INCREF(Py_None);
+ 	return Py_None;
+ }
+@@ -1786,7 +1793,23 @@ static Py_ssize_t pyrf_evlist__length(PyObject *obj)
+ {
+ 	struct pyrf_evlist *pevlist = (void *)obj;
+ 
+-	return pevlist->evlist.core.nr_entries;
++	return pevlist->evlist->core.nr_entries;
++}
++
++static PyObject *pyrf_evsel__from_evsel(struct evsel *evsel)
++{
++	struct pyrf_evsel *pevsel = PyObject_New(struct pyrf_evsel, &pyrf_evsel__type);
++
++	if (!pevsel)
++		return NULL;
++
++	memset(&pevsel->evsel, 0, sizeof(pevsel->evsel));
++	evsel__init(&pevsel->evsel, &evsel->core.attr, evsel->core.idx);
++
++	evsel__clone(&pevsel->evsel, evsel);
++	if (evsel__is_group_leader(evsel))
++		evsel__set_leader(&pevsel->evsel, &pevsel->evsel);
++	return (PyObject *)pevsel;
+ }
+ 
+ static PyObject *pyrf_evlist__item(PyObject *obj, Py_ssize_t i)
+@@ -1794,17 +1817,16 @@ static PyObject *pyrf_evlist__item(PyObject *obj, Py_ssize_t i)
+ 	struct pyrf_evlist *pevlist = (void *)obj;
+ 	struct evsel *pos;
+ 
+-	if (i >= pevlist->evlist.core.nr_entries) {
++	if (i >= pevlist->evlist->core.nr_entries) {
+ 		PyErr_SetString(PyExc_IndexError, "Index out of range");
+ 		return NULL;
+ 	}
+ 
+-	evlist__for_each_entry(&pevlist->evlist, pos) {
++	evlist__for_each_entry(pevlist->evlist, pos) {
+ 		if (i-- == 0)
+ 			break;
+ 	}
+-
+-	return Py_BuildValue("O", container_of(pos, struct pyrf_evsel, evsel));
++	return pyrf_evsel__from_evsel(pos);
+ }
+ 
+ static PyObject *pyrf_evlist__str(PyObject *self)
+@@ -1816,7 +1838,7 @@ static PyObject *pyrf_evlist__str(PyObject *self)
+ 	PyObject *result;
+ 
+ 	strbuf_addstr(&sb, "evlist([");
+-	evlist__for_each_entry(&pevlist->evlist, pos) {
++	evlist__for_each_entry(pevlist->evlist, pos) {
  		if (!first)
  			strbuf_addch(&sb, ',');
--		if (!pos->pmu)
--			strbuf_addstr(&sb, evsel__name(pos));
--		else
--			strbuf_addf(&sb, "%s/%s/", pos->pmu->name, evsel__name(pos));
-+		strbuf_addstr(&sb, evsel__name(pos));
- 		first = false;
- 	}
- 	strbuf_addstr(&sb, "])");
-@@ -2525,19 +2982,12 @@ static int pyrf_session_tool__sample(const struct perf_tool *tool,
- 				     struct machine *machine __maybe_unused)
+ 		if (!pos->pmu)
+@@ -1852,9 +1874,19 @@ static PyTypeObject pyrf_evlist__type = {
+ 	.tp_str         = pyrf_evlist__str,
+ };
+ 
++static PyObject *pyrf_evlist__new(PyTypeObject *type, PyObject *args, PyObject *kwargs)
++{
++	struct pyrf_evlist *pevlist;
++
++	pevlist = (struct pyrf_evlist *)PyType_GenericNew(type, args, kwargs);
++	if (pevlist)
++		pevlist->evlist = NULL;
++	return (PyObject *)pevlist;
++}
++
+ static int pyrf_evlist__setup_types(void)
  {
- 	struct pyrf_session *psession = container_of(tool, struct pyrf_session, tool);
--	PyObject *pyevent = pyrf_event__new(event);
--	struct pyrf_event *pevent = (struct pyrf_event *)pyevent;
-+	PyObject *pyevent = pyrf_event__new(event, sample->evsel, psession->session);
- 	PyObject *ret;
+-	pyrf_evlist__type.tp_new = PyType_GenericNew;
++	pyrf_evlist__type.tp_new = pyrf_evlist__new;
+ 	return PyType_Ready(&pyrf_evlist__type);
+ }
  
- 	if (pyevent == NULL)
- 		return -ENOMEM;
+@@ -1957,157 +1989,74 @@ static PyObject *pyrf__tracepoint(struct pyrf_evsel *pevsel,
+ 	return PyLong_FromLong(tp_pmu__id(sys, name));
+ }
  
--	memcpy(&pevent->event, event, event->header.size);
--	if (evsel__parse_sample(evsel, &pevent->event, &pevent->sample) < 0) {
--		Py_DECREF(pyevent);
--		return -1;
--	}
+-static PyObject *pyrf_evsel__from_evsel(struct evsel *evsel)
+-{
+-	struct pyrf_evsel *pevsel = PyObject_New(struct pyrf_evsel, &pyrf_evsel__type);
 -
- 	ret = PyObject_CallFunction(psession->sample, "O", pyevent);
- 	if (!ret) {
- 		Py_DECREF(pyevent);
+-	if (!pevsel)
+-		return NULL;
+-
+-	memset(&pevsel->evsel, 0, sizeof(pevsel->evsel));
+-	evsel__init(&pevsel->evsel, &evsel->core.attr, evsel->core.idx);
+-
+-	evsel__clone(&pevsel->evsel, evsel);
+-	if (evsel__is_group_leader(evsel))
+-		evsel__set_leader(&pevsel->evsel, &pevsel->evsel);
+-	return (PyObject *)pevsel;
+-}
+-
+-static int evlist__pos(struct evlist *evlist, struct evsel *evsel)
+-{
+-	struct evsel *pos;
+-	int idx = 0;
+-
+-	evlist__for_each_entry(evlist, pos) {
+-		if (evsel == pos)
+-			return idx;
+-		idx++;
+-	}
+-	return -1;
+-}
+-
+-static struct evsel *evlist__at(struct evlist *evlist, int idx)
+-{
+-	struct evsel *pos;
+-	int idx2 = 0;
+-
+-	evlist__for_each_entry(evlist, pos) {
+-		if (idx == idx2)
+-			return pos;
+-		idx2++;
+-	}
+-	return NULL;
+-}
+-
+ static PyObject *pyrf_evlist__from_evlist(struct evlist *evlist)
+ {
+ 	struct pyrf_evlist *pevlist = PyObject_New(struct pyrf_evlist, &pyrf_evlist__type);
+-	struct evsel *pos;
+-	struct rb_node *node;
+ 
+ 	if (!pevlist)
+ 		return NULL;
+ 
+-	memset(&pevlist->evlist, 0, sizeof(pevlist->evlist));
+-	evlist__init(&pevlist->evlist, evlist->core.all_cpus, evlist->core.threads);
+-	evlist__for_each_entry(evlist, pos) {
+-		struct pyrf_evsel *pevsel = (void *)pyrf_evsel__from_evsel(pos);
+-
+-		evlist__add(&pevlist->evlist, &pevsel->evsel);
+-	}
+-	evlist__for_each_entry(&pevlist->evlist, pos) {
+-		struct evsel *leader = evsel__leader(pos);
+-
+-		if (pos != leader) {
+-			int idx = evlist__pos(evlist, leader);
+-
+-			if (idx >= 0)
+-				evsel__set_leader(pos, evlist__at(&pevlist->evlist, idx));
+-			else if (leader == NULL)
+-				evsel__set_leader(pos, pos);
+-		}
+-
+-		leader = pos->metric_leader;
+-
+-		if (pos != leader) {
+-			int idx = evlist__pos(evlist, leader);
+-
+-			if (idx >= 0)
+-				pos->metric_leader = evlist__at(&pevlist->evlist, idx);
+-			else if (leader == NULL)
+-				pos->metric_leader = pos;
+-		}
+-	}
+-	metricgroup__copy_metric_events(&pevlist->evlist, /*cgrp=*/NULL,
+-					&pevlist->evlist.metric_events,
+-					&evlist->metric_events);
+-	for (node = rb_first_cached(&pevlist->evlist.metric_events.entries); node;
+-	     node = rb_next(node)) {
+-		struct metric_event *me = container_of(node, struct metric_event, nd);
+-		struct list_head *mpos;
+-		int idx = evlist__pos(evlist, me->evsel);
+-
+-		if (idx >= 0)
+-			me->evsel = evlist__at(&pevlist->evlist, idx);
+-		list_for_each(mpos, &me->head) {
+-			struct metric_expr *e = container_of(mpos, struct metric_expr, nd);
+-
+-			for (int j = 0; e->metric_events[j]; j++) {
+-				idx = evlist__pos(evlist, e->metric_events[j]);
+-				if (idx >= 0)
+-					e->metric_events[j] = evlist__at(&pevlist->evlist, idx);
+-			}
+-		}
+-	}
++	pevlist->evlist = evlist__get(evlist);
+ 	return (PyObject *)pevlist;
+ }
+ 
+ static PyObject *pyrf__parse_events(PyObject *self, PyObject *args)
+ {
+ 	const char *input;
+-	struct evlist evlist = {};
++	struct evlist *evlist = evlist__new();
+ 	struct parse_events_error err;
+ 	PyObject *result;
+ 	PyObject *pcpus = NULL, *pthreads = NULL;
+ 	struct perf_cpu_map *cpus;
+ 	struct perf_thread_map *threads;
+ 
+-	if (!PyArg_ParseTuple(args, "s|OO", &input, &pcpus, &pthreads))
++	if (!evlist)
++		return PyErr_NoMemory();
++
++	if (!PyArg_ParseTuple(args, "s|OO", &input, &pcpus, &pthreads)) {
++		evlist__put(evlist);
+ 		return NULL;
++	}
+ 
+ 	threads = pthreads ? ((struct pyrf_thread_map *)pthreads)->threads : NULL;
+ 	cpus = pcpus ? ((struct pyrf_cpu_map *)pcpus)->cpus : NULL;
+ 
+ 	parse_events_error__init(&err);
+-	evlist__init(&evlist, cpus, threads);
+-	if (parse_events(&evlist, input, &err)) {
++	perf_evlist__set_maps(&evlist->core, cpus, threads);
++	if (parse_events(evlist, input, &err)) {
+ 		parse_events_error__print(&err, input);
+ 		PyErr_SetFromErrno(PyExc_OSError);
++		evlist__put(evlist);
+ 		return NULL;
+ 	}
+-	result = pyrf_evlist__from_evlist(&evlist);
+-	evlist__exit(&evlist);
++	result = pyrf_evlist__from_evlist(evlist);
++	evlist__put(evlist);
+ 	return result;
+ }
+ 
+ static PyObject *pyrf__parse_metrics(PyObject *self, PyObject *args)
+ {
+ 	const char *input, *pmu = NULL;
+-	struct evlist evlist = {};
++	struct evlist *evlist = evlist__new();
+ 	PyObject *result;
+ 	PyObject *pcpus = NULL, *pthreads = NULL;
+ 	struct perf_cpu_map *cpus;
+ 	struct perf_thread_map *threads;
+ 	int ret;
+ 
+-	if (!PyArg_ParseTuple(args, "s|sOO", &input, &pmu, &pcpus, &pthreads))
++	if (!evlist)
++		return PyErr_NoMemory();
++
++	if (!PyArg_ParseTuple(args, "s|sOO", &input, &pmu, &pcpus, &pthreads)) {
++		evlist__put(evlist);
+ 		return NULL;
++	}
+ 
+ 	threads = pthreads ? ((struct pyrf_thread_map *)pthreads)->threads : NULL;
+ 	cpus = pcpus ? ((struct pyrf_cpu_map *)pcpus)->cpus : NULL;
+ 
+-	evlist__init(&evlist, cpus, threads);
+-	ret = metricgroup__parse_groups(&evlist, pmu ?: "all", input,
++	perf_evlist__set_maps(&evlist->core, cpus, threads);
++	ret = metricgroup__parse_groups(evlist, pmu ?: "all", input,
+ 					/*metric_no_group=*/ false,
+ 					/*metric_no_merge=*/ false,
+ 					/*metric_no_threshold=*/ true,
+@@ -2115,12 +2064,13 @@ static PyObject *pyrf__parse_metrics(PyObject *self, PyObject *args)
+ 					/*system_wide=*/true,
+ 					/*hardware_aware_grouping=*/ false);
+ 	if (ret) {
++		evlist__put(evlist);
+ 		errno = -ret;
+ 		PyErr_SetFromErrno(PyExc_OSError);
+ 		return NULL;
+ 	}
+-	result = pyrf_evlist__from_evlist(&evlist);
+-	evlist__exit(&evlist);
++	result = pyrf_evlist__from_evlist(evlist);
++	evlist__put(evlist);
+ 	return result;
+ }
+ 
+diff --git a/tools/perf/util/record.c b/tools/perf/util/record.c
+index e867de8ddaaa..8a5fc7d5e43c 100644
+--- a/tools/perf/util/record.c
++++ b/tools/perf/util/record.c
+@@ -264,7 +264,7 @@ bool evlist__can_select_event(struct evlist *evlist, const char *str)
+ 	ret = true;
+ 
+ out_delete:
+-	evlist__delete(temp_evlist);
++	evlist__put(temp_evlist);
+ 	return ret;
+ }
+ 
+diff --git a/tools/perf/util/session.c b/tools/perf/util/session.c
+index fe0de2a0277f..1ac6cd43c38b 100644
+--- a/tools/perf/util/session.c
++++ b/tools/perf/util/session.c
+@@ -264,7 +264,7 @@ void perf_session__delete(struct perf_session *session)
+ 	machines__exit(&session->machines);
+ 	if (session->data) {
+ 		if (perf_data__is_read(session->data))
+-			evlist__delete(session->evlist);
++			evlist__put(session->evlist);
+ 		perf_data__close(session->data);
+ 	}
+ #ifdef HAVE_LIBTRACEEVENT
+diff --git a/tools/perf/util/sideband_evlist.c b/tools/perf/util/sideband_evlist.c
+index 388846f17bc1..b84a5463e039 100644
+--- a/tools/perf/util/sideband_evlist.c
++++ b/tools/perf/util/sideband_evlist.c
+@@ -102,7 +102,7 @@ int evlist__start_sb_thread(struct evlist *evlist, struct target *target)
+ 		return 0;
+ 
+ 	if (evlist__create_maps(evlist, target))
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 
+ 	if (evlist->core.nr_entries > 1) {
+ 		bool can_sample_identifier = perf_can_sample_identifier();
+@@ -116,25 +116,25 @@ int evlist__start_sb_thread(struct evlist *evlist, struct target *target)
+ 	evlist__for_each_entry(evlist, counter) {
+ 		if (evsel__open(counter, evlist->core.user_requested_cpus,
+ 				evlist->core.threads) < 0)
+-			goto out_delete_evlist;
++			goto out_put_evlist;
+ 	}
+ 
+ 	if (evlist__mmap(evlist, UINT_MAX))
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 
+ 	evlist__for_each_entry(evlist, counter) {
+ 		if (evsel__enable(counter))
+-			goto out_delete_evlist;
++			goto out_put_evlist;
+ 	}
+ 
+ 	evlist->thread.done = 0;
+ 	if (pthread_create(&evlist->thread.th, NULL, perf_evlist__poll_thread, evlist))
+-		goto out_delete_evlist;
++		goto out_put_evlist;
+ 
+ 	return 0;
+ 
+-out_delete_evlist:
+-	evlist__delete(evlist);
++out_put_evlist:
++	evlist__put(evlist);
+ 	evlist = NULL;
+ 	return -1;
+ }
+@@ -145,5 +145,5 @@ void evlist__stop_sb_thread(struct evlist *evlist)
+ 		return;
+ 	evlist->thread.done = 1;
+ 	pthread_join(evlist->thread.th, NULL);
+-	evlist__delete(evlist);
++	evlist__put(evlist);
+ }
 -- 
 2.54.0.545.g6539524ca2-goog
 
