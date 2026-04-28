@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9373FF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 09:01:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49FC0FF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 09:01:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/iGNZOaGjy1qh6F0wL0j7OfyFVmfscVI6Fs3aKzTD0k=; b=Hcx2RQEygKEbkfxDHBHi3tjteR
-	Rcj2AuVPTVByu0b7Eg4fbu5134c3iOtdPKH1XGuAML4y0fo+YAuMVhi4Eehs3xgfoEiIm5J4RQ/pt
-	+vYHeMvI5X7KJL//6ci9seDepXP5xxUARFke8zIpnNgdftXDO924cBY2L2DluHXPxwif+TPZkinVd
-	wpnIfxPc/vSVXXMOs+/lhA1JlphTs/3WsrR1m9+MHO6UciQkvxeVFfvGbs5joamQ6Xv9gLDUStC4i
-	AVbpjlRSq9HEQOIMuEty9l9h7BuzrbJi62S7w8RvqTseBeONjWnSF4mGLccf3zF+HP+Qu9wvA9J9w
-	iNvX5nsQ==;
+	bh=c7GNFfv5fX5bLwETrCSWb7Ayd6rLy6Y2Sh8Cysk0W8k=; b=zCV/FNAdQne0Yga3aau2tmE2Ye
+	7IQexjyOhxqgyHfdqM7OarIzJmOMW9XBBDZ+i6oYhIVhBuiIjCSRGHkNMNuviUIlHBFmeKpJXzzlf
+	yTMPZL21e+kIAeVaP1W0jN7OlfyHKzigAQbCMwLQvzMkDmEYIqbDPyEOqPQ/FII7w5Iye5UEa3wUB
+	iQ5gHTzq24syd5Do9I3/D9SHm7cM9LvZv89WdN0qG+NLO7i0NuPmcBIbCwojUd/tYP2JB+2D38RLX
+	JvUhq3QIp0Xe7nOh+3rA4n7iq8UIQ3aAEjXLYHpchA9habNXaZpDl9G2iDhmNZSnVlHzR22k4p/Yl
+	+PXisQTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeJZ-00000000xRR-21KA;
-	Tue, 28 Apr 2026 09:01:09 +0000
+	id 1wHeJl-00000000xc1-45IA;
+	Tue, 28 Apr 2026 09:01:21 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeJS-00000000xOY-36g8
+	id 1wHeJg-00000000xUl-2Tjf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 09:01:07 +0000
+	Tue, 28 Apr 2026 09:01:20 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1wHeJJ-0004Lz-OC; Tue, 28 Apr 2026 11:00:53 +0200
+	id 1wHeJC-0004Lz-GU; Tue, 28 Apr 2026 11:00:46 +0200
 From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Tue, 28 Apr 2026 11:00:57 +0200
-Subject: [PATCH v5 22/29] media: rockchip: rga: share the interrupt when an
- external iommu is used
+Date: Tue, 28 Apr 2026 11:00:44 +0200
+Subject: [PATCH v5 09/29] media: rockchip: rga: remove redundant rga_frame
+ variables
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260428-spu-rga3-v5-22-eb7f5d019d86@pengutronix.de>
+Message-Id: <20260428-spu-rga3-v5-9-eb7f5d019d86@pengutronix.de>
 References: <20260428-spu-rga3-v5-0-eb7f5d019d86@pengutronix.de>
 In-Reply-To: <20260428-spu-rga3-v5-0-eb7f5d019d86@pengutronix.de>
 To: Jacob Chen <jacob-chen@iotwrt.com>, 
@@ -52,7 +52,6 @@ Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
  devicetree@vger.kernel.org, kernel@pengutronix.de, nicolas@ndufresne.ca, 
  sebastian.reichel@collabora.com, 
  =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>, 
- Michael Olbrich <m.olbrich@pengutronix.de>, 
  Nicolas Dufresne <nicolas.dufresne@collabora.com>
 X-Mailer: b4 0.15.2
 X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
@@ -60,8 +59,8 @@ X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_020102_782398_14FF3155 
-X-CRM114-Status: GOOD (  12.48  )
+X-CRM114-CacheID: sfid-20260428_020116_789155_9ED39CA7 
+X-CRM114-Status: GOOD (  17.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,33 +75,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Michael Olbrich <m.olbrich@pengutronix.de>
+Remove the redundant rga_frame variables width, height and color space.
+The value of these variables is already contained in the pix member
+of rga_frame. The code also keeps these values in sync. Therefore drop
+them in favor of the existing pix member.
 
-The RGA3 and the corresponding iommu share the interrupt. So in that
-case, request a shared interrupt so that the iommu driver can request
-it as well.
-
-Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
 Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 ---
- drivers/media/platform/rockchip/rga/rga.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/media/platform/rockchip/rga/rga-buf.c |  6 ++---
+ drivers/media/platform/rockchip/rga/rga-hw.c  |  6 ++---
+ drivers/media/platform/rockchip/rga/rga.c     | 32 ++++++++++-----------------
+ drivers/media/platform/rockchip/rga/rga.h     |  5 -----
+ 4 files changed, 18 insertions(+), 31 deletions(-)
 
+diff --git a/drivers/media/platform/rockchip/rga/rga-buf.c b/drivers/media/platform/rockchip/rga/rga-buf.c
+index 65fc0d5b4aa10..ffc6162b2e681 100644
+--- a/drivers/media/platform/rockchip/rga/rga-buf.c
++++ b/drivers/media/platform/rockchip/rga/rga-buf.c
+@@ -103,10 +103,10 @@ static int get_plane_offset(struct rga_frame *f,
+ 	if (plane == 0)
+ 		return 0;
+ 	if (plane == 1)
+-		return stride * f->height;
++		return stride * f->pix.height;
+ 	if (plane == 2)
+-		return stride * f->height +
+-		       (stride * f->height / info->hdiv / info->vdiv);
++		return stride * f->pix.height +
++		       (stride * f->pix.height / info->hdiv / info->vdiv);
+ 
+ 	return -EINVAL;
+ }
+diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media/platform/rockchip/rga/rga-hw.c
+index d1618bb247501..ec6c17504ca15 100644
+--- a/drivers/media/platform/rockchip/rga/rga-hw.c
++++ b/drivers/media/platform/rockchip/rga/rga-hw.c
+@@ -53,7 +53,7 @@ rga_get_addr_offset(struct rga_frame *frm, struct rga_addr_offset *offset,
+ 	x_div = frm->fmt->x_div;
+ 	y_div = frm->fmt->y_div;
+ 	uv_stride = frm->stride / x_div;
+-	pixel_width = frm->stride / frm->width;
++	pixel_width = frm->stride / frm->pix.width;
+ 
+ 	lt->y_off = offset->y_off + y * frm->stride + x * pixel_width;
+ 	lt->u_off = offset->u_off + (y / y_div) * uv_stride + x / x_div;
+@@ -191,7 +191,7 @@ static void rga_cmd_set_trans_info(struct rga_ctx *ctx)
+ 
+ 	if (RGA_COLOR_FMT_IS_YUV(ctx->in.fmt->hw_format) &&
+ 	    RGA_COLOR_FMT_IS_RGB(ctx->out.fmt->hw_format)) {
+-		switch (ctx->in.colorspace) {
++		switch (ctx->in.pix.colorspace) {
+ 		case V4L2_COLORSPACE_REC709:
+ 			src_info.data.csc_mode = RGA_SRC_CSC_MODE_BT709_R0;
+ 			break;
+@@ -203,7 +203,7 @@ static void rga_cmd_set_trans_info(struct rga_ctx *ctx)
+ 
+ 	if (RGA_COLOR_FMT_IS_RGB(ctx->in.fmt->hw_format) &&
+ 	    RGA_COLOR_FMT_IS_YUV(ctx->out.fmt->hw_format)) {
+-		switch (ctx->out.colorspace) {
++		switch (ctx->out.pix.colorspace) {
+ 		case V4L2_COLORSPACE_REC709:
+ 			dst_info.data.csc_mode = RGA_SRC_CSC_MODE_BT709_R0;
+ 			break;
 diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
-index 5bdc8dc51ab68..eb7b211a99e66 100644
+index c07207edffdb6..ca8d8a53dc251 100644
 --- a/drivers/media/platform/rockchip/rga/rga.c
 +++ b/drivers/media/platform/rockchip/rga/rga.c
-@@ -761,7 +761,8 @@ static int rga_probe(struct platform_device *pdev)
- 		goto err_put_clk;
+@@ -329,9 +329,6 @@ static struct rga_fmt *rga_fmt_find(u32 pixelformat)
+ }
+ 
+ static struct rga_frame def_frame = {
+-	.width = DEFAULT_WIDTH,
+-	.height = DEFAULT_HEIGHT,
+-	.colorspace = V4L2_COLORSPACE_DEFAULT,
+ 	.crop.left = 0,
+ 	.crop.top = 0,
+ 	.crop.width = DEFAULT_WIDTH,
+@@ -363,9 +360,9 @@ static int rga_open(struct file *file)
+ 	ctx->out = def_frame;
+ 
+ 	v4l2_fill_pixfmt_mp(&ctx->in.pix,
+-			    ctx->in.fmt->fourcc, ctx->out.width, ctx->out.height);
++			    ctx->in.fmt->fourcc, DEFAULT_WIDTH, DEFAULT_HEIGHT);
+ 	v4l2_fill_pixfmt_mp(&ctx->out.pix,
+-			    ctx->out.fmt->fourcc, ctx->out.width, ctx->out.height);
++			    ctx->out.fmt->fourcc, DEFAULT_WIDTH, DEFAULT_HEIGHT);
+ 
+ 	if (mutex_lock_interruptible(&rga->mutex)) {
+ 		kfree(ctx);
+@@ -453,10 +450,8 @@ static int vidioc_g_fmt(struct file *file, void *priv, struct v4l2_format *f)
+ 	if (IS_ERR(frm))
+ 		return PTR_ERR(frm);
+ 
+-	v4l2_fill_pixfmt_mp(pix_fmt, frm->fmt->fourcc, frm->width, frm->height);
+-
++	*pix_fmt = frm->pix;
+ 	pix_fmt->field = V4L2_FIELD_NONE;
+-	pix_fmt->colorspace = frm->colorspace;
+ 
+ 	return 0;
+ }
+@@ -505,27 +500,24 @@ static int vidioc_s_fmt(struct file *file, void *priv, struct v4l2_format *f)
+ 	frm = rga_get_frame(ctx, f->type);
+ 	if (IS_ERR(frm))
+ 		return PTR_ERR(frm);
+-	frm->width = pix_fmt->width;
+-	frm->height = pix_fmt->height;
+ 	frm->size = 0;
+ 	for (i = 0; i < pix_fmt->num_planes; i++)
+ 		frm->size += pix_fmt->plane_fmt[i].sizeimage;
+ 	frm->fmt = rga_fmt_find(pix_fmt->pixelformat);
+ 	frm->stride = pix_fmt->plane_fmt[0].bytesperline;
+-	frm->colorspace = pix_fmt->colorspace;
+ 
+ 	/* Reset crop settings */
+ 	frm->crop.left = 0;
+ 	frm->crop.top = 0;
+-	frm->crop.width = frm->width;
+-	frm->crop.height = frm->height;
++	frm->crop.width = pix_fmt->width;
++	frm->crop.height = pix_fmt->height;
+ 
+ 	frm->pix = *pix_fmt;
+ 
+ 	v4l2_dbg(debug, 1, &rga->v4l2_dev,
+ 		 "[%s] fmt - %p4cc %dx%d (stride %d, sizeimage %d)\n",
+ 		  V4L2_TYPE_IS_OUTPUT(f->type) ? "OUTPUT" : "CAPTURE",
+-		  &frm->fmt->fourcc, frm->width, frm->height,
++		  &frm->fmt->fourcc, pix_fmt->width, pix_fmt->height,
+ 		  frm->stride, frm->size);
+ 
+ 	for (i = 0; i < pix_fmt->num_planes; i++) {
+@@ -579,8 +571,8 @@ static int vidioc_g_selection(struct file *file, void *priv,
+ 	} else {
+ 		s->r.left = 0;
+ 		s->r.top = 0;
+-		s->r.width = f->width;
+-		s->r.height = f->height;
++		s->r.width = f->pix.width;
++		s->r.height = f->pix.height;
  	}
  
--	ret = devm_request_irq(rga->dev, irq, rga_isr, 0,
-+	ret = devm_request_irq(rga->dev, irq, rga_isr,
-+			       rga_has_internal_iommu(rga) ? 0 : IRQF_SHARED,
- 			       dev_name(rga->dev), rga);
- 	if (ret < 0) {
- 		dev_err(rga->dev, "failed to request irq\n");
+ 	return 0;
+@@ -629,8 +621,8 @@ static int vidioc_s_selection(struct file *file, void *priv,
+ 		return -EINVAL;
+ 	}
+ 
+-	if (s->r.left + s->r.width > f->width ||
+-	    s->r.top + s->r.height > f->height ||
++	if (s->r.left + s->r.width > f->pix.width ||
++	    s->r.top + s->r.height > f->pix.height ||
+ 	    s->r.width < MIN_WIDTH || s->r.height < MIN_HEIGHT) {
+ 		v4l2_dbg(debug, 1, &rga->v4l2_dev, "unsupported crop value.\n");
+ 		return -EINVAL;
+@@ -821,8 +813,8 @@ static int rga_probe(struct platform_device *pdev)
+ 		goto rel_m2m;
+ 	}
+ 
+-	def_frame.stride = (def_frame.width * def_frame.fmt->depth) >> 3;
+-	def_frame.size = def_frame.stride * def_frame.height;
++	def_frame.stride = (DEFAULT_WIDTH * def_frame.fmt->depth) >> 3;
++	def_frame.size = def_frame.stride * DEFAULT_HEIGHT;
+ 
+ 	ret = video_register_device(vfd, VFL_TYPE_VIDEO, -1);
+ 	if (ret) {
+diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
+index 477cf5b62bbb2..c4a3905a48f0d 100644
+--- a/drivers/media/platform/rockchip/rga/rga.h
++++ b/drivers/media/platform/rockchip/rga/rga.h
+@@ -24,11 +24,6 @@ struct rga_fmt {
+ };
+ 
+ struct rga_frame {
+-	/* Original dimensions */
+-	u32 width;
+-	u32 height;
+-	u32 colorspace;
+-
+ 	/* Crop */
+ 	struct v4l2_rect crop;
+ 
 
 -- 
 2.54.0
