@@ -4,155 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E062FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 20:49:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22FC9FF886C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 21:13:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WRJxmHEJPyPlISKYCzrQJ/oeZLUTC7kvEd+zQihSk54=; b=1Dh9ItfoExFK3rhBma/Jt2xLSp
-	f/QPkqnEwM7kMyhpfrYPrng9iYUkmGJIW6mOwwI9TMPjtIEAksaIUvnbnCTWn9q4Mu/gMO0KuBa0i
-	gyl+5YvsjM4eHwhGQnmgg5mitN7IyPDmWLHEzMFZoE+35LVfbZW4HRDdTyFn6/ru453YdMVbACfVp
-	hc494cHevYPz8+uhi7FY136x4qOcfU0IRU8rZFoY2uchqEX0MSRlrVK/hpdg1lG/JC9TyMtQafSw/
-	kYWPb6/UW5ne4AvUSpHMg6UnFZRZKgA8t19qGcZ0ET/6QFeaNmWOH6GMyS7cwJUEMILrzblblPrOs
-	NR0V0FPA==;
+	bh=f7TCDHNSisOZ4cJJC/DCoEBk+8T/g6HxxJjaANTvPeQ=; b=Eq+7Gtw2oW+VPmjwkxi0sTV5J2
+	6PTpHZXe0x+ZLCDRzFE6Wi/M3WH+HC8mHOGK0aVcj9mSAqKNhWgStEC0kuzGOK8s408gzpE/Nefn8
+	PXvfqpy4p6PhyBZSn8bHycLx4NqHDKG2fo1xaokFZXz8WKd9Dc2qv2uEwHyxcBgjUg8E8yO1SfzyE
+	orviO0iTZ+B1xM0aVJCp5lboWow7pXASyaKmymRdxFMJUCuYjPBgq+WpZA3rvTvLqisrD8nFPeAkD
+	T0/p7nwHh6RJe+p4CxVOdiHIaGOHrXrHc2q0CWugNZBbUyOggr6vfr2DgYAhuawkiQcjd6ziyQrGb
+	aEgat+BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHpNM-00000002U7x-3j1g;
-	Tue, 28 Apr 2026 20:49:49 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1wHpkf-00000002VYU-0Qkp;
+	Tue, 28 Apr 2026 21:13:53 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHpNC-00000002U2j-1hH5
+	id 1wHpkd-00000002VY8-15CC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 20:49:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=asEPKVAd3VHZMhuWLxPG6Qk0gWel9btib7Nl44T/0B3eT8jS68rA9AOpXP4bcp6lecliHS+v+hlhPUII1+egGne4MdVvlrqcfqkme7vmI6Pa/Lpxg4/ANz5+sw9D8LwsP+dXag/K72CREwneYYnry7hUvHWwp2QfAT5wLKx6GD5BrxcVq9eNYotNEMHXBl1owS5Agznl0IQswbZoqny500ody9Rwt9+bvWLM3zxmNWFt+zNhnY79j39e2iBn08x7Z7uCtwTBHH9uzwkd7K1WLH4UTvHj1vPD/DGEleRL4N1yuKhbtxqUQxjLlJ9L49EI19cmL+dyKT85a3W1pPi42w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WRJxmHEJPyPlISKYCzrQJ/oeZLUTC7kvEd+zQihSk54=;
- b=TAv2/Q5DJ/AWWN26zx8p7VftSRoijt69zBkppj+XvlA1ai4w6z2tM/oLVzp9beJOt2+wjhNA+GHisWnZKLj5Q0znonoMntMj1ys/mK4cYz2s7+PaDalNIUFFA1hsEZxHK+qS3UlZlVmCJoYZPdDCkkEOO/q96fYvbo15F4Y5sRsjvHz+7jm+wZCxSwpyrPGSErrBntpxYC1qSBmys5eEYK8ieRssb+dhnqCK1VLniSAR1zZdHgKfJqMIK4CRf4hDNE2nNCCvRuhIqziD0fcGSrIh3PKNxKMwumVgCMZekE/ZzPT3Ny3VYmD4Yvbz+6fGkT1c5l/8J1KVwQco2liaLg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=est.tech; dmarc=pass action=none header.from=est.tech;
- dkim=pass header.d=est.tech; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=est.tech; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WRJxmHEJPyPlISKYCzrQJ/oeZLUTC7kvEd+zQihSk54=;
- b=e6QIJvPzFvzb9FNDD6QfHGaHeQWLJsSELw2JpbB5EK4rlEMCpsrJPAirPRJDHu3M+ozao1WczotLTKadghjNfZvJAFCrn/4MZJzq1UKSfNu5ku2xp81oI72N2D2OKLvQ445BmfaAjQHjGh/hZg2/jr5OmFf+DKrRn8gVUvzD7qKjvtm1xUTOgBzRcRmefxelt6ppTid1sS+45L3+BQMkaw9tEI6nG7xFSYobc+czKHZp05fNSebadU+EtEjLh3sJubmq389aUou9xnSPL3+Op9xKzOSY1i9+1BnEDsqIO5fu3RQ+HdvsxKWaoUpL3OC9hDLWebQr7PNzAdD5AnSVDA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=est.tech;
-Received: from PAWP189MB2611.EURP189.PROD.OUTLOOK.COM (2603:10a6:102:336::8)
- by AS4P189MB1894.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:4b5::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.18; Tue, 28 Apr
- 2026 20:49:31 +0000
-Received: from PAWP189MB2611.EURP189.PROD.OUTLOOK.COM
- ([fe80::b400:cf4f:b2e1:d884]) by PAWP189MB2611.EURP189.PROD.OUTLOOK.COM
- ([fe80::b400:cf4f:b2e1:d884%6]) with mapi id 15.20.9846.025; Tue, 28 Apr 2026
- 20:49:31 +0000
-From: Fredrik Markstrom <fredrik.markstrom@est.tech>
-Date: Tue, 28 Apr 2026 22:49:00 +0200
-Subject: [PATCH 3/3] DO NOT MERGE: selftests: perf_events: Add device
- memory callchain unwinding test
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260428-master-with-pfix-v3-v1-3-c384d3e53092@est.tech>
-References: <20260428-master-with-pfix-v3-v1-0-c384d3e53092@est.tech>
-In-Reply-To: <20260428-master-with-pfix-v3-v1-0-c384d3e53092@est.tech>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>, 
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, 
- James Clark <james.clark@linaro.org>, 
- Santosh Shilimkar <santosh.shilimkar@ti.com>, 
- Olof Johansson <olof@lixom.net>, Tony Lindgren <tony@atomide.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-kselftest@vger.kernel.org, linux-perf-users@vger.kernel.org, 
- Nicolas Pitre <nico@fluxnic.net>, 
- Fredrik Markstrom <fredrik.markstrom@est.tech>, 
- Ivar Holmqvist <ivar.holmqvist@est.tech>, 
- Malin Jonsson <malin.jonsson@est.tech>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777409361; l=6255;
- i=fredrik.markstrom@est.tech; h=from:subject:message-id;
- bh=bBX7vhTEPM8VHvHKiA0Ym3Yzh1fwYEeNAqoMothC140=;
- b=3pI6s49K/+qGamD9eFs/pJfsGW4CRgPzdqK7BgLUS9PUlZvYoS/kkjKfneMvVwBIaPSOA77vH
- pkzF1oHxNQhDbYLaogmd9IV3kh8Il7xXyIuB4G0faNr2Co72DJi90xN
-X-Developer-Key: i=fredrik.markstrom@est.tech; a=ed25519;
- pk=0a8IXHEgAX55JPS8VZfTf1sDp7q/oAOf459tDQd40Eg=
-X-ClientProxiedBy: GVZP280CA0044.SWEP280.PROD.OUTLOOK.COM
- (2603:10a6:150:26f::17) To PAWP189MB2611.EURP189.PROD.OUTLOOK.COM
- (2603:10a6:102:336::8)
+	Tue, 28 Apr 2026 21:13:52 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63SFsboP2890730
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 21:13:51 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=f7TCDHNSisOZ4cJJC/DCoEBk
+	+8T/g6HxxJjaANTvPeQ=; b=WAjSRAHUekQ7NED9nimZkG80gnp5uIoyFJuLDCwa
+	kNNQymlHGipY+WOOrKJm4io6w6OWu8RwKxfqDO7cRU+jLhftD8235bgIqmtw4baP
+	gjJXdliIxYYO1tORXlyfAf3G3JsWHQXtU4MhiDl0XXhysvyZRjWvCKk/YHlJeYO4
+	fjp2+QPDaNj+m43KJyteZK128mNiSnPE2769POprj5nN+nC+x3fxgT+ilqrkV8/r
+	5k9zX0P0rKhlryvA5bedIl+XkyZXbBEOlM+FX27qLh7l/2Jl+bJGjLWCQQAXK7hs
+	jkSOxkUeGioZoVPVzJgk2QVImHamQUSvnJc2EMlfjpI+vw==
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dttgytncm-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 21:13:50 +0000 (GMT)
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-50d812c898cso316917921cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 14:13:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1777410829; x=1778015629; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=f7TCDHNSisOZ4cJJC/DCoEBk+8T/g6HxxJjaANTvPeQ=;
+        b=iLj1xgiGimGTseV4O++dwGcmbybheyoYCRL80kXVzq9/Snwj8zEGImtdUOrWD5MwjC
+         b5LWZCE5PJ22DOozqhMtV/R4jWO9lDf1wKZ7kp5ULDMkJFLiFH2nG4kCNiL50hz8yO3j
+         6BzwFztSFOiFuKYjkZN/C3TNUeX93OFTkcTSplaW6cXW9wOtQhoqxBTXJ9DDM3e45o62
+         lU9y05rmPNX5yhjDWQsjk2QU+vQu8n8SUeZlNMAv1HWbT+jYfe/Ja7ERhn9qzIsMJqaa
+         Fzf5/dvV5ZXEYt6UqqoWgQ9cK9PCtkavqvpKQACwcITW/aT8yxcbAC4opA/S7CdeOuee
+         DD/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777410829; x=1778015629;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=f7TCDHNSisOZ4cJJC/DCoEBk+8T/g6HxxJjaANTvPeQ=;
+        b=dP0nJku1esSCsbMBfkGVDpFlnRJwigCJOhcwkR/gI8B8kVGk3t9bnEZycejr4m+MMw
+         fbuU0+1qpSo/X8Fg2LawcYD8dO6e/WxAQPRac7afcANbFBlYGYLT/RB6IIQP5jp8bdkq
+         cNY03qzQyfrHw41kxG7ySYTdGyJ0md3DKG2bPRHgiaiXAkOZbWq8qLVPjAi36VmaE7td
+         fypKGRTXuDRyPloo9BLRZCU7GUIdregWTGfd+IIfQmukFpByT8nGqjKqzTuzC3Hmd3Gr
+         bFEfudqS2H4IbXJUEMJYOKA0JYlDpyPOuB6Eo6yoCLnkMpiAbo9YsI03ejhTAO25wFuW
+         ag8A==
+X-Forwarded-Encrypted: i=1; AFNElJ/VOEKwutLZUsug1cj9bzUeQ8TsMIIW8yzHXMq1usqUZBGBq/uVPPqdtPZNH8HyBCGEAFLAnC1uc1CmnTHE70jE@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6rX2lT2sFgsjs2wciQnN9vQjuJlQHH7+KiD9Uh1dmSBS1GwGY
+	tYK/yuk+5hMHDVCExk6HTcFigTk5+cOtE3kcAXd+wR2dFQMSavr9znAIog/mqJ7dfiEcqco4xLX
+	xp7riPoX2Q0gczd6Dm6t3pRNxyl0KFPDp2xUgV//BAZawcK37KRgmSKy930hCbKtcK86QE6JD64
+	dUqHgzGk3Hog==
+X-Gm-Gg: AeBDievM9jK4kU8X7nJDGFw/vm17X9oxcv0AzkFM5I9ZwzEgtBFoKqd0o9Ztq7hpY2s
+	gi72skoSZOF95xfBHmmoQOLyQVUnfmP4BuXtAINgN22R0YPHh38yygyCLyLd/eOXOQt0KkglujB
+	BUeaa/pJxXrQwbubwS5UQEDX5qWjB6kP5XtVFrJAcufckr7Z3Z60iInVybaJyf4w53jisToSxbS
+	WNWnBBL7NsSPHp4EroxIrxprGVpU0h4kUImZEcFYhf9qL1VQ1sG3V1J/2dK+PkAESrfzAfp4n0d
+	R74FAInxUY0O5nYNUpv1vwTvHSlHqakTggIGOdmiS9BycZhOvGpyDKd4vXbeqT14FUXKac0xyKI
+	8Z3pMN+GOHH5qRCp+wqxN1QbkT7EKuxP5JI+LS2RTL0V2ph507Fa82Las27mrwFEIudMzci5PwF
+	uyGn9xBxJaYo2ScIchw2J1zKjpwVq7bNh5cGZzFZb+4oH4eQ==
+X-Received: by 2002:a05:622a:4115:b0:510:1325:58b9 with SMTP id d75a77b69052e-51018a8d7f6mr19041341cf.41.1777410829598;
+        Tue, 28 Apr 2026 14:13:49 -0700 (PDT)
+X-Received: by 2002:a05:622a:4115:b0:510:1325:58b9 with SMTP id d75a77b69052e-51018a8d7f6mr19040911cf.41.1777410829073;
+        Tue, 28 Apr 2026 14:13:49 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a74a756d1bsm34384e87.47.2026.04.28.14.13.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 28 Apr 2026 14:13:48 -0700 (PDT)
+Date: Wed, 29 Apr 2026 00:13:46 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Russell King <linux@armlinux.org.uk>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Linus Walleij <linusw@kernel.org>,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, linux-gpio@vger.kernel.org,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Subject: Re: [PATCH v2] pinctrl: qcom: Make important drivers default
+Message-ID: <lccuj5tcir57c3pzlcvyjmle36alr64zv257si4taqis3novrs@exgphqb3k6tx>
+References: <20260428163548.154392-2-krzysztof.kozlowski@oss.qualcomm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAWP189MB2611:EE_|AS4P189MB1894:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4673c93a-1378-4dcb-2457-08dea567a592
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|921020|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: ECI5XBvlJNeHEIwkq7uRgcD4SZv6t8/r02KS0s3DIdeo28V1CwOOpG2z2/eA3/5lpgDr5ib2Cliuo+AHLKQgbGFMYF1KDlMTt53aGpuOoi8Rsd+0AUSLuo+ZninBj5ffNThSNP7Gz8kb5wGm0JFL84U+1lA3RWZaNUDEiaU5FceNFqBnaynHBdapT41MIr4yyKstOy2B789MaR5MOtfjy+D7HJ1eaAtBQ0WhJyOvsBgai+eeEW/tq5/7KaAdP29eRiJJCbBezioO219QGA+ZVwFDN5lyFuhq1p0ZkATqCSvDT1v+pGBcMm5L2GBYrihfGb7CW28t2LDLPzCnqvC4YcvG+zl9tptBokki2HHqVUI4MWDxSoN/1oVXNCPejOvT8ZKtl4mB3ZLWxNoFfNo5UQyEN5ARSNvTVwm87pz565TM+LYaCDjxdroAPq0CrF1sTcLpYYyCIs2suXr2V9jo48euf81kIwwoccEuXFNJJYGKdpoTdgDJdxScps4blRdNBsOmsboJV6EP2HAAqWse1uvEp5w5z76iwGQIxkOQ9dshZURz4OVaiHMsxm18eRCLy6b6ZtYqLOCzVgUKrDSSKtfznq+mAQDl4h5n3g+JaO48EkkJkgSazvr7uQnqVTWmMVY2rFighs2WpkAHB/QODcD0Xo6HGbDpcAWu9rMtABSKpASkwcusBH0EXTtWeqXbmbm+ri31XsbUPjKyoTk7poPaDYOJgWpo8ZpT4kPvhw0HMHH+qWrEcixccXByWSqV7KC29kVhyTvqr5ooDDzd8A==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAWP189MB2611.EURP189.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(921020)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UVpYUWg1ZXJiRW9Ddk0xT3lUMUFKVlJFNDN2eHloajNIbzZsb0JXdlhiT2dn?=
- =?utf-8?B?WWo4VXlUMkU0RGdoN1JyZWphVTZZSE83a2RNT1dDMXpFcHRvZUF2bDJ3V0R1?=
- =?utf-8?B?bVEyOGdBV0lIbCs5d3pMRno4N1BsbnEvV3FteDhzelpIRXlHSXpUSmpNbnZO?=
- =?utf-8?B?Y1Y0WGd1K2JiWWFYTm5lY2o3WmJPQThuR05YdjR1UEVTYWxER3pEeGNPdVk0?=
- =?utf-8?B?ajNXYnFmdXZBK3dvcnRXNmUvY1ozUDNvcG14M1B6ak1qYkVxOWtyc041U1NL?=
- =?utf-8?B?NTY5bG94V1A5OHNNbk5ma1VsSFpjRkM4My81RDZSS2JuQzl2YnR6cGZJK1JE?=
- =?utf-8?B?QmYvbXUvNEFFTlEycHJDQTVaQ2U0TW1NR05ZQkVnZFdwY05NYVk1cEhUcyt0?=
- =?utf-8?B?QitsRmMrSTJ4VU0zbHZqN29ZcWxsaFR2aDYxKy8zRWcvL2UyaXRJRW5tdUFm?=
- =?utf-8?B?SDg5Q2dIekNOL0ZLcE5RSzhiWnNXbllBSVk0V2I5V0hHbUdpVCtFczBWMExR?=
- =?utf-8?B?bGwyWWxySkc3WFBwVENlSXdpQVVPYlAyOUw5V1NBU0xZRXFUbW9FZFRCTWo4?=
- =?utf-8?B?aXJGaDllY2d4SlhGS1Z5b0x5VC9yV3JQWmxGRlprNUZheGlocTdCUmIxWHBJ?=
- =?utf-8?B?ekhKYzROekRUSlVjdCtzTitQR3pBMFVuN3p0UFdDckh1MkNtQXRaL2xIWGlo?=
- =?utf-8?B?djN6S1dFK0l5LzVIOUoyNjBMU2tRV1BjOGR3Sis4Q3NyQmJWSFY2V3c3Skxp?=
- =?utf-8?B?RGpmK2IwalRBTUZWUS9DUVNYMmtpSW1KUGtwelRhT3JtSHdObUtmSlAvUzM5?=
- =?utf-8?B?MW1CYnV3d3VDR3pOYkQ1Ylo4dE91TmJqa2lDaStNc2dlV0JnRitjb3JtKzFB?=
- =?utf-8?B?cGE5MXFqem9nZWV1eTJhR0Q5Nmx0bW4rVm45V3h1NkZlbTQyYVloNjVXUTVx?=
- =?utf-8?B?TEFtNlVGVzVVL3dkUUhIa3NIdGcyTFVwc05HQ0w2VTNEdDFIRGx1L0V3QVZK?=
- =?utf-8?B?VG5QOE1XTWl4ajM4UGdYTmkxNXN2Y21rNkp4ZnhLcGdoQ093eVFCeGZiN1cx?=
- =?utf-8?B?UnJ2Rzh4Z21ieERzWkRwSWRLTy9yRm9JT2JFRzVSUkwrN3dvVVA0Q0pDN2Zl?=
- =?utf-8?B?ZXFiUW01QzlTRFVabmw3U3czU0FsUFpRbWIzK3UxLzBqTHRlRlQ5dTVXZFNw?=
- =?utf-8?B?REthTXp6b1EzeU5Bb0RieisyWm8vSXBoQXkxSStXcTFseHBkdE4ydWFkc0NY?=
- =?utf-8?B?cXpTN2NCMmNvZ0txZ0ZoSkRUMFBmVTNhK3orVjlrbUJIREcvWVJvNXZJeGtu?=
- =?utf-8?B?c0VabXFaZnJrdE91OC9IUDMvcFpjaTVMbmgybEs3a01HS2lhQTN4WUdXTXV5?=
- =?utf-8?B?bm5SYkVpcytXV3RjZnhRUUU5RS9pM1NwcXFQMWsrays4Q0xjYTdTdXdXall1?=
- =?utf-8?B?UEptZTlKRGhNU1AyUm1HTFVyQ2M4RWxKRFBlWS91bFhrdUJ6YXdVVnF0bXZt?=
- =?utf-8?B?QUt1dGh1TzBuNzlDb3F4OXk1UWJpa0RlMTcrNTFyZ2piL2dRK1RIZVhzZWt1?=
- =?utf-8?B?OXZyRTZkZTJWMlBzclpuN0lHRCtBT1ZIRUoyZTdNaU1XZ3RXblBFZW5qQ01I?=
- =?utf-8?B?WGNtSnUrUFVZU0V2MU5rbTh3MGhEMjcyeko0ZEtKNVBjTEllNkl2K01UVmc2?=
- =?utf-8?B?c0ZXQXFZcjc0dVdUT3JOSURwVG1UMlVxWWYwcjAwZ00zQjVJbWNzMnJnajQy?=
- =?utf-8?B?NFQ3MmVFSmFSNmZKckdhUkpnY0ZJWWJLNzIyU1dNNHgwTVBqakt1cFJjNUo1?=
- =?utf-8?B?QzUwTnB2VzVpNE9ISTJ4N2hpV2pFbmF2T0JONzNUZW11QmtnWjNpRExsbGdX?=
- =?utf-8?B?djVuaFRGRnpxNXVUekhmdnFiK0JXRi9HVHNKWWxrYzV3VkozRFM2ZzFnZHdT?=
- =?utf-8?B?c3FsU3EycEhMQTNROU1CV2hwK24wVHBhT2Jadm1COGFqSnYrNUxSbnE2UXVm?=
- =?utf-8?B?YXliQm5xeDUyWHlXQ3FtVi9jYkE0SHM5bzVvQ0duOHJJN1g5SHo2b1J6amdx?=
- =?utf-8?B?MWRseUNNN1NMUnFNeXg1ZDMwbmRtTkZqTzFVb0orR2dwa2ZYWmVBZVFIV0lV?=
- =?utf-8?B?ZmdZYXBHa2czbWdVbXVyZWRVVlRlZ0w1ODA3UThIR0h0dklERTAwR2RRSkhW?=
- =?utf-8?B?UkJpdVdabm5QdkVzWFJVQnVhTG5udEdlU0sxRzVaeGtlNmVBMDVQUHRDUE1M?=
- =?utf-8?B?MjhsWGlkK2h0N3ZWTWl6dVdhREhkU2lHSmJFM1B4dkI2L013VmExRTlNU2pW?=
- =?utf-8?B?cEk2WVdQR1I1c3d4SURUQURkTEJzN2hPMHRBTnZia0MyUjBqeStqOW16Y3pu?=
- =?utf-8?Q?rUSyVjaj3oRnN+6o=3D?=
-X-OriginatorOrg: est.tech
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4673c93a-1378-4dcb-2457-08dea567a592
-X-MS-Exchange-CrossTenant-AuthSource: PAWP189MB2611.EURP189.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2026 20:49:31.2348
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: d2585e63-66b9-44b6-a76e-4f4b217d97fd
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: oqPNt1kYYvMxXMlfMyv3igHU6DVs2glZ2m/gHdLAvAwkgwbfdS3+Gk4FxMQCeI//1uP47CKlQhtcYmve9xbP109Q+vg3meHVmuIhH7OWvRg=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4P189MB1894
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260428163548.154392-2-krzysztof.kozlowski@oss.qualcomm.com>
+X-Proofpoint-ORIG-GUID: vB5xRRIBy2htjvF1GpU9bFq_yk994uc1
+X-Proofpoint-GUID: vB5xRRIBy2htjvF1GpU9bFq_yk994uc1
+X-Authority-Analysis: v=2.4 cv=cb7iaHDM c=1 sm=1 tr=0 ts=69f1230e cx=c_pps
+ a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22 a=EUspDBNiAAAA:8
+ a=VwQbUJbxAAAA:8 a=_EZUpx9RV_GiafN7jJ0A:9 a=CjuIK1q_8ugA:10
+ a=dawVfQjAaf238kedN5IG:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI4MDIwNiBTYWx0ZWRfX8lO7hZxDR25s
+ +uets01lNuMRz3u0Ncbk6eav3viznX1OuW/lvK9Ty2mzEKFXyzsaf+tGMu6iPtOYx+iWp2NpOPG
+ YXRqhbPgPxs20YPJC1bpbWrdEf7EoG8Bk4viyRCGU+RSq0SMD0rApIPLc6KV8R9vVl17OFsbhFs
+ lki9gR7msVxbvR99tsM8mQrNCDQigyvuPpQoJa9uaIIKInhaHpGw3S+rcT0TBWmeoNshnVvSfe/
+ +ThpTaQPUHpkhh2MhABA9Lvqrba9f7C1u2Yq5f/007nhaz9kFTvvjbCNwv4nsrXS9EaaPF5BwmG
+ wbdhYk2jU0cmEGhtV8No1HdjFrRSX60WC3kcsELpVB5qdyOybaxMXmoQsFtuSWVJdnm+Z11SDYO
+ WF1g/CAHZ/xelqlUsV1de8OFe1yAKl1hQUVsaXNawCiZmrIRWt6Ooc2u0JaqDe4LCf8OG+tvhej
+ v3wgztR6Zie4HcC0LjQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-28_05,2026-04-28_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 adultscore=0 clxscore=1015 impostorscore=0 bulkscore=0
+ lowpriorityscore=0 suspectscore=0 spamscore=0 priorityscore=1501
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
+ definitions=main-2604280206
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_134938_450170_142E1543 
-X-CRM114-Status: GOOD (  25.59  )
+X-CRM114-CacheID: sfid-20260428_141351_303403_75FACBA3 
+X-CRM114-Status: GOOD (  28.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,191 +147,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The device memory callchain guard introduced earlier in this series
-needs a regression test to ensure future refactoring does not
-silently reintroduce the vulnerability where perf follows frame
-pointers into device memory.
+On Tue, Apr 28, 2026 at 06:35:49PM +0200, Krzysztof Kozlowski wrote:
+> The main SoC TLMM (Top-Level Multiplexer) pin controller drivers are
+> essential for booting up SoCs and are not really optional for a given
+> platform.  Kernel should not ask users choice of drivers when that
+> choice is obvious and known to the developers that answer should be
+> 'yes' or 'module'.
+> 
+> Switch all Qualcomm TLMM pin controller drivers to a default 'yes' for
+> ARCH_QCOM.  This has impact:
+> 
+> 1. arm64 defconfig: enable PINCTRL_SM7150, PINCTRL_IPQ9650 and
+>    PINCTRL_HAWI, which were not selected before but should be, because
+>    these platforms need them for proper boot.
+> 
+> 2. arm qcom_defconfig: no changes.
+> 
+> 3. arm multi_v7 defconfig: enable drivers necessary to boot ARM 32-bit
+>    platforms, which are already enabled on qcom_defconfig.
+> 
+> 4. COMPILE_TEST builds: enable by default all drivers for arm or arm64
+>    builds, whenever ARCH_QCOM is selected.  This has impact on build
+>    time and feels logical, because if one selects ARCH_QCOM then
+>    probably by default wants to build test it entirely.  Kernels with
+>    COMPILE_TEST are not supposed to be used for booting.
+> 
+> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+> Reviewed-by: Linus Walleij <linusw@kernel.org>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> 
+> ---
+> 
+> I did similar change for clocks and I will be continuing with
+> interconnect and other missing pieces.
+> 
+> Changes in v2:
+> 1. Rebase on Linus W. devel branch. This should go with pinctrl, I
+>    think.
+> 2. Add tags.
+> 3. Update also PINCTRL_IPQ9650.
+> ---
+>  arch/arm/configs/multi_v7_defconfig |  8 ----
+>  arch/arm/configs/qcom_defconfig     | 15 -------
+>  arch/arm64/configs/defconfig        | 46 ----------------------
+>  drivers/pinctrl/qcom/Kconfig        |  1 +
+>  drivers/pinctrl/qcom/Kconfig.msm    | 61 +++++++++++++++++++++++++++++
 
-Add a kselftest that exercises the exact attack vector: a process
-mmaps /dev/mem (creating a device memory mapping), points its frame
-pointer into it, and is sampled by perf with frame-pointer
-callchains. The test passes if both the process and kernel survive.
+I think it would have been better split into 3 patches, but this way is
+also fine.
 
-The default MMIO address is 0xc0000000; override via the MMIO_ADDR
-environment variable if that is unsuitable. The address must be a
-physical address that is not backed by any responding device, so
-that an access produces a synchronous external abort rather than
-returning data. On QEMU's virt machine and many modern arm64
-platforms, 0xc0000000 falls in an unused region of the MMIO
-address space and works for this purpose.
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 
-Since the test only sets the frame pointer to the address (never
-reads it directly), the only reads come from the perf unwinder —
-which the guard blocks.
-
-The /dev/mem mmap must happen in the child process after fork.
-fork() does not copy PTEs for VM_PFNMAP regions, so mapping before
-fork leaves the child with empty page tables — the unwinder gets a
-translation fault (caught by extable) instead of a synchronous
-external abort.
-
-arm64-only; skipped on other architectures.
-
-Assisted-by: Kiro:claude-opus-4.6 [kiro-cli]
-Signed-off-by: Fredrik Markstrom <fredrik.markstrom@est.tech>
-Reviewed-by: Ivar Holmqvist <ivar.holmqvist@est.tech>
-Reviewed-by: Malin Jonsson <malin.jonsson@est.tech>
----
- MAINTAINERS                                        |   1 +
- tools/testing/selftests/perf_events/Makefile       |   2 +-
- .../testing/selftests/perf_events/test_perf_vmio.c | 114 +++++++++++++++++++++
- 3 files changed, 116 insertions(+), 1 deletion(-)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 2fb1c75afd16388f590a77c04e08d2d6d002f5cc..5416f80c4aac28a5f1d780c76bb23110283dcdc3 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -20881,6 +20881,7 @@ F:	include/uapi/linux/perf_event.h
- F:	kernel/events/*
- F:	tools/lib/perf/
- F:	tools/perf/
-+F:	tools/testing/selftests/perf_events/
- 
- PERFORMANCE EVENTS TOOLING ARM64
- R:	John Garry <john.g.garry@oracle.com>
-diff --git a/tools/testing/selftests/perf_events/Makefile b/tools/testing/selftests/perf_events/Makefile
-index 2e5d85770dfeadd909196dbf980fd334b9580477..a432e24d9e493f77951092571989249703d22351 100644
---- a/tools/testing/selftests/perf_events/Makefile
-+++ b/tools/testing/selftests/perf_events/Makefile
-@@ -2,5 +2,5 @@
- CFLAGS += -Wl,-no-as-needed -Wall $(KHDR_INCLUDES)
- LDFLAGS += -lpthread
- 
--TEST_GEN_PROGS := sigtrap_threads remove_on_exec watermark_signal mmap
-+TEST_GEN_PROGS := sigtrap_threads remove_on_exec watermark_signal mmap test_perf_vmio
- include ../lib.mk
-diff --git a/tools/testing/selftests/perf_events/test_perf_vmio.c b/tools/testing/selftests/perf_events/test_perf_vmio.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..780c5800dd6bd3b7a9d3813b490d4621da876da3
---- /dev/null
-+++ b/tools/testing/selftests/perf_events/test_perf_vmio.c
-@@ -0,0 +1,114 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Device memory perf callchain unwinding test (arm64 only).
-+ *
-+ * Maps a physical address via /dev/mem (creating a device memory mapping),
-+ * launches perf record to sample this process with frame-pointer
-+ * callchains, then points FP (x29) into the mapping and spins.
-+ * The test passes if the kernel survives without crashing.
-+ *
-+ * The default MMIO address is 0xc0000000; override via environment:
-+ *   MMIO_ADDR=0x10000000 ./test_perf_vmio
-+ */
-+#include <fcntl.h>
-+#include <signal.h>
-+#include <stdio.h>
-+#include <stdlib.h>
-+#include <sys/mman.h>
-+#include <sys/wait.h>
-+#include <unistd.h>
-+
-+#include "kselftest_harness.h"
-+
-+#define DEFAULT_MMIO_ADDR 0xc0000000UL
-+
-+TEST(device_memory_callchain)
-+{
-+#ifndef __aarch64__
-+	SKIP(return, "arm64 only");
-+#else
-+	unsigned long pa = DEFAULT_MMIO_ADDR;
-+	unsigned long page, off;
-+	pid_t spin_pid, perf_pid;
-+	char pid_str[16];
-+	int fd, pst;
-+	void *m, *fp;
-+	char *env;
-+
-+	if (getuid() != 0)
-+		SKIP(return, "need root");
-+
-+	env = getenv("MMIO_ADDR");
-+	if (env)
-+		pa = strtoul(env, NULL, 16);
-+
-+	page = pa & ~0xFFFUL;
-+	off = pa - page;
-+
-+	fd = open("/dev/mem", O_RDWR | O_SYNC);
-+	if (fd < 0)
-+		SKIP(return, "cannot open /dev/mem");
-+
-+	/* Fork a spinner child with FP pointing into device memory */
-+	spin_pid = fork();
-+	ASSERT_GE(spin_pid, 0);
-+	if (spin_pid == 0) {
-+		/*
-+		 * mmap /dev/mem in the child so remap_pfn_range populates
-+		 * PTEs directly. fork() does not copy PTEs for VM_PFNMAP
-+		 * regions, so mapping before fork leaves the child with
-+		 * empty page tables — the unwinder would get a translation
-+		 * fault instead of a synchronous external abort.
-+		 */
-+		m = mmap(NULL, off + 4096, PROT_READ | PROT_WRITE,
-+			 MAP_SHARED, fd, page);
-+		if (m == MAP_FAILED)
-+			_exit(1);
-+		fp = (char *)m + off;
-+		__asm__ volatile(
-+			"mov x29, %0\n"
-+			"1: b 1b\n"
-+			: : "r"(fp) : "x29", "memory");
-+		_exit(0);
-+	}
-+
-+	/* Launch perf to sample the spinner */
-+	snprintf(pid_str, sizeof(pid_str), "%d", spin_pid);
-+
-+	perf_pid = fork();
-+	if (perf_pid < 0) {
-+		kill(spin_pid, SIGKILL);
-+		waitpid(spin_pid, NULL, 0);
-+		close(fd);
-+		ASSERT_GE(perf_pid, 0);
-+	}
-+	if (perf_pid == 0) {
-+		char *const perf_argv[] = {
-+			"perf", "record", "-g", "--call-graph", "fp",
-+			"-p", pid_str, "--", "sleep", "3", NULL
-+		};
-+
-+		if (chdir("/tmp"))
-+			_exit(1);
-+		execvp(perf_argv[0], perf_argv);
-+		_exit(1);
-+	}
-+
-+	waitpid(perf_pid, &pst, 0);
-+
-+	kill(spin_pid, SIGKILL);
-+	waitpid(spin_pid, NULL, 0);
-+	close(fd);
-+
-+	if (WIFEXITED(pst) && WEXITSTATUS(pst) == 1)
-+		SKIP(return, "perf not available");
-+
-+	/*
-+	 * The real test is that the kernel survived. If we got here
-+	 * without a synchronous external abort, the guard worked.
-+	 */
-+	TH_LOG("kernel survived perf sampling with FP in device memory");
-+#endif /* __aarch64__ */
-+}
-+
-+TEST_HARNESS_MAIN
+>  5 files changed, 62 insertions(+), 69 deletions(-)
 
 -- 
-2.51.0
-
+With best wishes
+Dmitry
 
