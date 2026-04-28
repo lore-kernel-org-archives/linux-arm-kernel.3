@@ -4,70 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4A87FF886D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 20:18:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95C57FF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 20:21:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=37ktmasb681CRyG97WnpidnnCe/DQCpoBfdiqKxdAvw=; b=hBK2qR0snmNOSn14xwGUa9iWsZ
-	C3QXvvVpp09aZ55HGFi1A7Hrz+abbZk0hIWJmFT8cmTh3L9sxyTIwI74fkDObSu0WASBTbEYrT9o5
-	kkQ1ZdiNEN4Q/g/cz+vKtL9PX6t78B/jelHELZIthXO4By8Bix2gatKbFZGkVBNkwOPdWO45hCCGL
-	zde4qA2lwXWSi2PLcA5yPW4lCt8PFYfQzqGalYXIG+5ooczyrKv4b+89p2YISg1n9H4wNF/37JLkK
-	1/Wr7utzjKrgQHMcVkHkSXv3iFozuXKUCWNgBc6p/oIcnR3UbYhMw6nWm46D023/W0lNR1JlyLmr5
-	W/Q+Unsg==;
+	bh=rx2BQAUJ1IxK7gyf+sD2B3OWvxmlQljfsfXOepl3UNQ=; b=XmQB0OJirKXraJQCV6+MQC0gYf
+	y4A6vT7m4sb8BpxwlYfl2Q4D8brcIQp4yg9xuxSuyuQ1Snfhzl6LNMlWPVT7xjWW/2kv0ZiQ6zHmP
+	4Uqgn67sCMlOnuET0gwjG1GEJEx8xnFS257FLM/nEodOn0Mrh24HWwJMw6aY1dk/xJTJ9ullzAT3y
+	BybjgtlsymRPFfx1RkUd77RRqawu0W72RJpHAl/0Dj5HHCUUbGveRpcyMFfHGKTc61P8qFy3vSp8g
+	bznXTOnQ3XXxz9E2N+krECeScujFx8EokJYiPD4gVj7tvxlFB0HbhN/UhBLbAR5oDY3gdb0b1Sxil
+	KUTX35EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHosT-00000002QAj-2qUd;
-	Tue, 28 Apr 2026 20:17:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHorn-00000002P3j-3Ho5
+	id 1wHow6-00000002RR9-0BaC;
+	Tue, 28 Apr 2026 20:21:38 +0000
+Received: from smtprelay0010.hostedemail.com ([216.40.44.10] helo=relay.hostedemail.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHow4-00000002RQj-10wi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 20:17:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 546781C0A;
-	Tue, 28 Apr 2026 13:17:05 -0700 (PDT)
-Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 10D3E3F763;
-	Tue, 28 Apr 2026 13:17:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777407430; bh=6nEFcFhdP808ZVtmXdMcMA3pZOK4Wb1QnGW2QZeFifA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ar26XeqfQe/6RVcliRdSrSnj7NmY5hVXRpqHsifVOXS1jPW9CABFa6omEunngt+Nq
-	 JNq0FAv/a97S3Ggrp7XEHuJKtGjsqoreSJ9tsiFIUTiZ5sIhxya4ZHSCsMqZ9Lecbk
-	 g/yv+7IQWsLIec9WncInr/I/ZcbY1+8Mctb5fYaE=
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Cc: sudeep.holla@arm.com,
-	philip.radford@arm.com,
-	james.quinlan@broadcom.com,
-	f.fainelli@gmail.com,
-	vincent.guittot@linaro.org,
-	etienne.carriere@foss.st.com,
-	peng.fan@oss.nxp.com,
-	michal.simek@amd.com,
-	geert+renesas@glider.be,
-	kuninori.morimoto.gx@renesas.com,
-	marek.vasut+renesas@gmail.com,
-	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH v3 12/15] firmware: arm_scmi: Use proper iter_response_bound_cleanup() name
-Date: Tue, 28 Apr 2026 21:15:19 +0100
-Message-ID: <20260428201522.903875-13-cristian.marussi@arm.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260428201522.903875-1-cristian.marussi@arm.com>
-References: <20260428201522.903875-1-cristian.marussi@arm.com>
+	Tue, 28 Apr 2026 20:21:37 +0000
+Received: from omf07.hostedemail.com (lb01a-stub [10.200.18.249])
+	by unirelay08.hostedemail.com (Postfix) with ESMTP id E22CE140424;
+	Tue, 28 Apr 2026 20:21:33 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf07.hostedemail.com (Postfix) with ESMTPA id DB11A20032;
+	Tue, 28 Apr 2026 20:21:31 +0000 (UTC)
+Date: Tue, 28 Apr 2026 16:21:46 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
+ <will@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Ian
+ Rogers <irogers@google.com>, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v18 4/8] ring-buffer: Skip invalid sub-buffers when
+ rewinding persistent ring buffer
+Message-ID: <20260428162146.78e52988@gandalf.local.home>
+In-Reply-To: <177701355481.2223789.8929563537404268817.stgit@mhiramat.tok.corp.google.com>
+References: <177701351903.2223789.17087009302463188638.stgit@mhiramat.tok.corp.google.com>
+	<177701355481.2223789.8929563537404268817.stgit@mhiramat.tok.corp.google.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Rspamd-Queue-Id: DB11A20032
+X-Stat-Signature: uxqknnieyh6qocc33pm4dz7a11hriibh
+X-Rspamd-Server: rspamout03
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX1+WQB/o4GfEx2nnNkMQzQazvHdAcoOUkS8=
+X-HE-Tag: 1777407691-181976
+X-HE-Meta: U2FsdGVkX1+x9wPUL3Mdg1isPM9pfvR1/hxbPT0fY0XZvtE0Hf2YH9Xd1aKCTwW1VRk5Nzd0AtjHg1RVcGOUNjxGS/QaOBSXB46Rq+uD6AEztUuQVj4UE0TCl5utRe+HA48HVFGRyUKUe2ZO9dLfoOsYirrMSuNqbLarWp1v+31u5nEivCDpiOWwEKlgIONYAGCw0cMS43zASy/EfwX/EFDl+S5VWyNpYs5u9Da9HKa280zLjqQeIDeCHtHlD8Yo/BUiGFydQj0YvUWLBNpiKafYnotbtTc6BoTWRk8kPlzDm9X6qPnmziZlmYv8W1f+Q/cvTtwgRp3Qm+sMcEI/a6SMyjbBQ0U9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_131712_030096_DFA7CE90 
-X-CRM114-Status: GOOD (  12.92  )
+X-CRM114-CacheID: sfid-20260428_132136_343394_3BEC49FC 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,66 +73,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Geert Uytterhoeven <geert+renesas@glider.be>
+On Fri, 24 Apr 2026 15:52:35 +0900
+"Masami Hiramatsu (Google)" <mhiramat@kernel.org> wrote:
 
-The documentation speaks of the "iter_response_bound_cleanup()" protocol
-helper, while the actual helper is called "iter_response_cleanup()".
-Settle on the former name, because the helper is only needed when using
-bound-iterators.
+> @@ -1892,9 +1895,19 @@ static int rb_validate_buffer(struct buffer_data_page *dpage, int cpu,
+>  	 * subbuf_size is considered invalid.
+>  	 */
+>  	tail = local_read(&dpage->commit) & ~RB_MISSED_MASK;
+> -	if (tail > meta->subbuf_size - BUF_PAGE_HDR_SIZE)
+> -		return -1;
+> -	return rb_read_data_buffer(dpage, tail, cpu, &ts, &delta);
+> +	if (tail <= meta->subbuf_size - BUF_PAGE_HDR_SIZE)
+> +		ret = rb_read_data_buffer(dpage, tail, cpu, &ts, &delta);
+> +
 
-Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-[Cristian: removed Fixed tag referring the same series]
-Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
----
- drivers/firmware/arm_scmi/driver.c    | 6 +++---
- drivers/firmware/arm_scmi/protocols.h | 2 +-
- 2 files changed, 4 insertions(+), 4 deletions(-)
+This code seriously needs comments.
 
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index fd031a8d40df..57785c0c0424 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -1875,7 +1875,7 @@ static int __scmi_iterator_run(void *iter, unsigned int *start, unsigned int *en
- 	return 0;
- }
- 
--static void scmi_iterator_cleanup(void *iter)
-+static void scmi_iterator_bound_cleanup(void *iter)
- {
- 	struct scmi_iterator *i = iter;
- 
-@@ -1888,7 +1888,7 @@ static int scmi_iterator_run(void *iter)
- 	int ret;
- 
- 	ret = __scmi_iterator_run(iter, NULL, NULL);
--	scmi_iterator_cleanup(iter);
-+	scmi_iterator_bound_cleanup(iter);
- 
- 	return ret;
- }
-@@ -2078,7 +2078,7 @@ static const struct scmi_proto_helpers_ops helpers_ops = {
- 	.iter_response_init = scmi_iterator_init,
- 	.iter_response_run = scmi_iterator_run,
- 	.iter_response_run_bound = scmi_iterator_run_bound,
--	.iter_response_cleanup = scmi_iterator_cleanup,
-+	.iter_response_bound_cleanup = scmi_iterator_bound_cleanup,
- 	.protocol_msg_check = scmi_protocol_msg_check,
- 	.fastchannel_init = scmi_common_fastchannel_init,
- 	.fastchannel_db_ring = scmi_common_fastchannel_db_ring,
-diff --git a/drivers/firmware/arm_scmi/protocols.h b/drivers/firmware/arm_scmi/protocols.h
-index e2ef604c16ef..15ad5162e37a 100644
---- a/drivers/firmware/arm_scmi/protocols.h
-+++ b/drivers/firmware/arm_scmi/protocols.h
-@@ -286,7 +286,7 @@ struct scmi_proto_helpers_ops {
- 	int (*iter_response_run)(void *iter);
- 	int (*iter_response_run_bound)(void *iter,
- 				       unsigned int *start, unsigned int *end);
--	void (*iter_response_cleanup)(void *iter);
-+	void (*iter_response_bound_cleanup)(void *iter);
- 	int (*protocol_msg_check)(const struct scmi_protocol_handle *ph,
- 				  u32 message_id, u32 *attributes);
- 	void (*fastchannel_init)(const struct scmi_protocol_handle *ph,
--- 
-2.53.0
+-- Steve
 
+> +	if (ret < 0 || (prev_ts && prev_ts > ts) || (next_ts && ts > next_ts)) {
+> +		local_set(&bpage->entries, 0);
+> +		local_set(&bpage->page->commit, 0);
+> +		bpage->page->time_stamp = prev_ts ? prev_ts : next_ts;
+> +		ret = -1;
+> +	} else {
+> +		local_set(&bpage->entries, ret);
+> +	}
+> +
+> +	return ret;
+>  }
+>  
 
