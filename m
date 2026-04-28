@@ -4,55 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC899FF8870
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 09:02:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D473FF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 09:02:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=60YG4CWhucesCotGOnB6Km5AQqym+seZGGat9quUidQ=; b=CL9v9JnY4RKGcaE8NtrOsXlbXi
-	PXBPy7cbqSIJxTkXbTfXhBUpp5nQ2zwwLt0DDWsLrnv71phx9R9bz1X5BI2asx99ZEzRkQxmU8rZJ
-	APcm/+3oEUruEN3wXQe85vyUEOy39xWHpEc4EcDg5yX+cipO6E6oTRw/MMmAVgqaXFxUHkFGlSHm5
-	H0ZFYh5Ek/4Nnl7J8NzG0CZHf5RrLgdY+76XE1tQpRedQSpKqaHKdfFLqaQXMmIiaQvUdMJSpTxS8
-	ttYkQKft66VPHnqQ3EsDciFFudy1jHOnrJ2wSR/mOpuoE5lLB7ynaD/JOYfoozePLtrtLmzLAd319
-	ltjfmiqQ==;
+	bh=zjQfcUZuZn8FSR1XVQjzNNSEpYxu8hKLdul/7SUTmDM=; b=s12cc1Su6ZddmX/iNwL9AuSIxP
+	OcDk4tZiVUlYsWJNDuXBkGO4vxnguEaR4cUxHn+aRj0eF2gAFiuA8eC/6RT9qJnzvVCXUxa88pX75
+	VCuMfY/54F4GfNd5QSRKrV6KYO8DXsZFKhvEFE+0sj9OJejP/FQw9Ss9qWRm2CWWAMoQeNFoFPQtv
+	ueCtPshBMcad8dYGRtWF2YLHVKtfCyQIzrUxRHMNxi9FEAeSc6KCtL1IA3qqKPYtwGQ2l/Ddm6ROi
+	tAtvnaIIUNQO8ZFjQVSL6Xu2j89qfE3mQMryLz2CbbUk/c8txSG9ror6LflYK9NQEBHeeNUewVOg4
+	3SvtUVjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeKM-00000000yPr-1iOX;
-	Tue, 28 Apr 2026 09:01:58 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wHeKZ-00000000yfm-2EDX;
+	Tue, 28 Apr 2026 09:02:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeK2-00000000xx6-234W
+	id 1wHeK3-00000000xz8-1oyh
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 28 Apr 2026 09:01:38 +0000
+	Tue, 28 Apr 2026 09:01:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Cc:To:In-Reply-To:References:Message-Id
-	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=60YG4CWhucesCotGOnB6Km5AQqym+seZGGat9quUidQ=; b=rW9fVQYmqJ8PVbKLeMDsPHxL5c
-	ootjYwn+MeqFzmOm8A0GxQBGzoBq+5stTRYgmpHJwDVx6dKudKKGHzh5hynFI6QdgtQggElkjF3Ni
-	vqcSgrXrZftesi56AjoEwbq6oiT+tr9C4QWdSVcumkSnNFzWbPSHroltvJtBJtP3bgUJv492crAyG
-	bIiAuWF+5fpjXqnk+sSArbsiFQKTeUFigtDg9FesSDeePi66dOrdnLKPzOI+EGRhLqEtocEAWtexl
-	jDn6xessAiWcCuZWzC90oqDZIA7LIPrNTA8WC1O6KBT/wKa3zDLzTxQh/KBTFDpnOJHXs+cI6je5f
-	MuWpIXIw==;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=zjQfcUZuZn8FSR1XVQjzNNSEpYxu8hKLdul/7SUTmDM=; b=o6S53/3pMf7nwK7jCXSoEi2WJf
+	X+mlUKzEGH87u+tgoA2wXNItmgmAF5MYjE+565iVYZ6YrFd8gh0B4KRpt9bDFkUaGd9nHhXPvONO8
+	dEOKegyTL9khUhF0L9aH+Zc9cOJD08oOEsGAb7sAFmbwZI+XRUSLS5d+aWse4kLHDIzM6qqlp7cVc
+	K/nInS16sU5CWVsh+VopG4q21eqoqnLK5e0FoNmeYXwjqVx+Cb0i99z4t5CKJNESKt6L2ytll9sLH
+	SX8vuW0ly0v/jJQ14XA1IU4yrmuSzuFW1BZTXzEKdKn/7hQsNKUukzbeo9OBLwV08GOaLAksBE8rj
+	v0bTaZjg==;
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeJw-00000003VJF-2Ri4
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHeJs-00000002VUO-3WUJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 09:01:37 +0000
+	Tue, 28 Apr 2026 09:01:38 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1wHeJH-0004Lz-Cj; Tue, 28 Apr 2026 11:00:51 +0200
+	id 1wHeJ8-0004Lz-TK; Tue, 28 Apr 2026 11:00:42 +0200
 From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Tue, 28 Apr 2026 11:00:53 +0200
-Subject: [PATCH v5 18/29] media: rockchip: rga: check scaling factor
+Date: Tue, 28 Apr 2026 11:00:38 +0200
+Subject: [PATCH v5 03/29] media: v4l2-common: add missing 1 and 2 byte RGB
+ formats to v4l2_format_info
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260428-spu-rga3-v5-18-eb7f5d019d86@pengutronix.de>
+Message-Id: <20260428-spu-rga3-v5-3-eb7f5d019d86@pengutronix.de>
 References: <20260428-spu-rga3-v5-0-eb7f5d019d86@pengutronix.de>
 In-Reply-To: <20260428-spu-rga3-v5-0-eb7f5d019d86@pengutronix.de>
 To: Jacob Chen <jacob-chen@iotwrt.com>, 
@@ -65,15 +66,17 @@ Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  devicetree@vger.kernel.org, kernel@pengutronix.de, nicolas@ndufresne.ca, 
  sebastian.reichel@collabora.com, 
- =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
+ =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>, 
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>
 X-Mailer: b4 0.15.2
 X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
 X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_100132_652264_134EA720 
-X-CRM114-Status: GOOD (  19.16  )
+X-CRM114-CacheID: sfid-20260428_100129_201212_63B07AE1 
+X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,145 +91,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Check the scaling factor to avoid potential problems. This is relevant
-for the upcoming RGA3 support, as it can hang when the scaling factor
-is exceeded.
+Add all missing one and two byte RGB formats to v4l2_format_info. This
+allows drivers to more consistently use v4l2_format_info, as it now
+covers all currently defined RGB formats.
 
-There are two relevant scenarios that have to be considered to protect
-against invalid scaling values:
-
-When the output or capture is already streaming, setting the format on
-the other side should consider the max scaling factor and clamp it
-accordingly. This is only done in the streaming case, as it otherwise
-may unintentionally clamp the value when the application sets the first
-format (due to a default format on the other side).
-
-When the format is set on both sides first, then the format won't be
-corrected by above means. Therefore the second streamon call has to
-check the scaling factor and fail otherwise.
-
-As try functions should only be state aware if specified, the scaling
-limitation is only done in s_fmt.
-
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 ---
- drivers/media/platform/rockchip/rga/rga-hw.c |  1 +
- drivers/media/platform/rockchip/rga/rga-hw.h |  1 +
- drivers/media/platform/rockchip/rga/rga.c    | 47 ++++++++++++++++++++++++++++
- drivers/media/platform/rockchip/rga/rga.h    |  1 +
- 4 files changed, 50 insertions(+)
+ drivers/media/v4l2-core/v4l2-common.c | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
 
-diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media/platform/rockchip/rga/rga-hw.c
-index 11079477a3008..11a1a914668f6 100644
---- a/drivers/media/platform/rockchip/rga/rga-hw.c
-+++ b/drivers/media/platform/rockchip/rga/rga-hw.c
-@@ -595,6 +595,7 @@ const struct rga_hw rga2_hw = {
- 	.max_width = MAX_WIDTH,
- 	.min_height = MIN_HEIGHT,
- 	.max_height = MAX_HEIGHT,
-+	.max_scaling_factor = MAX_SCALING_FACTOR,
- 	.stride_alignment = 4,
- 
- 	.setup_cmdbuf = rga_hw_setup_cmdbuf,
-diff --git a/drivers/media/platform/rockchip/rga/rga-hw.h b/drivers/media/platform/rockchip/rga/rga-hw.h
-index c2e34be751939..805ec23e5e3f4 100644
---- a/drivers/media/platform/rockchip/rga/rga-hw.h
-+++ b/drivers/media/platform/rockchip/rga/rga-hw.h
-@@ -14,6 +14,7 @@
- 
- #define MIN_WIDTH 34
- #define MIN_HEIGHT 34
-+#define MAX_SCALING_FACTOR 16
- 
- #define RGA_TIMEOUT 500
- 
-diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
-index d111b348255e2..75d05c86b1c00 100644
---- a/drivers/media/platform/rockchip/rga/rga.c
-+++ b/drivers/media/platform/rockchip/rga/rga.c
-@@ -405,10 +405,36 @@ static int vidioc_s_fmt(struct file *file, void *priv, struct v4l2_format *f)
- 	struct v4l2_pix_format_mplane *pix_fmt = &f->fmt.pix_mp;
- 	struct rga_ctx *ctx = file_to_rga_ctx(file);
- 	struct rockchip_rga *rga = ctx->rga;
-+	const struct rga_hw *hw = rga->hw;
- 	struct vb2_queue *vq;
- 	struct rga_frame *frm;
- 	int ret = 0;
- 	int i;
-+	struct rga_frame *limit_frm = NULL;
-+
-+	/* Limit before try_fmt to avoid recalculating the stride */
-+	if (V4L2_TYPE_IS_OUTPUT(f->type) &&
-+	    v4l2_m2m_get_dst_vq(ctx->fh.m2m_ctx)->streaming)
-+		limit_frm = &ctx->out;
-+	if (V4L2_TYPE_IS_CAPTURE(f->type) &&
-+	    v4l2_m2m_get_src_vq(ctx->fh.m2m_ctx)->streaming)
-+		limit_frm = &ctx->in;
-+	if (limit_frm) {
-+		const struct v4l2_frmsize_stepwise frmsize = {
-+			.min_width = DIV_ROUND_UP(limit_frm->pix.width,
-+						  hw->max_scaling_factor),
-+			.max_width =
-+				limit_frm->pix.width * hw->max_scaling_factor,
-+			.min_height = DIV_ROUND_UP(limit_frm->pix.height,
-+						   hw->max_scaling_factor),
-+			.max_height =
-+				limit_frm->pix.height * hw->max_scaling_factor,
-+			.step_width = 1,
-+			.step_height = 1,
-+		};
-+		v4l2_apply_frmsize_constraints(&pix_fmt->width,
-+					       &pix_fmt->height, &frmsize);
-+	}
- 
- 	/* Adjust all values accordingly to the hardware capabilities
- 	 * and chosen format.
-@@ -568,12 +594,33 @@ static int vidioc_s_selection(struct file *file, void *priv,
- 	return ret;
- }
- 
-+static bool check_scaling(const struct rga_hw *hw, u32 src_size, u32 dst_size)
-+{
-+	if (src_size < dst_size)
-+		return src_size * hw->max_scaling_factor >= dst_size;
-+	else
-+		return dst_size * hw->max_scaling_factor >= src_size;
-+}
-+
- static int vidioc_streamon(struct file *file, void *priv,
- 			   enum v4l2_buf_type type)
+diff --git a/drivers/media/v4l2-core/v4l2-common.c b/drivers/media/v4l2-core/v4l2-common.c
+index 49c1ec08e2eb3..58a4b372cf5be 100644
+--- a/drivers/media/v4l2-core/v4l2-common.c
++++ b/drivers/media/v4l2-core/v4l2-common.c
+@@ -246,8 +246,29 @@ const struct v4l2_format_info *v4l2_format_info(u32 format)
  {
- 	struct rga_ctx *ctx = file_to_rga_ctx(file);
- 	const struct rga_hw *hw = ctx->rga->hw;
+ 	static const struct v4l2_format_info formats[] = {
+ 		/* RGB formats (1 or 2 bytes per pixel) */
++		{ .format = V4L2_PIX_FMT_RGB332,   .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 1, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
++		{ .format = V4L2_PIX_FMT_RGB444,   .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
++		{ .format = V4L2_PIX_FMT_ARGB444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
++		{ .format = V4L2_PIX_FMT_XRGB444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
++		{ .format = V4L2_PIX_FMT_RGBA444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
++		{ .format = V4L2_PIX_FMT_RGBX444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
++		{ .format = V4L2_PIX_FMT_ABGR444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
++		{ .format = V4L2_PIX_FMT_XBGR444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
++		{ .format = V4L2_PIX_FMT_BGRA444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
++		{ .format = V4L2_PIX_FMT_BGRX444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
+ 		{ .format = V4L2_PIX_FMT_RGB555,   .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
++		{ .format = V4L2_PIX_FMT_ARGB555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
++		{ .format = V4L2_PIX_FMT_XRGB555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
++		{ .format = V4L2_PIX_FMT_RGBA555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
++		{ .format = V4L2_PIX_FMT_RGBX555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
++		{ .format = V4L2_PIX_FMT_ABGR555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
++		{ .format = V4L2_PIX_FMT_XBGR555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
++		{ .format = V4L2_PIX_FMT_BGRA555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
++		{ .format = V4L2_PIX_FMT_BGRX555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
+ 		{ .format = V4L2_PIX_FMT_RGB565,   .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
++		{ .format = V4L2_PIX_FMT_RGB555X,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
++		{ .format = V4L2_PIX_FMT_ARGB555X, .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
++		{ .format = V4L2_PIX_FMT_XRGB555X, .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
+ 		{ .format = V4L2_PIX_FMT_RGB565X,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
  
-+	if ((V4L2_TYPE_IS_OUTPUT(type) &&
-+	     v4l2_m2m_get_dst_vq(ctx->fh.m2m_ctx)->streaming) ||
-+	    (V4L2_TYPE_IS_CAPTURE(type) &&
-+	     v4l2_m2m_get_src_vq(ctx->fh.m2m_ctx)->streaming)) {
-+		/*
-+		 * As the other side is already streaming,
-+		 * check that the max scaling factor isn't exceeded.
-+		 */
-+		if (!check_scaling(hw, ctx->in.pix.width, ctx->out.pix.width) ||
-+		    !check_scaling(hw, ctx->in.pix.height, ctx->out.pix.height))
-+			return -EINVAL;
-+	}
-+
- 	hw->setup_cmdbuf(ctx);
- 
- 	return v4l2_m2m_streamon(file, ctx->fh.m2m_ctx, type);
-diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
-index c741213710b32..454af283b1694 100644
---- a/drivers/media/platform/rockchip/rga/rga.h
-+++ b/drivers/media/platform/rockchip/rga/rga.h
-@@ -150,6 +150,7 @@ struct rga_hw {
- 	size_t cmdbuf_size;
- 	u32 min_width, min_height;
- 	u32 max_width, max_height;
-+	u8 max_scaling_factor;
- 	u8 stride_alignment;
- 
- 	void (*setup_cmdbuf)(struct rga_ctx *ctx);
+ 		/* RGB formats (3 or 4 bytes per pixel) */
 
 -- 
 2.54.0
