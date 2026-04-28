@@ -4,67 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11B06FF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 14:33:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C14F5FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 14:37:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QPmpUeA7Dc6q8MNKSsp4Zcbwxx3Qyn+YReqAo7QuZLQ=; b=J9RoKU0RKytUqBCD186RDZ7cPp
-	oWba9+AVBD+sbaVYl/aV558yRweVm+cQ2aTLG4tq4bcY9LNzj/okDow4a/8PfbvOu1QgIG1Xbrmg+
-	EAvdn2LGsd+87AiQX4eeRYuU1UelBdBzVfFqFdH2Pd8QqvUi2EUkpA2fuXqyl6qL4pkCTag3pcyQM
-	YXJnBCJZsV3KEI5kvmhbmFRmD4ZIanooPCZD/V+/lADiQTES0rS1qUMrF+8bhIVVxzNiQ9ghmW+nQ
-	1OniArmfqw8rIVs/Hq3JDi06TuV1sIX2b8E7h92NlkIg15jR/Yj4lIKWo1At/KzWBjOPEQwhfjG4F
-	1v2Gbv0g==;
+	bh=6dapWbfdaH3qRNQs2tgvGaffgEEHsGjHti7EKce5ja8=; b=uU13qV6xzd40hk0BGbmBA+p468
+	R4lKtDeL9/PvfoUegjqdBtGafWTbvlwOYexSBQhjVaj07bCyAsefzCZ589N7lUXerlk9mSrgnea7D
+	gAimR9opZVHrjkzLgyMRvSoIaVkDwD+KdiO4cBtEyYRAgAzVQpcdRgUtMNGpMVbtSw+i0y8wqRUu4
+	KDmStd/yj9pbgsTRT86WDOUg+txH4+xuL3xbosNA46OpG4k/P/DP3nSaJuHrNOlodcmFw34ke3GST
+	+RCM235ZT5rHrkwNESTCe1u/rjQZeNh+4eJJV6IJIm/Mdnwl6+r2lMLqIzo9+YQChVrS2PPGdCMxC
+	Us1SBNKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHjVF-00000001fDH-1pS2;
-	Tue, 28 Apr 2026 14:33:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHjVC-00000001fCd-1mnw
+	id 1wHjZ5-00000001fWe-0Kk7;
+	Tue, 28 Apr 2026 14:37:31 +0000
+Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHjZ3-00000001fWJ-16fA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 14:33:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A58DC1C2B;
-	Tue, 28 Apr 2026 07:33:23 -0700 (PDT)
-Received: from [10.57.63.26] (unknown [10.57.63.26])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AA91D3F763;
-	Tue, 28 Apr 2026 07:33:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777386809; bh=3Tjsh0Mi9ttoZCdrFqo6Hf9TG+BdK8gmbIDZCKmHfgI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=czB/0boF7tK8yvbH/uwt6i6voyaRFSIx9N4QyPaWFgVEyb2orx+Vk61PNatG0TFgm
-	 ogtob/NZKbg0T6W56P7AkgMXiOjJEJk2WgzMT7ZfaSimH7G7SbXx6uQWVbXLqpg89p
-	 a5zADVDui8oYggRNAMTOAwua68gAwueUcc+dzheM=
-Message-ID: <666f0251-773b-4c71-9c68-5d0791297e31@arm.com>
-Date: Tue, 28 Apr 2026 16:33:25 +0200
+	Tue, 28 Apr 2026 14:37:30 +0000
+Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-50d6b393d60so86841cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 07:37:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1777387047; cv=none;
+        d=google.com; s=arc-20240605;
+        b=j04dE/+e/i2jxIqysRYiDvr6Gkq3sKzP9juQgKEsdt4/43m86MBMDEo3HNVYFsEGjh
+         aIW1yWv6ckAoQuPim4y0eXLf7J4zUtipEk8jczuguEQTcMWrQA4ushJfJLaG3dkeMS6K
+         1cXopE4zL5Uv3RD1bmGEQ+75G8oTJ1S2Z5Q5bI5+D5obISLprF9YBS5et2oHAtZXrvR3
+         UWFODX6H9RXOekJF8cjCYT9gZSZuXz85VKveIC2nw7jT/fAPC9jS9uYqJWlAbkPYvRRu
+         ptSySd1WBMthWmobAuuwzqOFpIeuG0uo+h69QyYiXRU29Nu6TW63Z8SXflJ+CCsIXDVs
+         aUVA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=6dapWbfdaH3qRNQs2tgvGaffgEEHsGjHti7EKce5ja8=;
+        fh=YNlQnDY9Nj1EIGuGm0TmNOO+U1gqog0k7jBk9+Z2ex8=;
+        b=Ueifz1/m6D4upyakGrHcxsHRO/sv04HNNieg41AmK3Rts1Mxqgd75GOQBGJAFS6dOq
+         VGu/N78I8ugqJWBYUQdMe+2SZ2OeKXbmC+aCwx57qxCrZhxezKhyyQwHnS36m0tXpEd9
+         BVJWBLRuWa1AladrtBKI3k1hh+DY+bauFVyYTfr5GNx0ZHrRfs0/MQSB5dSkzf7aDkkr
+         fkE453EvC/amReJc1rEoOYfgKzwVq2B153qKZVjmhWWCXomn1qy4mHIed41ofMHvLT2O
+         GhC8uEWPEIqiYf6H89LlrYgzgIo3xPMZYkA4qCPiNEZKskHtKbOIJi3UT/nzxsFXDMZU
+         aVJw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1777387047; x=1777991847; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6dapWbfdaH3qRNQs2tgvGaffgEEHsGjHti7EKce5ja8=;
+        b=GNQtngnQsJMzG3UmarDDvahZI9ydtnVsSFAmpNVGBWhXH3foQ/QuJYIX+3jkmVx8ax
+         +BESyIbJMAB+9HrEa0H4pMXfaystmFKIwEZ9y0+C2zPxyShqO3qFRzfLIPLrNmIgWBTv
+         2pgKAbZMnNtBpe2ZXaN0EBI0Ajs1iB3Yf6FL3lfW4DQab6FcYuZ2Dzhyj7t2x58HnvwO
+         ohBHZK8GVkLLj4v51ZdaTqd8nrxTTkjT0U4C+SdEXchEGh1JsnxZeGrbwsQmTVmC5iPl
+         KUtiTOsW/NKflvXgBWVIby1tPQm5kseSHkiEZm7L/dx9tzXXBthreFM0zrUQ3Sab1hB1
+         3YiA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777387047; x=1777991847;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=6dapWbfdaH3qRNQs2tgvGaffgEEHsGjHti7EKce5ja8=;
+        b=ld7yof0ZMrPf409peVtEJJrZNgMdReR8lqoleKXR4oLevjRHkD11LynvyNebWAmpbs
+         MTpJ3FKP40ubcAl1Pm4Rf3Jj3PutOwXBNCEW5KuKkdLbwTd+nhsTyxMUQm7f7E12WOXT
+         9Z6TyxI88V2V4FEOkk3p612tjExuVyu6hGaTbOVOt/5AX1gS3z4EgZUxNMQLQpmsE12a
+         p4H6oyUR9V8sDvhmbpeEAGM59krzAnCn1Lksx/tFe0ZNoxfnwG+eaiKi8Tjqe/Pxqd2k
+         /SBQWi3pntvmTvTZ/dItxg1Sti47Jkg+yCDRX6/WB2fit6yUZGjxsk/8Cszk4bBvIkY+
+         NUyQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8y8qkiNh//JtwogDG3QERqwVaQppONB5yU/Nzbah6V4i8VP6uChtPrLCkeJ27/TTmtmKHUkRp6SkCaqnL1UwoM@lists.infradead.org
+X-Gm-Message-State: AOJu0YxFV73nLRzWwJehthTRaAJ9tSRfIXAaEcdx1kv9sN5SocaMlMny
+	yQSGprJvhUmPvmzk/bJC2sS5jHzdIsASs1Bx6iFg1LDF+n9X6fHupAmUTm3BjFMeA7fBnRpjeuF
+	xPjs5rLOCQqmix+xuNcWLgxPxkpROtyrqBrRo+yZM
+X-Gm-Gg: AeBDieuW0LEh6+f0BsSviaraVSwLiRK9d3WbKsnL4o28+SMEtbWIMREwgxMXrQKFuTU
+	IK5rOg4FOk2PmYq7LnQXoQh8GOjIEqSyXw7EOJqefotpbKWVEZQ3G4XJVemabiDrNFoVrZx2cqY
+	CoBA4I1nb700wRFFbn15PpniqqiRlsv6rShNieOUPltK35jUlZSu6wu10vr2LjCtH9E9k2v967z
+	17U+eeLWmOKi9+B4BScwvM1CfwTG4oDqxwpKg9UBfwZPXag848+gWbuWHj9VpuS/RKEG4AZe052
+	tdRBUOlW7qoVkyxHWppr8UliwIz+vx7x+3a4asDfU7a7C2NkDFANlL7h8m9tUQs=
+X-Received: by 2002:ac8:5d52:0:b0:509:174d:3224 with SMTP id
+ d75a77b69052e-5100ddadccdmr13763831cf.11.1777387040604; Tue, 28 Apr 2026
+ 07:37:20 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 06/15] arm64: mm: Drop redundant pgd_t* argument from
- map_mem()
-To: Ard Biesheuvel <ardb+git@google.com>, linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com,
- mark.rutland@arm.com, Ard Biesheuvel <ardb@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Liz Prucka <lizprucka@google.com>, Seth Jenkins <sethjenkins@google.com>,
- Kees Cook <kees@kernel.org>, Mike Rapoport <rppt@kernel.org>,
- David Hildenbrand <david@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org,
- linux-hardening@vger.kernel.org
-References: <20260427153416.2103979-17-ardb+git@google.com>
- <20260427153416.2103979-23-ardb+git@google.com>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260427153416.2103979-23-ardb+git@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20260428103008.696141-1-tabba@google.com> <20260428103008.696141-7-tabba@google.com>
+ <afC5_jrTEVRfJ77x@willie-the-truck>
+In-Reply-To: <afC5_jrTEVRfJ77x@willie-the-truck>
+From: Fuad Tabba <tabba@google.com>
+Date: Tue, 28 Apr 2026 15:36:43 +0100
+X-Gm-Features: AVHnY4KUvLQVQvqOYoHKFrGRxCQZYRY1ccfXZN-JSVf8ghDHejXfq6Fa9ThLlXs
+Message-ID: <CA+EHjTyTy2qLm=CbOOYR6rmjg5tH38PifAV+qAhbZxidY5szxQ@mail.gmail.com>
+Subject: Re: [PATCH 6/8] KVM: arm64: Propagate stage-2 map failure on
+ host->guest donation
+To: Will Deacon <will@kernel.org>
+Cc: maz@kernel.org, oliver.upton@linux.dev, james.morse@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, qperret@google.com, 
+	vdonnefort@google.com, catalin.marinas@arm.com, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_073330_549945_1FC856F6 
-X-CRM114-Status: GOOD (  18.88  )
+X-CRM114-CacheID: sfid-20260428_073729_327772_BC23E0E1 
+X-CRM114-Status: GOOD (  44.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,100 +121,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/04/2026 17:34, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
->
-> __map_memblock() and map_mem() always operate on swapper_pg_dir, so
-> there is no need to pass around a pgd_t pointer between them.
->
-> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+Hi Will,
 
-Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
-
-> ---
->  arch/arm64/mm/mmu.c | 25 ++++++++++----------
->  1 file changed, 12 insertions(+), 13 deletions(-)
+On Tue, 28 Apr 2026 at 14:45, Will Deacon <will@kernel.org> wrote:
 >
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index bfbf3fe0d1be..9610dd2d7bd9 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -1039,11 +1039,11 @@ static void update_mapping_prot(phys_addr_t phys, unsigned long virt,
->  	flush_tlb_kernel_range(virt, virt + size);
->  }
->  
-> -static void __init __map_memblock(pgd_t *pgdp, phys_addr_t start,
-> -				  phys_addr_t end, pgprot_t prot, int flags)
-> +static void __init __map_memblock(phys_addr_t start, phys_addr_t end,
-> +				  pgprot_t prot, int flags)
->  {
-> -	early_create_pgd_mapping(pgdp, start, __phys_to_virt(start), end - start,
-> -				 prot, early_pgtable_alloc, flags);
-> +	early_create_pgd_mapping(swapper_pg_dir, start, __phys_to_virt(start),
-> +				 end - start, prot, early_pgtable_alloc, flags);
->  }
->  
->  void __init mark_linear_text_alias_ro(void)
-> @@ -1091,13 +1091,13 @@ static phys_addr_t __init arm64_kfence_alloc_pool(void)
->  	return kfence_pool;
->  }
->  
-> -static void __init arm64_kfence_map_pool(phys_addr_t kfence_pool, pgd_t *pgdp)
-> +static void __init arm64_kfence_map_pool(phys_addr_t kfence_pool)
->  {
->  	if (!kfence_pool)
->  		return;
->  
->  	/* KFENCE pool needs page-level mapping. */
-> -	__map_memblock(pgdp, kfence_pool, kfence_pool + KFENCE_POOL_SIZE,
-> +	__map_memblock(kfence_pool, kfence_pool + KFENCE_POOL_SIZE,
->  			pgprot_tagged(PAGE_KERNEL),
->  			NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS);
->  	memblock_clear_nomap(kfence_pool, KFENCE_POOL_SIZE);
-> @@ -1133,11 +1133,11 @@ bool arch_kfence_init_pool(void)
->  #else /* CONFIG_KFENCE */
->  
->  static inline phys_addr_t arm64_kfence_alloc_pool(void) { return 0; }
-> -static inline void arm64_kfence_map_pool(phys_addr_t kfence_pool, pgd_t *pgdp) { }
-> +static inline void arm64_kfence_map_pool(phys_addr_t kfence_pool) { }
->  
->  #endif /* CONFIG_KFENCE */
->  
-> -static void __init map_mem(pgd_t *pgdp)
-> +static void __init map_mem(void)
->  {
->  	static const u64 direct_map_end = _PAGE_END(VA_BITS_MIN);
->  	phys_addr_t kernel_start = __pa_symbol(_text);
-> @@ -1182,7 +1182,7 @@ static void __init map_mem(pgd_t *pgdp)
->  		 * if MTE is present. Otherwise, it has the same attributes as
->  		 * PAGE_KERNEL.
->  		 */
-> -		__map_memblock(pgdp, start, end, pgprot_tagged(PAGE_KERNEL),
-> +		__map_memblock(start, end, pgprot_tagged(PAGE_KERNEL),
->  			       flags);
->  	}
->  
-> @@ -1196,10 +1196,9 @@ static void __init map_mem(pgd_t *pgdp)
->  	 * Note that contiguous mappings cannot be remapped in this way,
->  	 * so we should avoid them here.
->  	 */
-> -	__map_memblock(pgdp, kernel_start, kernel_end,
-> -		       PAGE_KERNEL, NO_CONT_MAPPINGS);
-> +	__map_memblock(kernel_start, kernel_end, PAGE_KERNEL, NO_CONT_MAPPINGS);
->  	memblock_clear_nomap(kernel_start, kernel_end - kernel_start);
-> -	arm64_kfence_map_pool(early_kfence_pool, pgdp);
-> +	arm64_kfence_map_pool(early_kfence_pool);
->  }
->  
->  void mark_rodata_ro(void)
-> @@ -1421,7 +1420,7 @@ static void __init create_idmap(void)
->  
->  void __init paging_init(void)
->  {
-> -	map_mem(swapper_pg_dir);
-> +	map_mem();
->  
->  	memblock_allow_resize();
->  
+> On Tue, Apr 28, 2026 at 11:30:06AM +0100, Fuad Tabba wrote:
+> > __pkvm_host_donate_guest() flips the host stage-2 PTE for the donated
+> > page to a non-valid annotation (KVM_HOST_INVALID_PTE_TYPE_DONATION,
+> > owner =3D PKVM_ID_GUEST) via host_stage2_set_owner_metadata_locked()
+> > and then calls kvm_pgtable_stage2_map() to install the matching guest
+> > stage-2 mapping. The map's return value was wrapped in WARN_ON() and
+> > otherwise discarded.
+> >
+> > At EL2 in nVHE/pKVM, WARN_ON() is not warn-and-continue: it expands
+> > to a BRK that enters the invalid-host-el2 vector and branches to
+> > hyp_panic(), declared __noreturn. WARN_ON of a reachable failure at
+> > EL2 is a panic primitive, not a debug aid.
+> >
+> > kvm_pgtable_stage2_map() can fail in reachable ways even at PAGE_SIZE
+> > granularity: __pkvm_host_donate_guest() verifies PKVM_NOPAGE for the
+> > guest IPA before the map, meaning no valid stage-2 entry exists. The
+> > walker must allocate new page-table pages from the vcpu memcache to
+> > install the mapping, returning -ENOMEM if exhausted. The host
+> > controls the vcpu memcache via the topup interface, so an
+> > under-provisioned donation request converts a recoverable error into
+> > a fatal hyp panic.
+> >
+> > Capture the stage-2 map return value and propagate it. The walker
+> > may have installed partial leaf entries for the IPA before failing,
+> > so unmap the range to clear them; otherwise the guest would retain
+> > stage-2 access to a page the host is about to reclaim as
+> > PKVM_PAGE_OWNED. Then roll back the host stage-2 mutation: the only
+> > forward mutation is host_stage2_set_owner_metadata_locked() flipping
+> > the host vmemmap from PKVM_PAGE_OWNED to PKVM_NOPAGE and the host
+> > stage-2 PTE from idmap to invalid+annotation.
+> > host_stage2_set_owner_locked(_, _, PKVM_ID_HOST) restores both.
+> >
+> > The rollback calls host_stage2_set_owner_locked() under WARN_ON.
+> > This is the correct use: host_stage2_set_owner_metadata_locked()
+> > just wrote the host leaf PTE as an invalid+annotation entry, so the
+> > reverse idmap rewrite cannot require new page-table allocation =E2=80=
+=94 it
+> > rewrites the leaf in-place. The WARN_ON asserts an impossible state
+> > under correct EL2 execution, semantically distinct from the misuse
+> > being fixed.
+> >
+> > Fixes: 1e579adca177 ("KVM: arm64: Introduce __pkvm_host_donate_guest()"=
+)
+> > Signed-off-by: Fuad Tabba <tabba@google.com>
+> > ---
+> >  arch/arm64/kvm/hyp/nvhe/mem_protect.c | 27 ++++++++++++++++++++++++---
+> >  1 file changed, 24 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp=
+/nvhe/mem_protect.c
+> > index 7044913a0758..b8c57a95e9bf 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > @@ -1391,9 +1391,30 @@ int __pkvm_host_donate_guest(u64 pfn, u64 gfn, s=
+truct pkvm_hyp_vcpu *vcpu)
+> >       meta =3D host_stage2_encode_gfn_meta(vm, gfn);
+> >       WARN_ON(host_stage2_set_owner_metadata_locked(phys, PAGE_SIZE,
+> >                                                     PKVM_ID_GUEST, meta=
+));
+> > -     WARN_ON(kvm_pgtable_stage2_map(&vm->pgt, ipa, PAGE_SIZE, phys,
+> > -                                    pkvm_mkstate(KVM_PGTABLE_PROT_RWX,=
+ PKVM_PAGE_OWNED),
+> > -                                    &vcpu->vcpu.arch.pkvm_memcache, 0)=
+);
+> > +     ret =3D kvm_pgtable_stage2_map(&vm->pgt, ipa, PAGE_SIZE, phys,
+> > +                                  pkvm_mkstate(KVM_PGTABLE_PROT_RWX, P=
+KVM_PAGE_OWNED),
+> > +                                  &vcpu->vcpu.arch.pkvm_memcache, 0);
+> > +     if (ret) {
+> > +             /*
+> > +              * Stage-2 map can fail mid-walk (e.g. -ENOMEM from the
+> > +              * memcache), leaving partial leaf entries installed in t=
+he
+> > +              * guest stage-2. Tear them down before rolling back the =
+host
+> > +              * stage-2; otherwise the guest would retain access to a =
+page
+> > +              * the host is about to reclaim as PKVM_PAGE_OWNED.
+> > +              */
+> > +             kvm_pgtable_stage2_unmap(&vm->pgt, ipa, PAGE_SIZE);
+>
+> Whoa, whoa, whoa.
+>
+> First of all, this is mapping a single page, so the comment talking about
+> "leaf entries" (plural) is bogus. If an operation to map a single page
+> fails, then it makes no sense to try unmapping the mapping which we
+> failed to create. What do you expect it to do?
+>
+> On the other hand, if we extend this to handle ranges in future (which
+> presumably we'll want as part of the THP support) then wouldn't this
+> mean that a concurrent vCPU could have transiently written to the pages
+> that _did_ get mapped, and now we're going to give those back to the
+> host? That's really not ok! We're relying on these WARN_ON()s being
+> fatal and they shouldn't fail because we perform all the permission
+> checks first, in a separate pass.
+>
+> If you want to improve this, then I think the options are either:
+>
+>   1. Check that the the memcache is topped up first
+>   2. Poison the page (similar to the forced-reclaim path)
+>   3. Tell the host about the pages it's lost and maybe it can leak them
+>
+> (I vote for (1))
+>
+> But we absolutely cannot do the simple rollback for the ownership
+> changes; that's why the code is written to do the checks up-front. Your
+> other patches at the end of this series have different flavours of the
+> same issue.
+>
+> If it's just about keeping the LLM happy, then either fix the LLM or
+> make these BUG_ON() (in conjunction with (1) above).
+
+You're right, and no, it's not just about keeping em happy :D
+
+The "leaf entries" comment on the single-page donate path is wrong, and
+more importantly the rollback model is unsound. The right fix is to tighten
+the precondition, not to handle a failure that shouldn't be reachable.
+
+V2 will drop two patches (in addition to the HCR_EL2 one), and will be
+as follows:
+
+1. host->guest share and host->guest donate (kept, rewritten): add a
+   memcache-sufficiency check during the existing pre-check pass
+   (option 1) and return -ENOMEM cleanly without touching any state.
+   Restore the WARN_ON() on the subsequent kvm_pgtable_stage2_map() =E2=80=
+=94
+   with the topup precheck it asserts an established invariant rather
+   than ignoring a reachable error.
+
+   For the single-page donate, "topped up" is
+   KVM_PGTABLE_LAST_LEVEL - vm->pgt.start_level (mirroring host EL1's
+   kvm_mmu_cache_min_pages). For multi-page share I plan to use the
+   conservative nr_pages * (LAST_LEVEL - start_level) bound and flag it
+   as conservative in the commit message; happy to compute a tighter
+   alignment-aware bound if you'd prefer.
+
+2. guest->host share and guest->host unshare (dropped): on reflection
+   these shouldn't have been in V1 at all. As I did note in the commit
+   message, failure path is not reachable. Again, too eager to make
+   use of the new prompts.
+
+I'll repost this as V2 if you agree.
+
+Cheers,
+/fuad
+
+>
+> Will
 
