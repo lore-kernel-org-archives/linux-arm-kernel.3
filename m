@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFA5CFF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 07:22:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98640FF8870
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 07:22:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d6/DbS8+a0Bbu++hm0mIANNgnhHVu7X5dNuwNyZ3JIg=; b=QlkPXHJONK9efaWjc4IHAMOyQE
-	Ki1hjYFlqqNW/QwQHrIKax0obN7M/8j9BUa0nIs6PaWx2M3fZZtJwShTeb/yD/P18WlrkDWaiA89C
-	2Ot/BbOW2LYJY1QxdDoTfB2miZQn/THvEMRGcL0uVEcUFlsyKfhyKPtPTCkIts5M/BUHFQLSFPXaN
-	QqmX5ZvP1FRv2ET3pa/HAm19eAAt9f/FYbn3dZNHaktXD/gTbgDU+5QHdry0cCge3aPTnxy7Kj/BD
-	RJi58Eex1Ybp+bEKvhynSIKXk4Nk0NaZWi4PUXrCJF8Z/NmCkOXl+zUSQuGhE8PhygXrBPzw1d/aA
-	FiqwdCAQ==;
+	bh=SC9Z8TYU3FIlegbJKB+Rnykve8tItTwLd+p+lGKeOhc=; b=v8WJ5RZ1MCAD7uwLHuuA+KSqWE
+	y6U0dxNyQxJO9Ki3TmX23ZstgpvXhUwFgmHDLuJRoTZClGvvMY1d+i51meU+9/oP25S/jVSDrihBC
+	xvWmXxTqe8pWi3uJLkNRiva49I6RB4hR99kgTV806nu5+l1toJbljPsZke0Wk9IZwjo7xnwd4rGnY
+	dRtJyip9BAIIRion6kCKbtPgpu30eqaa2j79HQ43gzS+OPf08JRCyf87sU9bRKQFRp0e5AvyDkxTe
+	yt+MbvuQLuJLmDpZDBD88wo+Lsj28NdFepSCvyN4gTeAGLp+IF6FsQFE1vPchITG7HulHE8ktdyJS
+	vonZ2g4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHclD-00000000ic1-2Rvk;
-	Tue, 28 Apr 2026 07:21:35 +0000
-Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
+	id 1wHclH-00000000ijI-3oHn;
+	Tue, 28 Apr 2026 07:21:39 +0000
+Received: from mail-dl1-x1249.google.com ([2607:f8b0:4864:20::1249])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHckJ-00000000hWl-1Lmh
+	id 1wHckQ-00000000heo-33U5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 07:20:45 +0000
-Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2bda35eab74so9937468eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 00:20:38 -0700 (PDT)
+	Tue, 28 Apr 2026 07:20:58 +0000
+Received: by mail-dl1-x1249.google.com with SMTP id a92af1059eb24-12c8d7d4a79so10310164c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 00:20:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777360838; x=1777965638; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777360846; x=1777965646; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=d6/DbS8+a0Bbu++hm0mIANNgnhHVu7X5dNuwNyZ3JIg=;
-        b=HSHUuThybKtEgU2lMzLwaePD2x9xxSGDYwUn4mGnBsQ2hUcC4kwOa9yIY5esGmb67+
-         757x/Qu5FUs3VtYLvXVyeXJKh/M8scQrWEPE4AmnT3hvldE/488Kp7i2yL2sKYyL1zLE
-         cTwLN17ARonOUaU5lj4LS9oQ1X+61QSSm+gN5r6l7dGglukZELr3gVpi0ibzwAs2AWc0
-         HJRuFW5Ik2+bH0/tKmCfmyMuWmJmCsemXScME2UyvUYOkGMtpJ45k8si+2v+wsoGX2MP
-         Rs7wQwPsNjok16sYubxcPBMXrtDsqmKwhRhfubQicJItfJjum+WnTDfurYB/Vk/gC6Sj
-         BoyA==
+        bh=SC9Z8TYU3FIlegbJKB+Rnykve8tItTwLd+p+lGKeOhc=;
+        b=TvaZR1YZ3p6Nxnd6hGA9DOPWTM9wivJT6Y1X6RbbojKxViK3V/WGUN7SOZkDkpRF5A
+         gV8oFDKtmSq/+LAec/xcTxVmYk2FqLWZVHCwkueH54y5rjBzxm7Bl7hw1mb0YRirf04U
+         YNRruNzaH3OkwP8m02QpPeqnsiEqhllofymQH++Jfbvbkmdp//TItOYZrPGuAWsZgTga
+         yjsx1/yxcG3bgvYAaERbRgMXijQ/yywSpYTD5K6XnC7PibZefGpzqX0Yja0eBi9a1Z/C
+         u7L9ftnrUHv/SDLh6swxDPQgVy9lDBbpEri9djSJpN19GdVMmgdoZllbRqWWDC/ZAPug
+         MhMA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777360838; x=1777965638;
+        d=1e100.net; s=20251104; t=1777360846; x=1777965646;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=d6/DbS8+a0Bbu++hm0mIANNgnhHVu7X5dNuwNyZ3JIg=;
-        b=H5btC6BsubpFCmHebqMP9OwSMbMQdZ8SNRdb76kUAYSyFUJLLQTNswf35oNXl56ASJ
-         Fz7n6BittK5NhqmArHWR/ApBD2CfFJ1QF/ME9YyVLsr3QhSJ/I4brhBSouzhKNZENmsM
-         n7VHfF6TaoJIDuA7jwaCqtFoBgmQ/u0hCBwsmFSrH92BXcD4e5TMr2U8KfvPQP23I9tA
-         lphw36PxFy51nBspU0hd4l9BxWa67M++lnHeSTeoFW2tqQKzacVcSolC5UsAAbW84YgK
-         D1RjoCk4bGYUfio5w2MzPIDRixQAgAz52iUDSPQFC2bMXJ81f71XO4Aq5ZdL18itMeyo
-         UGaQ==
-X-Forwarded-Encrypted: i=1; AFNElJ84wnmCr4dyg/F2SF/lFFIwq5lN6uOBwQ+/AyRcaICn94C4CEQdWgN8VswDzlE9UJmC6J5K7LOTY0WARonxj5zM@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwDhWU/UiMWbQQoKzhj/GlbFrCzrv85OBdbOzDct6JyziMWGt4
-	S+g9GpYZxJ/L/+I1DxfmBHQ96PRPJe5EKn37PrnBm0MCYjktdSv/3G1RxeHNBI2SrOPJ+W08vRf
-	LRJdJEftdPw==
-X-Received: from dycao4.prod.google.com ([2002:a05:7301:7d04:b0:2da:3d44:ddce])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:fd11:b0:2ed:e16:6b39
- with SMTP id 5a478bee46e88-2ed0e3cececmr466106eec.17.1777360837710; Tue, 28
- Apr 2026 00:20:37 -0700 (PDT)
-Date: Tue, 28 Apr 2026 00:18:44 -0700
+        bh=SC9Z8TYU3FIlegbJKB+Rnykve8tItTwLd+p+lGKeOhc=;
+        b=du+dDWi8keJXpleuNVyk6bC564hdA8kInqrtFdXDtl2zj2L4sMt5UnrWMDOysfU+jm
+         2s3YkTg6lPCM8Ax//nL0pmxjuTYiheLyQ1O5pKbTjj4nDKNUObM0QByFMFJs6YLnCeoj
+         eU2AGdAB/aLIVL1RqLOplV4yAfWszVnO23g0BhCYrJDzqFHVN2XqqGiMjt6HkK8/53JU
+         RWnn2K19FmXAoK7WKhIgBHfUYwZQ/AVxRPWACDbs/0+O6uEwkWLKCrCzOstCr7Qxqlzc
+         Rm1AukpBbz+y9VqFVVXTxRpAhK+eo2T5PIjfluO0VMwcB6BA30KQClSdFv8a9yt59Qgp
+         u9CQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8FicJZ3qwAqBfbwlznh1aRa/RieapjQzImb20lvlqENScY3OHgfoomtFEA47zGVVu33w6T5f1N7U+5w1OmiCws@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjJ96WGYasyi8gEY7bcf3R4gVR2iRjKnFpqK0X5Y0P04EkaiQe
+	MavGrySwG2fKO2CwZ9otkM8A/JRWpb78nA/AJjzDwGWLN0okIbK2Xqjrh9yBWooSzjV3uiXbu7v
+	lceK7+rc2yg==
+X-Received: from dlad28.prod.google.com ([2002:a05:701b:221c:b0:12a:7f44:d2e3])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:628e:b0:128:d23d:81aa
+ with SMTP id a92af1059eb24-12ddd9aab26mr828686c88.27.1777360845372; Tue, 28
+ Apr 2026 00:20:45 -0700 (PDT)
+Date: Tue, 28 Apr 2026 00:18:48 -0700
 In-Reply-To: <20260428071903.1886173-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260425224951.174663-1-irogers@google.com> <20260428071903.1886173-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260428071903.1886173-40-irogers@google.com>
-Subject: [PATCH v8 39/58] perf intel-pt-events: Port intel-pt-events/libxed to
- use python module
+Message-ID: <20260428071903.1886173-44-irogers@google.com>
+Subject: [PATCH v8 43/58] perf sched-migration: Port sched-migration/SchedGui
+ to use python module
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, namhyung@kernel.org
 Cc: adrian.hunter@intel.com, alice.mei.rogers@gmail.com, 
@@ -76,8 +76,8 @@ Cc: adrian.hunter@intel.com, alice.mei.rogers@gmail.com,
 	tmricht@linux.ibm.com, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_002039_440328_3D965D0F 
-X-CRM114-Status: GOOD (  18.52  )
+X-CRM114-CacheID: sfid-20260428_002046_841747_C2B120F7 
+X-CRM114-Status: GOOD (  20.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,620 +92,760 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ported from tools/perf/scripts/python/.
-- Refactored intel-pt-events.py to use a class structure to eliminate
-  global state and improve maintainability.
-- Removed Python 2 compatibility checks.
-- Renamed methods in libxed.py to snake_case (Instruction ->
-  instruction, SetMode -> set_mode, DisassembleOne -> disassemble_one)
-  to comply with pylint.
+Ported from tools/perf/scripts/python/ and its Util lib.
+- Refactored sched-migration.py to use a class structure
+  (SchedMigrationAnalyzer) to encapsulate state.
+- Used perf.session for event processing.
+- Ported SchedGui.py to the same directory to keep it as a local
+  dependency.
+- Made wxPython dependency optional in sched-migration.py, printing a
+  message if it's missing instead of failing with ImportError.
+- Cleaned up Python 2 compatibility artifacts.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
 v2:
 
-1. Robustness in print_cbr : Added checks to ensure raw_buf is at
-   least 12 bytes long and that the frequency divisor is not zero,
-   avoiding struct.error and ZeroDivisionError .
+tools/perf/python/SchedGui.py:
+ - Python 3 Compatibility: Fixed TypeError issues caused by float
+   division in Python 3 when wxPython expected integers. Used integer
+   division ( // ) and explicit int() casts for scrollbar and size
+   calculations.
+ - wxPython Phoenix API Updates:
+   - Replaced deprecated  SetDimensions()  with  SetSize() .
+   - Replaced removed GetPositionTuple() with GetPosition() in
+     on_mouse_down.
+ - Fixed wx.PaintDC creation in on_paint to use
+   event.GetEventObject() to ensure valid DC creation regardless of
+   which window triggered the event.
+ - Layout and Rendering Fixes:
+   - Replaced static layout with a wx.SplitterWindow to physically
+     separate the drawing area from the text area, preventing them
+     from overlapping and restoring scrollbar functionality.
+   - Adjusted the initial sash position to give 3/4 of the height to
+     the drawing area.
+   - Replaced wx.StaticText with a multiline wx.TextCtrl for the
+     summary area to allow text selection and simpler value updates.
+   - Added CPU labels ("CPU ") drawn at the left edge of the visible
+     area in on_paint .
+   - Added background clearing ( dc.Clear() ) in on_paint to avoid
+     "ghosting" of old text and rectangles when scrolling.
 
-2. Robustness in print_evt : Added buffer length checks in the loop to
-   prevent struct.error if event data count exceeds available buffer.
-
-3. Buffer Handling in disassem : Used
-   ctypes.create_string_buffer(insn, 64) to properly initialize the
-   buffer with raw bytes, preventing truncation on \x00 bytes.
-
-4. Corrected Field Names: Reverted short names to sample_ip ,
-   sample_time , and sample_cpu across multiple methods.
-
-5. Comm Resolution: Used session.process(sample.sample_pid).comm() to
-   get the thread name, rather than failing back to "Unknown" .
-
-6. Event Name Cleanup: Stripped  evsel(  and  )  from event names.
-
-7. Fixed Broken Pipe Handling: Prevented sys.stdout from being closed
-   before exiting in the handler.
-
-8. Eliminated Hardcoded Offset in libxed.py : Added
-   xed_decoded_inst_get_length from the official LibXED API rather
-   than relying on the hardcoded byte offset 166 .
+tools/perf/python/sched-migration.py:
+ - Fixed a bug where sharing a snapshot in find_time_slice caused data
+   mutation across calls.
+ - Added safety checks to handle empty data cases (e.g., when
+   intervals have no events).
+ - Fixed fallbacks in fill_zone when search conditions fail to find a
+   matching time slice.
 ---
- tools/perf/python/intel-pt-events.py | 435 +++++++++++++++++++++++++++
- tools/perf/python/libxed.py          | 122 ++++++++
- 2 files changed, 557 insertions(+)
- create mode 100755 tools/perf/python/intel-pt-events.py
- create mode 100755 tools/perf/python/libxed.py
+ tools/perf/python/SchedGui.py        | 219 +++++++++++++
+ tools/perf/python/sched-migration.py | 469 +++++++++++++++++++++++++++
+ 2 files changed, 688 insertions(+)
+ create mode 100755 tools/perf/python/SchedGui.py
+ create mode 100755 tools/perf/python/sched-migration.py
 
-diff --git a/tools/perf/python/intel-pt-events.py b/tools/perf/python/intel-pt-events.py
+diff --git a/tools/perf/python/SchedGui.py b/tools/perf/python/SchedGui.py
 new file mode 100755
-index 000000000000..19a0faec8f5f
+index 000000000000..6111f3e5f552
 --- /dev/null
-+++ b/tools/perf/python/intel-pt-events.py
-@@ -0,0 +1,435 @@
++++ b/tools/perf/python/SchedGui.py
+@@ -0,0 +1,219 @@
++#!/usr/bin/env python3
++# SPDX-License-Identifier: GPL-2.0
++# SchedGui.py - Python extension for perf script, basic GUI code for
++#		traces drawing and overview.
++#
++# Copyright (C) 2010 by Frederic Weisbecker <fweisbec@gmail.com>
++#
++# Ported to modern directory structure.
++
++try:
++    import wx  # type: ignore
++except ImportError:
++    raise ImportError("You need to install the wxpython lib for this script")
++
++
++class RootFrame(wx.Frame):
++    Y_OFFSET = 100
++    RECT_HEIGHT = 100
++    RECT_SPACE = 50
++    EVENT_MARKING_WIDTH = 5
++
++    def __init__(self, sched_tracer, title, parent=None, id=-1):
++        wx.Frame.__init__(self, parent, id, title)
++
++        (self.screen_width, self.screen_height) = wx.GetDisplaySize()
++        self.screen_width -= 10
++        self.screen_height -= 10
++        self.zoom = 0.5
++        self.scroll_scale = 20
++        self.sched_tracer = sched_tracer
++        self.sched_tracer.set_root_win(self)
++        (self.ts_start, self.ts_end) = sched_tracer.interval()
++        self.update_width_virtual()
++        self.nr_rects = sched_tracer.nr_rectangles() + 1
++        self.height_virtual = RootFrame.Y_OFFSET + \
++            (self.nr_rects * (RootFrame.RECT_HEIGHT + RootFrame.RECT_SPACE))
++
++        # whole window panel
++        self.panel = wx.Panel(self, size=(self.screen_width, self.screen_height))
++
++        # scrollable container
++        # Create SplitterWindow
++        self.splitter = wx.SplitterWindow(self.panel, style=wx.SP_3D)
++
++        # scrollable container (Top)
++        self.scroll = wx.ScrolledWindow(self.splitter)
++        self.scroll.SetScrollbars(self.scroll_scale, self.scroll_scale,
++                                  int(self.width_virtual // self.scroll_scale),
++                                  int(self.height_virtual // self.scroll_scale))
++        self.scroll.EnableScrolling(True, True)
++        self.scroll.SetFocus()
++
++        # scrollable drawing area
++        self.scroll_panel = wx.Panel(self.scroll,
++                                     size=(self.screen_width - 15, self.screen_height // 2))
++        self.scroll_panel.Bind(wx.EVT_PAINT, self.on_paint)
++        self.scroll_panel.Bind(wx.EVT_KEY_DOWN, self.on_key_press)
++        self.scroll_panel.Bind(wx.EVT_LEFT_DOWN, self.on_mouse_down)
++        self.scroll.Bind(wx.EVT_KEY_DOWN, self.on_key_press)
++        self.scroll.Bind(wx.EVT_LEFT_DOWN, self.on_mouse_down)
++
++        self.scroll_panel.SetSize(int(self.width_virtual), int(self.height_virtual))
++
++        # Create a separate panel for text (Bottom)
++        self.text_panel = wx.Panel(self.splitter)
++        self.text_sizer = wx.BoxSizer(wx.VERTICAL)
++        self.txt = wx.TextCtrl(self.text_panel, -1, "Click a bar to see details",
++                               style=wx.TE_MULTILINE)
++        self.text_sizer.Add(self.txt, 1, wx.EXPAND | wx.ALL, 5)
++        self.text_panel.SetSizer(self.text_sizer)
++
++        # Split the window
++        self.splitter.SplitHorizontally(self.scroll, self.text_panel, (self.screen_height * 3) // 4)
++
++        # Main sizer to layout splitter
++        self.main_sizer = wx.BoxSizer(wx.VERTICAL)
++        self.main_sizer.Add(self.splitter, 1, wx.EXPAND)
++        self.panel.SetSizer(self.main_sizer)
++
++        self.scroll.Fit()
++        self.Fit()
++
++        self.Show(True)
++
++    def us_to_px(self, val):
++        return val / (10 ** 3) * self.zoom
++
++    def px_to_us(self, val):
++        return (val / self.zoom) * (10 ** 3)
++
++    def scroll_start(self):
++        (x, y) = self.scroll.GetViewStart()
++        return (x * self.scroll_scale, y * self.scroll_scale)
++
++    def scroll_start_us(self):
++        (x, y) = self.scroll_start()
++        return self.px_to_us(x)
++
++    def paint_rectangle_zone(self, nr, color, top_color, start, end):
++        offset_px = self.us_to_px(start - self.ts_start)
++        width_px = self.us_to_px(end - start)
++
++        offset_py = RootFrame.Y_OFFSET + (nr * (RootFrame.RECT_HEIGHT + RootFrame.RECT_SPACE))
++        width_py = RootFrame.RECT_HEIGHT
++
++        dc = self.dc
++
++        if top_color is not None:
++            (r, g, b) = top_color
++            top_color = wx.Colour(r, g, b)
++            brush = wx.Brush(top_color, wx.SOLID)
++            dc.SetBrush(brush)
++            dc.DrawRectangle(int(offset_px), int(offset_py),
++                             int(width_px), RootFrame.EVENT_MARKING_WIDTH)
++            width_py -= RootFrame.EVENT_MARKING_WIDTH
++            offset_py += RootFrame.EVENT_MARKING_WIDTH
++
++        (r, g, b) = color
++        color = wx.Colour(r, g, b)
++        brush = wx.Brush(color, wx.SOLID)
++        dc.SetBrush(brush)
++        dc.DrawRectangle(int(offset_px), int(offset_py), int(width_px), int(width_py))
++
++    def update_rectangles(self, dc, start, end):
++        start += self.ts_start
++        end += self.ts_start
++        self.sched_tracer.fill_zone(start, end)
++
++    def on_paint(self, event):
++        window = event.GetEventObject()
++        dc = wx.PaintDC(window)
++
++        # Clear background to avoid ghosting
++        dc.SetBackground(wx.Brush(window.GetBackgroundColour()))
++        dc.Clear()
++
++        self.dc = dc
++
++        width = min(self.width_virtual, self.screen_width)
++        (x, y) = self.scroll_start()
++        start = self.px_to_us(x)
++        end = self.px_to_us(x + width)
++        self.update_rectangles(dc, start, end)
++
++        # Draw CPU labels at the left edge of the visible area
++        (x_scroll, _) = self.scroll_start()
++        for nr in range(self.nr_rects):
++            offset_py = RootFrame.Y_OFFSET + (nr * (RootFrame.RECT_HEIGHT + RootFrame.RECT_SPACE))
++            dc.DrawText(f"CPU {nr}", x_scroll + 10, offset_py + 10)
++
++    def rect_from_ypixel(self, y):
++        y -= RootFrame.Y_OFFSET
++        rect = y // (RootFrame.RECT_HEIGHT + RootFrame.RECT_SPACE)
++        height = y % (RootFrame.RECT_HEIGHT + RootFrame.RECT_SPACE)
++
++        if rect < 0 or rect > self.nr_rects - 1 or height > RootFrame.RECT_HEIGHT:
++            return -1
++
++        return rect
++
++    def update_summary(self, txt):
++        self.txt.SetValue(txt)
++        self.text_panel.Layout()
++        self.splitter.Layout()
++        self.text_panel.Refresh()
++
++    def on_mouse_down(self, event):
++        pos = event.GetPosition()
++        x, y = pos.x, pos.y
++        rect = self.rect_from_ypixel(y)
++        if rect == -1:
++            return
++
++        t = self.px_to_us(x) + self.ts_start
++
++        self.sched_tracer.mouse_down(rect, t)
++
++    def update_width_virtual(self):
++        self.width_virtual = self.us_to_px(self.ts_end - self.ts_start)
++
++    def __zoom(self, x):
++        self.update_width_virtual()
++        (xpos, ypos) = self.scroll.GetViewStart()
++        xpos = int(self.us_to_px(x) // self.scroll_scale)
++        self.scroll.SetScrollbars(self.scroll_scale, self.scroll_scale,
++                                  int(self.width_virtual // self.scroll_scale),
++                                  int(self.height_virtual // self.scroll_scale),
++                                  xpos, ypos)
++        self.Refresh()
++
++    def zoom_in(self):
++        x = self.scroll_start_us()
++        self.zoom *= 2
++        self.__zoom(x)
++
++    def zoom_out(self):
++        x = self.scroll_start_us()
++        self.zoom /= 2
++        self.__zoom(x)
++
++    def on_key_press(self, event):
++        key = event.GetRawKeyCode()
++        if key == ord("+"):
++            self.zoom_in()
++            return
++        if key == ord("-"):
++            self.zoom_out()
++            return
++
++        key = event.GetKeyCode()
++        (x, y) = self.scroll.GetViewStart()
++        if key == wx.WXK_RIGHT:
++            self.scroll.Scroll(x + 1, y)
++        elif key == wx.WXK_LEFT:
++            self.scroll.Scroll(x - 1, y)
++        elif key == wx.WXK_DOWN:
++            self.scroll.Scroll(x, y + 1)
++        elif key == wx.WXK_UP:
++            self.scroll.Scroll(x, y - 1)
+diff --git a/tools/perf/python/sched-migration.py b/tools/perf/python/sched-migration.py
+new file mode 100755
+index 000000000000..331278958763
+--- /dev/null
++++ b/tools/perf/python/sched-migration.py
+@@ -0,0 +1,469 @@
 +#!/usr/bin/env python3
 +# SPDX-License-Identifier: GPL-2.0
 +"""
-+Print Intel PT Events including Power Events and PTWRITE.
-+Ported from tools/perf/scripts/python/intel-pt-events.py
++Cpu task migration overview toy
++
++Copyright (C) 2010 Frederic Weisbecker <fweisbec@gmail.com>
++Ported to modern directory structure and refactored to use class.
 +"""
 +
 +import argparse
-+import contextlib
-+from ctypes import addressof, create_string_buffer
-+import io
-+import os
-+import struct
-+import sys
-+from typing import Any, Optional
++from collections import defaultdict, UserList
 +import perf
 +
-+# Try to import LibXED from legacy directory if available in PYTHONPATH
++# SchedGui might not be available if wxPython is missing
 +try:
-+    from libxed import LibXED  # type: ignore
++    from SchedGui import RootFrame
++    import wx  # type: ignore
++    WX_AVAILABLE = True
 +except ImportError:
-+    LibXED = None  # type: ignore
++    WX_AVAILABLE = False
++
++# Global threads dictionary
++threads = defaultdict(lambda: "unknown")
++threads[0] = "idle"
 +
 +
-+class IntelPTAnalyzer:
-+    """Analyzes Intel PT events and prints details."""
++def thread_name(pid: int) -> str:
++    """Return thread name formatted with pid."""
++    return f"{threads[pid]}:{pid}"
 +
-+    def __init__(self, cfg: argparse.Namespace):
-+        self.args = cfg
-+        self.session: Optional[perf.session] = None
-+        self.insn = False
-+        self.src = False
-+        self.source_file_name: Optional[str] = None
-+        self.line_number: int = 0
-+        self.dso: Optional[str] = None
-+        self.stash_dict: dict[int, list[str]] = {}
-+        self.output: Any = None
-+        self.output_pos: int = 0
-+        self.cpu: int = -1
-+        self.time: int = 0
-+        self.switch_str: dict[int, str] = {}
 +
-+        if cfg.insn_trace:
-+            print("Intel PT Instruction Trace")
-+            self.insn = True
-+        elif cfg.src_trace:
-+            print("Intel PT Source Trace")
-+            self.insn = True
-+            self.src = True
++def task_state(state: int) -> str:
++    """Map task state integer to string."""
++    states = {
++        0: "R",
++        1: "S",
++        2: "D",
++        64: "DEAD"
++    }
++    return states.get(state, "Unknown")
++
++
++class RunqueueEventUnknown:
++    """Unknown runqueue event."""
++    @staticmethod
++    def color():
++        """Return color for event."""
++        return None
++
++    def __repr__(self):
++        return "unknown"
++
++
++class RunqueueEventSleep:
++    """Sleep runqueue event."""
++    @staticmethod
++    def color():
++        """Return color for event."""
++        return 0, 0, 0xff
++
++    def __init__(self, sleeper: int):
++        self.sleeper = sleeper
++
++    def __repr__(self):
++        return f"{thread_name(self.sleeper)} gone to sleep"
++
++
++class RunqueueEventWakeup:
++    """Wakeup runqueue event."""
++    @staticmethod
++    def color():
++        """Return color for event."""
++        return 0xff, 0xff, 0
++
++    def __init__(self, wakee: int):
++        self.wakee = wakee
++
++    def __repr__(self):
++        return f"{thread_name(self.wakee)} woke up"
++
++
++class RunqueueEventFork:
++    """Fork runqueue event."""
++    @staticmethod
++    def color():
++        """Return color for event."""
++        return 0, 0xff, 0
++
++    def __init__(self, child: int):
++        self.child = child
++
++    def __repr__(self):
++        return f"new forked task {thread_name(self.child)}"
++
++
++class RunqueueMigrateIn:
++    """Migrate in runqueue event."""
++    @staticmethod
++    def color():
++        """Return color for event."""
++        return 0, 0xf0, 0xff
++
++    def __init__(self, new: int):
++        self.new = new
++
++    def __repr__(self):
++        return f"task migrated in {thread_name(self.new)}"
++
++
++class RunqueueMigrateOut:
++    """Migrate out runqueue event."""
++    @staticmethod
++    def color():
++        """Return color for event."""
++        return 0xff, 0, 0xff
++
++    def __init__(self, old: int):
++        self.old = old
++
++    def __repr__(self):
++        return f"task migrated out {thread_name(self.old)}"
++
++
++class RunqueueSnapshot:
++    """Snapshot of runqueue state."""
++
++    def __init__(self, tasks=None, event=None):
++        if tasks is None:
++            tasks = (0,)
++        if event is None:
++            event = RunqueueEventUnknown()
++        self.tasks = tuple(tasks)
++        self.event = event
++
++    def sched_switch(self, prev: int, prev_state: int, next_pid: int):
++        """Handle sched switch in snapshot."""
++        if task_state(prev_state) == "R" and next_pid in self.tasks \
++                and prev in self.tasks:
++            return self
++
++        event = RunqueueEventUnknown()
++        if task_state(prev_state) != "R":
++            event = RunqueueEventSleep(prev)  # type: ignore
++
++        next_tasks = list(self.tasks[:])
++        if prev in self.tasks:
++            if task_state(prev_state) != "R":
++                next_tasks.remove(prev)
++        elif task_state(prev_state) == "R":
++            next_tasks.append(prev)
++
++        if next_pid not in next_tasks:
++            next_tasks.append(next_pid)
++
++        return RunqueueSnapshot(next_tasks, event)
++
++    def migrate_out(self, old: int):
++        """Handle task migrate out in snapshot."""
++        if old not in self.tasks:
++            return self
++        next_tasks = [task for task in self.tasks if task != old]
++
++        return RunqueueSnapshot(next_tasks, RunqueueMigrateOut(old))
++
++    def __migrate_in(self, new: int, event):
++        if new in self.tasks:
++            return RunqueueSnapshot(self.tasks, event)
++        next_tasks = self.tasks + tuple([new])
++
++        return RunqueueSnapshot(next_tasks, event)
++
++    def migrate_in(self, new: int):
++        """Handle task migrate in in snapshot."""
++        return self.__migrate_in(new, RunqueueMigrateIn(new))
++
++    def wake_up(self, new: int):
++        """Handle task wakeup in snapshot."""
++        return self.__migrate_in(new, RunqueueEventWakeup(new))
++
++    def wake_up_new(self, new: int):
++        """Handle task fork in snapshot."""
++        return self.__migrate_in(new, RunqueueEventFork(new))
++
++    def load(self) -> int:
++        """Provide the number of tasks on the runqueue. Don't count idle"""
++        return len(self.tasks) - 1
++
++    def __repr__(self):
++        return self.tasks.__repr__()
++
++
++class TimeSlice:
++    """Represents a time slice of execution."""
++
++    def __init__(self, start: int, prev):
++        self.start = start
++        self.prev = prev
++        self.end = start
++        # cpus that triggered the event
++        self.event_cpus: list[int] = []
++        if prev is not None:
++            self.total_load = prev.total_load
++            self.rqs = prev.rqs.copy()
 +        else:
-+            print("Intel PT Branch Trace, Power Events, Event Trace and PTWRITE")
++            self.rqs = defaultdict(RunqueueSnapshot)
++            self.total_load = 0
 +
-+        self.disassembler: Any = None
-+        if self.insn and LibXED is not None:
-+            try:
-+                self.disassembler = LibXED()
-+            except Exception as e:
-+                print(f"Failed to initialize LibXED: {e}")
-+                self.disassembler = None
++    def __update_total_load(self, old_rq: RunqueueSnapshot, new_rq: RunqueueSnapshot):
++        diff = new_rq.load() - old_rq.load()
++        self.total_load += diff
 +
-+    def print_ptwrite(self, raw_buf: bytes) -> None:
-+        """Print PTWRITE data."""
-+        data = struct.unpack_from("<IQ", raw_buf)
-+        flags = data[0]
-+        payload = data[1]
-+        exact_ip = flags & 1
-+        try:
-+            s = payload.to_bytes(8, "little").decode("ascii").rstrip("\x00")
-+            if not s.isprintable():
-+                s = ""
-+        except (UnicodeDecodeError, ValueError):
-+            s = ""
-+        print(f"IP: {exact_ip} payload: {payload:#x} {s}", end=' ')
++    def sched_switch(self, ts_list, prev: int, prev_state: int, next_pid: int, cpu: int):
++        """Process sched_switch in time slice."""
++        old_rq = self.prev.rqs[cpu]
++        new_rq = old_rq.sched_switch(prev, prev_state, next_pid)
 +
-+    def print_cbr(self, raw_buf: bytes) -> None:
-+        """Print CBR data."""
-+        if len(raw_buf) < 12:
++        if old_rq is new_rq:
 +            return
-+        data = struct.unpack_from("<BBBBII", raw_buf)
-+        cbr = data[0]
-+        f = (data[4] + 500) // 1000
-+        if data[2] == 0:
++
++        self.rqs[cpu] = new_rq
++        self.__update_total_load(old_rq, new_rq)
++        ts_list.append(self)
++        self.event_cpus = [cpu]
++
++    def migrate(self, ts_list, new: int, old_cpu: int, new_cpu: int):
++        """Process task migration in time slice."""
++        if old_cpu == new_cpu:
 +            return
-+        p = ((cbr * 1000 // data[2]) + 5) // 10
-+        print(f"{cbr:3u}  freq: {f:4u} MHz  ({p:3u}%)", end=' ')
++        old_rq = self.prev.rqs[old_cpu]
++        out_rq = old_rq.migrate_out(new)
++        self.rqs[old_cpu] = out_rq
++        self.__update_total_load(old_rq, out_rq)
 +
-+    def print_mwait(self, raw_buf: bytes) -> None:
-+        """Print MWAIT data."""
-+        data = struct.unpack_from("<IQ", raw_buf)
-+        payload = data[1]
-+        hints = payload & 0xff
-+        extensions = (payload >> 32) & 0x3
-+        print(f"hints: {hints:#x} extensions: {extensions:#x}", end=' ')
++        new_rq = self.prev.rqs[new_cpu]
++        in_rq = new_rq.migrate_in(new)
++        self.rqs[new_cpu] = in_rq
++        self.__update_total_load(new_rq, in_rq)
 +
-+    def print_pwre(self, raw_buf: bytes) -> None:
-+        """Print PWRE data."""
-+        data = struct.unpack_from("<IQ", raw_buf)
-+        payload = data[1]
-+        hw = (payload >> 7) & 1
-+        cstate = (payload >> 12) & 0xf
-+        subcstate = (payload >> 8) & 0xf
-+        print(f"hw: {hw} cstate: {cstate} sub-cstate: {subcstate}", end=' ')
++        ts_list.append(self)
 +
-+    def print_exstop(self, raw_buf: bytes) -> None:
-+        """Print EXSTOP data."""
-+        data = struct.unpack_from("<I", raw_buf)
-+        flags = data[0]
-+        exact_ip = flags & 1
-+        print(f"IP: {exact_ip}", end=' ')
++        if old_rq is not out_rq:
++            self.event_cpus.append(old_cpu)
++        self.event_cpus.append(new_cpu)
 +
-+    def print_pwrx(self, raw_buf: bytes) -> None:
-+        """Print PWRX data."""
-+        data = struct.unpack_from("<IQ", raw_buf)
-+        payload = data[1]
-+        deepest_cstate = payload & 0xf
-+        last_cstate = (payload >> 4) & 0xf
-+        wake_reason = (payload >> 8) & 0xf
-+        print(f"deepest cstate: {deepest_cstate} last cstate: {last_cstate} "
-+              f"wake reason: {wake_reason:#x}", end=' ')
-+
-+    def print_psb(self, raw_buf: bytes) -> None:
-+        """Print PSB data."""
-+        data = struct.unpack_from("<IQ", raw_buf)
-+        offset = data[1]
-+        print(f"offset: {offset:#x}", end=' ')
-+
-+    def print_evt(self, raw_buf: bytes) -> None:
-+        """Print EVT data."""
-+        glb_cfe = ["", "INTR", "IRET", "SMI", "RSM", "SIPI", "INIT", "VMENTRY", "VMEXIT",
-+                   "VMEXIT_INTR", "SHUTDOWN", "", "UINT", "UIRET"] + [""] * 18
-+        glb_evd = ["", "PFA", "VMXQ", "VMXR"] + [""] * 60
-+
-+        data = struct.unpack_from("<BBH", raw_buf)
-+        typ = data[0] & 0x1f
-+        ip_flag = (data[0] & 0x80) >> 7
-+        vector = data[1]
-+        evd_cnt = data[2]
-+        s = glb_cfe[typ]
-+        if s:
-+            print(f" cfe: {s} IP: {ip_flag} vector: {vector}", end=' ')
++    def wake_up(self, ts_list, pid: int, cpu: int, fork: bool):
++        """Process wakeup in time slice."""
++        old_rq = self.prev.rqs[cpu]
++        if fork:
++            new_rq = old_rq.wake_up_new(pid)
 +        else:
-+            print(f" cfe: {typ} IP: {ip_flag} vector: {vector}", end=' ')
-+        pos = 4
-+        for _ in range(evd_cnt):
-+            if len(raw_buf) < pos + 16:
++            new_rq = old_rq.wake_up(pid)
++
++        if new_rq is old_rq:
++            return
++        self.rqs[cpu] = new_rq
++        self.__update_total_load(old_rq, new_rq)
++        ts_list.append(self)
++        self.event_cpus = [cpu]
++
++    def next(self, t: int):
++        """Create next time slice."""
++        self.end = t
++        return TimeSlice(t, self)
++
++
++class TimeSliceList(UserList):
++    """List of time slices with search capabilities."""
++
++    def __init__(self, arg=None):
++        super().__init__(arg if arg is not None else [])
++        self.root_win = None
++
++    def get_time_slice(self, ts: int) -> TimeSlice:
++        """Get or create time slice for timestamp."""
++        if len(self.data) == 0:
++            ts_slice = TimeSlice(ts, TimeSlice(-1, None))
++        else:
++            ts_slice = self.data[-1].next(ts)
++        return ts_slice
++
++    def find_time_slice(self, ts: int) -> int:
++        """Binary search for time slice containing timestamp."""
++        if not self.data:
++            return -1
++        start = 0
++        end = len(self.data)
++        found = -1
++        searching = True
++        while searching:
++            if start in (end, end - 1):
++                searching = False
++
++            i = (end + start) // 2
++            if self.data[i].start <= ts <= self.data[i].end:
++                found = i
 +                break
-+            data = struct.unpack_from("<QQ", raw_buf, pos)
-+            et = data[0] & 0x3f
-+            s = glb_evd[et]
-+            if s:
-+                print(f"{s}: {data[1]:#x}", end=' ')
-+            else:
-+                print(f"EVD_{et}: {data[1]:#x}", end=' ')
-+            pos += 16
 +
-+    def print_iflag(self, raw_buf: bytes) -> None:
-+        """Print IFLAG data."""
-+        data = struct.unpack_from("<IQ", raw_buf)
-+        iflag = data[0] & 1
-+        old_iflag = iflag ^ 1
-+        via_branch = data[0] & 2
-+        s = "via" if via_branch else "non"
-+        print(f"IFLAG: {old_iflag}->{iflag} {s} branch", end=' ')
++            if self.data[i].end < ts:
++                start = i
++            elif self.data[i].start > ts:
++                end = i
 +
-+    def common_start_str(self, comm: str, sample: perf.sample_event) -> str:
-+        """Return common start string for display."""
-+        ts = sample.sample_time
-+        cpu = sample.sample_cpu
-+        pid = sample.sample_pid
-+        tid = sample.tid
-+        machine_pid = getattr(sample, "machine_pid", 0)
-+        if machine_pid:
-+            vcpu = getattr(sample, "vcpu", -1)
-+            return (f"VM:{machine_pid:5d} VCPU:{vcpu:03d} {comm:>16s} {pid:5u}/{tid:<5u} "
-+                    f"[{cpu:03u}] {ts // 1000000000:9u}.{ts % 1000000000:09u}  ")
-+        return (f"{comm:>16s} {pid:5u}/{tid:<5u} [{cpu:03u}] "
-+                f"{ts // 1000000000:9u}.{ts % 1000000000:09u}  ")
++        return found
 +
-+    def print_common_start(self, comm: str, sample: perf.sample_event, name: str) -> None:
-+        """Print common start info."""
-+        flags_disp = getattr(sample, "flags_disp", "")
-+        print(self.common_start_str(comm, sample) + f"{name:>8s}  {flags_disp:>21s}", end=' ')
++    def set_root_win(self, win):
++        """Set root window for GUI."""
++        self.root_win = win
 +
-+    def print_instructions_start(self, comm: str, sample: perf.sample_event) -> None:
-+        """Print instructions start info."""
-+        flags = getattr(sample, "flags_disp", "")
-+        if "x" in flags:
-+            print(self.common_start_str(comm, sample) + "x", end=' ')
++    def mouse_down(self, cpu: int, t: int):
++        """Handle mouse down event from GUI."""
++        idx = self.find_time_slice(t)
++        if idx == -1:
++            return
++
++        ts = self[idx]
++        rq = ts.rqs[cpu]
++        raw = f"CPU: {cpu}\n"
++        raw += f"Last event : {repr(rq.event)}\n"
++        raw += f"Timestamp : {ts.start // (10 ** 9)}.{ts.start % (10 ** 9) // 1000:06d}\n"
++        raw += f"Duration : {(ts.end - ts.start) // (10 ** 6):6d} us\n"
++        raw += f"Load = {rq.load()}\n"
++        for task in rq.tasks:
++            raw += f"{thread_name(task)} \n"
++
++        if self.root_win:
++            self.root_win.update_summary(raw)
++
++    def update_rectangle_cpu(self, slice_obj: TimeSlice, cpu: int):
++        """Update rectangle for CPU in GUI."""
++        rq = slice_obj.rqs[cpu]
++
++        if slice_obj.total_load != 0:
++            load_rate = rq.load() / float(slice_obj.total_load)
 +        else:
-+            print(self.common_start_str(comm, sample), end='  ')
++            load_rate = 0
 +
-+    def disassem(self, insn: bytes, ip: int) -> tuple[int, str]:
-+        """Disassemble instruction using LibXED."""
-+        inst = self.disassembler.instruction()
-+        self.disassembler.set_mode(inst, 0)  # Assume 64-bit
-+        buf = create_string_buffer(insn, 64)
-+        return self.disassembler.disassemble_one(inst, addressof(buf), len(insn), ip)
++        red_power = int(0xff - (0xff * load_rate))
++        color = (0xff, red_power, red_power)
 +
-+    def print_common_ip(self, sample: perf.sample_event, symbol: str, dso: str) -> None:
-+        """Print IP and symbol info."""
-+        ip = sample.sample_ip
-+        offs = f"+{sample.symoff:#x}" if hasattr(sample, "symoff") else ""
-+        cyc_cnt = getattr(sample, "cyc_cnt", 0)
-+        if cyc_cnt:
-+            insn_cnt = getattr(sample, "insn_cnt", 0)
-+            ipc_str = f"  IPC: {insn_cnt / cyc_cnt:#.2f} ({insn_cnt}/{cyc_cnt})"
-+        else:
-+            ipc_str = ""
++        top_color = None
++        if cpu in slice_obj.event_cpus:
++            top_color = rq.event.color()
 +
-+        if self.insn and self.disassembler is not None:
-+            try:
-+                insn = sample.insn()
-+            except AttributeError:
-+                insn = None
-+            if insn:
-+                cnt, text = self.disassem(insn, ip)
-+                byte_str = (f"{ip:x}").rjust(16)
-+                for k in range(cnt):
-+                    byte_str += f" {insn[k]:02x}"
-+                print(f"{byte_str:-40s}  {text:-30s}", end=' ')
-+            print(f"{symbol}{offs} ({dso})", end=' ')
-+        else:
-+            print(f"{ip:16x} {symbol}{offs} ({dso})", end=' ')
++        if self.root_win:
++            self.root_win.paint_rectangle_zone(cpu, color, top_color,
++                                               slice_obj.start, slice_obj.end)
 +
-+        addr_correlates_sym = getattr(sample, "addr_correlates_sym", False)
-+        if addr_correlates_sym:
-+            addr = sample.addr
-+            addr_dso = getattr(sample, "addr_dso", "[unknown]")
-+            addr_symbol = getattr(sample, "addr_symbol", "[unknown]")
-+            addr_offs = f"+{sample.addr_symoff:#x}" if hasattr(sample, "addr_symoff") else ""
-+            print(f"=> {addr:x} {addr_symbol}{addr_offs} ({addr_dso}){ipc_str}")
-+        else:
-+            print(ipc_str)
++    def fill_zone(self, start: int, end: int):
++        """Fill zone in GUI."""
++        i = self.find_time_slice(start)
++        if i == -1:
++            i = 0
 +
-+    def print_srccode(self, comm: str, sample: perf.sample_event,
-+                      symbol: str, dso: str, with_insn: bool) -> None:
-+        """Print source code info."""
-+        ip = sample.sample_ip
-+        if symbol == "[unknown]":
-+            start_str = self.common_start_str(comm, sample) + (f"{ip:x}").rjust(16).ljust(40)
-+        else:
-+            offs = f"+{sample.symoff:#x}" if hasattr(sample, "symoff") else ""
-+            start_str = self.common_start_str(comm, sample) + (symbol + offs).ljust(40)
++        for idx in range(i, len(self.data)):
++            timeslice = self.data[idx]
++            if timeslice.start > end:
++                return
 +
-+        if with_insn and self.insn and self.disassembler is not None:
-+            try:
-+                insn = sample.insn()
-+            except AttributeError:
-+                insn = None
-+            if insn:
-+                _, text = self.disassem(insn, ip)
-+                start_str += text.ljust(30)
++            for cpu in timeslice.rqs:
++                self.update_rectangle_cpu(timeslice, cpu)
 +
-+        try:
-+            source_file_name, line_number, source_line = sample.srccode()
-+        except (AttributeError, ValueError):
-+            source_file_name, line_number, source_line = None, 0, None
++    def interval(self) -> tuple[int, int]:
++        """Return start and end timestamps."""
++        if len(self.data) == 0:
++            return 0, 0
++        return self.data[0].start, self.data[-1].end
 +
-+        if source_file_name:
-+            if self.line_number == line_number and self.source_file_name == source_file_name:
-+                src_str = ""
-+            else:
-+                if len(source_file_name) > 40:
-+                    src_file = ("..." + source_file_name[-37:]) + " "
-+                else:
-+                    src_file = source_file_name.ljust(41)
-+                if source_line is None:
-+                    src_str = src_file + str(line_number).rjust(4) + " <source not found>"
-+                else:
-+                    src_str = src_file + str(line_number).rjust(4) + " " + source_line
-+            self.dso = None
-+        elif dso == self.dso:
-+            src_str = ""
-+        else:
-+            src_str = dso
-+            self.dso = dso
++    def nr_rectangles(self) -> int:
++        """Return maximum CPU number."""
++        if not self.data:
++            return 0
++        last_ts = self.data[-1]
++        max_cpu = 0
++        for cpu in last_ts.rqs:
++            max_cpu = max(max_cpu, cpu)
++        return max_cpu
 +
-+        self.line_number = line_number
-+        self.source_file_name = source_file_name
-+        print(start_str, src_str)
 +
-+    def do_process_event(self, sample: perf.sample_event) -> None:
-+        """Process event and print info."""
-+        comm = "Unknown"
-+        if hasattr(self, 'session') and self.session:
-+            try:
-+                comm = self.session.find_thread(sample.sample_pid).comm()
-+            except Exception:
-+                pass
-+        name = getattr(sample.evsel, 'name', str(sample.evsel))
-+        if name.startswith("evsel("):
-+            name = name[6:-1]
-+        dso = getattr(sample, "dso", "[unknown]")
-+        symbol = getattr(sample, "symbol", "[unknown]")
++class SchedMigrationAnalyzer:
++    """Analyzes task migrations and manages time slices."""
 +
-+        cpu = sample.sample_cpu
-+        if cpu in self.switch_str:
-+            print(self.switch_str[cpu])
-+            del self.switch_str[cpu]
++    def __init__(self):
++        self.current_tsk = defaultdict(lambda: -1)
++        self.timeslices = TimeSliceList()
 +
-+        try:
-+            raw_buf = sample.raw_buf
-+        except AttributeError:
-+            raw_buf = b""
++    def sched_switch(self, time: int, cpu: int, prev_comm: str, prev_pid: int, prev_state: int,
++                     next_comm: str, next_pid: int):
++        """Handle sched_switch event."""
++        on_cpu_task = self.current_tsk[cpu]
 +
-+        if name.startswith("instructions"):
-+            if self.src:
-+                self.print_srccode(comm, sample, symbol, dso, True)
-+            else:
-+                self.print_instructions_start(comm, sample)
-+                self.print_common_ip(sample, symbol, dso)
-+        elif name.startswith("branches"):
-+            if self.src:
-+                self.print_srccode(comm, sample, symbol, dso, False)
-+            else:
-+                self.print_common_start(comm, sample, name)
-+                self.print_common_ip(sample, symbol, dso)
-+        elif name == "ptwrite":
-+            self.print_common_start(comm, sample, name)
-+            self.print_ptwrite(raw_buf)
-+            self.print_common_ip(sample, symbol, dso)
-+        elif name == "cbr":
-+            self.print_common_start(comm, sample, name)
-+            self.print_cbr(raw_buf)
-+            self.print_common_ip(sample, symbol, dso)
-+        elif name == "mwait":
-+            self.print_common_start(comm, sample, name)
-+            self.print_mwait(raw_buf)
-+            self.print_common_ip(sample, symbol, dso)
-+        elif name == "pwre":
-+            self.print_common_start(comm, sample, name)
-+            self.print_pwre(raw_buf)
-+            self.print_common_ip(sample, symbol, dso)
-+        elif name == "exstop":
-+            self.print_common_start(comm, sample, name)
-+            self.print_exstop(raw_buf)
-+            self.print_common_ip(sample, symbol, dso)
-+        elif name == "pwrx":
-+            self.print_common_start(comm, sample, name)
-+            self.print_pwrx(raw_buf)
-+            self.print_common_ip(sample, symbol, dso)
-+        elif name == "psb":
-+            self.print_common_start(comm, sample, name)
-+            self.print_psb(raw_buf)
-+            self.print_common_ip(sample, symbol, dso)
-+        elif name == "evt":
-+            self.print_common_start(comm, sample, name)
-+            self.print_evt(raw_buf)
-+            self.print_common_ip(sample, symbol, dso)
-+        elif name == "iflag":
-+            self.print_common_start(comm, sample, name)
-+            self.print_iflag(raw_buf)
-+            self.print_common_ip(sample, symbol, dso)
-+        else:
-+            self.print_common_start(comm, sample, name)
-+            self.print_common_ip(sample, symbol, dso)
++        if on_cpu_task not in (-1, prev_pid):
++            print(f"Sched switch event rejected ts: {time} cpu: {cpu} "
++                  f"prev: {prev_comm}({prev_pid}) next: {next_comm}({next_pid})")
 +
-+    def interleave_events(self, sample: perf.sample_event) -> None:
-+        """Interleave output to avoid garbled lines from different CPUs."""
-+        self.cpu = sample.sample_cpu
-+        ts = sample.sample_time
++        threads[prev_pid] = prev_comm
++        threads[next_pid] = next_comm
++        self.current_tsk[cpu] = next_pid
 +
-+        if self.time != ts:
-+            self.time = ts
-+            self.flush_stashed_output()
++        ts = self.timeslices.get_time_slice(time)
++        ts.sched_switch(self.timeslices, prev_pid, prev_state, next_pid, cpu)
 +
-+        self.output_pos = 0
-+        with contextlib.redirect_stdout(io.StringIO()) as self.output:
-+            self.do_process_event(sample)
++    def migrate(self, time: int, pid: int, orig_cpu: int, dest_cpu: int):
++        """Handle sched_migrate_task event."""
++        ts = self.timeslices.get_time_slice(time)
++        ts.migrate(self.timeslices, pid, orig_cpu, dest_cpu)
 +
-+        self.stash_output()
-+
-+    def stash_output(self) -> None:
-+        """Stash output for later flushing."""
-+        output_str = self.output.getvalue()[self.output_pos:]
-+        n = len(output_str)
-+        if n:
-+            self.output_pos += n
-+            if self.cpu not in self.stash_dict:
-+                self.stash_dict[self.cpu] = []
-+            self.stash_dict[self.cpu].append(output_str)
-+            if len(self.stash_dict[self.cpu]) > 1000:
-+                self.flush_stashed_output()
-+
-+    def flush_stashed_output(self) -> None:
-+        """Flush stashed output."""
-+        while self.stash_dict:
-+            cpus = list(self.stash_dict.keys())
-+            for cpu in cpus:
-+                items = self.stash_dict[cpu]
-+                countdown = self.args.interleave
-+                while len(items) and countdown:
-+                    sys.stdout.write(items[0])
-+                    del items[0]
-+                    countdown -= 1
-+                if not items:
-+                    del self.stash_dict[cpu]
++    def wake_up(self, time: int, pid: int, success: int, target_cpu: int, fork: bool):
++        """Handle wakeup event."""
++        if success == 0:
++            return
++        ts = self.timeslices.get_time_slice(time)
++        ts.wake_up(self.timeslices, pid, target_cpu, fork)
 +
 +    def process_event(self, sample: perf.sample_event) -> None:
-+        """Wrapper to handle interleaving and exceptions."""
-+        try:
-+            if self.args.interleave:
-+                self.interleave_events(sample)
-+            else:
-+                self.do_process_event(sample)
-+        except BrokenPipeError:
-+            # Stop python printing broken pipe errors and traceback
-+            sys.stdout = open(os.devnull, 'w', encoding='utf-8')
-+            sys.exit(1)
++        """Collect events and pass to analyzer."""
++        name = str(sample.evsel)
++        time = sample.sample_time
++        cpu = sample.sample_cpu
++        _pid = sample.sample_pid
++        _comm = "Unknown"
++
++        if name == "evsel(sched:sched_switch)":
++            prev_comm = getattr(sample, "prev_comm", "Unknown")
++            prev_pid = getattr(sample, "prev_pid", -1)
++            prev_state = getattr(sample, "prev_state", 0)
++            next_comm = getattr(sample, "next_comm", "Unknown")
++            next_pid = getattr(sample, "next_pid", -1)
++            self.sched_switch(time, cpu, prev_comm, prev_pid, prev_state, next_comm, next_pid)
++        elif name == "evsel(sched:sched_migrate_task)":
++            task_pid = getattr(sample, "pid", -1)
++            orig_cpu = getattr(sample, "orig_cpu", -1)
++            dest_cpu = getattr(sample, "dest_cpu", -1)
++            self.migrate(time, task_pid, orig_cpu, dest_cpu)
++        elif name == "evsel(sched:sched_wakeup)":
++            task_pid = getattr(sample, "pid", -1)
++            success = getattr(sample, "success", 1)
++            target_cpu = getattr(sample, "target_cpu", -1)
++            self.wake_up(time, task_pid, success, target_cpu, False)
++        elif name == "evsel(sched:sched_wakeup_new)":
++            task_pid = getattr(sample, "pid", -1)
++            success = getattr(sample, "success", 1)
++            target_cpu = getattr(sample, "target_cpu", -1)
++            self.wake_up(time, task_pid, success, target_cpu, True)
++
++    def run_gui(self):
++        """Start wxPython GUI."""
++        if not WX_AVAILABLE:
++            print("wxPython is not available. Cannot start GUI.")
++            return
++        app = wx.App(False)
++        _frame = RootFrame(self.timeslices, "Migration")
++        app.MainLoop()
 +
 +
 +if __name__ == "__main__":
-+    ap = argparse.ArgumentParser()
++    ap = argparse.ArgumentParser(description="Cpu task migration overview toy")
 +    ap.add_argument("-i", "--input", default="perf.data", help="Input file name")
-+    ap.add_argument("--insn-trace", action='store_true')
-+    ap.add_argument("--src-trace", action='store_true')
-+    ap.add_argument("--all-switch-events", action='store_true')
-+    ap.add_argument("--interleave", type=int, nargs='?', const=4, default=0)
 +    args = ap.parse_args()
 +
-+    analyzer = IntelPTAnalyzer(args)
++    analyzer = SchedMigrationAnalyzer()
 +
 +    try:
 +        session = perf.session(perf.data(args.input), sample=analyzer.process_event)
-+        analyzer.session = session
 +        session.process_events()
-+        if args.interleave:
-+            analyzer.flush_stashed_output()
-+        print("End")
++        analyzer.run_gui()
 +    except KeyboardInterrupt:
-+        if args.interleave:
-+            analyzer.flush_stashed_output()
-+        print("End")
++        pass
 +    except Exception as e:
 +        print(f"Error processing events: {e}")
-diff --git a/tools/perf/python/libxed.py b/tools/perf/python/libxed.py
-new file mode 100755
-index 000000000000..0e622e6959c2
---- /dev/null
-+++ b/tools/perf/python/libxed.py
-@@ -0,0 +1,122 @@
-+#!/usr/bin/env python3
-+# SPDX-License-Identifier: GPL-2.0
-+"""
-+Python wrapper for libxed.so
-+Ported from tools/perf/scripts/python/libxed.py
-+"""
-+
-+from ctypes import CDLL, Structure, create_string_buffer, addressof, sizeof, \
-+                   c_void_p, c_byte, c_int, c_uint, c_ulonglong
-+
-+# To use Intel XED, libxed.so must be present. To build and install
-+# libxed.so:
-+#            git clone https://github.com/intelxed/mbuild.git mbuild
-+#            git clone https://github.com/intelxed/xed
-+#            cd xed
-+#            ./mfile.py --share
-+#            sudo ./mfile.py --prefix=/usr/local install
-+#            sudo ldconfig
-+#
-+
-+
-+class XedStateT(Structure):
-+    """xed_state_t structure."""
-+    _fields_ = [
-+        ("mode", c_int),
-+        ("width", c_int)
-+    ]
-+
-+
-+class XEDInstruction():
-+    """Represents a decoded instruction."""
-+
-+    def __init__(self, libxed):
-+        # Current xed_decoded_inst_t structure is 192 bytes. Use 512 to allow for future expansion
-+        xedd_t = c_byte * 512
-+        self.xedd = xedd_t()
-+        self.xedp = addressof(self.xedd)
-+        libxed.xed_decoded_inst_zero(self.xedp)
-+        self.state = XedStateT()
-+        self.statep = addressof(self.state)
-+        # Buffer for disassembled instruction text
-+        self.buffer = create_string_buffer(256)
-+        self.bufferp = addressof(self.buffer)
-+
-+
-+class LibXED():
-+    """Wrapper for libxed.so."""
-+
-+    def __init__(self):
-+        try:
-+            self.libxed = CDLL("libxed.so")
-+        except OSError:
-+            self.libxed = None
-+        if not self.libxed:
-+            try:
-+                self.libxed = CDLL("/usr/local/lib/libxed.so")
-+            except OSError:
-+                self.libxed = None
-+
-+        if not self.libxed:
-+            raise ImportError("libxed.so not found. Please install Intel XED.")
-+
-+        self.xed_tables_init = self.libxed.xed_tables_init
-+        self.xed_tables_init.restype = None
-+        self.xed_tables_init.argtypes = []
-+
-+        self.xed_decoded_inst_zero = self.libxed.xed_decoded_inst_zero
-+        self.xed_decoded_inst_zero.restype = None
-+        self.xed_decoded_inst_zero.argtypes = [c_void_p]
-+
-+        self.xed_operand_values_set_mode = self.libxed.xed_operand_values_set_mode
-+        self.xed_operand_values_set_mode.restype = None
-+        self.xed_operand_values_set_mode.argtypes = [c_void_p, c_void_p]
-+
-+        self.xed_decoded_inst_zero_keep_mode = self.libxed.xed_decoded_inst_zero_keep_mode
-+        self.xed_decoded_inst_zero_keep_mode.restype = None
-+        self.xed_decoded_inst_zero_keep_mode.argtypes = [c_void_p]
-+
-+        self.xed_decode = self.libxed.xed_decode
-+        self.xed_decode.restype = c_int
-+        self.xed_decode.argtypes = [c_void_p, c_void_p, c_uint]
-+
-+        self.xed_format_context = self.libxed.xed_format_context
-+        self.xed_format_context.restype = c_uint
-+        self.xed_format_context.argtypes = [
-+            c_int, c_void_p, c_void_p, c_int, c_ulonglong, c_void_p, c_void_p
-+        ]
-+
-+        self.xed_decoded_inst_get_length = self.libxed.xed_decoded_inst_get_length
-+        self.xed_decoded_inst_get_length.restype = c_uint
-+        self.xed_decoded_inst_get_length.argtypes = [c_void_p]
-+
-+        self.xed_tables_init()
-+
-+    def instruction(self):
-+        """Create a new XEDInstruction."""
-+        return XEDInstruction(self)
-+
-+    def set_mode(self, inst, mode):
-+        """Set 32-bit or 64-bit mode."""
-+        if mode:
-+            inst.state.mode = 4  # 32-bit
-+            inst.state.width = 4  # 4 bytes
-+        else:
-+            inst.state.mode = 1  # 64-bit
-+            inst.state.width = 8  # 8 bytes
-+        self.xed_operand_values_set_mode(inst.xedp, inst.statep)
-+
-+    def disassemble_one(self, inst, bytes_ptr, bytes_cnt, ip):
-+        """Disassemble one instruction."""
-+        self.xed_decoded_inst_zero_keep_mode(inst.xedp)
-+        err = self.xed_decode(inst.xedp, bytes_ptr, bytes_cnt)
-+        if err:
-+            return 0, ""
-+        # Use AT&T mode (2), alternative is Intel (3)
-+        ok = self.xed_format_context(2, inst.xedp, inst.bufferp, sizeof(inst.buffer), ip, 0, 0)
-+        if not ok:
-+            return 0, ""
-+
-+        result = inst.buffer.value.decode('utf-8')
-+        # Return instruction length and the disassembled instruction text
-+        return self.xed_decoded_inst_get_length(inst.xedp), result
 -- 
 2.54.0.545.g6539524ca2-goog
 
