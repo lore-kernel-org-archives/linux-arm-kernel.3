@@ -4,69 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB41DFF886D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 09:10:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 698D1FF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 09:11:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R40TvKu4kAaBKKEQTzEO2/xBAin3Dho585lB+4zAqGA=; b=Wg7HfCKPhX+Effx6rABpRYRbvZ
-	5spO2Z4z+EIg1DhEPsMtmygilD1WXe8bbWkdTuRcF9UGOKOPuVnlvjLJiR+zL6Hst0LJgdrMxJMKW
-	7EGnomfIDB3D0fG96+KgY0FBGUnhIxLYt2r9udrpE7tnnHGKdAONU5mgZeZe2D3KcBWm/JNIUNLUV
-	pRJHKhMoGQK69xp4P2RLKp6SH2yheeGH1QN3ifgqsJe97wtTLB+Q3kOktLUj5hPJBGy8Z9xB2VdZ4
-	i90l4ZtRl4cBuviNajg2/w70WnAnYr1HmWWIHf7N9oNLzfJl3VCAqTLIdKEJidHADlUU54hT9ql1Y
-	ONQTAx4w==;
+	bh=TvOzo8RjsLIaVVajzywOgjFrzZwCgL5apopPTnfRjy0=; b=ErEBa0EPQomiKPnmsMj4N6OWfr
+	sAskMLmbXCw8jXE0xKgIzu1S2w45Okt/1ZSt23Uu2NX65KO9lHuOWF5+BrC6rGaSW3mxdxKIQRVj0
+	eWWyscQRVbzZj7zIziTKAYBDcU+Vzy8fT+UOYPVwJC94DLRP1DIbyf08li+5bKjXr+mzFUtVmj+Yr
+	uWy2YdJ+mT/6Ye49N98PUshwt+orjaMd6bsKPWFFBemkFeMzyAJGUlzyWiy7wqvwQ8PUSGXK0Ze0m
+	aPn31ACYwhlHDoP0+nzpJUlgRyf+CKreQKEfleS3vIVOdOJ9SBJMqPjYm6FJatsU1c6ihllP0FiV6
+	i+8uowZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeSX-000000012Nc-3XvF;
-	Tue, 28 Apr 2026 09:10:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeSI-000000012A2-3UxZ
+	id 1wHeT7-000000012no-1aQO;
+	Tue, 28 Apr 2026 09:11:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHeSz-000000012jA-436m
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 09:10:15 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0E8CE15A1;
-	Tue, 28 Apr 2026 02:10:03 -0700 (PDT)
-Received: from donnerap.manchester.arm.com (donnerap.manchester.arm.com [10.33.8.81])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3B2433F62B;
-	Tue, 28 Apr 2026 02:10:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777367408; bh=JUOAYUoA6ZULBMyS9cgEcmGlJ6DkFAap892e25+ywaQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ZVJraegfG9O8iooQVT2WNbzCPlvjOV49BNZvoeGwVD6sMzmVT+jAf/F2g3o2YwUqG
-	 wloV5dRDS/I+bud801RIyS4/RTiRjHsV7aCccgWKMfNYVOD37FTMg2H08QieNBVgqB
-	 RR283x7tkLOAU8yAgvQc2dNp353q29NPkpqORTMU=
-From: Philip Radford <philip.radford@arm.com>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org,
-	linux-pm@vger.kernel.org
-Cc: sudeep.holla@arm.com,
-	james.quinlan@broadcom.com,
-	f.fainelli@gmail.com,
-	vincent.guittot@linaro.org,
-	etienne.carriere@st.com,
-	peng.fan@oss.nxp.com,
-	michal.simek@amd.com,
-	quic_sibis@quicinc.com,
-	dan.carpenter@linaro.org,
-	d-gole@ti.com,
-	souvik.chakravarty@arm.com,
-	Philip Radford <philip.radford@arm.com>
-Subject: [PATCH v5 12/12] powercap: arm_scmi: Synthetic zone enable/disable
-Date: Tue, 28 Apr 2026 10:09:21 +0100
-Message-ID: <20260428090922.346069-13-philip.radford@arm.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260428090922.346069-1-philip.radford@arm.com>
-References: <20260428090922.346069-1-philip.radford@arm.com>
+	Tue, 28 Apr 2026 09:11:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BCEDC429E5
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 09:10:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47B4CC2BCB8
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 09:10:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777367452;
+	bh=TvOzo8RjsLIaVVajzywOgjFrzZwCgL5apopPTnfRjy0=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=YN0cVSjBhpqxw6QKrKuxWUGd11SDdOBA7ABeXT/kOAoepwMDJDSxLRF5wJQo5lmAP
+	 PSuUNffzGyUujMFAi+ZvFWFsQSoZcLjM7nxpc0Up75sWfxrRjGBebrtFdIxP6OGCDo
+	 pkpUQuOt67WzOzVgBAt+S/e+k8LPQh7RI7z4l3usttSPrYRukOqTNkcoWGJIWwWMAq
+	 tHin3fxcpQQsW0FTtXaqUyDnD9Rhmwo6JG0oA5MlDDZCKjaIL2158mr5VKncs++iS9
+	 Xn+8aXW/EkwWjC7/iUFZ1fVl0woDNBSBjUgLj7NRrdY1nnQFuSYkMr4X8piUWhPF8w
+	 5MXRvYG/B0hGQ==
+Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5a1307438ddso10027845e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 02:10:52 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ9NekWcJqKlFzOovs7uxuH9Jsk926K4fo7mhMD1Sr3vjNlEdnC1SQH1DnZZTyFcNfLYJsPG2z7a/xDpcX8+4Emf@lists.infradead.org
+X-Gm-Message-State: AOJu0YwazGcfFNeRs3Yh608tgXhSLC4VZ1jgYqERmx7seFoHfC8lTXE8
+	Z5af3vWRUrhEG5/vI8hwqC+sWB1ZL1r2GgnrQSDhvVQAAUbkpX3OGW8wyMHW7Ltla7Xpb/lNkfD
+	L5httfU0dZI9FBKSW9Ujiq3xVq/WK0BQ=
+X-Received: by 2002:a05:6512:3f28:b0:5a4:505:f633 with SMTP id
+ 2adb3069b0e04-5a74662df1emr1039066e87.38.1777367450963; Tue, 28 Apr 2026
+ 02:10:50 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260410-pinctrl-testing-v1-0-6f708c855867@oss.qualcomm.com>
+In-Reply-To: <20260410-pinctrl-testing-v1-0-6f708c855867@oss.qualcomm.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 28 Apr 2026 11:10:37 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmeH6Hy1tm-uTV7YP9gHc7vk+-vaYNT5cqZPU75Jyt-=w@mail.gmail.com>
+X-Gm-Features: AVHnY4Lt1Nb-eIUW4vHkvKpaNVPQodgCRHtRa3BH6rlTVPd0JsgyLmESZ18n1Jo
+Message-ID: <CAD++jLmeH6Hy1tm-uTV7YP9gHc7vk+-vaYNT5cqZPU75Jyt-=w@mail.gmail.com>
+Subject: Re: [PATCH 0/4] pinctrl: More compile testing
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: =?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, 
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Andrew Jeffery <andrew@codeconstruct.com.au>, linux-aspeed@lists.ozlabs.org, 
+	openbmc@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
+	Joel Stanley <joel@jms.id.au>, linux-realtek-soc@lists.infradead.org, 
+	James Tai <james.tai@realtek.com>, Yu-Chun Lin <eleanor.lin@realtek.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_021011_116970_3F78481A 
-X-CRM114-Status: GOOD (  12.57  )
+X-CRM114-CacheID: sfid-20260428_021054_043573_E5150476 
+X-CRM114-Status: GOOD (  10.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,115 +86,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add functionality to disable and enable the synthetic zone which
-also affects the immediate children of the synthetic zone by applying
-the same command to them.
+On Fri, Apr 10, 2026 at 3:05=E2=80=AFPM Krzysztof Kozlowski
+<krzysztof.kozlowski@oss.qualcomm.com> wrote:
 
-Signed-off-by: Philip Radford <philip.radford@arm.com>
----
- drivers/powercap/arm_scmi_powercap.c | 81 ++++++++++++++++++++++++++++
- 1 file changed, 81 insertions(+)
+> Follows https://lore.kernel.org/r/20260410103005.163128-2-krzysztof.kozlo=
+wski@oss.qualcomm.com/
+> but should not depend on it anyhow.
+>
+> More compile testing means better bot coverage. Plus having ||
+> COMPILE_TEST and obj-CONFIG_ARCH_FOO is kind of pointless.
 
-diff --git a/drivers/powercap/arm_scmi_powercap.c b/drivers/powercap/arm_scmi_powercap.c
-index 81b5214acda4..1ed2949b06cb 100644
---- a/drivers/powercap/arm_scmi_powercap.c
-+++ b/drivers/powercap/arm_scmi_powercap.c
-@@ -270,6 +270,85 @@ static int instance_root_release(struct powercap_zone *pz)
- 	return 0;
- }
- 
-+static int instance_root_set_enable_state(struct powercap_zone *pz, bool enable)
-+{
-+	struct scmi_powercap_zone *root;
-+	struct scmi_powercap_root *pr;
-+	struct scmi_powercap_zone *child;
-+	int ret, first_err = 0;
-+
-+	if (!pz)
-+		return -EINVAL;
-+
-+	root = to_scmi_powercap_zone(pz);
-+	pr = container_of(root, struct scmi_powercap_root, instance_root);
-+
-+	list_for_each_entry(child, &pr->registered_zones[0], node) {
-+		if (child == &pr->instance_root)
-+			continue;
-+
-+		if (child->info->parent_id != SCMI_POWERCAP_ROOT_ZONE_ID)
-+			continue;
-+
-+		if (!child->info->cpli[0].cap_config)
-+			continue;
-+
-+		ret = powercap_ops->cap_enable_set(child->ph, child->info->id, enable);
-+
-+		if (ret && !first_err) {
-+			first_err = ret;
-+			dev_err(child->dev, "failed to %s zone %s: %d\n",
-+				enable ? "enable" : "disable",
-+				child->info->name, ret);
-+		}
-+	}
-+
-+	return first_err;
-+}
-+
-+static int instance_root_set_enable(struct powercap_zone *pz, bool mode)
-+{
-+	return instance_root_set_enable_state(pz, mode);
-+}
-+
-+static int instance_root_get_enable(struct powercap_zone *pz, bool *mode)
-+{
-+	struct scmi_powercap_zone *root;
-+	struct scmi_powercap_root *pr;
-+	struct scmi_powercap_zone *child;
-+	bool enabled;
-+	int ret;
-+
-+	if (!pz || !mode)
-+		return -EINVAL;
-+
-+	root = to_scmi_powercap_zone(pz);
-+	pr = container_of(root, struct scmi_powercap_root, instance_root);
-+
-+	*mode = true;
-+
-+	list_for_each_entry(child, &pr->registered_zones[0], node) {
-+		if (child == &pr->instance_root)
-+			continue;
-+		if (child->info->parent_id != SCMI_POWERCAP_ROOT_ZONE_ID)
-+			continue;
-+		if (!child->info->cpli[0].cap_config)
-+			continue;
-+
-+		ret = powercap_ops->cap_enable_get(child->ph, child->info->id, &enabled);
-+
-+		if (ret)
-+			return ret;
-+
-+		if (!enabled) {
-+			*mode = false;
-+			return 0;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
- static int instance_root_get_power_uw(struct powercap_zone *pz, u64 *power_uw)
- {
- 	struct scmi_powercap_zone *root = to_scmi_powercap_zone(pz);
-@@ -315,6 +394,8 @@ static const struct powercap_zone_ops instance_root_ops = {
- 	.get_max_power_range_uw = scmi_powercap_get_max_power_range_uw,
- 	.get_power_uw = instance_root_get_power_uw,
- 	.release = instance_root_release,
-+	.set_enable = instance_root_set_enable,
-+	.get_enable = instance_root_get_enable,
- };
- 
- static const struct powercap_zone_constraint_ops instance_root_const_ops = {
--- 
-2.47.3
+Patches applied, early in the kernel cycle so the more build errors
+we get from these the better, we have time to harden the patches.
 
+Yours,
+Linus Walleij
 
