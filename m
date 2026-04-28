@@ -4,56 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13F7BFF886D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 20:17:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB3B6FF886D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 20:17:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1TzXyp+yIYJMwCrJFfkFZWc3eBpmjyTzay49h7tNZoA=; b=kMaiugGwBF5q+pVor5J7oKTM5p
-	5lMgDycZ1yQukjJrfTzX0A/N3ibRhF6se07L4ZTZ+yXP62CbbygczI25fFYBGCfLlhBAeNVvY/Nwr
-	er5R7j2QSU0HinPIkRW7AGPTrNm9vCju63jFNqsCua46EfpkJE6HawIQz6Qm1FteUp+h1e/LUKBl5
-	RdrzQxDm8jm55baHi+6dJEizYdQfY8UIycyODYJVYrN3wLeqoUfYWCGIFwMcQYNCIpGYXOEg47lmR
-	4khumLOPZRtytkV4wONKHm4K7aIDGQV+xBxOBXTdVoo4GuPBmRKvS6T6LHVPyp+V5/COO1LJrDrEA
-	LZkyqeUw==;
+	bh=OrbjTKtmpVE5lsZiQjJcj9NGAo9gCqAg8XhurN45AHQ=; b=qWXmJePlrNWNU2VHGuT6Hg/qIf
+	s+RRWFAsZAOchjl4ZFIzzRFRTqwzUf7R2baliZlsqtFSZQa99myl3dVQFDdfnvMiTmkl2obFuuuQc
+	eCFWdAhmK7JCrSy5K9M9Z/L7m3Wodn8oHYG6Eg1YwlmRx5ctBx8mSkkZa7+J8csqWsnyasW+T3OeC
+	hO1eXtQPpApGNqR/yLGaZV76zx11h8xiaAuau+LqdAlbeRef0B03eU4G7sfqzfLZBsbzNXOiULbJS
+	lQz6FaiqybWjPBTTsSYBkA0Tn1fxtfXA4NfecBSvjfnAOjcxhpAbxmRd6QOJowbxP6JZPjxhFjYtr
+	x5ExYp5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHorw-00000002Paf-47S3;
-	Tue, 28 Apr 2026 20:17:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHori-00000002PG7-1aVU
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 28 Apr 2026 20:17:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=1TzXyp+yIYJMwCrJFfkFZWc3eBpmjyTzay49h7tNZoA=; b=ojk+vzte0K+O/NUbGLK/LSfbEb
-	3zgyBzmquILYfJqeLWdfAyaz7AK2qUAHJQ3Gyn9lOPQXOiz3CiazbMJeM0VVzGJi8y0qQcOS0w3e+
-	3mETI+9DWSsVeQ/fnBBrSIG40C/zn4pM8iHnaGrzze1gQTfMXSSVcttXhh+73jkWPtYGf4NXfGUuz
-	WSWSmqfaHriKkSgTnVN/ieueL/Am3SjSq2j5zmRtJE+5kkZWlTA0qVre55NI0lX66yzHIgN+FqQ8o
-	tu7/KnGPN+u9fBLWLZ8rm0GOrzk5dBEvctZS20XxfHh6hBqCGrFDY4CWgNHuwqNRey9W7IvB3L2SU
-	zAtHlm5A==;
+	id 1wHory-00000002PcR-2wKB;
+	Tue, 28 Apr 2026 20:17:22 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHorb-000000040fF-0zKM
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHorX-00000002P3j-2kdZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 20:17:03 +0000
+	Tue, 28 Apr 2026 20:17:10 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 41B531C01;
-	Tue, 28 Apr 2026 13:16:52 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DAD821C0A;
+	Tue, 28 Apr 2026 13:16:48 -0700 (PDT)
 Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AF53B3F763;
-	Tue, 28 Apr 2026 13:16:54 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6F1953F763;
+	Tue, 28 Apr 2026 13:16:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777407417; bh=FCP9MWDXBkmpmaTgWI8hodUMzwfIaYuwHBhh3J2kcKA=;
+	t=1777407414; bh=yjQhykXQOdB+c522lN4y/AmjYIvZxdLbJ/Nwp3R+Ax4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dpe6DzK+9m+K4NwKt0FoWDDVcTtvjQx2HvJxkemaZkUvsIQJKuYWheQ4vdWRez6Yp
-	 cGOfYFbzoVxSHMCqcmUH4hwdRfeUSoDeL0ll58r2/4zFHqUh8PaIseJTS2wZXP7WC+
-	 RVEenmDDDlLc1YP58my65VERLEe0b0BwuVgwvHI8=
+	b=MnYKtfFrvIFEdI9OR+IGgz45xJuLl3pLjdZheCtsDs8qOMFmpgo+LtwJ6S2C4cFQF
+	 G60+CDXR6JTXqlhrGrWEkGDrrBg9srdbo7WU3oOeRj08qw3+o4BuvwQX+X2poQfPp5
+	 GVEx0XGvld7DVk0XJE72g/T7OpzW5l+vUUuhW4E0=
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -73,17 +58,17 @@ Cc: sudeep.holla@arm.com,
 	marek.vasut+renesas@gmail.com,
 	Cristian Marussi <cristian.marussi@arm.com>,
 	Peng Fan <peng.fan@nxp.com>
-Subject: [PATCH v3 08/15] firmware: arm_scmi: Harden clock parents discovery
-Date: Tue, 28 Apr 2026 21:15:15 +0100
-Message-ID: <20260428201522.903875-9-cristian.marussi@arm.com>
+Subject: [PATCH v3 07/15] firmware: arm_scmi: Make clock rates allocation dynamic
+Date: Tue, 28 Apr 2026 21:15:14 +0100
+Message-ID: <20260428201522.903875-8-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260428201522.903875-1-cristian.marussi@arm.com>
 References: <20260428201522.903875-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_211659_910122_2ACFBB47 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20260428_131655_881452_20150701 
+X-CRM114-Status: GOOD (  13.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,59 +83,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix clock parents enumeration to account only for effectively discovered
-parents during enumeration, avoiding to trust the total number of parents
-declared upfront by the platform.
+Leveraging SCMI Clock protocol dynamic discovery capabilities, move away
+from the static per-clock rates allocation model in favour of a dynamic
+runtime allocation based on effectively discovered resources.
+
+No functional change.
 
 Reviewed-by: Peng Fan <peng.fan@nxp.com>
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
 v2 --> v3
- - collected Reviewed-by tags
+ - collected Review-by tags
 ---
- drivers/firmware/arm_scmi/clock.c | 18 ++++++++++--------
- 1 file changed, 10 insertions(+), 8 deletions(-)
+ drivers/firmware/arm_scmi/clock.c | 19 ++++++++++++++++---
+ include/linux/scmi_protocol.h     |  1 -
+ 2 files changed, 16 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/firmware/arm_scmi/clock.c b/drivers/firmware/arm_scmi/clock.c
-index c9b62edce4fd..d07cfef243fd 100644
+index 467b13a3a18f..c9b62edce4fd 100644
 --- a/drivers/firmware/arm_scmi/clock.c
 +++ b/drivers/firmware/arm_scmi/clock.c
-@@ -270,15 +270,15 @@ static int iter_clk_possible_parents_update_state(struct scmi_iterator_state *st
- 	 * assume it's returned+remaining on first call.
- 	 */
- 	if (!st->max_resources) {
--		p->clkd->info.num_parents = st->num_returned + st->num_remaining;
--		p->clkd->info.parents = devm_kcalloc(p->dev,
--						     p->clkd->info.num_parents,
-+		int num_parents = st->num_returned + st->num_remaining;
-+
-+		p->clkd->info.parents = devm_kcalloc(p->dev, num_parents,
- 						     sizeof(*p->clkd->info.parents),
- 						     GFP_KERNEL);
--		if (!p->clkd->info.parents) {
--			p->clkd->info.num_parents = 0;
-+		if (!p->clkd->info.parents)
- 			return -ENOMEM;
--		}
-+
-+		/* max_resources is used by the iterators to control bounds */
- 		st->max_resources = st->num_returned + st->num_remaining;
+@@ -161,7 +161,7 @@ struct scmi_clock_desc {
+ 	u32 id;
+ 	bool rate_discrete;
+ 	unsigned int num_rates;
+-	u64 rates[SCMI_MAX_NUM_RATES];
++	u64 *rates;
+ #define	RATE_MIN	0
+ #define	RATE_MAX	1
+ #define	RATE_STEP	2
+@@ -480,6 +480,18 @@ iter_clk_describe_update_state(struct scmi_iterator_state *st,
+ 			   QUIRK_OUT_OF_SPEC_TRIPLET);
  	}
  
-@@ -293,9 +293,11 @@ static int iter_clk_possible_parents_process_response(const struct scmi_protocol
- 	const struct scmi_msg_resp_clock_possible_parents *r = response;
- 	struct scmi_clk_ipriv *p = priv;
- 
--	u32 *parent = &p->clkd->info.parents[st->desc_index + st->loop_idx];
-+	p->clkd->info.parents[st->desc_index + st->loop_idx] =
-+		le32_to_cpu(r->possible_parents[st->loop_idx]);
- 
--	*parent = le32_to_cpu(r->possible_parents[st->loop_idx]);
-+	/* Count only effectively discovered parents */
-+	p->clkd->info.num_parents++;
- 
++	if (!st->max_resources) {
++		int num_rates = st->num_returned + st->num_remaining;
++
++		p->clkd->rates = devm_kcalloc(p->dev, num_rates,
++					      sizeof(*p->clkd->rates), GFP_KERNEL);
++		if (!p->clkd->rates)
++			return -ENOMEM;
++
++		/* max_resources is used by the iterators to control bounds */
++		st->max_resources = st->num_returned + st->num_remaining;
++	}
++
  	return 0;
  }
+ 
+@@ -493,6 +505,8 @@ iter_clk_describe_process_response(const struct scmi_protocol_handle *ph,
+ 
+ 	p->clkd->rates[st->desc_index + st->loop_idx] =
+ 		RATE_TO_U64(r->rate[st->loop_idx]);
++
++	/* Count only effectively discovered rates */
+ 	p->clkd->num_rates++;
+ 
+ 	return 0;
+@@ -515,8 +529,7 @@ scmi_clock_describe_rates_get(const struct scmi_protocol_handle *ph, u32 clk_id,
+ 		.dev = ph->dev,
+ 	};
+ 
+-	iter = ph->hops->iter_response_init(ph, &ops, SCMI_MAX_NUM_RATES,
+-					    CLOCK_DESCRIBE_RATES,
++	iter = ph->hops->iter_response_init(ph, &ops, 0, CLOCK_DESCRIBE_RATES,
+ 					    sizeof(struct scmi_msg_clock_describe_rates),
+ 					    &cpriv);
+ 	if (IS_ERR(iter))
+diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
+index d97b4e734744..5552ac04c820 100644
+--- a/include/linux/scmi_protocol.h
++++ b/include/linux/scmi_protocol.h
+@@ -15,7 +15,6 @@
+ 
+ #define SCMI_MAX_STR_SIZE		64
+ #define SCMI_SHORT_NAME_MAX_SIZE	16
+-#define SCMI_MAX_NUM_RATES		16
+ 
+ /**
+  * struct scmi_revision_info - version information structure
 -- 
 2.53.0
 
