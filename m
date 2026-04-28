@@ -4,85 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6440DFF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 15:20:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5418CFF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 15:23:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3IML37K0n8U6VTIzbe0Q8LrIE7p3ldPY73zaPlWumI4=; b=a89Rf3p3b+mjkGSOfo09pQj3W3
-	q1hZ2j61hYtKOcmBN8bPyI+v8jiEQHPrtqBbsAn/Ygg5d9LH8X4wI0ke5vRjKmpxfqoFC05w6Oq/8
-	R7zGNJ8kHud98B3Kualan210eXnWUzmb6DMqoJNMJZWlpW+fiH1Qbj9CLFUh4pi5+5QOG25HXsIaf
-	21rjQAtdQXnNy35XIlisLZ5TR1CC4fYLAyVuiSGefKYY2FPe3+XaKjcnCnNyEFTsSLbjqu46N9JMG
-	VHvX3J8yrEMHKo7raA7mcNYApqNGvf/B4D5DR7Hvp74+35SVGWvMeF3TvBYUEntavdMt0cym8m/Mi
-	qo9M+abw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CiqKgrN/QBWNqXlOu6YtEZR5uiy/ND3IRv9wIKu1+nw=; b=tPk9QuagaOc1j2I2/LAPA+X419
+	i/5pVfG0zrJw8f6ez/wobRn3Ugice067HI7n/CoQkWg7giqTuTzRPFwmRtVi4PRUvKChOqqlNCZv/
+	NyOxanSUP6OvzH8FpiJf+PPudmgkOj0Q7vBvYNlwhs1QrjtZThcJQM+UA3KrNyDcyaLkuT4vkkwqo
+	IW0E6r1FXg+qLZTIxPqvCyX1M33IV3snkSmiuk0EtpQuJMRdZQcHC/tDhyDRsVjh2dppF7qAQq6Wm
+	sxNQ4WNRBjH6OaydAiYhRolbJyi51w6HR1ADpAT9Ty1J6eQu7wZcDA7cyuG/Vhew2jq97LGScRtEG
+	ERxQ2z0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHkEp-00000001ixx-3L6x;
-	Tue, 28 Apr 2026 15:20:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHkEm-00000001ixV-3M7v
+	id 1wHkHE-00000001jBz-3P2F;
+	Tue, 28 Apr 2026 15:23:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHkHC-00000001jBJ-1xfM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 15:20:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F33F2406A4;
-	Tue, 28 Apr 2026 15:20:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0804C2BCAF;
-	Tue, 28 Apr 2026 15:20:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777389635;
-	bh=Idtctt/kb/SmoiGHu5ljVhs/2lxRvfaLWYLp4lxeqbo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=DvBcYKMCG6re7fgbFGsln5FXGziuiyoQxC1feSafGl9EQxtJLZf0q9Rx00qUdXPUD
-	 OeYusMPopskeKZvt0fIXKQzPoDnVc9IaiWtvkO6Qvp6b6af0vo+cySgrhNlI1d4ck6
-	 DMTv2W1296lNOpd6QX9pNyqJgwpBegzB/ifpdo5SmPIv8ToeLQaM+j8ccSvgho8bxr
-	 lBs2OpeDbVTUwgaBJjzZ8+5vv4RCB9Bct9tVAbsPkIko0LEuZCxdQtTG/NCv8s+VYZ
-	 f1te80WvDZ/zoBeDAu6sz6EVYotX+MbXZI/LgGqvIAFQ5/H9B+WOCIkSHUx0h8lDRU
-	 1kx0GQNYUhecg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wHkEj-0000000FYlQ-1LxN;
-	Tue, 28 Apr 2026 15:20:33 +0000
-Date: Tue, 28 Apr 2026 16:20:32 +0100
-Message-ID: <86pl3jyuv3.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	nd <nd@arm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Joey Gouly
-	<Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>
-Subject: Re: [PATCH 05/43] KVM: arm64: gic-v5: Extract host IRS caps from IRS config frame
-In-Reply-To: <20260427160547.3129448-6-sascha.bischoff@arm.com>
-References: <20260427160547.3129448-1-sascha.bischoff@arm.com>
-	<20260427160547.3129448-6-sascha.bischoff@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Tue, 28 Apr 2026 15:23:07 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A9DBF1C0A;
+	Tue, 28 Apr 2026 08:22:57 -0700 (PDT)
+Received: from [10.57.21.11] (unknown [10.57.21.11])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0A9FA3F7B4;
+	Tue, 28 Apr 2026 08:23:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1777389783; bh=Om8QGmof8/BcITtEzWX1Cbn/822D5GRchdbAMmDVVoQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=E8ZPSTep/LUn9gzYwuBIgGN4jIaXaTmBJNnNday4fnmjnZWOGAaUD7U99tv9XABic
+	 QfWbpZbIsPrUhqF0O7HIkiHEK6KIi3oxFTN6+nepB4u+vemndbGockrfl0DgRV/Xu1
+	 PjWCuB8Ue4y4+SGL+eVhFLZEJv0FWSaOfoV1QzY8=
+Message-ID: <5399c16f-faf1-471e-ac37-7dd9d5ddb897@arm.com>
+Date: Tue, 28 Apr 2026 16:22:59 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 3/3] coco: guest: arm64: Query host IPA-change
+ alignment via RHI
+Content-Language: en-GB
+To: Marc Zyngier <maz@kernel.org>, "Aneesh Kumar K.V"
+ <aneesh.kumar@kernel.org>
+Cc: linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+ linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>,
+ Jason Gunthorpe <jgg@ziepe.ca>, Marek Szyprowski <m.szyprowski@samsung.com>,
+ Robin Murphy <robin.murphy@arm.com>, Steven Price <steven.price@arm.com>,
+ Thomas Gleixner <tglx@kernel.org>, Will Deacon <will@kernel.org>
+References: <20260427063108.909019-1-aneesh.kumar@kernel.org>
+ <20260427063108.909019-4-aneesh.kumar@kernel.org>
+ <86y0i8zo9f.wl-maz@kernel.org> <yq5a4ikv1c7p.fsf@kernel.org>
+ <86tssvyz2v.wl-maz@kernel.org>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <86tssvyz2v.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_082036_879112_3128C8EE 
-X-CRM114-Status: GOOD (  35.32  )
+X-CRM114-CacheID: sfid-20260428_082306_606261_EA328085 
+X-CRM114-Status: GOOD (  21.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,219 +79,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 27 Apr 2026 17:07:44 +0100,
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+On 28/04/2026 14:49, Marc Zyngier wrote:
+> On Tue, 28 Apr 2026 13:49:46 +0100,
+> Aneesh Kumar K.V <aneesh.kumar@kernel.org> wrote:
+>>
+>> Marc Zyngier <maz@kernel.org> writes:
+>>
+>>> On Mon, 27 Apr 2026 07:31:08 +0100,
+>>> "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> wrote:
+>>>>
+>>>> Add the Realm Host Interface support needed to query host configuration
+>>>> from a Realm guest. Define the RHI hostconf SMCs, add rsi_host_call(), and
+>>>> use them during Realm initialization to retrieve the host IPA-change
+>>>> alignment size.
+>>>
+>>> I don't understand what "IPA-change" means. What you are after is the
+>>> host's sharing granule size.
+>>>
+>>
+>> This is part of the RHI specification, and the call is named
+>> RHI_HOSTCONF_GET_IPA_CHANGE_ALIGNMENT. The intent is to determine the
+>> alignment requirements for changing IPA attributes (protected vs.
+>> unprotected IPA
 > 
-> The host irqchip driver provides KVM with a pointer to an IRS's config
-> frame, which allows KVM to directly interact with the host's IRS. The
-> MMIO registers in the config frame are used to configure VMs (in
-> addition to them being used by the host). The IRS's config frame also
-> includes a set of ID registers which describe the capabilities that
-> the IRS has.
+> This really is a terrible name. Why the 'change' part? It doesn't
+> change, it is a constant.
+
+Agreed, it was supposed to mean IPA_STATE_CHANGE.
+
 > 
-> Stash the pointer to the config frame, and extract the VM capabilities
-> (from IRS_IDR3 & IRS_IDR4), as well as the IST
-> capabilities/requirements (IRS_IDR2) from the IRS.
+> Oh well...
 > 
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> ---
->  arch/arm64/kvm/Makefile              |  2 +-
->  arch/arm64/kvm/vgic/vgic-v5-tables.c |  8 +++++
->  arch/arm64/kvm/vgic/vgic-v5-tables.h | 41 ++++++++++++++++++++++
->  arch/arm64/kvm/vgic/vgic-v5.c        | 52 ++++++++++++++++++++++++++++
->  include/linux/irqchip/arm-gic-v5.h   | 10 ++++++
->  5 files changed, 112 insertions(+), 1 deletion(-)
->  create mode 100644 arch/arm64/kvm/vgic/vgic-v5-tables.c
->  create mode 100644 arch/arm64/kvm/vgic/vgic-v5-tables.h
+> [...]
 > 
-> diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
-> index 59612d2f277c1..431de9b145ca1 100644
-> --- a/arch/arm64/kvm/Makefile
-> +++ b/arch/arm64/kvm/Makefile
-> @@ -24,7 +24,7 @@ kvm-y += arm.o mmu.o mmio.o psci.o hypercalls.o pvtime.o \
->  	 vgic/vgic-mmio.o vgic/vgic-mmio-v2.o \
->  	 vgic/vgic-mmio-v3.o vgic/vgic-kvm-device.o \
->  	 vgic/vgic-its.o vgic/vgic-debug.o vgic/vgic-v3-nested.o \
-> -	 vgic/vgic-v5.o
-> +	 vgic/vgic-v5.o vgic/vgic-v5-tables.o
->  
->  kvm-$(CONFIG_HW_PERF_EVENTS)  += pmu-emul.o pmu.o
->  kvm-$(CONFIG_ARM64_PTR_AUTH)  += pauth.o
-> diff --git a/arch/arm64/kvm/vgic/vgic-v5-tables.c b/arch/arm64/kvm/vgic/vgic-v5-tables.c
-> new file mode 100644
-> index 0000000000000..30e2b108b1aa3
-> --- /dev/null
-> +++ b/arch/arm64/kvm/vgic/vgic-v5-tables.c
-> @@ -0,0 +1,8 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2025, 2026 Arm Ltd.
-> + */
-> +
-> +#include "vgic-v5-tables.h"
-> +
-> +struct vgic_v5_host_ist_caps gicv5_host_ist_caps;
-> diff --git a/arch/arm64/kvm/vgic/vgic-v5-tables.h b/arch/arm64/kvm/vgic/vgic-v5-tables.h
-> new file mode 100644
-> index 0000000000000..cf00a248eabd5
-> --- /dev/null
-> +++ b/arch/arm64/kvm/vgic/vgic-v5-tables.h
-> @@ -0,0 +1,41 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (C) 2025, 2026 Arm Ltd.
-> + */
-> +
-> +#ifndef __KVM_ARM_VGICV5_TABLES_H__
-> +#define __KVM_ARM_VGICV5_TABLES_H__
-> +
-> +#include <linux/irqchip/arm-gic-v5.h>
-> +
-> +struct vgic_v5_host_ist_caps {
-> +	/* IST Capabilities */
-> +
-> +	/* Apply to LPIs and SPIs */
-> +	u8	ist_id_bits;
-> +	bool	ist_levels;
-> +	u8	ist_l2sz;
-> +	bool	istmd;
-> +	u8	istmd_sz;
-> +
-> +	/* LPI only */
-> +	u8	min_lpi_id_bits;
-> +
-> +	/* VM Table, VPE Table */
-> +	bool	two_level_vmt_support;
-> +	u32	max_vms;
-> +	u32	max_vpes;
-> +	u16	vmd_size;
-> +	u16	vped_size;
-> +
-> +	/* Is the IRS coherent with us, or not? */
-> +	bool	irs_non_coherent;
-> +};
-> +
-> +extern struct vgic_v5_host_ist_caps gicv5_host_ist_caps;
-> +static inline struct vgic_v5_host_ist_caps *vgic_v5_host_caps(void)
-> +{
-> +	return &gicv5_host_ist_caps;
-> +}
 
-Err. No. Make gicv5_host_ist_caps static, and move the helper as
-non-inline in vgic-v5-tables.c. It's not like this is anywhere near
-performance-critical stuff, is it?
+...
 
-But also, if that's global information, we have kvm_vgic_global_state.
-Isn't that where these things should live? Then the introduction of
-vgic-v5-tables.[ch] can be moved to the point where it actually
-matters.
+>>>> +unsigned long rhi_get_ipa_change_alignment(void)
+>>>> +{
+>>>> +	long ret;
+>>>> +	unsigned long ipa_change_align;
+>>>> +
+>>>> +	hyp_pagesize_rhicall.imm = 0;
+>>>> +	hyp_pagesize_rhicall.gprs[0] = RHI_HOSTCONF_VERSION;
+>>>> +	ret = rsi_host_call(lm_alias(&hyp_pagesize_rhicall));
+>>>> +	if (ret != RSI_SUCCESS)
+>>>> +		goto err_out;
+>>>> +
+>>>> +	if (hyp_pagesize_rhicall.gprs[0] != RHI_HOSTCONF_VER_1_0)
+>>>> +		goto err_out;
+>>>> +
+>>>> +	hyp_pagesize_rhicall.imm = 0;
+>>>> +	hyp_pagesize_rhicall.gprs[0] = RHI_HOSTCONF_FEATURES;
+>>>> +	ret = rsi_host_call(lm_alias(&hyp_pagesize_rhicall));
+>>>> +	if (ret != RSI_SUCCESS)
+>>>> +		goto err_out;
+>>>> +
+>>>> +	if (!(hyp_pagesize_rhicall.gprs[0] & __RHI_HOSTCONF_GET_IPA_CHANGE_ALIGNMENT))
+>>>> +		goto err_out;
+>>>> +
+>>>> +	hyp_pagesize_rhicall.imm = 0;
+>>>> +	hyp_pagesize_rhicall.gprs[0] = RHI_HOSTCONF_GET_IPA_CHANGE_ALIGNMENT;
+>>>> +	ret = rsi_host_call(lm_alias(&hyp_pagesize_rhicall));
+>>>> +	if (ret != RSI_SUCCESS)
+>>>> +		goto err_out;
+>>>> +
+>>>> +	ipa_change_align = hyp_pagesize_rhicall.gprs[0];
+>>>> +	/* This error needs special handling in the caller */
+>>>> +	if (ipa_change_align & (SZ_4K - 1))
+>>>> +		return 0;
+>>>> +
+>>>> +	return ipa_change_align;
+>>>> +
+>>>> +err_out:
+>>>> +	/*
+>>>> +	 * For failure condition assume host is built with 4K page size
+>>>> +	 * and hence ipa change alignment can be guest PAGE_SIZE.
+>>>> +	 */
+>>>> +	return PAGE_SIZE;
+>>>> +}
+>>>
+>>> Why can't this be part of rsi.c? This is an RSI call, and it should be
+>>> part of the RSI initialisation.
+>>>
+>>
+>> This is an RHI call as per the specification, hence it has been added to
+>> rhi.c.
+> 
+> News flash: this is the Linux kernel, not an ARM spec. We organise
+> things based on the logical use, not on the TLA associated with it.
+> 
+> And RHI is implemented in terms of RSI. In rsi.c it goes. We don't
+> need this pointless proliferation of helper files that only result in
+> equally pointless global symbols.
 
-> +
-> +#endif
-> diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
-> index d4789ff3e7402..fd3d6299a2baa 100644
-> --- a/arch/arm64/kvm/vgic/vgic-v5.c
-> +++ b/arch/arm64/kvm/vgic/vgic-v5.c
-> @@ -9,6 +9,7 @@
->  #include <linux/irqchip/arm-vgic-info.h>
->  
->  #include "vgic.h"
-> +#include "vgic-v5-tables.h"
->  
->  #define ppi_caps	kvm_vgic_global_state.vgic_v5_ppi_caps
->  
-> @@ -34,6 +35,54 @@ static void vgic_v5_get_implemented_ppis(void)
->  	__assign_bit(GICV5_ARCH_PPI_PMUIRQ, ppi_caps.impl_ppi_mask, system_supports_pmuv3());
->  }
->  
-> +static void __iomem *irs_base;
+RHI (Realm Host Interface) is not really the same as RSI. The former is
+a service mechanism for Realms with the "Non-secure Hypervisor".  And
+this single call is just one of the services. There are further more
+services that will eventually come up (e.g., Device Assignment, Boot
+Sync Protocol, Firmware Activity Log etc).
 
-Global state?
+RSI (to be precise, RSI_HOST_CALL) is the transport to talk to the Host,
+as that is the only way for the Realm to reach the Host. So, tbh, it
+does make sense to keep this in rhic ?
 
-> +
-> +static u32 irs_readl_relaxed(const u32 reg_offset)
-> +{
-> +	return readl_relaxed(irs_base + reg_offset);
-> +}
-> +
-> +static int gicv5_irs_extract_vm_caps(const struct gic_kvm_info *info)
-> +{
-> +	u64 idr;
-> +
-> +	irs_base = info->gicv5_irs.base;
-> +	if (!irs_base) {
-> +		kvm_info("No GICv5 MMIO IRS address; no GICv5 support\n");
-> +		return -ENODEV;
-> +	}
-
-Should you instead bail out early by not registering the gic_kvm_info
-when the IRS base is unknown, making this sort of checks irrelevant?
-
-Also, it's not like we can make it very far without an IRS...
-
-> +
-> +	vgic_v5_host_caps()->irs_non_coherent = info->gicv5_irs.non_coherent;
-> +
-> +	idr = irs_readl_relaxed(GICV5_IRS_IDR2);
-> +
-> +	/* We skip the LPI field as it only applies to physical LPIs */
-> +	vgic_v5_host_caps()->ist_id_bits = FIELD_GET(GICV5_IRS_IDR2_ID_BITS, idr);
-> +	vgic_v5_host_caps()->min_lpi_id_bits = FIELD_GET(GICV5_IRS_IDR2_MIN_LPI_ID_BITS, idr);
-> +	vgic_v5_host_caps()->ist_levels = !!FIELD_GET(GICV5_IRS_IDR2_IST_LEVELS, idr);
-> +	vgic_v5_host_caps()->ist_l2sz = FIELD_GET(GICV5_IRS_IDR2_IST_L2SZ, idr);
-> +	vgic_v5_host_caps()->istmd = !!FIELD_GET(GICV5_IRS_IDR2_ISTMD, idr);
-> +	vgic_v5_host_caps()->istmd_sz = FIELD_GET(GICV5_IRS_IDR2_ISTMD_SZ, idr);
-> +
-> +	idr = irs_readl_relaxed(GICV5_IRS_IDR3);
-> +
-> +	vgic_v5_host_caps()->max_vms = BIT(FIELD_GET(GICV5_IRS_IDR3_VM_ID_BITS, idr));
-> +	vgic_v5_host_caps()->two_level_vmt_support = !!FIELD_GET(GICV5_IRS_IDR3_VMT_LEVELS, idr);
-> +
-> +	if (FIELD_GET(GICV5_IRS_IDR3_VMD, idr))
-
-The constant (ab)use of FIELD_GET() for fields that are single bit
-wide is very hard to read. I'd like to see:
-
-	vgic_v5_host_caps()->ist_levels = (idr & GICV5_IRS_IDR2_IST_LEVELS);
-[...]
-	vgic_v5_host_caps()->istmd = (idr & GICV5_IRS_IDR2_ISTMD);
-[...]
-	if (idr & GICV5_IRS_IDR3_VMD)
-[...]
-
-which is infinitely more readable.
-
-> +		vgic_v5_host_caps()->vmd_size = BIT(FIELD_GET(GICV5_IRS_IDR3_VMD_SZ, idr));
-> +	else
-> +		vgic_v5_host_caps()->vmd_size = 0;
-> +
-> +	idr = irs_readl_relaxed(GICV5_IRS_IDR4);
-> +
-> +	vgic_v5_host_caps()->vped_size = BIT(FIELD_GET(GICV5_IRS_IDR4_VPED_SZ, idr));
-> +	/* Field stores VPE_ID_BITS - 1 */
-> +	vgic_v5_host_caps()->max_vpes = BIT(FIELD_GET(GICV5_IRS_IDR4_VPE_ID_BITS, idr) + 1);
-> +
-> +	return 0;
-> +}
-> +
->  /*
->   * Probe for a vGICv5 compatible interrupt controller, returning 0 on success.
->   */
-> @@ -61,6 +110,9 @@ int vgic_v5_probe(const struct gic_kvm_info *info)
->  		goto skip_v5;
->  	}
->  
-> +	if (gicv5_irs_extract_vm_caps(info))
-> +		goto skip_v5;
-> +
-
-We shouldn't "skip_v5" anymore. If we can't initialise KVM with GICv5,
-we're done, and we should not even try to register v3.
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Suzuki
 
