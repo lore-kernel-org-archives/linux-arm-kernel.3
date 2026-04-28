@@ -4,82 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EDDAFF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 13:25:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3563FFF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 13:27:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fP7ePjTcwfa8sYcTj+QY4Q4HIO8JodrbqgkRfuKs+58=; b=xA3zcLypH6Rs5ZN1B7Og8eLKpN
-	GcsxBLiM/npeaGkDJ0Sl2wt3QJFcJO5b+/C/XAGw7ji0Ep71QI3sGH8XwrcMVB+4Qd8f6PBUbj1kc
-	Lyzw6+ngNQJIDjTGIhV/d/+gvZakaYC3VEXrZq5ZQQzmoYyuvKxWoojZ06FmfWCQZgi7Q7+d7RUrW
-	XxS3FCxx/vBc08xLc2HxSVtzaHUrtxGo5B8dhd5Xo6p9CzGsSFB7mDM9Ji6x5/XTAgzEnJoKvOokZ
-	wjlGxUUzRrYmWZbzKe5U2foM6mCWNeAyaWLajnyYxvTACoo2zYbHmpH0QMpqRIDc3pMd/1Rtk2/13
-	bqC40flg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/VoR+r0EdztbuqvfyfykBdYULmnz7rnigVpq7HE85tk=; b=WgmYCNXR/MqBR33Ta/WSYKVEaw
+	8+sH1Qe+gTDf5EHAYyfH1MLXROaX26WD2i/uOHdwfQtP2ugTF48wdmJx2ztXSEfykQEerbDJxM/fP
+	op99JReKCEu2JmnNqGhcFoBHp/C0HjgbTEh1U0DNYthT6Z+nKFQkRZT8/AHhq2LSvC4sBmOS61rJA
+	FR6MJE3L1rPa/rRK2NcsDsReBRQ18s3Muu58co7/dezLiPtem1e2IbqQy+lyZg03++bu00i67Rl4I
+	qaJR/XBE2P1XF+WXfnLHEQrr6ULzZ21st4qUWRM6UCZaBSOIAWfuELQGFiQzo/DoVk3Wm6/dnKqlx
+	2C1VunTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHiQw-00000001XF2-2oM1;
-	Tue, 28 Apr 2026 13:25:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wHiTD-00000001XPp-1Qhf;
+	Tue, 28 Apr 2026 13:27:23 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHiQv-00000001XEX-29Bi
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 28 Apr 2026 13:25:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=fP7ePjTcwfa8sYcTj+QY4Q4HIO8JodrbqgkRfuKs+58=; b=SZxm8wdi6UulXSjZbG7jBrbwMa
-	ztgGnofpmMjh/BcBFtE2Zi0AvYOjI9SvPw/JBf1mIE69EgpQeMZecQOqBCLp1e/hdyTyOZDRAyZsx
-	o/JdXvsDqe/54W+kmeH/z7wqSzO6bo2BFWp7uZ4IViQs38OKsZuD2ZopTcZh3UkVeIwymetR+9Olk
-	BGHTs/GeDF+PedLyr2oRYTpUSnFLQWicl0U8KOUZheQZsIoSNRdYVGay1AUBirBRVLM3Nkx8lcKmW
-	6LpkaItYov6kk2J1pImFLNxP9aIJnsthjyr2A02uv/WnLA2SmFqjDVUqLfG8R1Z/OyurGEnqozQxs
-	m31X1w+A==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHiQs-000000039ll-0mFj
+	id 1wHiTA-00000001XPK-45PO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 13:25:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 489F440229;
-	Tue, 28 Apr 2026 13:24:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40F96C2BCAF;
-	Tue, 28 Apr 2026 13:24:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777382694;
-	bh=Mbk7GJhzzHEOvI4/qFSYDMc92u86YKebUsjdgehgAuA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tlkFwXz0zkNo/cS4uLIzu8CJsJA+Gy7EPJmTOv8jt5oOyjTHBpxdBg+ZaeE9UJW95
-	 kedR9fTTgN57okQTaM4Gc8uQDIwuae5pRI41THfuXii83zd4ZVLFEn5m0mJVF/wx1u
-	 OrSWGzqHcpIgtX6u2SeJ2bvUOnBTjgRi/5ejvOR707E6dfieaBBIwSAbX2fRwVkJKM
-	 +eGjG0f1J/WooMr/yU+3UvUnNgeJn56Rj2h8JqMopfBiAYryhWKzBUWGhssSSbhaNI
-	 CzxgFSlNyfeaVsdXgnTgkN7Gdap15ZEOZarc9TcUkvhh1C5X/5RakRkAxFJHm0P5vX
-	 CO4oo/GbqRnmQ==
-Date: Tue, 28 Apr 2026 15:24:48 +0200
-From: Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>
-To: Thorsten Blum <thorsten.blum@linux.dev>
-Cc: Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>, 
-	Bill Cox <waywardgeek@gmail.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	"David S. Miller" <davem@davemloft.net>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Linus Walleij <linusw@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, stable@vger.kernel.org, 
-	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] crypto: atmel-sha204a - drop hwrng quality reduction
- for ATSHA204A
-Message-ID: <cbk4ho3bpprjxvcywv4sudbmb2fhfsgaguoywv5mhtoql4vhd6@f7oisxcrvii4>
-References: <20260428101430.514838-3-thorsten.blum@linux.dev>
- <25ntssyy6t5uwxlwfpmrpzpcq6xv62l643hflf26hxi6lv5wqu@6vub6ysczjvd>
- <afCo9PbDpTYeqGd4@linux.dev>
+	Tue, 28 Apr 2026 13:27:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1777382840;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=/VoR+r0EdztbuqvfyfykBdYULmnz7rnigVpq7HE85tk=;
+	b=EHafJc/IozJvsSxqCYH14w512qIjB7NXfiMtBUeLVc2IkAOiWttCzmXEGHSJmNO1bGOSE5
+	2BDFd4OUoysqjObxxAXJ/Zvi35+9+td59o/o8iJwaDS28tG8kKW8T4+R+IlwsqFy1tXf90
+	CMmaXSP47z4RXvlZnj+Q1iCitVlOL9w=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-539-r44NBGGKPdK026pubn1jtw-1; Tue, 28 Apr 2026 09:25:19 -0400
+X-MC-Unique: r44NBGGKPdK026pubn1jtw-1
+X-Mimecast-MFC-AGG-ID: r44NBGGKPdK026pubn1jtw_1777382718
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-488c0120047so67583505e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 06:25:18 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777382718; x=1777987518;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=/VoR+r0EdztbuqvfyfykBdYULmnz7rnigVpq7HE85tk=;
+        b=tEAILfN4inu5Wnrnqgczo74UcvgbLPQ0XszC7mjQmhzd0SGYsbrziTFDFbxeBpKphv
+         TXoza5nRUWXvbq8//51NJhjlRB6cTRAPufnZEIbkTlalWtarueFVJO6wv/cXxg9A836e
+         ZS5DxTQfBeJWYkivcVf+Qqz4ht1KjzZwnWjwGL7S/TcobLbbT42T5RtSDcaEZiaeoIMM
+         rK1DgIXD24tqxXD+jmjLa01Lf+7CZOt/ws2QKl9aGRTVv1Zv+tdbo5olluAg0xFPRGgc
+         AST6zQP+P6TJVIAzBFtDpDRzaFp4QDi/Foykt9YwfkN3QlKFBZGYH1R/Fn2+AaZ4aXxn
+         37/g==
+X-Forwarded-Encrypted: i=1; AFNElJ/bTLlJg9mVvBwsguqn9/V4EGaLzeG5XPQVqwn8b35LnJ4T6P52VKRMpV2KMC5O0UNSWmQP3Ti5U/9IrQiEgzCE@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy1G6U3SIt80N1bq5i2FdfASMYjI+fmkWstEJYp5g7uqBC/N9UX
+	U1AcJ+SgFWXdt9lJwIcxH35r6nRo25ZsrK/dTci2825Nx8P5OXyMqSaA5/4ma1wae2fvCOxsyE7
+	G5izXwwSeBxb6Gwl6COh6FP4uPexpAMh8ruZPnFarYt9Z0zt/hBnZhZSLj2kKeyBqwxHS6EPMrD
+	k9
+X-Gm-Gg: AeBDiet5UstCMaaGGcP2qtQTTAB0ikfTz/9+QHn86qj/Ty2iMk0vc/nUDjksTrB4TtN
+	4cdMZGpvDhjTkwYvC9Cv+B4BbXO8GCPGXpajZis65EEsQ5HmxbRbOZktyaDPxEH4HAJlcV00TKV
+	ThhYgsRQS/HWx6wesLX1fZJBBYkoi4BfmlG1VYpQMJ4s6916OLVqLvSHbIo63+F8w6VXJXaKH3v
+	q5rXO8S+hWNbLj7kPmFjxkzRX/wlC++ay5ry4v0cOJFt3uIsRLfzqTk3zhNvnKvWYxkuY56OI/O
+	HJZUXRGi7paD6PFceg29AnkyXD+9199SRG31BqnbJYofwjhXYpGsWUEqIOQn+D/KFYcYhJAHXmU
+	mjb7qW6lXrBmf938N3Jxw9NKGfKHV2rdPQJoQdGyzU+5XM4ugnZof52qAujkAMNOyGg==
+X-Received: by 2002:a05:600c:3f16:b0:487:55c:e0c1 with SMTP id 5b1f17b1804b1-48a77b1da5emr55604815e9.14.1777382717849;
+        Tue, 28 Apr 2026 06:25:17 -0700 (PDT)
+X-Received: by 2002:a05:600c:3f16:b0:487:55c:e0c1 with SMTP id 5b1f17b1804b1-48a77b1da5emr55604145e9.14.1777382717385;
+        Tue, 28 Apr 2026 06:25:17 -0700 (PDT)
+Received: from [192.168.88.32] ([216.128.9.114])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48a773a874asm72235935e9.3.2026.04.28.06.25.16
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 28 Apr 2026 06:25:16 -0700 (PDT)
+Message-ID: <679ebe0a-5889-4a84-afd6-3da50a07bced@redhat.com>
+Date: Tue, 28 Apr 2026 15:25:15 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <afCo9PbDpTYeqGd4@linux.dev>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] net: airoha: Move entries to queue head in case of
+ DMA mapping failure in airoha_dev_xmit()
+To: Lorenzo Bianconi <lorenzo@kernel.org>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Jacob Keller <jacob.e.keller@intel.com>
+Cc: Simon Horman <horms@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+References: <20260428-airoha-xmit-unmap-error-path-v1-1-aec44c6765c1@kernel.org>
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20260428-airoha-xmit-unmap-error-path-v1-1-aec44c6765c1@kernel.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: rRd0ypCKvamQyKKYloMEEV1_mDCUqclI_kMieVpNl2g_1777382718
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_142458_418662_A516D76F 
-X-CRM114-Status: GOOD (  18.49  )
+X-CRM114-CacheID: sfid-20260428_062721_096383_F6ABE628 
+X-CRM114-Status: GOOD (  15.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,42 +115,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Thorsten,
-
-Bill also wrote about ATSHA204A [1]
-
-  My best guess as to what's going on here is that the device has a
-  ring-oscillator based entropy source, but that it generates only a few bits
-  of entropy for each use.  It seems to be called before generating each
-  32-byte "random" value, which is why the second set of 32-bit values have
-  more possible values, and the 3rd has even more.  However, the number of
-  unique values in the final column of 32*N byte values is always equal to
-  the number of unique values of the entire string of bytes.
-
-If this is true that the device generates <256 true random bits and then
-mixes in non-volatile pseudorandom number generator to produce 256 bits,
-then the quality should not be set to full 1024.
-
-Marek
-
-[1] https://www.metzdowd.com/pipermail/cryptography/2014-December/023858.html
-
-On Tue, Apr 28, 2026 at 02:32:52PM +0200, Thorsten Blum wrote:
->
-> Bill wrote in his review:
+On 4/28/26 10:44 AM, Lorenzo Bianconi wrote:
+> In order to respect the original descriptor order and avoid any
+> potential IOMMU fault or memory corruption, move pending queue entries
+> to the head of hw queue tx_list if the DMA mapping of current inflight
+> packet fails in airoha_dev_xmit routine.
 > 
->   "If I made no mistake (and I do make a lot), the "random" data from
->    the Atmel ATSHA204A is highly predictable when you disable the seed
->    update to EEPROM."
+> Fixes: 3f47e67dff1f7 ("net: airoha: Add the capability to consume out-of-order DMA tx descriptors")
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> ---
+>  drivers/net/ethernet/airoha/airoha_eth.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 > 
-> However, the atmel-sha204a driver doesn't operate the device in that
-> mode. It uses the Random command with seed updates enabled, which is
-> also what the datasheet recommends for highest security:
-> 
->   "Microchip recommends that the EEPROM seed always be updated."
-> 
-> So the reported behavior doesn't reflect how the driver uses the device.
-> 
-> Thanks,
-> Thorsten
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+> index 5effb4a4ae84..82018a085e46 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -2123,14 +2123,14 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
+>  	return NETDEV_TX_OK;
+>  
+>  error_unmap:
+> -	while (!list_empty(&tx_list)) {
+> +	list_for_each_entry(e, &tx_list, list) {
+>  		e = list_first_entry(&tx_list, struct airoha_queue_entry,
+>  				     list);
+
+Coccinelle says:
+
++/srv/nipa-builds-contest/testing/wt-cocci/drivers/net/ethernet/airoha/airoha_eth.c:2123:1-20:
+iterator with update on line 2124
+
+I guess you should additionally drop the statement above.
+
+/P
+
 
