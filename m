@@ -4,87 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEFCBFF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 07:46:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7B67FF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 07:49:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=efaBPM9AaDRoGhkgDJqIbj2sPf210Dx/zthTGAV+PN8=; b=sxN9ItEeueuHJl7MGgPyrGbVaP
-	b5NXoLa1Q0QVsxMh2inQ6HmDRAX1S/cGANYdfu/QNEURncp2RQCK7bI/EE4EqaJGgQECGKp5MhicI
-	FsWxm6V3/SW1eCwTafVagLFTOfWeGUWBl1Caa+EeIfKOnP9HjcWNnfJhHJgIy7KRWOR7lLJDwAxrQ
-	TbXycMXAFptovWGZln/Z4exTt/QY3WJWpkfDrUouOg/VEZP4oMKov/Lp+o5jmN4iK98bW39H1lpyi
-	GRAoDUiWiqGF92rh6LxaiEe962EvbTihGhCtiRk7CRGfz6u4XM05EFAF680jdSPlTv4Zzi2DP/TDE
-	jCWAwXwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/LS3cjed6wT/ve6oSAab5MfP7jXSZWFqsiBBYZ7azLY=; b=RTmSSSbuRrwexpEFqsIvJfpBJI
+	/vi5iRplpcdhFCH+Er2eksEKI3TFWIBPnqZ+SS2dQd6o6L3P2lmS8nu9REIs3Kku3TqkjYlRy/1B5
+	H7d1E9MF08sijqJaNb2yp4Gxei9gIK/aC1uCxQcq+UuWh/xV6xRMsPHcz973jFOIpA3yyqaUkJ6Jb
+	QXvvGtgJnL+a+XaFzNiwkqqNqWzq4ye2fCVuwxMmgqz/aQ4XXO9WAM60Yb2oaYTWCB4TRtJoJUMmN
+	v8JFElyLfsL3Abu/IcQsMXk3cDu2TKRumPoAwqiKf0ZN0LlQc3R+l7vXGdpuFZc9y1IzKzzIvu66g
+	d1E0zgkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHd9e-00000000nub-40iB;
-	Tue, 28 Apr 2026 07:46:50 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wHdCH-00000000oDL-27ON;
+	Tue, 28 Apr 2026 07:49:33 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHd9d-00000000nuQ-1n9u
+	id 1wHdCF-00000000oCQ-0b9x
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 07:46:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 404FF60133
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 07:46:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E89A1C2BCB5
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 07:46:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777362407;
-	bh=ADg1FaAaQD046f4ZXKUeNs9WMlXZmKjJ9FxWyVIqZMw=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
-	b=bABj1bu4iiFZKPmhNpk2pE8ISPVAOwGh8x5UzolJSMzxbB4E2LFEo/z1kJl5Y5Qh4
-	 ojRPqItN1phjz8csmJ//x4HQZJAmAPlOPVW2OYGJRHqhFvvayDBVpeqejO++PUA03b
-	 1jQ8oRG1bCZXnzpScIG+5qconX9Inj9ElV+oJZBjti+PN25Dr/fdF7/ff005YOJJf9
-	 ZCHr40iDHo1CpwbT66yLUc7+SuN8zwMhasfKdpMlPn1fT3sDRd1Ogp1fVL9i1uzu/z
-	 vIvWGskR2hBGAlHRrMOvxs9ogveAN+4pcCs+CPrqebV/MvNxulSP4PTwaxffeiLI0i
-	 Epy7WBgepAIfA==
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5a402b2d102so11712704e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 00:46:47 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ8B0OJwgVKfXMqgyN0UkcOTKj2MBa8qWkurtN1F0BRSA1Hi0weiGbO1bC4IlccMiLEHVAOzW8BOlL7Lq9L5//Yh@lists.infradead.org
-X-Gm-Message-State: AOJu0YzhBGXtIR8w42fMCP1XoihkvRGydhMMj1aGh/uHs7Tu4G2CcQho
-	KqTTzSS9Do1Nz1EqOsbOpGhwW/ADqhgcEvIcrdS6UJJIuZ3W10OeTF6j4VXeF8XHKhxdm6ExyV4
-	6Vfqeqdzkls7wRw3dF8CflaJarTjslPdejoTtFcHjcg==
-X-Received: by 2002:a05:6512:2381:b0:5a2:a13e:9082 with SMTP id
- 2adb3069b0e04-5a74662a7a2mr863095e87.35.1777362406607; Tue, 28 Apr 2026
- 00:46:46 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 28 Apr 2026 00:46:45 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 28 Apr 2026 00:46:45 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260427-arm-psci-system_reset2-vendor-reboots-v21-3-dcf937775e73@oss.qualcomm.com>
+	Tue, 28 Apr 2026 07:49:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=j4y47mllwDBUdmyFMFqoQ0jQCT3rh6IidQ81fgJEmFPhAo+jylkdWqL5LQYVmcssb4tQHi4t1CQZBfxOm7RBf152C331wy5pIGhqmuGuGydJohHUFV8VxVi6DlRJqdnRTPuv40ortIwQAC32CWYUHkcXube1G9eaWkvwwSV8FcTiuwzL9gDiVNLiFtLBfVkxfwXliHb3TFL2sPVqgVK/bO3nkKi5LHz72UeBh45DSHc3Y/TMYB99w4N6ly4HiLDN03qH+ttFNPSuDOycrvXvLa6QbKgjtC1z4Ex1ylTZZT8uQsw9Es2XcQUdMdHGc7S42knTn9ota6UmLPsC/915tQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/LS3cjed6wT/ve6oSAab5MfP7jXSZWFqsiBBYZ7azLY=;
+ b=u8ZAgCcI+xUAvjNgwidtpnQAgxp+GBr/HO2ivd0KlbRjzKN/8aHO+WirNkkRgZpXveXRJfnO21iFNQqGCPd1u/GGGtWUgAWFg/2J7j7roVJk7FPdnnAKUBDwFC3XiYDtJg+rsWOEcwkllVeeqw4NtCn46ckHpEdTu356UrGyhOWZQzixLKmdTukPfpktFv6VKaJGQzek1bDR0UM0GjKp6Rhi7XTg0UOZOe2IJ3NbgL9SJb4Q709cvRXCAUOR7dkdt7SRVF+YtTYoi8xgZuhRgND5hmeMzrG/cVVeiYw4TlkO3UYNj/cI1pea8sTM7NPfa0y06SxRbc8jdf9Lq2+RTQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/LS3cjed6wT/ve6oSAab5MfP7jXSZWFqsiBBYZ7azLY=;
+ b=UlLr49A1IoE4ZU2bCaBgo24YdCnjFMetlNANWYuv6vOOie9UBOyA0Tr3uNC+Ummx7/HTVh4C54GOlxaDSaDo70iBDLq7wKxhB309wTVMJuGrrEDcMER0dDy9PV0DovaDLKkyXE1sG6cEHFCG+KocKvxvDmja8neoKMdLDi1sbR72fkydFqbKjWj6/JTeiXxbrYwRrP8L33d57KSuebyJAAnzL6uonYkhnsH0VaZIPahYqGwaaFfWhWxWSrcWKDJqHhDE7dQdWMPcboRG4oAD/s6HUzZO8jSHB4zLtgwcrmPO6n6p+RAC1sjGVEEkiE6AwbS4452COytr4gPB/NgbLA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM0PR04MB5220.eurprd04.prod.outlook.com (2603:10a6:208:c2::19)
+ by VI0PR04MB11024.eurprd04.prod.outlook.com (2603:10a6:800:260::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Tue, 28 Apr
+ 2026 07:49:21 +0000
+Received: from AM0PR04MB5220.eurprd04.prod.outlook.com
+ ([fe80::cbbc:93fd:f7b0:76e5]) by AM0PR04MB5220.eurprd04.prod.outlook.com
+ ([fe80::cbbc:93fd:f7b0:76e5%4]) with mapi id 15.20.9846.025; Tue, 28 Apr 2026
+ 07:49:20 +0000
+From: Richard Zhu <hongxing.zhu@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	bhelgaas@google.com,
+	frank.li@nxp.com,
+	l.stach@pengutronix.de,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/3] Add root port reset to support link recovery
+Date: Tue, 28 Apr 2026 15:50:27 +0800
+Message-Id: <20260428075030.1626440-1-hongxing.zhu@nxp.com>
+X-Mailer: git-send-email 2.37.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI1PR02CA0017.apcprd02.prod.outlook.com
+ (2603:1096:4:1f4::10) To AM0PR04MB5220.eurprd04.prod.outlook.com
+ (2603:10a6:208:c2::19)
 MIME-Version: 1.0
-References: <20260427-arm-psci-system_reset2-vendor-reboots-v21-0-dcf937775e73@oss.qualcomm.com>
- <20260427-arm-psci-system_reset2-vendor-reboots-v21-3-dcf937775e73@oss.qualcomm.com>
-Date: Tue, 28 Apr 2026 00:46:45 -0700
-X-Gmail-Original-Message-ID: <CAMRc=MfyCqZHYSoUKe3=c_VO61HAxydpwyHP3Ey6u08Pzx+OgQ@mail.gmail.com>
-X-Gm-Features: AVHnY4Lw8-kSbgaAsT6iClj8v0tvKXLizHPhM-T0oDDyli5y1-FS0QYWyggqmk4
-Message-ID: <CAMRc=MfyCqZHYSoUKe3=c_VO61HAxydpwyHP3Ey6u08Pzx+OgQ@mail.gmail.com>
-Subject: Re: [PATCH v21 03/13] power: reset: reboot-mode: Add support for
- predefined reboot modes
-To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
-	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, Andre Draszik <andre.draszik@linaro.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>, 
-	Srinivas Kandagatla <srini@kernel.org>, Sebastian Reichel <sre@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Daniel Lezcano <daniel.lezcano@kernel.org>, Christian Loehle <christian.loehle@arm.com>, 
-	Ulf Hansson <ulfh@kernel.org>, Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Arnd Bergmann <arnd@arndb.de>, Souvik Chakravarty <Souvik.Chakravarty@arm.com>, 
-	Andy Yan <andy.yan@rock-chips.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	John Stultz <john.stultz@linaro.org>, Moritz Fischer <moritz.fischer@ettus.com>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM0PR04MB5220:EE_|VI0PR04MB11024:EE_
+X-MS-Office365-Filtering-Correlation-Id: b7957cbf-196b-4f45-f3c3-08dea4faa80d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|376014|19092799006|1800799024|52116014|56012099003|18002099003|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: RKOoJP3Ihxewdo1Apg4sYIDDk2VOu+gaQLnW2NU4Cs8mgeYmt7ALBdD6ifwNS/Y8wIuDRKRskjpAWmL7DR2fn665MP9cZUNPsw8dJwyw3MUjfK0+h/QOl2DQFHSjB3gnCoFPg4m4QVckY3SrciODky2U2vKysHncMIYfOdxjzGbk4iom94lMmaQ9oGaF0QrRi8yoHijnZIF5g6mLgna0XlwQhkWgs+Uj0kRZYEJ/TsCB3dGc1gQ084t/GUTmwhtMMx6SF2p4Z5t3tUG5lIVnXTr8OnqJG6xA+Bi8G1iHHum9bByaJgwyKZL4OpCoPRngNviUexXtlM+1u2lnqM7Gfq0a0xXCoJfUmsdgzy3EtCOXy3R6IPC4SQzsuRSM2Iv6UOkiZ4o/fezsJcaE2xzwh9GS9ocfzeomFn9Ehn6lAmdQg+2VxyWhJqRykU34PKJFl7LAmuEULKGgYeSiwCrFUeVR20q93HTwmZ+wVhlli/OaiYWLg4nTo1d26EIWLhiXoDec+76Hzod1kxKtFDGFA7PW2ymoz0ri/9WsIHDiX3KRFv0q3973+IiPHrBgbUnXTe2ZykTlGh47DjqUNqfNHa0/eIdUVJNz/Rj+HCJ7zI9qIU+B6iiPV+Td5uyVQ6EAZ5doynfxHrJyDiFGVHLg3cIeIokQzJGzjGIzwaO6q1pq8nQagGw6Q/x7QeSv16uGZtmyBDlfISm74lngoYWowMgI34PvbeSu6Yvm1gCsT/KKw3pT3ME7NXBNAWp3h7lfg07Sr8LOtrwUS130OYouYadnCgEWBcuWD79hUFIZdFaSd2M4hwhEjHUS1L3x70Yz
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB5220.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(19092799006)(1800799024)(52116014)(56012099003)(18002099003)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kGZxfR4FDWotBT38W1ahd8PT3r+s6FZ5a+q+nKwc8100UrWN6GySyXOL2pNt?=
+ =?us-ascii?Q?H/7DAEtM8D/wmoYbEmf1e97TAs8YuLrdEexymp4QxzIQ91tWHp1fjLOIXfS+?=
+ =?us-ascii?Q?g08dnNoECtOMPqUS2TQS/gd43n5RHLNV7dlQJd0lF+vDxZdSr1fXmDWHOEF8?=
+ =?us-ascii?Q?klRs+t1pXaPnQ0ua1kv2+LutcNMKDcQy27bVnAQovPQuPgJz/66xWouCGY3M?=
+ =?us-ascii?Q?zA5nmGQ5LZh77MOnWxqtRQIu8OMYPexGzhOdPO6gXjfxXKQ/etHDjfdAhbO3?=
+ =?us-ascii?Q?34jI2HxY3ee8/VS3FONY2R7mlPx5BgkTE/mhUQuoKK9qQhRcHjpQfzf1/7AH?=
+ =?us-ascii?Q?8U20jSjX052tQ1sFNwJ1gQRd/NcDeo2nBj6OtNGFJdKf2bazkafHxDVABh47?=
+ =?us-ascii?Q?a6Wxpyx7BBoL0NGvScsFXqpG+EZ0zEQiblxTulJpVdBGl9Ipu7lMiSJ22Jct?=
+ =?us-ascii?Q?qa/I/9WyhYLNhu7wAUzHChfwOeF3ZUyfbwXqFHa17b2GPNhycjD5BUwmRlkO?=
+ =?us-ascii?Q?aiacK73BWtIB9/mAJ5JrUzFNxodwbpDL6f/IWWsBm9VOyfzKQQwxgTKwVCF0?=
+ =?us-ascii?Q?bV6jJq8plVl1J/T37ygDvmYsFuFkb15p0ovLx9Clx/2qdPdIABWsilx+jgK5?=
+ =?us-ascii?Q?ffbNVW+cG3ynRO2RSxFSw841Nv755YlKm2QhbYnYowTOGrLffjzMAF6ugD/u?=
+ =?us-ascii?Q?WwwuQ0jcci1fDbrWB4lWIh2zayr0/Z4pX098L1qQwnwboUjMmk6MZPQ9U+Hg?=
+ =?us-ascii?Q?TbgG4pKYpGPCEK9e8OUqMwl2xQxaTrB7PlF4HTV7b3a8bkISZ4KP+8LdLOAg?=
+ =?us-ascii?Q?LhZ5wfuXqPuLILS24TALiiaEjbZqH4XN5Q+K1fbsIWBPseWcObL9fAdO1+A+?=
+ =?us-ascii?Q?Jf6BS9oGF+gavslw8G7drx/ODWCqMTEfdqGbhtcJFwuvdQPMNuzfBlrLCC6/?=
+ =?us-ascii?Q?23NDpGjSfn5j/fJixWNbU1y5cKb249XHN6+o5zN+zSrEAi8CtQvEtUmxMEBl?=
+ =?us-ascii?Q?FgWwnwsTXw49DfCn/KDWcwbbfEu8Q9z0p0GnbpqwV4ob2BsxVWVxBybzOFEm?=
+ =?us-ascii?Q?7hkCSbD5qMJqzauyCV+02SClR83aXLdQCa4zUDANJxDub2IxOASpLwKgVtCc?=
+ =?us-ascii?Q?N7dxCIRHk/sUcKw7Nk23Op/3zitQ8mtkRCbloEuGY8PbmlsnOOolyRTf3ePS?=
+ =?us-ascii?Q?R5y1f3p2CekURZA4RvLACyEqeQlgPg83KK/uGuysqLn5AS7PewmzfgIz1Zz0?=
+ =?us-ascii?Q?2ZIfk/lmIn7QSonPpzRhQP2qjTFov8JI5T1jIOy7lWmvrmRZadp/VJWUCVe/?=
+ =?us-ascii?Q?z9GLJqNniKqZWYJR9uSxjbQ45UCKNTooB5qOvQdD1rMiDn5aQ+3kxGRIw4ty?=
+ =?us-ascii?Q?L0sfhXTKFoJyGA5Aw59h1botZ/oJ/rwGxkfDBuqypil8Cm+IfGysrDL4SnVn?=
+ =?us-ascii?Q?qHaw9RPsB+z3ylH0Pl5Kpv/mn/i2fN6HFabYgvc4CEOG/fQiYv1WrTF1dbfR?=
+ =?us-ascii?Q?cUAR/fWX6uHttAtxXuJpoNuOvzaepz5DSQZpwkgtytow59B59Yc5iDB9pyR7?=
+ =?us-ascii?Q?T3U2mbzFP9wPBeJKvVqgAlnPAo/9BNEXVAg1MvzU+HhijSVqC30YFp/+D6c6?=
+ =?us-ascii?Q?b+ouHxSeRQgNwaYRx/O1IcuPw5b79OE5sFugC9vUt0VSxc0JMkOVfzR/ii5Q?=
+ =?us-ascii?Q?ReFzPQVmTALwhQAapQIfvSIq/YcgWekpd0GSJX9DvYD8TKgG6CDPdHF43sfL?=
+ =?us-ascii?Q?fPZLseFKiA=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b7957cbf-196b-4f45-f3c3-08dea4faa80d
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB5220.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2026 07:49:20.9068
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: v0Zvl+Bz9r7nBAS4IsS5fbpXeyq0YFI/vOCVSmSjpRimmsXts5xdtGaZjD3KuN/b8RunA5cpM6GyYtF0YRd1ZA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11024
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260428_004931_216253_32EFBFE6 
+X-CRM114-Status: GOOD (  14.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,59 +147,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 27 Apr 2026 19:34:43 +0200, Shivendra Pratap
-<shivendra.pratap@oss.qualcomm.com> said:
-> reboot-mode based drivers can define a reboot-mode by adding it under
-> the reboot-mode node in device tree. This limits such drivers, to define
-> any predefined reboot-modes statically within the driver and creates a
-> dependency on device-tree.
->
-> Introduce a list for predefined modes in the reboot-mode framework and
-> process the predefined reboot-modes along with the device-tree defined
-> reboot-modes. Modify existing reboot-mode based drivers to initialize
-> the predefined list-head as empty.
->
-> This patch enables a reboot mode driver to define reboot-modes through a
-> predefined static list, in addition to the device-tree based reboot-modes.
->
-> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-> ---
->  drivers/power/reset/nvmem-reboot-mode.c  |  1 +
->  drivers/power/reset/qcom-pon.c           |  1 +
->  drivers/power/reset/reboot-mode.c        | 66 ++++++++++++++++++++------------
->  drivers/power/reset/syscon-reboot-mode.c |  1 +
->  include/linux/reboot-mode.h              |  8 ++++
->  5 files changed, 52 insertions(+), 25 deletions(-)
->
-> diff --git a/drivers/power/reset/nvmem-reboot-mode.c b/drivers/power/reset/nvmem-reboot-mode.c
-> index bd05d660490c686b43134f82f1eadd7665403d20..83a8d80fd7d1ccb1b736aee5f2d675246a63b8f8 100644
-> --- a/drivers/power/reset/nvmem-reboot-mode.c
-> +++ b/drivers/power/reset/nvmem-reboot-mode.c
-> @@ -53,6 +53,7 @@ static int nvmem_reboot_mode_probe(struct platform_device *pdev)
->
->  	nvmem_rbm->reboot.dev = &pdev->dev;
->  	nvmem_rbm->reboot.write = nvmem_reboot_mode_write;
-> +	INIT_LIST_HEAD(&nvmem_rbm->reboot.predefined_modes);
->
->  	nvmem_rbm->cell = devm_nvmem_cell_get(&pdev->dev, "reboot-mode");
->  	if (IS_ERR(nvmem_rbm->cell)) {
-> diff --git a/drivers/power/reset/qcom-pon.c b/drivers/power/reset/qcom-pon.c
-> index 57b36e6186f80aff947fd7f5aae5ce280c65dc6b..9d0e3fc621a6173438c6da4cce38394199451881 100644
-> --- a/drivers/power/reset/qcom-pon.c
-> +++ b/drivers/power/reset/qcom-pon.c
-> @@ -73,6 +73,7 @@ static int qcom_pon_probe(struct platform_device *pdev)
->  		pon->reboot_mode.dev = &pdev->dev;
->  		pon->reason_shift = reason_shift;
->  		pon->reboot_mode.write = qcom_pon_reboot_mode_write;
-> +		INIT_LIST_HEAD(&pon->reboot_mode.predefined_modes);
+Based on the following patch-set[1] issued by Mani.
+Add support for resetting the Root Port for i.MX PCIe to enable link recovery.
 
-Maybe unrelated to this series but we could use some centralized initializer
-for struct reboot_mode_driver as well as rename it to struct reboot_mode_device
-which it actually is.
+[1] [v7,0/4] PCI: Add support for resetting the Root Ports in a platform specific way
 
-For now:
+PCIe links can go down due to various unexpected circumstances. This patch series
+adds root port reset support for link recovery on i.MX PCIe controllers when the
+optional "intr" interrupt is present.
 
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+When a link down event is detected, the root port reset uninitializes and
+reinitializes the PCIe controller, then restarts the PCIe link.
 
-Bart
+On i.MX95 platforms, link events and PME share the same interrupt line.
+Link event interrupts cannot use only an IRQ thread handler because the PME
+driver uses request_irq() to bind the PME interrupt directly with only the
+IRQF_SHARED flag set.
+
+To address this, we register one handler with IRQF_SHARED for link event
+interrupts and manipulate the enable bits of link events to ensure the same
+interrupt source is triggered only once at a time.
+
+Additionally, this series adds 'intr', 'aer', and 'pme' interrupt entries to
+the i.MX6Q PCIe binding to support PCIe event-based interrupts for general
+controller events, Advanced Error Reporting, and Power Management Events
+respectively.
+
+Changes in v2:
+- Constrain the new added three interrupt entries to be valid only for the
+i.MX95 variant using conditional schemas
+
+[PATCH v2 1/3] dt-bindings: PCI: imx6q-pcie: Add intr, aer and pme
+[PATCH v2 2/3] arm64: dts: imx95: Add dma, intr, aer and pme
+[PATCH v2 3/3] PCI: imx6: Add root port reset to support link
+
+Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml |  21 ++++++++++++++++
+arch/arm64/boot/dts/freescale/imx95.dtsi                  |  16 +++++++++---
+drivers/pci/controller/dwc/pci-imx6.c                     | 123 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+3 files changed, 156 insertions(+), 4 deletions(-)
+
 
