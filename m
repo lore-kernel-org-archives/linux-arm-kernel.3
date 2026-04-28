@@ -4,116 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6801FF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 13:18:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E699FF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 13:20:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0JylD0eUAei9HWh+O1vGMAbkkUnXs7zMRuNaLki22TM=; b=Hk0edk2Gj/oVP1KSGtn0S2PSP+
-	PIfFwWuG9upT0geYwpz87mJvAkUrSHnG7u30MnAGxrZtHsqfU6m2gsuzibjim6iUN83eMhRrS6z7P
-	Uy8uir6SqS5L4AitFSJUcQnN8ukVP8ZIlMfrQYwTgsDsC0s2WGL2ZckUULnXzIny1JjPEnuI9TFPN
-	aLBLX7iuK8LOypu7+XwLUMikEGJRgtdyGuD20HVw4QT/7nVa4YjQhjMNFnsparOb3NvTathLANriU
-	QbkabwkkzK4MDgIXA0rr2Gb2chPMCIeaDdthhz2qHb41GYEZxuPn7I/KgPMMJNNf/UaAZsrApSinS
-	a7RB8mgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/aAmCRebqazUQNBKgBXCiYfFsMA4sAwZ/UUaHHc6oSE=; b=YaiClKkWxNLszyg9bqxrdM0h4a
+	CimByaa9gw0XoVv9q0xfSRlcDJgArseuXYWNbu7l/pY8509IQExmrjOd6SB4rqEwreoTHXjqSL0VO
+	6NhyT0etHz2VL1bW4bs1IvnX33R/ahseN48ouItCz7y8pf7C2smoCtsEE6xcnv3iRJix28JxO4Cg0
+	UoHlXOGWyOq86aU5kF51D/vy51MJU4WNzT6JZYL7+vmZEp6/w6iLUJNUFVGPa5FNmMyq9XilSxPee
+	SUb4flvoop+rFTUi/LQiaZQtblSwAuv6AtLOiEf9SfSbTU5D/Gz8vG2uxKJOnl5xuwG0d3Hn2RbzS
+	2tI4mibw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHiKc-00000001WOT-13hp;
-	Tue, 28 Apr 2026 13:18:30 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1wHiM1-00000001Wlm-3Dgo;
+	Tue, 28 Apr 2026 13:19:57 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHiKa-00000001WNe-1J8I
+	id 1wHiLx-00000001WiR-47LW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 13:18:29 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2ad617d5b80so69191065ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 06:18:27 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1777382307; cv=none;
-        d=google.com; s=arc-20240605;
-        b=A4MwMs9Ljn3PNNANDz/Dj1SdAt9hXeB6Dat2S62cSfB79FL9/rsP/4+c2jA/6h7ak9
-         gDXsHRCEmSSpwSqo4fqtVhGEaC9+4zpz1mHX3IInxGVH306jDZ/3Ev/f+Xcajt6wcgGJ
-         DL9/LrUvlsDFEOF9KbyTlrZQSjGn/MJeKJ6k97SQ4PT9nOcIO5J2mZXrB15yvo24lEv3
-         Psn04kQpoUNlkSX6mvMV4Uj7baFLd/In92p5pKag2NIMK+m1GTQvbSJ/PMreWCOhNcyD
-         vUaibDf5RUPsz4bB/fO1MV7cDAuk+ZAYH4N6LkttjGXXHENNXTt5/7STcwWdJI5DqzJr
-         r4+Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=0JylD0eUAei9HWh+O1vGMAbkkUnXs7zMRuNaLki22TM=;
-        fh=eB2KXQMgvFThtG+FDuT4ef2Sm/r7QkeuALEE630zHpY=;
-        b=CkabZZS3/wKuOCVw5AeITWDgEsmoLoitSL9u/EVVFm+W4JWsmxu7x3QXuj50pxcb4c
-         Ofk/ppNeOai2nRXgLsfXJQQuqoix4Qg15xFURTJhHC2kKQiyyhRxogdp2UrCdZAn1qRP
-         D9Ydp9KrlhtqEu5W3CISeYQcyppFnL80I0OQ+L7M23kA41L1Rqm6swgfy2Xg4trfyBeV
-         nVjAQBSUN5RxL2DKvqdeIIAI/JHC/FUhXU4QyvMrlYzrsg+6ZXDS0zTBG2EGGR+3Etu5
-         zCazq/wW19geXqS2lc5ASZB9Ye7D9xEQHgML8kH5+XIapksCjSjNWiBSQvqpXCqdFNcm
-         DpIQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777382307; x=1777987107; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=0JylD0eUAei9HWh+O1vGMAbkkUnXs7zMRuNaLki22TM=;
-        b=YZxjFDZEAnGbloS4hAVl9/xPykW8PXntMl5RdmYevf/HwximGlJHgOLf932EOWu+Il
-         4twTTqZr0W7ASxKdby+vAQqsZDWfxDQG9OlW8GPBJUP6qNNf1t4EdNb9jeca4SgmS4UC
-         LaSl/XzKmjsuioWt7INSxawqsK6Gb81jPlfaAb9fcZvNJVCqn3j0iMfU3xK7kE4FfegN
-         IcNHTtXXT5XJ1k4GK7eA17w/aSaGO0bCwsFHGY+V3LTsZk7QxV72SUjAi8yEu144waQw
-         cNyFpyX7Ri3xO07hR7mPfs+NkgPi/MLaa5IdfT6s9HiBHF8cRUTBMbz/EuwRTAVw9+Y5
-         IpNQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777382307; x=1777987107;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0JylD0eUAei9HWh+O1vGMAbkkUnXs7zMRuNaLki22TM=;
-        b=UkokBu6tx8uGqsRaea7NJXE2qCNLa0j2gbRNJUNVj84hxGPazaOMQoJGZU58Lx9we7
-         lttSbvJmZxl/L7bL+mxr7QgvPB07ZjEKRf9M2lIikTYDPNYAnfGxgaIo10PPk6qso+Es
-         ffnfIGqcLKQh8U2Mov/BDkgqyQMpvVM6GeKueNv7/8L9aMtsAVOqwMzIdbYfr3CbgExz
-         8stGoStzZmXO6p6yGws8nlynotReIGTIad5bPmVTFSDTP+21Nf9SsD6m+YW9g5PwQa4+
-         Oz8m61FpoBw0Kc0v552cfplmRiTv1Qk6CQCBov5PcY8o4dx7IJi9bOoHfDrDYMp12BQf
-         kZBA==
-X-Forwarded-Encrypted: i=1; AFNElJ/DTvKz1ixFKnpeyVip3O+9WUi7MC6NkE40gR1cBeSZXcRUqde7aYEsteAgSJM+1fKSEOzodNl/4bO6mgtHWpJp@lists.infradead.org
-X-Gm-Message-State: AOJu0YxC1aLMUz42kFlFkHpxGAQTa9KANQBZSlSQjxzzodHQnvCCWT/6
-	1wzLYGmLMdpSI7cfUoXunx2bGdcERqNZ0t1weWnJZCPvIvjYNaLWvgg4t2d1k/D3JTXr/B+FdcL
-	5olQrJqZdrDhtO3U4aTDrKCzpe8oUKXI=
-X-Gm-Gg: AeBDietBCWwNK0tb2TDEbaetoEqoMXgGtnKVoSpW1y3yX+tUauFrT7fRDtj7hZpBINU
-	9woUn8YwFsAZoez6mZXSHED6Gt2n7X2xam3tdp06X70TT46izyKM2s4gLQr/MVQhJj+cUgRR+e3
-	AxJINKwpVCdPRbf75lTc3ihQEutyx1XJ2V9XAR/NPcmepgc+rAHk+SuYa840Qftw5sQICbNcPnP
-	etXpOXSZWR7kIYCPIFH/YcAwWP3lPgpAbJJmXf3gjLDRzc6uSXscbuNAGb7diP9zgNtUAH4ISrc
-	0jcHr5fLoizSBE8MVdH7APuODcBRxmcLs4urwowb2nnkOQ64ojyUDJURmRirQg==
-X-Received: by 2002:a17:903:2c8:b0:2b4:5b82:a8e3 with SMTP id
- d9443c01a7336-2b97c460ff4mr29301325ad.24.1777382306648; Tue, 28 Apr 2026
- 06:18:26 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260428-drm-bridge-alloc-getput-panel_or_bridge-v2-0-4300744a1c47@bootlin.com>
- <20260428-drm-bridge-alloc-getput-panel_or_bridge-v2-7-4300744a1c47@bootlin.com>
-In-Reply-To: <20260428-drm-bridge-alloc-getput-panel_or_bridge-v2-7-4300744a1c47@bootlin.com>
-From: Gyeyoung Baek <gye976@gmail.com>
-Date: Tue, 28 Apr 2026 22:18:14 +0900
-X-Gm-Features: AVHnY4KhpSU0AnRDYEBltd_yLgO1x75YnlNnv3pVSwzFIbBw0RqhN0C4ay4P_HY
-Message-ID: <CAKbEznt-PUvg48tegibw+0xYCCvK+1jwESnuHx9+MG0p3MD5gA@mail.gmail.com>
-Subject: Re: [PATCH v2 07/11] drm/bridge: lt9611: switch to of_drm_get_bridge_by_endpoint()
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Rob Clark <robin.clark@oss.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>, 
-	Abhinav Kumar <abhinav.kumar@linux.dev>, Jessica Zhang <jesszhan0024@gmail.com>, 
-	Sean Paul <sean@poorly.run>, Marijn Suijten <marijn.suijten@somainline.org>, 
-	Tian Tao <tiantao6@hisilicon.com>, Xinwei Kong <kong.kongxinwei@hisilicon.com>, 
-	Sumit Semwal <sumit.semwal@linaro.org>, John Stultz <jstultz@google.com>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Michal Simek <michal.simek@amd.com>, 
-	Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	freedreno@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+	Tue, 28 Apr 2026 13:19:56 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id E1DC2C5EF0B;
+	Tue, 28 Apr 2026 13:20:32 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 35812601D0;
+	Tue, 28 Apr 2026 13:19:49 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8F75A10728B8B;
+	Tue, 28 Apr 2026 15:19:36 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1777382387; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=/aAmCRebqazUQNBKgBXCiYfFsMA4sAwZ/UUaHHc6oSE=;
+	b=sWOth0lnhQkt1SKJlEOb35K37SRf1IZJdLJs1KtiRkwzxIW3XgVAjw0s+sltiQox7EIO/q
+	RHhfsWsgSTSSEhF93sPb0/Dy3zu9Dmw7mAsyViz9qMwLm+Qq12w9/OaVoMn8gQL6XhCiUh
+	wrg3ym3JZEBGoe4ISfu02867GIQoCSEy33t7hxBysza/OCCiq1nQZOzCHguDaXJnIFrMIT
+	6+n/b2bYml2USn5ypFL1JD5gOVqcs/K5HXR9RZj9aD362Ai7NHp7VTR2x946YYQ77/2bRJ
+	HY/SPjD4ROWVUHhOKQMazhZ1NiAQkUCEi1gDLWKzrWF1hdpY+ETyTFBs3Srhpg==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 28 Apr 2026 15:19:35 +0200
+Message-Id: <DI4TGV2WURTY.39OXE7WWKRLA1@bootlin.com>
+Subject: Re: [PATCH v2 08/11] drm/bridge: adv7511: switch to
+ of_drm_get_bridge_by_endpoint()
+Cc: "Hui Pu" <Hui.Pu@gehealthcare.com>, "Ian Ray"
+ <ian.ray@gehealthcare.com>, "Thomas Petazzoni"
+ <thomas.petazzoni@bootlin.com>, "dri-devel@lists.freedesktop.org"
+ <dri-devel@lists.freedesktop.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>, "linux-arm-msm@vger.kernel.org"
+ <linux-arm-msm@vger.kernel.org>, "freedreno@lists.freedesktop.org"
+ <freedreno@lists.freedesktop.org>, "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>
+To: "Biju Das" <biju.das.jz@bp.renesas.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
+ <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Rob Clark"
+ <robin.clark@oss.qualcomm.com>, "Dmitry Baryshkov" <lumag@kernel.org>,
+ "Abhinav Kumar" <abhinav.kumar@linux.dev>, "Jessica Zhang"
+ <jesszhan0024@gmail.com>, "Sean Paul" <sean@poorly.run>, "Marijn Suijten"
+ <marijn.suijten@somainline.org>, "Tian Tao" <tiantao6@hisilicon.com>,
+ "Xinwei Kong" <kong.kongxinwei@hisilicon.com>, "Sumit Semwal"
+ <sumit.semwal@linaro.org>, "John Stultz" <jstultz@google.com>, "Andrzej
+ Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
+ <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>,
+ "laurent.pinchart" <laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
+ <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>,
+ "tomi.valkeinen" <tomi.valkeinen@ideasonboard.com>, "Michal Simek"
+ <michal.simek@amd.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+X-Mailer: aerc 0.20.1
+References: <20260428-drm-bridge-alloc-getput-panel_or_bridge-v2-0-4300744a1c47@bootlin.com> <20260428-drm-bridge-alloc-getput-panel_or_bridge-v2-8-4300744a1c47@bootlin.com> <TY3PR01MB113466B70BFD2899AB0CF47AD86372@TY3PR01MB11346.jpnprd01.prod.outlook.com> <TY3PR01MB1134674FDD088299A4382D3D286372@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+In-Reply-To: <TY3PR01MB1134674FDD088299A4382D3D286372@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_061828_351547_9493634D 
-X-CRM114-Status: GOOD (  11.53  )
+X-CRM114-CacheID: sfid-20260428_061954_309630_C226A540 
+X-CRM114-Status: GOOD (  27.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,35 +97,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue Apr 28, 2026 at 1:58 PM CEST, Biju Das wrote:
+> Hi all,
 >
-> @@ -1058,7 +1057,11 @@ static int lt9611_parse_dt(struct device *dev,
+>> -----Original Message-----
+>> From: dri-devel <dri-devel-bounces@lists.freedesktop.org> On Behalf Of B=
+iju Das
+>> Sent: 28 April 2026 12:50
+>> Subject: RE: [PATCH v2 08/11] drm/bridge: adv7511: switch to of_drm_get_=
+bridge_by_endpoint()
+>>
+>>
+>> Hi,
+>>
+>> Thanks for the patch.
+>>
+>> > -----Original Message-----
+>> > From: dri-devel <dri-devel-bounces@lists.freedesktop.org> On Behalf Of
+>> > Luca Ceresoli
+>> > Sent: 28 April 2026 10:16
+>> > Subject: [PATCH v2 08/11] drm/bridge: adv7511: switch to
+>> > of_drm_get_bridge_by_endpoint()
+>> >
+>> > This driver calls drm_of_find_panel_or_bridge() with a NULL pointer in
+>> > the @panel parameter, thus using a reduced feature set of that functio=
+n.
+>> > Replace this call with the simpler of_drm_get_bridge_by_endpoint().
+>> >
+>> > Since of_drm_get_bridge_by_endpoint() increases the refcount of the
+>> > returned bridge, ensure it is put on removal. To achieve this, instead
+>> > of adding an explicit drm_bridge_put(), migrate to the bridge::next_br=
+idge pointer which is
+>> automatically put when the bridge is eventually freed.
+>> >
+>> > Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+>> > ---
+>> >  drivers/gpu/drm/bridge/adv7511/adv7511.h     |  1 -
+>> >  drivers/gpu/drm/bridge/adv7511/adv7511_drv.c | 11 +++++------
+>> >  2 files changed, 5 insertions(+), 7 deletions(-)
+>> >
+>> > diff --git a/drivers/gpu/drm/bridge/adv7511/adv7511.h
+>> > b/drivers/gpu/drm/bridge/adv7511/adv7511.h
+>> > index 8be7266fd4f4..12c95198d9a4 100644
+>> > --- a/drivers/gpu/drm/bridge/adv7511/adv7511.h
+>> > +++ b/drivers/gpu/drm/bridge/adv7511/adv7511.h
+>> > @@ -354,7 +354,6 @@ struct adv7511 {
+>> >  	enum drm_connector_status status;
+>> >  	bool powered;
+>> >
+>> > -	struct drm_bridge *next_bridge;
+>> >  	struct drm_display_mode curr_mode;
+>> >
+>> >  	unsigned int f_tmds;
+>> > diff --git a/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c
+>> > b/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c
+>> > index 6bd76c1fb007..498e38579a0f 100644
+>> > --- a/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c
+>> > +++ b/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c
+>> > @@ -851,8 +851,8 @@ static int adv7511_bridge_attach(struct drm_bridge=
+ *bridge,
+>> >  	struct adv7511 *adv =3D bridge_to_adv7511(bridge);
+>> >  	int ret =3D 0;
+>> >
+>> > -	if (adv->next_bridge) {
+>> > -		ret =3D drm_bridge_attach(encoder, adv->next_bridge, bridge,
+>> > +	if (adv->bridge.next_bridge) {
+>> > +		ret =3D drm_bridge_attach(encoder, adv->bridge.next_bridge, bridge,
+>> >  					flags | DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+>> >  		if (ret)
+>> >  			return ret;
+>> > @@ -1251,10 +1251,9 @@ static int adv7511_probe(struct i2c_client
+>> > *i2c)
+>> >
+>> >  	memset(&link_config, 0, sizeof(link_config));
+>> >
+>> > -	ret =3D drm_of_find_panel_or_bridge(dev->of_node, 1, -1, NULL,
+>> > -					  &adv7511->next_bridge);
+>> > -	if (ret && ret !=3D -ENODEV)
+>> > -		return ret;
+>> > +	adv7511->bridge.next_bridge =3D of_drm_get_bridge_by_endpoint(dev->o=
+f_node, 1, -1);
+>> > +	if (IS_ERR(adv7511->bridge.next_bridge) && PTR_ERR(adv7511->bridge.n=
+ext_bridge) !=3D -ENODEV)
+>> > +		return PTR_ERR(adv7511->bridge.next_bridge);
+>>
+>> Does it crash, if the error is  -EPROBE_DEFER?
 >
->         lt9611->ac_mode = of_property_read_bool(dev->of_node, "lt,ac-mode");
->
-> -       return drm_of_find_panel_or_bridge(dev->of_node, 2, -1, NULL, &lt9611->next_bridge);
-> +       lt9611->bridge.next_bridge = of_drm_get_bridge_by_endpoint(dev->of_node, 2, -1);
-> +       if (IS_ERR(lt9611->bridge.next_bridge))
-> +               return PTR_ERR(lt9611->bridge.next_bridge);
-> +
-> +       return 0;
->  }
+> I see a crash with patch [1], which is fixed by avoiding the direct assig=
+nment.
 
-Hello Luca,
-Could you take a look at this alternative?
-------
-struct drm_bridge *next_bridge =
-    of_drm_get_bridge_by_endpoint(dev->of_node, 2, -1);
+Ah, dammit! Good catch, thanks for the quick testing and follow-up!
 
-if (IS_ERR(next_bridge))
-    return PTR_ERR(next_bridge);
+Indeed this driver assumes next_bridge is either NULL or a valid pointer,
+but due to the 'if(IS_ERR() && some_other_condition)' now it can also be
+-ENODEV (not -EPROBE_DEFER, but that's irrelevant).
 
-lt9611->bridge.next_bridge = next_bridge;
-return 0;
-------
+This affects the msm and zynqmp_dp patches equally.
 
- I think it reads a bit cleaner and avoids holding the ERR_PTR in the struct.
+I'm sending a v3 soon with these fixed. I'm just not sure which approach to
+use to fix (same for all the 3 patches). Alternatives are:
 
--- 
-Thanks,
-Gyeyoung
+ 1. -ENODEV is accepted, set next_bridge to NULL when it happens:
+
+      -       if (IS_ERR(adv7511->bridge.next_bridge) && PTR_ERR(adv7511->b=
+ridge.next_bridge) !=3D -ENODEV)
+      -               return PTR_ERR(adv7511->bridge.next_bridge);
+      +       if (IS_ERR(adv7511->bridge.next_bridge)) {
+      +               if (PTR_ERR(adv7511->bridge.next_bridge) =3D=3D -ENOD=
+EV)
+      +                       adv7511->bridge.next_bridge =3D NULL;
+      +               else
+      +                       return PTR_ERR(adv7511->bridge.next_bridge);
+      +       }
+
+ 2. let nexxt_bridge hold -ENODEV but ignore it when it is used (only in
+    the attach op, for all 3 drivers):
+
+      -       if (adv->bridge.next_bridge) {
+      +       if (!IS_ERR_OR_NULL(adv->bridge.next_bridge)) {
+
+While the latter approach involves less code, it might let errors sneak in
+in case new usages of next_bridge are added with just a NULL check.
+
+Opinions about the two?
+
+Luca
+
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
