@@ -4,70 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4D68FF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 10:49:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7429EFF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 10:50:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qHhfWXmBi9f2pbmB6rekkaOm/gySHmHH52D/IQ4QzJk=; b=38vnhvpGkEbxtF1fvDQWPwr1sn
-	AJWLRdtT3aNQ/FPPe4N3BKUguGKo0ykfBaRgNS7YbUNweSbODAJA23EfzBMZP9lecjKlU2IidcwfF
-	xq+Z3Lz3HgpwvVP9RmRSV5oY/FqbtCWXyGC10P+3HsvH27oZza8KlzmnavhZ0M2JwWvOEKAo5GnX/
-	l/y21tvLudTjfvIrGj6S+BiBwaH4UnYZNW4Xro1LlOrfdgKGwFIIMhUjtGipQ8s2165FTq9NjRBKO
-	9S/qjjcdMgfd4i6LexjNR4CWT3bqSN9X8NiCG3xrwWfYlWfPNUqPU5iE3NDpviNg/tUMqGfE5SzWP
-	CCQEKg9w==;
+	bh=1YCFK9fOfX8J7o+4fYxKzID9fqVqxpauY96f73T749E=; b=kzV+WRYxfDKuDHyTlTzqClgkHQ
+	rRqc7m9OWpwpV5vr6S2hLmTf7UEWAJ/ptkiLfJ7G8nC0Bm7zdtAp8S0aQFGLSlb54c+oK/wEb3D9/
+	d7xzSFpd816clG9AhSZ/wVmD/LPDSHRUhvTgFVmQd+PyoEJvFsst00z/ZeunsDupQZ0C6406pQVsa
+	pUHsKykCXUaQ+LVP3ries9jclKeKQ/nPOaqvO0IwpXlJGHhFzLtmuRIr2Qc+k5dNa3mGvISN4XBFW
+	g2QaaqjckEhuV0rc4bqzv319HIMtRCUTS0L9SKJ0GU9f6WVLxwEK4R35IZAgrIlMI0O/gebiWDhs9
+	9VTJLlPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHfzw-00000001DG2-2DCC;
-	Tue, 28 Apr 2026 10:49:00 +0000
+	id 1wHg1k-00000001DSj-2E2k;
+	Tue, 28 Apr 2026 10:50:52 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHfzu-00000001DFU-3aBA
+	id 1wHg1i-00000001DSd-2zCR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 10:48:58 +0000
+	Tue, 28 Apr 2026 10:50:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4E9AD60141
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 10:48:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 031BFC2BCB7
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 10:48:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BC94960154;
+	Tue, 28 Apr 2026 10:50:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B326C2BCAF;
+	Tue, 28 Apr 2026 10:50:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777373338;
-	bh=zRRLxCTMFdXGHczu7lhZcXF7CCENkqKUh9uDDOxrXZY=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=JtnZOetvlFS6qtORFdprF1g2YD3cl16GGsklOWk9R6hwUoiF4mPOfGg8SjchUjDUY
-	 YE8tNvHSZSd61CPZDl9HODthjK8WGDX2463+x4w00sG//19j2ZWGaG+o8tP7rUOhUh
-	 wfSy6wJmlC4y21kO3gzQroPIrHw/Vc8Vue3wlDK6z9WQbOBDfeU4hru7Nli1C3dK1N
-	 7BHwzRSOfNwu/QOUUX6Sz9Fy9cLbVS6QjE67dV+H8LAJcVuZs0hwgMroMaXY46eNw8
-	 GKuGREU9gjvzr9TgZC3iXJsJTHauOnYPSsOQ4XoxPNP+oeCu9JiNSPw6C40/KU1SX1
-	 37IyBs2Ciie3w==
-Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-38e9653b580so125091111fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 03:48:57 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ9KiG/CODQiAwrJLheJmot79qfVMh/bM0e37u/QvhoN94CArOiN3j6Vpi0guOr4nyYQcYmNO2Rey1/gq2w/5cBo@lists.infradead.org
-X-Gm-Message-State: AOJu0YyCBUhFrH102yt/KypULOtGE81iVWehvH85MK80+9P/0aPdt+uD
-	KmXxQzdbLhxdFtnEKhFNZx84vzxaJ+HvsieREJqoyD2FgBv0pYu6a1vRn5nVVYNPFP59nQwWo+9
-	nxTgJ+Iyw9e1uQ3yUmktfh5Lt3Rb+8Sw=
-X-Received: by 2002:a2e:a994:0:b0:38e:9277:6990 with SMTP id
- 38308e7fff4ca-39241005c6dmr8960211fa.30.1777373336622; Tue, 28 Apr 2026
- 03:48:56 -0700 (PDT)
+	s=k20201202; t=1777373448;
+	bh=0cuZ4nY0AbQu+qq/AL+Yse47A4Z10Pa0BfVJC9kTurM=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=DKk5tgQcak2+Ipn1aFgnj+gK7y+qMU+mqZLdurDKXospQQm0b5lWg5kEVOCh0yFrS
+	 wnHyeh3o/G4zbZ2Nmg45NX7CL1ZMKo/9AEjeF14WvsAS6XF6+NWqYqSq2D9BPpzIT0
+	 Bn0yalC9+9y0a1Zqiupd590wdA0HMUTwaGAGTXthW9ErGIR1yRv/5MOJWu138jEVo2
+	 5wLR5pPWwDPM6ZOHgaWY1jaG4Aizuyxpe5Q9lJJWn7qWb7vaKDaWPqlMSs6bEkKFAF
+	 /YP4yhNGwwXwSqCcdRQnu4RvU/SWFHSUq9qEXPaz79u6//BKT7qcbDAb6Uilyre+ke
+	 aKW+ZiL5MMiLA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7CD903930196;
+	Tue, 28 Apr 2026 10:50:06 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-References: <20260427061720.2393355-1-wenst@chromium.org>
-In-Reply-To: <20260427061720.2393355-1-wenst@chromium.org>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 28 Apr 2026 12:48:44 +0200
-X-Gmail-Original-Message-ID: <CAD++jLkjDozkjL-136ut4OsX5PoCe4aKrfXVyq0jtEOc4LX1dw@mail.gmail.com>
-X-Gm-Features: AVHnY4IQ9pWQR3XwMVHEmg2y70n-2Cqf_AoJsV8Bvhx3LjreKPa329xly69LAug
-Message-ID: <CAD++jLkjDozkjL-136ut4OsX5PoCe4aKrfXVyq0jtEOc4LX1dw@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: mediatek: common-v1: Directly modify registers
- to set GPIO direction
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Sean Wang <sean.wang@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net v6] net: stmmac: Prevent NULL deref when RX memory
+ exhausted
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <177737340530.407008.57733216818450708.git-patchwork-notify@kernel.org>
+Date: Tue, 28 Apr 2026 10:50:05 +0000
+References: <20260422044503.5349-1-CFSworks@gmail.com>
+In-Reply-To: <20260422044503.5349-1-CFSworks@gmail.com>
+To: Sam Edwards <cfsworks@gmail.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
+ maxime.chevallier@bootlin.com, ovidiu.panait.rb@renesas.com,
+ vladimir.oltean@nxp.com, baruch@tkos.co.il, fancer.lancer@gmail.com,
+ peppe.cavallaro@st.com, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ CFSworks@gmail.com, stable@vger.kernel.org, linux@armlinux.org.uk
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,37 +79,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 27, 2026 at 8:17=E2=80=AFAM Chen-Yu Tsai <wenst@chromium.org> w=
-rote:
+Hello:
 
-> pinctrl_gpio_direction_input() / pinctrl_gpio_direction_output() take
-> the pinctrl mutex. This causes a gpiochip operations to need to sleep.
-> Worse yet, the .can_sleep field in the gpiochip is not set. This causes
-> the shared GPIO proxy to trip over, as it uses gpiod_cansleep() to check
-> whether it can use a spinlock or needs a mutex. In this case, it ends
-> up taking a spinlock, then calls pinctrl_gpio_direction_output(), which
-> takes a mutex. This causes a huge warning.
->
-> Since the Mediatek hardware has separate clear/set registers, there is
-> no risk of clobbering other bits like with a read-modify-write pattern.
-> Switch to directly setting the GPIO direction register bits to avoid
-> the mutex.
->
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+This patch was applied to netdev/net.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
-Here you need to at least delete the assignment of mtk_pmx_gpio_set_directi=
-on()
-from:
+On Tue, 21 Apr 2026 21:45:03 -0700 you wrote:
+> The CPU receives frames from the MAC through conventional DMA: the CPU
+> allocates buffers for the MAC, then the MAC fills them and returns
+> ownership to the CPU. For each hardware RX queue, the CPU and MAC
+> coordinate through a shared ring array of DMA descriptors: one
+> descriptor per DMA buffer. Each descriptor includes the buffer's
+> physical address and a status flag ("OWN") indicating which side owns
+> the buffer: OWN=0 for CPU, OWN=1 for MAC. The CPU is only allowed to set
+> the flag and the MAC is only allowed to clear it, and both must move
+> through the ring in sequence: thus the ring is used for both
+> "submissions" and "completions."
+> 
+> [...]
 
-static const struct pinmux_ops mtk_pmx_ops =3D {
-        .get_functions_count    =3D mtk_pmx_get_funcs_cnt,
-        .get_function_name      =3D mtk_pmx_get_func_name,
-        .get_function_groups    =3D mtk_pmx_get_func_groups,
-        .set_mux                =3D mtk_pmx_set_mux,
-        .gpio_set_direction     =3D mtk_pmx_gpio_set_direction,
+Here is the summary with links:
+  - [net,v6] net: stmmac: Prevent NULL deref when RX memory exhausted
+    https://git.kernel.org/netdev/net/c/0bb05e6adfa9
 
-^ Here, it should no longer be used, right?
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-Yours,
-Linus Walleij
+
 
