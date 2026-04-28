@@ -4,88 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5C58FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 20:07:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F922FF886D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 20:07:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ev8aX7stxAx9Q7bxIzYbAML6rU3CMkG5o51TUX4ilvg=; b=l/v+zZLq3uuHt/q+zPRgzM14Qd
-	ns/MZspRn64JxKWawC0vRguEzlTbnM4bWhVY9S2LSlTgBAdHnPK7u5q4RvXWIKK9KDiP02pj5QAO7
-	X6GJD28iA0G7CwXXnmhMKi0G9W8HedBvt6LqocjPTpw7gNac7TfHHxU/ZFSD/hT6S+hvohbCBpC6+
-	jJLqO4+7NhfxSIGE1saH8aYFobZei/oGnVIbA9fKPIQlfgRrhuOHLSGsfDWoMANzHQpWA9T8vE6Jr
-	M81c01wNYhB7ALXTVGzaHPuh6s7XYyavRiggJjJYhS7rdpXLcwQTq1SQ7SAZrX73DCIQq/kiEn5X6
-	BCtCF7Jg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oKQRvM+woDu6KBLreGPcHmP1j9kbXpV/WZYBI8HqOII=; b=q1qQ0hfeoaIaLw8686tJvIeFkF
+	I6TCXXWnNspkqUrYMdYzEeTI1IGESJ/UF1FIue95sE6nL7fh1T0S3anCkA5iW/YPr9//i4a07Ug0o
+	KKsPw0hdzvTqP1x1+EROpx6aKdn+hmxWFDJfiMjnrnc5UDVPpZivW/ATRFB9BHnwQQcriCNb1h1Ar
+	KQofwKYfWXjqYhjZoL6c+6pCWyurTLBCE12v1J27x8KB7w4oRFropgHUQJ+xGp9py+ir0GTjhiUVf
+	2hgPzkAKL7/V3cUyHMHbC13aS0JlJF7TPHiuWxn2xbDc6Qqnp7YhxVj2b1Ku4PFCWiTXHJIeIuc9T
+	2b7fSTUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHoiF-00000002CD7-1VTl;
-	Tue, 28 Apr 2026 20:07:19 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wHoiS-00000002CQd-2iL5;
+	Tue, 28 Apr 2026 20:07:32 +0000
+Received: from mail-dl1-x1235.google.com ([2607:f8b0:4864:20::1235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHoiD-00000002CBV-1trC;
-	Tue, 28 Apr 2026 20:07:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1777406834;
-	bh=Ev8aX7stxAx9Q7bxIzYbAML6rU3CMkG5o51TUX4ilvg=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=RGv6v9kuSEWj255hrs2/XxoBNOIndWTlAqF19bOAkE5QfhY35+T42ka4z+nV73Gz5
-	 no0Ua2ivRTaBBrjB76rJJUxWHyqymsoGY8wq2MY/matZeHE9VM/jDXCIJk+X6Grib1
-	 2V1ZkR8c1svVqiYRsDIm+RiQc44Pz2ebsnnc2Uk6G90xN8ZIsknQvtm21QV+p7Or5V
-	 wGwjAkZt7E1P9gXNaUt3NjbimQSFvvahaO2vqGp79SAZ8NSsXg6dwu0RlMPNtiYFQy
-	 9mclmS0+nc45vjs3SpkM/rUqoLTdCIjZEdWun9wZimShBe4KY2DuG6jVeccK7ycn0I
-	 5osI5H2MJ718A==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C1B5F17E1513;
-	Tue, 28 Apr 2026 22:07:12 +0200 (CEST)
-Message-ID: <9be87e9d1f24d67423d2062bd2e31284773fd286.camel@collabora.com>
-Subject: Re: [PATCH v6 1/6] docs: uapi: media: Clarify HEVC slice_param
- bit_size, data_byte_offset
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Dave Stevenson <dave.stevenson@raspberrypi.com>, Sakari Ailus	
- <sakari.ailus@linux.intel.com>, Laurent Pinchart	
- <laurent.pinchart@ideasonboard.com>, Mauro Carvalho Chehab
- <mchehab@kernel.org>,  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,  Florian Fainelli
- <florian.fainelli@broadcom.com>, Broadcom internal kernel review list	
- <bcm-kernel-feedback-list@broadcom.com>, John Cox
- <john.cox@raspberrypi.com>,  Dom Cobley <dom@raspberrypi.com>, review list
- <kernel-list@raspberrypi.com>, Ezequiel Garcia	
- <ezequiel@vanguardiasur.com.ar>
-Cc: John Cox <jc@kynesim.co.uk>, Stefan Wahren <wahrenst@gmx.net>, 
-	linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org
-Date: Tue, 28 Apr 2026 16:07:11 -0400
-In-Reply-To: <20260304-media-rpi-hevc-dec-v6-1-93868ae6dff8@raspberrypi.com>
-References: <20260304-media-rpi-hevc-dec-v6-0-93868ae6dff8@raspberrypi.com>
-	 <20260304-media-rpi-hevc-dec-v6-1-93868ae6dff8@raspberrypi.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-7EA+qBz5VcXUAxImbcuP"
-User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
+	id 1wHoiP-00000002CLL-3K2Q
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Apr 2026 20:07:32 +0000
+Received: by mail-dl1-x1235.google.com with SMTP id a92af1059eb24-12c45281a06so16320402c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 13:07:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1777406848; x=1778011648; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=oKQRvM+woDu6KBLreGPcHmP1j9kbXpV/WZYBI8HqOII=;
+        b=O9tYjILjux12o0ACRbUNDl17rG8nalo0mWRoIdkJzcQvnQZ8W0uJDJaoz5ZXtSgKOi
+         KFJuFNOI0fOCU1iBEvBI6yrYqnw1zgUdxY8W5JSTdoXk5eoPTtJSWEhs4NWe0jukszEP
+         ge+l34Kxf8Oh6wa/qxPFNCsgJsYuAxQdGllkk=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777406848; x=1778011648;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=oKQRvM+woDu6KBLreGPcHmP1j9kbXpV/WZYBI8HqOII=;
+        b=bgW+M1cVKfeiufwbCcEE80R0nP3oRK7V+A7YZbGt3CqZeGrPzRdDFkQFWGckdE/6QJ
+         OpprpJ3ZuYBgBk97TxeBHRPBLPoK2R1yZc5T0iD9e90aZCn/rWfMxI0Ae2y4MGSwtNcz
+         gVMpE3SKxwmCwR4FQpMrOcWsyY3otW8TIlb6uc9eoHNwkqiTid9A9lW6Il3UmX+rc84r
+         MMHUw7NBZP6gJXYGjtwMNgqhknQ9/GvDN7aIIRtfEXTrSChKTQ15tgkwDCOkng0F3K7n
+         vzDV7Srr0rwWml/0k4+o/G88O3LRjYkLvBV98c2duuACGcPE9nCF3y6htag5o6Dl9wY1
+         FB+g==
+X-Forwarded-Encrypted: i=1; AFNElJ/WKLmRe4wQCopv3ZSAvXssEL7mK62mfxWk38lIwVNho1pJT4Ml+PW4uw6+zQoiUUBjuA2FNQo3/Gfz4KxsRbY9@lists.infradead.org
+X-Gm-Message-State: AOJu0YylWX2TczA2ZIdonRI/jMaruhe9hippZNivSMbYfq907fB0fRJa
+	z0mbaLWqfXoDu/4Q38zZ3j7ovA/mDvKjro31V/mVBGksFCxYQXyYDIzzOCpP1RwrLQ==
+X-Gm-Gg: AeBDieuAU4o0HuCITOnApQ9B3qZCwahZ/zfp5/mjqv8yc9GNEh0KQQdyio5bW5bEuio
+	7bpa86D972NuUCsMWMAXn/+zQ4SCx2RsPzsxPPGiTOShcQ+i0reFgKCOtokF4GSAEYlZMOWNj3b
+	CnhxcbviMNeTI/5CZfHLd6tOf8NDIxbUekmPJe1KXgH7/CnNH3bCVtzSw1JC8TI3u/w9YnBwE8K
+	Btm7OPErYtTWDY9V50Ze7dlz8Q+NYXa+aEbE/MQkXJZhN5TMD9gunJJDiLw1QC/k7nPq5+r5Bey
+	jlszWopwnig0SAA954pHV/+xFq7Xcz1jAaGkTwuxx2JhArh4ci4glsvUy4QKWeKsK0XaMmvRNuK
+	7FFOZi1nprxDnwX+jPGgtgp0ZKsWVi7emj4aNbJVacTPdiWZs++QDgrnHqWRfzDUtdXJlYpXB4E
+	3zBKq45UGYsiho9XEP+VT0yasoTBPgY8pxJQKFsYlCkfy3M9358Qr3GifzEXzLwCov1LUFIokd
+X-Received: by 2002:a05:7022:fe06:b0:12d:de3f:d84d with SMTP id a92af1059eb24-12dde3fdd97mr1431757c88.38.1777406848179;
+        Tue, 28 Apr 2026 13:07:28 -0700 (PDT)
+Received: from localhost ([2a00:79e0:2e7c:8:4ff5:9607:c7e5:48f3])
+        by smtp.gmail.com with UTF8SMTPSA id a92af1059eb24-12ddd93abadsm2784062c88.6.2026.04.28.13.07.25
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 28 Apr 2026 13:07:27 -0700 (PDT)
+From: Brian Norris <briannorris@chromium.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>
+Cc: devicetree@vger.kernel.org,
+	Doug Anderson <dianders@chromium.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Tzung-Bi Shih <tzungbi@kernel.org>,
+	chrome-platform@lists.linux.dev,
+	Brian Norris <briannorris@chromium.org>,
+	linux-rockchip@lists.infradead.org,
+	Julius Werner <jwerner@chromium.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	cros-qcom-dts-watchers@chromium.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-tegra@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/7] dts: Add /firmware/#{address,size}-cells to Chromium-based DTs
+Date: Tue, 28 Apr 2026 13:06:52 -0700
+Message-ID: <20260428200712.2660635-1-briannorris@chromium.org>
+X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_130717_668765_C622F74A 
-X-CRM114-Status: GOOD (  15.06  )
+X-CRM114-CacheID: sfid-20260428_130729_925253_D76577D6 
+X-CRM114-Status: GOOD (  17.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,70 +113,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Chromium/Depthcharge bootloaders may dynamically add a few device nodes
+to a system's DTB under a /firmware node. A typical DT looks something
+like the following:
 
---=-7EA+qBz5VcXUAxImbcuP
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+  ## From a RK3399 Gru/Kevin Chromebook:
+  # find /sys/firmware/devicetree/base/firmware
+  /sys/firmware/devicetree/base/firmware
+  /sys/firmware/devicetree/base/firmware/coreboot
+  /sys/firmware/devicetree/base/firmware/coreboot/ram-code
+  /sys/firmware/devicetree/base/firmware/coreboot/compatible
+  /sys/firmware/devicetree/base/firmware/coreboot/board-id
+  /sys/firmware/devicetree/base/firmware/coreboot/reg
+  /sys/firmware/devicetree/base/firmware/coreboot/name
+  /sys/firmware/devicetree/base/firmware/chromeos
+  /sys/firmware/devicetree/base/firmware/chromeos/readonly-firmware-version
+  /sys/firmware/devicetree/base/firmware/chromeos/active-ec-firmware
+  /sys/firmware/devicetree/base/firmware/chromeos/firmware-version
+  /sys/firmware/devicetree/base/firmware/chromeos/nonvolatile-context-storage
+  /sys/firmware/devicetree/base/firmware/chromeos/vboot-shared-data
+  /sys/firmware/devicetree/base/firmware/chromeos/nonvolatile-context-size
+  /sys/firmware/devicetree/base/firmware/chromeos/nonvolatile-context-offset
+  /sys/firmware/devicetree/base/firmware/chromeos/hardware-id
+  /sys/firmware/devicetree/base/firmware/chromeos/compatible
+  /sys/firmware/devicetree/base/firmware/chromeos/firmware-type
+  /sys/firmware/devicetree/base/firmware/chromeos/fmap-offset
+  /sys/firmware/devicetree/base/firmware/chromeos/name
+  /sys/firmware/devicetree/base/firmware/ranges
+  /sys/firmware/devicetree/base/firmware/name
 
-Le mercredi 04 mars 2026 =C3=A0 14:05 +0000, Dave Stevenson a =C3=A9crit=C2=
-=A0:
-> From: John Cox <john.cox@raspberrypi.com>
->=20
-> Clarify exactly what bit_size and data_byte_offset mean when there are
-> multiple slices in the bitstream data.
->=20
-> Signed-off-by: John Cox <john.cox@raspberrypi.com>
-> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+The /firmware node has an empty 'ranges', but does not have
+address/size-cells.
 
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Commit 6e5773d52f4a ("of/address: Fix WARN when attempting translating
+non-translatable addresses") started requiring #address-cells for a
+device's parent if we want to use the reg resource in a device node.
+This leads to errors like the following:
 
-> ---
-> =C2=A0Documentation/userspace-api/media/v4l/ext-ctrls-codec-stateless.rst=
- | 6 ++++--
-> =C2=A01 file changed, 4 insertions(+), 2 deletions(-)
->=20
-> diff --git a/Documentation/userspace-api/media/v4l/ext-ctrls-codec-statel=
-ess.rst b/Documentation/userspace-api/media/v4l/ext-ctrls-codec-stateless.r=
-st
-> index 3b1e05c6eb13..a54e8ea29440 100644
-> --- a/Documentation/userspace-api/media/v4l/ext-ctrls-codec-stateless.rst
-> +++ b/Documentation/userspace-api/media/v4l/ext-ctrls-codec-stateless.rst
-> @@ -2399,10 +2399,12 @@ This structure contains all loop filter related p=
-arameters. See sections
-> =C2=A0
-> =C2=A0=C2=A0=C2=A0=C2=A0 * - __u32
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``bit_size``
-> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Size (in bits) of the current slice dat=
-a.
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Size in bits of the slice_segment_data =
-for the current slice including
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 any emulation prevention byte=
-s.
-> =C2=A0=C2=A0=C2=A0=C2=A0 * - __u32
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``data_byte_offset``
-> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Offset (in byte) to the video data in t=
-he current slice data.
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Offset in bytes from the start of the c=
-urrent v4l2_buffer to the start
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 of the slice_segment_data for=
- the current slice.
-> =C2=A0=C2=A0=C2=A0=C2=A0 * - __u32
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``num_entry_point_offsets``
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Specifies the number of entry poin=
-t offset syntax elements in the slice header.
+[    7.763870] coreboot_table firmware:coreboot: probe with driver coreboot_table failed with error -22
 
---=-7EA+qBz5VcXUAxImbcuP
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+This series adds appropriate #{address,size}-cells to the device trees
+used on Arm Chromebooks to work around the problem.
 
------BEGIN PGP SIGNATURE-----
+Note that Google provides bootloader updates for some devices that add
+{address,size}-cells [1], but these are only delivered via Google OS
+updates. Not all users receive Google software updates, and even if they
+do, not all devices still receive bootloader updates from Google.
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCafETbwAKCRDZQZRRKWBy
-9Ap+AQDAwcqqlDsM/bas7xT/tgtXpUgO0TPivPBSGOOaKMBRrQEAzzS8JahEFtdO
-ikRTjkOUHBpaoCFYVemwuzPvOAAutgc=
-=Yyrz
------END PGP SIGNATURE-----
+This problem was first noticed in OpenWrt, where some Chromium-based
+routers ran into the same issue:
 
---=-7EA+qBz5VcXUAxImbcuP--
+https://github.com/openwrt/openwrt/issues/21243
+
+Relevant OpenWrt fixes: https://github.com/openwrt/openwrt/pull/22951
+
+There is also discussion at [2].
+
+I've currently only tested:
+1) the aforementioned OpenWrt routers (with non-upstream DTS/DTB)
+2) RK3399 Gru/Kevin Chromebook (patch 1)
+3) Qualcomm SC7280 Herobrine (patch 7)
+
+I assume the others should follow the same pattern. I don't know if I've
+covered every relevant Depthcharge-using device, but I've made a good
+attempt to identify them all.
+
+I reviewed Depthcharge code history and found that this problematic
+bootloader behavior dates back to at least 2014, with the Tegra/Nyan
+device. Older devices may have similar DTB structures, but I'm not sure
+if they have the same address-cells problems. In any case, these changes
+shouldn't hurt even if a device was not affected.
+
+Brian
+
+[1] https://lore.kernel.org/all/20241209092809.GA3246424@google.com/
+    https://crrev.com/c/6051580 ("coreboot: Insert #address-cells and
+    #size-cells for firmware node")
+
+[2] [regression] of: mis-parsing Depthcharge's /firmware
+    https://lore.kernel.org/all/aeKlYzTiL0OB1y3g@google.com/
+
+
+Brian Norris (7):
+  arm64: dts: rockchip: Add #{address,size}-cells to Chromium-based
+    /firmware
+  ARM: dts: rockchip: Add #{address,size}-cells to Chromium-based
+    /firmware
+  ARM: dts: nvidia: Add #{address,size}-cells to Chromium-based
+    /firmware
+  ARM: dts: samsung: Add #{address,size}-cells to Chromium-based
+    /firmware
+  arm64: dts: mediatek: Add #{address,size}-cells to Chromium-based
+    /firmware
+  arm64: dts: nvidia: Add #{address,size}-cells to Chromium-based
+    /firmware
+  arm64: dts: qcom: Add #{address,size}-cells to Chromium-based
+    /firmware
+
+ arch/arm/boot/dts/nvidia/tegra124-nyan.dtsi           | 5 +++++
+ arch/arm/boot/dts/nvidia/tegra124-venice2.dts         | 5 +++++
+ arch/arm/boot/dts/rockchip/rk3288-veyron.dtsi         | 5 +++++
+ arch/arm/boot/dts/samsung/exynos5250-snow-common.dtsi | 5 +++++
+ arch/arm/boot/dts/samsung/exynos5250-spring.dts       | 5 +++++
+ arch/arm/boot/dts/samsung/exynos5420-peach-pit.dts    | 5 +++++
+ arch/arm/boot/dts/samsung/exynos5800-peach-pi.dts     | 5 +++++
+ arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi          | 5 +++++
+ arch/arm64/boot/dts/mediatek/mt8183-kukui.dtsi        | 5 +++++
+ arch/arm64/boot/dts/mediatek/mt8186-corsola.dtsi      | 5 +++++
+ arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi       | 5 +++++
+ arch/arm64/boot/dts/mediatek/mt8192-asurada.dtsi      | 5 +++++
+ arch/arm64/boot/dts/mediatek/mt8195-cherry.dtsi       | 5 +++++
+ arch/arm64/boot/dts/nvidia/tegra132-norrin.dts        | 5 +++++
+ arch/arm64/boot/dts/nvidia/tegra210-smaug.dts         | 5 +++++
+ arch/arm64/boot/dts/qcom/sc7180-trogdor.dtsi          | 5 +++++
+ arch/arm64/boot/dts/qcom/sc7280-herobrine.dtsi        | 5 +++++
+ arch/arm64/boot/dts/rockchip/rk3399-gru.dtsi          | 5 +++++
+ 18 files changed, 90 insertions(+)
+
+-- 
+2.54.0.545.g6539524ca2-goog
+
 
