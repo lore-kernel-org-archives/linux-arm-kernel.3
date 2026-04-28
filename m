@@ -4,109 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCEC3FF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 09:52:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B56EFF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 09:53:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G/t1th8ESEM3yffOce8JqcNk6N2+Wx35s3RLfTZM9c8=; b=APoi+BqdflK6w/lmYhhsbmwkmH
-	QNkTCzbw+c2z1nPlzzR+FuBme+W0M7WrMXYqOYlbgNA2u6ca/BeyO/j6lUzj2tlipccrhm8jd+nmL
-	33LBf3nWqF2gitkf0QIlyl/ermK75v6QfrxUztWmbTQ8leniF2/YIwYony2Baagx7iCyIdNRGVIg8
-	bYIL8glpI+ammDpIPj0OJSXnqulyVHCTt3+BCEVrXbytobyJeO07AOQG0bJPQWypJ67DqcoH15pyd
-	NLx3OYIPARtJDGrzVNwVB20P9VfzUoto02DvxgTSpVjpPLzXHeX6U10z4dT6oBlVsU+sOAEjHJqmg
-	eLzUrULg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KYyKPL3ipA5UOYMxAK/ZW9fxSeLyiKzvzTNig2vTUao=; b=XReIR+7spW/wQi1z+2un09cCy2
+	1FPB7OK4dJjOP0wKEeinw8M7k3ZoGk0QdIs5S8fDJQq/ZT/C/KmQ/alv1bgm2wjgM1ri3+jzypwHM
+	B4gEtyyVxHt8fi4XN9ymP3hINk4JzECE4ZmHosDcyw3fOKdYim2/NmGcwc64dvMIQS8rcXnuKG/Ou
+	FSVSk7VYff1Of81S5syBzvl5aN4qSFhd9rnRqVmTxVA/7w3j+awahT733zAxL5kI9vrH7MmUfZwqb
+	6WGWBk3Jk1WKrgFcRjBYXC+TuC5V9UomBNXtila5O8/TXvWXgmZsZaUB67DGzQ+I9DCj8ZDgvvZrT
+	P0SaBQjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHf7J-000000017i6-1wJQ;
-	Tue, 28 Apr 2026 09:52:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wHf80-000000017o7-3P6R;
+	Tue, 28 Apr 2026 09:53:16 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHf7H-000000017hm-2i9C
+	id 1wHf7y-000000017ml-2PZX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 09:52:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4EB2F44817;
-	Tue, 28 Apr 2026 09:52:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1739C2BCB6;
-	Tue, 28 Apr 2026 09:52:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777369951;
-	bh=huG5RX3DqghoWYOB4ui+U63NhDXXJ6zkPrgCKdxJbp0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=eWLhvfKnpAE81Af+tbpPxQ3Q6tNSvFdHMJsvpmwOgeiQKA/EEcEB4GBykXhEpcqoB
-	 aVA7Fsw7T0uweiLCIVz7Cjn5Y0ryTfRKeUgAz3/liBNzJ4rP+PjWosoC0w+ZK1iEbE
-	 PTlpretzfafZfRCoiRHnNBVaRqYjcZGNkckSSOZ4TRpyfTDldH79sxKlm53mJgz56T
-	 6WuBS0cemJPIDGoBvs4mBvooY1UmOjkGm68fln+9k/7fjoEfICC7juWVs4gGXjS4Ox
-	 /rQCKGY1nQ6kvXBN54eMR8bjSpispaxlg31pn2C1m+X3Rwz/z7SOuV++FTZTExMEeJ
-	 jsnib/bz7SNHg==
-Message-ID: <6bba950c-5527-4613-8c16-b52534bc75a5@kernel.org>
-Date: Tue, 28 Apr 2026 11:52:26 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/6] firmware: samsung: acpm: Fix memory ordering race
- in RX path
-To: Tudor Ambarus <tudor.ambarus@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, peter.griffin@linaro.org,
- andre.draszik@linaro.org, jyescas@google.com, kernel-team@android.com,
- stable@vger.kernel.org
-References: <20260427-acpm-fixes-sashiko-reports-v2-0-1ff8de94a997@linaro.org>
- <20260427-acpm-fixes-sashiko-reports-v2-4-1ff8de94a997@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+	Tue, 28 Apr 2026 09:53:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=iiN1SEKnVzsxtXjxm65DEYZw/WQI8V8gPAFR7SA/eKohgO7jgh8dVhxKQ4Y79fenIrBnaV4IRWKGGoKb4RXBdmQhvzoPM3Gm2oZI6/Znwv/81MW8Dsy7ydIZhO3u1tG1qOCv+CfBaQx08UGuWAW1QtO62wtLMGCHsUNZFE7/4/FCj9welAYFapOfgVbwJ1UbMeksUDXVJcAJbJlrAt3JrOkSncm4wpXF00KCkFlxayPXdFie6TCZvd9AilTH+8iO/F75SmQnn8ge7K0XZBmx5jXspyqGjh6d1TLGl6WOLnmE8BHaaxb7365HU2p0YASHQHin/D9zbsXAg7QeCMR/3A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=KYyKPL3ipA5UOYMxAK/ZW9fxSeLyiKzvzTNig2vTUao=;
+ b=li9ATFlPGP5mex8QAVE0+/4KhkthJBMTA0q6fkoTTAOoGG6raWt/Rq34yta/kTgHV5YeNA7AfQntZhAGWhoSpOLl/QzF5qJKWIMFklHYSE+YDxzG1Edrn0ZoqYQvisJ2TAaZwNEa0q7/aOKR8KdRqyaWca+xNHVCQryz2n8bwm3k4t3RqvcA2ZEWa0VNQjdzPuDAt5QMMOHkdR46f3/Tk3Gdkn+whihsep3FsNEqR2Qn7bu6XnvnGS1YB7A870zjT+OiRjmYaMZUBmtu1pFHTyV4SUMcC7tEpLztg8pgX804SaxagMUtP4m2vkAoI8YV82LBNoo29+wjh6v/I4P6aw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KYyKPL3ipA5UOYMxAK/ZW9fxSeLyiKzvzTNig2vTUao=;
+ b=LjsYIk6CKTbhcvRYoayDu7je0GdKtge7F9XFU3OlD8Ja4prK1eI6e2jlKnycDhTjG8VDqmHxYoIoXRI+TPKKMMSTKmYhknN7o32esWOz/3dGpKJkABN3uBDS41SMiTxqaKNPmz4H/GbMzNCu/pHhSmfUocJ118rkdo0PzT9Z4K9t6QqHbsT4Hb5xQymuNC52MKLrO5uVNuEMHwsNSuNB67T8I21B081YZLhKRiqO9+1ffyMl1Bwb8Uh7ekiJSVya0/ll1ld6mYViZqKxub1360yjS1AKWnESHCQwlk9XYYRTJr9HKXbJqCISbltdkjENYhN9NZmey6KMhGPs+KK4Pg==
+Received: from AM9PR04MB8353.eurprd04.prod.outlook.com (2603:10a6:20b:3ef::22)
+ by DU4PR04MB11962.eurprd04.prod.outlook.com (2603:10a6:10:617::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Tue, 28 Apr
+ 2026 09:53:07 +0000
+Received: from AM9PR04MB8353.eurprd04.prod.outlook.com
+ ([fe80::46ae:f774:f04c:a1bc]) by AM9PR04MB8353.eurprd04.prod.outlook.com
+ ([fe80::46ae:f774:f04c:a1bc%5]) with mapi id 15.20.9769.016; Tue, 28 Apr 2026
+ 09:53:06 +0000
+From: Chancel Liu <chancel.liu@nxp.com>
+To: Mark Brown <broonie@kernel.org>
+CC: "lgirdwood@gmail.com" <lgirdwood@gmail.com>, "perex@perex.cz"
+	<perex@perex.cz>, "tiwai@suse.com" <tiwai@suse.com>,
+	"shengjiu.wang@gmail.com" <shengjiu.wang@gmail.com>, "Xiubo.Lee@gmail.com"
+	<Xiubo.Lee@gmail.com>, "festevam@gmail.com" <festevam@gmail.com>,
+	"nicoleotsuka@gmail.com" <nicoleotsuka@gmail.com>, Frank Li
+	<frank.li@nxp.com>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>, "shumingf@realtek.com"
+	<shumingf@realtek.com>, "rander.wang@linux.intel.com"
+	<rander.wang@linux.intel.com>, "pierre-louis.bossart@linux.dev"
+	<pierre-louis.bossart@linux.dev>, "linux-sound@vger.kernel.org"
+	<linux-sound@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linuxppc-dev@lists.ozlabs.org"
+	<linuxppc-dev@lists.ozlabs.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: RE: Re: [PATCH v2 3/3] ASoC: fsl: imx-rpmsg: Switch to core
+ ignore-suspend-widgets support
+Thread-Topic: Re: [PATCH v2 3/3] ASoC: fsl: imx-rpmsg: Switch to core
+ ignore-suspend-widgets support
+Thread-Index: AQHc1vTQbypPN0ygcEO6Esgo9lEyKg==
+Date: Tue, 28 Apr 2026 09:53:06 +0000
+Message-ID: <AM9PR04MB8353EC7B5D2D01409B340CF8E3372@AM9PR04MB8353.eurprd04.prod.outlook.com>
+References: <20260415081942.4183108-1-chancel.liu@nxp.com>
+ <20260415081942.4183108-4-chancel.liu@nxp.com>
+ <afB0WHueZ5AGF3Vi@sirena.co.uk>
+In-Reply-To: <afB0WHueZ5AGF3Vi@sirena.co.uk>
+Accept-Language: en-US
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260427-acpm-fixes-sashiko-reports-v2-4-1ff8de94a997@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AM9PR04MB8353:EE_|DU4PR04MB11962:EE_
+x-ms-office365-filtering-correlation-id: 3e6925d6-6d7d-42bb-67e2-08dea50bf2ad
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|19092799006|1800799024|56012099003|18002099003|22082099003|38070700021;
+x-microsoft-antispam-message-info: rBSpzey4+F/ub2SZjXxrJiUQ7pK6+iUFdVI37XzkRBZiSwxMh6hhBFibLdDB0bjsGiESooV2QQtspkBeInOtmNt675fg9PRyZ2IkMlbfVAreWsdHiFF8K+d8g1TX/Uz7WQO+SUpIo9VISfV+UgkHKxg0e3zC5+Met5U3/ZjMn7cB/yqjWNzBH0zk16ChRlj09MSYgV+twmsB6IXlq1p3r1eQranzUv4Ey9hEB7pyHYMRvAzo2OsR0wuLk6vVHKHgcoZz7b9n/76kp02yvIY2KBaomRyfnPD8wtp4ltwphiychwLv0MVEnd0URm/ZbOqDp6Cqhf4TPhACiD2/hhupjGKct7UjNO1TgYsNI7iIqz8aATXLMjr9wCmKPIJYulTNnC3pIZSiJBtrQYzlOggCNKmDhkqWTuCIBsuGdhnq2l9l6e58UWCT+QiGe+xcSq5mw/5UYpGJwwncxu1a2NgoxS/BvzHnMfrMeEoKZVOAx/AZAXjJQ6UW3dZvrX0bIlYHtqQwJRqrks+sCjAgheOKS3viOgw6XL8PM9gkVmJLtaQ5UlypztSWpZ2B7C0eY+/vAt1zSGkcoPgQV6Ge3lw874VE3hZRmeOuajUXZT56Sux1vgmrm218FtUUNv+BGT3LDZ/n6ebr6E5wsa6JsOseSfg/bm/7HQ4nnns3aNO0UrTD+rR8lnnESjMBlXFsELFDQ4usofbxWUOnodWnZvIfxBtIsRj8kWQav7ITno8b9qvbUcmgMEPSKqaloA1x8hyio9FxXgcxPVpNVRjEvXWIWmxF3TXCbeeOkzFYI6LHhas=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8353.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(19092799006)(1800799024)(56012099003)(18002099003)(22082099003)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Bb7NL4wSuzt3FZh7jecMvRzTyCHdowoLTGrNxFcVLKObnoFLyR0QEXtvuwH8?=
+ =?us-ascii?Q?/BYRv0JLofwqpJ8empzrfaAJIfyCT37EBCuyn3p6e0B00YFNT335UO0Ma7xm?=
+ =?us-ascii?Q?ZfeZEd7hLJRc7EAaSbdcrZHaVA26wpEHGz/roAQjuL0UQ1D7uZZxr0oSuYjt?=
+ =?us-ascii?Q?mVGdnuffMLzL8Nn4+eHE6W/ezt3q0/D+Zlbq5fUJN1gv4zSRB42zj1A7WRKV?=
+ =?us-ascii?Q?rSl43lBzE/IZ466/+mRHDCGHybk7qaTecO1zgRDl4f7Yf35tlzM4D3zvMOXH?=
+ =?us-ascii?Q?4achuZ3r34Oz/TqFHWrTQL7CBlfStVVfe0ZlyItQFCfkLu8bHjbuKgbFohe5?=
+ =?us-ascii?Q?gRMFqdJA2oT9ua4WnOoXyV+s7cIQBr/UAE6cdo6ZUwNdyaMm7d8WIJmLEvDB?=
+ =?us-ascii?Q?Z/6J4vSNTdnSB6+RZkLNz61uPkSHAP8Y3rBy8HTVMa3ovvpkSSCLm6DNTnqj?=
+ =?us-ascii?Q?nj/8H5kKIaoYx4sfM5sMN2iekdBsVo8PmHT9v4ZBUEfj6ZXZqozOih1wBfY8?=
+ =?us-ascii?Q?5Ii/D/TGgTdw34JLPjkeYsXm3MLSS4JwatJo0862w4T255Jp/8cscu0CiEKm?=
+ =?us-ascii?Q?sQuUFQLJ3yrkjr47yudpAK+YqkT8EMdHQynDuxix7ZX/oDuRE1nvVKjSuZWR?=
+ =?us-ascii?Q?+fbvRlYLQ4ej6SiwSsDnBE8hnRUQzjaGFQe/EOL8KxmiMOLcbmOvrVo+Ymrd?=
+ =?us-ascii?Q?1AxEgYsHaJrSeAkroO/bh8oxh02Y7/aP2s27MQju1u4msJo5N/pekUdL0hCQ?=
+ =?us-ascii?Q?iz2+1Xou/1XJHWKUV8i+/UFtYewXm2n54x+v3gIekK+uSlA9UaNObd/sFb2u?=
+ =?us-ascii?Q?t5kx7dctIgj3kglLjO9wG4oayk/EHLen/AdDIrhOT+xowV2/bAHiNQVj2rn6?=
+ =?us-ascii?Q?miTfpIuIk6IEIaBXMosLYz+Xsgz6Y5tyhWDy4FFjhD9OikZWEZIcyMltAymB?=
+ =?us-ascii?Q?79j6o1g1PgaeAId+aoI8lb/k2ytadjj669ifJL+dUWQ6rGEXOQYUTGBmP27r?=
+ =?us-ascii?Q?O/H9Xk3pXbkk//KhJUZr4JkUlkSUlDIoX+mPs/sLnSPUK8nf0iEQKmZ9HbuH?=
+ =?us-ascii?Q?yx21vMMHmvVdlovBTKqBRVJNlBDSxsnR6cfn7wy9A0v9VkYz6o+5IzH05lAE?=
+ =?us-ascii?Q?3l7xJEi74xYZzGcAgnixHDKHlj9adQsXI5TpU1VHCEvoWlYaSM/RkLXNhZUJ?=
+ =?us-ascii?Q?66Vhh0HPU7T7DgDCkEcOF8QORzGod5Z12kpT0sEhiYavD7SRyfdp2ILWRsWn?=
+ =?us-ascii?Q?C8/thTQw4cxk2eJenn24D9J1/FqNN7BFgwj2pduGla14ht9LDUd4nN6XBM0C?=
+ =?us-ascii?Q?kgxVp3mjsUNwrbItznfQ2bajiauvGgXcZJaHq1why1j0bhHxhhCcNkRw5O4B?=
+ =?us-ascii?Q?s/YWgKfGOOfMsXFIp82hV4R+w7GIbMWmAzMVxX83vAWVKjn+AaAzuMKvsR+5?=
+ =?us-ascii?Q?959oNqeujxEiC2jxa1llCWPnpAwGctn8KhC5RA5TEeRevrSD3dDv+TdydJzs?=
+ =?us-ascii?Q?9SkBd6WSPOpIFzTvU5o9JDuM/J2DfV4Z8fkQbxqaOIdRTRZcD4eyx641Joie?=
+ =?us-ascii?Q?VJn4BWPmRvBXz7LJimOvNy0sSAyHDLRBavoA4cO+4+nL41LshoZR5FqgjeII?=
+ =?us-ascii?Q?gM4wLk8sbfz2RiS73UuUK0h5HIbYp+Z1zI+s8NNqONKgkiNWFA6xl/Z2S/VP?=
+ =?us-ascii?Q?8lENEp2tcWsO5+8RZhM27nrTSFZQ+v3l9bF6weQVkuYkq1XC?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8353.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3e6925d6-6d7d-42bb-67e2-08dea50bf2ad
+X-MS-Exchange-CrossTenant-originalarrivaltime: 28 Apr 2026 09:53:06.7441
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: RsZXscSbqBZc/VfM64anbRMeTch/q2SJ15jU9mTWYN8MYwuW0w2x3uwasu8NEyZcT1AmUqD6iqSKwwDC3RP2aw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11962
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_025231_739370_D3D5FD47 
-X-CRM114-Status: GOOD (  14.75  )
+X-CRM114-CacheID: sfid-20260428_025314_638793_67659A32 
+X-CRM114-Status: GOOD (  12.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,41 +152,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/04/2026 17:04, Tudor Ambarus wrote:
-> Sashiko identified a memory ordering race in RX path [1].
-> 
-> When draining the RX queue or reading saved responses, the driver uses
-> clear_bit() to release the sequence number back to the available pool.
-> However, on weakly ordered architectures like ARM64, clear_bit() does
-> not provide implicit memory barriers.
+> > @@ -274,6 +257,15 @@ static int imx_rpmsg_probe(struct platform_device
+> *pdev)
+> >  		}
+> >  	}
+> >
+> > +	if (data->lpa && of_property_present(np, "ignore-suspend-widgets"))
+> {
+> > +		ret =3D snd_soc_of_parse_ignore_suspend_widgets(&data-
+> >card,
+> > +							      "ignore-suspend-
+> widgets");
+> > +		if (ret) {
+> > +			dev_err(&pdev->dev, "failed to parse ignore-suspend-
+> widgets: %d\n", ret);
+> > +			return ret;
+> > +		}
+> > +	}
+> > +
+>=20
+> The other error handling paths here have a goto fail to do cleanup of the
+> of_node in the platform device.
 
-And it does not have to if entire access is synchronized by other locks.
-You need to analyze also this and mention here path which is not
-synchronized and uses these weakly ordered atomic operations.
+Will fix it in next version.
 
-> 
-> This allows the CPU to reorder instructions, making the cleared bit
-> globally visible before the preceding memory operations (memcpy() or
-> __ioread32_copy()) have completed. If a concurrent thread allocates the
-> newly freed sequence number, it can execute acpm_prepare_xfer() and
-> zero out the buffer via memset() while the RX thread is still actively
-> reading from it, leading to silent data corruption.
-> 
-> Fix this by replacing clear_bit() with clear_bit_unlock() across the
-> RX path. This provides release semantics, guaranteeing that all prior
-> memory reads and writes are fully completed and visible before the
-> sequence number is marked as free.
-
-Barriers should be paired and release is paired with acquire.
-bitmap_seqnum() is used with test_bit() and a separate set_bit(), which
-do not have acquire semantics, although in some calls it is within lock.
-Problem is I guess acpm_dequeue_by_polling() which is called without any
-locks.
-
-This means that other thread won't see updated values.
-
-I think you also need to investigate and fix that acquire path.
-
-Best regards,
-Krzysztof
+Regards,=20
+Chancel Liu
 
