@@ -4,98 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6B97FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 03:56:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 666E3FF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 04:15:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HihunxX0kG7LRmd3HrgFHUgeqCV95GWNLs7fwLAUqXc=; b=xdLwMPDxjpCGGLZreJDfA0OOHE
-	i7q3+mJXMTNU389t26ddk7UVNuHVnLfFN4dVz8X680VzbQ5WtfYKVnq2fK/WgkoBuj06eMq+0AtN2
-	bhqe/1fK4euLjWlMIRdqcfy4jPYtjdi0TNEE/39pCeIqKj2Q6REEHeImvJJ2Vhv7U4UGOkzoS6B4D
-	rn4Ojj/wAkWZBbGW5J654Xnr5WYMIzREaw2kI3y/EumeOH3A3y93mzPLgfhe5DD43BBuDXZ6AiCG7
-	hzmRjOQOLpUmretE6v8Rq9Qa2tey0R6bQ5etw6Cq4cZfkuT57da+wkABTI7PyNu+4FPVM/WcRAmdE
-	GYQGc8jQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=surCf8gO3wT8Pdul782oJaTtr+PBu6+mjAu4GEjX9Ao=; b=bPwclYsQpa8e6ZPgSK/p4i2Pc4
+	OWLcBGrEhJIrpxNgwdG33DTlVtZlXYCXx7zfE4Nfl3TSHRpgenb/SAmf9Czz+hztvUTRP6Nh2HiBK
+	2DTMcPyGPw9fy80tVbtwY2SaYpmuoIMFsLaf3xLFV1oAmTwh9TpWOXve9xOxZc+j4/gSxF09QB0dS
+	gcRD4/A+ZibRQAPAP1rhp5ZQgXipUbAVmfLsrCWEiJUvSprjtzXkdwAgfQnHNO7OwL8aMIkc0oFha
+	LywWa2oV3oSPgWcH2Wg1YXsXSOs0NyMGuYJ98QCwa6284wFaTp7BjeB3WwGSm0c3Sm0Ci9pjY1d4e
+	TE0rTHFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHZYa-00000000W7p-0ODw;
-	Tue, 28 Apr 2026 03:56:20 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHZYX-00000000W7T-0ZqV
+	id 1wHZqY-00000000X30-1wBD;
+	Tue, 28 Apr 2026 04:14:54 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHZqV-00000000X1v-0Eba
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 03:56:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1777348577; x=1808884577;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=xqcaIUX8QLlEguWmxNfjx0KBxYjMkol7RCbc5o2EAsU=;
-  b=Uo2WH9eQMMqpfpLlROe0OSOjuzg9QVm0jxIj5X3UGd8CWWkgQDjgx8u1
-   b3wlNdmco4F77XXA4OBOo8Vz5QyEfg5aRJVyoG3VPInq8R3qTph9LzthA
-   B+Rp1z7M808c0U1XfqW7il/b2PfqMKufIAVOMR3BQu5WiEHUhNX7uX2kj
-   +lasgU7y99bVK5P7a+GaJjsq46U4n/c/8uWkLJO8i4ivCjZpCs8c9n4Ro
-   C5mC00oFWKDx+RtSBlUNbiCxr8yuh67GN5zBZVhr4NtVpPqNq8l7hFWXd
-   pYIqlWsVN+BIRGugOl1kTRYXLQUwnuyUJd0k5+bht2PqMydqFuHXhPpbb
-   w==;
-X-CSE-ConnectionGUID: wIrdFTxYRJWOWRFL2/mPzA==
-X-CSE-MsgGUID: q/U0fF29Sxa3ABP9EFdPgA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11769"; a="88847365"
-X-IronPort-AV: E=Sophos;i="6.23,203,1770624000"; 
-   d="scan'208";a="88847365"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Apr 2026 20:56:14 -0700
-X-CSE-ConnectionGUID: 3nKhigtTTJGCsyK/LoClIg==
-X-CSE-MsgGUID: CQbrqSW3RcGMpUchpv+whg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,203,1770624000"; 
-   d="scan'208";a="229469506"
-Received: from yilunxu-optiplex-7050.sh.intel.com (HELO localhost) ([10.239.159.165])
-  by fmviesa010.fm.intel.com with ESMTP; 27 Apr 2026 20:56:08 -0700
-Date: Tue, 28 Apr 2026 11:33:37 +0800
-From: Xu Yilun <yilun.xu@linux.intel.com>
-To: Yury Norov <ynorov@nvidia.com>
-Cc: linux-kernel@vger.kernel.org,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Ingo Molnar <mingo@kernel.org>,
-	James Clark <james.clark@linaro.org>, Kees Cook <kees@kernel.org>,
-	Lukasz Luba <lukasz.luba@arm.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Mike Leach <mike.leach@linaro.org>, Moritz Fischer <mdf@kernel.org>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Russ Weight <russ.weight@linux.dev>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Suki K Poulose <suzuki.poulose@arm.com>, Tom Rix <trix@redhat.com>,
-	Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>,
-	Xu Yilun <yilun.xu@intel.com>, Yury Norov <yury.norov@gmail.com>,
-	Zhang Rui <rui.zhang@intel.com>, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-fpga@vger.kernel.org,
-	linux-pm@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	Jakub Kicinski <kuba@kernel.org>
-Subject: Re: [PATCH 5/5] fpga: m10bmc-sec: switch show_canceled_csk() to
- using sysfs_emit()
-Message-ID: <afAqkfe8iOU1cUyQ@yilunxu-OptiPlex-7050>
-References: <20260303200842.124996-1-ynorov@nvidia.com>
- <20260303200842.124996-6-ynorov@nvidia.com>
- <acJWNRb1t96yu/H6@yilunxu-OptiPlex-7050>
- <acLaDFuCzt0d33Q_@yury>
- <acON/EU/GFvxRO1e@yilunxu-OptiPlex-7050>
- <afAh1hq_mkRN3q2t@yury>
+	Tue, 28 Apr 2026 04:14:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3FB6A1655;
+	Mon, 27 Apr 2026 21:14:43 -0700 (PDT)
+Received: from [10.164.148.44] (MacBook-Pro.blr.arm.com [10.164.148.44])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D99A13F763;
+	Mon, 27 Apr 2026 21:14:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1777349688; bh=BH42mJ/E+CpYMtpyTCO/zmkPXMLKWODEQUI0JcxIdvA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=tFdJ1tlIf3LWIhKGhokgfq4Gat6MNCY05DT/Bs9YVeTEKtwY2/bCNo7vXFp6QTOBF
+	 5KGg0Ivd4wqodleKXy9afHInJktGdlMqU+ny/5G3OGcWJCGRP7dJh3F/l17OLPNur1
+	 apJCdv16ShVX1zzgZz3eJm6jDUCMN8AGBHZp4Psg=
+Message-ID: <97bf11a0-0e0a-423f-81f0-91fc1ed9ad24@arm.com>
+Date: Tue, 28 Apr 2026 09:44:34 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 0/8] mm/vmalloc: Speed up ioremap, vmalloc and vmap
+ with contiguous memory
+To: Barry Song <baohua@kernel.org>
+Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org,
+ urezki@gmail.com, linux-kernel@vger.kernel.org, anshuman.khandual@arm.com,
+ ryan.roberts@arm.com, ajd@linux.ibm.com, rppt@kernel.org, david@kernel.org,
+ Xueyuan.chen21@gmail.com, jiangwenxiaomi@gmail.com
+References: <20260408025115.27368-1-baohua@kernel.org>
+ <fb022a6f-0faf-4742-8934-8a7ffae806f6@arm.com>
+ <CAGsJ_4zwrsrKt5NiuN-rYCqJiyjNdv=UssLuf8VCu8xZ+5sohA@mail.gmail.com>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <CAGsJ_4zwrsrKt5NiuN-rYCqJiyjNdv=UssLuf8VCu8xZ+5sohA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <afAh1hq_mkRN3q2t@yury>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_205617_217384_894EFCAA 
-X-CRM114-Status: GOOD (  24.19  )
+X-CRM114-CacheID: sfid-20260427_211451_218706_F6C4AE4E 
+X-CRM114-Status: GOOD (  10.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,53 +76,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 27, 2026 at 10:56:22PM -0400, Yury Norov wrote:
-> On Wed, Mar 25, 2026 at 03:25:48PM +0800, Xu Yilun wrote:
-> > On Tue, Mar 24, 2026 at 02:38:04PM -0400, Yury Norov wrote:
-> > > On Tue, Mar 24, 2026 at 05:15:33PM +0800, Xu Yilun wrote:
-> > > > On Tue, Mar 03, 2026 at 03:08:41PM -0500, Yury Norov wrote:
-> > > > > Switch show_canceled_csk() to use the proper sysfs_emit("%*pbl").
-> > > > > 
-> > > > > Reviewed-by: Russ Weight <russ.weight@linux.dev>
-> > > > > Suggested-by: Thomas Weißschuh <linux@weissschuh.net>
-> > > > > Signed-off-by: Yury Norov <ynorov@nvidia.com>
-> > > > > ---
-> > > > >  drivers/fpga/intel-m10-bmc-sec-update.c | 3 ++-
-> > > > >  1 file changed, 2 insertions(+), 1 deletion(-)
-> > > > > 
-> > > > > diff --git a/drivers/fpga/intel-m10-bmc-sec-update.c b/drivers/fpga/intel-m10-bmc-sec-update.c
-> > > > > index 10f678b9ed36..ae364c6636eb 100644
-> > > > > --- a/drivers/fpga/intel-m10-bmc-sec-update.c
-> > > > > +++ b/drivers/fpga/intel-m10-bmc-sec-update.c
-> > > > > @@ -10,6 +10,7 @@
-> > > > >  #include <linux/firmware.h>
-> > > > >  #include <linux/mfd/intel-m10-bmc.h>
-> > > > >  #include <linux/mod_devicetable.h>
-> > > > > +#include <linux/mm.h>
-> > > > 
-> > > > Why add this header file?
-> > > 
-> > > When I was preparing the series, I had build issues without this. But
-> > > now I checked it against -rc5, and it's clean. Would you like me to
-> > > resend?
-> > 
-> > No need. Given that I'll pick this patch alone to fpga for-next with the
-> > fix.
-> > 
-> > Reviewed-by: Xu Yilun <yilun.xu@intel.com>
-> 
-> Hi Xu,
-> 
-> This patch is still not applied. This is the last non-lib user of
 
-I see it is already in v7.1-rc1, what's your expectation?
 
-> the bitmap_print_to_pagebuf(), and it blocks me from removing the
-> function.
+On 28/04/26 8:46 am, Barry Song wrote:
+> On Mon, Apr 27, 2026 at 11:05 PM Dev Jain <dev.jain@arm.com> wrote:
+>>
+>>
+>>
+>> On 08/04/26 8:21 am, Barry Song (Xiaomi) wrote:
+> [...]
+>>>
+>>> Barry Song (Xiaomi) (8):
+>>>   arm64/hugetlb: Extend batching of multiple CONT_PTE in a single PTE
+>>>     setup
+>>>   arm64/vmalloc: Allow arch_vmap_pte_range_map_size to batch multiple
+>>>     CONT_PTE
+>>>   mm/vmalloc: Extend vmap_small_pages_range_noflush() to support larger
+>>>     page_shift sizes
+>>>   mm/vmalloc: Eliminate page table zigzag for huge vmalloc mappings
+>>>   mm/vmalloc: map contiguous pages in batches for vmap() if possible
+>>>   mm/vmalloc: align vm_area so vmap() can batch mappings
+>>>   mm/vmalloc: Coalesce same page_shift mappings in vmap to avoid pgtable
+>>>     zigzag
+>>>   mm/vmalloc: Stop scanning for compound pages after encountering small
+>>>     pages in vmap
+>>>
+>>>  arch/arm64/include/asm/vmalloc.h |   6 +-
+>>>  arch/arm64/mm/hugetlbpage.c      |  10 ++
+>>>  mm/vmalloc.c                     | 178 +++++++++++++++++++++++++------
+>>>  3 files changed, 161 insertions(+), 33 deletions(-)
+>>>
+>>
+>> Hi Barry, have you got the chance to work on v2?
 > 
-> Are you still going to pick it yourself? I can move the patch with
-> bitmap-for-next if you prefer.
+> Hi Dev, thanks for the ping.
 > 
-> Thanks,
-> Yury
+> Yes, I’m getting Wen Jiang (cc’d) to send v2 within the next few days.
+> The patchset is basically ready, but still under testing.
+
+Thanks!
+
 
