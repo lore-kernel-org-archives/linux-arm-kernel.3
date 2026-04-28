@@ -4,83 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCFE7FF886F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 07:21:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63708FF886F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 07:21:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=efNil+PNmmmvTcZKEec15sBNEnsydHEhEYd+ZnlvuZ8=; b=q+tSFiNv5stmF4ny+8ba7awj0a
-	GZ6a+zBU2HEYJUHP7gVu4GEiwECWSorQW5bi1TrinwEIt+1OwDs8fzaYXvEdL8sBicIscfEk9/CkS
-	/kJZ2FWokru0qxKcnunXudtoW6GNl9DqfbIyLDJnlx4Qs730r8IPlW1NcLMOr7odp859EJUlRGOg/
-	wK0gG6GTP2twggEc+9nNMVXO5NmrSO3CP1LkUHCYi0EbpH73gwGKenSBTne1ktWcowPLNh+FwdV8A
-	pGlWSPCeDJBPsABQwA+fLy8fd0ALhn86bo1/Tu3zHbo0XAVdH4RVc2HH496qlCVM4JGlxYbYL9mVv
-	5CLOATvw==;
+	bh=1h0u+Q7t0ehFHkhc+FxAXyfK2dxEK0zdWoALVmapMog=; b=XjMNJyxI5N0U/D1vje8DwymqzS
+	ZmRHm//KbzVVs20aM0x3zOCRkk7lLjvpGxrwhwBopFdKyXEzElrJHdDo36LkU60J8UvmPMDYWZOW8
+	VH06PCNUdX9EOi25/aU3Mn6Py5oUrbVlmLJLVcv/WQ1HZP3KZEOH/eSnCiJmVsRUFS003BizAcqoE
+	sE7DUpPzIcNIycpv4JzVmZhcU6FQFYDKDVR3ccIrjX16b2nifjYKty9wTESCxQvryeyWnW/+EfZ13
+	IVIT85ljfMVpVkGj4bgoHdq5RIGO8BElyTUiC7WK8KfQrJBwVOzhGUrEM6V5PuavFkeXKprTj0KSb
+	2YG/pozw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHcko-00000000i7O-46FM;
-	Tue, 28 Apr 2026 07:21:11 +0000
+	id 1wHckr-00000000iAs-1X6U;
+	Tue, 28 Apr 2026 07:21:13 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHck9-00000000hNk-3MgY
+	id 1wHckA-00000000hOm-3hcI
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 28 Apr 2026 07:20:29 +0000
+	Tue, 28 Apr 2026 07:20:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=efNil+PNmmmvTcZKEec15sBNEnsydHEhEYd+ZnlvuZ8=; b=OxViyI/NNtmyvBLDUI+2qymEhl
-	SL7PDiO4xK3fNPYyL/mJiFpTyZELV7wXzTuNeXfbjsKyDh7eQGB0iHvPfaXn5Y/IQDuVFwN4OFxY4
-	nc0a5HuX0OEMN0OpVyWyVlYKzAAhd33mU1yEoxLNp5Uirg+k94f0Jma8c0bgD3GqJBVu+Yz7i7nyk
-	/5mzV8dYBbTJ0TEGs0QLO2U9rjR/C7Opqj//dkpD8ywlmdaPdZBF3dv0qnuUI5EB/UQ4sgHcaVqUj
-	WjDcmE+4GJhjKdwPT69DGJGYG83fPRWXL3JWoPeJK3jUTYHTK/0nozaN+3D03Nl/GgeRjTnf2Nb59
-	SoDtMReg==;
-Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
+	bh=1h0u+Q7t0ehFHkhc+FxAXyfK2dxEK0zdWoALVmapMog=; b=JWBSdfzn4N+tz33FHd48pdSWmQ
+	NooBHTz0YSGNMCd5LwneHv7vkoLpMdQ50yt3MOXaSdePEBWpxtmDijgr4YCEx6alMc6vQKzxlnDKX
+	3fBrMrl9nDljK0Hzj2gtLgTjyLRMPOreWgSRFlOIqgDvnih18FL2Kt1AOOZfkdGDqnWRMPsd54/Lk
+	EQ8OKX7zOqtB/bBzaY9WXvelgWEnWWPnfV52E2BKB11aBfxiZhaenFD6t15J2OIaVVEDSYLlOmaNc
+	8ZedNeSksfk6QGliIyPxLbta8ooRcFA/pIsI9YKcjDG2aOkwkVyLKLIUBNkU76soytUI3kcLjL3nY
+	3L7AT2hg==;
+Received: from mail-dy1-f202.google.com ([74.125.82.202])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHck2-00000002DXH-1SVP
+	id 1wHck7-00000002DZr-0M0V
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 07:20:27 +0000
-Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2bdf6fe90a9so17675758eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 00:20:21 -0700 (PDT)
+	Tue, 28 Apr 2026 07:20:29 +0000
+Received: by mail-dy1-f202.google.com with SMTP id 5a478bee46e88-2ddd8ef5343so10996473eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 00:20:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777360819; x=1777965619; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777360823; x=1777965623; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=efNil+PNmmmvTcZKEec15sBNEnsydHEhEYd+ZnlvuZ8=;
-        b=niitsa6P4FesmCpLQPtTN55m5pXH3wNVz7RiAuRD/44khCrsPYaj8RDNNxQORBeTpT
-         N8V8iHWt22hNxOpYOLHCh4kdh22ppLFNKtTJlumXQsz9J00eWmUMRgbEmwmRVM6sY1b6
-         MGNQWjrc9v3VCyNQE9hwO1RrfLAXG2/sQ8W4dH2iHMGhW7K8bgArHliVRFK7HM4PgKYp
-         Gq6yZAIRO88c0YXInWl96HSQUZ04uqQquD+Gp4zWBF8NTKtq6XGoNib10MBFiw7OQM8N
-         9NES+l/62pv3vVfblZ881zyDOsXxECiKbUUmPTLmBaLNgnb+meju2zoVaTd71FYa3z5W
-         Zp9A==
+        bh=1h0u+Q7t0ehFHkhc+FxAXyfK2dxEK0zdWoALVmapMog=;
+        b=caHJY//Uvjo9VzY5X0JjWEjoiZhAmEbC5vH2CzFUZPmQJ+esK4JNXBzO49fhbD7xoB
+         FY+pul0Tb0dWvpy5vS3w+Fb/j/vpmWosUip4AkzZODNve13PIoPnEIXFhAaFiL6O/tmC
+         0Tt7Y7TAFLS4LUfZWxsIcJbCi+6difTWZ9i2hBjJvV9nqeWbAc3PcNIweEe8OOQNNORI
+         E90i/BsIywGhxTo/PUFgXgaQSL8ByPT+/YfjXD+YsM3gVQyby9HQdCUXsXQLViEDJ6Te
+         DEW91e2X6Rs8sFwqk4b9fhVbtiQm4fmaCIdkb9lOUVR4ZE6CLNm9IqqN9fd5EWeNZ8Bv
+         DZ0w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777360819; x=1777965619;
+        d=1e100.net; s=20251104; t=1777360823; x=1777965623;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=efNil+PNmmmvTcZKEec15sBNEnsydHEhEYd+ZnlvuZ8=;
-        b=jMQePrXwzrJksncMd70TzfW5d0OHXJtMvPOFrUolY/dkPKQ47CLM9ZVur+s/vgjSCv
-         DNGAIqehwlqstIKgeiHipYl+Kh3MwVDzKKInKc86ZTHlcsW10V+ruxEC1vO4mZPl7bRq
-         6cZLmGuJ/WTXUnk9yLD7P947hYQJikmMslUkquC9OzHxgKKpmX0ynp8K3y8BSVy8z5hi
-         jYw68H1HZa8TKn33v00/YiiNUW817p1nQFUUlSztz3rpTLeYnmm0oVO+RAtwjMllPdEy
-         +w3G/BgtB6Wi4uyI7V72vFHbn7eKl1EfS/qHYWrrIfxNZoHLf3vPJHBG7Rvs03QMCCxY
-         DfVA==
-X-Forwarded-Encrypted: i=1; AFNElJ+5WJLjZhD18fjeaVA0hiAub28xn2m086EsxAh2229uYcE17mni/Rn9bjVEM1S3reSWuXdlYPuUhA3Mxw4hgYZT@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxdpiax3viUZULYciFohRveYqlduUylx7PFEqsacMp9rvXU+Zp/
-	SOAbYzPI7zlwLM584rj0L4VoVfsrB4syRc4e2dQCwI82DF7yua3Qcwg40GHcjYOWIgjcQ2tfQhI
-	AZViCdjgQow==
-X-Received: from dlae19.prod.google.com ([2002:a05:701b:2313:b0:12d:d209:b996])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:6091:b0:12c:3d3c:ac08
- with SMTP id a92af1059eb24-12ddd961c79mr816350c88.4.1777360818841; Tue, 28
- Apr 2026 00:20:18 -0700 (PDT)
-Date: Tue, 28 Apr 2026 00:18:35 -0700
+        bh=1h0u+Q7t0ehFHkhc+FxAXyfK2dxEK0zdWoALVmapMog=;
+        b=UNQt9eBqCeBRwiNgzSMCh1SPQ9mGg4TgW176AWvHe8HFPIa4DQcVf929fUrJwEuCEn
+         yREjUdvaCfTgzaT6YVzlxWqim+MTpcG0LKXL/8oFA4WBFYyXZOxV6XBeFwREOT+aGYCb
+         1nGko+T95x9zG9h+VWlzxAuEtgrRVBjbfzfAglXFtU7E9B+0LMVkjEl9P+htGD4zJkud
+         fmoipO7No3d3PF8DCPCK8+sdlWSm4RzhXimoJnv7Ff6pezea28gtks9Ryy8EOJ8Qt8Y0
+         bxf0ZT2PdAhv0W25dvxwZ6HqwjHmftz1VrwWygd+bY01uEU8sGpLpiKHlIm3vjZJkvAM
+         YLBw==
+X-Forwarded-Encrypted: i=1; AFNElJ9klTPuZBcPplBC+Ku1aa+G0i271iHvOwi7NUVLf9PZ0+Ob+XP0/R+e8/2jeuwpK1/9i67utklDuaRIl/UtMKPz@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyw5gDqTEn6FJ7mT07nykivy6vsMAa9mhjDEeK5vWgEeFZvzLfW
+	DnRKEDcKeSJV0SCT2yHJb48XyZumLtlHuR1Scr72JRGV9t71hl38g5RiJ0Z9Gw3WvMJ3MvGKGuZ
+	9oZToOhjS3Q==
+X-Received: from dyb19.prod.google.com ([2002:a05:693c:6313:b0:2d9:db60:7492])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:698b:b0:12d:d27f:d817
+ with SMTP id a92af1059eb24-12ddd9d1ca1mr772612c88.19.1777360823151; Tue, 28
+ Apr 2026 00:20:23 -0700 (PDT)
+Date: Tue, 28 Apr 2026 00:18:37 -0700
 In-Reply-To: <20260428071903.1886173-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260425224951.174663-1-irogers@google.com> <20260428071903.1886173-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260428071903.1886173-31-irogers@google.com>
-Subject: [PATCH v8 30/58] perf flamegraph: Port flamegraph to use python module
+Message-ID: <20260428071903.1886173-33-irogers@google.com>
+Subject: [PATCH v8 32/58] perf arm-cs-trace-disasm: Port arm-cs-trace-disasm
+ to use python module
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, namhyung@kernel.org
 Cc: adrian.hunter@intel.com, alice.mei.rogers@gmail.com, 
@@ -90,8 +91,8 @@ Cc: adrian.hunter@intel.com, alice.mei.rogers@gmail.com,
 	tmricht@linux.ibm.com, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_082022_558347_79DA548A 
-X-CRM114-Status: GOOD (  20.12  )
+X-CRM114-CacheID: sfid-20260428_082027_813073_6AFE4BBE 
+X-CRM114-Status: GOOD (  22.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,282 +107,420 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a port of the flamegraph script that uses the perf python module
-directly. This approach improves performance by avoiding intermediate
-dictionaries for event fields.
+Add a port of the arm-cs-trace-disasm script that uses the perf python
+module directly. This approach is significantly faster than using perf
+script callbacks as it avoids creating intermediate dictionaries for
+all event fields. Update the testing to use the ported script.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
-v5:
-1. Fix Event Filtering: Corrected event filtering check to search for a
-   substring match within the parsed event string, preventing all events
-   from being dropped due to the `evsel(...)` wrapper.
+v2:
 
-v6:
-- Fixed terminal injection risk by not printing unverified content in
-  prompt.
+1. Added Missing Import: Added import perf at the top of
+   arm-cs-trace-disasm.py .
+
+2. Fixed Unpacking Error: Updated the call to sample.srccode() to
+   expect a 3-tuple instead of a 4-tuple, matching the return type in
+   the C extension.
+
+3. Fixed Termination Logic: Replaced return with sys.exit(0) when the
+  stop_time or stop_sample limits are reached to properly terminate
+  the processing loop.
+
+4. Fixed Test Path: Updated script_path in
+   test_arm_coresight_disasm.sh to point to
+   ../../python/arm-cs-trace-disasm.py instead of the old legacy path.
+
+v8:
+- Fix event name match.
 ---
- tools/perf/python/flamegraph.py | 250 ++++++++++++++++++++++++++++++++
- 1 file changed, 250 insertions(+)
- create mode 100755 tools/perf/python/flamegraph.py
+ tools/perf/python/arm-cs-trace-disasm.py      | 338 ++++++++++++++++++
+ .../tests/shell/test_arm_coresight_disasm.sh  |  12 +-
+ 2 files changed, 345 insertions(+), 5 deletions(-)
+ create mode 100755 tools/perf/python/arm-cs-trace-disasm.py
 
-diff --git a/tools/perf/python/flamegraph.py b/tools/perf/python/flamegraph.py
+diff --git a/tools/perf/python/arm-cs-trace-disasm.py b/tools/perf/python/arm-cs-trace-disasm.py
 new file mode 100755
-index 000000000000..b0eb5844b772
+index 000000000000..ed2291a634e8
 --- /dev/null
-+++ b/tools/perf/python/flamegraph.py
-@@ -0,0 +1,250 @@
++++ b/tools/perf/python/arm-cs-trace-disasm.py
+@@ -0,0 +1,338 @@
 +#!/usr/bin/env python3
 +# SPDX-License-Identifier: GPL-2.0
 +"""
-+flamegraph.py - create flame graphs from perf samples using perf python module
++arm-cs-trace-disasm.py: ARM CoreSight Trace Dump With Disassember using perf python module
 +"""
 +
-+import argparse
-+import hashlib
-+import json
 +import os
-+import subprocess
++from os import path
++import re
++from subprocess import check_output
++import argparse
++import platform
 +import sys
-+import urllib.request
-+from typing import Dict, Optional, Union
++from typing import Dict, List, Optional
++
 +import perf
 +
-+MINIMAL_HTML = """<head>
-+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/d3-flame-graph@4.1.3/dist/d3-flamegraph.css">
-+</head>
-+<body>
-+  <div id="chart"></div>
-+  <script type="text/javascript" src="https://d3js.org/d3.v7.js"></script>
-+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/d3-flame-graph@4.1.3/dist/d3-flamegraph.min.js"></script>
-+  <script type="text/javascript">
-+  const stacks = [/** @flamegraph_json **/];
-+  // Note, options is unused.
-+  const options = [/** @options_json **/];
++# Initialize global dicts and regular expression
++DISASM_CACHE: Dict[str, List[str]] = {}
++CPU_DATA: Dict[str, int] = {}
++DISASM_RE = re.compile(r"^\s*([0-9a-fA-F]+):")
++DISASM_FUNC_RE = re.compile(r"^\s*([0-9a-fA-F]+)\s.*:")
++CACHE_SIZE = 64*1024
++SAMPLE_IDX = -1
 +
-+  var chart = flamegraph();
-+  d3.select("#chart")
-+        .datum(stacks[0])
-+        .call(chart);
-+  </script>
-+</body>
-+"""
++GLB_SOURCE_FILE_NAME: Optional[str] = None
++GLB_LINE_NUMBER: Optional[int] = None
++GLB_DSO: Optional[str] = None
 +
-+class Node:
-+    """A node in the flame graph tree."""
-+    def __init__(self, name: str, libtype: str):
-+        self.name = name
-+        self.libtype = libtype
-+        self.value: int = 0
-+        self.children: dict[str, Node] = {}
++KVER = platform.release()
++VMLINUX_PATHS = [
++    f"/usr/lib/debug/boot/vmlinux-{KVER}.debug",
++    f"/usr/lib/debug/lib/modules/{KVER}/vmlinux",
++    f"/lib/modules/{KVER}/build/vmlinux",
++    f"/usr/lib/debug/boot/vmlinux-{KVER}",
++    f"/boot/vmlinux-{KVER}",
++    "/boot/vmlinux",
++    "vmlinux"
++]
 +
-+    def to_json(self) -> Dict[str, Union[str, int, list[Dict]]]:
-+        """Convert the node to a JSON-serializable dictionary."""
-+        return {
-+            "n": self.name,
-+            "l": self.libtype,
-+            "v": self.value,
-+            "c": [x.to_json() for x in self.children.values()]
-+        }
++def default_objdump() -> str:
++    """Return the default objdump path from perf config or 'objdump'."""
++    try:
++        config = perf.config_get("annotate.objdump")
++        return str(config) if config else "objdump"
++    except (AttributeError, TypeError):
++        return "objdump"
 +
++def find_vmlinux() -> Optional[str]:
++    """Find the vmlinux file in standard paths."""
++    if hasattr(find_vmlinux, "path"):
++        return getattr(find_vmlinux, "path")
 +
-+class FlameGraphCLI:
-+    """Command-line interface for generating flame graphs."""
-+    def __init__(self, args):
-+        self.args = args
-+        self.stack = Node("all", "root")
-+        self.session = None
++    for v in VMLINUX_PATHS:
++        if os.access(v, os.R_OK):
++            setattr(find_vmlinux, "path", v)
++            return v
++    setattr(find_vmlinux, "path", None)
++    return None
 +
-+    @staticmethod
-+    def get_libtype_from_dso(dso: Optional[str]) -> str:
-+        """Determine the library type from the DSO name."""
-+        if dso and (dso == "[kernel.kallsyms]" or dso.endswith("/vmlinux") or dso == "[kernel]"):
-+            return "kernel"
-+        return ""
++def get_dso_file_path(dso_name: str, dso_build_id: str, vmlinux: Optional[str]) -> str:
++    """Return the path to the DSO file."""
++    if dso_name in ("[kernel.kallsyms]", "vmlinux"):
++        if vmlinux:
++            return vmlinux
++        return find_vmlinux() or dso_name
 +
-+    @staticmethod
-+    def find_or_create_node(node: Node, name: str, libtype: str) -> Node:
-+        """Find a child node with the given name or create a new one."""
-+        if name in node.children:
-+            return node.children[name]
-+        child = Node(name, libtype)
-+        node.children[name] = child
-+        return child
++    if dso_name == "[vdso]":
++        append = "/vdso"
++    else:
++        append = "/elf"
 +
-+    def process_event(self, sample) -> None:
-+        """Process a single perf sample event."""
-+        if self.args.event_name and self.args.event_name not in str(sample.evsel):
++    buildid_dir = os.environ.get('PERF_BUILDID_DIR')
++    if not buildid_dir:
++        buildid_dir = os.path.join(os.environ.get('HOME', ''), '.debug')
++
++    dso_path = buildid_dir + "/" + dso_name + "/" + dso_build_id + append
++    # Replace duplicate slash chars to single slash char
++    dso_path = dso_path.replace('//', '/', 1)
++    return dso_path
++
++def read_disam(dso_fname: str, dso_start: int, start_addr: int,
++               stop_addr: int, objdump: str) -> List[str]:
++    """Read disassembly from a DSO file using objdump."""
++    addr_range = f"{start_addr}:{stop_addr}:{dso_fname}"
++
++    # Don't let the cache get too big, clear it when it hits max size
++    if len(DISASM_CACHE) > CACHE_SIZE:
++        DISASM_CACHE.clear()
++
++    if addr_range in DISASM_CACHE:
++        disasm_output = DISASM_CACHE[addr_range]
++    else:
++        start_addr = start_addr - dso_start
++        stop_addr = stop_addr - dso_start
++        disasm = [objdump, "-d", "-z",
++                  f"--start-address={start_addr:#x}",
++                  f"--stop-address={stop_addr:#x}"]
++        disasm += [dso_fname]
++        disasm_output = check_output(disasm).decode('utf-8').split('\n')
++        DISASM_CACHE[addr_range] = disasm_output
++
++    return disasm_output
++
++def print_disam(dso_fname: str, dso_start: int, start_addr: int,
++                stop_addr: int, objdump: str) -> None:
++    """Print disassembly for a given address range."""
++    for line in read_disam(dso_fname, dso_start, start_addr, stop_addr, objdump):
++        m = DISASM_FUNC_RE.search(line)
++        if m is None:
++            m = DISASM_RE.search(line)
++            if m is None:
++                continue
++        print(f"\t{line}")
++
++def print_sample(sample: perf.sample_event) -> None:
++    """Print sample details."""
++    print(f"Sample = {{ cpu: {sample.sample_cpu:04d} addr: {sample.sample_addr:016x} "
++          f"phys_addr: {sample.sample_phys_addr:016x} ip: {sample.sample_ip:016x} "
++          f"pid: {sample.sample_pid} tid: {sample.sample_tid} period: {sample.sample_period} "
++          f"time: {sample.sample_time} index: {SAMPLE_IDX}}}")
++
++def common_start_str(comm: str, sample: perf.sample_event) -> str:
++    """Return common start string for sample output."""
++    sec = int(sample.sample_time / 1000000000)
++    ns = sample.sample_time % 1000000000
++    cpu = sample.sample_cpu
++    pid = sample.sample_pid
++    tid = sample.sample_tid
++    return f"{comm:>16s} {pid:5u}/{tid:<5u} [{cpu:04d}] {sec:9d}.{ns:09d}  "
++
++def print_srccode(comm: str, sample: perf.sample_event, symbol: str, dso: str) -> None:
++    """Print source code and symbols for a sample."""
++    ip = sample.sample_ip
++    if symbol == "[unknown]":
++        start_str = common_start_str(comm, sample) + f"{ip:x}".rjust(16).ljust(40)
++    else:
++        symoff = 0
++        sym_start = sample.sym_start
++        if sym_start is not None:
++            symoff = ip - sym_start
++        offs = f"+{symoff:#x}" if symoff != 0 else ""
++        start_str = common_start_str(comm, sample) + (symbol + offs).ljust(40)
++
++    global GLB_SOURCE_FILE_NAME, GLB_LINE_NUMBER, GLB_DSO
++
++    source_file_name, line_number, source_line = sample.srccode()
++    if source_file_name:
++        if GLB_LINE_NUMBER == line_number and GLB_SOURCE_FILE_NAME == source_file_name:
++            src_str = ""
++        else:
++            if len(source_file_name) > 40:
++                src_file = f"...{source_file_name[-37:]} "
++            else:
++                src_file = source_file_name.ljust(41)
++
++            if source_line is None:
++                src_str = f"{src_file}{line_number:>4d} <source not found>"
++            else:
++                src_str = f"{src_file}{line_number:>4d} {source_line}"
++        GLB_DSO = None
++    elif dso == GLB_DSO:
++        src_str = ""
++    else:
++        src_str = dso
++        GLB_DSO = dso
++
++    GLB_LINE_NUMBER = line_number
++    GLB_SOURCE_FILE_NAME = source_file_name
++
++    print(start_str, src_str)
++
++class TraceDisasm:
++    """Class to handle trace disassembly."""
++    def __init__(self, cli_options: argparse.Namespace):
++        self.options = cli_options
++        self.sample_idx = -1
++        self.session: Optional[perf.session] = None
++
++    def process_event(self, sample: perf.sample_event) -> None:
++        """Process a single perf event."""
++        self.sample_idx += 1
++        global SAMPLE_IDX
++        SAMPLE_IDX = self.sample_idx
++
++        if self.options.start_time and sample.sample_time < self.options.start_time:
++            return
++        if self.options.stop_time and sample.sample_time > self.options.stop_time:
++            sys.exit(0)
++        if self.options.start_sample and self.sample_idx < self.options.start_sample:
++            return
++        if self.options.stop_sample and self.sample_idx > self.options.stop_sample:
++            sys.exit(0)
++
++        ev_name = str(sample.evsel)
++        if self.options.verbose:
++            print(f"Event type: {ev_name}")
++            print_sample(sample)
++
++        dso = sample.dso or '[unknown]'
++        symbol = sample.symbol or '[unknown]'
++        dso_bid = sample.dso_bid or '[unknown]'
++        dso_start = sample.map_start
++        dso_end = sample.map_end
++        map_pgoff = sample.map_pgoff or 0
++
++        comm = "[unknown]"
++        try:
++            if self.session:
++                thread_info = self.session.find_thread(sample.sample_tid)
++                if thread_info:
++                    comm = thread_info.comm()
++        except (TypeError, AttributeError):
++            pass
++
++        cpu = sample.sample_cpu
++        addr = sample.sample_addr
++
++        if CPU_DATA.get(str(cpu) + 'addr') is None:
++            CPU_DATA[str(cpu) + 'addr'] = addr
 +            return
 +
-+        pid = sample.sample_pid
-+        dso_type = ""
-+        try:
-+            thread = self.session.find_thread(sample.sample_tid)
-+            comm = thread.comm()
-+        except Exception:
-+            comm = "[unknown]"
++        if dso == '[unknown]':
++            return
 +
-+        if pid == 0:
-+            comm = "swapper"
-+            dso_type = "kernel"
-+        else:
-+            comm = f"{comm} ({pid})"
++        if dso_start is None or dso_end is None:
++            print(f"Failed to find valid dso map for dso {dso}")
++            return
 +
-+        node = self.find_or_create_node(self.stack, comm, dso_type)
++        if "instructions" in ev_name:
++            print_srccode(comm, sample, symbol, dso)
++            return
 +
-+        callchain = sample.callchain
-+        if callchain:
-+            # We want to traverse from root to leaf.
-+            # perf callchain iterator gives leaf to root.
-+            # We collect them and reverse.
-+            frames = list(callchain)
-+            for entry in reversed(frames):
-+                name = entry.symbol or "[unknown]"
-+                libtype = self.get_libtype_from_dso(entry.dso)
-+                node = self.find_or_create_node(node, name, libtype)
-+        else:
-+            # Fallback if no callchain
-+            name = getattr(sample, "symbol", "[unknown]")
-+            libtype = self.get_libtype_from_dso(getattr(sample, "dso", "[unknown]"))
-+            node = self.find_or_create_node(node, name, libtype)
++        if "branches" not in ev_name:
++            return
 +
-+        node.value += 1
++        self._process_branch(sample, comm, symbol, dso, dso_bid, dso_start, dso_end, map_pgoff)
 +
-+    def get_report_header(self) -> str:
-+        """Get the header from the perf report."""
-+        try:
-+            input_file = self.args.input or "perf.data"
-+            output = subprocess.check_output(["perf", "report", "--header-only", "-i", input_file])
-+            result = output.decode("utf-8")
-+            if self.args.event_name:
-+                result += "\nFocused event: " + self.args.event_name
-+            return result
-+        except Exception:
-+            return ""
++    def _process_branch(self, sample: perf.sample_event, comm: str, symbol: str, dso: str,
++                        dso_bid: str, dso_start: int, dso_end: int, map_pgoff: int) -> None:
++        """Helper to process branch events."""
++        cpu = sample.sample_cpu
++        ip = sample.sample_ip
++        addr = sample.sample_addr
++
++        start_addr = CPU_DATA[str(cpu) + 'addr']
++        stop_addr  = ip + 4
++
++        # Record for previous sample packet
++        CPU_DATA[str(cpu) + 'addr'] = addr
++
++        # Filter out zero start_address. Optionally identify CS_ETM_TRACE_ON packet
++        if start_addr == 0:
++            if stop_addr == 4 and self.options.verbose:
++                print(f"CPU{cpu}: CS_ETM_TRACE_ON packet is inserted")
++            return
++
++        if start_addr < dso_start or start_addr > dso_end:
++            print(f"Start address {start_addr:#x} is out of range [ {dso_start:#x} .. "
++                  f"{dso_end:#x} ] for dso {dso}")
++            return
++
++        if stop_addr < dso_start or stop_addr > dso_end:
++            print(f"Stop address {stop_addr:#x} is out of range [ {dso_start:#x} .. "
++                  f"{dso_end:#x} ] for dso {dso}")
++            return
++
++        if self.options.objdump is not None:
++            if dso == "[kernel.kallsyms]" or dso_start == 0x400000:
++                dso_vm_start = 0
++                map_pgoff_local = 0
++            else:
++                dso_vm_start = dso_start
++                map_pgoff_local = map_pgoff
++
++            dso_fname = get_dso_file_path(dso, dso_bid, self.options.vmlinux)
++            if path.exists(dso_fname):
++                print_disam(dso_fname, dso_vm_start, start_addr + map_pgoff_local,
++                            stop_addr + map_pgoff_local, self.options.objdump)
++            else:
++                print(f"Failed to find dso {dso} for address range [ "
++                      f"{start_addr + map_pgoff_local:#x} .. {stop_addr + map_pgoff_local:#x} ]")
++
++        print_srccode(comm, sample, symbol, dso)
 +
 +    def run(self) -> None:
-+        """Run the flame graph generation."""
-+        input_file = self.args.input or "perf.data"
++        """Run the trace disassembly session."""
++        input_file = self.options.input or "perf.data"
 +        if not os.path.exists(input_file):
-+            print(f"Error: {input_file} not found. (try 'perf record' first)", file=sys.stderr)
++            print(f"Error: {input_file} not found.", file=sys.stderr)
 +            sys.exit(1)
 +
++        print('ARM CoreSight Trace Data Assembler Dump')
 +        try:
-+            self.session = perf.session(perf.data(input_file),
-+                                        sample=self.process_event)
++            self.session = perf.session(perf.data(input_file), sample=self.process_event)
 +        except Exception as e:
 +            print(f"Error opening session: {e}", file=sys.stderr)
 +            sys.exit(1)
 +
 +        self.session.process_events()
-+
-+        stacks_json = json.dumps(self.stack, default=lambda x: x.to_json())
-+        # Escape HTML special characters to prevent XSS
-+        stacks_json = stacks_json.replace("<", "\\u003c") \
-+            .replace(">", "\\u003e").replace("&", "\\u0026")
-+
-+        if self.args.format == "html":
-+            report_header = self.get_report_header()
-+            options = {
-+                "colorscheme": self.args.colorscheme,
-+                "context": report_header
-+            }
-+            options_json = json.dumps(options)
-+            options_json = options_json.replace("<", "\\u003c") \
-+                .replace(">", "\\u003e").replace("&", "\\u0026")
-+
-+            template = self.args.template
-+            template_md5sum = None
-+            output_str = None
-+
-+            if not os.path.isfile(template):
-+                if template.startswith("http://") or template.startswith("https://"):
-+                    if not self.args.allow_download:
-+                        print("Warning: Downloading templates is disabled. "
-+                              "Use --allow-download.", file=sys.stderr)
-+                        template = None
-+                else:
-+                    print(f"Warning: Template file '{template}' not found.", file=sys.stderr)
-+                    if self.args.allow_download:
-+                        print("Using default CDN template.", file=sys.stderr)
-+                        template = (
-+                            "https://cdn.jsdelivr.net/npm/d3-flame-graph@4.1.3/dist/templates/"
-+                            "d3-flamegraph-base.html"
-+                        )
-+                        template_md5sum = "143e0d06ba69b8370b9848dcd6ae3f36"
-+                    else:
-+                        template = None
-+
-+            use_minimal = False
-+            try:
-+                if not template:
-+                    use_minimal = True
-+                elif template.startswith("http"):
-+                    with urllib.request.urlopen(template) as url_template:
-+                        output_str = "".join([l.decode("utf-8") for l in url_template.readlines()])
-+                else:
-+                    with open(template, "r", encoding="utf-8") as f:
-+                        output_str = f.read()
-+            except Exception as err:
-+                print(f"Error reading template {template}: {err}\n", file=sys.stderr)
-+                use_minimal = True
-+
-+            if use_minimal:
-+                print("Using internal minimal HTML that refers to d3's web site. JavaScript " +
-+                      "loaded this way from a local file may be blocked unless your " +
-+                      "browser has relaxed permissions. Run with '--allow-download' to fetch" +
-+                      "the full D3 HTML template.", file=sys.stderr)
-+                output_str = MINIMAL_HTML
-+
-+            elif template_md5sum:
-+                assert output_str is not None
-+                download_md5sum = hashlib.md5(output_str.encode("utf-8")).hexdigest()
-+                if download_md5sum != template_md5sum:
-+                    s = None
-+                    while s not in ["y", "n"]:
-+                        s = input(f"""Unexpected template md5sum.
-+{download_md5sum} != {template_md5sum}, for:
-+{template}
-+continue?[yn] """).lower()
-+                    if s == "n":
-+                        sys.exit(1)
-+
-+            assert output_str is not None
-+            output_str = output_str.replace("/** @options_json **/", options_json)
-+            output_str = output_str.replace("/** @flamegraph_json **/", stacks_json)
-+            output_fn = self.args.output or "flamegraph.html"
-+        else:
-+            output_str = stacks_json
-+            output_fn = self.args.output or "stacks.json"
-+
-+        if output_fn == "-":
-+            sys.stdout.write(output_str)
-+        else:
-+            print(f"dumping data to {output_fn}")
-+            with open(output_fn, "w", encoding="utf-8") as out:
-+                out.write(output_str)
-+
++        print('End')
 +
 +if __name__ == "__main__":
-+    parser = argparse.ArgumentParser(description="Create flame graphs using perf python module.")
-+    parser.add_argument("-f", "--format", default="html", choices=["json", "html"],
-+                        help="output file format")
-+    parser.add_argument("-o", "--output", help="output file name")
-+    parser.add_argument("--template",
-+                        default="/usr/share/d3-flame-graph/d3-flamegraph-base.html",
-+                        help="path to flame graph HTML template")
-+    parser.add_argument("--colorscheme", default="blue-green",
-+                        help="flame graph color scheme", choices=["blue-green", "orange"])
-+    parser.add_argument("-i", "--input", help="input perf.data file")
-+    parser.add_argument("--allow-download", default=False, action="store_true",
-+                        help="allow unprompted downloading of HTML template")
-+    parser.add_argument("-e", "--event", default="", dest="event_name", type=str,
-+                        help="specify the event to generate flamegraph for")
++    def int_arg(v: str) -> int:
++        """Helper for integer command line arguments."""
++        val = int(v)
++        if val < 0:
++            raise argparse.ArgumentTypeError("Argument must be a positive integer")
++        return val
 +
-+    cli_args = parser.parse_args()
-+    cli = FlameGraphCLI(cli_args)
-+    cli.run()
++    arg_parser = argparse.ArgumentParser(description="ARM CoreSight Trace Dump With Disassembler")
++    arg_parser.add_argument("-i", "--input", help="input perf.data file")
++    arg_parser.add_argument("-k", "--vmlinux",
++                            help="Set path to vmlinux file. Omit to autodetect")
++    arg_parser.add_argument("-d", "--objdump", nargs="?", const=default_objdump(),
++                            help="Show disassembly. Can also be used to change the objdump path")
++    arg_parser.add_argument("-v", "--verbose", action="store_true", help="Enable debugging log")
++    arg_parser.add_argument("--start-time", type=int_arg,
++                            help="Monotonic clock time of sample to start from.")
++    arg_parser.add_argument("--stop-time", type=int_arg,
++                            help="Monotonic clock time of sample to stop at.")
++    arg_parser.add_argument("--start-sample", type=int_arg,
++                            help="Index of sample to start from.")
++    arg_parser.add_argument("--stop-sample", type=int_arg,
++                            help="Index of sample to stop at.")
++
++    parsed_options = arg_parser.parse_args()
++    if (parsed_options.start_time and parsed_options.stop_time and \
++       parsed_options.start_time >= parsed_options.stop_time):
++        print("--start-time must less than --stop-time")
++        sys.exit(2)
++    if (parsed_options.start_sample and parsed_options.stop_sample and \
++       parsed_options.start_sample >= parsed_options.stop_sample):
++        print("--start-sample must less than --stop-sample")
++        sys.exit(2)
++
++    td = TraceDisasm(parsed_options)
++    td.run()
+diff --git a/tools/perf/tests/shell/test_arm_coresight_disasm.sh b/tools/perf/tests/shell/test_arm_coresight_disasm.sh
+index 0dfb4fadf531..c15cd60e1c24 100755
+--- a/tools/perf/tests/shell/test_arm_coresight_disasm.sh
++++ b/tools/perf/tests/shell/test_arm_coresight_disasm.sh
+@@ -24,7 +24,7 @@ perfdata_dir=$(mktemp -d /tmp/__perf_test.perf.data.XXXXX)
+ perfdata=${perfdata_dir}/perf.data
+ file=$(mktemp /tmp/temporary_file.XXXXX)
+ # Relative path works whether it's installed or running from repo
+-script_path=$(dirname "$0")/../../scripts/python/arm-cs-trace-disasm.py
++script_path=$(dirname "$0")/../../python/arm-cs-trace-disasm.py
+ 
+ cleanup_files()
+ {
+@@ -45,8 +45,9 @@ branch_search="\sbl${sep}b${sep}b.ne${sep}b.eq${sep}cbz\s"
+ if [ -e /proc/kcore ]; then
+ 	echo "Testing kernel disassembly"
+ 	perf record -o ${perfdata} -e cs_etm//k --kcore -- touch $file > /dev/null 2>&1
+-	perf script -i ${perfdata} -s python:${script_path} -- \
+-		-d --stop-sample=30 2> /dev/null > ${file}
++	# shellcheck source=lib/setup_python.sh
++	. "$(dirname "$0")"/lib/setup_python.sh
++	$PYTHON ${script_path} -i ${perfdata} -d --stop-sample=30 2> /dev/null > ${file}
+ 	grep -q -e ${branch_search} ${file}
+ 	echo "Found kernel branches"
+ else
+@@ -57,8 +58,9 @@ fi
+ ## Test user ##
+ echo "Testing userspace disassembly"
+ perf record -o ${perfdata} -e cs_etm//u -- touch $file > /dev/null 2>&1
+-perf script -i ${perfdata} -s python:${script_path} -- \
+-	-d --stop-sample=30 2> /dev/null > ${file}
++# shellcheck source=lib/setup_python.sh
++. "$(dirname "$0")"/lib/setup_python.sh
++$PYTHON ${script_path} -i ${perfdata} -d --stop-sample=30 2> /dev/null > ${file}
+ grep -q -e ${branch_search} ${file}
+ echo "Found userspace branches"
+ 
 -- 
 2.54.0.545.g6539524ca2-goog
 
