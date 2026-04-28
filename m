@@ -4,84 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E78DFF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 07:23:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97705FF886F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 07:23:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a4cIRIqFZJ5y1BubPplg9oWe019B443zoI45B5rxaHA=; b=dPhNCzoZwgIGnXCeoUz7LvbXEB
-	OrzUgXCQ4Ba/gglsp8OGuT30FCqE8uaFCCzfkvEzZ7KNVy46mZnRGvo4QONr0A21kraMf+hClT2Ne
-	ovjt2JEduFX6X2zra6sKSSTAdA5uAybvlOfSYw0XlfOYJVKebAGQOqf31CAOJw8HTgAIOEkgo0H/6
-	fKx+lIUeod8RjAQg3nqsQyhtOX7Jq2BBeK02iScAgqdXHHGdceBEmQmGPK9+DmnF6I8pbetCtvdR7
-	kUJz6sJOIhzEja1V9nHMIGgEj/MKo8WEtfc+kf4oYjdmUIpk+3i4O7YCIZ8oX5M8nn7DxIylXJH+J
-	xFUUhqmQ==;
+	bh=nQeNxtOSoOXwV2zRr64LvO5u7apubipAzZoDUg3KnRw=; b=vDrdqIQROv7H6gAM3YVIBgcHye
+	kurzKBzeNBEqIhmOBWQUhBNVoOuOJdk9dQBzQg6E3WTHsFxEV0mZh7unc1oluXoANb3FlPI8Cg7sq
+	SmrLIcPW4qarymp2w3ugUS82Td9YQiBiRqX+dAfGX4suCulS396/WlEMjA6jk1RQ52KEQYeB7pLKj
+	zq+Pj6e9dbOrJVywDtvjSoXPgBneMGVJeADJvlsuCYbXHHsFucnh8jsZ0Rba9F24vPEsTr6wgPXTM
+	lrybOocxEh2uZgPJUE8Ha0gLmgF1cajHTc14lX7vhW6ZiG2wpn/iwgn7TEqY3HsGWRp+025puG7kf
+	JpmsNKjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHcmo-00000000k9U-1MWv;
-	Tue, 28 Apr 2026 07:23:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wHcmp-00000000kBM-1Iyp;
+	Tue, 28 Apr 2026 07:23:15 +0000
+Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHckq-00000000i8e-3pOQ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 28 Apr 2026 07:21:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=a4cIRIqFZJ5y1BubPplg9oWe019B443zoI45B5rxaHA=; b=Pde4HfdWO2ZZ8K9s5yCkz8dG7p
-	rn5qayAEmKre6f56PZ4Jf6Ngi/d5tUgd20Lz1QYE2W2pT+tyUo4wsr2URJDuzzUEfdzkNExChzSVj
-	sCm5I2nzu4aN2D5vbh+XGPOM3atzgs6AsgJXx2wSdNWWGb02YhP79I916eumS5ph3/TgFgG9m/RZ1
-	B/TZSkimvtQygDSNKiSYpuSVKcEBx9e+7vGc406/dF+6FPO3zHSQjzYzrKhxMPCfMIU7RzBEBtf/R
-	z2eSk2wA14R9jAnkVSBrdxT29qaNTRqkwyqqtzAeYMTa06UXae7jkjSnbMfwytu1/seSq2LGN7EqD
-	NXr603bA==;
-Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHckk-00000002DsQ-2NC0
+	id 1wHckU-00000000hid-3ZvN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 07:21:10 +0000
-Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2bdf6fe90a9so17679408eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 00:21:04 -0700 (PDT)
+	Tue, 28 Apr 2026 07:21:08 +0000
+Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2c0f6593ef5so14539074eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 00:20:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777360863; x=1777965663; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777360850; x=1777965650; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=a4cIRIqFZJ5y1BubPplg9oWe019B443zoI45B5rxaHA=;
-        b=c062Dx5P/dYOJznxZZDhK2alzaBI0F3MxqunvFOZtA7I/VKWdKw8WTlTbeVJVtAyo1
-         qCSqKQiIkBiLOMKO19rUu8oiw8u3R/Gc5+sJ4wazN26nA9LHXr8ljhp44wHU5nyfqOJp
-         IXLn1qrzwu/PDhtzgmcdoTzFDA8ArVj4/Mg1rYZwSLJhU5GxoXsxF+uDQd67FHlnx3Sb
-         whVVh4L1K/0tUegEP5wK9zRrQtYGL4a7gXdHlQo4G5v5ibTyP89N8nyStnh0u8iOL6Kn
-         yaXu7zb65AdPHlRKlLvL08TKrptB7UOZiCchgrFUiltxFa0jssh245U4NuCRVBqSIgAh
-         JZkw==
+        bh=nQeNxtOSoOXwV2zRr64LvO5u7apubipAzZoDUg3KnRw=;
+        b=KTFs91AzYEQPAufwBMGq/7h1dXVMi/N+mAVBB8MGiYHuMlqayzz97UFsb59R+d+Zn4
+         Hbo3KjuwU3XEmb/eDnFpmWz5JB+JkJ/QP+klDUKpy/atoHLqMKtEplFUadlA2clu+mEA
+         RhFK/aujRtDIft3+PiYgq8Xh7SUF2cWtq+lvQ/8iGNzwhz3rdPzMkxqMkIW0FsovSyCb
+         Rqc9chuKyrJrs6mE0jN/kNGF7/jID5jWLk3cpKPL4XCx4ryBN1Jb8FoBExCxyVJvLkwk
+         B0mQMnHzwxkm9YLVA5bu2hOmstHg23jwuvjLPiGn616fRj+xXw45oPGn5r5dX60KsEkC
+         9/wg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777360863; x=1777965663;
+        d=1e100.net; s=20251104; t=1777360850; x=1777965650;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=a4cIRIqFZJ5y1BubPplg9oWe019B443zoI45B5rxaHA=;
-        b=Ml11c4lv8shby/9yLCc9CpORVxKvOIQDQnCKep0B6RBzR5puPb0/jYmoaFXl+5Bh/s
-         Ht88SwsvgMqtkSsZTVjPbadunPkpE7dxk64v0g0lKLDoYwQMbvjxy6tkazQnlA/vHzwA
-         TwTWiYAH4iInGPRytBGJnS6qZGzfd0iUKIjGi9OBfHtPX94wQvpcpt499zqWe5jWtrKP
-         oBCYbFEXZLtOAw5zkpKMPwQldXso5O78OPMKiCeK9LWb+pzvZfF5VoqRWQ5uW66HlPHs
-         c5CX5pB0Uxj7/IA9aaEAtKeGoP4c+P6A7dOJYU4yuH4f/eGrPfzXjUyKiZqgYRLMWLRN
-         DmxA==
-X-Forwarded-Encrypted: i=1; AFNElJ+cMO0IWBVQtAoEZjO8jqk8yZM8R9a0+tyNiltOpYnbJ8PT/RR0+nYRpOHjQ54m7Tohm3rAm5bn43WtLtPwW9W4@lists.infradead.org
-X-Gm-Message-State: AOJu0YwZpRHuM7NapCv0BB92xOLH7ZYbSOkNQxsP2DPv6ng90xkOOaPt
-	9h2ZMvbhtW+IrLBfTq7pgO8oizOne49apz77NAvJYCkSgSy/BquYxZDuL3MRBJgTfa5xvTcrjHk
-	MLqrCEL0lgw==
-X-Received: from dycnh13.prod.google.com ([2002:a05:7300:ce8d:b0:2dd:3fe1:f5b2])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:2b06:b0:2ea:ed70:3ea8
- with SMTP id 5a478bee46e88-2ed0a2680a3mr1095594eec.29.1777360862799; Tue, 28
- Apr 2026 00:21:02 -0700 (PDT)
-Date: Tue, 28 Apr 2026 00:18:57 -0700
+        bh=nQeNxtOSoOXwV2zRr64LvO5u7apubipAzZoDUg3KnRw=;
+        b=YiZTqMKavLp89f3GV/jzlb+v1wdxDtCHYnk7Tn+Cq9X9Z8ndX/d3RtRaD20fILyONB
+         4dDIFR/tSDPJSOi65LvSDsXTvpzJon36qJuGz2k39V42eDs+bWfCXd/NDVVEyFjKVDFC
+         J5mz7ukx/Svr5+txKfa931bpgh4XZIvFljlTDrlmA8H77a7BP2y2TgUgOQm/Ds5pslS3
+         dK5uSjfENjgvXN8NzgtKE+0NBFtJH8FgzHV7WmJvjyyC720gYa591K0lpvC9Bv7BLfGT
+         krEYTAWI1rqWaAMn90LPiUDnOJ5dHc3lWE74E7KQWHXdZr2VpUq7et9hzmM3v2cbFAfF
+         fNVw==
+X-Forwarded-Encrypted: i=1; AFNElJ+bwUReflHWeovPINLvGfeFJvVJ4YF3yqwrlDKiFrXpiMVCk7NGIs3wZ3FVNYHw5Vrc8OR/8dgkBI6C1L1Dj494@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywa3Ix44hdq/W1vwTw9iEBph/FrbSekxrf1zTPOl6PmhS+VrQSD
+	iUjkwU/OGVoTzg6z89KYe4Ei1FsHS9xZlYqQRVEC8t2gZcoHTbvujXeoANhyfruv/YkqNCKiWf/
+	McdmyhOWzGw==
+X-Received: from dlbqc1.prod.google.com ([2002:a05:7023:a81:b0:12c:87ba:191d])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:251f:b0:12d:de3f:d84b
+ with SMTP id a92af1059eb24-12dde3fdd81mr457375c88.36.1777360849585; Tue, 28
+ Apr 2026 00:20:49 -0700 (PDT)
+Date: Tue, 28 Apr 2026 00:18:50 -0700
 In-Reply-To: <20260428071903.1886173-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260425224951.174663-1-irogers@google.com> <20260428071903.1886173-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260428071903.1886173-53-irogers@google.com>
-Subject: [PATCH v8 52/58] perf test: Migrate Intel PT virtual LBR test to use
- Python API
+Message-ID: <20260428071903.1886173-46-irogers@google.com>
+Subject: [PATCH v8 45/58] perf stackcollapse: Port stackcollapse to use python module
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, namhyung@kernel.org
 Cc: adrian.hunter@intel.com, alice.mei.rogers@gmail.com, 
@@ -91,8 +75,8 @@ Cc: adrian.hunter@intel.com, alice.mei.rogers@gmail.com,
 	tmricht@linux.ibm.com, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_082106_811683_8E6E5C2D 
-X-CRM114-Status: GOOD (  15.76  )
+X-CRM114-CacheID: sfid-20260428_002050_907403_28B58976 
+X-CRM114-Status: GOOD (  17.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,129 +91,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Intel PT virtual LBR test used an ad-hoc Python script written on
-the fly to parse branch stacks. This change migrates it to use the
-newly added `brstack` iterator API in the `perf` Python module.
+Modernize the legacy stackcollapse.py trace script by refactoring it
+into a class-based architecture (StackCollapseAnalyzer).
+The script uses perf.session for event processing and aggregates call
+stacks to produce output suitable for flame graphs.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
-
 ---
-v7:
-- Fixed permanent iterator exhaustion on brstack by converting it
-  to a list.
----
- .../perf/tests/shell/lib/perf_brstack_max.py  | 43 +++++++++++++++++++
- tools/perf/tests/shell/test_intel_pt.sh       | 35 +++++----------
- 2 files changed, 53 insertions(+), 25 deletions(-)
- create mode 100644 tools/perf/tests/shell/lib/perf_brstack_max.py
+v2:
 
-diff --git a/tools/perf/tests/shell/lib/perf_brstack_max.py b/tools/perf/tests/shell/lib/perf_brstack_max.py
-new file mode 100644
-index 000000000000..bd1cdb463f28
+ - Fixed Callchain Check: Replaced hasattr(sample, "callchain") with
+   getattr(sample, "callchain", None) and checked if it is not None .
+   This avoids attempting to iterate over None when a sample lacks a
+   callchain, which would raise a TypeError.
+ - Fixed Comm Resolution: The code already used
+   self.session.process(sample.sample_pid).comm() to resolve the
+   command name using the session object (if available), avoiding the
+   missing comm attribute on perf.sample_event.
+ - Code Cleanup: Broke a long line in process_event to satisfy pylint.
+---
+ tools/perf/python/stackcollapse.py | 126 +++++++++++++++++++++++++++++
+ 1 file changed, 126 insertions(+)
+ create mode 100755 tools/perf/python/stackcollapse.py
+
+diff --git a/tools/perf/python/stackcollapse.py b/tools/perf/python/stackcollapse.py
+new file mode 100755
+index 000000000000..996c73246ebc
 --- /dev/null
-+++ b/tools/perf/tests/shell/lib/perf_brstack_max.py
-@@ -0,0 +1,43 @@
-+#!/usr/bin/python
++++ b/tools/perf/python/stackcollapse.py
+@@ -0,0 +1,126 @@
++#!/usr/bin/env python3
 +# SPDX-License-Identifier: GPL-2.0
-+# Determine the maximum size of branch stacks in a perf.data file.
++"""
++stackcollapse.py - format perf samples with one line per distinct call stack
++
++This script's output has two space-separated fields.  The first is a semicolon
++separated stack including the program name (from the "comm" field) and the
++function names from the call stack.  The second is a count:
++
++ swapper;start_kernel;rest_init;cpu_idle;default_idle;native_safe_halt 2
++
++The file is sorted according to the first field.
++
++Ported from tools/perf/scripts/python/stackcollapse.py
++"""
 +
 +import argparse
++from collections import defaultdict
 +import sys
-+
-+import os
-+
-+script_dir = os.path.dirname(os.path.abspath(__file__))
-+python_dir = os.path.abspath(os.path.join(script_dir, "../../../python"))
-+sys.path.insert(0, python_dir)
-+
 +import perf
 +
++
++class StackCollapseAnalyzer:
++    """Accumulates call stacks and prints them collapsed."""
++
++    def __init__(self, args: argparse.Namespace) -> None:
++        self.args = args
++        self.lines: dict[str, int] = defaultdict(int)
++
++    def tidy_function_name(self, sym: str, dso: str) -> str:
++        """Beautify function names based on options."""
++        if sym is None:
++            sym = "[unknown]"
++
++        sym = sym.replace(";", ":")
++        if self.args.tidy_java:
++            # Beautify Java signatures
++            sym = sym.replace("<", "")
++            sym = sym.replace(">", "")
++            if sym.startswith("L") and "/" in sym:
++                sym = sym[1:]
++            try:
++                sym = sym[:sym.index("(")]
++            except ValueError:
++                pass
++
++        if self.args.annotate_kernel and dso == "[kernel.kallsyms]":
++            return sym + "_[k]"
++        return sym
++
++    def process_event(self, sample: perf.sample_event) -> None:
++        """Collect call stack for each sample."""
++        stack = []
++        callchain = getattr(sample, "callchain", None)
++        if callchain is not None:
++            for node in callchain:
++                stack.append(self.tidy_function_name(node.symbol, node.dso))
++        else:
++            # Fallback if no callchain
++            sym = getattr(sample, "symbol", "[unknown]")
++            dso = getattr(sample, "dso", "[unknown]")
++            stack.append(self.tidy_function_name(sym, dso))
++
++        if self.args.include_comm:
++            if hasattr(self, 'session') and self.session:
++                comm = self.session.find_thread(sample.sample_pid).comm()
++            else:
++                comm = "Unknown"
++            comm = comm.replace(" ", "_")
++            sep = "-"
++            if self.args.include_pid:
++                comm = f"{comm}{sep}{getattr(sample, 'sample_pid', 0)}"
++                sep = "/"
++            if self.args.include_tid:
++                comm = f"{comm}{sep}{getattr(sample, 'sample_tid', 0)}"
++            stack.append(comm)
++
++        stack_string = ";".join(reversed(stack))
++        self.lines[stack_string] += 1
++
++    def print_totals(self) -> None:
++        """Print sorted collapsed stacks."""
++        for stack in sorted(self.lines):
++            print(f"{stack} {self.lines[stack]}")
++
++
 +def main():
-+    ap = argparse.ArgumentParser()
++    """Main function."""
++    ap = argparse.ArgumentParser(
++        description="Format perf samples with one line per distinct call stack"
++    )
 +    ap.add_argument("-i", "--input", default="perf.data", help="Input file name")
++    ap.add_argument("--include-tid", action="store_true", help="include thread id in stack")
++    ap.add_argument("--include-pid", action="store_true", help="include process id in stack")
++    ap.add_argument("--no-comm", dest="include_comm", action="store_false", default=True,
++                    help="do not separate stacks according to comm")
++    ap.add_argument("--tidy-java", action="store_true", help="beautify Java signatures")
++    ap.add_argument("--kernel", dest="annotate_kernel", action="store_true",
++                    help="annotate kernel functions with _[k]")
++
 +    args = ap.parse_args()
 +
-+    bmax = 0
++    if args.include_tid and not args.include_comm:
++        print("requesting tid but not comm is invalid", file=sys.stderr)
++        sys.exit(1)
++    if args.include_pid and not args.include_comm:
++        print("requesting pid but not comm is invalid", file=sys.stderr)
++        sys.exit(1)
 +
-+    def process_event(sample):
-+        nonlocal bmax
-+        try:
-+            brstack = sample.brstack
-+            if brstack:
-+                n = len(list(brstack))
-+                if n > bmax:
-+                    bmax = n
-+        except AttributeError:
-+            pass
++    analyzer = StackCollapseAnalyzer(args)
 +
 +    try:
-+        session = perf.session(perf.data(args.input), sample=process_event)
++        session = perf.session(perf.data(args.input), sample=analyzer.process_event)
++        analyzer.session = session
 +        session.process_events()
-+        print("max brstack", bmax)
-+    except Exception as e:
-+        print(f"Error processing events: {e}", file=sys.stderr)
++    except IOError as e:
++        print(f"Error: {e}", file=sys.stderr)
 +        sys.exit(1)
++    except KeyboardInterrupt:
++        pass
++
++    analyzer.print_totals()
++
 +
 +if __name__ == "__main__":
 +    main()
-diff --git a/tools/perf/tests/shell/test_intel_pt.sh b/tools/perf/tests/shell/test_intel_pt.sh
-index 8ee761f03c38..d711ecdf5be0 100755
---- a/tools/perf/tests/shell/test_intel_pt.sh
-+++ b/tools/perf/tests/shell/test_intel_pt.sh
-@@ -24,7 +24,6 @@ errfile="${temp_dir}/test-err.txt"
- workload="${temp_dir}/workload"
- awkscript="${temp_dir}/awkscript"
- jitdump_workload="${temp_dir}/jitdump_workload"
--maxbrstack="${temp_dir}/maxbrstack.py"
- 
- cleanup()
- {
-@@ -539,34 +538,20 @@ test_kernel_trace()
- test_virtual_lbr()
- {
- 	echo "--- Test virtual LBR ---"
--	# Check if python script is supported
--	libpython=$(perf version --build-options | grep python | grep -cv OFF)
--	if [ "${libpython}" != "1" ] ; then
--		echo "SKIP: python scripting is not supported"
-+	# shellcheck source=lib/setup_python.sh
-+	. "$(dirname "$0")"/lib/setup_python.sh
-+
-+	if [ -z "$PYTHON" ] ; then
-+		echo "SKIP: Python not found"
- 		return 2
- 	fi
- 
--	# Python script to determine the maximum size of branch stacks
--	cat << "_end_of_file_" > "${maxbrstack}"
--from __future__ import print_function
--
--bmax = 0
--
--def process_event(param_dict):
--	if "brstack" in param_dict:
--		brstack = param_dict["brstack"]
--		n = len(brstack)
--		global bmax
--		if n > bmax:
--			bmax = n
--
--def trace_end():
--	print("max brstack", bmax)
--_end_of_file_
--
- 	# Check if virtual lbr is working
--	perf_record_no_bpf -o "${perfdatafile}" --aux-sample -e '{intel_pt//,cycles}:u' uname
--	times_val=$(perf script -i "${perfdatafile}" --itrace=L -s "${maxbrstack}" 2>/dev/null | grep "max brstack " | cut -d " " -f 3)
-+	perf_record_no_bpf -o "${tmpfile}" --aux-sample -e '{intel_pt//,cycles}:u' perf test -w brstack
-+	perf inject --itrace=L -i "${tmpfile}" -o "${perfdatafile}"
-+	output=$($PYTHON "$(dirname "$0")"/lib/perf_brstack_max.py -i "${perfdatafile}")
-+	echo "Debug: perf_brstack_max.py output: $output"
-+	times_val=$(echo "$output" | grep "max brstack " | cut -d " " -f 3)
- 	case "${times_val}" in
- 		[0-9]*)	;;
- 		*)	times_val=0;;
 -- 
 2.54.0.545.g6539524ca2-goog
 
