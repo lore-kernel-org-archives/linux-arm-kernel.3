@@ -4,163 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7014FFF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 14:38:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 998B9FF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 14:39:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QxJzZkUKd9pp8yhcreBmOMFRpBp9i6q/5UA9OahYWIM=; b=LdKHQkvjZKuAf+o11Ig/kpXtlR
-	XGs+GugFwx5srr+pdwEmEUYOSKCHrqgjHK8y1E9b616/aJAP65xdyHU8vzjmovVTFOOtgdAJgZRV2
-	PsY+xP0Nlp20JorB2+m1KNYc99z4o9foFTRk15BDM+d04VHUQ+rSqx26gHeUWglKJzndhMgzRYN91
-	zdyKzmZyr+J7E3Citg40/ZVyZ22MB5vSO7ljwYFi5T5U12qRogIrMRgXSrOgnLrPV272fjWAx5eJd
-	hMy+BGhWfVv/OH1B0OTKtrkDH5pCKIwQjTrSNgpLuskuNM5oFSwRTeHAfVpiGTwkyn8sSQ1y7T8mL
-	nn23Ck2A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=SWTV+zpooUf+vBbUnZu3e6HC/YCvpdAg3Gs4GYcyKZE=; b=DerI7Mt4/aOSLA
+	tG5P9wsk2xRpqvXP3XlPMjDA0uME/G32f6imtjqhSDfOTy17sHp1Jf8sYQ/EqoHNJdHS5fw5grROY
+	7gDxQEDd4C0wH/55dTHstrBtaDMVHsmTOEioK+QtDKuQrF6PXkAwPIdhv9O06s1ODoxj/smpDngyT
+	1ekcFa+dJfX4ss3Mw1yXQVUh+s8Vje2GSqZhbefDq+dlDvPf5w0x7TozyaKH48YrVXBbI3K7TR2zK
+	/9ly3Un6y9Kj2XsgG082F2CugfJ5DOu+tTaD/dJNVKfkZtqXPfdoy+v5mMrYP9azW18plGfNbZf5z
+	K6U7lgZ5qRPGb3wickNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHjaL-00000001fhE-1HUu;
-	Tue, 28 Apr 2026 14:38:49 +0000
-Received: from mail-japaneastazon11011063.outbound.protection.outlook.com ([52.101.125.63] helo=TYVP286CU001.outbound.protection.outlook.com)
+	id 1wHjaX-00000001fjo-2glo;
+	Tue, 28 Apr 2026 14:39:01 +0000
+Received: from mail-southcentralusazon11013059.outbound.protection.outlook.com ([40.93.196.59] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHjaI-00000001fgc-37AQ
+	id 1wHjaV-00000001fjH-0A3A
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 14:38:47 +0000
+	Tue, 28 Apr 2026 14:39:00 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dVNqxFV55d2Nrstb6NUDi8OlbPqRoGs9yiLeJJND9L6K1VmhiRwf06j2xnz+6pirydMLdFaYxnkwFCSl7fflFDusMujvvIutSUQPWVaBaKza9rVTM+foVkDBvF9OXGvwy1evpo12nvJbqDM1q7Vv8dsIvuOBX2f3nUbCnpHkirBiE06E21nNQ8GWTtpF6fC8Rv8QIU64GoWmmMB+eRUX5ryUWuY7Sb5sS3Kg0NcWy5ANDBoDIsyntzTzbhRxIFykP0JrVP0brQxWwdbPzsCBa03FJ5BjafMFnW3SzQUgOg1RYfDf/31Xvi6LZ7kiJ2O1IyWFXaEDBU359w4g1LI14g==
+ b=xmp+yfOxwVda1cfMM+aKe4+dXbS8+fstBKl2CozaVcyHzGEVx7iQL/oz8XSBklfjzhbx3Wqgu44PwAqRffMVph8Vnp3acvSXrx6PL1UEJ5pJ2jZIZ8DihIH0iw8KPsvKMi2ptV9X5TFsotkSfu12tPBiKHk13qCvm47rHU8RHfRAMN8R9S7RhU1X8/Ia2RSyGBLYJOFp0u2DGoIWax+U3z4NAelr7j6sfQjeltJ5lJVw5LrvgVsFvQrAEjf0UuI9g3ebir9xHKmuz4m37n2fX7J7MMHHySLs5SGpDwxL1jJkVaFJYjVXtGJ8Ixmlwd1Adnj//IgAQuBzQVjwtVRISA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QxJzZkUKd9pp8yhcreBmOMFRpBp9i6q/5UA9OahYWIM=;
- b=O+NQY18Q+rp0iXVb2eTneXLAkpl0VieHNmsN+DYJ4QqJ5kAtdF6j4guh0Mw3YzN4sWA4WCtiHaqQu+a0pFNesveXjSBnOWK/U5ezMAC+j5oBd/MREwmAjATla/PX5vhGokjYpJCm20FzK5Ect4GlWlVOJLrkFodk7JhydGgME/mfvzML4Iapj6ISubqaRGmybgZH0hTp4T/gCPdZTSpHhxd5kiNDj6MskFXMuQQyMGBpdU/2emub2L/M9U5oLNs/sdNa/jdlhawLvYAVmUh9j7zuVOtyRa0gsFcnr1jNGNYA9fUVOxup3HLlKohoY3KSocXEqpwij5HSTAtne/YEDg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
- header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
- s=selector1;
+ bh=SWTV+zpooUf+vBbUnZu3e6HC/YCvpdAg3Gs4GYcyKZE=;
+ b=Ixoa5sL4n1nLyfpjioqef4xvO/j62XfGAAv8P3tkJtYLEMVQpjPsqgbx/DranTjShscDJWQNHgKyRdDIbJMMJKPyreBeQLE9DOq+i8tVnvzDYLjKUH4KD3tjLSIVtYTyGVkYZwqoKc9YIdVhidy+7A6pCQTIS279bCQPMRaIK9zdctz9kRIoK7TvH+spTWPoSeDBN2tqLDo2Dewf9985hxis3xS6dLfndEy/i6itlhOYy6hAyYuWYFhIRB5dU3ppYZMQNJKIi3A/crsp8rvCnFC+tcew3P4FIpCDHuPmsfw/tPsTLz04vzOM2TgvUlcU7L1woStBS2lrr1Tb4gqVtA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=linaro.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QxJzZkUKd9pp8yhcreBmOMFRpBp9i6q/5UA9OahYWIM=;
- b=ToH6k7wt9tRkub7y9MpC7IdsjjRymvOa0Ah/uOhWZ+nV7V5qGW4ITUIxb5ZyN+XKrzR+qWwoi2q/IATTE3cC58NCvREOoCJJPL7ZmIpC/VzOrg+CG4J1spdrV6PyT4V8y/d0Z/3phyn5YtLU/WuD+HhfCRTPv86bvkP9tSmUg0E=
-Received: from TY3PR01MB11346.jpnprd01.prod.outlook.com (2603:1096:400:3d0::7)
- by TYYPR01MB14054.jpnprd01.prod.outlook.com (2603:1096:405:20e::14) with
+ bh=SWTV+zpooUf+vBbUnZu3e6HC/YCvpdAg3Gs4GYcyKZE=;
+ b=4XKsHhbMpHAgjqpkLFQ/5AH9wqEswbIVuk4h1bJzWh3k9dOXNHpRhbRwa6P0qLumeH6ljEYcM5Z9Jg/Tc8LBi5w2CyIRyrpasNhfp93uNkLEFNSK5bgySkEGMN50U0+uL5hRwD2x8WQICUHDqWsXLgOJhGfWe10MeJmGFtS3z6k=
+Received: from DS7P220CA0020.NAMP220.PROD.OUTLOOK.COM (2603:10b6:8:223::10) by
+ PH7PR12MB6564.namprd12.prod.outlook.com (2603:10b6:510:210::22) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.29; Tue, 28 Apr
- 2026 14:38:38 +0000
-Received: from TY3PR01MB11346.jpnprd01.prod.outlook.com
- ([fe80::87d1:4928:d55:97de]) by TY3PR01MB11346.jpnprd01.prod.outlook.com
- ([fe80::87d1:4928:d55:97de%4]) with mapi id 15.20.9846.025; Tue, 28 Apr 2026
- 14:38:38 +0000
-From: Biju Das <biju.das.jz@bp.renesas.com>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, Rob Clark <robin.clark@oss.qualcomm.com>,
-	Dmitry Baryshkov <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>,
-	Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>, Marijn
- Suijten <marijn.suijten@somainline.org>, Tian Tao <tiantao6@hisilicon.com>,
-	Xinwei Kong <kong.kongxinwei@hisilicon.com>, Sumit Semwal
-	<sumit.semwal@linaro.org>, John Stultz <jstultz@google.com>, Andrzej Hajda
-	<andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, Robert
- Foss <rfoss@kernel.org>, laurent.pinchart
-	<laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, Jernej
- Skrabec <jernej.skrabec@gmail.com>, tomi.valkeinen
-	<tomi.valkeinen@ideasonboard.com>, Michal Simek <michal.simek@amd.com>
-CC: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-msm@vger.kernel.org" <linux-arm-msm@vger.kernel.org>,
-	"freedreno@lists.freedesktop.org" <freedreno@lists.freedesktop.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: RE: [PATCH v2 08/11] drm/bridge: adv7511: switch to
- of_drm_get_bridge_by_endpoint()
-Thread-Topic: [PATCH v2 08/11] drm/bridge: adv7511: switch to
- of_drm_get_bridge_by_endpoint()
-Thread-Index: AQHc1u/CLMxk+VTSG02AXPmSMDjmUbX0WyoQgAACgvCAABfEgIAAAYVQgAAGVYCAAAKiMIAACyhw
-Date: Tue, 28 Apr 2026 14:38:38 +0000
-Message-ID: <TY3PR01MB11346293C9AAF8BC4B3FCAD6586372@TY3PR01MB11346.jpnprd01.prod.outlook.com>
-References: <20260428-drm-bridge-alloc-getput-panel_or_bridge-v2-0-4300744a1c47@bootlin.com>
- <20260428-drm-bridge-alloc-getput-panel_or_bridge-v2-8-4300744a1c47@bootlin.com>
- <TY3PR01MB113466B70BFD2899AB0CF47AD86372@TY3PR01MB11346.jpnprd01.prod.outlook.com>
- <TY3PR01MB1134674FDD088299A4382D3D286372@TY3PR01MB11346.jpnprd01.prod.outlook.com>
- <DI4TGV2WURTY.39OXE7WWKRLA1@bootlin.com>
- <TY3PR01MB11346E82D19FBE8544F51624286372@TY3PR01MB11346.jpnprd01.prod.outlook.com>
- <DI4U2DT3OBMR.23T3F7X8P75RU@bootlin.com>
- <TY3PR01MB113465B0308DE16ACC48D1E8186372@TY3PR01MB11346.jpnprd01.prod.outlook.com>
-In-Reply-To: <TY3PR01MB113465B0308DE16ACC48D1E8186372@TY3PR01MB11346.jpnprd01.prod.outlook.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=bp.renesas.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TY3PR01MB11346:EE_|TYYPR01MB14054:EE_
-x-ms-office365-filtering-correlation-id: 615e36e0-a409-4eb5-cb32-08dea533d5dc
-x-ld-processed: 53d82571-da19-47e4-9cb4-625a166a4a2a,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|921020|38070700021|56012099003|22082099003|18002099003;
-x-microsoft-antispam-message-info: Hjw3amUPMkeZ0nFCGnVuUn1HaP/bj25hYOdVCM9CqLu3R/KXrfDqWQj6ScatNk842uTEbHJkmo/kIepLdp2Lku0rTeXqyn5+DonrhPUy+twLfPp/kxzDexuuZucWZ0nghSlh9Dm8gO4CWt0nCMVypVgiJlMik92UdXfRCWxWTAJKSVizTCR9RqvzyLi/Mw79lOnEiTH3QUcMLuhkVw7dPaPea4HSjIzC8ASAm5IYbwCCg7k/YX0LT9jf7ylMSG2LZUsqb4/EnOUJS/GwOKjhx/T8sEnHUeAzbSMWkRsAPF7gu6TRym0v3AsHZsg5edetDLMDczPW5CW92BP64X5ln4oMCnm08Jb+EbQVEAfkEUpXwWWf1iV70RgMy5a2Qg7OZx+3/vBloYEUzW6WegpqttocpAQf2m+nVMq0LgDOd0Hley1zGr/D47AK1cGwiJ8Hs1TWfXybJm26VCzOnU4eAHgIErAQD6HgcF9CbQcHpaHdXpL9Ns20yDtkNUqk6SSfcN0m8q9x3CnK9LHuZJKxs/HEZiZauRhT2fDnpHT47UzvjLGlo6e7TKqxFvUZE4iwpR4Gw0r8s+L4yGLOqH3uU/rm/pM6sNFU1XkawcfaQhShXN/IH1OA8GpS2KEDC4wqpO/RYE2xK0Gk3W3OCDLGN+KBJ31ESa0jPA2gjqoisyuTnyeoBgKgI2NPHwII1kNQQrSwO8HNtbvVqmJDRn/OcGzEE8Lf4YPiULsCIYZxfoBZBSvK3NYXj7cMEvpWLOZJzZ+cliWDAQCgrUedYdwLtSNKCuV0nHIA3eK/pPv4gcdW7F5NvneV6ni2Oa272BjA
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY3PR01MB11346.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(921020)(38070700021)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?SWZrbUZQT2Z3a0gwN2syVSt3VVpqZitCVWRhbWlxWjQ5SUtXODRRelBKUzk2?=
- =?utf-8?B?R2EzSGxVN0NyUXdDZCtaT2U3L3dkWFpMN0dqMWFGZFlqd213ckh1b0kxRDJE?=
- =?utf-8?B?SjQvVTFINjYvb3ZKUG80cXN1ckFqZll1UDVxN3dsdVI1bk9uT0owNC93UXFB?=
- =?utf-8?B?ejE5d0tvU1g5SGVXTFdMMDRwdFNpODcvbW83Mmw5aTl5OWp1VE13bVVSV0Zw?=
- =?utf-8?B?a3dVdzFIVEpOdGkyVVpWWUVpcWZkeDRLMHZBZlJtSlJYbVZIczV6YUt4Z0xV?=
- =?utf-8?B?QmRBUGwveVpDeG85SHMwRllPdE9GOEYwMXloUHA0ZEdLMGJ3V1JHc3RBREVC?=
- =?utf-8?B?eTJqc3k1eTFOZXVtbkxkYUtneEFCZ0VyblBzdkE4Um9XSHFvdDZtY1p4eCtP?=
- =?utf-8?B?aXd2QmVscVJXanc0ek5UdVdZYkFIV2ozeXk4ZHg0QkhWKzZFVFpFSWRsU1lp?=
- =?utf-8?B?M3l0S1RqczRxTFcvWktsMGM0cjRBVllxMGpkakduZDBZaHRDRTVKNWlkaXhp?=
- =?utf-8?B?MDBqbTI0aWZjZTQ5TmhhQ2RGaGVoWFBwZEViRWZIWnlROFFOMzF3M0l3VVRu?=
- =?utf-8?B?UDl6bkQ0MGo3cFJrbGN0bVJSL0NnUjlDcHZPR0RZNWJtSXhMNTJLa281UjZw?=
- =?utf-8?B?TU91NzdBVzJzR1pHM29ESlRldlZoUWFxQ2d6Tnh4N2YvZmdBaDF0bHJqVDY1?=
- =?utf-8?B?eGJ4WldmV2FTb1lsdUl0RW9hWnErdWxCMWluWGFPaHBneGhwYXVVRVhVdlYv?=
- =?utf-8?B?QlUrUUxYTWxoWkQrcUhzdTBUd1VSWHlCSmVXbXVHUm0yVExYL0NkWFZaSlNX?=
- =?utf-8?B?dGZLSkR1aVdZNVFZMlF1ZmVPMW5FQUVPV3hkUjNqQlJhVWJwRVh0YmZVR3ZI?=
- =?utf-8?B?ZVlFZzhzNURiTUVDR2k0ekFJYWQyZ0MzdkIzWVZyWHpkWDVydnFBbnBIT3JM?=
- =?utf-8?B?a0laeHgxSVN3ZmFveHpqeHBza1dZcEcvZ3NDREluREZCNGltdU1GNkJkUnNU?=
- =?utf-8?B?MU9pcmhSamdIbGpRelZGN2c2Ri9yK1NZVFpUdll1V3R3SC9DQVF1ZEhhcjhV?=
- =?utf-8?B?N05GdXdCcnVUMkZWQjRlaHRLWDA1U0lwRzlHdHp4V1c5QzJpZ2pzUW04OXpC?=
- =?utf-8?B?WmJsTUIraTBDcUJMa3ZjZXdPUXFaSnhxY2xVZ3hjcjBLZExFOTlodE5SNGZQ?=
- =?utf-8?B?anE4c2tIU1BxRk9NSlJjNmNiZkZBSFAxL3AwbFhqNGZzY2dFUVBvcWR4a1Y3?=
- =?utf-8?B?eHlON3M0dG0rZUovNkZVc1R1WGd2TUxsWkVmaXc2akoyMGw5RFY2RHg5aHdD?=
- =?utf-8?B?c1NjR1NRV2Q2YVhRaTl5eEEwK0g5SmJuNyt1dVF6cHpaK3ZLdmxJUGt6b3B2?=
- =?utf-8?B?ZmJJcjJHZ3YwMXk5QVA0RldkaGFqZld5T1p6ajIrbVgxVFdMYzN5WGZad1py?=
- =?utf-8?B?MFViSUhBVld5cUtaNVhVd1cveW1CRXFySVRZaGV6dVFBclJ4QXFNMmNWU1Nz?=
- =?utf-8?B?dExXWk8wOFNwekU4SUc1VDkyY09XSWRNcWxuVm4wUExFcVdUcXFIekNiZmxJ?=
- =?utf-8?B?VUhxMzNSaERWUGNkejErRXdQOFYrcGw1WE1DSzVLUmZSVkJ3YURDNEcvak8z?=
- =?utf-8?B?a1A5YVgvanhMeGpaUkIzcGpDd0ZGbXVqSkE2Ym1pazdzRWpDNjNHMk9xRjg0?=
- =?utf-8?B?MlBEendnMzJwaE1VRXVTa05ic1orYmhiWmgyUkNYWlJ5TVdWSHZXcnB3YklY?=
- =?utf-8?B?SkpEZ1pFRXFxY2ZRdVZZRkgwb2NyN1FJTmdtTmhIN1BsSnd3eDRuL2xZVldI?=
- =?utf-8?B?QnJxL3Z2OXNXcU5xN0V4UmhUYW1SZlZucGdsK2Fad3lnVEhVSEs2cTU0YVM0?=
- =?utf-8?B?SlM2ZHdUOERNNnZJckVhMy93UWE0TzYwQWUrMXlXR1c3ZHgzSlFwOVlMbWMx?=
- =?utf-8?B?QVAxYlRhVXN1S2xhM3hiTkJ0cE9KTmNXMmJXY3VBaW1ETTBFbk04OUg3V1M3?=
- =?utf-8?B?cFEzTVRoZ3J5eTk2M3Y1bHk2cUk0eVVtM2daeXJzb2VkUk1tQ2RwWGIzWlFY?=
- =?utf-8?B?NTVrMTM0bTFHcFU2QTVIbSt1WjhyNVppd0J1NTlxUVJ0K3RVOFlqcVBzcE5n?=
- =?utf-8?B?Vk9QYUx5T1NkTUV6Yk5MajVtaUdwMDBtb2FNVUQ3NjVheXNGTUo3anJOSHp2?=
- =?utf-8?B?aWJYQzV1ckRkekdySDdId3BtVnNmV0lYWGpqdG8zNGloUEFIYUwvMVYvck12?=
- =?utf-8?B?SWpDcDZsOEY4c0lmRStqRm9nWTVvSzVPQVlYYjA2UmlLeWRXemhlNG82M3Fq?=
- =?utf-8?B?L0k3ZjFBQWk4dzZvaHdwTmxFTUJLTVFBUTZLd05jR0MyU3hMeEoxZz09?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.17; Tue, 28 Apr
+ 2026 14:38:53 +0000
+Received: from SN1PEPF0002BA4C.namprd03.prod.outlook.com
+ (2603:10b6:8:223:cafe::ef) by DS7P220CA0020.outlook.office365.com
+ (2603:10b6:8:223::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.26 via Frontend Transport; Tue,
+ 28 Apr 2026 14:38:52 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ SN1PEPF0002BA4C.mail.protection.outlook.com (10.167.242.69) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9846.18 via Frontend Transport; Tue, 28 Apr 2026 14:38:52 +0000
+Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Tue, 28 Apr
+ 2026 09:38:49 -0500
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb09.amd.com
+ (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Tue, 28 Apr
+ 2026 07:38:49 -0700
+Received: from [172.31.134.241] (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Tue, 28 Apr 2026 09:38:48 -0500
+Message-ID: <b12db749-1a6e-4013-bde3-421633861b3a@amd.com>
+Date: Tue, 28 Apr 2026 09:38:48 -0500
 MIME-Version: 1.0
-X-OriginatorOrg: bp.renesas.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TY3PR01MB11346.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 615e36e0-a409-4eb5-cb32-08dea533d5dc
-X-MS-Exchange-CrossTenant-originalarrivaltime: 28 Apr 2026 14:38:38.2544
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] dt-bindings: remoteproc: xlnx: add auto boot feature
+To: Mathieu Poirier <mathieu.poirier@linaro.org>, <tanmay.shah@amd.com>
+CC: Krzysztof Kozlowski <krzk@kernel.org>, <andersson@kernel.org>,
+	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<michal.simek@amd.com>, <ben.levinsky@amd.com>,
+	<linux-remoteproc@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20260422202558.2362971-1-tanmay.shah@amd.com>
+ <20260422202558.2362971-2-tanmay.shah@amd.com>
+ <20260423-stimulating-markhor-of-masquerade-aac0a7@quoll>
+ <2351c698-cf08-4037-9777-0820448a14d8@amd.com>
+ <eac0f387-c38a-44eb-aed4-6c4022f01777@kernel.org>
+ <faef3c54-2292-4470-be6a-4c347ca65453@amd.com>
+ <67f442f7-377d-46f3-82bc-86053e34c277@kernel.org>
+ <09928c66-f041-479d-954f-56dcfcfa1c13@amd.com> <afDEgHUN8fWatC_u@p14s>
+Content-Language: en-US
+From: "Shah, Tanmay" <tanmays@amd.com>
+In-Reply-To: <afDEgHUN8fWatC_u@p14s>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF0002BA4C:EE_|PH7PR12MB6564:EE_
+X-MS-Office365-Filtering-Correlation-Id: 826fb304-be84-467c-3fc1-08dea533de51
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700016|376014|7416014|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: k4DvfLuG1K29bBwwuS/WRdrMr2Abmlqz+fJ4tVfWbdCkVLlQz6vFa0awIb6fP77UrXNIEXlFY8sM2vIZ1WLzzh117qZdKXUF6vnR9Fr1YzOXwqNYri+L0/GEo7lxH7+DbH2PGWPNVsOAh5aCYDOyFN0ylrz8mR4yfGx1srL5Lb2MHXcXwSAhvs2IZ4D80xncpt8WGtmNLWyOFLG0/9JNwtO7IleOEcF2bbyCdg570ZO2UdRyUaKbpFsruTkvokuw5d/MIkRTORcLmasO8FfNjsb2x/NxIEgzmdfDcSuaQBlsf2EuuxFIL/0eLeHL3KMne6KgBJQCoZdiksxr/yFIU+IKbA/nuKi64JYVYrRxGGI0l+ohkCtswJA47HQCulnLDso6DxzbMgQ9TWq+lFHpbTJf4NdQK+ziKki7yAUm6rqRNLbP0r5Up03ov8EyM+kNhIu/PfAEMVr8nDdYmtCfDFrwzWRnAz3C08pdMqu5lx6Z9JPYH5u+InFpNQ1+ZVtH6Vr5F0wr3FxV13WJQLlOxfnocFV7xrV+0MP073OQLs+1U8yI7fzQ7AQMQCYV2fJo6hMekRuNz3WQsK1ygfGNGUr6ceFf6r766y6dlBr8g4JEX3MUxxkos621yE2YyCgxw5t4D7BSg9FB1kPTIlx1WvhGdCK6rGAWyUPxRfZgygP2ydxdrFXMhWmqfWItVHo/C2ipk+S5V3W7ekW6gCQHsRe12ORQimpsGPkGwV60VmRG7ZR4hvX5dOzH7pWXYznogFRAMq28tRgAKM7XHh1ksQ==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700016)(376014)(7416014)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: AcHQJesyHEjqZknUjOoG21LXXHQYMva5wLbH0w4lIRBOlh2xlW6luUzL2KG4FbNpSM5LNFxhI32ja0Lmrk6D/Rfz8Gb+MqI12KNJ0OEaf6QRfMugqyRakVhQfOjyDA7VZo+iTVihOTwvkQtylijFxE99yDs8NlSxLZd/Psg9Ycp9mQ5pPKCQW9oXxJW3M0FIfgjz7/EbN0bgODU9JQhj6QK1IRmf30fxH5VBytjscUvxZ4HpEDJqJzo7G82PVbdx6XMvF7te26yoKUrcMn7L+7s9LVPTaVzf+nbzS8yagHqUNZdOhcokbQsPcyBb+7I5x1ZOofSgB/3yN8DNS98ySdWioUipjqPzBlFVbc9Y3vNRRg9iseW9RXVanbjpqzhY61XuJt2BB8lodb0BF3RHF7MJ6Q932GSuGm4NtiSvA9QjMNx9RyyoiCQPvoXEiXBI
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2026 14:38:52.4353
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: EMF7ZEolvre6MPRKa2HTQfts7mSr68Xm62TmOi0vbNwp8+lrTcrqxdFL/38E6mknm7HBl0eDhUAjUECLQTfFvnXliRtAPOszdbA/2+CNv28=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYYPR01MB14054
+X-MS-Exchange-CrossTenant-Network-Message-Id: 826fb304-be84-467c-3fc1-08dea533de51
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF0002BA4C.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6564
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_073846_903347_8C5648B0 
-X-CRM114-Status: GOOD (  35.16  )
+X-CRM114-CacheID: sfid-20260428_073859_083474_67845F0C 
+X-CRM114-Status: GOOD (  26.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,86 +132,100 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: tanmay.shah@amd.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-DQoNCj4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0NCj4gRnJvbTogQmlqdSBEYXMNCj4gU2Vu
-dDogMjggQXByaWwgMjAyNiAxNTowMg0KPiBTdWJqZWN0OiBSRTogW1BBVENIIHYyIDA4LzExXSBk
-cm0vYnJpZGdlOiBhZHY3NTExOiBzd2l0Y2ggdG8gb2ZfZHJtX2dldF9icmlkZ2VfYnlfZW5kcG9p
-bnQoKQ0KPiANCj4gSGkgTHVjYSwNCj4gDQo+ID4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0N
-Cj4gPiBGcm9tOiBMdWNhIENlcmVzb2xpIDxsdWNhLmNlcmVzb2xpQGJvb3RsaW4uY29tPg0KPiA+
-IFNlbnQ6IDI4IEFwcmlsIDIwMjYgMTQ6NDgNCj4gPiBTdWJqZWN0OiBSZTogW1BBVENIIHYyIDA4
-LzExXSBkcm0vYnJpZGdlOiBhZHY3NTExOiBzd2l0Y2ggdG8NCj4gPiBvZl9kcm1fZ2V0X2JyaWRn
-ZV9ieV9lbmRwb2ludCgpDQo+ID4NCj4gPiBIZWxsbywNCj4gPg0KPiA+IE9uIFR1ZSBBcHIgMjgs
-IDIwMjYgYXQgMzozMSBQTSBDRVNULCBCaWp1IERhcyB3cm90ZToNCj4gPiA+PiA+PiA+IEBAIC0x
-MjUxLDEwICsxMjUxLDkgQEAgc3RhdGljIGludCBhZHY3NTExX3Byb2JlKHN0cnVjdA0KPiA+ID4+
-ID4+ID4gaTJjX2NsaWVudA0KPiA+ID4+ID4+ID4gKmkyYykNCj4gPiA+PiA+PiA+DQo+ID4gPj4g
-Pj4gPiAgCW1lbXNldCgmbGlua19jb25maWcsIDAsIHNpemVvZihsaW5rX2NvbmZpZykpOw0KPiA+
-ID4+ID4+ID4NCj4gPiA+PiA+PiA+IC0JcmV0ID0gZHJtX29mX2ZpbmRfcGFuZWxfb3JfYnJpZGdl
-KGRldi0+b2Zfbm9kZSwgMSwgLTEsIE5VTEwsDQo+ID4gPj4gPj4gPiAtCQkJCQkgICZhZHY3NTEx
-LT5uZXh0X2JyaWRnZSk7DQo+ID4gPj4gPj4gPiAtCWlmIChyZXQgJiYgcmV0ICE9IC1FTk9ERVYp
-DQo+ID4gPj4gPj4gPiAtCQlyZXR1cm4gcmV0Ow0KPiA+ID4+ID4+ID4gKwlhZHY3NTExLT5icmlk
-Z2UubmV4dF9icmlkZ2UgPSBvZl9kcm1fZ2V0X2JyaWRnZV9ieV9lbmRwb2ludChkZXYtPm9mX25v
-ZGUsIDEsIC0xKTsNCj4gPiA+PiA+PiA+ICsJaWYgKElTX0VSUihhZHY3NTExLT5icmlkZ2UubmV4
-dF9icmlkZ2UpICYmIFBUUl9FUlIoYWR2NzUxMS0+YnJpZGdlLm5leHRfYnJpZGdlKSAhPSAtRU5P
-REVWKQ0KPiA+ID4+ID4+ID4gKwkJcmV0dXJuIFBUUl9FUlIoYWR2NzUxMS0+YnJpZGdlLm5leHRf
-YnJpZGdlKTsNCj4gPiA+PiA+Pg0KPiA+ID4+ID4+IERvZXMgaXQgY3Jhc2gsIGlmIHRoZSBlcnJv
-ciBpcyAgLUVQUk9CRV9ERUZFUj8NCj4gPiA+PiA+DQo+ID4gPj4gPiBJIHNlZSBhIGNyYXNoIHdp
-dGggcGF0Y2ggWzFdLCB3aGljaCBpcyBmaXhlZCBieSBhdm9pZGluZyB0aGUgZGlyZWN0IGFzc2ln
-bm1lbnQuDQo+ID4gPj4NCj4gPiA+PiBBaCwgZGFtbWl0ISBHb29kIGNhdGNoLCB0aGFua3MgZm9y
-IHRoZSBxdWljayB0ZXN0aW5nIGFuZCBmb2xsb3ctdXAhDQo+ID4gPj4NCj4gPiA+PiBJbmRlZWQg
-dGhpcyBkcml2ZXIgYXNzdW1lcyBuZXh0X2JyaWRnZSBpcyBlaXRoZXIgTlVMTCBvciBhIHZhbGlk
-DQo+ID4gPj4gcG9pbnRlciwgYnV0IGR1ZSB0byB0aGUgJ2lmKElTX0VSUigpICYmIHNvbWVfb3Ro
-ZXJfY29uZGl0aW9uKScgbm93DQo+ID4gPj4gaXQgY2FuIGFsc28gYmUgLUVOT0RFViAobm90IC0N
-Cj4gPiBFUFJPQkVfREVGRVIsIGJ1dCB0aGF0J3MgaXJyZWxldmFudCkuDQo+ID4gPj4NCj4gPiA+
-PiBUaGlzIGFmZmVjdHMgdGhlIG1zbSBhbmQgenlucW1wX2RwIHBhdGNoZXMgZXF1YWxseS4NCj4g
-PiA+Pg0KPiA+ID4+IEknbSBzZW5kaW5nIGEgdjMgc29vbiB3aXRoIHRoZXNlIGZpeGVkLiBJJ20g
-anVzdCBub3Qgc3VyZSB3aGljaA0KPiA+ID4+IGFwcHJvYWNoIHRvIHVzZSB0byBmaXggKHNhbWUg
-Zm9yIGFsbCB0aGUgMyBwYXRjaGVzKS4gQWx0ZXJuYXRpdmVzIGFyZToNCj4gPiA+Pg0KPiA+ID4+
-ICAxLiAtRU5PREVWIGlzIGFjY2VwdGVkLCBzZXQgbmV4dF9icmlkZ2UgdG8gTlVMTCB3aGVuIGl0
-IGhhcHBlbnM6DQo+ID4gPj4NCj4gPiA+PiAgICAgICAtICAgICAgIGlmIChJU19FUlIoYWR2NzUx
-MS0+YnJpZGdlLm5leHRfYnJpZGdlKSAmJiBQVFJfRVJSKGFkdjc1MTEtPmJyaWRnZS5uZXh0X2Jy
-aWRnZSkgIT0gLQ0KPiA+ID4+IEVOT0RFVikNCj4gPiA+PiAgICAgICAtICAgICAgICAgICAgICAg
-cmV0dXJuIFBUUl9FUlIoYWR2NzUxMS0+YnJpZGdlLm5leHRfYnJpZGdlKTsNCj4gPiA+PiAgICAg
-ICArICAgICAgIGlmIChJU19FUlIoYWR2NzUxMS0+YnJpZGdlLm5leHRfYnJpZGdlKSkgew0KPiA+
-ID4+ICAgICAgICsgICAgICAgICAgICAgICBpZiAoUFRSX0VSUihhZHY3NTExLT5icmlkZ2UubmV4
-dF9icmlkZ2UpID09IC1FTk9ERVYpDQo+ID4gPj4gICAgICAgKyAgICAgICAgICAgICAgICAgICAg
-ICAgYWR2NzUxMS0+YnJpZGdlLm5leHRfYnJpZGdlID0gTlVMTDsNCj4gPiA+PiAgICAgICArICAg
-ICAgICAgICAgICAgZWxzZQ0KPiA+ID4+ICAgICAgICsgICAgICAgICAgICAgICAgICAgICAgIHJl
-dHVybiBQVFJfRVJSKGFkdjc1MTEtPmJyaWRnZS5uZXh0X2JyaWRnZSk7DQo+ID4gPg0KPiA+ID4g
-VGhlIHBvaW50IGlzIHlvdSBjYW5ub3QgcmV0dXJuIFBUUl9FUlIgYXMgaXQgd2lsbCBsZWFkIHRv
-IGNyYXNoLCBpZg0KPiA+ID4gaXQgaXMgZGlyZWN0IGFzc2lnbm1lbnQuDQo+ID4NCj4gPiBJdCB3
-b3VsZCBkZWZpbml0ZWx5IGNyYXNoIHdoZW4gdGhlIG5leHRfYnJpZGdlIGlzIGRlcmVmZXJlbmNl
-ZCAod2hpY2gNCj4gPiBoYXBwZW5zIGluDQo+ID4gYWR2NzUxMV9icmlkZ2VfYXR0YWNoKCkpIGJ1
-dCBJIGRvbid0IHNlZSBob3cgaXQgY2FuIGNyYXNoIGhlcmUuIEhlcmUNCj4gPiBpdCBfY2FuXyBi
-ZSBhc3NpZ25lZCAtRU5PREVWLCBidXQgaXQgd291bGQgYmUgaW1tZWRpYXRlbHkgYmUgY2xlYXJl
-ZA0KPiA+IHRvIE5VTEwsIG9yIHRvIGVub3RoZXIgZXJyb3IsIGJ1dCB3ZSdkIGltbWVkaWF0ZWx5
-IHJldHVybi4gQW5kIGluIGNhc2UNCj4gPiBvZiByZXR1cm4sIHdoZW4gbmV4dF9icmlkZ2UgaXMg
-Y2xlYXJlZCBieSBfX2RybV9icmlkZ2VfZnJlZSAtPiBkcm1fYnJpZGdlX3B1dCwgdGhlIGVycm9y
-IHZhbHVlIHdvdWxkDQo+IGJlIGlnbm9yZWQgdGhhbmtzIHRvIHBhdGNoIDEuDQo+IA0KPiBPSywg
-SSBoYXZlbid0IG5vdGljZWQgdGhlIG5ld2x5IGludHJvZHVjZWQgY2hlY2sgaW4gZHJtX2JyaWRn
-ZV9wdXQoKSBpbiBwYXRjaCMxLg0KPiANCj4gSSBndWVzcywgd2Ugc2hvdWxkIGF2b2lkIHB1dHRp
-bmcgZXJyb3IgdmFsdWVzIGluIGJyaWRnZS5uZXh0X2JyaWRnZS4NCj4gSXQgc2hvdWxkIGJlIGVp
-dGhlciBOVUxMIG9yIFZhbGlkIHBvaW50ZXIsIG5vdCBQVFJfRVJSLg0KDQpGVFIsIEkgZ2V0IGEg
-Y3Jhc2ggaW4gYXR0YWNoLiBJIHdpbGwgYXBwbHkgdGhlIHN1Z2dlc3RlZCBjaGFuZ2VzIGFuZCB3
-aWxsIGxldCB5b3Uga25vdyB0aGUgcmVzdWx0Lg0KDQpbICAgMTguOTU3MzI0XSBwYyA6IGRybV9i
-cmlkZ2VfYXR0YWNoKzB4MzQvMHgyMTAgW2RybV0NClsgICAxOC45Njk0MjVdIGxyIDogYWR2NzUx
-MV9icmlkZ2VfYXR0YWNoKzB4MzgvMHhiOCBbYWR2NzUxMV0NCg0KWyAgIDE4Ljk2OTYxMF0gIGRy
-bV9icmlkZ2VfYXR0YWNoKzB4MzQvMHgyMTAgW2RybV0gKFApDQpbICAgMTguOTY5ODQ1XSAgYWR2
-NzUxMV9icmlkZ2VfYXR0YWNoKzB4MzgvMHhiOCBbYWR2NzUxMV0NClsgICAxOC45Njk4NjddICBk
-cm1fYnJpZGdlX2F0dGFjaCsweGYwLzB4MjEwIFtkcm1dDQpbICAgMTguOTcwMDQyXSAgcnpnMmxf
-bWlwaV9kc2lfYXR0YWNoKzB4MjQvMHgzYyBbcnpnMmxfbWlwaV9kc2ldDQpbICAgMTguOTcwMDY0
-XSAgZHJtX2JyaWRnZV9hdHRhY2grMHhmMC8weDIxMCBbZHJtXQ0KWyAgIDE4Ljk3MDI2Ml0gIHJ6
-ZzJsX2R1X2VuY29kZXJfaW5pdCsweDljLzB4MjUwIFtyemcybF9kdV9kcm1dDQpbICAgMTguOTcw
-MjkzXSAgcnpnMmxfZHVfbW9kZXNldF9pbml0KzB4MzBjLzB4NGQwIFtyemcybF9kdV9kcm1dDQpb
-ICAgMTguOTcwMzA3XSAgcnpnMmxfZHVfcHJvYmUrMHhjOC8weDE3NCBbcnpnMmxfZHVfZHJtXQ0K
-WyAgIDE4Ljk3MDMyMV0gIHBsYXRmb3JtX3Byb2JlKzB4NWMvMHhhNA0KWyAgIDE4Ljk3MDMzNl0g
-IHJlYWxseV9wcm9iZSsweGJjLzB4MmMwDQpbICAgMTguOTcwMzQ4XSAgX19kcml2ZXJfcHJvYmVf
-ZGV2aWNlKzB4ODAvMHgxNGMNClsgICAxOC45NzAzNTldICBkcml2ZXJfcHJvYmVfZGV2aWNlKzB4
-M2MvMHgxNjQNClsgICAxOC45NzAzNjldICBfX2RyaXZlcl9hdHRhY2grMHg5MC8weDFhNA0KWyAg
-IDE4Ljk3MDM3OV0gIGJ1c19mb3JfZWFjaF9kZXYrMHg3Yy8weGRjDQpbICAgMTguOTcwMzg4XSAg
-ZHJpdmVyX2F0dGFjaCsweDI0LzB4MzANClsgICAxOC45NzAzOTddICBidXNfYWRkX2RyaXZlcisw
-eGU0LzB4MjA4DQpbICAgMTguOTcwNDA2XSAgZHJpdmVyX3JlZ2lzdGVyKzB4NjgvMHgxMzANClsg
-ICAxOC45NzA0MTZdICBfX3BsYXRmb3JtX2RyaXZlcl9yZWdpc3RlcisweDI0LzB4MzANCg0KDQpD
-aGVlcnMsDQpCaWp1DQo=
+
+
+On 4/28/2026 9:30 AM, Mathieu Poirier wrote:
+> On Fri, Apr 24, 2026 at 12:52:40PM -0500, Shah, Tanmay wrote:
+>>
+>>
+>> On 4/24/2026 11:53 AM, Krzysztof Kozlowski wrote:
+>>> On 23/04/2026 19:59, Shah, Tanmay wrote:
+>>>> Ack, I will rename it to xlnx,auto-boot.
+>>>>
+>>>>>>
+>>>>>>>> +        type: boolean
+>>>>>>>> +        description: remote core is either already running or ready to boot
+>>>>>>>
+>>>>>>> And why is this property of a board?
+>>>>>>>
+>>>>>>
+>>>>>> Not sure what indicates it is? The property is under remoteproc child
+>>>>>> device that is SOC level property. Remote core is on same SOC wher linux
+>>>>>> core is running.
+>>>>>
+>>>>> So it is implied by SoC compatible? Please provide some arguments why it
+>>>>> cannot be implied by the SoC compatible. I gave you one way out, but if
+>>>>> you disagree then no problem.
+>>>>>
+>>>>
+>>>> So on some SoC, the bootloader supports loading and starting of the
+>>>> remote processor. But it is totally user's choice. User can choose to
+>>>> load & start one core of a cluster via bootloader and leave another core
+>>>> powered-off.
+>>>> That is why it is not possible to decide based on SoC compatible.
+>>>
+>>> OK. The problem is that "user" is a bit vague and usually user choice
+>>> goes to user-space.
+>>>
+>>> The property will be set or unset for ALL of given boards. So all of the
+>>> DTS->DTB. That's why it should be clear why all such boards should
+>>> behave like you described. If this is truly user, as in user-space,
+>>> choice, then DT is not the way.
+>>>
+>>
+>> Okay 'user' may not be the right choice of word. I should say 'hardware
+>> configuration'. On same SoC, some cores can be configured to boot
+>> automatically before Linux boots, and some won't. So if device-tree is
+>> about hardware configuration, then we need a way to show which core is
+>> configured to boot before linux. This configuration is board agnostic.
+>> So I think auto-boot in device-tree makes sense.
+>>
+>> The only advantage on this platform is, it has a way to detect if the
+>> core is running or not runtime and don't have to rely on device-tree.
+>>
+>>>
+>>>>
+>>>> If we don't want to make it a device-tree property then I can implement
+>>>> in a different way. New way will detect if the remote is running or not
+>>>> via EMMI/SCMI call to the firmware, and take a decision based on that.
+>>>> If this new way works, then I don't think we need auto-boot property at all.
+>>>>
+>>>> Let me know your thoughts.
+>>>
+>>> This works for me and solves my questions from DT point of view, but I
+>>> cannot judge whether this makes sense for you.
+>>>
+>>
+>> I say I will keep it open ended for now. I will avoid introducing
+>> auto-boot in the device-tree for now, and send a patch without it. In
+>> future if for some other reason this property is needed, will send new
+>> patch later.
+>>
+> 
+> In light of this conversation, should I still review this patchset or it was
+> made obsolete by "[PATCH] remoteproc: xlnx: check remote node state" ?
+> 
+> 
+
+Hi,
+
+Yes it was made obsolete by the mentioned patch.
+Please wait for v2, which depends on the mentioned patch and removes
+need of the auto-boot property from the device-tree.
+
+Thanks,
+Tanmay
+
+>> Thanks,
+>> Tanmay
+>>
+>>>
+>>> Best regards,
+>>> Krzysztof
+>>
+
 
