@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1DE9FF886C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 09:02:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C6C9FF886D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 09:02:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VlHKzknu60VR8q0yT1YydWnqqMU+Bj/aZYf+T5ynhZE=; b=WkE88c81ipplVcdqVNvcDSCH35
-	NvbtmZTmrLWWtG5cdreHgMuXNFVUQ3CnH4DJudGyR8GfzsdPrNIwTM6w7Uzd5U8OYuHMpEaIS6ihZ
-	CXzp5j0tzYQthDLlLTXSnzq/sPLOc1vekgKL8nSaZf4YXPGgZ9Blnom8c4GokvmarMCDSrXT9SZE2
-	iRHI49PcJRh0wgqH/axWMHxnYuds1TsN8UpqrUJKr+D4E8I2ZIUukFEe2IKZx+BxNC6fse/gW1UT0
-	qr9FeE78CfWsLiUk+cq8w5PADu2eBUIkUXgGxlBqksEuhqWDKL5YSV8Vxc6YekgwE0YURlWYJ9hVJ
-	jWGZl3cg==;
+	bh=KetLcBOaT2Sl3RGrXYguFQHs52Dy2sUw1iyu9tpmVuc=; b=vBOy9v0DUAkv2lJdYRH31ByxWV
+	nznU7vFgglqP7/LEcyeTvpYreemUGa50MDhOKThillNyFvGQraIpLzdypwVWrIdV0bHJJkEe9Zalv
+	iuuX6ZFm8dypqFB8USY4sWVcwQMs+hE/KysI0nk1cIjdLykYS351KrVI1Ecbfrv7R2D1xY9bnXohF
+	QvSuII0Vd6uoP/mLMtdd46kRKd0b2gZ2ReaePL/Jlgbai+9+h8+7HkygwFwby/Qo/sQRzuU/nvREY
+	5h4oqaGCAKDTFuXK8g/jwVWrzHS60WT/eWCHJNghbBxXm5DkWEM0zQAhdT4R5+ZxqUqO0Jc+XnZXl
+	KON6m7jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeKI-00000000yLC-0lMq;
-	Tue, 28 Apr 2026 09:01:54 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wHeKP-00000000yT3-0QDd;
+	Tue, 28 Apr 2026 09:02:01 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeJy-00000000xsL-3fl2
+	id 1wHeK2-00000000xxs-3w9h
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 28 Apr 2026 09:01:34 +0000
+	Tue, 28 Apr 2026 09:01:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=VlHKzknu60VR8q0yT1YydWnqqMU+Bj/aZYf+T5ynhZE=; b=gkVrCVfdqMB6bkbrk+Ae5RIcWG
-	TT1T4vcJR1pYOCUpNenDKoqqbzjyFK9JSu9wFv4VkGxLgf8vGylFlOL6jU+gCCRrfkL3fas+rq98I
-	tze7e25CJv4IXbqx+r4qlEQ5DA+7a7VxgEuO4WxUXbL3GGUt9k15A5bR6a96AcDi4BYW0dJyLCoY2
-	2ZxO3AxEEqk/U/B3kbN4dfBoCUpOBy0+CSSwUY7e3mDAU1lXK/WD0+Ms12wLjNk4XfH7gMcpB5Wsy
-	11kfrCrSNoVmYlSW0GIMY233F9YUJB2HR/Bld+uSsNdhGgVKcE4rdiOibTIdOsshtXueREL7Wsrgv
-	aXQi0Qeg==;
+	d=infradead.org; s=casper.20170209; h=Cc:To:In-Reply-To:References:Message-Id
+	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=KetLcBOaT2Sl3RGrXYguFQHs52Dy2sUw1iyu9tpmVuc=; b=ZYlMT81EKqMCsRGUviauz6a2ru
+	8WUJ7PtIRzLB7u/G0ypjSeoHzLbh1gLOtgYopJ+eYaWSz+kzcjqSamuf9UcvkC9SHQkVpgS8DBaQz
+	RJiohHMzyWlFMho6OhJfjK0uS8FTFndynJ2JJs9xumCZKCNxAKD6Tm7evhdTJHamhnoWLizfD+fSd
+	lDSHIMjtKWNB55KcyyWimCmSMMhFI67rjrBPboD0ETYcdvyzJIvE8cihddQAL4yTWEPZKERWo8GpG
+	7jXVn0XcvzOHgU++7jsAVVG5G9kB+XaPGUelIaUsuRSBued/O1FLb2bau2AQy8LEgZnG929CN2Yqk
+	92e5Vbqw==;
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeJs-00000002VT1-0iZj
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHeJy-00000003VJc-3QR1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 09:01:33 +0000
+	Tue, 28 Apr 2026 09:01:37 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1wHeJG-0004Lz-SP; Tue, 28 Apr 2026 11:00:50 +0200
+	id 1wHeJJ-0004Lz-2L; Tue, 28 Apr 2026 11:00:53 +0200
 From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Tue, 28 Apr 2026 11:00:52 +0200
-Subject: [PATCH v5 17/29] media: rockchip: rga: prepare cmdbuf on streamon
+Date: Tue, 28 Apr 2026 11:00:56 +0200
+Subject: [PATCH v5 21/29] media: rockchip: rga: support external iommus
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260428-spu-rga3-v5-17-eb7f5d019d86@pengutronix.de>
+Message-Id: <20260428-spu-rga3-v5-21-eb7f5d019d86@pengutronix.de>
 References: <20260428-spu-rga3-v5-0-eb7f5d019d86@pengutronix.de>
 In-Reply-To: <20260428-spu-rga3-v5-0-eb7f5d019d86@pengutronix.de>
 To: Jacob Chen <jacob-chen@iotwrt.com>, 
@@ -73,8 +73,8 @@ X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_100128_483443_1484E8BC 
-X-CRM114-Status: GOOD (  16.29  )
+X-CRM114-CacheID: sfid-20260428_100134_912501_25F884B1 
+X-CRM114-Status: GOOD (  18.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,117 +89,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Prepare the command buffer on streamon to reuse it's contents instead of
-completely writing it for every frame. Due to the stream settings being
-fixed after a streamon we only need to replace the source and destination
-addresses for each frame. This reduces the amount of CPU and memory
-operations done in each frame.
+In preparation for the RGA3 add support for external iommus. This is a
+transition step to just disable the RGA2 specific mmu table setup code.
+
+Currently a simple rga_hw struct field is used to set the internal iommu.
+But to handle the case of more sophisticated detection mechanisms
+(e.g. check for an iommu property in the device tree), it is abstracted
+by an inline function.
 
 Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
-
 ---
+ drivers/media/platform/rockchip/rga/rga-buf.c | 31 ++++++++++++++++++---------
+ drivers/media/platform/rockchip/rga/rga-hw.c  |  1 +
+ drivers/media/platform/rockchip/rga/rga.c     | 11 ++++++++--
+ drivers/media/platform/rockchip/rga/rga.h     |  6 ++++++
+ 4 files changed, 37 insertions(+), 12 deletions(-)
 
-Changes in v5:
-- Don't set the flipping and rotation values at streamon and preventing
-  the userspace from chainging them at runtime
----
- drivers/media/platform/rockchip/rga/rga-hw.c | 13 +++++++++----
- drivers/media/platform/rockchip/rga/rga.c    | 13 ++++++++++++-
- drivers/media/platform/rockchip/rga/rga.h    |  1 +
- 3 files changed, 22 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media/platform/rockchip/rga/rga-hw.c
-index 6c1956b04f6ba..11079477a3008 100644
---- a/drivers/media/platform/rockchip/rga/rga-hw.c
-+++ b/drivers/media/platform/rockchip/rga/rga-hw.c
-@@ -427,8 +427,6 @@ static void rga_cmd_set(struct rga_ctx *ctx,
- {
+diff --git a/drivers/media/platform/rockchip/rga/rga-buf.c b/drivers/media/platform/rockchip/rga/rga-buf.c
+index bc349d0a46365..4e82ca1a5e8d9 100644
+--- a/drivers/media/platform/rockchip/rga/rga-buf.c
++++ b/drivers/media/platform/rockchip/rga/rga-buf.c
+@@ -12,6 +12,7 @@
+ #include <media/v4l2-ioctl.h>
+ #include <media/v4l2-mem2mem.h>
+ #include <media/videobuf2-dma-sg.h>
++#include <media/videobuf2-dma-contig.h>
+ #include <media/videobuf2-v4l2.h>
+ 
+ #include "rga.h"
+@@ -82,6 +83,9 @@ static int rga_buf_init(struct vb2_buffer *vb)
+ 	if (IS_ERR(f))
+ 		return PTR_ERR(f);
+ 
++	if (!rga_has_internal_iommu(rga))
++		return 0;
++
+ 	n_desc = DIV_ROUND_UP(f->size, PAGE_SIZE);
+ 
+ 	rbuf->n_desc = n_desc;
+@@ -136,17 +140,21 @@ static int rga_buf_prepare(struct vb2_buffer *vb)
+ 	for (i = 0; i < vb->num_planes; i++) {
+ 		vb2_set_plane_payload(vb, i, f->pix.plane_fmt[i].sizeimage);
+ 
+-		/* Create local MMU table for RGA */
+-		n_desc = fill_descriptors(&rbuf->dma_desc[curr_desc],
+-					  rbuf->n_desc - curr_desc,
+-					  vb2_dma_sg_plane_desc(vb, i));
+-		if (n_desc < 0) {
+-			v4l2_err(&ctx->rga->v4l2_dev,
+-				 "Failed to map video buffer to RGA\n");
+-			return n_desc;
++		if (rga_has_internal_iommu(ctx->rga)) {
++			/* Create local MMU table for RGA */
++			n_desc = fill_descriptors(&rbuf->dma_desc[curr_desc],
++						  rbuf->n_desc - curr_desc,
++						  vb2_dma_sg_plane_desc(vb, i));
++			if (n_desc < 0) {
++				v4l2_err(&ctx->rga->v4l2_dev,
++					 "Failed to map video buffer to RGA\n");
++				return n_desc;
++			}
++			dma_addrs[i] = curr_desc << PAGE_SHIFT;
++			curr_desc += n_desc;
++		} else {
++			dma_addrs[i] = vb2_dma_contig_plane_dma_addr(vb, i);
+ 		}
+-		dma_addrs[i] = curr_desc << PAGE_SHIFT;
+-		curr_desc += n_desc;
+ 	}
+ 
+ 	/* Fill the remaining planes */
+@@ -176,6 +184,9 @@ static void rga_buf_cleanup(struct vb2_buffer *vb)
+ 	struct rga_ctx *ctx = vb2_get_drv_priv(vb->vb2_queue);
  	struct rockchip_rga *rga = ctx->rga;
  
--	memset(ctx->cmdbuf_virt, 0, RGA_CMDBUF_SIZE);
--
- 	rga_cmd_set_src_addr(ctx, src->dma_desc_pa);
- 	/*
- 	 * Due to hardware bug,
-@@ -437,11 +435,9 @@ static void rga_cmd_set(struct rga_ctx *ctx,
- 	rga_cmd_set_src1_addr(ctx, dst->dma_desc_pa);
- 
- 	rga_cmd_set_dst_addr(ctx, dst->dma_desc_pa);
--	rga_cmd_set_mode(ctx);
- 
- 	rga_cmd_set_src_info(ctx, &src->offset);
- 	rga_cmd_set_dst_info(ctx, &dst->offset);
--	rga_cmd_set_format_scale_info(ctx);
- 	rga_cmd_set_flip_rotate_info(ctx);
- 
- 	rga_write(rga, RGA_CMD_BASE, ctx->cmdbuf_phy);
-@@ -451,6 +447,14 @@ static void rga_cmd_set(struct rga_ctx *ctx,
- 				   PAGE_SIZE, DMA_BIDIRECTIONAL);
++	if (!rga_has_internal_iommu(rga))
++		return;
++
+ 	dma_free_coherent(rga->dev, rbuf->n_desc * sizeof(*rbuf->dma_desc),
+ 			  rbuf->dma_desc, rbuf->dma_desc_pa);
  }
+diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media/platform/rockchip/rga/rga-hw.c
+index 8f60482f538c5..ea4d2b0832d82 100644
+--- a/drivers/media/platform/rockchip/rga/rga-hw.c
++++ b/drivers/media/platform/rockchip/rga/rga-hw.c
+@@ -588,6 +588,7 @@ static struct rga_fmt formats[] = {
  
-+static void rga_hw_setup_cmdbuf(struct rga_ctx *ctx)
-+{
-+	memset(ctx->cmdbuf_virt, 0, RGA_CMDBUF_SIZE);
-+
-+	rga_cmd_set_mode(ctx);
-+	rga_cmd_set_format_scale_info(ctx);
-+}
-+
- static void rga_hw_start(struct rockchip_rga *rga,
- 			 struct rga_vb_buffer *src,  struct rga_vb_buffer *dst)
- {
-@@ -593,6 +597,7 @@ const struct rga_hw rga2_hw = {
- 	.max_height = MAX_HEIGHT,
- 	.stride_alignment = 4,
- 
-+	.setup_cmdbuf = rga_hw_setup_cmdbuf,
- 	.start = rga_hw_start,
- 	.handle_irq = rga_handle_irq,
- 	.get_version = rga_get_version,
+ const struct rga_hw rga2_hw = {
+ 	.card_type = "rga2",
++	.has_internal_iommu = true,
+ 	.formats = formats,
+ 	.num_formats = ARRAY_SIZE(formats),
+ 	.cmdbuf_size = RGA_CMDBUF_SIZE,
 diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
-index 16a663aeef8c9..d111b348255e2 100644
+index 421a70558c3c7..5bdc8dc51ab68 100644
 --- a/drivers/media/platform/rockchip/rga/rga.c
 +++ b/drivers/media/platform/rockchip/rga/rga.c
-@@ -568,6 +568,17 @@ static int vidioc_s_selection(struct file *file, void *priv,
- 	return ret;
- }
+@@ -23,6 +23,7 @@
+ #include <media/v4l2-ioctl.h>
+ #include <media/v4l2-mem2mem.h>
+ #include <media/videobuf2-dma-sg.h>
++#include <media/videobuf2-dma-contig.h>
+ #include <media/videobuf2-v4l2.h>
  
-+static int vidioc_streamon(struct file *file, void *priv,
-+			   enum v4l2_buf_type type)
-+{
-+	struct rga_ctx *ctx = file_to_rga_ctx(file);
-+	const struct rga_hw *hw = ctx->rga->hw;
-+
-+	hw->setup_cmdbuf(ctx);
-+
-+	return v4l2_m2m_streamon(file, ctx->fh.m2m_ctx, type);
-+}
-+
- static const struct v4l2_ioctl_ops rga_ioctl_ops = {
- 	.vidioc_querycap = vidioc_querycap,
- 
-@@ -592,7 +603,7 @@ static const struct v4l2_ioctl_ops rga_ioctl_ops = {
- 	.vidioc_subscribe_event = v4l2_ctrl_subscribe_event,
- 	.vidioc_unsubscribe_event = v4l2_event_unsubscribe,
- 
--	.vidioc_streamon = v4l2_m2m_ioctl_streamon,
-+	.vidioc_streamon = vidioc_streamon,
- 	.vidioc_streamoff = v4l2_m2m_ioctl_streamoff,
- 
- 	.vidioc_g_selection = vidioc_g_selection,
+ #include "rga.h"
+@@ -95,7 +96,10 @@ queue_init(void *priv, struct vb2_queue *src_vq, struct vb2_queue *dst_vq)
+ 	src_vq->io_modes = VB2_MMAP | VB2_DMABUF;
+ 	src_vq->drv_priv = ctx;
+ 	src_vq->ops = &rga_qops;
+-	src_vq->mem_ops = &vb2_dma_sg_memops;
++	if (rga_has_internal_iommu(ctx->rga))
++		src_vq->mem_ops = &vb2_dma_sg_memops;
++	else
++		src_vq->mem_ops = &vb2_dma_contig_memops;
+ 	src_vq->gfp_flags = __GFP_DMA32;
+ 	src_vq->buf_struct_size = sizeof(struct rga_vb_buffer);
+ 	src_vq->timestamp_flags = V4L2_BUF_FLAG_TIMESTAMP_COPY;
+@@ -110,7 +114,10 @@ queue_init(void *priv, struct vb2_queue *src_vq, struct vb2_queue *dst_vq)
+ 	dst_vq->io_modes = VB2_MMAP | VB2_DMABUF;
+ 	dst_vq->drv_priv = ctx;
+ 	dst_vq->ops = &rga_qops;
+-	dst_vq->mem_ops = &vb2_dma_sg_memops;
++	if (rga_has_internal_iommu(ctx->rga))
++		dst_vq->mem_ops = &vb2_dma_sg_memops;
++	else
++		dst_vq->mem_ops = &vb2_dma_contig_memops;
+ 	dst_vq->gfp_flags = __GFP_DMA32;
+ 	dst_vq->buf_struct_size = sizeof(struct rga_vb_buffer);
+ 	dst_vq->timestamp_flags = V4L2_BUF_FLAG_TIMESTAMP_COPY;
 diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
-index 38518146910a6..c741213710b32 100644
+index 025b1df594e9a..95fa7fd1c509a 100644
 --- a/drivers/media/platform/rockchip/rga/rga.h
 +++ b/drivers/media/platform/rockchip/rga/rga.h
-@@ -152,6 +152,7 @@ struct rga_hw {
- 	u32 max_width, max_height;
- 	u8 stride_alignment;
+@@ -146,6 +146,7 @@ static inline void rga_mod(struct rockchip_rga *rga, u32 reg, u32 val, u32 mask)
  
-+	void (*setup_cmdbuf)(struct rga_ctx *ctx);
- 	void (*start)(struct rockchip_rga *rga,
- 		      struct rga_vb_buffer *src, struct rga_vb_buffer *dst);
- 	bool (*handle_irq)(struct rockchip_rga *rga);
+ struct rga_hw {
+ 	const char *card_type;
++	bool has_internal_iommu;
+ 	struct rga_fmt *formats;
+ 	u32 num_formats;
+ 	size_t cmdbuf_size;
+@@ -161,6 +162,11 @@ struct rga_hw {
+ 	void (*get_version)(struct rockchip_rga *rga);
+ };
+ 
++static inline bool rga_has_internal_iommu(const struct rockchip_rga *rga)
++{
++	return rga->hw->has_internal_iommu;
++}
++
+ extern const struct rga_hw rga2_hw;
+ 
+ #endif
 
 -- 
 2.54.0
