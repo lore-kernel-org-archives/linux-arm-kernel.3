@@ -4,147 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F73BFF8864
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 01:53:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34141FF8864
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 02:01:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qsYf6auyPCvYiUhWs9qEQr3EnNJRMJfao1u7g46ap5c=; b=ReMfI24vQetASWjwWG9oLl4gmp
-	ZYNIW+4rVV08nLeZ/pL98QWC+IcRFN7scOqBKmUw9o/kBdG7IuleriANgnjrb/p9JKE1cBAWdnGU0
-	zbSbhhl7jPE8Dj6Ql4+twGJWxNvZHS3ZySVzcZ8XcEsNCswSMiYCaf3qfk8t+A9eMVF5RtyTbJLPP
-	pPIlSwAKw1bSkKQez/QsMLbQgBAny+/94Mxv9rf2weioLl2OSpoGuJAjqvLyLwHYorJnV1q9OOurS
-	0rhfQveDsnpzN1Gij3QkiKFDt83KSsyuQzuvEcvH/NdpmEroDd70UOlUlXodjP4KPW1r6t3oYPTM/
-	mBqcy5lw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Jj/fYf0VEY01cjIIpTz0KakCFWY99ZwThtGwW+OUA+g=; b=NQ82UPGSX5eU3vhhTwvnFF/bX1
+	RAcP04uLceppaZWI/05BaSsz92J6rSTa7mHmxda+bEKC3cobjP/2X82/MDFs0gc5XVP42sF+WQYgD
+	+bPrrS55MNKqrIGIzEGVdtJXQwLDYggp/ets4MBZ7BmIfyIC3WXcUDAggnpc69ii10IZb4Ph+A+H3
+	cTgLUlv2VSKXn6CCN/GzVyRDeG5XDsRTuTMsnvwdnv9U3PuYBMx4U+/EfOryjTt3714oAWDgzQ59b
+	yodprEQEfChzMxPnWFjHWXE4l3SCjC+EChd+ewPLY8c10MKPssc7bzUElS2S9iV3M9yXHfiitRDWl
+	tkeWaUsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHXdo-00000000Pft-2ctn;
-	Tue, 28 Apr 2026 01:53:36 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wHXlZ-00000000QCh-3Cvw;
+	Tue, 28 Apr 2026 02:01:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHXdl-00000000Pf4-3e4Y
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 01:53:34 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63RJ3HOv2111945
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 01:53:33 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=qsYf6auyPCvYiUhWs9qEQr3E
-	nNJRMJfao1u7g46ap5c=; b=YHbhxU7dPRkCfypPX1k6IzmiUAXi/D0aFgIvztv6
-	uWLPPelcDF7ODdPrh3x/UOhzSjuGoBFWLpcAlIPn7qb7H9wKDNtagMwuqQKhxqgO
-	f9V8R7wtj2mL/51uY0Ys/J7WOh/W68TPRUEyD7dsHMHMz0Eo1Whoj4zB346YfMsm
-	MOCRxxzIcwqCQq4PjqOh2+6SfjZyCAedlKcHedI++RySLsTnWjMWLQewwe1vWbz9
-	l5NBfavcgT6p3iV/zzMR3lOR5k/fjZ0fjMLEawYYsfifPQJDyzFFgpdrPRzbyW85
-	DarZXcATaQPn7pGqCqbZ7vgHb+4g8uKerkgjmFhtuAcI4w==
-Received: from mail-vk1-f199.google.com (mail-vk1-f199.google.com [209.85.221.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dtdmbh8xs-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 01:53:32 +0000 (GMT)
-Received: by mail-vk1-f199.google.com with SMTP id 71dfb90a1353d-56efe2b00daso8870541e0c.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 18:53:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1777341212; x=1777946012; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=qsYf6auyPCvYiUhWs9qEQr3EnNJRMJfao1u7g46ap5c=;
-        b=f2H1hv3M8I/YiTbJ9MW39oxurOig01ZN/zRVOd/FfhKudRhCVTVqpR7sFBT9XlIU4I
-         v9m5sv2yzJ1op8OaIZkZMKDTbuL2F0x6eW+6Uv99I+h5M/SW3+8N+D1uyMaLAyUA3NdO
-         nqHfvLi4VINYxZxrFawO9CD/3S4nSFn1SH29+GDdNhW64ABiaG+yjOcmSqoPvKJgQl3O
-         x0dFhCCBEOWEo74N/xUaLiPYq1kZaRteDar++/AfOLCJo2TikM+wrVGNaXDLIoRcWiWn
-         7vyX0LgU2V/gX1OCObVGoUVfvpyAgg7zsrKficdGNRxQtvr3TvPHqjLyqYltknH4KKOb
-         s4ug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777341212; x=1777946012;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=qsYf6auyPCvYiUhWs9qEQr3EnNJRMJfao1u7g46ap5c=;
-        b=XlfZk9EBaAgOiMytfy9ygC1KrAt2QXqWGcctDhKloSEIQFQXRFXTQK0hp9NlpPyhQk
-         eStcwK8GWWk198uLUsclRSCKtTlTTep/N3IBfooR1IBLYz2uQEp8474QyBslNe0YhL6h
-         niuCCtNhx9FhR59C/sv4Uk6rEKz8CVV1rUovAm0rjKjy7lROS2HL5EJ1ZkrhImcj6yVF
-         zv9cv481CYnjNCOP0lM66sH9Mr0bbEtaqf+D4zLVtWlsK3GiRG3MaE6swKtfDvaUwfBx
-         k4SUfQ3nipRyZnjyJJjgyZa15PZIgbj96wgeUBrideQv9wkGRQSrutfZKvpRU+zk9b/u
-         hJsg==
-X-Forwarded-Encrypted: i=1; AFNElJ+cjl3B9EHdWhV3GklntYrqec7pZfBkYoSItCjxVOwwRxNluLNSQtCDzYpRBo4+V1K1HXGLx/oVQnObnc9Jo2js@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFC+vSl2+VUFjbY4EvDyB2u/zdLntOgmGLNe5OyyIqK7necf6x
-	csmQISM0Ys6/mLMHgqKowRMC+SWCBiPQSEY3SQ6zxOiETfZ28adMWpaG4MLv4jCnaB9QSdV6UHF
-	qKK2sg9+7//a1vjJzuA1jEpqJAL8qbTM5APtIEhX/ZAxMarmvFOoGxnr69wuE9NrjptVCFRkEX9
-	nGBQ==
-X-Gm-Gg: AeBDiesz/zjZHqoxh3o/hCMSIOnL5m27ARZHbBVvqDRama/SHQt8/1jwDyVWk32JmRZ
-	QYDElAENgMF8SdIp8jABirpyggLECHE3tfyFtta7GjYB3124BmgYwEFkif8KvSdnkgx2pvOUlSF
-	KSmaMlPsZ63W5JymaumcRLX64q/3wB9OIxbYAdbMK/P5EHrzl0YeM2n0/SoELMKL621DJn/PSPl
-	sSCrC5fhy4LEURpgCuQ5uIaM6WbFIQvwrs1BpBKZb6xRkvHfBvyKesIhTJMX0445eMGrtbdaHGb
-	Op/8qVnQ6XAsM3HChbcxqqPAnEVHfVjvU7zR/y7ziGW0ItjpLVAZeIlbKVnRjRHlxsxGKnFmFEb
-	2LioIF23MZU4f0lzPPBuCutW1olTK2ANO2yhCNd8WaHxMvhU64PTHsoVAb6IXcMdL6Ama7nwbWZ
-	xqeLH8RHlHDUS1OtE7lqLWpL5ZAbrlEoD3HxGE0tPvm/IuzA==
-X-Received: by 2002:a05:6122:e20a:b0:56d:8493:d455 with SMTP id 71dfb90a1353d-573a53222d2mr525618e0c.0.1777341211449;
-        Mon, 27 Apr 2026 18:53:31 -0700 (PDT)
-X-Received: by 2002:a05:6122:e20a:b0:56d:8493:d455 with SMTP id 71dfb90a1353d-573a53222d2mr525613e0c.0.1777341210914;
-        Mon, 27 Apr 2026 18:53:30 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3923f5b1b3asm2780951fa.40.2026.04.27.18.53.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Apr 2026 18:53:28 -0700 (PDT)
-Date: Tue, 28 Apr 2026 04:53:26 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Sandy Huang <hjc@rock-chips.com>,
-        Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>,
-        Andy Yan <andy.yan@rock-chips.com>, kernel@collabora.com,
-        dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org,
-        Diederik de Haas <diederik@cknow-tech.com>,
-        Maud Spierings <maud_spierings@hotmail.com>
-Subject: Re: [PATCH v5 10/10] drm/rockchip: dw_hdmi_qp: Restrict HPD event to
- the affected connector
-Message-ID: <xwsnwqk2bqixswue7ajy5tfzxn6u7sfuqlpquywsrdj3bs6nmb@pv6szzdjjuzu>
-References: <20260426-dw-hdmi-qp-scramb-v5-0-d778e70c317b@collabora.com>
- <20260426-dw-hdmi-qp-scramb-v5-10-d778e70c317b@collabora.com>
+	id 1wHXlY-00000000QCO-0BA9;
+	Tue, 28 Apr 2026 02:01:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id BFA1260121;
+	Tue, 28 Apr 2026 02:01:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF6F5C19425;
+	Tue, 28 Apr 2026 02:01:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777341694;
+	bh=pQMwDjX/CP8mtKyi6UN+8l18aMO5e8eGqIhZnzfd6aU=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=R5p9cNV6UNfqffwM4YZf9gQUGMQKexIxyu7JZ5wXlJxRhVthKjK/BXKezthmkHMbu
+	 aN2HBzTmDVEn1Tnu7Vhob0qVVKoyp0f7CYpITSc0TisYlJIJX/DD19VEhUxkijZa8I
+	 ujok4c35d8zQNmh0QFzJ1uhWioaB14sVvPUfowYf5bpZ9GNeen7GtkfeEz3q6hnyiH
+	 BDFtLDhNlzgymCjXIBcSiyKOMD18J7zmFLCEJyBk+SMlxA53htj1qO5wDWb3zHQEZl
+	 XhwBMBiXVcOinWUb5MAAhdAuDZG7ElFsgFxNcU11tNtrx8g1YRfcVKL29tTkE+g1Sq
+	 Q/35oc6eum7Zw==
+From: Jakub Kicinski <kuba@kernel.org>
+To: daniel@makrotopia.org
+Cc: Jakub Kicinski <kuba@kernel.org>,
+	chester.a.unal@arinc9.com,
+	andrew@lunn.ch,
+	olteanv@gmail.com,
+	davem@davemloft.net,
+	edumazet@google.com,
+	pabeni@redhat.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux@armlinux.org.uk,
+	ansuelsmth@gmail.com,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net v3] net: dsa: mt7530: fix .get_stats64 sleeping in atomic context
+Date: Mon, 27 Apr 2026 18:59:44 -0700
+Message-ID: <20260428015943.774891-2-kuba@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <8c407b36d8a597c1449ff9335dfdc250d76311c3.1777034225.git.daniel@makrotopia.org>
+References: <8c407b36d8a597c1449ff9335dfdc250d76311c3.1777034225.git.daniel@makrotopia.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260426-dw-hdmi-qp-scramb-v5-10-d778e70c317b@collabora.com>
-X-Proofpoint-GUID: c1s7TUwTzGtdFGp9ZWKfE4nBzcYI2LlD
-X-Authority-Analysis: v=2.4 cv=PcrPQChd c=1 sm=1 tr=0 ts=69f0131c cx=c_pps
- a=+D9SDfe9YZWTjADjLiQY5g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22 a=MTERcTr8AAAA:8
- a=69EAbJreAAAA:8 a=QX4gbG5DAAAA:8 a=PsTfIz2H8riIsuG6cnkA:9 a=CjuIK1q_8ugA:10
- a=vmgOmaN-Xu0dpDh8OwbV:22 a=1w2Y23rLpnaGpkO2nlKf:22 a=AbAUZ8qAyYyZVLSsDulk:22
-X-Proofpoint-ORIG-GUID: c1s7TUwTzGtdFGp9ZWKfE4nBzcYI2LlD
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI4MDAxNSBTYWx0ZWRfX4i5o9QiIQ7Bf
- P1tH9uVjdISMaKbFiYzkSkrlrcN+nUtYAQyOH33RsAcAm6zkbxJDcHRLFYX4yoxHUq/q05yLQei
- UETCYaYyfDK6jh/z6KXhJ60MQhy0yVbdJmSvLUButRTuXpaWUvVBQyLHc0DBqPkjZDhmcg7Si0W
- PGWrZjl2IlYeRJjFl04f+mJA1G1kcp9tIBQ5HRG4OR7wBS7lDuKIbkJERuZbM4oZpZ/aMn/qi1q
- XuMnDhmF9ik1qE4qXQW8gYZdkUXjpbxvwyztebtiLf3MAXaa222EP2C6YegfrCJbRUYM67/ckZY
- EUvuJwzerELus7YW0iygsXU2fKls40oLTL2KgCf/KcZFfduhsIoIxYFA88jx5X1DUrOjwuaDirg
- OZw4/B3A7ZvaM7Md1zaefwzW3wVUH/9CwrmQnFqwpY9K0JaHm6ev3YEsOvvNFZv9pIf4hGajXGu
- /vSPa13XqurqgjQU6mQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-27_04,2026-04-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 spamscore=0 lowpriorityscore=0 suspectscore=0 clxscore=1015
- malwarescore=0 adultscore=0 priorityscore=1501 bulkscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604280015
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_185333_943053_5FA32C95 
-X-CRM114-Status: GOOD (  17.25  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,32 +80,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 26, 2026 at 03:20:22AM +0300, Cristian Ciocaltea wrote:
-> Switch from drm_helper_hpd_irq_event(), which polls all connectors, to
-> drm_connector_helper_hpd_irq_event(), which runs the detect cycle only
-> on the affected connector.
-> 
-> This avoids unnecessary work and redundant detect calls on unrelated
-> connectors.
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
+---
+net: dsa: mt7530: fix .get_stats64 sleeping in atomic context
 
-This also doesn't feel correct. The dw_hdmi_qp is a bridge. As such it
-should be using drm_bridge_hpd_notify() rather than any of the mentioned
-functions. Would it be better to add the a corresponding wrapper to the
-dw_hdmi_qp API and call one there? Also consider implementing the
-.hpd_enable() and .hpd_disable() callbacks for the bridge, which would
-remove the necessity to call enable the IRQ in the bind function.
+This change converts MDIO-connected mt7530 switches to poll MIB counters
+via a delayed workqueue and have .get_stats64 return cached values under
+a spinlock, avoiding a sleeping-in-atomic-context issue.  MMIO-connected
+variants continue to read directly.
 
-> 
-> Tested-by: Diederik de Haas <diederik@cknow-tech.com>
-> Tested-by: Maud Spierings <maud_spierings@hotmail.com>
-> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> ---
->  drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 21 +++++++++++----------
->  1 file changed, 11 insertions(+), 10 deletions(-)
-> 
+> diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+> index b9423389c2ef..9733ff9fc322 100644
+> --- a/drivers/net/dsa/mt7530.c
+> +++ b/drivers/net/dsa/mt7530.c
 
+[ ... ]
+
+> +static void mt7530_stats_poll(struct work_struct *work)
+> +{
+> +	struct mt7530_priv *priv = container_of(work, struct mt7530_priv,
+> +						stats_work.work);
+> +	struct rtnl_link_stats64 stats = {};
+> +	struct dsa_port *dp;
+> +	int port;
+> +
+> +	dsa_switch_for_each_user_port(dp, priv->ds) {
+> +		port = dp->index;
+> +
+> +		mt7530_read_port_stats64(priv, port, &stats);
+> +
+> +		spin_lock_bh(&priv->stats_lock);
+> +		priv->ports[port].stats = stats;
+> +		priv->stats_last = jiffies;
+> +		spin_unlock_bh(&priv->stats_lock);
+> +	}
+> +
+> +	schedule_delayed_work(&priv->stats_work,
+> +			      MT7530_STATS_POLL_INTERVAL);
+> +}
+> +
+> +static void mt7530_get_stats64(struct dsa_switch *ds, int port,
+> +			       struct rtnl_link_stats64 *storage)
+> +{
+> +	struct mt7530_priv *priv = ds->priv;
+> +	bool refresh;
+> +
+> +	if (priv->bus) {
+> +		spin_lock_bh(&priv->stats_lock);
+> +		*storage = priv->ports[port].stats;
+> +		refresh = time_after(jiffies, priv->stats_last +
+> +					      MT7530_STATS_RATE_LIMIT);
+> +		spin_unlock_bh(&priv->stats_lock);
+> +		if (refresh)
+> +			mod_delayed_work(system_wq, &priv->stats_work, 0);
+             ^^^^^^^^^
+
+Is the target workqueue here intentional?  The re-arm path at the end of
+mt7530_stats_poll() and the initial arming in mt753x_setup() both go
+through schedule_delayed_work(), which expands to:
+
+    queue_delayed_work(system_percpu_wq, dwork, delay)
+
+whereas this site passes system_wq.  Those are two distinct workqueue
+allocations in kernel/workqueue.c, so each on-demand refresh moves the
+delayed_work between the two queues.
+
+include/linux/workqueue.h also marks system_wq as deprecated:
+
+    /* Please use system_percpu_wq, this will be removed */
+    extern struct workqueue_struct *system_wq;
+
+Should this call use system_percpu_wq (or mod_delayed_work on the same
+queue that schedule_delayed_work() targets) to keep the work on a single
+workqueue and avoid the deprecated symbol?
+
+> +	} else {
+> +		mt7530_read_port_stats64(priv, port, storage);
+> +	}
+> +}
+> +
+
+[ ... ]
+
+> @@ -3137,9 +3181,24 @@ mt753x_setup(struct dsa_switch *ds)
+>  	if (ret && priv->irq_domain)
+>  		mt7530_free_mdio_irq(priv);
+>  
+> +	if (!ret && priv->bus) {
+> +		spin_lock_init(&priv->stats_lock);
+> +		INIT_DELAYED_WORK(&priv->stats_work, mt7530_stats_poll);
+> +		schedule_delayed_work(&priv->stats_work,
+> +				      MT7530_STATS_POLL_INTERVAL);
+> +	}
+> +
+>  	return ret;
+>  }
+
+How does .get_stats64 behave during the first MT7530_STATS_POLL_INTERVAL
+(1 * HZ) after setup?
+
+priv->ports[port].stats and priv->stats_last come from the devm_kzalloc
+allocation in mt7530_probe_common(), so both are zero.  The first poll
+is scheduled with a delay of MT7530_STATS_POLL_INTERVAL, so any reader
+during that first second sees:
+
+    spin_lock_bh(&priv->stats_lock);
+    *storage = priv->ports[port].stats;   /* all zero */
+    refresh = time_after(jiffies, priv->stats_last +
+                                  MT7530_STATS_RATE_LIMIT);
+    spin_unlock_bh(&priv->stats_lock);
+
+Can the on-demand refresh path help here?  time_after() is defined as:
+
+    #define time_after(a,b)         \
+        (typecheck(unsigned long, a) && \
+         typecheck(unsigned long, b) && \
+         ((long)((b) - (a)) < 0))
+
+On 32-bit, jiffies starts at INITIAL_JIFFIES = (unsigned long)(unsigned
+int)(-300*HZ), which is close to ULONG_MAX.  With stats_last == 0, the
+signed difference check can evaluate to false for a long time, so the
+mod_delayed_work() refresh is suppressed until the first scheduled poll
+updates stats_last.
+
+Would seeding priv->stats_last = jiffies at init, and either populating
+the cache synchronously in mt753x_setup() or scheduling the first poll
+with delay 0, avoid returning zeroed counters and the suppressed
+on-demand refresh during the initial window?
 -- 
-With best wishes
-Dmitry
+pw-bot: cr
 
