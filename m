@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D65FFFF8878
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 18:34:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72F3EFF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 18:34:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e6LloFO7MTPGUP1y+mw9HTmRjn9wbMnzXxOm9wMy/Wc=; b=kSIqb1kvveMLPIjIHynVM9Pisf
-	rhYIq/XLero0DmLtsyRatTxG6VM4qXAMpdbsvFZ4kjuGIIYS5uuDvmn38d8e8u1JO+57IjVJASFUw
-	+17EkweNAWoH+Lu5SLzpcjFi//8QVe2eElvT3F3HuO7PvEIEo6P77agsLKkUUIHA3y08N63y/s8Ou
-	cPjTJKk7fHEdpYyb2/G7z4SIquxForZ3dBNEOteiVfNCXJVVtcKM72NxIIExNPpOPF/WQI7zFTPUU
-	eeUp0HCZdq410UQqwbQvPuLMunOEzH+PZxu4YCBthQyLKCQ1hs53j80qb8GsjM0gJpOyKDnJ89RNQ
-	+sPlg+2A==;
+	bh=1zQtXPWfaj/y1MPtvLjo2XLYCzjtWJDsGqyYITUn2XY=; b=KQEs9FrObaAUFKh+8KUUyDToa5
+	kfLKAbFboPljEaGiU/XnswsG+pQBruAM5lk3UziCdELg0Sq+5S3pF1X35orhwVAfNJO9g6x20gy22
+	d9q4Mi9hRzZx4FfN2FwE0XDl2YXvYaTWKpHM1ES/YryCs8ZjJcf+Yfajqax4Z3vvMr7UDkyjmebES
+	w5ku588h5MWATeI6icQfBjZzmrUPKFBEbtmAUi95CLFUYM0JfHQqo6lL2Og8oD/x9BDNGz+TZZFFC
+	svg4xr7A/hs3KUQ98jK3eoNzs9zjgpbFMLHf2TNTKgGQLNGu8xXpnAoVd6FLIOoAVnOFwGhl0tXJD
+	cMn+speg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHnG2-000000025MA-2Gt3;
-	Tue, 28 Apr 2026 18:34:06 +0000
+	id 1wHnGQ-000000025hg-3Vn7;
+	Tue, 28 Apr 2026 18:34:30 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHnFw-000000025Ft-0GQs
+	id 1wHnFy-000000025Hs-1laj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 18:34:03 +0000
+	Tue, 28 Apr 2026 18:34:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id ECD91417F2;
-	Tue, 28 Apr 2026 18:33:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE7B5C4AF09;
-	Tue, 28 Apr 2026 18:33:58 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 27AEA4427A;
+	Tue, 28 Apr 2026 18:34:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56222C2BCB3;
+	Tue, 28 Apr 2026 18:34:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777401239;
-	bh=glclu19M+ae3lxxFIpyNkrMWO2EeTxJY2bLvze3ItMw=;
+	s=k20201202; t=1777401242;
+	bh=C+4w7EMpQKOpxtLgrnXYA5pSlXeRslLcugB75oDKjPM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=lQa1Y+IXQW6XtGnsJPHuWIf2nBxsh/1yj3srE/jhY54PyKn0clyUnlNa2Kp+VFbfS
-	 aGoQR8m6UoiLQE6JF5EBn5N6ZG8rVsEMTsSHqyiGs4497sjVnE5uRxc7CAu96vwX4T
-	 vFNcJRrh/Ft8w1rlh+Bp5NvFnSYKbhCVEzRbClz3AbUd7JkmqN5223RuQC/orNrpim
-	 vwh8dD7m/KxwVVvEYoSn4DaRtWx4GJhcNriBVdmmNAw8X4dF5RHR6uATFYQYwUho8U
-	 XTlNq2b3hUdh5FFXF7a8tyXDePoxoEsZB/W9406igqlg9jgiHopvs3PbUgTTCTsiUJ
-	 4um1wuvjeBKvg==
+	b=bn3VpF3J1jinjnSX1CFpVa7iHxLyRW6wR+pwi2XsaBQUoQs1vMrk7iTc3NrDBw2+a
+	 CVpmuQ+maQLwD0488fA8mr7fZ+MPU5UnQZJfpjNYNPCJ7O2S90MpK20WadiA+SUL+K
+	 CYCU+2p2X7g/TEq9i2Y/qQYt8pOvYG7q0MROAAcULsYBBfB83jFwaQUPW/G/cr1s7v
+	 54QJ+6pXZftz3A60sWGA+EE03joBcfS5D3yjinPWJFIgc+sJjRjyiZ2vF9DPOQ67Pr
+	 y1T6U97hJZWQinJUWuhqSh3GXkAcI+fWR1aOJOrERomP6hY4KKRPA0n1BnMGmokJuS
+	 SQxtEAMmUHepw==
 From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Tue, 28 Apr 2026 19:33:33 +0100
-Subject: [PATCH v2 09/11] firmware: arm_ffa: Align RxTx buffer size before
- mapping
+Date: Tue, 28 Apr 2026 19:33:35 +0100
+Subject: [PATCH v2 11/11] firmware: arm_ffa: Fix sched-recv callback
+ partition lookup
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260428-ffa_fixes-v2-9-8595ae450034@kernel.org>
+Message-Id: <20260428-ffa_fixes-v2-11-8595ae450034@kernel.org>
 References: <20260428-ffa_fixes-v2-0-8595ae450034@kernel.org>
 In-Reply-To: <20260428-ffa_fixes-v2-0-8595ae450034@kernel.org>
 To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Cc: Jens Wiklander <jens.wiklander@linaro.org>, 
- Sudeep Holla <sudeep.holla@kernel.org>, 
- Sebastian Ene <sebastianene@google.com>
+ Sudeep Holla <sudeep.holla@kernel.org>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_113400_135668_C91864B6 
-X-CRM114-Status: GOOD (  11.95  )
+X-CRM114-CacheID: sfid-20260428_113402_498039_6BBED773 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,44 +73,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 83210251fd70 ("firmware: arm_ffa: Use the correct buffer size during
-RXTX_MAP") advertises PAGE_ALIGN(rxtx_bufsz) to firmware when mapping the
-buffers but the driver continues to stores the minimum FF-A buffer size
-in drv_info->rxtx_bufsz which is used elsewhere in the driver.
+ffa_sched_recv_cb_update() used list_for_each_entry_safe() to search for
+a matching partition and then tested the iterator against NULL. That is
+not a valid end-of-list check for circular lists and can fall through
+with an invalid pointer. Use a normal iterator and detect the not-found
+case correctly before touching the partition state.
 
-Align the size before storing it so that the allocation, validation and
-FFA_RXTX_MAP all use the same buffer size.
-
-Fixes: 83210251fd70 ("firmware: arm_ffa: Use the correct buffer size during RXTX_MAP")
-Cc: Sebastian Ene <sebastianene@google.com>
-Link: https://sashiko.dev/#/patchset/20260402113939.930221-1-sebastianene@google.com
-Reviewed-by: Sebastian Ene <sebastianene@google.com>
+Fixes: be61da938576 ("firmware: arm_ffa: Allow multiple UUIDs per partition to register SRI callback")
 Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 ---
- drivers/firmware/arm_ffa/driver.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/firmware/arm_ffa/driver.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
-index 4944aa6b815f..9181cc752ce1 100644
+index 2e9820395162..7bf8555c09da 100644
 --- a/drivers/firmware/arm_ffa/driver.c
 +++ b/drivers/firmware/arm_ffa/driver.c
-@@ -2111,6 +2111,7 @@ static int __init ffa_init(void)
- 			rxtx_bufsz = SZ_4K;
+@@ -1209,7 +1209,7 @@ static int
+ ffa_sched_recv_cb_update(struct ffa_device *dev, ffa_sched_recv_cb callback,
+ 			 void *cb_data, bool is_registration)
+ {
+-	struct ffa_dev_part_info *partition = NULL, *tmp;
++	struct ffa_dev_part_info *partition = NULL;
+ 	struct list_head *phead;
+ 	bool cb_valid;
+ 
+@@ -1222,11 +1222,11 @@ ffa_sched_recv_cb_update(struct ffa_device *dev, ffa_sched_recv_cb callback,
+ 		return -EINVAL;
  	}
  
-+	rxtx_bufsz = PAGE_ALIGN(rxtx_bufsz);
- 	drv_info->rxtx_bufsz = rxtx_bufsz;
- 	drv_info->rx_buffer = alloc_pages_exact(rxtx_bufsz, GFP_KERNEL);
- 	if (!drv_info->rx_buffer) {
-@@ -2126,7 +2127,7 @@ static int __init ffa_init(void)
+-	list_for_each_entry_safe(partition, tmp, phead, node)
++	list_for_each_entry(partition, phead, node)
+ 		if (partition->dev == dev)
+ 			break;
  
- 	ret = ffa_rxtx_map(virt_to_phys(drv_info->tx_buffer),
- 			   virt_to_phys(drv_info->rx_buffer),
--			   PAGE_ALIGN(rxtx_bufsz) / FFA_PAGE_SIZE);
-+			   rxtx_bufsz / FFA_PAGE_SIZE);
- 	if (ret) {
- 		pr_err("failed to register FFA RxTx buffers\n");
- 		goto free_pages;
+-	if (!partition) {
++	if (&partition->node == phead) {
+ 		pr_err("%s: No such partition ID 0x%x\n", __func__, dev->vm_id);
+ 		return -EINVAL;
+ 	}
 
 -- 
 2.43.0
