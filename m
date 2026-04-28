@@ -4,89 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70B6EFF8864
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 02:56:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77CC4FF8864
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 02:56:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BHQ2XadwvL8sO2gmMjzHrXHFd8fYwTAjs/sjK9AivAw=; b=zl50OIMsJaQajIVXcW6z+0Ca02
-	dP0KqOJG7lLj7A7KMIV7CyVFhNtKxHWepkm1oDzkV+FgXyOqdb3C+jRvOBRvvm1UrJRNX5ct9lrh5
-	PH3+3wP6Ks9tqhY3yCb8zZaDAspIsJm/MLEGqpx9O/zdC2DXuprL920ocVadT/oQiA8U3Tn00uwBN
-	gjWC/98er/sT23exQHlhmUM0ICsfsvchbr8TEBv0ZRKA/75MiRofq15NZh6ye0vbvhv7RTmLCIMXu
-	62C3EcsT5YGc6CDkrf5Bn5obu4/r+RhR2/KzLc6MusokPgwLOZui9w9TSX+geeXezDpsJCd8GCCqz
-	6+4Yk1/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fMiyHL+7JnRcquvQoWewQpcd3jLKB/I3OdiVz2FGXBw=; b=yMg4g6XAbamTSqc8ezIWV8ISd0
+	B1q+tS7bUr2fHLZdOHahHG44XUmlnSv25SP50fhNl1BKPEpLC7aan2KnjJpxaE8fqhA/kxLBYXfoG
+	jtOTMrEnDq6KrfLooXHKcW/tT+Nx72eZuHx0SiFV9O0pdUmgW6MRMeV9NiIabyQTO+Lr4OkekYWuE
+	IWbmJ82UI5RhOTxCdIfc1zDb9wSdbFMZn4Miwf79S8TJXhEt7prfe4jrc3MZyuDq+q8y/tpRB5p1R
+	zxK148QQCuE6RxYwB0K2pxxXEQpoIo5E2fC0WLwv4G/JX+e/TLcdncbsMbkLWbdH5o3Bgp5R/ONZD
+	wdYGrueA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHYca-00000000TR7-21X2;
-	Tue, 28 Apr 2026 02:56:24 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1wHYcs-00000000TUO-2iUo;
+	Tue, 28 Apr 2026 02:56:42 +0000
+Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHYcX-00000000TQN-45i4
+	id 1wHYcp-00000000TTg-2niU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 02:56:23 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-35da2d35eccso7391306a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 19:56:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1777344980; x=1777949780; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=BHQ2XadwvL8sO2gmMjzHrXHFd8fYwTAjs/sjK9AivAw=;
-        b=hoshnvzlUQjF7rEO6F6ewF35E3Oh64jFACFvwyKOb0uifv1p4X3vSahoBVwisnveNH
-         LL9QRuN0Yj1MM7Qbq6V5g+p666nIbCYzCt7taKjJB9jxwuQEyxRZHjeUcTahilSwlMfc
-         z64iuLcqHfslvmXWs8wYdY7SEgM43Dy+MSs2k=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777344980; x=1777949780;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BHQ2XadwvL8sO2gmMjzHrXHFd8fYwTAjs/sjK9AivAw=;
-        b=RSOXJoOr9f3DOe5hvBNLS107OnCjMm1EZCLFaGDOAf3zdbzKzgrjK5RwWu6iaB9f2V
-         KzEL95hBsjvilkFX64KRQ+72CGheZ8bEaq7uNGVEW4q0KsBUeOq+ITgO5YmnfQXMxRM3
-         qw2hzN/w/vB1k0he71g1ZOFFCG2LbAG35xnscFTiPWD5iZrJuL74JsPI6BHpTlfH5kxz
-         +c+Jkyn7Qmtg5AIx8MzIxJ40nAOkIzf16NFoOnhAN1HR5MUhuHgViCGiH1DG+9EBPswL
-         jmkLE7cu1FEwBaTeBasWOMnqh/yQYOh4JSRFo2HyQGXPNM4d6dhkLYHnzD8gJzWjXKdj
-         j6DA==
-X-Forwarded-Encrypted: i=1; AFNElJ+sMU6FOjo5lUnrM+rIBvyMhUfzGqmjiwg5KrCGB3/NO7go3MmcoOZ8bkbZtxc+SiK4PqhYQ640jGArwmc6DnEJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwxehZJ2gYMYk9BP6IimyUKKV8QxKf+YvgCJDt3SQ2GkJAAovIN
-	qYojAMdUkoZPNXOHnCDqkTI7vN072h/9r4UGb5qKA013zIIS3BT6saZ4XKMsrI+RvA==
-X-Gm-Gg: AeBDieve0nfXVjRGMpbUaZ1CjR8LSA2M4WZplMaqxF+D3Ya8n1AT1S3fM3CpGjUHuSh
-	BJv48ZudFAGJYPORtRSB/U58Xn/BNDTcVOFuQZcDcHp8b4KpYTUpjxkGs/ZUspn0sgmDDgxwp+A
-	wKY39TwsOMvh7PJJy37oztylklG6gyv8NUxdVEhCoCzKyUIxMz8v+Ku3Vi5QXzKw/ra9iPsdnIe
-	aSekWSnzuWvReq7eMcOd/K57m//yBSBaChTUnKcBjiJtHiv7iu4ppMEBu8NDY7kvOC8KCb2B1fg
-	6FfNahNGKd5Ob9bSbhauggQhaOTprcMF1B2QmqjSSiDF7aHe1yihfGw3MRqOj8vv+qWPpwo9fR1
-	IgnYNmEU0cUJAZE3zChubzQxe0rFuiI8lKdCRTq+OyD1AtPhNpEndy/AjripVBv7rS3TgZBQ94H
-	v05kH01KWVOvPspgOahr76aXFhc+imNYauCg30eO6xoVzFU3hNVHNKzh0rxIFHky65db7JGVikE
-	jC2Zg8hMC+mmnDL7ZWTJVbH
-X-Received: by 2002:a17:90b:4f91:b0:35e:5051:fb18 with SMTP id 98e67ed59e1d1-3649206916emr1119860a91.26.1777344980513;
-        Mon, 27 Apr 2026 19:56:20 -0700 (PDT)
-Received: from tigerii.tok.corp.google.com ([2a00:79e0:2031:6:b64e:793f:a44e:7279])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36490026a45sm1236408a91.3.2026.04.27.19.56.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Apr 2026 19:56:20 -0700 (PDT)
-From: Sergey Senozhatsky <senozhatsky@chromium.org>
-To: Jassi Brar <jassisinghbrar@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Allen-KH Cheng <Allen-KH.Cheng@mediatek.com>,
-	YC Hung <yc.hung@mediatek.com>
-Cc: Tzung-Bi Shih <tzungbi@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Sergey Senozhatsky <senozhatsky@chromium.org>
-Subject: [PATCH] mailbox: mtk-adsp: fix UAF during device teardown
-Date: Tue, 28 Apr 2026 11:55:44 +0900
-Message-ID: <20260428025614.1094085-1-senozhatsky@chromium.org>
-X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+	Tue, 28 Apr 2026 02:56:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QiMWG7Y6mQVZHyjTsB4sQIYHOdSsKy6QMitVxsqgrNDyycpkgzyFQnDdyWHJ/VmYdsoVTvh3G72+sMp8EASgP6LhwO/EZ1ffPjqJUPgNDelLsJ23fJRKHmjwLkNkz4JOEhmpY9IkthUR0qQPcKnW8eFJ9wcnPiOZz7SmN2aLO4aiwmoWGkk2iFE/l0PXmsr/E4avHUu/UHlJD4NgRybYQ7EGblC5N9RcAJl3Iq8WzvsfQA1j/fxhAWRxcQtoJl3gB8gfc4M5k6XYdgRgddXy654dS+eUGPKUJ9dLxsggYKmJgJI+Q83erukDlG+6kjkqZ9NIkIL9btm9640M3INgUw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Rymy+Di3gKjbpOt7vggNR07FAoNtjhNhbcGePn7XsrE=;
+ b=pFSpylB5YlNint6CmlalyD2+KhMpJE0eP30sA6WFDuq2QQEQPuug1iUQ8YRXuiJnVrptTCOaokmf/UdGgi4kYrGLLD0Ld1ww/OrE/WEPoCgs2itcjl3Ay+fr/KeaThzYWPv2T3Q3YMrILqgR5UZaDf9CRiQ/7Jhhlh2O2Cxtr+H53mRloa7YWeSaSdVcZ5RIF9bi/5RAyZJcO98yEOU7aJU8PaiHINGDTph6mdr9tUAXUSZ5knN+crY08u6IV6zGzAfl1K5RR/srhMWHvwnJKY+kWPQQVRmD6vk0pCJpW0SYNp5cezY3+xCmye4pZ4QwVuCGYhnK8C5MdqRnqWCfsA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Rymy+Di3gKjbpOt7vggNR07FAoNtjhNhbcGePn7XsrE=;
+ b=qdTc9/jHS9De/3jBoLQjHdC55X7JR+Sf3SMvLHN1MiHjDxDlAqdBR/GeXOcS5hW8CHhEJnDfGH8j9ZXpjUILYQELVrYWgGty9dL07evc8zyQl++o65JZd8C9au5+8CSRwR3uqeqZHmNCRqu2ObRGiCp+kMRx6hXSFVMCv73ygDM7B1bs6yDzXUb0Mf60EYIsebMyWF3pCTagXFyya8Vvrtl9CEioSgEiYn55xC9aTx9SK95NDVQTy1cjorBM4HJOVnXGKl5+XU0piztUgpNNe/HIL4yDkG5y0WvdlEqyeM31462nwv4026u0uKx7mSZQfrKft4YclcboYCvgaxfVqQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CY8PR12MB8300.namprd12.prod.outlook.com (2603:10b6:930:7d::16)
+ by SN7PR12MB7933.namprd12.prod.outlook.com (2603:10b6:806:342::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.15; Tue, 28 Apr
+ 2026 02:56:27 +0000
+Received: from CY8PR12MB8300.namprd12.prod.outlook.com
+ ([fe80::ce75:8187:3ac3:c5de]) by CY8PR12MB8300.namprd12.prod.outlook.com
+ ([fe80::ce75:8187:3ac3:c5de%3]) with mapi id 15.20.9870.013; Tue, 28 Apr 2026
+ 02:56:25 +0000
+Date: Mon, 27 Apr 2026 22:56:22 -0400
+From: Yury Norov <ynorov@nvidia.com>
+To: Xu Yilun <yilun.xu@linux.intel.com>
+Cc: linux-kernel@vger.kernel.org,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Ingo Molnar <mingo@kernel.org>,
+	James Clark <james.clark@linaro.org>, Kees Cook <kees@kernel.org>,
+	Lukasz Luba <lukasz.luba@arm.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Mike Leach <mike.leach@linaro.org>, Moritz Fischer <mdf@kernel.org>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Russ Weight <russ.weight@linux.dev>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Suki K Poulose <suzuki.poulose@arm.com>, Tom Rix <trix@redhat.com>,
+	Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>,
+	Xu Yilun <yilun.xu@intel.com>, Yury Norov <yury.norov@gmail.com>,
+	Zhang Rui <rui.zhang@intel.com>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-fpga@vger.kernel.org,
+	linux-pm@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	Jakub Kicinski <kuba@kernel.org>
+Subject: Re: [PATCH 5/5] fpga: m10bmc-sec: switch show_canceled_csk() to
+ using sysfs_emit()
+Message-ID: <afAh1hq_mkRN3q2t@yury>
+References: <20260303200842.124996-1-ynorov@nvidia.com>
+ <20260303200842.124996-6-ynorov@nvidia.com>
+ <acJWNRb1t96yu/H6@yilunxu-OptiPlex-7050>
+ <acLaDFuCzt0d33Q_@yury>
+ <acON/EU/GFvxRO1e@yilunxu-OptiPlex-7050>
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <acON/EU/GFvxRO1e@yilunxu-OptiPlex-7050>
+X-ClientProxiedBy: BN0PR10CA0022.namprd10.prod.outlook.com
+ (2603:10b6:408:143::30) To CY8PR12MB8300.namprd12.prod.outlook.com
+ (2603:10b6:930:7d::16)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY8PR12MB8300:EE_|SN7PR12MB7933:EE_
+X-MS-Office365-Filtering-Correlation-Id: 56dd3ab1-3cab-4aa6-e0e3-08dea4d1bc60
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|10070799003|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: yugtfAalFpypmSFlLPgPsXbJgBpUDtMyBUJwPOeNFsEahwUL6MlzaxNMHPBB9t5oc5IN87TyzfSl0MilRkyIqqvGHWyfeEjg8z0MBl7ZK6+72l9URv1zC+lfhlO+OBVnvAqhg4qiCEZC7hov617YK6O+K3kBHRzqql1m2bbkI2DgvNTRuXBcqF+Np6B2q8m/KG0JE7WRd5wmhO64hcPIEnNAD0H1rPn6cV32cb3yejd8ltdyyNsfBLVRRmxmYkDr7nOY29KygSIcOwpFW/rU0J3qZPaCJE0GoTGdq8lGTUcuPUrNhcMzdy/quEflt1Xz3ZKJh6D+gQWEUS1bfOUtC719iMlEmk7tdKpiMcuklKRMjkMNWD7MPnuq+/9V1zHJnTkGc+gwk3ukyAkrPB8YKzwcOIfYt4AhqVYJ+RGxOgt/sN9enSbheKS8mFMeNL+MVO0VW45b10yhpg0P2ESWgK8+XgwEyft0/AqWCeAdrfmWm0EhNmFDlxzlFZGSYjk+w0+9p0ATCuQmM18xbakK4/AJS1dt3cBwLdWeThiTOy9VSNur7gIsoZSa9TVfiuzc4fKYFJCoUNjjaU4mVzpWsnTEqbzn9gxx+4URKT4i4AqwoAy7Ywdnm2IR7FbMn7vwPqwEAIeyot/f228ccdT/qRmdRoxw94iQXZZj/9F4vXNSp5mTLhQOgMTglkdORGeOKUfxTHX0T8Rva+WkZy6bcYAMFwFOw9HpKo/Anh5y7NA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY8PR12MB8300.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(10070799003)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?a9sVNbeC+t2hNjsRzjrTXaHHZePkDI9+wedrs9XTeWgq+cPR5gaUpUQ4JG?=
+ =?iso-8859-1?Q?KmbkGQgwP/BokO+N2cGukcyC87GQUBqhgllfx/aGsaoCRzFKbIfWq+dEso?=
+ =?iso-8859-1?Q?YDqbl1VXfXgIRebCIfhGUZqMl9P9wdKQoSbOO7O7388PfeAG4vPSjvFB1s?=
+ =?iso-8859-1?Q?4YOouF6p2keGQBoyq60GaGzS4fnCctTca+Nvnc3nfNS8JofIV0Qe8CXnvS?=
+ =?iso-8859-1?Q?7jc5S2sD+VKLsMqaMQgNa4WmK4ogGBmYsCTd7B7NcO6T+iTXO67T1Lkm5y?=
+ =?iso-8859-1?Q?gFY3Phe+RvqEuhd9/e7NJtPGrTB14jUVdaq2ot5KVcXAJKOS4cSk+wlyuM?=
+ =?iso-8859-1?Q?ZvY0bngTRaubezb62USNMNSXM/eP3N/TMbINnaXf4frQxPFv0x88KDzqoH?=
+ =?iso-8859-1?Q?fOT6a0Mrn/C71NMRZ/7YJemd0GFwI17fZvuwhP0dYxm1LgllcILo7qETI+?=
+ =?iso-8859-1?Q?wUNr+Pcmx3rp3NGGw0ujIYcTQ5WP5T2f5Q8a7dmFlKWN3Bl0qPL08PHO6H?=
+ =?iso-8859-1?Q?bRchHd+HRRqR4+i1f1NdoHDwEpuQNqPuhTieHbPcqUGfu5OiwyUckJk2/+?=
+ =?iso-8859-1?Q?TTHjsHglYSZYxrY8zpuw3AavhIK+NnEyYJLw7yxHqY08LLYV/B+alMKJpU?=
+ =?iso-8859-1?Q?4AiYEqy19Z6omnCMi/fw4MdIaK9sPI352yhL35lOYHD7yfOa3URGJpLp+R?=
+ =?iso-8859-1?Q?tJWFWNrXcS4OX8hDGJ6XOdcNhW29YH1KSy1GvrfNvU4gzsXinc/I3naEfS?=
+ =?iso-8859-1?Q?i4Zihqh6tghgxOPXvPdVxaHSFVFVkU53XuHYRcMNjNU740vHax0odFg3Cn?=
+ =?iso-8859-1?Q?zNBXzICuwbg5zqw+YsCLPrlasb8rihNPgA5ogA0dCMa1vaRjS9EUMaRSc5?=
+ =?iso-8859-1?Q?vR0xVaonhySr51LnJBlBGURg/oX99Wz3MMAWI+heBqXvNAVeP6MS84dYwl?=
+ =?iso-8859-1?Q?PkdLDAPEX2tKhos1ea9Zi4e5se5wf+GClEtxKjJisIcV5w23yBK+yEAspE?=
+ =?iso-8859-1?Q?ZhR1RYPPAHJmz8wwcuSVFpk9/mWsNvlL/1e6UQr+p43YGbw2y1oKwA7SwV?=
+ =?iso-8859-1?Q?z8PqaAP0FaMemjdCIROwALzgSUMWhVsoA7z0yGzDUYiiBe4P2WIf9dVNVC?=
+ =?iso-8859-1?Q?nDSX8tQ4AQT3Bz2k7/FmNE2Thevgi8lEDW1HoebFHtwumrbJt//1DIsmTr?=
+ =?iso-8859-1?Q?pSbYIzxxBoqFDLfmAyVfMLyt4CUXS+2j1lGkBnF7R0wszLVmvYIihwHt1n?=
+ =?iso-8859-1?Q?p3OcTGxTqlt9TBnaKQ5fYtudINLf1bkjtQQkTChU5vkAUJqfV8RuwXVYqA?=
+ =?iso-8859-1?Q?+Uvusqv2GbJFyGeC3PHAxW8lvw/me+f5Ya7Wyv7AS9djlVlJwQWNR7gBFa?=
+ =?iso-8859-1?Q?vRKT7RWdB32vN0MiFZGgcTqbZL+d2bQMqJ6HAwHXd4yocHUPNJjOHHhiq+?=
+ =?iso-8859-1?Q?VU4JgjOg7InydqWiDEzsw2bVnAAyZU/1pqcBnIMNFMWjKPnO+YO5GOnwWB?=
+ =?iso-8859-1?Q?E8gks0DMIFDd69uz7zlUzk9ZzRGUlfUusR00oZdj+FewUq5kMRCrhjrbPk?=
+ =?iso-8859-1?Q?rjyRLtv23GlwbK++XlKvheBz1Es7oCzjUSzZEY9VO8Iu7wryZcHo6eDd3o?=
+ =?iso-8859-1?Q?UR7p4gM3YhYn4UzIIJPOmhgYJdcLcIJ/9bznNv6PXkr1mzS/lZYMCHVjtG?=
+ =?iso-8859-1?Q?LLZjoBEEMAb58xOKZwnGkbDIuU0BSbyF4V/DOYoY7shLZond1qsfF47XT0?=
+ =?iso-8859-1?Q?7BcIeaKIprQrtN/ZAcGgDVs/exUAprxy/DQJGprhq9+pZIvlRWm4qGhjA1?=
+ =?iso-8859-1?Q?C+0hj/hiU6149HI6CfoYMALDYTGB9lbPL1SRBGb3BwCTkKLDDw/p?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 56dd3ab1-3cab-4aa6-e0e3-08dea4d1bc60
+X-MS-Exchange-CrossTenant-AuthSource: CY8PR12MB8300.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2026 02:56:25.1096
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: hw0EAIMJX4BAZZWEG3tnfhHtaBaFG+zYg5X/OypBYsKqX8wtWmw74mltiDKA7dU/vgBYae2fZlk2EnhhdLplzA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7933
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_195622_062126_69FFADF8 
-X-CRM114-Status: GOOD (  16.80  )
+X-CRM114-CacheID: sfid-20260427_195639_711393_F654B878 
+X-CRM114-Status: GOOD (  19.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,88 +162,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the SOF audio driver fails to initialize (e.g. firmware boot
-timeout), its devres unwind frees the snd_sof_dev object that the
-mailbox client (mtk-adsp-ipc) reaches via chan->cl->rx_callback.
-The mtk-adsp-mailbox shutdown clears the mailbox command registers
-but leaves the IRQ line unmasked, so a late interrupt can still
-queue a threaded handler after mbox_free_channel() had cleared
-chan->cl, and mbox_chan_received_data() would then trigger UAF:
+On Wed, Mar 25, 2026 at 03:25:48PM +0800, Xu Yilun wrote:
+> On Tue, Mar 24, 2026 at 02:38:04PM -0400, Yury Norov wrote:
+> > On Tue, Mar 24, 2026 at 05:15:33PM +0800, Xu Yilun wrote:
+> > > On Tue, Mar 03, 2026 at 03:08:41PM -0500, Yury Norov wrote:
+> > > > Switch show_canceled_csk() to use the proper sysfs_emit("%*pbl").
+> > > > 
+> > > > Reviewed-by: Russ Weight <russ.weight@linux.dev>
+> > > > Suggested-by: Thomas Weiﬂschuh <linux@weissschuh.net>
+> > > > Signed-off-by: Yury Norov <ynorov@nvidia.com>
+> > > > ---
+> > > >  drivers/fpga/intel-m10-bmc-sec-update.c | 3 ++-
+> > > >  1 file changed, 2 insertions(+), 1 deletion(-)
+> > > > 
+> > > > diff --git a/drivers/fpga/intel-m10-bmc-sec-update.c b/drivers/fpga/intel-m10-bmc-sec-update.c
+> > > > index 10f678b9ed36..ae364c6636eb 100644
+> > > > --- a/drivers/fpga/intel-m10-bmc-sec-update.c
+> > > > +++ b/drivers/fpga/intel-m10-bmc-sec-update.c
+> > > > @@ -10,6 +10,7 @@
+> > > >  #include <linux/firmware.h>
+> > > >  #include <linux/mfd/intel-m10-bmc.h>
+> > > >  #include <linux/mod_devicetable.h>
+> > > > +#include <linux/mm.h>
+> > > 
+> > > Why add this header file?
+> > 
+> > When I was preparing the series, I had build issues without this. But
+> > now I checked it against -rc5, and it's clean. Would you like me to
+> > resend?
+> 
+> No need. Given that I'll pick this patch alone to fpga for-next with the
+> fix.
+> 
+> Reviewed-by: Xu Yilun <yilun.xu@intel.com>
 
-  BUG: KASAN: slab-use-after-free in sof_ipc3_validate_fw_version
-   sof_ipc3_validate_fw_version
-   sof_ipc3_do_rx_work
-   sof_ipc3_rx_msg
-   mt8196_dsp_handle_request
-   mtk_adsp_ipc_recv
-   mbox_chan_received_data
-   mtk_adsp_mbox_isr
-   irq_thread_fn
-  Freed by task ...:
-   kfree
-   devres_release_all
-   really_probe
-   ... (sof-audio-of-mt8196 probe failure)
+Hi Xu,
 
-The crash was observed roughly three seconds after the failed probe.
+This patch is still not applied. This is the last non-lib user of
+the bitmap_print_to_pagebuf(), and it blocks me from removing the
+function.
 
-disable_irq() in shutdown and enable_irq() in startup. disable_irq()
-also waits for any in-flight interrupts, so by the time
-mbox_free_channel() proceeds to clear chan->cl no rx_callback can run.
+Are you still going to pick it yourself? I can move the patch with
+bitmap-for-next if you prefer.
 
-In addition, request the IRQ with IRQF_NO_AUTOEN so it stays masked
-between probe and the first client bind ‚Äî otherwise an early interrupt
-can crash on chan->cl == NULL in mbox_chan_received_data().
-
-Fixes: af2dfa96c52d ("mailbox: mediatek: add support for adsp mailbox controller")
-Signed-off-by: Sergey Senozhatsky <senozhatsky@chromium.org>
----
- drivers/mailbox/mtk-adsp-mailbox.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/mailbox/mtk-adsp-mailbox.c b/drivers/mailbox/mtk-adsp-mailbox.c
-index 91487aa4d7da..8bcecddee0eb 100644
---- a/drivers/mailbox/mtk-adsp-mailbox.c
-+++ b/drivers/mailbox/mtk-adsp-mailbox.c
-@@ -19,6 +19,7 @@ struct mtk_adsp_mbox_priv {
- 	struct mbox_controller mbox;
- 	void __iomem *va_mboxreg;
- 	const struct mtk_adsp_mbox_cfg *cfg;
-+	int irq;
- };
- 
- struct mtk_adsp_mbox_cfg {
-@@ -67,6 +68,8 @@ static int mtk_adsp_mbox_startup(struct mbox_chan *chan)
- 	writel(0xFFFFFFFF, priv->va_mboxreg + priv->cfg->clr_in);
- 	writel(0xFFFFFFFF, priv->va_mboxreg + priv->cfg->clr_out);
- 
-+	enable_irq(priv->irq);
-+
- 	return 0;
- }
- 
-@@ -74,6 +77,8 @@ static void mtk_adsp_mbox_shutdown(struct mbox_chan *chan)
- {
- 	struct mtk_adsp_mbox_priv *priv = get_mtk_adsp_mbox_priv(chan->mbox);
- 
-+	disable_irq(priv->irq);
-+
- 	/* Clear ADSP mbox command */
- 	writel(0xFFFFFFFF, priv->va_mboxreg + priv->cfg->clr_in);
- 	writel(0xFFFFFFFF, priv->va_mboxreg + priv->cfg->clr_out);
-@@ -139,8 +144,10 @@ static int mtk_adsp_mbox_probe(struct platform_device *pdev)
- 	if (irq < 0)
- 		return irq;
- 
-+	priv->irq = irq;
- 	ret = devm_request_threaded_irq(dev, irq, mtk_adsp_mbox_irq,
--					mtk_adsp_mbox_isr, IRQF_TRIGGER_NONE,
-+					mtk_adsp_mbox_isr,
-+					IRQF_TRIGGER_NONE | IRQF_NO_AUTOEN,
- 					dev_name(dev), mbox->chans);
- 	if (ret < 0)
- 		return ret;
--- 
-2.54.0.545.g6539524ca2-goog
-
+Thanks,
+Yury
 
