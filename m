@@ -4,164 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 981B9FF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 12:33:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11232FF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 12:34:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fylLG2wwQxPhuCjUzW2jU3hgZkUTYpwG6DpN0l0UY6o=; b=QAySWYglGxhottQqf44JIp+Eqk
-	8ABdfaiFjmi6E7PX0J3V4iKSK5EI178/HhDoy0A7K02C3cK3nuBU66uyKA9rqo17gke81YA08YzCS
-	zYwrv9IlIb4ca74ZrUZbtl1Fw8JZzIFWJ9mODudfniZYkSUpgq7xE2xpuXBhlwoAoNZTSOttOv/+M
-	izgY2Z6R07Gn4SYChsmJN0s9/GoUcoH1WALVH/jMd3feteODcv4NVEQaeymt1P4o/VqAaNmGKhWXh
-	A97Flwxd40+yzs4GShYTMje37gGSzUWov+W44tQOVmP3aSQIhsFgZvrVpt1OLOm9y9C54lk1iau+J
-	4etc6Heg==;
+	bh=WYVh3rRNApPh1xCCN3OpCIIeR/JDDKtNd9mRTZdEGN8=; b=g7KJuUhg5+cRYjvrhuBbD0cR6r
+	Lzpo4WZI5MWuHJmwaLKGZC0JWV8yImF13jrhx/Stm/L+QgmLeFVAh1pwmkY2KIX42f4eSc+k6IEc3
+	j0S9CEzx7i0Th5+QYlwpi6iV3ljM3pJ1dJoyavzuNXpIhkFoEGGuK4w+zkflMgArWXGnk50+m32XZ
+	8FWmIiVDCYgFQbGg9F85IRC8D/nt8EV6hfqWAR7CQThAmk8ihZnOm52JtrUTxZEARXhjazUhXv/F6
+	tiOLoazdkzDKDUz67PLJwV+Zq58YKEtLyhIKVr6ewBGF9xg5R1pFYuFJgKTMyZdLGbWkxpt2O1t/A
+	0kqYTIvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHhcp-00000001RMx-3mZN;
-	Tue, 28 Apr 2026 12:33:15 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wHhe3-00000001RYS-1APc;
+	Tue, 28 Apr 2026 12:34:31 +0000
+Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHhcn-00000001RMW-27Dw
+	id 1wHhe0-00000001RIz-1SI1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 12:33:14 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63S7kWtJ440715
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 12:33:13 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	fylLG2wwQxPhuCjUzW2jU3hgZkUTYpwG6DpN0l0UY6o=; b=orEIIWdZySpVRhh5
-	Cf+JGLisyug1Y3j9mI/t/kiROECrg7f4P3964rlz1aTuj+q+gEvx3U4GPhveIFUp
-	LqPIpGZfdfQdP1Kq5eLbIJ1osgrsTLutwKkPedYmbaB/hddqgGBRBhICzdotGM54
-	7F4qiv84RzxAZtAfToG33ZOHaQ6MXPGFyaXUV6fWL2F0ZHKXph0jnuLd2guXN5o/
-	f3yMvhxGJAGU3xKZZGSLY68WEJoVrifNHqyF290JiPNWipRSfURd+TmmgVOs+6Pv
-	hjHK88nSg0EDc0NxHbVR0L9cZrHw1ogztkj0/p+nXKfZ4HKxgYR7/hqkcTtKnZMG
-	mmDobw==
-Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dtac44dxp-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 12:33:12 +0000 (GMT)
-Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-82f543bae3cso6116657b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 05:33:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1777379592; x=1777984392; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=fylLG2wwQxPhuCjUzW2jU3hgZkUTYpwG6DpN0l0UY6o=;
-        b=ehWWLqc1thkN8o7j2rJeTNSouEsmg6RehGTQdr5MczwOGKc3gSJox5Wep/LkRscAoV
-         8qvfBEBmoG0jSe01MJ2yLraWPFtmCPszpizVd9SfXNELlUgXj4zafWbzQbMS9WjYcxto
-         MBw0M6q6Zp0TjvvtAMOug6fu1AA3nczmwpFi9pSLP6GL7DDwyq9mSnWSA1iKmO+4aZRH
-         +YS1VxakCBwlSwbGdNITCxf+nb2w84G27pzAFtx/V9ZeEs1bSDy/SB2i7HrNIjcJs3GL
-         vbj9YW73IqAZaXdqq0QZ9bKrcwFDnb2jzbZn0tdXiodPVao3h+7cNkBmA0Lo6sJkAa/W
-         4VJg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777379592; x=1777984392;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=fylLG2wwQxPhuCjUzW2jU3hgZkUTYpwG6DpN0l0UY6o=;
-        b=Kp/sCCmgU8wedNpO/oXCQBGg+3ccTdpGcMSr+DuO3kPpfX1bqLC1VFTNYD4mE4CEtW
-         pwoI8qGd3wZd0yGx//j8EGR+7VIayomJM4juuUF93I+79P5jyQrr4OIuoUz4g1GXapQ+
-         uOMnxnsP696FHI/2kRRYbtXJpaX4Vfn2o+Bz8J+T58jzPIULFDtGt4T2UUs9yGGPg0X8
-         tRFn/r9WcQQjuXeqRxlf8uhM7TWhOU6RxzfwPSsJqBrvFNcbOy/Y8cpWDXXv6yq2pFHR
-         o8jmLJ9mtYgyl9uoYcwgYfunOw3q1q+X03R7N1uPcGDVaLjnDFqkqJ06VoIypREWTqeN
-         NowA==
-X-Forwarded-Encrypted: i=1; AFNElJ/xXBOszHnFcGqKLKjlsrXDLdJSoXB/d7OXzD4z/nct8s5J6Jk5Vx1/M2NeyrtCcHbePGmCe+Jt8aoI30bH54vy@lists.infradead.org
-X-Gm-Message-State: AOJu0YzsjtCNjb77Sr0SiH+4crYLNYte2GM9lHhzoVmh6R/fLkV0ZKJx
-	9VMdbYRUBZJqmCrOug8Ee9dtZY4gPxgWkAQFWsWxn0KjpA3dvVeuj3aZ8VK6majU1MX/+wgCoBM
-	bE1DVrVse4pEnmKLvbBvuihTDDClvN+txX/Hz72WssDFIXsn0xOOMJUGLNmlGZpkIPK8xDvwe0F
-	1Eiw==
-X-Gm-Gg: AeBDievp/YSuGPbBSauT15xKYL+dz9sSz+ffbA+yLUwobPYxqHpQOutMSafQbK/bikS
-	P57flA2/AzgK8PFvcye0silvdSthyGzxCuFUd9BgiWCEI7T8qUW0ehi+NJMt+eooImeNy1eeHKd
-	a15UV4RKw8SMS1Y7dhitsoslRMPXdLElBqT2I9aUG66N2cA/OkRwUUGB82IozDSkEPK4DvgZMFz
-	2VJP89rIMUsNNI75xWsLzphdrL4p2FKFitOD8DHNHzaQV0wFsCyXqMggPbHvItH9BogysOhbOgy
-	pL0QtaeY0vQHsOEc6vKQf4kTlBRAX/0Awk6b1QI4BPfgDbHsspreG9b/kqh0xtwkrBB4mPdOM08
-	oQeHxoUrYjmUXbTbFL4gE0y2b6DztaWKdMm7DdaHsGWACB6EQ9ZUwv5NsIP5O7h+XUbE=
-X-Received: by 2002:a05:6a00:80a:b0:7e8:3fcb:9b03 with SMTP id d2e1a72fcca58-834dcdaf080mr2760980b3a.25.1777379591395;
-        Tue, 28 Apr 2026 05:33:11 -0700 (PDT)
-X-Received: by 2002:a05:6a00:80a:b0:7e8:3fcb:9b03 with SMTP id d2e1a72fcca58-834dcdaf080mr2760933b3a.25.1777379590888;
-        Tue, 28 Apr 2026 05:33:10 -0700 (PDT)
-Received: from [10.219.57.134] ([202.46.23.19])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-834dae04e49sm3228694b3a.2.2026.04.28.05.33.01
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 28 Apr 2026 05:33:10 -0700 (PDT)
-Message-ID: <d0420528-cfab-4b43-8488-015755777194@oss.qualcomm.com>
-Date: Tue, 28 Apr 2026 18:03:00 +0530
+	Tue, 28 Apr 2026 12:34:30 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=WYVh3rRNApPh1xCCN3OpCIIeR/JDDKtNd9mRTZdEGN8=;
+	b=LFp0QVZWjsJ0M4aWYjOUIOQg+8m7/Uxy/nFSGQn3YvN1wf9blJa19UbcK2KFxPGA6iq+To5ef
+	EhcDSfDevbu0qDIij7sis/Q+3ur0xwmHxUT5+HHppwRXaMgg1L3sYz7ofXCdxOot5ydgVNAwgzO
+	ZSzpAHHo9w38T9efqE5QnCc=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4g4fm32f6mzpSvH;
+	Tue, 28 Apr 2026 20:25:39 +0800 (CST)
+Received: from dggpemf500002.china.huawei.com (unknown [7.185.36.57])
+	by mail.maildlp.com (Postfix) with ESMTPS id BBFC240576;
+	Tue, 28 Apr 2026 20:32:14 +0800 (CST)
+Received: from [10.174.179.24] (10.174.179.24) by
+ dggpemf500002.china.huawei.com (7.185.36.57) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 28 Apr 2026 20:32:13 +0800
+Subject: Re: [PATCH V1 1/3] ACPICA: IORT: Add Root Complex PASID Flags field
+To: Jason Gunthorpe <jgg@ziepe.ca>, Vidya Sagar <vidyas@nvidia.com>
+CC: <rafael@kernel.org>, <lenb@kernel.org>, <saket.dumbre@intel.com>,
+	<lpieralisi@kernel.org>, <sudeep.holla@kernel.org>, <will@kernel.org>,
+	<catalin.marinas@arm.com>, <joro@8bytes.org>, <robin.murphy@arm.com>,
+	<nicolinc@nvidia.com>, <praan@google.com>, <vsethi@nvidia.com>,
+	<sdonthineni@nvidia.com>, <kthota@nvidia.com>, <sagar.tv@gmail.com>,
+	<linux-acpi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<acpica-devel@lists.linux.dev>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>
+References: <20260423191417.2031652-1-vidyas@nvidia.com>
+ <20260423191417.2031652-2-vidyas@nvidia.com>
+ <20260423224318.GT3611611@ziepe.ca>
+From: Hanjun Guo <guohanjun@huawei.com>
+Message-ID: <e092b85e-9ac2-22ef-b213-1b2a32fbf784@huawei.com>
+Date: Tue, 28 Apr 2026 20:32:12 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101
+ Thunderbird/68.6.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v21 07/13] power: reset: Add psci-reboot-mode driver
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        devicetree@vger.kernel.org,
-        Florian Fainelli
- <florian.fainelli@broadcom.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Andre Draszik <andre.draszik@linaro.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-        Srinivas Kandagatla <srini@kernel.org>,
-        Sebastian Reichel <sre@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Daniel Lezcano <daniel.lezcano@kernel.org>,
-        Christian Loehle <christian.loehle@arm.com>,
-        Ulf Hansson <ulfh@kernel.org>, Lee Jones <lee@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Matthias Brugger
- <matthias.bgg@gmail.com>,
-        John Stultz <john.stultz@linaro.org>,
-        Moritz Fischer <moritz.fischer@ettus.com>,
-        Sudeep Holla <sudeep.holla@kernel.org>
-References: <20260427-arm-psci-system_reset2-vendor-reboots-v21-0-dcf937775e73@oss.qualcomm.com>
- <20260427-arm-psci-system_reset2-vendor-reboots-v21-7-dcf937775e73@oss.qualcomm.com>
- <CAMRc=MdLTMX34DEhoMskMzjRqx+Cdpm3=P5QTZ8S6sUVJ3eTbg@mail.gmail.com>
-Content-Language: en-US
-From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-In-Reply-To: <CAMRc=MdLTMX34DEhoMskMzjRqx+Cdpm3=P5QTZ8S6sUVJ3eTbg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+In-Reply-To: <20260423224318.GT3611611@ziepe.ca>
+Content-Type: text/plain; charset="utf-8"; format=flowed
+Content-Language: en-GB
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: sbMLTAEDzYEF-uClL1YS8wbga0VpOxaM
-X-Authority-Analysis: v=2.4 cv=D7J37PRj c=1 sm=1 tr=0 ts=69f0a908 cx=c_pps
- a=m5Vt/hrsBiPMCU0y4gIsQw==:117 a=j4ogTh8yFefVWWEFDRgCtg==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=xJRVJYJ9JtZugbA2SwUA:9 a=QEXdDO2ut3YA:10 a=IoOABgeZipijB_acs4fv:22
-X-Proofpoint-ORIG-GUID: sbMLTAEDzYEF-uClL1YS8wbga0VpOxaM
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI4MDExNiBTYWx0ZWRfX+C851K+/QHwo
- I6TLIx4Nk1tzAyaEppY5Wmtg4QL1Y27pKl88jKgzoW/0BKwzF1i2zxfaRmgcolrhd2NF39FWqGe
- VX8DJkzJz+A0WpgLCYun/JvOKTtB6k6E5jGIiWrD1nzlkKhAZDvDo2vAVqsaRVpiYjFo/Td6DUd
- SxipLF30YG7dlp5OFRjmXFkfNNjQEDjW+WCY1Snd1lrpueoqsYgl4B5rDMFA1edaB3IDqiJ4wul
- +oNC5cr/0gthI0lTDRGAdE78zUX1MWXmrZS65Q1EjfsDZfBQEHFCMvrwcjQqGV4QPkyrdJupqyh
- yNt2e8008QcNdwV9GAOloY9P9oACvGq5aochDvrXFVboEeKYpKaus00n6A4gpWOv6YSVp2jNqdP
- SJj5wFX5mT2zf1xu7TZnT/HWD45JcsOfOQak4xkQxBkvAsuLWrv3QbUVaFyJmde7LGt0a1Sfvdf
- 36jS9c2tgemCDu7kfqA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-28_03,2026-04-28_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 bulkscore=0 phishscore=0 lowpriorityscore=0 spamscore=0
- priorityscore=1501 suspectscore=0 clxscore=1015 adultscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604280116
+X-Originating-IP: [10.174.179.24]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ dggpemf500002.china.huawei.com (7.185.36.57)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_053313_553059_07085415 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20260428_053428_743179_119FA99E 
+X-CRM114-Status: GOOD (  16.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,20 +87,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 2026/4/24 6:43, Jason Gunthorpe wrote:
+> On Fri, Apr 24, 2026 at 12:44:15AM +0530, Vidya Sagar wrote:
+>> The IORT spec, Issue E.c (ARM DEN 0049E.c, January 2022), bumps the
+>> Root Complex Node to revision 4 and adds two PASID descriptors:
+>>
+>>    - PASID Capabilities at byte offset 33 (2 bytes), bits[4:0] of which
+>>      report the Max PASID Width supported by the Root Complex.
+>>    - Flags at byte offset 36 (4 bytes), bit 0 of which reports whether
+>>      the Root Complex itself supports PASID. This is distinct from the
+>>      existing ATS Attribute bit 2 (at offset 24) that only reports
+>>      whether the RC forwards PASID information on translated
+>>      transactions.
+>>
+>> The ACPICA struct in include/acpi/actbl2.h was updated for the E.c
+>> PASID Capabilities descriptor (offset 33) but stops short with a
+>> trailing 'u8 reserved[]' flexible array, so the new Flags field at
+>> offset 36 is unreachable and the existing ACPI_IORT_PASID_*
+>> definitions have no consumer.
+>>
+>> Replace the trailing flexible array with a fixed 'u8 reserved[1]'
+>> followed by 'u32 flags' so the struct fully covers RC node revision 4,
+>> and add the ACPI_IORT_RC_PASID_SUPPORTED mask for bit 0 of the new
+>> field. With #pragma pack(1) in effect for actbl2.h, this lands the new
+>> field at the spec-mandated absolute offset 36.
+>>
+>> Signed-off-by: Vidya Sagar <vidyas@nvidia.com>
+>> ---
+>>   include/acpi/actbl2.h | 6 +++++-
+>>   1 file changed, 5 insertions(+), 1 deletion(-)
+> 
+> There is a whole process to change this file, I went through it once
+> for canwbs..
+> 
+> https://lore.kernel.org/acpica-devel/2-v3-e2e16cd7467f+2a6a1-smmuv3_nesting_jgg@nvidia.com/
+> 
+> You have to make a pull request here:
+> 
+> https://github.com/acpica/acpica/pulls
 
+Yes, please get this patch merged in ACPICA first.
 
-On 28-04-2026 13:26, Bartosz Golaszewski wrote:
-[SNIP..]
-
->> +
->> +	return psci_reboot_mode_add_predefined_mode(dev, reboot, &psci_resets[1]);
-> Looking at this, I'd introduce a core reboot-mode helper for initializing the
-> predefined_modes field and adding an array of modes and use it here and earlier
-> in the series.
-
-sure. thanks for review. Will expose a call from reboot-mode to init/add 
-predefined_modes.
-
-thanks,
-Shivendra
+Thanks
+Hanjun
 
