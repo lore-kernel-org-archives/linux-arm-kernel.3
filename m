@@ -4,64 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E46BFF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 10:15:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBA46FF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 10:16:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xcy635DpKKoCVUN6XKiv2266UoWMk9NqTJ3mH2R1Q9g=; b=YgrWNxdVkiG/iX6Wb/jwlZWLPo
-	YkQVIqHjKiNbK09R7P2F2TpAH8EaMUmB6Eeof3W/4mDJLBoTRJ5H9WGBQU/wKgzsk6Rw9DhDg10t3
-	NT7tu7Op5RKKd81R/q4kuUiEC3XtwBHFZId9VhH0vYriU4dfyJpHeRiWnS3TasCTTCpM41G4+Veff
-	YgoYQvZru9LMlaZ27yaaod3RzAcQYOwErBH91JLYY3mcetprNsqhtXLFUYpXe54TMcz+hyoCtt70u
-	rmSIBjc29tEvl/G/7RqZ/4XDK9hbuNcvfQvb6Z09NUMEoJexNaQXDGZy2/NnCTXOHBUSZ0EEdEj/f
-	sg8dOoow==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=InetGST7l+/ODcoF8+EPoQeQG89iAw5nllVsRXqM71g=; b=25eQZ+aS16uyW+xuNb7XgEQYMy
+	Uh9B86La5rvs/UIVIejmpfjBwy5+FwCl2toBHDYUcjPo7YY299PqeUBlk1dh6WgNpAUhVlmUjIgqQ
+	07YI5ceMbv6nym+osEgZEJRGZuo/nTKYWDEPtQ6fFtB2nDatfbTK6nFiByLT0TszorurybCSIdHW9
+	g/B/J4nYxd6uam5l0qAd0QhgmYah1GBKZqJe7ULRNIfufB4RI3SwqkrMvSNyj+FGLKR1iQcJW6d0u
+	3lZWtmb/XkDAgROYK6TZUioW3gJNd6Igwhv3DsQDUktlplm8/wtdudUXsk4lMQze5b1VlscHTRXok
+	LfT/BP4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHfTZ-000000019PN-2JSF;
-	Tue, 28 Apr 2026 10:15:33 +0000
-Received: from out-176.mta1.migadu.com ([95.215.58.176])
+	id 1wHfU2-000000019Vq-3cD4;
+	Tue, 28 Apr 2026 10:16:02 +0000
+Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHfTW-000000019ON-09gP
+	id 1wHfTz-000000019U0-3TfC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 10:15:32 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1777371326;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=xcy635DpKKoCVUN6XKiv2266UoWMk9NqTJ3mH2R1Q9g=;
-	b=pX/HKCiZvez7ezlxL+P09TKTq1bX23uyrhEP1GTt7e4+HtRS4vGbYfkhGlMpyn9E9YXADJ
-	ZlmVYW3uP/7V0fXEqXjzrMYSFt4JA4B8ERzYvVMVky2oY6jGEEwsokJ4oQTlD17TE6ydOP
-	dIisVQTOwHm6EoYRaL8f4SBby9PNP8c=
-From: Thorsten Blum <thorsten.blum@linux.dev>
-To: Thorsten Blum <thorsten.blum@linux.dev>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	=?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>
-Cc: stable@vger.kernel.org,
-	linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] crypto: atmel-sha204a - drop hwrng quality reduction for ATSHA204A
-Date: Tue, 28 Apr 2026 12:14:32 +0200
-Message-ID: <20260428101430.514838-3-thorsten.blum@linux.dev>
+	Tue, 28 Apr 2026 10:16:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=I+hWZxE2gmptn6mAboBBYMNopYecnlPsrMi7xqIQ3BZfPK96ak8AivaY+FaGRMrL8rcxSl6xEmHcpQ3K4ReVoPJkUqltH9K871iasBVaLcJJkDdoNFQ54d3NYp7mIIhiNjewoOIg+NfFryIgMqv9rRBROrpaC+NzX6OPKp3U7rsWxHDOhVR76KoYmnnGLEszBQ8x6dIr3L5A6gdjBy9iGcSBin8ci9Cq3rrHVnK95mpZYj0aFzqP0wiiFWbL+0sN0cWCHTdEm+AAcizhO/Ea+c2kwcjSNobD/e9iF2X/rp9iyXu0W3+9KL33SQFJZNtphRgPwLaIZgp/dluDvvKiaQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=InetGST7l+/ODcoF8+EPoQeQG89iAw5nllVsRXqM71g=;
+ b=OljGGlOOt1Ew9lTImKP1v5AOUxCNcbFKbTjpia8Su4N38s2Wnzren5UUge0mFdR5HdsdVJHRb4VgLjionkmQGXAtICK6Y4ccjFedDuliYn8nldIX62+/wgNwGv70HdxsKQhVLKwvvYDhM1AodqbmZuJWAODd+QUJV/4BoQGjU0gfbA49ZMz+D6V6+fh9ojWKMBQ+bXfk+f3GdaZKl+OYVC2X6xcjxy427QHimErIRXwdwo+PRgrl8ET0BKeF3WIeFvindRizsPoX68fRUMuLNihRgtAu6bctG/E+BGCcYxtAChalKeFB5+Jo1JGkCQCS5P5Mdo0fWiCe5Hy68xuogw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=bootlin.com smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=InetGST7l+/ODcoF8+EPoQeQG89iAw5nllVsRXqM71g=;
+ b=Y2FUbHp/3yK+vSdNETdvYbvCxn/qiTy+1XqKkRlVLJP1EJay/F6qZQzCBBUMAP6xfaHUjIO3Fm7eYXdBhVQyUh4rOg/ki5ykwuf6WUrtO2kJPawa4Xy+t6pQx4GXpmO0ErtpGeDoGwHVak3HOHqLjAYDjTUkfFowtmFL1pfeayE=
+Received: from SA0PR12CA0009.namprd12.prod.outlook.com (2603:10b6:806:6f::14)
+ by MW5PR10MB5737.namprd10.prod.outlook.com (2603:10b6:303:190::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Tue, 28 Apr
+ 2026 10:15:52 +0000
+Received: from SA2PEPF00001504.namprd04.prod.outlook.com
+ (2603:10b6:806:6f:cafe::38) by SA0PR12CA0009.outlook.office365.com
+ (2603:10b6:806:6f::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.26 via Frontend Transport; Tue,
+ 28 Apr 2026 10:15:51 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ SA2PEPF00001504.mail.protection.outlook.com (10.167.242.36) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9846.18 via Frontend Transport; Tue, 28 Apr 2026 10:15:51 +0000
+Received: from DLEE215.ent.ti.com (157.170.170.118) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 28 Apr
+ 2026 05:15:50 -0500
+Received: from DLEE203.ent.ti.com (157.170.170.78) by DLEE215.ent.ti.com
+ (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 28 Apr
+ 2026 05:15:49 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE203.ent.ti.com
+ (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 28 Apr 2026 05:15:49 -0500
+Received: from [10.249.134.231] ([10.249.134.231])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 63SAFibP982649;
+	Tue, 28 Apr 2026 05:15:45 -0500
+Message-ID: <6aa8fd45-ec3d-4bd7-9b13-6c00e4fd4efc@ti.com>
+Date: Tue, 28 Apr 2026 15:45:43 +0530
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3773; i=thorsten.blum@linux.dev; h=from:subject; bh=j1nd45mg4g3EXUjYAzfoYk5UWhyibVn267xhc4o9T+8=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDJkfOtpmOE333BNo027uvc7sukDnxj2T3k90Xs8dYXPtS 6HjpPVHO0pZGMS4GGTFFFkezPoxw7e0pnKTScROmDmsTCBDGLg4BWAi714y/I+3mbHCaWF3Q+oM h2bRG7OeuDiv83qfkHNfMsGxbNOL+MMM/11+ufdujdnVN7dsI+fXI0rRodPVbru/f2N7wO3a5st yt1gB
-X-Developer-Key: i=thorsten.blum@linux.dev; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: ti: k3-j721s2-som-p0: add bootph-pre-ram
+ property to pmic@4c
+To: "Thomas Richard (TI)" <thomas.richard@bootlin.com>, Nishanth Menon
+	<nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo
+	<kristo@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+CC: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <gregory.clement@bootlin.com>,
+	<richard.genoud@bootlin.com>, <a-kumar2@ti.com>, <u-kumar1@ti.com>
+References: <20260428-k3-j721s2-som-bootph-pre-ram-pmic-4c-v1-1-e8202ce955a0@bootlin.com>
+Content-Language: en-US
+From: "Kumar, Udit" <u-kumar1@ti.com>
+In-Reply-To: <20260428-k3-j721s2-som-bootph-pre-ram-pmic-4c-v1-1-e8202ce955a0@bootlin.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA2PEPF00001504:EE_|MW5PR10MB5737:EE_
+X-MS-Office365-Filtering-Correlation-Id: ae707c20-c3c7-4194-8f27-08dea50f1fed
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|376014|7416014|36860700016|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: 8RGGqa6z8d4l2cIiapNhQbny6U5H82Kk9IlaiorHOVtNuU6TjOQlzxMelKAGz6mqCkdq0HImqU9oVlDpG5jUQYoCRA+S/CGiOdPNVN0MHBk/fFLC0Cw8Z3rQTVXuZmxrjaRJGns+yD5qhLex7ylpIIRJ9oHI1y4tf5C4bUgYftu+EqbCtrrVHYGA49KT5WMqov+sZW/oANTYh2G6vRMv2Ch2N+q4JBixesnPpBuhO/bNZvz1l3+u7y1AaUS0woGGatXpYdYgkzd7NB8AYwjyFuJBW8LNh+W7txBKQNejWUjzQ2AJQE95KviHIJw/eBlxcsJYdFM9XNui5JqIXBsQtmrzxzjoH2KMwP1RmBWwcDit0uWxTWpmZ7y5SeOXatuKdHyr5D7CngPbYOimwa21Ls4cZ4dITn7NUcw1F/5cJj8irJlHu0VinRinLf4vlSshj9QPPmZmuhsMzoDkSJk4E8kwk39HBqpAZRo7NaRFS7vjuEm2rb/ogzl/oM+AQRk/gExbjW9AYA6cp2315Oj5MwYql0bNn8aCD+ltfiJQqIOilr67Uzf9cLcvQdhVYn9wd+nCmAKLF7og/9RyTL00BvxvCzZDvVzANxMXUnEjszaEfAF48SWt83YgYS17EzWulu8We0aiduIhjchAXxLRkxWKF/D0fUhFy/1LectmPpPLYIwI/pr69KtDKAMUk6L4W3tnwNPdxBYJjG3xUcqz7FS6c2xUy/f/qOB0DwBR+5faV396mltaqa+8cceXQRtVJKczygpSni09s1tVev4ofQ==
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(7416014)(36860700016)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: MnqscwMjyusMewP0XRc0XZnhVrm+oc5pxsAJ9KpIvoSRzfuKSFsAL287y2VZLOXQZVlzrgYg1/vJuw3nnWM+PQ9LllJCqpYmVgCcLDLuzuwtIV8a0p1I/ffqAB2+0nKu5WD6hMRzKR12/deBcQ5pcXxa3fILGV0St5w0IVyE5lBu0VQGM/T9dz5OVERV2jvyeBAHtPDO+c/MfbQto0bClTSe1JS11nCgA3BIDzij+k+lbpdWa/5OZYBGDvI9lebq4fowOb5yyjYtsXpxorviDadXotme5QhrWQZTQEXApVwS4KAgUgdsMgX/5hXQgMcSCQ+pnHUfvgLbJGW6PLojiwAglnjbFuh78nMfnCWx5o631v/mrgsRIM1QAFgufFWxKj6bBokG1DAxhro3Oj2eJKVmiFn3i5A4IRxseFuAFw1I3TsmnLqqXpG23OeWVMvD
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2026 10:15:51.1221
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ae707c20-c3c7-4194-8f27-08dea50f1fed
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00001504.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW5PR10MB5737
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_031530_484959_E9823FEC 
-X-CRM114-Status: GOOD (  15.93  )
+X-CRM114-CacheID: sfid-20260428_031559_956678_BAC12311 
+X-CRM114-Status: GOOD (  13.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,96 +136,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 8006aff15516 ("crypto: atmel-sha204a - Set hwrng quality to
-lowest possible") reduced the hwrng quality to 1 based on a review by
-Bill Cox [1]. However, despite its title, the review only tested the
-ATSHA204, not the ATSHA204A.
 
-In the same thread, Atmel engineer Landon Cox wrote "this behavior has
-been eliminated entirely"[2] in the ATSHA204A and "this problem does not
-affect the ATECC108 or the ATECC108A (or the ATSHA204A)"[3].
 
-According to the official ATSHA204A datasheet [4], the device contains a
-high-quality hardware RNG that combines its output with an internal seed
-value stored in EEPROM or SRAM to generate random numbers. The device
-also implements all security functions using SHA-256, and the driver
-uses the chip's Random command in seed-update mode.
+On 4/28/2026 2:23 PM, Thomas Richard (TI) wrote:
+> On j721s2, pmic@4c is needed to exit the DDR from retention after
 
-Keep 'quality = 1' for ATSHA204, but drop the explicit hwrng quality
-reduction for ATSHA204A and fall back to the hwrng core default.
+pmic@4c to PMIC-A to align with schematic, please
 
-[1] https://www.metzdowd.com/pipermail/cryptography/2014-December/023858.html
-[2] https://www.metzdowd.com/pipermail/cryptography/2014-December/023852.html
-[3] https://www.metzdowd.com/pipermail/cryptography/2014-December/023886.html
-[4] https://ww1.microchip.com/downloads/en/DeviceDoc/ATSHA204A-Data-Sheet-40002025A.pdf
+> suspend-to-ram. Add bootph-pre-ram property to make pmic@4c available to
+> the bootloader in the phase that sets up the DDR.
+> 
+> Signed-off-by: Thomas Richard (TI) <thomas.richard@bootlin.com>
+> ---
+>  arch/arm64/boot/dts/ti/k3-j721s2-som-p0.dtsi | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-som-p0.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-som-p0.dtsi
+> index 12a38dd1514b..a19e535f4946 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j721s2-som-p0.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-j721s2-som-p0.dtsi
+> @@ -250,6 +250,7 @@ buckb1: buck1 {
+>  				regulator-max-microvolt = <1800000>;
+>  				regulator-always-on;
+>  				regulator-boot-on;
+> +				bootph-pre-ram;
+>  			};
+>  
+>  			buckb2: buck2 {
+> 
+> ---
+> base-commit: 59b04cb2325c07ddc1cc7d984bd8c8f89f161746
+> change-id: 20260427-k3-j721s2-som-bootph-pre-ram-pmic-4c-744fb90b05a3
+> 
+> Best regards,
 
-Fixes: 8006aff15516 ("crypto: atmel-sha204a - Set hwrng quality to lowest possible")
-Cc: stable@vger.kernel.org
-Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
----
-Changes in v2:
-- Drop the enum and dereference match data if needed as suggested by Ard
-- Keep the review comment
-- v1: https://lore.kernel.org/lkml/20260427124030.315590-3-thorsten.blum@linux.dev/
----
- drivers/crypto/atmel-sha204a.c | 19 ++++++++++++-------
- 1 file changed, 12 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/crypto/atmel-sha204a.c b/drivers/crypto/atmel-sha204a.c
-index dbb39ed0cea1..a8c1b00b12f5 100644
---- a/drivers/crypto/atmel-sha204a.c
-+++ b/drivers/crypto/atmel-sha204a.c
-@@ -19,6 +19,12 @@
- #include <linux/workqueue.h>
- #include "atmel-i2c.h"
- 
-+/*
-+ * According to review by Bill Cox [1], the ATSHA204 has very low entropy.
-+ * [1] https://www.metzdowd.com/pipermail/cryptography/2014-December/023858.html
-+ */
-+static const unsigned short atsha204_quality = 1;
-+
- static void atmel_sha204a_rng_done(struct atmel_i2c_work_data *work_data,
- 				   void *areq, int status)
- {
-@@ -158,6 +164,7 @@ static const struct attribute_group atmel_sha204a_groups = {
- static int atmel_sha204a_probe(struct i2c_client *client)
- {
- 	struct atmel_i2c_client_priv *i2c_priv;
-+	const unsigned short *quality;
- 	int ret;
- 
- 	ret = atmel_i2c_probe(client);
-@@ -171,11 +178,9 @@ static int atmel_sha204a_probe(struct i2c_client *client)
- 	i2c_priv->hwrng.name = dev_name(&client->dev);
- 	i2c_priv->hwrng.read = atmel_sha204a_rng_read;
- 
--	/*
--	 * According to review by Bill Cox [1], this HWRNG has very low entropy.
--	 * [1] https://www.metzdowd.com/pipermail/cryptography/2014-December/023858.html
--	 */
--	i2c_priv->hwrng.quality = 1;
-+	quality = i2c_get_match_data(client);
-+	if (quality)
-+		i2c_priv->hwrng.quality = *quality;
- 
- 	ret = devm_hwrng_register(&client->dev, &i2c_priv->hwrng);
- 	if (ret)
-@@ -203,14 +208,14 @@ static void atmel_sha204a_remove(struct i2c_client *client)
- }
- 
- static const struct of_device_id atmel_sha204a_dt_ids[] __maybe_unused = {
--	{ .compatible = "atmel,atsha204", },
-+	{ .compatible = "atmel,atsha204", .data = &atsha204_quality },
- 	{ .compatible = "atmel,atsha204a", },
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, atmel_sha204a_dt_ids);
- 
- static const struct i2c_device_id atmel_sha204a_id[] = {
--	{ "atsha204" },
-+	{ "atsha204", (kernel_ulong_t)&atsha204_quality },
- 	{ "atsha204a" },
- 	{ /* sentinel */ }
- };
 
