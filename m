@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75C4FFF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 10:15:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E46BFF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 10:15:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KYtNEMdrWB8ReB7g8yxnTxUPyAfBI79tAY+sZKCDKTw=; b=h4TFR1Hf/XiF7uW7Z8qPX7SHnu
-	xaMKIRm0N5Cdcrq5Pj0MzbIMLSsw1Kg7z5jxcX8b8vgoUa6Q3fxI9+U2I5lqlj7EY74x5jIObee1U
-	DY07/+lqWQL6IUghRqCFKu3OdTBRRt9wHCL3Nw0SWxcbwssQD6ca69plxPnrlxyJGz2QDGjFaO06o
-	fz9UkUqVLmCJQ8aMi1rtt6zv5wwJjdmfiwjeWSiSOncnCcLSzvYqKEt06En6eohg9SQHwFMm2nD6+
-	HNgmuLfwrykbJl9Tkyx6sgcXzbncL+W6Ap7tsFdbLl9/tnofxRMw7Dje/pZfYzv5CTNlNYHaWEOgq
-	fPLqOd+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xcy635DpKKoCVUN6XKiv2266UoWMk9NqTJ3mH2R1Q9g=; b=YgrWNxdVkiG/iX6Wb/jwlZWLPo
+	YkQVIqHjKiNbK09R7P2F2TpAH8EaMUmB6Eeof3W/4mDJLBoTRJ5H9WGBQU/wKgzsk6Rw9DhDg10t3
+	NT7tu7Op5RKKd81R/q4kuUiEC3XtwBHFZId9VhH0vYriU4dfyJpHeRiWnS3TasCTTCpM41G4+Veff
+	YgoYQvZru9LMlaZ27yaaod3RzAcQYOwErBH91JLYY3mcetprNsqhtXLFUYpXe54TMcz+hyoCtt70u
+	rmSIBjc29tEvl/G/7RqZ/4XDK9hbuNcvfQvb6Z09NUMEoJexNaQXDGZy2/NnCTXOHBUSZ0EEdEj/f
+	sg8dOoow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHfTP-000000019NO-0ypn;
-	Tue, 28 Apr 2026 10:15:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHfTM-000000019M7-2dYW
+	id 1wHfTZ-000000019PN-2JSF;
+	Tue, 28 Apr 2026 10:15:33 +0000
+Received: from out-176.mta1.migadu.com ([95.215.58.176])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHfTW-000000019ON-09gP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 10:15:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 81DE21650;
-	Tue, 28 Apr 2026 03:15:10 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 81AC23F763;
-	Tue, 28 Apr 2026 03:15:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777371316; bh=ofVz5HqdphQZ+WDXJPcnWX4aaxd9tyeydKj7LMa8neo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MW6wK6sIVeDlOJOa9WK9oww+c9ipPg8oKl+MTzOK+fJXwVRQTMDVQmbUIjr5R9IgA
-	 8bMwCHgpOKZWAvaiTJrg1nrHUQn9EJHLnDsGuz/ZdsxhVvW+/lil360K+9/bYH1BHb
-	 zI5gylqOvy72EuXy1nrC6BvtE3BGJdBLrrNEnK/A=
-Date: Tue, 28 Apr 2026 11:15:13 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
+	Tue, 28 Apr 2026 10:15:32 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1777371326;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=xcy635DpKKoCVUN6XKiv2266UoWMk9NqTJ3mH2R1Q9g=;
+	b=pX/HKCiZvez7ezlxL+P09TKTq1bX23uyrhEP1GTt7e4+HtRS4vGbYfkhGlMpyn9E9YXADJ
+	ZlmVYW3uP/7V0fXEqXjzrMYSFt4JA4B8ERzYvVMVky2oY6jGEEwsokJ4oQTlD17TE6ydOP
+	dIisVQTOwHm6EoYRaL8f4SBby9PNP8c=
+From: Thorsten Blum <thorsten.blum@linux.dev>
+To: Thorsten Blum <thorsten.blum@linux.dev>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	=?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>
+Cc: stable@vger.kernel.org,
+	linux-crypto@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] kselftest/arm64: Fix build failure with GCC-15
-Message-ID: <20260428101513.GE16537@e132581.arm.com>
-References: <20260422-selftests_arm64_gcc15-v2-1-c0134de8838a@arm.com>
- <aeuRfEeOUWEHzPix@arm.com>
- <63409143-f4eb-48c3-89de-1aef4fb57381@sirena.org.uk>
- <aeud4Hqxq4PNitMc@arm.com>
- <b94bce09-69d5-4454-b4a0-81612f286f0a@sirena.org.uk>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] crypto: atmel-sha204a - drop hwrng quality reduction for ATSHA204A
+Date: Tue, 28 Apr 2026 12:14:32 +0200
+Message-ID: <20260428101430.514838-3-thorsten.blum@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b94bce09-69d5-4454-b4a0-81612f286f0a@sirena.org.uk>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3773; i=thorsten.blum@linux.dev; h=from:subject; bh=j1nd45mg4g3EXUjYAzfoYk5UWhyibVn267xhc4o9T+8=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDJkfOtpmOE333BNo027uvc7sukDnxj2T3k90Xs8dYXPtS 6HjpPVHO0pZGMS4GGTFFFkezPoxw7e0pnKTScROmDmsTCBDGLg4BWAi714y/I+3mbHCaWF3Q+oM h2bRG7OeuDiv83qfkHNfMsGxbNOL+MMM/11+ufdujdnVN7dsI+fXI0rRodPVbru/f2N7wO3a5st yt1gB
+X-Developer-Key: i=thorsten.blum@linux.dev; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_031520_883011_57920822 
-X-CRM114-Status: GOOD (  21.50  )
+X-CRM114-CacheID: sfid-20260428_031530_484959_E9823FEC 
+X-CRM114-Status: GOOD (  15.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,75 +76,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 24, 2026 at 06:09:01PM +0100, Mark Brown wrote:
-> On Fri, Apr 24, 2026 at 05:44:16PM +0100, Catalin Marinas wrote:
-> 
-> > OK, so it does look like it picks the kernel uapi/asm/ptrace.h. It
-> > builds fine on Debian stable (no GCS anywhere) with including
-> > asm/ptrace.h and removing struct user_gcs.
+Commit 8006aff15516 ("crypto: atmel-sha204a - Set hwrng quality to
+lowest possible") reduced the hwrng quality to 1 based on a review by
+Bill Cox [1]. However, despite its title, the review only tested the
+ATSHA204, not the ATSHA204A.
 
-kselftest has the GCC option: "-isystem $(top_srcdir)/usr/include",
-So asm/ptrace.h does come from kernel's usr/include/asm/ptrace.h.
+In the same thread, Atmel engineer Landon Cox wrote "this behavior has
+been eliminated entirely"[2] in the ATSHA204A and "this problem does not
+affect the ATECC108 or the ATECC108A (or the ATSHA204A)"[3].
 
-NT_ARM_GCS comes from /usr/aarch64-linux-gnu/include/elf.h.
+According to the official ATSHA204A datasheet [4], the device contains a
+high-quality hardware RNG that combines its output with an internal seed
+value stored in EEPROM or SRAM to generate random numbers. The device
+also implements all security functions using SHA-256, and the driver
+uses the chip's Random command in seed-update mode.
 
-> > But I think we should include asm/ptrace.h in libc-gcs.h and not the
-> > gcs-util.h header (for NT_ARM_GCS it's fine to keep in gcs-util.h).
-> 
-> It's not glibc specific so it seems reasonable to keep it in gcs-util.h,
-> even though we don't currently have any nolibc stuff that uses ptrace.
-> That said this isn't particularly strongly held opinion so I don't
-> *really* mind either way.
+Keep 'quality = 1' for ATSHA204, but drop the explicit hwrng quality
+reduction for ATSHA204A and fall back to the hwrng core default.
 
-Does below change make sense to you?
+[1] https://www.metzdowd.com/pipermail/cryptography/2014-December/023858.html
+[2] https://www.metzdowd.com/pipermail/cryptography/2014-December/023852.html
+[3] https://www.metzdowd.com/pipermail/cryptography/2014-December/023886.html
+[4] https://ww1.microchip.com/downloads/en/DeviceDoc/ATSHA204A-Data-Sheet-40002025A.pdf
 
-Subject: [PATCH] kselftest/arm64: Include <asm/ptrace.h> for user_gcs definition
-
-kselftest includes kernel uAPI headers with option:
-
-  -isystem $(top_srcdir)/usr/include
-
-Include <asm/ptrace.h> in libc-gcs.c for the definition of struct
-user_gcs from the uAPI headers, and remove the redundant
-definition in gcs-util.h.
-
-Fixes: a505a52b4e29 ("kselftest/arm64: Add a GCS test program built with the system libc")
-Signed-off-by: Leo Yan <leo.yan@arm.com>
+Fixes: 8006aff15516 ("crypto: atmel-sha204a - Set hwrng quality to lowest possible")
+Cc: stable@vger.kernel.org
+Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
 ---
- tools/testing/selftests/arm64/gcs/gcs-util.h | 6 ------
- tools/testing/selftests/arm64/gcs/libc-gcs.c | 1 +
- 2 files changed, 1 insertion(+), 6 deletions(-)
+Changes in v2:
+- Drop the enum and dereference match data if needed as suggested by Ard
+- Keep the review comment
+- v1: https://lore.kernel.org/lkml/20260427124030.315590-3-thorsten.blum@linux.dev/
+---
+ drivers/crypto/atmel-sha204a.c | 19 ++++++++++++-------
+ 1 file changed, 12 insertions(+), 7 deletions(-)
 
-diff --git a/tools/testing/selftests/arm64/gcs/gcs-util.h b/tools/testing/selftests/arm64/gcs/gcs-util.h
-index c99a6b39ac14..7a81bb07ed4b 100644
---- a/tools/testing/selftests/arm64/gcs/gcs-util.h
-+++ b/tools/testing/selftests/arm64/gcs/gcs-util.h
-@@ -18,12 +18,6 @@
+diff --git a/drivers/crypto/atmel-sha204a.c b/drivers/crypto/atmel-sha204a.c
+index dbb39ed0cea1..a8c1b00b12f5 100644
+--- a/drivers/crypto/atmel-sha204a.c
++++ b/drivers/crypto/atmel-sha204a.c
+@@ -19,6 +19,12 @@
+ #include <linux/workqueue.h>
+ #include "atmel-i2c.h"
  
- #ifndef NT_ARM_GCS
- #define NT_ARM_GCS 0x410
--
--struct user_gcs {
--	__u64 features_enabled;
--	__u64 features_locked;
--	__u64 gcspr_el0;
--};
- #endif
++/*
++ * According to review by Bill Cox [1], the ATSHA204 has very low entropy.
++ * [1] https://www.metzdowd.com/pipermail/cryptography/2014-December/023858.html
++ */
++static const unsigned short atsha204_quality = 1;
++
+ static void atmel_sha204a_rng_done(struct atmel_i2c_work_data *work_data,
+ 				   void *areq, int status)
+ {
+@@ -158,6 +164,7 @@ static const struct attribute_group atmel_sha204a_groups = {
+ static int atmel_sha204a_probe(struct i2c_client *client)
+ {
+ 	struct atmel_i2c_client_priv *i2c_priv;
++	const unsigned short *quality;
+ 	int ret;
  
- /* Shadow Stack/Guarded Control Stack interface */
-diff --git a/tools/testing/selftests/arm64/gcs/libc-gcs.c b/tools/testing/selftests/arm64/gcs/libc-gcs.c
-index 17b2fabfec38..72e82bfbecc9 100644
---- a/tools/testing/selftests/arm64/gcs/libc-gcs.c
-+++ b/tools/testing/selftests/arm64/gcs/libc-gcs.c
-@@ -16,6 +16,7 @@
+ 	ret = atmel_i2c_probe(client);
+@@ -171,11 +178,9 @@ static int atmel_sha204a_probe(struct i2c_client *client)
+ 	i2c_priv->hwrng.name = dev_name(&client->dev);
+ 	i2c_priv->hwrng.read = atmel_sha204a_rng_read;
  
- #include <asm/hwcap.h>
- #include <asm/mman.h>
-+#include <asm/ptrace.h>
+-	/*
+-	 * According to review by Bill Cox [1], this HWRNG has very low entropy.
+-	 * [1] https://www.metzdowd.com/pipermail/cryptography/2014-December/023858.html
+-	 */
+-	i2c_priv->hwrng.quality = 1;
++	quality = i2c_get_match_data(client);
++	if (quality)
++		i2c_priv->hwrng.quality = *quality;
  
- #include <linux/compiler.h>
+ 	ret = devm_hwrng_register(&client->dev, &i2c_priv->hwrng);
+ 	if (ret)
+@@ -203,14 +208,14 @@ static void atmel_sha204a_remove(struct i2c_client *client)
+ }
  
--- 
-2.34.1
-
+ static const struct of_device_id atmel_sha204a_dt_ids[] __maybe_unused = {
+-	{ .compatible = "atmel,atsha204", },
++	{ .compatible = "atmel,atsha204", .data = &atsha204_quality },
+ 	{ .compatible = "atmel,atsha204a", },
+ 	{ /* sentinel */ }
+ };
+ MODULE_DEVICE_TABLE(of, atmel_sha204a_dt_ids);
+ 
+ static const struct i2c_device_id atmel_sha204a_id[] = {
+-	{ "atsha204" },
++	{ "atsha204", (kernel_ulong_t)&atsha204_quality },
+ 	{ "atsha204a" },
+ 	{ /* sentinel */ }
+ };
 
