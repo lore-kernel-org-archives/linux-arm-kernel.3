@@ -4,89 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE0FCFF886D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 19:41:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C941EFF886D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 19:51:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=71LCOMqFrz04IEtzeuJuChjfkwvGbSYQSDEYmebNs9A=; b=zxRIzb5x+tEz5F73qv7oOmVwMD
-	2cAzcA9nIhpVaBH4MugxxSCcGPhagcRJeQWynLHX+l5MqIl3uFVS6/oGFd0PIUR3CHE/4kokWrcvJ
-	H32CCF8unNhF1fb185vqzPhcjT4Qk+K7KUDqttdKBAywlars+IJd+UnvoJf7xFcjiwc07vNLzb/AV
-	X1gwe1ZRkcpCGC8p4t5RF/DhekmfLAykZ59fKq4eMZ1Jmr5Uc1dFEwM22hb4ss2mXoNUkZPjoOczQ
-	VTKldNN9jKb7i37XEY3ru5xvHZaDSbSr2kvYx6mbWu6HKMlClsSXWKq76HUvvahKrJ1M8qzNmy4V1
-	bg/XKMFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N5ioFK0mHY9Ys4LHm2ud15cUW/kDvfazRIYlH++roFY=; b=IRvsQjPmhr7CGH4jxydotJ7rnD
+	u9XGhGMw5akQr/xFN4dBWpmCfyHAV60DbTz0rWmJmYogiLFiYlsGURrPDlvwQZI/YuGOshT+7oY0u
+	X4pvPN6+rIMNLyyuP5X7tggyKQk62wGRrlG8ygx1tudFEkYDMoWTURGhWwagS+cZQp4OLeAJkpFzu
+	gOeYpvJCIOroE1QA7AFLqWvrW+Pjit/+8F+8o1dWCUgzrObMFB0qCbidasLdovz/KEKU8xSeYGBOu
+	xogkRrVi/eN9EcPae8zdS/3udNy+dZXButyTtfXlzUXDoMhFtVDpu/fsrduZPhZ3MePMPylc5Sj1Q
+	NXa0C94w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHoIw-00000002ArD-2Kmq;
-	Tue, 28 Apr 2026 19:41:10 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wHoSm-00000002BKW-0PxE;
+	Tue, 28 Apr 2026 19:51:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHoIu-00000002Aqk-3AZI;
-	Tue, 28 Apr 2026 19:41:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1777405265;
-	bh=OLk9eY4xezvz9+DAPYOerAqqqeIZ4b5yBW/4U6YrOg8=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=O2Jrx7eg+ftQqnxrsrTNhEJR47eXRhP/ArA+uPDT4ddmag/Wv19rFga4TyoqjJpyR
-	 VY/GxjOWjBxDhZxGZckggl0B981VF6cteS6VsbSa7+all6ngTP5y5ekdVKcaCIGSPU
-	 0I8uC/yTucPTeE/PddfV0QWMUc33Clmu+YWFDm2rS+WGIMb/5grU7QbPmIFahGOr/e
-	 y4xqP9PzqR/q1VFaLwQ4GsnV563OsNL+T5YyYiV31Xr3Sw0SPyTK0zdl5dnOlWyDN3
-	 BB45e1A6CHqo4L/2Da2u+zOt004uRfD9e4cZfieB8tpCu3ICifzzfj6fmc/1H/YSXj
-	 +IktcUs+icVJw==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 506E017E0615;
-	Tue, 28 Apr 2026 21:41:03 +0200 (CEST)
-Message-ID: <b5edc1a6931a3b9f63d53c8267ea2117fd690471.camel@collabora.com>
-Subject: Re: [PATCH 11/11] media: hantro: Add fdinfo callback
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Detlev Casanova <detlev.casanova@collabora.com>, 
-	linux-kernel@vger.kernel.org
-Cc: Benjamin Gaignard <benjamin.gaignard@collabora.com>, Philipp Zabel	
- <p.zabel@pengutronix.de>, Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko
- Stuebner <heiko@sntech.de>, Daniel Almeida <daniel.almeida@collabora.com>,
- Steven Rostedt	 <rostedt@goodmis.org>, Masami Hiramatsu
- <mhiramat@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Hans Verkuil <hverkuil@kernel.org>, Laurent Pinchart	
- <laurent.pinchart+renesas@ideasonboard.com>, Ricardo Ribalda	
- <ribalda@chromium.org>, Yunke Cao <yunkec@google.com>, Sakari Ailus	
- <sakari.ailus@linux.intel.com>, Pavan Bobba <opensource206@gmail.com>,
- James Cowgill <james.cowgill@blaize.com>, Ma Ke <make24@iscas.ac.cn>,
- Jacopo Mondi	 <jacopo.mondi@ideasonboard.com>, Daniel Scally
- <dan.scally@ideasonboard.com>, 	linux-media@vger.kernel.org,
- linux-rockchip@lists.infradead.org, 	linux-arm-kernel@lists.infradead.org,
- linux-trace-kernel@vger.kernel.org, 	kernel@collabora.com
-Date: Tue, 28 Apr 2026 15:41:02 -0400
-In-Reply-To: <20260212162328.192217-12-detlev.casanova@collabora.com>
-References: <20260212162328.192217-1-detlev.casanova@collabora.com>
-	 <20260212162328.192217-12-detlev.casanova@collabora.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-mPo9ivf2B9N/Jc9BUcpD"
-User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
+	id 1wHoSj-00000002BKN-3uUb
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Apr 2026 19:51:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id EC5E161145;
+	Tue, 28 Apr 2026 19:51:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFA90C2BCAF;
+	Tue, 28 Apr 2026 19:51:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777405876;
+	bh=Nhfmyw9bPmtRKlxPV1In2mC53XW8ms1qpcByR8ySSaY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=nm3/Up7Fte+HsSj4Zi+YOwznbJD7iPvMtnYo665KKkx6dWJcE7Gzd0pPiMSQo+jK4
+	 jne31Wtcxx5AG8x5gUZVH9V8RjxMZw7APbTvdkucjJW3hbn/Kxv2fYWn4d4iNwidcq
+	 oxgP3xyTt8eJTpuPlhI6M7N8t55F9QFPaHEBiZMxlU5purCnr6aeQmlod1arAb7qyT
+	 TejgemR812N9nuTYeJuBNAVDkdX15SepZsM2cm3UB+os/1GK6MzazI8reQvK4XdYJx
+	 2vglztBGG3fVOstGGeKmJzZujOc0herLstlCzqy++2TxoMjnhbtu7LcpirMLnVykhl
+	 0WusTNZOxXBdA==
+Message-ID: <3d1a6b5c-f3bf-462f-879a-cdb5b60868ac@kernel.org>
+Date: Tue, 28 Apr 2026 21:51:09 +0200
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_124108_943032_3B325D4E 
-X-CRM114-Status: GOOD (  20.72  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 02/15] mm: Make empty_zero_page __ro_after_init
+To: Ard Biesheuvel <ardb+git@google.com>, linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com,
+ mark.rutland@arm.com, Ard Biesheuvel <ardb@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Liz Prucka <lizprucka@google.com>, Seth Jenkins <sethjenkins@google.com>,
+ Kees Cook <kees@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org,
+ linux-hardening@vger.kernel.org
+References: <20260427153416.2103979-17-ardb+git@google.com>
+ <20260427153416.2103979-19-ardb+git@google.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260427153416.2103979-19-ardb+git@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,140 +121,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---=-mPo9ivf2B9N/Jc9BUcpD
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-Le jeudi 12 f=C3=A9vrier 2026 =C3=A0 11:23 -0500, Detlev Casanova a =C3=A9c=
-rit=C2=A0:
-> The fdinfo shows the number of buffers in each queue and the total amount
-> of video buffer memory.
->=20
-> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
-
-Notice that the FD info is not linked with all the ftrace work, and could h=
-ave
-been kept separate. I think overall that this fdinfo implementation is a bi=
-t
-limited, and lack helpers or introducing of common statistics that would be
-opted in by other drivers. I would hold on that until we have a bigger and
-robust plan.
-
-Nicolas
-
+On 4/27/26 17:34, Ard Biesheuvel wrote:
+> From: Ard Biesheuvel <ardb@kernel.org>
+> 
+> The empty zero page is used to back any kernel or user space mapping
+> that is supposed to remain cleared, and so the page itself is never
+> supposed to be modified.
+> 
+> So make it __ro_after_init rather than __page_aligned_bss: on most
+> architectures, this ensures that both the kernel's mapping of it and any
+> aliases that are accessible via the kernel direct (linear) map are
+> mapped read-only, and cannot be used (inadvertently or maliciously) to
+> corrupt the contents of the zero page.
+> 
+> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 > ---
-> =C2=A0drivers/media/platform/verisilicon/hantro.h=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0 |=C2=A0 1 +
-> =C2=A0drivers/media/platform/verisilicon/hantro_drv.c=C2=A0 | 15 ++++++++=
-+++++++
-> =C2=A0drivers/media/platform/verisilicon/hantro_v4l2.c | 10 +++++++++-
-> =C2=A03 files changed, 25 insertions(+), 1 deletion(-)
->=20
-> diff --git a/drivers/media/platform/verisilicon/hantro.h
-> b/drivers/media/platform/verisilicon/hantro.h
-> index d5cddc783688..9e9fc0658586 100644
-> --- a/drivers/media/platform/verisilicon/hantro.h
-> +++ b/drivers/media/platform/verisilicon/hantro.h
-> @@ -268,6 +268,7 @@ struct hantro_ctx {
-> =C2=A0	const struct hantro_codec_ops *codec_ops;
-> =C2=A0	struct hantro_postproc_ctx postproc;
-> =C2=A0	bool need_postproc;
-> +	u64 stats_buf_memory;
-> =C2=A0
-> =C2=A0	/* Specific for particular codec modes. */
-> =C2=A0	union {
-> diff --git a/drivers/media/platform/verisilicon/hantro_drv.c
-> b/drivers/media/platform/verisilicon/hantro_drv.c
-> index 8dd26ca32459..86d316a8a3e8 100644
-> --- a/drivers/media/platform/verisilicon/hantro_drv.c
-> +++ b/drivers/media/platform/verisilicon/hantro_drv.c
-> @@ -17,6 +17,7 @@
-> =C2=A0#include <linux/platform_device.h>
-> =C2=A0#include <linux/pm.h>
-> =C2=A0#include <linux/pm_runtime.h>
-> +#include <linux/seq_file.h>
-> =C2=A0#include <linux/slab.h>
-> =C2=A0#include <linux/videodev2.h>
-> =C2=A0#include <linux/workqueue.h>
-> @@ -711,6 +712,19 @@ static int hantro_release(struct file *filp)
-> =C2=A0	return 0;
-> =C2=A0}
-> =C2=A0
-> +static void hantro_show_fdinfo(struct seq_file *m, struct file *filp)
-> +{
-> +	struct hantro_ctx *ctx =3D
-> +		container_of(filp->private_data, struct hantro_ctx, fh);
-> +
-> +	struct vb2_queue *src_q =3D v4l2_m2m_get_src_vq(ctx->fh.m2m_ctx);
-> +	struct vb2_queue *dst_q =3D v4l2_m2m_get_dst_vq(ctx->fh.m2m_ctx);
-> +
-> +	seq_printf(m, "src-queued-count: %04u\n", src_q->queued_count);
-> +	seq_printf(m, "dst-queued-count: %04u\n", dst_q->queued_count);
-> +	seq_printf(m, "buf-size: %llu\n", ctx->stats_buf_memory);
-> +}
-> +
-> =C2=A0static const struct v4l2_file_operations hantro_fops =3D {
-> =C2=A0	.owner =3D THIS_MODULE,
-> =C2=A0	.open =3D hantro_open,
-> @@ -718,6 +732,7 @@ static const struct v4l2_file_operations hantro_fops =
-=3D {
-> =C2=A0	.poll =3D v4l2_m2m_fop_poll,
-> =C2=A0	.unlocked_ioctl =3D video_ioctl2,
-> =C2=A0	.mmap =3D v4l2_m2m_fop_mmap,
-> +	.show_fdinfo =3D hantro_show_fdinfo,
-> =C2=A0};
-> =C2=A0
-> =C2=A0static const struct of_device_id of_hantro_match[] =3D {
-> diff --git a/drivers/media/platform/verisilicon/hantro_v4l2.c
-> b/drivers/media/platform/verisilicon/hantro_v4l2.c
-> index fcf3bd9bcda2..6d129613ea3d 100644
-> --- a/drivers/media/platform/verisilicon/hantro_v4l2.c
-> +++ b/drivers/media/platform/verisilicon/hantro_v4l2.c
-> @@ -820,18 +820,26 @@ hantro_queue_setup(struct vb2_queue *vq, unsigned i=
-nt
-> *num_buffers,
-> =C2=A0		return -EINVAL;
-> =C2=A0	}
-> =C2=A0
-> +	ctx->stats_buf_memory =3D 0;
-> +
-> =C2=A0	if (*num_planes) {
-> =C2=A0		if (*num_planes !=3D pixfmt->num_planes)
-> =C2=A0			return -EINVAL;
-> -		for (i =3D 0; i < pixfmt->num_planes; ++i)
-> +		for (i =3D 0; i < pixfmt->num_planes; ++i) {
-> =C2=A0			if (sizes[i] < pixfmt->plane_fmt[i].sizeimage)
-> =C2=A0				return -EINVAL;
-> +			ctx->stats_buf_memory +=3D pixfmt-
-> >plane_fmt[i].sizeimage;
-> +		}
-> +
-> +		ctx->stats_buf_memory *=3D *num_buffers;
-> +
-> =C2=A0		return 0;
-> =C2=A0	}
-> =C2=A0
-> =C2=A0	*num_planes =3D pixfmt->num_planes;
-> =C2=A0	for (i =3D 0; i < pixfmt->num_planes; ++i)
-> =C2=A0		sizes[i] =3D pixfmt->plane_fmt[i].sizeimage;
-> +
-> =C2=A0	return 0;
-> =C2=A0}
-> =C2=A0
+>  mm/mm_init.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/mm/mm_init.c b/mm/mm_init.c
+> index f9f8e1af921c..6ca01ed2a5a4 100644
+> --- a/mm/mm_init.c
+> +++ b/mm/mm_init.c
+> @@ -57,7 +57,7 @@ unsigned long zero_page_pfn __ro_after_init;
+>  EXPORT_SYMBOL(zero_page_pfn);
+>  
+>  #ifndef __HAVE_COLOR_ZERO_PAGE
+> -uint8_t empty_zero_page[PAGE_SIZE] __page_aligned_bss;
+> +uint8_t empty_zero_page[PAGE_SIZE] __ro_after_init __aligned(PAGE_SIZE);
+>  EXPORT_SYMBOL(empty_zero_page);
+>  
+>  struct page *__zero_page __ro_after_init;
 
---=-mPo9ivf2B9N/Jc9BUcpD
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+I am no expert on BSS etc, but from what I understand, we'll still get zeroed
+page-aligned memory. I don't know if there is any other impact on not having it
+in bss.page_aligned. I assume no
 
------BEGIN PGP SIGNATURE-----
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCafENTgAKCRDZQZRRKWBy
-9BsUAP9keTpZV1Y5F4NDekycFkwncQ+O5HeqmyFBR0miRmeESwD+MCMHlCAyPRsd
-wcOQ8R0TcqNfmy46huIbDq7Nt3JFwA0=
-=DWyo
------END PGP SIGNATURE-----
+-- 
+Cheers,
 
---=-mPo9ivf2B9N/Jc9BUcpD--
+David
 
