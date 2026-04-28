@@ -4,77 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8048BFF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 07:39:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2295FF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 07:39:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LOmVa5HEYXAhxFxX5dmA5ibLhZjG/rAPjw3EsQuigAE=; b=trR9YWQio77zxgA3vUfS73sK8c
-	I2t7jRt/1mmArbBbY/bzt4UbP5PodvhFHnaVUh3/rME9/23bvoJsx36HAmlXxERqoEg+4QsVqLC5b
-	dCOOq+u89gH6O30DOdkOF9kTIOAIBPGLeaq6yrnHa6ffiCyu0sWlw0EQ+kehsEg76GNLnnjminIEZ
-	ndWD96M6s7Py0jIy0yPeB3ZfSCq8qhyhG05FZ2H+nqZ+iuw5vuDJ5lagnpfmGuNW/S5nxCs2viZLQ
-	k/zPkggCnc11CioqPe8olzUrqYTw0lRSCZf4740QxNn1q3uRKDd5AS5t/vNbQEtnkKMx2G1h5zOkV
-	SRJwYdTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:References:MIME-Version:
+	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5Cjuw4XvwNieU6Jv0siKDnnn4ahJa6G58SW7RGlPtuQ=; b=kXlt6EnfakWlCVmXSJ7HGNs562
+	y9SbevOTczAumy8JwM/39Zjb/kE9tcr2JMcsx3gjGAzcG0eeqmFXg11vkNIVLTzBr8PgJ0spgfynt
+	PPQi7bjNuDJCgTQl+4sJ1lycT1FfJo2ZOnPQCPpaGB2+tvUGXyCpL0tiKFzuJ5IRNqHqPCwVEJthj
+	ByotsUyUmYK99R1a0DDokumd9A/NcNRx8pFucK0RBHtEHxvtPN1Z51BVXTwwWoTxKEtOG/to6N6lU
+	P05qa3mCmswl7yvrSAki0c+dl9GhNHEP2Xtfxpq7HcxqGUTcexI2k/FRxfRQhJS8+vgE24mlAMylt
+	L+BJmEpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHd29-00000000n1y-0AQW;
-	Tue, 28 Apr 2026 07:39:05 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	id 1wHd2E-00000000n39-1Tvz;
+	Tue, 28 Apr 2026 07:39:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHd27-00000000n1H-0uu7
+	id 1wHd28-00000000n1B-0qH4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 07:39:04 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-c797d8c9c2dso12048183a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 00:39:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777361942; x=1777966742; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=LOmVa5HEYXAhxFxX5dmA5ibLhZjG/rAPjw3EsQuigAE=;
-        b=fRdRgiCx9lE0n5SivfW6wapR1OOC4FjCr2VSGbIgn5Zl6rqfZdlE0uqSPfrYPUTXdr
-         A0B/iL+cUEyovtPT6hnq4a2im9CRlH+0IrFfJlbBh6+9d+UJBr/arXwewjpceoIdkW9l
-         qsx4s3LVWRde1Bs2Ze5gcS6MZQteMbHnqPCoE7irmvWaz3tMmrNMt1kuaupM/I9K3XqR
-         aClyb4Ee2BrvO46ViZamGDEgE92gklR/BTYiEO05i4cxo+T2pTpZd2ABcrP7rTc+nJfp
-         sYmEsOkw1iTj7rNDObDc/NinAJUTUqyLlRXK2oDkQBXCvhsM/Heoga6eUy9p5QHJt/OE
-         kYCg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777361942; x=1777966742;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=LOmVa5HEYXAhxFxX5dmA5ibLhZjG/rAPjw3EsQuigAE=;
-        b=oc+wouzVqEaNlU2XshpatZnIgDlHJCtYScHjX/YXJnYWN/FMBw48sT47wnQVV3vpi8
-         BQPrfG8Y+l5H6kBiE/ZE4yCGuQBuIuAX8TYxmXDXtdADxRK45dld4K6oU1eMbrlvYsEx
-         fwGLsz9L9MEMTQATWFm38cA8iQ/PifKUUWCupPK83RoVND5XofzU4aCtX/55KBkODRoq
-         KQ2Uvr23ZIHqFFfDTxVt9Di4EnEFgr1s/sWIKRSQQ25hijHVaA+kEYSAlwC/kr91aEHB
-         9wlizJRwxZeADGbjNhRKE1VoAnfxMLseDYO+oSR2yuTk1ZUoZSw9Upb62FMh+L/Ve8d5
-         jaPA==
-X-Forwarded-Encrypted: i=1; AFNElJ+HVgSlqsy23V0jghCZFx5g7lJc6vQREmOMtAXCw5DhV87S+l56rWFrjC02kyLGeiiOMlvQ4eUjLjMSOIegiwzG@lists.infradead.org
-X-Gm-Message-State: AOJu0YwbD1XAA/YH+W3CLeJsxo+qKouab7YObd73/ZcQVB8puOXNun0k
-	n7ZkXH3wl1vf0B0TzNQCXvUacoUClddNtAVP9qZMeHsBSfgehDk0sEnsGGFt1N+E2L39Hkcsvl0
-	4wbbY2bv64YttSLip3XKqp342ew==
-X-Received: from pfwy28.prod.google.com ([2002:a05:6a00:1c9c:b0:82f:a201:42c7])
- (user=joonwonkang job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a00:2d22:b0:81e:12f1:d8a with SMTP id d2e1a72fcca58-834ddbe707fmr2002397b3a.34.1777361941509;
- Tue, 28 Apr 2026 00:39:01 -0700 (PDT)
-Date: Tue, 28 Apr 2026 07:38:59 +0000
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260428073859.1502047-1-joonwonkang@google.com>
-Subject: [QUESTION] Is the ARM SMMU v3 implementation designed to always
- ignore SSID when SSID_VALID == 0?
-From: Joonwon Kang <joonwonkang@google.com>
-To: will@kernel.org, robin.murphy@arm.com, jpb@kernel.org
-Cc: joro@8bytes.org, jgg@ziepe.ca, baolu.lu@linux.intel.com, 
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, stimim@google.com, cychu@google.com, 
-	hhchung@google.com
+	Tue, 28 Apr 2026 07:39:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1BF1E44567
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 07:38:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBF47C2BCB7
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 07:38:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777361937;
+	bh=M8+6UnX+4lN+I7hSH5w2HlitnXoe39zLUp85i19lW4k=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
+	b=exdndTXlRxThyJGPMZoGsrhIEXUARtyMvIjuf8op8WGky70Fh1CYQMazkjhVRT8Mh
+	 wfx5U+58ChM4CAl1f/qOYKYgrHhAtnnMOvXqLIzDxW534t1c5vFoCjVwOmEwg2Wa8D
+	 yW7geuXxgP/f9U2CiRDbXT+9WLp8ITQKYRubNXdx1DdRouyx7Xck4x1RCoU+Yc3R/a
+	 EKukhLU4h9yNp4cu6QO68X4VOFvzQtojmKBsxMiE3LCL8owm6/PfgfAqg/lVN3VyTn
+	 v6puGg+NRDEE/X4FaEAfmuLzBFLIvVLd/vEeni0dgKX8zPpsO1imHMsX+8no+Yj7XJ
+	 1DhvG2hQOD+LA==
+Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5a2c9c5ff87so11540637e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 00:38:57 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ/5ot42392jGA+tQsw+6DPni4gvR2ZtaTpKdYP/LT3zjm78SnUPl0hor7v9oYcwfUTkrKdZALcVmOkY1KyBaGYJ@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywne+lY0EJbmTmlyFgBHrZoFnJnNDDJtJhbEhKRztOKkWp+u155
+	8EMleRXtolUYoNH0qI1HiUjTlH7GlH7tbkZuxgtQT+hHY7Q5vG3wyHnBi7Xlw/s5rpE5BADm8RU
+	RswuVN8Nyc961ikHaMG/cpBcLc6TZexlOf+QS9d8oMg==
+X-Received: by 2002:a05:6512:3f12:b0:5a4:17a6:9780 with SMTP id
+ 2adb3069b0e04-5a74660a971mr759395e87.14.1777361936359; Tue, 28 Apr 2026
+ 00:38:56 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 28 Apr 2026 00:38:55 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 28 Apr 2026 00:38:54 -0700
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260427-arm-psci-system_reset2-vendor-reboots-v21-2-dcf937775e73@oss.qualcomm.com>
+MIME-Version: 1.0
+References: <20260427-arm-psci-system_reset2-vendor-reboots-v21-0-dcf937775e73@oss.qualcomm.com>
+ <20260427-arm-psci-system_reset2-vendor-reboots-v21-2-dcf937775e73@oss.qualcomm.com>
+Date: Tue, 28 Apr 2026 00:38:54 -0700
+X-Gmail-Original-Message-ID: <CAMRc=MevqR=ST_-WO_CAUc7stKmQU=_Qp7BTrewzvg40x=JiLw@mail.gmail.com>
+X-Gm-Features: AVHnY4IrhreEwlQ0Dtd2BuvGIlLYNK7-acJ0gJkWUG1j_5wLe4XWVKLYqD4Vmhg
+Message-ID: <CAMRc=MevqR=ST_-WO_CAUc7stKmQU=_Qp7BTrewzvg40x=JiLw@mail.gmail.com>
+Subject: Re: [PATCH v21 02/13] power: reset: reboot-mode: Add support for 64
+ bit magic
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, Andre Draszik <andre.draszik@linaro.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>, 
+	Srinivas Kandagatla <srini@kernel.org>, Sebastian Reichel <sebastian.reichel@collabora.com>, 
+	Sebastian Reichel <sre@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Daniel Lezcano <daniel.lezcano@kernel.org>, Christian Loehle <christian.loehle@arm.com>, 
+	Ulf Hansson <ulfh@kernel.org>, Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Arnd Bergmann <arnd@arndb.de>, Souvik Chakravarty <Souvik.Chakravarty@arm.com>, 
+	Andy Yan <andy.yan@rock-chips.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	John Stultz <john.stultz@linaro.org>, Moritz Fischer <moritz.fischer@ettus.com>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_003903_258657_03A48E1E 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20260428_003904_440452_5CECBAA5 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,26 +104,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi team,
+On Mon, 27 Apr 2026 19:34:42 +0200, Shivendra Pratap
+<shivendra.pratap@oss.qualcomm.com> said:
+> Current reboot-mode supports a single 32-bit argument for any
+> supported mode. Some reboot-mode based drivers may require
+> passing two independent 32-bit arguments during a reboot
+> sequence, for uses-cases, where a mode requires an additional
+> argument. Such drivers may not be able to use the reboot-mode
+> driver. For example, ARM PSCI vendor-specific resets, need two
+> arguments for its operation =E2=80=93 reset_type and cookie, to complete
+> the reset operation. If a driver wants to implement this
+> firmware-based reset, it cannot use reboot-mode framework.
+>
+> Introduce 64-bit magic values in reboot-mode driver to
+> accommodate up-to two 32-bit arguments in below format.
+> |    Higher 32 bit  |   Lower 32 bit    |
+> |	 arg2	    | 	    arg1	|
+>
+> Update current reboot-mode drivers for 64-bit magic.
+>
+> Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+> ---
 
-According to the ARM SMMU v3 spec, I believe that SSID should always be
-ignored when SSID_VALID == 0 and the current ARM SMMU v3 module
-implementation in the kernel seems to comply with this without exception.
-For example, when handling an event from SMMU, the implementation checks
-SSID_VALID(SSV) first and ignores SSID accordingly. If there is any
-exception to this rule, I believe it is a bug.
-
-Is it true for all the current and future cases? In other words, is it
-**mandatory** that the ARM SMMU v3 implementation ignores SSID when
-SSID_VALID == 0? or there might be some cases where the implementation
-needs to refer to SSID even when SSID_VALID == 0?
-
-Asking this question since our HW may not be able to clear SSID when
-SSID_VALID == 0 and so there might be some garbage value in SSID at some
-point of time(the HW will have a correct SSID when SSID_VALID == 1,
-though). If the ARM SMMU v3 implementation is to refer to that garbage
-value for any reason, the result would be devastating.
-
-Thanks,
-Joonwon Kang
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
