@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6AD8FF8878
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22846FF885A
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 16:06:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,72 +12,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pwrtGSKb3DiGnpal51eSSw/8ReV7/MrJHHB/70Xx4MU=; b=X/gA5iKPJYyPbjPC2argesLjUq
-	s9eyGGEiWUmn+P4dMzb/Byzeh2MyC21YIQw2gdAlUDfK57M+WHIcatzbYqmnVK2Gr3M31+E47Dd6x
-	TwGZ5MnD18tcLvguqyxzDOGNG+UHCkWFr5bZ0KYI2fDYOGtFUOM+hiD3dzAly4B39csv36VAEGL6d
-	hvuov1dUMcsyjbr9Y/PH6LyY1RVF4LXhqqV325Zl5eisSutLDc9ctco4Vu3GUbh7lRi33tkxvjekX
-	xdJp/pDf4wtiUV3fXjryBkyutHtq6OqtsBNeouZJoEHwDKOuIuRM3Fo6L69JPhVf3Vi8pTQgm4KM2
-	2Gnoi/dg==;
+	bh=B2j94V/uzP3SFd9G3ERlrsoyUwM0lq9xReO4GEkxtkc=; b=Dbh6XO6hYkbtK5Wy/Pvw+ENcxq
+	Xe8CFwzywqlmp/ELuaBKIWiXuHSQQVPOVSaQlvp3prfgwlCSwCd096VkacwLr0aS6X66REHdCJ58R
+	fSPtcDdoDvsWAG98SGUyC1Ry8AzapZBv/UmIqDvkbwnw5DfiDsuR1BMzkkrML3s7LyMK6IGIPhaf7
+	0Eh5oNhf7ueeyMqUBBvlXyvLnO2iKOB91ljR0Xll9supwcKYa9S6SaZ0xDq04qwLD4+AucRK1a1+C
+	vFIWAIakUfwJYFd1njQ6CFJZnnLo8hnUD4K2f9+qAn0a68JaELrb8gqQAX8tXd39pVOt/rTMzl39a
+	2FxS44Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHkwz-00000001pp9-1zAy;
-	Tue, 28 Apr 2026 16:06:17 +0000
+	id 1wHkwx-00000001pm4-2QV6;
+	Tue, 28 Apr 2026 16:06:15 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHkwj-00000001pVj-0tMZ
+	id 1wHkwi-00000001pUj-2FFg
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 28 Apr 2026 16:06:01 +0000
+	Tue, 28 Apr 2026 16:06:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=pwrtGSKb3DiGnpal51eSSw/8ReV7/MrJHHB/70Xx4MU=; b=HmKSnJcTLQQreN1xRQe8dicAGk
-	CmyXRUM8OvNad44PFUNYZx2Ky/NHLygSQJfMzRRpLm00UeH8f3/0K5187MZtQxXohRru683LtJPym
-	XWJsnRu4Or9MVZIf6gGZTylYgBXz292ermPTl4n/cuNFQHq60s1wcyE2qGWnYkA0OUKjasidjTWfq
-	gGPZ+kOg7S3qsSMhlXkPmvdh2hb2Y5xnhJOgdToE2byHj2QlkRhwjoFXUnV81GL9+QJmcYAml7PVH
-	tU3uRHrywo3VJ5pWSAkwYouZDwFIhhxhMGQswVCCH+TE+eoOrgx9DXuoiVCSIuBrvDjx2ka//ZN44
-	pyi0jFoQ==;
+	bh=B2j94V/uzP3SFd9G3ERlrsoyUwM0lq9xReO4GEkxtkc=; b=Vpx3oS1pqin7lcIoJPrq6aEpyR
+	/mXJsts9rRU355le78j4dyHz78zqaK+t92SGpwZzSjOpQZQTQFlJeIY1hDMuBmvGwoidmQjsI4lG7
+	8rxXwPJP8eOjJjDAsdZXoWzz9aWmd2fUYOn9TWjfD7DYi6LVzITMlJVnL1obOmWR9pzY8/2Z4tamG
+	zkZPgkU5T2euWmKgoFrXZ8SpqI7PxPy+dYfPS60xQjNtF+HZa4toWW+pvFNUsAB8qZzbVI8B6En1y
+	WLuWg+jbPe/kg3i/q/AptJ8KIsAo9FJpag/NwHqIFcyIUmQMxtXYODJehH/x30XbnVNH05mq15SwE
+	YWmh4hjA==;
 Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHkwc-00000003Xe7-3FDL
+	id 1wHkwc-00000003Xe6-3F9g
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 16:06:00 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63S4fPmr3347495;
-	Tue, 28 Apr 2026 16:05:41 GMT
+	Tue, 28 Apr 2026 16:05:59 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63SEsX7L1524774;
+	Tue, 28 Apr 2026 16:05:33 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=pwrtGSKb3DiGnpal5
-	1eSSw/8ReV7/MrJHHB/70Xx4MU=; b=L5NS0S9eN9xpQy1nDx9wVqViYVslmYOoK
-	KwkgQoIwobhlzV4rbA5OKXbK+oFJp/dmcLm29OntBHSlHEI1IxwlezsQmbWiAfXq
-	/ZHqZqgwADEi0klFLyxYhlDTw2zADCbh7hpo6EnnaHkntzIyTNs1XBtnjovLVY56
-	qP16sHNHe8pX9xJrfbak9Z/lgI9CEVrTXiCtzM7DSWUVgZglS3YCPoBY8uDjbG0I
-	IQJqD+s4DuRSiJsodBm+CtE83Bml0eKl2fu5tGniX4OLkjn9b2+DXocmucNbiu75
-	CWTufcNvnkvuB5D5HXJ/aR5v6H1bV0L874bxzODy2jIKI89+httzA==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4drk1jnec2-1
+	:mime-version:references:subject:to; s=pp1; bh=B2j94V/uzP3SFd9G3
+	ERlrsoyUwM0lq9xReO4GEkxtkc=; b=IRK6Ph4vwxYOhjoEXkn6dS305iNnJoV6n
+	je9SwL1k0bBXEMzBhoOtXO0CZgPvHdR/GD6GkskBa3B0JcXDoksIHa8TRHVbvpRO
+	9CTH6/yLUA/jforDqGC6v8BPixyluj40VF/j8lETZj+SrGGYgo28y87bY/ArGoYz
+	4pwB4pYO77+TeP9EbcFho05mquvByzo4hIBuUhRzAAN2kaEEd70o3AeITH4agx9U
+	xxbMgM2uVkz2Q0JSx5VfCq5rCyFd8hapeU2r0dctHzcw36PpHX5PdCU1UKtXFkqq
+	uc8wOMmcKmBIVppoAjgg11cpOczyy15umKMnCwaP0/P4estHqUYDg==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4drn8vd619-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 28 Apr 2026 16:05:40 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63SFrolq006520;
-	Tue, 28 Apr 2026 16:05:40 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4ds7xqajb8-1
+	Tue, 28 Apr 2026 16:05:33 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63SFrog7002815;
+	Tue, 28 Apr 2026 16:05:32 GMT
+Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4ds8xk2ee6-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 28 Apr 2026 16:05:39 +0000 (GMT)
+	Tue, 28 Apr 2026 16:05:32 +0000 (GMT)
 Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63SG5aEN15925586
+	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63SG5SP653019052
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 28 Apr 2026 16:05:36 GMT
+	Tue, 28 Apr 2026 16:05:28 GMT
 Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 10CBB20040;
-	Tue, 28 Apr 2026 16:05:36 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 1EB382004B;
+	Tue, 28 Apr 2026 16:05:28 +0000 (GMT)
 Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id BC82720043;
-	Tue, 28 Apr 2026 16:05:35 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id C0A422004D;
+	Tue, 28 Apr 2026 16:05:27 +0000 (GMT)
 Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
 	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Tue, 28 Apr 2026 16:05:35 +0000 (GMT)
+	Tue, 28 Apr 2026 16:05:27 +0000 (GMT)
 From: Steffen Eiden <seiden@linux.ibm.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -96,41 +96,42 @@ Cc: Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
         Suzuki K Poulose <suzuki.poulose@arm.com>,
         Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
         Will Deacon <will@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
-Subject: [RFC PATCH v2 23/28] s390/hwcaps: Report SAE support as hwcap
-Date: Tue, 28 Apr 2026 18:05:20 +0200
-Message-ID: <20260428160527.1378085-24-seiden@linux.ibm.com>
+Subject: [RFC PATCH v2 01/28] VFIO: take reference to the KVM module
+Date: Tue, 28 Apr 2026 18:04:58 +0200
+Message-ID: <20260428160527.1378085-2-seiden@linux.ibm.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260428160527.1378085-1-seiden@linux.ibm.com>
 References: <20260428160527.1378085-1-seiden@linux.ibm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI4MDE1MSBTYWx0ZWRfX/0RJHi/FrDj5
- xlUeTNFrM6RrTFImKtX44CxjpyxZCb1njS48vljIEId1CHoyVD1JolVn+dfdjFdb3ZMZLPPruQe
- mpb7qz6mlg2k2o+6VRwxXnsNp48VJbFL9yTaYCcIxbusFF3gBU8Xk44MLDsUWIXFI4lS0HTQePw
- 7Da/rgXLSolg4pBvXf0v0PhDGezJcxK4Kt0hxmu+5vYKfuks00zlKueFxVJi5oV/CO6rQRi85w2
- QZPmV5KtR0N4wPbbeY4dT08MMttKb1MtA4DGsRhSYp+On7RCQiPfPxL0QvmGRPPC9H40PMxS6Gg
- JBKpjZBzdgxJz6gd63Txva65lTBZEnzPxq1uNcUxu6Uau8q9EbaKHHxqh9iOkAlF15jqvli3M3b
- mTOC+JdhBBDsuFIaunuKdRshbiKrZhwwUs7tJIzbM3Smq2y4qAZuvgERrW5PUayjgrJaqzMeUDA
- HFN/nGCrjjLdSZVhY7Q==
-X-Proofpoint-GUID: a1C7GTTqWwp2RShDVGisvbSK-awuue9Z
-X-Proofpoint-ORIG-GUID: a1C7GTTqWwp2RShDVGisvbSK-awuue9Z
-X-Authority-Analysis: v=2.4 cv=MohiLWae c=1 sm=1 tr=0 ts=69f0dad4 cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+X-Authority-Analysis: v=2.4 cv=CIIamxrD c=1 sm=1 tr=0 ts=69f0dacd cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
  a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8 a=MMtvGDNtdIwsdepEW5QA:9
+ a=RzCfie-kr_QcCd8fBx8p:22 a=20KFwNOVAAAA:8 a=VnNF1IyMAAAA:8 a=r1p2_3pzAAAA:8
+ a=U3YOjIjXimIOwXAI40wA:9 a=r_pkcD-q9-ctt7trBg_g:22
+X-Proofpoint-ORIG-GUID: goanFoCXz0BnLp9Ev5vImXjiHfEVbPnx
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI4MDE1MSBTYWx0ZWRfX2PoGc1MWoRf+
+ pqU2UBMy66sSVWXa9Yh0kzf+U1u1Jsf8wM4O9onQrdigjFWXCAUtvE65N8nk0Wz7ZrqABchfc1K
+ PS4sN3kGJi1UnrYx2hGoRjCEqsNNALAM4bUe6UoqTXRt+t2f2Cq2Jr4XJcw3ytMlCmV6JFEMU8l
+ G3eDHRLWHGXtOV+ldwRbdotLNlJsvHdso71LHicr6KPJOtNRXjFROnZB80+yiQiUqg9yTRUvDsT
+ Zl888bwWDHkiCW9zDtqWcyczIJ/dlOx/iPMNbYuywa9OXbrFmVqRc9nmByQW2yii158qDhD9wLO
+ Epl90SlPxW4neTJppjPeKSKNQr9tFA2vpo/r4eOaHeAD28hHYxUdZgbo4B4UvCUPcxc6SJPvO1T
+ fiHTrYwPJoRPDXnoEcB3tu610DVRXM/BX9UXxwLSYQHR/6ZRlwfEJPJtVam+DmORe1myrF3pXgI
+ vuJC6TavKEK4PKlGN/w==
+X-Proofpoint-GUID: goanFoCXz0BnLp9Ev5vImXjiHfEVbPnx
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-04-28_05,2026-04-28_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 adultscore=0 suspectscore=0 bulkscore=0 spamscore=0
- priorityscore=1501 malwarescore=0 clxscore=1015 lowpriorityscore=0
- impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ spamscore=0 phishscore=0 malwarescore=0 suspectscore=0 adultscore=0
+ impostorscore=0 lowpriorityscore=0 clxscore=1015 bulkscore=0
+ priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
  route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
  definitions=main-2604280151
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_170555_169482_C29CAB07 
-X-CRM114-Status: GOOD (  18.35  )
+X-CRM114-CacheID: sfid-20260428_170555_158934_236CDE61 
+X-CRM114-Status: GOOD (  22.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,95 +146,266 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hendrik Brueckner <brueckner@linux.ibm.com>
+From: Paolo Bonzini <pbonzini@redhat.com>
 
-Report SAE support as hwcap (and /proc/cpuinfo)
+VFIO is implicitly taking a reference to the KVM module between
+vfio_device_get_kvm_safe and vfio_device_put_kvm, thanks to
+symbol_get and symbol_put.
 
-Signed-off-by: Hendrik Brueckner <brueckner@linux.ibm.com>
-Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+In preparation for removing symbol_get and symbol_put themselves
+from VFIO, actually store a pointer to the KVM module and use
+module_get()/module_put() to keep KVM alive.
+
+Signed-off-by: Paolo Bonzini <pbonzini@redhat.com>
+Reviewed-by: Steffen Eiden <seiden@linux.ibm.com>
+Acked-by: Alex Williamson <alex@shazbot.org>
 ---
- arch/s390/include/asm/elf.h    | 2 ++
- arch/s390/include/asm/sclp.h   | 5 ++++-
- arch/s390/kernel/processor.c   | 3 +++
- drivers/s390/char/sclp_early.c | 1 +
- 4 files changed, 10 insertions(+), 1 deletion(-)
+ drivers/vfio/device_cdev.c |  2 +-
+ drivers/vfio/group.c       |  5 +++--
+ drivers/vfio/vfio.h        | 15 ++++++++++-----
+ drivers/vfio/vfio_main.c   | 37 +++++++++++++++++++++++--------------
+ include/linux/vfio.h       |  3 ++-
+ virt/kvm/vfio.c            |  4 ++--
+ 6 files changed, 41 insertions(+), 25 deletions(-)
 
-diff --git a/arch/s390/include/asm/elf.h b/arch/s390/include/asm/elf.h
-index bb63fa4d20bb..ad3108ecfb07 100644
---- a/arch/s390/include/asm/elf.h
-+++ b/arch/s390/include/asm/elf.h
-@@ -123,6 +123,7 @@ enum {
- 	HWCAP_NR_NNPA		= 20,
- 	HWCAP_NR_PCI_MIO	= 21,
- 	HWCAP_NR_SIE		= 22,
-+	HWCAP_NR_SAE		= 23,
- 	HWCAP_NR_MAX
+diff --git a/drivers/vfio/device_cdev.c b/drivers/vfio/device_cdev.c
+index 8ceca24ac136..a67d7215c239 100644
+--- a/drivers/vfio/device_cdev.c
++++ b/drivers/vfio/device_cdev.c
+@@ -56,7 +56,7 @@ int vfio_device_fops_cdev_open(struct inode *inode, struct file *filep)
+ static void vfio_df_get_kvm_safe(struct vfio_device_file *df)
+ {
+ 	spin_lock(&df->kvm_ref_lock);
+-	vfio_device_get_kvm_safe(df->device, df->kvm);
++	vfio_device_get_kvm_safe(df->device, df->kvm, df->kvm_module);
+ 	spin_unlock(&df->kvm_ref_lock);
+ }
+ 
+diff --git a/drivers/vfio/group.c b/drivers/vfio/group.c
+index 4f15016d2a5f..7d28f45fefaa 100644
+--- a/drivers/vfio/group.c
++++ b/drivers/vfio/group.c
+@@ -158,7 +158,7 @@ static int vfio_group_ioctl_set_container(struct vfio_group *group,
+ static void vfio_device_group_get_kvm_safe(struct vfio_device *device)
+ {
+ 	spin_lock(&device->group->kvm_ref_lock);
+-	vfio_device_get_kvm_safe(device, device->group->kvm);
++	vfio_device_get_kvm_safe(device, device->group->kvm, device->group->kvm_module);
+ 	spin_unlock(&device->group->kvm_ref_lock);
+ }
+ 
+@@ -858,10 +858,11 @@ bool vfio_group_enforced_coherent(struct vfio_group *group)
+ 	return ret;
+ }
+ 
+-void vfio_group_set_kvm(struct vfio_group *group, struct kvm *kvm)
++void vfio_group_set_kvm(struct vfio_group *group, struct kvm *kvm, struct module *kvm_module)
+ {
+ 	spin_lock(&group->kvm_ref_lock);
+ 	group->kvm = kvm;
++	group->kvm_module = kvm_module;
+ 	spin_unlock(&group->kvm_ref_lock);
+ }
+ 
+diff --git a/drivers/vfio/vfio.h b/drivers/vfio/vfio.h
+index 50128da18bca..a0c38f89b30a 100644
+--- a/drivers/vfio/vfio.h
++++ b/drivers/vfio/vfio.h
+@@ -22,8 +22,9 @@ struct vfio_device_file {
+ 
+ 	u8 access_granted;
+ 	u32 devid; /* only valid when iommufd is valid */
+-	spinlock_t kvm_ref_lock; /* protect kvm field */
++	spinlock_t kvm_ref_lock; /* protect kvm and kvm_module fields */
+ 	struct kvm *kvm;
++	struct module *kvm_module;
+ 	struct iommufd_ctx *iommufd; /* protected by struct vfio_device_set::lock */
  };
  
-@@ -150,6 +151,7 @@ enum {
- #define HWCAP_NNPA		BIT(HWCAP_NR_NNPA)
- #define HWCAP_PCI_MIO		BIT(HWCAP_NR_PCI_MIO)
- #define HWCAP_SIE		BIT(HWCAP_NR_SIE)
-+#define HWCAP_SAE		BIT(HWCAP_NR_SAE)
- 
- /*
-  * These are used to set parameters in the core dumps.
-diff --git a/arch/s390/include/asm/sclp.h b/arch/s390/include/asm/sclp.h
-index 0f184dbdbe5e..18e46654227a 100644
---- a/arch/s390/include/asm/sclp.h
-+++ b/arch/s390/include/asm/sclp.h
-@@ -52,7 +52,9 @@ struct sclp_core_entry {
- 	u8 siif : 1;
- 	u8 sigpif : 1;
- 	u8 : 3;
--	u8 reserved2[3];
-+	u8 aef: 1;
-+	u8 : 7;
-+	u8 reserved2[2];
- 	u8 : 2;
- 	u8 ib : 1;
- 	u8 cei : 1;
-@@ -104,6 +106,7 @@ struct sclp_info {
- 	unsigned char has_aisii : 1;
- 	unsigned char has_aeni : 1;
- 	unsigned char has_aisi : 1;
-+	unsigned char has_aef : 1;
- 	unsigned int ibc;
- 	unsigned int mtid;
- 	unsigned int mtid_cp;
-diff --git a/arch/s390/kernel/processor.c b/arch/s390/kernel/processor.c
-index e33a3eccda56..6da55a158027 100644
---- a/arch/s390/kernel/processor.c
-+++ b/arch/s390/kernel/processor.c
-@@ -150,6 +150,7 @@ static void show_cpu_summary(struct seq_file *m, void *v)
- 		[HWCAP_NR_NNPA]		= "nnpa",
- 		[HWCAP_NR_PCI_MIO]	= "pcimio",
- 		[HWCAP_NR_SIE]		= "sie",
-+		[HWCAP_NR_SAE]		= "sae",
- 	};
- 	int i, cpu;
- 
-@@ -254,6 +255,8 @@ static int __init setup_hwcaps(void)
- 	/* virtualization support */
- 	if (sclp.has_sief2)
- 		elf_hwcap |= HWCAP_SIE;
-+	if (sclp.has_aef)
-+		elf_hwcap |= HWCAP_SAE;
- 
- 	return 0;
+@@ -89,6 +90,7 @@ struct vfio_group {
+ 	enum vfio_group_type		type;
+ 	struct mutex			group_lock;
+ 	struct kvm			*kvm;
++	struct module			*kvm_module;
+ 	struct file			*opened_file;
+ 	struct blocking_notifier_head	notifier;
+ 	struct iommufd_ctx		*iommufd;
+@@ -108,7 +110,7 @@ void vfio_device_group_unuse_iommu(struct vfio_device *device);
+ void vfio_df_group_close(struct vfio_device_file *df);
+ struct vfio_group *vfio_group_from_file(struct file *file);
+ bool vfio_group_enforced_coherent(struct vfio_group *group);
+-void vfio_group_set_kvm(struct vfio_group *group, struct kvm *kvm);
++void vfio_group_set_kvm(struct vfio_group *group, struct kvm *kvm, struct module *kvm_module);
+ bool vfio_device_has_container(struct vfio_device *device);
+ int __init vfio_group_init(void);
+ void vfio_group_cleanup(void);
+@@ -171,7 +173,8 @@ static inline bool vfio_group_enforced_coherent(struct vfio_group *group)
+ 	return true;
  }
-diff --git a/drivers/s390/char/sclp_early.c b/drivers/s390/char/sclp_early.c
-index 6bf501ad8ff0..26a76f09b19a 100644
---- a/drivers/s390/char/sclp_early.c
-+++ b/drivers/s390/char/sclp_early.c
-@@ -94,6 +94,7 @@ static void __init sclp_early_facilities_detect(void)
- 		sclp.has_ib = cpue->ib;
- 		sclp.has_cei = cpue->cei;
- 		sclp.has_skey = cpue->skey;
-+		sclp.has_aef = cpue->aef;
- 		break;
- 	}
  
+-static inline void vfio_group_set_kvm(struct vfio_group *group, struct kvm *kvm)
++static inline void vfio_group_set_kvm(struct vfio_group *group, struct kvm *kvm,
++				      struct module *kvm_module)
+ {
+ }
+ 
+@@ -435,11 +438,13 @@ static inline void vfio_virqfd_exit(void)
+ #endif
+ 
+ #if IS_ENABLED(CONFIG_KVM)
+-void vfio_device_get_kvm_safe(struct vfio_device *device, struct kvm *kvm);
++void vfio_device_get_kvm_safe(struct vfio_device *device, struct kvm *kvm,
++			      struct module *kvm_module);
+ void vfio_device_put_kvm(struct vfio_device *device);
+ #else
+ static inline void vfio_device_get_kvm_safe(struct vfio_device *device,
+-					    struct kvm *kvm)
++					    struct kvm *kvm,
++					    struct module *kvm_module)
+ {
+ }
+ 
+diff --git a/drivers/vfio/vfio_main.c b/drivers/vfio/vfio_main.c
+index 742477546b15..d1bbc42d484a 100644
+--- a/drivers/vfio/vfio_main.c
++++ b/drivers/vfio/vfio_main.c
+@@ -433,7 +433,7 @@ void vfio_unregister_group_dev(struct vfio_device *device)
+ EXPORT_SYMBOL_GPL(vfio_unregister_group_dev);
+ 
+ #if IS_ENABLED(CONFIG_KVM)
+-void vfio_device_get_kvm_safe(struct vfio_device *device, struct kvm *kvm)
++void vfio_device_get_kvm_safe(struct vfio_device *device, struct kvm *kvm, struct module *kvm_module)
+ {
+ 	void (*pfn)(struct kvm *kvm);
+ 	bool (*fn)(struct kvm *kvm);
+@@ -444,25 +444,31 @@ void vfio_device_get_kvm_safe(struct vfio_device *device, struct kvm *kvm)
+ 	if (!kvm)
+ 		return;
+ 
++	if (!try_module_get(kvm_module))
++		return;
++
+ 	pfn = symbol_get(kvm_put_kvm);
+ 	if (WARN_ON(!pfn))
+-		return;
++		goto out_put_mod;
+ 
+ 	fn = symbol_get(kvm_get_kvm_safe);
+-	if (WARN_ON(!fn)) {
+-		symbol_put(kvm_put_kvm);
+-		return;
+-	}
++	if (WARN_ON(!fn))
++		goto out_put_sym;
+ 
+ 	ret = fn(kvm);
+ 	symbol_put(kvm_get_kvm_safe);
+-	if (!ret) {
+-		symbol_put(kvm_put_kvm);
+-		return;
+-	}
++	if (!ret)
++		goto out_put_sym;
+ 
+ 	device->put_kvm = pfn;
+ 	device->kvm = kvm;
++	device->kvm_module = kvm_module;
++	return;
++
++out_put_sym:
++	symbol_put(kvm_put_kvm);
++out_put_mod:
++	module_put(kvm_module);
+ }
+ 
+ void vfio_device_put_kvm(struct vfio_device *device)
+@@ -481,6 +487,8 @@ void vfio_device_put_kvm(struct vfio_device *device)
+ 
+ clear:
+ 	device->kvm = NULL;
++	module_put(device->kvm_module);
++	device->kvm_module = NULL;
+ }
+ #endif
+ 
+@@ -1483,7 +1491,7 @@ bool vfio_file_enforced_coherent(struct file *file)
+ }
+ EXPORT_SYMBOL_GPL(vfio_file_enforced_coherent);
+ 
+-static void vfio_device_file_set_kvm(struct file *file, struct kvm *kvm)
++static void vfio_device_file_set_kvm(struct file *file, struct kvm *kvm, struct module *kvm_module)
+ {
+ 	struct vfio_device_file *df = file->private_data;
+ 
+@@ -1494,6 +1502,7 @@ static void vfio_device_file_set_kvm(struct file *file, struct kvm *kvm)
+ 	 */
+ 	spin_lock(&df->kvm_ref_lock);
+ 	df->kvm = kvm;
++	df->kvm_module = kvm_module;
+ 	spin_unlock(&df->kvm_ref_lock);
+ }
+ 
+@@ -1505,16 +1514,16 @@ static void vfio_device_file_set_kvm(struct file *file, struct kvm *kvm)
+  * When a VFIO device is first opened the KVM will be available in
+  * device->kvm if one was associated with the file.
+  */
+-void vfio_file_set_kvm(struct file *file, struct kvm *kvm)
++void vfio_file_set_kvm(struct file *file, struct kvm *kvm, struct module *kvm_module)
+ {
+ 	struct vfio_group *group;
+ 
+ 	group = vfio_group_from_file(file);
+ 	if (group)
+-		vfio_group_set_kvm(group, kvm);
++		vfio_group_set_kvm(group, kvm, kvm_module);
+ 
+ 	if (vfio_device_from_file(file))
+-		vfio_device_file_set_kvm(file, kvm);
++		vfio_device_file_set_kvm(file, kvm, kvm_module);
+ }
+ EXPORT_SYMBOL_GPL(vfio_file_set_kvm);
+ 
+diff --git a/include/linux/vfio.h b/include/linux/vfio.h
+index e90859956514..69a8d527b0e8 100644
+--- a/include/linux/vfio.h
++++ b/include/linux/vfio.h
+@@ -53,6 +53,7 @@ struct vfio_device {
+ 	struct list_head dev_set_list;
+ 	unsigned int migration_flags;
+ 	struct kvm *kvm;
++	struct module *kvm_module;
+ 
+ 	/* Members below here are private, not for driver use */
+ 	unsigned int index;
+@@ -339,7 +340,7 @@ static inline bool vfio_file_has_dev(struct file *file, struct vfio_device *devi
+ #endif
+ bool vfio_file_is_valid(struct file *file);
+ bool vfio_file_enforced_coherent(struct file *file);
+-void vfio_file_set_kvm(struct file *file, struct kvm *kvm);
++void vfio_file_set_kvm(struct file *file, struct kvm *kvm, struct module *kvm_module);
+ 
+ #define VFIO_PIN_PAGES_MAX_ENTRIES	(PAGE_SIZE/sizeof(unsigned long))
+ 
+diff --git a/virt/kvm/vfio.c b/virt/kvm/vfio.c
+index 9f9acb66cc1e..515ed445d8e1 100644
+--- a/virt/kvm/vfio.c
++++ b/virt/kvm/vfio.c
+@@ -37,13 +37,13 @@ struct kvm_vfio {
+ 
+ static void kvm_vfio_file_set_kvm(struct file *file, struct kvm *kvm)
+ {
+-	void (*fn)(struct file *file, struct kvm *kvm);
++	void (*fn)(struct file *file, struct kvm *kvm, struct module *kvm_module);
+ 
+ 	fn = symbol_get(vfio_file_set_kvm);
+ 	if (!fn)
+ 		return;
+ 
+-	fn(file, kvm);
++	fn(file, kvm, kvm ? THIS_MODULE : NULL);
+ 
+ 	symbol_put(vfio_file_set_kvm);
+ }
 -- 
 2.51.0
 
