@@ -4,95 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18E20FF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 12:57:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 791D2FF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 13:03:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qziSDnZnW0hzNlxAbwh27iZM0znzpYCyRyBZAEASdgk=; b=Hc6FxDt59KCQ/IbVxmori3QidR
-	XHE5i3QWoAVYmpOZluxnpzrkTRzgszl6UfV7hDZBLCNdn8uV/6jHROEBTQQHL4z9muYUevXsVxNrm
-	/ZTnRC23Yeb5X2CfFSROYDCDaBWSs1e90M8qop24VQWwCBlRvvn6Hmr+MX4kG4+tcuEhVUButIULZ
-	1ZL0jfdVCvQl/f990/azy+SyE6fhWW/5ueaiRcx8U4aUcTaBs3jg/hmsMxjKD4ABk34rmkVZarSJR
-	3XXpXvRLoK1yjHjnLK536q3mPASr4luucbYmgNMJHkk3ufAzpUTkdTI+KBaabUki+z+zRn3BnFXAb
-	lVIFYrBw==;
+	bh=/YnMDibrKzfhntLr7stNZ51Gy9Qv32dxEsIF+FY5/ng=; b=tflL17oBgJHudvux+Jv9Cqg1bt
+	XGF9ZNH4wVZ5oZ305JU/aESc5a7HllXAUHnjfvmWA52un7Wsv0sXAvcdUxrdVdUN9MqPcZcj6qZ19
+	eCAz84TaUUKUkiAyycvzSEQ0Yju9llB5+nBDkpsSe0XSbD2JUYIhEipZsIsX1JLlfuNg6ym0m9JhW
+	z/geC4MDviZ8h2lZDPY8U5J6A0GMCSr2FUGj5O83zqbDEOkiYluCQz3TVWkA1z2DSFuIpiHxOMZ2O
+	u88Y2jO9qzT1JMgE1eQbH7H1Bb4hNIwJUColAP9xR+Fk9mhDE25k06E6Q+sCzMX0mwgrC725+2uN+
+	3FZaHmog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHi0a-00000001TmM-3VNR;
-	Tue, 28 Apr 2026 12:57:48 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1wHi64-00000001UCs-1KhB;
+	Tue, 28 Apr 2026 13:03:28 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHi0Z-00000001Tlq-1BKf
+	id 1wHi5y-00000001UCT-22lT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 12:57:48 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-b886fc047d5so2037299666b.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 05:57:46 -0700 (PDT)
+	Tue, 28 Apr 2026 13:03:26 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63S9rGFS2112409
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 13:03:21 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	/YnMDibrKzfhntLr7stNZ51Gy9Qv32dxEsIF+FY5/ng=; b=gH7BX+o043XO51CZ
+	eww7aZ4/jYejBslFXpdGy3jbqDCLi6bvJh23fkCh9dlEXnkG0cfqEdSX5VGs120d
+	4Q8r8LvgVmwF7AYT1PyEmXMM3SHUPiAC2sxv8VM9Y3RAPmN6PNZdUDFj5euQ7wRu
+	KbwpW46muq7TjRYRsb6Jd4fsTYjlieh1TM9aQY1S767SMquLuzQn/RbDm1F2yq43
+	tROOpXtsuq73A1zLvD8fECk4A04GrzuuIa89D0qwyphjnU9V/Jw/wIaloeSVbPA6
+	kXPtXN+ekEBEF5Do3gfP+Gpjj06Tw9VYTRoKOAIy9qATyLBqTFdFEqL0MHy+svQ+
+	WxaxNw==
+Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com [209.85.210.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dtdmbkm8m-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 13:03:21 +0000 (GMT)
+Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-834e0452d98so659665b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 06:03:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1777381065; x=1777985865; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1777381401; x=1777986201; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=qziSDnZnW0hzNlxAbwh27iZM0znzpYCyRyBZAEASdgk=;
-        b=X8/J8CbvByDedy83c4JryVJfNsSeVTAO5oNbzU8OMgOOBA7kvV+HaZX0I2Zs+ZxElK
-         fZBBDyKvxZqNr+c8FWC6Dm1eb+N9RwhRA/78c8WZYQqJJGjKf8miYuZ24iesOZ9rXKJo
-         3mTBvmm5iF+zA+Ik/FDgNHZci89Qrc19gkPkpKS7FWMuV9ThpwSC3gt0KsMNzOo99wL/
-         Qd3mIWXw3/sUKXA+6VCv/iL4Bw/ncwcy42dQiOOmWKd95k/79hzJxlYylPHcbE+SpD+P
-         xBpK2ZG2C1jqfo/f78PxRgum2QtB4NRSQoHkUt/sqhBhkq25+8h+RbAaPJvVwJMU0Dnk
-         oZEg==
+        bh=/YnMDibrKzfhntLr7stNZ51Gy9Qv32dxEsIF+FY5/ng=;
+        b=FgTCotsomnPATv2RFXWH16c6w6e9vPzpQZBgXI46xshJ4P0y0taQoTr5dmJKZIehGg
+         BAcV4MUGKd2MWbC+LKG3x9MTld0L3BiFpIcy6wrs1Dca37+iMczW10nPb+N/Qio4/KLE
+         vC3LPWqTheNlVvaNQdU1lO6vhpE+K6cDlvrb9ufCFLThzagt9JL3ZK8rsQu+vKntOu7u
+         vqH/IETEwScX0NHG9QZ6vqCYZEcl3linnok7SZ3xg0DjPStanxtVXxomOLZZUNpaSkuQ
+         lAkxQuGOyfb1xEREo7bqFdnxPRRfwoM4jA5peWvRzQ+9zDbmc5dD9ZCpQr6zwnBC79vQ
+         eD/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777381065; x=1777985865;
+        d=1e100.net; s=20251104; t=1777381401; x=1777986201;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=qziSDnZnW0hzNlxAbwh27iZM0znzpYCyRyBZAEASdgk=;
-        b=RxKYlMOo3fwdLZQvxrWqBtHznBbqlj23wc86LjKzfLr0RuXHD5VvFo8L0opMJ8jLsj
-         D0qnFOJTvhmy0sWvnMvzcROg2P/VIAFJ2iSp8Q6Qut4vcYtWk+gU1p1rEREqkrftKPhO
-         yomg1w5q2PnP5oGDfcwF4bbkuBSNOz/Vz9Eb46J2WLtu32LWCCSkz6MRyX39c9PF+s75
-         XbruZoTAenX8Ebj92R3uYrQH6q7FHmE2fh//ih+jPHEUhvvGkaWabbYgjhO7SucO80WW
-         tyTJtww4mM+ixhWu7kqcT1sdM9u5y6yh9+kvxo9SMmX5XiSEQoOWDswQtiTtuzRBOXWi
-         qbVA==
-X-Forwarded-Encrypted: i=1; AFNElJ8HI7b/F1XcdunYMUKnmexsNmBj17yVpGRZEKFTHdMfp9pzqqc3kXWGFW4FVOlznM0JHZVQpDFYII2uJY0Elurf@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJ/nyJE1283g5bTPO3FI7QDpU5ig83x9fhFA0PFDXcuFoyCADt
-	zfC3GvGdduvvDrhS27svfkE2X3hcZ/8SORYsGctSRiXLFspCyrZYQbOfRchTYnDirgY=
-X-Gm-Gg: AeBDiev/RxeZSi9YjztLEFs+oKWSNZ5csFhv3x0Jla934Fikz6gd4cmO/AiRr76UnYJ
-	B8Dcb3D40cdm4JwTaLV8OLfd37d10bks4Ld6vFki5zxYLuAo0XGD30XxcHXXk//8zZMdHp3sIPD
-	+oWG9U6tlvX9JYm985xHK9+2EHhqZSaLMI3ZGBrhK9dVOmFRDO+WdKhDYvVFC4CiUg87oNBb/Aj
-	7ebeq2b6qMTo1bRUdKwcxwmCOWBOB0MfbmTwwMgMLMNJkcltAjegM/YWrShW7SjVlBSjkjL820N
-	6FSqljGEPUGNjkRbK07GBtqpbaYW5mc06MNwcwRwyjyANUpU2TIVy41/WzsVowR9HWLW+b4Hlt4
-	8KHp5kOg1CNYLA+yrO6ZMSlWC6rIziFH7Bc/2b5SlGGlAT4wQSydJYENARjHclGPlA+J6+Z07o2
-	yVFJyWvqjbmmMSN7nm5ZXOyA0cymVN7elsFafD1d7Kew8AfneGqq0SoA==
-X-Received: by 2002:a17:907:3e9c:b0:bae:642a:8712 with SMTP id a640c23a62f3a-bb804728367mr182366766b.26.1777381064507;
-        Tue, 28 Apr 2026 05:57:44 -0700 (PDT)
-Received: from [10.11.12.108] ([79.115.63.228])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-bb80bd9381esm101392866b.52.2026.04.28.05.57.43
+        bh=/YnMDibrKzfhntLr7stNZ51Gy9Qv32dxEsIF+FY5/ng=;
+        b=CKGFz0v19tCMb1HHqKicCKEFatpxAyCy1HINlXDHp21f2AsOXQPiGcsEJKbS+o05qS
+         MvRn8eJfOr2iE+x9pkjT6l5JDqMBqwJNOFuVUs8AKAwrZp9ExYoflwuYqA8mJqylCc/V
+         lUikyB6cGT7bybclofuPdjdcPXgxTWZOjY1gblUODNyyf9RYm3PM84OEmKpqzbON9AsJ
+         vUnpfawJOz+dVvuqV5UFpOiyaZV/9BLTU7U+kzj/o9C9xTSj6NH5FUA+hl5B+U8/In+v
+         zYQtuyTWZYD8Q6eeTwdXxeocfx+P01vhSZhb69ZID+nld7pKhvdROOSNPwD8Thn2fV+8
+         7WDg==
+X-Forwarded-Encrypted: i=1; AFNElJ+rSX844NLPQwwmV0X4uAayakl+IJirthB2UUJNnJDaGkp3VG9jWD2imX7SNj3JmDu105ofCBnOQai+FAJJ2zdg@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx2/vCXNiUuJlyGtrxFapBSbeOlMctjh03/xFGJ0lDqVAuR+OBn
+	S1ANsm8OqOJKjdQOLKpQqTAEWMefdwmyasvsRlyfcyhVfmM8gdian7q1pI5GNEzn68GYRSci5/+
+	DJkF/uraOH/E40R7o9QCAW/xC/g+EbO0VGpVq7w4HghM6YOEn0NTrWloW8TRX6Dd0pDJSFxsfpG
+	gKEQ==
+X-Gm-Gg: AeBDiesacq9rASB/N9oTjOgZzP1pHAkI/sNX9A2YXdzM8iaWMM0isOzpp89gnoYM1gB
+	m3sH0mzmfg2f0QVn53uajfHND7Rb43WgbeOKALHpNb9ZGEC9/WtH9aKaOEyA53Z/0L+qGjJ8sJH
+	Tbr0EMj/+82/OI4uwSW6uGR44ggkimBpbQa9RZuEEyS2T8coJaqDR4Ab9qnSeM/uSCeHcze6JYy
+	4zylX/ddYw9NxiUd3nwtqeeHG2p3URgJQkmovrvP/DffsYyEdK1Q8fFBXvpjFJy889u355T0c44
+	EOzdyk9SQ6AVlUUVlPBWFKj8s5JQReJwRg9sa4kIOm2/P/Ft/ON7XDY0Gmafertct5UiR3gBdj6
+	tR8EVw5+5tj2+euj8zlaeRjysg3M7+/NWl6zGhOlC5hqqPe2v7ixtEtNtMKItAgzi2xg=
+X-Received: by 2002:a05:6a00:3691:b0:82f:a89e:e16f with SMTP id d2e1a72fcca58-834ddb28060mr3248332b3a.14.1777381400789;
+        Tue, 28 Apr 2026 06:03:20 -0700 (PDT)
+X-Received: by 2002:a05:6a00:3691:b0:82f:a89e:e16f with SMTP id d2e1a72fcca58-834ddb28060mr3248246b3a.14.1777381400102;
+        Tue, 28 Apr 2026 06:03:20 -0700 (PDT)
+Received: from [10.218.41.175] ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-834daf7eaaasm2531210b3a.57.2026.04.28.06.03.09
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 28 Apr 2026 05:57:44 -0700 (PDT)
-Message-ID: <4421c95f-3ee7-40ac-b239-d877709b498a@linaro.org>
-Date: Tue, 28 Apr 2026 15:57:39 +0300
+        Tue, 28 Apr 2026 06:03:19 -0700 (PDT)
+Message-ID: <d6112b9c-01ea-483c-98fe-b480e78872e5@oss.qualcomm.com>
+Date: Tue, 28 Apr 2026 18:33:08 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/6] firmware: samsung: acpm: Fix memory ordering race
- in RX path
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, peter.griffin@linaro.org,
- andre.draszik@linaro.org, jyescas@google.com, kernel-team@android.com,
- stable@vger.kernel.org
-References: <20260427-acpm-fixes-sashiko-reports-v2-0-1ff8de94a997@linaro.org>
- <20260427-acpm-fixes-sashiko-reports-v2-4-1ff8de94a997@linaro.org>
- <6bba950c-5527-4613-8c16-b52534bc75a5@kernel.org>
+Subject: Re: [PATCH v21 08/13] mfd: core: Add firmware-node support to MFD
+ cells
+To: Bartosz Golaszewski <brgl@kernel.org>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        devicetree@vger.kernel.org,
+        Florian Fainelli
+ <florian.fainelli@broadcom.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+        Andre Draszik <andre.draszik@linaro.org>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+        Srinivas Kandagatla <srini@kernel.org>,
+        Sebastian Reichel <sre@kernel.org>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        "Rafael J. Wysocki" <rafael@kernel.org>,
+        Daniel Lezcano <daniel.lezcano@kernel.org>,
+        Christian Loehle <christian.loehle@arm.com>,
+        Ulf Hansson <ulfh@kernel.org>, Lee Jones <lee@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+        Andy Yan <andy.yan@rock-chips.com>,
+        Matthias Brugger
+ <matthias.bgg@gmail.com>,
+        John Stultz <john.stultz@linaro.org>,
+        Moritz Fischer <moritz.fischer@ettus.com>,
+        Sudeep Holla <sudeep.holla@kernel.org>
+References: <20260427-arm-psci-system_reset2-vendor-reboots-v21-0-dcf937775e73@oss.qualcomm.com>
+ <20260427-arm-psci-system_reset2-vendor-reboots-v21-8-dcf937775e73@oss.qualcomm.com>
+ <CAMRc=Mf+-04Zr7jjRoaxTzO3LKSMyQ7DzxJc=dHNSyThEUiq_Q@mail.gmail.com>
+ <c0677503-8073-4940-8eb0-c06b34f843d2@oss.qualcomm.com>
+ <CAMRc=MdxpSXiqAn-8Az4ig4N8TFVdE9psacPVG9J9KehuFnbwA@mail.gmail.com>
 Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <6bba950c-5527-4613-8c16-b52534bc75a5@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+In-Reply-To: <CAMRc=MdxpSXiqAn-8Az4ig4N8TFVdE9psacPVG9J9KehuFnbwA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-GUID: m3SIWYEMThG-FtSOxe05h4G-wVp_7k9s
+X-Authority-Analysis: v=2.4 cv=PcrPQChd c=1 sm=1 tr=0 ts=69f0b019 cx=c_pps
+ a=rEQLjTOiSrHUhVqRoksmgQ==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=EUspDBNiAAAA:8 a=PlKOg72wQhDXdNgDaE8A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=2VI0MkxyNR6bbpdq8BZq:22
+X-Proofpoint-ORIG-GUID: m3SIWYEMThG-FtSOxe05h4G-wVp_7k9s
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI4MDEyMSBTYWx0ZWRfX5n5XjHqV79t2
+ lXFWy1DhpXDgtWgBF7miT4uPRygxXU/8NxLPIxvLIg9XN+5OXBQbnoEYcqJiI7bbqLoX6BliVCx
+ G7A2e7hLRaxY7gr/HSYuN8Aw8x2OwZcbZcJ5xbEBq6nNnEeqpftGkXQZbkRvzucSAzx0sFED/93
+ SKJfADD8aTFGgQH/EMme4n6XWyjcqTpJazPso9bKQhDQQyaiq56krgTDWedUNj2GOFZXFh02rkT
+ E6wb3NEoJtc2wd7T+Gva7LmouTlzLJ4lOxpdigp3F8AVT9FAmLCtxXkNawsdCNlfM3dj4ppZrRy
+ Ca7HbKYXRHyelO4RANwU7hhyLObXmqQ0CpBllnRgnpXEBQHvLNt8Pui7jNn2/NZfeKTSl4E/Pmx
+ 0n+Q7HCbaxSTRhEO2bZvSLn5bUlOOxhN2r2rooZxDe8SG161XzTobAFKwYgGazqFnvz/e57vqpG
+ +4X91ZC03V/eBhUX2sA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-28_04,2026-04-28_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 spamscore=0 lowpriorityscore=0 suspectscore=0 clxscore=1015
+ malwarescore=0 adultscore=0 priorityscore=1501 bulkscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604280121
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_055747_359601_DB7EE76F 
-X-CRM114-Status: GOOD (  25.21  )
+X-CRM114-CacheID: sfid-20260428_060322_531901_61FE7E9C 
+X-CRM114-Status: GOOD (  21.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,84 +180,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Krzysztof,
 
-Thanks for the review! I indeed missed something in the acquire path,
-details below.
 
-On 4/28/26 12:52 PM, Krzysztof Kozlowski wrote:
-> On 27/04/2026 17:04, Tudor Ambarus wrote:
->> Sashiko identified a memory ordering race in RX path [1].
+On 28-04-2026 18:21, Bartosz Golaszewski wrote:
+> On Tue, Apr 28, 2026 at 2:18 PM Shivendra Pratap
+> <shivendra.pratap@oss.qualcomm.com> wrote:
 >>
->> When draining the RX queue or reading saved responses, the driver uses
->> clear_bit() to release the sequence number back to the available pool.
->> However, on weakly ordered architectures like ARM64, clear_bit() does
->> not provide implicit memory barriers.
-> 
-> And it does not have to if entire access is synchronized by other locks.
-
-Right.
-
-> You need to analyze also this and mention here path which is not
-> synchronized and uses these weakly ordered atomic operations.
->
-
-The TX path is protected by tx_lock, and the RX path is protected by
-rx_lock. Because the bitmap_seqnum is modified by the RX thread
-(clearing the bit) and the TX thread (setting the bit), the bitmap is
-accessed across two different lock domains. Therefore, from the
-bitmap's perspective, the synchronization is entirely lockless, and
-explicit memory barriers are required. I'll add a comment in the
-commit message.
-
 >>
->> This allows the CPU to reorder instructions, making the cleared bit
->> globally visible before the preceding memory operations (memcpy() or
->> __ioread32_copy()) have completed. If a concurrent thread allocates the
->> newly freed sequence number, it can execute acpm_prepare_xfer() and
->> zero out the buffer via memset() while the RX thread is still actively
->> reading from it, leading to silent data corruption.
 >>
->> Fix this by replacing clear_bit() with clear_bit_unlock() across the
->> RX path. This provides release semantics, guaranteeing that all prior
->> memory reads and writes are fully completed and visible before the
->> sequence number is marked as free.
+>> On 28-04-2026 13:33, Bartosz Golaszewski wrote:
+>>> On Mon, 27 Apr 2026 19:34:48 +0200, Shivendra Pratap
+>>> <shivendra.pratap@oss.qualcomm.com> said:
+>>>> MFD core has no way to register a child device using an explicit firmware
+>>>> node. This prevents drivers from registering child nodes when those nodes
+>>>> do not define a compatible string. One such example is the PSCI
+>>>> "reboot-mode" node, which omits a compatible string as it describes
+>>>> boot-states provided by the underlying firmware.
+>>>>
+>>>> Extend struct mfd_cell with an optional fwnode pointer and attach it to the
+>>>> child device during registration when no firmware node is already assigned.
+>>>>
+>>>> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+>>>> ---
+>>>
+>>> In the following patch you use this and violate the supposed constness of
+>>> MFD cells. This also mean you need to modify the mfd_cell at run-time. I would
+>>> prefer introducing a field in mfd_cell: bool use_parent_fwnode which would
+>>> indicate to MFD core that - in case no fwnode was assigned from other sources:
+>>> DT or software node - it should reuse the parent MFD device's node.
+>>
+>> Have one doubt on this, When we fallback to use_parent_fwnode for cell:
+>> psci-reboot-mode, at psci_reboot_mode_probe(), pDev->dev->of_node point
+>> to psci node.
+>>
+>> But we want dev->of_node to point to "reboot-mode" node. This may need
+>> an explicit assignment again of of_node?
+>>
 > 
-> Barriers should be paired and release is paired with acquire.
-> bitmap_seqnum() is used with test_bit() and a separate set_bit(), which
-> do not have acquire semantics, although in some calls it is within lock.
-> Problem is I guess acpm_dequeue_by_polling() which is called without any
-> locks.
+> Ah, sorry you're right. I'd like to avoid having to modify the
+> mfd_cell entry at run-time if possible.
 > 
-> This means that other thread won't see updated values.
+> How about a callback in mfd_cell like:
 > 
-> I think you also need to investigate and fix that acquire path.
+> struct fwnode_handle *(*get_fwnode)(struct device *parent);
+> 
+> If set, it would be called from MFD core and would do the name lookup
+> and return the fwnode which would then be assigned to the cell device?
 
-:) thanks for the challenge!
+sure. thanks. We can make it a callback from MFD core.
 
-In acpm_dequeue_by_polling(), zero-lenght messages (rxcnt == 0) can have
-their bits cleared by a concurrent thread draining the queue. If we have
-our thread sitting in the do...while loop and calling test_bit() we risk
-speculative execution of the caller's subsequent instructions before the
-bit actually flips to zero. The fix is to s/test_bit()/test_bit_acquire().
-
-In what concerns acpm_prepare_xfer(), where we use set_bit(), I find it
-safe as it is, I don't think we need an acquire barrier. By the time the
-test_bit() loop observes a 0, the RX's clear_bit_unlock() has guaranteed
-that the payload was copied out. The rx_data->cmd buffer is dead.
-
-Another thing that I thought about was about the reordering of memset
-and set_bit in acpm_prepare_xfer(), but even there, the internal
-execution order doesn't matter. Both are guaranteed to be completed
-before writel (wmb). One may notice that I even reordered the memset and
-set_bit in patch 6/6.
-
-Also, test_bit() in acpm_prepare_xfer() will be replaced in patch 6/6
-by find_next_zero_bit(), they are functionally equivalent.
-
-I'll send a v3, s/test_bit()/test_bit_acquire()/ in RX path and update
-the commit message with the details described above.
-
-Cheers,
-ta
+thanks,
+Shivendra
 
