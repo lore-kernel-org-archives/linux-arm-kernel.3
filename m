@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D473FF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 09:02:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B47ADFF886D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 09:02:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zjQfcUZuZn8FSR1XVQjzNNSEpYxu8hKLdul/7SUTmDM=; b=s12cc1Su6ZddmX/iNwL9AuSIxP
-	OcDk4tZiVUlYsWJNDuXBkGO4vxnguEaR4cUxHn+aRj0eF2gAFiuA8eC/6RT9qJnzvVCXUxa88pX75
-	VCuMfY/54F4GfNd5QSRKrV6KYO8DXsZFKhvEFE+0sj9OJejP/FQw9Ss9qWRm2CWWAMoQeNFoFPQtv
-	ueCtPshBMcad8dYGRtWF2YLHVKtfCyQIzrUxRHMNxi9FEAeSc6KCtL1IA3qqKPYtwGQ2l/Ddm6ROi
-	tAtvnaIIUNQO8ZFjQVSL6Xu2j89qfE3mQMryLz2CbbUk/c8txSG9ror6LflYK9NQEBHeeNUewVOg4
-	3SvtUVjA==;
+	bh=tL+NqYfoXXhxAsfm48dTED3mFcnXQMPdFim48qetq44=; b=Lbkf9MeYn89etgWeHsn784hoGq
+	laE2lJDCCrpSgmf2P3UgEDOxKOX9KJFiWIIL6JaEyCOnl/p+R/O+h0vrvVbz/9LBMw9WpORBrV07h
+	DfzSsoDgk7hAkxZupcOe5jCEL49THYikU4G6WfQSjyqixixehlypAyLe6l+y5JD5nsSK/bQwbsUA1
+	UZXRjAm8+W9JNctoMrROWNbb0k8erpWOJ1uDVqUuo0jKUcRefrAtt71UF90BsGVNBsLLcJ/1ZGDU6
+	SUCpUWEdScwXF5cAxItzfSOpNLWEGCDYXkLGPWyhTQIuq21cw2BjGb2T+66XimcTVYP//yT2U7HuV
+	1WqIFWOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeKZ-00000000yfm-2EDX;
-	Tue, 28 Apr 2026 09:02:11 +0000
+	id 1wHeKb-00000000yiK-3SYU;
+	Tue, 28 Apr 2026 09:02:13 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeK3-00000000xz8-1oyh
+	id 1wHeK3-00000000xz7-1oi7
 	for linux-arm-kernel@bombadil.infradead.org;
 	Tue, 28 Apr 2026 09:01:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=zjQfcUZuZn8FSR1XVQjzNNSEpYxu8hKLdul/7SUTmDM=; b=o6S53/3pMf7nwK7jCXSoEi2WJf
-	X+mlUKzEGH87u+tgoA2wXNItmgmAF5MYjE+565iVYZ6YrFd8gh0B4KRpt9bDFkUaGd9nHhXPvONO8
-	dEOKegyTL9khUhF0L9aH+Zc9cOJD08oOEsGAb7sAFmbwZI+XRUSLS5d+aWse4kLHDIzM6qqlp7cVc
-	K/nInS16sU5CWVsh+VopG4q21eqoqnLK5e0FoNmeYXwjqVx+Cb0i99z4t5CKJNESKt6L2ytll9sLH
-	SX8vuW0ly0v/jJQ14XA1IU4yrmuSzuFW1BZTXzEKdKn/7hQsNKUukzbeo9OBLwV08GOaLAksBE8rj
-	v0bTaZjg==;
+	bh=tL+NqYfoXXhxAsfm48dTED3mFcnXQMPdFim48qetq44=; b=PurbKSmlRdVz4T1HHS6xDLGE05
+	bIYe415LKF51pnP9gGrszXvScfSJqvg7M7Om0Bjd/OEBZMX2C7UVVuZ2fBzrd0NcboS0vSQ5zijg2
+	+LYCkimJjQIGudVymG3y1UWMCzEf+IgKWUrBwL5JbguIKBCwMbI43sHn6buXZOc5L6vXX+G/rZIeP
+	gvQmbRl5FknmXnackprw5t21DDJWRa4YFVgWL/sgpg/eaTrLFtACcgcA3GSLXUdIvMcWz08iN6e3u
+	/g0b+u1CxzLFl36bx1NAOshlIYGEGNZT7dhvQudzpF5GaDmB2Re8aEHwFN/GagfUy0u/H1b5VuGii
+	c+jmzLHg==;
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeJs-00000002VUO-3WUJ
+	id 1wHeJt-00000002VUh-2zBa
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 28 Apr 2026 09:01:38 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1wHeJ8-0004Lz-TK; Tue, 28 Apr 2026 11:00:42 +0200
+	id 1wHeJC-0004Lz-0Z; Tue, 28 Apr 2026 11:00:46 +0200
 From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Tue, 28 Apr 2026 11:00:38 +0200
-Subject: [PATCH v5 03/29] media: v4l2-common: add missing 1 and 2 byte RGB
- formats to v4l2_format_info
+Date: Tue, 28 Apr 2026 11:00:43 +0200
+Subject: [PATCH v5 08/29] media: rockchip: rga: use stride for offset
+ calculation
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260428-spu-rga3-v5-3-eb7f5d019d86@pengutronix.de>
+Message-Id: <20260428-spu-rga3-v5-8-eb7f5d019d86@pengutronix.de>
 References: <20260428-spu-rga3-v5-0-eb7f5d019d86@pengutronix.de>
 In-Reply-To: <20260428-spu-rga3-v5-0-eb7f5d019d86@pengutronix.de>
 To: Jacob Chen <jacob-chen@iotwrt.com>, 
@@ -74,9 +74,8 @@ X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_100129_201212_63B07AE1 
-X-CRM114-Status: UNSURE (   9.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260428_100129_887892_C64DBBBF 
+X-CRM114-Status: GOOD (  15.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,50 +90,210 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add all missing one and two byte RGB formats to v4l2_format_info. This
-allows drivers to more consistently use v4l2_format_info, as it now
-covers all currently defined RGB formats.
+Use the stride instead of the width for the offset calculation. This
+ensures that the bytesperline value doesn't need to match the width
+value of the image.
+
+Furthermore this patch removes the dependency on the uv_factor property
+and instead reuses the v4l2_format_info to determine the correct
+division factor.
 
 Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 ---
- drivers/media/v4l2-core/v4l2-common.c | 21 +++++++++++++++++++++
- 1 file changed, 21 insertions(+)
+ drivers/media/platform/rockchip/rga/rga-buf.c | 14 +++++++++-----
+ drivers/media/platform/rockchip/rga/rga.c     | 16 ----------------
+ drivers/media/platform/rockchip/rga/rga.h     |  1 -
+ 3 files changed, 9 insertions(+), 22 deletions(-)
 
-diff --git a/drivers/media/v4l2-core/v4l2-common.c b/drivers/media/v4l2-core/v4l2-common.c
-index 49c1ec08e2eb3..58a4b372cf5be 100644
---- a/drivers/media/v4l2-core/v4l2-common.c
-+++ b/drivers/media/v4l2-core/v4l2-common.c
-@@ -246,8 +246,29 @@ const struct v4l2_format_info *v4l2_format_info(u32 format)
- {
- 	static const struct v4l2_format_info formats[] = {
- 		/* RGB formats (1 or 2 bytes per pixel) */
-+		{ .format = V4L2_PIX_FMT_RGB332,   .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 1, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_RGB444,   .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_ARGB444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_XRGB444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_RGBA444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_RGBX444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_ABGR444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_XBGR444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_BGRA444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_BGRX444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
- 		{ .format = V4L2_PIX_FMT_RGB555,   .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_ARGB555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_XRGB555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_RGBA555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_RGBX555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_ABGR555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_XBGR555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_BGRA555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_BGRX555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
- 		{ .format = V4L2_PIX_FMT_RGB565,   .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_RGB555X,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_ARGB555X, .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_XRGB555X, .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
- 		{ .format = V4L2_PIX_FMT_RGB565X,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
+diff --git a/drivers/media/platform/rockchip/rga/rga-buf.c b/drivers/media/platform/rockchip/rga/rga-buf.c
+index bb575873f2b24..65fc0d5b4aa10 100644
+--- a/drivers/media/platform/rockchip/rga/rga-buf.c
++++ b/drivers/media/platform/rockchip/rga/rga-buf.c
+@@ -14,7 +14,6 @@
+ #include <media/videobuf2-dma-sg.h>
+ #include <media/videobuf2-v4l2.h>
  
- 		/* RGB formats (3 or 4 bytes per pixel) */
+-#include "rga-hw.h"
+ #include "rga.h"
+ 
+ static ssize_t fill_descriptors(struct rga_dma_desc *desc, size_t max_desc,
+@@ -95,14 +94,19 @@ static int rga_buf_init(struct vb2_buffer *vb)
+ 	return 0;
+ }
+ 
+-static int get_plane_offset(struct rga_frame *f, int plane)
++static int get_plane_offset(struct rga_frame *f,
++			    const struct v4l2_format_info *info,
++			    int plane)
+ {
++	u32 stride = f->pix.plane_fmt[0].bytesperline;
++
+ 	if (plane == 0)
+ 		return 0;
+ 	if (plane == 1)
+-		return f->width * f->height;
++		return stride * f->height;
+ 	if (plane == 2)
+-		return f->width * f->height + (f->width * f->height / f->fmt->uv_factor);
++		return stride * f->height +
++		       (stride * f->height / info->hdiv / info->vdiv);
+ 
+ 	return -EINVAL;
+ }
+@@ -148,7 +152,7 @@ static int rga_buf_prepare(struct vb2_buffer *vb)
+ 	/* Fill the remaining planes */
+ 	info = v4l2_format_info(f->fmt->fourcc);
+ 	for (i = info->mem_planes; i < info->comp_planes; i++)
+-		offsets[i] = get_plane_offset(f, i);
++		offsets[i] = get_plane_offset(f, info, i);
+ 
+ 	rbuf->offset.y_off = offsets[0];
+ 	rbuf->offset.u_off = offsets[1];
+diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
+index 4e710a050cb7c..c07207edffdb6 100644
+--- a/drivers/media/platform/rockchip/rga/rga.c
++++ b/drivers/media/platform/rockchip/rga/rga.c
+@@ -190,7 +190,6 @@ static struct rga_fmt formats[] = {
+ 		.color_swap = RGA_COLOR_ALPHA_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_ABGR8888,
+ 		.depth = 32,
+-		.uv_factor = 1,
+ 		.y_div = 1,
+ 		.x_div = 1,
+ 	},
+@@ -199,7 +198,6 @@ static struct rga_fmt formats[] = {
+ 		.color_swap = RGA_COLOR_RB_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_ABGR8888,
+ 		.depth = 32,
+-		.uv_factor = 1,
+ 		.y_div = 1,
+ 		.x_div = 1,
+ 	},
+@@ -208,7 +206,6 @@ static struct rga_fmt formats[] = {
+ 		.color_swap = RGA_COLOR_RB_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_XBGR8888,
+ 		.depth = 32,
+-		.uv_factor = 1,
+ 		.y_div = 1,
+ 		.x_div = 1,
+ 	},
+@@ -217,7 +214,6 @@ static struct rga_fmt formats[] = {
+ 		.color_swap = RGA_COLOR_NONE_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_RGB888,
+ 		.depth = 24,
+-		.uv_factor = 1,
+ 		.y_div = 1,
+ 		.x_div = 1,
+ 	},
+@@ -226,7 +222,6 @@ static struct rga_fmt formats[] = {
+ 		.color_swap = RGA_COLOR_RB_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_RGB888,
+ 		.depth = 24,
+-		.uv_factor = 1,
+ 		.y_div = 1,
+ 		.x_div = 1,
+ 	},
+@@ -235,7 +230,6 @@ static struct rga_fmt formats[] = {
+ 		.color_swap = RGA_COLOR_RB_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_ABGR4444,
+ 		.depth = 16,
+-		.uv_factor = 1,
+ 		.y_div = 1,
+ 		.x_div = 1,
+ 	},
+@@ -244,7 +238,6 @@ static struct rga_fmt formats[] = {
+ 		.color_swap = RGA_COLOR_RB_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_ABGR1555,
+ 		.depth = 16,
+-		.uv_factor = 1,
+ 		.y_div = 1,
+ 		.x_div = 1,
+ 	},
+@@ -253,7 +246,6 @@ static struct rga_fmt formats[] = {
+ 		.color_swap = RGA_COLOR_RB_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_BGR565,
+ 		.depth = 16,
+-		.uv_factor = 1,
+ 		.y_div = 1,
+ 		.x_div = 1,
+ 	},
+@@ -262,7 +254,6 @@ static struct rga_fmt formats[] = {
+ 		.color_swap = RGA_COLOR_UV_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_YUV420SP,
+ 		.depth = 12,
+-		.uv_factor = 4,
+ 		.y_div = 2,
+ 		.x_div = 1,
+ 	},
+@@ -271,7 +262,6 @@ static struct rga_fmt formats[] = {
+ 		.color_swap = RGA_COLOR_UV_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_YUV422SP,
+ 		.depth = 16,
+-		.uv_factor = 2,
+ 		.y_div = 1,
+ 		.x_div = 1,
+ 	},
+@@ -280,7 +270,6 @@ static struct rga_fmt formats[] = {
+ 		.color_swap = RGA_COLOR_NONE_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_YUV420SP,
+ 		.depth = 12,
+-		.uv_factor = 4,
+ 		.y_div = 2,
+ 		.x_div = 1,
+ 	},
+@@ -289,7 +278,6 @@ static struct rga_fmt formats[] = {
+ 		.color_swap = RGA_COLOR_NONE_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_YUV420SP,
+ 		.depth = 12,
+-		.uv_factor = 4,
+ 		.y_div = 2,
+ 		.x_div = 1,
+ 	},
+@@ -298,7 +286,6 @@ static struct rga_fmt formats[] = {
+ 		.color_swap = RGA_COLOR_NONE_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_YUV422SP,
+ 		.depth = 16,
+-		.uv_factor = 2,
+ 		.y_div = 1,
+ 		.x_div = 1,
+ 	},
+@@ -307,7 +294,6 @@ static struct rga_fmt formats[] = {
+ 		.color_swap = RGA_COLOR_NONE_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_YUV420P,
+ 		.depth = 12,
+-		.uv_factor = 4,
+ 		.y_div = 2,
+ 		.x_div = 2,
+ 	},
+@@ -316,7 +302,6 @@ static struct rga_fmt formats[] = {
+ 		.color_swap = RGA_COLOR_NONE_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_YUV422P,
+ 		.depth = 16,
+-		.uv_factor = 2,
+ 		.y_div = 1,
+ 		.x_div = 2,
+ 	},
+@@ -325,7 +310,6 @@ static struct rga_fmt formats[] = {
+ 		.color_swap = RGA_COLOR_UV_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_YUV420P,
+ 		.depth = 12,
+-		.uv_factor = 4,
+ 		.y_div = 2,
+ 		.x_div = 2,
+ 	},
+diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
+index 2db10acecb405..477cf5b62bbb2 100644
+--- a/drivers/media/platform/rockchip/rga/rga.h
++++ b/drivers/media/platform/rockchip/rga/rga.h
+@@ -17,7 +17,6 @@
+ struct rga_fmt {
+ 	u32 fourcc;
+ 	int depth;
+-	u8 uv_factor;
+ 	u8 y_div;
+ 	u8 x_div;
+ 	u8 color_swap;
 
 -- 
 2.54.0
