@@ -4,109 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C14F5FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 14:37:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7014FFF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 14:38:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6dapWbfdaH3qRNQs2tgvGaffgEEHsGjHti7EKce5ja8=; b=uU13qV6xzd40hk0BGbmBA+p468
-	R4lKtDeL9/PvfoUegjqdBtGafWTbvlwOYexSBQhjVaj07bCyAsefzCZ589N7lUXerlk9mSrgnea7D
-	gAimR9opZVHrjkzLgyMRvSoIaVkDwD+KdiO4cBtEyYRAgAzVQpcdRgUtMNGpMVbtSw+i0y8wqRUu4
-	KDmStd/yj9pbgsTRT86WDOUg+txH4+xuL3xbosNA46OpG4k/P/DP3nSaJuHrNOlodcmFw34ke3GST
-	+RCM235ZT5rHrkwNESTCe1u/rjQZeNh+4eJJV6IJIm/Mdnwl6+r2lMLqIzo9+YQChVrS2PPGdCMxC
-	Us1SBNKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QxJzZkUKd9pp8yhcreBmOMFRpBp9i6q/5UA9OahYWIM=; b=LdKHQkvjZKuAf+o11Ig/kpXtlR
+	XGs+GugFwx5srr+pdwEmEUYOSKCHrqgjHK8y1E9b616/aJAP65xdyHU8vzjmovVTFOOtgdAJgZRV2
+	PsY+xP0Nlp20JorB2+m1KNYc99z4o9foFTRk15BDM+d04VHUQ+rSqx26gHeUWglKJzndhMgzRYN91
+	zdyKzmZyr+J7E3Citg40/ZVyZ22MB5vSO7ljwYFi5T5U12qRogIrMRgXSrOgnLrPV272fjWAx5eJd
+	hMy+BGhWfVv/OH1B0OTKtrkDH5pCKIwQjTrSNgpLuskuNM5oFSwRTeHAfVpiGTwkyn8sSQ1y7T8mL
+	nn23Ck2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHjZ5-00000001fWe-0Kk7;
-	Tue, 28 Apr 2026 14:37:31 +0000
-Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
+	id 1wHjaL-00000001fhE-1HUu;
+	Tue, 28 Apr 2026 14:38:49 +0000
+Received: from mail-japaneastazon11011063.outbound.protection.outlook.com ([52.101.125.63] helo=TYVP286CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHjZ3-00000001fWJ-16fA
+	id 1wHjaI-00000001fgc-37AQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 14:37:30 +0000
-Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-50d6b393d60so86841cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 07:37:28 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1777387047; cv=none;
-        d=google.com; s=arc-20240605;
-        b=j04dE/+e/i2jxIqysRYiDvr6Gkq3sKzP9juQgKEsdt4/43m86MBMDEo3HNVYFsEGjh
-         aIW1yWv6ckAoQuPim4y0eXLf7J4zUtipEk8jczuguEQTcMWrQA4ushJfJLaG3dkeMS6K
-         1cXopE4zL5Uv3RD1bmGEQ+75G8oTJ1S2Z5Q5bI5+D5obISLprF9YBS5et2oHAtZXrvR3
-         UWFODX6H9RXOekJF8cjCYT9gZSZuXz85VKveIC2nw7jT/fAPC9jS9uYqJWlAbkPYvRRu
-         ptSySd1WBMthWmobAuuwzqOFpIeuG0uo+h69QyYiXRU29Nu6TW63Z8SXflJ+CCsIXDVs
-         aUVA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=6dapWbfdaH3qRNQs2tgvGaffgEEHsGjHti7EKce5ja8=;
-        fh=YNlQnDY9Nj1EIGuGm0TmNOO+U1gqog0k7jBk9+Z2ex8=;
-        b=Ueifz1/m6D4upyakGrHcxsHRO/sv04HNNieg41AmK3Rts1Mxqgd75GOQBGJAFS6dOq
-         VGu/N78I8ugqJWBYUQdMe+2SZ2OeKXbmC+aCwx57qxCrZhxezKhyyQwHnS36m0tXpEd9
-         BVJWBLRuWa1AladrtBKI3k1hh+DY+bauFVyYTfr5GNx0ZHrRfs0/MQSB5dSkzf7aDkkr
-         fkE453EvC/amReJc1rEoOYfgKzwVq2B153qKZVjmhWWCXomn1qy4mHIed41ofMHvLT2O
-         GhC8uEWPEIqiYf6H89LlrYgzgIo3xPMZYkA4qCPiNEZKskHtKbOIJi3UT/nzxsFXDMZU
-         aVJw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777387047; x=1777991847; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6dapWbfdaH3qRNQs2tgvGaffgEEHsGjHti7EKce5ja8=;
-        b=GNQtngnQsJMzG3UmarDDvahZI9ydtnVsSFAmpNVGBWhXH3foQ/QuJYIX+3jkmVx8ax
-         +BESyIbJMAB+9HrEa0H4pMXfaystmFKIwEZ9y0+C2zPxyShqO3qFRzfLIPLrNmIgWBTv
-         2pgKAbZMnNtBpe2ZXaN0EBI0Ajs1iB3Yf6FL3lfW4DQab6FcYuZ2Dzhyj7t2x58HnvwO
-         ohBHZK8GVkLLj4v51ZdaTqd8nrxTTkjT0U4C+SdEXchEGh1JsnxZeGrbwsQmTVmC5iPl
-         KUtiTOsW/NKflvXgBWVIby1tPQm5kseSHkiEZm7L/dx9tzXXBthreFM0zrUQ3Sab1hB1
-         3YiA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777387047; x=1777991847;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=6dapWbfdaH3qRNQs2tgvGaffgEEHsGjHti7EKce5ja8=;
-        b=ld7yof0ZMrPf409peVtEJJrZNgMdReR8lqoleKXR4oLevjRHkD11LynvyNebWAmpbs
-         MTpJ3FKP40ubcAl1Pm4Rf3Jj3PutOwXBNCEW5KuKkdLbwTd+nhsTyxMUQm7f7E12WOXT
-         9Z6TyxI88V2V4FEOkk3p612tjExuVyu6hGaTbOVOt/5AX1gS3z4EgZUxNMQLQpmsE12a
-         p4H6oyUR9V8sDvhmbpeEAGM59krzAnCn1Lksx/tFe0ZNoxfnwG+eaiKi8Tjqe/Pxqd2k
-         /SBQWi3pntvmTvTZ/dItxg1Sti47Jkg+yCDRX6/WB2fit6yUZGjxsk/8Cszk4bBvIkY+
-         NUyQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8y8qkiNh//JtwogDG3QERqwVaQppONB5yU/Nzbah6V4i8VP6uChtPrLCkeJ27/TTmtmKHUkRp6SkCaqnL1UwoM@lists.infradead.org
-X-Gm-Message-State: AOJu0YxFV73nLRzWwJehthTRaAJ9tSRfIXAaEcdx1kv9sN5SocaMlMny
-	yQSGprJvhUmPvmzk/bJC2sS5jHzdIsASs1Bx6iFg1LDF+n9X6fHupAmUTm3BjFMeA7fBnRpjeuF
-	xPjs5rLOCQqmix+xuNcWLgxPxkpROtyrqBrRo+yZM
-X-Gm-Gg: AeBDieuW0LEh6+f0BsSviaraVSwLiRK9d3WbKsnL4o28+SMEtbWIMREwgxMXrQKFuTU
-	IK5rOg4FOk2PmYq7LnQXoQh8GOjIEqSyXw7EOJqefotpbKWVEZQ3G4XJVemabiDrNFoVrZx2cqY
-	CoBA4I1nb700wRFFbn15PpniqqiRlsv6rShNieOUPltK35jUlZSu6wu10vr2LjCtH9E9k2v967z
-	17U+eeLWmOKi9+B4BScwvM1CfwTG4oDqxwpKg9UBfwZPXag848+gWbuWHj9VpuS/RKEG4AZe052
-	tdRBUOlW7qoVkyxHWppr8UliwIz+vx7x+3a4asDfU7a7C2NkDFANlL7h8m9tUQs=
-X-Received: by 2002:ac8:5d52:0:b0:509:174d:3224 with SMTP id
- d75a77b69052e-5100ddadccdmr13763831cf.11.1777387040604; Tue, 28 Apr 2026
- 07:37:20 -0700 (PDT)
+	Tue, 28 Apr 2026 14:38:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dVNqxFV55d2Nrstb6NUDi8OlbPqRoGs9yiLeJJND9L6K1VmhiRwf06j2xnz+6pirydMLdFaYxnkwFCSl7fflFDusMujvvIutSUQPWVaBaKza9rVTM+foVkDBvF9OXGvwy1evpo12nvJbqDM1q7Vv8dsIvuOBX2f3nUbCnpHkirBiE06E21nNQ8GWTtpF6fC8Rv8QIU64GoWmmMB+eRUX5ryUWuY7Sb5sS3Kg0NcWy5ANDBoDIsyntzTzbhRxIFykP0JrVP0brQxWwdbPzsCBa03FJ5BjafMFnW3SzQUgOg1RYfDf/31Xvi6LZ7kiJ2O1IyWFXaEDBU359w4g1LI14g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QxJzZkUKd9pp8yhcreBmOMFRpBp9i6q/5UA9OahYWIM=;
+ b=O+NQY18Q+rp0iXVb2eTneXLAkpl0VieHNmsN+DYJ4QqJ5kAtdF6j4guh0Mw3YzN4sWA4WCtiHaqQu+a0pFNesveXjSBnOWK/U5ezMAC+j5oBd/MREwmAjATla/PX5vhGokjYpJCm20FzK5Ect4GlWlVOJLrkFodk7JhydGgME/mfvzML4Iapj6ISubqaRGmybgZH0hTp4T/gCPdZTSpHhxd5kiNDj6MskFXMuQQyMGBpdU/2emub2L/M9U5oLNs/sdNa/jdlhawLvYAVmUh9j7zuVOtyRa0gsFcnr1jNGNYA9fUVOxup3HLlKohoY3KSocXEqpwij5HSTAtne/YEDg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
+ header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QxJzZkUKd9pp8yhcreBmOMFRpBp9i6q/5UA9OahYWIM=;
+ b=ToH6k7wt9tRkub7y9MpC7IdsjjRymvOa0Ah/uOhWZ+nV7V5qGW4ITUIxb5ZyN+XKrzR+qWwoi2q/IATTE3cC58NCvREOoCJJPL7ZmIpC/VzOrg+CG4J1spdrV6PyT4V8y/d0Z/3phyn5YtLU/WuD+HhfCRTPv86bvkP9tSmUg0E=
+Received: from TY3PR01MB11346.jpnprd01.prod.outlook.com (2603:1096:400:3d0::7)
+ by TYYPR01MB14054.jpnprd01.prod.outlook.com (2603:1096:405:20e::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.29; Tue, 28 Apr
+ 2026 14:38:38 +0000
+Received: from TY3PR01MB11346.jpnprd01.prod.outlook.com
+ ([fe80::87d1:4928:d55:97de]) by TY3PR01MB11346.jpnprd01.prod.outlook.com
+ ([fe80::87d1:4928:d55:97de%4]) with mapi id 15.20.9846.025; Tue, 28 Apr 2026
+ 14:38:38 +0000
+From: Biju Das <biju.das.jz@bp.renesas.com>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>, Rob Clark <robin.clark@oss.qualcomm.com>,
+	Dmitry Baryshkov <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>,
+	Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>, Marijn
+ Suijten <marijn.suijten@somainline.org>, Tian Tao <tiantao6@hisilicon.com>,
+	Xinwei Kong <kong.kongxinwei@hisilicon.com>, Sumit Semwal
+	<sumit.semwal@linaro.org>, John Stultz <jstultz@google.com>, Andrzej Hajda
+	<andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, Robert
+ Foss <rfoss@kernel.org>, laurent.pinchart
+	<laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, Jernej
+ Skrabec <jernej.skrabec@gmail.com>, tomi.valkeinen
+	<tomi.valkeinen@ideasonboard.com>, Michal Simek <michal.simek@amd.com>
+CC: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-msm@vger.kernel.org" <linux-arm-msm@vger.kernel.org>,
+	"freedreno@lists.freedesktop.org" <freedreno@lists.freedesktop.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: RE: [PATCH v2 08/11] drm/bridge: adv7511: switch to
+ of_drm_get_bridge_by_endpoint()
+Thread-Topic: [PATCH v2 08/11] drm/bridge: adv7511: switch to
+ of_drm_get_bridge_by_endpoint()
+Thread-Index: AQHc1u/CLMxk+VTSG02AXPmSMDjmUbX0WyoQgAACgvCAABfEgIAAAYVQgAAGVYCAAAKiMIAACyhw
+Date: Tue, 28 Apr 2026 14:38:38 +0000
+Message-ID: <TY3PR01MB11346293C9AAF8BC4B3FCAD6586372@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+References: <20260428-drm-bridge-alloc-getput-panel_or_bridge-v2-0-4300744a1c47@bootlin.com>
+ <20260428-drm-bridge-alloc-getput-panel_or_bridge-v2-8-4300744a1c47@bootlin.com>
+ <TY3PR01MB113466B70BFD2899AB0CF47AD86372@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+ <TY3PR01MB1134674FDD088299A4382D3D286372@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+ <DI4TGV2WURTY.39OXE7WWKRLA1@bootlin.com>
+ <TY3PR01MB11346E82D19FBE8544F51624286372@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+ <DI4U2DT3OBMR.23T3F7X8P75RU@bootlin.com>
+ <TY3PR01MB113465B0308DE16ACC48D1E8186372@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+In-Reply-To: <TY3PR01MB113465B0308DE16ACC48D1E8186372@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=bp.renesas.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TY3PR01MB11346:EE_|TYYPR01MB14054:EE_
+x-ms-office365-filtering-correlation-id: 615e36e0-a409-4eb5-cb32-08dea533d5dc
+x-ld-processed: 53d82571-da19-47e4-9cb4-625a166a4a2a,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|921020|38070700021|56012099003|22082099003|18002099003;
+x-microsoft-antispam-message-info: Hjw3amUPMkeZ0nFCGnVuUn1HaP/bj25hYOdVCM9CqLu3R/KXrfDqWQj6ScatNk842uTEbHJkmo/kIepLdp2Lku0rTeXqyn5+DonrhPUy+twLfPp/kxzDexuuZucWZ0nghSlh9Dm8gO4CWt0nCMVypVgiJlMik92UdXfRCWxWTAJKSVizTCR9RqvzyLi/Mw79lOnEiTH3QUcMLuhkVw7dPaPea4HSjIzC8ASAm5IYbwCCg7k/YX0LT9jf7ylMSG2LZUsqb4/EnOUJS/GwOKjhx/T8sEnHUeAzbSMWkRsAPF7gu6TRym0v3AsHZsg5edetDLMDczPW5CW92BP64X5ln4oMCnm08Jb+EbQVEAfkEUpXwWWf1iV70RgMy5a2Qg7OZx+3/vBloYEUzW6WegpqttocpAQf2m+nVMq0LgDOd0Hley1zGr/D47AK1cGwiJ8Hs1TWfXybJm26VCzOnU4eAHgIErAQD6HgcF9CbQcHpaHdXpL9Ns20yDtkNUqk6SSfcN0m8q9x3CnK9LHuZJKxs/HEZiZauRhT2fDnpHT47UzvjLGlo6e7TKqxFvUZE4iwpR4Gw0r8s+L4yGLOqH3uU/rm/pM6sNFU1XkawcfaQhShXN/IH1OA8GpS2KEDC4wqpO/RYE2xK0Gk3W3OCDLGN+KBJ31ESa0jPA2gjqoisyuTnyeoBgKgI2NPHwII1kNQQrSwO8HNtbvVqmJDRn/OcGzEE8Lf4YPiULsCIYZxfoBZBSvK3NYXj7cMEvpWLOZJzZ+cliWDAQCgrUedYdwLtSNKCuV0nHIA3eK/pPv4gcdW7F5NvneV6ni2Oa272BjA
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY3PR01MB11346.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(921020)(38070700021)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?SWZrbUZQT2Z3a0gwN2syVSt3VVpqZitCVWRhbWlxWjQ5SUtXODRRelBKUzk2?=
+ =?utf-8?B?R2EzSGxVN0NyUXdDZCtaT2U3L3dkWFpMN0dqMWFGZFlqd213ckh1b0kxRDJE?=
+ =?utf-8?B?SjQvVTFINjYvb3ZKUG80cXN1ckFqZll1UDVxN3dsdVI1bk9uT0owNC93UXFB?=
+ =?utf-8?B?ejE5d0tvU1g5SGVXTFdMMDRwdFNpODcvbW83Mmw5aTl5OWp1VE13bVVSV0Zw?=
+ =?utf-8?B?a3dVdzFIVEpOdGkyVVpWWUVpcWZkeDRLMHZBZlJtSlJYbVZIczV6YUt4Z0xV?=
+ =?utf-8?B?QmRBUGwveVpDeG85SHMwRllPdE9GOEYwMXloUHA0ZEdLMGJ3V1JHc3RBREVC?=
+ =?utf-8?B?eTJqc3k1eTFOZXVtbkxkYUtneEFCZ0VyblBzdkE4Um9XSHFvdDZtY1p4eCtP?=
+ =?utf-8?B?aXd2QmVscVJXanc0ek5UdVdZYkFIV2ozeXk4ZHg0QkhWKzZFVFpFSWRsU1lp?=
+ =?utf-8?B?M3l0S1RqczRxTFcvWktsMGM0cjRBVllxMGpkakduZDBZaHRDRTVKNWlkaXhp?=
+ =?utf-8?B?MDBqbTI0aWZjZTQ5TmhhQ2RGaGVoWFBwZEViRWZIWnlROFFOMzF3M0l3VVRu?=
+ =?utf-8?B?UDl6bkQ0MGo3cFJrbGN0bVJSL0NnUjlDcHZPR0RZNWJtSXhMNTJLa281UjZw?=
+ =?utf-8?B?TU91NzdBVzJzR1pHM29ESlRldlZoUWFxQ2d6Tnh4N2YvZmdBaDF0bHJqVDY1?=
+ =?utf-8?B?eGJ4WldmV2FTb1lsdUl0RW9hWnErdWxCMWluWGFPaHBneGhwYXVVRVhVdlYv?=
+ =?utf-8?B?QlUrUUxYTWxoWkQrcUhzdTBUd1VSWHlCSmVXbXVHUm0yVExYL0NkWFZaSlNX?=
+ =?utf-8?B?dGZLSkR1aVdZNVFZMlF1ZmVPMW5FQUVPV3hkUjNqQlJhVWJwRVh0YmZVR3ZI?=
+ =?utf-8?B?ZVlFZzhzNURiTUVDR2k0ekFJYWQyZ0MzdkIzWVZyWHpkWDVydnFBbnBIT3JM?=
+ =?utf-8?B?a0laeHgxSVN3ZmFveHpqeHBza1dZcEcvZ3NDREluREZCNGltdU1GNkJkUnNU?=
+ =?utf-8?B?MU9pcmhSamdIbGpRelZGN2c2Ri9yK1NZVFpUdll1V3R3SC9DQVF1ZEhhcjhV?=
+ =?utf-8?B?N05GdXdCcnVUMkZWQjRlaHRLWDA1U0lwRzlHdHp4V1c5QzJpZ2pzUW04OXpC?=
+ =?utf-8?B?WmJsTUIraTBDcUJMa3ZjZXdPUXFaSnhxY2xVZ3hjcjBLZExFOTlodE5SNGZQ?=
+ =?utf-8?B?anE4c2tIU1BxRk9NSlJjNmNiZkZBSFAxL3AwbFhqNGZzY2dFUVBvcWR4a1Y3?=
+ =?utf-8?B?eHlON3M0dG0rZUovNkZVc1R1WGd2TUxsWkVmaXc2akoyMGw5RFY2RHg5aHdD?=
+ =?utf-8?B?c1NjR1NRV2Q2YVhRaTl5eEEwK0g5SmJuNyt1dVF6cHpaK3ZLdmxJUGt6b3B2?=
+ =?utf-8?B?ZmJJcjJHZ3YwMXk5QVA0RldkaGFqZld5T1p6ajIrbVgxVFdMYzN5WGZad1py?=
+ =?utf-8?B?MFViSUhBVld5cUtaNVhVd1cveW1CRXFySVRZaGV6dVFBclJ4QXFNMmNWU1Nz?=
+ =?utf-8?B?dExXWk8wOFNwekU4SUc1VDkyY09XSWRNcWxuVm4wUExFcVdUcXFIekNiZmxJ?=
+ =?utf-8?B?VUhxMzNSaERWUGNkejErRXdQOFYrcGw1WE1DSzVLUmZSVkJ3YURDNEcvak8z?=
+ =?utf-8?B?a1A5YVgvanhMeGpaUkIzcGpDd0ZGbXVqSkE2Ym1pazdzRWpDNjNHMk9xRjg0?=
+ =?utf-8?B?MlBEendnMzJwaE1VRXVTa05ic1orYmhiWmgyUkNYWlJ5TVdWSHZXcnB3YklY?=
+ =?utf-8?B?SkpEZ1pFRXFxY2ZRdVZZRkgwb2NyN1FJTmdtTmhIN1BsSnd3eDRuL2xZVldI?=
+ =?utf-8?B?QnJxL3Z2OXNXcU5xN0V4UmhUYW1SZlZucGdsK2Fad3lnVEhVSEs2cTU0YVM0?=
+ =?utf-8?B?SlM2ZHdUOERNNnZJckVhMy93UWE0TzYwQWUrMXlXR1c3ZHgzSlFwOVlMbWMx?=
+ =?utf-8?B?QVAxYlRhVXN1S2xhM3hiTkJ0cE9KTmNXMmJXY3VBaW1ETTBFbk04OUg3V1M3?=
+ =?utf-8?B?cFEzTVRoZ3J5eTk2M3Y1bHk2cUk0eVVtM2daeXJzb2VkUk1tQ2RwWGIzWlFY?=
+ =?utf-8?B?NTVrMTM0bTFHcFU2QTVIbSt1WjhyNVppd0J1NTlxUVJ0K3RVOFlqcVBzcE5n?=
+ =?utf-8?B?Vk9QYUx5T1NkTUV6Yk5MajVtaUdwMDBtb2FNVUQ3NjVheXNGTUo3anJOSHp2?=
+ =?utf-8?B?aWJYQzV1ckRkekdySDdId3BtVnNmV0lYWGpqdG8zNGloUEFIYUwvMVYvck12?=
+ =?utf-8?B?SWpDcDZsOEY4c0lmRStqRm9nWTVvSzVPQVlYYjA2UmlLeWRXemhlNG82M3Fq?=
+ =?utf-8?B?L0k3ZjFBQWk4dzZvaHdwTmxFTUJLTVFBUTZLd05jR0MyU3hMeEoxZz09?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-References: <20260428103008.696141-1-tabba@google.com> <20260428103008.696141-7-tabba@google.com>
- <afC5_jrTEVRfJ77x@willie-the-truck>
-In-Reply-To: <afC5_jrTEVRfJ77x@willie-the-truck>
-From: Fuad Tabba <tabba@google.com>
-Date: Tue, 28 Apr 2026 15:36:43 +0100
-X-Gm-Features: AVHnY4KUvLQVQvqOYoHKFrGRxCQZYRY1ccfXZN-JSVf8ghDHejXfq6Fa9ThLlXs
-Message-ID: <CA+EHjTyTy2qLm=CbOOYR6rmjg5tH38PifAV+qAhbZxidY5szxQ@mail.gmail.com>
-Subject: Re: [PATCH 6/8] KVM: arm64: Propagate stage-2 map failure on
- host->guest donation
-To: Will Deacon <will@kernel.org>
-Cc: maz@kernel.org, oliver.upton@linux.dev, james.morse@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, qperret@google.com, 
-	vdonnefort@google.com, catalin.marinas@arm.com, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-OriginatorOrg: bp.renesas.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TY3PR01MB11346.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 615e36e0-a409-4eb5-cb32-08dea533d5dc
+X-MS-Exchange-CrossTenant-originalarrivaltime: 28 Apr 2026 14:38:38.2544
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: EMF7ZEolvre6MPRKa2HTQfts7mSr68Xm62TmOi0vbNwp8+lrTcrqxdFL/38E6mknm7HBl0eDhUAjUECLQTfFvnXliRtAPOszdbA/2+CNv28=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYYPR01MB14054
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_073729_327772_BC23E0E1 
-X-CRM114-Status: GOOD (  44.65  )
+X-CRM114-CacheID: sfid-20260428_073846_903347_8C5648B0 
+X-CRM114-Status: GOOD (  35.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,156 +175,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Will,
-
-On Tue, 28 Apr 2026 at 14:45, Will Deacon <will@kernel.org> wrote:
->
-> On Tue, Apr 28, 2026 at 11:30:06AM +0100, Fuad Tabba wrote:
-> > __pkvm_host_donate_guest() flips the host stage-2 PTE for the donated
-> > page to a non-valid annotation (KVM_HOST_INVALID_PTE_TYPE_DONATION,
-> > owner =3D PKVM_ID_GUEST) via host_stage2_set_owner_metadata_locked()
-> > and then calls kvm_pgtable_stage2_map() to install the matching guest
-> > stage-2 mapping. The map's return value was wrapped in WARN_ON() and
-> > otherwise discarded.
-> >
-> > At EL2 in nVHE/pKVM, WARN_ON() is not warn-and-continue: it expands
-> > to a BRK that enters the invalid-host-el2 vector and branches to
-> > hyp_panic(), declared __noreturn. WARN_ON of a reachable failure at
-> > EL2 is a panic primitive, not a debug aid.
-> >
-> > kvm_pgtable_stage2_map() can fail in reachable ways even at PAGE_SIZE
-> > granularity: __pkvm_host_donate_guest() verifies PKVM_NOPAGE for the
-> > guest IPA before the map, meaning no valid stage-2 entry exists. The
-> > walker must allocate new page-table pages from the vcpu memcache to
-> > install the mapping, returning -ENOMEM if exhausted. The host
-> > controls the vcpu memcache via the topup interface, so an
-> > under-provisioned donation request converts a recoverable error into
-> > a fatal hyp panic.
-> >
-> > Capture the stage-2 map return value and propagate it. The walker
-> > may have installed partial leaf entries for the IPA before failing,
-> > so unmap the range to clear them; otherwise the guest would retain
-> > stage-2 access to a page the host is about to reclaim as
-> > PKVM_PAGE_OWNED. Then roll back the host stage-2 mutation: the only
-> > forward mutation is host_stage2_set_owner_metadata_locked() flipping
-> > the host vmemmap from PKVM_PAGE_OWNED to PKVM_NOPAGE and the host
-> > stage-2 PTE from idmap to invalid+annotation.
-> > host_stage2_set_owner_locked(_, _, PKVM_ID_HOST) restores both.
-> >
-> > The rollback calls host_stage2_set_owner_locked() under WARN_ON.
-> > This is the correct use: host_stage2_set_owner_metadata_locked()
-> > just wrote the host leaf PTE as an invalid+annotation entry, so the
-> > reverse idmap rewrite cannot require new page-table allocation =E2=80=
-=94 it
-> > rewrites the leaf in-place. The WARN_ON asserts an impossible state
-> > under correct EL2 execution, semantically distinct from the misuse
-> > being fixed.
-> >
-> > Fixes: 1e579adca177 ("KVM: arm64: Introduce __pkvm_host_donate_guest()"=
-)
-> > Signed-off-by: Fuad Tabba <tabba@google.com>
-> > ---
-> >  arch/arm64/kvm/hyp/nvhe/mem_protect.c | 27 ++++++++++++++++++++++++---
-> >  1 file changed, 24 insertions(+), 3 deletions(-)
-> >
-> > diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp=
-/nvhe/mem_protect.c
-> > index 7044913a0758..b8c57a95e9bf 100644
-> > --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> > +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> > @@ -1391,9 +1391,30 @@ int __pkvm_host_donate_guest(u64 pfn, u64 gfn, s=
-truct pkvm_hyp_vcpu *vcpu)
-> >       meta =3D host_stage2_encode_gfn_meta(vm, gfn);
-> >       WARN_ON(host_stage2_set_owner_metadata_locked(phys, PAGE_SIZE,
-> >                                                     PKVM_ID_GUEST, meta=
-));
-> > -     WARN_ON(kvm_pgtable_stage2_map(&vm->pgt, ipa, PAGE_SIZE, phys,
-> > -                                    pkvm_mkstate(KVM_PGTABLE_PROT_RWX,=
- PKVM_PAGE_OWNED),
-> > -                                    &vcpu->vcpu.arch.pkvm_memcache, 0)=
-);
-> > +     ret =3D kvm_pgtable_stage2_map(&vm->pgt, ipa, PAGE_SIZE, phys,
-> > +                                  pkvm_mkstate(KVM_PGTABLE_PROT_RWX, P=
-KVM_PAGE_OWNED),
-> > +                                  &vcpu->vcpu.arch.pkvm_memcache, 0);
-> > +     if (ret) {
-> > +             /*
-> > +              * Stage-2 map can fail mid-walk (e.g. -ENOMEM from the
-> > +              * memcache), leaving partial leaf entries installed in t=
-he
-> > +              * guest stage-2. Tear them down before rolling back the =
-host
-> > +              * stage-2; otherwise the guest would retain access to a =
-page
-> > +              * the host is about to reclaim as PKVM_PAGE_OWNED.
-> > +              */
-> > +             kvm_pgtable_stage2_unmap(&vm->pgt, ipa, PAGE_SIZE);
->
-> Whoa, whoa, whoa.
->
-> First of all, this is mapping a single page, so the comment talking about
-> "leaf entries" (plural) is bogus. If an operation to map a single page
-> fails, then it makes no sense to try unmapping the mapping which we
-> failed to create. What do you expect it to do?
->
-> On the other hand, if we extend this to handle ranges in future (which
-> presumably we'll want as part of the THP support) then wouldn't this
-> mean that a concurrent vCPU could have transiently written to the pages
-> that _did_ get mapped, and now we're going to give those back to the
-> host? That's really not ok! We're relying on these WARN_ON()s being
-> fatal and they shouldn't fail because we perform all the permission
-> checks first, in a separate pass.
->
-> If you want to improve this, then I think the options are either:
->
->   1. Check that the the memcache is topped up first
->   2. Poison the page (similar to the forced-reclaim path)
->   3. Tell the host about the pages it's lost and maybe it can leak them
->
-> (I vote for (1))
->
-> But we absolutely cannot do the simple rollback for the ownership
-> changes; that's why the code is written to do the checks up-front. Your
-> other patches at the end of this series have different flavours of the
-> same issue.
->
-> If it's just about keeping the LLM happy, then either fix the LLM or
-> make these BUG_ON() (in conjunction with (1) above).
-
-You're right, and no, it's not just about keeping em happy :D
-
-The "leaf entries" comment on the single-page donate path is wrong, and
-more importantly the rollback model is unsound. The right fix is to tighten
-the precondition, not to handle a failure that shouldn't be reachable.
-
-V2 will drop two patches (in addition to the HCR_EL2 one), and will be
-as follows:
-
-1. host->guest share and host->guest donate (kept, rewritten): add a
-   memcache-sufficiency check during the existing pre-check pass
-   (option 1) and return -ENOMEM cleanly without touching any state.
-   Restore the WARN_ON() on the subsequent kvm_pgtable_stage2_map() =E2=80=
-=94
-   with the topup precheck it asserts an established invariant rather
-   than ignoring a reachable error.
-
-   For the single-page donate, "topped up" is
-   KVM_PGTABLE_LAST_LEVEL - vm->pgt.start_level (mirroring host EL1's
-   kvm_mmu_cache_min_pages). For multi-page share I plan to use the
-   conservative nr_pages * (LAST_LEVEL - start_level) bound and flag it
-   as conservative in the commit message; happy to compute a tighter
-   alignment-aware bound if you'd prefer.
-
-2. guest->host share and guest->host unshare (dropped): on reflection
-   these shouldn't have been in V1 at all. As I did note in the commit
-   message, failure path is not reachable. Again, too eager to make
-   use of the new prompts.
-
-I'll repost this as V2 if you agree.
-
-Cheers,
-/fuad
-
->
-> Will
+DQoNCj4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0NCj4gRnJvbTogQmlqdSBEYXMNCj4gU2Vu
+dDogMjggQXByaWwgMjAyNiAxNTowMg0KPiBTdWJqZWN0OiBSRTogW1BBVENIIHYyIDA4LzExXSBk
+cm0vYnJpZGdlOiBhZHY3NTExOiBzd2l0Y2ggdG8gb2ZfZHJtX2dldF9icmlkZ2VfYnlfZW5kcG9p
+bnQoKQ0KPiANCj4gSGkgTHVjYSwNCj4gDQo+ID4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0N
+Cj4gPiBGcm9tOiBMdWNhIENlcmVzb2xpIDxsdWNhLmNlcmVzb2xpQGJvb3RsaW4uY29tPg0KPiA+
+IFNlbnQ6IDI4IEFwcmlsIDIwMjYgMTQ6NDgNCj4gPiBTdWJqZWN0OiBSZTogW1BBVENIIHYyIDA4
+LzExXSBkcm0vYnJpZGdlOiBhZHY3NTExOiBzd2l0Y2ggdG8NCj4gPiBvZl9kcm1fZ2V0X2JyaWRn
+ZV9ieV9lbmRwb2ludCgpDQo+ID4NCj4gPiBIZWxsbywNCj4gPg0KPiA+IE9uIFR1ZSBBcHIgMjgs
+IDIwMjYgYXQgMzozMSBQTSBDRVNULCBCaWp1IERhcyB3cm90ZToNCj4gPiA+PiA+PiA+IEBAIC0x
+MjUxLDEwICsxMjUxLDkgQEAgc3RhdGljIGludCBhZHY3NTExX3Byb2JlKHN0cnVjdA0KPiA+ID4+
+ID4+ID4gaTJjX2NsaWVudA0KPiA+ID4+ID4+ID4gKmkyYykNCj4gPiA+PiA+PiA+DQo+ID4gPj4g
+Pj4gPiAgCW1lbXNldCgmbGlua19jb25maWcsIDAsIHNpemVvZihsaW5rX2NvbmZpZykpOw0KPiA+
+ID4+ID4+ID4NCj4gPiA+PiA+PiA+IC0JcmV0ID0gZHJtX29mX2ZpbmRfcGFuZWxfb3JfYnJpZGdl
+KGRldi0+b2Zfbm9kZSwgMSwgLTEsIE5VTEwsDQo+ID4gPj4gPj4gPiAtCQkJCQkgICZhZHY3NTEx
+LT5uZXh0X2JyaWRnZSk7DQo+ID4gPj4gPj4gPiAtCWlmIChyZXQgJiYgcmV0ICE9IC1FTk9ERVYp
+DQo+ID4gPj4gPj4gPiAtCQlyZXR1cm4gcmV0Ow0KPiA+ID4+ID4+ID4gKwlhZHY3NTExLT5icmlk
+Z2UubmV4dF9icmlkZ2UgPSBvZl9kcm1fZ2V0X2JyaWRnZV9ieV9lbmRwb2ludChkZXYtPm9mX25v
+ZGUsIDEsIC0xKTsNCj4gPiA+PiA+PiA+ICsJaWYgKElTX0VSUihhZHY3NTExLT5icmlkZ2UubmV4
+dF9icmlkZ2UpICYmIFBUUl9FUlIoYWR2NzUxMS0+YnJpZGdlLm5leHRfYnJpZGdlKSAhPSAtRU5P
+REVWKQ0KPiA+ID4+ID4+ID4gKwkJcmV0dXJuIFBUUl9FUlIoYWR2NzUxMS0+YnJpZGdlLm5leHRf
+YnJpZGdlKTsNCj4gPiA+PiA+Pg0KPiA+ID4+ID4+IERvZXMgaXQgY3Jhc2gsIGlmIHRoZSBlcnJv
+ciBpcyAgLUVQUk9CRV9ERUZFUj8NCj4gPiA+PiA+DQo+ID4gPj4gPiBJIHNlZSBhIGNyYXNoIHdp
+dGggcGF0Y2ggWzFdLCB3aGljaCBpcyBmaXhlZCBieSBhdm9pZGluZyB0aGUgZGlyZWN0IGFzc2ln
+bm1lbnQuDQo+ID4gPj4NCj4gPiA+PiBBaCwgZGFtbWl0ISBHb29kIGNhdGNoLCB0aGFua3MgZm9y
+IHRoZSBxdWljayB0ZXN0aW5nIGFuZCBmb2xsb3ctdXAhDQo+ID4gPj4NCj4gPiA+PiBJbmRlZWQg
+dGhpcyBkcml2ZXIgYXNzdW1lcyBuZXh0X2JyaWRnZSBpcyBlaXRoZXIgTlVMTCBvciBhIHZhbGlk
+DQo+ID4gPj4gcG9pbnRlciwgYnV0IGR1ZSB0byB0aGUgJ2lmKElTX0VSUigpICYmIHNvbWVfb3Ro
+ZXJfY29uZGl0aW9uKScgbm93DQo+ID4gPj4gaXQgY2FuIGFsc28gYmUgLUVOT0RFViAobm90IC0N
+Cj4gPiBFUFJPQkVfREVGRVIsIGJ1dCB0aGF0J3MgaXJyZWxldmFudCkuDQo+ID4gPj4NCj4gPiA+
+PiBUaGlzIGFmZmVjdHMgdGhlIG1zbSBhbmQgenlucW1wX2RwIHBhdGNoZXMgZXF1YWxseS4NCj4g
+PiA+Pg0KPiA+ID4+IEknbSBzZW5kaW5nIGEgdjMgc29vbiB3aXRoIHRoZXNlIGZpeGVkLiBJJ20g
+anVzdCBub3Qgc3VyZSB3aGljaA0KPiA+ID4+IGFwcHJvYWNoIHRvIHVzZSB0byBmaXggKHNhbWUg
+Zm9yIGFsbCB0aGUgMyBwYXRjaGVzKS4gQWx0ZXJuYXRpdmVzIGFyZToNCj4gPiA+Pg0KPiA+ID4+
+ICAxLiAtRU5PREVWIGlzIGFjY2VwdGVkLCBzZXQgbmV4dF9icmlkZ2UgdG8gTlVMTCB3aGVuIGl0
+IGhhcHBlbnM6DQo+ID4gPj4NCj4gPiA+PiAgICAgICAtICAgICAgIGlmIChJU19FUlIoYWR2NzUx
+MS0+YnJpZGdlLm5leHRfYnJpZGdlKSAmJiBQVFJfRVJSKGFkdjc1MTEtPmJyaWRnZS5uZXh0X2Jy
+aWRnZSkgIT0gLQ0KPiA+ID4+IEVOT0RFVikNCj4gPiA+PiAgICAgICAtICAgICAgICAgICAgICAg
+cmV0dXJuIFBUUl9FUlIoYWR2NzUxMS0+YnJpZGdlLm5leHRfYnJpZGdlKTsNCj4gPiA+PiAgICAg
+ICArICAgICAgIGlmIChJU19FUlIoYWR2NzUxMS0+YnJpZGdlLm5leHRfYnJpZGdlKSkgew0KPiA+
+ID4+ICAgICAgICsgICAgICAgICAgICAgICBpZiAoUFRSX0VSUihhZHY3NTExLT5icmlkZ2UubmV4
+dF9icmlkZ2UpID09IC1FTk9ERVYpDQo+ID4gPj4gICAgICAgKyAgICAgICAgICAgICAgICAgICAg
+ICAgYWR2NzUxMS0+YnJpZGdlLm5leHRfYnJpZGdlID0gTlVMTDsNCj4gPiA+PiAgICAgICArICAg
+ICAgICAgICAgICAgZWxzZQ0KPiA+ID4+ICAgICAgICsgICAgICAgICAgICAgICAgICAgICAgIHJl
+dHVybiBQVFJfRVJSKGFkdjc1MTEtPmJyaWRnZS5uZXh0X2JyaWRnZSk7DQo+ID4gPg0KPiA+ID4g
+VGhlIHBvaW50IGlzIHlvdSBjYW5ub3QgcmV0dXJuIFBUUl9FUlIgYXMgaXQgd2lsbCBsZWFkIHRv
+IGNyYXNoLCBpZg0KPiA+ID4gaXQgaXMgZGlyZWN0IGFzc2lnbm1lbnQuDQo+ID4NCj4gPiBJdCB3
+b3VsZCBkZWZpbml0ZWx5IGNyYXNoIHdoZW4gdGhlIG5leHRfYnJpZGdlIGlzIGRlcmVmZXJlbmNl
+ZCAod2hpY2gNCj4gPiBoYXBwZW5zIGluDQo+ID4gYWR2NzUxMV9icmlkZ2VfYXR0YWNoKCkpIGJ1
+dCBJIGRvbid0IHNlZSBob3cgaXQgY2FuIGNyYXNoIGhlcmUuIEhlcmUNCj4gPiBpdCBfY2FuXyBi
+ZSBhc3NpZ25lZCAtRU5PREVWLCBidXQgaXQgd291bGQgYmUgaW1tZWRpYXRlbHkgYmUgY2xlYXJl
+ZA0KPiA+IHRvIE5VTEwsIG9yIHRvIGVub3RoZXIgZXJyb3IsIGJ1dCB3ZSdkIGltbWVkaWF0ZWx5
+IHJldHVybi4gQW5kIGluIGNhc2UNCj4gPiBvZiByZXR1cm4sIHdoZW4gbmV4dF9icmlkZ2UgaXMg
+Y2xlYXJlZCBieSBfX2RybV9icmlkZ2VfZnJlZSAtPiBkcm1fYnJpZGdlX3B1dCwgdGhlIGVycm9y
+IHZhbHVlIHdvdWxkDQo+IGJlIGlnbm9yZWQgdGhhbmtzIHRvIHBhdGNoIDEuDQo+IA0KPiBPSywg
+SSBoYXZlbid0IG5vdGljZWQgdGhlIG5ld2x5IGludHJvZHVjZWQgY2hlY2sgaW4gZHJtX2JyaWRn
+ZV9wdXQoKSBpbiBwYXRjaCMxLg0KPiANCj4gSSBndWVzcywgd2Ugc2hvdWxkIGF2b2lkIHB1dHRp
+bmcgZXJyb3IgdmFsdWVzIGluIGJyaWRnZS5uZXh0X2JyaWRnZS4NCj4gSXQgc2hvdWxkIGJlIGVp
+dGhlciBOVUxMIG9yIFZhbGlkIHBvaW50ZXIsIG5vdCBQVFJfRVJSLg0KDQpGVFIsIEkgZ2V0IGEg
+Y3Jhc2ggaW4gYXR0YWNoLiBJIHdpbGwgYXBwbHkgdGhlIHN1Z2dlc3RlZCBjaGFuZ2VzIGFuZCB3
+aWxsIGxldCB5b3Uga25vdyB0aGUgcmVzdWx0Lg0KDQpbICAgMTguOTU3MzI0XSBwYyA6IGRybV9i
+cmlkZ2VfYXR0YWNoKzB4MzQvMHgyMTAgW2RybV0NClsgICAxOC45Njk0MjVdIGxyIDogYWR2NzUx
+MV9icmlkZ2VfYXR0YWNoKzB4MzgvMHhiOCBbYWR2NzUxMV0NCg0KWyAgIDE4Ljk2OTYxMF0gIGRy
+bV9icmlkZ2VfYXR0YWNoKzB4MzQvMHgyMTAgW2RybV0gKFApDQpbICAgMTguOTY5ODQ1XSAgYWR2
+NzUxMV9icmlkZ2VfYXR0YWNoKzB4MzgvMHhiOCBbYWR2NzUxMV0NClsgICAxOC45Njk4NjddICBk
+cm1fYnJpZGdlX2F0dGFjaCsweGYwLzB4MjEwIFtkcm1dDQpbICAgMTguOTcwMDQyXSAgcnpnMmxf
+bWlwaV9kc2lfYXR0YWNoKzB4MjQvMHgzYyBbcnpnMmxfbWlwaV9kc2ldDQpbICAgMTguOTcwMDY0
+XSAgZHJtX2JyaWRnZV9hdHRhY2grMHhmMC8weDIxMCBbZHJtXQ0KWyAgIDE4Ljk3MDI2Ml0gIHJ6
+ZzJsX2R1X2VuY29kZXJfaW5pdCsweDljLzB4MjUwIFtyemcybF9kdV9kcm1dDQpbICAgMTguOTcw
+MjkzXSAgcnpnMmxfZHVfbW9kZXNldF9pbml0KzB4MzBjLzB4NGQwIFtyemcybF9kdV9kcm1dDQpb
+ICAgMTguOTcwMzA3XSAgcnpnMmxfZHVfcHJvYmUrMHhjOC8weDE3NCBbcnpnMmxfZHVfZHJtXQ0K
+WyAgIDE4Ljk3MDMyMV0gIHBsYXRmb3JtX3Byb2JlKzB4NWMvMHhhNA0KWyAgIDE4Ljk3MDMzNl0g
+IHJlYWxseV9wcm9iZSsweGJjLzB4MmMwDQpbICAgMTguOTcwMzQ4XSAgX19kcml2ZXJfcHJvYmVf
+ZGV2aWNlKzB4ODAvMHgxNGMNClsgICAxOC45NzAzNTldICBkcml2ZXJfcHJvYmVfZGV2aWNlKzB4
+M2MvMHgxNjQNClsgICAxOC45NzAzNjldICBfX2RyaXZlcl9hdHRhY2grMHg5MC8weDFhNA0KWyAg
+IDE4Ljk3MDM3OV0gIGJ1c19mb3JfZWFjaF9kZXYrMHg3Yy8weGRjDQpbICAgMTguOTcwMzg4XSAg
+ZHJpdmVyX2F0dGFjaCsweDI0LzB4MzANClsgICAxOC45NzAzOTddICBidXNfYWRkX2RyaXZlcisw
+eGU0LzB4MjA4DQpbICAgMTguOTcwNDA2XSAgZHJpdmVyX3JlZ2lzdGVyKzB4NjgvMHgxMzANClsg
+ICAxOC45NzA0MTZdICBfX3BsYXRmb3JtX2RyaXZlcl9yZWdpc3RlcisweDI0LzB4MzANCg0KDQpD
+aGVlcnMsDQpCaWp1DQo=
 
