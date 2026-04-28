@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA648FF8870
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 09:01:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02963FF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 09:01:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dqSYMBZLU/u+VTN7L+4C8FdTuGptKiQ/4ncpfw48l40=; b=JXtU7/A2m31wB+E/Kc+XxXIyie
-	b76EMkbnrsCHprjTbhy2D053KoMiPTtPlWwvWPrYkR+crt5clJaKKDXmkq3FFhatjWDRfLsFIK5RI
-	2i3uBPJXwlzAwwIsD1zMYtRAlnNQtz+gHTjelzidN9RlmSwglQMGoNVE+iZhP82lbUDoocttFGPcC
-	3epa1sRsVt58w/HWpXp+71z8yxXkL+Z0SVgJXYysqJjMPXGfP4TnerAlrhCjpzPEJ6I1c01V21cV0
-	Lr8qJNHQb4RyBSGFL3RzMnPKlEJ7Itm4YQGJ7cKkXBNFUKsfJbWw1wX+BCnjvljbRUGS6tqFvk/cr
-	sltxREQw==;
+	bh=j7Ez3Gvxk46GLtRbrf5uSPZVpMhdMrXSSqJHfTrasok=; b=Ly6GVYoEX6aJLa1LIs0lqqsDGC
+	loQqeP3bbA5AuBRNsugEPSr5efUEjo4aUv4ssq8h4W2k+j/+/s6olrQnJYCSMPUBvMFbkZVF3cN58
+	1X16STQnizJDzYYQyGJRmBqa5qPSNw/f6S+AFR2oDyj+3gjCcqBHHapEi9FuRluQ+9MVo+G50diAU
+	YFuXluKWFFpaiia/dh4g6qXpqrW95moIK24KuZMptdd0U5i8YXkSpSnJj9ZxVNL9+sova6EbR/Kgd
+	0+W20F8WHsINNWoomaGr+IPZ5nxPqCJr2oK0uU4BOlPu+VkDf/IbhvOtAlMTHZA9IE2dOJxl7pNy1
+	qOPNmXtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeJr-00000000xjE-1jwx;
-	Tue, 28 Apr 2026 09:01:27 +0000
+	id 1wHeJw-00000000xpw-2EQJ;
+	Tue, 28 Apr 2026 09:01:32 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeJi-00000000xWf-2ZkJ
+	id 1wHeJh-00000000xV4-0LZb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 09:01:24 +0000
+	Tue, 28 Apr 2026 09:01:25 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1wHeJD-0004Lz-3F; Tue, 28 Apr 2026 11:00:47 +0200
+	id 1wHeJ7-0004Lz-SE; Tue, 28 Apr 2026 11:00:41 +0200
 From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Tue, 28 Apr 2026 11:00:45 +0200
-Subject: [PATCH v5 10/29] media: rockchip: rga: announce and sync
- colorimetry
+Date: Tue, 28 Apr 2026 11:00:36 +0200
+Subject: [PATCH v5 01/29] media: dt-bindings: media: rockchip-rga: add
+ rockchip,rk3588-rga3
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260428-spu-rga3-v5-10-eb7f5d019d86@pengutronix.de>
+Message-Id: <20260428-spu-rga3-v5-1-eb7f5d019d86@pengutronix.de>
 References: <20260428-spu-rga3-v5-0-eb7f5d019d86@pengutronix.de>
 In-Reply-To: <20260428-spu-rga3-v5-0-eb7f5d019d86@pengutronix.de>
 To: Jacob Chen <jacob-chen@iotwrt.com>, 
@@ -51,16 +51,15 @@ Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  devicetree@vger.kernel.org, kernel@pengutronix.de, nicolas@ndufresne.ca, 
  sebastian.reichel@collabora.com, 
- =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>, 
- Nicolas Dufresne <nicolas.dufresne@collabora.com>
+ =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
 X-Mailer: b4 0.15.2
 X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
 X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_020118_659767_B4286246 
-X-CRM114-Status: GOOD (  15.20  )
+X-CRM114-CacheID: sfid-20260428_020117_118528_FC30A656 
+X-CRM114-Status: GOOD (  12.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,82 +74,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Announce the capability to adjust the quantization and ycbcr_enc on the
-capture side and check if the SET_CSC flag is set when the colorimetry
-is changed. Furthermore copy the colorimetry from the output to the
-capture side to fix the currently failing v4l2-compliance tests, which
-expect exactly this behavior.
+Add a new compatible for the RGA3 (Raster Graphic Acceleration 3)
+peripheral found on the RK3588 SoC. Also specify an iommu property,
+as the RGA3 contains the generic rockchip iommu. While other versions
+also have an iommu, it's usually specific to them.
 
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+The RK3588 contains one RGA2-Enhance core (also contained on the RK3399)
+and two RGA3 cores. Both feature a similar functionality of scaling,
+cropping and rotating of up to two input images into one output image.
+Key differences of the RGA3 are:
+
+- supports 10bit YUV output formats
+- supports 8x8 tiles and FBCD as inputs and outputs
+- supports BT2020 color space conversion
+- max output resolution of (8192-64)x(8192-64)
+- MMU can map up to 32G DDR RAM
+- fully planar formats (3 planes) are not supported
+- max scale up/down factor of 8 (RGA2 allows up to 16)
+
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 ---
- drivers/media/platform/rockchip/rga/rga.c | 37 +++++++++++++++++++++++++++++++
- 1 file changed, 37 insertions(+)
+Changed in v3/v4:
+- Dropped Acked-by: Krzysztof Kozlowski due to the added iommus property
+  and description adjustments.
+---
+ Documentation/devicetree/bindings/media/rockchip-rga.yaml | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
-index ca8d8a53dc251..8c34f73d69764 100644
---- a/drivers/media/platform/rockchip/rga/rga.c
-+++ b/drivers/media/platform/rockchip/rga/rga.c
-@@ -437,6 +437,15 @@ static int vidioc_enum_fmt(struct file *file, void *priv, struct v4l2_fmtdesc *f
- 	fmt = &formats[f->index];
- 	f->pixelformat = fmt->fourcc;
+diff --git a/Documentation/devicetree/bindings/media/rockchip-rga.yaml b/Documentation/devicetree/bindings/media/rockchip-rga.yaml
+index ac17cda65191b..7bd92f7336664 100644
+--- a/Documentation/devicetree/bindings/media/rockchip-rga.yaml
++++ b/Documentation/devicetree/bindings/media/rockchip-rga.yaml
+@@ -9,7 +9,11 @@ title: Rockchip 2D raster graphic acceleration controller (RGA)
+ description:
+   RGA is a standalone 2D raster graphic acceleration unit. It accelerates 2D
+   graphics operations, such as point/line drawing, image scaling, rotation,
+-  BitBLT, alpha blending and image blur/sharpness.
++  BitBLT, alpha blending and image blur/sharpness. There exist many versions
++  of this unit that differ in the supported inputs/output formats,
++  the attached IOMMU and the supported operations on the input. As some SoCs
++  include multiple RGA units with different versions, a more specific
++  compatible name to differentiate the concrete unit is used for them.
  
-+	if (f->type != V4L2_BUF_TYPE_VIDEO_CAPTURE &&
-+	    f->type != V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE)
-+		return 0;
-+
-+	/* allow changing the quantization and xfer func for YUV formats */
-+	if (v4l2_is_format_yuv(v4l2_format_info(f->pixelformat)))
-+		f->flags |= V4L2_FMT_FLAG_CSC_QUANTIZATION |
-+			    V4L2_FMT_FLAG_CSC_YCBCR_ENC;
-+
- 	return 0;
- }
+ maintainers:
+   - Jacob Chen <jacob-chen@iotwrt.com>
+@@ -20,6 +24,7 @@ properties:
+     oneOf:
+       - const: rockchip,rk3288-rga
+       - const: rockchip,rk3399-rga
++      - const: rockchip,rk3588-rga3
+       - items:
+           - enum:
+               - rockchip,rk3228-rga
+@@ -45,6 +50,9 @@ properties:
+   power-domains:
+     maxItems: 1
  
-@@ -459,8 +468,25 @@ static int vidioc_g_fmt(struct file *file, void *priv, struct v4l2_format *f)
- static int vidioc_try_fmt(struct file *file, void *priv, struct v4l2_format *f)
- {
- 	struct v4l2_pix_format_mplane *pix_fmt = &f->fmt.pix_mp;
-+	struct rga_ctx *ctx = file_to_rga_ctx(file);
- 	struct rga_fmt *fmt;
++  iommus:
++    maxItems: 1
++
+   resets:
+     maxItems: 3
  
-+	if (V4L2_TYPE_IS_CAPTURE(f->type)) {
-+		const struct rga_frame *frm;
-+
-+		frm = rga_get_frame(ctx, f->type);
-+		if (IS_ERR(frm))
-+			return PTR_ERR(frm);
-+
-+		if (!(pix_fmt->flags & V4L2_PIX_FMT_FLAG_SET_CSC)) {
-+			pix_fmt->quantization = frm->pix.quantization;
-+			pix_fmt->ycbcr_enc = frm->pix.ycbcr_enc;
-+		}
-+		/* disallow values not announced in vidioc_enum_fmt */
-+		pix_fmt->colorspace = frm->pix.colorspace;
-+		pix_fmt->xfer_func = frm->pix.xfer_func;
-+	}
-+
- 	fmt = rga_fmt_find(pix_fmt->pixelformat);
- 	if (!fmt)
- 		fmt = &formats[0];
-@@ -506,6 +532,17 @@ static int vidioc_s_fmt(struct file *file, void *priv, struct v4l2_format *f)
- 	frm->fmt = rga_fmt_find(pix_fmt->pixelformat);
- 	frm->stride = pix_fmt->plane_fmt[0].bytesperline;
- 
-+	/*
-+	 * Copy colorimetry from output to capture as required by the
-+	 * v4l2-compliance tests
-+	 */
-+	if (V4L2_TYPE_IS_OUTPUT(f->type)) {
-+		ctx->out.pix.colorspace = pix_fmt->colorspace;
-+		ctx->out.pix.ycbcr_enc = pix_fmt->ycbcr_enc;
-+		ctx->out.pix.quantization = pix_fmt->quantization;
-+		ctx->out.pix.xfer_func = pix_fmt->xfer_func;
-+	}
-+
- 	/* Reset crop settings */
- 	frm->crop.left = 0;
- 	frm->crop.top = 0;
 
 -- 
 2.54.0
