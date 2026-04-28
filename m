@@ -4,70 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96640FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 14:54:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE58AFF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 14:57:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QXiRyzOamvgGeyWyItpFXFVgM4fM4U44s5MVCU3gFN0=; b=3T1Vjr4TLEeVgAfqmnYRewcxCO
-	WTcYXqytXdvzAAekRAVPQu35Sn0yyQZNASwaCcWz1sUYgc3Z01zvbvA9bqCX5/ZWYmAoZ2P9dBwU+
-	m9MY20UixPea6tk5xn5VEIEblG2ZsB9RmzAipCYOZBRer4G+O+cKPJ1/V6KnvHcy5VSJHO6g1X6eT
-	OzTVZmL9iJB2bpXx5htAvGHNUcn4fx0zDWtgDdlQsRLoBFVefl6FY0H4HmwAMWBV0o1TauyraTRzV
-	tD7mPt4j71jdjB2vFw1L+Kw23xbrtV/ayvvhYOw7pKksmBNgG7BiWyLBtmXb8s8ggS7zEG7jqeOOE
-	vSwQATBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HaMwJ5pw1dugp2h+3Jo3Q9ADwxPWGEGVvQfRV1ZUYgk=; b=3JpE+oTBA7UoGt9nwgk0McTeRb
+	9Ox6EBnL6zrSuwwBRzt1KOZ7tLI7FIqHfpy6+2lutSvklUJcWU83r8ISc9hzIz8KNdo58+gySwCT1
+	kU1fAQwtHWzlu39S3WeS9ilvn9xF1sx+biXJKdMPMKNz5yL0ytUG0khHOPfpocrOTEWcgL10DWjh4
+	eKSa0C4lWkYJ+9x+dnN9uwfXUPVGYQcKBuX3KQtM/Stqn7EdkUcXFuOWYRMvyMWMmlAmZo1jUEtmV
+	LCulcB0hGlCvFxvqCq4GCRkJHGEtgAF2w8EGOCbp4ftC/W71VUdcozITMXmb6Bci+Qi+2itxeRegl
+	MXTYYWFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHjpO-00000001gw5-1ag6;
-	Tue, 28 Apr 2026 14:54:22 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHjpL-00000001gvi-3y57
+	id 1wHjrq-00000001h7k-3sxU;
+	Tue, 28 Apr 2026 14:56:54 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHjrq-00000001h7e-17fI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 14:54:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D4C871C0A;
-	Tue, 28 Apr 2026 07:54:11 -0700 (PDT)
-Received: from [10.1.29.174] (e121487-lin.cambridge.arm.com [10.1.29.174])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 912963F763;
-	Tue, 28 Apr 2026 07:54:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777388057; bh=5730Ij/YR5Jarz1eBbQXRVC50ATSOObe10t8tR4kZNM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=UkEAh8YTGV8jNR++BZu5acdMKaPvOa2JtNsHYgQKXU71VEFRH72DB4IT6zv487lTA
-	 ZIwDldf22BXP80+6fADk3OoSZrRz4jRmjJ1ybBqC2ALP/zL/uYi/odZqtSr9imPe8U
-	 xqt8Vibq1qyQgiXw4owXvEMZR941s0wZeU8Ql8Fw=
-Message-ID: <9de41a97-0701-447e-bb28-63796eaa8f60@arm.com>
-Date: Tue, 28 Apr 2026 15:54:12 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 07/43] KVM: arm64: gic-v5: Create & manage VM and VPE
- tables
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
- "kvm@vger.kernel.org" <kvm@vger.kernel.org>
-Cc: nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>,
- "oliver.upton@linux.dev" <oliver.upton@linux.dev>,
- Joey Gouly <Joey.Gouly@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
- "yuzenghui@huawei.com" <yuzenghui@huawei.com>,
- "peter.maydell@linaro.org" <peter.maydell@linaro.org>,
- "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
- Timothy Hayes <Timothy.Hayes@arm.com>
+	Tue, 28 Apr 2026 14:56:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6168861146;
+	Tue, 28 Apr 2026 14:56:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 102A5C2BCB5;
+	Tue, 28 Apr 2026 14:56:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777388213;
+	bh=YVMCAkCkVuCXxr4YLY8bi/zWdrSnhneLvdiGU/6OtME=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=jkatepTCvLfkM2z9Z/V4asFQmL8vVMnOfFwT44HuOn2mjCfoRZEJmHvRWvvdB8fDp
+	 IW00paivTQzxzFt7YHulUtDiB3qNjGMvyTlz7Qrk0ic0RsPXrrslrpFMOvSwyC2Yr0
+	 JdR3y6HrqQ2d+M2kLePPAr02vI7TKjtUWiaXqfyfYegZ+syQK7+WLiCfcFXNXKsmZX
+	 2xkZTlJKYXHnXPwOhRXDb5VJ0b8SIDb8FFHa2IBdHYGA0X/KwuOo3YY5KNmgOejvvC
+	 OMMumI0tpQU/BGDsHvPbD81hfLPvN5Xwc7O40x2gk3yZcd558e1tXBkaLGpYNOWqiI
+	 8HIJ+csRUBVqg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wHjrm-0000000FYDW-1gtE;
+	Tue, 28 Apr 2026 14:56:50 +0000
+Date: Tue, 28 Apr 2026 15:56:50 +0100
+Message-ID: <86qznzyvyl.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	nd <nd@arm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Joey Gouly
+	<Joey.Gouly@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org"
+	<peter.maydell@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>
+Subject: Re: [PATCH 04/43] irqchip/gic-v5: Provide IRS config frame attrs to KVM
+In-Reply-To: <20260427160547.3129448-5-sascha.bischoff@arm.com>
 References: <20260427160547.3129448-1-sascha.bischoff@arm.com>
- <20260427160547.3129448-8-sascha.bischoff@arm.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <20260427160547.3129448-8-sascha.bischoff@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_075420_139895_EAB92E2F 
-X-CRM114-Status: UNSURE (   7.45  )
-X-CRM114-Notice: Please train this message.
+	<20260427160547.3129448-5-sascha.bischoff@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,28 +94,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sascha,
-
-On 4/27/26 17:08, Sascha Bischoff wrote:
+On Mon, 27 Apr 2026 17:07:24 +0100,
+Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+> 
+> KVM needs to interact with the host IRS in order to, for example, make
+> VMs or VPEs valid. There are two potential approaches here. Either the
+> host irqchip driver can provide an interface, or KVM can interact
+> directly with the host IRS. The latter of these two is chosen as the
+> set of MMIO registers that KVM needs to interact with is orthogonal to
+> the set used by the host irqchip driver (with the exception of some of
+> the read-only IRS_IDRx registers).
+> 
+> Pass KVM a pointer to an IRS config frame - the config frame belonging
+> to ANY IRS is fine as long as one IRS's config frame is used
+> consistently - in struct gic_kvm_info. Additionally, include a flag
+> telling KVM whether the IRS is coherent or non-coherent in order to
+> make sure that KVM can do the correct cache state management, if
+> required.
+> 
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> ---
+>  drivers/irqchip/irq-gic-v5-irs.c      | 26 ++++++++++++++++++++++++++
+>  drivers/irqchip/irq-gic-v5.c          |  3 +++
+>  include/linux/irqchip/arm-gic-v5.h    |  2 ++
+>  include/linux/irqchip/arm-vgic-info.h |  5 +++++
+>  4 files changed, 36 insertions(+)
+> 
+> diff --git a/drivers/irqchip/irq-gic-v5-irs.c b/drivers/irqchip/irq-gic-v5-irs.c
+> index f3fce0b1e25d9..5dfa043cf9e34 100644
+> --- a/drivers/irqchip/irq-gic-v5-irs.c
+> +++ b/drivers/irqchip/irq-gic-v5-irs.c
+> @@ -50,6 +50,32 @@ static void irs_writeq_relaxed(struct gicv5_irs_chip_data *irs_data,
+>  	writeq_relaxed(val, irs_data->irs_base + reg_offset);
+>  }
+>  
+> +void __iomem *gicv5_irs_get_config_frame_base(void)
+> +{
+> +	struct gicv5_irs_chip_data *irs_data = per_cpu(per_cpu_irs_data,
+> +						       smp_processor_id());
 > +
-> +	if (virt_to_phys(l2_table) & ~GICV5_VMTEL1E_L2_ADDR) {
-> +		kfree(l2_table);
-> +		return -EINVAL;
+> +	if (!irs_data)
+> +		return NULL;
+> +
+> +	return irs_data->irs_base;
+> +}
+> +
+> +bool gicv5_irs_is_non_coherent(void)
+> +{
+> +	struct gicv5_irs_chip_data *irs_data = per_cpu(per_cpu_irs_data,
+> +						       smp_processor_id());
+> +
+> +	if (!irs_data) {
+> +		pr_err("Failed to look up IRS for CPU %d\n",
+> +		       smp_processor_id());
+> +		return false;
 > +	}
 > +
-> +	vmt_info->l2.l2ptrs[l1_index] = l2_table;
+> +	return !!(irs_data->flags & IRS_FLAGS_NON_COHERENT);
+> +}
 > +
-> +	/* Alignment issue! */
-> +	if (virt_to_phys(l2_table) & ~GICV5_VMTEL1E_L2_ADDR) {
-> +		kfree(l2_table);
-> +		return -EFAULT;
-> +	}
+
+Frankly, we don't need these micro-helpers. Just add *one* that
+returns a pointer to the IRS data for CPU0, and do the information
+cherry-picking in the caller.
+
 > +
-> +	tmp = virt_to_phys(l2_table) & GICV5_VMTEL1E_L2_ADDR;
-> +	WRITE_ONCE(vmt_info->l2.vmt_base[l1_index], cpu_to_le64(tmp));
+>  /*
+>   * The polling wait (in gicv5_wait_for_op_s_atomic()) on a GIC register
+>   * provides the memory barriers (through MMIO accessors)
+> diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
+> index 58e457d4c1476..3329019722360 100644
+> --- a/drivers/irqchip/irq-gic-v5.c
+> +++ b/drivers/irqchip/irq-gic-v5.c
+> @@ -1134,6 +1134,9 @@ static void __init gic_of_setup_kvm_info(struct device_node *node)
+>  
+>  	gic_v5_kvm_info.type = GIC_V5;
+>  
+> +	gic_v5_kvm_info.gicv5_irs.base = gicv5_irs_get_config_frame_base();
+> +	gic_v5_kvm_info.gicv5_irs.non_coherent = gicv5_irs_is_non_coherent();
+> +
+>  	/* GIC Virtual CPU interface maintenance interrupt */
+>  	gic_v5_kvm_info.no_maint_irq_mask = false;
+>  	gic_v5_kvm_info.maint_irq = irq_of_parse_and_map(node, 0);
 
-It seems the same l2_table alignment calculated (and checked) multiple times...
+While you're at it, you may want to fix the check on the maintenance
+interrupt, which gives up registering with KVM if no MI is found, even
+in the absence of FEAT_GCIE_LEGACY.
 
-Cheers
-Vladimir
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
