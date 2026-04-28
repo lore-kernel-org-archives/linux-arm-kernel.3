@@ -4,144 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6412AFF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 13:27:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FD31FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 13:31:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xFsfPLdNFjVzgQTaCQpOdWom/o9G4/TZWdtG0dTVDoQ=; b=u45VVjvyr4KgusnoMwHOOLlZo0
-	JvxV7iKxulbTnYqft9L9Yg5ojgJxlaoFixDN1xR3jFOHQGWyT99rbHCRk5XT2Pnb4rR05i95w46ox
-	GSX0pZjMIKz239GkWYDQAsXuHsDw/RMg/zCoxicfLnf47FcFcfehJqDHdoP6gHAqAibQV7UvDhtNA
-	j00TFv/DvCkKnwa7yFxqba1qIhWWU/fqPm5/gFAYKz+935Lnd62DAqKVi3OvGfZrVyEPYXs/h8ps0
-	E1cf92u4HSJvHqcFOK+CJkbYZTqMKk/5b0IBRIWd84QDFBf78/2xv3S2MH8qfc4lmfDrOhlNI7He6
-	5VpffTsQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DdsmTjEgQfYU48Ale/qzF05NHByH53Ihz+LjBYTWmBo=; b=hcYkvq28huC627mUzV6uP9KGGq
+	F4KYKspNAwfOlpt1HBtTTDYxn5r1r9cwvE9za+fcBEY0v0ddwISXPpTssEIlVGajAfD9xUK6bQlGj
+	tO/m9++oA7oXlRY2CZHJfnXRaknFGSDhynWv8zMP9JzwcSqloBph2oF3yhw1Q3cnq/TxI9l44EDVG
+	XyRpmVLMduEWaOmrE8ismmXo5m8hJQ5PgLVnSP2pc6LApESMlO1xGJ0ffscRKwFdIW86uafwGbyxB
+	ZNWvO+rziePCmCoBBx1iy1G9EyHfqcKln1h2i1WEBja8bFRRmR/9MkpZgLTbGJp+LYhV0S1Pfbf/6
+	EbksYtoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHiTI-00000001XRQ-2fQG;
-	Tue, 28 Apr 2026 13:27:28 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wHiX3-00000001XyO-34Gb;
+	Tue, 28 Apr 2026 13:31:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHiTE-00000001XQ5-0fZF
+	id 1wHiX0-00000001Xxs-301A
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 13:27:25 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63SAHnZT2112539
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 13:27:23 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=xFsfPLdNFjVzgQTaCQpOdWom/o9G4/TZWdt
-	G0dTVDoQ=; b=UUDoZkf7dkIKv5QtAyw6m3D0a3PfhX6iQdd0EyETB9cOLgS5yiF
-	dZ3QgJZxFuCVU1ayF3845veEbnhEeoqeiw76GTmS/Irl4Q5jkJzfxm4U+2QxNzE0
-	OCHvsfzt+iLA4WLqSX4pbq4wpPO5NtDiAIISCGRYC40RevxG0/IHdb2+yCPH7IBr
-	313g37l5FjFFnC+dbHHRPQEDF2NcNu4AjQPYR0SAjI1CyWcu5MyaXDrAPJh3BF7s
-	cRF7cw9IfXTqAcMudHARUMmnofMUNRVaLwJPk+TwQRltZt+zYbVXEdbEc+EHi9xY
-	HlTRiakwMnxtYT5iaN+qEwGaxmlNACkAJcg==
-Received: from mail-vs1-f71.google.com (mail-vs1-f71.google.com [209.85.217.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dtdmbkqch-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 13:27:23 +0000 (GMT)
-Received: by mail-vs1-f71.google.com with SMTP id ada2fe7eead31-61010bc9c12so5022379137.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 06:27:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1777382842; x=1777987642; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=xFsfPLdNFjVzgQTaCQpOdWom/o9G4/TZWdtG0dTVDoQ=;
-        b=RiFUObfZir3aZjI/He5CO1pICMtoa/P5/hENjLkQFGnhdMkLdhCvUfGZBRPCnX72bR
-         7KjlfmwOMBZiR6LhBezQhee4ttMbJ7N95nIhGC1j24KndpfnFF54viX9921GztJgJuDn
-         WYvHTPSmsu/4SZ7FOyhAyo4pZyxazBovkRfG/oLgrfF8xQK2JTKD1TadtkKXESY/f6Dh
-         zlw0fWyBqmFhw1Co/oFvVM5gQOyCvaB6MR8Dck6EdIfH4s5qJGgWcVICI7DrduoHTp95
-         bxKC+AP+bGdjduygthgB8RxZaF8lqvgJ6zRU4peAkAG0delg6pzyqV6bp+geRYQ2obPb
-         +FIw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777382842; x=1777987642;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xFsfPLdNFjVzgQTaCQpOdWom/o9G4/TZWdtG0dTVDoQ=;
-        b=GSKv4S4ulQ4qrbn3pJUVCA9xz947WlSOE7V1kowRk+9Bm5IyqZVVewZ+aslKjFXiRb
-         /4UY4CQgiQdDIgyz2LHYux+8LHcBlTFIeYxDlmYyh/zBs2ZwLVNcNAlnKetmf5owVGgu
-         tIqN7xr8eSyhFO2sJSXsdXuxBN+r291M6NZXy+7L09PvycjSrjT2TQ1akhrFSO6TAdj7
-         5tJxG1lsvJNUef4mCWnNURCWxU2q2ejnGswZzxYCqWqPSBMsoHOuDTrHKXlFSYhEXml6
-         RSx5yHAZY/RXoiz8jTv3eFN8KqWDg0Kg1CxbADETdH51rTNgVssNTfrRz8MWc7wYPQSL
-         OdRA==
-X-Forwarded-Encrypted: i=1; AFNElJ9gxvD0S724gSllw7K+GxqjeUjDByxGJHZf3qtbWvPrzcQ5xm3ZC+9/NnHstiXvVEe/eEw09LRMqxf69K/sO4Xu@lists.infradead.org
-X-Gm-Message-State: AOJu0YziqZ5SY1d8baXQKR/tGPrAhwpjEqdEul0JdVuZri0m6+7AZrFj
-	nc9yb+6LDJh/MAIIto7VCKM7p89jzbXjBx/B40djMCtKBaqC6wSTfP3j6WM9HAVxPVFvHXpFEj4
-	Hje/RHgM9Fi+Al/ux8Y79px4T5fhvE+nT6Oshitrk/G8r0qlKEh1r23XQzTYKO3ropX/iTBjAfj
-	AgIQ==
-X-Gm-Gg: AeBDietIx7RHz0lSUYDaK3XfEs7nS9nnjGiFWpGr8+esqAajGl2wJw3nPfCvaR8aRml
-	KlgDVs871suI68H9R9zyUjHiO2ombT9qI+GsC5pdvKXPJKKZbZLwl24pu9Z8GQ6k7CRTl6KArR9
-	XXqWIWuWTuIu84jf6yYh14jT/lIP3QA8yovUwr4FgygYQZx3mu5BxhDS6bbscNe1uedQSXSRwNy
-	fhdK2AILJarwnSk8roKPnNqEkwGap0qNPiomLo8SQ3kLFNCok2Go0xqD1K07Nt6QX5jbFEwzD5X
-	S0kqsVsWSfrYVG6hXTd7cxoT4pm/FnDjm2a+70/QgwCwhDWN7d9OYhfWZmM33wW2+bwSr2w+l6H
-	5QCHVA0KSivO8iU76Oj6yRnCgMgFzfHQpqADird3qeC1Bv8U=
-X-Received: by 2002:a05:6102:5106:b0:605:62eb:46f5 with SMTP id ada2fe7eead31-6280aab5382mr1036764137.14.1777382840382;
-        Tue, 28 Apr 2026 06:27:20 -0700 (PDT)
-X-Received: by 2002:a05:6102:5106:b0:605:62eb:46f5 with SMTP id ada2fe7eead31-6280aab5382mr1036708137.14.1777382838203;
-        Tue, 28 Apr 2026 06:27:18 -0700 (PDT)
-Received: from quoll ([178.197.219.94])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4463d5ee9ecsm7232213f8f.16.2026.04.28.06.27.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Apr 2026 06:27:17 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-To: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-        =?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        =?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-        Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
-        Bjorn Helgaas <bhelgaas@google.com>, linux-pci@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [RESEND PATCH v2 1/2] PCI: mvebu: Simplify with scoped for each OF child loop
-Date: Tue, 28 Apr 2026 15:27:09 +0200
-Message-ID: <20260428132708.95998-3-krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: git-send-email 2.51.0
-MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1724; i=krzysztof.kozlowski@oss.qualcomm.com;
- h=from:subject; bh=OrdLwue7fdAbDzltDnJtmbESjqt0Rj2YqfvXS7hTKOU=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBp8LWsNnmMkn77MrcChhNDnE9rF/K8JQJoK2dTl
- 77t/s4gkB2JAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCafC1rAAKCRDBN2bmhouD
- 121uEACaGSATosAYoW0XcVvUvvJRkqbgDwo8ccDSqB75WflJzGX+m2egSgB+n+NHXJOa3kVxaZt
- xW94i/43SUOooIvW6WdvtMa+vgbimnKN50cL357luzAn41NSH2+hsr4Su1fl8LsMFlk0um9918N
- fDlJV9F83mCdhXYQ/X5FLnMDA3pFSjeU7+0lgGWqTrkvnwLD6eBd1YJY60n2Y01GFtgg29wp5TG
- szmuXhqW25Aro0W7AQXPrmvXl2kICF5JchzZcr6+3NX0fSefvj0gOxJwcUFe6G45kO1GMy6Xf9b
- q/w/CMOVUmM1FYwXB1SGSwutHM9k1+XFCmQmBbuHMsRKwDS/oJlQvK/VjpEBvLgezCgpDWEvoA6
- v9sa9q+eW3zHojZK58MfFFFjQKThehwo0ZycAg7bjXaWOiLdLlFEoRnfCBCYTS+6H0+lGZ31IzX
- 30+kGmlcKOFaDgG/vwrNb4MfaLzUd0MhSYlCmueUX1Y6INZtL9CBq9GAbX8hW0BE3OdH9kk/T/k
- VJ3J8zIlM3XaY/TxapA44rVOWl7CK0Y0pwFe36ElDrs8sSX4cDKun85nP+gfbAfwiz82BrVPDyt
- 7SFTYgrKqIsZZw1dzVQo21MmDR4YpnPwicDxuN9JcLeRqHpnCDl8oZg/dTdt/WHmvZ88F/9bEN7 1HszEbX06i2mtrw==
-X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-GUID: YpLTKWeL89LDv_Rg4Dv_1AWw9grOuB7n
-X-Authority-Analysis: v=2.4 cv=PcrPQChd c=1 sm=1 tr=0 ts=69f0b5bb cx=c_pps
- a=P2rfLEam3zuxRRdjJWA2cw==:117 a=gOEeR9iKwsj33Yj5oN/cWg==:17
- a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22 a=VwQbUJbxAAAA:8
- a=EUspDBNiAAAA:8 a=r4sBWMy-QYfdzbUQJWcA:9 a=ODZdjJIeia2B_SHc_B0f:22
-X-Proofpoint-ORIG-GUID: YpLTKWeL89LDv_Rg4Dv_1AWw9grOuB7n
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI4MDEyNiBTYWx0ZWRfXzDLZYhYgzLl7
- 1hyrMNYqG/46gegQdjCi4SWaaaVgvFS0D6M/0mUZiJTKHIyQn4EMPE5XS5gOzWviwb76L80Bwcr
- FHe3L0hGbHoCviBXlQD4H1KOFtwCkHBmVnYNJLotiCAzGBMBhb7l/D1LHdGTprvYzxFQx+A5QYj
- VRGbVYWwcMT9/pTWKW9PKNhHEXf4R+i0P5EXmWdz+MpaM5dznqSpp0Mk87W1byX3xnjWNNGaeQ6
- 0GDSX1zDmlDKinVJY1DpjUw2iFLVG+qZXCxiANcui6cTyuV3Yt3Jc7nSa15w/G/smVGbaRe+A23
- /VHBImy+hjyvhSTM47wHQXkQu4CEnaF4ZOZmVHqOVxOMef/ROaEW3w3DEXr7pYh1wxE+YWzIhw1
- ipE/nC1U4sgMSLz1YsIocFWLMSp30NNMEU2OXONzgwSSzZWbkMKdRF2yIML4guzJpERElqX+m4N
- DCc5FMvvwVuPyJY55ZQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-28_04,2026-04-28_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 spamscore=0 lowpriorityscore=0 suspectscore=0 clxscore=1015
- malwarescore=0 adultscore=0 priorityscore=1501 bulkscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604280126
+	Tue, 28 Apr 2026 13:31:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4FFDF40229;
+	Tue, 28 Apr 2026 13:31:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AAD3C2BCAF;
+	Tue, 28 Apr 2026 13:31:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777383077;
+	bh=Fqnn2hEQAqa2HmSkh6q7L5idMdiVy1lhIhJc0byAbe4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=mvgWZk/x3TCAQl1Prytst/0qUjN8xheWdIG0ydFt+g5hrZwF3pKK6x8vq0yyBWV3q
+	 5YHgiZGGYM/6NbkIBoHIhiTOOby2INGEMp3R1v/EGWZjubpfocvJ9rB3DfTP+K5PBp
+	 EU2E96R4Bo8m6cHs9XmYxUvaKFaCTYTivetZrp9ZixJkB209kU3Iz19jM2m8YnBlVm
+	 bFH+Dt9xtUJ/VpHo57zj4RhDCHJ2wZFevPDCV8xyqIPl4R2Y2NaoJqLh8oM0HVBAMW
+	 joPDjPCE7LTeB+H3NJrIoKiGjIOXxCQTqeDb5fTCnVHC1l0K9RoTe7I0xkSyPlWvoE
+	 92rXaJC6CGFbg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wHiWw-0000000FW07-3pws;
+	Tue, 28 Apr 2026 13:31:15 +0000
+Date: Tue, 28 Apr 2026 14:31:14 +0100
+Message-ID: <86v7dbyzx9.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+Cc: linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev,
+	linux-coco@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v4 2/3] swiotlb: dma: its: Enforce host page-size alignment for shared buffers
+In-Reply-To: <yq5aa4un1dju.fsf@kernel.org>
+References: <20260427063108.909019-1-aneesh.kumar@kernel.org>
+	<20260427063108.909019-3-aneesh.kumar@kernel.org>
+	<86zf2ozrb8.wl-maz@kernel.org>
+	<yq5aa4un1dju.fsf@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: aneesh.kumar@kernel.org, linux-kernel@vger.kernel.org, iommu@lists.linux.dev, linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, jgg@ziepe.ca, m.szyprowski@samsung.com, robin.murphy@arm.com, steven.price@arm.com, suzuki.poulose@arm.com, tglx@kernel.org, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_062724_232883_183238CD 
-X-CRM114-Status: GOOD (  17.20  )
+X-CRM114-CacheID: sfid-20260428_063118_822869_63457F4C 
+X-CRM114-Status: GOOD (  37.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,63 +98,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use scoped for-each loop when iterating over device nodes to make code a
-bit simpler.
+On Tue, 28 Apr 2026 13:20:53 +0100,
+Aneesh Kumar K.V <aneesh.kumar@kernel.org> wrote:
+>=20
+> Marc Zyngier <maz@kernel.org> writes:
+>=20
+> > On Mon, 27 Apr 2026 07:31:07 +0100,
+> > "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> wrote:
+> >>=20
+> >> When running private-memory guests, the guest kernel must apply additi=
+onal
+> >> constraints when allocating buffers that are shared with the hyperviso=
+r.
+> >>=20
+> >> These shared buffers are also accessed by the host kernel and therefore
+> >> must be aligned to the host=E2=80=99s page size, and have a size that =
+is a multiple
+> >> of the host page size.
+> >>=20
+> >> On non-secure hosts, set_guest_memory_attributes() tracks memory at the
+> >> host PAGE_SIZE granularity. This creates a mismatch when the guest app=
+lies
+> >> attributes at 4K boundaries while the host uses 64K pages. In such cas=
+es,
+> >> set_guest_memory_attributes() call returns -EINVAL, preventing the
+> >> conversion of memory regions from private to shared.
+> >>=20
+> >> Architectures such as Arm can tolerate realm physical address space
+> >> (protected memory) PFNs being mapped as shared memory, as incorrect
+> >> accesses are detected and reported as GPC faults. However, relying on =
+this
+> >> mechanism is unsafe and can still lead to kernel crashes.
+> >>=20
+> >> This is particularly likely when guest_memfd allocations are mmapped a=
+nd
+> >> accessed from userspace. Once exposed to userspace, we cannot guarantee
+> >> that applications will only access the intended 4K shared region rather
+> >> than the full 64K page mapped into their address space. Such userspace
+> >> addresses may also be passed back into the kernel and accessed via the
+> >> linear map, resulting in a GPC fault and a kernel crash.
+> >>=20
+> >> With CCA, although Stage-2 mappings managed by the RMM still operate a=
+t a
+> >> 4K granularity, shared pages must nonetheless be aligned to the
+> >> host-managed page size and sized as whole host pages to avoid the issu=
+es
+> >> described above.
+> >
+> > I thought that was being fixed, and that there was now a strong
+> > guarantee that RMM and host are aligned on the page size. Even more,
+> > S2 is totally irrelevant here. The only thing that matters is the host
+> > page size vs the guest page size. Nothing else.
+> >
+>=20
+> Yes, the latest RMM update includes the ability to change the granule
+> size.
+>=20
+> The section above in the commit message was intended to explain that the
+> S2 mapping size is irrelevant. I agree it is not clear as written, so I
+> will reword it to improve clarity.
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Even better, remove it. Nothing CCA-specific should be in this patch.
 
----
+[...]
 
-Changes in v2:
-None
+> >>  static struct gen_pool *itt_pool;
+> >> @@ -268,11 +272,13 @@ static void *itt_alloc_pool(int node, int size)
+> >>  		if (addr)
+> >>  			break;
+> >> =20
+> >> -		page =3D its_alloc_pages_node(node, GFP_KERNEL | __GFP_ZERO, 0);
+> >> +		page =3D its_alloc_pages_node(node, GFP_KERNEL | __GFP_ZERO,
+> >> +					    get_order(mem_decrypt_granule_size()));
+> >
+> > You already taught its_alloc_pages_node() about the decrypt granule
+> > size stuff. I don't think we need to see more of it (and you don't
+> > mess with the call that is just above it).
+> >
+> >>  		if (!page)
+> >>  			break;
+> >> =20
+> >> -		gen_pool_add(itt_pool, (unsigned long)page_address(page), PAGE_SIZE=
+, node);
+> >> +		gen_pool_add(itt_pool, (unsigned long)page_address(page),
+> >> +			     mem_decrypt_granule_size(), node);
+> >
+> > I'd rather see something like mem_decrypt_align(PAGE_SIZE), which
+> > keeps the intent clear.
+> >
+>=20
+> The helper was added based on feedback from a previous version. I assume
+> you are suggesting that only this caller should switch?
 
-v1:
-https://lore.kernel.org/all/20260102124900.64528-4-krzysztof.kozlowski@oss.qualcomm.com/
----
- drivers/pci/controller/pci-mvebu.c | 10 ++++------
- 1 file changed, 4 insertions(+), 6 deletions(-)
+I don't know what you mean by 'this'. What I'd like to see is this
+last hunk be changed to:
 
-diff --git a/drivers/pci/controller/pci-mvebu.c b/drivers/pci/controller/pci-mvebu.c
-index a72aa57591c0..4d3c97b62fe0 100644
---- a/drivers/pci/controller/pci-mvebu.c
-+++ b/drivers/pci/controller/pci-mvebu.c
-@@ -1452,7 +1452,6 @@ static int mvebu_pcie_probe(struct platform_device *pdev)
- 	struct mvebu_pcie *pcie;
- 	struct pci_host_bridge *bridge;
- 	struct device_node *np = dev->of_node;
--	struct device_node *child;
- 	int num, i, ret;
- 
- 	bridge = devm_pci_alloc_host_bridge(dev, sizeof(struct mvebu_pcie));
-@@ -1474,16 +1473,14 @@ static int mvebu_pcie_probe(struct platform_device *pdev)
- 		return -ENOMEM;
- 
- 	i = 0;
--	for_each_available_child_of_node(np, child) {
-+	for_each_available_child_of_node_scoped(np, child) {
- 		struct mvebu_pcie_port *port = &pcie->ports[i];
- 
- 		ret = mvebu_pcie_parse_port(pcie, port, child);
--		if (ret < 0) {
--			of_node_put(child);
-+		if (ret < 0)
- 			return ret;
--		} else if (ret == 0) {
-+		else if (ret == 0)
- 			continue;
--		}
- 
- 		port->dn = child;
- 		i++;
-@@ -1493,6 +1490,7 @@ static int mvebu_pcie_probe(struct platform_device *pdev)
- 	for (i = 0; i < pcie->nports; i++) {
- 		struct mvebu_pcie_port *port = &pcie->ports[i];
- 		int irq = port->intx_irq;
-+		struct device_node *child;
- 
- 		child = port->dn;
- 		if (!child)
--- 
-2.51.0
+	gen_pool_add(itt_pool, (unsigned long)page_address(page),
+		     mem_decrypt_align(PAGE_SIZE), node);
 
+and the previous hunk simply dropped.
+
+Thanks,
+
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
