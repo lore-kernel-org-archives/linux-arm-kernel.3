@@ -4,87 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0E34FF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 12:51:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F9BFFF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 12:51:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H06R9NsyFguVgVc2OrDtUg5k+e6blEtpJ4v4I1D5i5M=; b=nuGWuyQCCTrjK7MLj/gHmDRs1P
-	KOw5+y2CHPK5tmZWolQX4b5S8FTS4xiICaXUxvLk90Vqvp/nPXD2B9lDp7KlXhvuAViYGEcJK0hY2
-	GHPtYCKd053QDNWbZkPruZLKkFJNlQi/5W5bXHUEaFYvE8fvpBb0EYANSkeJ2cPUYSpdhDxzEtGV0
-	oHdYwHWqqUb30AjbUKApWkV17mL6GwX+4tZ3ODJwiSPjm0XnNncyrkH7B8dlKEzQXCS98FrDPE1Hh
-	fwJKFJ+bUhGbI0I9OPdjCB4O4btL29p15f6He2kI7ycBXn48OCvBZ3ebKqplpCB875lSGc1dp4HtJ
-	uHMZglmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S0A//i6lW9ZgX8m7SfE0ctPZGZR9MtJ/Dk2v1dp0dCk=; b=nUR0fcrWAXEAC9CL/z/It+CGsD
+	jwxZRxcyI7urG0sJwWNmqLT9KzScljjjgTtj5V5Wto7xEnMXdRhqHLWEvapMWf0Z84VfzvIeBWOEu
+	7Araxs52QIoKCZcOIeEBaCrjblX+GjWPcQPxZdeWXXCFuFvxmlhQsQ32CBLbc5q1l9dZMMXeen6kj
+	dYaJ3Qxp834EcsBHyfcclwipUQdkoi9On81FdqscDZ/psvGgvalfKrqxoDXHVFENNw2GWt3UU5Uo5
+	HEblISg8+4BNmtoW91wds+24FjOMjjCB6p895TJxjsYY9U8hx7Rnd5o3ckQqSMihCfDwq5x9RjcX5
+	S7bJOdhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHhuc-00000001TAu-2imB;
-	Tue, 28 Apr 2026 12:51:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wHhui-00000001TCa-45Ze;
+	Tue, 28 Apr 2026 12:51:44 +0000
+Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHhua-00000001TAa-1KPP
+	id 1wHhug-00000001TBW-2hbp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 12:51:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 46F194441B
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 12:51:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C806C2BCF6
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 12:51:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777380695;
-	bh=H06R9NsyFguVgVc2OrDtUg5k+e6blEtpJ4v4I1D5i5M=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=OywqrMno8jmcYD5v5Fd/6PqnvmgjCNVeng1svVEtob8W/Iw/FcndcE6vrAV8z0aqs
-	 RUW5idBfci72/mDGzWN4JH6suzNAOE/YUUE0uISvzPMs5H71yEO9dtJVejcll0MDzP
-	 9e2XsiFv5N4v/3lP537JwiWFk7kX1fNuko7bbhIbDRSJK/5lSUbKSLK499ubLLFwh7
-	 sigbIXKG9deE+GdQJX9rM7Vvas62YzWyPh+xGUAvamMd/CRcZMOl3rxtumhupZSFUn
-	 agKcPV3vY0KM9T9Iv5XTbORmpetX8ZhSx3EbWgN5kj7oG7cxwdrNOOZv5jtT7gN0gj
-	 5evw1y28sf/Ng==
-Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5a3d42263e4so11255029e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 05:51:35 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+AeKQiUrcxy04XD4zMBGuvrvt1cADVjLpCrc/oHXX+/YCNd/CgieVpx3jVuoUgVRrfZw++8OxkdRhPeJkLc/eY@lists.infradead.org
-X-Gm-Message-State: AOJu0YzB40j0AyHAgfANDo3wPH7CkHX5+ocH41MUS5U0gyia0tpgfko4
-	6egYgSUQV9Po/f0m170Hk/UfvGpWxHQkzL7aHYYfsi9foR0vuAHhjVW/o8fC/2lQkgR0lIeDcXs
-	A374PGWGZnvebaZYEfL3gCEnqP4kWqUkbWxBw2sZurA==
-X-Received: by 2002:a19:f617:0:b0:5a7:470a:cc2a with SMTP id
- 2adb3069b0e04-5a7470acc7amr726274e87.31.1777380693277; Tue, 28 Apr 2026
- 05:51:33 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260427-arm-psci-system_reset2-vendor-reboots-v21-0-dcf937775e73@oss.qualcomm.com>
- <20260427-arm-psci-system_reset2-vendor-reboots-v21-8-dcf937775e73@oss.qualcomm.com>
- <CAMRc=Mf+-04Zr7jjRoaxTzO3LKSMyQ7DzxJc=dHNSyThEUiq_Q@mail.gmail.com> <c0677503-8073-4940-8eb0-c06b34f843d2@oss.qualcomm.com>
-In-Reply-To: <c0677503-8073-4940-8eb0-c06b34f843d2@oss.qualcomm.com>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Tue, 28 Apr 2026 14:51:21 +0200
-X-Gmail-Original-Message-ID: <CAMRc=MdxpSXiqAn-8Az4ig4N8TFVdE9psacPVG9J9KehuFnbwA@mail.gmail.com>
-X-Gm-Features: AVHnY4JU1UwiPshYmVjsgOwUMFBB1XE6bzFZjj4Zzp3u2SG40oRUQvl3mhft_7w
-Message-ID: <CAMRc=MdxpSXiqAn-8Az4ig4N8TFVdE9psacPVG9J9KehuFnbwA@mail.gmail.com>
-Subject: Re: [PATCH v21 08/13] mfd: core: Add firmware-node support to MFD cells
-To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
-	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, Andre Draszik <andre.draszik@linaro.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>, 
-	Srinivas Kandagatla <srini@kernel.org>, Sebastian Reichel <sre@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Daniel Lezcano <daniel.lezcano@kernel.org>, Christian Loehle <christian.loehle@arm.com>, 
-	Ulf Hansson <ulfh@kernel.org>, Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Arnd Bergmann <arnd@arndb.de>, Souvik Chakravarty <Souvik.Chakravarty@arm.com>, 
-	Andy Yan <andy.yan@rock-chips.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	John Stultz <john.stultz@linaro.org>, Moritz Fischer <moritz.fischer@ettus.com>, 
-	Sudeep Holla <sudeep.holla@kernel.org>
+	Tue, 28 Apr 2026 12:51:43 +0000
+Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-82f70ae35c0so5910561b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 05:51:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1777380701; x=1777985501; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=S0A//i6lW9ZgX8m7SfE0ctPZGZR9MtJ/Dk2v1dp0dCk=;
+        b=BGJdDgT6ieojYqJ5pHiULrkwH8Nmk+3tH4JFiZ3grM2QxDa3YoHtYtxMXN85tHOG3B
+         x3lFJ3a8XFEEk3/2ty6zN2/btjR6b/3TVv0YzGxV4R45t+jnc2AtyIMU8gYscTixcbN6
+         LlDaU4KB1jTHxl0pQOQKAR9TVf83WoR8TBGirrw5/qq77rL9nXxrYyyIBKxLM84ZiKtO
+         u4TrrxtDfBSOCb8qZG2V5jQo7YtaSZXspDzMqzRZdRM8rzeucNRWFZHeV84VEmRTDTfX
+         ugn/TfCE+eZrrJ0xysERQAf9eiwEdbB4g1PpzKhguvBZuF4Zb+E095g+dHjJsh/jP1WI
+         +y7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777380701; x=1777985501;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=S0A//i6lW9ZgX8m7SfE0ctPZGZR9MtJ/Dk2v1dp0dCk=;
+        b=sc6OXwFZvGiiKH+A2jICIwUYyZgStPvyQ8wvgcnKkNTGxe5t+BA1TIjBXI0ebN1mIh
+         4Yy8Qq40M1kizPGVDN0rAifyRDcnymJgJ848tQjfszthotYiN7SABnrzxdY6CmKRp0us
+         mC0DmYlXQBS/7V9gZIP2qfUUrjNYE9+nXiUlfKCd1r2VQGsGR7rasDk9ma6PEXQt4aq3
+         kuzNYayA/UwTsqTzLy8hPxILrNWwgXB+Jjbt4YuKvaqi6IWuny95uqpXvG28XpnDXOUB
+         My6YBFX3oNp5Gk2A3LE6dhKPnAAxJVmqaMu2rG4c5gbUFQYWo+muTnp8qRiPmpGt/j8n
+         qKvw==
+X-Forwarded-Encrypted: i=1; AFNElJ9GUGTfohwWohbRrBIqAlUDakJnBBF+I0SXVjG9+nYbvDHPWWaJzRElqXX+3CFztQ5UDr5Q+9vAuT2kZ//CmgKE@lists.infradead.org
+X-Gm-Message-State: AOJu0YwZSxDHnafpC6HSAefGDcOmrUHlu12qM0HKzFb0XTkPSNnWkVtH
+	uymuuotIrH4ky8WE7RU1pF7CghGIRukxRyjeE8BFdY/d1Yb7Z5dsRi1igvCcaLvEnto1w08/6lf
+	nv1faolG08MDGA/v+Kpta76p0dA==
+X-Received: from pfna24.prod.google.com ([2002:aa7:80d8:0:b0:82f:5576:285b])
+ (user=joonwonkang job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6a00:1d8e:b0:82c:9897:70ef with SMTP id d2e1a72fcca58-834ddb9b440mr3026357b3a.27.1777380700900;
+ Tue, 28 Apr 2026 05:51:40 -0700 (PDT)
+Date: Tue, 28 Apr 2026 12:51:39 +0000
+In-Reply-To: <d860b6a9-e4a9-494f-821d-8b0a347e1591@arm.com>
+Mime-Version: 1.0
+References: <d860b6a9-e4a9-494f-821d-8b0a347e1591@arm.com>
+X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
+Message-ID: <20260428125139.1627369-1-joonwonkang@google.com>
+Subject: Re: [QUESTION] Is the ARM SMMU v3 implementation designed to always
+ ignore SSID when SSID_VALID == 0?
+From: Joonwon Kang <joonwonkang@google.com>
+To: robin.murphy@arm.com
+Cc: baolu.lu@linux.intel.com, cychu@google.com, hhchung@google.com, 
+	iommu@lists.linux.dev, jgg@ziepe.ca, joonwonkang@google.com, joro@8bytes.org, 
+	jpb@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, stimim@google.com, will@kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_055136_417944_4207C6CE 
-X-CRM114-Status: GOOD (  23.23  )
+X-CRM114-CacheID: sfid-20260428_055142_689665_5400F156 
+X-CRM114-Status: GOOD (  35.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,57 +91,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 28, 2026 at 2:18=E2=80=AFPM Shivendra Pratap
-<shivendra.pratap@oss.qualcomm.com> wrote:
->
->
->
-> On 28-04-2026 13:33, Bartosz Golaszewski wrote:
-> > On Mon, 27 Apr 2026 19:34:48 +0200, Shivendra Pratap
-> > <shivendra.pratap@oss.qualcomm.com> said:
-> >> MFD core has no way to register a child device using an explicit firmw=
-are
-> >> node. This prevents drivers from registering child nodes when those no=
-des
-> >> do not define a compatible string. One such example is the PSCI
-> >> "reboot-mode" node, which omits a compatible string as it describes
-> >> boot-states provided by the underlying firmware.
+> On 28/04/2026 12:14 pm, Joonwon Kang wrote:
+> > Thanks for your prompt and insightful answer!
+> > 
+> >> Hi,
 > >>
-> >> Extend struct mfd_cell with an optional fwnode pointer and attach it t=
-o the
-> >> child device during registration when no firmware node is already assi=
-gned.
+> >> On Tue, Apr 28, 2026 at 07:38:59AM +0000, Joonwon Kang wrote:
+> >>> Hi team,
+> >>>
+> >>> According to the ARM SMMU v3 spec, I believe that SSID should always be
+> >>> ignored when SSID_VALID == 0 and the current ARM SMMU v3 module
+> >>> implementation in the kernel seems to comply with this without exception.
+> >>> For example, when handling an event from SMMU, the implementation checks
+> >>> SSID_VALID(SSV) first and ignores SSID accordingly. If there is any
+> >>> exception to this rule, I believe it is a bug.
 > >>
-> >> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-> >> ---
-> >
-> > In the following patch you use this and violate the supposed constness =
-of
-> > MFD cells. This also mean you need to modify the mfd_cell at run-time. =
-I would
-> > prefer introducing a field in mfd_cell: bool use_parent_fwnode which wo=
-uld
-> > indicate to MFD core that - in case no fwnode was assigned from other s=
-ources:
-> > DT or software node - it should reuse the parent MFD device's node.
->
-> Have one doubt on this, When we fallback to use_parent_fwnode for cell:
-> psci-reboot-mode, at psci_reboot_mode_probe(), pDev->dev->of_node point
-> to psci node.
->
-> But we want dev->of_node to point to "reboot-mode" node. This may need
-> an explicit assignment again of of_node?
->
+> >> Indeed
+> > 
+> > Acknowledged.
+> > 
+> >>
+> >>> Is it true for all the current and future cases? In other words, is it
+> >>> **mandatory** that the ARM SMMU v3 implementation ignores SSID when
+> >>> SSID_VALID == 0? or there might be some cases where the implementation
+> >>> needs to refer to SSID even when SSID_VALID == 0?
+> >>>
+> >>> Asking this question since our HW may not be able to clear SSID when
+> >>> SSID_VALID == 0 and so there might be some garbage value in SSID at some
+> >>> point of time(the HW will have a correct SSID when SSID_VALID == 1,
+> >>> though). If the ARM SMMU v3 implementation is to refer to that garbage
+> >>> value for any reason, the result would be devastating.
+> >>
+> >> At least according to the architecture, SubstreamID is ignored when SSV=0.
+> >> The SMMU is allowed to propagate the garbage:
+> >>
+> >>    7.3 Event record
+> >>
+> >>    * SSV: The SubstreamID validity flag
+> >>      - 0: No SubstreamID was provided with the transaction and the SubstreamID field is UNKNOWN.
+> >>
+> >> But the driver will ignore it.
+> >>
+> >> Same for PRI queue but in that case the page request wouldn't have a PASID
+> >> TLP prefix.
+> > 
+> > Although the PRI request without PASID may cause unpleasant ATC flush with
+> > SSV clear in this case, it does not lead to the implementation referring
+> > to the garbage SSID. Is this understanding correct? And while this case
+> > seems to be handled solely by the ARM SMMU v3 implementation, do you see
+> > if there is additional care required on our device driver for this?
+> 
+> A transaction with SSV==0 does not have a SubstreamID, therefore by 
+> definition there is nothing that an SMMU could validly attempt to do 
+> with a SubstreamID that does not exist. Sure, implementations can have 
+> bugs, but I'd expect any such bug in this regard should be sufficiently 
+> obvious that it most likely wouldn't get past architectural validation 
+> in the first place.
+> 
 
-Ah, sorry you're right. I'd like to avoid having to modify the
-mfd_cell entry at run-time if possible.
+It makes a lot of sense.
 
-How about a callback in mfd_cell like:
+> If you want to know the exact behaviour of Arm's implementations then 
+> you're best off asking Arm support, but since this piqued my curiosity 
+> too, I can save you the trouble - I checked with my contacts on the 
+> design team, and indeed our SMMUs should ignore the SSID value entirely 
+> when SSV==0 and just treat it as 0 (e.g. in event records).
 
-struct fwnode_handle *(*get_fwnode)(struct device *parent);
+Thank you very much for saving me the effort and confirming this. I also
+acknowledge that it will be best to ask the Arm support with regards to
+the exact behavior of Arm's implementation. 
 
-If set, it would be called from MFD core and would do the name lookup
-and return the fwnode which would then be assigned to the cell device?
-
-Bart
+Thanks,
+Joonwon Kang
 
