@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBDEBFF886D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 10:30:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 340FFFF8873
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 10:30:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dYUkAwnLJFRq1L2KWhPMCbl0fLNqeKRbzrqZSKodisQ=; b=YU5yv8FZHXk1W4Xv0hXMFjO02O
-	6sLBjmso1M6hoz5uH+cKIIt/8wtAhok5vKpYJ4nmb8jvwzpsf1MtzsF0RozVJtamNdN5NVTYlez+i
-	egdihQd49HRti7waqNiEuo9++NxDcoIBNlTr1Ah7ZGduJB+GONCqZb+DCFIj0vXu8+PoVwMeiYV/a
-	8QMFwHu+FmyniVZxIyIwQu5hfgLybA4qLfg56aU3KKjMynfmIkWMGPhEVwJQUP13o7IaREbKPlPUA
-	8tV5RAEUSVfQHfDZNK7lRV0yKP/+i3i4hZr4rFro9A1jILOpVpA6quPtZE6xHfcywhE5Fvdi6/kW7
-	ZH5F4FDg==;
+	bh=GmmNYOk+NsHl9ECni3ZP17QcbrO127/DqtR017v434Y=; b=HmTHT5DHexSzn4B84tamtoZhv8
+	FvLCUbJFWvskar5MH506/61sxWZSwuCsa/EuAvZZ9WdQq9QX+OTtIm5E5YhDemMAqnl+CwzdGRRyj
+	Raj5WfGWhdHez8UqM5+LKFTFyx5wmYlGAyPAk0Cs2AId+kXrpobo7Sq2aNx0ONG55GhpkCsnbzYlv
+	89SKvuUShp5834PC2/3eJU6d1rSDknGXC4y0dSifAMrJJD26H29mpK218/A3aYjl/4MRC5Dg8UZ+b
+	yhCX/MpcCo1Uy0l7lIfvPFIr/k4AMzx3ENoDqD2pnYn+ba8uLer7o7jxTWXOtNHU6y1abYW8OeTDl
+	oSYKZFHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHfhs-00000001AlZ-19iu;
-	Tue, 28 Apr 2026 10:30:20 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1wHfhr-00000001AlD-3wXu;
+	Tue, 28 Apr 2026 10:30:19 +0000
+Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHfhp-00000001AhL-0v0y
+	id 1wHfho-00000001Agi-25Er
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 10:30:18 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4837bfcfe0dso125257595e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 03:30:16 -0700 (PDT)
+	Tue, 28 Apr 2026 10:30:17 +0000
+Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-4411a36715dso6672885f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 03:30:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777372215; x=1777977015; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777372214; x=1777977014; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=dYUkAwnLJFRq1L2KWhPMCbl0fLNqeKRbzrqZSKodisQ=;
-        b=JFCL8/s0lUE8oh1aSzNSgCJlyyy7wmvGvm85fvbQ6YVxEbmu/hE7ie+0KvtX5e6W9x
-         w801SUPYc52W+XmgLFXMP9YKhx+ZHL6DLA7N+7AvSUZPCLF8XP0sDuGV/NnC3uq791Hy
-         v9VOetQ1oCqlwwcLZXOexxQXgguGb5i+Yl3gOKWstALXEuFXQi9NE1OQ1uEtjDCa1BJI
-         5N7o1E7zBF2kylG2F9cZ0V4TJ2Pl/3tpHr3u1uHlO2xSJVU9CysrDe9pK0M5XWfdGOFr
-         /b5cOTbaBtNHuYlfuKyXVVcXh11sKFm8GzLa9ki8y8Zhcx0HtzM7zKUnJgOPCTpTsoVG
-         IpmA==
+        bh=GmmNYOk+NsHl9ECni3ZP17QcbrO127/DqtR017v434Y=;
+        b=osrziJNraSiBITho+2X4oZ4euf93vKEbiKHrCdvvLJyekrBGL+mISfAj94Tlk62UjW
+         0kLZvHH2lxVHo+Ux5lqv6kanVmTXDwTM0kqco42HsSQY7bMSCrLA2i2NRTiT+9yY/q2j
+         jFIxeesd4bg3XseEBXtztNlZVRctN9rTe9/GS8gyIAfh2kmMirOt9XEGABFqrDs8w/xu
+         TbxTtwuNxHREgkbG+fuWH7CBZmXvm327o4212PhGKc4Yc0I/24YjifVrE6d02zM9teQ3
+         6zytzGKgOeyutLyYV322S39NN1kz/VsWFGvWDA28mH2b6ye6mOM34IF8zqKvLnQg/e/n
+         aJrg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777372215; x=1777977015;
+        d=1e100.net; s=20251104; t=1777372214; x=1777977014;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=dYUkAwnLJFRq1L2KWhPMCbl0fLNqeKRbzrqZSKodisQ=;
-        b=GObajJKZVrYTZKBqkEq4qqr/f0cwu4C9wRh/IayRWPM5AmWC+3iILwxMyPIB0185FD
-         nMjM3wyw5egFfntei2OkdczpP8uuI4k5zEsuG/daZXUz9osoAwvXraryzjJm8fuPBI30
-         wQpngEUhfh5UZOSpRkiPxl0PkdE7S1Y+Sblkybdb34V/iU/hDud4Ev0Dtx/vA4adgUpz
-         YmREdbE4eHLuhGUuA6Pa9BxQr4meaetg7pchKQLW9OQNDHv94EIv9V6iYj0rT6MlA7IF
-         WThVijJb6zvJihBDNDU43J3h3rDH9x+Uv164VY76FELBQJAqcT9vlOAh6lF4pvUD+lUU
-         TZBw==
-X-Forwarded-Encrypted: i=1; AFNElJ+U4hqzXwKZnFjv2/Npe6G5RVBu1Br6yFUUZ+S2abrwYEQvirGbadg9AaDxMkidaS0Bqztzw5y4jm8FX5QcJXku@lists.infradead.org
-X-Gm-Message-State: AOJu0YzxF/j+h+lmDBOCKwXsI5UQjJhTBCpdT+mcECulY3e6rSqizrUu
-	gh9VGwo1Wg/jogAqvzGm6S8EGvjBzAM0Frus8g/PmQXjrQmIj1z39QwmyatZzPChLeTUDPU2gUu
-	51w==
-X-Received: from wrou16.prod.google.com ([2002:adf:ed50:0:b0:445:adc5:751d])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:3b15:b0:489:1f3e:5f6f
- with SMTP id 5b1f17b1804b1-48a77ae5502mr42869535e9.12.1777372215150; Tue, 28
- Apr 2026 03:30:15 -0700 (PDT)
-Date: Tue, 28 Apr 2026 11:30:05 +0100
+        bh=GmmNYOk+NsHl9ECni3ZP17QcbrO127/DqtR017v434Y=;
+        b=RQNKpznND6rLHDO+XIk7TegTQkC/a9ARhk3+N37TTMb6xEAMJilFvjjcug9cmhO5Yz
+         zV5zKJLtUlKilPR3Mp5rz/eECHTAj/qQE+7x9QUKyaxtw7ieV5ErngafKvIax+q26PGC
+         5Q2zU4ZsGz2faF6fBjxGWJCZemXyfjv7LuiYQZdI6WT6slBngjQ10VegQ2Zgrn+BcWJt
+         t050gnWcN2QF5D25GdjdMG6niovle0omMY8+36g+Nqizd4I0zT4SzkVGEU1Cqqb726y0
+         KG7abaMbcnL5uPwfpJoeU5bawfDBVTHf8O6x3CwTTmYFmAWTjlYJt5rW3TV4BLymQYgX
+         wgsQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8PshF8+V0m1X432pwGGQ0Bkqy/1zeZFw8u9OZgsqejgJVSmfQEeDOivc1RFLCOVT/3xxqiMp6pb+yk4X8C8bgJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIkGf7mnbXQ7+pKcfhMPGdjZPTWgaJU+DTyvHOWDNIYqXk7E6b
+	uJhhN7rHC/X49SVUeSFc2LwfhJS0FTLWh0aqGeKPBY/khuRY+MfE0SPNu+q4Tm+C4kAvTwEPxip
+	oow==
+X-Received: from wrrn5.prod.google.com ([2002:adf:fe05:0:b0:439:d2b7:2393])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:26c6:b0:43f:e7c9:2402
+ with SMTP id ffacd0b85a97d-4464761c29fmr4504996f8f.3.1777372213972; Tue, 28
+ Apr 2026 03:30:13 -0700 (PDT)
+Date: Tue, 28 Apr 2026 11:30:04 +0100
 In-Reply-To: <20260428103008.696141-1-tabba@google.com>
 Mime-Version: 1.0
 References: <20260428103008.696141-1-tabba@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260428103008.696141-6-tabba@google.com>
-Subject: [PATCH 5/8] KVM: arm64: Propagate stage-2 map failure on host->guest share
+Message-ID: <20260428103008.696141-5-tabba@google.com>
+Subject: [PATCH 4/8] KVM: arm64: Fix __deactivate_fgt macro parameter typo
 From: Fuad Tabba <tabba@google.com>
 To: maz@kernel.org, oliver.upton@linux.dev
 Cc: james.morse@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
@@ -75,8 +75,8 @@ Cc: james.morse@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
 	linux-kernel@vger.kernel.org, stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_033017_275442_76AB4CDD 
-X-CRM114-Status: GOOD (  16.87  )
+X-CRM114-CacheID: sfid-20260428_033016_542032_76DC2926 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,82 +91,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-__pkvm_host_share_guest() mutates the host vmemmap for every page in
-the range (sets PKVM_PAGE_SHARED_OWNED and increments
-host_share_guest_count) and then calls kvm_pgtable_stage2_map() to
-install the guest stage-2 mapping. The stage-2 map's return value was
-wrapped in WARN_ON() and otherwise discarded.
+__deactivate_fgt() declares its first parameter as "htcxt" but the body
+references "hctxt". The parameter is unused; the macro silently captures
+"hctxt" from the enclosing scope. Both existing callers
+(__deactivate_traps_hfgxtr() and __deactivate_traps_ich_hfgxtr()) happen
+to define a local "struct kvm_cpu_context *hctxt", so the macro works
+by coincidence.
 
-At EL2 in nVHE/pKVM, WARN_ON() is not warn-and-continue: it expands
-to a BRK that enters the invalid-host-el2 vector and branches to
-hyp_panic(), declared __noreturn. WARN_ON of a reachable failure at
-EL2 is a panic primitive, not a debug aid.
+A future caller without an "hctxt" local in scope, or naming it
+differently, would compile but bind to the wrong context. Align the
+parameter name with the sibling __activate_fgt() macro.
 
-kvm_pgtable_stage2_map() can fail in reachable ways: the stage-2
-walker requests fresh pages from the caller's memcache and returns
--ENOMEM when the memcache is exhausted mid-walk. The host controls
-the vcpu memcache via the topup interface, so an under-provisioned
-share request converts a recoverable error into a fatal hyp panic.
+The "vcpu" parameter remains unused in the body, kept for API symmetry
+with __activate_fgt() (which uses it).
 
-Capture the stage-2 map return value and propagate it. The walker
-may have installed leaf entries for some pages in the IPA range
-before failing, so unmap the range to clear any partial mappings;
-otherwise the guest would retain stage-2 access to pages the host is
-about to reclaim. Then roll back the host vmemmap mutations from the
-forward pass: the forward pass increments the count by 1 on every
-page, and the only forward state transition is OWNED -> SHARED_OWNED
-(the count 0 -> 1 transition). The reverse pass decrements the count
-and, if it drops back to zero, restores PKVM_PAGE_OWNED. Pages
-already SHARED_OWNED with other sharers (count > 1 after the forward
-pass) only need the count decremented.
-
-Fixes: d0bd3e6570ae ("KVM: arm64: Introduce __pkvm_host_share_guest()")
+Fixes: f5a5a406b4b8 ("KVM: arm64: Propagate and handle Fine-Grained UNDEF bits")
 Signed-off-by: Fuad Tabba <tabba@google.com>
 ---
- arch/arm64/kvm/hyp/nvhe/mem_protect.c | 30 ++++++++++++++++++++++++---
- 1 file changed, 27 insertions(+), 3 deletions(-)
+ arch/arm64/kvm/hyp/include/hyp/switch.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index 28a471d1927c..7044913a0758 100644
---- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -1458,9 +1458,33 @@ int __pkvm_host_share_guest(u64 pfn, u64 gfn, u64 nr_pages, struct pkvm_hyp_vcpu
- 		page->host_share_guest_count++;
- 	}
+diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+index 98b2976837b1..bf0eb5e43427 100644
+--- a/arch/arm64/kvm/hyp/include/hyp/switch.h
++++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+@@ -245,7 +245,7 @@ static inline void __activate_traps_ich_hfgxtr(struct kvm_vcpu *vcpu)
+ 	__activate_fgt(hctxt, vcpu, ICH_HFGITR_EL2);
+ }
  
--	WARN_ON(kvm_pgtable_stage2_map(&vm->pgt, ipa, size, phys,
--				       pkvm_mkstate(prot, PKVM_PAGE_SHARED_BORROWED),
--				       &vcpu->vcpu.arch.pkvm_memcache, 0));
-+	ret = kvm_pgtable_stage2_map(&vm->pgt, ipa, size, phys,
-+				     pkvm_mkstate(prot, PKVM_PAGE_SHARED_BORROWED),
-+				     &vcpu->vcpu.arch.pkvm_memcache, 0);
-+	if (ret) {
-+		/*
-+		 * Stage-2 map can fail mid-walk (e.g. -ENOMEM from the
-+		 * memcache), leaving partial leaf entries installed in the
-+		 * guest stage-2. Tear them down before rolling back host
-+		 * bookkeeping; otherwise the guest would retain access to
-+		 * pages the host is about to reclaim as PKVM_PAGE_OWNED.
-+		 */
-+		kvm_pgtable_stage2_unmap(&vm->pgt, ipa, size);
-+
-+		/*
-+		 * Roll back the host vmemmap mutations applied above. A page
-+		 * whose host_share_guest_count is now 1 was PKVM_PAGE_OWNED
-+		 * before this call (count 0->1, state OWNED->SHARED_OWNED);
-+		 * undo both. A page with count > 1 was already
-+		 * PKVM_PAGE_SHARED_OWNED with other sharers; only the count
-+		 * needs to be decremented.
-+		 */
-+		for_each_hyp_page(page, phys, size) {
-+			page->host_share_guest_count--;
-+			if (!page->host_share_guest_count)
-+				set_host_state(page, PKVM_PAGE_OWNED);
-+		}
-+	}
- 
- unlock:
- 	guest_unlock_component(vm);
+-#define __deactivate_fgt(htcxt, vcpu, reg)				\
++#define __deactivate_fgt(hctxt, vcpu, reg)				\
+ 	do {								\
+ 		write_sysreg_s(ctxt_sys_reg(hctxt, reg),		\
+ 			       SYS_ ## reg);				\
 -- 
 2.54.0.545.g6539524ca2-goog
 
