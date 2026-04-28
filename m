@@ -4,81 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82459FF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 11:01:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39425FF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 11:11:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XBGhq8AsscvIj+mH9lal8kMT11cGW5WaUiLHhyEg9Cg=; b=k3c862JfSO6lbd3hdd1xkKMdtD
-	iCspHObWeZWd8NWyAow2+nK91G8JvDoEr2xNNbSUKbfhZSYlwheeRc/3TlIvOX4qPvr9MNkSTPewK
-	TPOmC0hgDW9yUQb79MtzcpB161hS9UWY9qiDcCwfb6kCWdg3TZ3JSXG2/icwVHkqJo0Z3Cd+UqmHx
-	Fn6BpoX4zcWPZ6zYNWmHLjEJ2D0k2eCuG+us/a0TziO8oNE/NrI1xTbE623WV9gDZHbDZiukUNl4/
-	NWaImrHv79YGz/ZgYnIjP9NfQfQrOPWZgIktx1Rs/Ud2Of+y/usl5usgPSZhL/yJzYh2eZ4Par405
-	iKUO3QsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	References:To:From:Subject:Cc:Message-Id:Date:Content-Type:
+	Content-Transfer-Encoding:Reply-To:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qOWbkNYaOXa8HjhpgCfanb0UICU2SvQQvUKJYhRS5kk=; b=aqIjg9GpKshataru6rHcgQhIBI
+	UO0kPXebJ98PG+4Ea2SVVihXyXlq2KdcvGZqu/69noT0/eYtEG/I4J5r9Oh8uwuyQM09vRq3xnJoW
+	VZU2ZhK0L1PIDubNKc2taV3+a0n5ApqfxlY5HuECAA/AfnQNhPAg853mGkC5fPwKfoel3L/KlF//1
+	NbdU1V3abPevBtgz3UDHNiXnocrlwKs8DOLMnmBTZMXBZNzuyMeMjXb2H0t7LjtywD927dyoUWcX1
+	vxdyk2Cu76NUVtWF6NzXLFnjfBBKfAb9DJ1MuHYVJm0IXhG4KWF3E2aMFjfegoTxahGKU7YcrpvQx
+	qxJwB6Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHgBc-00000001EXi-0YgJ;
-	Tue, 28 Apr 2026 11:01:04 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1wHgLE-00000001F8b-3INd;
+	Tue, 28 Apr 2026 11:11:00 +0000
+Received: from mail-uksouthazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c205::5] helo=LO0P265CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHgBW-00000001EWU-0jDy
+	id 1wHgLC-00000001F8E-0NP5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 11:01:03 +0000
-Date: Tue, 28 Apr 2026 13:00:54 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1777374055;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XBGhq8AsscvIj+mH9lal8kMT11cGW5WaUiLHhyEg9Cg=;
-	b=BnbLYkmMWIJt5VYkLwCdmQ60Q0X9uQlTWDCP7HP8/5OWBPyO5FaIv+KhxHC7SWW/fUPdqz
-	+5GmE0FU/6RP0jFGAMKRpIKED1ulUDEQ1XZDeRcEnmfbHok4Wipd0or7EVnUP6vmQRn4nu
-	dRRcQJE5gQwyYdrl9BDmpiW5WBl0h4KL1iZapdKnMQMG3uDKGV1f+5CmxsrfEBYUHeq4nm
-	op2tVAUkJuFE1MyXvndOhSg5IOKNtZgLJh3+bl15iKUfNBdgkqZL4cn0eq72ogjoWmHsLu
-	IDVMuW64PEGt1cd1h76IwXMnmiB+3dGtamdqFAPwpQQTSwvAnYjBDRxpAZAA1Q==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1777374055;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XBGhq8AsscvIj+mH9lal8kMT11cGW5WaUiLHhyEg9Cg=;
-	b=7U9zG0CLn0w8edytSvhyGI+M4MTTmvpY2+kYhI/KmQsZDhYbNYFkRJC8CUSuEQOFCvFeoD
-	Bcx9hNwDJNsf8/Cw==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: =?utf-8?B?QW5kcsOp?= Almeida <andrealmeid@igalia.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Carlos O'Donell <carlos@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Florian Weimer <fweimer@redhat.com>,
-	Rich Felker <dalias@aerifal.cx>,
-	Torvald Riegel <triegel@redhat.com>,
-	Darren Hart <dvhart@infradead.org>, Ingo Molnar <mingo@kernel.org>,
-	Davidlohr Bueso <dave@stgolabs.net>, Arnd Bergmann <arnd@arndb.de>,
-	"Liam R . Howlett" <Liam.Howlett@oracle.com>,
-	Uros Bizjak <ubizjak@gmail.com>,
-	Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org, kernel-dev@igalia.com
-Subject: Re: [PATCH RFC v2 0/2] arm64: vdso: Implement
- __vdso_futex_robust_try_unlock()
-Message-ID: <20260428110054.oQNT-kMn@linutronix.de>
-References: <20260424-tonyk-robust_arm-v2-0-db4e46f752cf@igalia.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+	Tue, 28 Apr 2026 11:10:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pOOHZUSrKJDANGlHLnaD4wljszUzb0ueaXkY0ubNMkWF6CPT9GHJsgWpqhLCz2Z7uguSnT46jnsp4Qdg1BiN5h45kOVNx00uyF5WW7qKpNCU8K2lwOtcFKa97iefoDQJVlL7rvY1UgdfNTIx6UjN2AM3sm9KVCwIg4toasveMGwfu33llmVNijz8eqvLfchSnVMbW83p4r5nizerig6Va0mTzlIsbTWvdh5q7CmuHSGh7lpBJOZJRBy60POTDZOx0RmPqNaCnac/OtyCxVn5/bS/qIN7DIISuWi85HErv1MXylD1ohHF5pnmYWBrbnAhNUV4zIpTQOliEneObx4H5A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qOWbkNYaOXa8HjhpgCfanb0UICU2SvQQvUKJYhRS5kk=;
+ b=DWfMCNymbEGUWU7o18/DoTXUtxS50rBpLBuoYQhicdZ3g9BAVuZBzh11NC1DnBFgHLGVvAePvTzDwklzERi5dIGxqdq62p7eZNx5fM8R6Ack3OCDR7kAHclDyxREmNyENGSXk3lTpfL5dnvxILI/PSUnWVByZ1e0tKDltrt1CgZsCYJccbeDq60hjzeRCXQ9U6vSTjRaxCxCSRIWTL5MQP3PXEvIee53PNjNnCu+QTILJJDru/dR33+e+JoIQgW0GrccbX9JYB/mDKiCJorvW+cY5G2YZi6cOm+r9dcUSj3hGlTMbbCeOC1K9ObvWdISV0Z03vEn9I9TA+H4StiJgw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
+ dkim=pass header.d=garyguo.net; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qOWbkNYaOXa8HjhpgCfanb0UICU2SvQQvUKJYhRS5kk=;
+ b=vxBl7FXUDFyG8u9b0zxwXr3J0hBSosJ70S4tZmFcfXkuX6MgP9mtqfNlpS0/h2HjQgzVG5YrFmo7bOWLLUyfZy15DfItpfcuFu1q01Yw02KZVQPzLc0UO5mKmF2KD2z82JbgqWYpOEFVrURm8X5WdUAyHrroWs1mXMXK1BmM+zg=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=garyguo.net;
+Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:488::16)
+ by LO0P265MB2892.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:174::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Tue, 28 Apr
+ 2026 11:10:52 +0000
+Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::1c3:ceba:21b4:9986]) by LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::1c3:ceba:21b4:9986%4]) with mapi id 15.20.9846.025; Tue, 28 Apr 2026
+ 11:10:51 +0000
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20260424-tonyk-robust_arm-v2-0-db4e46f752cf@igalia.com>
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 28 Apr 2026 12:10:50 +0100
+Message-Id: <DI4QQA6EGIA1.N8WRFWVKG91S@garyguo.net>
+Cc: "Suzuki K Poulose" <suzuki.poulose@arm.com>, "James Clark"
+ <james.clark@linaro.org>, "Alexander Shishkin"
+ <alexander.shishkin@linux.intel.com>, "Maxime Coquelin"
+ <mcoquelin.stm32@gmail.com>, "Alexandre Torgue"
+ <alexandre.torgue@foss.st.com>, "Greg Kroah-Hartman"
+ <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ "Danilo Krummrich" <dakr@kernel.org>, "Miguel Ojeda" <ojeda@kernel.org>,
+ "Boqun Feng" <boqun@kernel.org>, =?utf-8?q?Bj=C3=B6rn_Roy_Baron?=
+ <bjorn3_gh@protonmail.com>, "Benno Lossin" <lossin@kernel.org>, "Andreas
+ Hindborg" <a.hindborg@kernel.org>, "Alice Ryhl" <aliceryhl@google.com>,
+ "Trevor Gross" <tmgross@umich.edu>, "Richard Cochran"
+ <richardcochran@gmail.com>, "Jonathan Corbet" <corbet@lwn.net>, "Shuah
+ Khan" <skhan@linuxfoundation.org>, "Luis Chamberlain" <mcgrof@kernel.org>,
+ "Petr Pavlu" <petr.pavlu@suse.com>, "Daniel Gomez" <da.gomez@kernel.org>,
+ "Sami Tolvanen" <samitolvanen@google.com>, "Aaron Tomlin"
+ <atomlin@atomlin.com>, "Mike Leach" <mike.leach@arm.com>, "Leo Yan"
+ <leo.yan@arm.com>, "Rahul Bukte" <rahul.bukte@sony.com>,
+ <linux-kernel@vger.kernel.org>, <coresight@lists.linaro.org>,
+ <linux-arm-kernel@lists.infradead.org>, <driver-core@lists.linux.dev>,
+ <rust-for-linux@vger.kernel.org>, <linux-doc@vger.kernel.org>, "Daniel
+ Palmer" <daniel.palmer@sony.com>, "Tim Bird" <tim.bird@sony.com>,
+ <linux-modules@vger.kernel.org>
+Subject: Re: [PATCH v4 1/4] kernel: param: initialize module_kset before
+ do_initcalls()
+From: "Gary Guo" <gary@garyguo.net>
+To: "Shashank Balaji" <shashank.mahadasyam@sony.com>, "Gary Guo"
+ <gary@garyguo.net>
+X-Mailer: aerc 0.21.0
+References: <20260427-acpi_mod_name-v4-0-22b42240c9bf@sony.com>
+ <20260427-acpi_mod_name-v4-1-22b42240c9bf@sony.com>
+ <DI3Z28IZZOT9.349TTWNN9VDMB@garyguo.net> <afABOMT_s9DvF6NY@JPC00244420>
+In-Reply-To: <afABOMT_s9DvF6NY@JPC00244420>
+X-ClientProxiedBy: LO4P265CA0254.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:37c::18) To LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:488::16)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LOVP265MB8871:EE_|LO0P265MB2892:EE_
+X-MS-Office365-Filtering-Correlation-Id: ca193b7d-0242-456f-b0d5-08dea516cebd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|10070799003|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: wAgTvcQomEl13w18R0UMiJJJOaRKR1oFc2x59ArlA/vLFu1gjme7ICdf2mzPYp/I90NhlD5hGepdBQjvvZaOw5gOo6aXby0Xkp5c8sjezq63PTeZ3HlN/M1EUrx7U+iMsjMRWmZzalzEi+5Mvu2rDoMAvSPpTMUrn2Rg5vF8v1NzYLpsMPRrkmWMF6CDFCQzkbCjSPzhkfZWTT++RBRW8fCM1SX+0lplO7WY9XJLCuUjH/JeLhqUAXjDKvYzLc9vP9MQBBKgFP5LjP5unamyn8eCofyt21jQlCOy5qCAwfrRaEZO/ENxGbl7lxxrRtcF95pe+wbqKPRcgttTSg8S75NIPWyB4CKEa6ddZDtNdB453c0SX13GVqt9Bgy19uVlbD4sK+VZqVf0L20ZsYkHOJMpeJahUPWZB27i6d3CeoUifIovqGlXbaC07cjdBUjVrfi1u6Sgp5RadQ31m/4Mc2r9KA1z7C2TSMKW2eSKnnz9jZ3wkuMgXPyQH1s8NJ9cfcooHOtSgzU56nYFbkbPxzxf/LvbJkUvZvEPVX8O7KQPRyD/co2nJP6s/nEeB3ChQz64xenFu806R8Yg8xftCO5vPgKY+XK0mmiSsiRZCVp+Xhfqi7qBqBjWdQ6aaRKcA1ev74OxkVdllzS2QfLmQqjlt7u8WRWwukBlf1M4wvQpYlLs5AznyNNyBGATU3eg49FTO5VV0Qvv/p5S5TYj1S3MvujHnRwTiCgfh++7AlA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(10070799003)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?V21PWGRJL0p1dVp3VWRBTDVFQjNVRHpyUGZIZThYLy95clFGK09tU1JKOFNP?=
+ =?utf-8?B?bGp6dytjbWc1YUdoUFM2RjduS0NZazl1YTRmRkFWR0xRV3VUVkxiQkw0Umsx?=
+ =?utf-8?B?RW9iOE8vcDNVVGNPSjBBV2JSYTVIaWZKRzlvTnR2NHhQbUQ5RkhPOXJlSkFD?=
+ =?utf-8?B?YWZjS3JkK29ZVXVZQWVQT05FLzl2RUZaU2Z3SHVoY0JtR2ZGQm51T2dqU21m?=
+ =?utf-8?B?Q2xiUFZCN3dhR0tVVjFaVUI3bWhHWUdNU2hzY0NOdUJKVGZVTWJPa3h2NVA2?=
+ =?utf-8?B?MXhKQXRCcHkxbUNWajlTTUYvMlpMZFJHbUdYZWxMeG96TVdUb0NHalJxOWhJ?=
+ =?utf-8?B?NGtxZm9xRnYzTSt1ZzRWQkw1M0xyVjRmeW9VVWEwV0s0eGZjbnh3VFUwZDNI?=
+ =?utf-8?B?amZPeWtRY1d0cWNNZHh5Y2NpZGN4OEUzZEIyajNHdzhBYnVIL0lXajRxdENy?=
+ =?utf-8?B?c1BlMzJQNW5aMTJIYzQyRzlCRFJZVnJLL3hnLzJkUHpTM0ZxREFTeFNQcFdz?=
+ =?utf-8?B?bFVLckx3UTYzTTNPMzFzdVpFZDdTU2NUcGZSdVFsQVMvUTZRSWhIYkl5dUlv?=
+ =?utf-8?B?MGw0Zk14RGtpbk1UNU5YTVhvRDYxKzVQZ3ZhOGpEcXQrZVZzaEwvUHI1NUll?=
+ =?utf-8?B?K1g3S2hCZGlXM3pYOG1sT3lseENEK2V2OEhzcFhmcDBNU3NGdWtRU2xVRFlP?=
+ =?utf-8?B?ZEJXMHNvdk5XY0ZXSGNRMXNhaEV4YVhyOXZ1dzNJeEpQOHRWT2syZ3pHTnRi?=
+ =?utf-8?B?OE04TTlsOHRmbUhjNklPUXRwSDZJaUs5dmhBUkxCN0sxQ2loMTF6dEovYkFl?=
+ =?utf-8?B?N2FyZVpMNlhUaVlhejA4MWZuV1hlOXFwdmJOTFozOERtOEVqd05ybG9vdmQv?=
+ =?utf-8?B?VU41Wk5uRDI4aUtoNjk3bHdZemd6YlcxZVFCSVVRNkp5OHVCUG1seENYOFdF?=
+ =?utf-8?B?cFdCaHVNWUFuVTZwQTh1ZXl5U29wd1ZMRENRbG45M2Y5T3AzYmlUVWlMeVZl?=
+ =?utf-8?B?SFdWd0luYmk2dXhFVHB2Z0kybGthWk9CMVRVY3BZTVEzbFg5bExPdXBCaXVy?=
+ =?utf-8?B?R25MeURVRm82aFBFcFVDcEFxOUV6MHk0UkVBV21nWHdYVUJ1Vm0wTEdMY2xX?=
+ =?utf-8?B?b0h2SGNMZUFUU04ybU9zbFpWcXdvZGM0bWk2SXEyQ2tSSEZKalJia1dpMkJm?=
+ =?utf-8?B?aEdEVVZRRHZLdEI3L0RGaG52TGNDbk0wdnR4YncwTDV0c2FmdjdmeHNDWG5j?=
+ =?utf-8?B?UVVZL3NVTk9kVHFHM1FMdkRsejRGZ2pvVURwMTlzVTczTEw3NnFhdVJBaWtN?=
+ =?utf-8?B?NjNWWFdQcHlSdktFYnBtdnd4VDhtdlZIbDZwVFRYS2lSb2Jpa29hWkFnc2xO?=
+ =?utf-8?B?THlVVjcrRU5pS0Z5SWJKK1E4ZWExcUxVWEpOcUp5QWcySmJLRGxMQ2dSdGk3?=
+ =?utf-8?B?djB2TUx1eFNlTk15VzUwY2w0a3ZDWjFvdHV5ZkFVV3ovRmE5RG9nK2Z1cnUw?=
+ =?utf-8?B?OU9mc2IyZTlGaHRCYk5BNWppNGRiRXB4TURsL2ZLa0VBZ25TVkFVazNrMk5T?=
+ =?utf-8?B?NTFtZlN6WWRXaDZxUEdJUEl1MWZmMjJ2em53ZUVDcUw4dDhGaWg2QWUyZ2Rn?=
+ =?utf-8?B?aldLdElxVU8rVnFNRHgzaVJLQm9WankyRER3S1c1Z0NmOWZDdUZHT210YzZF?=
+ =?utf-8?B?Z1BYdmR4NTlYUmhMRDV6YWVPOGhzNlQ5N0RkRUVJZVNIUDlBdUJ1bW5VNyth?=
+ =?utf-8?B?RUZ6elRONWxxVzliRVJLczdOazkyUUdORGtjSTl1R2dvYXVjeGplV3pYZVVa?=
+ =?utf-8?B?SUJUaDNsbVFCRXVvbVZjQTc4MnhDSjM1d3pSNUdxZmliUmp0ZGZ2Zy93NFpO?=
+ =?utf-8?B?VWw3OFdKNlJCZVFqYS9Ba1d2RU5YRHMvd1FTbW9VR3RhNWRlQWg5SzE5RlNT?=
+ =?utf-8?B?QmNrRFlWcURtaDhQYW9sTXJpM1Z2eXN5M2ZlRnFGSDdYeFlCdEFIQnhaVWhI?=
+ =?utf-8?B?R1lCcmNEVnNwVytjei80ZkFHc2VaakJ5MTc3eTFVbzZSV1M3dzl2SWYyb2Nz?=
+ =?utf-8?B?Q0Q3eks0ZXdRWjlVdjQxRzlYYjFDbUVGdGhCT1dJUFZmS2ZSZGREUGFzQ2Vh?=
+ =?utf-8?B?UThrbzloQ3A5YWNTM2NmMXNWOGh2T1ZLRk0wYzNGR0RvK0l0cE9yVHlVMlZl?=
+ =?utf-8?B?L0M4SUFYVm95dHRneVJORytmK21PWXZBbld1VGhkN2NiVGhpdi9sZzBsTERu?=
+ =?utf-8?B?K2Y0LzRqOGVlSDVmZENTaUVwczVNK2dlSUhjRmR1VW5SOGwyTnFNbjhnUStk?=
+ =?utf-8?B?NzNsRjMwSG50alMyNEhKUCtLV0FlMmZYVkVVZmkzUldCNEQvRk1oUT09?=
+X-OriginatorOrg: garyguo.net
+X-MS-Exchange-CrossTenant-Network-Message-Id: ca193b7d-0242-456f-b0d5-08dea516cebd
+X-MS-Exchange-CrossTenant-AuthSource: LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2026 11:10:51.0532
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: uMTZwg03cQz4eVqfegxy+BotoQximZoBYKNVNQTvZIfbWdc9d9pNZqsUSnos8wYjlK3j9oQWqer1Lf03V5uJxw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO0P265MB2892
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_040058_357054_8DC0F427 
-X-CRM114-Status: GOOD (  16.90  )
+X-CRM114-CacheID: sfid-20260428_041058_154552_5BAB4C49 
+X-CRM114-Status: GOOD (  19.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,35 +169,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-04-24 15:55:59 [-0300], Andr=C3=A9 Almeida wrote:
-> Hi folks,
-Hi,
+On Tue Apr 28, 2026 at 1:37 AM BST, Shashank Balaji wrote:
+> Hi Gary,
+>
+> On Mon, Apr 27, 2026 at 02:29:55PM +0100, Gary Guo wrote:
+>> On Mon Apr 27, 2026 at 3:41 AM BST, Shashank Balaji wrote:
+>> > module_kset is initialized in param_sysfs_init(), a subsys_initcall. A=
+ number
+>> > of platform drivers register themselves prior to subsys_initcalls
+>> > (tegra194_cbb_driver registers in a pure_initcall, for example). With =
+an
+>> > upcoming patch ("driver core: platform: set mod_name in driver registr=
+ation")
+>> > that sets their mod_name in struct device_driver, lookup_or_create_mod=
+ule_kobject()
+>> > will be called for those drivers, which calls kset_find_obj(module_kse=
+t, mod_name).
+>> > This causes a null deref because module_kset isn't alive yet.
+>> >
+>> > Fix this by initializing module_kset in do_basic_setup() before do_ini=
+tcalls().
+>> > Modernize the pr_warn while we're at it.
+>> >
+>> > Suggested-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+>> > Suggested-by: Gary Guo <gary@garyguo.net>
+>>=20
+>> I didn't suggest this change :)
+>>=20
+>> I suggested `pure_initcall`, which is just a one line change.
+>
+> Oops, sorry about the misattribution.
+>
+>> diff --git a/kernel/params.c b/kernel/params.c
+>> index 74d620bc2521..ac088d4b09a9 100644
+>> --- a/kernel/params.c
+>> +++ b/kernel/params.c
+>> @@ -957,7 +957,7 @@ static int __init param_sysfs_init(void)
+>> =20
+>>  	return 0;
+>>  }
+>> -subsys_initcall(param_sysfs_init);
+>> +pure_initcall(param_sysfs_init);
+>> =20
+>>  /*
+>>   * param_sysfs_builtin_init - add sysfs version and parameter
+>>=20
+>> pure_initcall is level 0 so it happens before all other init calls. Does=
+ it not
+>> work?
+>
+> tegra194_cbb_driver registers itself in a pure_initcall too. We wouldn't
+> want the ordering of its registration and module_kset init to be link ord=
+er
+> dependent.
 
-> This is my take on implementing the new vDSO for unlocking a robust futex=
- in
-> arm64. If you don't know what's that, Thomas wrote a good summary,
-> including the motivation for this work and the x86 implementation:
->=20
->    https://lore.kernel.org/lkml/878qb89g7b.ffs@tglx/
->=20
-> There are some loose ends in my patchset so I'm sending as a RFC to ask
-> some questions:
->=20
->  - If the process is interrupted between the labels, we need to check the
->  conditional flags and clear the op_pending address from the register. Us=
-ing
->  objdump I see that op_pending addr is being stored at x2, but I suspect =
-that
->  this isn't stable, so I need to figure out how to make sure that the add=
-ress
->  will always be stored in the same register.
->  - So far I have implemented only the LL/SC version to make review easier=
-, but I
->  can do the LSE version as well.
+It's the only device driver that does this. And I don't think it's supposed=
+ to.
 
-I am a bit behind here. In the meantime, were you able to check it with
-	https://lore.kernel.org/all/20260404093939.7XgeW_54@linutronix.de/
-?
+From documentation:
 
-Sebastian
+> A "pure" initcall has no dependencies on anything else, and purely
+> initializes variables that couldn't be statically initialized.
+
+I understand that given large amount of drivers registering themselves duri=
+ng
+core/arch_initcall that there might be regressions if all of them are moved=
+, but
+surely we can demote these two specific tegra driver to core/postcore_initc=
+all?
+This will still be called earlier than init_machine call which happens duri=
+ng
+arch_initcall.
+
+Looks like the tegra CBB driver is just doing error logging anyway.
+
+Best,
+Gary
+
 
