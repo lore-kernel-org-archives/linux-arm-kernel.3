@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CC59FF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 08:53:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 182B7FF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 08:53:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7WOu7MXH7yF8v5924ODikklJZKjZmOsS7cGpFD09uj8=; b=b83bFxa/c+o+OdUMKXW6tVt69Y
-	qxfFA8aRlH7m0seWMIi8SZDXjYBvMDrgOuRjYRf0RhHtAo/5lWN4SzGYV9Yja96jNrtwRWGQeEd4x
-	qsvaR2s5S3neiU+vShDc1zHSou3jqvlcsuQkxTUDHtMTRY5Vg4VKYtmF16qWoz093llaD8NtPeXFj
-	uZJQ7eIFxklZ9bvOEGELCvpvKCpC9cztvXlVbOs/9cDkbGQnk/P7DTGBxEEopE5Pe5QUgd5wVJrs2
-	2j23/qxvKdn6FHns2GbF8FqwUi1/HsdTy/0NGxVmyTm7URqgw2ZSgoUw3CoBFYwGbLkaZqzU41XdJ
-	9sxSaZHA==;
+	bh=gm020M7t3gXs0yIJcS2Jy9mtLkPCGIU8QkZDD4/7/cI=; b=XJBsdrHMiUdq9yEcIVbKXy2b12
+	od83Cq5lFM4UOfCSBzD9OZuFdIg+lOzHwIDKTfBlJ9q2lPpOoGzPBvaU30Z31tH9jI8+3y7P3LAW2
+	U1/CsGl277qgnAdyUbzwL3y9Btn/Tn66cPWjpxfI8YFtCTyVzcY14h7mrsNnZahujrONZvsG1P2Wi
+	jhW84l46uFG0G1ns71UAQAceGOMRKZKhml0YoWCMR49fptXCf38Zvu3lMQrAx/JofRGmBOTiUr0jR
+	z3jOQtMtMHZMI6C9yuQmmcz0FuIySZOkvopKUhZIoRxkynEatcIDSq6G/kFP09R7B++Fgaf4kiOdO
+	+CvWl7LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeBp-00000000vaE-1JSc;
-	Tue, 28 Apr 2026 08:53:09 +0000
-Received: from mail-eastus2azon11011049.outbound.protection.outlook.com ([52.101.57.49] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	id 1wHeBv-00000000veQ-07Vv;
+	Tue, 28 Apr 2026 08:53:15 +0000
+Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeBi-00000000vTQ-3TWy
+	id 1wHeBo-00000000vZE-48IH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 08:53:05 +0000
+	Tue, 28 Apr 2026 08:53:12 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sgPtB5BXZD7My2nac3I/w6UhArX9iY04Fix1u6cNIO7utfgxaWDg4B1P+UtVqaGMKCCoov4K+GImfn6zo1pJUJui6/p38faNqnldeBPIe6tlODytpRgCGyJHMWTwNf91E51XrgynRIaSHpw+wAvz1g2dReKtXY2HgMaYraDSb0zj1IuMaLlC6dUizoBTGUFRruR6RrkPkFONZn2IrHyFbYmZ6DC+Eu15N9mOZBDg2UrsWblPgFUbOiZR+MT9inSXGNBabteOYdVPxhuJ7xMVxDUFYb2q9M0h3pD72f/9+crHCN6zVp8NsFJLCeLpzaC7mI3cgNpquNwHuPiKx0XXqw==
+ b=SVdJL05KRyZSKZ8+qpzWUKFXTRtb8/Q8Kw4hQu9lawsP04ZCz3bOtFJvuMU8eJhF70HqVlU2184TmQ5KWSDrwuBCXKBi8G/qeDyzJEAwRsn6T3XNDk79Hl9qCLodf+tb22N+58Lqrk2Ozt1g/2wZPQgmJlNG2mbIV3hHPJ19piyRDtzWTGXvAMBKDCPnRG3XgBGp93O3NfFJnGszYGpU1yKVsIiBIXNJ9fTwS+nXb/4upOjLNL8QtcJBiRaLJI5pQ+srobZS/KeiSPySGFn72ssXDwTzjnn5qOMc9f7KtQ7qeyhyOw1mE4qg8n8ImWIq8iVUf0wLi+XZF/KU2BcUJg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7WOu7MXH7yF8v5924ODikklJZKjZmOsS7cGpFD09uj8=;
- b=BLCipUdQUaaZVHkim3iN7Wbi9ItA6RIGzEis+KlRtYeubVYU2GaBsKYxlXXjg08G34kW94YsTTzFPX98YLIayh+yC7FVANCcK89fpiGlkdAiO4ZkX3cIzHhP13au7v29j9ubagD2rF7HQYscabdKc3xIgkx2gyWygy8dByZkYAvjx2IzEsAi7j+4uONgwvBQ2GEyCJ+NMSVuZZp0zf3bnrKv4Pm0ruX8U54PUKS0d9sdlaIuSRJJ1Tjo+cOdnmsoBFGnIi1pzisG52cBzGA9DFui8Wly9mgUFVlvr3n+O3WCqku8j12NnE/HhrAsK+YOTQGM8v26yqG7koRbiYB0bA==
+ bh=gm020M7t3gXs0yIJcS2Jy9mtLkPCGIU8QkZDD4/7/cI=;
+ b=hn3awSJ6Ka3ehq+QEujKgte22d0JYBalAmFdyTSNJv2EUlCUxVSv9vLRheOnstXKVj8NKqoHMulJleHRoKMWExxvoUpDWSMPcJ1/+MWHXxlWndWHlqwtzX0ldorIcl3czbfUTfuec0bw0eTfIbH2EKOHZ/FzQtlVQRlxPPIwG0RGxNsd2znV99KRRmByPfMhyLyigJ9W6hsLIX76LqevHoWwLtrXtHz/QgPoWkCQgaJIiKfi3bqQxHqTKy2RJ8g5XVkUbekShsuwfj46EHQQQEZYQOFdTKT/SrUNhtvatdinCs217r82UDXPhjny2i5z1HK7QER+jkwUfQMxekKC7w==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=nxp.com smtp.mailfrom=ti.com; dmarc=pass
+ 198.47.23.195) smtp.rcpttodomain=nxp.com smtp.mailfrom=ti.com; dmarc=pass
  (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
  (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7WOu7MXH7yF8v5924ODikklJZKjZmOsS7cGpFD09uj8=;
- b=L6TfoWO1LVVu+EAM43Mpy8axSL+8bJsTPy9VHTf5Vlqg+pIvPDvoABvTBjfNQwsybaXWmKHDpxfZ/FV3WICEzOn91JFUWxUgZqFm+ox5i0v0qbXIMO3dV1+fWMmCG6EjPdfjWnUo7CF+gdDfvPRwQUb5GcrR+6tZrhzMGe5nkO0=
-Received: from CH2PR18CA0056.namprd18.prod.outlook.com (2603:10b6:610:55::36)
- by DM4PR10MB6837.namprd10.prod.outlook.com (2603:10b6:8:107::17) with
+ bh=gm020M7t3gXs0yIJcS2Jy9mtLkPCGIU8QkZDD4/7/cI=;
+ b=qCLV20RD9INCGWEdfH4+/mwrEN24xJ+Bk6d0E38esPMndVPrewtzC7OPUE7MS9UGxHXsPrYKmOMlgsLy3ZHhdYMbucG0KgU9gZX6/wDGGdKlm4C6z07pVUeFD5C+vlW1b/23LIJ54e9bVBbcIKb9xOKzHPkeAUrVS4XTSkAnxRE=
+Received: from MN2PR18CA0022.namprd18.prod.outlook.com (2603:10b6:208:23c::27)
+ by PH8PR10MB997906.namprd10.prod.outlook.com (2603:10b6:510:3cf::24) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Tue, 28 Apr
- 2026 08:52:57 +0000
-Received: from CH2PEPF000000A0.namprd02.prod.outlook.com
- (2603:10b6:610:55:cafe::ce) by CH2PR18CA0056.outlook.office365.com
- (2603:10b6:610:55::36) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.26 via Frontend Transport; Tue,
- 28 Apr 2026 08:52:57 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ 2026 08:53:04 +0000
+Received: from BL02EPF00021F6F.namprd02.prod.outlook.com
+ (2603:10b6:208:23c:cafe::4b) by MN2PR18CA0022.outlook.office365.com
+ (2603:10b6:208:23c::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.28 via Frontend Transport; Tue,
+ 28 Apr 2026 08:53:03 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
  smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
  action=none header.from=ti.com;
 Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- CH2PEPF000000A0.mail.protection.outlook.com (10.167.244.26) with Microsoft
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ BL02EPF00021F6F.mail.protection.outlook.com (10.167.249.11) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9846.18 via Frontend Transport; Tue, 28 Apr 2026 08:52:55 +0000
-Received: from DFLE201.ent.ti.com (10.64.6.59) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ 15.20.9846.18 via Frontend Transport; Tue, 28 Apr 2026 08:53:03 +0000
+Received: from DLEE214.ent.ti.com (157.170.170.117) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 28 Apr
- 2026 03:52:30 -0500
-Received: from DFLE211.ent.ti.com (10.64.6.69) by DFLE201.ent.ti.com
- (10.64.6.59) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 03:53:02 -0500
+Received: from DLEE214.ent.ti.com (157.170.170.117) by DLEE214.ent.ti.com
+ (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 28 Apr
- 2026 03:52:30 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE211.ent.ti.com
- (10.64.6.69) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 03:53:02 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE214.ent.ti.com
+ (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 28 Apr 2026 03:52:30 -0500
+ Transport; Tue, 28 Apr 2026 03:53:02 -0500
 Received: from uda0498651.dhcp.ti.com (uda0498651.dhcp.ti.com [172.24.233.239])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 63S8q6MM623293;
-	Tue, 28 Apr 2026 03:52:25 -0500
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 63S8q6MT623293;
+	Tue, 28 Apr 2026 03:52:58 -0500
 From: Sai Sree Kartheek Adivi <s-adivi@ti.com>
 To: <peter.ujfalusi@gmail.com>, <vkoul@kernel.org>, <robh@kernel.org>,
 	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nm@ti.com>,
@@ -85,9 +85,9 @@ To: <peter.ujfalusi@gmail.com>, <vkoul@kernel.org>, <robh@kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <vigneshr@ti.com>,
 	<Frank.li@nxp.com>, <s-adivi@ti.com>
 CC: <r-sharma3@ti.com>, <gehariprasath@ti.com>
-Subject: [PATCH v6 04/19] dmaengine: ti: k3-udma: move static inline helper functions to header file
-Date: Tue, 28 Apr 2026 14:21:33 +0530
-Message-ID: <20260428085202.1724548-5-s-adivi@ti.com>
+Subject: [PATCH v6 11/19] dmaengine: ti: k3-udma: move inclusion of k3-udma-private.c to k3-udma-common.c
+Date: Tue, 28 Apr 2026 14:21:40 +0530
+Message-ID: <20260428085202.1724548-12-s-adivi@ti.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260428085202.1724548-1-s-adivi@ti.com>
 References: <20260428085202.1724548-1-s-adivi@ti.com>
@@ -97,28 +97,29 @@ Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF000000A0:EE_|DM4PR10MB6837:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6db8728b-93b0-41b4-2534-08dea5038a49
+X-MS-TrafficTypeDiagnostic: BL02EPF00021F6F:EE_|PH8PR10MB997906:EE_
+X-MS-Office365-Filtering-Correlation-Id: 88a64b9d-3dc2-48af-f024-08dea5038eec
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700016|7416014|376014|921020|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: n3pdGZkBSpcNJ6UxtnC5dPzC+ueos2UDOVCfi/EekloUFwO2vpJOl8+JpVh6WkDbG7eM9Ea2u9NN6YhA9hd6965GfxxdDnMRs7PcQ3bQbwC1B4tc32UPhCF3e9dRt+CIkwvaR8iUwYTzcI4xziLLAz7gDB9U7YnwEUhjOwVaW2lryfq41xMMhP9JtJd4dXjfVVbMp5UiApEoa8ChK2NBdYNnXz4XR3kjzb+LB1cOULMa5vVVnvQ7AtUWA5g+Axu68COwdc4N9q3Zzb+HSYbNIYRU2J6u2t6Cju0XoiIDV89GRzIEBhTykdTdGpYJc3H8m0nYpAj7omrndEMS8uNSFjLaRzc33dM0JksjB95pVQIN+zYAcEHbqZctPsBbOrqQB/MkvuGo46nEFUeeBkk+mK7fv7NErM5vTkgap2MO7u2HSE4+/a/cuFsSF+OURfuOBeAbtWwkZY/Epvk3AQHrpsDCvRLHOsBQU/0Mmnwfi0shhK9kpRZXvhr+9gU49q1tn1xFESxW9uPsVUfklhTTveleeZFOUGGoD6xsz2nfsRpyFeZVPedCILf5y64AO9RCZ0rxWAquq7WZVmFPzv9U0ax95qBpIFSEP3aMLPywmn4VkFMNlQx5u/gqq8bHKbBzlo5w/24VzfFJM1rle/0MoUaF87B+XKpkWmU+bUOQQgqAR34E/o8ME2VPSIpsalW4fttLmx/qhL2KQaGcTGhP8Kn08w62micJp9BtVD9d2Zf8f3JBmS4bABOP8/WK1ICvQagyPBI0sJcFGghAUVdQRx33uLKFOrJqtYveXwkroKq/4FQfPQCtFZM/iwpkIbg0
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700016)(7416014)(376014)(921020)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|376014|7416014|1800799024|22082099003|56012099003|18002099003|921020;
+X-Microsoft-Antispam-Message-Info: c8nKy7sUHXVuDeaWmdicCkdPaKzglNiqEDy/7COpdXSLTFptYsaW1bLItzIvnMZaRJJWKrd+Gf22c/hYkoOLVMOqx1Z+HTgDVi+0N+FPK0TILeJ9XSFv0GSeRmu4NjCj/AE694sN1OOFt2K6BaOzHb3xvSvrMl6YH64vkie/uJWcIm6PO9IiqqNQ21V2ZYGjvo8zZ8URIDcUX6XNDOgiBW4iuQAKzT1gX4YrADO/VwvyHJ2zfNEmyz0oj+H6rhdUDkNoXyNu+ZwwpSWEdQg2U+mnFtfRLqEDPOqkp1CyI7cS8hb+KiF8YIu+ILK/iJt49OmKsq2ikLuLkKOW5/KO7Xz0cKRBWa5fV8oAYR0DfiXBQMvKOXj0HKogEFQf13jwOM8sZu9UIB8IUwSZdA8lI55KIlaH+bEirmhLPG45OAYLLD/V9idXDrcErFNkC9RR3lQQvNBzDG3ajRpZI1vsyKgfms/09K1T6LDSrYBAS6qBbhp54ZPWBHITXlKiNGWPuAciPk1VAibFH8ZSZBc59BKFwQ7mlRjeXM0dmy1Jse2/t6TXlCeI2oENpbDZX8doYACVTLDQaA7nttS9mdkQnEG/WL7x1A492e4ue8mYUackAYEjEuDji9B8XTRhP/PmH3pVjNw4RbtFSmF4C6ifER03mWbdU/fT/sr8GGcZv3Cyi6IUua+4IsrESljNtMhHUzUu4jePzOKa/6jFMNxF+IqxlNHYYJ2FmkyNgMke/+4S8msms63JrnvtXm3AH6/+u2KV/19ajyRv7jpNagwsxYJZgAxoUYKMdRULGVhRDkwcPvhle2VYV++BMOuUjz3J
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(376014)(7416014)(1800799024)(22082099003)(56012099003)(18002099003)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: sGuGO6PFXobD2FMHOsoD74tdv35IKwTfsSO/vGCHWLTZSLzhisEtCUjzXhgCndP35g7KX5saRF6drLhfupFrtwuarXXKCBliKztwDVSuDg74QHUTnI+ro/FuU6p7Rmg6HmpiLCXtjkY0EHsULAjZs8ZHZLWiYUw7J++OZEO0qZrBBYLfLAXmXC5Y+YphwsGr19xNnGCKNEADlVYsAVgt8Nm7I1+obm+/qtEym9OvApzu/UwF798XDrEh+Gm5gIz4Ki8QSLBVuqNld1PViguDyLb1ieCzl6fCme9InWuygnixyJJjd8FRiwL6N4c8OjEUA1ZkgdkSCGS51wc50s1wilywL6MK2ow6gu1NmOTS2efr9kbujBRv1tnfXlehQDlXrkTdwIlGlU7heZq0eTsSRnQyDHJfXZW5TkpkZl9UAwCF4C1+gLCSKCB2coYXchEE
+X-MS-Exchange-AntiSpam-MessageData-0: Or7zBhfO9BxHl1y2AwfUIdfQi2zBcH4CyTLV4xUkIkalOaOb79xeuLDnMS2d0e3nXYmyFLROcuVa6uyfx84WJUwU6/2evavKmVtScorbwGnDJ2cR8ySxZGKf+r8+5DIjmjBMriJ9zuflb1Bd2cGr4sDbCviVV4wpb4nVGU8txQE9zA5QH4vxboLpveuq94YsCPFU9frT1aZWM/JdkZ6vXhcxU+LRQW11YhdIZTI7/0WSj0J57NJ5sOSXbIe6Be6acdhaJ1e5Ba2UB6/5lv8o1JxjSHDNVfpO/d/IOQ5aIh919iQ9i3Q+FDFOUWI4O2MP7vJxsnEPyzoKclab840sWfMi0ihc4JXnitVzBhBJD7Bgc9rWqDkrE0ICFKzROBq+v/po9KbQ8lPFIHtjTDfHJJGRyUyuYsVGa0OAYXCN4A+lPx68er1leYNJoot3ONkf
 X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2026 08:52:55.5765
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2026 08:53:03.3388
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6db8728b-93b0-41b4-2534-08dea5038a49
+X-MS-Exchange-CrossTenant-Network-Message-Id: 88a64b9d-3dc2-48af-f024-08dea5038eec
 X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF000000A0.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL02EPF00021F6F.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR10MB6837
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR10MB997906
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_015302_969362_810E2FCD 
-X-CRM114-Status: GOOD (  13.11  )
+X-CRM114-CacheID: sfid-20260428_015309_045531_1D54A7DB 
+X-CRM114-Status: UNSURE (   9.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,276 +134,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move static inline helper functions in k3-udma.c to k3-udma.h header
-file for better separation and reuse.
+Relocate the #include directive for k3-udma-private.c to
+k3-udma-common.c so that the code can be shared between other UDMA
+variants (like k3-udma-v2). This change improves modularity and prepares
+for variant-specific implementations.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+No functional changes intended.
+
 Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
 ---
- drivers/dma/ti/k3-udma.c | 108 --------------------------------------
- drivers/dma/ti/k3-udma.h | 109 +++++++++++++++++++++++++++++++++++++++
- 2 files changed, 109 insertions(+), 108 deletions(-)
+ drivers/dma/ti/k3-udma-common.c | 3 +++
+ drivers/dma/ti/k3-udma.c        | 2 --
+ 2 files changed, 3 insertions(+), 2 deletions(-)
 
+diff --git a/drivers/dma/ti/k3-udma-common.c b/drivers/dma/ti/k3-udma-common.c
+index b419b23c401a1..0ffc6becc402e 100644
+--- a/drivers/dma/ti/k3-udma-common.c
++++ b/drivers/dma/ti/k3-udma-common.c
+@@ -2539,3 +2539,6 @@ EXPORT_SYMBOL_GPL(setup_resources);
+ 
+ MODULE_DESCRIPTION("Texas Instruments K3 UDMA Common Library");
+ MODULE_LICENSE("GPL v2");
++
++/* Private interfaces to UDMA */
++#include "k3-udma-private.c"
 diff --git a/drivers/dma/ti/k3-udma.c b/drivers/dma/ti/k3-udma.c
-index 3bbad4456dd9d..98e4ffc5efca9 100644
+index d9d6cbda46b2c..58cbb399bc3b2 100644
 --- a/drivers/dma/ti/k3-udma.c
 +++ b/drivers/dma/ti/k3-udma.c
-@@ -40,91 +40,6 @@ static const char * const mmr_names[] = {
- 	[MMR_TCHANRT] = "tchanrt",
- };
+@@ -2857,5 +2857,3 @@ module_platform_driver(udma_driver);
+ MODULE_DESCRIPTION("Texas Instruments UDMA support");
+ MODULE_LICENSE("GPL v2");
  
--static inline struct udma_dev *to_udma_dev(struct dma_device *d)
--{
--	return container_of(d, struct udma_dev, ddev);
--}
--
--static inline struct udma_chan *to_udma_chan(struct dma_chan *c)
--{
--	return container_of(c, struct udma_chan, vc.chan);
--}
--
--static inline struct udma_desc *to_udma_desc(struct dma_async_tx_descriptor *t)
--{
--	return container_of(t, struct udma_desc, vd.tx);
--}
--
--/* Generic register access functions */
--static inline u32 udma_read(void __iomem *base, int reg)
--{
--	return readl(base + reg);
--}
--
--static inline void udma_write(void __iomem *base, int reg, u32 val)
--{
--	writel(val, base + reg);
--}
--
--static inline void udma_update_bits(void __iomem *base, int reg,
--				    u32 mask, u32 val)
--{
--	u32 tmp, orig;
--
--	orig = readl(base + reg);
--	tmp = orig & ~mask;
--	tmp |= (val & mask);
--
--	if (tmp != orig)
--		writel(tmp, base + reg);
--}
--
--/* TCHANRT */
--static inline u32 udma_tchanrt_read(struct udma_chan *uc, int reg)
--{
--	if (!uc->tchan)
--		return 0;
--	return udma_read(uc->tchan->reg_rt, reg);
--}
--
--static inline void udma_tchanrt_write(struct udma_chan *uc, int reg, u32 val)
--{
--	if (!uc->tchan)
--		return;
--	udma_write(uc->tchan->reg_rt, reg, val);
--}
--
--static inline void udma_tchanrt_update_bits(struct udma_chan *uc, int reg,
--					    u32 mask, u32 val)
--{
--	if (!uc->tchan)
--		return;
--	udma_update_bits(uc->tchan->reg_rt, reg, mask, val);
--}
--
--/* RCHANRT */
--static inline u32 udma_rchanrt_read(struct udma_chan *uc, int reg)
--{
--	if (!uc->rchan)
--		return 0;
--	return udma_read(uc->rchan->reg_rt, reg);
--}
--
--static inline void udma_rchanrt_write(struct udma_chan *uc, int reg, u32 val)
--{
--	if (!uc->rchan)
--		return;
--	udma_write(uc->rchan->reg_rt, reg, val);
--}
--
--static inline void udma_rchanrt_update_bits(struct udma_chan *uc, int reg,
--					    u32 mask, u32 val)
--{
--	if (!uc->rchan)
--		return;
--	udma_update_bits(uc->rchan->reg_rt, reg, mask, val);
--}
--
- static int navss_psil_pair(struct udma_dev *ud, u32 src_thread, u32 dst_thread)
- {
- 	struct udma_tisci_rm *tisci_rm = &ud->tisci_rm;
-@@ -216,17 +131,6 @@ static void udma_dump_chan_stdata(struct udma_chan *uc)
- 	}
- }
- 
--static inline dma_addr_t udma_curr_cppi5_desc_paddr(struct udma_desc *d,
--						    int idx)
--{
--	return d->hwdesc[idx].cppi5_desc_paddr;
--}
--
--static inline void *udma_curr_cppi5_desc_vaddr(struct udma_desc *d, int idx)
--{
--	return d->hwdesc[idx].cppi5_desc_vaddr;
--}
--
- static struct udma_desc *udma_udma_desc_from_paddr(struct udma_chan *uc,
- 						   dma_addr_t paddr)
- {
-@@ -369,11 +273,6 @@ static bool udma_is_chan_paused(struct udma_chan *uc)
- 	return false;
- }
- 
--static inline dma_addr_t udma_get_rx_flush_hwdesc_paddr(struct udma_chan *uc)
--{
--	return uc->ud->rx_flush.hwdescs[uc->config.pkt_mode].cppi5_desc_paddr;
--}
--
- static int udma_push_to_ring(struct udma_chan *uc, int idx)
- {
- 	struct udma_desc *d = uc->desc;
-@@ -775,13 +674,6 @@ static void udma_cyclic_packet_elapsed(struct udma_chan *uc)
- 	d->desc_idx = (d->desc_idx + 1) % d->sglen;
- }
- 
--static inline void udma_fetch_epib(struct udma_chan *uc, struct udma_desc *d)
--{
--	struct cppi5_host_desc_t *h_desc = d->hwdesc[0].cppi5_desc_vaddr;
--
--	memcpy(d->metadata, h_desc->epib, d->metadata_size);
--}
--
- static bool udma_is_desc_really_done(struct udma_chan *uc, struct udma_desc *d)
- {
- 	u32 peer_bcnt, bcnt;
-diff --git a/drivers/dma/ti/k3-udma.h b/drivers/dma/ti/k3-udma.h
-index 37aa9ba5b4d18..3a786b3eddc67 100644
---- a/drivers/dma/ti/k3-udma.h
-+++ b/drivers/dma/ti/k3-udma.h
-@@ -447,6 +447,115 @@ struct udma_chan {
- 	u32 id;
- };
- 
-+/* K3 UDMA helper functions */
-+static inline struct udma_dev *to_udma_dev(struct dma_device *d)
-+{
-+	return container_of(d, struct udma_dev, ddev);
-+}
-+
-+static inline struct udma_chan *to_udma_chan(struct dma_chan *c)
-+{
-+	return container_of(c, struct udma_chan, vc.chan);
-+}
-+
-+static inline struct udma_desc *to_udma_desc(struct dma_async_tx_descriptor *t)
-+{
-+	return container_of(t, struct udma_desc, vd.tx);
-+}
-+
-+/* Generic register access functions */
-+static inline u32 udma_read(void __iomem *base, int reg)
-+{
-+	return readl(base + reg);
-+}
-+
-+static inline void udma_write(void __iomem *base, int reg, u32 val)
-+{
-+	writel(val, base + reg);
-+}
-+
-+static inline void udma_update_bits(void __iomem *base, int reg,
-+				    u32 mask, u32 val)
-+{
-+	u32 tmp, orig;
-+
-+	orig = readl(base + reg);
-+	tmp = orig & ~mask;
-+	tmp |= (val & mask);
-+
-+	if (tmp != orig)
-+		writel(tmp, base + reg);
-+}
-+
-+/* TCHANRT */
-+static inline u32 udma_tchanrt_read(struct udma_chan *uc, int reg)
-+{
-+	if (!uc->tchan)
-+		return 0;
-+	return udma_read(uc->tchan->reg_rt, reg);
-+}
-+
-+static inline void udma_tchanrt_write(struct udma_chan *uc, int reg, u32 val)
-+{
-+	if (!uc->tchan)
-+		return;
-+	udma_write(uc->tchan->reg_rt, reg, val);
-+}
-+
-+static inline void udma_tchanrt_update_bits(struct udma_chan *uc, int reg,
-+					    u32 mask, u32 val)
-+{
-+	if (!uc->tchan)
-+		return;
-+	udma_update_bits(uc->tchan->reg_rt, reg, mask, val);
-+}
-+
-+/* RCHANRT */
-+static inline u32 udma_rchanrt_read(struct udma_chan *uc, int reg)
-+{
-+	if (!uc->rchan)
-+		return 0;
-+	return udma_read(uc->rchan->reg_rt, reg);
-+}
-+
-+static inline void udma_rchanrt_write(struct udma_chan *uc, int reg, u32 val)
-+{
-+	if (!uc->rchan)
-+		return;
-+	udma_write(uc->rchan->reg_rt, reg, val);
-+}
-+
-+static inline void udma_rchanrt_update_bits(struct udma_chan *uc, int reg,
-+					    u32 mask, u32 val)
-+{
-+	if (!uc->rchan)
-+		return;
-+	udma_update_bits(uc->rchan->reg_rt, reg, mask, val);
-+}
-+
-+static inline dma_addr_t udma_curr_cppi5_desc_paddr(struct udma_desc *d,
-+						    int idx)
-+{
-+	return d->hwdesc[idx].cppi5_desc_paddr;
-+}
-+
-+static inline void *udma_curr_cppi5_desc_vaddr(struct udma_desc *d, int idx)
-+{
-+	return d->hwdesc[idx].cppi5_desc_vaddr;
-+}
-+
-+static inline dma_addr_t udma_get_rx_flush_hwdesc_paddr(struct udma_chan *uc)
-+{
-+	return uc->ud->rx_flush.hwdescs[uc->config.pkt_mode].cppi5_desc_paddr;
-+}
-+
-+static inline void udma_fetch_epib(struct udma_chan *uc, struct udma_desc *d)
-+{
-+	struct cppi5_host_desc_t *h_desc = d->hwdesc[0].cppi5_desc_vaddr;
-+
-+	memcpy(d->metadata, h_desc->epib, d->metadata_size);
-+}
-+
- /* Direct access to UDMA low lever resources for the glue layer */
- int xudma_navss_psil_pair(struct udma_dev *ud, u32 src_thread, u32 dst_thread);
- int xudma_navss_psil_unpair(struct udma_dev *ud, u32 src_thread,
+-/* Private interfaces to UDMA */
+-#include "k3-udma-private.c"
 -- 
 2.53.0
 
