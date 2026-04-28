@@ -4,97 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52444FF886C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 08:51:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BC0DFF886C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 08:51:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jE1t2E2anlw2zLaOIG8ncGkA66f5ejckm9+DlKNzizA=; b=tFa0ZZNV5BvRhh0w19GxpMma2B
-	onOxffMEb2gmWmi6LeCgYXGg2unjoD26ol3dP49vDQBeHoHtvOK8kC1dJmxCqNfYZmrM+VCHgRLse
-	ZaArECg7Q12amJxj0MWqDfVmTmEEG6ITljcfSnL7DBQVsT51clFeB2zld88eGNA3ulL9GSCWC82a7
-	jb42gaH0eB3z2OzZRUMtDX9jRA4uxkJeQsCQCtUj3dbJZdCUV5Ttn9J+23JgwYHf8MtQoKYqn4nyP
-	0zOfd2bIbRsP6cSYbK396sPU3RzwgGP7NNZqbsJKq0jj7tdaFpTbzFfyzDx171dz0pnNJIzlNeu1K
-	h4hZzx8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=50Hh7cUTPx7OLiiHb2Cd7Al1d1Mbhergb/FOrrMc6dc=; b=bSCMR7x4ftqQ6av5LfXXTO/PQ4
+	HQe5Rx3n/g5WrOB0KHgsDHrGtjuI5O8rSMD0XVkoav4v113e+iDqZEKyPHLS6yiqVpO2kg7MWUWxL
+	6SE4TntbN8aps3/yW5Aisg77gpPFhE4jEOuK2R9HRmIu7tJjXAQpsfDLmEizKXtLAbYoHOZbTUYtJ
+	VFuDycASGHF/5UoBi5ilbcw6E2T8k4/NwQoU+EwkOscO1N82mZURS5Qfpwpz4KnhKmIDsnfbAT2pW
+	ezvYGb3OCfLfqiXGen3YiunppcuyX/gBsyM6XI3a22OT++oF147p6L+6HkOWDYsZbFu9hDpUfB09U
+	3uE6kLlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeAB-00000000v1E-0yXp;
-	Tue, 28 Apr 2026 08:51:27 +0000
-Received: from server.couthit.com ([162.240.164.96])
+	id 1wHeAJ-00000000v2o-2HbW;
+	Tue, 28 Apr 2026 08:51:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeA7-00000000uz2-3G0e
+	id 1wHeAI-00000000v2a-0h0j
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 08:51:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject
-	:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=jE1t2E2anlw2zLaOIG8ncGkA66f5ejckm9+DlKNzizA=; b=PTmqT9m6oeGSeeX4oNTzcG/l2a
-	gD4/lsxQ3MwCtARIwsvSrewev6H7sjwbC/Gq3tV7OtylAxJSZe4FSI8ZtnnCauz4evHMwhOeTU4My
-	FmtnmATd3ObF2aygMZ2VskYU18GNS17v8vTUnOIQD1ddlgO/DScx40LSrMMmjTAhtAEvMl7R2HaeN
-	KomA/w6hRw47j51gJe8TjV87Iqt1oYfxX0ls7L3t7MN++96qVg4chYHq2q7QJb9BmqqPfn9wxxzYE
-	U/c4SxdBNXRzKPJfeMlxtg+mQ5GhqIgVD4CWa6tvTQolV6Xijitx0ZCG4gt7SfptxYxmeZoyAZihY
-	Yg13Dn2A==;
-Received: from [115.246.246.98] (port=49202 helo=cypher.couthit.local)
-	by server.couthit.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.98.1)
-	(envelope-from <parvathi@couthit.com>)
-	id 1wHe9K-0000000Gi1m-3yU8;
-	Tue, 28 Apr 2026 04:50:35 -0400
-From: Parvathi Pudi <parvathi@couthit.com>
-To: nm@ti.com,
-	vigneshr@ti.com,
-	linux@armlinux.org.uk,
-	ardb@kernel.org,
-	ebiggers@kernel.org,
-	krzysztof.kozlowski@oss.qualcomm.com,
-	khilman@baylibre.com,
-	arnd@arndb.de,
-	geert+renesas@glider.be,
-	parvathi@couthit.com,
-	tiwai@suse.de,
-	kory.maincent@bootlin.com,
-	andreas@kemnade.info,
-	dmitry.baryshkov@oss.qualcomm.com,
-	prabhakar.mahadev-lad.rj@bp.renesas.com,
-	twoerner@gmail.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	pratheesh@ti.com,
-	j-rameshbabu@ti.com,
-	praneeth@ti.com,
-	srk@ti.com,
-	rogerq@ti.com,
-	danishanwar@ti.com,
-	m-malladi@ti.com,
-	krishna@couthit.com,
-	mohan@couthit.com,
-	pmohan@couthit.com,
-	basharath@couthit.com
-Subject: [PATCH v4] arm: multi_v7_defconfig: Enable BRIDGE and DP83848_PHY for TI AM57xx, AM437x and AM335x
-Date: Tue, 28 Apr 2026 14:17:31 +0530
-Message-ID: <20260428085003.3023464-1-parvathi@couthit.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 28 Apr 2026 08:51:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 849A960141;
+	Tue, 28 Apr 2026 08:51:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AF33C2BCAF;
+	Tue, 28 Apr 2026 08:51:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777366293;
+	bh=i+gw1fUS40ohLdc9hars3DbakHqzU1swpdINODPO6os=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=eXmN98cVMNrCbnHMFjHbGS84RGWKEra7LXonBvzfuwfGmIXZisbJcekgqvKFDgY7L
+	 PuUUw/a9cU4yFuq3aiogZuzehQ6GhvTRcFM1+3BateDmaE/2WnyKHzIqzU6f3a11bM
+	 cD6k/HarW9MZRR7lSuQtaLOuTMq5NXOwO9m0zI1L6UQFvhJrIYEBCMU5TpXYSjfLaP
+	 JuU4TZFger38FLg2yc+xVZTKSd7w5GDTpHloQL4Cw32Lni6JRZLELf98vzQ2XblLEv
+	 i1MI8atlgEEo6NOjevfuR77HjT2qhgXnHS82eqxwlvAMae3CoZWlPxWjHGszWEvvtT
+	 ibFsXcT1i3h/w==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Mathias Stearn <mathias@mongodb.com>, Dmitry Vyukov
+ <dvyukov@google.com>, Jinjie Ruan <ruanjinjie@huawei.com>,
+ linux-man@vger.kernel.org, Mark Rutland <mark.rutland@arm.com>, Mathieu
+ Desnoyers <mathieu.desnoyers@efficios.com>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Boqun Feng
+ <boqun.feng@gmail.com>, "Paul E. McKenney" <paulmck@kernel.org>, Chris
+ Kennelly <ckennelly@google.com>, regressions@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Ingo
+ Molnar <mingo@kernel.org>, Blake Oler <blake.oler@mongodb.com>, Florian
+ Weimer <fweimer@redhat.com>, Rich Felker <dalias@libc.org>, Matthew Wilcox
+ <willy@infradead.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Linus Torvalds <torvalds@linuxfoundation.org>
+Subject: Re: [REGRESSION] rseq: refactoring in v6.19 broke everyone on arm64
+ and tcmalloc everywhere
+In-Reply-To: <20260428073938.GH3126523@noisy.programming.kicks-ass.net>
+References: <CACT4Y+bxnQyHGdVNE1BYTx+Z2-cscLb38HYS9jBM5gPAz8=4bw@mail.gmail.com>
+ <87ik9i0xlj.ffs@tglx>
+ <CAHnCjA0UBNXfjHw=Y34OrAyGRNUtVF+zWd3ugyX6pd_mCk8K9w@mail.gmail.com>
+ <87a4ut1njh.ffs@tglx>
+ <CACT4Y+bBD7uCHXKqGo=epBXeEmsZ67Og2YO9kjNMT3ryjUY_sA@mail.gmail.com>
+ <CAHnCjA1LqbaUGkPe79EeP6Mpaki8QWeR-JBSbrG0z6pTm9CmUg@mail.gmail.com>
+ <87v7dgzbo7.ffs@tglx>
+ <20260424150318.GE641209@noisy.programming.kicks-ass.net>
+ <87se8kywhb.ffs@tglx> <87jyttz8cf.ffs@tglx>
+ <20260428073938.GH3126523@noisy.programming.kicks-ass.net>
+Date: Tue, 28 Apr 2026 10:51:29 +0200
+Message-ID: <87zf2nxyb2.ffs@tglx>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.couthit.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: parvathi@couthit.com
-X-Authenticated-Sender: server.couthit.com: parvathi@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_015123_862946_BFE24B49 
-X-CRM114-Status: UNSURE (   7.00  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,49 +87,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch enables BRIDGE and DP83848_PHY as kernel modules for AM57xx,
-AM437x and AM335x SoCs. BRIDGE is to support STP/RSTP Switch mode using
-PRU-ICSS which got recently merged and DP83848 PHY driver to support
-TI TLK10X PHY.
+On Tue, Apr 28 2026 at 09:39, Peter Zijlstra wrote:
+> On Mon, Apr 27, 2026 at 12:04:48AM +0200, Thomas Gleixner wrote:
+>>  static inline void rseq_signal_deliver(struct ksignal *ksig, struct pt_regs *regs)
+>>  {
+>> -	if (IS_ENABLED(CONFIG_GENERIC_IRQ_ENTRY)) {
+>> +	if (IS_ENABLED(CONFIG_GENERIC_IRQ_ENTRY) && rseq_optimized(current)) {
+>
+> rseq_optimized() already implies GENERIC_IRQ_ENTRY
 
-Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
----
-Changes from v3 to v4:
-*) No changes were made, only the version was updated.
-*) Rebased the series on latest linux-next.
+Indeed.
 
-Changes from v2 to v3 :
-*) No changes were made, only the version was updated.
-*) Rebased the series on latest linux-next.
+>> +			u8			optimized;
+>>  			union {
+>>  				u16		error;
+>>  				struct {
+>
+> I know you like the 'optimized' name, it is faster etc. However, the
+> description there suggests: has_rseq_v2 not be a bad name.
+>
+> And while I write this, I figured we could have the value of has_rseq be
+> 2, rather than 1, but this might end up generating worse code, dunno,
+> haven't tried yet.
 
-Changes from v1 to v2 :
-*) Addressed  Krzysztof's comments on this patch.
-*) Rebased the series on latest linux-next.
+Tried that early on and it was worse, but back the approach has changed
+since then and I just validated that it's actually fine to do so. Fixed.
 
- arch/arm/configs/multi_v7_defconfig | 2 ++
- 1 file changed, 2 insertions(+)
+Thanks,
 
-diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
-index bcc9aabc1202..13362286b111 100644
---- a/arch/arm/configs/multi_v7_defconfig
-+++ b/arch/arm/configs/multi_v7_defconfig
-@@ -149,6 +149,7 @@ CONFIG_INET6_IPCOMP=m
- CONFIG_IPV6_MIP6=m
- CONFIG_IPV6_TUNNEL=m
- CONFIG_IPV6_MULTIPLE_TABLES=y
-+CONFIG_BRIDGE=m
- CONFIG_NET_DSA=m
- CONFIG_QRTR=m
- CONFIG_QRTR_SMD=m
-@@ -288,6 +289,7 @@ CONFIG_ICPLUS_PHY=y
- CONFIG_MARVELL_PHY=y
- CONFIG_AT803X_PHY=y
- CONFIG_ROCKCHIP_PHY=y
-+CONFIG_DP83848_PHY=m
- CONFIG_DP83867_PHY=y
- CONFIG_CAN_AT91=m
- CONFIG_CAN_FLEXCAN=m
--- 
-2.43.0
-
+        tglx
 
