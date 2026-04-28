@@ -4,82 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3848FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 16:41:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28EC1FF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 16:53:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zpKLL97s1k57zOX2kX+MMTv+yE0HENem3+DX7eclyDc=; b=cWDUGDIjQE/lYelS02DnjglUvh
-	cIEfwHmqKM72jeLDfDRfmtFGKbrAYi4YrnHXcJeYQS6EMcx2ozb7DFIs56ZLfXeAwcihTfNgtAPyE
-	TxyWcc2+ifkBrn6lQFP+UR8U/OA1BsFeMm3fdSGUtoa+IZ/QYXuAXmDds3e4LD30edwIcS2K/2JGe
-	We+7C09RAh8x3iNQLw0GgSwVHqCVh9Di25fbzafusNkpHLbYzzA9AczhlFzF41eWF8+BiVUVM7sC/
-	X5GmoLp8DBNqUg1uCyi7pzg5ourgrY2ULGnCo9Ao6xPHPFldu2cs9h9ILd5MYfWOJGuJfftSg3YTT
-	PGT/8yZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:From:To:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j17uIs2uSTZoslQO8sNkyZKLiUN4S6LiyldQE9M8uqs=; b=1MsxH78C5+VzxTtsVa8WAmgLCg
+	TBNthmGqZXLN1S1tikSDMDd+5jWBHeeItmgJUXG72ixtG3mw5eq6DIJtf5XvUyDWAc+uMUf68KFgI
+	ZRuCrX7mXo/VUWa+7hiHtv770eR8Z8QC7osjqUAiWUXo1JwlaUUFqh+MK7WArc5uSajrOoiXM23iY
+	PekIKaZ2jdZkCF4btf00oE1by7ZrefvHO1pcG9lmLiSh2la36S9uIuZod1pTqY8Nspb8NtWR7oFJc
+	ruvEmApTz+gk9ns90ZMb6Jp2c84192oJDjo1Rd/9I52QccstEtWKWUD15NzaAPlqzi2MOxo83hZ+Y
+	Rkruz7fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHlUY-00000001xsd-2Gnq;
-	Tue, 28 Apr 2026 16:40:58 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wHlgZ-00000001yz3-2yQ8;
+	Tue, 28 Apr 2026 16:53:23 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHlUX-00000001xsR-3AZu
+	id 1wHlgW-00000001yyf-1nEV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 16:40:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EC06260008;
-	Tue, 28 Apr 2026 16:40:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97051C2BCAF;
-	Tue, 28 Apr 2026 16:40:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777394456;
-	bh=ZAspeRQpPs/vaebT+xzsMbjuhXb3xNX22pJl6stbWDA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=sxfqcIApUyYsWistFCrBLd9QTLKDkKOvTn3RdTUl3kjMNi1qhtGnxGLr91D9JyBz1
-	 l4gznvyNDfYWEC//aTJEC0FvuaQbZSXJtoCD5seIPn42MUeZ6Pz8WGA0zsXc8BNZFV
-	 n9c91AtT2i2yvFPRSE49hG89u42PVMPJ4/cn09MgLepVdYtSlehgB2VAror+E1S3wh
-	 0lRTrm0h01F7KvcuM1oZESH/27Fadct7uACVQUnowlCKLFZATCrTauXijMmeVjugzr
-	 8C2fkvVzwewJ075tysgn/Ioc2DlP1+63Blom0J4dBnNoIdQsRgHjS36xpkYIhgsOJE
-	 sfKbe9kTrWR9Q==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wHlUU-0000000FbYc-1IMf;
-	Tue, 28 Apr 2026 16:40:54 +0000
-Date: Tue, 28 Apr 2026 17:40:53 +0100
-Message-ID: <86o6j3yr56.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	nd <nd@arm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Joey Gouly
-	<Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>
-Subject: Re: [PATCH 06/43] KVM: arm64: gic-v5: Add VPE doorbell domain
-In-Reply-To: <20260427160547.3129448-7-sascha.bischoff@arm.com>
-References: <20260427160547.3129448-1-sascha.bischoff@arm.com>
-	<20260427160547.3129448-7-sascha.bischoff@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Tue, 28 Apr 2026 16:53:22 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 7223B1A3470;
+	Tue, 28 Apr 2026 16:53:17 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 42E2E601D0;
+	Tue, 28 Apr 2026 16:53:17 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 52D6E10728FB4;
+	Tue, 28 Apr 2026 18:53:06 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1777395195; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=j17uIs2uSTZoslQO8sNkyZKLiUN4S6LiyldQE9M8uqs=;
+	b=jn0ofNKcSjS7aBuwPqSIA3GjilSnM1Fi4lLPm8K+6s/MikfEa64Epqh/fLM3NM/EGa+YzE
+	uUQyJ44k/mSph8gkWDq4lO+dxb5/SSMuygUIm/v3n6KasZIdEDf1Q7sKge4xjpVS3M2Qn1
+	UjWkDO9jPkiDz1eWlFfahzgbTmjV81PtWp7XCBCzoqxjCDAxADj+YIJzq3P3F31VCwmIVY
+	kg3b6/esSGyuwalMf5VoXc3w9CTLN+lzxEtByTbiyRGUco52qvTeS06DSCTdtAEB+mrTzj
+	/ZuZ8ub1uiGmMMeQ/XfKamK2BByabe5ndrQs6qWN4Di4EFWIwTNGjB9YhYYP6A==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 28 Apr 2026 18:53:05 +0200
+Message-Id: <DI4Y0BT5TYCP.25I7SGJ3L223L@bootlin.com>
+Cc: "Hui Pu" <Hui.Pu@gehealthcare.com>, "Ian Ray"
+ <ian.ray@gehealthcare.com>, "Thomas Petazzoni"
+ <thomas.petazzoni@bootlin.com>, "dri-devel@lists.freedesktop.org"
+ <dri-devel@lists.freedesktop.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>, "linux-arm-msm@vger.kernel.org"
+ <linux-arm-msm@vger.kernel.org>, "freedreno@lists.freedesktop.org"
+ <freedreno@lists.freedesktop.org>, "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>
+To: "Biju Das" <biju.das.jz@bp.renesas.com>, "Andrzej Hajda"
+ <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
+ "Robert Foss" <rfoss@kernel.org>, "laurent.pinchart"
+ <laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
+ "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
+ <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Rob Clark"
+ <robin.clark@oss.qualcomm.com>, "Dmitry Baryshkov" <lumag@kernel.org>,
+ "Abhinav Kumar" <abhinav.kumar@linux.dev>, "Jessica Zhang"
+ <jesszhan0024@gmail.com>, "Sean Paul" <sean@poorly.run>, "Marijn Suijten"
+ <marijn.suijten@somainline.org>, "Xinliang Liu" <xinliang.liu@linaro.org>,
+ "Sumit Semwal" <sumit.semwal@linaro.org>, "Yongqin Liu"
+ <yongqin.liu@linaro.org>, "John Stultz" <jstultz@google.com>,
+ "tomi.valkeinen" <tomi.valkeinen@ideasonboard.com>, "Michal Simek"
+ <michal.simek@amd.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH v3 10/11] drm: zynqmp_dp: switch to
+ of_drm_get_bridge_by_endpoint()
+X-Mailer: aerc 0.20.1
+References: <20260428-drm-bridge-alloc-getput-panel_or_bridge-v3-0-a537b5567add@bootlin.com> <20260428-drm-bridge-alloc-getput-panel_or_bridge-v3-10-a537b5567add@bootlin.com> <TY3PR01MB113469B7764079DD361E3FE8D86372@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+In-Reply-To: <TY3PR01MB113469B7764079DD361E3FE8D86372@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260428_095320_601668_9F6CD7E6 
+X-CRM114-Status: UNSURE (   8.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,134 +98,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 27 Apr 2026 17:08:05 +0100,
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
-> 
-> GICv5 supports two types of doorbell - VPE doorbells and VM
-> doorbells. In KVM we only support Targeted interrupts, and do not
-> support 1ofN target selection. This means that we only implement VPE
-> doorbells. These doorbells are implemented as host LPIs which are
-> generated when a non-resident VPE has a pending interrupt of
-> sufficient priority and the doorbell has been requested as part of
-> making the VPE non-resident.
-
-This is mostly a repeat of the architecture spec. I don't think we
-need to paraphrase it.
-
-> 
-> VPE doorbells allow KVM to wake VPEs (so, vcpus) as soon as the
-> hardware determines that sufficient conditions for the interrupt to be
-> signalled have been met. This simplifies the wake-up path for vcpus
-> with GICv5 for LPIs and SPIs. NOTE: PPI pending state must still be
-> checked explicitly as the IRS never sees them.
-
-Drop the note, it serves no purpose here.
-
-> 
-> This change introduces support for the vgic_v5 doorbell domain. One
-> doorbell domain is created per GICv5 VM, and all VPEs have their own
-> doorbell within this domain. When the doorbell fires, this is tracked
-> (in gicv5_vpe.db_fired) and the corresponding vcpu is kicked.
-> 
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> ---
->  arch/arm64/kvm/vgic/vgic-init.c    |   5 +-
->  arch/arm64/kvm/vgic/vgic-v5.c      | 143 +++++++++++++++++++++++++++++
->  arch/arm64/kvm/vgic/vgic.h         |   1 +
->  include/kvm/arm_vgic.h             |   6 ++
->  include/linux/irqchip/arm-gic-v5.h |   2 +
->  5 files changed, 156 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
-> index 907057881b26a..984908a271c8d 100644
-> --- a/arch/arm64/kvm/vgic/vgic-init.c
-> +++ b/arch/arm64/kvm/vgic/vgic-init.c
-> @@ -500,8 +500,11 @@ static void kvm_vgic_dist_destroy(struct kvm *kvm)
->  		dist->vgic_cpu_base = VGIC_ADDR_UNDEF;
->  	}
->  
-> -	if (vgic_supports_direct_irqs(kvm))
-> +	if (dist->vgic_model == KVM_DEV_TYPE_ARM_VGIC_V3 &&
-> +	    vgic_supports_direct_irqs(kvm))
->  		vgic_v4_teardown(kvm);
-> +	else if (dist->vgic_model == KVM_DEV_TYPE_ARM_VGIC_V5)
-> +		vgic_v5_teardown(kvm);
-
-nit: switch/case instead?
-
+On Tue Apr 28, 2026 at 5:37 PM CEST, Biju Das wrote:
+>> @@ -2461,10 +2459,15 @@ int zynqmp_dp_probe(struct zynqmp_dpsub *dpsub)
+>>  	 * Acquire the next bridge in the chain. Ignore errors caused by port@=
+5
+>>  	 * not being connected for backward-compatibility with older DTs.
+>>  	 */
+>> -	ret =3D drm_of_find_panel_or_bridge(dp->dev->of_node, 5, 0, NULL,
+>> -					  &dp->next_bridge);
+>> -	if (ret < 0 && ret !=3D -ENODEV)
+>> -		goto err_reset;
+>> +	dp->bridge.next_bridge =3D of_drm_get_bridge_by_endpoint(dp->dev->of_n=
+ode, 5, 0);
+>> +	if (IS_ERR(dp->bridge.next_bridge)) {
+>> +		if (PTR_ERR(dp->bridge.next_bridge) =3D=3D -ENODEV) {
+>> +			dp->bridge.next_bridge;
 >
->  	xa_destroy(&dist->lpi_xa);
->  }
-> diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
-> index fd3d6299a2baa..4e0d52b309628 100644
-> --- a/arch/arm64/kvm/vgic/vgic-v5.c
-> +++ b/arch/arm64/kvm/vgic/vgic-v5.c
-> @@ -7,6 +7,7 @@
->  
->  #include <linux/bitops.h>
->  #include <linux/irqchip/arm-vgic-info.h>
-> +#include <linux/irqdomain.h>
->  
->  #include "vgic.h"
->  #include "vgic-v5-tables.h"
-> @@ -162,6 +163,138 @@ int vgic_v5_probe(const struct gic_kvm_info *info)
->  	return 0;
->  }
->  
-> +/*
-> + * This set of irq_chip functions is specific for doorbells.
-> + */
-> +static struct irq_chip vgic_v5_db_irq_chip = {
+>
+> A warning on this patch
+>
+> drivers/gpu/drm/xlnx/zynqmp_dp.c: In function =E2=80=98zynqmp_dp_probe=E2=
+=80=99:
+> drivers/gpu/drm/xlnx/zynqmp_dp.c:2465:35: warning: statement with no effe=
+ct [-Wunused-value]
+>  2465 |                         dp->bridge.next_bridge;
+>       |                         ~~~~~~~~~~^~~~~~~~~~~~
 
-const?
+Ouch. Guess I should have pondered a bit longer before sending, will do
+before v4...
 
-> +	.name = "GICv5-DB",
-> +	.irq_mask = irq_chip_mask_parent,
-> +	.irq_unmask = irq_chip_unmask_parent,
-> +	.irq_eoi = irq_chip_eoi_parent,
-> +	.irq_set_affinity = irq_chip_set_affinity_parent,
-> +	.irq_get_irqchip_state = irq_chip_get_parent_state,
-> +	.irq_set_irqchip_state = irq_chip_set_parent_state,
-> +	.flags = IRQCHIP_SET_TYPE_MASKED | IRQCHIP_SKIP_SET_WAKE |
-> +		 IRQCHIP_MASK_ON_SUSPEND,
-> +};
-> +
-> +static int vgic_v5_irq_db_domain_map(struct irq_domain *d, unsigned int virq,
-> +				     u16 vpe_id)
-> +{
-> +	int ret;
-> +	u32 lpi;
-> +	irq_hw_number_t hwirq;
-> +	struct irq_chip *chip = &vgic_v5_db_irq_chip;
-> +	struct irq_data *irqd = irq_desc_get_irq_data(irq_to_desc(virq));
-> +
-> +	/*
-> +	 * For the DB domain, we don't use the same hwirq as for LPIs.
-> +	 */
-> +	hwirq = vpe_id;
-> +
-> +	ret = gicv5_alloc_lpi();
+Luca
 
-NAK. Allocating LPIs is the task of the underlying domain that manages
-LPIs, and absolutely not the vgic code.
-
-> +	if (ret < 0)
-> +		return ret;
-> +	lpi = ret;
-> +
-> +	ret = irq_domain_alloc_irqs_parent(d, virq, 1, &lpi);
-
-Why? I'd expect to see an irq_domain_alloc_irqs() for the whole VM,
-and be done with it.
-
-The whole allocation/freeing of LPIs is upside down. You really should
-not have to do this, and I'd strongly suggest you align the way the
-doorbell domain is constructed with the way GICv4 does it.
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
