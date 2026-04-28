@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24715FF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 10:42:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63996FF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 10:42:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sks81t5EJwxrfLopXM22YTOlvZRs/RBnCWrr2l4KqwQ=; b=UonzjkFUZLhXNqky97v/0FV0i8
-	34Lwvta/1TEfFI6RjIGZvOaVqPnzcIvFeRkCgtpQy0BM748uEdtg0hyPdwQybnAWE0YWIWmy3O7Og
-	umKiScqvqNyln2PprXa6a3SP4KI6lUsqjfSwV3ekauKgtrtZj3OgCs+yDISvxepIzX+r8bWQVgIoh
-	L4euFzdf7pFYKu6fo0TtA1JzqLassOjI6WAhvvx/UYHj0/Na0IIPfpLlrw6OKnJnuybbxg4VCt9Il
-	xvJQR3LT7pmKN/BONlPbnZW69WQ4FEqlb72KbBQDBwsPjcqX3TnISWt/dk2UadRz64D2W2DCgnix1
-	WOJKt93Q==;
+	bh=Rk+/4RThcETwTHQhjY7i0uy/SZCvascvvo1TQfpHoHM=; b=vesjvyQ5q+rxoutaSDl020N+NG
+	qU94AIXjo2kz/8qjEwseQWexDigg+GYmPHBNOnn/nNJWkoq40jpqmnSuOZQetzmWtrYEo+9hqqfYD
+	dNmMHTrBYoPWdRqxe1URa20GZCiqKNT3rJ4yITaRJZtRfl8JHM6W75NC/YnUipXnQ8Enz6t6Y7zYr
+	nLPjbMHs4tY/wG3ue5CBTSmrnuSDKwD6n9KomLsXg9qmfIx6/4YENc+s2SqH4eAwsUEU7b3xPELrf
+	mbAVJdehiTsxUIQadoo9Y3qsP8kybEa+qTJkbmuaAVBTYe/v5XZ+1U9VeNGpl/Oa7srraDbII8GXn
+	t4cGVCrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHftK-00000001CJR-49qX;
-	Tue, 28 Apr 2026 10:42:10 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wHftq-00000001CUh-1OXX;
+	Tue, 28 Apr 2026 10:42:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHftJ-00000001CIG-1pNh
+	id 1wHftn-00000001CTH-0Cd6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 10:42:09 +0000
+	Tue, 28 Apr 2026 10:42:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 656FE61145;
-	Tue, 28 Apr 2026 10:42:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9E26C2BCB5;
-	Tue, 28 Apr 2026 10:42:06 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BDFA9448F8;
+	Tue, 28 Apr 2026 10:42:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84D3EC2BCB9;
+	Tue, 28 Apr 2026 10:42:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777372928;
-	bh=32abhNWO89cs2JwkXa0XH5ZqG1v/L7wT581ifHEbNSo=;
+	s=k20201202; t=1777372958;
+	bh=5LYiZP7vYO+EkpvWWqnnAIKaqH/Us9EyYCZBmb881ck=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CNEOdlEVV/wPN8bR5EDj70Aue0OASPmqHvdUgczIC5vNRxxkLsoMwatdqGnVni72S
-	 BMps/zP9GzQMd2Ux57sTlW7hsuvJ1Huw+vhutOwvz4iK7rmGmwII68WUjipr0Tk5Ke
-	 uXuVgkeQ9eztfK2c5nCMB+oHh7wvnAg31YaPa2Ckqej/o93PBWRAfpC9THUbv00+Z4
-	 Hr7u3u0sogQflfmDd9hgfyGrKO1225cE9Fd42H2L84pHZM/uLrrtLZsCEVQ8xfCPaD
-	 yw96a5xdd54Jiscghmdg6jfCbWW/H2uOORqmdddokXi2TK9G1Dun7jHDFsTzeSigF8
-	 FHbql6Q6j2l8A==
+	b=e/73hPMN9EdgomwVzHukJJtlts/ilSsZCdw7CvRy9Q5xKAZ8Oi6WnUU5onmkySA3Y
+	 uM18PWKu07LehJ3ax/Za9nB+svFBp7gdIE8Wm8dQElC/qj6KU+Oiy/aN14KSTs8azu
+	 Jiwd2f1mYQHCktyTeprduzEbIqWGUgv/hDgP8YN/RlzViRAFdfnOwPp4y+nlL40pR0
+	 Ta0IsuFS4NwCOeloYa7NRyDF6Li83fOa44GN0aJPTfvihhtrPjtIwdwqgl3iIdBZsu
+	 GpoZmLgeDTbyMySYBP8Wll8ETHPIT1F1qrjWdE1v3JpK9f2wYmRUbcp5koRuNUhjQA
+	 2crRS/qguvxnA==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Elad Nachman <enachman@marvell.com>,
-	"Rob Herring (Arm)" <robh@kernel.org>,
-	Gregory CLEMENT <gregory.clement@bootlin.com>,
+Cc: Robin Gong <yibin.gong@nxp.com>,
+	Sherry Sun <sherry.sun@nxp.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Sasha Levin <sashal@kernel.org>,
-	andrew@lunn.ch,
-	sebastian.hesselbarth@gmail.com,
-	robh+dt@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org,
-	conor+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 7.0-5.10] dt-bindings: arm64: add Marvell 7k COMe boards
-Date: Tue, 28 Apr 2026 06:40:35 -0400
-Message-ID: <20260428104133.2858589-24-sashal@kernel.org>
+	jirislaby@kernel.org,
+	shawnguo@kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-serial@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 7.0-5.10] tty: serial: imx: keep dma request disabled before dma transfer setup
+Date: Tue, 28 Apr 2026 06:40:57 -0400
+Message-ID: <20260428104133.2858589-46-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260428104133.2858589-1-sashal@kernel.org>
 References: <20260428104133.2858589-1-sashal@kernel.org>
@@ -69,6 +66,9 @@ X-Patchwork-Hint: Ignore
 X-stable-base: Linux 7.0.2
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260428_034239_139386_A6E36B73 
+X-CRM114-Status: GOOD (  25.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,333 +83,339 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Elad Nachman <enachman@marvell.com>
+From: Robin Gong <yibin.gong@nxp.com>
 
-[ Upstream commit 283822a64d6bd9aca55b5e2718bc63e9815b443d ]
+[ Upstream commit 74e0c9f0528bcd597cb1299a027d7be27d1c27d9 ]
 
-Add dt bindings for:
-Armada 7020 COM Express CPU module
-Falcon DB-98CX85x0 COM Express type 7 Carrier board
-Falcon DB-98CX85x0 COM Express type 7 Carrier board
-with an Armada 7020 COM Express CPU module
+Since sdma hardware configure postpone to transfer phase, have to
+disable dma request before dma transfer setup because there is a
+hardware limitation on sdma event enable(ENBLn) as below.
 
-Signed-off-by: Elad Nachman <enachman@marvell.com>
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Gregory CLEMENT <gregory.clement@bootlin.com>
+Refer SDMA 2.6.28 Channel Enable RAM (SDMAARMx_CHNENBLn) section:
+"It is thus essential for the Arm platform to program them before any
+DMA request is triggered to the SDMA, otherwise an unpredictable
+combination of channels may be started."
+
+Signed-off-by: Robin Gong <yibin.gong@nxp.com>
+Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+Link: https://patch.msgid.link/20260312094526.297348-1-sherry.sun@nxp.com
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-Based on my investigation, I have enough information to complete the
-analysis.
+Now I have enough information to provide the full analysis.
 
-## PHASE 1: COMMIT MESSAGE FORENSICS
+## Analysis: tty: serial: imx: keep dma request disabled before dma
+transfer setup
 
-**Step 1.1: Subject Line**
-Record: Subsystem `dt-bindings: arm64`, action verb `add`, summary: "Add
-DT binding descriptions for the Marvell Falcon DB-98CX85x0 COM Express
-carrier board and Armada 7020 CPU module."
+### PHASE 1: COMMIT MESSAGE FORENSICS
+
+**Step 1.1: Subject line**
+Record: `tty: serial: imx:` subsystem, action verb "keep" (implies
+correcting improper state), one-line summary: "ensure UART DMA request
+stays disabled until SDMA channel is fully configured."
 
 **Step 1.2: Tags**
-Record: `Signed-off-by: Elad Nachman` (author), `Acked-by: Rob Herring
-(Arm) <robh@kernel.org>` (DT maintainer), `Signed-off-by: Gregory
-CLEMENT <gregory.clement@bootlin.com>` (mvebu maintainer). No `Fixes:`,
-no `Cc: stable`, no `Reported-by:`, no `Link:`.
+Record:
+- Signed-off-by: Robin Gong (author, NXP), Sherry Sun (submitter, NXP),
+  Greg Kroah-Hartman (tty maintainer)
+- Link:
+  https://patch.msgid.link/20260312094526.297348-1-sherry.sun@nxp.com
+- NO Fixes: tag (expected)
+- NO Cc: stable tag (expected)
+- NO Reported-by/Tested-by/Reviewed-by
 
-**Step 1.3: Commit Body**
-Record: The commit body lists the three binding descriptions added but
-provides no bug description or symptom. However, the subject does not
-use "fix" and reads as a feature addition. Body does not discuss impact.
+**Step 1.3: Commit body analysis**
+Record: Commit explains a hardware limitation documented in the SDMA
+reference manual (section 2.6.28, "Channel Enable RAM /
+SDMAARMx_CHNENBLn"). When UART asserts a DMA request before the SDMA
+channel script has been properly configured, "unpredictable combination
+of channels may be started." No stack trace/reproducer, but cites an
+authoritative NXP/Freescale hardware reference manual. Root cause: SDMA
+configuration is postponed to the transfer phase, so starting the UART
+DMA request before `dma_async_issue_pending()` on the corresponding
+channel is a hardware-level ordering violation.
 
-**Step 1.4: Hidden Bug Fix Detection**
-Record: Based on subject alone, looks like pure feature addition.
-However, based on mailing list discussion (see Phase 4), this is a fix
-for a binding/DTS mismatch where the DTS files reference compatibles not
-documented in the bindings.
+**Step 1.4: Hidden bug fix detection**
+Record: Yes — "keep disabled before setup" is a classic disguised bug
+fix. This corrects an improper ordering that leads to undefined hardware
+behavior.
 
-## PHASE 2: DIFF ANALYSIS
+### PHASE 2: DIFF ANALYSIS
 
 **Step 2.1: Inventory**
-Record: 1 file changed
-(`Documentation/devicetree/bindings/arm/marvell/armada-7k-8k.yaml`), +11
-lines, -0 lines. Single surgical YAML addition.
+Record: 1 file (`drivers/tty/serial/imx.c`), 3 lines modified + 2
+comment lines changed, 1 line added net. Two functions touched:
+`imx_uart_enable_dma()` and `imx_uart_startup()`. Scope: single-file
+surgical fix.
 
-**Step 2.2: Code Flow**
-Record: Before: Binding file did not describe the
-`marvell,armada7020-cpu-module`, `marvell,db-falcon-carrier`, or
-`marvell,armada7020-falcon-carrier` compatibles. After: New `oneOf`
-entry documents this 6-level compatible stack. No runtime code affected.
+**Step 2.2: Code flow change**
 
-**Step 2.3: Bug Mechanism**
-Record: This falls in category (h) Hardware workarounds/documentation
-additions - DT binding additions for board compatibles. The "bug" is
-that the DTS files already in the tree (b3370479a5f7e) reference
-compatibles that are undocumented, causing `make CHECK_DTBS=y` to
-produce schema validation warnings.
+```1438:1451:drivers/tty/serial/imx.c
+static void imx_uart_enable_dma(struct imx_port *sport)
+{
+        u32 ucr1;
 
-**Step 2.4: Fix Quality**
-Record: Obviously correct - YAML schema change only. Zero runtime risk.
-Minimal and surgical. Cannot introduce regression as DT schema is not
-used at runtime.
+        imx_uart_setup_ufcr(sport, TXTL_DMA, RXTL_DMA);
 
-## PHASE 3: GIT HISTORY INVESTIGATION
+        /* set UCR1 */
+        ucr1 = imx_uart_readl(sport, UCR1);
+        ucr1 |= UCR1_RXDMAEN | UCR1_TXDMAEN | UCR1_ATDMAEN;
+        imx_uart_writel(sport, ucr1, UCR1);
+
+        sport->dma_is_enabled = 1;
+}
+```
+
+Record:
+- Hunk 1 (`imx_uart_enable_dma`): BEFORE sets `UCR1_RXDMAEN |
+  UCR1_TXDMAEN | UCR1_ATDMAEN` atomically; AFTER sets only `UCR1_RXDMAEN
+  | UCR1_ATDMAEN` (TXDMAEN now enabled later in `imx_uart_dma_tx`).
+- Hunk 2 (`imx_uart_startup`): BEFORE calls `imx_uart_enable_dma()` THEN
+  `imx_uart_start_rx_dma()`; AFTER calls `imx_uart_start_rx_dma()` THEN
+  `imx_uart_enable_dma()`. The RX DMA channel is configured/submitted
+  BEFORE the UART starts asserting DMA requests.
+
+**Step 2.3: Bug mechanism**
+Record: Category (h) Hardware workaround + ordering/correctness fix. The
+mechanism: UART asserting DMA requests on UCR1 before SDMA has a valid
+descriptor/channel configuration can trigger an ill-defined SDMA
+channel, leading to corrupted/misrouted transfers. Confirmed by
+verifying that `imx_uart_dma_tx()` at line 662-664 already sets
+`UCR1_TXDMAEN` just before
+`dmaengine_submit()/dma_async_issue_pending()` — so removing it from
+`imx_uart_enable_dma()` is safe (TXDMAEN will still be set when actually
+needed).
+
+**Step 2.4: Fix quality**
+Record: Obviously correct. The fix preserves exact functionality
+(TXDMAEN still ends up set before TX transfer, RX DMA still starts
+before UART DMA requests flow). No regression risk in the fix itself —
+just reorders two well-defined function calls and defers one register
+bit. No locking changes, no API changes.
+
+### PHASE 3: GIT HISTORY INVESTIGATION
 
 **Step 3.1: Blame**
-Record: The existing "Armada 7020 SoC" entry that precedes the added
-block was present from file creation. New entry inserted after it.
+Record: `imx_uart_enable_dma` and UART DMA support originated from
+commit `b4cdc8f61beb2` ("serial: imx: add DMA support for imx6q", July
+2013). The `temp |= UCR1_RDMAEN | UCR1_TDMAEN | UCR1_ATDMAEN` line was
+set together from day one — the buggy ordering has been present since
+2013 (kernel v3.11). All active stable trees inherit it.
 
-**Step 3.2: Fixes Tag**
-Record: No `Fixes:` tag. However, the related DTS commit `b3370479a5f7e`
-("arm64: dts: a7k: add COM Express boards", Jan 22 2026) is the commit
-that introduced the DTS files referencing the new compatibles, and is
-already present in HEAD.
+**Step 3.2: Fixes: tag** — Not present. The bug is a long-standing
+hardware sequencing violation.
 
-**Step 3.3: File History**
-Record: Recent related file history: `4c9bc78fa22d6` (missing 7040/8040
-compatibles), `242aa69df6ed8` (8KPlus schema move), `099e1d034f009`
-(solidrun cn9132), `5f5eb24090bec` (solidrun cn9130), `c604a4d1833c1`
-(earlier Marvell COM Express boards). Part of a typical incremental
-binding maintenance flow.
+**Step 3.3: Related file changes**
+Record: Recent changes to `drivers/tty/serial/imx.c` (wake event
+reporting, hrtimer, nbcon, etc.) do not touch the DMA init/enable paths
+— no conflicts expected.
 
-**Step 3.4: Author**
-Record: Author Elad Nachman from Marvell has been contributing
-Armada/CN913x and ac5 patches. Gregory Clement (mvebu subsystem
-maintainer) handled the commit. Rob Herring (top-level DT maintainer)
-Acked it.
+**Step 3.4: Author's relationship**
+Record: Robin Gong is an NXP engineer and has authored the equivalent
+fix in the SDMA driver itself (commit `107d06441b709` in 2018) which
+changed where `sdma_event_enable()` is called. He's an authority on SDMA
+hardware semantics.
 
 **Step 3.5: Dependencies**
-Record: Standalone binding addition, no code dependencies. However,
-contextually linked to DTS commit `b3370479a5f7e` (already in
-HEAD/v7.0).
+Record: No prerequisite commits needed. The fix depends only on
+`imx_uart_dma_tx()` already containing `ucr1 |= UCR1_TXDMAEN`, which I
+verified exists in v5.4, v5.10, v5.15, v6.1, v6.6, v6.12.
 
-## PHASE 4: MAILING LIST RESEARCH
+### PHASE 4: MAILING LIST RESEARCH
 
-**Step 4.1: Lore Discussion**
-Record: Found via `b4 dig`: https://lore.kernel.org/all/20260122165923.2
-316510-2-enachman@marvell.com/ — Patch 1/3 of series "arm64: dts: a7k:
-add COM Express boards". Crucial reviewer feedback found:
+**Step 4.1: Original submission**
+Record: `b4 dig -c 74e0c9f0528bc` found
+https://lore.kernel.org/all/20260312094526.297348-1-sherry.sun@nxp.com/.
+Single-revision v1 patch. Thread contains only the patch submission — no
+review replies, no NAKs, no stable nominations. Greg KH applied it
+directly.
 
-- Rob Herring (Mar 6, 2026): *"It seems the .dts files are in 7.0 and
-  the binding is only in next. The binding needs to go into 7.0 too.
-  Please pay attention to the warnings."*
-- Gregory Clement (Mar 13, 2026): *"Sorry for this. I have now applied
-  the binding, and it will be included in my next fixes PR."*
+**Step 4.2: Recipients**
+Record: Sent to gregkh, jirislaby (tty maintainers), Frank.Li@nxp.com,
+s.hauer@pengutronix.de, kernel@pengutronix.de, festevam, tglx, mingo.
+Appropriate maintainers CC'd.
 
-This is an **explicit stable nomination from the DT maintainer** for
-7.0.y.
+**Step 4.3: Bug report** — No explicit report linked; the fix cites the
+SoC reference manual.
 
-**Step 4.2: Reviewers**
-Record: Rob Herring (DT maintainer) Acked it, Gregory Clement (mvebu
-maintainer) applied and explicitly targeted 7.0 fixes. Proper subsystem
-review occurred.
+**Step 4.4: Related series (CRITICAL)**
+Record: The SAME hardware-sequencing fix was previously applied to the
+SPI driver in commit `86d57d9c07d54` ("spi: imx: keep dma request
+disabled before dma transfer setup", Oct 2025). That SPI fix has already
+been backported to stable branches 5.10, 5.15, 6.1, 6.6, 6.12, and 6.17
+(verified via `git branch --contains`). This establishes a clear
+precedent that the stable maintainers consider this exact SDMA-ordering
+issue worth backporting.
 
-**Step 4.3: Bug Report**
-Record: Rob's dt-schema bot flagged "new warnings" on the series.
-Warnings are DT validation errors produced by the DTS files without
-matching bindings.
+**Step 4.5: Stable ML** — The SPI equivalent already flowed into stable
+via AUTOSEL.
 
-**Step 4.4: Series**
-Record: Part of a 3-patch series. Patch 2 (DTS) already merged to 7.0.
-Patch 3 (MAINTAINERS) has its own destiny. This patch 1 (bindings) is
-the reviewer-requested sync.
+### PHASE 5: CODE SEMANTIC ANALYSIS
 
-**Step 4.5: Stable Mailing List**
-Record: Not discussed on stable list; this is being handled as a 7.0
-fixes path.
+**Step 5.1-5.4: Call chain**
+Record: `imx_uart_enable_dma()` is called exclusively from
+`imx_uart_startup()`. `imx_uart_startup()` is the `uart_ops::startup`
+callback, invoked every time a UART port is opened. This is a common,
+user-triggerable path — every process opening `/dev/ttymxcN` hits it. So
+the buggy sequencing is exercised on every UART open with DMA enabled.
 
-## PHASE 5: CODE SEMANTIC ANALYSIS
+**Step 5.5: Similar patterns**
+Record: The same bug pattern exists in `drivers/spi/spi-imx.c` and was
+fixed by commit `86d57d9c07d54`, already backported broadly. The SDMA
+driver itself carries a comment "Set ENBLn earlier to make sure dma
+request triggered after that" (`drivers/dma/imx-sdma.c:1859`),
+corroborating that this ordering requirement is well-established
+hardware lore.
 
-Not applicable — no code functions involved, only DT YAML schema. DT
-binding files have no runtime callers; they are consumed only by `dt-
-schema` validation tools (`make dt_binding_check`, `make CHECK_DTBS=y`).
+### PHASE 6: STABLE TREE ANALYSIS
 
-Record: Zero runtime call paths, zero runtime consumers. Binding file
-affects only build-time validation.
+**Step 6.1: Buggy code exists in stable?**
+Record: YES. Verified `imx_uart_enable_dma()` and the buggy
+`imx_uart_enable_dma(); imx_uart_start_rx_dma();` ordering is present in
+v5.4, v5.10, v5.15, v6.1, v6.6, v6.12. `imx_uart_dma_tx()` also already
+contains the `ucr1 |= UCR1_TXDMAEN` statement (the dependency for the
+fix).
 
-## PHASE 6: CROSS-REFERENCING AND STABLE TREE ANALYSIS
+**Step 6.2: Backport complications**
+Record: Patch applies CLEANLY (`git apply --check` succeeded with no
+output) against v5.4, v5.10, v5.15, v6.1, v6.6, v6.12. No backport
+adjustments needed.
 
-**Step 6.1: Buggy Code in Stable**
-Record: Verified with `git merge-base --is-ancestor b3370479a5f7e HEAD`
--> IN HEAD. The DTS files (`db-falcon-carrier-a7k.dts`, `db-falcon-
-carrier.dtsi`, `armada-7020-comexpress.dtsi`) are present in
-stable/linux-7.0.y via mvebu-dt64-6.20-1 merge. The mismatched bindings
-cause the validation gap in 7.0.y. Not in older stable trees (6.6.y,
-6.1.y etc.), so they aren't affected.
+**Step 6.3: Related fixes already in stable**
+Record: No — this particular fix has not yet flowed to stable for the
+UART driver. The sibling SPI fix is already in stable trees.
 
-**Step 6.2: Backport Complications**
-Record: Binding file in HEAD matches the pre-patch state from mainline.
-Patch should apply cleanly to 7.0.y. Verified file context still has the
-"Armada 7040 SoC" entry right after the "Armada 7020 SoC" entry -
-insertion point unchanged.
+### PHASE 7: SUBSYSTEM CONTEXT
 
-**Step 6.3: Related Fixes in Stable**
-Record: No related binding fixes already in stable.
+Record: `drivers/tty/serial/imx.c` — IMX UART driver. Used by millions
+of embedded/industrial iMX-based systems. Criticality: IMPORTANT
+(driver-specific but widely deployed). Active subsystem (recent
+wakeup/RXTL fixes show ongoing maintenance).
 
-## PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
+### PHASE 8: IMPACT AND RISK ASSESSMENT
 
-**Step 7.1: Subsystem Criticality**
-Record: Subsystem = `Documentation/devicetree/bindings/arm/marvell/`, DT
-binding documentation. Criticality: PERIPHERAL (affects only DT schema
-validators, not any runtime path).
+**Step 8.1: Affected users**
+Record: iMX SoC users (iMX6, iMX7, iMX8, iMX9 families) using UART with
+DMA (typical when hardware flow control is enabled for high-throughput
+serial communication).
 
-**Step 7.2: Activity Level**
-Record: Moderately active file, typical maintenance pace.
+**Step 8.2: Triggering conditions**
+Record: Every time a DMA-capable iMX UART port is opened (uart startup
+path). Whether the race window actually causes misbehavior depends on:
+whether the TX FIFO happens to fall below the watermark immediately
+after TXDMAEN is set but before a descriptor is prepared; whether the RX
+line has incoming data arriving before start_rx_dma finishes. Easily
+reachable on active serial links.
 
-## PHASE 8: IMPACT AND RISK ASSESSMENT
+**Step 8.3: Failure mode**
+Record: "unpredictable combination of channels may be started" per SDMA
+hardware docs. In practice this can manifest as: lost/corrupted UART
+data, spurious channel activation that may corrupt memory (SDMA writing
+to stale addresses), or flaky DMA behavior that's hard to debug.
+Severity: HIGH (data integrity + potential silent memory corruption on a
+DMA engine).
 
-**Step 8.1: Who is Affected**
-Record: Developers/testers running `make dt_binding_check` or `make
-CHECK_DTBS=y` on the arm64 marvell DTS tree. No end users affected (DT
-schema files are not compiled into the kernel or used at runtime).
+**Step 8.4: Risk-benefit**
+Record: BENEFIT: prevents documented hardware misbehavior on a widely-
+deployed SoC family; consistency with SPI driver fix already in stable.
+RISK: very low — 3-line reordering, no new locks/APIs, dependency
+(TXDMAEN in dma_tx) verified present in all stable trees, patch applies
+cleanly, identical fix pattern already tested in production via SPI
+backport.
 
-**Step 8.2: Trigger Conditions**
-Record: The "bug" (validation warning) triggers only when someone runs
-DT schema validation against the shipped DTS files. Not runtime
-reachable.
+### PHASE 9: FINAL SYNTHESIS
 
-**Step 8.3: Failure Mode Severity**
-Record: LOW - generates `CHECK_DTBS` warnings/failures for validator
-users; no crashes, no data corruption, no security impact, no runtime
-behavior change.
+**Evidence FOR:** Fixes documented SoC hardware limitation; tiny
+surgical change; author is SDMA subject-matter expert; same fix pattern
+already accepted into stable (5.10→6.17) for spi-imx; code path is very
+common (uart_startup); patch applies cleanly to all stable trees; falls
+into the "Hardware Quirk/Workaround" exception category.
 
-**Step 8.4: Risk vs Benefit**
-Record:
-- Benefit: LOW severity, fixes validation inconsistency explicitly
-  requested by the DT maintainer; keeps 7.0.y internally consistent.
-- Risk: Near-zero. 11-line YAML file touching schema metadata only;
-  cannot affect compile or runtime.
-- Ratio: LOW/near-zero = favorable.
+**Evidence AGAINST:** No explicit Reported-by/Tested-by (but the fix
+cites authoritative SoC docs); no explicit stable nomination (but
+absence is expected).
 
-## PHASE 9: FINAL SYNTHESIS
+**Stable rules checklist:**
+1. Obviously correct and tested? YES — TXDMAEN placement verified,
+   reorder is semantically equivalent.
+2. Fixes a real bug? YES — documented hardware sequencing violation.
+3. Important issue? YES — data corruption / unpredictable DMA behavior.
+4. Small and contained? YES — 3 lines of actual code change.
+5. No new features? YES — pure correctness/reorder fix.
+6. Applies to stable trees? YES — clean apply verified.
 
-**Step 9.1: Evidence**
+**Exception category:** Hardware workaround for SDMA ENBLn sequencing
+requirement.
 
-FOR backport:
-- DT maintainer (Rob Herring) explicitly stated: "The binding needs to
-  go into 7.0 too."
-- Companion DTS commit `b3370479a5f7e` is already in stable/linux-7.0.y
-  (verified)
-- Fixes DT schema validation warnings against the already-shipped DTS
-- Zero runtime risk (YAML metadata only)
-- Acked-by DT maintainer, applied to mvebu/fixes (7.0 fixes) by mvebu
-  maintainer
-- Small (11 lines), contained, obviously correct
-- Falls under the "Documentation" and "DT updates for existing hardware
-  (in tree)" exception categories
+### Verification
+- [Phase 1] Parsed tags: no Fixes/Cc-stable/Reported-by; Link to lore
+  verified
+- [Phase 2] Diff shows `imx_uart_enable_dma` drops TXDMAEN;
+  `imx_uart_startup` swaps call order of `start_rx_dma` and `enable_dma`
+- [Phase 2] Verified `imx_uart_dma_tx()` in current tree and all stable
+  trees contains `ucr1 |= UCR1_TXDMAEN` at lines
+  ~658/657/666/660/682/637 respectively — the fix's dependency is met
+- [Phase 3] `git log -S"imx_enable_dma"` identified original DMA commit
+  `b4cdc8f61beb2` (Jul 2013)
+- [Phase 3] `git blame` on `sdma_event_enable` call in imx-sdma.c
+  corroborates the hardware ordering requirement
+- [Phase 4] `b4 dig -c 74e0c9f0528bc` found lore URL; `-a` shows only
+  v1; mbox inspection shows no replies/NAKs
+- [Phase 4] `b4 dig -c 86d57d9c07d54` for sibling SPI fix confirmed it
+  went through review (Frank Li, Mark Brown)
+- [Phase 4] `git branch --contains` for multiple SPI backport commits
+  confirmed backport to 5.10/5.15/6.1/6.6/6.12/6.17
+- [Phase 5] Confirmed `imx_uart_enable_dma` has a single caller
+  (`imx_uart_startup`) via `Grep`
+- [Phase 6] `git show vX:drivers/tty/serial/imx.c` for v5.4, v5.10,
+  v5.15, v6.1, v6.6, v6.12 all show identical buggy ordering
+- [Phase 6] `git apply --check /tmp/fix.patch` succeeded on v5.4, v5.10,
+  v5.15, v6.1, v6.6, v6.12 (no output = success)
+- [Phase 8] Failure mode per SoC reference manual — cited directly in
+  commit message
+- UNVERIFIED: No user bug report could be located; severity inferred
+  from SoC documentation only. The exact race-window probability on a
+  specific board is not quantified.
 
-AGAINST backport:
-- Subject reads as feature addition ("add Marvell 7k COMe boards")
-- No `Fixes:` tag, no `Cc: stable` tag
-- Technically describes new boards not previously documented
-- Doesn't fix any runtime behavior
-
-Unresolved: None — the mailing list discussion resolves the intent.
-
-**Step 9.2: Stable Rules Checklist**
-1. Obviously correct and tested? YES (YAML schema addition, acked by DT
-   maintainer)
-2. Fixes a real bug affecting users? BORDERLINE - fixes validator bug
-   for shipped DTS
-3. Important issue? LOW severity (validation warnings, not runtime)
-4. Small and contained? YES (11 lines, one file)
-5. No new features? YES (no runtime features, binding matches DTS
-   already in tree)
-6. Can apply to stable? YES (applies cleanly to 7.0.y)
-
-**Step 9.3: Exception Categories**
-Applicable exceptions:
-- "DEVICE TREE (DT) UPDATES: DT binding additions for existing hardware,
-  DT fixes for incorrect hardware descriptions, enabling already-
-  supported hardware on new boards - Usually safe because they only
-  affect specific ARM/embedded platforms."
-- "DOCUMENTATION and COMMENT FIXES: Fixing incorrect documentation,
-  updating obsolete comments - Zero risk of runtime regression"
-
-The DTS files for this hardware are already present in 7.0; adding the
-matching bindings is a documentation sync.
-
-**Step 9.4: Decision**
-For 7.0.y specifically, the DTS files exist in the tree, the DT
-maintainer explicitly asked for this to land in 7.0, and the risk is
-zero. This matches the exception for DT updates / documentation fixes.
-
-## Verification
-
-- [Phase 1] Parsed tags: `Acked-by: Rob Herring`, `Signed-off-by:
-  Gregory CLEMENT`, no `Fixes:`/`Cc: stable`.
-- [Phase 2] Diff analysis: +11 lines of YAML added to
-  `armada-7k-8k.yaml`, single file, new `oneOf` entry for the Falcon
-  carrier + Armada 7020 CPU module compatible stack.
-- [Phase 3] `git log --oneline -- <file>`: file churn is typical
-  incremental binding maintenance.
-- [Phase 3] `git log -1 --format="%H %ci %s" edb7efa767da8` -> March 13,
-  2026; `b3370479a5f7e` -> January 23, 2026 (DTS, earlier).
-- [Phase 3] `git merge-base --is-ancestor b3370479a5f7e HEAD` -> **IN
-  HEAD** (DTS already in 7.0.y).
-- [Phase 3] `git merge-base --is-ancestor edb7efa767da8 HEAD` -> **NOT
-  IN HEAD** (binding not yet in 7.0.y).
-- [Phase 3] `git tag --contains b3370479a5f7e` -> `v7.0` confirms DTS is
-  in the 7.0 release.
-- [Phase 4] `b4 dig -c edb7efa767da8` -> found thread at
-  lore.kernel.org/all/20260122165923.2316510-2-enachman@marvell.com/.
-- [Phase 4] `b4 dig -c edb7efa767da8 -w` -> recipients include robh+dt,
-  krzysztof.kozlowski+dt, conor+dt, andrew@lunn.ch,
-  gregory.clement@bootlin.com (all relevant DT/maintainer parties).
-- [Phase 4] `b4 dig -c edb7efa767da8 -m /tmp/thread.mbox` -> saved full
-  thread; confirmed Rob Herring's explicit "The binding needs to go into
-  7.0 too" and Gregory Clement's response "I have now applied the
-  binding, and it will be included in my next fixes PR."
-- [Phase 4] Rob's dt-bot reported DTB warnings on the series
-  (`arch/arm64/boot/dts/marvell/db-falcon-carrier-a7k.dtb: ...phy-
-  mode:0: '10gbase-kr' is not one of [...]`), a separate phy-mode issue,
-  but confirms validation is run.
-- [Phase 5] Not applicable (YAML schema file has no runtime callers).
-- [Phase 6] Verified DTS files (`db-falcon-carrier-a7k.dts`, `db-falcon-
-  carrier.dtsi`, `armada-7020-comexpress.dtsi`) exist in HEAD via `git
-  show b3370479a5f7e:...` - confirmed they use the compatibles added in
-  this binding commit.
-- [Phase 7] File path: `Documentation/devicetree/bindings/arm/marvell/`
-  - DT binding docs for Marvell Armada platforms.
-- [Phase 8] Severity determined by examining what consumes DT binding
-  YAMLs (dt-schema validators only); verified no runtime code path uses
-  these YAML files.
-
-The mailing list evidence is unambiguous: the DT maintainer explicitly
-flagged that the DTS files landed in v7.0 but the matching bindings did
-not, and requested they go into 7.0 to fix the CHECK_DTBS validation
-warnings. The mvebu maintainer applied it to the fixes branch
-accordingly. The change is 11 lines of YAML with zero runtime risk,
-acked by the DT maintainer, matching already-shipped DTS files in the
-7.0 tree.
+Small, well-contained hardware-sequencing fix; same issue already
+accepted into stable trees for the sister SPI driver; dependency
+verified; applies cleanly. Meets all stable criteria.
 
 **YES**
 
- .../devicetree/bindings/arm/marvell/armada-7k-8k.yaml | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ drivers/tty/serial/imx.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/arm/marvell/armada-7k-8k.yaml b/Documentation/devicetree/bindings/arm/marvell/armada-7k-8k.yaml
-index 4bc7454a5d3ac..7e77310da626f 100644
---- a/Documentation/devicetree/bindings/arm/marvell/armada-7k-8k.yaml
-+++ b/Documentation/devicetree/bindings/arm/marvell/armada-7k-8k.yaml
-@@ -21,6 +21,17 @@ properties:
-           - const: marvell,armada-ap806-dual
-           - const: marvell,armada-ap806
+diff --git a/drivers/tty/serial/imx.c b/drivers/tty/serial/imx.c
+index c488e5d372ffd..251a50c8aa387 100644
+--- a/drivers/tty/serial/imx.c
++++ b/drivers/tty/serial/imx.c
+@@ -1442,9 +1442,9 @@ static void imx_uart_enable_dma(struct imx_port *sport)
  
-+      - description:
-+          Falcon (DB-98CX85x0) Development board COM Express Carrier plus
-+          Armada 7020 SoC COM Express CPU module
-+        items:
-+          - const: marvell,armada7020-falcon-carrier
-+          - const: marvell,db-falcon-carrier
-+          - const: marvell,armada7020-cpu-module
-+          - const: marvell,armada7020
-+          - const: marvell,armada-ap806-dual
-+          - const: marvell,armada-ap806
-+
-       - description: Armada 7040 SoC
-         items:
-           - enum:
+ 	imx_uart_setup_ufcr(sport, TXTL_DMA, RXTL_DMA);
+ 
+-	/* set UCR1 */
++	/* set UCR1 except TXDMAEN which would be enabled in imx_uart_dma_tx */
+ 	ucr1 = imx_uart_readl(sport, UCR1);
+-	ucr1 |= UCR1_RXDMAEN | UCR1_TXDMAEN | UCR1_ATDMAEN;
++	ucr1 |= UCR1_RXDMAEN | UCR1_ATDMAEN;
+ 	imx_uart_writel(sport, ucr1, UCR1);
+ 
+ 	sport->dma_is_enabled = 1;
+@@ -1567,8 +1567,9 @@ static int imx_uart_startup(struct uart_port *port)
+ 	imx_uart_enable_ms(&sport->port);
+ 
+ 	if (dma_is_inited) {
+-		imx_uart_enable_dma(sport);
++		/* Note: enable dma request after transfer start! */
+ 		imx_uart_start_rx_dma(sport);
++		imx_uart_enable_dma(sport);
+ 	} else {
+ 		ucr1 = imx_uart_readl(sport, UCR1);
+ 		ucr1 |= UCR1_RRDYEN;
 -- 
 2.53.0
 
