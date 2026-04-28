@@ -4,67 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7429EFF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 10:50:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82459FF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 11:01:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1YCFK9fOfX8J7o+4fYxKzID9fqVqxpauY96f73T749E=; b=kzV+WRYxfDKuDHyTlTzqClgkHQ
-	rRqc7m9OWpwpV5vr6S2hLmTf7UEWAJ/ptkiLfJ7G8nC0Bm7zdtAp8S0aQFGLSlb54c+oK/wEb3D9/
-	d7xzSFpd816clG9AhSZ/wVmD/LPDSHRUhvTgFVmQd+PyoEJvFsst00z/ZeunsDupQZ0C6406pQVsa
-	pUHsKykCXUaQ+LVP3ries9jclKeKQ/nPOaqvO0IwpXlJGHhFzLtmuRIr2Qc+k5dNa3mGvISN4XBFW
-	g2QaaqjckEhuV0rc4bqzv319HIMtRCUTS0L9SKJ0GU9f6WVLxwEK4R35IZAgrIlMI0O/gebiWDhs9
-	9VTJLlPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XBGhq8AsscvIj+mH9lal8kMT11cGW5WaUiLHhyEg9Cg=; b=k3c862JfSO6lbd3hdd1xkKMdtD
+	iCspHObWeZWd8NWyAow2+nK91G8JvDoEr2xNNbSUKbfhZSYlwheeRc/3TlIvOX4qPvr9MNkSTPewK
+	TPOmC0hgDW9yUQb79MtzcpB161hS9UWY9qiDcCwfb6kCWdg3TZ3JSXG2/icwVHkqJo0Z3Cd+UqmHx
+	Fn6BpoX4zcWPZ6zYNWmHLjEJ2D0k2eCuG+us/a0TziO8oNE/NrI1xTbE623WV9gDZHbDZiukUNl4/
+	NWaImrHv79YGz/ZgYnIjP9NfQfQrOPWZgIktx1Rs/Ud2Of+y/usl5usgPSZhL/yJzYh2eZ4Par405
+	iKUO3QsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHg1k-00000001DSj-2E2k;
-	Tue, 28 Apr 2026 10:50:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wHgBc-00000001EXi-0YgJ;
+	Tue, 28 Apr 2026 11:01:04 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHg1i-00000001DSd-2zCR
+	id 1wHgBW-00000001EWU-0jDy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 10:50:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BC94960154;
-	Tue, 28 Apr 2026 10:50:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B326C2BCAF;
-	Tue, 28 Apr 2026 10:50:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777373448;
-	bh=0cuZ4nY0AbQu+qq/AL+Yse47A4Z10Pa0BfVJC9kTurM=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=DKk5tgQcak2+Ipn1aFgnj+gK7y+qMU+mqZLdurDKXospQQm0b5lWg5kEVOCh0yFrS
-	 wnHyeh3o/G4zbZ2Nmg45NX7CL1ZMKo/9AEjeF14WvsAS6XF6+NWqYqSq2D9BPpzIT0
-	 Bn0yalC9+9y0a1Zqiupd590wdA0HMUTwaGAGTXthW9ErGIR1yRv/5MOJWu138jEVo2
-	 5wLR5pPWwDPM6ZOHgaWY1jaG4Aizuyxpe5Q9lJJWn7qWb7vaKDaWPqlMSs6bEkKFAF
-	 /YP4yhNGwwXwSqCcdRQnu4RvU/SWFHSUq9qEXPaz79u6//BKT7qcbDAb6Uilyre+ke
-	 aKW+ZiL5MMiLA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7CD903930196;
-	Tue, 28 Apr 2026 10:50:06 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Tue, 28 Apr 2026 11:01:03 +0000
+Date: Tue, 28 Apr 2026 13:00:54 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1777374055;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=XBGhq8AsscvIj+mH9lal8kMT11cGW5WaUiLHhyEg9Cg=;
+	b=BnbLYkmMWIJt5VYkLwCdmQ60Q0X9uQlTWDCP7HP8/5OWBPyO5FaIv+KhxHC7SWW/fUPdqz
+	+5GmE0FU/6RP0jFGAMKRpIKED1ulUDEQ1XZDeRcEnmfbHok4Wipd0or7EVnUP6vmQRn4nu
+	dRRcQJE5gQwyYdrl9BDmpiW5WBl0h4KL1iZapdKnMQMG3uDKGV1f+5CmxsrfEBYUHeq4nm
+	op2tVAUkJuFE1MyXvndOhSg5IOKNtZgLJh3+bl15iKUfNBdgkqZL4cn0eq72ogjoWmHsLu
+	IDVMuW64PEGt1cd1h76IwXMnmiB+3dGtamdqFAPwpQQTSwvAnYjBDRxpAZAA1Q==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1777374055;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=XBGhq8AsscvIj+mH9lal8kMT11cGW5WaUiLHhyEg9Cg=;
+	b=7U9zG0CLn0w8edytSvhyGI+M4MTTmvpY2+kYhI/KmQsZDhYbNYFkRJC8CUSuEQOFCvFeoD
+	Bcx9hNwDJNsf8/Cw==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: =?utf-8?B?QW5kcsOp?= Almeida <andrealmeid@igalia.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Carlos O'Donell <carlos@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Florian Weimer <fweimer@redhat.com>,
+	Rich Felker <dalias@aerifal.cx>,
+	Torvald Riegel <triegel@redhat.com>,
+	Darren Hart <dvhart@infradead.org>, Ingo Molnar <mingo@kernel.org>,
+	Davidlohr Bueso <dave@stgolabs.net>, Arnd Bergmann <arnd@arndb.de>,
+	"Liam R . Howlett" <Liam.Howlett@oracle.com>,
+	Uros Bizjak <ubizjak@gmail.com>,
+	Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org, kernel-dev@igalia.com
+Subject: Re: [PATCH RFC v2 0/2] arm64: vdso: Implement
+ __vdso_futex_robust_try_unlock()
+Message-ID: <20260428110054.oQNT-kMn@linutronix.de>
+References: <20260424-tonyk-robust_arm-v2-0-db4e46f752cf@igalia.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v6] net: stmmac: Prevent NULL deref when RX memory
- exhausted
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <177737340530.407008.57733216818450708.git-patchwork-notify@kernel.org>
-Date: Tue, 28 Apr 2026 10:50:05 +0000
-References: <20260422044503.5349-1-CFSworks@gmail.com>
-In-Reply-To: <20260422044503.5349-1-CFSworks@gmail.com>
-To: Sam Edwards <cfsworks@gmail.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
- maxime.chevallier@bootlin.com, ovidiu.panait.rb@renesas.com,
- vladimir.oltean@nxp.com, baruch@tkos.co.il, fancer.lancer@gmail.com,
- peppe.cavallaro@st.com, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- CFSworks@gmail.com, stable@vger.kernel.org, linux@armlinux.org.uk
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20260424-tonyk-robust_arm-v2-0-db4e46f752cf@igalia.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260428_040058_357054_8DC0F427 
+X-CRM114-Status: GOOD (  16.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,33 +93,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+On 2026-04-24 15:55:59 [-0300], Andr=C3=A9 Almeida wrote:
+> Hi folks,
+Hi,
 
-This patch was applied to netdev/net.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
+> This is my take on implementing the new vDSO for unlocking a robust futex=
+ in
+> arm64. If you don't know what's that, Thomas wrote a good summary,
+> including the motivation for this work and the x86 implementation:
+>=20
+>    https://lore.kernel.org/lkml/878qb89g7b.ffs@tglx/
+>=20
+> There are some loose ends in my patchset so I'm sending as a RFC to ask
+> some questions:
+>=20
+>  - If the process is interrupted between the labels, we need to check the
+>  conditional flags and clear the op_pending address from the register. Us=
+ing
+>  objdump I see that op_pending addr is being stored at x2, but I suspect =
+that
+>  this isn't stable, so I need to figure out how to make sure that the add=
+ress
+>  will always be stored in the same register.
+>  - So far I have implemented only the LL/SC version to make review easier=
+, but I
+>  can do the LSE version as well.
 
-On Tue, 21 Apr 2026 21:45:03 -0700 you wrote:
-> The CPU receives frames from the MAC through conventional DMA: the CPU
-> allocates buffers for the MAC, then the MAC fills them and returns
-> ownership to the CPU. For each hardware RX queue, the CPU and MAC
-> coordinate through a shared ring array of DMA descriptors: one
-> descriptor per DMA buffer. Each descriptor includes the buffer's
-> physical address and a status flag ("OWN") indicating which side owns
-> the buffer: OWN=0 for CPU, OWN=1 for MAC. The CPU is only allowed to set
-> the flag and the MAC is only allowed to clear it, and both must move
-> through the ring in sequence: thus the ring is used for both
-> "submissions" and "completions."
-> 
-> [...]
+I am a bit behind here. In the meantime, were you able to check it with
+	https://lore.kernel.org/all/20260404093939.7XgeW_54@linutronix.de/
+?
 
-Here is the summary with links:
-  - [net,v6] net: stmmac: Prevent NULL deref when RX memory exhausted
-    https://git.kernel.org/netdev/net/c/0bb05e6adfa9
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Sebastian
 
