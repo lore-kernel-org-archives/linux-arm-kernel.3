@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29734FF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 09:05:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 549CAFF886D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 09:05:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fVJo7fsv1H2xuo2xYnp5lXg0gdzBC3Czk3O6YyTZYp4=; b=LdO3rHyRc4WhCDohYq43V9HkTy
-	FzT92OzM1yLVscB8tTIXG+G05OTboZzMk0NGLbOBykD47xfjJMIN/dFIZghQcl21ESvQt76oqKaLR
-	07w2rE8jBxc9YWHVPgq7aWBIPT/4pux0vq5OhcoosMv6y0XIj5QKq6ahH4yJT/BsbY6vHS5xtCW+v
-	91bQ7Z+85ErxPfb3Bwb7goBVyimaDbpWLYal9FfePrSn+0zuBbfzJjsbN21DslR/KeHVgOgm6rJuM
-	7b92TT9HGVj6kb4KsIOS/uXUjQ68UOnMixmdtAn4eo8nVQsN4iF+LLZKTilv2v6r6Qs+ZEcuR6YZB
-	HWqHsxhA==;
+	bh=s5pac4kIP/Moyu6LQi37bvKXmwue6HexGg2a7QcC6tg=; b=puu5OoInLtICs/9cSNul7J5Cji
+	t5bY1cWnyKlTHulet+WPK9o8kXhAJ0dm5LA0b9hF+bR2mpC361vsGolIm3UXA8FEqq7KxNvlzCnGp
+	qK1Qf8ygrhBeS+9vMsZVF4MYv9VKjLtw1aCv+BpIOtNRL7JtaxVOeCHzaltUbwiI+5eLaO2a9ciyf
+	OkqH6vLQv/z/NQUxIjDkeXytRty6rwMvnvTj5prUTqcQ8HpJYN/6To6cRjKKyY4KxkQHdr77NGTFN
+	9yfpCDtZw9++WRWByGDkbvFpJypWsXJXyUeH51NX3UB5/QogwFqA+Y4WnzqHSEGmxVZqp4Axn7LuY
+	jsgvjBwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeO1-0000000114B-3PGQ;
+	id 1wHeO1-0000000113g-292W;
 	Tue, 28 Apr 2026 09:05:45 +0000
-Received: from inva020.nxp.com ([92.121.34.13])
+Received: from inva021.nxp.com ([92.121.34.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHeNx-0000000110d-0stn
+	id 1wHeNv-0000000110H-20xp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 09:05:43 +0000
-Received: from inva020.nxp.com (localhost [127.0.0.1])
-	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id C8DAA1A34CE;
-	Tue, 28 Apr 2026 11:05:39 +0200 (CEST)
+	Tue, 28 Apr 2026 09:05:42 +0000
+Received: from inva021.nxp.com (localhost [127.0.0.1])
+	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id 1961A2015FA;
+	Tue, 28 Apr 2026 11:05:38 +0200 (CEST)
 Received: from aprdc01srsp001v.ap-rdc01.nxp.com (aprdc01srsp001v.ap-rdc01.nxp.com [165.114.16.16])
-	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 8F9E21A15F5;
-	Tue, 28 Apr 2026 11:05:39 +0200 (CEST)
+	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id D429620153F;
+	Tue, 28 Apr 2026 11:05:37 +0200 (CEST)
 Received: from localhost.localdomain (mega.ap.freescale.net [10.192.208.232])
-	by aprdc01srsp001v.ap-rdc01.nxp.com (Postfix) with ESMTP id EB0C3180028E;
-	Tue, 28 Apr 2026 17:05:37 +0800 (+08)
+	by aprdc01srsp001v.ap-rdc01.nxp.com (Postfix) with ESMTP id C0295180026F;
+	Tue, 28 Apr 2026 17:05:35 +0800 (+08)
 From: Jiafei Pan <Jiafei.Pan@nxp.com>
 To: andersson@kernel.org,
 	mathieu.poirier@linaro.org,
@@ -48,17 +48,18 @@ To: andersson@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
 Cc: Zhiqiang.Hou@nxp.com,
-	mingkai.hu@nxp.com
-Subject: [PATCH 3/5] drivers: remoteproc: imx: add autoboot support for A-core remoteproc
-Date: Tue, 28 Apr 2026 17:08:17 +0800
-Message-Id: <20260428090819.17761-4-Jiafei.Pan@nxp.com>
+	mingkai.hu@nxp.com,
+	Jiafei Pan <Jiafei.Pan@nxp.com>
+Subject: [PATCH 2/5] drivers: remoteproc: imx: add support for Cortex-A Core
+Date: Tue, 28 Apr 2026 17:08:16 +0800
+Message-Id: <20260428090819.17761-3-Jiafei.Pan@nxp.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20260428090819.17761-1-Jiafei.Pan@nxp.com>
 References: <20260428090819.17761-1-Jiafei.Pan@nxp.com>
 X-Virus-Scanned: ClamAV using ClamSMTP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_020541_383020_1A618EE4 
-X-CRM114-Status: GOOD (  11.97  )
+X-CRM114-CacheID: sfid-20260428_020539_787416_132178F5 
+X-CRM114-Status: GOOD (  23.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,53 +74,263 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hou Zhiqiang <Zhiqiang.Hou@nxp.com>
+Add Cortex-A Core remoteproc support, it use PSCI and SIP SMC call
+to manage Cortex-A Core to be on or off.
 
-Add autoboot support for Cortex-A Core remoteproc.
-
-Signed-off-by: Hou Zhiqiang <Zhiqiang.Hou@nxp.com>
+Signed-off-by: Jiafei Pan <Jiafei.Pan@nxp.com>
 ---
- drivers/remoteproc/imx_rproc.c | 20 ++++++++++++++++++--
- 1 file changed, 18 insertions(+), 2 deletions(-)
+ drivers/remoteproc/imx_rproc.c | 134 +++++++++++++++++++++++++++++++++
+ drivers/remoteproc/imx_rproc.h |   2 +
+ 2 files changed, 136 insertions(+)
 
 diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-index 8a3de27c96b7..e8d239bef5c9 100644
+index 0dd80e688b0e..8a3de27c96b7 100644
 --- a/drivers/remoteproc/imx_rproc.c
 +++ b/drivers/remoteproc/imx_rproc.c
-@@ -1286,7 +1286,24 @@ static int imx_rproc_sm_detect_mode(struct rproc *rproc)
+@@ -6,6 +6,7 @@
+ #include <dt-bindings/firmware/imx/rsrc.h>
+ #include <linux/arm-smccc.h>
+ #include <linux/clk.h>
++#include <linux/cpu.h>
+ #include <linux/err.h>
+ #include <linux/firmware/imx/sci.h>
+ #include <linux/firmware/imx/sm.h>
+@@ -20,12 +21,17 @@
+ #include <linux/platform_device.h>
+ #include <linux/pm_domain.h>
+ #include <linux/pm_runtime.h>
++#include <linux/psci.h>
+ #include <linux/reboot.h>
+ #include <linux/regmap.h>
+ #include <linux/remoteproc.h>
+ #include <linux/scmi_imx_protocol.h>
+ #include <linux/workqueue.h>
  
- static int imx_rproc_psci_detect_mode(struct rproc *rproc)
- {
--	rproc->state = RPROC_OFFLINE;
-+	struct imx_rproc *priv = rproc->priv;
-+	unsigned int cpu;
-+	int cpu_aff;
++#include <uapi/linux/psci.h>
 +
-+	rproc->state = RPROC_DETACHED;
-+	for_each_cpu(cpu, &priv->cpus) {
-+		cpu_aff = psci_ops.affinity_info(cpu_logical_map(cpu), 0);
-+		if (cpu_aff == PSCI_0_2_AFFINITY_LEVEL_OFF) {
-+			rproc->state = RPROC_OFFLINE;
-+			break;
-+		}
++#include <asm/smp_plat.h>
 +
-+		/* in psci on state but running Linux */
-+		if (cpu_online(cpu)) {
-+			rproc->state = RPROC_OFFLINE;
-+			break;
-+		}
-+	}
+ #include "imx_rproc.h"
+ #include "remoteproc_internal.h"
  
+@@ -72,6 +78,8 @@
+ #define IMX_SIP_RPROC_STARTED		0x01
+ #define IMX_SIP_RPROC_STOP		0x02
+ 
++#define IMX_SIP_CPU_OFF			0xC2000012
++
+ #define IMX_SC_IRQ_GROUP_REBOOTED	5
+ 
+ /**
+@@ -131,6 +139,9 @@ struct imx_rproc {
+ 	 * BIT 0: IMX_RPROC_FLAGS_SM_LMM_CTRL(RPROC LM is under Linux control )
+ 	 */
+ 	u32				flags;
++	/* used by Cortex-A Core remoteproc to manage all CPU Cores */
++	cpumask_t			cpus;
++	cpumask_t			offlined_cpus;
+ };
+ 
+ static const struct imx_rproc_att imx_rproc_att_imx95_m7[] = {
+@@ -381,6 +392,45 @@ static int imx_rproc_sm_lmm_start(struct rproc *rproc)
  	return 0;
  }
-@@ -1391,7 +1408,6 @@ static int imx_rproc_probe(struct platform_device *pdev)
- 		bitmap_copy(cpumask_bits(&priv->cpus), &cpus_bits,
- 				min((unsigned int)nr_cpumask_bits,
- 				    (unsigned int)sizeof(unsigned long)));
--		rproc->auto_boot = false;
- 	}
  
++static int imx_rproc_psci_start(struct rproc *rproc)
++{
++	struct imx_rproc *priv = rproc->priv;
++	struct device *dev = priv->dev;
++	unsigned int cpu;
++	int ret;
++
++	if (cpumask_empty(&priv->cpus)) {
++		dev_err(dev, "No CPU Core assigned!\n");
++		return -ENODEV;
++	}
++
++	for_each_cpu(cpu, &priv->cpus) {
++		if (cpu_online(cpu)) {
++			ret = remove_cpu(cpu);
++			if (ret)
++				goto err;
++			cpumask_set_cpu(cpu, &priv->offlined_cpus);
++		}
++	}
++
++	cpu = cpumask_first(&priv->cpus);
++	ret = psci_ops.cpu_on(cpu_logical_map(cpu), rproc->bootaddr);
++	if (ret) {
++		dev_err(dev, "Boot failed on CPU Core %d\n", cpu);
++		goto err;
++	}
++
++	return 0;
++
++err:
++	for_each_cpu(cpu, &priv->cpus) {
++		if (!cpu_online(cpu) && add_cpu(cpu) == 0)
++			cpumask_clear_cpu(cpu, &priv->offlined_cpus);
++	}
++
++	return ret;
++}
++
+ static int imx_rproc_start(struct rproc *rproc)
+ {
+ 	struct imx_rproc *priv = rproc->priv;
+@@ -456,6 +506,50 @@ static int imx_rproc_sm_lmm_stop(struct rproc *rproc)
+ 	return scmi_imx_lmm_operation(dcfg->lmid, SCMI_IMX_LMM_SHUTDOWN, 0);
+ }
+ 
++static int imx_rproc_psci_stop(struct rproc *rproc)
++{
++	struct imx_rproc *priv = rproc->priv;
++	struct device *dev = priv->dev;
++	struct arm_smccc_res res;
++	unsigned int cpu;
++	unsigned long start, end;
++	int err;
++
++	for_each_cpu(cpu, &priv->cpus) {
++		/* Check CPU status */
++		err = psci_ops.affinity_info(cpu_logical_map(cpu), 0);
++		if (err == PSCI_0_2_AFFINITY_LEVEL_OFF)
++			continue;
++
++		/* Bring CPU to be off */
++		arm_smccc_smc(IMX_SIP_CPU_OFF, cpu, 0,
++			0, 0, 0, 0, 0, &res);
++		start = jiffies;
++		end = start + msecs_to_jiffies(100);
++		do {
++			err = psci_ops.affinity_info(cpu_logical_map(cpu), 0);
++			if (err == PSCI_0_2_AFFINITY_LEVEL_OFF) {
++				pr_info("CPU%d is killed (polled %d ms)\n", cpu,
++					jiffies_to_msecs(jiffies - start));
++				break;
++			}
++
++			usleep_range(100, 1000);
++		} while (time_before(jiffies, end));
++	}
++
++	/* Return back freed CPU Core to Linux kernel */
++	for_each_cpu(cpu, &priv->cpus) {
++		if (cpumask_test_cpu(cpu, &priv->offlined_cpus)) {
++			if (add_cpu(cpu) != 0)
++				dev_err(dev, "Failed to bring CPU %d back to be online", cpu);
++			cpumask_clear_cpu(cpu, &priv->offlined_cpus);
++		}
++	}
++
++	return 0;
++}
++
+ static int imx_rproc_stop(struct rproc *rproc)
+ {
+ 	struct imx_rproc *priv = rproc->priv;
+@@ -480,6 +574,12 @@ static int imx_rproc_da_to_sys(struct imx_rproc *priv, u64 da,
+ 	const struct imx_rproc_dcfg *dcfg = priv->dcfg;
+ 	int i;
+ 
++	/* No need to translate for Cortex-A Core */
++	if (dcfg->flags & IMX_RPROC_NO_ADDR_TRANS) {
++		*sys = da;
++		return 0;
++	}
++
+ 	/* parse address translation table */
+ 	for (i = 0; i < dcfg->att_size; i++) {
+ 		const struct imx_rproc_att *att = &dcfg->att[i];
+@@ -1184,6 +1284,13 @@ static int imx_rproc_sm_detect_mode(struct rproc *rproc)
+ 	return imx_rproc_sm_lmm_check(rproc, started);
+ }
+ 
++static int imx_rproc_psci_detect_mode(struct rproc *rproc)
++{
++	rproc->state = RPROC_OFFLINE;
++
++	return 0;
++}
++
+ static int imx_rproc_detect_mode(struct imx_rproc *priv)
+ {
+ 	/*
+@@ -1228,6 +1335,8 @@ static int imx_rproc_probe(struct platform_device *pdev)
+ 	struct imx_rproc *priv;
+ 	struct rproc *rproc;
+ 	const struct imx_rproc_dcfg *dcfg;
++	unsigned int cpus;
++	unsigned long cpus_bits;
+ 	int ret;
+ 
+ 	/* set some other name then imx */
+@@ -1274,6 +1383,17 @@ static int imx_rproc_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return dev_err_probe(dev, ret, "failed on imx_rproc_addr_init\n");
+ 
++	ret = of_property_read_u32(dev->of_node, "fsl,cpus-bits", &cpus);
++	if (ret) {
++		cpumask_clear(&priv->cpus);
++	} else {
++		cpus_bits = cpus;
++		bitmap_copy(cpumask_bits(&priv->cpus), &cpus_bits,
++				min((unsigned int)nr_cpumask_bits,
++				    (unsigned int)sizeof(unsigned long)));
++		rproc->auto_boot = false;
++	}
++
  	ret = imx_rproc_detect_mode(priv);
+ 	if (ret)
+ 		return dev_err_probe(dev, ret, "failed on detect mode\n");
+@@ -1372,6 +1492,12 @@ static const struct imx_rproc_plat_ops imx_rproc_ops_sm_cpu = {
+ 	.stop		= imx_rproc_sm_cpu_stop,
+ };
+ 
++static const struct imx_rproc_plat_ops imx_rproc_ops_psci = {
++	.start		= imx_rproc_psci_start,
++	.stop		= imx_rproc_psci_stop,
++	.detect_mode	= imx_rproc_psci_detect_mode,
++};
++
+ static const struct imx_rproc_dcfg imx_rproc_cfg_imx8mn_mmio = {
+ 	.src_reg	= IMX7D_SRC_SCR,
+ 	.src_mask	= IMX7D_M4_RST_MASK,
+@@ -1464,6 +1590,13 @@ static const struct imx_rproc_dcfg imx_rproc_cfg_imx95_m7 = {
+ 	.lmid		= 1, /* Use 1 as Logical Machine ID where M7 resides */
+ };
+ 
++static const struct imx_rproc_dcfg imx_rproc_cfg_psci = {
++	.att		= NULL,
++	.att_size	= 0,
++	.ops		= &imx_rproc_ops_psci,
++	.flags		= IMX_RPROC_NO_ADDR_TRANS,
++};
++
+ static const struct of_device_id imx_rproc_of_match[] = {
+ 	{ .compatible = "fsl,imx7ulp-cm4", .data = &imx_rproc_cfg_imx7ulp },
+ 	{ .compatible = "fsl,imx7d-cm4", .data = &imx_rproc_cfg_imx7d },
+@@ -1479,6 +1612,7 @@ static const struct of_device_id imx_rproc_of_match[] = {
+ 	{ .compatible = "fsl,imx8ulp-cm33", .data = &imx_rproc_cfg_imx8ulp },
+ 	{ .compatible = "fsl,imx93-cm33", .data = &imx_rproc_cfg_imx93 },
+ 	{ .compatible = "fsl,imx95-cm7", .data = &imx_rproc_cfg_imx95_m7 },
++	{ .compatible = "fsl,imx-rproc-psci", .data = &imx_rproc_cfg_psci },
+ 	{},
+ };
+ MODULE_DEVICE_TABLE(of, imx_rproc_of_match);
+diff --git a/drivers/remoteproc/imx_rproc.h b/drivers/remoteproc/imx_rproc.h
+index d37e6f90548c..be6709971042 100644
+--- a/drivers/remoteproc/imx_rproc.h
++++ b/drivers/remoteproc/imx_rproc.h
+@@ -18,6 +18,8 @@ struct imx_rproc_att {
+ /* dcfg flags */
+ #define IMX_RPROC_NEED_SYSTEM_OFF	BIT(0)
+ #define IMX_RPROC_NEED_CLKS		BIT(1)
++/* No need address translation */
++#define IMX_RPROC_NO_ADDR_TRANS		BIT(2)
+ 
+ struct imx_rproc_plat_ops {
+ 	int (*start)(struct rproc *rproc);
 -- 
 2.43.0
 
