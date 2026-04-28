@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32F76FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 06:51:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE194FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 06:53:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6eDSxHPFVITJWTk2gdeJMS3ZeqDn/bBRGYXZhg7OwYQ=; b=XdbS710brtS2c8+0ufKj1CdX+d
-	Zoc8H3KBRt+Dw/C3tVwsQt32Ch57URe1nFxmTfBLJMx/LduujvkGVG0FSwse2qj0KHVaNQ99orZTW
-	xZVrD+OB5NHFvOOSeGSGrC3VgUpbTxygEx5mN50M8vOQOR258G2fY1s5qIk3+6RpMLr+4sRzdAfqC
-	nzHRsncu4GUmNU5U8o4OKE1dvzjnKmrZzlpBOwI0Nzvk/W5S6W0l+/7H5k9wKjmHZwI8u+QFo7XuY
-	Uy7bupe8JEqEp68B3vNvvTOsJH/WWERXoexuy1gcnqrbVbrUvUPaZJEp+LRhJlI8bSuX9ulRYHzO4
-	KLvG+sbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=chNkK9PBIBNzUOa5LRwgRtZxceUQzPCmBW2qT9Zz+9A=; b=KjrDtjEtpzTZ5HFL1ZoKNCWB3K
+	F7P0oiBAk1t5QQfA28bs1jXSUgB8ckxmTZtJUq/y1QAKpMHmPv+/KskGkgEhdjwLNaQM33vQQaDXF
+	EKi6EiigtIU3mALm+/G69eFWtRA0PA3B3uCspHov4pq993LUS8MPrgv/wDZHA84z2YC4g7N14/jZM
+	qx9R3ItoV+tSxbiKT0N8e/nm3GrNxlqIGouW1nJ+Vr0KjQI3GOX3MLVxBKcFkqq6Jk9FQej0Ejlj+
+	Cz5wWYRqSln+j2Uh1Wpmn3SOgB00/H7AoDPKS9XNSTTRrMqGNZFu1ByTEjWE2pEqbYcSP+oNccebo
+	PDStwWsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHcHo-00000000eQE-2rE3;
-	Tue, 28 Apr 2026 06:51:12 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wHcKG-00000000efs-2F33;
+	Tue, 28 Apr 2026 06:53:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHcHn-00000000eQ8-2rR2
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 06:51:11 +0000
+	id 1wHcKE-00000000efj-1sUQ;
+	Tue, 28 Apr 2026 06:53:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A45E760133;
-	Tue, 28 Apr 2026 06:51:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C34C7C2BCAF;
-	Tue, 28 Apr 2026 06:51:09 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A049360133;
+	Tue, 28 Apr 2026 06:53:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07E74C2BCAF;
+	Tue, 28 Apr 2026 06:53:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777359070;
-	bh=xRCvIjFm1qRPY86c8XK+wqrLdiC4ZGv6pNeFUGIqFMU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ISl2U9pcz5S+w16MG1ZHzMg58ZG8NpDuh9JFPoQtHaqXTAKKIMUo0oQZ4rqCm8tSY
-	 KX0XzV1X9O0F2DSTrfcSvPowRgmSQbMKhq+NXyJlg3tg9HD5lmxn9U2FXnIjp1itlS
-	 QQ88a1yAoS3C+cHOdQPxFF1+nTaD3WP7BRssmiymvP0LPO2vZjrVcthGlZzeDkYg+1
-	 dc6XkOSBYNlwfzR5QyyXJdvjAPOd2LUQ9fq/SO2nkJvy+gTsqjrMsiE4ZD25W7E5kr
-	 MyFVA6JBG174k92s65x/c1KJzYgen8KYkxXtgLmQcOaM4wrOF5knc4ru497Y/G6/VY
-	 CrraCjnoIc04A==
-Date: Tue, 28 Apr 2026 08:51:07 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Robin Murphy <Robin.Murphy@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] dt-bindings: arm-smmu: qcom: Add Hawi compatible for
- Application processor
-Message-ID: <20260428-pristine-rose-whale-35db39@quoll>
-References: <20260427174915.3639641-1-mukesh.ojha@oss.qualcomm.com>
+	s=k20201202; t=1777359221;
+	bh=PcMY8rNtk+alf5ERoe5UCqYOPg+SjVnTOq5lid6Morc=;
+	h=From:Date:Subject:To:Cc:From;
+	b=CEFyPsVGr+7/LKa3Rq5imoYzwrjQKMUGio1kkxw2EmP/ynlOFMfyFt78g+XZDlkoF
+	 CGTaPvu9Shf3OKYSy2j6eCRTWi9ydgVv76LInuNK69Z1IEnPnWrAPcPABHHKSsvS3s
+	 DC+09hFOWxDpHGDfuY3sm2TuivkqqUJKRdqEaVWuKwEKfUT39TUlfp17wnAxTRpvNi
+	 z1rJeCHWASPJM21YXNkSRtdwY4U2JKzMgzeNW7V1ok/QuCyGIu/f+KQgab8+cZsbxJ
+	 T3hDk4jjy2jeJx7M2ONVg0agSdCuj/prjDfQLLeWC7oZXvPqVmlp6cI4prOPUmxX6K
+	 DRDBVJZOArY9g==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Tue, 28 Apr 2026 08:53:16 +0200
+Subject: [PATCH net] net: airoha: Do not return err in ndo_stop() callback
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260427174915.3639641-1-mukesh.ojha@oss.qualcomm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260428-airoha-ndo-stop-not-err-v1-1-674506d29a91@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MTQqDQAxA4atI1g04YfpDryJdxBprNolkBhHEu
+ zt0+S3eO6BIqBR4dweEbFrUrSHdOvgubD9BnZqBenr0mV7IGr4w2uRYqq9oXlEikNM9c5qfNGa
+ CVq8hs+7/8wAmFT7neQGmoir4bgAAAA==
+X-Change-ID: 20260428-airoha-ndo-stop-not-err-a154a1f72b42
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Simon Horman <horms@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,27 +73,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 27, 2026 at 11:19:15PM +0530, Mukesh Ojha wrote:
-> Commit 5e8323c3d528 ("dt-bindings: arm-smmu: qcom: Add compatible for
-> Hawi SoC") was intended for the APSS SMMU but was mistakenly placed
+Always complete the airoha_dev_stop() routine regardless of the
+airoha_set_vip_for_gdm_port() return value, since errors from
+ndo_stop() are ignored by the networking stack and the interface is
+always considered down after the call.
 
-Would be nice to see explanation what is APSS. We do ask for that every
-couple of months.
+Fixes: 23020f049327 ("net: airoha: Introduce ethernet support for EN7581 SoC")
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/net/ethernet/airoha/airoha_eth.c | 7 ++-----
+ 1 file changed, 2 insertions(+), 5 deletions(-)
 
-> under the Adreno GPU SMMU section. Since that compatible is also valid
-> for the Hawi GPU SMMU, keep that commit as-is and add proper
-> documentation for the Hawi APSS SMMU here.
-> 
-> Signed-off-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-> ---
-> Changes in v2: https://lore.kernel.org/lkml/20260422083329.885979-1-mukesh.ojha@oss.qualcomm.com/
->  - Not a fix commit after discussion.
->  - Not removing the earlier commit change instead add one for APSS
->    SMMU.
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index 5effb4a4ae84..f8b3d53bccad 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -1747,13 +1747,10 @@ static int airoha_dev_stop(struct net_device *dev)
+ {
+ 	struct airoha_gdm_port *port = netdev_priv(dev);
+ 	struct airoha_qdma *qdma = port->qdma;
+-	int i, err;
++	int i;
+ 
+ 	netif_tx_disable(dev);
+-	err = airoha_set_vip_for_gdm_port(port, false);
+-	if (err)
+-		return err;
+-
++	airoha_set_vip_for_gdm_port(port, false);
+ 	for (i = 0; i < dev->num_tx_queues; i++)
+ 		netdev_tx_reset_subqueue(dev, i);
+ 
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+---
+base-commit: 3bc179bc7146c26c9dff75d2943d10528274e301
+change-id: 20260428-airoha-ndo-stop-not-err-a154a1f72b42
 
 Best regards,
-Krzysztof
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
 
 
