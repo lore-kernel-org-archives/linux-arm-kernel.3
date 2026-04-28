@@ -4,118 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE5A4FF8867
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 01:32:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BECCFF8864
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 01:32:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:To:
+	From:Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dkNNLielDoU+waGJTxz6K7Cs44v4hc05yCRBP0rYkY4=; b=eRxECawMhuXcDAcQCR9R/+RCJP
-	NigONrgF1pJ4WTJj00h/7Y17WwLjs0FnZ13v/Xvsg79X/suzHdqYOnIo8OClGV+nGNRdIsYt3iRl+
-	LVzh22vrfYmngkXJhLcjl7E5SjMWDswSxf5qd8BroLbYke8SFf/NrGHB0aTz0QOCIy8rsFfP00N7a
-	59WtOW6U6tnBFCHxHnqiHPsU5v3ezQc+KpiZ54d0bUGNgHNeJ3Xw4ZLmaW92cwdnqHqhzqR3KWZrl
-	sNSnHX4OpCvuLBvQlvH7umplNHqtEQBLmyES91Fqx6uT1A57MjA5n3qqpMVV1aIXSQYSOfk/f7H2+
-	M0BO0wog==;
+	bh=2PMSr9SUypRFje2+As/Y2378jivS1IQ2hBaeRfXknxc=; b=1apx0/1ScQ+0ssCxaveax+eLzg
+	YE/1K8LI8wKflcPuR8rqPVYkH1W78NOWltIfK/YHpvy0YjshSsbzr8LdB0Nw56siB3/mEJ+2G/r7u
+	wr9V2KYAq3lXK1QINSKdf1cFnbXrsHy3ybWG7/7WT/Dd7OoyirX8/42tvE+EFfHv3IZ2sb+cECz2a
+	arWUwxDE98QWQ1a+iSsKHQNx/074ePM8MNaQ76PT+nrCrfB2w0BdB1tKV3yq9t4C7uCZ+OQwawCbS
+	CXw0jO7c5OpZkEOkrEVqTiIMQGWLBiN3urfwI3v5PqeJJkGZhBOxbcjfQSsvUkLYqRMp6MJidt2p7
+	PYJmJIcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHXJ0-00000000OBC-3stJ;
-	Tue, 28 Apr 2026 01:32:06 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1wHXJH-00000000OEt-0zKZ;
+	Tue, 28 Apr 2026 01:32:23 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHXIz-00000000OAk-0Dcp
+	id 1wHXJE-00000000ODq-13Jc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 01:32:06 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-35691a231a7so7208311a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 18:32:04 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1777339924; cv=none;
-        d=google.com; s=arc-20240605;
-        b=OkvxbpnTTOnm0gNvMBZglWJel+9eVrE8MRZiDGwOLeTYqDz3GzodoQRjIUHsSLGIjE
-         yoSRONBlJjNLBH8OYySYduniBLx4uyHY72L1OLtacE+buNea2ZKJ0M9kn1vmwHfGV/xU
-         O49FokjZr7nzLDM3XRu3jgvrfoFsui1gRwW0/MMHnlLXoax+W37Jinqwe4v0a+OiJeQB
-         qb2TPpV1Eue4/G0WkItvnN+v+UW6AQpqG2cD92j5wX+9gDLyMyvnxxL27dU3W1BOPRBI
-         SJaTaQWaWi8UNivnz4/qwAajVi/9hnMLIwOFzAqiwtL9w/9mTqdBTaQj8p7xFaHR87VI
-         7Few==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=dkNNLielDoU+waGJTxz6K7Cs44v4hc05yCRBP0rYkY4=;
-        fh=29naxOBM8vnn4Vs5DgZtjg9XbwQ8fKC5Q3lP/3R9G98=;
-        b=EZPi6/YYWNGSFLiA2pzdsJXoxtntWK7lT2HLXmOk7w3P1kCQoL5L3RG5RdIhzbpUjL
-         4fPhfAGQXRMirTxlxt+HYTfgzgyihD1e0pyafp+JvFP6M04qEpHh6r/vW6HJ7JnLtp4c
-         JlhK8jNHtkiFLlhDJGNt6vURomOfnYSm+k/Bo6RnEmyXgfrfGvuIAjXhA2zaaChZJw8/
-         CbcFiQl92B4elujjClcUzQApQ7CCFABl+KLDFdA/kC3Z9UdSUzMJhd9zVBi4JWicjWT4
-         iK0C9X55ZfywOM7Vb7Uky6c53EDnTX2w2IJbuagS2d+wWroZHSXCobL/F5zemC0zaQfC
-         Lshw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Tue, 28 Apr 2026 01:32:21 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2b941cd869cso16144425ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 18:32:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=paul-moore.com; s=google; t=1777339924; x=1777944724; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dkNNLielDoU+waGJTxz6K7Cs44v4hc05yCRBP0rYkY4=;
-        b=METstM+SAtHa7JH9zsrvqp/aosMvktd/kFDZoQRLqJElkbLqhl7+d2Tc/Ecelhr9zf
-         +bBzYis2zZ2Kz3MVIsxmvaCFHGYnYZ9tcicDzOmhXOhCxPjwlVkKRaO3/rvdWGnKhlle
-         ErvKtCiixlBn+zy40sE/lC6XMu/0zw4GGSnUBSKPkAd668IKRmqKIfm2wKWaRVAcbJ7K
-         Rl9yhjcEnCGIwJWAlW7eHga7ovsYtT309eQ9dmBJ5aMEdCy4HG4ZyRUJrj2Bbj/27pL/
-         vqaZmSfCczHvruXGPAwTWUhKeIDTLwcV2PWHZM9RbmqNhJHLv2IhKDwE8fdeiYu8H9iA
-         uvTw==
+        d=orb-net.20251104.gappssmtp.com; s=20251104; t=1777339939; x=1777944739; darn=lists.infradead.org;
+        h=references:in-reply-to:content-transfer-encoding
+         :content-disposition:mime-version:message-id:subject:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=2PMSr9SUypRFje2+As/Y2378jivS1IQ2hBaeRfXknxc=;
+        b=OVqdSwwJRlIfGG8I17QVvMPlK06vPqpppLmqEoy00G/HDQQOASwAWqHcJKITNF7FR/
+         SsGlsSX1BUAp4Z/TfSBX+a42dCotrw4GNMRFFY7MZTlNC7HQ5JQaQgupLmGOYm6km6wJ
+         Ka2jxaoLUPDzOfcc/aVUshCAMWr/MLrPHfs5alp7RWzf9anmbauI6aAKwCg0vOMV4ThI
+         dfGLF1jLVR73O7vAGzqe8hXZ0I6uQgkQ2rqlyGHB7al6+ER2ys9WEE9+w/lKNmKWYbGL
+         BLZQZgkBLx5EVVBKDzn2QhIkDFCqqoO7lWYH2j+Z28t1dU680VsNqy2VayyLabib8dCi
+         xc1Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777339924; x=1777944724;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=dkNNLielDoU+waGJTxz6K7Cs44v4hc05yCRBP0rYkY4=;
-        b=NrwNhyVThsMOE1b3Nqh8lfNIwv95/Gq+1T7yPe1+rJYYORyUwcFCaiYzbHIZq5B3HJ
-         5HCWkY2ClXIWOK4DaQOpb37d2EF/+gLD/F4v56sSVevuiOsLUmewAQBDeT2DUBvpu3KD
-         yIMnyB/fuqYuTJ9eqqg3qrJ6vygyZfU/y806QFpAqb/Lu68zE+FlO8IvUeSM9sh17QQL
-         4QPF7puravuTKa9zn2r6IfRgI04EQ5iGU3btJNDZmU9EjT27qNRiBo1wRc8NOeHLnwY0
-         Wm9ZCZ7Eq/iGxhEPHnB/48lIHfwXl6zEJBpnWB0lO7PzoIuzwncrsOqqPSxBoisQEl15
-         l0yA==
-X-Forwarded-Encrypted: i=1; AFNElJ/aDQafwUa0lQz+9PyfK9tz+/bbqcL3a9F3ZE7Uzi+HVDrLfoek+0+pzdHaseX+GqwasVIODh3DjNIAtiQnZtrb@lists.infradead.org
-X-Gm-Message-State: AOJu0YwZvUkil7G7Au6yyZa3DJoeE6u6IngH7J7fvHjvuwp386DFW/eD
-	qdRj2JRWjNx4guURt7UG12VXMoAyHFHLLzPVQ8JwVEcFjNZqVpe2D9alYI6wjKh9b/D35GnPvST
-	eFsjx+5rM1EAlxDI0V87YGZrFhiI8WdsAWf6drLdt
-X-Gm-Gg: AeBDietlJx73iJIDj+S2xJtmK49WX2i2i0X8pN1AWx/6JzPIXzJjQRMX7EhQfp6AbqJ
-	68U0LHS1275oC7Z2edYIgRuRLYXUFY1uIzcmuoa5nIjxl0aQhmhpgI5R44MoIQz6P7lDjVUwO2Q
-	YujYF+a++ae05Kuu/B1j6HQ0BRfnqC3NA934SGHA7xdxS8pQopE11F+3urIvD8pnzMSPdrdblrK
-	LXSab8ndxUC3aJXBSrgHR1DXwZubv79YCd90qoJK5aNxO/J3AFnHWNw+MxOQIpTQSM0oP9e/HWw
-	gEcVxddukeiPxpcobQ==
-X-Received: by 2002:a17:90b:52cc:b0:35f:b714:e516 with SMTP id
- 98e67ed59e1d1-3649202f6b2mr1031930a91.16.1777339924049; Mon, 27 Apr 2026
- 18:32:04 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1777339939; x=1777944739;
+        h=references:in-reply-to:content-transfer-encoding
+         :content-disposition:mime-version:message-id:subject:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=2PMSr9SUypRFje2+As/Y2378jivS1IQ2hBaeRfXknxc=;
+        b=jM8GIu7uAoJOQ7xpyzWU+us24fHCIhMKjKu4aa6iHCJPLgAL3q9YYW1L0m5lrl7SLi
+         ekmtSgEF5NbzrETGN01S+QYsorSSKXzg4ahbp+kO9/OOCsus60kNZ1YByy+mhE2T7lv+
+         jr/sh6LbIpy5TYpAabeB4KrqeyytYoTdhRiHo8urqRjmjejor0qeiN3nNrWUNJh7jO9R
+         Mjy/a5N0Lh2qy17FPtPpZuVYIxX43f0UhMuhNtqGwFuE1/3T/eEsZNLoaLqiVxwP7PHG
+         EERZN8QmJpBjLBXyl3WSt0r8wfrlXIylMvKGvntawMlxhL645UOpeRXXfiapJIsOBKAG
+         PNyw==
+X-Forwarded-Encrypted: i=1; AFNElJ9Zz/fXNKnHsESJuIkN8/VYlneagJ8lBCgFvUHCaYBRTr/A/BuEXnaOu7h5LxgBeGA6golcj3+TxQA4dviLBQlX@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVlvVn5F3ikGSKEZnfa+8/y5xCSj449GCplX4nuh+kwriTjc1B
+	xzK6dXgsgZXUCkTpTvMxbZj3r2c2UwWxMRJRiz+UZ80Wmv049otg0DUZoUKwVh8ix4w=
+X-Gm-Gg: AeBDietzPw1fFVTOBF5etSsRPML0ewQL0CcEsnVGoqozOvyVANP50GaQC2MYhw/6o1C
+	18EJuFVOvqAa/sB1beFyDilxhSRWhwDnT1lyhFsbC0k8zrJOtNPiQxGNOUUHclMXBRNsSh4sLRM
+	0Ndyr/qSr4NG2WMGWKEbd9G4+Vm6I+NbTMRtZgNj7XdhTJi43ouL5hcRtGuOJi5hBLIvaFjSVSm
+	N3et3Csbtc/R6HXuM0rjrN52Jvc+OIyHmbYZI1M0r6ZFONc+nI5KbF8GWluNb0oISQCsn8WmoxG
+	+N1RYTzIFf6YvO1TwVtSud8vL87DtBja14RVvoqUEHrcYCz8FKV1SXuXE+jZ3+StmaqDdS+H8gp
+	QBGf85mGD5+VRWv1erAKesG2v/sSJdve6Qava5pYGp9yaoj4046VARt5K8xvdvRepvr5NENWUpi
+	TLVDd0EQ8QlNeAD5JcBs9/4p27+hUvM5iZojl8NvNP/KBBb2MxxxSjMnpT8bi3V9MLrOK1SwJCj
+	b1ejiitLsw=
+X-Received: by 2002:a17:903:1cd:b0:2b7:a89d:6135 with SMTP id d9443c01a7336-2b97c3fab8amr9326525ad.13.1777339938955;
+        Mon, 27 Apr 2026 18:32:18 -0700 (PDT)
+Received: from claude-dev ([50.125.94.20])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b97ac78880sm7441665ad.40.2026.04.27.18.32.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Apr 2026 18:32:18 -0700 (PDT)
+Date: Tue, 28 Apr 2026 01:32:17 +0000
+From: Daniel Bozeman <daniel@orb.net>
+To: shawn.lin@rock-chips.com, finley.xiao@rock-chips.com, jonas@kwiboo.se,
+	ulf.hansson@linaro.org, heiko@sntech.de, linux-pm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] pmdomain/rockchip: skip QoS operations for idle-only
+ domains
+Message-ID: <afAOIfNcy73GC7lU@claude-dev>
 MIME-Version: 1.0
-References: <bd908e28298d968740d03c97bc7e441de188b7b4.camel@linux.ibm.com>
- <aeokwrC86WI7uT+K@e129823.arm.com> <aeomlp3I0eVE5mce@earth.li>
- <aeotq8nPVu4wvEx5@e129823.arm.com> <e4e242ae5533d5762a3647186a178764881bf9ff.camel@linux.ibm.com>
- <aephL3MzYoqFGaT5@e129823.arm.com> <CAHC9VhRQWHEWQ5NzOPiu8jtYv6UsRm8WVS4fd74AbkOcAd4y_g@mail.gmail.com>
- <aesGU8a3mbVzvteH@e129823.arm.com> <CAHC9VhSaT_quKYnpFjAfqvL07JNbWMgM6c4pB9F46NHawX3DCA@mail.gmail.com>
- <014cf39aa8d6a0bcfa1a95c069675977ac67b843.camel@linux.ibm.com> <aexIwJpno3iPIdRD@e129823.arm.com>
-In-Reply-To: <aexIwJpno3iPIdRD@e129823.arm.com>
-From: Paul Moore <paul@paul-moore.com>
-Date: Mon, 27 Apr 2026 21:31:51 -0400
-X-Gm-Features: AVHnY4JvmD_vpNd2uBimzy27N58OmiHGYAhJK_BGt8LuvH5xnPjA0AMhCSfE4Tk
-Message-ID: <CAHC9VhRT1v3mM9CFvz7Dh5Zrv_MF3vgBk+BZ=q8wOMkPB6O6Fw@mail.gmail.com>
-Subject: Re: [RFC PATCH v2 1/4] security: ima: call ima_init() again at
- late_initcall_sync for defered TPM
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: Mimi Zohar <zohar@linux.ibm.com>, roberto.sassu@huawei.com, 
-	Jonathan McDowell <noodles@earth.li>, linux-security-module@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-integrity@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	jmorris@namei.org, serge@hallyn.com, dmitry.kasatkin@gmail.com, 
-	eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca, 
-	sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, will@kernel.org, noodles@meta.com, 
-	sebastianene@google.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <adRH235mv00OdOsb@claude-dev>
+References: <20260331180223.1682283-1-daniel@orb.net>
+ <5c8732a3-6cc9-5d02-f56b-fc7ba29c7ce0@rock-chips.com>
+ <fbf16b5a-1565-39c9-0d92-33a7a577212f@rock-chips.com>
+ <f1b9a97a-f1f9-0757-5dc7-33960318be61@rock-chips.com>
+ <693c6c27-6ff2-4ab0-994f-3821e5ffcec8@kwiboo.se>
+ <adRH235mv00OdOsb@claude-dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_183205_089534_114B4315 
-X-CRM114-Status: GOOD (  18.72  )
+X-CRM114-CacheID: sfid-20260427_183220_666628_21013F40 
+X-CRM114-Status: UNSURE (   8.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,29 +109,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Apr 25, 2026 at 12:53=E2=80=AFAM Yeoreum Yun <yeoreum.yun@arm.com> =
-wrote:
-> > > I understand the need to ensure that the TPM is available, but if it
-> > > isn't safe to wait to initialize IMA at late_initcall_sync() then it
-> > > would seem like this is a bad option and we need another mechanism to
-> > > synchronize IMA with TPM devices.  If it is safe to initalize IMA in
-> > > late_initcall_sync(), just do that and be done with it.
-> >
-> > Within the same initcall level there is no way of ordering the initiali=
-zation.
-> > Yeorum attempted to address the ordering issue in commit 0e0546eabcd6
-> > ("firmware: arm_ffa: Change initcall level of ffa_init() to rootfs_init=
-call"),
-> > which is being reverted in this patch set.
-> >
-> > Ordering within an initcall level needs to be fixed, but for now retryi=
-ng at
-> > late_initcall_sync works for some, hopefully most, cases.
->
-> Ordering within an initcall level is not good idea.
+Hi Jonas,
 
-Agreed.  That's why we have the different initcall levels.
+Just following up — I have the NanoPi Zero2 on my bench and am
+happy to run any tests if that would be helpful.
 
---=20
-paul-moore.com
+I can confirm the EPROBE_DEFER teardown crash is still
+reproducible on your next-20260403-rk3528 branch (7.0-rc6)
+with your conditional NO_STAY_ON fix applied. If you'd like
+me to test a different approach or gather additional debug
+output, just let me know.
+
+Thanks,
+Daniel
 
