@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B121FF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 12:23:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADD2DFF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 12:27:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fYJCSm6wgowAgZmiwKu6C8VRixo00bh0TnRm/Wy4w0I=; b=uamrFrbe5ra3TW3tOyDbYsOqAk
-	82GdlUJLHqfY+0E7OcKI3GST6PBqDYbs+eGyG1oicGKIjx+CF0xgiPRgQnSWktTFEj7u8k5GMCeb6
-	yCt3csv9uXYUb6hJdw61dBiEOERr3ocDFBZGTqJh/yDVfHtxhvSLHXAmaC1svdAIXTqWpdHfWIPe0
-	RHcmAoVvUJ+ivfkcQUBPBRYBbvIso/g7KzO49B1f4YYDCI78YKILH8MXXs2weeQvt+xIxuAy8su27
-	O9xvrdifcSJaBmV+OhJ5uojJ+mjgl1zzpA8uvIx0ErHRlY+4uzReCa8edbhnpeJQQpDob74fLXWNV
-	zx27vDYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J+nw3VMRR8gk+12f/ytlqVALMzBItCfI1AiNwTibeto=; b=Zpo8TRtbam/nNnjM3h37pcV94I
+	90/xQKo/zsFxNEespGfxC3RTdxVfVfvnWv24w/wI9NPtAk/kLyM4GCqtu45Yt1ASz1ASuK/GIJ1Rr
+	8BqRmedMX30VycX9Gt4GVSlOrJ2w8Iihehgi4ZRz6l88DxYmh3hhSaTAQ9zEZr+kn2xtmVSFUvkkQ
+	StmkhSEaFKZdzFdrVFLPMYCw44GuNKpWLHdR/L5YGAYWWUdIITKbninHZDo3R10hYRQsE+z++Aq7v
+	2TbAyMcGPE4vMuf3Dd/uJDOTsASNl/T4NlEHzbbQENVSIG9xXm2r8dYNCWalU5rarxq9T62NhsUj5
+	dpinOxHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHhT3-00000001Qdv-2cwj;
-	Tue, 28 Apr 2026 12:23:09 +0000
+	id 1wHhXK-00000001R34-3eAe;
+	Tue, 28 Apr 2026 12:27:34 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHhT1-00000001QdF-1soA
+	id 1wHhXJ-00000001R2k-0dhe
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 12:23:08 +0000
+	Tue, 28 Apr 2026 12:27:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 728014183F;
-	Tue, 28 Apr 2026 12:23:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 828ACC2BCAF;
-	Tue, 28 Apr 2026 12:23:02 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AC82A405F6;
+	Tue, 28 Apr 2026 12:27:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0504EC2BCAF;
+	Tue, 28 Apr 2026 12:27:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777378986;
-	bh=/cgTwP4dVrqVBYCu9mCqvRCLnKQIAeJP2R2JZuStN2M=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=B+hNiy22GhFE6eJOuKC9QIAS1am5uKKbd/1fcLFLp7M7vJW4OeBwBe+/v1Knk2u/Y
-	 e7NVY9OtKjSYyY3cxE9Dl0JrHrYwDCDfhRy2CBTOpAszVKppl5kLqq95I2O0NE8fA8
-	 OII0jIjsGcjmojZrjB/bW3tPC61JMyL8NWxWor/uYyBJVWEEvxJTeQInt/76wL8hOH
-	 yvCJJX8Mo3/5Ky6QmakrSMcY/4NFniNptOF8l0TTcGjzP6H/KXdK3FQSeByK4Tr6+B
-	 io4XPoRYM5CeWlg4eeGkYthsSD3grgKRg6PcRbpqK+/7+K+ZtN7eubOG6BZGNvKBGe
-	 v04Fc1wFmvIFw==
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-	linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v4 2/3] swiotlb: dma: its: Enforce host page-size
- alignment for shared buffers
-In-Reply-To: <20260427134903.GA740385@ziepe.ca>
-References: <20260427063108.909019-1-aneesh.kumar@kernel.org>
- <20260427063108.909019-3-aneesh.kumar@kernel.org>
- <20260427134903.GA740385@ziepe.ca>
-Date: Tue, 28 Apr 2026 17:52:59 +0530
-Message-ID: <yq5a7bpr1dgc.fsf@kernel.org>
+	s=k20201202; t=1777379252;
+	bh=oXW2BuxDEEJJgDVSv85Sq/XrKA16JupO5CMfYwPGdtM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TtFCNgTA2p/mjwznidoIND1qLBGVv3UQduA0gVwAsewf5q1TlbcO5jwTODxHc5JoN
+	 h1RCw0V5QVuBkeotKfTgdSjuW5CO2ySjpRm4tI+y7L7FuAqaa7Dp9QQ69H7u8Ehn7i
+	 IC7yJnJQPhLrycdgF17ueA+2wox7S8UIsB00pQqIZomyw2wX/EU2MWDh84xmHzN0sV
+	 DJ7XTFv3JBHxH6uuIy352oeNt9n8HWU1MprKg+AIjkg/gVuoVf2oa5dWa2tLl2fAmA
+	 c0QmFGBXbzw9Lt5wv4wdPuEWr6Ri4UVEuxyRnGA4fOBleln596cayCqahje7lwUg0V
+	 cLm2ZHZXfE+BQ==
+Date: Tue, 28 Apr 2026 14:27:23 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Ard Biesheuvel <ardb+git@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Liz Prucka <lizprucka@google.com>,
+	Seth Jenkins <sethjenkins@google.com>, Kees Cook <kees@kernel.org>,
+	David Hildenbrand <david@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v4 02/15] mm: Make empty_zero_page __ro_after_init
+Message-ID: <afCnq17NWvM4T4vC@kernel.org>
+References: <20260427153416.2103979-17-ardb+git@google.com>
+ <20260427153416.2103979-19-ardb+git@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260427153416.2103979-19-ardb+git@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_052307_537552_4CFDD617 
-X-CRM114-Status: GOOD (  26.01  )
+X-CRM114-CacheID: sfid-20260428_052733_214599_350FE411 
+X-CRM114-Status: GOOD (  20.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,121 +80,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Jason Gunthorpe <jgg@ziepe.ca> writes:
+On Mon, Apr 27, 2026 at 05:34:19PM +0200, Ard Biesheuvel wrote:
+> From: Ard Biesheuvel <ardb@kernel.org>
+> 
+> The empty zero page is used to back any kernel or user space mapping
+> that is supposed to remain cleared, and so the page itself is never
+> supposed to be modified.
+> 
+> So make it __ro_after_init rather than __page_aligned_bss: on most
+> architectures, this ensures that both the kernel's mapping of it and any
+> aliases that are accessible via the kernel direct (linear) map are
+> mapped read-only, and cannot be used (inadvertently or maliciously) to
+> corrupt the contents of the zero page.
+> 
+> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 
-> On Mon, Apr 27, 2026 at 12:01:07PM +0530, Aneesh Kumar K.V (Arm) wrote:
->> When running private-memory guests, the guest kernel must apply addition=
-al
->> constraints when allocating buffers that are shared with the hypervisor.
->
-> This patch has way too much stuff in it.
->
-> I think your patch structure should be changed around
->
-> 1) Patch to add mem_decrypt_granule_size(), and explain it as
->    the alignment & size of what can be passed to
->    set_memory_encrypted/decrypted()
->
-> 2) Add support for mem_decrypt_granule_size() to ARM
->
-> Then patches going caller by caller of set_memory_decrypted() to make
-> them follow the new rule:
->
-> 3) its
->
-> 4) swiotlb=20
->
-> 3) dma_alloc_coherent
->
-> etc.
->
-> don't forget about the new dma buf heaps too:
->
-> drivers/dma-buf/heaps/system_heap.c:    ret =3D set_memory_decrypted(addr=
-, nr_pages);
->
-> It is worth calling out in the cover letter that all the ARM CCA
-> relevant places are fixed but drivers/hv/ is left for future.
->
->> @@ -33,18 +32,30 @@ int arm64_mem_crypt_ops_register(const struct arm64_=
-mem_crypt_ops *ops)
->>=20=20
->>  int set_memory_encrypted(unsigned long addr, int numpages)
->>  {
->> -	if (likely(!crypt_ops) || WARN_ON(!PAGE_ALIGNED(addr)))
->> +	if (likely(!crypt_ops))
->>  		return 0;
->>=20=20
->> +	if (WARN_ON(!IS_ALIGNED(addr, mem_decrypt_granule_size())))
->> +		return -EINVAL;
->> +
->> +	if (WARN_ON(!IS_ALIGNED(numpages << PAGE_SHIFT, mem_decrypt_granule_si=
-ze())))
->> +		return -EINVAL;
->> +
->>  	return crypt_ops->encrypt(addr, numpages);
->>  }
->>  EXPORT_SYMBOL_GPL(set_memory_encrypted);
->>=20=20
->>  int set_memory_decrypted(unsigned long addr, int numpages)
->>  {
->> -	if (likely(!crypt_ops) || WARN_ON(!PAGE_ALIGNED(addr)))
->> +	if (likely(!crypt_ops))
->>  		return 0;
->>=20=20
->> +	if (WARN_ON(!IS_ALIGNED(addr, mem_decrypt_granule_size())))
->> +		return -EINVAL;
->> +
->> +	if (WARN_ON(!IS_ALIGNED(numpages << PAGE_SHIFT, mem_decrypt_granule_si=
-ze())))
->> +		return -EINVAL;
->> +
->>  	return crypt_ops->decrypt(addr, numpages);
->>  }
->>  EXPORT_SYMBOL_GPL(set_memory_decrypted);
->
-> This should go in the ARM patch adding mem_decrypt_granule_size() to CCA
->
->> diff --git a/include/linux/mem_encrypt.h b/include/linux/mem_encrypt.h
->> index 07584c5e36fb..1e01c9ac697f 100644
->> --- a/include/linux/mem_encrypt.h
->> +++ b/include/linux/mem_encrypt.h
->> @@ -11,6 +11,8 @@
->>  #define __MEM_ENCRYPT_H__
->>=20=20
->>  #ifndef __ASSEMBLY__
->> +#include <linux/align.h>
->> +#include <vdso/page.h>
->>=20=20
->>  #ifdef CONFIG_ARCH_HAS_MEM_ENCRYPT
->>=20=20
->> @@ -54,6 +56,18 @@
->>  #define dma_addr_canonical(x)		(x)
->>  #endif
->>=20=20
->> +#ifndef mem_decrypt_granule_size
->> +static inline size_t mem_decrypt_granule_size(void)
->> +{
->> +	return PAGE_SIZE;
->> +}
->> +#endif
->> +
->> +static inline size_t mem_decrypt_align(size_t size)
->> +{
->> +	return ALIGN(size, mem_decrypt_granule_size());
->> +}
->> +
->>  #endif	/* __ASSEMBLY__ */
->>=20=20
->>  #endif	/* __MEM_ENCRYPT_H__ */
->
-> I know it seems a bit small, but put this in its own patch and explain
-> how it works. I'd also like to see a kdoc here, and add a kdoc to
-> set_memory_decrypted() that links back so people have a better chance
-> to know about this.
->
+Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 
-Okay, I=E2=80=99ll update all the above in the next revision.
+> ---
+>  mm/mm_init.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/mm/mm_init.c b/mm/mm_init.c
+> index f9f8e1af921c..6ca01ed2a5a4 100644
+> --- a/mm/mm_init.c
+> +++ b/mm/mm_init.c
+> @@ -57,7 +57,7 @@ unsigned long zero_page_pfn __ro_after_init;
+>  EXPORT_SYMBOL(zero_page_pfn);
+>  
+>  #ifndef __HAVE_COLOR_ZERO_PAGE
+> -uint8_t empty_zero_page[PAGE_SIZE] __page_aligned_bss;
+> +uint8_t empty_zero_page[PAGE_SIZE] __ro_after_init __aligned(PAGE_SIZE);
+>  EXPORT_SYMBOL(empty_zero_page);
+>  
+>  struct page *__zero_page __ro_after_init;
+> -- 
+> 2.54.0.rc2.544.gc7ae2d5bb8-goog
+> 
 
--aneesh
+-- 
+Sincerely yours,
+Mike.
 
