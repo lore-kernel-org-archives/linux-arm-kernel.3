@@ -4,96 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17A7FFF8868
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 13:04:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68958FF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 13:07:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yvfWbNsf7kvzImbLhP8AA1uE2RBdkUT+264nPwInwps=; b=pRr0JXEcu4XRwvOv/jrI1c7BXt
-	XvGRrMB0wKnGJoQEDjbikfDCqnGUUShYx0bjnnahuZU16kiKUmWNMLYHOCeYGh/cnh6KNoaIZNIo4
-	xm2Q5TkQ7xWmHCdx57v0J9bVNgGDCeJfKSi+ZeGQstjew6e4jcJmw9SZwl2Y0oHlqcYt8+DvKVXhm
-	xTeopjjTdyVh5L62uEpFFZISIiS7DPAeIGGrhuIbftiZSt+PkTj/Gp8VY6jLj9Spwiwe0WH2U18B6
-	fNh+w1NmRbvJk6vy8YqpfeDPQPrRLxw2w0XLhUV5OBz5kUpVcqN0B6pQp4DnSI0901x0WBRq8E28+
-	kwoYd0xQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tBn8VqLDSKuQcw7PUXmOHeUfy7B2aRFPY4QqUqpeL/s=; b=ZGp3/Me5o/fWG8pyk+Ny/5zMzD
+	b7TUNxnhC6fVsc8sPx+z4FKidmaK/x8LTWKqZVldAO+zXMvV+8q5XvCuoo+gGPN1xsWoNeiY2KcYe
+	85rqNTz/0CCNi4NX1RgCqzuD1FIzinxorv2A6Dh2Syt8MM9geInL0563A6Kvkr+c9q4PcPZRdqo80
+	Gh9E5PpzT6UYdtYBo76jqeNkqp+Wt8gDAZKLj7Fqg3lbRJmBF+p16FPoFarOSIbDwuTcm82CGnL//
+	LeMd1vRnznzcJT7Mcb0CG1RpNsphkpwSDMoLr/OAn2+/NCpq5GQaRUXaDIwgCYCcKHKQKzqZ3l//y
+	8IWPt2nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHi72-00000001UL7-0e7x;
-	Tue, 28 Apr 2026 13:04:28 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1wHiAJ-00000001UaG-3cXl;
+	Tue, 28 Apr 2026 13:07:51 +0000
+Received: from jpms-ob02.noc.sony.co.jp ([2001:cf8:ace:41::5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHi6v-00000001UJs-3Wft
+	id 1wHiAG-00000001UZr-1wHH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 13:04:26 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-b9358dd7f79so809045866b.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 06:04:21 -0700 (PDT)
+	Tue, 28 Apr 2026 13:07:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1777381460; x=1777986260; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=yvfWbNsf7kvzImbLhP8AA1uE2RBdkUT+264nPwInwps=;
-        b=GiVXuf8cl3tuOqnHlBb+yq8JSU8nN5k1ADgMef82z0L9xsCZpaw55W2bnLz3UpidTU
-         nhGk/IsedTO5bq6WMW2BJuA0wlOVXTL9aHevdnVf7Pq5Z/8dNhz8BJDPysmuE+0EQx7d
-         y81EWCmXhQajruccpdkhiJPIXn0MJ/l5kN81JIiyE2dFt7LhVeWQMBIxG3Pf8deHlLoi
-         4z/tgcujl5jDHO+DIK+v+GJM8NIs2puK+4QPH07VTERrhvonANxtdWiwcw3F/+f97bAb
-         bQ2DRAV3QwWJ0f046QiMgOooPyuKMUPyGMgs1VxyO4mCbDEZD1Bg8nMF5YOzWx1/MTry
-         Zirg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777381460; x=1777986260;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=yvfWbNsf7kvzImbLhP8AA1uE2RBdkUT+264nPwInwps=;
-        b=aeyHwDoyf4MlSIHj0lNyWSBiyNlK/OUgWmzVOWpgn5S1rhunU8jJK1UICMIKKSdQbr
-         zw4EfYcInIUEARHcgKCICmVpfqA36TZPE1AeJ7m8l5N18eIYt0AFEIfqBF/uYlIuZ+vi
-         j3fRYueA4JeYbSNtzZSPnqhYRFSZtUxazJwqX8HgYQcyr/KyBbgMYNsuo3Zulqz5+dpe
-         nO+tDEVrXOUhNl0NPvcoXPzRP1VyMP9lWbQTRvQjmj5UFcFbvaCqr06xXwazTRCVYUoE
-         xp4rKYVFokOPdVRBs3NKrNxiZ1UBLxgnz2QeYP0VokJNmEiDky846Wc45ProE+voZoB2
-         1zWg==
-X-Forwarded-Encrypted: i=1; AFNElJ/P8jovYdCMAjI8p4OgV6Tx493HwH8lutalgALtr5tVVfcVxY/OAQjb+gmijf3zbG918UeKlN1k76+6JOYViStg@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6S1p/3RkUhMLsQQ56QOmKSk0nCmEo6lPVNrX7xSk/cwci0Efl
-	eJnTZkDeEuKaPb6Hr/e9Pv7CtbdKXXj0cnp6ed1sYwvjrkrPxF2pLYwO2Xjb8pR9wgpuvGyoxCb
-	85oOKh04=
-X-Gm-Gg: AeBDieveg9Pry6rYLSvpo7iGEbeXBig7us9gdfJMo9ob2rePFtnhVAOi0Bj/1gnJErD
-	LeWUdxUenMEPeVPXp6QnKkbh3bM0pjyS1NlDzpls+vK9j90C8cRRoQMoTY+UxejmITFOGx/KGO2
-	QPyM+T07kMgKwLKLIrLU5iRZ5eWPHS4kqLfUU2jSHy4kYoimKfcydvfz1WbyVox15rhKUXG0Sn1
-	LN257g3caXCjUzq6MFAStx7uFjPCkgMOfHHY7aoDlAIsc3lJVilJgrxeju3mUNtQQYbJyAiMPXM
-	n3OtPZ9IBzf5use+9Odxu/f6cUk2xuIVVGawPnrLku28rClz5RMU6v7rYmPLlINkrrJhZ8hCFnR
-	wcY2/i6Av0voJMTWZN2LuXsrPFFwnsTkRo5xx6OTwLuyealK3Tap7j+Hac2zGZOnZBUXCEaTPP0
-	hfEce6NEEdIgDPhBDQri5tnBYivfrRy0zTiWsNHpI9ihEuPwuaU9knUw==
-X-Received: by 2002:a17:907:9454:b0:ba7:e3ee:47a1 with SMTP id a640c23a62f3a-bb8018dccb7mr182160466b.4.1777381459520;
-        Tue, 28 Apr 2026 06:04:19 -0700 (PDT)
-Received: from [10.11.12.108] ([79.115.63.228])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-679b685290dsm754196a12.24.2026.04.28.06.04.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 28 Apr 2026 06:04:18 -0700 (PDT)
-Message-ID: <60f71fd7-1079-4936-b4b0-9d45a2c112ce@linaro.org>
-Date: Tue, 28 Apr 2026 16:04:16 +0300
+  d=sony.com; s=s1jp; t=1777381669; x=1808917669;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=tBn8VqLDSKuQcw7PUXmOHeUfy7B2aRFPY4QqUqpeL/s=;
+  b=h8+nnWSpinkZLolHSI1DrjI29pyZX8USFdhNcfMp8U+ntfearbgDI+bW
+   F5jTVuZ5RIl/BJtqTLPCBCSF2mEixmZysvxmzoB5qG+Bj7OdkKNZf7zWx
+   pGrou+zUc3BLZmGm20Bw2ieLQjFqPAx6KN2MlLv/WOa3UhRecahI4e8Vy
+   YOqSz38XGsgdJHWRDwVzyTRcLozAM5L1W0IiEwDXN08ApCIXH2BLs7QL3
+   RiaiSA4f/5At9umxNNdv7wcZOjGxerCUN+UJmqV9te7Kq1+nXJiINFlr1
+   /K8vvLhBtzEnGMyWHrMfOWs+SlT/cnJER0sLoygvY4ZB7eqbwyOAea7wA
+   A==;
+X-CSE-ConnectionGUID: oDcvBipVSHuflW/pAloYiw==
+X-CSE-MsgGUID: xpJuB0y2TJOdlooJ8gr/HA==
+Received: from unknown (HELO jpmta-ob02.noc.sony.co.jp) ([IPv6:2001:cf8:0:6e7::7])
+  by jpms-ob02.noc.sony.co.jp with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Apr 2026 22:07:44 +0900
+X-CSE-ConnectionGUID: dQXwq35VQs6FZkNfdUoPYQ==
+X-CSE-MsgGUID: CInvrjD1Rz2rtwWAUCwLvQ==
+X-IronPort-AV: E=Sophos;i="6.23,204,1770562800"; 
+   d="scan'208";a="604129736"
+Received: from unknown (HELO JPC00244420) ([IPv6:2001:cf8:1:573:0:dddd:eb3e:119e])
+  by jpmta-ob02.noc.sony.co.jp with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Apr 2026 22:07:42 +0900
+Date: Tue, 28 Apr 2026 22:07:41 +0900
+From: Shashank Balaji <shashank.mahadasyam@sony.com>
+To: Gary Guo <gary@garyguo.net>, Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>, Miguel Ojeda <ojeda@kernel.org>,
+	Boqun Feng <boqun@kernel.org>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Petr Pavlu <petr.pavlu@suse.com>,
+	Daniel Gomez <da.gomez@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Aaron Tomlin <atomlin@atomlin.com>, Mike Leach <mike.leach@arm.com>,
+	Leo Yan <leo.yan@arm.com>, Rahul Bukte <rahul.bukte@sony.com>,
+	linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, driver-core@lists.linux.dev,
+	rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org,
+	Daniel Palmer <daniel.palmer@sony.com>,
+	Tim Bird <tim.bird@sony.com>, linux-modules@vger.kernel.org,
+	linux-tegra@vger.kernel.org
+Subject: Re: [PATCH v4 1/4] kernel: param: initialize module_kset before
+ do_initcalls()
+Message-ID: <afCxHUrjr3Z22U6V@JPC00244420>
+References: <20260427-acpi_mod_name-v4-0-22b42240c9bf@sony.com>
+ <20260427-acpi_mod_name-v4-1-22b42240c9bf@sony.com>
+ <DI3Z28IZZOT9.349TTWNN9VDMB@garyguo.net>
+ <afABOMT_s9DvF6NY@JPC00244420>
+ <DI4QQA6EGIA1.N8WRFWVKG91S@garyguo.net>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 5/6] firmware: samsung: acpm: Fix out-of-bounds read
- and infinite loop in RX path
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, peter.griffin@linaro.org,
- andre.draszik@linaro.org, jyescas@google.com, kernel-team@android.com,
- stable@vger.kernel.org
-References: <20260427-acpm-fixes-sashiko-reports-v2-0-1ff8de94a997@linaro.org>
- <20260427-acpm-fixes-sashiko-reports-v2-5-1ff8de94a997@linaro.org>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <20260427-acpm-fixes-sashiko-reports-v2-5-1ff8de94a997@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <DI4QQA6EGIA1.N8WRFWVKG91S@garyguo.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_060421_890471_E1C044AD 
-X-CRM114-Status: UNSURE (   6.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260428_060748_750003_CCE3341C 
+X-CRM114-Status: GOOD (  30.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,14 +110,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Adding Tegra maintainers.
 
-FYI, I checked sashiko's review on the set, and I shall act on this patch
-and extend the checks for tx_front >= achan->qlen and add zero length checks
-for qlen and mlen that were read from SRAM. I'll do that in v3.
+On Tue, Apr 28, 2026 at 12:10:50PM +0100, Gary Guo wrote:
+> On Tue Apr 28, 2026 at 1:37 AM BST, Shashank Balaji wrote:
+> > Hi Gary,
+> >
+> > On Mon, Apr 27, 2026 at 02:29:55PM +0100, Gary Guo wrote:
+> >> On Mon Apr 27, 2026 at 3:41 AM BST, Shashank Balaji wrote:
+> >> > module_kset is initialized in param_sysfs_init(), a subsys_initcall. A number
+> >> > of platform drivers register themselves prior to subsys_initcalls
+> >> > (tegra194_cbb_driver registers in a pure_initcall, for example). With an
+> >> > upcoming patch ("driver core: platform: set mod_name in driver registration")
+> >> > that sets their mod_name in struct device_driver, lookup_or_create_module_kobject()
+> >> > will be called for those drivers, which calls kset_find_obj(module_kset, mod_name).
+> >> > This causes a null deref because module_kset isn't alive yet.
+> >> >
+> >> > Fix this by initializing module_kset in do_basic_setup() before do_initcalls().
+> >> > Modernize the pr_warn while we're at it.
+> >> >
+> >> > Suggested-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+> >> > Suggested-by: Gary Guo <gary@garyguo.net>
+> >> 
+> >> I didn't suggest this change :)
+> >> 
+> >> I suggested `pure_initcall`, which is just a one line change.
+> >
+> > Oops, sorry about the misattribution.
+> >
+> >> diff --git a/kernel/params.c b/kernel/params.c
+> >> index 74d620bc2521..ac088d4b09a9 100644
+> >> --- a/kernel/params.c
+> >> +++ b/kernel/params.c
+> >> @@ -957,7 +957,7 @@ static int __init param_sysfs_init(void)
+> >>  
+> >>  	return 0;
+> >>  }
+> >> -subsys_initcall(param_sysfs_init);
+> >> +pure_initcall(param_sysfs_init);
+> >>  
+> >>  /*
+> >>   * param_sysfs_builtin_init - add sysfs version and parameter
+> >> 
+> >> pure_initcall is level 0 so it happens before all other init calls. Does it not
+> >> work?
+> >
+> > tegra194_cbb_driver registers itself in a pure_initcall too. We wouldn't
+> > want the ordering of its registration and module_kset init to be link order
+> > dependent.
+> 
+> It's the only device driver that does this. And I don't think it's supposed to.
+> 
+> >From documentation:
+> 
+> > A "pure" initcall has no dependencies on anything else, and purely
+> > initializes variables that couldn't be statically initialized.
+> 
+> I understand that given large amount of drivers registering themselves during
+> core/arch_initcall that there might be regressions if all of them are moved, but
+> surely we can demote these two specific tegra driver to core/postcore_initcall?
+> This will still be called earlier than init_machine call which happens during
+> arch_initcall.
+> 
+> Looks like the tegra CBB driver is just doing error logging anyway.
 
-The rest of the review feedback doesn't apply, so together with the changes
-proposed in patch 4/6 that will be all.
+That's a good point, Gary. Thanks!
 
-Cheers,
-ta
+Hi Thierry and Jonathan,
+
+You can find the context for this email in this patch:
+https://lore.kernel.org/all/20260427-acpi_mod_name-v4-1-22b42240c9bf@sony.com/
+
+TL;DR: tegra194_cbb_driver and tegra234_cbb_driver are the only drivers
+registering themselves as early as in a pure_initcall. This is a problem
+on two fronts:
+1. Philosophical: As Gary pointed out, pure_initcalls are intended to purely
+initialize variables that couldn't be statically initialized. But these
+are doing driver registrations.
+2. module_kset not initialized at pure_initcall stage: This is needed to
+set the module sysfs symlink. Since module_kset is not alive yet during
+pure_initcalls, registering these drivers panics the kernel.
+
+We would like to do the tegra cbb driver registration in a core_initcall
+(or some later initcall works too), and move module_kset initialization
+to a pure_initcall. Like this:
+
+diff --git a/drivers/soc/tegra/cbb/tegra194-cbb.c b/drivers/soc/tegra/cbb/tegra194-cbb.c
+index ab75d50cc85c..2f69e104c838 100644
+--- a/drivers/soc/tegra/cbb/tegra194-cbb.c
++++ b/drivers/soc/tegra/cbb/tegra194-cbb.c
+@@ -2342,7 +2342,7 @@ static int __init tegra194_cbb_init(void)
+ {
+        return platform_driver_register(&tegra194_cbb_driver);
+ }
+-pure_initcall(tegra194_cbb_init);
++core_initcall(tegra194_cbb_init);
+
+ static void __exit tegra194_cbb_exit(void)
+ {
+diff --git a/drivers/soc/tegra/cbb/tegra234-cbb.c b/drivers/soc/tegra/cbb/tegra234-cbb.c
+index fb26f085f691..785072fa4e85 100644
+--- a/drivers/soc/tegra/cbb/tegra234-cbb.c
++++ b/drivers/soc/tegra/cbb/tegra234-cbb.c
+@@ -1774,7 +1774,7 @@ static int __init tegra234_cbb_init(void)
+ {
+        return platform_driver_register(&tegra234_cbb_driver);
+ }
+-pure_initcall(tegra234_cbb_init);
++core_initcall(tegra234_cbb_init);
+
+ static void __exit tegra234_cbb_exit(void)
+ {
+
+Would this work?
+
+Thanks,
+Shashank
 
