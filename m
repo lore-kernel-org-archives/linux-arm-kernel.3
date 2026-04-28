@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5418CFF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 15:23:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46BD9FF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 15:24:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CiqKgrN/QBWNqXlOu6YtEZR5uiy/ND3IRv9wIKu1+nw=; b=tPk9QuagaOc1j2I2/LAPA+X419
-	i/5pVfG0zrJw8f6ez/wobRn3Ugice067HI7n/CoQkWg7giqTuTzRPFwmRtVi4PRUvKChOqqlNCZv/
-	NyOxanSUP6OvzH8FpiJf+PPudmgkOj0Q7vBvYNlwhs1QrjtZThcJQM+UA3KrNyDcyaLkuT4vkkwqo
-	IW0E6r1FXg+qLZTIxPqvCyX1M33IV3snkSmiuk0EtpQuJMRdZQcHC/tDhyDRsVjh2dppF7qAQq6Wm
-	sxNQ4WNRBjH6OaydAiYhRolbJyi51w6HR1ADpAT9Ty1J6eQu7wZcDA7cyuG/Vhew2jq97LGScRtEG
-	ERxQ2z0A==;
+	bh=61G36uAdyyqQT5RcAOVTzIrmYHxRA5TTnHDnDtsDf1Q=; b=AB1VhIEAC3E6L5+z9UCnaGEgxz
+	hm3zVNeWSIEgGXQyrLQH0HjWQ6JzsQxj98DYhoCgTQ9esi/NqNCqdTDiL2JiY4rgYmAh+QRgfdeZu
+	GU7AFu2PC33aZGfeJjScJJQ2Kg9zZVh6R4BPrOfAYJvlgSxVjftkPlzNqC1p1fuuLIXwy7rjRud1y
+	17SVmu4CicQncIwL/8gSNUwSQrv1dAdjO5XVDkIZ5udfos0LYl6ojn8VvJ+3+8+YCLQcQMokGU34p
+	3PTx50BEnxDbMCpvMRiRRQEpOGOQGQB1HfdtAaTSoCkkol3t7pgsKj3ifmPM5SJFA3otgQy8+Yl+z
+	EZ/qgxIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHkHE-00000001jBz-3P2F;
-	Tue, 28 Apr 2026 15:23:08 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHkHC-00000001jBJ-1xfM
+	id 1wHkIB-00000001jIc-0oY9;
+	Tue, 28 Apr 2026 15:24:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHkI8-00000001jHz-1S8C
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 15:23:07 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A9DBF1C0A;
-	Tue, 28 Apr 2026 08:22:57 -0700 (PDT)
-Received: from [10.57.21.11] (unknown [10.57.21.11])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0A9FA3F7B4;
-	Tue, 28 Apr 2026 08:23:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777389783; bh=Om8QGmof8/BcITtEzWX1Cbn/822D5GRchdbAMmDVVoQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=E8ZPSTep/LUn9gzYwuBIgGN4jIaXaTmBJNnNday4fnmjnZWOGAaUD7U99tv9XABic
-	 QfWbpZbIsPrUhqF0O7HIkiHEK6KIi3oxFTN6+nepB4u+vemndbGockrfl0DgRV/Xu1
-	 PjWCuB8Ue4y4+SGL+eVhFLZEJv0FWSaOfoV1QzY8=
-Message-ID: <5399c16f-faf1-471e-ac37-7dd9d5ddb897@arm.com>
-Date: Tue, 28 Apr 2026 16:22:59 +0100
+	Tue, 28 Apr 2026 15:24:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6893043D5C;
+	Tue, 28 Apr 2026 15:24:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60337C2BCAF;
+	Tue, 28 Apr 2026 15:24:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777389843;
+	bh=aSKSfn+zpz+g0z/SFf8lvyMN+97fgEmch4xQyAZU8Ek=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Dp4zevDczw8/p7J6+B2jR4QrMQtFYuAJHFib8kzPb5SLbgG8gLXPDVhN3RHsV2yXJ
+	 TggouM7ieKgdN71d+Svz7fdeA2Fc882H8hBWg2jxeE/f0H7cmlssQ2XwtpUV0SfUlN
+	 EzWyDUJAAN7etjf4fTf2TR+NXmXdo8k+iFY8YMIR1qBtqrOZ70BVAqSKEBnW89n03X
+	 633c4cmVy62+0wZE5IeLbIBfwydl+WZ5naL33R7+hxpeEmeueFVJlVqSfRkeRUYVTh
+	 ukQQQVK+vC+9Gvy9veraRNoyBXwqYwM3BEETtZN8ur9Rkxwvefo56+mlXSr4jF3R/7
+	 +AJkiu1oO954Q==
+From: Sasha Levin <sashal@kernel.org>
+To: stable@vger.kernel.org
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	"David Hildenbrand (Arm)" <david@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Sasha Levin <sashal@kernel.org>
+Subject: [PATCH 6.6.y] arm64/mm: Enable batched TLB flush in unmap_hotplug_range()
+Date: Tue, 28 Apr 2026 11:24:00 -0400
+Message-ID: <20260428152400.3033637-1-sashal@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <2026042727-accent-daylong-5b92@gregkh>
+References: <2026042727-accent-daylong-5b92@gregkh>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/3] coco: guest: arm64: Query host IPA-change
- alignment via RHI
-Content-Language: en-GB
-To: Marc Zyngier <maz@kernel.org>, "Aneesh Kumar K.V"
- <aneesh.kumar@kernel.org>
-Cc: linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
- linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>,
- Jason Gunthorpe <jgg@ziepe.ca>, Marek Szyprowski <m.szyprowski@samsung.com>,
- Robin Murphy <robin.murphy@arm.com>, Steven Price <steven.price@arm.com>,
- Thomas Gleixner <tglx@kernel.org>, Will Deacon <will@kernel.org>
-References: <20260427063108.909019-1-aneesh.kumar@kernel.org>
- <20260427063108.909019-4-aneesh.kumar@kernel.org>
- <86y0i8zo9f.wl-maz@kernel.org> <yq5a4ikv1c7p.fsf@kernel.org>
- <86tssvyz2v.wl-maz@kernel.org>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <86tssvyz2v.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_082306_606261_EA328085 
-X-CRM114-Status: GOOD (  21.59  )
+X-CRM114-CacheID: sfid-20260428_082404_423281_8890C0B9 
+X-CRM114-Status: GOOD (  17.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,109 +77,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/04/2026 14:49, Marc Zyngier wrote:
-> On Tue, 28 Apr 2026 13:49:46 +0100,
-> Aneesh Kumar K.V <aneesh.kumar@kernel.org> wrote:
->>
->> Marc Zyngier <maz@kernel.org> writes:
->>
->>> On Mon, 27 Apr 2026 07:31:08 +0100,
->>> "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> wrote:
->>>>
->>>> Add the Realm Host Interface support needed to query host configuration
->>>> from a Realm guest. Define the RHI hostconf SMCs, add rsi_host_call(), and
->>>> use them during Realm initialization to retrieve the host IPA-change
->>>> alignment size.
->>>
->>> I don't understand what "IPA-change" means. What you are after is the
->>> host's sharing granule size.
->>>
->>
->> This is part of the RHI specification, and the call is named
->> RHI_HOSTCONF_GET_IPA_CHANGE_ALIGNMENT. The intent is to determine the
->> alignment requirements for changing IPA attributes (protected vs.
->> unprotected IPA
-> 
-> This really is a terrible name. Why the 'change' part? It doesn't
-> change, it is a constant.
+From: Anshuman Khandual <anshuman.khandual@arm.com>
 
-Agreed, it was supposed to mean IPA_STATE_CHANGE.
+[ Upstream commit 48478b9f791376b4b89018d7afdfd06865498f65 ]
 
-> 
-> Oh well...
-> 
-> [...]
-> 
+During a memory hot remove operation, both linear and vmemmap mappings for
+the memory range being removed, get unmapped via unmap_hotplug_range() but
+mapped pages get freed only for vmemmap mapping. This is just a sequential
+operation where each table entry gets cleared, followed by a leaf specific
+TLB flush, and then followed by memory free operation when applicable.
 
-...
+This approach was simple and uniform both for vmemmap and linear mappings.
+But linear mapping might contain CONT marked block memory where it becomes
+necessary to first clear out all entire in the range before a TLB flush.
+This is as per the architecture requirement. Hence batch all TLB flushes
+during the table tear down walk and finally do it in unmap_hotplug_range().
 
->>>> +unsigned long rhi_get_ipa_change_alignment(void)
->>>> +{
->>>> +	long ret;
->>>> +	unsigned long ipa_change_align;
->>>> +
->>>> +	hyp_pagesize_rhicall.imm = 0;
->>>> +	hyp_pagesize_rhicall.gprs[0] = RHI_HOSTCONF_VERSION;
->>>> +	ret = rsi_host_call(lm_alias(&hyp_pagesize_rhicall));
->>>> +	if (ret != RSI_SUCCESS)
->>>> +		goto err_out;
->>>> +
->>>> +	if (hyp_pagesize_rhicall.gprs[0] != RHI_HOSTCONF_VER_1_0)
->>>> +		goto err_out;
->>>> +
->>>> +	hyp_pagesize_rhicall.imm = 0;
->>>> +	hyp_pagesize_rhicall.gprs[0] = RHI_HOSTCONF_FEATURES;
->>>> +	ret = rsi_host_call(lm_alias(&hyp_pagesize_rhicall));
->>>> +	if (ret != RSI_SUCCESS)
->>>> +		goto err_out;
->>>> +
->>>> +	if (!(hyp_pagesize_rhicall.gprs[0] & __RHI_HOSTCONF_GET_IPA_CHANGE_ALIGNMENT))
->>>> +		goto err_out;
->>>> +
->>>> +	hyp_pagesize_rhicall.imm = 0;
->>>> +	hyp_pagesize_rhicall.gprs[0] = RHI_HOSTCONF_GET_IPA_CHANGE_ALIGNMENT;
->>>> +	ret = rsi_host_call(lm_alias(&hyp_pagesize_rhicall));
->>>> +	if (ret != RSI_SUCCESS)
->>>> +		goto err_out;
->>>> +
->>>> +	ipa_change_align = hyp_pagesize_rhicall.gprs[0];
->>>> +	/* This error needs special handling in the caller */
->>>> +	if (ipa_change_align & (SZ_4K - 1))
->>>> +		return 0;
->>>> +
->>>> +	return ipa_change_align;
->>>> +
->>>> +err_out:
->>>> +	/*
->>>> +	 * For failure condition assume host is built with 4K page size
->>>> +	 * and hence ipa change alignment can be guest PAGE_SIZE.
->>>> +	 */
->>>> +	return PAGE_SIZE;
->>>> +}
->>>
->>> Why can't this be part of rsi.c? This is an RSI call, and it should be
->>> part of the RSI initialisation.
->>>
->>
->> This is an RHI call as per the specification, hence it has been added to
->> rhi.c.
-> 
-> News flash: this is the Linux kernel, not an ARM spec. We organise
-> things based on the logical use, not on the TLA associated with it.
-> 
-> And RHI is implemented in terms of RSI. In rsi.c it goes. We don't
-> need this pointless proliferation of helper files that only result in
-> equally pointless global symbols.
+Prior to this fix, it was hypothetically possible for a speculative access
+to a higher address in the contiguous block to fill the TLB with shattered
+entries for the entire contiguous range after a lower address had already
+been cleared and invalidated. Due to the table entries being shattered, the
+subsequent TLB invalidation for the higher address would not then clear the
+TLB entries for the lower address, meaning stale TLB entries could persist.
 
-RHI (Realm Host Interface) is not really the same as RSI. The former is
-a service mechanism for Realms with the "Non-secure Hypervisor".  And
-this single call is just one of the services. There are further more
-services that will eventually come up (e.g., Device Assignment, Boot
-Sync Protocol, Firmware Activity Log etc).
+Besides it also helps in improving the performance via TLBI range operation
+along with reduced synchronization instructions. The time spent executing
+unmap_hotplug_range() improved 97% measured over a 2GB memory hot removal
+in KVM guest.
 
-RSI (to be precise, RSI_HOST_CALL) is the transport to talk to the Host,
-as that is the only way for the Realm to reach the Host. So, tbh, it
-does make sense to keep this in rhic ?
+This scheme is not applicable during vmemmap mapping tear down where memory
+needs to be freed and hence a TLB flush is required after clearing out page
+table entry.
 
-Suzuki
+Cc: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Closes: https://lore.kernel.org/all/aWZYXhrT6D2M-7-N@willie-the-truck/
+Fixes: bbd6ec605c0f ("arm64/mm: Enable memory hot remove")
+Cc: stable@vger.kernel.org
+Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+[ replaced `__pte_clear()` with `pte_clear()` ]
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ arch/arm64/mm/mmu.c | 36 ++++++++++++++++++++----------------
+ 1 file changed, 20 insertions(+), 16 deletions(-)
+
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index d6411f7f0b72c..8c5cbf4c858d9 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -870,10 +870,14 @@ static void unmap_hotplug_pte_range(pmd_t *pmdp, unsigned long addr,
+ 
+ 		WARN_ON(!pte_present(pte));
+ 		pte_clear(&init_mm, addr, ptep);
+-		flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+-		if (free_mapped)
++		if (free_mapped) {
++			/* CONT blocks are not supported in the vmemmap */
++			WARN_ON(pte_cont(pte));
++			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+ 			free_hotplug_page_range(pte_page(pte),
+ 						PAGE_SIZE, altmap);
++		}
++		/* unmap_hotplug_range() flushes TLB for !free_mapped */
+ 	} while (addr += PAGE_SIZE, addr < end);
+ }
+ 
+@@ -894,15 +898,14 @@ static void unmap_hotplug_pmd_range(pud_t *pudp, unsigned long addr,
+ 		WARN_ON(!pmd_present(pmd));
+ 		if (pmd_sect(pmd)) {
+ 			pmd_clear(pmdp);
+-
+-			/*
+-			 * One TLBI should be sufficient here as the PMD_SIZE
+-			 * range is mapped with a single block entry.
+-			 */
+-			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+-			if (free_mapped)
++			if (free_mapped) {
++				/* CONT blocks are not supported in the vmemmap */
++				WARN_ON(pmd_cont(pmd));
++				flush_tlb_kernel_range(addr, addr + PMD_SIZE);
+ 				free_hotplug_page_range(pmd_page(pmd),
+ 							PMD_SIZE, altmap);
++			}
++			/* unmap_hotplug_range() flushes TLB for !free_mapped */
+ 			continue;
+ 		}
+ 		WARN_ON(!pmd_table(pmd));
+@@ -927,15 +930,12 @@ static void unmap_hotplug_pud_range(p4d_t *p4dp, unsigned long addr,
+ 		WARN_ON(!pud_present(pud));
+ 		if (pud_sect(pud)) {
+ 			pud_clear(pudp);
+-
+-			/*
+-			 * One TLBI should be sufficient here as the PUD_SIZE
+-			 * range is mapped with a single block entry.
+-			 */
+-			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+-			if (free_mapped)
++			if (free_mapped) {
++				flush_tlb_kernel_range(addr, addr + PUD_SIZE);
+ 				free_hotplug_page_range(pud_page(pud),
+ 							PUD_SIZE, altmap);
++			}
++			/* unmap_hotplug_range() flushes TLB for !free_mapped */
+ 			continue;
+ 		}
+ 		WARN_ON(!pud_table(pud));
+@@ -965,6 +965,7 @@ static void unmap_hotplug_p4d_range(pgd_t *pgdp, unsigned long addr,
+ static void unmap_hotplug_range(unsigned long addr, unsigned long end,
+ 				bool free_mapped, struct vmem_altmap *altmap)
+ {
++	unsigned long start = addr;
+ 	unsigned long next;
+ 	pgd_t *pgdp, pgd;
+ 
+@@ -986,6 +987,9 @@ static void unmap_hotplug_range(unsigned long addr, unsigned long end,
+ 		WARN_ON(!pgd_present(pgd));
+ 		unmap_hotplug_p4d_range(pgdp, addr, next, free_mapped, altmap);
+ 	} while (addr = next, addr < end);
++
++	if (!free_mapped)
++		flush_tlb_kernel_range(start, end);
+ }
+ 
+ static void free_empty_pte_table(pmd_t *pmdp, unsigned long addr,
+-- 
+2.53.0
+
 
