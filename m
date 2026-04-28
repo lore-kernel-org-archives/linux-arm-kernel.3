@@ -4,68 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 726B6FF886C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 22:48:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C891CFF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 23:27:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Xswwtzad7rvDteRWu0qhZE+fNx0Z3gHT3572TPLV83U=; b=4Bp5YEjXc3QXHh4RFmSDsrBpfd
-	lbqAEnF8lLTQDVtuJyDeiabxqXAuA2ex2NhI62W363pzTuz/JyHvLSf7rzmmJ5IXWrGnyebI40Qny
-	CoWySKCUvn/gOVmRhoh35dweKsyz4DMR7OrYdH+tf1HOjNeQ5H2uAg3/OdZR9HuIUvRi7s64/ElN1
-	LfhJGa60miR3u+QY/UebpKp+g7fnZy49jpsghIzJg0/H5yNqo3kQibU29iTtlBed45j7hvpXZK6O3
-	oyMU9ImqETp/rOB44xoPp1RDDOdsrrw9lvJLZZFBxN+oK2VG7p7cv8Tt8mocuWneqtBER6V7qNmI9
-	dhJxGUJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZicstlCEy3IWZiOQN/EqQrzbm+06rnQtEWNLsCVGooE=; b=T9qhKqxPzc80HrdIzIGZogZd96
+	k2vowGGxA0ayiprPKow1zPsZJp7FMJo9YL39/e2xhyJKZ/se8Af14RhnBU3BlzXNmx7gFBfkOo1F1
+	Rv/z/z3NcF48QZwF0peWiDrkPq/Qh6jsyX93kv9K43XxFYd92dcjsnOu9xfKPAmPis4A7bs8sMIGe
+	dbrAyKLtuQxrrLK3MGCY0C2ffJgGRMCh4BaieXOssQ3Vcbq21J7tPvii8qIF5oWykwpyWlLYFTdoG
+	2ZniIONRyn7pTpqPqoEn/LZj/6cRJJCOSybSDpMoVoZEzg7upbk65yvD9Y3dWA90uMa5+k+YRLvJL
+	PXB2V4zQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHrDt-00000002aFX-3HLv;
-	Tue, 28 Apr 2026 22:48:09 +0000
-Received: from mx4.wp.pl ([212.77.101.12])
+	id 1wHrpT-00000002bwy-0vUj;
+	Tue, 28 Apr 2026 23:26:59 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHrDq-00000002aE8-0CnB
+	id 1wHrpQ-00000002bvl-1HkI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 22:48:08 +0000
-Received: (wp-smtpd smtp.wp.pl 48429 invoked from network); 29 Apr 2026 00:47:59 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=20241105;
-          t=1777416479; bh=Xswwtzad7rvDteRWu0qhZE+fNx0Z3gHT3572TPLV83U=;
-          h=From:To:Cc:Subject;
-          b=OdOuHSl88j6WGUcECjLjwCpXzlhDihv2yzS4gkGZm7bg9CkgHPjpmcqHV+DuXktSY
-           GUq73+1pNp8Iyvh7mCPqUS8u03QD1fMVjcgd18pxke3aT8IRo2BW67LRB0sMZZhy0C
-           wOFA9zHQgjEAqhqcucjif04KFeV9mpZ1hjAraGL6vQ9HyT2PR4ylUPLiuC0Lzrajt+
-           MrMCMXT8ZFWWFWvKjOJcgWQ16KObem4jTrwIymirCcTIvaDmJkhr8JltZhK43A42LN
-           CAKN/4jlxGQvKw/d++X5LwY4MMvxNbKiH0qTUo39mCeMtivq+yoS+osWLk0gNOxwYP
-           ArGJhwFUaFv5g==
-Received: from 83.24.138.167.ipv4.supernova.orange.pl (HELO abajkowski.lan) (olek2@wp.pl@[83.24.138.167])
-          (envelope-sender <olek2@wp.pl>)
-          by smtp.wp.pl (WP-SMTPD) with TLS_AES_256_GCM_SHA384 encrypted SMTP
-          for <robh@kernel.org>; 29 Apr 2026 00:47:59 +0200
-From: Aleksander Jan Bajkowski <olek2@wp.pl>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	Tue, 28 Apr 2026 23:26:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 93CED40B54;
+	Tue, 28 Apr 2026 23:26:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F957C2BCB7;
+	Tue, 28 Apr 2026 23:26:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777418815;
+	bh=ZicstlCEy3IWZiOQN/EqQrzbm+06rnQtEWNLsCVGooE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AxMMgw6br9IYs5kUlF1aeVc43ekD0MINnQFVcc3+dfepsNX1bn3YwkAhj376oIxEr
+	 pMzBVcM6hwG5KQG/OPdsBJqpF6d2RyOFweZNGgE+eZZrJTAX+L3quYd9SNuBvP2310
+	 y4F9vXe6rAE8WoohyUS8w8Amw5Y68T9AK8rfq+9Zpb8Xcjvm2sx9FKKOADhwzzpTeU
+	 Va90VfwICsFOlsmymfyKcuXPVWB95ABgTCeTKUcE4HCY6nAbhAXkjMECdLYSI9hx4o
+	 79HWNmb1vfuvClF5kLMBrzOCEZ2CyVYBm+pI+jYb0vfCay1z6iGMm4SKH0a63oqNDo
+	 Jhr5RBFgh6diA==
+Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
+	id 0E7F61AC5842; Wed, 29 Apr 2026 00:26:51 +0100 (BST)
+Date: Wed, 29 Apr 2026 08:26:51 +0900
+From: Mark Brown <broonie@kernel.org>
+To: Leo Yan <leo.yan@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
+	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Cc: Aleksander Jan Bajkowski <olek2@wp.pl>
-Subject: [PATCH v3] arm64: dts: mediatek: add crypto offload support on MT7981
-Date: Wed, 29 Apr 2026 00:47:43 +0200
-Message-ID: <20260428224755.336843-1-olek2@wp.pl>
-X-Mailer: git-send-email 2.53.0
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] kselftest/arm64: Fix build failure with GCC-15
+Message-ID: <afFCO2BpXZQW695O@sirena.co.uk>
+References: <20260422-selftests_arm64_gcc15-v2-1-c0134de8838a@arm.com>
+ <aeuRfEeOUWEHzPix@arm.com>
+ <63409143-f4eb-48c3-89de-1aef4fb57381@sirena.org.uk>
+ <aeud4Hqxq4PNitMc@arm.com>
+ <b94bce09-69d5-4454-b4a0-81612f286f0a@sirena.org.uk>
+ <20260428101513.GE16537@e132581.arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-WP-DKIM-Status: good (id: wp.pl)                                                      
-X-WP-MailID: c4c1a66eb78616786b6a9a28261e39cd
-X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
-X-WP-SPAM: NO 0000008 [IeuH]                               
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="pCVtL2GPjLu+SJ3O"
+Content-Disposition: inline
+In-Reply-To: <20260428101513.GE16537@e132581.arm.com>
+X-Cookie: 667:
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_154806_572354_CFF49208 
-X-CRM114-Status: UNSURE (   7.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260428_162656_371262_AF1C95BF 
+X-CRM114-Status: GOOD (  13.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,42 +83,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MT7981 as well as the MT7986 have a built-in EIP-97 rev 2.3p0 crypto
-accelerator. This commit adds the missing entry in the dts.
 
-Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- arch/arm64/boot/dts/mediatek/mt7981b.dtsi | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+--pCVtL2GPjLu+SJ3O
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
-index 1bbe219380f9..e63ba3ae395e 100644
---- a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
-@@ -150,6 +150,21 @@ sgmiisys1: syscon@10070000 {
- 			#clock-cells = <1>;
- 		};
- 
-+		crypto@10320000 {
-+			compatible = "mediatek,mt7981-crypto",
-+				"inside-secure,safexcel-eip97ies";
-+			reg = <0 0x10320000 0 0x40000>;
-+			interrupts = <GIC_SPI 116 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 117 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 118 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 119 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "ring0", "ring1", "ring2", "ring3";
-+			clocks = <&topckgen CLK_TOP_EIP97B>;
-+			clock-names = "core";
-+			assigned-clocks = <&topckgen CLK_TOP_EIP97B_SEL>;
-+			assigned-clock-parents = <&topckgen CLK_TOP_CB_NET1_D5>;
-+		};
-+
- 		uart0: serial@11002000 {
- 			compatible = "mediatek,mt7981-uart", "mediatek,mt6577-uart";
- 			reg = <0 0x11002000 0 0x100>;
--- 
-2.53.0
+On Tue, Apr 28, 2026 at 11:15:13AM +0100, Leo Yan wrote:
 
+> > It's not glibc specific so it seems reasonable to keep it in gcs-util.h,
+> > even though we don't currently have any nolibc stuff that uses ptrace.
+> > That said this isn't particularly strongly held opinion so I don't
+> > *really* mind either way.
+
+> Does below change make sense to you?
+
+That looks fine to me.
+
+--pCVtL2GPjLu+SJ3O
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnxQjoACgkQJNaLcl1U
+h9D+Mgf/egrEQwsX1P3T4kqHQcwCAKPkC9IlRDqUTJ+Va678AdjBDlbahJ3ebpzM
+1XHWOpofkLnm0Rrngp9tCcta37e9xapMRRvIjRT9aPZf57rbwIOiIsecNOr96v4Z
+bKXKw4yeALHiRvfkHa61gm7JDn0IG2PvRYkStDH0I9AnDEf3//j0bbquOitFuRS8
+QqOD59Uh0nMsnnj1Ms7Y1OFzyXgFQk6vyZjN6oTfaXL4PmPM+GE+W4DSo8EaCZsD
+jU8VEBMeWezzSa86urtGanZWgrG77VlDcCTlV7kT9lwcnd0zFkrrMlVLuUFFj8sl
+vC0Tj2ZlO1/rfrkvrVxdSXDYmJX7Cg==
+=HRmc
+-----END PGP SIGNATURE-----
+
+--pCVtL2GPjLu+SJ3O--
 
