@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8AE0FF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 10:30:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C806CFF8868
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 10:30:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ybPE6uBPAKDLSIVRQh3Dd/khXkWqQgT9nsbAgFbes8s=; b=wNXnvlUUR7MBWuk4YfFMNVs6nA
-	JrWMje8psuwbPTRJ0cSLcPoGyz6pK5rlhwYBF5lAKYuPCUEg8+2juBbIilMBaRFsT7jmkG+5+j1Pj
-	O6RSITE+6uThempQA2WnTWxtyQrwp6Mqji8/2LiNZBtJ6AloDa8KY0Ux4hogXsEo8b8KaXwkSTzS6
-	PrD2xVPnAoWBdyGRmSZasq397k9Ue6zsmWPN9i3kT7vp6rjvz8S0ixjkiH44tk+zAw16QqP9Yw6kI
-	YGnbts/7sIm5U7RDzMiZpwsOD4GeGkQGevGdo+uEmwgQA5xWQflpijq1wW8D9nKZmDOgtw6ub2efG
-	44Ce7B/Q==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J7c867vhN0NJ0ysluuN7kPjni8MsLU+yiUrh20mCAzU=; b=fpb2K1FXC5xGAbXcd9r9zJ9K0Y
+	TVe8er2v7gvrMNpAmHjpaZHmBEqycWm10T2o2fBI14TfcpRUlfkrBukPOVPipUaG3U5ySRXR222Lp
+	fgBj8VwIJjoCsP8BRuUWwMiCOigClDivVHVoS7wbabdRqA+QA48n34nbxgV4nbF5ZGhoqCEjbUNT0
+	L7+WFpJUI1DaI4UmYRRIzItMlONSAVhsKpvnG2pE6kx+p8HZnbEJgAyANvP+72RWMtevR7br+S7FO
+	dtWhV+QNSuNBSOkFXpgTtobl0GFDYCeiM5yqXIlfqhsh7B1nnIRZTccSHVMSb6zEeKl2OxhFDyfuT
+	GbplMlgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHfhm-00000001AgH-2fFf;
-	Tue, 28 Apr 2026 10:30:14 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1wHfhq-00000001AjV-48Ro;
+	Tue, 28 Apr 2026 10:30:18 +0000
+Received: from mail-ed1-x54a.google.com ([2a00:1450:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHfhj-00000001Af6-3Ut5
+	id 1wHfhl-00000001AfG-2hqv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 10:30:13 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-488c2aa6becso103172015e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 03:30:10 -0700 (PDT)
+	Tue, 28 Apr 2026 10:30:14 +0000
+Received: by mail-ed1-x54a.google.com with SMTP id 4fb4d7f45d1cf-672a206d806so10305507a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 03:30:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777372209; x=1777977009; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=ybPE6uBPAKDLSIVRQh3Dd/khXkWqQgT9nsbAgFbes8s=;
-        b=PkDeVt/+GyDXK3W4GWVlAwjhwABi9WvgZ7u4glOzIqBtcNUPQfmLGMdhBT0ONTVzS2
-         CEPsOJRq57qYXYwwvxJIjmuRt5kwg7w/+bZCNWCDEaPa3HMhydcc51TNULaFn7PVcaN6
-         /koRj18EyZUzzXsL0/8lCfe2xD9q4pKdLjMqW59ym1ho0NGnxyp1QiQ3ljJuTjXPM364
-         jrnQzr7CyTawF8sylgIX/1ab2eEFt+52213yMAKCtBvv7cZ7u01ZRtpWj3/r9X1aYeoD
-         O1/aOKb/34tyaOM5kyAcut6+A+42D7Qj5M+8cwBHVHpolZ0AmSqGTnPHTT8bgPLKwYbd
-         O1qg==
+        d=google.com; s=20251104; t=1777372211; x=1777977011; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=J7c867vhN0NJ0ysluuN7kPjni8MsLU+yiUrh20mCAzU=;
+        b=Tez6u+/9QWcIgJ1t/Ao49YHPEtuTn5jhylbGp8VQwHjUrHIhqGdOpnZ76RFcVX+ibZ
+         jt+vikYJWXp4i6Jwx2fe/AZzEYVJPhuUEvUu3iIcvCMK7HIA7f9SCjxS61Vg//GTkeLn
+         Ew6eguu0djelzJSfSJpb6BNetupIt+sFzG24h7cDVIQE6RvYcSOGL7iN+fsqTc7NQTX6
+         6nZNYOOcdss/SH4Z6FsNFuuoo2WFdb0cWnDwvTDdT7YGNGzqZWr8XJ+yonecOljSgzXL
+         EzOOGL1fVvvBqC3cmkJsgFxYcVd2sWDmxjx1229o/xHnBlY5SrD1S3GYdROqkQLorTny
+         9GjQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777372209; x=1777977009;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ybPE6uBPAKDLSIVRQh3Dd/khXkWqQgT9nsbAgFbes8s=;
-        b=IimZpmQtU+0TWsbS9lD+oJO9pY5RaCiZRvWIENaZymX5r+jsu4aMCPuILpou4kTQ2M
-         qqNt7nrOS8oIjfB/E3Q2yeNJuIUd2YlYDMezDwwb2+PaYitBZfVyGVPD/x+lAeVTANor
-         2JvFFlm/Ks9P4J0LHycjXbshcbhtEUzHyscpgbcVCDTFOCW7jkSt6dHybuuLCNuIVnaX
-         wo8mOsObZIfjqO1QqJmd/XoHIX8OKZgG4Zm/JQ8wn4tRiaevM5GSqzE8ZIhVK8LG6TmG
-         bmPQXjr7L2QBBM0omjgOQsxB630y/QFVRr0FM14vUZe7sZNb3I4s2+22h/rO7f14enWi
-         5Zvg==
-X-Forwarded-Encrypted: i=1; AFNElJ+dGkyLsYavcCZvdU0uDEJEEk0HTmdpLuhjrPbVnFecuoM3z9m8HqgeBvNQl589tDt8SRJNV87LExwbyd50Z+jP@lists.infradead.org
-X-Gm-Message-State: AOJu0YxBwVyxotTJ7E07gk07+kD1xvpAoQVL/Fsk9mmtwsXTLFU5Jmex
-	EmrZjjhgeClpeE1NMq4iU5oLxZx+XLz4cmhvFKxlcgIoasZkZ36ApEXBmwsQEilHJSH7YBeBPmZ
-	8Ew==
-X-Received: from wmby10.prod.google.com ([2002:a05:600c:c04a:b0:486:fca5:7a8d])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:a013:b0:48a:563c:c8e0
- with SMTP id 5b1f17b1804b1-48a77ad5a89mr41979925e9.1.1777372209349; Tue, 28
- Apr 2026 03:30:09 -0700 (PDT)
-Date: Tue, 28 Apr 2026 11:30:00 +0100
+        d=1e100.net; s=20251104; t=1777372211; x=1777977011;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=J7c867vhN0NJ0ysluuN7kPjni8MsLU+yiUrh20mCAzU=;
+        b=E+pkgrl7onU6F8fYEZlp/IYY+mg4jDFLfW/nSj0Te9+IBy9HUAtAbSosLwQZsr5r+o
+         A/n/+C8sVxVBAkbqUkKQjfc3adQIVJEr9ghPb0egAHKS9rJeNfPLltrFW2sVI5Q0OX93
+         tDN+c5LJP5ZAgZyh/MpDlzRm9wcz1lIPJ3udQWtKCE83mp3erPxzTI+DUCOuEEe9LvyS
+         hfjcpZ9imojuDMXYAZZbEPK2oIvhVpjFOLOyrVIwAcSjpZfYblGtRBHMIzPeL73rKPi1
+         8Gbpxn3Rec3O448J8Vhas5cPjtnEnfNh4/dep+Dd0SIjJi4im1nQjjWrawPvHnKJy36T
+         KXvg==
+X-Forwarded-Encrypted: i=1; AFNElJ/9Ey+bdNjLst4ex5PbmdLBwWomws7AClAN2A6JYvT7jONv3d0swC41pyEJ2qcEXJkNY76IqotWgdo60nQzB/Lx@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVryVSzXf1amC7T+8RppEC9KcZtnP5ToPf69DqytSbTXKaGcrA
+	vXYRSQrI7rlg1kAny/S0DH1tudrPoB4w64RLgjRPZtUy8gsSZip9l1O2n5YLz/jdAYL/Ozs3TwA
+	ESw==
+X-Received: from edru26.prod.google.com ([2002:aa7:d55a:0:b0:674:1e56:7dde])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6402:158d:b0:678:a553:bcf3
+ with SMTP id 4fb4d7f45d1cf-679bb0a125bmr1160027a12.21.1777372210503; Tue, 28
+ Apr 2026 03:30:10 -0700 (PDT)
+Date: Tue, 28 Apr 2026 11:30:01 +0100
+In-Reply-To: <20260428103008.696141-1-tabba@google.com>
 Mime-Version: 1.0
+References: <20260428103008.696141-1-tabba@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260428103008.696141-1-tabba@google.com>
-Subject: [PATCH 0/8] KVM: arm64: EL2 synchronisation and pKVM stage-2 error
- propagation fixes
+Message-ID: <20260428103008.696141-2-tabba@google.com>
+Subject: [PATCH 1/8] KVM: arm64: Make EL2 exception entry and exit
+ context-synchronization events
 From: Fuad Tabba <tabba@google.com>
 To: maz@kernel.org, oliver.upton@linux.dev
 Cc: james.morse@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
@@ -74,8 +76,8 @@ Cc: james.morse@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
 	linux-kernel@vger.kernel.org, stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_033011_890409_FEB7F824 
-X-CRM114-Status: GOOD (  15.17  )
+X-CRM114-CacheID: sfid-20260428_033013_702477_0B8161C2 
+X-CRM114-Status: GOOD (  15.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,85 +92,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi folks,
+SCTLR_EL2.EIS and SCTLR_EL2.EOS control whether exception entry and
+exit at EL2 are Context Synchronisation Events (CSEs). Per ARM DDI
+0487 M.b, EIS is governed by D1.4.2 rule RBBSRF (p. D1-7205) and EOS
+by D1.4.4.1 rule RBWCFK (p. D1-7209). D24.2.175 (p. D24-9754):
 
-This is yet another series of fixes I'd like to land before posting a
-follow-up to Will's pKVM infrastructure series [1].
+  - !FEAT_ExS: the bit is RES1, so the entry/exit is unconditionally
+    a CSE.
+  - FEAT_ExS: the reset value is architecturally UNKNOWN; software
+    must set the bit to make the entry/exit a CSE.
 
-I found these while developing KVM and arm64 system guides for
-review-prompts [2], an open-source set of AI-assisted review prompts
-used by sashiko [3]. While writing the guides I tried to find cases
-that would be easy to miss or trip up an LLM, and stumbled on these
-bugs. A local run with the updated guides flagged all of them
-correctly (some of the commit messages incorporate feedback from that
-run, e.g., the impact of WARN_ON() in hyp). I plan to upstream the
-guides once they are complete.
+INIT_SCTLR_EL2_MMU_ON in arch/arm64/include/asm/sysreg.h sets neither
+bit. KVM/arm64 hot paths rely on ERET from EL2 being a CSE, and on
+synchronous EL1->EL2 entry being a CSE, to elide explicit ISBs after
+MSRs to context-switching system registers (HCR_EL2, HFGxTR_EL2,
+HCRX_EL2, ZCR_EL2, CPACR_EL1, CPTR_EL2, SCTLR_EL1, ptrauth keys,
+etc.); examples include the activate-traps path,
+ptrauth_switch_to_guest, and the FPSIMD trap re-enable in
+kvm_hyp_handle_fpsimd. On FEAT_ExS hardware those reliances are not
+architecturally backed unless EOS=1 (and, for entry, EIS=1), and
+whether they hold today depends on firmware initialisation outside
+the kernel's control.
 
-The patches fall into three groups:
+Make the guarantee explicit: include SCTLR_ELx_EIS | SCTLR_ELx_EOS in
+INIT_SCTLR_EL2_MMU_ON so that EL2 exception entry and exit are
+unconditionally CSEs regardless of whether FEAT_ExS is implemented.
+This matches the pairing in arch/arm64/kvm/config.c which treats EIS
+and EOS together as RES1 under !FEAT_ExS.
 
-EL2 context-synchronisation (patches 1-2):
+INIT_SCTLR_EL2_MMU_OFF is left unchanged: that path is used during
+very early EL2 init and the EL2 MMU-off transition, neither of which
+relies on these bits in the same way.
 
-  Patch 1 sets SCTLR_EL2.EIS and SCTLR_EL2.EOS in
-  INIT_SCTLR_EL2_MMU_ON. On FEAT_ExS hardware these bits are
-  UNKNOWN at reset; without them EL2 exception entry and exit are
-  not architecturally guaranteed to be Context Synchronisation
-  Events. KVM/arm64 hot paths rely on that guarantee implicitly to
-  elide explicit ISBs after MSRs to context-switching sysregs.
+Fixes: fe2c8d19189e ("KVM: arm64: Turn SCTLR_ELx_FLAGS into INIT_SCTLR_EL2_MMU_ON")
+Signed-off-by: Fuad Tabba <tabba@google.com>
+---
+ arch/arm64/include/asm/sysreg.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-  Patch 2 adds an explicit ISB after write_sysreg_hcr() on the
-  __deactivate_traps() path. The activate path is covered by the
-  ERET that follows (a CSE, guaranteed by patch 1); on the
-  deactivate path, subsequent EL2 sysreg accesses run before any
-  natural CSE.
-
-Minor fixes (patches 3-4):
-
-  Patch 3 fixes a parameter-name typo in __deactivate_fgt() that
-  causes it to silently capture a variable from the enclosing scope
-  rather than use its declared parameter.
-
-  Patch 4 guards the VHE hyp panic path against a NULL vcpu pointer;
-  the nVHE counterpart already has this guard.
-
-pKVM stage-2 error propagation (patches 5-8):
-
-  At EL2 in nVHE/pKVM, WARN_ON() is not warn-and-continue: it
-  expands to a BRK that enters the invalid-host-el2 vector and
-  branches to hyp_panic(), which is __noreturn.
-
-  Four pKVM memory-transition functions wrapped the return value of
-  kvm_pgtable_stage2_map() in WARN_ON() and discarded it. For the
-  share and donation paths the map can fail via -ENOMEM when the
-  vcpu memcache is exhausted, converting a recoverable hypercall
-  error into a fatal hyp panic. The four patches capture and
-  propagate the return value, with appropriate stage-2 unmap and
-  host-side rollback for the reachable failure cases.
-
-Cheers,
-/fuad
-
-[1] https://lore.kernel.org/all/20260105154939.11041-1-will@kernel.org/
-[2] https://github.com/masoncl/review-prompts
-[3] https://sashiko.dev/
-
-Fuad Tabba (8):
-  KVM: arm64: Make EL2 exception entry and exit context-synchronization
-    events
-  KVM: arm64: Synchronise HCR_EL2 writes on the guest exit path
-  KVM: arm64: Guard against NULL vcpu on VHE hyp panic path
-  KVM: arm64: Fix __deactivate_fgt macro parameter typo
-  KVM: arm64: Propagate stage-2 map failure on host->guest share
-  KVM: arm64: Propagate stage-2 map failure on host->guest donation
-  KVM: arm64: Propagate stage-2 map failure on guest->host share
-  KVM: arm64: Propagate stage-2 map failure on guest->host unshare
-
- arch/arm64/include/asm/sysreg.h         |  2 +-
- arch/arm64/kvm/hyp/include/hyp/switch.h |  2 +-
- arch/arm64/kvm/hyp/nvhe/mem_protect.c   | 99 +++++++++++++++++++++----
- arch/arm64/kvm/hyp/nvhe/switch.c        | 11 +++
- arch/arm64/kvm/hyp/vhe/switch.c         | 14 +++-
- 5 files changed, 111 insertions(+), 17 deletions(-)
-
+diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+index 736561480f36..7aa08d59d494 100644
+--- a/arch/arm64/include/asm/sysreg.h
++++ b/arch/arm64/include/asm/sysreg.h
+@@ -844,7 +844,7 @@
+ #define INIT_SCTLR_EL2_MMU_ON						\
+ 	(SCTLR_ELx_M  | SCTLR_ELx_C | SCTLR_ELx_SA | SCTLR_ELx_I |	\
+ 	 SCTLR_ELx_IESB | SCTLR_ELx_WXN | ENDIAN_SET_EL2 |		\
+-	 SCTLR_ELx_ITFSB | SCTLR_EL2_RES1)
++	 SCTLR_ELx_ITFSB | SCTLR_ELx_EIS | SCTLR_ELx_EOS | SCTLR_EL2_RES1)
+ 
+ #define INIT_SCTLR_EL2_MMU_OFF \
+ 	(SCTLR_EL2_RES1 | ENDIAN_SET_EL2)
 -- 
 2.54.0.545.g6539524ca2-goog
 
