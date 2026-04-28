@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD07BFF886F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 07:21:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24ADEFF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 07:21:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cF1Joyi8qfkVdlOn+yMtqrXIVsPBBbn9slQYje9uqkM=; b=SPKY+wqd8lJAC34cPdtMl2W1Bb
-	E5rHPYXRJQiM9tQhSDJntHrs3kk1my0cv1Ya332rUt45DrtpnFHEhaNWPeJyDgqDGhz2Aqnp/g4xO
-	P857NA/9Wvi1sQunXDsXa+SK1qWLlOodjmqqHZxYzjV08AQkwKEgN/XKWFCRWJShzmt+9RhBGhaFc
-	699T06kPkniL9s2+UeijJ6GmwFJl444KuWnGLj5s/K8opELAVKmSxEGzGKORPxaXxWHTQGwl6SclH
-	5qsbAvht9tlTf7MxeDo+9IR/XkKyd5WEF7upWYFfW1K0HXenH49iZGedgVkr+Stw2SVyR5FOkDZWI
-	ABP0WORw==;
+	bh=tFkKJpx387LQyGkxFesF27g3u3l0azo1BknyR7NysHU=; b=0DapX8uat8v7ZiyLfcjqKAPq+1
+	R8y1jwkC2TIdIHYXGgQJXKW53aI2WkA7Uo+gK9rA/SKkc3KBwqWfI/CGaZC0EM5mXIASvKiWjVN5r
+	nQHklmr4FtqcT6w6xx1Tdtr6ypu5k1oLYtqZtT+FT3CyleLDBLFLR4b/t73C0917h44uCzi/9eWR6
+	66VOqFBfWNqi/4wKhTmCFDsnwhKA+cmyhfPyaO24ZBPnpW+L5y+06Urn76qTQILqcDxoYxqNSYbfj
+	60qwSZG4sjK7BgEJ+3j8Y0hDztsxOKh6Ug36EUUY7bL/FjUQbTmuXBO5jsrFL90+c6AXB2wWPtgdG
+	oRXO7TRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHcl5-00000000iQf-1Bdf;
-	Tue, 28 Apr 2026 07:21:27 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1wHclF-00000000ifM-3g0H;
+	Tue, 28 Apr 2026 07:21:37 +0000
+Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHckB-00000000hPJ-2LBJ
+	id 1wHckO-00000000hcH-26bT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 07:20:41 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2b24cd2e2b3so102052185ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 00:20:30 -0700 (PDT)
+	Tue, 28 Apr 2026 07:20:47 +0000
+Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2d8a677cdfaso11719072eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 00:20:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777360830; x=1777965630; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777360843; x=1777965643; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=cF1Joyi8qfkVdlOn+yMtqrXIVsPBBbn9slQYje9uqkM=;
-        b=uasrjqoE1XJNmenQOJyrw2uIPkiP+K7rOHZ0wx8HTXY9MXX/I3f9U42Z9hqCcpQgsY
-         VS5d0gHXHBEABaCKVvh5rSTFi667g2K3t/8Sz7t6Hdf2geQU64Ah3iKphmpiVeNS0ptJ
-         ZU9pmkmvExCAUjjQZw3s9SXT3+YRtWe4u/IzKGEuiFEVlT7ya6aUoBjfThrhNCBm6lyY
-         tCjndHZ873BTI3IEFEhnHpe4xJAXj7yx7BQtpFlKXG5XhFk4Kccj2sIc1yMBzJE5b+21
-         r3ampibScWy71AnISj0cQbY91ix0bQybGDmXQg5ZVoNeU79KiyRkYZxevuzjdOS0L39r
-         k0sg==
+        bh=tFkKJpx387LQyGkxFesF27g3u3l0azo1BknyR7NysHU=;
+        b=Ciiq6DUWBchebhuOtjJonIBPSrvxtzzx1B7R1khfUwQhNzWBfs82HZR6fTZfTsCkXl
+         7D4P7v9U8KqjQ77EzI/sqP3Wt5ps19bRzK45iG07B/fa+rJP0i5qba11Rf9FHjAM56F0
+         If93QKXKHh3ngMOxi/cHgLmK4b+Qc3XguPwg+2E39ACAv2QfRL3uzd/nS88HHC/ynf2T
+         tUBxx6sNH/+Kj5hx20CqANS0m0x5y0z4kx6qwI31sSFmgb+gtkXWbljTUT0WwU5nWDxx
+         duHQ8+i6bJOGbVT26Gz/M9/R4fTGxo3iG7o6V4kRCmjZjGcD+yMHQbxzA1GbRFJH8dJY
+         1KWQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777360830; x=1777965630;
+        d=1e100.net; s=20251104; t=1777360843; x=1777965643;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=cF1Joyi8qfkVdlOn+yMtqrXIVsPBBbn9slQYje9uqkM=;
-        b=dQBUKWRVV8WypcmlZzLD8yavon8wdbvnNqMsAYeCPq22UzEtB+qVHO1enfi7KM0yA4
-         DBNZtzmel8GQZ24KRkvLU/rVhBHMrOaV4nfP3OoXEOAiWwgvP3m3E5ndfiYdf2urVs4a
-         aCY+Q0VfRzNFdNHckfvrNp8tNdLzkhTmVV/xAYOQPNhbtvFvtrA9qg/wWm3ExldtqKL2
-         AJCAsDAFYqNdtGB31eTT5vx0JzHgzKZo+O01PfMRrES0BZl2V6CLR8PTs+G0W1lmut07
-         Gdf2hX7WvK7eIZNtnjkKb/c6KhlaaBVHl9AWiVz2MkoI8RGzR4reNVPsf+PzWQYx4xvl
-         C55Q==
-X-Forwarded-Encrypted: i=1; AFNElJ9U/GQnS59nSEx8YF+fT4vDH/MxLZchJOlt2h7Euu6DLaVbfsqr56gWoHaZMJ20mUAyPDPDBsDL9FJo5X87ECqj@lists.infradead.org
-X-Gm-Message-State: AOJu0YwUXhyeaxjSfmSs5Fow6I08EQZyDgY+K1VKIPz+UVu5goiqrpHB
-	T2N2ExaSnU+6gHaKMZ+lIhtYh2rSdrJKji3qkv7H8THHGrDWIshX3/yKjY7ZA0KglF7jb/OlfT1
-	cZ6VjXN5Ahw==
-X-Received: from pghd17.prod.google.com ([2002:a63:fd11:0:b0:c79:73e2:12c3])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:3d10:b0:3a1:90ef:7e2d
- with SMTP id adf61e73a8af0-3a39c272ad2mr2179031637.26.1777360830003; Tue, 28
- Apr 2026 00:20:30 -0700 (PDT)
-Date: Tue, 28 Apr 2026 00:18:40 -0700
+        bh=tFkKJpx387LQyGkxFesF27g3u3l0azo1BknyR7NysHU=;
+        b=d7xl1D3/HEV9rS/iNNEi+xVCLRbLJMUrJQF+bKWz0zNOue/iVuD5iUZKsFH5IE384j
+         +SVWLMbeHN6CWyJi6caxbiShBmmHZYpUy/CP938xHm3ysMdsotJbDUi6WRJ5ymlOmF+J
+         W2h1XxIAKJVWBIJo+tKQs41zOGrQsBgf/8q6f3s5mcP4soxrc7BfPQQvQkUIQO7trdJU
+         MMnsrjGR3usqBPKbFySbnM8+PYXcIk4KX/zCunLWwPe+AyWYZZkK4PyfUOev25tX1qae
+         3GRkn8nnEA1QnVVL68TbTDT7k6OjbSXP2jnY3pFhprGrW5blYHEIUdld2/epW7C1iisu
+         f18Q==
+X-Forwarded-Encrypted: i=1; AFNElJ8wNLjWdVtlhd/hT/cFQ+Dg5ypPJFI8gIjGRgaTKKDPcsgA3pD8l/ACN2ATQhBv6hSs5ByCUjyQbmMAUiNo5du0@lists.infradead.org
+X-Gm-Message-State: AOJu0YyReay7RJ4280rLGNuRdbwhzzJ8fs06tedsDb7ka8ba/JfQ84os
+	IS/8dUxN9viXaxzdHoHz0pw8YpT6mrjEzZ/RV6wadSKNwVHgzlEBFChI7s7PJv4+dgw3h4FOxB9
+	xuyUX16lsdw==
+X-Received: from dybrt7.prod.google.com ([2002:a05:7301:4707:b0:2d8:e988:4a97])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:a59a:b0:2e6:e77d:7bcf
+ with SMTP id 5a478bee46e88-2ed0a14093cmr952056eec.22.1777360843216; Tue, 28
+ Apr 2026 00:20:43 -0700 (PDT)
+Date: Tue, 28 Apr 2026 00:18:47 -0700
 In-Reply-To: <20260428071903.1886173-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260425224951.174663-1-irogers@google.com> <20260428071903.1886173-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260428071903.1886173-36-irogers@google.com>
-Subject: [PATCH v8 35/58] perf event_analyzing_sample: Port
- event_analyzing_sample to use python module
+Message-ID: <20260428071903.1886173-43-irogers@google.com>
+Subject: [PATCH v8 42/58] perf powerpc-hcalls: Port powerpc-hcalls to use
+ python module
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, namhyung@kernel.org
 Cc: adrian.hunter@intel.com, alice.mei.rogers@gmail.com, 
@@ -76,8 +76,8 @@ Cc: adrian.hunter@intel.com, alice.mei.rogers@gmail.com,
 	tmricht@linux.ibm.com, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_002031_780964_DDC24D00 
-X-CRM114-Status: GOOD (  25.93  )
+X-CRM114-CacheID: sfid-20260428_002044_593323_5A74B385 
+X-CRM114-Status: GOOD (  16.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,337 +92,239 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a port of the event_analyzing_sample script that uses the perf
-python module directly. This approach is significantly faster than
-using perf script callbacks as it avoids creating intermediate
-dictionaries for all event fields.
+Ported from tools/perf/scripts/python/.
+- Refactored the script to use a class structure (HCallAnalyzer) to
+  encapsulate state.
+- Used perf.session for event processing.
+- Tracked hcall entry and exit to calculate duration and aggregate
+  statistics.
+- Moved the large hcall_table to a module-level constant HCALL_TABLE.
+- Cleaned up Python 2 compatibility artifacts.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
-v2:
+ tools/perf/python/powerpc-hcalls.py | 211 ++++++++++++++++++++++++++++
+ 1 file changed, 211 insertions(+)
+ create mode 100755 tools/perf/python/powerpc-hcalls.py
 
-1. Dynamic Database Path: Moved DB_PATH to a command-line argument (
-  -d / --database ) that defaults to "perf.db" .
-
-2. Security: Avoided using /dev/shm by default to prevent symlink
-   attacks, while retaining the performance suggestion in the help
-   text.
-
-3. Corrected Closure Call: Fixed the bug where it was trying to call
-   .filter() on a closure.
-
-v6:
-- Fixed performance issue by removing autocommit mode in SQLite and
-  batching commits.
----
- tools/perf/python/event_analyzing_sample.py | 297 ++++++++++++++++++++
- 1 file changed, 297 insertions(+)
- create mode 100755 tools/perf/python/event_analyzing_sample.py
-
-diff --git a/tools/perf/python/event_analyzing_sample.py b/tools/perf/python/event_analyzing_sample.py
+diff --git a/tools/perf/python/powerpc-hcalls.py b/tools/perf/python/powerpc-hcalls.py
 new file mode 100755
-index 000000000000..2132db7f0e56
+index 000000000000..c4fa539174c9
 --- /dev/null
-+++ b/tools/perf/python/event_analyzing_sample.py
-@@ -0,0 +1,297 @@
++++ b/tools/perf/python/powerpc-hcalls.py
+@@ -0,0 +1,211 @@
 +#!/usr/bin/env python3
-+# SPDX-License-Identifier: GPL-2.0
++# SPDX-License-Identifier: GPL-2.0+
 +"""
-+General event handler in Python, using SQLite to analyze events.
++Hypervisor call statistics
 +
-+The 2 database related functions in this script just show how to gather
-+the basic information, and users can modify and write their own functions
-+according to their specific requirement.
-+
-+The first function "show_general_events" just does a basic grouping for all
-+generic events with the help of sqlite, and the 2nd one "show_pebs_ll" is
-+for a x86 HW PMU event: PEBS with load latency data.
-+
-+Ported from tools/perf/scripts/python/event_analyzing_sample.py
++Copyright (C) 2018 Ravi Bangoria, IBM Corporation
++Ported from tools/perf/scripts/python/powerpc-hcalls.py
 +"""
 +
 +import argparse
-+import math
-+import sqlite3
-+import struct
-+from typing import Any
++from collections import defaultdict
 +import perf
 +
-+# Event types, user could add more here
-+EVTYPE_GENERIC  = 0
-+EVTYPE_PEBS     = 1     # Basic PEBS event
-+EVTYPE_PEBS_LL  = 2     # PEBS event with load latency info
-+EVTYPE_IBS      = 3
++# Hypervisor call table
++HCALL_TABLE = {
++    4: 'H_REMOVE',
++    8: 'H_ENTER',
++    12: 'H_READ',
++    16: 'H_CLEAR_MOD',
++    20: 'H_CLEAR_REF',
++    24: 'H_PROTECT',
++    28: 'H_GET_TCE',
++    32: 'H_PUT_TCE',
++    36: 'H_SET_SPRG0',
++    40: 'H_SET_DABR',
++    44: 'H_PAGE_INIT',
++    48: 'H_SET_ASR',
++    52: 'H_ASR_ON',
++    56: 'H_ASR_OFF',
++    60: 'H_LOGICAL_CI_LOAD',
++    64: 'H_LOGICAL_CI_STORE',
++    68: 'H_LOGICAL_CACHE_LOAD',
++    72: 'H_LOGICAL_CACHE_STORE',
++    76: 'H_LOGICAL_ICBI',
++    80: 'H_LOGICAL_DCBF',
++    84: 'H_GET_TERM_CHAR',
++    88: 'H_PUT_TERM_CHAR',
++    92: 'H_REAL_TO_LOGICAL',
++    96: 'H_HYPERVISOR_DATA',
++    100: 'H_EOI',
++    104: 'H_CPPR',
++    108: 'H_IPI',
++    112: 'H_IPOLL',
++    116: 'H_XIRR',
++    120: 'H_MIGRATE_DMA',
++    124: 'H_PERFMON',
++    220: 'H_REGISTER_VPA',
++    224: 'H_CEDE',
++    228: 'H_CONFER',
++    232: 'H_PROD',
++    236: 'H_GET_PPP',
++    240: 'H_SET_PPP',
++    244: 'H_PURR',
++    248: 'H_PIC',
++    252: 'H_REG_CRQ',
++    256: 'H_FREE_CRQ',
++    260: 'H_VIO_SIGNAL',
++    264: 'H_SEND_CRQ',
++    272: 'H_COPY_RDMA',
++    276: 'H_REGISTER_LOGICAL_LAN',
++    280: 'H_FREE_LOGICAL_LAN',
++    284: 'H_ADD_LOGICAL_LAN_BUFFER',
++    288: 'H_SEND_LOGICAL_LAN',
++    292: 'H_BULK_REMOVE',
++    304: 'H_MULTICAST_CTRL',
++    308: 'H_SET_XDABR',
++    312: 'H_STUFF_TCE',
++    316: 'H_PUT_TCE_INDIRECT',
++    332: 'H_CHANGE_LOGICAL_LAN_MAC',
++    336: 'H_VTERM_PARTNER_INFO',
++    340: 'H_REGISTER_VTERM',
++    344: 'H_FREE_VTERM',
++    348: 'H_RESET_EVENTS',
++    352: 'H_ALLOC_RESOURCE',
++    356: 'H_FREE_RESOURCE',
++    360: 'H_MODIFY_QP',
++    364: 'H_QUERY_QP',
++    368: 'H_REREGISTER_PMR',
++    372: 'H_REGISTER_SMR',
++    376: 'H_QUERY_MR',
++    380: 'H_QUERY_MW',
++    384: 'H_QUERY_HCA',
++    388: 'H_QUERY_PORT',
++    392: 'H_MODIFY_PORT',
++    396: 'H_DEFINE_AQP1',
++    400: 'H_GET_TRACE_BUFFER',
++    404: 'H_DEFINE_AQP0',
++    408: 'H_RESIZE_MR',
++    412: 'H_ATTACH_MCQP',
++    416: 'H_DETACH_MCQP',
++    420: 'H_CREATE_RPT',
++    424: 'H_REMOVE_RPT',
++    428: 'H_REGISTER_RPAGES',
++    432: 'H_DISABLE_AND_GETC',
++    436: 'H_ERROR_DATA',
++    440: 'H_GET_HCA_INFO',
++    444: 'H_GET_PERF_COUNT',
++    448: 'H_MANAGE_TRACE',
++    468: 'H_FREE_LOGICAL_LAN_BUFFER',
++    472: 'H_POLL_PENDING',
++    484: 'H_QUERY_INT_STATE',
++    580: 'H_ILLAN_ATTRIBUTES',
++    592: 'H_MODIFY_HEA_QP',
++    596: 'H_QUERY_HEA_QP',
++    600: 'H_QUERY_HEA',
++    604: 'H_QUERY_HEA_PORT',
++    608: 'H_MODIFY_HEA_PORT',
++    612: 'H_REG_BCMC',
++    616: 'H_DEREG_BCMC',
++    620: 'H_REGISTER_HEA_RPAGES',
++    624: 'H_DISABLE_AND_GET_HEA',
++    628: 'H_GET_HEA_INFO',
++    632: 'H_ALLOC_HEA_RESOURCE',
++    644: 'H_ADD_CONN',
++    648: 'H_DEL_CONN',
++    664: 'H_JOIN',
++    676: 'H_VASI_STATE',
++    688: 'H_ENABLE_CRQ',
++    696: 'H_GET_EM_PARMS',
++    720: 'H_SET_MPP',
++    724: 'H_GET_MPP',
++    748: 'H_HOME_NODE_ASSOCIATIVITY',
++    756: 'H_BEST_ENERGY',
++    764: 'H_XIRR_X',
++    768: 'H_RANDOM',
++    772: 'H_COP',
++    788: 'H_GET_MPP_X',
++    796: 'H_SET_MODE',
++    61440: 'H_RTAS',
++}
 +
-+#
-+# Currently we don't have good way to tell the event type, but by
-+# the size of raw buffer, raw PEBS event with load latency data's
-+# size is 176 bytes, while the pure PEBS event's size is 144 bytes.
-+#
-+def create_event(name, comm, dso, symbol, raw_buf):
-+    """Create an event object based on raw buffer size."""
-+    if len(raw_buf) == 144:
-+        event = PebsEvent(name, comm, dso, symbol, raw_buf)
-+    elif len(raw_buf) == 176:
-+        event = PebsNHM(name, comm, dso, symbol, raw_buf)
-+    else:
-+        event = PerfEvent(name, comm, dso, symbol, raw_buf)
 +
-+    return event
++class HCallAnalyzer:
++    """Analyzes hypervisor calls and aggregates statistics."""
 +
-+class PerfEvent:
-+    """Base class for all perf event samples."""
-+    event_num = 0
-+    def __init__(self, name, comm, dso, symbol, raw_buf, ev_type=EVTYPE_GENERIC):
-+        self.name       = name
-+        self.comm       = comm
-+        self.dso        = dso
-+        self.symbol     = symbol
-+        self.raw_buf    = raw_buf
-+        self.ev_type    = ev_type
-+        PerfEvent.event_num += 1
++    def __init__(self):
++        # output: {opcode: {'min': min, 'max': max, 'time': time, 'cnt': cnt}}
++        self.output = defaultdict(lambda: {'time': 0, 'cnt': 0, 'min': float('inf'), 'max': 0})
++        # d_enter: {pid: (opcode, nsec)}
++        self.d_enter: dict[int, tuple[int, int]] = {}
++        self.print_ptrn = '%-28s%10s%10s%10s%10s'
 +
-+    def show(self):
-+        """Display PMU event info."""
-+        print(f"PMU event: name={self.name:12s}, symbol={self.symbol:24s}, "
-+              f"comm={self.comm:8s}, dso={self.dso:12s}")
++    def hcall_table_lookup(self, opcode: int) -> str:
++        """Lookup hcall name by opcode."""
++        return HCALL_TABLE.get(opcode, str(opcode))
 +
-+#
-+# Basic Intel PEBS (Precise Event-based Sampling) event, whose raw buffer
-+# contains the context info when that event happened: the EFLAGS and
-+# linear IP info, as well as all the registers.
-+#
-+class PebsEvent(PerfEvent):
-+    """Intel PEBS event."""
-+    pebs_num = 0
-+    def __init__(self, name, comm, dso, symbol, raw_buf, ev_type=EVTYPE_PEBS):
-+        tmp_buf = raw_buf[0:80]
-+        flags, ip, ax, bx, cx, dx, si, di, bp, sp = struct.unpack('QQQQQQQQQQ', tmp_buf)
-+        self.flags = flags
-+        self.ip    = ip
-+        self.ax    = ax
-+        self.bx    = bx
-+        self.cx    = cx
-+        self.dx    = dx
-+        self.si    = si
-+        self.di    = di
-+        self.bp    = bp
-+        self.sp    = sp
++    def process_event(self, sample: perf.sample_event) -> None:
++        """Process a single sample event."""
++        name = str(sample.evsel)
++        pid = sample.sample_pid
++        time = sample.time
++        opcode = getattr(sample, "opcode", -1)
 +
-+        super().__init__(name, comm, dso, symbol, raw_buf, ev_type)
-+        PebsEvent.pebs_num += 1
-+        del tmp_buf
-+
-+#
-+# Intel Nehalem and Westmere support PEBS plus Load Latency info which lie
-+# in the four 64 bit words write after the PEBS data:
-+#       Status: records the IA32_PERF_GLOBAL_STATUS register value
-+#       DLA:    Data Linear Address (EIP)
-+#       DSE:    Data Source Encoding, where the latency happens, hit or miss
-+#               in L1/L2/L3 or IO operations
-+#       LAT:    the actual latency in cycles
-+#
-+class PebsNHM(PebsEvent):
-+    """Intel Nehalem/Westmere PEBS event with load latency."""
-+    pebs_nhm_num = 0
-+    def __init__(self, name, comm, dso, symbol, raw_buf, ev_type=EVTYPE_PEBS_LL):
-+        tmp_buf = raw_buf[144:176]
-+        status, dla, dse, lat = struct.unpack('QQQQ', tmp_buf)
-+        self.status = status
-+        self.dla = dla
-+        self.dse = dse
-+        self.lat = lat
-+
-+        super().__init__(name, comm, dso, symbol, raw_buf, ev_type)
-+        PebsNHM.pebs_nhm_num += 1
-+        del tmp_buf
-+
-+session: Any = None
-+
-+con = None
-+
-+def trace_begin(db_path: str) -> None:
-+    """Initialize database tables."""
-+    print("In trace_begin:\n")
-+    global con
-+    con = sqlite3.connect(db_path)
-+    assert con is not None
-+
-+    # Will create several tables at the start, pebs_ll is for PEBS data with
-+    # load latency info, while gen_events is for general event.
-+    con.execute("""
-+        create table if not exists gen_events (
-+                name text,
-+                symbol text,
-+                comm text,
-+                dso text
-+        );""")
-+    con.execute("""
-+        create table if not exists pebs_ll (
-+                name text,
-+                symbol text,
-+                comm text,
-+                dso text,
-+                flags integer,
-+                ip integer,
-+                status integer,
-+                dse integer,
-+                dla integer,
-+                lat integer
-+        );""")
-+
-+def insert_db(event: Any) -> None:
-+    """Insert event into database."""
-+    assert con is not None
-+    if event.ev_type == EVTYPE_GENERIC:
-+        con.execute("insert into gen_events values(?, ?, ?, ?)",
-+                    (event.name, event.symbol, event.comm, event.dso))
-+    elif event.ev_type == EVTYPE_PEBS_LL:
-+        event.ip &= 0x7fffffffffffffff
-+        event.dla &= 0x7fffffffffffffff
-+        con.execute("insert into pebs_ll values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-+                    (event.name, event.symbol, event.comm, event.dso, event.flags,
-+                     event.ip, event.status, event.dse, event.dla, event.lat))
-+
-+def process_event(sample: perf.sample_event) -> None:
-+    """Callback for processing events."""
-+    # Create and insert event object to a database so that user could
-+    # do more analysis with simple database commands.
-+
-+    # Resolve comm, symbol, dso
-+    comm = "Unknown_comm"
-+    try:
-+        if session is not None:
-+            # FIXME: session.find_thread() only takes one argument and uses it as both
-+            # PID and TID in C. This means it only resolves main threads correctly.
-+            # Sub-threads will get the main thread's comm.
-+            proc = session.find_thread(sample.sample_pid)
-+            if proc:
-+                comm = proc.comm()
-+    except TypeError:
-+        pass
-+
-+    # Symbol and dso info are not always resolved
-+    dso = sample.dso if hasattr(sample, 'dso') and sample.dso else "Unknown_dso"
-+    symbol = sample.symbol if hasattr(sample, 'symbol') and sample.symbol else "Unknown_symbol"
-+    name = str(sample.evsel)
-+    if name.startswith("evsel("):
-+        name = name[6:-1]
-+
-+    # Create the event object and insert it to the right table in database
-+    try:
-+        event = create_event(name, comm, dso, symbol, sample.raw_buf)
-+        insert_db(event)
-+    except (sqlite3.Error, ValueError, TypeError) as e:
-+        print(f"Error creating/inserting event: {e}")
-+
-+def num2sym(num: int) -> str:
-+    """Convert number to a histogram symbol (log2)."""
-+    # As the event number may be very big, so we can't use linear way
-+    # to show the histogram in real number, but use a log2 algorithm.
-+    if num <= 0:
-+        return ""
-+    snum = '#' * (int(math.log(num, 2)) + 1)
-+    return snum
-+
-+def show_general_events() -> None:
-+    """Display statistics for general events."""
-+    assert con is not None
-+    count = con.execute("select count(*) from gen_events")
-+    for t in count:
-+        print(f"There is {t[0]} records in gen_events table")
-+        if t[0] == 0:
++        if opcode == -1:
 +            return
 +
-+    print("Statistics about the general events grouped by thread/symbol/dso: \n")
++        if name == "evsel(powerpc:hcall_entry)":
++            self.d_enter[pid] = (opcode, time)
++        elif name == "evsel(powerpc:hcall_exit)":
++            if pid in self.d_enter:
++                opcode_entry, time_entry = self.d_enter[pid]
++                if opcode_entry == opcode:
++                    diff = time - time_entry
++                    del self.d_enter[pid]
 +
-+    # Group by thread
-+    commq = con.execute("""
-+        select comm, count(comm) from gen_events
-+        group by comm order by -count(comm)
-+    """)
-+    print(f"\n{ 'comm':>16} {'number':>8} {'histogram':>16}\n{'='*42}")
-+    for row in commq:
-+        print(f"{row[0]:>16} {row[1]:>8}     {num2sym(row[1])}")
++                    stats = self.output[opcode]
++                    stats['time'] += diff
++                    stats['cnt'] += 1
++                    if diff < stats['min']:
++                        stats['min'] = diff
++                    if diff > stats['max']:
++                        stats['max'] = diff
 +
-+    # Group by symbol
-+    print(f"\n{'symbol':>32} {'number':>8} {'histogram':>16}\n{'='*58}")
-+    symbolq = con.execute("""
-+        select symbol, count(symbol) from gen_events
-+        group by symbol order by -count(symbol)
-+    """)
-+    for row in symbolq:
-+        print(f"{row[0]:>32} {row[1]:>8}     {num2sym(row[1])}")
++    def print_summary(self) -> None:
++        """Print aggregated statistics."""
++        print(self.print_ptrn % ('hcall', 'count', 'min(ns)', 'max(ns)', 'avg(ns)'))
++        print('-' * 68)
++        for opcode in sorted(self.output.keys()):
++            h_name = self.hcall_table_lookup(opcode)
++            stats = self.output[opcode]
++            time = stats['time']
++            cnt = stats['cnt']
++            min_t = stats['min']
++            max_t = stats['max']
 +
-+    # Group by dso
-+    print(f"\n{'dso':>40} {'number':>8} {'histogram':>16}\n{'='*74}")
-+    dsoq = con.execute("select dso, count(dso) from gen_events group by dso order by -count(dso)")
-+    for row in dsoq:
-+        print(f"{row[0]:>40} {row[1]:>8}     {num2sym(row[1])}")
++            # Avoid float representation for large integers if possible,
++            # or use formatted strings. Legacy used time//cnt.
++            avg_t = time // cnt if cnt > 0 else 0
 +
-+def show_pebs_ll() -> None:
-+    """Display statistics for PEBS load latency events."""
-+    assert con is not None
-+    # This function just shows the basic info, and we could do more with the
-+    # data in the tables, like checking the function parameters when some
-+    # big latency events happen.
-+    count = con.execute("select count(*) from pebs_ll")
-+    for t in count:
-+        print(f"There is {t[0]} records in pebs_ll table")
-+        if t[0] == 0:
-+            return
++            # If min was not updated, it remains inf, but cnt should be > 0 if in output
++            if min_t == float('inf'):
++                min_t = 0
 +
-+    print("Statistics about the PEBS Load Latency events grouped by thread/symbol/dse/latency: \n")
++            print(self.print_ptrn % (h_name, cnt, int(min_t), int(max_t), avg_t))
 +
-+    # Group by thread
-+    commq = con.execute("select comm, count(comm) from pebs_ll group by comm order by -count(comm)")
-+    print(f"\n{'comm':>16} {'number':>8} {'histogram':>16}\n{'='*42}")
-+    for row in commq:
-+        print(f"{row[0]:>16} {row[1]:>8}     {num2sym(row[1])}")
-+
-+    # Group by symbol
-+    print(f"\n{'symbol':>32} {'number':>8} {'histogram':>16}\n{'='*58}")
-+    symbolq = con.execute("""
-+        select symbol, count(symbol) from pebs_ll
-+        group by symbol order by -count(symbol)
-+    """)
-+    for row in symbolq:
-+        print(f"{row[0]:>32} {row[1]:>8}     {num2sym(row[1])}")
-+
-+    # Group by dse
-+    dseq = con.execute("select dse, count(dse) from pebs_ll group by dse order by -count(dse)")
-+    print(f"\n{'dse':>32} {'number':>8} {'histogram':>16}\n{'='*58}")
-+    for row in dseq:
-+        print(f"{row[0]:>32} {row[1]:>8}     {num2sym(row[1])}")
-+
-+    # Group by latency
-+    latq = con.execute("select lat, count(lat) from pebs_ll group by lat order by lat")
-+    print(f"\n{'latency':>32} {'number':>8} {'histogram':>16}\n{'='*58}")
-+    for row in latq:
-+        print(f"{str(row[0]):>32} {row[1]:>8}     {num2sym(row[1])}")
-+
-+def trace_end() -> None:
-+    """Called at the end of trace processing."""
-+    print("In trace_end:\n")
-+    if con:
-+        con.commit()
-+    show_general_events()
-+    show_pebs_ll()
-+    if con:
-+        con.close()
 +
 +if __name__ == "__main__":
-+    ap = argparse.ArgumentParser(description="Analyze events with SQLite")
++    ap = argparse.ArgumentParser(description="Hypervisor call statistics")
 +    ap.add_argument("-i", "--input", default="perf.data", help="Input file name")
-+    ap.add_argument("-d", "--database", default="perf.db",
-+                    help="Database file name (tip: use /dev/shm/perf.db for speedup)")
 +    args = ap.parse_args()
 +
-+    trace_begin(args.database)
-+    session = perf.session(perf.data(args.input), sample=process_event)
-+    session.process_events()
-+    trace_end()
++    analyzer = HCallAnalyzer()
++
++    try:
++        session = perf.session(perf.data(args.input), sample=analyzer.process_event)
++        session.process_events()
++        analyzer.print_summary()
++    except KeyboardInterrupt:
++        analyzer.print_summary()
++    except Exception as e:
++        print(f"Error processing events: {e}")
 -- 
 2.54.0.545.g6539524ca2-goog
 
