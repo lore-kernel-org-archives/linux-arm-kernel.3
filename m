@@ -4,87 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B2C4FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 19:35:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52591FF886F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 19:38:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=koTQxkk4qv7km4iNuMHAOJaf/k281r1LMbxMyjh/No8=; b=nM3sGhF0KOf1Is7fcUzVrTIM4d
-	vlUfB49f++TkCPei55qpIuf2E38aAMA19Rf8zLsbuE3Daku+XT6SVZCsibBeTf0BfzOVdwmGOoQZv
-	zhTYhY4JK7wy3Jo3IL8pAbTWQ4nBo0hehz+UlHns6KavD+7JO7+y42agUnNEA35/BWrPvxLnQNwM9
-	aOIEdg5muuAhQM7J7DcoKIOERcV5GiTIaNhzm8Oh1pnbcQSF4mojB5duqlDmuOFFQ1UxfeyPgolh/
-	HmQrMPIlIdVklCULRQkgbqoX22ihi/dg/kqtNXpBdCN9ZohXY3TIBeGOF9OBCwUysxz6EErnhjE1K
-	bPnNOb0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XU3lt6d1WiWgQzcvVfi8pJwVk1kDu4JLHpQ4CmFWiPQ=; b=rjNzZXWxfsu7eB7Z5/haCk6lXz
+	5P4vwTzaVKZXPf3J6alwabpKXjFE46xh1SKLU+A1NntFBiDsFWwO8/NPdrqebVaMxcBGGZmGE+zlE
+	mMAay+Hd+ECssmnigUV8A7rCxMT7I/c6hZIbzm0q9ujQhijJKBPM7z3GbA7U01EdNeaaj5h/8CPYk
+	oPMsE1kfXWnm+H90i0rJvDd2oW106vGmHwzgd+wF0Nc/ogfpYAZ5Uric2C8jObfqIwphOcTwrQXlv
+	x5bqv6wd1WZAiaHt8palAfX+G8UMFC8d3QuiMfMJr6tyLrsdK2jShjUh4xxmnrGkQsAupC11QMr6Z
+	Bz2mhayA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHoDR-00000002ALr-1GnS;
-	Tue, 28 Apr 2026 19:35:29 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1wHoFr-00000002AYr-0XdU;
+	Tue, 28 Apr 2026 19:37:59 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHoDP-00000002AL4-29Gn
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 19:35:28 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-35fb16e56efso7733918a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 12:35:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777404926; x=1778009726; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=koTQxkk4qv7km4iNuMHAOJaf/k281r1LMbxMyjh/No8=;
-        b=pFyxJ+ANu0akK+vFzfNcCAEYUTSY/bs1y7EX6ZlMEmeRFDncddznc3BB0RkCHuyRlB
-         tfZJvFhFDzHDi4o/4vTuirQFv+pOnRTb/Hirkcr3kpxfuHYfDMvO1qKNAsXRjos9dXRy
-         yW0Rix1guNSFYeIq7/6ryfNO/q70S+Lx6ettQWfeChyLhzwv8k1JiOHadLQb6sw6t0xw
-         8jW9mlGRcD3n0Nim7EZZiNDdNiDvF87zmHfE5FJk2xUXN6djdiuD+ETCa7x7cfhuWvPT
-         QjzY6KJWNfcxWufHELjqNwSvARvk15jiSMIEanCHywyg5hjVtX2FpDS3BadXyL48YcHw
-         GKzQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777404926; x=1778009726;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=koTQxkk4qv7km4iNuMHAOJaf/k281r1LMbxMyjh/No8=;
-        b=VdgBBZg9f+bV38luqgrQbTDiULOkzSAoJy1HQ7WpqA/DXASlrqVzwNspi//7lxx2Zj
-         asad78vWlu84mKyNbvWxww4s+pe7COnEitRsjZX3eFmYSDLz9fne5BvUPv5MX7FX/PhM
-         nc3uZ/fFl3as4x/SHhq1cwVUkgjhuEUezOU/d3eItX3l/XBi2Z7KRhaKv8WtNAZbqd2w
-         epkaOZAHTe4NACKroNIE5uCww0RyaiyySYF1jHLEldt+h/Y8qYMm1KZ1FpKMsCroFTCw
-         t+I0eN3+H0JW7ges91xaVzx7M5PTf9PPI0jRdbC50RV0/4OyRm8PlOfoLeP8U/KXgNvb
-         wDFA==
-X-Forwarded-Encrypted: i=1; AFNElJ9wkNAmx09Alb3HI+Cafej3go9bPM34h88jhFnfiy5pHkxuKEgdOG4/Bu1Rygp0c3UkUzpXKawB5IV0+ySU+zuF@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/IW6fRAud8IJQY2NMbfIXXp13sZBhSRMDrON4Z4hKHXM68niS
-	JBnEovFC4tAf82ivdRIyF74yqz0qtnkXhN/L91BfDUZll7I9rvXOUgnS
-X-Gm-Gg: AeBDievAMqBScKkJ6mUTGRSZszFXPNc5LiUTmLH+DfFlZO1iPHeApikccs+7N/ZFcdh
-	H0mWsesrXg2bX45F3D/UX00rS+aQAwwD7a/yiK2ag2doY2l0IdB+epupFP/KypSSjJYI/KWXr6b
-	0l1gh39Xa7epU1i/c0cDozBmWTjygBCwncOfZVcWKkHgVV0ViHX408+NYhbotT2HvW8l+sTdDzK
-	Ra8aehh2xDRlkVqDmYqJ9Ho4X8WaTGBp6MXd+8n/4kXRwMb52aqGk/5LFaLAu84h91x2K6Fzvup
-	PeyxYP7pdCxeETDVMdDsBeu7PRY9cPhgyEdiUqNcKawgFyDPeqXVkxirBzwmT/a8tA4Xlgi01TZ
-	tn8EVJN3orWih0Xwjw6n0FV3lEW+FqQarLR3cfNuWOqxqfBgQ3ikqlRwZpjtYz7ItDXisCDUVVV
-	BPCtqSYePgYXrsp9O25wYbuCRE+c/atvsN4fhdbS8HXGbYYV1uee3zd0tCNw==
-X-Received: by 2002:a17:90b:3506:b0:35f:b784:d3bf with SMTP id 98e67ed59e1d1-364a0ade6f9mr721896a91.1.1777404925971;
-        Tue, 28 Apr 2026 12:35:25 -0700 (PDT)
-Received: from LAPTOP-N4V2OTAG.localdomain ([49.36.186.79])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c7fc29b40aasm3196706a12.12.2026.04.28.12.35.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Apr 2026 12:35:25 -0700 (PDT)
-From: Aditya Dabhade <aditya.dabhade066@gmail.com>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-phy@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Aditya Dabhade <aditya.dabhade066@gmail.com>
-Subject: [PATCH] phy: airoha: use C-style SPDX comment for header file
-Date: Wed, 29 Apr 2026 01:04:59 +0530
-Message-Id: <20260428193459.5865-1-aditya.dabhade066@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	id 1wHoFp-00000002AY4-0rL3;
+	Tue, 28 Apr 2026 19:37:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1777405074;
+	bh=w04KraqrEDnl1v5OZUgLugNxM8s1M0I+c4O2qQd85NY=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=KKFlcS6pYFz8kevj2mWXd6zItSNH5+rzku6I+tuvkmFhhNKx1NmOCSnEQLEreqS9S
+	 Ov6PKkNrORzC2nsymIOpuCY2vQElVWoAR7zNKslXEVz9pgvthea9jRw2tYf341ioK2
+	 N1gfNq89AKMFK0fMFPWgg6uaL33nrQaShS21oIzbvg0JyE5Y9d1k/SxDzKZwKnS9kL
+	 PQomnbKAt0Ld7lasdgPdpEZ9gsUhzxE+WBrsfqtt5HMKi0duSAPytoYXkaOvOB70x6
+	 GcLXBfx5tiTkd1oym+dI1VYdirBlDs0IuuLWb6GXlrXei3P9D8OusIMR9GgTnhK9/M
+	 Kcg+7qzqQZd+g==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EE95517E0615;
+	Tue, 28 Apr 2026 21:37:51 +0200 (CEST)
+Message-ID: <7ef9872a26789a73d232e0091ffc79e9369cf4ff.camel@collabora.com>
+Subject: Re: [PATCH 06/11] media: Trace the stateless controls when set in
+ v4l2-ctrls-core.c
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Detlev Casanova <detlev.casanova@collabora.com>, 
+	linux-kernel@vger.kernel.org
+Cc: Benjamin Gaignard <benjamin.gaignard@collabora.com>, Philipp Zabel	
+ <p.zabel@pengutronix.de>, Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko
+ Stuebner <heiko@sntech.de>, Daniel Almeida <daniel.almeida@collabora.com>,
+ Steven Rostedt	 <rostedt@goodmis.org>, Masami Hiramatsu
+ <mhiramat@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Hans Verkuil <hverkuil@kernel.org>, Laurent Pinchart	
+ <laurent.pinchart+renesas@ideasonboard.com>, Ricardo Ribalda	
+ <ribalda@chromium.org>, Yunke Cao <yunkec@google.com>, Sakari Ailus	
+ <sakari.ailus@linux.intel.com>, Pavan Bobba <opensource206@gmail.com>,
+ James Cowgill <james.cowgill@blaize.com>, Ma Ke <make24@iscas.ac.cn>,
+ Jacopo Mondi	 <jacopo.mondi@ideasonboard.com>, Daniel Scally
+ <dan.scally@ideasonboard.com>, 	linux-media@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, 	linux-arm-kernel@lists.infradead.org,
+ linux-trace-kernel@vger.kernel.org, 	kernel@collabora.com
+Date: Tue, 28 Apr 2026 15:37:51 -0400
+In-Reply-To: <20260212162328.192217-7-detlev.casanova@collabora.com>
+References: <20260212162328.192217-1-detlev.casanova@collabora.com>
+	 <20260212162328.192217-7-detlev.casanova@collabora.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-6/kjwuzd33VbGR6NlGU/"
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_123527_542975_E801345C 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20260428_123757_595051_A77E00E4 
+X-CRM114-Status: GOOD (  17.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,31 +102,393 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-checkpatch reports an improper SPDX comment style for this header:
 
-    WARNING: Improper SPDX comment style for
-    'drivers/phy/phy-airoha-pcie-regs.h', please use '/*' instead
+--=-6/kjwuzd33VbGR6NlGU/
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Per Documentation/process/license-rules.rst, C header files must use the
-'/* SPDX-License-Identifier: ...  */' form instead of the '// ....' form
-used in C source files. Fix it.
+Le jeudi 12 f=C3=A9vrier 2026 =C3=A0 11:23 -0500, Detlev Casanova a =C3=A9c=
+rit=C2=A0:
+> Also remove the trace from visl as the generic v4l2-requests traces can
+> now be used instead.
+>=20
+> It allows all stateless drivers to inherit traceability, with just a smal=
+l
+> overhead when disabled in userspace.
+>=20
+> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+> ---
+> =C2=A0drivers/media/test-drivers/visl/visl-dec.c |=C2=A0 74 -------------
+> =C2=A0drivers/media/v4l2-core/v4l2-ctrls-api.c=C2=A0=C2=A0 |=C2=A0 10 ++
+> =C2=A0drivers/media/v4l2-core/v4l2-ctrls-core.c=C2=A0 | 114 +++++++++++++=
+++++++++
+> =C2=A0include/media/v4l2-ctrls.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 15 +++
+> =C2=A04 files changed, 139 insertions(+), 74 deletions(-)
+>=20
+> diff --git a/drivers/media/test-drivers/visl/visl-dec.c b/drivers/media/t=
+est-drivers/visl/visl-dec.c
+> index fc216da17048..9517830fb3e8 100644
+> --- a/drivers/media/test-drivers/visl/visl-dec.c
+> +++ b/drivers/media/test-drivers/visl/visl-dec.c
+> @@ -12,7 +12,6 @@
+> =C2=A0#include <linux/workqueue.h>
+> =C2=A0#include <media/v4l2-mem2mem.h>
+> =C2=A0#include <media/tpg/v4l2-tpg.h>
+> -#include <trace/events/v4l2_requests.h>
+> =C2=A0
+> =C2=A0#define LAST_BUF_IDX (V4L2_AV1_REF_LAST_FRAME - V4L2_AV1_REF_LAST_F=
+RAME)
+> =C2=A0#define LAST2_BUF_IDX (V4L2_AV1_REF_LAST2_FRAME - V4L2_AV1_REF_LAST=
+_FRAME)
+> @@ -486,78 +485,6 @@ static void visl_tpg_fill(struct visl_ctx *ctx, stru=
+ct visl_run *run)
+> =C2=A0	}
+> =C2=A0}
+> =C2=A0
+> -static void visl_trace_ctrls(struct visl_ctx *ctx, struct visl_run *run)
+> -{
+> -	int i;
+> -	struct v4l2_fh *fh =3D &ctx->fh;
+> -
+> -	switch (ctx->current_codec) {
+> -	default:
+> -	case VISL_CODEC_NONE:
+> -		break;
+> -	case VISL_CODEC_FWHT:
+> -		trace_v4l2_ctrl_fwht_params(fh->tgid, fh->fd, run->fwht.params);
+> -		break;
+> -	case VISL_CODEC_MPEG2:
+> -		trace_v4l2_ctrl_mpeg2_sequence(fh->tgid, fh->fd, run->mpeg2.seq);
+> -		trace_v4l2_ctrl_mpeg2_picture(fh->tgid, fh->fd, run->mpeg2.pic);
+> -		trace_v4l2_ctrl_mpeg2_quantisation(fh->tgid, fh->fd, run->mpeg2.quant)=
+;
+> -		break;
+> -	case VISL_CODEC_VP8:
+> -		trace_v4l2_ctrl_vp8_frame(fh->tgid, fh->fd, run->vp8.frame);
+> -		trace_v4l2_ctrl_vp8_entropy(fh->tgid, fh->fd, run->vp8.frame);
+> -		break;
+> -	case VISL_CODEC_VP9:
+> -		trace_v4l2_ctrl_vp9_frame(fh->tgid, fh->fd, run->vp9.frame);
+> -		trace_v4l2_ctrl_vp9_compressed_hdr(fh->tgid, fh->fd, run->vp9.probs);
+> -		trace_v4l2_ctrl_vp9_compressed_coeff(fh->tgid, fh->fd, run->vp9.probs)=
+;
+> -		trace_v4l2_vp9_mv_probs(fh->tgid, fh->fd, &run->vp9.probs->mv);
+> -		break;
+> -	case VISL_CODEC_H264:
+> -		trace_v4l2_ctrl_h264_sps(fh->tgid, fh->fd, run->h264.sps);
+> -		trace_v4l2_ctrl_h264_pps(fh->tgid, fh->fd, run->h264.pps);
+> -		trace_v4l2_ctrl_h264_scaling_matrix(fh->tgid, fh->fd, run->h264.sm);
+> -		trace_v4l2_ctrl_h264_slice_params(fh->tgid, fh->fd, run->h264.spram);
+> -
+> -		for (i =3D 0; i < ARRAY_SIZE(run->h264.spram->ref_pic_list0); i++)
+> -			trace_v4l2_h264_ref_pic_list0(fh->tgid, fh->fd,
+> -						=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 &run->h264.spram->ref_pic_list0[i],=
+ i);
+> -		for (i =3D 0; i < ARRAY_SIZE(run->h264.spram->ref_pic_list0); i++)
+> -			trace_v4l2_h264_ref_pic_list1(fh->tgid, fh->fd,
+> -						=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 &run->h264.spram->ref_pic_list1[i],=
+ i);
+> -
+> -		trace_v4l2_ctrl_h264_decode_params(fh->tgid, fh->fd, run->h264.dpram);
+> -
+> -		for (i =3D 0; i < ARRAY_SIZE(run->h264.dpram->dpb); i++)
+> -			trace_v4l2_h264_dpb_entry(fh->tgid, fh->fd, &run->h264.dpram->dpb[i],=
+ i);
+> -
+> -		trace_v4l2_ctrl_h264_pred_weights(fh->tgid, fh->fd, run->h264.pwht);
+> -		break;
+> -	case VISL_CODEC_HEVC:
+> -		trace_v4l2_ctrl_hevc_sps(fh->tgid, fh->fd, run->hevc.sps);
+> -		trace_v4l2_ctrl_hevc_pps(fh->tgid, fh->fd, run->hevc.pps);
+> -		trace_v4l2_ctrl_hevc_slice_params(fh->tgid, fh->fd, run->hevc.spram);
+> -		trace_v4l2_ctrl_hevc_scaling_matrix(fh->tgid, fh->fd, run->hevc.sm);
+> -		trace_v4l2_ctrl_hevc_decode_params(fh->tgid, fh->fd, run->hevc.dpram);
+> -
+> -		for (i =3D 0; i < ARRAY_SIZE(run->hevc.dpram->dpb); i++)
+> -			trace_v4l2_hevc_dpb_entry(fh->tgid, fh->fd, &run->hevc.dpram->dpb[i])=
+;
+> -
+> -
+> -		trace_v4l2_hevc_pred_weight_table(fh->tgid, fh->fd,
+> -						=C2=A0 &run->hevc.spram->pred_weight_table);
+> -		trace_v4l2_ctrl_hevc_ext_sps_lt_rps(fh->tgid, fh->fd, run->hevc.rps_lt=
+);
+> -		trace_v4l2_ctrl_hevc_ext_sps_st_rps(fh->tgid, fh->fd, run->hevc.rps_st=
+);
+> -		break;
+> -	case VISL_CODEC_AV1:
+> -		trace_v4l2_ctrl_av1_sequence(fh->tgid, fh->fd, run->av1.seq);
+> -		trace_v4l2_ctrl_av1_frame(fh->tgid, fh->fd, run->av1.frame);
+> -		trace_v4l2_ctrl_av1_film_grain(fh->tgid, fh->fd, run->av1.grain);
+> -		trace_v4l2_ctrl_av1_tile_group_entry(fh->tgid, fh->fd, run->av1.tge);
+> -		break;
+> -	}
+> -}
+> -
+> =C2=A0void visl_device_run(void *priv)
+> =C2=A0{
+> =C2=A0	struct visl_ctx *ctx =3D priv;
+> @@ -634,7 +561,6 @@ void visl_device_run(void *priv)
+> =C2=A0		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 run.dst->sequence, run.dst->vb2_bu=
+f.timestamp);
+> =C2=A0
+> =C2=A0	visl_tpg_fill(ctx, &run);
+> -	visl_trace_ctrls(ctx, &run);
+> =C2=A0
+> =C2=A0	if (bitstream_trace_frame_start > -1 &&
+> =C2=A0	=C2=A0=C2=A0=C2=A0 run.dst->sequence >=3D bitstream_trace_frame_st=
+art &&
+> diff --git a/drivers/media/v4l2-core/v4l2-ctrls-api.c b/drivers/media/v4l=
+2-core/v4l2-ctrls-api.c
+> index 0078a04c5445..8a814eec7a30 100644
+> --- a/drivers/media/v4l2-core/v4l2-ctrls-api.c
+> +++ b/drivers/media/v4l2-core/v4l2-ctrls-api.c
+> @@ -524,6 +524,12 @@ int v4l2_g_ext_ctrls(struct v4l2_ctrl_handler *hdl, =
+struct video_device *vdev,
+> =C2=A0}
+> =C2=A0EXPORT_SYMBOL(v4l2_g_ext_ctrls);
+> =C2=A0
+> +static void trace_ext_ctrl(struct v4l2_fh *fh, const struct v4l2_ctrl *c=
+trl)
+> +{
+> +	if (ctrl->type_ops->trace)
+> +		ctrl->type_ops->trace(fh, ctrl, ctrl->p_cur);
+> +}
+> +
+> =C2=A0/* Validate a new control */
+> =C2=A0static int validate_new(const struct v4l2_ctrl *ctrl, union v4l2_ct=
+rl_ptr p_new)
+> =C2=A0{
+> @@ -713,6 +719,10 @@ int try_set_ext_ctrls_common(struct v4l2_fh *fh,
+> =C2=A0				idx =3D helpers[idx].next;
+> =C2=A0			} while (!ret && idx);
+> =C2=A0		}
+> +
+> +		if (set)
+> +			trace_ext_ctrl(fh, master);
+> +
+> =C2=A0		v4l2_ctrl_unlock(master);
+> =C2=A0	}
+> =C2=A0
+> diff --git a/drivers/media/v4l2-core/v4l2-ctrls-core.c b/drivers/media/v4=
+l2-core/v4l2-ctrls-core.c
+> index 79a157975f70..6165e36d8879 100644
+> --- a/drivers/media/v4l2-core/v4l2-ctrls-core.c
+> +++ b/drivers/media/v4l2-core/v4l2-ctrls-core.c
+> @@ -10,8 +10,11 @@
+> =C2=A0#include <linux/slab.h>
+> =C2=A0#include <media/v4l2-ctrls.h>
+> =C2=A0#include <media/v4l2-event.h>
+> +#include <media/v4l2-fh.h>
+> =C2=A0#include <media/v4l2-fwnode.h>
+> =C2=A0
+> +#include <trace/events/v4l2_requests.h>
+> +
+> =C2=A0#include "v4l2-ctrls-priv.h"
+> =C2=A0
+> =C2=A0static const union v4l2_ctrl_ptr ptr_null;
+> @@ -1462,12 +1465,123 @@ int v4l2_ctrl_type_op_validate(const struct v4l2=
+_ctrl *ctrl,
+> =C2=A0}
+> =C2=A0EXPORT_SYMBOL(v4l2_ctrl_type_op_validate);
+> =C2=A0
+> +void v4l2_ctrl_type_op_trace(const struct v4l2_fh *fh,
+> +				=C2=A0=C2=A0=C2=A0 const struct v4l2_ctrl *ctrl, union v4l2_ctrl_ptr=
+ ptr)
+> +{
+> +	int i =3D 0;
+> +
+> +	switch ((u32)ctrl->type) {
+> +	case V4L2_CTRL_TYPE_FWHT_PARAMS:
+> +		trace_v4l2_ctrl_fwht_params(fh->tgid, fh->fd, ptr.p_fwht_params);
+> +		break;
+> +	case V4L2_CTRL_TYPE_MPEG2_SEQUENCE:
+> +		trace_v4l2_ctrl_mpeg2_sequence(fh->tgid, fh->fd, ptr.p_mpeg2_sequence)=
+;
+> +		break;
+> +	case V4L2_CTRL_TYPE_MPEG2_PICTURE:
+> +		trace_v4l2_ctrl_mpeg2_picture(fh->tgid, fh->fd, ptr.p_mpeg2_picture);
+> +		break;
+> +	case V4L2_CTRL_TYPE_MPEG2_QUANTISATION:
+> +		trace_v4l2_ctrl_mpeg2_quantisation(fh->tgid, fh->fd, ptr.p_mpeg2_quant=
+isation);
+> +		break;
+> +	case V4L2_CTRL_TYPE_VP8_FRAME:
+> +		trace_v4l2_ctrl_vp8_frame(fh->tgid, fh->fd, ptr.p_vp8_frame);
+> +		trace_v4l2_ctrl_vp8_entropy(fh->tgid, fh->fd, ptr.p_vp8_frame);
+> +		break;
+> +	case V4L2_CTRL_TYPE_VP9_FRAME:
+> +		trace_v4l2_ctrl_vp9_frame(fh->tgid, fh->fd, ptr.p_vp9_frame);
+> +		break;
+> +	case V4L2_CTRL_TYPE_VP9_COMPRESSED_HDR:
+> +		trace_v4l2_ctrl_vp9_compressed_hdr(fh->tgid, fh->fd,
+> +						=C2=A0=C2=A0 ptr.p_vp9_compressed_hdr_probs);
+> +		trace_v4l2_ctrl_vp9_compressed_coeff(fh->tgid, fh->fd,
+> +						=C2=A0=C2=A0=C2=A0=C2=A0 ptr.p_vp9_compressed_hdr_probs);
+> +		trace_v4l2_vp9_mv_probs(fh->tgid, fh->fd, &ptr.p_vp9_compressed_hdr_pr=
+obs->mv);
+> +		break;
+> +	case V4L2_CTRL_TYPE_H264_SPS:
+> +		trace_v4l2_ctrl_h264_sps(fh->tgid, fh->fd, ptr.p_h264_sps);
+> +		break;
+> +	case V4L2_CTRL_TYPE_H264_PPS:
+> +		trace_v4l2_ctrl_h264_pps(fh->tgid, fh->fd, ptr.p_h264_pps);
+> +		break;
+> +	case V4L2_CTRL_TYPE_H264_SCALING_MATRIX:
+> +		trace_v4l2_ctrl_h264_scaling_matrix(fh->tgid, fh->fd, ptr.p_h264_scali=
+ng_matrix);
+> +		break;
+> +	case V4L2_CTRL_TYPE_H264_SLICE_PARAMS:
+> +	{
+> +		struct v4l2_ctrl_h264_slice_params *sp =3D ptr.p_h264_slice_params;
+> +
+> +		trace_v4l2_ctrl_h264_slice_params(fh->tgid, fh->fd, sp);
+> +
+> +		for (i =3D 0; i < ARRAY_SIZE(sp->ref_pic_list0); i++)
+> +			trace_v4l2_h264_ref_pic_list0(fh->tgid, fh->fd, &sp->ref_pic_list0[i]=
+, i);
+> +		for (i =3D 0; i < ARRAY_SIZE(sp->ref_pic_list1); i++)
+> +			trace_v4l2_h264_ref_pic_list1(fh->tgid, fh->fd, &sp->ref_pic_list1[i]=
+, i);
+> +
+> +		break;
+> +	}
+> +	case V4L2_CTRL_TYPE_H264_DECODE_PARAMS:
+> +	{
+> +		struct v4l2_ctrl_h264_decode_params *dp =3D ptr.p_h264_decode_params;
+> +
+> +		trace_v4l2_ctrl_h264_decode_params(fh->tgid, fh->fd, dp);
+> +
+> +		for (i =3D 0; i < ARRAY_SIZE(dp->dpb); i++)
+> +			trace_v4l2_h264_dpb_entry(fh->tgid, fh->fd, &dp->dpb[i], i);
+> +
+> +		break;
+> +	}
+> +	case V4L2_CTRL_TYPE_H264_PRED_WEIGHTS:
+> +		trace_v4l2_ctrl_h264_pred_weights(fh->tgid, fh->fd, ptr.p_h264_pred_we=
+ights);
+> +		break;
+> +	case V4L2_CTRL_TYPE_HEVC_SPS:
+> +		trace_v4l2_ctrl_hevc_sps(fh->tgid, fh->fd, ptr.p_hevc_sps);
+> +		break;
+> +	case V4L2_CTRL_TYPE_HEVC_PPS:
+> +		trace_v4l2_ctrl_hevc_pps(fh->tgid, fh->fd, ptr.p_hevc_pps);
+> +		break;
+> +	case V4L2_CTRL_TYPE_HEVC_SLICE_PARAMS:
+> +		trace_v4l2_ctrl_hevc_slice_params(fh->tgid, fh->fd, ptr.p_hevc_slice_p=
+arams);
+> +		trace_v4l2_hevc_pred_weight_table(fh->tgid, fh->fd,
+> +						=C2=A0 &ptr.p_hevc_slice_params->pred_weight_table);
+> +		break;
+> +	case V4L2_CTRL_TYPE_HEVC_SCALING_MATRIX:
+> +		trace_v4l2_ctrl_hevc_scaling_matrix(fh->tgid, fh->fd, ptr.p_hevc_scali=
+ng_matrix);
+> +		break;
+> +	case V4L2_CTRL_TYPE_HEVC_DECODE_PARAMS:
+> +	{
+> +		struct v4l2_ctrl_hevc_decode_params *dp =3D ptr.p_hevc_decode_params;
+> +
+> +		trace_v4l2_ctrl_hevc_decode_params(fh->tgid, fh->fd, dp);
+> +
+> +		for (i =3D 0; i < ARRAY_SIZE(dp->dpb); i++)
+> +			trace_v4l2_hevc_dpb_entry(fh->tgid, fh->fd, &dp->dpb[i]);
+> +
+> +		break;
+> +	}
+> +	case V4L2_CTRL_TYPE_AV1_SEQUENCE:
+> +		trace_v4l2_ctrl_av1_sequence(fh->tgid, fh->fd, ptr.p_av1_sequence);
+> +		break;
+> +	case V4L2_CTRL_TYPE_AV1_FRAME:
+> +		trace_v4l2_ctrl_av1_frame(fh->tgid, fh->fd, ptr.p_av1_frame);
+> +		break;
+> +	case V4L2_CTRL_TYPE_AV1_FILM_GRAIN:
+> +		trace_v4l2_ctrl_av1_film_grain(fh->tgid, fh->fd, ptr.p_av1_film_grain)=
+;
+> +		break;
+> +	case V4L2_CTRL_TYPE_AV1_TILE_GROUP_ENTRY:
+> +		trace_v4l2_ctrl_av1_tile_group_entry(fh->tgid, fh->fd, ptr.p_av1_tile_=
+group_entry);
+> +		break;
 
-Signed-off-by: Aditya Dabhade <aditya.dabhade066@gmail.com>
----
- drivers/phy/phy-airoha-pcie-regs.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Some controls are pretty generic, so what about these, the non compound ?
 
-diff --git a/drivers/phy/phy-airoha-pcie-regs.h b/drivers/phy/phy-airoha-pcie-regs.h
-index b938a7b468f..58572c79372 100644
---- a/drivers/phy/phy-airoha-pcie-regs.h
-+++ b/drivers/phy/phy-airoha-pcie-regs.h
-@@ -1,4 +1,4 @@
--// SPDX-License-Identifier: GPL-2.0-only
-+/* SPDX-License-Identifier: GPL-2.0-only */
- /*
-  * Copyright (c) 2024 AIROHA Inc
-  * Author: Lorenzo Bianconi <lorenzo@kernel.org>
--- 
-2.34.1
+Nicolas
 
+> +	}
+> +
+> +}
+> +EXPORT_SYMBOL(v4l2_ctrl_type_op_trace);
+> +
+> =C2=A0static const struct v4l2_ctrl_type_ops std_type_ops =3D {
+> =C2=A0	.equal =3D v4l2_ctrl_type_op_equal,
+> =C2=A0	.init =3D v4l2_ctrl_type_op_init,
+> =C2=A0	.minimum =3D v4l2_ctrl_type_op_minimum,
+> =C2=A0	.maximum =3D v4l2_ctrl_type_op_maximum,
+> =C2=A0	.log =3D v4l2_ctrl_type_op_log,
+> +	.trace =3D v4l2_ctrl_type_op_trace,
+> =C2=A0	.validate =3D v4l2_ctrl_type_op_validate,
+> =C2=A0};
+> =C2=A0
+> diff --git a/include/media/v4l2-ctrls.h b/include/media/v4l2-ctrls.h
+> index a2b4c96a9a6f..57c4bb999b7b 100644
+> --- a/include/media/v4l2-ctrls.h
+> +++ b/include/media/v4l2-ctrls.h
+> @@ -140,6 +140,7 @@ struct v4l2_ctrl_ops {
+> =C2=A0 * @minimum: set the value to the minimum value of the control.
+> =C2=A0 * @maximum: set the value to the maximum value of the control.
+> =C2=A0 * @log: log the value.
+> + * @trace: trace the value of the control with Ftrace.
+> =C2=A0 * @validate: validate the value for ctrl->new_elems array elements=
+.
+> =C2=A0 *	Return 0 on success and a negative value otherwise.
+> =C2=A0 */
+> @@ -153,6 +154,8 @@ struct v4l2_ctrl_type_ops {
+> =C2=A0	void (*maximum)(const struct v4l2_ctrl *ctrl, u32 idx,
+> =C2=A0			union v4l2_ctrl_ptr ptr);
+> =C2=A0	void (*log)(const struct v4l2_ctrl *ctrl);
+> +	void (*trace)(const struct v4l2_fh *fh,
+> +		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 const struct v4l2_ctrl *ctrl, union v4l=
+2_ctrl_ptr ptr);
+> =C2=A0	int (*validate)(const struct v4l2_ctrl *ctrl, union v4l2_ctrl_ptr =
+ptr);
+> =C2=A0};
+> =C2=A0
+> @@ -1627,6 +1630,18 @@ void v4l2_ctrl_type_op_init(const struct v4l2_ctrl=
+ *ctrl, u32 from_idx,
+> =C2=A0 */
+> =C2=A0void v4l2_ctrl_type_op_log(const struct v4l2_ctrl *ctrl);
+> =C2=A0
+> +/**
+> + * v4l2_ctrl_type_op_trace - Default v4l2_ctrl_type_ops trace callback.
+> + *
+> + * @fh: The v4l2_fh of the current context.
+> + * @ctrl: The v4l2_ctrl pointer.
+> + * @ptr: The v4l2 control value.
+> + *
+> + * Return: void
+> + */
+> +void v4l2_ctrl_type_op_trace(const struct v4l2_fh *fh,
+> +			=C2=A0=C2=A0=C2=A0=C2=A0 const struct v4l2_ctrl *ctrl, union v4l2_ctr=
+l_ptr ptr);
+> +
+> =C2=A0/**
+> =C2=A0 * v4l2_ctrl_type_op_validate - Default v4l2_ctrl_type_ops validate=
+ callback.
+> =C2=A0 *
+
+--=-6/kjwuzd33VbGR6NlGU/
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCafEMjwAKCRDZQZRRKWBy
+9OBJAP9yiJYBQsdghoiON2JF2i5wRU9PNkXAsUj1rA/kCU0r9AEAvAhPXB1WavoK
+cB/rX4kL85T/lk0GdrHkNwRHG6SJVQU=
+=kAVE
+-----END PGP SIGNATURE-----
+
+--=-6/kjwuzd33VbGR6NlGU/--
 
