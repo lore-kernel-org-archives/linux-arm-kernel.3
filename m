@@ -4,84 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA309FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 07:23:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C33ABFF8870
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 07:23:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fWBpdC1hbJvY/s6uADBdAEmpsDmo838tjOauQEs5cN0=; b=uCwqM4hBWlFGVQ/XPaQ+BvckM6
-	5+xWHmB5MVZy2ee81sD/gpse3v6UAXCNOWLgrUrR2zwd39xnJx580+aD+Chv71TVZhTo+Nmrfh120
-	+jSyzv7jMB+OMnCl3r2h1VLB1zamNUS7PitqAN0CZ5wiJc5HeqUk+5xfkquMyQ3Hq7lwN/PVL+jFq
-	qTom7v60yeDYMXZeK6i07BZL622zvvHpMtFBPDNRWvvsfS+B8lpwUGc44nG7Ff/01A6VZ1xXFf2rM
-	A/t+GOHj0ONIZIx1WuBP7ToVDn0UOkCRrJfo7+N62g8z7qKwzRX435d690blr1sLaC8Q1U0I+Vl5l
-	Gyn4qSkQ==;
+	bh=FUJSZggZAnW35gY6L6UfepyO4olhr8IMzDQNCfxT3yU=; b=Kl78M2rkKRe5rGwxpZbr6W/JM8
+	b9lsqoDtfn37issyOKasT120EN+25+RwZ3Z1o9Hz+3OP1d+FBe4rak/b4l2qwX/Euk7TUrNMfp3X9
+	sGvL2KrZIKHMu2jdIRKzZvFuY96Ql/wXUBbODXBUx0wFBAuRG+ud6bgmTkxXUL7200RcTxClbKghW
+	dGg4obejK7cf0ufuby+VOFKLIBnlv4zDaxoANQKJuH4nJKnFX5kr9LoSxkOeJ/ZPO1c1aojrPvb0I
+	BIxY7TxV06kUApS2LW+hoD7y2qNI2E78t5ezeCXTsneXZd6A/sTooCF1z1mFV+bfsZnymXmkaZtyQ
+	v0QI1p5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHcms-00000000kFj-3wYF;
-	Tue, 28 Apr 2026 07:23:19 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wHcmv-00000000kIy-22Bz;
+	Tue, 28 Apr 2026 07:23:21 +0000
+Received: from mail-dl1-f74.google.com ([74.125.82.74])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHckx-00000000iH4-2kW9
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 28 Apr 2026 07:21:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=fWBpdC1hbJvY/s6uADBdAEmpsDmo838tjOauQEs5cN0=; b=Voh4FR1J1Y1YqkvrhPErlzwd/G
-	JG7619vKDn2XTjNERUT/3LDP6g4lQYZ3WrVBB1eUZaXsbKeWRfuRi54/7ZxWMwQ/2YgM6YIeRiXHo
-	dyDTJOxkTAEzfkJoYcO8IA2CQZ8MU2DPk4yQy2Z7ijsgK7eJPgwYoGFprqKeUA+3I+1lUhWsLykee
-	YjWVwf5X3/FhZesNOFVPFlx/QwxrVbvvwjzQYED/VpNBaDivkgvqNlsDyljh1rsyXKntZe3Wb7Oh0
-	0g5nNTLHPy+em6HS+zjn+saIES4IS+s1GbYzQn+JLI3U/FsfC3lIuVoFh6UIge4tf1zScBuLCT3N8
-	YvNFuheg==;
-Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHcks-00000002Dx8-1l86
+	id 1wHckp-00000000i6y-3KFb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 07:21:17 +0000
-Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2eaed3d96d7so3084926eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 00:21:12 -0700 (PDT)
+	Tue, 28 Apr 2026 07:21:28 +0000
+Received: by mail-dl1-f74.google.com with SMTP id a92af1059eb24-12c91ef7009so33070920c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 00:21:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777360871; x=1777965671; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777360869; x=1777965669; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=fWBpdC1hbJvY/s6uADBdAEmpsDmo838tjOauQEs5cN0=;
-        b=Vqmma0ful4X1gHAwP/h8aTcbMysGCS34GsqTb5cxcbLgr/S0DwTuU/HQ2naS3bD/Ge
-         5e53H4CW2VO9bttwKHtEMjUu9CqiHOUKS6hYxAov17LKGVbc6c9xTQ6DhErOSckwLV4i
-         0X1gwY/ucgGYj3ocH57Mh77IKmx/DIYHQhQun0+ggL5wIOGReV94JGrVfGPoa3eaEqir
-         iAxKwAHyT4qdcOLBwxlevtH5RSh5xuM5073thNHSeYUNO/4JOXRRKwzaAW1Abfq8clE6
-         Jv77F0Rcqq8K3OW2CAt7XqLivp/4pNGmwi7LRnZuIF7kAIQapZGqno1gDqPbkfU3rSOF
-         oRAg==
+        bh=FUJSZggZAnW35gY6L6UfepyO4olhr8IMzDQNCfxT3yU=;
+        b=j2k8qn3GLLci4ADYQsU3H3vEr4W6jSjbJQeb3WJSPmRCp65QB/ibfiF7u7pRbeN4+r
+         cdLxw6M+h9RRzA44TXNUPbwEIrNLN30fMpSjut5CT5xQmpBIYOrakdGCyB68fHl7dRcR
+         8IDmYirfKUN/aW4EfV0lSl5hLwiHYRIMnBSSyShRucR/vot/Dk3rGyEsrmGz2JQCtAKX
+         AoXj+6ZgaGMnLAwpQEnqzjYFDb+65kS0eanv8+myGKjVB/n3YsAXfkaThbpfbDbLyQtn
+         VRbg0awDvbyUnHUNaxKIv9rBGyPswfslNUN0glVfnwusWP5cuohL8HjCvfHTbndHb2e2
+         UE/g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777360871; x=1777965671;
+        d=1e100.net; s=20251104; t=1777360869; x=1777965669;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=fWBpdC1hbJvY/s6uADBdAEmpsDmo838tjOauQEs5cN0=;
-        b=oM8DZ6zWJSJN5llLFGfHLLXJ+nsR/XQ0qVR57M2s4YD+HGiIS+/QUsKJYu2Qmmv04C
-         2QzWhxwWrOrPo5r/X4zofqML5Py+NGFKCTx6Us2vjG4qO24fKNVjJjyNTArdqmnPt02E
-         EI47DounLVVn3w36s8F38KJQinE71t8zWMb4+oaA0U+ZUEm0o5B4iFsWrVgHGqf8f5Ir
-         ZDK93+P5ZcoP8jTijqqI2eiMycvcqpd6JJQGGqdUC967r036DFdeuVgb7o7n80D5eWtQ
-         vATEjwgnLrYq8k/f1DSGbVr3KZLfPBe4IbsnP6aRgNGPmGpbCUR5xK7AZ2Vg2NS/bbzu
-         goJQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8wEbdclQ2xrZKn5iAADZ+FXPHg01bXdzlZRnn8DjJ0kjQSnwZBTUU0XXtmxQbRz8e7vPKfTFw2RybhwqGVw8rV@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJLBYYSmzHYVaxQacKC+iFyNSjN+O3n2pa6zhDB8h/Z05PFEo3
-	ekXr+sOJR0hcfvPqMqc5i4VzHTocga221JIhaUXGTCsnIljsl4FJacWVSX+acVB5/oRuSeOyo2R
-	U5TdkAE8wTA==
-X-Received: from dycoz1.prod.google.com ([2002:a05:7301:fc81:b0:2d9:1564:c80c])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:d215:b0:2ed:e14:42e9
- with SMTP id 5a478bee46e88-2ed0e144411mr362084eec.34.1777360870644; Tue, 28
- Apr 2026 00:21:10 -0700 (PDT)
-Date: Tue, 28 Apr 2026 00:19:01 -0700
+        bh=FUJSZggZAnW35gY6L6UfepyO4olhr8IMzDQNCfxT3yU=;
+        b=Xb6uUrxIDaqaGED35VaEI6Zr83PFTgi0+gkBZ06nI6JUffavyw1X4Vs8n01eP6RqFs
+         SP//8klc9RDZ94xhIEHPEbRWTBVbZxSMZBcwBMm5hCENiPKUSfy0zh8JmNHwy7g/BFr+
+         5Q1n9UaTcplMxuZDZx+YLhcw8P2Sr2li2bYipOe/51uTpU7+BnNUfn+wwBs4qw7/qJdg
+         pOi6YtB1UZVnAF/kp55BFRJSuwDCKXTWSAqSmEZswNxKH1d6C8i+JdH9UvVeXOOvfQHD
+         L3dzysNgjCXswfp3Mk8krdaEKq4ledDSZZJHYOnglXJxtUjv7Lqfe43GPFrI6vKzrjf/
+         Pp2Q==
+X-Forwarded-Encrypted: i=1; AFNElJ+INZFSD2BU2iHM83pLpGFOYDMgmxtpqZSqK/cmPJsASJo+qL0628hobug5zMSsrXXsSFU+S73RoMUjkjiUqbH5@lists.infradead.org
+X-Gm-Message-State: AOJu0YyvT40Epw9XauVVc5+9NclbCn+5s9cutQuk5mNGISNSAOeQVzZX
+	KVJMrIbCuEIUL6HmyANOywZB1oZjECcEd379usPQOst7AFFIjYq+mpQ0OaIgEGmbgmxcHGnfxa1
+	EvGf2CpXu4g==
+X-Received: from dlah23.prod.google.com ([2002:a05:701b:2617:b0:12b:f569:153f])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:4581:b0:127:9c10:446c
+ with SMTP id a92af1059eb24-12ddd93f6fdmr1078110c88.7.1777360868888; Tue, 28
+ Apr 2026 00:21:08 -0700 (PDT)
+Date: Tue, 28 Apr 2026 00:19:00 -0700
 In-Reply-To: <20260428071903.1886173-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260425224951.174663-1-irogers@google.com> <20260428071903.1886173-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260428071903.1886173-57-irogers@google.com>
-Subject: [PATCH v8 56/58] perf script: Refactor to support standalone scripts
- and remove legacy features
+Message-ID: <20260428071903.1886173-56-irogers@google.com>
+Subject: [PATCH v8 55/58] perf Makefile: Update Python script installation path
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, namhyung@kernel.org
 Cc: adrian.hunter@intel.com, alice.mei.rogers@gmail.com, 
@@ -91,8 +75,8 @@ Cc: adrian.hunter@intel.com, alice.mei.rogers@gmail.com,
 	tmricht@linux.ibm.com, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_082116_055338_1EB63F8C 
-X-CRM114-Status: GOOD (  34.05  )
+X-CRM114-CacheID: sfid-20260428_002112_107296_96A80C67 
+X-CRM114-Status: GOOD (  21.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,1674 +91,239 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-- Remove -g / --gen-script option as it is no longer needed.
-- Hide -s / --script option to imply running standalone scripts
-  directly.
-- Update find_script to search in 'python' instead of
-  'scripts/python'.
-- Add support for launching standalone scripts using fork and execvp,
-  skipping the event processing loop.
-- Update list_available_scripts to look for .py files directly in
-  'python' directory.
-- Remove all references to scripting_ops and clean up unused functions
-  and variables.
+Remove libpython feature test that is now a python-module feature
+test. Update references from libpython to python-module accordingly.
+
+Remove references to legacy 'scripts/python' directory and install
+scripts directly to 'python' directory under libexec. This aligns with
+the removal of embedded interpreter and move to standalone
+scripts.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
-v2:
+ tools/build/Makefile.feature             |  4 ++--
+ tools/build/feature/Makefile             |  4 ++--
+ tools/build/feature/test-all.c           |  6 +++---
+ tools/build/feature/test-libpython.c     | 10 ----------
+ tools/build/feature/test-python-module.c | 12 ++++++++++++
+ tools/perf/Makefile.config               | 13 ++++++-------
+ tools/perf/Makefile.perf                 | 10 ++++------
+ tools/perf/tests/make                    |  5 +----
+ 8 files changed, 30 insertions(+), 34 deletions(-)
+ delete mode 100644 tools/build/feature/test-libpython.c
+ create mode 100644 tools/build/feature/test-python-module.c
 
- - Fixed strncat buffer overflow: Updated the strncat call in
-   find_script() to correctly use the remaining capacity of the
-   destination buffer instead of sizeof(path) - 1 . The declaration of
-   len was moved to the top of the function to conform to C style
-   guidelines.
-
- - Fixed execvp path searching: If find_script() finds a local file in
-   the current directory without a slash, it now prepends ./ to it.
-   This ensures that execvp() executed by the child process knows to
-   look in the current directory rather than searching the system
-   $PATH .
-
- - Fixed premature loop termination in docstring parsing: Removed a
-   check in read_script_info() that caused the loop to terminate early
-   if any fallback description was found (like an SPDX
-   identifier). This restores the intended behavior of searching the
-   entire header for a better "description:" tag.
-
- - Updated subcommands and usage: Removed "record" and "report" from
-   the usage text and stopped passing them as valid subcommands to
-   parse_options_subcommand() .
-
- - Fixed lost command-line options: Reconstructed the arguments passed
-   to the standalone script to include -i and the input file path,
-   ensuring that the user's choice of input file is not lost.
-
- - Added error message on execvp failure: Added a pr_err call in the
-   child process to print a descriptive error message if execvp()
-   fails to launch the script.
-
- - Fixed uninitialized status in waitpid : Initialized status to 0 and
-   verified that waitpid() successfully returned the child's PID
-   before evaluating its exit status. Also removed unnecessary braces
-   and fixed indentation in that block.
-
-v8:
-
- - Avoid potential memory leak. Remove unused variables. Correct waitpid
-   return value.
----
- tools/perf/builtin-script.c             | 778 +++++++++---------------
- tools/perf/util/Build                   |   1 -
- tools/perf/util/scripting-engines/Build |   1 -
- tools/perf/util/trace-event-parse.c     |  65 --
- tools/perf/util/trace-event-scripting.c | 333 ----------
- tools/perf/util/trace-event.h           |  75 +--
- 6 files changed, 300 insertions(+), 953 deletions(-)
- delete mode 100644 tools/perf/util/scripting-engines/Build
- delete mode 100644 tools/perf/util/trace-event-scripting.c
-
-diff --git a/tools/perf/builtin-script.c b/tools/perf/builtin-script.c
-index c0949556d1bb..6b53694edb4a 100644
---- a/tools/perf/builtin-script.c
-+++ b/tools/perf/builtin-script.c
-@@ -18,6 +18,7 @@
- #include <sys/param.h>
- #include <sys/stat.h>
- #include <sys/types.h>
-+#include <sys/wait.h>
- #include <sys/utsname.h>
- #include <unistd.h>
+diff --git a/tools/build/Makefile.feature b/tools/build/Makefile.feature
+index 96d4382144c4..cbe41ba7bae5 100644
+--- a/tools/build/Makefile.feature
++++ b/tools/build/Makefile.feature
+@@ -79,7 +79,7 @@ FEATURE_TESTS_BASIC :=                  \
+         libelf-zstd                     \
+         libnuma                         \
+         numa_num_possible_cpus          \
+-        libpython                       \
++        python-module                   \
+         libslang                        \
+         libtraceevent                   \
+         libcpupower                     \
+@@ -140,7 +140,7 @@ FEATURE_DISPLAY ?=              \
+          libelf                 \
+          libnuma                \
+          numa_num_possible_cpus \
+-         libpython              \
++         python-module          \
+          libcapstone            \
+          llvm-perf              \
+          zlib                   \
+diff --git a/tools/build/feature/Makefile b/tools/build/feature/Makefile
+index 60e3df8142a5..5530f9e03fcf 100644
+--- a/tools/build/feature/Makefile
++++ b/tools/build/feature/Makefile
+@@ -30,7 +30,7 @@ FILES=                                          \
+          test-libdebuginfod.bin                 \
+          test-libnuma.bin                       \
+          test-numa_num_possible_cpus.bin        \
+-         test-libpython.bin                     \
++         test-python-module.bin                 \
+          test-libslang.bin                      \
+          test-libtraceevent.bin                 \
+          test-libcpupower.bin                   \
+@@ -252,7 +252,7 @@ $(OUTPUT)test-gtk2-infobar.bin:
+ grep-libs  = $(filter -l%,$(1))
+ strip-libs = $(filter-out -l%,$(1))
  
-@@ -77,7 +78,6 @@
- #endif
+-$(OUTPUT)test-libpython.bin:
++$(OUTPUT)test-python-module.bin:
+ 	$(BUILD) $(FLAGS_PYTHON_EMBED)
  
- static char const		*script_name;
--static char const		*generate_script_lang;
- static bool			reltime;
- static bool			deltatime;
- static u64			initial_time;
-@@ -95,6 +95,7 @@ static int			max_blocks;
- static struct dlfilter		*dlfilter;
- static int			dlargc;
- static char			**dlargv;
-+static unsigned int		scripting_max_stack = PERF_MAX_STACK_DEPTH;
+ $(OUTPUT)test-libbfd.bin:
+diff --git a/tools/build/feature/test-all.c b/tools/build/feature/test-all.c
+index 1488bf6e6078..4400e3d24f81 100644
+--- a/tools/build/feature/test-all.c
++++ b/tools/build/feature/test-all.c
+@@ -10,8 +10,8 @@
+  * Quirk: Python headers cannot be in arbitrary places, so keep this testcase at
+  * the top:
+  */
+-#define main main_test_libpython
+-# include "test-libpython.c"
++#define main main_test_python_module
++# include "test-python-module.c"
+ #undef main
  
- enum perf_output_field {
- 	PERF_OUTPUT_COMM            = 1ULL << 0,
-@@ -1730,6 +1731,143 @@ static int perf_sample__fprintf_bts(struct perf_sample *sample,
- 	return printed;
- }
+ #define main main_test_hello
+@@ -148,7 +148,7 @@
  
-+#define SAMPLE_FLAGS_BUF_SIZE 64
-+#define SAMPLE_FLAGS_STR_ALIGNED_SIZE	21
-+
-+static int sample_flags_to_name(u32 flags, char *str, size_t size)
-+{
-+	static const struct {
-+		u32 flags;
-+		const char *name;
-+	} sample_flags[] = {
-+		{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CALL, "call"},
-+		{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_RETURN, "return"},
-+		{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CONDITIONAL, "jcc"},
-+		{PERF_IP_FLAG_BRANCH, "jmp"},
-+		{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CALL | PERF_IP_FLAG_INTERRUPT, "int"},
-+		{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_RETURN | PERF_IP_FLAG_INTERRUPT, "iret"},
-+		{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CALL | PERF_IP_FLAG_SYSCALLRET, "syscall"},
-+		{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_RETURN | PERF_IP_FLAG_SYSCALLRET, "sysret"},
-+		{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_ASYNC, "async"},
-+		{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CALL | PERF_IP_FLAG_ASYNC |	PERF_IP_FLAG_INTERRUPT,
-+		 "hw int"},
-+		{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_TX_ABORT, "tx abrt"},
-+		{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_TRACE_BEGIN, "tr strt"},
-+		{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_TRACE_END, "tr end"},
-+		{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CALL | PERF_IP_FLAG_VMENTRY, "vmentry"},
-+		{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CALL | PERF_IP_FLAG_VMEXIT, "vmexit"},
-+		{0, NULL}
-+	};
-+	static const struct {
-+		u32 flags;
-+		const char *name;
-+	} branch_events[] = {
-+		{PERF_IP_FLAG_BRANCH_MISS, "miss"},
-+		{PERF_IP_FLAG_NOT_TAKEN, "not_taken"},
-+		{0, NULL}
-+	};
-+	int i;
-+	const char *prefix;
-+	int pos = 0, ret, ev_idx = 0;
-+	u32 xf = flags & PERF_ADDITIONAL_STATE_MASK;
-+	u32 types, events;
-+	char xs[16] = { 0 };
-+
-+	/* Clear additional state bits */
-+	flags &= ~PERF_ADDITIONAL_STATE_MASK;
-+
-+	if (flags & PERF_IP_FLAG_TRACE_BEGIN)
-+		prefix = "tr strt ";
-+	else if (flags & PERF_IP_FLAG_TRACE_END)
-+		prefix = "tr end  ";
-+	else
-+		prefix = "";
-+
-+	ret = snprintf(str + pos, size - pos, "%s", prefix);
-+	if (ret < 0)
-+		return ret;
-+	pos += ret;
-+
-+	flags &= ~(PERF_IP_FLAG_TRACE_BEGIN | PERF_IP_FLAG_TRACE_END);
-+
-+	types = flags & ~PERF_IP_FLAG_BRANCH_EVENT_MASK;
-+	for (i = 0; sample_flags[i].name; i++) {
-+		if (sample_flags[i].flags != types)
-+			continue;
-+
-+		ret = snprintf(str + pos, size - pos, "%s", sample_flags[i].name);
-+		if (ret < 0)
-+			return ret;
-+		pos += ret;
-+		break;
-+	}
-+
-+	events = flags & PERF_IP_FLAG_BRANCH_EVENT_MASK;
-+	for (i = 0; branch_events[i].name; i++) {
-+		if (!(branch_events[i].flags & events))
-+			continue;
-+
-+		ret = snprintf(str + pos, size - pos, !ev_idx ? "/%s" : ",%s",
-+			       branch_events[i].name);
-+		if (ret < 0)
-+			return ret;
-+		pos += ret;
-+		ev_idx++;
-+	}
-+
-+	/* Add an end character '/' for events */
-+	if (ev_idx) {
-+		ret = snprintf(str + pos, size - pos, "/");
-+		if (ret < 0)
-+			return ret;
-+		pos += ret;
-+	}
-+
-+	if (!xf)
-+		return pos;
-+
-+	snprintf(xs, sizeof(xs), "(%s%s%s)",
-+		 flags & PERF_IP_FLAG_IN_TX ? "x" : "",
-+		 flags & PERF_IP_FLAG_INTR_DISABLE ? "D" : "",
-+		 flags & PERF_IP_FLAG_INTR_TOGGLE ? "t" : "");
-+
-+	/* Right align the string if its length is less than the limit */
-+	if ((pos + strlen(xs)) < SAMPLE_FLAGS_STR_ALIGNED_SIZE)
-+		ret = snprintf(str + pos, size - pos, "%*s",
-+			       (int)(SAMPLE_FLAGS_STR_ALIGNED_SIZE - ret), xs);
-+	else
-+		ret = snprintf(str + pos, size - pos, " %s", xs);
-+	if (ret < 0)
-+		return ret;
-+
-+	return pos + ret;
-+}
-+
-+static int perf_sample__sprintf_flags(u32 flags, char *str, size_t sz)
-+{
-+	const char *chars = PERF_IP_FLAG_CHARS;
-+	const size_t n = strlen(PERF_IP_FLAG_CHARS);
-+	size_t i, pos = 0;
-+	int ret;
-+
-+	ret = sample_flags_to_name(flags, str, sz);
-+	if (ret > 0)
-+		return ret;
-+
-+	for (i = 0; i < n; i++, flags >>= 1) {
-+		if ((flags & 1) && pos < sz)
-+			str[pos++] = chars[i];
-+	}
-+	for (; i < 32; i++, flags >>= 1) {
-+		if ((flags & 1) && pos < sz)
-+			str[pos++] = '?';
-+	}
-+	if (pos < sz)
-+		str[pos] = 0;
-+
-+	return pos;
-+}
-+
- static int perf_sample__fprintf_flags(u32 flags, FILE *fp)
+ int main(int argc, char *argv[])
  {
- 	char str[SAMPLE_FLAGS_BUF_SIZE];
-@@ -2571,8 +2709,6 @@ static void process_event(struct perf_script *script,
- 		fflush(fp);
- }
- 
--static struct scripting_ops	*scripting_ops;
--
- static void __process_stat(struct evsel *counter, u64 tstamp)
- {
- 	int nthreads = perf_thread_map__nr(counter->core.threads);
-@@ -2607,35 +2743,14 @@ static void __process_stat(struct evsel *counter, u64 tstamp)
- 
- static void process_stat(struct evsel *counter, u64 tstamp)
- {
--	if (scripting_ops && scripting_ops->process_stat)
--		scripting_ops->process_stat(&stat_config, counter, tstamp);
--	else
--		__process_stat(counter, tstamp);
-+	__process_stat(counter, tstamp);
- }
- 
--static void process_stat_interval(u64 tstamp)
-+static void process_stat_interval(u64 tstamp __maybe_unused)
- {
--	if (scripting_ops && scripting_ops->process_stat_interval)
--		scripting_ops->process_stat_interval(tstamp);
- }
- 
--static void setup_scripting(void)
--{
- 
--	setup_python_scripting();
--}
--
--static int flush_scripting(void)
--{
--	return scripting_ops ? scripting_ops->flush_script() : 0;
--}
--
--static int cleanup_scripting(void)
--{
--	pr_debug("\nperf script stopped\n");
--
--	return scripting_ops ? scripting_ops->stop_script() : 0;
--}
- 
- static bool filter_cpu(struct perf_sample *sample)
- {
-@@ -2708,19 +2823,7 @@ static int process_sample_event(const struct perf_tool *tool,
- 		goto out_put;
- 	}
- 
--	if (scripting_ops) {
--		struct addr_location *addr_al_ptr = NULL;
--
--		if ((evsel->core.attr.sample_type & PERF_SAMPLE_ADDR) &&
--		    sample_addr_correlates_sym(&evsel->core.attr)) {
--			if (!addr_al.thread)
--				thread__resolve(al.thread, &addr_al, sample);
--			addr_al_ptr = &addr_al;
--		}
--		scripting_ops->process_event(event, sample, evsel, &al, addr_al_ptr);
--	} else {
--		process_event(scr, sample, evsel, &al, &addr_al, machine);
--	}
-+	process_event(scr, sample, evsel, &al, &addr_al, machine);
- 
- out_put:
- 	addr_location__exit(&addr_al);
-@@ -3029,8 +3132,7 @@ static int process_switch_event(const struct perf_tool *tool,
- 	if (perf_event__process_switch(tool, event, sample, machine) < 0)
- 		return -1;
- 
--	if (scripting_ops && scripting_ops->process_switch && !filter_cpu(sample))
--		scripting_ops->process_switch(event, sample, machine);
-+
- 
- 	if (!script->show_switch_events)
- 		return 0;
-@@ -3039,17 +3141,7 @@ static int process_switch_event(const struct perf_tool *tool,
- 			   sample->tid);
- }
- 
--static int process_auxtrace_error(const struct perf_tool *tool,
--				  struct perf_session *session,
--				  union perf_event *event)
--{
--	if (scripting_ops && scripting_ops->process_auxtrace_error) {
--		scripting_ops->process_auxtrace_error(session, event);
--		return 0;
--	}
- 
--	return perf_event__process_auxtrace_error(tool, session, event);
--}
- 
- static int
- process_lost_event(const struct perf_tool *tool,
-@@ -3063,12 +3155,11 @@ process_lost_event(const struct perf_tool *tool,
- 
- static int
- process_throttle_event(const struct perf_tool *tool __maybe_unused,
--		       union perf_event *event,
--		       struct perf_sample *sample,
--		       struct machine *machine)
-+		       union perf_event *event __maybe_unused,
-+		       struct perf_sample *sample __maybe_unused,
-+		       struct machine *machine __maybe_unused)
- {
--	if (scripting_ops && scripting_ops->process_throttle)
--		scripting_ops->process_throttle(event, sample, machine);
-+
- 	return 0;
- }
- 
-@@ -3211,10 +3302,9 @@ static int __cmd_script(struct perf_script *script)
- 		script->tool.mmap = process_mmap_event;
- 		script->tool.mmap2 = process_mmap2_event;
- 	}
--	if (script->show_switch_events || (scripting_ops && scripting_ops->process_switch))
-+	if (script->show_switch_events)
- 		script->tool.context_switch = process_switch_event;
--	if (scripting_ops && scripting_ops->process_auxtrace_error)
--		script->tool.auxtrace_error = process_auxtrace_error;
-+	script->tool.auxtrace_error = perf_event__process_auxtrace_error;
- 	if (script->show_namespace_events)
- 		script->tool.namespaces = process_namespaces_event;
- 	if (script->show_cgroup_events)
-@@ -3251,96 +3341,55 @@ static int __cmd_script(struct perf_script *script)
- 	return ret;
- }
- 
--static int list_available_languages_cb(struct scripting_ops *ops, const char *spec)
--{
--	fprintf(stderr, "  %-42s [%s]\n", spec, ops->name);
--	return 0;
--}
- 
--static void list_available_languages(void)
--{
--	fprintf(stderr, "\n");
--	fprintf(stderr, "Scripting language extensions (used in "
--		"perf script -s [spec:]script.[spec]):\n\n");
--	script_spec__for_each(&list_available_languages_cb);
--	fprintf(stderr, "\n");
--}
- 
- /* Find script file relative to current directory or exec path */
- static char *find_script(const char *script)
- {
- 	char path[PATH_MAX];
-+	char *exec_path;
-+	size_t len;
- 
--	if (!scripting_ops) {
--		const char *ext = strrchr(script, '.');
-+	if (access(script, R_OK) == 0) {
-+		if (!strchr(script, '/')) {
-+			snprintf(path, sizeof(path), "./%s", script);
-+			script = path;
-+		}
-+		goto found;
-+	}
- 
--		if (!ext)
--			return NULL;
-+	exec_path = get_argv_exec_path();
-+	if (!exec_path)
-+		return NULL;
- 
--		scripting_ops = script_spec__lookup(++ext);
--		if (!scripting_ops)
--			return NULL;
--	}
-+	snprintf(path, sizeof(path), "%s/python/%s", exec_path, script);
-+	free(exec_path);
-+	script = path;
- 
--	if (access(script, R_OK)) {
--		char *exec_path = get_argv_exec_path();
-+	if (access(path, R_OK) == 0)
-+		goto found;
- 
--		if (!exec_path)
--			return NULL;
--		snprintf(path, sizeof(path), "%s/scripts/%s/%s",
--			 exec_path, scripting_ops->dirname, script);
--		free(exec_path);
--		script = path;
--		if (access(script, R_OK))
--			return NULL;
--	}
-+	/* Try with .py suffix. */
-+	len = strlen(path);
-+
-+	strncat(path, ".py", sizeof(path) - len - 1);
-+
-+	if (access(script, R_OK) == 0)
-+		goto found;
-+
-+	/* Failure to find script. */
-+	return NULL;
-+
-+found:
- 	return strdup(script);
- }
- 
- static int parse_scriptname(const struct option *opt __maybe_unused,
- 			    const char *str, int unset __maybe_unused)
- {
--	char spec[PATH_MAX];
--	const char *script, *ext;
--	int len;
--
--	if (strcmp(str, "lang") == 0) {
--		list_available_languages();
--		exit(0);
--	}
--
--	script = strchr(str, ':');
--	if (script) {
--		len = script - str;
--		if (len >= PATH_MAX) {
--			fprintf(stderr, "invalid language specifier");
--			return -1;
--		}
--		strncpy(spec, str, len);
--		spec[len] = '\0';
--		scripting_ops = script_spec__lookup(spec);
--		if (!scripting_ops) {
--			fprintf(stderr, "invalid language specifier");
--			return -1;
--		}
--		script++;
--	} else {
--		script = str;
--		ext = strrchr(script, '.');
--		if (!ext) {
--			fprintf(stderr, "invalid script extension");
--			return -1;
--		}
--		scripting_ops = script_spec__lookup(++ext);
--		if (!scripting_ops) {
--			fprintf(stderr, "invalid script extension");
--			return -1;
--		}
--	}
--
--	script_name = find_script(script);
-+	script_name = find_script(str);
- 	if (!script_name)
--		script_name = strdup(script);
-+		script_name = strdup(str);
- 
- 	return 0;
- }
-@@ -3536,7 +3585,6 @@ struct script_desc {
- 	struct list_head	node;
- 	char			*name;
- 	char			*half_liner;
--	char			*args;
- };
- 
- static LIST_HEAD(script_descs);
-@@ -3551,16 +3599,18 @@ static struct script_desc *script_desc__new(const char *name)
- 	return s;
- }
- 
--static void script_desc__delete(struct script_desc *s)
--{
--	zfree(&s->name);
--	zfree(&s->half_liner);
--	zfree(&s->args);
--	free(s);
--}
-+
- 
- static void script_desc__add(struct script_desc *s)
- {
-+	struct script_desc *pos;
-+
-+	list_for_each_entry(pos, &script_descs, node) {
-+		if (strcasecmp(s->name, pos->name) < 0) {
-+			list_add_tail(&s->node, &pos->node);
-+			return;
-+		}
-+	}
- 	list_add_tail(&s->node, &script_descs);
- }
- 
-@@ -3608,15 +3658,59 @@ static int read_script_info(struct script_desc *desc, const char *filename)
- {
- 	char line[BUFSIZ], *p;
- 	FILE *fp;
-+	bool in_docstring = false;
-+	bool found_description = false;
- 
- 	fp = fopen(filename, "r");
- 	if (!fp)
- 		return -1;
- 
- 	while (fgets(line, sizeof(line), fp)) {
-+		static const char * const triple_quote_str[] = {
-+			"\"\"\"",
-+			"'''",
-+			"r\"\"\"",
-+		};
- 		p = skip_spaces(line);
- 		if (strlen(p) == 0)
- 			continue;
-+
-+		if (in_docstring) {
-+			if (strlen(p) && p[strlen(p) - 1] == '\n')
-+				p[strlen(p) - 1] = '\0';
-+			zfree(&desc->half_liner);
-+			desc->half_liner = strdup(skip_spaces(p));
-+			in_docstring = false;
-+			found_description = true;
-+			break;
-+		}
-+
-+
-+		for (size_t i = 0; i < ARRAY_SIZE(triple_quote_str); i++) {
-+			const char *quote = triple_quote_str[i];
-+
-+			if (!strstarts(p, quote))
-+				continue;
-+
-+			p += strlen(quote);
-+			p = skip_spaces(p);
-+			if (strlen(p) > 0) {
-+				if (p[strlen(p) - 1] == '\n')
-+					p[strlen(p) - 1] = '\0';
-+				p = skip_spaces(p);
-+				if (str_ends_with(p, quote))
-+					p[strlen(p) - strlen(quote)] = '\0';
-+				zfree(&desc->half_liner);
-+				desc->half_liner = strdup(skip_spaces(p));
-+				found_description = true;
-+				break;
-+			}
-+			in_docstring = true;
-+			break;
-+		}
-+		if (in_docstring)
-+			continue;
-+
- 		if (*p != '#')
- 			continue;
- 		p++;
-@@ -3629,14 +3723,17 @@ static int read_script_info(struct script_desc *desc, const char *filename)
- 
- 		if (!strncmp(p, "description:", strlen("description:"))) {
- 			p += strlen("description:");
-+			zfree(&desc->half_liner);
- 			desc->half_liner = strdup(skip_spaces(p));
--			continue;
-+			found_description = true;
-+			break;
- 		}
- 
--		if (!strncmp(p, "args:", strlen("args:"))) {
--			p += strlen("args:");
--			desc->args = strdup(skip_spaces(p));
--			continue;
-+		if (!found_description && strlen(p) > 0 &&
-+		    strncmp(p, "SPDX-License-Identifier", 23)) {
-+			desc->half_liner = strdup(p);
-+			found_description = true;
-+			// Don't break, maybe we find a better "description:" later!
- 		}
- 	}
- 
-@@ -3667,23 +3764,21 @@ static int list_available_scripts(const struct option *opt __maybe_unused,
- 				  const char *s __maybe_unused,
- 				  int unset __maybe_unused)
- {
--	struct dirent *script_dirent, *lang_dirent;
--	char *buf, *scripts_path, *script_path, *lang_path, *first_half;
--	DIR *scripts_dir, *lang_dir;
-+	struct dirent *script_dirent;
-+	char *buf, *scripts_path, *script_path;
-+	DIR *scripts_dir;
- 	struct script_desc *desc;
- 	char *script_root;
- 
--	buf = malloc(3 * MAXPATHLEN + BUFSIZ);
-+	buf = malloc(2 * MAXPATHLEN + BUFSIZ);
- 	if (!buf) {
- 		pr_err("malloc failed\n");
- 		exit(-1);
- 	}
- 	scripts_path = buf;
- 	script_path = buf + MAXPATHLEN;
--	lang_path = buf + 2 * MAXPATHLEN;
--	first_half = buf + 3 * MAXPATHLEN;
- 
--	snprintf(scripts_path, MAXPATHLEN, "%s/scripts", get_argv_exec_path());
-+	snprintf(scripts_path, MAXPATHLEN, "%s/python", get_argv_exec_path());
- 
- 	scripts_dir = opendir(scripts_path);
- 	if (!scripts_dir) {
-@@ -3695,30 +3790,26 @@ static int list_available_scripts(const struct option *opt __maybe_unused,
- 		exit(-1);
- 	}
- 
--	for_each_lang(scripts_path, scripts_dir, lang_dirent) {
--		scnprintf(lang_path, MAXPATHLEN, "%s/%s/bin", scripts_path,
--			  lang_dirent->d_name);
--		lang_dir = opendir(lang_path);
--		if (!lang_dir)
--			continue;
-+	while ((script_dirent = readdir(scripts_dir)) != NULL) {
-+		if (script_dirent->d_type != DT_DIR &&
-+		    (script_dirent->d_type != DT_UNKNOWN ||
-+		     !is_directory(scripts_path, script_dirent))) {
- 
--		for_each_script(lang_path, lang_dir, script_dirent) {
--			script_root = get_script_root(script_dirent, REPORT_SUFFIX);
-+			script_root = get_script_root(script_dirent, ".py");
- 			if (script_root) {
- 				desc = script_desc__findnew(script_root);
- 				scnprintf(script_path, MAXPATHLEN, "%s/%s",
--					  lang_path, script_dirent->d_name);
-+					  scripts_path, script_dirent->d_name);
- 				read_script_info(desc, script_path);
- 				free(script_root);
- 			}
- 		}
- 	}
-+	closedir(scripts_dir);
- 
--	fprintf(stdout, "List of available trace scripts:\n");
-+	fprintf(stdout, "List of available scripts:\n");
- 	list_for_each_entry(desc, &script_descs, node) {
--		sprintf(first_half, "%s %s", desc->name,
--			desc->args ? desc->args : "");
--		fprintf(stdout, "  %-36s %s\n", first_half,
-+		fprintf(stdout, "  %-36s %s\n", desc->name,
- 			desc->half_liner ? desc->half_liner : "");
- 	}
- 
-@@ -3754,93 +3845,7 @@ static void free_dlarg(void)
- 	free(dlargv);
- }
- 
--static char *get_script_path(const char *script_root, const char *suffix)
--{
--	struct dirent *script_dirent, *lang_dirent;
--	char scripts_path[MAXPATHLEN];
--	char script_path[MAXPATHLEN];
--	DIR *scripts_dir, *lang_dir;
--	char lang_path[MAXPATHLEN];
--	char *__script_root;
--
--	snprintf(scripts_path, MAXPATHLEN, "%s/scripts", get_argv_exec_path());
--
--	scripts_dir = opendir(scripts_path);
--	if (!scripts_dir)
--		return NULL;
--
--	for_each_lang(scripts_path, scripts_dir, lang_dirent) {
--		scnprintf(lang_path, MAXPATHLEN, "%s/%s/bin", scripts_path,
--			  lang_dirent->d_name);
--		lang_dir = opendir(lang_path);
--		if (!lang_dir)
--			continue;
--
--		for_each_script(lang_path, lang_dir, script_dirent) {
--			__script_root = get_script_root(script_dirent, suffix);
--			if (__script_root && !strcmp(script_root, __script_root)) {
--				free(__script_root);
--				closedir(scripts_dir);
--				scnprintf(script_path, MAXPATHLEN, "%s/%s",
--					  lang_path, script_dirent->d_name);
--				closedir(lang_dir);
--				return strdup(script_path);
--			}
--			free(__script_root);
--		}
--		closedir(lang_dir);
--	}
--	closedir(scripts_dir);
--
--	return NULL;
--}
--
--static bool is_top_script(const char *script_path)
--{
--	return ends_with(script_path, "top") != NULL;
--}
--
--static int has_required_arg(char *script_path)
--{
--	struct script_desc *desc;
--	int n_args = 0;
--	char *p;
--
--	desc = script_desc__new(NULL);
--
--	if (read_script_info(desc, script_path))
--		goto out;
--
--	if (!desc->args)
--		goto out;
--
--	for (p = desc->args; *p; p++)
--		if (*p == '<')
--			n_args++;
--out:
--	script_desc__delete(desc);
--
--	return n_args;
--}
--
--static int have_cmd(int argc, const char **argv)
--{
--	char **__argv = calloc(argc, sizeof(const char *));
- 
--	if (!__argv) {
--		pr_err("malloc failed\n");
--		return -1;
--	}
--
--	memcpy(__argv, argv, sizeof(const char *) * argc);
--	argc = parse_options(argc, (const char **)__argv, record_options,
--			     NULL, PARSE_OPT_STOP_AT_NON_OPTION);
--	free(__argv);
--
--	system_wide = (argc == 0);
--
--	return 0;
--}
- 
- static void script__setup_sample_type(struct perf_script *script)
- {
-@@ -4026,17 +4031,13 @@ int cmd_script(int argc, const char **argv)
- 	bool show_full_info = false;
- 	bool header = false;
- 	bool header_only = false;
--	bool script_started = false;
- 	bool unsorted_dump = false;
- 	bool merge_deferred_callchains = true;
--	char *rec_script_path = NULL;
--	char *rep_script_path = NULL;
- 	struct perf_session *session;
- 	struct itrace_synth_opts itrace_synth_opts = {
- 		.set = false,
- 		.default_no_sample = true,
- 	};
--	char *script_path = NULL;
- 	const char *dlfilter_file = NULL;
- 	const char **__argv;
- 	int i, j, err = 0;
-@@ -4057,11 +4058,10 @@ int cmd_script(int argc, const char **argv)
- 			   list_available_scripts),
- 	OPT_CALLBACK_NOOPT(0, "list-dlfilters", NULL, NULL, "list available dlfilters",
- 			   list_available_dlfilters),
--	OPT_CALLBACK('s', "script", NULL, "name",
--		     "script file name (lang:script name, script name, or *)",
--		     parse_scriptname),
--	OPT_STRING('g', "gen-script", &generate_script_lang, "lang",
--		   "generate perf-script.xx script in specified language"),
-+	{ .type = OPTION_CALLBACK, .short_name = 's', .long_name = "script",
-+	  .value = NULL, .argh = "name",
-+	  .help = "script file name (lang:script name, script name, or *)",
-+	  .callback = parse_scriptname, .flags = PARSE_OPT_HIDDEN },
- 	OPT_STRING(0, "dlfilter", &dlfilter_file, "file", "filter .so file name"),
- 	OPT_CALLBACK(0, "dlarg", NULL, "argument", "filter argument",
- 		     add_dlarg),
-@@ -4185,22 +4185,17 @@ int cmd_script(int argc, const char **argv)
- 	OPTS_EVSWITCH(&script.evswitch),
- 	OPT_END()
- 	};
--	const char * const script_subcommands[] = { "record", "report", NULL };
- 	const char *script_usage[] = {
- 		"perf script [<options>]",
--		"perf script [<options>] record <script> [<record-options>] <command>",
--		"perf script [<options>] report <script> [script-args]",
--		"perf script [<options>] <script> [<record-options>] <command>",
--		"perf script [<options>] <top-script> [script-args]",
-+		"perf script [<options>] <script> [script-args]",
- 		NULL
- 	};
- 	struct perf_env *env;
- 
- 	perf_set_singlethreaded();
- 
--	setup_scripting();
- 
--	argc = parse_options_subcommand(argc, argv, options, script_subcommands, script_usage,
-+	argc = parse_options_subcommand(argc, argv, options, NULL, script_usage,
- 			     PARSE_OPT_STOP_AT_NON_OPTION);
- 
- 	if (symbol_conf.guestmount ||
-@@ -4223,21 +4218,7 @@ int cmd_script(int argc, const char **argv)
- 	if (symbol__validate_sym_arguments())
- 		return -1;
- 
--	if (argc > 1 && strlen(argv[0]) > 2 && strstarts("record", argv[0])) {
--		rec_script_path = get_script_path(argv[1], RECORD_SUFFIX);
--		if (!rec_script_path)
--			return cmd_record(argc, argv);
--	}
- 
--	if (argc > 1 && strlen(argv[0]) > 2 && strstarts("report", argv[0])) {
--		rep_script_path = get_script_path(argv[1], REPORT_SUFFIX);
--		if (!rep_script_path) {
--			fprintf(stderr,
--				"Please specify a valid report script"
--				"(see 'perf script -l' for listing)\n");
--			return -1;
--		}
--	}
- 
- 	if (reltime && deltatime) {
- 		fprintf(stderr,
-@@ -4253,149 +4234,56 @@ int cmd_script(int argc, const char **argv)
- 	/* make sure PERF_EXEC_PATH is set for scripts */
- 	set_argv_exec_path(get_argv_exec_path());
- 
--	if (argc && !script_name && !rec_script_path && !rep_script_path) {
--		int live_pipe[2];
--		int rep_args;
--		pid_t pid;
--
--		rec_script_path = get_script_path(argv[0], RECORD_SUFFIX);
--		rep_script_path = get_script_path(argv[0], REPORT_SUFFIX);
--
--		if (!rec_script_path && !rep_script_path) {
--			script_name = find_script(argv[0]);
--			if (script_name) {
--				argc -= 1;
--				argv += 1;
--				goto script_found;
--			}
--			usage_with_options_msg(script_usage, options,
--				"Couldn't find script `%s'\n\n See perf"
--				" script -l for available scripts.\n", argv[0]);
--		}
--
--		if (is_top_script(argv[0])) {
--			rep_args = argc - 1;
--		} else {
--			int rec_args;
--
--			rep_args = has_required_arg(rep_script_path);
--			rec_args = (argc - 1) - rep_args;
--			if (rec_args < 0) {
--				usage_with_options_msg(script_usage, options,
--					"`%s' script requires options."
--					"\n\n See perf script -l for available "
--					"scripts and options.\n", argv[0]);
--			}
-+	if (argc && !script_name) {
-+		script_name = find_script(argv[0]);
-+		if (script_name) {
-+			argc -= 1;
-+			argv += 1;
-+			goto script_found;
- 		}
-+		usage_with_options_msg(script_usage, options,
-+			"Couldn't find script `%s'\n\n"
-+			" See perf script -l for available scripts.\n", argv[0]);
-+	}
-+script_found:
- 
--		if (pipe(live_pipe) < 0) {
--			perror("failed to create pipe");
--			return -1;
--		}
- 
--		pid = fork();
-+	if (script_name) {
-+		pid_t pid = fork();
- 		if (pid < 0) {
--			perror("failed to fork");
--			return -1;
-+			pr_err("failed to fork\n");
-+			return -errno;
- 		}
--
--		if (!pid) {
-+		if (pid == 0) { /* child */
-+			__argv = calloc(argc + 4, sizeof(const char *));
- 			j = 0;
--
--			dup2(live_pipe[1], 1);
--			close(live_pipe[0]);
--
--			if (is_top_script(argv[0])) {
--				system_wide = true;
--			} else if (!system_wide) {
--				if (have_cmd(argc - rep_args, &argv[rep_args]) != 0) {
--					err = -1;
--					goto out;
--				}
--			}
--
--			__argv = calloc(argc + 6, sizeof(const char *));
- 			if (!__argv) {
--				pr_err("malloc failed\n");
--				err = -ENOMEM;
--				goto out;
-+				exit(-ENOMEM);
- 			}
--
--			__argv[j++] = "/bin/sh";
--			__argv[j++] = rec_script_path;
--			if (system_wide)
--				__argv[j++] = "-a";
--			__argv[j++] = "-q";
--			__argv[j++] = "-o";
--			__argv[j++] = "-";
--			for (i = rep_args + 1; i < argc; i++)
-+			__argv[j++] = script_name;
-+			if (input_name) {
-+				__argv[j++] = "-i";
-+				__argv[j++] = input_name;
-+			}
-+			for (i = 0; i < argc; i++)
- 				__argv[j++] = argv[i];
- 			__argv[j++] = NULL;
- 
--			execvp("/bin/sh", (char **)__argv);
--			free(__argv);
--			exit(-1);
--		}
-+			execvp(script_name, (char **)__argv);
-+			pr_err("failed to execute script '%s': %s\n", script_name, strerror(errno));
-+			exit(-errno);
-+		} else { /* parent */
-+			int status = 0;
- 
--		dup2(live_pipe[0], 0);
--		close(live_pipe[1]);
--
--		__argv = calloc(argc + 4, sizeof(const char *));
--		if (!__argv) {
--			pr_err("malloc failed\n");
--			err = -ENOMEM;
--			goto out;
--		}
--
--		j = 0;
--		__argv[j++] = "/bin/sh";
--		__argv[j++] = rep_script_path;
--		for (i = 1; i < rep_args + 1; i++)
--			__argv[j++] = argv[i];
--		__argv[j++] = "-i";
--		__argv[j++] = "-";
--		__argv[j++] = NULL;
--
--		execvp("/bin/sh", (char **)__argv);
--		free(__argv);
--		exit(-1);
--	}
--script_found:
--	if (rec_script_path)
--		script_path = rec_script_path;
--	if (rep_script_path)
--		script_path = rep_script_path;
--
--	if (script_path) {
--		j = 0;
--
--		if (!rec_script_path)
--			system_wide = false;
--		else if (!system_wide) {
--			if (have_cmd(argc - 1, &argv[1]) != 0) {
--				err = -1;
--				goto out;
-+			if (waitpid(pid, &status, 0) != pid) {
-+				pr_err("failed to wait for script '%s': %s\n", script_name, strerror(errno));
-+				return -errno;
- 			}
-+			if (WIFEXITED(status))
-+				return WEXITSTATUS(status);
-+			else
-+				return -1;
- 		}
--
--		__argv = calloc(argc + 2, sizeof(const char *));
--		if (!__argv) {
--			pr_err("malloc failed\n");
--			err = -ENOMEM;
--			goto out;
--		}
--
--		__argv[j++] = "/bin/sh";
--		__argv[j++] = script_path;
--		if (system_wide)
--			__argv[j++] = "-a";
--		for (i = 2; i < argc; i++)
--			__argv[j++] = argv[i];
--		__argv[j++] = NULL;
--
--		execvp("/bin/sh", (char **)__argv);
--		free(__argv);
--		exit(-1);
- 	}
- 
- 	if (dlfilter_file) {
-@@ -4487,77 +4375,12 @@ int cmd_script(int argc, const char **argv)
- 		goto out_delete;
- 	}
- #endif
--	if (generate_script_lang) {
--		struct stat perf_stat;
--		int input;
--		char *filename = strdup("perf-script");
--
--		if (output_set_by_user()) {
--			fprintf(stderr,
--				"custom fields not supported for generated scripts");
--			err = -EINVAL;
--			goto out_delete;
--		}
--
--		input = open(data.path, O_RDONLY);	/* input_name */
--		if (input < 0) {
--			err = -errno;
--			perror("failed to open file");
--			goto out_delete;
--		}
--
--		err = fstat(input, &perf_stat);
--		if (err < 0) {
--			perror("failed to stat file");
--			goto out_delete;
--		}
--
--		if (!perf_stat.st_size) {
--			fprintf(stderr, "zero-sized file, nothing to do!\n");
--			goto out_delete;
--		}
--
--		scripting_ops = script_spec__lookup(generate_script_lang);
--		if (!scripting_ops && ends_with(generate_script_lang, ".py")) {
--			scripting_ops = script_spec__lookup("python");
--			free(filename);
--			filename = strdup(generate_script_lang);
--			filename[strlen(filename) - 3] = '\0';
--		} else if (!scripting_ops && ends_with(generate_script_lang, ".pl")) {
--			scripting_ops = script_spec__lookup("perl");
--			free(filename);
--			filename = strdup(generate_script_lang);
--			filename[strlen(filename) - 3] = '\0';
--		}
--		if (!scripting_ops) {
--			fprintf(stderr, "invalid language specifier '%s'\n", generate_script_lang);
--			err = -ENOENT;
--			goto out_delete;
--		}
--		if (!filename) {
--			err = -ENOMEM;
--			goto out_delete;
--		}
--#ifdef HAVE_LIBTRACEEVENT
--		err = scripting_ops->generate_script(session->tevent.pevent, filename);
--#else
--		err = scripting_ops->generate_script(NULL, filename);
--#endif
--		free(filename);
--		goto out_delete;
--	}
- 
- 	err = dlfilter__start(dlfilter, session);
- 	if (err)
- 		goto out_delete;
- 
--	if (script_name) {
--		err = scripting_ops->start_script(script_name, argc, argv, session);
--		if (err)
--			goto out_delete;
--		pr_debug("perf script started with script %s\n\n", script_name);
--		script_started = true;
--	}
-+
- 
- 
- 	err = perf_session__check_output_opt(session);
-@@ -4587,7 +4410,6 @@ int cmd_script(int argc, const char **argv)
- 
- 	err = __cmd_script(&script);
- 
--	flush_scripting();
- 
- 	if (verbose > 2 || debug_kmaps)
- 		perf_session__dump_kmaps(session);
-@@ -4603,10 +4425,8 @@ int cmd_script(int argc, const char **argv)
- 	perf_session__delete(session);
- 	perf_script__exit(&script);
- 
--	if (script_started)
--		cleanup_scripting();
-+
- 	dlfilter__cleanup(dlfilter);
- 	free_dlarg();
--out:
- 	return err;
- }
-diff --git a/tools/perf/util/Build b/tools/perf/util/Build
-index fd55d02dd433..9719f8cedc22 100644
---- a/tools/perf/util/Build
-+++ b/tools/perf/util/Build
-@@ -94,7 +94,6 @@ perf-util-y += tool_pmu.o
- perf-util-y += tp_pmu.o
- perf-util-y += svghelper.o
- perf-util-y += trace-event-info.o
--perf-util-y += trace-event-scripting.o
- perf-util-$(CONFIG_LIBTRACEEVENT) += trace-event.o
- perf-util-$(CONFIG_LIBTRACEEVENT) += trace-event-parse.o
- perf-util-$(CONFIG_LIBTRACEEVENT) += trace-event-read.o
-diff --git a/tools/perf/util/scripting-engines/Build b/tools/perf/util/scripting-engines/Build
+-	main_test_libpython();
++	main_test_python_module();
+ 	main_test_hello();
+ 	main_test_libelf();
+ 	main_test_gettid();
+diff --git a/tools/build/feature/test-libpython.c b/tools/build/feature/test-libpython.c
 deleted file mode 100644
-index 54920e7e1d5d..000000000000
---- a/tools/perf/util/scripting-engines/Build
+index 371c9113e49d..000000000000
+--- a/tools/build/feature/test-libpython.c
 +++ /dev/null
-@@ -1 +0,0 @@
--# No embedded scripting engines
-diff --git a/tools/perf/util/trace-event-parse.c b/tools/perf/util/trace-event-parse.c
-index 9c015fc2bcfb..374cf82fd86e 100644
---- a/tools/perf/util/trace-event-parse.c
-+++ b/tools/perf/util/trace-event-parse.c
-@@ -14,71 +14,6 @@
- #include <linux/kernel.h>
- #include <event-parse.h>
- 
--static int get_common_field(struct scripting_context *context,
--			    int *offset, int *size, const char *type)
+@@ -1,10 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0
+-#include <Python.h>
+-
+-int main(void)
 -{
--	struct tep_handle *pevent = context->pevent;
--	struct tep_event *event;
--	struct tep_format_field *field;
+-	Py_Initialize();
 -
--	if (!*size) {
--
--		event = tep_get_first_event(pevent);
--		if (!event)
--			return 0;
--
--		field = tep_find_common_field(event, type);
--		if (!field)
--			return 0;
--		*offset = field->offset;
--		*size = field->size;
--	}
--
--	return tep_read_number(pevent, context->event_data + *offset, *size);
--}
--
--int common_lock_depth(struct scripting_context *context)
--{
--	static int offset;
--	static int size;
--	int ret;
--
--	ret = get_common_field(context, &size, &offset,
--			       "common_lock_depth");
--	if (ret < 0)
--		return -1;
--
--	return ret;
--}
--
--int common_flags(struct scripting_context *context)
--{
--	static int offset;
--	static int size;
--	int ret;
--
--	ret = get_common_field(context, &size, &offset,
--			       "common_flags");
--	if (ret < 0)
--		return -1;
--
--	return ret;
--}
--
--int common_pc(struct scripting_context *context)
--{
--	static int offset;
--	static int size;
--	int ret;
--
--	ret = get_common_field(context, &size, &offset,
--			       "common_preempt_count");
--	if (ret < 0)
--		return -1;
--
--	return ret;
--}
--
- unsigned long long
- raw_field_value(struct tep_event *event, const char *name, void *data)
- {
-diff --git a/tools/perf/util/trace-event-scripting.c b/tools/perf/util/trace-event-scripting.c
-deleted file mode 100644
-index 0a0a50d9e1e1..000000000000
---- a/tools/perf/util/trace-event-scripting.c
-+++ /dev/null
-@@ -1,333 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-or-later
--/*
-- * trace-event-scripting.  Scripting engine common and initialization code.
-- *
-- * Copyright (C) 2009-2010 Tom Zanussi <tzanussi@gmail.com>
-- */
--
--#include <stdio.h>
--#include <stdlib.h>
--#include <string.h>
--#include <errno.h>
--#ifdef HAVE_LIBTRACEEVENT
--#include <event-parse.h>
--#endif
--
--#include "debug.h"
--#include "event.h"
--#include "trace-event.h"
--#include "evsel.h"
--#include <linux/perf_event.h>
--#include <linux/zalloc.h>
--#include "util/sample.h"
--
--unsigned int scripting_max_stack = PERF_MAX_STACK_DEPTH;
--
--struct scripting_context *scripting_context;
--
--struct script_spec {
--	struct list_head	node;
--	struct scripting_ops	*ops;
--	char			spec[];
--};
--
--static LIST_HEAD(script_specs);
--
--static struct script_spec *script_spec__new(const char *spec,
--					    struct scripting_ops *ops)
--{
--	struct script_spec *s = malloc(sizeof(*s) + strlen(spec) + 1);
--
--	if (s != NULL) {
--		strcpy(s->spec, spec);
--		s->ops = ops;
--	}
--
--	return s;
--}
--
--static void script_spec__add(struct script_spec *s)
--{
--	list_add_tail(&s->node, &script_specs);
--}
--
--static struct script_spec *script_spec__find(const char *spec)
--{
--	struct script_spec *s;
--
--	list_for_each_entry(s, &script_specs, node)
--		if (strcasecmp(s->spec, spec) == 0)
--			return s;
--	return NULL;
--}
--
--static int script_spec_register(const char *spec, struct scripting_ops *ops)
--{
--	struct script_spec *s;
--
--	s = script_spec__find(spec);
--	if (s)
--		return -1;
--
--	s = script_spec__new(spec, ops);
--	if (!s)
--		return -1;
--
--	script_spec__add(s);
 -	return 0;
 -}
--
--struct scripting_ops *script_spec__lookup(const char *spec)
--{
--	struct script_spec *s = script_spec__find(spec);
--
--	if (!s)
--		return NULL;
--
--	return s->ops;
--}
--
--int script_spec__for_each(int (*cb)(struct scripting_ops *ops, const char *spec))
--{
--	struct script_spec *s;
--	int ret = 0;
--
--	list_for_each_entry(s, &script_specs, node) {
--		ret = cb(s->ops, s->spec);
--		if (ret)
--			break;
--	}
--	return ret;
--}
--
--void scripting_context__update(struct scripting_context *c,
--			       union perf_event *event,
--			       struct perf_sample *sample,
--			       struct evsel *evsel,
--			       struct addr_location *al,
--			       struct addr_location *addr_al)
--{
--#ifdef HAVE_LIBTRACEEVENT
--	const struct tep_event *tp_format = evsel__tp_format(evsel);
--
--	c->pevent = tp_format ? tp_format->tep : NULL;
--#else
--	c->pevent = NULL;
--#endif
--	c->event_data = sample->raw_data;
--	c->event = event;
--	c->sample = sample;
--	c->evsel = evsel;
--	c->al = al;
--	c->addr_al = addr_al;
--}
--
--static int flush_script_unsupported(void)
--{
--	return 0;
--}
--
--static int stop_script_unsupported(void)
--{
--	return 0;
--}
--
--static void process_event_unsupported(union perf_event *event __maybe_unused,
--				      struct perf_sample *sample __maybe_unused,
--				      struct evsel *evsel __maybe_unused,
--				      struct addr_location *al __maybe_unused,
--				      struct addr_location *addr_al __maybe_unused)
--{
--} static void print_python_unsupported_msg(void)
--{
--	fprintf(stderr, "Python scripting not supported."
--		"  Install libpython and rebuild perf to enable it.\n"
--		"For example:\n  # apt-get install python-dev (ubuntu)"
--		"\n  # yum install python-devel (Fedora)"
--		"\n  etc.\n");
--}
--
--static int python_start_script_unsupported(const char *script __maybe_unused,
--					   int argc __maybe_unused,
--					   const char **argv __maybe_unused,
--					   struct perf_session *session __maybe_unused)
--{
--	print_python_unsupported_msg();
--
--	return -1;
--}
--
--static int python_generate_script_unsupported(struct tep_handle *pevent
--					      __maybe_unused,
--					      const char *outfile
--					      __maybe_unused)
--{
--	print_python_unsupported_msg();
--
--	return -1;
--}
--
--struct scripting_ops python_scripting_unsupported_ops = {
--	.name = "Python",
--	.dirname = "python",
--	.start_script = python_start_script_unsupported,
--	.flush_script = flush_script_unsupported,
--	.stop_script = stop_script_unsupported,
--	.process_event = process_event_unsupported,
--	.generate_script = python_generate_script_unsupported,
--};
--
--static void register_python_scripting(struct scripting_ops *scripting_ops)
--{
--	if (scripting_context == NULL)
--		scripting_context = malloc(sizeof(*scripting_context));
--
--       if (scripting_context == NULL ||
--	   script_spec_register("Python", scripting_ops) ||
--	   script_spec_register("py", scripting_ops)) {
--		pr_err("Error registering Python script extension: disabling it\n");
--		zfree(&scripting_context);
--	}
--}
--
--void setup_python_scripting(void)
--{
--	register_python_scripting(&python_scripting_unsupported_ops);
--}
--
--
--static const struct {
--	u32 flags;
--	const char *name;
--} sample_flags[] = {
--	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CALL, "call"},
--	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_RETURN, "return"},
--	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CONDITIONAL, "jcc"},
--	{PERF_IP_FLAG_BRANCH, "jmp"},
--	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CALL | PERF_IP_FLAG_INTERRUPT, "int"},
--	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_RETURN | PERF_IP_FLAG_INTERRUPT, "iret"},
--	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CALL | PERF_IP_FLAG_SYSCALLRET, "syscall"},
--	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_RETURN | PERF_IP_FLAG_SYSCALLRET, "sysret"},
--	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_ASYNC, "async"},
--	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CALL | PERF_IP_FLAG_ASYNC |	PERF_IP_FLAG_INTERRUPT,
--	 "hw int"},
--	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_TX_ABORT, "tx abrt"},
--	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_TRACE_BEGIN, "tr strt"},
--	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_TRACE_END, "tr end"},
--	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CALL | PERF_IP_FLAG_VMENTRY, "vmentry"},
--	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CALL | PERF_IP_FLAG_VMEXIT, "vmexit"},
--	{0, NULL}
--};
--
--static const struct {
--	u32 flags;
--	const char *name;
--} branch_events[] = {
--	{PERF_IP_FLAG_BRANCH_MISS, "miss"},
--	{PERF_IP_FLAG_NOT_TAKEN, "not_taken"},
--	{0, NULL}
--};
--
--static int sample_flags_to_name(u32 flags, char *str, size_t size)
--{
--	int i;
--	const char *prefix;
--	int pos = 0, ret, ev_idx = 0;
--	u32 xf = flags & PERF_ADDITIONAL_STATE_MASK;
--	u32 types, events;
--	char xs[16] = { 0 };
--
--	/* Clear additional state bits */
--	flags &= ~PERF_ADDITIONAL_STATE_MASK;
--
--	if (flags & PERF_IP_FLAG_TRACE_BEGIN)
--		prefix = "tr strt ";
--	else if (flags & PERF_IP_FLAG_TRACE_END)
--		prefix = "tr end  ";
--	else
--		prefix = "";
--
--	ret = snprintf(str + pos, size - pos, "%s", prefix);
--	if (ret < 0)
--		return ret;
--	pos += ret;
--
--	flags &= ~(PERF_IP_FLAG_TRACE_BEGIN | PERF_IP_FLAG_TRACE_END);
--
--	types = flags & ~PERF_IP_FLAG_BRANCH_EVENT_MASK;
--	for (i = 0; sample_flags[i].name; i++) {
--		if (sample_flags[i].flags != types)
--			continue;
--
--		ret = snprintf(str + pos, size - pos, "%s", sample_flags[i].name);
--		if (ret < 0)
--			return ret;
--		pos += ret;
--		break;
--	}
--
--	events = flags & PERF_IP_FLAG_BRANCH_EVENT_MASK;
--	for (i = 0; branch_events[i].name; i++) {
--		if (!(branch_events[i].flags & events))
--			continue;
--
--		ret = snprintf(str + pos, size - pos, !ev_idx ? "/%s" : ",%s",
--			       branch_events[i].name);
--		if (ret < 0)
--			return ret;
--		pos += ret;
--		ev_idx++;
--	}
--
--	/* Add an end character '/' for events */
--	if (ev_idx) {
--		ret = snprintf(str + pos, size - pos, "/");
--		if (ret < 0)
--			return ret;
--		pos += ret;
--	}
--
--	if (!xf)
--		return pos;
--
--	snprintf(xs, sizeof(xs), "(%s%s%s)",
--		 flags & PERF_IP_FLAG_IN_TX ? "x" : "",
--		 flags & PERF_IP_FLAG_INTR_DISABLE ? "D" : "",
--		 flags & PERF_IP_FLAG_INTR_TOGGLE ? "t" : "");
--
--	/* Right align the string if its length is less than the limit */
--	if ((pos + strlen(xs)) < SAMPLE_FLAGS_STR_ALIGNED_SIZE)
--		ret = snprintf(str + pos, size - pos, "%*s",
--			       (int)(SAMPLE_FLAGS_STR_ALIGNED_SIZE - ret), xs);
--	else
--		ret = snprintf(str + pos, size - pos, " %s", xs);
--	if (ret < 0)
--		return ret;
--
--	return pos + ret;
--}
--
--int perf_sample__sprintf_flags(u32 flags, char *str, size_t sz)
--{
--	const char *chars = PERF_IP_FLAG_CHARS;
--	const size_t n = strlen(PERF_IP_FLAG_CHARS);
--	size_t i, pos = 0;
--	int ret;
--
--	ret = sample_flags_to_name(flags, str, sz);
--	if (ret > 0)
--		return ret;
--
--	for (i = 0; i < n; i++, flags >>= 1) {
--		if ((flags & 1) && pos < sz)
--			str[pos++] = chars[i];
--	}
--	for (; i < 32; i++, flags >>= 1) {
--		if ((flags & 1) && pos < sz)
--			str[pos++] = '?';
--	}
--	if (pos < sz)
--		str[pos] = 0;
--
--	return pos;
--}
-diff --git a/tools/perf/util/trace-event.h b/tools/perf/util/trace-event.h
-index 7bdf44403e3a..19f22ac1faf3 100644
---- a/tools/perf/util/trace-event.h
-+++ b/tools/perf/util/trace-event.h
-@@ -7,15 +7,9 @@
- #include <sys/types.h>
- #include <linux/types.h>
+-#undef _GNU_SOURCE
+diff --git a/tools/build/feature/test-python-module.c b/tools/build/feature/test-python-module.c
+new file mode 100644
+index 000000000000..d670dba014b0
+--- /dev/null
++++ b/tools/build/feature/test-python-module.c
+@@ -0,0 +1,12 @@
++// SPDX-License-Identifier: GPL-2.0
++#include <Python.h>
++
++int main(void)
++{
++	static struct PyModuleDef moduledef = {
++		PyModuleDef_HEAD_INIT,
++	};
++	PyObject *module = PyModule_Create(&moduledef);
++
++	return module ? 0 : -1;
++}
+diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
+index ecddd91229c8..e2cef452964f 100644
+--- a/tools/perf/Makefile.config
++++ b/tools/perf/Makefile.config
+@@ -317,7 +317,7 @@ PYTHON_CONFIG_SQ := $(call shell-sq,$(PYTHON_CONFIG))
  
--struct evlist;
- struct machine;
--struct perf_sample;
--union perf_event;
--struct perf_tool;
--struct thread;
--struct tep_plugin_list;
--struct evsel;
- struct tep_format_field;
-+struct tep_plugin_list;
+ # Python 3.8 changed the output of `python-config --ldflags` to not include the
+ # '-lpythonX.Y' flag unless '--embed' is also passed. The feature check for
+-# libpython fails if that flag is not included in LDFLAGS
++# python-module fails if that flag is not included in LDFLAGS
+ ifeq ($(shell $(PYTHON_CONFIG_SQ) --ldflags --embed 2>&1 1>/dev/null; echo $$?), 0)
+   PYTHON_CONFIG_LDFLAGS := --ldflags --embed
+ else
+@@ -340,8 +340,8 @@ ifdef PYTHON_CONFIG
+   endif
+ endif
  
- struct trace_event {
- 	struct tep_handle	*pevent;
-@@ -79,73 +73,6 @@ struct tracing_data *tracing_data_get(struct list_head *pattrs,
- 				      int fd, bool temp);
- int tracing_data_put(struct tracing_data *tdata);
+-FEATURE_CHECK_CFLAGS-libpython := $(PYTHON_EMBED_CCOPTS)
+-FEATURE_CHECK_LDFLAGS-libpython := $(PYTHON_EMBED_LDOPTS)
++FEATURE_CHECK_CFLAGS-python-module := $(PYTHON_EMBED_CCOPTS)
++FEATURE_CHECK_LDFLAGS-python-module := $(PYTHON_EMBED_LDOPTS)
  
--
--struct addr_location;
--
--struct perf_session;
--struct perf_stat_config;
--
--struct scripting_ops {
--	const char *name;
--	const char *dirname; /* For script path .../scripts/<dirname>/... */
--	int (*start_script)(const char *script, int argc, const char **argv,
--			    struct perf_session *session);
--	int (*flush_script) (void);
--	int (*stop_script) (void);
--	void (*process_event) (union perf_event *event,
--			       struct perf_sample *sample,
--			       struct evsel *evsel,
--			       struct addr_location *al,
--			       struct addr_location *addr_al);
--	void (*process_switch)(union perf_event *event,
--			       struct perf_sample *sample,
--			       struct machine *machine);
--	void (*process_auxtrace_error)(struct perf_session *session,
--				       union perf_event *event);
--	void (*process_stat)(struct perf_stat_config *config,
--			     struct evsel *evsel, u64 tstamp);
--	void (*process_stat_interval)(u64 tstamp);
--	void (*process_throttle)(union perf_event *event,
--				 struct perf_sample *sample,
--				 struct machine *machine);
--	int (*generate_script) (struct tep_handle *pevent, const char *outfile);
--};
--
--extern unsigned int scripting_max_stack;
--
--struct scripting_ops *script_spec__lookup(const char *spec);
--int script_spec__for_each(int (*cb)(struct scripting_ops *ops, const char *spec));
--
--
--void setup_python_scripting(void);
--
--struct scripting_context {
--	struct tep_handle *pevent;
--	void *event_data;
--	union perf_event *event;
--	struct perf_sample *sample;
--	struct evsel *evsel;
--	struct addr_location *al;
--	struct addr_location *addr_al;
--	struct perf_session *session;
--};
--
--void scripting_context__update(struct scripting_context *scripting_context,
--			       union perf_event *event,
--			       struct perf_sample *sample,
--			       struct evsel *evsel,
--			       struct addr_location *al,
--			       struct addr_location *addr_al);
--
--int common_pc(struct scripting_context *context);
--int common_flags(struct scripting_context *context);
--int common_lock_depth(struct scripting_context *context);
--
--#define SAMPLE_FLAGS_BUF_SIZE 64
--#define SAMPLE_FLAGS_STR_ALIGNED_SIZE	21
--
--int perf_sample__sprintf_flags(u32 flags, char *str, size_t sz);
--
- #if defined(LIBTRACEEVENT_VERSION) &&  LIBTRACEEVENT_VERSION >= MAKE_LIBTRACEEVENT_VERSION(1, 5, 0)
- #include <event-parse.h>
+ FEATURE_CHECK_LDFLAGS-libaio = -lrt
  
+@@ -830,13 +830,12 @@ endif
+ 
+ disable-python = $(eval $(disable-python_code))
+ define disable-python_code
+-  CFLAGS += -DNO_LIBPYTHON
+   $(warning $1)
+-  NO_LIBPYTHON := 1
++  NO_PYTHON_MODULE := 1
+ endef
+ 
+ PYTHON_EXTENSION_SUFFIX := '.so'
+-ifdef NO_LIBPYTHON
++ifdef NO_PYTHON_MODULE
+   $(call disable-python,Python support disabled by user)
+ else
+ 
+@@ -849,7 +848,7 @@ else
+       $(call disable-python,No 'python-config' tool was found: disables Python support - please install python-devel/python-dev)
+     else
+ 
+-      ifneq ($(feature-libpython), 1)
++      ifneq ($(feature-python-module), 1)
+         $(call disable-python,No 'Python.h' was found: disables Python support - please install python-devel/python-dev)
+       else
+          PYTHON_SETUPTOOLS_INSTALLED := $(shell $(PYTHON) -c 'import setuptools;' 2> /dev/null && echo "yes" || echo "no")
+diff --git a/tools/perf/Makefile.perf b/tools/perf/Makefile.perf
+index 2020532bab9c..e50b1e8cf85d 100644
+--- a/tools/perf/Makefile.perf
++++ b/tools/perf/Makefile.perf
+@@ -17,9 +17,7 @@ include ../scripts/utilities.mak
+ #
+ # Define CROSS_COMPILE as prefix name of compiler if you want cross-builds.
+ #
+-
+-#
+-# Define NO_LIBPYTHON to disable python script extension.
++# Define NO_PYTHON_MODULE to disable python script extension.
+ #
+ # Define PYTHON to point to the python binary if the default
+ # `python' is not correct; for example: PYTHON=python2
+@@ -1099,10 +1097,10 @@ endif
+ 	$(call QUIET_INSTALL, perf-iostat) \
+ 		$(INSTALL) $(OUTPUT)perf-iostat -t '$(DESTDIR_SQ)$(perfexec_instdir_SQ)'
+ 
+-ifndef NO_LIBPYTHON
++ifndef NO_PYTHON_MODULE
+ 	$(call QUIET_INSTALL, python-scripts) \
+-		$(INSTALL) -d -m 755 '$(DESTDIR_SQ)$(perfexec_instdir_SQ)/scripts/python'; \
+-		$(INSTALL) python/*.py -m 644 -t '$(DESTDIR_SQ)$(perfexec_instdir_SQ)/scripts/python'
++		$(INSTALL) -d -m 755 '$(DESTDIR_SQ)$(perfexec_instdir_SQ)/python'; \
++		$(INSTALL) python/*.py -m 644 -t '$(DESTDIR_SQ)$(perfexec_instdir_SQ)/python'
+ endif
+ 	$(call QUIET_INSTALL, dlfilters) \
+ 		$(INSTALL) -d -m 755 '$(DESTDIR_SQ)$(perfexec_instdir_SQ)/dlfilters'; \
+diff --git a/tools/perf/tests/make b/tools/perf/tests/make
+index 31b064928cfc..f2c5f1c254a7 100644
+--- a/tools/perf/tests/make
++++ b/tools/perf/tests/make
+@@ -75,8 +75,6 @@ make_jevents_all    := JEVENTS_ARCH=all
+ make_no_bpf_skel    := BUILD_BPF_SKEL=0
+ make_gen_vmlinux_h  := GEN_VMLINUX_H=1
+ 
+-make_no_libpython   := NO_LIBPYTHON=1
+-make_no_scripts     := NO_LIBPYTHON=1
+ make_no_slang       := NO_SLANG=1
+ make_no_gtk2        := NO_GTK2=1
+ make_no_ui          := NO_SLANG=1 NO_GTK2=1
+@@ -118,7 +116,7 @@ make_install_prefix_slash := install prefix=/tmp/krava/
+ make_static         := LDFLAGS=-static NO_PERF_READ_VDSO32=1 NO_PERF_READ_VDSOX32=1 NO_JVMTI=1 NO_LIBTRACEEVENT=1 NO_LIBELF=1
+ 
+ # all the NO_* variable combined
+-make_minimal        := NO_LIBPYTHON=1 NO_GTK2=1
++make_minimal        := NO_GTK2=1
+ make_minimal        += NO_DEMANGLE=1 NO_LIBELF=1 NO_BACKTRACE=1
+ make_minimal        += NO_LIBNUMA=1 NO_LIBBIONIC=1 NO_LIBDW=1
+ make_minimal        += NO_LIBBPF=1
+@@ -150,7 +148,6 @@ run += make_jevents_all
+ run += make_no_bpf_skel
+ run += make_gen_vmlinux_h
+ 
+-run += make_no_libpython
+ run += make_no_scripts
+ run += make_no_slang
+ run += make_no_gtk2
 -- 
 2.54.0.545.g6539524ca2-goog
 
