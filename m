@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D9CFFF8864
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E9BBFF886D
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 00:51:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,56 +12,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d+hOZla+fHGrW+nOCfLkGxd3pKOnpc+0h1833Nj+FZY=; b=knnZiwpfX/K3bpxbn0/v+dfOOf
-	aseGGKM1j78Y5XfaqWmr+9AFCZ9oROWb7cSGikqy1bmApKSvKG5fSDqbKWohnW8Lg2dIeT8oYl36w
-	XnHzfXgaPr3AIuOy8cpvU5Zfa6sW+kaAhEDHh968BadkP/1p8I+uKOnNYF7RyiVPfe1mBBzBF0foG
-	OCjd8eqogyeHHtJ4A5XGhJK0d7EG9MJ9WKuvq460PuIfZMRZxXIg8NzgivaCjZYvvg/+Gs8SCgpfv
-	ECgwm+U4NT0jgScnuKQ5n9qkjY8xuNxxSuRnh+tztVU6itDQCRaPWWVQ0tIhVqB6NEJHp+wevIuo5
-	4qjGug4Q==;
+	bh=4vFsDqvfeNsGoUPWy4JYGx5bqHLvIX/+My2McbuUGuI=; b=aTh//HZvl3ERJRIxYZIXdT0Y3J
+	Vg9T/KybtMj1Q7xFYw2MuvyumERccUvjqiZg8RnXXdfjm5Bnj+3Fx6eZyKIcG6je2XayRwWiirfLp
+	v9e8eXSTxWHgQWhYT5FU5gg8uIb7J9Mb2Y1hxp5P8/CxokfTlfF9DzdCZ6YeLMqA42lWFpUPCBT+N
+	u7doaEEf48S63AnVKUIIcGmlsSG8fprG0fxo5BuCuMmtFGVe/j/SDzCy0KsEB/ZV34i8cyzuHmTiU
+	sM29YfVx8L/n+BvQAUrIiH4b2v1Bhbq25yPW/HpSsemFSqXumQbjN5Uz4ry0EOpaZkiJ2j4GP+qLz
+	F76VSVMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHWfM-00000000MDO-0Cw2;
-	Tue, 28 Apr 2026 00:51:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wHWfL-00000000MCo-26xM;
+	Tue, 28 Apr 2026 00:51:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHWfG-00000000MB2-0wWQ;
-	Tue, 28 Apr 2026 00:51:03 +0000
+	id 1wHWfF-00000000MAg-08Jv;
+	Tue, 28 Apr 2026 00:51:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 67CE542E0B;
-	Tue, 28 Apr 2026 00:51:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 442DAC2BCB4;
-	Tue, 28 Apr 2026 00:51:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D018143A8A;
+	Tue, 28 Apr 2026 00:50:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0CB8C2BCB4;
+	Tue, 28 Apr 2026 00:50:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777337461;
-	bh=5Ri8joccBWwhmyuhXiC1KxUz9bPRfRNan1t6eJUwBF4=;
+	s=k20201202; t=1777337459;
+	bh=lsFxvBdCYWNnGXrj0HAtYyc953fGogg+wwOtIHFtFYI=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=k/aPE3NirdiDQEeSxlWHEYdYma2Gt4QD1ICwCL3RppzMGrxq4x5PPRsdu1O5O3vcT
-	 HRyB4Pj8E8O3od1jV6iC+qskIf4y0Nn5qgNuYlCkz86B9z4UhjXzafXqDgJn09da2q
-	 Jw3BSmi+p0UMVPNEZmpnJ0GJnMYsbFk5RN8wApJp8ToBQ9gl2NutZ0AnBgej8dFvRu
-	 5ph/tP2NSdDUw6y6gawin3dyCEYam3PDkQp6cuyrugSitv7iI151oV37TyZEnpnSPS
-	 aXNEApI3//fwf8tW7kldmzAaxvuqQhtohcSf7IdjqvkufqT8cLqCo4ihLssvPDhNeO
-	 q6xVIv2b3lneg==
+	b=D7Xm5TpNGXEpgaK4waMPxUfDpk5sKKjQkmp71nO1Q+F/BsHOCs5OabkDeH1avHQdJ
+	 sl4OJiT80mB5UCRaKv0ZGg3j34dNZnmEhZ/96DfiMDl511wNEycRYy6T8GZ1tLqkre
+	 QBjcrvO0BYxFDXwbTIvgvyfMAWhmacVelgKBEnTxe5hn35JEjbHFFiZz0vGUChC6nd
+	 KLRMfWtJaT9C04MZ8OlRGkgkXrqjvQVC8vNYZD2LKRIh+QH4eoniR9NhJ8Nia1caps
+	 RaUwkjboiGBm/vs1/+/rU+rLT+pAs8uVY4XIxZURMgnJ1v4+AADBGuGG2uaaOHWt/9
+	 thCVlr8bUeXGQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B9D0838119DB;
-	Tue, 28 Apr 2026 00:50:19 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FD4438119DB;
+	Tue, 28 Apr 2026 00:50:18 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] net: airoha: stop net_device TX queue before updating
- CPU index
+Subject: Re: [PATCH net] net: airoha: Do not wake all netdev TX queues in
+ airoha_qdma_wake_netdev_txqs()
 From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <177733741829.177472.11417413578434219767.git-patchwork-notify@kernel.org>
-Date: Tue, 28 Apr 2026 00:50:18 +0000
-References: <20260421-airoha-xmit-stop-condition-v1-1-e670d6a48467@kernel.org>
-In-Reply-To: <20260421-airoha-xmit-stop-condition-v1-1-e670d6a48467@kernel.org>
+Message-Id: <177733741679.177472.12823234814515081752.git-patchwork-notify@kernel.org>
+Date: Tue, 28 Apr 2026 00:50:16 +0000
+References: <20260421-airoha-wake_netdev_txqs-optmization-v1-1-e0be95115d53@kernel.org>
+In-Reply-To: <20260421-airoha-wake_netdev_txqs-optmization-v1-1-e0be95115d53@kernel.org>
 To: Lorenzo Bianconi <lorenzo@kernel.org>
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
  kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
  netdev@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_175102_326978_E1023888 
-X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-CacheID: sfid-20260427_175101_090057_8174F5D2 
+X-CRM114-Status: UNSURE (   8.70  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,20 +82,19 @@ Hello:
 This patch was applied to netdev/net.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Tue, 21 Apr 2026 08:43:07 +0200 you wrote:
-> Currently, airoha_eth driver updates the CPU index register prior of
-> verifying whether the number of free descriptors has fallen below the
-> threshold.
-> Move net_device TX queue length check before updating the TX CPU index
-> in order to update TX CPU index even if there are more packets to be
-> transmitted but the net_device TX queue is going to be stopped
-> accounting the inflight packets.
+On Tue, 21 Apr 2026 10:53:33 +0200 you wrote:
+> Do not wake every netdev TX queue across all ports sharing the QDMA
+> running netif_tx_wake_all_queues routine in airoha_qdma_wake_netdev_txqs()
+> but only the ones that are mapped the specific QDMA stopped hw TX queue.
+> This patch can potentially avoid waking already stopped netdev TX queues
+> that are mapped to a different QDMA hw TX queue.
+> Introduce airoha_qdma_get_txq utility routine.
 > 
 > [...]
 
 Here is the summary with links:
-  - [net] net: airoha: stop net_device TX queue before updating CPU index
-    https://git.kernel.org/netdev/net/c/3854de7b38be
+  - [net] net: airoha: Do not wake all netdev TX queues in airoha_qdma_wake_netdev_txqs()
+    https://git.kernel.org/netdev/net/c/e070aac63b42
 
 You are awesome, thank you!
 -- 
