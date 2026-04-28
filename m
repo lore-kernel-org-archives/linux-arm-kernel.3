@@ -4,69 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C7ACFF8870
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 07:23:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA309FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 07:23:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4vO51mkUv8czx4QMNQNbvlHwQFmUDbpKAVfeUaPjKEk=; b=yQxKgHwad4n38WbQ4W+QE6YI8D
-	BeFMUu94qO8UgwxfBlkOAErWVTv+SFj7d08E4eDs/S1WWBmVD1UhN6VvmmQUenW4z3sJu0sVgU2dw
-	bdAq35zf10n2uIRDMRV+HA1bfw0O7Nn85Pf3H51ZLDZ872wcRKXnWDs+fE1W6Mu7nAIlaBWNfaCpT
-	658W6J0HGQ6PUEE4hpb+F0EKWPUpRe5dr+7LmWtCiSbRh8oOtZpB94VFpNwkEeFKmXl+iPLLwisWo
-	XFCBUP7tIVLzixHAtBB/id+DpmUBowbXJwGPS+us1nl3pZBQw1io/2CFRAaiChiROdihqhLlUVaH+
-	5lRH7qOg==;
+	bh=fWBpdC1hbJvY/s6uADBdAEmpsDmo838tjOauQEs5cN0=; b=uCwqM4hBWlFGVQ/XPaQ+BvckM6
+	5+xWHmB5MVZy2ee81sD/gpse3v6UAXCNOWLgrUrR2zwd39xnJx580+aD+Chv71TVZhTo+Nmrfh120
+	+jSyzv7jMB+OMnCl3r2h1VLB1zamNUS7PitqAN0CZ5wiJc5HeqUk+5xfkquMyQ3Hq7lwN/PVL+jFq
+	qTom7v60yeDYMXZeK6i07BZL622zvvHpMtFBPDNRWvvsfS+B8lpwUGc44nG7Ff/01A6VZ1xXFf2rM
+	A/t+GOHj0ONIZIx1WuBP7ToVDn0UOkCRrJfo7+N62g8z7qKwzRX435d690blr1sLaC8Q1U0I+Vl5l
+	Gyn4qSkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHcmu-00000000kHv-2zDl;
-	Tue, 28 Apr 2026 07:23:20 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	id 1wHcms-00000000kFj-3wYF;
+	Tue, 28 Apr 2026 07:23:19 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHckg-00000000hvk-2lF1
+	id 1wHckx-00000000iH4-2kW9
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 28 Apr 2026 07:21:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=fWBpdC1hbJvY/s6uADBdAEmpsDmo838tjOauQEs5cN0=; b=Voh4FR1J1Y1YqkvrhPErlzwd/G
+	JG7619vKDn2XTjNERUT/3LDP6g4lQYZ3WrVBB1eUZaXsbKeWRfuRi54/7ZxWMwQ/2YgM6YIeRiXHo
+	dyDTJOxkTAEzfkJoYcO8IA2CQZ8MU2DPk4yQy2Z7ijsgK7eJPgwYoGFprqKeUA+3I+1lUhWsLykee
+	YjWVwf5X3/FhZesNOFVPFlx/QwxrVbvvwjzQYED/VpNBaDivkgvqNlsDyljh1rsyXKntZe3Wb7Oh0
+	0g5nNTLHPy+em6HS+zjn+saIES4IS+s1GbYzQn+JLI3U/FsfC3lIuVoFh6UIge4tf1zScBuLCT3N8
+	YvNFuheg==;
+Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHcks-00000002Dx8-1l86
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 07:21:21 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-c79798cd9b9so4095829a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 00:21:01 -0700 (PDT)
+	Tue, 28 Apr 2026 07:21:17 +0000
+Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2eaed3d96d7so3084926eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 00:21:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777360861; x=1777965661; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777360871; x=1777965671; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=4vO51mkUv8czx4QMNQNbvlHwQFmUDbpKAVfeUaPjKEk=;
-        b=LEwl+h/l2YUdFPiNjhf8cOntY+M5dH5/GOgQ/UekJ1R78jLVvt9Sx+HanzDKHGGQ6d
-         3x48J+dHCCh6ztOE4YE5xT32D3i3tHCjvjKCVAijhfl/7o8NYAdI7TNWpkZZgl4aJWed
-         nlXkDQVVHJLNDX+2t50N9NKJyEviWYsn7BHx58qld1OlfwVhugUHVIb+zdgiymYg0+6z
-         V9sNdMMuG13r2gLLCLd9emTyDv7ghjAyP02vD0B3XJ772+J0syZSMBysgbPV3sJO0ApY
-         FlEdOfrryeHl6SMgupdWPTZ2Bk1FOAOIJDPiPrjuT5OoPskkJZHS8JZjt/jDy06z8AXA
-         rc3Q==
+        bh=fWBpdC1hbJvY/s6uADBdAEmpsDmo838tjOauQEs5cN0=;
+        b=Vqmma0ful4X1gHAwP/h8aTcbMysGCS34GsqTb5cxcbLgr/S0DwTuU/HQ2naS3bD/Ge
+         5e53H4CW2VO9bttwKHtEMjUu9CqiHOUKS6hYxAov17LKGVbc6c9xTQ6DhErOSckwLV4i
+         0X1gwY/ucgGYj3ocH57Mh77IKmx/DIYHQhQun0+ggL5wIOGReV94JGrVfGPoa3eaEqir
+         iAxKwAHyT4qdcOLBwxlevtH5RSh5xuM5073thNHSeYUNO/4JOXRRKwzaAW1Abfq8clE6
+         Jv77F0Rcqq8K3OW2CAt7XqLivp/4pNGmwi7LRnZuIF7kAIQapZGqno1gDqPbkfU3rSOF
+         oRAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777360861; x=1777965661;
+        d=1e100.net; s=20251104; t=1777360871; x=1777965671;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=4vO51mkUv8czx4QMNQNbvlHwQFmUDbpKAVfeUaPjKEk=;
-        b=gDo2BQW7BppKpoMDJu/+l2/+rFg7hiHNCAHN1et6aS0T6O8LQOldliAWPVqFkk1YYf
-         i7xeE9YHeVSG5y2gAAQxJSSDx3EptVwCSUtkF/eu/koJ9g4MmX52tvXtnhfNNLlaNiHY
-         UM+mR1as/KumpgVmR64Cp9TZJpey4TZyGa8NDplxsrQf8wf2fTrlhG8LkSOEhZqADyD0
-         cnqc7TeESxOWas09zCUqTui+UAZaHglT+1z75bBMpS3FOxmjH4ATEbuf9Ejq28dykndr
-         6BYwdp7lWYXN1vJOPfKbwDEiTfaRGNTd1o0jLqzM75spJuxS5PZiuQBLHiK+ZfsPlK1Y
-         SDug==
-X-Forwarded-Encrypted: i=1; AFNElJ9uRi2h/8FqWHDhu0QS67/Ep1RljuoT/UAg/RQiwjF1G16vu5zz9kMvFPxMBRJiTJAguOItSwYVLMR03LbLa3W/@lists.infradead.org
-X-Gm-Message-State: AOJu0YxdARyU79qRyEGSw7Tlx1zNUakQxaZD5BRDcky+4OH5PtFh9Mdb
-	aMpiZlP3JIcZaMG1koWRe6h/qbD1oO0afeTVkt9lTB0YPdMtDZTELbjJlaKsXBZV2PhQc65Zcoi
-	AnPEr8UwXdw==
-X-Received: from pgac11.prod.google.com ([2002:a05:6a02:294b:b0:c76:a6b1:ed23])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:a120:b0:3a2:f14a:4290
- with SMTP id adf61e73a8af0-3a39c27ff64mr2278598637.38.1777360860923; Tue, 28
- Apr 2026 00:21:00 -0700 (PDT)
-Date: Tue, 28 Apr 2026 00:18:56 -0700
+        bh=fWBpdC1hbJvY/s6uADBdAEmpsDmo838tjOauQEs5cN0=;
+        b=oM8DZ6zWJSJN5llLFGfHLLXJ+nsR/XQ0qVR57M2s4YD+HGiIS+/QUsKJYu2Qmmv04C
+         2QzWhxwWrOrPo5r/X4zofqML5Py+NGFKCTx6Us2vjG4qO24fKNVjJjyNTArdqmnPt02E
+         EI47DounLVVn3w36s8F38KJQinE71t8zWMb4+oaA0U+ZUEm0o5B4iFsWrVgHGqf8f5Ir
+         ZDK93+P5ZcoP8jTijqqI2eiMycvcqpd6JJQGGqdUC967r036DFdeuVgb7o7n80D5eWtQ
+         vATEjwgnLrYq8k/f1DSGbVr3KZLfPBe4IbsnP6aRgNGPmGpbCUR5xK7AZ2Vg2NS/bbzu
+         goJQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8wEbdclQ2xrZKn5iAADZ+FXPHg01bXdzlZRnn8DjJ0kjQSnwZBTUU0XXtmxQbRz8e7vPKfTFw2RybhwqGVw8rV@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJLBYYSmzHYVaxQacKC+iFyNSjN+O3n2pa6zhDB8h/Z05PFEo3
+	ekXr+sOJR0hcfvPqMqc5i4VzHTocga221JIhaUXGTCsnIljsl4FJacWVSX+acVB5/oRuSeOyo2R
+	U5TdkAE8wTA==
+X-Received: from dycoz1.prod.google.com ([2002:a05:7301:fc81:b0:2d9:1564:c80c])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:d215:b0:2ed:e14:42e9
+ with SMTP id 5a478bee46e88-2ed0e144411mr362084eec.34.1777360870644; Tue, 28
+ Apr 2026 00:21:10 -0700 (PDT)
+Date: Tue, 28 Apr 2026 00:19:01 -0700
 In-Reply-To: <20260428071903.1886173-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260425224951.174663-1-irogers@google.com> <20260428071903.1886173-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260428071903.1886173-52-irogers@google.com>
-Subject: [PATCH v8 51/58] perf wakeup-latency: Port wakeup-latency to use
- python module
+Message-ID: <20260428071903.1886173-57-irogers@google.com>
+Subject: [PATCH v8 56/58] perf script: Refactor to support standalone scripts
+ and remove legacy features
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, namhyung@kernel.org
 Cc: adrian.hunter@intel.com, alice.mei.rogers@gmail.com, 
@@ -76,8 +91,8 @@ Cc: adrian.hunter@intel.com, alice.mei.rogers@gmail.com,
 	tmricht@linux.ibm.com, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_002102_742565_2BDEA9F3 
-X-CRM114-Status: GOOD (  16.86  )
+X-CRM114-CacheID: sfid-20260428_082116_055338_1EB63F8C 
+X-CRM114-Status: GOOD (  34.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,139 +107,1674 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Port the legacy Perl script wakeup-latency.pl to a python script using
-the perf module in tools/perf/python.
-
-The new script uses a class-based architecture and leverages the
-perf.session API for event processing.
-
-It measures wakeup latency by tracking timestamps of
-sched:sched_wakeup and sched:sched_switch events.
-
-Complications:
-- Used min() and max() built-in functions instead of if blocks to
-  satisfy pylint recommendations.
-- pylint warns about the module name not being snake_case, but it is
-  kept for consistency with the original script name.
+- Remove -g / --gen-script option as it is no longer needed.
+- Hide -s / --script option to imply running standalone scripts
+  directly.
+- Update find_script to search in 'python' instead of
+  'scripts/python'.
+- Add support for launching standalone scripts using fork and execvp,
+  skipping the event processing loop.
+- Update list_available_scripts to look for .py files directly in
+  'python' directory.
+- Remove all references to scripting_ops and clean up unused functions
+  and variables.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
 v2:
 
- - Fixed Wakeup Latency Logic: Modified the script to track wakeup
-   timestamps per task (using sample.pid as the key) instead of per
-   CPU.  This ensures that context switches are correctly paired with
-   the specific task that was woken up, even if multiple tasks are
-   woken up on the same CPU or if a task is migrated to a different
-   CPU before running.
+ - Fixed strncat buffer overflow: Updated the strncat call in
+   find_script() to correctly use the remaining capacity of the
+   destination buffer instead of sizeof(path) - 1 . The declaration of
+   len was moved to the top of the function to conform to C style
+   guidelines.
 
- - Prevented Memory Growth: Added del self.last_wakeup[next_pid] after
-   successful latency calculation to prevent the dictionary from
-   growing unbounded over time.
+ - Fixed execvp path searching: If find_script() finds a local file in
+   the current directory without a slash, it now prepends ./ to it.
+   This ensures that execvp() executed by the child process knows to
+   look in the current directory rather than searching the system
+   $PATH .
 
- - Added Error Tracking: Added try-except blocks around tracepoint
-   field access in process_event() and tracked missing fields in self.
-   unhandled instead of ignoring them.
+ - Fixed premature loop termination in docstring parsing: Removed a
+   check in read_script_info() that caused the loop to terminate early
+   if any fallback description was found (like an SPDX
+   identifier). This restores the intended behavior of searching the
+   entire header for a better "description:" tag.
+
+ - Updated subcommands and usage: Removed "record" and "report" from
+   the usage text and stopped passing them as valid subcommands to
+   parse_options_subcommand() .
+
+ - Fixed lost command-line options: Reconstructed the arguments passed
+   to the standalone script to include -i and the input file path,
+   ensuring that the user's choice of input file is not lost.
+
+ - Added error message on execvp failure: Added a pr_err call in the
+   child process to print a descriptive error message if execvp()
+   fails to launch the script.
+
+ - Fixed uninitialized status in waitpid : Initialized status to 0 and
+   verified that waitpid() successfully returned the child's PID
+   before evaluating its exit status. Also removed unnecessary braces
+   and fixed indentation in that block.
+
+v8:
+
+ - Avoid potential memory leak. Remove unused variables. Correct waitpid
+   return value.
 ---
- tools/perf/python/wakeup-latency.py | 88 +++++++++++++++++++++++++++++
- 1 file changed, 88 insertions(+)
- create mode 100755 tools/perf/python/wakeup-latency.py
+ tools/perf/builtin-script.c             | 778 +++++++++---------------
+ tools/perf/util/Build                   |   1 -
+ tools/perf/util/scripting-engines/Build |   1 -
+ tools/perf/util/trace-event-parse.c     |  65 --
+ tools/perf/util/trace-event-scripting.c | 333 ----------
+ tools/perf/util/trace-event.h           |  75 +--
+ 6 files changed, 300 insertions(+), 953 deletions(-)
+ delete mode 100644 tools/perf/util/scripting-engines/Build
+ delete mode 100644 tools/perf/util/trace-event-scripting.c
 
-diff --git a/tools/perf/python/wakeup-latency.py b/tools/perf/python/wakeup-latency.py
-new file mode 100755
-index 000000000000..1b0db115abcf
---- /dev/null
-+++ b/tools/perf/python/wakeup-latency.py
-@@ -0,0 +1,88 @@
-+#!/usr/bin/env python3
-+# SPDX-License-Identifier: GPL-2.0-only
-+"""Display avg/min/max wakeup latency."""
+diff --git a/tools/perf/builtin-script.c b/tools/perf/builtin-script.c
+index c0949556d1bb..6b53694edb4a 100644
+--- a/tools/perf/builtin-script.c
++++ b/tools/perf/builtin-script.c
+@@ -18,6 +18,7 @@
+ #include <sys/param.h>
+ #include <sys/stat.h>
+ #include <sys/types.h>
++#include <sys/wait.h>
+ #include <sys/utsname.h>
+ #include <unistd.h>
+ 
+@@ -77,7 +78,6 @@
+ #endif
+ 
+ static char const		*script_name;
+-static char const		*generate_script_lang;
+ static bool			reltime;
+ static bool			deltatime;
+ static u64			initial_time;
+@@ -95,6 +95,7 @@ static int			max_blocks;
+ static struct dlfilter		*dlfilter;
+ static int			dlargc;
+ static char			**dlargv;
++static unsigned int		scripting_max_stack = PERF_MAX_STACK_DEPTH;
+ 
+ enum perf_output_field {
+ 	PERF_OUTPUT_COMM            = 1ULL << 0,
+@@ -1730,6 +1731,143 @@ static int perf_sample__fprintf_bts(struct perf_sample *sample,
+ 	return printed;
+ }
+ 
++#define SAMPLE_FLAGS_BUF_SIZE 64
++#define SAMPLE_FLAGS_STR_ALIGNED_SIZE	21
 +
-+import argparse
-+from collections import defaultdict
-+import sys
-+from typing import Optional, Dict
-+import perf
++static int sample_flags_to_name(u32 flags, char *str, size_t size)
++{
++	static const struct {
++		u32 flags;
++		const char *name;
++	} sample_flags[] = {
++		{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CALL, "call"},
++		{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_RETURN, "return"},
++		{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CONDITIONAL, "jcc"},
++		{PERF_IP_FLAG_BRANCH, "jmp"},
++		{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CALL | PERF_IP_FLAG_INTERRUPT, "int"},
++		{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_RETURN | PERF_IP_FLAG_INTERRUPT, "iret"},
++		{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CALL | PERF_IP_FLAG_SYSCALLRET, "syscall"},
++		{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_RETURN | PERF_IP_FLAG_SYSCALLRET, "sysret"},
++		{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_ASYNC, "async"},
++		{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CALL | PERF_IP_FLAG_ASYNC |	PERF_IP_FLAG_INTERRUPT,
++		 "hw int"},
++		{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_TX_ABORT, "tx abrt"},
++		{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_TRACE_BEGIN, "tr strt"},
++		{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_TRACE_END, "tr end"},
++		{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CALL | PERF_IP_FLAG_VMENTRY, "vmentry"},
++		{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CALL | PERF_IP_FLAG_VMEXIT, "vmexit"},
++		{0, NULL}
++	};
++	static const struct {
++		u32 flags;
++		const char *name;
++	} branch_events[] = {
++		{PERF_IP_FLAG_BRANCH_MISS, "miss"},
++		{PERF_IP_FLAG_NOT_TAKEN, "not_taken"},
++		{0, NULL}
++	};
++	int i;
++	const char *prefix;
++	int pos = 0, ret, ev_idx = 0;
++	u32 xf = flags & PERF_ADDITIONAL_STATE_MASK;
++	u32 types, events;
++	char xs[16] = { 0 };
 +
-+class WakeupLatency:
-+    """Tracks and displays wakeup latency statistics."""
-+    def __init__(self) -> None:
-+        self.last_wakeup: Dict[int, int] = defaultdict(int)
-+        self.max_wakeup_latency = 0
-+        self.min_wakeup_latency = 1000000000
-+        self.total_wakeup_latency = 0
-+        self.total_wakeups = 0
-+        self.unhandled: Dict[str, int] = defaultdict(int)
-+        self.session: Optional[perf.session] = None
++	/* Clear additional state bits */
++	flags &= ~PERF_ADDITIONAL_STATE_MASK;
 +
-+    def process_event(self, sample: perf.sample_event) -> None:
-+        """Process events."""
-+        event_name = str(sample.evsel)
-+        sample_time = sample.sample_time
++	if (flags & PERF_IP_FLAG_TRACE_BEGIN)
++		prefix = "tr strt ";
++	else if (flags & PERF_IP_FLAG_TRACE_END)
++		prefix = "tr end  ";
++	else
++		prefix = "";
 +
-+        if "sched:sched_wakeup" in event_name:
-+            try:
-+                pid = sample.pid
-+                self.last_wakeup[pid] = sample_time
-+            except AttributeError:
-+                self.unhandled[event_name] += 1
-+        elif "sched:sched_switch" in event_name:
-+            try:
-+                next_pid = sample.next_pid
-+                wakeup_ts = self.last_wakeup.get(next_pid, 0)
-+                if wakeup_ts:
-+                    latency = sample_time - wakeup_ts
-+                    self.max_wakeup_latency = max(self.max_wakeup_latency, latency)
-+                    self.min_wakeup_latency = min(self.min_wakeup_latency, latency)
-+                    self.total_wakeup_latency += latency
-+                    self.total_wakeups += 1
-+                    del self.last_wakeup[next_pid]
-+            except AttributeError:
-+                self.unhandled[event_name] += 1
-+        else:
-+            self.unhandled[event_name] += 1
++	ret = snprintf(str + pos, size - pos, "%s", prefix);
++	if (ret < 0)
++		return ret;
++	pos += ret;
 +
-+    def print_totals(self) -> None:
-+        """Print summary statistics."""
-+        print("wakeup_latency stats:\n")
-+        print(f"total_wakeups: {self.total_wakeups}")
-+        if self.total_wakeups:
-+            avg = self.total_wakeup_latency // self.total_wakeups
-+            print(f"avg_wakeup_latency (ns): {avg}")
-+        else:
-+            print("avg_wakeup_latency (ns): N/A")
-+        print(f"min_wakeup_latency (ns): {self.min_wakeup_latency}")
-+        print(f"max_wakeup_latency (ns): {self.max_wakeup_latency}")
++	flags &= ~(PERF_IP_FLAG_TRACE_BEGIN | PERF_IP_FLAG_TRACE_END);
 +
-+        if self.unhandled:
-+            print("\nunhandled events:\n")
-+            print(f"{'event':<40s}  {'count':>10s}")
-+            print(f"{'-'*40}  {'-'*10}")
-+            for event_name, count in self.unhandled.items():
-+                print(f"{event_name:<40s}  {count:10d}")
++	types = flags & ~PERF_IP_FLAG_BRANCH_EVENT_MASK;
++	for (i = 0; sample_flags[i].name; i++) {
++		if (sample_flags[i].flags != types)
++			continue;
 +
-+    def run(self, input_file: str) -> None:
-+        """Run the session."""
-+        self.session = perf.session(perf.data(input_file), sample=self.process_event)
-+        self.session.process_events()
-+        self.print_totals()
++		ret = snprintf(str + pos, size - pos, "%s", sample_flags[i].name);
++		if (ret < 0)
++			return ret;
++		pos += ret;
++		break;
++	}
 +
-+def main() -> None:
-+    """Main function."""
-+    parser = argparse.ArgumentParser(description="Trace wakeup latency")
-+    parser.add_argument("-i", "--input", default="perf.data", help="Input file")
-+    args = parser.parse_args()
++	events = flags & PERF_IP_FLAG_BRANCH_EVENT_MASK;
++	for (i = 0; branch_events[i].name; i++) {
++		if (!(branch_events[i].flags & events))
++			continue;
 +
-+    analyzer = WakeupLatency()
-+    try:
-+        analyzer.run(args.input)
-+    except IOError as e:
-+        print(e, file=sys.stderr)
-+        sys.exit(1)
++		ret = snprintf(str + pos, size - pos, !ev_idx ? "/%s" : ",%s",
++			       branch_events[i].name);
++		if (ret < 0)
++			return ret;
++		pos += ret;
++		ev_idx++;
++	}
 +
-+if __name__ == "__main__":
-+    main()
++	/* Add an end character '/' for events */
++	if (ev_idx) {
++		ret = snprintf(str + pos, size - pos, "/");
++		if (ret < 0)
++			return ret;
++		pos += ret;
++	}
++
++	if (!xf)
++		return pos;
++
++	snprintf(xs, sizeof(xs), "(%s%s%s)",
++		 flags & PERF_IP_FLAG_IN_TX ? "x" : "",
++		 flags & PERF_IP_FLAG_INTR_DISABLE ? "D" : "",
++		 flags & PERF_IP_FLAG_INTR_TOGGLE ? "t" : "");
++
++	/* Right align the string if its length is less than the limit */
++	if ((pos + strlen(xs)) < SAMPLE_FLAGS_STR_ALIGNED_SIZE)
++		ret = snprintf(str + pos, size - pos, "%*s",
++			       (int)(SAMPLE_FLAGS_STR_ALIGNED_SIZE - ret), xs);
++	else
++		ret = snprintf(str + pos, size - pos, " %s", xs);
++	if (ret < 0)
++		return ret;
++
++	return pos + ret;
++}
++
++static int perf_sample__sprintf_flags(u32 flags, char *str, size_t sz)
++{
++	const char *chars = PERF_IP_FLAG_CHARS;
++	const size_t n = strlen(PERF_IP_FLAG_CHARS);
++	size_t i, pos = 0;
++	int ret;
++
++	ret = sample_flags_to_name(flags, str, sz);
++	if (ret > 0)
++		return ret;
++
++	for (i = 0; i < n; i++, flags >>= 1) {
++		if ((flags & 1) && pos < sz)
++			str[pos++] = chars[i];
++	}
++	for (; i < 32; i++, flags >>= 1) {
++		if ((flags & 1) && pos < sz)
++			str[pos++] = '?';
++	}
++	if (pos < sz)
++		str[pos] = 0;
++
++	return pos;
++}
++
+ static int perf_sample__fprintf_flags(u32 flags, FILE *fp)
+ {
+ 	char str[SAMPLE_FLAGS_BUF_SIZE];
+@@ -2571,8 +2709,6 @@ static void process_event(struct perf_script *script,
+ 		fflush(fp);
+ }
+ 
+-static struct scripting_ops	*scripting_ops;
+-
+ static void __process_stat(struct evsel *counter, u64 tstamp)
+ {
+ 	int nthreads = perf_thread_map__nr(counter->core.threads);
+@@ -2607,35 +2743,14 @@ static void __process_stat(struct evsel *counter, u64 tstamp)
+ 
+ static void process_stat(struct evsel *counter, u64 tstamp)
+ {
+-	if (scripting_ops && scripting_ops->process_stat)
+-		scripting_ops->process_stat(&stat_config, counter, tstamp);
+-	else
+-		__process_stat(counter, tstamp);
++	__process_stat(counter, tstamp);
+ }
+ 
+-static void process_stat_interval(u64 tstamp)
++static void process_stat_interval(u64 tstamp __maybe_unused)
+ {
+-	if (scripting_ops && scripting_ops->process_stat_interval)
+-		scripting_ops->process_stat_interval(tstamp);
+ }
+ 
+-static void setup_scripting(void)
+-{
+ 
+-	setup_python_scripting();
+-}
+-
+-static int flush_scripting(void)
+-{
+-	return scripting_ops ? scripting_ops->flush_script() : 0;
+-}
+-
+-static int cleanup_scripting(void)
+-{
+-	pr_debug("\nperf script stopped\n");
+-
+-	return scripting_ops ? scripting_ops->stop_script() : 0;
+-}
+ 
+ static bool filter_cpu(struct perf_sample *sample)
+ {
+@@ -2708,19 +2823,7 @@ static int process_sample_event(const struct perf_tool *tool,
+ 		goto out_put;
+ 	}
+ 
+-	if (scripting_ops) {
+-		struct addr_location *addr_al_ptr = NULL;
+-
+-		if ((evsel->core.attr.sample_type & PERF_SAMPLE_ADDR) &&
+-		    sample_addr_correlates_sym(&evsel->core.attr)) {
+-			if (!addr_al.thread)
+-				thread__resolve(al.thread, &addr_al, sample);
+-			addr_al_ptr = &addr_al;
+-		}
+-		scripting_ops->process_event(event, sample, evsel, &al, addr_al_ptr);
+-	} else {
+-		process_event(scr, sample, evsel, &al, &addr_al, machine);
+-	}
++	process_event(scr, sample, evsel, &al, &addr_al, machine);
+ 
+ out_put:
+ 	addr_location__exit(&addr_al);
+@@ -3029,8 +3132,7 @@ static int process_switch_event(const struct perf_tool *tool,
+ 	if (perf_event__process_switch(tool, event, sample, machine) < 0)
+ 		return -1;
+ 
+-	if (scripting_ops && scripting_ops->process_switch && !filter_cpu(sample))
+-		scripting_ops->process_switch(event, sample, machine);
++
+ 
+ 	if (!script->show_switch_events)
+ 		return 0;
+@@ -3039,17 +3141,7 @@ static int process_switch_event(const struct perf_tool *tool,
+ 			   sample->tid);
+ }
+ 
+-static int process_auxtrace_error(const struct perf_tool *tool,
+-				  struct perf_session *session,
+-				  union perf_event *event)
+-{
+-	if (scripting_ops && scripting_ops->process_auxtrace_error) {
+-		scripting_ops->process_auxtrace_error(session, event);
+-		return 0;
+-	}
+ 
+-	return perf_event__process_auxtrace_error(tool, session, event);
+-}
+ 
+ static int
+ process_lost_event(const struct perf_tool *tool,
+@@ -3063,12 +3155,11 @@ process_lost_event(const struct perf_tool *tool,
+ 
+ static int
+ process_throttle_event(const struct perf_tool *tool __maybe_unused,
+-		       union perf_event *event,
+-		       struct perf_sample *sample,
+-		       struct machine *machine)
++		       union perf_event *event __maybe_unused,
++		       struct perf_sample *sample __maybe_unused,
++		       struct machine *machine __maybe_unused)
+ {
+-	if (scripting_ops && scripting_ops->process_throttle)
+-		scripting_ops->process_throttle(event, sample, machine);
++
+ 	return 0;
+ }
+ 
+@@ -3211,10 +3302,9 @@ static int __cmd_script(struct perf_script *script)
+ 		script->tool.mmap = process_mmap_event;
+ 		script->tool.mmap2 = process_mmap2_event;
+ 	}
+-	if (script->show_switch_events || (scripting_ops && scripting_ops->process_switch))
++	if (script->show_switch_events)
+ 		script->tool.context_switch = process_switch_event;
+-	if (scripting_ops && scripting_ops->process_auxtrace_error)
+-		script->tool.auxtrace_error = process_auxtrace_error;
++	script->tool.auxtrace_error = perf_event__process_auxtrace_error;
+ 	if (script->show_namespace_events)
+ 		script->tool.namespaces = process_namespaces_event;
+ 	if (script->show_cgroup_events)
+@@ -3251,96 +3341,55 @@ static int __cmd_script(struct perf_script *script)
+ 	return ret;
+ }
+ 
+-static int list_available_languages_cb(struct scripting_ops *ops, const char *spec)
+-{
+-	fprintf(stderr, "  %-42s [%s]\n", spec, ops->name);
+-	return 0;
+-}
+ 
+-static void list_available_languages(void)
+-{
+-	fprintf(stderr, "\n");
+-	fprintf(stderr, "Scripting language extensions (used in "
+-		"perf script -s [spec:]script.[spec]):\n\n");
+-	script_spec__for_each(&list_available_languages_cb);
+-	fprintf(stderr, "\n");
+-}
+ 
+ /* Find script file relative to current directory or exec path */
+ static char *find_script(const char *script)
+ {
+ 	char path[PATH_MAX];
++	char *exec_path;
++	size_t len;
+ 
+-	if (!scripting_ops) {
+-		const char *ext = strrchr(script, '.');
++	if (access(script, R_OK) == 0) {
++		if (!strchr(script, '/')) {
++			snprintf(path, sizeof(path), "./%s", script);
++			script = path;
++		}
++		goto found;
++	}
+ 
+-		if (!ext)
+-			return NULL;
++	exec_path = get_argv_exec_path();
++	if (!exec_path)
++		return NULL;
+ 
+-		scripting_ops = script_spec__lookup(++ext);
+-		if (!scripting_ops)
+-			return NULL;
+-	}
++	snprintf(path, sizeof(path), "%s/python/%s", exec_path, script);
++	free(exec_path);
++	script = path;
+ 
+-	if (access(script, R_OK)) {
+-		char *exec_path = get_argv_exec_path();
++	if (access(path, R_OK) == 0)
++		goto found;
+ 
+-		if (!exec_path)
+-			return NULL;
+-		snprintf(path, sizeof(path), "%s/scripts/%s/%s",
+-			 exec_path, scripting_ops->dirname, script);
+-		free(exec_path);
+-		script = path;
+-		if (access(script, R_OK))
+-			return NULL;
+-	}
++	/* Try with .py suffix. */
++	len = strlen(path);
++
++	strncat(path, ".py", sizeof(path) - len - 1);
++
++	if (access(script, R_OK) == 0)
++		goto found;
++
++	/* Failure to find script. */
++	return NULL;
++
++found:
+ 	return strdup(script);
+ }
+ 
+ static int parse_scriptname(const struct option *opt __maybe_unused,
+ 			    const char *str, int unset __maybe_unused)
+ {
+-	char spec[PATH_MAX];
+-	const char *script, *ext;
+-	int len;
+-
+-	if (strcmp(str, "lang") == 0) {
+-		list_available_languages();
+-		exit(0);
+-	}
+-
+-	script = strchr(str, ':');
+-	if (script) {
+-		len = script - str;
+-		if (len >= PATH_MAX) {
+-			fprintf(stderr, "invalid language specifier");
+-			return -1;
+-		}
+-		strncpy(spec, str, len);
+-		spec[len] = '\0';
+-		scripting_ops = script_spec__lookup(spec);
+-		if (!scripting_ops) {
+-			fprintf(stderr, "invalid language specifier");
+-			return -1;
+-		}
+-		script++;
+-	} else {
+-		script = str;
+-		ext = strrchr(script, '.');
+-		if (!ext) {
+-			fprintf(stderr, "invalid script extension");
+-			return -1;
+-		}
+-		scripting_ops = script_spec__lookup(++ext);
+-		if (!scripting_ops) {
+-			fprintf(stderr, "invalid script extension");
+-			return -1;
+-		}
+-	}
+-
+-	script_name = find_script(script);
++	script_name = find_script(str);
+ 	if (!script_name)
+-		script_name = strdup(script);
++		script_name = strdup(str);
+ 
+ 	return 0;
+ }
+@@ -3536,7 +3585,6 @@ struct script_desc {
+ 	struct list_head	node;
+ 	char			*name;
+ 	char			*half_liner;
+-	char			*args;
+ };
+ 
+ static LIST_HEAD(script_descs);
+@@ -3551,16 +3599,18 @@ static struct script_desc *script_desc__new(const char *name)
+ 	return s;
+ }
+ 
+-static void script_desc__delete(struct script_desc *s)
+-{
+-	zfree(&s->name);
+-	zfree(&s->half_liner);
+-	zfree(&s->args);
+-	free(s);
+-}
++
+ 
+ static void script_desc__add(struct script_desc *s)
+ {
++	struct script_desc *pos;
++
++	list_for_each_entry(pos, &script_descs, node) {
++		if (strcasecmp(s->name, pos->name) < 0) {
++			list_add_tail(&s->node, &pos->node);
++			return;
++		}
++	}
+ 	list_add_tail(&s->node, &script_descs);
+ }
+ 
+@@ -3608,15 +3658,59 @@ static int read_script_info(struct script_desc *desc, const char *filename)
+ {
+ 	char line[BUFSIZ], *p;
+ 	FILE *fp;
++	bool in_docstring = false;
++	bool found_description = false;
+ 
+ 	fp = fopen(filename, "r");
+ 	if (!fp)
+ 		return -1;
+ 
+ 	while (fgets(line, sizeof(line), fp)) {
++		static const char * const triple_quote_str[] = {
++			"\"\"\"",
++			"'''",
++			"r\"\"\"",
++		};
+ 		p = skip_spaces(line);
+ 		if (strlen(p) == 0)
+ 			continue;
++
++		if (in_docstring) {
++			if (strlen(p) && p[strlen(p) - 1] == '\n')
++				p[strlen(p) - 1] = '\0';
++			zfree(&desc->half_liner);
++			desc->half_liner = strdup(skip_spaces(p));
++			in_docstring = false;
++			found_description = true;
++			break;
++		}
++
++
++		for (size_t i = 0; i < ARRAY_SIZE(triple_quote_str); i++) {
++			const char *quote = triple_quote_str[i];
++
++			if (!strstarts(p, quote))
++				continue;
++
++			p += strlen(quote);
++			p = skip_spaces(p);
++			if (strlen(p) > 0) {
++				if (p[strlen(p) - 1] == '\n')
++					p[strlen(p) - 1] = '\0';
++				p = skip_spaces(p);
++				if (str_ends_with(p, quote))
++					p[strlen(p) - strlen(quote)] = '\0';
++				zfree(&desc->half_liner);
++				desc->half_liner = strdup(skip_spaces(p));
++				found_description = true;
++				break;
++			}
++			in_docstring = true;
++			break;
++		}
++		if (in_docstring)
++			continue;
++
+ 		if (*p != '#')
+ 			continue;
+ 		p++;
+@@ -3629,14 +3723,17 @@ static int read_script_info(struct script_desc *desc, const char *filename)
+ 
+ 		if (!strncmp(p, "description:", strlen("description:"))) {
+ 			p += strlen("description:");
++			zfree(&desc->half_liner);
+ 			desc->half_liner = strdup(skip_spaces(p));
+-			continue;
++			found_description = true;
++			break;
+ 		}
+ 
+-		if (!strncmp(p, "args:", strlen("args:"))) {
+-			p += strlen("args:");
+-			desc->args = strdup(skip_spaces(p));
+-			continue;
++		if (!found_description && strlen(p) > 0 &&
++		    strncmp(p, "SPDX-License-Identifier", 23)) {
++			desc->half_liner = strdup(p);
++			found_description = true;
++			// Don't break, maybe we find a better "description:" later!
+ 		}
+ 	}
+ 
+@@ -3667,23 +3764,21 @@ static int list_available_scripts(const struct option *opt __maybe_unused,
+ 				  const char *s __maybe_unused,
+ 				  int unset __maybe_unused)
+ {
+-	struct dirent *script_dirent, *lang_dirent;
+-	char *buf, *scripts_path, *script_path, *lang_path, *first_half;
+-	DIR *scripts_dir, *lang_dir;
++	struct dirent *script_dirent;
++	char *buf, *scripts_path, *script_path;
++	DIR *scripts_dir;
+ 	struct script_desc *desc;
+ 	char *script_root;
+ 
+-	buf = malloc(3 * MAXPATHLEN + BUFSIZ);
++	buf = malloc(2 * MAXPATHLEN + BUFSIZ);
+ 	if (!buf) {
+ 		pr_err("malloc failed\n");
+ 		exit(-1);
+ 	}
+ 	scripts_path = buf;
+ 	script_path = buf + MAXPATHLEN;
+-	lang_path = buf + 2 * MAXPATHLEN;
+-	first_half = buf + 3 * MAXPATHLEN;
+ 
+-	snprintf(scripts_path, MAXPATHLEN, "%s/scripts", get_argv_exec_path());
++	snprintf(scripts_path, MAXPATHLEN, "%s/python", get_argv_exec_path());
+ 
+ 	scripts_dir = opendir(scripts_path);
+ 	if (!scripts_dir) {
+@@ -3695,30 +3790,26 @@ static int list_available_scripts(const struct option *opt __maybe_unused,
+ 		exit(-1);
+ 	}
+ 
+-	for_each_lang(scripts_path, scripts_dir, lang_dirent) {
+-		scnprintf(lang_path, MAXPATHLEN, "%s/%s/bin", scripts_path,
+-			  lang_dirent->d_name);
+-		lang_dir = opendir(lang_path);
+-		if (!lang_dir)
+-			continue;
++	while ((script_dirent = readdir(scripts_dir)) != NULL) {
++		if (script_dirent->d_type != DT_DIR &&
++		    (script_dirent->d_type != DT_UNKNOWN ||
++		     !is_directory(scripts_path, script_dirent))) {
+ 
+-		for_each_script(lang_path, lang_dir, script_dirent) {
+-			script_root = get_script_root(script_dirent, REPORT_SUFFIX);
++			script_root = get_script_root(script_dirent, ".py");
+ 			if (script_root) {
+ 				desc = script_desc__findnew(script_root);
+ 				scnprintf(script_path, MAXPATHLEN, "%s/%s",
+-					  lang_path, script_dirent->d_name);
++					  scripts_path, script_dirent->d_name);
+ 				read_script_info(desc, script_path);
+ 				free(script_root);
+ 			}
+ 		}
+ 	}
++	closedir(scripts_dir);
+ 
+-	fprintf(stdout, "List of available trace scripts:\n");
++	fprintf(stdout, "List of available scripts:\n");
+ 	list_for_each_entry(desc, &script_descs, node) {
+-		sprintf(first_half, "%s %s", desc->name,
+-			desc->args ? desc->args : "");
+-		fprintf(stdout, "  %-36s %s\n", first_half,
++		fprintf(stdout, "  %-36s %s\n", desc->name,
+ 			desc->half_liner ? desc->half_liner : "");
+ 	}
+ 
+@@ -3754,93 +3845,7 @@ static void free_dlarg(void)
+ 	free(dlargv);
+ }
+ 
+-static char *get_script_path(const char *script_root, const char *suffix)
+-{
+-	struct dirent *script_dirent, *lang_dirent;
+-	char scripts_path[MAXPATHLEN];
+-	char script_path[MAXPATHLEN];
+-	DIR *scripts_dir, *lang_dir;
+-	char lang_path[MAXPATHLEN];
+-	char *__script_root;
+-
+-	snprintf(scripts_path, MAXPATHLEN, "%s/scripts", get_argv_exec_path());
+-
+-	scripts_dir = opendir(scripts_path);
+-	if (!scripts_dir)
+-		return NULL;
+-
+-	for_each_lang(scripts_path, scripts_dir, lang_dirent) {
+-		scnprintf(lang_path, MAXPATHLEN, "%s/%s/bin", scripts_path,
+-			  lang_dirent->d_name);
+-		lang_dir = opendir(lang_path);
+-		if (!lang_dir)
+-			continue;
+-
+-		for_each_script(lang_path, lang_dir, script_dirent) {
+-			__script_root = get_script_root(script_dirent, suffix);
+-			if (__script_root && !strcmp(script_root, __script_root)) {
+-				free(__script_root);
+-				closedir(scripts_dir);
+-				scnprintf(script_path, MAXPATHLEN, "%s/%s",
+-					  lang_path, script_dirent->d_name);
+-				closedir(lang_dir);
+-				return strdup(script_path);
+-			}
+-			free(__script_root);
+-		}
+-		closedir(lang_dir);
+-	}
+-	closedir(scripts_dir);
+-
+-	return NULL;
+-}
+-
+-static bool is_top_script(const char *script_path)
+-{
+-	return ends_with(script_path, "top") != NULL;
+-}
+-
+-static int has_required_arg(char *script_path)
+-{
+-	struct script_desc *desc;
+-	int n_args = 0;
+-	char *p;
+-
+-	desc = script_desc__new(NULL);
+-
+-	if (read_script_info(desc, script_path))
+-		goto out;
+-
+-	if (!desc->args)
+-		goto out;
+-
+-	for (p = desc->args; *p; p++)
+-		if (*p == '<')
+-			n_args++;
+-out:
+-	script_desc__delete(desc);
+-
+-	return n_args;
+-}
+-
+-static int have_cmd(int argc, const char **argv)
+-{
+-	char **__argv = calloc(argc, sizeof(const char *));
+ 
+-	if (!__argv) {
+-		pr_err("malloc failed\n");
+-		return -1;
+-	}
+-
+-	memcpy(__argv, argv, sizeof(const char *) * argc);
+-	argc = parse_options(argc, (const char **)__argv, record_options,
+-			     NULL, PARSE_OPT_STOP_AT_NON_OPTION);
+-	free(__argv);
+-
+-	system_wide = (argc == 0);
+-
+-	return 0;
+-}
+ 
+ static void script__setup_sample_type(struct perf_script *script)
+ {
+@@ -4026,17 +4031,13 @@ int cmd_script(int argc, const char **argv)
+ 	bool show_full_info = false;
+ 	bool header = false;
+ 	bool header_only = false;
+-	bool script_started = false;
+ 	bool unsorted_dump = false;
+ 	bool merge_deferred_callchains = true;
+-	char *rec_script_path = NULL;
+-	char *rep_script_path = NULL;
+ 	struct perf_session *session;
+ 	struct itrace_synth_opts itrace_synth_opts = {
+ 		.set = false,
+ 		.default_no_sample = true,
+ 	};
+-	char *script_path = NULL;
+ 	const char *dlfilter_file = NULL;
+ 	const char **__argv;
+ 	int i, j, err = 0;
+@@ -4057,11 +4058,10 @@ int cmd_script(int argc, const char **argv)
+ 			   list_available_scripts),
+ 	OPT_CALLBACK_NOOPT(0, "list-dlfilters", NULL, NULL, "list available dlfilters",
+ 			   list_available_dlfilters),
+-	OPT_CALLBACK('s', "script", NULL, "name",
+-		     "script file name (lang:script name, script name, or *)",
+-		     parse_scriptname),
+-	OPT_STRING('g', "gen-script", &generate_script_lang, "lang",
+-		   "generate perf-script.xx script in specified language"),
++	{ .type = OPTION_CALLBACK, .short_name = 's', .long_name = "script",
++	  .value = NULL, .argh = "name",
++	  .help = "script file name (lang:script name, script name, or *)",
++	  .callback = parse_scriptname, .flags = PARSE_OPT_HIDDEN },
+ 	OPT_STRING(0, "dlfilter", &dlfilter_file, "file", "filter .so file name"),
+ 	OPT_CALLBACK(0, "dlarg", NULL, "argument", "filter argument",
+ 		     add_dlarg),
+@@ -4185,22 +4185,17 @@ int cmd_script(int argc, const char **argv)
+ 	OPTS_EVSWITCH(&script.evswitch),
+ 	OPT_END()
+ 	};
+-	const char * const script_subcommands[] = { "record", "report", NULL };
+ 	const char *script_usage[] = {
+ 		"perf script [<options>]",
+-		"perf script [<options>] record <script> [<record-options>] <command>",
+-		"perf script [<options>] report <script> [script-args]",
+-		"perf script [<options>] <script> [<record-options>] <command>",
+-		"perf script [<options>] <top-script> [script-args]",
++		"perf script [<options>] <script> [script-args]",
+ 		NULL
+ 	};
+ 	struct perf_env *env;
+ 
+ 	perf_set_singlethreaded();
+ 
+-	setup_scripting();
+ 
+-	argc = parse_options_subcommand(argc, argv, options, script_subcommands, script_usage,
++	argc = parse_options_subcommand(argc, argv, options, NULL, script_usage,
+ 			     PARSE_OPT_STOP_AT_NON_OPTION);
+ 
+ 	if (symbol_conf.guestmount ||
+@@ -4223,21 +4218,7 @@ int cmd_script(int argc, const char **argv)
+ 	if (symbol__validate_sym_arguments())
+ 		return -1;
+ 
+-	if (argc > 1 && strlen(argv[0]) > 2 && strstarts("record", argv[0])) {
+-		rec_script_path = get_script_path(argv[1], RECORD_SUFFIX);
+-		if (!rec_script_path)
+-			return cmd_record(argc, argv);
+-	}
+ 
+-	if (argc > 1 && strlen(argv[0]) > 2 && strstarts("report", argv[0])) {
+-		rep_script_path = get_script_path(argv[1], REPORT_SUFFIX);
+-		if (!rep_script_path) {
+-			fprintf(stderr,
+-				"Please specify a valid report script"
+-				"(see 'perf script -l' for listing)\n");
+-			return -1;
+-		}
+-	}
+ 
+ 	if (reltime && deltatime) {
+ 		fprintf(stderr,
+@@ -4253,149 +4234,56 @@ int cmd_script(int argc, const char **argv)
+ 	/* make sure PERF_EXEC_PATH is set for scripts */
+ 	set_argv_exec_path(get_argv_exec_path());
+ 
+-	if (argc && !script_name && !rec_script_path && !rep_script_path) {
+-		int live_pipe[2];
+-		int rep_args;
+-		pid_t pid;
+-
+-		rec_script_path = get_script_path(argv[0], RECORD_SUFFIX);
+-		rep_script_path = get_script_path(argv[0], REPORT_SUFFIX);
+-
+-		if (!rec_script_path && !rep_script_path) {
+-			script_name = find_script(argv[0]);
+-			if (script_name) {
+-				argc -= 1;
+-				argv += 1;
+-				goto script_found;
+-			}
+-			usage_with_options_msg(script_usage, options,
+-				"Couldn't find script `%s'\n\n See perf"
+-				" script -l for available scripts.\n", argv[0]);
+-		}
+-
+-		if (is_top_script(argv[0])) {
+-			rep_args = argc - 1;
+-		} else {
+-			int rec_args;
+-
+-			rep_args = has_required_arg(rep_script_path);
+-			rec_args = (argc - 1) - rep_args;
+-			if (rec_args < 0) {
+-				usage_with_options_msg(script_usage, options,
+-					"`%s' script requires options."
+-					"\n\n See perf script -l for available "
+-					"scripts and options.\n", argv[0]);
+-			}
++	if (argc && !script_name) {
++		script_name = find_script(argv[0]);
++		if (script_name) {
++			argc -= 1;
++			argv += 1;
++			goto script_found;
+ 		}
++		usage_with_options_msg(script_usage, options,
++			"Couldn't find script `%s'\n\n"
++			" See perf script -l for available scripts.\n", argv[0]);
++	}
++script_found:
+ 
+-		if (pipe(live_pipe) < 0) {
+-			perror("failed to create pipe");
+-			return -1;
+-		}
+ 
+-		pid = fork();
++	if (script_name) {
++		pid_t pid = fork();
+ 		if (pid < 0) {
+-			perror("failed to fork");
+-			return -1;
++			pr_err("failed to fork\n");
++			return -errno;
+ 		}
+-
+-		if (!pid) {
++		if (pid == 0) { /* child */
++			__argv = calloc(argc + 4, sizeof(const char *));
+ 			j = 0;
+-
+-			dup2(live_pipe[1], 1);
+-			close(live_pipe[0]);
+-
+-			if (is_top_script(argv[0])) {
+-				system_wide = true;
+-			} else if (!system_wide) {
+-				if (have_cmd(argc - rep_args, &argv[rep_args]) != 0) {
+-					err = -1;
+-					goto out;
+-				}
+-			}
+-
+-			__argv = calloc(argc + 6, sizeof(const char *));
+ 			if (!__argv) {
+-				pr_err("malloc failed\n");
+-				err = -ENOMEM;
+-				goto out;
++				exit(-ENOMEM);
+ 			}
+-
+-			__argv[j++] = "/bin/sh";
+-			__argv[j++] = rec_script_path;
+-			if (system_wide)
+-				__argv[j++] = "-a";
+-			__argv[j++] = "-q";
+-			__argv[j++] = "-o";
+-			__argv[j++] = "-";
+-			for (i = rep_args + 1; i < argc; i++)
++			__argv[j++] = script_name;
++			if (input_name) {
++				__argv[j++] = "-i";
++				__argv[j++] = input_name;
++			}
++			for (i = 0; i < argc; i++)
+ 				__argv[j++] = argv[i];
+ 			__argv[j++] = NULL;
+ 
+-			execvp("/bin/sh", (char **)__argv);
+-			free(__argv);
+-			exit(-1);
+-		}
++			execvp(script_name, (char **)__argv);
++			pr_err("failed to execute script '%s': %s\n", script_name, strerror(errno));
++			exit(-errno);
++		} else { /* parent */
++			int status = 0;
+ 
+-		dup2(live_pipe[0], 0);
+-		close(live_pipe[1]);
+-
+-		__argv = calloc(argc + 4, sizeof(const char *));
+-		if (!__argv) {
+-			pr_err("malloc failed\n");
+-			err = -ENOMEM;
+-			goto out;
+-		}
+-
+-		j = 0;
+-		__argv[j++] = "/bin/sh";
+-		__argv[j++] = rep_script_path;
+-		for (i = 1; i < rep_args + 1; i++)
+-			__argv[j++] = argv[i];
+-		__argv[j++] = "-i";
+-		__argv[j++] = "-";
+-		__argv[j++] = NULL;
+-
+-		execvp("/bin/sh", (char **)__argv);
+-		free(__argv);
+-		exit(-1);
+-	}
+-script_found:
+-	if (rec_script_path)
+-		script_path = rec_script_path;
+-	if (rep_script_path)
+-		script_path = rep_script_path;
+-
+-	if (script_path) {
+-		j = 0;
+-
+-		if (!rec_script_path)
+-			system_wide = false;
+-		else if (!system_wide) {
+-			if (have_cmd(argc - 1, &argv[1]) != 0) {
+-				err = -1;
+-				goto out;
++			if (waitpid(pid, &status, 0) != pid) {
++				pr_err("failed to wait for script '%s': %s\n", script_name, strerror(errno));
++				return -errno;
+ 			}
++			if (WIFEXITED(status))
++				return WEXITSTATUS(status);
++			else
++				return -1;
+ 		}
+-
+-		__argv = calloc(argc + 2, sizeof(const char *));
+-		if (!__argv) {
+-			pr_err("malloc failed\n");
+-			err = -ENOMEM;
+-			goto out;
+-		}
+-
+-		__argv[j++] = "/bin/sh";
+-		__argv[j++] = script_path;
+-		if (system_wide)
+-			__argv[j++] = "-a";
+-		for (i = 2; i < argc; i++)
+-			__argv[j++] = argv[i];
+-		__argv[j++] = NULL;
+-
+-		execvp("/bin/sh", (char **)__argv);
+-		free(__argv);
+-		exit(-1);
+ 	}
+ 
+ 	if (dlfilter_file) {
+@@ -4487,77 +4375,12 @@ int cmd_script(int argc, const char **argv)
+ 		goto out_delete;
+ 	}
+ #endif
+-	if (generate_script_lang) {
+-		struct stat perf_stat;
+-		int input;
+-		char *filename = strdup("perf-script");
+-
+-		if (output_set_by_user()) {
+-			fprintf(stderr,
+-				"custom fields not supported for generated scripts");
+-			err = -EINVAL;
+-			goto out_delete;
+-		}
+-
+-		input = open(data.path, O_RDONLY);	/* input_name */
+-		if (input < 0) {
+-			err = -errno;
+-			perror("failed to open file");
+-			goto out_delete;
+-		}
+-
+-		err = fstat(input, &perf_stat);
+-		if (err < 0) {
+-			perror("failed to stat file");
+-			goto out_delete;
+-		}
+-
+-		if (!perf_stat.st_size) {
+-			fprintf(stderr, "zero-sized file, nothing to do!\n");
+-			goto out_delete;
+-		}
+-
+-		scripting_ops = script_spec__lookup(generate_script_lang);
+-		if (!scripting_ops && ends_with(generate_script_lang, ".py")) {
+-			scripting_ops = script_spec__lookup("python");
+-			free(filename);
+-			filename = strdup(generate_script_lang);
+-			filename[strlen(filename) - 3] = '\0';
+-		} else if (!scripting_ops && ends_with(generate_script_lang, ".pl")) {
+-			scripting_ops = script_spec__lookup("perl");
+-			free(filename);
+-			filename = strdup(generate_script_lang);
+-			filename[strlen(filename) - 3] = '\0';
+-		}
+-		if (!scripting_ops) {
+-			fprintf(stderr, "invalid language specifier '%s'\n", generate_script_lang);
+-			err = -ENOENT;
+-			goto out_delete;
+-		}
+-		if (!filename) {
+-			err = -ENOMEM;
+-			goto out_delete;
+-		}
+-#ifdef HAVE_LIBTRACEEVENT
+-		err = scripting_ops->generate_script(session->tevent.pevent, filename);
+-#else
+-		err = scripting_ops->generate_script(NULL, filename);
+-#endif
+-		free(filename);
+-		goto out_delete;
+-	}
+ 
+ 	err = dlfilter__start(dlfilter, session);
+ 	if (err)
+ 		goto out_delete;
+ 
+-	if (script_name) {
+-		err = scripting_ops->start_script(script_name, argc, argv, session);
+-		if (err)
+-			goto out_delete;
+-		pr_debug("perf script started with script %s\n\n", script_name);
+-		script_started = true;
+-	}
++
+ 
+ 
+ 	err = perf_session__check_output_opt(session);
+@@ -4587,7 +4410,6 @@ int cmd_script(int argc, const char **argv)
+ 
+ 	err = __cmd_script(&script);
+ 
+-	flush_scripting();
+ 
+ 	if (verbose > 2 || debug_kmaps)
+ 		perf_session__dump_kmaps(session);
+@@ -4603,10 +4425,8 @@ int cmd_script(int argc, const char **argv)
+ 	perf_session__delete(session);
+ 	perf_script__exit(&script);
+ 
+-	if (script_started)
+-		cleanup_scripting();
++
+ 	dlfilter__cleanup(dlfilter);
+ 	free_dlarg();
+-out:
+ 	return err;
+ }
+diff --git a/tools/perf/util/Build b/tools/perf/util/Build
+index fd55d02dd433..9719f8cedc22 100644
+--- a/tools/perf/util/Build
++++ b/tools/perf/util/Build
+@@ -94,7 +94,6 @@ perf-util-y += tool_pmu.o
+ perf-util-y += tp_pmu.o
+ perf-util-y += svghelper.o
+ perf-util-y += trace-event-info.o
+-perf-util-y += trace-event-scripting.o
+ perf-util-$(CONFIG_LIBTRACEEVENT) += trace-event.o
+ perf-util-$(CONFIG_LIBTRACEEVENT) += trace-event-parse.o
+ perf-util-$(CONFIG_LIBTRACEEVENT) += trace-event-read.o
+diff --git a/tools/perf/util/scripting-engines/Build b/tools/perf/util/scripting-engines/Build
+deleted file mode 100644
+index 54920e7e1d5d..000000000000
+--- a/tools/perf/util/scripting-engines/Build
++++ /dev/null
+@@ -1 +0,0 @@
+-# No embedded scripting engines
+diff --git a/tools/perf/util/trace-event-parse.c b/tools/perf/util/trace-event-parse.c
+index 9c015fc2bcfb..374cf82fd86e 100644
+--- a/tools/perf/util/trace-event-parse.c
++++ b/tools/perf/util/trace-event-parse.c
+@@ -14,71 +14,6 @@
+ #include <linux/kernel.h>
+ #include <event-parse.h>
+ 
+-static int get_common_field(struct scripting_context *context,
+-			    int *offset, int *size, const char *type)
+-{
+-	struct tep_handle *pevent = context->pevent;
+-	struct tep_event *event;
+-	struct tep_format_field *field;
+-
+-	if (!*size) {
+-
+-		event = tep_get_first_event(pevent);
+-		if (!event)
+-			return 0;
+-
+-		field = tep_find_common_field(event, type);
+-		if (!field)
+-			return 0;
+-		*offset = field->offset;
+-		*size = field->size;
+-	}
+-
+-	return tep_read_number(pevent, context->event_data + *offset, *size);
+-}
+-
+-int common_lock_depth(struct scripting_context *context)
+-{
+-	static int offset;
+-	static int size;
+-	int ret;
+-
+-	ret = get_common_field(context, &size, &offset,
+-			       "common_lock_depth");
+-	if (ret < 0)
+-		return -1;
+-
+-	return ret;
+-}
+-
+-int common_flags(struct scripting_context *context)
+-{
+-	static int offset;
+-	static int size;
+-	int ret;
+-
+-	ret = get_common_field(context, &size, &offset,
+-			       "common_flags");
+-	if (ret < 0)
+-		return -1;
+-
+-	return ret;
+-}
+-
+-int common_pc(struct scripting_context *context)
+-{
+-	static int offset;
+-	static int size;
+-	int ret;
+-
+-	ret = get_common_field(context, &size, &offset,
+-			       "common_preempt_count");
+-	if (ret < 0)
+-		return -1;
+-
+-	return ret;
+-}
+-
+ unsigned long long
+ raw_field_value(struct tep_event *event, const char *name, void *data)
+ {
+diff --git a/tools/perf/util/trace-event-scripting.c b/tools/perf/util/trace-event-scripting.c
+deleted file mode 100644
+index 0a0a50d9e1e1..000000000000
+--- a/tools/perf/util/trace-event-scripting.c
++++ /dev/null
+@@ -1,333 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0-or-later
+-/*
+- * trace-event-scripting.  Scripting engine common and initialization code.
+- *
+- * Copyright (C) 2009-2010 Tom Zanussi <tzanussi@gmail.com>
+- */
+-
+-#include <stdio.h>
+-#include <stdlib.h>
+-#include <string.h>
+-#include <errno.h>
+-#ifdef HAVE_LIBTRACEEVENT
+-#include <event-parse.h>
+-#endif
+-
+-#include "debug.h"
+-#include "event.h"
+-#include "trace-event.h"
+-#include "evsel.h"
+-#include <linux/perf_event.h>
+-#include <linux/zalloc.h>
+-#include "util/sample.h"
+-
+-unsigned int scripting_max_stack = PERF_MAX_STACK_DEPTH;
+-
+-struct scripting_context *scripting_context;
+-
+-struct script_spec {
+-	struct list_head	node;
+-	struct scripting_ops	*ops;
+-	char			spec[];
+-};
+-
+-static LIST_HEAD(script_specs);
+-
+-static struct script_spec *script_spec__new(const char *spec,
+-					    struct scripting_ops *ops)
+-{
+-	struct script_spec *s = malloc(sizeof(*s) + strlen(spec) + 1);
+-
+-	if (s != NULL) {
+-		strcpy(s->spec, spec);
+-		s->ops = ops;
+-	}
+-
+-	return s;
+-}
+-
+-static void script_spec__add(struct script_spec *s)
+-{
+-	list_add_tail(&s->node, &script_specs);
+-}
+-
+-static struct script_spec *script_spec__find(const char *spec)
+-{
+-	struct script_spec *s;
+-
+-	list_for_each_entry(s, &script_specs, node)
+-		if (strcasecmp(s->spec, spec) == 0)
+-			return s;
+-	return NULL;
+-}
+-
+-static int script_spec_register(const char *spec, struct scripting_ops *ops)
+-{
+-	struct script_spec *s;
+-
+-	s = script_spec__find(spec);
+-	if (s)
+-		return -1;
+-
+-	s = script_spec__new(spec, ops);
+-	if (!s)
+-		return -1;
+-
+-	script_spec__add(s);
+-	return 0;
+-}
+-
+-struct scripting_ops *script_spec__lookup(const char *spec)
+-{
+-	struct script_spec *s = script_spec__find(spec);
+-
+-	if (!s)
+-		return NULL;
+-
+-	return s->ops;
+-}
+-
+-int script_spec__for_each(int (*cb)(struct scripting_ops *ops, const char *spec))
+-{
+-	struct script_spec *s;
+-	int ret = 0;
+-
+-	list_for_each_entry(s, &script_specs, node) {
+-		ret = cb(s->ops, s->spec);
+-		if (ret)
+-			break;
+-	}
+-	return ret;
+-}
+-
+-void scripting_context__update(struct scripting_context *c,
+-			       union perf_event *event,
+-			       struct perf_sample *sample,
+-			       struct evsel *evsel,
+-			       struct addr_location *al,
+-			       struct addr_location *addr_al)
+-{
+-#ifdef HAVE_LIBTRACEEVENT
+-	const struct tep_event *tp_format = evsel__tp_format(evsel);
+-
+-	c->pevent = tp_format ? tp_format->tep : NULL;
+-#else
+-	c->pevent = NULL;
+-#endif
+-	c->event_data = sample->raw_data;
+-	c->event = event;
+-	c->sample = sample;
+-	c->evsel = evsel;
+-	c->al = al;
+-	c->addr_al = addr_al;
+-}
+-
+-static int flush_script_unsupported(void)
+-{
+-	return 0;
+-}
+-
+-static int stop_script_unsupported(void)
+-{
+-	return 0;
+-}
+-
+-static void process_event_unsupported(union perf_event *event __maybe_unused,
+-				      struct perf_sample *sample __maybe_unused,
+-				      struct evsel *evsel __maybe_unused,
+-				      struct addr_location *al __maybe_unused,
+-				      struct addr_location *addr_al __maybe_unused)
+-{
+-} static void print_python_unsupported_msg(void)
+-{
+-	fprintf(stderr, "Python scripting not supported."
+-		"  Install libpython and rebuild perf to enable it.\n"
+-		"For example:\n  # apt-get install python-dev (ubuntu)"
+-		"\n  # yum install python-devel (Fedora)"
+-		"\n  etc.\n");
+-}
+-
+-static int python_start_script_unsupported(const char *script __maybe_unused,
+-					   int argc __maybe_unused,
+-					   const char **argv __maybe_unused,
+-					   struct perf_session *session __maybe_unused)
+-{
+-	print_python_unsupported_msg();
+-
+-	return -1;
+-}
+-
+-static int python_generate_script_unsupported(struct tep_handle *pevent
+-					      __maybe_unused,
+-					      const char *outfile
+-					      __maybe_unused)
+-{
+-	print_python_unsupported_msg();
+-
+-	return -1;
+-}
+-
+-struct scripting_ops python_scripting_unsupported_ops = {
+-	.name = "Python",
+-	.dirname = "python",
+-	.start_script = python_start_script_unsupported,
+-	.flush_script = flush_script_unsupported,
+-	.stop_script = stop_script_unsupported,
+-	.process_event = process_event_unsupported,
+-	.generate_script = python_generate_script_unsupported,
+-};
+-
+-static void register_python_scripting(struct scripting_ops *scripting_ops)
+-{
+-	if (scripting_context == NULL)
+-		scripting_context = malloc(sizeof(*scripting_context));
+-
+-       if (scripting_context == NULL ||
+-	   script_spec_register("Python", scripting_ops) ||
+-	   script_spec_register("py", scripting_ops)) {
+-		pr_err("Error registering Python script extension: disabling it\n");
+-		zfree(&scripting_context);
+-	}
+-}
+-
+-void setup_python_scripting(void)
+-{
+-	register_python_scripting(&python_scripting_unsupported_ops);
+-}
+-
+-
+-static const struct {
+-	u32 flags;
+-	const char *name;
+-} sample_flags[] = {
+-	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CALL, "call"},
+-	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_RETURN, "return"},
+-	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CONDITIONAL, "jcc"},
+-	{PERF_IP_FLAG_BRANCH, "jmp"},
+-	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CALL | PERF_IP_FLAG_INTERRUPT, "int"},
+-	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_RETURN | PERF_IP_FLAG_INTERRUPT, "iret"},
+-	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CALL | PERF_IP_FLAG_SYSCALLRET, "syscall"},
+-	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_RETURN | PERF_IP_FLAG_SYSCALLRET, "sysret"},
+-	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_ASYNC, "async"},
+-	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CALL | PERF_IP_FLAG_ASYNC |	PERF_IP_FLAG_INTERRUPT,
+-	 "hw int"},
+-	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_TX_ABORT, "tx abrt"},
+-	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_TRACE_BEGIN, "tr strt"},
+-	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_TRACE_END, "tr end"},
+-	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CALL | PERF_IP_FLAG_VMENTRY, "vmentry"},
+-	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CALL | PERF_IP_FLAG_VMEXIT, "vmexit"},
+-	{0, NULL}
+-};
+-
+-static const struct {
+-	u32 flags;
+-	const char *name;
+-} branch_events[] = {
+-	{PERF_IP_FLAG_BRANCH_MISS, "miss"},
+-	{PERF_IP_FLAG_NOT_TAKEN, "not_taken"},
+-	{0, NULL}
+-};
+-
+-static int sample_flags_to_name(u32 flags, char *str, size_t size)
+-{
+-	int i;
+-	const char *prefix;
+-	int pos = 0, ret, ev_idx = 0;
+-	u32 xf = flags & PERF_ADDITIONAL_STATE_MASK;
+-	u32 types, events;
+-	char xs[16] = { 0 };
+-
+-	/* Clear additional state bits */
+-	flags &= ~PERF_ADDITIONAL_STATE_MASK;
+-
+-	if (flags & PERF_IP_FLAG_TRACE_BEGIN)
+-		prefix = "tr strt ";
+-	else if (flags & PERF_IP_FLAG_TRACE_END)
+-		prefix = "tr end  ";
+-	else
+-		prefix = "";
+-
+-	ret = snprintf(str + pos, size - pos, "%s", prefix);
+-	if (ret < 0)
+-		return ret;
+-	pos += ret;
+-
+-	flags &= ~(PERF_IP_FLAG_TRACE_BEGIN | PERF_IP_FLAG_TRACE_END);
+-
+-	types = flags & ~PERF_IP_FLAG_BRANCH_EVENT_MASK;
+-	for (i = 0; sample_flags[i].name; i++) {
+-		if (sample_flags[i].flags != types)
+-			continue;
+-
+-		ret = snprintf(str + pos, size - pos, "%s", sample_flags[i].name);
+-		if (ret < 0)
+-			return ret;
+-		pos += ret;
+-		break;
+-	}
+-
+-	events = flags & PERF_IP_FLAG_BRANCH_EVENT_MASK;
+-	for (i = 0; branch_events[i].name; i++) {
+-		if (!(branch_events[i].flags & events))
+-			continue;
+-
+-		ret = snprintf(str + pos, size - pos, !ev_idx ? "/%s" : ",%s",
+-			       branch_events[i].name);
+-		if (ret < 0)
+-			return ret;
+-		pos += ret;
+-		ev_idx++;
+-	}
+-
+-	/* Add an end character '/' for events */
+-	if (ev_idx) {
+-		ret = snprintf(str + pos, size - pos, "/");
+-		if (ret < 0)
+-			return ret;
+-		pos += ret;
+-	}
+-
+-	if (!xf)
+-		return pos;
+-
+-	snprintf(xs, sizeof(xs), "(%s%s%s)",
+-		 flags & PERF_IP_FLAG_IN_TX ? "x" : "",
+-		 flags & PERF_IP_FLAG_INTR_DISABLE ? "D" : "",
+-		 flags & PERF_IP_FLAG_INTR_TOGGLE ? "t" : "");
+-
+-	/* Right align the string if its length is less than the limit */
+-	if ((pos + strlen(xs)) < SAMPLE_FLAGS_STR_ALIGNED_SIZE)
+-		ret = snprintf(str + pos, size - pos, "%*s",
+-			       (int)(SAMPLE_FLAGS_STR_ALIGNED_SIZE - ret), xs);
+-	else
+-		ret = snprintf(str + pos, size - pos, " %s", xs);
+-	if (ret < 0)
+-		return ret;
+-
+-	return pos + ret;
+-}
+-
+-int perf_sample__sprintf_flags(u32 flags, char *str, size_t sz)
+-{
+-	const char *chars = PERF_IP_FLAG_CHARS;
+-	const size_t n = strlen(PERF_IP_FLAG_CHARS);
+-	size_t i, pos = 0;
+-	int ret;
+-
+-	ret = sample_flags_to_name(flags, str, sz);
+-	if (ret > 0)
+-		return ret;
+-
+-	for (i = 0; i < n; i++, flags >>= 1) {
+-		if ((flags & 1) && pos < sz)
+-			str[pos++] = chars[i];
+-	}
+-	for (; i < 32; i++, flags >>= 1) {
+-		if ((flags & 1) && pos < sz)
+-			str[pos++] = '?';
+-	}
+-	if (pos < sz)
+-		str[pos] = 0;
+-
+-	return pos;
+-}
+diff --git a/tools/perf/util/trace-event.h b/tools/perf/util/trace-event.h
+index 7bdf44403e3a..19f22ac1faf3 100644
+--- a/tools/perf/util/trace-event.h
++++ b/tools/perf/util/trace-event.h
+@@ -7,15 +7,9 @@
+ #include <sys/types.h>
+ #include <linux/types.h>
+ 
+-struct evlist;
+ struct machine;
+-struct perf_sample;
+-union perf_event;
+-struct perf_tool;
+-struct thread;
+-struct tep_plugin_list;
+-struct evsel;
+ struct tep_format_field;
++struct tep_plugin_list;
+ 
+ struct trace_event {
+ 	struct tep_handle	*pevent;
+@@ -79,73 +73,6 @@ struct tracing_data *tracing_data_get(struct list_head *pattrs,
+ 				      int fd, bool temp);
+ int tracing_data_put(struct tracing_data *tdata);
+ 
+-
+-struct addr_location;
+-
+-struct perf_session;
+-struct perf_stat_config;
+-
+-struct scripting_ops {
+-	const char *name;
+-	const char *dirname; /* For script path .../scripts/<dirname>/... */
+-	int (*start_script)(const char *script, int argc, const char **argv,
+-			    struct perf_session *session);
+-	int (*flush_script) (void);
+-	int (*stop_script) (void);
+-	void (*process_event) (union perf_event *event,
+-			       struct perf_sample *sample,
+-			       struct evsel *evsel,
+-			       struct addr_location *al,
+-			       struct addr_location *addr_al);
+-	void (*process_switch)(union perf_event *event,
+-			       struct perf_sample *sample,
+-			       struct machine *machine);
+-	void (*process_auxtrace_error)(struct perf_session *session,
+-				       union perf_event *event);
+-	void (*process_stat)(struct perf_stat_config *config,
+-			     struct evsel *evsel, u64 tstamp);
+-	void (*process_stat_interval)(u64 tstamp);
+-	void (*process_throttle)(union perf_event *event,
+-				 struct perf_sample *sample,
+-				 struct machine *machine);
+-	int (*generate_script) (struct tep_handle *pevent, const char *outfile);
+-};
+-
+-extern unsigned int scripting_max_stack;
+-
+-struct scripting_ops *script_spec__lookup(const char *spec);
+-int script_spec__for_each(int (*cb)(struct scripting_ops *ops, const char *spec));
+-
+-
+-void setup_python_scripting(void);
+-
+-struct scripting_context {
+-	struct tep_handle *pevent;
+-	void *event_data;
+-	union perf_event *event;
+-	struct perf_sample *sample;
+-	struct evsel *evsel;
+-	struct addr_location *al;
+-	struct addr_location *addr_al;
+-	struct perf_session *session;
+-};
+-
+-void scripting_context__update(struct scripting_context *scripting_context,
+-			       union perf_event *event,
+-			       struct perf_sample *sample,
+-			       struct evsel *evsel,
+-			       struct addr_location *al,
+-			       struct addr_location *addr_al);
+-
+-int common_pc(struct scripting_context *context);
+-int common_flags(struct scripting_context *context);
+-int common_lock_depth(struct scripting_context *context);
+-
+-#define SAMPLE_FLAGS_BUF_SIZE 64
+-#define SAMPLE_FLAGS_STR_ALIGNED_SIZE	21
+-
+-int perf_sample__sprintf_flags(u32 flags, char *str, size_t sz);
+-
+ #if defined(LIBTRACEEVENT_VERSION) &&  LIBTRACEEVENT_VERSION >= MAKE_LIBTRACEEVENT_VERSION(1, 5, 0)
+ #include <event-parse.h>
+ 
 -- 
 2.54.0.545.g6539524ca2-goog
 
