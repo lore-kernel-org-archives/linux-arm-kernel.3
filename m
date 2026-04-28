@@ -4,90 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F880FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 20:38:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F622FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 20:38:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rfkoOBKIj71Ry4HIvc0ePC2zPzNtmJbJhYSXZ/tb0Dg=; b=txyojRONmG3WUUf9o4lqTHp/d6
-	ZAZyZ23R7KyXZ5BAhlSLvmAO+IGc0VBBZnqDBjdRC7CODf44dohCwISSZdPOsThnLvLe1EDov6mZX
-	JZQd3i7eo1wAkDle+96YPRsRo6fGzKd4tOF4CnRjKZseQn8c1Fwzz5Gg+PXmd9w0FZaCgm+4iRxdo
-	WJ10Bte3OVbNE09JDe+jOjOPfDZH64q36w8DRe1m2xH7HE/nSIQqU+14BBA72lr+Q0vWcyOaQATvV
-	TeQ5vOb5/I9J4psYgBYDMmMTxK0WDGNZlBzjeiZKp8jtTp+ptMfsrgi5aeCvMPw7jswmXp3TomYhq
-	ye+FCd8Q==;
+	bh=b6d3l70lYqSnvJpMpEGZJLw4o8TwsL0Q+e8A9O8Mofs=; b=RtvHwwlAVx1NFEQuZjEYsKw2H1
+	7In8YEkuAZABouHjLuv0Xh83kTtRlu1hcwqBg6eZ9JBFufyP6K1ngUfz0uccTGr1HeiDScm1Su9xz
+	L26loucNHCeu9UPc2QIqqpGE+JjJBxY/DFFNnJ9mFAXwMTGn27f1Y9IVv3s/4K26KJrrlIfItaOTc
+	iqad0guefOVTN1xemUeWg6pGYVOD2M8ewF2e0C06uGYGK+l90v1I+xsa/GCWohQhq5s+FNwOj5uvI
+	4Ud1wp6qgsSz0E0zVwqFYdJpLo1uPD3kiDWRDp5xuwXWdzKk30+6HvML4SWSVOOtV1n8WyN4DQYpo
+	LGjFnU4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHpBx-00000002TDI-2C1Z;
-	Tue, 28 Apr 2026 20:38:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wHpCS-00000002TIg-3X40;
+	Tue, 28 Apr 2026 20:38:32 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHpBv-00000002TCH-0qII
+	id 1wHpCQ-00000002TI8-2t8b
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 20:38:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6725F42AE2;
-	Tue, 28 Apr 2026 20:37:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 426A5C2BCAF;
-	Tue, 28 Apr 2026 20:37:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777408678;
-	bh=V7I0KV6GT9VUys+mlnRoHASgsmtf7Ej4OOFcxCQfZbo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=iJ/MtLRuFpFKLhtkCOWoD3zAzpvReiWjXMBOwIVsm17lzf9SW/Xgp7lTGph/unskd
-	 4rTv0Smhfaz3bw45E2MYkMKKmSnFe614l98lfUrdPqtvDgFNCtO160gw56DISDH2CJ
-	 o/D3bFAi/3LNG8UOErWmoIUg/avf7OUfppTtolBHW3RK/kTi2pq8wkAofOZN6BKCr1
-	 2lA97PXAj5glaEg9kI7lACoEUwOFCddCimE6V4fIZ1+FittfVRr8EftYm4156n8QUV
-	 iZCRXe0YzvrfKUZ+D9snG2v4ojjdBIsdKLRs3faGwTrVa+Zo2/7FugfzgNu9o5juAz
-	 f94RT4lu7n3XA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wHpBr-0000000FfsW-3wvY;
-	Tue, 28 Apr 2026 20:37:56 +0000
-Date: Tue, 28 Apr 2026 21:37:55 +0100
-Message-ID: <87ecjybz30.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Vishnu Pajjuri <vishnu@os.amperecomputing.com>
-Cc: Fuad Tabba <tabba@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Mark Brown
- <broonie@kernel.org>,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	Darren Hart <darren@os.amperecomputing.com>
-Subject: Re: [PATCH v4 35/49] KVM: arm64: GICv3: nv: Plug L1 LR sync into deactivation primitive
-In-Reply-To: <87ik9dbys7.wl-maz@kernel.org>
-References: <20251120172540.2267180-1-maz@kernel.org>
-	<20251120172540.2267180-36-maz@kernel.org>
-	<2e12c5c2-a1b6-47b7-b54c-7281a77bbe0a@os.amperecomputing.com>
-	<878qb9cxzr.wl-maz@kernel.org>
-	<1e050b67-2276-41ad-9265-796ba853dc7c@os.amperecomputing.com>
-	<86a4vo49ni.wl-maz@kernel.org>
-	<86eck71o1v.wl-maz@kernel.org>
-	<e283e755-c348-43cf-b5fe-278c5eab742d@os.amperecomputing.com>
-	<861pg213to.wl-maz@kernel.org>
-	<87ik9dbys7.wl-maz@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: vishnu@os.amperecomputing.com, tabba@google.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, broonie@kernel.org, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, darren@os.amperecomputing.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Tue, 28 Apr 2026 20:38:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1777408709;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=b6d3l70lYqSnvJpMpEGZJLw4o8TwsL0Q+e8A9O8Mofs=;
+	b=V9YpFNj7NGViHZJoAbmz5tpWQt77RUyGBSnHolY4IyUXf8NBhs+0QcQNVBLUacvQUpvdMp
+	5eycBjG6iuYb+zLWGR9zza0Fy1hvIi9D1MOWKmwzjbcyRJKlUCWuJg9waxupndsCGWhfCt
+	Ye02hBE0qzZJiao9X2Lk3X2MfEw0nvw=
+Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com
+ [209.85.219.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-260-Hjk2J6XPPKeWI7FeIgiq4g-1; Tue, 28 Apr 2026 16:38:26 -0400
+X-MC-Unique: Hjk2J6XPPKeWI7FeIgiq4g-1
+X-Mimecast-MFC-AGG-ID: Hjk2J6XPPKeWI7FeIgiq4g_1777408705
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-8acb26fbbb2so175940466d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 13:38:26 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777408705; x=1778013505;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=b6d3l70lYqSnvJpMpEGZJLw4o8TwsL0Q+e8A9O8Mofs=;
+        b=OLIO6aHqCEpAoQob7MLma6CTea9xtnCxRk9y8+GvMwfMOXxtWWDzgF472xXpeA8cq1
+         zFuKNWWt9sASZ5K09MoY05GdvDYBHXGznV6Kt6AHXxjLK1v8AjcpulZIYLEaRWBGRS8q
+         mpDzNRdLf7pEdMu2iWYKybdpvWDZLGoR2JLdDRbq0s8CUZLEj+xobhh4AySC0UF8r/1J
+         mZ72Qih8vc7Hc/SjXTtpwpZXQtQNv9BePTIjamrrmQbtKyBcVFYGljna+S+41Ga9hYZ6
+         8hKVzcEnYn1WTZBeRURtFmYD2IYVolNKSPNfmoU+vTVtrokgz1F8tBhGIyVSBqQ0m/cs
+         mBHQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+ioV8e4nKKTp0zQcZkIjVntHXZzC2FEqZQWpjpOt06wjqbT6G+kLMJpsLr2mwD3mXhF5cBP4tIeL7jW98Jfx1y@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx92BVLckh+ftFgXcc2epRMP7nrHqMKTdS+tsnQgqAGgSvjTm9I
+	4qe34zDLx913D2kbLx6I+NCR+z0MD/9mdO0+L6bMt8iALtIJk1I9rTnkl0oet6OeEpH9FmmhNrq
+	DqpuWey4ALZMdO/Fg2z1bi6pQFvvsCQYj2huL/qlECgsH7Y2o/ZWOjXurbNPtgKGV8fXHC1u5+F
+	SL
+X-Gm-Gg: AeBDieuDooo5QDNvvny/va5G0X86LBN8iAF1E3+B7WGBfEeTDjEtaLAokJnBiPUWX6N
+	oh4KPBmUSjBGNTcrKiYDwVPNcztUhj8hzmunP9XwK0g8kgAyxeL0TnfRGo6alo3/AJ7MR2RVrl7
+	L1dRPOch2WAC/SJLMABxtzyxe33tBWw8lsaSaolkRB3zVzKkiUyH7fpXXemvayGVnPHDiWWkCP6
+	tsvlfBujVpkilsPeMpntqnjppLe2dL1MrYtBluKU+uy7ibysE2U+0Ux447eaLoidTybVwkPmU9X
+	SWp73tyGA9Mn69b8MnAxUko+aeBH7oxf9rTNF8QjPABip2nKuj5UhJ/s0nq+EBm5uE2s88rFnUF
+	PnhxttAqjTMZB1sn14ZbkipCHOrNBaLY=
+X-Received: by 2002:a05:6214:318d:b0:8ac:a914:c2da with SMTP id 6a1803df08f44-8b3edcea9a6mr22408106d6.2.1777408705542;
+        Tue, 28 Apr 2026 13:38:25 -0700 (PDT)
+X-Received: by 2002:a05:6214:318d:b0:8ac:a914:c2da with SMTP id 6a1803df08f44-8b3edcea9a6mr22407456d6.2.1777408705068;
+        Tue, 28 Apr 2026 13:38:25 -0700 (PDT)
+Received: from redhat.com ([2600:382:8104:bdc6:d862:7b9c:1d01:62e0])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8b3ef7ef50fsm699056d6.32.2026.04.28.13.38.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 28 Apr 2026 13:38:24 -0700 (PDT)
+Date: Tue, 28 Apr 2026 16:38:19 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>
+Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Abel Vesa <abelvesa@kernel.org>,
+	Andrea della Porta <andrea.porta@suse.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Chanwoo Choi <cw00.choi@samsung.com>, Frank Li <Frank.Li@nxp.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>, arm-scmi@vger.kernel.org,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org, Peng Fan <peng.fan@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH v2 00/12] clk: add new flag CLK_ROUNDING_NOOP
+Message-ID: <afEau1Ny-7RTz4vc@redhat.com>
+References: <20260309-clk-det-rate-fw-managed-v2-0-c48ef5a3100a@redhat.com>
+MIME-Version: 1.0
+In-Reply-To: <20260309-clk-det-rate-fw-managed-v2-0-c48ef5a3100a@redhat.com>
+User-Agent: Mutt/2.3.1 (2026-03-20)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: c0SRwN6vl_4uOFrrAdT6Lb3CHpSg3XoxQblcXnHTeaI_1777408705
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_133759_278253_8B7C430F 
-X-CRM114-Status: GOOD (  37.34  )
+X-CRM114-CacheID: sfid-20260428_133830_796248_2978ED45 
+X-CRM114-Status: GOOD (  24.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,84 +130,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 26 Apr 2026 15:07:36 +0100,
-Marc Zyngier <maz@kernel.org> wrote:
+Hi Stephen,
+
+On Mon, Mar 09, 2026 at 10:38:39AM -0400, Brian Masney wrote:
+> There are some clocks where the determine_rate clk op is just an empty
+> function that returns 0. This can be either because the rounding is
+> managed by the firmware, or the clock is capable of any rate. Add a
+> new flag for these type of clocks, and update the clk core so that the
+> determine_rate() clk op is not required when this flag is set.
 > 
-> On Sun, 26 Apr 2026 10:14:11 +0100,
-> Marc Zyngier <maz@kernel.org> wrote:
-> > 
-> > On Wed, 22 Apr 2026 15:57:44 +0100,
-> > Vishnu Pajjuri <vishnu@os.amperecomputing.com> wrote:
-> > > 
-> > > Hi Marc,
-> > > 
-> > > On 22-04-2026 12:25, Marc Zyngier wrote:
-> > > >
-> > > > Have you made progress on this? I can't reproduce it at all despite my
-> > > > best effort. I'm perfectly happy to help, but you need to give me
-> > > > *something* to go on.
-> > > 
-> > > 
-> > > Thanks for your support!!
-> > > 
-> > > The issue is triggered as soon as the timer interrupt (IRQ 27) is
-> > > deactivated. Preventing the deactivation of IRQ 27 during nested VGIC
-> > > state transitions prevents the failure from reproducing.
-> > 
-> > Which level of deactivation? From L2 to L1? Or L1 to L0? The former
-> > should just be a an update to the irq structure, while the latter is
-> > effectively a write to ICC_DIR_EL1, and *that* is a new behaviour
-> > introduced by this patch.
-> > 
-> > I wonder if your implementation is such that ICC_DIR_EL1 is trapped by
-> > ICH_HCR_EL2.TDIR, which is allowed by the architecture, but that none
-> > of the two implementations I have actually enforce (the trap only
-> > applies to ICV_DIR_EL1). Can you try the hack below which disables the
-> > traps much earlier, and let me know if that helps?
-> > 
-> > Even if that's the case, this should result in an EL2->EL2 exception,
-> > and that should be caught as an unhandled exception in entry-common.c,
-> > so something else is afoot.
+> Based on discussions with Stephen at Linux Plumbers Conference, he
+> suggested adding a flag for this particular case. So let's add a new
+> flag, and update the clk core so that the determine_rate() clk op is
+> not required when this flag is set.
 > 
-> Actually, this should never happen. ICH_HCR_EL2.TDIR is constructed
-> like all the other GICv3 trap bits, in the sense that it only traps
-> accesses from EL1, not EL2 (for sanity reasons, I'm not considering
-> the possibility of a trap to EL3...).
+> This series adds the flag, some kunit tests, and updates all of the
+> relevant drivers under drivers/clk to use the new flag.
 > 
-> Still, I'm interested in finding out if that hack helps at all.
+> Once this is merged, and in Linus's tree, I can update the few remaining
+> clk drivers that are outside of drivers/clk via those subsystems at a
+> later time.
+> 
+> Merge Strategy
+> --------------
+> All of this needs to be directly merged by Stephen as one series into
+> his tree. Subsystem maintainers: please leave a Reviewed-by or Acked-by.
+> To reduce the noise, I am only CCing people on their respective drivers.
+> 
+> Note this series depends on 3 previously-posted patches in this git pull
+> to Stephen for v7.1.
+> https://lore.kernel.org/linux-clk/aZuK4-QJCXUeSxtL@redhat.com/
+> 
+> Signed-off-by: Brian Masney <bmasney@redhat.com>
 
-Any update?
+We talked about this change at LPC in Tokyo, and you were the one that
+suggested adding a new flag. I initially wanted to add a new shared noop
+function to drivers/clk/clk.c. This series implements everything we
+talked about in person. The only thing that we didn't talk about in
+person was the name of this new flag.
 
-I've been racking my brain on this one, and I may have another
-potential avenue to explore. Does your CPU implement SEIS
-(ICC_CTLR_EL1.SEIS == 1)?
+Anyways, let me know if you are interested in this change, and if you
+want any changes. If there's no changes then would it be possible to
+pick this up?
 
-I think there is a corner case where we can end-up doing a double
-deactivation. On its own, that's a completely harmless thing to
-do. Except on an implementation with SEIS, which could deliver an
-SError and route that to EL3. Add quality firmware to the mix, and you
-could be in for a treat.
+Thanks,
+Brian
 
-Obviously, implementing SEIS is a terrible and pointless thing to do
-(it's been long deprecated), but in case someone felt adventurous in
-the RTL department, let me know what the following hack does for you.
-
-	M.
-
-diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
-index 9e841e7afd4a7..c92ca6969e85f 100644
---- a/arch/arm64/kvm/vgic/vgic-v3.c
-+++ b/arch/arm64/kvm/vgic/vgic-v3.c
-@@ -275,7 +275,7 @@ void vgic_v3_deactivate(struct kvm_vcpu *vcpu, u64 val)
- 		lr = vgic_v3_compute_lr(vcpu, irq) & ~ICH_LR_ACTIVE_BIT;
- 	}
- 
--	if (lr & ICH_LR_HW)
-+	if ((lr & ICH_LR_HW) && !vgic_state_is_nested(vcpu))
- 		vgic_v3_deactivate_phys(FIELD_GET(ICH_LR_PHYS_ID_MASK, lr));
- 
- 	vgic_v3_fold_lr(vcpu, lr);
-
--- 
-Jazz isn't dead. It just smells funny.
 
