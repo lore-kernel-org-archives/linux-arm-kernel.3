@@ -4,111 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 004A0FF8864
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 02:25:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70B6EFF8864
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 02:56:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SY4HL1Q31NXU5+qYtKsFt8Dgw34W+B4o6sHJJtNRnI0=; b=lwbbH8fQ7+FDVFPy4Q9XDD1t7g
-	3/pHvRHEkk9O/df8Sdn/90nnUMs1hbklfJEQGZEQU7dfidMPYUhzUc/Y0AQsYQgPSuPz6PJGP2NIH
-	QRCr23bG9VSSaKOD0li1FE2mY8yPiMoEuTFsgtPS40OnZttAWQQHCdYGuqa7ADT7ByumL+oYRlDuF
-	T9eBam4lk1/qP03yn5IEbIfu0Mp6oWv1mc52+cWZZ89cEpMQlp2MDh17UlFFyeivEb2u8LzQgbzBW
-	ULoVPhBrL+2ee7BGyLims4Qnnamj780sxaoBIrFMi9MnLZDqeJ9kXoF2TiFS7y299O7arBwgaGpBg
-	9RswnlgQ==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BHQ2XadwvL8sO2gmMjzHrXHFd8fYwTAjs/sjK9AivAw=; b=zl50OIMsJaQajIVXcW6z+0Ca02
+	dP0KqOJG7lLj7A7KMIV7CyVFhNtKxHWepkm1oDzkV+FgXyOqdb3C+jRvOBRvvm1UrJRNX5ct9lrh5
+	PH3+3wP6Ks9tqhY3yCb8zZaDAspIsJm/MLEGqpx9O/zdC2DXuprL920ocVadT/oQiA8U3Tn00uwBN
+	gjWC/98er/sT23exQHlhmUM0ICsfsvchbr8TEBv0ZRKA/75MiRofq15NZh6ye0vbvhv7RTmLCIMXu
+	62C3EcsT5YGc6CDkrf5Bn5obu4/r+RhR2/KzLc6MusokPgwLOZui9w9TSX+geeXezDpsJCd8GCCqz
+	6+4Yk1/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHY8c-00000000RaC-1M14;
-	Tue, 28 Apr 2026 02:25:26 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wHYca-00000000TR7-21X2;
+	Tue, 28 Apr 2026 02:56:24 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHY8Z-00000000RZq-0DUM
+	id 1wHYcX-00000000TQN-45i4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 02:25:24 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63S0ftv2440834;
-	Tue, 28 Apr 2026 02:25:17 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	SY4HL1Q31NXU5+qYtKsFt8Dgw34W+B4o6sHJJtNRnI0=; b=g2/zU88ydP1AUX07
-	zVeETZoKY9FVwxt0+fjT6zwsex8X5QWE10UgzAyQRRxwQK9iFZVNPwL0Q7jb6urC
-	ZMuBHPVD6ChRdESz19D2q+3OVmJw41ZmLn23mKvJb53QWYxH6LVaUESzSkUj7dXb
-	oeh40fF1wTxg1IDh9LTz81/VerMvrTu227+rw4oAis6y9da451mVcevd4LMKyfbl
-	AS0pWEap3UFrlIa181t6rK+pMSXIpV/wEK0svt23qq3nsmeFDgOkIMKyyudZdK+j
-	5gd5JuN50EcdTJF5Eo5r/C9Dg+xD2DAdax/ti7vzc+EV0uW5NoTl3m2JIR5ruIV2
-	sAMIcg==
-Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dtac426t3-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 28 Apr 2026 02:25:17 +0000 (GMT)
-Received: from nasanex01a.na.qualcomm.com (nasanex01a.na.qualcomm.com [10.52.223.231])
-	by NASANPPMTA01.qualcomm.com (8.18.1.7/8.18.1.7) with ESMTPS id 63S2PGTv008643
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 28 Apr 2026 02:25:16 GMT
-Received: from [10.233.71.148] (10.80.80.8) by nasanex01a.na.qualcomm.com
- (10.52.223.231) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Mon, 27 Apr
- 2026 19:25:13 -0700
-Message-ID: <b20a2f7c-4838-408f-94ed-ee9656d451c4@quicinc.com>
-Date: Tue, 28 Apr 2026 10:25:11 +0800
+	Tue, 28 Apr 2026 02:56:23 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-35da2d35eccso7391306a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Apr 2026 19:56:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1777344980; x=1777949780; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=BHQ2XadwvL8sO2gmMjzHrXHFd8fYwTAjs/sjK9AivAw=;
+        b=hoshnvzlUQjF7rEO6F6ewF35E3Oh64jFACFvwyKOb0uifv1p4X3vSahoBVwisnveNH
+         LL9QRuN0Yj1MM7Qbq6V5g+p666nIbCYzCt7taKjJB9jxwuQEyxRZHjeUcTahilSwlMfc
+         z64iuLcqHfslvmXWs8wYdY7SEgM43Dy+MSs2k=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777344980; x=1777949780;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BHQ2XadwvL8sO2gmMjzHrXHFd8fYwTAjs/sjK9AivAw=;
+        b=RSOXJoOr9f3DOe5hvBNLS107OnCjMm1EZCLFaGDOAf3zdbzKzgrjK5RwWu6iaB9f2V
+         KzEL95hBsjvilkFX64KRQ+72CGheZ8bEaq7uNGVEW4q0KsBUeOq+ITgO5YmnfQXMxRM3
+         qw2hzN/w/vB1k0he71g1ZOFFCG2LbAG35xnscFTiPWD5iZrJuL74JsPI6BHpTlfH5kxz
+         +c+Jkyn7Qmtg5AIx8MzIxJ40nAOkIzf16NFoOnhAN1HR5MUhuHgViCGiH1DG+9EBPswL
+         jmkLE7cu1FEwBaTeBasWOMnqh/yQYOh4JSRFo2HyQGXPNM4d6dhkLYHnzD8gJzWjXKdj
+         j6DA==
+X-Forwarded-Encrypted: i=1; AFNElJ+sMU6FOjo5lUnrM+rIBvyMhUfzGqmjiwg5KrCGB3/NO7go3MmcoOZ8bkbZtxc+SiK4PqhYQ640jGArwmc6DnEJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwxehZJ2gYMYk9BP6IimyUKKV8QxKf+YvgCJDt3SQ2GkJAAovIN
+	qYojAMdUkoZPNXOHnCDqkTI7vN072h/9r4UGb5qKA013zIIS3BT6saZ4XKMsrI+RvA==
+X-Gm-Gg: AeBDieve0nfXVjRGMpbUaZ1CjR8LSA2M4WZplMaqxF+D3Ya8n1AT1S3fM3CpGjUHuSh
+	BJv48ZudFAGJYPORtRSB/U58Xn/BNDTcVOFuQZcDcHp8b4KpYTUpjxkGs/ZUspn0sgmDDgxwp+A
+	wKY39TwsOMvh7PJJy37oztylklG6gyv8NUxdVEhCoCzKyUIxMz8v+Ku3Vi5QXzKw/ra9iPsdnIe
+	aSekWSnzuWvReq7eMcOd/K57m//yBSBaChTUnKcBjiJtHiv7iu4ppMEBu8NDY7kvOC8KCb2B1fg
+	6FfNahNGKd5Ob9bSbhauggQhaOTprcMF1B2QmqjSSiDF7aHe1yihfGw3MRqOj8vv+qWPpwo9fR1
+	IgnYNmEU0cUJAZE3zChubzQxe0rFuiI8lKdCRTq+OyD1AtPhNpEndy/AjripVBv7rS3TgZBQ94H
+	v05kH01KWVOvPspgOahr76aXFhc+imNYauCg30eO6xoVzFU3hNVHNKzh0rxIFHky65db7JGVikE
+	jC2Zg8hMC+mmnDL7ZWTJVbH
+X-Received: by 2002:a17:90b:4f91:b0:35e:5051:fb18 with SMTP id 98e67ed59e1d1-3649206916emr1119860a91.26.1777344980513;
+        Mon, 27 Apr 2026 19:56:20 -0700 (PDT)
+Received: from tigerii.tok.corp.google.com ([2a00:79e0:2031:6:b64e:793f:a44e:7279])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36490026a45sm1236408a91.3.2026.04.27.19.56.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Apr 2026 19:56:20 -0700 (PDT)
+From: Sergey Senozhatsky <senozhatsky@chromium.org>
+To: Jassi Brar <jassisinghbrar@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Allen-KH Cheng <Allen-KH.Cheng@mediatek.com>,
+	YC Hung <yc.hung@mediatek.com>
+Cc: Tzung-Bi Shih <tzungbi@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Sergey Senozhatsky <senozhatsky@chromium.org>
+Subject: [PATCH] mailbox: mtk-adsp: fix UAF during device teardown
+Date: Tue, 28 Apr 2026 11:55:44 +0900
+Message-ID: <20260428025614.1094085-1-senozhatsky@chromium.org>
+X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 1/4] coresight: cti: Convert trigger usage fields to
- dynamic bitmaps and arrays
-To: Leo Yan <leo.yan@arm.com>, Yingchao Deng <yingchao.deng@oss.qualcomm.com>
-CC: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
-	<mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
-        "Alexander
- Shishkin" <alexander.shishkin@linux.intel.com>,
-        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        Jinlong Mao <jinlong.mao@oss.qualcomm.com>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-        Jie Gan
-	<jie.gan@oss.qualcomm.com>
-References: <20260426-extended-cti-v8-0-23b900a4902f@oss.qualcomm.com>
- <20260426-extended-cti-v8-1-23b900a4902f@oss.qualcomm.com>
- <20260427165913.GA16537@e132581.arm.com>
-Content-Language: en-US
-From: "Yingchao Deng (Consultant)" <quic_yingdeng@quicinc.com>
-In-Reply-To: <20260427165913.GA16537@e132581.arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01a.na.qualcomm.com (10.52.223.231)
-X-QCInternal: smtphost
-X-Proofpoint-GUID: 24W6bERaWBtzOlxtIPhM9WA-Ufe-drQP
-X-Authority-Analysis: v=2.4 cv=D7J37PRj c=1 sm=1 tr=0 ts=69f01a8d cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=7CQSdrXTAAAA:8 a=Z-dFwmiUG_mZBFzb5fQA:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-ORIG-GUID: 24W6bERaWBtzOlxtIPhM9WA-Ufe-drQP
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI4MDAyMCBTYWx0ZWRfX4kMcDI8OxvC2
- 3VSlvrrI784qZdZY+Wt/YEVfL/6BJpH9cHpRtZ50KsJa2rfLkSlGxGNpPwaVmay8mMgR2DmjQB7
- cpZ+n57DE8UyxqhWzlC50U90V+MYyd60f6kJ5H0SYWoIit4aD70/ODGr5bAs+P7y5D1gROiDc4o
- 5F12PVh2wiuf1sNsgmI9s1PR8p/DcoFD5DjIBfXZ/yrHFJJ4Dx0NfL0j74hco61PS1iPJ3IWIsM
- yN+LIeSxJKdhpdJDvjtOTpbEVdQJ4cTXia2BqlGsA1EKRWE6Xugp0U8KNqQj9xlNF/3BIw4jxFJ
- TINWEKdIeZCsW826r3Y3TXrigYSYPmDlBzXmYwFyJfJEZsBt5b4XgIS2aK7LmjpWQQrZ2ZDwC5A
- C3vzzYVm4fdnm8/Of2L4Q3161pJOZhgSM/pyXIorHY5zmlziSi7EpckN/LHZeNXDcfIgW5eVsDZ
- veUyf1ckzrymNGh2taA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-27_04,2026-04-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 bulkscore=0 phishscore=0 lowpriorityscore=0 spamscore=0
- priorityscore=1501 suspectscore=0 clxscore=1015 adultscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604280020
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_192523_109633_4BEA270D 
-X-CRM114-Status: GOOD (  17.67  )
+X-CRM114-CacheID: sfid-20260427_195622_062126_69FFADF8 
+X-CRM114-Status: GOOD (  16.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,61 +101,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+When the SOF audio driver fails to initialize (e.g. firmware boot
+timeout), its devres unwind frees the snd_sof_dev object that the
+mailbox client (mtk-adsp-ipc) reaches via chan->cl->rx_callback.
+The mtk-adsp-mailbox shutdown clears the mailbox command registers
+but leaves the IRQ line unmasked, so a late interrupt can still
+queue a threaded handler after mbox_free_channel() had cleared
+chan->cl, and mbox_chan_received_data() would then trigger UAF:
 
-On 4/28/2026 12:59 AM, Leo Yan wrote:
-> On Sun, Apr 26, 2026 at 05:44:38PM +0800, Yingchao Deng wrote:
->
-> [...]
->
->> @@ -316,23 +316,33 @@ static int cti_plat_process_filter_sigs(struct cti_drvdata *drvdata,
->>   {
->>   	struct cti_trig_grp *tg = NULL;
->>   	int err = 0, nr_filter_sigs;
->> +	int nr_trigs = drvdata->config.nr_trig_max;
->>   
->>   	nr_filter_sigs = cti_plat_count_sig_elements(fwnode,
->>   						     CTI_DT_FILTER_OUT_SIGS);
->>   	if (nr_filter_sigs == 0)
->>   		return 0;
->>   
->> -	if (nr_filter_sigs > drvdata->config.nr_trig_max)
->> +	if (nr_filter_sigs > nr_trigs)
->>   		return -EINVAL;
->>   
->>   	tg = kzalloc_obj(*tg);
->>   	if (!tg)
->>   		return -ENOMEM;
->>   
->> +	tg->used_mask = bitmap_zalloc(nr_trigs, GFP_KERNEL);
-> Here would be:
->
->    tg->used_mask = bitmap_zalloc(nr_filter_sigs, GFP_KERNEL);
-"nr_filter_sigs" is the count of entries in the DT property array, if 
-the DT property is:
-     arm,trig-filters = <22 23>;
-Here nr_filter_sigs=2, so bitmap_zalloc(2) allocates only 1 unsigned long
-(64 bits). set_bit(22/23, used_mask) still fits, but it's logically an 
-OOB, and any index >=64 would
-write past the end.
->> +	if (!tg->used_mask) {
->> +		kfree(tg);
->> +		return -ENOMEM;
->> +	}
->> +
-> It is likely this will have merge conflict with the new patch [1].
->
-> You might need to rebase this patch on the top of [1]. We need to
-> give [1] priority as it is a fix.
->
-> [1] https://lore.kernel.org/linux-arm-kernel/20260426-nr_sigs-v1-1-3b9df99dab97@oss.qualcomm.com/
->
-> Otherwise, LGTM:
->
-> Reviewed-by: Leo Yan <leo.yan@arm.com>
+  BUG: KASAN: slab-use-after-free in sof_ipc3_validate_fw_version
+   sof_ipc3_validate_fw_version
+   sof_ipc3_do_rx_work
+   sof_ipc3_rx_msg
+   mt8196_dsp_handle_request
+   mtk_adsp_ipc_recv
+   mbox_chan_received_data
+   mtk_adsp_mbox_isr
+   irq_thread_fn
+  Freed by task ...:
+   kfree
+   devres_release_all
+   really_probe
+   ... (sof-audio-of-mt8196 probe failure)
 
-Will update.
+The crash was observed roughly three seconds after the failed probe.
 
-Thanks,
-Yingchao
+disable_irq() in shutdown and enable_irq() in startup. disable_irq()
+also waits for any in-flight interrupts, so by the time
+mbox_free_channel() proceeds to clear chan->cl no rx_callback can run.
+
+In addition, request the IRQ with IRQF_NO_AUTOEN so it stays masked
+between probe and the first client bind — otherwise an early interrupt
+can crash on chan->cl == NULL in mbox_chan_received_data().
+
+Fixes: af2dfa96c52d ("mailbox: mediatek: add support for adsp mailbox controller")
+Signed-off-by: Sergey Senozhatsky <senozhatsky@chromium.org>
+---
+ drivers/mailbox/mtk-adsp-mailbox.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/mailbox/mtk-adsp-mailbox.c b/drivers/mailbox/mtk-adsp-mailbox.c
+index 91487aa4d7da..8bcecddee0eb 100644
+--- a/drivers/mailbox/mtk-adsp-mailbox.c
++++ b/drivers/mailbox/mtk-adsp-mailbox.c
+@@ -19,6 +19,7 @@ struct mtk_adsp_mbox_priv {
+ 	struct mbox_controller mbox;
+ 	void __iomem *va_mboxreg;
+ 	const struct mtk_adsp_mbox_cfg *cfg;
++	int irq;
+ };
+ 
+ struct mtk_adsp_mbox_cfg {
+@@ -67,6 +68,8 @@ static int mtk_adsp_mbox_startup(struct mbox_chan *chan)
+ 	writel(0xFFFFFFFF, priv->va_mboxreg + priv->cfg->clr_in);
+ 	writel(0xFFFFFFFF, priv->va_mboxreg + priv->cfg->clr_out);
+ 
++	enable_irq(priv->irq);
++
+ 	return 0;
+ }
+ 
+@@ -74,6 +77,8 @@ static void mtk_adsp_mbox_shutdown(struct mbox_chan *chan)
+ {
+ 	struct mtk_adsp_mbox_priv *priv = get_mtk_adsp_mbox_priv(chan->mbox);
+ 
++	disable_irq(priv->irq);
++
+ 	/* Clear ADSP mbox command */
+ 	writel(0xFFFFFFFF, priv->va_mboxreg + priv->cfg->clr_in);
+ 	writel(0xFFFFFFFF, priv->va_mboxreg + priv->cfg->clr_out);
+@@ -139,8 +144,10 @@ static int mtk_adsp_mbox_probe(struct platform_device *pdev)
+ 	if (irq < 0)
+ 		return irq;
+ 
++	priv->irq = irq;
+ 	ret = devm_request_threaded_irq(dev, irq, mtk_adsp_mbox_irq,
+-					mtk_adsp_mbox_isr, IRQF_TRIGGER_NONE,
++					mtk_adsp_mbox_isr,
++					IRQF_TRIGGER_NONE | IRQF_NO_AUTOEN,
+ 					dev_name(dev), mbox->chans);
+ 	if (ret < 0)
+ 		return ret;
+-- 
+2.54.0.545.g6539524ca2-goog
 
 
