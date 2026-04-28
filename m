@@ -4,72 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A695FF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 12:21:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A690BFF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Apr 2026 12:21:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:From:To:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kSc3aUn0muhbxJ4GTjh+JuDxWU9cl6hGfYxlA1yWo6U=; b=P+Yyl5GLEPmKqXVaxguzNaKj49
-	ftrZV9ydtiutS2nI68HdJIUBbdUhgZsdEhG5EIH5u84D8JLZXYJZucIcWETQGW55hQmjYFNcLNiBj
-	w7O8H+CfAFvi9r0CI7zHjr+YUY9r2PLlWkRT/G3jMuKf71QYPeMV6eCFRaedy1RohJ6evVesJd3xh
-	Zxr7jhD9wnYdeEU0FNxacB5EI7PtzC2D8BKhyDg6nYpJiNXgAW2ovkiZhEAK/jYKkZjh2UEdBKorB
-	Q01kjXPisxu2WLgqLmDyFO6s1xyQGhXx7DLxRcE20G6ZW+/IHDFtp75NGmiPeqAdC2t1XBwzD7TLm
-	lkVwWkFQ==;
+	bh=FkhJI2u81cWQQKkbpyLd60L537rqdrvEOTTOduSP8fc=; b=DErqzimmDY7ywOdax/Rd4QNwat
+	VpmrRFt1n9UjB1yJTxogHD+YSWdhKfv08khdM+bkD77bjmdovjcH5/tJTr78IKH8s2MS5sWL0l4Rh
+	u2/dj2chlsBYtWw8VA45MyWJDz3ntaLnryMldVu1OmjH7eSVg2f+7ZmgDizjAMKoeTSz9/wkAsYxw
+	xVYnHSkvMa80Sx4In4F0gbd5TV8kGzdlsukQ+0av7XA8myJ9cmqLbEoBqvcy+OOmlmGhgvDz93nIr
+	A+iWINB94uyL6KMz090tMX4AsQH4Lb6ohFabMnh1MzhTObCh5g6p8ynfiEaz/KLFiVnUDhwIrNQUD
+	x81jLfPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHhR2-00000001QEV-2Cxt;
-	Tue, 28 Apr 2026 12:21:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wHhRj-00000001QNl-1xEd;
+	Tue, 28 Apr 2026 12:21:47 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHhQz-00000001QDt-3yNb
+	id 1wHhRg-00000001QMN-2xJn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Apr 2026 12:21:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 185094191C;
-	Tue, 28 Apr 2026 12:21:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA51BC2BCAF;
-	Tue, 28 Apr 2026 12:20:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777378861;
-	bh=ozDwDKFBNLeKOoHjc5hWY9l162eEyHdYA7CmB9NiJYg=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=NKVlW/RZIJXZ/+Lqz4nVTwZJlREV2Us6G1yThG8jvCQ68JOyZpUe/xDmG1iGsW641
-	 0ahsYHTAKNXkSIqO6Chnh5M31aymxlcUp7nvO5lf6K4ztvjBJkUqyJxbTPcMFhBVCf
-	 8IuB1kRVOCBYwQhIhCCtbI1cyNnpvu8SdTp0voxT5cXrflwjvt6ZiGKdx0YPwAcnoS
-	 IwLA3z7iOcYcY8VieSrOPYbGQftxj4WxM0xI+hxhtOjTzt8Zox82N17htviU3gAQze
-	 eNpxGxD0p4DlG/48ckOGHyzJl0CM/zrj8DEtaia0JHX35B42hu/Q6i7tLVsl6TkmBd
-	 AzCAwGKKwGgIg==
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-	linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v4 2/3] swiotlb: dma: its: Enforce host page-size
- alignment for shared buffers
-In-Reply-To: <86zf2ozrb8.wl-maz@kernel.org>
-References: <20260427063108.909019-1-aneesh.kumar@kernel.org>
- <20260427063108.909019-3-aneesh.kumar@kernel.org>
- <86zf2ozrb8.wl-maz@kernel.org>
-Date: Tue, 28 Apr 2026 17:50:53 +0530
-Message-ID: <yq5aa4un1dju.fsf@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	Tue, 28 Apr 2026 12:21:46 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 753DC1A3471;
+	Tue, 28 Apr 2026 12:21:42 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 3E459601D0;
+	Tue, 28 Apr 2026 12:21:42 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id EF52010728AA4;
+	Tue, 28 Apr 2026 14:21:36 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1777378900; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=FkhJI2u81cWQQKkbpyLd60L537rqdrvEOTTOduSP8fc=;
+	b=lDEouwh70SunD0CIWASRbWeFowTrGybIpcklgMde26dHzbTlVQO4tNpqeNvxp/DTQsoqLf
+	MVjtKrPOCWqpHgHajsl9TS3Z3HbhRIpfUc1ER+yeSnCjIO3sw4GAhoSvOm0qOqbvwlTHrB
+	x+gO9MKBp4xsCHTPNEnL2nYoU4H0Uz7b3WQc5J0o29raPzA+01q4oo01SleqCbz0BDqus+
+	+SOujwJmPYbFV9TLnY1ejbitcPWUig77tZIqCoYyaNv88N+8BWkg4GxKRwHhpKohvAc+Wg
+	QN2E2KsPjss+wNTEiCqCvUKMlcm3LPj/suEerpCepkldM2ueNI7yNcP+xUABCg==
+Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 28 Apr 2026 14:21:35 +0200
+Message-Id: <DI4S8GN9WTCI.75C07G767ZOV@bootlin.com>
+Cc: "Vinod Koul" <vkoul@kernel.org>, "Neil Armstrong"
+ <neil.armstrong@linaro.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ "Frank Li" <Frank.Li@nxp.com>, "Sascha Hauer" <s.hauer@pengutronix.de>,
+ "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Fabio Estevam"
+ <festevam@gmail.com>, <dri-devel@lists.freedesktop.org>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-phy@lists.infradead.org>, <imx@lists.linux.dev>,
+ <linux-arm-kernel@lists.infradead.org>, <linux@ew.tq-group.com>, "Alexander
+ Stein" <alexander.stein@ew.tq-group.com>, "Ying Liu" <victor.liu@nxp.com>
+To: "Laurentiu Palcu" <laurentiu.palcu@oss.nxp.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH v22 5/8] dt-bindings: phy: Add Freescale iMX8MQ DP and
+ HDMI PHY
+X-Mailer: aerc 0.20.1
+References: <20260424-dcss-hdmi-upstreaming-v22-0-30a28f89298d@oss.nxp.com>
+ <20260424-dcss-hdmi-upstreaming-v22-5-30a28f89298d@oss.nxp.com>
+ <DI3YF5Y2B3GZ.25AP4NKQAXH36@bootlin.com>
+ <f6rf5d6nhglkwendf5yvaklfn2ovlwkqstsz7vvl5zefibtiun@wic7bchohmwv>
+In-Reply-To: <f6rf5d6nhglkwendf5yvaklfn2ovlwkqstsz7vvl5zefibtiun@wic7bchohmwv>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_052102_079237_9AD16AB4 
-X-CRM114-Status: GOOD (  38.16  )
+X-CRM114-CacheID: sfid-20260428_052144_869368_548DD332 
+X-CRM114-Status: GOOD (  24.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,195 +87,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Marc Zyngier <maz@kernel.org> writes:
+Hello Laurentiu,
 
-> On Mon, 27 Apr 2026 07:31:07 +0100,
-> "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> wrote:
->>=20
->> When running private-memory guests, the guest kernel must apply addition=
-al
->> constraints when allocating buffers that are shared with the hypervisor.
->>=20
->> These shared buffers are also accessed by the host kernel and therefore
->> must be aligned to the host=E2=80=99s page size, and have a size that is=
- a multiple
->> of the host page size.
->>=20
->> On non-secure hosts, set_guest_memory_attributes() tracks memory at the
->> host PAGE_SIZE granularity. This creates a mismatch when the guest appli=
-es
->> attributes at 4K boundaries while the host uses 64K pages. In such cases,
->> set_guest_memory_attributes() call returns -EINVAL, preventing the
->> conversion of memory regions from private to shared.
->>=20
->> Architectures such as Arm can tolerate realm physical address space
->> (protected memory) PFNs being mapped as shared memory, as incorrect
->> accesses are detected and reported as GPC faults. However, relying on th=
-is
->> mechanism is unsafe and can still lead to kernel crashes.
->>=20
->> This is particularly likely when guest_memfd allocations are mmapped and
->> accessed from userspace. Once exposed to userspace, we cannot guarantee
->> that applications will only access the intended 4K shared region rather
->> than the full 64K page mapped into their address space. Such userspace
->> addresses may also be passed back into the kernel and accessed via the
->> linear map, resulting in a GPC fault and a kernel crash.
->>=20
->> With CCA, although Stage-2 mappings managed by the RMM still operate at a
->> 4K granularity, shared pages must nonetheless be aligned to the
->> host-managed page size and sized as whole host pages to avoid the issues
->> described above.
+On Mon Apr 27, 2026 at 4:35 PM CEST, Laurentiu Palcu wrote:
+> Hi Luca,
 >
-> I thought that was being fixed, and that there was now a strong
-> guarantee that RMM and host are aligned on the page size. Even more,
-> S2 is totally irrelevant here. The only thing that matters is the host
-> page size vs the guest page size. Nothing else.
->
-
-Yes, the latest RMM update includes the ability to change the granule
-size.
-
-The section above in the commit message was intended to explain that the
-S2 mapping size is irrelevant. I agree it is not clear as written, so I
-will reword it to improve clarity.
-
->
->>=20
->> Introduce a new helper, mem_decrypt_align(), to allow callers to enforce
->> the required alignment and size constraints for shared buffers.
->>=20
->> The architecture-specific implementation of mem_decrypt_align() will be
->> provided in a follow-up patch.
->>=20
->> Note on restricted-dma-pool:
->> rmem_swiotlb_device_init() uses reserved-memory regions described by
->> firmware. Those regions are not changed in-kernel to satisfy host granule
->> alignment. This is intentional: we do not expect restricted-dma-pool
->> allocations to be used with CCA. If restricted-dma-pool is intended for =
-CCA
->> shared use, firmware must provide base/size aligned to the host IPA-chan=
-ge
->> granule.
->>=20
->> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
->> ---
->>  arch/arm64/mm/mem_encrypt.c      | 19 +++++++++++++++----
->>  drivers/irqchip/irq-gic-v3-its.c | 20 +++++++++++++-------
->>  include/linux/mem_encrypt.h      | 14 ++++++++++++++
->>  kernel/dma/contiguous.c          | 10 ++++++++++
->>  kernel/dma/direct.c              | 16 ++++++++++++++--
->>  kernel/dma/pool.c                |  4 +++-
->>  kernel/dma/swiotlb.c             | 21 +++++++++++++--------
->>  7 files changed, 82 insertions(+), 22 deletions(-)
->>=20
->
-> [...]
->
->> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-=
-v3-its.c
->> index 291d7668cc8d..239d7e3bc16f 100644
->> --- a/drivers/irqchip/irq-gic-v3-its.c
->> +++ b/drivers/irqchip/irq-gic-v3-its.c
->> @@ -213,16 +213,17 @@ static gfp_t gfp_flags_quirk;
->>  static struct page *its_alloc_pages_node(int node, gfp_t gfp,
->>  					 unsigned int order)
->>  {
->> +	unsigned int new_order;
->>  	struct page *page;
->>  	int ret =3D 0;
->>=20=20
->> -	page =3D alloc_pages_node(node, gfp | gfp_flags_quirk, order);
->> -
->> +	new_order =3D get_order(mem_decrypt_align((PAGE_SIZE << order)));
->> +	page =3D alloc_pages_node(node, gfp | gfp_flags_quirk, new_order);
->>  	if (!page)
->>  		return NULL;
->>=20=20
->>  	ret =3D set_memory_decrypted((unsigned long)page_address(page),
->> -				   1 << order);
->> +				   1 << new_order);
->>  	/*
->>  	 * If set_memory_decrypted() fails then we don't know what state the
->>  	 * page is in, so we can't free it. Instead we leak it.
->> @@ -241,13 +242,16 @@ static struct page *its_alloc_pages(gfp_t gfp, uns=
-igned int order)
->>=20=20
->>  static void its_free_pages(void *addr, unsigned int order)
->>  {
->> +	int new_order;
->> +
->> +	new_order =3D get_order(mem_decrypt_align((PAGE_SIZE << order)));
->>  	/*
->>  	 * If the memory cannot be encrypted again then we must leak the pages.
->>  	 * set_memory_encrypted() will already have WARNed.
->>  	 */
->> -	if (set_memory_encrypted((unsigned long)addr, 1 << order))
->> +	if (set_memory_encrypted((unsigned long)addr, 1 << new_order))
->>  		return;
->> -	free_pages((unsigned long)addr, order);
->> +	free_pages((unsigned long)addr, new_order);
->>  }
+> On Mon, Apr 27, 2026 at 02:59:47PM +0200, Luca Ceresoli wrote:
+>> Hello Laurentiu,
 >>
+>> On Fri Apr 24, 2026 at 1:07 PM CEST, Laurentiu Palcu wrote:
+>> > From: Sandor Yu <Sandor.yu@nxp.com>
+>> >
+>> > Add bindings for Freescale iMX8MQ DP and HDMI PHY.
+>> >
+>> > Signed-off-by: Sandor Yu <Sandor.yu@nxp.com>
+>> > Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+>> > ---
+>> >  .../bindings/phy/fsl,imx8mq-hdptx-phy.yaml         | 80 +++++++++++++=
++++++++++
+>> >  1 file changed, 80 insertions(+)
+>> >
+>> > diff --git a/Documentation/devicetree/bindings/phy/fsl,imx8mq-hdptx-ph=
+y.yaml b/Documentation/devicetree/bindings/phy/fsl,imx8mq-hdptx-phy.yaml
+>> > new file mode 100644
+>> > index 0000000000000..a24435139b8b3
+>> > --- /dev/null
+>> > +++ b/Documentation/devicetree/bindings/phy/fsl,imx8mq-hdptx-phy.yaml
+>> > @@ -0,0 +1,80 @@
+>> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> > +%YAML 1.2
+>> > +---
+>> > +$id: http://devicetree.org/schemas/phy/fsl,imx8mq-hdptx-phy.yaml#
+>> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> > +
+>> > +title: Cadence HDP-TX DP/HDMI PHY for Freescale i.MX8MQ SoC
+>> > +
+>> > +maintainers:
+>> > +  - Sandor Yu <sandor.yu@nxp.com>
+>>
+>> Based on what you said in the cover, I guess this line will have to be
+>> changed. Are you willing to maintain this binding?
 >
-> Here's the non-obfuscated version of the two hunks above (and let it
-> be on the record that New Order is a terrible, overrated band):
+> Yes, I'll update it in the next iteration.
 >
-> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v=
-3-its.c
-> index 291d7668cc8da..a4d555aaee241 100644
-> --- a/drivers/irqchip/irq-gic-v3-its.c
-> +++ b/drivers/irqchip/irq-gic-v3-its.c
-> @@ -216,6 +216,7 @@ static struct page *its_alloc_pages_node(int node, gf=
-p_t gfp,
->  	struct page *page;
->  	int ret =3D 0;
->=20=20
-> +	order =3D get_order(mem_decrypt_align(PAGE_SIZE << order));
->  	page =3D alloc_pages_node(node, gfp | gfp_flags_quirk, order);
->=20=20
->  	if (!page)
-> @@ -245,6 +246,7 @@ static void its_free_pages(void *addr, unsigned int o=
-rder)
->  	 * If the memory cannot be encrypted again then we must leak the pages.
->  	 * set_memory_encrypted() will already have WARNed.
->  	 */
-> +	order =3D get_order(mem_decrypt_align(PAGE_SIZE << order));
->  	if (set_memory_encrypted((unsigned long)addr, 1 << order))
->  		return;
->  	free_pages((unsigned long)addr, order);
+>>
+>> > +description:
+>> > +  The Cadence HDP-TX DP/HDMI PHY is a child node of the MHDP8501 brid=
+ge,
+>> > +  sharing the same MMIO region as the parent bridge node.
+>> > +
+>> > +properties:
+>> > +  compatible:
+>> > +    const: fsl,imx8mq-hdptx-phy
+>> > +
+>> > +  clocks:
+>> > +    items:
+>> > +      - description: PHY reference clock.
+>> > +      - description: APB clock.
+>> > +
+>> > +  clock-names:
+>> > +    items:
+>> > +      - const: ref
+>> > +      - const: apb
+>> > +
+>> > +  "#phy-cells":
+>> > +    const: 0
+>> > +
+>> > +required:
+>> > +  - compatible
+>> > +  - clocks
+>> > +  - clock-names
+>> > +  - "#phy-cells"
+>> > +
+>> > +additionalProperties: false
+>> > +
+>> > +examples:
+>> > +  - |
+>> > +    #include <dt-bindings/clock/imx8mq-clock.h>
+>> > +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+>> > +
+>> > +    display-bridge@32c00000 {
+>> > +        compatible =3D "fsl,imx8mq-mhdp8501";
+>> > +        reg =3D <0x32c00000 0x100000>;
+>> > +        interrupts =3D <GIC_SPI 16 IRQ_TYPE_LEVEL_HIGH>,
+>> > +                     <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>;
+>> > +        interrupt-names =3D "plug_in", "plug_out";
+>> > +        clocks =3D <&clk IMX8MQ_CLK_DISP_APB_ROOT>;
+>> > +        phys =3D <&dp_phy>;
+>> > +
+>> > +        ports {
+>> > +            #address-cells =3D <1>;
+>> > +            #size-cells =3D <0>;
+>>
+>> The ports are not mentioned in the properties. I'm not a DT maintainer, =
+but
+>> I think they should, e.g. to mention which port is the input and which i=
+s
+>> the output.
+>>
+>> > +
+>> > +            port@0 {
+>> > +                reg =3D <0>;
+>> > +                endpoint {
+>> > +                    remote-endpoint =3D <&dcss_out>;
+>> > +                };
+>> > +            };
+>> > +
+>> > +            port@1 {
+>> > +                reg =3D <1>;
+>> > +                endpoint {
+>> > +                    data-lanes =3D <2 1 0 3>;
+>>
+>> Having a remote-endpoint property would be nice here, to make the exampl=
+e
+>> more complete.
 >
+> The ports and the remote endpoints are documented in the bridge binding..=
+.
 
-I will include this in the next revision.
+Ah, my bad, I reviewed too quickly and mixed the phy and bridge bindings in
+my mind, sorry.
 
-
->>  static struct gen_pool *itt_pool;
->> @@ -268,11 +272,13 @@ static void *itt_alloc_pool(int node, int size)
->>  		if (addr)
->>  			break;
->>=20=20
->> -		page =3D its_alloc_pages_node(node, GFP_KERNEL | __GFP_ZERO, 0);
->> +		page =3D its_alloc_pages_node(node, GFP_KERNEL | __GFP_ZERO,
->> +					    get_order(mem_decrypt_granule_size()));
 >
-> You already taught its_alloc_pages_node() about the decrypt granule
-> size stuff. I don't think we need to see more of it (and you don't
-> mess with the call that is just above it).
+> However, I believe I screwed this example up by adding the entire bridge =
+node,
+> instead of just a simple:
 >
->>  		if (!page)
->>  			break;
->>=20=20
->> -		gen_pool_add(itt_pool, (unsigned long)page_address(page), PAGE_SIZE, =
-node);
->> +		gen_pool_add(itt_pool, (unsigned long)page_address(page),
->> +			     mem_decrypt_granule_size(), node);
+> mhdp {
+>     phy {
+>         compatible =3D "fsl,imx8mq-hdptx-phy";
+>         #phy-cells =3D <0>;
+>         clocks =3D <&hdmi_phy_27m>, <&clk IMX8MQ_CLK_DISP_APB_ROOT>;
+>         clock-names =3D "ref", "apb";
+>     };
+> };
 >
-> I'd rather see something like mem_decrypt_align(PAGE_SIZE), which
-> keeps the intent clear.
->
+> I'll simplify the example in the next iteration.
 
-The helper was added based on feedback from a previous version. I assume
-you are suggesting that only this caller should switch?
+Yes, I think it would make sense to do it.
 
+Thanks,
+Luca
 
--aneesh
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
