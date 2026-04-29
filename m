@@ -4,52 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3168CCCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 09:45:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FA77FF8877
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 09:45:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GNAkko49dTDidf162I2tqiC5m5UzDfOqdx5rR96HDDk=; b=dJUFlzWxG8tox7rKF3Nl0dOSkw
-	KPeCILY4Y/6ks9so6BhsVCLa0dS3FbzakuqVslHI7HFhpZQ2GTEloK0eVcfPFp+CTuPVAp77L8YtZ
-	qAjjybPbA4xAGkCMyIlo6jN8g3qp17OfMwnTtZqKxmk247w0HSwUqIj82QnXbJOrbwbFBP+REsb3P
-	n4R+bHvFE9I8eDMxZluOxzFntKB5prf8Vs+PGwXzGbSKezPc+eP8f44amGzLy7ZbmFnkph/+ANfkZ
-	RpE5iwVdrRUMkbTnBGzeoQYnqHVe44ZNST22Cw7TvK7qvaDEPuFdVSwQOZ+/za6LqMjc8Y8k8uJA0
-	iiUKzLCA==;
+	bh=xglSOnb4dsPiB+AykM7ESrsv6H2eEhWcMgp8A5PAKCg=; b=ni3V9bQjtZ8xLDQT7iVPC//uge
+	WF9WMbb8VTVsgMLaCbvg1knXXDMN1kab+e4vMmKM49iqfGkYKpLHjgaaeUdvvOjIVEL3ozQPWgpuX
+	iOOyAJS/jZI9vmh6JcLG89q/tGpw/VYvL2OuCoOVsmkJF9w5F3cNnA9wfTzyA6VIFEJRAwSE64o6v
+	hye6MjTJzDB0LO5uZM8hKuV2/ijHx7UbUrnxUUHSGzjm1Z1ljB1Ggfy2lD5MqGk/+5BxRAVVSHU0C
+	AVYJ8CzQbre+cqNwmNAVdXPRh2KhB3nVS8TMiBoKotZlC9CAwrS7i9JaJRJ1ho38jaGuOLOnBv8ni
+	23FakUZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI1U0-00000003N0W-3kf1;
-	Wed, 29 Apr 2026 09:45:28 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wI1U2-00000003N2L-0t1L;
+	Wed, 29 Apr 2026 09:45:30 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI1Tp-00000003MpG-0Wqs;
-	Wed, 29 Apr 2026 09:45:18 +0000
+	id 1wI1Tq-00000003Mpz-2I7P;
+	Wed, 29 Apr 2026 09:45:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1777455915;
-	bh=p4MEP3L9VNLH+Cn6kf0XMFEk+CAUCXfGyjdiWLKVOEE=;
+	s=mail; t=1777455916;
+	bh=YuHpf07kf4Uild2asVXBk4zqPo/qFzS4X/u93cN8vB8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=b5bzCSiba6tK9CUjPmhvn1T+PgQq3MjNvuYZ4H3L+/vsVyx6kYRFcZKf5q0cfae5P
-	 fByVQ1fKkRhP5MUyQ6aZjgFJKXklPBF9NqJ9xnDGIFoy1H82wUHL6wROEfjicz+mKQ
-	 vzer26wraCd1vmSROgy2EWi8OJOYj7EeSuLVLFWkc8HrwbPi46+Zr5vB4AAwadgVpe
-	 rQfQJ+CXou71qOu8zT6nViB1Z+9tcRRRd47ua8pz5RcQ0EZjFSHeFfurQkmYf2/8zK
-	 MKOsQNr73/OllDziu9kd/7UFlZBL6DrWTgEIypYtSHbwCzqg+LRvQhAEbZ42xLzPKX
-	 tlqB4nfNsja7w==
+	b=Vu6mnNZoSmzzxVa17f/idLnZUvmamt5+q3xdXwhqyA2fVGbyYhN4QBRY5SGzy32z0
+	 mPEVTHtjdvMAeJ0elKiB2LQmnofVOKn/NAs4qQ5K1AsMrLXxjZEGrHkaHRhzAjaY7r
+	 FkSlC2mBI5Di3lZcZotPXYZrEP4oB56GxioD5Z1Y4MH/0i/yHQl5CGYjgASz9gPp/X
+	 SHCLhCyojt964uez61CYm7o6pkCZpE1unJi+SKnTZ5rtjt41gDmMfX/rmf+kQnGbko
+	 +ijDLz6J4MZi7lEg7CIgOU3nZJg565+b7yRbIHzVsg2rrC+vQPlZ1N9mYx0frPh0BL
+	 uq7IfPGI2TiPA==
 Received: from yukiji.home (unknown [100.64.0.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7A56317E0610;
-	Wed, 29 Apr 2026 11:45:13 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3E8B417E1513;
+	Wed, 29 Apr 2026 11:45:15 +0200 (CEST)
 From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Wed, 29 Apr 2026 11:44:19 +0200
-Subject: [PATCH 6/9] arm64: dts: mediatek: add MT6365 PMIC include
+Date: Wed, 29 Apr 2026 11:44:20 +0200
+Subject: [PATCH 7/9] arm64: dts: mediatek: mt8390-genio-common: use MT6365
+ PMIC definitions
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260429-mediatek-genio-mt6365-cleanup-v1-6-6f43838be92f@collabora.com>
+Message-Id: <20260429-mediatek-genio-mt6365-cleanup-v1-7-6f43838be92f@collabora.com>
 References: <20260429-mediatek-genio-mt6365-cleanup-v1-0-6f43838be92f@collabora.com>
 In-Reply-To: <20260429-mediatek-genio-mt6365-cleanup-v1-0-6f43838be92f@collabora.com>
 To: Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
@@ -69,16 +70,16 @@ Cc: kernel@collabora.com, linux-pm@vger.kernel.org,
  linux-input@vger.kernel.org, linux-iio@vger.kernel.org, 
  Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777455902; l=1462;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777455902; l=1671;
  i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=p4MEP3L9VNLH+Cn6kf0XMFEk+CAUCXfGyjdiWLKVOEE=;
- b=cIv7I2oDrc2JeH5kitdA6FjUHF5HnTzvYLV7Djp0ttLAq3CM1FKLVVWIf7qy9RvUrnOD7cS67
- IMOa8qDeh3bAbe6YP9lUpIOSX9bFBFZFKuRYMPqkvYElwVEN5z5acWy
+ bh=YuHpf07kf4Uild2asVXBk4zqPo/qFzS4X/u93cN8vB8=;
+ b=lccIymyIWB3mM0xwUsTTgcmQHl+tFqmI89WYeoWyV6Zrkmr1u93/VOmHGSvZ9fnL0YfTNfZ0h
+ cpRi2u/bCmVDLnl4qP5D6GZw2xQVYQKXjLCmEYhA0BWOCd4TjNbqDq1
 X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
  pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_024517_312306_DE1BD112 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20260429_024518_736592_371F797A 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,52 +94,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MT6365 PMIC, compatible with MT6359 PMIC, never had its own include
-file so the boards that integrates this PMIC used mt6359.dtsi in their
-devicetree to enable its support.
+Mediatek Genio 510 and 700 EVK boards integrate a MT6365 PMIC,
+compatible with MT6359, but the board common definition include file
+used the mt6359.dtsi to enable its support since the board support was
+introduced.
 
-So, add the mt6365 include file for the MT6365 definitions and labels.
-In order not to duplicate all of them, make it include mt6359.dtsi and
-override the compatible strings for the MFD main and sub devices with
-the MT6365 ones.
+Now that mt6365.dtsi has been created, include it instead of mt6359.dtsi
+and use MT6365 labels and pmic key compatible too.
 
 Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- arch/arm64/boot/dts/mediatek/mt6365.dtsi | 26 ++++++++++++++++++++++++++
- 1 file changed, 26 insertions(+)
+ arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt6365.dtsi b/arch/arm64/boot/dts/mediatek/mt6365.dtsi
-new file mode 100644
-index 000000000000..ed4e349f63c9
---- /dev/null
-+++ b/arch/arm64/boot/dts/mediatek/mt6365.dtsi
-@@ -0,0 +1,26 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright (C) 2026 MediaTek Inc.
-+ */
-+
-+#include "mt6359.dtsi"
-+
-+&pmic {
-+	compatible = "mediatek,mt6365", "mediatek,mt6359";
-+};
-+
-+&pmic_adc {
-+	compatible = "mediatek,mt6365-auxadc", "mediatek,mt6359-auxadc";
-+};
-+
-+mt6365codec: &mt6359codec {
-+	compatible = "mediatek,mt6365-codec", "mediatek,mt6359-codec";
-+};
-+
-+mt6365regulators: &mt6359regulators {
-+	compatible = "mediatek,mt6365-regulator", "mediatek,mt6359-regulator";
-+};
-+
-+mt6365rtc: &mt6359rtc{
-+	compatible = "mediatek,mt6365-rtc", "mediatek,mt6358-rtc";
-+};
+diff --git a/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi b/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
+index 2062506f6cc5..5303add717bf 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
+@@ -10,7 +10,7 @@
+  *                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>   
+  */
+ 
+-#include "mt6359.dtsi"
++#include "mt6365.dtsi"
+ #include <dt-bindings/gpio/gpio.h>
+ #include <dt-bindings/input/input.h>
+ #include <dt-bindings/interrupt-controller/irq.h>
+@@ -695,7 +695,7 @@ &mt6359_vufs_ldo_reg {
+ 	regulator-always-on;
+ };
+ 
+-&mt6359codec {
++&mt6365codec {
+ 	mediatek,mic-type-0 = <1>; /* ACC */
+ 	mediatek,mic-type-1 = <3>; /* DCC */
+ };
+@@ -1281,8 +1281,8 @@ &pmic {
+ 	interrupt-parent = <&pio>;
+ 	interrupts = <222 IRQ_TYPE_LEVEL_HIGH>;
+ 
+-	mt6359keys: keys {
+-		compatible = "mediatek,mt6359-keys";
++	mt6365keys: keys {
++		compatible = "mediatek,mt6365-keys", "mediatek,mt6359-keys";
+ 		mediatek,long-press-mode = <1>;
+ 		power-off-time-sec = <0>;
+ 
 
 -- 
 2.54.0
