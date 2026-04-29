@@ -4,99 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C5D6CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 13:12:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC900FF8867
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 13:21:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ougqSxlNHpdb7A3xiXDiO/CHpVSWdAi7241ogZispeo=; b=RpJrOy1H28pzHlUCTkeNindAEp
-	CSdJVSpD6dRXfComXr2jWynMcz9H04E68bUaqvqYWu+Y5WyMlROxieBAY9/2okgayGA/UbUfeeVgy
-	wDKmitTvncNFO0OeZRmrGMxtKgczIn2llw91NJqZQdl7Qrj71TTLg5WGSWbiTP1zYG5Dk6FMLp/nq
-	cFpqtrdPZz3tYcQeSUgdwWdkQZ1vgGuKFtF18TEYv8hMvyFBq+M04OZglJqfoUrF39kFKaiEgC4ee
-	E4nsZxLrQlB/Re4n83WnrNgbRjR74oavui0m4oF9rh6kOEGZiR78H6TGK4ZaxX1f2g7y68BVgG+/F
-	kndrZYKw==;
+	bh=xqRqdqb9cql00b3xqlZ9Qf54W2TCp7JZjtSRq3okoys=; b=K0tvZ/cwiticlyKPNwyrvyTznu
+	+xAxYxqn58xlP5BBlOYUtSNu9AgxjGRv4Scge3bqs78sKrIOkHkqV06wwrOTnohDvF5Mcm8CD6xO5
+	KsB5UlQ/9Z+e2gWy/VwnxctPbdDNuBMfYgXxp6yU2Vxf4vnAwTiH69TRM67tWmYFMbxorybEdyKmH
+	B3/NjaUjmQjgLr0k8GGqRubWsNWwGr11+I+7fPe5n/Zi82EdO76zolFup9Eg5ABTkrijdqCSsR/v5
+	FSL4V4hGcyIssK//zant5hfTBAsBnV35Y1B4unTx6Sa5zzpkBvfsl099+JHjQW3KYsLvmBCSSrrCl
+	T13BzChw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI4hq-00000003dVY-44Xz;
-	Wed, 29 Apr 2026 13:11:58 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1wI4qh-00000003exw-0AlV;
+	Wed, 29 Apr 2026 13:21:07 +0000
+Received: from vinatta.cz ([2a03:3b40:fe:428::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI4hn-00000003dTL-2TuX
+	id 1wI4qd-00000003ev6-3NKJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 13:11:56 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-43fde5b81a1so9334969f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 06:11:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1777468313; x=1778073113; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ougqSxlNHpdb7A3xiXDiO/CHpVSWdAi7241ogZispeo=;
-        b=BKMk4L9A9H1SPCUX9hr+A4E5mpYUAsWbqz8SL7582id84RqtE380zSLjytk6XQLapC
-         UPpoe5qzuKGV7niOF79ediohg2lk14sKESu25BEfdUWm9kaqa0twcHIwL1XX218gWOlv
-         HFFmXbTRtFz+v7kBl7hbA5WsmfqhLVwSUKU6ry+QdtoEhO6vSAJDNoizO7QbkA0pepDp
-         +/HRtDa3HbVF37nBIWwYJPQqjdr8JxKCTUT0+oTTFIAj3IfuUimfVHq1drQRIoRtGQ6m
-         ysiQ4xHmDN96gU4HzejMVlo6Sdnz5Xp7uv3cPsOtdynWAgTekOUZoeh+G4sPGYoYyzPi
-         yqoA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777468313; x=1778073113;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=ougqSxlNHpdb7A3xiXDiO/CHpVSWdAi7241ogZispeo=;
-        b=r5aOvvZpwJ7vMvN6Zwle+gISXIjXq7XHed0p4csI6dZ0QfvTNGmNQG4t/9CQK0IDUr
-         cCkQ9k0O+gWDFDRuVJA/+13PMvFnxyPyozLJ4g3pQ8M7YFyTKlrozxTzq8olYoiCn5Jk
-         sr1w5qzW3uZmtWBjBuDe4XYoPzJqkoojzX5oWne0yhBfhFbjVy2zh7mc4H7dOfXi0pXf
-         rEa6qHlrc9//Ssgfyn6t0ofXBb1iV1MTQsIw8vhch1rUq1VgwIodlzjx4OzotiFhNvyk
-         0qhq+PcqATPCGhxv3FQ8XUAv65Uat+4QFOHuMegtcNIvrsfegX/eFkVhkCOs7C2GgZEW
-         SE/A==
-X-Forwarded-Encrypted: i=1; AFNElJ8soIMgZEIB9MA2qcpR+QV7QbzOCGJQT2J4qkhQfJ/cShebsbW7tfJOtA6AgoI4in8AGU/LWsLr6Lz6dWiHnXkS@lists.infradead.org
-X-Gm-Message-State: AOJu0YwgTlLqCrZ6fcUVJ+ULFqkB+YBRp/HXVkPUEy6Zd5FDYH7IhB2n
-	A2k+aJ79VGZSLDjPsC5y+CRK3ARvWEgc4lICI1KyM1OyN6twc5QIqsXo9I12I+zH7QM=
-X-Gm-Gg: AeBDietmuXWThvpZPH14mwTwYlwmrT1akxEscJ+7oYwVtWNuslaH0A80m4cQRVHU1I7
-	mb6Fdlvwli/SXgmRG/ZFgkWGS2L6y41HIgADhjeDA82tHJOj85vEZHY5S64Z+8jCsM9REIKVFQY
-	8xe8WVlWZh6bfsgvdyTJhjHXCGGt6JfNH/DgO2p1VTh8+xsd6JusfHw/lpsRL3S5+vSdbGfqQZM
-	mXTI1zVXjIX4OHfKQ9CbEir8b3sMEOBLff/3uTz5Co2ipZgD+SKrZ5wX65arImleKFMsB0BTQ6y
-	JsSDem5cmhDorv23locBPuGvmFz+LSRhgxhxo4sz0fG+itiAVCnJHFTIH0JHXmDmZmXuDgtYQhI
-	7y2rFWTbVDYWcpg1iaYiC+MHMYfBG9vq6h3A7lAlBv7zfUFyAMIFO4AY48PDNZpA3aO7Wd401FJ
-	Luky2b9jQZeyTsHTssC+amEiV77060RuHkToKKOvfzyvNB65PqsXoS4uf7baVyU7SHorKs5AOHq
-	JTxfKGbyOQilfUgYQ==
-X-Received: by 2002:a05:6000:2486:b0:439:c62a:6dc2 with SMTP id ffacd0b85a97d-44790d12b4amr6375164f8f.41.1777468312577;
-        Wed, 29 Apr 2026 06:11:52 -0700 (PDT)
-Received: from ta2.c.googlers.com (17.83.155.104.bc.googleusercontent.com. [104.155.83.17])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-447b7ca67b9sm4752867f8f.34.2026.04.29.06.11.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Apr 2026 06:11:52 -0700 (PDT)
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-Date: Wed, 29 Apr 2026 13:11:50 +0000
-Subject: [PATCH v3 1/6] firmware: samsung: acpm: Fix cross-thread RX length
- corruption
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260429-acpm-fixes-sashiko-reports-v3-1-47cf74ab09ad@linaro.org>
-References: <20260429-acpm-fixes-sashiko-reports-v3-0-47cf74ab09ad@linaro.org>
-In-Reply-To: <20260429-acpm-fixes-sashiko-reports-v3-0-47cf74ab09ad@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, peter.griffin@linaro.org, 
- andre.draszik@linaro.org, jyescas@google.com, kernel-team@android.com, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, stable@vger.kernel.org
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777468311; l=4319;
- i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
- bh=QTePW60Bb9iT8APl2jkQnh+1qmdtoSopKY5nHEff6yQ=;
- b=JjWGtIEPDHzDE3ifeqhjWynWDXy4srvXw+WvUSrlmTnb9fxve30Ztz8YMbnfS7UZEI4jrFd87
- agoMLbvSxq9D5XsocCvyY1WX21MMIdiQSYMYgNL+fN7MfdDcMC+3y8t
-X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
- pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
+	Wed, 29 Apr 2026 13:21:05 +0000
+DKIM-Signature: a=rsa-sha256; bh=xqRqdqb9cql00b3xqlZ9Qf54W2TCp7JZjtSRq3okoys=;
+ c=relaxed/relaxed; d=vinatta.cz;
+ h=Subject:Subject:Sender:To:To:Cc:Cc:From:From:Date:Date:MIME-Version:MIME-Version:Content-Type:Content-Type:Content-Transfer-Encoding:Content-Transfer-Encoding:Reply-To:In-Reply-To:In-Reply-To:Message-Id:Message-Id:References:References:Autocrypt:Openpgp;
+ i=@vinatta.cz; s=default; t=1777468828; v=1; x=1777900828;
+ b=IyM+Dn02OPnovfHH7qNxVHpRW3lq/vYVi8gIZcW4AH7D2xne9s+wetiIl+wxpJE6OZFyTOkm
+ RguW5ARTHy3psH4xEHq1wSvuu9pVbbBnDs7WkbnysjUgPn2Zn3tjG/vwTwPw6Jzk8QNkZajEwln
+ bEnKo/NHeCiP3dxeqdMa/VD2iYAHYg6eNe9oGnLxh+poF0IoDqoQFGNVA00lFNXMxn6Ic/jt0CK
+ fy6UDDHUSrkQHQ1sajzCK6X3Ek3xAf3QWRyeapcFtUvNGmSxGuNDfAOtcZFgdBCEUkHi/u1pIh5
+ 7MIEt8s/hY14nWI79pi1zTXz57/0aOCSnp6eLVR7s/6cQ==
+Received: by vinatta.cz (envelope-sender <karel@vinatta.cz>) with ESMTPS id
+ 2b91500b; Wed, 29 Apr 2026 15:20:28 +0200
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 29 Apr 2026 15:20:28 +0200
+Message-Id: <DI5O432AFZVX.3VGKJP31AZX97@matfyz.cz>
+Cc: "Brian Norris" <briannorris@chromium.org>, "Johannes Berg"
+ <johannes@sipsolutions.net>, "Rob Herring" <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ =?utf-8?q?Duje_Mihanovi=C4=87?= <duje@dujemihanovic.xyz>, "Andrew Lunn"
+ <andrew@lunn.ch>, "Gregory Clement" <gregory.clement@bootlin.com>,
+ "Sebastian Hesselbarth" <sebastian.hesselbarth@gmail.com>, "Ulf Hansson"
+ <ulf.hansson@linaro.org>, "Frank Li" <Frank.Li@nxp.com>,
+ <linux-wireless@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-mmc@vger.kernel.org>, <~postmarketos/upstreaming@lists.sr.ht>,
+ <phone-devel@vger.kernel.org>, "Jeff Chen" <jeff.chen_1@nxp.com>, "Peng
+ Fan" <peng.fan@nxp.com>, <david@ixit.cz>
+Subject: Re: [DONOTAPPLY RFC PATCH v2 0/4] WiFi support for
+ samsung,coreprimevelte
+To: "Francesco Dolcini" <francesco@dolcini.it>
+From: "Karel Balej" <balejk@matfyz.cz>
+References: <20251026182602.26464-1-balejk@matfyz.cz>
+ <DEJL1ATTQMVE.120JV9YW59I27@matfyz.cz>
+ <aSnWYS2g5slVFaSk@gaggiata.pivistrello.it>
+ <DI5L100Q1RKO.1A68EJIPWYSRC@matfyz.cz>
+ <20260429112232.GD17033@francesco-nb>
+In-Reply-To: <20260429112232.GD17033@francesco-nb>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_061155_670156_0B225BB0 
-X-CRM114-Status: GOOD (  18.74  )
+X-CRM114-CacheID: sfid-20260429_062104_298495_BAFBAEE2 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,113 +82,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sashiko identified a cross-thread RX length corruption bug when
-reviewing the thermal addition to ACPM [1].
+Hello, Francesco,
 
-When multiple threads concurrently send IPC requests, the ACPM polling
-mechanism can encounter responses belonging to other threads. To drain
-the queue, the driver saves these concurrent responses into an internal
-cache (`rx_data->cmd`) to be retrieved later by the owning thread.
+Francesco Dolcini, 2026-04-29T13:22:32+02:00:
+> On Wed, Apr 29, 2026 at 12:55:23PM +0200, Karel Balej wrote:
+>> without the firmware being in linux-firmware?
+>
+> What's the license of this firmware? Am I wrong saying that if
+> the license allows it, you could just send a patch to have it integrated
+> to the linux-firmware repository? Is there any history or documentation
+> on the topic (please apologize if this is a well known topic, just
+> answer RTFM if this is the case).
 
-Previously, the driver incorrectly used `xfer->rxcnt` (the expected
-receive length of the *current* polling thread) when copying data for
-*other* threads into this cache. If the threads expected responses of
-different lengths, this resulted in buffer underflows (leading to reads
-of uninitialized memory) or potential buffer overflows.
+that's one of the issues, the license is not specified explicitly
+anywhere as far as I know. Likely it is the same as the other Marvell
+blobs already in linux-firmware (the mrvl directory), but we don't know
+for sure.
 
-Fix this by replacing the boolean `response` flag in
-`struct acpm_rx_data` with `rxcnt`, caching the exact expected receive
-length for each specific transaction during transfer preparation. Use
-this cached length when saving concurrent responses.
+As far as I know, even if I was to submit the firmware myself, it would
+still require a sign-off from someone from NXP [1].
 
-Consequently, ensure that `xfer->rxcnt` is explicitly zeroed in driver
-helpers (e.g., `acpm_dvfs_set_xfer`) for fire-and-forget messages to
-prevent uninitialized stack garbage from being interpreted as a massive
-expected receive length.
+> I read a couple of days ago that for example the firmwares for the
+> various Apple arm64 laptop cannot be redistributed and every single
+> individual that wants to use those needs to extract those from their
+> system.
 
-Cc: stable@vger.kernel.org
-Fixes: a88927b534ba ("firmware: add Exynos ACPM protocol driver")
-Closes: https://sashiko.dev/#/patchset/20260420-acpm-tmu-v3-0-3dc8e93f0b26%40linaro.org [1]
-Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
----
- drivers/firmware/samsung/exynos-acpm-dvfs.c |  3 +++
- drivers/firmware/samsung/exynos-acpm.c      | 15 ++++++++-------
- 2 files changed, 11 insertions(+), 7 deletions(-)
+Are those blobs loaded by the mainline kernel? If so, it would be the
+same situation as I'm proposing here I believe.
 
-diff --git a/drivers/firmware/samsung/exynos-acpm-dvfs.c b/drivers/firmware/samsung/exynos-acpm-dvfs.c
-index 06bdf62dea1f..fdea7aa24ca0 100644
---- a/drivers/firmware/samsung/exynos-acpm-dvfs.c
-+++ b/drivers/firmware/samsung/exynos-acpm-dvfs.c
-@@ -31,6 +31,9 @@ static void acpm_dvfs_set_xfer(struct acpm_xfer *xfer, u32 *cmd, size_t cmdlen,
- 	if (response) {
- 		xfer->rxcnt = cmdlen;
- 		xfer->rxd = cmd;
-+	} else {
-+		xfer->rxcnt = 0;
-+		xfer->rxd = NULL;
- 	}
- }
- 
-diff --git a/drivers/firmware/samsung/exynos-acpm.c b/drivers/firmware/samsung/exynos-acpm.c
-index 16c46ed60837..e95edc350efa 100644
---- a/drivers/firmware/samsung/exynos-acpm.c
-+++ b/drivers/firmware/samsung/exynos-acpm.c
-@@ -104,12 +104,12 @@ struct acpm_queue {
-  *
-  * @cmd:	pointer to where the data shall be saved.
-  * @n_cmd:	number of 32-bit commands.
-- * @response:	true if the client expects the RX data.
-+ * @rxcnt:	expected length of the response in 32-bit words.
-  */
- struct acpm_rx_data {
- 	u32 *cmd;
- 	size_t n_cmd;
--	bool response;
-+	size_t rxcnt;
- };
- 
- #define ACPM_SEQNUM_MAX    64
-@@ -199,7 +199,7 @@ static void acpm_get_saved_rx(struct acpm_chan *achan,
- 	const struct acpm_rx_data *rx_data = &achan->rx_data[tx_seqnum - 1];
- 	u32 rx_seqnum;
- 
--	if (!rx_data->response)
-+	if (!rx_data->rxcnt)
- 		return;
- 
- 	rx_seqnum = FIELD_GET(ACPM_PROTOCOL_SEQNUM, rx_data->cmd[0]);
-@@ -256,7 +256,7 @@ static int acpm_get_rx(struct acpm_chan *achan, const struct acpm_xfer *xfer)
- 		seqnum = rx_seqnum - 1;
- 		rx_data = &achan->rx_data[seqnum];
- 
--		if (rx_data->response) {
-+		if (rx_data->rxcnt) {
- 			if (rx_seqnum == tx_seqnum) {
- 				__ioread32_copy(xfer->rxd, addr, xfer->rxcnt);
- 				rx_set = true;
-@@ -268,7 +268,8 @@ static int acpm_get_rx(struct acpm_chan *achan, const struct acpm_xfer *xfer)
- 				 * clear yet the bitmap. It will be cleared
- 				 * after the response is copied to the request.
- 				 */
--				__ioread32_copy(rx_data->cmd, addr, xfer->rxcnt);
-+				__ioread32_copy(rx_data->cmd, addr,
-+						rx_data->rxcnt);
- 			}
- 		} else {
- 			clear_bit(seqnum, achan->bitmap_seqnum);
-@@ -380,8 +381,8 @@ static void acpm_prepare_xfer(struct acpm_chan *achan,
- 	/* Clear data for upcoming responses */
- 	rx_data = &achan->rx_data[achan->seqnum - 1];
- 	memset(rx_data->cmd, 0, sizeof(*rx_data->cmd) * rx_data->n_cmd);
--	if (xfer->rxd)
--		rx_data->response = true;
-+	/* zero means no response expected */
-+	rx_data->rxcnt = xfer->rxcnt;
- 
- 	/* Flag the index based on seqnum. (seqnum: 1~63, bitmap: 0~62) */
- 	set_bit(achan->seqnum - 1, achan->bitmap_seqnum);
+> All of that seems just a legal matter, and IANAL ...
 
--- 
-2.54.0.545.g6539524ca2-goog
+It is.
 
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware=
+.git/about/#signed-off-by-requirement
+
+Karel
 
