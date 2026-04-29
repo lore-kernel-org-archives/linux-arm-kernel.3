@@ -4,115 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF921FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 02:48:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37934FF886F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 03:00:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wBzxrwb3u6aAy65Ew28k5XS4vquizRynMypljlvuLRY=; b=Rmmbwidj+PAKwE9OuBVbcyjrWS
-	jpRNR14MTqJhVGDth8MJddG5QT5GgY+L4AUKAdKy8Zrl/eoQsS7RM37Fi+/AVgfrdCIwVGCDgUpdx
-	ZtuFdyYiOtlq82Gx6XZWbEj9Sz4r4IgBwFqOfx5Z5et5KvmFw6ei8X1en/Yr6Sk8U/1YEgqU4ycuL
-	02YJB4CAZeL1AFo+3MadxhQ+C+gWIlfII1u46UxL5bNcPPWHDpV3uIDCDwe/Zx95wotS7gfoAZUF5
-	KjMm00a7YO+sUauHu4kZOtD/8N4ncrFVEjIukaUHzib27Qlr/vY2CXOv5uzAPMe5hcWqOVuK41GRE
-	C2QYDwfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=PM5RNIodsJcj1R2EllMRf+cNY3Uyp8kVdSMlAilGKtE=; b=tIKDln/3J/q9Mo
+	abyc68jYASCmTzbYCQKE2WYR3dyniZLfCgD+GZy+n4w1sSPf79ainrgnqznV/4LJJLUqC8AzUyI0c
+	s43rn1J138Vbo0v+9aaDeVKqi4gOuaHAJA5STxrI5WYF6z4MPVAjczZR1Tu7lc6v1bV5RND0R6Ot1
+	gT6BQRg7/5mRQQlrPFv5E1I8+XUk59ePwaF+5Ngxb42m70YfiljLxbv5rxZs4K1yrIB+myc/iKcpq
+	wqqx7gHYdAjaqDJlYlzbePb5qldVnjlIVc1aETjDCflb7N2EaH92xgT9iEHH4iCZAIhA1IE1UC0e0
+	hniK4i1BC2Tn0lbr1/9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHuxn-00000002nmF-1k5x;
-	Wed, 29 Apr 2026 02:47:47 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wHv9o-00000002ol7-477p;
+	Wed, 29 Apr 2026 03:00:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHuxl-00000002nlY-2nMV
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 29 Apr 2026 02:47:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=wBzxrwb3u6aAy65Ew28k5XS4vquizRynMypljlvuLRY=; b=q5nXJWWMA5LuCp9pXEp1t2rnkQ
-	VFLSI2R1NsrpMwi0S4TsyUyg8ZwIldG82w0qzqr5rW+rwAXZnX3S8ARPJlAIgIv4rlQIl0Y2IpQNU
-	70Ln5ltDULVnLE3wTEdNZZw0IiJQVcjnNlzReFDffHHRskJTxL7Bi2xjQnb5U+vZ0/9oJRTRUN7vl
-	JCa4SaUYGr5K5QwgI07PNnJpr6G4QNfxIz+mfsC8BXdiWRx/RdlmJvstIBwSIAixjM0ngyUx6QWnX
-	3H6SoQ8koLhym1dytG/MF73HveMbyVeuBuMSxkcE0BjsB+kPwF5jrNKmfl2amrSF4f5wTW8d00tGx
-	LgelBb4g==;
-Received: from mail-ot1-x362.google.com ([2607:f8b0:4864:20::362])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHuxi-00000004Uq9-31Dc
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 02:47:44 +0000
-Received: by mail-ot1-x362.google.com with SMTP id 46e09a7af769-7de7dc85b74so2461256a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 19:47:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ausil.us; s=google; t=1777430861; x=1778035661; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wBzxrwb3u6aAy65Ew28k5XS4vquizRynMypljlvuLRY=;
-        b=QE8Ox4RiebXLXRRZdUUN8sOqdgTuUKvu2UFl+nPP5Bo2uPGkQWf+HUh/zZaCUCH/wG
-         +kW8DuyGTlwqYzLq16sjXZ5rM6KvLMseFXGtXhPoKqyIlbuH7iNBexCaqV08MmV1+RFP
-         vJOVn4f1QBx9Had+rxB20t4Dh+wPBJhG1H3FaZF1wG6gMkmewry9bD1arPXKxYshs1IL
-         s1KBnxcmLhLmVZpglbsB14pSmQPW0oFca7YNKtdmMcSiA4XvPlYDUEY+kG1j/LqWx9ui
-         9d9DdTaVfVkz4zLn9WCA8+PPe/QJJ6nIBbaK2/gSYakurADWyYk0K4C6Nv+yNf5rmSoB
-         6XdQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777430861; x=1778035661;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=wBzxrwb3u6aAy65Ew28k5XS4vquizRynMypljlvuLRY=;
-        b=m3wvxHct5MlyhBwCc8LsSImcQaye8+SowBubc1gwGgrrakScuCcx+KIdCssFou6FWf
-         6JsnAQheqWHVOKoURT4LiRfcWPyr2rxqQWafYQXmQzzNV/VOf0AKAOcdJ8Q77ziRybWr
-         R+smlywH6ZSOVQS+UFtyNGsMukEKJ3m/h23r2cT4omWnLl/zmDeqYl//QMtBbxrT9k/R
-         pqc4HfDzmNZKOgS1dnaddYeVeos7FgMa3dKiK5YvMZiKcF5gf3V/WblZtVB2s+/jaBX8
-         kAhe1FB5XJUlLzcXsSnUlo3MvG/WzwXt6KQzc9BOhgVWyXDAy6PD4l0PCVaY3U0djwKx
-         jn+g==
-X-Forwarded-Encrypted: i=1; AFNElJ89u7b7plsQzmLl3VqFJFfcgGuuQHr0mg5qCn+iNlzvNer1E1jA2orb0G0yin/ZfC44JJ/fmbQMzI8tz+jdE4EH@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUHNwMvBLAY7oX/nIJBb+HZfmSzV1yVqZMPwgICPNtX+Q00JeO
-	NaTh9kAphjQJMqGR9rWOF8xxQ16ZCOI5TJpa5GQQWhR+ue6hhp5W597twhOiOmonU9RIlf2UFVW
-	5ADVf8eqM6lY0UJwkM7E97tLetm+BDasyLPh8
-X-Gm-Gg: AeBDiet5TxStdUMWmDhl/CcQC3epSMX7OBbEdmlpG06UyWJUSrcUi2hNqSPNw1nSeXG
-	vV0Me3q8EdtZVyV2ypOm+FK6qcs5zGVYKekGY2POUtjNYSMBG1Vn0YfNAmrZo/cqSFjx98wBiZP
-	e3+wVI7O0Swwd2OhbkwX53A3SuOg62xH/vVi6foAw5fLrxI47aIrSAlTdCpn5yhiXzwCT443otB
-	CEPPlKlbVvr2qUljsiqDmfUW+ihaJ/lmArfwjGdBRUg/XsxJUElNrnbPAL6N3CW6swAAZmz77ah
-	z4BKKgYQeyeTugWiZ3MNkB++nRix+cJK7EcXqRBg9pkg5QN3CXmMdKdGB8piy6ImZyWMzY35SwU
-	jMwbTGosVQFe2AMZDMpYMAx82L9ii8N/Xf/9WQvqsyIHex05Ct2HlIHA=
-X-Received: by 2002:a05:6820:1989:b0:696:25d4:1e62 with SMTP id 006d021491bc7-6966838808amr1245717eaf.2.1777430860769;
-        Tue, 28 Apr 2026 19:47:40 -0700 (PDT)
-Received: from ryac.ausil.us (207-179-239-100.mtco.net. [207.179.239.100])
-        by smtp-relay.gmail.com with ESMTPS id 586e51a60fabf-4340e711c00sm110958fac.5.2026.04.28.19.47.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Apr 2026 19:47:40 -0700 (PDT)
-X-Relaying-Domain: ausil.us
-From: Dennis Gilmore <dennis@ausil.us>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Alexey Charkov <alchark@gmail.com>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	FUKAUMI Naoki <naoki@radxa.com>,
-	Peter Robinson <pbrobinson@gmail.com>,
-	devicetree@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Dennis Gilmore <dennis@ausil.us>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH v9 1/4] dt-bindings: arm: rockchip: Add Orange Pi 5 Pro
-Date: Tue, 28 Apr 2026 21:47:32 -0500
-Message-ID: <20260429024737.544813-2-dennis@ausil.us>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260429024737.544813-1-dennis@ausil.us>
-References: <20260429024737.544813-1-dennis@ausil.us>
+	id 1wHv9n-00000002okq-1h8T;
+	Wed, 29 Apr 2026 03:00:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1F3756015B;
+	Wed, 29 Apr 2026 03:00:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB3B9C2BCB7;
+	Wed, 29 Apr 2026 03:00:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777431609;
+	bh=BPWip7f/+n2wb9mPvkHgJCd0lFqOC+ZsA1RInw6FYx8=;
+	h=From:Subject:Date:To:Cc:From;
+	b=Lm6oqDaZCWZPGshfZZK+k3YJKNsDnG8AlHI64y2CWDqFmLMmaqsMBR+/vE3bA/wP/
+	 qBOoFQ/mqwzel7Gid5GmxZodV4mf1xpeBH0sY7SsY9LGRMSt74iysuHwe2M56ExfD8
+	 goiP9iOwlp8C2br8Add6rW5f9H9OjquXWl9bYh+Fcv2GTS5kMfEwGHeClKFelU19sn
+	 SIMG/hdVguN/Ocxka1uk3ZIdHBi5e04hd81Ss92pRLqtTlQ8s93zp/uOUkCGXm4kF9
+	 f+rpPRHBzzJdlmq8Kt6ysbjX7bxF15iXX8oENUhNFMxcT58CLIzAyP8SBPtcmN42wO
+	 4oXtJ02loyEIw==
+From: Nathan Chancellor <nathan@kernel.org>
+Subject: [PATCH 00/14] Bump minimum version of LLVM for building the kernel
+ to 17.0.1
+Date: Tue, 28 Apr 2026 22:59:06 -0400
+Message-Id: <20260428-bump-minimum-supported-llvm-version-to-17-v1-0-81d9b2e8ee75@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_034742_946028_5F325E19 
-X-CRM114-Status: UNSURE (   9.01  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXNyw6CMBCF4Vchs3aSUioSX8W4oDDgGHpJbzEhv
+ LtFl9/inH+HSIEpwr3ZIVDhyM5WtJcGptdoV0Keq0EK2QslJepsPBq2bLLBmL13IdGM21YMFgr
+ nHpPD9oZa9d0wXgctVAf1zwda+PNrPZ5/x6zfNKUzAMfxBS9G0zWNAAAA
+X-Change-ID: 20260422-bump-minimum-supported-llvm-version-to-17-b4638a58b043
+To: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>
+Cc: linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+ linux-kbuild@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org, 
+ Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+ linux-hardening@vger.kernel.org, linux-security-module@vger.kernel.org, 
+ Rong Xu <xur@google.com>, Han Shen <shenhan@google.com>, 
+ Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>, 
+ linux-arm-kernel@lists.infradead.org, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, 
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+ Peter Zijlstra <peterz@infradead.org>, Ard Biesheuvel <ardb@kernel.org>
+X-Mailer: b4 0.16-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6086; i=nathan@kernel.org;
+ h=from:subject:message-id; bh=BPWip7f/+n2wb9mPvkHgJCd0lFqOC+ZsA1RInw6FYx8=;
+ b=owGbwMvMwCUmm602sfCA1DTG02pJDJkfSwy7+t4r7Kv16klo6al7FnGl0OyWQ1SCjbIF4/MYH
+ 9eSzsiOUhYGMS4GWTFFlurHqscNDeecZbxxahLMHFYmkCEMXJwCMJGV0xn+B1/JuipsITflWW/l
+ m6DA5oOhB7lmcdcvX5Hz8Y+Uefb79wz/7J86+2gJ/PR/d2GTU3jbj9SMJM3fnd0H9j5T980/ZXu
+ PBwA=
+X-Developer-Key: i=nathan@kernel.org; a=openpgp;
+ fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,27 +93,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add compatible string for the Orange Pi 5 Pro.
+The current minimum version of LLVM for building the kernel is 15.0.0.
+However, there are two deficiencies compared to GCC that were fixed in
+LLVM 17 that are starting to become more noticeable.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Signed-off-by: Dennis Gilmore <dennis@ausil.us>
+The first was a bug in LLVM's scope checker [1], where all labels in a
+function were validated as potential targets of an asm goto statement,
+even if they were not listed in the asm goto statement as targets. This
+becomes particularly problematic when the cleanup attribute is used, as
+
+  asm goto(... : label_a);
+  ...
+label_a:
+  ...
+  int var __free(foo);
+  asm goto(... : label_b);
+  ...
+label_b:
+  ...
+
+will trigger an error since the scope checker will complain that the
+cleanup variable would be skipped when jumping from the first asm goto
+to label_b (which obviously cannot happen). This issue was the catalyst
+for commit e2ffa15b9baa ("kbuild: Disable CC_HAS_ASM_GOTO_OUTPUT on
+clang < 17"). Unfortunately, this issue is reproducible with regular asm
+goto in addition to asm goto with outputs, so that change was not
+entirely sufficient to avoid the issue altogether. As asm goto has
+effectively been required since commit a0a12c3ed057 ("asm goto:
+eradicate CC_HAS_ASM_GOTO") and the usage of the cleanup attribute
+continues to grow across the tree, raising the minimum to a version that
+avoids this issue altogether is a better long term solution than
+attempting to workaround it at every spot where it happens.
+
+The second issue is an incompatibility with GCC 8.1+ around variables
+marked with const being valid constant expressions for _Static_assert
+and other macros [2]. With GCC 8.1 being the minimum supported version
+since commit 118c40b7b503 ("kbuild: require gcc-8 and binutils-2.30"),
+this incompatibility becomes more of a maintenance burden since only
+clang-15 and clang-16 are affected by it.
+
+Looking at the clang version of various major distributions through
+Docker images, no one should be left behind as a result of this bump, as
+the old ones cannot clear the current minimum of 15.0.0.
+
+  archlinux:latest              clang version 22.1.3
+  debian:oldoldstable-slim      Debian clang version 11.0.1-2
+  debian:oldstable-slim         Debian clang version 14.0.6
+  debian:stable-slim            Debian clang version 19.1.7 (3+b1)
+  debian:testing-slim           Debian clang version 21.1.8 (3+b1)
+  debian:unstable-slim          Debian clang version 21.1.8 (7+b1)
+  fedora:42                     clang version 20.1.8 (Fedora 20.1.8-4.fc42)
+  fedora:latest                 clang version 21.1.8 (Fedora 21.1.8-4.fc43)
+  fedora:44                     clang version 22.1.1 (Fedora 22.1.1-2.fc44)
+  fedora:rawhide                clang version 22.1.3 (Fedora 22.1.3-1.fc45)
+  opensuse/leap:latest          clang version 17.0.6
+  opensuse/tumbleweed:latest    clang version 21.1.8
+  ubuntu:jammy                  Ubuntu clang version 14.0.0-1ubuntu1.1
+  ubuntu:noble                  Ubuntu clang version 18.1.3 (1ubuntu1)
+  ubuntu:questing               Ubuntu clang version 20.1.8 (0ubuntu4)
+  ubuntu:resolute               Ubuntu clang version 21.1.8 (6ubuntu1)
+
+17.0.1 is chosen as the minimum instead of 17.0.0 to ensure that the
+particular version of LLVM 17 has the two aforementioned bugs fixed, as
+the second was fixed during the 17.0.0 release candidate phase and it
+was not until LLVM 18 that LLVM adopted the scheme of x.0.0 being a
+prerelease version and x.1.0 is a release version [3] to help with
+scenarios such as this.
+
+The first patch in the series does the actual bump. The remaining
+patches are cleanups of workarounds for various issues that are no
+longer needed with the bump.
+
+I plan to take this via the Kbuild tree for 7.2, please provide Acks as
+necessary.
+
+[1]: https://github.com/llvm/llvm-project/commit/f023f5cdb2e6c19026f04a15b5a935c041835d14
+[2]: https://github.com/llvm/llvm-project/commit/0b2d5b967d98375793897295d651f58f6fbd3034
+[3]: https://github.com/llvm/llvm-project/commit/4532617ae420056bf32f6403dde07fb99d276a49
+
 ---
- Documentation/devicetree/bindings/arm/rockchip.yaml | 1 +
- 1 file changed, 1 insertion(+)
+Nathan Chancellor (14):
+      kbuild: Bump minimum version of LLVM for building the kernel to 17.0.1
+      security/Kconfig.hardening: Remove tautological condition from CC_HAS_ZERO_CALL_USED_REGS
+      security/Kconfig.hardening: Remove tautological condition from FORTIFY_SOURCE
+      security/Kconfig.hardening: Remove tautological condition from CC_HAS_RANDSTRUCT
+      arch/Kconfig: Remove tautological conditions from HAS_LTO_CLANG
+      arch/Kconfig: Remove tautological condition from AUTOFDO_CLANG
+      ARM: Drop tautological ld.lld conditions from ARCH_MULTI_V4{,T}
+      riscv: Remove tautological condition from selection of ARCH_SUPPORTS_CFI
+      riscv: Drop tautological condition from TOOLCHAIN_NEEDS_OLD_ISA_SPEC
+      scripts/Makefile.warn: Drop -Wformat handling for clang < 16
+      x86/build: Drop unused '-ffreestanding' addition to KBUILD_CFLAGS
+      x86/module: Revert "Deal with GOT based stack cookie load on Clang < 17"
+      x86/entry/vdso32: Remove conditional omission of '.cfi_offset eflags'
+      kbuild: Remove check for broken scoping with clang < 17 in CC_HAS_ASM_GOTO_OUTPUT
 
-diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
-index 1a9dde18626d..ec1303140600 100644
---- a/Documentation/devicetree/bindings/arm/rockchip.yaml
-+++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
-@@ -1338,6 +1338,7 @@ properties:
-         items:
-           - enum:
-               - xunlong,orangepi-5
-+              - xunlong,orangepi-5-pro
-               - xunlong,orangepi-5b
-           - const: rockchip,rk3588s
- 
--- 
-2.54.0
+ Documentation/process/changes.rst      |  2 +-
+ arch/Kconfig                           |  5 +----
+ arch/arm/Kconfig.platforms             |  4 ----
+ arch/riscv/Kconfig                     | 16 +++++++---------
+ arch/x86/Makefile                      |  5 -----
+ arch/x86/entry/vdso/vdso32/sigreturn.S | 10 ----------
+ arch/x86/include/asm/elf.h             |  5 ++---
+ arch/x86/kernel/module.c               | 15 ---------------
+ init/Kconfig                           |  3 ---
+ scripts/Makefile.warn                  | 10 ----------
+ scripts/min-tool-version.sh            |  2 +-
+ security/Kconfig.hardening             |  8 --------
+ 12 files changed, 12 insertions(+), 73 deletions(-)
+---
+base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
+change-id: 20260422-bump-minimum-supported-llvm-version-to-17-b4638a58b043
+
+Best regards,
+--  
+Nathan Chancellor <nathan@kernel.org>
 
 
