@@ -4,126 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D77EDFF8873
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 06:38:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DEC3FF8867
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 06:42:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/M9sfkH3sKoAnZbi8guHqIPoXN6pnDVvz+Q/N1e8vOk=; b=voPEBGPeQZMp4oyZlnwA1M4QDA
-	50kyB/EHOl9WVDIcXNkoUNwTq1LEgCzGIC0TfXv5I2SuFEuB64loZG4iMQpKKhcH40SSqCk+/KRdZ
-	IUf5xxlI3Gi2QvQIH1tOqJtHmicN6fvu8y3eOCcK3WJg65l3SQNtnCfXXvMPNxvfxEtwCz0AzXpgO
-	ifTUz5Wy3ZfhhmbYRDBZgKmIgC0sm8hdIriris5g2txD3Jn4qmjmgqpVeQSUuuYNcOukjlL3howJX
-	WmLZ9v+zc6Zr3BoSsZWFPHmP2VqFFirFuzezeU6qTsAwygjqRSSkQs7r/B76Ks/Ho2sp6ULv49d3y
-	6pZ0ooWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1jwx9GMtBVvY+kGMilVizmz2e9t5B2rB7d9aWWu34Dk=; b=HF0XukeBMU7qf6O7qlZiY1JlFS
+	83k68jOxsfHLwAoSO8ISQqSGm8AlK4srooQ1pxNC607C6dphFZp+5OHhkZU9FlwKmKJuPjcUP6sUB
+	P6yj2yuhkNvwlDqWuetZi33B9VTVlp+iyb/Pteh0t1Fe2TkqgEItFmFDCgYlNvI8TcjxRbtTDM55Z
+	e3rwO0KadvkjBVsWJp0W3qmAl5q6xI9U2yYvQAkrlo+k+aj9XmlldNB2IcqX2R0jNozr+XMi2KN7m
+	OMYaCBdOMHgxb6R3ddGqU1e3pV4CS1BLsRAKZu0qgBQDCSmO0RDMRNffkTzyLXB8DeZxRYy8SCDY2
+	Dd+4REag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHyZK-000000031ag-2iaI;
-	Wed, 29 Apr 2026 06:38:46 +0000
-Received: from mail-japaneastazon11022096.outbound.protection.outlook.com ([52.101.126.96] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	id 1wHycV-000000032HN-1iJS;
+	Wed, 29 Apr 2026 06:42:03 +0000
+Received: from mail-westus2azon11010043.outbound.protection.outlook.com ([52.101.46.43] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHyZ4-000000031B6-3AeS;
-	Wed, 29 Apr 2026 06:38:31 +0000
+	id 1wHycR-000000032Gs-3Ktm
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 29 Apr 2026 06:42:01 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cp4EkZhE9Vmw8mPfP3wzXlf4nBv2zfLcQueL1KqPXc5ZrV9kxTESzXzew6wvrm3TiR5CbweKSHSoDhL0Ra0+a5LZFSuedIKoNgQSEflAkanbbJLGxFFxRaP6z+K19JljC+biJAUCTjRnyMri9+Cu2vfUSNvKml2VtcOLgB19xbkedPyugJ28DuXwYsi5xEVeclXjxKzY6AP6yMkBmuqAsrzQ2wwifmzYTeGLZ2tblrkzf3kIuO4fo074An6LmQVByp1Ck7mfA+uM8nKD5pMQS/8LOwJcLr8ua+8T+/AjsHSYo5iDHoVsfE/r3GM46BtrSZVL6Gnw9fmgx/HPmu6Faw==
+ b=aJEiyMisI8xgIbpRSkC3/BsvHSgXbiRxrmi5cMapy8jFr/Y3bNjW+f7noKe42/6DVPwGUhjXMVmLWm07gu/luLWRSb2lW2BD7CsNio9QyAkhLmA37jl/R/mjwC+W3IbrTdIIJP0foqR/BwRUquTBxweu6gU4Tv6zMiDZHStGv5K733jnlChSe35cnNweVJxv/QOyieqvhgzWOe5sd3wtE3pGPvC78pDw43cEYg2B/y6FUIwgAMJm0lkjGKR/0+3Tt9u6pYASgCWD3RB7SQwR5waPqSC9O6a+nFrVlfghOzxX3z3IhEGoKUHtbhf0GnFi7vGmAqJmqGvo9yPcLweaBA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/M9sfkH3sKoAnZbi8guHqIPoXN6pnDVvz+Q/N1e8vOk=;
- b=jBYjqQYN5O/TSplGlxSfs3VcZxqz4/zSLXEiPnfqpyXkyrbtCl0y/mbwL00sLZQBEv8VRCX0w0J+cCNu8uWZiQ36pmU61j8tYZttiFgx7P0cDhhLZXy8EzmSxPAJOjGTx7sKMnBWOPSpSpVeD+eSM0XywQGj60pQ71/IE6cSoL+X7KiKf33fHbIAw0GmHJUTh1KvLwteKf8EftAfrK2jkHVutE+q+pu+D12n0hVOWqnxTaKNtS2Km4SZ9Erv7CQcQA69YRgQ6kMNS7m+ytPlYLRdHl9sHCukEFl/fc+zk5sTisEA13xi4jnvtw2RLuKuYFvaHd3xYD3g08fFcoCcSA==
+ bh=1jwx9GMtBVvY+kGMilVizmz2e9t5B2rB7d9aWWu34Dk=;
+ b=snFOqsvKcv/f9OksitIG4w4mEiEaZDV3kcHxIMt6JpfItH3lJ2jIAxq4y/pXu+lGk1ocBAXCxBI5kiA3hckjTImxk3AjsJHWyWAXOvK0EpLVeHKUp4Lr7ObNkjnMEKFWkgjbs8muI/sIXTcQUleis5xjhFa3PCPjnARXHVCjyJ8Y2RdlIzZZW0uffkEgRyVDc2L+RO9U/Xuqc73MrfnD+QcNmtNED4+YRtd5ELI0W7pZyXSJFbZwN1ueE3USdlb1WAVqhj27ne4epWZ2mYOcg20WJXqsOOjrXJbnxUrglweXboygOu6enZFSfArRWHcgcvY4vrg0pG/8iVqP6ABeug==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wesion.com; dmarc=pass action=none header.from=wesion.com;
- dkim=pass header.d=wesion.com; arc=none
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1jwx9GMtBVvY+kGMilVizmz2e9t5B2rB7d9aWWu34Dk=;
+ b=jq09HnYAdO6o66chWE33GWlkTVPIJKjehe+DwfJlMXzrf82xKDHzUxu8GTlAe63y/m/SD0DyRVBO8X36kRj8yQYUVzY3MVGTAOYzUO9OogyqufMIuLG8UzlYd0WGSr5JKTE67osM7LVD6G9Nx/OWRDXmGFpODdkdtNaG4bTJ9Js=
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=wesion.com;
-Received: from JH0PR03MB8617.apcprd03.prod.outlook.com (2603:1096:990:91::14)
- by SEZPR03MB6468.apcprd03.prod.outlook.com (2603:1096:101:47::9) with
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from LV5PR12MB9779.namprd12.prod.outlook.com (2603:10b6:408:301::14)
+ by SJ0PR12MB6967.namprd12.prod.outlook.com (2603:10b6:a03:44b::6) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.18; Wed, 29 Apr
- 2026 06:38:21 +0000
-Received: from JH0PR03MB8617.apcprd03.prod.outlook.com
- ([fe80::28d:6503:f51c:11b7]) by JH0PR03MB8617.apcprd03.prod.outlook.com
- ([fe80::28d:6503:f51c:11b7%5]) with mapi id 15.20.9870.016; Wed, 29 Apr 2026
- 06:38:21 +0000
-From: Gray Huang <gray.huang@wesion.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	heiko@sntech.de
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	nick@khadas.com,
-	Gray Huang <gray.huang@wesion.com>
-Subject: [PATCH v2 6/7] arm64: dts: rockchip: Enable USB for Khadas Edge 2L
-Date: Wed, 29 Apr 2026 14:37:11 +0800
-Message-Id: <20260429063712.2150938-7-gray.huang@wesion.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260429063712.2150938-1-gray.huang@wesion.com>
-References: <20260429063712.2150938-1-gray.huang@wesion.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: TPYP295CA0040.TWNP295.PROD.OUTLOOK.COM
- (2603:1096:7d0:7::12) To JH0PR03MB8617.apcprd03.prod.outlook.com
- (2603:1096:990:91::14)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.16; Wed, 29 Apr
+ 2026 06:41:52 +0000
+Received: from LV5PR12MB9779.namprd12.prod.outlook.com
+ ([fe80::8ac8:e862:8ae9:9287]) by LV5PR12MB9779.namprd12.prod.outlook.com
+ ([fe80::8ac8:e862:8ae9:9287%3]) with mapi id 15.20.9870.016; Wed, 29 Apr 2026
+ 06:41:52 +0000
+Message-ID: <234751b2-ae80-4686-9e65-a5f12eec9f2c@amd.com>
+Date: Wed, 29 Apr 2026 08:41:47 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] remoteproc: xlnx: check remote core state
+To: Tanmay Shah <tanmay.shah@amd.com>, andersson@kernel.org,
+ mathieu.poirier@linaro.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-remoteproc@vger.kernel.org
+References: <20260428221855.313752-1-tanmay.shah@amd.com>
+Content-Language: en-US
+From: Michal Simek <michal.simek@amd.com>
+Autocrypt: addr=michal.simek@amd.com; keydata=
+ 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
+ mpwx1d8=
+In-Reply-To: <20260428221855.313752-1-tanmay.shah@amd.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SJ0PR05CA0067.namprd05.prod.outlook.com
+ (2603:10b6:a03:332::12) To LV5PR12MB9779.namprd12.prod.outlook.com
+ (2603:10b6:408:301::14)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: JH0PR03MB8617:EE_|SEZPR03MB6468:EE_
-X-MS-Office365-Filtering-Correlation-Id: f2d68545-d2fb-453b-9452-08dea5b9e7e7
+X-MS-TrafficTypeDiagnostic: LV5PR12MB9779:EE_|SJ0PR12MB6967:EE_
+X-MS-Office365-Filtering-Correlation-Id: 30813fdf-76a6-4774-5627-08dea5ba65de
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|1800799024|376014|22082099003|56012099003|18002099003|38350700014;
-X-Microsoft-Antispam-Message-Info: kNniPbI06mXCwegs5xTNlSAOnf8vIPQSlt3juQEg/TD+22NtGCx+CFAky9JwDSDCK9THVT1wPKoyb4rUyEdL6PnL0TqcDWMtACtVulJosrmOZ0bZJroKjNVMNmvrbZSpSMHNYsgmNVp1W6cBbUlz01QAV4vu08CIB3R7oJrhq7dsC6FAqmlw190I+a6Oo7o2QGLNYuzVBZniEFqLP16j6bZTFViVi95dQy/BZAe8D8yfddrgCxkK0HX+6WOUHD7H4E/bSXBkkvqnDHr4M3Z1tb0pKAnRQxp2Q0FGPr9now/nT1/tW790+XsFKEjfd8dTJiTqshpL4Py2ByHjFzQb2kT6sxHOMC6LmjFEcrJayfZYXQV1CYi+r1EUL7iI+Z5LyV/7mzn8gSvi4spc2trIGE3QSOOhG40cfqup28bpo1eDtDLeHpkvF0dUeEHCgS+UgJSuVKkLle+FiAeM8wrGZr+A61uFYBUQ/kAr7NFUkxDYhnWjmIKdUsuAAd50bD0nGNTvqa63BOEcXP14UT9xzJTMuVg7K/oQZeYEnL6dKiR1O/X9Z3VTrWktyLkaeCMz56gXDxZOH8fbnwSG3mCptgWrNLnNXmRTHCaoKk5SJoSfqywWZBjyCy8LyB6ntX4ihjoQbJUIaqgRTiWuIQIvXCvwyvwXNBc/eKgoWVYTqRlM5ezyW/+Tk+d2HMtASpvebq5xXzkeY8SsEjETMSq67/knn6wZCgnEhswJPbcPRWQttUfgJTr08yC9uaWeu+rfRTHiWMFEJ1QWXEKkH8Dc615fjOGKC5wiSALWghXvdxg=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:JH0PR03MB8617.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(1800799024)(376014)(22082099003)(56012099003)(18002099003)(38350700014);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: ZUt8zeJMiqG9VTsKl2vS/pLHnzsK15+A1us1XAXVnFUA9A2CIWCt98H3HSTggdlBVVGYOHv26MahjhbF0NgF+LbsWDC8cZBER5T8WNRFRdo3qEPqMkbyCrJUwCZFldRMlawIAaSEpMyQlqoIHiw6H0u95vykbfwyXAZjB+MuwGeetycli1x5rdQWJOi2onf3Jt9PxpXSARKgRw9aMHQJOM9yZjLsWwLp0qFmxczAowXgjxXL99pMtwiyLrG+yRqlk5OZcY30ssjkzrH+cCv0ahJQ2+v+tfz4+f2tg+hzQPADzWYV+HVx1hEFS7CNDLjKhv5x4wAhb0o2amKjmlT+ECzteJT+IAuwK7rrNCTTodxrjTUR2sb/LmW9QmpnYgI796qgB6U1BVy9CLd3HOttClSo00e5SjLC0bQigroWn27GNV2R0fJenKR4ru57r09fWIAX5ya+f+nmXKoB7Tt2CK32kDukfiREt/VjHGtlej1hJy+NVMbbZS43wo4O+BSWliR794jlgf2xyyp64YCfaHgP8gZesZHQd7/sTEW+Nn65j0I9+OI1boSy0TlVYtdGzAJ/cmB6MbgbnsjNShj/ShS6D9NlzmX788H2k4K0AYVbnunzNAwU0q52m0cPFIHZimEi1cpXIOo5zMOsSMyaN8S4G6LMzTg33MmBeyCNDArRiSTkaGyalW+p0CNCVhpozSieqKrWXKpWdq3AxAYYQ0zcDidbU+VGTU/pLBRXzaY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV5PR12MB9779.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cI3k8ANq0elifIG9dvGz395MKwtELDtW9rxBJb5lxk5qB7+IRC16BbmTbygo?=
- =?us-ascii?Q?tF0aqs2DAQK4zl83Ze4RKy5U2W+8bkFNiOghQSCFEHr5EvpHGkbuieXNaKnu?=
- =?us-ascii?Q?iXpBNdXRAI0M8oeGbUC6rJAUmzSlOW875HW6hm9342WuC++TkPhwhmqdUHzQ?=
- =?us-ascii?Q?DZxbfO6vRX7ymxI+v6p5DNNgW1v0AZyLFkLsIFqxzPYtCR0NaZxtIs7PvhEY?=
- =?us-ascii?Q?scC+ONEoKpfxg2e0WHMs2CbkJ/RPNxAvI0Vgyyf3+3UXuLP6M3CTAjgqcOUQ?=
- =?us-ascii?Q?yc8JYMV4njA7qYOvJ47xB6Mhdgr+ekYKwn3nJQCvfZ4blWpFtFGWY00YGF3A?=
- =?us-ascii?Q?KxahapMnRJM0tBV/u0QDkyi8q8JJXw26FfeD4P0CV4RQ0+HLxA7ylf/GHXoR?=
- =?us-ascii?Q?kiSKiXiJdwHnSOZGuCwasE8nanbasakeTaZXTBTrys2vVm3IGLzPyp4UVNkX?=
- =?us-ascii?Q?hLIEmU9gjwfwcKZ1LVfTYUu0ic2skIia4eR7Y2KzISbIX4yjFO64hoov6ZsU?=
- =?us-ascii?Q?t9DImbaJbRsxs5oPD/tfSYmTpTbgdvYycsF0+Dwar9awSB5bNXlieBhSIH/2?=
- =?us-ascii?Q?cFqUvx/fYehOA/a6MoU7mDfavS44YUEMVyL+7HZHlB1Ff3yo+R+NsE5As91H?=
- =?us-ascii?Q?Qnaw2G95rfzP+pOMUZPU8wWhoczgfLMUKz0wJtU/MqL9+Locu7boiykgLfmB?=
- =?us-ascii?Q?Yo9raqkc95mNK1fo4z5oNk6934YRuoNWQy1xlNLPvm/pVKK7y7L3yryz7oaa?=
- =?us-ascii?Q?s0rGUmxVm0xoVbYLIXTYfxNDg0MJxIcmLthNJUCsmTlYSHr9rQoMd4Si1cSn?=
- =?us-ascii?Q?QYtGOvuoSrD5kWrt46YG575n8Mk0No9aV1A5UpDZ1ToPB1j+XPVlNtv4u+gm?=
- =?us-ascii?Q?sgzADMN5ygqlQ8FaV8kRvTYCEr8MO/8ErMIGBSdNapVDTSSCEFYbYLOQhltJ?=
- =?us-ascii?Q?66bk4pQgMU+TQcE/OnAUO0IdVfEgdkQ5aPRwJ9qG5D3QefPyROZjcgDFRfHW?=
- =?us-ascii?Q?5/5Ri4BH4Qysuie0KZCgqdTbKWEt34bkTA2DTUIa2vq0azM0pshflCLBb9SQ?=
- =?us-ascii?Q?SsEKoxjS3KVnSY6G+no65jyoD/Xo7fHdKMp0MSeWYIoqGde2qdrKi7be4exx?=
- =?us-ascii?Q?EGABXvD0yJHkVap4E5tiC47c3QzH8mwyzQmCFoiSRgR8F896dpUJL9avUXhF?=
- =?us-ascii?Q?iMNQVSYRbNCUZNhbbndOfyDZMg/3GPCYU8wgkD0hVhMeGuyzJWKeKiKXGTI6?=
- =?us-ascii?Q?WSlfLHPT45mkv7m+Uyrrb5LAH1JwFnCuADWgm3wWLR+MGMnie1XZpWW4A5+7?=
- =?us-ascii?Q?uKoUu52gU8WGAMQUwV6KDTvVTIsc9pgASD6u7CKGtQ2fczSOHkBegMzXi+/B?=
- =?us-ascii?Q?fl58Tc/lyj0iy48uMXchBOWOYruPwVGPxPh+lMjeyJjvUkPnsUE2d7eDWNdm?=
- =?us-ascii?Q?XlYYguMoL4/8ktdSUwIqEooYlFqrj3tnoN/XO/XzcQffAWinUnDCz8YdlirM?=
- =?us-ascii?Q?dzoIlcbmAHLUIttKGwbZXUucVdX6bJR3MlqA4j7IruXTRhj3FII2QW68a75v?=
- =?us-ascii?Q?jTJxAlKNgR+9FenZGcYNKY6WesRQb0yV/IQs/G6knohaU73pyCEYFol61fuZ?=
- =?us-ascii?Q?B7Gx1Efly+dGtE5MV0znf/ZXwitB5tEP5WaolkggK7xMMO+hz673vTh3+vtd?=
- =?us-ascii?Q?52w1wfm6YjTa3ULN+cC1RqdSh7+vIKNGn45dasT79AvPJtyDj1lukfYjG5Uz?=
- =?us-ascii?Q?05HN5Ck4EA=3D=3D?=
-X-OriginatorOrg: wesion.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f2d68545-d2fb-453b-9452-08dea5b9e7e7
-X-MS-Exchange-CrossTenant-AuthSource: JH0PR03MB8617.apcprd03.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?U2ZpWmMwRnIzeWdEQldoL2ZNRnBhZThVZmhUK0xmRlFFQ1RiYndlZFA0SG50?=
+ =?utf-8?B?dUxBYXB0QlovejRHTzAwUC9tV01XdEY4amdPcXZiS2xtTW14VkRDTlk2VjlZ?=
+ =?utf-8?B?VjNnWjJjT2lmT0JwR2pkM21OeThyZ2c2S3QwS05nQkZ5cWdncElYNFdFUFF4?=
+ =?utf-8?B?MWMzSjZOVUp2WGZGRW9pM2JYNnhRa3BtSTVHKzY3WFFNYjJjVnRZbEFXOHFL?=
+ =?utf-8?B?K1J6VlF5WEk5SEZNZUV5dWxRRDhUaTloSDdYbTR0WFlocDZNL1dkWFF1dnZy?=
+ =?utf-8?B?bUZ2Q1pSVTZlQjV2elFaNS95bitlaGZBWnR0NnQrekVxb0xwZGk1U2k5dnNw?=
+ =?utf-8?B?WkZOd01sZTRwZTlUOHEwaWVoekY2d1B1dU44My9NSVNFUk1QVHkvNVpKMTdR?=
+ =?utf-8?B?dGd1cHozTVM4bHd3a0lSV2thUjhjQ1NaUjIvSktFUDdOVVhqZGF5R0pRVWlW?=
+ =?utf-8?B?L2RGNzA3S0padUoxeWtVdzRHNm9HYmtUQkVHNUw3L3FOb3VycVA0ZWFaOTF5?=
+ =?utf-8?B?VS9hTkdnOFB0eFFjckpGMmF5QWQ5eHpJVmdBN1BUV2dtR3hnSy9taGJpRkor?=
+ =?utf-8?B?eHFaRjY5RlBxTW5oVkVwQmpYa1Q3OWpPUGJRM3B6WVFRQ29Wa2VyL1JjdlNt?=
+ =?utf-8?B?Z1ErY1ZQdVl4R0JNMXlJNGQyVmcyd0NNRkdTZEJMMmk2Zi9xdkJBRjRvanR3?=
+ =?utf-8?B?WU9qWVhvRmRQUUVrZWc2TkVuR0tNQWhHRUtWNzlOUzUxUktsQml1aEl4bDRS?=
+ =?utf-8?B?aWNPTEtpcFpLeFhNSGd6MWM4VWdCUjdYd3dBenZPWDlvRFVvaWRpbi9pSkdt?=
+ =?utf-8?B?UTYvdnRBNytNcFpjN2Y1a0Zsai9Sd2p1ckdmb0JiQUJxbHVsbGUwZHJjanUr?=
+ =?utf-8?B?NVY5cjFUUStXRlFuMjhmbmY0dG9HYUw4bXJzRnRRSWhJdFkvWTJmRXVOS2I0?=
+ =?utf-8?B?OWYrMHF0VWQ3RWkxTnJXdlRkbUduUnRVd3R5WTJLNnNyUU1wZnZ6T2lEMERn?=
+ =?utf-8?B?WXFwbUcyVUc1eFo0SkJjQnhRTXAyQlVvK3duV2dqWm5RRmE2d3JiN1NTTGw0?=
+ =?utf-8?B?Smkrd3h5a3lmUm4vYVlxVlpaUjN5b0gwTUxyK3A0bCtkK1J0N2I1TVhkdmdM?=
+ =?utf-8?B?R1plOWFwZlRoRi81UDUydmRDZUtVOW1WdFRjNDhUd2xGeXRza2xlZzdoOUpZ?=
+ =?utf-8?B?akgzSmFRZHYxZ3M2RHVtN2hDcjB6cWp1VWtNUkhsaDVBUGpLSnVYVGI0OU9a?=
+ =?utf-8?B?T0gxNzBpVU5xUEw5dmIzN1BBait2T242cXkrSVEwK3NCT2FDZWQ1U2E4V0dk?=
+ =?utf-8?B?WU1vSEI0WjRWWEpRNXVBSlAwR3dxZnp4RTExalV3YkJ1eGxxS1V0WUJieFJm?=
+ =?utf-8?B?cGphWmplUXVJVTZsMWxMNTh5dGZST1hRRFNEeWt6VnlMUXRYN0xCank3Nkdl?=
+ =?utf-8?B?YzYrb2szcCtHN1pEaXJJMEtzakNmYmhXVnpCN3hWeFhLMkRhMWxnNUhqcmUy?=
+ =?utf-8?B?K1puV0pTVGJpWVgyblhZUWRPN3R1ZkUzTUlqaUdyb21jQ3NOZU9qUmtQdzRv?=
+ =?utf-8?B?V2R1YUVvaUZPZ3R4ejFONndiYU1iNTNvdUIzOHEzY1ZLZWR2SFE4cmtLMmVS?=
+ =?utf-8?B?N0lwTE0xVWdJdHJFZXlSRUZhRWxnbkJ4a3ZkeG1qVlNKT0wwOFVBUXFhbkpX?=
+ =?utf-8?B?OWRyalpnbkQ4Rm44SjFMdHhkbmZkYVgxajZoNHRkQjM3Z0FMNGU4R3NvR1F5?=
+ =?utf-8?B?ejFsMHI5bzdDLytBQ3dDbkM2QVlXYmJBN005a3RjU3h3OG1YME85NnhlTGRu?=
+ =?utf-8?B?UWh3ZVhYdUJPaUhxNTZiZjhKZFZBK1BWS2xwemNEQ1FnRkZYRGVrYUcxSkZl?=
+ =?utf-8?B?VDMrQ0hXemV0K3hYS21vRFhzWmx4Rk9Rd05TOTZ5MEhSZmMxaGxaNThWTlZu?=
+ =?utf-8?B?ZFJ0d2p2K0lTdkZtWjhQRDNoWW0zZ3diR2hVWENIVXNIaU03OURFWUNObXdZ?=
+ =?utf-8?B?aDlVYjFxaUdaTlFzRHpydG1UY1hWcWFmSURPekJUb2tDTWhQMVpBQWpyVGsr?=
+ =?utf-8?B?ejBiR3lQdHZFY2xmeWozOUNQTlM3ZHlaRmZncFM5dWx3SWFUZzBHUW9XeS96?=
+ =?utf-8?B?aWUwNHg2dFd0bDZ3QU8vWXQ0cVF5OVpzWmxHRnROWHVDeHRoT0d4aWJQakhJ?=
+ =?utf-8?B?d2ZZR3pXQWNGeUhXQktlbXhHVkNCcUdNN28rREhwM1hHZnBJYWdWd3hwYU9w?=
+ =?utf-8?B?YWdBOXZvQUwvTFhKaVpFZGY1KzFHSWNyZUJ6eFpNdVRZNFV5WUlGVFhQYkpF?=
+ =?utf-8?B?V3dTWnBhQjZNeXJMWEVXN3pUTkpIb2RhVE9HL09WTkxmS1R2bGtlQT09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 30813fdf-76a6-4774-5627-08dea5ba65de
+X-MS-Exchange-CrossTenant-AuthSource: LV5PR12MB9779.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Apr 2026 06:38:21.4927
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Apr 2026 06:41:52.7435
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 2dc3bd76-7ac2-4780-a5b7-6c6cc6b5af9b
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: SujmExwr+JkI2/bwAw7w/76Q6gRMOzTsA4JOtKNEqJn1ljKseo5GtqWdwy2fxVY5YCFUfEzwZKcIwi0p2ojHkw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR03MB6468
+X-MS-Exchange-CrossTenant-UserPrincipalName: Y5E1vK0hoQKpHqPPeQk7NWvmG3kH8wQRLEBjnbenQlAR6ejb/XkOmiqCj5v9hYzY
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB6967
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_233830_808044_C508F4F1 
-X-CRM114-Status: UNSURE (   8.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260428_234159_929509_6BE39047 
+X-CRM114-Status: GOOD (  29.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,99 +190,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Khadas Edge 2L board provides one USB 3.0 Host port and one
-USB 2.0 port (connected via an internal hub). Enable the
-corresponding DWC3 controllers and PHYs.
 
-Signed-off-by: Gray Huang <gray.huang@wesion.com>
----
- .../dts/rockchip/rk3576-khadas-edge-2l.dts    | 47 +++++++++++++++++++
- 1 file changed, 47 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576-khadas-edge-2l.dts b/arch/arm64/boot/dts/rockchip/rk3576-khadas-edge-2l.dts
-index c85285b3dc6e..84ac8ffdaa32 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576-khadas-edge-2l.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3576-khadas-edge-2l.dts
-@@ -30,6 +30,29 @@ hdmi_con_in: endpoint {
- 		};
- 	};
- 
-+	vcc5v0_device: regulator-vcc5v0-device {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc5v0_device";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+	};
-+
-+	vcc5v0_host: regulator-vcc5v0-host {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc5v0_host";
-+		regulator-boot-on;
-+		regulator-always-on;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		enable-active-high;
-+		gpio = <&gpio2 RK_PD3 GPIO_ACTIVE_HIGH>;
-+		vin-supply = <&vcc5v0_device>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&usb_host_pwren>;
-+	};
-+
- 	vcc_sys: regulator-vcc5v0-sys {
- 		compatible = "regulator-fixed";
- 		regulator-name = "vcc_sys";
-@@ -78,6 +101,10 @@ &combphy0_ps {
- 	status = "okay";
- };
- 
-+&combphy1_psu {
-+	status = "okay";
-+};
-+
- &cpu_b0 {
- 	cpu-supply = <&vdd_cpu_big_s0>;
- };
-@@ -531,6 +558,12 @@ pcie0_rst: pcie0-rst {
- 		};
- 	};
- 
-+	usb {
-+		usb_host_pwren: usb-host-pwren {
-+			rockchip,pins = <2 RK_PD3 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
- 	wifi {
- 		wifi_reg_on: wifi-reg-on {
- 			rockchip,pins = <4 RK_PA2 RK_FUNC_GPIO &pcfg_pull_up>;
-@@ -552,10 +585,24 @@ &sdhci {
- 	status = "okay";
- };
- 
-+&u2phy1 {
-+	status = "okay";
-+};
-+
-+&u2phy1_otg {
-+	phy-supply = <&vcc5v0_host>;
-+	status = "okay";
-+};
-+
- &uart0 {
- 	status = "okay";
- };
- 
-+&usb_drd1_dwc3 {
-+	dr_mode = "host";
-+	status = "okay";
-+};
-+
- &vop {
- 	status = "okay";
- };
--- 
-2.34.1
+On 4/29/26 00:18, Tanmay Shah wrote:
+> The remote state is set to RPROC_DETACHED if the resource table is found
+> in the memory. However, this can be wrong if the remote is not started,
+> but firmware is still loaded in the memory. Use PM_GET_NODE_STATUS call
+> to the firmware to request the state of the RPU node. If the RPU is
+> actually out of reset and running, only then move the remote state to
+> RPROC_DETACHED, otherwise keep the remote state to RPROC_OFFLINE.
+> 
+> Fixes: bca4b02ef92e ("remoteproc: xlnx: Add attach detach support")
+> Signed-off-by: Tanmay Shah <tanmay.shah@amd.com>
+> ---
+> 
+> Changes in v3:
+>    - add fixes tag
+> 
+> Changes in v2:
+>    - fix subject line: %s/node/core/
+>    - add comment explaining optional resource table availability in the
+> 
+>   drivers/firmware/xilinx/zynqmp.c        | 28 +++++++++++++++
+>   drivers/remoteproc/xlnx_r5_remoteproc.c | 46 +++++++++++++++++++------
+>   include/linux/firmware/xlnx-zynqmp.h    | 21 +++++++++++
+>   3 files changed, 85 insertions(+), 10 deletions(-)
+> 
+> diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/zynqmp.c
+> index fbe8510f4927..af838b2dc327 100644
+> --- a/drivers/firmware/xilinx/zynqmp.c
+> +++ b/drivers/firmware/xilinx/zynqmp.c
+> @@ -1450,6 +1450,34 @@ int zynqmp_pm_get_node_status(const u32 node, u32 *const status,
+>   }
+>   EXPORT_SYMBOL_GPL(zynqmp_pm_get_node_status);
+>   
+> +/**
+> + * zynqmp_pm_get_rpu_node_status - PM call to request a RPU node's current power state
+> + * @node:		ID of the RPU component or sub-system in question
+> + * @status:		Current operating state of the requested RPU node.
+> + * @requirements:	Current requirements asserted on the RPU node.
+> + * @usage:		Usage information, used for RPU slave nodes only:
+> + *			PM_USAGE_NO_MASTER	- No master is currently using
+> + *						  the node
+> + *			PM_USAGE_CURRENT_MASTER	- Only requesting master is
+> + *						  currently using the node
+> + *			PM_USAGE_OTHER_MASTER	- Only other masters are
+> + *						  currently using the node
+> + *			PM_USAGE_BOTH_MASTERS	- Both the current and at least
+> + *						  one other master is currently
+> + *						  using the node
+> + *
+> + * Return:		Returns status, either success or error+reason
+> + */
+> +int zynqmp_pm_get_rpu_node_status(const u32 node, u32 *const status,
+> +				  u32 *const requirements, u32 *const usage)
+> +{
+> +	if (zynqmp_pm_feature(PM_GET_NODE_STATUS) < PM_API_VERSION_2)
+> +		return -EOPNOTSUPP;
+> +
+> +	return zynqmp_pm_get_node_status(node, status, requirements, usage);
+> +}
+> +EXPORT_SYMBOL_GPL(zynqmp_pm_get_rpu_node_status);
+> +
+>   /**
+>    * zynqmp_pm_force_pwrdwn - PM call to request for another PU or subsystem to
+>    *             be powered down forcefully
+> diff --git a/drivers/remoteproc/xlnx_r5_remoteproc.c b/drivers/remoteproc/xlnx_r5_remoteproc.c
+> index 50a9974f3202..45a62cb98072 100644
+> --- a/drivers/remoteproc/xlnx_r5_remoteproc.c
+> +++ b/drivers/remoteproc/xlnx_r5_remoteproc.c
+> @@ -948,16 +948,6 @@ static struct zynqmp_r5_core *zynqmp_r5_add_rproc_core(struct device *cdev)
+>   		goto free_rproc;
+>   	}
+>   
+> -	/*
+> -	 * If firmware is already available in the memory then move rproc state
+> -	 * to DETACHED. Firmware can be preloaded via debugger or by any other
+> -	 * agent (processors) in the system.
+> -	 * If firmware isn't available in the memory and resource table isn't
+> -	 * found, then rproc state remains OFFLINE.
+> -	 */
+> -	if (!zynqmp_r5_get_rsc_table_va(r5_core))
+> -		r5_rproc->state = RPROC_DETACHED;
+> -
+>   	r5_core->rproc = r5_rproc;
+>   	return r5_core;
+>   
+> @@ -1210,6 +1200,7 @@ static int zynqmp_r5_core_init(struct zynqmp_r5_cluster *cluster,
+>   {
+>   	struct device *dev = cluster->dev;
+>   	struct zynqmp_r5_core *r5_core;
+> +	u32 req, usage, status;
+>   	int ret = -EINVAL, i;
+>   
+>   	r5_core = cluster->r5_cores[0];
+> @@ -1255,6 +1246,41 @@ static int zynqmp_r5_core_init(struct zynqmp_r5_cluster *cluster,
+>   		ret = zynqmp_r5_get_sram_banks(r5_core);
+>   		if (ret)
+>   			return ret;
+> +
+> +		/*
+> +		 * It is possible that firmware is loaded into the memory, but
+> +		 * RPU (remote) is not running. In such case, RPU state will be
+> +		 * moved to RPROC_DETACHED wrongfully. To avoid it first make
+> +		 * sure RPU is power-on and out of reset before parsing for the
+> +		 * resource table.
+> +		 */
+> +		ret = zynqmp_pm_get_rpu_node_status(r5_core->pm_domain_id,
+> +						    &status, &req, &usage);
+> +		if (ret) {
+> +			dev_warn(r5_core->dev,
+> +				 "failed to get rpu node status, err %d\n", ret);
+> +			continue;
+> +		}
+> +
+> +		/*
+> +		 * If RPU state is power on and out of reset i.e. running, then
+> +		 * assign RPROC_DETACHED state. If the RPU is not out of reset
+> +		 * then do not attempt to attach to the remote processor.
+> +		 */
+> +		if (status == PM_NODE_RUNNING) {
+> +			/*
+> +			 * Not all the firmware that is running on the remote
+> +			 * core is expected to have the resource table. The
+> +			 * firmware might not use RPMsg at all, and in that case
+> +			 * resource table becomes irrelevant. However, we still
+> +			 * need to make sure that running core is not reported
+> +			 * as offline. so do not decide remote core state based
+> +			 * on the resource table availability
+> +			 */
+> +			if (zynqmp_r5_get_rsc_table_va(r5_core))
+> +				dev_dbg(r5_core->dev, "rsc tbl not found\n");
+> +			r5_core->rproc->state = RPROC_DETACHED;
+> +		}
+>   	}
+>   
+>   	return 0;
+> diff --git a/include/linux/firmware/xlnx-zynqmp.h b/include/linux/firmware/xlnx-zynqmp.h
+> index d70dcd462b44..7e27b0f7bf7e 100644
+> --- a/include/linux/firmware/xlnx-zynqmp.h
+> +++ b/include/linux/firmware/xlnx-zynqmp.h
+> @@ -542,6 +542,18 @@ enum pm_gem_config_type {
+>   	GEM_CONFIG_FIXED = 2,
+>   };
+>   
+> +/**
+> + * enum pm_node_status - Device node status provided by xilpm fw
+> + * @PM_NODE_UNUSED: Device is not used
+> + * @PM_NODE_RUNNING: Device is power-on and out of reset
+> + * @PM_NODE_HALT: Device is power-on but in the reset state
+> + */
+> +enum pm_node_status {
+> +	PM_NODE_UNUSED = 0,
+> +	PM_NODE_RUNNING = 1,
+> +	PM_NODE_HALT = 12,
+> +};
+> +
+>   /**
+>    * struct zynqmp_pm_query_data - PM query data
+>    * @qid:	query ID
+> @@ -630,6 +642,8 @@ int zynqmp_pm_set_rpu_mode(u32 node_id, enum rpu_oper_mode rpu_mode);
+>   int zynqmp_pm_set_tcm_config(u32 node_id, enum rpu_tcm_comb tcm_mode);
+>   int zynqmp_pm_get_node_status(const u32 node, u32 *const status,
+>   			      u32 *const requirements, u32 *const usage);
+> +int zynqmp_pm_get_rpu_node_status(const u32 node, u32 *const status,
+> +				  u32 *const requirements, u32 *const usage);
+>   int zynqmp_pm_set_sd_config(u32 node, enum pm_sd_config_type config, u32 value);
+>   int zynqmp_pm_set_gem_config(u32 node, enum pm_gem_config_type config,
+>   			     u32 value);
+> @@ -939,6 +953,13 @@ static inline int zynqmp_pm_get_node_status(const u32 node, u32 *const status,
+>   	return -ENODEV;
+>   }
+>   
+> +static inline int zynqmp_pm_get_rpu_node_status(const u32 node, u32 *const status,
+> +						u32 *const requirements,
+> +						u32 *const usage)
+> +{
+> +	return -ENODEV;
+> +}
+> +
+>   static inline int zynqmp_pm_set_sd_config(u32 node,
+>   					  enum pm_sd_config_type config,
+>   					  u32 value)
+> 
+> base-commit: fcdf2df56d34a3f04cab0725c5bc3abdaa73c2be
 
+Acked-by: Michal Simek <michal.simek@amd.com>
+
+Thanks,
+Michal
 
