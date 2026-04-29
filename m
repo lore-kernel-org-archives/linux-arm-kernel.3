@@ -4,57 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0050BFF8867
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 03:47:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54287FF8864
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 03:47:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
 	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AO19yXsn37qBgG5Tsrn/S/WN0SBnx/bhiec2Iy+vZTg=; b=SStdls7rgowc84OqaxIMGSnapW
-	loFhYQJp/RoTTe2mYwQfknQmpMGXtXQrSdfGNdqwRtgLfCAFERsm8ON5K6OQjoVDeqDMNgmzgEg0E
-	j81mVXjl6qXXOOgdZxeEe+xW03juBREbLSF4iqHl5OxpLd5cM/ShQ2qHDEO4kjAJXD9Ihjyn1TAaS
-	nlmUVSiuPexcZ5Glnobf3L2nYaVwgsurOE6S0uYbQBmOCubYsE1ToTK1LdRTcb9uC6I89w49zj/+7
-	RYtbEW8UtxqrQyjSAduac+UXmAUjdLtuA7WkDHXuH8HCpxskp083DGMvvm0v9sqBGsVBnvUW2WpwC
-	DBCEwXZQ==;
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7XPWXgF9Zk1Aw83vTfm10JB9TXEL3/AhiMRwRXofkSY=; b=uiVZbE+52Xf1hUZy0kLBw9qKpW
+	2IxvYkmeeb0bun7W8K1SfN6PadLhxWwlILWfQYAUDbRL6pIDSSOk3c6RAIEIbxwsfTaLtL4IxX9Uw
+	mX3hPD7oDu1l8cnTz4M3eBdu6XHS2yES7UDcoTk9AWJA8WHF31doZVVfmY8MJal+hmEiXtgstIjxA
+	huWuhDrmRRMjv8Pnt60eJhjqjsdT+I+LaKc4Q8Qwtmpghpo1HEia6eEGkIE+V33QLtTUPlh7P5P7L
+	2g0EM+wSRnvLrMfj1bPMIwxnkRiJ1wfAZnFY+GJpqQ3+vU/vP95VAfTnjPt8VEe7PHL4dqTv0b2Gy
+	u7LTUACw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHvtA-00000002rpy-3QXY;
-	Wed, 29 Apr 2026 03:47:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wHvtM-00000002s1F-1WXn;
+	Wed, 29 Apr 2026 03:47:16 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHvt7-00000002rnh-0lcH;
-	Wed, 29 Apr 2026 03:47:02 +0000
+	id 1wHvtD-00000002rsx-0P9c
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 29 Apr 2026 03:47:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D7B9F40682;
-	Wed, 29 Apr 2026 03:47:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF12EC19425;
-	Wed, 29 Apr 2026 03:47:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B43F642CC1;
+	Wed, 29 Apr 2026 03:47:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AFA7C2BCB4;
+	Wed, 29 Apr 2026 03:47:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777434420;
-	bh=AO19yXsn37qBgG5Tsrn/S/WN0SBnx/bhiec2Iy+vZTg=;
-	h=In-Reply-To:References:Subject:From:To:Date:From;
-	b=Fwx5xoFb8vRtgQI1/v3ubSpVpkUkR6bcJVqa/IB1Nnwht+zlh6Vk4Y1hJFXvND/wv
-	 V0C+wy7l7YBAZzh8lZrPwvd/LpbECP8hMffMBSOLc6IlXrQ/Y9Rl/69UxGo+FRIFHU
-	 zCOopn80cBuV5FfPQhZlVNToahcyy7SffVhaDbIYfn49HxT0spn/P/VtYsNw9kNg9a
-	 Akl4tbOCe/GHmIH4M8dTj7OXWOtMd5LV60vrW61k2vJLegWu31C8+G9MJY2EJLU0IH
-	 CnlyVD6urCfP/HqBTVj5J7mWuQjCcdst2ICCf+Em88H09Txs4qCYv91Conh0hCwA4P
-	 0lIQ/MAwdGG+g==
+	s=k20201202; t=1777434426;
+	bh=7XPWXgF9Zk1Aw83vTfm10JB9TXEL3/AhiMRwRXofkSY=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=iU73x+VoSqUZjW7ECVa5JA0Sjo4132s07dPLGTyFypUx+PiToZfA2NQBakYkF892g
+	 POm5NhdGU5exuYYC30Oodgz1s2a3QctuAQufEKJR+XjxD+mjfHbqbey+FMikdgGRli
+	 tJm4ZDgorSpCJev5+qgKmo7SgsZk+wk92NLsgp3CS7ESteuKMApnYENizWRXFhhftF
+	 OgBusILmXDpbbG2XdFaJ+88uKptAcEO5EvCnxuL3xWPaKYincd25pDrdq/sWP5HLKt
+	 99xLPswURPt3YuJrLiIuW9+4/QTnXXIoalV3taj+0K7h7VCACXOUV+j1Cu1IhR1XA2
+	 PsMDkYY2w7bFQ==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <d1a9b393d9929dc670dc6d5bfcc5cd43561d0be4.1774499536.git.daniel@makrotopia.org>
-References: <cover.1774499536.git.daniel@makrotopia.org> <d1a9b393d9929dc670dc6d5bfcc5cd43561d0be4.1774499536.git.daniel@makrotopia.org>
-Subject: Re: [PATCH v2 3/3] clk: mediatek: mt7988: use MUX_CLR_SET for gate-less muxes
+In-Reply-To: <20260414-pxa1908-clk-reset-v1-3-94bae5f3a8cf@dujemihanovic.xyz>
+References: <20260414-pxa1908-clk-reset-v1-0-94bae5f3a8cf@dujemihanovic.xyz> <20260414-pxa1908-clk-reset-v1-3-94bae5f3a8cf@dujemihanovic.xyz>
+Subject: Re: [PATCH 3/4] clk: mmp: pxa1908-apbcp: Add reset cells
 From: Stephen Boyd <sboyd@kernel.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Chen-Yu Tsai <wenst@chromium.org>, Chun-Jie Chen <chun-jie.chen@mediatek.com>, Daniel Golle <daniel@makrotopia.org>, Ikjoon Jang <ikjn@chromium.org>, Laura Nao <laura.nao@collabora.com>, Matthias Brugger <matthias.bgg@gmail.com>, Michael Turquette <mturquette@baylibre.com>, =?utf-8?q?N=C3=ADcolas?= F. R. A. Prado <nfraprado@collabora.com>, Sam Shih <sam.shih@mediatek.com>, Weiyi Lu <weiyi.lu@mediatek.com>, linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org
-Date: Tue, 28 Apr 2026 19:06:09 -0700
-Message-ID: <177742836924.5403.8826035930365293683@localhost.localdomain>
+Cc: Karel Balej <balejk@matfyz.cz>, linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, phone-devel@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht, Duje =?utf-8?q?Mihanovi=C4=87?= <duje@dujemihanovic.xyz>
+To: Conor Dooley <conor+dt@kernel.org>, Duje =?utf-8?q?Mihanovi=C4=87?= <dujemihanovic32@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>
+Date: Tue, 28 Apr 2026 19:08:30 -0700
+Message-ID: <177742851052.5403.11325429550235456238@localhost.localdomain>
 User-Agent: alot/0.12
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_204701_249726_51A86A08 
-X-CRM114-Status: GOOD (  10.40  )
+X-CRM114-CacheID: sfid-20260428_204707_168080_E8ADB985 
+X-CRM114-Status: UNSURE (   8.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,33 +72,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Daniel Golle (2026-03-25 22:11:12)
-> All 19 muxes in the infra_muxes[] array are pure mux selectors without
-> a clock gate or update register, yet they were defined using
-> MUX_GATE_CLR_SET_UPD with gate_shift =3D -1.
+Quoting Duje Mihanovi=C4=87 (2026-04-14 12:51:52)
+> From: Duje Mihanovi=C4=87 <duje@dujemihanovic.xyz>
 >=20
-> This macro assigns mtk_mux_gate_clr_set_upd_ops, whose
-> enable/disable/is_enabled callbacks perform BIT(gate_shift). Since
-> gate_shift is stored as u8, the -1 truncates to 255, causing a
-> shift-out-of-bounds at runtime:
+> It has been concluded by comparing the gate clock masks and vendor code
+> between PXA1908/28 that PXA1908's APBCP, similarly to PXA1928's APBC,
+> has controllable reset lines. Describe these in the driver for
+> correctness.
 >=20
-> UBSAN: shift-out-of-bounds in drivers/clk/mediatek/clk-mux.c:76:8
-> shift exponent 255 is too large for 64-bit type 'long unsigned int'
->=20
-> UBSAN: shift-out-of-bounds in drivers/clk/mediatek/clk-mux.c:102:4
-> shift exponent 255 is too large for 64-bit type 'long unsigned int'
->=20
-> UBSAN: shift-out-of-bounds in drivers/clk/mediatek/clk-mux.c:122:16
-> shift exponent 255 is too large for 64-bit type 'long unsigned int'
->=20
-> Switch these definitions to MUX_CLR_SET, which uses
-> mtk_mux_clr_set_upd_ops (no gate callbacks) and does not require
-> callers to pass sentinel values for unused update register fields.
-> The actual clock gating for these peripherals is handled by the
-> separate GATE_INFRA* definitions further down.
->=20
-> Fixes: 4b4719437d85f ("clk: mediatek: add drivers for MT7988 SoC")
-> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+> Signed-off-by: Duje Mihanovi=C4=87 <duje@dujemihanovic.xyz>
 > ---
 
 Applied to clk-next
