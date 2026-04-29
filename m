@@ -4,56 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 538B8FF887E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 17:57:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EB32CD13D2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 17:57:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=0Vum2Qfx5+SoYzasekNBMQ+YiKVnGlZJ3ij44o9Xlgc=; b=ulzu2K/LC4oE94
-	1gYpXPYQm6rh4kzuaw2cyJx1NLGD7vAwVC5yaOWCYWDkyNfH0k95PRJ8suMMAMdHyydOezilZBurY
-	z91L+LDuZu13dwaRF6Y0JWNveiEYkokmsifuGUonBTJl3gmf4j0k9dViqvC4k4ywzm3PNoX6Ke9Yv
-	oNy2DkmWTYqutwAk5/xGvZGJaFWXO893gqnenV6COeB+TmUQuEBsNIQmJ0FrLncEhVzF7NHp6A6pS
-	YAo69DOa5I2XZdy9oEjvuILptQuFQTTkGB9jcna/d8MZXZG/FJp/W1T89ormr56RDWKxEmyTJQ0/J
-	lh2evNngco5sa+PEVRjA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pRtlUGFfk1AjNaQYKbHs4RmZNZ5DHT9f7bq1vbOMB34=; b=JaQmgoO93qlaCBgMWBDZyQ+pVY
+	VuN7P8T4d1fhpd4UdI5gR2xihhTjokbX/xqEcjz0B/AB6mueX6zI9CNacL3nM4fLt2p2WBMBcVrCd
+	Ax3aaH6V8rfuID/O5te9KHZ+7c3ZWg89gF0hW1+7pCadVW4ru4QKrM200/X4/qcBTKRxo5fAE5j5b
+	MzarvqSP8EuPiqmBkwztA+8gQHX5lZhXeJm1atqkg4ROzSAaBR/8t9UW6n87HCDQd+ybevbpJhxH5
+	QaizfP58fLA9I6oRbOCcc+lNatU1HEjrLr2easeluoOd60pnhAiGmNnmjPfGYngLOUZwY4jQY9/El
+	lWhORhpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI9AN-000000040Lj-39pt;
-	Wed, 29 Apr 2026 17:57:43 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1wI9AT-000000040O4-0xCN;
+	Wed, 29 Apr 2026 17:57:49 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI9AK-000000040Ka-0GSn;
-	Wed, 29 Apr 2026 17:57:42 +0000
+	id 1wI9AQ-000000040M8-1IXZ;
+	Wed, 29 Apr 2026 17:57:47 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 78636C5CD5D;
-	Wed, 29 Apr 2026 17:58:19 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id CF4001A33F4;
+	Wed, 29 Apr 2026 17:57:43 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 1FD8C5FD43;
-	Wed, 29 Apr 2026 17:57:35 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 430B71072B158;
-	Wed, 29 Apr 2026 19:57:20 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id A25475FD43;
+	Wed, 29 Apr 2026 17:57:43 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 811921072B16D;
+	Wed, 29 Apr 2026 19:57:37 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1777485452; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding; bh=0Vum2Qfx5+SoYzasekNBMQ+YiKVnGlZJ3ij44o9Xlgc=;
-	b=Wg4UW4g2WGpQe+FXph6tsBHWFD0BECvRL8NLGhZLbAiM0dLXtALl0yBqIrD+0Lawp02qRd
-	L/DUtmJwUhFvT/7i6dVkrYjSR0i2aqxl97NpsmKlJePMUStXMKAKuFLrdElmd6uDrZQMrW
-	DN2MVcdBKW/CmE3V63+VSy0oolOIh9vMJaN/cxw17hZkc97U0ZfuUAPZ4yGanlQWOoatGq
-	qp6FDwvx+tvn2k6kj4NlTu0PZO5c6zF2pim5Qlv9CB37AYmDKTUNUAVKAIQsbmXwa4RuM/
-	89ov9iKbcYD//Z7K/Ck/zA6aLDSk0p904Hc5ZMnNQ2ekegrqYQiQ3Q5SeoRwvw==
+	t=1777485461; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=pRtlUGFfk1AjNaQYKbHs4RmZNZ5DHT9f7bq1vbOMB34=;
+	b=NXWUJIFzygDfQ7zjIeyD37p2jDhewvoKDSntinFms7jvk9dOXJLWtQHw+UkFYO0NhJeIjM
+	STfpzdg2sYIjGY6C7+Fzr4WXsn+KBSuIu5UyfYzZlD/U1c7XLIx37jF1O1AhcTxI21N33E
+	DQmxcpFD41RJYWNdmP5qpl3rNVUo2uPxARHR+n5Z8u599+GT+0ka1catIfl/VshOMoAu0W
+	fsSlRi+NTvVI+VHtDf4qZIFZMj6xPiJCYPTqUPkB2Nns0fWL31gmeq1mdv9+6WcM7lGBeO
+	JbHctYaj9m9K68JL+5ZH58LGrBE1dl+Luq9ZVrU4Z8dxJGq188aCiwAdf5nSSA==
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-Subject: [PATCH v3 00/11] mtd: spinand: Winbond continuous read support
-Date: Wed, 29 Apr 2026 19:56:37 +0200
-Message-Id: <20260429-winbond-v6-18-rc1-cont-read-v3-0-0f38b3c229ad@bootlin.com>
+Date: Wed, 29 Apr 2026 19:56:39 +0200
+Subject: [PATCH v3 02/11] mtd: spinand: Expose spinand_op_is_odtr()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33NSw6CMBSF4a2Qjr2mLy7gyH0YB/ShNNHWtKRqC
- Hu3kDBxwPA/g+9MJNnobCKnaiLRZpdc8CXEoSJ66P3dgjOlCae8ZpxKeDuvgjeQEVgLUTPQwY8
- QbW8AUTYdM0ZxFKQIr2hv7rPql2vpwaUxxO96ltmybm6962YGFChTWrYomG7EWYUwPpw/6vAki
- 5z5piEVHPc1XjSUwtiu6bHt/7R5nn8RUI1yFgEAAA==
-X-Change-ID: 20251204-winbond-v6-18-rc1-cont-read-664791ddb263
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260429-winbond-v6-18-rc1-cont-read-v3-2-0f38b3c229ad@bootlin.com>
+References: <20260429-winbond-v6-18-rc1-cont-read-v3-0-0f38b3c229ad@bootlin.com>
+In-Reply-To: <20260429-winbond-v6-18-rc1-cont-read-v3-0-0f38b3c229ad@bootlin.com>
 To: Mark Brown <broonie@kernel.org>, Richard Weinberger <richard@nod.at>, 
  Vignesh Raghavendra <vigneshr@ti.com>, Michael Walle <mwalle@kernel.org>, 
  Miquel Raynal <miquel.raynal@bootlin.com>, 
@@ -78,8 +76,9 @@ Cc: Pratyush Yadav <pratyush@kernel.org>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_105740_387785_D69C9EF6 
-X-CRM114-Status: GOOD (  22.55  )
+X-CRM114-CacheID: sfid-20260429_105746_491334_9BD60EA8 
+X-CRM114-Status: UNSURE (   8.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,181 +93,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+This helper is going to be needed in a vendor driver, so expose it.
 
-TLDR: I dropped v2 from my tree due to build issues with SPI
-controllers which I forgot about due to my testing configuration being
-minimal. This is just a respin of the same series, fixing the spi
-controller drivers which I initially missed.
-
-SPI NAND continuous read support has already been added a few releases
-ago, but only Macronix chips were benefiting from this support. Winbond
-chips also have a continuous read feature, which is slightly more
-complex to use in the scope of the Linux kernel, because they these
-chips expect a different read from cache operation once in continuous
-mode.
-
-In order to be more flexible, this series changes the logic behind
-dirmaps. Direct mappings used to be very static, not flexible. I am
-proposing to change this and turn them in to slightly more dynamic
-interfaces, where for instance we can:
-- Enable/disable the correction (was previously handled by creating yet
-  another pair of direct mappings per target).
-- Select one or another variant for the cache operations.
-
-I propose to name the variants available in a direct mapping "primary"
-and "secondary", and let the upper layer (SPI NOR or SPI NAND) point to
-the one that needs to be used for the operation. Controller drivers
-should not really care about this change, expect the fact that they
-should not keep a static representation of the template on their
-side. Because of that, I am creating a capability boolean to flag
-drivers that support this capability (the flag is ignored in the
-nodirmap case).
-
-This series is now sent as v2 following a former RFC (link below).
-
-Here is a benchmark with the faster Winbond chip I have, W35N02JW on a
-TI AM62a7 LP SK featuring the Cadence QSPI controller, clocked at
-25MHz. Speed gain for a 10-page read is about +32% in octal SDR mode,
-+47% for a 10-page read in octal DTR mode and up to +83% for a entire
-block read!
-
-    1S-8S-8S, no continuous read:
-
-       64 page read speed is 15058 KiB/s
-
-    1S-8S-8S, with continuous reads:
-
-       1 page read speed is 15058 KiB/s
-       2 page read speed is 15058 KiB/s
-       3 page read speed is 16800 KiB/s
-       4 page read speed is 17066 KiB/s
-       5 page read speed is 18461 KiB/s
-       6 page read speed is 18461 KiB/s
-       7 page read speed is 19384 KiB/s
-       8 page read speed is 19692 KiB/s
-       9 page read speed is 19384 KiB/s
-       10 page read speed is 20000 KiB/s
-       11 page read speed is 20000 KiB/s
-       12 page read speed is 20000 KiB/s
-       13 page read speed is 20800 KiB/s
-       14 page read speed is 20363 KiB/s
-       15 page read speed is 20000 KiB/s
-       16 page read speed is 19692 KiB/s
-       32 page read speed is 19692 KiB/s
-       64 page read speed is 19692 KiB/s
-
-    8D-8D-8D, no continuous read:
-
-       64 page read speed is 23272 KiB/s
-
-    8D-8D-8D, with continuous read:
-
-       1 page read speed is 23272 KiB/s
-       2 page read speed is 23272 KiB/s
-       3 page read speed is 28000 KiB/s
-       4 page read speed is 32000 KiB/s
-       5 page read speed is 34285 KiB/s
-       6 page read speed is 34285 KiB/s
-       7 page read speed is 36000 KiB/s
-       8 page read speed is 36571 KiB/s
-       9 page read speed is 36000 KiB/s
-       10 page read speed is 34285 KiB/s
-       11 page read speed is 36666 KiB/s
-       12 page read speed is 40000 KiB/s
-       13 page read speed is 41600 KiB/s
-       14 page read speed is 37333 KiB/s
-       15 page read speed is 40000 KiB/s
-       16 page read speed is 36571 KiB/s
-       32 page read speed is 42666 KiB/s
-       64 page read speed is 42666 KiB/s
-
-On the Nuvoton platform, the speed gain is real, even though it is less
-impressive:
-
-       1 page read speed is 1802 KiB/s
-       2 page read speed is 1882 KiB/s
-       3 page read speed is 1938 KiB/s
-       4 page read speed is 1939 KiB/s
-       5 page read speed is 1935 KiB/s
-       6 page read speed is 1967 KiB/s
-       7 page read speed is 1968 KiB/s
-       8 page read speed is 1969 KiB/s
-       9 page read speed is 1968 KiB/s
-       10 page read speed is 2000 KiB/s
-       11 page read speed is 2000 KiB/s
-       12 page read speed is 2000 KiB/s
-       13 page read speed is 2000 KiB/s
-       14 page read speed is 2000 KiB/s
-       15 page read speed is 2000 KiB/s
-       16 page read speed is 2000 KiB/s
-       32 page read speed is 2000 KiB/s
-       64 page read speed is 2000 KiB/s
-
-Thanks!
-Miquèl
-
+Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
-Changes in v3:
-- The API change in spi-mem has been applied to all SPI controller drivers
-  (fixing build failures on drivers I was not building in my test
-  config).
-  That is the only change.
-- Link to v2: https://lore.kernel.org/r/20260326-winbond-v6-18-rc1-cont-read-v2-0-643de97a68a3@bootlin.com
+ drivers/mtd/nand/spi/core.c | 2 +-
+ include/linux/mtd/spinand.h | 2 ++
+ 2 files changed, 3 insertions(+), 1 deletion(-)
 
-Changes in v2:
-- Rebased on v7.0-rc1.
-- Collected tags.
-- I manually tested the integrity of the data by manually disabling all
-  possible variants one after the other using a 2 page read scenario. All
-  worked except the fastest 8D-8D-8D variant (the first one in the list)
-  which triggered the CS deassert issue on the Cadence controller. This
-  issue is orthogonal to this patchset, a follow-up series will be sent
-  to disable continuous reads on this controller.
-- All continuous read variants for the W25NxxJW chips have been tested
-  on the MA35D1 platform (which lead to several fixes) and the
-  W35NxxJW chips have been tested on TI AM62a7 LP SK.
-- Several changes have been operated in the core to stabilize the
-  feature when a secondary op is used.
-- A couple of helpers have been created to cleanup the winbond.c driver.
-- Link to v1: https://lore.kernel.org/r/20251205-winbond-v6-18-rc1-cont-read-v1-0-01bc48631c73@bootlin.com
+diff --git a/drivers/mtd/nand/spi/core.c b/drivers/mtd/nand/spi/core.c
+index fba3cc213c88..1c3ac9ad650e 100644
+--- a/drivers/mtd/nand/spi/core.c
++++ b/drivers/mtd/nand/spi/core.c
+@@ -1400,7 +1400,7 @@ static void spinand_manufacturer_cleanup(struct spinand_device *spinand)
+ 		return spinand->manufacturer->ops->cleanup(spinand);
+ }
+ 
+-static bool spinand_op_is_odtr(const struct spi_mem_op *op)
++bool spinand_op_is_odtr(const struct spi_mem_op *op)
+ {
+ 	return op->cmd.dtr && op->cmd.buswidth == 8;
+ }
+diff --git a/include/linux/mtd/spinand.h b/include/linux/mtd/spinand.h
+index 58abd306ebe3..e1f19664bb25 100644
+--- a/include/linux/mtd/spinand.h
++++ b/include/linux/mtd/spinand.h
+@@ -862,6 +862,8 @@ static inline void spinand_set_of_node(struct spinand_device *spinand,
+ 	nanddev_set_of_node(&spinand->base, np);
+ }
+ 
++bool spinand_op_is_odtr(const struct spi_mem_op *op);
++
+ int spinand_match_and_init(struct spinand_device *spinand,
+ 			   const struct spinand_info *table,
+ 			   unsigned int table_size,
 
----
-Miquel Raynal (11):
-      mtd: spinand: Drop a too strong limitation
-      mtd: spinand: Expose spinand_op_is_odtr()
-      mtd: spinand: Drop ECC dirmaps
-      spi: spi-mem: Transform the read operation template
-      spi: spi-mem: Create a secondary read operation
-      mtd: spinand: Use secondary ops for continuous reads
-      mtd: spinand: winbond: Ensure chips are ordered by density
-      mtd: spinand: winbond: Add support for continuous reads on W35NxxJW
-      mtd: spinand: winbond: Create a helper to write the HS bit
-      mtd: spinand: winbond: Create a helper to detect the need for the HS bit
-      mtd: spinand: winbond: Add support for continuous reads on W25NxxJW
-
- drivers/mtd/nand/spi/core.c    | 135 ++++++++++++------
- drivers/mtd/nand/spi/winbond.c | 317 ++++++++++++++++++++++++++++++++---------
- drivers/mtd/spi-nor/core.c     |  22 +--
- drivers/spi/spi-airoha-snfi.c  |   6 +-
- drivers/spi/spi-aspeed-smc.c   |   4 +-
- drivers/spi/spi-intel.c        |   6 +-
- drivers/spi/spi-mem.c          |  32 ++++-
- drivers/spi/spi-mxic.c         |  18 +--
- drivers/spi/spi-npcm-fiu.c     |  16 +--
- drivers/spi/spi-rpc-if.c       |   8 +-
- drivers/spi/spi-stm32-ospi.c   |   6 +-
- drivers/spi/spi-stm32-qspi.c   |   6 +-
- drivers/spi/spi-wpcm-fiu.c     |   2 +-
- include/linux/mtd/spinand.h    |  16 ++-
- include/linux/spi/spi-mem.h    |   8 +-
- 15 files changed, 435 insertions(+), 167 deletions(-)
----
-base-commit: 1e0fe839f8c4bade7b9dc358fb8eef5b2f43af49
-change-id: 20251204-winbond-v6-18-rc1-cont-read-664791ddb263
-
-Best regards,
 -- 
-Miquel Raynal <miquel.raynal@bootlin.com>
+2.53.0
 
 
