@@ -4,61 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 772ECFF8867
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 13:54:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11F50FF8867
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 13:55:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MeNtVCMTSI6Jd/skjzStvD5kEk+oINwTN2fN2mcs9C8=; b=Mnr4NJbzJIlpvAeyKz7zN4b7HU
-	twJRjtLoid1Q2xhwXCU3J2KRVi7TWBO+HaO2M432xYmaZteMyOehRfMdlJt+McZepgXQh5jGNP9oW
-	MNXOAcvPtx2HkpE2oWn2wQf8KkHdDSKLDse5VTWX0aCSoYGd3Lo6fHaS5ZM2QtLeICWEj14Abfom/
-	1DVw76uR/eer5PZ1/XUlkEYyRv0BtBI7KZ2PguMpA4ULp5uwuTDusv+XzMGasswYfOZo4aTh/euas
-	HO9VCxlOxcGCmotfBC+eY/EFWuKGcg+zeExk1/vZiftvHQGLZe3MeJtN+Q4X28J7Pxb+iqVnB8vGT
-	Tt48pikw==;
+	bh=CG8mxvp+9WMeIcWy1wftDi9ZvkCCuGPl8eEXQnOYotI=; b=nIykvTl46ZPDN7nP6JoU1Npqdn
+	SRDyhr6KjG1HHuWcD33rXmxXsqIW7RykDLdVMWJyt7Z/l1vIsssnx0aVWbnq6VXfLPM0S6+J1PBcL
+	T3O8kdJhxbJsCygN2u8JWI+Tc3URZrXrDwN6069uizftPyDRBHgfAvo/ldSJMNQnT4FQ4UXCWYkjM
+	lS+UeOFnM1417PmjTJriC4JQvPyhiQ2lQhaBJC/DPzLhK2DhGnGsGyK18DxnRgXla8Y8KrlKvGUs9
+	knS25poKVFBCygy/oDcSX7sWxwfjH9CJK5tXK4SoobboaN7fU73eRTsp4GCEz7NuNvvFLS7Oybl8C
+	RmWq4omQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI5Mw-00000003hyq-2wJC;
-	Wed, 29 Apr 2026 13:54:26 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI5Mu-00000003hyi-48G4
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 29 Apr 2026 13:54:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=MeNtVCMTSI6Jd/skjzStvD5kEk+oINwTN2fN2mcs9C8=; b=rNRlbrMLX6SOD97ZYPLDKuVfG6
-	jIsKR1JoTTxNgdE8lL29e34JZ4HiHuVLkV3rGVPsfAHgtj7cYBQzSzf+fq81zobYF8h46pm4xrkq9
-	uhAYrqOA2K9p4FXIFQOFfh7Cayb5xHTYrA6143XFxfQCcxXXVG5ADZvu9uheg9fjnOWfAW5yjfCPl
-	wXjtBy8N2OufSRwuNVekwKt5tu2g2tLHoP4n2xZ5hNBsRpZ5GGoOay63K0HCH17el1dBzJfR5jW8t
-	Wf9geQsLgm7DBm52aX1c+i/d6AvaAEvDpRDlIsUMFytBLXDYxXngFR082kT0bXVdVLzUCbr2tgTa/
-	eN5TTqjA==;
+	id 1wI5O3-00000003i7n-2OFK;
+	Wed, 29 Apr 2026 13:55:35 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI5Mr-00000005Rea-2068
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wI5Nz-00000003i6w-1rQa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 13:54:23 +0000
+	Wed, 29 Apr 2026 13:55:33 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 52FA11C01;
-	Wed, 29 Apr 2026 06:54:13 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1778B1C01;
+	Wed, 29 Apr 2026 06:55:25 -0700 (PDT)
 Received: from [10.57.62.76] (unknown [10.57.62.76])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F2ECF3F62B;
-	Wed, 29 Apr 2026 06:54:14 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 974983F62B;
+	Wed, 29 Apr 2026 06:55:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777470858; bh=op0PGB2RSdfIzNdbBTKjY7j2TmI/0VCoEC8J4z/6BVM=;
+	t=1777470930; bh=ehd9yGlOl8LsUGnM+WAez4P4lcrk3w5tIJe9Kpk+AvQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lLNh2XYt3BMVorNa0t/pHJR9WnAZJGdKKJRuZrRL2Jw8zDzv5mKfd13eRZgUo18bE
-	 tqtHwaRW1y1Rq98Fcuu7NWuGV5fJNqwm1VBkGihwLn/V3T5pbJSZ3ik7FdjZyT+94f
-	 jNf+YT+GlUAHbAAaM5w0hBAoSnAbx/LjM9mIo84I=
-Message-ID: <a8740f95-e167-48ae-ae65-97c6701d9c94@arm.com>
-Date: Wed, 29 Apr 2026 15:54:12 +0200
+	b=pDgqQH2lzWITgRoVEmuoGdabiAmMhLaT1ZMfM7SIK+Rh2M+sx+YhDLMb9+m8i+pq7
+	 BFgHX04N0H1Pv832jzce4+t3UqetyKWkvzrjmPbNE0p5uIRsOlTJvPBunsdzPKcuNg
+	 t05wSL1xU4xlMdtgk5TP3EQUW4y2jooZdRDRcbsg=
+Message-ID: <15555e9f-65ab-4811-b20c-8ada90bdc9d0@arm.com>
+Date: Wed, 29 Apr 2026 15:55:25 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 12/15] arm64: mm: Map the kernel data/bss read-only in
+Subject: Re: [PATCH v4 13/15] arm64: mm: Unmap kernel data/bss entirely from
  the linear map
 To: Ard Biesheuvel <ardb+git@google.com>, linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com,
@@ -71,15 +56,15 @@ Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com,
  Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org,
  linux-hardening@vger.kernel.org
 References: <20260427153416.2103979-17-ardb+git@google.com>
- <20260427153416.2103979-29-ardb+git@google.com>
+ <20260427153416.2103979-30-ardb+git@google.com>
 From: Kevin Brodsky <kevin.brodsky@arm.com>
 Content-Language: en-GB
-In-Reply-To: <20260427153416.2103979-29-ardb+git@google.com>
+In-Reply-To: <20260427153416.2103979-30-ardb+git@google.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_145422_079898_16B029C4 
-X-CRM114-Status: GOOD (  24.03  )
+X-CRM114-CacheID: sfid-20260429_065531_575006_221DE874 
+X-CRM114-Status: GOOD (  31.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,89 +82,123 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 27/04/2026 17:34, Ard Biesheuvel wrote:
 > From: Ard Biesheuvel <ardb@kernel.org>
 >
-> On systems where the bootloader adheres to the original arm64 boot
-> protocol, the placement of the kernel in the physical address space is
-> highly predictable, and this makes the placement of its linear alias in
-> the kernel virtual address space equally predictable, given the lack of
-> randomization of the linear map.
+> The linear aliases of the kernel text and rodata are mapped read-only in
+> the linear map as well. Given that the contents of these regions are
+> mostly identical to the version in the loadable image, mapping them
+> read-only and leaving their contents visible is a reasonable hardening
+> measure.
 >
-> The linear aliases of the kernel text and rodata regions are already
-> mapped read-only, but the kernel data and bss are mapped read-write in
-> this region. This is not needed, so map them read-only as well.
+> Data and bss, however, are now also mapped read-only but the contents of
+> these regions are more likely to contain data that we'd rather not leak.
+
+That sounds like a good rationale but I wonder, is there anything
+stopping us from unmapping text/rodata as well?
+
+> So let's unmap these entirely in the linear map when the kernel is
+> running normally.
 >
-> Note that the statically allocated kernel page tables do need to be
-> modifiable via the linear map, so leave these mapped read-write.
->
+> When going into hibernation or waking up from it, these regions need to
+> be mapped, so map the region initially, and toggle the valid bit so
+> map/unmap the region as needed.
+
+Doesn't safe_copy_page() already handle that? I suppose this is an
+optimisation to avoid modifying the linear map for every page, but if so
+it would be good to spell it out.
+
 > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 > ---
->  arch/arm64/include/asm/sections.h |  1 +
->  arch/arm64/mm/mmu.c               | 16 ++++++++++++++--
->  2 files changed, 15 insertions(+), 2 deletions(-)
+>  arch/arm64/mm/mmu.c | 44 ++++++++++++++++----
+>  1 file changed, 37 insertions(+), 7 deletions(-)
 >
-> diff --git a/arch/arm64/include/asm/sections.h b/arch/arm64/include/asm/sections.h
-> index 51b0d594239e..32ec21af0823 100644
-> --- a/arch/arm64/include/asm/sections.h
-> +++ b/arch/arm64/include/asm/sections.h
-> @@ -23,6 +23,7 @@ extern char __irqentry_text_start[], __irqentry_text_end[];
->  extern char __mmuoff_data_start[], __mmuoff_data_end[];
->  extern char __entry_tramp_text_start[], __entry_tramp_text_end[];
->  extern char __relocate_new_kernel_start[], __relocate_new_kernel_end[];
-> +extern char __fixmap_pgdir_start[];
->  
->  static inline size_t entry_tramp_text_size(void)
->  {
 > diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 1a4b4337d29a..9361b7efb848 100644
+> index 9361b7efb848..a464f3d2d2df 100644
 > --- a/arch/arm64/mm/mmu.c
 > +++ b/arch/arm64/mm/mmu.c
-> @@ -1122,7 +1122,9 @@ static void __init map_mem(void)
->  {
->  	static const u64 direct_map_end = _PAGE_END(VA_BITS_MIN);
->  	phys_addr_t kernel_start = __pa_symbol(_text);
-> -	phys_addr_t kernel_end = __pa_symbol(__init_begin);
-> +	phys_addr_t init_begin = __pa_symbol(__init_begin);
-> +	phys_addr_t init_end = __pa_symbol(__init_end);
-> +	phys_addr_t kernel_end = __pa_symbol(__fixmap_pgdir_start);
-
-Using fixmap_pgdir as an anchor seems a bit arbitrary... Couldn't we use
-__bss_end instead?
-
-It could also be helpful to add comments in vmlinux.lds.S clarifying
-which sections are RO/RW in the linear map, it's getting pretty
-difficult to follow.
-
->  	phys_addr_t start, end;
->  	int flags = NO_EXEC_MAPPINGS;
->  	u64 i;
-> @@ -1155,7 +1157,11 @@ static void __init map_mem(void)
->  	 * of the region accessible to subsystems such as hibernate,
->  	 * but protects it from inadvertent modification or execution.
->  	 */
-> -	__map_memblock(kernel_start, kernel_end, pgprot_tagged(PAGE_KERNEL),
-> +	__map_memblock(kernel_start, init_begin, pgprot_tagged(PAGE_KERNEL),
-> +		       flags);
+> @@ -24,6 +24,7 @@
+>  #include <linux/mm.h>
+>  #include <linux/vmalloc.h>
+>  #include <linux/set_memory.h>
+> +#include <linux/suspend.h>
+>  #include <linux/kfence.h>
+>  #include <linux/pkeys.h>
+>  #include <linux/mm_inline.h>
+> @@ -1040,6 +1041,31 @@ static void __init __map_memblock(phys_addr_t start, phys_addr_t end,
+>  				 end - start, prot, early_pgtable_alloc, flags);
+>  }
+>  
+> +static void remap_linear_data_alias(bool unmap)
+> +{
+> +	set_memory_valid((unsigned long)lm_alias(__init_end),
+> +			 (unsigned long)(__fixmap_pgdir_start - __init_end) / PAGE_SIZE,
+> +			 !unmap);
+> +}
 > +
-> +	/* Map the kernel data/bss so it can be remapped later */
-> +	__map_memblock(init_end, kernel_end, pgprot_tagged(PAGE_KERNEL),
+> +static int arm64_hibernate_pm_notify(struct notifier_block *nb,
+> +				     unsigned long mode, void *unused)
+> +{
+> +	switch (mode) {
+> +	default:
+> +		break;
+> +	case PM_POST_HIBERNATION:
+> +	case PM_POST_RESTORE:
+> +		remap_linear_data_alias(true);
+> +		break;
+> +	case PM_HIBERNATION_PREPARE:
+> +	case PM_RESTORE_PREPARE:
+> +		remap_linear_data_alias(false);
+> +		break;
+> +	}
+> +	return 0;
+> +}
+> +
+>  void __init mark_linear_text_alias_ro(void)
+>  {
+>  	/*
+> @@ -1048,6 +1074,16 @@ void __init mark_linear_text_alias_ro(void)
+>  	update_mapping_prot(__pa_symbol(_text), (unsigned long)lm_alias(_text),
+>  			    (unsigned long)__init_begin - (unsigned long)_text,
+>  			    pgprot_tagged(PAGE_KERNEL_RO));
+> +
+> +	remap_linear_data_alias(true);
 
-Maybe I'm missing something obvious, but considering patch 3/4 couldn't
-we directly map the range RO here?
+It's really hard to know what this does without looking at the function.
+How about mark_linear_data_alias_valid(false)?
+
+> +
+> +	if (IS_ENABLED(CONFIG_HIBERNATION)) {
+> +		static struct notifier_block nb = {
+> +			.notifier_call = arm64_hibernate_pm_notify
+> +		};
+> +
+> +		register_pm_notifier(&nb);
+> +	}
+>  }
+>  
+>  #ifdef CONFIG_KFENCE
+> @@ -1162,7 +1198,7 @@ static void __init map_mem(void)
+>  
+>  	/* Map the kernel data/bss so it can be remapped later */
+>  	__map_memblock(init_end, kernel_end, pgprot_tagged(PAGE_KERNEL),
+> -		       flags);
+> +		       flags | NO_BLOCK_MAPPINGS);
+
+Might be an obvious question but why do we need this?
 
 - Kevin
 
->  		       flags);
 >  
 >  	/* map all the memory banks */
-> @@ -1168,6 +1174,12 @@ static void __init map_mem(void)
+>  	for_each_mem_range(i, &start, &end) {
+> @@ -1174,12 +1210,6 @@ static void __init map_mem(void)
 >  		__map_memblock(start, end, pgprot_tagged(PAGE_KERNEL),
 >  			       flags);
 >  	}
-> +
-> +	/* Map the kernel data/bss read-only in the linear map */
-> +	__map_memblock(init_end, kernel_end, pgprot_tagged(PAGE_KERNEL_RO),
-> +		       flags);
-> +	flush_tlb_kernel_range((unsigned long)lm_alias(__init_end),
-> +			       (unsigned long)lm_alias(__fixmap_pgdir_start));
+> -
+> -	/* Map the kernel data/bss read-only in the linear map */
+> -	__map_memblock(init_end, kernel_end, pgprot_tagged(PAGE_KERNEL_RO),
+> -		       flags);
+> -	flush_tlb_kernel_range((unsigned long)lm_alias(__init_end),
+> -			       (unsigned long)lm_alias(__fixmap_pgdir_start));
 >  }
 >  
 >  void mark_rodata_ro(void)
