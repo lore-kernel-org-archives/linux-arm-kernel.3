@@ -4,141 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FBA3FF887E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 14:36:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 579BCFF887E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 14:40:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rrydi5eifPQdALx9kN9OMrygMrzOlvL+9WlGxrQaOJg=; b=KDIq8+Q/AykZJP/bDTQE8iH1L/
-	ghGX+p4y9a5/V0XGmmHy2NmXEOhDmeg/+bGXAaGH8aGVoV44A4j0mBQnd60QbPZPNVdvbhmTrvD7E
-	ahp1BGPHTb2vqoW91aRfh5Sm1WOS5M2yb4Keqw5U5/7ljOiRGIVQjtS7dDFtCDaDgUn6wZLOdkUwB
-	jGfDixW1myzD4fFrayqTA3eot4QlzaUS4l/TR2uFEdiweSo6QOr45ZRc9GbrHTOEtsj37i8p5d/BB
-	eGGKQ9PAb6iRW+uu1t9jkGLdDGOlFrFyN6h55H+IamD1f/7SvzHoMfiBxH4rAtGQjaz6sEmws9Hjb
-	vXDQzWrw==;
+	bh=LTvtklw7T1tb7yJFotQqtbbrKTIyjQvnhgz95DrLbqg=; b=JpLoPkuuSzYeBDWB+u7uiEUNed
+	Vu4oIvEBHHRBgsGWTwfhZcLlUgAZ3Zc7LYlOK5ZLianbpUxJJbCf6aR5wEqYRNmmXwNawx6y1nGp7
+	kIJ3FaQ6aMJj2Sf9pVND8FrEFhdv6IFjbfSmlqiiEeL2jnD0wlsOTaKqMlkfbb1urkd0DM5us4xhB
+	DCucpbZWI9tiQ1BU6Y9Y0P2wvqT/wMRPO2BxrLm3QyjtsB+JwIr8Dg0VwVA5KzvIIxm/GidUPzB7G
+	Ceb7tqpCb6SARjwfl1+NQrDZr18+WnbMrf6PGO0V+teHnBNvtdxu5PWldVxtFLFtbEi6l3gzOVbGv
+	oRZpKGxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI61J-00000003m9G-0naF;
-	Wed, 29 Apr 2026 14:36:09 +0000
-Received: from mail-westus2azon11010002.outbound.protection.outlook.com ([52.101.46.2] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1wI65h-00000003mUk-2yCV;
+	Wed, 29 Apr 2026 14:40:41 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI61G-00000003m8k-3UMU
+	id 1wI65f-00000003mUP-2Q21
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 14:36:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fGgVti5s8ve+9oRW2N/fT4t8jlX2WXlhuMBLAIl7Mey+5tFzhEpOI8ZqUsVlgjK8NEmcsBXG4Yh6nQhmjj2jxXU6A8CA8E4WkliTJf3RqtWyjB8m5bkA9KLpkRu9UfSjfIP14/DsVW0sL7reEZXZFS2hDUnJGclApsRKCH3eehjtCCI3f+1qjDsDofsAsPnoPyFytVlJO0RhLiqcbaaknAPPX2KxWeho6gdVn0YtOuoQBhhaGj9k8AZFSYnhj7DKYCZdefQ5alhe5LMVlg7fmKUVGGQDiPTXbnsFyNTzZ7dWo9oa3lL3qp+dW2OpGl0yZ3nkP/VyIrCywY3qiZvM/Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rrydi5eifPQdALx9kN9OMrygMrzOlvL+9WlGxrQaOJg=;
- b=dFni3UyqP2GIaBjNKijcXS/iWb427xrkW40eNv+kiwulHZMLavnOU8Zrf6zOMdopX8/mmwyVHGSJdSLKynYnvNbH9bftiWac+FIH2kaTKCPU5ht8bS9gkFHGh2C9o8BekD/p5HjgFtnV9dkBJlM1ke0kRV1fg+pjwX4eH/h+WZilRgP+XbU1HseN8SVfgGghaMAFuHgvSuq/NRenXmQQNo4nahTnWBAkMjFrI6E/h13n5QA4vlG7c34CgqQyRf43xKtTJrIu3tn562UajH4wtnK1RO51y/5bso0jfSIT/hud+rlkVi7X2kRrn3CZgkxGmg1H2If0erlfsh6X7st1Vg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=lunn.ch smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rrydi5eifPQdALx9kN9OMrygMrzOlvL+9WlGxrQaOJg=;
- b=QkZEPg1akxIm4T0W/yeaZtfTGiTY7lF+8znRetP1ExjCVdMYaH9laHBzCXlRHEEAySIi2mZazG9jrc+1lP79UQvT38j5c4M+dTtor2Z4RIOvvEAMhe4HiCcZcr/33kpxFzAoidPbKquA02rqQLbhMxKlgGU43tUwoJNkJjx2YDc=
-Received: from BN9PR03CA0734.namprd03.prod.outlook.com (2603:10b6:408:110::19)
- by SA3PR10MB6969.namprd10.prod.outlook.com (2603:10b6:806:316::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.20; Wed, 29 Apr
- 2026 14:36:00 +0000
-Received: from BN2PEPF000044A6.namprd04.prod.outlook.com
- (2603:10b6:408:110:cafe::f9) by BN9PR03CA0734.outlook.office365.com
- (2603:10b6:408:110::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.28 via Frontend Transport; Wed,
- 29 Apr 2026 14:36:00 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- BN2PEPF000044A6.mail.protection.outlook.com (10.167.243.100) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9846.18 via Frontend Transport; Wed, 29 Apr 2026 14:35:59 +0000
-Received: from DFLE214.ent.ti.com (10.64.6.72) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 29 Apr
- 2026 09:35:51 -0500
-Received: from DFLE213.ent.ti.com (10.64.6.71) by DFLE214.ent.ti.com
- (10.64.6.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 29 Apr
- 2026 09:35:50 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE213.ent.ti.com
- (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 29 Apr 2026 09:35:50 -0500
-Received: from [10.249.130.12] ([10.249.130.12])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 63TEZfVH3516102;
-	Wed, 29 Apr 2026 09:35:42 -0500
-Message-ID: <a067452a-9a8d-45ea-8bef-b44f851da7b2@ti.com>
-Date: Wed, 29 Apr 2026 20:05:40 +0530
+	Wed, 29 Apr 2026 14:40:40 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63TCLxSu2485195
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 14:40:37 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	LTvtklw7T1tb7yJFotQqtbbrKTIyjQvnhgz95DrLbqg=; b=ef4lgzEQ0flJSMRZ
+	KCnuAiih1mbTvqZvzGBYQboodTPMVkgCKfwmA5v0NlHDxRLUAe5/usrRvZ5DunCd
+	Dtjq0bLjjK3NrCNYRkODrOqac+6ckiFHH6fmetbhcIKei5jHHb+guSZrHefwBrGg
+	FoyPOBVEtGV92AmsE50FouavHUlLT8wCyRDvN4QBXV0ev0XkwZEoB2P50ez9bd9q
+	7h7a3sEek4My4c3w+FppcLU8QeCdwUdddAENA6g/bEViMqXg4Op+3Sg7d7SJgik3
+	L5inTOStIvMr3tGDYjL5P8c0QrSJPEcn26vs2X3sbdU4Ugl+yq7SJ6TS8ccR4a6y
+	KsSeCA==
+Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4duhx90g6w-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 14:40:37 +0000 (GMT)
+Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-3648018e142so3506816a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 07:40:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1777473637; x=1778078437; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=LTvtklw7T1tb7yJFotQqtbbrKTIyjQvnhgz95DrLbqg=;
+        b=Z92Ad7QomPvRxBvL54b8+gOmuPALsfNhHsc61ngRSnD7PBi/D5Y8DYfiEcYKlUXdKE
+         dfXVVOldrtXqoq8ARF3s0oMAQYxboZQ3RQD2xVDEqTjLVbIwFW+itpYGed1D0bHWRRxn
+         bnmishRPlfTxTxi/i+4K9iP9x0S0y9chOclVmt2AWNuKrowm+czEe7/JyVm0qAcvhmUh
+         ETjMESrfc5+ZMRFyWNON49aq2X5AqrE56NNwickL0SD9lGt5r0p6mi6kcK4setwJ4hww
+         vcmFsDY1saJQvl+c3j/g6VXkH09cUChCFI9JpE4HU9JBuiBExvTHTjb+DQXHIrejx/4I
+         blsw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777473637; x=1778078437;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=LTvtklw7T1tb7yJFotQqtbbrKTIyjQvnhgz95DrLbqg=;
+        b=Z7cLOevX5f+DkfXoTlsT0cis9Z4Fv9FADvCZOL3I612yhQlhFw//1xkKaTByWihiR3
+         FUstm1eJ0F9eewgRG6SHaAvi5NIYArQCoQWDHVo2BvxJd7wrrnNQBZkFslOQDf0044QA
+         WZWdmQXydVe3mr0RMPuACmvqI7sj4fTMxwe/EsNVPkCt9Y7n0Asm3gPvJeI2lQjd+mqF
+         Gbf01Srg0q6xsU7Icsy4KHPiiYLEKy1KNHd/Pgq4eWDvKaovtp5jsixHqA+mtNJT6CvR
+         JfGJpVLwXDYTtY66coWoi5FsBqWxnAw3H2rJMth/8b9Xjfpz0u4OUZEH7DwSXYZqWAXu
+         bzsQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+pQKLRjLsMdd/6gKHiWKxYF6xZTJYIHRKI4+8hVz9dDzp4V8b+/jO4fdJ5oLZWuAHJJLuHhVdAT7DF8EEBzIxL@lists.infradead.org
+X-Gm-Message-State: AOJu0YxNhmBCOpjm/0o6vDbnje9sdrvglSLNfN/H/c/kt6SUmFVzTlwH
+	uY//ef6KbDG5q5S2RPSpzfagvANHjhzMPWV2tFA29uHF5In8opEwwOltVWzJIwArIIFSsJ7RMcb
+	niGuRcwQ0AK0PO83/UthdRkM2N3sy0uJCRLk2Gwqcn2UN52Hu86na5obFgdxO7pMUiwjc5Ufda0
+	qkTw==
+X-Gm-Gg: AeBDies85S5XEBU7+PWzALXL9mmH6MP5RH9QxPGd5izH1uRsn6i6dDg91DnxROu8af/
+	LAJZE8xPEheSIWSs/08MrBYpDHoFsdFp85WnCKrLLmf2piOE1bkzz/94qvzXe64hdrNu4B06Rh/
+	h9Iqc8Ihm+qJxNW+a2HgCcapDL22jhMvZb6tcqJMRzKjjxePasSMMCPFWe+kaUHFtYxobvV7puT
+	JpOQTvshFxSlcSulLrMOCZAn6UncbvRwVUySxwg/vppBAgNmrm0ZTa3O8az+SRTBP7YOTN079E1
+	k5WrCpakwJFyN+4bHq60LVncSqxpHentq7Af2NCN30hNAZMBZCe1ZeaZnTC3Ofy/04vK2NARTTL
+	M+fF01q8p9vZy35Y5LY6/2uW9pgH4z5ZcBMCHJVq7vIPk+PSZP78WZEzq4q+PLIeSma/Kq9QITM
+	6BBB7+axhC+v9gygEFlF9hU/hIvvRkRnMWFgPrm/83tnpECeRyN7w=
+X-Received: by 2002:a17:90b:5828:b0:35b:97ba:acee with SMTP id 98e67ed59e1d1-364a0d2ca8emr4196251a91.17.1777473636547;
+        Wed, 29 Apr 2026 07:40:36 -0700 (PDT)
+X-Received: by 2002:a17:90b:5828:b0:35b:97ba:acee with SMTP id 98e67ed59e1d1-364a0d2ca8emr4196167a91.17.1777473635798;
+        Wed, 29 Apr 2026 07:40:35 -0700 (PDT)
+Received: from [10.190.200.117] (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-364a0303f52sm4214118a91.16.2026.04.29.07.40.25
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 29 Apr 2026 07:40:35 -0700 (PDT)
+Message-ID: <e494ba66-3f8d-4d71-a82e-b37f5b34d45d@oss.qualcomm.com>
+Date: Wed, 29 Apr 2026 20:10:24 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
-To: Shenwei Wang <shenwei.wang@nxp.com>, Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>, Jonathan Corbet <corbet@lwn.net>, "Rob
- Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
-	"Mathieu Poirier" <mathieu.poirier@linaro.org>, Frank Li <frank.li@nxp.com>,
-	"Sascha Hauer" <s.hauer@pengutronix.de>
-CC: Shuah Khan <skhan@linuxfoundation.org>, "linux-gpio@vger.kernel.org"
-	<linux-gpio@vger.kernel.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng Fan
-	<peng.fan@nxp.com>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-remoteproc@vger.kernel.org"
-	<linux-remoteproc@vger.kernel.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>, Andrew Lunn <andrew@lunn.ch>
-References: <20260422212849.1240591-1-shenwei.wang@nxp.com>
- <20260422212849.1240591-4-shenwei.wang@nxp.com>
- <22fb5fac-2568-42be-a7e3-7e89d0017eb3@ti.com>
- <PAXPR04MB91850A11C58419C03909145F89362@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <29485742-6e49-482e-b73d-228295daaeec@ti.com>
- <PAXPR04MB918568939EC7DAEB4BB6C8F989372@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <32c119af-96ad-4da0-86f2-cdc4ba57ef0b@ti.com>
- <PAXPR04MB9185C7741DCC422212F952CD89372@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <8c8cefaa-7d9e-4b73-b92f-40cb52b37f2e@ti.com>
- <PAXPR04MB91858D4F2549FA068D7ECCC289372@PAXPR04MB9185.eurprd04.prod.outlook.com>
+Subject: Re: [PATCH v21 05/13] mfd: psci-mfd: Add PSCI MFD driver for
+ cpuidle-psci-domain cell
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
+        Sebastian Reichel <sre@kernel.org>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        "Rafael J. Wysocki" <rafael@kernel.org>,
+        Daniel Lezcano <daniel.lezcano@kernel.org>,
+        Christian Loehle <christian.loehle@arm.com>,
+        Ulf Hansson <ulfh@kernel.org>, Lee Jones <lee@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+        Andy Yan <andy.yan@rock-chips.com>,
+        Matthias Brugger
+ <matthias.bgg@gmail.com>,
+        John Stultz <john.stultz@linaro.org>,
+        Moritz Fischer <moritz.fischer@ettus.com>,
+        Bartosz Golaszewski <brgl@kernel.org>,
+        Sudeep Holla <sudeep.holla@kernel.org>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        devicetree@vger.kernel.org,
+        Florian Fainelli
+ <florian.fainelli@broadcom.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+        Andre Draszik <andre.draszik@linaro.org>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+        Srinivas Kandagatla <srini@kernel.org>
+References: <20260427-arm-psci-system_reset2-vendor-reboots-v21-0-dcf937775e73@oss.qualcomm.com>
+ <20260427-arm-psci-system_reset2-vendor-reboots-v21-5-dcf937775e73@oss.qualcomm.com>
 Content-Language: en-US
-From: "Padhi, Beleswar" <b-padhi@ti.com>
-In-Reply-To: <PAXPR04MB91858D4F2549FA068D7ECCC289372@PAXPR04MB9185.eurprd04.prod.outlook.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+From: Pankaj Patil <pankaj.patil@oss.qualcomm.com>
+In-Reply-To: <20260427-arm-psci-system_reset2-vendor-reboots-v21-5-dcf937775e73@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF000044A6:EE_|SA3PR10MB6969:EE_
-X-MS-Office365-Filtering-Correlation-Id: 91d53e4f-800a-4a20-8f34-08dea5fca1bc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|7416014|376014|82310400026|22082099003|56012099003|18002099003|921020;
-X-Microsoft-Antispam-Message-Info: qFrb/kQdHn4xLG7o9LGQ3BuwOvV2fwIwEE/yEoTjn3HJbbkQfn6IaFhBtOCvwr1E694ULpuGfgLZQAqbPuESAaaenP3+DGguVFtdl8Dl7ZfVvmmMC4MhROuwa6PqEHUYIE/HxR+Igc6HXLIddJau2jKQ4i+JaTdDFegI/vm2YHrSfIHxFYimcbfysr3JKePlQngNPV4q+XT92sAk598sgOQv7F5F43+3V/b7r4cWiacr+VYuSfnjnyZzCbQ/C7b/XjlZYAYe/iQlaTuWiIJy1q+6IVSXag+fi+4658kuAscW2AxrfXTAF5UDMjWxmINwPzrRs5mhUX/tKlLLXbE6JjEU6QL33GykvJoP/jMlibqk7ansKoZAmaQQL2S985W+ApLRBw0YhcEnsTcCFCzePgxnbVNH5T/6MtsLD2mnoD5vjK689/2j06v7xz4yML/IqTP5BlbyGDm0dkquMAefEzLKcQIYe6aTqZovrkjfxLTiTlOe8X2sq1zdXah1229JZ7pVlhU1bM3ql9gKznZqNZy39NOv4uLwOWim7+SbW6bfmbrtmb+9JmDFdK2sCzposmMG1IK95TmIqUQ7WpdC0SvIfUnpaETtNEysf9YACqI3Clfr5LqbCDcsLAnJFCNT+QDxrbTKmxvQZEHbMT4BVI2JWQ8pmqK9GhUzgLkM7bNSY1qZEqjOE2208engi3tIVHgiaB6yzxo73BeOnb6Yfs28AQJS6BE7WCzbx60iWg0URjW+SSkZcTogFf/yPMunqTQZuGV61rrrJlKjHjAfaGmhomEw4ekZPxVAbZv05oP+DPZKy7tlKfJJksX08J5i
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(7416014)(376014)(82310400026)(22082099003)(56012099003)(18002099003)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: ZNkCmBjhX58/nGX9T2sADQ3irMoyczNEylJQGzz4jpcVJE8sBOJjEXAkfzcMfTcGK+sT33jQjgaw4/lqcsQeXIK/6h9r8fuTxx8Qw1r58IVSycdeXdM7dBPsMMS4Hh/DYBxc0pyizH+pvJWZ4yyD7puuj0ovWchouXO9CGgo3ICqWeg4s+81VVG12Kt6ePBcPWR+qsjiy/uIqr/broHZqymb6SjLcv+kkl65HVvsf19EHoQzN5cKJorjQN8DlO17MFT7bSaHFBKMMSD34zCilEPpP7Zt7oLtkHLjizvkSGlTe6KTbXDKExqkuEVF67CwkByV8tJIp/JIaFa3IwpPUT/3VbkkvnRQZxoUwbU7+lSx2putytr6FN0fLR+LWITELOHQYLl/mmLuWmYJe1p+NtNCCnJ0rVGqE1Tv3VTK+/Gi4jGiO+tT18yCUvmidblY
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Apr 2026 14:35:59.5795
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 91d53e4f-800a-4a20-8f34-08dea5fca1bc
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044A6.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR10MB6969
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI5MDE0OSBTYWx0ZWRfX8rFZcKcnVmu3
+ fttEQKY77OmPG0jQqpu5pDfc4mS05FylCZhDOy4PCUDk2NBDuInoR7tKqreyQKqgLM/iJ799gj5
+ /wFX/3XZUHcmf9JK0gp49B3Iqek3wqjKraQfK5elE/qdhzBR91tZ10FKthHp812D1fgXi44Botj
+ d04YJV+1zzqgETovrEWtr++2mFFz/A9XtkMWeCFpQbU8sbHuBleAHCpm4INeHdmdGhEDxrUiq2o
+ QByCjLVnhabyMNMuOM1K7X3gNQknURo12X6zOKeAC5Ymu2udLXnPldmVHsHpRupDNOKpTREGZRz
+ OPzf0CgsKHkiqLx3c/lGsXJEmFBDgk9XiTY3/PaoC9i3wkq4Q3XdceCDF9iT38NKlWAq1j2qjJl
+ xoCZkXPBXhz/IX5su6ncn7ojJROpsMzX+cVkkQh36jJzLXQ+WNXRmVJOrL5rX2PlD2w2mWh7j7t
+ saExZx6bfWRaX9TUhLg==
+X-Proofpoint-ORIG-GUID: K04IeOR09f86qfoJXGu7FbVj6aq0uOWb
+X-Authority-Analysis: v=2.4 cv=O5oJeh9W c=1 sm=1 tr=0 ts=69f21865 cx=c_pps
+ a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
+ a=EUspDBNiAAAA:8 a=JfrnYn6hAAAA:8 a=U_Ea8TlPRqx-BgSQmf4A:9 a=QEXdDO2ut3YA:10
+ a=uKXjsCUrEbL0IQVhDsJ9:22 a=1CNFftbPRP8L7MoqJWF3:22
+X-Proofpoint-GUID: K04IeOR09f86qfoJXGu7FbVj6aq0uOWb
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-28_05,2026-04-28_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 clxscore=1015 adultscore=0 phishscore=0 suspectscore=0
+ impostorscore=0 bulkscore=0 priorityscore=1501 lowpriorityscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
+ definitions=main-2604290149
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_073607_118777_9B9615C7 
-X-CRM114-Status: GOOD (  18.94  )
+X-CRM114-CacheID: sfid-20260429_074039_637061_128D4E62 
+X-CRM114-Status: GOOD (  37.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,86 +180,177 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 4/27/2026 11:04 PM, Shivendra Pratap wrote:
+> PSCI has multiple kernel consumers, such as cpuidle-psci-domain.
+> Currently, both the PSCI core driver and cpuidle-psci-domain bind
+> directly to the same PSCI node "arm,psci-1.0". Additional consumers, if
+> introduced, would also need to bind in the same way, leading to several
+> drivers attached to a single device node.
+> 
+> Introduce a PSCI MFD driver that binds to "arm,psci-1.0" and registers
+> PSCI child cells. As the first user, register cpuidle-psci-domain as a
+> child cell.
+> 
+> Update cpuidle-psci-domain to probe as an MFD child and use the parent
+> PSCI node for power-domain traversal.
+> 
+> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+> ---
+>  MAINTAINERS                           |  1 +
+>  drivers/cpuidle/Kconfig.arm           |  1 +
+>  drivers/cpuidle/cpuidle-psci-domain.c |  9 +-------
+>  drivers/mfd/Kconfig                   | 10 ++++++++
+>  drivers/mfd/Makefile                  |  2 ++
+>  drivers/mfd/psci-mfd.c                | 43 +++++++++++++++++++++++++++++++++++
+>  6 files changed, 58 insertions(+), 8 deletions(-)
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index c871acf2179ce16c80b404027e6b969c7787a6bb..333b01fa00b8fbd15e6f31a6b9af47600411624e 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -21239,6 +21239,7 @@ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+>  S:	Maintained
+>  F:	Documentation/devicetree/bindings/arm/psci.yaml
+>  F:	drivers/firmware/psci/
+> +F:	drivers/mfd/psci-mfd.c
+>  F:	include/linux/psci.h
+>  F:	include/uapi/linux/psci.h
+>  
+> diff --git a/drivers/cpuidle/Kconfig.arm b/drivers/cpuidle/Kconfig.arm
+> index a1ee475d180dacab245510674514811aec337ad3..1a1316d11e0a2e4f61801586229f5104e2435865 100644
+> --- a/drivers/cpuidle/Kconfig.arm
+> +++ b/drivers/cpuidle/Kconfig.arm
+> @@ -36,6 +36,7 @@ config ARM_PSCI_CPUIDLE_DOMAIN
+>  	bool "PSCI CPU idle Domain"
+>  	depends on ARM_PSCI_CPUIDLE
+>  	depends on PM_GENERIC_DOMAINS_OF
+> +	depends on MFD_PSCI
 
-On 4/28/2026 10:06 PM, Shenwei Wang wrote:
->
->> -----Original Message-----
->> From: Padhi, Beleswar <b-padhi@ti.com>
->> Sent: Tuesday, April 28, 2026 10:53 AM
->> To: Shenwei Wang <shenwei.wang@nxp.com>; Linus Walleij
->> <linusw@kernel.org>; Bartosz Golaszewski <brgl@kernel.org>; Jonathan Corbet
->> <corbet@lwn.net>; Rob Herring <robh@kernel.org>; Krzysztof Kozlowski
->> <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Bjorn Andersson
->> <andersson@kernel.org>; Mathieu Poirier <mathieu.poirier@linaro.org>; Frank Li
->> <frank.li@nxp.com>; Sascha Hauer <s.hauer@pengutronix.de>
->> Cc: Shuah Khan <skhan@linuxfoundation.org>; linux-gpio@vger.kernel.org; linux-
->> doc@vger.kernel.org; linux-kernel@vger.kernel.org; Pengutronix Kernel Team
->> <kernel@pengutronix.de>; Fabio Estevam <festevam@gmail.com>; Peng Fan
->> <peng.fan@nxp.com>; devicetree@vger.kernel.org; linux-
->> remoteproc@vger.kernel.org; imx@lists.linux.dev; linux-arm-
->> kernel@lists.infradead.org; dl-linux-imx <linux-imx@nxp.com>; Bartosz
->> Golaszewski <brgl@bgdev.pl>; Andrew Lunn <andrew@lunn.ch>
->> Subject: [EXT] Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
->>>> Nothing extra in my opinion. rpmsg_create_ept() just creates a
->>>> dynamic local endpoint address for Linux's usage. The firmware just
->>>> has to make sure to reply to the same endpoint address where it
->>>> received the message. This should already be in place IMO, because
->>>> currently you are sending all messages in the default
->>> Since rpmsg_create_ept creates a new local endpoint address on the
->>> Linux side, how is the remote system expected to learn and use this
->>> new address for communication if no additional logic is added on the remote
->> side?
->>
->>
->> Remote side learns the endpoint when it receives any message from Linux from
->> the dynamic endpoint.
->>
->> Lets say rpmsg_create_ept() allocates a dynamic local ept of 1026. When you
->> send the message from this endpoint, the standard rpmsg header would have:
->>
->>       85 struct rpmsg_hdr {
->>       86         __rpmsg32 src; // 1026
->>       87         __rpmsg32 dst; // rpdev->dst (e.g. 400)
->>       88         __rpmsg32 reserved;
->>       89         __rpmsg16 len;
->>       90         __rpmsg16 flags;
->>       91         u8 data[];
->>       92 } __packed;
->>
->> Remote side tracks the dynamic endpoint by reading src = 1026. And while
->> sending the response it fills the header as:
->>
->>       85 struct rpmsg_hdr {
->>       86         __rpmsg32 src; // 400
->>       87         __rpmsg32 dst; // 1026
->>       88         __rpmsg32 reserved;
->>       89         __rpmsg16 len;
->>       90         __rpmsg16 flags;
->>       91         u8 data[];
->>       92 } __packed;
->>
-> This explains how reply messages work in this scenario: the remote side can simply send
-> the response back to the source address of the incoming message.
->
-> How does this work for notification messages initiated by the remote side? Should the remote
-> system need to add additional logic to track the source address based on the GPIO instance?
+Should this be select MFD_PSCI?
+We're seeing bootup issues on Glymur when MFD_PSCI is not y
 
-
-You should already have the tracking logic in firmware. How else are you
-sending the notification messages from firmware with your current v13
-implementation? Are you assuming the channel address to be always the
-same? If so, this is a bug and should be fixed in firmware because the
-address is generated dynamically. For example, if another core announces
-its name service first, then the channel address for your core would be
-different and the functionality would break.
-
-Instead, you should have a map of ept to port idx in the firmware side
-when you receive a message from Linux (just like we would maintain it
-in struct rpmsg_gpio_port in Linux too).
-
-Thanks,
-Beleswar
-
-[...]
+>  	select DT_IDLE_GENPD
+>  	default y
+>  	help
+> diff --git a/drivers/cpuidle/cpuidle-psci-domain.c b/drivers/cpuidle/cpuidle-psci-domain.c
+> index b9e4ad7d43a3310a76ce62018dff0af1488e33d2..a2d01810f2957abdfa52ae66503dc0cbb205f163 100644
+> --- a/drivers/cpuidle/cpuidle-psci-domain.c
+> +++ b/drivers/cpuidle/cpuidle-psci-domain.c
+> @@ -17,7 +17,6 @@
+>  #include <linux/pm_runtime.h>
+>  #include <linux/psci.h>
+>  #include <linux/slab.h>
+> -#include <linux/string.h>
+>  
+>  #include "cpuidle-psci.h"
+>  #include "dt_idle_genpd.h"
+> @@ -122,14 +121,9 @@ static void psci_pd_remove(void)
+>  	}
+>  }
+>  
+> -static const struct of_device_id psci_of_match[] = {
+> -	{ .compatible = "arm,psci-1.0" },
+> -	{}
+> -};
+> -
+>  static int psci_cpuidle_domain_probe(struct platform_device *pdev)
+>  {
+> -	struct device_node *np = pdev->dev.of_node;
+> +	struct device_node *np = pdev->dev.parent->of_node;
+>  	bool use_osi = psci_has_osi_support();
+>  	int ret = 0, pd_count = 0;
+>  
+> @@ -181,7 +175,6 @@ static struct platform_driver psci_cpuidle_domain_driver = {
+>  	.probe  = psci_cpuidle_domain_probe,
+>  	.driver = {
+>  		.name = "psci-cpuidle-domain",
+> -		.of_match_table = psci_of_match,
+>  	},
+>  };
+>  
+> diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
+> index 7192c9d1d268e93d1557ca6519ac96056e37e221..75ea5b47315cedfd1153899eef28614a165a14f5 100644
+> --- a/drivers/mfd/Kconfig
+> +++ b/drivers/mfd/Kconfig
+> @@ -2376,6 +2376,16 @@ config MFD_KHADAS_MCU
+>  	  additional drivers must be enabled in order to use the functionality
+>  	  of the device.
+>  
+> +config MFD_PSCI
+> +	bool "PSCI MFD for psci child cells"
+> +	depends on ARM_PSCI_FW
+> +	select MFD_CORE
+> +	help
+> +	  PSCI MFD registers PSCI child cells and exposes them as
+> +	  platform devices. Child drivers are probed only if enabled in the
+> +	  kernel configuration. Select this option whenever a supported PSCI
+> +	  child driver is selected.
+> +
+>  config MFD_ACER_A500_EC
+>  	tristate "Support for Acer Iconia Tab A500 Embedded Controller"
+>  	depends on I2C
+> diff --git a/drivers/mfd/Makefile b/drivers/mfd/Makefile
+> index e75e8045c28afae975ac61d282b3b85af5440119..36e872b11b995135a04ca24c33fd3a4d08e4f49a 100644
+> --- a/drivers/mfd/Makefile
+> +++ b/drivers/mfd/Makefile
+> @@ -24,6 +24,8 @@ obj-$(CONFIG_MFD_EXYNOS_LPASS)	+= exynos-lpass.o
+>  obj-$(CONFIG_MFD_GATEWORKS_GSC)	+= gateworks-gsc.o
+>  obj-$(CONFIG_MFD_MACSMC)	+= macsmc.o
+>  
+> +obj-$(CONFIG_MFD_PSCI)		+= psci-mfd.o
+> +
+>  obj-$(CONFIG_MFD_TI_LP873X)	+= lp873x.o
+>  obj-$(CONFIG_MFD_TI_LP87565)	+= lp87565.o
+>  obj-$(CONFIG_MFD_TI_AM335X_TSCADC)	+= ti_am335x_tscadc.o
+> diff --git a/drivers/mfd/psci-mfd.c b/drivers/mfd/psci-mfd.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..7affd6bb09dd83452664edeccb09290fe4f43186
+> --- /dev/null
+> +++ b/drivers/mfd/psci-mfd.c
+> @@ -0,0 +1,43 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+> + */
+> +
+> +#include <linux/mfd/core.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/platform_device.h>
+> +
+> +static const struct mfd_cell psci_cells[] = {
+> +	{
+> +		.name = "psci-cpuidle-domain",
+> +	},
+> +};
+> +
+> +static int psci_mfd_probe(struct platform_device *pdev)
+> +{
+> +	return devm_mfd_add_devices(&pdev->dev, PLATFORM_DEVID_AUTO, psci_cells,
+> +				   ARRAY_SIZE(psci_cells), NULL, 0, NULL);
+> +}
+> +
+> +static const struct of_device_id psci_mfd_of_match[] = {
+> +	{ .compatible = "arm,psci-1.0" },
+> +	{ }
+> +};
+> +
+> +static struct platform_driver psci_mfd_driver = {
+> +	.probe = psci_mfd_probe,
+> +	.driver = {
+> +		.name = "psci-mfd",
+> +		.of_match_table = psci_mfd_of_match,
+> +	},
+> +};
+> +
+> +static int __init psci_mfd_init(void)
+> +{
+> +	return platform_driver_register(&psci_mfd_driver);
+> +}
+> +
+> +core_initcall(psci_mfd_init);
+> +
+> +MODULE_LICENSE("GPL");
+> 
 
 
