@@ -4,93 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FD57FF8875
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 09:58:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D4F0FF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 09:59:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=glqfSPnZSBsC5GJM5wPOsyYjmETqsJsgYXJ3trO0o1Y=; b=Rp+710jgTPd3I2kQ9RwCpthdH0
-	CvXoyFcRoGX3buRQ/a8UNHYCiJHFtHMSWk0qSycxqzVUjNDY1GcuICZQ7haqrIAe0TBA0yLOTBNfy
-	l4pWsBS1jj18lVbMPHLrzn+UePW/+s5Hj4AO2si9Kk03TRDvyTKX92sHwfcmTG9N972vjGFxTKVDm
-	Y/PSY2czt9sDxe8unpCo2ksCCbYTfoV6PNcTWz/TOQCsgUXl7yV0orUTW51AwU4qB3+6E+qE6NyOS
-	KyMFryfiVP6wmnkoRl98K5Nlq651KNznDw4aSxxOg2L/PSceZMfysqr3qtwVSdehtMtqe5BHLKbf3
-	Nx1FOWsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=L3ysSGByzXfJqF7r5cfOYLrvPBu+c4z/i1q4JuXDig4=; b=A1K5ylxXJ6JA+F
+	Eupgo1xLgCKqZCoqQkBewdoK1Ab/LZJn4F7B/jyxDaFSRkK4B5ne/rHB+MZ03pTuZkqFmQftbUylL
+	WZsDovSl+CLucJIV7zzGSafYGHNT9t4jlkIoPAKtFUq8wSp3MTsNtDDgfH2gozB/7OCC+dre1alxu
+	Og20UD6k6KqXAr37AwqvU5cfZXjr/JAzPCMDya/Q/9rA70pu7IzopvfXqUvkIbFI5MjMeCnxnScDp
+	5+dR3TdnukzJU2ru8hIeb2xM69yqt+WK78Dhk479S0dQsE0L17jxlRqw6YHia5896dCI8IqyQMBk4
+	SHgMunWpy4L9q39Qa6Yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI1gG-00000003PLC-0hwx;
-	Wed, 29 Apr 2026 09:58:08 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wI1hR-00000003Pff-3kO9;
+	Wed, 29 Apr 2026 09:59:21 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI1gC-00000003PK5-3r8j;
-	Wed, 29 Apr 2026 09:58:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=glqfSPnZSBsC5GJM5wPOsyYjmETqsJsgYXJ3trO0o1Y=; b=MdgYJ2OnLLj9nuaaQwOR8k140y
-	Fj3w9qhHcRuSowhlPOw2Qd9D4xIstpAJlNEV4EtcOn+9iCbNJpUc4Nn1fSVq0R0cBpxoBmAUZ8vHB
-	/8v5ArgYn3WHBhK8K26bDzmTGJMXViqaDtwPsVjvktrUSVmSJpiREX9KaYviP3jSCvQCg/Vsbjidl
-	e5hsHjBShvBbDRltgJ/J0bvO4VbGHSUby7KIM9Y+J4sRq3Ge85zVOuoiAXLa/uyX5u+vzftCDBW1w
-	D/kXyCwbhnDLzphCFWdEzLjjnLkayIaX+MJ+b1eSLCScYjVN5BlJtVN/1ywqJXAM69OaA8wqk/bOW
-	y0A/fR3g==;
-Received: from linux.microsoft.com ([13.77.154.182])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI1g9-000000052pj-2cLV;
-	Wed, 29 Apr 2026 09:58:03 +0000
-Received: from [10.95.65.160] (unknown [167.220.238.0])
-	by linux.microsoft.com (Postfix) with ESMTPSA id AAA8120B716C;
-	Wed, 29 Apr 2026 02:57:53 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com AAA8120B716C
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1777456680;
-	bh=glqfSPnZSBsC5GJM5wPOsyYjmETqsJsgYXJ3trO0o1Y=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DwwTmFw8lT7PO8/kvWlFCX434M1go88YAYUFiOB7xJ1F+kocEhvrlQaUtuLbFgsgs
-	 qpczmKHfDoN6xdxyX2dSLL7A3qYuWuJopov32H33TocopnxktApYAXXhDjaAJcsMV+
-	 D/AJqX3CMxDfu3j87LG09egBB30+fv785wOjDaK0=
-Message-ID: <567cf73b-6a48-4fc3-b312-9be6d71e2f22@linux.microsoft.com>
-Date: Wed, 29 Apr 2026 15:27:49 +0530
+	id 1wI1hO-00000003Pec-3ZJf;
+	Wed, 29 Apr 2026 09:59:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1777456756;
+	bh=TF5ce7a1hK8I+tQv5MlsWOrZ1SFQR0W0h74iMjRsckg=;
+	h=From:Subject:Date:To:Cc:From;
+	b=MZlO9R2BIZUsr5JLlzrvbxrG+OIEu7C3PV9K7g/F2uC3d4pmMr6DVAd0hjuc8rN7C
+	 g6bZ1djAxhyNniADCcHeIv1sZi7VXs/nmaYwv7yArlEWIXWZYSlgUWyVTy8ucPcKoT
+	 W2tQbon3d5vd9CetHO+o1jB1JNsKm5YFn4O/9BRvVtDwtCJShvT0AVkz4gEfsj3HCe
+	 dM3DHP/rgdPTr+zaXcJOnb7fZbPDTeCzCPjfVpdYB2lmQ08V3wf9SDwTN7E+RNqPyw
+	 OtIG8YYWRSIE/ada6qiN8CN9gX2V79K99X60jKT4X1v3uGm51mYIKn1VevfN2cVo1w
+	 /nIoI/NH/O9ow==
+Received: from yukiji.home (unknown [100.64.0.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9C6D617E131F;
+	Wed, 29 Apr 2026 11:59:15 +0200 (CEST)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Subject: [PATCH 0/4] drm/mediatek: fix sparse warnings
+Date: Wed, 29 Apr 2026 11:58:58 +0200
+Message-Id: <20260429-mediatek-drm-fix-sparse-warnings-v1-0-d95c4d118b83@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 09/15] Drivers: hv: mshv_vtl: Move
- hv_vtl_configure_reg_page() to x86
-To: Michael Kelley <mhklinux@outlook.com>,
- "K . Y . Srinivasan" <kys@microsoft.com>,
- Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
- Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- "x86@kernel.org" <x86@kernel.org>, "H . Peter Anvin" <hpa@zytor.com>,
- Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: Marc Zyngier <maz@kernel.org>, Timothy Hayes <timothy.hayes@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Sascha Bischoff <sascha.bischoff@arm.com>,
- mrigendrachaubey <mrigendra.chaubey@gmail.com>,
- "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "vdso@mailbox.org" <vdso@mailbox.org>,
- "ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>
-References: <20260423124206.2410879-1-namjain@linux.microsoft.com>
- <20260423124206.2410879-10-namjain@linux.microsoft.com>
- <SN6PR02MB4157467FDBC0203C67A67042D4362@SN6PR02MB4157.namprd02.prod.outlook.com>
-Content-Language: en-US
-From: Naman Jain <namjain@linux.microsoft.com>
-In-Reply-To: <SN6PR02MB4157467FDBC0203C67A67042D4362@SN6PR02MB4157.namprd02.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/y2NwQrCMBBEf6Xs2YU0BC39FekhJmtdJGndpFoo/
+ XcX6/ENM/M2KCRMBfpmA6E3F56yQntqIDx8Hgk5KoM19mycdZgosq/0xCgJ77ximb0Uwo+XzHk
+ seHHGRWo7a1wAvZmFtPZTXIeDhV6LmuoRws3rPkwpce2bTGvFv62DYd+/oMRrvaMAAAA=
+X-Change-ID: 20260424-mediatek-drm-fix-sparse-warnings-7404de18204c
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ CK Hu <ck.hu@mediatek.com>, Alexandre Mergnat <amergnat@baylibre.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, 
+ kernel test robot <lkp@intel.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777456755; l=1136;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=TF5ce7a1hK8I+tQv5MlsWOrZ1SFQR0W0h74iMjRsckg=;
+ b=LxfQX0tyMzx/jWdvideYpWdeIBEBaeVsm7QmrVnk+VO54njMPWiGYzvbVKzTiX/NgWQ0MrP0N
+ pgKBYWIGs2vBGuC/xlPL6sc6eAHLQbG+mekspcZ1lSe3uw5RmNRaPTL
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_105801_951232_01398034 
-X-CRM114-Status: GOOD (  22.99  )
+X-CRM114-CacheID: sfid-20260429_025919_049058_81206057 
+X-CRM114-Status: UNSURE (   7.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,100 +90,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series fixes in the mediatek-drm driver the sparse warnings
+reported by [1] and two others introduced during v6.16 development
+cycle.
+    
+The series has compile-tested and is based on linux-next (tag:
+next-2040428).
+    
+[1]: https://lore.kernel.org/all/202604132044.fcYjEcU8-lkp@intel.com/
 
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+---
+Louis-Alexis Eyraud (4):
+      drm/mediatek: mtk_hdmi_ddc_v2: Fix non-static global variable
+      drm/mediatek: mtk_hdmi_v2: Fix non-static global variable
+      drm/mediatek: mtk_cec: Fix non-static global variable
+      drm/mediatek: mtk_hdmi_ddc: Fix non-static global variable
 
-On 4/27/2026 11:10 AM, Michael Kelley wrote:
-> From: Naman Jain <namjain@linux.microsoft.com> Sent: Thursday, April 23, 2026 5:42 AM
->>
->> Move hv_vtl_configure_reg_page() from drivers/hv/mshv_vtl_main.c to
->> arch/x86/hyperv/hv_vtl.c. The register page overlay is an x86-specific
->> feature that uses HV_X64_REGISTER_REG_PAGE, so its configuration belongs
->> in architecture-specific code.
->>
->> Move struct mshv_vtl_per_cpu and union hv_synic_overlay_page_msr to
->> include/asm-generic/mshyperv.h so they are visible to both arch and
->> driver code.
->>
->> Change the return type from void to bool so the caller can determine
->> whether the register page was successfully configured and set
->> mshv_has_reg_page accordingly.
->>
->> Signed-off-by: Naman Jain <namjain@linux.microsoft.com>
->> ---
->>   arch/x86/hyperv/hv_vtl.c       | 32 ++++++++++++++++++++++
->>   drivers/hv/mshv_vtl_main.c     | 49 +++-------------------------------
->>   include/asm-generic/mshyperv.h | 17 ++++++++++++
->>   3 files changed, 53 insertions(+), 45 deletions(-)
->>
+ drivers/gpu/drm/mediatek/mtk_cec.c         | 2 +-
+ drivers/gpu/drm/mediatek/mtk_hdmi_ddc.c    | 2 +-
+ drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c | 2 +-
+ drivers/gpu/drm/mediatek/mtk_hdmi_v2.c     | 2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
+---
+base-commit: 0f3ef35b0747832b58b97171bad99011d084c6b1
+change-id: 20260424-mediatek-drm-fix-sparse-warnings-7404de18204c
 
-<snip>
+Best regards,
+-- 
+Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 
->>   #if IS_ENABLED(CONFIG_HYPERV_VTL_MODE)
->> +/* SYNIC_OVERLAY_PAGE_MSR - internal, identical to hv_synic_simp */
-> 
-> This comment pre-dates your patch, but I don't understand the point
-> it is trying to make. The comment is factually true, but I don't know
-> why calling that out is relevant. The REG_PAGE MSR seems to be
-> conceptually separate and distinct from the SIMP MSR, so the fact
-> that the layouts are the same is just a coincidence. Or is there some
-> relationship between the two MSRs that I'm not aware of, and the
-> comment is trying (and failing?) to point out?
-
-This was added as per suggestion from Nuno in my initial series for 
-MSHV_VTL. If the reference in "identical to" is misleading, I should 
-remove it.
-
-https://lore.kernel.org/all/68143eb0-e6a7-4579-bedb-4c2ec5aaef6b@linux.microsoft.com/
-
-Quoting:
-"""
-it is a generic structure that
-appears to be used for several overlay page MSRs (SIMP, SIEF, etc).
-
-But, the type doesn't appear in the hv*dk headers explicitly; it's just
-used internally by the hypervisor.
-
-I think it should be renamed with a hv_ prefix to indicate it's part of
-the hypervisor ABI, and a brief comment with the provenance:
-
-/* SYNIC_OVERLAY_PAGE_MSR - internal, identical to hv_synic_simp */
-union hv_synic_overlay_page_msr {
-	/* <snip> */
-};
-"""
-
-> 
->> +union hv_synic_overlay_page_msr {
->> +	u64 as_uint64;
->> +	struct {
->> +		u64 enabled: 1;
->> +		u64 reserved: 11;
->> +		u64 pfn: 52;
->> +	} __packed;
->> +};
->> +
->>   u8 __init get_vtl(void);
->>   void mshv_vtl_return_call(struct mshv_vtl_cpu_context *vtl0);
->> +bool hv_vtl_configure_reg_page(struct mshv_vtl_per_cpu *per_cpu);
->>   #else
->>   static inline u8 get_vtl(void) { return 0; }
->>   static inline void mshv_vtl_return_call(struct mshv_vtl_cpu_context *vtl0) {}
->> +static inline bool hv_vtl_configure_reg_page(struct mshv_vtl_per_cpu *per_cpu) { return false; }
-> 
-> As with Patch 8, if CONFIG_HYPERV_VTL_MODE caused mshv_common.o
-> to be built, this stub wouldn't be needed.
-> 
-
-Acked.
-
-
->>   #endif
->>
->>   #endif
->> --
->> 2.43.0
->>
-
-Regards,
-Naman
 
