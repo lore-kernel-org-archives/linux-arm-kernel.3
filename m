@@ -4,69 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABB40CD13D2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 17:58:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB0C4FF887E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 17:58:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5tIkRnE1ORjoj4u0h1eWmFg73tjo03bMRc5hBjhSYqM=; b=DArXtfV1gSIq5i+/yOkOkhUpG4
-	xGF064FqJ5v/kIHnppRyofgxxsdAFz2n9P9GSqE1TvzG6nYuT2NN1IRjMHjVi+QUQ1M2SP+UZL3d3
-	0Kud+z48MDkGGwrFVf7YzO8HorbQNtaqD9xxBOvF5vr8lrX/rCrCgph5mjsSGx7gXJNHhrV0cxE3Y
-	5t4uMuVhpkgO+/1jX7Zxdq4V9awn9Bb/sebdSqMOmm+6TdzFPv2NpiDzKZdcdY6u5swbk3p2ZxUNk
-	77R1Shh/ZOHYBMLqaYX3qFdgnvYAjCrU9c4I2c8uVmKmXOwzg8k3fkiGTxCaBP4A3ISG1Ai0VJd5n
-	h+hBA1Dg==;
+	bh=djNQC+WiehgbSjZPUHPGAOR2nkZcZmEr0KjHIcYf3t4=; b=0OgP4NGfei4QcKevBU7mXhZXin
+	jkN5kdcdu+bBUha806fmNHBcDRPKYesaGFk6pk4Ddty+DD79AOozS8y3ckVTQtj10sbi8vjMEYDrV
+	sMYVdZYR32Pnm2XZx7unmrE+oBtgbn2enCK11YlvQFIQKNiMI8B/WI+ILt213I2FGIxbHsZ5bjGeO
+	ta2P4KsEyPxCkpyT0c/bbpiKSFc4f+k7LtnLOj2NWw9gTK1TWRarpN+HxdMAAfIW5hFJ/PmSyxOmG
+	hsP2jmoblnCnK528YzKo5peZGVgrrp5+/1T0zTcFwEp4VuO5h4pa+igLBKLGdU7O9tqougnOjmoeC
+	ymzd9Wlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI9B6-0000000418k-2sFZ;
-	Wed, 29 Apr 2026 17:58:28 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wI9BF-000000041In-09ed;
+	Wed, 29 Apr 2026 17:58:37 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI9Av-000000040uC-270h
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 29 Apr 2026 17:58:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=5tIkRnE1ORjoj4u0h1eWmFg73tjo03bMRc5hBjhSYqM=; b=ZxFzpSrnEh5cY4mHhpU1cF5J9a
-	01QWjkFpjS80SssJpsyUho/WocB6ujDoWIz5mbf7BppzbMV6+AuNfblNnccnGDwKXXimiDUFIUXGz
-	Kmi2jeu/XVkDWIx3jb4UD2hQE0LXB/81hmctyWbzw1oXBObQ3M0OGcfSKVfY2NQEUO4pHA5lTonyN
-	++j1TSiAWpFzrPeOcLWCOyAbwHBAVfHbUO91mYZyvJfMrerVbi7zdU1ei9hRUIINQ1wlkeQZTJBzP
-	QDrC/CKNayPFn/eymlnSznHn0nIrNwRWbMrPQ8wImLCH4KXfdQTDk1LVKpb1zuUcxOIr2x7LXbkWs
-	uypg9n7Q==;
-Received: from smtpout-04.galae.net ([185.171.202.116])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI9As-00000005wMw-3AQ3
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 17:58:16 +0000
+	id 1wI9Ay-000000040wf-0uN6;
+	Wed, 29 Apr 2026 17:58:28 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 3CA23C5CD63;
-	Wed, 29 Apr 2026 17:58:58 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 38FA24E42B71;
+	Wed, 29 Apr 2026 17:58:18 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 09E735FD43;
-	Wed, 29 Apr 2026 17:58:14 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1A14B1072B175;
-	Wed, 29 Apr 2026 19:58:07 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 0CCFF5FD43;
+	Wed, 29 Apr 2026 17:58:18 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3C0971072B171;
+	Wed, 29 Apr 2026 19:58:12 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1777485491; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1777485495; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=5tIkRnE1ORjoj4u0h1eWmFg73tjo03bMRc5hBjhSYqM=;
-	b=Vmb/o8DHri8qfjlDxdgxVCmz1cOiWo5fai2OHnEYLHyIsyVdpDTgWD44JJKYBik+Bop6+W
-	qO/mPLDC2HvVPtzzFzJzmO0zmj8Ud0q8Cl6mkOzfLIV5t4BqhYfAOS/P4cCduBkSpSOfmM
-	5M8eLmzfXkqP4D5NBRKhvhmcWtsq9c1mg0MVwung6UnlsGwZeb4fsNZ/pNVgjm2S/Vrlqz
-	cQsoBDbxgbA6MAC7jdwUUgJJZj7f2xsTfwFvpawEIDwOwqd6ZhkIt1k16aESiXmhdrWfdA
-	Wg5O+8KVvlIUYgrSqKw5HE7tXplaioeNXtYi4yXBgQzvAFVe4lpxohvMt0C13A==
+	bh=djNQC+WiehgbSjZPUHPGAOR2nkZcZmEr0KjHIcYf3t4=;
+	b=NmSZF+iWjEyn2SmSbXR4+EkHCCLdjDtILUG9X51p5SCiphlxZnjKNNGhMMDdv6+IE8Z0pT
+	ASIHf/oK5ins8abEGkf3OT/DpAh4+l/rTkVjcESvNc56zjX3c6MzBilErApZ2Bhx8qWhnA
+	q4skr5wiZcq3mmwHq2jiVNGW1mYCJN/tNbDh2F3BzrrvyfD4fdGmhsSID0jKhhjNOiGAz6
+	jJJPYq8QKvuUtagfzMs9+zJqCAJairETws7j+Woa85G71iDosgPBr85dnsTyIGKlD82Shb
+	llYfvCKlpMGTCJF/Xyt0qdAzxC71iYXH4L/FxQpv9jVgln0FJY4chh9edS6YQw==
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Wed, 29 Apr 2026 19:56:46 +0200
-Subject: [PATCH v3 09/11] mtd: spinand: winbond: Create a helper to write
- the HS bit
+Date: Wed, 29 Apr 2026 19:56:47 +0200
+Subject: [PATCH v3 10/11] mtd: spinand: winbond: Create a helper to detect
+ the need for the HS bit
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260429-winbond-v6-18-rc1-cont-read-v3-9-0f38b3c229ad@bootlin.com>
+Message-Id: <20260429-winbond-v6-18-rc1-cont-read-v3-10-0f38b3c229ad@bootlin.com>
 References: <20260429-winbond-v6-18-rc1-cont-read-v3-0-0f38b3c229ad@bootlin.com>
 In-Reply-To: <20260429-winbond-v6-18-rc1-cont-read-v3-0-0f38b3c229ad@bootlin.com>
 To: Mark Brown <broonie@kernel.org>, Richard Weinberger <richard@nod.at>, 
@@ -93,8 +77,8 @@ Cc: Pratyush Yadav <pratyush@kernel.org>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_185814_894729_9DB1C964 
-X-CRM114-Status: UNSURE (   9.99  )
+X-CRM114-CacheID: sfid-20260429_105820_487417_E9A1875B 
+X-CRM114-Status: UNSURE (   9.62  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -110,69 +94,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Updating the HS bit is not complex but implies reading, setting/clearing
-a bit and writing. Clean a bit this section by moving this logic in its
-own helper.
+The logic is not complex but might be reused to cleanup a bit the
+section by moving it to a dedicated helper.
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/mtd/nand/spi/winbond.c | 34 ++++++++++++++++++----------------
- 1 file changed, 18 insertions(+), 16 deletions(-)
+ drivers/mtd/nand/spi/winbond.c | 31 +++++++++++++++++--------------
+ 1 file changed, 17 insertions(+), 14 deletions(-)
 
 diff --git a/drivers/mtd/nand/spi/winbond.c b/drivers/mtd/nand/spi/winbond.c
-index 6c11f59a9f8d..b30a343a6672 100644
+index b30a343a6672..ffbcd25b0366 100644
 --- a/drivers/mtd/nand/spi/winbond.c
 +++ b/drivers/mtd/nand/spi/winbond.c
-@@ -404,13 +404,28 @@ static int w25w35nxxjw_ecc_get_status(struct spinand_device *spinand, u8 status)
- 	return -EINVAL;
+@@ -421,30 +421,33 @@ static int w25n0xjw_set_sr4_hs(struct spinand_device *spinand, bool enable)
+ 	return spinand_write_reg_op(spinand, W25N0XJW_SR4, sr4);
  }
  
-+static int w25n0xjw_set_sr4_hs(struct spinand_device *spinand, bool enable)
++/*
++ * SDR dual and quad I/O operations over 104MHz require the HS bit to
++ * enable a few more dummy cycles.
++ */
++static bool w25n0xjw_op_needs_hs(const struct spi_mem_op *op)
 +{
-+	int ret;
-+	u8 sr4;
++	if (op->cmd.dtr || op->addr.dtr || op->dummy.dtr || op->data.dtr)
++		return false;
++	else if (op->cmd.buswidth != 1 || op->addr.buswidth == 1)
++		return false;
++	else if (op->max_freq && op->max_freq <= 104 * HZ_PER_MHZ)
++		return false;
 +
-+	ret = spinand_read_reg_op(spinand, W25N0XJW_SR4, &sr4);
-+	if (ret)
-+		return ret;
-+
-+	if (enable)
-+		sr4 |= W25N0XJW_SR4_HS;
-+	else
-+		sr4 &= ~W25N0XJW_SR4_HS;
-+
-+	return spinand_write_reg_op(spinand, W25N0XJW_SR4, sr4);
++	return true;
 +}
 +
  static int w25n0xjw_hs_cfg(struct spinand_device *spinand,
  			   enum spinand_bus_interface iface)
  {
  	const struct spi_mem_op *op;
- 	bool hs;
--	u8 sr4;
--	int ret;
+-	bool hs;
  
  	if (iface != SSDR)
  		return -EOPNOTSUPP;
-@@ -429,20 +444,7 @@ static int w25n0xjw_hs_cfg(struct spinand_device *spinand,
- 	else
- 		hs = true;
  
--	ret = spinand_read_reg_op(spinand, W25N0XJW_SR4, &sr4);
--	if (ret)
--		return ret;
--
--	if (hs)
--		sr4 |= W25N0XJW_SR4_HS;
+-	/*
+-	 * SDR dual and quad I/O operations over 104MHz require the HS bit to
+-	 * enable a few more dummy cycles.
+-	 */
+ 	op = spinand->op_templates->read_cache;
+-	if (op->cmd.dtr || op->addr.dtr || op->dummy.dtr || op->data.dtr)
+-		hs = false;
+-	else if (op->cmd.buswidth != 1 || op->addr.buswidth == 1)
+-		hs = false;
+-	else if (op->max_freq && op->max_freq <= 104 * HZ_PER_MHZ)
+-		hs = false;
 -	else
--		sr4 &= ~W25N0XJW_SR4_HS;
--
--	ret = spinand_write_reg_op(spinand, W25N0XJW_SR4, sr4);
--	if (ret)
--		return ret;
--
--	return 0;
-+	return w25n0xjw_set_sr4_hs(spinand, hs);
+-		hs = true;
+ 
+-	return w25n0xjw_set_sr4_hs(spinand, hs);
++	return w25n0xjw_set_sr4_hs(spinand, w25n0xjw_op_needs_hs(op));
  }
  
  static int w35n0xjw_write_vcr(struct spinand_device *spinand, u8 reg, u8 val)
