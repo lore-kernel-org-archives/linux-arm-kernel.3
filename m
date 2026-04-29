@@ -4,82 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34F9BCCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 16:04:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2831AFF887E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 16:10:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j6Koohm0exD7YZgI8Amj/lB5zDVIz8TMu81/yx9weak=; b=OrDhrhECpKoBexvRXYHOJpN7Ya
-	ti7DXAzO76UyA4QNTDHfeOKsuED9/V6ypXiy6rXwkvpy6jXS1C3iVLCjkl/rGPvd8KRE1TmJHdbzz
-	MoWFlHlo1svWuRENoAE3br1olwpGLHZTfzrnAMytz96OIP1MCOMXyrOA1wwsEfFHT67cwPXAUUTrB
-	Yii941SyOESaOFMMW50hiGNUvoWx7SceQoNFGiIUaY/XWNOEv2cyLShK9pcKyrWUYSHF2lmSm17JP
-	kj6E5VbtrMe3ePzGiBFR405Jvy7T6IfhgJq1HbXahjHiRd4UaDKaOKj2BmDjlYxArUgkWIM94FHoS
-	2SCq7zLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QFEQeqYDr3vnx+CdaU4srnuC/dtlq0bO49Y8PJlmqAU=; b=pwCCAS8mowM1l7fjm5TOWXXpY/
+	V+bivt22steOYqccLQNAZoeguZw/axvwjsxDfGFSAp4+NJb0JqjpID3dqHguGRJHSM66f1zwYrCaL
+	WW0pHtXuIIZoacIWSHy9ifElb3W5fdBwemFOyBYKB0BU0GynI8GS0/kWMP7F/xgOxFzDltXYQveN0
+	6j85guDU8zQWQRdTaIe3h98Xr2/if03mnSN21Z2+9ZHN571OcRQvEfp0RM2Noa/70acZxX4wlFqUQ
+	GlqavY4qM3IXwbThx37V3ziyyUK+0+374dyn3z0dzuRnZBzf9d4kcVd+caVwNmDlv10C1AntGIYL3
+	tZCxZPMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI7P5-00000003tC7-3oE5;
-	Wed, 29 Apr 2026 16:04:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wI7Uv-00000003tYh-1nli;
+	Wed, 29 Apr 2026 16:10:49 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI7P4-00000003tBz-23ko
+	id 1wI7Ut-00000003tY1-0UoC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 16:04:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8818F60142;
-	Wed, 29 Apr 2026 16:04:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD268C19425;
-	Wed, 29 Apr 2026 16:04:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777478685;
-	bh=wgjSK03KqpSOgpV+YE2QB1a7YDefNYzqnA50VvVYNdA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=CIpU250gZqGwPy1WLklCe3fknccm2XhXA8a19fOD+AfdYgt0/EyXYnNwnhkqqnmls
-	 AKll6IJ/Qft2q+DLRangJmYE5yO/asZuAzqP5YGurUXxp7hR0zgTdEeS4Ir7oZdN8T
-	 y1CyLlmg46OQGJ9/81napUqRXFT0Le3PQV5Xhcc1wsHiLVjGCtwNYVgrUGT4/QuVtl
-	 1W+wUY0aItpdhW9Xdse32gFoZq9NRpCM022+16IxjxaJ1oq2wUnvX8IqEYXbg/6fAl
-	 kEqQ9YDKjCK+8aLVSQWDcTqcXUCQSFOqfTF8ZKXZvp8bJnG47fDk6qCihMgXZWq0XD
-	 RgeHEOk5PZzCA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wI7P0-0000000FxQO-0NSH;
-	Wed, 29 Apr 2026 16:04:42 +0000
-Date: Wed, 29 Apr 2026 17:04:41 +0100
-Message-ID: <86jytpzrae.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	nd <nd@arm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Joey Gouly
-	<Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>
-Subject: Re: [PATCH 09/43] KVM: arm64: gic-v5: Implement VMT/vIST IRS MMIO Ops
-In-Reply-To: <20260427160547.3129448-10-sascha.bischoff@arm.com>
-References: <20260427160547.3129448-1-sascha.bischoff@arm.com>
-	<20260427160547.3129448-10-sascha.bischoff@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Wed, 29 Apr 2026 16:10:48 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63TCeREd316843
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 16:10:46 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	QFEQeqYDr3vnx+CdaU4srnuC/dtlq0bO49Y8PJlmqAU=; b=cZ/Witblgi6EIXKS
+	qbLMR/8oRr23GtyI45c0j39vYBwbeHYolz7VXgngtSVVN9so1MoXHt8hzNY0LVNu
+	2Hxyjce0Q+t4qLd3Hco9LKxXJReg4MmcK6iaEdwiDdNp82Ekb9teAJfsGwk0kQJX
+	/lfBomu2tcDL96kUKW62mWcmX+yYL6O4xfdDQF3jOQ+/+dF31p7PKxm41eR5XsA3
+	uQcwFycHKTDJ3MokteQ05wITXxc1uvF2sOjxmzdKyXNpdLd+xsIYgEv/lOGRXPuV
+	PRIqXu2wMKgV6tnBWeYthWK0q2ADut09i2ALBhuFLL+lyf9itLbrQrleYckYIzBf
+	nDqlBQ==
+Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4duj6t8tbx-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 16:10:45 +0000 (GMT)
+Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-35fbb57764aso1046319a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 09:10:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1777479045; x=1778083845; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=QFEQeqYDr3vnx+CdaU4srnuC/dtlq0bO49Y8PJlmqAU=;
+        b=Ml9Vv67vpVxr3NtJg9reoNYQ0LZ8Owp1yq2HkZhsGg1a/V55QkTy7JR2OJWZvPoncS
+         UMUofwupxuoF/D8W2DRMQUagcF1k3CxcSi3k770z95qX7OB0d3E9Mg8MsI8wGlNp4m7F
+         DTPf52APxoUzNnE49hChKHIQfRsJUqVFI3OB2pcYi/RXWiZnuDinT5R0qk/0noxg7n7G
+         BpBVmNZjQ5cpfGQf1WOGr5W7DPMaJZWWwA1BsDyBLLgafNfntxILTSDaAdnLZOZY/SWG
+         jchuVtPkOrTUKilDhHMFH9k5bEKOkFe4D4gYcBq1krd6VMUGz/T9UCMONEwAbdWRDkyw
+         A0ww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777479045; x=1778083845;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=QFEQeqYDr3vnx+CdaU4srnuC/dtlq0bO49Y8PJlmqAU=;
+        b=KRFzarqrS/hcWFt/JfI6mHX5O6kfjFdkrvsQ4ukcHR/iDsO29AgCFaYopI0EvMV4oE
+         ADOFCFkrBh5yuqU9WfDndv10fje+ZnEYqSLUiy1q9TPl3erza2ezXXDfGAixcNt25cTn
+         x5a0TS1fBPTPUm1l53CCqi1ARadWH8Jnh08SQFGorVKWkbhb0WJAscXiHsApWbOVhcV/
+         Q93nnVHL9qfTWOhZ1c8XyClQl0Bw5dYrb3fXAva1DgVSh7UVsL5S91PKvI+ow8n7RXAg
+         YGfvRP2mMuLRdAhmHTB3e6A5QLIgH6KoztpI/X6C6TBIBIsKzBplLeRkkO+MemthjRdt
+         IjmA==
+X-Forwarded-Encrypted: i=1; AFNElJ93PX7fz7lBtXK8lgIbXUWvmHn73tINl8pbOFnWwA23WBwsYaXUlDYDL60mGxcMHwmOTuxuK7aAAV2lk/CdVlnu@lists.infradead.org
+X-Gm-Message-State: AOJu0YzO8zFKl/uyxgP5BmhPrDDcBZU6EhV67Rb3c1XmALn73N4bLsnq
+	LlmcMCkwZvaudZeAxI5tWg0eDcOyzJJHUxz/Mxs/g+b0VsK+ZXjV3IsbkQvJsFPLp43WhozkPwm
+	GdhehEISW9XuiJHPS5A4fEA/4bHFh35jZrW3OkHnNkcQoKkKULoP750WffanRSud1nOOOF2KWWJ
+	qZxw==
+X-Gm-Gg: AeBDiesJ42Mps3UigWFfoZdvS+7YfvSPfYT6tpw6PjE7xB3uP7XfZRANWq5tQ/zQKnh
+	fJ9pfOaUa+8qU19ws0ia2MsUeMEh1oeVxApHIZ5mF6EhoYRLyJXFlM7PxkF95Cm+emd61/2EM17
+	nMitCpZYcRn1mMSF9bkAusRu25pL1q/x8AgNBdXNM3OgbL7jTbfrq4zx36DpeE2ZPJbpmbb9G3b
+	db8tRLFlnM+SCz46oz2JvvyTN6adGzFyIKQOUpO7AuN+fUvu8DPM2WzjzEErESz+Q4YpJrjWTKB
+	MbZTmsM6n1aCUMdo4EcvRmossTllAcM64oGXf+/TfF8CsULqItC//+PqiOTrudpm7+Hibm8H0qT
+	LZUn4fH1ZS9W7jRNFmhp7uM/dl0hm9gPihg/E4fASMVF0EvDMu27gPHARVDdMlg93Iw==
+X-Received: by 2002:a17:902:cf0b:b0:2b2:3eec:c75b with SMTP id d9443c01a7336-2b988368538mr33084365ad.2.1777479045159;
+        Wed, 29 Apr 2026 09:10:45 -0700 (PDT)
+X-Received: by 2002:a17:902:cf0b:b0:2b2:3eec:c75b with SMTP id d9443c01a7336-2b988368538mr33083725ad.2.1777479044502;
+        Wed, 29 Apr 2026 09:10:44 -0700 (PDT)
+Received: from [192.168.29.31] ([49.43.226.7])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b99852135asm7875085ad.73.2026.04.29.09.10.34
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 29 Apr 2026 09:10:44 -0700 (PDT)
+Message-ID: <37ab0178-1c9d-409e-bbaa-832f8075afa4@oss.qualcomm.com>
+Date: Wed, 29 Apr 2026 21:40:32 +0530
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v21 08/13] mfd: core: Add firmware-node support to MFD
+ cells
+To: Bartosz Golaszewski <brgl@kernel.org>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        devicetree@vger.kernel.org,
+        Florian Fainelli
+ <florian.fainelli@broadcom.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+        Andre Draszik <andre.draszik@linaro.org>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+        Srinivas Kandagatla <srini@kernel.org>,
+        Sebastian Reichel <sre@kernel.org>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        "Rafael J. Wysocki" <rafael@kernel.org>,
+        Daniel Lezcano <daniel.lezcano@kernel.org>,
+        Christian Loehle <christian.loehle@arm.com>,
+        Ulf Hansson <ulfh@kernel.org>, Lee Jones <lee@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+        Andy Yan <andy.yan@rock-chips.com>,
+        Matthias Brugger
+ <matthias.bgg@gmail.com>,
+        John Stultz <john.stultz@linaro.org>,
+        Moritz Fischer <moritz.fischer@ettus.com>,
+        Sudeep Holla <sudeep.holla@kernel.org>
+References: <20260427-arm-psci-system_reset2-vendor-reboots-v21-0-dcf937775e73@oss.qualcomm.com>
+ <20260427-arm-psci-system_reset2-vendor-reboots-v21-8-dcf937775e73@oss.qualcomm.com>
+ <CAMRc=Mf+-04Zr7jjRoaxTzO3LKSMyQ7DzxJc=dHNSyThEUiq_Q@mail.gmail.com>
+ <c0677503-8073-4940-8eb0-c06b34f843d2@oss.qualcomm.com>
+ <CAMRc=MdxpSXiqAn-8Az4ig4N8TFVdE9psacPVG9J9KehuFnbwA@mail.gmail.com>
+ <d6112b9c-01ea-483c-98fe-b480e78872e5@oss.qualcomm.com>
+ <ce92a493-5016-41a2-8337-d2227cdf760a@oss.qualcomm.com>
+ <CAMRc=Md_OON4cAGcJ=jDu=VY_mw0qa8HPz4VCDxYLpr7JMxLRw@mail.gmail.com>
+Content-Language: en-US
+From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+In-Reply-To: <CAMRc=Md_OON4cAGcJ=jDu=VY_mw0qa8HPz4VCDxYLpr7JMxLRw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-GUID: AnQPIvuaCdnZicvEuBbNld8kX2mHSD4L
+X-Authority-Analysis: v=2.4 cv=KcHidwYD c=1 sm=1 tr=0 ts=69f22d86 cx=c_pps
+ a=RP+M6JBNLl+fLTcSJhASfg==:117 a=Y3Rdv8TwbQrKP7QTPRCa6w==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=EUspDBNiAAAA:8 a=KxIdvRQG5D7s9ip59WoA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=iS9zxrgQBfv6-_F4QbHw:22
+X-Proofpoint-ORIG-GUID: AnQPIvuaCdnZicvEuBbNld8kX2mHSD4L
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI5MDE2MyBTYWx0ZWRfX39NtXfmRupp2
+ 9eyinzcB1S2bfTcqzNCWQnmm+gFAZGotVy40Xrpd3IK4Hw0Hsbt0GxJqAEswb0mGDiF58RfQdnH
+ XjZZihDlPUZiRjxHWBMzier3ZetQHOK+UHr0gpgdguryOyIongHBT4V+0hO0w625806YmMOeeR/
+ fgQA1+C1dAVmtwgAtTv6c9YjlQa3bp22FX5G6i0EGNjS/EOipP0MUJ0koEzPB8k0XV/GCQTdVK3
+ C3Az73Q7uUpsNrrAELlu575j8vbrzYpJNhLZyLQR/Hrjwmg95AaYrO7a/R+IUxjDqUQwQ5BssjA
+ Mp3P4TXuSS2yssupLP0yDazhqLjF9NvzyUzO1cEmvsMyjtUSCWk0DsWbAGo9WqooRsHDSw3BGhH
+ oLpQdJk+n+T3qpU1K2BpSkIFwl4rKAs2X9ldw6yttLNSxJOXn5MXsDTi0EWfqFbsy/jQQBCE15Y
+ THtZ+GMNHl7SJ246CIw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-29_01,2026-04-28_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 spamscore=0 phishscore=0 bulkscore=0 suspectscore=0
+ malwarescore=0 lowpriorityscore=0 clxscore=1015 adultscore=0
+ priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
+ definitions=main-2604290163
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260429_091047_208073_0E120B98 
+X-CRM114-Status: GOOD (  18.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,533 +184,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 27 Apr 2026 17:09:06 +0100,
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+
+
+On 29-04-2026 15:20, Bartosz Golaszewski wrote:
+> On Wed, Apr 29, 2026 at 11:46 AM Shivendra Pratap
+> <shivendra.pratap@oss.qualcomm.com> wrote:
+>>
+>>>>
+>>>> If set, it would be called from MFD core and would do the name lookup
+>>>> and return the fwnode which would then be assigned to the cell device?
+>>>
+>>
+>> Or should we just drop this patch for fwnode in mfd-core?
+>>
+>> Export a new call in reboot-mode framework as:
+>> reboot_mode_register_node(struct reboot_mode_driver *reboot,
+>>                     struct device_node *np / fwnode)
+>>
+>> Use the parent node in psci-reboot-mode and find reboot-mode and call
+>> reboot_mode_register_node?
+>>
 > 
-> GICv5 has rules about which fields of a VMTE (or L1 VMT) may be
-> directly written by the host once the table is valid. This ensures
-> that no stale state is cached by the hardware, and provides a clear
-> interface for making VMs, ISTs, etc, valid.
-> 
-> The hypervisor is responsible for populating the VMTE for a
-> VM. However, it is not permitted to write the Valid bit (as the VM
-> table is already valid). Instead, the VM is made valid via an IRS MMIO
-> Op. The same applies to the ISTs - they must be made valid via the
-> host IRS.
-> 
-> This commit adds support for:
-> 
-> * Making level 2 VMTs valid (only), allowing for dynamic level 2 table
->   allocation.
+> No, I think the reboot-mode device (as pointed to by the dev field of
+> struct reboot_mode_driver) should be associated with the right fwnode
+> from the start so it should be handled in MFD core.
 
-Isn't it level 1 instead, if L2 is supposed to be dynamic?
+Ack. something like should be fine?
 
-> * Making VMTEs (VMs) valid or invalid
-> * Making SPI/LPI ISTs valid or invalid for a specific VM
-> 
-> When (successfully) probing for a GICv5, the VMT is allocated, and is
-> made valid via the IRS's MMIO interface.
-> 
-> This commit also extends the doorbell domain to allow the doorbells
-> themselves to act as a conduit for issuing commands - this is similar
-> to what exists for GICv4 support. Effectively, irq_set_vcpu_affinity()
-> becomes an ioctl-like interface for issuing commands specific to
-> either a VM or the particular VPE that the doorbell belongs to. This
-> change adds support for the following via the VPE doorbells:
-> 
->         VMT_L2_MAP - Make a second level VM table valid
->         VMTE_MAKE_VALID - Make a single VMTE (and hence VM) valid
->         VMTE_MAKE_INVALID - Make a single VMTE (and hence VM) invalid
->         SPI_VIST_MAKE_VALID - Make the SPI IST valid
->         LPI_VIST_MAKE_VALID - Make the LPI IST valid
->         LPI_VIST_MAKE_INVALID - Make the LPI IST invalid
-> 
-> Note: It is intentional that there is no SPI_VIST_MAKE_INVALID - this
-> cannot happen while the VM is live, and given that the SPI is
+drivers/mfd/mfd-core.c :
++       if (!pdev->dev.fwnode && cell->get_fwnode) {
++               fwnode = cell->get_fwnode(parent);
++               if (fwnode)
++                       device_set_node(&pdev->dev, fwnode);
++       }
 
-This SPI_VIST_MAKE_VALID introduced in the previous patch. It feels
-weird to only explain the lack of INVALID here...
+drivers/mfd/psci-mfd.c (goes next patch):
++static struct fwnode_handle *psci_reboot_mode_get_fwnode(struct device 
+*parent)
++{
++       return fwnode_get_named_child_node(dev_fwnode(parent), 
+"reboot-mode");
++}
 
-> allocated as part of VM creation, there is no need to make it invalid
-> again until the VM is destroyed, at which point the VMTE is
-> invalid. Therefore, there's no need to do this via the host's IRS MMIO
-> interface, as it can be directly marked as invalid and freed. LPIs, on
-> the other hand, are driven by the guest itself, and the guest is
-> theoretically free to invalidate and free the LPI IST at any point.
-> 
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> ---
->  arch/arm64/kvm/vgic/vgic-v5-tables.c |  25 +++
->  arch/arm64/kvm/vgic/vgic-v5-tables.h |   2 +
->  arch/arm64/kvm/vgic/vgic-v5.c        | 236 ++++++++++++++++++++++++++-
->  include/linux/irqchip/arm-gic-v5.h   |  30 ++++
->  4 files changed, 290 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/vgic/vgic-v5-tables.c b/arch/arm64/kvm/vgic/vgic-v5-tables.c
-> index de905f37b61a5..0120c3205dea6 100644
-> --- a/arch/arm64/kvm/vgic/vgic-v5-tables.c
-> +++ b/arch/arm64/kvm/vgic/vgic-v5-tables.c
-> @@ -666,6 +666,26 @@ int vgic_v5_vmte_free_vpe(struct kvm_vcpu *vcpu)
->  	return 0;
->  }
->  
-> +phys_addr_t vgic_v5_get_vmt_base(void)
-> +{
-> +	phys_addr_t vmt_base;
-> +
-> +	if (!vgic_v5_vmt_allocated())
-> +		return -ENXIO;
-> +
-> +	if (!vmt_info->two_level)
-> +		vmt_base = virt_to_phys(vmt_info->linear.vmt_base);
-> +	else
-> +		vmt_base = virt_to_phys(vmt_info->l2.vmt_base);
-> +
-> +	return vmt_base;
-> +}
-> +
-> +u8 vgic_v5_vmt_vpe_id_bits(void)
-> +{
-> +	return fls(vmt_info->max_vpes) - 1;
-> +}
-> +
->  /*
->   * Assign an already allocated IST to the VM by populating the fields in the
->   * corresponding VMTE. We re-use this code for both an SPI IST and LPI IST, even
-> @@ -715,6 +735,11 @@ int vgic_v5_vmte_assign_ist(struct kvm *kvm, phys_addr_t ist_base,
->  	/* Finally, mark the entry as valid */
->  	cmd_info.cmd_type = spi_ist ? SPI_VIST_MAKE_VALID : LPI_VIST_MAKE_VALID;
->  	ret = irq_set_vcpu_affinity(vgic_v5_vpe_db(vcpu0), &cmd_info);
-> +	if (ret) {
-> +		WRITE_ONCE(vmte->val[section], 0ULL);
-> +		vgic_v5_clean_inval(vmte, sizeof(*vmte), true, false);
-> +		return ret;
-> +	}
->  
->  	/* Any cached entries we now have are stale! */
->  	vgic_v5_clean_inval(vmte, sizeof(*vmte), false, true);
-> diff --git a/arch/arm64/kvm/vgic/vgic-v5-tables.h b/arch/arm64/kvm/vgic/vgic-v5-tables.h
-> index 37e220cda1987..6a024337eba79 100644
-> --- a/arch/arm64/kvm/vgic/vgic-v5-tables.h
-> +++ b/arch/arm64/kvm/vgic/vgic-v5-tables.h
-> @@ -150,6 +150,8 @@ int vgic_v5_vmt_allocate(bool two_level, unsigned int num_entries,
->  			 size_t vmd_size, size_t vped_size,
->  			 unsigned int vpe_id_bits);
->  int vgic_v5_vmt_free(void);
-> +phys_addr_t vgic_v5_get_vmt_base(void);
-> +u8 vgic_v5_vmt_vpe_id_bits(void);
->  
->  int vgic_v5_allocate_vm_id(struct kvm *kvm);
->  void vgic_v5_release_vm_id(struct kvm *kvm);
-> diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
-> index 4e0d52b309628..49eb01ca07961 100644
-> --- a/arch/arm64/kvm/vgic/vgic-v5.c
-> +++ b/arch/arm64/kvm/vgic/vgic-v5.c
-> @@ -36,6 +36,12 @@ static void vgic_v5_get_implemented_ppis(void)
->  	__assign_bit(GICV5_ARCH_PPI_PMUIRQ, ppi_caps.impl_ppi_mask, system_supports_pmuv3());
->  }
->  
-> +/*
-> + * The IRS MMIO interface is shared between all VMs, so make sure we don't do
-> + * anything stupid!
-> + */
-> +static DEFINE_RAW_SPINLOCK(vm_config_lock);
-> +
+--
 
-I don't think you could have picked a worse name for this lock. It has
-nothing to do with a VM. It really is a global IRS lock.
-
->  static void __iomem *irs_base;
->  
->  static u32 irs_readl_relaxed(const u32 reg_offset)
-> @@ -43,6 +49,21 @@ static u32 irs_readl_relaxed(const u32 reg_offset)
->  	return readl_relaxed(irs_base + reg_offset);
->  }
->  
-> +static void irs_writel_relaxed(const u32 val, const u32 reg_offset)
-> +{
-> +	writel_relaxed(val, irs_base + reg_offset);
-> +}
-> +
-> +static u64 irs_readq_relaxed(const u32 reg_offset)
-> +{
-> +	return readq_relaxed(irs_base + reg_offset);
-> +}
-> +
-> +static void irs_writeq_relaxed(const u64 val, const u32 reg_offset)
-> +{
-> +	writeq_relaxed(val, irs_base + reg_offset);
-> +}
-> +
->  static int gicv5_irs_extract_vm_caps(const struct gic_kvm_info *info)
->  {
->  	u64 idr;
-> @@ -84,16 +105,22 @@ static int gicv5_irs_extract_vm_caps(const struct gic_kvm_info *info)
->  	return 0;
->  }
->  
-> +/* Forward decl for cleaner code layout */
-
-Drop this comment. The intent is pretty obvious. And maybe move them
-to the top, so that all forward declarations are grouped together.
-
-> +static int vgic_v5_irs_assign_vmt(bool two_level, u8 vm_id_bits, phys_addr_t vmt_base);
-> +static int vgic_v5_irs_clear_vmt(void);
-> +
->  /*
->   * Probe for a vGICv5 compatible interrupt controller, returning 0 on success.
->   */
->  int vgic_v5_probe(const struct gic_kvm_info *info)
->  {
-> +	struct vgic_v5_host_ist_caps *ist_caps;
->  	bool v5_registered = false;
->  	u64 ich_vtr_el2;
->  	int ret;
->  
->  	kvm_vgic_global_state.type = VGIC_V5;
-> +	kvm_vgic_global_state.max_gic_vcpus = VGIC_V5_MAX_CPUS;
->  
->  	kvm_vgic_global_state.vcpu_base = 0;
->  	kvm_vgic_global_state.vctrl_base = NULL;
-> @@ -114,13 +141,53 @@ int vgic_v5_probe(const struct gic_kvm_info *info)
->  	if (gicv5_irs_extract_vm_caps(info))
->  		goto skip_v5;
->  
-> -	kvm_vgic_global_state.max_gic_vcpus = VGIC_V5_MAX_CPUS;
-> +	ist_caps = vgic_v5_host_caps();
-> +
-> +	/*
-> +	 * Even if the HW supports more per-VM vCPUs, artifically cap as we
-> +	 * can't use them all.
-> +	 */
-> +	kvm_vgic_global_state.max_gic_vcpus = min(ist_caps->max_vpes,
-> +						  VGIC_V5_MAX_CPUS);
-
-Can this be less than 512, which we still want to support for GICv3?
-
-> +
-> +	/*
-> +	 * GICv5 requires a set of tables to be allocated in order to manage
-> +	 * VMs. We allocate them in advance here, which alas means that we
-> +	 * already have to make a decisions regarding the maximum number of VMs
-> +	 * we want to run. For now, we match the maximum number offered by the
-> +	 * hardware, but this might not be a wise choice in the long term.
-> +	 */
-> +	ret = vgic_v5_vmt_allocate(ist_caps->two_level_vmt_support,
-> +				   ist_caps->max_vms, ist_caps->vmd_size,
-> +				   ist_caps->vped_size,
-
-Why don't you just pass irs_caps to the allocator instead of teasing
-out individual fields?
-
-> +				   kvm_vgic_global_state.max_gic_vcpus);
-> +	if (ret) {
-> +		kvm_err("Failed to allocate the GICv5 VM tables; no GICv5 support\n");
-> +		goto skip_v5;
-
-Turn this into a hard fail.
-
-> +	}
-> +
-> +	/*
-> +	 * We've now allocated the VM table, but the host's IRS doesn't know
-> +	 * about it yet. Provide the base address of the VMT to the IRS, as well
-> +	 * as the number of ID bits that it covers and the structure used
-> +	 * (linear/two-level).
-> +	 */
-> +	ret = vgic_v5_irs_assign_vmt(ist_caps->two_level_vmt_support,
-> +				     vgic_v5_vmt_vpe_id_bits(),
-> +				     vgic_v5_get_vmt_base());
-> +	if (ret) {
-> +		kvm_err("Failed to assign the GICv5 VM tables to the IRS; no GICv5 support\n");
-> +		vgic_v5_vmt_free();
-> +		goto skip_v5;
-> +	}
->  
->  	vgic_v5_get_implemented_ppis();
->  
->  	ret = kvm_register_vgic_device(KVM_DEV_TYPE_ARM_VGIC_V5);
->  	if (ret) {
->  		kvm_err("Cannot register GICv5 KVM device.\n");
-> +		vgic_v5_irs_clear_vmt();
-> +		vgic_v5_vmt_free();
->  		goto skip_v5;
->  	}
->  
-> @@ -148,12 +215,13 @@ int vgic_v5_probe(const struct gic_kvm_info *info)
->  	ret = kvm_register_vgic_device(KVM_DEV_TYPE_ARM_VGIC_V3);
->  	if (ret) {
->  		kvm_err("Cannot register GICv3-legacy KVM device.\n");
-> -		return ret;
-> +		/* vGICv5 should still work */
-> +		return v5_registered ? 0 : ret;
->  	}
->  
->  	/* We potentially limit the max VCPUs further than we need to here */
->  	kvm_vgic_global_state.max_gic_vcpus = min(VGIC_V3_MAX_CPUS,
-> -						  VGIC_V5_MAX_CPUS);
-> +						  kvm_vgic_global_state.max_gic_vcpus);
->  
->  	static_branch_enable(&kvm_vgic_global_state.gicv3_cpuif);
->  	kvm_info("GCIE legacy system register CPU interface\n");
-> @@ -163,6 +231,167 @@ int vgic_v5_probe(const struct gic_kvm_info *info)
->  	return 0;
->  }
->  
-> +/*
-> + * Wait for completion of a change in any of IRS_VMT_BASER, IRS_VMAP_L2_VMTR,
-> + * IRS_VMAP_VMR, IRS_VMAP_VPER, IRS_VMAP_VISTR, IRS_VMAP_L2_VISTR.
-> + */
-> +static int vgic_v5_irs_wait_for_vm_op(void)
-> +{
-> +	u32 statusr;
-> +	int ret;
-> +
-> +	ret = readl_relaxed_poll_timeout_atomic(
-> +		irs_base + GICV5_IRS_VMT_STATUSR, statusr,
-> +		FIELD_GET(GICV5_IRS_VMT_STATUSR_IDLE, statusr), 1,
-> +		USEC_PER_SEC);
-
-nit: please don't split this line before the first parameter of the
-function.
-
-> +
-> +	if (ret == -ETIMEDOUT) {
-> +		pr_err_ratelimited("Time out waiting for IRS VM Op\n");
-> +		return ret;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int vgic_v5_irs_assign_vmt(bool two_level, u8 vm_id_bits, phys_addr_t vmt_base)
-> +{
-> +	u64 vmt_baser;
-> +	u32 vmt_cfgr;
-> +
-> +	vmt_baser = irs_readq_relaxed(GICV5_IRS_VMT_BASER);
-> +	if (!!FIELD_GET(GICV5_IRS_VMT_BASER_VALID, vmt_baser))
-> +		return -EBUSY;
-> +
-> +	vmt_cfgr = FIELD_PREP(GICV5_IRS_VMT_CFGR_VM_ID_BITS, vm_id_bits);
-> +	if (two_level)
-> +		vmt_cfgr |= FIELD_PREP(GICV5_IRS_VMT_CFGR_STRUCTURE,
-> +				       GICV5_IRS_VMT_CFGR_STRUCTURE_TWO_LEVEL);
-> +
-> +	irs_writel_relaxed(vmt_cfgr, GICV5_IRS_VMT_CFGR);
-> +
-> +	/* The base address is intentionally only masked and not shifted */
-> +	vmt_baser = FIELD_PREP(GICV5_IRS_VMT_BASER_VALID, true) |
-> +		    (vmt_base & GICV5_IRS_VMT_BASER_ADDR);
-> +	irs_writeq_relaxed(vmt_baser, GICV5_IRS_VMT_BASER);
-> +
-> +	return vgic_v5_irs_wait_for_vm_op();
-> +}
-> +
-> +static int vgic_v5_irs_clear_vmt(void)
-> +{
-> +	irs_writeq_relaxed(0ULL, GICV5_IRS_VMT_BASER);
-> +
-> +	return vgic_v5_irs_wait_for_vm_op();
-> +}
-> +
-> +static int vgic_v5_irs_vmap_l2_vmt(int vm_id)
-> +{
-> +	u64 vmap_l2_vmtr;
-> +	int ret = 0;
-> +
-> +	guard(raw_spinlock)(&vm_config_lock);
-> +
-> +	/* Make sure that we are idle to begin with */
-> +	ret = vgic_v5_irs_wait_for_vm_op();
-> +	if (ret)
-> +		return ret;
-> +
-> +	/* Mark the VM as valid */
-> +	vmap_l2_vmtr = FIELD_PREP(GICV5_IRS_VMAP_L2_VMTR_VM_ID, vm_id) |
-> +		       FIELD_PREP(GICV5_IRS_VMAP_L2_VMTR_M, true);
-> +	irs_writeq_relaxed(vmap_l2_vmtr, GICV5_IRS_VMAP_L2_VMTR);
-> +
-> +	return vgic_v5_irs_wait_for_vm_op();
-> +}
-> +
-> +static int __vgic_v5_irs_vmap_vm(int vm_id, bool unmap)
-> +{
-> +	u64 vmap_vmr;
-> +	int ret;
-> +
-> +	guard(raw_spinlock)(&vm_config_lock);
-> +
-> +	/* Make sure that we are idle to begin with */
-> +	ret = vgic_v5_irs_wait_for_vm_op();
-> +	if (ret)
-> +		return ret;
-> +
-> +	/* Mark the VM as valid */
-> +	vmap_vmr = FIELD_PREP(GICV5_IRS_VMAP_VMR_VM_ID, vm_id) |
-> +		   FIELD_PREP(GICV5_IRS_VMAP_VMR_U, unmap) |
-> +		   FIELD_PREP(GICV5_IRS_VMAP_VMR_M, true);
-> +	irs_writeq_relaxed(vmap_vmr, GICV5_IRS_VMAP_VMR);
-> +
-> +	return vgic_v5_irs_wait_for_vm_op();
-> +}
-
-There is a pattern here:
-
-static int do_something(...)
-{
-	int ret
-	guard(raw_spinlock)(&vm_config_lock);
-
-	/* Make sure that we are idle to begin with */
-	ret = vgic_v5_irs_wait_for_vm_op();
-	if (ret)
-		return ret;
-
-	[do the something we came here for]
-
-	return vgic_v5_irs_wait_for_vm_op();
-}
-
-Surely this can be turned into a helper that avoids having that
-boilerplate code in each and every function.
-
-> +
-> +static int vgic_v5_irs_set_vm_valid(int vm_id)
-> +{
-> +	return __vgic_v5_irs_vmap_vm(vm_id, false);
-> +}
-> +
-> +static int vgic_v5_irs_set_vm_invalid(int vm_id)
-> +{
-> +	return __vgic_v5_irs_vmap_vm(vm_id, true);
-> +}
-> +
-> +static int __vgic_v5_irs_update_vist_validity(int vm_id, bool spi_ist, bool unmap)
-> +{
-> +	u8 type = spi_ist ? 0b011 : 0b010;
-> +	u64 vmap_vistr;
-> +	int ret;
-> +
-> +	guard(raw_spinlock)(&vm_config_lock);
-> +
-> +	/* Make sure that we are idle to begin with */
-> +	ret = vgic_v5_irs_wait_for_vm_op();
-> +	if (ret)
-> +		return ret;
-> +
-> +	/* Mark the IST as valid */
-> +	vmap_vistr = FIELD_PREP(GICV5_IRS_VMAP_VISTR_TYPE, type) |
-> +		     FIELD_PREP(GICV5_IRS_VMAP_VISTR_VM_ID, vm_id) |
-> +		     FIELD_PREP(GICV5_IRS_VMAP_VISTR_U, unmap) |
-> +		     FIELD_PREP(GICV5_IRS_VMAP_VISTR_M, true);
-> +	irs_writeq_relaxed(vmap_vistr, GICV5_IRS_VMAP_VISTR);
-> +
-> +	return vgic_v5_irs_wait_for_vm_op();
-> +}
-> +
-> +static int vgic_v5_irs_set_vist_valid(int vm_id, bool spi_ist)
-> +{
-> +	return __vgic_v5_irs_update_vist_validity(vm_id, spi_ist, false);
-> +}
-> +
-> +/* Note: We currently do not use this as we rely on the VM becoming invalid. */
-> +static int vgic_v5_irs_set_vist_invalid(int vm_id, bool spi_ist)
-> +{
-> +	return __vgic_v5_irs_update_vist_validity(vm_id, spi_ist, true);
-> +}
-> +
-> +static int vgic_v5_db_set_vcpu_affinity(struct irq_data *data, void *vcpu_info)
-> +{
-> +	struct vgic_v5_vm *vm = data->domain->host_data;
-> +	struct gicv5_cmd_info *cmd_info = vcpu_info;
-> +
-> +	switch (cmd_info->cmd_type) {
-> +	case VMT_L2_MAP:
-> +		return vgic_v5_irs_vmap_l2_vmt(vm->vm_id);
-> +	case VMTE_MAKE_VALID:
-> +		return vgic_v5_irs_set_vm_valid(vm->vm_id);
-> +	case VMTE_MAKE_INVALID:
-> +		return vgic_v5_irs_set_vm_invalid(vm->vm_id);
-> +	case SPI_VIST_MAKE_VALID:
-> +		return vgic_v5_irs_set_vist_valid(vm->vm_id, true);
-> +	case LPI_VIST_MAKE_VALID:
-> +		return vgic_v5_irs_set_vist_valid(vm->vm_id, false);
-> +	case LPI_VIST_MAKE_INVALID:
-> +		return vgic_v5_irs_set_vist_invalid(vm->vm_id, false);
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +}
-
-This function should be introduced ages ago, as soon as you start
-issuing vcpu_set_affinity() calls.
-
-> +
->  /*
->   * This set of irq_chip functions is specific for doorbells.
->   */
-> @@ -174,6 +403,7 @@ static struct irq_chip vgic_v5_db_irq_chip = {
->  	.irq_set_affinity = irq_chip_set_affinity_parent,
->  	.irq_get_irqchip_state = irq_chip_get_parent_state,
->  	.irq_set_irqchip_state = irq_chip_set_parent_state,
-> +	.irq_set_vcpu_affinity = vgic_v5_db_set_vcpu_affinity,
->  	.flags = IRQCHIP_SET_TYPE_MASKED | IRQCHIP_SKIP_SET_WAKE |
->  		 IRQCHIP_MASK_ON_SUSPEND,
->  };
-> diff --git a/include/linux/irqchip/arm-gic-v5.h b/include/linux/irqchip/arm-gic-v5.h
-> index ccec0a045927c..ff5ad653252d2 100644
-> --- a/include/linux/irqchip/arm-gic-v5.h
-> +++ b/include/linux/irqchip/arm-gic-v5.h
-> @@ -87,6 +87,12 @@
->  #define GICV5_IRS_IST_CFGR		0x0190
->  #define GICV5_IRS_IST_STATUSR		0x0194
->  #define GICV5_IRS_MAP_L2_ISTR		0x01c0
-> +#define GICV5_IRS_VMT_BASER		0x0200
-> +#define GICV5_IRS_VMT_CFGR		0x0210
-> +#define GICV5_IRS_VMT_STATUSR		0x0214
-> +#define GICV5_IRS_VMAP_L2_VMTR		0x02c0
-> +#define GICV5_IRS_VMAP_VMR		0x02c8
-> +#define GICV5_IRS_VMAP_VISTR		0x02d0
->  
->  #define GICV5_IRS_IDR0_VIRT		BIT(6)
->  
-> @@ -181,6 +187,30 @@
->  
->  #define GICV5_IRS_MAP_L2_ISTR_ID	GENMASK(23, 0)
->  
-> +#define GICV5_IRS_VMT_BASER_ADDR	GENMASK_ULL(51, 3)
-> +#define GICV5_IRS_VMT_BASER_ADDR_SHIFT	3ULL
-> +#define GICV5_IRS_VMT_BASER_VALID	BIT_ULL(0)
-> +
-> +#define GICV5_IRS_VMT_CFGR_STRUCTURE_TWO_LEVEL	0b1
-> +#define GICV5_IRS_VMT_CFGR_STRUCTURE_LINEAR	0b0
-> +
-> +#define GICV5_IRS_VMT_CFGR_STRUCTURE	BIT(16)
-> +#define GICV5_IRS_VMT_CFGR_VM_ID_BITS	GENMASK(4, 0)
-> +
-> +#define GICV5_IRS_VMT_STATUSR_IDLE	BIT(0)
-> +
-> +#define GICV5_IRS_VMAP_L2_VMTR_M	BIT_ULL(63)
-> +#define GICV5_IRS_VMAP_L2_VMTR_VM_ID	GENMASK_ULL(15, 0)
-> +
-> +#define GICV5_IRS_VMAP_VMR_M		BIT_ULL(63)
-> +#define GICV5_IRS_VMAP_VMR_U		BIT_ULL(62)
-> +#define GICV5_IRS_VMAP_VMR_VM_ID	GENMASK_ULL(15, 0)
-> +
-> +#define GICV5_IRS_VMAP_VISTR_M		BIT_ULL(63)
-> +#define GICV5_IRS_VMAP_VISTR_U		BIT_ULL(62)
-> +#define GICV5_IRS_VMAP_VISTR_VM_ID	GENMASK_ULL(47, 32)
-> +#define GICV5_IRS_VMAP_VISTR_TYPE	GENMASK_ULL(31, 29)
-> +
->  #define GICV5_ISTL1E_VALID		BIT_ULL(0)
->  #define GICV5_IRS_ISTL1E_SIZE		8UL
->  
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+thanks,
+Shivendra
 
