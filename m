@@ -4,98 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1BBAFF8875
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 08:56:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB0E3FF8867
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 08:57:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WAQJ6Bo+z8bUyBHCREDVDrdzdRGXxBuxIXP1dQ7QduY=; b=gwgPPZKwFFr1XF/BhfELlRnr4j
-	o0tt0hz7jGoyf4COi6l2f8/ygWqL4f5tD0UWRknbtDg2C4vOioKoBXxg2SbIXbUjk6Z7U9SPwnSr8
-	hF6aC1IyByS5yxSJ8DVW9Otby4clt/HEmNJMFqFNC7bwq401CAdcEpP6WCOGWNFn8hVNwzA8j8dVG
-	AmGXMQUDyK6pA8Jdfv7SqtO1XAHx2LLiI8H3p4Hp5SHaCvENunDQRCcHmO2vfWFjsAkZhWz7DOb8B
-	F2zSOiefbhq9jJUzVm2Z7MKZTC9qfqgB/pRVBpaRLZ20bFHGW+Z6Pn3SO+HtnLvBDQ+AoK0A0TQcE
-	38tmeXuA==;
+	bh=YwSQ0VZA7av014duirYVDBBsW8ydQ2V2bYKdiM2Oq0M=; b=D5f5iYnMtHk+esqR/y8psFGEvz
+	Nk9hiBeQwdCJLUKK8kGuQ/yZbDgdvROzr8ONzq1z4wAGdIQxVrROngN1P6b1Y4RgbtJgXfeJzGcT/
+	zcMep2pRPhM1tf1VWqalmn95Hsjuc6ao0aEaK2lpopYHUvIGZtjJ/N6L0dpD8iZmpuFgBjxgaQERf
+	Ar+F5FEf3bijwi3VRufMEFNLJGZ4PQWzxtu9rYdwtYwEOFz3KAdVKbADMe6+rGBsGcCQN0hyYhHKp
+	YS5GFXj8sPfINvyo8vyW0ntn3S1m9Gwos9jrPqjWcDSh1nEulUuIiMmEFyplnyr2VQ1emZPWL5pQV
+	Y+YYUflA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI0j0-00000003Gc9-3gEB;
+	id 1wI0j0-00000003Gbm-2QT1;
 	Wed, 29 Apr 2026 08:56:54 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI0ix-00000003GZv-1K06
+	id 1wI0iw-00000003GZg-0dHK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 08:56:52 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63T8qjff2016286
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 08:56:51 GMT
+	Wed, 29 Apr 2026 08:56:51 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63T8q7PS1721242
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 08:56:49 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	WAQJ6Bo+z8bUyBHCREDVDrdzdRGXxBuxIXP1dQ7QduY=; b=mHwQ5rx1OAbMhJ8e
-	nibwtNB1mk5AviwZu6+bwiR+c8ciaIIbCC7wTn9nFWdvFExRmhCbxY8d+/ULnbCX
-	V27hSzbPjigZBI8x26oFPwirsYWPthUPAMKA6CNtrXehL42Vr/qMa4ZGCLtVsFb9
-	HoEoZgllTv9rFXL4c5JnJlxFKFUT6ZfP54L+j24qfJRlLBTJQ2hRYQ2OcJAhh/xc
-	15qVsJM3+C5fxcqM2VBP3L3aDOnXhZwRCAMYX1fwNZUqLskPfAMSQPOgn/tXENeM
-	tzFS7mwh0Ayadz2pJhI1Sd0GjEjPLt9W4cGmI5osEZoaNQKTnGdDIB4CO26Oexon
-	OhFedQ==
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4du1eeaydf-1
+	YwSQ0VZA7av014duirYVDBBsW8ydQ2V2bYKdiM2Oq0M=; b=DjtvgdbuNgrv3SNW
+	TTXdwNBjqo9a7JGdBwnZ32wRfGS7pxMfMkZOu3jkuZOmBC1NzVdrVAkOBqaCFC/t
+	ndgs67g2XUtrfwQHW0ZlPeIE21YE9KskAUJ0TqR12UnqgOne6sbXrG+zK70ehd+J
+	3qSy6z/37/wuCKg3FUV1Aj4rgTikDDqWWU0oyV+1g/ou+HIUe+qKIR/QhtC88kzX
+	Q0JPRBvya+43VhHDcJ0OC8lAHJPd+xsIONqbdSh6IvqhZdwbX1RHAl4HjhZJW44y
+	Xz+KzWSpd+niRX8BsGch1ynnaJmalJ45+DZeUJZfa01chlaglx65eOe9A6q4RKUL
+	vqf1Bw==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dua7317hd-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 08:56:50 +0000 (GMT)
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-50fb007bc36so34026551cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 01:56:50 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 08:56:49 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-50f817c3240so132533921cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 01:56:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1777453010; x=1778057810; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1777453009; x=1778057809; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=WAQJ6Bo+z8bUyBHCREDVDrdzdRGXxBuxIXP1dQ7QduY=;
-        b=etAat+yxmMT/xHHWfpMUTiWRbVl4ZQsC29cYd9dZPxQsDoWyiCwWd/a7VGubgZt27q
-         cdaV1cMhREFF2x8Ws5PalvTkwN+uaA2id556MsNEhUxdWGgZl3AtOyQK3YeZbsI5yYn2
-         K9QLOXu/QefplW93+vQa/YLxexIv47dCETW/Q4GT2RVSCTEzW8zqvOAXQgD1nYYFKE6p
-         2G5f9ZoOn5CYSyKzMbcXIVRk6+e/bhuA8wA8KYuYChYpygayg8AMHh5aDYzRJSuzXNxc
-         9tTJ4UrXFmcZDpG8mTTy0u0LCNI+r67BYd562dhxQ9fKrfC4ztKN3kjjJDzvhAdDCy3+
-         C9/A==
+        bh=YwSQ0VZA7av014duirYVDBBsW8ydQ2V2bYKdiM2Oq0M=;
+        b=cSw/2cO9ddYBOCelusz5BqjkFGvLTAiQfA+KX0z0yIqHw0zaBqzJRm2lSsEXgEwLT+
+         oqnqQ3OL/v4d1/87xvC6ojRHfbpRbxoL6zjJAxk6/j6bBm4AvrZ7gTNeCKW52JStEu7g
+         Q57LqLGlSWOni4eA5ybYzhZUNxKM2OFedBkSubcGu8fMVEKNT88h8et0Y6kOghgq/FXd
+         hKc2LJTmKZ5vta76vCBY6BIgqNaHkp9sTqxxJaMn/d2VmJrGJ1MK1x3VpAsH4XQ7S11i
+         mRXhOq7yma7BCYHKL3j6eGuhpEuOZ8fb2UCet0Ox4SuLUgESldmBS3nzCHXufhcvb70r
+         9oJw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777453010; x=1778057810;
+        d=1e100.net; s=20251104; t=1777453009; x=1778057809;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=WAQJ6Bo+z8bUyBHCREDVDrdzdRGXxBuxIXP1dQ7QduY=;
-        b=CdFWT5bf+V284a+ukA8Go0GfuHkqSM+kDeWD1dd5N/4MGeEpHjAJsxV8pKsdPTlAdL
-         9cQJfLz60O0K18YeuUZ9hOfnfdBclCwsc/ucmdohte/ye4f4b4Q4dFTRaTlnDXcOuNVE
-         t5UjKqQHJg9liLi9+8z3HMcNOn9SHaZ9G+rPgQN5wkEtU8TlTkQXHh1aofb3pjhFY8lB
-         KtYQLdlAOayhiDks1SpKwLvQwhAgELkbMIEjRFLs7IIctDyivb5qxAlAla12hKN6yD8m
-         2TYELtahBTE4yabWOzJQCPeX7+2crwdPwVsUFtNxmfGKY1oiww2noFx2B8o5jCFQcaS3
-         G8GA==
-X-Forwarded-Encrypted: i=1; AFNElJ+URRZIORNV9uO8g7/4hqu95Lmj9TQKCu2f58DjTpi5it+ef8AZb3DF7cxRD5tjUUsdZuFymVK7kmttwbcZQhFX@lists.infradead.org
-X-Gm-Message-State: AOJu0YzkeDEyUQ54yJ0086Hzr5Xp5y2+ppbpCOZog/CConPv5WDMCMmR
-	6d/gWMKXBDWsWFKqC0tQUljQSQIZ2yLsDlCBQ/dS2AS24nPWef7DoYcHeXDq7XfMDXAQU33OwK6
-	453ZKoMKjzJNH1U+LZWWhOFZ6ShIB+JeBW5K+06g6nXrc3E+79Ai5zYS3gYXGlIS1lIZZNYemVq
-	fLIw==
-X-Gm-Gg: AeBDies7ODI0ezwdHN9ofVkMNg6JzAlz/qqkqAd98D6zaFLMCTcOMTgFg1w1SrE4lzd
-	tf0wH8f/mVVqXEfdFNQ4IYrQVHiVlP4t5o/NOEIdjveyg+v1ei8WbCjPeD1xPqgfK5qJpEgYm04
-	SyrFa+EWC27o3pgjkeH38kjllUdp7AIlkqCJBSqOLm4ed25R9vmT4pVLcVNLXmoK9y+GMD+sIyO
-	UeiY+kbJNnJ6SYyUG5cBgZ6fZ+BsiGqGxOoqsNCi3PDqYFtbKs6tROE+mUyzBxh8gBwIl22WqBb
-	v+FTHcFYsW/YIA5B1sgMQFw/AJ0RaYA6lKfr+NX8t1HomMtGDjMXZ2h96fhGvoWWhoS7Z3BKokC
-	zBgPZHAp0C+hJ6oRMVDFD03w3+M4m5+vzYayeGKtZnu7Nf2gVVGDtUrQ=
-X-Received: by 2002:ac8:7dcf:0:b0:50e:5a87:6c0c with SMTP id d75a77b69052e-510189a8378mr43062141cf.24.1777453009840;
-        Wed, 29 Apr 2026 01:56:49 -0700 (PDT)
-X-Received: by 2002:ac8:7dcf:0:b0:50e:5a87:6c0c with SMTP id d75a77b69052e-510189a8378mr43061931cf.24.1777453009360;
-        Wed, 29 Apr 2026 01:56:49 -0700 (PDT)
-Received: from [127.0.1.1] ([178.197.219.94])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-447b4216ed6sm4950689f8f.16.2026.04.29.01.56.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        bh=YwSQ0VZA7av014duirYVDBBsW8ydQ2V2bYKdiM2Oq0M=;
+        b=aw5pQ/lR9JAmcQezSLM7wtxeWxCf5pWDWIWxHPn0rZ6CpAU1OG3WUokDH+SRkH5gA8
+         bbHN9+YFJxAhmoCMFwI5mK9eMBmxakrX4YjGhh7Ieuw0b2O859tIkYsLziy9czTdxqlw
+         x+D3XTqv91SWYM6rP01Aub7MWwL74p+36Kr1tYWak1lmxeIoIkZrRqFikzh2fSQHBWFj
+         nTAP4/fdI/dJawDpivLWxVI6Y4HoB9LeUI0r9JPkYGzb2njaRZIUWi1uL/BBb9H6zkni
+         YtUhE2WNteMudEspq1KNMPqOz/QyYullmMsT7KAO6JOg3oD/0HbKnOHjyL3Hk0P0qQdr
+         qjeQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8bGRukIio3yrcHGOmCPTdNj+ho+XKK2egufjSi1iAk/GtycJt7s8GQzhEYoRDiCTqF6VN3MZ4a+30sbNwVpvfC@lists.infradead.org
+X-Gm-Message-State: AOJu0YzCujm8fyTU7IhyaK3vBejtE4lTBuZkejCYyHiotyYMh+dQRwJ/
+	t4yUuAaRM1rWE1fnaPsOsQkgVrkEEROhGFrK31b4h0hNKLN6jiQsiB7x79FUrlut+u97lvxivjd
+	MvdTHHhFgqN2/jenw1Q2LgIay2D+hWGIWxLG4xXJ5abCmc48qHBdAZDv6dWrg/skVJ5PGLIMs2K
+	td4g==
+X-Gm-Gg: AeBDieuhUMewi7f3rEQ3B6If1avkbMc0GJdhNHYSeeOBQffwffOa10R5IQndxkSZeOt
+	Mp6484TVfX/XiL+l6+e/qms8DwqWFFzuY/5jcMkwNY2G0H5tfByMkpG2X3YeyH812xP/Q0v9r51
+	5KwsAlj7xE27rLdzwvAxJgWZgbKVRN+BP5gudxTwrJ1d/n1T3+EALXdsEEh8GRJdWaHlo6LZO1m
+	dyIG8F0FqXk5nRE1SXXAdHf9ou9vFT70FHT7z6ziKBeuurhQS6evsW7Rc8GOcJkEfz28aLFOVLT
+	gmAJ2t+2oa99RlDPwyGMFpdPlcuX2pk25hSjyQKLgHIgOW2MGrD9GPh2QQaq/pkY8kR3de59ZXT
+	M0qQJ+vIUxKXLGrDAMQeEk99EWv5k3lop+VuE+4CIqI07AoE//qz9RvA=
+X-Received: by 2002:a05:622a:450:b0:50d:9931:7054 with SMTP id d75a77b69052e-510189744f0mr45386451cf.15.1777453008423;
         Wed, 29 Apr 2026 01:56:48 -0700 (PDT)
+X-Received: by 2002:a05:622a:450:b0:50d:9931:7054 with SMTP id d75a77b69052e-510189744f0mr45386211cf.15.1777453007849;
+        Wed, 29 Apr 2026 01:56:47 -0700 (PDT)
+Received: from [127.0.1.1] ([178.197.219.94])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-447b4216ed6sm4950689f8f.16.2026.04.29.01.56.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 29 Apr 2026 01:56:46 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Date: Wed, 29 Apr 2026 10:56:33 +0200
-Subject: [PATCH 2/4] soc: qcom: Restrict drivers per ARM/ARM64
+Date: Wed, 29 Apr 2026 10:56:32 +0200
+Subject: [PATCH 1/4] soc: qcom: Hide all drivers behind selectable menu
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260429-qcom-soc-kconfig-v1-2-69ba540b3fe9@oss.qualcomm.com>
+Message-Id: <20260429-qcom-soc-kconfig-v1-1-69ba540b3fe9@oss.qualcomm.com>
 References: <20260429-qcom-soc-kconfig-v1-0-69ba540b3fe9@oss.qualcomm.com>
 In-Reply-To: <20260429-qcom-soc-kconfig-v1-0-69ba540b3fe9@oss.qualcomm.com>
 To: Bjorn Andersson <andersson@kernel.org>,
@@ -104,50 +104,50 @@ Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
         linux-arm-kernel@lists.infradead.org,
         Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2794;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7751;
  i=krzysztof.kozlowski@oss.qualcomm.com; h=from:subject:message-id;
- bh=kCFaJ9eSOwfCJspvpeiV4isWT15Ur7PyJ+qAwNxeg7M=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBp8cfKY+gHFV59bZsQt7cEaKelWeKpcnrSb2IJf
- AD8VFYkfb2JAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCafHHygAKCRDBN2bmhouD
- 16KzD/4i55M1Jqi/DIMHeGYksDXIERPcZ5ZCNNFkm86AVTFbHvMxl1QAg9cfaTFdmvQEW8gn7Tf
- 1jIIwPOigBYBnsuZcrata4LiGLJ6Nw0Clrx7XTNx2ytgBkltZ3WhaYsS8YrvILb/zC1WZGgUqyP
- 6PKl8j9oujBnzxeaM6elE4gD+CmWCLL4h7z3GIqkoUfY6pUPcBYqL5thXZ7XIQNRjmAR9v4IlmH
- s/9sSA4L/A2n/x4whpfT9On42xkwdgJP6xVldebhWhw36rAKaxxtejv0WHOUqXGmbqAG9SUK1xv
- yOzcyMpwZt4W3YsgvtTTuS7B1dAZkaZYGpwT348EiKvhCZ4Ncii7hiPIJRZGEsT66fYKMF9Hpom
- PaNJsHbre4IuFXif2APn4xCZjAYuWuXA++5G65v3SjDA4Dk5tpAa4ZPIgw25u/heK/U0W42Rnke
- iSXjE44KLKjvpBSN0iwTrGZ+wjT2I8Mt+N9j8ofDzg1Z7B9NIgtdgHHj40s1+dXvuPgA1RaAaFm
- woVhdwfwIe3sYkABh/CaIPlR4RBAAznFnYsB3waSMHvunusS0KiJ0gxiDsXE5XPvlEDGokHPmSI
- 3rhX9eJbGIfp/C3yNYKn9OjuflTXQ9TJSLrtDfB7q4zwchsmZpy0vn/RJiGPyUhQ4estGoDsJGA
- dY3PGkBYlU4Q0Lg==
+ bh=giY/YtSTcAx8gF+B1CvPG9d6KQ+rn1XLGxVVedY1+HM=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBp8cfJYD2+8z0Zp2W6Pmnr3t4mviwwpjG5OVrT4
+ LjNCiT5X0OJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCafHHyQAKCRDBN2bmhouD
+ 12hED/kBdE6KiJeIleNxBX36o4d1V+muBpIsoVt4YYfdNRIkQ6e+dS1HsKrjxRneEaFV8xnqMs3
+ xNi8wAgxqNxtFuTx2aVUlgzb/e1Ee5bNg+ewCv52DFKx191WYBndBAa1iOajBccitXqO+jlg9CC
+ HWXyCPLCWPv0vw4pg0NfDzlx3xCF2jHYPjb/Unwodflk06IGz1rqogLvoSrIX/4Ir5KBef2EYT4
+ HLKCRo2VJ+ShVlYZvKbMAApfiOpy3akyu6CPxE+9vMiBq/azqKhjUnwJHqtwt2VOIVrXbOuGpxv
+ 25ljkj7eyFADlRtQEw+CI5BudWTfVDd4n8JxSVHV6GMygutrGmpaWCSZ9kyrL6QHpsozbJr0U+Q
+ ULhKp8yV9ibD2Ma0wM0ElL4LMB0DM+sOiAUTHUlFF5UA47uSkOY6kP+bF93kaiiAX3IxMYWFc1M
+ FdpPlAXlE6cJVWZiMuyx4Cu7p73zRASppWuCA16XueBJcOlZLfooYXA+laDiEMA+uiawBk699ym
+ AL78qkxo4ciRZCknH9tTyVLVsb9Q+hUeIIk0n6KxxMRSA+i3jbSnd3qT7+IuO79EffTaDSmE1nI
+ gOHIRO66ig4ur6+mv8WIlvi+z9kdepnNyzCRDVIG0Tq1/0tj2y89fsYchGKa8QDSICpagNyNwLi
+ labrTyWwzrsjlpw==
 X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp;
  fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-X-Authority-Analysis: v=2.4 cv=C/7ZDwP+ c=1 sm=1 tr=0 ts=69f1c7d2 cx=c_pps
- a=WeENfcodrlLV9YRTxbY/uA==:117 a=gOEeR9iKwsj33Yj5oN/cWg==:17
+X-Authority-Analysis: v=2.4 cv=XtvK/1F9 c=1 sm=1 tr=0 ts=69f1c7d1 cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=gOEeR9iKwsj33Yj5oN/cWg==:17
  a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=EUspDBNiAAAA:8 a=J14JCQuVvOChFIw0wjgA:9 a=QEXdDO2ut3YA:10
- a=kacYvNCVWA4VmyqE58fU:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI5MDA4OSBTYWx0ZWRfX0g6xAHe3cfAd
- N9oGikpsW4pjbQd/MUv27LxwYU41U5oijABWcQuy7SiP7fAnVYbc2K3weSRzTy3lNVnW0YPVigd
- vfpNwclhBnC32YmmluxFN+Rz10u2wU8yuPoQPEMjV6ZE7BasBsVILFW10Cz95xfP+UFmVFbpkG2
- hiav8QzN7o9N0FQvK9B0MpaXuQmxuOXj0d+8EkWjRNkl3DqU/Lq+XyidGEoTxtG3Nb57KPjJlVX
- 45JfbqIFbRQcVlf3w0XNkFnqqNnp6DkbzJR7y4AvLHb3SRquCbf6ORTIyCFurqmmrsYzepBjI1/
- CKWBVx0YFanqfWxGrs8F/YED47KYcZsHAEgENIQitIkJNy6v3WfhaTTWCNH4Uq1SvAoTgV3yW3W
- otg3ZnnPhLow6xtC40xVcJYQL9RE9sLlSwxZ7XEjAyqvNVWNAX9tikAiff3TokEG4j3H0gpMr0Q
- cC+5lQiBPF4e1hlAVJg==
-X-Proofpoint-GUID: Pbl0IDJ9Ia-agyIJO-S41TFTh8P6ceiG
-X-Proofpoint-ORIG-GUID: Pbl0IDJ9Ia-agyIJO-S41TFTh8P6ceiG
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=EUspDBNiAAAA:8 a=6WWCBr2p4RQoEn8978QA:9 a=QEXdDO2ut3YA:10
+ a=a_PwQJl-kcHnX1M80qC6:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI5MDA4OSBTYWx0ZWRfX584lHUK2Bhpj
+ clHvBFWliNnN+f14dicaQgqrrYKP7dZaRvJUrarKXxrIQ+xfSE0u/BNl+UsayP0LpJgSspQDMOa
+ OTHp3Jzz2V+31PmYvHOrB2CB9RMUU99UdJ13db3duuZYUA/ki0mT++mpHoPtafYSCaeGN/SJAq2
+ IjZoZVVlUWsqpB7a2rmxLvPiWYp92vCDxC6oIhaDSgZmfr90mBYJYSvX+ZT6TgzhxXgUwBSIhF6
+ tUi/zhPX/KB5BBC2swkEojb/ng3q7loNRQhatUzno2w/sUPWzlF+fhd4ijzF0r+MrG4EBD7yEOy
+ FDhF+9tyGZS1LqWepeRRUZINCmL5NixBq9Z3Y8B27C8lACcEGeP7WNA2mENh0A3CRiv6Jf6VAst
+ uP8onulFrZ8d3bBhut2LxcYIN9sdY9/e9fXi+6XmrI6VWozsR5qg/BTHC36p9lLt2/0oER6IV3M
+ OM+N4lyUSUNY2jja1Bw==
+X-Proofpoint-GUID: n8MaKLZprznYxTX4mhoivXEmghoyjK1T
+X-Proofpoint-ORIG-GUID: n8MaKLZprznYxTX4mhoivXEmghoyjK1T
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-04-28_05,2026-04-28_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 lowpriorityscore=0 malwarescore=0 adultscore=0 spamscore=0
- priorityscore=1501 bulkscore=0 phishscore=0 suspectscore=0 clxscore=1015
+ malwarescore=0 lowpriorityscore=0 clxscore=1015 spamscore=0 bulkscore=0
+ adultscore=0 impostorscore=0 phishscore=0 priorityscore=1501 suspectscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604290089
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_015651_364843_3CCD6B88 
-X-CRM114-Status: GOOD (  14.80  )
+X-CRM114-CacheID: sfid-20260429_015650_222529_41520900 
+X-CRM114-Status: GOOD (  20.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,88 +162,260 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There is no point to allow selecting core SoC drivers for Qualcomm ARMv7
-SoCs when building ARM64 kernel, and vice versa.
+Switch from a simple menu to menuconfig, so all Qualcomm SoC drivers
+will be under one selectable option, allowing to disable them all which
+should make kernel configuration easier when preparing a non-Qualcomm
+kernel.
 
-This makes kernel configuration more difficult as many do not remember
-the Qualcomm SoCs model names/numbers and their properties like
-architecture.  No features should be lost because:
-1. There won't be a single image for ARMv7 and ARMv8/9 SoCs.
-2. Newer ARMv8/9 SoCs won't be running in arm32 emulation mode.
+This has few benefits (functional impact of this commit):
+
+1. Allow compile testing of QCOM_OCMEM, which previously required
+   ARCH_QCOM.
+
+2. Hide behind ARCH_QCOM or COMPILE_TEST drivers specific to Qualcomm
+   which should not be available to other kernel builds:
+   QCOM_PMIC_PDCHARGER_ULOG, QCOM_PMIC_GLINK, QCOM_SPM and QCOM_PBS.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 ---
- drivers/soc/qcom/Kconfig | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ drivers/soc/qcom/Kconfig | 76 +++++++++++++++++++++++-------------------------
+ 1 file changed, 37 insertions(+), 39 deletions(-)
 
 diff --git a/drivers/soc/qcom/Kconfig b/drivers/soc/qcom/Kconfig
-index 62ce1c67d684..9a050ba1dbcb 100644
+index 2caadbbcf830..62ce1c67d684 100644
 --- a/drivers/soc/qcom/Kconfig
 +++ b/drivers/soc/qcom/Kconfig
-@@ -19,6 +19,7 @@ config QCOM_AOSS_QMP
+@@ -2,11 +2,21 @@
+ #
+ # QCOM Soc drivers
+ #
+-menu "Qualcomm SoC drivers"
++menuconfig QCOM_SOC
++	bool "Qualcomm SoC drivers"
++	depends on ARCH_QCOM || COMPILE_TEST
++	default ARCH_QCOM
++	help
++	  This collection of drivers is specific to Qualcomm System-on-Chips
++	  and most of them are necessary for a fully functional boot of the
++	  Linux kernel (plus a few debugging drivers).
++	  Drivers can be skipped when building Linux kernel not intended to run
++	  said processors.
++
++if QCOM_SOC
+ 
+ config QCOM_AOSS_QMP
  	tristate "Qualcomm AOSS Driver"
+-	depends on ARCH_QCOM || COMPILE_TEST
  	depends on MAILBOX
  	depends on COMMON_CLK && PM
-+	depends on ARM64 || COMPILE_TEST
  	select PM_GENERIC_DOMAINS
+@@ -18,7 +28,6 @@ config QCOM_AOSS_QMP
+ 
+ config QCOM_COMMAND_DB
+ 	tristate "Qualcomm Command DB"
+-	depends on ARCH_QCOM || COMPILE_TEST
+ 	depends on OF_RESERVED_MEM
  	help
- 	  This driver provides the means of communicating with and controlling
-@@ -37,6 +38,7 @@ config QCOM_COMMAND_DB
+ 	  Command DB queries shared memory by key string for shared system
+@@ -28,7 +37,6 @@ config QCOM_COMMAND_DB
  
  config QCOM_GENI_SE
  	tristate "QCOM GENI Serial Engine Driver"
-+	depends on ARM64 || COMPILE_TEST
+-	depends on ARCH_QCOM || COMPILE_TEST
  	help
  	  This driver is used to manage Generic Interface (GENI) firmware based
  	  Qualcomm Technologies, Inc. Universal Peripheral (QUP) Wrapper. This
-@@ -45,6 +47,7 @@ config QCOM_GENI_SE
+@@ -37,7 +45,6 @@ config QCOM_GENI_SE
  
  config QCOM_GSBI
  	tristate "QCOM General Serial Bus Interface"
-+	depends on ARM || COMPILE_TEST
+-	depends on ARCH_QCOM || COMPILE_TEST
  	select MFD_SYSCON
  	help
  	  Say y here to enable GSBI support.  The GSBI provides control
-@@ -53,6 +56,7 @@ config QCOM_GSBI
+@@ -46,7 +53,6 @@ config QCOM_GSBI
  
  config QCOM_LLCC
  	tristate "Qualcomm Technologies, Inc. LLCC driver"
-+	depends on ARM64 || COMPILE_TEST
+-	depends on ARCH_QCOM || COMPILE_TEST
  	select REGMAP_MMIO
  	help
  	  Qualcomm Technologies, Inc. platform specific
-@@ -108,6 +112,7 @@ config QCOM_PMIC_GLINK
- 	depends on DRM
- 	depends on NET
- 	depends on OF
-+	depends on ARM64 || COMPILE_TEST
+@@ -56,15 +62,10 @@ config QCOM_LLCC
+ 
+ config QCOM_KRYO_L2_ACCESSORS
+ 	bool
+-	depends on (ARCH_QCOM || COMPILE_TEST) && ARM64
+-
+-config QCOM_MDT_LOADER
+-	tristate
+-	select QCOM_SCM
++	depends on ARM64
+ 
+ config QCOM_OCMEM
+ 	tristate "Qualcomm On Chip Memory (OCMEM) driver"
+-	depends on ARCH_QCOM
+ 	select QCOM_SCM
+ 	help
+ 	  The On Chip Memory (OCMEM) allocator allows various clients to
+@@ -77,7 +78,7 @@ config QCOM_PD_MAPPER
+ 	select QCOM_QMI_HELPERS
+ 	select QCOM_PDR_MSG
  	select AUXILIARY_BUS
- 	select QCOM_PDR_HELPERS
- 	select DRM_AUX_HPD_BRIDGE
-@@ -242,6 +247,7 @@ config QCOM_APR
+-	depends on NET && QRTR && (ARCH_QCOM || COMPILE_TEST)
++	depends on NET && QRTR
+ 	default QCOM_RPROC_COMMON
+ 	help
+ 	  The Protection Domain Mapper maps registered services to the domains
+@@ -85,12 +86,6 @@ config QCOM_PD_MAPPER
+ 	  implementation of the service. It is a simpler alternative to the
+ 	  userspace daemon.
+ 
+-config QCOM_PDR_HELPERS
+-	tristate
+-	select QCOM_QMI_HELPERS
+-	select QCOM_PDR_MSG
+-	depends on NET
+-
+ config QCOM_PDR_MSG
+ 	tristate
+ 
+@@ -124,13 +119,8 @@ config QCOM_PMIC_GLINK
+ 	  Say yes here to support USB-C and battery status on modern Qualcomm
+ 	  platforms.
+ 
+-config QCOM_QMI_HELPERS
+-	tristate
+-	depends on NET
+-
+ config QCOM_RAMP_CTRL
+ 	tristate "Qualcomm Ramp Controller driver"
+-	depends on ARCH_QCOM || COMPILE_TEST
+ 	help
+ 	  The Ramp Controller is used to program the sequence ID for pulse
+ 	  swallowing, enable sequence and link sequence IDs for the CPU
+@@ -139,7 +129,6 @@ config QCOM_RAMP_CTRL
+ 
+ config QCOM_RMTFS_MEM
+ 	tristate "Qualcomm Remote Filesystem memory driver"
+-	depends on ARCH_QCOM || COMPILE_TEST
+ 	select QCOM_SCM
+ 	help
+ 	  The Qualcomm remote filesystem memory driver is used for allocating
+@@ -151,7 +140,6 @@ config QCOM_RMTFS_MEM
+ 
+ config QCOM_RPM_MASTER_STATS
+ 	tristate "Qualcomm RPM Master stats"
+-	depends on ARCH_QCOM || COMPILE_TEST
+ 	help
+ 	  The RPM Master sleep stats driver provides detailed per-subsystem
+ 	  sleep/wake data, read from the RPM message RAM. It can be used to
+@@ -162,7 +150,6 @@ config QCOM_RPM_MASTER_STATS
+ 
+ config QCOM_RPMH
+ 	tristate "Qualcomm RPM-Hardened (RPMH) Communication"
+-	depends on ARCH_QCOM || COMPILE_TEST
+ 	depends on (QCOM_COMMAND_DB || !QCOM_COMMAND_DB)
+ 	help
+ 	  Support for communication with the hardened-RPM blocks in
+@@ -173,7 +160,6 @@ config QCOM_RPMH
+ 
+ config QCOM_SMEM
+ 	tristate "Qualcomm Shared Memory Manager (SMEM)"
+-	depends on ARCH_QCOM || COMPILE_TEST
+ 	depends on HWSPINLOCK
+ 	help
+ 	  Say y here to enable support for the Qualcomm Shared Memory Manager.
+@@ -182,7 +168,6 @@ config QCOM_SMEM
+ 
+ config QCOM_SMD_RPM
+ 	tristate "Qualcomm Resource Power Manager (RPM) over SMD"
+-	depends on ARCH_QCOM || COMPILE_TEST
+ 	depends on RPMSG
+ 	depends on RPMSG_QCOM_SMD || RPMSG_QCOM_SMD=n
+ 	help
+@@ -229,7 +214,6 @@ config QCOM_SOCINFO
+ 
+ config QCOM_SPM
+ 	tristate "Qualcomm Subsystem Power Manager (SPM)"
+-	depends on ARCH_QCOM || COMPILE_TEST
+ 	select QCOM_SCM
+ 	help
+ 	  Enable the support for the Qualcomm Subsystem Power Manager, used
+@@ -238,7 +222,7 @@ config QCOM_SPM
+ 
+ config QCOM_STATS
+ 	tristate "Qualcomm Technologies, Inc. (QTI) Sleep stats driver"
+-	depends on (ARCH_QCOM && DEBUG_FS) || COMPILE_TEST
++	depends on DEBUG_FS || COMPILE_TEST
+ 	depends on QCOM_SMEM
+ 	depends on QCOM_AOSS_QMP || QCOM_AOSS_QMP=n
+ 	help
+@@ -249,7 +233,6 @@ config QCOM_STATS
+ 
+ config QCOM_WCNSS_CTRL
+ 	tristate "Qualcomm WCNSS control driver"
+-	depends on ARCH_QCOM || COMPILE_TEST
+ 	depends on RPMSG
+ 	help
+ 	  Client driver for the WCNSS_CTRL SMD channel, used to download nv
+@@ -257,7 +240,6 @@ config QCOM_WCNSS_CTRL
+ 
+ config QCOM_APR
  	tristate "Qualcomm APR/GPR Bus (Asynchronous/Generic Packet Router)"
+-	depends on ARCH_QCOM || COMPILE_TEST
  	depends on RPMSG
  	depends on NET
-+	depends on ARM64 || COMPILE_TEST
  	select QCOM_PDR_HELPERS
- 	help
- 	  Enable APR IPC protocol support between
-@@ -251,6 +257,7 @@ config QCOM_APR
+@@ -269,7 +251,6 @@ config QCOM_APR
  
  config QCOM_ICC_BWMON
  	tristate "QCOM Interconnect Bandwidth Monitor driver"
-+	depends on ARM64 || COMPILE_TEST
+-	depends on ARCH_QCOM || COMPILE_TEST
  	select PM_OPP
  	select REGMAP_MMIO
  	help
-@@ -265,6 +272,7 @@ config QCOM_ICC_BWMON
+@@ -282,10 +263,6 @@ config QCOM_ICC_BWMON
+ 	  the fixed bandwidth votes from cpufreq (CPU nodes) thus achieve high
+ 	  memory throughput even with lower CPU frequencies.
  
+-config QCOM_INLINE_CRYPTO_ENGINE
+-	tristate
+-	select QCOM_SCM
+-
  config QCOM_PBS
  	tristate "PBS trigger support for Qualcomm Technologies, Inc. PMICS"
-+	depends on ARM64 || COMPILE_TEST
  	depends on SPMI
- 	help
- 	  This driver supports configuring software programmable boot sequencer (PBS)
+@@ -295,7 +272,28 @@ config QCOM_PBS
+ 	  This module provides the APIs to the client drivers that wants to send the
+ 	  PBS trigger event to the PBS RAM.
+ 
+-endmenu
++endif
++
++# Options selected by other drivers from different subsystems must be outside
++# of the menuconfig if-block:
++
++config QCOM_INLINE_CRYPTO_ENGINE
++	tristate
++	select QCOM_SCM
++
++config QCOM_MDT_LOADER
++	tristate
++	select QCOM_SCM
++
++config QCOM_PDR_HELPERS
++	tristate
++	select QCOM_QMI_HELPERS
++	select QCOM_PDR_MSG
++	depends on NET
++
++config QCOM_QMI_HELPERS
++	tristate
++	depends on NET
+ 
+ config QCOM_UBWC_CONFIG
+ 	tristate
 
 -- 
 2.51.0
