@@ -4,99 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2494CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 18:50:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0B81CD13D2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 18:50:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b81T3BirliBEA4Ca2PjKIh2zUmRWNZ6bMgop4mGPNAc=; b=MTynYleFZnKrlccsvjr0OrksQL
-	RqCDwk/0q5cqLuROVfyDvbuj+gaXUeUMhTQrVA0CGFgjF0MAo/fJx+qLXvkhuz4p0UxqSFK7EbEWv
-	NCDINInhOVw93/OBPCUieovpyfFu82C/lfQqDvn3h40iNAj9EN7CTDUVxK4L0zxbh6vUxtUh4UkbR
-	NTKoKaRfjnqGxSJhQrkb2KL4IFd0K9BM5j5gUWWg/AdnoMmOqxtXe6X7YwQZ2naslqSwuEcdpMyCT
-	0LPv2SCRyh1I9x81qA2elknOY7OnnnZ7yPx0TtmXw44uyRplVmEnyvDgiCrI2Uu9ldrCL9xXCVizR
-	BhFjunlg==;
+	bh=il7ZtFXUm/0VgwIneFEdIfwHcrPU08oUjosBQhZyc7I=; b=UMreuai/gjxoR1OsY3JPAHF6sr
+	5+GhKmA7gzwnDu0F/U6XYUAtUkqlotd3xSLg0x4dMkHx7FgcK9RcVzl9VnozPeetcRurWccPe0+HE
+	BcMbg7Y83ubHDg0X9t+xzBCqLU5D+ZA8pN/kKmFqbz4nS1qGjGwXswvbQdNJ4hCVA9wmviI+2Cbpw
+	gPsJTN4dgAr1xgDcXxQdejkudIoLMKl26zuv0l0jW8oe7JDRMKKEvgNAiHwVPuNcuaw1/BM56fPXU
+	PwqJe/GiH3jwRHEmym7DWVgNHe/kAgKPdt4w0chnSOoUHZzJ9/D28qnLUgQH1zwLIuytjaDSRaP2O
+	GVi5R+hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI9ze-000000045iV-19pE;
-	Wed, 29 Apr 2026 18:50:42 +0000
+	id 1wI9zo-000000045mW-0Xsx;
+	Wed, 29 Apr 2026 18:50:52 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI9za-000000045h2-0ieC
+	id 1wI9zc-000000045hs-1nsG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 18:50:39 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63TEQa641795831
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 18:50:38 GMT
+	Wed, 29 Apr 2026 18:50:41 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63TFwFqs1721223
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 18:50:40 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	b81T3BirliBEA4Ca2PjKIh2zUmRWNZ6bMgop4mGPNAc=; b=dCdYPvhtHeleA1bM
-	IB02IA9SLNy31LFBzAWoWW/nANl02OtGwlnJJrUvYUNZCFgYUgkOjky/D5R2lY1j
-	YqqKr99iH4CZoYjpnOPdM9GFYCLFgHLzlQ7SnhA0rkHOqH/oODKeqIfQ2kCdjxwE
-	MrSFDZE0ppnB8FYepiKqN1n8LE6wEr0eHHwwhgaax1Ske+vMxk1OUZ4DIdKsrZj+
-	Txu6kWo66GYPgSMLpAvE4ThCUNGmgY/Fq4zRZjp1fQ8Ip2loT0LWdkS2qO+i3wmB
-	AVUSxQV1yeTciOTBxTZGMWMAzU35BkTAQybSOo2o9/PdgRabz7pGrLVPzzHJbjB5
-	FenNgQ==
+	il7ZtFXUm/0VgwIneFEdIfwHcrPU08oUjosBQhZyc7I=; b=UCNkD/PxHOTA81YZ
+	vTEqGFiFYyUd4PaCVW5jXI3fPazQE+04m0c1i+Ky87ktmVbr/qGX7K9XJrAXQQme
+	OQJgTWm336BElEpXnN8VCLYPpwXOcEljF36Zy2GwXROPehj8cqtfhXOt8S5OArkZ
+	nXfwPXSbZWty3qQ5MImDNnr4Kcr3xvRmnj/ksY4/fSyDXIK3CeMrlIthUVZB5oLX
+	YEwQ+POWz8mp/E4skfZ2shdomRdnW6pjpGl9vmT5jbx2JPNPVoYAmMlQSjur+6H3
+	URMvR1K3r7a2AVwkBtokSGUFjIdQt3LWpDDwF9IH61XqJME6roMqxPSI2kjigN1U
+	qR2usw==
 Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dukrp1449-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dua733jeq-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 18:50:37 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-50df4c130dbso4138201cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 11:50:37 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 18:50:39 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-50faf1ecd1dso1546371cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 11:50:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1777488637; x=1778093437; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1777488639; x=1778093439; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=b81T3BirliBEA4Ca2PjKIh2zUmRWNZ6bMgop4mGPNAc=;
-        b=hNyuWOAwrATaIMHRu4wjZn60eo1l57AS5inqVcuKtYW6TCWEEubyOVH+CgDePiMNpr
-         sXccy+cUSn33iQJy/3H0c7W+4BFsKL7CkCI5iceRDm8ylMzzcIpAzwQ13s8aj0wKQdHs
-         nIMU3TvFDRH2umlEukus9mkRniFcYYNQgIW9VKP20/ZlEFuwAGHYp8QmDhT91MM8Oh5W
-         KpU9D53ObFo6SeLkHamWejWYSIShJDT8jIPeWS+WQUBVCfGSsCJ+9z5MsB6BGXkgEuOc
-         YOH6zKo0DP2wMFdfG0W975MF1Bvtc4FB24a0vzHmU13wk1dLmia7c2YHjz5tGibHSqPR
-         OKQQ==
+        bh=il7ZtFXUm/0VgwIneFEdIfwHcrPU08oUjosBQhZyc7I=;
+        b=K1ldSE8jXDi46PrX6YSkZtw5WgOhRLU1MxIhPOm1HPOS9tuDKQaVsugyBMZGaCN+jK
+         6iu4ozLBjnQseXozj3vdvYHXWuWZwaXrxgwl2J3yq5FwgNSrDnnoJPGUAmh32cBx7xcy
+         zHtY+F87HWqY24Mqhbl0lsbJppmUGTP+GSRkfzaqKBfuWa5sAb1VJKJjrgtvoXbdRn0j
+         7MJA2250IueCe6/HJFtEIwp7M6MKdz9ZAGt7GqO7I/06VxQSo05EolSk8hiDonDDYDKS
+         fvbDiUBXUz9a4EyEY8QYiJ4BUmxatLVPG5gMAdy9Jzop5AQ82vEPcVX0T2xbLOZEKx09
+         sGfw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777488637; x=1778093437;
+        d=1e100.net; s=20251104; t=1777488639; x=1778093439;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=b81T3BirliBEA4Ca2PjKIh2zUmRWNZ6bMgop4mGPNAc=;
-        b=JJLtoKFyC9U4KyriJsZ7j4FsR7MI2bbF4/AedTvwfzRD8cUnuhk/NumqEaMVS3Zzon
-         OW+Tvy+k1dioSgGBzsLxGyK4Y4gEHiiC6/wo84ioZFVmfV/hFCBeRJ23hn2mhVn/qZia
-         YWyDRakoHl6SNLZoOrf0RCGvx34lX0kq4p8vFgfWCSuo2FszhgX44YkyIXrKfWF6MC5s
-         nxspKRG+sYtPZ3Fa2vmzM0CBvglECDMEMiaKmnm1xPgPtLzOILBeLN02EXA3m+jd0feR
-         zJPc3xEb0NJX6wXc0tj009jtN5tAy0rH51AGrIRqlmQh5FW/s0Blvj9FsWhhGFZhEVyU
-         +DVg==
-X-Forwarded-Encrypted: i=1; AFNElJ/lhtVWWTMDhxJ4HsDvXVnV4XvBJBZBPpNesdjSxPGgBVXuNpRyNsCAwCuCqi3EkN22HIWVCbTjOjONk9qcIueh@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyl5jsGnFAOKxabJgdKlBF/FbtLcBxtIevp6pXheqmC3KlkWTXP
-	E54N6cUztgLSfBK+1HulPY6a6ED8V16FsNUUrLx/MvlbLCewIW+WjrW0MymMNigdg257KvXf+Pa
-	tjwAlOoN8i7zG8jXlbyqQasmRtnCUNEqG2JaCjYjl69i9w11krWmJ4sUEaiQH9A3qilQYHbQ0Zt
-	CtQg==
-X-Gm-Gg: AeBDietKwrVdekkRDyi88f2/DV2N48zHFpBgkK+mjtNgFAwqFKK5ajbxM1RgvpnlhY7
-	BZXrAgDC+308ap3RnmgdvcEygGxJzjcjKj/J1HEs1sw4kgLDJ7DgvcvM5byN2Av/GiErlOt+5bf
-	Njgu3u7g7xpqDeOeXhROBcA07/nvcGDpo8A4fMd76+sHwoQtf/YYYmQqnnRJvcI+c0EqrglXBSW
-	f5YHS93OHon5rBj/e/cdZHtlyI3LxHvHrzB3BJfDiVb1r5q1zDY02zWMvOTlgzcrSPxSz0A6LTf
-	nEkyrxzuGUmNhJ5xlIWcCPzlGT7hDb6EooPxtIkqTIvrHIOG8X9tF+W1816GXVLivzumsIANpTB
-	Bk9jEOfrCQoM65j/HZ1aiaCSrJ8Pc40b49LDyOz5meI3F7/nIA1Bkml0=
-X-Received: by 2002:a05:622a:8c08:b0:50f:ddba:af82 with SMTP id d75a77b69052e-510199faa91mr48517031cf.1.1777488636780;
-        Wed, 29 Apr 2026 11:50:36 -0700 (PDT)
-X-Received: by 2002:a05:622a:8c08:b0:50f:ddba:af82 with SMTP id d75a77b69052e-510199faa91mr48516651cf.1.1777488636366;
-        Wed, 29 Apr 2026 11:50:36 -0700 (PDT)
+        bh=il7ZtFXUm/0VgwIneFEdIfwHcrPU08oUjosBQhZyc7I=;
+        b=QYuUGDoYUBEwfzVMP01XrD+TY5EAsivTKqPNQ8J7LWG2i0RPqIdL4MaExmgB+yVn0S
+         FpPUjBGkVyoq/e7iQ61dR9z8x7z9NlLf2SWmzhHFxB/+W/NBucDZnbot9IQg6s5cv170
+         oX9uJ37zCXXwVxJs6eBdrUSBR2/tgUAl6/1ItA6RWCZq8xvP9B9Fxh78vin3ZgE5qMSA
+         NY0nZdW1/SyLxsWbWeJBlweTQAvyD4yvdbUryJ3NKnIWa7pz3p6AtILyGyfU5oCtXNbP
+         hrQNJQ7URcji4TutpKonxtnEVRnE12e4TELy+Ltr9CG/PnVBPNuWp5WPYkndlupdAB8N
+         kVOQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/xX1XMrOxbC8ziyK2y+cJPUiPocksNagsVCUzRX/0Gof/C11B8deYmwh2phyLi91nrkEmZr7MaovKhDb/7hpl9@lists.infradead.org
+X-Gm-Message-State: AOJu0YyAwb2d7suX5xuKClMmL3sBuFVq359gAeG0iIqobfdTTa9uJApB
+	O5QISNmLdva3DwHA5BVj4QcdNWqxK6K3SNqC5lrhnVLGZI27rInTFzyV4A5H6KMdPMhRZZ0NgRV
+	Jl453dqDNCh0Tm7rA95ZB4Mt+vMS7C+jBhv7StkpgNkw8QWaDCJ7zzswXm3FAGK+Bc69fDrvYQo
+	y4IQ==
+X-Gm-Gg: AeBDies0KZ5sfwTtJucbW8LWMhE4ktRNJvawDUuloNaYk9otpJ0999HVL45CkAPJGK4
+	4ouz8y46SC4D1mqS9jMWrYdUk3fj8OgCukTorxaVNnAb+gQikh/bsTPWLjAuSb04ztemqQzKBwm
+	DzakLEzyJykrfrlwqNwP3FzNIhW0s/RK2CFS/SFRT/OFnXTegwQaOLTT7Wvna4+pTr4tfYKyq6O
+	qQ+q/pAHgckoWPTaIc7niOuTHa78XgWzSHLX9cKhmng8M4AF1Dwl9HCv364McNjgti/e9xh8yGF
+	nVI9p/YExf4uqekfLG2KcbfYZQiP3tSYqTCSaXls/+C9i0Bg4MRD3uJVREWDSfC4KEuaTHNxHlJ
+	/6HCKNflTBXMgYM/fP3Ce9NyzQvmbk6hdRfie9FPxzjqe/51tM9mBb7k=
+X-Received: by 2002:a05:622a:145:b0:50f:bb11:df41 with SMTP id d75a77b69052e-5100e1f6136mr120912421cf.60.1777488638847;
+        Wed, 29 Apr 2026 11:50:38 -0700 (PDT)
+X-Received: by 2002:a05:622a:145:b0:50f:bb11:df41 with SMTP id d75a77b69052e-5100e1f6136mr120911981cf.60.1777488638429;
+        Wed, 29 Apr 2026 11:50:38 -0700 (PDT)
 Received: from [127.0.1.1] ([178.197.219.94])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48a82301b7bsm10525115e9.11.2026.04.29.11.50.34
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48a82301b7bsm10525115e9.11.2026.04.29.11.50.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Apr 2026 11:50:35 -0700 (PDT)
+        Wed, 29 Apr 2026 11:50:37 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Date: Wed, 29 Apr 2026 20:50:23 +0200
-Subject: [PATCH v2 2/5] arm64: defconfig: Drop unused legacy netfilter
- options
+Date: Wed, 29 Apr 2026 20:50:24 +0200
+Subject: [PATCH v2 3/5] arm64: defconfig: Drop default or selected drivers
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260429-defconfig-v2-2-e4ed4186028b@oss.qualcomm.com>
+Message-Id: <20260429-defconfig-v2-3-e4ed4186028b@oss.qualcomm.com>
 References: <20260429-defconfig-v2-0-e4ed4186028b@oss.qualcomm.com>
 In-Reply-To: <20260429-defconfig-v2-0-e4ed4186028b@oss.qualcomm.com>
 To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
@@ -107,50 +106,50 @@ To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
         soc@lists.linux.dev
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1097;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3932;
  i=krzysztof.kozlowski@oss.qualcomm.com; h=from:subject:message-id;
- bh=j+LOW88eQiC5n+Qsdr/dKLNgPzXRFoM/jOnnt+1HJXI=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBp8lLzB28YdnwArPhetV84UVHCs4XDHxtvf6mUT
- 2DX/V0xin6JAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCafJS8wAKCRDBN2bmhouD
- 11UkD/9qjBkdNjsuVieru3VpL66vJGz2kSPicEX3Q76CcVWFlBtDC1MnRuqsQJm1ZqdMYGs5rgT
- 9pGMuY3yV0GISmE8elAD5Gq9aViR4CuDDpRaNtzsrtOgnJAUDV6pQW+2YeTDiK2Bm0JJHJHhkCQ
- QsnsvWCBadTF5LSNZcGsUUIQxYnxCFBnOOxLIyKNuJMkUThTj1iIVWR7j+Y7FuH3pMN22O4TceE
- 1riwQk3ppTq3I5B5V2sZpnnG1PX/Qi3y1Rkt+4CalaAALUrf0I0SAxfl9P0/X1jrEbydSxSMZkY
- 0YsZiBHEIGVB9tH8KCPBkdWujYjC3CkHNQgvyqA41vbEZ5UbxRNt8i1K9Aik37cCXNx5nLyuYc8
- jeYjzKlzYodazU7ShhtI+B5IBj2d6sb0vK4tjUfAUrtlxfbKmINlRuZi57lkjdXQ9maali7QfK/
- pNHgHEL6bEKprx266N3Vsj43YIZNcLgzee0eUny1PwSAMQrej3SJNDvu0aqVx0aHObhOxsLOBzs
- FHTvvLHjidAxBgMB+pVvLHKlIPqMN0/kWSfUPoNlK1BvzgFhu0xIJIOvdZMhUB5VgvQXetPZgbd
- KrHDD+9Szko8OBUhEKfIWho7AwAkkR+rmzFZdqi1Wo8yWRsH9r5xIdPVUE6CURbQOZtw3HBn/+l
- ra2utMWhlFkfXLA==
+ bh=Y18lQeK785BUdXcoivL1iOwoR7xldMbNw4zRskgiwhw=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBp8lL0sgeXDSDby3iCOTPT8ih77bBMMdS9vr72F
+ T9jC7nElgeJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCafJS9AAKCRDBN2bmhouD
+ 12wPEACV2nKntoCfsb9G+XLWmv2LbLw/iYIflfPo75L/dO8qFnTL+Zt1E/pSbXziYWTAbr2Bxc1
+ wj8HYvHODhvFS6BXyPMVbQEtNO89II7vfpQYLF2Xxdw9v3rWCp3VvZ4nHiGcIP/HRB65mJ8EY9z
+ frmOPUZSGL4gh33Wnc3U03AnkoGBLZpbE50pL1NyKjRgr7SZUn+3/bHqXGL7I7L9lr8Ajny6XkN
+ xyZmJC3pTfRZPM9p4y7wcoH4+OGhO8/jHGWt9ICC86cqN8ToK3F4dIQl852Q6kLIbAGoTeDFBWV
+ PHxLY/PwoIUTfaEMngXB3/YaWvjFP4AY/JVqEkrlKMgqWg0yFQQavGwDxs9eMBmsBhH1Z0E/vHr
+ wymRFpFY7FNohM/wJxl+Iy9FJTZ6pbjC1TbaiV1/Jl3tQ3/f4ZEuVsZIs08rr8UvOOoze6TtVjX
+ /pk0NfMSsPTN10nsSnU7I3grP7Z/re6eyu2o8OpxwVn1moNS/qKUUYlbdadvU18ZoXLk66IMF2D
+ 9mjKd3pd+Ol0FJeJr75YtgtxLxWxcnAqDO1Ds2DEiOPf63O9SXgCyYbL6TjCoFY1K00sxe3Nkcb
+ WLu6SK1eh2BoIOyh2uLCDvsbI0JvYdUR0HRUGIAt9y/mXEUz4RW54a/PyhiDoe2KsshoGj07bcD
+ rp6qMk/6LpIYGUQ==
 X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp;
  fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-X-Proofpoint-ORIG-GUID: JlZjDuzrsJlx1TgAdhkTsTreGLa-QDoS
-X-Proofpoint-GUID: JlZjDuzrsJlx1TgAdhkTsTreGLa-QDoS
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI5MDE4OCBTYWx0ZWRfX2Es2G3e3WWfz
- GwqdgIh7/ov7TeuAD4b1B0C2xo0bfeiqQRy3WuZbhNO7afnHbaPP8iHH6iR+vWPlwOohpVbwRF5
- duolSZRT8hGgpXw+PRyovPQdCIpWQRLyrxAE+A5Po2Ffjlcd0K4ZZWIaCsNgca1mzdZiQjmPHdn
- VMrzc0NXKlBYZNuLRo8cEMK08DCiIM26Xs7ZPf6lGfNNNdQpEGumY+vMvkqUbUZ1kZKBO18Ojye
- Q/iSuTeBemeD6W4EglWljXl0daDrWLKBS79O5HS3Cu/sRid2tWFOJW/OCItlXJ4XMU8pTkUuCUQ
- ZAI+1/vbQhWnLnQYHP/tbQhwZJqJ/iKU0nB18neQsBEnIZQUXNPLnC04WBYKc580EtKkWBp9FNK
- 7xm89YqynsbZeEsNc8K1GpCRGrzfejhE7Ntx0bWxBYyhbqZBP3h5o62sONs/jmUfczs0cnTOTAK
- sU3K1LjUmHYD0FetDeA==
-X-Authority-Analysis: v=2.4 cv=WoQb99fv c=1 sm=1 tr=0 ts=69f252fd cx=c_pps
+X-Authority-Analysis: v=2.4 cv=XtvK/1F9 c=1 sm=1 tr=0 ts=69f252ff cx=c_pps
  a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=gOEeR9iKwsj33Yj5oN/cWg==:17
  a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=k-PMdL3Rd_3TYoQcjAcA:9 a=QEXdDO2ut3YA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=9vOstYy64hXmyjEA1s4A:9 a=QEXdDO2ut3YA:10
  a=a_PwQJl-kcHnX1M80qC6:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI5MDE4OCBTYWx0ZWRfX++FkmowRSGYA
+ dXu7G3lLuNnrHgHGmaw8wwsuc7vM6LS7vNFNBiW+wihZu4bmdjcBEof3188DnrcdAcJEOV9or+I
+ xwgy4rpepsNKDQFZfPoihr+VrccdRLigaRd6lcKf8vfZOLlFCac/jprFJ1DWFeDPDsKdJSxZFqZ
+ v49MrFn/Dgw+Sun9qdCbHiR0TLUQk2JnoONFt2GYXXnUntgRgc83fhTF1eMS+G502UcsHrfc0hu
+ nJh3zP4P3iJY3rk0U+FjuqPGtDBv0l3L1V5CGyO4Anc607C46cJLbk7L7l1LkSz5r1EuKEFO9W6
+ +ia1A9S3MHHE6cLtBOy7xBNV3Q0OydtSkYJ9ITuTfGBr6xLjI46ypD9pBhEoG+G85fKaamHrHpa
+ djXHhn8HExAVVXzK2cazIctUEX5gb7IdfE2dAc8IgwRD7PzQ4nvYHJqZSSmfRjh/oxCW1oGJEmY
+ 1geBByWqpKHgso/PcLw==
+X-Proofpoint-GUID: HzOl8hfEtSRLElaE1HwBa9r2_OGaSDIr
+X-Proofpoint-ORIG-GUID: HzOl8hfEtSRLElaE1HwBa9r2_OGaSDIr
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-04-29_01,2026-04-28_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 phishscore=0 adultscore=0 impostorscore=0 lowpriorityscore=0
- priorityscore=1501 spamscore=0 suspectscore=0 bulkscore=0 malwarescore=0
+ malwarescore=0 lowpriorityscore=0 clxscore=1015 spamscore=0 bulkscore=0
+ adultscore=0 impostorscore=0 phishscore=0 priorityscore=1501 suspectscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604290188
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_115038_215964_A456AE0E 
-X-CRM114-Status: GOOD (  11.83  )
+X-CRM114-CacheID: sfid-20260429_115040_481320_872FB0FF 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,38 +164,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Drop all options which are ineffective now, because they depend on
-disabled IP_NF_IPTABLES_LEGACY or IP6_NF_IPTABLES_LEGACY.  No impact on
-include/generated/autoconf.h.
+Drop all options which are either defaults or selected by other drivers:
+1. IMX Pinctrl drivers are defaults for this ARCH.
+2. RP1 is selected by MISC_RP1.
+3. I2C_DESIGNWARE_PLATFORM is default with I2C_DESIGNWARE_CORE.
+4. DRM_SAMSUNG_DSIM is selected by DRM_EXYNOS_DSI.
+5. SUN6I, SUN8I and Renesas DRM drivers have defaults.
+6. SND_SOC_ROCKCHIP does not exist.
+7. Several ASoC drivers are selected by other main sound switches.
+8. USB_CDNS3_IMX is default with USB_CDNS3.
+9. IPQ_APSS_5018 never existed.
+
+No impact on include/generated/autoconf.h.
 
 Reviewed-by: Linus Walleij <linusw@kernel.org>
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 ---
- arch/arm64/configs/defconfig | 10 ----------
- 1 file changed, 10 deletions(-)
+ arch/arm64/configs/defconfig | 23 -----------------------
+ 1 file changed, 23 deletions(-)
 
 diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 9c03ae2c767e..9a31b258a56e 100644
+index 9a31b258a56e..c9f6d5d6ef69 100644
 --- a/arch/arm64/configs/defconfig
 +++ b/arch/arm64/configs/defconfig
-@@ -155,17 +155,7 @@ CONFIG_NETFILTER_XT_MATCH_CONNTRACK=m
- CONFIG_NETFILTER_XT_MATCH_IPVS=m
- CONFIG_IP_VS=m
- CONFIG_IP_NF_IPTABLES=m
--CONFIG_IP_NF_FILTER=m
--CONFIG_IP_NF_TARGET_REJECT=m
--CONFIG_IP_NF_NAT=m
--CONFIG_IP_NF_TARGET_MASQUERADE=m
--CONFIG_IP_NF_MANGLE=m
- CONFIG_IP6_NF_IPTABLES=m
--CONFIG_IP6_NF_FILTER=m
--CONFIG_IP6_NF_TARGET_REJECT=m
--CONFIG_IP6_NF_MANGLE=m
--CONFIG_IP6_NF_NAT=m
--CONFIG_IP6_NF_TARGET_MASQUERADE=m
- CONFIG_BRIDGE=m
- CONFIG_BRIDGE_VLAN_FILTERING=y
- CONFIG_NET_DSA=m
+@@ -557,7 +557,6 @@ CONFIG_I2C_MUX_PINCTRL=m
+ CONFIG_I2C_BCM2835=m
+ CONFIG_I2C_CADENCE=m
+ CONFIG_I2C_DESIGNWARE_CORE=y
+-CONFIG_I2C_DESIGNWARE_PLATFORM=y
+ CONFIG_I2C_GPIO=m
+ CONFIG_I2C_IMX=y
+ CONFIG_I2C_IMX_LPI2C=y
+@@ -632,15 +631,6 @@ CONFIG_PINCTRL_SX150X=m
+ CONFIG_PINCTRL_OWL=y
+ CONFIG_PINCTRL_S700=y
+ CONFIG_PINCTRL_S900=y
+-CONFIG_PINCTRL_IMX8MM=y
+-CONFIG_PINCTRL_IMX8MN=y
+-CONFIG_PINCTRL_IMX8MP=y
+-CONFIG_PINCTRL_IMX8MQ=y
+-CONFIG_PINCTRL_IMX8QM=y
+-CONFIG_PINCTRL_IMX8QXP=y
+-CONFIG_PINCTRL_IMX8DXL=y
+-CONFIG_PINCTRL_IMX8ULP=y
+-CONFIG_PINCTRL_IMX93=y
+ CONFIG_PINCTRL_BRCMSTB=y
+ CONFIG_PINCTRL_BCM2712=y
+ CONFIG_PINCTRL_SKY1=y
+@@ -669,7 +659,6 @@ CONFIG_PINCTRL_QCS615=y
+ CONFIG_PINCTRL_QCS8300=y
+ CONFIG_PINCTRL_QDF2XXX=y
+ CONFIG_PINCTRL_QDU1000=y
+-CONFIG_PINCTRL_RP1=m
+ CONFIG_PINCTRL_SA8775P=y
+ CONFIG_PINCTRL_SC7180=y
+ CONFIG_PINCTRL_SC7280=y
+@@ -954,11 +943,6 @@ CONFIG_DRM=m
+ CONFIG_DRM_HDLCD=m
+ CONFIG_DRM_MALI_DISPLAY=m
+ CONFIG_DRM_KOMEDA=m
+-CONFIG_DRM_RCAR_MIPI_DSI=m
+-CONFIG_DRM_RZG2L_MIPI_DSI=m
+-CONFIG_DRM_SUN6I_DSI=m
+-CONFIG_DRM_SUN8I_DW_HDMI=m
+-CONFIG_DRM_SUN8I_MIXER=m
+ CONFIG_DRM_DISPLAY_CONNECTOR=m
+ CONFIG_DRM_FSL_LDB=m
+ CONFIG_DRM_I2C_NXP_TDA998X=m
+@@ -970,7 +954,6 @@ CONFIG_DRM_LONTIUM_LT8713SX=m
+ CONFIG_DRM_ITE_IT66121=m
+ CONFIG_DRM_NWL_MIPI_DSI=m
+ CONFIG_DRM_PARADE_PS8640=m
+-CONFIG_DRM_SAMSUNG_DSIM=m
+ CONFIG_DRM_SII902X=m
+ CONFIG_DRM_SIMPLE_BRIDGE=m
+ CONFIG_DRM_THINE_THC63LVD1024=m
+@@ -1108,7 +1091,6 @@ CONFIG_SND_SOC_SC8280XP=m
+ CONFIG_SND_SOC_SC7180=m
+ CONFIG_SND_SOC_SC7280=m
+ CONFIG_SND_SOC_X1E80100=m
+-CONFIG_SND_SOC_ROCKCHIP=m
+ CONFIG_SND_SOC_RCAR=m
+ CONFIG_SND_SOC_MSIOF=m
+ CONFIG_SND_SOC_RZ=m
+@@ -1137,7 +1119,6 @@ CONFIG_SND_SOC_TEGRA210_AMX=m
+ CONFIG_SND_SOC_TEGRA210_ADX=m
+ CONFIG_SND_SOC_TEGRA210_MIXER=m
+ CONFIG_SND_SOC_TEGRA_AUDIO_GRAPH_CARD=m
+-CONFIG_SND_SOC_DAVINCI_MCASP=m
+ CONFIG_SND_SOC_J721E_EVM=m
+ CONFIG_SND_SOC_XILINX_I2S=m
+ CONFIG_SND_SOC_XILINX_AUDIO_FORMATTER=m
+@@ -1158,7 +1139,6 @@ CONFIG_SND_SOC_GTM601=m
+ CONFIG_SND_SOC_MAX98090=m
+ CONFIG_SND_SOC_MSM8916_WCD_ANALOG=m
+ CONFIG_SND_SOC_MSM8916_WCD_DIGITAL=m
+-CONFIG_SND_SOC_PCM3168A_I2C=m
+ CONFIG_SND_SOC_RK3308=m
+ CONFIG_SND_SOC_RK817=m
+ CONFIG_SND_SOC_RT5640=m
+@@ -1215,7 +1195,6 @@ CONFIG_USB_CDNS_SUPPORT=m
+ CONFIG_USB_CDNS3=m
+ CONFIG_USB_CDNS3_GADGET=y
+ CONFIG_USB_CDNS3_HOST=y
+-CONFIG_USB_CDNS3_IMX=m
+ CONFIG_USB_MTU3=y
+ CONFIG_USB_MUSB_HDRC=y
+ CONFIG_USB_MUSB_SUNXI=y
+@@ -1437,7 +1416,6 @@ CONFIG_COMMON_CLK_CS2000_CP=y
+ CONFIG_COMMON_CLK_FSL_SAI=y
+ CONFIG_COMMON_CLK_S2MPS11=y
+ CONFIG_COMMON_CLK_PWM=y
+-CONFIG_COMMON_CLK_RP1=m
+ CONFIG_COMMON_CLK_RS9_PCIE=y
+ CONFIG_COMMON_CLK_VC3=y
+ CONFIG_COMMON_CLK_VC5=y
+@@ -1490,7 +1468,6 @@ CONFIG_QCOM_CLK_APCC_MSM8996=y
+ CONFIG_QCOM_CLK_SMD_RPM=y
+ CONFIG_QCOM_CLK_RPMH=y
+ CONFIG_IPQ_APSS_6018=y
+-CONFIG_IPQ_APSS_5018=y
+ CONFIG_IPQ_CMN_PLL=m
+ CONFIG_IPQ_GCC_5018=y
+ CONFIG_IPQ_GCC_5210=y
 
 -- 
 2.51.0
