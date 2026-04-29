@@ -4,68 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1919AFF8873
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 14:15:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E710FF8867
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 14:23:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KzuxTBhAKGpRNhDCaAbCDDTfw8b7Lf8OfGqqk7nXzaw=; b=XQ16PTQDqptQxn9rxBp0zUO1WV
-	UsQ1PqeU08UT6n9fWotjG6iBG3n8iHi1y8btGBacORchtLxC33cS7+4IediDvfyWW06C6CgvGCC7e
-	WKIvivDMpvHGz1tYc5Gx+NJewFaR8ebSO6jx/FTirzx4Q9q4PK7BspZihXvV2FDkJfSyVPqesYQkK
-	/pOTwOWjykshPWnJpzfY34fbAvkxft2H90FExRX0fAwauOlO6zqt3bbHMCSgDBgayWDecXWutN2hZ
-	+GVvmxZ4JQVw+8G6DdenqOGOFSmj3cmei9ox4frTWAgdTTe3jSy0nVcImjgn7ZuE+jQPT4QxMux0S
-	CLf7evPA==;
+	bh=eER2GCpD8B7GlhmETIiRKrTfvFHwkGHJ1zYSjhWxsec=; b=VeUyLlZPFWgDMhyzoTu3AtdhC2
+	m0wTyEE6m/xtCqbruzFMKRpydnlBFc5dCj03EZc/dY8Dp3Oi5Hyra8OWlw25WV4ZAMj3O8IWvBoD0
+	UXpNioRZeuPzyDzuGsUdFNJ8WKhcxOFn96KonwpYSnk68KqviDyZ7dm//sdkrK+mKk302soZWUG36
+	BvxcbJt2gyaOUMfDYxEV8fCJZVEy5RL5UtRaT8JBwuA67bBn8RizOCNPUOTqmctc5d3VF+S8HKco9
+	PVjQleBDPvRCByo+UkN9bdTf+U8tJc0kZIUTx70bU7hR/32ZubH3lBP1Za0KHrAeXsliORH6UCyP5
+	SZNzqHlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI5gr-00000003k2A-00ML;
-	Wed, 29 Apr 2026 14:15:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI5gj-00000003jvN-16hy
+	id 1wI5pL-00000003kyZ-1KQY;
+	Wed, 29 Apr 2026 14:23:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wI5pJ-00000003kyL-2ECD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 14:14:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 370391C01;
-	Wed, 29 Apr 2026 07:14:46 -0700 (PDT)
-Received: from e142021.munich.arm.com (e142021.arm.com [10.41.150.154])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 81DF53F62B;
-	Wed, 29 Apr 2026 07:14:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777472091; bh=wnINJ4qqC5jjasrgT/cw8BNQc6KV8jan1/3jpxXMVaQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OQoPfOC4B1H8Q4FAfavj/0IISrRjLH/8CILEmmydD3VI6qY+g8aKkk9RvnVzCR4HW
-	 QR3XejycOJ+zazznJcIGoEY88hym/1oeAAm5tHm5PB576kPegqVyVbEfqLZ1mwn5Y0
-	 BLmH/MDR0g/1yBrMzRs4k65WelLIujcqfPwDzBJA=
-From: Andre Przywara <andre.przywara@arm.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Ben Horgan <ben.horgan@arm.com>,
-	Reinette Chatre <reinette.chatre@intel.com>,
-	Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 4/5] arm_mpam: prevent MPAM-Fb accesses inside IRQ handler
-Date: Wed, 29 Apr 2026 16:13:38 +0200
-Message-ID: <20260429141339.3171205-5-andre.przywara@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260429141339.3171205-1-andre.przywara@arm.com>
-References: <20260429141339.3171205-1-andre.przywara@arm.com>
+	Wed, 29 Apr 2026 14:23:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8F47F60139;
+	Wed, 29 Apr 2026 14:23:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B605BC19425;
+	Wed, 29 Apr 2026 14:23:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777472624;
+	bh=1DoYAyGOTScVVD3GXpdNNQST/38xq+/hMaqnmr473Bs=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+	b=D+d91KjTTrM+lBnQ44Qx5TmdF/ui8FYG7riluu2LEkceRos9M2RXCy/huWD2rHFbk
+	 UZ0bxWyoCYJBzLVkVf2ZhXbnpzm/XXLxEYS7qjdAvLnsraGoQZe9UKyJnTuJgT974q
+	 j+EkKT6u7bZ4J4CmzpGeolUiepyZgE/zABzHbergVuaLqEVNd6YD96dpQQzMP4Bzju
+	 gN2G1YFkAt6HF5fb0NF2fHHdLnzgbb/Eay7BLp+q3r+uTOMXWyP2eFu+ml06IRx4AH
+	 LHnKjiw12g7mYF/wPW2KJUDX1yM+xxwO5xeMlajk12CKWQlU2G3bYJsLxLi1zVDZ9R
+	 HLwOZtcL0ayew==
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfauth.phl.internal (Postfix) with ESMTP id C6D6EF40081;
+	Wed, 29 Apr 2026 10:23:42 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-01.internal (MEProxy); Wed, 29 Apr 2026 10:23:42 -0400
+X-ME-Sender: <xms:bhTyaRuedy8IaKVEUb6zYplqea_IyrVJ49HkQ4RUPpdmpAElw4kXEw>
+    <xme:bhTyaVRnbbQOqYIc9uQZ-srPlIHJH6Ecz-9CNLTmo6l72SQrfGLC7rXy5RwNoSO5c
+    PfLjljA9mfzOFgztLYmln-dyEK2WRsD3kpgdEUY7fyEOc7nsh2YDdQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdekgeeijecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhguuceu
+    ihgvshhhvghuvhgvlhdfuceorghruggssehkvghrnhgvlhdrohhrgheqnecuggftrfgrth
+    htvghrnhepvdeuheeitdevtdelkeduudetgffftdelteefteevjeevjeeiheefhfejieej
+    fedunecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
+    hrugdomhgvshhmthhprghuthhhphgvrhhsohhnrghlihhthidqudeijedthedttdejledq
+    feefvdduieegudehqdgrrhgusgeppehkvghrnhgvlhdrohhrghesfihorhhkohhfrghrug
+    drtghomhdpnhgspghrtghpthhtohepudejpdhmohguvgepshhmthhpohhuthdprhgtphht
+    thhopegrnhhshhhumhgrnhdrkhhhrghnughurghlsegrrhhmrdgtohhmpdhrtghpthhtoh
+    eptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhopehkvghv
+    ihhnrdgsrhhoughskhihsegrrhhmrdgtohhmpdhrtghpthhtohepmhgrrhhkrdhruhhtlh
+    grnhgusegrrhhmrdgtohhmpdhrtghpthhtoheprhihrghnrdhrohgsvghrthhssegrrhhm
+    rdgtohhmpdhrtghpthhtoheprghruggsodhgihhtsehgohhoghhlvgdrtghomhdprhgtph
+    htthhopehlihiiphhruhgtkhgrsehgohhoghhlvgdrtghomhdprhgtphhtthhopehsvght
+    hhhjvghnkhhinhhssehgohhoghhlvgdrtghomhdprhgtphhtthhopegurghvihgusehkvg
+    hrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:bhTyaYQqbQnVIvDQGr_EIyoNqMUxhwXG4G4jtXeNWeDmpwZFsfnQFA>
+    <xmx:bhTyaZ5UU3sOLPELciR1S3yUNipryJRU-wfpnldnvQeR7ny2GQoX_A>
+    <xmx:bhTyaS26ba8LHTkWKJhLTLhqgOLfm1ol0gbWKJiQ7XNXpSI0HVb3_Q>
+    <xmx:bhTyaWlPWrFeCV-JEl10S10qMtJqxcSJLGeaFD4PPzxewiMEq2oA5g>
+    <xmx:bhTyaYj-PQwy2tOxiSz7NljYKJXKPYJnt1JMl7HQF9Vpthrm4_c5Y-60>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 9D519700065; Wed, 29 Apr 2026 10:23:42 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_071453_431654_121A0ECD 
-X-CRM114-Status: GOOD (  13.95  )
+Date: Wed, 29 Apr 2026 16:23:22 +0200
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Kevin Brodsky" <kevin.brodsky@arm.com>,
+ "Ard Biesheuvel" <ardb+git@google.com>, linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org, "Will Deacon" <will@kernel.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Mark Rutland" <mark.rutland@arm.com>, "Ryan Roberts" <ryan.roberts@arm.com>,
+ "Anshuman Khandual" <anshuman.khandual@arm.com>,
+ "Liz Prucka" <lizprucka@google.com>, "Seth Jenkins" <sethjenkins@google.com>,
+ "Kees Cook" <kees@kernel.org>, "Mike Rapoport" <rppt@kernel.org>,
+ "David Hildenbrand" <david@kernel.org>,
+ "Andrew Morton" <akpm@linux-foundation.org>, linux-mm@kvack.org,
+ linux-hardening@vger.kernel.org
+Message-Id: <1f9c1ca5-c15c-4a08-aa8c-cbe64f7f205b@app.fastmail.com>
+In-Reply-To: <8a315ca2-3754-4a66-990e-55b85191aa6e@arm.com>
+References: <20260427153416.2103979-17-ardb+git@google.com>
+ <20260427153416.2103979-28-ardb+git@google.com>
+ <8a315ca2-3754-4a66-990e-55b85191aa6e@arm.com>
+Subject: Re: [PATCH v4 11/15] arm64: mm: Don't abuse memblock NOMAP to check for
+ overlaps
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,78 +114,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When an MPAM MSC gets into an error condition, it can trigger an error
-IRQ. We cannot really do much about those errors, but we at least query
-and log the error, then disable MPAM functionality.
 
-This error report relies on reading the MSC's error status register
-(ESR) in the IRQ handler, which is not possible for MPAM-Fb based
-MSC accesses, since they involve mailbox routines that might sleep.
 
-For simplicity just skip the ESR read when the MSC is not using direct
-MMIO accesses. We will wrap up MPAM functionality regardless, knowing
-the exact error value will not change that.
+On Wed, 29 Apr 2026, at 12:54, Kevin Brodsky wrote:
+> On 27/04/2026 17:34, Ard Biesheuvel wrote:
+>> From: Ard Biesheuvel <ardb@kernel.org>
+>>
+>> Now that the DRAM mapping routines respect existing table mappings and
+>> contiguous block and page mappings, it is no longer needed to fiddle
+>> with the memblock tables to set and clear the NOMAP attribute in order
+>> to omit text and rodata when creating the linear map.
+>>
+>> Instead, map the kernel text and rodata alias first with the desired
+>> attributes, so that they will not be remapped later with different
+>> attributes when mapping the memblocks.
+>>
+>> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+>> ---
+>>  arch/arm64/mm/mmu.c | 24 +++++++-------------
+>>  1 file changed, 8 insertions(+), 16 deletions(-)
+>>
+>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>> index 5e2348b15783..1a4b4337d29a 100644
+>> --- a/arch/arm64/mm/mmu.c
+>> +++ b/arch/arm64/mm/mmu.c
+>> @@ -1148,12 +1148,15 @@ static void __init map_mem(void)
+>>  		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
+>>  
+>>  	/*
+>> -	 * Take care not to create a writable alias for the
+>> -	 * read-only text and rodata sections of the kernel image.
+>> -	 * So temporarily mark them as NOMAP to skip mappings in
+>> -	 * the following for-loop
+>> +	 * Map the linear alias of the [_text, __init_begin) interval
+>> +	 * as non-executable now, and remove the write permission in
+>> +	 * mark_linear_text_alias_ro() above (which will be called after
+>> +	 * alternative patching has completed). This makes the contents
+>> +	 * of the region accessible to subsystems such as hibernate,
+>> +	 * but protects it from inadvertent modification or execution.
+>>  	 */
+>> -	memblock_mark_nomap(kernel_start, kernel_end - kernel_start);
+>> +	__map_memblock(kernel_start, kernel_end, pgprot_tagged(PAGE_KERNEL),
+>
+> Is it now necessary for that mapping to be tagged? If so, it should
+> probably be called out in the commit message.
+>
 
-Signed-off-by: Andre Przywara <andre.przywara@arm.com>
----
- drivers/resctrl/mpam_devices.c | 30 +++++++++++++++++++-----------
- 1 file changed, 19 insertions(+), 11 deletions(-)
-
-diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 90b49bfd5caa..62aa04cb6905 100644
---- a/drivers/resctrl/mpam_devices.c
-+++ b/drivers/resctrl/mpam_devices.c
-@@ -2472,7 +2472,7 @@ static int mpam_disable_msc_ecr(void *_msc)
- 
- static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
- {
--	u64 reg;
-+	u64 reg = 0;
- 	u16 partid;
- 	u8 errcode, pmg, ris;
- 
-@@ -2481,22 +2481,30 @@ static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
- 					   &msc->accessibility)))
- 		return IRQ_NONE;
- 
--	reg = mpam_msc_read_esr(msc);
-+	/* MPAM-Fb MSC accesses cannot be done in atomic context. */
-+	if (msc->iface == MPAM_IFACE_MMIO) {
-+		reg = mpam_msc_read_esr(msc);
- 
--	errcode = FIELD_GET(MPAMF_ESR_ERRCODE, reg);
--	if (!errcode)
--		return IRQ_NONE;
-+		errcode = FIELD_GET(MPAMF_ESR_ERRCODE, reg);
-+		if (!errcode)
-+			return IRQ_NONE;
-+	}
- 
- 	/* Clear level triggered irq */
- 	mpam_msc_clear_esr(msc);
- 
--	partid = FIELD_GET(MPAMF_ESR_PARTID_MON, reg);
--	pmg = FIELD_GET(MPAMF_ESR_PMG, reg);
--	ris = FIELD_GET(MPAMF_ESR_RIS, reg);
-+	if (reg) {
-+		partid = FIELD_GET(MPAMF_ESR_PARTID_MON, reg);
-+		pmg = FIELD_GET(MPAMF_ESR_PMG, reg);
-+		ris = FIELD_GET(MPAMF_ESR_RIS, reg);
-+
-+		pr_err_ratelimited("error irq from msc:%u '%s', partid:%u, pmg: %u, ris: %u\n",
-+				   msc->id, mpam_errcode_names[errcode], partid,
-+				   pmg, ris);
-+	} else {
-+		pr_err_ratelimited("unknown error irq from msc:%u\n", msc->id);
-+	}
- 
--	pr_err_ratelimited("error irq from msc:%u '%s', partid:%u, pmg: %u, ris: %u\n",
--			   msc->id, mpam_errcode_names[errcode], partid, pmg,
--			   ris);
- 
- 	/* Disable this interrupt. */
- 	mpam_disable_msc_ecr(msc);
--- 
-2.43.0
-
+As you've pointed out, the initial r/w mapping of the linear alias of rodata
+will need to be mapped tagged before moving the zero page there. So this patch
+will just preserve that, rather than remapping the region tagged explicitly as
+it does now.
 
