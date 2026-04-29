@@ -4,110 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2259BFF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 01:38:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8B9EFF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 01:42:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TL2tkeFOgMZcOO+5OqeSu09okkedmEhoLbRE8Fw/jV4=; b=bC5RYBB8mD7prif5im6cT+R8vP
-	XXt/xF1GXFaF+LQ5A8nBEphCRwd3qZTb2Lr4CyGEMtO6L/gNRIvBkhGPwtSCo1vuktgHGk+kE1g5w
-	WBBpJLgBkI/SKNNxNgclBKLO+JvwVgSz586sKqHNIS5xNTa8X8Ky01aYBfQkwvQ3n3ouxsNZjT7R0
-	EVc5KW+FDH22HZBHugDMiVsvINMphbzAc1f2hXJXCZcb4KdjOw+XfC4YQtlL0CChD9LroJPuiaK2u
-	Sc/wYdv+BztFXGZspiUjul4S3dZZLVhgvCl8n7d8G9qXYPrJJe3NMmzJvxKVUKdKHDPLJQw34XGo7
-	u8LZrQLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xr++0uW3/aWfxubO3cxQcvyMCVatN4XOXUV5OwG2V2w=; b=tn+JVlj8+cy5o4DXn7k8g9ZO3a
+	tlCQFd+EZGlCWDkhFbjMX1DMAKBPV28VoYDnPiJGvY5Lp0ShvhSaMqRrF45qwfBSmWx6qx+vIC3t0
+	GEm3eYZNd4Pk5A3PrY9IdSwBVt1gqWNdjY9rBe9MTHkYHF2yFliQn/7L/xImO+xctJsxoHKG5zHx3
+	HOuHioJtRk59Yhq9Zi8BONkgL5fl1FkdfcZai6sqW+rc5GPCKnRt9XpkrvQS4bndrvIICKDfhQASV
+	eW1HgNk/yy+kV63Rb6UMapleHsvlc4X4A7OuscKRpMLjpirlbiJg1Ys47KOt3OZAgmSJlxfNQTRp6
+	RLmeUd/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHtsP-00000002iwq-2lSF;
-	Wed, 29 Apr 2026 01:38:09 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1wHtwG-00000002jqx-2QHx;
+	Wed, 29 Apr 2026 01:42:08 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHtsN-00000002ivz-1llC
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 01:38:08 +0000
-Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-5a746f9c092so425887e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 18:38:05 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1777426684; cv=none;
-        d=google.com; s=arc-20240605;
-        b=VMIG2TaiRUtV6GmnJjOg6150jcey+SLKRzhfJ3tb79osiJpfjcbq/W+NsRYGKbUyyB
-         exJ/fipBHxmLFKwDKmOjAf3FLW+BgFrEm1bg2KopzxjT7Cb92BgphHxUfkF21fh3suyl
-         XuH4xm6gFhNFMSjjH/SPyUtDaTE4jApn5mbRmO+LhjBJGObzSEKcaLqJKe7mCw6ieYVH
-         ZjrS26rxN/BkAhgKNGGdQd2D2tWyVKBTDsABpa9ZWyzr/56wh1uL7WnLFbRydAyGRmKI
-         7s8YooR6CgWP9/oy1y50Iow9d5RfZjsViKARnplLoPxiBsc1Ulne1+prbMar8q2eJevy
-         IjQA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=TL2tkeFOgMZcOO+5OqeSu09okkedmEhoLbRE8Fw/jV4=;
-        fh=eIi3pVUt9GGDuWjHWkbDXO8WdQ8hmlZ3yBJk6uuNmaI=;
-        b=TawqHMOW4HEw+niEbKf8Cgkv3WcPBYNh8hvlQFd42bkbfNTv8IgYwet6fkX0+9xZpE
-         wGpLhJcPmY/V0uLpjyLVO/XrC9XV2wCKOhXYRbyKgVgZ5F9vmqiG68Hen686caOhpE+P
-         MaH7F/+AmyCil7vaPZR/kABoVA/Zr42E2R9UjnmfVdfnjAC1kBMF3QbZroKTeU5lSTkT
-         lBE1LU3n/6VHESYTLw5PqBe26dH4FgNBxVWeRntYN1vYwmrLl8WJe7FAgXFzFgATpR6P
-         3YBEZsEYxq8jlx7ejs8MxQzH8HGWgxgFSkCwBMOJoNmNSHBPutsavKqxjXcEGpvnAosg
-         hKvA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777426684; x=1778031484; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TL2tkeFOgMZcOO+5OqeSu09okkedmEhoLbRE8Fw/jV4=;
-        b=d41UjTKkH3Rfceg49eBHHjZc7stCIebt0gAG1yb40cCQW0/XdvD8ZBK+NMwp6ObbyV
-         dyW1mHWZdG+h40taokArv1pj1Ze6/5mAuqpJM8PYOaKUFHBudvOZ2xA0ixeAJaWA/twY
-         acQk1kqabgGc3GO15ziwagxCcgg0u4IRK8IzPH7/BQTkgxMkkva1BuIo2tZAf10wGLS2
-         Eg74wHbiq84MZqao3SPSDoComnqodTWk4XQhL1hGTErmaCaOjwqZaxfqQSOQwrpYa645
-         wqv8oguLQIKAtpqzCSE3c+ZET1OAQ+UMFE7n68GMdK/69YOslIHFPwvv10sn3Qf8pwE/
-         +orA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777426684; x=1778031484;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=TL2tkeFOgMZcOO+5OqeSu09okkedmEhoLbRE8Fw/jV4=;
-        b=B8lnsWyTrp3OqKgpGVZfL7wp5xoOxe521IEob5+eGeT0sggmVdQRXL4gAI6fhEryj/
-         XSAP49eZIHoMSEoJhS6FSRHEIC2o6Dg5ipq5sbR/+xzWpgXWjOT2eQeiDQame/tbLGkK
-         wGmQQCSEBBw4RJhmBLTVGLFDBgiMP6vnQtHTNwLfQAQGlIw6EXfJrCSGDezq/dRE9KzC
-         ie3aE4RamWRc3BHW1IqzegXQkMfz8lI2aOQnkS78eqj9Dv9sHv0q5sicqIqWyoFrTOWQ
-         z0xTu3CVFT2q0wLEpxVqePNOBOfQVfSLrQlP3Pf0vlnZ9z2YsdooYLAa8zwoGmwNaFP1
-         53xA==
-X-Forwarded-Encrypted: i=1; AFNElJ9J2tGdn1qRCLNMhrScKT2siZVvDAFuH1JlVpY44lAO4kIMxvBGCehdPVi6hzWBidtUzgnkU222GgVMUlxllppD@lists.infradead.org
-X-Gm-Message-State: AOJu0YyrRhXIdwRUAhFQkCUhOR6Oit206Hx2p+F18IyJ6XnxMvsEEYbT
-	2YWEw872R8+vJcLgcVhR7o8vx8OJYsSxZLPEga0FTIIjN7Jdr9GpEVTFRxlvc6oWDBaSRjRNPCl
-	BBfKnEXL80/3k5zMZc/Mhx6LmwFKVtF0=
-X-Gm-Gg: AeBDievsG+WJ1B7eZPeVhyfQGR9ykQ3yWRVsx1nCi9Z67XwRqxciL2caXAgPtfJTWta
-	O7Z9hNJdY2WmybUmTWkKFMyKRyZHx9Fzi7xe54t5qZVyCtoFEdXcjeFNQlBQ+7FkWEA2a/SDs3g
-	lrsSq8wMWEvtwqsY5iEQnH1KOXlY+SNGPBWQZPJArhaJ5hxLcE7hNQiFyjQJHPMmMBigJykANz1
-	06OFd3KdBGu7nJ71IUnQulDiV9DtqoW3cTqjkwRgYsc5/nMcmuh3Icogf2MGck+YYkr1yDV/SpV
-	EnSZngT+8H6C0tsd1I1RTcCUI9synAo/nUMbWlM9MGLXXzp+Us/xK0mtnESn3ltXPVHsyi/C13o
-	a83jYVw==
-X-Received: by 2002:a05:6512:15a3:b0:5a2:a70a:a9e with SMTP id
- 2adb3069b0e04-5a749fb8b0amr382100e87.3.1777426684004; Tue, 28 Apr 2026
- 18:38:04 -0700 (PDT)
+	id 1wHtwD-00000002jps-2GMi;
+	Wed, 29 Apr 2026 01:42:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=xr++0uW3/aWfxubO3cxQcvyMCVatN4XOXUV5OwG2V2w=; b=kp+edf72edokyxU3mtqEnZKTr3
+	IdsBZ36KjZkY+e6Mq+wkNkDnqeAGDWrgyJ93hMP+ALlz9+l3ZutV6C30c3TTf1iuG0U5PLgIzieVn
+	XNbOI/kNLVqt5Yk26Maej/3KG2oCWZjyZb6Uwktr5gIfLqnUtIv8x4BMfVTQ1yt+/QTY=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1wHtw1-000Rgl-Lj; Wed, 29 Apr 2026 03:41:53 +0200
+Date: Wed, 29 Apr 2026 03:41:53 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: lizhi2@eswincomputing.com
+Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@google.com, kuba@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
+	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	maxime.chevallier@bootlin.com, ningyu@eswincomputing.com,
+	linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com,
+	pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com,
+	horms@kernel.org
+Subject: Re: [PATCH net-next v7 4/4] riscv: dts: eswin:
+ eic7700-hifive-premier-p550: enable Ethernet controller
+Message-ID: <d662fa07-cd0f-48c4-a6e4-03c5fd390e92@lunn.ch>
+References: <20260427072353.1114-1-lizhi2@eswincomputing.com>
+ <20260427072603.1191-1-lizhi2@eswincomputing.com>
 MIME-Version: 1.0
-References: <20260428-imx95_frdm_pro-v2-0-434240b652f4@nxp.com> <20260428-imx95_frdm_pro-v2-2-434240b652f4@nxp.com>
-In-Reply-To: <20260428-imx95_frdm_pro-v2-2-434240b652f4@nxp.com>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Tue, 28 Apr 2026 22:37:52 -0300
-X-Gm-Features: AVHnY4KSxb_H5o4trd0JTtQb0bsTzoHjYoluGAlKyA5vbmz4I0-kLq2-xvoMmcw
-Message-ID: <CAOMZO5DV4Nnc+7DfAZT-VYDqxniz=ROR4-DnH3x9NbU4E8d9mQ@mail.gmail.com>
-Subject: Re: [PATCH v2 2/2] arm64: dts: freescale: add i.MX95 19x19 FRDM PRO
- board dts
-To: Joseph Guo <qijian.guo@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, xinyu.chen@nxp.com, 
-	qijian.guo@oss.nxp.com, justin.jiang@nxp.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260427072603.1191-1-lizhi2@eswincomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_183807_478461_14D5766E 
-X-CRM114-Status: GOOD (  10.10  )
+X-CRM114-CacheID: sfid-20260428_184205_576736_E23E8950 
+X-CRM114-Status: GOOD (  12.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,15 +79,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 28, 2026 at 5:03=E2=80=AFAM Joseph Guo <qijian.guo@nxp.com> wro=
-te:
->
-> NXP i.MX95 19x19 FRDM PRO is cost-effective with extensive
-> expansion capabilities based on the i.MX95 19x19 SoC.
+> +&gmac1 {
+> +	phy-handle = <&gmac1_phy0>;
+> +	/*
+> +	 * For the TX path of gmac1, there is a skew between the TX clock
+> +	 * and data on the MAC controller inside the silicon. This skew happens
+> +	 * to be approximately 2 ns. Therefore, it can be considered that the
+> +	 * 2 ns delay of TX is provided by the MAC.
+> +	 * No delay configuration for tx is needed in software via PHY driver.
+> +	 */
+> +	phy-mode = "rgmii-rxid";
 
-It would be good to explain the difference between the i.MX95 FRDM PRO
-and i.MX95 FRDM.
+This is wrong. Take a read of
 
-Also, does it make sense to share common nodes in a dtsi that can be
-used by the two variants?
+https://elixir.bootlin.com/linux/v6.15/source/Documentation/devicetree/bindings/net/ethernet-controller.yaml#L287
+
+phy-mode describes the board. If the board provides the 2ns delay, you
+use rgmii. If the MAC/PHY pair needs to provide the delay, you using
+rgmii-id.
+
+If rgmii-id is used, it is up to the MAC/PHY to decide which will add
+the delay. If the MAC adds the delay, it needs to mask the value of
+phy-mode it passes to the PHY so it does not also add the delay.
+
+Your broken hardware means you cannot support 'rgmii' or 'rgmii-rx',
+since you cannot turn off this 2ns delay, so you end up with double
+delays if anybody designs a board with 2ns TX delay on the board
+itself. So please validate the PHY modes and return -EINVAL if these
+modes are used.
+
+    Andrew
+
+---
+pw-bot: cr
 
