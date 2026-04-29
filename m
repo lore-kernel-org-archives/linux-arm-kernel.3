@@ -4,94 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B499EFF8864
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 07:01:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46393FF8864
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 07:05:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/JL70GXKn5s+hfezfz9Rkgqv8RBnS7tjEj5remHa41A=; b=Wcl9Q4qF0Xo0t5W97/65Fh6LYY
-	4LHEne4+6Pibn3qfsHhNORM7b6G3HvRcUHqcqtlmBz4F/U173PLJraQuNdIXABrM8M7/bUr6ePcU+
-	864LqVNeqjZF8Fp3cw6u/bvD2U4Gryx1MqHX85XX+NrDqunijwRVwkSug0lyFFOxHbHt++oARdyC4
-	Ho+C8kEEizcZAH9AMN50BNErOcubQ/shArF+0/3hS0tuyMUHos0Qf6KnJhLYsdW/Udnn9RsEVR4/f
-	mgPcCm2GySXofOjP0HkZ+oitxchx2sc5arpYy90+IGCWTK81tFiWgOVZiTNeN2rYT4xkwnGpsWdmJ
-	we0QB9lw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5wmE7eZuFEsoqa1hFnJmQEgaojhgWItkNTkqFJX/EKQ=; b=VnL1DmpdzS3dweOqyt8/M3wSAs
+	gr/fbTZGvj1wsFOWwa1FjB4v6YHdnGbzXoMqqFIx5UsdoCDkaiM3rAJY+pDXt9ytBswJ3HFVooomF
+	uMr56FCefnT0vqq6QP84AqR4sQEWwQnBfF0qAcBRT+W+ByeNZp6uzHFjQavYIWUsgNA8hrIuwiytx
+	jY7C7DwUAZ90BfhY72tACCVYPOrdCiJG31f2/aH0jC8fgSRk54Clc7WejVI8iU2O2uUlrfC7WKuBz
+	0oJT+qGOCiEMFCo8UhUH6dZQnaxDcFxNsqU5EOFDPU/P8sqhqJhV4CL2LTAXWcuDJqsxOTEhJoRtr
+	uFpwOSZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHyvh-0000000376W-34Nd;
-	Wed, 29 Apr 2026 07:01:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wHyz1-000000037P9-3YJj;
+	Wed, 29 Apr 2026 07:05:19 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHyvg-00000003760-25lA;
-	Wed, 29 Apr 2026 07:01:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=/JL70GXKn5s+hfezfz9Rkgqv8RBnS7tjEj5remHa41A=; b=E0tArqkCNwxoDZ8HXunxFfdUOo
-	wgcj8VMe4+Kwa3bm0Oq9aLjD8LOn6ngluizlhBN18qLst4X4FA9p4RwhwqBlmv+Cl/IlFByzeoToR
-	+1YDijfWIMaJxSMRQ2clerA0Jt82eBSv3b1Up3O3NiVUWOunk61GB3gNTzpRGKfRlkqrLg8lGaY2U
-	sf+Oz8xcriAvdZl3gZ/fewuErQOHtMdqPzHT2quTLnmpQzC5Zb8+hAxivtA2m/BLgx3rhgdlcxYy+
-	F9ZpCzqaDLYa5WkPSmAE4I+YmdBojlGmKomWVPkaLKdr4QDGOqeED+qfgM4ifjay4NknMeWUPEaf7
-	0LGyqvrg==;
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHyvU-00000004iVS-2aVX;
-	Wed, 29 Apr 2026 07:01:50 +0000
-Received: from localhost.localdomain (unknown [36.112.3.223])
-	by APP-03 (Coremail) with SMTP id rQCowADX+N_ArPFpIhWJDw--.271S2;
-	Wed, 29 Apr 2026 15:01:20 +0800 (CST)
-From: Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>
-To: tiffany.lin@mediatek.com,
-	andrew-ct.chen@mediatek.com,
-	yunfei.dong@mediatek.com,
-	mchehab@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	laurent.pinchart@ideasonboard.com,
-	hverkuil+cisco@kernel.org,
-	p.zabel@pengutronix.de,
-	benjamin.gaignard@collabora.com,
-	xiaoyong.lu@mediatek.com,
-	mingjia.zhang@mediatek.com,
-	nicolas@ndufresne.ca
-Cc: linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH v2] media: mediatek: vcodec: free working buf in vdec_vp9_slice_setup_single()
-Date: Wed, 29 Apr 2026 15:01:19 +0800
-Message-Id: <20260429070119.181876-1-lihaoxiang@isrc.iscas.ac.cn>
-X-Mailer: git-send-email 2.25.1
+	id 1wHyz0-000000037Oz-347g
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 29 Apr 2026 07:05:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id BB12660582;
+	Wed, 29 Apr 2026 07:05:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 568B0C19425;
+	Wed, 29 Apr 2026 07:05:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777446317;
+	bh=tekpG0JmFfQozQtZtGgqXdIYTzCMZ+6syZyF/7rm6p4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Bs3ONiOk81lYl3IOG5CmjyKiuOe7xwPirGhuyY1iyFddFxYJxt9RBNzWWvd1YKPpe
+	 o5XTPekxk83+UW1aeB4j/H7rwjJHpCs6MXmznxJo9ReVxpI+no0CTzpFfZJMJ7J8FJ
+	 mdFu4nkMp3NecAvU0I8aR67GO+TgHkHr0YRjU6o94Vsowk5lqT70xh09/02wz446PF
+	 fb5hgZTIL+v/0Y0D0FLtnll/nzScKfqICiby0WufxV7Eqybmakl+1LK390mH8akm6i
+	 VvPW4RVf4iArchj/VCktwvgaq4TMDjsa1932BB+roXChfV9JtCfHiJudOrpHUFC3Gp
+	 +5aBU5m9fPCVw==
+Message-ID: <0d67a9a7-74b5-48a3-b685-39d2fa669c78@kernel.org>
+Date: Wed, 29 Apr 2026 09:05:12 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowADX+N_ArPFpIhWJDw--.271S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7uFWxKw15Cr4kCw47WrWfXwb_yoW8WrWfpF
-	s0krWUZFyjyFnFva18Ja1xuayrC3ySvryxWw4a9w1Yyr98tr4xXryIyFya9F4UCrn2ka48
-	ur1qqry8WFW3Aw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9014x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
-	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
-	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
-	67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
-	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
-	MIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIda
-	VFxhVjvjDU0xZFpf9x0pRiSdgUUUUU=
-X-Originating-IP: [36.112.3.223]
-X-CM-SenderInfo: 5olkt0x0ld0ww6lv2u4olvutnvoduhdfq/1tbiBgsME2nxk7Bl3QAAsR
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_080142_113999_37F8DEA7 
-X-CRM114-Status: UNSURE (   8.92  )
-X-CRM114-Notice: Please train this message.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/5] dt-bindings: remoteproc: add imx-rproc-psci binding
+To: Jiafei Pan <Jiafei.Pan@nxp.com>, andersson@kernel.org,
+ mathieu.poirier@linaro.org, peng.fan@nxp.com, Frank.Li@nxp.com,
+ s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Cc: Zhiqiang.Hou@nxp.com, mingkai.hu@nxp.com
+References: <20260428090819.17761-1-Jiafei.Pan@nxp.com>
+ <20260428090819.17761-2-Jiafei.Pan@nxp.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260428090819.17761-2-Jiafei.Pan@nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,48 +117,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add an error path label in vdec_vp9_slice_setup_single()
-and call vdec_vp9_slice_free_working_buffer() to free
-working buffer.
+On 28/04/2026 11:08, Jiafei Pan wrote:
+> Add compatible string "fsl,imx-rproc-psci" for i.MX Cortex-A Core's
+> remoteproc support.
 
-Fixes: b0f407c19648 ("media: mediatek: vcodec: add vp9 decoder driver for mt8186")
-Cc: stable@vger.kernel.org
-Signed-off-by: Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>
----
-Changes in v2:
- - Remove vdec_vp9_slice_setup_prob_buffer()'s return
-   value, since it never fails. Thanks, Nicolas!
----
- .../mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c   | 9 ++++-----
- 1 file changed, 4 insertions(+), 5 deletions(-)
+A nit, subject: drop second/last, redundant "binding". The "dt-bindings"
+prefix is already stating that these are bindings.
+See also:
+https://elixir.bootlin.com/linux/v6.17-rc3/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
 
-diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c
-index cd1935014d76..d034d84ad7f1 100644
---- a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c
-+++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c
-@@ -1808,17 +1808,16 @@ static int vdec_vp9_slice_setup_single(struct vdec_vp9_slice_instance *instance,
- 
- 	vdec_vp9_slice_setup_single_buffer(instance, pfc, vsi, bs, fb);
- 	vdec_vp9_slice_setup_seg_buffer(instance, vsi, &instance->seg[0]);
--
--	ret = vdec_vp9_slice_setup_prob_buffer(instance, vsi);
--	if (ret)
--		goto err;
-+	vdec_vp9_slice_setup_prob_buffer(instance, vsi);
- 
- 	ret = vdec_vp9_slice_setup_tile_buffer(instance, vsi, bs);
- 	if (ret)
--		goto err;
-+		goto alloc_err;
- 
- 	return 0;
- 
-+alloc_err:
-+	vdec_vp9_slice_free_working_buffer(instance);
- err:
- 	return ret;
- }
--- 
-2.25.1
 
+Please use scripts/get_maintainers.pl to get a list of necessary people
+and lists to CC. It might happen, that command when run on an older
+kernel, gives you outdated entries. Therefore please be sure you base
+your patches on recent Linux kernel.
+
+Tools like b4 or scripts/get_maintainer.pl provide you proper list of
+people, so fix your workflow. Tools might also fail if you work on some
+ancient tree (don't, instead use mainline) or work on fork of kernel
+(don't, instead use mainline). Just use b4 and everything should be
+fine, although remember about `b4 prep --auto-to-cc` if you added new
+patches to the patchset.
+
+You missed at least devicetree list (maybe more), so this won't be
+tested by automated tooling. Performing review on untested code might be
+a waste of time.
+
+Please kindly resend and include all necessary To/Cc entries.
+
+Not doing full review - lack of usage of tools disqualifies the patchset
+for review to me.
+
+> +
+> +examples:
+> +  - |
+> +    / {
+> +        reserved-memory {
+> +            #address-cells = <2>;
+> +            #size-cells = <2>;
+> +            ranges;
+> +
+> +            rtos_ca55_reserved: rtos-ca55@d0000000 {
+> +                reg = <0 0xd0000000 0 0x10000000>;
+> +                no-map;
+> +            };
+> +        };
+
+Drop all above, I am pretty sure this will have failures, so test ALL
+BINDINGS.
+
+> +
+> +        remoteproc-ca55-1 {
+
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+If you cannot find a name matching your device, please check in kernel
+sources for similar cases or you can grow the spec (via pull request to
+DT spec repo).
+
+
+> +            compatible = "fsl,imx-rproc-psci";
+> +            /* bitmask: 0b10, assign A55 Core 1 */
+> +            fsl,cpus-bits = <0x2>;
+> +            memory-region = <&rtos_ca55_reserved>;
+> +        };
+> +    };
+
+
+Best regards,
+Krzysztof
 
