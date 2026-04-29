@@ -4,115 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ED8CCCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 17:32:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41D72FF887E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 17:33:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jBP0pVPxiyAdOds3IG7AjgbQI5Veking0yRKpLFLBCg=; b=481RzciHVMuNAJMURhz6tBQTqm
-	GGNxsKRds21bVW7VcGg7Qc5EADmTXASsKuIvIlbcT1iFfDQfCJARve0YdkKOar9NAv486TLYBhS/b
-	8h9UIqcwVMxHdF/x6gGXtaH7jvhRSwufkqMVFz9wS5uXyRoNovmC9i8Th0T0XDDFnUV83DyQehSCz
-	6Uh6snL12ogVVe0q955zEJ2rzmK4IIQCReIwiIRMeWOe+JqRNuJb58Rdf2MM3nCVuMxLKPrkk7kUF
-	VkJcYUnhte418vJrGMJYCJO4SqG7vPe44ajOQAu/TVGYb4goj7RNxq7ZyuIIOmK+i99JZbYWmbE+p
-	6jUhXwuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/kb5CXOOm0mj4ODKw/K4npAFTtH0bYa0bnYZ1mb4DgI=; b=lppvf3NTsWk9GAk+5JkDa/b+5v
+	DXgUS8wqBov+Z8nDonWUEXTwiHw7txZf75S7NY6mJbwiIgvF+NemXDPC6tLoahkqWHbrcG8Cy9Q0g
+	4oiTIt08nx64VE0qs4LBkgjkhqRPSEKV+tfeL7tAxA+AI/IY2fQKEnGR2vAZirOExoKcNyb3LWWSD
+	2vXfu2hb3akNyrTG0ZlUHX9rOIb4XZqF1AERuv2J5/WP6HvugKD1Io/Y6ZlMDopsNYJxq4IQd0ila
+	J92x8OInfC+QSPQTLgK9OFIozDpmZwM2L/HwbBo1azjwqiaimFn94vL4xI+fFcOhfsP3HcHSvYSmH
+	IgopfkTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI8mE-00000003yOP-2d7R;
-	Wed, 29 Apr 2026 17:32:46 +0000
-Received: from mail-northcentralusazon11010050.outbound.protection.outlook.com ([52.101.193.50] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1wI8n1-00000003yjN-3Vsv;
+	Wed, 29 Apr 2026 17:33:35 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI8m7-00000003yLp-3st6
+	id 1wI8my-00000003yhf-2Euk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 17:32:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=knZSia8ygAlb6SYncaKamonOY4WVgBvXZ3Tj9rlxWtlP46nii9UXhMN62PrRm5H93EpuynAAOhqNUUUjB0qKYHEEaM/BjLIYqrshtktmqBfVJ9qEsBirSIXa/pPvWAH2M+aoKonlFlJi3qyFLrW3iMTkGJHPrjIKG1X93T70T1bRWNJnRlrU11G1Fz6yvAwKY2e7vqm4GJVTLNQs//F6kkVY9GTQvz6BGz5hgJ3H/UKeiTyPq5ER93pQDB5G8kTUJLd2LaNyCacCLZlojAwJ8l6SDnyEp0LVc1jh/ebdvIiWi6djVx7ZHX5nENgAxgMigpjNHkmSEgUACTAGdGWRJg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jBP0pVPxiyAdOds3IG7AjgbQI5Veking0yRKpLFLBCg=;
- b=WGl87VIw30Md27WUB7ir8a93Qhubg0m3GIqKYBgYkga2F0CgsILcFry9J30JRreQENtolzp2ADeGzaKHtJQVF6m84amVW3em1bV6bnWXfdYVW/1ru+6kLgMbs8GtItTO5uO7SVYktBwtV6y8hTWMokpUP5ju7GTOL4ReoZtDMnqrDJl6ZG/jCpNwCBt4PUB8QUZSPAPLQOd7N7aHHrr/n3pznJuErhnF7CckgnrEK2xDpapbrqLZO3/27Ps1pPfmkc6vjZ5agx25t9NKpfISzTPfrXDm7t8nK9tLzW7EkWUgXzQXjEmFsMUNnoRMgmLoXoVR2k/S9ptBLoNerLCMnw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=linuxfoundation.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jBP0pVPxiyAdOds3IG7AjgbQI5Veking0yRKpLFLBCg=;
- b=X3Za39LIPb1d6RB2wk7Nrao8V0SQcb4Fq+7RiouN+uvct4iMWJgqJSBN90Z3obQr0/X4WS2sqZ+sPU4F6e/RW2SJbBj2V+rDeyE+mDWXELbSbRLk2+WGfaVurku7Sk7VCV+HPZjDHWkjMub6fajhO46dNu/pX6VU3pkoXeB5aM4=
-Received: from SJ0PR03CA0191.namprd03.prod.outlook.com (2603:10b6:a03:2ef::16)
- by CY5PR12MB6324.namprd12.prod.outlook.com (2603:10b6:930:f::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.18; Wed, 29 Apr
- 2026 17:32:29 +0000
-Received: from BY1PEPF0001AE19.namprd04.prod.outlook.com
- (2603:10b6:a03:2ef:cafe::89) by SJ0PR03CA0191.outlook.office365.com
- (2603:10b6:a03:2ef::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.28 via Frontend Transport; Wed,
- 29 Apr 2026 17:32:29 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- BY1PEPF0001AE19.mail.protection.outlook.com (10.167.242.101) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9846.18 via Frontend Transport; Wed, 29 Apr 2026 17:32:29 +0000
-Received: from SATLEXMB03.amd.com (10.181.40.144) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.17; Wed, 29 Apr
- 2026 12:31:51 -0500
-Received: from satlexmb08.amd.com (10.181.42.217) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 29 Apr
- 2026 12:31:09 -0500
-Received: from xhdradheys41.xilinx.com (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Wed, 29 Apr 2026 12:31:06 -0500
-From: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-To: <gregkh@linuxfoundation.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <michal.simek@amd.com>, <Thinh.Nguyen@synopsys.com>,
-	<p.zabel@pengutronix.de>
-CC: <linux-usb@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<git@amd.com>, Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-Subject: [PATCH v3 0/4] usb: dwc3: xilinx: Add Versal2 MMI USB 3.2 controller support
-Date: Wed, 29 Apr 2026 23:00:46 +0530
-Message-ID: <20260429173050.1772377-1-radhey.shyam.pandey@amd.com>
-X-Mailer: git-send-email 2.43.0
+	Wed, 29 Apr 2026 17:33:34 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-66ba9dfe83bso52993a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 10:33:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1777484010; cv=none;
+        d=google.com; s=arc-20240605;
+        b=YYMEtWIuKPs9Thp6+gCbWcAqL7T+X1OR5Wnyd1/NvNBIOYS0IVZyAoosd9t/G+xX8p
+         7HitdPzRol5zk3yXspHCoturAiP70BnJHjtYOHTnZyL49+IRoBtILLiDJAYcv6JgH+V4
+         sBGH0Ie+7WDubaAeQAEC4pjlXmRhUJdTWtJ45YOVNd9eiKkB4xb0j5kwr9yRj906laCy
+         rCsVv+RO7VsOfIFXwPUBV2bU+KFrYrLwDXy2ei8Fl1y2kRseY3kcm+62nAuSHI3rF5bb
+         rIS4xBUBsIdGwBV04ObRwOfV3sBpnzkvjMDVuaKwU1SY5jeaU+2zn9fIvOeVZJGFiNJR
+         g4zw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=/kb5CXOOm0mj4ODKw/K4npAFTtH0bYa0bnYZ1mb4DgI=;
+        fh=cQCKVpXzJglEmjqj+4mhm9LUovSD67I13HjqbjoFz9U=;
+        b=CSkxoxt3ozFFi+g0dXS8dxJ1iJrAjjrQOtQ1R70nxON9mImfaDq3RbrBhq5dIYeJUD
+         tmgsfVErnfqdyvUBDgdWW8ugCdD89mUQ/qwRkmaZ70595hJ+UYQbdVq1L16qd7iEr9j5
+         juilo5GyefO/O14fW0AilW+sAOq0lWdDuJsCy5+l234+LsviHHV4e1W786zRtjTAzy8+
+         pw+K7rnHmJVAbpfgS0dh9YY6JiI5M0m5+pFcM/gaClOX6xpkc/PGzIqgGQG+8oF1B7MC
+         sX1+N7fa6t5qyM0kO9uuwX07pGmufURWfpBB4X+GPQA5PupG+z+kDmDlyY0LKRBFRQzj
+         Ofmw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1777484010; x=1778088810; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=/kb5CXOOm0mj4ODKw/K4npAFTtH0bYa0bnYZ1mb4DgI=;
+        b=EAMvYdz6pIiQqxOQlE6DkIIIoHjgeBx6BLZyPN9szBCzYsH/C28tp9VeGEeatRBZaH
+         fwlvjxSINzLLHxzlD9r7zw7wsVRHnR67VRvenj6eldY44RrlnyH0DTkgX0w+tPrcnFoD
+         pZzVyIM1zEjjQ+049rGPPwKmT6mgL95ouoveoV1LStwP2oW7eVGr2sX4WSGf42dRZ6KT
+         4Pd2hF+5lkhnKyWQXrcrIRirw9EVupg9AYnWHEM0zPSc2Xd+6bYQm/3cYZgZCt1tp54y
+         Vkc/mysRIbEVpRPBo9Ht3BHxVpn+6UGaSmuReUA6p1uDCW5I+uwBt0v5VMvyBbk1nytT
+         orBg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777484010; x=1778088810;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/kb5CXOOm0mj4ODKw/K4npAFTtH0bYa0bnYZ1mb4DgI=;
+        b=DrD8Ido83IJOqAp7fPDfUuJX9owXz5bPsb65qb4RPZPcGIACc/JJYB/QYue6N0oFAG
+         PgUOzXDdX88oIwRm1Dj9mGMfg0r//klmhxNGESMGi0ZinXDu+O8ch75QuYJNberv+Ctg
+         2utFVsCdW0Qq0CHl/2XDMt6myXqguOWn57vfAkuKDgfdrbDR9Xq4/KmlvzcSrv0UAgMy
+         QYagROfWh5QIoZ1Ehcb/vtx829huSAmM3lnqE9h3hGzHKa6uhCBte6K9/ByMEd7p3P09
+         180m4I0Dnhq+3NfakHEzHZVdBSoNyjtZFyIYUyNtV463Z7FDuN6flYqHLFYl+UAZmTpG
+         h2Yw==
+X-Forwarded-Encrypted: i=1; AFNElJ8hNxkUunUr8wnoKHy5c8WFaB+5Dyt4lZTohb90Ww2uUUHlQ750RvuVTTaERt88RBjhAdyn3GAUz0/mgrN8DAqm@lists.infradead.org
+X-Gm-Message-State: AOJu0YywLHjdF9ZyrP5wUkVGGCBZFlD3YVXhC+/uOJtnYMhXF/eNiUXa
+	/TlZFgrorfb4oFMo4dP91IN2k4FM3vAUKjz4Ed7F0PPyXD/lmXCc9eiGaqZxbVtUh6tO23pbRw6
+	Spax5ZfBMK/mk2hoV0IiOjr7bbzHshWxIo7r3BZuZbg==
+X-Gm-Gg: AeBDietqxEcM0JueMEzeX8r7pQXqFxge0Si9kkRzEHToJr9XRDtc/Ler/F0+hVshEXe
+	bt7FkDB4uSpSdByV8AqnWlDmiCDwX84VoLOXUcqX/3UGU25AwlMaF/ze82zwMvqImUkQe91IJOh
+	mA91b7CMf+SS9Zch+ZyxSZqYKXN8bl8g4ANuf6QN+aT/2stQuzWfyen4Ur/4GTKTCq2c4IDE71O
+	l/Lux6Q8zq4/kBpl7yRNW/qE7U3F9qOBHzlCLGx1bF8c4BMOrAyYOQ+Yz7nSHd9SF8OZ+QUjklb
+	AyvlsiK6uJbcTsPP9uBiJidUyYpanlqB80tsBqwVp/wUGYoWzUGz
+X-Received: by 2002:a05:6402:1ed3:b0:672:5255:af77 with SMTP id
+ 4fb4d7f45d1cf-679bb07ee71mr5034063a12.13.1777484010328; Wed, 29 Apr 2026
+ 10:33:30 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-Received-SPF: None (SATLEXMB03.amd.com: radhey.shyam.pandey@amd.com does not
- designate permitted sender hosts)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BY1PEPF0001AE19:EE_|CY5PR12MB6324:EE_
-X-MS-Office365-Filtering-Correlation-Id: 634d1579-70a4-4e05-d19a-08dea61549b8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|7416014|82310400026|1800799024|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: gL423kqDB8An9UrqHLEePA+QwRmz9NHvyK2atae4qhuryQtAUp7fhWlh+apFKaptKges3xxkU3vRJM+Bk8Soh+sMFppQmtODQWSggPQIZAWR/sU+toHFIXNHqTqbtCypeCpzPjg8pkXYZI4BnIBwLaf7oYhNfrF7xT0roEsATyp4zKzmicf75NATVBFfbWY438hZNKRNa7OrFystdLpBg06LXOKOVACCbV/YkVvQymzLWbIDtbPXP/D8lWO/p6idQsM2Leh9XN3XOIeiNgUhAR87BS52JUkHL8zRtsWL/qbZ3G+fUTeDgNIkDlLLDqNUxpkCpbZBuoOcBG96jqv6mgAvWyj6l6ykaLXNc6zI922LH3GpF7awJVtEjp2D+j3PnBoRmjsntRyxBQhhdUuAweGq9CCIGGu+iQ0xs570srNlfdWYpyPS1tlVS/9gHNiv9SZ8djK5uUBF3wb/ZMpBWuXkxSNKSSv73LBo5uNsHi+znjAwbDnCnX4znthK2s/k1t9mVZsSsXrLymmZaJxQ/7+4XSAAmlZzn6L6Wn/hmwCY0dg+6rZR8SddWTVfrAHixtizVUvv1IACwIWearfeNWnhbNhslyOKxXrVcOkdehjBAP1kFx354686cEmsgftaCqcoGFTA80TzYbXM7P9S3VKSbVb2dVTmBfxBekF1PA8kpKxRI/U6i4P9vrZNcNpsoCUYV480TKuP/TFNLYGcw+ePx2aVhaStLMKjqjzfDkuGgYqtO085bxJbiknX7o1XmeArCjbGJi7MdeUbzWJZhA==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700016)(7416014)(82310400026)(1800799024)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: fZGN+3COI72QKWDGXuWRvMFpos4h3QXGHMivq0HTunP+nqTtiNVX7sfkmg0SdmqptjWdYjMWUSNhMmJceXITrFncgoWmWMTkhzfZPteNwEauC8b+PLkBr69enCmBAgsIRTWJEB84/vKIpoPWFmrj8gAjjnFksUuvDBFPOoKVJHHVGECjw9qjXj+PItotrsJ99PxLBxr5oPbDyQMOuIcN2sJCs8DYaeCC5uuSCg2tmMj7KMwTrkme2O0zT5J/GwO0YOfix2M5px0LT3AlfJEbz3SkmDR9aOWLfVxyJEVqRiWipZrNx3DiAuBoh5fXgiREEVEprCCJfqIb83UO3X0u6QY5JWxan6wVMR1eZd4jd/yqtYunIBhaGVzbgNQcWPhQ/yKBJm5FMNOtmVU03Mv4NIgwH2Mo4ct6d61Hi6JixiP1zySVCJBJj1QtwThkcZx2
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Apr 2026 17:32:29.3730
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 634d1579-70a4-4e05-d19a-08dea61549b8
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BY1PEPF0001AE19.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6324
+References: <20260422212849.1240591-1-shenwei.wang@nxp.com>
+ <20260422212849.1240591-4-shenwei.wang@nxp.com> <22fb5fac-2568-42be-a7e3-7e89d0017eb3@ti.com>
+ <PAXPR04MB91850A11C58419C03909145F89362@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <6412a758-4560-4cf1-a0d0-5b24d1a715f1@lunn.ch> <PAXPR04MB9185009A17DFDF3D6C8B44E789362@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <6e01e114-e336-4744-b6b4-563ec42e321b@lunn.ch> <PAXPR04MB9185A098D894B6A6EBCC13F889372@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <afImuoeHolxGgw3H@p14s> <PAXPR04MB9185F2F6DDB55AC56C92D63B89342@PAXPR04MB9185.eurprd04.prod.outlook.com>
+In-Reply-To: <PAXPR04MB9185F2F6DDB55AC56C92D63B89342@PAXPR04MB9185.eurprd04.prod.outlook.com>
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+Date: Wed, 29 Apr 2026 11:33:18 -0600
+X-Gm-Features: AVHnY4KBveuXaT50xXGT561BJAnz_p9YSdb7SJnI5b60PkMgL6_ZMJ8SGU0KF-U
+Message-ID: <CANLsYkwvL0Z3+12MD=J+Dc2yAU2T8ypizyG=6AhYoWOh55odHA@mail.gmail.com>
+Subject: Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
+To: Shenwei Wang <shenwei.wang@nxp.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, "Padhi, Beleswar" <b-padhi@ti.com>, Linus Walleij <linusw@kernel.org>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Frank Li <frank.li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Shuah Khan <skhan@linuxfoundation.org>, 
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>, 
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
+	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>, 
+	"imx@lists.linux.dev" <imx@lists.linux.dev>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>, 
+	Bartosz Golaszewski <brgl@bgdev.pl>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_103239_966827_BC6DA973 
-X-CRM114-Status: GOOD (  12.42  )
+X-CRM114-CacheID: sfid-20260429_103332_635512_9B0FF307 
+X-CRM114-Status: GOOD (  26.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,63 +131,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series introduces support for the Multimedia Integrated (MMI) USB
-3.2 Dual-Role Device (DRD) controller on Xilinx Versal2 platforms.
+On Wed, 29 Apr 2026 at 10:53, Shenwei Wang <shenwei.wang@nxp.com> wrote:
+>
+>
+>
+> > -----Original Message-----
+> > From: Mathieu Poirier <mathieu.poirier@linaro.org>
+> > Sent: Wednesday, April 29, 2026 10:42 AM
+> > To: Shenwei Wang <shenwei.wang@nxp.com>
+> > Cc: Andrew Lunn <andrew@lunn.ch>; Padhi, Beleswar <b-padhi@ti.com>; Linus
+> > Walleij <linusw@kernel.org>; Bartosz Golaszewski <brgl@kernel.org>; Jonathan
+> > Corbet <corbet@lwn.net>; Rob Herring <robh@kernel.org>; Krzysztof Kozlowski
+> > <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Bjorn Andersson
+> > <andersson@kernel.org>; Frank Li <frank.li@nxp.com>; Sascha Hauer
+> > <s.hauer@pengutronix.de>; Shuah Khan <skhan@linuxfoundation.org>; linux-
+> > gpio@vger.kernel.org; linux-doc@vger.kernel.org; linux-kernel@vger.kernel.org;
+> > Pengutronix Kernel Team <kernel@pengutronix.de>; Fabio Estevam
+> > <festevam@gmail.com>; Peng Fan <peng.fan@nxp.com>;
+> > devicetree@vger.kernel.org; linux-remoteproc@vger.kernel.org;
+> > imx@lists.linux.dev; linux-arm-kernel@lists.infradead.org; dl-linux-imx <linux-
+> > imx@nxp.com>; Bartosz Golaszewski <brgl@bgdev.pl>
+> > Subject: [EXT] Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
+> > On Tue, Apr 28, 2026 at 03:24:59PM +0000, Shenwei Wang wrote:
+> > >
+> > >
+> > > > -----Original Message-----
+> > > > From: Andrew Lunn <andrew@lunn.ch>
+> > > > Sent: Monday, April 27, 2026 3:49 PM
+> > > > To: Shenwei Wang <shenwei.wang@nxp.com>
+> > > > Cc: Padhi, Beleswar <b-padhi@ti.com>; Linus Walleij
+> > > > <linusw@kernel.org>; Bartosz Golaszewski <brgl@kernel.org>; Jonathan
+> > > > Corbet <corbet@lwn.net>; Rob Herring <robh@kernel.org>; Krzysztof
+> > > > Kozlowski <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>;
+> > > > Bjorn Andersson <andersson@kernel.org>; Mathieu Poirier
+> > > > <mathieu.poirier@linaro.org>; Frank Li <frank.li@nxp.com>; Sascha
+> > > > Hauer <s.hauer@pengutronix.de>; Shuah Khan
+> > > > <skhan@linuxfoundation.org>; linux-gpio@vger.kernel.org; linux-
+> > > > doc@vger.kernel.org; linux-kernel@vger.kernel.org; Pengutronix
+> > > > Kernel Team <kernel@pengutronix.de>; Fabio Estevam
+> > > > <festevam@gmail.com>; Peng Fan <peng.fan@nxp.com>;
+> > > > devicetree@vger.kernel.org; linux- remoteproc@vger.kernel.org;
+> > > > imx@lists.linux.dev; linux-arm- kernel@lists.infradead.org;
+> > > > dl-linux-imx <linux-imx@nxp.com>; Bartosz Golaszewski
+> > > > <brgl@bgdev.pl>
+> > > > Subject: [EXT] Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg
+> > > > GPIO driver
+> > > > > > struct virtio_gpio_response {
+> > > > > >         __u8 status;
+> > > > > >         __u8 value;
+> > > > > > };
+> > > >
+> > > > > It is the same message format. Please see the message definition
+> > > > (GET_DIRECTION) below:
+> > > >
+> > > > > +   +-----+-----+-----+-----+-----+----+
+> > > > > +   |0x00 |0x01 |0x02 |0x03 |0x04 |0x05|
+> > > > > +   | 1   | 2   |port |line | err | dir|
+> > > > > +   +-----+-----+-----+-----+-----+----+
+> > > >
+> > > > Sorry, but i don't see how two u8 vs six u8 are the same message format.
+> > > >
+> > >
+> > > Some changes to the message format are necessary.
+> > >
+> > > Virtio uses two communication channels (virtqueues): one for requests and
+> > replies, and a second one for events.
+> > > In contrast, rpmsg provides only a single communication channel, so a
+> > > type field is required to distinguish between different kinds of messages.
+> > >
+> > > Since rpmsg replies and events share the same message format, an additional
+> > line is introduced to handle both cases.
+> > >
+> > > Finally, rpmsg supports multiple GPIO controllers, so a port field is added to
+> > uniquely identify the target controller.
+> >
+> > I have commented on this before - RPMSG is already providing multiplexing
+> > capability by way of endpoints.  There is no need for a port field.  One endpoint,
+> > one GPIO controller.
+> >
+>
+> You still need a way to let the remote side know which port the endpoint maps to, either
+> by embedding the port information in the message (the current way), or by sending it
+> separately.
+>
 
-The controller supports SSP(10-Gbps), SuperSpeed, high-speed, full-speed
-and low-speed operation modes.
+An endpoint is created with every namespace request.  There should be
+one namespace request for every GPIO controller, which yields a unique
+endpoint for each controller and eliminates the need for an extra
+field to identify them.
 
-USB2 and USB3 PHY support Physical connectivity via the Type-C
-connectivity. DWC3 wrapper IP IO space is in SLCR so reg is made
-optional.
-
-The driver is required for the clock, reset and platform specific
-initialization (coherency/TX_DEEMPH etc). In this initial version typec
-reversibility is not implemented and it is assumed that USB3 PHY TCA mux
-programming is done by MMI configuration data object (CDOs) and TI PD
-controller is configured using external tiva programmer on VEK385
-evaluation board.
-
-Changes for v3:
-- Return -ENODEV from probe if device_get_match_data() is NULL.
-- Replace map_resource with no_mem_map (Versal2 MMI only; others default
-  MMIO map).
-- Add PHY warm-reset assert delay.
-- Loop all num_usb3_ports with one de-emphasis value.
-- Set default as DWC3_LCSR_TX_DEEMPH_UNSPECIFIED default and only set
-  snps,lcsr-tx-deemph when not unspecified.
-
-Changes for v2:
-- DT binding: fix MHz spacing (SI convention), reorder description
-  before $ref in xlnx,usb-syscon, restore zynqmp-dwc3 example and add
-  versal2-mmi-dwc3 example, fix node name for no-reg case, use 1/1
-  address/size configuration and lowercase hex in syscon offsets.
-- Split config struct refactoring (device_get_match_data,dwc3_xlnx_config)
-  into a separate preparatory patch.
-- Fix error message capitalization to lowercase per kernel convention.
-- Rename property snps,lcsr_tx_deemph to snps,lcsr-tx-deemph (hyphens).
-- Fix double space in comment and missing blank line in core.h.
-- Use platform data instead of of_device_is_compatible() check for
-  deemphasis support.
-
-Link: https://lore.kernel.org/all/20251119193036.2666877-1-radhey.shyam.pandey@amd.com/ [v1]
-
-Radhey Shyam Pandey (4):
-  dt-bindings: usb: dwc3-xilinx: Add MMI USB support on Versal Gen2
-    platform
-  usb: dwc3: xilinx: Introduce dwc3_xlnx_config for per-platform data
-  usb: dwc3: xilinx: Add Versal2 MMI USB 3.2 controller support
-  usb: dwc3: xilinx: Add support to program MMI USB TX deemphasis
-
- .../devicetree/bindings/usb/dwc3-xilinx.yaml  |  70 +++++++++++-
- drivers/usb/dwc3/core.c                       |  24 ++++
- drivers/usb/dwc3/core.h                       |  14 +++
- drivers/usb/dwc3/dwc3-xilinx.c                | 103 +++++++++++++++---
- 4 files changed, 193 insertions(+), 18 deletions(-)
-
-
-base-commit: 3b3bea6d4b9c162f9e555905d96b8c1da67ecd5b
--- 
-2.43.0
-
+> Shenwei
+>
+> > >
+> > > Shenwei
+> > >
+> > > >        Andrew
 
