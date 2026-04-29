@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11723CD13D2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D24E5FF8873
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 14:14:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,33 +12,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1NwvWoEEwqcEeI9s+YUa87YHJRQTyPa+paMhA9yzfZA=; b=p34DO2IE4IhVs+6fD8Xnl9AoxL
-	tgRhxRQGScLuA1KN1xBrT9rXW5WOlap8X1fB4GlTDIqQi0vgZwTUQEa0jJlc0uqYqMLSYHfbw3fmb
-	GnuX4/PW2c7jLECekOuOUPyn+cOxOLV+YU3bFrF4O8M3P7yl24p5aYk2A6ofj4JxNj89FytcVTF/H
-	wAQThUwxEoJnWlS2L1yzgDj0Hq7AOsM79i0rhf5t/+tUbrAcOzXBukNaoXrl/OR0eQmW1zLsZLyR6
-	+HdR4SFMehjFQ3xoeNn3nw+l8ERajkdyoMkULweKhBg5LxdCeZE3Y1ENm8Cmw5plHIA6ZsvI5QQSI
-	QSnoKLlQ==;
+	bh=n4YWtHTOg5yRHY3As9aqQydtIMr23iKXeWp2ni6l9e8=; b=zh2if8g1U0xkLYhNgFMjREQT/7
+	j+UYlJuTup2JHbQMRR6mgWDGMaS6xAGKVH9/VNSmT2UWliz2edx14aVdwFZrzkQ9TvV/jQ0OmPXux
+	HRNLQVXDSBAshVsXH+iS3qqUSK8bCJJlGn3Uofvf+zmwxnSw1teCflDiStMTV2JM8Ba8ABYE4k3ov
+	SNeVCH7F5ibYoeEf4PM5wuNmmzaxU7K6o9+eMz6KAWMufo2BM3XpZ86/IH7KrNb7QriLf5A8RJ8S/
+	jI/y6hR45TsNAwftJwr99W8XAE2GWzGgv5zIhwD1CPRjkkihvfTCdssmY2XteRS0/pP541Yib2SFp
+	NYzRLmCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI5gf-00000003jtH-1b51;
-	Wed, 29 Apr 2026 14:14:49 +0000
+	id 1wI5ge-00000003jst-3Oew;
+	Wed, 29 Apr 2026 14:14:48 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI5gb-00000003jrX-1n4n
+	id 1wI5gY-00000003jqe-1vAT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 14:14:46 +0000
+	Wed, 29 Apr 2026 14:14:43 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 14201337B;
-	Wed, 29 Apr 2026 07:14:39 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4A12B1C01;
+	Wed, 29 Apr 2026 07:14:35 -0700 (PDT)
 Received: from e142021.munich.arm.com (e142021.arm.com [10.41.150.154])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2BEBE3F62B;
-	Wed, 29 Apr 2026 07:14:40 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 914243F62B;
+	Wed, 29 Apr 2026 07:14:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777472084; bh=i6j5/teBNx4Ww4Ye71yQcpkZOtC+dRDyvTI4P6VFbEs=;
+	t=1777472080; bh=yvBaaJHq522R7D0U8dJahKsXz9SdJpbI8YiKIMevLTk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Xmcs0CMwiOCd7JaVaOYy8LRxlpnHXhNTaOdC+Q41Tj+iTl6dY7qQBajZLZpOM+eR7
-	 ZtjzeG9ILtNEkEi8jdHH8/zyh6xQJ32K/+aaX98bxLEBmzhrbdyc+Xu24W4JrUnkX4
-	 MLw3xozHy4MRe/OLtzH2ZyC4Cc04nUyTIjQlXGTM=
+	b=bDSkAv4gBRD21z928LWVL7herJEw20WwQKKy2yVkSeORAhO4XAosQrlSH3MK5syYY
+	 o7MLfevklKx1B3dCnPMHmzjjYhQubd/GT8jseG2KizVKStcAhTCytpPmjNHaowoiEk
+	 Uy5qFK1Jt2eKpsdTbYui1Y08fHzrRQdmjALSxEFg=
 From: Andre Przywara <andre.przywara@arm.com>
 To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Hanjun Guo <guohanjun@huawei.com>,
@@ -55,17 +55,17 @@ Cc: Jonathan Cameron <jic23@kernel.org>,
 	linux-acpi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/5] arm_mpam: Split the locking around the mon_sel registers
-Date: Wed, 29 Apr 2026 16:13:36 +0200
-Message-ID: <20260429141339.3171205-3-andre.przywara@arm.com>
+Subject: [PATCH 1/5] arm_mpam: Parse the rest of the ACPI table
+Date: Wed, 29 Apr 2026 16:13:35 +0200
+Message-ID: <20260429141339.3171205-2-andre.przywara@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260429141339.3171205-1-andre.przywara@arm.com>
 References: <20260429141339.3171205-1-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_071445_558165_AB3AD29A 
-X-CRM114-Status: GOOD (  27.81  )
+X-CRM114-CacheID: sfid-20260429_071442_578786_364C4C37 
+X-CRM114-Status: GOOD (  18.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,376 +82,148 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: James Morse <james.morse@arm.com>
 
-The MSC MON_SEL register needs to be accessed from hardirq for the overflow
-interrupt, and when taking an IPI to access these registers on platforms
-where MSC are not accesible from every CPU. This makes an irqsave
-spinlock the obvious lock to protect these registers. On systems with SCMI
-mailboxes it must be able to sleep, meaning a mutex must be used. The
-SCMI platforms can't support an overflow interrupt.
+The MPAM ACPI table lists the MPAM MSCs and indicates which resources
+in the system they control. Not everything this table can describe is
+supported by resctrl, e.g. memory-side-caches.
 
-Clearly these two can't exist for one MSC at the same time.
+Add the additional table parsing to avoid reporting these as 'unknown'
+to the MPAM driver. This allows class+component hierarchys to be built.
 
-Split the existing helper into a raw spinlock and a mutex, named inner
-and outer. The outer lock must be taken in an a pre-emptible context
-befroe the inner lock can be taken. On systems with SCMI mailboxes
-where the MON_SEL accesses must sleep - the inner lock will fail tobe
-taken if the caller is unable to sleep.
-This will allow callers to fail withuot having to explicitly check
-the interface type of each MSC.
+Until resctrl has support for any of these resources, users would be
+in-kernel managers of a resource/PARTID or perf to query bandwidth
+counters on a resource resctrl is unaware of.
 
 Signed-off-by: James Morse <james.morse@arm.com>
+Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 ---
- drivers/resctrl/mpam_devices.c  | 56 ++++++++++++++++++++-------
- drivers/resctrl/mpam_internal.h | 67 ++++++++++++++++++++++++---------
- 2 files changed, 91 insertions(+), 32 deletions(-)
+ drivers/acpi/arm64/mpam.c | 91 +++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 88 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 41b14344b16f..3be09b0c46ae 100644
---- a/drivers/resctrl/mpam_devices.c
-+++ b/drivers/resctrl/mpam_devices.c
-@@ -735,7 +735,7 @@ static bool _mpam_ris_hw_probe_hw_nrdy(struct mpam_msc_ris *ris, u32 mon_reg)
- 	bool can_set, can_clear;
- 	struct mpam_msc *msc = ris->vmsc->msc;
- 
--	if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))
-+	if (WARN_ON_ONCE(!mpam_mon_sel_inner_lock(msc)))
- 		return false;
- 
- 	mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, 0) |
-@@ -749,7 +749,7 @@ static bool _mpam_ris_hw_probe_hw_nrdy(struct mpam_msc_ris *ris, u32 mon_reg)
- 	_mpam_write_monsel_reg(msc, mon_reg, 0);
- 	now = _mpam_read_monsel_reg(msc, mon_reg);
- 	can_clear = !(now & MSMON___NRDY);
--	mpam_mon_sel_unlock(msc);
-+	mpam_mon_sel_inner_unlock(msc);
- 
- 	return (!can_set || !can_clear);
- }
-@@ -873,7 +873,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
- 					mpam_set_feature(mpam_feat_msmon_csu_xcl, props);
- 
- 				/* Is NRDY hardware managed? */
-+				mpam_mon_sel_outer_lock(msc);
- 				hw_managed = mpam_ris_hw_probe_hw_nrdy(ris, CSU);
-+				mpam_mon_sel_outer_unlock(msc);
- 				if (hw_managed)
- 					mpam_set_feature(mpam_feat_msmon_csu_hw_nrdy, props);
- 			}
-@@ -907,7 +909,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
- 				}
- 
- 				/* Is NRDY hardware managed? */
-+				mpam_mon_sel_outer_lock(msc);
- 				hw_managed = mpam_ris_hw_probe_hw_nrdy(ris, MBWU);
-+				mpam_mon_sel_outer_unlock(msc);
- 				if (hw_managed)
- 					mpam_set_feature(mpam_feat_msmon_mbwu_hw_nrdy, props);
- 
-@@ -1201,7 +1205,7 @@ static void __ris_msmon_read(void *arg)
- 	struct mpam_msc *msc = m->ris->vmsc->msc;
- 	u32 mon_sel, ctl_val, flt_val, cur_ctl, cur_flt;
- 
--	if (!mpam_mon_sel_lock(msc)) {
-+	if (!mpam_mon_sel_inner_lock(msc)) {
- 		m->err = -EIO;
- 		return;
- 	}
-@@ -1301,7 +1305,7 @@ static void __ris_msmon_read(void *arg)
- 	default:
- 		m->err = -EINVAL;
- 	}
--	mpam_mon_sel_unlock(msc);
-+	mpam_mon_sel_inner_unlock(msc);
- 
- 	if (nrdy)
- 		m->err = -EBUSY;
-@@ -1323,6 +1327,7 @@ static int _msmon_read(struct mpam_component *comp, struct mon_read *arg)
- 		struct mpam_msc *msc = vmsc->msc;
- 		struct mpam_msc_ris *ris;
- 
-+		mpam_mon_sel_outer_lock(msc);
- 		list_for_each_entry_srcu(ris, &vmsc->ris, vmsc_list,
- 					 srcu_read_lock_held(&mpam_srcu)) {
- 			arg->ris = ris;
-@@ -1341,6 +1346,7 @@ static int _msmon_read(struct mpam_component *comp, struct mon_read *arg)
- 			if (err)
- 				any_err = err;
- 		}
-+		mpam_mon_sel_outer_unlock(msc);
- 	}
- 
- 	return any_err;
-@@ -1423,18 +1429,20 @@ void mpam_msmon_reset_mbwu(struct mpam_component *comp, struct mon_cfg *ctx)
- 			continue;
- 
- 		msc = vmsc->msc;
-+		mpam_mon_sel_outer_lock(msc);
- 		list_for_each_entry_srcu(ris, &vmsc->ris, vmsc_list,
- 					 srcu_read_lock_held(&mpam_srcu)) {
- 			if (!mpam_has_feature(mpam_feat_msmon_mbwu, &ris->props))
- 				continue;
- 
--			if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))
-+			if (WARN_ON_ONCE(!mpam_mon_sel_inner_lock(msc)))
- 				continue;
- 
- 			ris->mbwu_state[ctx->mon].correction = 0;
- 			ris->mbwu_state[ctx->mon].reset_on_next_read = true;
--			mpam_mon_sel_unlock(msc);
-+			mpam_mon_sel_inner_unlock(msc);
- 		}
-+		mpam_mon_sel_outer_unlock(msc);
- 	}
+diff --git a/drivers/acpi/arm64/mpam.c b/drivers/acpi/arm64/mpam.c
+index 84963a20c3e7..99c2bdbb3314 100644
+--- a/drivers/acpi/arm64/mpam.c
++++ b/drivers/acpi/arm64/mpam.c
+@@ -95,17 +95,51 @@ static void acpi_mpam_parse_irqs(struct platform_device *pdev,
+ 		res[(*res_idx)++] = DEFINE_RES_IRQ_NAMED(irq, "error");
  }
  
-@@ -1635,8 +1643,11 @@ static int mpam_restore_mbwu_state(void *_ris)
- 	u64 val;
- 	struct mon_read mwbu_arg;
- 	struct mpam_msc_ris *ris = _ris;
-+	struct mpam_msc *msc = ris->vmsc->msc;
- 	struct mpam_class *class = ris->vmsc->comp->class;
- 
-+	mpam_mon_sel_outer_lock(msc);
+-static int acpi_mpam_parse_resource(struct mpam_msc *msc,
++#define UUID_MPAM_INTERCONNECT_TABLE		"fe2bd645-033b-49e6-9479-2e0b8b21d1cd"
 +
- 	for (i = 0; i < ris->props.num_mbwu_mon; i++) {
- 		if (ris->mbwu_state[i].enabled) {
- 			mwbu_arg.ris = ris;
-@@ -1648,10 +1659,12 @@ static int mpam_restore_mbwu_state(void *_ris)
- 		}
- 	}
- 
-+	mpam_mon_sel_outer_unlock(msc);
++struct acpi_mpam_interconnect_descriptor_table {
++	u8	type_uuid[16];
++	u32	num_descriptors;
++};
 +
- 	return 0;
- }
- 
--/* Call with MSC cfg_lock held */
-+/* Call with MSC cfg_lock and outer mon_sel lock held */
- static int mpam_save_mbwu_state(void *arg)
++struct acpi_mpam_interconnect_descriptor {
++	u32	source_id;
++	u32	destination_id;
++	u8	link_type;
++	u8	reserved[3];
++};
++
++static int acpi_mpam_parse_resource(struct acpi_mpam_msc_node *tbl_msc,
++				    struct mpam_msc *msc,
+ 				    struct acpi_mpam_resource_node *res)
  {
- 	int i;
-@@ -1666,7 +1679,7 @@ static int mpam_save_mbwu_state(void *arg)
- 		mbwu_state = &ris->mbwu_state[i];
- 		cfg = &mbwu_state->cfg;
++	struct acpi_mpam_interconnect_descriptor_table *tbl_int_tbl;
++	struct acpi_mpam_interconnect_descriptor *tbl_int;
++	guid_t int_tbl_uuid, spec_uuid;
+ 	int level, nid;
+ 	u32 cache_id;
++	off_t offset;
  
--		if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))
-+		if (WARN_ON_ONCE(!mpam_mon_sel_inner_lock(msc)))
- 			return -EIO;
- 
- 		mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, i) |
-@@ -1691,7 +1704,7 @@ static int mpam_save_mbwu_state(void *arg)
- 		cfg->partid = FIELD_GET(MSMON_CFG_x_FLT_PARTID, cur_flt);
- 		mbwu_state->correction += val;
- 		mbwu_state->enabled = FIELD_GET(MSMON_CFG_x_CTL_EN, cur_ctl);
--		mpam_mon_sel_unlock(msc);
-+		mpam_mon_sel_inner_unlock(msc);
- 	}
- 
- 	return 0;
-@@ -1773,6 +1786,7 @@ static void mpam_reprogram_msc(struct mpam_msc *msc)
- 	mpam_assert_partid_sizes_fixed();
- 
- 	mutex_lock(&msc->cfg_lock);
-+	mpam_mon_sel_outer_lock(msc);
- 	list_for_each_entry_srcu(ris, &msc->ris, msc_list,
- 				 srcu_read_lock_held(&mpam_srcu)) {
- 		if (!mpam_is_enabled() && !ris->in_reset_state) {
-@@ -1797,6 +1811,7 @@ static void mpam_reprogram_msc(struct mpam_msc *msc)
- 		if (mpam_has_feature(mpam_feat_msmon_mbwu, &ris->props))
- 			mpam_touch_msc(msc, &mpam_restore_mbwu_state, ris);
- 	}
-+	mpam_mon_sel_outer_unlock(msc);
- 	mutex_unlock(&msc->cfg_lock);
- }
- 
-@@ -1886,6 +1901,7 @@ static int mpam_cpu_offline(unsigned int cpu)
- 			struct mpam_msc_ris *ris;
- 
- 			mutex_lock(&msc->cfg_lock);
-+			mpam_mon_sel_outer_lock(msc);
- 			list_for_each_entry_srcu(ris, &msc->ris, msc_list,
- 						 srcu_read_lock_held(&mpam_srcu)) {
- 				mpam_touch_msc(msc, &mpam_reset_ris, ris);
-@@ -1899,6 +1915,7 @@ static int mpam_cpu_offline(unsigned int cpu)
- 				if (mpam_is_enabled())
- 					mpam_touch_msc(msc, &mpam_save_mbwu_state, ris);
- 			}
-+			mpam_mon_sel_outer_unlock(msc);
- 			mutex_unlock(&msc->cfg_lock);
- 		}
- 	}
-@@ -2589,11 +2606,13 @@ static void __destroy_component_cfg(struct mpam_component *comp)
- 	list_for_each_entry(vmsc, &comp->vmsc, comp_list) {
- 		msc = vmsc->msc;
- 
--		if (mpam_mon_sel_lock(msc)) {
-+		mpam_mon_sel_outer_lock(msc);
-+		if (mpam_mon_sel_inner_lock(msc)) {
- 			list_for_each_entry(ris, &vmsc->ris, vmsc_list)
- 				add_to_garbage(ris->mbwu_state);
--			mpam_mon_sel_unlock(msc);
-+			mpam_mon_sel_inner_unlock(msc);
- 		}
-+		mpam_mon_sel_outer_unlock(msc);
- 	}
- }
- 
-@@ -2640,6 +2659,7 @@ static int __allocate_component_cfg(struct mpam_component *comp)
- 	mpam_reset_component_cfg(comp);
- 
- 	list_for_each_entry(vmsc, &comp->vmsc, comp_list) {
-+		int err = 0;
- 		struct mpam_msc *msc;
- 		struct mpam_msc_ris *ris;
- 		struct msmon_mbwu_state *mbwu_state;
-@@ -2648,6 +2668,7 @@ static int __allocate_component_cfg(struct mpam_component *comp)
- 			continue;
- 
- 		msc = vmsc->msc;
-+		mpam_mon_sel_outer_lock(msc);
- 		list_for_each_entry(ris, &vmsc->ris, vmsc_list) {
- 			if (!ris->props.num_mbwu_mon)
- 				continue;
-@@ -2656,16 +2677,21 @@ static int __allocate_component_cfg(struct mpam_component *comp)
- 						  ris->props.num_mbwu_mon);
- 			if (!mbwu_state) {
- 				__destroy_component_cfg(comp);
--				return -ENOMEM;
-+				err = -ENOMEM;
-+				break;
- 			}
- 
- 			init_garbage(&mbwu_state[0].garbage);
- 
--			if (mpam_mon_sel_lock(msc)) {
-+			if (mpam_mon_sel_inner_lock(msc)) {
- 				ris->mbwu_state = mbwu_state;
--				mpam_mon_sel_unlock(msc);
-+				mpam_mon_sel_inner_unlock(msc);
- 			}
- 		}
-+		mpam_mon_sel_outer_unlock(msc);
-+
-+		if (err)
-+			return err;
- 	}
- 
- 	return 0;
-@@ -2918,12 +2944,14 @@ int mpam_apply_config(struct mpam_component *comp, u16 partid,
- 		msc = vmsc->msc;
- 
- 		mutex_lock(&msc->cfg_lock);
-+		mpam_mon_sel_outer_lock(msc);
- 		list_for_each_entry_srcu(ris, &vmsc->ris, vmsc_list,
- 					 srcu_read_lock_held(&mpam_srcu)) {
- 			arg.ris = ris;
- 			mpam_touch_msc(msc, __write_config, &arg);
- 			ris->in_reset_state = false;
- 		}
-+		mpam_mon_sel_outer_unlock(msc);
- 		mutex_unlock(&msc->cfg_lock);
- 	}
- 
-diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index 1914aefdcba9..80213af10a64 100644
---- a/drivers/resctrl/mpam_internal.h
-+++ b/drivers/resctrl/mpam_internal.h
-@@ -116,16 +116,20 @@ struct mpam_msc {
- 	/*
- 	 * mon_sel_lock protects access to the MSC hardware registers that are
- 	 * affected by MPAMCFG_MON_SEL, and the mbwu_state.
--	 * Access to mon_sel is needed from both process and interrupt contexts,
--	 * but is complicated by firmware-backed platforms that can't make any
--	 * access unless they can sleep.
--	 * Always use the mpam_mon_sel_lock() helpers.
--	 * Accesses to mon_sel need to be able to fail if they occur in the wrong
--	 * context.
-+	 * Both the 'inner' and 'outer' must be taken.
-+	 * For real MMIO MSC, the outer lock is unnecessary - but keeps the
-+	 * code common with:
-+	 * Firmware backed MSC need to sleep when accessing the MSC, which
-+	 * means some code-paths will always fail. For these MSC the outer
-+	 * lock is providing the protection, and the inner lock fails to
-+	 * be taken if the task is unable to sleep.
-+	 *
- 	 * If needed, take msc->probe_lock first.
- 	 */
--	raw_spinlock_t		_mon_sel_lock;
--	unsigned long		_mon_sel_flags;
-+	struct mutex		outer_mon_sel_lock;
-+	bool			outer_lock_held;
-+	raw_spinlock_t		inner_mon_sel_lock;
-+	unsigned long		inner_mon_sel_flags;
- 
- 	void __iomem		*mapped_hwpage;
- 	size_t			mapped_hwpage_sz;
-@@ -137,29 +141,56 @@ struct mpam_msc {
- };
- 
- /* Returning false here means accesses to mon_sel must fail and report an error. */
--static inline bool __must_check mpam_mon_sel_lock(struct mpam_msc *msc)
-+static inline bool __must_check mpam_mon_sel_inner_lock(struct mpam_msc *msc)
- {
--	/* Locking will require updating to support a firmware backed interface */
--	if (WARN_ON_ONCE(msc->iface != MPAM_IFACE_MMIO))
--		return false;
 +	/*
-+	 * The outer lock may be taken by a CPU that then issues an IPI to run
-+	 * a helper that takes the inner lock. lockdep can't help us here.
++	 * Class IDs are somewhat arbitrary, but need to be co-ordinated.
++	 * 0-N are caches,
++	 * 64, 65: Interconnect, but ideally these would appear between the
++	 *     classes the controls are adjacent to.
++	 * 128: SMMU,
++	 * 192-192+level: Memory Side Caches, nothing checks that N is a
++	 *                small number.
++	 * 255: Memory Controllers
++	 *
++	 * ACPI devices would need a class id allocated based on the _HID.
++	 *
++	 * Classes that the mpam driver can't currently plumb into resctrl
++	 * are registered as UNKNOWN.
 +	 */
-+	WARN_ON_ONCE(!READ_ONCE(msc->outer_lock_held));
+ 	switch (res->locator_type) {
+ 	case ACPI_MPAM_LOCATION_TYPE_PROCESSOR_CACHE:
+ 		cache_id = res->locator.cache_locator.cache_reference;
+ 		level = find_acpi_cache_level_from_id(cache_id);
+-		if (level <= 0) {
++		if (level <= 0 || level >= 64) {
+ 			pr_err_once("Bad level (%d) for cache with id %u\n", level, cache_id);
+ 			return -EINVAL;
+ 		}
+@@ -120,6 +154,57 @@ static int acpi_mpam_parse_resource(struct mpam_msc *msc,
+ 		}
+ 		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_MEMORY,
+ 				       MPAM_CLASS_ID_DEFAULT, nid);
++	case ACPI_MPAM_LOCATION_TYPE_SMMU:
++		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_UNKNOWN,
++				       128, res->locator.smmu_locator.smmu_interface);
++	case ACPI_MPAM_LOCATION_TYPE_MEMORY_CACHE:
++		cache_id = res->locator.mem_cache_locator.reference;
++		level = res->locator.mem_cache_locator.level;
++		if (192 + level >= 255) {
++			pr_err_once("Bad level for memory side cache with reference %u\n",
++				    cache_id);
++			return -EINVAL;
++		}
 +
-+	if (msc->iface == MPAM_IFACE_MMIO) {
-+		raw_spin_lock_irqsave(&msc->inner_mon_sel_lock, msc->inner_mon_sel_flags);
-+		return true;
-+	}
++		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_CACHE,
++				       192 + level, cache_id);
 +
-+	/* Accesses must fail if we are not pre-emptible */
-+	return !!preemptible();
-+}
- 
--	raw_spin_lock_irqsave(&msc->_mon_sel_lock, msc->_mon_sel_flags);
--	return true;
-+static inline void mpam_mon_sel_inner_unlock(struct mpam_msc *msc)
-+{
-+	WARN_ON_ONCE(!READ_ONCE(msc->outer_lock_held));
++	case ACPI_MPAM_LOCATION_TYPE_INTERCONNECT:
++		/* Find the descriptor table, and check it lands in the parent msc */
++		offset = res->locator.interconnect_ifc_locator.inter_connect_desc_tbl_off;
++		if (offset >= tbl_msc->length) {
++			pr_err_once("Bad offset for interconnect descriptor on msc %u\n",
++				    tbl_msc->identifier);
++			return -EINVAL;
++		}
++		tbl_int_tbl = ACPI_ADD_PTR(struct acpi_mpam_interconnect_descriptor_table,
++					   tbl_msc, offset);
++		guid_parse(UUID_MPAM_INTERCONNECT_TABLE, &spec_uuid);
++		import_guid(&int_tbl_uuid, tbl_int_tbl->type_uuid);
++		if (guid_equal(&spec_uuid, &int_tbl_uuid)) {
++			pr_err_once("Bad UUID for interconnect descriptor on msc %u\n",
++				    tbl_msc->identifier);
++			return -EINVAL;
++		}
 +
-+	if (msc->iface == MPAM_IFACE_MMIO)
-+		raw_spin_unlock_irqrestore(&msc->inner_mon_sel_lock, msc->inner_mon_sel_flags);
-+}
++		offset += sizeof(*tbl_int_tbl);
++		offset += tbl_int_tbl->num_descriptors * sizeof(*tbl_int);
++		if (offset >= tbl_msc->length) {
++			pr_err_once("Bad num_descriptors for interconnect descriptor on msc %u\n",
++				    tbl_msc->identifier);
++			return -EINVAL;
++		}
 +
-+static inline void mpam_mon_sel_outer_lock(struct mpam_msc *msc)
-+{
-+	mutex_lock(&msc->outer_mon_sel_lock);
-+	msc->outer_lock_held = true;
- }
++		tbl_int = ACPI_ADD_PTR(struct acpi_mpam_interconnect_descriptor,
++				       tbl_int_tbl, sizeof(*tbl_int_tbl));
++		cache_id = tbl_int->source_id;
++
++		/* Unknown link type? */
++		if (tbl_int->link_type != 0 && tbl_int->link_type == 1)
++			return 0;
++
++		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_UNKNOWN,
++				       64 + tbl_int->link_type, cache_id);
+ 	default:
+ 		/* These get discovered later and are treated as unknown */
+ 		return 0;
+@@ -150,7 +235,7 @@ int acpi_mpam_parse_resources(struct mpam_msc *msc,
+ 			return -EINVAL;
+ 		}
  
--static inline void mpam_mon_sel_unlock(struct mpam_msc *msc)
-+static inline void mpam_mon_sel_outer_unlock(struct mpam_msc *msc)
- {
--	raw_spin_unlock_irqrestore(&msc->_mon_sel_lock, msc->_mon_sel_flags);
-+	msc->outer_lock_held = false;
-+	mutex_unlock(&msc->outer_mon_sel_lock);
- }
+-		err = acpi_mpam_parse_resource(msc, resource);
++		err = acpi_mpam_parse_resource(tbl_msc, msc, resource);
+ 		if (err)
+ 			return err;
  
- static inline void mpam_mon_sel_lock_held(struct mpam_msc *msc)
- {
--	lockdep_assert_held_once(&msc->_mon_sel_lock);
-+	WARN_ON_ONCE(!READ_ONCE(msc->outer_lock_held));
-+	if (msc->iface == MPAM_IFACE_MMIO)
-+		lockdep_assert_held_once(&msc->inner_mon_sel_lock);
-+	else
-+		lockdep_assert_preemption_enabled();
- }
- 
- static inline void mpam_mon_sel_lock_init(struct mpam_msc *msc)
- {
--	raw_spin_lock_init(&msc->_mon_sel_lock);
-+	raw_spin_lock_init(&msc->inner_mon_sel_lock);
-+	mutex_init(&msc->outer_mon_sel_lock);
- }
- 
- /* Bits for mpam features bitmaps */
 -- 
 2.43.0
 
