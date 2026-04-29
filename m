@@ -4,95 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77522CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 17:58:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DEC9CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 18:07:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MmcPFcCFT0gegKw7/GAlAOSTHc6JlaEROIWqR2nOl4k=; b=yuQlUSMskyDOAGOAwKnd48dWxp
-	w+hl9xNosdUls8QQzfJigHqW8V8ahZ8Cn02n68Z6dPmps0cS/NkE42yIFgk3GlpxiPy9BIi488UBp
-	2/KdQvFLdSxI/+itdrBwGLBpUGwGXdERu+jcfhIKEPocj0lsDOb8fz2IOxrSmI6yVT7lhQgkMEkwM
-	Ri8H7UZ/rDEVGCLt0ukwdB2eYYSgXS+z9/oUtNNSXgnhBlLQlRwlW5RcH2saYNrVUaQHsgJTqbP1S
-	MsSoPiAVvVZWGZUVBFiRfbc5o/Vrd4OI172E+q+8w493pC+42NiPyXMedvMIMvbwnja4na8fdTwpb
-	1/4gBHuw==;
+	bh=cPtIV6TgtSFxxV4HSDgk0JPSLnDApXS3RQvj3MVZQa4=; b=28Vu7Zc1C0JWgHVEDBJ9Ibrgae
+	W4f7pxHZb6ttauIrCmGnN5tG0NeZxUEAG8W4dQoVdZIkmPBYI+7UdCVyWYrHIkjwoxcV0gH/nreGc
+	hzFRnCGKQy6dlKi3wsOx8traS2pj4grFZh/V+G7CA5CUMROoYGLQwXqYgdbepAEM7RrtdUZbzgZme
+	QXfQ/jY2Goakp7WyE71pXbB/iZ7Jl0bbu2GZqOuOy84AvomMdrfUIJoUuVP2KO5YrsdC7kQ0M3xz2
+	ycc+P9G0XNEHY6t6F3Fcqgedp0jR+6cxwY5xA32DzhVMfO+SuX5NiYcPv3dI0SU9U9yu3eSig9sXk
+	MHwjbVnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI9BC-000000041Gk-4AqM;
-	Wed, 29 Apr 2026 17:58:35 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wI9JS-000000042WV-1rV3;
+	Wed, 29 Apr 2026 18:07:06 +0000
+Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI9B5-0000000415t-3CFC;
-	Wed, 29 Apr 2026 17:58:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=MmcPFcCFT0gegKw7/GAlAOSTHc6JlaEROIWqR2nOl4k=; b=PobWXAlP6WzE0nrZB/Tpsq1Y+h
-	Sd7hMi2z2qgW4SJxneV5gKjsWoXlBaLhJdlvK3x74sZ3TGxl1lQgblo/QApHa/V2l9ZxGlEoOmCWH
-	roCc8+++SB6JGBkKL3jS8Mp5KKvA2Ptw4HEYtPYOjFCbAFqNVwtbL6CAzdCU+GFnwXCcFtWuPhcO7
-	OFD6wzqo8hIx+d7GQdV8EGnt2MrO7MQO9JSQQfbKmhEMuaa+dEUKWSBRvjlw7cjjUaFyRaSrPjZpF
-	+5JXwi3QGSRrdE7V6HhI2Fo0vOfh6DaL5KyB0xvbBC6vsrubHD2uYNaLeuphqSuSBmVDT17eD8jCy
-	kEroNkBA==;
-Received: from smtpout-02.galae.net ([185.246.84.56])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI9B1-00000005wOx-0s24;
-	Wed, 29 Apr 2026 17:58:26 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 2177F1A347B;
-	Wed, 29 Apr 2026 17:58:22 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id E99E35FD43;
-	Wed, 29 Apr 2026 17:58:21 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6FE631072B176;
-	Wed, 29 Apr 2026 19:58:16 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1777485500; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=MmcPFcCFT0gegKw7/GAlAOSTHc6JlaEROIWqR2nOl4k=;
-	b=Kc0vRRlqvfSudEFr1jF1Gd7LJngYIVk/OpJ9Xy8LuG253NtHk6/h4qCUHyLC/uelRVb4cc
-	4dtdIBzKI2GiH9nxWVLuBkH0XM6+60TUTV3lPbduunRwVmtsS7NZANu7HdJhAtQLgyg/XC
-	qfAyvlNfSlYsoOKdexYgZ4wm/bWSodcggsYCwEBKkDHvzztBYmluC6xuKPrOLpX9/h7Qic
-	pT6L6tnkencqHbZvV4EVzLeBhMxFjsgykFNa9YcAAIpXCmpJMwhvoG1NFc/Ior2L3DtbkU
-	3DKkjUd9tAEKhfs0hEhZ7womvlhnP/h4dMJsvpfuXnYvpxywIGUMsaSX8ch/9Q==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Wed, 29 Apr 2026 19:56:48 +0200
-Subject: [PATCH v3 11/11] mtd: spinand: winbond: Add support for continuous
- reads on W25NxxJW
+	id 1wI9JP-000000042Vz-2rtc
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 29 Apr 2026 18:07:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=M4m0H2s98nrwLuCU+xcWjkFHubTzwYN+dcAldjszBwKYdx9Mc0IZuZb1CsS/qUUOaQXS43LE8QfsbIBizUjiYnBojTIcdviKG+o4Vy0kcdVWOi+xt/9aSQkP2hTAgFlE6gRgYF8xA1fmjlHWhZidSNWO8zBDqTJ/qkBrPvW9RcbA3rvYT1cHTxc+hj1p9bWdVrgFT92xOhiAVUzBblGXgkBfRgbXIdrBkFtceO1YZo+8xq84BEqKl4aOe0oNqoyHU0dAoF14RI5ENuGaFliej3LgKV2LHjrjf/T5t4wDzf19kpZgl+lVCGnNtwaIKIH+8CbJfAKRvH566mQsu3BPWg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cPtIV6TgtSFxxV4HSDgk0JPSLnDApXS3RQvj3MVZQa4=;
+ b=q6wAsNFlJkj/qWpguNRcDrMHjx91hftX5/GZEW7X505Kqa3nCeysCBY757IhNk4Zl9APp8qL/z3DqYDd3lPgFzhRS1cQAneNc1cxYKkctl/HBfySsxcFvwDHuWYGsKPRtNGcg7B+onh965lIKf2ax4o5Zw3wpcf4fBvu7kHzYygVchMtsE+g9jW3BoSMGA0alVY8RXVcOelQ/myIoSHPP+PtEpUl6wktxzCu5d80I+tfPaNymHEwdrD23Ud1Q3SxBf3pkwJDAEPELVQIkdhAWmIrwpK81MiAs84C2k6NTN8o7hvZLlDq/ZGITIZb5tR5c9HTYuyhttVF6cXsGERGOA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=bgdev.pl smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cPtIV6TgtSFxxV4HSDgk0JPSLnDApXS3RQvj3MVZQa4=;
+ b=TvD+XHvuguGBipZMUc5i+qdlZhL8jeIbeSQO6AuE283dy+tx/5coENeh2vtJmjMFdGSvHDuj1zHqICi/usfT1ysFu1yM+hRNruRWD1DFIKEHwmNlNQww5el/OGRYp34f0wT21a9us35LyFE0sihH1/mFpxDNfq9pHGRP2JScSXg=
+Received: from MN0P223CA0025.NAMP223.PROD.OUTLOOK.COM (2603:10b6:208:52b::20)
+ by IA3PR10MB8466.namprd10.prod.outlook.com (2603:10b6:208:57f::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.18; Wed, 29 Apr
+ 2026 18:06:56 +0000
+Received: from MN1PEPF0000F0E1.namprd04.prod.outlook.com
+ (2603:10b6:208:52b:cafe::5) by MN0P223CA0025.outlook.office365.com
+ (2603:10b6:208:52b::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.30 via Frontend Transport; Wed,
+ 29 Apr 2026 18:06:56 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ MN1PEPF0000F0E1.mail.protection.outlook.com (10.167.242.39) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9846.18 via Frontend Transport; Wed, 29 Apr 2026 18:06:55 +0000
+Received: from DLEE214.ent.ti.com (157.170.170.117) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 29 Apr
+ 2026 13:06:55 -0500
+Received: from DLEE213.ent.ti.com (157.170.170.116) by DLEE214.ent.ti.com
+ (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 29 Apr
+ 2026 13:06:54 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE213.ent.ti.com
+ (157.170.170.116) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 29 Apr 2026 13:06:54 -0500
+Received: from [10.249.130.12] ([10.249.130.12])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 63TI6kJp3618387;
+	Wed, 29 Apr 2026 13:06:47 -0500
+Message-ID: <472f85bd-42c2-40c6-abfd-b76924797069@ti.com>
+Date: Wed, 29 Apr 2026 23:36:46 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260429-winbond-v6-18-rc1-cont-read-v3-11-0f38b3c229ad@bootlin.com>
-References: <20260429-winbond-v6-18-rc1-cont-read-v3-0-0f38b3c229ad@bootlin.com>
-In-Reply-To: <20260429-winbond-v6-18-rc1-cont-read-v3-0-0f38b3c229ad@bootlin.com>
-To: Mark Brown <broonie@kernel.org>, Richard Weinberger <richard@nod.at>, 
- Vignesh Raghavendra <vigneshr@ti.com>, Michael Walle <mwalle@kernel.org>, 
- Miquel Raynal <miquel.raynal@bootlin.com>, 
- Takahiro Kuwano <takahiro.kuwano@infineon.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>, Ray Liu <ray.liu@airoha.com>, 
- Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>, 
- =?utf-8?q?C=C3=A9dric_Le_Goater?= <clg@kaod.org>, 
- Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
- Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
- Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
- Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- =?utf-8?q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>
-Cc: Pratyush Yadav <pratyush@kernel.org>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Steam Lin <STLin2@winbond.com>, Santhosh Kumar K <s-k6@ti.com>, 
- linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org, 
- linux-stm32@st-md-mailman.stormreply.com
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
+To: Mathieu Poirier <mathieu.poirier@linaro.org>, Shenwei Wang
+	<shenwei.wang@nxp.com>
+CC: Andrew Lunn <andrew@lunn.ch>, Linus Walleij <linusw@kernel.org>, "Bartosz
+ Golaszewski" <brgl@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>, Frank Li
+	<frank.li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, Shuah Khan
+	<skhan@linuxfoundation.org>, "linux-gpio@vger.kernel.org"
+	<linux-gpio@vger.kernel.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Pengutronix Kernel Team
+	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng Fan
+	<peng.fan@nxp.com>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-remoteproc@vger.kernel.org"
+	<linux-remoteproc@vger.kernel.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>
+References: <20260422212849.1240591-1-shenwei.wang@nxp.com>
+ <20260422212849.1240591-4-shenwei.wang@nxp.com>
+ <22fb5fac-2568-42be-a7e3-7e89d0017eb3@ti.com>
+ <PAXPR04MB91850A11C58419C03909145F89362@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <6412a758-4560-4cf1-a0d0-5b24d1a715f1@lunn.ch>
+ <PAXPR04MB9185009A17DFDF3D6C8B44E789362@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <6e01e114-e336-4744-b6b4-563ec42e321b@lunn.ch>
+ <PAXPR04MB9185A098D894B6A6EBCC13F889372@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <afImuoeHolxGgw3H@p14s>
+ <PAXPR04MB9185F2F6DDB55AC56C92D63B89342@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <CANLsYkwvL0Z3+12MD=J+Dc2yAU2T8ypizyG=6AhYoWOh55odHA@mail.gmail.com>
+Content-Language: en-US
+From: "Padhi, Beleswar" <b-padhi@ti.com>
+In-Reply-To: <CANLsYkwvL0Z3+12MD=J+Dc2yAU2T8ypizyG=6AhYoWOh55odHA@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN1PEPF0000F0E1:EE_|IA3PR10MB8466:EE_
+X-MS-Office365-Filtering-Correlation-Id: c4da7dc1-bc50-4a7f-ac85-08dea61a1956
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|376014|7416014|1800799024|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: sTpG513mmtPV2eCja4+6tGGt9jxjB4K6EKDWhjfSCMNupTi4MD1jOApJM1qseaQX1HmX3NyF1Qn8KP59dtcmdrTx5dXgjK91y1gxfeVEpLbNFwf+4eXYuqubm9D/fH2Sj0J8QU461g41/W2kpinqlVKgsvgzmRPBMci5t9yJ9VUudSpenQ0u8o5PAirKB+1fSTZACdeQnSi06IpujBfo6cM0LfvCsz7NH/OJZwDwwlQnJXvcPOgsjvWeQUKdoVJKDfPWSMHsvT8HtNoAk885vvRD71awhlwUW4o6CkOnPgn27x1RosiT6ZPaNCwchmiMzzCT5l2JL03jN0ntKwZIdL27G8xMsZlVBCimtyDT3oog6ssdB5udhE3gmC9zoAiD97tBSeekF+WLn3XjAMYoIaSO2LoRu2PFf3loIHit22SEdjX/2RAY4sni7vbstJjmb8x+YfpmQXC0S9nwS/EpQdbjEtcX1cFu3k+7k0Y0BEyiQtWr5cOboQ6FldT8Osub+uoeI1kzAuYNyOsZytd4H4n8e8dgLBvIpC3A4jBAIWOnWM/KMZmuB6snD1v+EdhnzXCL5yis3mUqDWAGHnv+ampYmYzrdKUwIK67dvzwU/OKd30GRzT1kB6Gz8DmrTTZL4f29q27HOI/cVwl+xuykWEih1VqhboOEqLtpbKNBHXSxbGpf6qir/VUeJcpDJY2u9yftufWvEC/wV2ULU2lLG/URtjCcmuvU4lOQC0LJtM=
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(376014)(7416014)(1800799024)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: eoKduC0g6WVivvCMX7goe+F9AbU7tW8BBx+0JV8d9aNAcOguRAIcZPEExmOuaLGdd+YZBbFr0EtJA19gLW5/HsT8c1qThzICLSGls2+JVYdmlO2lby7oGpWmf6NMQqRH1UYw5ZUbN4sPV7aaCtUEFXFYRqO/8cCtVjnuXN4WsJSeECJz8VceZf9Uve9Lf9TQuapPfombAXXahp4yZEaMriTdSAa/LlAQqfKcrQA/LVAgdYL7epfH58HC+Mo6jp1WxVNuOF2bBizkeDVDddLiAHgu8vFCZik2bVpxAMHg0+XpYdXZuQJfGaendLYn06A6L7Z0UqYHLEjHJzYddI7lTSib4Kpso2Yokdygz17w0KoutAgmcN+h45wDuWY5XNy5CrWclQ9905R2F18tpjQiD7NL31X+7n5YF+4FJBhT/6h7e6X5NJGlptMmFXzh82eW
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Apr 2026 18:06:55.6494
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c4da7dc1-bc50-4a7f-ac85-08dea61a1956
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000F0E1.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA3PR10MB8466
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_185823_397956_50B9B3D2 
-X-CRM114-Status: GOOD (  15.69  )
+X-CRM114-CacheID: sfid-20260429_110703_751837_150FB808 
+X-CRM114-Status: GOOD (  16.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,183 +155,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As for the W35NxxJW family, add support for W25N{01,02}JW continuous
-read support. Similar operations require to be done, such as setting a
-specific bit in a configuration register, and providing a set of read
-variants without the address cycles.
+Hi Mathieu,
 
-As read from cache variants are badly supported by SPI memory
-controllers, we create a new set of read from cache templates with a
-fake address cycle and just enough dummy cycles. There are two
-unsupported configurations (which would require 4.5 dummy bytes), so we
-just do not provide them.
+On 4/29/2026 11:03 PM, Mathieu Poirier wrote:
+> On Wed, 29 Apr 2026 at 10:53, Shenwei Wang <shenwei.wang@nxp.com> wrote:
+>>
+>>
+>>> -----Original Message-----
+>>> From: Mathieu Poirier <mathieu.poirier@linaro.org>
+>>> Sent: Wednesday, April 29, 2026 10:42 AM
+>>> To: Shenwei Wang <shenwei.wang@nxp.com>
+>>> Cc: Andrew Lunn <andrew@lunn.ch>; Padhi, Beleswar <b-padhi@ti.com>; Linus
+>>> Walleij <linusw@kernel.org>; Bartosz Golaszewski <brgl@kernel.org>; Jonathan
+>>> Corbet <corbet@lwn.net>; Rob Herring <robh@kernel.org>; Krzysztof Kozlowski
+>>> <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Bjorn Andersson
+>>> <andersson@kernel.org>; Frank Li <frank.li@nxp.com>; Sascha Hauer
+>>> <s.hauer@pengutronix.de>; Shuah Khan <skhan@linuxfoundation.org>; linux-
+>>> gpio@vger.kernel.org; linux-doc@vger.kernel.org; linux-kernel@vger.kernel.org;
+>>> Pengutronix Kernel Team <kernel@pengutronix.de>; Fabio Estevam
+>>> <festevam@gmail.com>; Peng Fan <peng.fan@nxp.com>;
+>>> devicetree@vger.kernel.org; linux-remoteproc@vger.kernel.org;
+>>> imx@lists.linux.dev; linux-arm-kernel@lists.infradead.org; dl-linux-imx <linux-
+>>> imx@nxp.com>; Bartosz Golaszewski <brgl@bgdev.pl>
+>>> Subject: [EXT] Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
+>>> On Tue, Apr 28, 2026 at 03:24:59PM +0000, Shenwei Wang wrote:
+>>>>
+>>>>> -----Original Message-----
+>>>>> From: Andrew Lunn <andrew@lunn.ch>
+>>>>> Sent: Monday, April 27, 2026 3:49 PM
+>>>>> To: Shenwei Wang <shenwei.wang@nxp.com>
+>>>>> Cc: Padhi, Beleswar <b-padhi@ti.com>; Linus Walleij
+>>>>> <linusw@kernel.org>; Bartosz Golaszewski <brgl@kernel.org>; Jonathan
+>>>>> Corbet <corbet@lwn.net>; Rob Herring <robh@kernel.org>; Krzysztof
+>>>>> Kozlowski <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>;
+>>>>> Bjorn Andersson <andersson@kernel.org>; Mathieu Poirier
+>>>>> <mathieu.poirier@linaro.org>; Frank Li <frank.li@nxp.com>; Sascha
+>>>>> Hauer <s.hauer@pengutronix.de>; Shuah Khan
+>>>>> <skhan@linuxfoundation.org>; linux-gpio@vger.kernel.org; linux-
+>>>>> doc@vger.kernel.org; linux-kernel@vger.kernel.org; Pengutronix
+>>>>> Kernel Team <kernel@pengutronix.de>; Fabio Estevam
+>>>>> <festevam@gmail.com>; Peng Fan <peng.fan@nxp.com>;
+>>>>> devicetree@vger.kernel.org; linux- remoteproc@vger.kernel.org;
+>>>>> imx@lists.linux.dev; linux-arm- kernel@lists.infradead.org;
+>>>>> dl-linux-imx <linux-imx@nxp.com>; Bartosz Golaszewski
+>>>>> <brgl@bgdev.pl>
+>>>>> Subject: [EXT] Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg
+>>>>> GPIO driver
+>>>>>>> struct virtio_gpio_response {
+>>>>>>>          __u8 status;
+>>>>>>>          __u8 value;
+>>>>>>> };
+>>>>>> It is the same message format. Please see the message definition
+>>>>> (GET_DIRECTION) below:
+>>>>>
+>>>>>> +   +-----+-----+-----+-----+-----+----+
+>>>>>> +   |0x00 |0x01 |0x02 |0x03 |0x04 |0x05|
+>>>>>> +   | 1   | 2   |port |line | err | dir|
+>>>>>> +   +-----+-----+-----+-----+-----+----+
+>>>>> Sorry, but i don't see how two u8 vs six u8 are the same message format.
+>>>>>
+>>>> Some changes to the message format are necessary.
+>>>>
+>>>> Virtio uses two communication channels (virtqueues): one for requests and
+>>> replies, and a second one for events.
+>>>> In contrast, rpmsg provides only a single communication channel, so a
+>>>> type field is required to distinguish between different kinds of messages.
+>>>>
+>>>> Since rpmsg replies and events share the same message format, an additional
+>>> line is introduced to handle both cases.
+>>>> Finally, rpmsg supports multiple GPIO controllers, so a port field is added to
+>>> uniquely identify the target controller.
+>>>
+>>> I have commented on this before - RPMSG is already providing multiplexing
+>>> capability by way of endpoints.  There is no need for a port field.  One endpoint,
+>>> one GPIO controller.
+>>>
+>> You still need a way to let the remote side know which port the endpoint maps to, either
+>> by embedding the port information in the message (the current way), or by sending it
+>> separately.
+>>
+> An endpoint is created with every namespace request.  There should be
+> one namespace request for every GPIO controller, which yields a unique
+> endpoint for each controller and eliminates the need for an extra
+> field to identify them.
 
-The same extra value in the ECC is possible as with the W35NxxJW family,
-so we reference the same helper to retrieve the ECC status.
 
-Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
----
-All variants have been validated on a Nuvoton MA35D1 platform.
----
- drivers/mtd/nand/spi/winbond.c | 108 +++++++++++++++++++++++++++++++++++++----
- 1 file changed, 98 insertions(+), 10 deletions(-)
+Right, but this can still be done by just having one namespace request.
+We can create new endpoints bound to an existing namespace/channel by
+invoking rpmsg_create_ept(). This is what I suggested here too:
+https://lore.kernel.org/all/29485742-6e49-482e-b73d-228295daaeec@ti.com/
 
-diff --git a/drivers/mtd/nand/spi/winbond.c b/drivers/mtd/nand/spi/winbond.c
-index ffbcd25b0366..578f702528ee 100644
---- a/drivers/mtd/nand/spi/winbond.c
-+++ b/drivers/mtd/nand/spi/winbond.c
-@@ -46,6 +46,62 @@
- 		   SPI_MEM_OP_DATA_IN(len, buf, 1),			\
- 		   SPI_MEM_OP_MAX_FREQ(freq))
- 
-+#define WINBOND_CONT_READ_FROM_CACHE_1S_1D_1D_OP(ndummy, buf, len, freq) \
-+	SPI_MEM_OP(SPI_MEM_OP_CMD(0x0d, 1),				\
-+		   SPI_MEM_DTR_OP_ADDR(2, 0, 1),			\
-+		   SPI_MEM_DTR_OP_DUMMY(ndummy, 1),			\
-+		   SPI_MEM_DTR_OP_DATA_IN(len, buf, 1),			\
-+		   SPI_MEM_OP_MAX_FREQ(freq))
-+
-+#define WINBOND_CONT_READ_FROM_CACHE_1S_1S_2S_OP(ndummy, buf, len, freq) \
-+	SPI_MEM_OP(SPI_MEM_OP_CMD(0x3b, 1),				\
-+		   SPI_MEM_OP_ADDR(1, 0, 1),				\
-+		   SPI_MEM_OP_DUMMY(ndummy - 1, 1),			\
-+		   SPI_MEM_OP_DATA_IN(len, buf, 2),			\
-+		   SPI_MEM_OP_MAX_FREQ(freq))
-+
-+#define WINBOND_CONT_READ_FROM_CACHE_1S_2S_2S_OP(ndummy, buf, len, freq) \
-+	SPI_MEM_OP(SPI_MEM_OP_CMD(0xbb, 1),				\
-+		   SPI_MEM_OP_ADDR(1, 0, 2),				\
-+		   SPI_MEM_OP_DUMMY(ndummy - 1, 2),			\
-+		   SPI_MEM_OP_DATA_IN(len, buf, 2),			\
-+		   SPI_MEM_OP_MAX_FREQ(freq))
-+
-+#define WINBOND_CONT_READ_FROM_CACHE_1S_2D_2D_OP(ndummy, buf, len, freq) \
-+	SPI_MEM_OP(SPI_MEM_OP_CMD(0xbd, 1),				\
-+		   SPI_MEM_DTR_OP_ADDR(1, 0, 2),			\
-+		   SPI_MEM_DTR_OP_DUMMY(ndummy - 1, 2),			\
-+		   SPI_MEM_DTR_OP_DATA_IN(len, buf, 2),			\
-+		   SPI_MEM_OP_MAX_FREQ(freq))
-+
-+#define WINBOND_CONT_READ_FROM_CACHE_1S_1S_4S_OP(ndummy, buf, len, freq) \
-+	SPI_MEM_OP(SPI_MEM_OP_CMD(0x6b, 1),				\
-+		   SPI_MEM_OP_ADDR(1, 0, 1),				\
-+		   SPI_MEM_OP_DUMMY(ndummy - 1, 1),			\
-+		   SPI_MEM_OP_DATA_IN(len, buf, 4),			\
-+		   SPI_MEM_OP_MAX_FREQ(freq))
-+
-+#define WINBOND_CONT_READ_FROM_CACHE_1S_1D_4D_OP(ndummy, buf, len, freq) \
-+	SPI_MEM_OP(SPI_MEM_OP_CMD(0x6d, 1),				\
-+		   SPI_MEM_DTR_OP_ADDR(1, 0, 1),			\
-+		   SPI_MEM_DTR_OP_DUMMY(ndummy - 1, 1),			\
-+		   SPI_MEM_DTR_OP_DATA_IN(len, buf, 4),			\
-+		   SPI_MEM_OP_MAX_FREQ(freq))
-+
-+#define WINBOND_CONT_READ_FROM_CACHE_1S_4S_4S_OP(ndummy, buf, len, freq) \
-+	SPI_MEM_OP(SPI_MEM_OP_CMD(0xeb, 1),				\
-+		   SPI_MEM_OP_ADDR(1, 0, 4),				\
-+		   SPI_MEM_OP_DUMMY(ndummy - 1, 4),			\
-+		   SPI_MEM_OP_DATA_IN(len, buf, 4),			\
-+		   SPI_MEM_OP_MAX_FREQ(freq))
-+
-+#define WINBOND_CONT_READ_FROM_CACHE_1S_4D_4D_OP(ndummy, buf, len, freq) \
-+	SPI_MEM_OP(SPI_MEM_OP_CMD(0xed, 1),				\
-+		   SPI_MEM_DTR_OP_ADDR(1, 0, 4),			\
-+		   SPI_MEM_DTR_OP_DUMMY(ndummy - 1, 4),			\
-+		   SPI_MEM_DTR_OP_DATA_IN(len, buf, 4),			\
-+		   SPI_MEM_OP_MAX_FREQ(freq))
-+
- #define WINBOND_CONT_READ_FROM_CACHE_1S_1S_8S_OP(ndummy, buf, len, freq) \
- 	SPI_MEM_OP(SPI_MEM_OP_CMD(0x8b, 1),				\
- 		   SPI_MEM_OP_ADDR(1, 0, 1),				\
-@@ -133,6 +189,20 @@ static SPINAND_OP_VARIANTS(read_cache_dual_quad_dtr_variants,
- 		SPINAND_PAGE_READ_FROM_CACHE_FAST_1S_1S_1S_OP(0, 1, NULL, 0, 0),
- 		SPINAND_PAGE_READ_FROM_CACHE_1S_1S_1S_OP(0, 1, NULL, 0, 54 * HZ_PER_MHZ));
- 
-+static SPINAND_OP_VARIANTS(cont_read_cache_dual_quad_dtr_variants,
-+		WINBOND_CONT_READ_FROM_CACHE_1S_4D_4D_OP(11, NULL, 0, 80 * HZ_PER_MHZ),
-+		WINBOND_CONT_READ_FROM_CACHE_1S_1D_4D_OP(5, NULL, 0, 80 * HZ_PER_MHZ),
-+		WINBOND_CONT_READ_FROM_CACHE_1S_4S_4S_OP(7, NULL, 0, 0),
-+		WINBOND_CONT_READ_FROM_CACHE_1S_4S_4S_OP(6, NULL, 0, 104 * HZ_PER_MHZ),
-+		WINBOND_CONT_READ_FROM_CACHE_1S_1S_4S_OP(4, NULL, 0, 0),
-+		WINBOND_CONT_READ_FROM_CACHE_1S_2D_2D_OP(6, NULL, 0, 80 * HZ_PER_MHZ),
-+		/* The 1S_1D_2D variant would require 4.5 dummy bytes, this is not possible */
-+		WINBOND_CONT_READ_FROM_CACHE_1S_2S_2S_OP(5, NULL, 0, 0),
-+		WINBOND_CONT_READ_FROM_CACHE_1S_2S_2S_OP(4, NULL, 0, 104 * HZ_PER_MHZ),
-+		WINBOND_CONT_READ_FROM_CACHE_1S_1S_2S_OP(4, NULL, 0, 0),
-+		/* The 1S_1D_1D variant would require 4.5 dummy bytes, this is not possible */
-+		WINBOND_CONT_READ_FROM_CACHE_FAST_1S_1S_1S_OP(4, NULL, 0, 0));
-+
- static SPINAND_OP_VARIANTS(read_cache_variants,
- 		SPINAND_PAGE_READ_FROM_CACHE_1S_4S_4S_OP(0, 2, NULL, 0, 0),
- 		SPINAND_PAGE_READ_FROM_CACHE_1S_1S_4S_OP(0, 1, NULL, 0, 0),
-@@ -445,11 +515,25 @@ static int w25n0xjw_hs_cfg(struct spinand_device *spinand,
- 	if (iface != SSDR)
- 		return -EOPNOTSUPP;
- 
-+	/*
-+	 * At this stage, we do not yet know the continuous read template, nor
-+	 * if there is going to be one. Let's assume the continuous read
-+	 * template will be selected with the same heuristics as the buffered
-+	 * read variant, as there cannot be a HS configuration mismatch between
-+	 * them.
-+	 */
- 	op = spinand->op_templates->read_cache;
- 
- 	return w25n0xjw_set_sr4_hs(spinand, w25n0xjw_op_needs_hs(op));
- }
- 
-+static int w25n0xjw_set_cont_read(struct spinand_device *spinand, bool enable)
-+{
-+	u8 mask = enable ? 0 : WINBOND_CFG_BUF_READ;
-+
-+	return spinand_upd_cfg(spinand, WINBOND_CFG_BUF_READ, mask);
-+}
-+
- static int w35n0xjw_write_vcr(struct spinand_device *spinand, u8 reg, u8 val)
- {
- 	struct spi_mem_op op = SPINAND_OP(spinand, winbond_write_vcr,
-@@ -580,12 +664,14 @@ static const struct spinand_info winbond_spinand_table[] = {
- 		     SPINAND_ID(SPINAND_READID_METHOD_OPCODE_DUMMY, 0xbc, 0x21),
- 		     NAND_MEMORG(1, 2048, 64, 64, 1024, 20, 1, 1, 1),
- 		     NAND_ECCREQ(1, 512),
--		     SPINAND_INFO_OP_VARIANTS(&read_cache_dual_quad_dtr_variants,
--					      &write_cache_variants,
--					      &update_cache_variants),
-+		     SPINAND_INFO_OP_VARIANTS_WITH_CONT(&read_cache_dual_quad_dtr_variants,
-+							&write_cache_variants,
-+							&update_cache_variants,
-+							&cont_read_cache_dual_quad_dtr_variants),
- 		     SPINAND_HAS_QE_BIT,
--		     SPINAND_ECCINFO(&w25n01jw_ooblayout, NULL),
--		     SPINAND_CONFIGURE_CHIP(w25n0xjw_hs_cfg)),
-+		     SPINAND_ECCINFO(&w25n01jw_ooblayout, w25w35nxxjw_ecc_get_status),
-+		     SPINAND_CONFIGURE_CHIP(w25n0xjw_hs_cfg),
-+		     SPINAND_CONT_READ(w25n0xjw_set_cont_read)),
- 	SPINAND_INFO("W25N01KV", /* 3.3V */
- 		     SPINAND_ID(SPINAND_READID_METHOD_OPCODE_DUMMY, 0xae, 0x21),
- 		     NAND_MEMORG(1, 2048, 96, 64, 1024, 20, 1, 1, 1),
-@@ -624,12 +710,14 @@ static const struct spinand_info winbond_spinand_table[] = {
- 		     SPINAND_ID(SPINAND_READID_METHOD_OPCODE_DUMMY, 0xbf, 0x22),
- 		     NAND_MEMORG(1, 2048, 64, 64, 1024, 20, 1, 2, 1),
- 		     NAND_ECCREQ(1, 512),
--		     SPINAND_INFO_OP_VARIANTS(&read_cache_dual_quad_dtr_variants,
--					      &write_cache_variants,
--					      &update_cache_variants),
-+		     SPINAND_INFO_OP_VARIANTS_WITH_CONT(&read_cache_dual_quad_dtr_variants,
-+							&write_cache_variants,
-+							&update_cache_variants,
-+							&cont_read_cache_dual_quad_dtr_variants),
- 		     SPINAND_HAS_QE_BIT,
--		     SPINAND_ECCINFO(&w25m02gv_ooblayout, NULL),
--		     SPINAND_CONFIGURE_CHIP(w25n0xjw_hs_cfg)),
-+		     SPINAND_ECCINFO(&w25m02gv_ooblayout, w25w35nxxjw_ecc_get_status),
-+		     SPINAND_CONFIGURE_CHIP(w25n0xjw_hs_cfg),
-+		     SPINAND_CONT_READ(w25n0xjw_set_cont_read)),
- 	SPINAND_INFO("W25N02KV", /* 3.3V */
- 		     SPINAND_ID(SPINAND_READID_METHOD_OPCODE_DUMMY, 0xaa, 0x22),
- 		     NAND_MEMORG(1, 2048, 128, 64, 2048, 40, 1, 1, 1),
+My mental model looks like this for the complete picture:
 
--- 
-2.53.0
+1. namespace/channel#1 = rpmsg-io
+    a. ept1 -> gpio-controller@1
+    b. ept2 -> gpio-controller@2
+
+2. namespace/channel#2 = rpmsg-i2c
+    a. ept1 -> i2c@1
+    b. ept2 -> i2c@2
+    c. ept3 -> i2c@3
+
+etc...
+
+This way device groups are isolated with each channel/namespace, and
+instances within each device groups are also respected with specific
+endpoints.
+
+Thanks,
+Beleswar
 
 
