@@ -4,93 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2309AFF8867
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 04:17:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64EB7FF8867
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 04:18:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S+wgx278PuWohl1935Byl8WX7gkc8WHJmkUS4pGdFI4=; b=jZAlsPhgltQkHfJd2EV91VEz+V
-	Ax86z3NI8M/9S3Fwqp6gYCGhH47dQ2pbev2HyhQl1Lo7zmsqEjh+3u6Njfsc0g00JJbbRY9ix/x+v
-	3WqUCsmOsOyo0ftPDJYsPNgrMg+XTUUbAqmWVMkZ/jR8hzAFZU0rDzIXvPzMvKVGLtYP8mLu9UVv2
-	m3/z53yFRsndXAPz5rtX/tNDiousPDI//3HfjD3AGmKeHdOS6zq6Z/W2My4l92WU0LDfQOeyoQudd
-	UNap0aqUaYOIXcB/XyqggKdWstkOR9x7QCMqUA/7/WFik3CBGAkPnoidGohbnInwJXok3cdsfc052
-	VsdEKe3g==;
+	bh=OGT5/UW9QnYnxFplrWMvYfyGjM/y+JrwSoKrwJn5UdU=; b=tkovDNsWkYtqWVWIBx3MO/iPVP
+	icIaEdGAVrj/+kIhGVyKm88F26rW9/BZ6z3KBimsLgdxkxoeGV+nv0MX0alEiz55Aby8Yr5KJcp3O
+	Wr8Hmx8AEylBA9bObZIkHizL5FzQq1x+nQR7VUH5Fx+xYxT5jbofy8LxJvbywOaQ7nXejTsShx5XE
+	PNko3dzga2uvS+Oku7+rucc2Kg16rPBuPmCuArFFGu2RFA2iQK6v/DqM0SzoI9gOAFkrXPswK5TLd
+	cIaDGPUBp4hIUEPvYvzmrMbNXHb4J09mPJz951gkODULDWDdRm7kGy2S05KrD3zyXO+/9rwJM8eiD
+	VjanzqEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHwMY-00000002ukE-3WSh;
-	Wed, 29 Apr 2026 04:17:26 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1wHwN4-00000002uqg-2oDS;
+	Wed, 29 Apr 2026 04:17:58 +0000
+Received: from mail-lj1-x231.google.com ([2a00:1450:4864:20::231])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHwMV-00000002ujX-2IuS
+	id 1wHwN2-00000002upK-1g3I
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 04:17:25 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-5a41099fa86so10722624e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 21:17:22 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1777436241; cv=none;
+	Wed, 29 Apr 2026 04:17:57 +0000
+Received: by mail-lj1-x231.google.com with SMTP id 38308e7fff4ca-38ce0ab821cso103705591fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 21:17:55 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1777436274; cv=none;
         d=google.com; s=arc-20240605;
-        b=lJPGF4e/92IfCx9VxJ/YgpC9k5YR1w7ry0lO7vG1Pr0JFtQzxZKHPafTDJTBBp0tyd
-         XHMIxtL6QLrkQte/9b64qjZLirbTpDYlJW2gnJxs1qofXfTVgLa9MNROztmeJvAsr6k/
-         0Fb/PwMxdPE8jU4efqEKIsc0VIWM6Ww4Rd+jHHz09sSunslR5wN3vCu37G6HrfEFNGYW
-         QYkAuxFe99DSc98CUznvuejIBa/tOBXmeLB06rq2DrEGZt0YnuabIQISw224nFTtB6Il
-         L/3xJn1kZYPYdkBgjGBoq9ZFDid2+p6F0wbvXHnLb0Enp3kR89MHyBCju8ZXSp61pSce
-         QU4A==
+        b=FFJL3iEeCvYx1CasoxkkwSPOvBOf4Oq69LYcrAExABWb/Q5XH2HRbkctapq9c4rJV9
+         fKIdXWllrPTZBVgX4t7xN7GPUjSLOWSF6MlemyQv21bZBP0jDRj+9PA7X087DANOZOpO
+         HUJKqrDCabale4XjbOSEgntogolboejzn4gdAdmQMdJ63i7M1j6cgff+rWI/b8aCmhTI
+         YOBcQhpX+Y66pJr0VxshO7a/6XVW1ANGeytzgjZEGtpniQLqf1T4yFJzfWvxijSRteH3
+         72cZQ8kveM0DRZ/2M1/MsKoJIfF5mlMnw5JO1zdeZRHxffesYh9UADYlO82MNHuJ74/g
+         ta7A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=S+wgx278PuWohl1935Byl8WX7gkc8WHJmkUS4pGdFI4=;
-        fh=p2RbnjG3ig7mr/bwaCQEtDMQV7UeTfEqqSuLLDyq6wM=;
-        b=e/1JnFhVupzx5Y+p2gjZSQZF50UBXEZ9d8oEb8iQEtzYJ2YRKk3Jecec5Dr3ddqA+E
-         tCXRHz2eqa2CXTblrYF90il8skj0LdqY830UUk8Jx6Hr/5vTj+Dz6L8lJuzIcWsuFzYW
-         1riowDe4DENJZEyLhT6sSIB3vZJErZZsSs1uWKVf4RU2osCSyouQQJHA7U+w/2BbBvw5
-         yqoQENiJsckD/7lafv8uT5vhhAmFtbObYvvd61H9aRP10kSGd++Ox1fpFsD9cWVobE1G
-         6NFp3y8xJGiZeQMFvVvXKOEq8xxI0YGg68XKHDDZ9ywoXmHpfJEBlZAX0VXzZYfn6Bnf
-         wb3w==;
+        bh=OGT5/UW9QnYnxFplrWMvYfyGjM/y+JrwSoKrwJn5UdU=;
+        fh=OXg9v7yO/KA3DQwU8vOI8MFsyi31/V+GexKhZTljU8M=;
+        b=Cpk9EYpK6VceN0LkNQfFx0DKhyxAJ1ftatLMYtxw/0ciWXHWj8WzGMChxqIqBDCjB0
+         NwSOAGu/xUxnAnWukeZNaBimeet0RbJmihJvoC+ZL1pW91v0dQnw9Y8wV8JI/7qStXfa
+         owo7glSWfc19ctbxmhpa+B809p94r1C0bjExgA+kzvStVzVswZZ0JwHoSeGzUq5AeHoD
+         5PR/bPPH4xEBH12ehymTsUmF+m9J1ZepYEMlN0zEmW+onw1Lb5mycfMEuzGtSH1JMvPA
+         d2BZ5rpGnsfRWdHrqyvT6vP56F8yVUKUlLjfY8iBq0deJMp+S5MqHmskvAyU1d2pMwbC
+         CEyw==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1777436241; x=1778041041; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1777436274; x=1778041074; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=S+wgx278PuWohl1935Byl8WX7gkc8WHJmkUS4pGdFI4=;
-        b=a4SXGlDip4ZzTX0GoARm+IXGC9z2oiZFHRsf11xQfKuh9m3x1nJlwm/79AJfSB4+ng
-         DzXV0XTAuUTXDPu3JvhVLpw5KvZCXPDpqw871mnkpcsvtZEvjlSsRHfKvUFOlOOIT7f9
-         aYZ1ufTd/sTWy9lRvWrtkfXCZ/4Ds43VyUJL8=
+        bh=OGT5/UW9QnYnxFplrWMvYfyGjM/y+JrwSoKrwJn5UdU=;
+        b=QXBgtZeppanZk8FGUN4wLqJ8E3U8s6E89VLTQdKRkcjDLIcpUfM1ms5qMkuGoPYqnO
+         Ea0RU1iUEKiRe/7qX0wNRP65RQy5IafWnFr/JfGZE+BGuRiGgih2Z5EMCN2tGhvAytIE
+         3TFRjko7mjyD2oFROAqDhUA6fsZZvPTZiXmZQ=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777436241; x=1778041041;
+        d=1e100.net; s=20251104; t=1777436274; x=1778041074;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=S+wgx278PuWohl1935Byl8WX7gkc8WHJmkUS4pGdFI4=;
-        b=YGV+aJDyfDP3h9qUYBmcS+w1ena7UJRFJU+F8nLcrBGl0MHu+X9rD94XmzkdFhc1Rj
-         lb/MnDY0fj94aQM2WlwLX/Pjn86Un6HLu8HaHMdyVMwk7GqFAojaxsFT16D+3AJLmIxq
-         IFaHTg/K882MEql1evtdBuNM1bt5BvjGeddbiAc85wgWm15fFUMXlKQz9G+WaUtMVVCt
-         aysMAI/cTst/k7ceY4SOQFt2YkaGchU6ZDQ7YqMBShXm4n73US5EN/eXmhJxc3Qqvn9J
-         akjrMqI+3z8eC/rfh7ECWLfIfzCYnP/WjNouSjIbjLjdLHLhl02piVr9a1+8S7Qy6ody
-         0S+Q==
-X-Forwarded-Encrypted: i=1; AFNElJ83KnT23NKQtLlU7ZGMvtVpwJ+60MOLPSYCjLDRTe+rr04NBaB3I66Jra61fefAGXHvVYJf4wf3/qQuDzN4SvO5@lists.infradead.org
-X-Gm-Message-State: AOJu0YxR8Thrk+dzWVED63HrptZgF7EmQ4sQdV3J43Uh5sDHs34x+ki5
-	Q27yDfDOa9/ncYwMDXVeW15345UCI6zTvBqs4UXWxYXQeZC696SCP8VYyZA13YfFRemfAop7nBe
-	iqV5bkKAkOJ2UnhRBzyyfwSBc82vU800ZTXM0o2CI
-X-Gm-Gg: AeBDieu9YS8Gsf8PGOgl5FpYb7ACjdSMReqTNf0gSMypJi/R4717lEhP3mgqL4VVPOy
-	bqqQaMG04yFmf7xyUc+pYczKBzRJ2ApeJ3VlDehiwwUgDvdG2U3csZyBF7up14Io2DZ4yEGxMfA
-	rYjTyj5uCtIZykQ4SRNUbJyxRqjBaEGQ4ff6yL4c5eCgFH2W5PttKZzRzfBrVIMD/E9NMIOvT3Z
-	X2X/rR+5tP4lz1HpTBLv9YYDUV5+3ETHbID3X+W3ozPjX24g67hW7hgrGAybXkBFxuY9lO8WYp2
-	I3NniOnEKGF9M7hAvw==
-X-Received: by 2002:a05:6512:3983:b0:5a2:836a:ca47 with SMTP id
- 2adb3069b0e04-5a746623733mr2096698e87.20.1777436240634; Tue, 28 Apr 2026
- 21:17:20 -0700 (PDT)
+        bh=OGT5/UW9QnYnxFplrWMvYfyGjM/y+JrwSoKrwJn5UdU=;
+        b=f2ysPb+9jjd65WdAIY9pUKK1S9K3wy0NgfcqZDlXAcfxQwh1L/x6AmM4hO7mdjFjpU
+         dY7w+lv6cJloc+d0LqJ0Tl82tbk3+LYqNHCxGoVf78nU/wzInLmBbe5jdCJn/2ixpnLu
+         9h6oLEuyfT2YwhAAsYAPXb1DfT/FVTWpeAuUqhxoeXjjypW1bbo9+SDHq7QDsE2XeP63
+         JaCPqoXgvC45flrN2lrz6/Eo6pR3IvwexVbD8ydnA8w7TI65xspES/Y2A8jAPqxIrWui
+         62uUOhJHUYb1YizT1edfhNFyxeOTeFl972PPWFZ4iSCfVjpVqpsPxVmyDWATdlPTCo4i
+         mxZw==
+X-Forwarded-Encrypted: i=1; AFNElJ/KQsbDVW+/ta7qQYp2ulW1xDufZvKSWRfAIx0j3gfqR9M64uintiOIB9cSu5qwZe1W6L4RvE08VBpgl2EO0Gql@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx70G2RopFfpsp+AuAVdfcuYOMP8G7q3fpteeuL6PdD3gvI6VNo
+	ra4tcvnGKPU4fpPAEL63sS10UPg1Rxf1CkhoHhev2EwF3mbSAx+qgLWUA/oGPA+0ioCLEPHZ6EU
+	RrPWMW3n/K+HQykscVjgrow46XZYtDxqAwHZtt1qi
+X-Gm-Gg: AeBDiesVF7eO9kgofVpBQeHQ5IWoSUwSIliUy+3RuxxDY5BtuT5pMDpE+MWcdLbA1Nj
+	l9FZAo+KuZIvo8a5TXzQiYR+pGaXSEYUD55kQLh1+tUnJ/Yf/5tahEH8WGYQTHlqdtHWLwGeE13
+	7DofROcX6tYxpezNucuFsSY32w9l+Ne14QNchd2JO3sMgus3h5krLOvNCwy56BxjI3sYmXRpk/a
+	v+8M29E3zR7Vsor7CvPVZmCQh1Pp5ahMOLT1Ia+2cszr/D/ZTeU6o0isMeNEjCollBu4bY7r0ck
+	ZM9XOwZ9U5OvDzmkmg==
+X-Received: by 2002:a05:6512:3b21:b0:5a7:46f1:d96a with SMTP id
+ 2adb3069b0e04-5a749cf6fd8mr890120e87.13.1777436274082; Tue, 28 Apr 2026
+ 21:17:54 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260428200712.2660635-1-briannorris@chromium.org> <20260428200712.2660635-6-briannorris@chromium.org>
-In-Reply-To: <20260428200712.2660635-6-briannorris@chromium.org>
+References: <20260428200712.2660635-1-briannorris@chromium.org> <20260428200712.2660635-2-briannorris@chromium.org>
+In-Reply-To: <20260428200712.2660635-2-briannorris@chromium.org>
 From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Wed, 29 Apr 2026 13:17:09 +0900
-X-Gm-Features: AVHnY4JUF2jGqzImUjvVT0R20VSVC4ANB99NMBVznnvWckelDQ9DcqAgZCUM5q8
-Message-ID: <CAGXv+5FZ0kTqrqWEu8AX_1cxtEQD0urr=FJO=Van20h75_Z1Xw@mail.gmail.com>
-Subject: Re: [PATCH 5/7] arm64: dts: mediatek: Add #{address,size}-cells to
+Date: Wed, 29 Apr 2026 13:17:42 +0900
+X-Gm-Features: AVHnY4JKvPmufJ1LEj4mzB6PnqIoSu-1P7-pbmF9YGak1q31h2Rrygv9WVJBRdY
+Message-ID: <CAGXv+5EPpB92d=ttP9ezOipL6=bC6WYpQakkd5L-weDjLpkrFA@mail.gmail.com>
+Subject: Re: [PATCH 1/7] arm64: dts: rockchip: Add #{address,size}-cells to
  Chromium-based /firmware
 To: Brian Norris <briannorris@chromium.org>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -109,8 +109,8 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_211723_684861_4C2FAB52 
-X-CRM114-Status: GOOD (  17.57  )
+X-CRM114-CacheID: sfid-20260428_211756_465344_88EA0F59 
+X-CRM114-Status: GOOD (  18.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,19 +132,36 @@ org> wrote:
 > to a system's DTB under a /firmware node. A typical DT looks something
 > like the following:
 >
-> / {
->         firmware {
->                 ranges;
+>   ## From a RK3399 Gru/Kevin Chromebook:
+>   # find /sys/firmware/devicetree/base/firmware
+>   /sys/firmware/devicetree/base/firmware
+>   /sys/firmware/devicetree/base/firmware/coreboot
+>   /sys/firmware/devicetree/base/firmware/coreboot/ram-code
+>   /sys/firmware/devicetree/base/firmware/coreboot/compatible
+>   /sys/firmware/devicetree/base/firmware/coreboot/board-id
+>   /sys/firmware/devicetree/base/firmware/coreboot/reg
+>   /sys/firmware/devicetree/base/firmware/coreboot/name
+>   /sys/firmware/devicetree/base/firmware/chromeos
+>   /sys/firmware/devicetree/base/firmware/chromeos/readonly-firmware-versi=
+on
+>   /sys/firmware/devicetree/base/firmware/chromeos/active-ec-firmware
+>   /sys/firmware/devicetree/base/firmware/chromeos/firmware-version
+>   /sys/firmware/devicetree/base/firmware/chromeos/nonvolatile-context-sto=
+rage
+>   /sys/firmware/devicetree/base/firmware/chromeos/vboot-shared-data
+>   /sys/firmware/devicetree/base/firmware/chromeos/nonvolatile-context-siz=
+e
+>   /sys/firmware/devicetree/base/firmware/chromeos/nonvolatile-context-off=
+set
+>   /sys/firmware/devicetree/base/firmware/chromeos/hardware-id
+>   /sys/firmware/devicetree/base/firmware/chromeos/compatible
+>   /sys/firmware/devicetree/base/firmware/chromeos/firmware-type
+>   /sys/firmware/devicetree/base/firmware/chromeos/fmap-offset
+>   /sys/firmware/devicetree/base/firmware/chromeos/name
+>   /sys/firmware/devicetree/base/firmware/ranges
+>   /sys/firmware/devicetree/base/firmware/name
 >
->                 coreboot {
->                         compatible =3D "coreboot";
->                         reg =3D <...>;
->                         ...;
->                 };
->         };
-> };
->
-> Notably, the /firmware node has an empty 'ranges', but does not have
+> The /firmware node has an empty 'ranges', but does not have
 > address/size-cells.
 >
 > Commit 6e5773d52f4a ("of/address: Fix WARN when attempting translating
