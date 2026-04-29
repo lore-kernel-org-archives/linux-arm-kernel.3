@@ -4,62 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DF2EFF8867
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 04:33:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE29CFF8867
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 04:34:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FGYvPm9EHDvM5n3fqTyYcFJ3LWlrFBgOIhuNZO+Di+4=; b=YpTwif0xrUu7+DlVz14YARbON7
-	TQq9p6FOBnlXO+BH7c5B5PAhdfc/E7WcBAHWLs9S6QCz/MvPsSS+QKgRi118AeRwZey0UQcu9Ho5D
-	OS84NXDl/Ag64aa9KBx7B36/r1uJPdXvKSWyy+2TbK3qzD2+Lvo7F2j0hKibtBHn1jttabIc/mErj
-	mTmS8skeG2yfBb1BNRPCs/twQTxvFktS5vSWtTfd2P9oXLVKWKgCyWpb1ZL5iR5ISXHWBYnQvgAUC
-	RtwUruunlLdnsOP36Gj17ls6tlPAcf2i3VYUNY6z29gLcpk/aPbqZEj6uGF+6mi0mAGNkuQ5vaWnp
-	f/trE9Xg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IY+u3f1fDqQPle01cBWyGkYBl0QGzDm2Kd0ogLXs2uk=; b=gJ5TaYUYBHXDgJXbfaEw0k3xOw
+	gK3P7Cb+95B7mm2mPavQRIlGMNmX/xrB2oxQ3d3HBujQ2tH69j13j/Ea1AbG1QCvRchLdhc6/mb3E
+	/vpVv7LCd7RNfcoFe/vRJpslsXwnrF8wW3DbzIUFlu3jHPVQ/y1ywOcYMuxsox5pHcp/smXIfqAjC
+	x93QqCRihQBIaIeMZeOmk07eKyXR8Qqi8mJ+WKaeiYURf7XecfDhfTbz0Kay05DwhrzgqcOByOADB
+	ioFqIziMGIa5AzQknhIvP6xDMrX+T91q3a/IDYnmGkqv5VHsXZinfTHDZEfeSlNg/M8kXVGy+32v1
+	fk0YKfkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHwbg-00000002w6l-1CdM;
-	Wed, 29 Apr 2026 04:33:04 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wHwcw-00000002wER-33Mz;
+	Wed, 29 Apr 2026 04:34:22 +0000
+Received: from mail-southcentralusazon11012069.outbound.protection.outlook.com ([40.93.195.69] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHwbf-00000002w6Z-1Zuy
+	id 1wHwcu-00000002wDx-1Wlq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 04:33:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 721456015B;
-	Wed, 29 Apr 2026 04:33:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04192C19425;
-	Wed, 29 Apr 2026 04:33:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777437182;
-	bh=zL4sgyuJMxIsM2E2dtPOAZjNBTFqu4lmyQnSOXu4cHU=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=P2PATKTGF+1qIQ2DmnHxv66NG8Lq++QfeuVie9RJG+XQby9F+tsEleIRWhaphKwE9
-	 Rh6dG9WJjUsH6hILTBAYHUjPCCoQbJ3yiVQuoxU/VsPU8mBGzy5GLNKTsOcK5Zy36K
-	 /YSLfqW/9LzQYmA/VOCtvfnJZmUkCR/xpKwolTo4bDQl4nwOfmFzWWVXXNwWV2X+gf
-	 iRYcYBG/ojU9SA7BZMDgKQZjF/JTQ6nQVjJsCKfDH1/7+oL8LPs4LKQwJVo4PRJQmO
-	 HvK+fo2NBY1ixC/Pv23AYHQHBwal1zRQYjuUsHCppLprXpGDVeVa0NPZp2IpgCBv2v
-	 hG3UNwWjDX4eQ==
-Date: Tue, 28 Apr 2026 23:33:00 -0500
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+	Wed, 29 Apr 2026 04:34:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tKrKevH+EtyMelljyYoFzk47psTMuf3fxbI+HaRkdhvcAaNIIpIOB+s5hF1P+bZtmg/M1ZYkovCsbSCBu5GzXEdB6dJ4eTpVuq6SAwySOGh5PKf8guisPEI1smffaogIWqY4s9x3qwxvy5QeE98l4OcFnq9hUKkquM5z0aRzWp06skTktBI4vjbQHyfyixUezUG6KFjZQgk1RPGMqlf3+dIe78gABeu6c73HAXm8xsZXVeVtZL2/APkR0fvKsf7PGTcMbDZqW9F2tOURcB7Rz/lftb2y9HX4WzgQ4UscMubIJfMm7hl5e+Fj7TCohECaavtQ7tP5MtpOg/IMje2i7Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IY+u3f1fDqQPle01cBWyGkYBl0QGzDm2Kd0ogLXs2uk=;
+ b=YBa8HLffpi8nsQ0j7GXV74RTLMlkxmS5+GwZt5G7c2LNsr7rOiQNr/vVmCcEeO9eNRLHZUcLmKior6inZ15awcRZVr92rJGbmHdx/rQ7NJC+O20IGS+RkPlBoc0ToOqYUWO4G6XhCW1C83w73MPXu6ftetPpDVMAh7ayvZ8MhcR7WYBf1/P18JAMGMJ46Pf7HPgsJCuRMik2PWVkbs6d180iflWrBaJlVA9ZL4Z84QefgmVHEzMYVKaw+RGZGV8MiRKgovH9gsi8WsptwyLpxOJ5Yjexl87qxBNPA+vYN7ijaiFpYcQIHUGILWoIf6QcXlVFTCY20nmcgIK76u4dHQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IY+u3f1fDqQPle01cBWyGkYBl0QGzDm2Kd0ogLXs2uk=;
+ b=noueqMT9+I1NjzHz/S8Mb0RjvlJYqc3q+H6cyuugokZsPgovw4NOLXX9H11zHMTLc2m6mLuAEhnFHv1OxTpfXuLqo8G4A7J7LYp7s3lYv7VW5lRUN5BJnI0xMlKm0gxizcNxUNwDT8fwk14Pjt964i+pnKP9DXWDRHHh3KZwVCo=
+Received: from SA1P222CA0082.NAMP222.PROD.OUTLOOK.COM (2603:10b6:806:35e::29)
+ by SJ0PR10MB5892.namprd10.prod.outlook.com (2603:10b6:a03:422::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Wed, 29 Apr
+ 2026 04:34:10 +0000
+Received: from SN1PEPF00026368.namprd02.prod.outlook.com
+ (2603:10b6:806:35e:cafe::a) by SA1P222CA0082.outlook.office365.com
+ (2603:10b6:806:35e::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.30 via Frontend Transport; Wed,
+ 29 Apr 2026 04:34:10 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ SN1PEPF00026368.mail.protection.outlook.com (10.167.241.133) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9846.18 via Frontend Transport; Wed, 29 Apr 2026 04:34:10 +0000
+Received: from DLEE200.ent.ti.com (157.170.170.75) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 28 Apr
+ 2026 23:34:00 -0500
+Received: from DLEE205.ent.ti.com (157.170.170.85) by DLEE200.ent.ti.com
+ (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 28 Apr
+ 2026 23:34:00 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE205.ent.ti.com
+ (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 28 Apr 2026 23:34:00 -0500
+Received: from [172.24.233.103] (uda0132425.dhcp.ti.com [172.24.233.103])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 63T4XtD22593536;
+	Tue, 28 Apr 2026 23:33:56 -0500
+Message-ID: <1fb0739e-b84f-42f1-9c96-88b5cc5866a8@ti.com>
+Date: Wed, 29 Apr 2026 10:03:55 +0530
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: imx@lists.linux.dev, peng.fan@nxp.com, mathieu.poirier@linaro.org, 
- mingkai.hu@nxp.com, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-remoteproc@vger.kernel.org, 
- Zhiqiang.Hou@nxp.com, festevam@gmail.com, kernel@pengutronix.de, 
- Frank.Li@nxp.com, linux-arm-kernel@lists.infradead.org, 
- andersson@kernel.org, s.hauer@pengutronix.de
-To: Jiafei Pan <Jiafei.Pan@nxp.com>
-In-Reply-To: <20260429031047.30893-2-Jiafei.Pan@nxp.com>
-References: <20260429031047.30893-1-Jiafei.Pan@nxp.com>
- <20260429031047.30893-2-Jiafei.Pan@nxp.com>
-Message-Id: <177743718015.3571544.12237368801599782841.robh@kernel.org>
-Subject: Re: [PATCH v2 1/5] dt-bindings: remoteproc: add imx-rproc-psci
- binding
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1] pmdomain: ti_sci: re-sync TIFS with genpd on resume
+To: Vitor Soares <ivitro@gmail.com>, Nishanth Menon <nm@ti.com>, Tero Kristo
+	<kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>, Ulf Hansson
+	<ulfh@kernel.org>
+CC: Vitor Soares <vitor.soares@toradex.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, Tomi Valkeinen
+	<tomi.valkeinen@ideasonboard.com>, Kevin Hilman <khilman@baylibre.com>,
+	<vishalm@ti.com>, <sebin.francis@ti.com>, <d-gole@ti.com>, Devarsh Thakkar
+	<devarsht@ti.com>, <stable@vger.kernel.org>
+References: <20260427074808.3244226-2-ivitro@gmail.com>
+From: Vignesh Raghavendra <vigneshr@ti.com>
+Content-Language: en-US
+In-Reply-To: <20260427074808.3244226-2-ivitro@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF00026368:EE_|SJ0PR10MB5892:EE_
+X-MS-Office365-Filtering-Correlation-Id: bc2d188b-2548-48e4-4f8a-08dea5a88f17
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|82310400026|7416014|376014|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: XdmNYrxRb9RPT0sPIGYQ09FBHGwiIU6QwJC7fQ68ZhKotgZ5OdZCAHiYikbV7bTrIAdajOrT8Lc0pdUVJ9YukSgW3MW+pFkLXrmDqsi6QjdF73ocWWKexD7ftzr+9UiJ7bFcj12A1tuTbbX6WbJb54+rVWsMWhNZ5/KEvG9Fov8bKK3SaErVs4dXKdxwyIOKiSKmMMvN37lOaNAJpMN12CtBgXMSwfSh53eGv4WVZ2K3h5RX1XYTaxvA/Z6JGV7Naxc0r7U/6M2NNzul5LEhMB4TGCYH2oIwV37lIuTAjYnUWgtuWWj6l5P01FB4KGBhLJLcZxAIromwW1lsvlVMR2z5YrJ6YuQnHHWhGf6aBNMb9HZtw2UUcy448frzAi9V1jNf8DTukXri/lFjklJ31eFyBfTY7oENqgwqiY0XOi+11NliD6owP8fF0AqW3vQ4JDDT1Qun5GJSL6Bl1R6ltWP1yIcMjU22161I6CoA0lTEDrFGVfWwN+THJ+JntCfGgQUJlX/R0Oh4i7M+w4fXNjLpsSSI5PUti/IV0eRI+K3abj0RBfE8nLkzPvkDWlGhkfH1R/HDIV4eVD2LpV5qZrFgSTR6cbXphJn4ThzvW/4MalXtJfQVDPfKxLUjh11zGP9IJ63O8BoOa3W8j5XhPXLydn9Xkz1ra6tZ2NA8r5aZ22yIYJxIs089rGVTIHYNxRAg2jYWEwYCzxNBTWopjUQGNSGwHU8NgMK0MSjB30cbcxe1WNB14DzS/dow9wW/olPrWn+kpZ3CzWq3Qs5AbA==
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(82310400026)(7416014)(376014)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: qYrEgTddHZC/QA+BrhgIxUGms0jaDK9lOJlRzOKPkQyL464aIj6ra0xEBAh9Fy4zFoTcTgDA7AIvSVje3fsTsu0chTfDP3xS/PXi93m+tzf/SuSiPxkUpBksGUZqoC3zzpnufs+AJgNl3cRcVGbnC6tyjv858cl3mgjhQZBLELJF7kzVscPF50KN5VP3OxAUiaAc/jPn8ytl0dDePeUxF8/J/E7Y6PLMBrLxx8I5e3D6Vvmfl7bTzhcw/AJdr1HDoSzp9KoVV7f6CPzAguiAXqIAO7cgWdwnVVISor+0P/RY7aX+8niDtUe36mAb6rf0bX0XBBJ3b+ucXyop06VGqGvufzV/PHde/7E0O3GZF5PYJQFWIV3Rc9rF2B85hhOGzhw1Y9ZLGOqdVE0vgQROei6MCnhikOv7q2sV25lAsE5tm+vJBayz1CCne5bZ0Ce2
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Apr 2026 04:34:10.6266
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: bc2d188b-2548-48e4-4f8a-08dea5a88f17
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF00026368.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB5892
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260428_213420_429926_BF5D7498 
+X-CRM114-Status: GOOD (  15.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,56 +136,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Vitor
 
-On Wed, 29 Apr 2026 11:10:43 +0800, Jiafei Pan wrote:
-> Add compatible string "fsl,imx-rproc-psci" for i.MX Cortex-A Core's
-> remoteproc support.
+On 27/04/26 13:18, Vitor Soares wrote:
+> From: Vitor Soares <vitor.soares@toradex.com>
 > 
-> Signed-off-by: Jiafei Pan <Jiafei.Pan@nxp.com>
+> When a device in a TI SCI power domain is on the wakeup path of a
+> wakeup-capable child, the suspend path skips genpd_sync_power_off().
+> No put_device is sent to TIFS and the domain's genpd status remains
+> ON.
+
+Correction of terminologies: TIFS is Root of trust component and is not
+usually involved in power management, that would be DM (Device Manager)
+
+But to be really sure who is doing what, Could you provide an example
+and the platform on which you see the issue / external abort?
+
+
+> 
+> TIFS powers off the hardware during deep sleep regardless, since it
+> was never informed to keep the domain active. On resume, because the
+> domain's genpd status is ON, no get_device is issued. The driver
+> then accesses registers of a powered-off domain, causing a
+> synchronous external abort (AXI bus error, ESR 0x96000010).
+
+Hmm, if something is wakeup source, I would expect even TIFS/DM not to
+turn if off, else module wakeup wouldn't work.
+
+> 
+> Commit 0b5fe1c4ab3c ("pmdomain: ti-sci: Set PD on/off state according
+> to the HW state") exposed this. Before, domain status was initialized
+> to OFF, so get_device was always issued on resume.
+> 
+> Add a .resume hook that queries the domain's state from TIFS and
+> re-syncs TIFS with get_device when genpd has it ON but TIFS has it
+> OFF. The hook is only registered when the is_on op is available,
+> since detection depends on it.
+> 
+> Move ti_sci_pm_pd_is_on() earlier in the file so it is available to
+> the resume hook.
+> 
+> Fixes: 0b5fe1c4ab3c ("pmdomain: ti-sci: Set PD on/off state according to the HW state")
+> Cc: stable@vger.kernel.org # 6.18+
+> Signed-off-by: Vitor Soares <vitor.soares@toradex.com>
 > ---
->  .../remoteproc/fsl,imx-rproc-psci.yaml        | 64 +++++++++++++++++++
->  1 file changed, 64 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc-psci.yaml
-> 
 
-My bot found errors running 'make dt_binding_check' on your patch:
+[...]
 
-yamllint warnings/errors:
-
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc-psci.yaml: properties:fsl,cpus-bits: '$ref' should not be valid under {'const': '$ref'}
-	hint: Standard unit suffix properties don't need a type $ref
-	from schema $id: http://devicetree.org/meta-schemas/core.yaml
-Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc-psci.example.dts:8.9-16: Warning (ranges_format): /reserved-memory:ranges: empty "ranges" property but its #size-cells (2) differs from / (1)
-Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc-psci.example.dts:5.21-14.7: Warning (avoid_default_addr_size): /reserved-memory: Relying on default #address-cells value
-Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc-psci.example.dts:5.21-14.7: Warning (avoid_default_addr_size): /reserved-memory: Relying on default #size-cells value
-Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc-psci.example.dtb: Warning (unique_unit_address_if_enabled): Failed prerequisite 'avoid_default_addr_size'
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc-psci.example.dtb: /: 'compatible' is a required property
-	from schema $id: http://devicetree.org/schemas/root-node.yaml
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc-psci.example.dtb: /: 'model' is a required property
-	from schema $id: http://devicetree.org/schemas/root-node.yaml
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc-psci.example.dtb: /: '#address-cells' is a required property
-	from schema $id: http://devicetree.org/schemas/root-node.yaml
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc-psci.example.dtb: /: '#size-cells' is a required property
-	from schema $id: http://devicetree.org/schemas/root-node.yaml
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc-psci.example.dtb: remoteproc-ca55-1 (fsl,imx-rproc-psci): fsl,cpus-bits: 2 is not of type 'array'
-	from schema $id: http://devicetree.org/schemas/property-units.yaml
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.kernel.org/project/devicetree/patch/20260429031047.30893-2-Jiafei.Pan@nxp.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+-- 
+Regards
+Vignesh
+https://ti.com/opensource
 
 
