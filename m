@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46393FF8864
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 07:05:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C339FF8864
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 07:06:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5wmE7eZuFEsoqa1hFnJmQEgaojhgWItkNTkqFJX/EKQ=; b=VnL1DmpdzS3dweOqyt8/M3wSAs
-	gr/fbTZGvj1wsFOWwa1FjB4v6YHdnGbzXoMqqFIx5UsdoCDkaiM3rAJY+pDXt9ytBswJ3HFVooomF
-	uMr56FCefnT0vqq6QP84AqR4sQEWwQnBfF0qAcBRT+W+ByeNZp6uzHFjQavYIWUsgNA8hrIuwiytx
-	jY7C7DwUAZ90BfhY72tACCVYPOrdCiJG31f2/aH0jC8fgSRk54Clc7WejVI8iU2O2uUlrfC7WKuBz
-	0oJT+qGOCiEMFCo8UhUH6dZQnaxDcFxNsqU5EOFDPU/P8sqhqJhV4CL2LTAXWcuDJqsxOTEhJoRtr
-	uFpwOSZw==;
+	bh=RvR5qpuGiebPTe8QW20ePgj0DHY0XljJOQzI3ZxxFjo=; b=pm7YIujJkqJRfFug/ee3dFzUnj
+	TuL8svCC5zVMh48nF6mXgg8aA04m4MoHgPekCDDYiM+AKQ8vRbvriPbI9rwZ2xzh+8rLwctk1sGcG
+	iK92jtu/lJMCdnunJaPgyX1OarIbqj7gJcwhVOBijdrOBJAv2J5+080yC6yp9shYYmj6GIqD4feUM
+	/w908fnZtJgE67WtJ6LlCp44kvgCwsacuNTnppgyvzQpMmZWPYfzB/C8Iuy1ofwn96k08RVxy2Gaq
+	uF6uixtIlTQdug1b9fcJVbR4N/pPL1JqucG4vBPuU4SjEI+jGuiabU5+X9bPP+O6NhT2lRay43Piw
+	kuR1jNSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHyz1-000000037P9-3YJj;
-	Wed, 29 Apr 2026 07:05:19 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wHyzh-000000037Uk-0qy8;
+	Wed, 29 Apr 2026 07:06:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHyz0-000000037Oz-347g
+	id 1wHyzf-000000037UK-0GoP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 07:05:18 +0000
+	Wed, 29 Apr 2026 07:06:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BB12660582;
-	Wed, 29 Apr 2026 07:05:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 568B0C19425;
-	Wed, 29 Apr 2026 07:05:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2B248400AB;
+	Wed, 29 Apr 2026 07:05:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 012A9C19425;
+	Wed, 29 Apr 2026 07:05:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777446317;
-	bh=tekpG0JmFfQozQtZtGgqXdIYTzCMZ+6syZyF/7rm6p4=;
+	s=k20201202; t=1777446358;
+	bh=iBYAZ54Xl05eTg3Q9/tfNnTPc4BMLVfNxU4hsbPGzlk=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Bs3ONiOk81lYl3IOG5CmjyKiuOe7xwPirGhuyY1iyFddFxYJxt9RBNzWWvd1YKPpe
-	 o5XTPekxk83+UW1aeB4j/H7rwjJHpCs6MXmznxJo9ReVxpI+no0CTzpFfZJMJ7J8FJ
-	 mdFu4nkMp3NecAvU0I8aR67GO+TgHkHr0YRjU6o94Vsowk5lqT70xh09/02wz446PF
-	 fb5hgZTIL+v/0Y0D0FLtnll/nzScKfqICiby0WufxV7Eqybmakl+1LK390mH8akm6i
-	 VvPW4RVf4iArchj/VCktwvgaq4TMDjsa1932BB+roXChfV9JtCfHiJudOrpHUFC3Gp
-	 +5aBU5m9fPCVw==
-Message-ID: <0d67a9a7-74b5-48a3-b685-39d2fa669c78@kernel.org>
-Date: Wed, 29 Apr 2026 09:05:12 +0200
+	b=MJbb/CavEMwOsMgyn9EOwEoM1OeIU4+lMlAsQEcNpff3cglR8KrvUnk5n1EoybRVG
+	 Pztb0E1qP6rp/QrVCmyMcjfDcooaP9j/lVSm5gUB8q38l+6vaKoJyqLw3p748qfAm1
+	 b4bOcfjv0EogYMJjLV/eQH/WsIn7q2gnBUe/AvOt4XZ4RGW9n11l0m0GlnVTK52J8r
+	 PX2wQG3nTP8X0l0FfaNiw52irnpzOrslVerWf5jEk39K5GCx7c1PoOYkFHAhNalXrX
+	 m8uYc5iBqnRkBQSjKn1c+NcBM9VcyLmnxD7kZFp0IhXiq/NANRS/I78DQkvrs/UoEQ
+	 UM+2CRgbjpp8A==
+Message-ID: <3ddf533b-e023-4982-8ba0-0963b9d72c5c@kernel.org>
+Date: Wed, 29 Apr 2026 09:05:53 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/5] dt-bindings: remoteproc: add imx-rproc-psci binding
+Subject: Re: [PATCH 2/5] drivers: remoteproc: imx: add support for Cortex-A
+ Core
 To: Jiafei Pan <Jiafei.Pan@nxp.com>, andersson@kernel.org,
  mathieu.poirier@linaro.org, peng.fan@nxp.com, Frank.Li@nxp.com,
  s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
@@ -54,7 +55,7 @@ To: Jiafei Pan <Jiafei.Pan@nxp.com>, andersson@kernel.org,
  linux-kernel@vger.kernel.org
 Cc: Zhiqiang.Hou@nxp.com, mingkai.hu@nxp.com
 References: <20260428090819.17761-1-Jiafei.Pan@nxp.com>
- <20260428090819.17761-2-Jiafei.Pan@nxp.com>
+ <20260428090819.17761-3-Jiafei.Pan@nxp.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,9 +101,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260428090819.17761-2-Jiafei.Pan@nxp.com>
+In-Reply-To: <20260428090819.17761-3-Jiafei.Pan@nxp.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260429_000559_146917_DF14111C 
+X-CRM114-Status: UNSURE (   6.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,72 +123,13 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 28/04/2026 11:08, Jiafei Pan wrote:
-> Add compatible string "fsl,imx-rproc-psci" for i.MX Cortex-A Core's
-> remoteproc support.
-
-A nit, subject: drop second/last, redundant "binding". The "dt-bindings"
-prefix is already stating that these are bindings.
-See also:
-https://elixir.bootlin.com/linux/v6.17-rc3/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
+> Add Cortex-A Core remoteproc support, it use PSCI and SIP SMC call
+> to manage Cortex-A Core to be on or off.
+> 
+> Signed-off-by: Jiafei Pan <Jiafei.Pan@nxp.com>
 
 
-Please use scripts/get_maintainers.pl to get a list of necessary people
-and lists to CC. It might happen, that command when run on an older
-kernel, gives you outdated entries. Therefore please be sure you base
-your patches on recent Linux kernel.
-
-Tools like b4 or scripts/get_maintainer.pl provide you proper list of
-people, so fix your workflow. Tools might also fail if you work on some
-ancient tree (don't, instead use mainline) or work on fork of kernel
-(don't, instead use mainline). Just use b4 and everything should be
-fine, although remember about `b4 prep --auto-to-cc` if you added new
-patches to the patchset.
-
-You missed at least devicetree list (maybe more), so this won't be
-tested by automated tooling. Performing review on untested code might be
-a waste of time.
-
-Please kindly resend and include all necessary To/Cc entries.
-
-Not doing full review - lack of usage of tools disqualifies the patchset
-for review to me.
-
-> +
-> +examples:
-> +  - |
-> +    / {
-> +        reserved-memory {
-> +            #address-cells = <2>;
-> +            #size-cells = <2>;
-> +            ranges;
-> +
-> +            rtos_ca55_reserved: rtos-ca55@d0000000 {
-> +                reg = <0 0xd0000000 0 0x10000000>;
-> +                no-map;
-> +            };
-> +        };
-
-Drop all above, I am pretty sure this will have failures, so test ALL
-BINDINGS.
-
-> +
-> +        remoteproc-ca55-1 {
-
-Node names should be generic. See also an explanation and list of
-examples (not exhaustive) in DT specification:
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
-If you cannot find a name matching your device, please check in kernel
-sources for similar cases or you can grow the spec (via pull request to
-DT spec repo).
-
-
-> +            compatible = "fsl,imx-rproc-psci";
-> +            /* bitmask: 0b10, assign A55 Core 1 */
-> +            fsl,cpus-bits = <0x2>;
-> +            memory-region = <&rtos_ca55_reserved>;
-> +        };
-> +    };
-
+Why do you use subject prefix "drivers:"?
 
 Best regards,
 Krzysztof
