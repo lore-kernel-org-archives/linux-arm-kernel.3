@@ -4,96 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E676DFF887E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 22:35:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5AF7FF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 22:47:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+QdR822Oh+h/wb6tFT1ZtMo5BW1zB1OWiICj47LJjjk=; b=XeTM6QYsVfX7XdTdN/Ct+K79ur
-	Arb7I4s0RV1U1HpAObOC4oeGSc7lx6yOtXFlMV355iAbpw5ipxwx4ilmiCYSTWgaIZuer3p4bDs/w
-	jusRRF6AiYG8ODJVnMp+KzCmN+zg1yTlecEynulQAfK8ttX8MjwRofzlGt+bo1CUrsQOkYblYE7uJ
-	Up7UDQOD4efK/aCCvSOWZXV9qp6VxihFLuPPXGovkwnxHFjCzBqkcYQdjjwWL3+w0ktDA9v2w7OBx
-	3sXXVL2yBtuhmDGyHewGp3SHYj/gV17GJO5NLniT+7h55vuOVDrwbqreoErhaYm7wYrSyy7Rd/fBv
-	dgXaHG7g==;
+	bh=wqNKCeyUYF9KWGCcnKzNyPUhOdM5wDMY1RTineHLakg=; b=Q3gabzQ4cH5Qhse1hwTt9rq5jA
+	a2dGJe9kP+cHiOsqY2kyzwBY7FUnnnD5y/EGloCjH0F7OjT9FSl4YyGp2T4TDkW17OVE5jO2m8x/m
+	VvGNE6as5gvftq52RTkl86jTUH9WJLvcF/ErEIGfQF7NRRGPSfbLuc7fEmcT4QLxej2A6m18hgSHF
+	TpzOuvFEBXNkO33n8F3D1I2OtgyTamXoFHDMDo3SsBacRNS5fIcs1L9DkX/KOiaFGo+2JTQp7R7GO
+	fyjfXpbrQatGyNxopDelaBSfCIhlH9VbbG1iU5euoirsr6l+60kjvkM3sdFvf7FltcZNl7P1zpKK5
+	QODIse/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIDVC-00000004HI8-1clA;
-	Wed, 29 Apr 2026 22:35:30 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1wIDgg-00000004HtG-129j;
+	Wed, 29 Apr 2026 22:47:22 +0000
+Received: from omta38.uswest2.a.cloudfilter.net ([35.89.44.37])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIDVA-00000004HH1-0QLk
+	id 1wIDgd-00000004Hsk-2ojR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 22:35:29 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-35da2d35eccso155456a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 15:35:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777502126; x=1778106926; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=+QdR822Oh+h/wb6tFT1ZtMo5BW1zB1OWiICj47LJjjk=;
-        b=VMrMR/CbX381epuUubeK6pgr2EthfopJVy+e2qWhIiFdZHPa+DLSjE0dJXBaMBfeWh
-         /RlcgAmG+i57CnA5a5QSQcA5df3/oUOS+ij98PB8FDJKyvX8HWuiCAWMuxy6veA8Mvxg
-         RSW1CrjaOmT1khxl88ktj3xqpOgUBFr0LoQoeWkH7jnzdE/BL6xhK798/yUCDD2FCWsL
-         U0G/ukwKPM9BBzAxVnuSEUmBLY1zh0vTomacWYqGlJ6vFhQMnZaqY/nMyF0y91X8pb6p
-         LXPWJJJnNSd3HGRdi/4rIXtxILKLnclG3ie8PeTh1ASaUgNdQ4/+gvaYI4DrPexoQX1V
-         l1hg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777502126; x=1778106926;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=+QdR822Oh+h/wb6tFT1ZtMo5BW1zB1OWiICj47LJjjk=;
-        b=gxJdCvJr4HAF04qDxnD+IlHW2nIBar2AtD1J5h9y47QAybwFQNexRxGjc/xCdCBupf
-         hSWMg7771GfVAGTzGWwNYJU9gG4GdB2fxPHk7e2gacshSQ5PzE3mLN7z/JPIkRzJ5DTa
-         BnoOh9M1/7dfJ1gectZ+F8OoHDEUbNzijj34nE9WSB0L1vtIgR4Uhm2vYU5PiBIiJCVk
-         NdHmqw09oTF0HBtJeBY3MR2jf1s8Og5xgN8k3xPvnmf9fIk6OoOcN/ZgIVQvSSTCt6Sk
-         3qgTp/ifdhpVmCa49BsSyq/ghRX1s1YzU7u3pMQNXjuACW2Dsnm1McX3HqOe51owxMvx
-         fz5A==
-X-Forwarded-Encrypted: i=1; AFNElJ/p2FO2OMVQ1OvfZ9PCvg2wsyqHLROffTyo354pxffGDEHxNeIdIfx6mln93qajA12gg7Cuc7hJhV/RdPhTe/JX@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3tP1g5JFa/HKStdy+oW0bHdSwv+UpTFQ6fNOMtgaXzEI+O6mB
-	q5KXadaGisaNLbsFiJoilVuQyuYn9NZSoB18EURyWilfSFl0lHblBKcU
-X-Gm-Gg: AeBDieutZD3rdFm6319hQT6wryY9JOE54MQPvFNwc1uTR3QdGcEEv6GtkoP0a+jGjkh
-	i2MocqzJl+wy8VqELfvaNSnFoK7R7E8BsyQ+LBH7Ew4205JLZd4mni0EI5cEbFxWIqKJIGMQnKT
-	34ZxRF+MCBegEn46ZeSR0OriiEqYp6DxcmaNGCLisIvoA3L3b0S7NhHPH9yE5z4r3s49XRH+6pI
-	c7LKCeCrxV6ADHgcukhl8h1PvfakfozFOI29wrkxL4ZctbcU3FgoJKZOb+7QG8chf4xJk2HmXi/
-	YJ6BaMah2Xbpz2zUb1UsJ5F9cy/C8XqMZwahh4Qctp1JNnWm4uQABF3Glx2C+sCsYgPpSOSLH11
-	y5Q73+BqOLE38rdUO75l5ihJmMyNQIF2qxG3g+PdOsha73Ru1nErZMYg322Efatd8wGa7MueGKu
-	Td8pk1z51cP1U2IvkUOpfk0aGuzKKS0tNAYia6/jFmyzhvffP96w==
-X-Received: by 2002:a17:90b:3505:b0:35b:e690:c5ad with SMTP id 98e67ed59e1d1-364c310b735mr183471a91.25.1777502126475;
-        Wed, 29 Apr 2026 15:35:26 -0700 (PDT)
-Received: from [172.30.1.27] ([222.106.243.217])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-364bdf69bc2sm649418a91.10.2026.04.29.15.35.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 29 Apr 2026 15:35:25 -0700 (PDT)
-Message-ID: <097b96b4-9a43-404d-b06e-9b087a37dec4@gmail.com>
-Date: Thu, 30 Apr 2026 07:35:22 +0900
+	Wed, 29 Apr 2026 22:47:21 +0000
+Received: from eig-obgw-6005b.ext.cloudfilter.net ([10.0.30.162])
+	by cmsmtp with ESMTPS
+	id ICf1w2XBbjw8YIDgPwH3Gt; Wed, 29 Apr 2026 22:47:05 +0000
+Received: from gator4166.hostgator.com ([108.167.190.91])
+	by cmsmtp with ESMTPS
+	id IDgNwrFSp7GclIDgNwHl5v; Wed, 29 Apr 2026 22:47:03 +0000
+X-Authority-Analysis: v=2.4 cv=T6KMT+KQ c=1 sm=1 tr=0 ts=69f28a67
+ a=vY9Mjuda9oMEc2E4Cx1x2A==:117 a=vY9Mjuda9oMEc2E4Cx1x2A==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=7T7KSl7uo7wA:10 a=VwQbUJbxAAAA:8
+ a=P1BnusSwAAAA:8 a=PHKDr0J8e_G5cKxf1GUA:9 a=QEXdDO2ut3YA:10
+ a=D0XLA9XvdZm18NrgonBM:22 a=2aFnImwKRvkU0tJ3nQRT:22
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=embeddedor.com; s=default; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=wqNKCeyUYF9KWGCcnKzNyPUhOdM5wDMY1RTineHLakg=; b=lAUS+CFUPPdU60AN2e+W2W/R5/
+	fD7XNhjoGBt+b3bub9TvdSDxZnCFkK624N6r8YeEj7MOgN1bcpP05iayQPbAqK18vLU7OT6uDMdIf
+	8/Y/O9KjWDvcgEuDWD+7kNCe1yVTXLfypFiPFhnkI4I65fbgqW1VbVJ0IcfgvT9iE9zSDtiCVMy1x
+	9QRKIB69ydD2kA6igr6f7eR2oxD1KRu7J042rdLTyQqrWgTlvdg9+2eoNaJ8WVqFRmhhJxBozdVNR
+	b6lj5OpkEsY8w6fwBGdk7P4Trq5H4XzVZJNB0QAHhl/AwMF9RAZsd/0CcvJk6L+pQlt/PZPVQXHg/
+	vOC/JyKQ==;
+Received: from [177.238.19.10] (port=36338 helo=[192.168.0.36])
+	by gator4166.hostgator.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.99.1)
+	(envelope-from <gustavo@embeddedor.com>)
+	id 1wIDgL-00000000Vqp-3tbR;
+	Wed, 29 Apr 2026 17:47:02 -0500
+Message-ID: <fbc749e6-10ce-43c2-8985-020322ba4900@embeddedor.com>
+Date: Wed, 29 Apr 2026 16:46:48 -0600
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] devfreq: event: rockchip-dfi: fix missing
- clk_disable_unprepare() on error
-Content-Language: ko
-To: Anas Iqbal <mohd.abd.6602@gmail.com>, Chanwoo Choi
- <cw00.choi@samsung.com>, MyungJoo Ham <myungjoo.ham@samsung.com>,
- Heiko Stuebner <heiko@sntech.de>
-Cc: Kyungmin Park <kyungmin.park@samsung.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Jonathan Cameron <Jonathan.Cameron@huawei.com>, linux-pm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260319163011.18876-1-mohd.abd.6602@gmail.com>
-From: Choi Chanwoo <cwchoi00@gmail.com>
-In-Reply-To: <20260319163011.18876-1-mohd.abd.6602@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH][next] media: xilinx: Avoid -Wflex-array-member-not-at-end
+ warning
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Michal Simek <michal.simek@amd.com>, linux-media@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-hardening@vger.kernel.org,
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+References: <afJiL-iZ4QbJ5v12@kspp>
+ <20260429202449.GA132396@killaraus.ideasonboard.com>
+ <20260429202801.GB132396@killaraus.ideasonboard.com>
+Content-Language: en-US
+From: "Gustavo A. R. Silva" <gustavo@embeddedor.com>
+In-Reply-To: <20260429202801.GB132396@killaraus.ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - gator4166.hostgator.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - embeddedor.com
+X-BWhitelist: no
+X-Source-IP: 177.238.19.10
+X-Source-L: No
+X-Exim-ID: 1wIDgL-00000000Vqp-3tbR
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: ([192.168.0.36]) [177.238.19.10]:36338
+X-Source-Auth: gustavo@embeddedor.com
+X-Email-Count: 4
+X-Org: HG=hgshared;ORG=hostgator;
+X-Source-Cap: Z3V6aWRpbmU7Z3V6aWRpbmU7Z2F0b3I0MTY2Lmhvc3RnYXRvci5jb20=
+X-Local-Domain: yes
+X-CMAE-Envelope: MS4xfFykytCLuJuEnZjBIv0KH2snyYenwqZHQslxgM6XpVpc6fZRx8sXIrenVW+MRrOtnFQQonCZLWH3o63lGOZLBWgjLU8xXnHSbn58kccfKW3LH0VR29Te
+ mbQ6UaLSJQEVps8NGN20kceGWrA61xjvshQf+ZWGVE2mdwTUGypn8+mHBFBTJ9rd1xWlgDZTsyLyD0zXNUm3rvDhJf5mpX37Fct92aYACzL4JQov/Z9pca4F
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_153528_137180_BBEB9C36 
-X-CRM114-Status: GOOD (  17.81  )
+X-CRM114-CacheID: sfid-20260429_154720_585129_1019B716 
+X-CRM114-Status: GOOD (  13.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,42 +116,71 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-2026-03-20 AM 1:30에 Anas Iqbal 이(가) 쓴 글:
-> Smatch reports:
-> drivers/devfreq/event/rockchip-dfi.c:215 rockchip_dfi_enable() warn:
-> 'dfi->clk' from clk_prepare_enable() not released.
-> 
-> If rockchip_dfi_ddrtype_to_ctrl() fails after clk_prepare_enable(),
-> the clock is not disabled, leading to a resource leak.
-> 
-> Add clk_disable_unprepare() in the error path to properly release
-> the clock.
-> 
-> Fixes: d724f4a4581b ("PM / devfreq: rockchip-dfi: Prepare for multiple users")
-> Signed-off-by: Anas Iqbal <mohd.abd.6602@gmail.com>
-> ---
->  drivers/devfreq/event/rockchip-dfi.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/devfreq/event/rockchip-dfi.c b/drivers/devfreq/event/rockchip-dfi.c
-> index 5e6e7e900bda..8db0bceeded4 100644
-> --- a/drivers/devfreq/event/rockchip-dfi.c
-> +++ b/drivers/devfreq/event/rockchip-dfi.c
-> @@ -185,8 +185,10 @@ static int rockchip_dfi_enable(struct rockchip_dfi *dfi)
->  	}
->  
->  	ret = rockchip_dfi_ddrtype_to_ctrl(dfi, &ctrl);
-> -	if (ret)
-> +	if (ret) {
-> +		clk_disable_unprepare(dfi->clk);
->  		goto out;
-> +	}
->  
->  	for (i = 0; i < dfi->max_channels; i++) {
->  
+On 4/29/26 14:28, Laurent Pinchart wrote:
+> I forgot to ask, how do you want to get this merged? Will you collect
+> all similar patches and send a tree-wide pull request, or should they be
+> merged by individual subsystems ? In the latter case, Tomi, could you
+> please handle this with other Xilinx patches ?
 
-Applied it.
+You folks can take this in your tree. :)
 
-Thanks,
-Chanwoo Choi
+Thanks!
+-Gustavo
+
+> 
+> On Wed, Apr 29, 2026 at 11:24:50PM +0300, Laurent Pinchart wrote:
+>> CC'ing Tomi Valkeinen.
+>>
+>> On a side note, Tomi, can I send a patch to add you to the "XILINX VIDEO
+>> IP CORES" section of MAINTAINERS ?
+>>
+>> On Wed, Apr 29, 2026 at 01:55:27PM -0600, Gustavo A. R. Silva wrote:
+>>> -Wflex-array-member-not-at-end was introduced in GCC-14, and we are
+>>> getting ready to enable it, globally.
+>>>
+>>> Use the TRAILING_OVERLAP() helper to fix the following warning:
+>>>
+>>> drivers/media/platform/xilinx/xilinx-dma.h:99:41: warning: structure containing a flexible array member is not at the end of another structure [-Wflex-array-member-not-at-end]
+>>>
+>>> This helper creates a union between a flexible-array member (FAM)
+>>> and a set of members that would otherwise follow it. This overlays
+>>> the trailing members onto the FAM while preserving the original
+>>> memory layout.
+>>>
+>>> Lastly, the static_assert() ensures the alignment between the FAM
+>>> and struct data_chunk sgl; is not inadvertently changed, and it's
+>>> intentionally placed inmediately after the related structure (that
+>>> is, no blank line in between).
+>>>
+>>> Signed-off-by: Gustavo A. R. Silva <gustavoars@kernel.org>
+>>
+>> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+>>
+>>> ---
+>>>   drivers/media/platform/xilinx/xilinx-dma.h | 9 +++++++--
+>>>   1 file changed, 7 insertions(+), 2 deletions(-)
+>>>
+>>> diff --git a/drivers/media/platform/xilinx/xilinx-dma.h b/drivers/media/platform/xilinx/xilinx-dma.h
+>>> index 18f77e1a7b39..65f6147ff6c6 100644
+>>> --- a/drivers/media/platform/xilinx/xilinx-dma.h
+>>> +++ b/drivers/media/platform/xilinx/xilinx-dma.h
+>>> @@ -96,9 +96,14 @@ struct xvip_dma {
+>>>   
+>>>   	struct dma_chan *dma;
+>>>   	unsigned int align;
+>>> -	struct dma_interleaved_template xt;
+>>> -	struct data_chunk sgl;
+>>> +
+>>> +	/* Must be last as it ends in a flexible-array member. */
+>>> +	TRAILING_OVERLAP(struct dma_interleaved_template, xt, sgl,
+>>> +		struct data_chunk sgl;
+>>> +	);
+>>>   };
+>>> +static_assert(offsetof(struct xvip_dma, xt.sgl) ==
+>>> +	      offsetof(struct xvip_dma, sgl));
+>>>   
+>>>   #define to_xvip_dma(vdev)	container_of(vdev, struct xvip_dma, video)
+>>>   
+> 
+
 
