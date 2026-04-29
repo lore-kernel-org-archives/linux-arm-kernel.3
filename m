@@ -4,106 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E793DFF8875
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 00:30:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01067FF887E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 01:06:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Z8qrnrVCeVc0HrgkfQjkwuL6GmTTzRhQcFlk/a/CQc=; b=SoMhTrqI3HYi4m6Z2gCkXQd/UW
-	dp+a/P8I3LtVWxuXTSPW5p2cnTMUNbOZvAV66Xeu8qaOYhrAquN35SaIPJjIhN5i6mUD/uD8X1fK+
-	ygsVNxDZyTCvRAiK89mkaxiEZoaBl7enmIi15JD/lvWzZILtWpd0IMK7GQwM54Ioi0hrh5nYAF2Es
-	VM4k6aXmRY6e5W0CN8nNsBokmLkivNpZ0E3Vw8FSyRx+Dt4VLxkkO4rgbgZyzcUvn8ERXs3FD/a1I
-	nsPTLTK6NA0q3kgsUUHklqnjnqFLTgpPAqYSQZvaFpl/R6CoHgUschtJqK20+BJHDi+EUO7R9VtSH
-	tO/Jf8Zw==;
+	bh=8aJgie6zMTtvjn865beHqyfVSRNxA89z4rM6r8PB1kg=; b=06A0jhro90vs68nRDA7duuEuoA
+	5n6RPjbq7t0KUVzMQOXWe/gacznuVcruw7e/WoX6H/wsvuTZVI6i925jFfBf/rEMXDKsvufV1ZWRD
+	PC5uEd/XLk7SeLmxGl99fODOK8Kj6VsBz0nwg3k8xQuqNZagUWugL/epT3Oxj3DLhZNiR3W64Li6n
+	XeM5Mx69s+MpC4QWMNDLXQP5eRfhk79L2Mx/iUjL/ucQYSzJt5tNbvnHTbc8yuYsThHBJiP4CTG3H
+	FIxHwqxlRaFT3RSc3Dn+lxq85Uxjs6AW1uKuLFaX8a0PrjdkfQv7QwBPqYxLMYJOewL/z6/4OCOuV
+	py4ZzNbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHsoV-00000002fOj-1tTb;
-	Wed, 29 Apr 2026 00:30:03 +0000
-Received: from mail-dy1-x1329.google.com ([2607:f8b0:4864:20::1329])
+	id 1wHtNm-00000002gqC-3VWG;
+	Wed, 29 Apr 2026 01:06:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHsoS-00000002fNy-3LLy
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 00:30:02 +0000
-Received: by mail-dy1-x1329.google.com with SMTP id 5a478bee46e88-2b4520f6b32so17417892eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 17:29:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777422599; x=1778027399; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=+Z8qrnrVCeVc0HrgkfQjkwuL6GmTTzRhQcFlk/a/CQc=;
-        b=ggGVTyd7nlR4yuYHyjRydgva3UeSXPcku5/Aq7TCOrDkiMhujd+m9pCbUYeewGd8zn
-         H/N8hZQnKznlSYB4MSuOPlH6DuwbYVUUWZiV9QRl1ELdkTl9kCnemQ73At2mBdjA1+0H
-         Ks5atk38Yrl7yUSZjfKtRye6LJjivkUJcrIjJOyc9Ncis0rfcaveVow8FFJJIxPnDabT
-         McxfvChycZEESKhDHrbMEFnah5YLVOszVmBCCHQtSn5b6/hGSNga/m9anAzrYWOQ5Z5W
-         JrMecS9d+uzae0olq+Eeh6Rh/hTR48KoAIsJBt90F+fUAbdKhat+KkLUuWDQadJrYp6i
-         cDqQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777422599; x=1778027399;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=+Z8qrnrVCeVc0HrgkfQjkwuL6GmTTzRhQcFlk/a/CQc=;
-        b=OTEmONQK0GQI+kUbAM1YZWXdAfOVuDLMT5BdD6ATSFrC8dE6g4gnHYqMCFc5IuuaYf
-         5JNtxX7/zE0dfgOH6s7o0TKuAmDZM4GOVnVRc+SnKC4JApAH+cYoIjFcnPYWpg/QRDFo
-         Y3UYi8NxqjyMlluC8Nc2guIlQeuGsqKEGtHHo24ktfr0OLPWQl+kjfNxipa+edTlPumX
-         s9xoXijxld5WIIUurdL0Wjk97o9K6Js5C/ipLqcgnYefADV5nYRhmrS85dcboo6+ns9I
-         4nfuqXFmDbuH7OeDz5qAaf4fviqN5VpTC66+bKSnyEUYn3oRUeZKjfZhk7ptOwcgei9S
-         iiiw==
-X-Forwarded-Encrypted: i=1; AFNElJ94eh8XqGDdb4f1ANAORTjqCbEDaUHu9Ay1/RVYCvHB0e+Mp0YiYCiIyKYzyW1ntXthqPybJ2PPZG9JkYTrOLoF@lists.infradead.org
-X-Gm-Message-State: AOJu0YyP4FXfD9gqOMBAkVTh+S7SirwO9KvsLDxeCFQ9pNj5T0N+xg8m
-	mjinMDpi/DKI3NwUVzguMOv3gk7ZM3e53EhRv+Pq32BYSDjOrdmISGftWOz6IXvC/Q==
-X-Gm-Gg: AeBDieu3LnhV0q3PY/q+03PN8VZjmlBRP1lQxbg/FRj4hzdgKSOY3YOGn63/Znn+RES
-	+vWcBhQOXdwb4wVuW4v0SVFF8GbGfMuda0Wbv0aSrAsDQee7QeJ8JH1X1eVtXMnkpchTIqN5kB2
-	EzI5gOiLaIgSvNSO7e8mKRQRRg8vYyj7IfICqCcMZeoNj1qHTB6lQL+phIkGexELipiRDY13LnE
-	9kKNnSOr/Qd9A6k2GYxz74dXoLYqoXH8z6p/3ISYPDzV/I2HzhttijhQOzlAM8hfJ3GhSRoA+ur
-	y8nl8awCAhO6nq+FopR998mjvbtEMEPRSSN7ZBSBnvsRtyIUY7mKng/yHX0vJhFS8nNrnytABpu
-	+sC8s8M+Oyo8FczZ3phbvlvEcTfkyKL3uw6LjG9ZCFVRUOXOp0FANRz1IHAXKlOMYh8UQGOATbe
-	dnHL9UPBkiOmRh1O9h37zW1lHfXSy2PfYH5B7eX+qiztXLZ5ncYI0BzXoaC9TGViUcIx3npEsDf
-	fR6+O7k5m9rCYjUHlbp7gNskTtMbIPZo46cAWedqiRJTHA=
-X-Received: by 2002:a05:693c:2b01:b0:2dd:8ac2:9f7a with SMTP id 5a478bee46e88-2ed197c14b2mr834939eec.11.1777422597943;
-        Tue, 28 Apr 2026 17:29:57 -0700 (PDT)
-Received: from ?IPV6:2a00:79e0:2e7c:9:fa97:3a7a:b601:9ff8? ([2a00:79e0:2e7c:9:fa97:3a7a:b601:9ff8])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2ed1bf8e77bsm412161eec.11.2026.04.28.17.29.55
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 28 Apr 2026 17:29:57 -0700 (PDT)
-Message-ID: <fc767096-f39d-4088-b3ad-cc85bdedf36c@google.com>
-Date: Tue, 28 Apr 2026 17:29:50 -0700
+	id 1wHtNk-00000002gps-3qSm;
+	Wed, 29 Apr 2026 01:06:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C16C56015B;
+	Wed, 29 Apr 2026 01:06:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 506A3C2BCB7;
+	Wed, 29 Apr 2026 01:06:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777424787;
+	bh=Xxrd0KVB9QYgYHmSehbX4FGUyhOGOqhtmad+b+hyHQU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=FTIePY1KYIGjuALHWVK25ANCyWGrczUVdCjVhrVEidGTyuzd5zP0i7r4HYSZbHXlc
+	 2c6rOe63916uRvcVFZBFZSmATqVqQCe43XZcQMOw9sSjmaDOmiUKhZyEpuIzIjGjUG
+	 fegeXMMBvM1E1hZeOq+uoJHMwHz3T7iz0UnYtV1hbWhKeotUbi9kPjC+8qlvHwnvjs
+	 dlOd2urUos2JNtHCC9F3+hrLAhbYjhnHDwggrE9fqhYesdAbeRsYiIlxc75W2vGcuj
+	 vKneQ+AWmIzzZoX4ZqwCvqppdrXIL+rjB9RPJgezSfWxEEFuq5/sqWa9cFvQ0MTx1R
+	 drjDD77m0+PTg==
+Date: Tue, 28 Apr 2026 18:06:25 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: lizhi2@eswincomputing.com
+Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ rmk+kernel@armlinux.org.uk, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, linux-riscv@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ maxime.chevallier@bootlin.com, ningyu@eswincomputing.com,
+ linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com,
+ pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com,
+ horms@kernel.org
+Subject: Re: [PATCH net-next v7 2/4] net: stmmac: eic7700: enable clocks
+ before syscon access and correct RX sampling timing
+Message-ID: <20260428180625.738223cf@kernel.org>
+In-Reply-To: <20260427072508.1151-1-lizhi2@eswincomputing.com>
+References: <20260427072353.1114-1-lizhi2@eswincomputing.com>
+	<20260427072508.1151-1-lizhi2@eswincomputing.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 3/6] mfd: max77759: add register bitmasks and modify
- irq configs for charger
-To: Lee Jones <lee@kernel.org>
-Cc: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jagan Sridharan <badhri@google.com>, Mark Brown <broonie@kernel.org>,
- Matti Vaittinen <mazziesaccount@gmail.com>,
- Andrew Morton <akpm@linux-foundation.org>, Sebastian Reichel
- <sre@kernel.org>, Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-usb@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, RD Babiera <rdbabiera@google.com>,
- Kyle Tso <kyletso@google.com>
-References: <20260331-max77759-charger-v10-0-76f59233c369@google.com>
- <20260331-max77759-charger-v10-3-76f59233c369@google.com>
- <20260424082639.GI170138@google.com>
-From: Amit Sunil Dhamne <amitsd@google.com>
-Content-Language: en-US
-In-Reply-To: <20260424082639.GI170138@google.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_173000_871281_682CBDF6 
-X-CRM114-Status: GOOD (  25.81  )
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,398 +79,327 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lee,
+On Mon, 27 Apr 2026 15:25:05 +0800 lizhi2@eswincomputing.com wrote:
+> From: Zhi Li <lizhi2@eswincomputing.com>
+>=20
+> The second Ethernet controller (eth1) on the Eswin EIC7700 SoC may fail
+> to sample RX data correctly at Gigabit speed due to EIC7700-specific
+> receive clock to data skew at the MAC input in the silicon.
+>=20
+> The existing internal delay configuration does not provide sufficient
+> adjustment range to compensate for this condition at 1000Mbps.
+> Update the EIC7700 DWMAC glue driver to apply EIC7700-specific clock
+> sampling inversion only during Gigabit operation on MAC instances
+> that require it.
+>=20
+> TXD and RXD delay registers are explicitly cleared during initialization
+> to override any residual configuration left by the bootloader. All HSP
+> CSR register accesses are performed only after the required clocks are
+> enabled.
+>=20
+> Fixes: ea77dbbdbc4e ("net: stmmac: add Eswin EIC7700 glue driver")
+
+Why Fixes? If eth1 never worked this is not a fix but new functionality
+If you want to make this a fix to prevent incompatibility - cut it down
+just to the eth0 changes.
+
+> Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
+> ---
+>  .../ethernet/stmicro/stmmac/dwmac-eic7700.c   | 183 ++++++++++++++----
+>  1 file changed, 140 insertions(+), 43 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c b/driver=
+s/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
+> index bcb8e000e720..33144611da8d 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
+> @@ -28,20 +28,40 @@
+> =20
+>  /*
+>   * TX/RX Clock Delay Bit Masks:
+> - * - TX Delay: bits [14:8] =E2=80=94 TX_CLK delay (unit: 0.1ns per bit)
+> - * - RX Delay: bits [30:24] =E2=80=94 RX_CLK delay (unit: 0.1ns per bit)
+> + * - TX Delay: bits [14:8] =E2=80=94 TX_CLK delay (unit: 0.02ns per bit)
+> + * - TX Invert : bit  [15]
+> + * - RX Delay: bits [30:24] =E2=80=94 RX_CLK delay (unit: 0.02ns per bit)
+> + * - RX Invert : bit  [31]
+>   */
+>  #define EIC7700_ETH_TX_ADJ_DELAY	GENMASK(14, 8)
+>  #define EIC7700_ETH_RX_ADJ_DELAY	GENMASK(30, 24)
+> +#define EIC7700_ETH_TX_INV_DELAY	BIT(15)
+> +#define EIC7700_ETH_RX_INV_DELAY	BIT(31)
+> =20
+> -#define EIC7700_MAX_DELAY_UNIT 0x7F
+> +#define EIC7700_MAX_DELAY_STEPS		0x7F
+> +#define EIC7700_DELAY_STEP_PS		20
+> +#define EIC7700_MAX_DELAY_PS	\
+> +	(EIC7700_MAX_DELAY_STEPS * EIC7700_DELAY_STEP_PS)
+
+AI says:
+
+  The step unit is being silently changed from 0.1 ns (delay_ps / 100)
+  to 0.02 ns (delay_ps / 20).  The same DT value now programs 5x the number
+  of delay steps into the hardware.
+
+>  static const char * const eic7700_clk_names[] =3D {
+>  	"tx", "axi", "cfg",
+>  };
+> =20
+> +struct eic7700_dwmac_data {
+> +	bool rgmii_rx_clk_invert;
+> +};
+> +
+>  struct eic7700_qos_priv {
+> +	struct device *dev;
+>  	struct plat_stmmacenet_data *plat_dat;
+> +	struct regmap *eic7700_hsp_regmap;
+> +	u32 eth_axi_lp_ctrl_offset;
+> +	u32 eth_phy_ctrl_offset;
+> +	u32 eth_txd_offset;
+> +	u32 eth_clk_offset;
+> +	u32 eth_rxd_offset;
+> +	u32 eth_clk_dly_param;
+> +	bool eth_rx_clk_inv;
+>  };
+> =20
+>  static int eic7700_clks_config(void *priv, bool enabled)
+> @@ -61,8 +81,28 @@ static int eic7700_clks_config(void *priv, bool enable=
+d)
+>  static int eic7700_dwmac_init(struct device *dev, void *priv)
+>  {
+>  	struct eic7700_qos_priv *dwc =3D priv;
+> +	int ret;
+> +
+> +	ret =3D eic7700_clks_config(dwc, true);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret =3D regmap_set_bits(dwc->eic7700_hsp_regmap,
+> +			      dwc->eth_phy_ctrl_offset,
+> +			      EIC7700_ETH_TX_CLK_SEL |
+> +			      EIC7700_ETH_PHY_INTF_SELI);
+> +	if (ret) {
+> +		eic7700_clks_config(dwc, false);
+> +		return ret;
+> +	}
+> +
+> +	regmap_write(dwc->eic7700_hsp_regmap, dwc->eth_axi_lp_ctrl_offset,
+> +		     EIC7700_ETH_CSYSREQ_VAL);
+> +
+> +	regmap_write(dwc->eic7700_hsp_regmap, dwc->eth_txd_offset, 0);
+> +	regmap_write(dwc->eic7700_hsp_regmap, dwc->eth_rxd_offset, 0);
+> =20
+> -	return eic7700_clks_config(dwc, true);
+> +	return 0;
+>  }
+> =20
+>  static void eic7700_dwmac_exit(struct device *dev, void *priv)
+> @@ -88,18 +128,35 @@ static int eic7700_dwmac_resume(struct device *dev, =
+void *priv)
+>  	return ret;
+>  }
+> =20
+> +static void eic7700_dwmac_fix_speed(void *priv, phy_interface_t interfac=
+e,
+> +				    int speed, unsigned int mode)
+> +{
+> +	struct eic7700_qos_priv *dwc =3D (struct eic7700_qos_priv *)priv;
+> +	u32 dly_param =3D dwc->eth_clk_dly_param;
+> +
+> +	switch (speed) {
+> +	case SPEED_1000:
+> +		if (dwc->eth_rx_clk_inv)
+> +			dly_param |=3D EIC7700_ETH_RX_INV_DELAY;
+> +		break;
+> +	case SPEED_100:
+> +	case SPEED_10:
+> +		break;
+> +	default:
+> +		dev_err(dwc->dev, "invalid speed %u\n", speed);
+> +		break;
+> +	}
+> +
+> +	regmap_write(dwc->eic7700_hsp_regmap, dwc->eth_clk_offset, dly_param);
+
+AI says
+
+  In the default case this logs "invalid speed %u" but then falls
+  through and still executes the regmap_write() with the base dly_param.  An
+  unsupported speed reports an error and reprograms the hardware anyway.
+
+  Should the default path return without writing, or should the write be
+  moved into the valid cases only?
+
+> +}
+> +
+>  static int eic7700_dwmac_probe(struct platform_device *pdev)
+>  {
+> +	const struct eic7700_dwmac_data *data;
+>  	struct plat_stmmacenet_data *plat_dat;
+>  	struct stmmac_resources stmmac_res;
+>  	struct eic7700_qos_priv *dwc_priv;
+> -	struct regmap *eic7700_hsp_regmap;
+> -	u32 eth_axi_lp_ctrl_offset;
+> -	u32 eth_phy_ctrl_offset;
+> -	u32 eth_phy_ctrl_regset;
+> -	u32 eth_rxd_dly_offset;
+> -	u32 eth_dly_param =3D 0;
+> -	u32 delay_ps;
+> +	u32 delay_ps, val;
+>  	int i, ret;
+> =20
+>  	ret =3D stmmac_get_platform_resources(pdev, &stmmac_res);
+> @@ -116,70 +173,95 @@ static int eic7700_dwmac_probe(struct platform_devi=
+ce *pdev)
+>  	if (!dwc_priv)
+>  		return -ENOMEM;
+> =20
+> +	dwc_priv->dev =3D &pdev->dev;
+> +
+> +	data =3D device_get_match_data(&pdev->dev);
+> +	if (!data)
+> +		return dev_err_probe(&pdev->dev,
+> +				     -EINVAL, "no match data found\n");
+> +
+> +	dwc_priv->eth_rx_clk_inv =3D data->rgmii_rx_clk_invert;
+> +
+>  	/* Read rx-internal-delay-ps and update rx_clk delay */
+>  	if (!of_property_read_u32(pdev->dev.of_node,
+>  				  "rx-internal-delay-ps", &delay_ps)) {
+> -		u32 val =3D min(delay_ps / 100, EIC7700_MAX_DELAY_UNIT);
+> +		if (delay_ps % EIC7700_DELAY_STEP_PS)
+> +			return dev_err_probe(&pdev->dev, -EINVAL,
+> +				"rx delay must be multiple of %dps\n",
+> +				EIC7700_DELAY_STEP_PS);
+> +
+> +		if (delay_ps > EIC7700_MAX_DELAY_PS)
+> +			return dev_err_probe(&pdev->dev, -EINVAL,
+> +				"rx delay out of range\n");
+> =20
+> -		eth_dly_param &=3D ~EIC7700_ETH_RX_ADJ_DELAY;
+> -		eth_dly_param |=3D FIELD_PREP(EIC7700_ETH_RX_ADJ_DELAY, val);
+> -	} else {
+> -		return dev_err_probe(&pdev->dev, -EINVAL,
+> -			"missing required property rx-internal-delay-ps\n");
+> +		val =3D delay_ps / EIC7700_DELAY_STEP_PS;
+> +
+> +		dwc_priv->eth_clk_dly_param &=3D ~EIC7700_ETH_RX_ADJ_DELAY;
+> +		dwc_priv->eth_clk_dly_param |=3D
+> +				 FIELD_PREP(EIC7700_ETH_RX_ADJ_DELAY, val);
+>  	}
+> =20
+>  	/* Read tx-internal-delay-ps and update tx_clk delay */
+>  	if (!of_property_read_u32(pdev->dev.of_node,
+>  				  "tx-internal-delay-ps", &delay_ps)) {
+> -		u32 val =3D min(delay_ps / 100, EIC7700_MAX_DELAY_UNIT);
+> +		if (delay_ps % EIC7700_DELAY_STEP_PS)
+> +			return dev_err_probe(&pdev->dev, -EINVAL,
+> +				"tx delay must be multiple of %dps\n",
+> +				EIC7700_DELAY_STEP_PS);
+> +
+> +		if (delay_ps > EIC7700_MAX_DELAY_PS)
+> +			return dev_err_probe(&pdev->dev, -EINVAL,
+> +				"tx delay out of range\n");
+> +
+> +		val =3D delay_ps / EIC7700_DELAY_STEP_PS;
+> =20
+> -		eth_dly_param &=3D ~EIC7700_ETH_TX_ADJ_DELAY;
+> -		eth_dly_param |=3D FIELD_PREP(EIC7700_ETH_TX_ADJ_DELAY, val);
+> -	} else {
+> -		return dev_err_probe(&pdev->dev, -EINVAL,
+> -			"missing required property tx-internal-delay-ps\n");
+> +		dwc_priv->eth_clk_dly_param &=3D ~EIC7700_ETH_TX_ADJ_DELAY;
+> +		dwc_priv->eth_clk_dly_param |=3D
+> +				 FIELD_PREP(EIC7700_ETH_TX_ADJ_DELAY, val);
+>  	}
+
+AI says:
+
+  First, rx-internal-delay-ps and tx-internal-delay-ps are silently
+  demoted from required to optional.  The previous driver returned
+  -EINVAL with "missing required property ..." when either was absent;
+  the else branches have been removed, so missing properties now leave
+  eth_clk_dly_param at zero and fix_mac_speed() programs zero delay
+  without diagnostic.  Is this intentional, and if so should the commit
+  message and the DT binding reflect it?
+=20
+  Second, the previous code silently clamped out-of-range values via
+  min() and only required non-zero step units by integer truncation.
+  The new code rejects non-multiples of 20 and values greater than 2540
+  ps with -EINVAL at probe time.  DTBs that previously probed with
+  clamped delays will now fail probe.  Should this stricter validation
+  also be called out in the commit message?
 
 
-Thanks for your review.
+> -	eic7700_hsp_regmap =3D syscon_regmap_lookup_by_phandle(pdev->dev.of_nod=
+e,
+> -							     "eswin,hsp-sp-csr");
+> -	if (IS_ERR(eic7700_hsp_regmap))
+> +	dwc_priv->eic7700_hsp_regmap =3D
+> +			syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
+> +							"eswin,hsp-sp-csr");
+> +	if (IS_ERR(dwc_priv->eic7700_hsp_regmap))
+>  		return dev_err_probe(&pdev->dev,
+> -				PTR_ERR(eic7700_hsp_regmap),
+> +				PTR_ERR(dwc_priv->eic7700_hsp_regmap),
+>  				"Failed to get hsp-sp-csr regmap\n");
+> =20
+>  	ret =3D of_property_read_u32_index(pdev->dev.of_node,
+>  					 "eswin,hsp-sp-csr",
+> -					 1, &eth_phy_ctrl_offset);
+> +					 1, &dwc_priv->eth_phy_ctrl_offset);
+>  	if (ret)
+>  		return dev_err_probe(&pdev->dev, ret,
+>  				     "can't get eth_phy_ctrl_offset\n");
+> =20
+> -	regmap_read(eic7700_hsp_regmap, eth_phy_ctrl_offset,
+> -		    &eth_phy_ctrl_regset);
+> -	eth_phy_ctrl_regset |=3D
+> -		(EIC7700_ETH_TX_CLK_SEL | EIC7700_ETH_PHY_INTF_SELI);
+> -	regmap_write(eic7700_hsp_regmap, eth_phy_ctrl_offset,
+> -		     eth_phy_ctrl_regset);
+> -
+>  	ret =3D of_property_read_u32_index(pdev->dev.of_node,
+>  					 "eswin,hsp-sp-csr",
+> -					 2, &eth_axi_lp_ctrl_offset);
+> +					 2, &dwc_priv->eth_axi_lp_ctrl_offset);
+>  	if (ret)
+>  		return dev_err_probe(&pdev->dev, ret,
+>  				     "can't get eth_axi_lp_ctrl_offset\n");
+> =20
+> -	regmap_write(eic7700_hsp_regmap, eth_axi_lp_ctrl_offset,
+> -		     EIC7700_ETH_CSYSREQ_VAL);
+> +	ret =3D of_property_read_u32_index(pdev->dev.of_node,
+> +					 "eswin,hsp-sp-csr",
+> +					 3, &dwc_priv->eth_clk_offset);
+> +	if (ret)
+> +		return dev_err_probe(&pdev->dev, ret,
+> +				     "can't get eth_clk_offset\n");
+> =20
+>  	ret =3D of_property_read_u32_index(pdev->dev.of_node,
+>  					 "eswin,hsp-sp-csr",
+> -					 3, &eth_rxd_dly_offset);
+> +					 4, &dwc_priv->eth_txd_offset);
+>  	if (ret)
+>  		return dev_err_probe(&pdev->dev, ret,
+> -				     "can't get eth_rxd_dly_offset\n");
+> +				     "can't get eth_txd_offset\n");
+> =20
+> -	regmap_write(eic7700_hsp_regmap, eth_rxd_dly_offset,
+> -		     eth_dly_param);
+> +	ret =3D of_property_read_u32_index(pdev->dev.of_node,
+> +					 "eswin,hsp-sp-csr",
+> +					 5, &dwc_priv->eth_rxd_offset);
+> +	if (ret)
+> +		return dev_err_probe(&pdev->dev, ret,
+> +				     "can't get eth_rxd_offset\n");
 
+AI says:
 
-On 4/24/26 1:26 AM, Lee Jones wrote:
-> On Tue, 31 Mar 2026, Amit Sunil Dhamne via B4 Relay wrote:
->
->> From: Amit Sunil Dhamne <amitsd@google.com>
->>
->> Add register bitmasks for charger function.
->> In addition split the charger IRQs further such that each bit represents
->> an IRQ downstream of charger regmap irq chip. In addition populate the
->> ack_base to offload irq ack to the regmap irq chip framework.
-> Please reword this commit messages.
->
-> Using 'In addition' twice in such close proximity reads a little awkwardly.
-
-Thanks for pointing it out. Unfortunately, this commit is already part
-of the linux and linux-next so I am not sure if I could fix the commit
-message retrospectively.
-
-
->
->> Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
->> Reviewed-by: André Draszik <andre.draszik@linaro.org>
->> ---
->>  drivers/mfd/max77759.c       |  95 ++++++++++++++++++++++---
->>  include/linux/mfd/max77759.h | 166 +++++++++++++++++++++++++++++++++++--------
->>  2 files changed, 222 insertions(+), 39 deletions(-)
->>
->> diff --git a/drivers/mfd/max77759.c b/drivers/mfd/max77759.c
->> index a7efe233ec8c..9fa6027a92c4 100644
->> --- a/drivers/mfd/max77759.c
->> +++ b/drivers/mfd/max77759.c
->> @@ -201,8 +201,24 @@ static const struct regmap_config max77759_regmap_config_charger = {
->>   *         - SYSUVLO_INT
->>   *         - FSHIP_NOT_RD
->>   *     - CHGR_INT: charger
->> - *       - CHG_INT
->> - *       - CHG_INT2
->> + *       - INT1
->> + *         - AICL
->> + *         - CHGIN
->> + *         - WCIN
->> + *         - CHG
->> + *         - BAT
->> + *         - INLIM
->> + *         - THM2
->> + *         - BYP
->> + *       - INT2
->> + *         - INSEL
->> + *         - SYS_UVLO1
->> + *         - SYS_UVLO2
->> + *         - BAT_OILO
->> + *         - CHG_STA_CC
->> + *         - CHG_STA_CV
->> + *         - CHG_STA_TO
->> + *         - CHG_STA_DONE
->>   */
->>  enum {
->>  	MAX77759_INT_MAXQ,
->> @@ -228,8 +244,22 @@ enum {
->>  };
->>  
->>  enum {
->> -	MAX77759_CHARGER_INT_1,
->> -	MAX77759_CHARGER_INT_2,
->> +	MAX77759_CHGR_INT1_AICL,
->> +	MAX77759_CHGR_INT1_CHGIN,
->> +	MAX77759_CHGR_INT1_WCIN,
->> +	MAX77759_CHGR_INT1_CHG,
->> +	MAX77759_CHGR_INT1_BAT,
->> +	MAX77759_CHGR_INT1_INLIM,
->> +	MAX77759_CHGR_INT1_THM2,
->> +	MAX77759_CHGR_INT1_BYP,
->> +	MAX77759_CHGR_INT2_INSEL,
->> +	MAX77759_CHGR_INT2_SYS_UVLO1,
->> +	MAX77759_CHGR_INT2_SYS_UVLO2,
->> +	MAX77759_CHGR_INT2_BAT_OILO,
->> +	MAX77759_CHGR_INT2_CHG_STA_CC,
->> +	MAX77759_CHGR_INT2_CHG_STA_CV,
->> +	MAX77759_CHGR_INT2_CHG_STA_TO,
->> +	MAX77759_CHGR_INT2_CHG_STA_DONE,
->>  };
->>  
->>  static const struct regmap_irq max77759_pmic_irqs[] = {
->> @@ -256,8 +286,38 @@ static const struct regmap_irq max77759_topsys_irqs[] = {
->>  };
->>  
->>  static const struct regmap_irq max77759_chgr_irqs[] = {
->> -	REGMAP_IRQ_REG(MAX77759_CHARGER_INT_1, 0, GENMASK(7, 0)),
->> -	REGMAP_IRQ_REG(MAX77759_CHARGER_INT_2, 1, GENMASK(7, 0)),
->> +	REGMAP_IRQ_REG(MAX77759_CHGR_INT1_AICL, 0,
->> +		       MAX77759_CHGR_REG_CHG_INT_AICL),
->> +	REGMAP_IRQ_REG(MAX77759_CHGR_INT1_CHGIN, 0,
->> +		       MAX77759_CHGR_REG_CHG_INT_CHGIN),
->> +	REGMAP_IRQ_REG(MAX77759_CHGR_INT1_WCIN, 0,
->> +		       MAX77759_CHGR_REG_CHG_INT_WCIN),
->> +	REGMAP_IRQ_REG(MAX77759_CHGR_INT1_CHG, 0,
->> +		       MAX77759_CHGR_REG_CHG_INT_CHG),
->> +	REGMAP_IRQ_REG(MAX77759_CHGR_INT1_BAT, 0,
->> +		       MAX77759_CHGR_REG_CHG_INT_BAT),
->> +	REGMAP_IRQ_REG(MAX77759_CHGR_INT1_INLIM, 0,
->> +		       MAX77759_CHGR_REG_CHG_INT_INLIM),
->> +	REGMAP_IRQ_REG(MAX77759_CHGR_INT1_THM2, 0,
->> +		       MAX77759_CHGR_REG_CHG_INT_THM2),
->> +	REGMAP_IRQ_REG(MAX77759_CHGR_INT1_BYP, 0,
->> +		       MAX77759_CHGR_REG_CHG_INT_BYP),
->> +	REGMAP_IRQ_REG(MAX77759_CHGR_INT2_INSEL, 1,
->> +		       MAX77759_CHGR_REG_CHG_INT2_INSEL),
->> +	REGMAP_IRQ_REG(MAX77759_CHGR_INT2_SYS_UVLO1, 1,
->> +		       MAX77759_CHGR_REG_CHG_INT2_SYS_UVLO1),
->> +	REGMAP_IRQ_REG(MAX77759_CHGR_INT2_SYS_UVLO2, 1,
->> +		       MAX77759_CHGR_REG_CHG_INT2_SYS_UVLO2),
->> +	REGMAP_IRQ_REG(MAX77759_CHGR_INT2_BAT_OILO, 1,
->> +		       MAX77759_CHGR_REG_CHG_INT2_BAT_OILO),
->> +	REGMAP_IRQ_REG(MAX77759_CHGR_INT2_CHG_STA_CC, 1,
->> +		       MAX77759_CHGR_REG_CHG_INT2_CHG_STA_CC),
->> +	REGMAP_IRQ_REG(MAX77759_CHGR_INT2_CHG_STA_CV, 1,
->> +		       MAX77759_CHGR_REG_CHG_INT2_CHG_STA_CV),
->> +	REGMAP_IRQ_REG(MAX77759_CHGR_INT2_CHG_STA_TO, 1,
->> +		       MAX77759_CHGR_REG_CHG_INT2_CHG_STA_TO),
->> +	REGMAP_IRQ_REG(MAX77759_CHGR_INT2_CHG_STA_DONE, 1,
->> +		       MAX77759_CHGR_REG_CHG_INT2_CHG_STA_DONE),
-> Can I suggest using the 100-char limit to expand and neaten these up a bit.
-
-Sounds good I will send a new "fixes" patch to address this.
-
-
->
->>  };
->>  
->>  static const struct regmap_irq_chip max77759_pmic_irq_chip = {
->> @@ -297,11 +357,12 @@ static const struct regmap_irq_chip max77759_topsys_irq_chip = {
->>  	.num_irqs = ARRAY_SIZE(max77759_topsys_irqs),
->>  };
->>  
->> -static const struct regmap_irq_chip max77759_chrg_irq_chip = {
->> +static const struct regmap_irq_chip max77759_chgr_irq_chip = {
-> This is a sneaky change.  If you're going to bundle fixes like this, at
-> least drop a mention in the commit message.
-
-This wasn't part of the original commit but was pointed out during the
-code review. While I captured this in the changlogs maybe I should have
-added it in the commit msg. 
-
-Unfortunately, this has the same issue as before, i.e., modifying commit
-message after it has been applied.
-
-
->
->>  	.name = "max77759-chgr",
->>  	.domain_suffix = "CHGR",
->>  	.status_base = MAX77759_CHGR_REG_CHG_INT,
->>  	.mask_base = MAX77759_CHGR_REG_CHG_INT_MASK,
->> +	.ack_base = MAX77759_CHGR_REG_CHG_INT,
->>  	.num_regs = 2,
->>  	.irqs = max77759_chgr_irqs,
->>  	.num_irqs = ARRAY_SIZE(max77759_chgr_irqs),
->> @@ -325,8 +386,22 @@ static const struct resource max77759_gpio_resources[] = {
->>  };
->>  
->>  static const struct resource max77759_charger_resources[] = {
->> -	DEFINE_RES_IRQ_NAMED(MAX77759_CHARGER_INT_1, "INT1"),
->> -	DEFINE_RES_IRQ_NAMED(MAX77759_CHARGER_INT_2, "INT2"),
->> +	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT1_AICL,         "AICL"),
->> +	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT1_CHGIN,        "CHGIN"),
->> +	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT1_WCIN,         "WCIN"),
->> +	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT1_CHG,          "CHG"),
->> +	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT1_BAT,          "BAT"),
->> +	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT1_INLIM,        "INLIM"),
->> +	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT1_THM2,         "THM2"),
->> +	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT1_BYP,          "BYP"),
->> +	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT2_INSEL,        "INSEL"),
->> +	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT2_SYS_UVLO1,    "SYS_UVLO1"),
->> +	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT2_SYS_UVLO2,    "SYS_UVLO2"),
->> +	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT2_BAT_OILO,     "BAT_OILO"),
->> +	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT2_CHG_STA_CC,   "CHG_STA_CC"),
->> +	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT2_CHG_STA_CV,   "CHG_STA_CV"),
->> +	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT2_CHG_STA_TO,   "CHG_STA_TO"),
->> +	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT2_CHG_STA_DONE, "CHG_STA_DONE"),
->>  };
->>  
->>  static const struct mfd_cell max77759_cells[] = {
->> @@ -567,7 +642,7 @@ static int max77759_add_chained_charger(struct i2c_client *client,
->>  					    max77759->regmap_charger,
->>  					    MAX77759_INT_CHGR,
->>  					    parent,
->> -					    &max77759_chrg_irq_chip,
->> +					    &max77759_chgr_irq_chip,
->>  					    &irq_chip_data);
->>  	if (ret)
->>  		return ret;
->> diff --git a/include/linux/mfd/max77759.h b/include/linux/mfd/max77759.h
->> index c6face34e385..ec19be952877 100644
->> --- a/include/linux/mfd/max77759.h
->> +++ b/include/linux/mfd/max77759.h
->> @@ -59,35 +59,65 @@
->>  #define MAX77759_MAXQ_REG_AP_DATAIN0            0xb1
->>  #define MAX77759_MAXQ_REG_UIC_SWRST             0xe0
->>  
->> -#define MAX77759_CHGR_REG_CHG_INT               0xb0
->> -#define MAX77759_CHGR_REG_CHG_INT2              0xb1
->> -#define MAX77759_CHGR_REG_CHG_INT_MASK          0xb2
->> -#define MAX77759_CHGR_REG_CHG_INT2_MASK         0xb3
->> -#define MAX77759_CHGR_REG_CHG_INT_OK            0xb4
->> -#define MAX77759_CHGR_REG_CHG_DETAILS_00        0xb5
->> -#define MAX77759_CHGR_REG_CHG_DETAILS_01        0xb6
->> -#define MAX77759_CHGR_REG_CHG_DETAILS_02        0xb7
->> -#define MAX77759_CHGR_REG_CHG_DETAILS_03        0xb8
->> -#define MAX77759_CHGR_REG_CHG_CNFG_00           0xb9
->> -#define MAX77759_CHGR_REG_CHG_CNFG_01           0xba
->> -#define MAX77759_CHGR_REG_CHG_CNFG_02           0xbb
->> -#define MAX77759_CHGR_REG_CHG_CNFG_03           0xbc
->> -#define MAX77759_CHGR_REG_CHG_CNFG_04           0xbd
->> -#define MAX77759_CHGR_REG_CHG_CNFG_05           0xbe
->> -#define MAX77759_CHGR_REG_CHG_CNFG_06           0xbf
->> -#define MAX77759_CHGR_REG_CHG_CNFG_07           0xc0
->> -#define MAX77759_CHGR_REG_CHG_CNFG_08           0xc1
->> -#define MAX77759_CHGR_REG_CHG_CNFG_09           0xc2
->> -#define MAX77759_CHGR_REG_CHG_CNFG_10           0xc3
->> -#define MAX77759_CHGR_REG_CHG_CNFG_11           0xc4
->> -#define MAX77759_CHGR_REG_CHG_CNFG_12           0xc5
->> -#define MAX77759_CHGR_REG_CHG_CNFG_13           0xc6
->> -#define MAX77759_CHGR_REG_CHG_CNFG_14           0xc7
->> -#define MAX77759_CHGR_REG_CHG_CNFG_15           0xc8
->> -#define MAX77759_CHGR_REG_CHG_CNFG_16           0xc9
->> -#define MAX77759_CHGR_REG_CHG_CNFG_17           0xca
->> -#define MAX77759_CHGR_REG_CHG_CNFG_18           0xcb
->> -#define MAX77759_CHGR_REG_CHG_CNFG_19           0xcc
->> +#define MAX77759_CHGR_REG_CHG_INT                      0xb0
->> +#define   MAX77759_CHGR_REG_CHG_INT_AICL               BIT(7)
->> +#define   MAX77759_CHGR_REG_CHG_INT_CHGIN              BIT(6)
->> +#define   MAX77759_CHGR_REG_CHG_INT_WCIN               BIT(5)
->> +#define   MAX77759_CHGR_REG_CHG_INT_CHG                BIT(4)
->> +#define   MAX77759_CHGR_REG_CHG_INT_BAT                BIT(3)
->> +#define   MAX77759_CHGR_REG_CHG_INT_INLIM              BIT(2)
->> +#define   MAX77759_CHGR_REG_CHG_INT_THM2               BIT(1)
->> +#define   MAX77759_CHGR_REG_CHG_INT_BYP                BIT(0)
->> +#define MAX77759_CHGR_REG_CHG_INT2                     0xb1
->> +#define   MAX77759_CHGR_REG_CHG_INT2_INSEL             BIT(7)
->> +#define   MAX77759_CHGR_REG_CHG_INT2_SYS_UVLO1         BIT(6)
->> +#define   MAX77759_CHGR_REG_CHG_INT2_SYS_UVLO2         BIT(5)
->> +#define   MAX77759_CHGR_REG_CHG_INT2_BAT_OILO          BIT(4)
->> +#define   MAX77759_CHGR_REG_CHG_INT2_CHG_STA_CC        BIT(3)
->> +#define   MAX77759_CHGR_REG_CHG_INT2_CHG_STA_CV        BIT(2)
->> +#define   MAX77759_CHGR_REG_CHG_INT2_CHG_STA_TO        BIT(1)
->> +#define   MAX77759_CHGR_REG_CHG_INT2_CHG_STA_DONE      BIT(0)
->> +#define MAX77759_CHGR_REG_CHG_INT_MASK                 0xb2
->> +#define MAX77759_CHGR_REG_CHG_INT2_MASK                0xb3
->> +#define MAX77759_CHGR_REG_CHG_INT_OK                   0xb4
->> +#define MAX77759_CHGR_REG_CHG_DETAILS_00               0xb5
->> +#define   MAX77759_CHGR_REG_CHG_DETAILS_00_CHGIN_DTLS  GENMASK(6, 5)
->> +#define MAX77759_CHGR_REG_CHG_DETAILS_01               0xb6
->> +#define   MAX77759_CHGR_REG_CHG_DETAILS_01_BAT_DTLS    GENMASK(6, 4)
->> +#define   MAX77759_CHGR_REG_CHG_DETAILS_01_CHG_DTLS    GENMASK(3, 0)
->> +#define MAX77759_CHGR_REG_CHG_DETAILS_02               0xb7
->> +#define   MAX77759_CHGR_REG_CHG_DETAILS_02_CHGIN_STS   BIT(5)
->> +#define MAX77759_CHGR_REG_CHG_DETAILS_03               0xb8
->> +#define MAX77759_CHGR_REG_CHG_CNFG_00                  0xb9
->> +#define   MAX77759_CHGR_REG_CHG_CNFG_00_MODE           GENMASK(3, 0)
->> +#define MAX77759_CHGR_REG_CHG_CNFG_01                  0xba
->> +#define MAX77759_CHGR_REG_CHG_CNFG_02                  0xbb
->> +#define   MAX77759_CHGR_REG_CHG_CNFG_02_CHGCC          GENMASK(5, 0)
->> +#define MAX77759_CHGR_REG_CHG_CNFG_03                  0xbc
->> +#define MAX77759_CHGR_REG_CHG_CNFG_04                  0xbd
->> +#define   MAX77759_CHGR_REG_CHG_CNFG_04_CHG_CV_PRM     GENMASK(5, 0)
->> +#define MAX77759_CHGR_REG_CHG_CNFG_05                  0xbe
->> +#define MAX77759_CHGR_REG_CHG_CNFG_06                  0xbf
->> +#define   MAX77759_CHGR_REG_CHG_CNFG_06_CHGPROT        GENMASK(3, 2)
->> +#define MAX77759_CHGR_REG_CHG_CNFG_07                  0xc0
->> +#define MAX77759_CHGR_REG_CHG_CNFG_08                  0xc1
->> +#define MAX77759_CHGR_REG_CHG_CNFG_09                  0xc2
->> +#define   MAX77759_CHGR_REG_CHG_CNFG_09_CHGIN_ILIM     GENMASK(6, 0)
->> +#define MAX77759_CHGR_REG_CHG_CNFG_10                  0xc3
->> +#define MAX77759_CHGR_REG_CHG_CNFG_11                  0xc4
->> +#define MAX77759_CHGR_REG_CHG_CNFG_12                  0xc5
->> +/* Wireless Charging input channel select */
->> +#define   MAX77759_CHGR_REG_CHG_CNFG_12_WCINSEL        BIT(6)
->> +/* CHGIN/USB input channel select */
->> +#define   MAX77759_CHGR_REG_CHG_CNFG_12_CHGINSEL       BIT(5)
-> Should we ensure these comments are formatted as complete sentences with a full
-> stop at the end, to comply with our documentation guidelines?
-
-Sounds good I will add this fix in the new fixes patch.
-
-
->
->> +#define MAX77759_CHGR_REG_CHG_CNFG_13                  0xc6
->> +#define MAX77759_CHGR_REG_CHG_CNFG_14                  0xc7
->> +#define MAX77759_CHGR_REG_CHG_CNFG_15                  0xc8
->> +#define MAX77759_CHGR_REG_CHG_CNFG_16                  0xc9
->> +#define MAX77759_CHGR_REG_CHG_CNFG_17                  0xca
->> +#define MAX77759_CHGR_REG_CHG_CNFG_18                  0xcb
->> +#define   MAX77759_CHGR_REG_CHG_CNFG_18_WDTEN          BIT(0)
->> +#define MAX77759_CHGR_REG_CHG_CNFG_19                  0xcc
->>  
->>  /* MaxQ opcodes for max77759_maxq_command() */
->>  #define MAX77759_MAXQ_OPCODE_MAXLENGTH (MAX77759_MAXQ_REG_AP_DATAOUT32 - \
->> @@ -101,6 +131,84 @@
->>  #define MAX77759_MAXQ_OPCODE_USER_SPACE_READ     0x81
->>  #define MAX77759_MAXQ_OPCODE_USER_SPACE_WRITE    0x82
->>  
->> +/**
->> + * enum max77759_chgr_chgin_dtls_status - Charger Input Status
->> + * @MAX77759_CHGR_CHGIN_DTLS_VBUS_UNDERVOLTAGE:
->> + *     Charger input voltage (Vchgin) < Under Voltage Threshold (Vuvlo)
->> + * @MAX77759_CHGR_CHGIN_DTLS_VBUS_MARGINAL_VOLTAGE:
->> + *     Vchgin > Vuvlo and Vchgin < (Battery Voltage (Vbatt) + system voltage (Vsys))
->> + * @MAX77759_CHGR_CHGIN_DTLS_VBUS_OVERVOLTAGE:
->> + *     Vchgin > Over Voltage threshold (Vovlo)
->> + * @MAX77759_CHGR_CHGIN_DTLS_VBUS_VALID:
->> + *     Vchgin > Vuvlo, Vchgin < Vovlo and Vchgin > (Vsys + Vbatt)
->> + */
->> +enum max77759_chgr_chgin_dtls_status {
->> +	MAX77759_CHGR_CHGIN_DTLS_VBUS_UNDERVOLTAGE,
->> +	MAX77759_CHGR_CHGIN_DTLS_VBUS_MARGINAL_VOLTAGE,
->> +	MAX77759_CHGR_CHGIN_DTLS_VBUS_OVERVOLTAGE,
->> +	MAX77759_CHGR_CHGIN_DTLS_VBUS_VALID,
->> +};
->> +
->> +/**
->> + * enum max77759_chgr_bat_dtls_states - Battery Details
->> + * @MAX77759_CHGR_BAT_DTLS_NO_BATT_CHG_SUSP:	No battery and the charger suspended
->> + * @MAX77759_CHGR_BAT_DTLS_DEAD_BATTERY:	Vbatt < Vtrickle
->> + * @MAX77759_CHGR_BAT_DTLS_BAT_CHG_TIMER_FAULT:	Charging suspended due to timer fault
->> + * @MAX77759_CHGR_BAT_DTLS_BAT_OKAY:		Battery okay and Vbatt > Min Sys Voltage (Vsysmin)
->> + * @MAX77759_CHGR_BAT_DTLS_BAT_UNDERVOLTAGE:	Battery is okay. Vtrickle < Vbatt < Vsysmin
->> + * @MAX77759_CHGR_BAT_DTLS_BAT_OVERVOLTAGE:	Battery voltage > Overvoltage threshold
->> + * @MAX77759_CHGR_BAT_DTLS_BAT_OVERCURRENT:	Battery current exceeds overcurrent threshold
->> + * @MAX77759_CHGR_BAT_DTLS_BAT_ONLY_MODE:	Battery only mode and battery level not available
->> + */
->> +enum max77759_chgr_bat_dtls_states {
->> +	MAX77759_CHGR_BAT_DTLS_NO_BATT_CHG_SUSP,
->> +	MAX77759_CHGR_BAT_DTLS_DEAD_BATTERY,
->> +	MAX77759_CHGR_BAT_DTLS_BAT_CHG_TIMER_FAULT,
->> +	MAX77759_CHGR_BAT_DTLS_BAT_OKAY,
->> +	MAX77759_CHGR_BAT_DTLS_BAT_UNDERVOLTAGE,
->> +	MAX77759_CHGR_BAT_DTLS_BAT_OVERVOLTAGE,
->> +	MAX77759_CHGR_BAT_DTLS_BAT_OVERCURRENT,
->> +	MAX77759_CHGR_BAT_DTLS_BAT_ONLY_MODE,
->> +};
->> +
->> +/**
->> + * enum max77759_chgr_chg_dtls_states - Charger Details
->> + * @MAX77759_CHGR_CHG_DTLS_PREQUAL:		Charger in prequalification mode
->> + * @MAX77759_CHGR_CHG_DTLS_CC:			Charger in fast charge const curr mode
->> + * @MAX77759_CHGR_CHG_DTLS_CV:			Charger in fast charge const voltage mode
->> + * @MAX77759_CHGR_CHG_DTLS_TO:			Charger is in top off mode
->> + * @MAX77759_CHGR_CHG_DTLS_DONE:		Charger is done
->> + * @MAX77759_CHGR_CHG_DTLS_RSVD_1:		Reserved
->> + * @MAX77759_CHGR_CHG_DTLS_TIMER_FAULT:		Charger is in timer fault mode
->> + * @MAX77759_CHGR_CHG_DTLS_SUSP_BATT_THM:	Charger is suspended as battery removal detected
->> + * @MAX77759_CHGR_CHG_DTLS_OFF:			Charger is off. Input invalid or charger disabled
->> + * @MAX77759_CHGR_CHG_DTLS_RSVD_2:		Reserved
->> + * @MAX77759_CHGR_CHG_DTLS_RSVD_3:		Reserved
->> + * @MAX77759_CHGR_CHG_DTLS_OFF_WDOG_TIMER:	Charger is off as watchdog timer expired
->> + * @MAX77759_CHGR_CHG_DTLS_SUSP_JEITA:		Charger is in JEITA control mode
->> + */
->> +enum max77759_chgr_chg_dtls_states {
->> +	MAX77759_CHGR_CHG_DTLS_PREQUAL,
->> +	MAX77759_CHGR_CHG_DTLS_CC,
->> +	MAX77759_CHGR_CHG_DTLS_CV,
->> +	MAX77759_CHGR_CHG_DTLS_TO,
->> +	MAX77759_CHGR_CHG_DTLS_DONE,
->> +	MAX77759_CHGR_CHG_DTLS_RSVD_1,
->> +	MAX77759_CHGR_CHG_DTLS_TIMER_FAULT,
->> +	MAX77759_CHGR_CHG_DTLS_SUSP_BATT_THM,
->> +	MAX77759_CHGR_CHG_DTLS_OFF,
->> +	MAX77759_CHGR_CHG_DTLS_RSVD_2,
->> +	MAX77759_CHGR_CHG_DTLS_RSVD_3,
->> +	MAX77759_CHGR_CHG_DTLS_OFF_WDOG_TIMER,
->> +	MAX77759_CHGR_CHG_DTLS_SUSP_JEITA,
->> +};
->> +
->> +enum max77759_chgr_mode {
->> +	MAX77759_CHGR_MODE_OFF,
->> +	MAX77759_CHGR_MODE_CHG_BUCK_ON = 0x5,
->> +	MAX77759_CHGR_MODE_OTG_BOOST_ON = 0xA,
->> +};
-> Would it be safer to explicitly initialise 'MAX77759_CHGR_MODE_OFF' to 0 here?
-> Relying on implicit zero initialisation whilst explicitly setting other values
-> can sometimes lead to unexpected behaviour if new entries are added.
-
-Sounds good. Will fix.
-
-
-Best Regards,
-
-Amit
-
->
+  The eswin,hsp-sp-csr phandle-args layout is expanded from 4 cells
+  (phandle + 3 offsets) to 6 cells (phandle + 5 offsets), with new
+  indices 3/4/5 now required.  Any DTB produced against the original
+  ea77dbbdbc4e binding will fail probe here with -EINVAL.
+--=20
+pw-bot: cr
 
