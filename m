@@ -4,67 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27627FF887E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 17:47:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 445F0FF887E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 17:49:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B64kXSw1VRkVbpc37YjjVMbTpZI0DBB3ajJGXrHMlLQ=; b=TjYyXsBrtIDeucBvZeKVAVGUy+
-	oBys6hewl9IZUh0hnZHgoW4xGw4HDONwmOMKcPrHryhOZvTLzkNHAzM2XsVI5Lujns0vt2uWmDkqU
-	37+1BwuowvNvB1wzw4ivTgW/WNeIT59g4huDaIu/kbP+sWkGJDRL8RgsGYno7vxEUi4cr3cq/yerR
-	UmXyx0MHNt8+IiPpfXfKjgzjvZmcdxpWjfYWJWwOKYh5rKwddQhKuzF7sFEQPmJDP4AJtZRnQG2k2
-	hFWYn918TibuNikWcDY+ErTVJroS/kcM9NEXvnf7vF8TZkqtVrMHYg5FSEmVPCxS0/cAvId7o45dh
-	jR93noAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=at5FlQ322RxHTC5zYDDhsWA3fhZSE8dJrt/s9DNEzlc=; b=2LgbaE36+b9rZaN3rXEQGbpX7R
+	MbSodrlDmm9Uu0DjPOIcHMZTe0UI/iaHWDK+b3de6kH6l2sR59USWO0jJ0HCGeCWLzM5Fe0zRVJLs
+	PA9opzgHfJdNtGINbanWsMXdwjjUEV3+UfIIaWxuciaPzRwDWZ6aUB5//ZFdHwN7+QV+OBCYh5Tgd
+	4U8ycUhtCGbwLETtFDGXWfxAMk+ooaHYo8TlJ1eoZ/SD9Ub6T64vntNCmaQIRx7Q2PuRjIE95y/a6
+	GEJHLGiJhxs/JX1Btvs3v6Lf1PspW8Z/3tNbE0VIZEfMCwFBOIglPc7CtCkk/jQk4+J/sSROzehsK
+	ddTe190A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI8zw-00000003zL3-0eNx;
-	Wed, 29 Apr 2026 17:46:56 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI8zt-00000003zKe-0KnC
+	id 1wI92V-00000003zW1-0kaj;
+	Wed, 29 Apr 2026 17:49:35 +0000
+Received: from mail-northcentralusazon11010018.outbound.protection.outlook.com ([52.101.193.18] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wI92S-00000003zVF-0jnY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 17:46:54 +0000
-Received: from [100.64.233.91] (unknown [20.29.225.195])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 7983C20B716C;
-	Wed, 29 Apr 2026 10:46:51 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 7983C20B716C
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1777484811;
-	bh=B64kXSw1VRkVbpc37YjjVMbTpZI0DBB3ajJGXrHMlLQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=IxOXQ0UWyFstL5EzgyE0UuiAtNV+swseROLC4yGHkttAxbg5MH50+AlPYgfVkgjgA
-	 kmTjOiNuumGrCdz+1ize65eWTuZBkaA5HWNqR8DHQMG1zLD7Hhe3MDZyXIfgJ5T0qq
-	 nvrPKrykYfqYiFHWs6xnzgKgAOKN9dEuKhbXrnII=
-Message-ID: <97e4b94c-b91b-468c-9021-2a3784c7b901@linux.microsoft.com>
-Date: Wed, 29 Apr 2026 10:46:50 -0700
+	Wed, 29 Apr 2026 17:49:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vGuvev1Sk/6Ov7n/aQa+IZFCHM/uQ/OjzRXBn9Q+p0ji5Cvg48ph0icygQbe4COGhgIwBSt10wqybqHCpsiuM8NvWpJyhaXFNZPpnzi1JLdLutCPBkmG1s0JIX3e+ROIlgw408wSLgfnITA10gTUkAZX8c1mIB0ctwuYRwWldu8k2bkzGhmhXqTVOwuX8Z80saHusiQcwdOQj8cbWrNbD15/DubhjZqVU8lmLoFKOHnQlonwPhVr4+V6Rh6fdk/ud2AYLyHyUl2GroTNlD0xRdocHoYWiwwejI6He59VzcANjgQJNVySW7/a/vuEjy7pBM7cTMXd5AZhvDiD6yGdFQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=at5FlQ322RxHTC5zYDDhsWA3fhZSE8dJrt/s9DNEzlc=;
+ b=vNg8eUseZCOtmulrocZCDEC2tHZvoQJPaq/3Sy4G2TGuKR6t9j4dbOXaj4pOfC/5xlIzVrZiO9r1myN2LzaUT+Km2J5gxmUHLuNi1jRIe8q5ctkrVRjA9kBfq13ScBC5eslnaFEgD55r06nM6Di7QYsOQ5Vwg+p+yDJ7V7MVK1JKIB7uHg/HBch+RTR8OB/IvwYo53HZwN/KSX90mu0vlZXIRrKpA/YPkalAK88VBcy2n68WzTfsNjCkHwEIeN1vgmNtfFsU+JpnRhsRRpZHa2xLNLzkX2q50OVOK6H4GAUJjRr2lJ0pPHp1FQmDazqjb8lgY18oczVesBNp8lrDhQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=at5FlQ322RxHTC5zYDDhsWA3fhZSE8dJrt/s9DNEzlc=;
+ b=FsGQ8JqDog7bpGuoZcgV7pWF/FAkD1WMSB5VwjBC3CUJre227BXq0sfSN3qcm9HNoF+DvhpWTkgDId4it5icz8V3AqNYCXbxy0+/CQmy2LihDJqvCJTWeAgXeAJCFaLt/Sffni+z25vR5494TY9pJUznu2CSYra+smVoVh84LZU=
+Received: from BN1PR12CA0019.namprd12.prod.outlook.com (2603:10b6:408:e1::24)
+ by IA3PR10MB8681.namprd10.prod.outlook.com (2603:10b6:208:577::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Wed, 29 Apr
+ 2026 17:49:21 +0000
+Received: from BN1PEPF0000468E.namprd05.prod.outlook.com
+ (2603:10b6:408:e1:cafe::2b) by BN1PR12CA0019.outlook.office365.com
+ (2603:10b6:408:e1::24) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.30 via Frontend Transport; Wed,
+ 29 Apr 2026 17:49:21 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ BN1PEPF0000468E.mail.protection.outlook.com (10.167.243.139) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9846.18 via Frontend Transport; Wed, 29 Apr 2026 17:49:21 +0000
+Received: from DLEE210.ent.ti.com (157.170.170.112) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 29 Apr
+ 2026 12:49:20 -0500
+Received: from DLEE204.ent.ti.com (157.170.170.84) by DLEE210.ent.ti.com
+ (157.170.170.112) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 29 Apr
+ 2026 12:49:19 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE204.ent.ti.com
+ (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 29 Apr 2026 12:49:19 -0500
+Received: from uda1253387.dhcp.ti.com (uda1253387.dhcp.ti.com [172.24.233.12])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 63THnDDG3822334;
+	Wed, 29 Apr 2026 12:49:17 -0500
+From: Rahul Sharma <r-sharma3@ti.com>
+To: <peter.ujfalusi@gmail.com>, <vkoul@kernel.org>, <Frank.Li@kernel.org>,
+	<nm@ti.com>, <kristo@kernel.org>, <ssantosh@kernel.org>, <tglx@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <dmaengine@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: [PATCH 1/2] dma: ti: k3-udma: enable runtime PM support
+Date: Wed, 29 Apr 2026 23:19:03 +0530
+Message-ID: <20260429174904.4049243-2-r-sharma3@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260429174904.4049243-1-r-sharma3@ti.com>
+References: <20260429174904.4049243-1-r-sharma3@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH] mmc: host: sdhci-iproc: implement the .hw_reset
- callback
-To: Florian Fainelli <florian.fainelli@broadcom.com>,
- Scott Branden <scott.branden@broadcom.com>
-Cc: rjui@broadcom.com, sbranden@broadcom.com,
- linux-arm-kernel@lists.infradead.org, tgopinath@linux.microsoft.com,
- adrian.hunter@intel.com, linux-mmc@vger.kernel.org,
- kernel-list@raspberrypi.com
-References: <20260327222150.2108111-1-meaganlloyd@linux.microsoft.com>
- <3305684d-8517-47dd-8852-2e34d40fc712@linux.microsoft.com>
- <702c52e4-b0b3-4e1e-a40d-29e136e46d7d@broadcom.com>
- <448010ef-278c-4711-a244-447a2b1a22c1@linux.microsoft.com>
- <CA+Jzhd+_CKn1X0YDsoh9-OFeCG9sc2Q0OFfphkRaXpEA647xyQ@mail.gmail.com>
- <58294850-4ed4-4fb4-8f46-186063b76a2f@linux.microsoft.com>
- <e1ba9b6d-0ad8-4336-a5f9-ad4777ef54e0@broadcom.com>
-Content-Language: en-US
-From: Meagan Lloyd <meaganlloyd@linux.microsoft.com>
-In-Reply-To: <e1ba9b6d-0ad8-4336-a5f9-ad4777ef54e0@broadcom.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN1PEPF0000468E:EE_|IA3PR10MB8681:EE_
+X-MS-Office365-Filtering-Correlation-Id: 39fd84ce-4d32-46b9-a7af-08dea617a50b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700016|1800799024|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: vngm1h/dAeOQV1ZventSCUAky7adDRuczjAHZAcwgZlonJcBLdOfOnksmFtcgXoGPt0Ep1Af1sipGRy/YcPmfNbjDbtBi+S5WEy1Inms/qSxipEory9Oi1WW6J6n/vHxO3/YfZ09wReygW59NC7uRwubrLMgd9HDr0EDvL4sFFr0VownNzt3mE+Mx9KR6B8gjm4isP/tKrQrClF7zwZahvyh9qKyEUoRyhuYLJNXTpYD9xmjoXQrdMt93RyoUvtuyS7iW62D4lNAyrrQboSnBLwGoaf2rdnDcEzGnG1oFunEwpgdTS6O9BEKa/92RMoNkcWHH/5YoO5rLf+ZlFu9Flgbqx3ffltQs1EVX8moHhqpZJc3vJglRPBQeYDrJi+7feY9N3IxXTwo8mx40Mv9Xj3WUWkKV0OWGUxYob49woGXcklkcvoo9k1OkKPikB4ACF82OXB9WDrMAErrHFTkgwZWbZl2vDLUJWu4NrqoQT3QGsuASSZ4aCs9QCVXdK6jtlK80pkKOv6BmOEXFoM3CqkjfF2x8V+ZU8P3Eh6BL/x6qiQW4BZ6+AZ6DeFwKjqm9767fjbHYxF6n9lxWBevZ/LCXnr7QUZlb0SqNM+zx3+IRGd1Hmz/YY5mER7HQ7gOCaS9rEmcICCtcGxPrX47lH1ed/+5KRSuB96pYGrfFdhQS+nxqrPhXaohVW6QTPBRiMyc33H8lMFOfQuJ8hNltbhX6INmolfj7DSVz/kP038BffZ8xhPtJRZITRENGcfEaoIVpKsU4Vg149y4I+QAtA==
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700016)(1800799024)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: nRv+UnppLgRCLBmMtdH8AM+coO2bsyj4LaZgYvfGtJ2aWNQBfBhsqwwkAHDtmC2LgzuCEspK7hPax55hnpNsdufHFYoUWAHCu1DS26G5AcXZxNFtwnoUCBf8tZZPle1QqLXeWJFbEXVDS0kUDApGG0M9/1aMZfALaxkcr3lQ53kxwhkF4OSbXsNxf7PS7rL2Z6tJEEDKEEMP7sf3reOhG9TQOK8uR3dAWxyemh58FREdODWyBjNQ2hja0WUkagiaD3PCbv0osRGblhZY7gtlm8oSnhPl44HbatVrOtojGX1HiBbUo0vQ2c6TDqw8H+KFJiwnLJCQgVU1yN72AanOxfYo+6sknxEEmD2xi1be9kx6yiwZ4IDltXoYoCCu6kgjpzd/bmdpcFvXmipzJ3+umFUsOBhXRJuyxHEnCMPpJ1yVWAGL5WNQV71vGBEhZLJx
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Apr 2026 17:49:21.5458
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 39fd84ce-4d32-46b9-a7af-08dea617a50b
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF0000468E.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA3PR10MB8681
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_104653_173099_F45E4BBA 
-X-CRM114-Status: GOOD (  13.58  )
+X-CRM114-CacheID: sfid-20260429_104932_305215_F5E21EFF 
+X-CRM114-Status: GOOD (  16.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,61 +130,207 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Rename udma_pm_suspend/resume to udma_runtime_suspend/resume and
+register them as runtime PM callbacks via SET_RUNTIME_PM_OPS. Enable
+runtime PM in probe via devm_pm_runtime_enable().
 
-On 4/15/2026 1:44 PM, Florian Fainelli wrote:
-> On 4/15/26 13:43, Meagan Lloyd wrote:
->>
->> On 4/15/2026 1:23 PM, Scott Branden wrote:
->>> Hi Meagan,
->>>
->>> On Wed, Apr 15, 2026 at 11:08 AM Meagan Lloyd <
->>> meaganlloyd@linux.microsoft.com> wrote:
->>>
->>>> On 4/13/2026 10:43 AM, Florian Fainelli wrote:
->>>>> On 4/13/26 10:38, Meagan Lloyd wrote:
->>>>>> On 3/27/2026 3:21 PM, Meagan Lloyd wrote:
->>>>>>> Implement the .hw_reset callback so that the eMMC can be reset as
->>>>>>> needed
->>>>>>> given cap-mmc-hw-reset is set in the devicetree and the
->>>>>>> functionality is
->>>>>>> enabled on the eMMC.
->>>>>>>
->>>>>>> Signed-off-by: Meagan Lloyd <meaganlloyd@linux.microsoft.com>
->>>>>>> ---
->>>>>>>
->>>>>>> SDHCI_POWER_CONTROL[4] (SD Host Controller Standard) has been
->>>>>>> repurposed
->>>>>>> on my Broadcomm processor to be eMMC hardware reset
->>>>>>> (SDIO*_eMMCSDXC_CTRL[12], HRESET).
->>>>>>>
->>>>>>> Can you confirm this repurposed bit is consistent across the
->>>>>>> Broadcomm
->>>>>>> iProc processors and thus the .hw_reset callback can be uniformly
->>>>>>> applied in this driver?
->>>>>> Hi Ray & Scott,
->>>>>>
->>>>>> I hope you're doing well. This bit looks to have been repurposed
->>>>>> from
->>>>>> the SD Host Controller Standard's VDD2 Power Control to being
->>>>>> used for
->>>>>> toggling the hardware reset signal to eMMCs. Can you verify that it
->>>>>> applies across the iProc processors so that I may finalize this
->>>>>> patch?
->>>>> Which iProc process are you using? If you are not sure this applies
->>>>> broadly, can you at least make it specific to the SoC you are using?
->>>> Yes, if it comes to that I can. I think it's overkill to roll a new
->>>> compat string/associated structures over this small change, hence
->>>> checking with Broadcomm iProc maintainers on this thread.
->>>>
->>> Which iProc processor are you using?  You will have to check with
->>> RaspberryPI as I think they use this driver as well.
->>> If that family also supports it then you probably don't need a
->>> compatibility string.
->>
->> The processor I am using is the BCM58732. Can you help direct me to
->> someone who could comment from the RaspberryPi side?
->>
->
-> I will take care of that. 
-Thanks, Florian. Let me know what you find out :)
+System sleep is handled by reusing the same callbacks via
+pm_runtime_force_suspend/resume as late/early sleep ops, keeping the
+PM runtime state machine consistent across system sleep transitions.
+
+Hold a runtime PM reference for the lifetime of each allocated channel
+(acquired in alloc_chan_resources, released in free_chan_resources) to
+ensure the device stays powered while DMA is in use.
+
+Signed-off-by: Rahul Sharma <r-sharma3@ti.com>
+---
+ drivers/dma/ti/k3-udma.c | 46 +++++++++++++++++++++++++++++++---------
+ 1 file changed, 36 insertions(+), 10 deletions(-)
+
+diff --git a/drivers/dma/ti/k3-udma.c b/drivers/dma/ti/k3-udma.c
+index c964ebfcf3b6..47a4d45f4c09 100644
+--- a/drivers/dma/ti/k3-udma.c
++++ b/drivers/dma/ti/k3-udma.c
+@@ -28,6 +28,7 @@
+ #include <linux/soc/ti/ti_sci_inta_msi.h>
+ #include <linux/dma/k3-event-router.h>
+ #include <linux/dma/ti-cppi5.h>
++#include <linux/pm_runtime.h>
+ 
+ #include "../virt-dma.h"
+ #include "k3-udma.h"
+@@ -2189,6 +2190,10 @@ static int udma_alloc_chan_resources(struct dma_chan *chan)
+ 	u32 irq_udma_idx;
+ 	int ret;
+ 
++	ret = pm_runtime_resume_and_get(ud->dev);
++	if (ret)
++		return ret;
++
+ 	uc->dma_dev = ud->dev;
+ 
+ 	if (uc->config.pkt_mode || uc->config.dir == DMA_MEM_TO_MEM) {
+@@ -2382,6 +2387,7 @@ static int udma_alloc_chan_resources(struct dma_chan *chan)
+ 		uc->use_dma_pool = false;
+ 	}
+ 
++	pm_runtime_put(ud->dev);
+ 	return ret;
+ }
+ 
+@@ -2393,6 +2399,10 @@ static int bcdma_alloc_chan_resources(struct dma_chan *chan)
+ 	u32 irq_udma_idx, irq_ring_idx;
+ 	int ret;
+ 
++	ret = pm_runtime_resume_and_get(ud->dev);
++	if (ret)
++		return ret;
++
+ 	/* Only TR mode is supported */
+ 	uc->config.pkt_mode = false;
+ 
+@@ -2412,7 +2422,7 @@ static int bcdma_alloc_chan_resources(struct dma_chan *chan)
+ 
+ 		ret = bcdma_alloc_bchan_resources(uc);
+ 		if (ret)
+-			return ret;
++			goto err_res_free;
+ 
+ 		irq_ring_idx = uc->bchan->id + oes->bcdma_bchan_ring;
+ 		irq_udma_idx = uc->bchan->id + oes->bcdma_bchan_data;
+@@ -2427,7 +2437,7 @@ static int bcdma_alloc_chan_resources(struct dma_chan *chan)
+ 		ret = udma_alloc_tx_resources(uc);
+ 		if (ret) {
+ 			uc->config.remote_thread_id = -1;
+-			return ret;
++			goto err_res_free;
+ 		}
+ 
+ 		uc->config.src_thread = ud->psil_base + uc->tchan->id;
+@@ -2447,7 +2457,7 @@ static int bcdma_alloc_chan_resources(struct dma_chan *chan)
+ 		ret = udma_alloc_rx_resources(uc);
+ 		if (ret) {
+ 			uc->config.remote_thread_id = -1;
+-			return ret;
++			goto err_res_free;
+ 		}
+ 
+ 		uc->config.src_thread = uc->config.remote_thread_id;
+@@ -2463,7 +2473,8 @@ static int bcdma_alloc_chan_resources(struct dma_chan *chan)
+ 		/* Can not happen */
+ 		dev_err(uc->ud->dev, "%s: chan%d invalid direction (%u)\n",
+ 			__func__, uc->id, uc->config.dir);
+-		return -EINVAL;
++		ret = -EINVAL;
++		goto err_res_free;
+ 	}
+ 
+ 	/* check if the channel configuration was successful */
+@@ -2576,6 +2587,7 @@ static int bcdma_alloc_chan_resources(struct dma_chan *chan)
+ 		uc->use_dma_pool = false;
+ 	}
+ 
++	pm_runtime_put(ud->dev);
+ 	return ret;
+ }
+ 
+@@ -2605,6 +2617,10 @@ static int pktdma_alloc_chan_resources(struct dma_chan *chan)
+ 	u32 irq_ring_idx;
+ 	int ret;
+ 
++	ret = pm_runtime_resume_and_get(ud->dev);
++	if (ret)
++		return ret;
++
+ 	/*
+ 	 * Make sure that the completion is in a known state:
+ 	 * No teardown, the channel is idle
+@@ -2622,7 +2638,7 @@ static int pktdma_alloc_chan_resources(struct dma_chan *chan)
+ 		ret = udma_alloc_tx_resources(uc);
+ 		if (ret) {
+ 			uc->config.remote_thread_id = -1;
+-			return ret;
++			goto err_res_free;
+ 		}
+ 
+ 		uc->config.src_thread = ud->psil_base + uc->tchan->id;
+@@ -2641,7 +2657,7 @@ static int pktdma_alloc_chan_resources(struct dma_chan *chan)
+ 		ret = udma_alloc_rx_resources(uc);
+ 		if (ret) {
+ 			uc->config.remote_thread_id = -1;
+-			return ret;
++			goto err_res_free;
+ 		}
+ 
+ 		uc->config.src_thread = uc->config.remote_thread_id;
+@@ -2656,7 +2672,8 @@ static int pktdma_alloc_chan_resources(struct dma_chan *chan)
+ 		/* Can not happen */
+ 		dev_err(uc->ud->dev, "%s: chan%d invalid direction (%u)\n",
+ 			__func__, uc->id, uc->config.dir);
+-		return -EINVAL;
++		ret = -EINVAL;
++		goto err_res_free;
+ 	}
+ 
+ 	/* check if the channel configuration was successful */
+@@ -2745,6 +2762,7 @@ static int pktdma_alloc_chan_resources(struct dma_chan *chan)
+ 	dma_pool_destroy(uc->hdesc_pool);
+ 	uc->use_dma_pool = false;
+ 
++	pm_runtime_put(ud->dev);
+ 	return ret;
+ }
+ 
+@@ -4123,6 +4141,8 @@ static void udma_free_chan_resources(struct dma_chan *chan)
+ 		dma_pool_destroy(uc->hdesc_pool);
+ 		uc->use_dma_pool = false;
+ 	}
++
++	pm_runtime_put(ud->dev);
+ }
+ 
+ static struct platform_driver udma_driver;
+@@ -5644,6 +5664,11 @@ static int udma_probe(struct platform_device *pdev)
+ 
+ 	platform_set_drvdata(pdev, ud);
+ 
++	/* Enable runtime PM */
++	ret = devm_pm_runtime_enable(dev);
++	if (ret)
++		return ret;
++
+ 	ret = of_dma_controller_register(dev->of_node, udma_of_xlate, ud);
+ 	if (ret) {
+ 		dev_err(dev, "failed to register of_dma controller\n");
+@@ -5653,7 +5678,7 @@ static int udma_probe(struct platform_device *pdev)
+ 	return ret;
+ }
+ 
+-static int __maybe_unused udma_pm_suspend(struct device *dev)
++static int udma_runtime_suspend(struct device *dev)
+ {
+ 	struct udma_dev *ud = dev_get_drvdata(dev);
+ 	struct dma_device *dma_dev = &ud->ddev;
+@@ -5675,7 +5700,7 @@ static int __maybe_unused udma_pm_suspend(struct device *dev)
+ 	return 0;
+ }
+ 
+-static int __maybe_unused udma_pm_resume(struct device *dev)
++static int udma_runtime_resume(struct device *dev)
+ {
+ 	struct udma_dev *ud = dev_get_drvdata(dev);
+ 	struct dma_device *dma_dev = &ud->ddev;
+@@ -5701,7 +5726,8 @@ static int __maybe_unused udma_pm_resume(struct device *dev)
+ }
+ 
+ static const struct dev_pm_ops udma_pm_ops = {
+-	SET_LATE_SYSTEM_SLEEP_PM_OPS(udma_pm_suspend, udma_pm_resume)
++	SET_LATE_SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend, pm_runtime_force_resume)
++	SET_RUNTIME_PM_OPS(udma_runtime_suspend, udma_runtime_resume, NULL)
+ };
+ 
+ static struct platform_driver udma_driver = {
+-- 
+2.34.1
+
 
