@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BDCCCD13DA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 17:09:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CA65CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 17:09:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5SaBErezl/wZPZpNO6FAWV3T0UppCC78jVgZ3Ljf6hk=; b=DeRltykY/6Dq/J8LFk4RRa9Kwl
-	wCgqbUw6UVo3bEW3FcJEKR/uGCHOtMWWILO+y8dI+5RY4m/VYyMPN/Z9QaTlcPXcgs+9TAO0Pyj66
-	Q9hyraQDCzSBq5N390VIbxHAbXEgBI/aFdU/Z2wn5K2sVIt1EAB9zjcvMKM26NW/EHeFPKznXXcuN
-	ErobuzIbZu/02HsvSVoua1Ok7/z55GA6Kzz2AprqqFoLoeradKtCyy7eJwMJmT/obN7XxOV62vxdZ
-	G7tFBzB94g9vyewCCZHO6xXau1CRtQwBg2WMDddaIWZu3qBSM8h/skkCPfVzd78HbqzDlez0NdiFL
-	+A/H8kxQ==;
+	bh=lkQcOMEDC1tWRRcrllxPjtcAEnU9zAIbW4qjW3jMj2w=; b=ZIj5HthOberzuEpWBIMVTABHRe
+	7gzc3eiOX9fph+m2ZrLWf2nVgw/kaBXoV4XKgzA97NxynTMEIMz7r55pzkQojRvp6/MzdJgFC8DRD
+	zb7tZmMaOMZa5hej3hyLKYk/3N+aQnoTOkXoYSgFPo2makJbUhZlsZQG2CaKw8TpWi9cnMnaGzsfb
+	MA3SQ/jZ622di3Cpu0xLoO2zbM5J+lNW/IM8SWJZKO4/6Mxdpbcr/kvFoRm2cPcxhj8yMqpaACn9w
+	8MKj/qDY8aHcda43z0D6VHnMK3+qqEqF4+Inia8dmfasonYhrkEXbFpEG4DMvCDr2XvI3IeflgjWY
+	JRmkAndA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI8PV-00000003wG8-4920;
-	Wed, 29 Apr 2026 17:09:17 +0000
+	id 1wI8Pr-00000003wVj-2xpR;
+	Wed, 29 Apr 2026 17:09:39 +0000
 Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI8PQ-00000003w7G-2WKD
+	id 1wI8PT-00000003w7G-3AM1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 17:09:13 +0000
+	Wed, 29 Apr 2026 17:09:16 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jxVpKp7CUk2NZbmrLir6TRp0Pho6rJHd5p9bPhJMWh9TH/V7VOsq2ygW51xjQqrTUK+shTk4MFNQSGdRphPQyEGFlgrYxuR2lLrdw93wZ3axmQAlNQ6dq4cIuJ7eoFC0I+2tsR1XfNqsVVF5xF5cq1yr2fdEedzFoKMfOfOvV6MkO0dFRobt5W8KSNUPCAxA/S37SO5UOswOAI7iSsJIbsBcMoaiAgi9KenSIxd4+0xrfq3Mu5jOUdApvsC3ux92Y9YQ29KBggWifaOlgSQOB/u5QOwtdTcDKeryChd5MprJozMMErxw/hBsK7Ubh94wDp0Hde68wGXmtnuhXMYkow==
+ b=bImd/rVcRcAgFLZgMsg9kPBe7NjkMUzo1oSZzu977Q73F7+0ywTSMg2GTNbCsSOmV2xFE5kcfDQP2+46TIvaL5yXcAbgjpWxgFCiaOxEuXLaeUu9NC+4xDHtO7198FpmK0O2o2QAYbGmJVS8YqFtt+wJMHwWkE8XFVFg2Q/Ux3O45eY2nwiCIP3P44t4CU4NDz8Kuz8oZ/NPnM/wRijA7f12BIjILGcPtQElt8NmUFpEVEjVhXijtb//0rQHjpOWiU5wV+92K2i7BYDWaS78aUtGi3bk2HuxuuKhB1iBbKbAuqajRgEpRk+0Gx/N6X2lG4GT81ZcnFfBHlnSoI9hZw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5SaBErezl/wZPZpNO6FAWV3T0UppCC78jVgZ3Ljf6hk=;
- b=sXHyLiscIO64YklzzHjw3jmgw/SDuWlMEM0NeexqyUbqLeBYvxHAFLzodyUJ2AdQpmx0XOaVsyjjcjofcIi28QZEbD6BgLuT/cGNeGUrfJLhKgWLbhiAb20MiGPIJ+6u4Qgx4qwXzuL5WGikgnGLWuNcL9hqVpZ7I0Kj9+GOHmAQtb2waz25ECxwtwws9UFMs0k2Cw5JAuFEJMWtU8l8tuFwZsg9fpGRSAtZOKKXCKFEdUiT+MH7GjTjgo5BFsP3TzbmKv+eDFKh0VfE+DeZJL8VPsGGuvqwqXpKwTjSmWC+DFzmQumVqIHGJZ1wzvj1Lh1gPQUne2LeV2XMJnibiw==
+ bh=lkQcOMEDC1tWRRcrllxPjtcAEnU9zAIbW4qjW3jMj2w=;
+ b=NtktbMlA+omdjri8cjeS01Q+98gqiGe/iyz1ZMFSJ9MhPr/o4TDcwdGOO5j6CZ24F8DnAz3V12rNXz8JIW4hEq3G4YDBD3G3L2LmX7NKIYqJZczOZ+69BCvKYT36ZpEaiPEYrCn3ZmRFzp6CtjublDIiWQCQeOEkzgxmS/5E7agEufLm+rwtZmyqjyAPRWvmfEfsbeuUrdJ0l2+6Y9BxSG+5AgGbZH92pgUEpq8f8P8N3+9qSAzOXSFPECSjAlfL+mipyyxoCpyDFwhz4MfY9tBBD865Y5Xxcm9wFdTUslAnfB1nxyc3hLjAFPBcxzAnfQ599PaeYFobdwK34ratLQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
  header.from=os.amperecomputing.com; dkim=pass
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=os.amperecomputing.com; s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5SaBErezl/wZPZpNO6FAWV3T0UppCC78jVgZ3Ljf6hk=;
- b=DgOid+ne+/tW3e2wUCnlT1iUqqlVuo6kChg1zNKuHqezonvNTBh4hHHbbG3A1RAedA1lfAapKFgkm1vTTb/vrCAKUXYCj1YqDb6CKpAV26/eLndB3rlIHcyNeBh2efoXirKdGXXrSPFdba0e1aetwWb+MeNETCTFKP4P8RG0Ma8=
+ bh=lkQcOMEDC1tWRRcrllxPjtcAEnU9zAIbW4qjW3jMj2w=;
+ b=DXtDRAkZ03AJAtKq02rqNYHPLs3ntUHPBGD9KG+Xg8ExnK318GCG1Wj6iTtjMqYsnthD2wZ8Ganke/pjCxM1sNf1RgUNMOi1liB+dumXKZt6+lfrD7KB4KylLgAiIvOXq36aY2CU1ZEpb7O930R78cb3y39Kb87tw+GSj5AkhiQ=
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
 Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
  SA1PR01MB6671.prod.exchangelabs.com (2603:10b6:806:18b::10) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9846.26; Wed, 29 Apr 2026 17:09:07 +0000
+ 15.20.9846.26; Wed, 29 Apr 2026 17:09:11 +0000
 Received: from CH0PR01MB6873.prod.exchangelabs.com
  ([fe80::46eb:64a3:667c:c1a0]) by CH0PR01MB6873.prod.exchangelabs.com
  ([fe80::46eb:64a3:667c:c1a0%4]) with mapi id 15.20.9870.020; Wed, 29 Apr 2026
- 17:09:07 +0000
+ 17:09:11 +0000
 From: Yang Shi <yang@os.amperecomputing.com>
 To: cl@gentwo.org,
 	dennis@kernel.org,
@@ -70,9 +70,9 @@ Cc: yang@os.amperecomputing.com,
 	linux-mm@kvack.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 08/11] vmalloc: pass in pgd pointer for vmap{__vunmap}_range_noflush()
-Date: Wed, 29 Apr 2026 10:04:36 -0700
-Message-ID: <20260429170758.3018959-9-yang@os.amperecomputing.com>
+Subject: [PATCH 10/11] arm64: kconfig: select HAVE_LOCAL_PER_CPU_MAP
+Date: Wed, 29 Apr 2026 10:04:38 -0700
+Message-ID: <20260429170758.3018959-11-yang@os.amperecomputing.com>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260429170758.3018959-1-yang@os.amperecomputing.com>
 References: <20260429170758.3018959-1-yang@os.amperecomputing.com>
@@ -84,58 +84,59 @@ X-ClientProxiedBy: SA0PR13CA0008.namprd13.prod.outlook.com
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|SA1PR01MB6671:EE_
-X-MS-Office365-Filtering-Correlation-Id: 924d4255-888a-40e0-93db-08dea61205d4
+X-MS-Office365-Filtering-Correlation-Id: 317282ca-f16c-4cae-5de0-08dea612081c
 X-MS-Exchange-AtpMessageProperties: SA
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|18002099003|56012099003|22082099003|55112099003|921020;
-X-Microsoft-Antispam-Message-Info: /sfJlzasUJM6lMTekuJ1jwpOvE27Zs2usJ1+a4qwsti4k8Q3dkigtMm97+ObP6rSdoB0UronwZDs5d5GwtstMWZZD6WuW6ZnXuf2dbTG2HtT6j6aG0knjx2AaxAQ6/Uppc8d10H3q1zgTZXrBmdOi6eGY4OAmcsaiSOL60bnxbg8KI/BQr0/ulSXBoxrIRE/Oc2SBrt9PfceI70SpGpLwqE2OskT0Oj4UJsYznd16KAuJReydTBrR8ZOKO9eAsz+w18TLxDqHjryCNvz/bW+03NtcGy8dU9wL6a2exr9Vx/jKr9mJDhbf67QsVTdmZwERUx/Q1h+RpqrpYaSVUEBBbhx37KbLl/ipJUHTtkuq5PfsoaL/ru+ib2l6HEhTMbjWvHQV55zrKBkG2OsUCVTEtWqFJiZX0DoskuqjXA6gYmg/n0VDHUYjciJc6R+miqrITPvAvAWVoFTuuz8N3oYvFczysqJlRlpV4+SGkWI0Sg2pHW22CY1uWh+PUfJntHVng6tStKeeOI20BheWlcCkQf7QqJKzMCcmFOGfZL1mmBsg6Ak+BGsOHsS6cCLCY79lyQ6934jRu03yhQOewVZoYYUXjiTr1JaoOmTBPHLUDfiiiDqFk+vqbSM4E5atxo15I7PcbzUfbD1YTu6GTQHpfliwLotKCELbosVjE9k8ioSTIrT08HBPhtapYOcXt6B8Mkp5vv4MLJkpAP9gIkqSNXActJbuA0OdTuaQJal2wL62si1MkjY4PgSqBS/w4gT4lcZRNM7Jv9lALe4/QXlGA==
+X-Microsoft-Antispam-Message-Info: ib+fAfd/I1USgNgG18zCR6NRp6+NaG4VRO63z5XRZFyJLSZ0A9xLZ73PimPH3XTHqwXZ80D9+ocjQkjYZPbTlduCM2xosfhp2zcwL+B4wUAPfJFhMHTAT50ISXPDQbhtBIQy03Z5WzDJGJhs/xzvknlPCh1A5yG6Ufm848oi26wHP3urNuUjNRQn17fGQX/mU7T7yWgDDHABaRlAehgRTEAT85GhBhRmsjXptekObZjHkUwMQqOjUS+kq3Mm7If1qKZZvF7ImT/7DIrS1TfhHMTGMOjeFXJu6BrqZ17Z0qEiaf3v29CFlWeLKdyPuwVQyivqGaFrnm+ZUd7U6oNeNyAPy00Ms9jR9Jbmzzju6I+UQFPB4VqI0XdnoP8xaVJ0wYvw0juApa4cbbBblVyXlrRQeq05cestfYAcU65fsCi6F1BisUtBwcTLXunj8m2+RzNF6QDtVMRKbAqdpMOcysztBMU04A29zZJqMoyrB3KnBoLmxQz8SVOSydz7t5OD3fTTjGKpLVnQHTzXDliZUTHthhI7+D+37OpnamZxn0/SnsGe9ay+pMfODqPV2HrT1cG/+2dEHwCV9MAM9a8QPxaGsO0WYhX0BGJghekMTADvDwQB/akDNSHYH3qn9ThV9PFr+Nbd1lfd35g/k+jROvdNdbSrxpE5uii0kbJo++Nbg3vhUX1jLEaTqc+WwUH2RDOYa7Q/f5LRH5g4FD0cHJcXBXy5FqZ6hUgXklJwgWI4FQCBcdjvjZ8WTDfyTaqbcHbYWbwabG8jXEg72DDJhA==
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(18002099003)(56012099003)(22082099003)(55112099003)(921020);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bhAUMmHR88RI0gk0wzO05OZZBljAUL7JxVz4uhVMFUMT/pBXx/io0x4FyyY+?=
- =?us-ascii?Q?PfrXyAYtHrr5jcIsDBj5yd9b9gFyRgKoFBsAIAYYMLibFAvoY7qjyQ+kpLo5?=
- =?us-ascii?Q?/ZU69VTtSND685/W9j6grvyTvdPYFZ0xdc6kElVrFfJrNQ7RYHs8dUXvg4qI?=
- =?us-ascii?Q?M9Oym6IFFhLTR0bWANVTF6gtaxoVXfn694mjOHDo7XDBOKuZXnCUPmiro4Om?=
- =?us-ascii?Q?vw0jG3jZC9PC1mWP/rIm9USlZWjQHxvREIZv++ehE4T8UAfskzMxgXTxJLxV?=
- =?us-ascii?Q?VriI6R7Q5aTSIgoutqKBuS3CsdV7DrqEgZNGRXZRf5BxFkMMN1dwPFwBC4o6?=
- =?us-ascii?Q?H3ESlvPpPlvW41o7dqJwrpxDbEIG3pjE5wAVaCqrvN1v/rrIYg/IlwuVVCRh?=
- =?us-ascii?Q?8PuqC3hdyZSMut0KCZB1DyYkfNprL6KQ4KQFTKWwZcSXi1HqbJCjE543FpbD?=
- =?us-ascii?Q?yvccCvKNWUqP7f5dXyYqO78KDgh5r395mErQH1G2iHY4GPPF3/ffkx40Fa/+?=
- =?us-ascii?Q?Zv0VqI+7iUonRHOfa3FPhsxHEklgHdeRCfbRYq6xcVUn8HD0tu4OI91ZfnJ+?=
- =?us-ascii?Q?P+mj1SJSFFaHzryVZ7YWozv9J32YUoGFm28VkRGETrnNBb/pGefy10KL1nJL?=
- =?us-ascii?Q?Tu2TpwXHyTrfzetLiau1YEfm06jZNucqzgB45fSN/BzyYsFn83ZDRNdasu2c?=
- =?us-ascii?Q?hva5M7wSpeIqNcD9x/IW/gDppWIz5T0kYe57sY5mYeyNDG9txt/jbIXzN3sO?=
- =?us-ascii?Q?9SYpPHjETN/RfM/7fkwBVleHLL9MgotKlflZRiLhT5jFgYta6izYsVzsfn25?=
- =?us-ascii?Q?a5trcETT5CCu/klzQow48EKaoaYErf2HUaW128GWcvv4JIZa/Sn4OTDHyXTu?=
- =?us-ascii?Q?oMe38zu8KzXrEpMlaO0Az7zRRNEUwMsmQEL4sUBwBH0VFq9j9iOLxWC7ig3Y?=
- =?us-ascii?Q?PKmLh2hGsUa0RVIM5ksv5jGaEnyycxGmbATFfpqNebpf5VsE0WyUzdrkXe3m?=
- =?us-ascii?Q?wM9Pf2Opuoq70Q2tMGNJ5HF0VQCA62viS8doEm4CKzqA/k1xawb9LNJC6Vmu?=
- =?us-ascii?Q?8O4U7owdLh90oX88P6Jty5+yGG/4ZtLu71AJ0S2PZLvUl8OxiURRmmnjZ2Xd?=
- =?us-ascii?Q?5Y+yUM0LNrTJMe5fScEKyAQP+g6kRq1QKwf1PmeCfSXx5Z6J02xiHOjuVjzk?=
- =?us-ascii?Q?ITkVCJ89chPfACGUnm/4gjNN8csR4rBcBKTJzjJ3sDoH0q/go8LSjuiEBaie?=
- =?us-ascii?Q?tWVKMuBQddsiW86xcf7IJ63TOBsKnh9Bp9GFQ04egHeNIz7lwLTy2M+NRqmU?=
- =?us-ascii?Q?qTftLDnaDoX7gbcGO+gwNDGhorw/uAzlq29ejUkRmAMaUbsUyr3mSCvrvmvr?=
- =?us-ascii?Q?eXycRR7f6PZlQ05W/n/fh6tePpsFOvRcie+7KdklHdkQ4Y3I1MVP8VZoa/pt?=
- =?us-ascii?Q?unIrYkVTNtUJiUijV6VEKjGfk+2e5+kFvFX/f9+JedTEGRzmwh/fqdXhnogG?=
- =?us-ascii?Q?e/m4Y2nXShj7jW/dYwbCLTjjIG6L6JIswtpRn3rTeQCsT8V44hgDscOmx59M?=
- =?us-ascii?Q?jZb/3h2pHWey2531eDGsOiheuz+IzGZI/9Tve6M6WUGsAh49tI/nehKZQOfl?=
- =?us-ascii?Q?pUkoQMeMvl33jECHHxiNznup7a8eTyC/5iHjOvaKfmcD/eYKrI+t/kGm+u+r?=
- =?us-ascii?Q?GVf8kpF3964qbwwNDxmt4wOxvt/pzcfM8PdEkWQuypKh/Wz1toRSjslM+9em?=
- =?us-ascii?Q?WcEmt7oS7tdfuh4gQI1qNEfbNIL4nfo=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hW/Nq8RI/c15U5+d6dCEERNwm+SC81VeV0f8xEVJZ1RvJjt7XVMOZz6Go+fv?=
+ =?us-ascii?Q?pxwkQgn+o8ZvkktlTI56X031sZA0sB1uE8Ka89ThzkJoH3OR7WOJMiGhmZjX?=
+ =?us-ascii?Q?AksrhV39Zfu6v4tGPlywcQszPVRbWmP0Uk25egH/jhORAtzFzWabGALPsGQ1?=
+ =?us-ascii?Q?bnVtJyIR8bqcJzuIuu6riSPz4n5rY7FCIdw6v3y6OA3eYZZn3vlDk7TVUmPc?=
+ =?us-ascii?Q?38/jxHTY4o6AtU8SX+V/3VdUHwQYkqkahrVFevZdd35xDnSY7TK4Vyemo/2I?=
+ =?us-ascii?Q?Dzrwp39j23nACqNsvQf8FlIaLAMMkk6qyP8UeX6IPb/S2aGld0OQBGfbVa1f?=
+ =?us-ascii?Q?WCw3v2eJ4yK+2BuQotgtBG3vQIl78IXHw9rKFhzzj5ZyNIPAmhZjrXc871xX?=
+ =?us-ascii?Q?9egAhhfNFIcI+DuN888aKybc+vlBFH0NoYwftqAmQeizOQumlQd1ZJqkAJJ1?=
+ =?us-ascii?Q?qLsDFnc2XbZqZf4hqzbqnW5sbELF8sW658dJKc2xHSULm6gr2l2yPfEGIch2?=
+ =?us-ascii?Q?XxuwQIa++Oea/He2+LnRN1XDTxXJfK21lI3GdE2NKMIoEPQVWlN1A1CfwAmF?=
+ =?us-ascii?Q?BPNiIzLNHit8/HlNcSs5SbIYlRT+7sCkVQi3NlyY+FdosX2Uha9WHz1GT/lI?=
+ =?us-ascii?Q?LE/8T3icuWtb8TIgtCNZYEKRan1zNmvlFsDQkHxoIwjY2ZLG4mf1sQaIriXg?=
+ =?us-ascii?Q?N4EEl9t+q8xHGE7EmtxU8lzFKdMAttVvHJUEfDR/2t9BnNAze+ivkzugOo4M?=
+ =?us-ascii?Q?QUnpemG8TiARVGrmi2i4SsNdDJSAA2S+wp4Q910DgmXwLMsxYBXf5xVMUWTu?=
+ =?us-ascii?Q?IHpeeG8wOP5dCPzyjeDIo4NSVlOCHrkeCJKa5dravGxBW+Pi3iWUpypElHXo?=
+ =?us-ascii?Q?dwnEOT6acedS754cvm4MWCCX7XGdQ9IBVopoyxQOEj4q7grBUN416FJmLbuA?=
+ =?us-ascii?Q?3Aba7Nzy2I0HuhzOPoVOQw8v1PBMnlRr/u1MdoX3RiVbRbjuhjRIwc8prrU7?=
+ =?us-ascii?Q?3GtVVqujr55w9iYNuMuju6tLPX3khnekMPAsiER5xWrMbOu48L9TdxuoMuYK?=
+ =?us-ascii?Q?D5O53CHypaKG3QPi6lX6FVVR6tsWxN1NlQdPVwyx1mDRxMGLdJh1gHF9JFWC?=
+ =?us-ascii?Q?GWNWtM8e4/VmjC66juvapaBchixmBCAm3bdAvMzFBphj/UFcen6QlxkArUHq?=
+ =?us-ascii?Q?OLh/wlqow0Nf9J3y2p4SYZw/80ROTCdcVz5SzmjAwxUcvO3m5eEdhNfyOu54?=
+ =?us-ascii?Q?gIwS/mKtntpawrOw54YjKM7YO791oBRQ/7vR9btMOHCAE6px4eSTccHdUQGj?=
+ =?us-ascii?Q?ljYYRud4UAB1KEmZCONl7yVoDGL72H0AkJFI0i1fAvgalE7jWMTlBH2gQm59?=
+ =?us-ascii?Q?+aHtftGKHVV4p88BuCCDMoafEZySMBSO6SUwdv6x6qAlRlX8cs/XsolvVQT/?=
+ =?us-ascii?Q?IkNneO9q/M5Ml0saUMGrXK/mVY2a1rwP88uG5xL/EGItTaKNMKj09PU6FHu8?=
+ =?us-ascii?Q?r/O5P2B6qZYKJZO5fFUu9Q6vCBOiMfnhsJ1vi4tX/bwvU2J+7N4wrFNuiXAM?=
+ =?us-ascii?Q?SMGwa8zWBkdmEGrGQ/x6UV+0JipaRikPqZZpzqq3iksE16uQ8cJeoSB6+2tc?=
+ =?us-ascii?Q?UNARjpxxbSlp4eQN+gPxTugHUB3sRtIG/4My5qHX7g5dr8dw8vNgNl3uekZ/?=
+ =?us-ascii?Q?P+MtriFDEkvd/84a7ZRgY0cwXmYcLVT+JdIklRYQ1Y6MW8to7WaIhuC0KHZS?=
+ =?us-ascii?Q?gIjjVuGVZzpdIalgElc2IG1ruYjOlck=3D?=
 X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 924d4255-888a-40e0-93db-08dea61205d4
+X-MS-Exchange-CrossTenant-Network-Message-Id: 317282ca-f16c-4cae-5de0-08dea612081c
 X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Apr 2026 17:09:07.2164
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Apr 2026 17:09:11.0472
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XMOSS98TY2dNYCgRzvH+9e0BFEMLuJGIOjtZ60GgwK2s0jhz23Zfa5csZdatwM/AnzTSeFjYklSCJRrzAQxjZ3cUe4yHKvL3SL85yJjkazU=
+X-MS-Exchange-CrossTenant-UserPrincipalName: dNVZH1Eaz8zExKwTrT1+a5ROjVCYWRGzWHmpUoaZRGRnSH/hx6cZTCbhs8Mjh/MCqI4mRR28z2UDcgPqHyEYlSD3j1lhEQ5jpp3WQeUov8g=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR01MB6671
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_100912_804515_64DCA22C 
-X-CRM114-Status: GOOD (  13.37  )
+X-CRM114-CacheID: sfid-20260429_100915_797577_D6C371EB 
+X-CRM114-Status: UNSURE (   7.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,168 +151,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-vmap{__vunmap}_range_noflush() assume manipulate init_mm pgd.  The
-following patch will map percpu local mapping into percpu page table by
-calling them, so the assumption will no longer stand.  Make them take
-pgd pointer as an parameter.
-
-Also make vmap_range_noflush() non static, it will be called outside
-vmalloc in the following patch.
-
-There is no functional change.
+ARM64 supports local percpu map, so select HAVE_LOCAL_PER_CPU_MAP
+by default.
 
 Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
 ---
- mm/internal.h    |  5 ++++-
- mm/kmsan/hooks.c | 14 +++++++-------
- mm/vmalloc.c     | 25 +++++++++++++------------
- 3 files changed, 24 insertions(+), 20 deletions(-)
+ arch/arm64/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/mm/internal.h b/mm/internal.h
-index 5a2ddcf68e0b..1e54945f8750 100644
---- a/mm/internal.h
-+++ b/mm/internal.h
-@@ -1553,10 +1553,13 @@ void clear_vm_uninitialized_flag(struct vm_struct *vm);
- int __must_check __vmap_pages_range_noflush(unsigned long addr,
- 			       unsigned long end, pgprot_t prot,
- 			       struct page **pages, unsigned int page_shift);
-+int __must_check vmap_range_noflush(pgd_t *pgdir, unsigned long addr,
-+			unsigned long end, phys_addr_t phys_addr,
-+			pgprot_t prot, unsigned int max_page_shift);
- 
- void vunmap_range_noflush(unsigned long start, unsigned long end);
- 
--void __vunmap_range_noflush(unsigned long start, unsigned long end);
-+void __vunmap_range_noflush(pgd_t *pgdir, unsigned long start, unsigned long end);
- 
- static inline bool vma_is_single_threaded_private(struct vm_area_struct *vma)
- {
-diff --git a/mm/kmsan/hooks.c b/mm/kmsan/hooks.c
-index 8f22d1f22981..e2a0faf344b9 100644
---- a/mm/kmsan/hooks.c
-+++ b/mm/kmsan/hooks.c
-@@ -135,8 +135,8 @@ static unsigned long vmalloc_origin(unsigned long addr)
- 
- void kmsan_vunmap_range_noflush(unsigned long start, unsigned long end)
- {
--	__vunmap_range_noflush(vmalloc_shadow(start), vmalloc_shadow(end));
--	__vunmap_range_noflush(vmalloc_origin(start), vmalloc_origin(end));
-+	__vunmap_range_noflush(init_mm.pgd, vmalloc_shadow(start), vmalloc_shadow(end));
-+	__vunmap_range_noflush(init_mm.pgd, vmalloc_origin(start), vmalloc_origin(end));
- 	flush_cache_vmap(vmalloc_shadow(start), vmalloc_shadow(end));
- 	flush_cache_vmap(vmalloc_origin(start), vmalloc_origin(end));
- }
-@@ -181,7 +181,7 @@ int kmsan_ioremap_page_range(unsigned long start, unsigned long end,
- 			vmalloc_origin(start + off + PAGE_SIZE), prot, &origin,
- 			PAGE_SHIFT);
- 		if (mapped) {
--			__vunmap_range_noflush(
-+			__vunmap_range_noflush(init_mm.pgd,
- 				vmalloc_shadow(start + off),
- 				vmalloc_shadow(start + off + PAGE_SIZE));
- 			err = mapped;
-@@ -203,10 +203,10 @@ int kmsan_ioremap_page_range(unsigned long start, unsigned long end,
- 			__free_pages(shadow, 1);
- 		if (origin)
- 			__free_pages(origin, 1);
--		__vunmap_range_noflush(
-+		__vunmap_range_noflush(init_mm.pgd,
- 			vmalloc_shadow(start),
- 			vmalloc_shadow(start + clean * PAGE_SIZE));
--		__vunmap_range_noflush(
-+		__vunmap_range_noflush(init_mm.pgd,
- 			vmalloc_origin(start),
- 			vmalloc_origin(start + clean * PAGE_SIZE));
- 	}
-@@ -233,8 +233,8 @@ void kmsan_iounmap_page_range(unsigned long start, unsigned long end)
- 	     i++, v_shadow += PAGE_SIZE, v_origin += PAGE_SIZE) {
- 		shadow = kmsan_vmalloc_to_page_or_null((void *)v_shadow);
- 		origin = kmsan_vmalloc_to_page_or_null((void *)v_origin);
--		__vunmap_range_noflush(v_shadow, vmalloc_shadow(end));
--		__vunmap_range_noflush(v_origin, vmalloc_origin(end));
-+		__vunmap_range_noflush(init_mm.pgd, v_shadow, vmalloc_shadow(end));
-+		__vunmap_range_noflush(init_mm.pgd, v_origin, vmalloc_origin(end));
- 		if (shadow)
- 			__free_pages(shadow, 1);
- 		if (origin)
-diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-index 068a6709062d..8ef7d9987e18 100644
---- a/mm/vmalloc.c
-+++ b/mm/vmalloc.c
-@@ -295,9 +295,9 @@ static int vmap_p4d_range(pgd_t *pgd, unsigned long addr, unsigned long end,
- 	return err;
- }
- 
--static int vmap_range_noflush(unsigned long addr, unsigned long end,
--			phys_addr_t phys_addr, pgprot_t prot,
--			unsigned int max_page_shift)
-+int vmap_range_noflush(pgd_t *pgdir, unsigned long addr, unsigned long end,
-+		       phys_addr_t phys_addr, pgprot_t prot,
-+		       unsigned int max_page_shift)
- {
- 	pgd_t *pgd;
- 	unsigned long start;
-@@ -314,7 +314,7 @@ static int vmap_range_noflush(unsigned long addr, unsigned long end,
- 	BUG_ON(addr >= end);
- 
- 	start = addr;
--	pgd = pgd_offset_k(addr);
-+	pgd = pgd_offset_pgd(pgdir, addr);
- 	do {
- 		next = pgd_addr_end(addr, end);
- 		err = vmap_p4d_range(pgd, addr, next, phys_addr, prot,
-@@ -334,8 +334,8 @@ int vmap_page_range(unsigned long addr, unsigned long end,
- {
- 	int err;
- 
--	err = vmap_range_noflush(addr, end, phys_addr, pgprot_nx(prot),
--				 ioremap_max_page_shift);
-+	err = vmap_range_noflush(init_mm.pgd, addr, end, phys_addr,
-+				 pgprot_nx(prot), ioremap_max_page_shift);
- 	flush_cache_vmap(addr, end);
- 	if (!err)
- 		err = kmsan_ioremap_page_range(addr, end, phys_addr, prot,
-@@ -478,7 +478,7 @@ static void vunmap_p4d_range(pgd_t *pgd, unsigned long addr, unsigned long end,
-  *
-  * This is an internal function only. Do not use outside mm/.
-  */
--void __vunmap_range_noflush(unsigned long start, unsigned long end)
-+void __vunmap_range_noflush(pgd_t *pgdir, unsigned long start, unsigned long end)
- {
- 	unsigned long next;
- 	pgd_t *pgd;
-@@ -486,7 +486,7 @@ void __vunmap_range_noflush(unsigned long start, unsigned long end)
- 	pgtbl_mod_mask mask = 0;
- 
- 	BUG_ON(addr >= end);
--	pgd = pgd_offset_k(addr);
-+	pgd = pgd_offset_pgd(pgdir, addr);
- 	do {
- 		next = pgd_addr_end(addr, end);
- 		if (pgd_bad(*pgd))
-@@ -503,7 +503,7 @@ void __vunmap_range_noflush(unsigned long start, unsigned long end)
- void vunmap_range_noflush(unsigned long start, unsigned long end)
- {
- 	kmsan_vunmap_range_noflush(start, end);
--	__vunmap_range_noflush(start, end);
-+	__vunmap_range_noflush(init_mm.pgd, start, end);
- }
- 
- /**
-@@ -670,9 +670,10 @@ int __vmap_pages_range_noflush(unsigned long addr, unsigned long end,
- 	for (i = 0; i < nr; i += 1U << (page_shift - PAGE_SHIFT)) {
- 		int err;
- 
--		err = vmap_range_noflush(addr, addr + (1UL << page_shift),
--					page_to_phys(pages[i]), prot,
--					page_shift);
-+		err = vmap_range_noflush(init_mm.pgd, addr,
-+					 addr + (1UL << page_shift),
-+					 page_to_phys(pages[i]), prot,
-+					 page_shift);
- 		if (err)
- 			return err;
- 
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 0e12e531a5b2..1094154c1c45 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1526,6 +1526,7 @@ config NUMA
+ 	select OF_NUMA
+ 	select HAVE_SETUP_PER_CPU_AREA
+ 	select NEED_PER_CPU_PAGE_FIRST_CHUNK
++	select HAVE_LOCAL_PER_CPU_MAP
+ 	select USE_PERCPU_NUMA_NODE_ID
+ 	help
+ 	  Enable NUMA (Non-Uniform Memory Access) support.
 -- 
 2.47.0
 
