@@ -4,99 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BD07FF887E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 17:16:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85631CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 17:16:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0rzy3HW8rz3SXfIkHgjI2UdkxSDPn+w/155JMT4UN7g=; b=NWv8No5om90k3wXfdZrz+lwLIB
-	HQXuMIvyEnWBHrRboIz0cpCdEpuiWoNv3fR1hjIG69AIsaqRNHeSyQQe+LwRPYO9vfFJeVydX4h6p
-	Y5ijK5QIqpTI90vfKDGSuwdjNdTnjXUnquHGN1D0B4OJUjsD9+fkb8hmfjvTlL/Xf8ivrsqmPALWj
-	Sciz+1oFhEMhNAicn8Otq1wh5s9MXMOwcoBPU5X1DeOGQqo6AXKhSP4DggrtUkDPAUola2bf4mPPR
-	xyJiuoajUbZXHiQfRTFunTTR6swgK91m0a3clfySxA03lqbgwqgdO6L6cFyIggcPv4NiyHO7J5n/Z
-	Ki+g8gdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jMxYNFxFR2tPReBltRPoY8GIp5YswuV6ifrNHfP0XAg=; b=fPcJTsO3gkbQ7F1f4/bW3+n3b1
+	1wRfNccAg+n56hGzZwr3SY+Bvl69KylmmT3NwoRwB95MYd6MJS6G5utm7Kk9gFbveh+IfObBP9XOS
+	b+sDA2oeBB/ieApQyV1D/uxkhrM1GdYFPcJaRnFCxQ0k428weWU9UOfMITwXCQheXwNuByZwmwSNV
+	OBby2Ye/ZEilXVdxqjrBSQWUglOCdyFyGZUhfocNaGvAd+XL6laZeToYL08ugabjO3coTSuIsvcUy
+	qrEAZfmAGSZMvNoZQZmVK1X9D7VYtbUeIVie3yazeggTvOBjVq5Xb2EfsJluMnw+oMXWea/qVY44Z
+	iqtgPK8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI8W3-00000003xdN-2njX;
-	Wed, 29 Apr 2026 17:16:03 +0000
-Received: from mail-dl1-x122d.google.com ([2607:f8b0:4864:20::122d])
+	id 1wI8WI-00000003xgs-42KT;
+	Wed, 29 Apr 2026 17:16:18 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI8W1-00000003xcz-06Ty
+	id 1wI8WF-00000003xg7-4AdQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 17:16:02 +0000
-Received: by mail-dl1-x122d.google.com with SMTP id a92af1059eb24-12dbd0f7ecaso5323879c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 10:16:00 -0700 (PDT)
+	Wed, 29 Apr 2026 17:16:17 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63TF4a7G3066948
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 17:16:15 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	jMxYNFxFR2tPReBltRPoY8GIp5YswuV6ifrNHfP0XAg=; b=GfMZtjN+zIK4VOAA
+	BNXRZya0yClTFAhjLemCDUj7FZhy/b2Bn3vaBrbWSFt2qnQy9lx0xat0R6U1IPVB
+	pYeTfn5wZ2dxPzpOt+oLeqVNmBMKwXju8ntHQwR8JrF2us5yAOVYesb44qA/3vbQ
+	KE2wuN18n59HHBMGOJdAl/BEeDWWBa+Y/iOFZEEYG2JwBeFJBjAKMfqYsDJyMGRR
+	d+H1thTYB3wbYnziX/9U0T3HXf+z85CtzfBaigMaw/74aCBFLPQUmNfuLFdacjcb
+	h6uQHuvLGAqbV18aE8s8MNaq84uHh/PKscuMwJMYeqr/GmsI67/+i0OvqF0QPR2L
+	0GJsWg==
+Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4du7sxbqk1-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 17:16:14 +0000 (GMT)
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2b24cd2e2b3so382505ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 10:16:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1777482960; x=1778087760; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=0rzy3HW8rz3SXfIkHgjI2UdkxSDPn+w/155JMT4UN7g=;
-        b=NeEDnk/RTYZnPxBUUdEkRFL8FE4ajY499/xALSvbfNfDR3i3QjbKKxeRoiO2lN1x79
-         YkWlq5UawZWvRNbSXQpMathjHI35VLmDvf+flxNIgUCaldI7dsJbt3xvWcrvD/xIw8fH
-         EXfqh+2R2ivefjNGoschRlGDVxHmOkzaTuUSU=
+        d=oss.qualcomm.com; s=google; t=1777482974; x=1778087774; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=jMxYNFxFR2tPReBltRPoY8GIp5YswuV6ifrNHfP0XAg=;
+        b=XJvEU9p8kC1rOrrCKa/WLH6QKRLmHAsX0oog23ARrta8SsTQZrVuziVH5OjbyV9oWU
+         Iu6qlL8w8uC48/4G3NdtQGhJy4zpI2uClheexAiQfLXQpZWi9MFTEEtikdUDP9lhdP8z
+         I/PLz6/OPmlCRojrQz3g17crhGuEVFQSRltUTHDk/51Q+y9JjeRFaZ/E0uqS5E0qRWy/
+         ZPntWgquXsjSUNcc8+hn+JKoCJrByazKpuwUsEGe+DqGS3PnIgvMHki5gE2+/bU4S6qJ
+         oRoVeNyPdYZ8zIGLoqyIxnuQIUQL/o4FC8BOI2uUbMXSP7V/mdoxk+vWx+kSX4iHc3Pk
+         DZqg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777482960; x=1778087760;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0rzy3HW8rz3SXfIkHgjI2UdkxSDPn+w/155JMT4UN7g=;
-        b=jH02ZLLHnNQxBUXaNH5+g0+BA56cEW1Ysgre5rSJoS4LgtKtnGVj7PDwOut6J42Z62
-         qVWJaSu9wC4nkZpCqnI83jfyvKMSf300Quev5iwCijW/clifCX3kIcO5M71W5JzTtxGm
-         cyzCuzQIX9q7/AIp3Oa/6pRyNKkBvGGnSXTLYjr26uKGsJ3Yr2JmtJntVWkbUliu4e4Y
-         WT31sQPkSPF+IJAiuVIdsVjOyfY7vThPpCryzsou+/fDruJGLvnkJVA9ID4ozHq9FVaI
-         x3o6IWcJviJEXJwEj9jlpSmNXkOWG5rQyQNs1FQEZ13Mxwiu6GcsF+OEW/CRIMJDso+f
-         VfFg==
-X-Forwarded-Encrypted: i=1; AFNElJ+t4gZSGWXy+k+3siGsQJ4FALWLX6wSevhjX/srQKvAFH0J1qMogMG8iufqBBp1xfD6yXQRpBY9MPLdkge4fjxE@lists.infradead.org
-X-Gm-Message-State: AOJu0YyV/Rxhxl6L0X7UwbXgojFmGe5wBiD0KqgVvcOcrNL1Ko7WafLF
-	w9AJU2YYF22+VZYS56eR+/9X47y7iFlngd850JgcUbnylFKXPbFmIOMK2J/fE1C91Q==
-X-Gm-Gg: AeBDievVnD8u+kLvCEByBCG/n2aSMIoNgAiSgLyQX4HDY+72zw10ctJmOArKytwCwKZ
-	TD/G1rOgRHyMXXgsX66xecnGbpgfV4M3L3Iq+MADmExyutzsrR4pIw+RIzBDnTh07lsjb6cpyeH
-	0oi+SjKWN3pZnokInpjzZEEECAiPntz4TWnUK5KB2v4uBMVwjI7pp9U1agd6hMTUi6m2rH05PuK
-	qMr7ENF3uFGfnBqn/Wk/J7rHpvSKqBoShQGmG/PgokS3wrOkApnF/3Pbf524xQvCwjlCitsG+K5
-	Lsp7dcTU5orev7b0yK7Gu3MEqgqA1PBJDq6ou+CRevwdHa9cr/I960G3JILsPWmwsZqYuzKEgE0
-	DO3N9OR7/3qu7WI9552XlvlcX9IJXgdhpuQTRCSMF/nX+hgxhLDUjkRzi3N/mSAB6dvHUv4+owK
-	ORdgYgmv0y4tG8/3qqn422nxc0iOhe8+6SRwukNrZzvBELriRHl2LmCT4RDY9ETYTSxchYadfq
-X-Received: by 2002:a05:7022:f8c:b0:12a:b39a:339f with SMTP id a92af1059eb24-12de2a546bamr2101891c88.21.1777482959913;
-        Wed, 29 Apr 2026 10:15:59 -0700 (PDT)
-Received: from localhost ([2a00:79e0:2e7c:8:b8df:3c88:ad8d:d3d4])
-        by smtp.gmail.com with UTF8SMTPSA id a92af1059eb24-12de32178cbsm2889982c88.6.2026.04.29.10.15.57
+        d=1e100.net; s=20251104; t=1777482974; x=1778087774;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jMxYNFxFR2tPReBltRPoY8GIp5YswuV6ifrNHfP0XAg=;
+        b=rr/9ZDGVC04EuZCUV3ufqBcKiphEOkziqSmABE7q6pW4S6+v5KWlCUGz1UaG9KLRx7
+         BbU2pApFRA+lnR2syMyXn9s/kjzd1fTuET/sJBSUFwNigZaTCiHckk+W+cDzILRFs0VY
+         zwgIbFfnQA3NOxmDM7XhHn1oZO/4FP8CSOdJLS6B5xrHCHjZLR2A1Kg7MMtPeH7d4m/C
+         YMmomnqXoJ3RINK5ZktiMFQnNDyg7br892jABjFtxGQRuy3zOYwRBU5+LAm4ttpIbaws
+         LuaWK5HZ5NtPaJOKcHruoFQ2lWVCBs2C008pKqx/hmxsHW1WlJOLng2zKIcBG44ywFul
+         LUEA==
+X-Forwarded-Encrypted: i=1; AFNElJ8O9EYUhTdIyjBPsjhGn5JUQdsZsuHAhCUIjcwJnKVDcRHDO0ByI801M7C8j6XodtS2ap4irv6PufsaxS9nw3f5@lists.infradead.org
+X-Gm-Message-State: AOJu0YxCEB7u3ZQnJVme1KOvmfwwptiJa4nH0fSIvpoavjzWZRKfwwjd
+	zLUfYhDd8F2srwVWClX1z2rXYYKIVV+fKowuqBlmR7pzedC3oJzfb0M/9i2nLpQ52Le3x4H/PVj
+	4dch8aRux9yYdpjToUju44NE1KZkhlwQZd4+GQm9LukkxCn1+l+yRGisUZErzoubru+qkRxmFa1
+	mmyw==
+X-Gm-Gg: AeBDietRAAcObTsjNSjb1r1f0HOos2AvzjGHPOdpj0q6L8aXxpw5kLmyvdC3ovs0yoI
+	4UR5mIRKtVS8XVoiUutoWEo78oy08DR94ltiKx59i5EScZE+3JtOfcROhgJsBWIGcHwww9mMEtl
+	s74V6i+Wt5bncpE+TwgRlawdTytgZcuMWp2kpNasnpyYhaLJ791afY/bxQdbUb7PJXkEgJBKsaw
+	X3D1HtOGXvMNsqrty/IlCHGJobYFi2rM2rWjxUWSRoSVFgnGWLWkYxSloSdz7NbtwpZs1MX7MZ9
+	FTXBR4b3RQhXFx4ExYdoankPEZ1yQRuwZWsnrTPhKDYx5mmxG2dN2DFg9dBjLsRxKEPfdfySOiO
+	Qk8TkVWVq55l+Q28nI4L3DkyKbUBqUG0mObYmQpS5LNdxC0cAp5MIvtlh9kNQS3HFcQ==
+X-Received: by 2002:a17:903:11d0:b0:2ae:6192:8d78 with SMTP id d9443c01a7336-2b97c3df3d6mr82119265ad.1.1777482973750;
+        Wed, 29 Apr 2026 10:16:13 -0700 (PDT)
+X-Received: by 2002:a17:903:11d0:b0:2ae:6192:8d78 with SMTP id d9443c01a7336-2b97c3df3d6mr82118625ad.1.1777482973066;
+        Wed, 29 Apr 2026 10:16:13 -0700 (PDT)
+Received: from [192.168.29.31] ([49.43.226.7])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b988785db2sm30726005ad.21.2026.04.29.10.16.02
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 29 Apr 2026 10:15:58 -0700 (PDT)
-Date: Wed, 29 Apr 2026 10:15:55 -0700
-From: Brian Norris <briannorris@chromium.org>
-To: Karel Balej <balejk@matfyz.cz>
-Cc: Francesco Dolcini <francesco@dolcini.it>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Duje =?utf-8?Q?Mihanovi=C4=87?= <duje@dujemihanovic.xyz>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>, Frank Li <Frank.Li@nxp.com>,
-	linux-wireless@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mmc@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht,
-	phone-devel@vger.kernel.org, Jeff Chen <jeff.chen_1@nxp.com>,
-	Peng Fan <peng.fan@nxp.com>, david@ixit.cz
-Subject: Re: [DONOTAPPLY RFC PATCH v2 0/4] WiFi support for
- samsung,coreprimevelte
-Message-ID: <afI8y70U7wFT_07h@google.com>
-References: <20251026182602.26464-1-balejk@matfyz.cz>
- <DEJL1ATTQMVE.120JV9YW59I27@matfyz.cz>
- <aSnWYS2g5slVFaSk@gaggiata.pivistrello.it>
- <DI5L100Q1RKO.1A68EJIPWYSRC@matfyz.cz>
+        Wed, 29 Apr 2026 10:16:12 -0700 (PDT)
+Message-ID: <2e77bf2c-4335-4147-aa90-0192e2a164bf@oss.qualcomm.com>
+Date: Wed, 29 Apr 2026 22:46:01 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <DI5L100Q1RKO.1A68EJIPWYSRC@matfyz.cz>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v21 05/13] mfd: psci-mfd: Add PSCI MFD driver for
+ cpuidle-psci-domain cell
+To: Pankaj Patil <pankaj.patil@oss.qualcomm.com>,
+        Sebastian Reichel <sre@kernel.org>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        "Rafael J. Wysocki" <rafael@kernel.org>,
+        Daniel Lezcano <daniel.lezcano@kernel.org>,
+        Christian Loehle <christian.loehle@arm.com>,
+        Ulf Hansson <ulfh@kernel.org>, Lee Jones <lee@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+        Andy Yan <andy.yan@rock-chips.com>,
+        Matthias Brugger
+ <matthias.bgg@gmail.com>,
+        John Stultz <john.stultz@linaro.org>,
+        Moritz Fischer <moritz.fischer@ettus.com>,
+        Bartosz Golaszewski <brgl@kernel.org>,
+        Sudeep Holla <sudeep.holla@kernel.org>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        devicetree@vger.kernel.org,
+        Florian Fainelli
+ <florian.fainelli@broadcom.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+        Andre Draszik <andre.draszik@linaro.org>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+        Srinivas Kandagatla <srini@kernel.org>
+References: <20260427-arm-psci-system_reset2-vendor-reboots-v21-0-dcf937775e73@oss.qualcomm.com>
+ <20260427-arm-psci-system_reset2-vendor-reboots-v21-5-dcf937775e73@oss.qualcomm.com>
+ <e494ba66-3f8d-4d71-a82e-b37f5b34d45d@oss.qualcomm.com>
+Content-Language: en-US
+From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+In-Reply-To: <e494ba66-3f8d-4d71-a82e-b37f5b34d45d@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: j4vxRRrfgsl-vennniUs5huUMx_MY6cO
+X-Authority-Analysis: v=2.4 cv=eeANubEH c=1 sm=1 tr=0 ts=69f23cde cx=c_pps
+ a=cmESyDAEBpBGqyK7t0alAg==:117 a=Y3Rdv8TwbQrKP7QTPRCa6w==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
+ a=EUspDBNiAAAA:8 a=JfrnYn6hAAAA:8 a=2MFqQf0nztRcsXl5dLQA:9 a=QEXdDO2ut3YA:10
+ a=1OuFwYUASf3TG4hYMiVC:22 a=1CNFftbPRP8L7MoqJWF3:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI5MDE3NCBTYWx0ZWRfX/9qY7X+rVeZf
+ HeMlxERdJ/WBpDhkuQn+OqsJo9Y1QT6TUvpClmLdzp04xRwKHbVVh3FLnF164ZhUhXZzMWka6Je
+ 2U2z6AWjI36APhEPLt0ukAkHTPs93vH03rkqW92XIFZ12ibzYaxy5qBwdnvNQXxQLCSTPRzMXP/
+ b0gyEcPiVIU64MHgeK+fgLKGZtzGAu2LksOzxs1GnOSyQx2Twrxv2SkTreeqUjB4NXDry440GwS
+ OS43KO1ScQqsotGZjK/xeyWVBBM7YcaNBf8zV+aQLZ4/WGPEBBypSzGfi3M5WTs2JE/cC5NVEG3
+ RM1/C4UKBv+CUufODHp7KI41Vs251SGzxTMRO2kDzYpuYv8NYLVIjZeYbE/4ocyUicbuVTL/6Pm
+ NL98UlQRgKgBfPVxHann8rfwIAnxVWYpDQh2IdHKBWiZxiOulDs56Uig9MS3EiK3ZN4V2DUjQEa
+ 2n/gJj4hsvOCS9xMvjg==
+X-Proofpoint-ORIG-GUID: j4vxRRrfgsl-vennniUs5huUMx_MY6cO
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-29_01,2026-04-28_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 adultscore=0 clxscore=1015 malwarescore=0 impostorscore=0
+ phishscore=0 suspectscore=0 lowpriorityscore=0 bulkscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604290174
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_101601_145910_A616A911 
-X-CRM114-Status: GOOD (  34.35  )
+X-CRM114-CacheID: sfid-20260429_101616_154578_47DEAB06 
+X-CRM114-Status: GOOD (  19.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,71 +179,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-On Wed, Apr 29, 2026 at 12:55:23PM +0200, Karel Balej wrote:
-> Francesco Dolcini, 2025-11-28T18:05:37+01:00:
-> > On Thu, Nov 27, 2025 at 04:29:12PM +0100, Karel Balej wrote:
-> >> To reiterate, the firmware is generally available but is not part of
-> >> linux-firmware and the entire process of upstreaming the chipset support is
-> >> stuck on that.
-> >
-> > I'll try to see if any of my contact in NXP Wi-Fi group is able to help. Give
-> > me a few days.
+
+On 29-04-2026 20:10, Pankaj Patil wrote:
+> On 4/27/2026 11:04 PM, Shivendra Pratap wrote:
+>> PSCI has multiple kernel consumers, such as cpuidle-psci-domain.
+>> Currently, both the PSCI core driver and cpuidle-psci-domain bind
+>> directly to the same PSCI node "arm,psci-1.0". Additional consumers, if
+>> introduced, would also need to bind in the same way, leading to several
+>> drivers attached to a single device node.
+>>
+>> Introduce a PSCI MFD driver that binds to "arm,psci-1.0" and registers
+>> PSCI child cells. As the first user, register cpuidle-psci-domain as a
+>> child cell.
+>>
+>> Update cpuidle-psci-domain to probe as an MFD child and use the parent
+>> PSCI node for power-domain traversal.
+>>
+>> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+>> ---
+>>   MAINTAINERS                           |  1 +
+>>   drivers/cpuidle/Kconfig.arm           |  1 +
+>>   drivers/cpuidle/cpuidle-psci-domain.c |  9 +-------
+>>   drivers/mfd/Kconfig                   | 10 ++++++++
+>>   drivers/mfd/Makefile                  |  2 ++
+>>   drivers/mfd/psci-mfd.c                | 43 +++++++++++++++++++++++++++++++++++
+>>   6 files changed, 58 insertions(+), 8 deletions(-)
+>>
+>> diff --git a/MAINTAINERS b/MAINTAINERS
+>> index c871acf2179ce16c80b404027e6b969c7787a6bb..333b01fa00b8fbd15e6f31a6b9af47600411624e 100644
+>> --- a/MAINTAINERS
+>> +++ b/MAINTAINERS
+>> @@ -21239,6 +21239,7 @@ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+>>   S:	Maintained
+>>   F:	Documentation/devicetree/bindings/arm/psci.yaml
+>>   F:	drivers/firmware/psci/
+>> +F:	drivers/mfd/psci-mfd.c
+>>   F:	include/linux/psci.h
+>>   F:	include/uapi/linux/psci.h
+>>   
+>> diff --git a/drivers/cpuidle/Kconfig.arm b/drivers/cpuidle/Kconfig.arm
+>> index a1ee475d180dacab245510674514811aec337ad3..1a1316d11e0a2e4f61801586229f5104e2435865 100644
+>> --- a/drivers/cpuidle/Kconfig.arm
+>> +++ b/drivers/cpuidle/Kconfig.arm
+>> @@ -36,6 +36,7 @@ config ARM_PSCI_CPUIDLE_DOMAIN
+>>   	bool "PSCI CPU idle Domain"
+>>   	depends on ARM_PSCI_CPUIDLE
+>>   	depends on PM_GENERIC_DOMAINS_OF
+>> +	depends on MFD_PSCI
 > 
-> so I was in a long conversation over the past months with Jeff from NXP
-> who was very helpful and tried to arrange for the upstreaming of the
-> firmware. Unfortunately however, his efforts were ultimately rejected by
-> the internal management.
+> Should this be select MFD_PSCI?
+> We're seeing bootup issues on Glymur when MFD_PSCI is not y
 
-:(
+sure. Let me check on this. We may need to make a change at "config 
+MFD_PSCI" --
 
-> We were directed to try to reach out to NXP via the customer support
-> page which yielded nothing. The current situation is thus the same as a
-> few months ago, summarized in my quote above.
-> 
-> Brian, what are the options here now? Would it be possible to make an
-> exception and accept the patches without the firmware being in
-> linux-firmware? This is an old device with no mainstream audience so I
-> expect everyone who will want to use it will be able to supply the
-> firmware themselves
+    config MFD_PSCI
+         bool "PSCI MFD for psci child cells"
+         depends on ARM_PSCI_FW
+   +     default y if ARM_PSCI_CPUIDLE
 
-I'm not really in the business of writing rules here nor their
-exceptions. I was just pointing you at the existing rules, and how this
-seemed to violate them. Since the websites have moved around a bit since
-the last time, here's the page I referenced:
-
-https://wireless.docs.kernel.org/en/latest/en/developers/documentation/submittingpatches.html#new-driver
-
-I suppose maybe those rules are there so that we don't get drivers with
-*no* legally-usable firmware, since it's about "New Drivers". This is
-not a New Driver, so maybe that part doesn't have to apply.
-
-I suppose I'll leave it up to Johannes on this part, and may be willing
-to retract my NAK [1].
-
-> and it would be great to not have to keep the
-> patches in a fork, especially when trying to build on top of them
-> further (such as to fix the driver-firmware incompatibilities discussed
-> in one of the patches of this series).
-
-Patch 3 is a different story. At the moment, it's definitely not
-acceptable. But I tried to provide hints about how you can write proper
-FW compatibility logic. I'm still not optimistic that'll be easy and
-maintainable, and we still reserve the right to reject patches if they
-make things unmaintainable.
-
-(Marvell clearly didn't do any real work here on maintaining good FW
-compatibility.)
-
-Brian
-
-> Francesco, would you perhaps still be able to help in any way?
-> 
-> Thank you, kind regards,
-> K. B.
-
-[1] I think you're referring to this:
-    https://lore.kernel.org/all/ZUQN4Ua8byy-Fsy8@google.com/
-    Re: [PATCH 0/2] net: mwifiex: add support for the SD8777 chipset
+--
+thanks,
+Shivendra
 
