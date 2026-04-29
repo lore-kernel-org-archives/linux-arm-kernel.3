@@ -4,86 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5131FF887E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 14:56:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FC1BFF887E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 15:04:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pigKsKQim46z+fM7DnVgdonFVRg/MDXH/ola+UiCJ+c=; b=ea7UrPqtFX+bwmIzgf8pZHp7KT
-	1g6SxxDc9qQuSdcxXHc2jCIBWgu5/IOGJEGoP3YR2aV9sXmtn5JelDmD8Ow0rlBJ0Hh2qyN1iSCQk
-	I9Z2k5qverMBvYlW8Fdh3If3sfEPxHsBkJRo+8Y/BCJbZS8bwVjv1boOmtCQn6I+2N4tW4qQbN/Kk
-	8La6XdoYL16B6cZhXssAt/qWKUYIqhgVbbqAKcyTVinj39measmIw6+s+AKHnrNjq7SbBNduvvzy5
-	dL/7pYAHyC8jDdoSkASeuZlnfLxrmvK9TPW2lUfkfG+vh6JLpudhzywDS7mUwVBcACbAsa/8NSG8T
-	19WrEwTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qGRw5I7BaA87acubTr1WsndoPzI+4mRXKHi7TggjVOw=; b=nHpWhmYhnRHvL8Zi/oqkyD2o+a
+	cp0uzARMJSpJp59v4QxtoUSzt5wJDkT1QbkEg0+ArWDGJzVxLkizvLu8iBis5Sxf6Fitg0k5gji7N
+	g80pNAbS7Qba4nMPJf3OaoohBPCKoijtKT8Lg0cbjddy0KYvA3nHj0YSfDfERCnTFy5pGqM0ps5Fi
+	oy8EtuoKVZ1HyMt791+vzsy08gJW7GdPmjc1eAU8+iGRPUFWXjamIZePJu7F1mY9yKKVV8vLozuBX
+	lwLtxkH7j6DcicG1cPZ9DNI6wOjIoSL7nPNVh4tRNA+oti3IzhcBt844ypaoDFYL90R9dSSvIr6lT
+	i+gWXWoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI6LB-00000003nfe-0Fev;
-	Wed, 29 Apr 2026 14:56:41 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wI6T0-00000003oX1-33bM;
+	Wed, 29 Apr 2026 15:04:46 +0000
+Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI6L8-00000003nfA-3q6H;
-	Wed, 29 Apr 2026 14:56:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1777474596;
-	bh=Lo2Ji87sJE8b3XVFP/wrrwsReU6/JgBBw/9VujpN3CI=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=gG0Kz0fiz34GmHFDFcgkxuzNV1aWSoxGlsexUhk3zBH3LfTKNZL9ad/Gy6SnfUnaM
-	 XvO4oosnGvjiIGplGiyfDF2KBXMvI12uMt4dPGrvuMsNxsjRrryQJhL8Cu7isDOWCL
-	 26Gf4GQ1V+5PFbbrYKb6Ubz/GUUWSVfTl62M327YVOmmO9ApzPmINjnFYFwUuQvSN7
-	 O/eNYr+VszQALyXTDBJkFHpk/z98GfMHHpuh9QI/CVuzAgojAr4XC8K4kQjFwH1qfe
-	 9z4yyeZVgLd3lZQs6O4g/QiEyBwXCQRdccptUiKhKBYuhNJSigvhzsLvBohZoywKgZ
-	 Q1BKBe1MVaqLg==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 02B5317E1201;
-	Wed, 29 Apr 2026 16:56:33 +0200 (CEST)
-Message-ID: <62415d732ccaed02bf12a8e68e10ac8d58b87fa9.camel@collabora.com>
-Subject: Re: [PATCH v6 4/6] media: mediatek: encoder: Add support for VCP
- encode process
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Irui Wang <irui.wang@mediatek.com>, Hans Verkuil
- <hverkuil-cisco@xs4all.nl>,  Mauro Carvalho Chehab	 <mchehab@kernel.org>,
- Rob Herring <robh+dt@kernel.org>, Matthias Brugger	
- <matthias.bgg@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	angelogioacchino.delregno@collabora.com, Tiffany Lin
- <tiffany.lin@mediatek.com>,  kyrie wu <kyrie.wu@mediatek.com>
-Cc: Yunfei Dong <yunfei.dong@mediatek.com>, Maoguang Meng	
- <maoguang.meng@mediatek.com>, Longfei Wang <longfei.wang@mediatek.com>, 
-	Project_Global_Chrome_Upstream_Group@mediatek.com,
- linux-media@vger.kernel.org, 	devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Date: Wed, 29 Apr 2026 10:56:33 -0400
-In-Reply-To: <20260423073345.27402-5-irui.wang@mediatek.com>
-References: <20260423073345.27402-1-irui.wang@mediatek.com>
-	 <20260423073345.27402-5-irui.wang@mediatek.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-nzftFuhX5IZOP4b2FG4X"
-User-Agent: Evolution 3.60.1 (3.60.1-1.fc44) 
+	id 1wI6Sv-00000003oWY-2g00
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 29 Apr 2026 15:04:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WUqTeRGvDt8mOglC1Spn5Y5oG5NU1VOzK9HlrqNzjhe8IbTwRo7yiPdEisD9DNO/7szM/94SOMTw2BTHUvXBF6vytYsVpjr0HRm1c0oBfkJwIh5Z9dkE04xqp+2s+EOxj5Z/dkYU1rnn894nWAfYfgHSHX+bjaqfm6klAaTtdpJNMGW9EMqFScuUUsDZP5fgudFRpetGxmFOyxKi6sOE1/sM0n/fEQulmpyuDfymlfJhqkMdhH3TakW8ReZEIplP5GpxKcvT73wRcI404hcsi779fbEPDcXZNpFyrNMRaxuOApTtwn4YUl7wdrEztKfFKHKuM0vfmJnpY0mwVHKKBw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qGRw5I7BaA87acubTr1WsndoPzI+4mRXKHi7TggjVOw=;
+ b=zDXqjFeYL1rHyZ8Mobfh9MbDfgDiIutgiQdHMkFZRRC4ee0esAMzq4Ik4ThhKRHq5cVHzmK7YQvo3XTZ4Oh1iBhKgjyUfbHDYXDKi9Ln5E4AugniJYdIX4IkkMG/UR8PffLH3a/ShIObQ3qBjXr1frofW9Y6PXyionby899MAO5zSY7XxNhMlh2VeGbqBgoBUBRUr6W+Wc/SDtMyCVF/VyB1hRWLK9wFTSyntRFRJJZq8OJcsYfitrQSegzX47+fvFDC50UtL8NJTa8PQpaKFd/8jppEf9tIbL4O0bHTMRvwqnsEmpW2g5jcScSDAsh9GeBHqhwS4b3tCKoPxUzBaQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=bgdev.pl smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qGRw5I7BaA87acubTr1WsndoPzI+4mRXKHi7TggjVOw=;
+ b=wr02qGqnP7C9CWq5lqFaG35kAnzag06mIkRadJlyVpt1scA+d67yP0A+mUXXmQipR0QOe8L7K94FBlmIl4BCjzi6tCkWawc8QozqRTGq6UD0r92mzlXZzo+38Wmbic9Qy6Lkv6c50NiyS9QKR0kqHZkfpxd7PuFm9IVeZBIMgGo=
+Received: from MN2PR05CA0045.namprd05.prod.outlook.com (2603:10b6:208:236::14)
+ by CH3PR10MB7702.namprd10.prod.outlook.com (2603:10b6:610:1a9::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.27; Wed, 29 Apr
+ 2026 15:04:36 +0000
+Received: from BN1PEPF0000468B.namprd05.prod.outlook.com
+ (2603:10b6:208:236:cafe::d5) by MN2PR05CA0045.outlook.office365.com
+ (2603:10b6:208:236::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9870.16 via Frontend Transport; Wed,
+ 29 Apr 2026 15:04:36 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ BN1PEPF0000468B.mail.protection.outlook.com (10.167.243.136) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9846.18 via Frontend Transport; Wed, 29 Apr 2026 15:04:36 +0000
+Received: from DLEE204.ent.ti.com (157.170.170.84) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 29 Apr
+ 2026 10:04:34 -0500
+Received: from DLEE203.ent.ti.com (157.170.170.78) by DLEE204.ent.ti.com
+ (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 29 Apr
+ 2026 10:04:34 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE203.ent.ti.com
+ (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 29 Apr 2026 10:04:34 -0500
+Received: from [10.249.130.12] ([10.249.130.12])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 63TF4PmN3558498;
+	Wed, 29 Apr 2026 10:04:26 -0500
+Message-ID: <0ac04a40-d670-4d02-bd08-017d99ac5e43@ti.com>
+Date: Wed, 29 Apr 2026 20:34:24 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
+To: Andrew Lunn <andrew@lunn.ch>
+CC: Shenwei Wang <shenwei.wang@nxp.com>, Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>, Jonathan Corbet <corbet@lwn.net>, "Rob
+ Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+	"Mathieu Poirier" <mathieu.poirier@linaro.org>, Frank Li <frank.li@nxp.com>,
+	"Sascha Hauer" <s.hauer@pengutronix.de>, Shuah Khan
+	<skhan@linuxfoundation.org>, "linux-gpio@vger.kernel.org"
+	<linux-gpio@vger.kernel.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "Pengutronix Kernel Team"
+	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, "Peng Fan"
+	<peng.fan@nxp.com>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-remoteproc@vger.kernel.org"
+	<linux-remoteproc@vger.kernel.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>
+References: <20260422212849.1240591-1-shenwei.wang@nxp.com>
+ <20260422212849.1240591-4-shenwei.wang@nxp.com>
+ <22fb5fac-2568-42be-a7e3-7e89d0017eb3@ti.com>
+ <PAXPR04MB91850A11C58419C03909145F89362@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <29485742-6e49-482e-b73d-228295daaeec@ti.com>
+ <PAXPR04MB918568939EC7DAEB4BB6C8F989372@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <32c119af-96ad-4da0-86f2-cdc4ba57ef0b@ti.com>
+ <PAXPR04MB9185C7741DCC422212F952CD89372@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <8c8cefaa-7d9e-4b73-b92f-40cb52b37f2e@ti.com>
+ <8d9801cb-0c66-48d8-a946-89a7771e73ea@lunn.ch>
+Content-Language: en-US
+From: "Padhi, Beleswar" <b-padhi@ti.com>
+In-Reply-To: <8d9801cb-0c66-48d8-a946-89a7771e73ea@lunn.ch>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN1PEPF0000468B:EE_|CH3PR10MB7702:EE_
+X-MS-Office365-Filtering-Correlation-Id: 79590424-b165-4248-2ab4-08dea600a127
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|82310400026|7416014|376014|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: 99qY1qSycvblBOd2/SGlDcJKoVCQ3d9qOduLOfmXcJ8RDOXmeF/Dfi8zbN+eoOOb+fjal0xNFyO93tCOL/lmhWymfR33y6tVZXOEuNtRy8sTrtqRcHOa5zl+8al4yBpUfRVIDesjT7WuH+jZmQemKmsg/B08e35PFY7IIidiSbyi477c0Jv/d0JxvFQxGDtKCAc1/9yhtFsBQxjcgrTAUeadgpLNHNgUHGlgsL4TZonfajzmZSF/iqOCAI87Mgf4wG1vwgFemGc0iAwhyVA+T+DdRmQ9aCuemZyC+cfV+aY9YO695lr8xO+ztb8ogxAKWWQ7dlDxLEogxk36uGnhPM7pfXc+cwjwaEFcWdYpr83k8WJ9kUCv76TlxpXpRWG5VCFZTJnDgGaWsnNzKKfgCMcEl0EBxqM6xwn/csFssHP+a/lCPa6nxkEHyqwvy6gzoiJlHgNoMAR+9GO2/l8C6BanQ20vEAlIZRWuiobEyPRWQF116pTV1Ovwcj4XGINFzN83NNxoqZkhCqslTR3Sqvtd2kYTMWSlE+MrZcsWh5S/7uL/+wIxVclfhbpynmU0rHonkfHhyt6HiRTA5jA8N0zsZPXWSUmLexnJkKbKDNSIf4XUjYaGXVE6eimenrnuMiU+E7hSX9wWZ2VdxYfiiMmfdXrcf2paBRq8zGT/I2mq2xEpEfzhisRpvgsHwwvsxI4tyor4Ou3BD1WVcivd1ANW6E42q5ONPay7mwWlnl4=
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(82310400026)(7416014)(376014)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: fTb6P8FAMwdlR01djFp8/tJjccqMg9cf2dHYn4FsMi1Z43FJuskQYnTuRWXKDMpClZIbwD5lUWfRJDLzRJWrkHcbixT6GtnIGtZ8wrQBB+xvGhkhsaTCtTfxLiEBu64SKyhiNn5wJKuVx/OOmbWQE0gdlaPLvM1OJ2lXmzNRnhWvt1DaRDB8Y83+sXEQ5Ow9gUWp7YfUhwaLL+z/QkLCbdWytFe1+JTY+CJw++H689ivqu5dGCe23tDpHkMSACN79nZKspQ0VaR3Fx4o1VvMKYwUwhRI/lQHnzv/H5ilFM52F0rJS26n4endfGTrxqTt3T3OHCiJcn2brfznI4ZOzzqFITs+Fw5c1+wafggCXL6neWVd+lucdIxQKpUTA5qKS/+hADl5iGaD06CexEw51kWcxeeEWGPjAGz39p7ksihFbOgzGAaw99MK5Vfnvgo0
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Apr 2026 15:04:36.5972
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 79590424-b165-4248-2ab4-08dea600a127
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF0000468B.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR10MB7702
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_075639_133883_5EF629F2 
-X-CRM114-Status: GOOD (  26.71  )
+X-CRM114-CacheID: sfid-20260429_080441_702734_9043DC63 
+X-CRM114-Status: GOOD (  21.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,247 +155,77 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---=-nzftFuhX5IZOP4b2FG4X
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+On 4/28/2026 11:35 PM, Andrew Lunn wrote:
+>> Remote side learns the endpoint when it receives any message from Linux
+>> from the dynamic endpoint.
+>>
+>> Lets say rpmsg_create_ept() allocates a dynamic local ept of 1026. When
+>> you send the message from this endpoint, the standard rpmsg header
+>> would have:
+>>
+>>      85 struct rpmsg_hdr {
+>>      86         __rpmsg32 src; // 1026
+>>      87         __rpmsg32 dst; // rpdev->dst (e.g. 400)
+>>      88         __rpmsg32 reserved;
+>>      89         __rpmsg16 len;
+>>      90         __rpmsg16 flags;
+>>      91         u8 data[];
+>>      92 } __packed;
+>>
+>> Remote side tracks the dynamic endpoint by reading src = 1026. And while
+>> sending the response it fills the header as:
+> I've never used rpmsg, so this might be a FAQ. How does the remote
+> side know what the endpoint is to be used for? Here we are talking
+> about GPIO. But the same hardware implements I2C, and a few other
+> things. How do we indicate this endpoint is for GPIO?
 
-Le jeudi 23 avril 2026 =C3=A0 15:33 +0800, Irui Wang a =C3=A9crit=C2=A0:
-> Adapt the encoder driver to support VCP firmware interface.
->=20
-> Set the encoder driver firmware type to 'VCP'.
-> Allocate RC buffers using the VCP device.
-> Send the shared memory address to VCP and map the encoder VSI address
-> to the CPU address space using the VCP shared memory address.
->=20
-> Signed-off-by: Irui Wang <irui.wang@mediatek.com>
-> ---
-> =C2=A0.../mediatek/vcodec/common/mtk_vcodec_fw.c=C2=A0=C2=A0=C2=A0 |=C2=
-=A0 6 +++++
-> =C2=A0.../mediatek/vcodec/common/mtk_vcodec_fw.h=C2=A0=C2=A0=C2=A0 |=C2=
-=A0 1 +
-> =C2=A0.../vcodec/common/mtk_vcodec_fw_priv.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 |=C2=A0 1 +
-> =C2=A0.../vcodec/common/mtk_vcodec_fw_vcp.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 |=C2=A0 6 +++++
-> =C2=A0.../vcodec/encoder/mtk_vcodec_enc_drv.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 |=C2=A0 3 +++
-> =C2=A0.../vcodec/encoder/venc/venc_common_if.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 | 23 ++++++++++++++-----
-> =C2=A0.../mediatek/vcodec/encoder/venc_vpu_if.c=C2=A0=C2=A0=C2=A0=C2=A0 |=
- 14 ++++++++++-
-> =C2=A07 files changed, 47 insertions(+), 7 deletions(-)
->=20
-> diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.=
-c b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.c
-> index 0381acceda25..7a504f093bd8 100644
-> --- a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.c
-> +++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.c
-> @@ -105,3 +105,9 @@ int mtk_vcodec_fw_get_type(struct mtk_vcodec_fw *fw)
-> =C2=A0	return fw->type;
-> =C2=A0}
-> =C2=A0EXPORT_SYMBOL_GPL(mtk_vcodec_fw_get_type);
-> +
-> +struct device *mtk_vcodec_fw_get_dev(struct mtk_vcodec_fw *fw)
-> +{
-> +	return fw->ops->get_fw_dev(fw);
-> +}
-> +EXPORT_SYMBOL_GPL(mtk_vcodec_fw_get_dev);
-> diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.=
-h b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.h
-> index e7304a7dd3e0..56c26b91651e 100644
-> --- a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.h
-> +++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.h
-> @@ -43,5 +43,6 @@ int mtk_vcodec_fw_ipi_send(struct mtk_vcodec_fw *fw, in=
-t id,
-> =C2=A0int mtk_vcodec_fw_get_type(struct mtk_vcodec_fw *fw);
-> =C2=A0int mtk_vcodec_fw_get_ipi(enum mtk_vcodec_fw_type type, int hw_id);
-> =C2=A0int mtk_vcodec_fw_get_venc_ipi(enum mtk_vcodec_fw_type type);
-> +struct device *mtk_vcodec_fw_get_dev(struct mtk_vcodec_fw *fw);
-> =C2=A0
-> =C2=A0#endif /* _MTK_VCODEC_FW_H_ */
-> diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_=
-priv.h b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_priv.h
-> index 0a2a9b010244..710c83c871f4 100644
-> --- a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_priv.h
-> +++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_priv.h
-> @@ -29,6 +29,7 @@ struct mtk_vcodec_fw_ops {
-> =C2=A0	int (*ipi_send)(struct mtk_vcodec_fw *fw, int id, void *buf,
-> =C2=A0			unsigned int len, unsigned int wait);
-> =C2=A0	void (*release)(struct mtk_vcodec_fw *fw);
-> +	struct device *(*get_fw_dev)(struct mtk_vcodec_fw *fw);
-> =C2=A0};
-> =C2=A0
-> =C2=A0#if IS_ENABLED(CONFIG_VIDEO_MEDIATEK_VCODEC_VPU)
-> diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_=
-vcp.c b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vcp.c
-> index 6b69ce44d4bb..2859fe78f67d 100644
-> --- a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vcp.c
-> +++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vcp.c
-> @@ -500,6 +500,11 @@ static void mtk_vcodec_vcp_release(struct mtk_vcodec=
-_fw *fw)
-> =C2=A0
-> =C2=A0}
-> =C2=A0
-> +static struct device *mtk_vcodec_vcp_get_fw_dev(struct mtk_vcodec_fw *fw=
-)
-> +{
-> +	return fw->vcp->vcp_device->dev;
-> +}
-> +
-> =C2=A0static const struct mtk_vcodec_fw_ops mtk_vcodec_vcp_msg =3D {
-> =C2=A0	.load_firmware =3D mtk_vcodec_vcp_load_firmware,
-> =C2=A0	.get_vdec_capa =3D mtk_vcodec_vcp_get_vdec_capa,
-> @@ -508,6 +513,7 @@ static const struct mtk_vcodec_fw_ops mtk_vcodec_vcp_=
-msg =3D {
-> =C2=A0	.ipi_register =3D mtk_vcodec_vcp_set_ipi_register,
-> =C2=A0	.ipi_send =3D mtk_vcodec_vcp_ipi_send,
-> =C2=A0	.release =3D mtk_vcodec_vcp_release,
-> +	.get_fw_dev =3D mtk_vcodec_vcp_get_fw_dev,
-> =C2=A0};
-> =C2=A0
-> =C2=A0struct mtk_vcodec_fw *mtk_vcodec_fw_vcp_init(void *priv, enum mtk_v=
-codec_fw_use fw_use)
-> diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_en=
-c_drv.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv=
-.c
-> index 4e4541b2fc8e..2f6ee0cd15e3 100644
-> --- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-> +++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-> @@ -262,6 +262,9 @@ static int mtk_vcodec_probe(struct platform_device *p=
-dev)
-> =C2=A0	} else if (!of_property_read_u32(pdev->dev.of_node, "mediatek,scp"=
-,
-> =C2=A0					 &rproc_phandle)) {
-> =C2=A0		fw_type =3D SCP;
-> +	} else if (!of_property_read_u32(pdev->dev.of_node, "mediatek,vcp",
-> +					 &rproc_phandle)) {
-> +		fw_type =3D VCP;
 
-Similar comment on the patchset you depend on, its third firmware type, and=
- time
-to cleanup. The of_device_get_match_data() should be sufficient for this si=
-mple
-case, there is not reason for custom DT parsing here. PLace the fw_type in =
-the
-pdata, and move of_device_get_match_data() call earlier.
+That's where the channel level isolation helps. GPIO ports are announced
+over "rpmsg-io" channel (parent of endpoint), i2c devices would be
+announced over "rpmsg-i2c" channel. The default epts in those channels
+would have separate addresses (e.g. 0xd for rpmsg-io and 0xe for
+rpmsg-i2c). The remote side would have bound a gpio_handling callback
+on addr 0xd and a i2c_handling callback on addr 0xe while doing the
+channel announcement. So while sending a GPIO msg from Linux, we
+should direct it to 0xd dst endpoint, and for sending a i2c message, we
+should direct it to 0xe dst endpoint (src ept can be anything). And without
+any extra effort, messages sent from dynamic epts at Linux land in the
+appropriate handler at remote even for separate device types.
 
-Please apply the same logic for the entire patchset. Every bit of informati=
-on
-that is purely static to your device is better placed in the pdata then thr=
-ough
-addition of if/else conditions all over the place. The pdata can also have =
-ops
-in it, letting easily firmware specific code without having to do if/else
-everywhere.
+>
+> Maybe also related, this hardware also supports a number of GPIO
+> controllers. There has been some argument about if one endpoint should
+> support multiple GPIO controllers.
 
-Nicolas
 
-> =C2=A0	} else {
-> =C2=A0		dev_err(&pdev->dev, "[MTK VCODEC] Could not get venc IPI device")=
-;
-> =C2=A0		return -ENODEV;
-> diff --git a/drivers/media/platform/mediatek/vcodec/encoder/venc/venc_com=
-mon_if.c b/drivers/media/platform/mediatek/vcodec/encoder/venc/venc_common_=
-if.c
-> index 050b827f0fd0..d981155aeb8c 100644
-> --- a/drivers/media/platform/mediatek/vcodec/encoder/venc/venc_common_if.=
-c
-> +++ b/drivers/media/platform/mediatek/vcodec/encoder/venc/venc_common_if.=
-c
-> @@ -480,8 +480,13 @@ static void venc_free_rc_buf(struct venc_inst *inst,
-> =C2=A0{
-> =C2=A0	int i;
-> =C2=A0	struct device *dev;
-> +	struct mtk_vcodec_fw *fw =3D inst->ctx->dev->fw_handler;
-> +
-> +	if (mtk_vcodec_fw_get_type(fw) =3D=3D VCP)
-> +		dev =3D mtk_vcodec_fw_get_dev(fw);
-> +	else
-> +		dev =3D &inst->ctx->dev->plat_dev->dev;
-> =C2=A0
-> -	dev =3D &inst->ctx->dev->plat_dev->dev;
-> =C2=A0	mtk_venc_mem_free(inst, dev, &bufs->rc_code);
-> =C2=A0
-> =C2=A0	for (i =3D 0; i < core_num; i++)
-> @@ -530,12 +535,18 @@ static int venc_alloc_rc_buf(struct venc_inst *inst=
-,
-> =C2=A0	struct device *dev;
-> =C2=A0	void *tmp_va;
-> =C2=A0
-> -	dev =3D &inst->ctx->dev->plat_dev->dev;
-> -	if (mtk_venc_mem_alloc(inst, dev, &bufs->rc_code))
-> -		return -ENOMEM;
-> +	if (mtk_vcodec_fw_get_type(fw) =3D=3D VCP) {
-> +		dev =3D mtk_vcodec_fw_get_dev(fw);
-> +		if (mtk_venc_mem_alloc(inst, dev, &bufs->rc_code))
-> +			return -ENOMEM;
-> +	} else {
-> +		dev =3D &inst->ctx->dev->plat_dev->dev;
-> +		if (mtk_venc_mem_alloc(inst, dev, &bufs->rc_code))
-> +			return -ENOMEM;
-> =C2=A0
-> -	tmp_va =3D mtk_vcodec_fw_map_dm_addr(fw, bufs->rc_code.pa);
-> -	memcpy(bufs->rc_code.va, tmp_va, bufs->rc_code.size);
-> +		tmp_va =3D mtk_vcodec_fw_map_dm_addr(fw, bufs->rc_code.pa);
-> +		memcpy(bufs->rc_code.va, tmp_va, bufs->rc_code.size);
-> +	}
-> =C2=A0
-> =C2=A0	for (i =3D 0; i < core_num; i++) {
-> =C2=A0		if (mtk_venc_mem_alloc(inst, dev, &bufs->rc_info[i]))
-> diff --git a/drivers/media/platform/mediatek/vcodec/encoder/venc_vpu_if.c=
- b/drivers/media/platform/mediatek/vcodec/encoder/venc_vpu_if.c
-> index 7772b8442ebc..0f4693e04a9f 100644
-> --- a/drivers/media/platform/mediatek/vcodec/encoder/venc_vpu_if.c
-> +++ b/drivers/media/platform/mediatek/vcodec/encoder/venc_vpu_if.c
-> @@ -8,13 +8,23 @@
-> =C2=A0#include "venc_ipi_msg.h"
-> =C2=A0#include "venc_vpu_if.h"
-> =C2=A0
-> +#define VSI_OFFSET_MASK 0x0FFFFFFF
-> +
-> =C2=A0static void handle_enc_init_msg(struct venc_vpu_inst *vpu, const vo=
-id *data)
-> =C2=A0{
-> =C2=A0	const struct venc_vpu_ipi_msg_init_comm *msg =3D data;
-> =C2=A0	struct mtk_vcodec_fw *fw =3D vpu->ctx->dev->fw_handler;
-> +	u64 pa_start, vsi_offset;
-> =C2=A0
-> =C2=A0	vpu->inst_addr =3D msg->init_ack.vpu_inst_addr;
-> -	vpu->vsi =3D mtk_vcodec_fw_map_dm_addr(fw, vpu->inst_addr);
-> +
-> +	if (mtk_vcodec_fw_get_type(fw) =3D=3D VCP) {
-> +		pa_start =3D (u64)fw->vcp->iova_addr;
-> +		vsi_offset =3D (msg->vpu_vsi_addr & VSI_OFFSET_MASK) - (pa_start & VSI=
-_OFFSET_MASK);
-> +		vpu->vsi =3D mtk_vcodec_fw_map_dm_addr(fw, ENCODER_MEM) + vsi_offset;
-> +	} else {
-> +		vpu->vsi =3D mtk_vcodec_fw_map_dm_addr(fw, msg->vpu_vsi_addr);
-> +	}
-> =C2=A0
-> =C2=A0	/* Firmware version field value is unspecified on MT8173. */
-> =C2=A0	if (mtk_vcodec_fw_get_type(fw) =3D=3D VPU)
-> @@ -155,6 +165,8 @@ int vpu_enc_init(struct venc_vpu_inst *vpu)
-> =C2=A0	out.base.venc_inst =3D (unsigned long)vpu;
-> =C2=A0	if (MTK_ENC_DRV_IS_COMM(vpu->ctx)) {
-> =C2=A0		out.codec_type =3D vpu->ctx->q_data[MTK_Q_DATA_DST].fmt->fourcc;
-> +		if (mtk_vcodec_fw_get_type(vpu->ctx->dev->fw_handler) =3D=3D VCP)
-> +			out.shared_iova =3D vpu->ctx->dev->fw_handler->vcp->iova_addr;
-> =C2=A0		msg_size =3D sizeof(struct venc_ap_ipi_msg_init_comm);
-> =C2=A0	} else {
-> =C2=A0		msg_size =3D sizeof(struct venc_ap_ipi_msg_init);
+IMO no...
 
---=-nzftFuhX5IZOP4b2FG4X
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+>   Or, like gpio-virtio, one endpoint
+> represents one GPIO controller, and you instantiate multiple
+> endpoints, one per controller.
 
------BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCafIcIQAKCRDZQZRRKWBy
-9BU9AQDeUjq51d94hOsP4bLCICEILqQMmlqhauW9PeGwGanPCgD/b+iImcIisuLc
-nG/smgBpepbKYTKHWuNXD4xfU5G+9gQ=
-=obp3
------END PGP SIGNATURE-----
+Yes, this is what I am suggesting in the review of this version.
+Basically there should be one rpmsg channel per device type
+(e.g. gpio/i2c), and multiple rpmsg endpoints in one channel
+representing each instance of the device (e.g. gpio1, gpio2 etc.)
 
---=-nzftFuhX5IZOP4b2FG4X--
+>   How can you tell the different
+> instances of GPIO endpoints apart when they are dynamically created?
+
+
+Well by 2 ways:
+1. We can maintain a map of the dynamically created ept and its
+     corresponding instance number.This is useful while sending a message
+     for a particular instance.
+2. rpmsg_create_ept() takes a private data argument, so we just bind the
+     per-instance data (struct rpmsg_gpio_port * in this case) to the ept.
+     This is useful while receiving a message for a particular instance.
+
+I have suggested an implementation for the same here:
+https://lore.kernel.org/all/29485742-6e49-482e-b73d-228295daaeec@ti.com/
+
+Thanks,
+Beleswar
+
 
