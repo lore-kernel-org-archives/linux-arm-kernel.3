@@ -4,117 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0F8FFF8875
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 20:01:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A29C9FF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 20:20:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
-	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R2x2PQrvORUdwNxHDcUtETRc8rS0gty21jpHed4L61s=; b=jOrW72eMX1z0et26m/fB7sjdK3
-	+B8nhJ5U1RNmYZrlLomtEqzBdrFy17ggtKgOjH/0mcQfjBsY/Yn5+bHfdpPbvNiyuVCI8dt97zGAe
-	oNJcbcA9MClF73rY3w88iR65VYdiQXhOdniNJh3sTFvyClhZGypRuIHJWnHtaqiW+25RulYz83TiM
-	SMoLw15pbLOM5o5p5tczcQUBzKBNT8DqG6X6O28WXarr5pis4skNrNfpufY0bDBvCWEj1zqtPAtXg
-	DNx1ZX3tjJmsoe4Id6qZZSsiZyBDqzjLweMED5r66p9M43x5OEVDdIbHvN3oCfeI5iHpxZkJBWCa7
-	KCFp628g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Mcl9hUvY34FgeniWwVm+TyCioqlD+gxNdeIUe9rxqOk=; b=uQ6MdRPvb2cCb0VlqkoXAyc4UH
+	XLugGd/8Oa6FUqKaimeooLoLQloL2AftDLSVlrfTb0VR85tIi9OA9CrLSlEVJHkkb1HSa+2K9lCaf
+	kMT/UVAG3/csT3olLUB218YtM7wByW+NCgub0uKW7WEKg8BJXyjRElqrH9uk1aCJhSQBn7yl/9dDp
+	QGoq1dqUF9ZJV/dPgnWwgbp6JPksBj2uAvzHQkru1Ykq1W4rM/Xo80uV1arqOiK+4fjUdpbhyiysj
+	iv6hbF0OsoCpisQDaL9oMpvuMFiQFtvdQZ3zWbDxq8VHgRXtQNLxr45GwcdIvvtoXYF5sQppemELj
+	AzPrSj0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIB6U-00000004Arn-02h8;
-	Wed, 29 Apr 2026 20:01:51 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1wIBOD-00000004BZZ-1UNP;
+	Wed, 29 Apr 2026 20:20:09 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIB6M-00000004ArO-2atE
+	id 1wIBOB-00000004BZ7-0xaT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 20:01:48 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63TFUqIl1317126;
-	Wed, 29 Apr 2026 20:01:16 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=R2x2PQ
-	rvORUdwNxHDcUtETRc8rS0gty21jpHed4L61s=; b=XN8bSfMyWP8gMr/AlEGpjg
-	I9o25iCplYG0leQKr/pZYRG7PLhl95Ed2+CYsJhH4qP+Lo4NYjDh/HzB9RUOTqL+
-	aPy3pnBcvVFfaCWE/ZIWOvitKBZ7cJmClG6R6SDSOAwG/NoIkemEPUsSAGJcuprL
-	JMlC3+ku0+VNHW4R3wqWMuI3lcENDx+3vIpxgmBTxPs4Kg0sZZN0Jr6tIKQo5Ue5
-	+0iKoIDgbNiIWR2wpr8MR39Y1Nap0sXOI5oXtK13NQiai4YmH/AMs7plpOWZY9xy
-	v9R+8j/nJvKvvhjIoJcpuGZCsaHDEe/Az/VoJDq5080NvHc5KXwwK83I9Dml+m0A
-	==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4drk1ju408-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 29 Apr 2026 20:01:15 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63TJrroh010290;
-	Wed, 29 Apr 2026 20:01:14 GMT
-Received: from smtprelay07.dal12v.mail.ibm.com ([172.16.1.9])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4dsa5gfsjt-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 29 Apr 2026 20:01:14 +0000 (GMT)
-Received: from smtpav05.dal12v.mail.ibm.com (smtpav05.dal12v.mail.ibm.com [10.241.53.104])
-	by smtprelay07.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63TK1EAE30343876
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 29 Apr 2026 20:01:14 GMT
-Received: from smtpav05.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 0D87958052;
-	Wed, 29 Apr 2026 20:01:14 +0000 (GMT)
-Received: from smtpav05.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 7D9FA58065;
-	Wed, 29 Apr 2026 20:01:12 +0000 (GMT)
-Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.61.118.181])
-	by smtpav05.dal12v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 29 Apr 2026 20:01:12 +0000 (GMT)
-Message-ID: <7734099f5e7fda5480bca016a9e6707983325fbd.camel@linux.ibm.com>
-Subject: [PATCH] ima: debugging late_initcall_sync measurements
-From: Mimi Zohar <zohar@linux.ibm.com>
-To: Jonathan McDowell <noodles@earth.li>,
-        linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-integrity@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        kvmarm@lists.linux.dev
-Cc: paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
-        roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
-        eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
-        sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
-        joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-        catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
-        sebastianene@google.com, Yeoreum Yun <yeoreum.yun@arm.com>
-In-Reply-To: <cover.1777036497.git.noodles@meta.com>
-References: <cover.1777036497.git.noodles@meta.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-Date: Wed, 29 Apr 2026 16:01:12 -0400
+	Wed, 29 Apr 2026 20:20:08 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4890d945eb4so7837765e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 13:20:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1777494005; x=1778098805; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Mcl9hUvY34FgeniWwVm+TyCioqlD+gxNdeIUe9rxqOk=;
+        b=YsBZyhnyD7ey8yFDdwfOE4jHEgIEs4jqzBT0ZkiZnBI/V2/VpzSHUjtLRJJ4iqyBBx
+         iU7Eb0RatRowBgC29bz9dk5Gu0haLROM34b9CyTjDg3mzgUQ1qPLBac/hnA8TSyqaJow
+         PGRSxt9Sf0Rhav9WhnhB1KPB6Ks2AagIfwPyqAVT5NK6OdgT78ZMq/aR6A3h5YUCJg6o
+         KRv3g7SBFxiIlVUSGNNJC+IXOZD4lzAR9CsQ92b63SxAWjkt++CvHylhpOxmRoxX5TOX
+         jvWB8yQmUTR2NOeh+z7cLuOvlUKMvr3pozCaIom4VS3SuuAHuUB3CiURgPW8gF2Y6t+z
+         unKA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777494005; x=1778098805;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Mcl9hUvY34FgeniWwVm+TyCioqlD+gxNdeIUe9rxqOk=;
+        b=Qhpft4FKa8xKXlckQMAWhKdNU+SbJcNz/+YQ3T//GI2su27giw8R55cvsHOR1siPM8
+         csukKF7i5oDcyDXLAcev1V0RLzUXp4EabKI5LkpS92X+svQOwPmbScKc/VJYr9rvhDxr
+         YFSWDtU0IE4NihrfVw4gNMyaheAujVkYzXknDFxVve+TnEuCA1YCtJXxRNJKZISZ7pyE
+         /CvzAc7HsNxM+XRkhG2L4N2yCD0jLk7fDjhX9cOt7toQr/UUw3LHWEiP5Cx1ZOr/olSb
+         ykSIEQF0b9FwHtvtcH1p0lCqPo19I6FD6XQORB4zOkl/oIvvUeNEOtd3q3nN4G3aIPCU
+         VKPQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/uo2PHsfzzX36rwHEZhB1pwHZRedpv5eFNqqM9i69WFcigOyDpRkfBtRlkAUYekNw3yTP8XV3AP4ntjXvDGwRA@lists.infradead.org
+X-Gm-Message-State: AOJu0YwI4+2oSVrnxVqWmo/4pIzPI2rSroQEGKQsiNdKveANHSjtivOQ
+	H+Jg0DzAcz4InKAb/8CtxEEHaGU+pujzYPvI5EwMzWnkXB9yaxmCcLUxx76qILobkQg=
+X-Gm-Gg: AeBDieskxjmmQbmJMsy7PgEadDvC0hFYeHpg6iUD/YpeNAVD1My5iskkK4aRbyifCEF
+	kgZj1l3S7ep/xMZ284nTMbUa7l+FuadB7eqqutKuUqcHaM5LGelGc7Ib9gSTaEehWb7i6hYKz6m
+	bCVkoOdMnEEe9KPaZHSG7ybY6xXqzwNd/awlYtu8x1f8W+3LhXjsvBvAbZ0C/8CPlCb+qmDvX6T
+	fDkyICodmwDTOscmJ1fPOmiZXzNOk13vjPutC5KNFFA4JXa8H3So/CaLYykw0n71Rghp/R30tK/
+	MTRPxghMSIeuFOodVqnC7NzO4HnWbkTY2dSqPOLUfSW4wKBo4VxKjSH83igticVTS4L2qAMz4Oi
+	7022e9FqGJSxQbmCrNe/qIubuHaRmlAq1q6fCtfTpb9ByLXT1WZf1dZ4QYGKFA68V+I30Dp4Rfj
+	OXyQsTuCt1Wu3uH+sKODySIn+kDsbDd+ihI25Hwu2WozVe2yHn1KMWSEKb23varX3sQbWEJOKN3
+	QoGou0W3ZweWB+yE5hj0wlEMIc=
+X-Received: by 2002:a05:600c:a013:b0:48a:5821:6006 with SMTP id 5b1f17b1804b1-48a7bf98557mr78026385e9.4.1777494004845;
+        Wed, 29 Apr 2026 13:20:04 -0700 (PDT)
+Received: from [127.0.1.1] ([94.4.195.193])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48a7b901a15sm58061355e9.1.2026.04.29.13.20.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 29 Apr 2026 13:20:04 -0700 (PDT)
+From: Alexey Klimov <alexey.klimov@linaro.org>
+Date: Wed, 29 Apr 2026 21:19:50 +0100
+Subject: [PATCH] arm64: dts: exynos850: Add ap2apm mailbox
 MIME-Version: 1.0
-User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI5MDE5OCBTYWx0ZWRfX7FCsE6eIcPV0
- dRO44UnF0wfI9Fsdy2pzNYSqckElbnehPhzYgU59deAy09/NqVV5peRfk/XnbOaVW4WNoW3yIeh
- 5F+xYDm7ICIWl6PiWsn9iHAP1ul1MYT7KzCitUYIxkTTG19zx6c8QY6KuVi8oxcM9zdCQPY8ObM
- r9CMcB2a2GKNRKXO/IeLvVr2M4oKebO8S43cNheX553J3+3F+CUMfY8bMCnlJ8d9j7Ai4xxA0g0
- h+c8R0ktb+8HGBQfxSF+PRXxXejvuC6BsLbJf+Fu3oHQivQmbviOYnZP/e+oyKNzqrGn1CZmGWK
- WiLsM3Uq/RkPd0CFQziWQZ1FSxfcMvfGF0u+zsxxDD7Ya5RQYxWa8fK48enDGobj4cMyO3GfQqZ
- XEvi6l4hn5CYxmeDkErHfoJjX6+ewPe+gLpxlN/DGP1CJcwZrDob9FSjNkZbySgRy4so59IQp57
- iZ9BLkgkza1SODVqvrQ==
-X-Proofpoint-GUID: G4mI1EHlNTHJ2Sv4EmdWBE_u_oyWeRVx
-X-Proofpoint-ORIG-GUID: 6taI1q2EF8KzjwX9tVp-Ex5_1ZWFnHn4
-X-Authority-Analysis: v=2.4 cv=MohiLWae c=1 sm=1 tr=0 ts=69f2638c cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VwQbUJbxAAAA:8
- a=VabnemYjAAAA:8 a=fWDe5KWseGDh5RaNRN8A:9 a=QEXdDO2ut3YA:10
- a=gKebqoRLp9LExxC7YDUY:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-29_02,2026-04-28_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 adultscore=0 suspectscore=0 bulkscore=0 spamscore=0
- priorityscore=1501 malwarescore=0 clxscore=1015 lowpriorityscore=0
- impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
- definitions=main-2604290198
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260429-exynos850-mbox-dts-v1-1-7f3ad27ed4f4@linaro.org>
+X-B4-Tracking: v=1; b=H4sIAOVn8mkC/03NTQ6CMBCG4auQrh3TH8S2VzEsShm0iaXYIsEQ7
+ m6BhS7fSeb5FpIwOkxEFwuJOLnkQp+DnQpiH6a/I7g2N+GUV7TkCnD+9CHJCwXfhBnaMYFVjcK
+ rEBUrKcmPQ8TOzTt6q4+O+HpnezyOP1oXOyw4/YPNwM3gwRv33CZs11Er20pJJfUktoXGJAQbv
+ HejLqbrmUG0jNTr+gVlPGPN0AAAAA==
+X-Change-ID: 20260429-exynos850-mbox-dts-c9b9e7336140
+To: Sam Protsenko <semen.protsenko@linaro.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_130142_802743_75C57B5F 
-X-CRM114-Status: GOOD (  18.13  )
+X-CRM114-CacheID: sfid-20260429_132007_323754_39ACCBEA 
+X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,105 +106,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With this "[RFC PATCH v3 0/4] Fix IMA + TPM initialisation ordering
-issue" patch set, how many records would be missing if IMA
-initialization is deferred to late_initcall_sync [1]?
+Add mailbox node that describes AP-to-APM mailbox, that can be
+used for communicating with APM co-processor on Exynos850 SoCs.
 
-[1]https://lore.kernel.org/linux-integrity/cover.1777036497.git.noodles@met=
-a.com/
+Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
 ---
-Jonathan, Yeoreum, others -
+Depends on dt-bindings from:
+https://lore.kernel.org/linux-samsung-soc/20260429-exynos850-ap2apm-mailbox-v3-1-8e2719608c46@linaro.org/
+---
+---
+ arch/arm64/boot/dts/exynos/exynos850.dtsi | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-By going into TPM-bypass mode, we can see how many measurements are actuall=
-y
-missing when deferring IMA initialization to late_initcall_sync. As this is
-system/TPM dependent, I'd appreciate your checking. Please use the boot com=
-mand
-line option "ima_policy=3Dtcb|critical_data".
-
-thanks, Mimi
-
- security/integrity/ima/ima.h      |  1 +
- security/integrity/ima/ima_init.c |  6 ++++++
- security/integrity/ima/ima_main.c | 19 +++++++++++++++++++
- 3 files changed, 26 insertions(+)
-
-diff --git a/security/integrity/ima/ima.h b/security/integrity/ima/ima.h
-index 01aae19ed365..9a1117112fb2 100644
---- a/security/integrity/ima/ima.h
-+++ b/security/integrity/ima/ima.h
-@@ -286,6 +286,7 @@ extern bool ima_canonical_fmt;
-=20
- /* Internal IMA function definitions */
- int ima_init_core(bool late);
-+int ima_init_debug(bool late);
- int ima_fs_init(void);
- int ima_add_template_entry(struct ima_template_entry *entry, int violation=
-,
- 			   const char *op, struct inode *inode,
-diff --git a/security/integrity/ima/ima_init.c b/security/integrity/ima/ima=
-_init.c
-index 5f335834a9bb..edd063b99685 100644
---- a/security/integrity/ima/ima_init.c
-+++ b/security/integrity/ima/ima_init.c
-@@ -122,6 +122,12 @@ void __init ima_load_x509(void)
- }
- #endif
-=20
-+int __init ima_init_debug(bool late)
-+{
-+	ima_add_boot_aggregate(late); /* just add an additional record */
-+	return 0;
-+}
+diff --git a/arch/arm64/boot/dts/exynos/exynos850.dtsi b/arch/arm64/boot/dts/exynos/exynos850.dtsi
+index 3881f573ec08..47c9293c54c2 100644
+--- a/arch/arm64/boot/dts/exynos/exynos850.dtsi
++++ b/arch/arm64/boot/dts/exynos/exynos850.dtsi
+@@ -305,6 +305,15 @@ cmu_apm: clock-controller@11800000 {
+ 			clock-names = "oscclk", "dout_clkcmu_apm_bus";
+ 		};
+ 
++		ap2apm_mailbox: mailbox@11900000 {
++			compatible = "samsung,exynos850-mbox";
++			reg = <0x11900000 0x1000>;
++			clocks = <&cmu_apm CLK_GOUT_MAILBOX_APM_AP_PCLK>;
++			clock-names = "pclk";
++			interrupts = <GIC_SPI 49 IRQ_TYPE_LEVEL_HIGH>;
++			#mbox-cells = <0>;
++		};
 +
- int __init ima_init_core(bool late)
- {
- 	int rc;
-diff --git a/security/integrity/ima/ima_main.c b/security/integrity/ima/ima=
-_main.c
-index 42099bfe7e43..23e669be54fc 100644
---- a/security/integrity/ima/ima_main.c
-+++ b/security/integrity/ima/ima_main.c
-@@ -1254,6 +1254,7 @@ static int ima_kernel_module_request(char *kmod_name)
-=20
- #endif /* CONFIG_INTEGRITY_ASYMMETRIC_KEYS */
-=20
-+#define TESTING 1
- static int __init init_ima(bool late)
- {
- 	int error;
-@@ -1264,6 +1265,23 @@ static int __init init_ima(bool late)
- 		return 0;
- 	}
-=20
-+#ifdef TESTING
-+	/*
-+	 * Initialize early, even if it means going into TPM-bypass mode,
-+	 * but add an additional boot_aggregrate message for the
-+	 * late_initcall_sync.
-+	 *
-+	 * If measurement list records exist between the boot_aggregate
-+	 * and the boot_aggregate_late records, these records would be
-+	 * missing when IMA initializion is deferred to late_initcall_sync.
-+	 */
-+	if (ima_tpm_chip) {
-+		ima_init_debug(late); /* Add an additional record */
-+		return 0;
-+	}
-+
-+	ima_tpm_chip =3D tpm_default_chip();
-+#elif
- 	/*
- 	 * If we found the TPM during our first attempt, or we know there's no
- 	 * TPM, nothing further to do
-@@ -1276,6 +1294,7 @@ static int __init init_ima(bool late)
- 		pr_debug("TPM not available, will try later\n");
- 		return -EPROBE_DEFER;
- 	}
-+#endif
-=20
- 	if (!ima_tpm_chip)
- 		pr_info("No TPM chip found, activating TPM-bypass!\n");
---=20
-2.53.0
+ 		cmu_cmgp: clock-controller@11c00000 {
+ 			compatible = "samsung,exynos850-cmu-cmgp";
+ 			reg = <0x11c00000 0x8000>;
+
+---
+base-commit: 5e9b7d093f3f77cb0af4409559e3d139babfb443
+change-id: 20260429-exynos850-mbox-dts-c9b9e7336140
+prerequisite-change-id: 20260320-exynos850-ap2apm-mailbox-cff0c8d69898:v3
+prerequisite-patch-id: 093e2d93cd4b6f0ade6f9ff0e3b773e47017f884
+prerequisite-patch-id: c2e9212d341270a2f2a8b6f3695711bc3b6ff2d8
+
+Best regards,
+-- 
+Alexey Klimov <alexey.klimov@linaro.org>
+
 
