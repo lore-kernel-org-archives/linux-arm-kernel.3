@@ -4,119 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41D72FF887E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 17:33:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78881FF887E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 17:38:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/kb5CXOOm0mj4ODKw/K4npAFTtH0bYa0bnYZ1mb4DgI=; b=lppvf3NTsWk9GAk+5JkDa/b+5v
-	DXgUS8wqBov+Z8nDonWUEXTwiHw7txZf75S7NY6mJbwiIgvF+NemXDPC6tLoahkqWHbrcG8Cy9Q0g
-	4oiTIt08nx64VE0qs4LBkgjkhqRPSEKV+tfeL7tAxA+AI/IY2fQKEnGR2vAZirOExoKcNyb3LWWSD
-	2vXfu2hb3akNyrTG0ZlUHX9rOIb4XZqF1AERuv2J5/WP6HvugKD1Io/Y6ZlMDopsNYJxq4IQd0ila
-	J92x8OInfC+QSPQTLgK9OFIozDpmZwM2L/HwbBo1azjwqiaimFn94vL4xI+fFcOhfsP3HcHSvYSmH
-	IgopfkTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NnM1NPkau1naLpsnPcmznKfyzqUKaZf4UoB5KA0mJD4=; b=gQ7APagp6O+4V9jJZ/0Irejgej
+	NbWhvOQJrva/6Wb94lHYsRUMkh7Dr/D6cLTWgwoRxCmCyLeyPBuQDrE7IOadpn1WLXAndWQII4jNV
+	X50YbxQgQJVlui7DQvPsFlb1cLFtz7T19nmE/cksJ1KMp4rqN/KiXBV31s2DzLtv5h26tg2nXaUSM
+	A4mvh3acK0rYCU9lwnH2FUBbNLi1AEXxd24JGCqmWbDY+P0/lW9fKsEzHafc8ZTlw1RnqDjexrwbD
+	kdbb5Vc9QyyAExKWpbrb2V18JxOR54oYUmjkegAwzF9Nln0tzSwxDD8pC/G+zf0YO6lK+IX5kn6n6
+	7RW42Q7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI8n1-00000003yjN-3Vsv;
-	Wed, 29 Apr 2026 17:33:35 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1wI8rK-00000003yzy-0d1y;
+	Wed, 29 Apr 2026 17:38:02 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI8my-00000003yhf-2Euk
+	id 1wI8rI-00000003yzZ-01JY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 17:33:34 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-66ba9dfe83bso52993a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 10:33:31 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1777484010; cv=none;
-        d=google.com; s=arc-20240605;
-        b=YYMEtWIuKPs9Thp6+gCbWcAqL7T+X1OR5Wnyd1/NvNBIOYS0IVZyAoosd9t/G+xX8p
-         7HitdPzRol5zk3yXspHCoturAiP70BnJHjtYOHTnZyL49+IRoBtILLiDJAYcv6JgH+V4
-         sBGH0Ie+7WDubaAeQAEC4pjlXmRhUJdTWtJ45YOVNd9eiKkB4xb0j5kwr9yRj906laCy
-         rCsVv+RO7VsOfIFXwPUBV2bU+KFrYrLwDXy2ei8Fl1y2kRseY3kcm+62nAuSHI3rF5bb
-         rIS4xBUBsIdGwBV04ObRwOfV3sBpnzkvjMDVuaKwU1SY5jeaU+2zn9fIvOeVZJGFiNJR
-         g4zw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=/kb5CXOOm0mj4ODKw/K4npAFTtH0bYa0bnYZ1mb4DgI=;
-        fh=cQCKVpXzJglEmjqj+4mhm9LUovSD67I13HjqbjoFz9U=;
-        b=CSkxoxt3ozFFi+g0dXS8dxJ1iJrAjjrQOtQ1R70nxON9mImfaDq3RbrBhq5dIYeJUD
-         tmgsfVErnfqdyvUBDgdWW8ugCdD89mUQ/qwRkmaZ70595hJ+UYQbdVq1L16qd7iEr9j5
-         juilo5GyefO/O14fW0AilW+sAOq0lWdDuJsCy5+l234+LsviHHV4e1W786zRtjTAzy8+
-         pw+K7rnHmJVAbpfgS0dh9YY6JiI5M0m5+pFcM/gaClOX6xpkc/PGzIqgGQG+8oF1B7MC
-         sX1+N7fa6t5qyM0kO9uuwX07pGmufURWfpBB4X+GPQA5PupG+z+kDmDlyY0LKRBFRQzj
-         Ofmw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1777484010; x=1778088810; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=/kb5CXOOm0mj4ODKw/K4npAFTtH0bYa0bnYZ1mb4DgI=;
-        b=EAMvYdz6pIiQqxOQlE6DkIIIoHjgeBx6BLZyPN9szBCzYsH/C28tp9VeGEeatRBZaH
-         fwlvjxSINzLLHxzlD9r7zw7wsVRHnR67VRvenj6eldY44RrlnyH0DTkgX0w+tPrcnFoD
-         pZzVyIM1zEjjQ+049rGPPwKmT6mgL95ouoveoV1LStwP2oW7eVGr2sX4WSGf42dRZ6KT
-         4Pd2hF+5lkhnKyWQXrcrIRirw9EVupg9AYnWHEM0zPSc2Xd+6bYQm/3cYZgZCt1tp54y
-         Vkc/mysRIbEVpRPBo9Ht3BHxVpn+6UGaSmuReUA6p1uDCW5I+uwBt0v5VMvyBbk1nytT
-         orBg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777484010; x=1778088810;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/kb5CXOOm0mj4ODKw/K4npAFTtH0bYa0bnYZ1mb4DgI=;
-        b=DrD8Ido83IJOqAp7fPDfUuJX9owXz5bPsb65qb4RPZPcGIACc/JJYB/QYue6N0oFAG
-         PgUOzXDdX88oIwRm1Dj9mGMfg0r//klmhxNGESMGi0ZinXDu+O8ch75QuYJNberv+Ctg
-         2utFVsCdW0Qq0CHl/2XDMt6myXqguOWn57vfAkuKDgfdrbDR9Xq4/KmlvzcSrv0UAgMy
-         QYagROfWh5QIoZ1Ehcb/vtx829huSAmM3lnqE9h3hGzHKa6uhCBte6K9/ByMEd7p3P09
-         180m4I0Dnhq+3NfakHEzHZVdBSoNyjtZFyIYUyNtV463Z7FDuN6flYqHLFYl+UAZmTpG
-         h2Yw==
-X-Forwarded-Encrypted: i=1; AFNElJ8hNxkUunUr8wnoKHy5c8WFaB+5Dyt4lZTohb90Ww2uUUHlQ750RvuVTTaERt88RBjhAdyn3GAUz0/mgrN8DAqm@lists.infradead.org
-X-Gm-Message-State: AOJu0YywLHjdF9ZyrP5wUkVGGCBZFlD3YVXhC+/uOJtnYMhXF/eNiUXa
-	/TlZFgrorfb4oFMo4dP91IN2k4FM3vAUKjz4Ed7F0PPyXD/lmXCc9eiGaqZxbVtUh6tO23pbRw6
-	Spax5ZfBMK/mk2hoV0IiOjr7bbzHshWxIo7r3BZuZbg==
-X-Gm-Gg: AeBDietqxEcM0JueMEzeX8r7pQXqFxge0Si9kkRzEHToJr9XRDtc/Ler/F0+hVshEXe
-	bt7FkDB4uSpSdByV8AqnWlDmiCDwX84VoLOXUcqX/3UGU25AwlMaF/ze82zwMvqImUkQe91IJOh
-	mA91b7CMf+SS9Zch+ZyxSZqYKXN8bl8g4ANuf6QN+aT/2stQuzWfyen4Ur/4GTKTCq2c4IDE71O
-	l/Lux6Q8zq4/kBpl7yRNW/qE7U3F9qOBHzlCLGx1bF8c4BMOrAyYOQ+Yz7nSHd9SF8OZ+QUjklb
-	AyvlsiK6uJbcTsPP9uBiJidUyYpanlqB80tsBqwVp/wUGYoWzUGz
-X-Received: by 2002:a05:6402:1ed3:b0:672:5255:af77 with SMTP id
- 4fb4d7f45d1cf-679bb07ee71mr5034063a12.13.1777484010328; Wed, 29 Apr 2026
- 10:33:30 -0700 (PDT)
+	Wed, 29 Apr 2026 17:38:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B28A243F77;
+	Wed, 29 Apr 2026 17:37:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21C9CC19425;
+	Wed, 29 Apr 2026 17:37:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777484278;
+	bh=vfvNLdQCP2QhgLDeoKvh1hjaGJlPfVJ1+fo5Yn6Jecc=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+	b=NhWTc2kLqISC5cwpSaPxT08oZAR2+Ea2mdTwaAtC7zfURsVmZFc5zYzcXqeODPoMT
+	 GfLpls0zUnpArSFmLXmZZxEe6rMgSWJXOYLv6cGvbDhYy6FMYhtIlpMU4KBUubq0MG
+	 nb9IORFEQRoWwqut9t+ISmzEiL0RAO7cg0BxgUeLjfl6lppK/6Yaa5f/dnBPqVNmF0
+	 ynDULK1FvJNJ2jjAL2d3Np7Ix9i6mD/mpOi+kJIZB+f9KgWJAZrFOsgpcy3N8sSJbU
+	 0a3eQI+pvfcmfprB8bguLRFdvz/SStQqI697+nnKZDepWjxQl3yRmbI07PelexrSYM
+	 e3nVc53WtHTfw==
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 17A57F40068;
+	Wed, 29 Apr 2026 13:37:57 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-01.internal (MEProxy); Wed, 29 Apr 2026 13:37:57 -0400
+X-ME-Sender: <xms:9UHyabil4gFIhI35RxQ22UuSNHNUkw9Gl9vB9hejUQPNihaezXAeVg>
+    <xme:9UHyaS2zkp-hVMCSov8m8UGYssLiK3_6M3qyfK4l3l_D1CjpRGZmC909PkD83E_Fi
+    eSKrvH9Eu7cVaZTPiq9OolwN5mpRfGrLbWaGcLNzr8EpoLZ_TZaN7Y>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdekhedtiecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhguuceu
+    ihgvshhhvghuvhgvlhdfuceorghruggssehkvghrnhgvlhdrohhrgheqnecuggftrfgrth
+    htvghrnhepvdeuheeitdevtdelkeduudetgffftdelteefteevjeevjeeiheefhfejieej
+    fedunecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
+    hrugdomhgvshhmthhprghuthhhphgvrhhsohhnrghlihhthidqudeijedthedttdejledq
+    feefvdduieegudehqdgrrhgusgeppehkvghrnhgvlhdrohhrghesfihorhhkohhfrghrug
+    drtghomhdpnhgspghrtghpthhtohepudejpdhmohguvgepshhmthhpohhuthdprhgtphht
+    thhopegrnhhshhhumhgrnhdrkhhhrghnughurghlsegrrhhmrdgtohhmpdhrtghpthhtoh
+    eptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhopehkvghv
+    ihhnrdgsrhhoughskhihsegrrhhmrdgtohhmpdhrtghpthhtohepmhgrrhhkrdhruhhtlh
+    grnhgusegrrhhmrdgtohhmpdhrtghpthhtoheprhihrghnrdhrohgsvghrthhssegrrhhm
+    rdgtohhmpdhrtghpthhtoheprghruggsodhgihhtsehgohhoghhlvgdrtghomhdprhgtph
+    htthhopehlihiiphhruhgtkhgrsehgohhoghhlvgdrtghomhdprhgtphhtthhopehsvght
+    hhhjvghnkhhinhhssehgohhoghhlvgdrtghomhdprhgtphhtthhopegurghvihgusehkvg
+    hrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:9UHyaWgQb1qiAVaJjoQmSh7-aME5apWDBmmct_h1ZbRpaWqUF1O1ZQ>
+    <xmx:9UHyaTU2aUe7OQDYsiV3OM63w4dVKA3wC2sabKazPUG70HBRWQ_JEw>
+    <xmx:9UHyaftUUZf1dvcEHx9i6fPR6mCODp2HqXCW28kYfGqXHQNunaTWHA>
+    <xmx:9UHyacZvo8qjSYr5_Z8113kMxB2VDyho27deuIeQoZQVj8k6BrOasg>
+    <xmx:9UHyaY4XbJ-nGJxGfmQQyDaIGs8Ez_hlo6t2c5K8X0b_4QYOsYPSyMkH>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id E9C20700065; Wed, 29 Apr 2026 13:37:56 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-References: <20260422212849.1240591-1-shenwei.wang@nxp.com>
- <20260422212849.1240591-4-shenwei.wang@nxp.com> <22fb5fac-2568-42be-a7e3-7e89d0017eb3@ti.com>
- <PAXPR04MB91850A11C58419C03909145F89362@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <6412a758-4560-4cf1-a0d0-5b24d1a715f1@lunn.ch> <PAXPR04MB9185009A17DFDF3D6C8B44E789362@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <6e01e114-e336-4744-b6b4-563ec42e321b@lunn.ch> <PAXPR04MB9185A098D894B6A6EBCC13F889372@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <afImuoeHolxGgw3H@p14s> <PAXPR04MB9185F2F6DDB55AC56C92D63B89342@PAXPR04MB9185.eurprd04.prod.outlook.com>
-In-Reply-To: <PAXPR04MB9185F2F6DDB55AC56C92D63B89342@PAXPR04MB9185.eurprd04.prod.outlook.com>
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-Date: Wed, 29 Apr 2026 11:33:18 -0600
-X-Gm-Features: AVHnY4KBveuXaT50xXGT561BJAnz_p9YSdb7SJnI5b60PkMgL6_ZMJ8SGU0KF-U
-Message-ID: <CANLsYkwvL0Z3+12MD=J+Dc2yAU2T8ypizyG=6AhYoWOh55odHA@mail.gmail.com>
-Subject: Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
-To: Shenwei Wang <shenwei.wang@nxp.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, "Padhi, Beleswar" <b-padhi@ti.com>, Linus Walleij <linusw@kernel.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Bjorn Andersson <andersson@kernel.org>, Frank Li <frank.li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Shuah Khan <skhan@linuxfoundation.org>, 
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>, 
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, 
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>, 
-	"imx@lists.linux.dev" <imx@lists.linux.dev>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>
-Content-Type: text/plain; charset="UTF-8"
+Date: Wed, 29 Apr 2026 19:37:36 +0200
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Kevin Brodsky" <kevin.brodsky@arm.com>,
+ "Ard Biesheuvel" <ardb+git@google.com>, linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org, "Will Deacon" <will@kernel.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Mark Rutland" <mark.rutland@arm.com>, "Ryan Roberts" <ryan.roberts@arm.com>,
+ "Anshuman Khandual" <anshuman.khandual@arm.com>,
+ "Liz Prucka" <lizprucka@google.com>, "Seth Jenkins" <sethjenkins@google.com>,
+ "Kees Cook" <kees@kernel.org>, "Mike Rapoport" <rppt@kernel.org>,
+ "David Hildenbrand" <david@kernel.org>,
+ "Andrew Morton" <akpm@linux-foundation.org>, linux-mm@kvack.org,
+ linux-hardening@vger.kernel.org
+Message-Id: <5279ea66-0e31-4f53-ad76-4fd8ebc012fc@app.fastmail.com>
+In-Reply-To: <15555e9f-65ab-4811-b20c-8ada90bdc9d0@arm.com>
+References: <20260427153416.2103979-17-ardb+git@google.com>
+ <20260427153416.2103979-30-ardb+git@google.com>
+ <15555e9f-65ab-4811-b20c-8ada90bdc9d0@arm.com>
+Subject: Re: [PATCH v4 13/15] arm64: mm: Unmap kernel data/bss entirely from the linear
+ map
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_103332_635512_9B0FF307 
-X-CRM114-Status: GOOD (  26.85  )
+X-CRM114-CacheID: sfid-20260429_103800_095502_70D373BB 
+X-CRM114-Status: GOOD (  34.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,99 +117,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 29 Apr 2026 at 10:53, Shenwei Wang <shenwei.wang@nxp.com> wrote:
+
+
+On Wed, 29 Apr 2026, at 15:55, Kevin Brodsky wrote:
+> On 27/04/2026 17:34, Ard Biesheuvel wrote:
+>> From: Ard Biesheuvel <ardb@kernel.org>
+>>
+>> The linear aliases of the kernel text and rodata are mapped read-only in
+>> the linear map as well. Given that the contents of these regions are
+>> mostly identical to the version in the loadable image, mapping them
+>> read-only and leaving their contents visible is a reasonable hardening
+>> measure.
+>>
+>> Data and bss, however, are now also mapped read-only but the contents of
+>> these regions are more likely to contain data that we'd rather not leak.
 >
->
->
-> > -----Original Message-----
-> > From: Mathieu Poirier <mathieu.poirier@linaro.org>
-> > Sent: Wednesday, April 29, 2026 10:42 AM
-> > To: Shenwei Wang <shenwei.wang@nxp.com>
-> > Cc: Andrew Lunn <andrew@lunn.ch>; Padhi, Beleswar <b-padhi@ti.com>; Linus
-> > Walleij <linusw@kernel.org>; Bartosz Golaszewski <brgl@kernel.org>; Jonathan
-> > Corbet <corbet@lwn.net>; Rob Herring <robh@kernel.org>; Krzysztof Kozlowski
-> > <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Bjorn Andersson
-> > <andersson@kernel.org>; Frank Li <frank.li@nxp.com>; Sascha Hauer
-> > <s.hauer@pengutronix.de>; Shuah Khan <skhan@linuxfoundation.org>; linux-
-> > gpio@vger.kernel.org; linux-doc@vger.kernel.org; linux-kernel@vger.kernel.org;
-> > Pengutronix Kernel Team <kernel@pengutronix.de>; Fabio Estevam
-> > <festevam@gmail.com>; Peng Fan <peng.fan@nxp.com>;
-> > devicetree@vger.kernel.org; linux-remoteproc@vger.kernel.org;
-> > imx@lists.linux.dev; linux-arm-kernel@lists.infradead.org; dl-linux-imx <linux-
-> > imx@nxp.com>; Bartosz Golaszewski <brgl@bgdev.pl>
-> > Subject: [EXT] Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
-> > On Tue, Apr 28, 2026 at 03:24:59PM +0000, Shenwei Wang wrote:
-> > >
-> > >
-> > > > -----Original Message-----
-> > > > From: Andrew Lunn <andrew@lunn.ch>
-> > > > Sent: Monday, April 27, 2026 3:49 PM
-> > > > To: Shenwei Wang <shenwei.wang@nxp.com>
-> > > > Cc: Padhi, Beleswar <b-padhi@ti.com>; Linus Walleij
-> > > > <linusw@kernel.org>; Bartosz Golaszewski <brgl@kernel.org>; Jonathan
-> > > > Corbet <corbet@lwn.net>; Rob Herring <robh@kernel.org>; Krzysztof
-> > > > Kozlowski <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>;
-> > > > Bjorn Andersson <andersson@kernel.org>; Mathieu Poirier
-> > > > <mathieu.poirier@linaro.org>; Frank Li <frank.li@nxp.com>; Sascha
-> > > > Hauer <s.hauer@pengutronix.de>; Shuah Khan
-> > > > <skhan@linuxfoundation.org>; linux-gpio@vger.kernel.org; linux-
-> > > > doc@vger.kernel.org; linux-kernel@vger.kernel.org; Pengutronix
-> > > > Kernel Team <kernel@pengutronix.de>; Fabio Estevam
-> > > > <festevam@gmail.com>; Peng Fan <peng.fan@nxp.com>;
-> > > > devicetree@vger.kernel.org; linux- remoteproc@vger.kernel.org;
-> > > > imx@lists.linux.dev; linux-arm- kernel@lists.infradead.org;
-> > > > dl-linux-imx <linux-imx@nxp.com>; Bartosz Golaszewski
-> > > > <brgl@bgdev.pl>
-> > > > Subject: [EXT] Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg
-> > > > GPIO driver
-> > > > > > struct virtio_gpio_response {
-> > > > > >         __u8 status;
-> > > > > >         __u8 value;
-> > > > > > };
-> > > >
-> > > > > It is the same message format. Please see the message definition
-> > > > (GET_DIRECTION) below:
-> > > >
-> > > > > +   +-----+-----+-----+-----+-----+----+
-> > > > > +   |0x00 |0x01 |0x02 |0x03 |0x04 |0x05|
-> > > > > +   | 1   | 2   |port |line | err | dir|
-> > > > > +   +-----+-----+-----+-----+-----+----+
-> > > >
-> > > > Sorry, but i don't see how two u8 vs six u8 are the same message format.
-> > > >
-> > >
-> > > Some changes to the message format are necessary.
-> > >
-> > > Virtio uses two communication channels (virtqueues): one for requests and
-> > replies, and a second one for events.
-> > > In contrast, rpmsg provides only a single communication channel, so a
-> > > type field is required to distinguish between different kinds of messages.
-> > >
-> > > Since rpmsg replies and events share the same message format, an additional
-> > line is introduced to handle both cases.
-> > >
-> > > Finally, rpmsg supports multiple GPIO controllers, so a port field is added to
-> > uniquely identify the target controller.
-> >
-> > I have commented on this before - RPMSG is already providing multiplexing
-> > capability by way of endpoints.  There is no need for a port field.  One endpoint,
-> > one GPIO controller.
-> >
->
-> You still need a way to let the remote side know which port the endpoint maps to, either
-> by embedding the port information in the message (the current way), or by sending it
-> separately.
+> That sounds like a good rationale but I wonder, is there anything
+> stopping us from unmapping text/rodata as well?
 >
 
-An endpoint is created with every namespace request.  There should be
-one namespace request for every GPIO controller, which yields a unique
-endpoint for each controller and eliminates the need for an extra
-field to identify them.
+There is the zero page now, which may be accessed via
+'page_address(ZERO_PAGE(0))'. Also, anything that dereferences page tables
+(like /sys/kernel/debug/kernel_page_tables) will expect to have read-only
+access to swapper_pg_dir.
 
-> Shenwei
+
+>> So let's unmap these entirely in the linear map when the kernel is
+>> running normally.
+>>
+>> When going into hibernation or waking up from it, these regions need to
+>> be mapped, so map the region initially, and toggle the valid bit so
+>> map/unmap the region as needed.
 >
-> > >
-> > > Shenwei
-> > >
-> > > >        Andrew
+> Doesn't safe_copy_page() already handle that? I suppose this is an
+> optimisation to avoid modifying the linear map for every page, but if so
+> it would be good to spell it out.
+>
+
+Uhm, good question.
+
+When hibernate was first implemented for arm64, we had to bring back the
+linear alias of the kernel image, and when I started working on this, I
+hadn't realised that we have safe_copy_page() now which should take care
+of this even if the linear alias is invalid.
+
+However, if I remove this handling, things breaks mysteriously, and it
+is a bit tricky to debug so it may take me some time to answer this
+question. In any case, I will address this in the next revision, and
+put you on cc.
+
+>> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+>> ---
+>>  arch/arm64/mm/mmu.c | 44 ++++++++++++++++----
+>>  1 file changed, 37 insertions(+), 7 deletions(-)
+>>
+>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>> index 9361b7efb848..a464f3d2d2df 100644
+>> --- a/arch/arm64/mm/mmu.c
+>> +++ b/arch/arm64/mm/mmu.c
+>> @@ -24,6 +24,7 @@
+>>  #include <linux/mm.h>
+>>  #include <linux/vmalloc.h>
+>>  #include <linux/set_memory.h>
+>> +#include <linux/suspend.h>
+>>  #include <linux/kfence.h>
+>>  #include <linux/pkeys.h>
+>>  #include <linux/mm_inline.h>
+>> @@ -1040,6 +1041,31 @@ static void __init __map_memblock(phys_addr_t start, phys_addr_t end,
+>>  				 end - start, prot, early_pgtable_alloc, flags);
+>>  }
+>>  
+>> +static void remap_linear_data_alias(bool unmap)
+>> +{
+>> +	set_memory_valid((unsigned long)lm_alias(__init_end),
+>> +			 (unsigned long)(__fixmap_pgdir_start - __init_end) / PAGE_SIZE,
+>> +			 !unmap);
+>> +}
+>> +
+>> +static int arm64_hibernate_pm_notify(struct notifier_block *nb,
+>> +				     unsigned long mode, void *unused)
+>> +{
+>> +	switch (mode) {
+>> +	default:
+>> +		break;
+>> +	case PM_POST_HIBERNATION:
+>> +	case PM_POST_RESTORE:
+>> +		remap_linear_data_alias(true);
+>> +		break;
+>> +	case PM_HIBERNATION_PREPARE:
+>> +	case PM_RESTORE_PREPARE:
+>> +		remap_linear_data_alias(false);
+>> +		break;
+>> +	}
+>> +	return 0;
+>> +}
+>> +
+>>  void __init mark_linear_text_alias_ro(void)
+>>  {
+>>  	/*
+>> @@ -1048,6 +1074,16 @@ void __init mark_linear_text_alias_ro(void)
+>>  	update_mapping_prot(__pa_symbol(_text), (unsigned long)lm_alias(_text),
+>>  			    (unsigned long)__init_begin - (unsigned long)_text,
+>>  			    pgprot_tagged(PAGE_KERNEL_RO));
+>> +
+>> +	remap_linear_data_alias(true);
+>
+> It's really hard to know what this does without looking at the function.
+> How about mark_linear_data_alias_valid(false)?
+>
+
+Sure.
+
+>> +
+>> +	if (IS_ENABLED(CONFIG_HIBERNATION)) {
+>> +		static struct notifier_block nb = {
+>> +			.notifier_call = arm64_hibernate_pm_notify
+>> +		};
+>> +
+>> +		register_pm_notifier(&nb);
+>> +	}
+>>  }
+>>  
+>>  #ifdef CONFIG_KFENCE
+>> @@ -1162,7 +1198,7 @@ static void __init map_mem(void)
+>>  
+>>  	/* Map the kernel data/bss so it can be remapped later */
+>>  	__map_memblock(init_end, kernel_end, pgprot_tagged(PAGE_KERNEL),
+>> -		       flags);
+>> +		       flags | NO_BLOCK_MAPPINGS);
+>
+> Might be an obvious question but why do we need this?
+>
+
+set_memory_valid() only works on regions that are mapped down to pages.
+
+
 
