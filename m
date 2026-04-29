@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA4C4FF8864
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 07:25:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4244CFF8864
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 07:29:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7NZAgXdOZ8L1ByThFt/b7T5U7hLMlAR5ZEya1Gmvwp8=; b=waEl5GB/kSLlEomw9sE4j5v7Sa
-	+l9ImSVLsAByuyxs4jWpSoyQv+osyt4JZ5uesJaQhfUw1YEGEPv9bl6kfhCvsnrrIF5VqG29MDsLz
-	LCt9Fgkw8Ve0MeVWQw88I/deAIx4617gRXI9qYZavBFPqufwMBxpJV7MiC031tbLehzTITHlsaXFK
-	bEKGCs0mWiBrd2N0/MNrKMdYOgNDv3xTpND7BFfnDFp0cwF5UlH0crsrl4tG5ZEo7zQS8oFn1amp0
-	lPX5rL4u/qp3M8Spp/eKSnWTltdruLWYlMNrZ9WCkL+u090JZ2VaCtErdnQjeQODgzYtpAg+CcCGI
-	QMEmAnbQ==;
+	bh=CyYhAY5gn8iw9D+Uzk8YddWosOQm731RNsJ2l+W99dM=; b=lclGi2+AMYd0mqMvMxN8A/wuMa
+	JW9rbq3AtcPd98NP3nmddLe1cODBOzfqrFTZRpCa2UCU9B7Vm7gCcNEHOtQ/cOY0ysh2/32TzWFAr
+	cwcFqGdO6oFxtLK6KeSN6m0VN+S5p/xWHZ213OtguwWS5Ll3xRLTszcfAWq/JX8/uTNet07z48Sl1
+	hrxAr4hewlnYwE9JdsRSlFqTPeG9vWBijXE6Ejt5Al+ErAdzDdQBsxt/ov/exlVnyOmTcGm/ArPKe
+	awJBBPDnLmRRBnQ04ifxEGKz1E113hA/wLNMhvPF6qeksy8O1JSV3rEV8o7LPaPMSo7qvnFIEqkfF
+	O70wkeCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHzIW-000000039Q8-00Yv;
-	Wed, 29 Apr 2026 07:25:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wHzMg-000000039j1-4Bgx;
+	Wed, 29 Apr 2026 07:29:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHzIT-000000039Pk-28Lj
+	id 1wHzMe-000000039iV-2g9G
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 07:25:26 +0000
+	Wed, 29 Apr 2026 07:29:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F009B43E6A;
-	Wed, 29 Apr 2026 07:25:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 608C8C19425;
-	Wed, 29 Apr 2026 07:25:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E849344050;
+	Wed, 29 Apr 2026 07:29:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EF09C19425;
+	Wed, 29 Apr 2026 07:29:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777447524;
-	bh=PLWmMocxHZ2qX2NovMeOADpWdzS7exOlBa2w6iPJ4U4=;
+	s=k20201202; t=1777447783;
+	bh=P35hfQSMr2+9auGQr2wxXAwA/zR1P0H1IWOnM0Oirxc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Rj6xxFujttZuPJkCeRLixk3SSSLQUo5vnoYYYbI8P6HxWYpP8zACy9jiMcnYzYUpj
-	 tvOSWPuV2EF6LubdoUBc07gYMX8i0cIHdoX6hAoViTNMn/cXY2Jz1NSrCbSPqEk09Y
-	 4SjX8CxaHUIFx3ycsykqICR7PlAUvl64KOuKq+nJxw6WJ9jhUVwbc4arplYSt6cKxC
-	 DvIgh8dd2KIC8vESQgoUd2IQ7fpNrXn/WVjFJuXSdjGM/I+ScmFMSmXzf3o/T8k4rg
-	 JbafMxVPwmLfKDdE4XVuZHwBybGeJY/MRCHj2bmEdvfFVdSWniObp9RgjtRg4KDRxX
-	 YGppVYhsjUoDg==
-Date: Wed, 29 Apr 2026 00:25:22 -0700
-From: Namhyung Kim <namhyung@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: acme@kernel.org, adrian.hunter@intel.com, alice.mei.rogers@gmail.com,
-	dapeng1.mi@linux.intel.com, james.clark@linaro.org,
-	leo.yan@linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	mingo@redhat.com, peterz@infradead.org, tmricht@linux.ibm.com
-Subject: Re: [PATCH v8 09/58] perf evlist: Add reference count
-Message-ID: <afGyYi01XSNIS-A2@z2>
-References: <20260425224951.174663-1-irogers@google.com>
- <20260428071903.1886173-1-irogers@google.com>
- <20260428071903.1886173-10-irogers@google.com>
+	b=XaVXj7nO+UtL6HDIlPWdU61sZVvhPyBBiQAvW3cBwJFehEnrZjwhenHFB6n4ELEEJ
+	 3vFCJaCM5jib2cTDIsQqDcsJnHZLmDWSs7WHXMD0tfk3i2kvZTLZBFsBYrvRpNGr9N
+	 GjwdvSO+xlhzqz2aaU15CNgHFegA4xEdt+V2FprJKd5tABLAlsDY3ZKJqqT7ge3HVG
+	 RAC2xV0kSjIscXevWZ3trSoovhx7UqNlXm1hbC/19NiRY7nF+/tPpleN4WiodCncdb
+	 RceFEOPDnE1JarButwSsgUjrmfYKpzyO6kTb3TglgM14GM5dGmqnNHzm9k4T18fGQr
+	 mGcjzpdhakP7A==
+Date: Wed, 29 Apr 2026 09:29:41 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	bhelgaas@google.com, frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org, 
+	kwilczynski@kernel.org, mani@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	festevam@gmail.com, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: PCI: imx6q-pcie: Add intr, aer and
+ pme interrupts
+Message-ID: <20260429-curvy-amber-boobook-ac5693@quoll>
+References: <20260428075030.1626440-1-hongxing.zhu@nxp.com>
+ <20260428075030.1626440-2-hongxing.zhu@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260428071903.1886173-10-irogers@google.com>
+In-Reply-To: <20260428075030.1626440-2-hongxing.zhu@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_002525_566377_0764782B 
-X-CRM114-Status: GOOD (  19.32  )
+X-CRM114-CacheID: sfid-20260429_002944_720882_5ECFAC1D 
+X-CRM114-Status: GOOD (  15.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,43 +76,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 28, 2026 at 12:18:14AM -0700, Ian Rogers wrote:
-> This a no-op for most of the perf tool. The reference count is set to
-> 1 at allocation, the put will see the 1, decrement it and perform the
-> delete. The purpose for adding the reference count is for the python
-> code. Prior to this change the python code would clone evlists, but
-> this has issues if events are opened, etc. This change adds a
-> reference count for the evlists and a later change will add it to
-> evsels. The combination is needed for the python code to operate
-> correctly (not hit asserts in the evsel clone), but the changes are
-> broken apart for the sake of smaller patches.
-
-Can we keep the existing evlist__delete() code?  IIUC most parts of the
-code don't need to worry about python.  Then do we really need to
-convert them all?  Maybe we can convert only the relevant codes.
-
-Also I think it's better to split evlist__put() conversion and python
-code changes.
-
-Thanks,
-Namhyung
-
+On Tue, Apr 28, 2026 at 03:50:28PM +0800, Richard Zhu wrote:
+> Add 'intr', 'aer', and 'pme' interrupt entries to the i.MX6Q PCIe
+> binding to support PCIe event-based interrupts for general controller
+> events, Advanced Error Reporting, and Power Management Events
+> respectively.
 > 
-> Assisted-by: Gemini:gemini-3.1-pro-preview
-> Signed-off-by: Ian Rogers <irogers@google.com>
+> These interrupts are optional for most variants but required for
+> fsl,imx95-pcie, which must specify all 5 interrupts (msi, dma, intr,
+> aer, pme).
+> 
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
 > ---
-> v2: Added evlist__put to pyrf_evlist__init in case init is called more
->     than once.
+>  .../bindings/pci/fsl,imx6q-pcie.yaml          | 21 +++++++++++++++++++
+>  1 file changed, 21 insertions(+)
 > 
->     I double-checked trace__replay() and confirmed that trace->evlist
->     is not assigned to session->evlist in that function.
->     trace__replay creates a new session and uses its own evlist for
->     processing file events, leaving trace->evlist pointing to the
->     empty list created at startup. Therefore, the
->     evlist__put(trace->evlist) call in trace__exit() is safe and
->     correct to avoid leaking that empty list.
-> 
-> v7:
-> - Added pyrf_evlist__new to zero-initialize pevlist->evlist to fix
->   crash on re-initialization.
+> diff --git a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
+> index 9d1349855b422..0913c3312ed26 100644
+> --- a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
+> +++ b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
+> @@ -58,12 +58,18 @@ properties:
+>      items:
+>        - description: builtin MSI controller.
+>        - description: builtin DMA controller.
+> +      - description: PCIe event interrupt.
+> +      - description: builtin AER SPI standalone interrupter line.
+> +      - description: builtin PME SPI standalone interrupter line.
+>  
+>    interrupt-names:
+>      minItems: 1
+>      items:
+>        - const: msi
+>        - const: dma
+> +      - const: intr
+> +      - const: aer
+> +      - const: pme
+>  
+>    reset-gpio:
+>      description: Should specify the GPIO for controlling the PCI bus device
+> @@ -231,6 +237,21 @@ allOf:
+>              - const: ref
+>              - const: extref  # Optional
+>  
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - fsl,imx95-pcie
+
+Why do you need another if: block? Why can't it be part of existing one?
+
+> +    then:
+> +      properties:
+> +        interrupts:
+> +          minItems: 5
+> +          maxItems: 5
+
+Drop maxItems. You need also constraints for all other variants.
+
+> +        interrupt-names:
+
+Best regards,
+Krzysztof
+
 
