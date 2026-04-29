@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3F6AFF8875
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 19:53:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA9BFFF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 19:53:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YdZ585r8V4E5fIuQnRHHEPO5/1uSUDu/m0GZmLya3es=; b=uZka8LSJ77VM8HQgd51PTefAzY
-	vixtMFmZCek4UIOLI6dpwT5NHlLBxXiVBk/ceayafQbFfSXrWOnNQcrO17+opwBIczxif5c3aHU8T
-	WYs1fG892XweOX6sOyGvkuNEQWijn6M5M6TGbxyMxHGG7rib/ugeN5txM4NKsCxJnzchBt6Bvg4Bj
-	YYEWg8a54zfVGdUKGO8P4/QG5p6+enDvS9Kn9V3Ac+XG+pvXoqIpQOtnEf7zuQCkCzysnkmrkUbUA
-	h6jlZfZPUmAH2jSF7bnJ03ZIYf+COaWQlDmwBf3KLCXU76us970KySeQ3dFoS31Jq20UH9dWIVtlZ
-	u/Q7Qonw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OaxA1KOQqFLnJwD8i8nhUbyHPWKOXYrj9ZYYoAP/kX0=; b=WyIQYyPcDcNkp26UWalhYdw8r1
+	bFUKBX+f35WS+1+HUePX/06ZeFiBFp5TKIvpLBtAZfJlEA84vkM9mkcWqkKXORka/ZPLop1ljDenm
+	T8Ue0VAut2fwVO5pfOo0D+DpWMx6PC2KyLUb7DPD0WjupQ1wJkErcX+iTVHrIFP7h++v14b0evU4G
+	eo7KsSr779yTF6lUXqbkyRBiICiWgCnttFHSksP9+GY7TxpHQBjkroUk/fFpcFmgxo9fz5tlRJt2C
+	Jlj3qv3UlfgbbePhOlRZ9bEtOslvrmhrl1FwhmahCEesJiXkOA2OEwk8TvTlo6eECiqr5ng5PDt5Q
+	M8Qy6g/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIAya-00000004AAS-1FT2;
-	Wed, 29 Apr 2026 19:53:40 +0000
+	id 1wIAyj-00000004AG7-0cW6;
+	Wed, 29 Apr 2026 19:53:49 +0000
 Received: from web04.chillydomains.com ([193.19.92.170])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIAyQ-00000004A46-0dwR
+	id 1wIAyX-00000004A7X-2i7J
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 19:53:33 +0000
+	Wed, 29 Apr 2026 19:53:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=web04.chillydomains.com; s=dkim; h=From:To:Cc:Subject:Date:
-	Message-ID:X-Mailer:MIME-Version:Content-Type:
-	Content-Transfer-Encoding; bh=YdZ585r8V4E5fIuQnRHHEPO5/1uSUDu/m0
-	GZmLya3es=; b=1vj/rErKfLqdvPkaG7tQijNJlnMKzq3V9bInusLa5pAamfmMu6
-	cNuGkzACHYfNYN4jN0F2CaiOl/W7T6Q2fkOIuhNkjKF0iJnZHhOmlNr4w+JPyB5M
-	Gzkst5aqBPrurZmJaNlb7pJ7q3JSF3Qz33BJ4/f3Vq3Mll/4EghofNfHsevT1JQx
-	wJ0fv/V3BrzOSUyvo7j4mRHAOJLPKB2rSXEX9PSoY4zvmWs+ZL0Mkd46betkApbG
-	NVTpRCLv5ccro0DY7BCXh8gWJNXJhhUSzTeR7KJeUJNroOpZGc1Uu7144jPwsQ2f
-	q581v2KAPxqgF9wh2jnPqaiW4PgXFayBh2aw==
-Received: (qmail 2738904 invoked by uid 7799); 29 Apr 2026 21:53:22 +0200
-Received: by simscan 1.4.0 ppid: 2738885, pid: 2738893, t: 0.6424s
+	Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	Content-Transfer-Encoding; bh=OaxA1KOQqFLnJwD8i8nhUbyHPWKOXYrj9Z
+	YYoAP/kX0=; b=nGSlbyXYUKfQkPQwkan4V4FLTl1ALcyBc3+tUwIgRQWWxv/h2n
+	pesTI414bf4N64kRjBeEU7tiq8EUc8Lt3K2VyQKx7gi/uE4xPiUZHDrY7kp9b/F4
+	oHJit6O9XlrqQYW4MFIBZkv9UdCHcSUMc/OMHRIvBSZtRhCECuv3o9eU3XyLpG9V
+	TmJpMAYX7743WkMFHRFlvFATt01iFwwFinKlU6eewGwo3VYsymZlNMdFiI2mRIYh
+	3iMb+uUxr9SNY/mp3eHMABzA11kKqFvixLvby1WpBK3B2ddPiE27Vcc8VDeuGFsT
+	ba9CvK9bEPNHt4W5Utk1BeuDJEL0QbRF4MgA==
+Received: (qmail 2740071 invoked by uid 7799); 29 Apr 2026 21:53:35 +0200
+Received: by simscan 1.4.0 ppid: 2740007, pid: 2740026, t: 0.6149s
          scanners: clamav: 0.103.9/m:62/d:27778
-Received: from 31.29.52.71.dynamic-pppoe.dt.ipv4.wtnet.de (HELO localhost) (automation@reauktion.de@31.29.52.71) by web04.chillydomains.com with SMTP [64555]; 29 Apr 2026 21:53:21 +0200
+Received: from 31.29.52.71.dynamic-pppoe.dt.ipv4.wtnet.de (HELO localhost) (automation@reauktion.de@31.29.52.71) by web04.chillydomains.com with SMTP [64183]; 29 Apr 2026 21:53:35 +0200
 From: Markus Fritsche <mfritsche@reauktion.de>
 To: Tomasz Figa <tfiga@chromium.org>,
 	Marek Szyprowski <m.szyprowski@samsung.com>,
@@ -57,16 +57,17 @@ Cc: linux-media@vger.kernel.org,
 	linaro-mm-sig@lists.linaro.org,
 	linux-rockchip@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH RFC 0/3] media: videobuf2: opt-in dma_resv producer fences for V4L2 dmabuf exports
-Date: Wed, 29 Apr 2026 19:53:03 +0000
-Message-ID: <20260429195306.239666-1-mfritsche@reauktion.de>
+Subject: [PATCH RFC 3/3] media: rockchip-rga: attach dma_resv release fence at buf_queue
+Date: Wed, 29 Apr 2026 19:53:06 +0000
+Message-ID: <20260429195306.239666-4-mfritsche@reauktion.de>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260429195306.239666-1-mfritsche@reauktion.de>
+References: <20260429195306.239666-1-mfritsche@reauktion.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_125330_807092_D3204534 
-X-CRM114-Status: GOOD (  18.64  )
+X-CRM114-CacheID: sfid-20260429_125338_028955_726D6E2C 
+X-CRM114-Status: GOOD (  11.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,137 +82,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Opt the Rockchip RGA driver into the new vb2 release-fence helper.
 
-This series proposes a small opt-in API in videobuf2-core that lets V4L2
-drivers populate a dma_resv exclusive write fence on the dmabufs they
-export to userspace, signalled when the buffer transitions to
-VB2_BUF_STATE_DONE. Two example drivers (hantro, rockchip-rga) opt in
-to demonstrate the call shape; the change is no-op for every other
-driver.
+Same shape as the hantro patch: rga_buf_queue enqueues the buffer
+in the driver's m2m queue via v4l2_m2m_buf_queue and additionally
+attaches a release fence to each plane's dmabuf->resv via
+vb2_buffer_attach_release_fence(). vb2_buffer_done signals the
+fence when RGA completes the M2M operation.
 
-Why
+Userspace consumers of RGA-produced dmabufs (image-processing
+pipelines, screen-rotation servers, gstreamer flows on Rockchip
+boards) get spec-clean implicit-sync semantics, matching what
+hantro now does in the same patch series.
+
+Signed-off-by: Markus Fritsche <mfritsche@reauktion.de>
 ---
-Modern Wayland compositors and any other userspace consumers that
-import V4L2-produced dmabufs and want to do implicit synchronization
-the spec-clean way (poll(POLLIN) on the dmabuf fd, or
-DMA_BUF_IOCTL_EXPORT_SYNC_FILE for a sync_file) currently get either:
+ drivers/media/platform/rockchip/rga/rga-buf.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-1. A stub fence from dma_buf_export_sync_file(), because the dmabuf's
-   dma_resv has no fences populated. The kernel substitutes
-   dma_fence_get_stub() which is permanently signalled. The compositor
-   "successfully" waits on a fence that represents nothing real about
-   the producer's state.
-2. A poll(POLLIN) on the dmabuf fd that returns immediately for the
-   same reason — dma_buf_poll_add_cb finds zero fences in the resv,
-   triggers the wake callback inline, and reports POLLIN ready before
-   the producer has actually said anything.
-
-Today this works as a happy accident on most paths because clients
-attach buffers after VIDIOC_DQBUF, which the userspace V4L2 contract
-guarantees only returns a buffer after the producer is done. So the
-implicit "the kernel's stub fence is fine because the buffer is
-already complete by the time anyone polls it" assumption has held.
-
-But:
-
-- It's a contract gap. The kernel claims to expose implicit sync; it
-  does not, for V4L2 producers.
-- It paid latency for nothing. Every Wayland frame from a V4L2
-  producer pays a DMA_BUF_IOCTL_EXPORT_SYNC_FILE round-trip for a
-  fence that's stub-signalled. On Mali-class hardware (RK3566 Wayland
-  chrome video playback), this contributed to compositor stalls.
-  Removing the wait at the compositor level is a workaround, not a
-  fix.
-- It blocks downstream consumers from doing the right thing. A
-  Wayland compositor that defensively waits on a sync_file gets a
-  stub-fence pass-through with no actual gating; if the V4L2 driver
-  ever has an out-of-band path that releases the buffer before
-  finishing the write, there is no fence to gate on.
-
-What
-----
-Patch 1 adds:
-
-- struct dma_fence *release_fence to struct vb2_buffer
-- u64 dma_resv_fence_context + atomic64_t dma_resv_fence_seqno +
-  spinlock_t dma_resv_fence_lock to struct vb2_queue
-- vb2_buffer_attach_release_fence(vb) — drivers call this from their
-  buf_queue callback. Allocates a dma_fence on the queue's fence
-  context, attaches it as DMA_RESV_USAGE_WRITE on each plane's
-  dmabuf->resv. No-op for buffers without exported dmabufs.
-- vb2_buffer_done() extended to signal+put the fence if attached,
-  so the producer's completion signal lands in the resv synchronously
-  with the userspace DQBUF wakeup.
-
-Patches 2 and 3 add a single call to the helper from hantro_buf_queue
-and rga_buf_queue respectively. Both are demonstration drivers; other
-vb2 drivers can opt in incrementally with the same one-line change.
-
-Tested on
----------
-PineTab2 (RK3566 / Mali-G52 panfrost / mainline 6.19.10, this series
-backported), playing 1080p30 H.264 in chromium under KDE Plasma 6.6.4
-Wayland. The test harness is the chromium-fourier patch series at
-https://github.com/marfrit/fourier — chromium plus a KWin patch
-that *previously bypassed* Transaction::watchDmaBuf because the
-kernel-side fence was stub-signalled. With this series applied, the
-bypass becomes unnecessary; KWin's fence wait completes correctly
-because the fence now signals when hantro completes the capture
-buffer write.
-
-End-to-end result before the kernel patch (chromium + Qt 6 patches +
-KWin watchDmaBuf bypass): 1080p30 H.264 plays through, ~81% combined
-chrome CPU, but the watchDmaBuf bypass weakens KWin's defenses against
-misbehaving clients.
-
-End-to-end result after the kernel patch (chromium + Qt 6 patches +
-plain unmodified KWin): 1080p30 H.264 plays through with the same CPU
-profile, KWin's watchDmaBuf wait completes within microseconds against
-the now-real producer fence, no defenses weakened.
-
-What's missing in this RFC
---------------------------
-- Other vb2-using drivers don't opt in. Each maintainer should look
-  at their driver and decide. The hantro + rga patches show the
-  shape; copying it to other drivers should be straightforward.
-- For drivers that have intermediate image-processor stages (e.g.
-  CSI -> ISP -> user), the fence semantics across stage boundaries
-  are out of scope here. This series only addresses the producer-to-
-  userspace edge.
-- No selftest. videobuf2 doesn't have a great in-tree selftest harness
-  for dmabuf flows; the validation is end-to-end at the userspace
-  consumer level (KWin, in our case).
-
-Reviews especially welcome on:
-
-- The decision to make this opt-in per driver vs. automatic for all
-  vb2-CAPTURE queues. Auto-on would force every driver to be audited;
-  opt-in is incremental and safer but leaves the contract gap for
-  drivers nobody touches.
-- Whether vb2_buffer_done is the right place to signal vs. an earlier
-  hook (e.g. immediately after DMA-from-device finishes). For hantro
-  the two are effectively the same; for drivers with asynchronous
-  post-processing they may differ.
-- The choice of DMA_RESV_USAGE_WRITE — we are emitting the producer's
-  write completion, so WRITE matches dma-buf documentation, but a
-  sanity check is welcome.
-
-Cheers,
-Markus
-
-
-Markus Fritsche (3):
-  media: videobuf2: add dma_resv release-fence helper
-  media: hantro: attach dma_resv release fence at buf_queue
-  media: rockchip-rga: attach dma_resv release fence at buf_queue
-
- .../media/common/videobuf2/videobuf2-core.c   | 95 +++++++++++++++++++
- drivers/media/platform/rockchip/rga/rga-buf.c | 10 ++
- .../media/platform/verisilicon/hantro_v4l2.c  | 12 +++
- include/media/videobuf2-core.h                | 29 ++++++
- 4 files changed, 146 insertions(+)
-
+diff --git a/drivers/media/platform/rockchip/rga/rga-buf.c b/drivers/media/platform/rockchip/rga/rga-buf.c
+index 70808049d..5557ca632 100644
+--- a/drivers/media/platform/rockchip/rga/rga-buf.c
++++ b/drivers/media/platform/rockchip/rga/rga-buf.c
+@@ -153,6 +153,16 @@ static void rga_buf_queue(struct vb2_buffer *vb)
+ 	struct rga_ctx *ctx = vb2_get_drv_priv(vb->vb2_queue);
+ 
+ 	v4l2_m2m_buf_queue(ctx->fh.m2m_ctx, vbuf);
++
++	/*
++	 * Opt in to vb2's dma_resv release-fence path so userspace
++	 * consumers of RGA-produced dmabufs get a real producer fence
++	 * to wait on instead of the dma_buf core's stub fence. See
++	 * the leading patch in this series for rationale. Best-effort:
++	 * fence-allocation failure means we lose implicit-sync
++	 * precision but the m2m operation itself proceeds normally.
++	 */
++	(void)vb2_buffer_attach_release_fence(vb);
+ }
+ 
+ static void rga_buf_cleanup(struct vb2_buffer *vb)
 -- 
 2.47.3
 
