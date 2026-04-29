@@ -4,64 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F8A2FF8873
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 03:08:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D505FF886F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 03:15:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UbKKGVd72tBOywDWbAmLTqrA6pjtMRoCoebQYaOv5AM=; b=PjWDP76i4MGxuOj0g1fEB0j9UD
-	VIp4FNfMWb0w+XMRVk0p1TLO2AKzLksbb+Yq4G/bJPjsukizDzZAGPMC2D/kggoNEnsKP9t/eO+5k
-	kc4qWP3zGZ5ncHhI+TnKaHavjDKUrkAefakSo76Ci2nkXTojX9th9mdbWMY0PYxxA+IIamqGG4LNN
-	IPktGd1lRww45V/W2NQtvdvle1BDvJw92yeMoM2m2upVN/LHC/Vt8IfFAoPWIJKvznl4fL7d4U1iR
-	oRkIw5eKFXQdwa5K5QbfqnGqmeJbJqKGUYJwZwCVbgkjRuJc/1ssguA2hjHj4pCgvlJjpVLq4dbWs
-	ijWQKQlg==;
+	bh=i5BgMUGkEMsFG9ZLf3D3wZ4BkF4xp5R206VdwWcIrhk=; b=4a7T6pv9JF1QUSAnFK7n0DQQPj
+	iQfB+G5mReJS9IbCkzP8SsZI0QGcaMpzXeIIy5J018iwVZ2Xs1u6O++7N5S+2WIbcB7p5Znl0gBv8
+	HSi/waR2IjZfWmyYzYn3EuAahc97v1LNU56WlINLMYKEMnYEN/N59+N/ph4uZN2JPOTTtBUk9p1Xd
+	fxsTfTc92b8ppYq43Gkz31XSNb01JqnqcPFDZJMe4POzwRA9vczfYLFHC3bj514Rp9yq9+/nsvcnz
+	EtgMtp6+9ELl6SAFpovVhUybyOmJYmjWHpMgDIFIh4GO50LmfrQvuokCoG4ijslKF/1C6OdiZO3fx
+	pzdlXnuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHvHt-00000002pcU-3haC;
-	Wed, 29 Apr 2026 03:08:33 +0000
-Received: from inva020.nxp.com ([92.121.34.13])
+	id 1wHvOT-00000002qNa-2JvX;
+	Wed, 29 Apr 2026 03:15:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHvHk-00000002pXh-4Bkj
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 03:08:26 +0000
-Received: from inva020.nxp.com (localhost [127.0.0.1])
-	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 93DC81A1F61;
-	Wed, 29 Apr 2026 05:08:23 +0200 (CEST)
-Received: from aprdc01srsp001v.ap-rdc01.nxp.com (aprdc01srsp001v.ap-rdc01.nxp.com [165.114.16.16])
-	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 5CDC71A19DD;
-	Wed, 29 Apr 2026 05:08:23 +0200 (CEST)
-Received: from localhost.localdomain (mega.ap.freescale.net [10.192.208.232])
-	by aprdc01srsp001v.ap-rdc01.nxp.com (Postfix) with ESMTP id 73737180026F;
-	Wed, 29 Apr 2026 11:08:21 +0800 (+08)
-From: Jiafei Pan <Jiafei.Pan@nxp.com>
-To: andersson@kernel.org,
-	mathieu.poirier@linaro.org,
-	peng.fan@nxp.com,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	imx@lists.linux.dev,
+	id 1wHvOS-00000002qNL-087h;
+	Wed, 29 Apr 2026 03:15:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 322CE6015B;
+	Wed, 29 Apr 2026 03:15:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 757F4C2BCB7;
+	Wed, 29 Apr 2026 03:15:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777432518;
+	bh=PqScKcFoPPgpexhKPsSgcvCiB53igOl/DrNGGj6eMVE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UyoSKuJPYIHp4A95gcJi+VB1NyBhcON/g+p4FYn3wIZho8+01Wz4iTQokfHMVV/CZ
+	 GHMsDPuCBQisRarBORul2isa19te8QbuNqVem/9QZ4y/qRfSQZBu4ayJUEEZnJ1+WG
+	 pXndTlo1kvwJ4vScP0dB7/zpRW71iKpkrdV52gFyUQwsRixdaVD9PoLPENcXiTK12e
+	 BQz3p6FReX0V1HHUPByxTb559LYC9VKUMPjrP4NBHkFztwEYXXTypUgFtGQ2KRn8a/
+	 EDcZ+BJDw5OmkwXm4mjPOkIojnmgEt2qZXiHkoGdBETJAYwJslXffdKJM/JlqRGeNn
+	 Aph20qS6mErUQ==
+Date: Wed, 29 Apr 2026 03:15:15 +0000
+From: Tzung-Bi Shih <tzungbi@kernel.org>
+To: Sergey Senozhatsky <senozhatsky@chromium.org>
+Cc: Jassi Brar <jassisinghbrar@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Allen-KH Cheng <Allen-KH.Cheng@mediatek.com>,
+	YC Hung <yc.hung@mediatek.com>, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Zhiqiang.Hou@nxp.com,
-	mingkai.hu@nxp.com,
-	linux-remoteproc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	Jiafei Pan <Jiafei.Pan@nxp.com>
-Subject: [PATCH v2 4/5] arm64: dts: imx93: Cortex-A Core remoteproc device node
-Date: Wed, 29 Apr 2026 11:10:46 +0800
-Message-Id: <20260429031047.30893-5-Jiafei.Pan@nxp.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20260429031047.30893-1-Jiafei.Pan@nxp.com>
-References: <20260429031047.30893-1-Jiafei.Pan@nxp.com>
-X-Virus-Scanned: ClamAV using ClamSMTP
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_200825_327051_4F1025B5 
-X-CRM114-Status: GOOD (  13.40  )
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] mailbox: mtk-adsp: fix UAF during device teardown
+Message-ID: <afF3w2QS8P-8LPMt@google.com>
+References: <20260428025614.1094085-1-senozhatsky@chromium.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260428025614.1094085-1-senozhatsky@chromium.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,151 +73,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Create device tree for i.MX93 14x14 evk and 11x11 evk, add Cortex-A Core
-remoteproc device nodes in these device tree.
+On Tue, Apr 28, 2026 at 11:55:44AM +0900, Sergey Senozhatsky wrote:
+> When the SOF audio driver fails to initialize (e.g. firmware boot
+> timeout), its devres unwind frees the snd_sof_dev object that the
+> mailbox client (mtk-adsp-ipc) reaches via chan->cl->rx_callback.
+> The mtk-adsp-mailbox shutdown clears the mailbox command registers
+> but leaves the IRQ line unmasked, so a late interrupt can still
+> queue a threaded handler after mbox_free_channel() had cleared
+> chan->cl, and mbox_chan_received_data() would then trigger UAF:
+> 
+>   BUG: KASAN: slab-use-after-free in sof_ipc3_validate_fw_version
+>    sof_ipc3_validate_fw_version
+>    sof_ipc3_do_rx_work
+>    sof_ipc3_rx_msg
+>    mt8196_dsp_handle_request
+>    mtk_adsp_ipc_recv
+>    mbox_chan_received_data
+>    mtk_adsp_mbox_isr
+>    irq_thread_fn
+>   Freed by task ...:
+>    kfree
+>    devres_release_all
+>    really_probe
+>    ... (sof-audio-of-mt8196 probe failure)
+> 
+> The crash was observed roughly three seconds after the failed probe.
+> 
+> disable_irq() in shutdown and enable_irq() in startup. disable_irq()
+> also waits for any in-flight interrupts, so by the time
+> mbox_free_channel() proceeds to clear chan->cl no rx_callback can run.
+> 
+> In addition, request the IRQ with IRQF_NO_AUTOEN so it stays masked
+> between probe and the first client bind — otherwise an early interrupt
+> can crash on chan->cl == NULL in mbox_chan_received_data().
+> 
+> Fixes: af2dfa96c52d ("mailbox: mediatek: add support for adsp mailbox controller")
+> Signed-off-by: Sergey Senozhatsky <senozhatsky@chromium.org>
 
-Signed-off-by: Jiafei Pan <Jiafei.Pan@nxp.com>
-Signed-off-by: Hou Zhiqiang <Zhiqiang.Hou@nxp.com>
----
- arch/arm64/boot/dts/freescale/Makefile        |  2 +
- .../imx93-11x11-evk-multicore-rtos.dts        | 39 +++++++++++++++++++
- .../imx93-14x14-evk-multicore-rtos.dts        | 39 +++++++++++++++++++
- .../boot/dts/freescale/imx93-rproc-ca55.dtsi  | 14 +++++++
- 4 files changed, 94 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx93-11x11-evk-multicore-rtos.dts
- create mode 100644 arch/arm64/boot/dts/freescale/imx93-14x14-evk-multicore-rtos.dts
- create mode 100644 arch/arm64/boot/dts/freescale/imx93-rproc-ca55.dtsi
-
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 711e36cc2c99..f067e5c44dae 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -460,12 +460,14 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-9x9-qsb-i3c.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-9x9-qsb-ontat-kd50g21-40nt-a1.dtb
- 
- dtb-$(CONFIG_ARCH_MXC) += imx93-11x11-evk.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx93-11x11-evk-multicore-rtos.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-11x11-frdm.dtb
- 
- imx93-11x11-frdm-pixpaper-dtbs += imx93-11x11-frdm.dtb imx93-11x11-frdm-pixpaper.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx93-11x11-frdm-pixpaper.dtb
- 
- dtb-$(CONFIG_ARCH_MXC) += imx93-14x14-evk.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx93-14x14-evk-multicore-rtos.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-kontron-bl-osm-s.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx93-11x11-evk-multicore-rtos.dts b/arch/arm64/boot/dts/freescale/imx93-11x11-evk-multicore-rtos.dts
-new file mode 100644
-index 000000000000..9fb2b94b83b4
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx93-11x11-evk-multicore-rtos.dts
-@@ -0,0 +1,39 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright 2023-2026 NXP
-+ */
-+
-+/dts-v1/;
-+#include "imx93-11x11-evk.dts"
-+#include "imx93-rproc-ca55.dtsi"
-+
-+/ {
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		/*
-+		 * Reserve up to 16MB for one possible RTOS instances running on
-+		 * one Cortex-A Cores when booting Linux on at least one Cortex-A Core.
-+		 */
-+		rtos_ca55_reserved: rtos-ca55@d0000000 {
-+			no-map;
-+			reg = <0 0xd0000000 0x0 0x1000000>;
-+		};
-+
-+		/* Reserve 16MB for FreeRTOS on M33 */
-+		m33_reserved: m33@a5000000 {
-+			no-map;
-+			reg = <0 0xa5000000 0 0x1000000>;
-+		};
-+	};
-+};
-+
-+&lpuart2 {
-+	status = "disabled";
-+};
-+
-+&clk {
-+	init-on-array = <IMX93_CLK_LPUART2_GATE>;
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx93-14x14-evk-multicore-rtos.dts b/arch/arm64/boot/dts/freescale/imx93-14x14-evk-multicore-rtos.dts
-new file mode 100644
-index 000000000000..b2481bf19b4a
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx93-14x14-evk-multicore-rtos.dts
-@@ -0,0 +1,39 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright 2024-2026 NXP
-+ */
-+
-+/dts-v1/;
-+#include "imx93-14x14-evk.dts"
-+#include "imx93-rproc-ca55.dtsi"
-+
-+/ {
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		/*
-+		 * Reserve up to 16MB for one possible RTOS instances running on
-+		 * one Cortex-A Cores when booting Linux on at least one Cortex-A Core.
-+		 */
-+		rtos_ca55_reserved: rtos-ca55@d0000000 {
-+			no-map;
-+			reg = <0 0xd0000000 0x0 0x1000000>;
-+		};
-+
-+		/* Reserve 16MB for FreeRTOS on M33 */
-+		m33_reserved: m33@a5000000 {
-+			no-map;
-+			reg = <0 0xa5000000 0 0x1000000>;
-+		};
-+	};
-+};
-+
-+&lpuart2 {
-+	status = "disabled";
-+};
-+
-+&clk {
-+	init-on-array = <IMX93_CLK_LPUART2_GATE>;
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx93-rproc-ca55.dtsi b/arch/arm64/boot/dts/freescale/imx93-rproc-ca55.dtsi
-new file mode 100644
-index 000000000000..9d9a60404d2b
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx93-rproc-ca55.dtsi
-@@ -0,0 +1,14 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright 2024-2026 NXP
-+ */
-+
-+/ {
-+	ca55_1: remoteproc-ca55-1 {
-+		compatible = "fsl,imx-rproc-psci";
-+		/* bitmask:0b10, assign A55 Core 1 */
-+		fsl,cpus-bits = <0x2>;
-+		memory-region = <&rtos_ca55_reserved>;
-+	};
-+};
-+
--- 
-2.43.0
-
+Reviewed-by: Tzung-Bi Shih <tzungbi@kernel.org>
 
