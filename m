@@ -4,99 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64A28FF8867
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 06:42:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F01F8FF8867
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 06:42:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fxC/brjZIUFI/5YPDzJNaa3TSXiJM1Iaua5y0Bx3kDA=; b=zcaRCv3kRQXko7AzM3OI0ySVGm
-	tH0oh+dT1ONA425WoK1vu95GSnKte50OP/lIuuFTF4qZwDmgd/w3/pc3iR66uRMi5GrUQm3pxfjhF
-	kKg9OnBsnPY+y6qDwKRu1pK5sz4MK9l4do5YHZ76nZFll9snqg5ZtFx/l07toj8DbHIxiigYm+wJK
-	+OIiPCcABbaQC5tmtvgUuislxq9be1S5i5MgVsNbpjZ+fscztciyBUG0Yct4yHhNulzmxwZ83EzAu
-	czzCUU3NW5gD9DVb9ishi1Hkef3rL9Fu2yux+zZ9hlTxMmNQtHHRjCJnI0WMXJeFlKuh/DGRF/7ms
-	gmY58nrQ==;
+	bh=SEfRbstRjVHeuT0nzZzxKbaNveaGv52bqCxDptLPZ5w=; b=UqqKW4Sn0TopDzTfrljXzBgwQJ
+	hs+jGv4Nehp3ujAuUGB8zJZBp6CmdfmBqGsrW8TaGxYxWf9lVkuDdkRDJ53wxa5hAC+vY6SMSq6+7
+	e2IHnUjUx7Y8bIjIqgfW0LAWi+oDNOqQsoYw+HEH7007xJKx8wDVBhuSfPI7RLVFh6yv9PyLacGw3
+	JSnTgZPr7385grURS7dHxA+tkgqYWfF6DsV5V0WTKK93PtXPX+RQf9GvLSSq/Duov+2C8NR9wZe3z
+	w2btTBu7H7EC6DWa0sBjaWVEG7yD1TEpGeogpZTouR1Gsr/RjFtpHAqZAWf7vwfz9Wqhz6MWOVXvZ
+	QvPmOPpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHydB-000000032Nx-0NKm;
-	Wed, 29 Apr 2026 06:42:45 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wHydG-000000032R0-3lTi;
+	Wed, 29 Apr 2026 06:42:50 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHyd6-000000032MN-1GVI
+	id 1wHydB-000000032OK-3bwY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 06:42:41 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63T3Xtnu2985120
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 06:42:39 GMT
+	Wed, 29 Apr 2026 06:42:47 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63T1rB573705187
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 06:42:45 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	fxC/brjZIUFI/5YPDzJNaa3TSXiJM1Iaua5y0Bx3kDA=; b=Fj8FXeYM2Cstey0K
-	Z3EIT74accNvl+0ym5DPRKWQo+XgSPtmbafml8RbE12SJrdtRQV0KDvjc+XxvJuO
-	TfjWMxgsZCyJ/cF8y3+FO1dmjfCkmFAFMaVYewWvX2fl/110Lo3fMa3ynJUuBmzy
-	2GYDn8CsMFBLwxpc5I9n4SKpxHmZ9XtMLuV7Ti4qtqGSLmVIutxXmN0LTCLbiZ1m
-	Eu2bmXb8zeUkHZuYJDqfEkiz0DLWK65MNx/XpqtkWinPclle9TUMqyIPmXjMMtm/
-	S/1UX2kwBBzpfvkqx42vWfPxLQ4BVhFZU7Eq7dpeHrwCxyhFMnjQcZDuiXkjxzyy
-	kUZrmQ==
-Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4du0u1tfga-1
+	SEfRbstRjVHeuT0nzZzxKbaNveaGv52bqCxDptLPZ5w=; b=B8IQRfINvxXIN5tH
+	/bVnZzf5djPZX2GOqJN6eUTg+n5KQzzuUYuhxrQYaH6NAAqKT1xX0Jwu0o0jX3EY
+	OdsNe+0GGI8nEVR0PAFOK6td2G/icAZ+y4VWnOPgxNubu52Mcxfb7a1S38vDyD0B
+	jQBTdmjqSoa0tRRTbZ8GE29rCMtce/AOGsiOrjQWc/fKJgPKHf80QXfTv/hEtO/c
+	bTQGOeoGMXkRpHCjclnTsF94HY/0Ebv1tY6MA7UYubv4HxbgeFwAdcXaHNfXhYwW
+	7E5e+XQIW0VG8eCl1GSjF96++Z5VPsdWeQ0hHwc1mryqYbrVswGSMCe6HTyjkPxP
+	b6uIgw==
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dttxhc1jn-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 06:42:39 +0000 (GMT)
-Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-35fc22424d9so23508794a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 23:42:39 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 06:42:44 +0000 (GMT)
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-35da86144daso11793930a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 23:42:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1777444959; x=1778049759; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1777444964; x=1778049764; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=fxC/brjZIUFI/5YPDzJNaa3TSXiJM1Iaua5y0Bx3kDA=;
-        b=gkAtjRb4lajLs4NtUJZ6ic+BKMWqPy2Vs7o3PdrhC5VeDPGhZsi09e0rRKw7QjUu8T
-         BI7Iu88K4Gz0l/OEezbAPd9N3aMlQC5Pdl1uehG9IjgNjfHXFibFy8clMmgdd7hXOkr4
-         IsPwVWIvSzJhI4aJJQ5vdbZmqTDAY5Wm5Lb9xzzGaM6+p0LQAgHlwTNr1hHaGeKvvgnm
-         FBntd6H6pUHT0YTY2EOidtKwbo68qSLGbc1Uesid5Tp/JGIueoLt88To03Ug6JiD/F7J
-         ZP0Me3mKCmHHd0qS1isT99uIAaxKP/khWZGiw36luAr+oYwHr+SazAroNXY73+nDo55f
-         D32g==
+        bh=SEfRbstRjVHeuT0nzZzxKbaNveaGv52bqCxDptLPZ5w=;
+        b=kTEASLZTbTDSIK/Fh/2CJg7segtdOZiY1zkIFLdnYmu06avI98sH3RZHVHqv76Dx5y
+         6x55an98IDRGFmR6oDMXcVIdxD9HRiquwwOlvXSGYnixnUkZ+U7UegBiVn3pSELA1wd4
+         4B2aVsAg9/OAL2nschxV/HELUepsL/GuseYYlN9EBwLdgDT2ybwXZWYZ6mS1oiUKIQU/
+         65L0iFgCXDt38HWjIMir9qoFrzNX8zGXf6FJOn3IUHBijlApD4la8NVbWwpA0+gNsNAL
+         tWpQ2uRvbH5Jdu+H5Kza5y/DSTGkA2qLkOewOoEyo64UDzqc1Ee4RGiFtDW2Eb2ZUFcl
+         QNyA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777444959; x=1778049759;
+        d=1e100.net; s=20251104; t=1777444964; x=1778049764;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=fxC/brjZIUFI/5YPDzJNaa3TSXiJM1Iaua5y0Bx3kDA=;
-        b=R/ZLQAa0fw85aaswwJu7GAhLEp44ikVh7aEtJH1UzRLQ1caXoSAFcjW/KljbT4te5e
-         p8S0tOm3tUJs1gNVkS+MvndT0cAURZIWky8t9KRJbqaWBFo1ydD2cwi861doDBS+LOva
-         sWvcI27nlLLAEGoOcf1MwHxif3uDDla+kY4/lEwwcn+/5+NgCqf4CHUPZK1ICLjptdf2
-         IcAk9y/jXe7EH/jsY76iTjVn0sGWGnLKgNz5Hj3HpcDDHfcdE/lnRmIzooCn8b2td7II
-         ENKWW+cx2qUzBE8pJlXlYgXvlqzDDYNFxsu4mF937NkaQVOcjRT7TlzpS/T5VhrhqlQL
-         RKPQ==
-X-Forwarded-Encrypted: i=1; AFNElJ82RdEMWxsE/m2mxVtM+uOArb1ueAcMxL+Zw6Zh1mz2e3iwc2MwQaDCJRBc1f+rYLjOw2TDPtP0TlQw2k5Zc6Wx@lists.infradead.org
-X-Gm-Message-State: AOJu0YzlLlAgiyGMWTg8sqp4GkhSGN5L1MFhwNcr9K4a5ksfwfKCj9OB
-	WEorBd+2IbVXUkBuQJGHj+24soKa1CJ87i7hGsJ5yC7WBQ0D7+o9SHb6HcWBnXDuR0sqe1yQmxX
-	pAfwwHh6kJ0OFEcaF7yUmPEGN7BsuPJyK1+dT4E1y8LsH/Fyn+8KAOrH/i2i3JQKQfO38mMZkbB
-	672Q==
-X-Gm-Gg: AeBDieuxniQnVRQXO9WjF+NLMEoeNK6LpYKDLitj4BtpAGrgv+8xuROgdvIwmG7VnvU
-	cFAKdA75fqf2JFC4A8pkwwwbt5vZel239KgqxlvxvTUekBS/JOpZFw8BTxBlNJnZ5aZdY8fOj4d
-	rXTJr1o4dTRF+BxTRV+qeZm3RJh2EQobyRyWhWB/hd7AUIgexh7uBJyLS96KNyZR80nc+2gk0az
-	D44wpREOphtkOg9n8Bh2H4y0tNP5uvx/Uw1ZXNI2iyiU1n5KrxBXTSxS5C2bJwjewoAzgF/37hH
-	vfkJhMZINmgcrjy8jtR1B+Xb/8r93SCS/DvgNpo49pd6CpeBdnGRgSX7DkvpuiUYZ1lfCXUz3qr
-	1okPL7JuHVnaaC10DVrAUUpiKNJunOs2hrCDcLTYALdNSLmO+jjnqJw7z5C02jPcn0Ao=
-X-Received: by 2002:a17:90b:17ca:b0:35f:ccf6:69a5 with SMTP id 98e67ed59e1d1-3649205a55emr6831512a91.20.1777444959041;
-        Tue, 28 Apr 2026 23:42:39 -0700 (PDT)
-X-Received: by 2002:a17:90b:17ca:b0:35f:ccf6:69a5 with SMTP id 98e67ed59e1d1-3649205a55emr6831479a91.20.1777444958505;
-        Tue, 28 Apr 2026 23:42:38 -0700 (PDT)
+        bh=SEfRbstRjVHeuT0nzZzxKbaNveaGv52bqCxDptLPZ5w=;
+        b=WhhsHUCB3EmWm9LtIpU7dj8YWEexaHKa1/IH7BtLsJuSBu3TXKDxGlqztWC1Db4E2L
+         BfSYu7oUpg9RIwZmiqDi7N1K19WwILx017jrudgH8hFcrS8u+pRvwaerd3hEBhv+RVBE
+         jbHNc9RanMN+it+PYansH7pWyPU+KbY4e66DdVTIQeUmsBZcdF3JsmU8V3ngWtg2vUze
+         +mjStxCoiZ0W7azU0I/g9y+jqAKa6eK2c53q7gbyh+dzXB/IXzeb8Hsxcv+pXrKGVb4Q
+         yMxYe1YSiTrbVI29LOKQMCJU1KffTc8FmxmW9d1xf+jBb9WKb9zOUBzpIiwfbyrOBhpL
+         5jIg==
+X-Forwarded-Encrypted: i=1; AFNElJ+VaoZFhTpOy9nrULDPmJLAiPKt1W5MqBymt2+YDr0MoQ220wPspl7JGhv0waQaTiiDYDaiSIxmg6yKQsFgmaqF@lists.infradead.org
+X-Gm-Message-State: AOJu0YzxOsDLwd67cB1ytG+fZu/sx23t6um11epZ2b/J5cO0SdnO2Y4P
+	uu5DL/wHXGWxTeN+Veb5rjZQUJ504dFtyUQD+8236NFsalrd2YdkXCOZDxymPezoxHFzIy+B0mR
+	C53ow60PPV6uVSWvNaaZYJcjx5aMwK81fCJjMPfi5UydKyVbSbJJB3JWQzpsHAalvocpF0yELvK
+	pY8Q==
+X-Gm-Gg: AeBDieuoB24Dd1za3wj6rVIlzx4xM8SJZbk9kz2rRIo1vw3XHn+kRKgwas+M+PvdwpQ
+	+f2Mf2ne0MPdgTQ87VZsA5CdCQm2gNzxaPXpbV31SmlIpTBGj2UZjut349DM9fc2uriY6gw2ymd
+	PtfcShes2NUgSboFnnHLVf4uA/US02xr1+AFhcd5iBvZv0mYOQw0kXKTMPiGcOnAtl8xuptLg7K
+	L6It0JcdF5xuYyH/XpulYBlzOEqylB6w0/f7CcQpF8nI83mrcFUiODRIgcBToZV1Gs1L1r9WOl0
+	y4oFzV+l0dGLWxc3RWWncd6kIQMcqOCx31tCIaunbiEA3l3hid/2hYMyijvq81YPM2saAPFLEsv
+	XhUEvun7Qo5LU78tVBt33jkS0BIeij443dJi/u4//orj3ALBwpqhfgb5XGv7onoPLZiA=
+X-Received: by 2002:a17:90b:554d:b0:35d:a380:6d1a with SMTP id 98e67ed59e1d1-36491f89850mr6689659a91.2.1777444963720;
+        Tue, 28 Apr 2026 23:42:43 -0700 (PDT)
+X-Received: by 2002:a17:90b:554d:b0:35d:a380:6d1a with SMTP id 98e67ed59e1d1-36491f89850mr6689632a91.2.1777444963231;
+        Tue, 28 Apr 2026 23:42:43 -0700 (PDT)
 Received: from hu-krichai-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-364a0303d59sm2021414a91.15.2026.04.28.23.42.34
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-364a0303d59sm2021414a91.15.2026.04.28.23.42.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Apr 2026 23:42:38 -0700 (PDT)
+        Tue, 28 Apr 2026 23:42:42 -0700 (PDT)
 From: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Date: Wed, 29 Apr 2026 12:12:23 +0530
-Subject: [PATCH v5 1/5] PCI: host-common: Add helper to determine host
- bridge D3cold eligibility
+Date: Wed, 29 Apr 2026 12:12:24 +0530
+Subject: [PATCH v5 2/5] PCI: qcom: Add .get_ltssm() helper
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260429-d3cold-v5-1-89e9735b9df6@oss.qualcomm.com>
+Message-Id: <20260429-d3cold-v5-2-89e9735b9df6@oss.qualcomm.com>
 References: <20260429-d3cold-v5-0-89e9735b9df6@oss.qualcomm.com>
 In-Reply-To: <20260429-d3cold-v5-0-89e9735b9df6@oss.qualcomm.com>
 To: Jingoo Han <jingoohan1@gmail.com>, Manivannan Sadhasivam <mani@kernel.org>,
@@ -109,40 +108,41 @@ Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
         jonathanh@nvidia.com, bjorn.andersson@oss.qualcomm.com,
         Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777444949; l=5116;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777444949; l=4016;
  i=krishna.chundru@oss.qualcomm.com; s=20230907; h=from:subject:message-id;
- bh=FM8NSfNkcJ+OAXnXrK/t/KiNoyaQ6US4QTFzM89JCZ8=;
- b=K3LQ2ALmkEnry3Jpnx3w+lm/fygqHjFpyXjjyleGf6Vb/X5u5okUeTqsxaRl61VwYCNLUloXU
- eLbSzw5GJe/CPBY5JRnFaa88MzYlPV6NajQg6GWbTCoBPnJmwpMCZva
+ bh=kJOcLpJ2/X+O6jVsxBIhyhEdHIhlOc1Lfh/fcN/6y0g=;
+ b=XJXnUN7dlDghLSLQOMsNyk25AY1nkORIexsqqq+avIno/Mb0yfR49fPhveofsZcDVoM3HEBRC
+ QbzePAgnlAbAtE0iREwuOauc0FMh5cJy2CWrHfPnjffh5SR3E15uxZo
 X-Developer-Key: i=krishna.chundru@oss.qualcomm.com; a=ed25519;
  pk=10CL2pdAKFyzyOHbfSWHCD0X0my7CXxj8gJScmn1FAg=
-X-Proofpoint-GUID: xTmgSPsg_xQyPsSm0RtcO1kdY-sWxqJY
-X-Proofpoint-ORIG-GUID: xTmgSPsg_xQyPsSm0RtcO1kdY-sWxqJY
-X-Authority-Analysis: v=2.4 cv=aPPAb79m c=1 sm=1 tr=0 ts=69f1a85f cx=c_pps
- a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI5MDA2NCBTYWx0ZWRfX9TcYySZHFaCn
+ 5aC7yIvSDlTTvRHYyQnaBafqm35XwlWtbyecsfLzkkSpSqnBMCPeMRuAEvVsR8MN1y5mfD0ABWk
+ mKa88UUtyWjLMbllFSqCCa52DJPVh4QpcPdj54Nb6mOMZqIGsLEnj3OZx2E7+ik14SJxizFMgfT
+ 9670DuFJg1SKXkByIRXuX7fgIIThOSEF/9iVdOOciSQz/OeBa09VahfhMb72Cra0Ei9Y8U3u0Lt
+ vafzgpY9Opn184gabkIF7nKOHAhqCaBQD4mkVsoGGQFIP13KbqyPcxdWHvA2oFAXIprLUU+xrC2
+ +LQUMARCLYrtSkYpNDqC5l+XzxI4Oc1kQ2SmRUsiGrTk9ycnJyss6aIicenIC2ebGxPiqr+R88D
+ r74ptSvMYdk7O6OReSLDwZ1SVNpujbAIiRFROsNdV0bxMVXjGvtbttWGjCe+QjDFoA1OUFtVsp3
+ lQnaurekvnnd/fEUCLw==
+X-Authority-Analysis: v=2.4 cv=Uu5T8ewB c=1 sm=1 tr=0 ts=69f1a864 cx=c_pps
+ a=0uOsjrqzRL749jD1oC5vDA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
  a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=EUspDBNiAAAA:8 a=w2i6tlqj-xX_7Oe5WM0A:9 a=QEXdDO2ut3YA:10
- a=uKXjsCUrEbL0IQVhDsJ9:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI5MDA2NCBTYWx0ZWRfX8zcKlOSNh3XZ
- WIPY7O8kBaOCLSwjEIaZyIHlarRtsrPnSqGJIEZlvG1SO6k2KarOsYBXg7Z99x2hiHjR5DlVDhN
- Sc48ZCb+Yh52Sd57XuuJ63nfEBiO+p98fZ6eVTmL/HL1546FNhwROjC2lwTgFE5fugF1KKiAF9d
- /DAXARrI9itVgTt71cxofQvRVT0fRLHw5/zCPvQL3+mw/WRcy/jJlImIWnlBZ9yRLMTiYPJRLyH
- OPs0vp92L7kkrI2FphcHqgUHuUjXaVuZKQbNJ50SHpfvhcWLvENp5uATxfCWGSXQOOfAOCYT2yK
- b1lnZDgYYY+har5ZxVUwGzIVZYubT/emEG7fCPQr4WTSOkUQEzFLIUKXlJ7sqUCkecmP4LmihmK
- h9ADQT7+r0yZrnIlXcMKb8qfDBvLYEdV5QrtXz020AH5zH9ZU2DhTMmYr/aE4CcU7PWVdymMmYI
- CujBjeEryh8QOO94L/Q==
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
+ a=EUspDBNiAAAA:8 a=h4B-02p0z56_JbXvspoA:9 a=QEXdDO2ut3YA:10
+ a=mQ_c8vxmzFEMiUWkPHU9:22
+X-Proofpoint-ORIG-GUID: PvKGSVN-jKoPmsvv1J90BP7mO9Cjw4gS
+X-Proofpoint-GUID: PvKGSVN-jKoPmsvv1J90BP7mO9Cjw4gS
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-04-28_05,2026-04-28_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 clxscore=1015 priorityscore=1501 adultscore=0 impostorscore=0
- lowpriorityscore=0 phishscore=0 bulkscore=0 malwarescore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604290064
+ malwarescore=0 spamscore=0 phishscore=0 adultscore=0 clxscore=1015
+ suspectscore=0 impostorscore=0 bulkscore=0 priorityscore=1501
+ lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
+ definitions=main-2604290064
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_234240_360955_8A415B91 
-X-CRM114-Status: GOOD (  25.15  )
+X-CRM114-CacheID: sfid-20260428_234246_030722_98B552A5 
+X-CRM114-Status: GOOD (  16.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,139 +157,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a common helper, pci_host_common_d3cold_possible(), to determine
-whether PCIe devices under host bridge can safely transition to D3cold.
+For older targets like sc7280, we see reading DBI after sending PME
+turn off message is causing NOC error.
 
-This helper is intended to be used by PCI host controller drivers to
-decide whether they may safely put the host bridge into D3cold based on
-the power state and wakeup capabilities of downstream endpoints.
+To avoid unsafe DBI accesses, introduce qcom_pcie_get_ltssm() to retrieve
+the LTSSM state. For newer platforms, the LTSSM state is read from the
+PARF_LTSSM register, while older platforms continue to retrieve it from
+ELBI_SYS_STTS.
 
-The helper walks all devices on the all bridge buses and only allows
-the devices to enter D3cold if all PCIe endpoints are already in
-PCI_D3hot. This ensures that we do not power off the host bridge while
-any active endpoint still requires the link to remain powered.
-
-For devices that may wake the system, the helper additionally requires
-that the device supports PME wake from D3cold (via WAKE#). Devices that
-do not have wakeup enabled are not restricted by this check and do not
-block the devices under host bridge from entering D3cold.
-
-Devices without a bound driver and with PCI not enabled via sysfs are
-treated as inactive and therefore do not prevent the devices under host
-bridge from entering D3cold. This allows controllers to power down more
-aggressively when there are no actively managed endpoints.
-
-Some devices (e.g. M.2 without auxiliary power) lose PME detection when
-main power is removed. Even if such devices advertise PME-from-D3cold
-capability, entering D3cold may break wakeup. So, return PME-from-D3cold
-capability via an output parameter so PCIe controller drivers can apply
-platform-specific handling to preserve wakeup functionality.
+This helper is used in place of direct DBI-based link state checks in
+the D3cold path after sending PME turn-off message, ensuring the LTSSM
+state can be queried safely even after DBI access is no longer valid.
 
 Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
 ---
- drivers/pci/controller/pci-host-common.c | 71 ++++++++++++++++++++++++++++++++
- drivers/pci/controller/pci-host-common.h |  2 +
- 2 files changed, 73 insertions(+)
+ drivers/pci/controller/dwc/pcie-qcom.c | 31 +++++++++++++++++++++++++++++++
+ 1 file changed, 31 insertions(+)
 
-diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
-index d6258c1cffe5..09432d69175c 100644
---- a/drivers/pci/controller/pci-host-common.c
-+++ b/drivers/pci/controller/pci-host-common.c
-@@ -17,6 +17,9 @@
+diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
+index af6bf5cce65b..085300c1d1ec 100644
+--- a/drivers/pci/controller/dwc/pcie-qcom.c
++++ b/drivers/pci/controller/dwc/pcie-qcom.c
+@@ -71,6 +71,7 @@
  
- #include "pci-host-common.h"
+ /* ELBI registers */
+ #define ELBI_SYS_CTRL				0x04
++#define ELBI_SYS_STTS				0x08
  
-+#define PCI_HOST_D3COLD_ALLOWED        BIT(0)
-+#define PCI_HOST_PME_D3COLD_CAPABLE    BIT(1)
+ /* DBI registers */
+ #define AXI_MSTR_RESP_COMP_CTRL0		0x818
+@@ -131,6 +132,7 @@
+ 
+ /* PARF_LTSSM register fields */
+ #define LTSSM_EN				BIT(8)
++#define PARF_LTSSM_STATE_MASK			GENMASK(5, 0)
+ 
+ /* PARF_NO_SNOOP_OVERRIDE register fields */
+ #define WR_NO_SNOOP_OVERRIDE_EN			BIT(1)
+@@ -145,6 +147,9 @@
+ /* ELBI_SYS_CTRL register fields */
+ #define ELBI_SYS_CTRL_LT_ENABLE			BIT(0)
+ 
++/* ELBI_SYS_STTS register fields */
++#define ELBI_SYS_STTS_LTSSM_STATE_MASK		GENMASK(17, 12)
 +
- static void gen_pci_unmap_cfg(void *ptr)
- {
- 	pci_ecam_free((struct pci_config_window *)ptr);
-@@ -106,5 +109,73 @@ void pci_host_common_remove(struct platform_device *pdev)
+ /* AXI_MSTR_RESP_COMP_CTRL0 register fields */
+ #define CFG_REMOTE_RD_REQ_BRIDGE_SIZE_2K	0x4
+ #define CFG_REMOTE_RD_REQ_BRIDGE_SIZE_4K	0x5
+@@ -245,6 +250,7 @@ struct qcom_pcie_ops {
+ 	void (*deinit)(struct qcom_pcie *pcie);
+ 	void (*ltssm_enable)(struct qcom_pcie *pcie);
+ 	int (*config_sid)(struct qcom_pcie *pcie);
++	enum dw_pcie_ltssm (*get_ltssm)(struct qcom_pcie *pcie);
+ };
+ 
+  /**
+@@ -428,6 +434,15 @@ static void qcom_pcie_2_1_0_ltssm_enable(struct qcom_pcie *pcie)
+ 	writel(val, pci->elbi_base + ELBI_SYS_CTRL);
  }
- EXPORT_SYMBOL_GPL(pci_host_common_remove);
  
-+static int __pci_host_common_d3cold_possible(struct pci_dev *pdev, void *userdata)
++static enum dw_pcie_ltssm qcom_pcie_2_1_0_get_ltssm(struct qcom_pcie *pcie)
 +{
-+	u32 *flags = userdata;
-+	int type;
++	struct dw_pcie *pci = pcie->pci;
++	u32 val;
 +
-+	/* Ignore conventional PCI devices */
-+	if (!pci_is_pcie(pdev))
-+		return 0;
-+
-+	type = pci_pcie_type(pdev);
-+	if (type != PCI_EXP_TYPE_ENDPOINT &&
-+	    type != PCI_EXP_TYPE_LEG_END &&
-+	    type != PCI_EXP_TYPE_RC_END)
-+		return 0;
-+
-+	if (!pdev->dev.driver && !pci_is_enabled(pdev))
-+		return 0;
-+
-+	if (pdev->current_state != PCI_D3hot)
-+		goto exit;
-+
-+	if (device_may_wakeup(&pdev->dev)) {
-+		if (!pci_pme_capable(pdev, PCI_D3cold))
-+			goto exit;
-+		else
-+			*flags |= PCI_HOST_PME_D3COLD_CAPABLE;
-+	}
-+
-+	return 0;
-+
-+exit:
-+	*flags &= ~PCI_HOST_D3COLD_ALLOWED;
-+
-+	return -EOPNOTSUPP;
++	val = readl(pci->elbi_base + ELBI_SYS_STTS);
++	return (enum dw_pcie_ltssm)FIELD_GET(ELBI_SYS_STTS_LTSSM_STATE_MASK, val);
 +}
 +
-+/**
-+ * pci_host_common_d3cold_possible - Determine whether the host bridge can transition the
-+ *				     devices into D3Cold.
-+ *
-+ * @bridge: PCI host bridge to check
-+ * @pme_capable: Pointer to update if there is any device which is capable of generating
-+ *		 PME from D3cold.
-+ *
-+ * Walk downstream PCIe endpoint devices and determine whether the host bridge
-+ * is permitted to transition the devices into D3cold.
-+ *
-+ * Devices under host bridge can enter D3cold only if all active PCIe endpoints are in
-+ * PCI_D3hot and any wakeup-enabled endpoint is capable of generating PME from D3cold.
-+ * Inactive endpoints are ignored.
-+ *
-+ * The @pme_capable output allows PCIe controller drivers to apply
-+ * platform-specific handling to preserve wakeup functionality.
-+ *
-+ * Return: %true if the host bridge may enter D3cold, otherwise %false.
-+ */
-+bool pci_host_common_d3cold_possible(struct pci_host_bridge *bridge, bool *pme_capable)
-+{
-+	u32 flags = PCI_HOST_D3COLD_ALLOWED;
-+
-+	pci_walk_bus(bridge->bus, __pci_host_common_d3cold_possible, &flags);
-+
-+	*pme_capable = !!(flags & PCI_HOST_PME_D3COLD_CAPABLE);
-+
-+	return !!(flags & PCI_HOST_D3COLD_ALLOWED);
-+}
-+EXPORT_SYMBOL_GPL(pci_host_common_d3cold_possible);
-+
- MODULE_DESCRIPTION("Common library for PCI host controller drivers");
- MODULE_LICENSE("GPL v2");
-diff --git a/drivers/pci/controller/pci-host-common.h b/drivers/pci/controller/pci-host-common.h
-index b5075d4bd7eb..7eb5599b9ce4 100644
---- a/drivers/pci/controller/pci-host-common.h
-+++ b/drivers/pci/controller/pci-host-common.h
-@@ -20,4 +20,6 @@ void pci_host_common_remove(struct platform_device *pdev);
+ static int qcom_pcie_get_resources_2_1_0(struct qcom_pcie *pcie)
+ {
+ 	struct qcom_pcie_resources_2_1_0 *res = &pcie->res.v2_1_0;
+@@ -1260,6 +1275,19 @@ static bool qcom_pcie_link_up(struct dw_pcie *pci)
+ 	return val & PCI_EXP_LNKSTA_DLLLA;
+ }
  
- struct pci_config_window *pci_host_common_ecam_create(struct device *dev,
- 	struct pci_host_bridge *bridge, const struct pci_ecam_ops *ops);
++static enum dw_pcie_ltssm qcom_pcie_get_ltssm(struct dw_pcie *pci)
++{
++	struct qcom_pcie *pcie = to_qcom_pcie(pci);
++	u32 val;
 +
-+bool pci_host_common_d3cold_possible(struct pci_host_bridge *bridge, bool *pme_capable);
- #endif
++	if (pcie->cfg->ops->ltssm_enable)
++		return pcie->cfg->ops->get_ltssm(pcie);
++
++	val = readl(pcie->parf + PARF_LTSSM);
++
++	return (enum dw_pcie_ltssm)FIELD_GET(PARF_LTSSM_STATE_MASK, val);
++}
++
+ static void qcom_pcie_phy_power_off(struct qcom_pcie *pcie)
+ {
+ 	struct qcom_pcie_port *port;
+@@ -1385,6 +1413,7 @@ static const struct qcom_pcie_ops ops_2_1_0 = {
+ 	.post_init = qcom_pcie_post_init_2_1_0,
+ 	.deinit = qcom_pcie_deinit_2_1_0,
+ 	.ltssm_enable = qcom_pcie_2_1_0_ltssm_enable,
++	.get_ltssm = qcom_pcie_2_1_0_get_ltssm,
+ };
+ 
+ /* Qcom IP rev.: 1.0.0	Synopsys IP rev.: 4.11a */
+@@ -1394,6 +1423,7 @@ static const struct qcom_pcie_ops ops_1_0_0 = {
+ 	.post_init = qcom_pcie_post_init_1_0_0,
+ 	.deinit = qcom_pcie_deinit_1_0_0,
+ 	.ltssm_enable = qcom_pcie_2_1_0_ltssm_enable,
++	.get_ltssm = qcom_pcie_2_1_0_get_ltssm,
+ };
+ 
+ /* Qcom IP rev.: 2.3.2	Synopsys IP rev.: 4.21a */
+@@ -1512,6 +1542,7 @@ static const struct qcom_pcie_cfg cfg_fw_managed = {
+ static const struct dw_pcie_ops dw_pcie_ops = {
+ 	.link_up = qcom_pcie_link_up,
+ 	.start_link = qcom_pcie_start_link,
++	.get_ltssm = qcom_pcie_get_ltssm,
+ };
+ 
+ static int qcom_pcie_icc_init(struct qcom_pcie *pcie)
 
 -- 
 2.34.1
