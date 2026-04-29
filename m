@@ -4,182 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B508FF887E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 16:11:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CA40FF887E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 16:17:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DY9x3mxSjUPzImVqBR5MCsdTNqZKqCBeloJrD79EG8k=; b=zd1Qq1ryH4ZeGutvoR1Tz83kVE
-	zAJfh1RttfbD2xIM2+W76/PpPuw9oNaDRZby+KWxBh0pVHnQaTyF6suzOrEweau83FaqWeIhD0zua
-	Njm8VuDYtaqXpcUidxQMA7MsA6ZWh4mBHEADxWV1MTaPbcCCXjF0pfDOsjTil5sv1MRC2GbXVJVtj
-	DQmzzN5wXFBlaV344CVDcTdvBMVkJAP1FT1bHgTSQ6UDbvSbG7WFQMV23zc3u7U1QbGAx4SErWA48
-	xtOrHMUqRpvj0RHGg34ZP2a6z83s5s9TKray/2GFI+c6cDLWTBeodtU0o91vGHkKFfJdkruoA3Tpc
-	q0plmYpw==;
+	bh=fqvRechJO7wAMrY3N92JJRHYmvgDCMeHhLdJTb1GR0c=; b=GBsHX3rLqkzHL9MOMr5302VAGZ
+	2Mn1ByKt91LJK4wTTBSi5s+IT5e2bCLMDyPTn2owmbVCgCooFuFwXFboA+NuTsxcetXKaZnpf1aP9
+	Lgi/EwtHTk1LtFOVpz5/neeiD09JLSVqK5ImJH3G1YY68wBtsDIM8tXF0fq3B2r9WZ5lUTmNfOJMc
+	IeHnCAS9zPmJAhPKLmiqIb0z5P9BkSeEh7D3auKHfgvffPLghwX7ABTTe9S32uTEdLmqEHVsbB3lb
+	z12+ban3fjTDv+v+Eu3o6ZrMoTNp0KMVM6dw6EbcI4bcdQ14cEc/f55fI5RePBAX96KwpupA/cb9I
+	KMIQfi7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI7VC-00000003tc8-10uQ;
-	Wed, 29 Apr 2026 16:11:06 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wI7bL-00000003uBk-1wlI;
+	Wed, 29 Apr 2026 16:17:27 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI7V9-00000003tb7-2i7w
+	id 1wI7bI-00000003uAZ-3nuN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 16:11:05 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63TEjioP1641624
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 16:11:02 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	DY9x3mxSjUPzImVqBR5MCsdTNqZKqCBeloJrD79EG8k=; b=Y31XWIluZdt38gEC
-	Coizspg0MgFLj5kS38Ql4+JehnWcwk4+KG5j178MJdiWZRWHZLcM6Xll5EcW+arT
-	AC6Dnmk+bgLQGK83gLPOchJpKa95saym6NnlkpFhgTuWJY5ax2eIPxcBco0YLpQx
-	s/rw8M35nQn6WQq8pnmzGk7aujzNiOWYzrWHO5y2OC4kKqh6WsfHb9mtqJ7qZby9
-	78LeeJxiAXA5xqig0ozHFA4BpXMOrFr4cztGu6TGEbe/SF3JNYl951fKYznasHIl
-	T+fLRcuUx3k7O+8zWiMuEqARAgQ+XMSmMGV1eFs+dLuypwGHFQmkzHwfwBx8FlNu
-	a9lRqA==
-Received: from mail-oi1-f198.google.com (mail-oi1-f198.google.com [209.85.167.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ducj82cua-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 16:11:02 +0000 (GMT)
-Received: by mail-oi1-f198.google.com with SMTP id 5614622812f47-479d900d222so17956968b6e.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 09:11:02 -0700 (PDT)
+	Wed, 29 Apr 2026 16:17:26 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2b243198058so105455ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 09:17:23 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1777479443; cv=none;
+        d=google.com; s=arc-20240605;
+        b=S9hkLKg+S8yqskH6sSSVSPyLW/9Y8iaLskRKqh/SefgSa6whjlxKvEVROQPaleqA/w
+         wYgabKBj6E2mMetD7p8CijLpg4KqtpW8AEX6BX9u//mgxwG3MeHz3fOzuPcwtW9IJ+Qz
+         HczY/3QedYZMWIF5R3SNrwTaq4YIzbqa3qav1hf0JBFls6od2Kad7CJi3c/HStttlwak
+         /Umv87amYVO0KJThFwbpd9H1woHvxXnLkPJHg6uDzSj0TIZ4S0zrZpQZdA48lfxMQkja
+         TTtDcWL+gpsidTKgogDU9GHmbFUd0NzvN84dMneYYA0B6ftaxFwJjIqS7mA4c6hDfOzl
+         nzPg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=fqvRechJO7wAMrY3N92JJRHYmvgDCMeHhLdJTb1GR0c=;
+        fh=Z3QnCrPnauyoeppeCl0/yGKbWhtp2yoWvD4+LqlE3l0=;
+        b=bZ62HsqBj4Om9e3LO5Ky8t+jTh6M0csSwaYv9O4E5BiYEmtcm3NzN9nm23fDToCnip
+         kmevtw+zKcq0pyImL2d1yGoglC02DCD9x9rkQMQynvIC+TyIAjtk4rFhMyvHLpR4Z4UM
+         jsZ+b4Tacnc1pJDqOC9Obqs1mFQXW4EQ4D8mq21V1SpH864hJy/fAJrgIi359WOLJMQv
+         XR/MNm3eMdCPXccPludH07fzQuxknqSrSB07ozY1h/FNuhcMaB1EEpQwKocSwykH6y7U
+         qgBuhDh3K9siTIjv6MfAXoR2h9Uc/KXYVgPc2RxC1oOdqyK1Hc8wmwj9rXSQJgFDbcmJ
+         ZB2Q==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1777479062; x=1778083862; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=DY9x3mxSjUPzImVqBR5MCsdTNqZKqCBeloJrD79EG8k=;
-        b=YKEqdzZYq8PY+DRnkFkw0k/fmrPeMIpxkX1Wq18fSN6USI1oZ5jyiPJaW8E4PqUzp2
-         5WEAbSIZawaPRg3up4qbfBN/gqakCxB2u7casyGmOK4evIueJEpsAhuQBwj1qlFt8yVV
-         J0oWPc4A3SoF9hIpNVMGWGR5Qxf38g2iH0lBoyeC6bKZ5eeqTaRj/ySc9c0dzCXWKVDs
-         a+I2dduFEo+oZ7Ask10ogh23eWcSjGKA6hHuNbQ2dWzjfM+4qUstTYNxoZykSM6E0ppM
-         FMV4Yu/bAiKau0VwJnsJ6PIhsRPa1MtkLTkaZlwB02xe2JUNV6gAybQpGqoZIYYOsqDN
-         qx2w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777479062; x=1778083862;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=google.com; s=20251104; t=1777479443; x=1778084243; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=DY9x3mxSjUPzImVqBR5MCsdTNqZKqCBeloJrD79EG8k=;
-        b=C9bC5G8HwfAz9Q4+Cw8adghAB6hFE8rueV/TqvO/lHW/zSzZQ5Pw4GqU4UNvvclNew
-         X+XdyUr/SbLWUIUFvzVEkiTtANX2hxK0nMuI9rZ8ggxkI5ut/T0i6WdErJ4dV/kY6/lx
-         eit14XBhn2e5VVTUTnf5B9TmkW3hHgIg6HkubCu8bX1vB1w3OcBKyotiDxdricGphxRJ
-         aCvD+D7U3yhLP8F4jR3unCNmD3zWdnDCX/m+Y/MQoJLVp73p7486RDpDAtGLQd+/+pTZ
-         RpDOvmed1A8SQl2BAqe6vqttmugVvkOH1pyJjSUcklgn1/hr1PWnVxtdv0vAilthkAWN
-         CDug==
-X-Forwarded-Encrypted: i=1; AFNElJ9AznJZWPhyCj59Y3a11I6a9+wwE7EGwuQSEJjWuYtvsjz2zNjGTf1jAUbc3BlquJ26mnxCBKX4A53/YXEBZ3mX@lists.infradead.org
-X-Gm-Message-State: AOJu0YyytcwxHWHIUDqnrq/V1CrUfe8WHTrGxkaSSDJNEOMJkVLvlM14
-	lfAgLVSx/D8fcgkd4MXhb2rclr1BC+sG7QFLsNDzU2qitRTgwxCaAA8YYcYQqTGIzq6OdLiabCd
-	vIFutv0cIVuoSJikBaUK1EWrP+kZDkMb80fH1x0Fh0RSY5DaZTR0Yv0nvFNunDBtqbaTUAR1Cmn
-	CMbg==
-X-Gm-Gg: AeBDiet25Zintox6bpBn3kinNtd/TCCiSSMrU+i4Wn29HMbON/RmQAcupBoBc7Qbf8k
-	I7npE0M/ppR8APUQjEjTzYLFWk0YZo06GKPlEavlgPt7SU72tcNcoOWoanIQT+AdsCf8WTxb2+9
-	1aFdzDdY45319xfTrKqNTv5m6+K6ZGzc4DAsFlRWU5ej3rhfPISo374l1C7HsYQq6wEzH0Zx+e+
-	opBE4fuA0Gfg7PRwHbXONRmLGwhkOTmoBBCmkJAT6sQeyw6iVhaGTeZiYzkPnUwxDbl/OuT8tkM
-	nc29knNmvqj4hK9f5xIQYveJsB6M/Fxn7PUNvhOilpqHLJMqLk92iKaR/jn/nCJOtLnCspg9YzK
-	rbZp8RUWXRTnB4KxqwSojcoEuIgCTXBfWnxli3Fq+mGtlQ/oS5X0i1wgAfII=
-X-Received: by 2002:a05:6808:c291:b0:467:112e:4590 with SMTP id 5614622812f47-47c29070abamr3945716b6e.46.1777479061815;
-        Wed, 29 Apr 2026 09:11:01 -0700 (PDT)
-X-Received: by 2002:a05:6808:c291:b0:467:112e:4590 with SMTP id 5614622812f47-47c29070abamr3945700b6e.46.1777479061311;
-        Wed, 29 Apr 2026 09:11:01 -0700 (PDT)
-Received: from [192.168.1.29] ([178.197.219.94])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-447b7217c56sm6696228f8f.20.2026.04.29.09.10.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 29 Apr 2026 09:11:00 -0700 (PDT)
-Message-ID: <bf37cdd6-b863-4e59-9459-3247080955a9@oss.qualcomm.com>
-Date: Wed, 29 Apr 2026 18:10:59 +0200
+        bh=fqvRechJO7wAMrY3N92JJRHYmvgDCMeHhLdJTb1GR0c=;
+        b=SOSrDa1+PYMGwG+YjDzTz9NKTSsnRLD83+OIEGTRyd+fGyV3ie82iQWrR1AP0V62kf
+         5YV8EqO7gLbvKWc7k94rKmz5gTAGI+kNBKmIsSTQgjkVHuimRPDYdgvTxlq70A7EeMCs
+         WGIaKMEbeAAF4ZcG5Q4GbHEQLvX0FCVNB0PeKtf8qBtKsijc2i5Uell+wTaEaBNiyE2a
+         KE2KI/ybs+ePCIAF24B+7i8puPK2Z009SRlS1WMUC1mucSsmT7Y/jhOGMhgp+5Cau4+k
+         00Bwa8pnRzi5Ez7CxGYUk27r08YJJCF5Vq8nXW4uIwGIxiW3uPOxFcMjEd+C+I4rEyYD
+         KxPw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777479443; x=1778084243;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=fqvRechJO7wAMrY3N92JJRHYmvgDCMeHhLdJTb1GR0c=;
+        b=qjYBkp2mdOzqirqvDCRW1p/J6NCZWNWwR9oXBmFhxhczBnJh7W9Bf2REzihc5tYKsE
+         AbQpJJBYqqmKEEViJ+MzrB6PFSIG/yysy+y1YXlivbKEYmg3WY1muTimJ0PeeO6ej7JU
+         vWF7MA4UDYCLbX8e2ynyfZo98p6i8/ouQXVosLfXHF3NnDrjTHRtVE1dqwtGhB0iuorc
+         dZRsI4cqToUy7i6sLYfSQ2pfxyuajHFhq6EZhQQeGug19QlqGfSnHGHKnzEXiuWqVtat
+         OzUehwPTjdGAJKkk3WQCHiskUXK3JJsL1ejxI0zQbv3aLvPf8w7dxhipDfQAgI/vqisF
+         EtBg==
+X-Forwarded-Encrypted: i=1; AFNElJ/NLbE83Ct38L6gTo4aprTooPYA7qW1bPWxnJUsZZ7D+HRY/KUcahgMknDagDSy5wHkt8o9YzobRBqHoLj9/8qG@lists.infradead.org
+X-Gm-Message-State: AOJu0YxB+PIH8HMB5W+mjI/NkFLuAfOHHUiJ7YiU2kTkEX0bIvqlJK1M
+	+zQt4cUlQbzq31c49UYM/1+DEbe5qg7GVOjPocKbYaFRjbNWqwbSXzhMV7X7WOuGw2HgcvPIvsu
+	JvuuT3P0CU/U/ck/6PA90CFHyD918wT6swknlaWU6
+X-Gm-Gg: AeBDievaahy3nkAIrmtop3ACM8Q+r1hMCrcKyZxYpM+PYMiVGNH1B+kxGjKOhbsKlx6
+	huDKgCVTF5Aj2XWclxsdh4eMFxfaar5Droi/deV8lZMJX5ZdX8Ytp9uKWkVpGy31smQ5LlBgg94
+	cSTvphJ2ibyUbl/0mPifoSbRm04TN2/mKc59w6HsrpSmkhA5hcaEOiddFihtX5rQGsmCLm5u6za
+	AwvgtPhPd7ACs0Y7DzsIGSAFUPjzL05IrdatyClsev5Of0adlUPSwcyLzw5CHZPaWwvLGyZRn1j
+	tePgZccz2mTcOHsk0U9fdU9LrqUpk4xppLyvqF3f66RHFvwKvaR2p/vn2BomioDMStRciQ==
+X-Received: by 2002:a17:902:f805:b0:2a7:6c4e:5914 with SMTP id
+ d9443c01a7336-2b987cec51emr3278725ad.6.1777479442468; Wed, 29 Apr 2026
+ 09:17:22 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] soc: qcom: Make important drivers default
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org
-References: <20260429-qcom-soc-kconfig-v1-0-69ba540b3fe9@oss.qualcomm.com>
- <20260429-qcom-soc-kconfig-v1-3-69ba540b3fe9@oss.qualcomm.com>
- <48c84ad0-7d6b-4e2e-8bd3-511ec679462e@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Content-Language: en-US
-Autocrypt: addr=krzysztof.kozlowski@oss.qualcomm.com; keydata=
- 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
- cwzYbmi/Et7T2+47PN9NZAOyb771QoVr8A==
-In-Reply-To: <48c84ad0-7d6b-4e2e-8bd3-511ec679462e@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: EFUNsV5vMYw0h2IY2w0Zm0QStrkmT4Il
-X-Authority-Analysis: v=2.4 cv=RI6D2Yi+ c=1 sm=1 tr=0 ts=69f22d96 cx=c_pps
- a=4ztaESFFfuz8Af0l9swBwA==:117 a=gOEeR9iKwsj33Yj5oN/cWg==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
- a=EUspDBNiAAAA:8 a=4qRup2qeAZOX9EWCK_8A:9 a=QEXdDO2ut3YA:10
- a=TPnrazJqx2CeVZ-ItzZ-:22
-X-Proofpoint-GUID: EFUNsV5vMYw0h2IY2w0Zm0QStrkmT4Il
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI5MDE2MiBTYWx0ZWRfX7+ZDtWQKqxnf
- 9dR3QTWITd5V2DNmnc5RgtfQbSRZtC3xB8U/L08CvHlloeZ4Tvq6/7BGhVBBkLEFRHnrh90tido
- D2KsTvI223hflntFiUI7HxpC8TCXOEGNmlznn5tgtQnUWfmliVkKjVQvssh3Q2yOv/e/evpDG7o
- C6HXSD3xoYA3Z4V/QtIcJh3Qm/vRKdSZCBPCJjI74T/nD1QbxVoAKOTqzOCUsL9GEui5lEBp5dv
- R+m6xIeTSGI19baSrUz6VZRLBA4yV+/fN+d51rIQLC7JcXZxXX2cTxGD7IMieIBTLRlesNJaD9t
- ELOj8WFVJ0ayWaJWipGpQT8fyTJePX9ZAscCeIGJsGysMqXFA08e0E40Lovk04WoSEkulbG2wfr
- Eh8ckVPE8yidrOaSXd/ifgz4LzyMYJq2wcb22hrsLt5dJW5acHZFGgCPZKny4pRPwGQc0xfipx5
- oVmNE+rTssDMv950x6Q==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-29_01,2026-04-28_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 priorityscore=1501 malwarescore=0 suspectscore=0
- lowpriorityscore=0 adultscore=0 clxscore=1015 impostorscore=0 bulkscore=0
- spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
- definitions=main-2604290162
+References: <20260425224951.174663-1-irogers@google.com> <20260428071903.1886173-1-irogers@google.com>
+ <20260428071903.1886173-10-irogers@google.com> <afGyYi01XSNIS-A2@z2>
+In-Reply-To: <afGyYi01XSNIS-A2@z2>
+From: Ian Rogers <irogers@google.com>
+Date: Wed, 29 Apr 2026 09:17:11 -0700
+X-Gm-Features: AVHnY4IXBUWE5UukN8KzmjnfIpnAFj-ObYvMRfPl-5kwE68RdMoDEeELQc51_O4
+Message-ID: <CAP-5=fWBccMoChGX62hVoCbHZSaFJhcPOBYvutbha9RybkNZGQ@mail.gmail.com>
+Subject: Re: [PATCH v8 09/58] perf evlist: Add reference count
+To: Namhyung Kim <namhyung@kernel.org>
+Cc: acme@kernel.org, adrian.hunter@intel.com, alice.mei.rogers@gmail.com, 
+	dapeng1.mi@linux.intel.com, james.clark@linaro.org, leo.yan@linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, mingo@redhat.com, peterz@infradead.org, 
+	tmricht@linux.ibm.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_091103_808281_9BC99D74 
-X-CRM114-Status: GOOD (  18.84  )
+X-CRM114-CacheID: sfid-20260429_091724_993948_429BA8FC 
+X-CRM114-Status: GOOD (  30.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,51 +120,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/04/2026 11:06, Konrad Dybcio wrote:
-> On 4/29/26 10:56 AM, Krzysztof Kozlowski wrote:
->> The drivers for Qualcomm SoC components are covering a basic or
->> fundamental SoC blocks.  Usually they are required for booting or to
->> achieve basic expected functionality when running Linux.  These drivers
->> do not represent any sort of buses visible to the board
->> designers/configurators, thus they should be always enabled, regardless
->> how SoC is used in the final board.
->>
->> Kernel configuration should not ask users choice of drivers when that
->> choice is obvious and known to the developers that answer should be
->> 'yes' or 'module'.
->>
->> Switch most of the Qualcomm SoC drivers to a default 'yes' or
->> 'module' for ARCH_QCOM, to match existing defconfig usage.
->>
->> This has no impact on arm64 defconfig, arm qcom_defconfig and arm
->> multi_v7_defconfig.
->>
->> The change will however enable by default all drivers for arm or arm64
->> COMPILE_TEST builds, whenever ARCH_QCOM is selected, which feels
->> logical: if one selects ARCH_QCOM then probably by default wants to
->> build test it entirely.  Kernels with COMPILE_TEST are not supposed to
->> be used for booting.
->>
->> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
->> ---
-> 
-> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-> 
-> Please also add:
-> 
-> QCOM_RMTFS_MEM (required for modem)
+On Wed, Apr 29, 2026 at 12:25=E2=80=AFAM Namhyung Kim <namhyung@kernel.org>=
+ wrote:
+>
+> On Tue, Apr 28, 2026 at 12:18:14AM -0700, Ian Rogers wrote:
+> > This a no-op for most of the perf tool. The reference count is set to
+> > 1 at allocation, the put will see the 1, decrement it and perform the
+> > delete. The purpose for adding the reference count is for the python
+> > code. Prior to this change the python code would clone evlists, but
+> > this has issues if events are opened, etc. This change adds a
+> > reference count for the evlists and a later change will add it to
+> > evsels. The combination is needed for the python code to operate
+> > correctly (not hit asserts in the evsel clone), but the changes are
+> > broken apart for the sake of smaller patches.
+>
+> Can we keep the existing evlist__delete() code?  IIUC most parts of the
+> code don't need to worry about python.  Then do we really need to
+> convert them all?  Maybe we can convert only the relevant codes.
 
-It's in the patch.
+Are you thinking of evlist__delete being something like:
+```
+void evlist__delete(struct evlist *evlist)
+{
+   assert(refcount_read(evlist__refcnt(evlist)) =3D=3D 1);
+   evlist__put(evlist);
+}
+```
+This would allow the existing delete cases to remain and minimize
+churn, but it creates an opportunity for a runtime assertion failure.
+I'm not sure what the codebase gains long-term from this as having
+both `put` and `delete` feels like an unnecessary choice for the user.
 
-> QCOM_SPM (cpufreq-adjacent on some platforms)
+> Also I think it's better to split evlist__put() conversion and python
+> code changes.
 
-I assume only for arm, because none of arm64 compatibles are present in
-upstream DTS.
+So the existing Python code embeds an evlist inside a Python object. I
+don't see a way to add the reference count and keep the embedding
+without inventing a 3rd way of handling Python evlists, which would be
+as complex as just using the reference counts. We could remove the
+embedded evlist and use evlist__new/delete, but the code wouldn't be
+functional.
 
-> 
-> Konrad
+Thanks,
+Ian
 
-
-Best regards,
-Krzysztof
+> Thanks,
+> Namhyung
+>
+> >
+> > Assisted-by: Gemini:gemini-3.1-pro-preview
+> > Signed-off-by: Ian Rogers <irogers@google.com>
+> > ---
+> > v2: Added evlist__put to pyrf_evlist__init in case init is called more
+> >     than once.
+> >
+> >     I double-checked trace__replay() and confirmed that trace->evlist
+> >     is not assigned to session->evlist in that function.
+> >     trace__replay creates a new session and uses its own evlist for
+> >     processing file events, leaving trace->evlist pointing to the
+> >     empty list created at startup. Therefore, the
+> >     evlist__put(trace->evlist) call in trace__exit() is safe and
+> >     correct to avoid leaking that empty list.
+> >
+> > v7:
+> > - Added pyrf_evlist__new to zero-initialize pevlist->evlist to fix
+> >   crash on re-initialization.
 
