@@ -4,142 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FD8CCCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 17:56:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 538B8FF887E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 17:57:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xlbbJbxPo0aP4GzXhNyzBQhXAGPrmjhEpkBfIaFaaFQ=; b=Qhsl8sSM8Eq+P9t35U0uDoS316
-	5Kc9CQWHIpa13kF3P6wxypkYhI4Exj/VKhdZB6jhAhGI/Ds6DBiQ1xMFdWqaCgEug1pn55wzA5FIt
-	gA8OUi9jFy5J9XrTvWEPH9sC725XX8BZSa1c3cYX+5l2oKhC4a/MBGMD6RSGC0mMmnodc/ce366lW
-	6BmvWXMD4uOx5xYiSODxWhMVCzbhmsDXZt9hW7tG9ntIFhzbyn6nZWoaw1+CoOaHT2Ylas6/ultFv
-	RafpAyoCuKweNpeuZgdnopMhqR9KrF0wzWZZHkmVKgzlRnLzm9Es+dhP6fxEOkjRx+XN0m/nHrg0i
-	Xs9mDYeg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0Vum2Qfx5+SoYzasekNBMQ+YiKVnGlZJ3ij44o9Xlgc=; b=ulzu2K/LC4oE94
+	1gYpXPYQm6rh4kzuaw2cyJx1NLGD7vAwVC5yaOWCYWDkyNfH0k95PRJ8suMMAMdHyydOezilZBurY
+	z91L+LDuZu13dwaRF6Y0JWNveiEYkokmsifuGUonBTJl3gmf4j0k9dViqvC4k4ywzm3PNoX6Ke9Yv
+	oNy2DkmWTYqutwAk5/xGvZGJaFWXO893gqnenV6COeB+TmUQuEBsNIQmJ0FrLncEhVzF7NHp6A6pS
+	YAo69DOa5I2XZdy9oEjvuILptQuFQTTkGB9jcna/d8MZXZG/FJp/W1T89ormr56RDWKxEmyTJQ0/J
+	lh2evNngco5sa+PEVRjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI98c-000000040Cs-42VD;
-	Wed, 29 Apr 2026 17:55:54 +0000
-Received: from mail-northcentralusazon11013026.outbound.protection.outlook.com ([40.107.201.26] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1wI9AN-000000040Lj-39pt;
+	Wed, 29 Apr 2026 17:57:43 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI98a-000000040CT-1ryL
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 17:55:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gmcrx2MH4SbBOXf7yEkGy0taqE/0XbFDHRMGoPfvtqB76h+8mCH7OxZQ2D7s6WYJALXk4GRPkrMPZ2c6IrDWaPdNrgihNxlmg2HUx8kPyxw4nPA/T+9Rg6iNXLjsmCLDXWZIXsmdpmXMsZ7laBpFjEGaES4ae+VRxykFQlfrlDbHrlVCn/IwTV7vJwo6Ln2bBJW8Kybds4CDQzavdiZSsmMjBiPLGclLyOMDHN5QIXIKcxf8jkfl5lm3HKpA2ndW5fPrBrtuHQIckJpwCqBREGZ/hHf43DbmnDhhdYxhHr7itZtksYTBsSvqIe7NmonUj8JncDgxHRdLjOUR51AnGg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xlbbJbxPo0aP4GzXhNyzBQhXAGPrmjhEpkBfIaFaaFQ=;
- b=YUgLHPC9FnV79qLmZYi1xX/+6Z4SV8yyfKnfOHImVXLyBuuGSKY5tmylf2Wt136dcaQ8TJRwGT+xALhoQhPRfjVQkRXF489s1o8OYvYMmmUQM4c2q/QBvYrEmURHLBE08aOiJRxNQ6gV+Xs0aH3/Cdkx41I/ucNl85Z3OvH8iA2911hmSJ6QtzG9y9XSFJlsUIijHQRbQES1/nnFShmZy9X9rfGYPL0N6AzKtMKYWTH/50IOiTTDblTvmjKwrkcZI3hQzaCYaX85VbsyuYlh/aZMFPiZ3iTP3AxMNRG/Luw3b1i+YZzLOlBFu7tU4Eg3vOm6bPlFh8pIecpu3tXyTg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=bgdev.pl smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xlbbJbxPo0aP4GzXhNyzBQhXAGPrmjhEpkBfIaFaaFQ=;
- b=VMWRuQQ/qAKtCHZPysrxDcc0Qi2KZAEI62YXsQoiKPlhaBCoTmxAN1S4CREGe+wk4N4ZtIr/ajnR5Lnu0clAC14UBi4Nt8cxnSAkpVWxP7xo/wL+rW+ps2mVVM59QJ/pPcn2zTmmg/3jA8xNDQkDcn3hv/mlxRA6HViqHQPqPag=
-Received: from BN1PR14CA0027.namprd14.prod.outlook.com (2603:10b6:408:e3::32)
- by PH0PR10MB7100.namprd10.prod.outlook.com (2603:10b6:510:28b::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Wed, 29 Apr
- 2026 17:55:47 +0000
-Received: from BN2PEPF00004FBE.namprd04.prod.outlook.com
- (2603:10b6:408:e3:cafe::8b) by BN1PR14CA0027.outlook.office365.com
- (2603:10b6:408:e3::32) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.29 via Frontend Transport; Wed,
- 29 Apr 2026 17:55:42 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- BN2PEPF00004FBE.mail.protection.outlook.com (10.167.243.184) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9846.18 via Frontend Transport; Wed, 29 Apr 2026 17:55:42 +0000
-Received: from DLEE214.ent.ti.com (157.170.170.117) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 29 Apr
- 2026 12:55:42 -0500
-Received: from DLEE206.ent.ti.com (157.170.170.90) by DLEE214.ent.ti.com
- (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 29 Apr
- 2026 12:55:41 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE206.ent.ti.com
- (157.170.170.90) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 29 Apr 2026 12:55:41 -0500
-Received: from [10.249.130.12] ([10.249.130.12])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 63THtX1b3830916;
-	Wed, 29 Apr 2026 12:55:34 -0500
-Message-ID: <b80e17fb-7986-4a95-a845-48a7d318ff33@ti.com>
-Date: Wed, 29 Apr 2026 23:25:33 +0530
+	id 1wI9AK-000000040Ka-0GSn;
+	Wed, 29 Apr 2026 17:57:42 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 78636C5CD5D;
+	Wed, 29 Apr 2026 17:58:19 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 1FD8C5FD43;
+	Wed, 29 Apr 2026 17:57:35 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 430B71072B158;
+	Wed, 29 Apr 2026 19:57:20 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1777485452; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=0Vum2Qfx5+SoYzasekNBMQ+YiKVnGlZJ3ij44o9Xlgc=;
+	b=Wg4UW4g2WGpQe+FXph6tsBHWFD0BECvRL8NLGhZLbAiM0dLXtALl0yBqIrD+0Lawp02qRd
+	L/DUtmJwUhFvT/7i6dVkrYjSR0i2aqxl97NpsmKlJePMUStXMKAKuFLrdElmd6uDrZQMrW
+	DN2MVcdBKW/CmE3V63+VSy0oolOIh9vMJaN/cxw17hZkc97U0ZfuUAPZ4yGanlQWOoatGq
+	qp6FDwvx+tvn2k6kj4NlTu0PZO5c6zF2pim5Qlv9CB37AYmDKTUNUAVKAIQsbmXwa4RuM/
+	89ov9iKbcYD//Z7K/Ck/zA6aLDSk0p904Hc5ZMnNQ2ekegrqYQiQ3Q5SeoRwvw==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+Subject: [PATCH v3 00/11] mtd: spinand: Winbond continuous read support
+Date: Wed, 29 Apr 2026 19:56:37 +0200
+Message-Id: <20260429-winbond-v6-18-rc1-cont-read-v3-0-0f38b3c229ad@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
-To: Shenwei Wang <shenwei.wang@nxp.com>, Mathieu Poirier
-	<mathieu.poirier@linaro.org>
-CC: Andrew Lunn <andrew@lunn.ch>, Linus Walleij <linusw@kernel.org>, "Bartosz
- Golaszewski" <brgl@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>, Frank Li
-	<frank.li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, Shuah Khan
-	<skhan@linuxfoundation.org>, "linux-gpio@vger.kernel.org"
-	<linux-gpio@vger.kernel.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng Fan
-	<peng.fan@nxp.com>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-remoteproc@vger.kernel.org"
-	<linux-remoteproc@vger.kernel.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>
-References: <20260422212849.1240591-1-shenwei.wang@nxp.com>
- <20260422212849.1240591-4-shenwei.wang@nxp.com>
- <22fb5fac-2568-42be-a7e3-7e89d0017eb3@ti.com>
- <PAXPR04MB91850A11C58419C03909145F89362@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <6412a758-4560-4cf1-a0d0-5b24d1a715f1@lunn.ch>
- <PAXPR04MB9185009A17DFDF3D6C8B44E789362@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <6e01e114-e336-4744-b6b4-563ec42e321b@lunn.ch>
- <PAXPR04MB9185A098D894B6A6EBCC13F889372@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <afImuoeHolxGgw3H@p14s>
- <PAXPR04MB9185F2F6DDB55AC56C92D63B89342@PAXPR04MB9185.eurprd04.prod.outlook.com>
-Content-Language: en-US
-From: "Padhi, Beleswar" <b-padhi@ti.com>
-In-Reply-To: <PAXPR04MB9185F2F6DDB55AC56C92D63B89342@PAXPR04MB9185.eurprd04.prod.outlook.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF00004FBE:EE_|PH0PR10MB7100:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9ae93de2-0712-48c3-4e45-08dea6188835
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|7416014|376014|1800799024|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: 6r1FzQhZ19nRjc9AYdMmQVftwIcCeots8hfFPccgbYA0cyd2d+jJNs3WuNokOg4CvkCePht5nneCj6PdG9tlsCCnCGIvqfxouluZZ/RwEHT5X7W5pjywMXD5F12Rwt90OkfgvNomvY0mR293eVef8HgBFn35w1609Nk3S2QjgBzBgRcJNsgtC3Yh1SmbJ1c5DPtgADBQPh9gNxojT7+XCmMQxGdY8pEhAsGDjdcf9AbgYQHJBd7gJfZBduavvEV1Ky188xK86683A9RC7lpVoKLo1zChiadYXrx0FRqaDhptCeK+TGwOQo8sKGSG8eI7vesBS01d4eJiA5tCOaoGq5MuFQIFYRdh1qov8JJXH3AtUtQkBUdi0Kqe2oiZNh2L2Uk/qE0iKqeY7ZqItrvcuIc9Vtbte05NE/J7ZdXq7UVqCQZ95sm8WLbabst0/k8kd6VTKsIlSORFbsmyWW2uTc7JRfENDF4PhcwwwV/wVVKvlzkvxoyrzjQWb5uL3bcKM+pDOAxJDlDlV+EAkRb9jJUEKlc92LdJV/7N+lHj5vioTnpVlib5JxhpsDjtgCph9aH/AnZTnUySlITpEMwYstezShxapzbEsGdHxrFQXv74OL6h2gRPHUeNUFU+MWxVVDatXcc04lVyXdXD3QkvZxO8niV/vP6ruHP5zV4IvzJnVK6pRRSCeO7QnWK+zzNPS932zJoL8ID3DY7Z5mXoRzB4KhkYUvSRicJM8KiPnqJJq5AZbOLgd7nmVCxdCT1jO5BUWAoVionsUcRW/8HZaQ==
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(7416014)(376014)(1800799024)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 7mMXbnVGA7ZBkonRmZbN9fU/IZXEGw0J2rWOhI1D132FODXcgH1b/eJszh8ZtMbhIXtcg1B6DcOwIgh6g+M8u3NkztZm7laYOMge+4itlq+f2CRGP8CBwDHzp9g37uDK8GNByK5fAn11Z8a6DZwzzWMSRzYj7qoxFONCBoWkxlcYan2Vyb2IRF3Jd83247FptkJXXefLGE+DJRD33BU6uK38jBfs8kpiJwNgoPq7JUg+CJSlM0CRw/PnIRAbPStIYKW/spk9FK8jlpQJD9OEn11Q3YG+AYtCOoDtlQdAfJ6fEgRB+vrTiHG2L/XONNn/MTM0+uheeC6pnb4MvbDMBS6AUW368MbQoR9F7L0YmIbZPQa/9i9UqR2gzoeYjjg+tCB7654sJ8uv+0atZw+MNR2DZcTTkxNAh80kQwFRxIFDbS5WIpIp+pEi/DA+FO/W
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Apr 2026 17:55:42.6615
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9ae93de2-0712-48c3-4e45-08dea6188835
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF00004FBE.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR10MB7100
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33NSw6CMBSF4a2Qjr2mLy7gyH0YB/ShNNHWtKRqC
+ Hu3kDBxwPA/g+9MJNnobCKnaiLRZpdc8CXEoSJ66P3dgjOlCae8ZpxKeDuvgjeQEVgLUTPQwY8
+ QbW8AUTYdM0ZxFKQIr2hv7rPql2vpwaUxxO96ltmybm6962YGFChTWrYomG7EWYUwPpw/6vAki
+ 5z5piEVHPc1XjSUwtiu6bHt/7R5nn8RUI1yFgEAAA==
+X-Change-ID: 20251204-winbond-v6-18-rc1-cont-read-664791ddb263
+To: Mark Brown <broonie@kernel.org>, Richard Weinberger <richard@nod.at>, 
+ Vignesh Raghavendra <vigneshr@ti.com>, Michael Walle <mwalle@kernel.org>, 
+ Miquel Raynal <miquel.raynal@bootlin.com>, 
+ Takahiro Kuwano <takahiro.kuwano@infineon.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>, Ray Liu <ray.liu@airoha.com>, 
+ Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>, 
+ =?utf-8?q?C=C3=A9dric_Le_Goater?= <clg@kaod.org>, 
+ Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
+ Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
+ Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ =?utf-8?q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>
+Cc: Pratyush Yadav <pratyush@kernel.org>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Steam Lin <STLin2@winbond.com>, Santhosh Kumar K <s-k6@ti.com>, 
+ linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org, 
+ linux-stm32@st-md-mailman.stormreply.com
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_105552_496454_E048E694 
-X-CRM114-Status: GOOD (  17.53  )
+X-CRM114-CacheID: sfid-20260429_105740_387785_D69C9EF6 
+X-CRM114-Status: GOOD (  22.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,93 +94,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello,
 
-On 4/29/2026 10:23 PM, Shenwei Wang wrote:
->
->> -----Original Message-----
->> From: Mathieu Poirier <mathieu.poirier@linaro.org>
->> Sent: Wednesday, April 29, 2026 10:42 AM
->> To: Shenwei Wang <shenwei.wang@nxp.com>
->> Cc: Andrew Lunn <andrew@lunn.ch>; Padhi, Beleswar <b-padhi@ti.com>; Linus
->> Walleij <linusw@kernel.org>; Bartosz Golaszewski <brgl@kernel.org>; Jonathan
->> Corbet <corbet@lwn.net>; Rob Herring <robh@kernel.org>; Krzysztof Kozlowski
->> <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Bjorn Andersson
->> <andersson@kernel.org>; Frank Li <frank.li@nxp.com>; Sascha Hauer
->> <s.hauer@pengutronix.de>; Shuah Khan <skhan@linuxfoundation.org>; linux-
->> gpio@vger.kernel.org; linux-doc@vger.kernel.org; linux-kernel@vger.kernel.org;
->> Pengutronix Kernel Team <kernel@pengutronix.de>; Fabio Estevam
->> <festevam@gmail.com>; Peng Fan <peng.fan@nxp.com>;
->> devicetree@vger.kernel.org; linux-remoteproc@vger.kernel.org;
->> imx@lists.linux.dev; linux-arm-kernel@lists.infradead.org; dl-linux-imx <linux-
->> imx@nxp.com>; Bartosz Golaszewski <brgl@bgdev.pl>
->> Subject: [EXT] Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
->> On Tue, Apr 28, 2026 at 03:24:59PM +0000, Shenwei Wang wrote:
->>>
->>>> -----Original Message-----
->>>> From: Andrew Lunn <andrew@lunn.ch>
->>>> Sent: Monday, April 27, 2026 3:49 PM
->>>> To: Shenwei Wang <shenwei.wang@nxp.com>
->>>> Cc: Padhi, Beleswar <b-padhi@ti.com>; Linus Walleij
->>>> <linusw@kernel.org>; Bartosz Golaszewski <brgl@kernel.org>; Jonathan
->>>> Corbet <corbet@lwn.net>; Rob Herring <robh@kernel.org>; Krzysztof
->>>> Kozlowski <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>;
->>>> Bjorn Andersson <andersson@kernel.org>; Mathieu Poirier
->>>> <mathieu.poirier@linaro.org>; Frank Li <frank.li@nxp.com>; Sascha
->>>> Hauer <s.hauer@pengutronix.de>; Shuah Khan
->>>> <skhan@linuxfoundation.org>; linux-gpio@vger.kernel.org; linux-
->>>> doc@vger.kernel.org; linux-kernel@vger.kernel.org; Pengutronix
->>>> Kernel Team <kernel@pengutronix.de>; Fabio Estevam
->>>> <festevam@gmail.com>; Peng Fan <peng.fan@nxp.com>;
->>>> devicetree@vger.kernel.org; linux- remoteproc@vger.kernel.org;
->>>> imx@lists.linux.dev; linux-arm- kernel@lists.infradead.org;
->>>> dl-linux-imx <linux-imx@nxp.com>; Bartosz Golaszewski
->>>> <brgl@bgdev.pl>
->>>> Subject: [EXT] Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg
->>>> GPIO driver
->>>>>> struct virtio_gpio_response {
->>>>>>          __u8 status;
->>>>>>          __u8 value;
->>>>>> };
->>>>> It is the same message format. Please see the message definition
->>>> (GET_DIRECTION) below:
->>>>
->>>>> +   +-----+-----+-----+-----+-----+----+
->>>>> +   |0x00 |0x01 |0x02 |0x03 |0x04 |0x05|
->>>>> +   | 1   | 2   |port |line | err | dir|
->>>>> +   +-----+-----+-----+-----+-----+----+
->>>> Sorry, but i don't see how two u8 vs six u8 are the same message format.
->>>>
->>> Some changes to the message format are necessary.
->>>
->>> Virtio uses two communication channels (virtqueues): one for requests and
->> replies, and a second one for events.
->>> In contrast, rpmsg provides only a single communication channel, so a
->>> type field is required to distinguish between different kinds of messages.
->>>
->>> Since rpmsg replies and events share the same message format, an additional
->> line is introduced to handle both cases.
->>> Finally, rpmsg supports multiple GPIO controllers, so a port field is added to
->> uniquely identify the target controller.
->>
->> I have commented on this before - RPMSG is already providing multiplexing
->> capability by way of endpoints.  There is no need for a port field.  One endpoint,
->> one GPIO controller.
->>
-> You still need a way to let the remote side know which port the endpoint maps to,
+TLDR: I dropped v2 from my tree due to build issues with SPI
+controllers which I forgot about due to my testing configuration being
+minimal. This is just a respin of the same series, fixing the spi
+controller drivers which I initially missed.
 
+SPI NAND continuous read support has already been added a few releases
+ago, but only Macronix chips were benefiting from this support. Winbond
+chips also have a continuous read feature, which is slightly more
+complex to use in the scope of the Linux kernel, because they these
+chips expect a different read from cache operation once in continuous
+mode.
 
-About this, we only need to do this because you are defining the gpio
-controller instances "statically" in the device tree. I understand gpio
-nodes can act as providers, but I do not see any device referencing the
-gpio nodes you are defining in the device tree. If that is the case, you
-can completely remove the nodes from device tree, and "dynamically"
-announce the existence of these nodes from the firmware itself
-(similar to what is done for rpmsg-tty currently). In response to that
-announce message, Linux could send the "ept" it allocated for the
-controller. That way, Linux only cares about "ept" and there is no need
-to maintain port 'idx' info anywhere in the Linux side anymore.
+In order to be more flexible, this series changes the logic behind
+dirmaps. Direct mappings used to be very static, not flexible. I am
+proposing to change this and turn them in to slightly more dynamic
+interfaces, where for instance we can:
+- Enable/disable the correction (was previously handled by creating yet
+  another pair of direct mappings per target).
+- Select one or another variant for the cache operations.
 
-Thanks,
-Beleswar
+I propose to name the variants available in a direct mapping "primary"
+and "secondary", and let the upper layer (SPI NOR or SPI NAND) point to
+the one that needs to be used for the operation. Controller drivers
+should not really care about this change, expect the fact that they
+should not keep a static representation of the template on their
+side. Because of that, I am creating a capability boolean to flag
+drivers that support this capability (the flag is ignored in the
+nodirmap case).
+
+This series is now sent as v2 following a former RFC (link below).
+
+Here is a benchmark with the faster Winbond chip I have, W35N02JW on a
+TI AM62a7 LP SK featuring the Cadence QSPI controller, clocked at
+25MHz. Speed gain for a 10-page read is about +32% in octal SDR mode,
++47% for a 10-page read in octal DTR mode and up to +83% for a entire
+block read!
+
+    1S-8S-8S, no continuous read:
+
+       64 page read speed is 15058 KiB/s
+
+    1S-8S-8S, with continuous reads:
+
+       1 page read speed is 15058 KiB/s
+       2 page read speed is 15058 KiB/s
+       3 page read speed is 16800 KiB/s
+       4 page read speed is 17066 KiB/s
+       5 page read speed is 18461 KiB/s
+       6 page read speed is 18461 KiB/s
+       7 page read speed is 19384 KiB/s
+       8 page read speed is 19692 KiB/s
+       9 page read speed is 19384 KiB/s
+       10 page read speed is 20000 KiB/s
+       11 page read speed is 20000 KiB/s
+       12 page read speed is 20000 KiB/s
+       13 page read speed is 20800 KiB/s
+       14 page read speed is 20363 KiB/s
+       15 page read speed is 20000 KiB/s
+       16 page read speed is 19692 KiB/s
+       32 page read speed is 19692 KiB/s
+       64 page read speed is 19692 KiB/s
+
+    8D-8D-8D, no continuous read:
+
+       64 page read speed is 23272 KiB/s
+
+    8D-8D-8D, with continuous read:
+
+       1 page read speed is 23272 KiB/s
+       2 page read speed is 23272 KiB/s
+       3 page read speed is 28000 KiB/s
+       4 page read speed is 32000 KiB/s
+       5 page read speed is 34285 KiB/s
+       6 page read speed is 34285 KiB/s
+       7 page read speed is 36000 KiB/s
+       8 page read speed is 36571 KiB/s
+       9 page read speed is 36000 KiB/s
+       10 page read speed is 34285 KiB/s
+       11 page read speed is 36666 KiB/s
+       12 page read speed is 40000 KiB/s
+       13 page read speed is 41600 KiB/s
+       14 page read speed is 37333 KiB/s
+       15 page read speed is 40000 KiB/s
+       16 page read speed is 36571 KiB/s
+       32 page read speed is 42666 KiB/s
+       64 page read speed is 42666 KiB/s
+
+On the Nuvoton platform, the speed gain is real, even though it is less
+impressive:
+
+       1 page read speed is 1802 KiB/s
+       2 page read speed is 1882 KiB/s
+       3 page read speed is 1938 KiB/s
+       4 page read speed is 1939 KiB/s
+       5 page read speed is 1935 KiB/s
+       6 page read speed is 1967 KiB/s
+       7 page read speed is 1968 KiB/s
+       8 page read speed is 1969 KiB/s
+       9 page read speed is 1968 KiB/s
+       10 page read speed is 2000 KiB/s
+       11 page read speed is 2000 KiB/s
+       12 page read speed is 2000 KiB/s
+       13 page read speed is 2000 KiB/s
+       14 page read speed is 2000 KiB/s
+       15 page read speed is 2000 KiB/s
+       16 page read speed is 2000 KiB/s
+       32 page read speed is 2000 KiB/s
+       64 page read speed is 2000 KiB/s
+
+Thanks!
+Miquèl
+
+---
+Changes in v3:
+- The API change in spi-mem has been applied to all SPI controller drivers
+  (fixing build failures on drivers I was not building in my test
+  config).
+  That is the only change.
+- Link to v2: https://lore.kernel.org/r/20260326-winbond-v6-18-rc1-cont-read-v2-0-643de97a68a3@bootlin.com
+
+Changes in v2:
+- Rebased on v7.0-rc1.
+- Collected tags.
+- I manually tested the integrity of the data by manually disabling all
+  possible variants one after the other using a 2 page read scenario. All
+  worked except the fastest 8D-8D-8D variant (the first one in the list)
+  which triggered the CS deassert issue on the Cadence controller. This
+  issue is orthogonal to this patchset, a follow-up series will be sent
+  to disable continuous reads on this controller.
+- All continuous read variants for the W25NxxJW chips have been tested
+  on the MA35D1 platform (which lead to several fixes) and the
+  W35NxxJW chips have been tested on TI AM62a7 LP SK.
+- Several changes have been operated in the core to stabilize the
+  feature when a secondary op is used.
+- A couple of helpers have been created to cleanup the winbond.c driver.
+- Link to v1: https://lore.kernel.org/r/20251205-winbond-v6-18-rc1-cont-read-v1-0-01bc48631c73@bootlin.com
+
+---
+Miquel Raynal (11):
+      mtd: spinand: Drop a too strong limitation
+      mtd: spinand: Expose spinand_op_is_odtr()
+      mtd: spinand: Drop ECC dirmaps
+      spi: spi-mem: Transform the read operation template
+      spi: spi-mem: Create a secondary read operation
+      mtd: spinand: Use secondary ops for continuous reads
+      mtd: spinand: winbond: Ensure chips are ordered by density
+      mtd: spinand: winbond: Add support for continuous reads on W35NxxJW
+      mtd: spinand: winbond: Create a helper to write the HS bit
+      mtd: spinand: winbond: Create a helper to detect the need for the HS bit
+      mtd: spinand: winbond: Add support for continuous reads on W25NxxJW
+
+ drivers/mtd/nand/spi/core.c    | 135 ++++++++++++------
+ drivers/mtd/nand/spi/winbond.c | 317 ++++++++++++++++++++++++++++++++---------
+ drivers/mtd/spi-nor/core.c     |  22 +--
+ drivers/spi/spi-airoha-snfi.c  |   6 +-
+ drivers/spi/spi-aspeed-smc.c   |   4 +-
+ drivers/spi/spi-intel.c        |   6 +-
+ drivers/spi/spi-mem.c          |  32 ++++-
+ drivers/spi/spi-mxic.c         |  18 +--
+ drivers/spi/spi-npcm-fiu.c     |  16 +--
+ drivers/spi/spi-rpc-if.c       |   8 +-
+ drivers/spi/spi-stm32-ospi.c   |   6 +-
+ drivers/spi/spi-stm32-qspi.c   |   6 +-
+ drivers/spi/spi-wpcm-fiu.c     |   2 +-
+ include/linux/mtd/spinand.h    |  16 ++-
+ include/linux/spi/spi-mem.h    |   8 +-
+ 15 files changed, 435 insertions(+), 167 deletions(-)
+---
+base-commit: 1e0fe839f8c4bade7b9dc358fb8eef5b2f43af49
+change-id: 20251204-winbond-v6-18-rc1-cont-read-664791ddb263
+
+Best regards,
+-- 
+Miquel Raynal <miquel.raynal@bootlin.com>
 
 
