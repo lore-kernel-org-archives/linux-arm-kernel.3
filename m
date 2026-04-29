@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74082FF8867
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 06:58:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C24FDFF8864
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 06:59:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2YAMiQdl0y9iAuHJeag5d0legeH39piZcT0MdhE3hIc=; b=AJSXc1noJFSAqS4Qjkfvof/RT0
-	JO2EF8lyMnTvRJC4iJh6ulG+8hCYfh6mFmZ0quw6fbV9mFrQ4RxT1tnXH8h2+SBkg/J0IofYomv4j
-	jPQL/puneFv5mjnFM/PgqzEfbSLS8PVJR2L3CG23im3l7AuZs6TvZnZP2OEs0ak4LY9lFkZ1+i1Km
-	JsVNPygFtKQY9mBS8SP+Dy0Ea1I1MH9XgX7DJWwGmDCPglkgHWuAnu0h/ZZG/5bReprD6rVDyWpl1
-	q8kMlTedtIUxP1yuq6FKdF/N5A6TBBsrkzBBTFLsAdEmPYs3BBcpYCIP/A9TS6XPAEyZwoQ8+Xf7B
-	ZQqE42Mg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y02uBvZORLsA6xImd4974JLfXXgs5mmuCn2J28MpgzI=; b=UDvwNM3kOOKG4ymdEiQBdQtU9V
+	DdL1wdGkdWhNLiXrv9Tn0tp3l9+pDaRFr+ljAfxnT0IYzEia0C9Vjjik1xPNgSProYmeE9fYHfCmV
+	kYLJv/cDOMLuzua4Xs2spjEGxwcpriBKwRx0QZcUgUrQOWjhFsQdRcyLX+tbgorW7Yob+gJWWjTvJ
+	R2NRDp/UxhaqMRxiyaW6b/+cUbxofiWYl3/xPKF+RO44BXI2RMGouqgWL7vaLdz+Y7KpbiSnKdXt1
+	CpNn8h/YBZAQbeJaJLpbb9qhAwg3lMX6Y5l2IZLuzK9fPkgoc8eTZgfwX2g5Wof4+GTXjoA3j0ljT
+	tsP6AF9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHysi-000000034fj-2350;
-	Wed, 29 Apr 2026 06:58:48 +0000
+	id 1wHysr-000000034kW-0hvj;
+	Wed, 29 Apr 2026 06:58:57 +0000
 Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHysg-000000034eh-0QxP
+	id 1wHyso-000000034j1-3qY7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 06:58:47 +0000
-Received: by mail-pf1-x442.google.com with SMTP id d2e1a72fcca58-82f1bfc9b8fso5569999b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 23:58:45 -0700 (PDT)
+	Wed, 29 Apr 2026 06:58:56 +0000
+Received: by mail-pf1-x442.google.com with SMTP id d2e1a72fcca58-82cf636dac8so5271533b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Apr 2026 23:58:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777445924; x=1778050724; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=2YAMiQdl0y9iAuHJeag5d0legeH39piZcT0MdhE3hIc=;
-        b=QLg36gI+wGys2j35WqN7gtqnDrd9OzgnLr3YZ4t9MOpj9Lm0IJLXQWlC6HSV4ZggW9
-         ghjX+Wwx6IQ6Q967zvaHUegagcHEYeVHFo9kleEtekn1i7DlVyJMLQvV5pTFR8YxWan0
-         u51vJN+xyTPQIhSQCWy+XY09fbscdsK/n1auLPk4rbx0JUpWF+He+z8mc5MKkKDpba+6
-         hEYxw9NTqg515FboRRr1ZgjfHgcmccRvVOnl7UPSNk6nCvMjeeUhYUoN7uGHJaTW7XcC
-         1EsMyeRzTRDap+vCEUrXZ+NYm9CX5L06q7LoinOAs4Ngv551CR9SkYNxNUHmcyavsPNH
-         NWpg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777445924; x=1778050724;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1777445934; x=1778050734; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=2YAMiQdl0y9iAuHJeag5d0legeH39piZcT0MdhE3hIc=;
-        b=pCkcGiajL7JAMXTuQJx6s5nDnIVvtagplTqRn8fkWt1eHcYe8rAOFWwjytu76Pw7Rw
-         GeRdIxRyOQ/FIiBdiDYu3gPZTL4wkbctqMl4ZJXlmii9wi65nXyhSYok22vfhgfGKPKs
-         eKuWRB0+yrXwS/C8uIK3C9cdPUIj2wTQCPLE+At1BkzHgZrpKAP4vT7ydtI3fkRIqKf0
-         CK6+HzXM2sPdMCfo0y1e8qO8XCj8jxgJAc3LD34uUS+joE4H+SWPQbhRXCrlmToWGhBp
-         AhUeb3+4ODDXRSY72hY3QEux59sHZxy/81eSzy58ZdUpVvMTf7C7FoAHaUROzMSFIEG5
-         SN9w==
-X-Forwarded-Encrypted: i=1; AFNElJ8eEy+HpU9iltsMcl93pl74+4ogdE+Whq9tGN0fmnSyWrZty8Zt4FxVzcoYqslzAIXwkCQl2/x6VjZS1H/AOEKA@lists.infradead.org
-X-Gm-Message-State: AOJu0YzIlJFUI+kvU9mVg2phoqLPeucb5FlLe8Sju0O5ebMTmeu904Rg
-	dbsdkryf4WpS9D6MwUBPmaN3ICr2WXU/Oa/mpOMRvf3x/w0kvwOcJ3IT
-X-Gm-Gg: AeBDiesOdOA5RtfY2TyKxw5OHa7vzk0S9kEpj03H3paEx1dLfQnMgFyzLSxSza+VUAa
-	PDZ1tfIaDaF/zfYi1by3Z9tZvwFiMVrZ6aEunTfopoPU+gWTcE6aJs/mCqzi5+CEgOiT654DyQJ
-	HMwCruuIhouKqGL9r+J6S5xfYXAVCdrmtkPQxx9tXQTQsPgYn+j8Wx7IPSb3AUDs31WLO1pbw6V
-	8DaofoONoW8YjBcIbVCynfzudwDvY/sXhGKsz+wUr7sU8YQCOJHUCtjAPpxWDlYBcfxXXu27V3V
-	DwFNDTtfecAFNJEwMt+yLOFuCz5F8ATZYPgVPolOmH22bpLpctPc60ikFkGtx839g/eR3MHUtsE
-	W8wTysYdHce4/q6176Low2fPr70FtQk/lf5tbEhVD+bJHmydAuHnLpOL6fIwkYofaHosaAlAEyd
-	geEcUeg08EIZdWjY6KFl09pYUAwOvG73BHG8AH6ptXoGbzKg53
-X-Received: by 2002:a05:6a00:883:b0:829:7d31:dd99 with SMTP id d2e1a72fcca58-834ddbd42f5mr6432638b3a.38.1777445924448;
-        Tue, 28 Apr 2026 23:58:44 -0700 (PDT)
+        bh=y02uBvZORLsA6xImd4974JLfXXgs5mmuCn2J28MpgzI=;
+        b=nsEJ5mB/HDCQXlzzAn9y5EsmXCnjyr8VV63WScD0hcMSUjJKj3EqpqeK4JEXoFuxFj
+         uc871exGbBnMLI+nmVIo3hX5d94AL3B807EVbmn9GbXjc6nQCBLQPg/YjDlr004ax6Jz
+         /wLg7yK+nOZYq05EV18fTZ6ePdNMnNtTW5DJiwDR9chq+abKSBLyIa5VjUaH08EvGEiP
+         thxRkq+VGCBrpnyNWPqwc0XjA8Sbt8+ZZaPTYjO7tPwMkjPZpPtL1PpLtd1Bpq2cNa90
+         EWth8KBzj6cXE5ZtbRp0lMGCJlkDS80lefKXgTuS5U1qiU5P0zuDcQu6iXlmjxvpw51v
+         l+6g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777445934; x=1778050734;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=y02uBvZORLsA6xImd4974JLfXXgs5mmuCn2J28MpgzI=;
+        b=Cwm+zRnJ1w9byii2ubu0aNNieQ/zcRZ39LIy7l9JfZAdHempm9/g4bk33T+n4It8e/
+         20FfKCC/Vi1j3l18gMQGiFQwWQ8huZ/pM28dSZzyvMUWX/8qpTJXTyxv2MNqDCeAk3C6
+         8qr2hedol06KkeZqmuehjDYKz/Gki/Us2fS2fZ92XIskfMY7aOYk0VqS5VwRR+RmLkrr
+         1znQndoyYFgFffEWfrnmJLM41xG8OhjHhyS3+Vit7w/AIVobNR4DS9+iEiLs+Hmdn7V/
+         dtDvblW9uw/iX3mpSOz+WD3i4bgpD8PWyNYsai+zIunSsLVe99nx0erFa01yKXrHkCEB
+         U+PQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9dK1QnFnm6PYX2NU02SLd3h7b7vWTFk6r7SBW434Ozrq5fOSpG3AqCfPMFJavVtlf2Vtw6yu9HJD+7fnIBiXJk@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy1nppc+VGirLpQjj4xGbsfx4XiGIXOiVfwLdwEdssq+x3CqfXw
+	qftvg6T4le0HvejtU8tdszsGJA5lnB9cHYiGoJ8wThmfzKf5U94nfFlA
+X-Gm-Gg: AeBDieu1dtZkkcKNmMY8JWCokr4wEh97CNBiZEofrNIl9RImW0Qxht64lif1fd0gQ9g
+	GLc2W+6qzy+n6IzAfRn/cfTBpRLim/nHkxLzCm60cKlpQjtCJJ/DPHXI1rTrnnSujbWeOA/Eka+
+	hbfdMdCMSNgS2ABNg3hwY2SF/PiSdifnfqMYUNMa17GX3+D4sQuox2XCyfg/0mUo55aDt5Nf/90
+	zfjcFWomo8Xq/mh74G8YC7xpTTDp8L5S7NKQwh1xaQYwFazJJU0bMGTFRIZle4YUfEOwNFaY0Je
+	UDhHQABJE545s8dU299SeVYTFx+CHEKVrGBcyQ2NiL6MH9d52yNnOwSslIih3uPhkHwPAZ9NU0J
+	z8p6ZBlodTAWUQV3EZZ1EmS0Y5A4RHrnpZkIEx0biZvpKoXWkT+sNnhanXdkrplBjCcScwC5Wrz
+	qRzffrDbX/5DXpi2g13jHKl6/1rmCNgY/SXEWZkIgtXVJ8sxyk
+X-Received: by 2002:a05:6a00:2d85:b0:82c:dd31:b83d with SMTP id d2e1a72fcca58-834ddc5879cmr6667128b3a.38.1777445934284;
+        Tue, 28 Apr 2026 23:58:54 -0700 (PDT)
 Received: from intel.company.local ([210.184.73.204])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-834ed7eaf93sm1043146b3a.40.2026.04.28.23.58.35
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-834ed7eaf93sm1043146b3a.40.2026.04.28.23.58.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Apr 2026 23:58:43 -0700 (PDT)
+        Tue, 28 Apr 2026 23:58:53 -0700 (PDT)
 From: Chen Wandun <chenwandun1@gmail.com>
 X-Google-Original-From: Chen Wandun <chenwandun@lixiang.com>
 To: kexec@lists.infradead.org,
@@ -97,15 +98,17 @@ Cc: akpm@linux-foundation.org,
 	chenwandun@lixiang.com,
 	zhaomeijing@lixiang.com,
 	everyzhao@126.com
-Subject: [PATCH 00/11] kdump: reduce vmcore size and capture time via linux,no-dump
-Date: Wed, 29 Apr 2026 14:58:20 +0800
-Message-ID: <20260429065831.1510858-1-chenwandun@lixiang.com>
+Subject: [PATCH 01/11] of: reserved_mem: fix region count for nodes with multiple reg entries
+Date: Wed, 29 Apr 2026 14:58:21 +0800
+Message-ID: <20260429065831.1510858-2-chenwandun@lixiang.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260429065831.1510858-1-chenwandun@lixiang.com>
+References: <20260429065831.1510858-1-chenwandun@lixiang.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_235846_145637_8D8D8A00 
-X-CRM114-Status: GOOD (  13.82  )
+X-CRM114-CacheID: sfid-20260428_235854_965174_8D7EDB4F 
+X-CRM114-Status: GOOD (  20.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,128 +123,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series has two parts:
+When a reserved-memory node contains multiple reg entries (e.g.,
+reg = <base1 size1>, <base2 size2>), the count used for
+total_reserved_mem_cnt is wrong in two places:
 
- - Patches 1-4 are OF reserved_mem bug fixes and small hardening
-   changes. They stand on their own and at the same time prepare the
-   ground for the feature work that follows (accurate region counts,
-   consistent two-pass save/reserve state, and an early-out when the
-   array is empty).
+1) __reserved_mem_reserve_reg() returns 0 on success regardless of how
+   many regions it reserved in memblock. The caller in
+   fdt_scan_reserved_mem() then increments count by just 1.
 
- - Patches 5-11 introduce a new 'linux,no-dump' reserved-memory
-   device tree property and the kdump plumbing to honour it, split
-   further as:
+2) fdt_scan_reserved_mem_late() uses of_flat_dt_get_addr_size() which
+   only reads the first reg entry. Subsequent entries are never
+   initialized via fdt_init_reserved_mem_node(), so their metadata is
+   lost.
 
-     * Patches 5-7: core OF changes - parse 'linux,no-dump' on
-       /reserved-memory/ children, save /memreserve/ firmware regions
-       into reserved_mem[] with no_dump defaulted on, and add generic
-       no-dump crash_mem exclusion helpers.
+Fix both issues:
+ - Make __reserved_mem_reserve_reg() return the actual number of
+   regions successfully reserved. Update the caller to accumulate
+   the returned count.
+ - Rewrite fdt_scan_reserved_mem_late() to use
+   of_flat_dt_get_addr_size_prop() and iterate all reg entries,
+   initializing each one via fdt_init_reserved_mem_node().
 
-     * Patches 8-10: arch kdump consumers - arm64, riscv and
-       loongarch each call the helpers from patch 7 in their
-       prepare_elf_headers() so that 'linux,no-dump' /reserved-memory/
-       children and /memreserve/ regions are filtered out of the
-       vmcore ELF PT_LOAD segments.
-
-     * Patch 11: user-facing documentation in
-       Documentation/admin-guide/kdump/kdump.rst.
-
-Motivation
-==========
-
-On SoCs that carve out large firmware-owned reserved memory (GPU
-firmware, DSP, modem, camera ISP, NPU, ...), kdump currently dumps
-those carveouts as part of system RAM even though their contents are
-firmware state that is not useful for kernel crash analysis. On a
-machine with several hundred MiB of such carveouts, the overhead per
-vmcore is substantial.
-
-This series adds a declarative way for DT authors to mark such
-regions:
-
-    reserved-memory {
-        npu_fw@a0000000 {
-            reg = <0x0 0xa0000000 0x0 0x10000000>;
-            linux,no-dump;
-        };
-    };
-
-and also defaults /memreserve/ firmware regions (Trusted Firmware /
-BL31 images, secondary-CPU spin-table pens, bootloader scratch per
-Documentation/arch/arm64/booting.rst and upstream DTS files) to
-no_dump=true.
-
-Interaction with existing reserved-memory flags is kept simple:
-'linux,no-dump' is an OS hint, it is redundant (but harmless) when
-combined with 'no-map' and silently ignored on 'reusable' (CMA)
-regions whose contents are relevant for crash analysis. The 'linux,'
-prefix follows existing precedents like 'linux,cma-default' since
-kdump is a Linux-specific concept.
-
-Benefits
-========
-
- - Smaller vmcore. The excluded firmware carveouts are omitted from
-   the ELF PT_LOAD segments entirely, so the resulting dump file is
-   smaller by roughly the sum of the tagged regions - on SoCs with
-   hundreds of MiB of GPU/DSP/modem/NPU carveouts this is a
-   substantial saving, both on disk and in transit to a dump server.
-
- - Faster kdump. The dump-capture kernel writes less data to storage
-   or over the network, which directly shortens the crash-to-dump
-   turnaround. Tools that walk the dump (makedumpfile, crash) also
-   spend less time on regions that were never going to be useful
-   anyway.
-
- - No existing behaviour change for DTs that do not opt in: regions
-   without 'linux,no-dump' and systems without /memreserve/ entries
-   are dumped exactly as before.
-
-DT binding
-==========
-
-The 'linux,no-dump' property is maintained in dt-schema
-(reserved-memory.yaml moved there from the kernel tree).
-Corresponding PR:
-
-  https://github.com/devicetree-org/dt-schema/pull/193
-
-Follow-ups
-==========
-
- - powerpc also uses kexec_file and /reserved-memory/, but its
-   arch/powerpc/kexec/ranges.c uses the _guarded variant of
-   crash_exclude_mem_range with dynamic realloc and collects
-   additional RTAS/OPAL firmware ranges. Adapting it needs a small
-   extra helper; left as a follow-up.
-
+Fixes: 8a6e02d0c00e ("of: reserved_mem: Restructure how the reserved memory regions are processed")
+Fixes: 00c9a452a235 ("of: reserved_mem: Add code to dynamically allocate reserved_mem array")
+Signed-off-by: Chen Wandun <chenwandun@lixiang.com>
+Tested-by: Zhao Meijing <zhaomeijing@lixiang.com>
 ---
+ drivers/of/of_reserved_mem.c | 37 +++++++++++++++++++++++-------------
+ 1 file changed, 24 insertions(+), 13 deletions(-)
 
-Chen Wandun (11):
-  of: reserved_mem: fix region count for nodes with multiple reg entries
-  of: reserved_mem: reject reserved memory outside physical address
-    range
-  of: reserved_mem: avoid unconditional save of reg entries in
-    fdt_scan_reserved_mem_late()
-  of: reserved_mem: skip reserved_mem array allocation when there is
-    nothing to save
-  of: reserved_mem: add linux,no-dump property support for reserved
-    memory regions
-  of: reserved_mem: save /memreserve/ entries into reserved_mem array
-  of: reserved_mem: add no-dump crash_mem exclusion helpers
-  arm64: kdump: exclude no-dump reserved memory regions from vmcore
-  riscv: kdump: exclude no-dump reserved memory regions from vmcore
-  loongarch: kdump: exclude no-dump reserved memory regions from vmcore
-  Documentation: admin-guide: kdump: document linux,no-dump DT property
-
- Documentation/admin-guide/kdump/kdump.rst  |  59 ++++++
- arch/arm64/kernel/machine_kexec_file.c     |   6 +
- arch/loongarch/kernel/machine_kexec_file.c |   6 +
- arch/riscv/kernel/machine_kexec_file.c     |   4 +
- drivers/of/of_reserved_mem.c               | 233 ++++++++++++++++++---
- include/linux/of_reserved_mem.h            |  16 ++
- 6 files changed, 295 insertions(+), 29 deletions(-)
-
+diff --git a/drivers/of/of_reserved_mem.c b/drivers/of/of_reserved_mem.c
+index 8d5777cb5d1b..9d1b0193864c 100644
+--- a/drivers/of/of_reserved_mem.c
++++ b/drivers/of/of_reserved_mem.c
+@@ -129,6 +129,8 @@ static int __init early_init_dt_reserve_memory(phys_addr_t base,
+ 
+ /*
+  * __reserved_mem_reserve_reg() - reserve all memory described in 'reg' property
++ *
++ * Returns: number of regions successfully reserved, or negative error code
+  */
+ static int __init __reserved_mem_reserve_reg(unsigned long node,
+ 					     const char *uname)
+@@ -137,6 +139,7 @@ static int __init __reserved_mem_reserve_reg(unsigned long node,
+ 	int i, len, err;
+ 	const __be32 *prop;
+ 	bool nomap;
++	int reserved_count = 0;
+ 
+ 	prop = of_flat_dt_get_addr_size_prop(node, "reg", &len);
+ 	if (!prop)
+@@ -160,12 +163,13 @@ static int __init __reserved_mem_reserve_reg(unsigned long node,
+ 			fdt_fixup_reserved_mem_node(node, base, size);
+ 			pr_debug("Reserved memory: reserved region for node '%s': base %pa, size %lu MiB\n",
+ 				uname, &base, (unsigned long)(size / SZ_1M));
++			reserved_count++;
+ 		} else {
+ 			pr_err("Reserved memory: failed to reserve memory for node '%s': base %pa, size %lu MiB\n",
+ 			       uname, &base, (unsigned long)(size / SZ_1M));
+ 		}
+ 	}
+-	return 0;
++	return reserved_count;
+ }
+ 
+ /*
+@@ -275,25 +279,32 @@ void __init fdt_scan_reserved_mem_late(void)
+ 
+ 	fdt_for_each_subnode(child, fdt, node) {
+ 		const char *uname;
+-		u64 b, s;
++		int i, len;
++		const __be32 *prop;
+ 		int ret;
+ 
+ 		if (!of_fdt_device_is_available(fdt, child))
+ 			continue;
+ 
+-		if (!of_flat_dt_get_addr_size(child, "reg", &b, &s))
++		prop = of_flat_dt_get_addr_size_prop(child, "reg", &len);
++		if (!prop)
+ 			continue;
+ 
+ 		ret = fdt_validate_reserved_mem_node(child, NULL);
+ 		if (ret && ret != -ENODEV)
+ 			continue;
+ 
+-		base = b;
+-		size = s;
++		uname = fdt_get_name(fdt, child, NULL);
++		for (i = 0; i < len; i++) {
++			u64 b, s;
+ 
+-		if (size) {
+-			uname = fdt_get_name(fdt, child, NULL);
+-			fdt_init_reserved_mem_node(child, uname, base, size);
++			of_flat_dt_read_addr_size(prop, i, &b, &s);
++
++			base = b;
++			size = s;
++
++			if (size)
++				fdt_init_reserved_mem_node(child, uname, base, size);
+ 		}
+ 	}
+ 
+@@ -331,16 +342,16 @@ int __init fdt_scan_reserved_mem(void)
+ 
+ 	fdt_for_each_subnode(child, fdt, node) {
+ 		const char *uname;
+-		int err;
++		int ret;
+ 
+ 		if (!of_fdt_device_is_available(fdt, child))
+ 			continue;
+ 
+ 		uname = fdt_get_name(fdt, child, NULL);
+ 
+-		err = __reserved_mem_reserve_reg(child, uname);
+-		if (!err)
+-			count++;
++		ret = __reserved_mem_reserve_reg(child, uname);
++		if (ret > 0)
++			count += ret;
+ 		/*
+ 		 * Save the nodes for the dynamically-placed regions
+ 		 * into an array which will be used for allocation right
+@@ -348,7 +359,7 @@ int __init fdt_scan_reserved_mem(void)
+ 		 * or marked as no-map. This is done to avoid dynamically
+ 		 * allocating from one of the statically-placed regions.
+ 		 */
+-		if (err == -ENOENT && of_get_flat_dt_prop(child, "size", NULL)) {
++		if (ret == -ENOENT && of_get_flat_dt_prop(child, "size", NULL)) {
+ 			dynamic_nodes[dynamic_nodes_cnt] = child;
+ 			dynamic_nodes_cnt++;
+ 		}
 -- 
 2.43.0
 
