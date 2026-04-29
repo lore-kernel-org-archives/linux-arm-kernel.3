@@ -4,63 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3B8ACCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 16:39:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFC9BFF887E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 16:53:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j/Esht8wIPQ9PDgMUJll15IeAVM0HQrKY3Q6IqCDCZU=; b=f+mH8kh99TWmANkk2LRAP3uud8
-	xS3y+qcUGHjTEhJJJOy5V24Y+ModkNwkDvn2TLJdXfNRxqNGGw7upurPHgITCrn59rzN5grSQ7Ri3
-	P+aMv/4dv2IqqaseEBaPlA09RWBXjJsD6/CsfMrcTkS9d0UFDV71YsgMGkWGrcIKl5EI5JTIwvq7f
-	5SdbwWtZiAzQQt/Xaim9OVWv78cxl7doX/auTqQ1fstKiA5Hj80TuMUfqkyfxbzV2oYXrQEW1sDst
-	vv3BtpwDGUVlNXncyjjCEhX+I4pEVjkHlrCRPXlxBTxoHlvUOYzTTFiS0o4CPDS1XS+N2kLU7iYgx
-	ZOBHlNIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hQG/jZC96L0E/Ud9G8CTygv7/TE13mn73WHCdycXfr0=; b=v0UOWi7+vozbKno0QoBEXm7B4M
+	DWYIPgV/fCsTh6rzQd09wrqt/mN/7KZj5QoGypdc/ZuSGwn47gwDQaHprWcC2qn3UgaRwsWopEopl
+	xCx5rsseADNPGi0lOFvTfPdCrdQ6cSBpeXJ8IN3sgIJnTsD9ROqpXdPYmpEek5L5kn15uXIsL0NzZ
+	9kAk+Kd8xpng5PjaP5bo5FT9MS6cddltLrsy/0bBO5mzzI3Cns4Icnari7lxbISGneoEM7+zVNKtE
+	bkBJVs5KZ//H7qI93NhcyEcJBsFSglDr9hbI4XhDZ06oIlU6CIM5iZLhKhV65+CQuwKZHtWOHIMCi
+	Jxf/giSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI7wT-00000003vCp-37Ny;
-	Wed, 29 Apr 2026 16:39:17 +0000
-Received: from smtprelay0010.hostedemail.com ([216.40.44.10] helo=relay.hostedemail.com)
+	id 1wI89w-00000003vWY-2I9i;
+	Wed, 29 Apr 2026 16:53:12 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI7wQ-00000003vCT-2kai
+	id 1wI89u-00000003vVz-15Wj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 16:39:16 +0000
-Received: from omf04.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay09.hostedemail.com (Postfix) with ESMTP id 4C6988B340;
-	Wed, 29 Apr 2026 16:39:11 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf04.hostedemail.com (Postfix) with ESMTPA id 4AA7520033;
-	Wed, 29 Apr 2026 16:39:09 +0000 (UTC)
-Date: Wed, 29 Apr 2026 12:39:26 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
- <will@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Ian
- Rogers <irogers@google.com>, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v18 4/8] ring-buffer: Skip invalid sub-buffers when
- rewinding persistent ring buffer
-Message-ID: <20260429123926.204893bc@gandalf.local.home>
-In-Reply-To: <20260430002023.b19608c27a746284e8f73b80@kernel.org>
-References: <177701351903.2223789.17087009302463188638.stgit@mhiramat.tok.corp.google.com>
-	<177701355481.2223789.8929563537404268817.stgit@mhiramat.tok.corp.google.com>
-	<20260428162146.78e52988@gandalf.local.home>
-	<20260430002023.b19608c27a746284e8f73b80@kernel.org>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Wed, 29 Apr 2026 16:53:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=y5yR0do+45iaXKwY/6yiFETs+8IxNWxBCs7LD2KB1LM/8+xIBsRduJUyevWBUL3iDuTVtg/xJqSCFCdoXw2IYBVGDAGxX81rbE9IOiEhDAYPjh6sKvk/s8DUJMEAzto2yRpzeq+wk3xgiba1IBBFEMlTQm7zyRhmPb2SoPMaIckS336FmH6t85P2eGRdcsv9SXGPkAHLF2RMZ/W88UQCjwYq5sj+x/WxYorMKuBFXSRnHka0/f5WToJk/uOOemEp7CZLkocFiZ2W5yJhm0xOhygjMRvlat9SfSx1Z9zG1/2LDmAX8vZPI8i5aEOMbtmfdmOJLpZKBFJSVxaxx7PoYg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hQG/jZC96L0E/Ud9G8CTygv7/TE13mn73WHCdycXfr0=;
+ b=x5LIjFQ6HJKAszGV5Em9JeaSWIe/zsJYtt3sKw8TANdBXmNAuragXOXk9L8gUkYvPILwD7J9vAPJgUfeX+xOLkUJVyfA+Hqz7BzY891Fv55dVvtWgiYMDPZzNu112ZRWs9lpiuGyooy63offwoJ24idXrDzbq0o726hE+zzB3uV+SClUZduTE69nKOfoKpQz6LcfUfrjUbLHvCad8Ixf7iwmahfFagX7ELdDDk/GZ98xeVZDcmc+E2Kue9CoXXFk16P9pNK2DhXBfB/IQot1div85A/Fwr6OpM+evpEvRrLyAPNafEGMfiPmcgkbwDvgRzil8e7VkDSdVwIm4sJv2g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hQG/jZC96L0E/Ud9G8CTygv7/TE13mn73WHCdycXfr0=;
+ b=ZQqAcYIzlFO8pw9e/FkSgnuvqQQa+cYTyth69LUMZsXCqaYXRFNO2XlMNUoAfRHwjBr5EeWNJtYHYKgapjvKl072LjCiodITJCUozg9H8s/GXsWsZ9Y2KS01m/3JCjTkQKah1/mp0jV77cVIleUXHk91q35KazJKR/Fw/JBN7Nh8RcMzjuVVcK7FGc+AQ/DTFY/SYyIXoq/KRZlhBfxOJ5uFqZQ/BdodofnchxNz/+9w4q0qgQCtrKmIX2T4OPWh9GGanNQzV6ds8iEncO10ZZSH72J9IwRSteOIHFOSg9XvW9ZBpOggkPHseo+r5+22dUz/FV0N+ugqH4GtPl5pRA==
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
+ by DBBPR04MB8043.eurprd04.prod.outlook.com (2603:10a6:10:1e7::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.20; Wed, 29 Apr
+ 2026 16:53:03 +0000
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::b4c0:6119:2228:2ceb]) by PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::b4c0:6119:2228:2ceb%4]) with mapi id 15.20.9870.020; Wed, 29 Apr 2026
+ 16:53:03 +0000
+From: Shenwei Wang <shenwei.wang@nxp.com>
+To: Mathieu Poirier <mathieu.poirier@linaro.org>
+CC: Andrew Lunn <andrew@lunn.ch>, "Padhi, Beleswar" <b-padhi@ti.com>, Linus
+ Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Jonathan
+ Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson
+	<andersson@kernel.org>, Frank Li <frank.li@nxp.com>, Sascha Hauer
+	<s.hauer@pengutronix.de>, Shuah Khan <skhan@linuxfoundation.org>,
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng
+ Fan <peng.fan@nxp.com>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-remoteproc@vger.kernel.org"
+	<linux-remoteproc@vger.kernel.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>
+Subject: Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
+Thread-Topic: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
+Thread-Index: AQHc1/ikfclJC7qTZE6i8eHFxM1UMg==
+Date: Wed, 29 Apr 2026 16:53:03 +0000
+Message-ID: <PAXPR04MB9185F2F6DDB55AC56C92D63B89342@PAXPR04MB9185.eurprd04.prod.outlook.com>
+References: <20260422212849.1240591-1-shenwei.wang@nxp.com>
+ <20260422212849.1240591-4-shenwei.wang@nxp.com>
+ <22fb5fac-2568-42be-a7e3-7e89d0017eb3@ti.com>
+ <PAXPR04MB91850A11C58419C03909145F89362@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <6412a758-4560-4cf1-a0d0-5b24d1a715f1@lunn.ch>
+ <PAXPR04MB9185009A17DFDF3D6C8B44E789362@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <6e01e114-e336-4744-b6b4-563ec42e321b@lunn.ch>
+ <PAXPR04MB9185A098D894B6A6EBCC13F889372@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <afImuoeHolxGgw3H@p14s>
+In-Reply-To: <afImuoeHolxGgw3H@p14s>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB9185:EE_|DBBPR04MB8043:EE_
+x-ms-office365-filtering-correlation-id: 6bd65968-786c-4ba8-19b2-08dea60fc75c
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|19092799006|56012099003|18002099003|22082099003|38070700021;
+x-microsoft-antispam-message-info: dHeMWdZVDnmF99hT1Oab518SXeN6ehgNHb6dwYlHOR3iiYvAnnb6PgODq8JtTrIkKq03abAQbqe4HnD+o1tHnHlb/WGVN4FmmoDf1sfeN5kDVP/yIhcH8hZpAk3gKCpJ+SQOlasidf/EEFCR3Q65jTvwGemRKmyTtToRzOCRe1tkI52WE0EZCFi0Ql7Zz9DeetCsRq17HgkDSqr/16HQ8qKGjBU5/XHoqmbbKz2ViOG5OaZ9k+ZFFaMSSa1/wbnpxEravzi8mA7Edy1GMRBw02IDc/8PC39v/LgWs2UkNIPCZSdxnlujDLlOqccoFbb06yljSQCBuSCmwpKiJO3T9caSWRYxVbtSBsf7OMdFlEPdKVttw9DSrUUyh5gYPrcB6uPIPxve6FWCaf+JxmcBKGnPBjDgHZZKVBdbGowaVabDAcvzM2+SW+fkYEgbmutDcMifXlhtDysAmKKTtSu+owks/fhw4+SQ0gvLhX2ScBkrz3zuwu89cPaQfLZFPRXUb7zti7OfDcKkUsqhAssUho7ne7Hj1/JJOaTqehziyGwVgHIMgmQQ1QbRYhBpX1YkQ96sWg4Vbg0cLJK4aOCEIwoL53lKwT5SL4WLrM51XA6J2+ohWn8esqMkHw7/bzMl2AtOZ+HBt1cbjaY7sk3OL9iKlo/AYvZfoEiizvOMKWFkuBb2EWCmshoyKghaRzvRtcGeW9LsfsdeovCzGzuc4sy5PZau+UJCg0oPFBwtq4SjyRpzO6ma2eOcqyTzT1PRS9l/YZrxisDCIQDwEuxnBdGlRcKArFMy9GP8Ip3GHy0=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(19092799006)(56012099003)(18002099003)(22082099003)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Omjp0mqMV8RgUvZbX79viuygzWPu/GgqU/IUKyr0ttwFPHexslZmRzYGWPZs?=
+ =?us-ascii?Q?63GjAr4iLwfZ9dJD9bHFiA05o7pVkMQOuoodIDiiIL2oCcOT6o5t61a02d81?=
+ =?us-ascii?Q?vWH3ZMrrSznbVWfmECHOOSbL0+2VzfjtK2VBSVAhv/f59GpmF9DCQMyvQVJE?=
+ =?us-ascii?Q?GP6b5NOJarU36yhndThwri5BDcHZCZTYDO2h9MkTz7+hU6tsfdA+i0qmPqlI?=
+ =?us-ascii?Q?vGvSTs0ko8q179Oi63UhSQTN746BgwPBB/iXcRyciSd6hbqjOSpqaEqBY5dW?=
+ =?us-ascii?Q?j9waU8SM0uSZyf63jKg+a0A9Nksg1Oeiq0qYC7dkmoz1/ZyqEUbOwQjmIoPW?=
+ =?us-ascii?Q?5zIr0n8R7ReBLwOp5vHc6ZVGjfeEBPl0tb9yVWhiuI11tKwujFwqj6dBk351?=
+ =?us-ascii?Q?pU8REw/LzYRzc4udTQmvvsC/MJoR4Hfd90o9anT4WiPJnWxZQsdkgwjO1U1F?=
+ =?us-ascii?Q?6sa5GVZDNnEu8GZ3YKe2u0c1hn5tk7BA+ZTtsCjsnzQQjEEc/2yCj6OoabBS?=
+ =?us-ascii?Q?ml8yyzHmWY2TJ/V/Z7K2O0HM7VGC/SbXaNTnviYl6OllNqi68MXKb33vy5OV?=
+ =?us-ascii?Q?XcEDbQneS9GqlbfC81AuMiuwxvKemW+v31IC56TajGS2KQ6sTAhcFN1SwFRG?=
+ =?us-ascii?Q?F3qcci0KcO+ewZ0ftERXeV/aq+dpxI0ihhIcamAfQFQOCSm9RJIHo1s0OEsN?=
+ =?us-ascii?Q?5vZATILRIZUEJnM4lgVQgqOaqbSaAwYNJy+j0/NB0Z7rUxsz/51RKcZYczxH?=
+ =?us-ascii?Q?D656eYXK6VpxLMFrBbVJigzFB9bEU893WS+Rfim6+6m9zx/OiiE9Q1r8MCYx?=
+ =?us-ascii?Q?krR8LMqNDP1YKwXbLwv8UYjj4OT057dbOhOFPUr8HXhXVtJxNE0JjxckyIg5?=
+ =?us-ascii?Q?DKjPn/9vnBRLC6CLQru4kUSyvaoQueONdIbJBL62bsyaPD1PUnaIuto54pu3?=
+ =?us-ascii?Q?9G3CQdGZI3fb4TVhAFnByK8z4C0ehvdCaedxp0hj/UqGAlNxvBsc/ka76VbL?=
+ =?us-ascii?Q?6/Lrjq+AnG+hD5BhqSX03e5hK0WjTdWMs3RCWfVG9q1uk+NWAcn03yC3PLgZ?=
+ =?us-ascii?Q?aHobz6vfUQV+bKlKAJghe7FiS4tg+O89rKLOdUpZJOdqHtwnIwp16rxUtlbR?=
+ =?us-ascii?Q?vygxovI9gSwr4ZwAc3PzlTmbyX2ltnLO9qIMt6+GOpj8pe+3aKwzZOF2qVV3?=
+ =?us-ascii?Q?SphnqLgOGOxGcvI3B89f5WdVwIGlxKxzMF3SFXlDE0cPSH+fhZZPv/FSATiG?=
+ =?us-ascii?Q?BMaTvii1U/h5tp1J0VYhR235s0S5dKVQwvhtbUaCeiqBuR0K6OA8VtE8TwAQ?=
+ =?us-ascii?Q?uOQeNFlBXu0Vd9EQIBU0PpKeG7qrxAxMFCOHdPQ0eJBl5q51OkUHLNT5ucxj?=
+ =?us-ascii?Q?CyF3N//L3rgp9sy0SOGH5PSeVFWD6MgdA9P2Xgv1LbWFZdC6ui3vXUqSEJIH?=
+ =?us-ascii?Q?xE00t1RJoOhi/Q+HtsozeJNb8umIAViRErsQipx9c4tawkjEtsQHU4mYHe5P?=
+ =?us-ascii?Q?9Qr61cGwdxyBXr2i4/QaiP4UhkCSCmQomGyL7D+xBsILwfiMoLzBKzG9/emV?=
+ =?us-ascii?Q?hKYzSSiG7+XTExo3BDqLGfoxLuhxjbniSF37Thl5aXfPf/Nb4uOfz5v/SmCy?=
+ =?us-ascii?Q?0XfUDfDNqTI9qQ0MPutDvPC3a6Joa1ZrASDqEzF/TQExFre8afTGX+kbBpd6?=
+ =?us-ascii?Q?/Mqu2TQGdz2Pc3dy/n5jpxuROoe5KNU/4kzvHc+7/ow/J10g?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Rspamd-Server: rspamout05
-X-Rspamd-Queue-Id: 4AA7520033
-X-Stat-Signature: iu88zayeg6ne7c8wjgbd3qfdoysmewpm
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX18HVNhk5oli4waG8dH1zzmr57zUTbTPRqY=
-X-HE-Tag: 1777480749-847527
-X-HE-Meta: U2FsdGVkX18e8tf31RS8/ePPO45W5EQbETJbQmuhbtYRO3flXKvGNpFTlfQOxozfw2x0F8o5SZ24KpKDIRsJyDQsgLPPNmM+OMMhUFH/KHPV3R1bOpN1quUmn/WHRsLwVts66aZCHuiaQ4f3/xoG+XQZ54brVKYrmM4Z5N/T7zvsfOE28zjVzFeZ7wWIgImrgmK/7EagSALJ443zlzSUb7E95RnsoNNOdmUpqOOip9zZBmrB0R460zlnCPbxlvAJTPeragkYS3GwWZtIn8sEVhO/sgGChC/+d+yuNw8trgPH8xyIfn4qpZu+KBF7mSFc1VRcSqeVH9SCwhLV+4OlaQj0BhrIdX4EzDwqPunOXvxrJMqrJPM1ZrOLQdudPP1iwc7WBWn6C5IuO0ExIDxWWA==
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6bd65968-786c-4ba8-19b2-08dea60fc75c
+X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Apr 2026 16:53:03.1976
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: e0L1EbGBo/kmXu546qg6mcp17S50pSs+nNph5ELXA9SQmpRPPrW+cSJmd6amfINty4oquPm+Im/3wfQXidvclQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB8043
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_093914_776746_5CB30E42 
-X-CRM114-Status: GOOD (  15.82  )
+X-CRM114-CacheID: sfid-20260429_095310_343088_E0E9A290 
+X-CRM114-Status: GOOD (  23.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,61 +158,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 30 Apr 2026 00:20:23 +0900
-Masami Hiramatsu (Google) <mhiramat@kernel.org> wrote:
-
-> On Tue, 28 Apr 2026 16:21:46 -0400
-> Steven Rostedt <rostedt@goodmis.org> wrote:
-> 
-> > On Fri, 24 Apr 2026 15:52:35 +0900
-> > "Masami Hiramatsu (Google)" <mhiramat@kernel.org> wrote:
-> >   
-> > > @@ -1892,9 +1895,19 @@ static int rb_validate_buffer(struct buffer_data_page *dpage, int cpu,
-> > >  	 * subbuf_size is considered invalid.
-> > >  	 */
-> > >  	tail = local_read(&dpage->commit) & ~RB_MISSED_MASK;
-> > > -	if (tail > meta->subbuf_size - BUF_PAGE_HDR_SIZE)
-> > > -		return -1;
-> > > -	return rb_read_data_buffer(dpage, tail, cpu, &ts, &delta);
-> > > +	if (tail <= meta->subbuf_size - BUF_PAGE_HDR_SIZE)
-> > > +		ret = rb_read_data_buffer(dpage, tail, cpu, &ts, &delta);
-> > > +  
-> > 
-> > This code seriously needs comments.  
-> 
-> OK, I'll add it, or let code explain clearer?
-> 
-> 	if (tail <= meta->subbuf_size - BUF_PAGE_HDR_SIZE)
-> 		ret = rb_read_data_buffer(dpage, tail, cpu, &ts, &delta);
-> 	else
-> 		ret = -1;
-
-That's better...
-
-> 
-> Thanks,
-> 
-
-The below should have some explanation too. I can figure it out, but it
-wasted more brain cycles than I would have liked ;-)
-
--- Steve
 
 
-> >   
-> > > +	if (ret < 0 || (prev_ts && prev_ts > ts) || (next_ts && ts > next_ts)) {
-> > > +		local_set(&bpage->entries, 0);
-> > > +		local_set(&bpage->page->commit, 0);
-> > > +		bpage->page->time_stamp = prev_ts ? prev_ts : next_ts;
-> > > +		ret = -1;
-> > > +	} else {
-> > > +		local_set(&bpage->entries, ret);
-> > > +	}
-> > > +
-> > > +	return ret;
-> > >  }
-> > >    
-> 
-> 
+> -----Original Message-----
+> From: Mathieu Poirier <mathieu.poirier@linaro.org>
+> Sent: Wednesday, April 29, 2026 10:42 AM
+> To: Shenwei Wang <shenwei.wang@nxp.com>
+> Cc: Andrew Lunn <andrew@lunn.ch>; Padhi, Beleswar <b-padhi@ti.com>; Linus
+> Walleij <linusw@kernel.org>; Bartosz Golaszewski <brgl@kernel.org>; Jonat=
+han
+> Corbet <corbet@lwn.net>; Rob Herring <robh@kernel.org>; Krzysztof Kozlows=
+ki
+> <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Bjorn Andersson
+> <andersson@kernel.org>; Frank Li <frank.li@nxp.com>; Sascha Hauer
+> <s.hauer@pengutronix.de>; Shuah Khan <skhan@linuxfoundation.org>; linux-
+> gpio@vger.kernel.org; linux-doc@vger.kernel.org; linux-kernel@vger.kernel=
+.org;
+> Pengutronix Kernel Team <kernel@pengutronix.de>; Fabio Estevam
+> <festevam@gmail.com>; Peng Fan <peng.fan@nxp.com>;
+> devicetree@vger.kernel.org; linux-remoteproc@vger.kernel.org;
+> imx@lists.linux.dev; linux-arm-kernel@lists.infradead.org; dl-linux-imx <=
+linux-
+> imx@nxp.com>; Bartosz Golaszewski <brgl@bgdev.pl>
+> Subject: [EXT] Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO dr=
+iver
+> On Tue, Apr 28, 2026 at 03:24:59PM +0000, Shenwei Wang wrote:
+> >
+> >
+> > > -----Original Message-----
+> > > From: Andrew Lunn <andrew@lunn.ch>
+> > > Sent: Monday, April 27, 2026 3:49 PM
+> > > To: Shenwei Wang <shenwei.wang@nxp.com>
+> > > Cc: Padhi, Beleswar <b-padhi@ti.com>; Linus Walleij
+> > > <linusw@kernel.org>; Bartosz Golaszewski <brgl@kernel.org>; Jonathan
+> > > Corbet <corbet@lwn.net>; Rob Herring <robh@kernel.org>; Krzysztof
+> > > Kozlowski <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>;
+> > > Bjorn Andersson <andersson@kernel.org>; Mathieu Poirier
+> > > <mathieu.poirier@linaro.org>; Frank Li <frank.li@nxp.com>; Sascha
+> > > Hauer <s.hauer@pengutronix.de>; Shuah Khan
+> > > <skhan@linuxfoundation.org>; linux-gpio@vger.kernel.org; linux-
+> > > doc@vger.kernel.org; linux-kernel@vger.kernel.org; Pengutronix
+> > > Kernel Team <kernel@pengutronix.de>; Fabio Estevam
+> > > <festevam@gmail.com>; Peng Fan <peng.fan@nxp.com>;
+> > > devicetree@vger.kernel.org; linux- remoteproc@vger.kernel.org;
+> > > imx@lists.linux.dev; linux-arm- kernel@lists.infradead.org;
+> > > dl-linux-imx <linux-imx@nxp.com>; Bartosz Golaszewski
+> > > <brgl@bgdev.pl>
+> > > Subject: [EXT] Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg
+> > > GPIO driver
+> > > > > struct virtio_gpio_response {
+> > > > >         __u8 status;
+> > > > >         __u8 value;
+> > > > > };
+> > >
+> > > > It is the same message format. Please see the message definition
+> > > (GET_DIRECTION) below:
+> > >
+> > > > +   +-----+-----+-----+-----+-----+----+
+> > > > +   |0x00 |0x01 |0x02 |0x03 |0x04 |0x05|
+> > > > +   | 1   | 2   |port |line | err | dir|
+> > > > +   +-----+-----+-----+-----+-----+----+
+> > >
+> > > Sorry, but i don't see how two u8 vs six u8 are the same message form=
+at.
+> > >
+> >
+> > Some changes to the message format are necessary.
+> >
+> > Virtio uses two communication channels (virtqueues): one for requests a=
+nd
+> replies, and a second one for events.
+> > In contrast, rpmsg provides only a single communication channel, so a
+> > type field is required to distinguish between different kinds of messag=
+es.
+> >
+> > Since rpmsg replies and events share the same message format, an additi=
+onal
+> line is introduced to handle both cases.
+> >
+> > Finally, rpmsg supports multiple GPIO controllers, so a port field is a=
+dded to
+> uniquely identify the target controller.
+>=20
+> I have commented on this before - RPMSG is already providing multiplexing
+> capability by way of endpoints.  There is no need for a port field.  One =
+endpoint,
+> one GPIO controller.
+>=20
 
+You still need a way to let the remote side know which port the endpoint ma=
+ps to, either=20
+by embedding the port information in the message (the current way), or by s=
+ending it=20
+separately.
+
+Shenwei
+
+> >
+> > Shenwei
+> >
+> > >        Andrew
 
