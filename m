@@ -4,75 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74937FF8873
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 04:20:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A40BFF8867
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 04:28:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1NqJo0wjNu8ltd0SR2CPbJx09lDcoNAeWopaxM6LH2c=; b=PWL/tJcyYsxzKqwB9cT5csl3ZR
-	/BqzvAE40iZshuwIa+5WGqwBh7ng3LuCaTPNKKeS2P/vN0D1AoYFtadklll721451aFk2SR4UuDS8
-	YC9aJ/6qgLH8dxsM8gt0fhnGrSGz7XeO9VFgVahJkXAxgSmuHHLfCh3rs0qAWbPTFKnXFNtUG+nmQ
-	14RgohNLc0Yqi9vZ7GWqQ4QFNHxMAPILHk5n7oKOgdjL28rhqY00SI+W77XHUZ+OUIorNn2d4Qvox
-	dvRbfaA9EEfT8BiiTYNElRJsTaEjPwam3S0S3kFZM1vUg1SAJ7yKhewPQ4BopJMvNDauuH0lH1ZUz
-	kkZSjNQQ==;
+	bh=zpf79PEMiDFcLFy80ngJH6MhWRl/V6bbtp47O63FGRQ=; b=ddh5VnSXAm/FjwmIryihdmw8rt
+	p57lIiVtgvZjFL+HGZ4FmTarFCxlfYKcbw3lwt1jgG2h+Mvwdo/9/0BjaYtkhn2tt45YRuFVKgBf2
+	hDyO4Dx2HVtqt3TlRK1g2yBT8b0+VaR4QHrLWTvADNbIhT2UC0FFTSJZvXkwu8Qs5EHsgmuTJiiCu
+	FTrUtNSZZm5wC2NsCWhvIuTq/8jjC3RQydeLAmgsprhg1DYzPjusqFYMNePOcHnQ4Sa/w+dyZoMn0
+	1oSsFht99X9/+Ee8SIoz6WrthmXLVRIS+ZtPwKsJUscodNmsfgtfFWWAi16r3oJCRBAyGmIUtzmb/
+	DkE+etMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHwOy-00000002vCT-2NtH;
-	Wed, 29 Apr 2026 04:19:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wHwXU-00000002vsH-0fUR;
+	Wed, 29 Apr 2026 04:28:44 +0000
+Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHwOw-00000002vBe-2Wmw;
-	Wed, 29 Apr 2026 04:19:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5343D42AE4;
-	Wed, 29 Apr 2026 04:19:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E197C2BCB4;
-	Wed, 29 Apr 2026 04:19:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777436392;
-	bh=AmD4vqaT2uUvRTUm6AyJgjIJNJLVUy55SkGkTF49aMQ=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=cnLaDfumluBRuImtdokXh4ERk0qYVsC+bj2tEcf2BK0yh7Xia87nSp1T1ouJ/mlne
-	 Mfg5oV0QjF6QOdgAakpqdKAuX21qceXVtTOd59nhQlXdsk0YKMcmvDk2yI39vUglR3
-	 2tgKxpFRxGTLy47vQ207oMOAUtZ21vqwThC9W5gZQ0yZgpuzgxLhl0LYYLq9jV+fqk
-	 aVUDIuZWaatTUIoC8yC+KpmeJ4AO93Bho1hjgZw/xz4FV+E9rybRsRgia1WVVY9eQr
-	 /qSJzDSeaxZuFJH9QDl8KDECEXplYL6OKex9HxfYbiwvN105IMxQ2DgqVIvSYI7eFt
-	 Ywx14L+qYwi5w==
-From: Mark Brown <broonie@kernel.org>
-To: lgirdwood@gmail.com, Manish Baing <manishbaing2789@gmail.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
- kaichieh.chuang@mediatek.com, linux-sound@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-In-Reply-To: <20260428171644.5703-1-manishbaing2789@gmail.com>
-References: <20260428171644.5703-1-manishbaing2789@gmail.com>
-Subject: Re: [PATCH v2] ASoC: dt-bindings: mediatek,mt6351: convert to DT
- schema
-Message-Id: <177741830306.363516.10918867152857147398.b4-ty@b4>
-Date: Wed, 29 Apr 2026 08:18:23 +0900
+	id 1wHwXR-00000002vrw-1xWm
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 29 Apr 2026 04:28:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=qfRY+CHof8uj7CeLGUEY3ohuTamwcbUdRgwNNs2POvfFe7HG845jzPblY50j6aszXZDRdf5Y6TOjBTIU7B+PTGu/EFe91hOSDHUZrEiG+qnPfPxsIlxLY4NyiOjrhkiK/vtqN48Rza7S+cTdh0U27IUoFoP405tYlbXD7CHZZPu1mAEKD5kurwYDtnU7Sfi7cahwtCmeJGnZSIiZArne7C+zaPp1fz7SXuHn/e5fJpge1vj1mNaEEZ6l08VRMkEC4iB3qdnR/1UHEbzOtcZgP2fRdpuIwh8v5YwIaajYKNfO7FQa17GzW/79E7BpLhASXXh7lM4o8uGuYpQmOdtOfg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zpf79PEMiDFcLFy80ngJH6MhWRl/V6bbtp47O63FGRQ=;
+ b=ABLAk/7l8HGusr0YwLbJYZ3urYxXWTdCMz6QAMeM/0R5Wq8YrWfPE4Fo9pbEc003H//hm3Mglkjo6lu1pYBCQHRaT3QCn7TieDUgU+C3YBHr7croUwdv0SJ86C0RNOsqvFToF6o0UepJeeZlU22ifrMSyJi5g+PDRx7cpO+IeQS6yB7t3O0spL2O4hLqwKU2QygasBOFPmXU9upzbheSaxaWbWZTZ6neUsaFQRgsE+wVmVbcAtBRcKmWX7i7tR7KOKyMiTWwxHMO8eX3NO61l0E90qg3phefTDRrf3N49YoBVznOjfenvF3UsNlE1yHjCaUJ7ZGlPDJHzwOfSWFNtQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zpf79PEMiDFcLFy80ngJH6MhWRl/V6bbtp47O63FGRQ=;
+ b=MNYevA7d/iIZshsAveb6To4Uk2k3rpuluyu/qzv9LXr5+SbbwaHIi10bKpy669oTEtUmVtJHPvXNygjE+xQkaEf6HwkWoHIimEL8mccTP7YQ8AAavAfKe9La5Hv74sNPfXjLmgkv4ab2h5/LKBY+79xW2N/Bi6Vy24qPceqho7Q=
+Received: from SJ0PR13CA0180.namprd13.prod.outlook.com (2603:10b6:a03:2c7::35)
+ by PH7PR10MB5813.namprd10.prod.outlook.com (2603:10b6:510:132::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Wed, 29 Apr
+ 2026 04:28:35 +0000
+Received: from SJ5PEPF00000205.namprd05.prod.outlook.com
+ (2603:10b6:a03:2c7:cafe::bc) by SJ0PR13CA0180.outlook.office365.com
+ (2603:10b6:a03:2c7::35) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.26 via Frontend Transport; Wed,
+ 29 Apr 2026 04:28:35 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ SJ5PEPF00000205.mail.protection.outlook.com (10.167.244.38) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9846.18 via Frontend Transport; Wed, 29 Apr 2026 04:28:35 +0000
+Received: from DLEE203.ent.ti.com (157.170.170.78) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 28 Apr
+ 2026 23:28:28 -0500
+Received: from DLEE201.ent.ti.com (157.170.170.76) by DLEE203.ent.ti.com
+ (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 28 Apr
+ 2026 23:28:28 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE201.ent.ti.com
+ (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 28 Apr 2026 23:28:28 -0500
+Received: from [10.24.50.162] (uda0510294.dhcp.ti.com [10.24.50.162])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 63T4SPRC2346763;
+	Tue, 28 Apr 2026 23:28:26 -0500
+Message-ID: <5c3ea9d8-063f-40be-9db1-479a1cd6ef56@ti.com>
+Date: Wed, 29 Apr 2026 09:58:25 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] remoteproc: xlnx: check remote core state
+To: Tanmay Shah <tanmay.shah@amd.com>, <michal.simek@amd.com>,
+	<andersson@kernel.org>, <mathieu.poirier@linaro.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-remoteproc@vger.kernel.org>
+References: <20260428221855.313752-1-tanmay.shah@amd.com>
+Content-Language: en-US
+From: Beleswar Prasad Padhi <b-padhi@ti.com>
+In-Reply-To: <20260428221855.313752-1-tanmay.shah@amd.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1130; i=broonie@kernel.org;
- h=from:subject:message-id; bh=AmD4vqaT2uUvRTUm6AyJgjIJNJLVUy55SkGkTF49aMQ=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBp8YbjsZ1LJmGgZqCojzF1xlJO7LUOaQtvFgSPB
- oYB1ACcsHqJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCafGG4wAKCRAk1otyXVSH
- 0KSgB/4tV5PGktpNn5RUJqR6GvCP1Gg4ClOhRGo+4xsjo6d3QDrgQYWGh+k7sHjnZ0whup/bleN
- ZAQ8rZ1cWU3ljz98jPwzILKB92yEL5nc4wVorZmV4jfJmcuuLTTjJcEe2KxRVnuuCSRGMj0rA91
- lyoU+dcYwElbS5E7xLIcjTn2PQDR6B7bDlPwgl9LoE+gKe0r4freqjJg4upNCQAQmfmVO8Uxj7E
- hsg+tuy0noKZk5oHGZVMJtzFS6qhfdMN5l/mRkUbgY+rc+NhIxbVG4b6xnyovT9mu/mDuy2FV0X
- Ha6X1ic3NkSFi63+eth81l/6Pf5NGmmGzSdy2+8ZYLpRmAos
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF00000205:EE_|PH7PR10MB5813:EE_
+X-MS-Office365-Filtering-Correlation-Id: cc7b206a-896c-406b-98bd-08dea5a7c718
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|82310400026|376014|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: OuQuGqh/gPlm2ephpjudRJ3MAHCS6b8gUrzh0Up3rf93qqkpK/9qgFkrVlI14fH8aVaGHEkiYMqttpB5eKNGEjuCq5800QYLLhJ3rwqJ1Dkyd7jFBSHKUSCFcmNMxiuZxJykfvj4PxYgGwYrabe8lqdYbyEFsOY0Pih5hiWjD/+CUb50CFUL9Gh4I8ndVlA5W6+BqsGmvso4DNiHZ4y7LUThvOE3uN5g3eMpsJ1JsyJcUcv/KyL6l+qm4T4RQ9YMkYc8H2CQwtcnSNjibrHbzbNPr0C1ImXk0Q8Gmr8fZzTkQL3pAm3p4FU10t/bd2hFqhrALT+PO7Ua6+NU9JdBaywTii4XhvW6o6kFH4aBldUrZrhOWxI9DLuClNiqlhgpHrGMCsg7mDa3b7RlgWVjhP11X/viPfYPPkHV0psNzqaCre8b5uafwA6Py9ARzFZWaDJTZZZG1d92HrYadMXr/scQCiYJCepTtx4k47M0UEWDurVmVwz6+fd8y80f9IUbwT7zl+J1OF1c63JTXUWfIYmzjVU0P0m5eFnOOGTTivP8SezVCobbeJSs2W8KQd4HX7YTu2414Odz2xlt5oj5hcrNSFXHMU6UnWJfLO16eKpu38n/6VesvAz+ZqcHHrofbNu4taukZLQ0CdQKsL9Rjlq2HGRZ1gG7lEGKlWgWLJeEA3DazwATINbfWeQ11cnU+4TWQR0onmUgSD+OL/TDXO1TvYSmtwi2i/InT7EULsnbK4YnLnhHi1uyTYXeYXyOcdasSmAPmSCj1o5iEHFvSw==
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(82310400026)(376014)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: ATgCPepjKPs4sj7vawl6d4verjCMbgfKJl3qnU+rIEtwkG17jjmpNeuW3ISGfqAajSHvimkoEHnNqYJtIe3aYxp5pVaF+5PHNlzEwxeG3wK5vp/D9iZk7j4A8dzL9wpjhOMxEuZdw1XEeIA+xWR4Nsxh67yB/jUdHI/vAp0diSN+lto7qgzSZ3rnEseYEpjqmXKvsnqdJZpozAdvfGh14c6c0NROlqmRhKFFbAdMVFs6DasbJSRtqzufgeads2K4d6Hw/sxmjtQFgvhGPeMWX4f6UYUtBnQPYdIcL7Z9eAPPiXR2CksW6lQMUQxhDE3Xw7el8fnthqyskSOv2SQ2ZOA3FdO0lS31NvKVFvYkYa6lWVRKAViMJB1CsqXDchitLxoqvMwLO2+SU5RiqTTpdso3nfgpwuspMRByi/VpsqLyqRyQ+EJjd1bfEyH9+eWh
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Apr 2026 04:28:35.0354
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: cc7b206a-896c-406b-98bd-08dea5a7c718
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF00000205.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR10MB5813
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_211954_673386_B3F32CB2 
-X-CRM114-Status: UNSURE (   8.57  )
+X-CRM114-CacheID: sfid-20260428_212841_516745_09BC439D 
+X-CRM114-Status: UNSURE (   9.73  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,35 +132,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 28 Apr 2026 17:16:44 +0000, Manish Baing wrote:
-> ASoC: dt-bindings: mediatek,mt6351: convert to DT schema
 
-Applied to
+On 29/04/26 03:48, Tanmay Shah wrote:
+> The remote state is set to RPROC_DETACHED if the resource table is found
+> in the memory. However, this can be wrong if the remote is not started,
+> but firmware is still loaded in the memory. Use PM_GET_NODE_STATUS call
+> to the firmware to request the state of the RPU node. If the RPU is
+> actually out of reset and running, only then move the remote state to
+> RPROC_DETACHED, otherwise keep the remote state to RPROC_OFFLINE.
+>
+> Fixes: bca4b02ef92e ("remoteproc: xlnx: Add attach detach support")
+> Signed-off-by: Tanmay Shah <tanmay.shah@amd.com>
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.2
 
-Thanks!
-
-[1/1] ASoC: dt-bindings: mediatek,mt6351: convert to DT schema
-      https://git.kernel.org/broonie/sound/c/f103e6c27fa2
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+Reviewed-by: Beleswar Padhi <b-padhi@ti.com>
 
 Thanks,
-Mark
+Beleswar
+
+[...]
 
 
