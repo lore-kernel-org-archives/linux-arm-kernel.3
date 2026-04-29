@@ -4,106 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 536C5FF8864
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 08:04:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D53A2FF8867
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 08:05:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sbYrI48O/qFq1V/EIUwyOIOMF/g5HUVz8lJN5AfFujw=; b=sKSlxPB38eOl4rUuj2/17jLTSL
-	83gKaVHXSNjcOT7JpbRcoOK0SEv/aqbFoONOJ8SZDigInq9GaRZtyLpPPK94dOViww/OXDeqmnqoj
-	I2d+8WoaFbv+mcKocv7AVZFRSR8/wFxBmtdQR43vFMZlUd+cZHk77jKzQhrAlKfiI4VkvWUdLpdno
-	mUEc27W2pWRJIKUv4akiWSWdcobHtw2cQmpQfSWx6CHJa+fV7dmymofGHZspq1rBPwXbOOZ8MgeiD
-	S3pjPnh0NJv2wnMETJeI0WSf/PhzFlkGqZpn6RcCHTfp8i2MUvAguYmySHije2yHYvTCdabB8mCEw
-	iW3F9PvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S7NXX/gV9JLML/8MaMF7KkfY+fqdAB+RUfgOHZBHuic=; b=dexRM+QKpO69mi9TeGBVvJSLLE
+	yMcot8CpFiSpAaKCz/Ytfc+twp3HDL9QalkDLpn+jxYInhzNaDe6K8e1dUFr/2BXn7UQfd+lBv+kD
+	K3RXEbIc2MUqAxvtk4QNbyUPcJvF3eg1Tv5BltV5w0PmyhKdfDBP5CWg9RYWvo6/5u5jVRLF+GEXt
+	HT4dvAbQM72M+/69MsiRZ5dq+zAJVpRBeaIYCNDGBLUYLZmTcwaPcjNkTPOyqKVPQZsWHR1fXbMBg
+	EW2gdykSQbfd2Sxdzt/kDoBs5cgk+ne7WStAboEo9J9BdJ2vZGe5ldiZ43wr3ZlBlnOf6fOuLhcmo
+	ftbruN9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHzuG-00000003DFt-1hNC;
-	Wed, 29 Apr 2026 08:04:28 +0000
-Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
+	id 1wHzui-00000003DO3-1KYw;
+	Wed, 29 Apr 2026 08:04:56 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHztQ-00000003DA2-0R7u
+	id 1wHzuc-00000003DLW-1zz2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 08:04:26 +0000
-Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-38e935bd6e5so15137431fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 01:03:34 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1777449813; cv=none;
-        d=google.com; s=arc-20240605;
-        b=bobELgMR/b4dVtKGRkltmYO3w78K0Y16h7OIRTO0G3kvziUGu0eYyZ5VowbVMQekbN
-         zOGNtovp5xkiED2bnsKJRuyaFfUK050XpmD/cvDa+7hJIIhIZ1dBRp+FP/FGDvwXEW8T
-         cBrMmf5x1a6j/bFBUOTeni5/UmIQMaB5SH54siNh01pseaa04sDYfjaX6KxPjAcWCyKa
-         clRTHjIuSULeRXlzr7O6C4GyLW4UPN78Qt1vD/SLWrPRkt9CkGrHGBOzfaWNM6/pRRhr
-         eIJOg9XsOhSOcY+NNElVnp9sRzxAHZMUB98GzR15GI1Fc0DKsURr3ejZMDrF6m+/ABoU
-         mU4A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=sbYrI48O/qFq1V/EIUwyOIOMF/g5HUVz8lJN5AfFujw=;
-        fh=opKlpYp1euvhzEyXRk9pHRCsGW2feYa/QG1Fvep1pkY=;
-        b=QltTveNjjTvjvzixPNEXLPX5Tvexa/md2baxRehsHOu7UAcCpr2a13JCPrbv5DUHMZ
-         8+sljnSmftEiTOYi9ZSb+gmJ9jOA3SWAn3qLdjQMlXg7JDi/qQS1GDPOcTq5gmGXbktb
-         Y4HJkSDbQ0oXW7owKDfjMK6Ryd/Tlnhbsi/T4QpY4oJi/0BUGc7PhyMhm1ckmZnet/X+
-         vAcE7Cd4bsEFnlLCvXKnbjHybsvx1Yil8TPEg0NTzr4sRf4RTeTkpCOKqXDMC4oEnQyq
-         XsuyAbiDVlHmzm+7La51GO4kJOEIckqy17uTr06Ri4gTCFzXORhBKZEporu006IX6YUt
-         VpVg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777449813; x=1778054613; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=sbYrI48O/qFq1V/EIUwyOIOMF/g5HUVz8lJN5AfFujw=;
-        b=E5XdbzBbw4LCfqM1KpKeNU/gIixnB0tZF+11zANuzehq7/FtcckdLTDJNWXSCAodhh
-         k9oFgOkH6Or8/O2CtN2ev6hy0J1wKKTh4TNERxfYtIOEwy8QO+r0xtxL8bQGFZz/zFJZ
-         kupsvUfWHHJOOUhikNrMQrc9TeOy2K/7AzoPvM9OR07aiahK1zX5O2ktfFH0pGEeCyVe
-         u0QpD4g5Ru8hwFhXHtGe76YZAfFyu4S7GdUFXwc4EZZrYCvqWbxhTCysSB6obpOJfROk
-         7z9FopS6Uvtz7+RVrjjt1iiIKfCExR6/XX+xJr2/5uAAS6G7deMCPb1Wi7fpR6xmFpjJ
-         k2Eg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777449813; x=1778054613;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=sbYrI48O/qFq1V/EIUwyOIOMF/g5HUVz8lJN5AfFujw=;
-        b=V3h4UgoOl5dZ1QfU2CrJgvTEOYAyfGqur7S/Fpzg867PiJGnMsFNByvihCSJWUiu1R
-         wBJzm2agK6DaMfppQeabElXCQEVRB79JcFq1Lc2nu9CGPDDv6oyrBbublczkLAxGiqcj
-         XWgsUIVgPfAuNvWuioPX+DN/P7MeAqAsFyzQ817n5IbphvefAYegG/Lbzoo3OcWCGIir
-         ltbsXlZXuupxXMtfy4g4OHJcBIpe9s4OEtrx97awxQNVOjeEVQgGLHG0+rOLjV5q68nv
-         rNmoVqly6hkSYNRBhbuheYHqE6fLKsUTQyaHQodT6AzNk6QNSLj5aDsEBNPIxsX26rMZ
-         IT8g==
-X-Forwarded-Encrypted: i=1; AFNElJ80tyxUFR9ecA7DRU07xJ1kK6vsarZsIAnQZsmAlpaordLZ6wdsTgG/Kx+oF2tTHRu6fdRYRh0kIUzKPZkYzHAF@lists.infradead.org
-X-Gm-Message-State: AOJu0YxvGLQv326Epaoh1KOxswrRVLrHC4y9SEmMd4rFvC4N2S9Qr8zF
-	lspf/viaaRFIOSUF8eFeKppAe3g0vomT5mhxCVKNu79SkRw7hAs3b3IDaWj6R0mfQMPAEVvnVNM
-	Jc+/24tZTfPw2APuOANdDtM5hDlMOjaQ=
-X-Gm-Gg: AeBDies+lW1I9q8wcnmIa4cL9P3xV4jGIiTTG0OqYLJl529z054WmdSPDkmylQcapVA
-	aJLUXO7e/P/hCqJ32hq+M/wz5t+NCzG6QJ446Fe65aQ1Rx2psUjZIjh+frrPYzxjK1PAqGPNZEl
-	3ZHy7X+DkGe9Uyo8xdjj+y/VrWtRAVY8ZpcRDXBWg3tau92ufBkDv6XR/ABCZiUxfeDbwlb/Elw
-	f7OPN5B6C+qPRpzMQ0LMpBQvvT+H5kC68BTm9yO5cKs8UjoedSQ8PgTrAMPfjisCv28SSQ9t7vG
-	zv+NqwIOFFh3p4tRbS8=
-X-Received: by 2002:a2e:b88d:0:b0:38e:83df:54e2 with SMTP id
- 38308e7fff4ca-3923eb42010mr10993861fa.0.1777449811143; Wed, 29 Apr 2026
- 01:03:31 -0700 (PDT)
+	Wed, 29 Apr 2026 08:04:54 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63T2hix41679188;
+	Wed, 29 Apr 2026 08:04:07 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=S7NXX/
+	gV9JLML/8MaMF7KkfY+fqdAB+RUfgOHZBHuic=; b=IDp8K2iRjMH/j2pduCHme3
+	kusq/o40Xyw5AdKI2e//HxCLzNE2huKM5NBO6DUhw8N++hOS7pKYte2lejapBD7x
+	oJ+5yFEnvdvngvpPGQBWtMJD0hNQpElN0fnMGo8kOHQokC3818RK1uPmMsn4F0Ag
+	vappg4zs+Zd4rRdKHtQXAaZf1FLzC4yDt+RZfnTOFtIQ8fuqgTqlYsHHm4qqPlek
+	8xJGj2nCrhFVlk+3v/nvb0VsBRtTYEjCuAjenK/Jlk0erhmgwSY0oZH27tcLmrCU
+	tkwuWiMeoy9B9acv1K8xcv5i9aEp3UdQsJtT+x2XmuF96R1pJVjcrOKd6rAtj+7w
+	==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4drn44shef-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 29 Apr 2026 08:04:07 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63T7s2Sh020257;
+	Wed, 29 Apr 2026 08:04:06 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4ds9ehdbda-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 29 Apr 2026 08:04:05 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63T842qR31851040
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 29 Apr 2026 08:04:02 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 09BDA20040;
+	Wed, 29 Apr 2026 08:04:02 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A62BE20043;
+	Wed, 29 Apr 2026 08:04:01 +0000 (GMT)
+Received: from osiris (unknown [9.52.216.133])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Wed, 29 Apr 2026 08:04:01 +0000 (GMT)
+Date: Wed, 29 Apr 2026 10:04:00 +0200
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: Steffen Eiden <seiden@linux.ibm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org, Andreas Grapentin <gra@linux.ibm.com>,
+        Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Will Deacon <will@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v2 04/28] arm64: Provide arm64 UAPI for other host
+ architectures
+Message-ID: <20260429080400.536931-A-seiden@linux.ibm.com>
+References: <20260428155622.1361364-1-seiden@linux.ibm.com>
+ <20260428155622.1361364-5-seiden@linux.ibm.com>
 MIME-Version: 1.0
-References: <20260429061752.2880923-1-zhaoyang.huang@unisoc.com>
-In-Reply-To: <20260429061752.2880923-1-zhaoyang.huang@unisoc.com>
-From: Zhaoyang Huang <huangzhaoyang@gmail.com>
-Date: Wed, 29 Apr 2026 16:03:18 +0800
-X-Gm-Features: AVHnY4ICRzO-bBPtB7_U09W9m3m1BKxCiKO13xVzbr3knzpNjbxmMKHHFaX92fw
-Message-ID: <CAGWkznE8r6_XqY2g5VwzJ-DrmjhHEMczWbso0HdxjR1ZJG4t0A@mail.gmail.com>
-Subject: Re: [PATCH] arch: arm64: fix KERNEL_SEGMENT_COUNT error
-To: "zhaoyang.huang" <zhaoyang.huang@unisoc.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, steve.kang@unisoc.com, shuo.tian@unisoc.com, 
-	haiyan.liu@unisoc.com, hao_hao.wang@unisoc.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260428155622.1361364-5-seiden@linux.ibm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: 34_Hc6C8hpR1w0YGE4xpg5uWiTi7zAfE
+X-Authority-Analysis: v=2.4 cv=Ft81OWrq c=1 sm=1 tr=0 ts=69f1bb77 cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=AvxnFSxSGNjASAhgYNEA:9
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: 34_Hc6C8hpR1w0YGE4xpg5uWiTi7zAfE
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI5MDA3NyBTYWx0ZWRfX/BR9bvAsu6SP
+ rnSPINincBDahvVVTXISjI8c8IQUKYiHkTL2yr1b9ycpxCIn+EWZBPpUSGr8WIlt+w1cvbOB4yN
+ 4pZtekGCWY4YhUY/45+X0AmbLinomFM+akTnvPiwolQ4YpGqEwi6YNQZar+uTNuuHqp6gw5jOxb
+ UUIHWhqKD9TVMoCXOmxYs9NjRXG+C+1CDG0qAfk4UEtT8x/Kv+EUm5Nxhfps15Tlxuqmj9qNVmq
+ rrf4q4IMMPo4BK87UD9Vyg/KGu4SWdFSIxDqblcLNSBTJs3A4FnJrqC8oIzoBO1pBNxp022bIEk
+ fLvkFXOAWStYXIDPsDa5ec0MV+L5nRdZCBzjZRda1KNZ7iX9xTXZzw1P4gjdxD6D7BhsDbgHfnk
+ HPOKuHbL6LMPXS5FmNUoa6Nz8Bf2Nbl3EPhywgyG2AF2zhgDvQpY0nVQa8QHwU75cj1PnGoUbfd
+ pMgSY1JkXjk0BtV4qBw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-28_05,2026-04-28_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 lowpriorityscore=0 bulkscore=0 spamscore=0 impostorscore=0
+ clxscore=1015 malwarescore=0 phishscore=0 suspectscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604290077
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_010336_180868_315E2ECE 
-X-CRM114-Status: GOOD (  20.58  )
+X-CRM114-CacheID: sfid-20260429_010450_525550_0F2A52F2 
+X-CRM114-Status: GOOD (  19.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,78 +135,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 29, 2026 at 2:19=E2=80=AFPM zhaoyang.huang
-<zhaoyang.huang@unisoc.com> wrote:
->
-> From: Zhaoyang Huang <zhaoyang.huang@unisoc.com>
->
-> During debug of a kernel panic, we find that the pte_t of the final
-> part of [data, end] segment got overflow to the next page of
-> init_pg_end[1] which is the gap page before early_init_stack[2].
-> This should be introduced by the KERNEL_SEGMENT_COUNT's value is 5
-> which should be 6 as map_segment are called 6 times for the segments
-> of (text, stext, rodata, inittext, initdata, data+bss)
->
-> [1]
-> crash_arm64_v9.0.1> vtop ffffffed00601000
-> VIRTUAL           PHYSICAL
-> ffffffed00601000  83401000
->
-> PAGE DIRECTORY: ffffffecffd62000
->    PGD: ffffffecffd62da0 =3D> 10000000833fb003
->    PMD: ffffff80033fb018 =3D> 10000000833fe003
->    PTE: ffffff80033fe008 =3D> 68000083401f03
->   PAGE: 83401000
->
->      PTE        PHYSICAL  FLAGS
-> 68000083401f03  83401000  (VALID|SHARED|AF|NG|PXN|UXN)
->
->       PAGE       PHYSICAL      MAPPING       INDEX CNT FLAGS
-> fffffffec00d0040 83401000                0        0  1 4000 reserved
->
-> [2]
-> ffffffed002c8000 (r) __pi__data
-> ffffffed0054e000 (d) __pi___bss_start
-> ffffffed005f5000 (b) __pi_init_pg_dir
-> ffffffed005fe000 (b) __pi_init_pg_end
-> ffffffed005ff000 (B) early_init_stack
-> ffffffed00608000 (b) __pi__end
->
-> Signed-off-by: Zhaoyang Huang <zhaoyang.huang@unisoc.com>
-> ---
->  arch/arm64/include/asm/kernel-pgtable.h | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/arm64/include/asm/kernel-pgtable.h b/arch/arm64/include=
-/asm/kernel-pgtable.h
-> index 74a4f738c5f5..14dd1c52552a 100644
-> --- a/arch/arm64/include/asm/kernel-pgtable.h
-> +++ b/arch/arm64/include/asm/kernel-pgtable.h
-> @@ -64,8 +64,8 @@
->  #define INIT_IDMAP_FDT_PAGES   (EARLY_PAGES(INIT_IDMAP_PGTABLE_LEVELS, 0=
-UL, UL(MAX_FDT_SIZE), 1) - 1)
->  #define INIT_IDMAP_FDT_SIZE    ((INIT_IDMAP_FDT_PAGES + EARLY_IDMAP_EXTR=
-A_FDT_PAGES) * PAGE_SIZE)
->
-> -/* The number of segments in the kernel image (text, rodata, inittext, i=
-nitdata, data+bss) */
-> -#define KERNEL_SEGMENT_COUNT   5
-> +/* The number of segments in the kernel image (text, stext, rodata, init=
-text, initdata, data+bss) */
-> +#define KERNEL_SEGMENT_COUNT   6
->
->  #if SWAPPER_BLOCK_SIZE > SEGMENT_ALIGN
->  #define EARLY_SEGMENT_EXTRA_PAGES (KERNEL_SEGMENT_COUNT + 1)
-I just noticed that the page just behind init_pg_end which I called as
-guard page is designed as early_init_stack in vmlinux.lds.s. That
-could explain why I find the strings of aliases within
-idreg-override.c present in this page.
+On Tue, Apr 28, 2026 at 05:55:56PM +0200, Steffen Eiden wrote:
+> Enable the ARM64 userspace API to be used on non-arm64 host
+> architectures, with initial support for s390.
+> 
+> The arm64 KVM UAPI headers are relocated to include/uapi/arch/arm64/,
+> allowing non‑arm64 hosts (such as s390) to use the arm64 KVM userspace API.
+> 
+> To achieve architecture independence, some type aliases are introduced,
+> which conditionally resolve to native arm64 types when building on arm64
+> or to fallback to ABI compatible inline struct definitions on other
+> architectures.
+> 
+> The build system is updated to install the moved UAPI headers to their
+> original location but in and conditionally export arm64 architecture
+> headers for s390. This infrastructure enables s390 systems to host arm64
+> virtual machines while maintaining full compatibility with the existing
+> arm64 KVM-UAPI, requiring only minimal, compatible changes to the arm64
+> UAPI-headers itself.
 
-ffffffed005fe000 (b) __pi_init_pg_end
-...
-ffffffed005fec50:  77735f34366d7261 726c3d656876682e   arm64_sw.hvhe=3Dlr
-ffffffed005fec60:  00003d633d723d3d 0000000000000000   =3D=3Dr=3Dc=3D......=
-....
-...
-ffffffed005ff000 (B) early_init_stack
+@Will @Marc
+
+I think doing it the other way around for the UPAI here might be the better
+approach with less churn (esp for arm)
+
+1) keep arch/arm64/include/uapi/asm/{kvm.h, sve_context.h} where they are
+2) mark them as shared in the include guard similar as in the symlink variant
+3) for s390 (and any other arch that wants them) install the headers to
+   include/uapi/arch/arm64/asm
+
+The only thing I fear with this (and also the symlink) approach is that it is
+easy for you to include a header that we do not have on s390. This was the
+reason I moved all the headers that are shared to a different location - to
+stress that those are shared between multiple arches. Marking them as shared
+in the include guard may also do the job well enough.
+
+What do you think about this variant?
+
+	Steffen
+
+<snip>
 
