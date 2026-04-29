@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 987CACCFA13
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3F6AFF8875
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 19:53:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1+9FwjtYEgcl+wQVdNXHvCf5gn4Vs+2VsZJMRjOVxUg=; b=GUknheA2uV2M3yBs7yXMx4BN1K
-	/judx5x3Dev/AyzCio6IbLqTPh8ei2njlJlOGJK6U8RxTNC4QeaDv2PkwBHDy4wzI/aE5NyX4ASNY
-	9mUcSxeUtAk1iJ+EdknwHjoHy7KtkMWO0irJBfetPsDaEPtbo811uiT7FsZOJFSUdo2xk9SpAjJNK
-	OaupDifEyLE1QrZI2msSksXEdSjbiTXC9xJncAycn7pVcJwML0dAHbM1xtN3wiiQMgO5ipti26MhH
-	dqAkZ40RVEIyvz5s0amyNXYLKG8P1iAzaGBB/29YkB+mnZSIpSYCQ/MCITZt+BsO9l0r+9lAzcJ68
-	CidsbPzQ==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YdZ585r8V4E5fIuQnRHHEPO5/1uSUDu/m0GZmLya3es=; b=uZka8LSJ77VM8HQgd51PTefAzY
+	vixtMFmZCek4UIOLI6dpwT5NHlLBxXiVBk/ceayafQbFfSXrWOnNQcrO17+opwBIczxif5c3aHU8T
+	WYs1fG892XweOX6sOyGvkuNEQWijn6M5M6TGbxyMxHGG7rib/ugeN5txM4NKsCxJnzchBt6Bvg4Bj
+	YYEWg8a54zfVGdUKGO8P4/QG5p6+enDvS9Kn9V3Ac+XG+pvXoqIpQOtnEf7zuQCkCzysnkmrkUbUA
+	h6jlZfZPUmAH2jSF7bnJ03ZIYf+COaWQlDmwBf3KLCXU76us970KySeQ3dFoS31Jq20UH9dWIVtlZ
+	u/Q7Qonw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIAya-00000004AAr-2QW4;
+	id 1wIAya-00000004AAS-1FT2;
 	Wed, 29 Apr 2026 19:53:40 +0000
 Received: from web04.chillydomains.com ([193.19.92.170])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIAyR-00000004A4X-3De3
+	id 1wIAyQ-00000004A46-0dwR
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 29 Apr 2026 19:53:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=web04.chillydomains.com; s=dkim; h=From:To:Cc:Subject:Date:
-	Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	Content-Type:Content-Transfer-Encoding; bh=1+9FwjtYEgcl+wQVdNXHv
-	Cf5gn4Vs+2VsZJMRjOVxUg=; b=hExBLkeSN6Zv0RVgFL6xHch4tFBK2nfbDNdtN
-	Tm4qYd9t0tDhlDWHhvm5WO28LqQseJttQHu3OZoodc5mG7Jdfyn9rXndtbmFwiIj
-	BMtPkiOJe4CQJCGSZW4v7SOCiggD92vHQjp8DG5lhTt/dZ3aTASjXSJ8KD7ekYcB
-	V33fuzjZ4/qRdw9s0RHawC/DxEVGFbUwjS5a21mE1TEwZnG9uy5tfqj3oK71lJ9Q
-	FOGJI7W1KpGQOH6txgu+4LKMLKq/LpKcRejCDf9/NI0J5j+pzWTku79TgeuB2Ktn
-	1w8YLvd01M6tXlti/ljnko0/IBudX17HCj7arCKXF5wt9WYyg==
-Received: (qmail 2739233 invoked by uid 7799); 29 Apr 2026 21:53:26 +0200
-Received: by simscan 1.4.0 ppid: 2739204, pid: 2739218, t: 0.6330s
+	Message-ID:X-Mailer:MIME-Version:Content-Type:
+	Content-Transfer-Encoding; bh=YdZ585r8V4E5fIuQnRHHEPO5/1uSUDu/m0
+	GZmLya3es=; b=1vj/rErKfLqdvPkaG7tQijNJlnMKzq3V9bInusLa5pAamfmMu6
+	cNuGkzACHYfNYN4jN0F2CaiOl/W7T6Q2fkOIuhNkjKF0iJnZHhOmlNr4w+JPyB5M
+	Gzkst5aqBPrurZmJaNlb7pJ7q3JSF3Qz33BJ4/f3Vq3Mll/4EghofNfHsevT1JQx
+	wJ0fv/V3BrzOSUyvo7j4mRHAOJLPKB2rSXEX9PSoY4zvmWs+ZL0Mkd46betkApbG
+	NVTpRCLv5ccro0DY7BCXh8gWJNXJhhUSzTeR7KJeUJNroOpZGc1Uu7144jPwsQ2f
+	q581v2KAPxqgF9wh2jnPqaiW4PgXFayBh2aw==
+Received: (qmail 2738904 invoked by uid 7799); 29 Apr 2026 21:53:22 +0200
+Received: by simscan 1.4.0 ppid: 2738885, pid: 2738893, t: 0.6424s
          scanners: clamav: 0.103.9/m:62/d:27778
-Received: from 31.29.52.71.dynamic-pppoe.dt.ipv4.wtnet.de (HELO localhost) (automation@reauktion.de@31.29.52.71) by web04.chillydomains.com with SMTP [62865]; 29 Apr 2026 21:53:25 +0200
+Received: from 31.29.52.71.dynamic-pppoe.dt.ipv4.wtnet.de (HELO localhost) (automation@reauktion.de@31.29.52.71) by web04.chillydomains.com with SMTP [64555]; 29 Apr 2026 21:53:21 +0200
 From: Markus Fritsche <mfritsche@reauktion.de>
 To: Tomasz Figa <tfiga@chromium.org>,
 	Marek Szyprowski <m.szyprowski@samsung.com>,
@@ -57,18 +57,16 @@ Cc: linux-media@vger.kernel.org,
 	linaro-mm-sig@lists.linaro.org,
 	linux-rockchip@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH RFC 1/3] media: videobuf2: add dma_resv release-fence helper
-Date: Wed, 29 Apr 2026 19:53:04 +0000
-Message-ID: <20260429195306.239666-2-mfritsche@reauktion.de>
+Subject: [PATCH RFC 0/3] media: videobuf2: opt-in dma_resv producer fences for V4L2 dmabuf exports
+Date: Wed, 29 Apr 2026 19:53:03 +0000
+Message-ID: <20260429195306.239666-1-mfritsche@reauktion.de>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260429195306.239666-1-mfritsche@reauktion.de>
-References: <20260429195306.239666-1-mfritsche@reauktion.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_125332_151369_BEAF1C17 
-X-CRM114-Status: GOOD (  18.71  )
+X-CRM114-CacheID: sfid-20260429_125330_807092_D3204534 
+X-CRM114-Status: GOOD (  18.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,219 +81,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add an opt-in API that lets vb2 producers populate a dma_resv
-exclusive write fence on the dmabufs they export to userspace,
-signalled when the buffer transitions to VB2_BUF_STATE_DONE.
+Hi,
 
-V4L2 producers historically don't propagate buffer-state-done into
-the dmabuf's dma_resv exclusive fence. Userspace consumers that
-import V4L2-produced dmabufs and wait on the dmabuf's implicit-sync
-fence (poll(POLLIN), DMA_BUF_IOCTL_EXPORT_SYNC_FILE) currently see
-either zero fences or a stub fence from dma_fence_get_stub(). This
-is correct by accident for the common case (clients call DQBUF
-before importing) but represents a contract gap.
+This series proposes a small opt-in API in videobuf2-core that lets V4L2
+drivers populate a dma_resv exclusive write fence on the dmabufs they
+export to userspace, signalled when the buffer transitions to
+VB2_BUF_STATE_DONE. Two example drivers (hantro, rockchip-rga) opt in
+to demonstrate the call shape; the change is no-op for every other
+driver.
 
-Drivers opt in by calling vb2_buffer_attach_release_fence(vb) from
-their buf_queue callback. The helper allocates a dma_fence on the
-queue's fence context (set up at vb2_core_queue_init), attaches it
-as DMA_RESV_USAGE_WRITE on each plane's dmabuf->resv, and stashes
-it in vb->release_fence. vb2_buffer_done signals + puts the fence
-as part of its state transition.
-
-For drivers that don't opt in, vb->release_fence stays NULL and
-the signal path is a no-op.
-
-Skips planes whose vb2_plane.dbuf is NULL — buffers never exported
-via VIDIOC_EXPBUF (or imported via V4L2_MEMORY_DMABUF) have no
-dmabuf for userspace to wait on.
-
-Signed-off-by: Markus Fritsche <mfritsche@reauktion.de>
+Why
 ---
- .../media/common/videobuf2/videobuf2-core.c   | 95 +++++++++++++++++++
- include/media/videobuf2-core.h                | 29 ++++++
- 2 files changed, 124 insertions(+)
+Modern Wayland compositors and any other userspace consumers that
+import V4L2-produced dmabufs and want to do implicit synchronization
+the spec-clean way (poll(POLLIN) on the dmabuf fd, or
+DMA_BUF_IOCTL_EXPORT_SYNC_FILE for a sync_file) currently get either:
 
-diff --git a/drivers/media/common/videobuf2/videobuf2-core.c b/drivers/media/common/videobuf2/videobuf2-core.c
-index b0523fc23..ee766aae0 100644
---- a/drivers/media/common/videobuf2/videobuf2-core.c
-+++ b/drivers/media/common/videobuf2/videobuf2-core.c
-@@ -26,6 +26,9 @@
- #include <linux/freezer.h>
- #include <linux/kthread.h>
- 
-+#include <linux/dma-fence.h>
-+#include <linux/dma-resv.h>
-+#include <linux/dma-buf.h>
- #include <media/videobuf2-core.h>
- #include <media/v4l2-mc.h>
- 
-@@ -1179,6 +1182,86 @@ void *vb2_plane_cookie(struct vb2_buffer *vb, unsigned int plane_no)
- }
- EXPORT_SYMBOL_GPL(vb2_plane_cookie);
- 
-+/*
-+ * dma_resv release-fence integration.
-+ *
-+ * V4L2 producers historically don't propagate buffer-state-done into
-+ * the dmabuf's dma_resv exclusive fence. Userspace consumers that
-+ * wait on that fence (e.g. wayland compositors via poll(POLLIN) or
-+ * DMA_BUF_IOCTL_EXPORT_SYNC_FILE) currently see either no fences or
-+ * a stub fence from dma_fence_get_stub(). The opt-in API below lets
-+ * a driver attach a real producer fence at QBUF time and have it
-+ * signalled by vb2_buffer_done().
-+ */
-+
-+static const char *vb2_dma_resv_get_driver_name(struct dma_fence *fence)
-+{
-+	return "videobuf2";
-+}
-+
-+static const char *vb2_dma_resv_get_timeline_name(struct dma_fence *fence)
-+{
-+	return "vb2-release-fence";
-+}
-+
-+static const struct dma_fence_ops vb2_dma_resv_fence_ops = {
-+	.get_driver_name = vb2_dma_resv_get_driver_name,
-+	.get_timeline_name = vb2_dma_resv_get_timeline_name,
-+};
-+
-+int vb2_buffer_attach_release_fence(struct vb2_buffer *vb)
-+{
-+	struct vb2_queue *q = vb->vb2_queue;
-+	struct dma_fence *fence;
-+	unsigned int plane;
-+
-+	if (WARN_ON(vb->release_fence))
-+		return -EINVAL;
-+
-+	fence = kzalloc(sizeof(*fence), GFP_KERNEL);
-+	if (!fence)
-+		return -ENOMEM;
-+
-+	dma_fence_init(fence, &vb2_dma_resv_fence_ops, &q->dma_resv_fence_lock,
-+		       q->dma_resv_fence_context,
-+		       atomic64_inc_return(&q->dma_resv_fence_seqno));
-+
-+	for (plane = 0; plane < vb->num_planes; plane++) {
-+		struct dma_buf *dbuf = vb->planes[plane].dbuf;
-+
-+		if (!dbuf)
-+			continue;
-+
-+		dma_resv_lock(dbuf->resv, NULL);
-+		dma_resv_add_fence(dbuf->resv, fence, DMA_RESV_USAGE_WRITE);
-+		dma_resv_unlock(dbuf->resv);
-+	}
-+
-+	/* One reference for the eventual signal in vb2_buffer_done. */
-+	vb->release_fence = dma_fence_get(fence);
-+
-+	/* The dma_resv held its own reference per plane. Drop ours. */
-+	dma_fence_put(fence);
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(vb2_buffer_attach_release_fence);
-+
-+static void vb2_buffer_signal_release_fence(struct vb2_buffer *vb,
-+					    enum vb2_buffer_state state)
-+{
-+	struct dma_fence *fence = vb->release_fence;
-+
-+	if (!fence)
-+		return;
-+
-+	if (state == VB2_BUF_STATE_ERROR)
-+		dma_fence_set_error(fence, -EIO);
-+	dma_fence_signal(fence);
-+	dma_fence_put(fence);
-+	vb->release_fence = NULL;
-+}
-+
- void vb2_buffer_done(struct vb2_buffer *vb, enum vb2_buffer_state state)
- {
- 	struct vb2_queue *q = vb->vb2_queue;
-@@ -1205,6 +1288,9 @@ void vb2_buffer_done(struct vb2_buffer *vb, enum vb2_buffer_state state)
- 	if (state != VB2_BUF_STATE_QUEUED)
- 		__vb2_buf_mem_finish(vb);
- 
-+	if (state != VB2_BUF_STATE_QUEUED)
-+		vb2_buffer_signal_release_fence(vb, state);
-+
- 	spin_lock_irqsave(&q->done_lock, flags);
- 	if (state == VB2_BUF_STATE_QUEUED) {
- 		vb->state = VB2_BUF_STATE_QUEUED;
-@@ -2652,6 +2738,15 @@ int vb2_core_queue_init(struct vb2_queue *q)
- 	mutex_init(&q->mmap_lock);
- 	init_waitqueue_head(&q->done_wq);
- 
-+	/*
-+	 * Per-queue dma_resv release-fence context. Drivers opt-in via
-+	 * vb2_buffer_attach_release_fence(); other drivers pay only the
-+	 * cost of the unused fields.
-+	 */
-+	q->dma_resv_fence_context = dma_fence_context_alloc(1);
-+	atomic64_set(&q->dma_resv_fence_seqno, 0);
-+	spin_lock_init(&q->dma_resv_fence_lock);
-+
- 	q->memory = VB2_MEMORY_UNKNOWN;
- 
- 	if (q->buf_struct_size == 0)
-diff --git a/include/media/videobuf2-core.h b/include/media/videobuf2-core.h
-index 9b02aeba4..2bf3272d4 100644
---- a/include/media/videobuf2-core.h
-+++ b/include/media/videobuf2-core.h
-@@ -288,6 +288,12 @@ struct vb2_buffer {
- 	unsigned int		skip_cache_sync_on_finish:1;
- 
- 	struct vb2_plane	planes[VB2_MAX_PLANES];
-+	/*
-+	 * dma_resv release fence — set by vb2_buffer_attach_release_fence()
-+	 * (driver opt-in from buf_queue), signalled and put by
-+	 * vb2_buffer_done(). NULL for drivers that don't opt in.
-+	 */
-+	struct dma_fence	*release_fence;
- 	struct list_head	queued_entry;
- 	struct list_head	done_entry;
- #ifdef CONFIG_VIDEO_ADV_DEBUG
-@@ -658,6 +664,15 @@ struct vb2_queue {
- 	spinlock_t			done_lock;
- 	wait_queue_head_t		done_wq;
- 
-+	/*
-+	 * Per-queue dma_resv release-fence context. Drivers that opt
-+	 * into vb2_buffer_attach_release_fence() use these to allocate
-+	 * fences on a single per-queue timeline.
-+	 */
-+	u64				dma_resv_fence_context;
-+	atomic64_t			dma_resv_fence_seqno;
-+	spinlock_t			dma_resv_fence_lock;
-+
- 	unsigned int			streaming:1;
- 	unsigned int			start_streaming_called:1;
- 	unsigned int			error:1;
-@@ -747,6 +762,20 @@ void *vb2_plane_cookie(struct vb2_buffer *vb, unsigned int plane_no);
-  */
- void vb2_buffer_done(struct vb2_buffer *vb, enum vb2_buffer_state state);
- 
-+/**
-+ * vb2_buffer_attach_release_fence() - opt-in dma_resv release fence.
-+ * @vb: the buffer being queued to the producer.
-+ *
-+ * Drivers call this from their buf_queue callback to attach an
-+ * exclusive write fence to each plane's dmabuf->resv. The fence
-+ * is signalled and put by vb2_buffer_done() when the buffer
-+ * transitions to VB2_BUF_STATE_DONE / _ERROR. Skips planes whose
-+ * dbuf is NULL.
-+ *
-+ * Returns 0 on success, negative errno on allocation failure.
-+ */
-+int vb2_buffer_attach_release_fence(struct vb2_buffer *vb);
-+
- /**
-  * vb2_discard_done() - discard all buffers marked as DONE.
-  * @q:		pointer to &struct vb2_queue with videobuf2 queue.
+1. A stub fence from dma_buf_export_sync_file(), because the dmabuf's
+   dma_resv has no fences populated. The kernel substitutes
+   dma_fence_get_stub() which is permanently signalled. The compositor
+   "successfully" waits on a fence that represents nothing real about
+   the producer's state.
+2. A poll(POLLIN) on the dmabuf fd that returns immediately for the
+   same reason — dma_buf_poll_add_cb finds zero fences in the resv,
+   triggers the wake callback inline, and reports POLLIN ready before
+   the producer has actually said anything.
+
+Today this works as a happy accident on most paths because clients
+attach buffers after VIDIOC_DQBUF, which the userspace V4L2 contract
+guarantees only returns a buffer after the producer is done. So the
+implicit "the kernel's stub fence is fine because the buffer is
+already complete by the time anyone polls it" assumption has held.
+
+But:
+
+- It's a contract gap. The kernel claims to expose implicit sync; it
+  does not, for V4L2 producers.
+- It paid latency for nothing. Every Wayland frame from a V4L2
+  producer pays a DMA_BUF_IOCTL_EXPORT_SYNC_FILE round-trip for a
+  fence that's stub-signalled. On Mali-class hardware (RK3566 Wayland
+  chrome video playback), this contributed to compositor stalls.
+  Removing the wait at the compositor level is a workaround, not a
+  fix.
+- It blocks downstream consumers from doing the right thing. A
+  Wayland compositor that defensively waits on a sync_file gets a
+  stub-fence pass-through with no actual gating; if the V4L2 driver
+  ever has an out-of-band path that releases the buffer before
+  finishing the write, there is no fence to gate on.
+
+What
+----
+Patch 1 adds:
+
+- struct dma_fence *release_fence to struct vb2_buffer
+- u64 dma_resv_fence_context + atomic64_t dma_resv_fence_seqno +
+  spinlock_t dma_resv_fence_lock to struct vb2_queue
+- vb2_buffer_attach_release_fence(vb) — drivers call this from their
+  buf_queue callback. Allocates a dma_fence on the queue's fence
+  context, attaches it as DMA_RESV_USAGE_WRITE on each plane's
+  dmabuf->resv. No-op for buffers without exported dmabufs.
+- vb2_buffer_done() extended to signal+put the fence if attached,
+  so the producer's completion signal lands in the resv synchronously
+  with the userspace DQBUF wakeup.
+
+Patches 2 and 3 add a single call to the helper from hantro_buf_queue
+and rga_buf_queue respectively. Both are demonstration drivers; other
+vb2 drivers can opt in incrementally with the same one-line change.
+
+Tested on
+---------
+PineTab2 (RK3566 / Mali-G52 panfrost / mainline 6.19.10, this series
+backported), playing 1080p30 H.264 in chromium under KDE Plasma 6.6.4
+Wayland. The test harness is the chromium-fourier patch series at
+https://github.com/marfrit/fourier — chromium plus a KWin patch
+that *previously bypassed* Transaction::watchDmaBuf because the
+kernel-side fence was stub-signalled. With this series applied, the
+bypass becomes unnecessary; KWin's fence wait completes correctly
+because the fence now signals when hantro completes the capture
+buffer write.
+
+End-to-end result before the kernel patch (chromium + Qt 6 patches +
+KWin watchDmaBuf bypass): 1080p30 H.264 plays through, ~81% combined
+chrome CPU, but the watchDmaBuf bypass weakens KWin's defenses against
+misbehaving clients.
+
+End-to-end result after the kernel patch (chromium + Qt 6 patches +
+plain unmodified KWin): 1080p30 H.264 plays through with the same CPU
+profile, KWin's watchDmaBuf wait completes within microseconds against
+the now-real producer fence, no defenses weakened.
+
+What's missing in this RFC
+--------------------------
+- Other vb2-using drivers don't opt in. Each maintainer should look
+  at their driver and decide. The hantro + rga patches show the
+  shape; copying it to other drivers should be straightforward.
+- For drivers that have intermediate image-processor stages (e.g.
+  CSI -> ISP -> user), the fence semantics across stage boundaries
+  are out of scope here. This series only addresses the producer-to-
+  userspace edge.
+- No selftest. videobuf2 doesn't have a great in-tree selftest harness
+  for dmabuf flows; the validation is end-to-end at the userspace
+  consumer level (KWin, in our case).
+
+Reviews especially welcome on:
+
+- The decision to make this opt-in per driver vs. automatic for all
+  vb2-CAPTURE queues. Auto-on would force every driver to be audited;
+  opt-in is incremental and safer but leaves the contract gap for
+  drivers nobody touches.
+- Whether vb2_buffer_done is the right place to signal vs. an earlier
+  hook (e.g. immediately after DMA-from-device finishes). For hantro
+  the two are effectively the same; for drivers with asynchronous
+  post-processing they may differ.
+- The choice of DMA_RESV_USAGE_WRITE — we are emitting the producer's
+  write completion, so WRITE matches dma-buf documentation, but a
+  sanity check is welcome.
+
+Cheers,
+Markus
+
+
+Markus Fritsche (3):
+  media: videobuf2: add dma_resv release-fence helper
+  media: hantro: attach dma_resv release fence at buf_queue
+  media: rockchip-rga: attach dma_resv release fence at buf_queue
+
+ .../media/common/videobuf2/videobuf2-core.c   | 95 +++++++++++++++++++
+ drivers/media/platform/rockchip/rga/rga-buf.c | 10 ++
+ .../media/platform/verisilicon/hantro_v4l2.c  | 12 +++
+ include/media/videobuf2-core.h                | 29 ++++++
+ 4 files changed, 146 insertions(+)
+
 -- 
 2.47.3
 
