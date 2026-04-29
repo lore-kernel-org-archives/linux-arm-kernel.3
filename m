@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C339FF8864
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 07:06:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E2B6FF8864
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 07:07:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RvR5qpuGiebPTe8QW20ePgj0DHY0XljJOQzI3ZxxFjo=; b=pm7YIujJkqJRfFug/ee3dFzUnj
-	TuL8svCC5zVMh48nF6mXgg8aA04m4MoHgPekCDDYiM+AKQ8vRbvriPbI9rwZ2xzh+8rLwctk1sGcG
-	iK92jtu/lJMCdnunJaPgyX1OarIbqj7gJcwhVOBijdrOBJAv2J5+080yC6yp9shYYmj6GIqD4feUM
-	/w908fnZtJgE67WtJ6LlCp44kvgCwsacuNTnppgyvzQpMmZWPYfzB/C8Iuy1ofwn96k08RVxy2Gaq
-	uF6uixtIlTQdug1b9fcJVbR4N/pPL1JqucG4vBPuU4SjEI+jGuiabU5+X9bPP+O6NhT2lRay43Piw
-	kuR1jNSw==;
+	bh=5WgXU8rfyl9Mj+/Armkz5XRLWntSFZ/LpeCXoUiinHI=; b=TD/ycPTj8GVC1u9n2v4rjsxdoI
+	n3coSiebGOdoC0wKVo0dK//Xaw8Av9+g2aN0ibZz3dGTkR4MQvWiBG3FxxJZ5Kp40Iy3CsRhXE9SS
+	CG9UrrtZg+8nBBqOizLwP+A0wwsT2kL2TAlnLg3WdgCoTGWzcHkg/ATKtaDjWxYW5B3st7S0vwPmT
+	lanu7UBJxCMKE808a14HfQvYgWmQizeNryX54QlxRstlutY4bOj1H/m3KoJk6h3GkQl/PT6myQSqi
+	v66xEW1pgLHrPyW2LwXXtFbDeMMJygzP2FKVGtXlDYS3tgdVERCr5WU7k+KBsEEsgVKO5uET3xyQN
+	I4VEqkHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHyzh-000000037Uk-0qy8;
-	Wed, 29 Apr 2026 07:06:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wHz1X-000000037jG-0Ogc;
+	Wed, 29 Apr 2026 07:07:55 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHyzf-000000037UK-0GoP
+	id 1wHz1V-000000037j8-1nM3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 07:06:00 +0000
+	Wed, 29 Apr 2026 07:07:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2B248400AB;
-	Wed, 29 Apr 2026 07:05:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 012A9C19425;
-	Wed, 29 Apr 2026 07:05:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 82D1C60582;
+	Wed, 29 Apr 2026 07:07:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3762FC2BCC4;
+	Wed, 29 Apr 2026 07:07:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777446358;
-	bh=iBYAZ54Xl05eTg3Q9/tfNnTPc4BMLVfNxU4hsbPGzlk=;
+	s=k20201202; t=1777446472;
+	bh=fsIeqs27Qg7Hp2uONrhRTt8EsMoUhLfpSo8pcqw7U8w=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=MJbb/CavEMwOsMgyn9EOwEoM1OeIU4+lMlAsQEcNpff3cglR8KrvUnk5n1EoybRVG
-	 Pztb0E1qP6rp/QrVCmyMcjfDcooaP9j/lVSm5gUB8q38l+6vaKoJyqLw3p748qfAm1
-	 b4bOcfjv0EogYMJjLV/eQH/WsIn7q2gnBUe/AvOt4XZ4RGW9n11l0m0GlnVTK52J8r
-	 PX2wQG3nTP8X0l0FfaNiw52irnpzOrslVerWf5jEk39K5GCx7c1PoOYkFHAhNalXrX
-	 m8uYc5iBqnRkBQSjKn1c+NcBM9VcyLmnxD7kZFp0IhXiq/NANRS/I78DQkvrs/UoEQ
-	 UM+2CRgbjpp8A==
-Message-ID: <3ddf533b-e023-4982-8ba0-0963b9d72c5c@kernel.org>
-Date: Wed, 29 Apr 2026 09:05:53 +0200
+	b=hmby1cLuP41pok89U8Vjl88H7vEI91WpfK+FF5LP6bj+XgLqQ3ujFxjp2gV/iCN7G
+	 mAYmZgMzie37hL3BorJGNmNCZlnld8112kKaTWcvJRyIC4Dg3xFypR9/RXmvx8mOpc
+	 Q/F4x2W8kzufXIvutf+NrMq0qBLTbZ/0GNXIEU2gzLFnjyVbZxmXKb2CqaNyrv409I
+	 IH6/6wKiZaQBFGOnjA4I3HRcZ1Ado9nlPiJE3s5VvzJCv+CWRQcGs/e6dwsRIrJvHS
+	 ZONDqaza2E3eGAi3QhwaiOcWZJAtiiyT0rgF9MimDj/Jvms7FO+wAMcecRcQuFt8oa
+	 ccH+vu64XM42w==
+Message-ID: <b7e93b01-39aa-4a9f-9927-6c634a6c727c@kernel.org>
+Date: Wed, 29 Apr 2026 09:07:47 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/5] drivers: remoteproc: imx: add support for Cortex-A
- Core
+Subject: Re: [PATCH 4/5] arm64: dts: imx93: Cortex-A Core remoteproc device
+ node
 To: Jiafei Pan <Jiafei.Pan@nxp.com>, andersson@kernel.org,
  mathieu.poirier@linaro.org, peng.fan@nxp.com, Frank.Li@nxp.com,
  s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
@@ -55,7 +55,7 @@ To: Jiafei Pan <Jiafei.Pan@nxp.com>, andersson@kernel.org,
  linux-kernel@vger.kernel.org
 Cc: Zhiqiang.Hou@nxp.com, mingkai.hu@nxp.com
 References: <20260428090819.17761-1-Jiafei.Pan@nxp.com>
- <20260428090819.17761-3-Jiafei.Pan@nxp.com>
+ <20260428090819.17761-5-Jiafei.Pan@nxp.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -101,13 +101,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260428090819.17761-3-Jiafei.Pan@nxp.com>
+In-Reply-To: <20260428090819.17761-5-Jiafei.Pan@nxp.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_000559_146917_DF14111C 
-X-CRM114-Status: UNSURE (   6.17  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,14 +119,32 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 28/04/2026 11:08, Jiafei Pan wrote:
-> Add Cortex-A Core remoteproc support, it use PSCI and SIP SMC call
-> to manage Cortex-A Core to be on or off.
-> 
-> Signed-off-by: Jiafei Pan <Jiafei.Pan@nxp.com>
+> +	init-on-array = <IMX93_CLK_LPUART2_GATE>;
+> +};
+> diff --git a/arch/arm64/boot/dts/freescale/imx93-rproc-ca55.dtsi b/arch/arm64/boot/dts/freescale/imx93-rproc-ca55.dtsi
+> new file mode 100644
+> index 000000000000..9d9a60404d2b
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/imx93-rproc-ca55.dtsi
 
+Heh? A DTSI file for one device node?
 
-Why do you use subject prefix "drivers:"?
+This looks a lot like downstream approach.
 
+> @@ -0,0 +1,14 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +/*
+> + * Copyright 2024-2026 NXP
+> + */
+> +
+> +/ {
+> +	ca55_1: remoteproc-ca55-1 {
+> +		compatible = "fsl,imx-rproc-psci";
+
+Also, you cannot have non-SoC compatibles for SoC component. Nothing
+here, nor in the binding patch, explains that.
+
+>
 Best regards,
 Krzysztof
 
