@@ -4,67 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8B9EFF8875
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 01:42:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A037EFF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 02:11:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xr++0uW3/aWfxubO3cxQcvyMCVatN4XOXUV5OwG2V2w=; b=tn+JVlj8+cy5o4DXn7k8g9ZO3a
-	tlCQFd+EZGlCWDkhFbjMX1DMAKBPV28VoYDnPiJGvY5Lp0ShvhSaMqRrF45qwfBSmWx6qx+vIC3t0
-	GEm3eYZNd4Pk5A3PrY9IdSwBVt1gqWNdjY9rBe9MTHkYHF2yFliQn/7L/xImO+xctJsxoHKG5zHx3
-	HOuHioJtRk59Yhq9Zi8BONkgL5fl1FkdfcZai6sqW+rc5GPCKnRt9XpkrvQS4bndrvIICKDfhQASV
-	eW1HgNk/yy+kV63Rb6UMapleHsvlc4X4A7OuscKRpMLjpirlbiJg1Ys47KOt3OZAgmSJlxfNQTRp6
-	RLmeUd/w==;
+	bh=6GAmvG+2IhLBvb6d+bT2FsJ8/T0izydU0bvPvRfiLfk=; b=frYwX6RsbOzkdCaLmBvaBWG7PU
+	ACiG7XQVE0l/9X+LkQSMoH/pzuFBl1X4/+bI4cz1XTDEGuryuD3L7+7poZWuQn6Y89aiUwdypVpbq
+	t4a9KpltDMLQGHNZ2CxZ0CRgEYYnaCqNQrImde3U88aqZjTs4FQAeniJ9bJ4vHKP0llUBY9PPWtLn
+	6XoiUfISneO8+aO/GkqG94Qz2gfnRx5Sb96qmrG1lwghHHeP61cS80RA8tThR4hVwNSwAkW81Gr2s
+	ugoC8kj8rdpGlHQxq8Fa0oby2Hh0gaZ7Ld4f/BJK7E30cNubvz5ZQJQHEdkVQQGX+ZbZ0kuhklEOw
+	eDMfY4Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHtwG-00000002jqx-2QHx;
-	Wed, 29 Apr 2026 01:42:08 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wHuON-00000002lTa-1wtG;
+	Wed, 29 Apr 2026 02:11:11 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHtwD-00000002jps-2GMi;
-	Wed, 29 Apr 2026 01:42:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=xr++0uW3/aWfxubO3cxQcvyMCVatN4XOXUV5OwG2V2w=; b=kp+edf72edokyxU3mtqEnZKTr3
-	IdsBZ36KjZkY+e6Mq+wkNkDnqeAGDWrgyJ93hMP+ALlz9+l3ZutV6C30c3TTf1iuG0U5PLgIzieVn
-	XNbOI/kNLVqt5Yk26Maej/3KG2oCWZjyZb6Uwktr5gIfLqnUtIv8x4BMfVTQ1yt+/QTY=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wHtw1-000Rgl-Lj; Wed, 29 Apr 2026 03:41:53 +0200
-Date: Wed, 29 Apr 2026 03:41:53 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: lizhi2@eswincomputing.com
-Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
-	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
-	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	id 1wHuOL-00000002lT7-0GmG
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 29 Apr 2026 02:11:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HWny9JdHRmPRTqpoaczclxhh/7cKOuyHHsA1uZD2qCUhLUBOinqU2sySzeIUyp7/F6YJZ3a+jKptVmZ9QjFXTWuqRMhiVRjJ0s/e9z9wmcwdDAwwnULFKiAVWBbXglUkEC2r5JRM2E3iNMGfdPOPEmst4P9Ll/ktksT8SwIXdith/CpCH4r57es33iP6+R496m+lyYvSP4MmirK+DBLYWsnUiw6e4PjjYWl+Mqirf8jLntb0Gb/44kf7xwL0WnvSSwPemSv8SOTdKnx933CwGJoOvYUBaH5J93f3vGh7t9ml8MYGpZa9fQJ+jZG5TvW5esjVYwnlvrBtQOdfPnYDzQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6GAmvG+2IhLBvb6d+bT2FsJ8/T0izydU0bvPvRfiLfk=;
+ b=kGgsTkOpLXYg8T/cTJY16vQM4mW/je0Z1OwHXpVCnlMgnVUE2oC+5ZU1fiSRhtVJoLPYqqJHWZRvnp6YmoIulWGwsIph78jWS2aZXoZOySCimV2s3ejjErQ8o94ZOnES3nHWPeD5jjgtmxgNe2X2CYmnVCD70KO0xRuYHSt9YStufvokwAjX3hC1TosMUOg6F/+5iFZIGq0JenqQZYb2enLT3Z3hR+JumHzcdQPGnTeHHwWDO0gDI7IdpkY+3QmswzhSeJt/BxpfXoJnd6yb5AiZajbZ6sO8I/tWjxVzdnPNBK7IlB4tbZtbabbEhRsCUTDCTs+JbQRs+HXvT57YyA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6GAmvG+2IhLBvb6d+bT2FsJ8/T0izydU0bvPvRfiLfk=;
+ b=g85LOsOdCPJ/N5Oe7bqRfBCIMZQ9SqNfzxGEmObPG+EzZi3yIbK65zrjWtWKHinfcrLRVl+/IDovxKC04fU8bmt6M/n7M7wMYFJYyqQJGpTRFfKd8cM0hphGec+GzUBzUyrgUdJcHsG2W9qH3G/d3L29sarQ1Z3tCPl74iaefrtLHyCGN0Xinhz+v4pW7aummKNRdJC0iYhbYyRnCvJ9inDjBtkPd92C9PKExt6JhLEQ+E12+sSK4PMNQI5tCYWXtT0Th8IJSmZmZ8fMekcdUOJtKKFvnLZ/howJfiYe9X8pzRwJXGz3BNreL4vSj5+E/jh9x2za2oV2x+jMsJDYUw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by DU6PR04MB11158.eurprd04.prod.outlook.com (2603:10a6:10:5c1::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Wed, 29 Apr
+ 2026 02:11:03 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e%4]) with mapi id 15.20.9846.025; Wed, 29 Apr 2026
+ 02:11:02 +0000
+Date: Wed, 29 Apr 2026 10:13:36 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: abelvesa@kernel.org, peng.fan@nxp.com, mturquette@baylibre.com,
+	sboyd@kernel.org, Frank.Li@nxp.com, s.hauer@pengutronix.de,
+	festevam@gmail.com, linux-clk@vger.kernel.org, imx@nxp.com,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	maxime.chevallier@bootlin.com, ningyu@eswincomputing.com,
-	linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com,
-	pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com,
-	horms@kernel.org
-Subject: Re: [PATCH net-next v7 4/4] riscv: dts: eswin:
- eic7700-hifive-premier-p550: enable Ethernet controller
-Message-ID: <d662fa07-cd0f-48c4-a6e4-03c5fd390e92@lunn.ch>
-References: <20260427072353.1114-1-lizhi2@eswincomputing.com>
- <20260427072603.1191-1-lizhi2@eswincomputing.com>
-MIME-Version: 1.0
+	kernel@pengutronix.de
+Subject: Re: [PATCH v1] clk: imx95-blk-ctl: Fix REFCLK rise-fall mismatch on
+ i.MX95
+Message-ID: <afFl1qBLK/5MTwan@shlinux89>
+References: <20260417082910.489995-1-hongxing.zhu@nxp.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260427072603.1191-1-lizhi2@eswincomputing.com>
+In-Reply-To: <20260417082910.489995-1-hongxing.zhu@nxp.com>
+X-ClientProxiedBy: MA5PR01CA0090.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:1a8::7) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|DU6PR04MB11158:EE_
+X-MS-Office365-Filtering-Correlation-Id: 235cc537-b890-4346-a9c8-08dea594902c
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|52116014|376014|38350700014|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: h8fpGrgco2j3Ym1vc+42uXK6QwHv0f10+nPeEQLjw1U5d/PNHuW5j/PX6ors1n5v1+3e09hxy7cUc96/x+4qmfQe1lInFyAlySuRD0h6zDW+35PfE0fe+SMQp0yHcDi/oJEdx0V3TknKOGljwYQb7o9VKSYfWww8PJEvbw5NlyhW+w2GpKWE1hKgirvDPRBjKCFzKZKknQCWY9+ZmZ7UnEHOFI21R1GfbOzDD0QfFFrfyFEoFB9aq1acS2u7cTwvw4Idc8psRIGMVDkwx/qQSNCkZpJr/vgXvSceTsndD7ZOWxPQvhEUHjKY0j3d5oaM3uJlMVX0796psdnCBSE1gkg2SYx4apYyM5i5WHhhJENxDij6C11ljvn9L5PLs+DGyuQVfMrWhvjchZcyai6C+sP7+FhPB8915hnGk1MU/0fUay6EU0xY1l1iKnXCjWprIMMRTRXw96OZi2cXVhmPg7CRAsi5N1TC+6RuYgFTZvC1PEze/4fF6TaFC5rnBNf1zFwBlu63LwHk5TLp7N6wbAY563q26Ltqq0lQPfgIM83tgKPTUb47bkGbbtqLcjbBtPVP9xXeqfNX7xjV4uPw+M20BF37NF1cZTOjOdMPpxoiDB6JcRSStld4hL4kebTXlXSQxCHPddwQ56LJmt2c/2plxeinDp7tkDd03kFcaY5ZPRcBG0kK1XGS3uyQ56Z9OuGYQIjAXca0O46nfZv7/JuHgl7c+GviIztCO475djGRfk+9Y9YQ92k6crMVlmplsRP/ootlqjTDbASbcw7wHy3HcY/V2Idjcr/P+2x8pgo=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(52116014)(376014)(38350700014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?csPCm4V3jZOiwdFCdGWi74YeO8cmvLHYrdLULpQB/QoULE6xYbF7G7kHjny2?=
+ =?us-ascii?Q?L/TR3tPAx1Uzd2vMMdqsKP6k+cXKUReiimg861fNmQEDow1dCTeQ7+ZWwcV3?=
+ =?us-ascii?Q?4KceAVo30EyBrDVkR9eCNHAIxWcdPTlywngi8uzqqNo7hwgmAIgDc01TWAyY?=
+ =?us-ascii?Q?w2ujSWhO++7yDL8IR+bftbD1LJmD2JNqVkkJtDG5wYBoUV6mVP6vsaavC2Xr?=
+ =?us-ascii?Q?q1S/oknrplk4KZGYui4GE0JvjVTsq6OJlr1bfb143fGBXE1kpsy5VKCSL7h3?=
+ =?us-ascii?Q?+1mRuDcTKWSiaFtmv2ZI5lXfZOBhDC99wrDLsbjgRuloGPYHdntkaILtQett?=
+ =?us-ascii?Q?wJP/zJoBIfH2EzfD5KnOjA8bWZ9AklmsbqmT43z6Ji6/EPRepFoJfMPDmWTG?=
+ =?us-ascii?Q?I53BSES6x7JtonDsrmuO77djMHUofX+vlP4D8pg8ISM/oNZuxd4Nh2p2DOkx?=
+ =?us-ascii?Q?vqLgzrFbMHyXHvk3nmmaG25VYTspmnA0McUIthduIGib/VnO5HwbyjEsKY7Z?=
+ =?us-ascii?Q?XKKDNr6QhkU/N1YtdXmURRU6G/BTtLuVXfo2yn+w/q++EHxxt41D2igBxcwZ?=
+ =?us-ascii?Q?C+9lZmCfMqRAZ3aAtBMvNZ4UJbrLf6hmI9zb5bAwsJnwDRp9F5l0f8EVJaI0?=
+ =?us-ascii?Q?pI0sRM9MY6u/08IiVY7z+rThmXPjEUk/2XKMnoKyvOuU7HmLeJ2upI2qPCvP?=
+ =?us-ascii?Q?INPyz+O1UDrXC9NqcNf78YgNqoFighZNTXW/OPYf0kPUhliwGZkafLUKL8P/?=
+ =?us-ascii?Q?vlvb13b4gyry/+Frp6ZN0xlTv9Y4mXSZXiV448+HGwP9gElWgTytBdYOc5Ze?=
+ =?us-ascii?Q?VoiscX6sYavPGcqpq8LhTEkgsRwInPWJwovolFegbKwJ5tuRFAEtPJ7o9W1L?=
+ =?us-ascii?Q?FUUJaJD2gxinRj6FQxDcZysbuXjm27IjA72i1hu5I9eoB2/ewl2frPzsFvIW?=
+ =?us-ascii?Q?obmFHprUH3zvtHjg1nMx7kukZdThSnKENn836KI0tXitLnKrn4jz0Yhp9FFk?=
+ =?us-ascii?Q?1ETdDMi27tUjadSi2kiMZ+fc0oXdXdGjYsTE0NdLFeqXiwbowWEnNi1b6EcG?=
+ =?us-ascii?Q?3u30M78bW5e9rsAw4nlx7uPSKEk1v7qje8mVStKLAJouUnAC0krlem+l0E8K?=
+ =?us-ascii?Q?LW23gTpeJD4Zc3zHjgYnJ66YINHceY7RC0klDEqhbGVf9r2qZeQuadb86MlZ?=
+ =?us-ascii?Q?uP3EmCdOcqvaWMI+Lui//fKjQw8ZMRuZ82qlABHxqlVG5t7NWGhXI2MlmwhE?=
+ =?us-ascii?Q?M6oqaONsEaWz+kwsWhPXSJNVopm27txu4kvvNNzsieSo0qyCojxK79VEO9nR?=
+ =?us-ascii?Q?GU6esObxkq6VOEe+oWX7RMsvCT2GSaYd3BptAwBXg/bcOg2zf/Pma9lhca3n?=
+ =?us-ascii?Q?DCoJ7vMhUE1TqUWUDxkgTuiwVyzCQAiTTbuClTuvufVeza02UgfSdnZlCHNS?=
+ =?us-ascii?Q?z+rECSF/TJcCo+hUzqCeT0ewNmWcttMve4RPFIwfIWWtXyBhTl6/vGzlPfx4?=
+ =?us-ascii?Q?o8kDx/aeV4Gq+NE7MrthAaU6tyce5Jvbe35jq59VtzF9qoF143hS3OJEKx32?=
+ =?us-ascii?Q?Js/9WtO6JR80i1dRRljv1llHro+0MOA5bg07Bnr4Lld/w4NckWwY6j9TelMs?=
+ =?us-ascii?Q?nWNuKOGq43QFSVVmtDM/e2ufr+N32ZKhBEFbgFNt63FCni9tGjgk1PLDVIBx?=
+ =?us-ascii?Q?XjdiJyYIkXjYO+N0Ti2AxcN4+QLztGU2n7TaJCLRIeb7QRF4i3hRQhOXwAA3?=
+ =?us-ascii?Q?Xapq9Qg4kA=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 235cc537-b890-4346-a9c8-08dea594902c
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Apr 2026 02:11:02.8591
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: IWH8RnHWDGmxcyiIxEXkN8cjlAOoA/bdziEyjYsNJIN91eyMo73v96R7Z9NdIO2dtiocdh0hE33O3ZUXZl/ZOw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU6PR04MB11158
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_184205_576736_E23E8950 
-X-CRM114-Status: GOOD (  12.76  )
+X-CRM114-CacheID: sfid-20260428_191109_129447_0C3F6961 
+X-CRM114-Status: UNSURE (   7.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,37 +142,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +&gmac1 {
-> +	phy-handle = <&gmac1_phy0>;
-> +	/*
-> +	 * For the TX path of gmac1, there is a skew between the TX clock
-> +	 * and data on the MAC controller inside the silicon. This skew happens
-> +	 * to be approximately 2 ns. Therefore, it can be considered that the
-> +	 * 2 ns delay of TX is provided by the MAC.
-> +	 * No delay configuration for tx is needed in software via PHY driver.
-> +	 */
-> +	phy-mode = "rgmii-rxid";
+On Fri, Apr 17, 2026 at 04:29:10PM +0800, Richard Zhu wrote:
+>When the internal PLL is used as the PCIe reference clock source on i.MX95,
+>a REFCLK rise-fall time mismatch is observed during PCIe Gen1 compliance
+>testing with the Lfast IO analyzer.
+>
+>Fix this issue by configuring the IREF_TX field to 0xF (15), which adjusts
+>the transmitter current reference to meet the PCIe specification timing
+>requirements.
+>
+>Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
 
-This is wrong. Take a read of
-
-https://elixir.bootlin.com/linux/v6.15/source/Documentation/devicetree/bindings/net/ethernet-controller.yaml#L287
-
-phy-mode describes the board. If the board provides the 2ns delay, you
-use rgmii. If the MAC/PHY pair needs to provide the delay, you using
-rgmii-id.
-
-If rgmii-id is used, it is up to the MAC/PHY to decide which will add
-the delay. If the MAC adds the delay, it needs to mask the value of
-phy-mode it passes to the PHY so it does not also add the delay.
-
-Your broken hardware means you cannot support 'rgmii' or 'rgmii-rx',
-since you cannot turn off this 2ns delay, so you end up with double
-delays if anybody designs a board with 2ns TX delay on the board
-itself. So please validate the PHY modes and return -EINVAL if these
-modes are used.
-
-    Andrew
-
----
-pw-bot: cr
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
 
