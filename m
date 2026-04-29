@@ -4,56 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D4F0FF8875
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 09:59:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77F22FF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 09:59:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=L3ysSGByzXfJqF7r5cfOYLrvPBu+c4z/i1q4JuXDig4=; b=A1K5ylxXJ6JA+F
-	Eupgo1xLgCKqZCoqQkBewdoK1Ab/LZJn4F7B/jyxDaFSRkK4B5ne/rHB+MZ03pTuZkqFmQftbUylL
-	WZsDovSl+CLucJIV7zzGSafYGHNT9t4jlkIoPAKtFUq8wSp3MTsNtDDgfH2gozB/7OCC+dre1alxu
-	Og20UD6k6KqXAr37AwqvU5cfZXjr/JAzPCMDya/Q/9rA70pu7IzopvfXqUvkIbFI5MjMeCnxnScDp
-	5+dR3TdnukzJU2ru8hIeb2xM69yqt+WK78Dhk479S0dQsE0L17jxlRqw6YHia5896dCI8IqyQMBk4
-	SHgMunWpy4L9q39Qa6Yw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zl9XgC3TfyOqXWuiClERpmBwbbrr/I0CkpxRLL3CCak=; b=M5+LgDwun6LzxybUDaPO9MLNu9
+	xynM1Sg/S1O2H5a2/LpLalpv1t7RVCYvGxwu/rtcaDvJSFmhz+5BLeQHFMas+jiTx6LVO+nKQ4PKx
+	9fcGh2PaLNW2jVQMDbW1QlpJKQQYkrOxxWR6j/qnhWuIcoiwEh7wQzMGCwpMG4Fx5mn5nQydHU6Ic
+	17nG8rA15H2LxJAlAjYA4Hz73v5k0WPK0DEB54tuHcXV2jUTL3x7lV/uKaBDVa+y4IXj3SgZkXcrG
+	RZz5uUvNmZ4rMmdiOos433qZVouVA81UXu2I/RNQczpg7i4JtrcozDkH8dIZ109/9hMgN/Bm+Jxdj
+	uKh6x7mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI1hR-00000003Pff-3kO9;
-	Wed, 29 Apr 2026 09:59:21 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wI1hX-00000003Pie-00Rd;
+	Wed, 29 Apr 2026 09:59:27 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI1hO-00000003Pec-3ZJf;
-	Wed, 29 Apr 2026 09:59:20 +0000
+	id 1wI1hQ-00000003Pef-1ipC;
+	Wed, 29 Apr 2026 09:59:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1777456756;
-	bh=TF5ce7a1hK8I+tQv5MlsWOrZ1SFQR0W0h74iMjRsckg=;
-	h=From:Subject:Date:To:Cc:From;
-	b=MZlO9R2BIZUsr5JLlzrvbxrG+OIEu7C3PV9K7g/F2uC3d4pmMr6DVAd0hjuc8rN7C
-	 g6bZ1djAxhyNniADCcHeIv1sZi7VXs/nmaYwv7yArlEWIXWZYSlgUWyVTy8ucPcKoT
-	 W2tQbon3d5vd9CetHO+o1jB1JNsKm5YFn4O/9BRvVtDwtCJShvT0AVkz4gEfsj3HCe
-	 dM3DHP/rgdPTr+zaXcJOnb7fZbPDTeCzCPjfVpdYB2lmQ08V3wf9SDwTN7E+RNqPyw
-	 OtIG8YYWRSIE/ada6qiN8CN9gX2V79K99X60jKT4X1v3uGm51mYIKn1VevfN2cVo1w
-	 /nIoI/NH/O9ow==
+	s=mail; t=1777456757;
+	bh=LyfP3fNgBZbx3Y7bMZIcMNk42pMyUhQMoz9M6xKuTBU=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=Sn1c1ARpDTFmUw6OvH8jUoV7ESk11yWm/zJ/tSePIlq2U2WEU9iV05grUeHDFt6YX
+	 +rtDQbWBh6QeNSOYpSM2Pb66Cl16nPZezJpJqqApzVpbPKLx88Ca2Okw/q5cHkUEzj
+	 3nQfaeAjUyUwde8AjBsGyNws+eHwRYEa0HksFAnmoPsrmYfcVYPBuxZ1EVGojpwb09
+	 u56b18ImAS51f1urLUN5e8lMSByF4AxHxmaHQZ5zOzn5VgfW4ei4X58baJJm3lAf3a
+	 9nwAR1KXaXqMSXF8AMRcbLD7l88WUcJWTqsszx/fGroUTSWx8UTBIk4hD5QDxeYAzM
+	 7dnYOPGEdnVvg==
 Received: from yukiji.home (unknown [100.64.0.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9C6D617E131F;
-	Wed, 29 Apr 2026 11:59:15 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D514717E1502;
+	Wed, 29 Apr 2026 11:59:16 +0200 (CEST)
 From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Subject: [PATCH 0/4] drm/mediatek: fix sparse warnings
-Date: Wed, 29 Apr 2026 11:58:58 +0200
-Message-Id: <20260429-mediatek-drm-fix-sparse-warnings-v1-0-d95c4d118b83@collabora.com>
+Date: Wed, 29 Apr 2026 11:58:59 +0200
+Subject: [PATCH 1/4] drm/mediatek: mtk_hdmi_ddc_v2: Fix non-static global
+ variable
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/y2NwQrCMBBEf6Xs2YU0BC39FekhJmtdJGndpFoo/
- XcX6/ENM/M2KCRMBfpmA6E3F56yQntqIDx8Hgk5KoM19mycdZgosq/0xCgJ77ximb0Uwo+XzHk
- seHHGRWo7a1wAvZmFtPZTXIeDhV6LmuoRws3rPkwpce2bTGvFv62DYd+/oMRrvaMAAAA=
-X-Change-ID: 20260424-mediatek-drm-fix-sparse-warnings-7404de18204c
+Message-Id: <20260429-mediatek-drm-fix-sparse-warnings-v1-1-d95c4d118b83@collabora.com>
+References: <20260429-mediatek-drm-fix-sparse-warnings-v1-0-d95c4d118b83@collabora.com>
+In-Reply-To: <20260429-mediatek-drm-fix-sparse-warnings-v1-0-d95c4d118b83@collabora.com>
 To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
  Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>, 
  Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>, 
@@ -65,17 +64,16 @@ Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
  Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, 
  kernel test robot <lkp@intel.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777456755; l=1136;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777456755; l=1276;
  i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=TF5ce7a1hK8I+tQv5MlsWOrZ1SFQR0W0h74iMjRsckg=;
- b=LxfQX0tyMzx/jWdvideYpWdeIBEBaeVsm7QmrVnk+VO54njMPWiGYzvbVKzTiX/NgWQ0MrP0N
- pgKBYWIGs2vBGuC/xlPL6sc6eAHLQbG+mekspcZ1lSe3uw5RmNRaPTL
+ bh=LyfP3fNgBZbx3Y7bMZIcMNk42pMyUhQMoz9M6xKuTBU=;
+ b=BneHREU+huFw3thbhe7FS2zvw8FvXQGPmcNzalvbNjY2xpbm0QYcyQaHN8eLPMrkSBRDFKtAK
+ fnKnQV1qajKAYGBCAB3bRtU7C3/2NLCzmOpIGO1w3sEpRrhpCepm+/o
 X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
  pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_025919_049058_81206057 
-X-CRM114-Status: UNSURE (   7.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260429_025920_641030_7B4230A2 
+X-CRM114-Status: GOOD (  13.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,34 +88,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series fixes in the mediatek-drm driver the sparse warnings
-reported by [1] and two others introduced during v6.16 development
-cycle.
-    
-The series has compile-tested and is based on linux-next (tag:
-next-2040428).
-    
-[1]: https://lore.kernel.org/all/202604132044.fcYjEcU8-lkp@intel.com/
+The struct 'mtk_hdmi_ddc_v2_driver' is not used outside of the
+mtk_hdmi_ddc_v2.c file, so make it static to silence sparse warning:
+```
+drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c:392:24: sparse: warning:
+  symbol 'mtk_hdmi_ddc_v2_driver' was not declared. Should it be
+  static?
+```
 
+Fixes: 8d0f79886273 ("drm/mediatek: Introduce HDMI/DDC v2 for MT8195/MT8188")
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202604132044.fcYjEcU8-lkp@intel.com/
 Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
-Louis-Alexis Eyraud (4):
-      drm/mediatek: mtk_hdmi_ddc_v2: Fix non-static global variable
-      drm/mediatek: mtk_hdmi_v2: Fix non-static global variable
-      drm/mediatek: mtk_cec: Fix non-static global variable
-      drm/mediatek: mtk_hdmi_ddc: Fix non-static global variable
-
- drivers/gpu/drm/mediatek/mtk_cec.c         | 2 +-
- drivers/gpu/drm/mediatek/mtk_hdmi_ddc.c    | 2 +-
  drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c | 2 +-
- drivers/gpu/drm/mediatek/mtk_hdmi_v2.c     | 2 +-
- 4 files changed, 4 insertions(+), 4 deletions(-)
----
-base-commit: 0f3ef35b0747832b58b97171bad99011d084c6b1
-change-id: 20260424-mediatek-drm-fix-sparse-warnings-7404de18204c
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Best regards,
+diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c b/drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c
+index d937219fdb7e..31e81a6de6d8 100644
+--- a/drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c
++++ b/drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c
+@@ -389,7 +389,7 @@ static const struct of_device_id mtk_hdmi_ddc_v2_match[] = {
+ };
+ MODULE_DEVICE_TABLE(of, mtk_hdmi_ddc_v2_match);
+ 
+-struct platform_driver mtk_hdmi_ddc_v2_driver = {
++static struct platform_driver mtk_hdmi_ddc_v2_driver = {
+ 	.probe = mtk_hdmi_ddc_v2_probe,
+ 	.driver = {
+ 		.name = "mediatek-hdmi-ddc-v2",
+
 -- 
-Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+2.54.0
 
 
