@@ -4,140 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20E8AFF8875
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 09:44:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1858FFF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 09:45:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hgxvdLNq9Z4K/e7DEauf3NhDc703JvGu6mrz9dAX+DY=; b=s1sEiJt7W1+IQcNckYNMEkbbQl
-	JmbWf6974ormpn926JFtssiJyHxy9qD7qS769ZvETw3p98SMTUiSBiN4iYl3uNw/0gV+gKzdXkjOS
-	BcuRy/cjOhMEZhMkjH+eyk/HKQrKm2yFNYYONkK5aYcYn7rxYmm/1o0DVrSMYqiljsEXRRdggsTLv
-	4sv+pxCeDW7GdZB/DRFHZDMJF8Dz8IAXboxZ+QIKvA6VVwrXw6BClS4S/IxDTezdaIKonllVMQ1/x
-	T+nTkn8FyboFZs4tnC7GroPDHwTPjaCb4O2Tkl4eT8EH/oL4Mp00xryh/Cm8gS7v4dVOI+M1SlimJ
-	yp3TnmGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U1d15i6og3I88ECfJFbuD3kiHLeEb+YMylBXRnfS+5I=; b=FvuhOViP4r3MX4s+COiJW71msI
+	ihydp7s7f9inBMONIs3Bo9n+wfV2Y+hpq49yiIShIBIRzT0SDU/Fflua8saKLS9XhtA3+NI5CrL99
+	2n4M1APqW8C8U409hwj1NYG++Fn85FoIqRHLzrksDfZ3Iaby8iiT6HdGpQQ6fYqCnBEa1VroCSfIv
+	j/Bbl5c72wODWJ7w+c+6zlwd/1PB1evHGG/3OayoTAsFFr2fp9fl4Hfw0dtTDkld2uOe9N/vPZL8o
+	l9bLLvAx2vLgYr6Hfp86FFtTYqyM0ESrBhb4zmJ2CVvddAdGJm3KXGMH5FXBz1fPQBt+sxIbK52We
+	KkxPnjIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI1TH-00000003MfU-1Q3S;
-	Wed, 29 Apr 2026 09:44:43 +0000
-Received: from mail-japanwestazon11022133.outbound.protection.outlook.com ([40.107.75.133] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1wI1Tj-00000003MkC-0wPC;
+	Wed, 29 Apr 2026 09:45:11 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI1TE-00000003Mej-3Lfy
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 09:44:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pyR3pECar9/VXOaafyNMSErDimfP/N0YR5/YiTahWbprSDE8nlDNcZbGecVb5PtApifvwlMcIgPMjOuQz7xpKcDQNld5QRlY2/gnmADfHNMwP+qiolE7BgFlut+THFV2E0dJjhIcVn1gDyPhgV/2EJwsy13qkLPq3XmXrdQQN8XWaiHpAr1VSRVAfmJs9acek3EZR64xPUffNZlkcs/ZbLdtdehxipGxsBfQoqkJktT7PHzuAN10U3FTU+gTp+GKSy4CuhIZ7IE5aiNX3GnHV3mSaoPWCPBgKuH2sxmdAf2JRWOKhRdmVZTJapEXI3brNkNccH5ccnO2CuD/vSGSXg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hgxvdLNq9Z4K/e7DEauf3NhDc703JvGu6mrz9dAX+DY=;
- b=yUwkBPzSoLX6DH9FTi+TVC4ZWUfWxKnBSt+vORH5vQ3fQH4cJbGejkNgopIuOydqWuU1hjMTJcBCbhG6T0TQrNIN6ph8Z3ZJHvclpYvUnC0fE/fxQ2ZiKEY362AIfq8fayz2cO1Qjt7jFkgcIhSV8jG/vhTW6k3x7xf9DDPi8iZgPePN0H9Zua7oUudGg674XdKihRA45oCPxuImM0k4e0olH8fkt6drf7UfI/ue32H6c5hEFBoZ6/V55dLOaR9OthVhjD4RJJ8LR7pR8WWK3Gop1XZFJ7z3dxiVBG2BcjHiyxFZyhKpTBjDtXAKt6MMq/nolPotAmowsvELkJsfLQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hgxvdLNq9Z4K/e7DEauf3NhDc703JvGu6mrz9dAX+DY=;
- b=nVlmTDRH4nJZrWfs04Gixg0TGfnH2B/1r9JsYAPdX5Jvtndw//pPSXeR6PW7Xre8ZNRkSbA/A/UW3RrOzzvgMUIHbPN/286Zh4/NeDApxmoADO0FRJyNFkE4EnqW+DOnHwP0DCmxszNkNY3qbtGPmDfERGZVk8ZKBWy11xrpbcmC2mKv0SqD/F5x8olp+SR1P7Y2Bb0S8iM8OhcCrnKgSgmTHaN0bZ45yHvIRgR8TKYoULWT/ZzIRTBizIgspiQr+LBl7PVoG1uyqqghJ1LOJZ5E69duTHVQbO9Jc0CcjiTR0h58Hxf5hi0MK43sJ4v/d40acR3SaMEmNA4hi5l+nA==
-Received: from OSQPR06MB7252.apcprd06.prod.outlook.com (2603:1096:604:29c::6)
- by PUZPR06MB5588.apcprd06.prod.outlook.com (2603:1096:301:ef::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.18; Wed, 29 Apr
- 2026 09:44:22 +0000
-Received: from OSQPR06MB7252.apcprd06.prod.outlook.com
- ([fe80::92af:c9d9:8779:d19]) by OSQPR06MB7252.apcprd06.prod.outlook.com
- ([fe80::92af:c9d9:8779:d19%4]) with mapi id 15.20.9870.016; Wed, 29 Apr 2026
- 09:44:22 +0000
-From: Billy Tsai <billy_tsai@aspeedtech.com>
-To: Stephen Boyd <sboyd@kernel.org>, Andrew Jeffery
-	<andrew@codeconstruct.com.au>, Bartosz Golaszewski <brgl@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Lee Jones <lee@kernel.org>, Linus Walleij
-	<linusw@kernel.org>, Rob Herring <robh@kernel.org>, Ryan Chen
-	<ryan_chen@aspeedtech.com>
-CC: Andrew Jeffery <andrew@aj.id.au>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "openbmc@lists.ozlabs.org"
-	<openbmc@lists.ozlabs.org>, "linux-gpio@vger.kernel.org"
-	<linux-gpio@vger.kernel.org>, "linux-clk@vger.kernel.org"
-	<linux-clk@vger.kernel.org>
-Subject: Re: [PATCH v8 0/3] pinctrl: aspeed: Add AST2700 SoC0 support
-Thread-Topic: [PATCH v8 0/3] pinctrl: aspeed: Add AST2700 SoC0 support
-Thread-Index: AQHc1vUMkrNoLamkbkSyXt0W9ccsybX1SNUAgACBiqc=
-Date: Wed, 29 Apr 2026 09:44:22 +0000
-Message-ID: <OSQPR06MB7252D2B3558B5714887600ED8B342@OSQPR06MB7252.apcprd06.prod.outlook.com>
-References: <20260428-upstream_pinctrl-v8-0-eb8ef9ab0498@aspeedtech.com>
- <177742778029.5403.7247019083523002317@localhost.localdomain>
-In-Reply-To: <177742778029.5403.7247019083523002317@localhost.localdomain>
-Accept-Language: en-US, zh-TW
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: OSQPR06MB7252:EE_|PUZPR06MB5588:EE_
-x-ms-office365-filtering-correlation-id: 1827c2f6-1993-42ec-a227-08dea5d3e479
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|18002099003|22082099003|38070700021|921020|56012099003;
-x-microsoft-antispam-message-info: szaGG2+tGVi4k3gJuNzy6KKxPuR7o+tuASQ5R85+kQ0uDc03cX6Tv/FowuV4eNt3f60mFEOakCBP/tVf9tUBbBbcvkMY8a+fB5rOCzQDOtBgsIIVUYhUU/rdlMDp+BMC6d52N22lTbblfF3oFb18tXrjgHNW5LHsp4Zfvts/CBNEFiYX9eFcgsyopDY3Zi+tDKBLQam/m44Yp3qun3YfORjbiCs6VCjCd8sp6xGlaozCDNQ37JWghDY17Atsvw+RdR7Igipg7YIZuO6vCeFMLSq1yjzsYnNQ1LkCUczX2inGM8O9kd88/eqOE5rm3EDtBqLICes7RlTEqNQ//7ngOBwd6VzfNzd0w8Hedg0x78af8qOXSnP8HBGKGVoa4Ff1O1E1OhSPZTfjnn94fmgqmXDmbLseWSNR99DNQHKyPCf+LdmT4baqWNTrrX16FvHBJQMOmzDQQ6fKomdg/VfY/dmcqvMRwXOBISQ0ANwFjPS0cilL1g4j8n+hCmUvU6McCsN/YIPqBxwMcyXSEdPS93tsUkU2/AJ9svZ9X7A5GLCXNxKyaXw5z4n0BSjF/8IkV6MN5o+1qnqKURUJ+/QAgvfvFRLZpVLndjPOzb+ob5z9b3L3zpxO9ECd/0u/SBniyR7pTSlWRpXiHTpmUc+ibD7PgYIiEgMe25pmpNe1m5OFEEra37aBlOIxuEm+qZkFDVMED6KSuzykSRUaNVOZY2AZugA8rMWsx1DfsIGzzJUBaLkKcXSMcXwTbrT25gSvJZnbl8gsfv6NBP+fsJcfc5RErostwQY0/RPxqc8wpSTuhGk0GnjuiIpjEiLxoOnC
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSQPR06MB7252.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(18002099003)(22082099003)(38070700021)(921020)(56012099003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?KPwNKiwzgNdy5tenHGylz/8pzbmr2OwdV5PvEC7TqU+UZZ9hPp9pJO9CDJ?=
- =?iso-8859-1?Q?WoWp1WiFrublL1QUQz9OA0npHwQ0z69zXFIUzaXByWCCdM/sQMtf80wBXZ?=
- =?iso-8859-1?Q?/LMuNqJrPk44J629ENmNbObDWgFY+EHw0MbGLtVa5w4wx3pWmsGUCrk89y?=
- =?iso-8859-1?Q?To7dNpfX0n5a4EgP/8Srb/2tIu3+CyjI04wDUjZAGcPuziZJUNBmZuXkKN?=
- =?iso-8859-1?Q?o7rJ9S4HQa7sdmjde3xRR5tclBc+WAufTmNIVWqFxzPdI7i3bK4BADj4Xo?=
- =?iso-8859-1?Q?IehQsHfKpbcVnfZakA2i2XLMUDK4gfR567qS5w8BnCktyo2qFApSP8s7ee?=
- =?iso-8859-1?Q?pbYfrJnf+jjDrFVoCEI+r3RQwVm5wKEexd7dCniFOaEhdwmKm5lJs4H9XN?=
- =?iso-8859-1?Q?CSC0/qf4bwg5hfa/cRHX9vY86S1sSPtgJnYE1ba45SAOFQgFXurNOqOKKv?=
- =?iso-8859-1?Q?hR8DEF/lMmVVOpcoMSr7gOOopuh0F/10MCJVGqXMAVRdPCyV0C952Q1JVr?=
- =?iso-8859-1?Q?QE6f4+HNfgXyuyxEzW/YXc8VfWgjl/+WeTkp4BPHQko5NVu3gvw5z5o3nR?=
- =?iso-8859-1?Q?QmRS0sXq4Wl/WVzBzZbjqqb26ZnCE9N4UpQgpeJqZPa/R62n4oUvEk/GTP?=
- =?iso-8859-1?Q?K7J9Ltn3TmgNcVF7HYotOsZMttp6eSP6BZHHGlxLYcYeC/n2reSIcV66qc?=
- =?iso-8859-1?Q?ZUInSOMoBTIJK/FPUsZlrzXMFv7lcOJo5QJn1zZGh2OsU1CyHa3BES1vvK?=
- =?iso-8859-1?Q?Gi9AnyKH6Z/zz24NyIVgrHWFaQN88uonDnx6jA9Olz5gi7YnNNSq2tmicO?=
- =?iso-8859-1?Q?byjETgNDvIxfvxctS9VTE+zVP2DBlmjd/aIJK55LlRaUCIblotZWBgBaMF?=
- =?iso-8859-1?Q?td19lOdsJSHYZZ04PYzfKQqX3glTfapoyDe8vreFl7Wm6x2I1a2zlx1hcr?=
- =?iso-8859-1?Q?5jOXsae80IWxG5VlxVfyY8QP+qP+kx8xxdJs7UcdeOOeEqR56OaCvFu0z6?=
- =?iso-8859-1?Q?AXaqZbZ2wMWmh04tOOr2VjaYckOuzhdUTTzLwZ3wHDW7gnBpEpKLs5P26e?=
- =?iso-8859-1?Q?BMRbKqhUrvdxEGMi1sggrfRDz/Lnr9+Of5/Fn3rkZ6mRXkjhYsjvX74cvK?=
- =?iso-8859-1?Q?MbWj5FPEJ5TxCqI4lGnfX2GxexSPrb/PxmwPXvHf8qNH2/Hhrfa01f+B1Z?=
- =?iso-8859-1?Q?K8sJbnrH7xqOKkerpLOcyU4TjG/KOU7A2TUPl85KCBLqa7RXBMrNjbDqST?=
- =?iso-8859-1?Q?/IPVwKGKF1onTIzZfLY04omERzRjlTQ9TfuJX2K7DctrX8RIIEnwQSp1A5?=
- =?iso-8859-1?Q?eVCChB1g8EexzPBpt4TMwsTXmbKeHWuDLjcZeLpscKF9snWuxUQYAC+DIp?=
- =?iso-8859-1?Q?t788EB/W3VpbQFSKPj7im7S7a/jKDvaIDf3t3oVkFCCJ7ciFh8BLWg/jSS?=
- =?iso-8859-1?Q?VNGzVr5RSBHkND5adsWBHEWdrKdG6UgDnAf6DfWhoi9y8VZEjggOVRokgh?=
- =?iso-8859-1?Q?IacPmn71H1YTesDND9I0TQ/VAToJpLvia5wy+Ekbs8O/mI5gI7jVH40Fco?=
- =?iso-8859-1?Q?qX5R6AaZx3rIzQEzCcxrsYhTb4LYTWEDhuWUUcuyUXG44ztwmLsjanlEoj?=
- =?iso-8859-1?Q?nmuTGcVQGp665YzFGeY9N2v5wxmqah++6avscriTWD/UCO63auOnzSa7u3?=
- =?iso-8859-1?Q?c8i159H/mzBr3a5+/jI0ykvhUvu5SiW2a8aLYd45d7ZoEQBbAZ2kgsqX9k?=
- =?iso-8859-1?Q?D0Owqz2EXfQk3FPYhkAZkzeTUffQxO3vVfXOjYUGZcbn6isizMur63QDWi?=
- =?iso-8859-1?Q?rmM+ewbPig=3D=3D?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	id 1wI1Tg-00000003MiQ-1jP0;
+	Wed, 29 Apr 2026 09:45:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1777455906;
+	bh=q+A0nPBQFvkrIuJrsyjnlh7ztGoUgI2vF8ZPdTgCh6M=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=IffD0BE5cdoKPv1N2T1S7/tVF+WxEfnag2ya3IpIUQF1psgubeBd0ute8rUA8GyQN
+	 9Wv9qCy1mDFkWAohSU4CUj48WyBQX04ljloQPbW7EARGOv+vxvbpVEVPz4C5RLsF8Y
+	 puJ2M8H7txDfLrk4jDZk1zpirr4z95JGUmGAYaZdaY8ARFwUWRHEpaKbPceVPy7XTv
+	 PUeU1xVmLnaSDXZGYSGA3Qai9j020hBzFNy7uDjeNxfDk8HdASmHj3t/vgpY5g9rl3
+	 dZm0im9/v+F6dmu36XVU9rOFthBOo0dgcwSOhApcc+OrOR6iKJkAecMV5rq7mkTP1+
+	 PNVsBmjtTEYnw==
+Received: from yukiji.home (unknown [100.64.0.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B468317E131F;
+	Wed, 29 Apr 2026 11:45:04 +0200 (CEST)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Date: Wed, 29 Apr 2026 11:44:14 +0200
+Subject: [PATCH 1/9] dt-bindings: mfd: mediatek: mt6397: Add rtc for MT6359
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: OSQPR06MB7252.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1827c2f6-1993-42ec-a227-08dea5d3e479
-X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Apr 2026 09:44:22.2966
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: d9lgqfvG1PYjI3Ve6PHfIBGz9OZ6F8ZblS14SQhaljfcXLTLuKw5s9L6wcMUUFPQqiQP92jltu+LqK0drmhfPkWqL4vpHSNPg3kh8EvdTTY=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUZPR06MB5588
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260429-mediatek-genio-mt6365-cleanup-v1-1-6f43838be92f@collabora.com>
+References: <20260429-mediatek-genio-mt6365-cleanup-v1-0-6f43838be92f@collabora.com>
+In-Reply-To: <20260429-mediatek-genio-mt6365-cleanup-v1-0-6f43838be92f@collabora.com>
+To: Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+ Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+ Chen Zhong <chen.zhong@mediatek.com>, Jonathan Cameron <jic23@kernel.org>, 
+ David Lechner <dlechner@baylibre.com>, 
+ =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
+ Andy Shevchenko <andy@kernel.org>
+Cc: kernel@collabora.com, linux-pm@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-input@vger.kernel.org, linux-iio@vger.kernel.org, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777455902; l=944;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=q+A0nPBQFvkrIuJrsyjnlh7ztGoUgI2vF8ZPdTgCh6M=;
+ b=cH9zfo8/F+L9VyCuhm6yP4jQnsZTfb1o69JGpuvont2C9AHoiLy74ampVamrThGevdcY+sxbs
+ 6wRupzWS56mAas7GTpPJeQDpABzu/8ywoRCEYigUW9DZTkDQEmD2OFX
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_024441_134817_C827142C 
-X-CRM114-Status: GOOD (  10.57  )
+X-CRM114-CacheID: sfid-20260429_024508_597981_433807C1 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,32 +93,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > AST2700 is composed of two interconnected SoC instances, each providing=
-=0A=
-> > its own pin control hardware. This series introduces bindings describin=
-g=0A=
-> > the AST2700 pinctrl architecture and adds pinctrl driver support for th=
-e=0A=
-> > SoC0 instance.=0A=
-> >=0A=
-> > The bindings document the AST2700 dual-SoC design and follow common=0A=
-> > pinctrl conventions, while the SoC0 driver implementation builds upon=
-=0A=
-> > the existing ASPEED pinctrl infrastructure.=0A=
-> >=0A=
-> > ---=0A=
-=0A=
-> Why is this being Cc'ed to linux-clk? I'm hoping it's a manual typo and=
-=0A=
-> not some sort of misconfiguration in ./scripts/get_maintainer.pl,=0A=
-> please?=0A=
-=0A=
-This was automatically added by b4 prep --auto-to-cc. According to the=0A=
-output of ./scripts/get_maintainer.pl for the patch `[PATCH 2/3]=0A=
-dt-bindings: mfd: aspeed,ast2x00-scu: Describe AST2700 SCU0`,=0A=
-linux-clk@vger.kernel.org is included in the Cc list.=0A=
-=0A=
-Thanks=0A=
-=0A=
-Billy Tsai=0A=
+The rtc block of MT6359 PMIC is compatible with the one found in MT6358
+but this compatibility was never expressed in the dt-bindings, so add
+the missing compatible string for the rtc subnode.
+
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+---
+ Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml b/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
+index 05c121b0cb3d..dc2b38cf285d 100644
+--- a/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
++++ b/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
+@@ -70,6 +70,7 @@ properties:
+               - mediatek,mt6397-rtc
+           - items:
+               - enum:
++                  - mediatek,mt6359-rtc
+                   - mediatek,mt6366-rtc
+               - const: mediatek,mt6358-rtc
+ 
+
+-- 
+2.54.0
+
 
