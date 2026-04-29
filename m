@@ -4,123 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D53A2FF8867
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 08:05:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42924FF8867
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Apr 2026 08:07:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S7NXX/gV9JLML/8MaMF7KkfY+fqdAB+RUfgOHZBHuic=; b=dexRM+QKpO69mi9TeGBVvJSLLE
-	yMcot8CpFiSpAaKCz/Ytfc+twp3HDL9QalkDLpn+jxYInhzNaDe6K8e1dUFr/2BXn7UQfd+lBv+kD
-	K3RXEbIc2MUqAxvtk4QNbyUPcJvF3eg1Tv5BltV5w0PmyhKdfDBP5CWg9RYWvo6/5u5jVRLF+GEXt
-	HT4dvAbQM72M+/69MsiRZ5dq+zAJVpRBeaIYCNDGBLUYLZmTcwaPcjNkTPOyqKVPQZsWHR1fXbMBg
-	EW2gdykSQbfd2Sxdzt/kDoBs5cgk+ne7WStAboEo9J9BdJ2vZGe5ldiZ43wr3ZlBlnOf6fOuLhcmo
-	ftbruN9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Eyta59uN5vtO1/WZbOs1P3QwqPOOCC4TOg4kNoocO1Q=; b=Y2lLB2sfhfBOsa/wmLrxKVF1ja
+	sxHeo7CMl6ocjY7Jydyea04MbNjfKW1eQeevfgvwfyPeDoAKyf1RVhU4lrpA5ivNPsNEJfOs16vWe
+	VQkOo7DfPONf1HFQ/kXBiY6zzVn8yMWhtMPBAhhf5QDJ3Njk3vS4MHlDTcn2k2lyI0BdnFtX0JQ5/
+	MV4B1Vzy4r0/Plu6QPjPQAMZkio5UA7IvpAaO48X0uEWpxuHUxJeBaKGgjGULju/PLFm4RhJNORc+
+	MTfWPs9ro5UR8sBHn097LbqqtJQ3c4DKYUJ8nZ9w+hSxEYJ3UU+l4xFAMg3qb/xJ3n2Mkc8w7H/YA
+	Dylum7rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHzui-00000003DO3-1KYw;
-	Wed, 29 Apr 2026 08:04:56 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wHzxS-00000003Dni-2j5U;
+	Wed, 29 Apr 2026 08:07:46 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHzuc-00000003DLW-1zz2
+	id 1wHzxR-00000003DnK-0UQH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Apr 2026 08:04:54 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63T2hix41679188;
-	Wed, 29 Apr 2026 08:04:07 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=S7NXX/
-	gV9JLML/8MaMF7KkfY+fqdAB+RUfgOHZBHuic=; b=IDp8K2iRjMH/j2pduCHme3
-	kusq/o40Xyw5AdKI2e//HxCLzNE2huKM5NBO6DUhw8N++hOS7pKYte2lejapBD7x
-	oJ+5yFEnvdvngvpPGQBWtMJD0hNQpElN0fnMGo8kOHQokC3818RK1uPmMsn4F0Ag
-	vappg4zs+Zd4rRdKHtQXAaZf1FLzC4yDt+RZfnTOFtIQ8fuqgTqlYsHHm4qqPlek
-	8xJGj2nCrhFVlk+3v/nvb0VsBRtTYEjCuAjenK/Jlk0erhmgwSY0oZH27tcLmrCU
-	tkwuWiMeoy9B9acv1K8xcv5i9aEp3UdQsJtT+x2XmuF96R1pJVjcrOKd6rAtj+7w
-	==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4drn44shef-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 29 Apr 2026 08:04:07 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63T7s2Sh020257;
-	Wed, 29 Apr 2026 08:04:06 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4ds9ehdbda-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 29 Apr 2026 08:04:05 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63T842qR31851040
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 29 Apr 2026 08:04:02 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 09BDA20040;
-	Wed, 29 Apr 2026 08:04:02 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id A62BE20043;
-	Wed, 29 Apr 2026 08:04:01 +0000 (GMT)
-Received: from osiris (unknown [9.52.216.133])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Wed, 29 Apr 2026 08:04:01 +0000 (GMT)
-Date: Wed, 29 Apr 2026 10:04:00 +0200
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: Steffen Eiden <seiden@linux.ibm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org, Andreas Grapentin <gra@linux.ibm.com>,
-        Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Will Deacon <will@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v2 04/28] arm64: Provide arm64 UAPI for other host
- architectures
-Message-ID: <20260429080400.536931-A-seiden@linux.ibm.com>
-References: <20260428155622.1361364-1-seiden@linux.ibm.com>
- <20260428155622.1361364-5-seiden@linux.ibm.com>
+	Wed, 29 Apr 2026 08:07:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4B05460018;
+	Wed, 29 Apr 2026 08:07:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8744BC19425;
+	Wed, 29 Apr 2026 08:07:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777450063;
+	bh=BPtgstPyJu9Z1XyYiv+Qqirlz2ojBbfdDJaNCno6c0Q=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qNjpzERFgA7GRrt3yoEzQ93KlfHO4r4qXsOOf6AFpc1HP7dYlsen6xWW+g6ViIsV2
+	 BfC2cKTxEWNWm/DdyUJuoNAaglqHUG5gR6MCh+q1TscaCrlZRA5t2APQ6XbSCs2fGS
+	 lSUzjRW24WJ1bZJf4trJNpKRCpkSyjrjdBzqjFy9dLIGYQlALweX7nFtP1phi6FhKD
+	 RcoBzMz/Zugrf+4cKAzBPRK4NirMen2MaV8ay8GZhtdPS+ivdE3BsoKqwmYdl0wazA
+	 2YQrgkHQWa+IbDp/2n73SAqVMsD1RFEVV5xWs2kB8EoYd77NIbYSw32MNDlZQslPGZ
+	 2ZfiK1BOS3umw==
+Message-ID: <e4a7e9d8-7091-4520-a634-ff0a44eb5139@kernel.org>
+Date: Wed, 29 Apr 2026 10:07:34 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260428155622.1361364-5-seiden@linux.ibm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: 34_Hc6C8hpR1w0YGE4xpg5uWiTi7zAfE
-X-Authority-Analysis: v=2.4 cv=Ft81OWrq c=1 sm=1 tr=0 ts=69f1bb77 cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=AvxnFSxSGNjASAhgYNEA:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
-X-Proofpoint-GUID: 34_Hc6C8hpR1w0YGE4xpg5uWiTi7zAfE
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI5MDA3NyBTYWx0ZWRfX/BR9bvAsu6SP
- rnSPINincBDahvVVTXISjI8c8IQUKYiHkTL2yr1b9ycpxCIn+EWZBPpUSGr8WIlt+w1cvbOB4yN
- 4pZtekGCWY4YhUY/45+X0AmbLinomFM+akTnvPiwolQ4YpGqEwi6YNQZar+uTNuuHqp6gw5jOxb
- UUIHWhqKD9TVMoCXOmxYs9NjRXG+C+1CDG0qAfk4UEtT8x/Kv+EUm5Nxhfps15Tlxuqmj9qNVmq
- rrf4q4IMMPo4BK87UD9Vyg/KGu4SWdFSIxDqblcLNSBTJs3A4FnJrqC8oIzoBO1pBNxp022bIEk
- fLvkFXOAWStYXIDPsDa5ec0MV+L5nRdZCBzjZRda1KNZ7iX9xTXZzw1P4gjdxD6D7BhsDbgHfnk
- HPOKuHbL6LMPXS5FmNUoa6Nz8Bf2Nbl3EPhywgyG2AF2zhgDvQpY0nVQa8QHwU75cj1PnGoUbfd
- pMgSY1JkXjk0BtV4qBw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-28_05,2026-04-28_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 lowpriorityscore=0 bulkscore=0 spamscore=0 impostorscore=0
- clxscore=1015 malwarescore=0 phishscore=0 suspectscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604290077
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_010450_525550_0F2A52F2 
-X-CRM114-Status: GOOD (  19.23  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/3] p54spi: convert to devicetree
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Aaro Koskinen <aaro.koskinen@iki.fi>,
+ Andreas Kemnade <andreas@kemnade.info>, Bartosz Golaszewski
+ <brgl@kernel.org>, =?UTF-8?Q?Beno=C3=AEt_Cousson?= <bcousson@baylibre.com>,
+ "David S. Miller" <davem@davemloft.net>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+ Eric Dumazet <edumazet@google.com>, Felipe Balbi <balbi@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Johannes Berg <johannes@sipsolutions.net>,
+ Kevin Hilman <khilman@baylibre.com>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Linus Walleij <linusw@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>,
+ Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>,
+ linux-wireless@vger.kernel.org, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+ linux-omap@vger.kernel.org, Christian Lamparter <chunkeey@gmail.com>
+References: <20260427142355.2532714-1-arnd@kernel.org>
+ <20260427142355.2532714-4-arnd@kernel.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260427142355.2532714-4-arnd@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,44 +127,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 28, 2026 at 05:55:56PM +0200, Steffen Eiden wrote:
-> Enable the ARM64 userspace API to be used on non-arm64 host
-> architectures, with initial support for s390.
-> 
-> The arm64 KVM UAPI headers are relocated to include/uapi/arch/arm64/,
-> allowing non‑arm64 hosts (such as s390) to use the arm64 KVM userspace API.
-> 
-> To achieve architecture independence, some type aliases are introduced,
-> which conditionally resolve to native arm64 types when building on arm64
-> or to fallback to ABI compatible inline struct definitions on other
-> architectures.
-> 
-> The build system is updated to install the moved UAPI headers to their
-> original location but in and conditionally export arm64 architecture
-> headers for s390. This infrastructure enables s390 systems to host arm64
-> virtual machines while maintaining full compatibility with the existing
-> arm64 KVM-UAPI, requiring only minimal, compatible changes to the arm64
-> UAPI-headers itself.
+On 27/04/2026 16:23, Arnd Bergmann wrote:
+>  
+> -	ret = gpio_request(p54spi_gpio_power, "p54spi power");
+> -	if (ret < 0) {
+> -		dev_err(&priv->spi->dev, "power GPIO request failed: %d", ret);
+> +	priv->gpio_powerdown = gpiod_get(&spi->dev, "powerdown", GPIOD_OUT_HIGH);
+> +	if (IS_ERR(priv->gpio_powerdown)) {
+> +		ret = PTR_ERR(priv->gpio_powerdown);
+> +		dev_err(&priv->spi->dev, "powerdown GPIO request failed: %d", ret);
 
-@Will @Marc
+Binding said it is optional, so this cannot be a failure.
 
-I think doing it the other way around for the UPAI here might be the better
-approach with less churn (esp for arm)
+Also, please use ret = dev_err_probe syntax.
 
-1) keep arch/arm64/include/uapi/asm/{kvm.h, sve_context.h} where they are
-2) mark them as shared in the include guard similar as in the symlink variant
-3) for s390 (and any other arch that wants them) install the headers to
-   include/uapi/arch/arm64/asm
 
-The only thing I fear with this (and also the symlink) approach is that it is
-easy for you to include a header that we do not have on s390. This was the
-reason I moved all the headers that are shared to a different location - to
-stress that those are shared between multiple arches. Marking them as shared
-in the include guard may also do the job well enough.
+>  		goto err_free;
+>  	}
+>  
+> -	ret = gpio_request(p54spi_gpio_irq, "p54spi irq");
+> -	if (ret < 0) {
+> -		dev_err(&priv->spi->dev, "irq GPIO request failed: %d", ret);
+> -		goto err_free_gpio_power;
+> -	}
+> -
+> -	gpio_direction_output(p54spi_gpio_power, 0);
+> -	gpio_direction_input(p54spi_gpio_irq);
+> -
+> -	ret = request_irq(gpio_to_irq(p54spi_gpio_irq),
+> -			  p54spi_interrupt, IRQF_NO_AUTOEN, "p54spi",
+> -			  priv->spi);
+> +	ret = request_irq(spi->irq, p54spi_interrupt, IRQF_NO_AUTOEN, "p54spi", priv->spi);
+>  	if (ret < 0) {
+>  		dev_err(&priv->spi->dev, "request_irq() failed");
+> -		goto err_free_gpio_irq;
+> +		goto err_free_gpio_power;
+>  	}
+>  
+> -	irq_set_irq_type(gpio_to_irq(p54spi_gpio_irq), IRQ_TYPE_EDGE_RISING);
+>  
+>  	INIT_WORK(&priv->work, p54spi_work);
+>  	init_completion(&priv->fw_comp);
+> @@ -659,11 +636,9 @@ static int p54spi_probe(struct spi_device *spi)
+>  
+>  err_free_common:
+>  	release_firmware(priv->firmware);
+> -	free_irq(gpio_to_irq(p54spi_gpio_irq), spi);
+> -err_free_gpio_irq:
+> -	gpio_free(p54spi_gpio_irq);
+> +	free_irq(priv->irq, spi);
+>  err_free_gpio_power:
+> -	gpio_free(p54spi_gpio_power);
+> +	gpiod_put(priv->gpio_powerdown);
+>  err_free:
+>  	p54_free_common(priv->hw);
+>  	return ret;
+> @@ -675,10 +650,8 @@ static void p54spi_remove(struct spi_device *spi)
+>  
+>  	p54_unregister_common(priv->hw);
+>  
+> -	free_irq(gpio_to_irq(p54spi_gpio_irq), spi);
+> -
+> -	gpio_free(p54spi_gpio_power);
+> -	gpio_free(p54spi_gpio_irq);
+> +	free_irq(priv->irq, spi);
+> +	gpiod_put(priv->gpio_powerdown);
+>  	release_firmware(priv->firmware);
+>  
+>  	mutex_destroy(&priv->mutex);
+> @@ -686,10 +659,19 @@ static void p54spi_remove(struct spi_device *spi)
+>  	p54_free_common(priv->hw);
+>  }
+>  
+> +struct of_device_id p54spi_of_ids[] = {
 
-What do you think about this variant?
+static const
 
-	Steffen
+> +	{ .compatible = "cnxt,3110x", },
+> +	{ .compatible = "isil,p54spi", },
+> +	{ .compatible = "st,stlc4550", },
+> +	{ .compatible = "st,stlc4560", },
 
-<snip>
+At least last two devices are then compatible, so this should be
+expressed in the binding with fallback and drop stlc4560 here. Maybe all
+of them are compatible.
+
+> +	{ },
+> +};
+> +MODULE_DEVICE_TABLE(of, p54spi_of_ids);
+>  
+>  static struct spi_driver p54spi_driver = {
+>  	.driver = {
+>  		.name		= "p54spi",
+> +		.of_match_table = p54spi_of_ids,
+>  	},
+
+
+Best regards,
+Krzysztof
 
