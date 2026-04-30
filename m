@@ -4,85 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45F02FF8875
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 10:26:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44A9FCCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 10:27:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1r1vJLR30p7fkpRQ3dOhQxyHM5dMPa9Fa9Jt1g55gyA=; b=eUqvH0FPjVBd7FDZh3xscGkEEs
-	XjVUZhzsN3C9WqpH9anY/3+egaeH3nmqUkYMyxJbvQgyp0rToNK6sn7WXKhl8VYHwLf8K5Zd5DkQo
-	eQ6NnGez22yOFmhLVJH6yaQGB6q0s4salyHLKtKx5ir4f0XFa66wEPMEfseefJv4LI4iyogng0lNj
-	AK3nFxuu88vMmyT1p9BFzIlELWViz3uSZqSkJkfeS7jP38K4DhYXADru6CJj+Qop7K9wl99LWxe9m
-	eAy6d8+GTtTeh8J5bChhX0DuOej5loje6EqlJw2s1Rl7aKIGllp492qQtEo1mJjoMWHyhJdVodumZ
-	G9sEAg2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:Cc:To:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qJtC8axtxZ6PlTBw/4plYqbYMGHIdhbjoFEFpeBa84g=; b=1FESS9yivUR/U/EQc+VroWU04V
+	D5KJVngvn92Se5eaApa+/driV9wWsou+h9wfKHW7F5GMnErctKTh4T2qb0O9nTTKlT9O4bWwLE8xT
+	RHmF82tiVVnd8ZX0GYLKlkAA2FMp8XMLu7wTTofQKh+F4aacyP5N38xfcaWVX7O7JjO9JTxYWhnyu
+	J7ePiPGZyF+8HZ+RGZ+Twl8GvhpV4JBT8c05671gIMQtV2ZeNoaD7zih3npipGyXTL0WlH+JK7T5l
+	K17eBePQEzwKgPglac2rVydOCGu/547Chwua2uCjjiBoUeBe3njVAsIw3omWby/3+wInOiACQ6m4X
+	RuvQdwdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIObY-00000005C3y-1j8H;
-	Thu, 30 Apr 2026 10:26:48 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wIOcQ-00000005CCX-1BDp;
+	Thu, 30 Apr 2026 10:27:42 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIObW-00000005C3e-1D9y
+	id 1wIOcL-00000005CB5-3Twt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 10:26:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F25A140A1F;
-	Thu, 30 Apr 2026 10:26:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C88E9C2BCB3;
-	Thu, 30 Apr 2026 10:26:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777544805;
-	bh=VJPNiMDYvBsCB/7oxqwxMyogFYbHDES9uh5YZFRlgU8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=d049TYoYD6cypkxj2aOqTj7ABN09jRktXxudV+CFRxbWp6mgki1t1f4+csu1NuiIt
-	 FdhfiGQEBVugjWEQygsZkOARbGIO2R0nQlCCS03+YQTrX2Y817TdfFFDKYlRGtNm6K
-	 ntjPKdSWOt+WZ0XnZQw0oXYs3RklCSQLRPC1zjVfQaTFrWXKv8xbnhYKbXe09q8hK5
-	 hT4rnrtR4eo7GORRvSiC/KoZfBmKwv3rbYNhFX9iboxLB7RmvW1KPLSFe78ITHAL5E
-	 oSw/FC0EFNMU0Yy+g31a1MMW/pcOi3wHMwRKmAgyybCa4r/dSE5sA3+KCQZmUCqxoB
-	 zpjsuQuVawZVg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wIObT-0000000GDd5-1Njb;
-	Thu, 30 Apr 2026 10:26:43 +0000
-Date: Thu, 30 Apr 2026 11:26:42 +0100
-Message-ID: <86fr4czqu5.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	nd <nd@arm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Joey Gouly
-	<Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>
-Subject: Re: [PATCH 13/43] KVM: arm64: gic-v5: Make VPEs (non-)resident in vgic_load/put
-In-Reply-To: <20260427160547.3129448-14-sascha.bischoff@arm.com>
-References: <20260427160547.3129448-1-sascha.bischoff@arm.com>
-	<20260427160547.3129448-14-sascha.bischoff@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Thu, 30 Apr 2026 10:27:38 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-449e96a8a80so76140f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 03:27:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1777544856; x=1778149656; darn=lists.infradead.org;
+        h=in-reply-to:references:subject:cc:to:from:message-id:date
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qJtC8axtxZ6PlTBw/4plYqbYMGHIdhbjoFEFpeBa84g=;
+        b=S8UbWqOMMaE4OXOL5xS78ghexGfFloBNY9/V6h5dWWzRfPBPrUHJTYrmaGVOav6Pni
+         6mrkR5lUGUp2hckgmoYQLU8eQNM6VjBioa/4E/9ERu8S9iXshYEIkhPAKXbzqE2NU/aK
+         KbxFpG5cQAuOaSi01cpV0LzjaglfMnN9dJLe4YnzTW60E4mSP107JFYYVBns+2wr5ZPe
+         PewGK9BOPgJTC+1BPMzLJt2dSSiXaP+UF/lPZ3gIRkJy7h0p2ntdyRFjdK9krn97oiO0
+         9q/mjDfkSWaWpygAUhxTJyWJ/kTdkRrEe1mRrEnUXjahQstp5eOCxJlppcXO7e02D79S
+         XdtQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777544856; x=1778149656;
+        h=in-reply-to:references:subject:cc:to:from:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=qJtC8axtxZ6PlTBw/4plYqbYMGHIdhbjoFEFpeBa84g=;
+        b=BTur4iRwmssnmribAx2wNcYCOrKEtD79EFDUNzc5AmTY7DmnPjNeXh5GxjO1QtGjjU
+         R70RpnBNescT0bNyagdoakqNkfpvZwO5/NBBIL9lH/T/pn9/nzk2hryTTFooOID8Pe4s
+         KjPdKJ5pS/B/eKSqwAycrOw40DGNaUT7+Y5uTj/j6krKu+ocRClx4BW+cq1pH9GKGWmw
+         l0Vb3L6E4tz3+2gwfaSM7ulPVfPrnBCH20e1VaUaEFaybHTqHLiANZDcY4V3Np8pqh72
+         HRWSwz4a/mZ4De+7ZSbGndehXE5bfn/mQG2pA07sOFys+RWbVwUtWZEcqkWZUTTXIlP1
+         yZeg==
+X-Forwarded-Encrypted: i=1; AFNElJ/Deo55FJGE1xF+XwcAM1oi6edVfDd/8dGDnnOzOnN2pfs+erXJW8UcNtYbkhsnF6Z/0RHkNIv+Xms3A8B4wshW@lists.infradead.org
+X-Gm-Message-State: AOJu0YwjhtgOkdBKcCKPY29+kOu+eZq+/58GT+adt1kP8fPodPisUojV
+	MJXTy0+mOeZ8Uf+FYzwRG25pf6eJZ5g+4gLZBZjPPQIUZ/ahA6prrsX93EtBQmEAfew=
+X-Gm-Gg: AeBDiesANRQkXtmHIRtI6Uyvxd1FjQQCkNgh1wmom6WJLEOS0zu1NGi9h93VeuLk+Nt
+	gNzc7PLJWS4Y010mBAJGQTVPYgTZYU51PofMYki7ALYbWeMpKCEyqxP2+TJ7BIyKdg7eyNTmapk
+	1uTBfZK0cuySWXMAM1MH6G2IHhMi7nIU5RdZFc2eYnbdBc4Al3KYjahCOgeU1pBVq8eyaT/xa+6
+	3ZNt9tboqg5wnBH8i+hxAH0adyiAkvGZRbzLWXMvDzjee/en1S5mPBnV1Tk97+2Us3JQCmgl5P6
+	A44PWyploFnU8LjZInOTEOMYv0yMM43Ver3kBhyP4OtJ7jlWXojGY4kuU3xGO3KCv9s7SGJaRzc
+	S4uCJHGy6kvXIvIogWx0rBrxQMJiYHQlrhMx+lv7Q0Io0BUxZ7mHYWyloALgfkUUiNOpJUGBTKb
+	fOho1P8rkwNIPJz49t9Rm6nDdu2v/Zp7U3jOkYDl2QivOGWFRChd1e3IW0peC2NqesNV/XGW60E
+	yIwDkscu8XiTeLLkXCrQihuk0Q0
+X-Received: by 2002:a05:6000:2383:b0:43c:4810:dc4a with SMTP id ffacd0b85a97d-4493ffcb2b1mr3621503f8f.38.1777544855840;
+        Thu, 30 Apr 2026 03:27:35 -0700 (PDT)
+Received: from localhost ([2a00:2381:fd67:101:9e61:b264:2b8d:1e57])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-447b7218622sm12070800f8f.21.2026.04.30.03.27.34
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 30 Apr 2026 03:27:35 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 30 Apr 2026 11:27:34 +0100
+Message-Id: <DI6F28VL7ZGX.1ZJNLS41FF55N@linaro.org>
+From: "Alexey Klimov" <alexey.klimov@linaro.org>
+To: "Alexey Klimov" <alexey.klimov@linaro.org>, "Sam Protsenko"
+ <semen.protsenko@linaro.org>, <linux-samsung-soc@vger.kernel.org>,
+ "Krzysztof Kozlowski" <krzk@kernel.org>, "Peter Griffin"
+ <peter.griffin@linaro.org>, =?utf-8?q?Andr=C3=A9_Draszik?=
+ <andre.draszik@linaro.org>, "Conor Dooley" <conor+dt@kernel.org>, "Alim
+ Akhtar" <alim.akhtar@samsung.com>
+Cc: "Tudor Ambarus" <tudor.ambarus@linaro.org>, "Rob Herring"
+ <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3 4/6] soc: samsung: exynos-pmu: add Exynos850 CPU
+ hotplug support
+X-Mailer: aerc 0.20.0
+References: <20260430-exynos850-cpuhotplug-v3-0-fd6251d02a17@linaro.org>
+ <20260430-exynos850-cpuhotplug-v3-4-fd6251d02a17@linaro.org>
+In-Reply-To: <20260430-exynos850-cpuhotplug-v3-4-fd6251d02a17@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_032646_365067_A85002F3 
-X-CRM114-Status: GOOD (  20.54  )
+X-CRM114-CacheID: sfid-20260430_032737_885453_25407D50 
+X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,65 +109,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 27 Apr 2026 17:10:28 +0100,
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
-> 
-> Extend vgic_v5_load and vgic_v5_put to make the VPEs resident and
-> non-resident, respectively. This makes the IRS aware of which VPE is
-> currently resident, and therefore allows it to perform HPPI selection
-> for LPIs and SPIs, which would otherwise never be signalled to the
-> VPE.
-> 
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+On Thu Apr 30, 2026 at 2:56 AM BST, Alexey Klimov wrote:
+> Add cpuhotplug support for Exynos850 platforms. This SoC requires
+> its own specific set of writes/updates to PMU and PMU interrupts
+> generation block in order to put a CPU or a group of CPUs into
+> a different sleep states or prepare these entities for a CPU_OFF
+> or wake-up out of idle state or after CPU online.
+> Without these writes/updates the CPU(s) wake-up or online fails.
+> While at this, also add description of Exynos850 PMU registers.
+>
+> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
 > ---
->  arch/arm64/kvm/vgic/vgic-v5.c | 12 ++++++++++--
->  1 file changed, 10 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
-> index 92bb63b6dd6bb..11a1a491b7e0a 100644
-> --- a/arch/arm64/kvm/vgic/vgic-v5.c
-> +++ b/arch/arm64/kvm/vgic/vgic-v5.c
-> @@ -1053,6 +1053,8 @@ void vgic_v5_flush_ppi_state(struct kvm_vcpu *vcpu)
->  void vgic_v5_load(struct kvm_vcpu *vcpu)
->  {
->  	struct vgic_v5_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
-> +	u16 vm = vgic_v5_vm_id(vcpu->kvm);
-> +	u16 vpe = vgic_v5_vpe_id(vcpu);
->  
->  	/*
->  	 * On the WFI path, vgic_load is called a second time. The first is when
-> @@ -1065,7 +1067,11 @@ void vgic_v5_load(struct kvm_vcpu *vcpu)
->  
->  	kvm_call_hyp(__vgic_v5_restore_vmcr_apr, cpu_if);
->  
-> -	cpu_if->gicv5_vpe.resident = true;
-> +	cpu_if->vgic_contextr = FIELD_PREP(ICH_CONTEXTR_EL2_V, true) |
-> +				FIELD_PREP(ICH_CONTEXTR_EL2_VPE, vpe) |
-> +				FIELD_PREP(ICH_CONTEXTR_EL2_VM, vm);
+>  drivers/soc/samsung/Makefile                |  2 +-
+>  drivers/soc/samsung/exynos-pmu.c            |  1 +
+>  drivers/soc/samsung/exynos-pmu.h            |  1 +
+>  drivers/soc/samsung/exynos850-pmu.c         | 79 +++++++++++++++++++++++=
+++++++
+
+[..]
+
+> +const struct exynos_pmu_data exynos850_pmu_data =3D {
+> +	.pmu_cpuhp =3D true,
+> +	.cpu_pmu_offline =3D exynos850_cpu_pmu_offline,
+> +	.cpu_pmu_online =3D exynos850_cpu_pmu_online,
+> +};
 > +
-> +	kvm_call_hyp(__vgic_v5_make_resident, cpu_if);
->  }
->  
->  void vgic_v5_put(struct kvm_vcpu *vcpu)
-> @@ -1083,7 +1089,9 @@ void vgic_v5_put(struct kvm_vcpu *vcpu)
->  
->  	kvm_call_hyp(__vgic_v5_save_apr, cpu_if);
->  
-> -	cpu_if->gicv5_vpe.resident = false;
-> +	cpu_if->vgic_contextr = 0;
-> +
-> +	kvm_call_hyp(__vgic_v5_make_non_resident, cpu_if);
->  
->  	/* The shadow priority is only updated on entering WFI */
->  	if (vcpu_get_flag(vcpu, IN_WFI))
 
-Should this patch be folded in patch #3? They seem to overlap in major
-ways.
+Ah, sorry, I forgot to remove blank line here. Will do in the next
+update.
 
-Thanks,
+BR,
+Alexey
 
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
 
