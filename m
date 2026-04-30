@@ -4,123 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A09F0CD13DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 23:29:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36C12FF886F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 23:36:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f5eETolv2CRJ+KGuzqHXNWHz75SkAhmrcTAnZvVauEE=; b=g74gp6KwkoUx+D1tiDaGv7x+RN
-	E+fXayDKx6OiZ1if8XaD+lVV+f1gIE20R1eo/nvz7MsoWsZu4CnGia+btOqPxQEYVkqcx3aaSXB2n
-	zUBUAXGJWYcD8rKl2kapJauyKeQQ58XicdHuHj76sHR20xknLutNbTcTMRVlO5/j8T2yRFD4VF4Kp
-	LALZM+Scsq/Dnw7ls4Pt4NCMjjahTFfhEbK2uHdtRZOWBDk6yyir35eAesO6wQACmjWbispSKNl6j
-	2ivsDvc2oh0OLjVSjXTd5N3vdxc2z3RlgK75dN4XXqdrWO+7BaTGt8SgOcGCEaudJUX+ypf3aGAcy
-	AMz0+Xig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LjWhdLhvb0FszGpH90J6XLMquCgsKBrnq0AI/bOZ75g=; b=dhf5PfIe15r0GjRcKqey9MODnp
+	Z9Vut69Qe9ms7w1mr+LQ2QraGcw24S8E1sNeb3Nc50FobMERQCvt4bRu4gsH1dfX+8QWETejQfF7S
+	ESWjod8zDJZmQUjnEJRA5S412Gj7lMRsvj1kLbxgRJXjsdwk7TbkOHUW1meHHnfFUD+o2ui5/DvhS
+	u9F5dTMr+2CZ/7GsYzlJ0Kc1rsthJHGJ54Pjzr4b9fFCKx2eyFETou/M7W1TM9FpFl54PCGkqdQ5t
+	BPkTZ59wwSERe8CW8ASEzoOINr50mUt13f3ayD/HqPaVJo9YS6VELYkp9D/10ASwzDMdy1TFFiIpe
+	Uf2lL3Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIaoU-000000066WI-3qQD;
-	Thu, 30 Apr 2026 23:28:58 +0000
-Received: from mail-northcentralusazon11013039.outbound.protection.outlook.com ([40.107.201.39] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1wIavG-000000067aZ-0rlt;
+	Thu, 30 Apr 2026 23:35:58 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIaoS-000000066Vw-3T9u
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 23:28:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IRUBYmhAuYfAijpbVwQQ6MbIu/KB1LGUpheZWgJwUvzR0y0XF0IJMzOo+d2CfeCNOEcgi4eCHrqKv1DRwveKSSQ22X2Iia5GQcw/dFy+VL5wGVfiGB6owb8a3fqvxmIdOyvSHrxRdQMaCdmzLWj360QBs4szUiP8pylJFIXWO8anTE4nbGn/IJ5AmSd3j35Hk69ubIhyV0w3ADKyAWGyny7Asq+8NeBvAowCQcp4trrpfJbD6zAzlk/xtETLlWUKGdfDun0JR53REdOrQamzXCtPXL9UmbH2Z2D5GOCh+MxYMleIMI6nSY7zuITQTQ28z8KrsebbHBV0zMIE9fIx4w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=f5eETolv2CRJ+KGuzqHXNWHz75SkAhmrcTAnZvVauEE=;
- b=DcEBcN4HBFB8NWFbLvBWERyOGFPSntjOFSqRbi0GMnmezSqbxkTA+ehmkCGBQrPRj1c3HtOcoFPwBaDuK0DCHoJA89sEoEO0sOGlA5J6nojLKvgDKaCVi6ymK5+NXw8KGoifvj+7Y+KERpXkiMybXtfyR9apmccjBlXK8P23Ijx8uoHAivTItFD6Z6wqiNu3RzkDO61xi48aTpolc6IjsJcwNTuHsVSvQP4Z87obrTjMOrZbUd0DmOi8gRNvfnMjD0qRso+vi1OGvi7KTWaWDJeTLgYZxJ/BW6i1mi6+/5HXco0To9G6e3y2AsdHFzdp+wHB2tp0cfkvI2346cY4mA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=f5eETolv2CRJ+KGuzqHXNWHz75SkAhmrcTAnZvVauEE=;
- b=mMLBm6kV3YOXYYJRO8e/70BpjU0vtzzslFfTmDnSUjzo0eu4teU98t91S7Zuhi2jYjJZ75CdkSXrA+ebqHf4wcc/bHafQBH905u8wKDSpG4veX7yExnCUY5Xz2/XnjyNmSYrWYXVWjKJZx3nbcH9jW7iZQPltdEg9LlmQrjMx4YKhfjIWxEWHjWvbLNxCx669JFcue4suZSgwJrExaE7p8LKG2zAyTDgbuVz0xa+OlWpUHaO6xWUkd4UFcXtSjJlhe13oLDjXL8FSEAHMZsKnAH1uzL/E3gnFg1OxHL0/v+iHN5KUv8aLQ2OfVcK21bISyOcGu2B7xNOm9BKs3al2g==
-Received: from BL0PR05CA0003.namprd05.prod.outlook.com (2603:10b6:208:91::13)
- by CYYPR12MB8890.namprd12.prod.outlook.com (2603:10b6:930:c7::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.15; Thu, 30 Apr
- 2026 23:28:41 +0000
-Received: from BL6PEPF0001AB4B.namprd04.prod.outlook.com
- (2603:10b6:208:91:cafe::e1) by BL0PR05CA0003.outlook.office365.com
- (2603:10b6:208:91::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9870.16 via Frontend Transport; Thu,
- 30 Apr 2026 23:28:40 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- BL6PEPF0001AB4B.mail.protection.outlook.com (10.167.242.69) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9870.22 via Frontend Transport; Thu, 30 Apr 2026 23:28:40 +0000
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 30 Apr
- 2026 16:28:20 -0700
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail204.nvidia.com
- (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 30 Apr
- 2026 16:28:19 -0700
-Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com (10.129.68.6)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 30 Apr 2026 16:28:18 -0700
-Date: Thu, 30 Apr 2026 16:28:17 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: "Dan Williams (nvidia)" <djbw@kernel.org>
-CC: <jgg@nvidia.com>, <will@kernel.org>, <robin.murphy@arm.com>,
-	<bhelgaas@google.com>, <joro@8bytes.org>, <praan@google.com>,
-	<baolu.lu@linux.intel.com>, <kevin.tian@intel.com>,
-	<miko.lenczewski@arm.com>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-pci@vger.kernel.org>, <dan.j.williams@intel.com>,
-	<jonathan.cameron@huawei.com>, <vsethi@nvidia.com>,
-	<linux-cxl@vger.kernel.org>, <nirmoyd@nvidia.com>
-Subject: Re: [PATCH v4 1/3] PCI: Allow ATS to be always on for CXL.cache
- capable devices
-Message-ID: <afPlkW5zlTSHwQCT@Asurada-Nvidia>
-References: <cover.1777269009.git.nicolinc@nvidia.com>
- <f6734b9dad0050138676f11ecd14e9db1cf6b697.1777269009.git.nicolinc@nvidia.com>
- <69f3cc82926_3291a910039@djbw-dev.notmuch>
+	id 1wIavD-000000067a9-0omC;
+	Thu, 30 Apr 2026 23:35:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3C51942B72;
+	Thu, 30 Apr 2026 23:35:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA394C2BCB3;
+	Thu, 30 Apr 2026 23:35:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777592154;
+	bh=UOaPDNLQb+DWXRX86NYkdWJLMQr/Dt6uSVxCr2qRPOw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ZaefObiUhiS06GyO2ZPam7v+xKSz/xj6dDyzgiFyYF5vwMapPmxw1tjLpeku4NLqC
+	 MNemy1d3JrJcOG0Jk6NNf+6YhMUlpqGil4LcSSlKqyMAfYs1D2uso3FiUdlp+smO/v
+	 XDZtnFLVXIgjhIMQGDxFxXhJa93t5Z12b7KOm5uOpZaFN/3PlwFZQty9JQr//W2vqL
+	 Vq054sIidcx3nsS2/NxotU3HYGyHQmcfz2fSk/UXIx19WufrApEtG037RRolFUxlTG
+	 mayqczXLjYDszlo6fCq5NDr1S/jjjhfzeFH0Q2VuF9eMDultmmSXbQg3mPEEmemBHz
+	 lDzLMIcnrmfEg==
+Date: Thu, 30 Apr 2026 16:35:51 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: =?UTF-8?B?5p2O5b+X?= <lizhi2@eswincomputing.com>
+Cc: andrew+netdev@lunn.ch, devicetree@vger.kernel.org, davem@davemloft.net,
+ edumazet@google.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ rmk+kernel@armlinux.org.uk, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, linux-riscv@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ maxime.chevallier@bootlin.com, ningyu@eswincomputing.com,
+ linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com,
+ pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com,
+ horms@kernel.org
+Subject: Re: [PATCH net-next v7 2/4] net: stmmac: eic7700: enable clocks
+ before syscon access and correct RX sampling timing
+Message-ID: <20260430163551.7491407a@kernel.org>
+In-Reply-To: <2117464.7991.19ddd2125d1.Coremail.lizhi2@eswincomputing.com>
+References: <20260427072353.1114-1-lizhi2@eswincomputing.com>
+	<20260427072508.1151-1-lizhi2@eswincomputing.com>
+	<20260428180625.738223cf@kernel.org>
+	<2117464.7991.19ddd2125d1.Coremail.lizhi2@eswincomputing.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <69f3cc82926_3291a910039@djbw-dev.notmuch>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB4B:EE_|CYYPR12MB8890:EE_
-X-MS-Office365-Filtering-Correlation-Id: 23c0172c-c533-40ce-6828-08dea710366b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|82310400026|36860700016|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: Pa5XL9cSlKqDuP7K5er0RtlkfJlY6adNW4aBqIePvmlGlf2io5JMLUpDrZMmdQCur3kdjKuKsbw+2PBDs+vWOXxC7HDq6oqqUdS5Zf4lsh9yCoL1tgkKZ0Zk+CfpKPzqNYFkzrq2xjVgHcBbquKg3o8QJuKC7d5Pce/b5InXoVQ7UUw58WAVmGFA1j1KMC3fD/Sg9twNxRIf+5jgXNx4xq7ot/gEgiidMJwMmcMKrjhSuABFeCwkHSY5rbP3LZrxEUaEsKY/swl/TBkd9VJgoBKwutwRHBEMMr4hh6jw3NCPSQ0MP279pS+hbV67Tjc/6uzTB7dFchhVPoFJ7mLuyhLtlpFd7gGgZC32H36FKdTOYr/s9vW8VCf0K+q5E3M26QDnEqL5Zrbyt1u1eM3Xlzgwg/SalaFaO5A8feXpVicq18t9kRy5W7sXYkQShKQOCQw8VXqrFQu6MkFVbbVqaQZ3gbdxG6p9SppQdg+Ce9AgX7Ax+PuIgH7LzQaCgBmBpZZk3mr4PBcfze4eTUdhAJfMHFJUgN85lL7kO17xprhTqPKI9oagtLzBE81dJR+7NxosDbKEH1Cnb4CuskLgpEduiwXIHObnCBmR88VGCgSAQRkl6uqpv1MebVQBU/3uPJuxYXlC7QsTcrRex+XSdgssRX5RVRYkrc3ncp55Nh/hryWNXxV+mnoqzN9SC0NfIYbsFk4zSWuSqV+fCf4S/WD3DVhHFz5ZCnLog8eFES8=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(82310400026)(36860700016)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 5QRvdu2tsMZaZN6LaVF5mfJKTnQpODLoriiYBkjWTsLktvO7JrdjeDySsyOcq+ZSbIbea/2/wMMiUp3qI/TmGNNtk0phWymDrrdWo4AJpPyKM5Mi1oZRe16vqbQ1AIOzxtEfhN+IOcZAwsqQ5M9Ka6FjB5Ddy+i7rreix7amE3EoJQywtaWvJGx5ZoGzAdgmpDcMZBAaRHGfpFPFAA0Aag5WcwpfPpElHrg6+viV9PBu7bskH2EXw3+rOuwHFDQ+p7so24CPzX2Jc8bGmEtGw/dFSMtvw3dX/jos/Ra2Ad4ncIv5ILL8egmbbzTOh/e367j/Bj500kSv7oSlgcRlcIcHTZVtwNBDBM82yNmqjrekRkbYDYO1mcOtL9tzY5HKdNU0z7ti4PE0fcjbuapGKbdA6cagOm54xxrC0Q4opB8n7e2kdOpNIl4pPvil7MNL
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2026 23:28:40.5541
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 23c0172c-c533-40ce-6828-08dea710366b
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB4B.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR12MB8890
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_162856_872885_1465F019 
-X-CRM114-Status: GOOD (  16.98  )
+X-CRM114-CacheID: sfid-20260430_163555_257890_97933D46 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,63 +84,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 30, 2026 at 02:41:22PM -0700, Dan Williams (nvidia) wrote:
-> > +static bool pci_cxl_ats_always_on(struct pci_dev *pdev)
-> > +{
-> > +	int offset;
-> > +	u16 cap;
-> > +
-> > +	offset = pci_find_dvsec_capability(pdev, PCI_VENDOR_ID_CXL,
-> > +					   PCI_DVSEC_CXL_DEVICE);
-> > +	if (!offset)
-> > +		return false;
-> > +
-> > +	if (pci_read_config_word(pdev, offset + PCI_DVSEC_CXL_CAP, &cap))
-> > +		return false;
-> > +
-> > +	return cap & PCI_DVSEC_CXL_CACHE_CAPABLE;
-[...]
-> Apologies for coming to this late and forgive me if the following has
-> already been asked and answered. Why not check for actual CXL.cache
-> protocol on the wire being present?
+On Thu, 30 Apr 2026 14:43:50 +0800 (GMT+08:00) =E6=9D=8E=E5=BF=97 wrote:
+> > Why Fixes? If eth1 never worked this is not a fix but new functionality
+> > If you want to make this a fix to prevent incompatibility - cut it down
+> > just to the eth0 changes.
+> >  =20
+> Thank you for the suggestion.
+>=20
+> You're right that eth1 never worked at Gigabit speed, so this should
+> not be treated as a fix.
+>=20
+> In v8, I will split the changes into two patches within the same series:
+> - Patch 1 will contain only the fixes affecting the existing eth0
+> functionality, and will keep the Fixes tag.
+> - Patch 2 will add the eth1 support (RX clock inversion workaround)
+> as new functionality, without a Fixes tag.
+>=20
+> Please let me know if you would prefer a different split or ordering.
 
-Actually it would make the patch smaller. The thing is that this
-is_cxl property wasn't added when I started the series. So, it's
-not using it. :)
-
-> @@ -1733,9 +1733,8 @@ static void set_pcie_cxl(struct pci_dev *dev)
->  	pci_read_config_word(dev, dvsec + PCI_DVSEC_CXL_FLEXBUS_PORT_STATUS,
->  			     &cap);
->  
-> -	dev->is_cxl = FIELD_GET(PCI_DVSEC_CXL_FLEXBUS_PORT_STATUS_CACHE, cap) ||
-> -		FIELD_GET(PCI_DVSEC_CXL_FLEXBUS_PORT_STATUS_MEM, cap);
-> -
-> +	dev->is_cxl_cache = FIELD_GET(PCI_DVSEC_CXL_FLEXBUS_PORT_STATUS_CACHE, cap);
-> +	dev->is_cxl_mem = FIELD_GET(PCI_DVSEC_CXL_FLEXBUS_PORT_STATUS_MEM, cap);
-
-One caveat is that:
-
-Here it checks the cap from:
-	PCI_DVSEC_CXL_FLEXBUS_PORT_STATUS (0xE) via
-		PCI_DVSEC_CXL_FLEXBUS_PORT_STATUS (0x7)
-
-On the other hand, mine checks from:
-	PCI_DVSEC_CXL_CAP (0xA) via
-		PCI_DVSEC_CXL_DEVICE (0x0)
-
-The spec mentions in 8.2.1.3.1 DVSEC Flex Bus Port Capability: "
-  Note: The Mem_Capable, IO_Capable, and Cache_Capable fields are
-  also present in the DVSEC Flex Bus for the device [which is the
-  legacy name for DVSEC 0x0]. This allows for future scalability
-  where multiple devices, each with potentially different
-  capabilities, may be populated behind a single Port.
-"
-
-Not arguing that set_pcie_cxl() is wrong, but I am not sure if there
-would be any side effect to rely on the "legacy name" over DVSEC 0x0.
-
-Is there any CXL expert who can help confirm?
-
-Thanks!
-Nicolin
+If you want to consider some part of this commit a fix it has to be
+posted separately to the net tree (rather than net-next).
+Once it's merged and makes it way over to the net-next tree (each
+Thursday) you can post the net-next chnages for eth1
 
