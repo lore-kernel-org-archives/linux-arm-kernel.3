@@ -4,63 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39862CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 08:45:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 218FCCCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 08:46:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xuoEzlKQ+jbZWqfDSTbKAzWgKBkKNvhhYOyvNjByjFw=; b=r9b1YZkPW2t+yFOcQ/lPrdi8aW
-	jl3uzTZTojPQ0s6FbU4m5ucOYvWDgYQgy053SB57tu7wCx081RKQocy2zydK3PF3bCNERdj6Y7HoT
-	FDGigXEUy/pOT+G23Mg7twivsShDP14KOa7oHx/YcqBNSPc/WR31FP7U3IljfFWsqTftgqpe9MeMc
-	kRh724s6vLeWg8MEhY3FZ+KYww/rONt4uOFQ8d09XzigVmRWjsKOeOBARe99hqzV9Dk+CFO3j+4vm
-	s371HlBQskQ3OTpZmCsWZ8nYGvSGNGJVLdjiqTjPdXenewQL8qYjRZALEDKj1k0asYkcJVVh72uyL
-	RbPV3PQg==;
+	bh=ZbaTwFoQFTw63OG7VDUPdxgKOLjruKokwJYhqIafL64=; b=pGAeA15aTw7w0D+EoVaGzk1zX7
+	ambrc6qrUr5eec0kDEcHmLyLC9noWG1zP5sTcH0EAeqNH37UZjIbqZ85K4643zmvnYvTC75m+VWOZ
+	ItEwfNqdzRM2k99vVdtwO8b01z2kjbn3uoUHTcUFp6ntEOnm0PYPn1SO9JydvHWhI29GyXRmOlVpO
+	kAcADev9ZJGrBJn+uXsjRJIM9WDntbPUOja/mvJ6ijL8L/jTjb3k59Le6I/1gcff2SozFDsek+KUU
+	mS/9Z0wgn3qjRSuUL0n+jnynFiciN1PnW3Npspy+/iwbAkOZtO2fT5U6CmEsptTnWSyVzu2rzq0Bf
+	GJRvXzzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIN1s-000000052ZL-2o6C;
-	Thu, 30 Apr 2026 08:45:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wIN2M-000000052f3-48Xv;
+	Thu, 30 Apr 2026 08:46:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIN1s-000000052ZC-08Rt
+	id 1wIN2L-000000052ek-3Kfb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 08:45:52 +0000
+	Thu, 30 Apr 2026 08:46:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3532B60583;
-	Thu, 30 Apr 2026 08:45:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2ABDBC2BCB3;
-	Thu, 30 Apr 2026 08:45:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CFD1460142;
+	Thu, 30 Apr 2026 08:46:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65022C2BCB3;
+	Thu, 30 Apr 2026 08:46:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777538750;
-	bh=+MBhZkziafGe9boIFxf7Lv1bigAUU/KzlTMIHJ2Vi3I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=vFDt5+4ORGzFWPnYEcamCPOAZJQoO/abaBIsk6lC6+NMTXdB2QMEX9ypUPp7QmWJs
-	 rNI2Ys0BxlLYbFkYEqs9b1ohRRPwwq2I11hLwqPf0utvNtgT2myhvd7Bez+uIHB253
-	 BwLURQ6V71f5oT4bq22zqYjcP1b3EwS+SgGaFoJbQCrJgTcS9xkFaR8NoVfo92NLv1
-	 o7IJmrXvhcPwqszl2lX1aKwZ3TUH8lurZy/ALEg6rJoErpIyq5jG9Fht0xH//QFXV8
-	 G+WKqJ/LSqVptJu56t1X1TEvFk8jgGrE4iQhFv1op00lqDs2BgqtVrQ/qlb5MWUQQG
-	 zho0BCGT4MaaA==
-Date: Thu, 30 Apr 2026 10:45:43 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Kameron Carr <kameroncarr@linux.microsoft.com>, will@kernel.org,
-	suzuki.poulose@arm.com, steven.price@arm.com, ryan.roberts@arm.com,
-	dev.jain@arm.com, yang@os.amperecomputing.com,
-	shijie@os.amperecomputing.com, kevin.brodsky@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH] arm64: mm: support set_memory_encrypted/decrypted
- for vmalloc addresses
-Message-ID: <afMWt5Saisw6NX-t@kernel.org>
-References: <20260406213317.216171-1-kameroncarr@linux.microsoft.com>
- <adjZpFIgXQYOvyTq@arm.com>
- <001301dcc932$21cb6d80$65624880$@linux.microsoft.com>
- <ad5vTmfDWSAVrLab@arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ad5vTmfDWSAVrLab@arm.com>
+	s=k20201202; t=1777538780;
+	bh=Hi80MVPwek2SD7+HknMpXPXec3jfYu6RuSg2vyl+NiQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=XXVQHuop4BJEFD8mQkNQOSpToGwhFRtscxB/04LjHh17C4qgVNUf0S6YHCKx4pmz6
+	 yIsiRk92t9GV+f5D4oH7ccsDjsllPWpt++1TKEKBzTiQ6tSsiMrDoRCafQ0TA+4Qr1
+	 X8gewKnYAo8srQP7UEw3og9kaNFekIMXgdT43IlZnDxEQPcPiRTekQojqfYhlmUneC
+	 HmjUDwwL+8PtfNt+YwLB4TZ8+Anl25mihSMDsdrNhxw+HXignd3gutoBYiWfD5pm6o
+	 QLfI7rQZ0I7SDxvlBpGgrRjzpsbHE/hoWQo/zX03dbdCUteC2E5BnnBaY3RMTeUJ9d
+	 j/PdlfVasQlIg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wIN2H-0000000GBY6-3b3w;
+	Thu, 30 Apr 2026 08:46:18 +0000
+Date: Thu, 30 Apr 2026 09:46:17 +0100
+Message-ID: <86ik98zvhi.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	nd <nd@arm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Joey Gouly
+	<Joey.Gouly@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org"
+	<peter.maydell@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>
+Subject: Re: [PATCH 10/43] KVM: arm64: gic-v5: Implement VPE IRS MMIO Ops
+In-Reply-To: <20260427160547.3129448-11-sascha.bischoff@arm.com>
+References: <20260427160547.3129448-1-sascha.bischoff@arm.com>
+	<20260427160547.3129448-11-sascha.bischoff@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,72 +94,326 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Catalin,
+On Mon, 27 Apr 2026 17:09:27 +0100,
+Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+> 
+> Introduce interfaces to make VPEs valid, and to configure them, via
+> the host's IRS. As with the other valid bits in the GICv5 VM tables,
+> VPEs cannot be made valid directly, and instead are made valid via an
+> IRS MMIO Op.
+> 
+> Additionally, some of the VPE configuration takes place via the IRS
+> MMIO interface too (via the IRS_VPE_CR0, IRS_VPE_DBR). VPE doorbells
+> are, for example, configured via this interface.
+> 
+> The existing VPE-doorbell-based commands are extended with:
+> 
+>         VPE_MAKE_VALID - Make the VPE valid in the VPET
+>         VPE_CR0_READ - Handle a guest read from IRS_PE_CR0
+>         VPE_CR0_WRITE - Handle a guest write to IRS_PE_CR0
+> 
+> Note: There is no VPE_MAKE_INVALID as VPEs are only made invalid on
+> teardown, at which point the whole VMTE is marked as invalid. Hence,
+> it is not required.
+> 
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> ---
+>  arch/arm64/kvm/vgic/vgic-v5.c      | 164 +++++++++++++++++++++++++++++
+>  include/linux/irqchip/arm-gic-v5.h |  27 +++++
+>  2 files changed, 191 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
+> index 49eb01ca07961..0649729f6b834 100644
+> --- a/arch/arm64/kvm/vgic/vgic-v5.c
+> +++ b/arch/arm64/kvm/vgic/vgic-v5.c
+> @@ -253,6 +253,25 @@ static int vgic_v5_irs_wait_for_vm_op(void)
+>  	return 0;
+>  }
+>  
+> +/* Wait for completion of an VPE_STATUSR change */
+> +static int vgic_v5_irs_wait_for_vpe_op(void)
+> +{
+> +	int ret;
+> +	u32 statusr;
+> +
+> +	ret = readl_relaxed_poll_timeout_atomic(
+> +		irs_base + GICV5_IRS_VPE_STATUSR, statusr,
+> +		FIELD_GET(GICV5_IRS_VPE_STATUSR_IDLE, statusr), 1,
+> +		USEC_PER_SEC);
 
-On Tue, Apr 14, 2026 at 05:46:06PM +0100, Catalin Marinas wrote:
-> On Fri, Apr 10, 2026 at 02:36:42PM -0700, Kameron Carr wrote:
-> > On Friday, April 10, 2026 4:06 AM, Catalin Marinas wrote:
-> > > Could you give more details about the user of set_memory_decrypted() on
-> > > vmalloc()'ed addresses? I think this came up in the past and I wondered
-> > > whether something like GFP_DECRYPTED would be simpler to implement (even
-> > > posted a hack but without vmalloc() support). If it is known upfront
-> > > that the memory will be decrypted, it's easier/cheaper to do this on the
-> > > page allocation time to change the linear map and just use
-> > > pgprot_decrypted() for vmap(). No need to rewrite the page table after
-> > > mapping the pages.
-> [...]
-> > In this use case, whether to decrypt the memory can always be known at
-> > time of allocation, so a solution like GFP_DECRYPTED is an option.
-> > 
-> > I think I found the hack you mentioned
-> > (https://lore.kernel.org/linux-arm-kernel/ZmNJdSxSz-sYpVgI@arm.com/). The
-> > feedback in Michael Kelley's reply covers the key considerations well.
-> 
-> Yes, that's the thread. It started originally as a GICv3 need
-> (eventually we went for genpool).
-> 
-> > He likely had netvsc's use of vmalloc in mind when he made the point
-> > "GFP_DECRYPTED should work for the three memory allocation interfaces and
-> > their variants: alloc_pages(), kmalloc(), and vmalloc()." His other
-> > points already cover the concerns I had in mind around handling errors
-> > from set_memory_decrypted()/encrypted(), etc.
-> > 
-> > What is the current status of your proposed GFP_DECRYPTED implementation?
-> > Is this something you are actively working on?
-> 
-> Not really. But I've been looking at it again and I think it adds more
-> problems than it solves. A GFP flag would be passed down to
-> kmem_cache_alloc() and confuse the slab management if some pages are
-> encrypted, others not for the same kmem_cache (SLAB_NO_MERGE wouldn't
-> help). I wonder whether something like SLAB_DECRYPTED would work better
-> for this if we really need it (not aware of any user though).
-> 
-> Anyway, let's ignore slab for now and look at vmalloc(). I can see
-> hv_ringbuffer_init() using an explicit vmap(pgprot_decrypted()). While
-> you could do this, it might be better to just add a VM_DECRYPTED flag
-> and a few wrappers like vmalloc_decrypted(). It would call
-> set_memory_decrypted() for the allocated pages and use
-> pgprot_decrypted() for vmap. On vfree(), it will have to set the pages
-> back to encrypted. It should be fairly mechanical to do (or a 5 min job
-> for an LLM ;)).
- 
-A GFP + SLAB flag is semantically better than only implementing decrypted
-allocations only in vmalloc, but it's surely way more complex and intrusive
-and we are running low on gfp flags on 32 bits :)
+Formatting.
 
-But I think we can push the _decrypted to kvmalloc() that would do either
-kmalloc() + set_memory_decrypted() or vmalloc_decrypted() and it seems that
-x86 and drivers could use that instead of alloc_pages() +
-set_memory_decrypted().
+> +
+> +	if (ret == -ETIMEDOUT) {
+> +		pr_err_ratelimited("Time out waiting for IRS VPE Op\n");
+> +		return ret;
+> +	}
+> +
+> +	return 0;
 
-We also would want also to make x86::set_memory_decrypted() to only accept
-linear^w direct map addresses to ensure consistency between architectures.
+You seem to have a number of these primitives. Consider having a
+generic helper that takes the required parameters, including a partial
+string in case of error.
 
-> -- 
-> Catalin
-> 
+> +}
+> +
+>  static int vgic_v5_irs_assign_vmt(bool two_level, u8 vm_id_bits, phys_addr_t vmt_base)
+>  {
+>  	u64 vmt_baser;
+> @@ -369,10 +388,142 @@ static int vgic_v5_irs_set_vist_invalid(int vm_id, bool spi_ist)
+>  	return __vgic_v5_irs_update_vist_validity(vm_id, spi_ist, true);
+>  }
+>  
+> +static int vgic_v5_irs_set_up_vpe(int vm_id, int vpe_id, irq_hw_number_t db_hwirq)
+> +{
+> +	u64 vmap_vper, dbr, selr;
+> +	u32 statusr, cr0;
+> +	int ret;
+> +
+> +	guard(raw_spinlock)(&vm_config_lock);
+> +
+> +	/* Make sure that we are idle to begin with */
+> +	ret = vgic_v5_irs_wait_for_vm_op();
+> +	if (ret)
+> +		return ret;
+> +
+> +	/* Mark the VPE as valid */
+> +	vmap_vper = FIELD_PREP(GICV5_IRS_VMAP_VPER_VPE_ID, vpe_id) |
+> +		    FIELD_PREP(GICV5_IRS_VMAP_VPER_VM_ID, vm_id) |
+> +		    FIELD_PREP(GICV5_IRS_VMAP_VPER_M, true);
+
+That's another of these single bit mask used with FIELD_PREP. Consider
+rewriting it as:
+
+	vmap_vper = FIELD_PREP(GICV5_IRS_VMAP_VPER_VPE_ID, vpe_id) |
+		    FIELD_PREP(GICV5_IRS_VMAP_VPER_VM_ID, vm_id) |
+		    GICV5_IRS_VMAP_VPER_M;
+
+
+> +	irs_writeq_relaxed(vmap_vper, GICV5_IRS_VMAP_VPER);
+> +
+> +	/* Wait for the VPE to be marked valid in the VPET */
+> +	ret = vgic_v5_irs_wait_for_vm_op();
+> +	if (ret)
+> +		return ret;
+> +
+> +	selr = FIELD_PREP(GICV5_IRS_VPE_SELR_VPE_ID, vpe_id) |
+> +	       FIELD_PREP(GICV5_IRS_VPE_SELR_VM_ID, vm_id) |
+> +	       FIELD_PREP(GICV5_IRS_VPE_SELR_S, true);
+> +	irs_writeq_relaxed(selr, GICV5_IRS_VPE_SELR);
+> +
+> +	ret = vgic_v5_irs_wait_for_vpe_op();
+> +	if (ret)
+> +		return ret;
+> +
+> +	statusr = irs_readl_relaxed(GICV5_IRS_VPE_STATUSR);
+> +	if (!FIELD_GET(GICV5_IRS_VPE_STATUSR_V, statusr))
+> +		return -EINVAL;
+> +
+> +	/* Set targeted only routing (disable 1ofN vPE selection) */
+> +	cr0 = FIELD_PREP(GICV5_IRS_VPE_CR0_DPS, true);
+> +	irs_writel_relaxed(cr0, GICV5_IRS_VPE_CR0);
+> +
+> +	ret = vgic_v5_irs_wait_for_vpe_op();
+> +	if (ret)
+> +		return ret;
+> +
+> +	statusr = irs_readl_relaxed(GICV5_IRS_VPE_STATUSR);
+> +	if (FIELD_GET(GICV5_IRS_VPE_STATUSR_F, statusr))
+> +		ret = -EINVAL;
+> +
+> +	/*
+> +	 * The VPE has not yet run. Therefore, make sure that all interrupts
+> +	 * will generate a doorbell.
+> +	 */
+> +	dbr = FIELD_PREP(GICV5_IRS_VPE_DBR_LPI_ID, db_hwirq) |
+> +	      FIELD_PREP(GICV5_IRS_VPE_DBR_DBPM, 0b11111) |
+> +	      FIELD_PREP(GICV5_IRS_VPE_DBR_REQ_DB, false) |
+
+And anything that set to false can be removed altogether.
+
+> +	      FIELD_PREP(GICV5_IRS_VPE_DBR_DBV, true);
+> +	irs_writeq_relaxed(dbr, GICV5_IRS_VPE_DBR);
+> +
+> +	ret = vgic_v5_irs_wait_for_vpe_op();
+> +	if (ret)
+> +		return ret;
+> +
+> +	statusr = irs_readl_relaxed(GICV5_IRS_VPE_STATUSR);
+> +	if (FIELD_GET(GICV5_IRS_VPE_STATUSR_F, statusr))
+> +		return -EINVAL;
+> +
+> +	return 0;
+> +}
+> +
+> +static int vgic_v5_irs_vpe_cr0_read(int vm_id, int vpe_id, u64 *cr0)
+> +{
+> +	u32 statusr;
+> +	u64 selr;
+> +	int ret;
+> +
+> +	guard(raw_spinlock)(&vm_config_lock);
+> +
+> +	selr = FIELD_PREP(GICV5_IRS_VPE_SELR_VPE_ID, vpe_id) |
+> +	       FIELD_PREP(GICV5_IRS_VPE_SELR_VM_ID, vm_id) |
+> +	       FIELD_PREP(GICV5_IRS_VPE_SELR_S, true);
+> +	irs_writeq_relaxed(selr, GICV5_IRS_VPE_SELR);
+> +
+> +	ret = vgic_v5_irs_wait_for_vpe_op();
+> +	if (ret)
+> +		return ret;
+> +
+> +	statusr = irs_readl_relaxed(GICV5_IRS_VPE_STATUSR);
+> +	if (!FIELD_GET(GICV5_IRS_VPE_STATUSR_V, statusr))
+> +		return -EINVAL;
+> +
+> +	*cr0 = irs_readl_relaxed(GICV5_IRS_VPE_CR0);
+> +
+> +	return 0;
+
+I'd rather this function returned the CR0 value directly, even if the
+IDLE bit isn't set. You can have a WARN_ONCE() if you want.
+
+> +}
+> +
+> +static int vgic_v5_irs_vpe_cr0_update(int vm_id, int vpe_id, u32 cr0)
+
+*_write() would be better than *_update() when you already have
+*_read(). Specially as a consequence of VPE_CR0_WRITE.
+
+> +{
+> +	u32 statusr;
+> +	u64 selr;
+> +	int ret;
+> +
+> +	guard(raw_spinlock)(&vm_config_lock);
+> +
+> +	selr = FIELD_PREP(GICV5_IRS_VPE_SELR_VPE_ID, vpe_id) |
+> +	       FIELD_PREP(GICV5_IRS_VPE_SELR_VM_ID, vm_id) |
+> +	       FIELD_PREP(GICV5_IRS_VPE_SELR_S, true);
+> +	irs_writeq_relaxed(selr, GICV5_IRS_VPE_SELR);
+> +
+> +	ret = vgic_v5_irs_wait_for_vpe_op();
+> +	if (ret)
+> +		return ret;
+> +
+> +	statusr = irs_readl_relaxed(GICV5_IRS_VPE_STATUSR);
+> +	if (!FIELD_GET(GICV5_IRS_VPE_STATUSR_V, statusr))
+> +		return ret;
+
+return 0?  But you have set SELR to something. Surely reading V==0
+here is an indication of a bug. So should you report the error? Warn?
+
+> +
+> +	irs_writel_relaxed(cr0, GICV5_IRS_VPE_CR0);
+> +
+> +	ret = vgic_v5_irs_wait_for_vpe_op();
+> +	if (ret)
+> +		return ret;
+> +
+> +	statusr = irs_readl_relaxed(GICV5_IRS_VPE_STATUSR);
+> +	if (FIELD_GET(GICV5_IRS_VPE_STATUSR_F, statusr))
+> +		return -EINVAL;
+> +
+> +	return 0;
+> +}
+> +
+>  static int vgic_v5_db_set_vcpu_affinity(struct irq_data *data, void *vcpu_info)
+>  {
+>  	struct vgic_v5_vm *vm = data->domain->host_data;
+>  	struct gicv5_cmd_info *cmd_info = vcpu_info;
+> +	/* Our VPE ID is the index within the doorbell domain */
+> +	u16 vpe_id = data->hwirq;
+>  
+>  	switch (cmd_info->cmd_type) {
+>  	case VMT_L2_MAP:
+> @@ -381,6 +532,19 @@ static int vgic_v5_db_set_vcpu_affinity(struct irq_data *data, void *vcpu_info)
+>  		return vgic_v5_irs_set_vm_valid(vm->vm_id);
+>  	case VMTE_MAKE_INVALID:
+>  		return vgic_v5_irs_set_vm_invalid(vm->vm_id);
+> +	case VPE_MAKE_VALID:
+> +		/*
+> +		 * We need the actual LPI ID which lives in the top-most parent
+> +		 * domain. This hwirq won't include the type (LPI) but that's
+> +		 * not required for the IRS_VPE_DBR.
+> +		 */
+> +		while (data->parent_data != NULL)
+> +			data = data->parent_data;
+> +		return vgic_v5_irs_set_up_vpe(vm->vm_id, vpe_id, data->hwirq);
+> +	case VPE_CR0_READ:
+> +		return vgic_v5_irs_vpe_cr0_read(vm->vm_id, vpe_id, &cmd_info->data);
+> +	case VPE_CR0_WRITE:
+> +		return vgic_v5_irs_vpe_cr0_update(vm->vm_id, vpe_id, cmd_info->data);
+>  	case SPI_VIST_MAKE_VALID:
+>  		return vgic_v5_irs_set_vist_valid(vm->vm_id, true);
+>  	case LPI_VIST_MAKE_VALID:
+> diff --git a/include/linux/irqchip/arm-gic-v5.h b/include/linux/irqchip/arm-gic-v5.h
+> index ff5ad653252d2..54b573783cd75 100644
+> --- a/include/linux/irqchip/arm-gic-v5.h
+> +++ b/include/linux/irqchip/arm-gic-v5.h
+> @@ -90,9 +90,14 @@
+>  #define GICV5_IRS_VMT_BASER		0x0200
+>  #define GICV5_IRS_VMT_CFGR		0x0210
+>  #define GICV5_IRS_VMT_STATUSR		0x0214
+> +#define GICV5_IRS_VPE_SELR		0x0240
+> +#define GICV5_IRS_VPE_DBR		0x0248
+> +#define GICV5_IRS_VPE_CR0		0x0258
+> +#define GICV5_IRS_VPE_STATUSR		0x025c
+>  #define GICV5_IRS_VMAP_L2_VMTR		0x02c0
+>  #define GICV5_IRS_VMAP_VMR		0x02c8
+>  #define GICV5_IRS_VMAP_VISTR		0x02d0
+> +#define GICV5_IRS_VMAP_VPER		0x02e0
+>  
+>  #define GICV5_IRS_IDR0_VIRT		BIT(6)
+>  
+> @@ -199,6 +204,21 @@
+>  
+>  #define GICV5_IRS_VMT_STATUSR_IDLE	BIT(0)
+>  
+> +#define GICV5_IRS_VPE_SELR_S		BIT_ULL(63)
+> +#define GICV5_IRS_VPE_SELR_VPE_ID	GENMASK_ULL(47, 32)
+> +#define GICV5_IRS_VPE_SELR_VM_ID	GENMASK_ULL(15, 0)
+> +
+> +#define GICV5_IRS_VPE_DBR_DBV		BIT_ULL(63)
+> +#define GICV5_IRS_VPE_DBR_REQ_DB	BIT_ULL(62)
+> +#define GICV5_IRS_VPE_DBR_DBPM		GENMASK_ULL(36, 32)
+> +#define GICV5_IRS_VPE_DBR_LPI_ID	GENMASK_ULL(23, 0)
+> +
+> +#define GICV5_IRS_VPE_CR0_DPS		BIT(0)
+> +
+> +#define GICV5_IRS_VPE_STATUSR_F		BIT(2)
+> +#define GICV5_IRS_VPE_STATUSR_V		BIT(1)
+> +#define GICV5_IRS_VPE_STATUSR_IDLE	BIT(0)
+> +
+>  #define GICV5_IRS_VMAP_L2_VMTR_M	BIT_ULL(63)
+>  #define GICV5_IRS_VMAP_L2_VMTR_VM_ID	GENMASK_ULL(15, 0)
+>  
+> @@ -211,6 +231,10 @@
+>  #define GICV5_IRS_VMAP_VISTR_VM_ID	GENMASK_ULL(47, 32)
+>  #define GICV5_IRS_VMAP_VISTR_TYPE	GENMASK_ULL(31, 29)
+>  
+> +#define GICV5_IRS_VMAP_VPER_M		BIT_ULL(63)
+> +#define GICV5_IRS_VMAP_VPER_VM_ID	GENMASK_ULL(47, 32)
+> +#define GICV5_IRS_VMAP_VPER_VPE_ID	GENMASK_ULL(15, 0)
+> +
+>  #define GICV5_ISTL1E_VALID		BIT_ULL(0)
+>  #define GICV5_IRS_ISTL1E_SIZE		8UL
+>  
+> @@ -480,6 +504,9 @@ enum gicv5_vcpu_info_cmd_type {
+>  	VMT_L2_MAP,		/* Map in a L2 VMT - *may* happen on VM init */
+>  	VMTE_MAKE_VALID,	/* Make the VMTE valid */
+>  	VMTE_MAKE_INVALID,	/* Make the VMTE (et al.) invalid */
+> +	VPE_MAKE_VALID,		/* No corresponding invalid */
+> +	VPE_CR0_READ,		/* Read of VPE_CR0 (guest read from PE_CR0) */
+> +	VPE_CR0_WRITE,		/* Write to VPE_CR0 (guest write to PE_CR0) */
+>  	SPI_VIST_MAKE_VALID,	/* No corresponding invalid */
+>  	LPI_VIST_MAKE_VALID,	/* Triggered by a guest */
+>  	LPI_VIST_MAKE_INVALID,	/* Triggered by a guest */
+
+Thanks,
+
+	M.
 
 -- 
-Sincerely yours,
-Mike.
+Without deviation from the norm, progress is not possible.
 
