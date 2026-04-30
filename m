@@ -4,82 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 218FCCCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 08:46:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC253CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 08:48:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZbaTwFoQFTw63OG7VDUPdxgKOLjruKokwJYhqIafL64=; b=pGAeA15aTw7w0D+EoVaGzk1zX7
-	ambrc6qrUr5eec0kDEcHmLyLC9noWG1zP5sTcH0EAeqNH37UZjIbqZ85K4643zmvnYvTC75m+VWOZ
-	ItEwfNqdzRM2k99vVdtwO8b01z2kjbn3uoUHTcUFp6ntEOnm0PYPn1SO9JydvHWhI29GyXRmOlVpO
-	kAcADev9ZJGrBJn+uXsjRJIM9WDntbPUOja/mvJ6ijL8L/jTjb3k59Le6I/1gcff2SozFDsek+KUU
-	mS/9Z0wgn3qjRSuUL0n+jnynFiciN1PnW3Npspy+/iwbAkOZtO2fT5U6CmEsptTnWSyVzu2rzq0Bf
-	GJRvXzzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WjD0kC6+dcELtAggZvaT6DveIWiQZcxznowXMAejDSU=; b=3PSqqvQIJbksTKl9WI6q9vd6Rv
+	6atWCZnACT0DYUgnT+Im+ZudAX3WD0uEJD0LIiZPASOFCp8JlOwYb+UIr6dXqTig+1K5bEaVmMEHl
+	Z+NdIbCCE1lcyoyeEi6perIzvNFCDzHy1ofo5X1eP4ptfNGzq3KatpUz0+o/JfAos/IlWhDi0W2xy
+	q0kXKk0G7o6ND4d+M+BLaeprn2TVzOFgzSLjKtfhcd1AASUGz3g80ZtMIbdN48il8k1s6XPEFjIji
+	rWcgBstFe7svTPtjwSluaf7LKde4rdx2/eZ170w481bgMcozWADWW4Yrz+V5H1kXFGjI8/cPZkH+Z
+	rmYEqUAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIN2M-000000052f3-48Xv;
-	Thu, 30 Apr 2026 08:46:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wIN3u-0000000532C-2XPR;
+	Thu, 30 Apr 2026 08:47:58 +0000
+Received: from pdx-out-007.esa.us-west-2.outbound.mail-perimeter.amazon.com ([52.34.181.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIN2L-000000052ek-3Kfb
+	id 1wIN3r-0000000531K-2fy5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 08:46:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CFD1460142;
-	Thu, 30 Apr 2026 08:46:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65022C2BCB3;
-	Thu, 30 Apr 2026 08:46:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777538780;
-	bh=Hi80MVPwek2SD7+HknMpXPXec3jfYu6RuSg2vyl+NiQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=XXVQHuop4BJEFD8mQkNQOSpToGwhFRtscxB/04LjHh17C4qgVNUf0S6YHCKx4pmz6
-	 yIsiRk92t9GV+f5D4oH7ccsDjsllPWpt++1TKEKBzTiQ6tSsiMrDoRCafQ0TA+4Qr1
-	 X8gewKnYAo8srQP7UEw3og9kaNFekIMXgdT43IlZnDxEQPcPiRTekQojqfYhlmUneC
-	 HmjUDwwL+8PtfNt+YwLB4TZ8+Anl25mihSMDsdrNhxw+HXignd3gutoBYiWfD5pm6o
-	 QLfI7rQZ0I7SDxvlBpGgrRjzpsbHE/hoWQo/zX03dbdCUteC2E5BnnBaY3RMTeUJ9d
-	 j/PdlfVasQlIg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wIN2H-0000000GBY6-3b3w;
-	Thu, 30 Apr 2026 08:46:18 +0000
-Date: Thu, 30 Apr 2026 09:46:17 +0100
-Message-ID: <86ik98zvhi.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	nd <nd@arm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Joey Gouly
-	<Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>
-Subject: Re: [PATCH 10/43] KVM: arm64: gic-v5: Implement VPE IRS MMIO Ops
-In-Reply-To: <20260427160547.3129448-11-sascha.bischoff@arm.com>
-References: <20260427160547.3129448-1-sascha.bischoff@arm.com>
-	<20260427160547.3129448-11-sascha.bischoff@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Thu, 30 Apr 2026 08:47:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazoncorp2;
+  t=1777538875; x=1809074875;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=WjD0kC6+dcELtAggZvaT6DveIWiQZcxznowXMAejDSU=;
+  b=ZQxqmUYCIeOlWyZgK+PlUIxIcDMYUGtzBW27rtc9qElvwM8khqpjiWur
+   9WpKCyFmF2rea4JYvFenbIpTeVsDcdXX7IVyrfO5pUk0dKvIiF6oKI9yh
+   kRGdPoUIP1BuEGHTs85fRsZeE5l77yVTn9RgxLSV8xbDJJHkC1j8AcITE
+   YSStYahUFc9/LH4nNL4unom33MjO9JuUigRemoyzgzc3GdWd7rqSauMl3
+   n13BoX39aW8Ivj98jrjvbiaLJqRHgBV93vixGI2f3mEPWbDqwKqeZn9KG
+   KFe0LT/MlUXQu3kDbmOUIxYyvyR3HF5qDO2ReYLslzmiYo6Kl5po0ekrd
+   w==;
+X-CSE-ConnectionGUID: f5soIZoJQVeKmpkWK1DwuA==
+X-CSE-MsgGUID: cRhMOhH3Th+HDrpv96s3mw==
+X-IronPort-AV: E=Sophos;i="6.23,207,1770595200"; 
+   d="scan'208";a="18531112"
+Received: from ip-10-5-6-203.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.6.203])
+  by internal-pdx-out-007.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Apr 2026 08:47:49 +0000
+Received: from EX19MTAUWA001.ant.amazon.com [205.251.233.236:31918]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.37.224:2525] with esmtp (Farcaster)
+ id 7c9c0932-350f-4824-8472-2ce86044d51c; Thu, 30 Apr 2026 08:47:48 +0000 (UTC)
+X-Farcaster-Flow-ID: 7c9c0932-350f-4824-8472-2ce86044d51c
+Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
+ EX19MTAUWA001.ant.amazon.com (10.250.64.218) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
+ Thu, 30 Apr 2026 08:47:48 +0000
+Received: from dev-dsk-dssauerw-1b-2c5f429c.eu-west-1.amazon.com
+ (10.13.238.31) by EX19D001UWA001.ant.amazon.com (10.13.138.214) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37; Thu, 30 Apr 2026
+ 08:47:47 +0000
+From: David Sauerwein <dssauerw@amazon.de>
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<nh-open-source@amazon.com>, David Sauerwein <dssauerw@amazon.de>
+Subject: [PATCH] arm64: Fix garbled logs caused by race between multiple stack traces
+Date: Thu, 30 Apr 2026 08:47:38 +0000
+Message-ID: <20260430084738.73909-1-dssauerw@amazon.de>
+X-Mailer: git-send-email 2.47.3
+MIME-Version: 1.0
+X-Originating-IP: [10.13.238.31]
+X-ClientProxiedBy: EX19D046UWA001.ant.amazon.com (10.13.139.112) To
+ EX19D001UWA001.ant.amazon.com (10.13.138.214)
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260430_014755_764264_21D4EF1B 
+X-CRM114-Status: GOOD (  13.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,326 +91,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 27 Apr 2026 17:09:27 +0100,
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
-> 
-> Introduce interfaces to make VPEs valid, and to configure them, via
-> the host's IRS. As with the other valid bits in the GICv5 VM tables,
-> VPEs cannot be made valid directly, and instead are made valid via an
-> IRS MMIO Op.
-> 
-> Additionally, some of the VPE configuration takes place via the IRS
-> MMIO interface too (via the IRS_VPE_CR0, IRS_VPE_DBR). VPE doorbells
-> are, for example, configured via this interface.
-> 
-> The existing VPE-doorbell-based commands are extended with:
-> 
->         VPE_MAKE_VALID - Make the VPE valid in the VPET
->         VPE_CR0_READ - Handle a guest read from IRS_PE_CR0
->         VPE_CR0_WRITE - Handle a guest write to IRS_PE_CR0
-> 
-> Note: There is no VPE_MAKE_INVALID as VPEs are only made invalid on
-> teardown, at which point the whole VMTE is marked as invalid. Hence,
-> it is not required.
-> 
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> ---
->  arch/arm64/kvm/vgic/vgic-v5.c      | 164 +++++++++++++++++++++++++++++
->  include/linux/irqchip/arm-gic-v5.h |  27 +++++
->  2 files changed, 191 insertions(+)
-> 
-> diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
-> index 49eb01ca07961..0649729f6b834 100644
-> --- a/arch/arm64/kvm/vgic/vgic-v5.c
-> +++ b/arch/arm64/kvm/vgic/vgic-v5.c
-> @@ -253,6 +253,25 @@ static int vgic_v5_irs_wait_for_vm_op(void)
->  	return 0;
->  }
->  
-> +/* Wait for completion of an VPE_STATUSR change */
-> +static int vgic_v5_irs_wait_for_vpe_op(void)
-> +{
-> +	int ret;
-> +	u32 statusr;
-> +
-> +	ret = readl_relaxed_poll_timeout_atomic(
-> +		irs_base + GICV5_IRS_VPE_STATUSR, statusr,
-> +		FIELD_GET(GICV5_IRS_VPE_STATUSR_IDLE, statusr), 1,
-> +		USEC_PER_SEC);
+When multiple stack traces are printed at the same time, the lines that
+contain register values may get split into multiple separate lines.
+Some stray empty lines may appear as well.
 
-Formatting.
+[ 2013.814455] ------------[ cut here ]------------
+[ 2013.814455] ------------[ cut here ]------------
+[ 2013.814459] WARNING: CPU: 12 PID: 626 at src/arch/arm64/kvm/../../../virt/kvm/kvm_main.c:3860 mark_page_dirty_in_slot+0x5c/0xd8
+[ 2013.814457] WARNING: CPU: 3 PID: 620 at src/arch/arm64/kvm/../../../virt/kvm/kvm_main.c:3860 mark_page_dirty_in_slot+0x5c/0xd8
+[...]
+[ 2013.814483] x29: ffff8000873b3b10
+[ 2013.814484] x29: ffff800083fd3b10
+[ 2013.814484]  x28: ffff00001d71e300 x27: 0000000000000001
+[ 2013.814486] x26: ffff800080c63b80 x25: ffff800080c63000
+[ 2013.814487]  x28: ffff00001d71a100 x27: 0000000000000001
+[ 2013.814488]  x24: 0000000000401b14
+[ 2013.814489]
+[ 2013.814489] x26: ffff800080f5bb80 x25: ffff800080f5b000
+[ 2013.814491]
+[ 2013.814491] x23: ffff0000117b2000 x22: ffff00001e22bd88 x21: 0000ff9cc1b14000
+[ 2013.814493]  x24: 0000000000402230
+[ 2013.814494]
+[ 2013.814495] x20: ffff800080c63000
+[ 2013.814495] x23: ffff00001d916f00
+[ 2013.814496]  x19: 0000000000000000 x18: ffff8000808c1660
+[ 2013.814497] x17: 0000000000000000
+[...]
 
-> +
-> +	if (ret == -ETIMEDOUT) {
-> +		pr_err_ratelimited("Time out waiting for IRS VPE Op\n");
-> +		return ret;
-> +	}
-> +
-> +	return 0;
+(Example observed on v6.6 based kernel)
 
-You seem to have a number of these primitives. Consider having a
-generic helper that takes the required parameters, including a partial
-string in case of error.
+This happens because __show_regs uses pr_cont. The two threads printing
+the traces race when printing partial register lines.
 
-> +}
-> +
->  static int vgic_v5_irs_assign_vmt(bool two_level, u8 vm_id_bits, phys_addr_t vmt_base)
->  {
->  	u64 vmt_baser;
-> @@ -369,10 +388,142 @@ static int vgic_v5_irs_set_vist_invalid(int vm_id, bool spi_ist)
->  	return __vgic_v5_irs_update_vist_validity(vm_id, spi_ist, true);
->  }
->  
-> +static int vgic_v5_irs_set_up_vpe(int vm_id, int vpe_id, irq_hw_number_t db_hwirq)
-> +{
-> +	u64 vmap_vper, dbr, selr;
-> +	u32 statusr, cr0;
-> +	int ret;
-> +
-> +	guard(raw_spinlock)(&vm_config_lock);
-> +
-> +	/* Make sure that we are idle to begin with */
-> +	ret = vgic_v5_irs_wait_for_vm_op();
-> +	if (ret)
-> +		return ret;
-> +
-> +	/* Mark the VPE as valid */
-> +	vmap_vper = FIELD_PREP(GICV5_IRS_VMAP_VPER_VPE_ID, vpe_id) |
-> +		    FIELD_PREP(GICV5_IRS_VMAP_VPER_VM_ID, vm_id) |
-> +		    FIELD_PREP(GICV5_IRS_VMAP_VPER_M, true);
+While the lines of the stack traces may still interleave, the individual
+lines printing up to 3 register values should not be split. To fix this,
+buffer the output and print all registers in a single printk instead of
+using pr_cont.
 
-That's another of these single bit mask used with FIELD_PREP. Consider
-rewriting it as:
+Assisted-by: Kiro:claude-opus-4.6
+Signed-off-by: David Sauerwein <dssauerw@amazon.de>
+---
+ arch/arm64/kernel/process.c | 16 +++++++++++++---
+ 1 file changed, 13 insertions(+), 3 deletions(-)
 
-	vmap_vper = FIELD_PREP(GICV5_IRS_VMAP_VPER_VPE_ID, vpe_id) |
-		    FIELD_PREP(GICV5_IRS_VMAP_VPER_VM_ID, vm_id) |
-		    GICV5_IRS_VMAP_VPER_M;
-
-
-> +	irs_writeq_relaxed(vmap_vper, GICV5_IRS_VMAP_VPER);
-> +
-> +	/* Wait for the VPE to be marked valid in the VPET */
-> +	ret = vgic_v5_irs_wait_for_vm_op();
-> +	if (ret)
-> +		return ret;
-> +
-> +	selr = FIELD_PREP(GICV5_IRS_VPE_SELR_VPE_ID, vpe_id) |
-> +	       FIELD_PREP(GICV5_IRS_VPE_SELR_VM_ID, vm_id) |
-> +	       FIELD_PREP(GICV5_IRS_VPE_SELR_S, true);
-> +	irs_writeq_relaxed(selr, GICV5_IRS_VPE_SELR);
-> +
-> +	ret = vgic_v5_irs_wait_for_vpe_op();
-> +	if (ret)
-> +		return ret;
-> +
-> +	statusr = irs_readl_relaxed(GICV5_IRS_VPE_STATUSR);
-> +	if (!FIELD_GET(GICV5_IRS_VPE_STATUSR_V, statusr))
-> +		return -EINVAL;
-> +
-> +	/* Set targeted only routing (disable 1ofN vPE selection) */
-> +	cr0 = FIELD_PREP(GICV5_IRS_VPE_CR0_DPS, true);
-> +	irs_writel_relaxed(cr0, GICV5_IRS_VPE_CR0);
-> +
-> +	ret = vgic_v5_irs_wait_for_vpe_op();
-> +	if (ret)
-> +		return ret;
-> +
-> +	statusr = irs_readl_relaxed(GICV5_IRS_VPE_STATUSR);
-> +	if (FIELD_GET(GICV5_IRS_VPE_STATUSR_F, statusr))
-> +		ret = -EINVAL;
-> +
-> +	/*
-> +	 * The VPE has not yet run. Therefore, make sure that all interrupts
-> +	 * will generate a doorbell.
-> +	 */
-> +	dbr = FIELD_PREP(GICV5_IRS_VPE_DBR_LPI_ID, db_hwirq) |
-> +	      FIELD_PREP(GICV5_IRS_VPE_DBR_DBPM, 0b11111) |
-> +	      FIELD_PREP(GICV5_IRS_VPE_DBR_REQ_DB, false) |
-
-And anything that set to false can be removed altogether.
-
-> +	      FIELD_PREP(GICV5_IRS_VPE_DBR_DBV, true);
-> +	irs_writeq_relaxed(dbr, GICV5_IRS_VPE_DBR);
-> +
-> +	ret = vgic_v5_irs_wait_for_vpe_op();
-> +	if (ret)
-> +		return ret;
-> +
-> +	statusr = irs_readl_relaxed(GICV5_IRS_VPE_STATUSR);
-> +	if (FIELD_GET(GICV5_IRS_VPE_STATUSR_F, statusr))
-> +		return -EINVAL;
-> +
-> +	return 0;
-> +}
-> +
-> +static int vgic_v5_irs_vpe_cr0_read(int vm_id, int vpe_id, u64 *cr0)
-> +{
-> +	u32 statusr;
-> +	u64 selr;
-> +	int ret;
-> +
-> +	guard(raw_spinlock)(&vm_config_lock);
-> +
-> +	selr = FIELD_PREP(GICV5_IRS_VPE_SELR_VPE_ID, vpe_id) |
-> +	       FIELD_PREP(GICV5_IRS_VPE_SELR_VM_ID, vm_id) |
-> +	       FIELD_PREP(GICV5_IRS_VPE_SELR_S, true);
-> +	irs_writeq_relaxed(selr, GICV5_IRS_VPE_SELR);
-> +
-> +	ret = vgic_v5_irs_wait_for_vpe_op();
-> +	if (ret)
-> +		return ret;
-> +
-> +	statusr = irs_readl_relaxed(GICV5_IRS_VPE_STATUSR);
-> +	if (!FIELD_GET(GICV5_IRS_VPE_STATUSR_V, statusr))
-> +		return -EINVAL;
-> +
-> +	*cr0 = irs_readl_relaxed(GICV5_IRS_VPE_CR0);
-> +
-> +	return 0;
-
-I'd rather this function returned the CR0 value directly, even if the
-IDLE bit isn't set. You can have a WARN_ONCE() if you want.
-
-> +}
-> +
-> +static int vgic_v5_irs_vpe_cr0_update(int vm_id, int vpe_id, u32 cr0)
-
-*_write() would be better than *_update() when you already have
-*_read(). Specially as a consequence of VPE_CR0_WRITE.
-
-> +{
-> +	u32 statusr;
-> +	u64 selr;
-> +	int ret;
-> +
-> +	guard(raw_spinlock)(&vm_config_lock);
-> +
-> +	selr = FIELD_PREP(GICV5_IRS_VPE_SELR_VPE_ID, vpe_id) |
-> +	       FIELD_PREP(GICV5_IRS_VPE_SELR_VM_ID, vm_id) |
-> +	       FIELD_PREP(GICV5_IRS_VPE_SELR_S, true);
-> +	irs_writeq_relaxed(selr, GICV5_IRS_VPE_SELR);
-> +
-> +	ret = vgic_v5_irs_wait_for_vpe_op();
-> +	if (ret)
-> +		return ret;
-> +
-> +	statusr = irs_readl_relaxed(GICV5_IRS_VPE_STATUSR);
-> +	if (!FIELD_GET(GICV5_IRS_VPE_STATUSR_V, statusr))
-> +		return ret;
-
-return 0?  But you have set SELR to something. Surely reading V==0
-here is an indication of a bug. So should you report the error? Warn?
-
-> +
-> +	irs_writel_relaxed(cr0, GICV5_IRS_VPE_CR0);
-> +
-> +	ret = vgic_v5_irs_wait_for_vpe_op();
-> +	if (ret)
-> +		return ret;
-> +
-> +	statusr = irs_readl_relaxed(GICV5_IRS_VPE_STATUSR);
-> +	if (FIELD_GET(GICV5_IRS_VPE_STATUSR_F, statusr))
-> +		return -EINVAL;
-> +
-> +	return 0;
-> +}
-> +
->  static int vgic_v5_db_set_vcpu_affinity(struct irq_data *data, void *vcpu_info)
->  {
->  	struct vgic_v5_vm *vm = data->domain->host_data;
->  	struct gicv5_cmd_info *cmd_info = vcpu_info;
-> +	/* Our VPE ID is the index within the doorbell domain */
-> +	u16 vpe_id = data->hwirq;
->  
->  	switch (cmd_info->cmd_type) {
->  	case VMT_L2_MAP:
-> @@ -381,6 +532,19 @@ static int vgic_v5_db_set_vcpu_affinity(struct irq_data *data, void *vcpu_info)
->  		return vgic_v5_irs_set_vm_valid(vm->vm_id);
->  	case VMTE_MAKE_INVALID:
->  		return vgic_v5_irs_set_vm_invalid(vm->vm_id);
-> +	case VPE_MAKE_VALID:
-> +		/*
-> +		 * We need the actual LPI ID which lives in the top-most parent
-> +		 * domain. This hwirq won't include the type (LPI) but that's
-> +		 * not required for the IRS_VPE_DBR.
-> +		 */
-> +		while (data->parent_data != NULL)
-> +			data = data->parent_data;
-> +		return vgic_v5_irs_set_up_vpe(vm->vm_id, vpe_id, data->hwirq);
-> +	case VPE_CR0_READ:
-> +		return vgic_v5_irs_vpe_cr0_read(vm->vm_id, vpe_id, &cmd_info->data);
-> +	case VPE_CR0_WRITE:
-> +		return vgic_v5_irs_vpe_cr0_update(vm->vm_id, vpe_id, cmd_info->data);
->  	case SPI_VIST_MAKE_VALID:
->  		return vgic_v5_irs_set_vist_valid(vm->vm_id, true);
->  	case LPI_VIST_MAKE_VALID:
-> diff --git a/include/linux/irqchip/arm-gic-v5.h b/include/linux/irqchip/arm-gic-v5.h
-> index ff5ad653252d2..54b573783cd75 100644
-> --- a/include/linux/irqchip/arm-gic-v5.h
-> +++ b/include/linux/irqchip/arm-gic-v5.h
-> @@ -90,9 +90,14 @@
->  #define GICV5_IRS_VMT_BASER		0x0200
->  #define GICV5_IRS_VMT_CFGR		0x0210
->  #define GICV5_IRS_VMT_STATUSR		0x0214
-> +#define GICV5_IRS_VPE_SELR		0x0240
-> +#define GICV5_IRS_VPE_DBR		0x0248
-> +#define GICV5_IRS_VPE_CR0		0x0258
-> +#define GICV5_IRS_VPE_STATUSR		0x025c
->  #define GICV5_IRS_VMAP_L2_VMTR		0x02c0
->  #define GICV5_IRS_VMAP_VMR		0x02c8
->  #define GICV5_IRS_VMAP_VISTR		0x02d0
-> +#define GICV5_IRS_VMAP_VPER		0x02e0
->  
->  #define GICV5_IRS_IDR0_VIRT		BIT(6)
->  
-> @@ -199,6 +204,21 @@
->  
->  #define GICV5_IRS_VMT_STATUSR_IDLE	BIT(0)
->  
-> +#define GICV5_IRS_VPE_SELR_S		BIT_ULL(63)
-> +#define GICV5_IRS_VPE_SELR_VPE_ID	GENMASK_ULL(47, 32)
-> +#define GICV5_IRS_VPE_SELR_VM_ID	GENMASK_ULL(15, 0)
-> +
-> +#define GICV5_IRS_VPE_DBR_DBV		BIT_ULL(63)
-> +#define GICV5_IRS_VPE_DBR_REQ_DB	BIT_ULL(62)
-> +#define GICV5_IRS_VPE_DBR_DBPM		GENMASK_ULL(36, 32)
-> +#define GICV5_IRS_VPE_DBR_LPI_ID	GENMASK_ULL(23, 0)
-> +
-> +#define GICV5_IRS_VPE_CR0_DPS		BIT(0)
-> +
-> +#define GICV5_IRS_VPE_STATUSR_F		BIT(2)
-> +#define GICV5_IRS_VPE_STATUSR_V		BIT(1)
-> +#define GICV5_IRS_VPE_STATUSR_IDLE	BIT(0)
-> +
->  #define GICV5_IRS_VMAP_L2_VMTR_M	BIT_ULL(63)
->  #define GICV5_IRS_VMAP_L2_VMTR_VM_ID	GENMASK_ULL(15, 0)
->  
-> @@ -211,6 +231,10 @@
->  #define GICV5_IRS_VMAP_VISTR_VM_ID	GENMASK_ULL(47, 32)
->  #define GICV5_IRS_VMAP_VISTR_TYPE	GENMASK_ULL(31, 29)
->  
-> +#define GICV5_IRS_VMAP_VPER_M		BIT_ULL(63)
-> +#define GICV5_IRS_VMAP_VPER_VM_ID	GENMASK_ULL(47, 32)
-> +#define GICV5_IRS_VMAP_VPER_VPE_ID	GENMASK_ULL(15, 0)
-> +
->  #define GICV5_ISTL1E_VALID		BIT_ULL(0)
->  #define GICV5_IRS_ISTL1E_SIZE		8UL
->  
-> @@ -480,6 +504,9 @@ enum gicv5_vcpu_info_cmd_type {
->  	VMT_L2_MAP,		/* Map in a L2 VMT - *may* happen on VM init */
->  	VMTE_MAKE_VALID,	/* Make the VMTE valid */
->  	VMTE_MAKE_INVALID,	/* Make the VMTE (et al.) invalid */
-> +	VPE_MAKE_VALID,		/* No corresponding invalid */
-> +	VPE_CR0_READ,		/* Read of VPE_CR0 (guest read from PE_CR0) */
-> +	VPE_CR0_WRITE,		/* Write to VPE_CR0 (guest write to PE_CR0) */
->  	SPI_VIST_MAKE_VALID,	/* No corresponding invalid */
->  	LPI_VIST_MAKE_VALID,	/* Triggered by a guest */
->  	LPI_VIST_MAKE_INVALID,	/* Triggered by a guest */
-
-Thanks,
-
-	M.
-
+diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+index 033643cd4e5ed..27779539e3b4f 100644
+--- a/arch/arm64/kernel/process.c
++++ b/arch/arm64/kernel/process.c
+@@ -235,12 +235,22 @@ void __show_regs(struct pt_regs *regs)
+ 	i = top_reg;
+ 
+ 	while (i >= 0) {
+-		printk("x%-2d: %016llx", i, regs->regs[i]);
++		/*
++		 * Buffer is big enough to hold the output for 3 register
++		 * plus some extra.
++		 */
++		char buf[80];
++		int len;
++
++		len = scnprintf(buf, sizeof(buf), "x%-2d: %016llx",
++				i, regs->regs[i]);
+ 
+ 		while (i-- % 3)
+-			pr_cont(" x%-2d: %016llx", i, regs->regs[i]);
++			len += scnprintf(buf + len, sizeof(buf) - len,
++					 " x%-2d: %016llx",
++					 i, regs->regs[i]);
+ 
+-		pr_cont("\n");
++		printk("%s\n", buf);
+ 	}
+ }
+ 
 -- 
-Without deviation from the norm, progress is not possible.
+2.47.3
+
+
+
+
+Amazon Web Services Development Center Germany GmbH
+Tamara-Danz-Str. 13
+10243 Berlin
+Geschaeftsfuehrung: Christof Hellmis, Andreas Stieger
+Eingetragen am Amtsgericht Charlottenburg unter HRB 257764 B
+Sitz: Berlin
+Ust-ID: DE 365 538 597
+
 
