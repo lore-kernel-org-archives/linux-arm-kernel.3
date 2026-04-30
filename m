@@ -4,79 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E787FF886F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 22:50:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57540CD13DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 23:13:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nyIAHMCO2XSEKhIrNQWe82Ob3aOc1tSJG1laNn5OlYg=; b=MsLzSV9E7AWFeMTmdjcUUHwXsi
-	cfJ5pjGkn2L8P1GevQT51NXvKpz6OgKpbXmS0jwpmdQ5CR23hb6NIGWHtREy6/Yp+LLrpnyUgP+B4
-	znIwZaLjJnNRH3NaNVnTxBCa8AxLkg8Ml9ULeuMDL291qKRKBJlgzStgOx7nmhWTln+gtguferAl8
-	8jz2f3/66pzyvWi7LMLbHw0YhW4xLU9K3f7Jfs/kVb3yL1vFC98k9sVz/xm75QnXHopkTRaJ/ajmb
-	V+tM4pq0fbARkvfeq0sdKbvv1p8c0C9t1WIwq1JoM9gez4pTjd2SjTKadrUCGc2am7XMea3zOiaU5
-	8h9U9Rfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QRfJ91dKSszpfdR8DuR6IPrBqkdsGBVokk2DQ9C/ack=; b=IPtN+AFcFzWU3NAabDtMg4stIB
+	+HMp2rrELEuT8nE4//sm0OucAgcIATXeNJ+zoMp1501T3ZgJAGCZZveB83l0eVRNwarv85S1FYfA/
+	jTwC/0+FXwuxAL/jc8imHcH+EV9huA80KhGkfSOL45z7JiH1sQrmoYbw+gv2EARDXoXZlbXMKVzfI
+	Ir27ZWBz4+9yv5yxQ90aoVmZUtMzl+Gukul8I2xPcztKJkMd9pA69TxyyYgVmJFQJA5Z2Lyr5kca2
+	8etqdyid2AeoCnItKZD0vV0ty71Y1WC+gNWwBBC7ua2JXNsCfFzMD15oscRf3CM23hk5MsV0kFXIo
+	0xr+ubpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIaD3-000000064RY-0dUx;
-	Thu, 30 Apr 2026 22:50:18 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wIaZN-0000000658L-2Maf;
+	Thu, 30 Apr 2026 23:13:21 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIaCz-000000064Qi-3mHF
+	id 1wIaZK-00000006580-1sxD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 22:50:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1C0AF444D1
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 22:50:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3D75C2BCFA
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 22:50:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777589412;
-	bh=EwR29NH5HVcLbVvA5ViI57mAmHT3DBCHHsLg0gf7Cic=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=dBXZ2oY8bPD0T7Gd4Of7GUZOb84hKrxvQlNnKxyNarxinIUzFHyBM9s+qDR4U9LPp
-	 +Hc8F8WFDCZQqqo+npT5fUj0txmJKGzK48NWf+a5HFI0nv9pWEpw/7Z7MiE/1dYHmC
-	 B12UZdt6YCq68u/rqEbIGy9P6FZiNurFRNlp3PZg9yOU7Gob8iSTSCXSUBOt2JbkAC
-	 Fwp47SUVHvHazO57YaIALODnh+Wg6M0vRWtAdK9btMOZWw3UF7+id1X74wqvWjE3jS
-	 uK3gMgeJ00mb08GoZiRN6AIHhiPzdeZPoa0S7aYZkNoWzKQDPWrMHLEaBFdV5I1od5
-	 XDQUtFcs0lleA==
-Received: by mail-qv1-f49.google.com with SMTP id 6a1803df08f44-8a032383008so15108226d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 15:50:11 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+jDmqL+8QFymJ7+tCzfJCoVHvyQtoyGJaGdIJH3I7+cA3PhMZnlt6weJRyG6TQ5x2/UMMA8S/7rutYqbQP0XSb@lists.infradead.org
-X-Gm-Message-State: AOJu0YyqOptCoRNF+d1XalejALGBaQpsL7x9ShTJA3MrzmIqGIUUKqQw
-	lhpWsmU32A5PNC2II0y2z58wwIizqXGOWxKdGPxlHmGlXyL1qbze8w2rGXp6uwFzQXE3L11e3U7
-	/TJay9gWpuyPGiH9fI5FisTLSkr2Ns0Q=
-X-Received: by 2002:a05:6214:3f81:b0:899:f092:9da with SMTP id
- 6a1803df08f44-8b3fe7bd179mr81439146d6.28.1777589410935; Thu, 30 Apr 2026
- 15:50:10 -0700 (PDT)
+	Thu, 30 Apr 2026 23:13:19 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-82f33d28c1dso878510b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 16:13:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1777590797; x=1778195597; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=QRfJ91dKSszpfdR8DuR6IPrBqkdsGBVokk2DQ9C/ack=;
+        b=O8WHBEvy89CbbUd5tbkDqxQsjPMtvWAXbpie9aflqfnXg9SkH6KJu/4aiqUD5vFRW3
+         I1PZegVJRSb3nX6njPTWDKBIXEl4qH5nM4kDzhh3bIVciweYbya7CwXbgoq2DVvWQ68R
+         lfUuIUVbXoolJHHYUWBlbtFS6VJn9Rfk6Zn+RFE5ivVXL/ulfFqDmFxJyEZijgPWZ03J
+         ciBzUZc01gXBlt5TmjW8Ysi0bu3lFhfJFZn30LYas8KytmT05UG6MTUpEnsIg+pO9RMc
+         1f+6J9HpI4sUEGZ0DrNPCbUvSdzYZaQXTnb5PZdx5Ldy6l2NdDD12bykafBN5+z4sDc5
+         4e5Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777590797; x=1778195597;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=QRfJ91dKSszpfdR8DuR6IPrBqkdsGBVokk2DQ9C/ack=;
+        b=ZQhh4wYASGgNkgQEnXmzZT7wE6BgrR+oCoJdQb6lbKWyF4xmms2tAD8OjDJpthPLyf
+         iOik3kqiJyilBLaWihSpLeFVTJW6urfaiK+Nax8NgtPlcPr051umI5fJjjfQmwnCk+Pk
+         dMbHTDIUD+Ynrf84VHU37jyE3sLzRNzlutmJBLRJ3eliUlNIkfXaW3sZVFCc87/ax9HP
+         PZ8tHyKhipUcCl1s/TQCqmMnm5Ii/hU1A2JQNfyhUpGfYMXwSE0lh1Pl0Sc8zB0uAry9
+         HLnhBCLpTo8YCL5GMdym+C/6JvTPINYu6wuDvedbj8RNK86xZRJkqMFx+npUlbsImG9S
+         a0iQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+XrQCJpxhO/VYqu96U5jpMfApVZY6SOa9A4tKZxCoBRyP1ZlFXkFuVrr0EVJJLbRca+NZR0PeIBaw38U3UHT3u@lists.infradead.org
+X-Gm-Message-State: AOJu0YyW93o6Yju7L+VnTfU9ojmE1RsP66horyNwd7BosZmwazeCjIm+
+	c0Xai+ZSTO01PfFwv13Tsm6b3Kg/OToCLKTUOcD6dqe7FlOGTenSpb3e
+X-Gm-Gg: AeBDietKgRNWpvLuvkWFgbpmr+2p9gsP78ZDeWTcQSVJ1KLRV7M6ePN/AjRZ2cUNtOc
+	TmI1ETwNieEwDYDh7j8yJkwHWiAmlBq5LkZRLXqWeKT78cE4k9CZgEWcpLxdRV3dPoqeH1DPTEY
+	80a2NHaF9S3K7Ntbi5uViRX65Py/NB+gnpFh1ZidTMCgF27rhQMDBdAFDTuVL/pqso57FoW7qtB
+	CdxsDbra51Q1CAKrSPl0yd7SlzP8gntHsM/NBOp1ewG/hFVRr1jzstmRl9Iz+anlOgQ22d3yPbJ
+	HSC1UdQrt8hrx0mKDsfasWd9D3rs3qxvCyaq9WuvATEDp06KD6QTIWNofvyYiZ3jr4qER/acjU6
+	jLLGY3gqlkQpd3pgsuvznVp9j0IEET/riu+SRdGvHiGLsgNLZYF1SvIu6p9JDTPXc+xH8+r+8Ob
+	36QItz1JkA1YEQ7LYToJx6FIzH11K51GoGeNw32UIrJ8sPiiA=
+X-Received: by 2002:a05:6a00:430c:b0:82f:5576:2853 with SMTP id d2e1a72fcca58-8351a59ca27mr541087b3a.30.1777590796764;
+        Thu, 30 Apr 2026 16:13:16 -0700 (PDT)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83515ad0049sm787335b3a.33.2026.04.30.16.13.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 Apr 2026 16:13:16 -0700 (PDT)
+Date: Thu, 30 Apr 2026 16:13:15 -0700
+From: Guenter Roeck <linux@roeck-us.net>
+To: florin.leotescu@oss.nxp.com
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Michael Shych <michaelsh@nvidia.com>, linux-hwmon@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	daniel.baluta@nxp.com, viorel.suman@nxp.com,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	festevam@gmail.com, Florin Leotescu <florin.leotescu@nxp.com>
+Subject: Re: [PATCH v7 1/3] hwmon: emc2305: Fix fan channel index handling
+Message-ID: <2bce6b65-d09b-4237-be0f-3b53698d8031@roeck-us.net>
+References: <20260429065955.2113012-1-florin.leotescu@oss.nxp.com>
+ <20260429065955.2113012-2-florin.leotescu@oss.nxp.com>
 MIME-Version: 1.0
-References: <20260430040427.4672-1-baohua@kernel.org> <afNM-gIqxpyJ6ro7@casper.infradead.org>
-In-Reply-To: <afNM-gIqxpyJ6ro7@casper.infradead.org>
-From: Barry Song <baohua@kernel.org>
-Date: Fri, 1 May 2026 06:49:58 +0800
-X-Gmail-Original-Message-ID: <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
-X-Gm-Features: AVHnY4LNqeENq1Hu8yfE3Ha6l6qy4pcPzLhOvHSM0QbVepERNdbmRODWwcwvH-c
-Message-ID: <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-To: Matthew Wilcox <willy@infradead.org>
-Cc: akpm@linux-foundation.org, linux-mm@kvack.org, david@kernel.org, 
-	ljs@kernel.org, liam@infradead.org, vbabka@kernel.org, rppt@kernel.org, 
-	surenb@google.com, mhocko@suse.com, jack@suse.cz, pfalcato@suse.de, 
-	wanglian@kylinos.cn, chentao@kylinos.cn, lianux.mm@gmail.com, 
-	kunwu.chan@gmail.com, liyangouwen1@oppo.com, chrisl@kernel.org, 
-	kasong@tencent.com, shikemeng@huaweicloud.com, nphamcs@gmail.com, 
-	bhe@redhat.com, youngjun.park@lge.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260429065955.2113012-2-florin.leotescu@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_155014_017769_CB904C13 
-X-CRM114-Status: GOOD (  18.18  )
+X-CRM114-CacheID: sfid-20260430_161318_492538_74B37610 
+X-CRM114-Status: GOOD (  12.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,80 +104,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 30, 2026 at 8:37=E2=80=AFPM Matthew Wilcox <willy@infradead.org=
-> wrote:
->
-> On Thu, Apr 30, 2026 at 12:04:22PM +0800, Barry Song (Xiaomi) wrote:
-> > (1) If we need to wait for I/O completion, we still drop the per-VMA lo=
-ck, as
-> > current page fault handling already does. Holding it for too long may i=
-ntroduce
-> > various priority inversion issues on mobile devices. After I/O complete=
-s, we
-> > retry the page fault with the per-VMA lock, rather than falling back to
-> > mmap_lock.
->
-> You're going to have to do better than that.  You know I hate the
-> additional complexity you're adding.  You need to explain why my idea of
-> ripping out all the complexity now that we have per-VMA locks doesn't
-> work.
+On Wed, Apr 29, 2026 at 09:59:53AM +0300, florin.leotescu@oss.nxp.com wrote:
+> From: Florin Leotescu <florin.leotescu@nxp.com>
+> 
+> The fan channel index is used to access per-channel data structures.
+> Validate the index against the number of available channels
+> before use to prevent out-of-bounds access if an invalid
+> value is provided.
+> 
+> The thermal registration path currently uses a sequential child index,
+> which may not match the validated channel from DT. Use the DT "reg"
+> property when registering cooling devices to ensure consistent
+> channel handling
+> 
+> Signed-off-by: Florin Leotescu <florin.leotescu@nxp.com>
 
-Yep, I know you don=E2=80=99t like the added complexity, but I would rather=
- prioritize
-user experience over simplicity. Let me try to explain in more detail.
+The problems found by Sashiko are real, but they are pre-existing.
+The locking issues are pre-existing, and data->pwm_separate is for
+all practical purposes always false (there is no upstream user of
+the platform data, so it may well be removed), meaning there is no
+separation of pwm channels if the thermal subsystem is enabled.
+Given that, applied.
 
-1. There is no deterministic latency for I/O completion. It depends on
-both the hardware and the software stack (bio/request queues and the
-block scheduler). Sometimes the latency is short; at other times it can
-be quite long. In such cases, a high-priority thread performing operations
-such as mprotect, unmap, prctl_set_vma, or madvise may be forced to wait
-for an unpredictable amount of time. For example, if low-priority tasks
-trigger page faults and issue low-priority I/O, a high-priority task
-requiring the write lock may end up waiting for an unknown amount of time,
-depending on the block layer and filesystem behavior.
-
-As a result, high-priority tasks are exposed to unpredictable I/O latency
-introduced by many low-priority tasks that may generate a large number of
-page faults.
-
-On Android, latency in certain tasks can significantly affect user experien=
-ce,
-such as interactive threads. Priority inversion is particularly problematic=
- and
-should be avoided, especially since we have no clear bound on how long we m=
-ay
-have to wait for I/O from other tasks.
-
-Meanwhile, priority inversion can propagate through a long chain: a writer
-waiting on I/O from multiple concurrent page faults may end up blocking oth=
-er
-writers and readers as well. A long-waiting writer can also amplify
-mmap_lock contention, which we still rely on in many cases.
-
-2. VMA sizes can be highly uneven: some VMAs may be very large while others=
- are
-small. We used to have many reasons to release mmap_lock when we did not ha=
-ve a
-per-VMA lock. Since VMA sizes are not uniform, those same considerations ma=
-y
-still apply to the per-VMA lock when a small number of VMAs account for mos=
-t
-of a process=E2=80=99s address space. I recall that Suren also mentioned th=
-is[1].
-
-So I would prefer that we hold only the per-VMA lock and avoid retrying the
-page fault when we are reasonably sure that I/O has already completed and w=
-e
-are only waiting for short-lived conditions. Uncertainties in the block lay=
-er,
-filesystem, and GC behavior, as well as latency-induced priority inversion
-chains and potentially amplified mmap_lock contention, can significantly hu=
-rt
-Android user experience.
-
-[1] https://lore.kernel.org/linux-mm/CAJuCfpFVQJtvbj5fV2fmm4APhNZDL1qPg-YEx=
-w7gO1pmngC3Rw@mail.gmail.com/
-
-Thanks
-Barry
+Thanks,
+Guenter
 
