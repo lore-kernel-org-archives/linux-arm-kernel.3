@@ -4,86 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77E49FF8875
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 03:43:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74A73FF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 03:49:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bx2NKOvSqVgn6FQHVX7Mo9G4tpgbHKAK6wJi45SFYiY=; b=rQ4ldFlyCdmosZPFltAzr9ZPtU
-	CDw4FkLySvaO/QeVSwMroWPHwD6VQmSh8llbbQCXRkNytZwjbpsVAT7ZwU0z6K0xRZZGRl5ZX5yml
-	YFkGJNZsNOfe9JevVyorK8gPAPX805E7o5y+j+kefLcrzMJfDm65XR6uySVd+IPublW07/BtIOBm+
-	KsVLXQssWlBSp/PTfjJew/GZiDqR+3M1Sdoe+rJA9Vt1+oI6XI3RtM9prtTyPQkGnT2S3B9m5GZdR
-	sNyJg/PijhFodRBTXykfen5f9mt2Yj66PknQc+pDaCnto/74bK5c5km42b2GQWPKX9YvHB+Ot8jmU
-	Va/D8pjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/r/842uqIDqsQdmQ0jCOaOihPDzze8ptMZ/9UbF19fA=; b=Mf1G/fAZ5IAtGB+ooTfwxi7Ooh
+	yFNbCNQv8sq59Nz6C3xXpdTqQ/g5+bm9Oul6t82+XMAcU99+aujt5Dbabc3BssDrJ6dw3U0hkgUyz
+	XOnRi6ltzCHrkmxv8QiJ+MdL2+nIp92RmnjUZuFdFH1KDgxAbHk5hhEfa+pNHCxziEaWI8YSN3hCz
+	nlJDQlt61/plWxgZ9piIaQxJ/q3p6vk+crYr46dPzjZl4E9VJ/aV43wfKgtn8CG3s+rL9vzLqJKir
+	osiR23vQa9nLw6A2h+wb6mkCWWylFf2Fk/Bh699WP1gnkRAefNKRuhm8qwNoKcswfNqKDwSCzcqmg
+	0/znGx9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIIJU-00000004bjZ-0Xl1;
-	Thu, 30 Apr 2026 03:43:44 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIIJR-00000004bii-38O2
+	id 1wIIPL-00000004c2E-47Jh;
+	Thu, 30 Apr 2026 03:49:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wIIPI-00000004c1Z-0kXy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 03:43:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1777520622; x=1809056622;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=LSUoyAnS3qyXHkVYSP2kHgLGwbPtR+uewKnGUpz/K/8=;
-  b=UF4q5Pa9WpvdwfQv8sPoKGyI1X5NcrIxAX0K6/jBAIPgH7if99bI2DlF
-   4Xdjv+F7oYnxvFRw3kmccEVy4ZstqfdSF4Qo+FedWJkRi902+1IZUCYBW
-   LeWFhAWStAywXYP/xixK3wQ5PIYLZOwO1mFmpATCX9UC/vUqZusQQCP7R
-   XIbtRZAqsGfvWQthTru34ooerFv/OCeXg54yDPjkVHcBuxVboTfnOdKm5
-   C0C4rCZJuSx9b2vl7YMH/XYkHd+ykzPDUlncTVcO0j7Ajo90GC+1oIFxb
-   dH5iFG4yMuy4trOPCz3IaQJYE8ygSI5VP2JjztCK2ikYlvwzrR6bgpQry
-   Q==;
-X-CSE-ConnectionGUID: 0CRLLraIQcCfV73Kgv6Zhg==
-X-CSE-MsgGUID: Kyvf7YNkSTSL2Rhc58BLMQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11771"; a="82317518"
-X-IronPort-AV: E=Sophos;i="6.23,207,1770624000"; 
-   d="scan'208";a="82317518"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Apr 2026 20:43:40 -0700
-X-CSE-ConnectionGUID: 9rP5uj6BQWibB8lOKzn9Mg==
-X-CSE-MsgGUID: 5wkqXb7wT9KuGBtol5KTJw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,207,1770624000"; 
-   d="scan'208";a="272575622"
-Received: from lkp-server01.sh.intel.com (HELO aa799cca880d) ([10.239.97.150])
-  by orviesa001.jf.intel.com with ESMTP; 29 Apr 2026 20:43:36 -0700
-Received: from kbuild by aa799cca880d with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wIIJJ-00000000Btg-2HtA;
-	Thu, 30 Apr 2026 03:43:33 +0000
-Date: Thu, 30 Apr 2026 11:42:49 +0800
-From: kernel test robot <lkp@intel.com>
-To: =?utf-8?B?67CV66qF7ZuI?= <mhun512@gmail.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Paul Kocialkowski <paulk@sys-base.io>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-media@vger.kernel.org, Myeonghun Pak <mhun512@gmail.com>,
-	linux-staging@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org, Ijae Kim <ae878000@gmail.com>
-Subject: Re: [PATCH] media: cedrus: clean up media device on probe failure
-Message-ID: <202604301101.Nszhy0yB-lkp@intel.com>
-References: <20260427100049.29034-1-pakmyeonghun@bagmyeonghun-ui-MacBookPro.local>
+	Thu, 30 Apr 2026 03:49:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4EEF31A9A;
+	Wed, 29 Apr 2026 20:49:35 -0700 (PDT)
+Received: from ergosum.cambridge.arm.com (ergosum.cambridge.arm.com [10.1.196.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 4158D3F7B4;
+	Wed, 29 Apr 2026 20:49:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1777520980; bh=zfhZ2KqdUCRvQf3GQfUOIuGNLqo8qxkZHAbF2RhlsN8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=t32V3S+4YcnT4TGwDOmXXTACjsbWnJkakGUNLnVj0ACP+1c254em2woHTzUWAHQMB
+	 GgZM2hkxGgoZM0NK/ZZWARy0PYcKtfrNNN8bICjyFJcpj6yI88wn4OCVDMlLbu84bR
+	 5fRu1F04HIwVj8jqPQacY93KP2aRFNrDs4hXq3Gw=
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	David Hildenbrand <david@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	linux-efi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64/mm: Rename ptdesc_t
+Date: Thu, 30 Apr 2026 04:49:33 +0100
+Message-Id: <20260430034933.541634-1-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260427100049.29034-1-pakmyeonghun@bagmyeonghun-ui-MacBookPro.local>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_204341_830418_A43A6D05 
-X-CRM114-Status: GOOD (  12.87  )
+X-CRM114-CacheID: sfid-20260429_204944_389554_9C7366CC 
+X-CRM114-Status: GOOD (  18.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,138 +71,249 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi 박명훈,
+ptdesc_t sounds very similar to the core MM struct ptdesc which is actually
+the memory descriptor for page table allocations. Hence rename this typedef
+element as pxxval_t instead for better clarity and separation.
 
-kernel test robot noticed the following build warnings:
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: David Hildenbrand <david@kernel.org>
+Cc: Mike Rapoport <rppt@kernel.org>
+Cc: linux-efi@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+Suggested-by: David Hildenbrand (Arm) <david@kernel.org>
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+---
+This patch applies on v7.1-rc1
 
-[auto build test WARNING on sunxi/sunxi/for-next]
-[also build test WARNING on linus/master v7.1-rc1 next-20260429]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Took the liberty in including David's tag from an internal discussion.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/media-cedrus-clean-up-media-device-on-probe-failure/20260427-235223
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux.git sunxi/for-next
-patch link:    https://lore.kernel.org/r/20260427100049.29034-1-pakmyeonghun%40bagmyeonghun-ui-MacBookPro.local
-patch subject: [PATCH] media: cedrus: clean up media device on probe failure
-config: s390-allmodconfig (https://download.01.org/0day-ci/archive/20260430/202604301101.Nszhy0yB-lkp@intel.com/config)
-compiler: clang version 18.1.8 (https://github.com/llvm/llvm-project 3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260430/202604301101.Nszhy0yB-lkp@intel.com/reproduce)
+ arch/arm64/include/asm/io.h            |  2 +-
+ arch/arm64/include/asm/pgtable-types.h | 14 +++++++-------
+ arch/arm64/include/asm/ptdump.h        |  8 ++++----
+ arch/arm64/include/asm/tlbflush.h      |  4 ++--
+ arch/arm64/kernel/efi.c                |  4 ++--
+ arch/arm64/kernel/pi/map_kernel.c      |  2 +-
+ arch/arm64/kernel/pi/map_range.c       |  4 ++--
+ arch/arm64/kernel/pi/pi.h              |  2 +-
+ arch/arm64/mm/mmap.c                   |  4 ++--
+ arch/arm64/mm/pageattr.c               |  2 +-
+ arch/arm64/mm/ptdump.c                 |  2 +-
+ 11 files changed, 24 insertions(+), 24 deletions(-)
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202604301101.Nszhy0yB-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> drivers/staging/media/sunxi/cedrus/cedrus.c:538:1: warning: unused label 'err_m2m' [-Wunused-label]
-     538 | err_m2m:
-         | ^~~~~~~~
-   1 warning generated.
-
-
-vim +/err_m2m +538 drivers/staging/media/sunxi/cedrus/cedrus.c
-
-50e761516f2b8c Paul Kocialkowski 2018-09-13  449  
-50e761516f2b8c Paul Kocialkowski 2018-09-13  450  static int cedrus_probe(struct platform_device *pdev)
-50e761516f2b8c Paul Kocialkowski 2018-09-13  451  {
-50e761516f2b8c Paul Kocialkowski 2018-09-13  452  	struct cedrus_dev *dev;
-50e761516f2b8c Paul Kocialkowski 2018-09-13  453  	struct video_device *vfd;
-50e761516f2b8c Paul Kocialkowski 2018-09-13  454  	int ret;
-50e761516f2b8c Paul Kocialkowski 2018-09-13  455  
-50e761516f2b8c Paul Kocialkowski 2018-09-13  456  	dev = devm_kzalloc(&pdev->dev, sizeof(*dev), GFP_KERNEL);
-50e761516f2b8c Paul Kocialkowski 2018-09-13  457  	if (!dev)
-50e761516f2b8c Paul Kocialkowski 2018-09-13  458  		return -ENOMEM;
-50e761516f2b8c Paul Kocialkowski 2018-09-13  459  
-708938f8495147 Dmitry Osipenko   2022-08-18  460  	platform_set_drvdata(pdev, dev);
-708938f8495147 Dmitry Osipenko   2022-08-18  461  
-50e761516f2b8c Paul Kocialkowski 2018-09-13  462  	dev->vfd = cedrus_video_device;
-50e761516f2b8c Paul Kocialkowski 2018-09-13  463  	dev->dev = &pdev->dev;
-50e761516f2b8c Paul Kocialkowski 2018-09-13  464  	dev->pdev = pdev;
-50e761516f2b8c Paul Kocialkowski 2018-09-13  465  
-50e761516f2b8c Paul Kocialkowski 2018-09-13  466  	ret = cedrus_hw_probe(dev);
-50e761516f2b8c Paul Kocialkowski 2018-09-13  467  	if (ret) {
-50e761516f2b8c Paul Kocialkowski 2018-09-13  468  		dev_err(&pdev->dev, "Failed to probe hardware\n");
-50e761516f2b8c Paul Kocialkowski 2018-09-13  469  		return ret;
-50e761516f2b8c Paul Kocialkowski 2018-09-13  470  	}
-50e761516f2b8c Paul Kocialkowski 2018-09-13  471  
-50e761516f2b8c Paul Kocialkowski 2018-09-13  472  	mutex_init(&dev->dev_mutex);
-50e761516f2b8c Paul Kocialkowski 2018-09-13  473  
-7c38a551bda1b7 Jernej Skrabec    2022-02-01  474  	INIT_DELAYED_WORK(&dev->watchdog_work, cedrus_watchdog);
-7c38a551bda1b7 Jernej Skrabec    2022-02-01  475  
-50e761516f2b8c Paul Kocialkowski 2018-09-13  476  	ret = v4l2_device_register(&pdev->dev, &dev->v4l2_dev);
-50e761516f2b8c Paul Kocialkowski 2018-09-13  477  	if (ret) {
-50e761516f2b8c Paul Kocialkowski 2018-09-13  478  		dev_err(&pdev->dev, "Failed to register V4L2 device\n");
-50e761516f2b8c Paul Kocialkowski 2018-09-13  479  		return ret;
-50e761516f2b8c Paul Kocialkowski 2018-09-13  480  	}
-50e761516f2b8c Paul Kocialkowski 2018-09-13  481  
-50e761516f2b8c Paul Kocialkowski 2018-09-13  482  	vfd = &dev->vfd;
-50e761516f2b8c Paul Kocialkowski 2018-09-13  483  	vfd->lock = &dev->dev_mutex;
-50e761516f2b8c Paul Kocialkowski 2018-09-13  484  	vfd->v4l2_dev = &dev->v4l2_dev;
-50e761516f2b8c Paul Kocialkowski 2018-09-13  485  
-50e761516f2b8c Paul Kocialkowski 2018-09-13  486  	snprintf(vfd->name, sizeof(vfd->name), "%s", cedrus_video_device.name);
-50e761516f2b8c Paul Kocialkowski 2018-09-13  487  	video_set_drvdata(vfd, dev);
-50e761516f2b8c Paul Kocialkowski 2018-09-13  488  
-50e761516f2b8c Paul Kocialkowski 2018-09-13  489  	dev->m2m_dev = v4l2_m2m_init(&cedrus_m2m_ops);
-50e761516f2b8c Paul Kocialkowski 2018-09-13  490  	if (IS_ERR(dev->m2m_dev)) {
-50e761516f2b8c Paul Kocialkowski 2018-09-13  491  		v4l2_err(&dev->v4l2_dev,
-50e761516f2b8c Paul Kocialkowski 2018-09-13  492  			 "Failed to initialize V4L2 M2M device\n");
-50e761516f2b8c Paul Kocialkowski 2018-09-13  493  		ret = PTR_ERR(dev->m2m_dev);
-50e761516f2b8c Paul Kocialkowski 2018-09-13  494  
-bac875349f8525 Jernej Skrabec    2019-04-07  495  		goto err_v4l2;
-50e761516f2b8c Paul Kocialkowski 2018-09-13  496  	}
-50e761516f2b8c Paul Kocialkowski 2018-09-13  497  
-50e761516f2b8c Paul Kocialkowski 2018-09-13  498  	dev->mdev.dev = &pdev->dev;
-50e761516f2b8c Paul Kocialkowski 2018-09-13  499  	strscpy(dev->mdev.model, CEDRUS_NAME, sizeof(dev->mdev.model));
-ae0688f659adb1 Hans Verkuil      2019-08-30  500  	strscpy(dev->mdev.bus_info, "platform:" CEDRUS_NAME,
-ae0688f659adb1 Hans Verkuil      2019-08-30  501  		sizeof(dev->mdev.bus_info));
-50e761516f2b8c Paul Kocialkowski 2018-09-13  502  
-50e761516f2b8c Paul Kocialkowski 2018-09-13  503  	media_device_init(&dev->mdev);
-50e761516f2b8c Paul Kocialkowski 2018-09-13  504  	dev->mdev.ops = &cedrus_m2m_media_ops;
-50e761516f2b8c Paul Kocialkowski 2018-09-13  505  	dev->v4l2_dev.mdev = &dev->mdev;
-50e761516f2b8c Paul Kocialkowski 2018-09-13  506  
-0e17c50fcf6a9e Hans Verkuil      2020-02-03  507  	ret = video_register_device(vfd, VFL_TYPE_VIDEO, 0);
-50e761516f2b8c Paul Kocialkowski 2018-09-13  508  	if (ret) {
-50e761516f2b8c Paul Kocialkowski 2018-09-13  509  		v4l2_err(&dev->v4l2_dev, "Failed to register video device\n");
-e8660f15f165e6 Myeonghun Pak     2026-04-27  510  		goto err_media_cleanup;
-50e761516f2b8c Paul Kocialkowski 2018-09-13  511  	}
-50e761516f2b8c Paul Kocialkowski 2018-09-13  512  
-50e761516f2b8c Paul Kocialkowski 2018-09-13  513  	v4l2_info(&dev->v4l2_dev,
-50e761516f2b8c Paul Kocialkowski 2018-09-13  514  		  "Device registered as /dev/video%d\n", vfd->num);
-50e761516f2b8c Paul Kocialkowski 2018-09-13  515  
-bac875349f8525 Jernej Skrabec    2019-04-07  516  	ret = v4l2_m2m_register_media_controller(dev->m2m_dev, vfd,
-bac875349f8525 Jernej Skrabec    2019-04-07  517  						 MEDIA_ENT_F_PROC_VIDEO_DECODER);
-bac875349f8525 Jernej Skrabec    2019-04-07  518  	if (ret) {
-bac875349f8525 Jernej Skrabec    2019-04-07  519  		v4l2_err(&dev->v4l2_dev,
-bac875349f8525 Jernej Skrabec    2019-04-07  520  			 "Failed to initialize V4L2 M2M media controller\n");
-bac875349f8525 Jernej Skrabec    2019-04-07  521  		goto err_video;
-bac875349f8525 Jernej Skrabec    2019-04-07  522  	}
-bac875349f8525 Jernej Skrabec    2019-04-07  523  
-50e761516f2b8c Paul Kocialkowski 2018-09-13  524  	ret = media_device_register(&dev->mdev);
-50e761516f2b8c Paul Kocialkowski 2018-09-13  525  	if (ret) {
-50e761516f2b8c Paul Kocialkowski 2018-09-13  526  		v4l2_err(&dev->v4l2_dev, "Failed to register media device\n");
-50e761516f2b8c Paul Kocialkowski 2018-09-13  527  		goto err_m2m_mc;
-50e761516f2b8c Paul Kocialkowski 2018-09-13  528  	}
-50e761516f2b8c Paul Kocialkowski 2018-09-13  529  
-50e761516f2b8c Paul Kocialkowski 2018-09-13  530  	return 0;
-50e761516f2b8c Paul Kocialkowski 2018-09-13  531  
-50e761516f2b8c Paul Kocialkowski 2018-09-13  532  err_m2m_mc:
-50e761516f2b8c Paul Kocialkowski 2018-09-13  533  	v4l2_m2m_unregister_media_controller(dev->m2m_dev);
-50e761516f2b8c Paul Kocialkowski 2018-09-13  534  err_video:
-50e761516f2b8c Paul Kocialkowski 2018-09-13  535  	video_unregister_device(&dev->vfd);
-e8660f15f165e6 Myeonghun Pak     2026-04-27  536  err_media_cleanup:
-e8660f15f165e6 Myeonghun Pak     2026-04-27  537  	media_device_cleanup(&dev->mdev);
-bac875349f8525 Jernej Skrabec    2019-04-07 @538  err_m2m:
-bac875349f8525 Jernej Skrabec    2019-04-07  539  	v4l2_m2m_release(dev->m2m_dev);
-50e761516f2b8c Paul Kocialkowski 2018-09-13  540  err_v4l2:
-50e761516f2b8c Paul Kocialkowski 2018-09-13  541  	v4l2_device_unregister(&dev->v4l2_dev);
-50e761516f2b8c Paul Kocialkowski 2018-09-13  542  
-50e761516f2b8c Paul Kocialkowski 2018-09-13  543  	return ret;
-50e761516f2b8c Paul Kocialkowski 2018-09-13  544  }
-50e761516f2b8c Paul Kocialkowski 2018-09-13  545  
-
+diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
+index 8cbd1e96fd50..dd548a93342d 100644
+--- a/arch/arm64/include/asm/io.h
++++ b/arch/arm64/include/asm/io.h
+@@ -270,7 +270,7 @@ static inline void __iomem *ioremap_prot(phys_addr_t phys, size_t size,
+ 					 pgprot_t user_prot)
+ {
+ 	pgprot_t prot;
+-	ptdesc_t user_prot_val = pgprot_val(user_prot);
++	pxxval_t user_prot_val = pgprot_val(user_prot);
+ 
+ 	if (WARN_ON_ONCE(!(user_prot_val & PTE_USER)))
+ 		return NULL;
+diff --git a/arch/arm64/include/asm/pgtable-types.h b/arch/arm64/include/asm/pgtable-types.h
+index 265e8301d7ba..53b5ada823ee 100644
+--- a/arch/arm64/include/asm/pgtable-types.h
++++ b/arch/arm64/include/asm/pgtable-types.h
+@@ -17,13 +17,13 @@
+  * Generic page table descriptor format from which
+  * all level specific descriptors can be derived.
+  */
+-typedef u64 ptdesc_t;
++typedef u64 pxxval_t;
+ 
+-typedef ptdesc_t pteval_t;
+-typedef ptdesc_t pmdval_t;
+-typedef ptdesc_t pudval_t;
+-typedef ptdesc_t p4dval_t;
+-typedef ptdesc_t pgdval_t;
++typedef pxxval_t pteval_t;
++typedef pxxval_t pmdval_t;
++typedef pxxval_t pudval_t;
++typedef pxxval_t p4dval_t;
++typedef pxxval_t pgdval_t;
+ 
+ /*
+  * These are used to make use of C type-checking..
+@@ -54,7 +54,7 @@ typedef struct { pgdval_t pgd; } pgd_t;
+ #define pgd_val(x)	((x).pgd)
+ #define __pgd(x)	((pgd_t) { (x) } )
+ 
+-typedef struct { ptdesc_t pgprot; } pgprot_t;
++typedef struct { pxxval_t pgprot; } pgprot_t;
+ #define pgprot_val(x)	((x).pgprot)
+ #define __pgprot(x)	((pgprot_t) { (x) } )
+ 
+diff --git a/arch/arm64/include/asm/ptdump.h b/arch/arm64/include/asm/ptdump.h
+index baff24004459..f4113b7c881c 100644
+--- a/arch/arm64/include/asm/ptdump.h
++++ b/arch/arm64/include/asm/ptdump.h
+@@ -26,8 +26,8 @@ struct ptdump_info {
+ };
+ 
+ struct ptdump_prot_bits {
+-	ptdesc_t	mask;
+-	ptdesc_t	val;
++	pxxval_t	mask;
++	pxxval_t	val;
+ 	const char	*set;
+ 	const char	*clear;
+ };
+@@ -36,7 +36,7 @@ struct ptdump_pg_level {
+ 	const struct ptdump_prot_bits *bits;
+ 	char name[4];
+ 	int num;
+-	ptdesc_t mask;
++	pxxval_t mask;
+ };
+ 
+ /*
+@@ -53,7 +53,7 @@ struct ptdump_pg_state {
+ 	const struct mm_struct *mm;
+ 	unsigned long start_address;
+ 	int level;
+-	ptdesc_t current_prot;
++	pxxval_t current_prot;
+ 	bool check_wx;
+ 	unsigned long wx_pages;
+ 	unsigned long uxn_pages;
+diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+index c0bf5b398041..968a78d0c69e 100644
+--- a/arch/arm64/include/asm/tlbflush.h
++++ b/arch/arm64/include/asm/tlbflush.h
+@@ -725,9 +725,9 @@ static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *b
+ 	sme_dvmsync_add_pending(batch, mm);
+ }
+ 
+-static inline bool __pte_flags_need_flush(ptdesc_t oldval, ptdesc_t newval)
++static inline bool __pte_flags_need_flush(pxxval_t oldval, pxxval_t newval)
+ {
+-	ptdesc_t diff = oldval ^ newval;
++	pxxval_t diff = oldval ^ newval;
+ 
+ 	/* invalid to valid transition requires no flush */
+ 	if (!(oldval & PTE_VALID))
+diff --git a/arch/arm64/kernel/efi.c b/arch/arm64/kernel/efi.c
+index a81cb4aa4738..3d322252b4bf 100644
+--- a/arch/arm64/kernel/efi.c
++++ b/arch/arm64/kernel/efi.c
+@@ -31,7 +31,7 @@ static bool region_is_misaligned(const efi_memory_desc_t *md)
+  * executable, everything else can be mapped with the XN bits
+  * set. Also take the new (optional) RO/XP bits into account.
+  */
+-static __init ptdesc_t create_mapping_protection(efi_memory_desc_t *md)
++static __init pxxval_t create_mapping_protection(efi_memory_desc_t *md)
+ {
+ 	u64 attr = md->attribute;
+ 	u32 type = md->type;
+@@ -85,7 +85,7 @@ static __init ptdesc_t create_mapping_protection(efi_memory_desc_t *md)
+ 
+ int __init efi_create_mapping(struct mm_struct *mm, efi_memory_desc_t *md)
+ {
+-	ptdesc_t prot_val = create_mapping_protection(md);
++	pxxval_t prot_val = create_mapping_protection(md);
+ 	bool page_mappings_only = (md->type == EFI_RUNTIME_SERVICES_CODE ||
+ 				   md->type == EFI_RUNTIME_SERVICES_DATA);
+ 
+diff --git a/arch/arm64/kernel/pi/map_kernel.c b/arch/arm64/kernel/pi/map_kernel.c
+index a852264958c3..168858e75f75 100644
+--- a/arch/arm64/kernel/pi/map_kernel.c
++++ b/arch/arm64/kernel/pi/map_kernel.c
+@@ -165,7 +165,7 @@ static void noinline __section(".idmap.text") set_ttbr0_for_lpa2(phys_addr_t ttb
+ static void __init remap_idmap_for_lpa2(void)
+ {
+ 	/* clear the bits that change meaning once LPA2 is turned on */
+-	ptdesc_t mask = PTE_SHARED;
++	pxxval_t mask = PTE_SHARED;
+ 
+ 	/*
+ 	 * We have to clear bits [9:8] in all block or page descriptors in the
+diff --git a/arch/arm64/kernel/pi/map_range.c b/arch/arm64/kernel/pi/map_range.c
+index de52cd85c691..f7cbad6e3bbc 100644
+--- a/arch/arm64/kernel/pi/map_range.c
++++ b/arch/arm64/kernel/pi/map_range.c
+@@ -31,7 +31,7 @@ void __init map_range(phys_addr_t *pte, u64 start, u64 end, phys_addr_t pa,
+ 		      u64 va_offset)
+ {
+ 	u64 cmask = (level == 3) ? CONT_PTE_SIZE - 1 : U64_MAX;
+-	ptdesc_t protval = pgprot_val(prot) & ~PTE_TYPE_MASK;
++	pxxval_t protval = pgprot_val(prot) & ~PTE_TYPE_MASK;
+ 	int lshift = (3 - level) * PTDESC_TABLE_SHIFT;
+ 	u64 lmask = (PAGE_SIZE << lshift) - 1;
+ 
+@@ -88,7 +88,7 @@ void __init map_range(phys_addr_t *pte, u64 start, u64 end, phys_addr_t pa,
+ 	}
+ }
+ 
+-asmlinkage phys_addr_t __init create_init_idmap(pgd_t *pg_dir, ptdesc_t clrmask)
++asmlinkage phys_addr_t __init create_init_idmap(pgd_t *pg_dir, pxxval_t clrmask)
+ {
+ 	phys_addr_t ptep = (phys_addr_t)pg_dir + PAGE_SIZE; /* MMU is off */
+ 	pgprot_t text_prot = PAGE_KERNEL_ROX;
+diff --git a/arch/arm64/kernel/pi/pi.h b/arch/arm64/kernel/pi/pi.h
+index aec3172d4003..2eb24a4205f6 100644
+--- a/arch/arm64/kernel/pi/pi.h
++++ b/arch/arm64/kernel/pi/pi.h
+@@ -35,4 +35,4 @@ void map_range(phys_addr_t *pte, u64 start, u64 end, phys_addr_t pa,
+ 
+ asmlinkage void early_map_kernel(u64 boot_status, phys_addr_t fdt);
+ 
+-asmlinkage phys_addr_t create_init_idmap(pgd_t *pgd, ptdesc_t clrmask);
++asmlinkage phys_addr_t create_init_idmap(pgd_t *pgd, pxxval_t clrmask);
+diff --git a/arch/arm64/mm/mmap.c b/arch/arm64/mm/mmap.c
+index 92b2f5097a96..bc3fef91a8ce 100644
+--- a/arch/arm64/mm/mmap.c
++++ b/arch/arm64/mm/mmap.c
+@@ -34,7 +34,7 @@ static pgprot_t protection_map[16] __ro_after_init = {
+ 	[VM_SHARED | VM_EXEC | VM_WRITE | VM_READ]	= PAGE_SHARED_EXEC
+ };
+ 
+-static ptdesc_t gcs_page_prot __ro_after_init = _PAGE_GCS_RO;
++static pxxval_t gcs_page_prot __ro_after_init = _PAGE_GCS_RO;
+ 
+ /*
+  * You really shouldn't be using read() or write() on /dev/mem.  This might go
+@@ -87,7 +87,7 @@ arch_initcall(adjust_protection_map);
+ 
+ pgprot_t vm_get_page_prot(vm_flags_t vm_flags)
+ {
+-	ptdesc_t prot;
++	pxxval_t prot;
+ 
+ 	/* Short circuit GCS to avoid bloating the table. */
+ 	if (system_supports_gcs() && (vm_flags & VM_SHADOW_STACK)) {
+diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+index ce035e1b4eaf..e691e258b0e4 100644
+--- a/arch/arm64/mm/pageattr.c
++++ b/arch/arm64/mm/pageattr.c
+@@ -21,7 +21,7 @@ struct page_change_data {
+ 	pgprot_t clear_mask;
+ };
+ 
+-static ptdesc_t set_pageattr_masks(ptdesc_t val, struct mm_walk *walk)
++static pxxval_t set_pageattr_masks(pxxval_t val, struct mm_walk *walk)
+ {
+ 	struct page_change_data *masks = walk->private;
+ 
+diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
+index ab9899ca1e5f..235e5d6a3d76 100644
+--- a/arch/arm64/mm/ptdump.c
++++ b/arch/arm64/mm/ptdump.c
+@@ -194,7 +194,7 @@ void note_page(struct ptdump_state *pt_st, unsigned long addr, int level,
+ 	struct ptdump_pg_state *st = container_of(pt_st, struct ptdump_pg_state, ptdump);
+ 	struct ptdump_pg_level *pg_level = st->pg_level;
+ 	static const char units[] = "KMGTPE";
+-	ptdesc_t prot = 0;
++	pxxval_t prot = 0;
+ 
+ 	/* check if the current level has been folded dynamically */
+ 	if (st->mm && ((level == 1 && mm_p4d_folded(st->mm)) ||
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.30.2
+
 
