@@ -4,93 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7806CD13DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 23:17:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A09F0CD13DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 23:29:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wPb32HxMm/+qEq7JGxjS6idVv7iM9pOULTkDilujde0=; b=DuUURuWjCrBKTvFcMHdaSKroBf
-	iWnINFHNKFYtRoEcH3bfbwCkwLIQrBZO9H1qiUvtxiwvZ2SRSp1POeL8M3S+kEwaFRr+DGUPbnHjw
-	DtpZ2RkuY18bmvn3LwwkymqXhFepf9uBZIcNWwWGT/LUAkM7esYymc9eRukgYnxXj5CsMXPwFjtYo
-	ZJ9ZqV3FDAYhtTB7/LNeRNX1KiPK9C44PY0zGThfzuAzcJy9NwA0StGXwjQraLkppLCdUl6Ql5PWd
-	qdvPmoNF3JpETwvYEsWsH2q6MFzPW4lf/AiG1vTzjutxusgNQuUNqeu9C8WrLOYhm2RgutQJJS6jU
-	judOEVcw==;
+	bh=f5eETolv2CRJ+KGuzqHXNWHz75SkAhmrcTAnZvVauEE=; b=g74gp6KwkoUx+D1tiDaGv7x+RN
+	E+fXayDKx6OiZ1if8XaD+lVV+f1gIE20R1eo/nvz7MsoWsZu4CnGia+btOqPxQEYVkqcx3aaSXB2n
+	zUBUAXGJWYcD8rKl2kapJauyKeQQ58XicdHuHj76sHR20xknLutNbTcTMRVlO5/j8T2yRFD4VF4Kp
+	LALZM+Scsq/Dnw7ls4Pt4NCMjjahTFfhEbK2uHdtRZOWBDk6yyir35eAesO6wQACmjWbispSKNl6j
+	2ivsDvc2oh0OLjVSjXTd5N3vdxc2z3RlgK75dN4XXqdrWO+7BaTGt8SgOcGCEaudJUX+ypf3aGAcy
+	AMz0+Xig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIadh-000000065hx-1Y2v;
-	Thu, 30 Apr 2026 23:17:51 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1wIaoU-000000066WI-3qQD;
+	Thu, 30 Apr 2026 23:28:58 +0000
+Received: from mail-northcentralusazon11013039.outbound.protection.outlook.com ([40.107.201.39] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIadc-000000065hF-3Rli
+	id 1wIaoS-000000066Vw-3T9u
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 23:17:47 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2b4650d5f5cso5935395ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 16:17:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777591064; x=1778195864; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=wPb32HxMm/+qEq7JGxjS6idVv7iM9pOULTkDilujde0=;
-        b=npybbFiXy01gflcw4j0emuKZRHpbPhguN3GTjQsh1sZRTo0HcGRbnJaMr5NQgenXbw
-         lcsy9BFJhVn7pr151UGoD7W32Mp/nBJnHRI/OONG8vV32ByAUjCRtdqaFdGCbZ0Bq537
-         dfGfiG+YIzcRNQzw5l/DRMiVmI+Ja4CLeOEGRDuUsjW/Juo5ZS9zc3OckdNtafY1Bqxn
-         0kJ5Az5DY9R8z13l/aUl3JNw4SibJy64LYwcGhgr1ZdXuHNX2H7uQ/3xYN/uT5mb8DqD
-         clFrFIJtYBzdxGlFhqEY7+fh6a1Q05CtX6UOLTETag0A/RuOYEys/M6s37F5A96LCbDE
-         betg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777591064; x=1778195864;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=wPb32HxMm/+qEq7JGxjS6idVv7iM9pOULTkDilujde0=;
-        b=Zsg+NkKhuzYAZv9CEC+DpfJPENVJfO4GrQ3Z/bMG8njV54iVBS9/kp7t4pMjSeS4qy
-         iU5LjSqENNflmX9dSfa/r4ppabCgiHJml7/7upicvCGEJnUF9J4yy5burJKy5di3rLVN
-         wbo5+xBek5QkMGmYwdJBI+Ukfo9CDxE0FJ2Ja4Nris8LcjrAXC62kwamI78twHT+Dy6A
-         QSGyzcymGX8Uy626MWFh0fTI22f/MMJz3L5VxM6ek3Y1vwd0DABZLrWLYPALqr2MXxCE
-         OcjHXE4mSvbDyfQQwGj8MIvRcLm+SQnntenqusZQEE+Ls9oAwAlUcXCFAJOUg/GK/Bzt
-         B1kA==
-X-Forwarded-Encrypted: i=1; AFNElJ+ouMth0O9d/H2WzODWIGgi1LkpclG52gG0VWKAa3kdodCxdpjBtrzTLiOLeMqx3C57WP8YpYP0bfcAVlY7D0bt@lists.infradead.org
-X-Gm-Message-State: AOJu0YxR9DrMuroPMMVD9FFuzNizA4Jnko6CypgEQoYZxHwxSsoHYq+7
-	NEX7f+yivPvSrdRduvnGR7L3/uGhxw612ZGadhrTBkQQZiA7eCPtJIpO
-X-Gm-Gg: AeBDieuBEruIqJB/1N0uTB8EF7sTD7QIHCnZIBjWa9ltvSaPAp8qhZgvK1sMXU8AQ0l
-	f/0HoloeoySMYxrJAwVwGDwrNIjyUnECahQ9PmT1DI9JbYd9J/XrkHBYFPsl79YHrvBFqrwZYdw
-	OUO8dEtrHlPlJdD+i9LsMxCtWwdERgtrD4hq3HcKRTOHTADxnCHQOPkF3aWS0+UTwtTvXr4ankJ
-	W649pj+sP7YW07kcxPPFsl1I9+X3lnH+GdZ0zNMNFIRI3lXORsHbKhfijzMNuUkplRViAPc9lQO
-	4Il8SPz7pJGffdkt3A0F+3az7m88SircXmuwgLupjP8+JJIOc15FUxkU5kuLuruZh/ZK9wiJO/S
-	5ptniqwBzBQXgQ24cdj6GUabzmh6m3B87rG4bHBFq6oDuBIHYCaEO0XhleRD1SOQ/PcsjYXog3G
-	eBfCefc3H76erwzhQUt/51/PDFZmeWruQ70N/qBhR2U8LKaJY=
-X-Received: by 2002:a17:903:4509:b0:2b7:a350:463f with SMTP id d9443c01a7336-2b9a2316e61mr37002455ad.10.1777591063991;
-        Thu, 30 Apr 2026 16:17:43 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b9cae58906sm6249995ad.74.2026.04.30.16.17.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Apr 2026 16:17:43 -0700 (PDT)
-Date: Thu, 30 Apr 2026 16:17:42 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: florin.leotescu@oss.nxp.com
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Shych <michaelsh@nvidia.com>, linux-hwmon@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	daniel.baluta@nxp.com, viorel.suman@nxp.com,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	festevam@gmail.com, Florin Leotescu <florin.leotescu@nxp.com>
-Subject: Re: [PATCH v7 3/3] hwmon: emc2305: Support configurable fan PWM at
- shutdown
-Message-ID: <931b8c3c-8555-4333-a660-e1d78fd67a00@roeck-us.net>
-References: <20260429065955.2113012-1-florin.leotescu@oss.nxp.com>
- <20260429065955.2113012-4-florin.leotescu@oss.nxp.com>
+	Thu, 30 Apr 2026 23:28:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IRUBYmhAuYfAijpbVwQQ6MbIu/KB1LGUpheZWgJwUvzR0y0XF0IJMzOo+d2CfeCNOEcgi4eCHrqKv1DRwveKSSQ22X2Iia5GQcw/dFy+VL5wGVfiGB6owb8a3fqvxmIdOyvSHrxRdQMaCdmzLWj360QBs4szUiP8pylJFIXWO8anTE4nbGn/IJ5AmSd3j35Hk69ubIhyV0w3ADKyAWGyny7Asq+8NeBvAowCQcp4trrpfJbD6zAzlk/xtETLlWUKGdfDun0JR53REdOrQamzXCtPXL9UmbH2Z2D5GOCh+MxYMleIMI6nSY7zuITQTQ28z8KrsebbHBV0zMIE9fIx4w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=f5eETolv2CRJ+KGuzqHXNWHz75SkAhmrcTAnZvVauEE=;
+ b=DcEBcN4HBFB8NWFbLvBWERyOGFPSntjOFSqRbi0GMnmezSqbxkTA+ehmkCGBQrPRj1c3HtOcoFPwBaDuK0DCHoJA89sEoEO0sOGlA5J6nojLKvgDKaCVi6ymK5+NXw8KGoifvj+7Y+KERpXkiMybXtfyR9apmccjBlXK8P23Ijx8uoHAivTItFD6Z6wqiNu3RzkDO61xi48aTpolc6IjsJcwNTuHsVSvQP4Z87obrTjMOrZbUd0DmOi8gRNvfnMjD0qRso+vi1OGvi7KTWaWDJeTLgYZxJ/BW6i1mi6+/5HXco0To9G6e3y2AsdHFzdp+wHB2tp0cfkvI2346cY4mA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=f5eETolv2CRJ+KGuzqHXNWHz75SkAhmrcTAnZvVauEE=;
+ b=mMLBm6kV3YOXYYJRO8e/70BpjU0vtzzslFfTmDnSUjzo0eu4teU98t91S7Zuhi2jYjJZ75CdkSXrA+ebqHf4wcc/bHafQBH905u8wKDSpG4veX7yExnCUY5Xz2/XnjyNmSYrWYXVWjKJZx3nbcH9jW7iZQPltdEg9LlmQrjMx4YKhfjIWxEWHjWvbLNxCx669JFcue4suZSgwJrExaE7p8LKG2zAyTDgbuVz0xa+OlWpUHaO6xWUkd4UFcXtSjJlhe13oLDjXL8FSEAHMZsKnAH1uzL/E3gnFg1OxHL0/v+iHN5KUv8aLQ2OfVcK21bISyOcGu2B7xNOm9BKs3al2g==
+Received: from BL0PR05CA0003.namprd05.prod.outlook.com (2603:10b6:208:91::13)
+ by CYYPR12MB8890.namprd12.prod.outlook.com (2603:10b6:930:c7::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.15; Thu, 30 Apr
+ 2026 23:28:41 +0000
+Received: from BL6PEPF0001AB4B.namprd04.prod.outlook.com
+ (2603:10b6:208:91:cafe::e1) by BL0PR05CA0003.outlook.office365.com
+ (2603:10b6:208:91::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9870.16 via Frontend Transport; Thu,
+ 30 Apr 2026 23:28:40 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ BL6PEPF0001AB4B.mail.protection.outlook.com (10.167.242.69) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9870.22 via Frontend Transport; Thu, 30 Apr 2026 23:28:40 +0000
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 30 Apr
+ 2026 16:28:20 -0700
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail204.nvidia.com
+ (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 30 Apr
+ 2026 16:28:19 -0700
+Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com (10.129.68.6)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 30 Apr 2026 16:28:18 -0700
+Date: Thu, 30 Apr 2026 16:28:17 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: "Dan Williams (nvidia)" <djbw@kernel.org>
+CC: <jgg@nvidia.com>, <will@kernel.org>, <robin.murphy@arm.com>,
+	<bhelgaas@google.com>, <joro@8bytes.org>, <praan@google.com>,
+	<baolu.lu@linux.intel.com>, <kevin.tian@intel.com>,
+	<miko.lenczewski@arm.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<linux-pci@vger.kernel.org>, <dan.j.williams@intel.com>,
+	<jonathan.cameron@huawei.com>, <vsethi@nvidia.com>,
+	<linux-cxl@vger.kernel.org>, <nirmoyd@nvidia.com>
+Subject: Re: [PATCH v4 1/3] PCI: Allow ATS to be always on for CXL.cache
+ capable devices
+Message-ID: <afPlkW5zlTSHwQCT@Asurada-Nvidia>
+References: <cover.1777269009.git.nicolinc@nvidia.com>
+ <f6734b9dad0050138676f11ecd14e9db1cf6b697.1777269009.git.nicolinc@nvidia.com>
+ <69f3cc82926_3291a910039@djbw-dev.notmuch>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20260429065955.2113012-4-florin.leotescu@oss.nxp.com>
+In-Reply-To: <69f3cc82926_3291a910039@djbw-dev.notmuch>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB4B:EE_|CYYPR12MB8890:EE_
+X-MS-Office365-Filtering-Correlation-Id: 23c0172c-c533-40ce-6828-08dea710366b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|82310400026|36860700016|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: Pa5XL9cSlKqDuP7K5er0RtlkfJlY6adNW4aBqIePvmlGlf2io5JMLUpDrZMmdQCur3kdjKuKsbw+2PBDs+vWOXxC7HDq6oqqUdS5Zf4lsh9yCoL1tgkKZ0Zk+CfpKPzqNYFkzrq2xjVgHcBbquKg3o8QJuKC7d5Pce/b5InXoVQ7UUw58WAVmGFA1j1KMC3fD/Sg9twNxRIf+5jgXNx4xq7ot/gEgiidMJwMmcMKrjhSuABFeCwkHSY5rbP3LZrxEUaEsKY/swl/TBkd9VJgoBKwutwRHBEMMr4hh6jw3NCPSQ0MP279pS+hbV67Tjc/6uzTB7dFchhVPoFJ7mLuyhLtlpFd7gGgZC32H36FKdTOYr/s9vW8VCf0K+q5E3M26QDnEqL5Zrbyt1u1eM3Xlzgwg/SalaFaO5A8feXpVicq18t9kRy5W7sXYkQShKQOCQw8VXqrFQu6MkFVbbVqaQZ3gbdxG6p9SppQdg+Ce9AgX7Ax+PuIgH7LzQaCgBmBpZZk3mr4PBcfze4eTUdhAJfMHFJUgN85lL7kO17xprhTqPKI9oagtLzBE81dJR+7NxosDbKEH1Cnb4CuskLgpEduiwXIHObnCBmR88VGCgSAQRkl6uqpv1MebVQBU/3uPJuxYXlC7QsTcrRex+XSdgssRX5RVRYkrc3ncp55Nh/hryWNXxV+mnoqzN9SC0NfIYbsFk4zSWuSqV+fCf4S/WD3DVhHFz5ZCnLog8eFES8=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(82310400026)(36860700016)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 5QRvdu2tsMZaZN6LaVF5mfJKTnQpODLoriiYBkjWTsLktvO7JrdjeDySsyOcq+ZSbIbea/2/wMMiUp3qI/TmGNNtk0phWymDrrdWo4AJpPyKM5Mi1oZRe16vqbQ1AIOzxtEfhN+IOcZAwsqQ5M9Ka6FjB5Ddy+i7rreix7amE3EoJQywtaWvJGx5ZoGzAdgmpDcMZBAaRHGfpFPFAA0Aag5WcwpfPpElHrg6+viV9PBu7bskH2EXw3+rOuwHFDQ+p7so24CPzX2Jc8bGmEtGw/dFSMtvw3dX/jos/Ra2Ad4ncIv5ILL8egmbbzTOh/e367j/Bj500kSv7oSlgcRlcIcHTZVtwNBDBM82yNmqjrekRkbYDYO1mcOtL9tzY5HKdNU0z7ti4PE0fcjbuapGKbdA6cagOm54xxrC0Q4opB8n7e2kdOpNIl4pPvil7MNL
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2026 23:28:40.5541
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 23c0172c-c533-40ce-6828-08dea710366b
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB4B.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR12MB8890
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_161746_588220_207966BD 
-X-CRM114-Status: GOOD (  12.50  )
+X-CRM114-CacheID: sfid-20260430_162856_872885_1465F019 
+X-CRM114-Status: GOOD (  16.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,27 +135,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 29, 2026 at 09:59:55AM +0300, florin.leotescu@oss.nxp.com wrote:
-> From: Florin Leotescu <florin.leotescu@nxp.com>
-> 
-> Some systems require fans to enter in a defined safe state during system
-> shutdown or reboot handoff.
-> 
-> Add support for the optional Device Tree property "fan-shutdown-percent"
-> to configure the shutdown PWM duty cycle per fan output.
-> 
-> If the property is present for a fan channel, the driver converts the
-> configured percentage value to the corresponding PWM duty cycle and
-> applies it during driver shutdown.
-> 
-> If the property is not present, the fan state remains unchanged.
-> 
-> Signed-off-by: Florin Leotescu <florin.leotescu@nxp.com>
+On Thu, Apr 30, 2026 at 02:41:22PM -0700, Dan Williams (nvidia) wrote:
+> > +static bool pci_cxl_ats_always_on(struct pci_dev *pdev)
+> > +{
+> > +	int offset;
+> > +	u16 cap;
+> > +
+> > +	offset = pci_find_dvsec_capability(pdev, PCI_VENDOR_ID_CXL,
+> > +					   PCI_DVSEC_CXL_DEVICE);
+> > +	if (!offset)
+> > +		return false;
+> > +
+> > +	if (pci_read_config_word(pdev, offset + PCI_DVSEC_CXL_CAP, &cap))
+> > +		return false;
+> > +
+> > +	return cap & PCI_DVSEC_CXL_CACHE_CAPABLE;
+[...]
+> Apologies for coming to this late and forgive me if the following has
+> already been asked and answered. Why not check for actual CXL.cache
+> protocol on the wire being present?
 
-I don't know if Sashiko's concerns are real; if sysfs accesses are still
-possible during shutdown, lots of drivers have problems. With that in mind,
-applied.
+Actually it would make the patch smaller. The thing is that this
+is_cxl property wasn't added when I started the series. So, it's
+not using it. :)
 
-Thanks,
-Guenter
+> @@ -1733,9 +1733,8 @@ static void set_pcie_cxl(struct pci_dev *dev)
+>  	pci_read_config_word(dev, dvsec + PCI_DVSEC_CXL_FLEXBUS_PORT_STATUS,
+>  			     &cap);
+>  
+> -	dev->is_cxl = FIELD_GET(PCI_DVSEC_CXL_FLEXBUS_PORT_STATUS_CACHE, cap) ||
+> -		FIELD_GET(PCI_DVSEC_CXL_FLEXBUS_PORT_STATUS_MEM, cap);
+> -
+> +	dev->is_cxl_cache = FIELD_GET(PCI_DVSEC_CXL_FLEXBUS_PORT_STATUS_CACHE, cap);
+> +	dev->is_cxl_mem = FIELD_GET(PCI_DVSEC_CXL_FLEXBUS_PORT_STATUS_MEM, cap);
+
+One caveat is that:
+
+Here it checks the cap from:
+	PCI_DVSEC_CXL_FLEXBUS_PORT_STATUS (0xE) via
+		PCI_DVSEC_CXL_FLEXBUS_PORT_STATUS (0x7)
+
+On the other hand, mine checks from:
+	PCI_DVSEC_CXL_CAP (0xA) via
+		PCI_DVSEC_CXL_DEVICE (0x0)
+
+The spec mentions in 8.2.1.3.1 DVSEC Flex Bus Port Capability: "
+  Note: The Mem_Capable, IO_Capable, and Cache_Capable fields are
+  also present in the DVSEC Flex Bus for the device [which is the
+  legacy name for DVSEC 0x0]. This allows for future scalability
+  where multiple devices, each with potentially different
+  capabilities, may be populated behind a single Port.
+"
+
+Not arguing that set_pcie_cxl() is wrong, but I am not sure if there
+would be any side effect to rely on the "legacy name" over DVSEC 0x0.
+
+Is there any CXL expert who can help confirm?
+
+Thanks!
+Nicolin
 
