@@ -4,93 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55344CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 11:15:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F21BFCCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 11:15:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AqcFoG67GT0Pu06Ylm/Ut8xhZJ5l6cBlXaAvHH2/Jcc=; b=K1cMoa7fWDKQNZDdLTbuK59NYc
-	1qwRsKBgIy+BLEeqQEo8LLeB/yM3tX6jRuZ6ZNGvYSG2AlcAAHaqNoRUwXdqxqDnlYyISEEKGRnnR
-	jrvN1a/ogTOTcma0nEdfoLVelpBZRPkIvOXj2RU85vGDvq+tD6qEb1a/sA75o7meTshgKgdQ7VG04
-	3ARkf9UAF/ZL3JRVcLR3LpI5kNlP9x9nhoN7xg5tICGRlA6X1ROLa166EYXYTqaKC4VLHHOti5OtX
-	iafKCKxTN6J62pJMuHbCUJjwipso8kSwu9aAKyMIUvrOdReSC/zryX4gVXID56EL7vbiy6Kxvdlvb
-	YBXCWKpw==;
+	bh=9oMGzN03CHJLCXRmF2kf9hbHZWYmgAo98CZVUtghVsQ=; b=ojYboKy3Tdrn+qLk0dlCKngSEz
+	hu7DsQ6OzOeu13fSgGod+y0wqRmHN9Hv//vn6mKlK4gESFdIVx7rjKdcUz4uLR6oC2/jwyQ+SvFvh
+	Y+HaAMsPe+gTKBpHh9tMSprcst+uKnZpRDl8r1iN+wA+eDksuHtwvIzk+zZBs+N0ItK611D3rweT2
+	Bz8k8Nl/k3s/aZkqbnWzgpFPobCxpAJy3RDjWejSHZFqyZMnyrM665UoJn0A/iCUOrlgzRRMRa4Hn
+	BFmLkR64bLrB1fN5BmIit/zdWCoG5yp0ANY6zYWNkXrTUiyxOuKAJ22nm0oAAv2Z5AvGtifU3vpqy
+	pgpuWbsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIPMg-00000005L8U-2lti;
-	Thu, 30 Apr 2026 11:15:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIPMa-00000005L4r-1C1A
+	id 1wIPMl-00000005LB9-2c0G;
+	Thu, 30 Apr 2026 11:15:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wIPMg-00000005L7g-2DPc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 11:15:25 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 32AF13311;
-	Thu, 30 Apr 2026 04:15:18 -0700 (PDT)
-Received: from devkitleo.cambridge.arm.com (devkitleo.cambridge.arm.com [10.1.196.90])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 37C233F763;
-	Thu, 30 Apr 2026 04:15:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777547723; bh=BxOAhxaI3ep0pCLZHvFXFWhljUjYRpulIZeDdhTGMx0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=tW6C+0X8vWRpU3tueo+qCaEfYKtSSWq3qISrRQm4ow8VE9Xc/V868i7jDfltdB2Wa
-	 W4LAqThuXJkL6IDVuGj4WbH6zdbCygpLtMzu87JLzao4jj2Vh3q+EO/fhzFl/y7ncK
-	 LYWyKsSrgT7UthhHo3POxnaq9EpFRZiy1RBSCdHs=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Leonardo Bras <leo.bras@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	Saket Dumbre <saket.dumbre@intel.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Chengwen Feng <fengchengwen@huawei.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Kees Cook <kees@kernel.org>,
-	=?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Thomas Huth <thuth@redhat.com>,
-	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	Mark Brown <broonie@kernel.org>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Tian Zheng <zhengtian10@huawei.com>,
-	Wei-Lin Chang <weilin.chang@arm.com>
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-acpi@vger.kernel.org,
-	acpica-devel@lists.linux.dev,
-	kvm@vger.kernel.org
-Subject: [PATCH v1 01/12] KVM: arm64: Enable eager hugepage splitting if HDBSS is available
-Date: Thu, 30 Apr 2026 12:14:05 +0100
-Message-ID: <20260430111424.3479613-3-leo.bras@arm.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260430111424.3479613-2-leo.bras@arm.com>
-References: <20260430111424.3479613-2-leo.bras@arm.com>
+	Thu, 30 Apr 2026 11:15:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7B9F0442EC
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 11:15:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E705C2BCC9
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 11:15:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777547729;
+	bh=WbVGwnhMK3bVP2dooowUwCI372Q+68vRv53kKfxGrKw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=pJDvayFIFBrQ48FV6k0MBJTE7omjJhnCiCKI627UOkdRQaAlxmgxjw/VBYEY2TFZh
+	 M75KGSB6FdqISbX8ea1mMWiz+u4xP/OMeXC9zsm1gApiA8nigQ0ib1TzQvamF82WMS
+	 gZaidfIliv/1zOe7DntZ9niRlR9DFGCcKjHCxBUVHJzaqOMLqhnCZsZXZG3xgOiu42
+	 eIRRcQ0GilVVk2LUHKddLLkgzL8D6e3EiyYzNkzR0MMZXghLMs1iM1sZOx9bS55d7x
+	 BY22wMlZaVFDU8tEhDKpCLHrDllX34Ui7ck037ifV8eZvSteD/xP+xRkLC0K1x6PqD
+	 jUIkfuOTEZ+/A==
+Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-5a2c3dfb4a1so740274e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 04:15:29 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+U1+6Zgr8PA+jpdIzH/qAcVtJ9fuAGrY0HL4XO1YAqoVu9PmBlCzMBQDVAOyRBH3BfUk9jO8Zmmk0udzqdVaEh@lists.infradead.org
+X-Gm-Message-State: AOJu0YxgEVZxTso7b0DYS/Xs8gRO4x6wPfi+UvWkbo+dqS6AC0ECEjog
+	OYv/wivd24F2e6/mXuVyRQZmJ5mQzXBTePcym+ai+Ta1WUGiw2Hk/n2UMIuyjWN77WRypMQfHid
+	yPm11L+QPIDZhSnG5ux+eAgmoUuWcuxQ=
+X-Received: by 2002:a05:6512:3b14:b0:5a4:a4c:658b with SMTP id
+ 2adb3069b0e04-5a8522dd8f1mr808421e87.40.1777547728018; Thu, 30 Apr 2026
+ 04:15:28 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260427021148.2049555-1-wenst@chromium.org>
+In-Reply-To: <20260427021148.2049555-1-wenst@chromium.org>
+From: Linus Walleij <linusw@kernel.org>
+Date: Thu, 30 Apr 2026 13:15:16 +0200
+X-Gmail-Original-Message-ID: <CAD++jLnKC4o6e2p0qJ6_2s2CfK6y+yKTw8gcGAJQnpOOmML_QQ@mail.gmail.com>
+X-Gm-Features: AVHnY4Ink9nKnmzrWklC6PMDhHtyVmdHrdEJDfXlUWMPbQa8lwjP3yaXXRPJm1Y
+Message-ID: <CAD++jLnKC4o6e2p0qJ6_2s2CfK6y+yKTw8gcGAJQnpOOmML_QQ@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: mediatek: eint: Drop base from mtk_eint_chip_write_mask()
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Sean Wang <sean.wang@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Hao Chang <ot_chhao.chang@mediatek.com>, Qingliang Li <qingliang.li@mediatek.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_041524_470629_87093F36 
-X-CRM114-Status: GOOD (  13.22  )
+X-CRM114-CacheID: sfid-20260430_041530_583824_751C04A1 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,55 +85,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-FEAT_HDBSS speeds up guest memory dirty tracking by avoiding a page fault
-and saving the entry in a tracking structure.
+On Mon, Apr 27, 2026 at 4:11=E2=80=AFAM Chen-Yu Tsai <wenst@chromium.org> w=
+rote:
 
-That may be a problem when we have guest memory backed by hugepages or
-transparent huge pages, as it's not possible to do on-demand hugepage
-splitting, relying only on eager hugepage splitting.
+> When support for multiple EINT base addresses was added in commit
+> 3ef9f710efcb ("pinctrl: mediatek: Add EINT support for multiple
+> addresses"), mtk_eint_chip_write_mask() was changed to write interrupt
+> masks for all base addresses in one call. However the "base" parameter
+> was left around and now causes sparse warnings:
+>
+>     mtk-eint.c:428:44: warning: incorrect type in argument 2 (different a=
+ddress spaces)
+>     mtk-eint.c:428:44:    expected void [noderef] __iomem *base
+>     mtk-eint.c:428:44:    got void [noderef] __iomem **base
+>     mtk-eint.c:436:44: warning: incorrect type in argument 2 (different a=
+ddress spaces)
+>     mtk-eint.c:436:44:    expected void [noderef] __iomem *base
+>     mtk-eint.c:436:44:    got void [noderef] __iomem **base
+>
+> Since the "base" parameter is no longer needed, just drop it.
+>
+> Fixes: 3ef9f710efcb ("pinctrl: mediatek: Add EINT support for multiple ad=
+dresses")
+> Cc: Hao Chang <ot_chhao.chang@mediatek.com>
+> Cc: Qingliang Li <qingliang.li@mediatek.com>
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 
-So, at stage2 initialization, enable eager hugepage splitting with
-chunk = PAGE_SIZE if the system supports HDBSS.
+Patch applied because looks correct!
 
-Signed-off-by: Leonardo Bras <leo.bras@arm.com>
----
- arch/arm64/kvm/mmu.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index d089c107d9b7..42c734423253 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -993,22 +993,26 @@ int kvm_init_stage2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu, unsigned long t
- 
- 	mmu->last_vcpu_ran = alloc_percpu(typeof(*mmu->last_vcpu_ran));
- 	if (!mmu->last_vcpu_ran) {
- 		err = -ENOMEM;
- 		goto out_destroy_pgtable;
- 	}
- 
- 	for_each_possible_cpu(cpu)
- 		*per_cpu_ptr(mmu->last_vcpu_ran, cpu) = -1;
- 
--	 /* The eager page splitting is disabled by default */
--	mmu->split_page_chunk_size = KVM_ARM_EAGER_SPLIT_CHUNK_SIZE_DEFAULT;
-+	 /* The eager page splitting is disabled by default if system has no HDBSS */
-+	if (system_supports_hacdbs())
-+		mmu->split_page_chunk_size = PAGE_SIZE;
-+	else
-+		mmu->split_page_chunk_size = KVM_ARM_EAGER_SPLIT_CHUNK_SIZE_DEFAULT;
-+
- 	mmu->split_page_cache.gfp_zero = __GFP_ZERO;
- 
- 	mmu->pgd_phys = __pa(pgt->pgd);
- 
- 	if (kvm_is_nested_s2_mmu(kvm, mmu))
- 		kvm_init_nested_s2_mmu(mmu);
- 
- 	return 0;
- 
- out_destroy_pgtable:
--- 
-2.54.0
-
+Yours,
+Linus Walleij
 
