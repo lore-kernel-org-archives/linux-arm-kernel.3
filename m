@@ -4,95 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7733DFF8873
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 15:37:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09C24FF8873
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 15:56:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
-	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=boh2FGqR0WpDSM6dhSTP3kihWh+3GkokB90DFYaafvo=; b=REHlayyzKPOnjziG7aBWjTiPgx
-	+9kxsTHrVcvTVpGP0BSr3E84UwITOq9K/zmlTlSR0VqYluVSC0/MMVWf0ulHdduUZ8ATD4c+ULAkc
-	Or/PIVTIEIXhaedaumfda43zMJumWXOUEc5qDhIiazaZZ9lCPm8r1jsy5CGOuLj1Ybwl4w7R00WaP
-	QZOl2U+q1bGZvCebKT2zSPoGMitwaadGzC8XPt14iD6EdDh/JXO1lycqqLHDOjW26jOvxKM5DBBe9
-	nL7PcOqzdVoNXBivwSo131QEO8Pp1kSg+fSJwiZnWBSDptRAaWjR6lOiGkRG1+22tXsYwzxwBwXc5
-	xKb8+9hQ==;
+	bh=mhXA4cqqHPFlshtdy+6Myvdjud+BTw8nlhOl5t9b4BU=; b=mywMvGlP4R+VacJKvRmqzxSRii
+	spAHVPcHTdBUwWPVjHr/WOr2oPh4WHk2s1c/DtPxvs333Fl5vKSh6PzjbswqkE7UTv8jZX2Zan6IB
+	bVWXmf5q1ad0dsquBJnF76v4w95/nowaoGrEyC1oCtNo6iI2Som8Su0HJW5MOKvRFC+SJMRO3SvAo
+	y+CXa0apVtSOgtbm9Avfx5kch/FERFKzosKWKXRmRHewuoQ5N+hcwYO1Tua1978OZHven2Dl0P6LI
+	PstOW3gndqx2RNWLD8kVcx9Co90gL1ca7itEvUW8W+bl/craXquRQFmcqnWJDvm3LKo73JilhwN21
+	th5ZNO7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wITSD-00000005fQG-3wX7;
-	Thu, 30 Apr 2026 15:37:29 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1wITk4-00000005gD7-0dmj;
+	Thu, 30 Apr 2026 15:55:56 +0000
+Received: from m16.mail.163.com ([220.197.31.2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wITSB-00000005fPa-3JBj
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 15:37:29 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-488ad135063so9962035e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 08:37:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1777563446; x=1778168246; darn=lists.infradead.org;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=boh2FGqR0WpDSM6dhSTP3kihWh+3GkokB90DFYaafvo=;
-        b=qh07+YpHcQ/jDn3QroWReaMSwTBrckiesnIlOV7yttxfAwF2l7NA2JwSOP6aZJZTWK
-         6676pu0cEd96WEmLH9QerawGTu6QcyFpW8HvCQ9QMW2dHevAfdJiIHTeShxxElWfgf8W
-         447pKYsvk/313MpKUgRKOxUGOKk6+v7ORzkq4XGkovKHMwLf3LTztkSEE0kIbK9hYPnb
-         PC6km7ZPRY8fLMXgW+9OPKqi8nZk3aKg44ow379wErXfbUONpaTAwOjGXR/EOJboOntz
-         weJPr9Jyqfb4O1NktLtoRfpkF/Hv3yDOoZpDxI2GPahuDgiRkdwFaOfocuRNVrQD7VFb
-         nz8w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777563446; x=1778168246;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=boh2FGqR0WpDSM6dhSTP3kihWh+3GkokB90DFYaafvo=;
-        b=hfbdHeswcm9jGeOsydxVEG7SPBp15fHpci4+xHGngSk5WWVBanIpHGal/xL4GhZwov
-         dIIKeT3XHERgpjPrwBJJlUP3Ls45nvWoMXBWB5OFaVUAWXgTnt9e/Qr68dwm+1+KOorg
-         OadjCvHwrNgjOJKRQ9bjGTqFdDMEwOf03I+apxH6MX7YvCjsU704x+MuSC9OJckZcwln
-         5hNLw7AFVD6PDSO5A2+tMG3T5uiEJg5H4NZpvrVmeyQLsmPkHO6fSBspjeGQG46yVqwr
-         lvMA5gWLWnxqANEtBgv3zrWUsQLTTW6fHXXc1EGXWadTSDRGA/70wNYnD9LL3r53Jim4
-         Y9hw==
-X-Forwarded-Encrypted: i=1; AFNElJ/B71BkfMD3hMOVE/DlKgIimY3fz6t+OqHrUIwY4jSrxquGG8XZiCCBtAD61gEdj1/JBtgQMXIbJ2MQusoP2AeA@lists.infradead.org
-X-Gm-Message-State: AOJu0YzsO5pJ3zxB83fmcESR7iegrKfgyIkklDuqc0/fSJj4n9At39km
-	RHfVodF/z+J2Iy2trKMMZDkB+CjM+FKZ4Gweob33/XVmW3uLj0RYvm8k3hwl5W/S+f4=
-X-Gm-Gg: AeBDietWC9WYyqKB7q1BBSmxg+wGhIjpN3jvcVIbhgtRb/mo8mnf4Ih7CrxXlqa5ar2
-	i4OZY+WKS1drBSlhAjrzwGKwbjN5g8PNeRnFXHizLdCmKvfv3oRfDPP8uxzJ5dzlbRTTX/cWGYD
-	uzHBipZvDTkAD/ilMWnzk6kx2MVI4YRL9dAvFl/CBWiVUeG3HB7FAR6zhW+FGDPYKyuWtnNJfwM
-	TehBLRcBz1LMSTdDXZwqDwyMmq4hgPLL1l/1opBXaW/e6G5E5uY5RuTF66ksPEXXcwuOnfGGcjS
-	EMqC3217LGCwkukAJxbzMDyzUMGTn1qWMk0JFV0Kbepf2wMtcQTW87nfFFM9Io/yUYXUzHA+WZ+
-	zHqlJXU4Cn+XGUvbRzIl0KZbxmeY0Qa8y8s0ssFAkpxsLH5zYoK33gobDz4EUXqbCKp6AVOGKPT
-	7kBrmPNGujH6jxb6q21sUUss0FK606kb3lNAYtXzF1HGysqTvaTRw7k1BTYVVfgp1b5KtXAgsa6
-	BJIl+UM/ZknHCznjsrWSRQxhg==
-X-Received: by 2002:a05:600c:c058:b0:488:ac01:72de with SMTP id 5b1f17b1804b1-48a83d6a890mr42190595e9.5.1777563445839;
-        Thu, 30 Apr 2026 08:37:25 -0700 (PDT)
-Received: from localhost ([2a00:2381:fd67:101:b0e1:a8:4337:b2a4])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48a7b912869sm46165045e9.6.2026.04.30.08.37.24
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 30 Apr 2026 08:37:25 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 30 Apr 2026 16:37:24 +0100
-Message-Id: <DI6LNH2F0DP5.H1ZM8MTSDQJR@linaro.org>
-Subject: Re: [PATCH] arm64: dts: exynos850: Add SRAM node
-From: "Alexey Klimov" <alexey.klimov@linaro.org>
-To: "Krzysztof Kozlowski" <krzk@kernel.org>, "Rob Herring"
- <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>
-Cc: <linux-samsung-soc@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, "Sam Protsenko"
- <semen.protsenko@linaro.org>, "Conor Dooley" <conor+dt@kernel.org>, "Alim
- Akhtar" <alim.akhtar@samsung.com>
-X-Mailer: aerc 0.20.0
-References: <20260413-exynos850_sram-v1-1-7fda5b7fb7d4@linaro.org>
- <2ff077e1-8983-4a41-bb21-5e4140545aa3@kernel.org>
- <DHSR70EGYY4N.2EA2HWIXJR7QR@linaro.org>
- <4c6a92e0-15a1-4f82-afc9-542f5ad9d2df@kernel.org>
-In-Reply-To: <4c6a92e0-15a1-4f82-afc9-542f5ad9d2df@kernel.org>
+	id 1wITk0-00000005g9u-0xNE;
+	Thu, 30 Apr 2026 15:55:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=mh
+	XA4cqqHPFlshtdy+6Myvdjud+BTw8nlhOl5t9b4BU=; b=o8vXHoUBewuSn3444E
+	d8AGVQhH/Uvg/8sMdhEzhu360oYztp0mtqMMuoTG8nvLVEeaRJDqUTIvg+4GUkLl
+	qFgRs8sZm04XByzz184XL4yVyPPtX7doIThwpaGos9mdcE0qoijGqmMTRWFHtASL
+	K8E5FT8tFOrnU9MKW/AWc9H9U=
+Received: from zhb.. (unknown [])
+	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wAXyu5Se_NpHedTCg--.49548S7;
+	Thu, 30 Apr 2026 23:55:05 +0800 (CST)
+From: Hans Zhang <18255117159@163.com>
+To: broonie@kernel.org,
+	sunny.luo@amlogic.com,
+	xianwei.zhao@amlogic.com,
+	neil.armstrong@linaro.org,
+	khilman@baylibre.com,
+	han.xu@nxp.com,
+	haibo.chen@nxp.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	lhjeff911@gmail.com,
+	hayashi.kunihiko@socionext.com,
+	mhiramat@kernel.org,
+	jbrunet@baylibre.com,
+	martin.blumenstingl@googlemail.com
+Cc: linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-amlogic@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Hans Zhang <18255117159@163.com>
+Subject: [PATCH 05/10] spi: nxp-xspi: Use FIELD_MODIFY()
+Date: Thu, 30 Apr 2026 23:54:51 +0800
+Message-Id: <20260430155456.36998-6-18255117159@163.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260430155456.36998-1-18255117159@163.com>
+References: <20260430155456.36998-1-18255117159@163.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wAXyu5Se_NpHedTCg--.49548S7
+X-Coremail-Antispam: 1Uf129KBjvJXoW7urW7uF4ftw4UKF43Gr48WFg_yoW8Zry5pr
+	18Aa47GFW8tay0y3ZxZF4ayF1YqFs5X3W7A3Wkt39I93Z2vF1kZFWvkF1rJw1UJFy8KFya
+	g392kFyUCw4Yv3JanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piBMKNUUUUU=
+X-Originating-IP: [240e:b8f:927e:5900:c497:d540:b00d:97f4]
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCxBlM72nze1lkagAA3I
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_083727_846764_196F23CA 
-X-CRM114-Status: GOOD (  18.40  )
+X-CRM114-CacheID: sfid-20260430_085552_610275_42A34CF6 
+X-CRM114-Status: UNSURE (   9.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,95 +90,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue Apr 14, 2026 at 10:08 AM BST, Krzysztof Kozlowski wrote:
-> On 14/04/2026 11:00, Alexey Klimov wrote:
->> On Mon Apr 13, 2026 at 4:23 PM BST, Krzysztof Kozlowski wrote:
->>> On 13/04/2026 16:52, Alexey Klimov wrote:
->>>> SRAM is used by the ACPM protocol to retrieve the ACPM channels
->>>> information and configuration data. Add the SRAM node.
->>>>
->>>> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
->>>> ---
->>>>  arch/arm64/boot/dts/exynos/exynos850.dtsi | 8 ++++++++
->>>>  1 file changed, 8 insertions(+)
->>>>
->>>> diff --git a/arch/arm64/boot/dts/exynos/exynos850.dtsi b/arch/arm64/bo=
-ot/dts/exynos/exynos850.dtsi
->>>> index cb55015c8dce..cf4a6168846c 100644
->>>> --- a/arch/arm64/boot/dts/exynos/exynos850.dtsi
->>>> +++ b/arch/arm64/boot/dts/exynos/exynos850.dtsi
->>>> @@ -910,6 +910,14 @@ spi_2: spi@11d20000 {
->>>>  			};
->>>>  		};
->>>>  	};
->>>> +
->>>> +	apm_sram: sram@2039000 {
->>>> +		compatible =3D "mmio-sram";
->>>> +		reg =3D <0x0 0x2039000 0x40000>;
->>>> +		#address-cells =3D <1>;
->>>> +		#size-cells =3D <1>;
->>>> +		ranges =3D <0x0 0x0 0x2039000 0x40000>;
->>>
->>> You miss here children.
->>=20
->> Thank you! I guess I should convert it to smth like this:
->>=20
->> apm_sram: sram@2039000 {
->> 		compatible =3D "mmio-sram";
->> 		reg =3D <0x0 0x2039000 0x40000>;
->> 		ranges =3D <0x0 0x0 0x2039000 0x40000>;
->> 		#address-cells =3D <1>;
->> 		#size-cells =3D <1>;
->>=20
->> 		acpm_sram_region: sram-section@0 {
->> 			reg =3D <0x0 0x40000>;
->
-> This covers entire block, so feels pointless. Maybe requirement of
-> children should be dropped. What's the point of having children? Why
-> does the driver need them?
+Use FIELD_MODIFY() to remove open-coded bit manipulation.
+No functional change intended.
 
-Thinking further about this. I was looking at the schema file and
-different commits and it the right approach could be:
+Signed-off-by: Hans Zhang <18255117159@163.com>
+---
+ drivers/spi/spi-nxp-xspi.c | 12 ++++--------
+ 1 file changed, 4 insertions(+), 8 deletions(-)
 
-- add separate compatible for mmio-sram region for this case. Similar
-to scmi and scpi, i'd say it should be "exynos,acpm-sram" or
-"samsung,acpm-sram";
+diff --git a/drivers/spi/spi-nxp-xspi.c b/drivers/spi/spi-nxp-xspi.c
+index 385302a6e62f..037eac24e6fd 100644
+--- a/drivers/spi/spi-nxp-xspi.c
++++ b/drivers/spi/spi-nxp-xspi.c
+@@ -493,9 +493,8 @@ static void nxp_xspi_disable_ddr(struct nxp_xspi *xspi)
+ 	writel(reg, base + XSPI_MCR);
+ 
+ 	reg &= ~XSPI_MCR_DDR_EN;
+-	reg &= ~XSPI_MCR_DQS_FA_SEL_MASK;
+ 	/* Use dummy pad loopback mode to sample data */
+-	reg |= FIELD_PREP(XSPI_MCR_DQS_FA_SEL_MASK, 0x01);
++	FIELD_MODIFY(XSPI_MCR_DQS_FA_SEL_MASK, &reg, 0x01);
+ 	writel(reg, base + XSPI_MCR);
+ 	xspi->support_max_rate = 133000000;
+ 
+@@ -524,15 +523,13 @@ static void nxp_xspi_enable_ddr(struct nxp_xspi *xspi)
+ 	writel(reg, base + XSPI_MCR);
+ 
+ 	reg |= XSPI_MCR_DDR_EN;
+-	reg &= ~XSPI_MCR_DQS_FA_SEL_MASK;
+ 	/* Use external dqs to sample data */
+-	reg |= FIELD_PREP(XSPI_MCR_DQS_FA_SEL_MASK, 0x03);
++	FIELD_MODIFY(XSPI_MCR_DQS_FA_SEL_MASK, &reg, 0x03);
+ 	writel(reg, base + XSPI_MCR);
+ 	xspi->support_max_rate = 200000000;
+ 
+ 	reg = readl(base + XSPI_FLSHCR);
+-	reg &= ~XSPI_FLSHCR_TDH_MASK;
+-	reg |= FIELD_PREP(XSPI_FLSHCR_TDH_MASK, 0x01);
++	FIELD_MODIFY(XSPI_FLSHCR_TDH_MASK, &reg, 0x01);
+ 	writel(reg, base + XSPI_FLSHCR);
+ 
+ 	reg = FIELD_PREP(XSPI_SMPR_DLLFSMPFA_MASK, 0x04);
+@@ -1096,8 +1093,7 @@ static int nxp_xspi_default_setup(struct nxp_xspi *xspi)
+ 
+ 	/* Give read/write access right to EENV0 */
+ 	reg = readl(base + XSPI_FRAD0_WORD2);
+-	reg &= ~XSPI_FRAD0_WORD2_MD0ACP_MASK;
+-	reg |= FIELD_PREP(XSPI_FRAD0_WORD2_MD0ACP_MASK, 0x03);
++	FIELD_MODIFY(XSPI_FRAD0_WORD2_MD0ACP_MASK, &reg, 0x03);
+ 	writel(reg, base + XSPI_FRAD0_WORD2);
+ 
+ 	/* Enable the FRAD check for EENV0 */
+-- 
+2.34.1
 
-- update schema sram.yaml to exclude requirement for having child nodes
-and properties like ranges, address and size cells
-Similar like in commit, for instance, git show d0fe6491ddd22
-(or git show 2d4a22e79a5fd).
-
-- then this addition becomes:
-
-	apm_sram: sram@2039000 {
-		compatible =3D "exynos,acpm-sram";
-		reg =3D <0x0 0x2039000 0x40000>;
-	};
-
-and will be consumed as a whole region (also as Tudor mentioned in the
-other email).
-And then we should update gs101 dts as well. Thoughts?
-
-I honestly don't know why be default schema requires child nodes unless
-it is specifically excluded. Could be a good question to Rob?
-Or maybe we should really drop a requirement for having children from
-schema.
-
-
->> And then later reference shmem =3D &acpm_sram_region from acpm node.
->>=20
->>> Also, 'ranges' should be after 'reg'.
->>=20
->> Thanks, will fix this.
->>=20
->> FWIW this commit is a copy of commit 48e7821b26904
->> https://lore.kernel.org/r/20250207-gs101-acpm-dt-v4-1-230ba8663a2d@linar=
-o.org
->
->
-> Huh, we should fix that one as well.
-
-Best regardss,
-Alexey
 
