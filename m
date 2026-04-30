@@ -4,117 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB8A7CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 12:00:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17A75FF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 12:04:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ksIL4rip+tLI1Yx6QhQXSN6krUTnsd9SRkVzjQXrZjA=; b=hDbV5Weib4XvjWy8cd0BhcbLlx
-	hxaWNmb+CfdaKyZ7YXBHTfgpDzz2fwhPpdh93/eVXNUebAxaaH/0nequpGqNkaYVgewNlCunpD6Zm
-	bgsgJ/jehHUi2f+YUOz8CpsdCJyFm0xX31cvIF0lj7AZhT8hbY2yP10Ms0IA315iUooE+EMEWlV7x
-	slDf4IUsstw+C2+vWG++IG9uoca8+8es997adhvsUvT6y037AbcRalBkd4caLfU1zaxcxLFyH98Me
-	VNnqYBEdW3HH+v4nZE8EnopzlhKr7oJ8mvcRsBLdF8GUTEwnIApr3Y99Bzx1ItDRTULrCtApiGUoa
-	QSEFqJIA==;
+	bh=rlc8EVN2ihBTFihj4tHSpYlhQE3kmNv5RZwMbLOrZmI=; b=CCP4PiaAulDdijgOzP8E5FQ03L
+	UFnBpnDY5vVxZkUlm9WA82fkps8QjQ1k9+EylB8h2XDgK4kycu8S3JBFF7XCrD/7224punq8Rd+T+
+	L/B1m+MU9fgqNXULYm2lfc27uk5aPJ5diGI6yGlYjgwV1/EmRPKiIySXfpuPUWu9/PxyAu4vb6YS2
+	8JrmYiuUv8ZGFLfcm02WklbKxavs+v6JbyBDsthLVhZFN4bgjMLPlr2nUijbt0A0JX2oT8qm0gQmR
+	mhEI9ctAsVC8A9X5zZPoBdHAtr29McRA5d9d/nkH3uGS6QSh5niB+GbCCbfGMbosQuJT0NnqZEi0F
+	nfoOPxcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIQ40-00000005Pws-3IBR;
-	Thu, 30 Apr 2026 12:00:16 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wIQ7X-00000005QIi-3K2j;
+	Thu, 30 Apr 2026 12:03:55 +0000
+Received: from mail-northeuropeazon11012021.outbound.protection.outlook.com ([52.101.66.21] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIQ3z-00000005Pwd-1EWO
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 30 Apr 2026 12:00:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=ksIL4rip+tLI1Yx6QhQXSN6krUTnsd9SRkVzjQXrZjA=; b=mMNmyRcj5XBVovhhKcjiCTzzXY
-	xdHUt0Parzimt25VhlDbSdN7jCikvDtgEF0UoqMQ2MRm1cz7aLXuw+6IIZIlBY+EJJLM8F1pamaUz
-	yifQNeNN6ucl9J1MsSijXZmB8YVl2irtoQvAwsPumxUgsRqGi8SwfNbcBgWdPVQrGpXHTL3K3Abn3
-	iZAgNARkrLmF+be27NUE5limpMs+Ag1j0UhJJVDcSXix311POohnI9rWgxk79qpOqrBHwihKygmqO
-	GqA0hCcmCit4kNoSfYaUsgzSXwgew5/Y9br70wUb/x+LZfS3LlFpA72D2/ojUJxx/dXaGOPSxmkSM
-	t3Bu4YdQ==;
-Received: from mail-ua1-f43.google.com ([209.85.222.43])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIQ3u-00000007JYD-3npi
+	id 1wIQ7S-00000005QI4-404J
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 12:00:14 +0000
-Received: by mail-ua1-f43.google.com with SMTP id a1e0cc1a2514c-9589125e047so372782241.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 05:00:10 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777550409; x=1778155209;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ksIL4rip+tLI1Yx6QhQXSN6krUTnsd9SRkVzjQXrZjA=;
-        b=p+HkLQfrc4gAx72KALBSmJv8Xpi6OebqqnoIfLPFv01gpHOr55cQU8gqKYX1p6ejL4
-         2oQfk/4o81bX6te/9XTQFCMWlOUUr876jAALbKK3HLkc6JWykhScr7V6QHi8iVyRpG3G
-         +nKQH8asMm9BQVfGSzDfxOnO5/4DXwdu8aG4M2UrHFwT4wTH9yN+gutnZ9/sqMk8bMyF
-         1Sil57rS234twNk+jZ42yAy3XDqirMEVvzvAORrhfQHJOGutgE2vfhtiBRGWq8Kk5NXn
-         +lONX6e8sop13h5mjIqkYuT0a/bIazYKpwn8RQwCD7UusBXy0XZ5PlNBC1ZEBEvEYC3t
-         npTg==
-X-Forwarded-Encrypted: i=1; AFNElJ+aOb+suyF9wRlM7Ro/Rwh3dwT7pI0NcMfwtxhzbI+MVlLKkHuLYPWf13FKacP7byaLBoam34qdlCGNiUqD1a6H@lists.infradead.org
-X-Gm-Message-State: AOJu0YwOEj64UW1esSrFPZlmBsakA3mFQemO5GoO5oTjwJe7ulHN+15/
-	nHS1lz1PtDtNVj8EwoAlHu8wE2bKKJoDeLQyxAN2bFCw7HYeOAsIvUPdLAEY+LDJ8+w=
-X-Gm-Gg: AeBDietCNpOQtwpHzjzUU/MgsTNtj2TG8ZBfDApsv0gI87EOFieXueP8l6MHnstCio3
-	NLP5woQLUnjFgY5Ws1KFe+LeWw9dBp6WmUMlW9yXReG5EuvKxhUSLAGeNB3ckueUff/32YvavzD
-	ijm7uCPjYRRG9he7CO4y5t5KK6V+UK+R5gcQBRVIw10JwHdBPb6MNASmYeAeAm4SuDTs99UTurd
-	7Xm/qU/9DjTNzYtdQ1qjRQj4MJDGQl+ADb+T5rKtYAVMXzSY1JSLvBenhkFiIFDBW7ZOmjjgkAB
-	PZz7F8+kf3p04tGGiy+ESUKTwoigqVZbVe4nOujd8yG98vj/8Pox2f4tmse32Gx5ieODkVC5uTm
-	LlnzLErogjw4tyXNXDaFuLB54feVfLjnxiLJ5dF49uVfuM+d2ImyLjlrKuPXu3WgGlnDWw/X13K
-	8NWmDvo2amb1hOqupY4uqtTpxr3pVxOk71m4/Lx3Kb2kJclcRCMQFRSKHF5KvvqWHUEwzvylc=
-X-Received: by 2002:a05:6102:6b0a:b0:607:d68f:d0f6 with SMTP id ada2fe7eead31-62aff523e54mr633697137.20.1777550408952;
-        Thu, 30 Apr 2026 05:00:08 -0700 (PDT)
-Received: from mail-ua1-f47.google.com (mail-ua1-f47.google.com. [209.85.222.47])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-95cb7765acasm2581542241.8.2026.04.30.05.00.05
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 30 Apr 2026 05:00:06 -0700 (PDT)
-Received: by mail-ua1-f47.google.com with SMTP id a1e0cc1a2514c-9589125e047so372754241.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 05:00:05 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/hnZf3REc3HFDwgryddxKQJukrw5A+/BdlaISw7H60tlX1rnEYdoF1MUtVGaTwho1Ns1NJPUfQh3ZrINeC9BYk@lists.infradead.org
-X-Received: by 2002:a67:e708:0:b0:610:347f:9f3b with SMTP id
- ada2fe7eead31-62afc506100mr613209137.3.1777550404889; Thu, 30 Apr 2026
- 05:00:04 -0700 (PDT)
+	Thu, 30 Apr 2026 12:03:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WP0lKK9S9I9ZDvop06M5/SXC2RqS9CvuSm06qbYugxLFm4Vx+/MjbuGsYTGbpYY5Me75ejuz1H2H6zSk8bwGA7jxbZlvyo9Ux+fxCUqezPoFmZ+3M0a66ZCHVka+citHH6GC2hJBs9yGDHuwLw1CvK2QLOZsjstyl6OYKoDuT/qUqbGqaI2kkMz0ctVMnewa16wgAHNZq8Ps6NQw1XWR9AoePoA+enj8QXr2r16wHjB2l832Pa4tNF6mkk+xrsFdWxVFwPwVOSy63n3ulU6Txf0A4yk75zIJRu9oVMOR3I7TRlA1ju5rWsCBL+Hyff9rW2qpxE987pntJ3EnWvSjkA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rlc8EVN2ihBTFihj4tHSpYlhQE3kmNv5RZwMbLOrZmI=;
+ b=AFmGVokgqPlWwzhQGNdNGcu8oh9zpjf28kDsdWs0pTsiDtjVYNYRHM39+3rHB6Q/A2ZPOYHN1w7uqLNronDbo+XViU0ZcywluM0b3PeYiq6zop3rPDRpBOgOjSpfcRrspCB7AywAULSeXswU02L+Y06pivLg+bKM8gs7CTLZaz7CUDHXfW+e4+IWOChWqKWW2gtii6IdZovGnBbD+mqz/Kpucdd/0ZhXl7hjUFEaujEIm9CJqpbQLJZJzUK0bXdEEcOgMIAQGhi/v8eVEgIzq6Oy6sm1lPjHZTKzAYVUMz/CBdOY0zltdk9aFX7kVGdFvL+i53J0x1n068OemIFKDA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rlc8EVN2ihBTFihj4tHSpYlhQE3kmNv5RZwMbLOrZmI=;
+ b=ZpuPCI4HrmaweqYU3Bm5aXXKnvlU+BQlrzW2bHNG+lc1W2RUFVxUzXZEjYEVhMuwvrAbNyr9PpDW6hVdwF1s6SopQentDiMoyuj7Ml4N7QSR/a/qzOvrQXk53y5AexDTw7defInDSOPa0LjdYPX7zwLGq7LHRNSNbRWsp9IBCm04I0Yml5xKosPVo3dbeTknSKlmO0LADCtOc25LAjKvrjzMhmBZkIkAh5rETCQTToMH2XwG4hqHxeeibLrRk5P7zrrI1keYnOE/EaODAb5pu9Jf+IyHcNJYye+8StRgnFTq4uzPhDcqTi8gN/h5f0Ti0T11bm1m3f2FnUdFWmpZXQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
+ by DBAPR04MB7301.eurprd04.prod.outlook.com (2603:10a6:10:1a7::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.44; Thu, 30 Apr
+ 2026 12:03:45 +0000
+Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
+ ([fe80::f010:fca8:7ef:62f4]) by AM9PR04MB8585.eurprd04.prod.outlook.com
+ ([fe80::f010:fca8:7ef:62f4%4]) with mapi id 15.20.9846.025; Thu, 30 Apr 2026
+ 12:03:45 +0000
+Date: Thu, 30 Apr 2026 15:03:41 +0300
+From: Vladimir Oltean <vladimir.oltean@nxp.com>
+To: Josua Mayer <josua@solid-run.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Yazan Shhady <yazan.shhady@solid-run.com>,
+	Mikhail Anikin <mikhail.anikin@solid-run.com>,
+	Alexander Dahl <ada@thorsis.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>
+Subject: Re: [PATCH v2 3/3] arm64: dts: imx8dxl: Add SolidRun SoM and
+ HummingBoard
+Message-ID: <20260430120341.4sqmblbt2hqoklsb@skbuf>
+References: <20260409-imx8dxl-sr-som-v2-0-83ff20629ba0@solid-run.com>
+ <20260409-imx8dxl-sr-som-v2-3-83ff20629ba0@solid-run.com>
+ <8efbafe3-0a8a-4005-960c-e8fe62cee719@lunn.ch>
+ <bd2e73c5-2e61-4ea1-ab3b-42a6573b31f8@solid-run.com>
+ <20260430111924.nvwohy4nexzyiyyl@skbuf>
+ <75e338eb-afd2-4e2e-9b93-e9fc36871854@solid-run.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <75e338eb-afd2-4e2e-9b93-e9fc36871854@solid-run.com>
+X-ClientProxiedBy: VI6PEPF00000214.AUTP296.PROD.OUTLOOK.COM
+ (2603:10a6:808:1::8cc) To AM9PR04MB8585.eurprd04.prod.outlook.com
+ (2603:10a6:20b:438::13)
 MIME-Version: 1.0
-References: <20260430110652.558622-1-vladimir.oltean@nxp.com> <20260430110652.558622-18-vladimir.oltean@nxp.com>
-In-Reply-To: <20260430110652.558622-18-vladimir.oltean@nxp.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 30 Apr 2026 13:59:53 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdWbeeRmLf6Ae0Fr0un=-z7z5ONc_hDdjebP=KVkXHPbhw@mail.gmail.com>
-X-Gm-Features: AVHnY4K0yYb6vTu9KdtDciwvAziqboYRX_ITZ386sa6ttixZ1EP_Mzy9gi4Pi0E
-Message-ID: <CAMuHMdWbeeRmLf6Ae0Fr0un=-z7z5ONc_hDdjebP=KVkXHPbhw@mail.gmail.com>
-Subject: Re: [PATCH v7 phy-next 17/27] phy: introduce phy_get_max_link_rate()
- helper for consumers
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, dri-devel@lists.freedesktop.org, 
-	freedreno@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, linux-can@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-ide@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-scsi@vger.kernel.org, 
-	linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org, 
-	linux-usb@vger.kernel.org, netdev@vger.kernel.org, spacemit@lists.linux.dev, 
-	UNGLinuxDriver@microchip.com, Markus Schneider-Pargmann <msp@baylibre.com>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Andy Yan <andy.yan@rock-chips.com>, Marc Kleine-Budde <mkl@pengutronix.de>, 
-	Vincent Mailhol <mailhol@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|DBAPR04MB7301:EE_
+X-MS-Office365-Filtering-Correlation-Id: d3c81926-ca37-4a23-2ab7-08dea6b08798
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|10070799003|1800799024|366016|19092799006|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: 1OjmGui8XWfMGf19dTsH3eufH6JscFu+rltXjUC9xIY+MuVmksLzPjAVlAau54gPsbXRsz4sUsEW/sdpjfwzVN7oPCcL3zzgNPEB+KF/t8/FUSTXZUbljHFWtVEmjEt0rHQl/s3LSrygCEPjCr2ibVK0/rFU9Zn03krW9COGoyubM7+sqA3SbmmzELcnB83Au90eMVIr7vQce/rwPGi+LKMVjJPz4ZzwFuGH/ZCn3MSJn/NtkJokxiU1Ua6snYsHI8D3eIuK6jW6BAhFkBRpstaa2PFa4fEM7D+m+jbJ/xMHD8D9gHxGeMxLllLLWf0CMUId0EjTweMFwB9x/fzxbJCwtkglvCw8RCOWIuoiRjK6RSGn+L74GDWQ72NEGu+svU66xceqV3EHeVeXsyA/xYB65EvX6PEwS2C9hz+mvYciYzdMHdv1RBTJOzfN/PSXEXUGYVjSEk/2iCdlbAbnTfDQFDDs7n0SRrYTdYqgcLDGjy1lQISY/0MYAvbz1kzE3yaTYb7BmYEhQWCy6Q8FyGAgkIBF+1CI84Fs+HhjdBdW/DTUIf/L/NfTkJhqDclzqK4cGNk7Ay71JZoDWZST+hV8AKMuS7aTpdq1g8ZFv3XWkurBvKHMqkkPlPhnGz4EZbUomkg8AxYO/KFhSY2iwZvLw4OfzgNyBvCq1TCpmearbXNqV4PFcrMIjKMCQcv027lGWIVQJeNoCZMzYc5VXIkmigs7GVv4Tloir8zxbcA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(10070799003)(1800799024)(366016)(19092799006)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JJOfnXpW7HwTdUJ/4z5j3n3tYzg+1771RPHgXzYJlfwflKkb74gZcBWn3BN4?=
+ =?us-ascii?Q?wsuLJOmH0H3cdhX+zX8TgQoJEbjltfJqMLyRs3BK3qfN1X+Bz25iIw13tY4s?=
+ =?us-ascii?Q?Zm/XItZc0B8soZjyqd89So4xu9aQiEGnkEgLC9cwfFOR+1Hrfa6IsaikKnSr?=
+ =?us-ascii?Q?BKIHJYxbWtKyfzoLA/qkQJg5OqmTO21WlrPVoLitRBKsx7xAPxvtheCXfc7f?=
+ =?us-ascii?Q?sqFwoJ/iQgjIJtWBq+MApSlvp/8uyv57bcWEFhe6++JrBSVunT86xxW5N2j/?=
+ =?us-ascii?Q?4ZwDttMoubF1TXeFwsDd9cSft9SrI/UynaBHMUcYN+XtOZ9kPeyArx+azJ9B?=
+ =?us-ascii?Q?rMKgMVxLkGhvUMq64TLXYPR2PKqvLOi7Wt7r/RZ6JIz0o6ErO4feViTzva5F?=
+ =?us-ascii?Q?Vf2rdW1/QQUWqehsyAXxwHPsX+kZ3qgqw1f/f6LdjqYXHLtqhI8ilhJpns10?=
+ =?us-ascii?Q?/PqaGbYpl9DaSdS9n1loIDXQtRhVYxLPL25N6aO78N0mgrB+nVeJOx0pgPs8?=
+ =?us-ascii?Q?OmzAihpOaWVuYK2MrRj4RkkuIU3kCNe91JTJkzBkL050V7dnskUl0NIMMf1N?=
+ =?us-ascii?Q?tzURimcIAXrCzVUPSuXSgScjPw6vn/w8k9tuK8z34t+Vv3i/q0O83XH5UP4f?=
+ =?us-ascii?Q?o7xAfKmYVXXk1Zj7ub3P0i7LYlldrOnB2uBqU/FoVk9vrBw8kLMl48n9yqbi?=
+ =?us-ascii?Q?z4z3GyF4sfhwta+YxV/IgecQNjIwA5OqA/EatjLm21yaE/HXyRwTihSzWZdp?=
+ =?us-ascii?Q?+HvUtsAV19Iiv+cNGNO7zi4FbuPF7V9cPRvszJfemzeJUQLdwq8zn4loMQTG?=
+ =?us-ascii?Q?Qs6XQzkiL4gxFQhFByXEAAO11zjM/a6+gLyWqbPYs/rIDp9w3cIQiPWHXN49?=
+ =?us-ascii?Q?KPoPrAVm0wDF69FYGfKfU5WzV5bu7FJYChKFP5ibEaKlR5Tzb34InJ4kkzRD?=
+ =?us-ascii?Q?rGDc26C8d3SN1Y9GkB9HnkcNoKDi3e9CUR75xVRe+rskaqJx/h6wWoZV9xXH?=
+ =?us-ascii?Q?pSAfC4NeABsrfD5Dlo8Gq4TK597Af1l11pC7Y27caCHLU3erWAumgFqDQ9OV?=
+ =?us-ascii?Q?V7taTjkz8TWc1CBHbqP6SCIYt563dRka53AhneSAU2EHjJQ09fa4XPX8Ksym?=
+ =?us-ascii?Q?y2DWUdvJtEb63G6ugFbJLGV1fQy9QfZOx3hXGBux2by4LkbQfEnu1z/Qrgx5?=
+ =?us-ascii?Q?7t8/HXhrQ1Rx6WepzW8Id4ylLF5dxxqnIH+e46NXVcXgyT74p30Pv7XtC4pu?=
+ =?us-ascii?Q?2BYeo5DZ71P9mW+MqWNgCa2DpmXopaNvlJJKIBFlOpemO5NuKtf6yeNg4sHG?=
+ =?us-ascii?Q?2r04UZ9z/TFB9cf6eqMnmLD1q+l6e0Nw20hapkHRHY6yRirROMAG4jnxgnCs?=
+ =?us-ascii?Q?5vUoPzePmyECqULGHjG7oOL6GLTh04PDoPeovo6ifxUweP7M9exHyAuA46vt?=
+ =?us-ascii?Q?UgoI6pi+2Wk/uoUaSe7I+jTgV0tE7gqmWMJ+D41pJeCBvfBN6cmXnAWzDGVj?=
+ =?us-ascii?Q?T9MHsP3fUOTyhNPvRPJKi3Pxxlwfr3S4uNamuAawDZUgTQxEiNPbqiwV5z58?=
+ =?us-ascii?Q?QXUbhpdBj4vF/qWUdlFSXKOh3U2Bej3aPUweAF1Xl22+TpHmPjzio5TksAyV?=
+ =?us-ascii?Q?QZOnIa5OMznyyRzW1FeyfIt8e3pJxxFP3ouJI1+x9kAvzkViAknBXlpCflya?=
+ =?us-ascii?Q?X9lF5lfiOD3A2BJaMG7pUcgFdhrYQBg+ZWQKWbTbhB79/sZia1/92TanHuBn?=
+ =?us-ascii?Q?w+mCUw1gDl67jVNYCNl7cx+P8CxQi9JnV2jlhB16576RFJ8nZ8MztqIe8SdD?=
+X-MS-Exchange-AntiSpam-MessageData-1: gs8SELRefNKuysDld3L0ZGkOCkJrh0uIKWY=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d3c81926-ca37-4a23-2ab7-08dea6b08798
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2026 12:03:45.4104
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1kizvDOoPwJmE6a9TfzhGU1OHdOxFynVhLAifTrcNlhlvG5RM5THgN2bXyAdtZqJ9OlAI2de/Z84syyfysZOrQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7301
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_130011_163225_FC006AB0 
-X-CRM114-Status: GOOD (  23.77  )
+X-CRM114-CacheID: sfid-20260430_050351_000664_A527976A 
+X-CRM114-Status: GOOD (  16.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,52 +160,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vladimir,
+On Thu, Apr 30, 2026 at 11:48:45AM +0000, Josua Mayer wrote:
+> > Also, can you use udev for user
+> > interface naming?
+> Possibly .... I am aware of systemd (udev) based default behaviour
+> for network interface aliases (eth0, eth1, ...).
+> 
+> However I have not seen it for dsa switch ports.
 
-On Thu, 30 Apr 2026 at 13:07, Vladimir Oltean <vladimir.oltean@nxp.com> wrote:
-> Consumer drivers shouldn't dereference struct phy, not even to get to
-> its attributes.
->
-> We have phy_get_bus_width() as a precedent for getting the bus_width
-> attribute, so let's add phy_get_max_link_rate() and use it in DRM and
-> CAN drivers.
->
-> In CAN drivers, the transceiver is acquired through devm_phy_optional_get()
-> and NULL is given by the API as a non-error case, so the PHY API should
-> also tolerate NULL coming back to it. This means we can further simplify
-> the call sites that test for the NULL quality of the transceiver.
->
-> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
-> Acked-by: Markus Schneider-Pargmann <msp@baylibre.com> # m_can
+In /etc/udev/rules.d/10-network.rules:
 
-Thanks for your patch!
+ACTION=="add", SUBSYSTEM=="net", KERNELS=="spi2.0", DRIVERS=="sja1105", ATTR{phys_port_name}=="p0", NAME="lan0"
+ACTION=="add", SUBSYSTEM=="net", KERNELS=="spi2.0", DRIVERS=="sja1105", ATTR{phys_port_name}=="p1", NAME="lan1"
+ACTION=="add", SUBSYSTEM=="net", KERNELS=="spi2.0", DRIVERS=="sja1105", ATTR{phys_port_name}=="p2", NAME="lan2"
+ACTION=="add", SUBSYSTEM=="net", KERNELS=="spi2.0", DRIVERS=="sja1105", ATTR{phys_port_name}=="p3", NAME="lan3"
+ACTION=="add", SUBSYSTEM=="net", KERNELS=="spi2.0", DRIVERS=="sja1105", ATTR{phys_port_name}=="p4", NAME="lan4"
+ACTION=="add", SUBSYSTEM=="net", KERNELS=="spi2.0", DRIVERS=="sja1105", ATTR{phys_port_name}=="p5", NAME="lan5"
 
->  drivers/net/can/rcar/rcar_canfd.c                   | 3 +--
+> 
+> It has been common practice for switch ports to be named lan[0-9]+,
+> and I'd prefer to keep it that way here too.
+> Predictable names are important for users in particular when interfaces
+> are of different types and at different connectors.
+> 
+> Re. the T1 ports names I didn't know whether to use "lan" or "trx".
+> For those if "lan" is preferred, I can change them.
 
-Acked-by: Geert Uytterhoeven <geert+renesas@glider.be> # rcar_canfd
-
-> --- a/include/linux/phy/phy.h
-> +++ b/include/linux/phy/phy.h
-> @@ -57,6 +57,7 @@ int phy_notify_disconnect(struct phy *phy, int port);
->  int phy_notify_state(struct phy *phy, union phy_notify state);
->  int phy_get_bus_width(struct phy *phy);
->  void phy_set_bus_width(struct phy *phy, int bus_width);
-> +u32 phy_get_max_link_rate(struct phy *phy);
-
-This (and all the existing getters) should take a "const struct phy *".
-
->  #else
->  static inline struct phy *phy_get(struct device *dev, const char *string)
->  {
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+No objection to your naming choice. Just want to point out that we
+encourage DSA users to use the same naming infrastructure as any other
+net device. The device tree labels mostly come from deeply embedded
+environments where a full udev implementation is missing (like OpenWrt).
+If you don't have that excuse, you can try to leave the labels in the
+device tree out and set up predictable names through an udev rule.
 
