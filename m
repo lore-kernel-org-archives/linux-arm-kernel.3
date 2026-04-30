@@ -4,128 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 163D6FF8875
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 14:32:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5EB1FF8873
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 14:49:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5S8tE5yzvb2fyw/Yz8Rd+CLj6vFI7WsTMQxLJ+Sx+CA=; b=eX3Hemr/qJ4MTFiercbYlAxOdr
-	RZGniPog1YRCE5AP8F+hMshzf9MDW4sMjvTuUoS9rcuvjsTu1vxgmBtWzmgWwCDO31dWzRUhwawe3
-	cLCTtCVgrJ8zVMla+BDyXsXaPftICH6c70nbX8uV2rwMtAInVL/BG2sEx52yMJlRu2aV/TW9nVju+
-	zieasUSZHkc2fhBD9lwp4uonMPNMcWLLCiBPQkyFFoZaKPKyO+IO7C++EymBYeOAwlCPZZUpED1Bz
-	9+nqoQbqKEZ2vv0uEGUrSxpWsUYyocUYheXKwndhR3CmNUgcOf0PFmdz450V2w7AY0+Pc25igQXoS
-	4yJJdHVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YywTAYzjXFOYP3ncEM1wtVzQAWbVsUfph15jdqDNJS4=; b=eo9AQNcGFs+3BzYpv6C1mDTOSI
+	3Z4Ebi59U4VRW0a0G6e4D2vb0GhfSN0P9DNPIALgrAfWKE+rC4UNUmBs2va/uAE4ZwO/N9Q2UQKTl
+	yqeo0497CWrb7WEWWjrgaSywYWMjDhsVTUuXSy9yqSGqLaKvXeTrKPh/u2K3E81YTEFiZyImgO3P0
+	AK4zWnRPNWy98lyiqzZY8UocZCJUpjXBY4ZrrMj7OOz1qHPp7NozRPULxSQW2P6AqF3gz8cs7jpKG
+	aIo6r+jlTl+ZkpJJQJwhBav+BspVCDu5uUsGgjWdMdNIwt1wT87KNVSrkvKQL+qj+eiS8YT4XGfmM
+	1ILI7vIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wISRX-00000005aQ6-42rG;
-	Thu, 30 Apr 2026 14:32:43 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wIShL-00000005b3v-0GfV;
+	Thu, 30 Apr 2026 14:49:03 +0000
+Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wISRV-00000005aPj-2WMz
+	id 1wIShI-00000005b3O-0Vup
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 14:32:43 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63UDNefg2480926
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 14:32:41 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=5S8tE5yzvb2fyw/Yz8Rd+CLj6vFI7WsTMQx
-	LJ+Sx+CA=; b=bToY5agWO/udXWYglmQgQd1UTbrOC0ps2TVHgkv6vmudfpGVkhq
-	1tLOEMGB40BPa7gc0pxj/WW4Ug7a51pmNehcZi/R6gskGEA58AMl2a7qbHtU30R4
-	lN+xsB9ElB9YFhTgpOFo1NfN1kJVjj7UBdaBhYVgxmsypcuge0RaaiWspPTz9cVR
-	7uhgKjSiOBvpGpBBXAKSJmewj3eCnud911kQe5CviXSRtRYlARNOUxn2nkbat+t8
-	am2axvwPn94BQzmZKWCWcuuccmiSlOx65JXdCtnntP8qsBq1M6zksShzGle3wO3d
-	vuFWu4+BtyX5sPnrPldtUgsgf89lrl4YDAA==
-Received: from mail-oi1-f198.google.com (mail-oi1-f198.google.com [209.85.167.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dv7x6gbk2-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 14:32:40 +0000 (GMT)
-Received: by mail-oi1-f198.google.com with SMTP id 5614622812f47-47c6f914623so106850b6e.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 07:32:40 -0700 (PDT)
+	Thu, 30 Apr 2026 14:49:01 +0000
+Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-50d836552daso616071cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 07:48:59 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1777560539; cv=none;
+        d=google.com; s=arc-20240605;
+        b=JEFoP2DzG8QoU2nGVQrH5cWFuHCZePEfmWjUlB1vmk7kLB4l69nvtTxFRb+l+4/oy/
+         mKGxYkzi/+qiROGJMb8PiU9pj35wcLScse02Fy/ZsB368O1UCbRqhwIfiEeAS/66AJg7
+         +R3cu5BbhnzAaYFlQu6L8FNyZclA+CfLmrNt4Rru4auEzSC2Z/4hMPB5LyQnY6D0ajpN
+         ImZJMOD7/8FuS4iGjQf8yfZcazHx8dcFaZCDRj/xir0MJnIlIPWt42BQFyqDrg37DG5E
+         Sh2sn8f/itAt8iBS3HVPYWgArnpxh9zbvKcuEX+gk1E+XYN5GgEi9q1vRQAy3C5F6aYs
+         J2Zg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=YywTAYzjXFOYP3ncEM1wtVzQAWbVsUfph15jdqDNJS4=;
+        fh=cb3OyccWdEBSMbGhVeky1I0l8CToX8PnjHpjjSRB7v8=;
+        b=FK+5vMBDYSlsn2M15a35M9YjHOGgU95w/2ml3r4R1rRzE0w38fMZVgLQB1r92doFvI
+         6FDXSdZDHM0oGREQsIc2zAc954aJcNR4U52XcmcwFzIWzf+ImYRZQ0e34qiokv87jEoA
+         DVG0PfZm5Yr1Vt/E/F1qPMuOqNha7ZN+HAOh5oORRARQPVoqp4tw3zP2h+wQhJ4CXhnm
+         2GJHlDmgE4++Z4mZ22Q3CFsR+2HQW2TwOqSJCSYc8F0RSFCVAg09G5ZbboK1MKAu7ZN2
+         ysrKnjHbP9n7uDo60mljY+ye7bTq+1Su0WPkkXevAbglex6YFDvnc1XoRaQIoEPeNAVo
+         Nd6Q==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1777559560; x=1778164360; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=5S8tE5yzvb2fyw/Yz8Rd+CLj6vFI7WsTMQxLJ+Sx+CA=;
-        b=Boh+dRE/O3HxBlNZ73DErgxu318Sisc+uyi3JdVCa4Wq/eqdJ2DXIq5a1//Hx/D6x3
-         75SlbeJ1vBibrQQv6J/ujZOfd55FhksY4vEDCCm6keqci9ZAiRhdEgwi7+/9MoY6hHtA
-         5OjysD0lPpX9P+d3uEay2/thAr8J5enSNkT52TjIJmBNk3XASpG4Qjsw6/j13qGNyVuV
-         bJ2MdW30vK6lnUQItFu06ihzVJizDjOwr9cOsxKuKaT8ySH1ND6Q1dv2nzsyGVSF9ch8
-         nH1Pnxpc7maX4EjQF4roQ1WbYmgmnHT+AGhFHdTbNAAtnZT61bHDaNBqZBYeJMr5H+bO
-         LnXA==
+        d=google.com; s=20251104; t=1777560539; x=1778165339; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=YywTAYzjXFOYP3ncEM1wtVzQAWbVsUfph15jdqDNJS4=;
+        b=DRBysRlaFVg4QhQZCw7BCAbGgnlBknDWgeaamMyZ80Muxjl/XjmswptddJDItfWaaL
+         FOilL7cg54Y0dTnEHm9kbElRG79ai9JGF4HPm2gZaZUQfrS2xU25E866wTTsCLaUw25u
+         PE04nzn13pIzrJoMNn9qRizXP4cOOR8P/GOEJ8riPcQzEUGjga++ajdcjf1IFv63EaQ/
+         Qxr/IIZp3Q+lbUsKh6n0tw15fmg/kAmfMFVozGz2X2uJxLyQW1ExtiiT/qflRod5hy4O
+         2Hgpt+2YnnGNP7Am8aZfkFglueM4fjMVTVllguGKr3+SlgQK5ygDk7ydAEdVezZ0Rno+
+         evpQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777559560; x=1778164360;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20251104; t=1777560539; x=1778165339;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=5S8tE5yzvb2fyw/Yz8Rd+CLj6vFI7WsTMQxLJ+Sx+CA=;
-        b=aW43CM2XOo6GaQajPyfWsh9yH7ZdeFFr66736Qq3uKq+ULx8jT204t67ezYLwaUUGX
-         kxhF0G3d/apc0r4TvHBBirhejk5Yan8MeGImoUMLtrCWdFLf2PqOUn5A4jefKmCWP//J
-         Jf97hYZGDjsMY1pOr23YUiJQUx7y59BNq+l44FaaUzfnzKjI+mokFFRE5ffZRLY5nRdh
-         p8HhsDhnL345DqyzM/o0v486sz9eUazJ9bTZljn5Mgag8Grm2B11KDbSzpWuNoy29ycV
-         hzEVpC+V9EzBV0osq17x2divcinVqUHITYh3SN0iCAfHVzqTW2lLvyVKINAaHBBEZQf3
-         E7dw==
-X-Gm-Message-State: AOJu0YwIfwJpAcdykOwE6thA9Gwm7pvmzTTi47LwiU6uTRj+QpVmuaLo
-	3NOcWPcN4Wdx1RpnPI7VfjhlWdgAYMSyerVRezzFJkDMKv8mDBXoyM3RqlUmeY8u7FgSl3Xi57O
-	EUC1TmNxTDo7p+Lg2wkbPh1K85GSPNIgoEPiC7anvkyJ3XwF02J1X4xrulyIgneS5JEnzZSLqc+
-	wr1A==
-X-Gm-Gg: AeBDievZ1ULTN7S+ywTFLmIl+nK9SE3424ZlZShhWkCA9YvWsRpg7PmqQynaKHUPYKO
-	WMAlTcGTuNmsRCS4d5q1vqnOBWCtSVBFtN/PyOCsExbZ6ajs6hQvD9T5QUlLdtn0pQ12pU59RfD
-	6dyKltcxkTNkhUFubQw36PLttKgZtd7SXzwsH9JAVCY6muR5mcaAjVx7PnpfL3eio+D4QaLgHxj
-	UTVqO6LcBvOw0s/jA9adq2oqgu4T9PhfdIk0pDoe1R0mZNIeH3CEolpjiwK/CIQlR2qiQXJQkjp
-	mrJj3lsUNBMtbcMpvh3SBsREMTcysE6DCzBnG1/Hm+LRAj1cmopT4132+CqcSZJNUOuXEKEfWVO
-	ArCkTYvVXI9KfkLEieDB3pXQWio8txLD4ZmHpuNYEAGdJUwwxp1T4q8sHlmTw
-X-Received: by 2002:a05:6808:3208:b0:450:d471:dce5 with SMTP id 5614622812f47-47c5fb7e8d1mr1727801b6e.6.1777559559869;
-        Thu, 30 Apr 2026 07:32:39 -0700 (PDT)
-X-Received: by 2002:a05:6808:3208:b0:450:d471:dce5 with SMTP id 5614622812f47-47c5fb7e8d1mr1727768b6e.6.1777559559395;
-        Thu, 30 Apr 2026 07:32:39 -0700 (PDT)
-Received: from brgl-qcom.home ([2a01:cb1d:dc:7e00:85ad:7a05:49a6:88be])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48a7c3058e5sm43675665e9.16.2026.04.30.07.32.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Apr 2026 07:32:38 -0700 (PDT)
-From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-To: Linus Walleij <linusw@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        brgl@kernel.org,
-        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: [PATCH v3] arm64: Kconfig: drop unneeded dependency on OF_GPIO for ARCH_MVEBU
-Date: Thu, 30 Apr 2026 16:32:21 +0200
-Message-ID: <20260430143221.108382-1-bartosz.golaszewski@oss.qualcomm.com>
-X-Mailer: git-send-email 2.47.3
+        bh=YywTAYzjXFOYP3ncEM1wtVzQAWbVsUfph15jdqDNJS4=;
+        b=YEUe0ZNZ5QTKCx6wOYsoZEG7VSIPED94MQShrhzeduaDmDxs8EO6Ej74czbY96buwX
+         O+cP2zmC3YN9VD86wIW3aLvQP86W/XLqFtxnxK4YcmC0085QnYSoWhW/WkDvCZSBzjua
+         J61XHHO0Fu8N5tTuhTYXB1cwa33nGXwsq+oarZoOOMzZroVs5bzOEr4kUigbnGpMAzbQ
+         wGkLSMMhZHhi5hkQGnhuKNiggA3Y29A8lc/u0S34AOWrMIFLY0BRfm0BMEzJpf+eDH3p
+         V3axrEzWcZc3oGtnA2DB4dX3Og49+v6TnI/wy/MiPrHgfAYjUp1ASi0wqyaFr6ti5rwG
+         ADeA==
+X-Forwarded-Encrypted: i=1; AFNElJ+eNBFOiXMk6JxwvRepJXrfxHtAktuhhfteXpVYBB5ku4jERe0lrc2eJTNCSgGvOt7hxmb8KJQ69+VdXOhr08DT@lists.infradead.org
+X-Gm-Message-State: AOJu0YxrS8+8hpRoMIfR59/5pFQuiegfXTukARI224A1e7SkPFe+mjC6
+	Q0XdfCK8J+6tLRCm4wDk60Vao8Gz6sa/sGCVgfeQJTq+iHH9GiwWUqCkVSKWbBKKKLtLpBb6MfK
+	L9N9JLjs8mawOKMAFEu/YEDhwqlUCpy/Gze7wHGTu75v2BelUcQaz8Tkc
+X-Gm-Gg: AeBDietNJi96YVZ0WE60hXVsbqx60cNVjOUybteB+hUAg5PErpfhgVnjkgrFfb+LH3D
+	rQBcfkH4xiP/DZdIr1o2x2190bBq6iMbpMM7vpKUDJbCi92eWwOq30f7UoUfjUktl6aMMMZuBmW
+	29KlPtVdCHn8bXhCXZjbZTQ2LdCVZxoUJ7dFTPWuxRolv1bIdgFJVDssWwS4wNjBGYca4gIOi0l
+	NlUAru8e+17A7T7ES/8dTB7yBfsFMknxVVkThv6g2Sbyqy/4nD6QjpT8id0hjU7GcGUjz+MBODW
+	+8hFqox2H9uFdF8u5FZ7RrUIo98kH07a6QyCPr7D6697Ky+tCZJcM3uobWk=
+X-Received: by 2002:ac8:59ca:0:b0:50e:5e19:587a with SMTP id
+ d75a77b69052e-5102a3d3061mr12769181cf.3.1777560537878; Thu, 30 Apr 2026
+ 07:48:57 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-GUID: YjInSsQC1p0g07HVfrkfU9KQRIt032Dj
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDMwMDE0OCBTYWx0ZWRfX7O1JtlDOM6RU
- 7j9DNBd+xSCkh4jIgW/7zEA1axJ6Xvkivh0uu8FXsa06d/7M/WB6Pr3XaVrizGYwNn5KAbCCmX+
- 1x6fH9UxOScdYsqSaEBm67w5J6ekQKkvZvm7XpcaoLv+5qsFDwmO4ZjbjGRHoYF5keuM3W6TZGt
- eDjeoUniIUPkMbalmkUj+rRj3gfZNm1Pd4lOnXDjaxj2YxervgSSpRA/3OqjdDC2oQTNdJcdLki
- flmX9j1XJe+/NaCqRFFey6fpSOHK0HReUerQ5x+Lsf6IrMEWB9j5SaHrW5cXdl2J1PFpm5MY6Kk
- UzdEGV6iffcBAV8cXcTQX3in6ofibWDUdmnjmATFhiny+cjNg2ouomGBSwoETQlxOXieP8+E/vQ
- xDURjwoSOtS/V+62L+BK99Mx3T9uQSRTf1jiYfe7/m8Jy84Moo8OyTCXs0Iu2J/0/qPLeWeOSYh
- l78tOjNAHM2m5o7XN8w==
-X-Authority-Analysis: v=2.4 cv=XoTK/1F9 c=1 sm=1 tr=0 ts=69f36808 cx=c_pps
- a=4ztaESFFfuz8Af0l9swBwA==:117 a=xqWC_Br6kY4A:10 a=A5OVakUREuEA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=_K5XuSEh1TEqbUxoQ0s3:22 a=bC-a23v3AAAA:8 a=EUspDBNiAAAA:8
- a=ZOGCbQUdEG_qiAXPShsA:9 a=TPnrazJqx2CeVZ-ItzZ-:22 a=FO4_E8m0qiDe52t0p3_H:22
-X-Proofpoint-ORIG-GUID: YjInSsQC1p0g07HVfrkfU9KQRIt032Dj
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-30_04,2026-04-30_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 adultscore=0 bulkscore=0 clxscore=1015 phishscore=0
- lowpriorityscore=0 malwarescore=0 impostorscore=0 spamscore=0
- priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
- definitions=main-2604300148
+References: <20260430132351.280766-1-alexandru.elisei@arm.com>
+In-Reply-To: <20260430132351.280766-1-alexandru.elisei@arm.com>
+From: Fuad Tabba <tabba@google.com>
+Date: Thu, 30 Apr 2026 15:48:21 +0100
+X-Gm-Features: AVHnY4JRtjA1RscP3600FnieC9wDru5uGeiEf45iBeDn0cWuzxNjfpWJrpgZjCk
+Message-ID: <CA+EHjTwZ=yFx_NEyw5YEiGqCjsfM=QotHgsCUVQmWDr6cNKLZw@mail.gmail.com>
+Subject: Re: [PATCH] KVM: arm64: Handle permission faults with guest_memfd
+To: Alexandru Elisei <alexandru.elisei@arm.com>
+Cc: maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	mark.rutland@arm.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_073241_647069_127FD451 
-X-CRM114-Status: GOOD (  13.88  )
+X-CRM114-CacheID: sfid-20260430_074900_212483_2B56B366 
+X-CRM114-Status: GOOD (  33.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,38 +116,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-OF_GPIO is selected automatically on all OF systems. Any symbols it
-controls also provide stubs so there's really no reason to select it
-explicitly. ARCH_MVEBU already selects GPIOLIB, drop the redundant
-OF_GPIO dependency.
+Hi Alexandru,
 
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
----
-Changes in v3:
-- Send the arm64 patch separately so that it can be picked up for v7.2
-- Link to v2: https://patch.msgid.link/20260316-gpio-of-kconfig-v2-0-de2f4b00a0e4@oss.qualcomm.com
+On Thu, 30 Apr 2026 at 14:24, Alexandru Elisei <alexandru.elisei@arm.com> wrote:
+>
+> gmem_abort() calls kvm_pgtable_stage2_map() to make changes to stage 2. It
+> does this for both relaxing permissions on an existing mapping and to
+> install a missing mapping.
+>
+> kvm_pgtable_stage2_map() doesn't make changes to stage 2 if there is an
+> existing, valid entry and the new entry modifies only the permissions.
+> This is checked in:
+>
+> kvm_pgtable_stage2_map()
+>   stage2_map_walk_leaf()
+>      stage2_map_walker_try_leaf()
+>        stage2_pte_needs_update()
+>
+> and if only the permissions differ, kvm_pgtable_stage2_map() returns
+> -EAGAIN and KVM returns to the guest to replay the instruction. The
+> assumption is that a concurrent fault on a different VCPU already mapped
+> the faulting IPA, and replaying the instruction will either succeed, or
+> cause a permission fault, which should be handled with
+> kvm_pgtable_stage2_relax_perms().
+>
+> gmem_abort(), on a read or write fault on a system without DIC (instruction
+> cache invalidation required for data to instruction coherence), installs a
+> valid entry with read and write permissions, but without executable
+> permissions. On an execution fault on the same page, gmem_abort() attempts
+> to relax the permissions to allow execution, but calls
+> kvm_pgtable_stage2_map() to change the existing, valid, entry.
+> kvm_pgtable_stage2_map() returns -EAGAIN and KVM resumes execution from the
+> faulting instruction, which leads to an infinite loop of permission faults
+> on the same instruction.
+>
+> Allow the guest to make progress by using kvm_pgtable_stage2_relax_perms()
+> to relax permissions.
+>
+> Fixes: a7b57e099592 ("KVM: arm64: Handle guest_memfd-backed guest page faults")
+> Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
+> ---
+>
+> Lightly tested on an Orion O6 board, without pkvm, and without nested
+> virtualisation.
+>
+> Doesn't apply cleanly on top of a7b57e099592, I can send a patch for that if
+> needed.
+>
+>  arch/arm64/kvm/mmu.c | 24 +++++++++++++++++-------
+>  1 file changed, 17 insertions(+), 7 deletions(-)
+>
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index d089c107d9b7..dff58de7703b 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1576,6 +1576,7 @@ struct kvm_s2_fault_desc {
+>  static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+>  {
+>         bool write_fault, exec_fault;
+> +       bool perm_fault = kvm_vcpu_trap_is_permission_fault(s2fd->vcpu);
+>         enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
+>         enum kvm_pgtable_prot prot = KVM_PGTABLE_PROT_R;
+>         struct kvm_pgtable *pgt = s2fd->vcpu->arch.hw_mmu->pgt;
+> @@ -1587,10 +1588,12 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+>         gfn_t gfn;
+>         int ret;
+>
+> -       memcache = get_mmu_memcache(s2fd->vcpu);
+> -       ret = topup_mmu_memcache(s2fd->vcpu, memcache);
+> -       if (ret)
+> -               return ret;
+> +       if (!perm_fault) {
+> +               memcache = get_mmu_memcache(s2fd->vcpu);
+> +               ret = topup_mmu_memcache(s2fd->vcpu, memcache);
+> +               if (ret)
+> +                       return ret;
+> +       }
 
-Changes in v2:
-- Make gpio-watchdog depend on OF && GPIOLIB
-- Drop picked up patches
-- Link to v1: https://patch.msgid.link/20260304-gpio-of-kconfig-v1-0-d597916e79e7@oss.qualcomm.com
+memcache is now uninitialized when perm_fault, and only read in the
+!perm_fault branch below. It's safe today, but initializing it to NULL
+would silence any defensive analyzer and keep things robust against
+future churn.
 
- arch/arm64/Kconfig.platforms | 1 -
- 1 file changed, 1 deletion(-)
+>
+>         if (s2fd->nested)
+>                 gfn = kvm_s2_trans_output(s2fd->nested) >> PAGE_SHIFT;
+> @@ -1631,9 +1634,16 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+>                 goto out_unlock;
+>         }
+>
+> -       ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, s2fd->fault_ipa, PAGE_SIZE,
+> -                                                __pfn_to_phys(pfn), prot,
+> -                                                memcache, flags);
+> +       if (perm_fault) {
+> +               /* Preserve the software bits from the existing table entry. */
+> +               prot &= ~KVM_NV_GUEST_MAP_SZ;
 
-diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
-index 72c812e76b0b1..dc995a7321174 100644
---- a/arch/arm64/Kconfig.platforms
-+++ b/arch/arm64/Kconfig.platforms
-@@ -243,7 +243,6 @@ config ARCH_MVEBU
- 	select MVEBU_ODMI
- 	select MVEBU_PIC
- 	select MVEBU_SEI
--	select OF_GPIO
- 	select PINCTRL
- 	select PINCTRL_ARMADA_37XX
- 	select PINCTRL_ARMADA_AP806
--- 
-2.47.3
+Can you please phrase it the same way as the existing comment in
+user_mem_abort, as that phrasing more precisely describes the
+rationale? i.e.,
 
+   /*
+    * Drop the SW bits in favour of those stored in the
+    * PTE, which will be preserved.
+    */
+
+> +               ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms(pgt, s2fd->fault_ipa,
+> +                                                               prot, flags));
+
+nit: args wrapped inside KVM_PGT_FN() is inconsistent with the rest of
+the file (and with the else-branch immediately below). Every other
+call site uses name-only inside the macro. Both expand the same way,
+but it's better to stick to the convention.
+
+> +       } else {
+> +               ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, s2fd->fault_ipa, PAGE_SIZE,
+> +                                                        __pfn_to_phys(pfn), prot,
+> +                                                        memcache, flags);
+> +       }
+>
+>  out_unlock:
+>         kvm_release_faultin_page(kvm, page, !!ret, prot & KVM_PGTABLE_PROT_W);
+
+With these fixed:
+
+Reviewed-by: Fuad Tabba <tabba@google.com>
+
+Cheers,
+/fuad
+
+>
+> base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
+
+> --
+> 2.54.0
+>
 
