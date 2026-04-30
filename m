@@ -4,96 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D737FF8875
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 01:57:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB8ECFF887E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 02:06:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kr2cTDfHGDksP3jgY+WcfLwMoeO5l4D3sr8mkWZf5zI=; b=mNvZEnkl0v1NdFzCfsAyG3jL5m
-	1HXjKHQmCMhig3Vu2rDuj7djwaRBHUw2CX+Ev87iILM4Ct5MPfcd8zjVFWNpVRvjMuuzfTHIHzh1y
-	/noago0LUT+W764CDflgCvso0R77Afva9u9y+e4z8I47wVe296l/44wspqihq1aBbAMLZ0jYuWPtf
-	Kip8NcOXkLhQyRyJIpj4PtWr4CyYYz39R+Q6/ON2NLAg4WZDmuq5FYk4Qg1Ikhx8yDlIZSCkWu4Ys
-	NqaD1dvzYTbKeJkxjei8C1FTSciCWlVzE/qiLxoPOxGuMsf+y84wc2CPmju+PDrdInZuu+SFernNL
-	uMBZNEfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=GPDDvWgl/s7dZoayqq/i64CZE2KFXHaJFBEQdJtsAa8=; b=axE6FzPAmSJ2BL
+	8UOv08sL7+jTpN/CgUoEs1u3YfGvj0qVEL2XbrNpfevfjKAPPix05g/R6ai3wO1qnrx1pAgd2g5qY
+	3hZN2jNPuAuXf9h3GNE9zGRV+60VyHJhUSLRJNcNe1nW+DXbLj5JmzmZXzN/8QTRMi36IbICrUu/F
+	OddnLExa2KX0QzMI1OzHR8ijOljt2uRn/d6rKQ/Z38aLRzpPWmuX/K4daElAaWQBY4yNocsle22g1
+	ACVdkkP4wpThcE2a7YKw5LtftiSVGtKLcVy0uFzdEQkBmRBcr0pr0Bx+DpJ/Bqga30pZgKIIJErx2
+	6kJveNENGewPQ0TvNQdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIGeb-00000004P4i-3SHY;
-	Thu, 30 Apr 2026 01:57:25 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1wIGn0-00000004PxE-2ZDt;
+	Thu, 30 Apr 2026 02:06:06 +0000
+Received: from mx1.unisoc.com ([222.66.158.135] helo=SHSQR01.spreadtrum.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIGeI-00000004OpP-3Xkr
+	id 1wIGmx-00000004PwO-0Z0k
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 01:57:08 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-44509921fbcso211763f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 18:57:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1777514225; x=1778119025; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=kr2cTDfHGDksP3jgY+WcfLwMoeO5l4D3sr8mkWZf5zI=;
-        b=U9OxJSRpOScWBOzQuyoqZBalxbTwW91HWAIi4nKKijO5bz0BaqIpajpYqG5mFIQCIM
-         nNNJnJp4JGslkYUxg73P5RfgUJbv3Q6OssIoe5TActT1ThIGMoyXDH5FbmL2v9d32993
-         QLcOggoI4mpwJ3ayCvooTO4nnXVP2WYU6ZxNanKA6UKHAF31gRDXzOVqPkQD/wbZ8Nnp
-         cxsCHz0brEStNZ7ig95hTBkr6UK4SDXKai7lKvWgU0LKuDD8NTSeVQ9XSC1t6mx1DHkl
-         2Jh7Ey8mKmweY8nGWz2C/aCa/2ZcaZhAIFvZ8JFYGKELr3PF/aoGkVUma75TfygH2NtQ
-         7Fqw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777514225; x=1778119025;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=kr2cTDfHGDksP3jgY+WcfLwMoeO5l4D3sr8mkWZf5zI=;
-        b=AUch4y3HdXCk1HlTkiVgs0JwFu3wEFYEjChB7kOcJ5HehD9B0cQ5XUCR2j46Qtafyd
-         qYit4elE/uEs/TCTHoX0I3dWAQlXv2tor8mDdOMPPwgv+1SQtAgjY95v/qYx7S21ZiYx
-         as2cI/kTNib+Mf+17p21TiHFX1hy0eeyq4aHDbNj1wBV90YH7GTob9FR/hiUXLxryVc9
-         WmFEQXnjsw57KiwWy6/OMSnxKHTHEL39fKVlz5zyq4HrK8Bpx7uRhu7W+sSK5dy+YqiP
-         0EK0h4lzEYU7xA91hz5VterzpKhUvU72hZkb7f2GrJbD9ZDcpSLrDOzJ/z+YF/VmyOQO
-         aJ2w==
-X-Forwarded-Encrypted: i=1; AFNElJ+sTrU943sulCCDyj387TXuMEKq9dmfqMdDBJJhyUMymp2WCfMtxUlxgP9b/n95Ha9buZ5bLIy9av8JOu1ICsPQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyw6FRWIocEJnTqeHuUgwNK9/8nvOgfdha+zwIUFEnuyjHi7Tqc
-	3Fu0fWH7pt0WKZ62L5LyIr+PZl/sIT+oFkvHUfFsoPatLKYB2KFbxb/0xcIBnOaflkAdwUXSPLj
-	TBRzPLeA=
-X-Gm-Gg: AeBDietfbHke/RnmRIJdgKZES1VgQeazrYr567/cA21oKR7CCGfjRCekk8f0lQJdcOG
-	t3lEknDTu0rVsBhkVkOD7R3KDQUWeIBQYumSNP/w4jXRuTFGpZZ3Gf5w5jQvu+HKaP5YMrUABxD
-	xni4QXoGoVj41idFwVMKmAsnozLUGXxlHlPpKhYqSmbiZaZtazSlAask0VjDeX0eThl2IKdGEgA
-	cF6dmuPpHMJcoVBtIQgpKdztLo+a42LI0/xYdThof8WhoVXy5HBxIMCBtnqXfTUtiFL5dOkNwmp
-	gEjjK9p2EpbFGFUZ8SkaACQZwvmDdNd6rfo2z6L4Y/JtCJyE52f5G6AA/66KS8MNI5vuruPVezz
-	AZx1aI/heKUzqvenlbMBzDFfm+STpAvoQ6VNmd0di+03HyT5rwa3Wocl0Q3432H59wZSMpCEvK+
-	ygSBau062ceYwm5ouJhnL68qeWucWAASwqvY2jHUQQCx3IO7OGnsQOcJi1Y+o6o2ishdzk30J2S
-	neyyebiOXRNE4IjfPM1MiGKqW4=
-X-Received: by 2002:a05:6000:1867:b0:43e:a9ba:b194 with SMTP id ffacd0b85a97d-4493f1307b6mr1254377f8f.34.1777514224614;
-        Wed, 29 Apr 2026 18:57:04 -0700 (PDT)
-Received: from [127.0.1.1] ([94.4.195.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-447b76e5bf2sm9915013f8f.27.2026.04.29.18.57.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Apr 2026 18:57:04 -0700 (PDT)
-From: Alexey Klimov <alexey.klimov@linaro.org>
-Date: Thu, 30 Apr 2026 02:56:56 +0100
-Subject: [PATCH v3 6/6] arm64: dts: exynos850: add PMU interrupt generation
- node
+	Thu, 30 Apr 2026 02:06:05 +0000
+Received: from dlp.unisoc.com ([10.29.3.86])
+	by SHSQR01.spreadtrum.com with ESMTP id 63U244CY051377;
+	Thu, 30 Apr 2026 10:04:04 +0800 (+08)
+	(envelope-from zhaoyang.huang@unisoc.com)
+Received: from SHDLP.spreadtrum.com (BJMBX01.spreadtrum.com [10.0.64.7])
+	by dlp.unisoc.com (SkyGuard) with ESMTPS id 4g5cpW05mpz2LYw4K;
+	Thu, 30 Apr 2026 10:01:06 +0800 (CST)
+Received: from bj03382pcu03.spreadtrum.com (10.0.73.40) by
+ BJMBX01.spreadtrum.com (10.0.64.7) with Microsoft SMTP Server (TLS) id
+ 15.0.1497.48; Thu, 30 Apr 2026 10:04:01 +0800
+From: "zhaoyang.huang" <zhaoyang.huang@unisoc.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+        Ard Biesheuvel <ardb@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        Zhaoyang Huang <huangzhaoyang@gmail.com>, <steve.kang@unisoc.com>
+Subject: [PATCHv2] arch: arm64: fix KERNEL_SEGMENT_COUNT error
+Date: Thu, 30 Apr 2026 10:03:51 +0800
+Message-ID: <20260430020351.2925330-1-zhaoyang.huang@unisoc.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260430-exynos850-cpuhotplug-v3-6-fd6251d02a17@linaro.org>
-References: <20260430-exynos850-cpuhotplug-v3-0-fd6251d02a17@linaro.org>
-In-Reply-To: <20260430-exynos850-cpuhotplug-v3-0-fd6251d02a17@linaro.org>
-To: Sam Protsenko <semen.protsenko@linaro.org>, 
- linux-samsung-soc@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Alexey Klimov <alexey.klimov@linaro.org>
-X-Mailer: b4 0.14.3
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.0.73.40]
+X-ClientProxiedBy: SHCAS03.spreadtrum.com (10.0.1.207) To
+ BJMBX01.spreadtrum.com (10.0.64.7)
+X-MAIL: SHSQR01.spreadtrum.com 63U244CY051377
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=unisoc.com;
+	s=default; t=1777514661;
+	bh=GPDDvWgl/s7dZoayqq/i64CZE2KFXHaJFBEQdJtsAa8=;
+	h=From:To:Subject:Date;
+	b=MpB3qZSAIFdpAJhz2hbXEA5czVyCUGoeCWhW3SQ9oiRxkZCd8lz/wuLBU2cyVXfQw
+	 67rqoKwEKIgFHYkijBK5p7IvJnzJbBQApI8r3a3h4bHz9sjr8D8o3SRAevHg7HcS6e
+	 mk1nQKfY6JmW6xjiuvDYcCvWnf74YvnnKMWhBok4jpVc9WxpsATQKzQGeynNE8hscu
+	 twXj/NuYRfNKYMblHbQiKCAXyoSjn44vAPdOPS+d3QKGX1zwscKve3fyM0q+GeiTvM
+	 qfwuwMN733OVnhVXfED8L7+oJoPWj81c0tNlW2pWvl1tfzAR2jlE1q8rADwFPpesy/
+	 2cx4Bh1+zxKoQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_185706_910092_9E9332BD 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20260429_190603_814445_28A3E9BB 
+X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,42 +80,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add pmu_intr_gen node for Exynos850. This hw block is required
-for different power management routines like CPU hotplug and
-different sleep and idle states.
-Also reference this node from main PMU node.
+From: Zhaoyang Huang <zhaoyang.huang@unisoc.com>
 
-Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
+During debug of a kernel panic, we find that the pte_t of the final
+part of [data, end] segment got overflow to the next page of
+init_pg_end[1] which is the gap page before early_init_stack[2].
+This should be introduced by the KERNEL_SEGMENT_COUNT's value is 5
+which should be 6 as map_segment are called 6 times for the segments
+of (text, stext, rodata, inittext, initdata, data+bss)
+
+[1]
+crash_arm64_v9.0.1> vtop ffffffed00601000
+VIRTUAL           PHYSICAL
+ffffffed00601000  83401000
+
+PAGE DIRECTORY: ffffffecffd62000
+   PGD: ffffffecffd62da0 => 10000000833fb003
+   PMD: ffffff80033fb018 => 10000000833fe003
+   PTE: ffffff80033fe008 => 68000083401f03
+  PAGE: 83401000
+
+     PTE        PHYSICAL  FLAGS
+68000083401f03  83401000  (VALID|SHARED|AF|NG|PXN|UXN)
+
+      PAGE       PHYSICAL      MAPPING       INDEX CNT FLAGS
+fffffffec00d0040 83401000                0        0  1 4000 reserved
+
+[2]
+ffffffed002c8000 (r) __pi__data
+ffffffed0054e000 (d) __pi___bss_start
+ffffffed005f5000 (b) __pi_init_pg_dir
+ffffffed005fe000 (b) __pi_init_pg_end
+ffffffed005ff000 (B) early_init_stack
+ffffffed00608000 (b) __pi__end
+
+Fixes: 5973a62efa34 ("arm64: map [_text, _stext) virtual address range non-executable+read-only")
+Assisted-by: TRAE: GLM-5.1
+Suggested-by: Ard Biesheuvel <ardb@kernel.org>
+Signed-off-by: Zhaoyang Huang <zhaoyang.huang@unisoc.com>
 ---
- arch/arm64/boot/dts/exynos/exynos850.dtsi | 6 ++++++
- 1 file changed, 6 insertions(+)
+Patchv2: make the size of vmlinux_reg[] more reasonable
+---
+---
+ arch/arm64/include/asm/kernel-pgtable.h | 4 ++--
+ arch/arm64/mm/mmu.c                     | 6 +++++-
+ 2 files changed, 7 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/exynos/exynos850.dtsi b/arch/arm64/boot/dts/exynos/exynos850.dtsi
-index 3881f573ec08..04662b1c5458 100644
---- a/arch/arm64/boot/dts/exynos/exynos850.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynos850.dtsi
-@@ -214,6 +214,7 @@ gic: interrupt-controller@12a01000 {
- 		pmu_system_controller: system-controller@11860000 {
- 			compatible = "samsung,exynos850-pmu", "syscon";
- 			reg = <0x11860000 0x10000>;
-+			google,pmu-intr-gen-syscon = <&pmu_intr_gen>;
+diff --git a/arch/arm64/include/asm/kernel-pgtable.h b/arch/arm64/include/asm/kernel-pgtable.h
+index 74a4f738c5f5..14dd1c52552a 100644
+--- a/arch/arm64/include/asm/kernel-pgtable.h
++++ b/arch/arm64/include/asm/kernel-pgtable.h
+@@ -64,8 +64,8 @@
+ #define INIT_IDMAP_FDT_PAGES	(EARLY_PAGES(INIT_IDMAP_PGTABLE_LEVELS, 0UL, UL(MAX_FDT_SIZE), 1) - 1)
+ #define INIT_IDMAP_FDT_SIZE	((INIT_IDMAP_FDT_PAGES + EARLY_IDMAP_EXTRA_FDT_PAGES) * PAGE_SIZE)
  
- 			poweroff: syscon-poweroff {
- 				compatible = "syscon-poweroff";
-@@ -231,6 +232,11 @@ reboot: syscon-reboot {
- 			};
- 		};
+-/* The number of segments in the kernel image (text, rodata, inittext, initdata, data+bss) */
+-#define KERNEL_SEGMENT_COUNT	5
++/* The number of segments in the kernel image (text, stext, rodata, inittext, initdata, data+bss) */
++#define KERNEL_SEGMENT_COUNT	6
  
-+		pmu_intr_gen: syscon@11870000 {
-+			compatible = "samsung,exynos850-pmu-intr-gen", "syscon";
-+			reg = <0x11870000 0x10000>;
-+		};
-+
- 		watchdog_cl0: watchdog@10050000 {
- 			compatible = "samsung,exynos850-wdt";
- 			reg = <0x10050000 0x100>;
-
+ #if SWAPPER_BLOCK_SIZE > SEGMENT_ALIGN
+ #define EARLY_SEGMENT_EXTRA_PAGES (KERNEL_SEGMENT_COUNT + 1)
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index a6a00accf4f9..c807119c7bd7 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -1355,7 +1355,11 @@ core_initcall(map_entry_trampoline);
+  */
+ static void __init declare_kernel_vmas(void)
+ {
+-	static struct vm_struct vmlinux_seg[KERNEL_SEGMENT_COUNT];
++	/*
++	 * [_text, _stext) is mapped in init_pg_dir seperatly while they got
++	 * merged into one here
++	 */
++	static struct vm_struct vmlinux_seg[KERNEL_SEGMENT_COUNT - 1];
+ 
+ 	declare_vma(&vmlinux_seg[0], _text, _etext, VM_NO_GUARD);
+ 	declare_vma(&vmlinux_seg[1], __start_rodata, __inittext_begin, VM_NO_GUARD);
 -- 
-2.51.0
+2.25.1
 
 
