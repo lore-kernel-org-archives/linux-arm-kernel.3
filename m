@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D10CFF8875
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 08:59:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69DA9FF886F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 09:08:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=yQbiiv0Vf+2505Xy7ivR6FqbF/Y+NWBphkmMi6/ATIs=; b=VTOm7Opj8DjK5e
-	4VN6QKjJl72irS5wVlXdVd1Bonku4yyi+3hnOH2njLM6AGJGXUXcOIc9XVK3/oo5266qmaB+cSGsM
-	UlwEWOKK9Rz10NwKZmJiac0h3zvb3Yw9x4u/fuqiD9ZAfcsg6YYXMNwzg7GyXhFSNA9I10LxRDhkt
-	/YHjfBsq3qOZ24LEImIcNSW3ko+FIH5Nt7hDosI6P0jgyiH9RJ3hlssxJhpao/aNvJEgWn76f2ruE
-	s4g/Fth8+eVQK1Hjy30otg7gpLLx49hYx2/QxaGuBTejx0mWZJyie9C5LDWsl61JWgFfPoOwSPv7P
-	Xvh+Q1wjHKX+JH0ar1aA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9CQf3oztDOBEArGCCm+sSAN9wRu5XEKgAXumhimw5Hs=; b=agW639ESKIB3F0+H/RW53/D7h6
+	vK+xYEfv48S85Sp+HKYuPrY7wuCwRQAR3cJ2Y0o4O0t0h7mB4Hl2TvHRIowYhHZ7UMDtQC1aepmZ4
+	gU5FG9bd45CM+nsNLfyEx9dg2dBhsC56x5/PLfJfmO1pa4/G2fDnyYHOKUL6AjamQPLMgQKGll9B5
+	V7jKnNwjX4WFlIurmvV2xz+t2e+yjYXE5E0rBS2+HUahI/yqNJe/khxAz8m1eiVnkix/r3ad/Kh/2
+	EF1a7XclOfL43t0I/kV0J4NLPdx1Q+N0S/+mhIeRZY+gnrprSN7vbggxutQxjO4aIs6mfibRHK2+o
+	oVoFBWTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wINEt-000000054F0-0tPb;
-	Thu, 30 Apr 2026 08:59:19 +0000
-Received: from mx1.unisoc.com ([222.66.158.135] helo=SHSQR01.spreadtrum.com)
+	id 1wINNP-000000054gy-33Lj;
+	Thu, 30 Apr 2026 09:08:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wINEp-000000054DE-1lbx
+	id 1wINNN-000000054gc-1ZDu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 08:59:17 +0000
-Received: from dlp.unisoc.com ([10.29.3.86])
-	by SHSQR01.spreadtrum.com with ESMTP id 63U8wKQk074189;
-	Thu, 30 Apr 2026 16:58:20 +0800 (+08)
-	(envelope-from zhaoyang.huang@unisoc.com)
-Received: from SHDLP.spreadtrum.com (BJMBX01.spreadtrum.com [10.0.64.7])
-	by dlp.unisoc.com (SkyGuard) with ESMTPS id 4g5p0V5Trhz2MHhwM;
-	Thu, 30 Apr 2026 16:55:22 +0800 (CST)
-Received: from bj03382pcu03.spreadtrum.com (10.0.73.40) by
- BJMBX01.spreadtrum.com (10.0.64.7) with Microsoft SMTP Server (TLS) id
- 15.0.1497.48; Thu, 30 Apr 2026 16:58:18 +0800
-From: "zhaoyang.huang" <zhaoyang.huang@unisoc.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-        Ard Biesheuvel <ardb@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        Zhaoyang Huang <huangzhaoyang@gmail.com>, <steve.kang@unisoc.com>
-Subject: [PATCHv3] arch: arm64: fix KERNEL_SEGMENT_COUNT error
-Date: Thu, 30 Apr 2026 16:58:08 +0800
-Message-ID: <20260430085808.2951417-1-zhaoyang.huang@unisoc.com>
-X-Mailer: git-send-email 2.25.1
+	Thu, 30 Apr 2026 09:08:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 12D77404E9;
+	Thu, 30 Apr 2026 09:08:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74F31C2BCB3;
+	Thu, 30 Apr 2026 09:08:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777540083;
+	bh=ZFzSNODvz59u5BBj2IDcPy45PSPOnkHPbn9VjRLPFko=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Tr+sv2mFI9m4Ofy6Z0CStOodv0cPAChYeTf2a3fmIaFcBPf+N3J7PMUQ2IsSG5aKu
+	 Ws09EaXWOCdaKF/SE443itbM9VK4E6tn5zNtfAWEe8F1oVWjulubvyY+SDFIG8nGJb
+	 aWwDoCxGyVXwVXC9Fo/HEw+pFY5Br/2PfTvj2DMn+cBsBZsx93dLe+tf6r4zPvfsXb
+	 3KzcHrFPh+lw+7fU3SCr7XSFXlFjhgeGtTQy7ByyUK5bnWqLhPH0nxu0bphVd+9mvJ
+	 TzuqDp7DgriF5jFxU5E3CPNYB03GIMupks3LEdgHdC2+eFLWbj4/NOO1gDLJ5imF9V
+	 b4u8H3NfNszvQ==
+Date: Thu, 30 Apr 2026 10:07:58 +0100
+From: Will Deacon <will@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: maz@kernel.org, oliver.upton@linux.dev, james.morse@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, qperret@google.com,
+	vdonnefort@google.com, catalin.marinas@arm.com,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH 1/8] KVM: arm64: Make EL2 exception entry and exit
+ context-synchronization events
+Message-ID: <afMb7uuPlUbLeu7k@willie-the-truck>
+References: <20260428103008.696141-1-tabba@google.com>
+ <20260428103008.696141-2-tabba@google.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.0.73.40]
-X-ClientProxiedBy: SHCAS03.spreadtrum.com (10.0.1.207) To
- BJMBX01.spreadtrum.com (10.0.64.7)
-X-MAIL: SHSQR01.spreadtrum.com 63U8wKQk074189
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=unisoc.com;
-	s=default; t=1777539513;
-	bh=yQbiiv0Vf+2505Xy7ivR6FqbF/Y+NWBphkmMi6/ATIs=;
-	h=From:To:Subject:Date;
-	b=th3+sdgl4EPjhpTnWjOdQaPClbAEnADwWLbDiO/4ld9Sqw66BMWkH4HtlcGIVxXI9
-	 /a8jQ+Cmc6wts7kLTr+4AJhK+ZNnjtShlrWOBy0q9wv21oF+R7QzvG37dWa52374yh
-	 sRwpwbYkK5fwF31NZ/sZ3iJ4BN05rVj4u7gg59Y3XURE7b9f5fmnx/tXOdHrmIPpt/
-	 GG/sUd6TVXffbfy2igYW7UA2/6SCc3BjvyV2Nuf12+VdOQtc6opmiBXujvvcicIKlE
-	 IQDglw3ly2PtKmaUd23GVko40Hrw568LVKgCthWhJqIFNXF2ua8M6U8zRtCPv7dlob
-	 YtJiiRjiUmsPA==
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260428103008.696141-2-tabba@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_015916_084693_18F161AA 
-X-CRM114-Status: GOOD (  12.82  )
+X-CRM114-CacheID: sfid-20260430_020805_454351_5AD07949 
+X-CRM114-Status: GOOD (  19.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,68 +76,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Zhaoyang Huang <zhaoyang.huang@unisoc.com>
+On Tue, Apr 28, 2026 at 11:30:01AM +0100, Fuad Tabba wrote:
+> SCTLR_EL2.EIS and SCTLR_EL2.EOS control whether exception entry and
+> exit at EL2 are Context Synchronisation Events (CSEs). Per ARM DDI
+> 0487 M.b, EIS is governed by D1.4.2 rule RBBSRF (p. D1-7205) and EOS
+> by D1.4.4.1 rule RBWCFK (p. D1-7209). D24.2.175 (p. D24-9754):
+> 
+>   - !FEAT_ExS: the bit is RES1, so the entry/exit is unconditionally
+>     a CSE.
+>   - FEAT_ExS: the reset value is architecturally UNKNOWN; software
+>     must set the bit to make the entry/exit a CSE.
+> 
+> INIT_SCTLR_EL2_MMU_ON in arch/arm64/include/asm/sysreg.h sets neither
+> bit. KVM/arm64 hot paths rely on ERET from EL2 being a CSE, and on
+> synchronous EL1->EL2 entry being a CSE, to elide explicit ISBs after
+> MSRs to context-switching system registers (HCR_EL2, HFGxTR_EL2,
+> HCRX_EL2, ZCR_EL2, CPACR_EL1, CPTR_EL2, SCTLR_EL1, ptrauth keys,
+> etc.); examples include the activate-traps path,
+> ptrauth_switch_to_guest, and the FPSIMD trap re-enable in
+> kvm_hyp_handle_fpsimd. On FEAT_ExS hardware those reliances are not
+> architecturally backed unless EOS=1 (and, for entry, EIS=1), and
+> whether they hold today depends on firmware initialisation outside
+> the kernel's control.
+> 
+> Make the guarantee explicit: include SCTLR_ELx_EIS | SCTLR_ELx_EOS in
+> INIT_SCTLR_EL2_MMU_ON so that EL2 exception entry and exit are
+> unconditionally CSEs regardless of whether FEAT_ExS is implemented.
+> This matches the pairing in arch/arm64/kvm/config.c which treats EIS
+> and EOS together as RES1 under !FEAT_ExS.
+> 
+> INIT_SCTLR_EL2_MMU_OFF is left unchanged: that path is used during
+> very early EL2 init and the EL2 MMU-off transition, neither of which
+> relies on these bits in the same way.
+> 
+> Fixes: fe2c8d19189e ("KVM: arm64: Turn SCTLR_ELx_FLAGS into INIT_SCTLR_EL2_MMU_ON")
 
-During debug of a kernel panic, we find that the pte_t of the final
-part of [data, end] segment got overflow to the next page of
-init_pg_end[1] which is the gap page before early_init_stack[2].
-This should be introduced by the KERNEL_SEGMENT_COUNT's value is 5
-which should be 6 as map_segment are called 6 times for the segments
-of (text, stext, rodata, inittext, initdata, data+bss)
+I don't think this Fixes: tag is accurate:
 
-[1]
-crash_arm64_v9.0.1> vtop ffffffed00601000
-VIRTUAL           PHYSICAL
-ffffffed00601000  83401000
+1. That commit doesn't do anything with EIS/EOS afaict.
+2. Back in 5.12 (when that thing landed), SCTLR_EL2_RES1 did actually
+   include EIS and EOS
 
-PAGE DIRECTORY: ffffffecffd62000
-   PGD: ffffffecffd62da0 => 10000000833fb003
-   PMD: ffffff80033fb018 => 10000000833fe003
-   PTE: ffffff80033fe008 => 68000083401f03
-  PAGE: 83401000
+so I think the issue here might be that the auto-generated sysreg file
+quietly changes the RES1 definitions as bits get allocated, but the
+macros using the RES1 definition don't get updated. That's a pretty
+horrible pit that it feels like we might keep falling into :/
 
-     PTE        PHYSICAL  FLAGS
-68000083401f03  83401000  (VALID|SHARED|AF|NG|PXN|UXN)
+Looking at 0a35bd285f43 ("arm64: Convert SCTLR_EL2 to sysreg
+infrastructure"), I think we ended up dropping a whole bunch of fields
+from the RES1 mask (which became 0!). Have you checked all of those?
 
-      PAGE       PHYSICAL      MAPPING       INDEX CNT FLAGS
-fffffffec00d0040 83401000                0        0  1 4000 reserved
-
-[2]
-ffffffed002c8000 (r) __pi__data
-ffffffed0054e000 (d) __pi___bss_start
-ffffffed005f5000 (b) __pi_init_pg_dir
-ffffffed005fe000 (b) __pi_init_pg_end
-ffffffed005ff000 (B) early_init_stack
-ffffffed00608000 (b) __pi__end
-
-Fixes: 5973a62efa34 ("arm64: map [_text, _stext) virtual address range non-executable+read-only")
-Assisted-by: TRAE: GLM-5.1
-Suggested-by: Ard Biesheuvel <ardb@kernel.org>
-Signed-off-by: Zhaoyang Huang <zhaoyang.huang@unisoc.com>
----
-Patchv2: make the size of vmlinux_reg[] more reasonable
-Patchv3: use extra value of 2 to meet the final segments count
----
----
- arch/arm64/include/asm/kernel-pgtable.h | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/include/asm/kernel-pgtable.h b/arch/arm64/include/asm/kernel-pgtable.h
-index 74a4f738c5f5..f6aed326e1ce 100644
---- a/arch/arm64/include/asm/kernel-pgtable.h
-+++ b/arch/arm64/include/asm/kernel-pgtable.h
-@@ -68,7 +68,9 @@
- #define KERNEL_SEGMENT_COUNT	5
- 
- #if SWAPPER_BLOCK_SIZE > SEGMENT_ALIGN
--#define EARLY_SEGMENT_EXTRA_PAGES (KERNEL_SEGMENT_COUNT + 1)
-+
-+/* [_text, _stext) is mapped separately which consume 1 extra page */
-+#define EARLY_SEGMENT_EXTRA_PAGES (KERNEL_SEGMENT_COUNT + 2)
- /*
-  * The initial ID map consists of the kernel image, mapped as two separate
-  * segments, and may appear misaligned wrt the swapper block size. This means
--- 
-2.25.1
-
+Will
 
