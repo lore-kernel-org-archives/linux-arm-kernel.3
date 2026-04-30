@@ -4,63 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9881BFF8875
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 08:58:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D10CFF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 08:59:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kfLn2iS+FBCi6ciBwhdlqe+rP0NBiVyvlOcEWwFVHAo=; b=dvtuZh9ZhbQu3SXoq43hs8d+y3
-	UhSXlCCYpfvG8f0WtwcIqVlIdwYhyccJ7kLMCRJ3A2EMcJagmIDA8KBZYLPeLQFpbFltxjJoibPWE
-	7Urk9L5rSEstetigXnza2y9g0RhyqE65FAV7qevlKmj7WsSImmPZr9ll6NC3rit9/ZUQtU8tDeXT2
-	awxN49Wc03Vs3ydk0CZQE2CVE4Xw7pCTREignpFYyDZXaPkjr3Vsw3IfzDJfTicp3C9ubg+OPrwGF
-	u6ouJrZR/MOvQWcw0c6/QOdRKhTLSqidPVNhJJS3TeEbIND1z4IL0AQrxRthEFaT3iNrsrqtHCpjh
-	XqJJUe7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=yQbiiv0Vf+2505Xy7ivR6FqbF/Y+NWBphkmMi6/ATIs=; b=VTOm7Opj8DjK5e
+	4VN6QKjJl72irS5wVlXdVd1Bonku4yyi+3hnOH2njLM6AGJGXUXcOIc9XVK3/oo5266qmaB+cSGsM
+	UlwEWOKK9Rz10NwKZmJiac0h3zvb3Yw9x4u/fuqiD9ZAfcsg6YYXMNwzg7GyXhFSNA9I10LxRDhkt
+	/YHjfBsq3qOZ24LEImIcNSW3ko+FIH5Nt7hDosI6P0jgyiH9RJ3hlssxJhpao/aNvJEgWn76f2ruE
+	s4g/Fth8+eVQK1Hjy30otg7gpLLx49hYx2/QxaGuBTejx0mWZJyie9C5LDWsl61JWgFfPoOwSPv7P
+	Xvh+Q1wjHKX+JH0ar1aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wINDx-00000005444-2Ndh;
-	Thu, 30 Apr 2026 08:58:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wINEt-000000054F0-0tPb;
+	Thu, 30 Apr 2026 08:59:19 +0000
+Received: from mx1.unisoc.com ([222.66.158.135] helo=SHSQR01.spreadtrum.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wINDv-0000000543D-0pSf;
-	Thu, 30 Apr 2026 08:58:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7094C40E49;
-	Thu, 30 Apr 2026 08:58:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B51C3C2BCB3;
-	Thu, 30 Apr 2026 08:58:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777539498;
-	bh=FKRvXDmPBLG+u9plyLD3bSdEFfuRpy675/I3iaHbLo8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gcWL/woOe2AFuTD/DaDClgOBoV4m8Cj4B124gB4lVfDzXj97tfLnQDPYGhEt7SiNF
-	 YZzUZ5Y2fFBS4dAkCs38JqCDuN0hgdb50tf9MMU4FlHk2f7Z6mcuMnTnuXXza+OCeT
-	 TCVw74qqOaIzeQ6E96P5dX/lj1dzfqgJ+jZDSNEwJgdKmjjgeuqc1FxcYJWlVbgG5k
-	 EGUDlVbN4AKIyHJWQg00Q0M/dRTTTytwFHIT64Om4DGOA2kVddf06LcyKWInk4lCgR
-	 hkT5Cx5ff1Tanjh6pQ0G2NWYedadPlCAnOzm21OTvhya9c8k3b6DXfw2+jerT47W+p
-	 geC3Zcz1437aw==
-Date: Thu, 30 Apr 2026 10:58:15 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 3/6] regulator: dt-bindings: mt6359: Deprecate bogus
- vcn33_[12]_* split regulators
-Message-ID: <20260430-sapphire-skunk-of-acceptance-dfbcde@quoll>
-References: <20260429074113.3720271-1-wenst@chromium.org>
- <20260429074113.3720271-4-wenst@chromium.org>
+	id 1wINEp-000000054DE-1lbx
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 30 Apr 2026 08:59:17 +0000
+Received: from dlp.unisoc.com ([10.29.3.86])
+	by SHSQR01.spreadtrum.com with ESMTP id 63U8wKQk074189;
+	Thu, 30 Apr 2026 16:58:20 +0800 (+08)
+	(envelope-from zhaoyang.huang@unisoc.com)
+Received: from SHDLP.spreadtrum.com (BJMBX01.spreadtrum.com [10.0.64.7])
+	by dlp.unisoc.com (SkyGuard) with ESMTPS id 4g5p0V5Trhz2MHhwM;
+	Thu, 30 Apr 2026 16:55:22 +0800 (CST)
+Received: from bj03382pcu03.spreadtrum.com (10.0.73.40) by
+ BJMBX01.spreadtrum.com (10.0.64.7) with Microsoft SMTP Server (TLS) id
+ 15.0.1497.48; Thu, 30 Apr 2026 16:58:18 +0800
+From: "zhaoyang.huang" <zhaoyang.huang@unisoc.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+        Ard Biesheuvel <ardb@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        Zhaoyang Huang <huangzhaoyang@gmail.com>, <steve.kang@unisoc.com>
+Subject: [PATCHv3] arch: arm64: fix KERNEL_SEGMENT_COUNT error
+Date: Thu, 30 Apr 2026 16:58:08 +0800
+Message-ID: <20260430085808.2951417-1-zhaoyang.huang@unisoc.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260429074113.3720271-4-wenst@chromium.org>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.0.73.40]
+X-ClientProxiedBy: SHCAS03.spreadtrum.com (10.0.1.207) To
+ BJMBX01.spreadtrum.com (10.0.64.7)
+X-MAIL: SHSQR01.spreadtrum.com 63U8wKQk074189
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=unisoc.com;
+	s=default; t=1777539513;
+	bh=yQbiiv0Vf+2505Xy7ivR6FqbF/Y+NWBphkmMi6/ATIs=;
+	h=From:To:Subject:Date;
+	b=th3+sdgl4EPjhpTnWjOdQaPClbAEnADwWLbDiO/4ld9Sqw66BMWkH4HtlcGIVxXI9
+	 /a8jQ+Cmc6wts7kLTr+4AJhK+ZNnjtShlrWOBy0q9wv21oF+R7QzvG37dWa52374yh
+	 sRwpwbYkK5fwF31NZ/sZ3iJ4BN05rVj4u7gg59Y3XURE7b9f5fmnx/tXOdHrmIPpt/
+	 GG/sUd6TVXffbfy2igYW7UA2/6SCc3BjvyV2Nuf12+VdOQtc6opmiBXujvvcicIKlE
+	 IQDglw3ly2PtKmaUd23GVko40Hrw568LVKgCthWhJqIFNXF2ua8M6U8zRtCPv7dlob
+	 YtJiiRjiUmsPA==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_015819_254525_1F95E95C 
-X-CRM114-Status: GOOD (  10.91  )
+X-CRM114-CacheID: sfid-20260430_015916_084693_18F161AA 
+X-CRM114-Status: GOOD (  12.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,24 +80,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 29, 2026 at 03:41:09PM +0800, Chen-Yu Tsai wrote:
-> vcn33_[12]_bt and vcn33_[12]_wifi refer to the same output. There are
-> two enable bits in the registers so that BT and WiFi drivers can toggle
-> them separately without any coordination. If either bit is set, then the
-> regulator output is enabled.
-> 
-> Deprecate the existing regulators, and add proper regulators matching
-> the outputs: vcn33_1 and vcn33_2.
-> 
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-> ---
-> Changes since v1:
-> - deprecate the bogus regulators and add proper ones, instead of
->   removing one and keeping the other
+From: Zhaoyang Huang <zhaoyang.huang@unisoc.com>
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+During debug of a kernel panic, we find that the pte_t of the final
+part of [data, end] segment got overflow to the next page of
+init_pg_end[1] which is the gap page before early_init_stack[2].
+This should be introduced by the KERNEL_SEGMENT_COUNT's value is 5
+which should be 6 as map_segment are called 6 times for the segments
+of (text, stext, rodata, inittext, initdata, data+bss)
 
-Best regards,
-Krzysztof
+[1]
+crash_arm64_v9.0.1> vtop ffffffed00601000
+VIRTUAL           PHYSICAL
+ffffffed00601000  83401000
+
+PAGE DIRECTORY: ffffffecffd62000
+   PGD: ffffffecffd62da0 => 10000000833fb003
+   PMD: ffffff80033fb018 => 10000000833fe003
+   PTE: ffffff80033fe008 => 68000083401f03
+  PAGE: 83401000
+
+     PTE        PHYSICAL  FLAGS
+68000083401f03  83401000  (VALID|SHARED|AF|NG|PXN|UXN)
+
+      PAGE       PHYSICAL      MAPPING       INDEX CNT FLAGS
+fffffffec00d0040 83401000                0        0  1 4000 reserved
+
+[2]
+ffffffed002c8000 (r) __pi__data
+ffffffed0054e000 (d) __pi___bss_start
+ffffffed005f5000 (b) __pi_init_pg_dir
+ffffffed005fe000 (b) __pi_init_pg_end
+ffffffed005ff000 (B) early_init_stack
+ffffffed00608000 (b) __pi__end
+
+Fixes: 5973a62efa34 ("arm64: map [_text, _stext) virtual address range non-executable+read-only")
+Assisted-by: TRAE: GLM-5.1
+Suggested-by: Ard Biesheuvel <ardb@kernel.org>
+Signed-off-by: Zhaoyang Huang <zhaoyang.huang@unisoc.com>
+---
+Patchv2: make the size of vmlinux_reg[] more reasonable
+Patchv3: use extra value of 2 to meet the final segments count
+---
+---
+ arch/arm64/include/asm/kernel-pgtable.h | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/include/asm/kernel-pgtable.h b/arch/arm64/include/asm/kernel-pgtable.h
+index 74a4f738c5f5..f6aed326e1ce 100644
+--- a/arch/arm64/include/asm/kernel-pgtable.h
++++ b/arch/arm64/include/asm/kernel-pgtable.h
+@@ -68,7 +68,9 @@
+ #define KERNEL_SEGMENT_COUNT	5
+ 
+ #if SWAPPER_BLOCK_SIZE > SEGMENT_ALIGN
+-#define EARLY_SEGMENT_EXTRA_PAGES (KERNEL_SEGMENT_COUNT + 1)
++
++/* [_text, _stext) is mapped separately which consume 1 extra page */
++#define EARLY_SEGMENT_EXTRA_PAGES (KERNEL_SEGMENT_COUNT + 2)
+ /*
+  * The initial ID map consists of the kernel image, mapped as two separate
+  * segments, and may appear misaligned wrt the swapper block size. This means
+-- 
+2.25.1
 
 
