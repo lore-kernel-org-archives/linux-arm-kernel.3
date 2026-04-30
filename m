@@ -4,85 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B56AFF8875
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 10:37:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4986ECCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 10:37:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dvlI2arhnUtJoUf3ZtMZQtMLGBbw4pk7njCiMEtbTJU=; b=jVhKtAfzqe7Pc97XgITCNOPrFy
-	GYvOXzfg1lPOslmtJ5l/n0P2ZqD/Jt1vxIC/ir0mFHele+2Y3OrYAnYa1thfE95vUqQidjwM7g/5c
-	HQKiDHmQcfNHrnE6IAJIxpi81KAgdvoCMiKxHjEpozY1yhh9nNIcqSN7necraG3bo4McYr8PPyPPv
-	0G+gvZYIrn+PFy3ijmDrTn9iQb5C5JEzAcNiDN9n5JANpzBnaF/Vkw9NSdEePm9Sh+RTrGEJPMmA4
-	+hKcE1E/P5y5ionwVs1Tf6GqBll9rf+RmTTaxuHcBy7EN16YYqFfjy9gCyu9ZEhlpv2tx/JBoaDrR
-	sNIS0Z+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CE7ryhQPSrXB5CO15AITdkHOu/b63A3t1puDBO48YFY=; b=ShJ3v4jvMpNUAILNURkMB9xdZa
+	z2eGoJf0pNojz+1ryWleGm1bFYf60GNsrGeWLqQSNbN7fNrGS0X2fTfIugvEHg2NuuLTkQpBUqjWf
+	o+BijywEVdWXuZqCD2wUtmRQA7JzVtMhPDal0NdwDbeZmXIFTVyQOcnmVdmoR+3uhegdQn6tvDC/S
+	yXb94IP55wnkoWuKvnxDhIhUmenggCKk+nO3Owe+7fETcLV/7Sies5hhckej4ybjFNZcY9rkL6Vub
+	LOXgsWKAv9khXSZ633Eo4+1sgWWaTTvK4ToIa2hgp5NePDzcx8tu3vmdYPtkpSauGpKnRxjwcZWaO
+	WatjI1pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIOle-00000005D3L-2ieO;
-	Thu, 30 Apr 2026 10:37:14 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wIOm1-00000005D6u-4Aoc;
+	Thu, 30 Apr 2026 10:37:38 +0000
+Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIOlc-00000005D2u-22s9
+	id 1wIOlz-00000005D5n-3nhc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 10:37:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A727644112;
-	Thu, 30 Apr 2026 10:37:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78169C2BCB3;
-	Thu, 30 Apr 2026 10:37:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777545431;
-	bh=1NvrjGfoiqQQbhKpYby6bZ0eDOwXMUv9+GR0prZV2wU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Ej48oWuxftmWidWm0SJN8vta3Pv+TG1Jf/29ag9BoIjKFRMPmMyg2pE6DinPnb46n
-	 tTOovZ/l+ENzryvcE3irvr9k5M4EFHjP10rB6pIj2DubPhKWvJlI9JA7Xmg6+18EH3
-	 Y2dE2YCCxEoEbYETzNjNBUT2Sb5gOkM+aTG4a6cLUKn4xoadkLMCXaitK56BNFr3i6
-	 hvcD+S3Gl98TjWNqxNuGSMtj4MhX47Ndm4ELfLBNgLSceNgapgK666WoGtPHuGHYEj
-	 80oJEujqaZ0iCqzfdmyqIQiDwhjCkw7P7OR6PaQrCUoSZpmaWawVQ1XxNMQjbxTZpu
-	 d7KQ130gRtkhA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wIOlY-0000000GDpb-3vRA;
-	Thu, 30 Apr 2026 10:37:09 +0000
-Date: Thu, 30 Apr 2026 11:37:08 +0100
-Message-ID: <86ecjwzqcr.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	nd <nd@arm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Joey Gouly
-	<Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>
-Subject: Re: [PATCH 14/43] KVM: arm64: gic-v5: Request VPE doorbells when going non-resident
-In-Reply-To: <20260427160547.3129448-15-sascha.bischoff@arm.com>
-References: <20260427160547.3129448-1-sascha.bischoff@arm.com>
-	<20260427160547.3129448-15-sascha.bischoff@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Thu, 30 Apr 2026 10:37:37 +0000
+Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-43d03065782so450305f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 03:37:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1777545453; x=1778150253; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=CE7ryhQPSrXB5CO15AITdkHOu/b63A3t1puDBO48YFY=;
+        b=D4XdDSdydLNjw779SokUUeQ5++d9+8gy+kY+E4RwzOH9dHcymJ3D2gJZf8qY4jN6Dp
+         97hYw2GBMXbv+8oQtoWnEPNIPSEnKg4ov58zqvdSGydEXhBc353mZn585kwOuQHoLcXN
+         ND2Rkk43fAzyZz/WoFWyjWiRcMvvK9TznPR+xihLnAdR+/EcSTVwTGhQUK4Wz7g8lXs/
+         jRwgwCaeWkPp9iRXPFnq6WdyyMhDk5iSCFbIamWsDtuKURxH1tOT05izD0Aa7WXWvtrQ
+         V83RHbIE0Z1Rrpi5E/jHYhV6HQNZZsCCrTYcanVRLHFJXnUIaRfjg5S+Of+z314rf1IK
+         5woA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777545453; x=1778150253;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=CE7ryhQPSrXB5CO15AITdkHOu/b63A3t1puDBO48YFY=;
+        b=aBHp/dmZdOemjfma7Cediqezud7DkEc6Cjs7E+3Z9eI3Avi+KoJnNNkHpQmTOg1UII
+         LxB1Xg53V+jZXFL89OcI3FMe5iLcq4h1BXF3v/yDfcXMI5VfuppGOGsOHJgfQQOwCEcm
+         Aa4pOk9iwt1/OGRM1o9sVHNi049NKDy9RhPeQv+z3lq5CXp/OfYXo9HuCl3vrimNhnB3
+         +ILu1xTEbqww4nAa+Dm5lPiUDkstLqDkTY4Kk7bE1ThFy3i0ncdp/0i4toJnZbaZqhWY
+         ypjraIantDkEFRK6Wcsmo1sFW53E8kfWeznPqZEMOYGuG8ECPw65si6Melzm2xosHfoN
+         t5/A==
+X-Gm-Message-State: AOJu0YywUo+wVlcql1bCTG29eEI8+g6aXJr/3lzJ0exMd1JunRBN2EdM
+	/iprTTT+FD3wmASHDLEAaxkZR56LAVW6JK+0Jx+i6yTXHrlFrMZeVMQ7CtnGSMS6F+dCkbid+pZ
+	SlbkzGIYflgBLKEbaHLGe27dUuylg41eButzhlfXymOD1OzO4QCeEHumLISnx+Ib1VttuX8aZxM
+	NGsyxNjnB+3s46FXW5XujjSiyGjtxNjkneTzL+/nTkPqMgbOvywoSuQAexmoVYMopJGA==
+X-Received: from wrbfm1.prod.google.com ([2002:a05:6000:2801:b0:43f:df99:cb43])
+ (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6000:2906:b0:43d:613:4036 with SMTP id ffacd0b85a97d-4493eb6d792mr3587302f8f.37.1777545452617;
+ Thu, 30 Apr 2026 03:37:32 -0700 (PDT)
+Date: Thu, 30 Apr 2026 10:37:24 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
+Message-ID: <20260430103724.2151625-1-smostafa@google.com>
+Subject: [PATCH] KVM: arm64: Harden clock for nvhe/pKVM
+From: Mostafa Saleh <smostafa@google.com>
+To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kvmarm@lists.linux.dev
+Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org, 
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, vdonnefort@google.com, tabba@google.com, 
+	Mostafa Saleh <smostafa@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_033712_608094_B8406ABA 
-X-CRM114-Status: GOOD (  30.83  )
+X-CRM114-CacheID: sfid-20260430_033735_951528_574E83A0 
+X-CRM114-Status: GOOD (  10.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,95 +89,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 27 Apr 2026 17:10:49 +0100,
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
-> 
-> When a VPE is made non-resident and is entering WFI, a doorbell should
-> be requested for the VPE. This allows the VPE to be easily woken once
-> an SPI/LPI interrupt is pending for it. This is tracked by the IRS,
-> which will signal the specific VPE doorbell for the VPE once such an
-> interrupt arrives.
-> 
-> Requesting a doorbell involves calculating the DBPM - DoorBell
-> Priority Mask - which ensures that the DB is only signalled by the
-> hardware if the pending interrupt is of sufficient priority. This
-> avoids waking a VPE that can't process the incoming interrupt.
-> 
-> Doorbells are NOT requested if a VPE is not entering WFI as we expect
-> to enter again imminently.
-> 
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> ---
->  arch/arm64/kvm/vgic/vgic-v5.c | 28 ++++++++++++++++++++++++++++
->  1 file changed, 28 insertions(+)
-> 
-> diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
-> index 11a1a491b7e0a..2fc6fa4df034f 100644
-> --- a/arch/arm64/kvm/vgic/vgic-v5.c
-> +++ b/arch/arm64/kvm/vgic/vgic-v5.c
-> @@ -1077,6 +1077,9 @@ void vgic_v5_load(struct kvm_vcpu *vcpu)
->  void vgic_v5_put(struct kvm_vcpu *vcpu)
->  {
->  	struct vgic_v5_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
-> +	bool req_db = !!vcpu_get_flag(vcpu, IN_WFI);
+Sashiko(locally) reports possiblity of division by zero and
+out-of-bounds bitwise shift in trace_clock_update().
 
-Drop the spurious variable and move the check in the if () statement.
-This is way more readable than declaring a variable.
+Although the clock update is untrusted, we should at least have some
+basic checks to avoid the clock value getting out of sync if the host
+is buggy.
 
-> +	u32 priority_mask;
-> +	int dbpm;
+Signed-off-by: Mostafa Saleh <smostafa@google.com>
+---
+ arch/arm64/kvm/hyp/nvhe/clock.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-Move these in the inner block.
-
->  
->  	/*
->  	 * Do nothing if we're not resident. This can happen in the WFI path
-> @@ -1090,6 +1093,31 @@ void vgic_v5_put(struct kvm_vcpu *vcpu)
->  	kvm_call_hyp(__vgic_v5_save_apr, cpu_if);
->  
->  	cpu_if->vgic_contextr = 0;
-> +	if (req_db) {
-> +		/*
-> +		 * Find the virtual running priority and use this to calculate
-> +		 * the doorbell priority mask. We combine the highest active
-> +		 * priority and the CPU's priority mask. The guest can't handle
-> +		 * interrupts with priorities less than or equal to the virtual
-> +		 * running priority, so there's literally no point in waking the
-> +		 * guest for these.
-> +		 *
-> +		 * The priority needs to be higher than the mask to signal, so
-> +		 * pick the next higher priority (subtract 1).
-> +		 */
-> +		priority_mask = vgic_v5_get_effective_priority_mask(vcpu);
-> +
-> +		/* Don't request a doorbell if the max priority is masked */
-
-This comment reads badly. I'd suggest something like "Request a
-doorbell *unless* the priority is 0, indicating that no interrupt can
-wake the vcpu up".
-
-> +		if (priority_mask) {
-> +			dbpm = priority_mask - 1;
-> +			cpu_if->vgic_contextr = FIELD_PREP(ICH_CONTEXTR_EL2_DB, 1) |
-> +						FIELD_PREP(ICH_CONTEXTR_EL2_DBPM, dbpm);
-> +		}
-> +
-> +		/* Make the doorbell affine to this CPU */
-> +		WARN_ON(irq_set_affinity(vgic_v5_vpe_db(vcpu),
-> +					 cpumask_of(smp_processor_id())));
-
-Repeatedly setting the affinity is likely to be costly. It may be
-worth comparing with the current affinity somehow.
-
-> +	}
->  
->  	kvm_call_hyp(__vgic_v5_make_non_resident, cpu_if);
->  
-
-Thanks,
-
-	M.
-
+diff --git a/arch/arm64/kvm/hyp/nvhe/clock.c b/arch/arm64/kvm/hyp/nvhe/clock.c
+index 32fc4313fe43..a7fc61976fd0 100644
+--- a/arch/arm64/kvm/hyp/nvhe/clock.c
++++ b/arch/arm64/kvm/hyp/nvhe/clock.c
+@@ -35,6 +35,9 @@ void trace_clock_update(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cyc)
+ 	struct clock_data *clock = &trace_clock_data;
+ 	u64 bank = clock->cur ^ 1;
+ 
++	if (!mult || shift >= 64)
++		return;
++
+ 	clock->data[bank].mult			= mult;
+ 	clock->data[bank].shift			= shift;
+ 	clock->data[bank].epoch_ns		= epoch_ns;
 -- 
-Without deviation from the norm, progress is not possible.
+2.54.0.545.g6539524ca2-goog
+
 
