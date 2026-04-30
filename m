@@ -4,91 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E445FCCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 21:45:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F4F0FF886F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 22:20:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bQCwDq3sQ26sd63X6ePOXo1fZCw68NQUIbjTHLE+tbU=; b=b5CGYzc0H+73vO8p97DfEeO572
-	Uz44vpVuIvWsn6KEMzLKaPftsnK1zLh+vZeacc8ijCPkDlhlvei4M382lze0AiiI5JB1AmftEycJv
-	4LjlARfa5wO+iB21Ylt/qCmhlvPA8m75JVZoHDFw6Jtm+tLIX8Fv3hYG/gdXzpysY5PBn0iFNzAmw
-	3U2Ri2iX1D9RVac/dEHNyPuMXBhRd3kOgBt+qWSFxQJnR9KnU3eSUTeFBUq7jMeECB4PR1PgNmWec
-	faNJA+yk9if05Hdj3Glv9piTEhSvHxj636rfGlrfoX8XJwTV2AobCBqPdmFdjVhAJrzR13Dqy3gBm
-	5YsMffag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=buYulQxvTlwfWwqEol3vAGsEg0H2py3IwPBEqxlnOrw=; b=qsusWwM7U0FbkeBQ3NseVbDDG9
+	T1Bs7dEoTMdhgoiFCpmR+AxxoeT27qWVVt2I+vued4JUtQASItXZyb/2ENgb3vUPoH9rWWwG1o/IB
+	SPrPB7AUQXiJSgfKxy1JeOAdz0YfBBw3trKHcjQ+H8N6XeLcfzDlrw3HuErpVhI3vWmpvVgNU1sJm
+	WrKm0NTOZkDbXgh1Fl1DEOebTnI/M5cdLBqrD7MAEEc0jMMKTEHVRsxshbKv3E52Ki+KP3wcKN6WN
+	gd5h1dGP1Y27jmocfujPVM3Tw7fMoQMHxmRjq1i3y2BFRm6oa3PR9x6M3WqzuOgN8MA80FU13fxse
+	UYh9KkzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIZBr-000000060XQ-2gsR;
-	Thu, 30 Apr 2026 21:44:59 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1wIZkR-0000000621u-3pYO;
+	Thu, 30 Apr 2026 22:20:43 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIZBn-000000060Wd-1How
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 21:44:58 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-82f69a286dbso997925b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 14:44:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gapp-nthu-edu-tw.20251104.gappssmtp.com; s=20251104; t=1777585493; x=1778190293; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=bQCwDq3sQ26sd63X6ePOXo1fZCw68NQUIbjTHLE+tbU=;
-        b=yjGJ9WWYP62kR0a72OMmo5+b3nnrk8DCzvTfOM8dYhYz0LhWkw+t2RL51prl7Fbtvv
-         jY2BMTnYN/6JGMDYPe9zU/7k14J37Ye+C+jp7rs/vavDNw6oQzBa5czmqEY6Grk5IuHp
-         mq6pUwaaTiYu1hJwh97Ixe9Z5ELRH+7BGAXifIU23sjA/kRVMLNWyDyztDzl5pPF7beM
-         ERQE5OE0F73ctGnTsSM58RDkg9K7bC8c2+utUKpaUXMn90AVKFxNiCFODKHuUuXXcAAc
-         ODFt9Mn3WQdWpQxdfmSD9qvP7c2Z2L/krwv31ZF1iixXh2ueIm/YYkP6hTb6N3MO+X9A
-         9r0A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777585493; x=1778190293;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bQCwDq3sQ26sd63X6ePOXo1fZCw68NQUIbjTHLE+tbU=;
-        b=BzCIY8Obydq0rhoesSO00IB4ggOpyPIFGEf1mSosk57gHnjpOIsdL5dz+RLqEYafdK
-         2tjuAVTgRfzmjxe7IVnRl9siXxur8vJn8Bx2dnkrvvghjzTBsII0SA1IYFNg9IP/CV9T
-         BQ5o4LDNI+kcw3s3oG8pnqaGDZfhtTSUB/9z99Tp3sq8eR+d6mVpdgo2KlW2IJEcxoQ9
-         I6dZZ2Xj/gQFxI/g7P/J5T8NCAA50FuinEMfGKKKCwRF9+DCohCgFRchx04ni9Jep4/b
-         1mjg4qbGb4XUuzepCttGW+sGBW63bRau1zM/OJIBeJQSRimNKmDvnEh7s3cJuBEBcd3t
-         RFew==
-X-Forwarded-Encrypted: i=1; AFNElJ91o5UrryzfNhwjujE/8ZWrGTH6NRY71RYYFfnYwfA3+5KIKX1hfhPc/dfiyEtmkKGopBd0Nt9o466VVeo7KIOf@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJoa932PsAkrDjR5u73V81kSMbP0I7H8dSu7tBgRu4yZBHy0Je
-	V67/V4irNvr9rCyc4EamJQelt84q4Pd/Zo6NAmOSJ+PVTNBNsCJYOkr/ay8IQDbXEOE=
-X-Gm-Gg: AeBDieuDtQNWr4/nR5sug9i5gGqv86+PeezLVkTD76t/HIVe0PBHx6WOtymJ4/fEdiX
-	tYaYhTNfiStvwW7J34N/pX+FylFOH3lhxZb1m+BpQXXnA/cBpZCSClMml/0tdegr/NWONtR4bBs
-	aQzhwcNuljGKgFNjPu8ad4h80QwP8m04MHq05nhfTrr9gVLxgeYXb/AL69ir8uRf4SM9Db9OI8A
-	7a1mDIltKCiDNsDbXQ+gX0cmoVOee2uA5ob6anuyufkE7HFKxa2EhDUyC9m2pf5p0xvuKOIvKv0
-	c/9K10Ge0u8wjzLxnu36LFtjWLYzXmgDuwVw2Chqgb07oAI70Vqhnz9+6fXUZ+GnCMfno2rEQbT
-	4djXfBzIVsTKzMcKCkh9ErGrmaYqBBcjkF5fGTQ+o7pT4XwM5c9MKh+KOnqbj5Rf56TcEb8Z5mr
-	JFQO6RfPND1xC5EvnRWqUnA+XhHuUltzJnM4XSIwwSVFPY/XMoH2NJVYa3EL7NcpaR/kBvKpAe0
-	iINL7q6E4fv+wOyyefhZPlBg1ahLmjs1Hrm7+8aQbeaQ8rXcl0GKyUwd2k1+ybN8JxcUlXF73s=
-X-Received: by 2002:a05:6a00:3e02:b0:82f:8a29:e3e0 with SMTP id d2e1a72fcca58-834fdc670d2mr5521973b3a.42.1777585492724;
-        Thu, 30 Apr 2026 14:44:52 -0700 (PDT)
-Received: from tomato-cultivator-HP-ZBook-15-G6.. (2001-b400-e3d4-7301-ab51-ca4d-694a-59f2.emome-ip6.hinet.net. [2001:b400:e3d4:7301:ab51:ca4d:694a:59f2])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83515b864c7sm640774b3a.59.2026.04.30.14.44.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Apr 2026 14:44:52 -0700 (PDT)
-From: Chen Jung Ku <ku.loong@gapp.nthu.edu.tw>
-To: eajames@linux.ibm.com,
-	joel@jms.id.au,
-	andrew@codeconstruct.com.au
-Cc: ninad@linux.ibm.com,
-	linux-fsi@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	Chen Jung Ku <ku.loong@gapp.nthu.edu.tw>
-Subject: [PATCH] fsi: aspeed: convert cfam_reset to DEVICE_ATTR_WO()
-Date: Fri,  1 May 2026 05:43:27 +0800
-Message-ID: <20260430214327.17099-1-ku.loong@gapp.nthu.edu.tw>
-X-Mailer: git-send-email 2.43.0
+	id 1wIZkP-000000061zr-0Wgi;
+	Thu, 30 Apr 2026 22:20:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1777587637;
+	bh=RoqNrdAtIntnzN4QOoLbPlCuBCUoD2sMXqW3kckpQAE=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=GWI+RietXIAZYicTQXGoKZhc2qZkXpjGOgSuGzni4ZQ9budFThyBRHSDhus+A9Ynr
+	 1UD4QvK05mL7AREeY2y3wdJLTPHl58qHsMMMzNKi8PthFbqCQl772aKNpqc4DHj7dN
+	 5Rt0pnj3FlTnyLIZHEDJiWGx7/B1ov9TYNKei/YMgiW9Ewtqt+Md3tybeGZfrNpYeo
+	 9YoaB6FivXn2z31bEpJuP9wbfEKkaMjB9OTGYYPpsrOTuT3ZWgG+vEiiO9UVrrvbr8
+	 NaPySu+DvkzIVUjeMpVFUMri48FPOnRYe3GYzPw07QpI+/ro1j+2BdGHDK9iM91Hkp
+	 yLnYMww1DOtGA==
+Received: from jupiter.universe (unknown [100.64.1.62])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6238217E1562;
+	Fri,  1 May 2026 00:20:37 +0200 (CEST)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id 13F5C480035; Fri, 01 May 2026 00:20:37 +0200 (CEST)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Fri, 01 May 2026 00:20:31 +0200
+Subject: [PATCH v2 04/12] drm/bridge: synopsys: dw-dp: Support
+ MEDIA_BUS_FMT_FIXED
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260501-synopsys-dw-dp-improvements-v2-4-d7e7f6bac77f@collabora.com>
+References: <20260501-synopsys-dw-dp-improvements-v2-0-d7e7f6bac77f@collabora.com>
+In-Reply-To: <20260501-synopsys-dw-dp-improvements-v2-0-d7e7f6bac77f@collabora.com>
+To: Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
+ Damon Ding <damon.ding@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
+ Alexey Charkov <alchark@gmail.com>, dri-devel@lists.freedesktop.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, kernel@collabora.com, 
+ linux-arm-kernel@lists.infradead.org, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1544;
+ i=sebastian.reichel@collabora.com; h=from:subject:message-id;
+ bh=RoqNrdAtIntnzN4QOoLbPlCuBCUoD2sMXqW3kckpQAE=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGnz1bTefDuFjSHuihDXrELYSzaun7I+ZlT+m
+ mxxpvWrYpdWN4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJp89W0AAoJENju1/PI
+ O/qaa5sP/iwrvtecrjTownz8Bo0+JyHuIwTUhK5bIst+pr9q3+WvFHbhZOTcYmpkzK+X59Jufvz
+ 2DXyGs1S2nXnHgRDLR6xct6pFSGtNI0OB9etoPDlDLrex24L6G04rhx+bCDOz2opPwIA+re9od/
+ Zxd55iPCVnaM93gR9lLvWSi1JedK72llKvAvnHhlCfRFWfTX5354xvi/vg7bl+QYRGXpLdUlPKS
+ tfpR8riYvMIz2fri1NQLWv7IKZogfWzI4rtPqQMlgW7g2gRFPWlCMY7KUcIT9xW8RUShdo25VUx
+ I1y+2ArSbrwabIubYkIidpUIAisNd6u2Pa3lAhohlaojw3X/cxgc6UV4sd3vZEuolXd27+JGnxQ
+ qSHTwGKxRzO5rXhK1tfVKMq7pfi5DOTbSutnlPa+toLqtEsTmP/ViUZeofxEbYOpEPbQA0tJcbp
+ DSY6dF8vNfwzH85UubNKxPwNeV9+7deMxNfGSaH66/3w1CPqH2LIV6z2MqxQGe96y4LSTlyrMWs
+ wOZcFVy2Ls1aLdlnk3MF5r7aEXC+Yi9UkBaECYvmstOoGpXmm6NpW0g5gB/MqQ5AA+Yvwe1aDiS
+ b3956nSzw83cQ7tQuDtfQmqT4K3ZX76/RmqBPti99o+zZdzNiFhIJsCwDvRq0ltVQrPXSSPdjYH
+ RI5+yReX6L6ky8hC1g9Y3lQ==
+X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_144455_595844_58F10FEB 
-X-CRM114-Status: UNSURE (   9.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260430_152041_330473_8FE49699 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,30 +111,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace manual DEVICE_ATTR() definition with DEVICE_ATTR_WO()
-for the write-only cfam_reset attribute.
+Add support for MEDIA_BUS_FMT_FIXED, which is e.g. requested for USB-C
+DP chains as the last bridge in the chain (aux-hpd-bridge) does not
+implement atomic_get_output_bus_fmts(), which results in the generic
+drm_atomic_bridge_chain_select_bus_fmts() code using MEDIA_BUS_FMT_FIXED
+instead.
 
-No functional change.
-
-Signed-off-by: Chen Jung Ku <ku.loong@gapp.nthu.edu.tw>
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/fsi/fsi-master-aspeed.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/gpu/drm/bridge/synopsys/dw-dp.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/fsi/fsi-master-aspeed.c b/drivers/fsi/fsi-master-aspeed.c
-index aa1380cdff33..3b4a0e821c08 100644
---- a/drivers/fsi/fsi-master-aspeed.c
-+++ b/drivers/fsi/fsi-master-aspeed.c
-@@ -462,7 +462,7 @@ static ssize_t cfam_reset_store(struct device *dev, struct device_attribute *att
- 	return count;
- }
- 
--static DEVICE_ATTR(cfam_reset, 0200, NULL, cfam_reset_store);
-+static DEVICE_ATTR_WO(cfam_reset);
- 
- static int setup_cfam_reset(struct fsi_master_aspeed *aspeed)
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+index 6211ba6ba7bd..fc4ddb7792d7 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
++++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+@@ -1528,6 +1528,7 @@ static int dw_dp_bridge_atomic_check(struct drm_bridge *bridge,
+ 				     struct drm_connector_state *conn_state)
  {
+ 	struct drm_display_mode *adjusted_mode = &crtc_state->adjusted_mode;
++	unsigned int out_bus_format = bridge_state->output_bus_cfg.format;
+ 	struct dw_dp *dp = bridge_to_dp(bridge);
+ 	struct dw_dp_bridge_state *state;
+ 	const struct dw_dp_output_format *fmt;
+@@ -1538,7 +1539,10 @@ static int dw_dp_bridge_atomic_check(struct drm_bridge *bridge,
+ 	state = to_dw_dp_bridge_state(bridge_state);
+ 	mode = &state->mode;
+ 
+-	fmt = dw_dp_get_output_format(bridge_state->output_bus_cfg.format);
++	if (out_bus_format == MEDIA_BUS_FMT_FIXED)
++		out_bus_format = MEDIA_BUS_FMT_RGB888_1X24;
++
++	fmt = dw_dp_get_output_format(out_bus_format);
+ 	if (!fmt)
+ 		return -EINVAL;
+ 
+
 -- 
-2.43.0
+2.53.0
 
 
