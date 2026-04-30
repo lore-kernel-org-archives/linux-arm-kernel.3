@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59DD1FF886F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6634FF8875
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 10:04:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,63 +12,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Of6v3tddymZAopVSSZLx/BjESEwtJ6OYNXD95nkNQ9I=; b=0CSbIvhwpiSeQp+yA5lbt1FMB3
-	8B33awUSIeNN4uF8Dl6qhccOjaBT+NYdkQu2npp4/YISawKTiu2CWgVxXoGr+PO2HNYNsVAaYet24
-	i6L+LeqjCs64RYRFSZbEJwS7bcmvtR7h4GijSWSTIBcHcqX3sl5cWS+rL/7GF1D4EZ8Ps2nRp8Ylx
-	tPyCPR6XfKVaclb8gSTmJ70GHsWc6f9HLC6pnno1BQtVJonf7Mvx8a3exj4ZC2eSusRPB+sSigZ7p
-	VyZnzbI75DL51ut5b3eOIwJrHwA9gysfFxOeodIiyOxht9gG8yjQZXSpxuhHSqKJPKnzpvgEbWh6A
-	Kgy6YCUw==;
+	bh=ekjrcZYHERZenE83ZIfheqQI0RapxQLtaYQ2BGyVATU=; b=wE7m7AzsHW7uZEpKNJ+GnvN4c0
+	+fykesWQmhdDPXqe6I654aVwHiAplP6LDPyFWKWmhcTAZGn24qk3VGAqTDDooYGyZU/lBlnn6ssH4
+	OQ4wtapD4MBLgDQM/719RcLoAk5AREdTOGwhJsNuLrHB4HIxTnCev6rhjmeg+gXuDw6pbYJ413o5b
+	uMg2NYHathMrA+6/O8JfoVjpgTjpY5oc/LNa+5n3ozBZzlc/RW/bhrx+qmGhhJLBqncDsT0zjox9k
+	krJ7gysKraV/0E4GOgDTHe1yF5nIxI4ZueEnvYIjPixrjMpOZ9ScH+kMF5iiYUdynIwNvJbn9Zy8L
+	ua16DyHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIOGD-00000005A0h-21Nk;
+	id 1wIOGD-00000005A14-3HFZ;
 	Thu, 30 Apr 2026 10:04:45 +0000
 Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIOG3-000000059wY-0ZAY
+	id 1wIOG4-000000059xs-3e1y
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 10:04:42 +0000
+	Thu, 30 Apr 2026 10:04:44 +0000
 Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63TIf3P81559961;
-	Thu, 30 Apr 2026 10:04:05 GMT
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63U7SUuA996575;
+	Thu, 30 Apr 2026 10:04:19 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=Of6v3t
-	ddymZAopVSSZLx/BjESEwtJ6OYNXD95nkNQ9I=; b=ou4JTHKrALqEFtr/K9miwl
-	lwLm3i56asVr1ieQXl0n5FH0eeXuXRHkrhf+BpJdy7ImRuYlgntKoM66am9do+u2
-	kKcpI935UwEx9zTU1F9CJNseBfVesQ7WOeGK+kxqKKFH6b4rXwjK2bVAQhucseCX
-	WMYYHISVBeq59iJk8mpHRKXaUb0NBCNhDb0aK1GfZMMZdgH99vT0sgy+aiYfzIvy
-	zEQvZap/X49LHDtlDvVWJLgvvPwTuVXBRXQ1P/9UrUzgGM6KxOk3xrVdJJQqCT6S
-	JbHiGzAVJr0SDgsJ6zoSXQCysTw8O5WL0XLGuPtldkV5VhttcYXSfg29pACgAQdA
+	:message-id:mime-version:references:subject:to; s=pp1; bh=ekjrcZ
+	YHERZenE83ZIfheqQI0RapxQLtaYQ2BGyVATU=; b=YAzDcjQg801acHa/MFZUTJ
+	zbWiWHELeHr8e5Me5mna2rASRZJP4k/dK5/Lmi60yAR+oQIlY8HS2igWu+GucgGv
+	dbvNL0p+gnvYGEIQiSgzk8Wdbf3U7cSXgfPSq/QSQQSjfrT3hgGtweY3KedpDPls
+	k019+ONnITvenKhYQXnCd5a1eoHij3+g5uxQ5DCjGom66mFe4r7pYzWhIXY9bKqr
+	CxdmkQHm3XRkrpeY249aRaaTqKUV5HzFgLgOnH7UWJLT/TKJ3b62MzVkTMiTMtzH
+	4p1m27ybwZpWKFhOHSB8dLS846ZXQ3e0mz/SNrzSMLqqCJ3ElQiKMC2LCi/DqvRQ
 	==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4drn8vnb10-1
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4drn8vnb1w-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 30 Apr 2026 10:04:04 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63U9ro7N032701;
-	Thu, 30 Apr 2026 10:04:03 GMT
+	Thu, 30 Apr 2026 10:04:18 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63U9rkYS023446;
+	Thu, 30 Apr 2026 10:04:17 GMT
 Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4ds8aw2g4t-1
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4ds8xkadnx-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 30 Apr 2026 10:04:03 +0000 (GMT)
+	Thu, 30 Apr 2026 10:04:17 +0000 (GMT)
 Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63UA414P60031378
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63UA4Fs360031408
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 30 Apr 2026 10:04:01 GMT
+	Thu, 30 Apr 2026 10:04:15 GMT
 Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 497E420049;
-	Thu, 30 Apr 2026 10:04:01 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 9250F20040;
+	Thu, 30 Apr 2026 10:04:15 +0000 (GMT)
 Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B617620040;
-	Thu, 30 Apr 2026 10:04:00 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 2582220049;
+	Thu, 30 Apr 2026 10:04:15 +0000 (GMT)
 Received: from [9.52.200.195] (unknown [9.52.200.195])
 	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Thu, 30 Apr 2026 10:04:00 +0000 (GMT)
-Message-ID: <6fb474e6-7e54-408b-a3d9-9e13c674740c@linux.ibm.com>
-Date: Thu, 30 Apr 2026 12:04:00 +0200
+	Thu, 30 Apr 2026 10:04:15 +0000 (GMT)
+Message-ID: <55535704-ca32-483a-97e5-4d059294a9a3@linux.ibm.com>
+Date: Thu, 30 Apr 2026 12:04:14 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 7/8] sframe: Introduce in-kernel SFRAME_VALIDATION
+Subject: Re: [PATCH v5 6/8] arm64/module, sframe: Add sframe support for
+ modules
 To: Dylan Hatch <dylanbhatch@google.com>,
         Roman Gushchin <roman.gushchin@linux.dev>,
         Weinan Liu <wnliu@google.com>, Will Deacon <will@kernel.org>,
@@ -87,30 +88,30 @@ Cc: Mark Rutland <mark.rutland@arm.com>,
         Randy Dunlap <rdunlap@infradead.org>,
         Heiko Carstens <hca@linux.ibm.com>
 References: <20260428183643.3796063-1-dylanbhatch@google.com>
- <20260428183643.3796063-8-dylanbhatch@google.com>
+ <20260428183643.3796063-7-dylanbhatch@google.com>
 Content-Language: en-US
 From: Jens Remus <jremus@linux.ibm.com>
 Organization: IBM Deutschland Research & Development GmbH
-In-Reply-To: <20260428183643.3796063-8-dylanbhatch@google.com>
+In-Reply-To: <20260428183643.3796063-7-dylanbhatch@google.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
 X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=CIIamxrD c=1 sm=1 tr=0 ts=69f32914 cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+X-Authority-Analysis: v=2.4 cv=CIIamxrD c=1 sm=1 tr=0 ts=69f32923 cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
  a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
  a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=VnNF1IyMAAAA:8
- a=QMc7QGPnP32PvtbJ_1wA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
-X-Proofpoint-ORIG-GUID: zHdENj8pe7xhfjKzYXLQilF2gKUQgWlz
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDMwMDA5OCBTYWx0ZWRfX+ZhHMSaiAJEV
- +IMEZ9ZaeHhmTO1z96r4nMyBUjbCGqpkK+elMrlooeOITudnP+3qyu4rfwWTQmJHg6cqmKx5LXz
- tLTrswQUCofSfBHO/b/xVxmrvuxl1rUce9O+4Zt/+x8NPZwyyP3pObnYmD8Jyrq4WWkQ+MM0D+b
- OOP+vCN4TtrI8Yc7I3aWuXnc9SJwFfYvm2Zp/ov1EpNlb1YLhnyvK8vngtAc4LmbIdjLFNYJLRI
- BGvR9xboPeRXIURQtGs8arHUx5ZryX1A8nTCVWBjaK4z/EfyuMp5J7nXaT1l0ZjD05CqKgoxQF3
- avgVXvSypr72i/nh/F8m4XCsfivhAP4JCpLLTJWnVT50kBOW83zv0U93X3tLktpT0S5XAWc3Bt9
- Mgmxl8AK7hSMY/Mbg1Qae+BQPqDoh9ySTwMO4uC/JYk2sqqACb6xkmhlLGULBS2JsY2iMncak8E
- 9aeHepxYFdxzLeV3nsw==
-X-Proofpoint-GUID: eMVam4ZfEteGXrjhGDO56EdCBNpTPVoi
+ a=YDQLautM2RPBGTTizU0A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: BwPT5JYnQt3nKA7Nba_B9lCmuGb7WnjJ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDMwMDA5OCBTYWx0ZWRfX7X/1LldJi0xs
+ 5roC7bud/0ChxSIn9IEWxj++FwIyu5IL63F3vQDSocbluE7szCQUgAlV6jpoPT0BNuMo/biNQRd
+ mZMfotz/xe14SYjL1y2UYinaJgjTsKClXa9o96LVTMPSQUZHHrIz8J139Qa+PXQTq7um6emfteK
+ rGTojnzj78U3l9arEfMsjRJboa8i747nd78XZXjD7jVrgTQKLdFxsUQWg38gg/vsZyj87a1xbjp
+ GNAPeTqVkg8+HfigFb8g3Bl4OCMmR4dt/nbbl657dXE3kvSv9K15AnnW7+IAQHiwWC3GHdzhWYX
+ 5Kq5LWQvFd/t8DuV7+XdVV4apTJIkvspZv0gPOm41NDhlDxV/j4HbtlUhjRHSMUuhdMSERBl/E/
+ zVEe9GOvZ6ilywIdtA4HxpAhPea1hgPo029EHoGzlbHxUrgjI0WeNA4g1hanbDK/dPCebHaUq6I
+ CvUjhvGiUijeOPtHOVQ==
+X-Proofpoint-GUID: 8mFbwPJSfhxNg5qoftsVu3ev66yYtrOy
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-04-30_03,2026-04-28_01,2025-10-01_01
@@ -121,8 +122,8 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
  definitions=main-2604300098
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_030435_296587_13E56278 
-X-CRM114-Status: GOOD (  26.12  )
+X-CRM114-CacheID: sfid-20260430_030442_144249_D2C684AB 
+X-CRM114-Status: GOOD (  22.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,84 +139,133 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 4/28/2026 8:36 PM, Dylan Hatch wrote:
-> Generalize the __safe* helpers to support a non-user-access code path.
-> 
-> This requires arch-specific function address validation. This is because
-> arm64 vmlinux keeps .exit.text (normally discarded), and .rodata.text
-> sections both of which lie outside the bounds of the normal .text.
-> .rodata.text contains code that is never executed by the kernel mapping,
-> but for which the toolchain nonetheless generates sframe data, and needs
-> to be considered valid for a PC lookup.
-> 
-> Additionally .init.text lies outside .text for all arches and must be
-> accounted for as well.
+> Add sframe table to mod_arch_specific and support sframe PC lookups when
+> an .sframe section can be found on incoming modules.
+One small fix and a proposal to sort the module's SFrame FDE index.
 
-> diff --git a/arch/arm64/include/asm/unwind_sframe.h b/arch/arm64/include/asm/unwind_sframe.h
+> diff --git a/kernel/unwind/sframe.c b/kernel/unwind/sframe.c
 
-> @@ -2,7 +2,54 @@
->  #ifndef _ASM_ARM64_UNWIND_SFRAME_H
->  #define _ASM_ARM64_UNWIND_SFRAME_H
->  
-> +#include <linux/module.h>
-> +#include <linux/sframe.h>
-> +#include <asm/sections.h>
-> +
->  #define SFRAME_REG_SP	31
->  #define SFRAME_REG_FP	29
->  
-> +static inline bool sframe_func_start_addr_valid(struct sframe_section *sec,
-> +						unsigned long func_addr)
+A subsequent patch adds a call to sframe_validate_section(), which would
+operate on the temporary struct sframe_section instance and thus fail
+to use container_of() to access the struct module instance.  To resolve
+change as follows:
+
+> +void sframe_module_init(struct module *mod, void *sframe, size_t sframe_size,
+> +			void *text, size_t text_size)
 > +{
-> +	/* Common case for unwinding */
-> +	if (sec->text_start <= func_addr && func_addr < sec->text_end)
-> +		return true;
-> +
-> +	if (sec->sec_type != SFRAME_KERNEL)
-> +		return false;
-> +
-> +	/*
-> +	 * Account for vmlinux and module code outside the normal .text section.
-> +	 * The toolchain still generates sframe data for these functions, so
-> +	 * sframe lookups on them should be allowed.
-> +	 */
-> +	if (sec == &kernel_sfsec) {
-> +		if (is_kernel_inittext(func_addr))
-> +			return true;
-> +
-> +		/* .exit.text is retained in vmlinux on arm64. */
-> +		if (func_addr >= (unsigned long)__exittext_begin &&
-> +		    func_addr < (unsigned long)__exittext_end)
-> +			return true;
-> +
-> +
+> +	struct sframe_section sec;
 
-Nit: Superfluous empty line (2 instead of 1).
+	struct sframe_section *sec = &mod->arch.sframe_sec;
 
-> +		/*
-> +		 * .rodata.text is never executed from the kernel mapping, but
-> +		 * still has sframe data
-> +		 */
-> +		if (func_addr >= (unsigned long)_srodatatext &&
-> +		    func_addr < (unsigned long)_erodatatext)
-> +			return true;
-> +	} else {
-> +		struct module *mod = container_of(sec, struct module,
-> +						  arch.sframe_sec);
+It is fine to initialize the module's struct sframe_section instance as
+use of the information is guarded by mod->arch.sframe_init, which is
+only set if the instance has been full initialized.
 
-This currently does not work properly when sframe_validate_section() is
-called from sframe_module_init(), which operates on a temporary struct
-sframe_section section, that is not (yet) the one in struct module.  See
-my feedback to the respective patch for how to resolve.
-
-> +		if (within_module_mem_type(func_addr, mod, MOD_INIT_TEXT))
-> +			return true;
-> +	}
 > +
-> +	return false;
+> +	memset(&sec, 0, sizeof(sec));
+
+Can be dropped if struct module instance got zero-initialized.
+
+> +	sec.sec_type	 = SFRAME_KERNEL;
+> +	sec.sframe_start = (unsigned long)sframe;
+> +	sec.sframe_end   = (unsigned long)sframe + sframe_size;
+> +	sec.text_start   = (unsigned long)text;
+> +	sec.text_end     = (unsigned long)text + text_size;
+
+Adjust all lines above to pointer access.
+
+> +
+> +	if (WARN_ON(sframe_read_header(&sec)))
+
+Ditto.
+
+> +		return;
+> +
+> +	mod->arch.sframe_sec = sec;
+
+Drop.
+
+> +	mod->arch.sframe_init = true;
 > +}
-> +#define sframe_func_start_addr_valid sframe_func_start_addr_valid
-> +
->  #endif /* _ASM_ARM64_UNWIND_SFRAME_H */
+Indu suggested that it would be preferable if a module's .sframe FDE
+index table could be sorted during loading of the module to enable
+binary search instead of having to resort to linear search.  I propose
+to change this patch as follows to sort the module .sframe FDE index
+table in sframe_module_init().  Note that the patch assumes above
+changes have been implemented.  The sorting is very similar to sorting
+of ORC tables in arch/x86/kernel/unwind_orc.c in unwind_module_init().
+
+diff --git a/kernel/unwind/sframe.c b/kernel/unwind/sframe.c
+--- a/kernel/unwind/sframe.c
++++ b/kernel/unwind/sframe.c
+@@ -12,6 +12,7 @@
+ #include <linux/mm.h>
+ #include <linux/string_helpers.h>
+ #include <linux/sframe.h>
++#include <linux/sort.h>
+ #include <linux/unwind_types.h>
+ #include <asm/unwind_sframe.h>
+ #ifdef CONFIG_HAVE_UNWIND_KERNEL_SFRAME
+@@ -1038,6 +1039,50 @@ void __init init_sframe_table(void)
+ 	sframe_init = true;
+ }
+ 
++static int sframe_sort_cmp_fde(const void *a, const void *b)
++{
++	const struct sframe_fde_v3 *fde_a = a, *fde_b = b;
++	unsigned long func_start_a, func_start_b;
++
++	func_start_a = (unsigned long)fde_a + fde_a->func_start_off;
++	func_start_b = (unsigned long)fde_b + fde_b->func_start_off;
++
++	return cmp_int(func_start_a, func_start_b);
++}
++
++static void sframe_sort_swap_fde(void *a, void *b, int size)
++{
++	struct sframe_fde_v3 *fde_a = a, *fde_b = b;
++	struct sframe_fde_v3 temp;
++	long delta;
++
++	/* Swap potentially unaligned FDE */
++	memcpy(&temp, fde_a, sizeof(struct sframe_fde_v3));
++	memcpy(fde_a, fde_b, sizeof(struct sframe_fde_v3));
++	memcpy(fde_b, &temp, sizeof(struct sframe_fde_v3));
++
++	/* Adjust FDE function start offset from FDE */
++	delta = (long)((unsigned long)fde_b - (unsigned long)fde_a);
++	fde_a->func_start_off += delta;
++	fde_b->func_start_off -= delta;
++}
++
++static int sframe_sort_fdes(struct sframe_section *sec)
++{
++	void *fdes = (void *)sec->fdes_start;
++	size_t num_fdes = sec->num_fdes;
++
++	if (sec->sec_type != SFRAME_KERNEL)
++		return -EINVAL;
++	if (sec->fdes_sorted)
++		return 0;
++
++	sort(fdes, num_fdes, sizeof(struct sframe_fde_v3),
++	     sframe_sort_cmp_fde, sframe_sort_swap_fde);
++	sec->fdes_sorted = true;
++	return 0;
++}
++
+ void sframe_module_init(struct module *mod, void *sframe, size_t sframe_size,
+ 			void *text, size_t text_size)
+ {
+@@ -1053,6 +1098,8 @@ void sframe_module_init(struct module *mod, void *sframe, size_t sframe_size,
+ 
+ 	if (WARN_ON(sframe_read_header(sec)))
+ 		return;
++	if (WARN_ON(sframe_sort_fdes(sec)))
++		return;
+ 	if (WARN_ON(sframe_validate_section(sec)))
+ 		return;
+ 
 Regards,
 Jens
 -- 
