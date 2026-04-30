@@ -4,136 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84AB3CD13D3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 21:30:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 865BDCCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 21:40:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zcNk7RepMt/ujrNFBx69IMbbsGm9Q1Adr/Bz78TzItI=; b=Z8OtvWx10sNE6RG5qnHe7VkoUq
-	Avf97x7JR0D01ZM8U+K6x5VW2Y9TTc1YO0QATVZ7Gl8TZD9f58eC0flLyzfyEZJ5JstiBshUhwdmD
-	ubJq8UzD3z9TmchUEDo5nzJnfFgvSTauXSmUyDSCd3zoRtMQf8PycBsGKnMMxxwFq4FBZ89XluRbN
-	4GDVia4ofqtGdjgIVVIL/OGfDiqsjBBCFZU7VaFoA5UbejlheTQJ6fAznt7qkzS610WuuBZj2+7Db
-	XYeJtlyT68y5mXP38Ao2vNyewCwesidUEw1Ci1QHmR81qvBqwX3bgtB8SgmQ1KtgkM+n2DQADvZa4
-	Rctj8d3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
+	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kOIVI/+QPMj+HcDRfkbB9Z0JXy5Jvv7wZtXW/0D7F14=; b=QsCoP2JF8tfEEW6cny6F72uEQC
+	jK9otrTflDmcaasxNpDEM5QwvmwTBhQOWSfIwiAU9pIVrI6zlIHB7I2L94E3/xXHPcbF0NQWtk0AE
+	6QhrbUqUQ/hAt+X9c8KV6ogxfU5GbhSjpgeXdNqrz13qkum+TSL6ImgmrVqLV9TdeMaYlKk/NuSh6
+	sD3k8/5l4k4+J8rmH5kYj44Gdi1FsWldsko0Xhn3THhcreuyUu6np7RJj7OP2ZyHX7+lAiPa14mj0
+	58sUXAaRKe1FnBcA8y3LWaCNZ2ac4Oz1DfEE61nXQeod/yfKru/J8KCcsISuUKbGMcLMQ49+u0BkB
+	zEBB7Mug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIYy9-00000005z1h-18zw;
-	Thu, 30 Apr 2026 21:30:49 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wIZ6s-0000000602L-3AKp;
+	Thu, 30 Apr 2026 21:39:50 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIYy6-00000005z10-10sj
+	id 1wIZ6p-00000006021-2yly
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 21:30:47 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63UKNQ23007817
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 21:30:44 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	zcNk7RepMt/ujrNFBx69IMbbsGm9Q1Adr/Bz78TzItI=; b=PYdHJ+2gsMrTzFJz
-	xgrHx1h071Un31Stlmm0MrLoOn9L4UjZmODPldQ6g2cL5Vq56mcbsU+OL929FnsW
-	xx0ubwfzoLEGy1NvjBlLfdA9RcsZbdYACmFmlMWdTeKEmHQ6Hj3AjVX3gzeKkHKO
-	TaDeUgtawC8ekirStawjWMaapgZOucTy4Gy+QOZSL04PkjUauLjvDeFZqQXsxsmn
-	UO9fQD/uVHWJHFdrXVW+XGvL1lQHmqeaC7hjLP0im8BIE7oNYFy6FY8woH4fggcu
-	lEYb3pYmMFa+aNH5uh3OmWnsHLKBM2PLRNDmAY86vbXgaXx64o+P4YikbzcDrySO
-	VMIEkw==
-Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dv54wb3vt-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 21:30:44 +0000 (GMT)
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-2ee5b73c5f2so1595996eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 14:30:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1777584644; x=1778189444; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zcNk7RepMt/ujrNFBx69IMbbsGm9Q1Adr/Bz78TzItI=;
-        b=dedU1xgQnD0zWf5w+VXm7ORbD7v+xzoDzJ/z6deANn463O56H+8oFeAXCzWsfT4kv8
-         npjXwcCsWsE2jJx9AFyGXf7rB1ZunAumhzFav5JenHJGbGAvzUf6j8gVgllYL0+cv/Yj
-         YpnJh2V2oXtsxkk5qeIhi1WjlPorxuOltAfXny+h04v0E2235VSqkqCwXtRwPZDEI9xN
-         xUr4F4vI16ou0OBWd4k2L7l7xwyn3Dv3M0yoKkht5ERYQxxAFOV3goZF+xeGH9C/N/2H
-         4pzEy6YcPPLvRlc63FKVqLJ3U0cmJpKnmLqQ1tW3pvc0opneb45M+vXbxBYmbUOWCjv0
-         IxzQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777584644; x=1778189444;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=zcNk7RepMt/ujrNFBx69IMbbsGm9Q1Adr/Bz78TzItI=;
-        b=sf5wdviOz0jimmzJDOvohQnJrly7uw6K96NejFw6Sa1LogUT2NxMp5O/fxpyRodnON
-         aztCjNjwWcsHPPROcbHyKpA9Kjz6hpAZd/lGa9xkU401RpYTjLfvrpnwg0tB5tRUz+0f
-         lXpwl61ZVLGQzCNpHrqVXX3kTWMa+5X+FxIZWKHS7UefivriLxGJiv1RpVzqcsng9JOg
-         M1jFx9fYY4hsBwJFA86Y1oxeGQ/PgAzf/NqQbWk/0ppTLqoumnCVfTw/iZ9pkn7OBWzs
-         RqzLWFh3VmHFjQ5Z+olaxYnFq7ndkelEIq1vEsZ7w8T79gz57s8S0jfm4ruUeYGCNxJb
-         Y9Kw==
-X-Forwarded-Encrypted: i=1; AFNElJ8mb3KTte/HZlD8JfV6lzYCKznl0NKQz/PYTAikTon91zp48+8tDd9QZQ7xzVCj6hgxr6HzJPIkL2WHC0MqFUr/@lists.infradead.org
-X-Gm-Message-State: AOJu0YxF1Hg877GZiimWVRwpVvq6MKrSUoJOq0sWKkA3ahWU9ZfMbnuU
-	CjJpQBskHXlvaIaHG7iNbl+jcri/1268ZG+nlbq9lagFdcFzrFqUXWy6qANJhl913dnT7W1zrnl
-	6eZEsoywLk11l9YVhhbJnOREYcKSKLRa+i4aMifW+kQU40lR53fczrcUYhzPRq0H0rxIgE2TrS9
-	RIg+JCoJKxmA==
-X-Gm-Gg: AeBDievamFUY3WvzTmfSNMa6CPPVRlp5lcbJKFMxsVIRsAcm6r/0nEYeAe8n61ThlKe
-	DgwfkFL2wAm8hQnLCwWm7KRqNd67bbTBSOsE5QMZTxKFdDEknCFPPOL7QJ6cDZkR6LFXLPvo+EI
-	92Z54MuZZamMnMCKycyR5bsrn1UggiuNaHpvEMAH5MbBCcCS6oYOPb30psNemPFRh2Q18fKcuz2
-	oepd4YgR5goq4aXngPBduhn4maTSi9c52+mveUAL5N8Je6xm5YnVynxZnl7zKvodQMAOJaL7A+r
-	82GROx+DU+kFSzNSr6V6ByvA9M3kjsg9oc8aVDGkwe+SMlnJYdEok6fU93ezKnsi2YRVigrqN6D
-	vpKiibUgUnThHKkGP2+zARofLiHMs4tPotyxzktuuWyKyRyuFnbFMgm6oyX9KsmTes1BQI8s7jZ
-	AxB+klO+G8QYI=
-X-Received: by 2002:a05:7301:3e19:b0:2d4:62f0:b2d4 with SMTP id 5a478bee46e88-2ed3cabac36mr2315492eec.13.1777584643498;
-        Thu, 30 Apr 2026 14:30:43 -0700 (PDT)
-X-Received: by 2002:a05:7301:3e19:b0:2d4:62f0:b2d4 with SMTP id 5a478bee46e88-2ed3cabac36mr2315475eec.13.1777584642905;
-        Thu, 30 Apr 2026 14:30:42 -0700 (PDT)
-Received: from hu-jjohnson-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2ee38d79eb9sm2504861eec.8.2026.04.30.14.30.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Apr 2026 14:30:42 -0700 (PDT)
-From: Jeff Johnson <jeff.johnson@oss.qualcomm.com>
-To: linux-wireless@vger.kernel.org, Rosen Penev <rosenp@gmail.com>
-Cc: =?utf-8?q?Toke_H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>,
-        =?utf-8?q?Andreas_F=C3=A4rber?= <afaerber@suse.de>,
-        Manivannan Sadhasivam <mani@kernel.org>,
-        linux-arm-kernel@lists.infradead.org,
-        linux-actions@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260223224254.27081-1-rosenp@gmail.com>
-References: <20260223224254.27081-1-rosenp@gmail.com>
-Subject: Re: [PATCH ath-next] wifi: ath9k: owl: move name into
- owl_nvmem_probe
-Message-Id: <177758464176.1848985.2839439458090634520.b4-ty@oss.qualcomm.com>
-Date: Thu, 30 Apr 2026 14:30:41 -0700
+	Thu, 30 Apr 2026 21:39:48 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63UIajDr3450963;
+	Thu, 30 Apr 2026 21:39:25 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=kOIVI/
+	+QPMj+HcDRfkbB9Z0JXy5Jvv7wZtXW/0D7F14=; b=oRjQHFqOjgoh8bR44BKl9b
+	rRvXpyK/+UTyo8imSHCOv2sb0NPNfDRSJ46DNCHg7+OGytYAhSoVbJaaE2TZkcVH
+	gZQLCX2jaJSldz/w1sN52F1//jwnoSOOcN+ucSW6tT/2Tms7Ouo6K5ZHOKgR65s3
+	4IIs+HleWRwjdrkO/CpC1X2ZthQ0LkYFZJf1gAyWng2U/ABXq+HuHw8ZJ/8Y3egC
+	Oia2PWf3exlP9CSMRlrldI3S8fqrzBf8SZpimF5mcFj51qApn0wK2p9sMO91VFgg
+	Eii6QEzF+kbSLUIIW2tzUgBt3FrYI81pJE4ThMW+bXF2WVzVQLlicc5wF3+e/gsw
+	==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4drnb5j2q5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 30 Apr 2026 21:39:25 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63ULcqx0017093;
+	Thu, 30 Apr 2026 21:39:23 GMT
+Received: from smtprelay07.dal12v.mail.ibm.com ([172.16.1.9])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4ds8aw51ra-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 30 Apr 2026 21:39:23 +0000 (GMT)
+Received: from smtpav02.dal12v.mail.ibm.com (smtpav02.dal12v.mail.ibm.com [10.241.53.101])
+	by smtprelay07.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63ULdN3E30016018
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 30 Apr 2026 21:39:23 GMT
+Received: from smtpav02.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 194125805A;
+	Thu, 30 Apr 2026 21:39:23 +0000 (GMT)
+Received: from smtpav02.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 9D6F558051;
+	Thu, 30 Apr 2026 21:39:21 +0000 (GMT)
+Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.61.47.107])
+	by smtpav02.dal12v.mail.ibm.com (Postfix) with ESMTP;
+	Thu, 30 Apr 2026 21:39:21 +0000 (GMT)
+Message-ID: <9f188536f09a2db30877d6bfbb84aeaf2565cccf.camel@linux.ibm.com>
+Subject: Re: [PATCH] ima: debugging late_initcall_sync measurements
+From: Mimi Zohar <zohar@linux.ibm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: Jonathan McDowell <noodles@earth.li>,
+        linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-integrity@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        kvmarm@lists.linux.dev, paul@paul-moore.com, jmorris@namei.org,
+        serge@hallyn.com, roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
+        eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
+        sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
+        joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+        catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
+        sebastianene@google.com
+In-Reply-To: <afMlgstqahnZg68h@e129823.arm.com>
+References: <cover.1777036497.git.noodles@meta.com>
+	 <7734099f5e7fda5480bca016a9e6707983325fbd.camel@linux.ibm.com>
+	 <afMlgstqahnZg68h@e129823.arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Date: Thu, 30 Apr 2026 17:39:21 -0400
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
-X-Proofpoint-GUID: HMivkS3cW1TFM7xUmieJaYUkk1oAyTgh
-X-Authority-Analysis: v=2.4 cv=Rrf16imK c=1 sm=1 tr=0 ts=69f3ca04 cx=c_pps
- a=PfFC4Oe2JQzmKTvty2cRDw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=EUspDBNiAAAA:8 a=loNhbsbYXzCzQw8Vos0A:9 a=QEXdDO2ut3YA:10
- a=6Ab_bkdmUrQuMsNx7PHu:22
-X-Proofpoint-ORIG-GUID: HMivkS3cW1TFM7xUmieJaYUkk1oAyTgh
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDMwMDIyMiBTYWx0ZWRfX9jQaOUERdK0p
- Y8Y0F3caZC931S5V6S+pvjDynW+aUIPdrPA1TAWgGd2TkKFNFNsGQY836CuhsTIdm03XLDpb+ig
- SO3Dv2XgrU16cs4oE6MMw5jiXdFEGPRAb3fubTajfx+wgUinqguW+5Zc9W+d+TW2iP1g6ODMyxM
- 10m3S3tczCSTwxo69zHlQZ9dBgV3o5FP4PIu9EUorrRnJG87Wxye4BzxwaiqW3epXSfMnKHFy2o
- XGyDSNwNXu2pEsl1pViE5Ta0tzti4JuOcwZu0vQ+1wexapintCE+m3UZe+Fi/YJxytv2Hu7a02N
- SCcSE4BdntOgjM8aZwYZFaGCe855B42LZ1PwAwyfsTtzWvKttduk0zAwMTgrR122eN/rDDKpuAM
- hPN+Vm3xrYJH64TCD6vcbZHqvjyqxvcxGT2vRsJFDmJWUB8Uim6eUsK6oURgeaSwBYuOl2jyN++
- QmxtwmMtzx8g5k/1wfQ==
+User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Authority-Analysis: v=2.4 cv=AqDeGu9P c=1 sm=1 tr=0 ts=69f3cc0d cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=VwQbUJbxAAAA:8
+ a=7CQSdrXTAAAA:8 a=kfywWr5o1HTmsyUdr2YA:9 a=QEXdDO2ut3YA:10
+ a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDMwMDIyMCBTYWx0ZWRfX/y+c23+jpmeu
+ M3AYFTUdxehwWfGkJlDLCf1MS7bbT4l1GwAZ04l+V2oa6kzKxAUVeEGWoJgEDL2quUNdvYd/8ap
+ D8N2H3RUgwxO48BK/3OtRm6HA/2RIxz14cB+oOCXscn9JG1yAwihNdeQx+vLVVgr5l+HNv0zInW
+ 4Pokd6oTcgWCMmPy2shY0IUPrerH3e1aflyh6gwoRfiuSAT2rpdewJC0x5eM/MnE98AC7dR9N+2
+ vj+BvbwSZzQRN6rEFzF30YMD/5C2ncENz70GOAgYrulva+FKbLT9o62gS917iFEBjigaHBZ8ekc
+ sc03GBWBB2Uc/mPpPb4gJq08/DjspmF/bdQ8clkpOXTfPHRqNlgntJ+/t2mHikSeYqlqjNtIYBw
+ DD+NeTVY995nA/59OyvJ0cqR9PwGg34Hs/RI0aVP9p3RJZrU3p1hrTyXYj19oJnjvF7KBB3sE9Q
+ 8imcv3q0SfqXDv0QqDQ==
+X-Proofpoint-GUID: MBkBhuJvcbCVEra9xd0J21Vsh6VKtCRY
+X-Proofpoint-ORIG-GUID: QtCnuy_nwfyJU8UBcsSswD-9mCQeQJY8
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-04-30_06,2026-04-30_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 spamscore=0 suspectscore=0 priorityscore=1501 clxscore=1011
- impostorscore=0 lowpriorityscore=0 adultscore=0 malwarescore=0 bulkscore=0
+ adultscore=0 priorityscore=1501 phishscore=0 suspectscore=0 clxscore=1015
+ lowpriorityscore=0 spamscore=0 bulkscore=0 impostorscore=0 malwarescore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604300222
+ reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604300220
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_143046_464648_4F2725A4 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20260430_143947_762630_958E06A3 
+X-CRM114-Status: GOOD (  10.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,24 +130,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 2026-04-30 at 10:48 +0100, Yeoreum Yun wrote:
+> With above change I confirmed there is no meaurement log
+> between boot_aggregate and boot_aggregate_late except "kernel_version"
+> But this is ignorable since this UTS measurement is done in
+> "ima_init_core() (old: ima_init())" and it is part of ima initialisation.
+>=20
+> 1. ima_policy=3Dtcb
+>=20
+>   # cat /sys/kernel/security/ima/ascii_runtime_measurements
+>   10 0adefe762c149c7cec19da62f0da1297fcfbffff ima-ng sha256:0000000000000=
+000000000000000000000000000000000000000000000000000 boot_aggregate
+>   10 4e5d73ebadfd8f850cb93ce4de755ba148a9a7d5 ima-ng sha256:0000000000000=
+000000000000000000000000000000000000000000000000000 boot_aggregate_late
+>   10 7c23cc970eceec906f7a41bc2fbde770d7092209 ima-ng sha256:72ade6ae3d35c=
+fe5ede7a77b1c0ed1d1782a899445fdcb219c0e994a084a70d5 /bin/busybox
+>   10 17ec669c65c401e5e85875cf2962eb7d8c47595f ima-ng sha256:dc6b013e9768d=
+9b13bcd6678470448090138ca831f4771a43ce3988d8e54ffce /lib/ld-linux-aarch64.s=
+o.1
+>   10 58679a66ac1de17f02595625a8fbeafa259a4c81 ima-ng sha256:494f62bcfb2fc=
+f1b427d5092fafa62c8df39a83b4a64402620b28846724f237f /usr/lib/libtirpc.so.3.=
+0.0
+>   10 42f74ee200434576e33be153830b3d55bbe6d2bf ima-ng sha256:a18856b4f6927=
+bc2b8dd4608c0768b8f98544a161b85bf4a64419131243ad300 /lib/libresolv.so.2
+>   10 626b4f7bd4f123d18d3a3d8719ed0ae19ee5f331 ima-ng sha256:b8d442de5d31c=
+3f9d1bbb98785f04d4a23dc53442b286d85d4b355927cbe9af4 /lib/libc.so.6
+>   10 655a200869696207646377a58cab417fd35b09d2 ima-ng sha256:ad46146b6dd32=
+b47213e5327f1bb2f962ef838a4b707ef7445fa2dbc9019b44f /etc/inittab
+>   10 81353202685e022fcd0069a3b2fc4eaa6b1db537 ima-ng sha256:74d698fe0a686=
+2050af29083aa591c960ec1f67be960047e96bb6be5fc2bc0c0 /bin/mount
+>   10 ae64184ee607ef8f3aa08ab52cb548318534fd4b ima-ng sha256:27846b57e8234=
+c6a9611b00351f581a54ad6f9a1920b9aa18ceb0ae28e4f7564 /lib/libmount.so.1.1.0
+>   10 5ea01f34e7705d1bdb936fd576e2aeb5fd78dab9 ima-ng sha256:3d2a414ec0355=
+fcf0910224fb4a3c53e13d98731a35241edfdf4fb911ed9b210 /lib/libblkid.so.1.1.0
+>   10 22c48b4853594a08a73ad4ae6dbe6f2c2bebc6c5 ima-ng sha256:e3b0c44298fc1=
+c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 /run/utmp
+>   10 3024ea5021f8a5d9fb4bd519d599bdca43b7fb93 ima-ng sha256:71ea9ffe2b30e=
+5a9bdceff78785cf281cc41544474db8dc4605a06a597ce1edc /etc/fstab
+>   10 2e7530a0f56420991ac7611734cea4774b92b9ef ima-ng sha256:df4697d699442=
+cfe73db7cc8b4c1b37e8a31e75e01f66a0d70134ac812fa683b /bin/mkdir
+>   10 3ad117a863aa1ed7b7c09e1d106f84abf7d2ae96 ima-ng sha256:c19a710989b43=
+222431b02399273dba409fe10ca8eefff88eaa936fa695f8324 /bin/ln
+>   10 4141c82cb516ac3c846e0b08abcd6abeee7efa1a ima-ng sha256:b75d7f28772f7=
+1715a941c77e07e3922815391dd9cc5718ad21f2231c2da09bb /etc/hostname
+>   10 dfcedd3c7dc3ed42e09219804504489ab264e2e3 ima-ng sha256:dc1615df9f201=
+2b20b81ffad8e07e16293039ba7fd897854ca3646d6cfea0c0f /etc/init.d/rcS
+>   ...
+>=20
+> 2. ima_policy=3Dcritical_data
+>=20
+>   # cat /sys/kernel/security/ima/ascii_runtime_measurements
+>   10 0adefe762c149c7cec19da62f0da1297fcfbffff ima-ng sha256:0000000000000=
+000000000000000000000000000000000000000000000000000 boot_aggregate
+>   10 49ab61dd97ea2f759edcb6c6a3387ac67f0aa576 ima-buf sha256:0c907aab3261=
+194f16b0c2a422a82f145bc9b9ecb8fdb633fa43e3e5379f0af2 kernel_version 372e312=
+e302d7263312b // Ignorable since it's generated by ima_init(_core)().
+>   10 4e5d73ebadfd8f850cb93ce4de755ba148a9a7d5 ima-ng sha256:0000000000000=
+000000000000000000000000000000000000000000000000000 boot_aggregate_late
+>=20
+> Therefore, init_ima() could move into late_initcall_sync like v1 did:
+>   - https://lore.kernel.org/all/20260417175759.3191279-2-yeoreum.yun@arm.=
+com/
 
-On Mon, 23 Feb 2026 14:42:54 -0800, Rosen Penev wrote:
-> There is no need for dynamic allocation for a simple string.
-> request_firmware_nowait copies the string internally anyway.
-> 
-> The error message on failure is also wrong. It's an allocation failure,
-> not a find failure.
-> 
-> 
-> [...]
+Thanks, Yeoreum.  It's a bit premature to claim it's "safe" to move the
+initcall.  Hopefully others will respond.
 
-Applied, thanks!
-
-[1/1] wifi: ath9k: owl: move name into owl_nvmem_probe
-      commit: 7b2338d5ec6fee29f92fae791219ab9fbd206567
-
-Best regards,
--- 
-Jeff Johnson <jeff.johnson@oss.qualcomm.com>
-
+Mimi
 
