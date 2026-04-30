@@ -4,60 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A2BBFF8873
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 16:30:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A230FF8873
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 16:40:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0Syc2AhxUW6Zx9jl/D9s3rfupPcLOawoGrGFwJ+jOe0=; b=VCAKo6tpHO3NAPjvt3rTY9dJ+2
-	5bEdWLYVeDQCSsPdwqZ1hHKY2OAbfK6b6lEb8dGmDG8n6g9MyE/NreV2wU1Qj3fqK9QnhkXZm5iOH
-	4HGfwAF5qoNx9QKVtdGs46NbrtVTKkjBE1UPSyg6CrohxMGKZO6oEyUUcbIXSsnuPMcyL0KVWtIzp
-	X4PIJD/y5FHw1pzqTJCuEesmgmhkhPKcfas0HfZmuIffxW2EfDHJkiguPLTKodyymYQrjDwIdH6ka
-	/7MbwgSzDzNVcqhn4h9amh5s4rNT/bb203TfZW53Akje55paBfY+H7o3WyzXmn8+5Rh+mrslYFU9H
-	9aS6meXQ==;
+	bh=Pdm0Q5wvmCn6GgEqOUMjbFnoJ2kFK5BaF9LzslBFdQE=; b=JVVWHSVGA3vTpMboZA+tFhhQF0
+	Rnu81qQUakFp1+U3RNDjmEbdUM8bC+nRC8wYkiCmxTsBwwLfbKYGMITBkPRFGBCIMXCM1Zv7mnds8
+	1wvbsTgRx6U4+DHlxWpOg6+mxGO/hNALxDTukEpYyA9CuwhSjoKqjR5/GhggO/+/B9kmHDet8Dnkv
+	TtBxrvBYqyrmmJL6zfkhrE+IhCfanZcsfHLpOeBKRetGtbveHFxF45HtfELk6gTsBc6p9It8fpRJO
+	+4iIj0qUocbfYMyQGAV8Sz5mOlt6qB0hCOwmPhA0/cJKAZVvbbVaCx32GkRMYps8idOeKS5HsS9BL
+	CkUUXC9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIUHV-00000005jSS-1zGn;
-	Thu, 30 Apr 2026 16:30:31 +0000
-Received: from m16.mail.163.com ([220.197.31.3])
+	id 1wIUQx-00000005k6m-18fj;
+	Thu, 30 Apr 2026 16:40:15 +0000
+Received: from m16.mail.163.com ([220.197.31.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIUHR-00000005jRr-459F
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 16:30:27 +0000
+	id 1wIUQt-00000005k5H-3qoF;
+	Thu, 30 Apr 2026 16:40:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=0S
-	yc2AhxUW6Zx9jl/D9s3rfupPcLOawoGrGFwJ+jOe0=; b=cyMuGCiifNl5ImNjvx
-	7uxKZWCh7CCDGxlDTy408JzcTjSXPACWk1Eb3INfit1OWR1VGgtMvX8Kiw8wBizc
-	ev/8sdhM8LZu6NvVlN5pbxkLGRxBUy7Ua08jKXZG8kWomVie5/7KW+fX3f6aN/Ew
-	6WfiVvi9w9bnv2vyI1ivxNJpI=
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Pd
+	m0Q5wvmCn6GgEqOUMjbFnoJ2kFK5BaF9LzslBFdQE=; b=TCAFEOLoYE9t+l126j
+	uiN+UYc+AS0VC7guWxrC55BnHg12MgNlGinScfkU2dxPFg6kHgRKAXeAYuQ7YXvF
+	ObdfoQ+Mlq7+Dmnwf6K9pbFDRuz4m4LvxVzz04WxWWZQvr8RZz3JM8HnkBJza/nD
+	j85BWvzv1qRavZaFLvDOfS7y0=
 Received: from zhb.. (unknown [])
-	by gzsmtp5 (Coremail) with SMTP id QCgvCgA3LKiDg_NpvQYdCA--.8419S2;
-	Fri, 01 May 2026 00:29:58 +0800 (CST)
+	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wDnUmm+hfNptZrZCg--.19910S2;
+	Fri, 01 May 2026 00:39:27 +0800 (CST)
 From: Hans Zhang <18255117159@163.com>
-To: maz@kernel.org,
-	tglx@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
+To: Thinh.Nguyen@synopsys.com,
+	gregkh@linuxfoundation.org,
+	peter.griffin@linaro.org,
+	andre.draszik@linaro.org,
+	tudor.ambarus@linaro.org,
+	mathias.nyman@intel.com,
+	chunfeng.yun@mediatek.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	badhri@google.com,
+	heikki.krogerus@linux.intel.com
+Cc: linux-usb@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
 	Hans Zhang <18255117159@163.com>
-Subject: [PATCH] irqchip/gic-v3-its: Use FIELD_MODIFY()
-Date: Fri,  1 May 2026 00:29:54 +0800
-Message-Id: <20260430162954.44156-1-18255117159@163.com>
+Subject: [PATCH 0/6] usb: Use FIELD_MODIFY() for bitfield operations
+Date: Fri,  1 May 2026 00:39:13 +0800
+Message-Id: <20260430163919.47372-1-18255117159@163.com>
 X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: QCgvCgA3LKiDg_NpvQYdCA--.8419S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7urW7uF4fKF43Xr47WF4rKrg_yoW8CFW5pr
-	WfKFWIvF4xWa47Xa1fKF1kuF1rtr4DKa4xKFW7Ww1v9w1UJ3yktr48tryagr1Sqry7JrWj
-	9rWrtryruw45AF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pRgtx7UUUUU=
+X-CM-TRANSID: _____wDnUmm+hfNptZrZCg--.19910S2
+X-Coremail-Antispam: 1Uf129KBjvdXoW7JryfZFyfCF45tw1UWF4rXwb_yoWftrb_AF
+	ykuF4ftw1DWFWakFyUC3savrZ8urWkZrnYvF1vq3W3K3srKr1rXr1vyrW8J3W3ZFW8uF1v
+	qF4DWryS9FZ7AjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7sRKFALPUUUUU==
 X-Originating-IP: [240e:b8f:927e:5900:c497:d540:b00d:97f4]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbC7AZZ-Gnzg4aCzgAA3c
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbC7B-ni2nzhb-ZWQAA3-
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_093026_348481_A35CC44D 
-X-CRM114-Status: UNSURE (   9.36  )
+X-CRM114-CacheID: sfid-20260430_094012_339446_D0EBCF40 
+X-CRM114-Status: UNSURE (   4.92  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -73,51 +84,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use FIELD_MODIFY() to remove open-coded bit manipulation.
-No functional change intended.
+Replace open-coded bitfield modifications with the standard FIELD_MODIFY()
+macro across multiple USB drivers (dwc3, xhci, typec). This improves
+readability and adds compile-time checking without functional changes.
 
-Signed-off-by: Hans Zhang <18255117159@163.com>
 ---
- drivers/irqchip/irq-gic-v3-its.c | 12 ++++--------
- 1 file changed, 4 insertions(+), 8 deletions(-)
+Hi, If the Maintainers think it's not necessary, please ignore it.
+---
 
-diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index 291d7668cc8d..e78795b7acfd 100644
---- a/drivers/irqchip/irq-gic-v3-its.c
-+++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -4784,8 +4784,7 @@ static bool __maybe_unused its_enable_quirk_cavium_22375(void *data)
- 	struct its_node *its = data;
- 
- 	/* erratum 22375: only alloc 8MB table size (20 bits) */
--	its->typer &= ~GITS_TYPER_DEVBITS;
--	its->typer |= FIELD_PREP(GITS_TYPER_DEVBITS, 20 - 1);
-+	FIELD_MODIFY(GITS_TYPER_DEVBITS, &its->typer, 20 - 1);
- 	its->flags |= ITS_FLAGS_WORKAROUND_CAVIUM_22375;
- 
- 	return true;
-@@ -4805,8 +4804,7 @@ static bool __maybe_unused its_enable_quirk_qdf2400_e0065(void *data)
- 	struct its_node *its = data;
- 
- 	/* On QDF2400, the size of the ITE is 16Bytes */
--	its->typer &= ~GITS_TYPER_ITT_ENTRY_SIZE;
--	its->typer |= FIELD_PREP(GITS_TYPER_ITT_ENTRY_SIZE, 16 - 1);
-+	FIELD_MODIFY(GITS_TYPER_ITT_ENTRY_SIZE, &its->typer, 16 - 1);
- 
- 	return true;
- }
-@@ -4840,10 +4838,8 @@ static bool __maybe_unused its_enable_quirk_socionext_synquacer(void *data)
- 		its->get_msi_base = its_irq_get_msi_base_pre_its;
- 
- 		ids = ilog2(pre_its_window[1]) - 2;
--		if (device_ids(its) > ids) {
--			its->typer &= ~GITS_TYPER_DEVBITS;
--			its->typer |= FIELD_PREP(GITS_TYPER_DEVBITS, ids - 1);
--		}
-+		if (device_ids(its) > ids)
-+			FIELD_MODIFY(GITS_TYPER_DEVBITS, &its->typer, ids - 1);
- 
- 		/* the pre-ITS breaks isolation, so disable MSI remapping */
- 		its->msi_domain_flags &= ~IRQ_DOMAIN_FLAG_ISOLATED_MSI;
+Hans Zhang (6):
+  usb: dwc3: Use FIELD_MODIFY()
+  usb: dwc3: google: Use FIELD_MODIFY()
+  usb: dwc3: dwc3-octeon: Use FIELD_MODIFY()
+  usb: xhci: Use FIELD_MODIFY()
+  usb: xhci-mtk: Use FIELD_MODIFY()
+  usb: typec: Use FIELD_MODIFY()
+
+ drivers/usb/dwc3/core.c        | 12 ++++--------
+ drivers/usb/dwc3/dwc3-google.c |  5 ++---
+ drivers/usb/dwc3/dwc3-octeon.c | 11 ++++-------
+ drivers/usb/host/xhci-hub.c    |  5 ++---
+ drivers/usb/host/xhci-mtk.c    |  6 +++---
+ drivers/usb/typec/tcpm/tcpci.c | 11 ++++-------
+ 6 files changed, 19 insertions(+), 31 deletions(-)
+
 
 base-commit: 3b3bea6d4b9c162f9e555905d96b8c1da67ecd5b
 -- 
