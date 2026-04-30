@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A61AFF886F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 09:14:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 585FCFF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 09:21:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WCVoQLzeSnEIV6g9VauqYrzXA45pGA73bVfYhY5Hkas=; b=sBtDfVn4rHWhpUYPpZeBMdz/Rs
-	D+3Y09Qat5rmoVINiUzWSSHX3g60j+/wosye2/jQFDnjd+9CVqEC3G5nVDK15VsPLM83dOvsG7z10
-	jp7ImDU/rVR9u7MfUBleq58TbNHOVnQPc7mpysGxCKLMpRwUE/INWzTmbMxM5hrpRscJpvR/cgPhN
-	+vKf+uRkmqzANKB8DyuqOaw6V8JeaJENatBkxd7D6re7UV6sTvE35CqseCNkDVD3LhB7omnaucmPA
-	YhbFS32eYKnfHzmf7l3/6wIquInzmqGvOszMFEPTllWqeQM91WeQmPNJxonv3OmiuhG2MRODQxJtj
-	TnaOZ4Aw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LAtR5P4HjzDS5S4/8twG1WZlBNGdlqU/FR0a99IMmqE=; b=LtlfwYApf1/aoJnQLEGMteFiBz
+	welSogOCdF1LHT2oeBO7BqAyGugD2ZZSs1ld/5R/Y1WK9gFZRxUrPoY23vF4IaUQ86GUxQ3JeV2SA
+	mPwHQOaewiBfxpztl2RyvlYuP+9FtAEy8HhVRxsaTxFa0xu6Ptso6AZfT3IGXv30KMQv+Wo9szLfl
+	K4nsriGFe+gA8BhDAnWqT8Zy4oiCJzhNBRMl9MW39tG2Mmfj4MR6qzI2RlYKKgp1LB9ccCMGbvTG/
+	C6KUKtLVl7QTRzC4H4D3WBHVSa1jnkKioBJc3vp1sI6ci9mCmQr2gjtB65r5r2c3bjK1ArEoSxa+T
+	XmN843yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wINT1-000000054xf-2Icq;
-	Thu, 30 Apr 2026 09:13:55 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wINSy-000000054xJ-49jM
+	id 1wINZl-000000055YR-1ZXD;
+	Thu, 30 Apr 2026 09:20:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wINZg-000000055Xg-32MH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 09:13:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3274E4019D;
-	Thu, 30 Apr 2026 09:13:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 116A3C2BCB3;
-	Thu, 30 Apr 2026 09:13:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777540432;
-	bh=UdNB1egWYjpUHiiwp2CFfEtBa7QoII0RZrh0xQbjLGM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RAtE09c/Pq4kL4koWknd9JnUKr6X7YSZn8+aOr84h3F8VuzIw9nGbNfYjzgVOVStb
-	 PfZ9zaOTiIdfH7QSRpAadzDY3cLewijCk+xAKzI+08bUll2fq9Ac8VjZg6db9HFPG1
-	 bg3amLo6SkLBFzvfr1DGUGaG/7WQ6Ra3wgdcjtvFTtCMd+AfW6GXuFBMv+EXt8mt9J
-	 +izL3jjVhVoBhyblugNDVbjqVTz/FELwo9lXE31lUJNQTyOBKUja2qtbICMUob7K0a
-	 QeW/C1DlNJOogoiSoUaxU4nLGbvLrdHYhfEKggYjgL2F245krxrYnQ2fnCBkIOAg3t
-	 uEfbvQj29D0Qg==
-Date: Thu, 30 Apr 2026 10:13:48 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, arm-scmi@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 1/2] firmware: arm_scmi: imx: Support getting reset
- reason of MISC protocol
-Message-ID: <20260430-private-versatile-jacamar-fd932f@sudeepholla>
-References: <20260305-scmi-imx-reset-v1-0-18de78978ba9@nxp.com>
- <20260305-scmi-imx-reset-v1-1-18de78978ba9@nxp.com>
- <20260318-savvy-courageous-mule-b3f9ae@sudeepholla>
+	Thu, 30 Apr 2026 09:20:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 619F41A9A;
+	Thu, 30 Apr 2026 02:20:41 -0700 (PDT)
+Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A06173F7B4;
+	Thu, 30 Apr 2026 02:20:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1777540846; bh=rEuYE3BOp0rZUoRuwFkMAOix88kidy9F1/N55h8chlI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=te8cLsXc/9padMNn1HNRnZmVeeS4irCJgGQmkQUJx4a0oAGiUezq/YFx/bt1hZWB+
+	 POTepneGGzzLeDhIG4eJ7QNqLdMl+Fim4jSGEYfDdhhOMh7KsHE6bFLb79b30UpwCB
+	 Eka39O2o43ZkyU0GGXm69bd6Sp8vsAt7UpJDuVVM=
+Message-ID: <fc96c088-f767-4bf2-b58b-d4e91b0acde4@arm.com>
+Date: Thu, 30 Apr 2026 11:20:42 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260318-savvy-courageous-mule-b3f9ae@sudeepholla>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/5] arm_mpam: detect and enable MPAM-Fb PCC support
+To: Sudeep Holla <sudeep.holla@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Hanjun Guo <guohanjun@huawei.com>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu
+ <fenghuay@nvidia.com>, Jonathan Cameron <jic23@kernel.org>,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260429141339.3171205-1-andre.przywara@arm.com>
+ <20260429141339.3171205-6-andre.przywara@arm.com>
+ <20260430-brave-hoatzin-of-fascination-e7d4ad@sudeepholla>
+Content-Language: en-US
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20260430-brave-hoatzin-of-fascination-e7d4ad@sudeepholla>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_021353_069781_61889373 
-X-CRM114-Status: GOOD (  15.39  )
+X-CRM114-CacheID: sfid-20260430_022050_760982_47F9997C 
+X-CRM114-Status: GOOD (  20.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,32 +79,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 18, 2026 at 03:25:03PM +0000, Sudeep Holla wrote:
-> On Thu, Mar 05, 2026 at 09:56:44AM +0800, Peng Fan (OSS) wrote:
-> > From: Peng Fan <peng.fan@nxp.com>
-> > 
-> > MISC protocol supports getting reset reason per Logical Machine or
-> > System. Add the API for user to retrieve the information from System
-> > Manager.
-> > 
-> 
-> Sorry for missing this earlier. It looks good though my usual rant is that
-> this MISC protocol is becoming never ending dumping ground for all sorts of
-> info you want kernel to dump in dmesg. Anyways, I am not too bothered as it
-> is not any user ABI.
-> 
-> If, you plan to ask i.MX maintainers to pick this up,
-> 
-> Reviewed-by: Sudeep Holla <sudeep.holla@kernel.org>
-> 
-> If not, I need their ack for 2/2/
-> 
+Hi Sudeep,
 
-I have left it in my -next queue assuming I would get ack if I need to take
-it. But I haven't received any, so not sure if I need to take it or drop it
-assuming it will go via i.MX tree ?
+thanks for having a look!
 
--- 
-Regards,
-Sudeep
+On 4/30/26 10:35, Sudeep Holla wrote:
+> On Wed, Apr 29, 2026 at 04:13:39PM +0200, Andre Przywara wrote:
+>> The Arm MPAM-Fb specification [1] describes a protocol to access MSC
+>> registers through a firmware interface. This requires a shared memory
+>> region to hold the message, and a mailbox to trigger the access.
+>> For ACPI this is wrapped as a PCC channel, described using existing
+>> ACPI abstractions.
+>>
+>> Add code to parse those PCC table descriptions associated with an MSC,
+>> and store the parsed information in the MSC struct.
+>> This will be used by the MPAM-Fb access wrapper code.
+>>
+>> [1] https://developer.arm.com/documentation/den0144/latest
+>>
+>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+>> ---
+>>   drivers/acpi/arm64/mpam.c      |  2 ++
+>>   drivers/resctrl/mpam_devices.c | 46 +++++++++++++++++++++++++++++++---
+>>   2 files changed, 45 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/drivers/acpi/arm64/mpam.c b/drivers/acpi/arm64/mpam.c
+>> index 99c2bdbb3314..edb4d10e8dc3 100644
+>> --- a/drivers/acpi/arm64/mpam.c
+>> +++ b/drivers/acpi/arm64/mpam.c
+>> @@ -341,6 +341,8 @@ static struct platform_device * __init acpi_mpam_parse_msc(struct acpi_mpam_msc_
+>>   	} else if (iface == MPAM_IFACE_PCC) {
+>>   		props[next_prop++] = PROPERTY_ENTRY_U32("pcc-channel",
+>>   							tbl_msc->base_address);
+>> +		props[next_prop++] = PROPERTY_ENTRY_U32("msc-id",
+>> +							tbl_msc->identifier);
+> 
+> I may be looking at the wrong documents, but neither DEN0065 nor DEN0144 carry
+> any definitions of pcc-channel and msc-id for the device with HID
+> "“ARMHAA5C". Since "pcc-channel" is already merged, I think I am looking at
+> wrong documents, please point me to the right one.
+
+Please excuse my ignorance, but I was under the assumption that the 
+strings used here are just unique identifiers that need to match the 
+property_get calls in the MPAM code. Is there any requirement to match 
+those property_entry.name fields with the names given in some spec? And 
+those strings are kernel-internal only, right? But for DT would match 
+exactly the property names?
+
+Those properties correspond to fields in table 4 in DEN0065, as also 
+described in struct acpi_mpam_msc_node in include/acpi/actbl2.h:
+- There is "Identifier", that uses distinct IDs for PCC and native MSCs. 
+I named it msc-id, because I'd assume that to be a good name for any 
+(yet to be defined) DT property.
+- Then there is "Base address", which doubles as the "subspace ID of the 
+PCC channel", when MPAM-Fb is used. As you mentioned, this is already 
+in, and the original spec name would be very misleading, I think.
+
+So shall those strings be renamed to match the struct names? Or shall I 
+keep the more readable names as of now, and add comments linking them to 
+the spec/struct?
+
+Cheers,
+Andre
 
