@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ACCDCCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 11:15:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B49C0CD13D2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 11:15:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GhnoQEWy474d4+yw2Ieloa7sEAIOo+zhT42yDZ0ZSE0=; b=gED1E+ZP8xf1gW9VFXidB3ZcNc
-	NUNMeZs3GhXq6E94dFmB6siOnuJxGLyiwDFSvO7hed/5/X5vHLeGObr6IMUOTL82iesIgffwHJsjw
-	4iux6Umiw6+PGWhJVS9xXXMAUNoPmbAABgUNq62inYu49RFeM3zNj+IJQWZk9iHGJlrIbVU3x83qV
-	J8kceo83pWSvED4UX0YOJV2XMu+wGtZBeWeq66t10K37Nj8Yyq1MiMvz996EA0PSBoVGiNVDCwUww
-	oki/tbvz2QoiNNm0ohH2c2Qjti3nu4IW8ktbqtHG5S3171qRYlEjzbKwt0i9yfxlMEGOzjXyc10oD
-	AZDoCMrA==;
+	bh=PgdWVBKCOL7VAzvN+6N7kj6quWt2OaVA6CC5QLmsvTI=; b=f5Q+931Zp1IeP3S3qblvcZA0aD
+	TbkI/43j7HPavIyd1aNqPOzpgvZS6Ld5y7KZvglYSWZycJFKStC5Qm6ylJooUoUNUkNQE2+BMCRyR
+	Qp+7rxMY0Rc9OC3i2iEddBGNa4TrDdzOyZctrqXAXXlzmHKrUsJWDPncvFWCO0h+X4LaS27ZF/ogo
+	4wFfSPaJsaNITUQWnakdUYpn2rvOTJ5yJJ8T1C+YPV3bpGgjZU+ku8mlV7KFarRwUQxiVj/brRB2l
+	PAgKkBbUqVrHRh2hmmqtWZKOi9lxuOMusxbga2zsXqY0Eu3E+cyRq/D+uOdv7IbkggB+Mzmd8no1d
+	W4DThbzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIPN1-00000005LLG-3ItE;
-	Thu, 30 Apr 2026 11:15:51 +0000
+	id 1wIPN2-00000005LLg-0Ih3;
+	Thu, 30 Apr 2026 11:15:52 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIPMp-00000005LDc-0av7
+	id 1wIPMz-00000005LIz-0Cmj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 11:15:40 +0000
+	Thu, 30 Apr 2026 11:15:50 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 66D743547;
-	Thu, 30 Apr 2026 04:15:32 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C9EEF354E;
+	Thu, 30 Apr 2026 04:15:41 -0700 (PDT)
 Received: from devkitleo.cambridge.arm.com (devkitleo.cambridge.arm.com [10.1.196.90])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6D7723F763;
-	Thu, 30 Apr 2026 04:15:33 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D2D6D3F763;
+	Thu, 30 Apr 2026 04:15:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777547737; bh=gfrKgtXGA9jbSPGpNbN2YuT5jDSPo32v7BItwOrMJ6I=;
+	t=1777547747; bh=wZ+B2i5T+YTs9KjTiOk5jbT7BSpcv7bgMbQ7JYPWchg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=WzcC5e8aL5JvmjSDzEtK6LU52kY92jTkYQUdQus06jIGlfM2QzMb1ZF50zwPdtHdL
-	 txKodUqFM+OA+K3tdIslPl74Yrqp/NKOHH7S93Z40+fND3y8Bh4n3qFD5GMF/+yccX
-	 eXXg/NptcueB0TnV/K3ziiwsW/6AGDXQtzK4+KYw=
+	b=jjmBGAm/d8papjvaMBr0lo1UQvwyvDA/gKC4gwQknxiPPsQn2EBUvTJPXBWAI32bM
+	 XtnLw5KnXMhUvswEeFrI9/QT4uAVUsh+3jiUnpbhE9VQnwpNs4JG6GBaGbKQmbozQx
+	 M77mFI3b1VeX3w2ftIGOnqnDj+1UnWQrtgz5Tl5A=
 From: Leonardo Bras <leo.bras@arm.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -80,18 +80,17 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-acpi@vger.kernel.org,
 	acpica-devel@lists.linux.dev,
 	kvm@vger.kernel.org
-Subject: [PATCH v1 04/12] arm64/sysreg: Add HACDBS consumer and base registers
-Date: Thu, 30 Apr 2026 12:14:08 +0100
-Message-ID: <20260430111424.3479613-6-leo.bras@arm.com>
+Subject: [PATCH v1 06/12] KVM: arm64: dirty_bit: Add base FEAT_HACDBS cleaning routine
+Date: Thu, 30 Apr 2026 12:14:10 +0100
+Message-ID: <20260430111424.3479613-8-leo.bras@arm.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260430111424.3479613-2-leo.bras@arm.com>
 References: <20260430111424.3479613-2-leo.bras@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_041539_406524_7E58EA3C 
-X-CRM114-Status: UNSURE (   8.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260430_041549_175854_DAE30DE0 
+X-CRM114-Status: GOOD (  20.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,69 +105,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-They will be used on a later commit to make use of the FEAT_HACDBS
-mechanism if available.
+Introduce the basic cleaning routine that is going to be used for both
+dirty-bitmap and dirty-ring routines.
+
+It sets the required registers with the input buffer, and wait for
+HACDBSIRQ to happen, which means either the task is done, or there was some
+error during processing.
+
+It is ran with preemption disabled, as a task being scheduled in could
+change the translation registers used by HACDBS and end up corrupting the
+current dirty-bit tracking and the sched-in task's S2 pagetables.
 
 Signed-off-by: Leonardo Bras <leo.bras@arm.com>
 ---
- arch/arm64/tools/sysreg | 30 ++++++++++++++++++++++++++++++
- 1 file changed, 30 insertions(+)
+ arch/arm64/kvm/dirty_bit.c | 86 ++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 86 insertions(+)
 
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 6c3ff14e561e..7ad392a5c436 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -4582,20 +4582,50 @@ EndEnum
- Enum	9:8	IRGN0
- 	0b00	NC
- 	0b01	WBWA
- 	0b10	WT
- 	0b11	WBnWA
- EndEnum
- Field	7:6	SL0
- Field	5:0	T0SZ
- EndSysreg
+diff --git a/arch/arm64/kvm/dirty_bit.c b/arch/arm64/kvm/dirty_bit.c
+index 765ef609ff70..22e3ed07256a 100644
+--- a/arch/arm64/kvm/dirty_bit.c
++++ b/arch/arm64/kvm/dirty_bit.c
+@@ -1,17 +1,18 @@
+ // SPDX-License-Identifier: GPL-2.0-only
+ /*
+  * Copyright (C) 2026 ARM Ltd.
+  * Author: Leonardo Bras <leo.bras@arm.com>
+  */
  
-+Sysreg	HACDBSBR_EL2	3	4	2	3	4
-+Res0	63:56
-+Field	55:12	BADDR
-+Field	11	EN
-+Res0	10:4
-+UnsignedEnum	3:0	SZ
-+	0b0000	4K
-+	0b0001	8K
-+	0b0010	16K
-+	0b0011	32K
-+	0b0100	64K
-+	0b0101	128K
-+	0b0110	256K
-+	0b0111	512K
-+	0b1000	1M
-+	0b1001	2M
-+EndEnum
-+EndSysreg
+ #include <asm/kvm_dirty_bit.h>
++#include <asm/kvm_mmu.h>
+ #include <linux/kconfig.h>
+ #include <linux/acpi.h>
+ 
+ DEFINE_PER_CPU(struct hacdbs, hacdbs_pcp) = {
+ 	.status = HACDBS_OFF,
+ 	.size = 0,
+ };
+ 
+ /* HDBSS entry field definitions */
+ #define HDBSS_ENTRY_VALID BIT(0)
+@@ -24,20 +25,105 @@ DEFINE_PER_CPU(struct hacdbs, hacdbs_pcp) = {
+ 
+ inline u64 hdbss_get_ttwl(u64 chunk_size)
+ {
+ 	u64 hw_lvl = ARM64_HW_PGTABLE_LEVELS(ilog2(chunk_size));
+ 
+ 	return HDBSS_ENTRY_TTWL(3 - hw_lvl);
+ }
+ 
+ static __ro_after_init int hacdbsirq = -1;
+ 
++static void hacdbs_start(u64 *hw_entries, int size)
++{
++	u64 br;
++	/* Each entry is 8 bytes */
++	int size_b = size * sizeof(hw_entries[0]);
++	int size_p2 = max(roundup_pow_of_two(size_b), PAGE_SIZE);
 +
-+Sysreg	HACDBSCONS_EL2	3	4	2	3	5
-+UnsignedEnum	63:62	ERR_REASON
-+	0b00	NOF
-+	0b01	STRUCTF
-+	0b10	IPAF
-+	0b11	IPAHACF
-+EndEnum
-+Res0	61:19
-+Field	18:0	INDEX
-+EndSysreg
++	/* If not using the full size of the array, put a stop entry at the end */
++	if (size_b < size_p2)
++		hw_entries[size] = HDBSS_ENTRY_VALID | HDBSS_ENTRY_TTWL_RESV;
 +
- Sysreg	GCSCR_EL2	3	4	2	5	0
- Fields	GCSCR_ELx
- EndSysreg
++	sysreg_clear_set_s(SYS_HACDBSCONS_EL2,
++			   HACDBSCONS_EL2_ERR_REASON | HACDBSCONS_EL2_INDEX, 0);
++
++	br = (virt_to_phys(hw_entries) & HACDBSBR_EL2_BADDR_MASK) |
++	     FIELD_PREP(HACDBSBR_EL2_SZ, ilog2(size_p2) - 12) |
++	     FIELD_PREP(HACDBSBR_EL2_EN, 1);
++
++	this_cpu_write(hacdbs_pcp.status, HACDBS_RUNNING);
++	this_cpu_write(hacdbs_pcp.size, size);
++	write_sysreg_s(br, SYS_HACDBSBR_EL2);
++	isb();
++}
++
++static int hacdbs_stop(void)
++{
++	write_sysreg_s(0, SYS_HACDBSBR_EL2);
++	isb();
++
++	if (this_cpu_read(hacdbs_pcp.status) == HACDBS_ERROR) {
++		/* In case of error, HACDBSCONS_EL2.INDEX should point the faulty entry */
++		u64 cons = read_sysreg_s(SYS_HACDBSCONS_EL2);
++		int idx = FIELD_GET(HACDBSCONS_EL2_INDEX, cons);
++
++		trace_printk("HACDBS found error %lu in index %d / %d\n",
++			     FIELD_GET(HACDBSCONS_EL2_ERR_REASON, cons), idx,
++			     this_cpu_read(hacdbs_pcp.size));
++
++		this_cpu_write(hacdbs_pcp.status, HACDBS_IDLE);
++
++		return idx;
++	}
++
++	return this_cpu_read(hacdbs_pcp.size);
++}
++
++/*
++ * Clears dirty-bits for an array of pages (hw_entries) using HACDBS
++ * Returns the number of items cleaned from the array. If returns value < size,
++ *	there was an error in the processing.
++ */
++static int dirty_bit_clear(struct kvm *kvm, u64 *hw_entries, int size)
++{
++	enum hacdbs_status st;
++	u64 hcr_el2;
++	int ret;
++
++	preempt_disable();
++
++	hcr_el2 = read_sysreg(HCR_EL2);
++	write_sysreg(hcr_el2 | HCR_EL2_VM, HCR_EL2);
++	__load_stage2(&kvm->arch.mmu, kvm->arch.mmu.arch);
++
++	hacdbs_start(hw_entries, size);
++
++	do {
++		wfi();
++	} while ((st = this_cpu_read(hacdbs_pcp.status)) == HACDBS_RUNNING);
++
++	ret = hacdbs_stop();
++
++	write_sysreg(hcr_el2, HCR_EL2);
++	isb();
++
++	/*
++	 * No DSB is needed here, as kvm_flush_remote_tlbs_memslot() that happens
++	 * later in generic dirty-cleaning code already performs a DSB before
++	 * doing the TLBI.
++	 */
++
++	preempt_enable();
++
++	return ret;
++}
++
+ static irqreturn_t hacdbsirq_handler(int irq, void *pcpu)
+ {
+ 	u64 cons = read_sysreg_s(SYS_HACDBSCONS_EL2);
+ 	unsigned long err = FIELD_GET(HACDBSCONS_EL2_ERR_REASON, cons);
  
- Sysreg	GCSPR_EL2	3	4	2	5	1
- Fields	GCSPR_ELx
- EndSysreg
- 
- Sysreg	DACR32_EL2	3	4	3	0	0
- Res0	63:32
+ 	switch (err) {
+ 	case HACDBSCONS_EL2_ERR_REASON_NOF:
+ 		this_cpu_write(hacdbs_pcp.status, HACDBS_IDLE);
+ 		break;
+ 	case HACDBSCONS_EL2_ERR_REASON_IPAHACF:
 -- 
 2.54.0
 
