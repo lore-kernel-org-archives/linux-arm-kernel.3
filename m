@@ -4,67 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 585FCFF8875
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 09:21:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A7B1FF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 09:25:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LAtR5P4HjzDS5S4/8twG1WZlBNGdlqU/FR0a99IMmqE=; b=LtlfwYApf1/aoJnQLEGMteFiBz
-	welSogOCdF1LHT2oeBO7BqAyGugD2ZZSs1ld/5R/Y1WK9gFZRxUrPoY23vF4IaUQ86GUxQ3JeV2SA
-	mPwHQOaewiBfxpztl2RyvlYuP+9FtAEy8HhVRxsaTxFa0xu6Ptso6AZfT3IGXv30KMQv+Wo9szLfl
-	K4nsriGFe+gA8BhDAnWqT8Zy4oiCJzhNBRMl9MW39tG2Mmfj4MR6qzI2RlYKKgp1LB9ccCMGbvTG/
-	C6KUKtLVl7QTRzC4H4D3WBHVSa1jnkKioBJc3vp1sI6ci9mCmQr2gjtB65r5r2c3bjK1ArEoSxa+T
-	XmN843yg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+w9pGVYPHJfPh1XzkNUV0AqlY/okKU/Ok+6+rTmSuhk=; b=SNmnAxt0bfY4yR3FTizHnzorsQ
+	WzJBT9AZxdMmyTBfYRI3XDxRMd6QAS10p1P/Z6SUm7W4R0OHkPcNCWg+E2+OG1zelyCBSUAPwVh35
+	d7YvkkAlK7pb77EHTp6nQcjY49nhOmheRZ83VR4ODCQ9UZSoU2MwIhHQa4ULZ8EjCY2C6ZZHvVI9r
+	cgVyBZT5eXAl4CVBJEcQyejO+L9V+m3pItLXKcTDkSZcO4+QEfPO8R+VRWzaX5NvoAevwC2kPs26K
+	6MxvaKRK0J7yygmIZ1u3NsRMA+Cqls7KMwUactteOOqnM6Dcp+A2hZ48Awwg9nkIt5uXksYbm7P8t
+	QAjAvtYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wINZl-000000055YR-1ZXD;
-	Thu, 30 Apr 2026 09:20:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wINZg-000000055Xg-32MH
+	id 1wINeG-000000055mx-0Hqq;
+	Thu, 30 Apr 2026 09:25:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wINeE-000000055mr-1kH9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 09:20:52 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 619F41A9A;
-	Thu, 30 Apr 2026 02:20:41 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A06173F7B4;
-	Thu, 30 Apr 2026 02:20:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777540846; bh=rEuYE3BOp0rZUoRuwFkMAOix88kidy9F1/N55h8chlI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=te8cLsXc/9padMNn1HNRnZmVeeS4irCJgGQmkQUJx4a0oAGiUezq/YFx/bt1hZWB+
-	 POTepneGGzzLeDhIG4eJ7QNqLdMl+Fim4jSGEYfDdhhOMh7KsHE6bFLb79b30UpwCB
-	 Eka39O2o43ZkyU0GGXm69bd6Sp8vsAt7UpJDuVVM=
-Message-ID: <fc96c088-f767-4bf2-b58b-d4e91b0acde4@arm.com>
-Date: Thu, 30 Apr 2026 11:20:42 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/5] arm_mpam: detect and enable MPAM-Fb PCC support
-To: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Hanjun Guo <guohanjun@huawei.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu
- <fenghuay@nvidia.com>, Jonathan Cameron <jic23@kernel.org>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260429141339.3171205-1-andre.przywara@arm.com>
- <20260429141339.3171205-6-andre.przywara@arm.com>
- <20260430-brave-hoatzin-of-fascination-e7d4ad@sudeepholla>
-Content-Language: en-US
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20260430-brave-hoatzin-of-fascination-e7d4ad@sudeepholla>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+	Thu, 30 Apr 2026 09:25:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 78C6460142;
+	Thu, 30 Apr 2026 09:25:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E38C5C2BCB4;
+	Thu, 30 Apr 2026 09:25:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777541129;
+	bh=B853Eh9uk565MxVVpob3pa08VA0fsq5RODboe/BkwDg=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=iot/Czbj1UTXZtIKbuakUOJPEZf2jgEJsXUobkf3fTE6pxHY1WoYVSUKSdjGjweU2
+	 uJCII7hbjhIouQ7z+4khXHPcxKRfaQKW5M8Ob7Ff/2xSIiteOAtptRQ6PRVkaTUlXR
+	 m5hnmHC34YoQvr6bwwzWq2O9IDz3/7o6w2Ux/d7uBQOzrHFiHHPE6x5MGEwTHosl5Y
+	 FtyWqlDWOsE2uTUmk93O2vMxDZkoZBQ9EeRqJitySRYcWBAmbfCmXMjl7Y98+WSE2j
+	 s23YYEIaJkoJReZgcK3bIv8Gfrr3USg/F7iytFGSPEmXH9vDS7tcs9sL21B1DUkETF
+	 aW/y9woiMNIXw==
+Date: Thu, 30 Apr 2026 04:25:27 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_022050_760982_47F9997C 
-X-CRM114-Status: GOOD (  20.80  )
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Christian Lamparter <chunkeey@gmail.com>, 
+ Andreas Kemnade <andreas@kemnade.info>, 
+ =?utf-8?q?Beno=C3=AEt_Cousson?= <bcousson@baylibre.com>, 
+ Eric Dumazet <edumazet@google.com>, Bartosz Golaszewski <brgl@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Johannes Berg <johannes@sipsolutions.net>, Jakub Kicinski <kuba@kernel.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Arnd Bergmann <arnd@arndb.de>, 
+ linux-kernel@vger.kernel.org, linux-wireless@vger.kernel.org, 
+ linux-omap@vger.kernel.org, Felipe Balbi <balbi@kernel.org>, 
+ Rob Herring <robh+dt@kernel.org>, linux-gpio@vger.kernel.org, 
+ Paolo Abeni <pabeni@redhat.com>, devicetree@vger.kernel.org, 
+ netdev@vger.kernel.org, "David S. Miller" <davem@davemloft.net>, 
+ Roger Quadros <rogerq@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+ Aaro Koskinen <aaro.koskinen@iki.fi>, Tony Lindgren <tony@atomide.com>, 
+ Linus Walleij <linusw@kernel.org>
+To: Arnd Bergmann <arnd@kernel.org>
+In-Reply-To: <20260430081242.3686993-2-arnd@kernel.org>
+References: <20260430081242.3686993-1-arnd@kernel.org>
+ <20260430081242.3686993-2-arnd@kernel.org>
+Message-Id: <177754112702.3678889.4847926893667561974.robh@kernel.org>
+Subject: Re: [PATCH v4 1/3 net-next] dt-bindings: net: add
+ st,stlc4560/p54spi binding
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,66 +84,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sudeep,
 
-thanks for having a look!
-
-On 4/30/26 10:35, Sudeep Holla wrote:
-> On Wed, Apr 29, 2026 at 04:13:39PM +0200, Andre Przywara wrote:
->> The Arm MPAM-Fb specification [1] describes a protocol to access MSC
->> registers through a firmware interface. This requires a shared memory
->> region to hold the message, and a mailbox to trigger the access.
->> For ACPI this is wrapped as a PCC channel, described using existing
->> ACPI abstractions.
->>
->> Add code to parse those PCC table descriptions associated with an MSC,
->> and store the parsed information in the MSC struct.
->> This will be used by the MPAM-Fb access wrapper code.
->>
->> [1] https://developer.arm.com/documentation/den0144/latest
->>
->> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
->> ---
->>   drivers/acpi/arm64/mpam.c      |  2 ++
->>   drivers/resctrl/mpam_devices.c | 46 +++++++++++++++++++++++++++++++---
->>   2 files changed, 45 insertions(+), 3 deletions(-)
->>
->> diff --git a/drivers/acpi/arm64/mpam.c b/drivers/acpi/arm64/mpam.c
->> index 99c2bdbb3314..edb4d10e8dc3 100644
->> --- a/drivers/acpi/arm64/mpam.c
->> +++ b/drivers/acpi/arm64/mpam.c
->> @@ -341,6 +341,8 @@ static struct platform_device * __init acpi_mpam_parse_msc(struct acpi_mpam_msc_
->>   	} else if (iface == MPAM_IFACE_PCC) {
->>   		props[next_prop++] = PROPERTY_ENTRY_U32("pcc-channel",
->>   							tbl_msc->base_address);
->> +		props[next_prop++] = PROPERTY_ENTRY_U32("msc-id",
->> +							tbl_msc->identifier);
+On Thu, 30 Apr 2026 10:12:40 +0200, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
 > 
-> I may be looking at the wrong documents, but neither DEN0065 nor DEN0144 carry
-> any definitions of pcc-channel and msc-id for the device with HID
-> "“ARMHAA5C". Since "pcc-channel" is already merged, I think I am looking at
-> wrong documents, please point me to the right one.
+> The SPI version of Prism54 was sold under a couple of different
+> names and supported by the Linux p54spi driver, but there was
+> never a DT binding for it.
+> 
+> Document the four known names of this device and the properties
+> that are sufficient for its use on the Nokia N8x0 tablet.
+> 
+> As I don't have this hardware or documentation for it, this is
+> purely based on existing usage in the driver.
+> 
+> Link: https://lore.kernel.org/all/e8dc9acb-6f85-e0a9-a145-d101ca6da201@gmail.com/
+> Acked-by: Christian Lamparter <chunkeey@gmail.com>
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
+> v4: renamed file to st,stlc4560, matching the primary compatible string
+>     require st,stlc4560 string
+> ---
+>  .../bindings/net/wireless/st,stlc4560.yaml    | 61 +++++++++++++++++++
+>  MAINTAINERS                                   |  1 +
+>  2 files changed, 62 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/net/wireless/st,stlc4560.yaml
+> 
 
-Please excuse my ignorance, but I was under the assumption that the 
-strings used here are just unique identifiers that need to match the 
-property_get calls in the MPAM code. Is there any requirement to match 
-those property_entry.name fields with the names given in some spec? And 
-those strings are kernel-internal only, right? But for DT would match 
-exactly the property names?
+My bot found errors running 'make dt_binding_check' on your patch:
 
-Those properties correspond to fields in table 4 in DEN0065, as also 
-described in struct acpi_mpam_msc_node in include/acpi/actbl2.h:
-- There is "Identifier", that uses distinct IDs for PCC and native MSCs. 
-I named it msc-id, because I'd assume that to be a good name for any 
-(yet to be defined) DT property.
-- Then there is "Base address", which doubles as the "subspace ID of the 
-PCC channel", when MPAM-Fb is used. As you mentioned, this is already 
-in, and the original spec name would be very misleading, I think.
+yamllint warnings/errors:
 
-So shall those strings be renamed to match the struct names? Or shall I 
-keep the more readable names as of now, and add comments linking them to 
-the spec/struct?
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/wireless/st,stlc4560.yaml: $id: Cannot determine base path from $id, relative path/filename doesn't match actual path or filename
+ 	 $id: http://devicetree.org/schemas/net/wireless/st,stlc45xx.yaml
+ 	file: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/wireless/st,stlc4560.yaml
 
-Cheers,
-Andre
+doc reference errors (make refcheckdocs):
+Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/net/wireless/st,stlc45xx.yaml
+MAINTAINERS: Documentation/devicetree/bindings/net/wireless/st,stlc45xx.yaml
+
+See https://patchwork.kernel.org/project/devicetree/patch/20260430081242.3686993-2-arnd@kernel.org
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
