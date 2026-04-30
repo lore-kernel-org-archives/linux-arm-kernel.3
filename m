@@ -4,71 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4836FCD13D3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 07:06:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0188FFF886F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 07:14:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q/CYUFrBY9oiZ1V/DgB1eH5buSeSaju7jfaovk+Eukg=; b=rUX37DvdH3BfKqlfii4Fc/UmMo
-	cVOvgDD1OCyAemam/zwB1Sxnm0lNgWZ7ehrKYwddoyRzl3WxVlB0iToWnErrXA1d0O+YYWLdl8m3L
-	hj7nurRwoAiK5QktH7QLB1eaWgMP4jjMc497mDFfQ1Aa6xfyEekzFd56YgOTJjbGf+5ynLcF+0xP3
-	x+GDFM9PhnS+NMWn3Kmz7u4JYDD4qu8TqGYajoZtelqIyI8ifq0uZkeAzP2fV0GjneuSbo1/m2ETk
-	6OpfsArNMHCGW5Q1I43AiOZRlHBiEGBYmpQR9YEM39Hh/+Hh1xhpPbMIcXO3fAUPDD9IV2431ltbv
-	HIN9TXtg==;
+	bh=46aRrsk4VduolpeCWiXh/05qrmB1zXwaQdpRCjO047U=; b=y+HugE774SlE3FjYERfY/8Feze
+	T/VqEPPHNByK4xF1c7liX5lGd9gONKLyHGtDWYYJKYqWCQy+PYBjmoeDixlpeqqeFlYWklCnxeBf8
+	S97tzn5uNTFJFABttPehIfGGF9xcns6hjmdInnyih2frHc6dWN1ufWUJuRsZMOAIYK2KmRVhAF1av
+	pNuiBM1FxLWGBeYNfcFT6IXmFBHLYsjKY3292k2PVP65Koh/TByZ+PDjwlK/O0ICV9EvHlG2PAetx
+	eCRxcPUamYn2ke+3qXPN3AY04DLw8hEY0VaK4eQBeV09s1en3A1mvboO58t5btzla4YL5wgjJuFyX
+	fjvs3vJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wILT8-00000004pqj-1KvF;
-	Thu, 30 Apr 2026 07:05:54 +0000
-Received: from zg8tmja5ljk3lje4mi4ymjia.icoremail.net ([209.97.182.222])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wILT3-00000004ppb-2KgI;
-	Thu, 30 Apr 2026 07:05:52 +0000
-Received: from lizhi2$eswincomputing.com ( [10.11.96.26] ) by
- ajax-webmail-app1 (Coremail) ; Thu, 30 Apr 2026 15:05:13 +0800 (GMT+08:00)
-X-Originating-IP: [10.11.96.26]
-Date: Thu, 30 Apr 2026 15:05:13 +0800 (GMT+08:00)
-X-CM-HeaderCharset: UTF-8
-From: =?UTF-8?B?5p2O5b+X?= <lizhi2@eswincomputing.com>
-To: "Andrew Lunn" <andrew@lunn.ch>
-Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
-	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
-	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	maxime.chevallier@bootlin.com, ningyu@eswincomputing.com,
-	linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com,
-	pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com,
-	horms@kernel.org
-Subject: Re: Re: [PATCH net-next v7 4/4] riscv: dts: eswin:
- eic7700-hifive-premier-p550: enable Ethernet controller
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2024.2-cmXT6 build
- 20241203(6b039d88) Copyright (c) 2002-2026 www.mailtech.cn
- mispb-72143050-eaf5-4703-89e0-86624513b4ce-eswincomputing.com
-In-Reply-To: <d662fa07-cd0f-48c4-a6e4-03c5fd390e92@lunn.ch>
-References: <20260427072353.1114-1-lizhi2@eswincomputing.com>
- <20260427072603.1191-1-lizhi2@eswincomputing.com>
- <d662fa07-cd0f-48c4-a6e4-03c5fd390e92@lunn.ch>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	id 1wILbd-00000004qtS-1NGu;
+	Thu, 30 Apr 2026 07:14:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wILba-00000004qqV-2hWn
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 30 Apr 2026 07:14:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id DC13D43EB0
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 07:14:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE0B5C2BCF6
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 07:14:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777533276;
+	bh=46aRrsk4VduolpeCWiXh/05qrmB1zXwaQdpRCjO047U=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=tEIo/BHrXapOle3sS8SkioMxXFcPjsI2jQUnkUaRFuV841rylOLF+7v7Rlgbe3hXw
+	 7wb5CKJ3P0M4t2kym8ziYAs3VugHPoOdno6fhIRL8XvboMwKWzwHlmzzBt/NfFMT+6
+	 5vygZ/4IDbIhfhgSDLrMOI/LAizvxBhhzP0Bwa4Mr9/kayg1snjpvLLMibHtWxI8bs
+	 T9BrDvoKjvAHvFUpD4tV094K/6QFQ/gYBBmWnJiFxMYCbbsM2WQ7CLprcSDWQQvqB4
+	 vkf/QNpwec6Vzz7i6sLVgxySseS4p5uQn0RfkFY6bvFGBxVXL2VxiF/hn3Dr31nyHH
+	 FZnDdpfispWcA==
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5a4113ab355so590394e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 00:14:36 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+X+p8fkzI1KWK1HwoE8LGh4pyR+fF/kaFjUZRKgSrHSTJSCV2pUsYqzkoAheC1whooC015VzjgV1wXy4ygCr7H@lists.infradead.org
+X-Gm-Message-State: AOJu0YzpdmbWV7HPy0j9KkkrNbHsCKGS0lpRQx28FBTWC4TeVr2ykT6e
+	giPs2E3JsAtEaLEV91BKDJg998tsj3fWq0gG60QHodiAbX24bHJDlXkoyJ28qJfmhBxYIqZb2RN
+	PopbTo1YKgc010pu+mAUG2FZlKIToIyNUvHByAIQVpQ==
+X-Received: by 2002:a05:6512:10cb:b0:5a4:157:5354 with SMTP id
+ 2adb3069b0e04-5a8522bc5ffmr518494e87.12.1777533275377; Thu, 30 Apr 2026
+ 00:14:35 -0700 (PDT)
 MIME-Version: 1.0
-Message-ID: <5e09c674.799b.19ddd34b91f.Coremail.lizhi2@eswincomputing.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: TAJkCgDHaXMp__Jp_vAVAA--.6489W
-X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/1tbiAQENDGnyMpsSHgACs9
-X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
-	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
-	daVFxhVjvjDU=
+References: <20260427-pxa-gpio-swnodes-v2-0-86fc24b9e714@oss.qualcomm.com>
+ <da7ea88f-845f-49e3-852b-3ca352c1790d@app.fastmail.com> <CAMRc=Mf9M_eoPzsqBdmnXLd8Eqw_cPcnXWN9xjC-+x5ZA5Qb_Q@mail.gmail.com>
+In-Reply-To: <CAMRc=Mf9M_eoPzsqBdmnXLd8Eqw_cPcnXWN9xjC-+x5ZA5Qb_Q@mail.gmail.com>
+From: Bartosz Golaszewski <brgl@kernel.org>
+Date: Thu, 30 Apr 2026 09:14:23 +0200
+X-Gmail-Original-Message-ID: <CAMRc=MeKn1_pMAyx_bQfMczqRJ1s28s3R9dAVMG5he97R_q4Dw@mail.gmail.com>
+X-Gm-Features: AVHnY4IoDCsL1ZG3kMceO9b_l8khTfjG1SHVMNe95GwlVs-8ZP-WhxK6b8MdIgA
+Message-ID: <CAMRc=MeKn1_pMAyx_bQfMczqRJ1s28s3R9dAVMG5he97R_q4Dw@mail.gmail.com>
+Subject: Re: [PATCH v2 0/4] ARM: pxa: attach software nodes to the GPIO controllers
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Daniel Mack <daniel@zonque.org>, 
+	Haojian Zhuang <haojian.zhuang@gmail.com>, Robert Jarzmik <robert.jarzmik@free.fr>, 
+	Russell King <linux@armlinux.org.uk>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+	Linus Walleij <linusw@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	"open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_000549_920754_9F5F7EB6 
-X-CRM114-Status: GOOD (  17.28  )
+X-CRM114-CacheID: sfid-20260430_001438_768643_9F05E595 
+X-CRM114-Status: GOOD (  22.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,68 +86,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CgoKPiAtLS0tLeWOn+Wni+mCruS7ti0tLS0tCj4g5Y+R5Lu25Lq6OiAiQW5kcmV3IEx1bm4iIDxh
-bmRyZXdAbHVubi5jaD4KPiDlj5HpgIHml7bpl7Q6MjAyNi0wNC0yOSAwOTo0MTo1MyAo5pif5pyf
-5LiJKQo+IOaUtuS7tuS6ujogbGl6aGkyQGVzd2luY29tcHV0aW5nLmNvbQo+IOaKhOmAgTogZGV2
-aWNldHJlZUB2Z2VyLmtlcm5lbC5vcmcsIGFuZHJldytuZXRkZXZAbHVubi5jaCwgZGF2ZW1AZGF2
-ZW1sb2Z0Lm5ldCwgZWR1bWF6ZXRAZ29vZ2xlLmNvbSwga3ViYUBrZXJuZWwub3JnLCByb2JoQGtl
-cm5lbC5vcmcsIGtyemsrZHRAa2VybmVsLm9yZywgY29ub3IrZHRAa2VybmVsLm9yZywgbmV0ZGV2
-QHZnZXIua2VybmVsLm9yZywgcGFiZW5pQHJlZGhhdC5jb20sIG1jb3F1ZWxpbi5zdG0zMkBnbWFp
-bC5jb20sIGFsZXhhbmRyZS50b3JndWVAZm9zcy5zdC5jb20sIHJtaytrZXJuZWxAYXJtbGludXgu
-b3JnLnVrLCBwandAa2VybmVsLm9yZywgcGFsbWVyQGRhYmJlbHQuY29tLCBhb3VAZWVjcy5iZXJr
-ZWxleS5lZHUsIGFsZXhAZ2hpdGkuZnIsIGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcs
-IGxpbnV4LXN0bTMyQHN0LW1kLW1haWxtYW4uc3Rvcm1yZXBseS5jb20sIGxpbnV4LWFybS1rZXJu
-ZWxAbGlzdHMuaW5mcmFkZWFkLm9yZywgbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZywgbWF4
-aW1lLmNoZXZhbGxpZXJAYm9vdGxpbi5jb20sIG5pbmd5dUBlc3dpbmNvbXB1dGluZy5jb20sIGxp
-bm1pbkBlc3dpbmNvbXB1dGluZy5jb20sIHBpbmtlc2gudmFnaGVsYUBlaW5mb2NoaXBzLmNvbSwg
-cHJpdGVzaC5wYXRlbEBlaW5mb2NoaXBzLmNvbSwgd2Vpc2hhbmdqdWFuQGVzd2luY29tcHV0aW5n
-LmNvbSwgaG9ybXNAa2VybmVsLm9yZwo+IOS4u+mimDogUmU6IFtQQVRDSCBuZXQtbmV4dCB2NyA0
-LzRdIHJpc2N2OiBkdHM6IGVzd2luOiBlaWM3NzAwLWhpZml2ZS1wcmVtaWVyLXA1NTA6IGVuYWJs
-ZSBFdGhlcm5ldCBjb250cm9sbGVyCj4gCj4gPiArJmdtYWMxIHsKPiA+ICsJcGh5LWhhbmRsZSA9
-IDwmZ21hYzFfcGh5MD47Cj4gPiArCS8qCj4gPiArCSAqIEZvciB0aGUgVFggcGF0aCBvZiBnbWFj
-MSwgdGhlcmUgaXMgYSBza2V3IGJldHdlZW4gdGhlIFRYIGNsb2NrCj4gPiArCSAqIGFuZCBkYXRh
-IG9uIHRoZSBNQUMgY29udHJvbGxlciBpbnNpZGUgdGhlIHNpbGljb24uIFRoaXMgc2tldyBoYXBw
-ZW5zCj4gPiArCSAqIHRvIGJlIGFwcHJveGltYXRlbHkgMiBucy4gVGhlcmVmb3JlLCBpdCBjYW4g
-YmUgY29uc2lkZXJlZCB0aGF0IHRoZQo+ID4gKwkgKiAyIG5zIGRlbGF5IG9mIFRYIGlzIHByb3Zp
-ZGVkIGJ5IHRoZSBNQUMuCj4gPiArCSAqIE5vIGRlbGF5IGNvbmZpZ3VyYXRpb24gZm9yIHR4IGlz
-IG5lZWRlZCBpbiBzb2Z0d2FyZSB2aWEgUEhZIGRyaXZlci4KPiA+ICsJICovCj4gPiArCXBoeS1t
-b2RlID0gInJnbWlpLXJ4aWQiOwo+IAo+IFRoaXMgaXMgd3JvbmcuIFRha2UgYSByZWFkIG9mCj4g
-Cj4gaHR0cHM6Ly9lbGl4aXIuYm9vdGxpbi5jb20vbGludXgvdjYuMTUvc291cmNlL0RvY3VtZW50
-YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9uZXQvZXRoZXJuZXQtY29udHJvbGxlci55YW1sI0wy
-ODcKPiAKPiBwaHktbW9kZSBkZXNjcmliZXMgdGhlIGJvYXJkLiBJZiB0aGUgYm9hcmQgcHJvdmlk
-ZXMgdGhlIDJucyBkZWxheSwgeW91Cj4gdXNlIHJnbWlpLiBJZiB0aGUgTUFDL1BIWSBwYWlyIG5l
-ZWRzIHRvIHByb3ZpZGUgdGhlIGRlbGF5LCB5b3UgdXNpbmcKPiByZ21paS1pZC4KPiAKPiBJZiBy
-Z21paS1pZCBpcyB1c2VkLCBpdCBpcyB1cCB0byB0aGUgTUFDL1BIWSB0byBkZWNpZGUgd2hpY2gg
-d2lsbCBhZGQKPiB0aGUgZGVsYXkuIElmIHRoZSBNQUMgYWRkcyB0aGUgZGVsYXksIGl0IG5lZWRz
-IHRvIG1hc2sgdGhlIHZhbHVlIG9mCj4gcGh5LW1vZGUgaXQgcGFzc2VzIHRvIHRoZSBQSFkgc28g
-aXQgZG9lcyBub3QgYWxzbyBhZGQgdGhlIGRlbGF5Lgo+IAo+IFlvdXIgYnJva2VuIGhhcmR3YXJl
-IG1lYW5zIHlvdSBjYW5ub3Qgc3VwcG9ydCAncmdtaWknIG9yICdyZ21paS1yeCcsCj4gc2luY2Ug
-eW91IGNhbm5vdCB0dXJuIG9mZiB0aGlzIDJucyBkZWxheSwgc28geW91IGVuZCB1cCB3aXRoIGRv
-dWJsZQo+IGRlbGF5cyBpZiBhbnlib2R5IGRlc2lnbnMgYSBib2FyZCB3aXRoIDJucyBUWCBkZWxh
-eSBvbiB0aGUgYm9hcmQKPiBpdHNlbGYuIFNvIHBsZWFzZSB2YWxpZGF0ZSB0aGUgUEhZIG1vZGVz
-IGFuZCByZXR1cm4gLUVJTlZBTCBpZiB0aGVzZQo+IG1vZGVzIGFyZSB1c2VkLgo+IAoKVGhhbmtz
-IGZvciB0aGUgZGV0YWlsZWQgZXhwbGFuYXRpb24uCgpZb3UgYXJlIHJpZ2h0IHRoYXQgcGh5LW1v
-ZGUgc2hvdWxkIGRlc2NyaWJlIHRoZSBib2FyZC1sZXZlbApjb25maWd1cmF0aW9uIGFuZCBzaG91
-bGQgbm90IGJlIG1vZGlmaWVkIGluIHRoZSBEVCB0byByZWZsZWN0Ck1BQy1pbnRlcm5hbCBiZWhh
-dmlvci4KCkZvciB0aGlzIGhhcmR3YXJlLCB0aGUgTUFDIHVuY29uZGl0aW9uYWxseSBpbnRyb2R1
-Y2VzIGFuIH4yIG5zClRYIGRlbGF5IHdoaWNoIGNhbm5vdCBiZSBkaXNhYmxlZC4gVGhpcyBtZWFu
-cyB0aGUgY29uZmlndXJhdGlvbgplZmZlY3RpdmVseSBtYXRjaGVzIHJnbWlpLWlkIGF0IHRoZSBi
-b2FyZCBsZXZlbCwgd2hlcmUgVFggZGVsYXkKaXMgcHJvdmlkZWQgYnkgdGhlIE1BQyBhbmQgUlgg
-ZGVsYXkgYnkgdGhlIFBIWS4KCkkgd2lsbCB0aGVyZWZvcmU6Ci0gS2VlcCB0aGUgRFQgdXNpbmcg
-cGh5LW1vZGUgPSAicmdtaWktaWQiIHRvIGNvcnJlY3RseSBkZXNjcmliZQrCoCB0aGUgYm9hcmQt
-bGV2ZWwgdGltaW5nLgotIEluIHRoZSBkcml2ZXIsIG1hc2sgdGhlIHBoeV9pbnRlcmZhY2UgcGFz
-c2VkIHRvIHRoZSBQSFkgc28gdGhhdArCoCBpdCBkb2VzIG5vdCBhZGQgVFggZGVsYXksIGF2b2lk
-aW5nIGRvdWJsZSBkZWxheS4KLSBFeHBsaWNpdGx5IHJlamVjdCB1bnN1cHBvcnRlZCBtb2RlcyBz
-dWNoIGFzICJyZ21paSIgYW5kCsKgICJyZ21paS1yeGlkIiwgc2luY2UgdGhlIE1BQyBUWCBkZWxh
-eSBjYW5ub3QgYmUgZGlzYWJsZWQgYW5kCsKgIHRoZXNlIGNvbmZpZ3VyYXRpb25zIHdvdWxkIGxl
-YWQgdG8gaW5jb3JyZWN0IHRpbWluZy4KClJlZ2FyZGluZyB0aGUgdHgtaW50ZXJuYWwtZGVsYXkt
-cHMgcHJvcGVydHksIGl0IHJlcHJlc2VudHMgdGhlCnRvdGFsIGVmZmVjdGl2ZSBUWCBkZWxheSBv
-biB0aGUgbGluZSwgaW5jbHVkaW5nIHRoZSBpbmhlcmVudAp+MiBucyBza2V3IGludHJvZHVjZWQg
-YnkgdGhlIE1BQyBzaWxpY29uLiBUaGUgZHJpdmVyIHN1YnRyYWN0cwp0aGlzIGluaGVyZW50IHNr
-ZXcgYW5kIHByb2dyYW1zIG9ubHkgdGhlIHJlbWFpbmluZyBkZWxheS4KCkFzIGEgcmVzdWx0LCBm
-b3IgdGhlIGNsay1pbnZlcnNpb24gdmFyaWFudCwgdGhlIHZhbGlkIHJhbmdlIGlzClsyMDAwLCA0
-NTQwXSwgd2hpY2ggbWF0Y2hlcyB0aGUgdXBkYXRlZCBiaW5kaW5nIGNvbnN0cmFpbnRzLgoKSSB3
-aWxsIGNsYXJpZnkgaW4gdGhlIGJpbmRpbmcgZGVzY3JpcHRpb24gdGhhdCB0aGlzIHByb3BlcnR5
-CnJlcHJlc2VudHMgdGhlIHRvdGFsIFRYIGRlbGF5IChNQUMgKyBwcm9ncmFtbWFibGUpLCB0byBh
-dm9pZAphbWJpZ3VpdHkuCgpUaGFua3MgZm9yIHBvaW50aW5nIHRoaXMgb3V0Lgo=
+On Mon, Apr 27, 2026 at 1:01=E2=80=AFPM Bartosz Golaszewski <brgl@kernel.or=
+g> wrote:
+>
+> On Mon, Apr 27, 2026 at 12:50=E2=80=AFPM Arnd Bergmann <arnd@kernel.org> =
+wrote:
+> >
+> > On Mon, Apr 27, 2026, at 12:14, Bartosz Golaszewski wrote:
+> > > Convert GPIO controllers and their consumers on the PXA platform to u=
+sing
+> > > "attached" software nodes. Since everything happens in a bord-file, i=
+t's
+> > > quite straightforward. We technically now have a way of passing an
+> > > unregistered software node to platform_device_register_full() but tha=
+t
+> > > requires using struct platform_device_info and since the existing
+> > > platform devices are either referenced from other places or defined i=
+n a
+> > > different compilation unit, I wanted to reduce the impact of the chan=
+ges
+> > > I can't test and went with the older method.
+> > >
+> > > Signed-off-by: Bartosz Golaszewski
+> > > <bartosz.golaszewski@oss.qualcomm.com>
+> > > ---
+> >
+> > Hi Bartosz,
+> >
+> > These patches are individually all fine, but I was hoping to
+> > finally get around to removing the pxa board files completely,
+> > sorry it's been taking me so long to rebase my series for
+> > that.
+> >
+>
+> If that'll be queued for v7.2, then I'm fine with dropping this
+> series. Otherwise, I'd like to see it applied as I want to get all the
+> changes required to remove the software node name matching from
+> GPIOLIB into v7.2 and then finally remove it in v7.3.
+>
+
+Hi Arnd!
+
+Before I address Russell's comment in v2, can you please let me know
+if pxa will be removed in v7.2?
+
+Bart
 
