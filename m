@@ -4,147 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1344FCD13D3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 06:47:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71FF4CD13D3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 06:51:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S8PWZZEm6BJNwQGV7duzvDUNM9BFyNAjAk6Cbj0Jkds=; b=y0P5mkLGwm8nSNdXl+aW/x9Elg
-	ZL076/X/CMplFiGBO+ydG5ZWe4ckDgU24gK+5MxVrQOPFvXOegSGPSLOm9/7Bv8aSfQdjb/S2Wblk
-	VAtLeVpCnrOdOdg/vueoWYFReoPywekx5J7OuIC7i0/QxxIaIlblPWhSiyMmHWJU9r6Ld6Ymdl7k7
-	F5OcOJvLvATnKruygEk5ddktVnXiDMHuA/AzavNllpuv1fyWsGHUMwis7YPrJoYmyU1bI68wTuTLM
-	b8CBxbX1vM3+VbtndMKlDHAF+y6Fw2a+/qMXMO8JuSEheKDik3I94GD6tGOahypDHjnDoMyUhSclQ
-	3cFujNsA==;
+	bh=5Krw4Q4OuXK0oCTY3JCtD5HpeU+6a7h2eI/rUyGjjeA=; b=3AqTDtlkY1ssZPAI3rWO12hEQs
+	Frj/yrWPujDiWOv8ZNd3SNhvCIBxqPVSMMI9SoeM+rXssckAIWp/+ClSA1qs6nqRbM076JG1AiGdR
+	QLikboO/QPye0e6eySSCuAWCNmW4P2Y+J8WwDg9vSZDYghQIx+/5MnfCBumTGMzvVT5qKkppXLKYS
+	sanLH4/qYjVKtwU6ompmx5akNRmz27PgbaDkCB0c0ozCj0IUAeJBCE5aPXuwdaNfmD/RYEKRRwTMB
+	KfJWrfP0+byOHiYM8zke5NU/XtzgOh4+exF8BBOAOr21CosBKkZtux1WCyffeesHJ5jkiyX9Fuq7C
+	3Z/DZk3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wILBa-00000004nn7-0Odh;
-	Thu, 30 Apr 2026 06:47:46 +0000
-Received: from mail-westeuropeazon11011013.outbound.protection.outlook.com ([52.101.70.13] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1wILF3-00000004oGK-27st;
+	Thu, 30 Apr 2026 06:51:21 +0000
+Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wILBX-00000004nmG-2hX9
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 06:47:44 +0000
+	id 1wILEz-00000004oEv-1H0R;
+	Thu, 30 Apr 2026 06:51:19 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cQan4YHbE+M1SdhP/+Oi3IlDk63QtEcYLLnR9wswPS39qFYi1aXKAWYn3sdUNodWnlAAu1vQpF8OQhUyeAYK2F4dclOU6RPnKJiwSaxFv8245hh3AZGCaBShzTmFJfuNt3M6jCfNkg6A6GSNlv+2ccH2T1KyXo/VmXXDethTCPH3xYlMGonQj2pmNhDt7C7zrzNnHlJ6jOD87TR9WGTZea+prm0HGnb+zv7cSn9x/Qt7DIfnlrfiPpEFhl0dzHvX/tjcr3K4gKHrE5YsRWZ4v1ndn3YeiY8dEPAkDefh1jD7ozAQWs+7Z2RZ8QNwY1zfsIXyFtTTiO45PoQetRB9Ig==
+ b=Sr1K2OdvGTvgPdAwka6RyO2fZRnjvg5UI81YY3IM1+8AHjNjIq2YuAwuCY7OSONk0YWwkarjjozMpT92AT1itEXFKSMC3pHLR9aLiFqN0pdAytuSdVcFW4fv9rE/GSFH/lTfUY2NGlVbt7PbZ6uLJIZjWSCZVstkloTWZZy6hyk0nB/dp4aW8WDjTEzq1YV/je8dk8EHrE6VQOW+XY8n8o/MnxEca8JgMyLQGlM1ZGwxvbMQX4MMOGnfiT60L9IYIRYhEXKGUrNNwF3Ts/LobVKV6S5hltviWooVinZJYUgT6zN5LnUJ448OvEDYOvUgrKrxvfXzZ7pN82Miwm5Ffg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=S8PWZZEm6BJNwQGV7duzvDUNM9BFyNAjAk6Cbj0Jkds=;
- b=X1P0q+Z8N7jQziEa4il3jJL55k2olzZ7Hb9IC1Lce6ae0oOH0v2YRgI1Mi/eB8BqXrxOdLEJQMV4sHGQeIJtBA2rUMKUnC9o8fHOzc77h6jiZNzZK/HbMbdCPZodK98SJyhdSqqcCI6RYr9UkBxRRu1kUqh3t9WaE2gZdSKGDnLLRIRB3gr6OAFmlcT449GfRSIGEpiA+Uen/FmbI7gSiAEYlQwkrGBfgQNBLpe56K6pXLa6HQMNmDzndqnAT6mR7ddM0nMYwio9kYzCETN9kFbJYYfSC8lfcwgcoQidP+KQZ8V4hqny1+KuQgS1BAsDjnu3oSUr32kZbreqwchCYg==
+ bh=5Krw4Q4OuXK0oCTY3JCtD5HpeU+6a7h2eI/rUyGjjeA=;
+ b=mECEOsxk9wrVnArt4UdqQUozDwI1u0nrV0WKiq4kkrQLF2p0ijHGj2Ipx6ECpfFw58aGorr6c5rfnSc3baWLIzyGwoBXP0tRBJqu/ZDPuUSMcXHHR7NVplcxUw5ad1nT/PXKQSDmJI5y6wdMSJtXRxHM7Ffh3zGC+k5Qm5f1rjiJVvo/Ahpp7dlDejHCXmMVUgMjfIElDfPu+Ch9zdlywW9Q0KlDobeoZFgUICpx4Qp7w7D14cU30lOHoqNT4G5QG06TXg5P+77vorF4J1pmykhc49RSq7Uf662ZqcsT2LT1AxSdcehgEy3LcJD/8NOzGsYhECaEzNK2aX6bNJjveg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=S8PWZZEm6BJNwQGV7duzvDUNM9BFyNAjAk6Cbj0Jkds=;
- b=iGukcsKrTPaGnZFcBGiq+vbSSHf3klvKW3rU9vnZtrt9OdvAYnVeu3cq0bFvRM9gSUAI2RdGvcAIgBpaL6MBKRGeejHUJMSSv8q2igc8r9pa8rgH/0gCOAp3dEHBagvIK0cYl2fpEpcnQ+aTXfZT4BMYCogYUUNvbBH7I9gE1zFLQI4bF2OCSJ5Gd6WgHxOJuMp6lQxaOpkSTvUqErdDpOziVxnAblPmlVwUGyO9SbEw93goIemMq+8d9mt6+QUtP4DQO9uA0wqsK7ob9b02lI0TSCTwmeeYySbch6JrQZPp55KiPBYw5qW4q9beWANl+vdbsF/k0OPCPLMGFT6q+w==
-Received: from AM9PR04MB8196.eurprd04.prod.outlook.com (2603:10a6:20b:3e9::12)
- by AM0PR04MB11854.eurprd04.prod.outlook.com (2603:10a6:20b:6fc::8) with
+ bh=5Krw4Q4OuXK0oCTY3JCtD5HpeU+6a7h2eI/rUyGjjeA=;
+ b=aPQl8tf1lgTlHuBJkoDeIRNVgt5C7z72gKNjx/1vYv8xS3f/xaWUy88i8rqmZcZ6PiidZeP01QvEiTK5eE6+wp5od4tIAdtUQyEsDqfTsHDxYWslRe2OKJwC/roHqwV44hhfx+02e3AsVfb+VvB/33xVDRFycOl77dRF6aKIPj0=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from PH7PR12MB5685.namprd12.prod.outlook.com (2603:10b6:510:13c::22)
+ by SN7PR12MB8059.namprd12.prod.outlook.com (2603:10b6:806:32b::7) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.20; Thu, 30 Apr
- 2026 06:47:37 +0000
-Received: from AM9PR04MB8196.eurprd04.prod.outlook.com
- ([fe80::fddb:8654:17a2:b4a1]) by AM9PR04MB8196.eurprd04.prod.outlook.com
- ([fe80::fddb:8654:17a2:b4a1%6]) with mapi id 15.20.9870.016; Thu, 30 Apr 2026
- 06:47:37 +0000
-From: Jiafei Pan <jiafei.pan@nxp.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, "andersson@kernel.org"
-	<andersson@kernel.org>, "mathieu.poirier@linaro.org"
-	<mathieu.poirier@linaro.org>, Peng Fan <peng.fan@nxp.com>, Frank Li
-	<frank.li@nxp.com>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com"
-	<festevam@gmail.com>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-CC: "Z.Q. Hou" <zhiqiang.hou@nxp.com>, Mingkai Hu <mingkai.hu@nxp.com>, Jiafei
- Pan <jiafei.pan@nxp.com>
-Subject: RE: [EXT] Re: [PATCH 2/5] drivers: remoteproc: imx: add support for
- Cortex-A Core
-Thread-Topic: [EXT] Re: [PATCH 2/5] drivers: remoteproc: imx: add support for
- Cortex-A Core
-Thread-Index: AQHc1u4vxO3HEmW+3kuE+V34hm7+drX1n1+AgAGNE8A=
-Date: Thu, 30 Apr 2026 06:47:37 +0000
-Message-ID: <AM9PR04MB81966CA1490D72FC8A67FAF18A352@AM9PR04MB8196.eurprd04.prod.outlook.com>
-References: <20260428090819.17761-1-Jiafei.Pan@nxp.com>
- <20260428090819.17761-3-Jiafei.Pan@nxp.com>
- <3ddf533b-e023-4982-8ba0-0963b9d72c5c@kernel.org>
-In-Reply-To: <3ddf533b-e023-4982-8ba0-0963b9d72c5c@kernel.org>
-Accept-Language: en-US
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.16; Thu, 30 Apr
+ 2026 06:51:11 +0000
+Received: from PH7PR12MB5685.namprd12.prod.outlook.com
+ ([fe80::ce69:cfae:774d:a65c]) by PH7PR12MB5685.namprd12.prod.outlook.com
+ ([fe80::ce69:cfae:774d:a65c%5]) with mapi id 15.20.9870.020; Thu, 30 Apr 2026
+ 06:51:09 +0000
+Message-ID: <4c63c81b-14f7-4e6b-a733-2f98e6055ca8@amd.com>
+Date: Thu, 30 Apr 2026 08:51:02 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 0/3] media: videobuf2: opt-in dma_resv producer fences
+ for V4L2 dmabuf exports
+To: Nicolas Dufresne <nicolas@ndufresne.ca>,
+ Markus Fritsche <mfritsche@reauktion.de>, Tomasz Figa <tfiga@chromium.org>,
+ Marek Szyprowski <m.szyprowski@samsung.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Sumit Semwal <sumit.semwal@linaro.org>,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Jacob Chen <jacob-chen@iotwrt.com>,
+ Heiko Stuebner <heiko@sntech.de>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+References: <20260429195306.239666-1-mfritsche@reauktion.de>
+ <3d8deeb15581b754e4c061d4c4a13657aa08bc3c.camel@ndufresne.ca>
 Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AM9PR04MB8196:EE_|AM0PR04MB11854:EE_
-x-ms-office365-filtering-correlation-id: fb88998d-e3e1-4a5f-7a23-08dea6845e23
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|366016|10070799003|19092799006|18002099003|56012099003|22082099003|38070700021|921020;
-x-microsoft-antispam-message-info: dQCJj0BV9t4MfKlgkNiGkc/hqKiUrk/enfeRAyBqGE60ZWNre5Xi/SWM/cZJnjT/8P5TOO1V5hLgpXbRnC253Lu8DwPFVMv5OV3ALBHCILc0/iv8LtmeAOFlcAVL86DRsipV5ldQqn2n2AGtguGP+hToCbBeTMTX+0MvUy4zDiMc8h1+iYtrgkdBZ+kD8ddPKj5MWpUHZ3o8PSKICbpB6XOWJex5L9+EVeDn4P7GCOTm2Fjo2XV/VfApeRHtuMNfk5qOULYU6IqyABKGFJ98/S101FhoXZt2v1HxnGTyRx/roTjcLxsSSSFQDXQ1nZJcxvkN5XJOsYgeIjeUNgvSevMfTYM+ZNuTxI92idQpnJCL9cBVUdm8WsGo6w+FOJeP/s+E6ShA4mhDNI3MfxsCuCftYAfGvYa5wsYSdVg9vnZ0WTN/LqhRKYTX5a8B//7xL7v7hyPUvi61TdHib/xN9BfHBJshSnEFMywcRQjlu3G3Bi0jKw8C+W6QNM4MyCr27wPutogby4PBRKJFtxK7aVv6ZfLu/9dNejPLstMFSzK3DedPSRD4zFWa/J+VjSkbUG72wNwy66xpeqLTYHb/2sLB0nAtRcOsLLqY7W+dh088lemw7SZZPpAwRkRL1JjiO/wbozk7lzph3pt3vWW76W2Z8MhNZn/WUL+6xS+WxRgWjyRhGRn9h6ClaNwoKZt4CO16lRa4MUaJd2tqFQoslleWSxRw9d6jfuVmXCn1lksu/955AS6+Sf8uCQ99r+pNX9kmbGmoqInpuZdBEiUOMaFsKGBjQZkXVUNLpWo2gIyifw/JZKgUuNrbkNgjd0jd
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8196.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(10070799003)(19092799006)(18002099003)(56012099003)(22082099003)(38070700021)(921020);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?RFRyNVRMVng4dS82bXhjNjlVTFNzTkJodWhma1RvdUlmZ3FMMElMaE9IOGEz?=
- =?utf-8?B?a203bGVibk1sMGJRRlR1Qi9BMjJEZFNmZDlESUdBcTMwRy9vT3hxQmFtM1Qy?=
- =?utf-8?B?WkVWSm10NDdadGR4cGk1RjdjWVZsd0JDTkVLTDkzSUg0dTZPS0FmV2hqeHM1?=
- =?utf-8?B?M3FoNVJtYlU5ZkFSNVo5SEZHYWhuc3IvZFAreTY3eGFBc1RLRWgzVnNFaGdU?=
- =?utf-8?B?U01rNnZQVE5FZTdESWVlL0ZBU1lXaHpTU2dZQkVJRitHV1BxYWZaWlJFbFYy?=
- =?utf-8?B?TVRSWGE4Nk1YZDZseTMvcVhKcGZhbEVpWDU4UkpKQ3lIcW9pSDRmQTdDUmw3?=
- =?utf-8?B?by9YWTVmUURrYVZZbUlHNjZnN2g2RWxkV1RpVkVoTVppb0w2aTU2aWJEU2tQ?=
- =?utf-8?B?NCtIYjlrZGxCcXhkeTNCTVp1d1IzRmVJNHlqY2RVcmhZTVpkV2VlcWgzeFV4?=
- =?utf-8?B?dm9qR0pwKytFU3ZTVXJ3a04yZ3FHRDVWeTRxVjVid2dnSGh2aEw2eVM2OGJG?=
- =?utf-8?B?ZXhPV0RrcHFmUm1PcTBxM1EzK1h1UDBOeTgwb0xQU25SQmE1cWNaNHNPbGgx?=
- =?utf-8?B?UkZBcnVPbFhLTWZ5bUdKeFJsUUVFRkJSMUgvUTNvNHI4eXNSaUU2Y2tsaVhV?=
- =?utf-8?B?dklsK3NxQzNtUTZLSnFWTTVESG1QOU1MWGhQNFFwWmNWQ2pIQ2pLWGNzd1pv?=
- =?utf-8?B?emROWk1ia2NpcmtnOE5YaTNBR2VNdWlvaUE1aklxV1F2aVV2b1dXcWVNcThl?=
- =?utf-8?B?QWxzRis1ek0vNjF6MUljbk5ZWmJEaGRNdVlkWlFVMmpCUlZUTXE0Rm9qdkhD?=
- =?utf-8?B?S1lzV3BZVWU3M2ZLZ29wZ3F5ckZMT3NJUG5pZlZZNlFzYkVoTFNGYmtwK3lZ?=
- =?utf-8?B?RlpIbFlrcXg1dzJpTjhDUkdyY0tHSnA0dUd0UVBXaWRPQVdya05TTUNqSWVi?=
- =?utf-8?B?TGEyZDRjL2tRYnY2YjU3MVJ4TTZ2WVJzRUpPSnBKemJXbDcyTXBKSnQ2ZXIx?=
- =?utf-8?B?NzRwVmlpZGJBMmdWZFM1UGc5MWpHRWZFbkFQY21hT0MrSjVmZC9tN3B5Q0hQ?=
- =?utf-8?B?K05kL3ZrZzM1K2hzNzZobmhETHUwWE8zRUhaRE1XV2pnL0l3bHRkbytTMGFU?=
- =?utf-8?B?WEpTaVNSZ2hnbXk0ZlJZZGxxMTc2R3V6akNsN1hBb0ZBMHkyZmFXWklOR0lq?=
- =?utf-8?B?RFFyNEc4Rkl4M0ZvTzV5Rko0cVVId3JoWFZ3d0lrVUxSSUNNYUVFb0FERlo2?=
- =?utf-8?B?emMyUXFIVFpzZHJ4aUNHZ21jem16dUhpVTVqRFpUNWZhVXdnNWUvbEJJRWxO?=
- =?utf-8?B?bEpLTTh1elBNZHpIRUxBNHNMVzdZbFBTT3l3NjhTTXowZ0l1MnhjdDJ3aENI?=
- =?utf-8?B?MXQwakJWNW4xRW9mRFRQUFBYSTVSOFpTYVdLTVgxYXhsbGlXUnNIWG5KMStw?=
- =?utf-8?B?Y3B4Vm96OXZ3RWsxTlc3UzA0ZXBoU2E0dkF4dGdyWTJ0Y2J3RGZFYkErR2wx?=
- =?utf-8?B?Z1F0dCtXV1J4dE1IcWNNVHlUMm9mY0dibi9OTENaQTBRbzhWdzBMN1ZaaDhE?=
- =?utf-8?B?ejZRRmoxcDZMRjNHdmZwWllTM0doNk1lN3BjTFRJZ2hkc0lZYVlJMVNOYml5?=
- =?utf-8?B?U1k5bzM0R25NdGNiWnVYOTVKQ0YzTDVoWG1OcHlvaEtKTVRPYVV3NHMvOVc2?=
- =?utf-8?B?Z3BGeUNKcUJKYmxPcmFTbWlGMkxOZndsMWJKK2Z0djB6eHUvWG9haVp6VTJT?=
- =?utf-8?B?cjhaeEVOSkFUQWhoYjAyM0JhT0t6MHU2c1l0MWcvOHplOHY5M1R3WSt4OGxu?=
- =?utf-8?B?ZGIydEpPeTU0UzBPZURiOGIvbGVjQm8weUppUFVJcWd0SHJlUDBkQnJGZCtx?=
- =?utf-8?B?RHVoS09MQ045VWc5bUFIUENNbDBFY0hvVDk5MDhwVU9WT2hIdytYdC9YZXJI?=
- =?utf-8?B?bVE0TVBMcXhQWnhUeHRPSndiSC9qYlA2YWQ4ZTlxOFFWazhZeGt5bitPWWdB?=
- =?utf-8?B?UHNWRUN0STFmdXhWcW44bWljVkZDRlR2VS9YNU5KdUtNYjV6WTZaaXUwT0Vw?=
- =?utf-8?B?VjJ1TUw1QTJhRHB4VFFIa0UwdVhmNWdqZFFKcjZFRnJDK056cXkrK0JQRFJk?=
- =?utf-8?B?NnpoU29zOVhKNk5ZTWZHeXBSLzJXYllCOUNoSzc5MnFFc2VwT3VsSmRFUEsz?=
- =?utf-8?B?bjZvcG1Td3Z0ZmFUenNtM1lrbXhFY1ZCNEhmMXgzYVcyRUdPK0graG1ZZkd3?=
- =?utf-8?B?anpUYmlpZG95L00vZUNhZU9OYnlBY0hCVDRpdFlwVDlGamZxOUFPZUdpUElj?=
- =?utf-8?B?WEgrc1VSU3VLNnVhaUZzVkVudDV5RVBHVE9VRFI4ems4eGd6QnV5czhwVUMr?=
- =?utf-8?Q?kmgMF1Up5aDAiddffLq/zKkCYa0tWhEiTPPWp?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+From: =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
+In-Reply-To: <3d8deeb15581b754e4c061d4c4a13657aa08bc3c.camel@ndufresne.ca>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FR4P281CA0404.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:cf::6) To PH7PR12MB5685.namprd12.prod.outlook.com
+ (2603:10b6:510:13c::22)
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH7PR12MB5685:EE_|SN7PR12MB8059:EE_
+X-MS-Office365-Filtering-Correlation-Id: 804581ca-52b4-4f80-6397-08dea684dc44
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|921020|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: 4R8qL1A5Ok91ZSIsrixXzNbuo8WOy3G4vQy3xQ0irS1uOdFE7/neroH4jbE/Zjs1pz29l9Z11LQIrCZlihD9WzX74aYilRdSPK4hehnQAtGDecsZ5BK+mxTugDsvLc27z/eSiZofBLW6wHi2qWDCl5It4ZQZyZBxBk81UANqCUPEl4A7nksQLldDgLU9QXUuXUFyXBceZGvqcQMQgcDIe7AaNxlIan2KzJU2GgsrGxCueEqvOSMOsj31pDsJ3qCIDSVZ/PR31CqE4rZVMF+EyWoCSITip3laRtpU2DPJx2gnD4sMU2S8mwowxWWUhTa4K/0hG8E2fblCqXDfP+3MBbyn4K+ijwP3pe0uQQGozAmgCIwrAYgGYwuO01pX4zxXG2ygGWXbmbMewWVqqrmkRLnWOxCoaNLkmOpOkDatcmpEAax87aYS/LVbKhRXPbUtAkYQHLOCkDd6obYQ2tbVwwY9U9Pa+w3bNDFVIRUbQOvRg44ZzAz0hDItZdsnwRG2Tm7yvu+2KeDYEX2ORZbYYcU4tggmoM1hmzRfG8UL8nSnTlfJ6JiadkWX2uNBlx+owjgBm+uKK672UAi/9h+3jveLLRDO1Jpjnkh6VSK6/jxY3BdVoc1NgJcEsqB7jxKU8wjQl/22TCepKGFbjLLr1cunpp35zZbgHP7o2tBQjQ0REM7zOn/e0laFzZQJiwYtbf/d88coFefCR1UWYp8zUiB8ho7f1luoenClEnM2MRkzePBnp5lf4xdXTb+BklW5ghasq0ok2/+unF8zObm2fRwiEvPEcpycZUcte2Jatxs=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5685.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(921020)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SVdzeng5MUxEL2hwUDlZSVZTemNrQmQzYmdmUHhyK0lVRE9ySzdrcHNNR3Ji?=
+ =?utf-8?B?cWpRL1hZdjVQQUdEMUYrcis3R3I2RWwzdTNOdlNvVlhWRUxtbjY1Z0E1M1Yv?=
+ =?utf-8?B?UFUxU0NWYk94YS9wT0pmaUVQaDQ5UXM5KzB1V1VLOTZ5SlBvdzZST3lURVVR?=
+ =?utf-8?B?clJpZDVvekc0U2R0MCtsYTdaZ1RTVkVsR3BRQStPcS9QZ1lacXRhOXE2SStC?=
+ =?utf-8?B?c0tJNW1TNGJWci9DZ1BnRGNnT3p5MkJycHBiamlqVm5XVlo1NjdOdE16dGRB?=
+ =?utf-8?B?U1pKTWNRelBZbXk4czdnUzQzYkVjWmVBV2ZyUW1qbDdkZG1PUXU4cnIweXd0?=
+ =?utf-8?B?OXVWeGc4Nk1sdzdXblgxR1NxVEtGeGZDelIyYTQ3ZFZyaktUQnVtRFhDU1dq?=
+ =?utf-8?B?YmNQbW8vc2d2Y2Z1djZldTNrUjd6Q3VJaFp0WjhCdGNFSnZWYjJGd1J0a0Vj?=
+ =?utf-8?B?VHQxcC9UUzF5ZHcwT2JUS3JZTGRNOFJIdjMwNG1CVkdJVGRHNEphNHYvbm5p?=
+ =?utf-8?B?THdrcHVOUXNuY3AvL1liRUxwakZNVWtPaUJiVlVjdzZ6R3lvdkJLRjJnVkFP?=
+ =?utf-8?B?c2ZoT1A1Sm0yQlFvbzFwVVRXYXI0NXlQRXVsMnozQW5tTmtuRVZXUGdtQ2E2?=
+ =?utf-8?B?ekVGRHVjTi9YQWFNeWNXLzlzT3JJd2ZyMllVeUUydlJGMEdrSkRVYzlPcHdP?=
+ =?utf-8?B?TmxrbFZ3Uzd6RVRpUDJNZmdHdDFwUWRkUXA5NEFBckM3MXZXZGFKWGJ1VlRJ?=
+ =?utf-8?B?MVN5VGt4WVdIV2hHUGxyN0p6d1grRVVhOWRidm42NzBOWEZpS3h2bTkvcXBZ?=
+ =?utf-8?B?anRPaTlGY0g3V203NWwzZVFCNEEwMTFHZUszQkxuQkp0OFFqckNWTnBDMC9T?=
+ =?utf-8?B?WGlad3U0ZWl4YkNPWU9tdkFiNm5laXpoRDU3WTBZclhIa3VFS3ZxZm9ZOXRx?=
+ =?utf-8?B?S1E4TDdIQWFYVENWeEpjMHlzVXNuS0ZqRnVEbjZ4cGJoeUJyZkhmTGtMV1c4?=
+ =?utf-8?B?NHBKajZJVHBVK1cvZG02Qi9WUnJCVDFaQjRLYmZzWVg2d1B5WWxsN0FvUnVQ?=
+ =?utf-8?B?SUpaOHJmblIxZjdYZVRwVlB6KzZWQUtjamI3enNMT0phd3hyNmNMSU5HMzFo?=
+ =?utf-8?B?MkE5MGhhdUpqY1FTdHZTMEovbkZmUlNhREszbzRrbkNXUDcxaHUycjBRN0Ir?=
+ =?utf-8?B?aSt4Yk01K1lsR2FacHNwU3JnSFZlSmkrNGJmZFhmV0w3cDFCd2VFeG1GekVF?=
+ =?utf-8?B?TVdhUnZtaXJNditDYUY1VWRPUUtsZ1RyN2hZOERFZzJKeXVQUFNpb2tCZFlU?=
+ =?utf-8?B?TjMveC9DSXpvYis4cVRuM0g2ZmtsdzBuRW9ybExRb2RiMlhzNTRJVDZteVlD?=
+ =?utf-8?B?WnlOMlNXNE5MdG9vRDQ4QmFGZVRhQTJIREtyTDFabzFHdW5jWkgrdWwwQjlG?=
+ =?utf-8?B?cGdKdmM2eGhWbmtwZGpVcnQ1V0Q1L1RXQlVzcVhFSUxWL085UmwwT0xvWkhT?=
+ =?utf-8?B?bFdZclNLQ2hnaWR3OEVVeGl1cE9XYjJjTmhGVWxTZDBCQ0g5bHQ5MUtnNFRj?=
+ =?utf-8?B?OGlWdUN0VWM1bElEVWUzWi9UK2tmRk1tSTV1SzFJUStYMUpqa0RER0dnL3Ux?=
+ =?utf-8?B?cUxETFpScTJjUTV0cEttVEY2bFJSMFptSUVKdVlPZVo0ZVNVeFQwL2VFNUFs?=
+ =?utf-8?B?aE9zZVNXeDFBT3NoQkZ5ZXNRczg1NTNQOWEzVFcxeWsxYzJmOEtBVDcvb1F0?=
+ =?utf-8?B?MHRVVGwzZGFXcmVhTGJoQkl0SEVTUmowMFlYRmh0VlRaaHRKdkNjNmlsTU5S?=
+ =?utf-8?B?S0liQWYzdU1sdXRwYXBCeU8vekY5RmlsVVc0UlVMRjRLWUZqbXFndk5mMXJQ?=
+ =?utf-8?B?T0doMzlNZDMyWGkwN3pqMk9ZN09NK3VGS0RPa2hhTjhOamhGeG5rWm1HaHJ3?=
+ =?utf-8?B?VnI5SzVYU2R5YWQ4aUdYUlJVbXBYcUFHcklsTk1FN1kyZTRuRnZMYWNhbGo3?=
+ =?utf-8?B?dkFTbmJiUmZhSi9uZTRUK1drakphSFVzSE10WTJhVm54ZTMwUGlXM3dzTGFV?=
+ =?utf-8?B?VnZ1T0hjWDh0a1BOaExjSDJGUG5WU2MwOUg2Zkx3L2JoV0FSckdjSDdFVnB1?=
+ =?utf-8?B?b3cyQ1BWaElDK051VldVWENlWWJ6SGdnY0E0dnE1NzJucHJEYXlvclIyZ0RG?=
+ =?utf-8?B?Y2w2bU5wRWlRLzM3STZ1TnFxajR1QUUwQk9JdE5xZ3FMUVR6MEdRYU03dkpt?=
+ =?utf-8?B?L3Y2WmhWS2ZPMDhtcmlqWjVZRit4V1NBeGw1d1U4S1UwSDhCZE5VMXdMa01p?=
+ =?utf-8?Q?o4VYBt5QaT4rH4DJNY?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 804581ca-52b4-4f80-6397-08dea684dc44
+X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5685.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8196.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fb88998d-e3e1-4a5f-7a23-08dea6845e23
-X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Apr 2026 06:47:37.8336
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2026 06:51:09.7266
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: j3ZhDHh1sFZCwdvBFmDBaW/dqAGQ7ygJ9DGss2Z5jMcyoPNd8F/G13xHxB54slietnJw88hzi7FSkoADm9PcsA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB11854
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: wt1eK0zZOMNaqCYjU19BNpzevHLBjE+RRdPn+rxUv5Sgci/aTLnz5oaJDRCPTJON
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB8059
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_234743_682027_9171E764 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20260429_235117_428231_084D8604 
+X-CRM114-Status: GOOD (  39.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,11 +154,221 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiANCj4gT24gMjgvMDQvMjAyNiAxMTowOCwgSmlhZmVpIFBhbiB3cm90ZToNCj4gPiBBZGQgQ29y
-dGV4LUEgQ29yZSByZW1vdGVwcm9jIHN1cHBvcnQsIGl0IHVzZSBQU0NJIGFuZCBTSVAgU01DIGNh
-bGwgdG8NCj4gPiBtYW5hZ2UgQ29ydGV4LUEgQ29yZSB0byBiZSBvbiBvciBvZmYuDQo+ID4NCj4g
-PiBTaWduZWQtb2ZmLWJ5OiBKaWFmZWkgUGFuIDxKaWFmZWkuUGFuQG54cC5jb20+DQo+IA0KPiAN
-Cj4gV2h5IGRvIHlvdSB1c2Ugc3ViamVjdCBwcmVmaXggImRyaXZlcnM6Ij8NCj4gDQo+IEJlc3Qg
-cmVnYXJkcywNCj4gS3J6eXN6dG9mDQoNCldpbGwgcmVtb3ZlIGl0LCB0aGFua3MuDQpKaWFmZWku
-DQo=
+On 4/29/26 23:22, Nicolas Dufresne wrote:
+> Hi Markus,
+> 
+> Le mercredi 29 avril 2026 à 19:53 +0000, Markus Fritsche a écrit :
+>> Hi,
+>>
+>> This series proposes a small opt-in API in videobuf2-core that lets V4L2
+>> drivers populate a dma_resv exclusive write fence on the dmabufs they
+>> export to userspace, signalled when the buffer transitions to
+>> VB2_BUF_STATE_DONE. Two example drivers (hantro, rockchip-rga) opt in
+>> to demonstrate the call shape; the change is no-op for every other
+>> driver.
+> 
+> Thanks for attempting again this feat. I see you went for implicit fencing, but
+> in the past we've been recommend to stay away from these and adopt an explicit
+> fencing model. Is this something you have started to think about, have you
+> reviewed past proposal in regard to fences ?
+
+Yeah agree, I just wanted to note something similar.
+
+Implicit fencing is basically just a workaround how the GPU HW used to work ~20years ago and only rarely makes sense today.
+
+On the other hand putting it behind a flag might be acceptable when you want to interact with implicit synced HW, e.g. a GPU.
+
+If you want to expose a dma_fence to userspace then using a sync_file as output from the IOCTL which kicks of the operation is usually the better approach.
+
+>>
+>> Why
+>> ---
+>> Modern Wayland compositors and any other userspace consumers that
+>> import V4L2-produced dmabufs and want to do implicit synchronization
+>> the spec-clean way (poll(POLLIN) on the dmabuf fd, or
+>> DMA_BUF_IOCTL_EXPORT_SYNC_FILE for a sync_file) currently get either:
+>>
+>> 1. A stub fence from dma_buf_export_sync_file(), because the dmabuf's
+>>    dma_resv has no fences populated. The kernel substitutes
+>>    dma_fence_get_stub() which is permanently signalled. The compositor
+>>    "successfully" waits on a fence that represents nothing real about
+>>    the producer's state.
+>> 2. A poll(POLLIN) on the dmabuf fd that returns immediately for the
+>>    same reason — dma_buf_poll_add_cb finds zero fences in the resv,
+>>    triggers the wake callback inline, and reports POLLIN ready before
+>>    the producer has actually said anything.
+>>
+>> Today this works as a happy accident on most paths because clients
+>> attach buffers after VIDIOC_DQBUF, which the userspace V4L2 contract
+>> guarantees only returns a buffer after the producer is done. So the
+>> implicit "the kernel's stub fence is fine because the buffer is
+>> already complete by the time anyone polls it" assumption has held.
+> 
+> There is no accident, just saying. Have you studied also the other side of
+> fences, the one that actually cause problem with Freedreno and Etnaviv ? To me
+> these would be higher priority since they are known to cause "back flash" kind
+> of bugs, specially for compositor that are not expecting GL driver to place
+> implicit fences on imported (v4l2 allocated) buffers.
+> 
+>>
+>> But:
+>>
+>> - It's a contract gap. The kernel claims to expose implicit sync; it
+>>   does not, for V4L2 producers.
+>> - It paid latency for nothing. Every Wayland frame from a V4L2
+>>   producer pays a DMA_BUF_IOCTL_EXPORT_SYNC_FILE round-trip for a
+>>   fence that's stub-signalled. On Mali-class hardware (RK3566 Wayland
+>>   chrome video playback), this contributed to compositor stalls.
+>>   Removing the wait at the compositor level is a workaround, not a
+>>   fix.
+>> - It blocks downstream consumers from doing the right thing. A
+>>   Wayland compositor that defensively waits on a sync_file gets a
+>>   stub-fence pass-through with no actual gating; if the V4L2 driver
+>>   ever has an out-of-band path that releases the buffer before
+>>   finishing the write, there is no fence to gate on.
+> 
+> Some things don't add up here. I think I want to remind that there is a contract
+> in regard to delivering a fence to userspace. One of the most important aspect
+> of fences is that they must in finit time be signaled, regardless what userspace
+> decided to do next. And for that reason, you shouldn't deliver a fence to
+> userspace if its not armed. In my reading, you are delivering that fence at
+> QBUF(capture) time, just like what Gustavo was trying to do previously. Its even
+> worse if you deliver it to your compositor allowing that compositor to hang
+> forever by not feeding any bitstream.
+
++1
+
+> Let's take Hantro driver as an example. The right moment to deliver the fence is
+> either right before we set the DEC bit on the control register, or somewhere
+> before that when you have bitstream, parameters and request queued. At that
+> moment, you are guarantied that the decode will either finish or fail (yes, it
+> can fail, and its extremely common with live stream, or when application calls
+> streamoff, since in v4l2, we cancel work). Prior to that, user may starve the
+> OUTPUT queue (the bitstream) and cause the fence to hold forever. This would
+> break the contract I mention earlier.
+
+Exactly that yes.
+
+Regarding failed or canceled submission handling that is not so much of a problem since we also have proper error signaling on fences.
+
+But what is usually problematic as well are things like dynamic memory management, e.g. when HW uses the PCIe PRI interface or similar functionality on other bus systems.
+
+Getting the contract right is indeed really tricky but unfortunately mandatory because you otherwise run into deadlocks sooner or later.
+
+> Though, if you attach the fence at that moment, you will need to design how to
+> signal the fence readiness (rather then the data readiness). One idea would be
+> (with userspace opting-in) to signal the queue at that moment. But then you
+> can't do the memory management operation you would normally do in DQBUF. This of
+> course don't apply to hantro, which has no device cache, but we can't design
+> something in vb2 for the old HW. So we'd need to move memory management somwhere
+> else, maybe buffer_done, though you have to carefully make sure in which context
+> you do that, you can't sleep in an IRQ.
+> 
+> There is an obvious benefit of basing your solution on
+> DMA_BUF_IOCTL_EXPORT_SYNC_FILE, once you get there, you'll discover that there
+> is very little room in v4l2_buffer, and that was causing a lot of headache to
+> previous people attempting this. Though, if we look forward, we could also
+> consider this a feature of the media_request. Queuing a request could maybe
+> deliver a fence, assuming few pre-condition that guarantee execution (or
+> failure) are met. We've seen with DW100 recently that its rather easy to convert
+> an existing m2m driver to request. The media API is a much more open canvas to
+> design new mechanism. We could have a really simple ioctl that attach out fences
+> to request, and in a future hook it to our own depedency manager.
+
+My request with the DMA-buf maintainer hat on would be to correctly annotate your fence submission path the with lockdep primitives Sima wrote and then make a few test runs with lockdep enabled.
+
+It's not a prove of correctness but this at least gives you a good hint if your locking order and memory allocation paths are correct.
+
+Regards,
+Christian.
+
+> 
+> I'm simply throwing ideas, I could have missed few things in your PoC, let me
+> know.
+> 
+> Nicolas
+> 
+>> What
+>> ----
+>> Patch 1 adds:
+>>
+>> - struct dma_fence *release_fence to struct vb2_buffer
+>> - u64 dma_resv_fence_context + atomic64_t dma_resv_fence_seqno +
+>>   spinlock_t dma_resv_fence_lock to struct vb2_queue
+>> - vb2_buffer_attach_release_fence(vb) — drivers call this from their
+>>   buf_queue callback. Allocates a dma_fence on the queue's fence
+>>   context, attaches it as DMA_RESV_USAGE_WRITE on each plane's
+>>   dmabuf->resv. No-op for buffers without exported dmabufs.
+>> - vb2_buffer_done() extended to signal+put the fence if attached,
+>>   so the producer's completion signal lands in the resv synchronously
+>>   with the userspace DQBUF wakeup.
+>>
+>> Patches 2 and 3 add a single call to the helper from hantro_buf_queue
+>> and rga_buf_queue respectively. Both are demonstration drivers; other
+>> vb2 drivers can opt in incrementally with the same one-line change.
+>>
+>> Tested on
+>> ---------
+>> PineTab2 (RK3566 / Mali-G52 panfrost / mainline 6.19.10, this series
+>> backported), playing 1080p30 H.264 in chromium under KDE Plasma 6.6.4
+>> Wayland. The test harness is the chromium-fourier patch series at
+>> https://github.com/marfrit/fourier — chromium plus a KWin patch
+>> that *previously bypassed* Transaction::watchDmaBuf because the
+>> kernel-side fence was stub-signalled. With this series applied, the
+>> bypass becomes unnecessary; KWin's fence wait completes correctly
+>> because the fence now signals when hantro completes the capture
+>> buffer write.
+>>
+>> End-to-end result before the kernel patch (chromium + Qt 6 patches +
+>> KWin watchDmaBuf bypass): 1080p30 H.264 plays through, ~81% combined
+>> chrome CPU, but the watchDmaBuf bypass weakens KWin's defenses against
+>> misbehaving clients.
+>>
+>> End-to-end result after the kernel patch (chromium + Qt 6 patches +
+>> plain unmodified KWin): 1080p30 H.264 plays through with the same CPU
+>> profile, KWin's watchDmaBuf wait completes within microseconds against
+>> the now-real producer fence, no defenses weakened.
+>>
+>> What's missing in this RFC
+>> --------------------------
+>> - Other vb2-using drivers don't opt in. Each maintainer should look
+>>   at their driver and decide. The hantro + rga patches show the
+>>   shape; copying it to other drivers should be straightforward.
+>> - For drivers that have intermediate image-processor stages (e.g.
+>>   CSI -> ISP -> user), the fence semantics across stage boundaries
+>>   are out of scope here. This series only addresses the producer-to-
+>>   userspace edge.
+>> - No selftest. videobuf2 doesn't have a great in-tree selftest harness
+>>   for dmabuf flows; the validation is end-to-end at the userspace
+>>   consumer level (KWin, in our case).
+>>
+>> Reviews especially welcome on:
+>>
+>> - The decision to make this opt-in per driver vs. automatic for all
+>>   vb2-CAPTURE queues. Auto-on would force every driver to be audited;
+>>   opt-in is incremental and safer but leaves the contract gap for
+>>   drivers nobody touches.
+>> - Whether vb2_buffer_done is the right place to signal vs. an earlier
+>>   hook (e.g. immediately after DMA-from-device finishes). For hantro
+>>   the two are effectively the same; for drivers with asynchronous
+>>   post-processing they may differ.
+>> - The choice of DMA_RESV_USAGE_WRITE — we are emitting the producer's
+>>   write completion, so WRITE matches dma-buf documentation, but a
+>>   sanity check is welcome.
+>>
+>> Cheers,
+>> Markus
+>>
+>>
+>> Markus Fritsche (3):
+>>   media: videobuf2: add dma_resv release-fence helper
+>>   media: hantro: attach dma_resv release fence at buf_queue
+>>   media: rockchip-rga: attach dma_resv release fence at buf_queue
+>>
+>>  .../media/common/videobuf2/videobuf2-core.c   | 95 +++++++++++++++++++
+>>  drivers/media/platform/rockchip/rga/rga-buf.c | 10 ++
+>>  .../media/platform/verisilicon/hantro_v4l2.c  | 12 +++
+>>  include/media/videobuf2-core.h                | 29 ++++++
+>>  4 files changed, 146 insertions(+)
+
 
