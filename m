@@ -4,33 +4,33 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F0DEFF8873
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 15:33:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9509CD13DA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 15:33:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BBlqeQpPpkFQavh9a6nTI8URpEaJiJZwwXYvpjAZLfk=; b=QIIbTMxM6E+wZgbQdgSxdXLo53
-	DHdeofSsrmn/gAVW3ktjQZNbjsTfnwxMJSQgpHV3moLxof9oB4X7e/n+Ew9oX7ywWNSbQ72rg0mNN
-	dLCB/4Uw65Gv3wuxEDrroCn+1q/caDI3fF2dWNgPyZAr4ZJ+k7wzPvFdxr8eRkLkLCSLHhsD93s62
-	xK7IDXumv3sPB+GFEDz+bJAXmmMjmh8W1T0IAyzZHwaFA2aRbGydkeCyDAoRl0m2oiKMfL+ue8Dl0
-	GK79N7lTVe2G5xxCK8tGwW+M9sOqzuyippkO2Nelxxnj5is1IaBvYazmx7ZEroJ0LrzFl4a5wXTgP
-	dLQv2vpQ==;
+	bh=YlnNLOINq/JBpriRB7mFZfolTNWdhgrinS0wJ54eN4o=; b=zshAMKFhNfmAPgz3YM/ohmuTV1
+	yQ9B7jpoLhGIliGy9puIg5uuFGDiI+NTyDaALl26ZRgyqCL5l8V9HKgWfYYL4fEUphbA7meOM6/+2
+	22DgD4ia4pOynao926EXvec0eSHwKTfENxv0cR49Wz8Tv9opFK4QFEG0+yEJV43pMI0seLv5TpPLj
+	ZJPcnsA/i5XDcFPvzrvf94c2UYItTJYyR4YOmsZ3aZ93ObzDHP5mGkmrd6OHdZCagCeHkUwGpEcFE
+	6+SRRULheO72+eOAIVrqrVyJ3eyFn4GYPbjC3WcG5peCjDXQRMSqI0iH5DEkmXtCf4spVH1JZpwKB
+	Hj+AeTSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wITOZ-00000005e25-3q0s;
-	Thu, 30 Apr 2026 15:33:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wITOe-00000005e4q-25xR;
+	Thu, 30 Apr 2026 15:33:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wITOW-00000005e0H-2V9m;
-	Thu, 30 Apr 2026 15:33:42 +0000
+	id 1wITOa-00000005e1x-1HH4;
+	Thu, 30 Apr 2026 15:33:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7149644196;
+	by sea.source.kernel.org (Postfix) with ESMTP id 7BE1243C27;
+	Thu, 30 Apr 2026 15:33:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5152C2BCF6;
 	Thu, 30 Apr 2026 15:33:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7574C2BCB3;
-	Thu, 30 Apr 2026 15:33:35 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: Linus Walleij <linusw@kernel.org>,
 	Lorenzo Bianconi <lorenzo@kernel.org>,
@@ -49,17 +49,17 @@ Cc: linux-gpio@vger.kernel.org,
 	linux-omap@vger.kernel.org,
 	linux-renesas-soc@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH 1/7] pinctrl: airoha: Fix type in .pin_config_group_get() callback
-Date: Thu, 30 Apr 2026 17:33:12 +0200
-Message-ID: <5ba0a81c6868b67ec740e46d56405b4c4bbf0962.1777562725.git.geert+renesas@glider.be>
+Subject: [PATCH 2/7] pinctrl: equilibrium: Fix type in .pin_config_group_get() callback
+Date: Thu, 30 Apr 2026 17:33:13 +0200
+Message-ID: <9364b13288faae01e53b65712150bab22348b14b.1777562725.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1777562725.git.geert+renesas@glider.be>
 References: <cover.1777562725.git.geert+renesas@glider.be>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_083340_675263_88C09A6F 
-X-CRM114-Status: GOOD (  12.29  )
+X-CRM114-CacheID: sfid-20260430_083344_359199_5D1ED590 
+X-CRM114-Status: GOOD (  10.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,22 +80,24 @@ On 64-bit platforms, "unsigned long" is 64-bit.  Hence checking if all
 
 Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
- drivers/pinctrl/mediatek/pinctrl-airoha.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/pinctrl/pinctrl-equilibrium.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/pinctrl/mediatek/pinctrl-airoha.c b/drivers/pinctrl/mediatek/pinctrl-airoha.c
-index 995ba6175c9504ba..e5a6a60fb3c660cb 100644
---- a/drivers/pinctrl/mediatek/pinctrl-airoha.c
-+++ b/drivers/pinctrl/mediatek/pinctrl-airoha.c
-@@ -2811,7 +2811,7 @@ static int airoha_pinconf_group_get(struct pinctrl_dev *pctrl_dev,
- 				    unsigned int group, unsigned long *config)
+diff --git a/drivers/pinctrl/pinctrl-equilibrium.c b/drivers/pinctrl/pinctrl-equilibrium.c
+index ba1c867b7b891abb..349eb944b4ac880e 100644
+--- a/drivers/pinctrl/pinctrl-equilibrium.c
++++ b/drivers/pinctrl/pinctrl-equilibrium.c
+@@ -532,8 +532,9 @@ static int eqbr_pinconf_set(struct pinctrl_dev *pctldev, unsigned int pin,
+ static int eqbr_pinconf_group_get(struct pinctrl_dev *pctldev,
+ 				  unsigned int group, unsigned long *config)
  {
- 	struct airoha_pinctrl *pinctrl = pinctrl_dev_get_drvdata(pctrl_dev);
--	u32 cur_config = 0;
-+	unsigned long cur_config = 0;
- 	int i;
+-	unsigned int i, npins, old = 0;
+ 	const unsigned int *pins;
++	unsigned int i, npins;
++	unsigned long old = 0;
+ 	int ret;
  
- 	for (i = 0; i < pinctrl->grps[group].npins; i++) {
+ 	ret = pinctrl_generic_get_group_pins(pctldev, group, &pins, &npins);
 -- 
 2.43.0
 
