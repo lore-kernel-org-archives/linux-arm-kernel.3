@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FFDCCD3420
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 15:56:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C702CD13DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 15:56:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AS93n7u+mL1S7OPp/PoO5Pi701E6fS59BvUwhYSShuE=; b=y9NsIjo3wrh9tJqMdOrNwriIZG
-	pIOwSZWQunumADMQIejNyeKKOxFQUD6TlaG18kt+Q2p+NZpRMN10zlopRr6BM60nQ2Y+K7mhCxK/o
-	w/EbnqpcncbA/wSn6Fhw0zqzLYRDut68ywD860/RLIaWv9uisUSizRNOSD+ukARmDxtD2KXbzjEpK
-	EFBE60DtmHnJ73NLIP26w3e/0ajlEV3oHhbr8q3tRGhNzk4cvOvHUocodKLNKu3bm2wW1TOCITI+L
-	21cZ1JO2UukLvtY+Rm0XVWsjDGr8rNecsf3xf0yBexjenbXGAkGlExHhK5m31L14Fc+Ba6EUYcVh8
-	Q8qlM30g==;
+	bh=3RJLw2ptESdkRgCOXOQZAx2lu7EpkksUmCtcT/1GfHY=; b=uZp/wyQPmQnVBzE1wYfEgIBIy9
+	M09FX7W1iQXSjLn34GhPmiWEu8ZzWtJuwiuaT/vhjQD2+T1iX68jgG+7lnnezP2kX1/jBNmHgddfV
+	/1y6wdwdBbFKW8l4Q9tdVSgFwAuagOt7IrCQZRcyV0UgeTndbzmAVSDdEGEPJuMM7LnyCL0LrIc+W
+	80TL6ZoWSXoF7Pedw5pcuT8c0a5w7dHRXOXZ63BVmYH7ytEcb1aZRdvWVLw0v84QefWzmuDqkyOkb
+	Zx3VuMQGhwHBTuArDOpMOABtokIwMtG4MedooCV2xSEy+GWLx2OSU12uQzo4liSPc5ND4F0nkrU5X
+	GqKEbPXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wITkE-00000005gK3-2kaI;
-	Thu, 30 Apr 2026 15:56:06 +0000
-Received: from m16.mail.163.com ([220.197.31.4])
+	id 1wITkF-00000005gKd-05R6;
+	Thu, 30 Apr 2026 15:56:07 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wITk0-00000005g9z-3N8G;
+	id 1wITk1-00000005gA0-191q;
 	Thu, 30 Apr 2026 15:55:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=AS
-	93n7u+mL1S7OPp/PoO5Pi701E6fS59BvUwhYSShuE=; b=XlMGYU/qi9Z9z5RAyA
-	E8DfyMJQU7Opp9AdAjrKlYYcAUb+esPSxKKAB4/6GvcFG1iIY6ADtLCwhG4rpbKt
-	gKagWqTZUSAK0R0/FFwXRq0OtcMN+qiJIXCJ/iujOlDnYc016qBSpF2kks+wUIMX
-	ll9lkzrcEYlut1ljJU3R0Uu9c=
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=3R
+	JLw2ptESdkRgCOXOQZAx2lu7EpkksUmCtcT/1GfHY=; b=e3TjQ5NGBlPXmvA5IV
+	nurBn0YnXKta1mNS0pgO8k08+Y8xuqN1h9QWr/g2qnQaSjkEMlDdg7BLA75NJWwm
+	i4Urgz/F5psrtaeHqN2mfswAsWxCuygB60ENj7qioTDv68H5v/j5kZ7UKiuujnFA
+	/hTOAhtwnuh/5+hMKkMsc2Pqw=
 Received: from zhb.. (unknown [])
-	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wAXyu5Se_NpHedTCg--.49548S3;
-	Thu, 30 Apr 2026 23:55:01 +0800 (CST)
+	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wAXyu5Se_NpHedTCg--.49548S8;
+	Thu, 30 Apr 2026 23:55:06 +0800 (CST)
 From: Hans Zhang <18255117159@163.com>
 To: broonie@kernel.org,
 	sunny.luo@amlogic.com,
@@ -57,24 +57,24 @@ Cc: linux-spi@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-stm32@st-md-mailman.stormreply.com,
 	Hans Zhang <18255117159@163.com>
-Subject: [PATCH 01/10] spi: amlogic-spifc-a1: Use FIELD_MODIFY()
-Date: Thu, 30 Apr 2026 23:54:47 +0800
-Message-Id: <20260430155456.36998-2-18255117159@163.com>
+Subject: [PATCH 06/10] spi: sn-f-ospi: Use FIELD_MODIFY()
+Date: Thu, 30 Apr 2026 23:54:52 +0800
+Message-Id: <20260430155456.36998-7-18255117159@163.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260430155456.36998-1-18255117159@163.com>
 References: <20260430155456.36998-1-18255117159@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wAXyu5Se_NpHedTCg--.49548S3
-X-Coremail-Antispam: 1Uf129KBjvdXoWrur17tw4kur1DKF47Zry7Jrb_yoWkGwc_CF
-	ykuw4kJF1jgrsrGF4fJryxur90gwn0ga10gF1FqFyYy3s8ta15Zw4qvr1DGryUAa1DCwsY
-	9rnxZrykZrW3CjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7sRNMKZJUUUUU==
+X-CM-TRANSID: _____wAXyu5Se_NpHedTCg--.49548S8
+X-Coremail-Antispam: 1Uf129KBjvdXoWrur17Kr15JryDWFyUKFyUJrb_yoWfZFc_CF
+	1YvrWxJrZ0k3yxC3WxWFZ5A3s09rn8uF4kt3Z7tasxAwsxWw13Ww1ktrW8Aa4UZFs8ur40
+	9wsrZrW8Cr1akjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7sRN6pBPUUUUU==
 X-Originating-IP: [240e:b8f:927e:5900:c497:d540:b00d:97f4]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbC6xVL7mnze1VOMQAA3Q
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbC6xpM72nze1pO-wAA3Y
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_085553_160193_5094A506 
-X-CRM114-Status: UNSURE (   7.79  )
+X-CRM114-CacheID: sfid-20260430_085553_713159_FC3AF5B8 
+X-CRM114-Status: UNSURE (   8.10  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,26 +95,25 @@ No functional change intended.
 
 Signed-off-by: Hans Zhang <18255117159@163.com>
 ---
- drivers/spi/spi-amlogic-spifc-a1.c | 5 ++---
+ drivers/spi/spi-sn-f-ospi.c | 5 ++---
  1 file changed, 2 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/spi/spi-amlogic-spifc-a1.c b/drivers/spi/spi-amlogic-spifc-a1.c
-index 7ee4c92e6e09..77a2c11bec5e 100644
---- a/drivers/spi/spi-amlogic-spifc-a1.c
-+++ b/drivers/spi/spi-amlogic-spifc-a1.c
-@@ -206,10 +206,9 @@ static int amlogic_spifc_a1_read(struct amlogic_spifc_a1 *spifc, void *buf,
- 	u32 val = readl(spifc->base + SPIFC_A1_USER_CTRL3_REG);
- 	int ret;
+diff --git a/drivers/spi/spi-sn-f-ospi.c b/drivers/spi/spi-sn-f-ospi.c
+index b459d51cb3a8..f0320e96fe23 100644
+--- a/drivers/spi/spi-sn-f-ospi.c
++++ b/drivers/spi/spi-sn-f-ospi.c
+@@ -222,9 +222,8 @@ static void f_ospi_config_clk(struct f_ospi *ospi, u32 device_hz)
+ 	 */
+ 	val = readl(ospi->base + OSPI_CLK_CTL);
  
--	val &= ~(SPIFC_A1_USER_DIN_MODE | SPIFC_A1_USER_DIN_BYTES);
- 	val |= SPIFC_A1_USER_DIN_ENABLE;
--	val |= FIELD_PREP(SPIFC_A1_USER_DIN_MODE, mode);
--	val |= FIELD_PREP(SPIFC_A1_USER_DIN_BYTES, size);
-+	FIELD_MODIFY(SPIFC_A1_USER_DIN_MODE, &val, mode);
-+	FIELD_MODIFY(SPIFC_A1_USER_DIN_BYTES, &val, size);
- 	writel(val, spifc->base + SPIFC_A1_USER_CTRL3_REG);
+-	val &= ~(OSPI_CLK_CTL_PHA | OSPI_CLK_CTL_DIV);
+-	val |= FIELD_PREP(OSPI_CLK_CTL_PHA, OSPI_CLK_CTL_PHA_180)
+-	     | FIELD_PREP(OSPI_CLK_CTL_DIV, div_reg);
++	FIELD_MODIFY(OSPI_CLK_CTL_PHA, &val, OSPI_CLK_CTL_PHA_180);
++	FIELD_MODIFY(OSPI_CLK_CTL_DIV, &val, div_reg);
  
- 	ret = amlogic_spifc_a1_request(spifc, true);
+ 	writel(val, ospi->base + OSPI_CLK_CTL);
+ }
 -- 
 2.34.1
 
