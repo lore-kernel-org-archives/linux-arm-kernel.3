@@ -4,109 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A133CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 11:24:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96778FF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 11:38:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6AA/YGShOqRmUpkypHwRODrLQufZKAKK2YnZ8Ary0FQ=; b=LiNRDcSvZDoKJpXSOltQQo/Cc2
-	nVHHTDCw+WMPBqQ+arrnkVV+n/J/WnQhnEOHZOGgg+9wt2LISRgSGP6bEYQpBT7jn6iti2NfuZnpW
-	EkhV9Q5Uwh3nyc0evdMisoI+7SOxCRY4dx1y31b06d7dvLe3vFnS1J6W44nF8M18CPYqQLHtFBneN
-	O40PS2AcyYJR+6S1GrZeuahUcgHGRGa1QvhqlStwr89XmwBITVElnKt3ZSbG1V52q3sU7IozmVVc/
-	GM/f3nmA2ZqXaIP5M9pMaOYT/x9mdQrDA2Y3LDf0Yj9vKirBBO7Wn1X3rW+8Gi8GIlBt5SMWPSPtn
-	hXykcBww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IOMgvY2wgrw3uJCXiSsSqmQjTwBIMXwpWB3eJN3dd74=; b=fjVm2Xi+M27HG5BfGVQnNJNrJe
+	GrC0uoIjA+kqGkPHOTb3XXmLA6eP46hG0q2tUhxc3TxBlMfYyzlnXXVRgfhjtRdmWEyhd/LLhaXuw
+	xONSV0rHbOXtEKMmUUt/aMqcK+FSb8Px/Gh7e9QQgjR012NsNt+aBOwgHeZj6FCHYR5cKR6LVkgmh
+	oY8jq1OR99f++iASLuwF1c353GVcg5zjwHObOyWDrUiNu6HfnHZE3FStcJ/RaXwwVtV9H65zYTtbD
+	s9k7qOexHrFWa54iotiZWq5tjyAN6EaALqVVsPDoEArnwCtlgyKB8XEvj0R+/pAcIGw37wMOWbduv
+	MCO91MvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIPVS-00000005NgB-2bZd;
-	Thu, 30 Apr 2026 11:24:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wIPiq-00000005OST-0UtO;
+	Thu, 30 Apr 2026 11:38:24 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIPVP-00000005Nf7-3iju;
-	Thu, 30 Apr 2026 11:24:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4C3A3417BF;
-	Thu, 30 Apr 2026 11:24:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8029C2BCB3;
-	Thu, 30 Apr 2026 11:24:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777548271;
-	bh=dsGnAliiTDQC0j0QOXt/Ci4gp/31DHhmKm7DB4q1qrs=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=mhE7dn2xF64/1R/Z9eBpoAPfKVt2/xgy1fF6qd45Z3qCKLeild20yo0v2m0yBTlUm
-	 +xVwJ0YsRP9JtpcEl1fF8jVlOJ0oRl/vZPPgQNWKW+5u2FGXBKhkfpU/9Nnj4io9+X
-	 vo97UQFgvf7TkWnVmH/bbNe1azK2n4QWF8URihVXFLBpi6vOtigWQDEnZifzvQQ3nU
-	 /8B/6fGkMyJTZ6MEM16NdmmsN905CRfzCTRbQYUzt4PbXSytNQUz5NgcWsuk6ydJ61
-	 J7eDcdO6qC+b1CxBxlfoNYjw15cbS2w/L5rjqjr/M1D3QhVnh5CpbtgIP8d1B5ATkX
-	 p8TYP7G6LMJaQ==
-Message-ID: <e1829cf5-c277-4e34-8bcf-addc27bfd69c@kernel.org>
-Date: Thu, 30 Apr 2026 13:24:26 +0200
+	id 1wIPio-00000005OSN-0An3
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 30 Apr 2026 11:38:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=IOMgvY2wgrw3uJCXiSsSqmQjTwBIMXwpWB3eJN3dd74=; b=JLbCpA2we9gzwwaDMiPsbXJfx6
+	lCypm1jhsEnP4GKj+DRPHEcIHyeiJBHutGGmo1WLYOw/1zswKEepv6ftl+Hf7zCB1omf6rvNEpr7U
+	XKGt1xUgDp/75Oa7n85GytGUCUSQmoKhF5FKP2Qohfve5DzzBU5mVgU1sOfqtV9suIU2r5Ti9sptR
+	4Y+J2qjTurnxW9Vp/JJ6jcsP1DmqgvbNkATPtoQ0MFeO5uA/3WeAglx2Kzcj9XCYp/rZQInB1HGMD
+	EBiLh/tRC+K1+Ati5LaLSvrzSQBJ2lo/GoMSN9GYcTRGv7v7jgqEUPkcely/4Xw0Swt8NoLNLvKfQ
+	ExyIrO2Q==;
+Received: from mail-japaneastazon11022102.outbound.protection.outlook.com ([52.101.126.102] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wIPij-00000007HLo-2njf
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 30 Apr 2026 11:38:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=b+2S+6MHACu9J5iLJ0JuB67lROiiXjLTxsstQXUeyqS74U+bfo3wmbWuWfg/zquq2DaeIQSZcd+e1hK453S2ZdVb4M6ln1PAlzkxxtQ3DAb74WSlJAVbcM+CWppBVBOALxgA1Q/hWDMntduAnsLs1+i1URIulsKr/f2F3/I4LrhjeCVF4zjSPfsO+qsCU0kvngq+JsG0hBhuwegOO7Tp0DAR65Q5GHjQMDbSMyUQ8GKeEurECfPW1DmGTfimU0G030rRR/qCeUntZZT9XjVI4lUbYfih52wF6f5e61yH6X0ha7cOL7imHKxna5EJYfzkI0mjlraKs/z+082XDFIJpA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IOMgvY2wgrw3uJCXiSsSqmQjTwBIMXwpWB3eJN3dd74=;
+ b=bT8z6PjPzaSJe4aLIURfAwmhZ55I+VH/7oTBLImFFVRdw+j71/GLLI3p7Vf/DyfzS9VinVE7+eu6U+Wig3ZO12+eWAq53Y0pKDAB8B7cJQZXREl1qtZtwQJ8N5Qt/B/VqEe2DbEVXxsvS/W9ELnrZuc8IFdJMisDaY1eqv82jjDmWIpTs4gL2q+bu26U+FdFYYKc1NJT8Xcnw10KClXWIJNxTep2+DCrwLaUZ24GpX2pU0qi4YKCDbcQsqxSCbskU/h2S2UjrZiSdY76vc3IhqqriaSXBVkK08vrGnh4Pfc2yUL5LzwGqeAUKnWcxclmvsHB3Ys/xbeBl1VoSZV0qQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from PS2PR01CA0030.apcprd01.prod.exchangelabs.com
+ (2603:1096:300:58::18) by KUZPR06MB8292.apcprd06.prod.outlook.com
+ (2603:1096:d10:62::22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.18; Thu, 30 Apr
+ 2026 11:37:52 +0000
+Received: from TY2PEPF0000AB83.apcprd03.prod.outlook.com
+ (2603:1096:300:58:cafe::f) by PS2PR01CA0030.outlook.office365.com
+ (2603:1096:300:58::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.30 via Frontend Transport; Thu,
+ 30 Apr 2026 11:37:52 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ TY2PEPF0000AB83.mail.protection.outlook.com (10.167.253.4) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9846.18 via Frontend Transport; Thu, 30 Apr 2026 11:37:52 +0000
+Received: from local (unknown [172.16.64.130])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 61AC540A5A30;
+	Thu, 30 Apr 2026 19:37:51 +0800 (CST)
+From: Devin Li <Devin.Li@cixtech.com>
+To: peter.chen@cixtech.com,
+	fugang.duan@cixtech.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	cix-kernel-upstream@cixtech.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	guoyin.chen@cixtech.com,
+	robin.wang@cixtech.com,
+	hong.guo@cixtech.com,
+	Devin.Li@cixtech.com
+Subject: [PATCH v1] arm64: dts: cix: Add SCMI performance domains for CPUFreq on Sky1
+Date: Thu, 30 Apr 2026 19:35:59 +0800
+Message-ID: <20260430113559.3102436-1-Devin.Li@cixtech.com>
+X-Mailer: git-send-email @GIT_VERSION@
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] gpio: Remove "default y" in Kconfig
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Yu-Chun Lin <eleanor.lin@realtek.com>, linusw@kernel.org,
- brgl@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- afaerber@suse.com, tychang@realtek.com
-Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-realtek-soc@lists.infradead.org, cy.huang@realtek.com,
- stanley_chang@realtek.com, james.tai@realtek.com
-References: <20260408025243.1155482-1-eleanor.lin@realtek.com>
- <20260408025243.1155482-2-eleanor.lin@realtek.com>
- <6ff75de9-6d5f-4d4a-bb19-1c06d0aa8d3a@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <6ff75de9-6d5f-4d4a-bb19-1c06d0aa8d3a@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB83:EE_|KUZPR06MB8292:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: 54e6ea6c-ba8d-435c-04a6-08dea6ace9fd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|1800799024|82310400026|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: 1GKtQhutHDDZA+03fKcE8cNeawQC75Lg6dbwr6BTLHzm2BhPhKPW+wUNYvNjU77dOi03JwAh7aoxP0MFp83ofItuoa2JTvCbvb/NZXsD8jqQsLVMi7eHh5tRj8VLzDn6kXhThJYT1Pr7MhktrNgcRqq6WpWYhD01gVSPVLDxCFDVP8nuCR8WBGsa+xEfq7cJ8R6ID7p+LlHcIsMDCt3bjawp6/6kuB8/9abVQ/Rnz4/xbPyqYBzQQEwlkVaAF3YKk7WpTPF87Gi3gaUe+yuGvptuMYe/8D5nC4jwRlqtE6kj4qw9Bi2g+7fzX3rKMHGC/Z38CbS5Yt5kxex3L3Fooq1HPQXvlAy/VnYNeUsvsNedsjPrspQsIw+jUH/MsIbZp8hZlwpmgEvyBLtbAxYkiYluEyVDnUdlQQar2MxDkqLqZz77OEPPNJbVQ/gEQhexv6l664IghJTaYjFv6Ur9ZXAm0d/0DnX4UKu9TZ2SgvPAD1KtBwDXNfBsIKEL5d+NrRwKcbkLMhyWosfSULqfwZECXiVjmCScT0GM5DxAyRqTKIHjyYle8r4duzlT445oUlQq0CjqnMu4GTqdXCxJ4o59sGGowt0KhqkNhl0gQtOxzDfyLSCcYk1B8IkCDMC9A/A8s6uvZpYoE7YlaheA356FcWZ7CUJTcixNsyBWcSrBl47wIXxgUDg3/bcySb4wNzJtv4saFf4Ziwt8bAStv8IUnaHXI4NXaKqIKhpu1j8Zd456LIJzob2tP7vDyH0U1fILHDqKo/S5HV/jQbTPeA==
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700016)(1800799024)(82310400026)(18002099003)(56012099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: LQKeB8wR6rGkgsWsX5oyeTStqO7QxyE2eHE+TgKBfcZ/eqdDf/5h0p47S6HXNrIw+puvwN8JqXMNVg7gY5DvmK6HoNsa6p4CWbbNDI8P395KnwgPdl+r4LwIsy+n2kXRZm9VaUyMTYP7jP0Il8nBeKkhAaILDKTJEmr3RnJkvPb2hKxYb/hmIkTE+/rSvhc6ac7FRccRPpeB88HGwmffE6WQBzvROLjSnbX1yCmsC7D+MZjJqoEeUheypkLNDf44qmOenhZLIj43bO/s+oEU2Firywmhe3AIZwiX4mj9xzOEard6Ng+VQNc8rTqN8LNx97UqYCcJ1sSWWjl3s5Z4N0+XA4Kh0HmK5ZvaVPd3yQ52lkzPh3MT3rMe4fd3j94tLv/nV9lEyik61tKLqVI8nY/KjFrNPh5I6PQdu3mmHSiizHFauOoXfCTAJ6z6rcTo
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2026 11:37:52.1398
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 54e6ea6c-ba8d-435c-04a6-08dea6ace9fd
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: TY2PEPF0000AB83.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KUZPR06MB8292
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_042431_962565_0A272F7A 
-X-CRM114-Status: UNSURE (   6.79  )
+X-CRM114-CacheID: sfid-20260430_123817_852026_D11132F6 
+X-CRM114-Status: UNSURE (   8.90  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -122,17 +136,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/04/2026 13:23, Krzysztof Kozlowski wrote:
-> On 08/04/2026 04:52, Yu-Chun Lin wrote:
->> Remove the default y to avoid bloating the build for non-Realtek platforms
->> when COMPILE_TEST is enable on other platforms.
->>
-> 
-> Why isn't this driver important for Realtek SoC? This should be
-> explained, otherwise proper fix is default for ARCH_REALTEK.
+From: "devin.li" <Devin.Li@cixtech.com>
 
-And you were kind of asked for it at v1...
+Add SCMI Protocol 13 (Performance) node under ap_to_pm_scmi with
+domains.
 
-Best regards,
-Krzysztof
+Define SKY1_PERF_* macros in sky1-power.h for all performance domain
+IDs (CPU L/B0/B1/M0/M1, GPU, DSU, NPU, VPU, CI700, NI700), and
+wire each CPU node to its corresponding performance domain using
+power-domains and power-domain-names properties.
+
+Signed-off-by: Devin Li <Devin.Li@cixtech.com>
+---
+ arch/arm64/boot/dts/cix/sky1-power.h | 13 +++++++++++++
+ arch/arm64/boot/dts/cix/sky1.dtsi    | 29 ++++++++++++++++++++++++++++
+ 2 files changed, 42 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/cix/sky1-power.h b/arch/arm64/boot/dts/cix/sky1-power.h
+index 53f4a3af36b3..144567579b71 100644
+--- a/arch/arm64/boot/dts/cix/sky1-power.h
++++ b/arch/arm64/boot/dts/cix/sky1-power.h
+@@ -30,4 +30,17 @@
+ #define SKY1_PD_ISP0		20
+ #define SKY1_PD_GPU		21
+ 
++#define SKY1_PERF_GPU_CORE	0
++#define SKY1_PERF_GPU_TOP	1
++#define SKY1_PERF_CPU_L     2
++#define SKY1_PERF_CPU_B0	3
++#define SKY1_PERF_CPU_B1	4
++#define SKY1_PERF_CPU_M0	5
++#define SKY1_PERF_CPU_M1	6
++#define SKY1_PERF_DSU	    7
++#define SKY1_PERF_NPU	    8
++#define SKY1_PERF_VPU	    9
++#define SKY1_PERF_CI700	    10
++#define SKY1_PERF_NI700	    11
++
+ #endif
+diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
+index 0611098b5f05..a77c52296ebd 100644
+--- a/arch/arm64/boot/dts/cix/sky1.dtsi
++++ b/arch/arm64/boot/dts/cix/sky1.dtsi
+@@ -22,6 +22,8 @@ cpu0: cpu@0 {
+ 			enable-method = "psci";
+ 			reg = <0x0 0x0>;
+ 			device_type = "cpu";
++			power-domains = <&scmi_dvfs SKY1_PERF_CPU_L>;
++			power-domain-names = "perf";
+ 			capacity-dmips-mhz = <403>;
+ 			cpu-idle-states = <&CPU_SLEEP_0 &CLUSTER_SLEEP_0>;
+ 		};
+@@ -31,6 +33,8 @@ cpu1: cpu@100 {
+ 			enable-method = "psci";
+ 			reg = <0x0 0x100>;
+ 			device_type = "cpu";
++			power-domains = <&scmi_dvfs SKY1_PERF_CPU_L>;
++			power-domain-names = "perf";
+ 			capacity-dmips-mhz = <403>;
+ 			cpu-idle-states = <&CPU_SLEEP_0 &CLUSTER_SLEEP_0>;
+ 		};
+@@ -40,6 +44,8 @@ cpu2: cpu@200 {
+ 			enable-method = "psci";
+ 			reg = <0x0 0x200>;
+ 			device_type = "cpu";
++			power-domains = <&scmi_dvfs SKY1_PERF_CPU_L>;
++			power-domain-names = "perf";
+ 			capacity-dmips-mhz = <403>;
+ 			cpu-idle-states = <&CPU_SLEEP_0 &CLUSTER_SLEEP_0>;
+ 		};
+@@ -49,6 +55,8 @@ cpu3: cpu@300 {
+ 			enable-method = "psci";
+ 			reg = <0x0 0x300>;
+ 			device_type = "cpu";
++			power-domains = <&scmi_dvfs SKY1_PERF_CPU_L>;
++			power-domain-names = "perf";
+ 			capacity-dmips-mhz = <403>;
+ 			cpu-idle-states = <&CPU_SLEEP_0 &CLUSTER_SLEEP_0>;
+ 		};
+@@ -58,6 +66,8 @@ cpu4: cpu@400 {
+ 			enable-method = "psci";
+ 			reg = <0x0 0x400>;
+ 			device_type = "cpu";
++			power-domains = <&scmi_dvfs SKY1_PERF_CPU_M0>;
++			power-domain-names = "perf";
+ 			capacity-dmips-mhz = <1024>;
+ 			cpu-idle-states = <&CPU_SLEEP_1 &CLUSTER_SLEEP_0>;
+ 		};
+@@ -67,6 +77,8 @@ cpu5: cpu@500 {
+ 			enable-method = "psci";
+ 			reg = <0x0 0x500>;
+ 			device_type = "cpu";
++			power-domains = <&scmi_dvfs SKY1_PERF_CPU_M0>;
++			power-domain-names = "perf";
+ 			capacity-dmips-mhz = <1024>;
+ 			cpu-idle-states = <&CPU_SLEEP_1 &CLUSTER_SLEEP_0>;
+ 		};
+@@ -76,6 +88,8 @@ cpu6: cpu@600 {
+ 			enable-method = "psci";
+ 			reg = <0x0 0x600>;
+ 			device_type = "cpu";
++			power-domains = <&scmi_dvfs SKY1_PERF_CPU_M1>;
++			power-domain-names = "perf";
+ 			capacity-dmips-mhz = <1024>;
+ 			cpu-idle-states = <&CPU_SLEEP_1 &CLUSTER_SLEEP_0>;
+ 		};
+@@ -85,6 +99,8 @@ cpu7: cpu@700 {
+ 			enable-method = "psci";
+ 			reg = <0x0 0x700>;
+ 			device_type = "cpu";
++			power-domains = <&scmi_dvfs SKY1_PERF_CPU_M1>;
++			power-domain-names = "perf";
+ 			capacity-dmips-mhz = <1024>;
+ 			cpu-idle-states = <&CPU_SLEEP_1 &CLUSTER_SLEEP_0>;
+ 		};
+@@ -94,6 +110,8 @@ cpu8: cpu@800 {
+ 			enable-method = "psci";
+ 			reg = <0x0 0x800>;
+ 			device_type = "cpu";
++			power-domains = <&scmi_dvfs SKY1_PERF_CPU_B0>;
++			power-domain-names = "perf";
+ 			capacity-dmips-mhz = <1024>;
+ 			cpu-idle-states = <&CPU_SLEEP_1 &CLUSTER_SLEEP_0>;
+ 		};
+@@ -103,6 +121,8 @@ cpu9: cpu@900 {
+ 			enable-method = "psci";
+ 			reg = <0x0 0x900>;
+ 			device_type = "cpu";
++			power-domains = <&scmi_dvfs SKY1_PERF_CPU_B0>;
++			power-domain-names = "perf";
+ 			capacity-dmips-mhz = <1024>;
+ 			cpu-idle-states = <&CPU_SLEEP_1 &CLUSTER_SLEEP_0>;
+ 		};
+@@ -112,6 +132,8 @@ cpu10: cpu@a00 {
+ 			enable-method = "psci";
+ 			reg = <0x0 0xa00>;
+ 			device_type = "cpu";
++			power-domains = <&scmi_dvfs SKY1_PERF_CPU_B1>;
++			power-domain-names = "perf";
+ 			capacity-dmips-mhz = <1024>;
+ 			cpu-idle-states = <&CPU_SLEEP_1 &CLUSTER_SLEEP_0>;
+ 		};
+@@ -121,6 +143,8 @@ cpu11: cpu@b00 {
+ 			enable-method = "psci";
+ 			reg = <0x0 0xb00>;
+ 			device_type = "cpu";
++			power-domains = <&scmi_dvfs SKY1_PERF_CPU_B1>;
++			power-domain-names = "perf";
+ 			capacity-dmips-mhz = <1024>;
+ 			cpu-idle-states = <&CPU_SLEEP_1 &CLUSTER_SLEEP_0>;
+ 		};
+@@ -205,6 +229,11 @@ ap_to_pm_scmi: scmi {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 
++			scmi_dvfs: protocol@13 {
++				reg = <0x13>;
++				#power-domain-cells = <1>;
++			};
++
+ 			scmi_clk: protocol@14 {
+ 				reg = <0x14>;
+ 				#clock-cells = <1>;
+-- 
+2.49.0
+
 
