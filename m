@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEF8ECD13D2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 11:16:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 887BCFF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 11:16:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZJvKkDGGWxWRD93rga8MRA8prxECf//kG6w96v+jiTc=; b=IP8jhNmVRCGz52CbzGKOMGoyzM
-	agPyQFluCNoc8SqSfUy85i0BvDbWe2LejmDVCd9QSZU2H6PO44TxAvlODQPlAJJjEedVbbE8uo6z1
-	7Zf3GiG3wfhO9CucTHKU7o87iBdHEI2wu3r+HvLuGnmi+8Egikg2ydMWh5XM2BFOKQ5G9YH5kKqHp
-	aJK7IwriqqzYChdR0uhV1bTE5ptyyHgviIlnVTjXq+T4u7k494ilRVJdW7cGVBpjZET7h3GYMTpWV
-	jrEST1EMkr0oHPisR45g539XO6FlFQ6+rYAmN6NSgsSLfGIUAaMkyeCs+C3bz9STBygptJZVC0Hbx
-	fw1C3m3w==;
+	bh=KBbe8y2q7s52XxH5OWnlg0eAO3NlzUl+Awtqyb/lNPg=; b=438Eu1jgLF9llvdOXXMkJ39j86
+	aeOctMWygT5Sk/TxIomcYvkr3mmQpz4hY58aAslJGbAgBxRmsqcwTf3KNdZyuMWVhPkRUemk3h5F0
+	twKhM6B5sX7xa6nveO1KQz5wBFsMokMojs96NJiUE/4vzA452DQoP0ks7B98V7g1kj5vpmE0cMHcD
+	NwbnNKbZWy9bijn4uoWXZ2koksTZuecsioR4UNapmiVGugV9qM4xq/pch3W1iSudyf75iKYh4gM7b
+	4mv4XiJJEVTrzCQu3F0fi0GLMJlQNGwZ6MR9HH2nBeLUUNCrBwoLStKy+4Z/8rbH5f/AWN5c0L+Xp
+	XN1BCz7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIPNA-00000005LS5-3mhH;
-	Thu, 30 Apr 2026 11:16:00 +0000
+	id 1wIPNB-00000005LSY-0twb;
+	Thu, 30 Apr 2026 11:16:01 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIPN2-00000005LLH-2AHE
+	id 1wIPN5-00000005LOc-3ThS
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 30 Apr 2026 11:15:52 +0000
+	Thu, 30 Apr 2026 11:15:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=ZJvKkDGGWxWRD93rga8MRA8prxECf//kG6w96v+jiTc=; b=QtM14LgsBx92qBxl4mfAHhx0N7
-	z7ed7LWwgIb1IRTZJewjDPL7dUlANZCwBrjtak1+6sHE7jF1/vdGnX5AV8CRj9Z/RpuTsFWypp8Co
-	e0X0e30+v4gf9T9D7+HjY0nuk6VxJDM/tqNZ/3R79tlEJ2vrEXZAYLW1yvdU1sgxbHfBOIrcBe/nt
-	Ml0er0Co3hDvjUzyNHZcX4sk945iyQ3D3+0EelSq6/Qz7xxCc1vsngnlDpyKlHeLFJI268DsCLGkk
-	Zb13AqDYkt4HV9JjidcTWkP89j+VFIxA57MZToEuDKq304nbrlWrWZpVf+w3AbLmDsIn11WLsm8a1
-	855kGplA==;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=KBbe8y2q7s52XxH5OWnlg0eAO3NlzUl+Awtqyb/lNPg=; b=S8TKp7byXgKvz4QAIaqO+DHpz0
+	7MMoMzj87TZDTaXaeZ8uJvwYmvsMT/70PvK1xsSHXvK7bnyJ+gL2sws7z6E97+vtaCeBMeJkbHWYM
+	XeNC48U9pY069SEy7x0llyCMCokGhWE3EafxLjcmvliA1nexV7A5FHWWqLLH8YJChbEVHn0yKohX9
+	yANU2GfObMfcjvTS4JJo+0Y6xPni4RQCCaZ0FXvcwOmPUrqSuouFTUhBy/z1wHqRAbpNM8herwhJO
+	QGOrgLMMzkO6+fwtZOiVe7q0HgNxvCY+TlAU3zW1ov3SDNKUgoXRvXQVnOMDYrKJq1IC4Tw1kzgev
+	A8JKEvnQ==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIPMx-00000007Djl-1kvk
+	id 1wIPN2-00000007DmC-30sA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 11:15:51 +0000
+	Thu, 30 Apr 2026 11:15:54 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 21BC63548;
-	Thu, 30 Apr 2026 04:15:37 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 802A13560;
+	Thu, 30 Apr 2026 04:15:46 -0700 (PDT)
 Received: from devkitleo.cambridge.arm.com (devkitleo.cambridge.arm.com [10.1.196.90])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2586A3F763;
-	Thu, 30 Apr 2026 04:15:38 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8A8073F763;
+	Thu, 30 Apr 2026 04:15:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777547742; bh=RnNmUi25WQATOqzbYmUHJ+Iu1/LzjMsiRxtUGsjdP1w=;
+	t=1777547751; bh=ZkdGKyLMclIRLyhqJWVYz05PFVKmF2W5SXHOKUVIcOA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Q2fZJxgKC25GnHizrIMLhZj3kwBhkBrD8tX9MUtFbGt/IWt6VDDhoK4ndFnTDnnr4
-	 zl2ZLEnjJCPesxZXgJkfHsSutOVGwe+r5zfdHTJUvOyryLjhUM9zi3pAQeYvFUbkUp
-	 ZpVe3mGYnnCVhr9y413ng7uqhrYXCsxTLlTUFxbs=
+	b=DTy0btjiqfmFNn4qxNqdiFWNbIgLEI7bpRci9Kvb2fZY44VLTAaUKOwe0pOTWa793
+	 P8WHa0X0PMRXQhJswIXFKvgT75GatY47ZfDzy2oKchbItvbABKfxae2ssSB8YjOcyM
+	 FpawrYNUnaFmYrHZaEa/eOsaHxdw20L1bnVSQaic=
 From: Leonardo Bras <leo.bras@arm.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -95,18 +95,17 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-acpi@vger.kernel.org,
 	acpica-devel@lists.linux.dev,
 	kvm@vger.kernel.org
-Subject: [PATCH v1 05/12] KVM: arm64: Detect (via ACPI) and initialize HACDBSIRQ
-Date: Thu, 30 Apr 2026 12:14:09 +0100
-Message-ID: <20260430111424.3479613-7-leo.bras@arm.com>
+Subject: [PATCH v1 07/12] kvm: Add arch-generic interface for hw-accelerated dirty-bitmap cleaning
+Date: Thu, 30 Apr 2026 12:14:11 +0100
+Message-ID: <20260430111424.3479613-9-leo.bras@arm.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260430111424.3479613-2-leo.bras@arm.com>
 References: <20260430111424.3479613-2-leo.bras@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_121548_196008_51932173 
-X-CRM114-Status: GOOD (  24.56  )
+X-CRM114-CacheID: sfid-20260430_121553_191353_73C32AC6 
+X-CRM114-Status: GOOD (  23.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,321 +120,212 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Find via ACPI [1] the Id for HACDBSIRQ, initialize it as a per-cpu IRQ
-and make sure any cpu able to run virtualization has it active.
+Introduce kvm_arch_dirty_log_clear() that allow implementation of
+arch-specific hardware-accelerated dirty-log routines.
 
-Introduce a per-cpu structure used by the HACDBSIRQ handler to keep track
-of entries size and the status of HACDBS. Size is used to detect end of
-processing in case the number of entries being processed is different of
-the supported entries size.
+A call to that is added on both kvm_get_dirty_log_protect() and
+kvm_clear_dirty_log_protect() and will fall back to software version if
+not implemented, or any error was detected in the arch-specific routine.
 
-Status may look easily replaceable by checking HACDBS registers now, but
-will make the OFF/IDLE detection easier in next patches.
+For an arch to implement this function, it's required to provide an
+asm/kvm_dirty_bit.h and have CONFIG_HAVE_KVM_HW_DIRTY_BIT=y on building.
+
+If the arch does not implement it, and thus lack above config, the
+introduced snippet is expected to be compiled-out and have zero impact at
+runtime.
 
 Signed-off-by: Leonardo Bras <leo.bras@arm.com>
-
-[1] https://github.com/tianocore/edk2/issues/12409
 ---
- arch/arm64/include/asm/acpi.h          |  3 +
- arch/arm64/include/asm/kvm_dirty_bit.h | 18 +++++
- include/acpi/actbl2.h                  |  1 +
- arch/arm64/kvm/arm.c                   |  5 ++
- arch/arm64/kvm/dirty_bit.c             | 97 ++++++++++++++++++++++++++
- 5 files changed, 124 insertions(+)
+ include/linux/kvm_dirty_bit.h | 27 +++++++++++++++++++++++++++
+ virt/kvm/kvm_main.c           | 13 ++++++++++++-
+ virt/kvm/Kconfig              |  3 +++
+ 3 files changed, 42 insertions(+), 1 deletion(-)
+ create mode 100644 include/linux/kvm_dirty_bit.h
 
-diff --git a/arch/arm64/include/asm/acpi.h b/arch/arm64/include/asm/acpi.h
-index 8a54ca6ba602..883315e9d79d 100644
---- a/arch/arm64/include/asm/acpi.h
-+++ b/arch/arm64/include/asm/acpi.h
-@@ -38,20 +38,23 @@
- 
- #define BAD_MADT_GICC_ENTRY(entry, end)					\
- 	(!(entry) || (entry)->header.length < ACPI_MADT_GICC_MIN_LENGTH || \
- 	(unsigned long)(entry) + (entry)->header.length > (end))
- 
- #define ACPI_MADT_GICC_SPE  (offsetof(struct acpi_madt_generic_interrupt, \
- 	spe_interrupt) + sizeof(u16))
- 
- #define ACPI_MADT_GICC_TRBE  (offsetof(struct acpi_madt_generic_interrupt, \
- 	trbe_interrupt) + sizeof(u16))
+diff --git a/include/linux/kvm_dirty_bit.h b/include/linux/kvm_dirty_bit.h
+new file mode 100644
+index 000000000000..fa4f6b67b623
+--- /dev/null
++++ b/include/linux/kvm_dirty_bit.h
+@@ -0,0 +1,27 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2026 ARM Ltd.
++ * Author: Leonardo Bras <leo.bras@arm.com>
++ */
 +
-+#define ACPI_MADT_GICC_HACDBSIRQ  (offsetof(struct acpi_madt_generic_interrupt, \
-+	hacdbsirq_gsi) + sizeof(u32))
- /*
-  * Arm® Functional Fixed Hardware Specification Version 1.2.
-  * Table 2: Arm Architecture context loss flags
-  */
- #define CPUIDLE_CORE_CTXT		BIT(0) /* Core context Lost */
- 
- static inline unsigned int arch_get_idle_state_flags(u32 arch_flags)
- {
- 	if (arch_flags & CPUIDLE_CORE_CTXT)
- 		return CPUIDLE_FLAG_TIMER_STOP;
-diff --git a/arch/arm64/include/asm/kvm_dirty_bit.h b/arch/arm64/include/asm/kvm_dirty_bit.h
-index dd16438f0651..904e59f95b7e 100644
---- a/arch/arm64/include/asm/kvm_dirty_bit.h
-+++ b/arch/arm64/include/asm/kvm_dirty_bit.h
-@@ -2,11 +2,29 @@
- /*
-  * Copyright (C) 2026 ARM Ltd.
-  * Author: Leonardo Bras <leo.bras@arm.com>
-  */
- 
- #ifndef __ARM64_KVM_DIRTY_BIT_H__
- #define __ARM64_KVM_DIRTY_BIT_H__
- 
- #include <asm/kvm_pgtable.h>
- 
-+enum hacdbs_status {
-+	HACDBS_OFF,
-+	HACDBS_IDLE,
-+	HACDBS_RUNNING,
-+	HACDBS_ERROR
-+};
++#ifndef __KVM_DIRTY_BIT_H__
++#define __KVM_DIRTY_BIT_H__
 +
-+struct hacdbs {
-+	enum hacdbs_status status;
-+	int size;
-+};
++#ifndef CONFIG_HAVE_KVM_HW_DIRTY_BIT
 +
-+DECLARE_PER_CPU(struct hacdbs, hacdbs_pcp);
++static inline int kvm_arch_dirty_log_clear(struct kvm *kvm,
++					   struct kvm_memory_slot *memslot,
++					   struct kvm_clear_dirty_log *log,
++					   unsigned long *bitmap,
++					   bool *flush)
++{
++	return -ENXIO;
++}
 +
-+void __init kvm_hacdbs_init(void);
-+void kvm_hacdbs_cpu_up(void);
-+void kvm_hacdbs_cpu_down(void);
++#else /* CONFIG_HAVE_KVM_HW_DIRTY_BIT */
 +
- #endif /* __ARM64_KVM_DIRTY_BIT_H__ */
-diff --git a/include/acpi/actbl2.h b/include/acpi/actbl2.h
-index 5c0b55e7b3e4..96b664dde9c2 100644
---- a/include/acpi/actbl2.h
-+++ b/include/acpi/actbl2.h
-@@ -1442,20 +1442,21 @@ struct acpi_madt_generic_interrupt {
- 	u64 gich_base_address;
- 	u32 vgic_interrupt;
- 	u64 gicr_base_address;
- 	u64 arm_mpidr;
- 	u8 efficiency_class;
- 	u8 reserved2[1];
- 	u16 spe_interrupt;	/* ACPI 6.3 */
- 	u16 trbe_interrupt;	/* ACPI 6.5 */
- 	u16 iaffid;		/* ACPI 6.7 */
- 	u32 irs_id;
-+	u32 hacdbsirq_gsi;	/* ACPI 6.X */
- };
- 
- /* Masks for Flags field above */
- 
- /* ACPI_MADT_ENABLED                    (1)      Processor is usable if set */
- #define ACPI_MADT_PERFORMANCE_IRQ_MODE  (1<<1)	/* 01: Performance Interrupt Mode */
- #define ACPI_MADT_VGIC_IRQ_MODE         (1<<2)	/* 02: VGIC Maintenance Interrupt mode */
- #define ACPI_MADT_GICC_ONLINE_CAPABLE   (1<<3)	/* 03: Processor is online capable  */
- #define ACPI_MADT_GICC_NON_COHERENT     (1<<4)	/* 04: GIC redistributor is not coherent */
- 
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 176cbe8baad3..aae230c33c41 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -34,20 +34,21 @@
- #include <asm/cpufeature.h>
- #include <asm/virt.h>
- #include <asm/kvm_arm.h>
- #include <asm/kvm_asm.h>
- #include <asm/kvm_emulate.h>
- #include <asm/kvm_hyp.h>
- #include <asm/kvm_mmu.h>
- #include <asm/kvm_nested.h>
- #include <asm/kvm_pkvm.h>
- #include <asm/kvm_ptrauth.h>
 +#include <asm/kvm_dirty_bit.h>
- #include <asm/sections.h>
- #include <asm/stacktrace/nvhe.h>
++
++#endif /* CONFIG_HAVE_KVM_HW_DIRTY_BIT */
++
++#endif /* __KVM_DIRTY_BIT_H__ */
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 89489996fbc1..7f5048ca9a25 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -58,20 +58,21 @@
+ #include "async_pf.h"
+ #include "kvm_mm.h"
+ #include "vfio.h"
  
- #include <kvm/arm_hypercalls.h>
- #include <kvm/arm_pmu.h>
- #include <kvm/arm_psci.h>
- #include <kvm/arm_vgic.h>
+ #include <trace/events/ipi.h>
  
- #include <linux/irqchip/arm-gic-v5.h>
+ #define CREATE_TRACE_POINTS
+ #include <trace/events/kvm.h>
  
-@@ -2278,28 +2279,30 @@ int kvm_arch_enable_virtualization_cpu(void)
- 	 * disabled, but not with preemption disabled. The former is
- 	 * enough to ensure correctness, but most of the helpers
- 	 * expect the later and will throw a tantrum otherwise.
- 	 */
- 	preempt_disable();
+ #include <linux/kvm_dirty_ring.h>
++#include <linux/kvm_dirty_bit.h>
  
- 	cpu_hyp_init(NULL);
  
- 	kvm_vgic_cpu_up();
- 	kvm_timer_cpu_up();
-+	kvm_hacdbs_cpu_up();
+ /* Worst case buffer size needed for holding an integer. */
+ #define ITOA_MAX_LEN 12
  
- 	preempt_enable();
+ MODULE_AUTHOR("Qumranet");
+ MODULE_DESCRIPTION("Kernel-based Virtual Machine (KVM) Hypervisor");
+ MODULE_LICENSE("GPL");
+ 
+ /* Architectures should define their poll value according to the halt latency */
+@@ -2255,39 +2256,44 @@ static int kvm_get_dirty_log_protect(struct kvm *kvm, struct kvm_dirty_log *log)
+ 		 * is some code duplication between this function and
+ 		 * kvm_get_dirty_log, but hopefully all architecture
+ 		 * transition to kvm_get_dirty_log_protect and kvm_get_dirty_log
+ 		 * can be eliminated.
+ 		 */
+ 		dirty_bitmap_buffer = dirty_bitmap;
+ 	} else {
+ 		dirty_bitmap_buffer = kvm_second_dirty_bitmap(memslot);
+ 		memset(dirty_bitmap_buffer, 0, n);
+ 
++		if (kvm_arch_dirty_log_clear(kvm, memslot, NULL,
++					     dirty_bitmap_buffer, &flush) >= 0)
++			goto out;
++
+ 		KVM_MMU_LOCK(kvm);
+ 		for (i = 0; i < n / sizeof(long); i++) {
+ 			unsigned long mask;
+ 			gfn_t offset;
+ 
+ 			if (!dirty_bitmap[i])
+ 				continue;
+ 
+ 			flush = true;
+ 			mask = xchg(&dirty_bitmap[i], 0);
+ 			dirty_bitmap_buffer[i] = mask;
+ 
+ 			offset = i * BITS_PER_LONG;
+ 			kvm_arch_mmu_enable_log_dirty_pt_masked(kvm, memslot,
+ 								offset, mask);
+ 		}
+ 		KVM_MMU_UNLOCK(kvm);
+ 	}
+ 
++out:
+ 	if (flush)
+ 		kvm_flush_remote_tlbs_memslot(kvm, memslot);
+ 
+ 	if (copy_to_user(log->dirty_bitmap, dirty_bitmap_buffer, n))
+ 		return -EFAULT;
+ 	return 0;
+ }
+ 
+ 
+ /**
+@@ -2366,45 +2372,50 @@ static int kvm_clear_dirty_log_protect(struct kvm *kvm,
+ 	    (log->num_pages < memslot->npages - log->first_page && (log->num_pages & 63)))
+ 	    return -EINVAL;
+ 
+ 	kvm_arch_sync_dirty_log(kvm, memslot);
+ 
+ 	flush = false;
+ 	dirty_bitmap_buffer = kvm_second_dirty_bitmap(memslot);
+ 	if (copy_from_user(dirty_bitmap_buffer, log->dirty_bitmap, n))
+ 		return -EFAULT;
+ 
++	if (kvm_arch_dirty_log_clear(kvm, memslot, log, dirty_bitmap_buffer,
++				     &flush) >= 0)
++		goto out;
++
+ 	KVM_MMU_LOCK(kvm);
+ 	for (offset = log->first_page, i = offset / BITS_PER_LONG,
+ 		 n = DIV_ROUND_UP(log->num_pages, BITS_PER_LONG); n--;
+ 	     i++, offset += BITS_PER_LONG) {
+ 		unsigned long mask = *dirty_bitmap_buffer++;
+ 		atomic_long_t *p = (atomic_long_t *) &dirty_bitmap[i];
+ 		if (!mask)
+ 			continue;
+ 
+ 		mask &= atomic_long_fetch_andnot(mask, p);
+ 
+ 		/*
+ 		 * mask contains the bits that really have been cleared.  This
+ 		 * never includes any bits beyond the length of the memslot (if
+ 		 * the length is not aligned to 64 pages), therefore it is not
+ 		 * a problem if userspace sets them in log->dirty_bitmap.
+ 		*/
+ 		if (mask) {
+ 			flush = true;
++
+ 			kvm_arch_mmu_enable_log_dirty_pt_masked(kvm, memslot,
+ 								offset, mask);
+ 		}
+ 	}
+ 	KVM_MMU_UNLOCK(kvm);
+-
++out:
+ 	if (flush)
+ 		kvm_flush_remote_tlbs_memslot(kvm, memslot);
  
  	return 0;
  }
  
- void kvm_arch_disable_virtualization_cpu(void)
+ static int kvm_vm_ioctl_clear_dirty_log(struct kvm *kvm,
+ 					struct kvm_clear_dirty_log *log)
  {
-+	kvm_hacdbs_cpu_down();
- 	kvm_timer_cpu_down();
- 	kvm_vgic_cpu_down();
+ 	int r;
+diff --git a/virt/kvm/Kconfig b/virt/kvm/Kconfig
+index 794976b88c6f..f8757b5b84b3 100644
+--- a/virt/kvm/Kconfig
++++ b/virt/kvm/Kconfig
+@@ -13,20 +13,23 @@ config HAVE_KVM_PFNCACHE
  
- 	if (!is_protected_kvm_enabled())
- 		cpu_hyp_uninit(NULL);
- }
+ config HAVE_KVM_IRQCHIP
+        bool
  
- #ifdef CONFIG_CPU_PM
- static int hyp_init_cpu_pm_notifier(struct notifier_block *self,
- 				    unsigned long cmd,
-@@ -2450,20 +2453,22 @@ static int __init init_subsystems(void)
- 		goto out;
- 	}
+ config HAVE_KVM_IRQ_ROUTING
+        bool
  
- 	/*
- 	 * Init HYP architected timer support
- 	 */
- 	err = kvm_timer_hyp_init(vgic_present);
- 	if (err)
- 		goto out;
+ config HAVE_KVM_DIRTY_RING
+        bool
  
-+	kvm_hacdbs_init();
++config HAVE_KVM_HW_DIRTY_BIT
++       bool
 +
- 	kvm_register_perf_callbacks();
+ # Only strongly ordered architectures can select this, as it doesn't
+ # put any explicit constraint on userspace ordering. They can also
+ # select the _ACQ_REL version.
+ config HAVE_KVM_DIRTY_RING_TSO
+        bool
+        select HAVE_KVM_DIRTY_RING
+        depends on X86
  
- 	err = kvm_hyp_trace_init();
- 	if (err)
- 		kvm_err("Failed to initialize Hyp tracing\n");
- 
- out:
- 	if (err)
- 		hyp_cpu_pm_exit();
- 
-diff --git a/arch/arm64/kvm/dirty_bit.c b/arch/arm64/kvm/dirty_bit.c
-index 31ef35f3b72f..765ef609ff70 100644
---- a/arch/arm64/kvm/dirty_bit.c
-+++ b/arch/arm64/kvm/dirty_bit.c
-@@ -1,23 +1,120 @@
- // SPDX-License-Identifier: GPL-2.0-only
- /*
-  * Copyright (C) 2026 ARM Ltd.
-  * Author: Leonardo Bras <leo.bras@arm.com>
-  */
- 
- #include <asm/kvm_dirty_bit.h>
-+#include <linux/kconfig.h>
-+#include <linux/acpi.h>
-+
-+DEFINE_PER_CPU(struct hacdbs, hacdbs_pcp) = {
-+	.status = HACDBS_OFF,
-+	.size = 0,
-+};
- 
- /* HDBSS entry field definitions */
- #define HDBSS_ENTRY_VALID BIT(0)
- #define HDBSS_ENTRY_TTWL_SHIFT (1)
- #define HDBSS_ENTRY_TTWL_MASK (GENMASK(3, 1))
- #define HDBSS_ENTRY_TTWL(x) \
- 	(((x) << HDBSS_ENTRY_TTWL_SHIFT) & HDBSS_ENTRY_TTWL_MASK)
- #define HDBSS_ENTRY_TTWL_RESV HDBSS_ENTRY_TTWL(-4)
- #define HDBSS_ENTRY_IPA GENMASK_ULL(55, 12)
- 
- inline u64 hdbss_get_ttwl(u64 chunk_size)
- {
- 	u64 hw_lvl = ARM64_HW_PGTABLE_LEVELS(ilog2(chunk_size));
- 
- 	return HDBSS_ENTRY_TTWL(3 - hw_lvl);
- }
-+
-+static __ro_after_init int hacdbsirq = -1;
-+
-+static irqreturn_t hacdbsirq_handler(int irq, void *pcpu)
-+{
-+	u64 cons = read_sysreg_s(SYS_HACDBSCONS_EL2);
-+	unsigned long err = FIELD_GET(HACDBSCONS_EL2_ERR_REASON, cons);
-+
-+	switch (err) {
-+	case HACDBSCONS_EL2_ERR_REASON_NOF:
-+		this_cpu_write(hacdbs_pcp.status, HACDBS_IDLE);
-+		break;
-+	case HACDBSCONS_EL2_ERR_REASON_IPAHACF:
-+		/* When size not a power of two >= 4k, exit with reserved TTLW */
-+		int index = FIELD_GET(HACDBSCONS_EL2_INDEX, cons);
-+
-+		if (index >= this_cpu_read(hacdbs_pcp.size)) {
-+			this_cpu_write(hacdbs_pcp.status, HACDBS_IDLE);
-+			break;
-+		}
-+		fallthrough;
-+	case HACDBSCONS_EL2_ERR_REASON_STRUCTF:
-+	case HACDBSCONS_EL2_ERR_REASON_IPAF:
-+		this_cpu_write(hacdbs_pcp.status, HACDBS_ERROR);
-+		break;
-+	}
-+
-+	return IRQ_HANDLED;
-+}
-+
-+void kvm_hacdbs_cpu_up(void)
-+{
-+	if (hacdbsirq < 0)
-+		return;
-+
-+	enable_percpu_irq(hacdbsirq, IRQ_TYPE_LEVEL_HIGH);
-+	this_cpu_write(hacdbs_pcp.status, HACDBS_IDLE);
-+}
-+
-+void kvm_hacdbs_cpu_down(void)
-+{
-+	if (hacdbsirq < 0)
-+		return;
-+
-+	disable_percpu_irq(hacdbsirq);
-+	this_cpu_write(hacdbs_pcp.status, HACDBS_OFF);
-+}
-+
-+#ifdef CONFIG_ACPI
-+static int __init hacdbs_acpi_get_irq(void)
-+{
-+	struct acpi_madt_generic_interrupt *gicc;
-+	u32 gsi;
-+	int irq;
-+
-+	gicc = acpi_cpu_get_madt_gicc(smp_processor_id());
-+	if (gicc->header.length < ACPI_MADT_GICC_HACDBSIRQ)
-+		return -ENXIO;
-+
-+	gsi =  gicc->hacdbsirq_gsi;
-+
-+	irq = acpi_register_gsi(NULL, gsi, ACPI_LEVEL_SENSITIVE, ACPI_ACTIVE_HIGH);
-+	if (irq < 0) {
-+		pr_warn("ACPI: Unable to register HACDBS interrupt: %d\n", gsi);
-+		return -ENXIO;
-+	}
-+
-+	return irq;
-+}
-+#else
-+#define hacdbs_acpi_get_irq() (-ENXIO)
-+#endif
-+
-+void __init kvm_hacdbs_init(void)
-+{
-+	int irq;
-+
-+	/* FEAT_HACDBS is only supported if Linux runs in EL2 (VHE) */
-+	if (!system_supports_hacdbs() || !is_kernel_in_hyp_mode())
-+		return;
-+
-+	irq = hacdbs_acpi_get_irq();
-+	if (irq < 0)
-+		return;
-+
-+	if (request_percpu_irq(irq, hacdbsirq_handler, "HACDBSIRQ", &hacdbs_pcp) < 0)
-+		return;
-+
-+	hacdbsirq = irq;
-+}
+ # Weakly ordered architectures can only select this, advertising
+ # to userspace the additional ordering requirements.
 -- 
 2.54.0
 
