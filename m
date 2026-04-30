@@ -4,43 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EEFCFF8875
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 04:05:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F806FF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 04:06:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+yWwHlIWL+l+Dg90SDWHd1+WqElaJbqvcRn9WxFEv1Q=; b=iwjdJJqgo8gTqhtH17p4stJf6R
-	IZhUvM+AJoyYLIAgYhC7B1xg9ijaBa+M//WUFGVIw2461Fv42kkyNtKAcvzqqRjfurKg/QF9R20MG
-	JMUdyL3enQ4DS3c8KNHc3zvX4UBDIdi/tdzGkWemtpgd+8AlqGqqqJci/AraS3kF0ups7+ml/qVl0
-	7GrI9c2XBV2CDsgYcjEX6rrzNjqwvuBukCL2JIwZK7cs4aQ2QN4Q+l4S3puOZ1hEhKoOzLXq31rAT
-	FOZAEAt2kvWq1vanpGAEwpzUlqpdJSMdt9BbQKDq4CF1R9ou3ZxS7DenC6eptaGipcUiIUJWi4FaM
-	jlLmX/hQ==;
+	bh=AjOwhtb3aLC8dXcF5fdBlXdpp4mSyr4Dq8lBNuOOORA=; b=0/KdgzkA/Voouvj37XB3kyOb+b
+	ZJ1ZnPPOJOZp3loaIwxALlAgqKNrSkMTW0gnwTUdB1E7fhk3KdxeKZMO0cwNxkiuqb2S7tk94Y5iD
+	d9Sx7QW7Ine4BdU6jUPeWhYSQs7Cdw7ZhRJ0ncsqRGbjocGYVJ5D5TSOwGuG3b7YOfdTnmSX8Y8K4
+	y3uTJIwhQYgrLvbW/4L3udd423UxEOqwlyX3BGvcHrn2VB29F6bYtsj6XeXrhephybdpvkFG2RNSy
+	kkyDTrYk7/AoSYbuGaDpXvTzLfPYafMBfEVD051xCIT9nCvfVtm9bWZfIDIo/3iDMqpyT6eTOrrQX
+	ENqrqGUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIIeR-00000004d0B-0YWZ;
-	Thu, 30 Apr 2026 04:05:23 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wIIf7-00000004dPg-3EXF;
+	Thu, 30 Apr 2026 04:06:05 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIIeO-00000004cxz-2rM7;
-	Thu, 30 Apr 2026 04:05:21 +0000
+	id 1wIIf6-00000004dOQ-1SZe;
+	Thu, 30 Apr 2026 04:06:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=AjOwhtb3aLC8dXcF5fdBlXdpp4mSyr4Dq8lBNuOOORA=; b=gbVNsHmfrp3dlnjUGbqZ5l8qiS
+	ROaAwj/M+qCPklMStrP21+ynBPts0egtBU3vG3bBx4KbGWCr//7YmlnyiRfgWLPQLtUylBcdBJ9T4
+	gcsP/UBxqetm6r2p0uXfsiyGWi4k4juHiKCCAQ4uONz1PNpUW7FggJmNznthVmKu+MwSvB0Snbwtz
+	8DsUCuGRVaZ40T7AFxQn6Xi8laLNALkCZ/T839DfMYtOfvV2acymB8bgJ5PAgCdCaAAWcAi8ajS3G
+	ZImC3+gqobX4QTo3tYV6PZos4A5aXSfX3mut/uZn+gpEXCogrUYWvnDuAc91W77irvP3VyCnGSZsy
+	7qFj8BSQ==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wIIeT-00000006afk-30ou;
+	Thu, 30 Apr 2026 04:05:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D4925435B9;
-	Thu, 30 Apr 2026 04:05:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC6E6C2BCB8;
+	by sea.source.kernel.org (Postfix) with ESMTP id 953E9417E4;
 	Thu, 30 Apr 2026 04:05:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B00CC2BCC6;
+	Thu, 30 Apr 2026 04:05:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777521919;
-	bh=pbXcAk16+rZv3mixELQ0Ipha1GpoRaVFtegxsWu8Zqk=;
+	s=k20201202; t=1777521914;
+	bh=6MPYWPf1QbIXw7VCTkYtFV9yBQTJYYcQnuchAn2u66s=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ocBfK8O4Ywas1DnfVulkPf8JAygFLLLSXfSSIhFab5aPydgPGyQRMZl4VC0fcDxzh
-	 ZSF8ZjBo9bGMKXhwl/M9RckUdNTcuoEDs1sQYC8HxwbacO47214ueIB5PuN5R9qPyl
-	 7/vXQCjK6DhEeLKCFGPA8mBl5pi8Xir7/uhc151Nze4/YpDG2oez+rIhbMYqevbaCB
-	 eLjkznrbZrf9uMIIMqF0/apYtZGMqURcRmb3l4AFBitMcYEDgyMeHrj8n9yVB0vf4O
-	 no7KHvYOh/5gIxhaiyHe3dpMaQbh59rmzxY6J3CuNafpQ/IRafc5BIkfCVPTmXqOYt
-	 bTDK/08BVuABA==
+	b=uJyCN/cPD0/zuU5TMG/FWh17eVTVcTCG22wyND+Ln22vdCzvScs+KeOLVG9RmOssZ
+	 jDw1d8PhCAGGbMI/IFgx4Z5EBNcmkVO03z+9/CJtVz3K4wxUxjDLHuhXQrygfZY0vj
+	 Mz9EPYWMtvXMUkv1GvrXcIXqYy7f2Nbz3f61nlophvJmqpD4ikN6UOlFyXJonZi3kU
+	 apK9iwjy49sl7fMM6lNjIBPwaa1bmY1pG/z4xtRWqVUh4kt9XKZhnZLwyhRWE61vDF
+	 fxzmTVdxergJndpikZIoTxLjBRYHAUamicyvLwT/yqUnIVLaZSAeOqCic0yYJ36c4O
+	 EWCGitvEei8LA==
 From: "Barry Song (Xiaomi)" <baohua@kernel.org>
 To: akpm@linux-foundation.org,
 	linux-mm@kvack.org,
@@ -72,17 +86,18 @@ Cc: david@kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-s390@vger.kernel.org,
 	"Barry Song (Xiaomi)" <baohua@kernel.org>
-Subject: [PATCH v2 5/5] mm/filemap: Avoid retrying page faults on uptodate folios in filemap faults
-Date: Thu, 30 Apr 2026 12:04:27 +0800
-Message-Id: <20260430040427.4672-6-baohua@kernel.org>
+Subject: [PATCH v2 4/5] mm: Don't retry page fault if folio is uptodate during swap-in
+Date: Thu, 30 Apr 2026 12:04:26 +0800
+Message-Id: <20260430040427.4672-5-baohua@kernel.org>
 X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 In-Reply-To: <20260430040427.4672-1-baohua@kernel.org>
 References: <20260430040427.4672-1-baohua@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_210520_743743_55C7199F 
-X-CRM114-Status: GOOD (  10.39  )
+X-CRM114-CacheID: sfid-20260430_050528_898727_B2C9EDCC 
+X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,23 +112,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For uptodate folios, we are not waiting on I/O. We should
-be able to acquire the folio lock shortly, so there is no
-need to drop per-vma locks and perform a full PF retry.
+If we are waiting for long I/O to complete, it makes sense to
+avoid holding locks for too long. However, if the folio is
+uptodate, we are likely only waiting for a concurrent PTE
+update to finish. Retrying the entire page fault seems
+excessive.
 
 Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
 ---
- mm/filemap.c | 7 +++++++
+ mm/memory.c | 7 +++++++
  1 file changed, 7 insertions(+)
 
-diff --git a/mm/filemap.c b/mm/filemap.c
-index b532d6cbafc8..0d2f6af5d0fe 100644
---- a/mm/filemap.c
-+++ b/mm/filemap.c
-@@ -3533,6 +3533,13 @@ vm_fault_t filemap_fault(struct vm_fault *vmf)
- 		}
+diff --git a/mm/memory.c b/mm/memory.c
+index 0c740ca363cc..a2e4f2d87ec8 100644
+--- a/mm/memory.c
++++ b/mm/memory.c
+@@ -4949,6 +4949,13 @@ vm_fault_t do_swap_page(struct vm_fault *vmf)
  	}
  
+ 	swapcache = folio;
 +	/*
 +	 * If the folio is uptodate, we are likely only waiting for
 +	 * another concurrent PTE mapping to complete, which should
@@ -121,9 +138,9 @@ index b532d6cbafc8..0d2f6af5d0fe 100644
 +	 */
 +	if (folio_test_uptodate(folio))
 +		vmf->flags &= ~FAULT_FLAG_ALLOW_RETRY;
- 	if (!lock_folio_maybe_drop_mmap(vmf, folio, &fpin))
- 		goto out_retry;
- 
+ 	ret |= folio_lock_or_retry(folio, vmf);
+ 	if (ret & VM_FAULT_RETRY) {
+ 		if (fault_flag_allow_retry_first(vmf->flags) &&
 -- 
 2.39.3 (Apple Git-146)
 
