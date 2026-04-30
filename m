@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A7B1FF8875
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 09:25:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 148DFFF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 09:34:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+w9pGVYPHJfPh1XzkNUV0AqlY/okKU/Ok+6+rTmSuhk=; b=SNmnAxt0bfY4yR3FTizHnzorsQ
-	WzJBT9AZxdMmyTBfYRI3XDxRMd6QAS10p1P/Z6SUm7W4R0OHkPcNCWg+E2+OG1zelyCBSUAPwVh35
-	d7YvkkAlK7pb77EHTp6nQcjY49nhOmheRZ83VR4ODCQ9UZSoU2MwIhHQa4ULZ8EjCY2C6ZZHvVI9r
-	cgVyBZT5eXAl4CVBJEcQyejO+L9V+m3pItLXKcTDkSZcO4+QEfPO8R+VRWzaX5NvoAevwC2kPs26K
-	6MxvaKRK0J7yygmIZ1u3NsRMA+Cqls7KMwUactteOOqnM6Dcp+A2hZ48Awwg9nkIt5uXksYbm7P8t
-	QAjAvtYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=238vQlkIUz0He/YrCIvIsc+2yUKSgaHTScsntRUK/X0=; b=Uy1yQ6S9UFZ8m2mUMtgdLryP8M
+	zA8gKBIzyn2kOlZV7p7/ZjbthE0zkhhICnm8apFea79ga9L8QWQuddPbFIeiSkN2tzwFnepEtR0zk
+	NcEqESXb+/xOFrsprD6KCzvUGe46dmM2YYUYbFh3hCMo+JeU05NJCYmiy3LHqQhjes26n3cAOzhYQ
+	X/BOb0Q2bHq8pcjr1EIDI4PJJ1dtqS9rLVvikWZUGj4MawDTWihIsLHKbxMoRZ4J+vm9pCuXEhWyH
+	arLBDkQIGVcWzN1/j3by33nQbmr1jipNPEDh4qNaal3YEqdVGHJlkLhxMdgZlBD0xmvIdsr4+tEb9
+	TF7ICuHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wINeG-000000055mx-0Hqq;
-	Thu, 30 Apr 2026 09:25:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wINmz-000000056A4-0EFR;
+	Thu, 30 Apr 2026 09:34:33 +0000
+Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wINeE-000000055mr-1kH9
+	id 1wINmv-0000000569R-12Xq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 09:25:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 78C6460142;
-	Thu, 30 Apr 2026 09:25:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E38C5C2BCB4;
-	Thu, 30 Apr 2026 09:25:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777541129;
-	bh=B853Eh9uk565MxVVpob3pa08VA0fsq5RODboe/BkwDg=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=iot/Czbj1UTXZtIKbuakUOJPEZf2jgEJsXUobkf3fTE6pxHY1WoYVSUKSdjGjweU2
-	 uJCII7hbjhIouQ7z+4khXHPcxKRfaQKW5M8Ob7Ff/2xSIiteOAtptRQ6PRVkaTUlXR
-	 m5hnmHC34YoQvr6bwwzWq2O9IDz3/7o6w2Ux/d7uBQOzrHFiHHPE6x5MGEwTHosl5Y
-	 FtyWqlDWOsE2uTUmk93O2vMxDZkoZBQ9EeRqJitySRYcWBAmbfCmXMjl7Y98+WSE2j
-	 s23YYEIaJkoJReZgcK3bIv8Gfrr3USg/F7iytFGSPEmXH9vDS7tcs9sL21B1DUkETF
-	 aW/y9woiMNIXw==
-Date: Thu, 30 Apr 2026 04:25:27 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Thu, 30 Apr 2026 09:34:31 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=238vQlkIUz0He/YrCIvIsc+2yUKSgaHTScsntRUK/X0=;
+	b=Cw99BAGg3AdARLtOciad+fMlDMmueH9gHIZJomMVxAgGJfE2Bng48Lp/XJuSv4Ms4nGBER+ln
+	aBJ2ZxUBt4iZYjUckwu6SGwkAGhJsMblEhEigk48FhDwvpWEIMpCNeVclW+GHQjSHjwpcV5KzA4
+	V4dnrYQxPzce3KO3yMz1iQc=
+Received: from mail.maildlp.com (unknown [172.19.163.127])
+	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4g5pjl3kSBzKm7G;
+	Thu, 30 Apr 2026 17:27:39 +0800 (CST)
+Received: from kwepemr200004.china.huawei.com (unknown [7.202.195.241])
+	by mail.maildlp.com (Postfix) with ESMTPS id DA46D402AB;
+	Thu, 30 Apr 2026 17:34:08 +0800 (CST)
+Received: from [10.67.121.62] (10.67.121.62) by kwepemr200004.china.huawei.com
+ (7.202.195.241) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 30 Apr
+ 2026 17:34:08 +0800
+Message-ID: <49f96032-6027-4c79-8d08-9545261e553f@huawei.com>
+Date: Thu, 30 Apr 2026 17:34:07 +0800
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Christian Lamparter <chunkeey@gmail.com>, 
- Andreas Kemnade <andreas@kemnade.info>, 
- =?utf-8?q?Beno=C3=AEt_Cousson?= <bcousson@baylibre.com>, 
- Eric Dumazet <edumazet@google.com>, Bartosz Golaszewski <brgl@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Johannes Berg <johannes@sipsolutions.net>, Jakub Kicinski <kuba@kernel.org>, 
- Kevin Hilman <khilman@baylibre.com>, Arnd Bergmann <arnd@arndb.de>, 
- linux-kernel@vger.kernel.org, linux-wireless@vger.kernel.org, 
- linux-omap@vger.kernel.org, Felipe Balbi <balbi@kernel.org>, 
- Rob Herring <robh+dt@kernel.org>, linux-gpio@vger.kernel.org, 
- Paolo Abeni <pabeni@redhat.com>, devicetree@vger.kernel.org, 
- netdev@vger.kernel.org, "David S. Miller" <davem@davemloft.net>, 
- Roger Quadros <rogerq@kernel.org>, linux-arm-kernel@lists.infradead.org, 
- Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
- Aaro Koskinen <aaro.koskinen@iki.fi>, Tony Lindgren <tony@atomide.com>, 
- Linus Walleij <linusw@kernel.org>
-To: Arnd Bergmann <arnd@kernel.org>
-In-Reply-To: <20260430081242.3686993-2-arnd@kernel.org>
-References: <20260430081242.3686993-1-arnd@kernel.org>
- <20260430081242.3686993-2-arnd@kernel.org>
-Message-Id: <177754112702.3678889.4847926893667561974.robh@kernel.org>
-Subject: Re: [PATCH v4 1/3 net-next] dt-bindings: net: add
- st,stlc4560/p54spi binding
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: smp: Do not mark secondary CPUs possible under
+ nosmp
+To: Catalin Marinas <catalin.marinas@arm.com>
+CC: <will@kernel.org>, <maz@kernel.org>, <timothy.hayes@arm.com>,
+	<lpieralisi@kernel.org>, <mrigendra.chaubey@gmail.com>, <arnd@arndb.de>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<zhanjie9@hisilicon.com>, <zhenglifeng1@huawei.com>, <lihuisong@huawei.com>,
+	<yubowen8@huawei.com>, <linhongye@h-partners.com>, <linuxarm@huawei.com>,
+	<wangzhi12@huawei.com>
+References: <20260423134654.4178271-1-zhangpengjie2@huawei.com>
+ <ae9iqdt_qdJRjVZs@arm.com>
+From: "zhangpengjie (A)" <zhangpengjie2@huawei.com>
+In-Reply-To: <ae9iqdt_qdJRjVZs@arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.62]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemr200004.china.huawei.com (7.202.195.241)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260430_023429_789793_AC136593 
+X-CRM114-Status: GOOD (  13.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,58 +84,34 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 30 Apr 2026 10:12:40 +0200, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> The SPI version of Prism54 was sold under a couple of different
-> names and supported by the Linux p54spi driver, but there was
-> never a DT binding for it.
-> 
-> Document the four known names of this device and the properties
-> that are sufficient for its use on the Nokia N8x0 tablet.
-> 
-> As I don't have this hardware or documentation for it, this is
-> purely based on existing usage in the driver.
-> 
-> Link: https://lore.kernel.org/all/e8dc9acb-6f85-e0a9-a145-d101ca6da201@gmail.com/
-> Acked-by: Christian Lamparter <chunkeey@gmail.com>
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
-> v4: renamed file to st,stlc4560, matching the primary compatible string
->     require st,stlc4560 string
-> ---
->  .../bindings/net/wireless/st,stlc4560.yaml    | 61 +++++++++++++++++++
->  MAINTAINERS                                   |  1 +
->  2 files changed, 62 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/wireless/st,stlc4560.yaml
-> 
-
-My bot found errors running 'make dt_binding_check' on your patch:
-
-yamllint warnings/errors:
-
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/wireless/st,stlc4560.yaml: $id: Cannot determine base path from $id, relative path/filename doesn't match actual path or filename
- 	 $id: http://devicetree.org/schemas/net/wireless/st,stlc45xx.yaml
- 	file: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/wireless/st,stlc4560.yaml
-
-doc reference errors (make refcheckdocs):
-Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/net/wireless/st,stlc45xx.yaml
-MAINTAINERS: Documentation/devicetree/bindings/net/wireless/st,stlc45xx.yaml
-
-See https://patchwork.kernel.org/project/devicetree/patch/20260430081242.3686993-2-arnd@kernel.org
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+On 4/27/2026 9:20 PM, Catalin Marinas wrote:
+> On Thu, Apr 23, 2026 at 09:46:54PM +0800, Pengjie Zhang wrote:
+>> Under nosmp (maxcpus=0), arm64 never brings up secondary CPUs.
+>>
+>> However, arm64 still enumerates firmware-described CPUs during SMP
+>> initialization, which can leave secondary CPUs visible to
+>> for_each_possible_cpu() users even though they never reach the
+>> bringup path in this configuration.
+>>
+>> This is not just a cosmetic mask mismatch: code iterating over
+>> possible CPUs may observe secondary CPU per-CPU state that is never
+>> fully initialized under nosmp.
+> I'm fine with the patch in principle but I fail to see why it is not
+> mostly cosmetic. If we have possible & !present CPUs (there's another
+> thread around cpuhp_smt_enable() to allow this combination on arm64),
+> get_cpu_device() would return NULL and the core code is supposed to
+> handle this. What other per-CPU state should be initialised for a
+> possible CPU but it is not without this patch?
+Yes, possible-but-not-present CPUs are valid in the general hotplug 
+model. The nosmp/maxcpus=0 case is different though: on arm64, 
+smp_prepare_cpus() treats this as a UP-mandated boot and returns before 
+marking secondary CPUs present, so these CPUs are deliberately kept out 
+of the bringup path for this boot. The kind of issue I had in mind was 
+subsystem-owned per-CPU state where iteration follows cpu_possible_mask 
+but the state is populated only from CPU online/probe paths. The CPPC 
+nosmp issue fixed by commit 15eece6c5b05 ("ACPI: CPPC: Fix NULL pointer 
+dereference when nosmp is used") was the kind of mismatch I was thinking 
+of, although CPPC itself has already been fixed to use online CPUs where 
+appropriate. I agree the changelog overstates this. I can respin with a 
+toned-down changelog if you prefer.
 
