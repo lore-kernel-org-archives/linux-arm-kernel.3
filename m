@@ -4,73 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D74ACCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 10:25:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45F02FF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 10:26:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3B2N4onJM6s/XddBOSTRq8Ip0ZeDZuU6wiv5gdBK0fY=; b=vPq8SQpXZDRZBO2vdZV+wDA1gT
-	3owhoHT9BlU5wOBNeRt0sLxfPruSPG6jkH8iVMiin74Wm84FFhB57BtRwIgypaZZieGeZb29s47og
-	yhL9ZGtjaA5xXGW0MgVW2ezQd5N1koh1kM7+Uvz2JNxE82q97cBjKrpp8u2QLbwTPjZ4MuGfLXjFD
-	bk/fXIdCI6VLIibw70/ZcshpyNltGaoQiZiaBEnii4VEPH/SXL8ccpCATkqHiLG4DdZpiZoBPMQbr
-	XCZiicWf0A32EpZh9vIvPMspNLsZmKUbyC+7DN34utiX5Mjj0kDqgnuSuPqOMqNDuEQynFaYQfmft
-	vGSRAWmA==;
+	bh=1r1vJLR30p7fkpRQ3dOhQxyHM5dMPa9Fa9Jt1g55gyA=; b=eUqvH0FPjVBd7FDZh3xscGkEEs
+	XjVUZhzsN3C9WqpH9anY/3+egaeH3nmqUkYMyxJbvQgyp0rToNK6sn7WXKhl8VYHwLf8K5Zd5DkQo
+	eQ6NnGez22yOFmhLVJH6yaQGB6q0s4salyHLKtKx5ir4f0XFa66wEPMEfseefJv4LI4iyogng0lNj
+	AK3nFxuu88vMmyT1p9BFzIlELWViz3uSZqSkJkfeS7jP38K4DhYXADru6CJj+Qop7K9wl99LWxe9m
+	eAy6d8+GTtTeh8J5bChhX0DuOej5loje6EqlJw2s1Rl7aKIGllp492qQtEo1mJjoMWHyhJdVodumZ
+	G9sEAg2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIOa9-00000005Bwo-00CY;
-	Thu, 30 Apr 2026 10:25:21 +0000
+	id 1wIObY-00000005C3y-1j8H;
+	Thu, 30 Apr 2026 10:26:48 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIOa6-00000005BwK-0kiK
+	id 1wIObW-00000005C3e-1D9y
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 10:25:19 +0000
+	Thu, 30 Apr 2026 10:26:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 85D0543E03;
-	Thu, 30 Apr 2026 10:25:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1A06C2BCB3;
-	Thu, 30 Apr 2026 10:25:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F25A140A1F;
+	Thu, 30 Apr 2026 10:26:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C88E9C2BCB3;
+	Thu, 30 Apr 2026 10:26:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777544717;
-	bh=tMcr/ZNDm33BeUEJo0HZiE0/fFa3R/A1Oa5PdaowDp0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jO2eG3k+TD7SKH3f063YziHmLklRYcBOUMzewUdMjWcIV2LALhpDAffX/JjJ4h8TP
-	 AIRE8MkcqsfqjFNsgwigb//V3tYBoWFE9eY7ILSkNgWYiN/FyxRxIDZ+BNfu+Rzasp
-	 0L4NyU69D21eZTQnN49/hp6Kdjnj0FTjSjEsa+R1Jb7daHQva3fc820Ue5tl3Vhusz
-	 eiuv7mMfhOAywMNOOB0Ta3+NJ0ETwGAxZyKGDstCaBo3yPhSnm28gtubg2yeukPPbK
-	 qCVNiOmpwVYJKJfYRt3DnBmMxj/DpsDT3n1ByOY6G0jpH5oHRxUgW2l3xOwgvwvWyY
-	 Eu4MEXZsF8H2w==
-Date: Thu, 30 Apr 2026 11:25:12 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, James Morse <james.morse@arm.com>,
-	Ben Horgan <ben.horgan@arm.com>,
-	Reinette Chatre <reinette.chatre@intel.com>,
-	Fenghua Yu <fenghuay@nvidia.com>,
-	Jonathan Cameron <jic23@kernel.org>, linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 5/5] arm_mpam: detect and enable MPAM-Fb PCC support
-Message-ID: <20260430-chirpy-snobbish-pogona-58a9de@sudeepholla>
-References: <20260429141339.3171205-1-andre.przywara@arm.com>
- <20260429141339.3171205-6-andre.przywara@arm.com>
- <20260430-brave-hoatzin-of-fascination-e7d4ad@sudeepholla>
- <fc96c088-f767-4bf2-b58b-d4e91b0acde4@arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <fc96c088-f767-4bf2-b58b-d4e91b0acde4@arm.com>
+	s=k20201202; t=1777544805;
+	bh=VJPNiMDYvBsCB/7oxqwxMyogFYbHDES9uh5YZFRlgU8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=d049TYoYD6cypkxj2aOqTj7ABN09jRktXxudV+CFRxbWp6mgki1t1f4+csu1NuiIt
+	 FdhfiGQEBVugjWEQygsZkOARbGIO2R0nQlCCS03+YQTrX2Y817TdfFFDKYlRGtNm6K
+	 ntjPKdSWOt+WZ0XnZQw0oXYs3RklCSQLRPC1zjVfQaTFrWXKv8xbnhYKbXe09q8hK5
+	 hT4rnrtR4eo7GORRvSiC/KoZfBmKwv3rbYNhFX9iboxLB7RmvW1KPLSFe78ITHAL5E
+	 oSw/FC0EFNMU0Yy+g31a1MMW/pcOi3wHMwRKmAgyybCa4r/dSE5sA3+KCQZmUCqxoB
+	 zpjsuQuVawZVg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wIObT-0000000GDd5-1Njb;
+	Thu, 30 Apr 2026 10:26:43 +0000
+Date: Thu, 30 Apr 2026 11:26:42 +0100
+Message-ID: <86fr4czqu5.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	nd <nd@arm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Joey Gouly
+	<Joey.Gouly@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org"
+	<peter.maydell@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>
+Subject: Re: [PATCH 13/43] KVM: arm64: gic-v5: Make VPEs (non-)resident in vgic_load/put
+In-Reply-To: <20260427160547.3129448-14-sascha.bischoff@arm.com>
+References: <20260427160547.3129448-1-sascha.bischoff@arm.com>
+	<20260427160547.3129448-14-sascha.bischoff@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_032518_277108_0A90D71B 
-X-CRM114-Status: GOOD (  30.35  )
+X-CRM114-CacheID: sfid-20260430_032646_365067_A85002F3 
+X-CRM114-Status: GOOD (  20.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,60 +97,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 30, 2026 at 11:20:42AM +0200, Andre Przywara wrote:
-> Hi Sudeep,
+On Mon, 27 Apr 2026 17:10:28 +0100,
+Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
 > 
-> thanks for having a look!
+> Extend vgic_v5_load and vgic_v5_put to make the VPEs resident and
+> non-resident, respectively. This makes the IRS aware of which VPE is
+> currently resident, and therefore allows it to perform HPPI selection
+> for LPIs and SPIs, which would otherwise never be signalled to the
+> VPE.
 > 
-> On 4/30/26 10:35, Sudeep Holla wrote:
-> > On Wed, Apr 29, 2026 at 04:13:39PM +0200, Andre Przywara wrote:
-> > > The Arm MPAM-Fb specification [1] describes a protocol to access MSC
-> > > registers through a firmware interface. This requires a shared memory
-> > > region to hold the message, and a mailbox to trigger the access.
-> > > For ACPI this is wrapped as a PCC channel, described using existing
-> > > ACPI abstractions.
-> > > 
-> > > Add code to parse those PCC table descriptions associated with an MSC,
-> > > and store the parsed information in the MSC struct.
-> > > This will be used by the MPAM-Fb access wrapper code.
-> > > 
-> > > [1] https://developer.arm.com/documentation/den0144/latest
-> > > 
-> > > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> > > ---
-> > >   drivers/acpi/arm64/mpam.c      |  2 ++
-> > >   drivers/resctrl/mpam_devices.c | 46 +++++++++++++++++++++++++++++++---
-> > >   2 files changed, 45 insertions(+), 3 deletions(-)
-> > > 
-> > > diff --git a/drivers/acpi/arm64/mpam.c b/drivers/acpi/arm64/mpam.c
-> > > index 99c2bdbb3314..edb4d10e8dc3 100644
-> > > --- a/drivers/acpi/arm64/mpam.c
-> > > +++ b/drivers/acpi/arm64/mpam.c
-> > > @@ -341,6 +341,8 @@ static struct platform_device * __init acpi_mpam_parse_msc(struct acpi_mpam_msc_
-> > >   	} else if (iface == MPAM_IFACE_PCC) {
-> > >   		props[next_prop++] = PROPERTY_ENTRY_U32("pcc-channel",
-> > >   							tbl_msc->base_address);
-> > > +		props[next_prop++] = PROPERTY_ENTRY_U32("msc-id",
-> > > +							tbl_msc->identifier);
-> > 
-> > I may be looking at the wrong documents, but neither DEN0065 nor DEN0144 carry
-> > any definitions of pcc-channel and msc-id for the device with HID
-> > "“ARMHAA5C". Since "pcc-channel" is already merged, I think I am looking at
-> > wrong documents, please point me to the right one.
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> ---
+>  arch/arm64/kvm/vgic/vgic-v5.c | 12 ++++++++++--
+>  1 file changed, 10 insertions(+), 2 deletions(-)
 > 
-> Please excuse my ignorance, but I was under the assumption that the strings
-> used here are just unique identifiers that need to match the property_get
-> calls in the MPAM code. Is there any requirement to match those
-> property_entry.name fields with the names given in some spec? And those
-> strings are kernel-internal only, right? But for DT would match exactly the
-> property names?
-> 
+> diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
+> index 92bb63b6dd6bb..11a1a491b7e0a 100644
+> --- a/arch/arm64/kvm/vgic/vgic-v5.c
+> +++ b/arch/arm64/kvm/vgic/vgic-v5.c
+> @@ -1053,6 +1053,8 @@ void vgic_v5_flush_ppi_state(struct kvm_vcpu *vcpu)
+>  void vgic_v5_load(struct kvm_vcpu *vcpu)
+>  {
+>  	struct vgic_v5_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
+> +	u16 vm = vgic_v5_vm_id(vcpu->kvm);
+> +	u16 vpe = vgic_v5_vpe_id(vcpu);
+>  
+>  	/*
+>  	 * On the WFI path, vgic_load is called a second time. The first is when
+> @@ -1065,7 +1067,11 @@ void vgic_v5_load(struct kvm_vcpu *vcpu)
+>  
+>  	kvm_call_hyp(__vgic_v5_restore_vmcr_apr, cpu_if);
+>  
+> -	cpu_if->gicv5_vpe.resident = true;
+> +	cpu_if->vgic_contextr = FIELD_PREP(ICH_CONTEXTR_EL2_V, true) |
+> +				FIELD_PREP(ICH_CONTEXTR_EL2_VPE, vpe) |
+> +				FIELD_PREP(ICH_CONTEXTR_EL2_VM, vm);
+> +
+> +	kvm_call_hyp(__vgic_v5_make_resident, cpu_if);
+>  }
+>  
+>  void vgic_v5_put(struct kvm_vcpu *vcpu)
+> @@ -1083,7 +1089,9 @@ void vgic_v5_put(struct kvm_vcpu *vcpu)
+>  
+>  	kvm_call_hyp(__vgic_v5_save_apr, cpu_if);
+>  
+> -	cpu_if->gicv5_vpe.resident = false;
+> +	cpu_if->vgic_contextr = 0;
+> +
+> +	kvm_call_hyp(__vgic_v5_make_non_resident, cpu_if);
+>  
+>  	/* The shadow priority is only updated on entering WFI */
+>  	if (vcpu_get_flag(vcpu, IN_WFI))
 
-My bad, I missed to see that these are properties added to the software node
-created for ACPI. I assumed the ACPI code is expecting this property in the
-namespace device with HID 'ARMHAA5C'. Ignore my comment.
+Should this patch be folded in patch #3? They seem to overlap in major
+ways.
+
+Thanks,
+
+	M.
 
 -- 
-Regards,
-Sudeep
+Without deviation from the norm, progress is not possible.
 
