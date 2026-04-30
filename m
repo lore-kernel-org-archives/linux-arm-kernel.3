@@ -4,114 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6798FF886F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 09:48:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF154FF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 09:49:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r8kWqZd6+m5x2yHLoEbaR535LOxrBvPL5BSwnZOjrJg=; b=YK3Fi5T1zl3BLNPVLiBp167N1N
-	IIJ9cPcM09bqvd5MgTShmB99ZSoA/bRxUJJIleZApJQUEbBTuW6XQIQHssrxCquSZQtBtrOKti37u
-	1p/wXPtwzXfgTPftidV5slID8/m4AIafrTGmbBTFHm2n88YN4mDgvYXUjVXOvDFSS1qU9FkA9/J6n
-	2HrmRsgpqc6IIzWPwKBcUMLi7a7sJf2xlawI8L3TqpWC0ia56u0MJHdq/NPaRBX3evtd4S3tQfuFP
-	IrTKdW2M5Z56zkRfafCjjjT5UR7B1V24iCMJrmo+HJeos+4Eyd8TMxAuquyqpXCvY9P9wpiX9mXY/
-	i46w8YOQ==;
+	bh=dhbtDg/Ntolv1z9b/09Peij0K/iYOX5CM0qR9M5AW+E=; b=wWAyS2308LuEh9FYdXu8hQyI6N
+	XuFibgdlTXXYZ5Qppjhk5Uu3e0+DG5S9zjgGSCSYVfGobzgwkJL2jvDbj0cLFJhw6Txv++K5FZEyI
+	xu6kwPkhDsgEXEps6B26/8o0uDgyRuAzKgHlKkXiM+GElW1Ub2ndpM700oZsIV0H8U5PX6aiF1rPX
+	bkjGj6YfIReXmDztwZxBg72yQBu3DELVGW69FbuicLTfaHbaEgJDUKxf62BOBxUOCYkctFL6AwgH+
+	qNSvvErTdsQtgAVMuNUfEhUGZzz+x3nszPxL0ImoAMRbSROkYNcVPENzmeV3vi/aCwoCG0rcLBH+v
+	2us+NpVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIO0o-000000057JP-2wjO;
-	Thu, 30 Apr 2026 09:48:50 +0000
-Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIO0j-000000057HR-3due;
-	Thu, 30 Apr 2026 09:48:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=h1S66jaFfxxmka6+wZ7QsH8+Wt6UWNkFYKrKUTXRvbEzRVVOKNPCizU8hozOZnoztFkbcjqqTTnlzf4Qt5B8T9RyCCnEd/bRnOcd5VWNGS5T5J8oOE2dtghPiv9SpLHTa18caJ/l2waYvnGQOPRlIzlvobhabXHRua3cDIOUvFUgaeSdh/U9xapcfjKoRmtHzhzfXyUua5nolEyNLJQH7q7DgtowtUau0ctjvt+jf+cCHSymTXdacBE/m2WRN6BndLvCCVemkHLfxXRvEtlAWcqLmwdWKHewuQUs1C6ZeCXth5VOSvCZxKG8cbk3f7BBazLJEcftQc1pOeEGsmX1Vg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=r8kWqZd6+m5x2yHLoEbaR535LOxrBvPL5BSwnZOjrJg=;
- b=N1iPiD6UcnYgSq6BVYhVEOBqsBg1Zeq2gY6X6gaRhS4nzATDCbIQIRmqOhhtVTjFlyZ5RFSI8wSp5JrYjxkzJzJ4Qfz6aZC284bVJxtEqxKw+VR5TCdRbFOhspPCfT1TWbehK7kC67TB7LiRpews7MO4TJoTvpbn1lSEvPL+aZP2Dd59vvr3JnmuWXnO2qBf1sARWw34wvWJcVlm113hga7B9slGQJxea7BW2WPU0DhoG5B2Wnlw8zjw8DS/rPFKz8ykOqpqQuLtRZx3A/D53/1J/KRHPzLUI1vYMbzzR7eV26jOf7xPMz2LLgohdwKnwxr2/vYOCB5imN2dnuyyuA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=r8kWqZd6+m5x2yHLoEbaR535LOxrBvPL5BSwnZOjrJg=;
- b=dhnPIJQsb6uSQsnnPUcDO1GzxcK6pChcBW9dLI5NDrLIqlOmmXubV482n4uL42QYPSSkoVBNBNV6t76ASdmnFw3c93gYZVXJVLmKffSR+DJKxkpPwNmGTrNk5iJWB2POR+Kd7Te34j608zsT/qa81pM3NskpquM96ih+aQhRGCs=
-Received: from SA1P222CA0193.NAMP222.PROD.OUTLOOK.COM (2603:10b6:806:3c4::10)
- by DS7PR12MB5717.namprd12.prod.outlook.com (2603:10b6:8:70::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.20; Thu, 30 Apr
- 2026 09:48:39 +0000
-Received: from SA2PEPF00001504.namprd04.prod.outlook.com
- (2603:10b6:806:3c4:cafe::ee) by SA1P222CA0193.outlook.office365.com
- (2603:10b6:806:3c4::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.30 via Frontend Transport; Thu,
- 30 Apr 2026 09:48:39 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- SA2PEPF00001504.mail.protection.outlook.com (10.167.242.36) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9846.18 via Frontend Transport; Thu, 30 Apr 2026 09:48:39 +0000
-Received: from BLRKPRNAYAK.amd.com (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Thu, 30 Apr
- 2026 04:48:34 -0500
-From: K Prateek Nayak <kprateek.nayak@amd.com>
-To: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, "Peter
- Zijlstra" <peterz@infradead.org>, Sebastian Andrzej Siewior
-	<bigeasy@linutronix.de>, Catalin Marinas <catalin.marinas@arm.com>, "Will
- Deacon" <will@kernel.org>
-CC: Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
-	=?UTF-8?q?Andr=C3=A9=20Almeida?= <andrealmeid@igalia.com>,
-	<linux-arch@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-s390@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, K Prateek Nayak
-	<kprateek.nayak@amd.com>, Jisheng Zhang <jszhang@kernel.org>
-Subject: [PATCH v4 2/8] arm64/runtime-const: Use aarch64_insn_patch_text_nosync() for patching
-Date: Thu, 30 Apr 2026 09:47:24 +0000
-Message-ID: <20260430094730.31624-3-kprateek.nayak@amd.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260430094730.31624-1-kprateek.nayak@amd.com>
-References: <20260430094730.31624-1-kprateek.nayak@amd.com>
+	id 1wIO16-000000057R7-0Kp2;
+	Thu, 30 Apr 2026 09:49:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wIO0y-000000057Ms-1FlT
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 30 Apr 2026 09:49:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 62CA21A9A;
+	Thu, 30 Apr 2026 02:48:51 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 46D953F7B4;
+	Thu, 30 Apr 2026 02:48:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1777542536; bh=rzcIYj7NzzucogeiuQ/ByvTxcKuN8A1oBUxuhPjfH7w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eFo/K5gMt2O/K0ixr+Iw6rFpXaEcpWJ2+qHc0kYzzPm3RfnEds4QfonFkGRBTdRUK
+	 OoLeIkr69ulpGR6jATyx4HSrGhATKhOjwOB3/hbIEsPdNqT7J0tLJCgyz/jMo4ohK5
+	 xJudtOZDygy6ZlDmbe0Yjhj8s/FiZ6ovsxkoVlds=
+Date: Thu, 30 Apr 2026 10:48:50 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Mimi Zohar <zohar@linux.ibm.com>
+Cc: Jonathan McDowell <noodles@earth.li>,
+	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-integrity@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
+	roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
+	eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
+	sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
+	sebastianene@google.com
+Subject: Re: [PATCH] ima: debugging late_initcall_sync measurements
+Message-ID: <afMlgstqahnZg68h@e129823.arm.com>
+References: <cover.1777036497.git.noodles@meta.com>
+ <7734099f5e7fda5480bca016a9e6707983325fbd.camel@linux.ibm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.180.168.240]
-X-ClientProxiedBy: satlexmb08.amd.com (10.181.42.217) To satlexmb07.amd.com
- (10.181.42.216)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00001504:EE_|DS7PR12MB5717:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6821caf6-6476-4e73-ef53-08dea69da811
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|7416014|376014|82310400026|1800799024|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: nLMhX3xXKz4+rjaLpvDSEc8kP+gddcfGon+/3hEVpxo57YOkwJ6TyRT2Rp2zf+U1lAR3eUB/IgFt2xS/PgzWpNLCxXfeRChwxhD4AfMtLx6Q1gtR7X8LaihZFU8Npooz5Q9RtGnuUL9cMBr3ijbNzqpz0RR/uqLw0XRtQe+KLCqQK0XhDjLVIC6vglCEvQUsJizpz+Etwx45rVpOF48Avr3LzvKWzn0rwsmdBtDia1z210yavUlbExNfj4SeANHA3UkrnJ7KRGxloY4JGn4Szmw59uc76LBVb9j16T4cpZqmUHVUQ35YgSIif3299Qa0FDWj2vb/HoAzV8fr6mKw7qW9BsyfPmDKtwOuHilTDBYvQH3f8RbojUKl9FwoS9VUM1x5jn0Ev9gBzQ1C5Y8DsKW7Ii8hCMACDGpoOnmrizexb6jjm7IYq4hrPZXHXPws1ypxuMt0Bukzx87ele9EhwG89KdXQhAYZml7np1tc/QiUdh+Wzina+qYYbKVTEVB9Kv5FRxmbAeLg1Um8i+aanx5UquPjKf3py95mPOo7BW4p0O0T4z4EqVXRC3LCiTBKMZlx3kZpq0sgdhHiQ3IAggVws4zu+sb1XFdHj+TP6t6yxoIgg2mSISIwPFOH5oRb8LaNN8fm0mvVCi8v90/On+t5wn4Skv2q67u6vFHsGbhmRKTmXI/F6bqohucaUmESgNlE46a0n/QUep3xdHGT3mkbfOcbY+/6BhEuYoMf1Oakb9wII8rMDXx6KzjBTNMDPxFjWQpPpu7dg6168jrRA==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(7416014)(376014)(82310400026)(1800799024)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: dSH3mtRUfCX+2UgU0EdOKvShp1gn7ba2RxKyTbSo1SA2cZC69PMAfotQJT1Wq4gObl+jZAeYEWR0oCbPrDSIjA3zAI6KKW9Qo+ChDEWWjy/ZevCVMwoD8/sSSdCzxnBtNMvXO+NkdbCUwljk51LFe4DBbZHvNMbagX+7kOHOtvpsJ8oxAyFLwEW2Q4jf9lyVSyo/I8xi6sIG9LGSBLeA//EBdWrRwZMDqeDj6ssfP9aVGw3sf0xfXsjq7f9V5lYW+yEEwJiWDXMSKLudykzoGAVbvGzjRW6N1YxeBp4YGyaTSHbdEpMLSOoCrXxva+73d9ML9wgKd3XKtUE0wupF8aXO/9ywcehXYX4OjI27KD2Gj1nB6kQWK3Fg9pJMtE01CQ6tx2TIgGs5K3uoYQmgara6Psi9AWqMSyUOsNJ/1WIJpJyyCFsDWnovNTVo/vAs
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2026 09:48:39.2646
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6821caf6-6476-4e73-ef53-08dea69da811
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00001504.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB5717
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <7734099f5e7fda5480bca016a9e6707983325fbd.camel@linux.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_024845_910852_5199FA01 
-X-CRM114-Status: GOOD (  16.82  )
+X-CRM114-CacheID: sfid-20260430_024900_427153_C7C7F7FB 
+X-CRM114-Status: GOOD (  27.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,110 +78,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The current scheme to directly patch the kernel text for runtime
-constants runs into the following issue with futex adapted to using
-runtime constants on arm64:
+Hi Mimi,
 
-  Unable to handle kernel write to read-only memory at virtual address ...
+Thanks to share the testing code and please see the below:
 
-The pc points to the *p assignment in the following call chain:
+> With this "[RFC PATCH v3 0/4] Fix IMA + TPM initialisation ordering
+> issue" patch set, how many records would be missing if IMA
+> initialization is deferred to late_initcall_sync [1]?
+>
+> [1]https://lore.kernel.org/linux-integrity/cover.1777036497.git.noodles@meta.com/
+> ---
+> Jonathan, Yeoreum, others -
+>
+> By going into TPM-bypass mode, we can see how many measurements are actually
+> missing when deferring IMA initialization to late_initcall_sync. As this is
+> system/TPM dependent, I'd appreciate your checking. Please use the boot command
+> line option "ima_policy=tcb|critical_data".
+>
+> thanks, Mimi
+>
+>  security/integrity/ima/ima.h      |  1 +
+>  security/integrity/ima/ima_init.c |  6 ++++++
+>  security/integrity/ima/ima_main.c | 19 +++++++++++++++++++
+>  3 files changed, 26 insertions(+)
+>
+> diff --git a/security/integrity/ima/ima.h b/security/integrity/ima/ima.h
+> index 01aae19ed365..9a1117112fb2 100644
+> --- a/security/integrity/ima/ima.h
+> +++ b/security/integrity/ima/ima.h
+> @@ -286,6 +286,7 @@ extern bool ima_canonical_fmt;
+>
+>  /* Internal IMA function definitions */
+>  int ima_init_core(bool late);
+> +int ima_init_debug(bool late);
+>  int ima_fs_init(void);
+>  int ima_add_template_entry(struct ima_template_entry *entry, int violation,
+>  			   const char *op, struct inode *inode,
+> diff --git a/security/integrity/ima/ima_init.c b/security/integrity/ima/ima_init.c
+> index 5f335834a9bb..edd063b99685 100644
+> --- a/security/integrity/ima/ima_init.c
+> +++ b/security/integrity/ima/ima_init.c
+> @@ -122,6 +122,12 @@ void __init ima_load_x509(void)
+>  }
+>  #endif
+>
+> +int __init ima_init_debug(bool late)
+> +{
+> +	ima_add_boot_aggregate(late); /* just add an additional record */
+> +	return 0;
+> +}
+> +
+>  int __init ima_init_core(bool late)
+>  {
+>  	int rc;
+> diff --git a/security/integrity/ima/ima_main.c b/security/integrity/ima/ima_main.c
+> index 42099bfe7e43..23e669be54fc 100644
+> --- a/security/integrity/ima/ima_main.c
+> +++ b/security/integrity/ima/ima_main.c
+> @@ -1254,6 +1254,7 @@ static int ima_kernel_module_request(char *kmod_name)
+>
+>  #endif /* CONFIG_INTEGRITY_ASYMMETRIC_KEYS */
+>
+> +#define TESTING 1
+>  static int __init init_ima(bool late)
+>  {
+>  	int error;
+> @@ -1264,6 +1265,23 @@ static int __init init_ima(bool late)
+>  		return 0;
+>  	}
+>
+> +#ifdef TESTING
+> +	/*
+> +	 * Initialize early, even if it means going into TPM-bypass mode,
+> +	 * but add an additional boot_aggregrate message for the
+> +	 * late_initcall_sync.
+> +	 *
+> +	 * If measurement list records exist between the boot_aggregate
+> +	 * and the boot_aggregate_late records, these records would be
+> +	 * missing when IMA initializion is deferred to late_initcall_sync.
+> +	 */
+> +	if (ima_tpm_chip) {
 
-  futex_init()
-    runtime_const_init(shift, __futex_shift)
-      __runtime_fixup_shift()
-        *p = cpu_to_le32(insn);
+I believe this should be:
+  if (late) {
+     ...
+  }
 
-which suggests that core_initcall() is too late to patch the kernel text
-directly unlike the "d_hash_shift" which is initialized during
-vfs_caches_init_early() before the protections are in place.
+> +		ima_init_debug(late); /* Add an additional record */
+> +		return 0;
+> +	}
+> +
+> +	ima_tpm_chip = tpm_default_chip();
+> +#elif
+>  	/*
+>  	 * If we found the TPM during our first attempt, or we know there's no
+>  	 * TPM, nothing further to do
+> @@ -1276,6 +1294,7 @@ static int __init init_ima(bool late)
+>  		pr_debug("TPM not available, will try later\n");
+>  		return -EPROBE_DEFER;
+>  	}
+> +#endif
+>
+>  	if (!ima_tpm_chip)
+>  		pr_info("No TPM chip found, activating TPM-bypass!\n");
+> --
+> 2.53.0
 
-Use aarch64_insn_patch_text_nosync() to patch the runtime constants
-instead of doing it directly to allow runtime_const_init() slightly
-later into the boot.
+With above change I confirmed there is no meaurement log
+between boot_aggregate and boot_aggregate_late except "kernel_version"
+But this is ignorable since this UTS measurement is done in
+"ima_init_core() (old: ima_init())" and it is part of ima initialisation.
 
-Since aarch64_insn_patch_text_nosync() calls caches_clean_inval_pou()
-internally, __runtime_fixup_caches() ends up being redundant.
-runtime_const_init() are rare and the overheads of multiple calls to
-caches_clean_inval_pou() instead of batching them together should be
-negligible in practice.
+1. ima_policy=tcb
 
-The cpu_to_le32() conversion of instruction isn't necessary since it is
-handled later in the aarch64_insn_patch_text_nosync() call-chain:
+  # cat /sys/kernel/security/ima/ascii_runtime_measurements
+  10 0adefe762c149c7cec19da62f0da1297fcfbffff ima-ng sha256:0000000000000000000000000000000000000000000000000000000000000000 boot_aggregate
+  10 4e5d73ebadfd8f850cb93ce4de755ba148a9a7d5 ima-ng sha256:0000000000000000000000000000000000000000000000000000000000000000 boot_aggregate_late
+  10 7c23cc970eceec906f7a41bc2fbde770d7092209 ima-ng sha256:72ade6ae3d35cfe5ede7a77b1c0ed1d1782a899445fdcb219c0e994a084a70d5 /bin/busybox
+  10 17ec669c65c401e5e85875cf2962eb7d8c47595f ima-ng sha256:dc6b013e9768d9b13bcd6678470448090138ca831f4771a43ce3988d8e54ffce /lib/ld-linux-aarch64.so.1
+  10 58679a66ac1de17f02595625a8fbeafa259a4c81 ima-ng sha256:494f62bcfb2fcf1b427d5092fafa62c8df39a83b4a64402620b28846724f237f /usr/lib/libtirpc.so.3.0.0
+  10 42f74ee200434576e33be153830b3d55bbe6d2bf ima-ng sha256:a18856b4f6927bc2b8dd4608c0768b8f98544a161b85bf4a64419131243ad300 /lib/libresolv.so.2
+  10 626b4f7bd4f123d18d3a3d8719ed0ae19ee5f331 ima-ng sha256:b8d442de5d31c3f9d1bbb98785f04d4a23dc53442b286d85d4b355927cbe9af4 /lib/libc.so.6
+  10 655a200869696207646377a58cab417fd35b09d2 ima-ng sha256:ad46146b6dd32b47213e5327f1bb2f962ef838a4b707ef7445fa2dbc9019b44f /etc/inittab
+  10 81353202685e022fcd0069a3b2fc4eaa6b1db537 ima-ng sha256:74d698fe0a6862050af29083aa591c960ec1f67be960047e96bb6be5fc2bc0c0 /bin/mount
+  10 ae64184ee607ef8f3aa08ab52cb548318534fd4b ima-ng sha256:27846b57e8234c6a9611b00351f581a54ad6f9a1920b9aa18ceb0ae28e4f7564 /lib/libmount.so.1.1.0
+  10 5ea01f34e7705d1bdb936fd576e2aeb5fd78dab9 ima-ng sha256:3d2a414ec0355fcf0910224fb4a3c53e13d98731a35241edfdf4fb911ed9b210 /lib/libblkid.so.1.1.0
+  10 22c48b4853594a08a73ad4ae6dbe6f2c2bebc6c5 ima-ng sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 /run/utmp
+  10 3024ea5021f8a5d9fb4bd519d599bdca43b7fb93 ima-ng sha256:71ea9ffe2b30e5a9bdceff78785cf281cc41544474db8dc4605a06a597ce1edc /etc/fstab
+  10 2e7530a0f56420991ac7611734cea4774b92b9ef ima-ng sha256:df4697d699442cfe73db7cc8b4c1b37e8a31e75e01f66a0d70134ac812fa683b /bin/mkdir
+  10 3ad117a863aa1ed7b7c09e1d106f84abf7d2ae96 ima-ng sha256:c19a710989b43222431b02399273dba409fe10ca8eefff88eaa936fa695f8324 /bin/ln
+  10 4141c82cb516ac3c846e0b08abcd6abeee7efa1a ima-ng sha256:b75d7f28772f71715a941c77e07e3922815391dd9cc5718ad21f2231c2da09bb /etc/hostname
+  10 dfcedd3c7dc3ed42e09219804504489ab264e2e3 ima-ng sha256:dc1615df9f2012b20b81ffad8e07e16293039ba7fd897854ca3646d6cfea0c0f /etc/init.d/rcS
+  ...
 
-  aarch64_insn_patch_text_nosync(addr, insn)
-    aarch64_insn_write(addr, insn)
-      __aarch64_insn_write(addr, cpu_to_le32(insn))
+2. ima_policy=critical_data
 
-Sashiko noted that aarch64_insn_patch_text_nosync() does not expect a
-lm_alias() address and Catalin suggested it is safe to drop the
-lm_alias() for runtime patching since the kernel text is readable. The
-address passed to fixup function is interpreted as a __le32 and
-dereferenced as is to read the opcode at the patch site.
+  # cat /sys/kernel/security/ima/ascii_runtime_measurements
+  10 0adefe762c149c7cec19da62f0da1297fcfbffff ima-ng sha256:0000000000000000000000000000000000000000000000000000000000000000 boot_aggregate
+  10 49ab61dd97ea2f759edcb6c6a3387ac67f0aa576 ima-buf sha256:0c907aab3261194f16b0c2a422a82f145bc9b9ecb8fdb633fa43e3e5379f0af2 kernel_version 372e312e302d7263312b // Ignorable since it's generated by ima_init(_core)().
+  10 4e5d73ebadfd8f850cb93ce4de755ba148a9a7d5 ima-ng sha256:0000000000000000000000000000000000000000000000000000000000000000 boot_aggregate_late
 
-No functional changes are intended.
+Therefore, init_ima() could move into late_initcall_sync like v1 did:
+  - https://lore.kernel.org/all/20260417175759.3191279-2-yeoreum.yun@arm.com/
 
-Signed-off-by: K Prateek Nayak <kprateek.nayak@amd.com>
----
-changelog v3..v4:
+Thanks.
 
-o Dropped the lm_alias() and use the patch location as is for
-  aarch64_insn_patch_text_nosync(). (Sashiko, Catalin)
----
- arch/arm64/include/asm/runtime-const.h | 17 +++++------------
- 1 file changed, 5 insertions(+), 12 deletions(-)
-
-diff --git a/arch/arm64/include/asm/runtime-const.h b/arch/arm64/include/asm/runtime-const.h
-index c3dbd3ae68f69..838145bc289d2 100644
---- a/arch/arm64/include/asm/runtime-const.h
-+++ b/arch/arm64/include/asm/runtime-const.h
-@@ -7,6 +7,7 @@
- #endif
- 
- #include <asm/cacheflush.h>
-+#include <asm/text-patching.h>
- 
- /* Sigh. You can still run arm64 in BE mode */
- #include <asm/byteorder.h>
-@@ -50,34 +51,26 @@ static inline void __runtime_fixup_16(__le32 *p, unsigned int val)
- 	u32 insn = le32_to_cpu(*p);
- 	insn &= 0xffe0001f;
- 	insn |= (val & 0xffff) << 5;
--	*p = cpu_to_le32(insn);
--}
--
--static inline void __runtime_fixup_caches(void *where, unsigned int insns)
--{
--	unsigned long va = (unsigned long)where;
--	caches_clean_inval_pou(va, va + 4*insns);
-+	aarch64_insn_patch_text_nosync(p, insn);
- }
- 
- static inline void __runtime_fixup_ptr(void *where, unsigned long val)
- {
--	__le32 *p = lm_alias(where);
-+	__le32 *p = where;
- 	__runtime_fixup_16(p, val);
- 	__runtime_fixup_16(p+1, val >> 16);
- 	__runtime_fixup_16(p+2, val >> 32);
- 	__runtime_fixup_16(p+3, val >> 48);
--	__runtime_fixup_caches(where, 4);
- }
- 
- /* Immediate value is 6 bits starting at bit #16 */
- static inline void __runtime_fixup_shift(void *where, unsigned long val)
- {
--	__le32 *p = lm_alias(where);
-+	__le32 *p = where;
- 	u32 insn = le32_to_cpu(*p);
- 	insn &= 0xffc0ffff;
- 	insn |= (val & 63) << 16;
--	*p = cpu_to_le32(insn);
--	__runtime_fixup_caches(where, 1);
-+	aarch64_insn_patch_text_nosync(p, insn);
- }
- 
- static inline void runtime_const_fixup(void (*fn)(void *, unsigned long),
--- 
-2.34.1
-
+--
+Sincerely,
+Yeoreum Yun
 
