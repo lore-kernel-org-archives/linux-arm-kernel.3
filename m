@@ -4,86 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46935CD13D2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 21:22:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84AB3CD13D3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 21:30:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7QAcFENGAWMvRKtX38HM/K9V9AEirES0LrBY8xwrc44=; b=u+EL1wFvhEfwHyRwbWqXMlVTUM
-	0iSP+aizvKw5cIGXndmI+zPiRzAz2mO3cKPbt0W6YzUKYYMvr+Q0DjlfpSrD93MkHgpLWdoyldN+f
-	C70XANVe38B0meLBmjHafcS+UM1JzYxa7koSelTNFD9g4kKAs5E4kMm3u2yBTIa3zld0AR+S0U4dy
-	kclvudSd5NxBXFqIdxi+coYFUkt8k9+Sqg8j+MV7xIzfHRY/M8KHo5fVmJTgo16mPyGfBYPJ4yAYz
-	vUqPAtxOtoF1MghWQxy95yELQZNJ2AxvL49Ngpd/lMwxPwVq5pgxNM4ImfHAqYbboCMbd0/vX6cHR
-	2qct60fQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zcNk7RepMt/ujrNFBx69IMbbsGm9Q1Adr/Bz78TzItI=; b=Z8OtvWx10sNE6RG5qnHe7VkoUq
+	Avf97x7JR0D01ZM8U+K6x5VW2Y9TTc1YO0QATVZ7Gl8TZD9f58eC0flLyzfyEZJ5JstiBshUhwdmD
+	ubJq8UzD3z9TmchUEDo5nzJnfFgvSTauXSmUyDSCd3zoRtMQf8PycBsGKnMMxxwFq4FBZ89XluRbN
+	4GDVia4ofqtGdjgIVVIL/OGfDiqsjBBCFZU7VaFoA5UbejlheTQJ6fAznt7qkzS610WuuBZj2+7Db
+	XYeJtlyT68y5mXP38Ao2vNyewCwesidUEw1Ci1QHmR81qvBqwX3bgtB8SgmQ1KtgkM+n2DQADvZa4
+	Rctj8d3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIYpf-00000005yZX-2KJl;
-	Thu, 30 Apr 2026 21:22:03 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1wIYy9-00000005z1h-18zw;
+	Thu, 30 Apr 2026 21:30:49 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIYpc-00000005yZ0-3qlF
+	id 1wIYy6-00000005z10-10sj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 21:22:02 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-82f8892d4d6so674586b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 14:22:00 -0700 (PDT)
+	Thu, 30 Apr 2026 21:30:47 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63UKNQ23007817
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 21:30:44 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	zcNk7RepMt/ujrNFBx69IMbbsGm9Q1Adr/Bz78TzItI=; b=PYdHJ+2gsMrTzFJz
+	xgrHx1h071Un31Stlmm0MrLoOn9L4UjZmODPldQ6g2cL5Vq56mcbsU+OL929FnsW
+	xx0ubwfzoLEGy1NvjBlLfdA9RcsZbdYACmFmlMWdTeKEmHQ6Hj3AjVX3gzeKkHKO
+	TaDeUgtawC8ekirStawjWMaapgZOucTy4Gy+QOZSL04PkjUauLjvDeFZqQXsxsmn
+	UO9fQD/uVHWJHFdrXVW+XGvL1lQHmqeaC7hjLP0im8BIE7oNYFy6FY8woH4fggcu
+	lEYb3pYmMFa+aNH5uh3OmWnsHLKBM2PLRNDmAY86vbXgaXx64o+P4YikbzcDrySO
+	VMIEkw==
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dv54wb3vt-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 21:30:44 +0000 (GMT)
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-2ee5b73c5f2so1595996eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 14:30:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1777584119; x=1778188919; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=7QAcFENGAWMvRKtX38HM/K9V9AEirES0LrBY8xwrc44=;
-        b=N4mkvxHrHCtkfTsnnihodz3iajGtNRM0fhUxS/MY/PXaBkFswtbNXP6L6yaFJB83wZ
-         RHMQpyvVn3iGlVBPXH1Kl7peB6uJDysSmyLJBXoYl715svFx/8tm67cQ5CRHcgBa+oTa
-         S7W5EVn1TtYZkKZ2zngEoCRR616eS4wHZSudnTF1d+AjLCpHJ3J6SZM+8a3Q4YA34QbO
-         JvTxshPYvXDZ/oiR0jQgZuxgqH4Mt8pe4d0ZiCG5k3Womd9ScCUGYs3OiH6J64tTM9Cd
-         8ZcxV+9/Z05VEiUYSwv0B91Eun1m4psTxpWwsYylcYIyPCT9Jb8pdQpZlV0ukjhWDXdr
-         hqmQ==
+        d=oss.qualcomm.com; s=google; t=1777584644; x=1778189444; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zcNk7RepMt/ujrNFBx69IMbbsGm9Q1Adr/Bz78TzItI=;
+        b=dedU1xgQnD0zWf5w+VXm7ORbD7v+xzoDzJ/z6deANn463O56H+8oFeAXCzWsfT4kv8
+         npjXwcCsWsE2jJx9AFyGXf7rB1ZunAumhzFav5JenHJGbGAvzUf6j8gVgllYL0+cv/Yj
+         YpnJh2V2oXtsxkk5qeIhi1WjlPorxuOltAfXny+h04v0E2235VSqkqCwXtRwPZDEI9xN
+         xUr4F4vI16ou0OBWd4k2L7l7xwyn3Dv3M0yoKkht5ERYQxxAFOV3goZF+xeGH9C/N/2H
+         4pzEy6YcPPLvRlc63FKVqLJ3U0cmJpKnmLqQ1tW3pvc0opneb45M+vXbxBYmbUOWCjv0
+         IxzQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777584119; x=1778188919;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7QAcFENGAWMvRKtX38HM/K9V9AEirES0LrBY8xwrc44=;
-        b=sV9rJzNp2YkOoJI9r1/L0s4ZO4IyGWHY9P/Ms1/i7Ikrl+3OHGZwLIY/RosQVEvnsl
-         giB/C7XWqYR5/isJBIFlYIvRCMeh2sWgqHsTlyaOQLtpiWEYt+dvyCPkbuyTxbc4lq6K
-         QsT5y5sW/xkcTnl3fVkfaZ6xS+Dpv3+eAlD2A2GLo9DM8L0ct7RgpxjL06ePD6g0Rdmm
-         xeddBJgU1IArdMikWtjaBcDJZDdmMAKkG/xWDddPpqUAgf5EskGgFvW/oblWIy0gw6I5
-         DJ8DQewea8B3zWWCpNGeHPLS+NzLt2S4mDaocDW+DZA2Bk8IuezlGmAonO0LfzNjg40d
-         RqGA==
-X-Forwarded-Encrypted: i=1; AFNElJ//OgFsiw1RjGXWMV28yUgTdYcvtybD23SmynK5HodnmoEheYl3R+CWAXNyV6hl14f9nUDRj0i9G2bTZlCdzD1z@lists.infradead.org
-X-Gm-Message-State: AOJu0YxTRNxiXUhJRKC+cP277HWmUALAbWBia0eSc6lE1ZeWeBuqn9Da
-	bbvUjkCmJHTMkNVI/OZrRnCuR+ITPMcOnfSpfBFWEHH3cAbapJgE5OQnRapBVRGW8vU=
-X-Gm-Gg: AeBDievgvxDCLPSANaJxPIkZdHoHIIb0MgZ35h2iSpzYGEjqqlfeyhJGq1NEGjx7EVp
-	0GQzo3C60yt/yFN6KcFQJ63eVMk8+BNOBtmAPbhKAC7qhSUzq6gsPcu9ZO7ra2cAJdQENkaR90m
-	Q7rw6rbWjEYqIRsYY/n9n58fOORMG+uvqbU6ra5nOmSMcLPHdWsoxKrOMipxiUuCzGgSm51/JUI
-	7KqUpxn1VyVhZ9Hwe9pRXbuFxWQGqxaEuy27WkG12on1jzsK4l5hFGzxy4LXkW0u40sYr+NOZYo
-	nWcm3rpjt5iRUScsHy85YfhHMVkRj6W7ZPv1e59YwpJfKt5BmXOTbs7EW/7MxJMAdeus0rXfc86
-	hv+Z3KY8d1noVBTDQBWxjQd4VEAfmk3KkpQMrwqrPS3mY5Q2xZ4revKgi1QpfOewwxfUCIuURec
-	93DaYaAkxCI19tLC6HP2chmfh541z1aHQLzp7/
-X-Received: by 2002:a05:6a00:4298:b0:82c:212a:a9b5 with SMTP id d2e1a72fcca58-834fdc6b1a1mr5314878b3a.36.1777584119286;
-        Thu, 30 Apr 2026 14:21:59 -0700 (PDT)
-Received: from p14s ([2604:3d09:148c:c800:8054:625e:b15:dac0])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83515b1d554sm533175b3a.46.2026.04.30.14.21.57
+        d=1e100.net; s=20251104; t=1777584644; x=1778189444;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=zcNk7RepMt/ujrNFBx69IMbbsGm9Q1Adr/Bz78TzItI=;
+        b=sf5wdviOz0jimmzJDOvohQnJrly7uw6K96NejFw6Sa1LogUT2NxMp5O/fxpyRodnON
+         aztCjNjwWcsHPPROcbHyKpA9Kjz6hpAZd/lGa9xkU401RpYTjLfvrpnwg0tB5tRUz+0f
+         lXpwl61ZVLGQzCNpHrqVXX3kTWMa+5X+FxIZWKHS7UefivriLxGJiv1RpVzqcsng9JOg
+         M1jFx9fYY4hsBwJFA86Y1oxeGQ/PgAzf/NqQbWk/0ppTLqoumnCVfTw/iZ9pkn7OBWzs
+         RqzLWFh3VmHFjQ5Z+olaxYnFq7ndkelEIq1vEsZ7w8T79gz57s8S0jfm4ruUeYGCNxJb
+         Y9Kw==
+X-Forwarded-Encrypted: i=1; AFNElJ8mb3KTte/HZlD8JfV6lzYCKznl0NKQz/PYTAikTon91zp48+8tDd9QZQ7xzVCj6hgxr6HzJPIkL2WHC0MqFUr/@lists.infradead.org
+X-Gm-Message-State: AOJu0YxF1Hg877GZiimWVRwpVvq6MKrSUoJOq0sWKkA3ahWU9ZfMbnuU
+	CjJpQBskHXlvaIaHG7iNbl+jcri/1268ZG+nlbq9lagFdcFzrFqUXWy6qANJhl913dnT7W1zrnl
+	6eZEsoywLk11l9YVhhbJnOREYcKSKLRa+i4aMifW+kQU40lR53fczrcUYhzPRq0H0rxIgE2TrS9
+	RIg+JCoJKxmA==
+X-Gm-Gg: AeBDievamFUY3WvzTmfSNMa6CPPVRlp5lcbJKFMxsVIRsAcm6r/0nEYeAe8n61ThlKe
+	DgwfkFL2wAm8hQnLCwWm7KRqNd67bbTBSOsE5QMZTxKFdDEknCFPPOL7QJ6cDZkR6LFXLPvo+EI
+	92Z54MuZZamMnMCKycyR5bsrn1UggiuNaHpvEMAH5MbBCcCS6oYOPb30psNemPFRh2Q18fKcuz2
+	oepd4YgR5goq4aXngPBduhn4maTSi9c52+mveUAL5N8Je6xm5YnVynxZnl7zKvodQMAOJaL7A+r
+	82GROx+DU+kFSzNSr6V6ByvA9M3kjsg9oc8aVDGkwe+SMlnJYdEok6fU93ezKnsi2YRVigrqN6D
+	vpKiibUgUnThHKkGP2+zARofLiHMs4tPotyxzktuuWyKyRyuFnbFMgm6oyX9KsmTes1BQI8s7jZ
+	AxB+klO+G8QYI=
+X-Received: by 2002:a05:7301:3e19:b0:2d4:62f0:b2d4 with SMTP id 5a478bee46e88-2ed3cabac36mr2315492eec.13.1777584643498;
+        Thu, 30 Apr 2026 14:30:43 -0700 (PDT)
+X-Received: by 2002:a05:7301:3e19:b0:2d4:62f0:b2d4 with SMTP id 5a478bee46e88-2ed3cabac36mr2315475eec.13.1777584642905;
+        Thu, 30 Apr 2026 14:30:42 -0700 (PDT)
+Received: from hu-jjohnson-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2ee38d79eb9sm2504861eec.8.2026.04.30.14.30.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Apr 2026 14:21:58 -0700 (PDT)
-Date: Thu, 30 Apr 2026 15:21:56 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Tanmay Shah <tanmay.shah@amd.com>
-Cc: michal.simek@amd.com, andersson@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-remoteproc@vger.kernel.org
-Subject: Re: [PATCH v3] remoteproc: xlnx: check remote core state
-Message-ID: <afPH9BRwmpCZnvhX@p14s>
-References: <20260428221855.313752-1-tanmay.shah@amd.com>
+        Thu, 30 Apr 2026 14:30:42 -0700 (PDT)
+From: Jeff Johnson <jeff.johnson@oss.qualcomm.com>
+To: linux-wireless@vger.kernel.org, Rosen Penev <rosenp@gmail.com>
+Cc: =?utf-8?q?Toke_H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>,
+        =?utf-8?q?Andreas_F=C3=A4rber?= <afaerber@suse.de>,
+        Manivannan Sadhasivam <mani@kernel.org>,
+        linux-arm-kernel@lists.infradead.org,
+        linux-actions@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20260223224254.27081-1-rosenp@gmail.com>
+References: <20260223224254.27081-1-rosenp@gmail.com>
+Subject: Re: [PATCH ath-next] wifi: ath9k: owl: move name into
+ owl_nvmem_probe
+Message-Id: <177758464176.1848985.2839439458090634520.b4-ty@oss.qualcomm.com>
+Date: Thu, 30 Apr 2026 14:30:41 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260428221855.313752-1-tanmay.shah@amd.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
+X-Proofpoint-GUID: HMivkS3cW1TFM7xUmieJaYUkk1oAyTgh
+X-Authority-Analysis: v=2.4 cv=Rrf16imK c=1 sm=1 tr=0 ts=69f3ca04 cx=c_pps
+ a=PfFC4Oe2JQzmKTvty2cRDw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
+ a=EUspDBNiAAAA:8 a=loNhbsbYXzCzQw8Vos0A:9 a=QEXdDO2ut3YA:10
+ a=6Ab_bkdmUrQuMsNx7PHu:22
+X-Proofpoint-ORIG-GUID: HMivkS3cW1TFM7xUmieJaYUkk1oAyTgh
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDMwMDIyMiBTYWx0ZWRfX9jQaOUERdK0p
+ Y8Y0F3caZC931S5V6S+pvjDynW+aUIPdrPA1TAWgGd2TkKFNFNsGQY836CuhsTIdm03XLDpb+ig
+ SO3Dv2XgrU16cs4oE6MMw5jiXdFEGPRAb3fubTajfx+wgUinqguW+5Zc9W+d+TW2iP1g6ODMyxM
+ 10m3S3tczCSTwxo69zHlQZ9dBgV3o5FP4PIu9EUorrRnJG87Wxye4BzxwaiqW3epXSfMnKHFy2o
+ XGyDSNwNXu2pEsl1pViE5Ta0tzti4JuOcwZu0vQ+1wexapintCE+m3UZe+Fi/YJxytv2Hu7a02N
+ SCcSE4BdntOgjM8aZwYZFaGCe855B42LZ1PwAwyfsTtzWvKttduk0zAwMTgrR122eN/rDDKpuAM
+ hPN+Vm3xrYJH64TCD6vcbZHqvjyqxvcxGT2vRsJFDmJWUB8Uim6eUsK6oURgeaSwBYuOl2jyN++
+ QmxtwmMtzx8g5k/1wfQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-30_06,2026-04-30_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 spamscore=0 suspectscore=0 priorityscore=1501 clxscore=1011
+ impostorscore=0 lowpriorityscore=0 adultscore=0 malwarescore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604300222
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_142200_976551_BB62051A 
-X-CRM114-Status: GOOD (  40.14  )
+X-CRM114-CacheID: sfid-20260430_143046_464648_4F2725A4 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,195 +148,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 28, 2026 at 03:18:56PM -0700, Tanmay Shah wrote:
-> The remote state is set to RPROC_DETACHED if the resource table is found
-> in the memory. However, this can be wrong if the remote is not started,
-> but firmware is still loaded in the memory. Use PM_GET_NODE_STATUS call
-> to the firmware to request the state of the RPU node. If the RPU is
-> actually out of reset and running, only then move the remote state to
-> RPROC_DETACHED, otherwise keep the remote state to RPROC_OFFLINE.
-> 
-> Fixes: bca4b02ef92e ("remoteproc: xlnx: Add attach detach support")
-> Signed-off-by: Tanmay Shah <tanmay.shah@amd.com>
-> ---
-> 
-> Changes in v3:
->   - add fixes tag
-> 
-> Changes in v2:
->   - fix subject line: %s/node/core/
->   - add comment explaining optional resource table availability in the
-> 
->  drivers/firmware/xilinx/zynqmp.c        | 28 +++++++++++++++
->  drivers/remoteproc/xlnx_r5_remoteproc.c | 46 +++++++++++++++++++------
->  include/linux/firmware/xlnx-zynqmp.h    | 21 +++++++++++
->  3 files changed, 85 insertions(+), 10 deletions(-)
->
 
-Applied.
+On Mon, 23 Feb 2026 14:42:54 -0800, Rosen Penev wrote:
+> There is no need for dynamic allocation for a simple string.
+> request_firmware_nowait copies the string internally anyway.
+> 
+> The error message on failure is also wrong. It's an allocation failure,
+> not a find failure.
+> 
+> 
+> [...]
 
-Thanks,
-Mathieu
- 
-> diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/zynqmp.c
-> index fbe8510f4927..af838b2dc327 100644
-> --- a/drivers/firmware/xilinx/zynqmp.c
-> +++ b/drivers/firmware/xilinx/zynqmp.c
-> @@ -1450,6 +1450,34 @@ int zynqmp_pm_get_node_status(const u32 node, u32 *const status,
->  }
->  EXPORT_SYMBOL_GPL(zynqmp_pm_get_node_status);
->  
-> +/**
-> + * zynqmp_pm_get_rpu_node_status - PM call to request a RPU node's current power state
-> + * @node:		ID of the RPU component or sub-system in question
-> + * @status:		Current operating state of the requested RPU node.
-> + * @requirements:	Current requirements asserted on the RPU node.
-> + * @usage:		Usage information, used for RPU slave nodes only:
-> + *			PM_USAGE_NO_MASTER	- No master is currently using
-> + *						  the node
-> + *			PM_USAGE_CURRENT_MASTER	- Only requesting master is
-> + *						  currently using the node
-> + *			PM_USAGE_OTHER_MASTER	- Only other masters are
-> + *						  currently using the node
-> + *			PM_USAGE_BOTH_MASTERS	- Both the current and at least
-> + *						  one other master is currently
-> + *						  using the node
-> + *
-> + * Return:		Returns status, either success or error+reason
-> + */
-> +int zynqmp_pm_get_rpu_node_status(const u32 node, u32 *const status,
-> +				  u32 *const requirements, u32 *const usage)
-> +{
-> +	if (zynqmp_pm_feature(PM_GET_NODE_STATUS) < PM_API_VERSION_2)
-> +		return -EOPNOTSUPP;
-> +
-> +	return zynqmp_pm_get_node_status(node, status, requirements, usage);
-> +}
-> +EXPORT_SYMBOL_GPL(zynqmp_pm_get_rpu_node_status);
-> +
->  /**
->   * zynqmp_pm_force_pwrdwn - PM call to request for another PU or subsystem to
->   *             be powered down forcefully
-> diff --git a/drivers/remoteproc/xlnx_r5_remoteproc.c b/drivers/remoteproc/xlnx_r5_remoteproc.c
-> index 50a9974f3202..45a62cb98072 100644
-> --- a/drivers/remoteproc/xlnx_r5_remoteproc.c
-> +++ b/drivers/remoteproc/xlnx_r5_remoteproc.c
-> @@ -948,16 +948,6 @@ static struct zynqmp_r5_core *zynqmp_r5_add_rproc_core(struct device *cdev)
->  		goto free_rproc;
->  	}
->  
-> -	/*
-> -	 * If firmware is already available in the memory then move rproc state
-> -	 * to DETACHED. Firmware can be preloaded via debugger or by any other
-> -	 * agent (processors) in the system.
-> -	 * If firmware isn't available in the memory and resource table isn't
-> -	 * found, then rproc state remains OFFLINE.
-> -	 */
-> -	if (!zynqmp_r5_get_rsc_table_va(r5_core))
-> -		r5_rproc->state = RPROC_DETACHED;
-> -
->  	r5_core->rproc = r5_rproc;
->  	return r5_core;
->  
-> @@ -1210,6 +1200,7 @@ static int zynqmp_r5_core_init(struct zynqmp_r5_cluster *cluster,
->  {
->  	struct device *dev = cluster->dev;
->  	struct zynqmp_r5_core *r5_core;
-> +	u32 req, usage, status;
->  	int ret = -EINVAL, i;
->  
->  	r5_core = cluster->r5_cores[0];
-> @@ -1255,6 +1246,41 @@ static int zynqmp_r5_core_init(struct zynqmp_r5_cluster *cluster,
->  		ret = zynqmp_r5_get_sram_banks(r5_core);
->  		if (ret)
->  			return ret;
-> +
-> +		/*
-> +		 * It is possible that firmware is loaded into the memory, but
-> +		 * RPU (remote) is not running. In such case, RPU state will be
-> +		 * moved to RPROC_DETACHED wrongfully. To avoid it first make
-> +		 * sure RPU is power-on and out of reset before parsing for the
-> +		 * resource table.
-> +		 */
-> +		ret = zynqmp_pm_get_rpu_node_status(r5_core->pm_domain_id,
-> +						    &status, &req, &usage);
-> +		if (ret) {
-> +			dev_warn(r5_core->dev,
-> +				 "failed to get rpu node status, err %d\n", ret);
-> +			continue;
-> +		}
-> +
-> +		/*
-> +		 * If RPU state is power on and out of reset i.e. running, then
-> +		 * assign RPROC_DETACHED state. If the RPU is not out of reset
-> +		 * then do not attempt to attach to the remote processor.
-> +		 */
-> +		if (status == PM_NODE_RUNNING) {
-> +			/*
-> +			 * Not all the firmware that is running on the remote
-> +			 * core is expected to have the resource table. The
-> +			 * firmware might not use RPMsg at all, and in that case
-> +			 * resource table becomes irrelevant. However, we still
-> +			 * need to make sure that running core is not reported
-> +			 * as offline. so do not decide remote core state based
-> +			 * on the resource table availability
-> +			 */
-> +			if (zynqmp_r5_get_rsc_table_va(r5_core))
-> +				dev_dbg(r5_core->dev, "rsc tbl not found\n");
-> +			r5_core->rproc->state = RPROC_DETACHED;
-> +		}
->  	}
->  
->  	return 0;
-> diff --git a/include/linux/firmware/xlnx-zynqmp.h b/include/linux/firmware/xlnx-zynqmp.h
-> index d70dcd462b44..7e27b0f7bf7e 100644
-> --- a/include/linux/firmware/xlnx-zynqmp.h
-> +++ b/include/linux/firmware/xlnx-zynqmp.h
-> @@ -542,6 +542,18 @@ enum pm_gem_config_type {
->  	GEM_CONFIG_FIXED = 2,
->  };
->  
-> +/**
-> + * enum pm_node_status - Device node status provided by xilpm fw
-> + * @PM_NODE_UNUSED: Device is not used
-> + * @PM_NODE_RUNNING: Device is power-on and out of reset
-> + * @PM_NODE_HALT: Device is power-on but in the reset state
-> + */
-> +enum pm_node_status {
-> +	PM_NODE_UNUSED = 0,
-> +	PM_NODE_RUNNING = 1,
-> +	PM_NODE_HALT = 12,
-> +};
-> +
->  /**
->   * struct zynqmp_pm_query_data - PM query data
->   * @qid:	query ID
-> @@ -630,6 +642,8 @@ int zynqmp_pm_set_rpu_mode(u32 node_id, enum rpu_oper_mode rpu_mode);
->  int zynqmp_pm_set_tcm_config(u32 node_id, enum rpu_tcm_comb tcm_mode);
->  int zynqmp_pm_get_node_status(const u32 node, u32 *const status,
->  			      u32 *const requirements, u32 *const usage);
-> +int zynqmp_pm_get_rpu_node_status(const u32 node, u32 *const status,
-> +				  u32 *const requirements, u32 *const usage);
->  int zynqmp_pm_set_sd_config(u32 node, enum pm_sd_config_type config, u32 value);
->  int zynqmp_pm_set_gem_config(u32 node, enum pm_gem_config_type config,
->  			     u32 value);
-> @@ -939,6 +953,13 @@ static inline int zynqmp_pm_get_node_status(const u32 node, u32 *const status,
->  	return -ENODEV;
->  }
->  
-> +static inline int zynqmp_pm_get_rpu_node_status(const u32 node, u32 *const status,
-> +						u32 *const requirements,
-> +						u32 *const usage)
-> +{
-> +	return -ENODEV;
-> +}
-> +
->  static inline int zynqmp_pm_set_sd_config(u32 node,
->  					  enum pm_sd_config_type config,
->  					  u32 value)
-> 
-> base-commit: fcdf2df56d34a3f04cab0725c5bc3abdaa73c2be
-> -- 
-> 2.34.1
-> 
+Applied, thanks!
+
+[1/1] wifi: ath9k: owl: move name into owl_nvmem_probe
+      commit: 7b2338d5ec6fee29f92fae791219ab9fbd206567
+
+Best regards,
+-- 
+Jeff Johnson <jeff.johnson@oss.qualcomm.com>
+
 
