@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DBE4FF8875
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 11:23:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A133CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 11:24:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7v39HKLXWeoMCVhVNmZv9eQwa4sTYDMTw3jZCpfH2ho=; b=epCfGkCa73hDfIp/XC2ADIrnW0
-	ppVk2arl+zJDhSz68UT6D/f4X+lCV8uCjjQ0mqPfkZFs86pWMQkc5By6yciDsqZ799lwK7f+k+Zeg
-	blSdCGAPqQy9GZp6Hz7mZxHV4uJ3UrViVKk+R1ZrEkgThk2FIOHjluHX5mCfFGwHXWUpn4dfUmr1Q
-	Zll7TCyzUMuCmUbqdDdj/kuWu+kyVO9eadtsMy23nqsBfDwih+nWnbPW2cCZg+dLvn6dX62qnNjkI
-	oVXQw7w/CfoMshbSrkrsb7HFciOXiKq5+NHm14qgauxBHWnkk+UY3Mg902fiuTGQZOAbDmkCrVJU6
-	WGwPeCQg==;
+	bh=6AA/YGShOqRmUpkypHwRODrLQufZKAKK2YnZ8Ary0FQ=; b=LiNRDcSvZDoKJpXSOltQQo/Cc2
+	nVHHTDCw+WMPBqQ+arrnkVV+n/J/WnQhnEOHZOGgg+9wt2LISRgSGP6bEYQpBT7jn6iti2NfuZnpW
+	EkhV9Q5Uwh3nyc0evdMisoI+7SOxCRY4dx1y31b06d7dvLe3vFnS1J6W44nF8M18CPYqQLHtFBneN
+	O40PS2AcyYJR+6S1GrZeuahUcgHGRGa1QvhqlStwr89XmwBITVElnKt3ZSbG1V52q3sU7IozmVVc/
+	GM/f3nmA2ZqXaIP5M9pMaOYT/x9mdQrDA2Y3LDf0Yj9vKirBBO7Wn1X3rW+8Gi8GIlBt5SMWPSPtn
+	hXykcBww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIPUf-00000005NWa-0Vl7;
-	Thu, 30 Apr 2026 11:23:45 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wIPVS-00000005NgB-2bZd;
+	Thu, 30 Apr 2026 11:24:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIPUe-00000005NWR-1J3x;
-	Thu, 30 Apr 2026 11:23:44 +0000
+	id 1wIPVP-00000005Nf7-3iju;
+	Thu, 30 Apr 2026 11:24:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BA2C76015B;
-	Thu, 30 Apr 2026 11:23:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03496C2BCB3;
-	Thu, 30 Apr 2026 11:23:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4C3A3417BF;
+	Thu, 30 Apr 2026 11:24:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8029C2BCB3;
+	Thu, 30 Apr 2026 11:24:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777548223;
-	bh=y0DV5zO2eVU82OJnZH8JCZffr1Ytd2kNwNVgaDihKA4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=XAp10jUOjzOViGFVLYzXFsSpPcrh5x5F92QGm9mC/vmXDe676ueudgsaZYQ6KUm2j
-	 AvRRfHe1kxTQQGEOnBmUPT5N3ptYqfw1xewVZi4kpS2hpx+7ML6EperetjKxPmq6KA
-	 o6jIci19JHmpIhWybbuDHY127z+wXBhxGaBfbmKe/azGAIB/5GcoFH1DQD7Odw/ntE
-	 Qp3SKLkzJkIoChmUAfZ1Ac0li1h4UBkSOgj73+OHJ9bF3irhKOr0VS4NS6R9DWkx51
-	 7i3cwpLgRZ1DK5KphBhy+p6yiulIyOU1r1xbYqyHf0O7YRcl3ZWlW87W7D1BPNDqWG
-	 3gfY5wInoLxzA==
-Message-ID: <6ff75de9-6d5f-4d4a-bb19-1c06d0aa8d3a@kernel.org>
-Date: Thu, 30 Apr 2026 13:23:38 +0200
+	s=k20201202; t=1777548271;
+	bh=dsGnAliiTDQC0j0QOXt/Ci4gp/31DHhmKm7DB4q1qrs=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=mhE7dn2xF64/1R/Z9eBpoAPfKVt2/xgy1fF6qd45Z3qCKLeild20yo0v2m0yBTlUm
+	 +xVwJ0YsRP9JtpcEl1fF8jVlOJ0oRl/vZPPgQNWKW+5u2FGXBKhkfpU/9Nnj4io9+X
+	 vo97UQFgvf7TkWnVmH/bbNe1azK2n4QWF8URihVXFLBpi6vOtigWQDEnZifzvQQ3nU
+	 /8B/6fGkMyJTZ6MEM16NdmmsN905CRfzCTRbQYUzt4PbXSytNQUz5NgcWsuk6ydJ61
+	 J7eDcdO6qC+b1CxBxlfoNYjw15cbS2w/L5rjqjr/M1D3QhVnh5CpbtgIP8d1B5ATkX
+	 p8TYP7G6LMJaQ==
+Message-ID: <e1829cf5-c277-4e34-8bcf-addc27bfd69c@kernel.org>
+Date: Thu, 30 Apr 2026 13:24:26 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2 1/4] gpio: Remove "default y" in Kconfig
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Yu-Chun Lin <eleanor.lin@realtek.com>, linusw@kernel.org,
  brgl@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
  afaerber@suse.com, tychang@realtek.com
@@ -55,7 +56,7 @@ Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
  stanley_chang@realtek.com, james.tai@realtek.com
 References: <20260408025243.1155482-1-eleanor.lin@realtek.com>
  <20260408025243.1155482-2-eleanor.lin@realtek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <6ff75de9-6d5f-4d4a-bb19-1c06d0aa8d3a@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -100,9 +101,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260408025243.1155482-2-eleanor.lin@realtek.com>
+In-Reply-To: <6ff75de9-6d5f-4d4a-bb19-1c06d0aa8d3a@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260430_042431_962565_0A272F7A 
+X-CRM114-Status: UNSURE (   6.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,13 +122,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/04/2026 04:52, Yu-Chun Lin wrote:
-> Remove the default y to avoid bloating the build for non-Realtek platforms
-> when COMPILE_TEST is enable on other platforms.
+On 30/04/2026 13:23, Krzysztof Kozlowski wrote:
+> On 08/04/2026 04:52, Yu-Chun Lin wrote:
+>> Remove the default y to avoid bloating the build for non-Realtek platforms
+>> when COMPILE_TEST is enable on other platforms.
+>>
 > 
+> Why isn't this driver important for Realtek SoC? This should be
+> explained, otherwise proper fix is default for ARCH_REALTEK.
 
-Why isn't this driver important for Realtek SoC? This should be
-explained, otherwise proper fix is default for ARCH_REALTEK.
+And you were kind of asked for it at v1...
 
 Best regards,
 Krzysztof
