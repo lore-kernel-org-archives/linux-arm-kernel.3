@@ -4,156 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31D3FCD13D2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 10:55:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A20FFCCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 11:01:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F7PLHIF93Vk5dxSnqUydDv0irtq8kaE5CWfBQ8dQF0U=; b=c5XlqWWlZMjc2AajHPhaZex5EF
-	6R7nd0Ch3MdNy2ETLKqDq8UP2IONPQxXmRxTQdTsp+Xu7qUn4tY8QVV1gD/QeGHvm+Ecj63j6k/wC
-	b8ljmzrOA55awsOp3MgQsW5UTfpJD6yhP4OgiXrCodetYjvfAHcGPCTZ37lYhVsCieLykCUyUSVXI
-	7c695i+pNK+cFAYljlj+cRfLtRJthj6reKSmn6l8zKqvYfVvjnhPYMk/E9yJ57/tzr3wybE6ItVr/
-	Qs/haS2v/Da7pwFbuQLHWRgLZ3e8Oyrs+p5f/FmGLKzn7q/Rplfn1oEr+PUKnbedDK+U3KU5Qpx9w
-	KjLDvs/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n5wYzMN3IpB4/lfMB/BJptgzMEGWqAW7cw6OYZmvGWI=; b=l9bO8nuIDQfgO8EGXjDGj6NmZE
+	W5dAxKJtF8XWNyVW4SK1f9aYraL8NTnI58Uq5+Z/+b8mJMeosxOjuJRTZSnbeX8zzVHlaUFVLNcj0
+	+3dOmkLgzNbSNgxV2qmQ9YkvSsBxjMz0UVVO9/z5eX6PqLBkh4AHsxpKM8holU+Xh+33XzeIiJ4ia
+	/TQnoEZgHU3KE607qRzD15juIO9mO5p7XStwVd9FIiCqkkNOpS8ZVFZOlGF9+TtWD4F/S+J+9EHhV
+	fmdgCc420gW1f0ZhxeYWmJpiOMY97dkc+szLfXsn+SDnB+MW2uYYlp7P4swHikqBUXmjJGOdHLkg1
+	kwkAw57A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIP3Y-00000005Ewg-3YvM;
-	Thu, 30 Apr 2026 10:55:44 +0000
-Received: from mail-westeuropeazon11010063.outbound.protection.outlook.com ([52.101.69.63] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wIP8y-00000005FPr-19w5;
+	Thu, 30 Apr 2026 11:01:20 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIP3U-00000005EtP-2kZs
+	id 1wIP8r-00000005FOr-2oSA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 10:55:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LoO3KMR4gaz9z7PdBje6WJXLnuy0kBMMBVrh+K86KeFY8vYTdZjTyVspaIZAq/BeT0pKEgq8PC5b+1i5xcff/svsHJFMytbzV247IkSdp7uxHGC9y5Jr79PO4qUgO4I8jmc4WdBr3ZHThPmApCJrR6/NBqPI8PiOhTKC+amr7t3NADVvfuQ0Vkytbn9dVUxLElen+k7ZP7wdQ3w/7cGrX28Swvwjhngt1hm/1y2wpJ8CqkS2Kux55cv4yrbE68DUNjMn63AjRypw1oMhHpeceoidYgy6EYnLrLmdscGPymurz0vW928gV1T2nLvdoeZB3KssmNDJHMLnkqKhgeoxfA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=F7PLHIF93Vk5dxSnqUydDv0irtq8kaE5CWfBQ8dQF0U=;
- b=CWPGCzWgGy80J3WDGtZ2CedMgft+IOqf5L2HMxy31TO5abs+/ngofy54PQFiF7wX/Njoy8c8t3bPc+ovCwq3MqQVfjFO9PLTQWH5vdSzHiNpaa7sNVfcAjd1ja0pKuLDnEYjWthNNI/aPlS90y95HHgK8RTa0CC2HjM0P4dzux5KNa7Lr9GFpMAxwGSER1wz5wyT0jy/aAI5QDavBZK5mQJau2jSf3zNKqQvyYx+MHBD6Pr7NmvAN0FJ2Xic2SfMfWYGMq+zBO1+QnS18wOga0xRZRhss9eNBMDp+Baxq2JcC5AfEBscoEvNK1hib6mrpgR2drluNyXo0ZuQlFfyWA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=est.tech; dmarc=pass action=none header.from=est.tech;
- dkim=pass header.d=est.tech; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=est.tech; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=F7PLHIF93Vk5dxSnqUydDv0irtq8kaE5CWfBQ8dQF0U=;
- b=RpzcjQ0i50E6yd5P6TNYy0nnYsV9SEDc3J83eR2OsVTztOI4cdMEGmeeeC457YfdE7c+GApl/F4I8k9an4HmMxxDaWgQ9/EqKd/g3tplOIG+TbFnaVBGOLLQCXTOfy04APSU9a9yh7UkrMiUqcpCAlHha6fAFyyAdyimO8LeiiK+06udxFISbujDiQPkJNmr/yPY3VNYBc3QXIR1lDeME2uSuYXS3Kxe89X5i7zNj8uoWPVdMwunekjv8m50nvoKZl6DtucPx8oK3A0LkQaDAyqGuGC0IMos0Ih256XqiLT6WHj7hHafWg5PpaJN6bWCGgFDuhWTTUGXT6jvZpiGiw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=est.tech;
-Received: from PAWP189MB2611.EURP189.PROD.OUTLOOK.COM (2603:10a6:102:336::8)
- by DB4P189MB3117.EURP189.PROD.OUTLOOK.COM (2603:10a6:10:5dc::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.18; Thu, 30 Apr
- 2026 10:55:37 +0000
-Received: from PAWP189MB2611.EURP189.PROD.OUTLOOK.COM
- ([fe80::b400:cf4f:b2e1:d884]) by PAWP189MB2611.EURP189.PROD.OUTLOOK.COM
- ([fe80::b400:cf4f:b2e1:d884%6]) with mapi id 15.20.9870.020; Thu, 30 Apr 2026
- 10:55:37 +0000
-From: Fredrik Markstrom <fredrik.markstrom@est.tech>
-Date: Thu, 30 Apr 2026 12:55:15 +0200
-Subject: [PATCH v2 3/3] DO NOT MERGE: selftests: perf_events: Add device
- memory callchain unwinding test
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260430-master-with-pfix-v3-v2-3-bd526ec04a75@est.tech>
-References: <20260430-master-with-pfix-v3-v2-0-bd526ec04a75@est.tech>
-In-Reply-To: <20260430-master-with-pfix-v3-v2-0-bd526ec04a75@est.tech>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>, 
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, 
- James Clark <james.clark@linaro.org>, 
- Santosh Shilimkar <santosh.shilimkar@ti.com>, 
- Olof Johansson <olof@lixom.net>, Tony Lindgren <tony@atomide.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-kselftest@vger.kernel.org, linux-perf-users@vger.kernel.org, 
- Nicolas Pitre <nico@fluxnic.net>, 
- Fredrik Markstrom <fredrik.markstrom@est.tech>, 
- Ivar Holmqvist <ivar.holmqvist@est.tech>, 
- Malin Jonsson <malin.jonsson@est.tech>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777546525; l=6672;
- i=fredrik.markstrom@est.tech; h=from:subject:message-id;
- bh=0tNePIa2kQRXIa/Bj3oJrrHN/P8EaLRtEp6RYIHY8Lg=;
- b=4Yhf0lC4xgm80/9H7DwHJ7l4cawXTt9M0lBdJeSkAtJKEMEgZaLUixrD/+0XQ3w0mcCacTdPj
- RyUFLEUSoS/Db6aGEp1FdJ5nWETjXPg2fe2Dzu0HlvG7nfEV7lY8tZ7
-X-Developer-Key: i=fredrik.markstrom@est.tech; a=ed25519;
- pk=0a8IXHEgAX55JPS8VZfTf1sDp7q/oAOf459tDQd40Eg=
-X-ClientProxiedBy: GVX0EPF0005F6EF.SWEP280.PROD.OUTLOOK.COM
- (2603:10a6:158:400::256) To PAWP189MB2611.EURP189.PROD.OUTLOOK.COM
- (2603:10a6:102:336::8)
+	Thu, 30 Apr 2026 11:01:18 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4852a9c6309so6076975e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 04:01:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1777546871; x=1778151671; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=n5wYzMN3IpB4/lfMB/BJptgzMEGWqAW7cw6OYZmvGWI=;
+        b=sCiqWTI3ZjHdqxuFcCsqvAOTqB7CoLxd3sAgg42u/gzDTaVHu4X65qidLzf+xxgayn
+         QTHurF8cEOLyOynVNWs8tgplGrmAjD/r16lKd7WQh9hnvSyrnfwH1XSILpRvRZHxvzRu
+         YIuPRBqnMzWfHB+vPUyoVG1n7rHxZ6MfQ4hZDdI94lAbNlp0+nN5YXzTgSV4o2s+ezJH
+         TfavhWD5kFcVzCnAKyEYqhhtjPUzBix0283IMI5rcD/t4Vtl/M+mwCc/GJsgZ4Aeq0ft
+         obFLH/ARm1iHcwJHBK420lMbo+185E18Xdb4Yzf0pkBJUh+ws1oA89wTpXTjqy9B89s/
+         DzRg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777546871; x=1778151671;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=n5wYzMN3IpB4/lfMB/BJptgzMEGWqAW7cw6OYZmvGWI=;
+        b=UzUy2bge31AiqBepfm/xQGAYrz5RcCbkwRPKIAtl6YQpFQdlKREPcXwtdE3fa2nEuD
+         wxiXSLQ4mzbbu46+vNnm55ieRrCX8W6uD+QqfJs3JSDRfdtQhuqddN/08U6n59THXRMj
+         90HyNcDI6szjqtZSw3xm6bPAlTHQ2ftJ341xb9tM5LlrJhbeedKE+N00RuOTWiCXpyVE
+         6O3WA36dJWVUywVIAUWlhy49pr9PZ18c0j1iT0oJe72IkWfxwY8ApAENi+3QdFlSRRjV
+         CQHNzMegQeHG4i3nIG9yTFdsJkuVyzA2ZxE5GHLdhzG1VFiqhk5jnAHm9y+PMs33vN/z
+         iyvQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8eNevPp+KF0pklCZpsf4ed2D6qSj5yluZQutilWYKGy0sDXg5wksN3CSOHM8HXGltM0EwrMIgHe1WLHqeTGqfI@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxr+Yzi2mAf6ci3InTGnks4rujNZztvp23N0oHetaRbVjlbOdGf
+	fsMceRheRsym7MILiE0J3eG2Q9+8usjjLtqXn9BQxKA8eT/nvn9hseQA7zIBsnKGz+8=
+X-Gm-Gg: AeBDiev5orsKEu58H+GBB+eyEnNsCC7176gVdGFgBaGF02/rnYb7oCJx6MMSe3BRyxk
+	YeDVinZOcJLMx0GkO5C0IidG/fgefSHx4KBq5e3aYOqhmYjjpu0GmkwsfizK4265/1bmnJ32Iuc
+	xljz2vwl6nT+TpFTHFOYhD92/OM/Lut+OhABiZbEth/LKzjJhM75FPhIn6UZgMEX817/uy8Vwdy
+	WxC4tmJJ6FfnRZMH0anar1GakOU5tCGtdI6OJypQMRqKrnHt54XfczXIvf/x0nt9jOtNkM1ywCr
+	f56rhPNFYguUFrz/0HOXyLroacHlMbZ4mEasnz8fBoEE9hFy+fEimcqutIfGVD+XJJVmAVtJnKj
+	vlZNmWUnvfVlOc4Xw7Gcq19sxgDz+IL3BWWTjkajJGQGW1iWM0QgU+dT9RfJqFKw3ZdEwjRGUqF
+	DNvYfvwiUeAdYTZI3tBiMdut9KeXr5iNlskaBp/TdB08M=
+X-Received: by 2002:a05:600c:1e0f:b0:48a:5333:811e with SMTP id 5b1f17b1804b1-48a84451f8emr40243205e9.15.1777546871390;
+        Thu, 30 Apr 2026 04:01:11 -0700 (PDT)
+Received: from [10.11.12.108] ([79.115.63.228])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48a7b8c2dd7sm84687495e9.0.2026.04.30.04.01.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 30 Apr 2026 04:01:10 -0700 (PDT)
+Message-ID: <9b6fce56-6a94-44fe-ab55-5394ec6065e4@linaro.org>
+Date: Thu, 30 Apr 2026 14:01:07 +0300
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAWP189MB2611:EE_|DB4P189MB3117:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3617eeb4-94f9-4002-8f18-08dea6a70311
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|10070799003|366016|18002099003|22082099003|56012099003|921020;
-X-Microsoft-Antispam-Message-Info: fLIo981yaqP62uv4JuW2s7Ia23Iyq/rJQ3MBGcYFz8DwrdvYD/tdKEUk4YNObd4dzBWAks7272QO5iSBH4EU8HHv8pKORCtvoyajAkEDKSCnoM1OP0EYtd7W2bna6nvMqVIyVrqIl9VfjoD4mmTrH4G2gu7jctVbuxC2b23PxBX4AEUsNgrYzC1plCIfGkwG75N/hjx9c390YRi78v3DXTskTyuBh00eWi36PIfBT3CJv5MvrVApCUQ0uw5l7Vx4mYhxV/8hhzI9xxNeksLbJlRasy7gINmJdnYLMmHBkT9cZukKqgXRnwlDz0xiP3YqT5wJyT3SVdzo9OJYpzKJT8u/O3L9hXSExC3WymkXmSchmsmNj2LAYPZcZhnFhcjE8CauezDmMrd6t+zaj3LHNOW0UGKTT+8s0gOeP+CYEh7V4gen3uDjcxPqkiy6hOmOtQ/anN3ViFvQ0ORaYt4A89qp6CX4Cm/3UDFbc7R/QAPfBrdTkHYnXyiLKGbuEibjOYGZRrTyW9B3KRyRhIsh1gxejZXyEHBlfJB6jmXdRT22PB6KzDsZwej93GxAuKUsQKHx6JLJrYUcsYgSIJ0bhpJ7vMQgHgX3MeYb1dsES80WDKnJMbLiDje7lS8bAwL/I9/QGasDbLm3rNB5F1P7OP5XnTw5AuhZi2dcOMYKnA2OovdJ4aMxnVfh5PRbT+9HLB3YuZmWYQC5ml32AJLFwtHMynbFyiTdXskbXXwJOqNzJmR0/H8yt+5RBDY7tYnxpvuC2w+sPZSI+QEWmBuoxg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAWP189MB2611.EURP189.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(10070799003)(366016)(18002099003)(22082099003)(56012099003)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UTFKZUVQWlg2TG9JVXVTemlXWGJOOWFQUXZBR3BoWWxjcnBmRHZNOTd4cjVK?=
- =?utf-8?B?TDUzOXlYZUtnemV4RW40cFJUYjdrVzBmUzVTWU5qODdxK2JZU2lOZjhhS2lE?=
- =?utf-8?B?eFdDcjNCTnIzVzBtRXBrYVk3eVh3NmFZSzNwTEk5QkVNOTMzb0wrMVpOUVVo?=
- =?utf-8?B?RUd5Z0RGWVpEdXdCZUNvWGdoYTVWMEdsZzAzbVpjcUFJN1UyOW5lY0dwdTlC?=
- =?utf-8?B?R1hCVDhQOTcySFZBTGx6YTZiMGczK2VOTjlEbkVwNUl4cy9UbXMrZ0VOVHVH?=
- =?utf-8?B?VCsxSXpnN29Jb2tXM3A1ZWxtQmZZT2Ezd3NPNGZGdGQzcXduMWZqQ1p1RFVU?=
- =?utf-8?B?b1FxL1A2Zm53c3ZXaU5mKzJManFLVVlBdkVzQ0QzMXRGOHp5dlRLMlA1MUJJ?=
- =?utf-8?B?UnZiNmhqWXVSV0pQQlNWOG16QWlaRHprZFE4V3luL3dVQW5HbktzUWg4QkI3?=
- =?utf-8?B?WC8wVGxaVmVmai85Nm5hemFQK1hKM3RoZHlVSFFqWGliZWdlMVpPZE5nU2dV?=
- =?utf-8?B?c0FReVd2REVRVkFaVlhtRkhWWC85RC93RDhzZ0NKdkROK0hrWUw4a2x1SGNk?=
- =?utf-8?B?MUNnM1g4cEhCc3RhbWR0RVR4eHhTQTBZSUkrcG9qSm1Oa2hGNjNDeGZFaVBQ?=
- =?utf-8?B?L2FNczMzOTQwK2xqaVZadDJIRWdrVWxYbVRvb3VXQy9GWXpMaFhXbG1FYnA3?=
- =?utf-8?B?UjR2Sy9tYmlkSU9LOXlhWExTVHpKdUlISDh1bFY5MUZwaWprQlNmNVZVNTJS?=
- =?utf-8?B?emFjU1p2V3UyMllMeXpwdmZ4cWNZWWcvUlFiaUNONlIzZ1NzL3hKaDNoQVlC?=
- =?utf-8?B?S2o5OHJiWjJLaXZJdTREN2ZNa0xjd1MwWmZJR0NVZjBYLytxZDhPM2VjVFlF?=
- =?utf-8?B?aFcyNDQ2eE5TRzZCa3dqY01jRUlMZjVjWXRJL0xhMXNYcGYwMTBPSkZEQU9y?=
- =?utf-8?B?c21VcDR4SWxYRG51YXBmUFZaOWZNdjlHUHFOMml1S1NBZE1KT0ZRc1ZsaHVa?=
- =?utf-8?B?aWh6NnRpOGVVbksyRFpiSnE4SWVZZFdWY1FIU2VmbFdORlUwblBWYVd6NWw3?=
- =?utf-8?B?T3pDV2ZPUGNKclIyYUNqdW5Ibnh6eGJtODcxNEhpdGFkL1JEU254NGUrZGRq?=
- =?utf-8?B?QmdlL2FtVG9ueUdYaFA2N2dIU2I1YzQwUnFLaUt6MnJFbGljU1RjOHF1MW9s?=
- =?utf-8?B?bUlJeTNnaFdxeTFjL1ZlRkx1ci9Ob1N2V0tmWnplMDBldGp0ZG5wc0VjRGpa?=
- =?utf-8?B?L3oyT1gvdHlMMHlNb1JrOG1abEtPQmc0ODlWM3Zad2M1eW45M0JIcEJlcEVm?=
- =?utf-8?B?aldyZ1JLRHA5NzAvaDh3a3g2cm04SE1aTzFFNDFzUDREb25wMlRhdU04Z3RR?=
- =?utf-8?B?QjZtNk5QTXVmYy9DV1FVSXVud2Z6dVFyVFVRMnB4OURtdWx2WmtoMCtSTzhN?=
- =?utf-8?B?dGdPajBXa3ArR2h3aG0xVGdyUUIyc2ZxVVl3eXdPWitGTUVhZjk1ZC9DZ0t3?=
- =?utf-8?B?TitZZGkxTWRvYkxwKzlUVG9LNys4bHJSTEpJNXI3TzZkUktJVWVvajZtQmxZ?=
- =?utf-8?B?T3NsemNlbnlDUXVyeTNYUFc0TFIvM013enB5ZEVZZ05FOUk5M1lmNTJaTGZH?=
- =?utf-8?B?aWdBa2VWL3JHOWVjdksreUh6ckx4T0lMeG1kUURnWlRNT1lzYzBxK3RoNkxD?=
- =?utf-8?B?eFZrbmpudFBRVGhuV3hiQmdDUWtHTkh6VTc0RkhNOEo2MmJlR045b3ZRZ3Ft?=
- =?utf-8?B?Um1VYWdUZUJaNUpXTWtiSkhpbHZGMlJTeU9XOXViT3I2aGIvVDZtazMzdkwv?=
- =?utf-8?B?TzFqK1pxN1NZV3lPWTFxSDg1M3RWb2ZVNkQyaWtVMERDT0F6RU1XeEcvZkw5?=
- =?utf-8?B?VkhRNVFuL1BENE55L1B1K2hwdnNQaEpLUUg3bHZHdEMrU0hGTDM0c2ZMZGdM?=
- =?utf-8?B?RU1Yb1JyS1IzdVNHNTV0OEJ0NUhLUFl2bk01YnRick40UGZ0TVFNdWcwM1Fs?=
- =?utf-8?B?eE1XVzRaSzRZZkZVeGl5aVZMcEh3K1VzOVNzSTRwamJSUHc4QnhFZ0VENjhm?=
- =?utf-8?B?YmZ3OElHWHpUejZjakI5NlJVUWw5Sno3RUtwU2FJN2xGcyttTmFvM2lvOHhB?=
- =?utf-8?B?bG5uZ3JYQXF6YkNJZktlTUlPU3RrNGpmUktqMUgwbmp4ZitLSUJRVHJ0b3pI?=
- =?utf-8?B?U1QzSHliTGpjencvMCsydFYvME5QeCtYVEJ0UGxWK3lkRzAxNGNEcFoyOWYz?=
- =?utf-8?B?UHd1RWp1QjlrbEFnZGVFZHJ1a1ZzM0J6VEp1aUp1Yms2eGc4by9KTHh3S1dB?=
- =?utf-8?B?dEtwTmJDSks0YkZEa0g1KzhaMDFtUEtEaXFNbG9VVE1UZ3JvdFRLQVFNeWE0?=
- =?utf-8?Q?9/jED/dIvh0DaA3QLHfy/Wia446eVj+w98a5ha73MiE2n?=
-X-MS-Exchange-AntiSpam-MessageData-1: DSFlCrvg+C2iITtngtH/9Wv6uc7jpdrFX/A=
-X-OriginatorOrg: est.tech
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3617eeb4-94f9-4002-8f18-08dea6a70311
-X-MS-Exchange-CrossTenant-AuthSource: PAWP189MB2611.EURP189.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2026 10:55:37.5517
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: d2585e63-66b9-44b6-a76e-4f4b217d97fd
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: cQ7yyywlZhvKp1hYMfnv/r8HodNQ+gYKOfF3y82m4EPYeC6MOL5MW80Q/de1YOSLYXCNF315srYwsOLSyxwH1hxp5bano3CGcEH7au2t1Jk=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB4P189MB3117
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/2] mailbox: exynos: Add support for Exynos850 mailbox
+To: Alexey Klimov <alexey.klimov@linaro.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>,
+ Sam Protsenko <semen.protsenko@linaro.org>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>,
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Peter Griffin <peter.griffin@linaro.org>, linux-samsung-soc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+ Juan Yescas <jyescas@google.com>
+References: <20260429-exynos850-ap2apm-mailbox-v3-0-8e2719608c46@linaro.org>
+ <20260429-exynos850-ap2apm-mailbox-v3-2-8e2719608c46@linaro.org>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20260429-exynos850-ap2apm-mailbox-v3-2-8e2719608c46@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_035540_863065_AFA5129C 
-X-CRM114-Status: GOOD (  25.58  )
+X-CRM114-CacheID: sfid-20260430_040113_778415_F24452AC 
+X-CRM114-Status: GOOD (  26.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,208 +110,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The device memory callchain guard introduced earlier in this series
-needs a regression test to ensure future refactoring does not
-silently reintroduce the vulnerability where perf follows frame
-pointers into device memory.
+Hi, Alexey,
 
-Add a kselftest that exercises the exact attack vector: a process
-mmaps /dev/mem (creating a device memory mapping), points its frame
-pointer into it, and is sampled by perf with frame-pointer
-callchains. The test passes if both the process and kernel survive.
+The abstraction is clean. Few comments below.
 
-The default MMIO address is 0xc0000000; override via the MMIO_ADDR
-environment variable if that is unsuitable. The address must be a
-physical address that is not backed by any responding device, so
-that an access produces a synchronous external abort rather than
-returning data. On QEMU's virt machine and many modern arm64
-platforms, 0xc0000000 falls in an unused region of the MMIO
-address space and works for this purpose.
+On 4/29/26 10:00 PM, Alexey Klimov wrote:
+> Exynos850-based platforms support ACPM and has similar workflow
+> of communicating with ACPM via mailbox, however mailbox controller
+> registers are located at different offsets and writes/reads could be
+> different. To distinguish between such different behaviours,
+> the registers offsets for Exynos850 and the platform-specific data
+> structs are introduced and configuration is described in such structs
+> for gs101 and exynos850 based SoCs. Probe routine now selects the
+> corresponding platform-specific data via device_get_match_data().
+> 
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
+> ---
+>  drivers/mailbox/exynos-mailbox.c | 59 ++++++++++++++++++++++++++++++++++++++--
+>  1 file changed, 56 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/mailbox/exynos-mailbox.c b/drivers/mailbox/exynos-mailbox.c
+> index d2355b128ba4..11657dd475c0 100644
+> --- a/drivers/mailbox/exynos-mailbox.c
+> +++ b/drivers/mailbox/exynos-mailbox.c
+> @@ -31,14 +31,52 @@
+>  
+>  #define EXYNOS_MBOX_CHAN_COUNT		HWEIGHT32(EXYNOS_MBOX_INTGR1_MASK)
+>  
+> +#define EXYNOS850_MBOX_INTGR0		0x8	/* Interrupt Generation Register 0	*/
+> +#define EXYNOS850_MBOX_INTMR1		0x24	/* Interrupt Mask Register 1		*/
+> +
+> +#define EXYNOS850_MBOX_INTMR1_MASK	GENMASK(15, 0)
+> +
+> +/**
+> + * struct exynos_mbox_driver_data - platform-specific mailbox configuration.
+> + * @intgr:		offset to the IRQ generation register, doorbell
+> + *			to APM co-processor.
+> + * @intgr_shift:	shift to apply to the value written to IRQ generation
+> + *			register.
+> + * @intmr:		offset to the IRQ mask register.
+> + * @intmr_mask:		value to write to the mask register to mask out all
+> + *			interrupts.
+> + */
+> +struct exynos_mbox_driver_data {
+> +	u16 intgr;
+> +	u16 intgr_shift;
+> +	u16 intmr;
+> +	u16 intmr_mask;
+> +};
 
-Since the test only sets the frame pointer to the address (never
-reads it directly), the only reads come from the perf unwinder —
-which the guard blocks.
+using u16 for intmr_mask is slightly problematic. Down in the probe
+function, you pass it to writel():
+	writel(data->intmr_mask, exynos_mbox->regs + data->intmr);
 
-The /dev/mem mmap must happen in the child process after fork.
-fork() does not copy PTEs for VM_PFNMAP regions, so mapping before
-fork leaves the child with empty page tables — the unwinder gets a
-translation fault (caught by extable) instead of a synchronous
-external abort.
+writel() explicitly expects a 32-bit (u32) value. While the compiler will
+implicitly promote the u16 to a 32-bit integer, memory-mapped I/O masks
+should generally match the width of the register being written to. If a
+future SoC requires a 32-bit mask (e.g., GENMASK(31, 0)), the u16 will
+silently truncate it.
 
-arm64-only; skipped on other architectures.
+u32 for all fields is generally preferred in kernel platform data structs
+for padding/alignment reasons.
 
-Assisted-by: Kiro:claude-opus-4.6 [kiro-cli]
-Signed-off-by: Fredrik Markstrom <fredrik.markstrom@est.tech>
-Reviewed-by: Ivar Holmqvist <ivar.holmqvist@est.tech>
-Reviewed-by: Malin Jonsson <malin.jonsson@est.tech>
----
- MAINTAINERS                                        |   1 +
- tools/testing/selftests/perf_events/Makefile       |   2 +-
- .../testing/selftests/perf_events/test_perf_vmio.c | 131 +++++++++++++++++++++
- 3 files changed, 133 insertions(+), 1 deletion(-)
+> +
+>  /**
+>   * struct exynos_mbox - driver's private data.
+>   * @regs:	mailbox registers base address.
+>   * @mbox:	pointer to the mailbox controller.
+> + * @data:	pointer to driver platform-specific data.
+>   */
+>  struct exynos_mbox {
+>  	void __iomem *regs;
+>  	struct mbox_controller *mbox;
+> +	const struct exynos_mbox_driver_data *data;
+> +};
+> +
+> +static const struct exynos_mbox_driver_data exynos850_mbox_data = {
+> +	.intgr = EXYNOS850_MBOX_INTGR0,
+> +	.intgr_shift = 16,
+> +	.intmr = EXYNOS850_MBOX_INTMR1,
+> +	.intmr_mask = EXYNOS850_MBOX_INTMR1_MASK,
+> +};
+> +
+> +static const struct exynos_mbox_driver_data exynos_gs101_mbox_data = {
+> +	.intgr = EXYNOS_MBOX_INTGR1,
+> +	.intgr_shift = 0,
+> +	.intmr = EXYNOS_MBOX_INTMR0,
+> +	.intmr_mask = EXYNOS_MBOX_INTMR0_MASK,
+>  };
+>  
+>  static int exynos_mbox_send_data(struct mbox_chan *chan, void *data)
+> @@ -57,7 +95,9 @@ static int exynos_mbox_send_data(struct mbox_chan *chan, void *data)
+>  		return -EINVAL;
+>  	}
+>  
+> -	writel(BIT(msg->chan_id), exynos_mbox->regs + EXYNOS_MBOX_INTGR1);
+> +	/* Ring the doorbell */
+> +	writel(BIT(msg->chan_id) << exynos_mbox->data->intgr_shift,
+> +	       exynos_mbox->regs + exynos_mbox->data->intgr);
+>  
+>  	return 0;
+>  }
+> @@ -87,13 +127,21 @@ static struct mbox_chan *exynos_mbox_of_xlate(struct mbox_controller *mbox,
+>  }
+>  
+>  static const struct of_device_id exynos_mbox_match[] = {
+> -	{ .compatible = "google,gs101-mbox" },
+> +	{
+> +		.compatible = "google,gs101-mbox",
+> +		.data = &exynos_gs101_mbox_data
+> +	},
+> +	{
+> +		.compatible = "samsung,exynos850-mbox",
+> +		.data = &exynos850_mbox_data
+> +	},
+>  	{},
+>  };
+>  MODULE_DEVICE_TABLE(of, exynos_mbox_match);
+>  
+>  static int exynos_mbox_probe(struct platform_device *pdev)
+>  {
+> +	const struct exynos_mbox_driver_data *data;
+>  	struct device *dev = &pdev->dev;
+>  	struct exynos_mbox *exynos_mbox;
+>  	struct mbox_controller *mbox;
+> @@ -122,6 +170,11 @@ static int exynos_mbox_probe(struct platform_device *pdev)
+>  		return dev_err_probe(dev, PTR_ERR(pclk),
+>  				     "Failed to enable clock.\n");
+>  
+> +	data = device_get_match_data(&pdev->dev);
+> +	if (!data)
+> +		return -ENODEV;
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 2fb1c75afd16388f590a77c04e08d2d6d002f5cc..5416f80c4aac28a5f1d780c76bb23110283dcdc3 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -20881,6 +20881,7 @@ F:	include/uapi/linux/perf_event.h
- F:	kernel/events/*
- F:	tools/lib/perf/
- F:	tools/perf/
-+F:	tools/testing/selftests/perf_events/
- 
- PERFORMANCE EVENTS TOOLING ARM64
- R:	John Garry <john.g.garry@oracle.com>
-diff --git a/tools/testing/selftests/perf_events/Makefile b/tools/testing/selftests/perf_events/Makefile
-index 2e5d85770dfeadd909196dbf980fd334b9580477..a432e24d9e493f77951092571989249703d22351 100644
---- a/tools/testing/selftests/perf_events/Makefile
-+++ b/tools/testing/selftests/perf_events/Makefile
-@@ -2,5 +2,5 @@
- CFLAGS += -Wl,-no-as-needed -Wall $(KHDR_INCLUDES)
- LDFLAGS += -lpthread
- 
--TEST_GEN_PROGS := sigtrap_threads remove_on_exec watermark_signal mmap
-+TEST_GEN_PROGS := sigtrap_threads remove_on_exec watermark_signal mmap test_perf_vmio
- include ../lib.mk
-diff --git a/tools/testing/selftests/perf_events/test_perf_vmio.c b/tools/testing/selftests/perf_events/test_perf_vmio.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..c9ceee3f15927f26e299dc9ac0edca6cff49c9ac
---- /dev/null
-+++ b/tools/testing/selftests/perf_events/test_perf_vmio.c
-@@ -0,0 +1,131 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Device memory perf callchain unwinding test (arm64 only).
-+ *
-+ * Maps a physical address via /dev/mem (creating a device memory mapping),
-+ * launches perf record to sample this process with frame-pointer
-+ * callchains, then points FP (x29) into the mapping and spins.
-+ * The test passes if the kernel survives without crashing.
-+ *
-+ * The default MMIO address is 0xc0000000; override via environment:
-+ *   MMIO_ADDR=0x10000000 ./test_perf_vmio
-+ */
-+#include <fcntl.h>
-+#include <signal.h>
-+#include <stdio.h>
-+#include <stdlib.h>
-+#include <sys/mman.h>
-+#include <sys/wait.h>
-+#include <unistd.h>
-+
-+#include "kselftest_harness.h"
-+
-+#define DEFAULT_MMIO_ADDR 0xc0000000UL
-+
-+TEST(device_memory_callchain)
-+{
-+#ifndef __aarch64__
-+	SKIP(return, "arm64 only");
-+#else
-+	unsigned long pa = DEFAULT_MMIO_ADDR;
-+	unsigned long page_size = sysconf(_SC_PAGESIZE);
-+	unsigned long page, off;
-+	pid_t spin_pid, perf_pid;
-+	char pid_str[16];
-+	char tmpdir[] = "/tmp/test_perf_vmio_XXXXXX";
-+	int fd, pst = 0;
-+	void *m, *fp;
-+	char *env;
-+
-+	if (getuid() != 0)
-+		SKIP(return, "need root");
-+
-+	env = getenv("MMIO_ADDR");
-+	if (env)
-+		pa = strtoul(env, NULL, 16);
-+
-+	page = pa & ~(page_size - 1);
-+	off = pa - page;
-+
-+	fd = open("/dev/mem", O_RDWR | O_SYNC | O_CLOEXEC);
-+	if (fd < 0)
-+		SKIP(return, "cannot open /dev/mem");
-+
-+	if (!mkdtemp(tmpdir)) {
-+		close(fd);
-+		SKIP(return, "cannot create temp directory");
-+	}
-+
-+	/* Fork a spinner child with FP pointing into device memory */
-+	spin_pid = fork();
-+	if (spin_pid < 0) {
-+		close(fd);
-+		rmdir(tmpdir);
-+		ASSERT_GE(spin_pid, 0);
-+	}
-+	if (spin_pid == 0) {
-+		/*
-+		 * mmap /dev/mem in the child so remap_pfn_range populates
-+		 * PTEs directly. fork() does not copy PTEs for VM_PFNMAP
-+		 * regions, so mapping before fork leaves the child with
-+		 * empty page tables — the unwinder would get a translation
-+		 * fault instead of a synchronous external abort.
-+		 */
-+		m = mmap(NULL, off + page_size, PROT_READ | PROT_WRITE,
-+			 MAP_SHARED, fd, page);
-+		if (m == MAP_FAILED)
-+			_exit(2);
-+		fp = (char *)m + off;
-+		__asm__ volatile(
-+			"mov x29, %0\n"
-+			"1: b 1b\n"
-+			: : "r"(fp) : "x29", "memory");
-+		_exit(0);
-+	}
-+
-+	/* Launch perf to sample the spinner */
-+	snprintf(pid_str, sizeof(pid_str), "%d", spin_pid);
-+
-+	perf_pid = fork();
-+	if (perf_pid < 0) {
-+		kill(spin_pid, SIGKILL);
-+		waitpid(spin_pid, NULL, 0);
-+		close(fd);
-+		rmdir(tmpdir);
-+		ASSERT_GE(perf_pid, 0);
-+	}
-+	if (perf_pid == 0) {
-+		char *const perf_argv[] = {
-+			"perf", "record", "-g", "--call-graph", "fp",
-+			"-p", pid_str, "--", "sleep", "3", NULL
-+		};
-+
-+		if (chdir(tmpdir))
-+			_exit(1);
-+		execvp(perf_argv[0], perf_argv);
-+		_exit(1);
-+	}
-+
-+	waitpid(perf_pid, &pst, 0);
-+
-+	kill(spin_pid, SIGKILL);
-+	waitpid(spin_pid, NULL, 0);
-+	close(fd);
-+
-+	/* Clean up perf output */
-+	rmdir(tmpdir);
-+
-+	if (!WIFEXITED(pst))
-+		SKIP(return, "perf terminated abnormally");
-+	if (WEXITSTATUS(pst) == 1)
-+		SKIP(return, "perf not available");
-+
-+	/*
-+	 * The real test is that the kernel survived. If we got here
-+	 * without a synchronous external abort, the guard worked.
-+	 */
-+	TH_LOG("kernel survived perf sampling with FP in device memory");
-+#endif /* __aarch64__ */
-+}
-+
-+TEST_HARNESS_MAIN
+you shall move this first thing in probe() to avoid doing allocations
+gratuitously on null match data.
 
--- 
-2.51.0
+> +
+> +	exynos_mbox->data = data;
+>  	mbox->num_chans = EXYNOS_MBOX_CHAN_COUNT;
 
+EXYNOS_MBOX_CHAN_COUNT is globally defined as:
+#define EXYNOS_MBOX_CHAN_COUNT		HWEIGHT32(EXYNOS_MBOX_INTGR1_MASK)
+
+Does the Exynos850 have the exact same number of channels as the GS101?
+
+You may move num_chans into struct exynos_mbox_driver_data alongside the
+register offsets so each SoC explicitly declares its channel capacity.
+
+Cheers,
+ta
 
