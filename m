@@ -4,87 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78D7BFF8873
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 13:14:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8600FF8873
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 13:24:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rZPkxEsXqySwgFCbMMD93R7T8kTj0UZZb8BTblUwoEU=; b=GiIg0r82BTEfTdneUYEnzcishp
-	gIjwCUsZ+3XfC5sr0QjQFBtaCEHjgkVElMitilHKaxiVqhbejHUxZM97ySdgHEN3Y0xxkyf7x79XD
-	UdKk+7/LnP+px+FAa4e7PnETCAqtUosna07JYPwGG7KGRhTBnuC77Iv+oEaAsPL65bU+ZxmNtMTnG
-	exrrvoEJNZAk/cBkdQbmN4P9KU2AZjeryCeSH6GHw+mBYYd2kXu5o7l2MO/Jp/BFAq/2pcneuS8AE
-	1TLPKGQo9dcXa3vr3F3jG3Fpbo/SGDJzxveX9lEnfmFQ2ms4zH8rFsOTgPnZ8wGJD53YKB+W6p66c
-	HiFClfNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=H+FQQdUSUjqMNY6tDv8YsPpTF+bSTCh8bi8zB1UIfgM=; b=LJ1Y2snP6SMQGDFFwGlQbjY0HN
+	jtppKsrP2P7xVY8YYXmPHmAQG9nN7+awKLGPH/7kd6gtigRpxBVvLhW6s+iNFYb34oTFZQga14CKJ
+	LYOvO0RT9NK0ZShKWasoSiF/YeJx65ybB4VaSSB3zvilDYqoqhf+naOLurzNq0OBaUfAKVIzPx4G0
+	jzfMKYNGc538hb/p8yWL2IJNvoWdBYacYt8FsbHD4CBprTLrjv6CfcSgQarEhGM+1G+yy1dADYRps
+	K6MSEGZ5HvPq1lts8rSdhVZa2WT2zGTvgE8vW/9O0CxOHTXdG/NjtnLvoo8duN79blBkhy8cvf6F6
+	/lerjWMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIRDn-00000005WH0-2PKZ;
-	Thu, 30 Apr 2026 13:14:27 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIRDm-00000005WFZ-2iPG
+	id 1wIRNG-00000005X8g-444f;
+	Thu, 30 Apr 2026 13:24:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wIRNF-00000005X8E-0gA6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 13:14:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B52A261141;
-	Thu, 30 Apr 2026 13:14:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62606C2BCB3;
-	Thu, 30 Apr 2026 13:14:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777554865;
-	bh=jifMlssP5+ngMhDOU+yedkwt8RjFB3XDKVz2cX4Z3Zs=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=e0dgqLJEoMIzEHXFT4HqgpikyLxKMo8p8ZkYg8z2UAQSKn3ZH26iYJTczd6WOtzoD
-	 8WEkDCs9E33Y/ZJPKxJBzpdqm8eRWTj5JcB1CBFolQ32laxj/XOuFT7FCF8dNGbWpc
-	 z29CGKcR/P/Kmwq7fikgU8Bvz9jT6Z/JUnK2aF5onaRpVAAVJskSXFOSzYgfFTvRGM
-	 Lg1G3Y4jHvfgxYgtRhtFsvJht0gKKJQ4TluwLTxmpzKzIQHnfvrykZYujvZrkIBgH7
-	 NxxOFdSArj/Heni4c9evI+AJ1q+RzR+5HyD/0D6vMSeEKQyDZaD/wvPAw4BSN+6vOq
-	 cKs0F7d9Yz9zQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wIRDj-0000000GHED-09B6;
-	Thu, 30 Apr 2026 13:14:23 +0000
-Date: Thu, 30 Apr 2026 14:14:22 +0100
-Message-ID: <86bjf0zj2p.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Leonardo Bras <leo.bras@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,	Will Deacon
- <will@kernel.org>,	Oliver Upton <oupton@kernel.org>,	Joey Gouly
- <joey.gouly@arm.com>,	Suzuki K Poulose <suzuki.poulose@arm.com>,	Zenghui Yu
- <yuzenghui@huawei.com>,	"Rafael J. Wysocki" <rafael@kernel.org>,	Len Brown
- <lenb@kernel.org>,	Saket Dumbre <saket.dumbre@intel.com>,	Paolo Bonzini
- <pbonzini@redhat.com>,	Chengwen Feng <fengchengwen@huawei.com>,	Jonathan
- Cameron <jic23@kernel.org>,	Kees Cook <kees@kernel.org>,	=?UTF-8?B?TWlr?=
- =?UTF-8?B?b8WCYWo=?= Lenczewski <miko.lenczewski@arm.com>,	Ryan Roberts
- <ryan.roberts@arm.com>,	Yang Shi <yang@os.amperecomputing.com>,	Thomas Huth
- <thuth@redhat.com>,	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,	Mark Brown <broonie@kernel.org>,	Kevin
- Brodsky <kevin.brodsky@arm.com>,	James Clark <james.clark@linaro.org>,	Ard
- Biesheuvel <ardb@kernel.org>,	Fuad Tabba <tabba@google.com>,	Raghavendra
- Rao Ananta <rananta@google.com>,	Nathan Chancellor <nathan@kernel.org>,
-	Vincent Donnefort <vdonnefort@google.com>,	Lorenzo Pieralisi
- <lpieralisi@kernel.org>,	Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,	Tian Zheng
- <zhengtian10@huawei.com>,	Wei-Lin Chang <weilin.chang@arm.com>,
-	linux-kernel@vger.kernel.org,	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,	linux-acpi@vger.kernel.org,
-	acpica-devel@lists.linux.dev,	kvm@vger.kernel.org
-Subject: Re: [PATCH v1 00/12] KVM Dirty-bit cleaning accelerator (HACDBS)
-In-Reply-To: <20260430111424.3479613-2-leo.bras@arm.com>
-References: <20260430111424.3479613-2-leo.bras@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: leo.bras@arm.com, catalin.marinas@arm.com, will@kernel.org, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, rafael@kernel.org, lenb@kernel.org, saket.dumbre@intel.com, pbonzini@redhat.com, fengchengwen@huawei.com, jic23@kernel.org, kees@kernel.org, miko.lenczewski@arm.com, ryan.roberts@arm.com, yang@os.amperecomputing.com, thuth@redhat.com, mrigendra.chaubey@gmail.com, yeoreum.yun@arm.com, broonie@kernel.org, kevin.brodsky@arm.com, james.clark@linaro.org, ardb@kernel.org, tabba@google.com, rananta@google.com, nathan@kernel.org, vdonnefort@google.com, lpieralisi@kernel.org, Sascha.Bischoff@arm.com, anshuman.khandual@arm.com, zhengtian10@huawei.com, weilin.chang@arm.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-acpi@vger.kernel.org, acpica-devel@lists.linux.dev, kvm@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Thu, 30 Apr 2026 13:24:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ADC361AED;
+	Thu, 30 Apr 2026 06:24:03 -0700 (PDT)
+Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 229D53F7B4;
+	Thu, 30 Apr 2026 06:24:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1777555449; bh=tQL3fqiLMsmztWBDjtrNObpqhCigVhOEjUfSXQJGAkE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=LqevOcygKlIOkcNc7je+oj65sTA5Yyblv8SN9nHge2edOhj4JWH+BkMBlkm4zxdZI
+	 LfTI9lZ+5Eezxd/AgevHwVJYESRDwG6JRgvCnb7oUmywsZEyOfkhtteod5aIU+c8Ue
+	 3gOzUn+he2VILqZRPs8vjE0dam/J/cR1FbAkpQTU=
+From: Alexandru Elisei <alexandru.elisei@arm.com>
+To: maz@kernel.org,
+	oupton@kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	tabba@google.com
+Cc: mark.rutland@arm.com
+Subject: [PATCH] KVM: arm64: Handle permission faults with guest_memfd
+Date: Thu, 30 Apr 2026 14:23:51 +0100
+Message-ID: <20260430132351.280766-1-alexandru.elisei@arm.com>
+X-Mailer: git-send-email 2.54.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260430_062413_325868_228E837D 
+X-CRM114-Status: GOOD (  17.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,55 +72,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 30 Apr 2026 12:14:04 +0100,
-Leonardo Bras <leo.bras@arm.com> wrote:
+gmem_abort() calls kvm_pgtable_stage2_map() to make changes to stage 2. It
+does this for both relaxing permissions on an existing mapping and to
+install a missing mapping.
 
-[...]
+kvm_pgtable_stage2_map() doesn't make changes to stage 2 if there is an
+existing, valid entry and the new entry modifies only the permissions.
+This is checked in:
 
-I haven't had a chance to look at any of this yet, but just on these
-points:
+kvm_pgtable_stage2_map()
+  stage2_map_walk_leaf()
+     stage2_map_walker_try_leaf()
+       stage2_pte_needs_update()
 
-> b - checkpatch.pl keeps bothering me to add an entry in MAINTAINERS file,
->     and I like the idea of maintaining this. Is there any rule or
->     common sense on this? Should I add this entry, or should I leave it
->     in the arch/arm64/kvm/ general rule?
+and if only the permissions differ, kvm_pgtable_stage2_map() returns
+-EAGAIN and KVM returns to the guest to replay the instruction. The
+assumption is that a concurrent fault on a different VCPU already mapped
+the faulting IPA, and replaying the instruction will either succeed, or
+cause a permission fault, which should be handled with
+kvm_pgtable_stage2_relax_perms().
 
-No specific entry in MAINTAINERS required (or wanted). This falls into
-the normal KVM/arm64 maintenance. And don't worry, we know where to
-find you when it will come to fixing this stuff.
+gmem_abort(), on a read or write fault on a system without DIC (instruction
+cache invalidation required for data to instruction coherence), installs a
+valid entry with read and write permissions, but without executable
+permissions. On an execution fault on the same page, gmem_abort() attempts
+to relax the permissions to allow execution, but calls
+kvm_pgtable_stage2_map() to change the existing, valid, entry.
+kvm_pgtable_stage2_map() returns -EAGAIN and KVM resumes execution from the
+faulting instruction, which leads to an infinite loop of permission faults
+on the same instruction.
 
-> c - There are some trace_prink() I have left in the code, as they could
->     be helpful to check when HACDBS is not performing as well as it
->     should. Should I introduce a tracepoint instead? or just ignore it?
->     (it's triggered on HACDBS error, but as it falls back to software in
->     that case, it should not impact correctness, only performance).
+Allow the guest to make progress by using kvm_pgtable_stage2_relax_perms()
+to relax permissions.
 
-Debug infrastructure should be preferably *removed* altogether.
-trace_printk() is definitely a big no-no.
+Fixes: a7b57e099592 ("KVM: arm64: Handle guest_memfd-backed guest page faults")
+Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
+---
 
-> d - In __kvm_arch_dirty_log_clear() there is no way to predict how long
->     should be the buffer, so I used 1x PAGE_SIZE, and when it gets full
->     it's cleaned and reused. Should I let users configure that over a
->     parameter, or is it overthinking?
+Lightly tested on an Orion O6 board, without pkvm, and without nested
+virtualisation.
 
-How long is a piece of string? We can't know that. A single page feels
-very small in the 4kB case, and letting userspace define the size of
-that buffer seems a likely requirement.
+Doesn't apply cleanly on top of a7b57e099592, I can send a patch for that if
+needed.
 
-> 
-> Kernel v7.0.0 + this patchset builds properly, passing both kvm selftests
-> for dirty-bit tracking[2], on HW HACDBS enabled or disabled.
+ arch/arm64/kvm/mmu.c | 24 +++++++++++++++++-------
+ 1 file changed, 17 insertions(+), 7 deletions(-)
 
-I have absolutely no trust in these tests.
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index d089c107d9b7..dff58de7703b 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1576,6 +1576,7 @@ struct kvm_s2_fault_desc {
+ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+ {
+ 	bool write_fault, exec_fault;
++	bool perm_fault = kvm_vcpu_trap_is_permission_fault(s2fd->vcpu);
+ 	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
+ 	enum kvm_pgtable_prot prot = KVM_PGTABLE_PROT_R;
+ 	struct kvm_pgtable *pgt = s2fd->vcpu->arch.hw_mmu->pgt;
+@@ -1587,10 +1588,12 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+ 	gfn_t gfn;
+ 	int ret;
+ 
+-	memcache = get_mmu_memcache(s2fd->vcpu);
+-	ret = topup_mmu_memcache(s2fd->vcpu, memcache);
+-	if (ret)
+-		return ret;
++	if (!perm_fault) {
++		memcache = get_mmu_memcache(s2fd->vcpu);
++		ret = topup_mmu_memcache(s2fd->vcpu, memcache);
++		if (ret)
++			return ret;
++	}
+ 
+ 	if (s2fd->nested)
+ 		gfn = kvm_s2_trans_output(s2fd->nested) >> PAGE_SHIFT;
+@@ -1631,9 +1634,16 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+ 		goto out_unlock;
+ 	}
+ 
+-	ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, s2fd->fault_ipa, PAGE_SIZE,
+-						 __pfn_to_phys(pfn), prot,
+-						 memcache, flags);
++	if (perm_fault) {
++		/* Preserve the software bits from the existing table entry. */
++		prot &= ~KVM_NV_GUEST_MAP_SZ;
++		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms(pgt, s2fd->fault_ipa,
++								prot, flags));
++	} else {
++		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, s2fd->fault_ipa, PAGE_SIZE,
++							 __pfn_to_phys(pfn), prot,
++							 memcache, flags);
++	}
+ 
+ out_unlock:
+ 	kvm_release_faultin_page(kvm, page, !!ret, prot & KVM_PGTABLE_PROT_W);
 
-Have you enabled a VMM to make use of these APIs, and actively
-migrated running guests? That's the level of testing I'd like to see,
-as the selftests are not what people run in production...
-
-Thanks,
-
-	M.
-
+base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
 -- 
-Without deviation from the norm, progress is not possible.
+2.54.0
+
 
