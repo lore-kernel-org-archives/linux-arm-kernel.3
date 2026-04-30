@@ -4,84 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24EF3FF8873
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 14:19:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1807FF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 14:25:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F/klmbLlHjty1gUUHqY2Dbg+r9lnLNSpnZBORzQfjJQ=; b=ek3dkzB2lnlfnzF+mR7g1kvcE4
-	/j30DN+3+NVHb+DSDd6Oqy2dymrHK/wfpGl8pudHt/X3X/J97dMeDVGXfr2v0dKREtIKxEYk6vP1Z
-	zG/oj2+KtEV4uNhUdU1UhARf0hWadAxBUUt0vPFWPKkhoICIARqJg/Vb00e3IO6onYjLy41fOCn/L
-	0x204I1WAi8XucFtMJAgAaDBWOWLyST4vG/E78xRIoVfqeAFjPQ+JF46/WbHW6qKOcJX50R+Ubnej
-	G3XNofpxbzZZS2GzBGfls9IiQPOn9redAqsJq4h5hVxdB3Yonv/JdvCDVhmiN3p16nRI2WtXQCNsq
-	uL5uRR3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SxQQAfFaaiRvrhNuhc/nEMGhJjTGCuoSHZosD17X3GQ=; b=kvGROJbvcMy4DnSIvBBQjS+1Ul
+	y+2FEWXRDewnVbjYmYWVEOiD9bckRS2b2ZwUY02sBu2iM995XVVk06dA9DcHzmYHUcDoQNKTuXED0
+	pHHSdji5i6DKR6b5oDNzrnZ9sI7amZf1rD123YDwL2UI0ofi/6U7kg2RvUXpiSxD75JJWjEjYKM93
+	/3j2n4dcxKa4Q/XOralMc6AfjX03uO3dwOKft0M3MI7TTQp5jCfnoy2QmTQJZgaQUE8RFQnT/xE0z
+	OM+LmkCg974n7Bx06cRI8i8FGAuv4cp3DBgRyRdFcKhasenV44UXpX39ncnnitublCknTlA8DiVHT
+	k0q9vAaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wISEe-00000005Zqf-3Ect;
-	Thu, 30 Apr 2026 14:19:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wISKl-00000005a9z-0L7N;
+	Thu, 30 Apr 2026 14:25:43 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wISEc-00000005ZqM-2f7S
+	id 1wISKj-00000005a9b-1Zs2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 14:19:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CD9A244529
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 14:19:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3CEEC4AF09
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 14:19:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777558761;
-	bh=F/klmbLlHjty1gUUHqY2Dbg+r9lnLNSpnZBORzQfjJQ=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
-	b=I4P/LG7tkJ62TA4BzqdV5EF2UiWWFowy2id1mu3WJfGMqtDHJ6CGzB8xg+DjTBfUx
-	 inXNM5WQe+V6D/jPCfVPl5ILLXQmTIvGFx7hID3c3XT0BADAKicUNCVfheKbTczbIO
-	 PNUBpb7TiNv2hz623mQEGrU/zjTtAYPUpdK92zUChqA95lVwllzBAU1v3PQF0m6AQF
-	 ZVRQsq7Kkd6RDCTPyeveaeOH5V+cbiUsiroG5VGU+W4cC6SCy6h56gPq5H13IRsEbH
-	 WQHZT2zVf+Q0Fba+E9f4kuYAcfqp6jTvQRUrlABUY3UojE7mOJN52qYH7cGQ+pdlgW
-	 qac9vM6Gv/JKw==
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5a337552604so954107e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 07:19:21 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ9UKxbEBwufp27GuW93J5Vy1CXHK9K6CRQMzSdHfBmxSF+GaX0IoWbAy1LUeONVvkrLVaJHOLTpwGIXl0guG/G+@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJwg7k6LMD6hkYLe3aW4jLWLzzK/K5Y/6nEBPOv6rav0+HdlOm
-	GZbFR7xuT9OSOPHgrr8/an19EbDoLYtISdjovX1wsy/6amNmZNmJGfOI2Zw4gtqBhVjw9LhEbRr
-	aZQvCBL1n9SwOox0CpP6PZmh2AdFlqru3f19eeQWBHw==
-X-Received: by 2002:a05:6512:2385:b0:5a4:18cb:884e with SMTP id
- 2adb3069b0e04-5a8522d7f89mr1123970e87.26.1777558760093; Thu, 30 Apr 2026
- 07:19:20 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 30 Apr 2026 14:19:19 +0000
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 30 Apr 2026 14:19:18 +0000
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260430081242.3686993-4-arnd@kernel.org>
+	Thu, 30 Apr 2026 14:25:42 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2b461310af5so4150865ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 07:25:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1777559140; x=1778163940; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=SxQQAfFaaiRvrhNuhc/nEMGhJjTGCuoSHZosD17X3GQ=;
+        b=soCucruw0tsEuq7xS166J8Sftf6XhT4PKZJN2UoXFpSD6vJNJ8EBbXdpolOji/N6XT
+         9PItPeMHBOpTJ+iihdLaGZHKxTE1YFJhtUu3PE6uAoYP8dEiqjkP7P+OWaMwgu5jwXB9
+         wm/9A73Pi9yEN34GZDfjvH+1b616WCVg04b6AuTD96soeEhxGMc7rdkWiz+6IzhJ/cWN
+         5T8V87qF+0a6yciDw6emJPA1MGHnAYmpkiWHbwn4Ma9TZVzWb+bBrsgk1UMQVVEIh6lV
+         NH/LotvzVg5ORg1b5j84ZoSgSRQtDSePW+7lGZbIoSuC4GflFojuYg3IW11TmOm7Lmzd
+         A3yQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777559140; x=1778163940;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SxQQAfFaaiRvrhNuhc/nEMGhJjTGCuoSHZosD17X3GQ=;
+        b=FiH5BfHmEE6T/Iqx0tXUgUwFyZaHsEQJZYyeaSXqjL9LKFKMcgoJYJXZW5isNq/Oup
+         Zkcerx/KaYA5IkRCSJX1NVq4uhks+6Ee/crWNXHMJlBEMwOGI6ZrG9CGnBEnjjOQofov
+         7STlBfBSCxg9tZNDQUzBLRc8hq65kCYGDt1R0vt7pHHnawiMQbRi/Riiib21GmUCs5cP
+         Pin3+++YCD6skt143JAnYlUm4D0y0ilROBbuM223rmigp13PGWEKf63pgWt1pqvSkqvn
+         QMItSJvfHnnHn+jU4aZ1UF+lrwx9qNKuvEjBidFLFRpUvkH2aWXUp2sjY+xEwUwrhyKh
+         kodg==
+X-Forwarded-Encrypted: i=1; AFNElJ/HiDCRa7JD0BsGjxAA9TlyZTjYoF9t1Ykoq+ZkA116vk+R+5hAnA1my6eJgdCQYZWuGWWR/EdaR9VK5Dwdtrw3@lists.infradead.org
+X-Gm-Message-State: AOJu0Yye+tPOXWPpbGdhrknjp187V5gfQmmwKyR7Ml3plWYlZN5OnP3y
+	/IpXgMfxgGgAyGXpaQ3CwIHNE5fUelQ2C5iYJgqhgRB6ilWgF55sYlk=
+X-Gm-Gg: AeBDieu8QDfPIuSE5eCVLbVKAfmFBDBX8Md1CslKStxWmEYdKKhbF80Rl24Ta0xBbAf
+	Lw0aV2RLwbyp0GIMBraS2w8+OHMflK6GtEsFix91wt0YtgDGP3nDjjfze8g9Gg77FYJrCxXatHP
+	yyR0SgXeL2KtMG8HjBbE7yaNCqi6k4ctIVzFMw7KSJp8WDKImgSVYlXf1njqx+kFgHjh87gBDwP
+	BmgIRA8so8Ptnputk0C5bk7IHBcqgP2+1bhIMUHROyBRwco4MHgzlZJyZpYPOJPuJChYSh1QBzH
+	/YoCnhlCvGJwixjAUr0STcGgiri27ztHsC3pC3SN7m9Qv0sDQL0KL+xGD4pZX4vMi1fMqjKHKER
+	5Br1G+/78JMbZrFXMV+f3iloI4taPX1jXDxNEkXN2rj7DXBCPHbE1qAtufMVxpVPU+imJ4IIsEv
+	fJtBg1QHJE15R5Wi8MdbuA8qraop/KZVZZKJRJFmtdjH3hEu9nDFKYUcI5jfp1fqxtEUrqWqpjp
+	PL3VhmeoPrYU1eGDXnZqAZ9VYq7jxGCXjpdm66OtNBAeFiIwmHyPPNAsAgGmKA=
+X-Received: by 2002:a17:903:3b86:b0:2b2:ec33:cf15 with SMTP id d9443c01a7336-2b9a42dc3b8mr23951415ad.7.1777559140212;
+        Thu, 30 Apr 2026 07:25:40 -0700 (PDT)
+Received: from localhost.localdomain ([1.226.165.54])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b98897edefsm54194885ad.74.2026.04.30.07.25.37
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 30 Apr 2026 07:25:39 -0700 (PDT)
+From: "=?UTF-8?q?=EB=B0=95=EB=AA=85=ED=9B=88?=" <mhun512@gmail.com>
+X-Google-Original-From: =?UTF-8?q?=EB=B0=95=EB=AA=85=ED=9B=88?= <pakmyeonghun@bagmyeonghun-ui-MacBookPro.local>
+To: Maxime Ripard <mripard@kernel.org>,
+	Paul Kocialkowski <paulk@sys-base.io>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: Myeonghun Pak <mhun512@gmail.com>,
+	linux-media@vger.kernel.org,
+	linux-staging@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Ijae Kim <ae878000@gmail.com>
+Subject: [PATCH v2] media: cedrus: clean up media device on probe failure
+Date: Thu, 30 Apr 2026 23:25:29 +0900
+Message-ID: <20260430142534.12928-1-pakmyeonghun@bagmyeonghun-ui-MacBookPro.local>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-References: <20260430081242.3686993-1-arnd@kernel.org> <20260430081242.3686993-4-arnd@kernel.org>
-Date: Thu, 30 Apr 2026 14:19:18 +0000
-X-Gmail-Original-Message-ID: <CAMRc=MeYOxDdpS=AEMX7ChHcPTOsz1+DxuSNcNtV4PwOagwyUw@mail.gmail.com>
-X-Gm-Features: AVHnY4IpV9J_wm_g1EdQYCGOE-gGqU5pWdF_TAuz210HOf5B8hJhqLIEur523_Q
-Message-ID: <CAMRc=MeYOxDdpS=AEMX7ChHcPTOsz1+DxuSNcNtV4PwOagwyUw@mail.gmail.com>
-Subject: Re: [PATCH v4 3/3 omap] ARM: dts: omap2: add stlc4560 spi-wireless node
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
-	Andreas Kemnade <andreas@kemnade.info>, Bartosz Golaszewski <brgl@kernel.org>, 
-	=?UTF-8?Q?Beno=C3=AEt_Cousson?= <bcousson@baylibre.com>, 
-	"David S. Miller" <davem@davemloft.net>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
-	Eric Dumazet <edumazet@google.com>, Felipe Balbi <balbi@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
-	Johannes Berg <johannes@sipsolutions.net>, Kevin Hilman <khilman@baylibre.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Linus Walleij <linusw@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Rob Herring <robh+dt@kernel.org>, Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>, 
-	linux-wireless@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-gpio@vger.kernel.org, linux-omap@vger.kernel.org, 
-	Krzysztof Kozlowski <krzk@kernel.org>, netdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_071922_714907_1785D413 
-X-CRM114-Status: UNSURE (   8.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260430_072541_438998_C69146BB 
+X-CRM114-Status: GOOD (  13.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,15 +109,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 30 Apr 2026 10:12:42 +0200, Arnd Bergmann <arnd@kernel.org> said:
-> From: Arnd Bergmann <arnd@arndb.de>
->
-> Converted from the platform_device creation in board-n8x0.c.
->
-> Link: https://lore.kernel.org/all/20230314163201.955689-1-arnd@kernel.org/
-> Reviewed-by: Krzysztof Kozlowski <krzk@kernel.org>
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
+From: Myeonghun Pak <mhun512@gmail.com>
 
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+cedrus_probe() initializes the media device before registering the video
+device, the media controller, and the media device. If any of those later
+steps fails, probe returns without calling media_device_cleanup(), so the
+media device internals initialized by media_device_init() are left behind.
+
+Add a media-device cleanup label to the probe unwind path and route video
+registration failures through it as well.
+
+Fixes: 50e761516f2b8c ("media: platform: Add Cedrus VPU decoder driver")
+Cc: stable@vger.kernel.org
+Co-developed-by: Ijae Kim <ae878000@gmail.com>
+Signed-off-by: Ijae Kim <ae878000@gmail.com>
+Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
+---
+Changes in v2:
+- Drop the now-unused err_m2m label.
+
+ drivers/staging/media/sunxi/cedrus/cedrus.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/staging/media/sunxi/cedrus/cedrus.c b/drivers/staging/media/sunxi/cedrus/cedrus.c
+index 6600245dff..2c25654640 100644
+--- a/drivers/staging/media/sunxi/cedrus/cedrus.c
++++ b/drivers/staging/media/sunxi/cedrus/cedrus.c
+@@ -507,7 +507,7 @@ static int cedrus_probe(struct platform_device *pdev)
+ 	ret = video_register_device(vfd, VFL_TYPE_VIDEO, 0);
+ 	if (ret) {
+ 		v4l2_err(&dev->v4l2_dev, "Failed to register video device\n");
+-		goto err_m2m;
++		goto err_media_cleanup;
+ 	}
+ 
+ 	v4l2_info(&dev->v4l2_dev,
+@@ -533,6 +533,7 @@ static int cedrus_probe(struct platform_device *pdev)
+ 	v4l2_m2m_unregister_media_controller(dev->m2m_dev);
+ err_video:
+ 	video_unregister_device(&dev->vfd);
+-err_m2m:
++err_media_cleanup:
++	media_device_cleanup(&dev->mdev);
+ 	v4l2_m2m_release(dev->m2m_dev);
+ err_v4l2:
+-- 
+2.50.1
 
