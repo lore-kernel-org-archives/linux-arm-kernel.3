@@ -4,61 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88885FF886F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 09:36:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 992D0FF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 09:37:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cFQ16qVxXLp3jIgTIBl58xEsLkWsws9kWBQMuTAKBm0=; b=wZmlnR3+w8eDgMmzhbujHY/WmB
-	bDdbM70YkZNkUBEN54eKSxf8Y+mQPnU5SboHFXkLw1BHN+NlBpVSdP8LbL0WR1juByyopkRReDhwX
-	zS9AQ9XCC/kY7MOh8nTnY5c7tMZWqZpIvOqnL2hzn8iT+80IGpBJVBvwgMZfRC9RCV8VvW6doI+Fd
-	vTYo3CQabGPcMyQ/JCbKGiU+A+/9OA40VSRHUzyJGDxuBsET57cennlaeqICXJCsLISL/ZMTZFmS3
-	SxXxTcD39wwNJ27Z1rpG6+IKVnoqy7mW+WwWxKTkERmfwjOL73720USeLDSp6U3xcNetR0hyYfzix
-	iZMSgkww==;
+	bh=dfM89Yggbi/COaNnkYMPPyYzJHsZprwG9tVh7Xw3cUs=; b=ratusfTOTH60XDl9lSLiURBRpp
+	WlKawn57z+7TGCsAZwqYiHd/VL44pBI9Dmd0Ude6MOWVBoH1TuwsDfBsVxOQOfLp1QLgcS1c4aQn8
+	GesQG7f+brIDXifrj8QgeMcjsJQfThWGITVDJPGM58mQE695BAUE9jERof3Bcz9Qb2sr7mrlq4+ke
+	q5F94/5RkjJEOmC/tqxAf628i35Bu5VDu4xBxYMSHJ7lasRpl3TtMtAecPcNt9PYrJCWtP/bhp0gA
+	FKtRvFEKHZwX6ykj5tn0RFcjfkRcZfmPPobEI/suusKHvu0OTBdrmhPn40qQ0YxvTdemfDbt0zL3y
+	miork41w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wINod-000000056LV-12yE;
-	Thu, 30 Apr 2026 09:36:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wINq4-000000056Vs-2w6t;
+	Thu, 30 Apr 2026 09:37:44 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wINob-000000056LH-0fEp;
-	Thu, 30 Apr 2026 09:36:13 +0000
+	id 1wINq3-000000056VW-0VO0
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 30 Apr 2026 09:37:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 43E8B6015B;
-	Thu, 30 Apr 2026 09:36:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92AEDC2BCB3;
-	Thu, 30 Apr 2026 09:36:11 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 74D86429F0;
+	Thu, 30 Apr 2026 09:37:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F119C2BCB3;
+	Thu, 30 Apr 2026 09:37:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777541772;
-	bh=avqWV9+1kYue92kdR7R+TTmIfJWs4YivWcb9b5/Goms=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=O5LnLR/DjHcp4w5Rz4EheEwhng3GWyD3y/VkybZmgO3RWj6GKzURAKeFU2Mkk6kuX
-	 vG85/xroD0ytUyitvTQjqbQRaxRzY9C0xJDoNB/qqchAkfzkejBHs1R3V1gXMGxerO
-	 wo35HfUzlShzsXWqQmuVy6a1XJEhzYHUlD3VGXisAVy6z0P6AJ+NQCWCEeMwMjREBz
-	 MgecbET5v2o0SYoLVUDsRd7G8ZD49lkQpez929JmHo0hay2xDhVoQOYDpkOe2zVhlU
-	 85SysvrNH8e0j+KRpGeNXs8toVfBPd8s2Dx87f9TCAJXA3eJhjxhuiQPxqPn1PAz/v
-	 eAeuAvaGV1Ysg==
-Date: Thu, 30 Apr 2026 11:36:09 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Xianwei Zhao <xianwei.zhao@amlogic.com>
-Cc: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
-	linux-amlogic@lists.infradead.org, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/2] dt-bindings: pinctl: amlogic,pinctrl-a4: Add
- compatible string for A9
-Message-ID: <20260430-notorious-cat-of-wonder-a6dacf@quoll>
-References: <20260428-a9-pinctrl-v1-0-cd611bb5f52d@amlogic.com>
- <20260428-a9-pinctrl-v1-1-cd611bb5f52d@amlogic.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260428-a9-pinctrl-v1-1-cd611bb5f52d@amlogic.com>
+	s=k20201202; t=1777541862;
+	bh=6Bd3LTWGzug0OoKGDGfveio/XMIp1TZgePH0TADdmbI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=oXKEwE9HXcFAf/BZfk8TB4wj+R9p/+kpzUY7EVGyObgdN9XFn8jbkNfRCnYGPdVQ9
+	 IUdZeGqowYED3r3P6Z35zkD2hMx45/9SddA4vmKOD0t0NUCeDV9bQJEg+YMNYd1AF9
+	 +TzICE3KK69mfK0ZmayrTqWwmuFxXn69Qz4blH8Oz7eMXQfUrwEYq8/WeOIAk3muC8
+	 h8Pw4oAIIFZcXOsEyTbsOE3zTCRPYR85mrtsdS3bW6yfVNk8SQhzKNPbngPJxGhecW
+	 ra0MGwLgQCz4ePZHxuD94xsujNX+Vi37MpVITlk1Dc/Hqyd/FbXstZ+3FBtDRrFKBw
+	 MwEfd+gZXUjqQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wINpz-0000000GCPR-3hjx;
+	Thu, 30 Apr 2026 09:37:39 +0000
+Date: Thu, 30 Apr 2026 10:37:39 +0100
+Message-ID: <86h5oszt3w.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	nd <nd@arm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Joey Gouly
+	<Joey.Gouly@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org"
+	<peter.maydell@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>
+Subject: Re: [PATCH 11/43] KVM: arm64: gic-v5: Make VPEs valid in vgic_v5_reset()
+In-Reply-To: <20260427160547.3129448-12-sascha.bischoff@arm.com>
+References: <20260427160547.3129448-1-sascha.bischoff@arm.com>
+	<20260427160547.3129448-12-sascha.bischoff@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260430_023743_221195_3528B060 
+X-CRM114-Status: GOOD (  29.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,19 +97,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 28, 2026 at 08:22:48AM +0000, Xianwei Zhao wrote:
-> Update dt-binding document for pinctrl of Amlogic A9.
-
-And why it is not compatible with a4 or a5? You have entire commit msg
-for this.
-
+On Mon, 27 Apr 2026 17:09:47 +0100,
+Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
 > 
-> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+> When resetting VPEs, also mark them as valid in the VM VPE Table. This
+> is required as it informs the IRS that a specific VPE may be made
+> resident, and without this the IRS will treat the VPE as invalid.
+> 
+> As part of this change, we also introduce a wrapper around the VPE
+> doorbells - vgic_v5_send_command(). This takes a struct kvm_vcpu
+> pointer, and the command to run, and triggers the function bound to
+> the command via that vcpu's doorbell. This is a convenience function
+> to simplify the code.
+> 
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
 > ---
->  Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml | 1 +
->  1 file changed, 1 insertion(+)
+>  arch/arm64/kvm/vgic/vgic-v5.c | 22 ++++++++++++++++++++++
+>  1 file changed, 22 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
+> index 0649729f6b834..92bb63b6dd6bb 100644
+> --- a/arch/arm64/kvm/vgic/vgic-v5.c
+> +++ b/arch/arm64/kvm/vgic/vgic-v5.c
+> @@ -518,6 +518,18 @@ static int vgic_v5_irs_vpe_cr0_update(int vm_id, int vpe_id, u32 cr0)
+>  	return 0;
+>  }
+>  
+> +static int vgic_v5_send_command(struct kvm_vcpu *vcpu,
+> +				enum gicv5_vcpu_info_cmd_type type)
+> +{
+> +	struct gicv5_cmd_info cmd_info;
+> +
+> +	if (!vcpu)
+> +		return -EINVAL;
 
-Best regards,
-Krzysztof
+Drop this. If we must crash, let's crash early, in the most
+spectacular way, and leaving a backtrace. Trying to gracefully handle
+this stuff is making it harder to track and debug such problems.
 
+Also, if we made it that far, it is very likely that vcpu isn't NULL.
+
+> +
+> +	cmd_info.cmd_type = type;
+> +	return irq_set_vcpu_affinity(vgic_v5_vpe_db(vcpu), &cmd_info);
+> +}
+> +
+>  static int vgic_v5_db_set_vcpu_affinity(struct irq_data *data, void *vcpu_info)
+>  {
+>  	struct vgic_v5_vm *vm = data->domain->host_data;
+> @@ -691,6 +703,8 @@ static void vgic_v5_teardown_per_vm_domain(struct vgic_v5_vm *vm)
+>  
+>  void vgic_v5_reset(struct kvm_vcpu *vcpu)
+>  {
+> +	int rc;
+> +
+>  	/*
+>  	 * We always present 16-bits of ID space to the guest, irrespective of
+>  	 * the host allowing more.
+> @@ -702,6 +716,14 @@ void vgic_v5_reset(struct kvm_vcpu *vcpu)
+>  	 * CPUIF (but potentially fewer in the IRS).
+>  	 */
+>  	vcpu->arch.vgic_cpu.num_pri_bits = 5;
+> +
+> +	/* Make the VPE valid in the VPET */
+> +	rc = vgic_v5_send_command(vcpu, VPE_MAKE_VALID);
+> +	if (rc) {
+
+nit: rc serves no purpose here. Just write it as:
+
+	if (vgic_v5_send_command(...))
+
+> +		/* We can't continue, so mark the VM as dead */
+> +		kvm_vm_dead(vcpu->kvm);
+> +		return;
+
+But we probably should dump some traces here, rather than silently
+mark the VM as fsck'd. THis is the sign that something has gone very
+wrong.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
