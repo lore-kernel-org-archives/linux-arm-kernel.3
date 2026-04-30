@@ -4,66 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4008CD13DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 16:46:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F673CD13D3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 16:54:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tYVXjXirmIZR6ZQ1E8Pp2rDSwH80Wsd508YTDXQA1gI=; b=KwocSZewqZWkZmDP31xGY3iBHo
-	QO1jTwO4BHpgmdF+oPT6IzDfKPMpil4skKHKtvQJrF2yDeIydUwuNbiuCXRPOQWGXIfrrIC9K/NA4
-	+PR1TEO7VTkS4UMaFCNUV1peyz8cqushIGzoUKuYbpaw1ZsPap+ebpq1sLBU6G2Hi2AXf3eIax/pi
-	bfwU6MO1WRuPkeStJNjLLsJXKFziwNxrikyQEv6hxbbLNuByQCLBwxTgbI4cQ6K37Zm4if77vREqH
-	WrPrCcqoiZjnQbNHYizfx7TFBTBFsdVEF8fPUTduUqhje97CW2K2XpEJytDL02IhpYLsFROmA56n/
-	70k5UobA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nT9VYwAZs4ltJMRYFKxWt+mW9C34b5if1UyYfP9fQ2k=; b=1tl9oxwrroRodyy4jDjfGYAN5R
+	IAnyvT96M1bB0j4Uu1joViMVlzoPeSrbvcdOk3oRcb7PiRxt8EfMZtXZhys9xWKcA2p7+4+cY4nHP
+	EMX6QpttDePPrW3z1MrqHH3VXnw6R1qjv8UdDFbY0k6l634xIWhsAgi5UmF59T5pV9JkZosvgZz5A
+	wq1Kqh+OprufRuqoFdl/x2Sb5ZDyU0iYC5RvtHWG9HMpuQdGCqD3xCcKoJuFG/hGgtUkw/bWOeiFz
+	bcoraF0+0FeKn9xyfdAo1K42ALk8BmH9ne0Ryd9J3kNNav8r7olVIUwE4A9gY+Eds68hpGkXz3yOv
+	4i4JquTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIUWs-00000005lFg-10Cw;
-	Thu, 30 Apr 2026 16:46:22 +0000
-Received: from m16.mail.163.com ([220.197.31.3])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIUWp-00000005lE6-20fe
+	id 1wIUej-00000005llZ-0quI;
+	Thu, 30 Apr 2026 16:54:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wIUeg-00000005lkx-1xNt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 16:46:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=tY
-	VXjXirmIZR6ZQ1E8Pp2rDSwH80Wsd508YTDXQA1gI=; b=mxSKAux+VowD81jPvF
-	oC/9AUlsMcakNJ7xs19RLjcAQ/f7AqLKohf/7DnQRph+7/J7jfjydJTA0Gu3quXE
-	QTJODTzgH+C25SZV/h6o5AhpMjMdQaoP2XDwTkXQE0AtoI8NAu2jU2Q5E4h8czxt
-	gj9L4nyZeJePP8IR/d6R/ikLU=
-Received: from zhb.. (unknown [])
-	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wDHWJ46h_NpWWQZCg--.13259S4;
-	Fri, 01 May 2026 00:45:48 +0800 (CST)
-From: Hans Zhang <18255117159@163.com>
-To: will@kernel.org,
-	robin.murphy@arm.com,
-	joro@8bytes.org
-Cc: iommu@lists.linux.dev,
-	linux-arm-msm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Hans Zhang <18255117159@163.com>
-Subject: [PATCH 2/2] iommu/arm-smmu-v3: Use FIELD_MODIFY()
-Date: Fri,  1 May 2026 00:45:45 +0800
-Message-Id: <20260430164545.49637-3-18255117159@163.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260430164545.49637-1-18255117159@163.com>
-References: <20260430164545.49637-1-18255117159@163.com>
+	Thu, 30 Apr 2026 16:54:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 51C3F359B;
+	Thu, 30 Apr 2026 09:54:15 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5EA6D3F62B;
+	Thu, 30 Apr 2026 09:54:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1777568060; bh=0aE0e+1TBdahKKaq6tlLRD0Vy8TxtU1tIj610UdY+qw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kJmz3Z+nrMApGsUU4ly8Mx9Doad2qelaDVd0yRedu6aLq4CRvli4offMkfO6v6Twj
+	 22VN4JFBi0pBI0Sn1bUMiQSQL1YTBIYL7EBJtvSUfDKGlonOZAGWH6LdAGOGx/jnq8
+	 F3371MTuoxQiKYdnMQb0PahR5vN0FBuFp0N2cKnI=
+Date: Thu, 30 Apr 2026 17:54:18 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] coresight: ete: Always save state on power down
+Message-ID: <20260430165418.GF16537@e132581.arm.com>
+References: <20260428-james-cs-ete-pm_save_enable-v1-0-c7a90ca6f43b@linaro.org>
+ <20260428-james-cs-ete-pm_save_enable-v1-1-c7a90ca6f43b@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wDHWJ46h_NpWWQZCg--.13259S4
-X-Coremail-Antispam: 1Uf129KBjvJXoW7urW7uFyUWw4kXF45WryrtFb_yoW8Gr18pa
-	yUGryY9rnrJ3Z3Ca9rXF47Z3s0g3Z5Ka48Kr45W39Yqr10k34UWrs3Kwn5Krs7CryxGF17
-	uws2q3y5GF1UCrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pi3fHbUUUUU=
-X-Originating-IP: [240e:b8f:927e:5900:c497:d540:b00d:97f4]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbC6xxI62nzhzwEWwAA3q
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260428-james-cs-ete-pm_save_enable-v1-1-c7a90ca6f43b@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_094619_878044_59CF27C0 
-X-CRM114-Status: UNSURE (   8.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260430_095426_552595_273460A0 
+X-CRM114-Status: GOOD (  16.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,39 +73,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use FIELD_MODIFY() to remove open-coded bit manipulation.
-No functional change intended.
+On Tue, Apr 28, 2026 at 01:18:11PM +0100, James Clark wrote:
+> ETE registers are always system registers so it's highly unlikely there
+> will be an implementation that preserves them on CPU power down. Also
+> the ETE DT binding never documented
+> "arm,coresight-loses-context-with-cpu" so nobody would have legitimately
+> been able to use that binding to fix it.
+> 
+> Fix it by hard coding the setting for ETE and add a warning if the user
+> tried to use the module parameter. Don't add a warning if
+> loses-context-with-cpu is present in the DT as it's not a documented
+> binding anyway. etm4_init_pm_save() needs to happen after drvdata is
+> initialised so etm4x_is_ete() can be called.
+> 
+> This fixes the following error when using Coresight with ACPI on the FVP
+> which supports CPU PM:
+> 
+>   coresight ete0: External agent took claim tag
+>   WARNING: drivers/hwtracing/coresight/coresight-core.c:248 at coresight_disclaim_device_unlocked+0xe0/0xe8, CPU#0: perf/117
+> 
+> Fixes: 35e1c9163e02 ("coresight: ete: Add support for ETE tracing")
+> Signed-off-by: James Clark <james.clark@linaro.org>
 
-Signed-off-by: Hans Zhang <18255117159@163.com>
----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-index ddae0b07c76b..b62e91e4781d 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-@@ -330,8 +330,7 @@ static int arm_vsmmu_convert_user_cmd(struct arm_vsmmu *vsmmu,
- 	case CMDQ_OP_TLBI_NH_VAA:
- 	case CMDQ_OP_TLBI_NH_ALL:
- 	case CMDQ_OP_TLBI_NH_ASID:
--		cmd->cmd[0] &= ~CMDQ_TLBI_0_VMID;
--		cmd->cmd[0] |= FIELD_PREP(CMDQ_TLBI_0_VMID, vsmmu->vmid);
-+		FIELD_MODIFY(CMDQ_TLBI_0_VMID, &cmd->cmd[0], vsmmu->vmid);
- 		break;
- 	case CMDQ_OP_ATC_INV:
- 	case CMDQ_OP_CFGI_CD:
-@@ -340,8 +339,7 @@ static int arm_vsmmu_convert_user_cmd(struct arm_vsmmu *vsmmu,
- 
- 		if (arm_vsmmu_vsid_to_sid(vsmmu, vsid, &sid))
- 			return -EIO;
--		cmd->cmd[0] &= ~CMDQ_CFGI_0_SID;
--		cmd->cmd[0] |= FIELD_PREP(CMDQ_CFGI_0_SID, sid);
-+		FIELD_MODIFY(CMDQ_CFGI_0_SID, &cmd->cmd[0], sid);
- 		break;
- 	}
- 	default:
--- 
-2.34.1
-
+Reviewed-by: Leo Yan <leo.yan@arm.com>
 
