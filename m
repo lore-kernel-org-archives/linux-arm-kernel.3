@@ -4,82 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B55F0FF8875
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 03:29:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77E49FF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 03:43:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gHwkopauFWtphjc7kCMJp/l2mlnDGPyYGY4QnOLth/E=; b=YFtsFRbFWYTDty8mDhvsge5foK
-	o8r7JDboRnTIt1hPGCRgLWMIH5eyHe0tyXdQKXV2tDP2yGkGR7smoLdJMugQNpclA2fUg8k/mjDi4
-	8BWj4q/zFtkXmPPe5GQiw9ZN5brpk0R8bXgNoWJDG9HwrZ9oGZpApnuNgVDWFFuWXv8ShdSS1EDN+
-	ZJ0XBo0UhgE8KFtOBjthNdYDVPb0khFfvhOzs8vOMgZ6PibbrBdbwj6VtRmnmyUMPlrm4gO+bfEGe
-	1UQOJ3qjT/ohAJVjoA8Z/Fs5ncJce+scgBbVblppF3xgpfA0P1xeEG5SFdhoGllqpBp3uo4wCEsLR
-	husnY+Og==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Bx2NKOvSqVgn6FQHVX7Mo9G4tpgbHKAK6wJi45SFYiY=; b=rQ4ldFlyCdmosZPFltAzr9ZPtU
+	CDw4FkLySvaO/QeVSwMroWPHwD6VQmSh8llbbQCXRkNytZwjbpsVAT7ZwU0z6K0xRZZGRl5ZX5yml
+	YFkGJNZsNOfe9JevVyorK8gPAPX805E7o5y+j+kefLcrzMJfDm65XR6uySVd+IPublW07/BtIOBm+
+	KsVLXQssWlBSp/PTfjJew/GZiDqR+3M1Sdoe+rJA9Vt1+oI6XI3RtM9prtTyPQkGnT2S3B9m5GZdR
+	sNyJg/PijhFodRBTXykfen5f9mt2Yj66PknQc+pDaCnto/74bK5c5km42b2GQWPKX9YvHB+Ot8jmU
+	Va/D8pjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII5r-00000004a4R-01X6;
-	Thu, 30 Apr 2026 03:29:39 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wIIJU-00000004bjZ-0Xl1;
+	Thu, 30 Apr 2026 03:43:44 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII5P-00000004ZeF-1BpO
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 30 Apr 2026 03:29:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=gHwkopauFWtphjc7kCMJp/l2mlnDGPyYGY4QnOLth/E=; b=pwEscBEAPPtRGsHW7lNKMALTyh
-	iQEBEY8d1qeYKOBco3mk8dhRiLnPB/NqSOC7UtYmwghiJRdNe5lJEJ7f7MJmM6jrw3EPYUGbZ8F8s
-	F5zvnAVl1Qt6Rx+q1ejtk6VX9/fXDEBAkZsc/nL0dRI1ocGovq/pvL/TW8zQYOYAt9rnb0baIkx7A
-	GIaURtWcErpSD7jyP1lVw3k9m0OcxODIdanActFVzowaRPuGVJe4OCA7GJI4i2EGjjuvFf/JgvnKD
-	CNu8TCQd+VOahe/alblKYPAkt9AVm8fT09GSFIclR2cEKw0mX0UDufW81niNNGGAp/QktiTVRk3lH
-	p7S3QgIA==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII5E-00000006YIr-3sLo
+	id 1wIIJR-00000004bii-38O2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 03:29:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6D29E43C32;
-	Thu, 30 Apr 2026 03:28:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CFC3C2BCC6;
-	Thu, 30 Apr 2026 03:28:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777519739;
-	bh=njjuPy7wRe7hkHzRwBdW0fkwIYBGOP6XjIJO3ofkzLw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=B7ZofKBVZC4D8rSN4VJe04tD1kcWfXRf67DC/FKZUs2E1J6YIZzt2+iF5lCPmZ6HH
-	 HbhKn4yoHZf6wumwDeSPfV2qKFB9vykoJ+Xklbj9zjNUHNvlY6GdgJOgp4NsPd76TL
-	 ZzeswJm6b566krSjKODmUKnOYDgbBnVG4bCW9YkY5gKKbbUMo4WKxsxZxog8BsHKKs
-	 VuoK4WBn6ZGp3xlTHgiKZAip2a8vwkK/63PdjbcR2qv7flc82QfSHyIvkC/JIIQqbs
-	 Q3Cd3yKAQiexqfKMZLqZf65xggYQzmaVBI6Lmw8eGyYoEMU+MMGyNmuD4QpT0uKJCc
-	 qrcTT47idxDVQ==
-From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
-To: Steven Rostedt <rostedt@goodmis.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	Ian Rogers <irogers@google.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v19 6/7] ring-buffer: Cleanup persistent ring buffer validation
-Date: Thu, 30 Apr 2026 12:28:56 +0900
-Message-ID: <177751973647.2136606.11215717111870283228.stgit@mhiramat.tok.corp.google.com>
-X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-In-Reply-To: <177751968499.2136606.17388366710182662849.stgit@mhiramat.tok.corp.google.com>
-References: <177751968499.2136606.17388366710182662849.stgit@mhiramat.tok.corp.google.com>
-User-Agent: StGit/0.19
+	Thu, 30 Apr 2026 03:43:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1777520622; x=1809056622;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=LSUoyAnS3qyXHkVYSP2kHgLGwbPtR+uewKnGUpz/K/8=;
+  b=UF4q5Pa9WpvdwfQv8sPoKGyI1X5NcrIxAX0K6/jBAIPgH7if99bI2DlF
+   4Xdjv+F7oYnxvFRw3kmccEVy4ZstqfdSF4Qo+FedWJkRi902+1IZUCYBW
+   LeWFhAWStAywXYP/xixK3wQ5PIYLZOwO1mFmpATCX9UC/vUqZusQQCP7R
+   XIbtRZAqsGfvWQthTru34ooerFv/OCeXg54yDPjkVHcBuxVboTfnOdKm5
+   C0C4rCZJuSx9b2vl7YMH/XYkHd+ykzPDUlncTVcO0j7Ajo90GC+1oIFxb
+   dH5iFG4yMuy4trOPCz3IaQJYE8ygSI5VP2JjztCK2ikYlvwzrR6bgpQry
+   Q==;
+X-CSE-ConnectionGUID: 0CRLLraIQcCfV73Kgv6Zhg==
+X-CSE-MsgGUID: Kyvf7YNkSTSL2Rhc58BLMQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11771"; a="82317518"
+X-IronPort-AV: E=Sophos;i="6.23,207,1770624000"; 
+   d="scan'208";a="82317518"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Apr 2026 20:43:40 -0700
+X-CSE-ConnectionGUID: 9rP5uj6BQWibB8lOKzn9Mg==
+X-CSE-MsgGUID: 5wkqXb7wT9KuGBtol5KTJw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,207,1770624000"; 
+   d="scan'208";a="272575622"
+Received: from lkp-server01.sh.intel.com (HELO aa799cca880d) ([10.239.97.150])
+  by orviesa001.jf.intel.com with ESMTP; 29 Apr 2026 20:43:36 -0700
+Received: from kbuild by aa799cca880d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wIIJJ-00000000Btg-2HtA;
+	Thu, 30 Apr 2026 03:43:33 +0000
+Date: Thu, 30 Apr 2026 11:42:49 +0800
+From: kernel test robot <lkp@intel.com>
+To: =?utf-8?B?67CV66qF7ZuI?= <mhun512@gmail.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Paul Kocialkowski <paulk@sys-base.io>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-media@vger.kernel.org, Myeonghun Pak <mhun512@gmail.com>,
+	linux-staging@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org, Ijae Kim <ae878000@gmail.com>
+Subject: Re: [PATCH] media: cedrus: clean up media device on probe failure
+Message-ID: <202604301101.Nszhy0yB-lkp@intel.com>
+References: <20260427100049.29034-1-pakmyeonghun@bagmyeonghun-ui-MacBookPro.local>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260427100049.29034-1-pakmyeonghun@bagmyeonghun-ui-MacBookPro.local>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_042901_546493_62BB78F1 
-X-CRM114-Status: GOOD (  24.33  )
+X-CRM114-CacheID: sfid-20260429_204341_830418_A43A6D05 
+X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,305 +98,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+Hi 박명훈,
 
-Cleanup rb_meta_validate_events() function to make it easier to read.
-This includes the following cleanups:
- - Introduce rb_validatation_state to hold working variables in
-   validation.
- - Move repleated validation state updates into rb_validate_buffer().
- - Move reader_page injection code outside of rb_meta_validate_events().
+kernel test robot noticed the following build warnings:
 
-Signed-off-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
----
- Changes in v19:
- - Add a kerneldoc about rb_validate_buffer().
----
- kernel/trace/ring_buffer.c |  198 ++++++++++++++++++++++++--------------------
- 1 file changed, 107 insertions(+), 91 deletions(-)
+[auto build test WARNING on sunxi/sunxi/for-next]
+[also build test WARNING on linus/master v7.1-rc1 next-20260429]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-diff --git a/kernel/trace/ring_buffer.c b/kernel/trace/ring_buffer.c
-index 2654315c1b7c..236fee6bc8f6 100644
---- a/kernel/trace/ring_buffer.c
-+++ b/kernel/trace/ring_buffer.c
-@@ -1883,8 +1883,16 @@ static int rb_read_data_buffer(struct buffer_data_page *dpage, int tail, int cpu
- 	return events;
- }
- 
--static int rb_validate_buffer(struct buffer_page *bpage, int cpu,
--			      struct ring_buffer_cpu_meta *meta, u64 prev_ts, u64 next_ts)
-+struct rb_validation_state {
-+	unsigned long entries;
-+	unsigned long entry_bytes;
-+	int discarded;
-+	u64 ts;
-+};
-+
-+static int __rb_validate_buffer(struct buffer_page *bpage, int cpu,
-+				struct ring_buffer_cpu_meta *meta,
-+				u64 prev_ts, u64 next_ts)
- {
- 	struct buffer_data_page *dpage = bpage->page;
- 	unsigned long long ts;
-@@ -1922,16 +1930,94 @@ static int rb_validate_buffer(struct buffer_page *bpage, int cpu,
- 	return ret;
- }
- 
-+/**
-+ * rb_validate_buffer - validates a single buffer page and updates the state.
-+ * @bpage: buffer page to validate
-+ * @cpu_buffer: cpu_buffer this page belongs to
-+ * @meta: meta of the cpu_buffer
-+ * @state: validation state
-+ * @prev_ts: previous buffer's timestamp (optional)
-+ * @next_ts: next buffer's timestamp (optional)
-+ *
-+ * If the page is invalid (wrong event length or timestamp), it increments the
-+ * discarded counter and warns it. Otherwise, it updates the validation state.
-+ */
-+static void rb_validate_buffer(struct buffer_page *bpage,
-+			       struct ring_buffer_per_cpu *cpu_buffer,
-+			       struct ring_buffer_cpu_meta *meta,
-+			       struct rb_validation_state *state,
-+			       u64 prev_ts, u64 next_ts)
-+{
-+	int ret;
-+
-+	ret = __rb_validate_buffer(bpage, cpu_buffer->cpu, meta, prev_ts, next_ts);
-+	if (ret < 0) {
-+		if (!state->discarded)
-+			pr_info("Ring buffer meta [%d] invalid buffer page detected\n",
-+				cpu_buffer->cpu);
-+		state->discarded++;
-+	} else {
-+		/* If the buffer has content, update pages_touched */
-+		if (ret)
-+			local_inc(&cpu_buffer->pages_touched);
-+
-+		state->entries += ret;
-+		state->entry_bytes += rb_page_size(bpage);
-+		state->ts = bpage->page->time_stamp;
-+	}
-+}
-+
-+static void rb_meta_inject_reader_page(struct ring_buffer_per_cpu *cpu_buffer,
-+				       struct ring_buffer_cpu_meta *meta,
-+				       struct buffer_page *orig_head,
-+				       struct buffer_page *head_page)
-+{
-+	struct buffer_page *bpage = orig_head;
-+	int i;
-+
-+	rb_dec_page(&bpage);
-+	/*
-+	 * Insert the reader_page before the original head page.
-+	 * Since the list encode RB_PAGE flags, general list
-+	 * operations should be avoided.
-+	 */
-+	cpu_buffer->reader_page->list.next = &orig_head->list;
-+	cpu_buffer->reader_page->list.prev = orig_head->list.prev;
-+	orig_head->list.prev = &cpu_buffer->reader_page->list;
-+	bpage->list.next = &cpu_buffer->reader_page->list;
-+
-+	/* Make the head_page the reader page */
-+	cpu_buffer->reader_page = head_page;
-+	bpage = head_page;
-+	rb_inc_page(&head_page);
-+	head_page->list.prev = bpage->list.prev;
-+	rb_dec_page(&bpage);
-+	bpage->list.next = &head_page->list;
-+	rb_set_list_to_head(&bpage->list);
-+	cpu_buffer->pages = &head_page->list;
-+
-+	cpu_buffer->head_page = head_page;
-+	meta->head_buffer = (unsigned long)head_page->page;
-+
-+	/* Reset all the indexes */
-+	bpage = cpu_buffer->reader_page;
-+	meta->buffers[0] = rb_meta_subbuf_idx(meta, bpage->page);
-+	bpage->id = 0;
-+
-+	for (i = 1, bpage = head_page; i < meta->nr_subbufs;
-+	     i++, rb_inc_page(&bpage)) {
-+		meta->buffers[i] = rb_meta_subbuf_idx(meta, bpage->page);
-+		bpage->id = i;
-+	}
-+}
-+
- /* If the meta data has been validated, now validate the events */
- static void rb_meta_validate_events(struct ring_buffer_per_cpu *cpu_buffer)
- {
- 	struct ring_buffer_cpu_meta *meta = cpu_buffer->ring_meta;
- 	struct buffer_page *head_page, *orig_head, *orig_reader;
--	unsigned long entry_bytes = 0;
--	unsigned long entries = 0;
--	int discarded = 0;
-+	struct rb_validation_state state = { 0 };
- 	int ret;
--	u64 ts;
- 	int i;
- 
- 	if (!meta || !meta->head_buffer)
-@@ -1941,25 +2027,16 @@ static void rb_meta_validate_events(struct ring_buffer_per_cpu *cpu_buffer)
- 	orig_reader = cpu_buffer->reader_page;
- 
- 	/* Do the head page first */
--	ret = rb_validate_buffer(head_page, cpu_buffer->cpu, meta, 0, 0);
-+	ret = __rb_validate_buffer(head_page, cpu_buffer->cpu, meta, 0, 0);
- 	if (ret < 0) {
- 		pr_info("Ring buffer meta [%d] invalid head page detected\n",
- 			cpu_buffer->cpu);
- 		goto skip_rewind;
- 	}
--	ts = head_page->page->time_stamp;
-+	state.ts = head_page->page->time_stamp;
- 
- 	/* Do the reader page - reader must be previous to head. */
--	ret = rb_validate_buffer(orig_reader, cpu_buffer->cpu, meta, 0, ts);
--	if (ret < 0) {
--		pr_info("Ring buffer meta [%d] invalid reader page detected\n",
--			cpu_buffer->cpu);
--		discarded++;
--	} else {
--		entries += ret;
--		entry_bytes += rb_page_size(orig_reader);
--		ts = orig_reader->page->time_stamp;
--	}
-+	rb_validate_buffer(orig_reader, cpu_buffer, meta, &state, 0, state.ts);
- 
- 	/*
- 	 * Try to rewind the head so that we can read the pages which are already
-@@ -1983,19 +2060,7 @@ static void rb_meta_validate_events(struct ring_buffer_per_cpu *cpu_buffer)
- 		 * Skip if the page is invalid, or its timestamp is newer than the
- 		 * previous valid page.
- 		 */
--		ret = rb_validate_buffer(head_page, cpu_buffer->cpu, meta, 0, ts);
--		if (ret < 0) {
--			if (!discarded)
--				pr_info("Ring buffer meta [%d] invalid buffer page detected\n",
--					cpu_buffer->cpu);
--			discarded++;
--		} else {
--			entries += ret;
--			entry_bytes += rb_page_size(head_page);
--			if (ret > 0)
--				local_inc(&cpu_buffer->pages_touched);
--			ts = head_page->page->time_stamp;
--		}
-+		rb_validate_buffer(head_page, cpu_buffer, meta, &state, 0, state.ts);
- 	}
- 	if (i)
- 		pr_info("Ring buffer [%d] rewound %d pages\n", cpu_buffer->cpu, i);
-@@ -2009,43 +2074,7 @@ static void rb_meta_validate_events(struct ring_buffer_per_cpu *cpu_buffer)
- 	 * into the location just before the original head page.
- 	 */
- 	if (head_page != orig_head) {
--		struct buffer_page *bpage = orig_head;
--
--		rb_dec_page(&bpage);
--		/*
--		 * Insert the reader_page before the original head page.
--		 * Since the list encode RB_PAGE flags, general list
--		 * operations should be avoided.
--		 */
--		cpu_buffer->reader_page->list.next = &orig_head->list;
--		cpu_buffer->reader_page->list.prev = orig_head->list.prev;
--		orig_head->list.prev = &cpu_buffer->reader_page->list;
--		bpage->list.next = &cpu_buffer->reader_page->list;
--
--		/* Make the head_page the reader page */
--		cpu_buffer->reader_page = head_page;
--		bpage = head_page;
--		rb_inc_page(&head_page);
--		head_page->list.prev = bpage->list.prev;
--		rb_dec_page(&bpage);
--		bpage->list.next = &head_page->list;
--		rb_set_list_to_head(&bpage->list);
--		cpu_buffer->pages = &head_page->list;
--
--		cpu_buffer->head_page = head_page;
--		meta->head_buffer = (unsigned long)head_page->page;
--
--		/* Reset all the indexes */
--		bpage = cpu_buffer->reader_page;
--		meta->buffers[0] = rb_meta_subbuf_idx(meta, bpage->page);
--		bpage->id = 0;
--
--		for (i = 1, bpage = head_page; i < meta->nr_subbufs;
--		     i++, rb_inc_page(&bpage)) {
--			meta->buffers[i] = rb_meta_subbuf_idx(meta, bpage->page);
--			bpage->id = i;
--		}
--
-+		rb_meta_inject_reader_page(cpu_buffer, meta, orig_head, head_page);
- 		/* We'll restart verifying from orig_head */
- 		head_page = orig_head;
- 	}
-@@ -2057,7 +2086,7 @@ static void rb_meta_validate_events(struct ring_buffer_per_cpu *cpu_buffer)
- 		/* Nothing more to do, the only page is the reader page */
- 		goto done;
- 	}
--	ts = head_page->page->time_stamp;
-+	state.ts = head_page->page->time_stamp;
- 
- 	/* Iterate until finding the commit page */
- 	for (i = 0; i < meta->nr_subbufs + 1; i++, rb_inc_page(&head_page)) {
-@@ -2066,21 +2095,8 @@ static void rb_meta_validate_events(struct ring_buffer_per_cpu *cpu_buffer)
- 		if (head_page == orig_reader)
- 			continue;
- 
--		ret = rb_validate_buffer(head_page, cpu_buffer->cpu, meta, ts, 0);
--		if (ret < 0) {
--			if (!discarded)
--				pr_info("Ring buffer meta [%d] invalid buffer page detected\n",
--					cpu_buffer->cpu);
--			discarded++;
--		} else {
--			/* If the buffer has content, update pages_touched */
--			if (ret)
--				local_inc(&cpu_buffer->pages_touched);
-+		rb_validate_buffer(head_page, cpu_buffer, meta, &state, state.ts, 0);
- 
--			entries += ret;
--			entry_bytes += rb_page_size(head_page);
--			ts = head_page->page->time_stamp;
--		}
- 		if (head_page == cpu_buffer->commit_page)
- 			break;
- 	}
-@@ -2091,25 +2107,25 @@ static void rb_meta_validate_events(struct ring_buffer_per_cpu *cpu_buffer)
- 		goto invalid;
- 	}
-  done:
--	local_set(&cpu_buffer->entries, entries);
--	local_set(&cpu_buffer->entries_bytes, entry_bytes);
-+	local_set(&cpu_buffer->entries, state.entries);
-+	local_set(&cpu_buffer->entries_bytes, state.entry_bytes);
- 
- 	pr_info("Ring buffer meta [%d] is from previous boot!", cpu_buffer->cpu);
--	if (discarded)
--		pr_cont(" (%d pages discarded)", discarded);
-+	if (state.discarded)
-+		pr_cont(" (%d pages discarded)", state.discarded);
- 	pr_cont("\n");
- 
- #ifdef CONFIG_RING_BUFFER_PERSISTENT_INJECT
- 	if (meta->nr_invalid)
- 		pr_warn("Ring buffer testing [%d] invalid pages: %s (%d/%d)\n",
- 			cpu_buffer->cpu,
--			(discarded == meta->nr_invalid) ? "PASSED" : "FAILED",
--			discarded, meta->nr_invalid);
-+			(state.discarded == meta->nr_invalid) ? "PASSED" : "FAILED",
-+			state.discarded, meta->nr_invalid);
- 	if (meta->entry_bytes)
- 		pr_warn("Ring buffer testing [%d] entry_bytes: %s (%ld/%ld)\n",
- 			cpu_buffer->cpu,
--			(entry_bytes == meta->entry_bytes) ? "PASSED" : "FAILED",
--			(long)entry_bytes, (long)meta->entry_bytes);
-+			(state.entry_bytes == meta->entry_bytes) ? "PASSED" : "FAILED",
-+			(long)state.entry_bytes, (long)meta->entry_bytes);
- 	meta->nr_invalid = 0;
- 	meta->entry_bytes = 0;
- #endif
+url:    https://github.com/intel-lab-lkp/linux/commits/media-cedrus-clean-up-media-device-on-probe-failure/20260427-235223
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux.git sunxi/for-next
+patch link:    https://lore.kernel.org/r/20260427100049.29034-1-pakmyeonghun%40bagmyeonghun-ui-MacBookPro.local
+patch subject: [PATCH] media: cedrus: clean up media device on probe failure
+config: s390-allmodconfig (https://download.01.org/0day-ci/archive/20260430/202604301101.Nszhy0yB-lkp@intel.com/config)
+compiler: clang version 18.1.8 (https://github.com/llvm/llvm-project 3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260430/202604301101.Nszhy0yB-lkp@intel.com/reproduce)
 
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202604301101.Nszhy0yB-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/staging/media/sunxi/cedrus/cedrus.c:538:1: warning: unused label 'err_m2m' [-Wunused-label]
+     538 | err_m2m:
+         | ^~~~~~~~
+   1 warning generated.
+
+
+vim +/err_m2m +538 drivers/staging/media/sunxi/cedrus/cedrus.c
+
+50e761516f2b8c Paul Kocialkowski 2018-09-13  449  
+50e761516f2b8c Paul Kocialkowski 2018-09-13  450  static int cedrus_probe(struct platform_device *pdev)
+50e761516f2b8c Paul Kocialkowski 2018-09-13  451  {
+50e761516f2b8c Paul Kocialkowski 2018-09-13  452  	struct cedrus_dev *dev;
+50e761516f2b8c Paul Kocialkowski 2018-09-13  453  	struct video_device *vfd;
+50e761516f2b8c Paul Kocialkowski 2018-09-13  454  	int ret;
+50e761516f2b8c Paul Kocialkowski 2018-09-13  455  
+50e761516f2b8c Paul Kocialkowski 2018-09-13  456  	dev = devm_kzalloc(&pdev->dev, sizeof(*dev), GFP_KERNEL);
+50e761516f2b8c Paul Kocialkowski 2018-09-13  457  	if (!dev)
+50e761516f2b8c Paul Kocialkowski 2018-09-13  458  		return -ENOMEM;
+50e761516f2b8c Paul Kocialkowski 2018-09-13  459  
+708938f8495147 Dmitry Osipenko   2022-08-18  460  	platform_set_drvdata(pdev, dev);
+708938f8495147 Dmitry Osipenko   2022-08-18  461  
+50e761516f2b8c Paul Kocialkowski 2018-09-13  462  	dev->vfd = cedrus_video_device;
+50e761516f2b8c Paul Kocialkowski 2018-09-13  463  	dev->dev = &pdev->dev;
+50e761516f2b8c Paul Kocialkowski 2018-09-13  464  	dev->pdev = pdev;
+50e761516f2b8c Paul Kocialkowski 2018-09-13  465  
+50e761516f2b8c Paul Kocialkowski 2018-09-13  466  	ret = cedrus_hw_probe(dev);
+50e761516f2b8c Paul Kocialkowski 2018-09-13  467  	if (ret) {
+50e761516f2b8c Paul Kocialkowski 2018-09-13  468  		dev_err(&pdev->dev, "Failed to probe hardware\n");
+50e761516f2b8c Paul Kocialkowski 2018-09-13  469  		return ret;
+50e761516f2b8c Paul Kocialkowski 2018-09-13  470  	}
+50e761516f2b8c Paul Kocialkowski 2018-09-13  471  
+50e761516f2b8c Paul Kocialkowski 2018-09-13  472  	mutex_init(&dev->dev_mutex);
+50e761516f2b8c Paul Kocialkowski 2018-09-13  473  
+7c38a551bda1b7 Jernej Skrabec    2022-02-01  474  	INIT_DELAYED_WORK(&dev->watchdog_work, cedrus_watchdog);
+7c38a551bda1b7 Jernej Skrabec    2022-02-01  475  
+50e761516f2b8c Paul Kocialkowski 2018-09-13  476  	ret = v4l2_device_register(&pdev->dev, &dev->v4l2_dev);
+50e761516f2b8c Paul Kocialkowski 2018-09-13  477  	if (ret) {
+50e761516f2b8c Paul Kocialkowski 2018-09-13  478  		dev_err(&pdev->dev, "Failed to register V4L2 device\n");
+50e761516f2b8c Paul Kocialkowski 2018-09-13  479  		return ret;
+50e761516f2b8c Paul Kocialkowski 2018-09-13  480  	}
+50e761516f2b8c Paul Kocialkowski 2018-09-13  481  
+50e761516f2b8c Paul Kocialkowski 2018-09-13  482  	vfd = &dev->vfd;
+50e761516f2b8c Paul Kocialkowski 2018-09-13  483  	vfd->lock = &dev->dev_mutex;
+50e761516f2b8c Paul Kocialkowski 2018-09-13  484  	vfd->v4l2_dev = &dev->v4l2_dev;
+50e761516f2b8c Paul Kocialkowski 2018-09-13  485  
+50e761516f2b8c Paul Kocialkowski 2018-09-13  486  	snprintf(vfd->name, sizeof(vfd->name), "%s", cedrus_video_device.name);
+50e761516f2b8c Paul Kocialkowski 2018-09-13  487  	video_set_drvdata(vfd, dev);
+50e761516f2b8c Paul Kocialkowski 2018-09-13  488  
+50e761516f2b8c Paul Kocialkowski 2018-09-13  489  	dev->m2m_dev = v4l2_m2m_init(&cedrus_m2m_ops);
+50e761516f2b8c Paul Kocialkowski 2018-09-13  490  	if (IS_ERR(dev->m2m_dev)) {
+50e761516f2b8c Paul Kocialkowski 2018-09-13  491  		v4l2_err(&dev->v4l2_dev,
+50e761516f2b8c Paul Kocialkowski 2018-09-13  492  			 "Failed to initialize V4L2 M2M device\n");
+50e761516f2b8c Paul Kocialkowski 2018-09-13  493  		ret = PTR_ERR(dev->m2m_dev);
+50e761516f2b8c Paul Kocialkowski 2018-09-13  494  
+bac875349f8525 Jernej Skrabec    2019-04-07  495  		goto err_v4l2;
+50e761516f2b8c Paul Kocialkowski 2018-09-13  496  	}
+50e761516f2b8c Paul Kocialkowski 2018-09-13  497  
+50e761516f2b8c Paul Kocialkowski 2018-09-13  498  	dev->mdev.dev = &pdev->dev;
+50e761516f2b8c Paul Kocialkowski 2018-09-13  499  	strscpy(dev->mdev.model, CEDRUS_NAME, sizeof(dev->mdev.model));
+ae0688f659adb1 Hans Verkuil      2019-08-30  500  	strscpy(dev->mdev.bus_info, "platform:" CEDRUS_NAME,
+ae0688f659adb1 Hans Verkuil      2019-08-30  501  		sizeof(dev->mdev.bus_info));
+50e761516f2b8c Paul Kocialkowski 2018-09-13  502  
+50e761516f2b8c Paul Kocialkowski 2018-09-13  503  	media_device_init(&dev->mdev);
+50e761516f2b8c Paul Kocialkowski 2018-09-13  504  	dev->mdev.ops = &cedrus_m2m_media_ops;
+50e761516f2b8c Paul Kocialkowski 2018-09-13  505  	dev->v4l2_dev.mdev = &dev->mdev;
+50e761516f2b8c Paul Kocialkowski 2018-09-13  506  
+0e17c50fcf6a9e Hans Verkuil      2020-02-03  507  	ret = video_register_device(vfd, VFL_TYPE_VIDEO, 0);
+50e761516f2b8c Paul Kocialkowski 2018-09-13  508  	if (ret) {
+50e761516f2b8c Paul Kocialkowski 2018-09-13  509  		v4l2_err(&dev->v4l2_dev, "Failed to register video device\n");
+e8660f15f165e6 Myeonghun Pak     2026-04-27  510  		goto err_media_cleanup;
+50e761516f2b8c Paul Kocialkowski 2018-09-13  511  	}
+50e761516f2b8c Paul Kocialkowski 2018-09-13  512  
+50e761516f2b8c Paul Kocialkowski 2018-09-13  513  	v4l2_info(&dev->v4l2_dev,
+50e761516f2b8c Paul Kocialkowski 2018-09-13  514  		  "Device registered as /dev/video%d\n", vfd->num);
+50e761516f2b8c Paul Kocialkowski 2018-09-13  515  
+bac875349f8525 Jernej Skrabec    2019-04-07  516  	ret = v4l2_m2m_register_media_controller(dev->m2m_dev, vfd,
+bac875349f8525 Jernej Skrabec    2019-04-07  517  						 MEDIA_ENT_F_PROC_VIDEO_DECODER);
+bac875349f8525 Jernej Skrabec    2019-04-07  518  	if (ret) {
+bac875349f8525 Jernej Skrabec    2019-04-07  519  		v4l2_err(&dev->v4l2_dev,
+bac875349f8525 Jernej Skrabec    2019-04-07  520  			 "Failed to initialize V4L2 M2M media controller\n");
+bac875349f8525 Jernej Skrabec    2019-04-07  521  		goto err_video;
+bac875349f8525 Jernej Skrabec    2019-04-07  522  	}
+bac875349f8525 Jernej Skrabec    2019-04-07  523  
+50e761516f2b8c Paul Kocialkowski 2018-09-13  524  	ret = media_device_register(&dev->mdev);
+50e761516f2b8c Paul Kocialkowski 2018-09-13  525  	if (ret) {
+50e761516f2b8c Paul Kocialkowski 2018-09-13  526  		v4l2_err(&dev->v4l2_dev, "Failed to register media device\n");
+50e761516f2b8c Paul Kocialkowski 2018-09-13  527  		goto err_m2m_mc;
+50e761516f2b8c Paul Kocialkowski 2018-09-13  528  	}
+50e761516f2b8c Paul Kocialkowski 2018-09-13  529  
+50e761516f2b8c Paul Kocialkowski 2018-09-13  530  	return 0;
+50e761516f2b8c Paul Kocialkowski 2018-09-13  531  
+50e761516f2b8c Paul Kocialkowski 2018-09-13  532  err_m2m_mc:
+50e761516f2b8c Paul Kocialkowski 2018-09-13  533  	v4l2_m2m_unregister_media_controller(dev->m2m_dev);
+50e761516f2b8c Paul Kocialkowski 2018-09-13  534  err_video:
+50e761516f2b8c Paul Kocialkowski 2018-09-13  535  	video_unregister_device(&dev->vfd);
+e8660f15f165e6 Myeonghun Pak     2026-04-27  536  err_media_cleanup:
+e8660f15f165e6 Myeonghun Pak     2026-04-27  537  	media_device_cleanup(&dev->mdev);
+bac875349f8525 Jernej Skrabec    2019-04-07 @538  err_m2m:
+bac875349f8525 Jernej Skrabec    2019-04-07  539  	v4l2_m2m_release(dev->m2m_dev);
+50e761516f2b8c Paul Kocialkowski 2018-09-13  540  err_v4l2:
+50e761516f2b8c Paul Kocialkowski 2018-09-13  541  	v4l2_device_unregister(&dev->v4l2_dev);
+50e761516f2b8c Paul Kocialkowski 2018-09-13  542  
+50e761516f2b8c Paul Kocialkowski 2018-09-13  543  	return ret;
+50e761516f2b8c Paul Kocialkowski 2018-09-13  544  }
+50e761516f2b8c Paul Kocialkowski 2018-09-13  545  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
