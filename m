@@ -4,108 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12D65CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 11:16:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C390FF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 11:16:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D2LtQD8pZs6oI2DhWYcXuaGFcRtBeIKav/R8T2ZWcB0=; b=Clhjbc/G7fZKftsyjZh8R2Uppp
-	jlqxk31OmQKVg8l7m0z2MEKezeEWr9hBnFDzzbYjbd5d3P5s+YNqyDYfdzRmW3gb7/gK8jJiY28Ea
-	1kE0MD3imUnDUimrxgiuxuiXLoX2o/yAaPoZjup+lnEElR5Y/xAbRfi4YNS9+cT2eku6ErPQMhKub
-	vmm+vDTjbM60Ej0aoP/0T6rSOE8NLDR/n9HNL9XuNoskY/eicT868UMSxaY5RSY7oE30ytR1Gu0br
-	77Si9YFKnZquz95uuOnvBSSOavG7p+qhO3GMn/h4A2H1htxcvhENc9tZf4Xm745ZL0C7KakJVGzoY
-	961ZlwlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BRlgENUMw3PNonENB4KpS81bXVdOSr8xUOobK5ZNSPs=; b=Hk8w3kaISAZ18QV0DYx5fxsssr
+	KAbk8mqqsaxgyPFiGQPlyl6Ral/jWKaFad2uuBclfBJRApOoDi6IVl7wdZ1nT8S6FyRoGS7MpMyz9
+	gN93UxASCYmBBXbDzrIo/1yvkWAXtmZIscl1IgavL5/YDZR2R7Fi+58Mm5l5P4KhR2GG/coz5oCM1
+	cQoVxh3S6WnlxWa82mWWw7/MCgrV3C6C2xcr/drO8SZHHiHsB/d+10aaY+lAxiXtHaOV2/mZ+pU2k
+	z1cd/seO+tu1yVRi9Dc+cmqL4UkWaxF1giHDSu4uCc/W74dFN1UvOlYBEhGl6czWYuFUY/CN8wcAD
+	KAjyKDfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIPNf-00000005LoH-2q8A;
-	Thu, 30 Apr 2026 11:16:31 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wIPNy-00000005M2j-3XrR;
+	Thu, 30 Apr 2026 11:16:50 +0000
+Received: from mail-centralusazon11011035.outbound.protection.outlook.com ([52.101.62.35] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIPNV-00000005LeZ-1Coi
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 30 Apr 2026 11:16:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=D2LtQD8pZs6oI2DhWYcXuaGFcRtBeIKav/R8T2ZWcB0=; b=glorQYIcHl9UvkfYgJ0VMwq5ga
-	wXsu1waJYIO92g4OGxN+7a+b34yYgyWICGuf6Uf2j0GkC5pig0krQKcZWEyDH9r/Zm1uXySVMLLCx
-	Ks9HPdeUI1BhiZnwhbZa7nk1Yf3x7T5rFA4fCRm3fHIBfFNu/lCZ+Gy+GIFCmAwTR5SrWSB3SAz8l
-	7jKMVzRvBFiWPTQjSSXcOQP2TmMOSJ7vKE5eI7pEpyQmIDffeQzBskdO6w2G6E3FbrTnTB9rHxrvK
-	4B6MxnkR/7ESmwbj84C2H6p6PDVXCwh2Tsv7AOFf/JbQpQIu6qIKs8A4ZVbZy0vWyD7T5wPLVrh8N
-	e/TFyVTw==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIPNQ-00000007DsV-3YXZ
+	id 1wIPNv-00000005Lzf-3GY6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 11:16:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0DC61356C;
-	Thu, 30 Apr 2026 04:16:10 -0700 (PDT)
-Received: from devkitleo.cambridge.arm.com (devkitleo.cambridge.arm.com [10.1.196.90])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 18E533F763;
-	Thu, 30 Apr 2026 04:16:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777547775; bh=/RURBevpFF+4tw+ka7Tw3QDbKLsEWw0aWfJtqGVfHwQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Dg83rIEnCnvnNNd90W6UyyYmALfyt5w3xkYcgsMDx7kJQnSLWr+aI1bKWqOcI7gUb
-	 f3YA79bgia7x7C+As0zyTHsMVTPe98UnOnrZcgz57AqdzZNuP3ALca1cAQCPqPWKxP
-	 gHZ6XNUy68+rW5XuA+jTKVIrUYB6Ky9olnogHKH4=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Leonardo Bras <leo.bras@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	Saket Dumbre <saket.dumbre@intel.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Chengwen Feng <fengchengwen@huawei.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Kees Cook <kees@kernel.org>,
-	=?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Thomas Huth <thuth@redhat.com>,
-	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	Mark Brown <broonie@kernel.org>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Tian Zheng <zhengtian10@huawei.com>,
-	Wei-Lin Chang <weilin.chang@arm.com>
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-acpi@vger.kernel.org,
-	acpica-devel@lists.linux.dev,
-	kvm@vger.kernel.org
-Subject: [PATCH v1 12/12] KVM: arm64: Enable KVM_HW_DIRTY_BIT
-Date: Thu, 30 Apr 2026 12:14:16 +0100
-Message-ID: <20260430111424.3479613-14-leo.bras@arm.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260430111424.3479613-2-leo.bras@arm.com>
-References: <20260430111424.3479613-2-leo.bras@arm.com>
+	Thu, 30 Apr 2026 11:16:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gu4kYC3htKA7F812POiNsVV5XnzmGTVeM9OE/PccngQABOugwZebMjbbHw5XYrAqu6pyFiDw8EU20oMRgr62VkM7BnFmGK/Y9rY4zpyqQc93VaEFZ+VOGFbtYo6RQmK6jCP8Ae+BV5poXF1fikZsyhDfryEtAULaEXbNaxJO5/zvt8adCX71RNYm4MiodN6Xwga/zBdiWhjt2e062e2qrXL++JQZ+JvCIf74J642X5YYZZ+YHgzxCjYWG8ID8yoFTz/u6tKWcG7WEDvvw5b47TVEHV4gqG14t/ynKhZ6UAGKiCCuB8Tk4t3ehMSUCeJnftXBa+jqN5Wn5kbzHfIbhA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BRlgENUMw3PNonENB4KpS81bXVdOSr8xUOobK5ZNSPs=;
+ b=evASfex+QrXr7TEzww2Rv6boln6X2KTJ3R7XxpLD+4SyP+h4jfopo1iA/f3ugh/u0IrODTVR39IcBM0OoXOyXaGzLRc6Po++QAVr8R53MLX0BiRtn9jm4xS8dNIpo4uZZHsmza/eEgQ8UfSwuUWYd79gKE7Ghfk0mzqin5SAknFUAy6ncEZyPhyONNpOZ6L3k1yM+iQXVMaBndp7FaGYq3gAPKawoA605fkt4K7fc5Rp+G/0aApsRtkLoeI+GcWcj2JtQKRZ5fW3IZ1HLVotocUy5v0OrNpptQrJSTtHrIclv6PlNVu5znchHyP7SygpfYFzAdmjvgdir071uCRt5Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BRlgENUMw3PNonENB4KpS81bXVdOSr8xUOobK5ZNSPs=;
+ b=dZddDb+11iLsobEi5PchJFlV1U6MpHDnw5poUIVssO9MI6EOwI0lIinrTAyaOzULU3wQBzirTVtV7gq5Vw7LoYv4o6uujbcTKKJFRwD4zvdZGD6ZyXaRaBtjR/UCxy2HylSkEfP3BFbx5XCcXaNx9JZNrHk4EZ3bz2iPk0pRqwM=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from LV5PR12MB9828.namprd12.prod.outlook.com (2603:10b6:408:304::19)
+ by DM4PR12MB8572.namprd12.prod.outlook.com (2603:10b6:8:17d::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.20; Thu, 30 Apr
+ 2026 11:16:42 +0000
+Received: from LV5PR12MB9828.namprd12.prod.outlook.com
+ ([fe80::f132:7e75:fd38:8685]) by LV5PR12MB9828.namprd12.prod.outlook.com
+ ([fe80::f132:7e75:fd38:8685%5]) with mapi id 15.20.9870.020; Thu, 30 Apr 2026
+ 11:16:42 +0000
+Message-ID: <921878ff-8fa2-4633-bb93-e9e54f40e681@amd.com>
+Date: Thu, 30 Apr 2026 16:46:35 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] EDAC/xilinx: Fix stack off-by-one in debugfs UE injection
+ handlers
+To: Shengzhuo Wei <me@cherr.cc>,
+ Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+ Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
+ Borislav Petkov <bp@alien8.de>, Tony Luck <tony.luck@intel.com>,
+ Michal Simek <michal.simek@amd.com>
+Cc: linux-edac@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260425-edac-stack-off-by-one-v1-1-4b2dd2b9c7df@cherr.cc>
+Content-Language: en-US
+From: "Datta, Shubhrajyoti" <shubhraj@amd.com>
+In-Reply-To: <20260425-edac-stack-off-by-one-v1-1-4b2dd2b9c7df@cherr.cc>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA5P287CA0248.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:1ae::11) To LV5PR12MB9828.namprd12.prod.outlook.com
+ (2603:10b6:408:304::19)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV5PR12MB9828:EE_|DM4PR12MB8572:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7b44812a-9c45-459d-9dcc-08dea6a9f4d3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: VI3/Go+X/hmmbYe06tJV4FsbjneSF6EGxwbiWw3dP3VLraDqwLSrfuEow+wvPSq5T08eKO4FE/OFpVgFDJNqclWqGjFs0cbmSmO/7rKUrkUEMpfp2gUZTu5SF0P583Bnyxj2+9I3sf0UVRyVfdokjw5atEXVcc+0fuGnwLkcowrH43zwcdC8ZlWbhoY0fFZxZnjdKsc/hmmK3ogyOY/XTsFaST1NiXB2WYV6g1K+Fpc9egTpw8Z47+FJv0ZZ4+qj952mstatJFFv81UbowGAnRmLJJzYtIcp2yxqy3niOv3wIjmX7YDF8UEIkdPwaouRUf0/o0fePtAokiycmmFQ6pclIgKKal2fRifajldbTqPFXNrLPLgGv7+iyzVFfOEBd40mNGc2nagHNBhxOyxk1+Hjv4Tf3tdwdT9mSgcDX+DEY2uAggwqyltxwWmj2IDeOLp4NYEthZE5WeZmzJPVSV65TsV2NCh+cOZvGmzObwnpXf78iNKqNengBSVn6slqMYKVVoZrIQf841A+ykJWEs+G27472ees4617au0wox92LDy6l+FrOzY0tqsKbpA58K6efjeoSkAIRq/9HF4SypvPHVskoDHOpsUvFXwbxRKMxtvj6q1SiLShCdNVcfmST+dkwL27MTBNL+OUlEKgVSwa9r+fCcZVDf40XdbCpbb/SBfRY5DbFcwQvLJlS5HDjOGQS4jPIwpalQ2a9YtJ8Ni7aDw+qfidugQlePsXUrQ=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV5PR12MB9828.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WFl3T2RVUkpuQ3ZCV3o3VFduMDBFaEJiTXUxQUs0UVROVXFvQ1h4ZHZMUlpB?=
+ =?utf-8?B?ZHRxRHBocGYvY0M4YUlyWHpLN3R5ZHp2VktOYmdxU1FxVWlxT216bEVwWDZF?=
+ =?utf-8?B?Qjdvb3g4dkVJc0prZzZzOTFBenVmaFNjVGhsazArdHJzbUV0cXVGK0IzR0VT?=
+ =?utf-8?B?cEQraUpqU3orZlI4NUE1MFhCUUFzQURWSWJpV2JQR1ZCSWRNNkdxMEswM1or?=
+ =?utf-8?B?eUNSem11TUFiVGl1Z3RFWWNVV1NzRFRKS25wVjEyMGpWTHUyZHljdE16R280?=
+ =?utf-8?B?R09GbTVFZDUrd1psUk0yRTVVdlZ5bVRiRXhCcE5WRVpoRHUrRVZaV1pDNVg3?=
+ =?utf-8?B?TUxqSVJrK25CUE1NUStlNkpjQzdPY2pwcDVpdzNoTmM2bk1jRnIrR1hVOFBl?=
+ =?utf-8?B?eDNqR0JGRVpoZjVSRXhBSVRPRFZjSlhwSER1cVlqLzJwTzQ1aEY1di8yM01W?=
+ =?utf-8?B?Y2svQnlZYlFCMFFFWEJjcjUvTE9OY3FuRUFMTDdXTWxwNHp1RG5Cd1p1SFYr?=
+ =?utf-8?B?Mnk1REprbFBqZHdxRmFYZlRlUVFRbGozNEdKMXF4RCttd1E3RFVTTXBrRGQ5?=
+ =?utf-8?B?N3ZQSkpPR0JWUDRzOEtFVDF3K2dzS0Q3anlFbHBvbFppdDUwalV2K3A5ckVX?=
+ =?utf-8?B?OCsyYTVlVUtYWG1nSWJiMnY2WDFjMThHYmlaNXdvSkRSN2tLaXpUMlU3b2Vz?=
+ =?utf-8?B?UkJHWFBHRFJyNTNEaWxoOWtVcEQ2b1FKYTZ1Z0g5S2laYW1FVFl1RStDbnZ2?=
+ =?utf-8?B?dUhXbUJlaVNTdmovck5RZHlHdXo5UFpRN2NrOExid3dHZzJoOHk3WXZBOWpI?=
+ =?utf-8?B?aktZSE9TWHdqTXBYYXFGVjI0ZWJmQlRYM0pZaldycEFrRWtqRGd6dnpwN0RL?=
+ =?utf-8?B?OHB4YzNveEVaRkNQUEYreGRkMWc5RUQ5aDV2cWFmTnZPNVdiVWNTQVVNeWhr?=
+ =?utf-8?B?KzJjYjZGRXJoZGxUWlNNTk1EVVd4RXI5YXhOWk1WVTZLZ3ZVdlFFYityT3Mw?=
+ =?utf-8?B?aWhvRitjRm1XTSsvOTc0TzdaK0xlWkdBbXVKb1VnWm10L1prenhLZDUrWElU?=
+ =?utf-8?B?OCtXTno5UG9meG54aGVaem1vbFM5TEtTWWQxVFMrT0tqWFV5UDcrYy9ZUHEv?=
+ =?utf-8?B?K1NaMVFjMTN6KzZBZGp3TVBqYmpHTHVaaWc5Q05YWkRzUFRXYWp3Rkk4WXJR?=
+ =?utf-8?B?cGQ0TkJPbEs4YU9nUGlleDlkVTdFUlJyQ0ExMC9JTFBtWTNSQ21oRHg1SVBz?=
+ =?utf-8?B?SE9nVkZmNE90WHNxdllHM1lzaGpHT2Q4cnc5SXJURElXc05RSnpaZkZFMlNY?=
+ =?utf-8?B?OTlDSjZWbWgxNUpPbVAvSXdNV2xwcEpNb2JodW02OE5PaFpDc09SU3djNHdP?=
+ =?utf-8?B?cnV3V2lqbFBSZ1ZCcDRJVHJDLzBXUVNTckZyRkQrcnFlS0h2RzA1NUdTNGM5?=
+ =?utf-8?B?Z2ZzMVQ2S3l5QWYvQ3FKZWRQWkJkc0tDcEEweWJsT0Zwc0hBcERiN3NEZjlu?=
+ =?utf-8?B?c1dnNHpWWXZPZWJlRzBpWnQrc1NWTm5wZ0NQdE9UWkNhWlovaDN1Vngxbjdr?=
+ =?utf-8?B?VHlOSDhTcGcvTjdhOThoRFFIMENJNkYvOGFUR2N5d0tkNkd1aUlZWG9iR01T?=
+ =?utf-8?B?enRaMnZDTU1Bdnl1VENYUnNWVGk2QnhSblg5M01UR3BvTkgycUJwWmdNcWRm?=
+ =?utf-8?B?K0tqaFJZdEpaZjNJaUR0L3lyV0JCekkzV1NwamI0WTZ1czFZVHRQZXZRcFhY?=
+ =?utf-8?B?U00rV2wraFVZN1B0cVpwaXlmVWkvK3Q0alVOS0pFQ3Z6K2FmejR1bVdTQUZm?=
+ =?utf-8?B?aGppNU5RcTA4SDJiOGlNRnRadEZtYllKMThYTDRkZTZyaU0zYkxwRGVXRW9V?=
+ =?utf-8?B?cTNqSno1Z0RDSlROZ25MbUZhTXVDQ0dDUkRrMUErYVVxVTF0b21RYnh3ZkMw?=
+ =?utf-8?B?SU9RL0lMd2UzMEprdEc5UjQyQkdQOHVWNTJhQURQRWdtRUFCWkZvYUJVem1q?=
+ =?utf-8?B?WlRQQ1RVQTg0OGpobVEyQlo1TUJCWEdNZHl2bWZ6RU5lUjhjaGx1QUkyUGow?=
+ =?utf-8?B?QlFiODQxQ29uSDF6N0NGeTRhMSt5TEpOZW1GaE9TRjVSS2RjRDJQYTl2K3gx?=
+ =?utf-8?B?Ui9XNFJjNk5JaW1ObC9xOXhRTEZVa2lGWDZ0Uy9uRmFPLzdObEJHcUNyYXZw?=
+ =?utf-8?B?emt0VlZLbEF0bzFZMG1PU28vekZ1VXVodHNNUG0xcmVOSE1SYlYxRTRrY1Zv?=
+ =?utf-8?B?MTM2Z1hJWDlkY25OUXRZcC9UVEtyQXlYOU1zK29aVVJlbUdOWlcvV3pDVDhD?=
+ =?utf-8?B?dDRrSEpWYjlNcERIVGdzSEc2aDRvSUxsSEtIYlZyTTRuOC9nZ1ZDdz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7b44812a-9c45-459d-9dcc-08dea6a9f4d3
+X-MS-Exchange-CrossTenant-AuthSource: LV5PR12MB9828.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2026 11:16:42.3272
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 9kda0AU6pwfNhStcHoWj4n1ReRaOFCrjcBUZPZ9ojY7Sq8JS1/YT19xdVZNGi9mrqSMIZYU4l5iBDkAi/1vc+A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB8572
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_121617_666348_AED5A2E9 
-X-CRM114-Status: GOOD (  10.79  )
+X-CRM114-CacheID: sfid-20260430_041647_997570_535819A8 
+X-CRM114-Status: GOOD (  12.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,78 +150,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Set the corresponding bit to enable hardware accelerated dirty-bitmap and
-dirty-ring cleaning for arm64. Actually using acceleration depends on the
-cpus enabling FEAT_HACDBS as well as the pre-requisite features for it,
-such as FEAT_HDBSS and FEAT_HAFDBS.
 
-Also, add myself as maintainer for the new bits introduced.
+On 4/25/2026 12:19 AM, Shengzhuo Wei wrote:
+> [You don't often get email from me@cherr.cc. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>
+> Caution: This message originated from an External Source. Use proper caution when opening attachments, clicking links, or responding.
+>
+>
+> Two EDAC debugfs write handlers copy up to sizeof(buf) bytes into a
+> fixed-size stack buffer and then unconditionally NUL-terminate it via
+> buf[len] = '\0'.  When userspace writes >= sizeof(buf) bytes, len
+> becomes sizeof(buf) and the NUL write lands 1 byte past the end of the
+> stack buffer.
+>
+> Fix by clamping the copy length to sizeof(buf) - 1 so that the NUL
+> terminator is always in-bounds.
+>
+> Fixes: 3bd2706c910f ("EDAC/zynqmp: Add EDAC support for Xilinx ZynqMP OCM")
+> Fixes: 83bf24051a60 ("EDAC/versal: Make the bit position of injected errors configurable")
+> Signed-off-by: Shengzhuo Wei <me@cherr.cc>
+> ---
 
-Signed-off-by: Leonardo Bras <leo.bras@arm.com>
----
- MAINTAINERS            | 7 +++++++
- arch/arm64/kvm/Kconfig | 1 +
- 2 files changed, 8 insertions(+)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index d25342ca8aa1..4b8a2b05b916 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2069,20 +2069,27 @@ F:	arch/arm64/boot/dts/Makefile
- ARM ARCHITECTED TIMER DRIVER
- M:	Mark Rutland <mark.rutland@arm.com>
- M:	Marc Zyngier <maz@kernel.org>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- S:	Maintained
- F:	arch/arm/include/asm/arch_timer.h
- F:	arch/arm64/include/asm/arch_timer.h
- F:	drivers/clocksource/arm_arch_timer.c
- F:	drivers/clocksource/arm_arch_timer_mmio.c
- 
-+ARM STAGE-2 DIRTY-BIT TRACKER/CLEANER ACCELERATOR
-+M:	Leonardo Bras <leo.bras@arm.com>
-+L:	kvmarm@lists.linux.dev
-+S:	Maintained
-+F:	arch/arm64/include/asm/kvm_dirty_bit.h
-+F:	arch/arm64/kvm/dirty_bit.c
-+
- ARM ETHOS-U NPU DRIVER
- M:	Rob Herring (Arm) <robh@kernel.org>
- M:	Tomeu Vizoso <tomeu@tomeuvizoso.net>
- L:	dri-devel@lists.freedesktop.org
- S:	Supported
- T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
- F:	drivers/accel/ethosu/
- F:	include/uapi/drm/ethosu_accel.h
- 
- ARM GENERIC INTERRUPT CONTROLLER DRIVERS
-diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
-index 449154f9a485..db8487bf738b 100644
---- a/arch/arm64/kvm/Kconfig
-+++ b/arch/arm64/kvm/Kconfig
-@@ -27,20 +27,21 @@ menuconfig KVM
- 	select VIRT_XFER_TO_GUEST_WORK
- 	select KVM_VFIO
- 	select HAVE_KVM_DIRTY_RING_ACQ_REL
- 	select NEED_KVM_DIRTY_RING_WITH_BITMAP
- 	select HAVE_KVM_MSI
- 	select HAVE_KVM_IRQCHIP
- 	select HAVE_KVM_IRQ_ROUTING
- 	select HAVE_KVM_IRQ_BYPASS
- 	select HAVE_KVM_READONLY_MEM
- 	select HAVE_KVM_VCPU_RUN_PID_CHANGE
-+	select HAVE_KVM_HW_DIRTY_BIT if ACPI
- 	select SCHED_INFO
- 	select GUEST_PERF_EVENTS if PERF_EVENTS
- 	select KVM_GUEST_MEMFD
- 	help
- 	  Support hosting virtualized guest machines.
- 
- 	  If unsure, say N.
- 
- if KVM
- 
--- 
-2.54.0
+Reviewed-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
 
 
