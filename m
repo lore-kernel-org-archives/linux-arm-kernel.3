@@ -4,64 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69DA9FF886F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 09:08:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A61AFF886F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 09:14:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9CQf3oztDOBEArGCCm+sSAN9wRu5XEKgAXumhimw5Hs=; b=agW639ESKIB3F0+H/RW53/D7h6
-	vK+xYEfv48S85Sp+HKYuPrY7wuCwRQAR3cJ2Y0o4O0t0h7mB4Hl2TvHRIowYhHZ7UMDtQC1aepmZ4
-	gU5FG9bd45CM+nsNLfyEx9dg2dBhsC56x5/PLfJfmO1pa4/G2fDnyYHOKUL6AjamQPLMgQKGll9B5
-	V7jKnNwjX4WFlIurmvV2xz+t2e+yjYXE5E0rBS2+HUahI/yqNJe/khxAz8m1eiVnkix/r3ad/Kh/2
-	EF1a7XclOfL43t0I/kV0J4NLPdx1Q+N0S/+mhIeRZY+gnrprSN7vbggxutQxjO4aIs6mfibRHK2+o
-	oVoFBWTw==;
+	bh=WCVoQLzeSnEIV6g9VauqYrzXA45pGA73bVfYhY5Hkas=; b=sBtDfVn4rHWhpUYPpZeBMdz/Rs
+	D+3Y09Qat5rmoVINiUzWSSHX3g60j+/wosye2/jQFDnjd+9CVqEC3G5nVDK15VsPLM83dOvsG7z10
+	jp7ImDU/rVR9u7MfUBleq58TbNHOVnQPc7mpysGxCKLMpRwUE/INWzTmbMxM5hrpRscJpvR/cgPhN
+	+vKf+uRkmqzANKB8DyuqOaw6V8JeaJENatBkxd7D6re7UV6sTvE35CqseCNkDVD3LhB7omnaucmPA
+	YhbFS32eYKnfHzmf7l3/6wIquInzmqGvOszMFEPTllWqeQM91WeQmPNJxonv3OmiuhG2MRODQxJtj
+	TnaOZ4Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wINNP-000000054gy-33Lj;
-	Thu, 30 Apr 2026 09:08:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wINT1-000000054xf-2Icq;
+	Thu, 30 Apr 2026 09:13:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wINNN-000000054gc-1ZDu
+	id 1wINSy-000000054xJ-49jM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 09:08:06 +0000
+	Thu, 30 Apr 2026 09:13:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 12D77404E9;
-	Thu, 30 Apr 2026 09:08:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74F31C2BCB3;
-	Thu, 30 Apr 2026 09:08:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3274E4019D;
+	Thu, 30 Apr 2026 09:13:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 116A3C2BCB3;
+	Thu, 30 Apr 2026 09:13:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777540083;
-	bh=ZFzSNODvz59u5BBj2IDcPy45PSPOnkHPbn9VjRLPFko=;
+	s=k20201202; t=1777540432;
+	bh=UdNB1egWYjpUHiiwp2CFfEtBa7QoII0RZrh0xQbjLGM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Tr+sv2mFI9m4Ofy6Z0CStOodv0cPAChYeTf2a3fmIaFcBPf+N3J7PMUQ2IsSG5aKu
-	 Ws09EaXWOCdaKF/SE443itbM9VK4E6tn5zNtfAWEe8F1oVWjulubvyY+SDFIG8nGJb
-	 aWwDoCxGyVXwVXC9Fo/HEw+pFY5Br/2PfTvj2DMn+cBsBZsx93dLe+tf6r4zPvfsXb
-	 3KzcHrFPh+lw+7fU3SCr7XSFXlFjhgeGtTQy7ByyUK5bnWqLhPH0nxu0bphVd+9mvJ
-	 TzuqDp7DgriF5jFxU5E3CPNYB03GIMupks3LEdgHdC2+eFLWbj4/NOO1gDLJ5imF9V
-	 b4u8H3NfNszvQ==
-Date: Thu, 30 Apr 2026 10:07:58 +0100
-From: Will Deacon <will@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: maz@kernel.org, oliver.upton@linux.dev, james.morse@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, qperret@google.com,
-	vdonnefort@google.com, catalin.marinas@arm.com,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH 1/8] KVM: arm64: Make EL2 exception entry and exit
- context-synchronization events
-Message-ID: <afMb7uuPlUbLeu7k@willie-the-truck>
-References: <20260428103008.696141-1-tabba@google.com>
- <20260428103008.696141-2-tabba@google.com>
+	b=RAtE09c/Pq4kL4koWknd9JnUKr6X7YSZn8+aOr84h3F8VuzIw9nGbNfYjzgVOVStb
+	 PfZ9zaOTiIdfH7QSRpAadzDY3cLewijCk+xAKzI+08bUll2fq9Ac8VjZg6db9HFPG1
+	 bg3amLo6SkLBFzvfr1DGUGaG/7WQ6Ra3wgdcjtvFTtCMd+AfW6GXuFBMv+EXt8mt9J
+	 +izL3jjVhVoBhyblugNDVbjqVTz/FELwo9lXE31lUJNQTyOBKUja2qtbICMUob7K0a
+	 QeW/C1DlNJOogoiSoUaxU4nLGbvLrdHYhfEKggYjgL2F245krxrYnQ2fnCBkIOAg3t
+	 uEfbvQj29D0Qg==
+Date: Thu, 30 Apr 2026 10:13:48 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, arm-scmi@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH 1/2] firmware: arm_scmi: imx: Support getting reset
+ reason of MISC protocol
+Message-ID: <20260430-private-versatile-jacamar-fd932f@sudeepholla>
+References: <20260305-scmi-imx-reset-v1-0-18de78978ba9@nxp.com>
+ <20260305-scmi-imx-reset-v1-1-18de78978ba9@nxp.com>
+ <20260318-savvy-courageous-mule-b3f9ae@sudeepholla>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260428103008.696141-2-tabba@google.com>
+In-Reply-To: <20260318-savvy-courageous-mule-b3f9ae@sudeepholla>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_020805_454351_5AD07949 
-X-CRM114-Status: GOOD (  19.92  )
+X-CRM114-CacheID: sfid-20260430_021353_069781_61889373 
+X-CRM114-Status: GOOD (  15.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,55 +79,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 28, 2026 at 11:30:01AM +0100, Fuad Tabba wrote:
-> SCTLR_EL2.EIS and SCTLR_EL2.EOS control whether exception entry and
-> exit at EL2 are Context Synchronisation Events (CSEs). Per ARM DDI
-> 0487 M.b, EIS is governed by D1.4.2 rule RBBSRF (p. D1-7205) and EOS
-> by D1.4.4.1 rule RBWCFK (p. D1-7209). D24.2.175 (p. D24-9754):
+On Wed, Mar 18, 2026 at 03:25:03PM +0000, Sudeep Holla wrote:
+> On Thu, Mar 05, 2026 at 09:56:44AM +0800, Peng Fan (OSS) wrote:
+> > From: Peng Fan <peng.fan@nxp.com>
+> > 
+> > MISC protocol supports getting reset reason per Logical Machine or
+> > System. Add the API for user to retrieve the information from System
+> > Manager.
+> > 
 > 
->   - !FEAT_ExS: the bit is RES1, so the entry/exit is unconditionally
->     a CSE.
->   - FEAT_ExS: the reset value is architecturally UNKNOWN; software
->     must set the bit to make the entry/exit a CSE.
+> Sorry for missing this earlier. It looks good though my usual rant is that
+> this MISC protocol is becoming never ending dumping ground for all sorts of
+> info you want kernel to dump in dmesg. Anyways, I am not too bothered as it
+> is not any user ABI.
 > 
-> INIT_SCTLR_EL2_MMU_ON in arch/arm64/include/asm/sysreg.h sets neither
-> bit. KVM/arm64 hot paths rely on ERET from EL2 being a CSE, and on
-> synchronous EL1->EL2 entry being a CSE, to elide explicit ISBs after
-> MSRs to context-switching system registers (HCR_EL2, HFGxTR_EL2,
-> HCRX_EL2, ZCR_EL2, CPACR_EL1, CPTR_EL2, SCTLR_EL1, ptrauth keys,
-> etc.); examples include the activate-traps path,
-> ptrauth_switch_to_guest, and the FPSIMD trap re-enable in
-> kvm_hyp_handle_fpsimd. On FEAT_ExS hardware those reliances are not
-> architecturally backed unless EOS=1 (and, for entry, EIS=1), and
-> whether they hold today depends on firmware initialisation outside
-> the kernel's control.
+> If, you plan to ask i.MX maintainers to pick this up,
 > 
-> Make the guarantee explicit: include SCTLR_ELx_EIS | SCTLR_ELx_EOS in
-> INIT_SCTLR_EL2_MMU_ON so that EL2 exception entry and exit are
-> unconditionally CSEs regardless of whether FEAT_ExS is implemented.
-> This matches the pairing in arch/arm64/kvm/config.c which treats EIS
-> and EOS together as RES1 under !FEAT_ExS.
+> Reviewed-by: Sudeep Holla <sudeep.holla@kernel.org>
 > 
-> INIT_SCTLR_EL2_MMU_OFF is left unchanged: that path is used during
-> very early EL2 init and the EL2 MMU-off transition, neither of which
-> relies on these bits in the same way.
+> If not, I need their ack for 2/2/
 > 
-> Fixes: fe2c8d19189e ("KVM: arm64: Turn SCTLR_ELx_FLAGS into INIT_SCTLR_EL2_MMU_ON")
 
-I don't think this Fixes: tag is accurate:
+I have left it in my -next queue assuming I would get ack if I need to take
+it. But I haven't received any, so not sure if I need to take it or drop it
+assuming it will go via i.MX tree ?
 
-1. That commit doesn't do anything with EIS/EOS afaict.
-2. Back in 5.12 (when that thing landed), SCTLR_EL2_RES1 did actually
-   include EIS and EOS
-
-so I think the issue here might be that the auto-generated sysreg file
-quietly changes the RES1 definitions as bits get allocated, but the
-macros using the RES1 definition don't get updated. That's a pretty
-horrible pit that it feels like we might keep falling into :/
-
-Looking at 0a35bd285f43 ("arm64: Convert SCTLR_EL2 to sysreg
-infrastructure"), I think we ended up dropping a whole bunch of fields
-from the RES1 mask (which became 0!). Have you checked all of those?
-
-Will
+-- 
+Regards,
+Sudeep
 
