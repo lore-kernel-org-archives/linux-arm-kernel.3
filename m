@@ -4,73 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F21BFCCFA13
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 015B9CD13D2
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 11:15:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9oMGzN03CHJLCXRmF2kf9hbHZWYmgAo98CZVUtghVsQ=; b=ojYboKy3Tdrn+qLk0dlCKngSEz
-	hu7DsQ6OzOeu13fSgGod+y0wqRmHN9Hv//vn6mKlK4gESFdIVx7rjKdcUz4uLR6oC2/jwyQ+SvFvh
-	Y+HaAMsPe+gTKBpHh9tMSprcst+uKnZpRDl8r1iN+wA+eDksuHtwvIzk+zZBs+N0ItK611D3rweT2
-	Bz8k8Nl/k3s/aZkqbnWzgpFPobCxpAJy3RDjWejSHZFqyZMnyrM665UoJn0A/iCUOrlgzRRMRa4Hn
-	BFmLkR64bLrB1fN5BmIit/zdWCoG5yp0ANY6zYWNkXrTUiyxOuKAJ22nm0oAAv2Z5AvGtifU3vpqy
-	pgpuWbsg==;
+	bh=7n6v/E3xSDBWinfzuA9w4svtuAwLYIUYfltlVP5Ikqk=; b=UYE0rmaLVk0K5nRDM0a2/8Nj1a
+	RHBC1/pgraDc9HGBVxv687IOiHdNka9a588Dkg+HBCA8vzGJiomxJ08BQSBVVTQslXJd5zwM2qtOL
+	c2rOvlh7FNfz4zwuxBoJHBToh6aEeaa0FHZ4rbJoEXmjNPB/aAr5n0s5Q5WplqaOOQlGXRv6v91OS
+	HylVeCUHN9Nl1cz4z1J3XIwUh6q1E0uyiKHwYUHlvsDgbO8XkiisHx794Gby6a4GszB+nG7aMNTVi
+	YOUCKqAKKuobYdeZ+JRMyaGtCvgfhGfkzYchDxPyOVvSCtqvf6N6fjPbOJi7h/0QBiIloKNvQPfHI
+	5XE6G6dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIPMl-00000005LB9-2c0G;
+	id 1wIPMl-00000005LAQ-0Ebn;
 	Thu, 30 Apr 2026 11:15:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIPMg-00000005L7g-2DPc
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wIPMf-00000005L74-0A8f
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 11:15:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7B9F0442EC
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 11:15:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E705C2BCC9
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 11:15:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777547729;
-	bh=WbVGwnhMK3bVP2dooowUwCI372Q+68vRv53kKfxGrKw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=pJDvayFIFBrQ48FV6k0MBJTE7omjJhnCiCKI627UOkdRQaAlxmgxjw/VBYEY2TFZh
-	 M75KGSB6FdqISbX8ea1mMWiz+u4xP/OMeXC9zsm1gApiA8nigQ0ib1TzQvamF82WMS
-	 gZaidfIliv/1zOe7DntZ9niRlR9DFGCcKjHCxBUVHJzaqOMLqhnCZsZXZG3xgOiu42
-	 eIRRcQ0GilVVk2LUHKddLLkgzL8D6e3EiyYzNkzR0MMZXghLMs1iM1sZOx9bS55d7x
-	 BY22wMlZaVFDU8tEhDKpCLHrDllX34Ui7ck037ifV8eZvSteD/xP+xRkLC0K1x6PqD
-	 jUIkfuOTEZ+/A==
-Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-5a2c3dfb4a1so740274e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 04:15:29 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+U1+6Zgr8PA+jpdIzH/qAcVtJ9fuAGrY0HL4XO1YAqoVu9PmBlCzMBQDVAOyRBH3BfUk9jO8Zmmk0udzqdVaEh@lists.infradead.org
-X-Gm-Message-State: AOJu0YxgEVZxTso7b0DYS/Xs8gRO4x6wPfi+UvWkbo+dqS6AC0ECEjog
-	OYv/wivd24F2e6/mXuVyRQZmJ5mQzXBTePcym+ai+Ta1WUGiw2Hk/n2UMIuyjWN77WRypMQfHid
-	yPm11L+QPIDZhSnG5ux+eAgmoUuWcuxQ=
-X-Received: by 2002:a05:6512:3b14:b0:5a4:a4c:658b with SMTP id
- 2adb3069b0e04-5a8522dd8f1mr808421e87.40.1777547728018; Thu, 30 Apr 2026
- 04:15:28 -0700 (PDT)
+	Thu, 30 Apr 2026 11:15:30 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 002CC34FB;
+	Thu, 30 Apr 2026 04:15:23 -0700 (PDT)
+Received: from devkitleo.cambridge.arm.com (devkitleo.cambridge.arm.com [10.1.196.90])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E42A73F763;
+	Thu, 30 Apr 2026 04:15:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1777547728; bh=IJnhFRETYA3/XOyItIN8jRNbzWUD8pBmuScgZbJBJ+s=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=hwbU60+MRUATS4TmL0gah19/ogqn/VzSzNRDIGcQQPQY4Nb3B0m3bE6Io/YJKs3DP
+	 N9whYfyK9mf867Bz+RuahLPusbfBp8QpEUqfl0glyBQCBOG2Z+qeSzWR0qPmqMy1WB
+	 eq0rs04VCgCXe7HdhltnqOgnEyUlJgQyMCVtW9zo=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Leonardo Bras <leo.bras@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	Saket Dumbre <saket.dumbre@intel.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Chengwen Feng <fengchengwen@huawei.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Kees Cook <kees@kernel.org>,
+	=?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	Thomas Huth <thuth@redhat.com>,
+	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Tian Zheng <zhengtian10@huawei.com>,
+	Wei-Lin Chang <weilin.chang@arm.com>
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-acpi@vger.kernel.org,
+	acpica-devel@lists.linux.dev,
+	kvm@vger.kernel.org
+Subject: [PATCH v1 02/12] KVM: arm64: HDBSS bits
+Date: Thu, 30 Apr 2026 12:14:06 +0100
+Message-ID: <20260430111424.3479613-4-leo.bras@arm.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260430111424.3479613-2-leo.bras@arm.com>
+References: <20260430111424.3479613-2-leo.bras@arm.com>
 MIME-Version: 1.0
-References: <20260427021148.2049555-1-wenst@chromium.org>
-In-Reply-To: <20260427021148.2049555-1-wenst@chromium.org>
-From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 30 Apr 2026 13:15:16 +0200
-X-Gmail-Original-Message-ID: <CAD++jLnKC4o6e2p0qJ6_2s2CfK6y+yKTw8gcGAJQnpOOmML_QQ@mail.gmail.com>
-X-Gm-Features: AVHnY4Ink9nKnmzrWklC6PMDhHtyVmdHrdEJDfXlUWMPbQa8lwjP3yaXXRPJm1Y
-Message-ID: <CAD++jLnKC4o6e2p0qJ6_2s2CfK6y+yKTw8gcGAJQnpOOmML_QQ@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: mediatek: eint: Drop base from mtk_eint_chip_write_mask()
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Sean Wang <sean.wang@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Hao Chang <ot_chhao.chang@mediatek.com>, Qingliang Li <qingliang.li@mediatek.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_041530_583824_751C04A1 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20260430_041529_175419_E8119684 
+X-CRM114-Status: GOOD (  26.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,34 +105,351 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 27, 2026 at 4:11=E2=80=AFAM Chen-Yu Tsai <wenst@chromium.org> w=
-rote:
+All those bits should come from a future version of HDBSS patchset:
+https://lore.kernel.org/lkml/20260225040421.2683931-1-zhengtian10@huawei.com
 
-> When support for multiple EINT base addresses was added in commit
-> 3ef9f710efcb ("pinctrl: mediatek: Add EINT support for multiple
-> addresses"), mtk_eint_chip_write_mask() was changed to write interrupt
-> masks for all base addresses in one call. However the "base" parameter
-> was left around and now causes sparse warnings:
->
->     mtk-eint.c:428:44: warning: incorrect type in argument 2 (different a=
-ddress spaces)
->     mtk-eint.c:428:44:    expected void [noderef] __iomem *base
->     mtk-eint.c:428:44:    got void [noderef] __iomem **base
->     mtk-eint.c:436:44: warning: incorrect type in argument 2 (different a=
-ddress spaces)
->     mtk-eint.c:436:44:    expected void [noderef] __iomem *base
->     mtk-eint.c:436:44:    got void [noderef] __iomem **base
->
-> Since the "base" parameter is no longer needed, just drop it.
->
-> Fixes: 3ef9f710efcb ("pinctrl: mediatek: Add EINT support for multiple ad=
-dresses")
-> Cc: Hao Chang <ot_chhao.chang@mediatek.com>
-> Cc: Qingliang Li <qingliang.li@mediatek.com>
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+I added them here in order to fulfill the dependencies and be able to
+easily build this patchset, but this particular patch should not be merged
+upstream.
 
-Patch applied because looks correct!
+Signed-off-by: Leonardo Bras <leo.bras@arm.com>
+---
+ arch/arm64/include/asm/cpufeature.h    |  5 +++++
+ arch/arm64/include/asm/kvm_dirty_bit.h | 12 ++++++++++++
+ arch/arm64/include/asm/kvm_pgtable.h   |  3 +++
+ arch/arm64/kernel/cpufeature.c         | 12 ++++++++++++
+ arch/arm64/kvm/dirty_bit.c             | 23 +++++++++++++++++++++++
+ arch/arm64/kvm/hyp/pgtable.c           | 15 +++++++++++++--
+ arch/arm64/kvm/Makefile                |  2 +-
+ arch/arm64/tools/cpucaps               |  1 +
+ 8 files changed, 70 insertions(+), 3 deletions(-)
+ create mode 100644 arch/arm64/include/asm/kvm_dirty_bit.h
+ create mode 100644 arch/arm64/kvm/dirty_bit.c
 
-Yours,
-Linus Walleij
+diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+index 4de51f8d92cb..dcc2e2cad5ad 100644
+--- a/arch/arm64/include/asm/cpufeature.h
++++ b/arch/arm64/include/asm/cpufeature.h
+@@ -849,20 +849,25 @@ static inline bool system_supports_poe(void)
+ static inline bool system_supports_gcs(void)
+ {
+ 	return alternative_has_cap_unlikely(ARM64_HAS_GCS);
+ }
+ 
+ static inline bool system_supports_haft(void)
+ {
+ 	return cpus_have_final_cap(ARM64_HAFT);
+ }
+ 
++static inline bool system_supports_hdbss(void)
++{
++	return cpus_have_final_cap(ARM64_HAS_HDBSS);
++}
++
+ static __always_inline bool system_supports_mpam(void)
+ {
+ 	return alternative_has_cap_unlikely(ARM64_MPAM);
+ }
+ 
+ static __always_inline bool system_supports_mpam_hcr(void)
+ {
+ 	return alternative_has_cap_unlikely(ARM64_MPAM_HCR);
+ }
+ 
+diff --git a/arch/arm64/include/asm/kvm_dirty_bit.h b/arch/arm64/include/asm/kvm_dirty_bit.h
+new file mode 100644
+index 000000000000..dd16438f0651
+--- /dev/null
++++ b/arch/arm64/include/asm/kvm_dirty_bit.h
+@@ -0,0 +1,12 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2026 ARM Ltd.
++ * Author: Leonardo Bras <leo.bras@arm.com>
++ */
++
++#ifndef __ARM64_KVM_DIRTY_BIT_H__
++#define __ARM64_KVM_DIRTY_BIT_H__
++
++#include <asm/kvm_pgtable.h>
++
++#endif /* __ARM64_KVM_DIRTY_BIT_H__ */
+diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+index 41a8687938eb..646ff88e0258 100644
+--- a/arch/arm64/include/asm/kvm_pgtable.h
++++ b/arch/arm64/include/asm/kvm_pgtable.h
+@@ -86,20 +86,22 @@ typedef u64 kvm_pte_t;
+ #define KVM_PTE_LEAF_ATTR_HI		GENMASK(63, 50)
+ 
+ #define KVM_PTE_LEAF_ATTR_HI_SW		GENMASK(58, 55)
+ 
+ #define KVM_PTE_LEAF_ATTR_HI_S1_XN	BIT(54)
+ #define KVM_PTE_LEAF_ATTR_HI_S1_UXN	BIT(54)
+ #define KVM_PTE_LEAF_ATTR_HI_S1_PXN	BIT(53)
+ 
+ #define KVM_PTE_LEAF_ATTR_HI_S2_XN	GENMASK(54, 53)
+ 
++#define KVM_PTE_LEAF_ATTR_HI_S2_DBM	BIT(51)
++
+ #define KVM_PTE_LEAF_ATTR_HI_S1_GP	BIT(50)
+ 
+ #define KVM_PTE_LEAF_ATTR_S2_PERMS	(KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R | \
+ 					 KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W | \
+ 					 KVM_PTE_LEAF_ATTR_HI_S2_XN)
+ 
+ /* pKVM invalid pte encodings */
+ #define KVM_INVALID_PTE_TYPE_MASK	GENMASK(63, 60)
+ #define KVM_INVALID_PTE_ANNOT_MASK	~(KVM_PTE_VALID | \
+ 					  KVM_INVALID_PTE_TYPE_MASK)
+@@ -246,20 +248,21 @@ struct kvm_pgtable_mm_ops {
+ };
+ 
+ /**
+  * enum kvm_pgtable_stage2_flags - Stage-2 page-table flags.
+  * @KVM_PGTABLE_S2_IDMAP:	Only use identity mappings.
+  * @KVM_PGTABLE_S2_AS_S1:	Final memory attributes are that of Stage-1.
+  */
+ enum kvm_pgtable_stage2_flags {
+ 	KVM_PGTABLE_S2_IDMAP			= BIT(0),
+ 	KVM_PGTABLE_S2_AS_S1			= BIT(1),
++	KVM_PGTABLE_S2_DBM			= BIT(2),
+ };
+ 
+ /**
+  * enum kvm_pgtable_prot - Page-table permissions and attributes.
+  * @KVM_PGTABLE_PROT_UX:	Unprivileged execute permission.
+  * @KVM_PGTABLE_PROT_PX:	Privileged execute permission.
+  * @KVM_PGTABLE_PROT_X:		Privileged and unprivileged execute permission.
+  * @KVM_PGTABLE_PROT_W:		Write permission.
+  * @KVM_PGTABLE_PROT_R:		Read permission.
+  * @KVM_PGTABLE_PROT_DEVICE:	Device attributes.
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 6d53bb15cf7b..eac7784463e3 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -2112,20 +2112,25 @@ static bool has_nested_virt_support(const struct arm64_cpu_capabilities *cap,
+ 
+ 	return true;
+ }
+ 
+ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
+ 			  int __unused)
+ {
+ 	return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
+ }
+ 
++static bool has_vhe_hdbss(const struct arm64_cpu_capabilities *entry, int cope)
++{
++	return is_kernel_in_hyp_mode() && has_cpuid_feature(entry, cope);
++}
++
+ bool cpu_supports_bbml2_noabort(void)
+ {
+ 	/*
+ 	 * We want to allow usage of BBML2 in as wide a range of kernel contexts
+ 	 * as possible. This list is therefore an allow-list of known-good
+ 	 * implementations that both support BBML2 and additionally, fulfill the
+ 	 * extra constraint of never generating TLB conflict aborts when using
+ 	 * the relaxed BBML2 semantics (such aborts make use of BBML2 in certain
+ 	 * kernel contexts difficult to prove safe against recursive aborts).
+ 	 *
+@@ -2762,20 +2767,27 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+ 		 * cannot be emulated in software (no access fault will occur).
+ 		 * Therefore this should be used only if it's supported system
+ 		 * wide.
+ 		 */
+ 		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
+ 		.capability = ARM64_HAFT,
+ 		.matches = has_cpuid_feature,
+ 		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HAFT)
+ 	},
+ #endif
++	{
++		.desc = "Hardware Dirty state tracking structure (HDBSS)",
++		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
++		.capability = ARM64_HAS_HDBSS,
++		.matches = has_vhe_hdbss,
++		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HDBSS)
++	},
+ 	{
+ 		.desc = "CRC32 instructions",
+ 		.capability = ARM64_HAS_CRC32,
+ 		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
+ 		.matches = has_cpuid_feature,
+ 		ARM64_CPUID_FIELDS(ID_AA64ISAR0_EL1, CRC32, IMP)
+ 	},
+ 	{
+ 		.desc = "Speculative Store Bypassing Safe (SSBS)",
+ 		.capability = ARM64_SSBS,
+diff --git a/arch/arm64/kvm/dirty_bit.c b/arch/arm64/kvm/dirty_bit.c
+new file mode 100644
+index 000000000000..31ef35f3b72f
+--- /dev/null
++++ b/arch/arm64/kvm/dirty_bit.c
+@@ -0,0 +1,23 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2026 ARM Ltd.
++ * Author: Leonardo Bras <leo.bras@arm.com>
++ */
++
++#include <asm/kvm_dirty_bit.h>
++
++/* HDBSS entry field definitions */
++#define HDBSS_ENTRY_VALID BIT(0)
++#define HDBSS_ENTRY_TTWL_SHIFT (1)
++#define HDBSS_ENTRY_TTWL_MASK (GENMASK(3, 1))
++#define HDBSS_ENTRY_TTWL(x) \
++	(((x) << HDBSS_ENTRY_TTWL_SHIFT) & HDBSS_ENTRY_TTWL_MASK)
++#define HDBSS_ENTRY_TTWL_RESV HDBSS_ENTRY_TTWL(-4)
++#define HDBSS_ENTRY_IPA GENMASK_ULL(55, 12)
++
++inline u64 hdbss_get_ttwl(u64 chunk_size)
++{
++	u64 hw_lvl = ARM64_HW_PGTABLE_LEVELS(ilog2(chunk_size));
++
++	return HDBSS_ENTRY_TTWL(3 - hw_lvl);
++}
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index 0c1defa5fb0f..68ade2623748 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -724,23 +724,27 @@ static int stage2_set_prot_attr(struct kvm_pgtable *pgt, enum kvm_pgtable_prot p
+ 		attr = KVM_S2_MEMATTR(pgt, NORMAL);
+ 	}
+ 
+ 	r = stage2_set_xn_attr(prot, &attr);
+ 	if (r)
+ 		return r;
+ 
+ 	if (prot & KVM_PGTABLE_PROT_R)
+ 		attr |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R;
+ 
+-	if (prot & KVM_PGTABLE_PROT_W)
++	if (prot & KVM_PGTABLE_PROT_W) {
+ 		attr |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
+ 
++		if (pgt->flags & KVM_PGTABLE_S2_DBM)
++			attr |= KVM_PTE_LEAF_ATTR_HI_S2_DBM;
++	}
++
+ 	if (!kvm_lpa2_is_enabled())
+ 		attr |= FIELD_PREP(KVM_PTE_LEAF_ATTR_LO_S2_SH, sh);
+ 
+ 	attr |= KVM_PTE_LEAF_ATTR_LO_S2_AF;
+ 	attr |= prot & KVM_PTE_LEAF_ATTR_HI_SW;
+ 	*ptep = attr;
+ 
+ 	return 0;
+ }
+ 
+@@ -1358,23 +1362,27 @@ int kvm_pgtable_stage2_relax_perms(struct kvm_pgtable *pgt, u64 addr,
+ 	kvm_pte_t xn = 0, set = 0, clr = 0;
+ 	s8 level;
+ 	int ret;
+ 
+ 	if (prot & KVM_PTE_LEAF_ATTR_HI_SW)
+ 		return -EINVAL;
+ 
+ 	if (prot & KVM_PGTABLE_PROT_R)
+ 		set |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R;
+ 
+-	if (prot & KVM_PGTABLE_PROT_W)
++	if (prot & KVM_PGTABLE_PROT_W) {
+ 		set |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
+ 
++		if (pgt->flags & KVM_PGTABLE_S2_DBM)
++			set |= KVM_PTE_LEAF_ATTR_HI_S2_DBM;
++	}
++
+ 	ret = stage2_set_xn_attr(prot, &xn);
+ 	if (ret)
+ 		return ret;
+ 
+ 	set |= xn & KVM_PTE_LEAF_ATTR_HI_S2_XN;
+ 	clr |= ~xn & KVM_PTE_LEAF_ATTR_HI_S2_XN;
+ 
+ 	ret = stage2_update_leaf_attrs(pgt, addr, 1, set, clr, NULL, &level, flags);
+ 	if (!ret || ret == -EAGAIN)
+ 		kvm_call_hyp(__kvm_tlb_flush_vmid_ipa_nsh, pgt->mmu, addr, level);
+@@ -1576,20 +1584,23 @@ int __kvm_pgtable_stage2_init(struct kvm_pgtable *pgt, struct kvm_s2_mmu *mmu,
+ 	u64 vtcr = mmu->vtcr;
+ 	u32 ia_bits = VTCR_EL2_IPA(vtcr);
+ 	u32 sl0 = FIELD_GET(VTCR_EL2_SL0_MASK, vtcr);
+ 	s8 start_level = VTCR_EL2_TGRAN_SL0_BASE - sl0;
+ 
+ 	pgd_sz = kvm_pgd_pages(ia_bits, start_level) * PAGE_SIZE;
+ 	pgt->pgd = (kvm_pteref_t)mm_ops->zalloc_pages_exact(pgd_sz);
+ 	if (!pgt->pgd)
+ 		return -ENOMEM;
+ 
++	if (system_supports_hdbss())
++		flags |= KVM_PGTABLE_S2_DBM;
++
+ 	pgt->ia_bits		= ia_bits;
+ 	pgt->start_level	= start_level;
+ 	pgt->mm_ops		= mm_ops;
+ 	pgt->mmu		= mmu;
+ 	pgt->flags		= flags;
+ 	pgt->force_pte_cb	= force_pte_cb;
+ 
+ 	/* Ensure zeroed PGD pages are visible to the hardware walker */
+ 	dsb(ishst);
+ 	return 0;
+diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
+index 59612d2f277c..6faacd857346 100644
+--- a/arch/arm64/kvm/Makefile
++++ b/arch/arm64/kvm/Makefile
+@@ -17,21 +17,21 @@ kvm-y += arm.o mmu.o mmio.o psci.o hypercalls.o pvtime.o \
+ 	 inject_fault.o va_layout.o handle_exit.o config.o \
+ 	 guest.o debug.o reset.o sys_regs.o stacktrace.o \
+ 	 vgic-sys-reg-v3.o fpsimd.o pkvm.o \
+ 	 arch_timer.o trng.o vmid.o emulate-nested.o nested.o at.o \
+ 	 vgic/vgic.o vgic/vgic-init.o \
+ 	 vgic/vgic-irqfd.o vgic/vgic-v2.o \
+ 	 vgic/vgic-v3.o vgic/vgic-v4.o \
+ 	 vgic/vgic-mmio.o vgic/vgic-mmio-v2.o \
+ 	 vgic/vgic-mmio-v3.o vgic/vgic-kvm-device.o \
+ 	 vgic/vgic-its.o vgic/vgic-debug.o vgic/vgic-v3-nested.o \
+-	 vgic/vgic-v5.o
++	 vgic/vgic-v5.o dirty_bit.o
+ 
+ kvm-$(CONFIG_HW_PERF_EVENTS)  += pmu-emul.o pmu.o
+ kvm-$(CONFIG_ARM64_PTR_AUTH)  += pauth.o
+ kvm-$(CONFIG_PTDUMP_STAGE2_DEBUGFS) += ptdump.o
+ 
+ kvm-$(CONFIG_NVHE_EL2_TRACING) += hyp_trace.o
+ 
+ always-y := hyp_constants.h hyp-constants.s
+ 
+ define rule_gen_hyp_constants
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index 811c2479e82d..6bd563e0bc62 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -62,20 +62,21 @@ HAS_RASV1P1_EXTN
+ HAS_RNG
+ HAS_SB
+ HAS_STAGE2_FWB
+ HAS_TCR2
+ HAS_TIDCP1
+ HAS_TLB_RANGE
+ HAS_VA52
+ HAS_VIRT_HOST_EXTN
+ HAS_WFXT
+ HAS_XNX
++HAS_HDBSS
+ HAFT
+ HW_DBM
+ KVM_HVHE
+ KVM_PROTECTED_MODE
+ MISMATCHED_CACHE_TYPE
+ MPAM
+ MPAM_HCR
+ MTE
+ MTE_ASYMM
+ MTE_FAR
+-- 
+2.54.0
+
 
