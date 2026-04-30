@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0188FFF886F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 07:14:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E7CDFF886F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 07:18:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Cc
+	:Subject:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=46aRrsk4VduolpeCWiXh/05qrmB1zXwaQdpRCjO047U=; b=y+HugE774SlE3FjYERfY/8Feze
-	T/VqEPPHNByK4xF1c7liX5lGd9gONKLyHGtDWYYJKYqWCQy+PYBjmoeDixlpeqqeFlYWklCnxeBf8
-	S97tzn5uNTFJFABttPehIfGGF9xcns6hjmdInnyih2frHc6dWN1ufWUJuRsZMOAIYK2KmRVhAF1av
-	pNuiBM1FxLWGBeYNfcFT6IXmFBHLYsjKY3292k2PVP65Koh/TByZ+PDjwlK/O0ICV9EvHlG2PAetx
-	eCRxcPUamYn2ke+3qXPN3AY04DLw8hEY0VaK4eQBeV09s1en3A1mvboO58t5btzla4YL5wgjJuFyX
-	fjvs3vJA==;
+	bh=fYZocCmk4lmGT9EFNgIlV7nk5A86HLgtF421diFCKSM=; b=vyxIgKkH5F2P7ovCo5F7UXa6jB
+	37dO2Mg5HjWGNcudsnvALDVx3XwC4YVkpWEE6orBzHPBXEFyAUpOKPKxGs6JxkRLFpAU0gMsj9FfA
+	Ms/zYY+BIlV3duxM1zDCiryzp3Gfl6IWREjsU979PDZGiNVHG0fKpt5dRmj/1zomvdpLyumQq1sCz
+	NnIVCqEAha+rbRYn8HXBTFZcBlDywAnWQLcvuLt6m9I9BI8+DfVxKzJ+dd2PMT5rH1jQvyDCIzg1R
+	18UWmEGrqYtQ4VXZAUCilpARhIWrwWN144UWYpW6ZhJmjCJJ7Tvtb6of0isntcpN/CJqWBaGCahzc
+	XHsl4a+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wILbd-00000004qtS-1NGu;
-	Thu, 30 Apr 2026 07:14:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wILep-00000004rPg-3rXs;
+	Thu, 30 Apr 2026 07:17:59 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wILba-00000004qqV-2hWn
+	id 1wILem-00000004rOd-0bAk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 07:14:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DC13D43EB0
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 07:14:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE0B5C2BCF6
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 07:14:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777533276;
-	bh=46aRrsk4VduolpeCWiXh/05qrmB1zXwaQdpRCjO047U=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=tEIo/BHrXapOle3sS8SkioMxXFcPjsI2jQUnkUaRFuV841rylOLF+7v7Rlgbe3hXw
-	 7wb5CKJ3P0M4t2kym8ziYAs3VugHPoOdno6fhIRL8XvboMwKWzwHlmzzBt/NfFMT+6
-	 5vygZ/4IDbIhfhgSDLrMOI/LAizvxBhhzP0Bwa4Mr9/kayg1snjpvLLMibHtWxI8bs
-	 T9BrDvoKjvAHvFUpD4tV094K/6QFQ/gYBBmWnJiFxMYCbbsM2WQ7CLprcSDWQQvqB4
-	 vkf/QNpwec6Vzz7i6sLVgxySseS4p5uQn0RfkFY6bvFGBxVXL2VxiF/hn3Dr31nyHH
-	 FZnDdpfispWcA==
-Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5a4113ab355so590394e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 00:14:36 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+X+p8fkzI1KWK1HwoE8LGh4pyR+fF/kaFjUZRKgSrHSTJSCV2pUsYqzkoAheC1whooC015VzjgV1wXy4ygCr7H@lists.infradead.org
-X-Gm-Message-State: AOJu0YzpdmbWV7HPy0j9KkkrNbHsCKGS0lpRQx28FBTWC4TeVr2ykT6e
-	giPs2E3JsAtEaLEV91BKDJg998tsj3fWq0gG60QHodiAbX24bHJDlXkoyJ28qJfmhBxYIqZb2RN
-	PopbTo1YKgc010pu+mAUG2FZlKIToIyNUvHByAIQVpQ==
-X-Received: by 2002:a05:6512:10cb:b0:5a4:157:5354 with SMTP id
- 2adb3069b0e04-5a8522bc5ffmr518494e87.12.1777533275377; Thu, 30 Apr 2026
- 00:14:35 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260427-pxa-gpio-swnodes-v2-0-86fc24b9e714@oss.qualcomm.com>
- <da7ea88f-845f-49e3-852b-3ca352c1790d@app.fastmail.com> <CAMRc=Mf9M_eoPzsqBdmnXLd8Eqw_cPcnXWN9xjC-+x5ZA5Qb_Q@mail.gmail.com>
-In-Reply-To: <CAMRc=Mf9M_eoPzsqBdmnXLd8Eqw_cPcnXWN9xjC-+x5ZA5Qb_Q@mail.gmail.com>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Thu, 30 Apr 2026 09:14:23 +0200
-X-Gmail-Original-Message-ID: <CAMRc=MeKn1_pMAyx_bQfMczqRJ1s28s3R9dAVMG5he97R_q4Dw@mail.gmail.com>
-X-Gm-Features: AVHnY4IoDCsL1ZG3kMceO9b_l8khTfjG1SHVMNe95GwlVs-8ZP-WhxK6b8MdIgA
-Message-ID: <CAMRc=MeKn1_pMAyx_bQfMczqRJ1s28s3R9dAVMG5he97R_q4Dw@mail.gmail.com>
-Subject: Re: [PATCH v2 0/4] ARM: pxa: attach software nodes to the GPIO controllers
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Daniel Mack <daniel@zonque.org>, 
-	Haojian Zhuang <haojian.zhuang@gmail.com>, Robert Jarzmik <robert.jarzmik@free.fr>, 
-	Russell King <linux@armlinux.org.uk>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
-	Linus Walleij <linusw@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	"open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 30 Apr 2026 07:17:58 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 0FE66C5EF3A;
+	Thu, 30 Apr 2026 07:18:36 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 7F51B60495;
+	Thu, 30 Apr 2026 07:17:51 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 01BEB10729FC2;
+	Thu, 30 Apr 2026 09:17:41 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1777533470; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=fYZocCmk4lmGT9EFNgIlV7nk5A86HLgtF421diFCKSM=;
+	b=WoOX+do3yybdEoFa7DAreeKsB6INbX37cr/NMH09jHfWInuntO3hyNCUd8njgEQQ/8q/nq
+	+tJqUn/Te3H74VIoNZ5vFcOST8/qL1g/4YAgf2r6sXRQGlylKocFF3J6LAxZfyw1O2YE2k
+	ACnNoz6aVp83gthH0GjBF7cr8a61DO/As8QDY0cRWoMZTXve+riChb5T2R21uOL97JGRt1
+	g/M6amic3c8jEiyHpDiMsR0waP3nAGsxXB4Efw8McSyi6LcdYbMxwRgbkO7xkJgoURjY/O
+	VW2OyV2jpCUUZHFAC/66EihwcmU391sA7D+A+/8qIVCX3FFBkJGc5X5u2q1m8w==
+Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 30 Apr 2026 09:17:40 +0200
+Message-Id: <DI6B0UNV68LI.3PYKFFB0F1DH6@bootlin.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH] drm/ipv3: add CONFIG_OF dependency for
+ DRM_OF_DISPLAY_MODE_BRIDGE
+Cc: "Arnd Bergmann" <arnd@arndb.de>, "Pengutronix Kernel Team"
+ <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>,
+ <dri-devel@lists.freedesktop.org>, <imx@lists.linux.dev>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+To: "Arnd Bergmann" <arnd@kernel.org>, "Philipp Zabel"
+ <p.zabel@pengutronix.de>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
+ <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Frank Li"
+ <Frank.Li@nxp.com>, "Sascha Hauer" <s.hauer@pengutronix.de>, "Damon Ding"
+ <damon.ding@rock-chips.com>
+X-Mailer: aerc 0.20.1
+References: <20260429140024.192432-1-arnd@kernel.org>
+In-Reply-To: <20260429140024.192432-1-arnd@kernel.org>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_001438_768643_9F05E595 
-X-CRM114-Status: GOOD (  22.58  )
+X-CRM114-CacheID: sfid-20260430_001756_632964_B5B52BCD 
+X-CRM114-Status: UNSURE (   6.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,49 +85,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 27, 2026 at 1:01=E2=80=AFPM Bartosz Golaszewski <brgl@kernel.or=
-g> wrote:
+On Wed Apr 29, 2026 at 4:00 PM CEST, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
 >
-> On Mon, Apr 27, 2026 at 12:50=E2=80=AFPM Arnd Bergmann <arnd@kernel.org> =
-wrote:
-> >
-> > On Mon, Apr 27, 2026, at 12:14, Bartosz Golaszewski wrote:
-> > > Convert GPIO controllers and their consumers on the PXA platform to u=
-sing
-> > > "attached" software nodes. Since everything happens in a bord-file, i=
-t's
-> > > quite straightforward. We technically now have a way of passing an
-> > > unregistered software node to platform_device_register_full() but tha=
-t
-> > > requires using struct platform_device_info and since the existing
-> > > platform devices are either referenced from other places or defined i=
-n a
-> > > different compilation unit, I wanted to reduce the impact of the chan=
-ges
-> > > I can't test and went with the older method.
-> > >
-> > > Signed-off-by: Bartosz Golaszewski
-> > > <bartosz.golaszewski@oss.qualcomm.com>
-> > > ---
-> >
-> > Hi Bartosz,
-> >
-> > These patches are individually all fine, but I was hoping to
-> > finally get around to removing the pxa board files completely,
-> > sorry it's been taking me so long to rebase my series for
-> > that.
-> >
+> Without this, not all dependencies are met here.
 >
-> If that'll be queued for v7.2, then I'm fine with dropping this
-> series. Otherwise, I'd like to see it applied as I want to get all the
-> changes required to remove the software node name matching from
-> GPIOLIB into v7.2 and then finally remove it in v7.3.
+>   Depends on [n]: HAS_IOMEM [=3Dy] && DRM [=3Dy] && DRM_BRIDGE [=3Dy] && =
+OF [=3Dn]
+>   Selected by [y]:
+>   - DRM_IMX_PARALLEL_DISPLAY [=3Dy] && HAS_IOMEM [=3Dy] && DRM [=3Dy] && =
+DRM_IMX [=3Dy]
+>   - DRM_IMX_LDB [=3Dy] && HAS_IOMEM [=3Dy] && DRM [=3Dy] && DRM_IMX [=3Dy=
+] && COMMON_CLK [=3Dy]
 >
+> Fixes: ba2db93cf3d5 ("drm/bridge: Move legacy bridge driver out of imx di=
+rectory for multi-platform use")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
-Hi Arnd!
+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
-Before I address Russell's comment in v2, can you please let me know
-if pxa will be removed in v7.2?
-
-Bart
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
