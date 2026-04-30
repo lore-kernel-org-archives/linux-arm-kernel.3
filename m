@@ -4,80 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33D8BFF886F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 05:46:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FA54FF886F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 06:08:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=v46Ws/xOIgw8gSDlJIUPyTMQ4uJtu1hJ8VMz+R6vOkM=; b=41bcceTGjCvKwz9epnx8xZu5ID
-	9eP/V7OiXYbkB6CpvlUQMzhBkULbUtHNgzZnAlsLTwZfguCKMMX06KY8UAC0r9/QQ5Z+pSLQSYFzw
-	9/rSCKUp60yrLwPN+k0N+eJFzEEKn6Ny9+b+zA8b/sIYWfBLg8NzJrztjKH+KasgU0A9JlDlfa1aI
-	QztRlVXysikR4ItHreKmYpHYWYOydaZ+l6p19D44ZQo8BFT6Bcu+kJq7qey87rnQ2xv7FsshbrHRY
-	Xz6eOHxkxgkiFEpPqGNsuBx6D1nEMbnjt0IRee3Ewld0JkECfcBJjzb8B0m2gK7ILgYFGHoARD2Uw
-	1iTzDPww==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Cjn1ZBaz4ZIn2D113VXtuXFy4b0UXtv2oTvsQCSMMg4=; b=QLoDVKyBbHP+zzAgXBXD+LlUH8
+	kyHpn6tBOX48Qhb7OUsUlAq2AT/q1c7nnqLI8xJfL94xLI+j0wnDIWhIwSBVcXl/qI/PdIukEvXew
+	tJOsknW0i+B6174L6l8rWDQc64Dn5UrN/jtl+a+EUzbZdgv13EBhEVdLrA7Qr/vzA/7RBM1NuV5SV
+	SUS/oThsiXFvOShdqRf4D1fJCpc4I465MZxwRETLg3tz4lCJ5dh9lNE7a5ANOaJpbiaa0SFqhuh8K
+	LUEHLjGtiV1PMFuFgRKMhEsPh5U0Lp7iW3OVN5VzcbXrEk4QUsRUZXBZOlUrSEVxz7eC0WaDLH0c7
+	RpMiyCjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIKDi-00000004j3C-0HIE;
-	Thu, 30 Apr 2026 05:45:55 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wIKZm-00000004jru-3qku;
+	Thu, 30 Apr 2026 06:08:43 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIKDf-00000004j2q-0cFr
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 05:45:52 +0000
+	id 1wIKZl-00000004jrl-0PmT;
+	Thu, 30 Apr 2026 06:08:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7AB20405DF;
-	Thu, 30 Apr 2026 05:45:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 59C40C2BCB8;
-	Thu, 30 Apr 2026 05:45:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1FC6F6014C;
+	Thu, 30 Apr 2026 06:08:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A934DC2BCB8;
+	Thu, 30 Apr 2026 06:08:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777527948;
-	bh=/tkgJeqOmmrJzR3XxdwYwLro87tsKaNd19RouarTTO8=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=r3ViC7bHBo9vMLgWRlcm7dJWyLccD4DRD5a+PsvyS4nO3o0FiaJZix6dZ/FOPw8ho
-	 tUxT3Hxfv0YgQa8Jt19t5Tn2eBX4DbYCkon7RXKwbE6j1+pX0Udf6eh2UHBWJJZ8wt
-	 b5Z/IztnygykkV3Usd6898AC8PzhXYaUZCR24RRDiwcE3+afSlNq+xeTbqgjdJlMJG
-	 iiTuYOTLLF1S1cv74OvpDdn2SqsodGr8oqPADn/fgb35wbFx1Ya/MKSmWBx31FgNE4
-	 LSdEWZH9FHyysPBKdhwONZByHWLFO2zfvN3BxM1mKDDNQsuDf5XKzeNcQTGzVgXNRJ
-	 Qw9GS0ZJb54uw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 47279CD1297;
-	Thu, 30 Apr 2026 05:45:48 +0000 (UTC)
-From: Rex Fu via B4 Relay <devnull+Rex.Fu.amd.com@kernel.org>
-Date: Thu, 30 Apr 2026 13:44:28 +0800
-Subject: [PATCH] ARM: dts: aspeed: anacapa: name EDSFF and thermtrip SGPIO
- lines
+	s=k20201202; t=1777529319;
+	bh=Cjn1ZBaz4ZIn2D113VXtuXFy4b0UXtv2oTvsQCSMMg4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jyXPaxak4PnGNe+8ki6nvZGL9g324v0yLAudvontCHHxXvMkTJ6/Y3mES9v+ZRSnp
+	 q+MaH6v+1dPRVD1gy9qEYyrQ6uIh6ocYk3FjmJHigNA9Llxv4O+wYHdUVcAmmXre2Q
+	 RevnnXl+SBaN6tU2AJiD+CmpG90hckQ4h8WZNnrgL3v1jgfizKUhU2Co4CfPNaJ/dT
+	 7QKnSeJexmDmwfRQGjjzvYOZc3TWpT0P4XmS2jQw4Bzy922Q9jbeoXBBACTH7QbObs
+	 xmX5DZmkwVjKiAwRalPW9jXgPDQRyAGyH10KOuM2EguGe1SO5OCi5aWpyydPGvfKXP
+	 7AF5wUPiSi5Dg==
+Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
+	id 71F8D1AC585E; Thu, 30 Apr 2026 07:08:37 +0100 (BST)
+Date: Thu, 30 Apr 2026 15:08:37 +0900
+From: Mark Brown <broonie@kernel.org>
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH v2 1/6] mfd: dt-bindings: mt6397: Add regulator supplies
+Message-ID: <afLx5bJJykXE_gea@sirena.co.uk>
+References: <20260429074113.3720271-1-wenst@chromium.org>
+ <20260429074113.3720271-2-wenst@chromium.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260430-anacapa-sgpio-edsff-thermtrip-v1-1-2fd5e72435d0@amd.com>
-X-B4-Tracking: v=1; b=H4sIADvs8mkC/yXMwQrCMAwA0F8ZORvoqgzxV8RD2qVbBLuSVBHG/
- n2dHt/lrWCswga3bgXlj5gsuaE/dRBnyhOjjM3gnR/c5eyQMkUqhDYVWZBHSwnrzPqqKgUpBu+
- vIQ19YGhHUU7y/f33x9/2Dk+O9Uhh23ZG96kXgQAAAA==
-X-Change-ID: 20260430-anacapa-sgpio-edsff-thermtrip-acb228bf61be
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- Rex Fu <Rex.Fu@amd.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777527924; l=1868;
- i=Rex.Fu@amd.com; s=20260417; h=from:subject:message-id;
- bh=FKvzsI9xHFmGcGo9UHVCAjhAhv7ytsitasP4Y5ub01A=;
- b=GPiFDR+/ibGE0NwGTxGFGmQdcKyr+YrgZyfg43LrcwIi2ZH7TGSoZmO77kXGMks/g4aHs7xEr
- 73Dk+5T4CraD5T71ecP2h9D4jP6C68jM1Nj8r/ozRB7Hvh1j+k7MeL/
-X-Developer-Key: i=Rex.Fu@amd.com; a=ed25519;
- pk=26ECoh24fxrbXDKgA4hCmgg0xjQ+IxU97kXb46ovwgc=
-X-Endpoint-Received: by B4 Relay for Rex.Fu@amd.com/20260417 with
- auth_id=738
-X-Original-From: Rex Fu <Rex.Fu@amd.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_224551_242720_1676B641 
-X-CRM114-Status: UNSURE (   9.69  )
-X-CRM114-Notice: Please train this message.
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="eTWikjTYTWdVqHms"
+Content-Disposition: inline
+In-Reply-To: <20260429074113.3720271-2-wenst@chromium.org>
+X-Cookie: 667:
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,66 +75,36 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Rex.Fu@amd.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rex Fu <Rex.Fu@amd.com>
 
-Name the Anacapa SGPIO lines used for EDSFF power-good and thermtrip
-assertion signals.
+--eTWikjTYTWdVqHms
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-The affected lines replace legacy or unused CPU-related names with the
-platform signal names used by userspace monitoring.
+On Wed, Apr 29, 2026 at 03:41:07PM +0800, Chen-Yu Tsai wrote:
+> On the MT6397 family each buck regulator has a separate supply. LDOs are
+> split into various groups with independent supplies. There is also a
+> supply for the regulator control logic.
 
-Signed-off-by: Rex Fu <Rex.Fu@amd.com>
----
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+Lee, this seems like mostly a regulator series - OK for me to apply this
+patch and send you a tag for it?
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
-index 2cb7bd128d24..fe960bb7bc27 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
-@@ -912,7 +912,7 @@ &sgpiom0 {
- 	"PWRGD_PVDDIO_P0", "",
- 	"PWRGD_PVDDIO_MEM_S3_P0", "",
- 	"PWRGD_CHMP_CPU0_FPGA", "",
--	"PWRGD_CHIL_CPU0_FPGA", "",
-+	"HPM_EDSFF_PG", "",
- 	"PWRGD_CHEH_CPU0_FPGA", "",
- 	"PWRGD_CHAD_CPU0_FPGA", "FM_BMC_READY_PLD",
- 	"", "",
-@@ -957,8 +957,8 @@ &sgpiom0 {
- 	"PDB_ALERT_R_N", "",
- 
- 	/* L0-L7 line 176-191 */
--	"CPU0_SP7R1", "", "CPU0_SP7R2", "",
--	"CPU0_SP7R3", "", "CPU0_SP7R4", "",
-+	"L_EDSFF2_PG", "", "L_EDSFF3_PG", "",
-+	"R_EDSFF2_PG", "", "R_EDSFF3_PG", "",
- 	"CPU0_CORETYPE0", "", "CPU0_CORETYPE1", "",
- 	"CPU0_CORETYPE2", "", "FM_BIOS_POST_CMPLT_R_N", "",
- 
-@@ -984,8 +984,8 @@ &sgpiom0 {
- 	"HPM_PWR_FAIL", "Port80_b0",
- 	"FM_DIMM_IP_FAIL", "Port80_b1",
- 	"FM_DIMM_AH_FAIL", "Port80_b2",
--	"HPM_AMC_THERMTRIP_R_L", "Port80_b3",
--	"FM_CPU0_THERMTRIP_N", "Port80_b4",
-+	"AMC_THERMTRIP_ASSERT", "Port80_b3",
-+	"CPU_THERMTRIP_ASSERT", "Port80_b4",
- 	"PVDDCR_SOC_P0_OCP_L", "Port80_b5",
- 	"CPLD_SGPIO_RDY", "Port80_b6",
- 	"", "Port80_b7",
+--eTWikjTYTWdVqHms
+Content-Type: application/pgp-signature; name="signature.asc"
 
----
-base-commit: 9974969c14031a097d6b45bcb7a06bb4aa525c40
-change-id: 20260430-anacapa-sgpio-edsff-thermtrip-acb228bf61be
+-----BEGIN PGP SIGNATURE-----
 
-Best regards,
---  
-Rex Fu <Rex.Fu@amd.com>
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmny8eQACgkQJNaLcl1U
+h9BgzAf/byt1RH1nlHQ3FX6eWSFu2xX9esj6k2nbapayxMx4rHey5B9brr0mpB5i
+9TDNXYmte5933g6dsYhR/2i1u0VNfwMdZry+XOUgQjM9KJETXo76rYYwZg/0SLe4
+WVN9kIX8JEmVyY97zI9pROXuYkQJHZO+Ot1CGm2QYVsP02vgk+T/f8gekGWoZa7B
+dztjGlyXUhxUe1s9eqriAY3vlcj+sUKl41rZ5ZRgETHOZ9Oc72q0X1k/YKRlgybC
+nfImtDn9cytIEtWYPqZzM3C2D7Fse8syXjCvLXdRMQUzb8Uq0R5j6iBCAJvFp0tI
+1ztjAGUoGrdq2y84+G1ZyVk6LM9rOA==
+=aOxF
+-----END PGP SIGNATURE-----
 
-
+--eTWikjTYTWdVqHms--
 
