@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 339CDCCFA13
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39168CD13D2
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 11:16:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,48 +12,48 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ekdmkcXW48B9CD1tkp3RfBESf/cr31oHV89C5tJaqcI=; b=yCV1i6hi9ihbYHfImlroQn43Fc
-	mQB56zPacoHAPsnq7dT7w3uYwB1G/hwIc1csV6Mt3rJ+s3RmZxLw8fd+S3Ql5j0HhEXnjvZu2YZr6
-	Y3d98QXpPPCCXaQhjS6OlLXM5NgRcm+CoV0MhJdmSfUPmYNY7q1rjeu1uYXxUAwrfSMARBriZ1Rh7
-	vNMzEKgxSwXteW7Zik2RnFuJ2CSHVoPT4Q6MGFwyvg1v7YaS+TGDSzN+Hr42UYY/4Cri/wyIIm7Ep
-	EZ+GXnWZ1hPXEE6Na/BpHtGEcCrBeuBwA/yfMJZKUFhIBf5Bh4bgrXTDv3HBSNK5GMiglWf5nIJ2e
-	EFCNrJGg==;
+	bh=k/eoxnSyjF8qW2Mjq433zHm4VZukVJOKNk2r9+tW4LA=; b=RYZi5GYLw741ewY/zbNNcoPvkq
+	kacpi3M/mSweAVJ32fTUpQMBH70G7eaqTGszQn5mmX5q+918AHtdz4rpoh/6/UGWUpj0smsLpUBe5
+	BQLitIP4uD2aa9edF4ZlNHlNANqDNlVnQCkzSnbHkvdErQJ6yqlyIUNx0dUgv5fTOc+qgs9aKFeN2
+	J+MoSadn7FA8M7FdJ7k8N62fDgE4wHRD/KBAzS1pkf2J/TeROBCrAcRVpcM5BJj8h6LlE8C3SEVrB
+	1IP9Yi2W4Ow1/ButhwuiZdUjqdkIcatqG31FOldexwf4l++baksBjEijAJ0ixMc8wwUFesMn6pD7I
+	GcR0VTyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIPNR-00000005LbN-0rTH;
-	Thu, 30 Apr 2026 11:16:17 +0000
+	id 1wIPNQ-00000005LaI-2DVm;
+	Thu, 30 Apr 2026 11:16:16 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIPNK-00000005LVm-1BFc
+	id 1wIPNC-00000005LSp-0BIX
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 30 Apr 2026 11:16:12 +0000
+	Thu, 30 Apr 2026 11:16:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=ekdmkcXW48B9CD1tkp3RfBESf/cr31oHV89C5tJaqcI=; b=kuFjsvKJ/J/w1JfPXKxi77Ya65
-	8LYh3Niv+x6HcC7m/+Mrplr9m59qYi2q6pw5WmW4dOKGf7yK///0RBrn/q1luS5fMmDZ5gQ262rOG
-	PDI5Om/RyMe6JsLfPx9K17usRlsQsUP6gMN138VEs4uYTtSEy9JrKyHtY5x2wqJVqh7gIFHAaiLHc
-	NDiTckPEU9/RfrUW00jKTCcGmoQL2xmLtrQtRqAlm1f7aXA7ojZvhGEM2EiMuqSFiYnN9a1taN2lf
-	V87Ac3CrxYt1Y2+3XxTIi8U8wT9qVg/hoWCaxGHZhWr7SuHHEobtrfv0oQzlD5shwgEj8/a719CM0
-	ArtjT51w==;
+	bh=k/eoxnSyjF8qW2Mjq433zHm4VZukVJOKNk2r9+tW4LA=; b=OMSK7cpK908khihuCkwGZc4+4d
+	V3KOmZCAHp+pgmMt65p2dsqwQngnW0nQT0O5EyaSyq7MTFDLUWG1aW4igs7sulOGbQfi1+vwu87ho
+	xEJR3ZbZ2Noeun64txVukJeAGk4HfjRw10lnTX3VkLRZ+dUfWreTzQCJfznwlBWr2JV0IkX2Ku6iE
+	/uHZOCZ2op3XVITSriGv3x3gGgKzLLng0qdwbJgwGZCRCwYPULdrH0zfStoCt25w4GWP46wwgmOH5
+	XGkiden4DAAfYMku0wpjEy3Txz+8bZewFKEwGy5C0+A8QreGYMb7IfIWkegSThpXBGLMkZ6+rJ7w6
+	K57e/qFA==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIPNH-00000007DqA-0BhW
+	id 1wIPN8-00000007DoC-2a7Z
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 11:16:09 +0000
+	Thu, 30 Apr 2026 11:16:00 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9D258356D;
-	Thu, 30 Apr 2026 04:16:00 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 38D6D3561;
+	Thu, 30 Apr 2026 04:15:51 -0700 (PDT)
 Received: from devkitleo.cambridge.arm.com (devkitleo.cambridge.arm.com [10.1.196.90])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A74FE3F763;
-	Thu, 30 Apr 2026 04:16:01 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 428443F763;
+	Thu, 30 Apr 2026 04:15:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777547766; bh=q/NKBboAJbYod0gf/Ix7PhIBx5sQObfz8OK5XkSm43U=;
+	t=1777547756; bh=lWLmCZ6IeQYFZCg4if3cctWEygJWfnZ45AE44IeI33I=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=FSbrttDP37W00c2im+As8lbB9vFtmE6uJ9NzYPqQ3NMp6zj+bbLmMx0UJzC0mQFqd
-	 6KAv8y+ZoToAfNeKB9S9rTApTp0aGj2Ho03zvSWm/l7x3CUSKbsHT2UXzw6nnhNhpZ
-	 rxEKsVBwtyHdo0l3m397C4nOzNUMf1dqUCse7okI=
+	b=HjdpxJzgR00VKAVJXL+cAgBoLcsBry1NPl/IFSgTtUrlE1YG8kHctGics1eljcpnd
+	 1R8qiUgOcK8SvxMrSZr1r76Rxur5WdKSGB3iazxHSyFrEZXy442LK4AfqyJFfR5uMG
+	 zXDiQ2CmLtfNO0Almm4kkwKNW+pdhPhch/xzNwRw=
 From: Leonardo Bras <leo.bras@arm.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -95,17 +95,17 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-acpi@vger.kernel.org,
 	acpica-devel@lists.linux.dev,
 	kvm@vger.kernel.org
-Subject: [PATCH v1 10/12] kvm/dirty_ring: Add arch-generic interface for hw-accelerated dirty-ring cleaning
-Date: Thu, 30 Apr 2026 12:14:14 +0100
-Message-ID: <20260430111424.3479613-12-leo.bras@arm.com>
+Subject: [PATCH v1 08/12] KVM: arm64: Add hardware-accelerated dirty-bitmap cleaning routine
+Date: Thu, 30 Apr 2026 12:14:12 +0100
+Message-ID: <20260430111424.3479613-10-leo.bras@arm.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260430111424.3479613-2-leo.bras@arm.com>
 References: <20260430111424.3479613-2-leo.bras@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_121607_510278_25A92CE2 
-X-CRM114-Status: GOOD (  16.07  )
+X-CRM114-CacheID: sfid-20260430_121559_165657_FE9EF54D 
+X-CRM114-Status: GOOD (  28.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,105 +120,300 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce kvm_arch_dirty_ring_clear() that allow implementation of
-arch-specific hardware-accelerated dirty-ring routines.
+Implement arm64 version of kvm_arch_dirty_log_clear() making use of
+FEAT_HACDBS.
 
-A call to that is added on kvm_dirty_ring_reset() and will fall back to
-software version if not implemented, or any error was detected in the
-arch-specific routine.
+It works by transversing the dirty-bitmap and converting the set bits into
+HDBSS entries in a 64-page blocks granularity.
 
-For an arch to implement this function, it's required to provide it in a
-asm/kvm_dirty_bit.h and have CONFIG_HAVE_KVM_HW_DIRTY_BIT=y on building.
+The resulting HDBSS array is then fed to the HACDBS mechanism that walks
+the pagetable marking writable-dirty pages as writable-clean.
 
-If the arch does not implement it, and thus lack above config, the
-introduced snippet is expected to be compiled-out and have zero impact at
-runtime.
+In case of error, rewrite all unprocessed entries, including the faulting
+one, to the dirty-bitmap and fall back to generic software cleaning.
+
+In case of the options to "manual protect + init set" are enabled, do
+the hugepage splitting in the same fashion as the generic software
+cleaning, i.e. in 64-page blocks. For that, remove the static qualifier
+from kvm_mmu_split_huge_pages() and make the function available on
+kvm_host.h.
 
 Signed-off-by: Leonardo Bras <leo.bras@arm.com>
 ---
- include/linux/kvm_dirty_bit.h | 7 +++++++
- virt/kvm/dirty_ring.c         | 4 ++++
- 2 files changed, 11 insertions(+)
+ arch/arm64/include/asm/kvm_dirty_bit.h |  24 ++++
+ include/linux/kvm_host.h               |   3 +
+ arch/arm64/kvm/dirty_bit.c             | 146 +++++++++++++++++++++++++
+ arch/arm64/kvm/mmu.c                   |   4 +-
+ 4 files changed, 175 insertions(+), 2 deletions(-)
 
-diff --git a/include/linux/kvm_dirty_bit.h b/include/linux/kvm_dirty_bit.h
-index fa4f6b67b623..8492979d694e 100644
---- a/include/linux/kvm_dirty_bit.h
-+++ b/include/linux/kvm_dirty_bit.h
-@@ -11,17 +11,24 @@
+diff --git a/arch/arm64/include/asm/kvm_dirty_bit.h b/arch/arm64/include/asm/kvm_dirty_bit.h
+index 904e59f95b7e..3d749f979c67 100644
+--- a/arch/arm64/include/asm/kvm_dirty_bit.h
++++ b/arch/arm64/include/asm/kvm_dirty_bit.h
+@@ -20,11 +20,35 @@ struct hacdbs {
+ 	enum hacdbs_status status;
+ 	int size;
+ };
  
- static inline int kvm_arch_dirty_log_clear(struct kvm *kvm,
- 					   struct kvm_memory_slot *memslot,
- 					   struct kvm_clear_dirty_log *log,
- 					   unsigned long *bitmap,
- 					   bool *flush)
- {
- 	return -ENXIO;
- }
+ DECLARE_PER_CPU(struct hacdbs, hacdbs_pcp);
  
-+static inline int kvm_arch_dirty_ring_clear(struct kvm *kvm,
-+					    struct kvm_dirty_ring *ring,
-+					    int *nr_entries_reset)
+ void __init kvm_hacdbs_init(void);
+ void kvm_hacdbs_cpu_up(void);
+ void kvm_hacdbs_cpu_down(void);
+ 
++int __kvm_arch_dirty_log_clear(struct kvm *kvm,
++			       struct kvm_memory_slot *memslot,
++			       struct kvm_clear_dirty_log *log,
++			       unsigned long *bitmap,
++			       bool *flush);
++
++static inline bool kvm_arch_dirty_clear_enabled(struct kvm *kvm)
 +{
-+	return -ENXIO;
++	return this_cpu_read(hacdbs_pcp.status) == HACDBS_IDLE &&
++	       (kvm->arch.mmu.pgt->flags & KVM_PGTABLE_S2_DBM);
 +}
 +
- #else /* CONFIG_HAVE_KVM_HW_DIRTY_BIT */
++static inline int kvm_arch_dirty_log_clear(struct kvm *kvm,
++					   struct kvm_memory_slot *memslot,
++					   struct kvm_clear_dirty_log *log,
++					   unsigned long *bitmap,
++					   bool *flush)
++{
++	if (!kvm_arch_dirty_clear_enabled(kvm))
++		return -EPERM;
++
++	return __kvm_arch_dirty_log_clear(kvm, memslot, log, bitmap, flush);
++}
++
+ #endif /* __ARM64_KVM_DIRTY_BIT_H__ */
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index 4c14aee1fb06..5e3a3c484dd4 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -1662,20 +1662,23 @@ void kvm_arch_disable_virtualization_cpu(void);
+ bool kvm_vcpu_has_events(struct kvm_vcpu *vcpu);
+ int kvm_arch_vcpu_runnable(struct kvm_vcpu *vcpu);
+ bool kvm_arch_vcpu_in_kernel(struct kvm_vcpu *vcpu);
+ int kvm_arch_vcpu_should_kick(struct kvm_vcpu *vcpu);
+ bool kvm_arch_dy_runnable(struct kvm_vcpu *vcpu);
+ bool kvm_arch_dy_has_pending_interrupt(struct kvm_vcpu *vcpu);
+ bool kvm_arch_vcpu_preempted_in_kernel(struct kvm_vcpu *vcpu);
+ void kvm_arch_pre_destroy_vm(struct kvm *kvm);
+ void kvm_arch_create_vm_debugfs(struct kvm *kvm);
  
- #include <asm/kvm_dirty_bit.h>
- 
- #endif /* CONFIG_HAVE_KVM_HW_DIRTY_BIT */
- 
- #endif /* __KVM_DIRTY_BIT_H__ */
-diff --git a/virt/kvm/dirty_ring.c b/virt/kvm/dirty_ring.c
-index 83ac5ac907c1..a58c811dd461 100644
---- a/virt/kvm/dirty_ring.c
-+++ b/virt/kvm/dirty_ring.c
-@@ -1,20 +1,21 @@
- // SPDX-License-Identifier: GPL-2.0-only
++int kvm_mmu_split_huge_pages(struct kvm *kvm, phys_addr_t addr,
++			     phys_addr_t end);
++
+ #ifndef __KVM_HAVE_ARCH_VM_ALLOC
  /*
-  * KVM dirty ring implementation
-  *
-  * Copyright 2019 Red Hat, Inc.
+  * All architectures that want to use vzalloc currently also
+  * need their own kvm_arch_alloc_vm implementation.
   */
- #include <linux/kvm_host.h>
- #include <linux/kvm.h>
- #include <linux/vmalloc.h>
- #include <linux/kvm_dirty_ring.h>
-+#include <linux/kvm_dirty_bit.h>
- #include <trace/events/kvm.h>
- #include "kvm_mm.h"
- 
- int __weak kvm_cpu_dirty_log_size(struct kvm *kvm)
+ static inline struct kvm *kvm_arch_alloc_vm(void)
  {
- 	return 0;
+ 	return kzalloc_obj(struct kvm, GFP_KERNEL_ACCOUNT);
+ }
+ #endif
+diff --git a/arch/arm64/kvm/dirty_bit.c b/arch/arm64/kvm/dirty_bit.c
+index 22e3ed07256a..0b7dcb8467c0 100644
+--- a/arch/arm64/kvm/dirty_bit.c
++++ b/arch/arm64/kvm/dirty_bit.c
+@@ -110,20 +110,166 @@ static int dirty_bit_clear(struct kvm *kvm, u64 *hw_entries, int size)
+ 	 * No DSB is needed here, as kvm_flush_remote_tlbs_memslot() that happens
+ 	 * later in generic dirty-cleaning code already performs a DSB before
+ 	 * doing the TLBI.
+ 	 */
+ 
+ 	preempt_enable();
+ 
+ 	return ret;
  }
  
- u32 kvm_dirty_ring_get_rsvd_entries(struct kvm *kvm)
- {
-@@ -125,20 +126,23 @@ int kvm_dirty_ring_reset(struct kvm *kvm, struct kvm_dirty_ring *ring,
- 	struct kvm_dirty_gfn *entry;
- 
- 	/*
- 	 * Ensure concurrent calls to KVM_RESET_DIRTY_RINGS are serialized,
- 	 * e.g. so that KVM fully resets all entries processed by a given call
- 	 * before returning to userspace.  Holding slots_lock also protects
- 	 * the various memslot accesses.
- 	 */
- 	lockdep_assert_held(&kvm->slots_lock);
- 
-+	if (kvm_arch_dirty_ring_clear(kvm, ring, nr_entries_reset) >= 0)
-+		return 0;
++static inline void hdbss_to_bitmap(u64 *hdbss_array, int start, int end,
++				   unsigned long *dirty_bitmap,
++				   unsigned long long offset)
++{
++	u64 w = (gpa_to_gfn(hdbss_array[start]) - offset) / BITS_PER_LONG;
++	u64 mask = 0;
++	int idx = start;
 +
- 	while (likely((*nr_entries_reset) < INT_MAX)) {
- 		if (signal_pending(current))
- 			return -EINTR;
++	do {
++		u64 entry = (gpa_to_gfn(hdbss_array[idx]) - offset);
++
++		if (entry / BITS_PER_LONG == w) {
++			mask |= BIT(entry % BITS_PER_LONG);
++		} else {
++			atomic_long_or(mask, (atomic_long_t *)&dirty_bitmap[w]);
++			w = entry / BITS_PER_LONG;
++			mask = BIT(entry % BITS_PER_LONG);
++		}
++	} while (++idx < end);
++	atomic_long_or(mask, (atomic_long_t *)&dirty_bitmap[w]);
++}
++
++static inline int mask_to_hdbss(unsigned long *mask, u64 *hw_entries, const gfn_t offset,
++				u64 ttwl, int idx, int entries_sz)
++{
++	while (idx < entries_sz) {
++		int j = __ffs(*mask);
++		u64 a = gfn_to_gpa(offset + j);
++
++		hw_entries[idx++] = (a & HDBSS_ENTRY_IPA) |
++				    ttwl |
++				    HDBSS_ENTRY_VALID;
++
++		*mask &= ~BIT(j);
++		if (!*mask)
++			break;
++	}
++
++	return idx;
++}
++
++int __kvm_arch_dirty_log_clear(struct kvm *kvm,
++			       struct kvm_memory_slot *memslot,
++			       struct kvm_clear_dirty_log *log,
++			       unsigned long *bitmap,
++			       bool *flush)
++{
++	int ret = 0;
++	int idx = 0;
++	unsigned long *dirty_bitmap = memslot->dirty_bitmap;
++	u64 *hw_entries;
++	const int entries_sz = PAGE_SIZE / sizeof(*hw_entries);
++	u64 ttwl;
++	u64 start, end;
++	gfn_t base_gfn;
++
++	hw_entries = kmalloc_objs(u64, entries_sz, GFP_KERNEL);
++	if (!hw_entries)
++		return -ENOMEM;
++
++	ttwl = hdbss_get_ttwl(kvm->arch.mmu.split_page_chunk_size);
++
++	if (log) {
++		start = log->first_page / BITS_PER_LONG;
++		end = start + DIV_ROUND_UP(log->num_pages, BITS_PER_LONG);
++		base_gfn = memslot->base_gfn + log->first_page % BITS_PER_LONG;
++	} else {
++		start = 0;
++		end = kvm_dirty_bitmap_bytes(memslot) / sizeof(long);
++		base_gfn = memslot->base_gfn;
++	}
++
++	write_lock(&kvm->mmu_lock);
++
++	for (unsigned long i = start; i < end; i++) {
++		unsigned long mask;
++		gfn_t offset;
++		atomic_long_t *p;
++
++		if (log) { /* Clean only what is in the input bitmap */
++			mask = bitmap[i];
++			if (!mask)
++				continue;
++
++			p = (atomic_long_t *)&dirty_bitmap[i];
++			mask &= atomic_long_fetch_andnot(mask, p);
++		} else { /* Clean everything */
++			if (!dirty_bitmap[i])
++				continue;
++
++			mask = xchg(&dirty_bitmap[i], 0);
++			bitmap[i] = mask;
++		}
++
++		if (!mask)
++			continue;
++
++		offset = base_gfn + i * BITS_PER_LONG;
++
++		if (kvm_dirty_log_manual_protect_and_init_set(kvm))
++			kvm_mmu_split_huge_pages(kvm,
++						 gfn_to_gpa(offset + __ffs(mask)),
++						 gfn_to_gpa(offset + __fls(mask) + 1));
++
++		do {
++			idx = mask_to_hdbss(&mask, hw_entries, offset, ttwl, idx, entries_sz);
++			if (idx >= entries_sz) {
++				ret = dirty_bit_clear(kvm, hw_entries, idx);
++				*flush = *flush || ret > 0;
++				if (ret != idx) {
++					/* Save bits not converted back to bitmap */
++					atomic_long_or(mask, (atomic_long_t *)&dirty_bitmap[i]);
++					goto out_err;
++				}
++				idx = 0;
++			}
++		} while (mask);
++	}
++
++	if (idx != 0) {
++		ret = dirty_bit_clear(kvm, hw_entries, idx);
++		*flush = *flush || ret > 0;
++	}
++out_err:
++	if (unlikely(ret != idx)) {
++		/*
++		 * In case there is an error and not all entries in HACDBS get
++		 * cleaned, we have to mark the dirty bits back in the bitmap,
++		 * as that will be used by the software routine.
++		 *
++		 * Entries should be in order, since they were extraxed from
++		 * the dirty-bitmap, so batching the atomic writes is efficient.
++		 */
++
++		if (ret < idx)
++			hdbss_to_bitmap(hw_entries, ret, idx, dirty_bitmap, memslot->base_gfn);
++
++		ret = -EAGAIN;
++	}
++
++	write_unlock(&kvm->mmu_lock);
++	kfree(hw_entries);
++
++	return ret;
++}
++
+ static irqreturn_t hacdbsirq_handler(int irq, void *pcpu)
+ {
+ 	u64 cons = read_sysreg_s(SYS_HACDBSCONS_EL2);
+ 	unsigned long err = FIELD_GET(HACDBSCONS_EL2_ERR_REASON, cons);
  
- 		entry = &ring->dirty_gfns[ring->reset_index & (ring->size - 1)];
+ 	switch (err) {
+ 	case HACDBSCONS_EL2_ERR_REASON_NOF:
+ 		this_cpu_write(hacdbs_pcp.status, HACDBS_IDLE);
+ 		break;
+ 	case HACDBSCONS_EL2_ERR_REASON_IPAHACF:
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 42c734423253..166720f29138 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -110,22 +110,22 @@ static bool need_split_memcache_topup_or_resched(struct kvm *kvm)
  
- 		if (!kvm_dirty_gfn_harvested(entry))
- 			break;
+ 	if (need_resched() || rwlock_needbreak(&kvm->mmu_lock))
+ 		return true;
  
- 		next_slot = READ_ONCE(entry->slot);
+ 	chunk_size = kvm->arch.mmu.split_page_chunk_size;
+ 	min = kvm_mmu_split_nr_page_tables(chunk_size);
+ 	cache = &kvm->arch.mmu.split_page_cache;
+ 	return kvm_mmu_memory_cache_nr_free_objects(cache) < min;
+ }
+ 
+-static int kvm_mmu_split_huge_pages(struct kvm *kvm, phys_addr_t addr,
+-				    phys_addr_t end)
++int kvm_mmu_split_huge_pages(struct kvm *kvm, phys_addr_t addr,
++			     phys_addr_t end)
+ {
+ 	struct kvm_mmu_memory_cache *cache;
+ 	struct kvm_pgtable *pgt;
+ 	int ret, cache_capacity;
+ 	u64 next, chunk_size;
+ 
+ 	lockdep_assert_held_write(&kvm->mmu_lock);
+ 
+ 	chunk_size = kvm->arch.mmu.split_page_chunk_size;
+ 	cache_capacity = kvm_mmu_split_nr_page_tables(chunk_size);
 -- 
 2.54.0
 
