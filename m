@@ -4,59 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74A73FF8875
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 03:49:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27F0FFF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 04:05:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/r/842uqIDqsQdmQ0jCOaOihPDzze8ptMZ/9UbF19fA=; b=Mf1G/fAZ5IAtGB+ooTfwxi7Ooh
-	yFNbCNQv8sq59Nz6C3xXpdTqQ/g5+bm9Oul6t82+XMAcU99+aujt5Dbabc3BssDrJ6dw3U0hkgUyz
-	XOnRi6ltzCHrkmxv8QiJ+MdL2+nIp92RmnjUZuFdFH1KDgxAbHk5hhEfa+pNHCxziEaWI8YSN3hCz
-	nlJDQlt61/plWxgZ9piIaQxJ/q3p6vk+crYr46dPzjZl4E9VJ/aV43wfKgtn8CG3s+rL9vzLqJKir
-	osiR23vQa9nLw6A2h+wb6mkCWWylFf2Fk/Bh699WP1gnkRAefNKRuhm8qwNoKcswfNqKDwSCzcqmg
-	0/znGx9w==;
+	bh=snB875P95SUbpGSGDIAQLGtDYkvzFzItmsNJKMa2UQ4=; b=GliLs1EG+GkV12rTQyDeEBGSvD
+	0tB5T4UsnFQQtEnCXaihgVZt/6o4Uc6dUg5n6sny3S63VL7KmiJVDrHwlI7g2uSIBxdN4neHAoldQ
+	P6y2mHSIHISsnW6q6bkrJyKTC/j45LeQavGxosXitKHMQhqdqmoajkAG4AsOjix5LZNAonhKYE64a
+	TW0zSCraF83HC/smd5tkFSQtyniBv5+kVreQ2JjT155PQF0vZ8xHICi6yf6imhyR9NflHIc4Zii+A
+	p8rH+is1SZQTBO5hE9imas+SC0UrWF8mqLGwjbwBwuETIhgUnELi3/PB5kszDExKE18VnrWp+z2SX
+	5SkD97WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIIPL-00000004c2E-47Jh;
-	Thu, 30 Apr 2026 03:49:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIIPI-00000004c1Z-0kXy
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 03:49:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4EEF31A9A;
-	Wed, 29 Apr 2026 20:49:35 -0700 (PDT)
-Received: from ergosum.cambridge.arm.com (ergosum.cambridge.arm.com [10.1.196.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 4158D3F7B4;
-	Wed, 29 Apr 2026 20:49:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777520980; bh=zfhZ2KqdUCRvQf3GQfUOIuGNLqo8qxkZHAbF2RhlsN8=;
+	id 1wIIe0-00000004ck2-0Wtj;
+	Thu, 30 Apr 2026 04:04:56 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wIIdy-00000004cjo-3dVa;
+	Thu, 30 Apr 2026 04:04:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9FF0960582;
+	Thu, 30 Apr 2026 04:04:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E6B0C2BCB8;
+	Thu, 30 Apr 2026 04:04:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777521893;
+	bh=SQbc6yap3IwxIjf5vkMZhpQlq9soeHHQjAS0yGku44k=;
 	h=From:To:Cc:Subject:Date:From;
-	b=t32V3S+4YcnT4TGwDOmXXTACjsbWnJkakGUNLnVj0ACP+1c254em2woHTzUWAHQMB
-	 GgZM2hkxGgoZM0NK/ZZWARy0PYcKtfrNNN8bICjyFJcpj6yI88wn4OCVDMlLbu84bR
-	 5fRu1F04HIwVj8jqPQacY93KP2aRFNrDs4hXq3Gw=
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	David Hildenbrand <david@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	linux-efi@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64/mm: Rename ptdesc_t
-Date: Thu, 30 Apr 2026 04:49:33 +0100
-Message-Id: <20260430034933.541634-1-anshuman.khandual@arm.com>
-X-Mailer: git-send-email 2.30.2
+	b=XmywiKhuyr1+iRfR3PHU6v9GONpwVAKCcc0eTlQU9yjUnF6uRHR/EBTZ/UN8UVVVB
+	 kG/ZtEEtVbHvFaU+7KcGKU5U2/IzqdlsTRcV5sdP0HYPRqvAozZqjFb0EOASauV2xC
+	 xUaKzad/uIF07HjedFILdewu7IjvV/gAtfxZbzVm8Kt/pEV3hdCFjBHz3/a9JeCr35
+	 5oYSoSs/WSqmNPs15idDrhOJSsG7WKscp9W5QVhlflYcPmOPSGHTGSFBqz1kz4GAV0
+	 apuUfkjNj3pyaP8/fgBFyApKG9AU7GKaHlnxXjL4Jva5JTKwRj7lbU5sCFB18KTvNd
+	 ycxSlp7jRcFKg==
+From: "Barry Song (Xiaomi)" <baohua@kernel.org>
+To: akpm@linux-foundation.org,
+	linux-mm@kvack.org,
+	willy@infradead.org
+Cc: david@kernel.org,
+	ljs@kernel.org,
+	liam@infradead.org,
+	vbabka@kernel.org,
+	rppt@kernel.org,
+	surenb@google.com,
+	mhocko@suse.com,
+	jack@suse.cz,
+	pfalcato@suse.de,
+	wanglian@kylinos.cn,
+	chentao@kylinos.cn,
+	lianux.mm@gmail.com,
+	kunwu.chan@gmail.com,
+	liyangouwen1@oppo.com,
+	chrisl@kernel.org,
+	kasong@tencent.com,
+	shikemeng@huaweicloud.com,
+	nphamcs@gmail.com,
+	bhe@redhat.com,
+	youngjun.park@lge.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	"Barry Song (Xiaomi)" <baohua@kernel.org>
+Subject: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page fault performance
+Date: Thu, 30 Apr 2026 12:04:22 +0800
+Message-Id: <20260430040427.4672-1-baohua@kernel.org>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_204944_389554_9C7366CC 
-X-CRM114-Status: GOOD (  18.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,249 +93,317 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ptdesc_t sounds very similar to the core MM struct ptdesc which is actually
-the memory descriptor for page table allocations. Hence rename this typedef
-element as pxxval_t instead for better clarity and separation.
+Oven observed most mmap_lock contention and priority inversion
+come from page fault retries after waiting for I/O completion.
+Oven subsequently raised the following idea:
 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: David Hildenbrand <david@kernel.org>
-Cc: Mike Rapoport <rppt@kernel.org>
-Cc: linux-efi@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Acked-by: David Hildenbrand (Arm) <david@kernel.org>
-Suggested-by: David Hildenbrand (Arm) <david@kernel.org>
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
----
-This patch applies on v7.1-rc1
+There is no need to always fall back to mmap_lock when the per-VMA lock
+is released only to wait for the page cache to become ready. On a page
+fault retry, the per-VMA lock can still be reused.
 
-Took the liberty in including David's tag from an internal discussion.
+We believe the same should also apply to anonymous folios. However, there
+is a case where I/O has completed but we fail to acquire the folio lock
+because a concurrent thread may be installing PTEs for the folio. This
+is expected to be short-lived, so retrying the page fault is unnecessary.
 
- arch/arm64/include/asm/io.h            |  2 +-
- arch/arm64/include/asm/pgtable-types.h | 14 +++++++-------
- arch/arm64/include/asm/ptdump.h        |  8 ++++----
- arch/arm64/include/asm/tlbflush.h      |  4 ++--
- arch/arm64/kernel/efi.c                |  4 ++--
- arch/arm64/kernel/pi/map_kernel.c      |  2 +-
- arch/arm64/kernel/pi/map_range.c       |  4 ++--
- arch/arm64/kernel/pi/pi.h              |  2 +-
- arch/arm64/mm/mmap.c                   |  4 ++--
- arch/arm64/mm/pageattr.c               |  2 +-
- arch/arm64/mm/ptdump.c                 |  2 +-
- 11 files changed, 24 insertions(+), 24 deletions(-)
+This patchset handles two cases:
 
-diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
-index 8cbd1e96fd50..dd548a93342d 100644
---- a/arch/arm64/include/asm/io.h
-+++ b/arch/arm64/include/asm/io.h
-@@ -270,7 +270,7 @@ static inline void __iomem *ioremap_prot(phys_addr_t phys, size_t size,
- 					 pgprot_t user_prot)
+(1) If we need to wait for I/O completion, we still drop the per-VMA lock, as
+current page fault handling already does. Holding it for too long may introduce
+various priority inversion issues on mobile devices. After I/O completes, we
+retry the page fault with the per-VMA lock, rather than falling back to
+mmap_lock.
+
+(2) If I/O has already completed and the folio is up to date, the wait is
+likely due to a concurrent PTE installation. In this case, we keep the
+per-VMA lock and avoid retrying the page fault.
+
+With (1), the dramatically reduced mmap_lock contention leads to a
+significant improvement in Douyin performance. Oven’s data is shown
+below.
+
+Douyin (the Chinese version of TikTok) warm start on a smartphone with
+8GB RAM.
+
+== mmap_lock Acquisitions And Wait Time ==
+
+Metric                    Before (Avg)    After (Avg)    Change
+------------------------------------------------------------------------
+Read Lock Count           20,010          5,719          -71.42%
+Read Total Wait (us)      10,695,877     408,436        -96.18%
+Read Avg Wait (us)        534.00         71.00           -86.70%
+Write Lock Count          838             909            +8.47%
+Write Total Wait (us)     501,293        97,633          -80.52%
+Write Avg Wait (us)       598.00         107.00          -82.11%
+
+
+== Read Lock Waiting Time Distribution of mmap_lock ==
+
+Range (us)                 Before (Avg)    After (Avg)    Change
+------------------------------------------------------------------------
+[0, 1)                     9,927           4,286          -56.82%
+[1, 10)                    9,179           1,327          -85.54%
+[10, 100)                  191             88             -53.93%
+[100, 1000)                57              6              -89.47%
+[1000, 10000)              328             9              -97.26%
+[10000, 100000)            328             6              -98.17%
+[100000, 1000000)          0               0              N/A
+[1000000, +)               0               0              N/A
+
+== Write Lock Waiting Time Distribution of mmap_lock ==
+
+Range (us)                 Before (Avg)    After (Avg)    Change
+------------------------------------------------------------------------
+[0, 1)                     250             300            +20.00%
+[1, 10)                    483             556            +15.11%
+[10, 100)                  52              41             -21.15%
+[100, 1000)                12              5              -58.33%
+[1000, 10000)              22              4              -81.82%
+[10000, 100000)            16              1              -93.75%
+[100000, 1000000)          0               0              N/A
+[1000000, +)               0               0              N/A
+
+After the optimization, the number of read lock acquisitions is 
+significantly reduced, and both lock waiting time and tail latency are 
+dramatically improved.
+
+Kunwu and Lian also developed a model to capture the situation described
+by Matthew [1], where a memcg with limited memory may fail to make
+progress. This happens because after I/O is initiated on the first page
+fault, the folios may be reclaimed by the time of the retry, leaving the
+workload with little or no forward progress.
+
+A stress setup made by Kunwu and Lian as follows:
+* 256-core x86 system
+* 500 threads continuously faulting on 16MB files
+
+The model was running within a memcg with limited memory,
+as shown below:
+
+systemd-run --scope -p MemoryHigh=1G -p MemoryMax=1.2G -p MemorySwapMax=0 \
+--unit=mmap-thrash-$$ ./mmap_lock & \
+TEST_PID=$!
+
+The reproducer code is shown below:
+
+ #define THREADS 500 
+ #define FILE_SIZE (16 * 1024 * 1024) /* 16MB */ 
+ static _Atomic int g_stop = 0; 
+ #define RUN_SECONDS 600 
+ 
+ struct worker_arg { 
+         long id; 
+         uint64_t *counts; 
+ }; 
+ 
+ void *worker(void *arg) 
+ { 
+         struct worker_arg *wa = (struct worker_arg *)arg; 
+         long id = wa->id; 
+         char path[64]; 
+         uint64_t local_rounds = 0; 
+ 
+         snprintf(path, sizeof(path), "./test_file_%d_%ld.dat", 
+                  getpid(), id); 
+         int fd = open(path, O_RDWR | O_CREAT | O_TRUNC, 0666); 
+         if (fd < 0) return NULL; 
+         if (ftruncate(fd, FILE_SIZE) < 0) { 
+                 close(fd); return NULL; 
+         } 
+ 
+         while (!atomic_load_explicit(&g_stop, memory_order_relaxed)) { 
+                 char *f_map = mmap(NULL, FILE_SIZE, PROT_READ, 
+                                    MAP_SHARED, fd, 0); 
+                 if (f_map != MAP_FAILED) { 
+                         /* Pure page cache thrashing */ 
+                         for (int i = 0; i < FILE_SIZE; i += 4096) { 
+                                 volatile unsigned char c = 
+                                         (unsigned char)f_map[i]; 
+                                 (void)c; 
+                         } 
+                         munmap(f_map, FILE_SIZE); 
+                         local_rounds++; 
+                 } 
+         } 
+         wa->counts[id] = local_rounds; 
+         close(fd); 
+         unlink(path); 
+         return NULL; 
+ } 
+ 
+ int main(void) 
+ { 
+         printf("Pure File Thrashing Started. PID: %d\n", getpid()); 
+         pthread_t t[THREADS]; 
+         uint64_t local_counts[THREADS]; 
+         memset(local_counts, 0, sizeof(local_counts)); 
+         struct worker_arg args[THREADS]; 
+ 
+         for (long i = 0; i < THREADS; i++) { 
+                 args[i].id = i; 
+                 args[i].counts = local_counts; 
+                 pthread_create(&t[i], NULL, worker, &args[i]); 
+         } 
+ 
+         sleep(RUN_SECONDS); 
+         atomic_store_explicit(&g_stop, 1, memory_order_relaxed); 
+ 
+         for (int i = 0; i < THREADS; i++) pthread_join(t[i], NULL); 
+ 
+         uint64_t total = 0; 
+         for (int i = 0; i < THREADS; i++) total += local_counts[i]; 
+ 
+         printf("Total rounds     : %llu\n", (unsigned long long)total); 
+         printf("Throughput       : %.2f rounds/sec\n", 
+                (double)total / RUN_SECONDS); 
+         return 0; 
+ }
+
+They also added temporary counters in page fault retries [2]:
+- RETRY_IO_MISS   : folio not present after I/O completion
+- RETRY_MMAP_DROP : retry fallback due to waiting for I/O
+
+Their results are as follows:
+
+| Case                | Total Rounds | Throughput | Miss/Drop(%) | RETRY_MMAP_DROP | RETRY_IO_MISS |
+| ------------------- | ------------ | ---------- | ------------ | --------------- | ------------- |
+| Baseline (Run 1)    | 22,711       | 37.85 /s   | 45.04        | 970,078         | 436,956       |
+| Baseline (Run 2)    | 23,530       | 39.22 /s   | 44.96        | 972,043         | 437,077       |
+| With Series (Run A) | 54,428       | 90.71 /s   | 1.69         | 1,204,124       | 20,398        |
+| With Series (Run B) | 35,949       | 59.91 /s   | 0.03         | 327,023         | 99            |
+
+Without this series, nearly half of the retries fail to observe completed
+I/O results, leading to significant CPU and I/O waste. With the finer-
+grained VMA lock, faulting threads avoid the heavily contended mmap_lock
+during retries and are therefore able to complete the page fault.
+
+With (2), there is a clear improvement in swap-in bandwidth in a model
+with five threads issuing MADV_PAGEOUT-based swap-outs and five threads
+performing swap-ins on a 100MB anonymous mmap VMA.
+
+ #define SIZE (100 * 1024 * 1024)
+ #define PAGE_SIZE 4096
+ #define WRITER_THREADS 5
+ #define READER_THREADS 5
+ #define RUN_SECONDS 30
+ 
+ static uint8_t *buf;
+ static atomic_ulong pageout_rounds = 0;
+ static atomic_ulong swapin_rounds = 0;
+ static atomic_int stop_flag = 0;
+ 
+ static void *pageout_thread(void *arg)
  {
- 	pgprot_t prot;
--	ptdesc_t user_prot_val = pgprot_val(user_prot);
-+	pxxval_t user_prot_val = pgprot_val(user_prot);
- 
- 	if (WARN_ON_ONCE(!(user_prot_val & PTE_USER)))
- 		return NULL;
-diff --git a/arch/arm64/include/asm/pgtable-types.h b/arch/arm64/include/asm/pgtable-types.h
-index 265e8301d7ba..53b5ada823ee 100644
---- a/arch/arm64/include/asm/pgtable-types.h
-+++ b/arch/arm64/include/asm/pgtable-types.h
-@@ -17,13 +17,13 @@
-  * Generic page table descriptor format from which
-  * all level specific descriptors can be derived.
-  */
--typedef u64 ptdesc_t;
-+typedef u64 pxxval_t;
- 
--typedef ptdesc_t pteval_t;
--typedef ptdesc_t pmdval_t;
--typedef ptdesc_t pudval_t;
--typedef ptdesc_t p4dval_t;
--typedef ptdesc_t pgdval_t;
-+typedef pxxval_t pteval_t;
-+typedef pxxval_t pmdval_t;
-+typedef pxxval_t pudval_t;
-+typedef pxxval_t p4dval_t;
-+typedef pxxval_t pgdval_t;
- 
- /*
-  * These are used to make use of C type-checking..
-@@ -54,7 +54,7 @@ typedef struct { pgdval_t pgd; } pgd_t;
- #define pgd_val(x)	((x).pgd)
- #define __pgd(x)	((pgd_t) { (x) } )
- 
--typedef struct { ptdesc_t pgprot; } pgprot_t;
-+typedef struct { pxxval_t pgprot; } pgprot_t;
- #define pgprot_val(x)	((x).pgprot)
- #define __pgprot(x)	((pgprot_t) { (x) } )
- 
-diff --git a/arch/arm64/include/asm/ptdump.h b/arch/arm64/include/asm/ptdump.h
-index baff24004459..f4113b7c881c 100644
---- a/arch/arm64/include/asm/ptdump.h
-+++ b/arch/arm64/include/asm/ptdump.h
-@@ -26,8 +26,8 @@ struct ptdump_info {
- };
- 
- struct ptdump_prot_bits {
--	ptdesc_t	mask;
--	ptdesc_t	val;
-+	pxxval_t	mask;
-+	pxxval_t	val;
- 	const char	*set;
- 	const char	*clear;
- };
-@@ -36,7 +36,7 @@ struct ptdump_pg_level {
- 	const struct ptdump_prot_bits *bits;
- 	char name[4];
- 	int num;
--	ptdesc_t mask;
-+	pxxval_t mask;
- };
- 
- /*
-@@ -53,7 +53,7 @@ struct ptdump_pg_state {
- 	const struct mm_struct *mm;
- 	unsigned long start_address;
- 	int level;
--	ptdesc_t current_prot;
-+	pxxval_t current_prot;
- 	bool check_wx;
- 	unsigned long wx_pages;
- 	unsigned long uxn_pages;
-diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-index c0bf5b398041..968a78d0c69e 100644
---- a/arch/arm64/include/asm/tlbflush.h
-+++ b/arch/arm64/include/asm/tlbflush.h
-@@ -725,9 +725,9 @@ static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *b
- 	sme_dvmsync_add_pending(batch, mm);
+     (void)arg;
+     while (!atomic_load(&stop_flag)) {
+         if (madvise(buf, SIZE, MADV_PAGEOUT) == 0) {
+             atomic_fetch_add(&pageout_rounds, 1);
+         }
+     }
+     return NULL;
  }
  
--static inline bool __pte_flags_need_flush(ptdesc_t oldval, ptdesc_t newval)
-+static inline bool __pte_flags_need_flush(pxxval_t oldval, pxxval_t newval)
+ static void *reader_thread(void *arg)
  {
--	ptdesc_t diff = oldval ^ newval;
-+	pxxval_t diff = oldval ^ newval;
+     (void)arg;
+     volatile uint64_t sum = 0;
  
- 	/* invalid to valid transition requires no flush */
- 	if (!(oldval & PTE_VALID))
-diff --git a/arch/arm64/kernel/efi.c b/arch/arm64/kernel/efi.c
-index a81cb4aa4738..3d322252b4bf 100644
---- a/arch/arm64/kernel/efi.c
-+++ b/arch/arm64/kernel/efi.c
-@@ -31,7 +31,7 @@ static bool region_is_misaligned(const efi_memory_desc_t *md)
-  * executable, everything else can be mapped with the XN bits
-  * set. Also take the new (optional) RO/XP bits into account.
-  */
--static __init ptdesc_t create_mapping_protection(efi_memory_desc_t *md)
-+static __init pxxval_t create_mapping_protection(efi_memory_desc_t *md)
- {
- 	u64 attr = md->attribute;
- 	u32 type = md->type;
-@@ -85,7 +85,7 @@ static __init ptdesc_t create_mapping_protection(efi_memory_desc_t *md)
- 
- int __init efi_create_mapping(struct mm_struct *mm, efi_memory_desc_t *md)
- {
--	ptdesc_t prot_val = create_mapping_protection(md);
-+	pxxval_t prot_val = create_mapping_protection(md);
- 	bool page_mappings_only = (md->type == EFI_RUNTIME_SERVICES_CODE ||
- 				   md->type == EFI_RUNTIME_SERVICES_DATA);
- 
-diff --git a/arch/arm64/kernel/pi/map_kernel.c b/arch/arm64/kernel/pi/map_kernel.c
-index a852264958c3..168858e75f75 100644
---- a/arch/arm64/kernel/pi/map_kernel.c
-+++ b/arch/arm64/kernel/pi/map_kernel.c
-@@ -165,7 +165,7 @@ static void noinline __section(".idmap.text") set_ttbr0_for_lpa2(phys_addr_t ttb
- static void __init remap_idmap_for_lpa2(void)
- {
- 	/* clear the bits that change meaning once LPA2 is turned on */
--	ptdesc_t mask = PTE_SHARED;
-+	pxxval_t mask = PTE_SHARED;
- 
- 	/*
- 	 * We have to clear bits [9:8] in all block or page descriptors in the
-diff --git a/arch/arm64/kernel/pi/map_range.c b/arch/arm64/kernel/pi/map_range.c
-index de52cd85c691..f7cbad6e3bbc 100644
---- a/arch/arm64/kernel/pi/map_range.c
-+++ b/arch/arm64/kernel/pi/map_range.c
-@@ -31,7 +31,7 @@ void __init map_range(phys_addr_t *pte, u64 start, u64 end, phys_addr_t pa,
- 		      u64 va_offset)
- {
- 	u64 cmask = (level == 3) ? CONT_PTE_SIZE - 1 : U64_MAX;
--	ptdesc_t protval = pgprot_val(prot) & ~PTE_TYPE_MASK;
-+	pxxval_t protval = pgprot_val(prot) & ~PTE_TYPE_MASK;
- 	int lshift = (3 - level) * PTDESC_TABLE_SHIFT;
- 	u64 lmask = (PAGE_SIZE << lshift) - 1;
- 
-@@ -88,7 +88,7 @@ void __init map_range(phys_addr_t *pte, u64 start, u64 end, phys_addr_t pa,
- 	}
+     while (!atomic_load(&stop_flag)) {
+         for (size_t i = 0; i < SIZE; i += PAGE_SIZE) {
+             sum += buf[i];
+         }
+         /* One full pass over 100MB, counted as one swap-in round (approximate) */
+         atomic_fetch_add(&swapin_rounds, 1);
+     }
+     return NULL;
  }
  
--asmlinkage phys_addr_t __init create_init_idmap(pgd_t *pg_dir, ptdesc_t clrmask)
-+asmlinkage phys_addr_t __init create_init_idmap(pgd_t *pg_dir, pxxval_t clrmask)
+ int main(void)
  {
- 	phys_addr_t ptep = (phys_addr_t)pg_dir + PAGE_SIZE; /* MMU is off */
- 	pgprot_t text_prot = PAGE_KERNEL_ROX;
-diff --git a/arch/arm64/kernel/pi/pi.h b/arch/arm64/kernel/pi/pi.h
-index aec3172d4003..2eb24a4205f6 100644
---- a/arch/arm64/kernel/pi/pi.h
-+++ b/arch/arm64/kernel/pi/pi.h
-@@ -35,4 +35,4 @@ void map_range(phys_addr_t *pte, u64 start, u64 end, phys_addr_t pa,
+     pthread_t writers[WRITER_THREADS];
+     pthread_t readers[READER_THREADS];
  
- asmlinkage void early_map_kernel(u64 boot_status, phys_addr_t fdt);
+     buf = mmap(NULL, SIZE, PROT_READ | PROT_WRITE,
+                MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+     if (buf == MAP_FAILED) {
+         exit(EXIT_FAILURE);
+     }
+     memset(buf, 0, SIZE);
  
--asmlinkage phys_addr_t create_init_idmap(pgd_t *pgd, ptdesc_t clrmask);
-+asmlinkage phys_addr_t create_init_idmap(pgd_t *pgd, pxxval_t clrmask);
-diff --git a/arch/arm64/mm/mmap.c b/arch/arm64/mm/mmap.c
-index 92b2f5097a96..bc3fef91a8ce 100644
---- a/arch/arm64/mm/mmap.c
-+++ b/arch/arm64/mm/mmap.c
-@@ -34,7 +34,7 @@ static pgprot_t protection_map[16] __ro_after_init = {
- 	[VM_SHARED | VM_EXEC | VM_WRITE | VM_READ]	= PAGE_SHARED_EXEC
- };
+     for (int i = 0; i < WRITER_THREADS; i++) {
+         if (pthread_create(&writers[i], NULL, pageout_thread, NULL) != 0) {
+             perror("pthread_create");
+             exit(EXIT_FAILURE);
+         }
+     }
+     for (int i = 0; i < READER_THREADS; i++) {
+         if (pthread_create(&readers[i], NULL, reader_thread, NULL) != 0) {
+             perror("pthread_create");
+             exit(EXIT_FAILURE);
+         }
+     }
  
--static ptdesc_t gcs_page_prot __ro_after_init = _PAGE_GCS_RO;
-+static pxxval_t gcs_page_prot __ro_after_init = _PAGE_GCS_RO;
+     sleep(RUN_SECONDS);
+     atomic_store(&stop_flag, 1);
+     for (int i = 0; i < WRITER_THREADS; i++)
+         pthread_join(writers[i], NULL);
+     for (int i = 0; i < READER_THREADS; i++)
+         pthread_join(readers[i], NULL);
  
- /*
-  * You really shouldn't be using read() or write() on /dev/mem.  This might go
-@@ -87,7 +87,7 @@ arch_initcall(adjust_protection_map);
- 
- pgprot_t vm_get_page_prot(vm_flags_t vm_flags)
- {
--	ptdesc_t prot;
-+	pxxval_t prot;
- 
- 	/* Short circuit GCS to avoid bloating the table. */
- 	if (system_supports_gcs() && (vm_flags & VM_SHADOW_STACK)) {
-diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-index ce035e1b4eaf..e691e258b0e4 100644
---- a/arch/arm64/mm/pageattr.c
-+++ b/arch/arm64/mm/pageattr.c
-@@ -21,7 +21,7 @@ struct page_change_data {
- 	pgprot_t clear_mask;
- };
- 
--static ptdesc_t set_pageattr_masks(ptdesc_t val, struct mm_walk *walk)
-+static pxxval_t set_pageattr_masks(pxxval_t val, struct mm_walk *walk)
- {
- 	struct page_change_data *masks = walk->private;
- 
-diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
-index ab9899ca1e5f..235e5d6a3d76 100644
---- a/arch/arm64/mm/ptdump.c
-+++ b/arch/arm64/mm/ptdump.c
-@@ -194,7 +194,7 @@ void note_page(struct ptdump_state *pt_st, unsigned long addr, int level,
- 	struct ptdump_pg_state *st = container_of(pt_st, struct ptdump_pg_state, ptdump);
- 	struct ptdump_pg_level *pg_level = st->pg_level;
- 	static const char units[] = "KMGTPE";
--	ptdesc_t prot = 0;
-+	pxxval_t prot = 0;
- 
- 	/* check if the current level has been folded dynamically */
- 	if (st->mm && ((level == 1 && mm_p4d_folded(st->mm)) ||
+     printf("=== Result (30s) ===\n");
+     printf("Pageout rounds: %lu\n", pageout_rounds);
+     printf("Swap-in rounds (approx): %lu\n", swapin_rounds);
+     munmap(buf, SIZE);
+     return 0;
+ }
+
+W/o patches:
+=== Result (30s) ===
+Pageout rounds: 1324847
+Swap-in rounds (approx): 874
+
+W/patches:
+=== Result (30s) ===
+Pageout rounds: 1330550
+Swap-in rounds (approx): 1017
+
+[1] https://lore.kernel.org/linux-mm/aSip2mWX13sqPW_l@casper.infradead.org/
+[2] https://github.com/lianux-mm/ioretry_test/
+
+-v2:
+  * collect tags from Pedro, Kunwu and Lian, thanks!
+  * handle case (2), for uptodate folios, don't retry PF
+-RFC:
+  https://lore.kernel.org/linux-mm/20251127011438.6918-1-21cnbao@gmail.com/
+
+Barry Song (Xiaomi) (4):
+  mm/swapin: Retry swapin by VMA lock if the lock was released for I/O
+  mm: Move folio_lock_or_retry() and drop __folio_lock_or_retry()
+  mm: Don't retry page fault if folio is uptodate during swap-in
+  mm/filemap: Avoid retrying page faults on uptodate folios in filemap
+    faults
+
+Oven Liyang (1):
+  mm/filemap: Retry fault by VMA lock if the lock was released for I/O
+
+ arch/arm/mm/fault.c       |  5 +++
+ arch/arm64/mm/fault.c     |  5 +++
+ arch/loongarch/mm/fault.c |  4 +++
+ arch/powerpc/mm/fault.c   |  5 ++-
+ arch/riscv/mm/fault.c     |  4 +++
+ arch/s390/mm/fault.c      |  4 +++
+ arch/x86/mm/fault.c       |  4 +++
+ include/linux/mm_types.h  |  9 ++---
+ include/linux/pagemap.h   | 17 ----------
+ mm/filemap.c              | 57 ++++++-------------------------
+ mm/memory.c               | 70 +++++++++++++++++++++++++++++++++++++--
+ 11 files changed, 114 insertions(+), 70 deletions(-)
+
 -- 
-2.30.2
+* The work began during my collaboration with OPPO and has continued through
+my current collaboration with Xiaomi. Although the OPPO collaboration has
+ended, OPPO still deserves more than half of the credit for this series,
+if any credit is to be assigned.
 
+2.39.3 (Apple Git-146)
 
