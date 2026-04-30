@@ -4,150 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB4E2CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 08:42:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39862CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 08:45:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0FVn5Qch88c6hBeYwY+SvyUQLZmTEH/+cKQYWpfANPI=; b=qpViVGbpm2CHDAv65HV9ppUxi8
-	k8RTpWNxxoNHq3pwAMoIdT6ncTSfaP2riE6/kd2iGbkHy3PYHaF6eWNQ1HqTLGlMsUcaILOgH6Hlh
-	zjRrUl/y7Q4KhIsmOlJTz/xgOwLDjnAIrvAGAM9PbUdLKSMhyohMiRBTSdyd+WSFGhIxeG6grqvry
-	bE9tW2O016lL+wmjuT7RpwvPEfTp9MmDcgHwL+Q0aRIVtyUAOvoUW85cGdhDImpO5CNXE7kcl8D7u
-	R7INAsHtWWYWfSkc1f/NyORt2Ur67SMvb69czfWj6T9IW2bK7ErLJBwLa6RyaI0kw8OpU4rV5Y0wg
-	xTqiOvKQ==;
+	bh=xuoEzlKQ+jbZWqfDSTbKAzWgKBkKNvhhYOyvNjByjFw=; b=r9b1YZkPW2t+yFOcQ/lPrdi8aW
+	jl3uzTZTojPQ0s6FbU4m5ucOYvWDgYQgy053SB57tu7wCx081RKQocy2zydK3PF3bCNERdj6Y7HoT
+	FDGigXEUy/pOT+G23Mg7twivsShDP14KOa7oHx/YcqBNSPc/WR31FP7U3IljfFWsqTftgqpe9MeMc
+	kRh724s6vLeWg8MEhY3FZ+KYww/rONt4uOFQ8d09XzigVmRWjsKOeOBARe99hqzV9Dk+CFO3j+4vm
+	s371HlBQskQ3OTpZmCsWZ8nYGvSGNGJVLdjiqTjPdXenewQL8qYjRZALEDKj1k0asYkcJVVh72uyL
+	RbPV3PQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIMyT-000000052Ai-1hQB;
-	Thu, 30 Apr 2026 08:42:21 +0000
-Received: from mail-norwayeastazon11013047.outbound.protection.outlook.com ([40.107.159.47] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1wIN1s-000000052ZL-2o6C;
+	Thu, 30 Apr 2026 08:45:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIMyR-000000052AB-30X5
+	id 1wIN1s-000000052ZC-08Rt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 08:42:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bR2bplxrSC+YbiG7GrSaet8MiP7SaFxr1zOV/sU/VI5TaxRNERJ596dVVAa/r1dD0LHZjxTlAfxEf4KkoD2Qm0cxm5MsX0LX/tQc3vvfCpi9OjHmyauBkbcCqWGbvWlWoADA1BRsGwUUoScl8K/3WpwaBfYuQHXqZyecXcgCiqv4DD6yuJEM3g9hXyQ4NpTCTWNEm8fSUXtZPyULQO8MrbNM5NFva/QDazATuuvWGkVtyQBL6elot+hezSPG35X0DBEa4rTKvv5f/ndpRytvMmQ7sq7QLSai9eLE6Glv8PUbhfLIFHid0FMGd9EY6Nt46yHn0fgPPlKcst4OtCuMlA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0FVn5Qch88c6hBeYwY+SvyUQLZmTEH/+cKQYWpfANPI=;
- b=ipPgYFHuJBO9iTpqUciybDW00Xon2vcBNPAe3trpYK6tw2qeKMFDvq60Vl06F2HAbz7mCLUd8ny6Qaz8eKEzA20WGB4h62AxiHMNdFhtLZI7dvSKnaT5EBZrCpkeRDz5e0vWvH4OAW/cPMjMBNE5/jFENLaHpaE5W6CPWsmkAP/3bTkJx+6rzQ4TGWyeO5sk1/TYKposznfsuH8zROjoMPyRGETNJBoIabCAbEKDZGB+lBx/+AYhslelr8vSTh3RDa0vYiwnaGQhRkBGzpBHrqawm7Y1sb27/vgyCmZKNbhPg39T/SyKTzQ+PUZIGqv3iC5SpARHI4zYf6UigjAeNQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0FVn5Qch88c6hBeYwY+SvyUQLZmTEH/+cKQYWpfANPI=;
- b=agbZ5KnRfVsndu658MkO7eSnW51SQCUkzTIeDAcduCfZQRXKdGoJtJsOkeyyBZh1PrnHv0j9Ss5Jr/xKPRjtZQLB50E1z2hzCv/1Elt3VJcrpW0UE1V1arNHPp8ITHxMnA8aM1sLU4nTsZWfGO3yhglTadBSB1A4Bn3jX23cPZjwSlPJNOOSDhT1KMqGaExpTtp0Np/ctoui8kwXxU5HlgCcNV6I/F4eYtlgD1aq8FMaHPfP+dhoRgdfM69pqLA7TJpnJv2ErtGzP690xReDCupI1zCA6ONjjiW9X9ddnBTJSlCeCyBC6BJHUnkQ4Ib1JLoMig+rKWNv7Z3TDfkAOg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com (2603:10a6:150:2c6::8)
- by AS8PR04MB7864.eurprd04.prod.outlook.com (2603:10a6:20b:2a4::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Thu, 30 Apr
- 2026 08:42:10 +0000
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4]) by GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4%6]) with mapi id 15.20.9870.016; Thu, 30 Apr 2026
- 08:42:10 +0000
-Message-ID: <54662a45-34d2-41c6-aaea-e88cf1d00159@oss.nxp.com>
-Date: Thu, 30 Apr 2026 11:45:24 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [EXT] Re: [PATCH 4/5] arm64: dts: imx93: Cortex-A Core remoteproc
- device node
-To: Jiafei Pan <jiafei.pan@nxp.com>, Krzysztof Kozlowski <krzk@kernel.org>,
- "andersson@kernel.org" <andersson@kernel.org>,
- "mathieu.poirier@linaro.org" <mathieu.poirier@linaro.org>,
- Peng Fan <peng.fan@nxp.com>, Frank Li <frank.li@nxp.com>,
- "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
- "kernel@pengutronix.de" <kernel@pengutronix.de>,
- "festevam@gmail.com" <festevam@gmail.com>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Cc: "Z.Q. Hou" <zhiqiang.hou@nxp.com>, Mingkai Hu <mingkai.hu@nxp.com>
-References: <20260428090819.17761-1-Jiafei.Pan@nxp.com>
- <20260428090819.17761-5-Jiafei.Pan@nxp.com>
- <b7e93b01-39aa-4a9f-9927-6c634a6c727c@kernel.org>
- <AM9PR04MB8196E13EA80CA4319EA17E828A352@AM9PR04MB8196.eurprd04.prod.outlook.com>
-Content-Language: en-US
-From: Daniel Baluta <daniel.baluta@oss.nxp.com>
-In-Reply-To: <AM9PR04MB8196E13EA80CA4319EA17E828A352@AM9PR04MB8196.eurprd04.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR2P281CA0055.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:93::14) To GVXPR04MB12316.eurprd04.prod.outlook.com
- (2603:10a6:150:2c6::8)
+	Thu, 30 Apr 2026 08:45:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3532B60583;
+	Thu, 30 Apr 2026 08:45:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2ABDBC2BCB3;
+	Thu, 30 Apr 2026 08:45:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777538750;
+	bh=+MBhZkziafGe9boIFxf7Lv1bigAUU/KzlTMIHJ2Vi3I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=vFDt5+4ORGzFWPnYEcamCPOAZJQoO/abaBIsk6lC6+NMTXdB2QMEX9ypUPp7QmWJs
+	 rNI2Ys0BxlLYbFkYEqs9b1ohRRPwwq2I11hLwqPf0utvNtgT2myhvd7Bez+uIHB253
+	 BwLURQ6V71f5oT4bq22zqYjcP1b3EwS+SgGaFoJbQCrJgTcS9xkFaR8NoVfo92NLv1
+	 o7IJmrXvhcPwqszl2lX1aKwZ3TUH8lurZy/ALEg6rJoErpIyq5jG9Fht0xH//QFXV8
+	 G+WKqJ/LSqVptJu56t1X1TEvFk8jgGrE4iQhFv1op00lqDs2BgqtVrQ/qlb5MWUQQG
+	 zho0BCGT4MaaA==
+Date: Thu, 30 Apr 2026 10:45:43 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Kameron Carr <kameroncarr@linux.microsoft.com>, will@kernel.org,
+	suzuki.poulose@arm.com, steven.price@arm.com, ryan.roberts@arm.com,
+	dev.jain@arm.com, yang@os.amperecomputing.com,
+	shijie@os.amperecomputing.com, kevin.brodsky@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH] arm64: mm: support set_memory_encrypted/decrypted
+ for vmalloc addresses
+Message-ID: <afMWt5Saisw6NX-t@kernel.org>
+References: <20260406213317.216171-1-kameroncarr@linux.microsoft.com>
+ <adjZpFIgXQYOvyTq@arm.com>
+ <001301dcc932$21cb6d80$65624880$@linux.microsoft.com>
+ <ad5vTmfDWSAVrLab@arm.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GVXPR04MB12316:EE_|AS8PR04MB7864:EE_
-X-MS-Office365-Filtering-Correlation-Id: 339defd5-0d66-40d6-cf5d-08dea6945e37
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|376014|56012099003|18002099003|22082099003|921020;
-X-Microsoft-Antispam-Message-Info: 1sraUFw6djTF9PdaHSNQ54W9jDHLtRG6mYz3ywIH2hqSCDugHoo6ecEoJPwMQc0j6RELQrGoDDQkLp1fD8Lx+s+RCi9rvXXhTgKqFfOJk8Y/0dJ+YKao4lIGzsfEecGayA/sM6By88w8UCZ28yoDGp3Qreanzd9Y6HpYRmhsSi+LgqS8lZMEAYaaodJGTKorhUFRXIeRG8vzzIFPNV9Yyte/DOLNFkIrxA38FmG+LW6LBTljMI7OiOAJMfZ262+eFkyqyMN+KrDvdPqkfBawMDSzZYy3ZU41S8DFeRbK6MCecY48GHIK/228FftRcBVZINUCs0jwD/35Af2eXO5plAyY8iU1E1UFqHlHWtFsJUQl6NJLTF6NQ10QV9AOJonEW7R5X7aOIRKGY8nyH0QMYawsA+lKDqPbaxWjVTpVFQuy/ftyTKaU+yDx90Imy40rfU7ZFPbT8s213OvM2XSJfjDZYChtsrgIV8Dn6myLtG7dcZ1oFIivXoSf5nSsqniAq1zYfBYnNcKOa852Rm68Da/forglXla07qJstzNvsu4RXuzrSezgVG53rMCOEV2hk/JHPAsKBJWE6KWb+oXWVcY9iRDDmaQj9KWZER2B75yfoe6wu64sAZK8s/Sx+cPgjrxs4JDVwDC1YOtwYlihBGf/QGyKRc6ty25PTNxjb1Mfza/5SqQTNmLecyBoY1FRO91giBFxDyEfeEHIml6tkPhBlaLsOaFQlqFvX2UxLei8sy+3eseryaUXO9f0AcztDRu1Oa3D+gNaTYR6dVWpTQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12316.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(376014)(56012099003)(18002099003)(22082099003)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bzNkREpjcW0wbmFBdXV5WCtSaGdiS1J6SXkzc21Mak5WaDBxK1M1T2hwT3p5?=
- =?utf-8?B?dlJ5UVlsbTQxRUVnOU40NVB0TFNIbStSNU9rb1cxNjZRdlAwbks4azVDcExn?=
- =?utf-8?B?NVJFeGJ4M3JoMDR1aFlZVCtUUEwwYk9rV0h4dFBJblBRb3R4OUNjUmhqU0Y3?=
- =?utf-8?B?WDg2REJucHJDeE5OblFYdEo5bmErclVDN2k5OXNrQnNsS2pJZlZUeGJ0UXJV?=
- =?utf-8?B?VlJETjljSlZvRW1iZVV2MnVNaW81ZVMxY2ZhUjJNekNoYXcxTkI3OVRuUnV2?=
- =?utf-8?B?UzZia0NQb0E1VGFZM21SUTM0S0xLOVJ5b2hhQWs3cTloRjgxZ2RmM3hOa28z?=
- =?utf-8?B?Q08vZWswQUhHTkRmQlVIcWx5aUJKZ1FEcnBrSmhqaExJYXl5Z1dNTm1TWkJE?=
- =?utf-8?B?REVyTXZtZUtMSHZDSk1jS1VPK2ZvRlJTWVNnTzloeE92eHFlemVFSkZtODI1?=
- =?utf-8?B?OGF4ZUFac3hmRVZjRS81Q2xHNkRnZDFPUU5sRmhVUGhuZzFZZmJodStIalFn?=
- =?utf-8?B?S1BxWWt1eVgvdXU4SzVGdSswYVZ1djBIT01JM2xzTStvTHlTVi9JYzhSWEFJ?=
- =?utf-8?B?bmkyQzkrZlp5b0pUdUxoUU5MdjZrNGhiVTZDYjlQaFFEdUxDVmROYzRSbUNy?=
- =?utf-8?B?dWw1Qkw1c3NBRmNXVkJ2dllaYlloUEJSOC9JVGxZUDlQb0VTRlBTNXFUZTZI?=
- =?utf-8?B?d2dzZ0FoM3p5MUJjV3RnYTdGSnhyT3RmNzNUUzUvUjNTZnNEblFmdkN0cDh0?=
- =?utf-8?B?RXV4VGtvUUxZNnlKMnQwa0hVdkpGNHdSZ1VrNll4M3dja2s1eXRrTHRGN3JO?=
- =?utf-8?B?ai9SUDBGTU5heU1hTndRVmthb3VabFl1V0UySTBmUlk2YURISkdVdFZFWUla?=
- =?utf-8?B?RFJkZ1h2eXpRRzBUa0ZRYmZ6RTk2MjFqTkd0MXBtYVVNYmViTVhpMnlQQU0x?=
- =?utf-8?B?aDYxTk9xS3hWZ2ttcDVCQmd6WXFFR1ZnUlMwdFU0VUZLZmU5SEZJbHlLZmJ1?=
- =?utf-8?B?T2tuMldBQ1lZQjhOQlVmKzZUSTNlTkhBdnFqSzhRQWRlaFZUOWxaNmtGMWJR?=
- =?utf-8?B?bGxLUXc4TmkzN1pHREtXYkZSdkd6K2pxRElDdXRIUDNVSHJEYkg2WXZ6LytL?=
- =?utf-8?B?WUxxU20zZDN5M0N0cUdZZEJ6dFA4NXdvZ0ZyY1ZXNlJEditHN2orRkNzcnFy?=
- =?utf-8?B?T2xvbzlLaHJWN3RqdEI2MlpLTW40ZGxHZ05mVE9yRjk3QXdnRnRaSVJZQWRE?=
- =?utf-8?B?M2hFTHJGR2hLU0duajAyVVJTNG5xc0ZsTkVQbkwwVU5CblRwazFsTzBGMytG?=
- =?utf-8?B?SEtUN2ptd1p3RkJMOXB4aDFJZEJGQ256N3FUdVVSbGkwQ3lnclljZTFkUlBv?=
- =?utf-8?B?NlQ1N0VWazRJQUJMSWpBS29DT2o0QmZXQ2w1ZFpNbVJiKzdzNG9yZno4Rm9J?=
- =?utf-8?B?NElGTi9oZFNrTjJhdmx2VjlxSW1Ha3BHbkRvRlpQUTNReGpNTjJrR3NkcEl1?=
- =?utf-8?B?TTlBSXJWeHNwSy9DamExU2pwL1ZabHA0MjNHOUdwc2V1eEdyY0RFOVZwKy9H?=
- =?utf-8?B?SnVrczUrNEwvVG9iQitEbm1sQ1ZKaER1TlN0cDd6YTBXdFhTYllkNE1wL2lj?=
- =?utf-8?B?QVp2YkU0all2ZVpxSk8xWTVBY1Z4SXdWbnlYZGQ2SE5BNlZiaHpPWGJTdkk1?=
- =?utf-8?B?QWdwUWpZL3ZCWEdVMks4TVppN0FWZXhhTkw5dDdyMnA0dGhUUEVtVDFqYUpE?=
- =?utf-8?B?Sm8yZldCWUQxQnZVMjZXMWlrb0ZhTFI5NHQvTmNQYk5SbDZtVEZUbVU4Zm1K?=
- =?utf-8?B?YStKcXdIQjFCVjhxVFhNWkNZclA0NmFQSjZxVUNnWmZseDJGRkhqK0J1WTEy?=
- =?utf-8?B?RTRjQkFxUmU0Qy9Lc2FHOW9kVDgyVDk4QTBKQndkdTdxaUYwTkVyaXM4Tzgz?=
- =?utf-8?B?MUlJL3p6bkNhWnIxVGQ3U2x2UGVGMHBIRkxuUWtZSHViMUozNk8yYlVJcUlZ?=
- =?utf-8?B?WmZJSGh0alpSZ0c4WWhpRnJkbHUwMFprRCttT01UNXNRR3FBWk9SdlhNblB4?=
- =?utf-8?B?OVBPa0UyaFVLSU1PbkxEZjZocU01WmZIRFNZcnhrNFFYRW9uME1qZXlZeG9x?=
- =?utf-8?B?aUNoRDRoNVFINDZrNkxlLzVYeTBmUzI1K01XU0Z3YnI2eXZ3UGFGdStSaTN5?=
- =?utf-8?B?MWtQNHBBTHRNUGJNanhtN2NJTUUrOEFOamllS0lKVmRzYzV2bCtKM0cvQWY0?=
- =?utf-8?B?ejV0RzJvQm1NQUdtenZIbVI5ZmJjRWZpcVFIYndaMVVENCt5NHd6Vm9FRkxp?=
- =?utf-8?B?ODBPS3FlNFdoUStOWVFwSVBQQWlZL0kxdGxFMEhyM25MWjFVNit0UT09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 339defd5-0d66-40d6-cf5d-08dea6945e37
-X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12316.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2026 08:42:10.1558
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: KpDxXDMaUk8fEQkVIUHjWB4fPjHBcig4VWbkQudZbB610F8bYzR9lNzSDaYur1XYxKQG6kkhQ+INYw7Qp+SMhg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7864
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_014219_790037_BCD5E655 
-X-CRM114-Status: UNSURE (   9.19  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ad5vTmfDWSAVrLab@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,21 +75,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/30/26 09:51, Jiafei Pan wrote:
->> On 28/04/2026 11:08, Jiafei Pan wrote:
->>> +     init-on-array = <IMX93_CLK_LPUART2_GATE>; };
->>> diff --git a/arch/arm64/boot/dts/freescale/imx93-rproc-ca55.dtsi
->>> b/arch/arm64/boot/dts/freescale/imx93-rproc-ca55.dtsi
->>> new file mode 100644
->>> index 000000000000..9d9a60404d2b
->>> --- /dev/null
->>> +++ b/arch/arm64/boot/dts/freescale/imx93-rproc-ca55.dtsi
->>
->> Heh? A DTSI file for one device node?
->>
->> This looks a lot like downstream approach.
-> Use a dtsi file which could be leveraged by multiple boards, otherwise what's your suggestion? Thanks.
+Hi Catalin,
+
+On Tue, Apr 14, 2026 at 05:46:06PM +0100, Catalin Marinas wrote:
+> On Fri, Apr 10, 2026 at 02:36:42PM -0700, Kameron Carr wrote:
+> > On Friday, April 10, 2026 4:06 AM, Catalin Marinas wrote:
+> > > Could you give more details about the user of set_memory_decrypted() on
+> > > vmalloc()'ed addresses? I think this came up in the past and I wondered
+> > > whether something like GFP_DECRYPTED would be simpler to implement (even
+> > > posted a hack but without vmalloc() support). If it is known upfront
+> > > that the memory will be decrypted, it's easier/cheaper to do this on the
+> > > page allocation time to change the linear map and just use
+> > > pgprot_decrypted() for vmap(). No need to rewrite the page table after
+> > > mapping the pages.
+> [...]
+> > In this use case, whether to decrypt the memory can always be known at
+> > time of allocation, so a solution like GFP_DECRYPTED is an option.
+> > 
+> > I think I found the hack you mentioned
+> > (https://lore.kernel.org/linux-arm-kernel/ZmNJdSxSz-sYpVgI@arm.com/). The
+> > feedback in Michael Kelley's reply covers the key considerations well.
+> 
+> Yes, that's the thread. It started originally as a GICv3 need
+> (eventually we went for genpool).
+> 
+> > He likely had netvsc's use of vmalloc in mind when he made the point
+> > "GFP_DECRYPTED should work for the three memory allocation interfaces and
+> > their variants: alloc_pages(), kmalloc(), and vmalloc()." His other
+> > points already cover the concerns I had in mind around handling errors
+> > from set_memory_decrypted()/encrypted(), etc.
+> > 
+> > What is the current status of your proposed GFP_DECRYPTED implementation?
+> > Is this something you are actively working on?
+> 
+> Not really. But I've been looking at it again and I think it adds more
+> problems than it solves. A GFP flag would be passed down to
+> kmem_cache_alloc() and confuse the slab management if some pages are
+> encrypted, others not for the same kmem_cache (SLAB_NO_MERGE wouldn't
+> help). I wonder whether something like SLAB_DECRYPTED would work better
+> for this if we really need it (not aware of any user though).
+> 
+> Anyway, let's ignore slab for now and look at vmalloc(). I can see
+> hv_ringbuffer_init() using an explicit vmap(pgprot_decrypted()). While
+> you could do this, it might be better to just add a VM_DECRYPTED flag
+> and a few wrappers like vmalloc_decrypted(). It would call
+> set_memory_decrypted() for the allocated pages and use
+> pgprot_decrypted() for vmap. On vfree(), it will have to set the pages
+> back to encrypted. It should be fairly mechanical to do (or a 5 min job
+> for an LLM ;)).
+ 
+A GFP + SLAB flag is semantically better than only implementing decrypted
+allocations only in vmalloc, but it's surely way more complex and intrusive
+and we are running low on gfp flags on 32 bits :)
+
+But I think we can push the _decrypted to kvmalloc() that would do either
+kmalloc() + set_memory_decrypted() or vmalloc_decrypted() and it seems that
+x86 and drivers could use that instead of alloc_pages() +
+set_memory_decrypted().
+
+We also would want also to make x86::set_memory_decrypted() to only accept
+linear^w direct map addresses to ensure consistency between architectures.
+
+> -- 
+> Catalin
 > 
 
-It is just one simple dts node, put it everywhere you need it don't bother including a dtsi file for it.
+-- 
+Sincerely yours,
+Mike.
 
