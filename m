@@ -4,77 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56C22FF8875
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 11:20:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DBE4FF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 11:23:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Cc:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CbSjDmbB+fwd9uisoHdA7Y4E4U6AJ9oA6oBIi/aMsc8=; b=GBpX1xfFb9Yt9cqQIdShPFsysP
-	UjY1daiGmHa5OZJwPTFJW+GnYneYWSq5EZATivijPaG/vicPT4LnDXOXeiQWaoRtMp2wanOSuV/ME
-	UK6u05f3yqvb/fuNP31E53spIt7tKujsnW1VwEQQ0k+nfkDJr2hezyJXwnoSUAXFMUWxvAuigbbdv
-	724PYRFzv3aE8RE16rLxlRMlxtxyoKuO7j4iw2IJNS2uuCFra/xKZ/+aRWWyj21dtr1m+8mjSrCh8
-	WgC4e8a/yrlGUuLE3cHFxmTESzBp2lVed51cZArV9pdRr4VAw9QKok1WQFiRBuowHvOTV06VYr4yn
-	AucKHOUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7v39HKLXWeoMCVhVNmZv9eQwa4sTYDMTw3jZCpfH2ho=; b=epCfGkCa73hDfIp/XC2ADIrnW0
+	ppVk2arl+zJDhSz68UT6D/f4X+lCV8uCjjQ0mqPfkZFs86pWMQkc5By6yciDsqZ799lwK7f+k+Zeg
+	blSdCGAPqQy9GZp6Hz7mZxHV4uJ3UrViVKk+R1ZrEkgThk2FIOHjluHX5mCfFGwHXWUpn4dfUmr1Q
+	Zll7TCyzUMuCmUbqdDdj/kuWu+kyVO9eadtsMy23nqsBfDwih+nWnbPW2cCZg+dLvn6dX62qnNjkI
+	oVXQw7w/CfoMshbSrkrsb7HFciOXiKq5+NHm14qgauxBHWnkk+UY3Mg902fiuTGQZOAbDmkCrVJU6
+	WGwPeCQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIPRP-00000005N5x-3TBs;
-	Thu, 30 Apr 2026 11:20:23 +0000
+	id 1wIPUf-00000005NWa-0Vl7;
+	Thu, 30 Apr 2026 11:23:45 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIPRO-00000005N5Y-1Z8R;
-	Thu, 30 Apr 2026 11:20:22 +0000
+	id 1wIPUe-00000005NWR-1J3x;
+	Thu, 30 Apr 2026 11:23:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6EA0660142;
-	Thu, 30 Apr 2026 11:20:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0E20C2BCB3;
-	Thu, 30 Apr 2026 11:20:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BA2C76015B;
+	Thu, 30 Apr 2026 11:23:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03496C2BCB3;
+	Thu, 30 Apr 2026 11:23:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777548021;
-	bh=CbSjDmbB+fwd9uisoHdA7Y4E4U6AJ9oA6oBIi/aMsc8=;
-	h=Date:Subject:Cc:From:To:References:In-Reply-To:From;
-	b=cpqLcMhmh2CIoQ+Nl5Ja10CZ2fUCK2AqQR0hPt+Jg56DI00cidDuS0GPw+Qqf2Diq
-	 tfB3oTt+jVvOoWtK1OREKNbMQ2zNRKBsYVHr9vr/0mHG9ZtBEm0RDDG0n5xZWzRlBo
-	 MRxBgyCcjKBLbWiELDDYr034AwDjtwcB95J+z8jQJbK+g+dDRXpr2whmW0DLkM4yP0
-	 xAp4x6MN2ejYI7MGy5fmbB5PQOGEMBBhMtlSiZZr+8OQyFC232C4CM+PV2mKFIzzNK
-	 OCgWgFQfu+bEYdah5EWqsOzBW2kA+q3gNXYKzCInBmIgj48lTMpgYrCK0T2K6CNH8w
-	 n4MzBQKAn6sFw==
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=d813880cce0dd36de044a5774161cd7c2bdcd11d3b8f945b00451ee61dba;
- micalg=pgp-sha384; protocol="application/pgp-signature"
-Date: Thu, 30 Apr 2026 13:20:16 +0200
-Message-Id: <DI6G6LSE68E9.1PHS6K9083JJ9@kernel.org>
-Subject: Re: [PATCH v2 3/4] gpio: realtek: Add driver for Realtek DHC
- RTD1625 SoC
-Cc: "Bartosz Golaszewski" <brgl@kernel.org>, "linux-gpio@vger.kernel.org"
- <linux-gpio@vger.kernel.org>, "devicetree@vger.kernel.org"
- <devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-realtek-soc@lists.infradead.org"
- <linux-realtek-soc@lists.infradead.org>,
- =?utf-8?b?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?= <cy.huang@realtek.com>,
- =?utf-8?b?U3RhbmxleSBDaGFuZ1vmmIzogrLlvrdd?= <stanley_chang@realtek.com>,
- =?utf-8?b?SmFtZXMgVGFpIFvmiLTlv5fls7Bd?= <james.tai@realtek.com>,
- "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
- <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "afaerber@suse.com" <afaerber@suse.com>,
- =?utf-8?b?VFlfQ2hhbmdb5by15a2Q6YC4XQ==?= <tychang@realtek.com>
-From: "Michael Walle" <mwalle@kernel.org>
-To: =?utf-8?b?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?= <eleanor.lin@realtek.com>,
- "Linus Walleij" <linusw@kernel.org>
-X-Mailer: aerc 0.20.0
+	s=k20201202; t=1777548223;
+	bh=y0DV5zO2eVU82OJnZH8JCZffr1Ytd2kNwNVgaDihKA4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=XAp10jUOjzOViGFVLYzXFsSpPcrh5x5F92QGm9mC/vmXDe676ueudgsaZYQ6KUm2j
+	 AvRRfHe1kxTQQGEOnBmUPT5N3ptYqfw1xewVZi4kpS2hpx+7ML6EperetjKxPmq6KA
+	 o6jIci19JHmpIhWybbuDHY127z+wXBhxGaBfbmKe/azGAIB/5GcoFH1DQD7Odw/ntE
+	 Qp3SKLkzJkIoChmUAfZ1Ac0li1h4UBkSOgj73+OHJ9bF3irhKOr0VS4NS6R9DWkx51
+	 7i3cwpLgRZ1DK5KphBhy+p6yiulIyOU1r1xbYqyHf0O7YRcl3ZWlW87W7D1BPNDqWG
+	 3gfY5wInoLxzA==
+Message-ID: <6ff75de9-6d5f-4d4a-bb19-1c06d0aa8d3a@kernel.org>
+Date: Thu, 30 Apr 2026 13:23:38 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/4] gpio: Remove "default y" in Kconfig
+To: Yu-Chun Lin <eleanor.lin@realtek.com>, linusw@kernel.org,
+ brgl@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ afaerber@suse.com, tychang@realtek.com
+Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-realtek-soc@lists.infradead.org, cy.huang@realtek.com,
+ stanley_chang@realtek.com, james.tai@realtek.com
 References: <20260408025243.1155482-1-eleanor.lin@realtek.com>
- <20260408025243.1155482-4-eleanor.lin@realtek.com>
- <CAMRc=MfUh_OuxS4SC6QzSOg_PMNc9i9crGYgBASrbVUgHDHSCw@mail.gmail.com>
- <52bf9ce2b7754af8af69b0afee0d07b2@realtek.com>
- <CAD++jLkpS-T9yK=ctSwpLvXkj7s7ivmwu1KKwzy4KS40LVYeyA@mail.gmail.com>
- <DHXSUW3NJU22.1RUYUHQZSZ53S@kernel.org>
- <b73f34ec55984a33b0172e2ac3a28e04@realtek.com>
-In-Reply-To: <b73f34ec55984a33b0172e2ac3a28e04@realtek.com>
+ <20260408025243.1155482-2-eleanor.lin@realtek.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260408025243.1155482-2-eleanor.lin@realtek.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,70 +117,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---d813880cce0dd36de044a5774161cd7c2bdcd11d3b8f945b00451ee61dba
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+On 08/04/2026 04:52, Yu-Chun Lin wrote:
+> Remove the default y to avoid bloating the build for non-Realtek platforms
+> when COMPILE_TEST is enable on other platforms.
+> 
 
-Hi,
+Why isn't this driver important for Realtek SoC? This should be
+explained, otherwise proper fix is default for ARCH_REALTEK.
 
-On Thu Apr 30, 2026 at 11:58 AM CEST, Yu-Chun Lin [=E6=9E=97=E7=A5=90=E5=90=
-=9B] wrote:
->> >> 3. Hardware Debounce: We also need to support hardware debounce setti=
-ngs per pin,
->> >> which requires custom configuration via set_config mapped to these sp=
-ecific per-pin
->> >> registers.
->> >
->> > Just add a version of an optional .set_config() call to gpio-regmap.c
->> > to handle this using .reg_mask_xlate() per above and add a new
->> > GPIO_REGMAP_CONFIG_OP to the above enum, problem solved.
->> >
->> > If it seems too hard I can write patch 1 & 2 adding this infrastructur=
-e
->> > but I bet you can easily see what can be done with gpio-regmap.c
->> > here provided Michael W approves the idea.
->> >
->
-> Our .set_config requires mapping specific debounce time values to
-> hardware-specific enums and applying a Write-Enable bit.
->
-> Would it be better to allow drivers to assign a custom '.set_config' call=
-back
-> directly within 'struct gpio_regmap_config'?
-
-Yeah, I don't think there will be much code sharing of
-code/functionality for the .set_config callback. A custom
-.set_config was proposed many times in the past.
-
-> Additionally, I didn't mention this in my previous email. we also need to
-> implement GPIO interrupts. Our hardware design does not fit well with
-> 'regmap_irq_chip'. Therefore, I am planning to create our own 'irqdomain'=
- and
-> 'irqchip' ops to handle our cascaded interrupts.
->
-> Because of this custom IRQ implementation, I would need to use 'readl()/w=
-ritel()'
-> for the IRQ callbacks in the rtd1625 GPIO driver instead of the regmap AP=
-Is.
-> Do you have any suggestions on how to handle this gracefully while keepin=
-g it
-> aligned with the regmap infrastructure?
-
-Why can't the MMIO regmap be used for that?
-
--michael
-
---d813880cce0dd36de044a5774161cd7c2bdcd11d3b8f945b00451ee61dba
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCafM68RIcbXdhbGxlQGtl
-cm5lbC5vcmcACgkQEic87j4CH/gI3AGAy9Rtm8M8cPTowSj7LX/6Bv869nnmd8Cw
-MpzVztzODqPB/LkXkMyvpkhWH6AzyLlvAX48SNhCzsSDeC7wqRKPl8sErYeJZGLX
-es14enI6yhoXQgX6nbZ9889InNSwBDjGvOQ=
-=hoAy
------END PGP SIGNATURE-----
-
---d813880cce0dd36de044a5774161cd7c2bdcd11d3b8f945b00451ee61dba--
+Best regards,
+Krzysztof
 
