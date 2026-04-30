@@ -4,84 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 009BAFF886F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 09:40:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05841FF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 09:48:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Gyc9RYbLfZX65HhctB5vMYt8uQboQJxO3yiTxtN7nVc=; b=WcdFMpCe0GnA+iUOxXGkWzpMuB
-	Qu/ZEsNe5GtrVre39vKigIm1Mcg0Ul41714+aHFGaPiFZ7WMc/khyw/D21LoUgFOl/Lm3qesl/+/m
-	yAGbx7FYSB0M0mcd9fp5zwiHmzqevZpeDjyL/W8W3DFiZtTdrWYGEbSSiUQxEDKUNLLajNoRBE5vs
-	X7RV3mEfzDcgXc3nOlGPcLWOW+v0P9Sdky//7PynjX679AoFGFM2PheubPvvKyB5SiVZ4ma+NhWFv
-	5A7ntqQLW9Q28mqQW/wvf6MFk0vj5q3IgvOcLQPlkrv3niu82Dt7/dNbz4JzmZESlCX4I7VJQwfn9
-	ZpI+Y7zQ==;
+	bh=Lt9nTBuF8U9csGfbgU/qjpVF214T7dqzGpChYDZDnEw=; b=34+MOt6HnFjrwvXQMm2ET4Q0JA
+	dOlsV4HaOlQIzJNPg3I+hY0vQqtr/huLcXwaLXNU865skAomCcSUmGbsSI9rx6vNyV2Z7OpPFXzbR
+	NsSNjiRZRExrN5vZBYwXWfUMZVnzjS+MYv+4uaiEk090Yix7MSEe5tS8M/twcQ+BoQ3O295c+TJO7
+	pQVNHUW2RfBrfa1ubjsEUxZ4D+GkcU4S7A7BKMQV/00vXMeIQoNflybk/0T9YpPYYM5F71R1lqf03
+	tovUqKq6eVTYma5QNM6tSTsafRiS/4e05ADSV1kKTSqtjwGm4FT1Ikxms2uMVUVQctEQyQfn6m54u
+	BzmwA1qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wINsq-000000056hV-1R5T;
-	Thu, 30 Apr 2026 09:40:36 +0000
-Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
+	id 1wIO0P-000000057B9-48AE;
+	Thu, 30 Apr 2026 09:48:25 +0000
+Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wINso-000000056gv-0jB8
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 09:40:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
-	bh=Gyc9RYbLfZX65HhctB5vMYt8uQboQJxO3yiTxtN7nVc=; b=AAx9dq4/SZQziuBwrwOmmdJbxp
-	WRPQfpFQ8PYiuEV8Bn/0WGFbaOxsUv7Jb2PYlLCdSKmnEWBDE4S6X+LTGj2AEobcwFnbQvcMC2Ubi
-	AeIXU/AzRwvxchEbVhh3Yaje9kLuVsunHvK6/xe4IqzGE678nbEnMmHfL58OU3P0h/HABQZSZY89w
-	Y7k6WdurgpGDWQv56SrlBPhW+Ob+6aDAbDIBxeLeommwRAENi8GHQAIpUe9rY1I7mZ6qUsmNyGlsx
-	LgMU+s6iRXzMxqsRNuUsRDZN4VYBhEtA/n+NyARJ0LCAsVIgAty4pgU2ItjXMmvHsLep/vqD5/4nw
-	2g3pRPfQ==;
-Received: from authenticated user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.96)
-	(envelope-from <leitao@debian.org>)
-	id 1wINsd-007hPV-0T;
-	Thu, 30 Apr 2026 09:40:23 +0000
-From: Breno Leitao <leitao@debian.org>
-Date: Thu, 30 Apr 2026 02:40:10 -0700
-Subject: [PATCH] arm64/hw_breakpoint: reject unaligned watchpoints that
- would truncate BAS
+	id 1wIO0L-000000057Ae-2v1i;
+	Thu, 30 Apr 2026 09:48:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XpMFnwwfRR+aZI84nF4ombB+zy3KbkwWug7tanVN1KTJe8QG7yntX/2zZS91GQaQsrNp3pCDtWIfYTmdR/lejgtzFWx0IXjRxvyoTLiFcwGwjGKC+5iZ7bLgHmSaZJE35fz+YJCXjpvA9C4OONxLoNZB1uFuyjJDfvLUcjDptz1uEYZnnNxkUXfWxs8bC4XixyGkN3QbMIZhiYvhXSbqUNcDDTiYlgu3gmadC+qvOvgcudrI+hYuTdCTF1NNysktludqq237z8WILUzuy8+SaYH4Msp0KCzY7Ixncev1Eavz88r55ZAiwtMKCrdhtFaiYY2+/vopnuY+mR8f/ovFfg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Lt9nTBuF8U9csGfbgU/qjpVF214T7dqzGpChYDZDnEw=;
+ b=s6YEqRdFzHZAgPYwuwFJHcXvTO5hiPvH3j9p8Yedu11ZOV+RCs8SUQKjszbL2X86pUWubwj+WHGA/IIqOKXQhG1kS9FResjt27uxKC8+ot87lNU8K3D+nDHe/2dgSIebDYW0ii7nSGF1JS0S/WxQnrJkctrHBZqD+UBLXNcEqWZmVjjJDMgv9IyDyAyvwRHXJ8627HEmZElvgtoHsqCrq4F6cntBaAH9Hq56YIFM+lLMWQgkht4ICSLeAneXSUQFcFI8dJTdoPbDlQMFAjOw7WEnD6l8wCACGh7E5G+7Ea4wKeg8hjTF2Ysj/rdORSnFTWQ42gCcW28clHvjtYooXA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Lt9nTBuF8U9csGfbgU/qjpVF214T7dqzGpChYDZDnEw=;
+ b=doY/Ut5bgwVMrIN0mv9FAFgUN9r3dh3s14TyjrsjRx6JvK+TefC+BfKilfNxQ4haDa7KoZE09cKUjiS10iIHeR4Sp2UVlbqtzhZuVXGKiKS8MFIhYmfZr+uYMtIBZr/291HlA7evfn2rCKc6Rh19LcRazP2AzXI4KlK0pK1rTPQ=
+Received: from SN7PR04CA0175.namprd04.prod.outlook.com (2603:10b6:806:125::30)
+ by PH0PR12MB7982.namprd12.prod.outlook.com (2603:10b6:510:28d::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.20; Thu, 30 Apr
+ 2026 09:48:03 +0000
+Received: from SA2PEPF00001506.namprd04.prod.outlook.com
+ (2603:10b6:806:125:cafe::23) by SN7PR04CA0175.outlook.office365.com
+ (2603:10b6:806:125::30) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.30 via Frontend Transport; Thu,
+ 30 Apr 2026 09:48:03 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ SA2PEPF00001506.mail.protection.outlook.com (10.167.242.38) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9846.18 via Frontend Transport; Thu, 30 Apr 2026 09:48:03 +0000
+Received: from BLRKPRNAYAK.amd.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Thu, 30 Apr
+ 2026 04:47:53 -0500
+From: K Prateek Nayak <kprateek.nayak@amd.com>
+To: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, "Peter
+ Zijlstra" <peterz@infradead.org>, Sebastian Andrzej Siewior
+	<bigeasy@linutronix.de>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+	<dave.hansen@linux.intel.com>, <x86@kernel.org>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Paul Walmsley
+	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
+	<gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, "Arnd
+ Bergmann" <arnd@arndb.de>, Guo Ren <guoren@kernel.org>
+CC: Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
+	=?UTF-8?q?Andr=C3=A9=20Almeida?= <andrealmeid@igalia.com>,
+	<linux-arch@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-s390@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, K Prateek Nayak
+	<kprateek.nayak@amd.com>, "H. Peter Anvin" <hpa@zytor.com>, Thomas Huth
+	<thuth@redhat.com>, Sean Christopherson <seanjc@google.com>, Jisheng Zhang
+	<jszhang@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, Charlie Jenkins
+	<charlie@rivosinc.com>, Charles Mirabile <cmirabil@redhat.com>, "Christian
+ Borntraeger" <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>
+Subject: [PATCH v4 0/8] futex: Use runtime constants for futex_hash computation
+Date: Thu, 30 Apr 2026 09:47:22 +0000
+Message-ID: <20260430094730.31624-1-kprateek.nayak@amd.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260430-arm64_bas-v1-1-c6ab2b15aec0@debian.org>
-X-B4-Tracking: v=1; b=H4sIAHkj82kC/yXMTQqDMBAG0KsM39pAmkhSchURiTptR/CHjC0F8
- e6l7fJt3gHlIqxIdKDwS1TWBYkuFWF45OXORkYkgrMu2Npbk8sc6q7PamJkH8ert84FVISt8E3
- ev6tp/9ZnP/GwfwOc5weJ7VNNbQAAAA==
-X-Change-ID: 20260430-arm64_bas-77e37d830226
-To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Pratyush Anand <panand@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- linux-kernel@vger.kernel.org, clm@meta.com, leo.bras@arm.com, 
- kernel-team@meta.com, Breno Leitao <leitao@debian.org>
-X-Mailer: b4 0.16-dev-453a6
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2943; i=leitao@debian.org;
- h=from:subject:message-id; bh=viMJdaQKnJpPSLVttk1P5mppEN4n7BVIiNF65MS4KBQ=;
- b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBp8yODgMluI4SVJ+b0hRU85ToWOMb60uHOcdbRX
- mV0f24qDOWJAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCafMjgwAKCRA1o5Of/Hh3
- bQUWEACUa+h8kB1BCjISTYNwwF38x0gwdjSbanCGawZOBdilCnSz6qkBw4weQTOBJh0HlnLdAFc
- ZXshD7npAibp9z1LWgBGN9kqwQ7IfNIW2cchqb+zKih+0Slhv86R1QlrzYOS5C16lrCqmDdQG+H
- 4BqE0dty04wnagUBY3zVLP8LFmxHpaE7256D/Xj6zHsiOvlzqjcu/aZOY5BEf0pbqqY9r6LUles
- UvWnLzNHYoSJrXoaBoKVI+z9v0vpWZXEfW3ZqvzqZQD0Ls8dbcDnSJ0XUxUcIiIHAsBVGiOxvfD
- 3APyM7dmpdICI59nv0G7KaS92/ZcNSjZxmFysWi3Yrm7O1ra+haqVWNtJ5NIjquScWRDcju525r
- foXlAzDsgkZQ2DuIpeI1XRQE6NtUw2wvuFAcy3UvK2T6HzEvZf2BoKP/agglDCI2o6kAeXPKckK
- ETONskEo5jPFIglrDSwcYrRvRt+NgMC3IwjrC19uhA7h7CZjZngb61CDYLl5QfLOw/7IZIDNYhs
- 1i/ckKZcAdg4OrG4NhXsQGxeNwS/3MIb3pYbmuWn4Xxp9G5R89rR3ovODH7eoN0+Z/gEq6+mRVp
- nDv8GSpshl9+f3zn0448E6UogyCzNasLj2b8W6YxmJk7Y4ouLPuD7dPNyWlSvqDmGr+8RUO+dOd
- neKV8W3Jv0RQGYw==
-X-Developer-Key: i=leitao@debian.org; a=openpgp;
- fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
-X-Debian-User: leitao
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.180.168.240]
+X-ClientProxiedBy: satlexmb08.amd.com (10.181.42.217) To satlexmb07.amd.com
+ (10.181.42.216)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA2PEPF00001506:EE_|PH0PR12MB7982:EE_
+X-MS-Office365-Filtering-Correlation-Id: 308ef22c-a1c9-42ad-ffda-08dea69d92c9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|7416014|82310400026|30052699003|1800799024|56012099003|18002099003|921020|13003099007;
+X-Microsoft-Antispam-Message-Info: jPLDl5WHMFolTyBzLb0asGRU26cK9pJe7mN+OYiwxXJAfJ2HZmo8iMD40XX8RVSxoA1IWZXPVwUl6YTPcyfZWand5HVuTKKapK1I54nlkF08fODhrkf1PXCJEzG6TJdQVwJf38wzOn9kcSfIz+XrhU9hof6L6wwnbI4a9JrByc9SSyrSNFhxOfcrW0RTDvKravxcAeyMzqN+ZzLGIUKva+udO0Hl1Yscq34PoGxJssxSIAcweFhk13dxLF5WxJPoSCDR+JqP5iMrZg52FM3+wd55MIwu1YTu20pfkHvPYFjp6+Zr80l+lQyxWFhmpvdLiBfHiQcWvnTKJkOtDMjxoWNQ+C9sTvsYfB5mUljIuQ/l7uKd9HMqqP8O7qPlfP8pxfvbQm7GttAntYwgIsIFF+dGDEs9lGycEOQpNH45Ebbj7+Zeao3Wemp6uzELTMoXLKHejgqzK8Wx/2bpMpgm2y1XfnHhhBD6njnfHsHfcRUz4N0PuTLeZMPQQRCdx8Of7KhjbCwd6XrnoKbcZ76H0eWp2k+juqjPiJuFsMoE3IJeeL/F5EUFYeBlkCEHw+RXDZZq59H5FE3Ubx+DlHnokEM+b02Vkr4fYn1mcnOS+46pTWnBsniin/Pru7SP/GoRTLnkW5zUO49GTSGWNm/Wdnbrq1N0StW5QfginkHBKPzKMA1+6UVEsmw24XHc/R0bOJj6FzKYnV6tJ9b2STlovY0aY+J9t3rUdRup+JVQvHaQbQIu8QWj9LP5GiNC82lrPax07ZcpdGXKVDd1WJhgeQ==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(7416014)(82310400026)(30052699003)(1800799024)(56012099003)(18002099003)(921020)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: TGJoSBaJIKv1sMYEJDzwdgpd1BhRaI0au9W3KFiVEpuobqZOY+opf9/p/zcUP0kQ4kuwJ+5u83M1paiHQ+4fAGqWMLfAD2KDsUDshWsQqSfZMm0zUzeqWBeYmFjYqxddvOiTuUKh1az+yXIYFA3oUBpsBr4YIFw/oM8BFIXjo1twXHFhwlTgDFScmf0aWuzL4rpiFOHu6uZnKYalRrsXOb55ARU+t7Uavb/EzGA/M+Lwc8hAXoP1oKUFpij5trI/oHhas5R9k8onxfDwAXpfUfOul8b4N4LbGQWtuoeL3yxqV2ompDV1Dus5HQ+XtWJbrINRPzZkqe8SdxaHBvD4/X4yRKsVnSA56tcBKhDXTmKooeZxRuXmLSS0vg4dXs4OsvxGcNQ8GBFV3DmkBOlgpr41ENHeOp/b2dSYl0AYZInL8T+q+JfcQnnD1Vc3Z7fx
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2026 09:48:03.5253
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 308ef22c-a1c9-42ad-ffda-08dea69d92c9
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00001506.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB7982
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_024034_242874_1D2D3E1F 
-X-CRM114-Status: GOOD (  13.50  )
+X-CRM114-CacheID: sfid-20260430_024821_936625_2B14E2DB 
+X-CRM114-Status: GOOD (  16.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,80 +133,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-hw_breakpoint_arch_parse() positions the BAS bit pattern in
-hw->ctrl.len with
+tl;dr
 
-	offset = hw->address & alignment_mask;	/* 0..7 */
-	hw->ctrl.len <<= offset;
+This series introduces runtime_const_mask_32() and uses runtime
+constants for __ro_after_init data in futex_hash() hot path. More
+information can be found on v2 [1].
 
-ctrl.len is an 8-bit bitfield (struct arch_hw_breakpoint_ctrl::len is
-u32 :8), so the shift silently drops any bits past bit 7.  For
-non-compat AArch64 watchpoints the offset is unbounded relative to
-ctrl.len: a perf_event_open(PERF_TYPE_BREAKPOINT) caller asking for
-HW_BREAKPOINT_W with bp_addr=page+1 and bp_len=HW_BREAKPOINT_LEN_8
-ends up with 0xff << 1 = 0x1fe, stored as 0xfe.  The kernel programs
-WCR.BAS=0xfe and the hardware watches bytes [1..7] instead of the
-requested [1..8] -- the eighth byte is silently dropped.  The
-syscall still returns success, leaving userspace to discover the
-gap by empirical probing.
+Comments that have *not* been addressed
+=======================================
 
-The same class affects HW_BREAKPOINT_LEN_{2,4} when offset pushes the
-high BAS bit past bit 7 (e.g. LEN_4 with offset=5 yields 0xe0
-instead of 0x1e0).  No memory-safety impact -- the value is masked
-into 8 bits before encoding -- but debuggers and perf users observe
-missed events on bytes they thought they were watching.
+Samuel had an observation on v2 that __futex_mask is always of the form
 
-The AArch32 branch immediately above already rejects unrepresentable
-(offset, len) combinations via an explicit switch.  Mirror that for
-the non-compat branch by checking that the shifted pattern fits in
-the BAS field, returning -EINVAL when it does not.
+    GENMASK(N, 0) /* Only lower bits set; N > 0. */
 
-Reproducer:
+and ARM64 and RISC-V can use a single ubfx (ARM64), or slli+srli pattern
+(RISC-V) for the mask operation respectively but this had the main
+limitation of runtime_const_mask_32() only working with masks of such
+form and others should fail runtime_const_init() at boot.
 
-  struct perf_event_attr a = {
-      .type = PERF_TYPE_BREAKPOINT, .size = sizeof(a),
-      .bp_type = HW_BREAKPOINT_W,
-      .bp_addr = (uintptr_t)(buf + 1),
-      .bp_len = HW_BREAKPOINT_LEN_8,
-      .exclude_kernel = 1, .exclude_hv = 1,
-  };
-  int fd = perf_event_open(&a, 0, -1, -1, 0);
-  /* before this fix: succeeds, watches 7 bytes (buf+1..buf+7)   */
-  /* after  this fix: fails with EINVAL                          */
+RISC-V does generated a "addi + slli" pattern with CONFIG_BASE_SMALL=y
+where the futex_hash_mask is known at compile time.
 
-Signed-off-by: Breno Leitao <leitao@debian.org>
-Fixes: b08fb180bb88 ("arm64: Allow hw watchpoint at varied offset from base address")
----
- arch/arm64/kernel/hw_breakpoint.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+The old scheme is retained for now since it is equivalent to the
+generated asm for !CONFIG_BASE_SMALL and can handle any arbitrary masks
+allowing for all future use cases.
 
-diff --git a/arch/arm64/kernel/hw_breakpoint.c b/arch/arm64/kernel/hw_breakpoint.c
-index ab76b36dce820..b8a1402119f3a 100644
---- a/arch/arm64/kernel/hw_breakpoint.c
-+++ b/arch/arm64/kernel/hw_breakpoint.c
-@@ -559,6 +559,15 @@ int hw_breakpoint_arch_parse(struct perf_event *bp,
- 		else
- 			alignment_mask = 0x7;
- 		offset = hw->address & alignment_mask;
-+
-+		/*
-+		 * BAS is an 8-bit field in WCR/BCR; the shift below would
-+		 * silently drop the high bits of ctrl.len when offset + len
-+		 * exceeds 8, programming hardware to watch fewer bytes than
-+		 * the user requested.
-+		 */
-+		if (((u32)hw->ctrl.len << offset) > 0xff)
-+			return -EINVAL;
- 	}
- 
- 	hw->address &= ~alignment_mask;
+If there is enough interest, please let me know, and I can look into
+further optimization to runtime_const_mask_32() based on the current use
+case for __futex_hash.
+
+Testing
+=======
+
+Apart from x86, which was build and boot tested on baremetal, all the
+other architectures have been build and boot tested with cross-compile +
+QEMU with some light sanity testing on each.
+
+ARM64 build was tested with CONFIG_DEBUG_VIRTUAL enabled to catch any
+potential fallouts from switching runtime constant patching to use
+aarch64_insn_patch_text_nosync().
+
+Patches are based on:
+
+  git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git master
+
+at commit 8f1aacb683ef4 ("Merge branch into tip/master: 'x86/tdx'")
+(29-04-2026)
+
+Few comments from checkpatch.pl have been ignored to adhere to the style
+of the particular file. If something needs addressing, please let me
+know and I'll address it in the next iteration.
+
+Everyone has been Cc'd on the cover-letter and the futex bits for the
+context. Respective arch maintainers, reviewers, and whoever got lucky
+with get_maintainer.pl have been Cc'd on their respective arch specific
+changes. Futex maintainers and the lists will be receiving the whole
+series (sorry in advance!)
 
 ---
-base-commit: 0787c45ea08a13b5482e701fabc741877cf681f6
-change-id: 20260430-arm64_bas-77e37d830226
+changelog v3..v4:
 
-Best regards,
---  
-Breno Leitao <leitao@debian.org>
+o Dropped the lm_alias() on the patching location and send the kernel
+  text address directly to aarch64_insn_patch_text_nosync() since the
+  function does not expect a lm_alias() address. (Sashiko, Catalin)
+
+o Added Patch 4 to convert the RISC-V magic literal to a #define and use
+  that in the inline assembly. (Guo)
+
+o Reverted the naming of the macro variable to __ret to prevent any
+  collision with the local variables at callsite. __ret seems to be the
+  safe convention that is followed for all runtime constant macros.
+  (Sashiko)
+
+o Sashiko commented that weakly ordered architectures may see the
+  placeholder value of runtime constant before their initialization
+  which shouldn't be true.
+
+  Since these variables are initialized at early boot, the BSP should
+  commit all the local accesses in order which would prevent the
+  placeholder value from ever leaking out for weakly ordered
+  architectures that do not implement runtime constants.
+
+  For the architectures that do support runtime constants,
+  runtime_const_init() should provide adequate barrier after patching
+  all the call-sites.
+
+  As such, this concern is dismissed.
+
+v3: https://lore.kernel.org/lkml/20260402112250.2138-1-kprateek.nayak@amd.com/
+
+changelog rfc v2..v3:
+
+o Collected Ack from Heiko for s390 bits after folding in their
+  suggested changes (Thanks a ton!)
+
+o Reordered Patch 2 and Patch 3 to allow for runtime_const_init() at
+  late_initcall() first before introducing runtime_const_mask_32() on
+  ARM64. (David)
+
+o Moved the "&" operation outside the inline asm block on ARM64 and
+  RISC-V which allows the compiler to optimize it further if possible.
+  (David)
+
+o Dropped the RFC tag.
+
+v2: https://lore.kernel.org/lkml/20260316052401.18910-1-kprateek.nayak@amd.com/ [1]
+
+changelog rfc v1..rfc v2:
+
+o Use runtime constants to avoid the dereference overheads for
+  dynamically allocated futex_queues.
+
+o arch/ side plumbings for runtime_const_mask_32()
+
+v1: https://lore.kernel.org/all/20260128101358.20954-1-kprateek.nayak@amd.com/
+---
+K Prateek Nayak (5):
+  arm64/runtime-const: Use aarch64_insn_patch_text_nosync() for patching
+  arm64/runtime-const: Introduce runtime_const_mask_32()
+  riscv/runtime-const: Replace open-coded placeholder with RUNTIME_MAGIC
+  riscv/runtime-const: Introduce runtime_const_mask_32()
+  s390/runtime-const: Introduce runtime_const_mask_32()
+
+Peter Zijlstra (3):
+  x86/runtime-const: Introduce runtime_const_mask_32()
+  asm-generic/runtime-const: Add dummy runtime_const_mask_32()
+  futex: Use runtime constants for __futex_hash() hot path
+
+ arch/arm64/include/asm/runtime-const.h | 36 ++++++++++-----
+ arch/riscv/include/asm/runtime-const.h | 61 ++++++++++++++++++--------
+ arch/s390/include/asm/runtime-const.h  | 22 +++++++++-
+ arch/x86/include/asm/runtime-const.h   | 14 ++++++
+ include/asm-generic/runtime-const.h    |  1 +
+ include/asm-generic/vmlinux.lds.h      |  5 ++-
+ kernel/futex/core.c                    | 42 ++++++++++--------
+ 7 files changed, 130 insertions(+), 51 deletions(-)
+
+
+base-commit: 8f1aacb683ef4a49b83dcc40bfce022aaa4aa597
+-- 
+2.34.1
 
 
