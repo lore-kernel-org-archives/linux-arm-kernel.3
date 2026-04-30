@@ -4,137 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF5EAFF8875
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 09:50:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A23DFF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 09:54:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2q16P5dNxG0Fm3IxC6pmziA/Z+m6goFrjWlFR7ztWRE=; b=eQrtjeSCZRILjVkFXbwo0QK+Nq
-	hFE8e3QpMigQR+iN7/0BgG4kbHdINeTqs1RW5vITSSy7CVZ/0SbGnDHp1H52x+8rPTG4exxpghgrH
-	HuJxXtR16JO2rodUKVduAA7du5B8aY3gw6cfLm1jVrcvVU9ZASVGeYJixx7xNnXh40R1M8AF7qPnu
-	ldZD60p+FsJ4fk1Sk5r5WigZ1LVaOSmji7J/2I7me2c+7HLunuMmN/SxBIWk5j00aGxpmFrdY5RBK
-	VPs2946rqP/Hfq6rKecgIDJ2SBpH1YucDa+aiXb4z/kMFyVQFwOOpBp+rFN72/1a9VT/6e/uTI1L4
-	ArIW3kRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gi/V/YVcp0OVSXhbXGMBsMUecyAjStOar9OIdn+PoBc=; b=WKb2YAVnOZTNnKlgiVj9CA8DLm
+	0Yj91VNDGQG/giMIqDx/WdaHNDxp7xiK41lGjqfM6cm8IHfug4rkg0GBRls8/g/KBT3z0v3rUSOfx
+	Qg3ZVD2QQbfKERbVUs1ocBgpTeAwZbcF04Fjphz++apO2CFth/m4delslpu/cvodiht9RCt5A1o9y
+	KSQTpe1nZgnlltGMBnIOCMWb1VOg3qkur8aQz25VjCXZJbGmFa9rmfXzcjDXcIHiI0gk3+ZuN5kOU
+	RoiPg7hWX7nhtxtz+nOzkXi8+Vw/lXOZ46EOaAJ5iPQVrSnuEoJmAucml8gXqGZy9adQp4pY5Y1ic
+	nUsIkBhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIO2n-000000058ON-2nHT;
-	Thu, 30 Apr 2026 09:50:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wIO6b-000000058tt-3aKe;
+	Thu, 30 Apr 2026 09:54:49 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIO2l-000000058Mf-3rW6;
-	Thu, 30 Apr 2026 09:50:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=2q16P5dNxG0Fm3IxC6pmziA/Z+m6goFrjWlFR7ztWRE=; b=nnYRR8Csyr6wwSTJVsUhYwJfK1
-	uT+J2ZoFoCxkjVKmzSujMsgwaXj96HisSxSRACGnFyE9AyLwQzxk5OXIS63dbA1H2l4mocUGoUfG4
-	MVb4jST0bfGJVvXbQ13WZXkV5VvVUv0Kq3kNRDDq+rPXdO+IqfyYE48fLbWaNAFoS5asbogqIFDQk
-	3raY8eScf+3b4nx5eGYIos9EkT+hvk+W23n3p6lZq3zcvKOcslT3RKy6j9ea1mLi4yjqlWcbbgOj6
-	MJ33yghyDbpjJjnnM6TPgMmLccQ6ZJxdwiB0b4nRqhle4/CRxGmO2O4Aq+g6h1EiyVKcHh3C3x3Qt
-	H9KFTSyw==;
-Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIO2c-000000072BG-0KuU;
-	Thu, 30 Apr 2026 09:50:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wCspgdEML8AdyfJvDoxKr7LhzM90azIpDNDoq2615OKiiJuIHSXbBgqg5lLHqEYYaAc34sqpWzbgi5EDjmYYJ9ieilCnl+Tu6ZVs8Xpo7Pgvm26XoxzYLgLTMElo4mrghuN2uHDIZBwXkwApAJaZzEnZQn2p/iMqnZP0UAM5BkQV5eVP/+vRHqctpS6vBWU/VgAPKnFeDufZGOJZZvLcuKXJqlR+sGHsix5ZhMoMkGINKJw1VDlcyN29uvtz9u//c7qh/fP6w4Qbw3cnrOUq2qb3Gfs4WWbPa3PkfFDmpPn3MaV+UC9QZC7MO4A4VKcSqTB4qiKT7VvRRO7sQk4jMA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2q16P5dNxG0Fm3IxC6pmziA/Z+m6goFrjWlFR7ztWRE=;
- b=loq6mSt1yd/31aJggQOk/0Mn9ImXhu7pH9sdLkKbWtc+gTU7T60h4dcmYm2CaCFsKNY+BvMF3PaEbQqrErTVjxoe075tqBvNf51RKwdnrglB81JVYBgjm46HSUIH7MlrwF9b79yBZHedPkbUdsOI+cjoCpqjJl4xsTJizR/fR0Q9W8bOTifaPLvevoIMNjWtMbsQ7kZ1/EZVOyBUeWUI++94W8PpENjVoDNYIJ9l5a1oyLYOVukXOP9vNYoIZeBH2rnIDYRw4nkIwqE1nq1VuoDjCz6JxyOstKk/x4ZnoLrBGH2Fu5iTU/9jqihcB7YnrYaCnPhGeq2ojpPBwzMMLA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2q16P5dNxG0Fm3IxC6pmziA/Z+m6goFrjWlFR7ztWRE=;
- b=wuUqrwhGw2BsPkpNFKMEH3fZtzkPHqzXPqUrZTGq7uJamPdpPsh8epaDVQ0dquvmyDWre/BA8xOd2tNIGXoYwTYjz0YUyRPRCtqBwR4OP9vPJ0lNcBwMNBhQQtO/fN7pCFs5vORpWysSvxVALRJFAJqx+j3jY/k2Ys8FZzyFacw=
-Received: from DSSP221CA0002.NAMP221.PROD.OUTLOOK.COM (2603:10b6:8:3d5::19) by
- PH8PR12MB7304.namprd12.prod.outlook.com (2603:10b6:510:217::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.19; Thu, 30 Apr
- 2026 09:50:31 +0000
-Received: from DM2PEPF00003FC8.namprd04.prod.outlook.com
- (2603:10b6:8:3d5:cafe::3f) by DSSP221CA0002.outlook.office365.com
- (2603:10b6:8:3d5::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.30 via Frontend Transport; Thu,
- 30 Apr 2026 09:50:31 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- DM2PEPF00003FC8.mail.protection.outlook.com (10.167.23.26) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9846.18 via Frontend Transport; Thu, 30 Apr 2026 09:50:31 +0000
-Received: from BLRKPRNAYAK.amd.com (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Thu, 30 Apr
- 2026 04:50:22 -0500
-From: K Prateek Nayak <kprateek.nayak@amd.com>
-To: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, "Peter
- Zijlstra" <peterz@infradead.org>, Sebastian Andrzej Siewior
-	<bigeasy@linutronix.de>, Borislav Petkov <bp@alien8.de>, Dave Hansen
-	<dave.hansen@linux.intel.com>, <x86@kernel.org>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Paul Walmsley
-	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
-	<gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, "Arnd
- Bergmann" <arnd@arndb.de>, Guo Ren <guoren@kernel.org>
-CC: Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
-	=?UTF-8?q?Andr=C3=A9=20Almeida?= <andrealmeid@igalia.com>,
-	<linux-arch@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-s390@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, K Prateek Nayak
-	<kprateek.nayak@amd.com>, "H. Peter Anvin" <hpa@zytor.com>, Thomas Huth
-	<thuth@redhat.com>, Sean Christopherson <seanjc@google.com>, Jisheng Zhang
-	<jszhang@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, Charlie Jenkins
-	<charlie@rivosinc.com>, Charles Mirabile <cmirabil@redhat.com>, "Christian
- Borntraeger" <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>
-Subject: [PATCH v4 8/8] futex: Use runtime constants for __futex_hash() hot path
-Date: Thu, 30 Apr 2026 09:47:30 +0000
-Message-ID: <20260430094730.31624-9-kprateek.nayak@amd.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260430094730.31624-1-kprateek.nayak@amd.com>
-References: <20260430094730.31624-1-kprateek.nayak@amd.com>
+	id 1wIO6Y-000000058t0-0dsz
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 30 Apr 2026 09:54:48 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=Gi/V/YVcp0OVSXhbXGMBsMUecyAjStOar9OIdn+PoBc=;
+	b=FZudsSXC8mYNl/iM3TDH1pbKRxfWY2BWMS834YcDKyNBmIQI4A7CX3mq6e9+tueT88WAgIvJu
+	xqK1mQ90qh3DnyzqMnr3uGcWjzyp+2ZDZCRf0lwn1fFFuDgc2C6iPXqC1/XecgiS7rZnHkM6qD9
+	5zL8lDoEMwLWrFtw/c07IzQ=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4g5q9L0ZMPz1prPr;
+	Thu, 30 Apr 2026 17:48:06 +0800 (CST)
+Received: from kwepemr200004.china.huawei.com (unknown [7.202.195.241])
+	by mail.maildlp.com (Postfix) with ESMTPS id 56D3C40538;
+	Thu, 30 Apr 2026 17:54:36 +0800 (CST)
+Received: from [10.67.121.62] (10.67.121.62) by kwepemr200004.china.huawei.com
+ (7.202.195.241) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 30 Apr
+ 2026 17:54:35 +0800
+Message-ID: <1b1b1319-2f98-4b5d-85ec-6fc4150b6f85@huawei.com>
+Date: Thu, 30 Apr 2026 17:54:35 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.180.168.240]
-X-ClientProxiedBy: satlexmb08.amd.com (10.181.42.217) To satlexmb07.amd.com
- (10.181.42.216)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM2PEPF00003FC8:EE_|PH8PR12MB7304:EE_
-X-MS-Office365-Filtering-Correlation-Id: 18efc1ad-5752-4777-09fc-08dea69deb1c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|7416014|376014|82310400026|1800799024|22082099003|56012099003|18002099003|13003099007|921020;
-X-Microsoft-Antispam-Message-Info: vfCzn0of+eSGpF9ucSwW1ql4FmGh6H1EIkzxcP8bi0lluB62XBT8y1nDXrjLHgiv1ABq+6Y74/2a0NRe1LlbyWuJQonp7rbkzuzPTxtSeO5akcEVg2j4DTAgW6y4x6CreheXreyCzpQ+y8oFIel6KIoqNfCRK/VejPOTVwCWd0ilFq2MzhhB+6LF4WCm8kKemlMLz5i2zuo7WtWC2t2jsfREZ4lX9YWU28Z7tTXDMPq83XH3e3StzXeommEJmP3pCRXjwKa1NZpZEBpi7S7zvNo2fQj2Idv8IKMFZgx1S21mA0QLNA7fmqjEO+bbde9muxrgY2O+iHCqqfYIXcGUqXi7O6NsxSpI8XJAKiwR0dv6RkZO6zrGxHeeT/v3fEUwpWO0pXhQ/CsoefPufApeCaMT7F+cshGBsTFaCfCW2sviCGYum603xPcLNcOGDGwzc4aravw/xbwsQDr3Ki8dWv7NdRT3+Wk47C0WwT6JKmaMaRnMvoDIXfOw4iVfse7Qg224QgVac8zaL0+wFWQjLo6C3+aRIVOpoyh4IxCpCSmWSVQgfn36/NWKzwxpW3AcGWyY5PEF0S/zlvFZA+QEAQWIAFwgctHBI2GV0eWuyeDcfEZ4Uv126vN3qsFp5BmXMua0vaSUDvhNll50/tdptoR1YDsceHPgAHd6l1Nr/QRWd463EAN9C69BLngac00Re51wWocEuFBECWfiom0/8pPr9WeHHjIldZY0v1p5wb4pvOgeadDyLMy8awSK+PO3/SGAW4C6uAadMUAD4GWReg==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(7416014)(376014)(82310400026)(1800799024)(22082099003)(56012099003)(18002099003)(13003099007)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: ETTEpFS3Ha6S5K96x42sRzM1jMqYiBiRLLmbiw5PZGeyQ0E7uzdd5qf/lDRM8pJ75+5bttPM2i8/BK6sbUe0YHLrtZqO56SwWYoZro+AnT8vJEnTZQXK6slAl6++msoNDkI1ZfUCsg4iaFb1Ikb9JH7nTDuUoduBTvzq0C2voCnfVQCFRi3Dc+6edx8DuS+7obiTnvs6T5RvQH/tTYc2MRl/9dCdxc5/gXX0RXaS08aLOK/c5ZaqDlO0YrmaRUakG8rFFB+seb+bFfxBl5YIu19bWMGIxz0VEnCkbVjbXVl+fPcZB+FSE1SLpoGNB2EKEqCJwMDk2A/z+JPy1i1OKLGb7+3fw5z9+bDsyaWnMKUGHr2h+yua5L0tlCaxXVaNhZfmJMTDYyUSP/bnkrdCPPwbp/FTIB0Qm3lMnSWp9mW8SjTDKrWSqG59st8IXAr5
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2026 09:50:31.6989
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 18efc1ad-5752-4777-09fc-08dea69deb1c
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: DM2PEPF00003FC8.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB7304
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: smp: Do not mark secondary CPUs possible under
+ nosmp
+To: Catalin Marinas <catalin.marinas@arm.com>
+CC: <will@kernel.org>, <maz@kernel.org>, <timothy.hayes@arm.com>,
+	<lpieralisi@kernel.org>, <mrigendra.chaubey@gmail.com>, <arnd@arndb.de>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<zhanjie9@hisilicon.com>, <zhenglifeng1@huawei.com>, <lihuisong@huawei.com>,
+	<yubowen8@huawei.com>, <linhongye@h-partners.com>, <linuxarm@huawei.com>,
+	<wangzhi12@huawei.com>
+References: <20260423134654.4178271-1-zhangpengjie2@huawei.com>
+ <ae9iqdt_qdJRjVZs@arm.com> <49f96032-6027-4c79-8d08-9545261e553f@huawei.com>
+From: "zhangpengjie (A)" <zhangpengjie2@huawei.com>
+In-Reply-To: <49f96032-6027-4c79-8d08-9545261e553f@huawei.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.62]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemr200004.china.huawei.com (7.202.195.241)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_105042_539261_342CE812 
-X-CRM114-Status: GOOD (  18.15  )
+X-CRM114-CacheID: sfid-20260430_025446_836834_1070FC0A 
+X-CRM114-Status: GOOD (  16.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,152 +83,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peter Zijlstra <peterz@infradead.org>
 
-Runtime constify the read-only after init data  __futex_shift(shift_32),
-__futex_mask(mask_32), and __futex_queues(ptr) used in __futex_hash()
-hot path to avoid referencing global variable.
+On 4/30/2026 5:34 PM, zhangpengjie (A) wrote:
+>
+> On 4/27/2026 9:20 PM, Catalin Marinas wrote:
+>> On Thu, Apr 23, 2026 at 09:46:54PM +0800, Pengjie Zhang wrote:
+>>> Under nosmp (maxcpus=0), arm64 never brings up secondary CPUs.
+>>>
+>>> However, arm64 still enumerates firmware-described CPUs during SMP
+>>> initialization, which can leave secondary CPUs visible to
+>>> for_each_possible_cpu() users even though they never reach the
+>>> bringup path in this configuration.
+>>>
+>>> This is not just a cosmetic mask mismatch: code iterating over
+>>> possible CPUs may observe secondary CPU per-CPU state that is never
+>>> fully initialized under nosmp.
+>> I'm fine with the patch in principle but I fail to see why it is not
+>> mostly cosmetic. If we have possible & !present CPUs (there's another
+>> thread around cpuhp_smt_enable() to allow this combination on arm64),
+>> get_cpu_device() would return NULL and the core code is supposed to
+>> handle this. What other per-CPU state should be initialised for a
+>> possible CPU but it is not without this patch?
+> Yes, possible-but-not-present CPUs are valid in the general hotplug 
+> model. The nosmp/maxcpus=0 case is different though: on arm64, 
+> smp_prepare_cpus() treats this as a UP-mandated boot and returns 
+> before marking secondary CPUs present, so these CPUs are deliberately 
+> kept out of the bringup path for this boot. The kind of issue I had in 
+> mind was subsystem-owned per-CPU state where iteration follows 
+> cpu_possible_mask but the state is populated only from CPU 
+> online/probe paths. The CPPC nosmp issue fixed by commit 15eece6c5b05 
+> ("ACPI: CPPC: Fix NULL pointer dereference when nosmp is used") was 
+> the kind of mismatch I was thinking of, although CPPC itself has 
+> already been fixed to use online CPUs where appropriate. I agree the 
+> changelog overstates this. I can respin with a toned-down changelog if 
+> you prefer.
 
-This also allows __futex_queues to be allocated dynamically to
-"nr_node_ids" slots instead of reserving config dependent MAX_NUMNODES
-(1 << CONFIG_NODES_SHIFT) worth of slots upfront.
+I'm very sorry, there was an issue with the format above.
+I'm reattaching the response below.
 
-Runtime constants are initialized before their first access and
-runtime_const_init() provides necessary barrier to ensure subsequent
-accesses are not reordered against their initialization.
+Yes, possible-but-not-present CPUs are valid in the general hotplug
+model. The nosmp/maxcpus=0 case is different though: on arm64,
+smp_prepare_cpus() treats this as a UP-mandated boot and returns before
+marking secondary CPUs present, so these CPUs are deliberately kept out of
+the bringup path for this boot.
 
-No functional changes intended.
+The kind of issue I had in mind was subsystem-owned per-CPU state where
+iteration follows cpu_possible_mask but the state is populated only from
+CPU online/probe paths. The CPPC nosmp issue fixed by commit 15eece6c5b05
+("ACPI: CPPC: Fix NULL pointer dereference when nosmp is used") was the
+kind of mismatch I was thinking of, although CPPC itself has already been
+fixed to use online CPUs where appropriate.
 
-  [ prateek: Dynamically allocate __futex_queues, mark the global data
-    __ro_after_init since they are constified after futex_init(). ]
+I agree the changelog overstates this. I can respin with a toned-down
+changelog if you prefer.
 
-Link: https://patch.msgid.link/20260227161841.GH606826@noisy.programming.kicks-ass.net
-Reported-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de> # MAX_NUMNODES bloat
-Not-yet-signed-off-by: Peter Zijlstra <peterz@infradead.org>
-Signed-off-by: K Prateek Nayak <kprateek.nayak@amd.com>
----
-changelog v3..v4:
-
-o Added a small note on runtime_const_init() in the commit log based on
-  the concerns highlighted by Sashiko. No changes to the diff.
----
- include/asm-generic/vmlinux.lds.h |  5 +++-
- kernel/futex/core.c               | 42 +++++++++++++++++--------------
- 2 files changed, 27 insertions(+), 20 deletions(-)
-
-diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
-index 60c8c22fd3e44..e80987d8016cc 100644
---- a/include/asm-generic/vmlinux.lds.h
-+++ b/include/asm-generic/vmlinux.lds.h
-@@ -970,7 +970,10 @@
- 		RUNTIME_CONST(ptr, __dentry_cache)			\
- 		RUNTIME_CONST(ptr, __names_cache)			\
- 		RUNTIME_CONST(ptr, __filp_cache)			\
--		RUNTIME_CONST(ptr, __bfilp_cache)
-+		RUNTIME_CONST(ptr, __bfilp_cache)			\
-+		RUNTIME_CONST(shift, __futex_shift)			\
-+		RUNTIME_CONST(mask,  __futex_mask)			\
-+		RUNTIME_CONST(ptr,   __futex_queues)
- 
- /* Alignment must be consistent with (kunit_suite *) in include/kunit/test.h */
- #define KUNIT_TABLE()							\
-diff --git a/kernel/futex/core.c b/kernel/futex/core.c
-index ff2a4fb2993f0..73eade7184dc2 100644
---- a/kernel/futex/core.c
-+++ b/kernel/futex/core.c
-@@ -45,23 +45,19 @@
- #include <linux/mempolicy.h>
- #include <linux/mmap_lock.h>
- 
-+#include <asm/runtime-const.h>
-+
- #include "futex.h"
- #include "../locking/rtmutex_common.h"
- 
--/*
-- * The base of the bucket array and its size are always used together
-- * (after initialization only in futex_hash()), so ensure that they
-- * reside in the same cacheline.
-- */
--static struct {
--	unsigned long            hashmask;
--	unsigned int		 hashshift;
--	struct futex_hash_bucket *queues[MAX_NUMNODES];
--} __futex_data __read_mostly __aligned(2*sizeof(long));
-+static u32 __futex_mask __ro_after_init;
-+static u32 __futex_shift __ro_after_init;
-+static struct futex_hash_bucket **__futex_queues __ro_after_init;
- 
--#define futex_hashmask	(__futex_data.hashmask)
--#define futex_hashshift	(__futex_data.hashshift)
--#define futex_queues	(__futex_data.queues)
-+static __always_inline struct futex_hash_bucket **futex_queues(void)
-+{
-+	return runtime_const_ptr(__futex_queues);
-+}
- 
- struct futex_private_hash {
- 	int		state;
-@@ -439,14 +435,14 @@ __futex_hash(union futex_key *key, struct futex_private_hash *fph)
- 		 * NOTE: this isn't perfectly uniform, but it is fast and
- 		 * handles sparse node masks.
- 		 */
--		node = (hash >> futex_hashshift) % nr_node_ids;
-+		node = runtime_const_shift_right_32(hash, __futex_shift) % nr_node_ids;
- 		if (!node_possible(node)) {
- 			node = find_next_bit_wrap(node_possible_map.bits,
- 						  nr_node_ids, node);
- 		}
- 	}
- 
--	return &futex_queues[node][hash & futex_hashmask];
-+	return &futex_queues()[node][runtime_const_mask_32(hash, __futex_mask)];
- }
- 
- /**
-@@ -1916,7 +1912,7 @@ int futex_hash_allocate_default(void)
- 	 *   16 <= threads * 4 <= global hash size
- 	 */
- 	buckets = roundup_pow_of_two(4 * threads);
--	buckets = clamp(buckets, 16, futex_hashmask + 1);
-+	buckets = clamp(buckets, 16, __futex_mask + 1);
- 
- 	if (current_buckets >= buckets)
- 		return 0;
-@@ -1986,10 +1982,19 @@ static int __init futex_init(void)
- 	hashsize = max(4, hashsize);
- 	hashsize = roundup_pow_of_two(hashsize);
- #endif
--	futex_hashshift = ilog2(hashsize);
-+	__futex_mask = hashsize - 1;
-+	__futex_shift = ilog2(hashsize);
- 	size = sizeof(struct futex_hash_bucket) * hashsize;
- 	order = get_order(size);
- 
-+	__futex_queues = kcalloc(nr_node_ids, sizeof(*__futex_queues), GFP_KERNEL);
-+
-+	runtime_const_init(shift, __futex_shift);
-+	runtime_const_init(mask,  __futex_mask);
-+	runtime_const_init(ptr,   __futex_queues);
-+
-+	BUG_ON(!futex_queues());
-+
- 	for_each_node(n) {
- 		struct futex_hash_bucket *table;
- 
-@@ -2003,10 +2008,9 @@ static int __init futex_init(void)
- 		for (i = 0; i < hashsize; i++)
- 			futex_hash_bucket_init(&table[i], NULL);
- 
--		futex_queues[n] = table;
-+		futex_queues()[n] = table;
- 	}
- 
--	futex_hashmask = hashsize - 1;
- 	pr_info("futex hash table entries: %lu (%lu bytes on %d NUMA nodes, total %lu KiB, %s).\n",
- 		hashsize, size, num_possible_nodes(), size * num_possible_nodes() / 1024,
- 		order > MAX_PAGE_ORDER ? "vmalloc" : "linear");
--- 
-2.34.1
 
 
