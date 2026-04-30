@@ -4,97 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44A9FCCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 10:27:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1C25FF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 10:35:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:Cc:To:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qJtC8axtxZ6PlTBw/4plYqbYMGHIdhbjoFEFpeBa84g=; b=1FESS9yivUR/U/EQc+VroWU04V
-	D5KJVngvn92Se5eaApa+/driV9wWsou+h9wfKHW7F5GMnErctKTh4T2qb0O9nTTKlT9O4bWwLE8xT
-	RHmF82tiVVnd8ZX0GYLKlkAA2FMp8XMLu7wTTofQKh+F4aacyP5N38xfcaWVX7O7JjO9JTxYWhnyu
-	J7ePiPGZyF+8HZ+RGZ+Twl8GvhpV4JBT8c05671gIMQtV2ZeNoaD7zih3npipGyXTL0WlH+JK7T5l
-	K17eBePQEzwKgPglac2rVydOCGu/547Chwua2uCjjiBoUeBe3njVAsIw3omWby/3+wInOiACQ6m4X
-	RuvQdwdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8V+koq3Lkj3wDoBaklA0Xj48HW7uARBNgY6EDlMDXlI=; b=hh4EtZVYXnegEzVT2MayBUEUDx
+	nZvF3B03XFoHkM0Z9eujs/1TUFHE19Vr8rsyzV01FRWydp/aFDaXMOBVutCa7g8bGUSf6/eh2f42Q
+	yO6BXy/DE6IHbIZ4z4VETdd2D6GYcrYlKjn8SDq3gImKQiWWVTMbaPRwkmK2TNX9a9wbraHANcsOP
+	xPgYhPKYfRomNpkVfYDOXloPHs4mk9dYPa4jJKAuRUyP8j0NrOJDHKgXPMuBvmwVnIthI+GN0Ln0g
+	VHDeYPIGjDWUSNcNXDPJ5lDugGVozzh5ImWFb6WN699kdscuVi77a54vmacKb/gmucADuF4izQdzq
+	bFjV0n0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIOcQ-00000005CCX-1BDp;
-	Thu, 30 Apr 2026 10:27:42 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1wIOjW-00000005Ctc-3flS;
+	Thu, 30 Apr 2026 10:35:02 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIOcL-00000005CB5-3Twt
+	id 1wIOjU-00000005CtD-3i5M
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 30 Apr 2026 10:35:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
+	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=8V+koq3Lkj3wDoBaklA0Xj48HW7uARBNgY6EDlMDXlI=; b=UfbZali4VSDipXlnf4i+VUblWX
+	wJXIGJKdaNkITRFJgyze10kKO8IKn+/M6LhQ2Yd2Vah2eBCnLZ7+i9bfah4iheLyV2wFBrjFpxuBS
+	aKAmY4wEqqdVWqnd5ud41wp5M8PuEvlLEGQtzsLMwErKQwQtpNJKvjzLAYFBkVLOsaSnbmaLTnFoB
+	McpiGsJ2uYE2xdZwIkAZvj5SpTUF9IyxFItjkoviSHwB0rKIxOXNuPSRtCXkGGkkHdSrjpQun7aar
+	bWB+YK1yo0yH4WDS7fcoR70FOhEF3Ee53a9AqosroeXp3XB1kC7igCEOOhjfbFcGKLCFZGq1OtqgO
+	rekVzQFg==;
+Received: from mail-ua1-f44.google.com ([209.85.222.44])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wIOjS-000000078TL-0IvT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 10:27:38 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-449e96a8a80so76140f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 03:27:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1777544856; x=1778149656; darn=lists.infradead.org;
-        h=in-reply-to:references:subject:cc:to:from:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qJtC8axtxZ6PlTBw/4plYqbYMGHIdhbjoFEFpeBa84g=;
-        b=S8UbWqOMMaE4OXOL5xS78ghexGfFloBNY9/V6h5dWWzRfPBPrUHJTYrmaGVOav6Pni
-         6mrkR5lUGUp2hckgmoYQLU8eQNM6VjBioa/4E/9ERu8S9iXshYEIkhPAKXbzqE2NU/aK
-         KbxFpG5cQAuOaSi01cpV0LzjaglfMnN9dJLe4YnzTW60E4mSP107JFYYVBns+2wr5ZPe
-         PewGK9BOPgJTC+1BPMzLJt2dSSiXaP+UF/lPZ3gIRkJy7h0p2ntdyRFjdK9krn97oiO0
-         9q/mjDfkSWaWpygAUhxTJyWJ/kTdkRrEe1mRrEnUXjahQstp5eOCxJlppcXO7e02D79S
-         XdtQ==
+	Thu, 30 Apr 2026 10:34:59 +0000
+Received: by mail-ua1-f44.google.com with SMTP id a1e0cc1a2514c-95cd9bc6398so87006241.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 03:34:57 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777544856; x=1778149656;
-        h=in-reply-to:references:subject:cc:to:from:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=qJtC8axtxZ6PlTBw/4plYqbYMGHIdhbjoFEFpeBa84g=;
-        b=BTur4iRwmssnmribAx2wNcYCOrKEtD79EFDUNzc5AmTY7DmnPjNeXh5GxjO1QtGjjU
-         R70RpnBNescT0bNyagdoakqNkfpvZwO5/NBBIL9lH/T/pn9/nzk2hryTTFooOID8Pe4s
-         KjPdKJ5pS/B/eKSqwAycrOw40DGNaUT7+Y5uTj/j6krKu+ocRClx4BW+cq1pH9GKGWmw
-         l0Vb3L6E4tz3+2gwfaSM7ulPVfPrnBCH20e1VaUaEFaybHTqHLiANZDcY4V3Np8pqh72
-         HRWSwz4a/mZ4De+7ZSbGndehXE5bfn/mQG2pA07sOFys+RWbVwUtWZEcqkWZUTTXIlP1
-         yZeg==
-X-Forwarded-Encrypted: i=1; AFNElJ/Deo55FJGE1xF+XwcAM1oi6edVfDd/8dGDnnOzOnN2pfs+erXJW8UcNtYbkhsnF6Z/0RHkNIv+Xms3A8B4wshW@lists.infradead.org
-X-Gm-Message-State: AOJu0YwjhtgOkdBKcCKPY29+kOu+eZq+/58GT+adt1kP8fPodPisUojV
-	MJXTy0+mOeZ8Uf+FYzwRG25pf6eJZ5g+4gLZBZjPPQIUZ/ahA6prrsX93EtBQmEAfew=
-X-Gm-Gg: AeBDiesANRQkXtmHIRtI6Uyvxd1FjQQCkNgh1wmom6WJLEOS0zu1NGi9h93VeuLk+Nt
-	gNzc7PLJWS4Y010mBAJGQTVPYgTZYU51PofMYki7ALYbWeMpKCEyqxP2+TJ7BIyKdg7eyNTmapk
-	1uTBfZK0cuySWXMAM1MH6G2IHhMi7nIU5RdZFc2eYnbdBc4Al3KYjahCOgeU1pBVq8eyaT/xa+6
-	3ZNt9tboqg5wnBH8i+hxAH0adyiAkvGZRbzLWXMvDzjee/en1S5mPBnV1Tk97+2Us3JQCmgl5P6
-	A44PWyploFnU8LjZInOTEOMYv0yMM43Ver3kBhyP4OtJ7jlWXojGY4kuU3xGO3KCv9s7SGJaRzc
-	S4uCJHGy6kvXIvIogWx0rBrxQMJiYHQlrhMx+lv7Q0Io0BUxZ7mHYWyloALgfkUUiNOpJUGBTKb
-	fOho1P8rkwNIPJz49t9Rm6nDdu2v/Zp7U3jOkYDl2QivOGWFRChd1e3IW0peC2NqesNV/XGW60E
-	yIwDkscu8XiTeLLkXCrQihuk0Q0
-X-Received: by 2002:a05:6000:2383:b0:43c:4810:dc4a with SMTP id ffacd0b85a97d-4493ffcb2b1mr3621503f8f.38.1777544855840;
-        Thu, 30 Apr 2026 03:27:35 -0700 (PDT)
-Received: from localhost ([2a00:2381:fd67:101:9e61:b264:2b8d:1e57])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-447b7218622sm12070800f8f.21.2026.04.30.03.27.34
+        d=1e100.net; s=20251104; t=1777545296; x=1778150096;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8V+koq3Lkj3wDoBaklA0Xj48HW7uARBNgY6EDlMDXlI=;
+        b=ZAzfziA8SjSRjlVdaIJtiU/ph+GBqi5iitVptsF9Fm8K1SqsTfc7okplYz3Im7iUMk
+         3yHyRJhTgFDFMuhCG/4gH+QDjbl3GfshIiytb6IncdmsIGJQ0DKU5XGrm7MF+GqkpCdR
+         jKvlCWk1dUxNx21xBc1zQF2jNUjU37A6WqMGe5wWhW/WbMnTl49vwcm8gQMcBXim1mNu
+         /XccABQuEgqdhdpbmLxQJaRg+fcgvKaSlRe2wzaAPwL25qJZ4CLPBlwM2HbgAECmF1iq
+         61mMHPP5MKZNVWpmB3vu6fD3ny2T7NEFW/+OYCzB3ZICilFHtzAdppvI+B/yRvUSpxSA
+         reQA==
+X-Forwarded-Encrypted: i=1; AFNElJ9rHQbhw0bpyePpsqIbKRJIAwIo91+WdxHTuaMVx2ZwroYOcZLUTX1wOjCXehsR2cluNIiYvyOoaeDuO43reQCH@lists.infradead.org
+X-Gm-Message-State: AOJu0YwR40o+Xqdsv/7MlCueUvguVV6iDOlcYZxQhYF5wE61T3b15ZcO
+	of4CKhry04qe5LfClr02huDoIe+Jvic7ZipJ44GDi9bpJHb7wIt3eeECL7dec00mja8=
+X-Gm-Gg: AeBDieuTKHUkqio2zQEBuELSbqANKgWJsyusATYi34BLZfH+TIQ+iOUCD5RJVl0H4iq
+	6VDSnKFMrn68XSmruxXjP0saqW103NGVrazrMOCdj4JAj0qjp8nhtXtIy61FCIn3QTmzOkShDc1
+	/6ZpkMdeWdcGw+4kCIKp1cDhy9TSh7EGxLu/GVAH9q2KZQNGCmBMkOt6S+DDIIKeiX2VXOBvAPl
+	2UvqZQ6uZ9l9uUL/sYr1E38u8XrZhOqPVEn0+3XXSjqsuaYFxIAz2mcIsLuzoIFiaSW0C5LWuTA
+	QGcwa92pCgtdo2HdIVF4G57TrMrDjLkkC/sbRo5d2kKcfDOH9Jv6VjH1CNF1EzbeoRUXQMK0cXg
+	+jGfCtD8pvlviE5JxgmOWst9IlLD4rUTyXPsVBXgJRGSQdhHQiX7qBISlgjzs9ucQI5rNLbWg6W
+	SvWRFB1pNUecRhlhi80vXPrRlhMw0D1D8sJuZ/3ZOmLbzpAOx9KLdwxa9PN2M7jezPRK4a+uM=
+X-Received: by 2002:a05:6102:2c8d:b0:605:25a4:97fe with SMTP id ada2fe7eead31-62ad466e8a5mr922411137.21.1777545295647;
+        Thu, 30 Apr 2026 03:34:55 -0700 (PDT)
+Received: from mail-vs1-f52.google.com (mail-vs1-f52.google.com. [209.85.217.52])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-6298433531bsm2575794137.9.2026.04.30.03.34.54
+        for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 30 Apr 2026 03:27:35 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 30 Apr 2026 11:27:34 +0100
-Message-Id: <DI6F28VL7ZGX.1ZJNLS41FF55N@linaro.org>
-From: "Alexey Klimov" <alexey.klimov@linaro.org>
-To: "Alexey Klimov" <alexey.klimov@linaro.org>, "Sam Protsenko"
- <semen.protsenko@linaro.org>, <linux-samsung-soc@vger.kernel.org>,
- "Krzysztof Kozlowski" <krzk@kernel.org>, "Peter Griffin"
- <peter.griffin@linaro.org>, =?utf-8?q?Andr=C3=A9_Draszik?=
- <andre.draszik@linaro.org>, "Conor Dooley" <conor+dt@kernel.org>, "Alim
- Akhtar" <alim.akhtar@samsung.com>
-Cc: "Tudor Ambarus" <tudor.ambarus@linaro.org>, "Rob Herring"
- <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v3 4/6] soc: samsung: exynos-pmu: add Exynos850 CPU
- hotplug support
-X-Mailer: aerc 0.20.0
-References: <20260430-exynos850-cpuhotplug-v3-0-fd6251d02a17@linaro.org>
- <20260430-exynos850-cpuhotplug-v3-4-fd6251d02a17@linaro.org>
-In-Reply-To: <20260430-exynos850-cpuhotplug-v3-4-fd6251d02a17@linaro.org>
+        Thu, 30 Apr 2026 03:34:55 -0700 (PDT)
+Received: by mail-vs1-f52.google.com with SMTP id ada2fe7eead31-61316792e42so461199137.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 03:34:54 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ8w1OosIj5Dbuw8FmH0fsVD9uCOEDP1gHEHVr4dRsmjXKCd9kLJsEPtFbUmHqgD2yq6hfa6RRtnvzBqsUkrL1io@lists.infradead.org
+X-Received: by 2002:a05:6102:8007:b0:605:42a8:940f with SMTP id
+ ada2fe7eead31-62ad52baa51mr975391137.31.1777545294613; Thu, 30 Apr 2026
+ 03:34:54 -0700 (PDT)
+MIME-Version: 1.0
+References: <cover.1775205358.git.geert+renesas@glider.be> <fe257b3b7b7b5c17fd0e5727bb9746c731bd7e3c.1775205358.git.geert+renesas@glider.be>
+ <20260430-heretic-mandrill-of-symmetry-1c9a5e@sudeepholla>
+In-Reply-To: <20260430-heretic-mandrill-of-symmetry-1c9a5e@sudeepholla>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 30 Apr 2026 12:34:43 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdWaF8buTuuMOPZLyEVF0vqPPdQxYP7LYJSj+vhdPJFc0w@mail.gmail.com>
+X-Gm-Features: AVHnY4L33oPAm_CAAO0Uaw-sYvBE0zPN2_ObN8TXsWUvlHnMnI4J9wpUyxDMPnk
+Message-ID: <CAMuHMdWaF8buTuuMOPZLyEVF0vqPPdQxYP7LYJSj+vhdPJFc0w@mail.gmail.com>
+Subject: Re: [PATCH 1/3] firmware: arm_scmi: quirk: Improve quirk range parsing
+To: Sudeep Holla <sudeep.holla@kernel.org>
+Cc: Cristian Marussi <cristian.marussi@arm.com>, Marek Vasut <marek.vasut@mailbox.org>, 
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_032737_885453_25407D50 
-X-CRM114-Status: GOOD (  12.00  )
+X-CRM114-CacheID: sfid-20260430_113458_215159_468D0DD8 
+X-CRM114-Status: GOOD (  25.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,36 +111,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu Apr 30, 2026 at 2:56 AM BST, Alexey Klimov wrote:
-> Add cpuhotplug support for Exynos850 platforms. This SoC requires
-> its own specific set of writes/updates to PMU and PMU interrupts
-> generation block in order to put a CPU or a group of CPUs into
-> a different sleep states or prepare these entities for a CPU_OFF
-> or wake-up out of idle state or after CPU online.
-> Without these writes/updates the CPU(s) wake-up or online fails.
-> While at this, also add description of Exynos850 PMU registers.
+Hi Sudeep,
+
+On Thu, 30 Apr 2026 at 12:17, Sudeep Holla <sudeep.holla@kernel.org> wrote:
+> On Fri, Apr 03, 2026 at 10:41:29AM +0200, Geert Uytterhoeven wrote:
+> > When a range contains only an end ("-X"), the number string is parsed
+> > twice, as both "sep == first" and "sep != last" are true.  Fix this by
+> > dropping the superfluous number parsing for "sep == first".
+> >
+> > This does have a harmless functional impact for the unbounded range:
+> > "-" is now accepted, while it was rejected before.
 >
-> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
-> ---
->  drivers/soc/samsung/Makefile                |  2 +-
->  drivers/soc/samsung/exynos-pmu.c            |  1 +
->  drivers/soc/samsung/exynos-pmu.h            |  1 +
->  drivers/soc/samsung/exynos850-pmu.c         | 79 +++++++++++++++++++++++=
-++++++
+> Supporting "-" is good but I think the ret is uninitialised in that case
+> as sep, first and last are all equal. If you agree, I can patch up by
+> initialising ret to 0. Let me know if I am missing any other case where
+> it is not good to have ret initialised to 0.
 
-[..]
+My bad, ret should indeed be preinitialized to zero.
+Thanks for fixing!
 
-> +const struct exynos_pmu_data exynos850_pmu_data =3D {
-> +	.pmu_cpuhp =3D true,
-> +	.cpu_pmu_offline =3D exynos850_cpu_pmu_offline,
-> +	.cpu_pmu_online =3D exynos850_cpu_pmu_online,
-> +};
-> +
+Gr{oetje,eeting}s,
 
-Ah, sorry, I forgot to remove blank line here. Will do in the next
-update.
+                        Geert
 
-BR,
-Alexey
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
