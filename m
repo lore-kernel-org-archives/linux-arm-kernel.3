@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F38FBCD13DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 16:40:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36DDDCD13DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 16:40:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vSLKw/EEYLKveE2xBfEMTup8/azVODA4pMSSclWxodw=; b=0zMM6Bzafq3bX4CTPZY59/gkDz
-	4+MPdLFs1N9gSJJE0kG7kcEg2xNJU7T7T9/GB09hepMkFgrO8veaUkIOgeDxN3Oazqzag0m3lX2c/
-	0fo+6KD8kz36RQ/3HwNP9Mv51FUE5bFONYr9uvJPoITZr0K1Ve2QAdJyYQFcLQrLmtgXVp5r86wNA
-	0TPhAmZ2gz5Fgtaprl1HuEDdpaNdGDuDrR2Z8YFdsfGlCNTqQ8ECN+gXvMVZlxyoPANPXMauR/+HK
-	3iu/frv5T+0HTcia1HF5Ou3ri0X06opJJQ3xF5RZLnoEPSoRB7FkrLy0KjQcHvdzugae9ynFOSLV0
-	GyjQMisg==;
+	bh=nmhpT4qL3TiNhJTJA/kcqIVRxB45Z2PLUQn6pZidorQ=; b=K6PWUYdiT06Hw4R3d/eeicbyLr
+	iMcnIMDWRoxK+9MlH9zefxPB67trQ20ufOCo+X3x6AS2ZYT6imjnoYv/ruZO+CiWCe4slb+oecyRN
+	58RjdVirpwdTM1gVplMnCCYUCk6KFr0LR0rCcOm+7Gdt4ODSiKwkLYXPl4emZhnS8T75GVS7eJYPr
+	OGlga5tCtr6YYaSpxQhRBFAzauYhKWeNlkXKvtsnvpGhF711ACayQWBil8Vc74XX+ID8/XIh6leek
+	a4/uUKQJxHC1hZudiysZiKRwfoleZRWSLgbI/nrVGEARYujR4L4rUci94hygod4HkpcTHtC4/m64Y
+	fmhqjBsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIUR9-00000005kFj-1ZX0;
-	Thu, 30 Apr 2026 16:40:27 +0000
-Received: from m16.mail.163.com ([117.135.210.5])
+	id 1wIURQ-00000005kRE-1Zk3;
+	Thu, 30 Apr 2026 16:40:44 +0000
+Received: from m16.mail.163.com ([220.197.31.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIUR4-00000005k9y-0FyA;
-	Thu, 30 Apr 2026 16:40:24 +0000
+	id 1wIURB-00000005kGU-2YWQ;
+	Thu, 30 Apr 2026 16:40:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=vS
-	LKw/EEYLKveE2xBfEMTup8/azVODA4pMSSclWxodw=; b=Q/S+pJtk04i9h8WuFE
-	0fZEh0udPon40eNurFhhR91lmf3n6abGkbo05EE7IsBvBMImfPSM1HOebmu5nvE8
-	HspkYhLaZk/lKGsSlqpTTe4nQTvnNevpd7l6/gXCIa8S8DAhL7zQTjFEyKVc9rKJ
-	9XVZ5iVvH92Xg7BBBfyXSZuxs=
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=nm
+	hpT4qL3TiNhJTJA/kcqIVRxB45Z2PLUQn6pZidorQ=; b=W0e3U/bgin+AuHDDL0
+	BIQE7AKnX9pGu7MeN0X9SlxSCh4a2+z6e7KWdCDcBevH0JL6NLRJWHi5ZoEMJB/+
+	dybTTH+4RPO0CBYg5V1jNxYmicqJSF/KCZf6YlYTr+sAlxa0EyFBnT2Dk7e2AkjC
+	rovquYX589WMPKQ5gPBKI9a1E=
 Received: from zhb.. (unknown [])
-	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wDnUmm+hfNptZrZCg--.19910S3;
-	Fri, 01 May 2026 00:39:27 +0800 (CST)
+	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wDnUmm+hfNptZrZCg--.19910S8;
+	Fri, 01 May 2026 00:39:32 +0800 (CST)
 From: Hans Zhang <18255117159@163.com>
 To: Thinh.Nguyen@synopsys.com,
 	gregkh@linuxfoundation.org,
@@ -53,24 +53,24 @@ Cc: linux-usb@vger.kernel.org,
 	linux-samsung-soc@vger.kernel.org,
 	linux-mediatek@lists.infradead.org,
 	Hans Zhang <18255117159@163.com>
-Subject: [PATCH 1/6] usb: dwc3: Use FIELD_MODIFY()
-Date: Fri,  1 May 2026 00:39:14 +0800
-Message-Id: <20260430163919.47372-2-18255117159@163.com>
+Subject: [PATCH 6/6] usb: typec: Use FIELD_MODIFY()
+Date: Fri,  1 May 2026 00:39:19 +0800
+Message-Id: <20260430163919.47372-7-18255117159@163.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260430163919.47372-1-18255117159@163.com>
 References: <20260430163919.47372-1-18255117159@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wDnUmm+hfNptZrZCg--.19910S3
-X-Coremail-Antispam: 1Uf129KBjvJXoW7urW7uF4xtFW5Xryktr4ruFg_yoW8XrW7pr
-	y8tr1a9an3t3WfA3s3WF4jyF1Yq348tryIga47twnrZwn8CrWUWFZxGFy5XF1UJasagFyU
-	Wa1xtry5GFZFgaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piXAw-UUUUU=
+X-CM-TRANSID: _____wDnUmm+hfNptZrZCg--.19910S8
+X-Coremail-Antispam: 1Uf129KBjvdXoWrur17tw4fWw1UJw1Uuw43GFg_yoWkXFc_Gr
+	18C3Zayr9YvFW5A3W3Ga9akr1kta1jg3WagF1rtF1rAr1DKr18Wr45C3ykJFyjga1F9r95
+	CFn5XrykZr1fCjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7sRMTmS3UUUUU==
 X-Originating-IP: [240e:b8f:927e:5900:c497:d540:b00d:97f4]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCxADojGnzhcDnvgAA3m
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCxATpjWnzhcToYQAA32
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_094022_988441_826EF7EB 
-X-CRM114-Status: UNSURE (   7.68  )
+X-CRM114-CacheID: sfid-20260430_094030_016841_0A5547B8 
+X-CRM114-Status: UNSURE (   8.58  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,39 +91,31 @@ No functional change intended.
 
 Signed-off-by: Hans Zhang <18255117159@163.com>
 ---
- drivers/usb/dwc3/core.c | 12 ++++--------
- 1 file changed, 4 insertions(+), 8 deletions(-)
+ drivers/usb/typec/tcpm/tcpci.c | 11 ++++-------
+ 1 file changed, 4 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
-index 58899b1fa96d..f95201470ab2 100644
---- a/drivers/usb/dwc3/core.c
-+++ b/drivers/usb/dwc3/core.c
-@@ -425,8 +425,7 @@ static void dwc3_ref_clk_period(struct dwc3 *dwc)
+diff --git a/drivers/usb/typec/tcpm/tcpci.c b/drivers/usb/typec/tcpm/tcpci.c
+index 0148b8f50412..24c87dfa6b64 100644
+--- a/drivers/usb/typec/tcpm/tcpci.c
++++ b/drivers/usb/typec/tcpm/tcpci.c
+@@ -141,13 +141,10 @@ static int tcpci_set_cc(struct tcpc_dev *tcpc, enum typec_cc_status cc)
  	}
  
- 	reg = dwc3_readl(dwc, DWC3_GUCTL);
--	reg &= ~DWC3_GUCTL_REFCLKPER_MASK;
--	reg |=  FIELD_PREP(DWC3_GUCTL_REFCLKPER_MASK, period);
-+	FIELD_MODIFY(DWC3_GUCTL_REFCLKPER_MASK, &reg, period);
- 	dwc3_writel(dwc, DWC3_GUCTL, reg);
+ 	if (vconn_pres) {
+-		if (polarity == TYPEC_POLARITY_CC2) {
+-			reg &= ~TCPC_ROLE_CTRL_CC1;
+-			reg |= FIELD_PREP(TCPC_ROLE_CTRL_CC1, TCPC_ROLE_CTRL_CC_OPEN);
+-		} else {
+-			reg &= ~TCPC_ROLE_CTRL_CC2;
+-			reg |= FIELD_PREP(TCPC_ROLE_CTRL_CC2, TCPC_ROLE_CTRL_CC_OPEN);
+-		}
++		if (polarity == TYPEC_POLARITY_CC2)
++			FIELD_MODIFY(TCPC_ROLE_CTRL_CC1, &reg, TCPC_ROLE_CTRL_CC_OPEN);
++		else
++			FIELD_MODIFY(TCPC_ROLE_CTRL_CC2, &reg, TCPC_ROLE_CTRL_CC_OPEN);
+ 	}
  
- 	if (DWC3_VER_IS_PRIOR(DWC3, 250A))
-@@ -456,12 +455,9 @@ static void dwc3_ref_clk_period(struct dwc3 *dwc)
- 	decr = 480000000 / rate;
- 
- 	reg = dwc3_readl(dwc, DWC3_GFLADJ);
--	reg &= ~DWC3_GFLADJ_REFCLK_FLADJ_MASK
--	    &  ~DWC3_GFLADJ_240MHZDECR
--	    &  ~DWC3_GFLADJ_240MHZDECR_PLS1;
--	reg |= FIELD_PREP(DWC3_GFLADJ_REFCLK_FLADJ_MASK, fladj)
--	    |  FIELD_PREP(DWC3_GFLADJ_240MHZDECR, decr >> 1)
--	    |  FIELD_PREP(DWC3_GFLADJ_240MHZDECR_PLS1, decr & 1);
-+	FIELD_MODIFY(DWC3_GFLADJ_REFCLK_FLADJ_MASK, &reg, fladj);
-+	FIELD_MODIFY(DWC3_GFLADJ_240MHZDECR, &reg, decr >> 1);
-+	FIELD_MODIFY(DWC3_GFLADJ_240MHZDECR_PLS1, &reg, decr & 1);
- 
- 	if (dwc->gfladj_refclk_lpm_sel)
- 		reg |=  DWC3_GFLADJ_REFCLK_LPM_SEL;
+ 	ret = regmap_write(tcpci->regmap, TCPC_ROLE_CTRL, reg);
 -- 
 2.34.1
 
