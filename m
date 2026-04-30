@@ -4,64 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2563FF8875
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 00:13:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C12AFF887E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 00:27:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=icHsd1TlftPaJ6j5j1qmW4lXPQP4Ynfc2dJNOWPkDRc=; b=rHU4abp4TzpfTdfiGORUVt92LV
-	5tasPh09Uv5NPpq2a5wFTldtOt3k6u/0pCX8qx31/6cTOe3yIQm2cZzQFu443tdf+da8NtpOiKhZ8
-	waJj/Pi6XjFclDpaTRNDWR41qTrVr+BVNe2r+sR/qTpoUYs8m55Oe7VpaUT4Kv0rcOTvxFxmDUA8i
-	x6uKXn9F0UH38x2IKVqxgEJiVan9s/kPVaBlQ88rSLM3KQU8L6qPlximKlYImjoR/UECFSrbVpM0N
-	/eq7mK/Igziv+ve34RRdQULCvQ+s3mrTUH/vbEGlPN5YWrd2oo8LgkmAnYW82j8bflSNoS0hUSru2
-	s12Cq9pg==;
+	bh=j3ykSlCT5tj5/TnkTVOTV8IqCcc/Vc8+/vK64ZNmSl8=; b=SdsmORyEIBIiVtW5V8PzWsmDKe
+	KtBQ0GL3obNCNuv9YY6PiH3HnyYKz6/0emF37X6OWPRlZa2SrwKcT9LQG3glcCbrS1lHqRyVpcP9p
+	WasDDIvN4UerwZf9qTYm+NataZTiuBFExdwNoZVrPtIghwO2jAWjxXyuTLrjJpBtI81oilNfAP5LM
+	BPPHCcqCKgH7mYi3E/2ExMk8L5waklbskH2fhvfNWox51pXhQGZdr23bxXO+EQdp85NtihMFaLVeD
+	2n2U9qGS0NtVwZCmZ6laK3aGP1TdXfAThMIRHuVL1OeA9o7KZK172pRhAKy4rRkrrf+Us0epxZgOl
+	IabP7zMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIF2N-00000004Klb-1izY;
-	Thu, 30 Apr 2026 00:13:51 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wIFF7-00000004LKl-361y;
+	Thu, 30 Apr 2026 00:27:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIF2K-00000004Kkt-2FXL;
-	Thu, 30 Apr 2026 00:13:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=icHsd1TlftPaJ6j5j1qmW4lXPQP4Ynfc2dJNOWPkDRc=; b=5PyDpKwyDJg0/Vcl2JJqPdv68b
-	7mCT6ojdSToaLxVm1u96oyCfiHQVEkFS0Q3Tb6nZwGt/7FZWb8dPNrtLV4IpmU6woZsx6DxFiJ810
-	erRRmoksoZl+QP+eY6C3aQwEnfyHtgA9fLV2fOUhW6vACPeZzQ2dY+itCnQWAMs7Nseg=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wIF28-000bEJ-Uj; Thu, 30 Apr 2026 02:13:36 +0200
-Date: Thu, 30 Apr 2026 02:13:36 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Daniel Golle <daniel@makrotopia.org>, chester.a.unal@arinc9.com,
-	olteanv@gmail.com, davem@davemloft.net, edumazet@google.com,
-	pabeni@redhat.com, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com, linux@armlinux.org.uk,
-	ansuelsmth@gmail.com, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net v4] net: dsa: mt7530: fix .get_stats64 sleeping in
- atomic context
-Message-ID: <e06bee51-561e-4405-b3b2-a5d672d8e8b0@lunn.ch>
-References: <16efd278e4f17776ccfbf8491e5be71a4689c137.1777385305.git.daniel@makrotopia.org>
- <20260429234612.2240476-2-kuba@kernel.org>
- <afKaVQ27GUQiWZTb@makrotopia.org>
- <20260429171124.07787599@kernel.org>
+	id 1wIFF5-00000004LKP-39w7
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 30 Apr 2026 00:27:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8961B4439A;
+	Thu, 30 Apr 2026 00:26:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43105C2BCB3;
+	Thu, 30 Apr 2026 00:26:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777508818;
+	bh=CO/0+jLzo0Lhv7wr/PvzYvvNfI5bRrqQLHvDPFKSj8E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qkFfceaB8vuPalqSPNkELNNHm0YeJ1mLvYdAqud+XEcJ/t8twlwaWwooo1TtWo6az
+	 1GLu/LRkVJHWd1M3BCXt5TnTLwyeapCzXP/H9Ck/E4i1+XtZGAkj6SF+WMUsFvw7K9
+	 UZ/F2FlRwVIeej0FO9TzbyaGqEXdfX0xRTny4TBNxKyn5PKeExWxU+QGf+sH3MRx3m
+	 LjaxU8SF7WgYTQYcdm38KjzV52c3kbrcnePTAYxpCii/caftMMEaRYa2gwFpHiISln
+	 b4og/j45iXHnOliLHI4JWXgP5BRuGoLgx9ndNbAOngveVuSX+Bjzap2iwBAgJ3cLwi
+	 V3B4SygL3FLWA==
+Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
+	id A25281AC585B; Thu, 30 Apr 2026 01:26:55 +0100 (BST)
+Date: Thu, 30 Apr 2026 09:26:55 +0900
+From: Mark Brown <broonie@kernel.org>
+To: Leo Yan <leo.yan@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
+	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] kselftest/arm64: Include <asm/ptrace.h> for user_gcs
+ definition
+Message-ID: <afKhz892PmLHrv5_@sirena.co.uk>
+References: <20260429-selftests_arm64_gcc15-v3-1-7fd68be56b83@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="OmBvADEWYAWPzpCG"
 Content-Disposition: inline
-In-Reply-To: <20260429171124.07787599@kernel.org>
+In-Reply-To: <20260429-selftests_arm64_gcc15-v3-1-7fd68be56b83@arm.com>
+X-Cookie: 667:
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_171348_572150_B467E6A2 
-X-CRM114-Status: UNSURE (   6.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260429_172659_815678_9BF373A4 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,10 +79,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Not sure how much of the D in DSA is actually implemented but in terms
-> of fix why not do what the bot suggests?
 
-As far as i know, this device is not D in DSA capable.
+--OmBvADEWYAWPzpCG
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-   Andrew
+On Wed, Apr 29, 2026 at 03:30:10PM +0100, Leo Yan wrote:
+> kselftest includes kernel uAPI headers with option:
+>=20
+>   -isystem $(top_srcdir)/usr/include
+>=20
+> Include <asm/ptrace.h> in libc-gcs.c for the definition of struct
+> user_gcs from the uAPI headers, and remove the redundant
+> definition in gcs-util.h.
+
+Reviewed-by: Mark Brown <broonie@kernel.org>
+
+--OmBvADEWYAWPzpCG
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnyoc4ACgkQJNaLcl1U
+h9C9GQf+NOhc5i1MwWxubDh2bdGL/RXXFzMh7TOJbjJsabRAQ1+QhaCCgYGZA8Kn
+Z6XvUoggWPub7Oyv4WgJYIgnv4N075s5ps8Y02WQy/LET7xJojMtFOMAsK5QCNyu
+vq4uJWmrJ3e4zISnCpnc5Irjphii1ocaYeK05/QeQ1wXulHS6UiGzIQmPfYYc1ZC
+SZxUD4ZDDO8itTFkDlfJr99MrdRUMhhAr0zCQGdllvpG/sLMJiHWz81E1WlGviSe
+wY551AARf+cuELiGA8qDMmv9pKakxUCERrr70UVpj9frqbV2h89psWngR6D6ddVs
+hBq5huCfeRvdVzUOsK8uAMqcvgZcOA==
+=HLqY
+-----END PGP SIGNATURE-----
+
+--OmBvADEWYAWPzpCG--
 
