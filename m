@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67597FF887E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3AC8FF8875
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 01:57:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,72 +12,73 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fYtiwDmtrVbl/hGmqfQch4eP6KggQ9xHSeI/NuJ3fwM=; b=js/E3xnupUFH3DDs5n+6ryEF2t
-	xCZQX0qXuiu8K9FRlLa2iqD5945mTCEiq4KP5u8Fqm59cn7klSKc0ITfcX6wb0PQeo4TgTuaQtOLr
-	UHMF5iJo1QVIbMctA+OiZRI6G6j640nH8tVzaRvDllrLCkmzmUWr+ajiaVY3v+gOKsm92Gywu3hLW
-	AGXQnRbjrLFAbr4hIdhjJhUYUu8eYfMpDjO4eD0/vmTQdW1Sxu0UH+I0tn4patfFcPEiOVkNpVnBs
-	mkQyakn+tsmZWakCTdePctkF72FI11Jyb5v/hOa9DL5Zbh7/K85Z+a6sJU++SY3JghTbXxiRIdHbv
-	eZSt4pLA==;
+	bh=EYgTJ4k5gmQwMKcZEcvg88X5/usv5yCN60/fnybmGoU=; b=uhCQybB7Fm7boKDzapeQQbz7yz
+	iVY9o+KUnIJiOfU6dqvlLV2eiFuqJNgt0P2c0dqfloyjJoWiK7uOwWFpnJL/3ZBE6zl26woKqZGqe
+	gtXttltx///+Uf2aFuSx1fHe8X5ErYMDgwjncndftDolFDUsAo8oCPZgG9rfCoIvDy4kDl736lnm0
+	rRbhVQSr/9yzW5Rbd7AUnATjGHVCedHkI6z847KCHY2uq+zfrf3/aPsiwQr+vW0wkndYXImtrzSB/
+	3YGm3xgdgKbJQhi81UkPhxa5daelB+14kbpj/aTOWGsDimZ4z3SlnEysZJn4SW5eJEUPEDK90ic/U
+	GYOJVNNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIGeK-00000004OsB-3sFQ;
-	Thu, 30 Apr 2026 01:57:08 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1wIGeJ-00000004OqW-3rbm;
+	Thu, 30 Apr 2026 01:57:07 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIGeG-00000004Oob-3Uux
+	id 1wIGeB-00000004Ole-3pXd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 01:57:06 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-43cfde3c3f3so346678f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 18:57:04 -0700 (PDT)
+	Thu, 30 Apr 2026 01:57:01 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-43d734223e4so231006f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Apr 2026 18:56:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1777514223; x=1778119023; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1777514218; x=1778119018; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=fYtiwDmtrVbl/hGmqfQch4eP6KggQ9xHSeI/NuJ3fwM=;
-        b=pwIz4VZhL/Pr5awLfj0bZe1AHVqkAxATmS+nr23SsVCt7H9zMb4Fk7hR1sU+EBl2xq
-         zPTtLb1ioKNgWfvh9dpjxk8YSdhnHND2upLsYv5Ecxk+bqx6IVZiQ3oNr2wI8Tru6LdO
-         bQbIk1xWPUev12JI+wTf5E1NC57PGNhxEotYVrlzG4CdfiGZOi4+j16jFV8yJesIpF+r
-         DndRk9tL1F7y+MbNzfKJMvLhGsCLKrTsd/Lp9pcd01DPXkdRZtulU9v8UaM+v6N7cVvZ
-         FA3/QpwBZgZ7hhyak92dUH+5EJuChTxzIgG34A44OdPndPkHI4tK0nimB3UtTaHaKdGn
-         ID7w==
+        bh=EYgTJ4k5gmQwMKcZEcvg88X5/usv5yCN60/fnybmGoU=;
+        b=NqHIcu6ceVUENhnO/zvZpV/IZGqdXLmjK6sh50zIeCQTX7SLjbt6RW22RMnqdyRo/V
+         1QgRZkpw65VRzIPe7ojHx85wom/1/65dcEE6N/THTFIr+BxiKCAe2welNbkA4x9EfKhX
+         pJrpWTHEACALPHPEl1C4TPCkHeIZ7uehednz/w5WgxoIk2xpqu84YEpoV2qhweW+KcGy
+         bbC+rbydQqGaR/IhuqhYtL4t2RzZ+M5hgvCujy/ZhoapLN9d0Y+N6y5mUZCLN0zrgfzY
+         NftS1cY+HFmmM3lIfUs1Z6ildCplOIf2mv8wluOyIm1TX5VpbnR5AOy8qsvbspWtLlGn
+         qYCg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777514223; x=1778119023;
+        d=1e100.net; s=20251104; t=1777514218; x=1778119018;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=fYtiwDmtrVbl/hGmqfQch4eP6KggQ9xHSeI/NuJ3fwM=;
-        b=oRwJyiIpfKhQ5Ufj34048csOLmRrL7gnvezpUWvuEPbtf9bfe88U9LWxh3ihAVpLGA
-         tlU9eOsvK5k6HybdJEtFGAF9DCuswz66IXP9ScTzkhE4Jg8Q/UDB7ryG9/XCSeoUC+Nq
-         bfVEKDoZS36KE2kn7HmH/hr4lmgtkox8qor4oFGCgQiDuA2KWW0QNNTwIYjnq78nMeGx
-         7z7ply51Sa6rX9y3VY04s8d9refDNiV/m6T/vC6pKvA72mmtsjPvUoNiBR9VRUltHDbZ
-         y7SAtzEZHK4SVCce0WE8MsUiVOEWKsENsEn6bZ6n8aJTG5ZyNVQELoV3fbZftVnxBkHq
-         BaOw==
-X-Forwarded-Encrypted: i=1; AFNElJ+kxWDrHwL1/fx7u/On5TF4/gHYUz5RK07HXddvycNV0bDej9Uyw9SzO/krUikJtAJDE2QVF6EaIdcWA71K9ky6@lists.infradead.org
-X-Gm-Message-State: AOJu0YyOeDwKzA03o70jAbQWwK8S5yn4h2HGm7LWqS3AC3cXM5X/Ttim
-	wyozE3P5ieD0DTJw/hQv+HiOQyL+rrWrSq2z8AlbIKHMSNvKaTR8wjq6N7Sr4zlvXzsiQ05KVWm
-	HbU+ytGk=
-X-Gm-Gg: AeBDietVoiH5p86Gl7FPnBt9u64Ir9wfvjswLnOQrMcnyPME3YJJ2w7yf82yMwRYTEa
-	7nCa12Up58dc+v9/D3VFY+5t/W/Yb8PUf9uSE+2Knel5R10/7tjtru7yKddWs9i9+yJWEtj3bJN
-	6UTvgZc2AB/peZYvSCCBVrjfikSnRHHe+Pdz0w7VgtfVJAd96ayvI264kyNOWp8mAHep38o0MTa
-	60ZRx1QXj1iNk8HFVGDUNIxI73wAiH0llzj+JKEPVthYjpQTCpJCTTDF0q/OFkI2g7qBde4v06o
-	k6DpA/NMjzo9hdAnyR0nkl2RC+QISRNsTXlKYwOgfIhCpWRtHgC4reSUyJ2vEXp32lOjV5JVkoZ
-	44+FMAQxPBosTiQKxXy4GuK6Jhc/KMfL5gQUGs2j8hfeu7muoiEjcTj5gidWmwuRwHmQjgbl+Xh
-	x71jFwgc3Sx6KFC98T/lM+4u2tfpYIdHMGSPZxm7OgyQH8diVccrrOBBbG0mauEkV2leD/f4k17
-	mnZwucF8sKZbYgEQBoQa6EW37Q=
-X-Received: by 2002:a05:6000:178e:b0:43f:e934:50ac with SMTP id ffacd0b85a97d-4493d7f9979mr1191141f8f.7.1777514222943;
-        Wed, 29 Apr 2026 18:57:02 -0700 (PDT)
+        bh=EYgTJ4k5gmQwMKcZEcvg88X5/usv5yCN60/fnybmGoU=;
+        b=fp3xedkaglqO14th7U/HJ28xfzV+ga/6B3fXeuGxHmxF/RZK9/kzTgf+WVsLgJ77kS
+         4bOQGG31INaj4ssbPha37TmZKMprXsZ98g6XRuhZUaA53UeMg5XC+evU10Pyv3DX9YGG
+         iRaJAo2Jq3FxYYkqtvIw1RiSfhC314M/Pv2qvGluE6bnH1DMtFcdD3aD4xRJHs8lVcDE
+         UzGYBgsgkc7Un4kbmGbWaOH3o1QE3hi1vzsiRnvlPBVZ26liPREXppM01yovaupzm9t6
+         5ObemXnkGsUNASuH4sexP/L+pT3u9aWo/LzAZS9Swdp9/mNZiAzVx7EwzLzhutPHileO
+         xiJQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+OEX7c9/GGe0vhbYDV3Gx7ms18C9n6gsdXKhUAB6IUKuVRF7zhrAumJk41koBtR33mJ02fKNU3ummPr1gxcPws@lists.infradead.org
+X-Gm-Message-State: AOJu0YyEXdO6JtN0GiexBCObQcCRq72sPXDNvUbjXGtDirOepekRvhpz
+	HED980mCOI4dc1VoM1XWu7r8Jhzn4D7jeRRWZsOiD6tjKDGSZsiy+ZaLFTk9aDN58s9liXLuQ0H
+	6njQVXKQ=
+X-Gm-Gg: AeBDiet4Xz8DFQhJZx2GU5etZ8EQ1zLM7gZTQiqMnk3HbjIxx7nZHd00eIEDA9cogEF
+	aZeLRHEjZ9abWE1BKoW8IuQFPcStkL4Z7+5SlFW0LUsAYXqudOx9IfehkeAR3p7vuXgFIJq31fT
+	uuNsaZLhQ6VXq/UvGQ1cUTbfqfZY6fwYchLtypLsYiTDjS996FDpWk6bGtRc9E5tXDVhMVhc5PX
+	kxKe6fDnp37AcEbqZYH9IH5LerVPQ/JoVk66K7ElymXPDqSzeF0JdN14U7mvh0i6VytNRn6Fz+3
+	nd3I+HJBBHfvHswQQPGUu9CnfXVME9Vkx5PNrsdLPcldsxmiVTlCvb9hOVZCDeffLzExN5H2714
+	pMOA3EZvsCjdvquUDOoB+QwCjM7G79iyKmcFkHt3YRN5EKx8yYCNl1PDDvebVulFd9+8DtKJJsK
+	c/DttF7p3/jVqLzaFn/BDWkC5KgGLeweHQnkDaJl/xeCn3Oe2I5awwLB/PTn48oaNo5lbgfNm4P
+	rm6tgOl2NNbn4dj1taZjc+RIO4=
+X-Received: by 2002:a05:6000:15d8:b0:448:6b5f:ce9b with SMTP id ffacd0b85a97d-4495025ddfbmr548070f8f.19.1777514217658;
+        Wed, 29 Apr 2026 18:56:57 -0700 (PDT)
 Received: from [127.0.1.1] ([94.4.195.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-447b76e5bf2sm9915013f8f.27.2026.04.29.18.57.00
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-447b76e5bf2sm9915013f8f.27.2026.04.29.18.56.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Apr 2026 18:57:01 -0700 (PDT)
+        Wed, 29 Apr 2026 18:56:56 -0700 (PDT)
 From: Alexey Klimov <alexey.klimov@linaro.org>
-Date: Thu, 30 Apr 2026 02:56:55 +0100
-Subject: [PATCH v3 5/6] MAINTAINERS: add Exynos850 PMU entry
+Date: Thu, 30 Apr 2026 02:56:52 +0100
+Subject: [PATCH v3 2/6] dt-bindings: soc: samsung: exynos-pmu: Require
+ pmu-intr-gen-syscon for Exynos850
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260430-exynos850-cpuhotplug-v3-5-fd6251d02a17@linaro.org>
+Message-Id: <20260430-exynos850-cpuhotplug-v3-2-fd6251d02a17@linaro.org>
 References: <20260430-exynos850-cpuhotplug-v3-0-fd6251d02a17@linaro.org>
 In-Reply-To: <20260430-exynos850-cpuhotplug-v3-0-fd6251d02a17@linaro.org>
 To: Sam Protsenko <semen.protsenko@linaro.org>, 
@@ -91,8 +92,8 @@ Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
  linux-kernel@vger.kernel.org, Alexey Klimov <alexey.klimov@linaro.org>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_185704_894111_4A48EF1B 
-X-CRM114-Status: UNSURE (   9.11  )
+X-CRM114-CacheID: sfid-20260429_185659_972283_0C98AC14 
+X-CRM114-Status: UNSURE (   9.98  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,34 +109,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add Exynos850 PMU entry describing new file
-drivers/soc/samsung/exynos850-pmu.c.
-Add myself as M there since I contributed Exynos850
-PMU support and intend to maintain that.
+Update the Exynos PMU schema to mandate the 'google,pmu-intr-gen-syscon'
+property for the 'samsung,exynos850-pmu' compatible so the driver can
+obtain the necessary syscon regmap.
+
+The Exynos850 PMU relies on a separate system controller block to handle
+interrupts generation, similar to the hardware design of the GS101
+SoC. To ensure the hardware is correctly described, this syscon phandle
+must be explicitly provided.
 
 Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
 ---
- MAINTAINERS | 7 +++++++
- 1 file changed, 7 insertions(+)
+ Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 498ca30a00c5..60c25fed8ffa 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -23645,6 +23645,13 @@ F:	arch/arm64/boot/dts/exynos/exynos2200*
- F:	drivers/clk/samsung/clk-exynos2200.c
- F:	include/dt-bindings/clock/samsung,exynos2200-cmu.h
- 
-+SAMSUNG EXYNOS850 PMU SUPPORT
-+M:	Alexey Klimov <alexey.klimov@linaro.org>
-+L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-+L:	linux-samsung-soc@vger.kernel.org
-+S:	Maintained
-+F:	drivers/soc/samsung/exynos850-pmu.c
-+
- SAMSUNG EXYNOS850 SoC SUPPORT
- M:	Sam Protsenko <semen.protsenko@linaro.org>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+diff --git a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
+index 76ce7e98c10f..6550c3736a3b 100644
+--- a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
++++ b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
+@@ -182,6 +182,7 @@ allOf:
+           contains:
+             enum:
+               - google,gs101-pmu
++              - samsung,exynos850-pmu
+     then:
+       required:
+         - google,pmu-intr-gen-syscon
 
 -- 
 2.51.0
