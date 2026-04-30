@@ -4,100 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F6B3FF8875
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 11:13:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78AEAFF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 11:15:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8uLan5B027COPd/t1lMAqUL7IL3uFTazUIilUlFaa9w=; b=3wYrFIdqTNDYcv55VoztMMPPIM
-	SwSVFF3HlgjmuqRuUSuIMBh+PTKvzbYTJlG11unMLFD+US14VcchHauSZGTe50YO4POifteutPOlS
-	d4ggQYa2ekYPtkH8tddIPZQTZFTrnv5pSOxmDGvldcloG9a2Yp+4im8NFWQPwbIsfW91HZKFFY4tD
-	VMVeB2mqJyRVNcs1VgYhqVBz837hdk8RMIp0fgm6zGZHgN5NoDENuAu9Pn1i05l1FZ6RWw+lNBpKJ
-	5GJnt9nljaet9l5amYvcf/8InOEzXkVuj/oCIKXmrx5Zv86m46UgFcG+ubkFbwdDEPVPekx8u8F4I
-	aQ+ImNAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=P3yeMguUmrYpqVPuw8xTS5zInPUfukYaRjdwHAwI5E8=; b=yRXSn+SeyTYKW0G4qVom+hHMJw
+	DS/oZJ8SxvwGQ8bSAyC5AcR5WwDLt4pR8qtIqv8AwQZa4eS1iFxhe6vz7JllPRiifNsQdQyvJkj/r
+	HN+UmVkWuKQwbJ9/nft7NVZTRa+bTOaH+byKXalfqLP8bm5OvA9wiCRlfI2YdScMrubHXDz5eglo6
+	VT9nQU1oEvmMcOeQGOf7Gn65xqLWuX58ujRSXuI7r4LmtCTCQt9v5dE8bHpCSj34Daj2lo/MIVFTK
+	vJ2gZ1dKSqVE/y2V3Oi8V6/vGl9r+RZc41LYHt8Abu7HuqkwxEL0lHlf9bf3mlcrt54gAL8faM4tn
+	yNPNKC7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIPKQ-00000005KmF-1YPY;
-	Thu, 30 Apr 2026 11:13:10 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIPKO-00000005Klt-1Hvo
+	id 1wIPMb-00000005L5K-1A1g;
+	Thu, 30 Apr 2026 11:15:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wIPMY-00000005L3I-3zyi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 11:13:09 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4891c0620bcso5769715e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 04:13:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1777547586; x=1778152386; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=8uLan5B027COPd/t1lMAqUL7IL3uFTazUIilUlFaa9w=;
-        b=SAxHiQnSh0skne+fJRCF77HiOGcyqqIDiYKgbW/aA4qgQGYHGhHGG4iQs3+UaIoliu
-         +BmhS2J9YSg3gyyoBNqAFA6uiUc8MUXLhxHNAJj+MfDVJgbtd5GJTtsmJ3MN88g7pcTR
-         wG088IqiMU3dOO+PfQZsBHtMl9NtKMyfflijw6Phz36Hm05GEJneaduxGb4uR80OkFf4
-         R25z1El+DRUdaOpzkJ3S6TZH5NsbTKERHohcv+SMasWs+QDNH/OhdBCZ26ItyiJbQ5Y9
-         TltFnGoSnKFytq8NZEcMQbpjUEP1XrzCGYuLFULpjjwk2K0FruspWPmJQdAQUANRuct/
-         LACQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777547586; x=1778152386;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8uLan5B027COPd/t1lMAqUL7IL3uFTazUIilUlFaa9w=;
-        b=PtAJcyZZcmJRfwn1nJUJYQPw5l6Fgus/UzKw6akWGb6DYo7HVyeT0dFRADcOjw+jcE
-         zTEQ/mZK6nJvMxOFqxUqjDDdUdEs+q5M+4PPQ38IXaXyKKH9s4WwGhYd8J9GgRxoB6JD
-         Br/9UB1vOv42KTbRsut7SGqy1n35w36C7nR13Fucz3K9c38I/Vjhh6Vcp6lGa+NnrBfW
-         4csSzL9pRrmQaKPWkf7M6Tj3Y+bOsc0YnXSmKlpqrqyqNn05NfgB1Bx1r2lNe9CuNVI4
-         YFIWJgsKtsa8vHFimQxkeJBBT46R0L69XwSu98RvN2MX3S0+BHAQ53LF5OBUEwZSby7V
-         bN/g==
-X-Forwarded-Encrypted: i=1; AFNElJ+xiBwpnHIAhAqFHoW96rr/eOWJp/ZyH/i0ddunbCDLsUud0fv2vrj3G2EhgU5pQ7e9miH3CQPVkNc6uUtCuBTk@lists.infradead.org
-X-Gm-Message-State: AOJu0YwuQhW4vLKK3Mh2ORyCAUKfLZJKA3Yn7DJpQNq/HiGBPMegzyk+
-	EfN9x28OULSCpjljI/DHaV7sOgcX7FNL7eEKTl/+7McTYihLIvarPyI0rfno+tCpu9k=
-X-Gm-Gg: AeBDiesbIKxODoWcUUIey+wEBFCWm3KqkTbq2QVGEZW2H1sgCr5/8KWvQ//atoIZ/uy
-	CiZ84vmnh+vDdLhfI6qsI8l+bFvoBeF7FjqRV1vgEI11RsAc6yeVOpp3Ocsxuo8A+bBxokduSvx
-	FjESt4EKRDmPrS4Kc7FmEcKfYxyigOZ8VkYvN34NeWMTm4kx2/U6Mk1Qb/tPL2VPmDlBTZ8UvDP
-	7u/+AtsT70/brctHraD8S09KofjkqNf/Yvw2M5E5ke5frSENZlx8PjlocrcqmYyuSbYvbAskLtT
-	87kdIy9JN1p1DboWn7L0LMDC4G3HbQI9dHEtEfJThf8MPYvV04gl3P1vC6ZNK6P5WJ9BJwSN0L9
-	VLxGKNe7GmoDp6kPKBUB3q++spDGyUrwnoaTWFFQJOw9zVOs+aoaoxudSqGvCyszqU89EaXCQ54
-	npERlQSsLsVWrFtVhS0s7N5RDq7JvC7XNHw9Ghn9FJuHZ9/D+L1IQTSAuqFIwYyG8aAV7bGALRT
-	8dMyERvxdRn7D7/NuE09c8mCEFO
-X-Received: by 2002:a05:600c:e41a:b0:489:1ae1:4eb9 with SMTP id 5b1f17b1804b1-48a84532408mr29885665e9.28.1777547586029;
-        Thu, 30 Apr 2026 04:13:06 -0700 (PDT)
-Received: from ta2.c.googlers.com (17.83.155.104.bc.googleusercontent.com. [104.155.83.17])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-447b7ca664csm12966686f8f.35.2026.04.30.04.13.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Apr 2026 04:13:05 -0700 (PDT)
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-Date: Thu, 30 Apr 2026 11:12:59 +0000
-Subject: [PATCH] mailbox: exynos: Drop unused register definitions
+	Thu, 30 Apr 2026 11:15:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 795201AED;
+	Thu, 30 Apr 2026 04:15:13 -0700 (PDT)
+Received: from devkitleo.cambridge.arm.com (devkitleo.cambridge.arm.com [10.1.196.90])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7F5BD3F763;
+	Thu, 30 Apr 2026 04:15:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1777547718; bh=DS9iix7VCwpek3rRia7jXvITJ4YRw/Mrhu3VT4B73bI=;
+	h=From:To:Cc:Subject:Date:From;
+	b=vB5CZ1ckBlKPz0ugF95Z5KetcQxvkNWEO3iWLtN9GmWKSWO4DRhVa5zfcdyPQgS12
+	 Y7LzCja3BJbyd80kS9M3DerCNybXnL2X9wvg8eY1JxwRvauCkRwLA2EylLZdQX2cEb
+	 BpCjERyV/NhTPnrSxRDzP9DI2SYTHh8igCZcbvio=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Leonardo Bras <leo.bras@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	Saket Dumbre <saket.dumbre@intel.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Chengwen Feng <fengchengwen@huawei.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Kees Cook <kees@kernel.org>,
+	=?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	Thomas Huth <thuth@redhat.com>,
+	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Tian Zheng <zhengtian10@huawei.com>,
+	Wei-Lin Chang <weilin.chang@arm.com>
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-acpi@vger.kernel.org,
+	acpica-devel@lists.linux.dev,
+	kvm@vger.kernel.org
+Subject: [PATCH v1 00/12] KVM Dirty-bit cleaning accelerator (HACDBS)
+Date: Thu, 30 Apr 2026 12:14:04 +0100
+Message-ID: <20260430111424.3479613-2-leo.bras@arm.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260430-exynos-mbox-dead-def-v1-1-a69176b7d0f0@linaro.org>
-X-B4-Tracking: v=1; b=H4sIADo582kC/x2MTQqAIBQGrxJv3QP7IairRAvTz3qLNBTCiO6et
- BmYxcxDCVGQaKoeirgkSfBFmrois2u/gcUWp1a1g+o7xci3D4mPNWS20LbAMVQz6tEYg85RSc8
- IJ/nfzsv7fk46BpVmAAAA
-X-Change-ID: 20260430-exynos-mbox-dead-def-e019a9ccce3f
-To: Jassi Brar <jassisinghbrar@gmail.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: alexey.klimov@linaro.org, linux-kernel@vger.kernel.org, 
- linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Tudor Ambarus <tudor.ambarus@linaro.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777547585; l=1535;
- i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
- bh=IVpRtS1U7L6XGTbADqaORj5gZJvN+7IbIWKmL6oRgiQ=;
- b=RYbMiEzkqDTbkaG2gNr5/dC6VlSN+gT2TdV/n6UfLQQ4hiJECt/EuYVSbNhu+IPApG6hiTAMm
- yP+6lWLu3KNDlEStfAdWGKaWiRXVChjGbNuN4Z0EY1tWHfxT79fgfO3
-X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
- pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_041308_391524_EB9F0F2C 
-X-CRM114-Status: UNSURE (   8.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260430_041523_167221_111139ED 
+X-CRM114-Status: GOOD (  21.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,42 +103,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Leaving these dead definitions in place hides which registers are
-actually being used by the hardware, making the driver harder to read
-and maintain. Remove them to clean up the file.
+This patchset intends to create an arm64-specific dirty-bit cleaning
+accelerator based on HACDBS. To do so, it's needed to add a few
+snippets in arch-generic kvm code, and to do so properly, it makes
+them compile-out if the arch does not implement them.
 
-Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
----
- drivers/mailbox/exynos-mailbox.c | 7 -------
- 1 file changed, 7 deletions(-)
+Patch 1 & 2 are here just to make this testable, as this patchset
+depends on bits from HDBSS that are not upstream yet. 
 
-diff --git a/drivers/mailbox/exynos-mailbox.c b/drivers/mailbox/exynos-mailbox.c
-index 5f2d3b81c1db..953e715a89b1 100644
---- a/drivers/mailbox/exynos-mailbox.c
-+++ b/drivers/mailbox/exynos-mailbox.c
-@@ -16,15 +16,8 @@
- #include <linux/platform_device.h>
- #include <linux/slab.h>
- 
--#define EXYNOS_MBOX_MCUCTRL		0x0	/* Mailbox Control Register */
--#define EXYNOS_MBOX_INTCR0		0x24	/* Interrupt Clear Register 0 */
- #define EXYNOS_MBOX_INTMR0		0x28	/* Interrupt Mask Register 0 */
--#define EXYNOS_MBOX_INTSR0		0x2c	/* Interrupt Status Register 0 */
--#define EXYNOS_MBOX_INTMSR0		0x30	/* Interrupt Mask Status Register 0 */
- #define EXYNOS_MBOX_INTGR1		0x40	/* Interrupt Generation Register 1 */
--#define EXYNOS_MBOX_INTMR1		0x48	/* Interrupt Mask Register 1 */
--#define EXYNOS_MBOX_INTSR1		0x4c	/* Interrupt Status Register 1 */
--#define EXYNOS_MBOX_INTMSR1		0x50	/* Interrupt Mask Status Register 1 */
- 
- #define EXYNOS_MBOX_INTMR0_MASK		GENMASK(15, 0)
- #define EXYNOS_MBOX_INTGR1_MASK		GENMASK(15, 0)
+Patch 1 should be included in the HDBSS patchset, and patch 2
+is a bunch of bits that I collected across other patches so this can
+work. So few free to ignore them.
 
----
-base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
-change-id: 20260430-exynos-mbox-dead-def-e019a9ccce3f
+To be able to properly use HACDBS, it requires a PPI IRQ that triggers
+either on error, or when processing is complete. It's called
+HACDBSIRQ, and there is currently no upstream way of announcing it on
+ACPI tables, so it uses the suggested table/index in [1].
 
-Best regards,
+It is able to accelerate the cleaning on both dirty-bitmap and
+dirty-ring tracking mechanisms on KVM, and that require different
+functions to be made accessible outside KVM code.
+
+On top of finding issues, there are a few questions I would like help with:
+a - Is the distribution between patches ok? should I merge or split
+    any of them?
+b - checkpatch.pl keeps bothering me to add an entry in MAINTAINERS file,
+    and I like the idea of maintaining this. Is there any rule or
+    common sense on this? Should I add this entry, or should I leave it
+    in the arch/arm64/kvm/ general rule?
+c - There are some trace_prink() I have left in the code, as they could
+    be helpful to check when HACDBS is not performing as well as it
+    should. Should I introduce a tracepoint instead? or just ignore it?
+    (it's triggered on HACDBS error, but as it falls back to software in
+    that case, it should not impact correctness, only performance).
+d - In __kvm_arch_dirty_log_clear() there is no way to predict how long
+    should be the buffer, so I used 1x PAGE_SIZE, and when it gets full
+    it's cleaned and reused. Should I let users configure that over a
+    parameter, or is it overthinking?
+
+Kernel v7.0.0 + this patchset builds properly, passing both kvm selftests
+for dirty-bit tracking[2], on HW HACDBS enabled or disabled.
+
+Please let me know of any question :)
+
+Thanks for reviewing!
+Leo
+
+
+[1]: https://github.com/tianocore/edk2/issues/12409
+[2]: dirty_log_test && dirty_log_perf_test
+
+Leonardo Bras (12):
+  KVM: arm64: Enable eager hugepage splitting if HDBSS is available
+  KVM: arm64: HDBSS bits
+  arm64/cpufeature: Add system-wide FEAT_HACDBS detection
+  arm64/sysreg: Add HACDBS consumer and base registers
+  KVM: arm64: Detect (via ACPI) and initialize HACDBSIRQ
+  KVM: arm64: dirty_bit: Add base FEAT_HACDBS cleaning routine
+  kvm: Add arch-generic interface for hw-accelerated dirty-bitmap
+    cleaning
+  KVM: arm64: Add hardware-accelerated dirty-bitmap cleaning routine
+  kvm/dirty_ring: Introduce get_memslot and move helpers to header
+  kvm/dirty_ring: Add arch-generic interface for hw-accelerated
+    dirty-ring cleaning
+  KVM: arm64: Add hardware-accelerated dirty-ring cleaning routine
+  KVM: arm64: Enable KVM_HW_DIRTY_BIT
+
+ MAINTAINERS                            |   7 +
+ arch/arm64/include/asm/acpi.h          |   3 +
+ arch/arm64/include/asm/cpufeature.h    |  10 +
+ arch/arm64/include/asm/kvm_dirty_bit.h |  67 ++++
+ arch/arm64/include/asm/kvm_pgtable.h   |   3 +
+ include/acpi/actbl2.h                  |   1 +
+ include/linux/kvm_dirty_bit.h          |  34 ++
+ include/linux/kvm_dirty_ring.h         |  12 +
+ include/linux/kvm_host.h               |   3 +
+ arch/arm64/kernel/cpufeature.c         |  20 ++
+ arch/arm64/kvm/arm.c                   |   5 +
+ arch/arm64/kvm/dirty_bit.c             | 418 +++++++++++++++++++++++++
+ arch/arm64/kvm/hyp/pgtable.c           |  15 +-
+ arch/arm64/kvm/mmu.c                   |  12 +-
+ virt/kvm/dirty_ring.c                  |  34 +-
+ virt/kvm/kvm_main.c                    |  13 +-
+ arch/arm64/kvm/Kconfig                 |   1 +
+ arch/arm64/kvm/Makefile                |   2 +-
+ arch/arm64/tools/cpucaps               |   2 +
+ arch/arm64/tools/sysreg                |  30 ++
+ virt/kvm/Kconfig                       |   3 +
+ 21 files changed, 673 insertions(+), 22 deletions(-)
+ create mode 100644 arch/arm64/include/asm/kvm_dirty_bit.h
+ create mode 100644 include/linux/kvm_dirty_bit.h
+ create mode 100644 arch/arm64/kvm/dirty_bit.c
+
 -- 
-Tudor Ambarus <tudor.ambarus@linaro.org>
+2.54.0
 
 
