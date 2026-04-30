@@ -4,95 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DE3AFF8875
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 11:17:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D84AFF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 11:17:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YFpDe3yLsIQBoj9o9DIep0n+3MllwodoaC7QJ4zZl2w=; b=pA2fbKo1RirIQLbV/R2y/mq/m4
-	Hh4GH0xk8ta+zwW+ly+/so4mDd4joC5IggxvFMFy7jo8chn463hN4aOXgx9b2q1nZhSZP9VgiZnRk
-	bIhzp3FQndE5D+H7AWG1Q7eCLMbD48jkerVZvBEJgLIPyFp+eniPR9J32H8Nn43vn56PdZBR5LjN8
-	OVM0wrU95V41tJV69CtikNYHb0Pabv91LIW4oAgev92qvwWiFZaQseXJfhwaB+Nu2D2wcjuaKMja2
-	21WvY7T8lpuYGAMP5fXFyD7HmoVfiejUU8SUyObnwhTGrWBsWDJj9b2Hyzm6Jnv6mxyN8ly4+n5aC
-	XUfEhJKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sfPC35Nar/yissUiJ/LQDUwgvhO4OohgsCA7wJ/JJy4=; b=xs5nVAKn3DTG2alJET+ToBxppY
+	NLiGO7AtE6z5HJdzzEjjxw3HykHsTgTjjZm2nGxaZxZTsoDVNwtiOhfrYXCmXbpT6DzTWE81adR5d
+	WUdabpsSBN9FUH4XAqBYMn2g21PFyVT+uPe3rmSBbqkufnPwGuIDTPtFH/o8nMCrOH3oESWXw14qy
+	gX4FvWZLNcbnLr2khgbiGJ7leRfSIZj0XnWwNxGxQrITjzk+TqccxVXB3+7vrcXeYFGEgoK4SmEWY
+	SAePslSZ64AtNinMcmVoBCNERXiYAl1kbuKd+vyM8FxSzlM4u1y94nFBvY5HStVLlV2EkPf36O+Dz
+	rWVTv2Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIPO8-00000005M9M-0rZZ;
-	Thu, 30 Apr 2026 11:17:00 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1wIPOj-00000005MQx-3tFs;
+	Thu, 30 Apr 2026 11:17:37 +0000
+Received: from mail-westus3azon11011065.outbound.protection.outlook.com ([40.107.208.65] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIPO3-00000005M4q-1r7C
+	id 1wIPOh-00000005MPd-0bU1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 11:16:58 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-488a14c31eeso5612475e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 04:16:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1777547813; x=1778152613; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=YFpDe3yLsIQBoj9o9DIep0n+3MllwodoaC7QJ4zZl2w=;
-        b=sVIaoLJ5jNIZIN+foS1Q3FbdDuO/4WsJOfpJYYkH/yQG7QXeLKQMa8U5Yp7496tNEM
-         w0VSdGaxe72JC9YcVKXHJ4CDR3xeehoVKVUgI88+9CrNnHdz342kaKAjzpERtxU0YHgM
-         hXpkkf/ZlmCaeMnB0eZU/ARCitAOgOybyLd0M42cInq3cZM51+LzviKJwarmopxnutYO
-         612pJjQ5M+kknrxJ0YZEHx8hv5m6wO2XZ4niAlbELynmYB+icm+5vX5+Qd8TiF7JC49q
-         6dvrvrl1C32OFLNiGZkfqf31q/+xTF/wGykzZ6kpSFqAzNHkPUp/QwGub42nqZuJvvh6
-         YDgg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777547813; x=1778152613;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YFpDe3yLsIQBoj9o9DIep0n+3MllwodoaC7QJ4zZl2w=;
-        b=ll7hk+RrJZv5WhgTIN9JHsypxmOoi4WHCjwdL6+eM8Bd2gwBxeqi4vYv31vsCROOrp
-         oJwh0zvpauNVBty0+UQ3Z6tdxuNoXjr1EWg3tfropWuSlwjTUQ/Mpv5gSnwu1SN681tC
-         7Q/sN3hP5lOwoFUHufN8LVvWCk4SiHr3yB2R96ydvnDWVIQBIAljcxYtTP4hBQOLadpB
-         43OTH0JbuqoiRelORIonmv0guzhTYBbZOW25e2sLWum2e3b+L688g8rVCWf3seUAkK19
-         nIPwXY/nkoUf6qZexhyM51od8bwLMOkXZ9PONomCiiJtLJPYKrwiaLbsffn0RGxmfjDx
-         3TtQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/SeuT1kHgkvOt+0UtUVUZaAzqmNnZcRYeFlN7aIQqROuLNqyWjIaTUhMuXJ5LJtEVwevAP84xWMAVKT+wBD7Mf@lists.infradead.org
-X-Gm-Message-State: AOJu0YxrzvMmuU9SCR4tAKDBbRjaCJFbTnjNFjaNRWRfWWQIlYk5+94C
-	IK6+BndPm8AHHGK67XiJagAdGYfLxYx/qIjY9z5DYCMXSM4d0sssj9Q6gpBYi9cRD3M=
-X-Gm-Gg: AeBDieul4tBkV02QsHUX8jkvnT3D9epEle8xw+k4MvhEo0Yq84qznU8ZNeNYJwmQNdO
-	Qz0IZdkYqjJ2Gq/8fa2f1655cK8nm60IcKmw4qGQP82uNChKbGQbH/vqHpSw+2W5nUZSzQ+GG5B
-	ziblF1bjPfV3BFWtaGADQeMABRXxtRUrkuljfbvE3GbK96EQKNn8mppSHpZlEa8tX4wspO1sa/R
-	Ac9tqvCRkSesN4s61pKKR1lNy3XNmOh3niEnlMRlUhdmCD5TxF7yiomHHmKMnl712nk8HwhX872
-	KWGSNOI/6Pmgf/XxZkh+w/H4mJEwcyrTDryiyMAP7zmvdGwvf5MjPXHwo9/ixstVPnAP3vdb45n
-	3ReL4r9PqXn5EiqdV+a6f8cUs1XEdvG8KXEOiwRm83jVD960o7LTuMGEfosO8wi+Hnhu9G2I0wz
-	mARfrItJxqR5iFlmhzJOXY8zr+s3y8IneiqQf/0Z2KfdIjKbo5wxYycnoIsiyeWqQcqh+K1EeHn
-	HAzKqG4wVjsJiDT82acTLG5LQ==
-X-Received: by 2002:a05:600c:6088:b0:489:1cd2:610a with SMTP id 5b1f17b1804b1-48a844ec847mr40902955e9.9.1777547812685;
-        Thu, 30 Apr 2026 04:16:52 -0700 (PDT)
-Received: from localhost (p200300f65f114e08c77bcc4a3b99186a.dip0.t-ipconnect.de. [2003:f6:5f11:4e08:c77b:cc4a:3b99:186a])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-48a822c82f2sm58792695e9.11.2026.04.30.04.16.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Apr 2026 04:16:52 -0700 (PDT)
-From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>
-To: Helge Deller <deller@gmx.de>
-Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Andres Salomon <dilinger@queued.net>,
-	Antonino Daplas <adaplas@gmail.com>,
-	linux-fbdev@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-geode@lists.infradead.org,
-	Markus Schneider-Pargmann <msp@baylibre.com>
-Subject: [PATCH] fbdev: Consistently define pci_device_ids using named initializers
-Date: Thu, 30 Apr 2026 13:16:36 +0200
-Message-ID: <20260430111637.211336-2-u.kleine-koenig@baylibre.com>
-X-Mailer: git-send-email 2.47.3
+	Thu, 30 Apr 2026 11:17:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sQhHGkh3lDjmutaY4ECQylJWwB+X+tc4Jwf6PuT/C5o2qp8EZ4BxJ+ocBcLQ0DT23yYgZK/knk+NQ/68GgYbut/bsZW3iXWms5XvaqJzi5qa13NJ4064NLBfu37vQAYgbBjGkug8JH2zrIpBPYdy+k+SmkKEOpunvoOIReEBGBJYSQQWNNvGBPgOjAfJXGyW7pIHwGpu8uigjSDiU9fMDcgIGpNFCxevDHUn3JCY7wwQ18LPN0Nvxck+DWh1iEQqFRrwzAVihFdqk4P2WH2FH1owQtD8dWLPNyi7fzl+cLT3Uz+ozYKK4Jlr8u6GrXISo3odH4lPK+4mbzocbmflCg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=sfPC35Nar/yissUiJ/LQDUwgvhO4OohgsCA7wJ/JJy4=;
+ b=QndFDBPfX6pEEdoCxoX0nLnlb/MI09DhzasCxm3+QXz5aWYu30QR5aS1IMGBnBZeJTFD0t7+1qbPhewa0/uvMAdMDntPmD9JFecQLenS34Q5Uipm+zcHTGACupw9d6rZEEvwzSmf1IJW+RugFVWXd56qpcqjDUgrs1LNZvZJuPfq9aEspoQ6vxqtEjIuNN5RSmSP0bsFDpvRm56xiO2Xhsx4wz05SYjg8sGgN/XqHByvlAB4svLMWvv0WxNgm9BoEW63V4eme6c7RkkHDF2iyf3pF8rRM5DuobY4KdWqZ6QrGRL9uDM2pNfhkTEvZcrJWaJT7lV+egTFjVfAjv4l4Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=linux.dev smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sfPC35Nar/yissUiJ/LQDUwgvhO4OohgsCA7wJ/JJy4=;
+ b=dB4Bdqil8NKCocPV+yFgusnmH7aatfGC3utdpBl4++EbSwCOMah39XdUbgBPI128tksl0otsJEGDCKH0ylz3LDeJU9NEL3PtRBqVtX6MDDZiLeqk6lQdmlA918O+NkkiH4d0CPJJe/SLvES02hLU3ag/LXWGOwMicuXP3c/SzH4=
+Received: from CH0PR03CA0369.namprd03.prod.outlook.com (2603:10b6:610:119::22)
+ by SJ0PR10MB4493.namprd10.prod.outlook.com (2603:10b6:a03:2dd::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.21; Thu, 30 Apr
+ 2026 11:17:31 +0000
+Received: from DM2PEPF00003FC8.namprd04.prod.outlook.com
+ (2603:10b6:610:119:cafe::ee) by CH0PR03CA0369.outlook.office365.com
+ (2603:10b6:610:119::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.30 via Frontend Transport; Thu,
+ 30 Apr 2026 11:17:30 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ DM2PEPF00003FC8.mail.protection.outlook.com (10.167.23.26) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9846.18 via Frontend Transport; Thu, 30 Apr 2026 11:17:29 +0000
+Received: from DFLE210.ent.ti.com (10.64.6.68) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 30 Apr
+ 2026 06:17:29 -0500
+Received: from DFLE215.ent.ti.com (10.64.6.73) by DFLE210.ent.ti.com
+ (10.64.6.68) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 30 Apr
+ 2026 06:17:28 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE215.ent.ti.com
+ (10.64.6.73) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 30 Apr 2026 06:17:28 -0500
+Received: from fllv0122.itg.ti.com (fllv0122.itg.ti.com [10.247.120.72])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 63UBHSbB1243042;
+	Thu, 30 Apr 2026 06:17:28 -0500
+Received: from localhost (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
+	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 63UBHRDY031157;
+	Thu, 30 Apr 2026 06:17:27 -0500
+From: Meghana Malladi <m-malladi@ti.com>
+To: <vadim.fedorenko@linux.dev>, <haokexin@gmail.com>,
+	<jacob.e.keller@intel.com>, <horms@kernel.org>, <m-malladi@ti.com>,
+	<arnd@arndb.de>, <parvathi@couthit.com>, <afd@ti.com>,
+	<basharath@couthit.com>, <vladimir.oltean@nxp.com>, <rogerq@kernel.org>,
+	<danishanwar@ti.com>, <pabeni@redhat.com>, <kuba@kernel.org>,
+	<edumazet@google.com>, <davem@davemloft.net>, <andrew+netdev@lunn.ch>
+CC: <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <srk@ti.com>, Vignesh Raghavendra
+	<vigneshr@ti.com>
+Subject: [PATCH net-next v5 0/2] Add Frame Preemption MAC Merge support for ICSSG
+Date: Thu, 30 Apr 2026 16:47:21 +0530
+Message-ID: <20260430111723.497113-1-m-malladi@ti.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=46533; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=kfgVszV2/VOdETl3YqTPRaaIHR4ZV+GOcPVLtdHBm+4=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBp8zoVa50c4TDozs24luqT21afUuCwhkS7gye86 eTlSIqC8FSJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCafM6FQAKCRCPgPtYfRL+ ThAYB/9wPCLjuiLMIyeJ4l9POUKi8F+AeJgN9+SADYOw1jUrZ26PvHG1jDFhMvgCNX1pk6u/VGj /rkjscjuciufWNIC+yL9zUDE/3hHO7IDTcNFBHBTcaGiyIKcA8on+HaTznWVV1pr/J1Wu00X2Pu NP1MEYOS5SOQttVG6cs5z8n/DOvQS9nPveEvIJqBYQxzkXXoY+mRsrWgdua6aqFLUztJQN5eY8M uuPeVfe+S5AZxQgcc/93tDES+4wPnhPs5b2WiFoIIKWBz+pVkzGRG8d492+yUPdGL8ptq1Xvl5F 8+FptosLeEmaXUdNRtvUrkHt/6wTSeLHgaIAAh8idAlJDqkE
-X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM2PEPF00003FC8:EE_|SJ0PR10MB4493:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9ef5e938-fe76-44ed-a8a5-08dea6aa112f
+X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|82310400026|36860700016|18002099003|56012099003|921020;
+X-Microsoft-Antispam-Message-Info: QBUavrHHv9Nbp+nxrRVnpjkfzWih3dl0gMuBv9C8aPNAJnbVKqVz49WW46rxMK+WbZu6ZWFxkgDYlGDBLNaAIunpEayWSOMLOOACaaL/QXBsu+f7yV5/sn33/vRXqzYV/9Q8mUP/T4zvQNjl3kYaYw1dOQl8tgrbWCeIr/udPpQjNsK/gx74gthQi0FgXLKzI3/Ee04yPtxGLtnn5Zthz3cs24gUiPCzGwmX9oziewmHih0TnrMkJ+5jHZBv9niU/QaXqlRiBKKa4s5WYlF+ItjAJQXcDFNVWAONoT+iprCf3TRJJTHSTarJnEhGhNA3u0gz26kG41KyFsJ6E6DgF6Es9RB4EnFoHGYPIQ4qi0GeEnYFnpbr9tYHQPRbOJk4n41Zggl6MI9Z2+M1B+R4bApBw4JU+GUAtF3W9khZpQ4juUYGOLTwRq/7Auf8xBHlBSz3M3XUefMpvJTUAQkzPTZCg4L9QfOijBZxcsZ9fUIM1LIQtA74sWMdc46QSBvl8grs86iELit7gwV8AM555K6ni3WxSoqdXtez7AEqLjn90ChVOCerMiYlxkxGDGFdWTiUfg651o0x3dUD5qmPrtSi3lxM+JBNme2kcew4R7mw4znuPUISt1S97SJxyXOjOk6u9w3xCKEGiNst9ifWnI9o5NQMrFZGDu1r7EKpY8B0iBeADcqWgUD9YOj/lhXqE8iP6ylEqtixEaEwInjO3HC//ExlHTkXeXZc//u7ovg4TYFNQeTZG+xQ2RXndgIu9I+SRzr2Uqw+43k5NbJUAP6Z198LxTaoMSnqL5Ebop8iFBO5psgf7vXVK1J7Ajhp
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(82310400026)(36860700016)(18002099003)(56012099003)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: KiWj6cBhjda5wAgDLOyvM42vSrFnqOCGWAmZHRTopzi0tbrFe8q4M9eOj/4Im2F6DaMRVSfJRs2X7qjZ1U0x+SuecUXh0R+aG0P/FshQA4zI6QDflisHJBxCeRYc86U9MmXSn0OASpcm0vC79jOIRPOszIgDKSs3hLMHwDp1lR6kGmjOqUwNTlGhrcyJq6N95yJwVQtksALmBCdnPd5YPf+YTN/+ZLSRz/1apfGqWBYAfOwQDw57Bp+S68J5ASYIJiLQyl27Gp3hUUBu7cffCYVks38n0bnZ7W3ZQvLpXHvcfhILfLHzbPKxXCFVQH17/63SExIcGZUSyOGO/P6OK83rO9uF4EtkvEkvy2JuP6dY2O4zXUuVecIwPxPmNPeDr7nQE2Nf7+ViRzEbSdOqc+faImgZS0HonweUWnbkdwNr2oAYamQ3cPKPbIuwdLsl
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2026 11:17:29.5154
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9ef5e938-fe76-44ed-a8a5-08dea6aa112f
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: DM2PEPF00003FC8.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB4493
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_041655_770584_4642D99F 
-X-CRM114-Status: GOOD (  17.84  )
+X-CRM114-CacheID: sfid-20260430_041735_189976_CA791A63 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,1013 +137,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-... and PCI device helpers.
+This patch series adds QoS support to the ICSSG PRUETH driver.
+The first patch implements mqprio qdisc handling and TC offload hooks
+so userspace can request TC mappings and queue counts.
 
-The various struct pci_device_id arrays were initialized mostly by list
-expressions. This isn't easily readable if you're not into PCI. Using
-named initializers is more explicit and thus easier to parse. Also use
-PCI_DEVICE* helper macros to assign .vendor, .device, .subvendor and
-.subdevice where appropriate and skip explicit assignments of 0 (which
-the compiler takes care of).
+It also integrates a driver-side mechanism to program the firmware
+with the IET/FPE preemption mask and to kick the firmware verify state
+machine when frame preemption is enabled. The second patch adds ethtool
+perations for the MAC Merge (Frame Preemption) sublayer, exposing .get_mm,
+.set_mm and .get_mm_stats so admins can view and change MAC Merge
+parameters and retrieve preemption statistics.
 
-The secret plan is to make struct pci_device_id::driver_data an
-anonymous union (similar to
-https://lore.kernel.org/all/cover.1776579304.git.u.kleine-koenig@baylibre.com/)
-and that requires named initializers. But it's also a nice cleanup on
-its own.
+v4: https://lore.kernel.org/all/20260224124803.3634808-1-m-malladi@ti.com/
 
-This change doesn't introduce changes to the compiled pci_device_id
-array. Tested on x86 and arm64.
+MD Danish Anwar (2):
+  net: ti: icssg-prueth: Add Frame Preemption MAC Merge support
+  net: ti: icssg-prueth: Add ethtool ops for Frame Preemption MAC Merge
 
-Signed-off-by: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
----
-Hello,
+ drivers/net/ethernet/ti/Makefile              |   3 +-
+ drivers/net/ethernet/ti/icssg/icssg_config.h  |   9 -
+ drivers/net/ethernet/ti/icssg/icssg_ethtool.c | 107 +++++++-
+ drivers/net/ethernet/ti/icssg/icssg_prueth.c  |   7 +
+ drivers/net/ethernet/ti/icssg/icssg_prueth.h  |   9 +-
+ drivers/net/ethernet/ti/icssg/icssg_qos.c     | 232 ++++++++++++++++++
+ drivers/net/ethernet/ti/icssg/icssg_qos.h     | 106 ++++++++
+ drivers/net/ethernet/ti/icssg/icssg_stats.c   |   5 +-
+ drivers/net/ethernet/ti/icssg/icssg_stats.h   |   5 +
+ .../net/ethernet/ti/icssg/icssg_switch_map.h  |   5 +
+ 10 files changed, 471 insertions(+), 17 deletions(-)
+ create mode 100644 drivers/net/ethernet/ti/icssg/icssg_qos.c
+ create mode 100644 drivers/net/ethernet/ti/icssg/icssg_qos.h
 
-There is no benefit for radeon of the mentioned follow up quest as it
-doesn't use pointers in .driver_data. Other drivers benefit from
 
-	-	{ PCI_VDEVICE(TTI, 0x3220), .driver_data = (kernel_ulong_t)&hptiop_itl_ops },
-	+	{ PCI_VDEVICE(TTI, 0x3220), .driver_data_ptr = &hptiop_itl_ops },
-
-which gets rid of a bunch of casts and so brings a little bit more type
-safety. This patch is a preparation for that.
-
-I assume a single patch for all of drivers/video/fbdev is fine. If not I
-can split per driver.
-
- drivers/video/fbdev/arkfb.c                  |   4 +-
- drivers/video/fbdev/aty/aty128fb.c           | 143 +++++++------------
- drivers/video/fbdev/aty/radeon_base.c        |   2 +-
- drivers/video/fbdev/carminefb.c              |   5 +-
- drivers/video/fbdev/cirrusfb.c               |   2 +-
- drivers/video/fbdev/cyber2000fb.c            |  24 ++--
- drivers/video/fbdev/geode/gx1fb_core.c       |  10 +-
- drivers/video/fbdev/kyro/fbdev.c             |   5 +-
- drivers/video/fbdev/matrox/matroxfb_base.c   |  38 ++---
- drivers/video/fbdev/neofb.c                  |  29 ++--
- drivers/video/fbdev/nvidia/nvidia.c          |   9 +-
- drivers/video/fbdev/pm2fb.c                  |  11 +-
- drivers/video/fbdev/pm3fb.c                  |   5 +-
- drivers/video/fbdev/pvr2fb.c                 |   5 +-
- drivers/video/fbdev/riva/fbdev.c             | 128 ++++++-----------
- drivers/video/fbdev/s3fb.c                   |  32 ++---
- drivers/video/fbdev/savage/savagefb_driver.c | 140 +++++++++---------
- drivers/video/fbdev/sis/sis_main.h           |  26 ++--
- drivers/video/fbdev/tdfxfb.c                 |  21 +--
- drivers/video/fbdev/tridentfb.c              |  44 +++---
- drivers/video/fbdev/vt8623fb.c               |   4 +-
- 21 files changed, 292 insertions(+), 395 deletions(-)
-
-diff --git a/drivers/video/fbdev/arkfb.c b/drivers/video/fbdev/arkfb.c
-index 866c1165704e..195dbf4a5142 100644
---- a/drivers/video/fbdev/arkfb.c
-+++ b/drivers/video/fbdev/arkfb.c
-@@ -1167,8 +1167,8 @@ static const struct dev_pm_ops ark_pci_pm_ops = {
- /* List of boards that we are trying to support */
- 
- static const struct pci_device_id ark_devices[] = {
--	{PCI_DEVICE(0xEDD8, 0xA099)},
--	{0, 0, 0, 0, 0, 0, 0}
-+	{ PCI_DEVICE(0xEDD8, 0xA099) },
-+	{ }
- };
- 
- 
-diff --git a/drivers/video/fbdev/aty/aty128fb.c b/drivers/video/fbdev/aty/aty128fb.c
-index f55b4c7609a8..bcb10e66221c 100644
---- a/drivers/video/fbdev/aty/aty128fb.c
-+++ b/drivers/video/fbdev/aty/aty128fb.c
-@@ -180,101 +180,54 @@ static const struct dev_pm_ops aty128_pci_pm_ops = {
- 
- /* supported Rage128 chipsets */
- static const struct pci_device_id aty128_pci_tbl[] = {
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_LE,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_M3_pci },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_LF,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_M3 },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_MF,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_M4 },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_ML,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_M4 },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_PA,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_pro },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_PB,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_pro },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_PC,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_pro },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_PD,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_pro_pci },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_PE,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_pro },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_PF,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_pro },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_PG,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_pro },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_PH,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_pro },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_PI,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_pro },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_PJ,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_pro },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_PK,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_pro },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_PL,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_pro },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_PM,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_pro },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_PN,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_pro },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_PO,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_pro },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_PP,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_pro_pci },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_PQ,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_pro },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_PR,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_pro_pci },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_PS,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_pro },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_PT,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_pro },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_PU,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_pro },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_PV,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_pro },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_PW,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_pro },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_PX,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_pro },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_RE,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_pci },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_RF,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128 },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_RG,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128 },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_RK,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_pci },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_RL,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128 },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_SE,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128 },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_SF,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_pci },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_SG,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128 },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_SH,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128 },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_SK,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128 },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_SL,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128 },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_SM,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128 },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_SN,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128 },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_TF,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_ultra },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_TL,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_ultra },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_TR,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_ultra },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_TS,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_ultra },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_TT,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_ultra },
--	{ PCI_VENDOR_ID_ATI, PCI_DEVICE_ID_ATI_RAGE128_TU,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, rage_128_ultra },
--	{ 0, }
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_LE), .driver_data = rage_M3_pci },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_LF), .driver_data = rage_M3 },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_MF), .driver_data = rage_M4 },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_ML), .driver_data = rage_M4 },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_PA), .driver_data = rage_128_pro },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_PB), .driver_data = rage_128_pro },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_PC), .driver_data = rage_128_pro },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_PD), .driver_data = rage_128_pro_pci },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_PE), .driver_data = rage_128_pro },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_PF), .driver_data = rage_128_pro },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_PG), .driver_data = rage_128_pro },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_PH), .driver_data = rage_128_pro },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_PI), .driver_data = rage_128_pro },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_PJ), .driver_data = rage_128_pro },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_PK), .driver_data = rage_128_pro },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_PL), .driver_data = rage_128_pro },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_PM), .driver_data = rage_128_pro },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_PN), .driver_data = rage_128_pro },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_PO), .driver_data = rage_128_pro },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_PP), .driver_data = rage_128_pro_pci },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_PQ), .driver_data = rage_128_pro },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_PR), .driver_data = rage_128_pro_pci },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_PS), .driver_data = rage_128_pro },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_PT), .driver_data = rage_128_pro },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_PU), .driver_data = rage_128_pro },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_PV), .driver_data = rage_128_pro },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_PW), .driver_data = rage_128_pro },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_PX), .driver_data = rage_128_pro },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_RE), .driver_data = rage_128_pci },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_RF), .driver_data = rage_128 },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_RG), .driver_data = rage_128 },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_RK), .driver_data = rage_128_pci },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_RL), .driver_data = rage_128 },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_SE), .driver_data = rage_128 },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_SF), .driver_data = rage_128_pci },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_SG), .driver_data = rage_128 },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_SH), .driver_data = rage_128 },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_SK), .driver_data = rage_128 },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_SL), .driver_data = rage_128 },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_SM), .driver_data = rage_128 },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_SN), .driver_data = rage_128 },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_TF), .driver_data = rage_128_ultra },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_TL), .driver_data = rage_128_ultra },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_TR), .driver_data = rage_128_ultra },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_TS), .driver_data = rage_128_ultra },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_TT), .driver_data = rage_128_ultra },
-+	{ PCI_VDEVICE(ATI, PCI_DEVICE_ID_ATI_RAGE128_TU), .driver_data = rage_128_ultra },
-+	{ }
- };
- 
- MODULE_DEVICE_TABLE(pci, aty128_pci_tbl);
-diff --git a/drivers/video/fbdev/aty/radeon_base.c b/drivers/video/fbdev/aty/radeon_base.c
-index cb006484831b..adb03489bedf 100644
---- a/drivers/video/fbdev/aty/radeon_base.c
-+++ b/drivers/video/fbdev/aty/radeon_base.c
-@@ -95,7 +95,7 @@
- #define MIN_MAPPED_VRAM	(1024*768*1)
- 
- #define CHIP_DEF(id, family, flags)					\
--	{ PCI_VENDOR_ID_ATI, id, PCI_ANY_ID, PCI_ANY_ID, 0, 0, (flags) | (CHIP_FAMILY_##family) }
-+	{ PCI_DEVICE(PCI_VENDOR_ID_ATI, id), .driver_data = (flags) | (CHIP_FAMILY_##family) }
- 
- static const struct pci_device_id radeonfb_pci_table[] = {
-         /* Radeon Xpress 200m */
-diff --git a/drivers/video/fbdev/carminefb.c b/drivers/video/fbdev/carminefb.c
-index bd4bff6a2484..5f13f1cc79d3 100644
---- a/drivers/video/fbdev/carminefb.c
-+++ b/drivers/video/fbdev/carminefb.c
-@@ -753,9 +753,8 @@ static void carminefb_remove(struct pci_dev *dev)
- 
- #define PCI_VENDOR_ID_FUJITU_LIMITED 0x10cf
- static struct pci_device_id carmine_devices[] = {
--{
--	PCI_DEVICE(PCI_VENDOR_ID_FUJITU_LIMITED, 0x202b)},
--	{0, 0, 0, 0, 0, 0, 0}
-+	{ PCI_DEVICE(PCI_VENDOR_ID_FUJITU_LIMITED, 0x202b) },
-+	{ }
- };
- 
- MODULE_DEVICE_TABLE(pci, carmine_devices);
-diff --git a/drivers/video/fbdev/cirrusfb.c b/drivers/video/fbdev/cirrusfb.c
-index e29217e476ea..2693b5cc053f 100644
---- a/drivers/video/fbdev/cirrusfb.c
-+++ b/drivers/video/fbdev/cirrusfb.c
-@@ -253,7 +253,7 @@ static const struct cirrusfb_board_info_rec {
- 
- #ifdef CONFIG_PCI
- #define CHIP(id, btype) \
--	{ PCI_VENDOR_ID_CIRRUS, id, PCI_ANY_ID, PCI_ANY_ID, 0, 0, (btype) }
-+	{ PCI_VDEVICE(CIRRUS, id), .driver_data = (btype) }
- 
- static struct pci_device_id cirrusfb_pci_table[] = {
- 	CHIP(PCI_DEVICE_ID_CIRRUS_5436, BT_ALPINE),
-diff --git a/drivers/video/fbdev/cyber2000fb.c b/drivers/video/fbdev/cyber2000fb.c
-index 2d12f8e96c7e..3daba94c6c13 100644
---- a/drivers/video/fbdev/cyber2000fb.c
-+++ b/drivers/video/fbdev/cyber2000fb.c
-@@ -1796,16 +1796,22 @@ static int __maybe_unused cyberpro_pci_resume(struct device *dev)
- 
- static struct pci_device_id cyberpro_pci_table[] = {
- /*	Not yet
-- *	{ PCI_VENDOR_ID_INTERG, PCI_DEVICE_ID_INTERG_1682,
-- *		PCI_ANY_ID, PCI_ANY_ID, 0, 0, ID_IGA_1682 },
-+ *	{
-+ *		PCI_VDEVICE(INTERG, PCI_DEVICE_ID_INTERG_1682),
-+ *		.driver_data = ID_IGA_1682,
-+ *	},
-  */
--	{ PCI_VENDOR_ID_INTERG, PCI_DEVICE_ID_INTERG_2000,
--		PCI_ANY_ID, PCI_ANY_ID, 0, 0, ID_CYBERPRO_2000 },
--	{ PCI_VENDOR_ID_INTERG, PCI_DEVICE_ID_INTERG_2010,
--		PCI_ANY_ID, PCI_ANY_ID, 0, 0, ID_CYBERPRO_2010 },
--	{ PCI_VENDOR_ID_INTERG, PCI_DEVICE_ID_INTERG_5000,
--		PCI_ANY_ID, PCI_ANY_ID, 0, 0, ID_CYBERPRO_5000 },
--	{ 0, }
-+	{
-+		PCI_VDEVICE(INTERG, PCI_DEVICE_ID_INTERG_2000),
-+		.driver_data = ID_CYBERPRO_2000,
-+	}, {
-+		PCI_VDEVICE(INTERG, PCI_DEVICE_ID_INTERG_2010),
-+		.driver_data = ID_CYBERPRO_2010,
-+	}, {
-+		PCI_VDEVICE(INTERG, PCI_DEVICE_ID_INTERG_5000),
-+		.driver_data = ID_CYBERPRO_5000,
-+	},
-+	{ }
- };
- 
- MODULE_DEVICE_TABLE(pci, cyberpro_pci_table);
-diff --git a/drivers/video/fbdev/geode/gx1fb_core.c b/drivers/video/fbdev/geode/gx1fb_core.c
-index a1919c1934ac..7cca46891aef 100644
---- a/drivers/video/fbdev/geode/gx1fb_core.c
-+++ b/drivers/video/fbdev/geode/gx1fb_core.c
-@@ -423,10 +423,12 @@ static void __init gx1fb_setup(char *options)
- #endif
- 
- static struct pci_device_id gx1fb_id_table[] = {
--	{ PCI_VENDOR_ID_CYRIX, PCI_DEVICE_ID_CYRIX_5530_VIDEO,
--	  PCI_ANY_ID, PCI_ANY_ID, PCI_BASE_CLASS_DISPLAY << 16,
--	  0xff0000, 0 },
--	{ 0, }
-+	{
-+		PCI_DEVICE(PCI_VENDOR_ID_CYRIX, PCI_DEVICE_ID_CYRIX_5530_VIDEO),
-+		.class = PCI_BASE_CLASS_DISPLAY << 16,
-+		.class_mask = 0xff0000,
-+	},
-+	{ }
- };
- 
- MODULE_DEVICE_TABLE(pci, gx1fb_id_table);
-diff --git a/drivers/video/fbdev/kyro/fbdev.c b/drivers/video/fbdev/kyro/fbdev.c
-index c8b1dfa456a3..d756b3603fa6 100644
---- a/drivers/video/fbdev/kyro/fbdev.c
-+++ b/drivers/video/fbdev/kyro/fbdev.c
-@@ -645,9 +645,8 @@ static int kyrofb_ioctl(struct fb_info *info,
- }
- 
- static const struct pci_device_id kyrofb_pci_tbl[] = {
--	{ PCI_VENDOR_ID_ST, PCI_DEVICE_ID_STG4000,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ 0, }
-+	{ PCI_DEVICE(PCI_VENDOR_ID_ST, PCI_DEVICE_ID_STG4000) },
-+	{ }
- };
- 
- MODULE_DEVICE_TABLE(pci, kyrofb_pci_tbl);
-diff --git a/drivers/video/fbdev/matrox/matroxfb_base.c b/drivers/video/fbdev/matrox/matroxfb_base.c
-index e1a4bc7c2318..22774eb1b14c 100644
---- a/drivers/video/fbdev/matrox/matroxfb_base.c
-+++ b/drivers/video/fbdev/matrox/matroxfb_base.c
-@@ -1642,7 +1642,7 @@ static int initMatrox2(struct matrox_fb_info *minfo, struct board *b)
- 	int err;
- 
- 	static const struct pci_device_id intel_82437[] = {
--		{ PCI_DEVICE(PCI_VENDOR_ID_INTEL, PCI_DEVICE_ID_INTEL_82437) },
-+		{ PCI_VDEVICE(INTEL, PCI_DEVICE_ID_INTEL_82437) },
- 		{ },
- 	};
- 
-@@ -2135,35 +2135,23 @@ static void pci_remove_matrox(struct pci_dev* pdev) {
- 
- static const struct pci_device_id matroxfb_devices[] = {
- #ifdef CONFIG_FB_MATROX_MILLENIUM
--	{PCI_VENDOR_ID_MATROX,	PCI_DEVICE_ID_MATROX_MIL,
--		PCI_ANY_ID,	PCI_ANY_ID,	0, 0, 0},
--	{PCI_VENDOR_ID_MATROX,	PCI_DEVICE_ID_MATROX_MIL_2,
--		PCI_ANY_ID,	PCI_ANY_ID,	0, 0, 0},
--	{PCI_VENDOR_ID_MATROX,	PCI_DEVICE_ID_MATROX_MIL_2_AGP,
--		PCI_ANY_ID,	PCI_ANY_ID,	0, 0, 0},
-+	{ PCI_VDEVICE(MATROX, PCI_DEVICE_ID_MATROX_MIL) },
-+	{ PCI_VDEVICE(MATROX, PCI_DEVICE_ID_MATROX_MIL_2) },
-+	{ PCI_VDEVICE(MATROX, PCI_DEVICE_ID_MATROX_MIL_2_AGP) },
- #endif
- #ifdef CONFIG_FB_MATROX_MYSTIQUE
--	{PCI_VENDOR_ID_MATROX,	PCI_DEVICE_ID_MATROX_MYS,
--		PCI_ANY_ID,	PCI_ANY_ID,	0, 0, 0},
-+	{ PCI_VDEVICE(MATROX, PCI_DEVICE_ID_MATROX_MYS) },
- #endif
- #ifdef CONFIG_FB_MATROX_G
--	{PCI_VENDOR_ID_MATROX,	PCI_DEVICE_ID_MATROX_G100_MM,
--		PCI_ANY_ID,	PCI_ANY_ID,	0, 0, 0},
--	{PCI_VENDOR_ID_MATROX,	PCI_DEVICE_ID_MATROX_G100_AGP,
--		PCI_ANY_ID,	PCI_ANY_ID,	0, 0, 0},
--	{PCI_VENDOR_ID_MATROX,	PCI_DEVICE_ID_MATROX_G200_PCI,
--		PCI_ANY_ID,	PCI_ANY_ID,	0, 0, 0},
--	{PCI_VENDOR_ID_MATROX,	0x0532,
--		PCI_ANY_ID,	PCI_ANY_ID,	0, 0, 0},
--	{PCI_VENDOR_ID_MATROX,	PCI_DEVICE_ID_MATROX_G200_AGP,
--		PCI_ANY_ID,	PCI_ANY_ID,	0, 0, 0},
--	{PCI_VENDOR_ID_MATROX,	PCI_DEVICE_ID_MATROX_G400,
--		PCI_ANY_ID,	PCI_ANY_ID,	0, 0, 0},
--	{PCI_VENDOR_ID_MATROX,	PCI_DEVICE_ID_MATROX_G550,
--		PCI_ANY_ID,	PCI_ANY_ID,	0, 0, 0},
-+	{ PCI_VDEVICE(MATROX, PCI_DEVICE_ID_MATROX_G100_MM) },
-+	{ PCI_VDEVICE(MATROX, PCI_DEVICE_ID_MATROX_G100_AGP) },
-+	{ PCI_VDEVICE(MATROX, PCI_DEVICE_ID_MATROX_G200_PCI) },
-+	{ PCI_VDEVICE(MATROX, 0x0532) },
-+	{ PCI_VDEVICE(MATROX, PCI_DEVICE_ID_MATROX_G200_AGP) },
-+	{ PCI_VDEVICE(MATROX, PCI_DEVICE_ID_MATROX_G400) },
-+	{ PCI_VDEVICE(MATROX, PCI_DEVICE_ID_MATROX_G550) },
- #endif
--	{0,			0,
--		0,		0,		0, 0, 0}
-+	{ }
- };
- 
- MODULE_DEVICE_TABLE(pci, matroxfb_devices);
-diff --git a/drivers/video/fbdev/neofb.c b/drivers/video/fbdev/neofb.c
-index c1cd028b8991..e0b8d4d6ce79 100644
---- a/drivers/video/fbdev/neofb.c
-+++ b/drivers/video/fbdev/neofb.c
-@@ -2126,34 +2126,25 @@ static void neofb_remove(struct pci_dev *dev)
- }
- 
- static const struct pci_device_id neofb_devices[] = {
--	{PCI_VENDOR_ID_NEOMAGIC, PCI_CHIP_NM2070,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_NEOMAGIC_NM2070},
-+	{ PCI_VDEVICE(NEOMAGIC, PCI_CHIP_NM2070), .driver_data = FB_ACCEL_NEOMAGIC_NM2070 },
- 
--	{PCI_VENDOR_ID_NEOMAGIC, PCI_CHIP_NM2090,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_NEOMAGIC_NM2090},
-+	{ PCI_VDEVICE(NEOMAGIC, PCI_CHIP_NM2090), .driver_data = FB_ACCEL_NEOMAGIC_NM2090 },
- 
--	{PCI_VENDOR_ID_NEOMAGIC, PCI_CHIP_NM2093,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_NEOMAGIC_NM2093},
-+	{ PCI_VDEVICE(NEOMAGIC, PCI_CHIP_NM2093), .driver_data = FB_ACCEL_NEOMAGIC_NM2093 },
- 
--	{PCI_VENDOR_ID_NEOMAGIC, PCI_CHIP_NM2097,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_NEOMAGIC_NM2097},
-+	{ PCI_VDEVICE(NEOMAGIC, PCI_CHIP_NM2097), .driver_data = FB_ACCEL_NEOMAGIC_NM2097 },
- 
--	{PCI_VENDOR_ID_NEOMAGIC, PCI_CHIP_NM2160,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_NEOMAGIC_NM2160},
-+	{ PCI_VDEVICE(NEOMAGIC, PCI_CHIP_NM2160), .driver_data = FB_ACCEL_NEOMAGIC_NM2160 },
- 
--	{PCI_VENDOR_ID_NEOMAGIC, PCI_CHIP_NM2200,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_NEOMAGIC_NM2200},
-+	{ PCI_VDEVICE(NEOMAGIC, PCI_CHIP_NM2200), .driver_data = FB_ACCEL_NEOMAGIC_NM2200 },
- 
--	{PCI_VENDOR_ID_NEOMAGIC, PCI_CHIP_NM2230,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_NEOMAGIC_NM2230},
-+	{ PCI_VDEVICE(NEOMAGIC, PCI_CHIP_NM2230), .driver_data = FB_ACCEL_NEOMAGIC_NM2230 },
- 
--	{PCI_VENDOR_ID_NEOMAGIC, PCI_CHIP_NM2360,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_NEOMAGIC_NM2360},
-+	{ PCI_VDEVICE(NEOMAGIC, PCI_CHIP_NM2360), .driver_data = FB_ACCEL_NEOMAGIC_NM2360 },
- 
--	{PCI_VENDOR_ID_NEOMAGIC, PCI_CHIP_NM2380,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_NEOMAGIC_NM2380},
-+	{ PCI_VDEVICE(NEOMAGIC, PCI_CHIP_NM2380), .driver_data = FB_ACCEL_NEOMAGIC_NM2380 },
- 
--	{0, 0, 0, 0, 0, 0, 0}
-+	{ }
- };
- 
- MODULE_DEVICE_TABLE(pci, neofb_devices);
-diff --git a/drivers/video/fbdev/nvidia/nvidia.c b/drivers/video/fbdev/nvidia/nvidia.c
-index 72b85f475605..da2d486022e8 100644
---- a/drivers/video/fbdev/nvidia/nvidia.c
-+++ b/drivers/video/fbdev/nvidia/nvidia.c
-@@ -58,9 +58,12 @@
- #define MAX_CURS		32
- 
- static const struct pci_device_id nvidiafb_pci_tbl[] = {
--	{PCI_VENDOR_ID_NVIDIA, PCI_ANY_ID, PCI_ANY_ID, PCI_ANY_ID,
--	 PCI_BASE_CLASS_DISPLAY << 16, 0xff0000, 0},
--	{ 0, }
-+	{
-+		PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_ANY_ID),
-+		.class = PCI_BASE_CLASS_DISPLAY << 16,
-+		.class_mask = 0xff0000
-+	},
-+	{ }
- };
- MODULE_DEVICE_TABLE(pci, nvidiafb_pci_tbl);
- 
-diff --git a/drivers/video/fbdev/pm2fb.c b/drivers/video/fbdev/pm2fb.c
-index f34429829b7d..412ff249b5c7 100644
---- a/drivers/video/fbdev/pm2fb.c
-+++ b/drivers/video/fbdev/pm2fb.c
-@@ -1748,13 +1748,10 @@ static void pm2fb_remove(struct pci_dev *pdev)
- }
- 
- static const struct pci_device_id pm2fb_id_table[] = {
--	{ PCI_VENDOR_ID_TI, PCI_DEVICE_ID_TI_TVP4020,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_3DLABS, PCI_DEVICE_ID_3DLABS_PERMEDIA2,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_3DLABS, PCI_DEVICE_ID_3DLABS_PERMEDIA2V,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ 0, }
-+	{ PCI_VDEVICE(TI, PCI_DEVICE_ID_TI_TVP4020) },
-+	{ PCI_VDEVICE(3DLABS, PCI_DEVICE_ID_3DLABS_PERMEDIA2) },
-+	{ PCI_VDEVICE(3DLABS, PCI_DEVICE_ID_3DLABS_PERMEDIA2V) },
-+	{ }
- };
- 
- static struct pci_driver pm2fb_driver = {
-diff --git a/drivers/video/fbdev/pm3fb.c b/drivers/video/fbdev/pm3fb.c
-index 6e55e42514d6..6f552ae36219 100644
---- a/drivers/video/fbdev/pm3fb.c
-+++ b/drivers/video/fbdev/pm3fb.c
-@@ -1486,9 +1486,8 @@ static void pm3fb_remove(struct pci_dev *dev)
- }
- 
- static const struct pci_device_id pm3fb_id_table[] = {
--	{ PCI_VENDOR_ID_3DLABS, 0x0a,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ 0, }
-+	{ PCI_VDEVICE(3DLABS, 0x000a) },
-+	{ }
- };
- 
- /* For PCI drivers */
-diff --git a/drivers/video/fbdev/pvr2fb.c b/drivers/video/fbdev/pvr2fb.c
-index 3f6384e631b1..06aefad75f46 100644
---- a/drivers/video/fbdev/pvr2fb.c
-+++ b/drivers/video/fbdev/pvr2fb.c
-@@ -993,9 +993,8 @@ static void pvr2fb_pci_remove(struct pci_dev *pdev)
- }
- 
- static const struct pci_device_id pvr2fb_pci_tbl[] = {
--	{ PCI_VENDOR_ID_NEC, PCI_DEVICE_ID_NEC_NEON250,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ 0, },
-+	{ PCI_VDEVICE(NEC, PCI_DEVICE_ID_NEC_NEON250), },
-+	{ },
- };
- 
- MODULE_DEVICE_TABLE(pci, pvr2fb_pci_tbl);
-diff --git a/drivers/video/fbdev/riva/fbdev.c b/drivers/video/fbdev/riva/fbdev.c
-index 1e377b2ec089..2268fea4d807 100644
---- a/drivers/video/fbdev/riva/fbdev.c
-+++ b/drivers/video/fbdev/riva/fbdev.c
-@@ -103,92 +103,50 @@ static int rivafb_blank(int blank, struct fb_info *info);
-  * ------------------------------------------------------------------------- */
- 
- static const struct pci_device_id rivafb_pci_tbl[] = {
--	{ PCI_VENDOR_ID_NVIDIA_SGS, PCI_DEVICE_ID_NVIDIA_SGS_RIVA128,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_TNT,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_TNT2,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_UTNT2,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_VTNT2,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_UVTNT2,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_ITNT2,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE_SDR,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE_DDR,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_QUADRO,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE2_MX,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE2_MX2,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE2_GO,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_QUADRO2_MXR,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE2_GTS,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE2_GTS2,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE2_ULTRA,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_QUADRO2_PRO,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE4_MX_460,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE4_MX_440,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA_SGS, PCI_DEVICE_ID_NVIDIA_SGS_RIVA128) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_TNT) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_TNT2) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_UTNT2) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_VTNT2) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_UVTNT2) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_ITNT2) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE_SDR) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE_DDR) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_QUADRO) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE2_MX) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE2_MX2) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE2_GO) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_QUADRO2_MXR) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE2_GTS) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE2_GTS2) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE2_ULTRA) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_QUADRO2_PRO) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE4_MX_460) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE4_MX_440) },
- 	// NF2/IGP version, GeForce 4 MX, NV18
--	{ PCI_VENDOR_ID_NVIDIA, 0x01f0,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE4_MX_420,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE4_440_GO,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE4_420_GO,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE4_420_GO_M32,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_QUADRO4_500XGL,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE4_440_GO_M64,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_QUADRO4_200,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_QUADRO4_550XGL,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_QUADRO4_500_GOGL,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_IGEFORCE2,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE3,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE3_1,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE3_2,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_QUADRO_DDC,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE4_TI_4600,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE4_TI_4400,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE4_TI_4200,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
-- 	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_QUADRO4_900XGL,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_QUADRO4_750XGL,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_QUADRO4_700XGL,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE_FX_GO_5200,
--	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
--	{ 0, } /* terminate list */
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, 0x01f0) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE4_MX_420) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE4_440_GO) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE4_420_GO) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE4_420_GO_M32) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_QUADRO4_500XGL) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE4_440_GO_M64) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_QUADRO4_200) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_QUADRO4_550XGL) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_QUADRO4_500_GOGL) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_IGEFORCE2) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE3) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE3_1) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE3_2) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_QUADRO_DDC) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE4_TI_4600) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE4_TI_4400) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE4_TI_4200) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_QUADRO4_900XGL) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_QUADRO4_750XGL) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_QUADRO4_700XGL) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_NVIDIA, PCI_DEVICE_ID_NVIDIA_GEFORCE_FX_GO_5200) },
-+	{ } /* terminate list */
- };
- MODULE_DEVICE_TABLE(pci, rivafb_pci_tbl);
- 
-diff --git a/drivers/video/fbdev/s3fb.c b/drivers/video/fbdev/s3fb.c
-index ba30e5568cab..831e9e6861b1 100644
---- a/drivers/video/fbdev/s3fb.c
-+++ b/drivers/video/fbdev/s3fb.c
-@@ -1563,24 +1563,24 @@ static const struct dev_pm_ops s3_pci_pm_ops = {
- /* List of boards that we are trying to support */
- 
- static const struct pci_device_id s3_devices[] = {
--	{PCI_DEVICE(PCI_VENDOR_ID_S3, 0x8810), .driver_data = CHIP_XXX_TRIO},
--	{PCI_DEVICE(PCI_VENDOR_ID_S3, 0x8811), .driver_data = CHIP_XXX_TRIO},
--	{PCI_DEVICE(PCI_VENDOR_ID_S3, 0x8812), .driver_data = CHIP_M65_AURORA64VP},
--	{PCI_DEVICE(PCI_VENDOR_ID_S3, 0x8814), .driver_data = CHIP_767_TRIO64UVP},
--	{PCI_DEVICE(PCI_VENDOR_ID_S3, 0x8901), .driver_data = CHIP_XXX_TRIO64V2_DXGX},
--	{PCI_DEVICE(PCI_VENDOR_ID_S3, 0x8902), .driver_data = CHIP_551_PLATO_PX},
-+	{ PCI_VDEVICE(S3, 0x8810), .driver_data = CHIP_XXX_TRIO },
-+	{ PCI_VDEVICE(S3, 0x8811), .driver_data = CHIP_XXX_TRIO },
-+	{ PCI_VDEVICE(S3, 0x8812), .driver_data = CHIP_M65_AURORA64VP },
-+	{ PCI_VDEVICE(S3, 0x8814), .driver_data = CHIP_767_TRIO64UVP },
-+	{ PCI_VDEVICE(S3, 0x8901), .driver_data = CHIP_XXX_TRIO64V2_DXGX },
-+	{ PCI_VDEVICE(S3, 0x8902), .driver_data = CHIP_551_PLATO_PX },
- 
--	{PCI_DEVICE(PCI_VENDOR_ID_S3, 0x5631), .driver_data = CHIP_325_VIRGE},
--	{PCI_DEVICE(PCI_VENDOR_ID_S3, 0x883D), .driver_data = CHIP_988_VIRGE_VX},
--	{PCI_DEVICE(PCI_VENDOR_ID_S3, 0x8A01), .driver_data = CHIP_XXX_VIRGE_DXGX},
--	{PCI_DEVICE(PCI_VENDOR_ID_S3, 0x8A10), .driver_data = CHIP_357_VIRGE_GX2},
--	{PCI_DEVICE(PCI_VENDOR_ID_S3, 0x8A11), .driver_data = CHIP_359_VIRGE_GX2P},
--	{PCI_DEVICE(PCI_VENDOR_ID_S3, 0x8A12), .driver_data = CHIP_359_VIRGE_GX2P},
--	{PCI_DEVICE(PCI_VENDOR_ID_S3, 0x8A13), .driver_data = CHIP_36X_TRIO3D_1X_2X},
--	{PCI_DEVICE(PCI_VENDOR_ID_S3, 0x8904), .driver_data = CHIP_365_TRIO3D},
--	{PCI_DEVICE(PCI_VENDOR_ID_S3, 0x8C01), .driver_data = CHIP_260_VIRGE_MX},
-+	{ PCI_VDEVICE(S3, 0x5631), .driver_data = CHIP_325_VIRGE },
-+	{ PCI_VDEVICE(S3, 0x883D), .driver_data = CHIP_988_VIRGE_VX },
-+	{ PCI_VDEVICE(S3, 0x8A01), .driver_data = CHIP_XXX_VIRGE_DXGX },
-+	{ PCI_VDEVICE(S3, 0x8A10), .driver_data = CHIP_357_VIRGE_GX2 },
-+	{ PCI_VDEVICE(S3, 0x8A11), .driver_data = CHIP_359_VIRGE_GX2P },
-+	{ PCI_VDEVICE(S3, 0x8A12), .driver_data = CHIP_359_VIRGE_GX2P },
-+	{ PCI_VDEVICE(S3, 0x8A13), .driver_data = CHIP_36X_TRIO3D_1X_2X },
-+	{ PCI_VDEVICE(S3, 0x8904), .driver_data = CHIP_365_TRIO3D },
-+	{ PCI_VDEVICE(S3, 0x8C01), .driver_data = CHIP_260_VIRGE_MX },
- 
--	{0, 0, 0, 0, 0, 0, 0}
-+	{ }
- };
- 
- 
-diff --git a/drivers/video/fbdev/savage/savagefb_driver.c b/drivers/video/fbdev/savage/savagefb_driver.c
-index c2f79357c8da..7789196d2eb5 100644
---- a/drivers/video/fbdev/savage/savagefb_driver.c
-+++ b/drivers/video/fbdev/savage/savagefb_driver.c
-@@ -2449,76 +2449,78 @@ static const struct dev_pm_ops savagefb_pm_ops = {
- };
- 
- static const struct pci_device_id savagefb_devices[] = {
--	{PCI_VENDOR_ID_S3, PCI_CHIP_SUPSAV_MX128,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_SUPERSAVAGE},
-+	{
-+		PCI_VDEVICE(S3, PCI_CHIP_SUPSAV_MX128),
-+		.driver_data = FB_ACCEL_SUPERSAVAGE,
-+	}, {
-+		PCI_VDEVICE(S3, PCI_CHIP_SUPSAV_MX64),
-+		.driver_data = FB_ACCEL_SUPERSAVAGE,
-+	}, {
-+		PCI_VDEVICE(S3, PCI_CHIP_SUPSAV_MX64C),
-+		.driver_data = FB_ACCEL_SUPERSAVAGE,
-+	}, {
-+		PCI_VDEVICE(S3, PCI_CHIP_SUPSAV_IX128SDR),
-+		.driver_data = FB_ACCEL_SUPERSAVAGE,
-+	}, {
-+		PCI_VDEVICE(S3, PCI_CHIP_SUPSAV_IX128DDR),
-+		.driver_data = FB_ACCEL_SUPERSAVAGE,
-+	}, {
-+		PCI_VDEVICE(S3, PCI_CHIP_SUPSAV_IX64SDR),
-+		.driver_data = FB_ACCEL_SUPERSAVAGE,
-+	}, {
-+		PCI_VDEVICE(S3, PCI_CHIP_SUPSAV_IX64DDR),
-+		.driver_data = FB_ACCEL_SUPERSAVAGE,
-+	}, {
-+		PCI_VDEVICE(S3, PCI_CHIP_SUPSAV_IXCSDR),
-+		.driver_data = FB_ACCEL_SUPERSAVAGE,
-+	}, {
-+		PCI_VDEVICE(S3, PCI_CHIP_SUPSAV_IXCDDR),
-+		.driver_data = FB_ACCEL_SUPERSAVAGE,
-+	}, {
-+		PCI_VDEVICE(S3, PCI_CHIP_SAVAGE4),
-+		.driver_data = FB_ACCEL_SAVAGE4,
-+	}, {
-+		PCI_VDEVICE(S3, PCI_CHIP_SAVAGE3D),
-+		.driver_data = FB_ACCEL_SAVAGE3D,
-+	}, {
-+		PCI_VDEVICE(S3, PCI_CHIP_SAVAGE3D_MV),
-+		.driver_data = FB_ACCEL_SAVAGE3D_MV,
-+	}, {
-+		PCI_VDEVICE(S3, PCI_CHIP_SAVAGE2000),
-+		.driver_data = FB_ACCEL_SAVAGE2000,
-+	}, {
-+		PCI_VDEVICE(S3, PCI_CHIP_SAVAGE_MX_MV),
-+		.driver_data = FB_ACCEL_SAVAGE_MX_MV,
-+	}, {
-+		PCI_VDEVICE(S3, PCI_CHIP_SAVAGE_MX),
-+		.driver_data = FB_ACCEL_SAVAGE_MX,
-+	}, {
-+		PCI_VDEVICE(S3, PCI_CHIP_SAVAGE_IX_MV),
-+		.driver_data = FB_ACCEL_SAVAGE_IX_MV,
-+	}, {
-+		PCI_VDEVICE(S3, PCI_CHIP_SAVAGE_IX),
-+		.driver_data = FB_ACCEL_SAVAGE_IX,
-+	}, {
-+		PCI_VDEVICE(S3, PCI_CHIP_PROSAVAGE_PM),
-+		.driver_data = FB_ACCEL_PROSAVAGE_PM,
-+	}, {
-+		PCI_VDEVICE(S3, PCI_CHIP_PROSAVAGE_KM),
-+		.driver_data = FB_ACCEL_PROSAVAGE_KM,
-+	}, {
-+		PCI_VDEVICE(S3, PCI_CHIP_S3TWISTER_P),
-+		.driver_data = FB_ACCEL_S3TWISTER_P,
-+	}, {
-+		PCI_VDEVICE(S3, PCI_CHIP_S3TWISTER_K),
-+		.driver_data = FB_ACCEL_S3TWISTER_K,
-+	}, {
-+		PCI_VDEVICE(S3, PCI_CHIP_PROSAVAGE_DDR),
-+		.driver_data = FB_ACCEL_PROSAVAGE_DDR,
-+	}, {
-+		PCI_VDEVICE(S3, PCI_CHIP_PROSAVAGE_DDRK),
-+		.driver_data = FB_ACCEL_PROSAVAGE_DDRK,
-+	},
- 
--	{PCI_VENDOR_ID_S3, PCI_CHIP_SUPSAV_MX64,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_SUPERSAVAGE},
--
--	{PCI_VENDOR_ID_S3, PCI_CHIP_SUPSAV_MX64C,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_SUPERSAVAGE},
--
--	{PCI_VENDOR_ID_S3, PCI_CHIP_SUPSAV_IX128SDR,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_SUPERSAVAGE},
--
--	{PCI_VENDOR_ID_S3, PCI_CHIP_SUPSAV_IX128DDR,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_SUPERSAVAGE},
--
--	{PCI_VENDOR_ID_S3, PCI_CHIP_SUPSAV_IX64SDR,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_SUPERSAVAGE},
--
--	{PCI_VENDOR_ID_S3, PCI_CHIP_SUPSAV_IX64DDR,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_SUPERSAVAGE},
--
--	{PCI_VENDOR_ID_S3, PCI_CHIP_SUPSAV_IXCSDR,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_SUPERSAVAGE},
--
--	{PCI_VENDOR_ID_S3, PCI_CHIP_SUPSAV_IXCDDR,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_SUPERSAVAGE},
--
--	{PCI_VENDOR_ID_S3, PCI_CHIP_SAVAGE4,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_SAVAGE4},
--
--	{PCI_VENDOR_ID_S3, PCI_CHIP_SAVAGE3D,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_SAVAGE3D},
--
--	{PCI_VENDOR_ID_S3, PCI_CHIP_SAVAGE3D_MV,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_SAVAGE3D_MV},
--
--	{PCI_VENDOR_ID_S3, PCI_CHIP_SAVAGE2000,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_SAVAGE2000},
--
--	{PCI_VENDOR_ID_S3, PCI_CHIP_SAVAGE_MX_MV,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_SAVAGE_MX_MV},
--
--	{PCI_VENDOR_ID_S3, PCI_CHIP_SAVAGE_MX,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_SAVAGE_MX},
--
--	{PCI_VENDOR_ID_S3, PCI_CHIP_SAVAGE_IX_MV,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_SAVAGE_IX_MV},
--
--	{PCI_VENDOR_ID_S3, PCI_CHIP_SAVAGE_IX,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_SAVAGE_IX},
--
--	{PCI_VENDOR_ID_S3, PCI_CHIP_PROSAVAGE_PM,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_PROSAVAGE_PM},
--
--	{PCI_VENDOR_ID_S3, PCI_CHIP_PROSAVAGE_KM,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_PROSAVAGE_KM},
--
--	{PCI_VENDOR_ID_S3, PCI_CHIP_S3TWISTER_P,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_S3TWISTER_P},
--
--	{PCI_VENDOR_ID_S3, PCI_CHIP_S3TWISTER_K,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_S3TWISTER_K},
--
--	{PCI_VENDOR_ID_S3, PCI_CHIP_PROSAVAGE_DDR,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_PROSAVAGE_DDR},
--
--	{PCI_VENDOR_ID_S3, PCI_CHIP_PROSAVAGE_DDRK,
--	 PCI_ANY_ID, PCI_ANY_ID, 0, 0, FB_ACCEL_PROSAVAGE_DDRK},
--
--	{0, 0, 0, 0, 0, 0, 0}
-+	{ }
- };
- 
- MODULE_DEVICE_TABLE(pci, savagefb_devices);
-diff --git a/drivers/video/fbdev/sis/sis_main.h b/drivers/video/fbdev/sis/sis_main.h
-index 0965db9fad6a..4ca487f48205 100644
---- a/drivers/video/fbdev/sis/sis_main.h
-+++ b/drivers/video/fbdev/sis/sis_main.h
-@@ -102,22 +102,22 @@ static struct sisfb_chip_info {
- 
- static struct pci_device_id sisfb_pci_table[] = {
- #ifdef CONFIG_FB_SIS_300
--	{ PCI_VENDOR_ID_SI, PCI_DEVICE_ID_SI_300,     PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0},
--	{ PCI_VENDOR_ID_SI, PCI_DEVICE_ID_SI_540_VGA, PCI_ANY_ID, PCI_ANY_ID, 0, 0, 1},
--	{ PCI_VENDOR_ID_SI, PCI_DEVICE_ID_SI_630_VGA, PCI_ANY_ID, PCI_ANY_ID, 0, 0, 2},
-+	{ PCI_VDEVICE(SI, PCI_DEVICE_ID_SI_300), .driver_data = 0 },
-+	{ PCI_VDEVICE(SI, PCI_DEVICE_ID_SI_540_VGA), .driver_data = 1 },
-+	{ PCI_VDEVICE(SI, PCI_DEVICE_ID_SI_630_VGA), .driver_data = 2 },
- #endif
- #ifdef CONFIG_FB_SIS_315
--	{ PCI_VENDOR_ID_SI, PCI_DEVICE_ID_SI_315H,    PCI_ANY_ID, PCI_ANY_ID, 0, 0, 3},
--	{ PCI_VENDOR_ID_SI, PCI_DEVICE_ID_SI_315,     PCI_ANY_ID, PCI_ANY_ID, 0, 0, 4},
--	{ PCI_VENDOR_ID_SI, PCI_DEVICE_ID_SI_315PRO,  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 5},
--	{ PCI_VENDOR_ID_SI, PCI_DEVICE_ID_SI_550_VGA, PCI_ANY_ID, PCI_ANY_ID, 0, 0, 6},
--	{ PCI_VENDOR_ID_SI, PCI_DEVICE_ID_SI_650_VGA, PCI_ANY_ID, PCI_ANY_ID, 0, 0, 7},
--	{ PCI_VENDOR_ID_SI, PCI_DEVICE_ID_SI_330,     PCI_ANY_ID, PCI_ANY_ID, 0, 0, 8},
--	{ PCI_VENDOR_ID_SI, PCI_DEVICE_ID_SI_660_VGA, PCI_ANY_ID, PCI_ANY_ID, 0, 0, 9},
--	{ PCI_VENDOR_ID_XGI,PCI_DEVICE_ID_XGI_20,     PCI_ANY_ID, PCI_ANY_ID, 0, 0,10},
--	{ PCI_VENDOR_ID_XGI,PCI_DEVICE_ID_XGI_40,     PCI_ANY_ID, PCI_ANY_ID, 0, 0,11},
-+	{ PCI_VDEVICE(SI, PCI_DEVICE_ID_SI_315H), .driver_data = 3 },
-+	{ PCI_VDEVICE(SI, PCI_DEVICE_ID_SI_315), .driver_data = 4 },
-+	{ PCI_VDEVICE(SI, PCI_DEVICE_ID_SI_315PRO), .driver_data = 5 },
-+	{ PCI_VDEVICE(SI, PCI_DEVICE_ID_SI_550_VGA), .driver_data = 6 },
-+	{ PCI_VDEVICE(SI, PCI_DEVICE_ID_SI_650_VGA), .driver_data = 7 },
-+	{ PCI_VDEVICE(SI, PCI_DEVICE_ID_SI_330), .driver_data = 8 },
-+	{ PCI_VDEVICE(SI, PCI_DEVICE_ID_SI_660_VGA), .driver_data = 9 },
-+	{ PCI_VDEVICE(XGI, PCI_DEVICE_ID_XGI_20), .driver_data = 10 },
-+	{ PCI_VDEVICE(XGI, PCI_DEVICE_ID_XGI_40), .driver_data = 11 },
- #endif
--	{ 0 }
-+	{ }
- };
- 
- MODULE_DEVICE_TABLE(pci, sisfb_pci_table);
-diff --git a/drivers/video/fbdev/tdfxfb.c b/drivers/video/fbdev/tdfxfb.c
-index 4c4e53aaea3a..a6b63c09b48f 100644
---- a/drivers/video/fbdev/tdfxfb.c
-+++ b/drivers/video/fbdev/tdfxfb.c
-@@ -124,16 +124,17 @@ static int tdfxfb_probe(struct pci_dev *pdev, const struct pci_device_id *id);
- static void tdfxfb_remove(struct pci_dev *pdev);
- 
- static const struct pci_device_id tdfxfb_id_table[] = {
--	{ PCI_VENDOR_ID_3DFX, PCI_DEVICE_ID_3DFX_BANSHEE,
--	  PCI_ANY_ID, PCI_ANY_ID, PCI_BASE_CLASS_DISPLAY << 16,
--	  0xff0000, 0 },
--	{ PCI_VENDOR_ID_3DFX, PCI_DEVICE_ID_3DFX_VOODOO3,
--	  PCI_ANY_ID, PCI_ANY_ID, PCI_BASE_CLASS_DISPLAY << 16,
--	  0xff0000, 0 },
--	{ PCI_VENDOR_ID_3DFX, PCI_DEVICE_ID_3DFX_VOODOO5,
--	  PCI_ANY_ID, PCI_ANY_ID, PCI_BASE_CLASS_DISPLAY << 16,
--	  0xff0000, 0 },
--	{ 0, }
-+	{
-+		PCI_DEVICE(PCI_VENDOR_ID_3DFX, PCI_DEVICE_ID_3DFX_BANSHEE),
-+		.class = PCI_BASE_CLASS_DISPLAY << 16, .class_mask = 0xff0000,
-+	}, {
-+		PCI_DEVICE(PCI_VENDOR_ID_3DFX, PCI_DEVICE_ID_3DFX_VOODOO3),
-+		.class = PCI_BASE_CLASS_DISPLAY << 16, .class_mask = 0xff0000,
-+	}, {
-+		PCI_DEVICE(PCI_VENDOR_ID_3DFX, PCI_DEVICE_ID_3DFX_VOODOO5),
-+		.class = PCI_BASE_CLASS_DISPLAY << 16, .class_mask = 0xff0000,
-+	},
-+	{ }
- };
- 
- static struct pci_driver tdfxfb_driver = {
-diff --git a/drivers/video/fbdev/tridentfb.c b/drivers/video/fbdev/tridentfb.c
-index 17b7253b8fbe..a8fdbae83a80 100644
---- a/drivers/video/fbdev/tridentfb.c
-+++ b/drivers/video/fbdev/tridentfb.c
-@@ -1736,28 +1736,28 @@ static void trident_pci_remove(struct pci_dev *dev)
- 
- /* List of boards that we are trying to support */
- static const struct pci_device_id trident_devices[] = {
--	{PCI_VENDOR_ID_TRIDENT,	BLADE3D, PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0},
--	{PCI_VENDOR_ID_TRIDENT,	CYBERBLADEi7, PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0},
--	{PCI_VENDOR_ID_TRIDENT,	CYBERBLADEi7D, PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0},
--	{PCI_VENDOR_ID_TRIDENT,	CYBERBLADEi1, PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0},
--	{PCI_VENDOR_ID_TRIDENT,	CYBERBLADEi1D, PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0},
--	{PCI_VENDOR_ID_TRIDENT,	CYBERBLADEAi1, PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0},
--	{PCI_VENDOR_ID_TRIDENT,	CYBERBLADEAi1D, PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0},
--	{PCI_VENDOR_ID_TRIDENT,	CYBERBLADEE4, PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0},
--	{PCI_VENDOR_ID_TRIDENT,	TGUI9440, PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0},
--	{PCI_VENDOR_ID_TRIDENT,	TGUI9660, PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0},
--	{PCI_VENDOR_ID_TRIDENT,	IMAGE975, PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0},
--	{PCI_VENDOR_ID_TRIDENT,	IMAGE985, PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0},
--	{PCI_VENDOR_ID_TRIDENT,	CYBER9320, PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0},
--	{PCI_VENDOR_ID_TRIDENT,	CYBER9388, PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0},
--	{PCI_VENDOR_ID_TRIDENT,	CYBER9520, PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0},
--	{PCI_VENDOR_ID_TRIDENT,	CYBER9525DVD, PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0},
--	{PCI_VENDOR_ID_TRIDENT,	CYBER9397, PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0},
--	{PCI_VENDOR_ID_TRIDENT,	CYBER9397DVD, PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0},
--	{PCI_VENDOR_ID_TRIDENT,	CYBERBLADEXPAi1, PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0},
--	{PCI_VENDOR_ID_TRIDENT,	CYBERBLADEXPm8, PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0},
--	{PCI_VENDOR_ID_TRIDENT,	CYBERBLADEXPm16, PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0},
--	{0,}
-+	{ PCI_VDEVICE(TRIDENT, BLADE3D) },
-+	{ PCI_VDEVICE(TRIDENT, CYBERBLADEi7) },
-+	{ PCI_VDEVICE(TRIDENT, CYBERBLADEi7D) },
-+	{ PCI_VDEVICE(TRIDENT, CYBERBLADEi1) },
-+	{ PCI_VDEVICE(TRIDENT, CYBERBLADEi1D) },
-+	{ PCI_VDEVICE(TRIDENT, CYBERBLADEAi1) },
-+	{ PCI_VDEVICE(TRIDENT, CYBERBLADEAi1D) },
-+	{ PCI_VDEVICE(TRIDENT, CYBERBLADEE4) },
-+	{ PCI_VDEVICE(TRIDENT, TGUI9440) },
-+	{ PCI_VDEVICE(TRIDENT, TGUI9660) },
-+	{ PCI_VDEVICE(TRIDENT, IMAGE975) },
-+	{ PCI_VDEVICE(TRIDENT, IMAGE985) },
-+	{ PCI_VDEVICE(TRIDENT, CYBER9320) },
-+	{ PCI_VDEVICE(TRIDENT, CYBER9388) },
-+	{ PCI_VDEVICE(TRIDENT, CYBER9520) },
-+	{ PCI_VDEVICE(TRIDENT, CYBER9525DVD) },
-+	{ PCI_VDEVICE(TRIDENT, CYBER9397) },
-+	{ PCI_VDEVICE(TRIDENT, CYBER9397DVD) },
-+	{ PCI_VDEVICE(TRIDENT, CYBERBLADEXPAi1) },
-+	{ PCI_VDEVICE(TRIDENT, CYBERBLADEXPm8) },
-+	{ PCI_VDEVICE(TRIDENT, CYBERBLADEXPm16) },
-+	{ }
- };
- 
- MODULE_DEVICE_TABLE(pci, trident_devices);
-diff --git a/drivers/video/fbdev/vt8623fb.c b/drivers/video/fbdev/vt8623fb.c
-index df984f3a7ff6..9708d968970a 100644
---- a/drivers/video/fbdev/vt8623fb.c
-+++ b/drivers/video/fbdev/vt8623fb.c
-@@ -900,8 +900,8 @@ static const struct dev_pm_ops vt8623_pci_pm_ops = {
- /* List of boards that we are trying to support */
- 
- static const struct pci_device_id vt8623_devices[] = {
--	{PCI_DEVICE(PCI_VENDOR_ID_VIA, 0x3122)},
--	{0, 0, 0, 0, 0, 0, 0}
-+	{ PCI_DEVICE(PCI_VENDOR_ID_VIA, 0x3122) },
-+	{ }
- };
- 
- MODULE_DEVICE_TABLE(pci, vt8623_devices);
-
-base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
+base-commit: 790ead9394860e7d70c5e0e50a35b243e909a618
 -- 
-2.47.3
+2.43.0
 
 
