@@ -4,161 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C936FF8875
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 12:56:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70BC9FF8873
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 12:57:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y1ZS4AAQRhCl6Fn3sfYETvlLBLsYfbr51Rqb29O06mc=; b=hpogyNz2P1HLrbPdqH70IR4x4h
-	Pl34tYNuYyfhgbFYiNRY/di5qSY4fRVu+X/RAdQUiHva4atZwIW1NWAgK21BpBkltJt3wUJxhhgHo
-	vYiN1iDSi6m5m/mAeVa2NF45iKs6HHXwtVEIlBgi6NfNHVj8BJTGbOylwlKSesSe/jhmw39zMmFUf
-	YntIbHC5siA5vzDD3LzesjjARE/sbJiSf8Tkz3tw/z0cM0J4BmynOydFL7jwgOGKM2QuzKCL98eWj
-	+ULtAv7qN61H+MjF+5y0p+EjDwO5iFRhKuXCJS+v2pdCFPpQHQd60fjxSzSv45jNI+Y38ZmW+FDmt
-	eoK9arYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=d3ufzsgyvNFjBRE8/ddg1ljmJXjnhpyf6EcPBtxg5ec=; b=SKTWYyy7LapSyf
+	orCmcgIUNlxMM0A6BfPepoXMBW/siWt2QAHBzyH8HsJR7XKyJ/v7DwrpSTrVjRv+M4usRo4FMaUoJ
+	qSEkvq0lEOOZhyySKW/BqPs81GvPJ4qXouz9cmpqJL3ZuBR91kUYmHOHzIxlpdwjt3xx/0ZgB8BBQ
+	lOzmLUh94Kx5V+mBDzGF388KThk/lDxAmZSPk37EckkNcsgZrrs9rCYxQkYKBhtYbN08LV2R+tyJT
+	UqG44fNnH7wVAdq17cKdWQUQk+VSFMJdy1q0BCVZrala0vjvSjVmfS1vwiDzxL3JHO501NpxEdMWb
+	Blas6eTAHXSaerhB/NUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIQwm-00000005UYs-1G1q;
-	Thu, 30 Apr 2026 12:56:52 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wIQxX-00000005Uh3-0fhR;
+	Thu, 30 Apr 2026 12:57:39 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIQwj-00000005UYd-3eEb
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 30 Apr 2026 12:56:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Y1ZS4AAQRhCl6Fn3sfYETvlLBLsYfbr51Rqb29O06mc=; b=hj+YNpWpO38XAoP3vHXB5P5j+Y
-	1JNn0W559XqH/Gf9OiUP1gu8fOH1+sf1LMaSBf5TqCQG19cju3Tqe333352NKU+5xKQxrtRWdsD2m
-	6B1HsG8iNIUP9c/Q7Ar+qXlJqt7XRnUMYyWJdQffwa5QBygq3HPL4Caf5cLCfB9jbO/JPKnW8w0RJ
-	JFjLCo/iYlLttdwuBIw1YcNhQybtaeahvFYRzg3zfPsX0OEurDmpUct8Y+0FHudIDKyt39WFT8R9L
-	5stYFbavTlSBjeRO2H/6D7kTYeUgh7OwZTBn99uUicWMli+3oKIkaXZ42nJreb810un6mviRKyGKG
-	k+ZXiGqA==;
-Received: from mail-westus3azon11012066.outbound.protection.outlook.com ([40.107.209.66] helo=PH8PR06CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIQwe-00000007OLk-1NMZ
+	id 1wIQxT-00000005Ug4-3w2i
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 12:56:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iTWwK8cQ6U70ibcvB0qL7UL6Zxfwjwc2ZwxECWwArCuEJivtcR04jPDEOxmuyArBe87WRJHsdypZF2xvftkOWVDeMHldANXKseHPH5I5ZLusw0zOcaqQ6DHHJowFX++pO61hfYaoM+elxkubzMxXYBtPz4W9Uby6FH/J5sYmeY8p72Dq6JjJhGZPOBoGWaSX0ECQTFQnVYUohVYEFtOJyUuL7Ih/2TvXW2vJyBbsRG8PFunpE4J/vUh/caFuxY44Mwz0qphTHzbnVnXDQWzKNmJCmfVL3vOEHdQGCDKFZG78FbN8QZDC4E9P2LnxKJKFkSqNxN0anmOcaTLj1WpWLA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Y1ZS4AAQRhCl6Fn3sfYETvlLBLsYfbr51Rqb29O06mc=;
- b=LngJO6GZSjPbj1tWQqLOze0y+NRcaq8037cRUlWXtEhuUF/wMC7l/5lgzuB8ucikRpFBlxStzJ2LNNVWTl/Yxe29px7OTeVzroyDdwE4DEtJFs+1co/rTonkfAqCOZmMCjQr9YnAWF6U8Hqo+A8TuEAoAAsbr9nQkhKf7A8n8tSc1v7DrzEJYGvQ6RPwDucKA54EXSA0lRsd5pI5qKdg0QcoTOPRcehFrU/y+JjYVBD0PjPa3rL0TQQL9si4bAXh0nQ4g/CkgiF8hDBDkEYVhvLJI3HMVXzFmJ2AFOBvCP7NZQrAA7ihkWvHsajT1vOFCM8XecnnaE44QFIU0z+taw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=bgdev.pl smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Y1ZS4AAQRhCl6Fn3sfYETvlLBLsYfbr51Rqb29O06mc=;
- b=dc+KGkgmhDFZdeK8S76W3kBp5Y+t6s9DS9tYalXi10kGysWBL8JqjVRfqj6GFC9uJgUyc3h63urPqzAXgufHDpI5hmQYQqjD4tP1xFgLWrrZPvbJgZqeDTzyzZIZYoUFV1mRK/qvdAlxqdGrFdL4wyIJQ541qsOctGTQ0VEo1Lk=
-Received: from SJ0PR13CA0115.namprd13.prod.outlook.com (2603:10b6:a03:2c5::30)
- by SJ0PR10MB5661.namprd10.prod.outlook.com (2603:10b6:a03:3da::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.20; Thu, 30 Apr
- 2026 12:56:35 +0000
-Received: from SJ1PEPF00001CE8.namprd03.prod.outlook.com
- (2603:10b6:a03:2c5:cafe::65) by SJ0PR13CA0115.outlook.office365.com
- (2603:10b6:a03:2c5::30) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.5 via Frontend Transport; Thu,
- 30 Apr 2026 12:56:35 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- SJ1PEPF00001CE8.mail.protection.outlook.com (10.167.242.24) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9846.18 via Frontend Transport; Thu, 30 Apr 2026 12:56:33 +0000
-Received: from DFLE203.ent.ti.com (10.64.6.61) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 30 Apr
- 2026 07:56:21 -0500
-Received: from DFLE212.ent.ti.com (10.64.6.70) by DFLE203.ent.ti.com
- (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 30 Apr
- 2026 07:56:21 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE212.ent.ti.com
- (10.64.6.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 30 Apr 2026 07:56:21 -0500
-Received: from [10.24.50.162] (uda0510294.dhcp.ti.com [10.24.50.162])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 63UCuE4V1152026;
-	Thu, 30 Apr 2026 07:56:14 -0500
-Message-ID: <21de8440-adf7-454b-acfc-06e50882e075@ti.com>
-Date: Thu, 30 Apr 2026 18:26:13 +0530
+	Thu, 30 Apr 2026 12:57:37 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63UArHZg2907502
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 12:57:35 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=d3ufzsgyvNFjBRE8/ddg1l
+	jmJXjnhpyf6EcPBtxg5ec=; b=WgNT3htZaAeMrIvkm7LTEiHtclZ7ivdZlbhsRq
+	hgZDmsR0QJqXEDxNbkzGOhlrn0+XXO6e95RFmVQH9jhYixvWZtpQSP4IEEfqX0Fi
+	TFuq+dISCFZILrc3isjOy0WaJYDkbOKsQ6dsnyz+Sgv7UEGmjGvz2r1qmARBJd9k
+	nTJatGQ1GZm46A4JQ+DxQHkl1i2J8eEhIm538FIhrFTi7MybHRQTZn7+auM7Lgcs
+	blGM9WgkxM9x/NmhhY8fo3cwLWGiJXFMrJbuRgthpXgCUlTKr3WKdiXMPxKkabjW
+	pszBbXrs8ObQlQtaRc8mByt66gDJDtqfy/uvt9cqiU2Z1FAw==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dv0pfa23j-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 12:57:35 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-50f13da9684so8604941cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 05:57:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1777553854; x=1778158654; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=d3ufzsgyvNFjBRE8/ddg1ljmJXjnhpyf6EcPBtxg5ec=;
+        b=d4Nytfi2YTnJ1gWzV+UihHdgDsszg29Kp/Veh+h0wMuI3BWEIlTMBylUJZxibnzQsh
+         dBpGtEyiibbvKG9cQ6kmx3deFVdVoUenNxGVjZ7sokf3laj75Q+KzVdMqAoe+sn1NwIo
+         djNg9votdD+zTSqaqrMXTY3G5Gzf9eUTPkZW3pjx3WZlEBeHK9KiRLfXFeTIYawK4lTA
+         VaEysXijcsopiitFIUnVdhMts5g1sx1DyZstm35Ru7L6CNTcdlN+Xm6iTb8RXDjopOv3
+         5GAms0Rc0DYzm6RcVptVbTVlhewbfRRDcJ+j90waaJa4vBD0cFSb/tyLtOhJcoWD0+ZT
+         usOw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777553854; x=1778158654;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=d3ufzsgyvNFjBRE8/ddg1ljmJXjnhpyf6EcPBtxg5ec=;
+        b=YgRNxiyYMH8K18/51jNrldNfDmKuq3ZctDvtg+zkKq1z87oSMJxnE8N2/bBQxnpMwt
+         vNhcxROC/s6PRLlHouDVKWxmsSRogoJulHwCKZ0Uc/gpzOUWUD96F+6WGHxccvKIEQAi
+         KgaePPXHaByvi4FF+AYT0VEzo3YDpeoEbjbFHPVDr1fwOxf+FeB2UKFNs1Ga8Y5visNT
+         URt1ouMd84mO0Y/Yo9e1XRTvDrkBDF3EzuBvpgnAItX3ayIsH1kSCtdBdqP0H4t92/Wa
+         P7mllE2EJOysbPVar2j1Ujvsw4V3YGmcknJx7WKaC0iFVPgWeSjtqK+kirbZOMEsj2Pc
+         X8Hg==
+X-Forwarded-Encrypted: i=1; AFNElJ9vOQievLxOMltEpz8/tVkkRcx+mCAAgoAjBX/aiPpQcKmKtD2PueaimljO9JhtsEVgLB5ZF2JnO8Ye7TtAbc6M@lists.infradead.org
+X-Gm-Message-State: AOJu0YxaXV0qPLuAcrM0cxgdOYnCBrsML8bxSm8yhzI5WkxWvlzLBgRY
+	ihUljhrRmNK2u0IE0RBhVrkcnX9g8nBCWbeUA5z8Ys9c8Anja2ut1sJR1cfXvm1HdLXQBePx/wB
+	w0EYW00pNxqkBSvq1sdkaGrPDsY65P6y+SboHi2cuQ3NhcIUChD8G++4hUusHy+r1TET1LW2d5K
+	bnOA==
+X-Gm-Gg: AeBDievmasyA3SmLlozf59a72oJfm35V6hIHXCdy7FSM2kLrtcR+dJ+o1w0P/39u4gb
+	KUmD5AHu4HklBqwUkflMsWaHYOKzQ4UvGEm4wgB6by85WuzvMvJolNgTgTZtArZuCBhATsYtHio
+	SRiShRrFBleWXXEwEY47SSjA8Qe25oFVJAO3Y+amMkG6cSU8IGU3+VUpmzKsurRdX+kBSwXgMyf
+	EHYfh+mpKgJT9x1F/m2OBvqFNsNkC4sLrjhu8LvAtzp66bdcVN67IDp9piFZ+B0jPibGz1+85pr
+	QAtikh04Np34vo2CoIyzSZPJNOfeu78hj+v6+pYQ52gP8JwaU+ZkdhrTAp3fxLOlB320qOO40Xe
+	q7l2sEOaGgmLQ3hXBaWzlwcm5o7kogQfHTzIjTs/SyGl85unMxdmULZ32rpWxMQ==
+X-Received: by 2002:a05:622a:c3:b0:50d:83d7:686a with SMTP id d75a77b69052e-5102ae16055mr34237471cf.40.1777553854203;
+        Thu, 30 Apr 2026 05:57:34 -0700 (PDT)
+X-Received: by 2002:a05:622a:c3:b0:50d:83d7:686a with SMTP id d75a77b69052e-5102ae16055mr34236941cf.40.1777553853696;
+        Thu, 30 Apr 2026 05:57:33 -0700 (PDT)
+Received: from brgl-qcom.local ([2a01:cb1d:dc:7e00:85ad:7a05:49a6:88be])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48a7c326873sm41899315e9.34.2026.04.30.05.57.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 Apr 2026 05:57:32 -0700 (PDT)
+From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Subject: [PATCH v3 0/4] ARM: pxa: attach software nodes to the GPIO
+ controllers
+Date: Thu, 30 Apr 2026 14:57:17 +0200
+Message-Id: <20260430-pxa-gpio-swnodes-v3-0-5142e95f0eca@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
-To: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>, Mathieu Poirier
-	<mathieu.poirier@linaro.org>
-CC: Shenwei Wang <shenwei.wang@nxp.com>, Andrew Lunn <andrew@lunn.ch>, "Linus
- Walleij" <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
-	"Jonathan Corbet" <corbet@lwn.net>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Bjorn
- Andersson <andersson@kernel.org>, Frank Li <frank.li@nxp.com>, Sascha Hauer
-	<s.hauer@pengutronix.de>, Shuah Khan <skhan@linuxfoundation.org>,
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "Pengutronix
- Kernel Team" <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
-	"Peng Fan" <peng.fan@nxp.com>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-remoteproc@vger.kernel.org"
-	<linux-remoteproc@vger.kernel.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>
-References: <20260422212849.1240591-1-shenwei.wang@nxp.com>
- <20260422212849.1240591-4-shenwei.wang@nxp.com>
- <22fb5fac-2568-42be-a7e3-7e89d0017eb3@ti.com>
- <PAXPR04MB91850A11C58419C03909145F89362@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <6412a758-4560-4cf1-a0d0-5b24d1a715f1@lunn.ch>
- <PAXPR04MB9185009A17DFDF3D6C8B44E789362@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <6e01e114-e336-4744-b6b4-563ec42e321b@lunn.ch>
- <PAXPR04MB9185A098D894B6A6EBCC13F889372@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <afImuoeHolxGgw3H@p14s>
- <PAXPR04MB9185F2F6DDB55AC56C92D63B89342@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <CANLsYkwvL0Z3+12MD=J+Dc2yAU2T8ypizyG=6AhYoWOh55odHA@mail.gmail.com>
- <472f85bd-42c2-40c6-abfd-b76924797069@ti.com>
- <CANLsYkzt9xUczxSU28u-TfZAAjr0ufZKXAj8Eqfq=45gufXW3w@mail.gmail.com>
- <f7ef3417-eb84-4467-ac72-a9bc8b0c81e8@foss.st.com>
-Content-Language: en-US
-From: Beleswar Prasad Padhi <b-padhi@ti.com>
-In-Reply-To: <f7ef3417-eb84-4467-ac72-a9bc8b0c81e8@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CE8:EE_|SJ0PR10MB5661:EE_
-X-MS-Office365-Filtering-Correlation-Id: e2be2cdf-ecb7-4566-a356-08dea6b7e7cd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|36860700016|82310400026|1800799024|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: yPEhrMc/y8TytmIWjHha7fqppzgB6oczdGgWSAL+Ik9uAAg8lzD45uZt9LRlQdPzyRMWMUD7/BEa8FNOGyNB+GswRB4CMwhmUHtnm97yeA4YYstcwauGCcDZsIoaCe2Bp2pPsorxEQRnlq5fbpT7+0VJrX7YW7iOCp2xmwOGLIfGgVV7U/Ezp1DAgkTLkTvZPuznFJxFwhWEgUB2H1q0poFnU/Oga8NOIkFgKLUwxFuZYmDyY+cMpOVmX8I0EkIGcvwbjwuwNBkFcwzSYoNtjYaWiSxalO8Qqo5egvK8XrlR1BVW65GYZHajTNMil/nZ1Z2+x0PysivnvKaIrrZg0cTiyHjPV0rBHXh2zNp/sdKU+tDmeTuDBJ+kD+fI81HIHm/y83IEVEP++LhX0KPNYez0lOxKMf19EerwknrK3CFPikAFF/qYiHYqGXWdataRtkbnxBh5uaeiLDOLcQya6TSoOG1/7O1PNW8hgpEDNk4K2i9CVmeVQzDIgz6pJ8+3YRXOcWe1xsKvZJwwXvrRQZzniVCu6OMcg+2rTlIdHB8RYYNtmMZMNmT5ZKv0SfnIk1rC1HE+4Q2kCRa5yEIHz5WCmiylnSAtLxxR5lIkIGEups/LTpxlUTVoM0I1hDBhGaCYh40WkmDHHiV//n9ph48sMAVbNMKH6aYbWqBQE5VO2ERv1GnfFjPAked1pc0vn8yJ8tDbIeRZRyIR9YbflNXK/dpttLG/4RkWrPJoic4=
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(7416014)(376014)(36860700016)(82310400026)(1800799024)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: tM92HR5njS9vLWJ+EWINPUVS5iFvfNacTGjS9tblqbpsjOz9IbWmjkXqdkMX+lUKV3Zkry9EzvDrr+Cm4SoK03f9ajz9+H8CyWt/00gG8St3IXBa5TBIG3cq6/ubdPNzch1oirPf5B3kfERZarajxR+6ytMnxM+OVYfyHMCX+Ak5WriXGnljKKgwIfHiqewIdozCdf5L3sotQuTgjA7e5pzxTe6KQA3CTR+IfN/bTB04fIse0ZpsOHxeBPHp8N4VhbwmA2VUJTMBJtKhUAsl1RFGOO7yyNaHgEuMfX6jqym7vV4ptyTYVeW7+IONHfOp1NSQYyqCK3cewCl+hz5XozGXxIHARcRMrhFVi6azzxOlt1is39V+rBpSzdTd8W4UwYB4KuXZ3/PPK1OmwhSgQmcFaLHdOgRd3JX2GtaV89RVqYzT42xXR6vxDbuT8lKc
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2026 12:56:33.0115
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e2be2cdf-ecb7-4566-a356-08dea6b7e7cd
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CE8.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB5661
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAK1R82kC/23NSw6CMBCA4auQri3pg5TqynsYF5VOoYlQ7GjFE
+ O5uITEudDPJP8l8MxOE6AHJoZhJhOTRhyGH3BWk6czQAvU2NxFMKCYlo+NkaDv6QPE5BAtIuRR
+ Gc+M4A0ny2RjB+WkjT+fcncd7iK/tQ+Lr9oPxXyxxyqhTymplObPaHgNieXuYaxP6vsyDrGYSX
+ 6cS9R9HZEcr14jqsoeaV3+cZVnedeaQSP8AAAA=
+X-Change-ID: 20260330-pxa-gpio-swnodes-132a81af10e3
+To: Daniel Mack <daniel@zonque.org>, Haojian Zhuang <haojian.zhuang@gmail.com>,
+        Robert Jarzmik <robert.jarzmik@free.fr>,
+        Russell King <linux@armlinux.org.uk>,
+        Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+        Arnd Bergmann <arnd@kernel.org>, Linus Walleij <linusw@kernel.org>
+Cc: brgl@kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1794;
+ i=bartosz.golaszewski@oss.qualcomm.com; h=from:subject:message-id;
+ bh=zE1wkg19bTTKTBR6uB76uaks20UgJ9yPFLyhDQR/6Ag=;
+ b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBp81GzxouoE5lPdjQ83204u2PKVGz1mRPJGUjDI
+ vBtDniD1FqJAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCafNRswAKCRAFnS7L/zaE
+ w2qXD/wN2uqRMeHAfMw8LhHN9iSTSiiwSKy/MIVXnvGelgbVZSZC+XDKjeECNNQjcGs/s8OwUdc
+ Vowr+dUJ014vJeDu8Z47CJiDdirBPBic9PqWrt8Ihg1pghBiSjcv9C20RTag2pTz1p+3T7QdHy0
+ d0yHPUnXGW3Hsn+Wq0x3MVl7jiB474KKQH5tBOkXXcM6z/FoKpPbbQNfBFwj/OHd9aISvgg77s2
+ HLLqkEtBHC8DWkwu2F4oFiGtHZChEvZ+4HeRRxDhBcyvSEYtRorDDpmA3eaCAptgxU3XilRN63B
+ a44KYLAWU33QFLfCEorlU1qqscPkEzYjntKctqGENdw6k4iJ5FRCpbrO5YFQhcp6hoUio9Ibl9J
+ eX3QrYpp0y514i5wF7Di7m/iiucZoligUX8GfN059rtQJPn6PYZN8qC5SDnBCPJA+Vq9WxKSVZT
+ 7qlFLcKYHRRbo2BHuq98gb+5qCArZBw0pwoxzxhf8Y76QMlYBkLxnDOHw2i2G5RMt0TbGRPQPRR
+ qQk84GJnqIQly6EW6+1r/AovRuA3qSG8JuAubVQREzDPexFa6xWP2LMNL2dKkM0M6r/RZAxUif+
+ HRoil+TQ3X+Se9q4mmpw1pUl9EOTcIOXz/gaNIG9OV7qIGXb/Y1n9EjbrUXdLMKzDw3WAYegdMk
+ hElNJbnW/U5JJJQ==
+X-Developer-Key: i=bartosz.golaszewski@oss.qualcomm.com; a=openpgp;
+ fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDMwMDEzMCBTYWx0ZWRfX5hoaGznH1HNJ
+ atRIRBMv1uMWBqSEN7uxUKKiCBUw2+wN/3bBZHx7VJbgANcg4j+con1LbmltPspQ/ToJW/g/J3r
+ 834IkWTurMW69d/BGfQGiDdQBkViX7cdjLBgFymmEDTmIuT7SyCDHl8YYI6No/dMgIfr40VNA7r
+ CVI+70WH3a+fGd/qh+Cqo7TWPkDyTy++onjnorhaCv9z+MZ869+o1xCpw2GcvbL89DuBVGksXKS
+ gqcFddthN4f3U/UdEIDPu4XfLw++srhZBmjtZFkBLlpZG4We4hJGeaIuftIDuKnSXJs0HQVEwYa
+ tt580cVJnJ1gm99UCGN959upeAjNpGCqNEUew6tl1i5ZrfYrjGFrvtpWredxjpOiXg08Vh0Wgn1
+ zEz+V8PV6/CijMY7wDQkvlwxCVFDZC/PZK+hpZ05pL2Nb3Lo3S/G4E4uJ38bTgoKP3FANZ2Q3Mu
+ tH7cz0dLFhP1MZFJgvw==
+X-Authority-Analysis: v=2.4 cv=Zrnd7d7G c=1 sm=1 tr=0 ts=69f351bf cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=bC-a23v3AAAA:8
+ a=EUspDBNiAAAA:8 a=5j7h0pFm_H_taD54xyYA:9 a=QEXdDO2ut3YA:10
+ a=uxP6HrT_eTzRwkO_Te1X:22 a=FO4_E8m0qiDe52t0p3_H:22
+X-Proofpoint-ORIG-GUID: 0JRmK6z2I9hQCPt65gOaJPVZHpQnIsKC
+X-Proofpoint-GUID: 0JRmK6z2I9hQCPt65gOaJPVZHpQnIsKC
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-30_04,2026-04-30_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 bulkscore=0 lowpriorityscore=0 clxscore=1015 spamscore=0
+ adultscore=0 phishscore=0 suspectscore=0 impostorscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604300130
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_135644_784984_04C67AA9 
-X-CRM114-Status: GOOD (  23.16  )
+X-CRM114-CacheID: sfid-20260430_055736_006098_0A190982 
+X-CRM114-Status: GOOD (  16.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,211 +167,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Arnaud,
+Convert GPIO controllers and their consumers on the PXA platform to using
+"attached" software nodes. Since everything happens in a bord-file, it's
+quite straightforward. We technically now have a way of passing an
+unregistered software node to platform_device_register_full() but that
+requires using struct platform_device_info and since the existing
+platform devices are either referenced from other places or defined in a
+different compilation unit, I wanted to reduce the impact of the changes
+I can't test and went with the older method.
 
-On 30/04/26 13:05, Arnaud POULIQUEN wrote:
-> Hello,
->
-> On 4/29/26 21:20, Mathieu Poirier wrote:
->> On Wed, 29 Apr 2026 at 12:07, Padhi, Beleswar <b-padhi@ti.com> wrote:
->>>
->>> Hi Mathieu,
->>>
->>> On 4/29/2026 11:03 PM, Mathieu Poirier wrote:
->>>> On Wed, 29 Apr 2026 at 10:53, Shenwei Wang <shenwei.wang@nxp.com> wrote:
->>>>>
->>>>>
->>>>>> -----Original Message-----
->>>>>> From: Mathieu Poirier <mathieu.poirier@linaro.org>
->>>>>> Sent: Wednesday, April 29, 2026 10:42 AM
->>>>>> To: Shenwei Wang <shenwei.wang@nxp.com>
->>>>>> Cc: Andrew Lunn <andrew@lunn.ch>; Padhi, Beleswar <b-padhi@ti.com>; Linus
->>>>>> Walleij <linusw@kernel.org>; Bartosz Golaszewski <brgl@kernel.org>; Jonathan
->>>>>> Corbet <corbet@lwn.net>; Rob Herring <robh@kernel.org>; Krzysztof Kozlowski
->>>>>> <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Bjorn Andersson
->>>>>> <andersson@kernel.org>; Frank Li <frank.li@nxp.com>; Sascha Hauer
->>>>>> <s.hauer@pengutronix.de>; Shuah Khan <skhan@linuxfoundation.org>; linux-
->>>>>> gpio@vger.kernel.org; linux-doc@vger.kernel.org; linux-kernel@vger.kernel.org;
->>>>>> Pengutronix Kernel Team <kernel@pengutronix.de>; Fabio Estevam
->>>>>> <festevam@gmail.com>; Peng Fan <peng.fan@nxp.com>;
->>>>>> devicetree@vger.kernel.org; linux-remoteproc@vger.kernel.org;
->>>>>> imx@lists.linux.dev; linux-arm-kernel@lists.infradead.org; dl-linux-imx <linux-
->>>>>> imx@nxp.com>; Bartosz Golaszewski <brgl@bgdev.pl>
->>>>>> Subject: [EXT] Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
->>>>>> On Tue, Apr 28, 2026 at 03:24:59PM +0000, Shenwei Wang wrote:
->>>>>>>
->>>>>>>> -----Original Message-----
->>>>>>>> From: Andrew Lunn <andrew@lunn.ch>
->>>>>>>> Sent: Monday, April 27, 2026 3:49 PM
->>>>>>>> To: Shenwei Wang <shenwei.wang@nxp.com>
->>>>>>>> Cc: Padhi, Beleswar <b-padhi@ti.com>; Linus Walleij
->>>>>>>> <linusw@kernel.org>; Bartosz Golaszewski <brgl@kernel.org>; Jonathan
->>>>>>>> Corbet <corbet@lwn.net>; Rob Herring <robh@kernel.org>; Krzysztof
->>>>>>>> Kozlowski <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>;
->>>>>>>> Bjorn Andersson <andersson@kernel.org>; Mathieu Poirier
->>>>>>>> <mathieu.poirier@linaro.org>; Frank Li <frank.li@nxp.com>; Sascha
->>>>>>>> Hauer <s.hauer@pengutronix.de>; Shuah Khan
->>>>>>>> <skhan@linuxfoundation.org>; linux-gpio@vger.kernel.org; linux-
->>>>>>>> doc@vger.kernel.org; linux-kernel@vger.kernel.org; Pengutronix
->>>>>>>> Kernel Team <kernel@pengutronix.de>; Fabio Estevam
->>>>>>>> <festevam@gmail.com>; Peng Fan <peng.fan@nxp.com>;
->>>>>>>> devicetree@vger.kernel.org; linux- remoteproc@vger.kernel.org;
->>>>>>>> imx@lists.linux.dev; linux-arm- kernel@lists.infradead.org;
->>>>>>>> dl-linux-imx <linux-imx@nxp.com>; Bartosz Golaszewski
->>>>>>>> <brgl@bgdev.pl>
->>>>>>>> Subject: [EXT] Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg
->>>>>>>> GPIO driver
->>>>>>>>>> struct virtio_gpio_response {
->>>>>>>>>>           __u8 status;
->>>>>>>>>>           __u8 value;
->>>>>>>>>> };
->>>>>>>>> It is the same message format. Please see the message definition
->>>>>>>> (GET_DIRECTION) below:
->>>>>>>>
->>>>>>>>> +   +-----+-----+-----+-----+-----+----+
->>>>>>>>> +   |0x00 |0x01 |0x02 |0x03 |0x04 |0x05|
->>>>>>>>> +   | 1   | 2   |port |line | err | dir|
->>>>>>>>> +   +-----+-----+-----+-----+-----+----+
->>>>>>>> Sorry, but i don't see how two u8 vs six u8 are the same message format.
->>>>>>>>
->>>>>>> Some changes to the message format are necessary.
->>>>>>>
->>>>>>> Virtio uses two communication channels (virtqueues): one for requests and
->>>>>> replies, and a second one for events.
->>>>>>> In contrast, rpmsg provides only a single communication channel, so a
->>>>>>> type field is required to distinguish between different kinds of messages.
->>>>>>>
->>>>>>> Since rpmsg replies and events share the same message format, an additional
->>>>>> line is introduced to handle both cases.
->>>>>>> Finally, rpmsg supports multiple GPIO controllers, so a port field is added to
->>>>>> uniquely identify the target controller.
->>>>>>
->>>>>> I have commented on this before - RPMSG is already providing multiplexing
->>>>>> capability by way of endpoints.  There is no need for a port field.  One endpoint,
->>>>>> one GPIO controller.
->>>>>>
->>>>> You still need a way to let the remote side know which port the endpoint maps to, either
->>>>> by embedding the port information in the message (the current way), or by sending it
->>>>> separately.
->>>>>
->>>> An endpoint is created with every namespace request.  There should be
->>>> one namespace request for every GPIO controller, which yields a unique
->>>> endpoint for each controller and eliminates the need for an extra
->>>> field to identify them.
->>>
->>>
->>> Right, but this can still be done by just having one namespace request.
->>> We can create new endpoints bound to an existing namespace/channel by
->>> invoking rpmsg_create_ept(). This is what I suggested here too:
->>> https://lore.kernel.org/all/29485742-6e49-482e-b73d-228295daaeec@ti.com/
->>>
->>
->> I will look at your suggestion (i.e link above) later this week or next week.
->>
->>> My mental model looks like this for the complete picture:
->>>
->>> 1. namespace/channel#1 = rpmsg-io
->>>      a. ept1 -> gpio-controller@1
->>>      b. ept2 -> gpio-controller@2
->>>
->>
->> I've asked for one endpoint per GPIO controller since the very
->> beginning.  I don't yet have a strong opinion on whether to use one
->> namespace request per GPIO controller or a single request that spins
->> off multiple endpoints.  I'll have to look at your link and reflect on
->> that.  Regardless of how we proceed on that front, multiplexing needs
->> to happen at the endpoint level rather than the packet level.  This is
->> the only way this work can move forward.
->>
->
-> I would be more in favor of Mathieu’s proposal: “An endpoint is created with every namespace request.”
->
-> If the endpoint is created only on the Linux side, how do we match the Linux endpoint address with the local port field on the remote side? 
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+---
+Changes in v3:
+- Simplify patches 3/4 and 4/4 by leaving the devices in the existing
+  list and limiting the changes to the fwnode assignment
+- Link to v2: https://patch.msgid.link/20260427-pxa-gpio-swnodes-v2-0-86fc24b9e714@oss.qualcomm.com
 
+Changes in v2:
+- Rebase on top of v7.1-rc1
+- Add a patch making some platform device definitions static
+- Link to v1: https://patch.msgid.link/20260331-pxa-gpio-swnodes-v1-0-f66d86d10d8d@oss.qualcomm.com
 
-Simply by sending a message to the remote containing the newly created
-endpoint and the port idx. Note that is this done just one time, after this
-Linux need not have the port field in the message everytime its sending
-a message.
+---
+Bartosz Golaszewski (4):
+      ARM: pxa: statify platform device definitions in spitz board file
+      ARM: pxa: spitz: attach software nodes to their target GPIO controllers
+      ARM: pxa: pxa25x: attach software node to its target GPIO controller
+      ARM: pxa: pxa27x: attach software node to its target GPIO controller
 
->
-> With a multi-namespace approach, the namespace could be rpmsg-io-[addr], where [addr] corresponds to the GPIO controller address in the DT. This would: 
+ arch/arm/mach-pxa/pxa25x.c |  3 +++
+ arch/arm/mach-pxa/pxa27x.c |  3 +++
+ arch/arm/mach-pxa/spitz.c  | 11 ++++++++---
+ 3 files changed, 14 insertions(+), 3 deletions(-)
+---
+base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
+change-id: 20260330-pxa-gpio-swnodes-132a81af10e3
 
+Best regards,
+-- 
+Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
-You will face the same problem in this case also that you asked above:
-"how do we match the Linux endpoint address with the local port field
-on the remote side?"
-
-Because the endpoint that is created on a namespace request is also
-dynamic in nature. How will the remote know which endpoint addr
-Linux allocated for a namespace that it announced?
-
-As an example/PoC, I created a firmware example which announces
-2 name services to Linux, one is the standard "rpmsg_chrdev" and
-the other is a TI specific name service "ti.ipc4.ping-pong". You can
-see it created 2 different addresses (0x400 and 0x401) for each of
-the name service request from the same firmware:
-
-root@j784s4-evm:~# dmesg | grep virtio0 | grep -i channel                                                                                                                                                   
-[    9.290275] virtio_rpmsg_bus virtio0: creating channel ti.ipc4.ping-pong addr 0xd
-[    9.311230] virtio_rpmsg_bus virtio0: creating channel rpmsg_chrdev addr 0xe
-[    9.496645] rpmsg_chrdev virtio0.rpmsg_chrdev.-1.14: DEBUG: Channel formed from src = 0x400 to dst = 0xe
-[    9.707255] rpmsg_client_sample virtio0.ti.ipc4.ping-pong.-1.13: new channel: 0x401 -> 0xd!
-
-So in this case, rpmsg-io-1 can have different ept addr than rpmsg-io-2
-Back to same problem. Simple solution is to reply to remote with the
-created ept addr and the index.
- 
-
->
-> - match the RPMsg probe with the DT, 
-
-
-We can probe from all controllers with a single name service
-announcement too.
-
-> - provide a simple mapping between the port and the endpoint on both sides, 
-
-
-We are trying to get rid of this mapping from Linux side to adapt
-the gpio-virtio design.
-
-> - allow multiple endpoints on the remote side, 
-
-
-We can support this as well with single nameservice model.
-There is no limitation. Remote has to send a message with
-its newly created ept that's all.
-
-> - provide a simple discovery mechanism for remote capabilities. 
-
-
-A single announcement: "rpmsg-io" is also discovery mechanism.
-
-Feel free to let me know if you have concerns with any of the
-suggestions!
-
-Thanks,
-Beleswar
-
->
-> Regards,
-> Arnaud
->
->>> 2. namespace/channel#2 = rpmsg-i2c
->>>      a. ept1 -> i2c@1
->>>      b. ept2 -> i2c@2
->>>      c. ept3 -> i2c@3
->>>
->>> etc...
->>>
->>> This way device groups are isolated with each channel/namespace, and
->>> instances within each device groups are also respected with specific
->>> endpoints.
->>>
->>> Thanks,
->>> Beleswar
->>>
->>
->
 
