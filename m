@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F6D8FF8873
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 13:53:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BC14FF8873
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 13:58:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zqoeIYwJhzeuhquTrU+Q87s1zT9o8C9kq8PVYTInLlc=; b=ZI75eNU2ZA96uLk8Xd7ZGazZ7E
-	hn4fZWRx/w8ZMEJUm93QUM7OOX4eLCjLz0iJhiUHze7zQ11rfH9vPI/9S5NMoxxT/Exwv4fIvBp7H
-	y0uB3EiRx5ev2Aos0vDBFX2ZEdDQhjQtOlRS8qhG+roSXL3fWWfYlwKFf7yjrVo5OuX9+HnzJV0bQ
-	VdVwttECIEeSy+V/Dtn7JNmJw6d5zdi6gobpk03wCW16f0WQZsuc7bg+wMz02NLF0KKF9h9Su2EsL
-	PGU7HxyxGW6dBCuoMwVO7lMO6NQGQMGLKYf7QCSdV6o06Idh3SAIZ00xo0sF2rXk2urAvdtzKlfjy
-	G3vRHTcA==;
+	bh=PHAZ3kzxAKZIAeNxD3SciKFOCZcm5lZPIA8wyQkhf1M=; b=ZahruXm8DzKSnnDV+clBcCgbTp
+	QavJSu2of8y+/yE1Sz083qXV/AF8Dd+zIyJNyQMKpF39f69lTwy2Uj+/GRZ0AXgS4uYzY8HRBXxJl
+	ymX1qNA7G+XTujmy+TQggm/0cg3xcE7iIW4x0SL+HCtEs6+4+3IjoSKSpwhyEKnIwvG5fdOzpRwVt
+	TISsROPxJIHgAJ0TbN4owZZEVASxmAVIWxOCCQVjncqNy+VY9AAk+OCw+lY4rgxlodAtbwS8FKzj4
+	3/B5HltQtjiHt7Op0MPZNGKQZ57DPi55W0YE92TPV9G0wkkYUsDTVC/LM7SUp5WPHI3U+6pqwWxt2
+	gOZ5m0wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIRpr-00000005YT9-2eM2;
-	Thu, 30 Apr 2026 13:53:47 +0000
+	id 1wIRuF-00000005Yhf-2Rr9;
+	Thu, 30 Apr 2026 13:58:19 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIRpp-00000005YT2-3iBa
+	id 1wIRuE-00000005YhZ-0k4X
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 13:53:45 +0000
+	Thu, 30 Apr 2026 13:58:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D909C6057A;
-	Thu, 30 Apr 2026 13:53:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76D4FC2BCB3;
-	Thu, 30 Apr 2026 13:53:40 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8AEAB60180;
+	Thu, 30 Apr 2026 13:58:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 295DEC2BCB3;
+	Thu, 30 Apr 2026 13:58:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777557224;
-	bh=fWyb1fnAhDmuoMg4sCok6IXhdPjS4ufIlM7IHmfO3cQ=;
+	s=k20201202; t=1777557497;
+	bh=o+8+KjdJ8yZ9gakFLBvMNa1VbfsIydfrHzxEKqLfIGc=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=BcaGs0WnxaKXHcEN5c7CFyBz3gN9zxY+w5isfrSHyrkHWZRtHBSQDZ0MTtTCx2DEl
-	 pelTfHZHQdyr2wijxR5oF4cfb9x7kHzT5cuPWdRL85aJa9J+T/QTBo+JwSsCu06drh
-	 jALonMAMuEE5mo9+n4E41Gydnk49mRedhQ6yfjzoO5UKu5bJ1H4HeSn5QmDW24iWlV
-	 FXTMpNkt4qlEobCNgek4pdZEJIGYC8L57RLYZsdABxEYZqA43YCjRGYajBXKZ0+odx
-	 6m4DxopmDNnGa5lXamWE9k/zG5yjSuHq1RLRo3Sh19qPo01blTQPgkH2kXKQHYI1Bz
-	 nl9+H5FMuQd7Q==
+	b=OuhE1BM62f7Wu/VvE9GJhsvrcGk6tTHvmjROQzTm6Tp1Ypek9rKLRu+hv9yqLnvU4
+	 HBoM7skhBKxG0VWiRv/c3dYjcqZ3nmeWCqlSxiOIiiN8PT8lLEgszpW8xiSl9cJmu6
+	 QVG0PbT1E0/FlDr1RUa1SdFA+p9fDFY20D7EJW/D/BfC4BTsmgG0Mj1mIpkGVPFqMo
+	 MqwypdBusXGm5XJyX/AzodUXDIMaD3r/x6gBPxjXxSwh00tsBXG57qzUVvB65P91vL
+	 ka0xloXLsGYPNd2XeiHHFno8ZzErWG8HaeHCzJ2kqJxW794cmjEXgauw4cgt64KOPP
+	 MjeHpr/5k/jBA==
 From: Lee Jones <lee@kernel.org>
 To: Lee Jones <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>, 
  Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@kernel.org>, 
@@ -56,12 +56,11 @@ Cc: dri-devel@lists.freedesktop.org, linux-leds@vger.kernel.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-fbdev@vger.kernel.org, imx@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org
-In-Reply-To: <20260407-max25014-v8-1-14eac7ed673a@gocontroll.com>
-References: <20260407-max25014-v8-1-14eac7ed673a@gocontroll.com>
-Subject: Re: (subset) [PATCH v8 1/4] dt-bindings: backlight: Add max25014
- support
-Message-Id: <177755722019.2606736.10749503716773482329.b4-ty@b4>
-Date: Thu, 30 Apr 2026 14:53:40 +0100
+In-Reply-To: <20260407-max25014-v8-2-14eac7ed673a@gocontroll.com>
+References: <20260407-max25014-v8-2-14eac7ed673a@gocontroll.com>
+Subject: Re: (subset) [PATCH v8 2/4] backlight: add max25014atg backlight
+Message-Id: <177755749291.2610033.12945503282955319463.b4-ty@b4>
+Date: Thu, 30 Apr 2026 14:58:12 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -80,14 +79,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 07 Apr 2026 16:41:42 +0200, Maud Spierings wrote:
+On Tue, 07 Apr 2026 16:41:43 +0200, Maud Spierings wrote:
 > The Maxim MAX25014 is a 4-channel automotive grade backlight driver IC
 > with integrated boost controller.
 
 Applied, thanks!
 
-[1/4] dt-bindings: backlight: Add max25014 support
-      commit: 5fcbbedec9dfce78044eee922bf2030e1bd03faa
+[2/4] backlight: add max25014atg backlight
+      commit: 3014ad47cfaf454cb0bbee353272beacd1e7c4bc
 
 --
 Lee Jones [李琼斯]
