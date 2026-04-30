@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 879ACFF8864
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 03:29:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77DCDFF8864
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Apr 2026 03:29:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IlQG0NREzTnP/FdvnDza0ulHmT2WKqhENJx6FarYkuY=; b=3Z7yKLwvGwfZ8iZKd6fHdVDm6y
-	wfJ0/spH3NNLdmiR88VMQge2W3cNSJ/TLoKDx4RQsw0nghUdXGlhlBz0IGO2fM8kjubechmyVETD1
-	tLMUzOuwImuGByP617eQvadZGKSwzkbORLE5ft+oRBjORlUXl8qalJzWngMpPW1sIq/vsZ4PEICWH
-	Km/a79xsD/1wsdyodsPAw9zQnF3ssVv0sNj7DoKQCPL3lsYdFhlR625Z80onQxxadJiilByAYZv2F
-	Az2oFwIccu7d7PLqDS2VtGtiFK+n0+HFc6N0ZjTibt5riIBPh6vu0IW4E3A/WSiDTC07wMgqjxLuV
-	mlCyYnpA==;
+	bh=RU5tewgKJiY98pFsG9RAnyEYjQ2zs8R9c6BSiLMVx30=; b=Cz2Po7rf4zvCwil9FylBI46muz
+	CEQD/QzvXxrWJWYqIY5f11dCNY8p1HIX0WqOMBoYtfSz4ILRIGNHWXfdlSMm3JwS/oIIZBC0o0pt8
+	s5EiQig2dSW0Hsp7c1dihXQgxzz9L40v/YEFlnYzlweD2AkaSlubknZcvThbnbo9BcNueCaBBnpXB
+	dyQbcFPS7Mot8HUQUDwAyVqSL648HlNqwwYhNTRgzDBopkT0DcOL+cPfkO+B3HjIrF1S51m8yBILB
+	FncRQvLMAmQWFmRvKrotiUQYb/yX7enWmJ5lKbahEpllYg3MK1BRvAC3wNMe6bKNucNBqkysAb+Nl
+	qXFcRSaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII5i-00000004Zss-0X4v;
-	Thu, 30 Apr 2026 03:29:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wII5o-00000004Zzz-1qC1;
+	Thu, 30 Apr 2026 03:29:36 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII55-00000004ZNQ-2XEy
+	id 1wII5N-00000004ZbT-1hsK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Apr 2026 03:28:56 +0000
+	Thu, 30 Apr 2026 03:29:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 52AE04031E;
-	Thu, 30 Apr 2026 03:28:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17143C2BCB8;
-	Thu, 30 Apr 2026 03:28:49 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C93A861335;
+	Thu, 30 Apr 2026 03:29:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 481DCC2BCB8;
+	Thu, 30 Apr 2026 03:29:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777519731;
-	bh=Wz6RdrD5t8KH7Q+otfYxrLoXyFQWTLtIM5Olk/l6sa4=;
+	s=k20201202; t=1777519747;
+	bh=64b3FAr3zVGi9srZaqbk3udqzxVSaekQbTHwsl1JNsc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=s4pUhk2TP0voqb2Yxu9CEomvG3ReUSZSVhHkVK5BRORXZHeLFfbEQ7FIWGRMv24ks
-	 0v6HmhA8Spd0MqwiTJn58cideSEAJnHFoojYyJVNPUV2yjlozf3hPZ9bY9vkMUrfpF
-	 2ezcUgyfr0LRtXvI7niMMBSWegFD5wAbN5snHcstRJcRfNQe6hnmzdQ/WqvNByj0UY
-	 VHjOVJOEe6pfPe3LaqW3BtAPZoR5dMd4/QlVxbQrxyOuCkmFkkXZnfCU8UlyexqUKm
-	 SnJP5lFiIAFojzbjl0dN8PzdrggYUmvIEBefyhZfsgO0uj6PYw4/UTprh38Q+x/+Ka
-	 zOzVtMjsU6a1g==
+	b=aGWVIY0wXHkkFrkLe/HbgIfQYdTdyNzN6MxuX/PVMG8KP4sU8+dgWA82cMjiMkCge
+	 Tx0XUGUiuz77VURLzYVHniudTlMv/o2g8Ivx/UmkkoxqKAwQft+lUCo8I7qEJywLZx
+	 2z0qNi2dOMpRGJB5V0fBLPmZu1CobMOz7sJ7cbak9SnLxw+ILxiTKcDf4xPIpVSxvU
+	 DClOePbHTenn6UwyNXPS82fr+eHAHVJYz4YNUESfO5hdUV73zPE/bVkMHeKqHOR090
+	 nYyh+KjCt/ew/dI8LHrD++HwoUyzVc8ZVyQnvJVa9pvMXQtDHd+KFsjvDZXmGRnDi5
+	 ytzX67E/x3K9w==
 From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
 To: Steven Rostedt <rostedt@goodmis.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
@@ -52,9 +52,9 @@ Cc: Masami Hiramatsu <mhiramat@kernel.org>,
 	linux-trace-kernel@vger.kernel.org,
 	Ian Rogers <irogers@google.com>,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v19 5/7] ring-buffer: Show commit numbers in buffer_meta file
-Date: Thu, 30 Apr 2026 12:28:48 +0900
-Message-ID: <177751972838.2136606.1618809923544417134.stgit@mhiramat.tok.corp.google.com>
+Subject: [PATCH v19 7/7] ring-buffer: Cleanup buffer_data_page related code
+Date: Thu, 30 Apr 2026 12:29:04 +0900
+Message-ID: <177751974458.2136606.11417873091855386539.stgit@mhiramat.tok.corp.google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
 In-Reply-To: <177751968499.2136606.17388366710182662849.stgit@mhiramat.tok.corp.google.com>
 References: <177751968499.2136606.17388366710182662849.stgit@mhiramat.tok.corp.google.com>
@@ -62,9 +62,6 @@ User-Agent: StGit/0.19
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_202853_497945_31184B1F 
-X-CRM114-Status: GOOD (  14.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,44 +78,392 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
-In addition to the index number, show the commit numbers of
-each data page in the per_cpu buffer_meta file.
-This is useful for understanding the current status of the
-persistent ring buffer. (Note that this file is shown
-only for persistent ring buffer and its backup instance)
+Code cleanup related to buffer_data_page for readability,
+which includes:
+- Introduce rb_data_page_commit() and rb_data_page_size()
+- Use 'dpage' for buffer_data_page, instead of 'bpage' because
+  'bpage' is used for buffer_page.
 
 Signed-off-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
 ---
- Changes in v17:
- - Added NULL check for dpage in rbm_show in ring_buffer.c.
- Changes in v16:
-  - update description.
----
- kernel/trace/ring_buffer.c |    5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ kernel/trace/ring_buffer.c |  112 ++++++++++++++++++++++++--------------------
+ 1 file changed, 60 insertions(+), 52 deletions(-)
 
 diff --git a/kernel/trace/ring_buffer.c b/kernel/trace/ring_buffer.c
-index c7cd93b66e0a..2654315c1b7c 100644
+index 236fee6bc8f6..afbea7d918e4 100644
 --- a/kernel/trace/ring_buffer.c
 +++ b/kernel/trace/ring_buffer.c
-@@ -2224,6 +2224,7 @@ static int rbm_show(struct seq_file *m, void *v)
- 	struct ring_buffer_per_cpu *cpu_buffer = m->private;
- 	struct ring_buffer_cpu_meta *meta = cpu_buffer->ring_meta;
- 	unsigned long val = (unsigned long)v;
-+	struct buffer_data_page *dpage;
+@@ -364,21 +364,30 @@ struct buffer_page {
+ #define RB_WRITE_MASK		0xfffff
+ #define RB_WRITE_INTCNT		(1 << 20)
  
- 	if (val == 1) {
- 		seq_printf(m, "head_buffer:   %d\n",
-@@ -2236,7 +2237,9 @@ static int rbm_show(struct seq_file *m, void *v)
+-static void rb_init_page(struct buffer_data_page *bpage)
++static void rb_init_data_page(struct buffer_data_page *bpage)
+ {
+ 	local_set(&bpage->commit, 0);
+ 	bpage->time_stamp = 0;
+ }
+ 
++static __always_inline long rb_data_page_commit(struct buffer_data_page *dpage)
++{
++	return local_read(&dpage->commit);
++}
++
++static __always_inline long rb_data_page_size(struct buffer_data_page *dpage)
++{
++	return rb_data_page_commit(dpage) & ~RB_MISSED_MASK;
++}
++
+ static __always_inline unsigned int rb_page_commit(struct buffer_page *bpage)
+ {
+-	return local_read(&bpage->page->commit);
++	return rb_data_page_commit(bpage->page);
+ }
+ 
+-/* Size is determined by what has been committed */
+ static __always_inline unsigned int rb_page_size(struct buffer_page *bpage)
+ {
+-	return rb_page_commit(bpage) & ~RB_MISSED_MASK;
++	return rb_data_page_size(bpage->page);
+ }
+ 
+ static void free_buffer_page(struct buffer_page *bpage)
+@@ -419,7 +428,7 @@ static struct buffer_data_page *alloc_cpu_data(int cpu, int order)
+ 		return NULL;
+ 
+ 	dpage = page_address(page);
+-	rb_init_page(dpage);
++	rb_init_data_page(dpage);
+ 
+ 	return dpage;
+ }
+@@ -659,7 +668,7 @@ static void verify_event(struct ring_buffer_per_cpu *cpu_buffer,
+ 	do {
+ 		if (page == tail_page || WARN_ON_ONCE(stop++ > 100))
+ 			done = true;
+-		commit = local_read(&page->page->commit);
++		commit = rb_page_commit(page);
+ 		write = local_read(&page->write);
+ 		if (addr >= (unsigned long)&page->page->data[commit] &&
+ 		    addr < (unsigned long)&page->page->data[write])
+@@ -1906,7 +1915,7 @@ static int __rb_validate_buffer(struct buffer_page *bpage, int cpu,
+ 	 * Even after clearing these bits, a commit value greater than the
+ 	 * subbuf_size is considered invalid.
+ 	 */
+-	tail = local_read(&dpage->commit) & ~RB_MISSED_MASK;
++	tail = rb_data_page_size(dpage);
+ 	if (tail <= meta->subbuf_size - BUF_PAGE_HDR_SIZE)
+ 		ret = rb_read_data_buffer(dpage, tail, cpu, &ts, &delta);
+ 	else
+@@ -2138,12 +2147,12 @@ static void rb_meta_validate_events(struct ring_buffer_per_cpu *cpu_buffer)
+ 
+ 	/* Reset the reader page */
+ 	local_set(&cpu_buffer->reader_page->entries, 0);
+-	rb_init_page(cpu_buffer->reader_page->page);
++	rb_init_data_page(cpu_buffer->reader_page->page);
+ 
+ 	/* Reset all the subbuffers */
+ 	for (i = 0; i < meta->nr_subbufs - 1; i++, rb_inc_page(&head_page)) {
+ 		local_set(&head_page->entries, 0);
+-		rb_init_page(head_page->page);
++		rb_init_data_page(head_page->page);
  	}
+ }
  
+@@ -2203,7 +2212,7 @@ static void rb_range_meta_init(struct trace_buffer *buffer, int nr_pages, int sc
+ 		 */
+ 		for (i = 0; i < meta->nr_subbufs; i++) {
+ 			meta->buffers[i] = i;
+-			rb_init_page(subbuf);
++			rb_init_data_page(subbuf);
+ 			subbuf += meta->subbuf_size;
+ 		}
+ 	}
+@@ -2255,7 +2264,7 @@ static int rbm_show(struct seq_file *m, void *v)
  	val -= 2;
--	seq_printf(m, "buffer[%ld]:    %d\n", val, meta->buffers[val]);
-+	dpage = rb_range_buffer(cpu_buffer, val);
-+	seq_printf(m, "buffer[%ld]:    %d (commit: %ld)\n",
-+		   val, meta->buffers[val], dpage ? local_read(&dpage->commit) : -1);
+ 	dpage = rb_range_buffer(cpu_buffer, val);
+ 	seq_printf(m, "buffer[%ld]:    %d (commit: %ld)\n",
+-		   val, meta->buffers[val], dpage ? local_read(&dpage->commit) : -1);
++		   val, meta->buffers[val], dpage ? rb_data_page_commit(dpage) : -1);
  
  	return 0;
  }
+@@ -2646,7 +2655,7 @@ static void rb_test_inject_invalid_pages(struct trace_buffer *buffer)
+ 
+ 		dpage = (void *)(ptr + idx * subbuf_size);
+ 		/* Skip unused pages */
+-		if (!local_read(&dpage->commit))
++		if (!rb_data_page_commit(dpage))
+ 			continue;
+ 
+ 		/*
+@@ -2658,7 +2667,7 @@ static void rb_test_inject_invalid_pages(struct trace_buffer *buffer)
+ 			invalid++;
+ 		} else {
+ 			/* Count total commit bytes. */
+-			entry_bytes += local_read(&dpage->commit) & ~RB_MISSED_MASK;
++			entry_bytes += rb_data_page_size(dpage);
+ 		}
+ 	}
+ 
+@@ -4187,8 +4196,7 @@ rb_set_commit_to_write(struct ring_buffer_per_cpu *cpu_buffer)
+ 		local_set(&cpu_buffer->commit_page->page->commit,
+ 			  rb_page_write(cpu_buffer->commit_page));
+ 		RB_WARN_ON(cpu_buffer,
+-			   local_read(&cpu_buffer->commit_page->page->commit) &
+-			   ~RB_WRITE_MASK);
++			   rb_page_commit(cpu_buffer->commit_page) & ~RB_WRITE_MASK);
+ 		barrier();
+ 	}
+ 
+@@ -4560,7 +4568,7 @@ static const char *show_interrupt_level(void)
+ 	return show_irq_str(level);
+ }
+ 
+-static void dump_buffer_page(struct buffer_data_page *bpage,
++static void dump_buffer_page(struct buffer_data_page *dpage,
+ 			     struct rb_event_info *info,
+ 			     unsigned long tail)
+ {
+@@ -4568,12 +4576,12 @@ static void dump_buffer_page(struct buffer_data_page *bpage,
+ 	u64 ts, delta;
+ 	int e;
+ 
+-	ts = bpage->time_stamp;
++	ts = dpage->time_stamp;
+ 	pr_warn("  [%lld] PAGE TIME STAMP\n", ts);
+ 
+ 	for (e = 0; e < tail; e += rb_event_length(event)) {
+ 
+-		event = (struct ring_buffer_event *)(bpage->data + e);
++		event = (struct ring_buffer_event *)(dpage->data + e);
+ 
+ 		switch (event->type_len) {
+ 
+@@ -4623,7 +4631,7 @@ static atomic_t ts_dump;
+ 		}							\
+ 		atomic_inc(&cpu_buffer->record_disabled);		\
+ 		pr_warn(fmt, ##__VA_ARGS__);				\
+-		dump_buffer_page(bpage, info, tail);			\
++		dump_buffer_page(dpage, info, tail);			\
+ 		atomic_dec(&ts_dump);					\
+ 		/* There's some cases in boot up that this can happen */ \
+ 		if (WARN_ON_ONCE(system_state != SYSTEM_BOOTING))	\
+@@ -4639,16 +4647,16 @@ static void check_buffer(struct ring_buffer_per_cpu *cpu_buffer,
+ 			 struct rb_event_info *info,
+ 			 unsigned long tail)
+ {
+-	struct buffer_data_page *bpage;
++	struct buffer_data_page *dpage;
+ 	u64 ts, delta;
+ 	bool full = false;
+ 	int ret;
+ 
+-	bpage = info->tail_page->page;
++	dpage = info->tail_page->page;
+ 
+ 	if (tail == CHECK_FULL_PAGE) {
+ 		full = true;
+-		tail = local_read(&bpage->commit);
++		tail = rb_data_page_commit(dpage);
+ 	} else if (info->add_timestamp &
+ 		   (RB_ADD_STAMP_FORCE | RB_ADD_STAMP_ABSOLUTE)) {
+ 		/* Ignore events with absolute time stamps */
+@@ -4659,7 +4667,7 @@ static void check_buffer(struct ring_buffer_per_cpu *cpu_buffer,
+ 	 * Do not check the first event (skip possible extends too).
+ 	 * Also do not check if previous events have not been committed.
+ 	 */
+-	if (tail <= 8 || tail > local_read(&bpage->commit))
++	if (tail <= 8 || tail > rb_data_page_commit(dpage))
+ 		return;
+ 
+ 	/*
+@@ -4668,7 +4676,7 @@ static void check_buffer(struct ring_buffer_per_cpu *cpu_buffer,
+ 	if (atomic_inc_return(this_cpu_ptr(&checking)) != 1)
+ 		goto out;
+ 
+-	ret = rb_read_data_buffer(bpage, tail, cpu_buffer->cpu, &ts, &delta);
++	ret = rb_read_data_buffer(dpage, tail, cpu_buffer->cpu, &ts, &delta);
+ 	if (ret < 0) {
+ 		if (delta < ts) {
+ 			buffer_warn_return("[CPU: %d]ABSOLUTE TIME WENT BACKWARDS: last ts: %lld absolute ts: %lld clock:%pS\n",
+@@ -6459,7 +6467,7 @@ static void rb_clear_buffer_page(struct buffer_page *page)
+ {
+ 	local_set(&page->write, 0);
+ 	local_set(&page->entries, 0);
+-	rb_init_page(page->page);
++	rb_init_data_page(page->page);
+ 	page->read = 0;
+ }
+ 
+@@ -6944,7 +6952,7 @@ ring_buffer_alloc_read_page(struct trace_buffer *buffer, int cpu)
+ 	local_irq_restore(flags);
+ 
+ 	if (bpage->data) {
+-		rb_init_page(bpage->data);
++		rb_init_data_page(bpage->data);
+ 	} else {
+ 		bpage->data = alloc_cpu_data(cpu, cpu_buffer->buffer->subbuf_order);
+ 		if (!bpage->data) {
+@@ -6969,8 +6977,8 @@ void ring_buffer_free_read_page(struct trace_buffer *buffer, int cpu,
+ 				struct buffer_data_read_page *data_page)
+ {
+ 	struct ring_buffer_per_cpu *cpu_buffer;
+-	struct buffer_data_page *bpage = data_page->data;
+-	struct page *page = virt_to_page(bpage);
++	struct buffer_data_page *dpage = data_page->data;
++	struct page *page = virt_to_page(dpage);
+ 	unsigned long flags;
+ 
+ 	if (!buffer || !buffer->buffers || !buffer->buffers[cpu])
+@@ -6990,15 +6998,15 @@ void ring_buffer_free_read_page(struct trace_buffer *buffer, int cpu,
+ 	arch_spin_lock(&cpu_buffer->lock);
+ 
+ 	if (!cpu_buffer->free_page) {
+-		cpu_buffer->free_page = bpage;
+-		bpage = NULL;
++		cpu_buffer->free_page = dpage;
++		dpage = NULL;
+ 	}
+ 
+ 	arch_spin_unlock(&cpu_buffer->lock);
+ 	local_irq_restore(flags);
+ 
+  out:
+-	free_pages((unsigned long)bpage, data_page->order);
++	free_pages((unsigned long)dpage, data_page->order);
+ 	kfree(data_page);
+ }
+ EXPORT_SYMBOL_GPL(ring_buffer_free_read_page);
+@@ -7043,7 +7051,7 @@ int ring_buffer_read_page(struct trace_buffer *buffer,
+ {
+ 	struct ring_buffer_per_cpu *cpu_buffer = buffer->buffers[cpu];
+ 	struct ring_buffer_event *event;
+-	struct buffer_data_page *bpage;
++	struct buffer_data_page *dpage;
+ 	struct buffer_page *reader;
+ 	unsigned long missed_events;
+ 	unsigned int commit;
+@@ -7069,8 +7077,8 @@ int ring_buffer_read_page(struct trace_buffer *buffer,
+ 	if (data_page->order != buffer->subbuf_order)
+ 		return -1;
+ 
+-	bpage = data_page->data;
+-	if (!bpage)
++	dpage = data_page->data;
++	if (!dpage)
+ 		return -1;
+ 
+ 	guard(raw_spinlock_irqsave)(&cpu_buffer->reader_lock);
+@@ -7136,7 +7144,7 @@ int ring_buffer_read_page(struct trace_buffer *buffer,
+ 			 * We have already ensured there's enough space if this
+ 			 * is a time extend. */
+ 			size = rb_event_length(event);
+-			memcpy(bpage->data + pos, rpage->data + rpos, size);
++			memcpy(dpage->data + pos, rpage->data + rpos, size);
+ 
+ 			len -= size;
+ 
+@@ -7152,9 +7160,9 @@ int ring_buffer_read_page(struct trace_buffer *buffer,
+ 			size = rb_event_ts_length(event);
+ 		} while (len >= size);
+ 
+-		/* update bpage */
+-		local_set(&bpage->commit, pos);
+-		bpage->time_stamp = save_timestamp;
++		/* update dpage */
++		local_set(&dpage->commit, pos);
++		dpage->time_stamp = save_timestamp;
+ 
+ 		/* we copied everything to the beginning */
+ 		read = 0;
+@@ -7164,13 +7172,13 @@ int ring_buffer_read_page(struct trace_buffer *buffer,
+ 		cpu_buffer->read_bytes += rb_page_size(reader);
+ 
+ 		/* swap the pages */
+-		rb_init_page(bpage);
+-		bpage = reader->page;
++		rb_init_data_page(dpage);
++		dpage = reader->page;
+ 		reader->page = data_page->data;
+ 		local_set(&reader->write, 0);
+ 		local_set(&reader->entries, 0);
+ 		reader->read = 0;
+-		data_page->data = bpage;
++		data_page->data = dpage;
+ 
+ 		/*
+ 		 * Use the real_end for the data size,
+@@ -7178,12 +7186,12 @@ int ring_buffer_read_page(struct trace_buffer *buffer,
+ 		 * on the page.
+ 		 */
+ 		if (reader->real_end)
+-			local_set(&bpage->commit, reader->real_end);
++			local_set(&dpage->commit, reader->real_end);
+ 	}
+ 
+ 	cpu_buffer->lost_events = 0;
+ 
+-	commit = local_read(&bpage->commit);
++	commit = rb_data_page_commit(dpage);
+ 	/*
+ 	 * Set a flag in the commit field if we lost events
+ 	 */
+@@ -7192,19 +7200,19 @@ int ring_buffer_read_page(struct trace_buffer *buffer,
+ 		 * missed events, then record it there.
+ 		 */
+ 		if (buffer->subbuf_size - commit >= sizeof(missed_events)) {
+-			memcpy(&bpage->data[commit], &missed_events,
++			memcpy(&dpage->data[commit], &missed_events,
+ 			       sizeof(missed_events));
+-			local_add(RB_MISSED_STORED, &bpage->commit);
++			local_add(RB_MISSED_STORED, &dpage->commit);
+ 			commit += sizeof(missed_events);
+ 		}
+-		local_add(RB_MISSED_EVENTS, &bpage->commit);
++		local_add(RB_MISSED_EVENTS, &dpage->commit);
+ 	}
+ 
+ 	/*
+ 	 * This page may be off to user land. Zero it out here.
+ 	 */
+ 	if (commit < buffer->subbuf_size)
+-		memset(&bpage->data[commit], 0, buffer->subbuf_size - commit);
++		memset(&dpage->data[commit], 0, buffer->subbuf_size - commit);
+ 
+ 	return read;
+ }
+@@ -7835,7 +7843,7 @@ int ring_buffer_map_get_reader(struct trace_buffer *buffer, int cpu)
+ 
+ 	if (missed_events) {
+ 		if (cpu_buffer->reader_page != cpu_buffer->commit_page) {
+-			struct buffer_data_page *bpage = reader->page;
++			struct buffer_data_page *dpage = reader->page;
+ 			unsigned int commit;
+ 			/*
+ 			 * Use the real_end for the data size,
+@@ -7843,18 +7851,18 @@ int ring_buffer_map_get_reader(struct trace_buffer *buffer, int cpu)
+ 			 * on the page.
+ 			 */
+ 			if (reader->real_end)
+-				local_set(&bpage->commit, reader->real_end);
++				local_set(&dpage->commit, reader->real_end);
+ 			/*
+ 			 * If there is room at the end of the page to save the
+ 			 * missed events, then record it there.
+ 			 */
+ 			commit = rb_page_size(reader);
+ 			if (buffer->subbuf_size - commit >= sizeof(missed_events)) {
+-				memcpy(&bpage->data[commit], &missed_events,
++				memcpy(&dpage->data[commit], &missed_events,
+ 				       sizeof(missed_events));
+-				local_add(RB_MISSED_STORED, &bpage->commit);
++				local_add(RB_MISSED_STORED, &dpage->commit);
+ 			}
+-			local_add(RB_MISSED_EVENTS, &bpage->commit);
++			local_add(RB_MISSED_EVENTS, &dpage->commit);
+ 		} else if (!WARN_ONCE(cpu_buffer->reader_page == cpu_buffer->tail_page,
+ 				      "Reader on commit with %ld missed events",
+ 				      missed_events)) {
 
 
