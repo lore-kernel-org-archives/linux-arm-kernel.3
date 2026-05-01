@@ -4,105 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7399BCCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 13:13:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A55B1CD3425
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 13:47:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qkMubkfdTMo3EqsOQjlsb5eV0ALKcf2vjXa+TTJKq1E=; b=IaL0dYH1MWvk4wdTg3z7SSNo5V
-	6xfiXBjMbdu94pQ77mL5JbiquvusI8aCvs4gzWSaotutt2Ib61G7BV6dJvUX6ndSm7jhsng9Tper5
-	6TSCRseJr9oc13Ii9h2adHPzndFyaUjRf+tormxWePBOz5ldzWjvGZqpzuMB6MIIv1IbTJunfew4H
-	0EaNqsvsTtUyJtwS5SB7sd8Zl51t+o13Pv4Ex1jJ8cG1cC/co0CVuR3hgzU7+JvaunG9lAJNJE226
-	QYoAC5m9btgwFfGJg0tHgzt9MP9SBbA/wuCvmV1ZjiaGFvws1yylp7FIo2ll2k2IbmhOtHsacX3qJ
-	tdvHTTbw==;
+	bh=KQTJ1slkb5YCGrjUYhK8x2oShUex9H1qJLfaSPhm2/I=; b=gyYeqBZvo8zKQV7Uv6PPe9P6Aj
+	lRmegCgJP6iRcoONA5E/7tScHyQsl8ggL57D8nwZSKmIqzUbJb9IMer2AKPJyss+DxT6o2BHJGEdy
+	N05FjBHJI3olTi7tL67qHwX82uqmVsSrTaa1VXFb/Jmv3R8EDpVGituLWaKMJsRshn/znMmHF8+nC
+	gyBjRlsVGt4jSfb10PDmuhLCuVvMZ4R3SQ88Ufp6lA2pQvJMsDtXjnfp0NEpw2ivT7vd8OsiOxFWI
+	BuxUuCghwEkp1V3AFpGPV3OzCKcaYV1K+vueD8Gp54HUZ7/xo9o55SJ6uQynkdmXFEmiqAnXuMV76
+	sgTJUVMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIngB-000000079wl-2MWv;
-	Fri, 01 May 2026 13:13:15 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIng8-000000079vi-0fQy
+	id 1wIoDV-00000007BmN-3maI;
+	Fri, 01 May 2026 13:47:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wIoDS-00000007Bm0-2d8I
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 May 2026 13:13:13 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4891f625344so20447695e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 May 2026 06:13:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1777641190; x=1778245990; darn=lists.infradead.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qkMubkfdTMo3EqsOQjlsb5eV0ALKcf2vjXa+TTJKq1E=;
-        b=jlmzDmyHIG+64AqahiDI6EhA7pC9pj27dweuVh5U4txUDIpAgYf9HTVPCEBaWpNBq/
-         NGj8IIYRYyKCZxOxSnGvQD/HYs7ue6+eY9MdL8RQ+Vz+uj10Tjmhl4ljLLKdq69Lm+Sx
-         SVdp5+LS1Y8P7Vb0pCvvL+lIWiZb/a5LFJL8x27yVTUpz1MwC8QvVBYYQvBGmI64+1nu
-         dxzmFxyba7g4vx7dHrwTfuYqKJpqvpl8ZvnEY+TkqGp0wugGTXJj6MMkptRelRf/Ttg9
-         H6CDqfu4O71WMRLAti28ZLKhKfPBz6R/Kn99MakALA8QsRYYrDJLcn3lslyWuaAvLg62
-         lBlA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777641190; x=1778245990;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=qkMubkfdTMo3EqsOQjlsb5eV0ALKcf2vjXa+TTJKq1E=;
-        b=A7nEOHtQRTjqGDdVOuItMmrYwWmRHsBoEmjqA6E3TUeQoHfV8WaRoXJ5qGgTKFQ5wf
-         9xJH7ozEOyEzs6+22Q6xoAC1gYQRVnKFCp1xD0NgcfXST3jQ5Y83P57jlHbFkS0tzqvi
-         CThRjzgnwD0XedrnDIt3t9GzFG3l3BKfWN7EWbO+NI9hLV4KHInkTMANiwaY0saISBNA
-         0qthmIyVP0myWC3mLAovnyQki9m2zpMV+ELm8g67fTD3xx6YSbX4fEW9g8SGjjDwDhzc
-         sgnFcx/iYhVH7Ug1zRzR/+TQYCA6xSe2lttvQ7yjTLjPrBJvgMMfH/8L4KNWZHE5KiVm
-         kEhA==
-X-Forwarded-Encrypted: i=1; AFNElJ9DTVTupDVWpH9T5USGM2iPh0y2D4Zo4n3qMXeXvqqj6cTfQ1l4oWOn0gA/+43tkIxm/XRLcSJQy3+HHJlrlWNa@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHcjNajMggrKpbze9ItFe+gFaXWXiKuD+xemzm2Lj6C/4TjRZt
-	lldKztSoX9Y2F/tbQ+L51tmp6YKO+3tDWAXYq0FEUb3Sm5fmrFBRJPQbdYuJl3T8o1Y=
-X-Gm-Gg: AeBDies309tGVCdx49zzR8We7/WQWGnZPt6yWEf8n5daRWndY/c8fy0vZP9jW6O/M5W
-	b/ISBeHFlutB9Ix2ZELjIo/ZnPbhErSDc6e/Jrn2fb2Yt5YrXPzE82RXZPrYExemp2sE+5wfUwk
-	2256qpir52MfMuaoRUjXzNlEdHfuewpDPuwo/cX96WWSWvhQpA5NVcv2XBqqzMDqefdQZwksJTW
-	HdWwq5LVilwKb0r3++ZZHecGSTCwwrFtI+jdXM5Vl8aLfjbYt6Ty/uj+8s2CZlKKzqhRtH4izwe
-	s3iX1IIZKHs8z4xZPNt41qlk09u18cfuTXAAnDhbA383z/gWPJivldSQI+sBCGUT8vWmGc64lVG
-	Sd0v2fX1t5UsfP7nniF1lizkfZvaHiY2t+V6pa5QUCCHpEx0T/dibANA+PmXqxQrCBelqMWVchc
-	GgsaVkEoqYPhbehQFbaPi3XJC5cjqrqdL+oCAW/aLAuVe1itcCjFKPAqBvYI2c2Ezd1ESfbFCxi
-	J83riVwDA1PoWINw7zSHeki
-X-Received: by 2002:a05:600c:6291:b0:48a:79d8:a8d6 with SMTP id 5b1f17b1804b1-48a85e75173mr108865535e9.7.1777641189806;
-        Fri, 01 May 2026 06:13:09 -0700 (PDT)
-Received: from localhost ([94.4.195.193])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48a8eb6fffcsm56790225e9.4.2026.05.01.06.13.08
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 01 May 2026 06:13:09 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+	Fri, 01 May 2026 13:47:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4CD2C176A;
+	Fri,  1 May 2026 06:47:30 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0FB5E3F62B;
+	Fri,  1 May 2026 06:47:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1777643255; bh=rwgXGr1STx/LEHE1ouffCIS69kHVohj7ROm+8Hh7vEg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=b6X4zW3yp5qT6RabLlXDQVO/FeL7tPN2xjUmAxUqOuHLBhfKm042NUohm2aji/+WR
+	 JXlvItA0VhST3veBOd24n4TpwRBypzfIiq0UjILPpKh+oQ7G2jDOi9Th/SzhmBj2wi
+	 Mp8ScD8Qpzo9B9QD9wBvCHhHiQzQuAJaeSRIIU/4=
+Message-ID: <a7e2ac96-b710-40e5-a159-b49555bcf518@arm.com>
+Date: Fri, 1 May 2026 14:47:27 +0100
+MIME-Version: 1.0
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH v2 1/6] KVM: arm64: Make EL2 exception entry and exit
+ context-synchronization events
+To: Fuad Tabba <tabba@google.com>, maz@kernel.org, oliver.upton@linux.dev
+Cc: james.morse@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+ qperret@google.com, vdonnefort@google.com, catalin.marinas@arm.com,
+ will@kernel.org, yaoyuan@linux.alibaba.com,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+References: <20260501112149.2824881-1-tabba@google.com>
+ <20260501112149.2824881-2-tabba@google.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20260501112149.2824881-2-tabba@google.com>
 Content-Type: text/plain; charset=UTF-8
-Date: Fri, 01 May 2026 14:13:07 +0100
-Message-Id: <DI7D7JXW4RGK.XB0BE6ZXNMHS@linaro.org>
-Cc: <willmcvicker@google.com>, <jyescas@google.com>, <shin.son@samsung.com>,
- <linux-samsung-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-pm@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-hardening@vger.kernel.org>,
- <linux-clk@vger.kernel.org>, "Krzysztof Kozlowski"
- <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH v4 00/11] thermal: samsung: Add support for Google GS101
- TMU
-From: "Alexey Klimov" <alexey.klimov@linaro.org>
-To: "Tudor Ambarus" <tudor.ambarus@linaro.org>, "Rafael J. Wysocki"
- <rafael@kernel.org>, "Zhang Rui" <rui.zhang@intel.com>, "Lukasz Luba"
- <lukasz.luba@arm.com>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- "Krzysztof Kozlowski" <krzk@kernel.org>, "Alim Akhtar"
- <alim.akhtar@samsung.com>, "Bartlomiej Zolnierkiewicz"
- <bzolnier@gmail.com>, "Kees Cook" <kees@kernel.org>, "Gustavo A. R. Silva"
- <gustavoars@kernel.org>, "Peter Griffin" <peter.griffin@linaro.org>,
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, "Daniel Lezcano"
- <daniel.lezcano@kernel.org>, "Sylwester Nawrocki" <s.nawrocki@samsung.com>,
- "Chanwoo Choi" <cw00.choi@samsung.com>, "Michael Turquette"
- <mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>, "Lee Jones"
- <lee@kernel.org>
-X-Mailer: aerc 0.21.0
-References: <20260423-acpm-tmu-v4-0-8b59f8548634@linaro.org>
-In-Reply-To: <20260423-acpm-tmu-v4-0-8b59f8548634@linaro.org>
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260501_061312_237798_08D778AA 
-X-CRM114-Status: GOOD (  17.56  )
+X-CRM114-CacheID: sfid-20260501_064738_790598_F9005B54 
+X-CRM114-Status: GOOD (  23.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,105 +75,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu Apr 23, 2026 at 4:22 PM BST, Tudor Ambarus wrote:
-> Add support for the Thermal Management Unit (TMU) on the Google GS101
-> SoC.
->
-> The GS101 TMU implementation utilizes a hybrid architecture where
-> management is shared between the kernel and the Alive Clock and
-> Power Manager (ACPM) firmware. This hybrid ACPM TMU architecture is=20
-> also present on other Samsung Exynos SoCs (e.g., AutoV920, Exynos850).
->
-> Dependencies
-> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> - context dependency on the ACPM fixes sent at:
->   Link: https://lore.kernel.org/linux-samsung-soc/20260423-acpm-fixes-sas=
-hiko-reports-v1-0-2217b790925e@linaro.org/T/#t
-> - cleanup and prep firmware patches 2, 3, 4, 5, 6, 7: required by the
->   thermal driver (patch 8).
-> - bindings (patch 1): required for DTS validation.
-> - thermal driver patch 8: required by defconfig (patch 11) - logical
-> dependency.=20
+Hi Fuad,
 
-I've took series locally using b4 and result doesn't compile:
+On 5/1/26 12:21, Fuad Tabba wrote:
+> SCTLR_EL2.EIS and SCTLR_EL2.EOS control whether exception entry and
+> exit at EL2 are Context Synchronisation Events (CSEs). Per ARM DDI
+> 0487 M.b D24.2.175 (p. D24-9754):
+> 
+>   - !FEAT_ExS: the bit is RES1, so the entry/exit is unconditionally
+>     a CSE.
+>   - FEAT_ExS: the reset value is architecturally UNKNOWN; software
+>     must set the bit to make the entry/exit a CSE.
+> 
+> INIT_SCTLR_EL2_MMU_ON in arch/arm64/include/asm/sysreg.h sets neither
+> bit. KVM/arm64 hot paths rely on ERET from EL2 being a CSE, and on
+> synchronous EL1->EL2 entry being a CSE, to elide explicit ISBs after
+> MSRs to context-switching system registers (HCR_EL2, ZCR_EL2,
+> ptrauth keys, etc.). On FEAT_ExS hardware those reliances are not
+> architecturally backed unless EOS=1 (and, for entry, EIS=1).
+> 
+> Until commit 0a35bd285f43 ("arm64: Convert SCTLR_EL2 to sysreg
+> infrastructure"), SCTLR_EL2_RES1 was a hand-rolled mask that
+> included BIT(11) (EOS) and BIT(22) (EIS), so INIT_SCTLR_EL2_MMU_ON
+> was setting both unconditionally. The conversion made
+> SCTLR_EL2_RES1 auto-generated; because the sysreg tooling only
+> models unconditionally-RES1 fields and EIS/EOS are RES1 only when
+> FEAT_ExS is absent, the auto-generated mask is UL(0). The seven
+> other bits dropped from the old mask (positions 4, 5, 16, 18, 23,
+> 28, 29) are unconditionally RES1 in the E2H=0 SCTLR_EL2 layout per
+> DDI 0487 M.b D24.2.175, so dropping them is harmless. EIS and EOS
+> are the only bits whose semantics changed for FEAT_ExS hardware
+> and where the kernel relies on the value being 1.
+> 
+> Make the guarantee explicit: include SCTLR_ELx_EIS | SCTLR_ELx_EOS in
+> INIT_SCTLR_EL2_MMU_ON so that EL2 exception entry and exit are
+> unconditionally CSEs regardless of whether FEAT_ExS is implemented.
+> This matches the pairing in arch/arm64/kvm/config.c which treats EIS
+> and EOS together as RES1 under !FEAT_ExS.
 
-  CC [M]  drivers/firmware/samsung/exynos-acpm.o
-drivers/firmware/samsung/exynos-acpm.c:485:13: error: static declaration of=
- =E2=80=98acpm_set_xfer=E2=80=99 follows non-static declaration
-  485 | static void acpm_set_xfer(struct acpm_xfer *xfer, u32 *cmd, size_t =
-cmdcnt,
-      |             ^~~~~~~~~~~~~
-In file included from drivers/firmware/samsung/exynos-acpm.c:31:
-drivers/firmware/samsung/exynos-acpm.h:20:6: note: previous declaration of =
-=E2=80=98acpm_set_xfer=E2=80=99 with type =E2=80=98void(struct acpm_xfer *,=
- u32 *, size_t,  unsigned int,  bool)=E2=80=99 {aka =E2=80=98void(struct ac=
-pm_xfer *, unsigned int *, long unsigned int,  unsigned int,  _Bool)=E2=80=
-=99}
-   20 | void acpm_set_xfer(struct acpm_xfer *xfer, u32 *cmd, size_t cmdcnt,
-      |      ^~~~~~~~~~~~~
-drivers/firmware/samsung/exynos-acpm.c:485:13: warning: =E2=80=98acpm_set_x=
-fer=E2=80=99 defined but not used [-Wunused-function]
-  485 | static void acpm_set_xfer(struct acpm_xfer *xfer, u32 *cmd, size_t =
-cmdcnt,
-      |             ^~~~~~~~~~~~~
-make[5]: *** [scripts/Makefile.build:289: drivers/firmware/samsung/exynos-a=
-cpm.o] Error 1
+In v1 you also had this sentence:
 
-(applies cleanly though).
+"INIT_SCTLR_EL2_MMU_OFF is left unchanged: that path is used during
+very early EL2 init and the EL2 MMU-off transition, neither of which
+relies on these bits in the same way."
 
-Could be related to "[PATCH v4 02/11] firmware: samsung: acpm: Consolidate
-transfer initialization helper".
+To me, it seems useful to keep that sentence as it makes it clear that INIT_SCTLR_EL2_MMU_OFF is purposely not changed.
+Or is there a reason why you dropped it? Perhaps it's just obvious to people more familiar with this code.
 
-Anything missing from dependencies/prerequisites?
+Thanks,
 
-[..]
+Ben
 
-> Tudor Ambarus (11):
->       dt-bindings: thermal: Add Google GS101 TMU
->       firmware: samsung: acpm: Consolidate transfer initialization helper
->       firmware: samsung: acpm: Annotate rx_data->cmd with __counted_by_pt=
-r
->       firmware: samsung: acpm: Drop redundant _ops suffix in acpm_ops mem=
-bers
->       firmware: samsung: acpm: Make acpm_ops const and access via pointer
->       firmware: samsung: acpm: Add TMU protocol support
->       firmware: samsung: acpm: Add devm_acpm_get_by_phandle helper
->       thermal: samsung: Add Exynos ACPM TMU driver GS101
->       MAINTAINERS: Add entry for Samsung Exynos ACPM thermal driver
->       arm64: dts: exynos: gs101: Add thermal management unit
->       arm64: defconfig: enable Exynos ACPM thermal support
->
->  .../bindings/thermal/google,gs101-tmu-top.yaml     |  68 +++
->  MAINTAINERS                                        |   8 +
->  arch/arm64/boot/dts/exynos/google/gs101-tmu.dtsi   | 136 +++++
->  arch/arm64/boot/dts/exynos/google/gs101.dtsi       |  18 +
->  arch/arm64/configs/defconfig                       |   1 +
->  drivers/clk/samsung/clk-acpm.c                     |   8 +-
->  drivers/firmware/samsung/Makefile                  |   1 +
->  drivers/firmware/samsung/exynos-acpm-dvfs.c        |  20 +-
->  drivers/firmware/samsung/exynos-acpm-pmic.c        |  20 +-
->  drivers/firmware/samsung/exynos-acpm-tmu.c         | 240 +++++++++
->  drivers/firmware/samsung/exynos-acpm-tmu.h         |  28 ++
->  drivers/firmware/samsung/exynos-acpm.c             | 113 +++--
->  drivers/firmware/samsung/exynos-acpm.h             |   2 +
->  drivers/mfd/sec-acpm.c                             |   6 +-
->  drivers/thermal/samsung/Kconfig                    |  17 +
->  drivers/thermal/samsung/Makefile                   |   2 +
->  drivers/thermal/samsung/acpm-tmu.c                 | 547 +++++++++++++++=
-++++++
->  .../linux/firmware/samsung/exynos-acpm-protocol.h  |  32 +-
->  18 files changed, 1195 insertions(+), 72 deletions(-)
+> 
+> Fixes: 0a35bd285f43 ("arm64: Convert SCTLR_EL2 to sysreg infrastructure")
+> Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
+> Assisted-by: Gemini:gemini-3.1-pro review-prompts
+> Signed-off-by: Fuad Tabba <tabba@google.com>
 > ---
-> base-commit: 2e68039281932e6dc37718a1ea7cbb8e2cda42e6
-> change-id: 20260113-acpm-tmu-27e21f0e2c3b
-> prerequisite-change-id: 20260423-acpm-fixes-sashiko-reports-ae28b6ed5581:=
-v1
-> prerequisite-patch-id: 18d89d0e2bc0efe2cb366746ac4db36f4682f061
-> prerequisite-patch-id: eb4f90add371877a1930c442c5464c4da7242889
-> prerequisite-patch-id: 021cd1ee6d2b93f554dd5098cd1158977294dc41
-> prerequisite-patch-id: b5da16b5c6d6731ea519ed68302fd52ce57c7ffa
-
-Best regards,
-Alexey
+>  arch/arm64/include/asm/sysreg.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+> index 736561480f36..7aa08d59d494 100644
+> --- a/arch/arm64/include/asm/sysreg.h
+> +++ b/arch/arm64/include/asm/sysreg.h
+> @@ -844,7 +844,7 @@
+>  #define INIT_SCTLR_EL2_MMU_ON						\
+>  	(SCTLR_ELx_M  | SCTLR_ELx_C | SCTLR_ELx_SA | SCTLR_ELx_I |	\
+>  	 SCTLR_ELx_IESB | SCTLR_ELx_WXN | ENDIAN_SET_EL2 |		\
+> -	 SCTLR_ELx_ITFSB | SCTLR_EL2_RES1)
+> +	 SCTLR_ELx_ITFSB | SCTLR_ELx_EIS | SCTLR_ELx_EOS | SCTLR_EL2_RES1)
+>  
+>  #define INIT_SCTLR_EL2_MMU_OFF \
+>  	(SCTLR_EL2_RES1 | ENDIAN_SET_EL2)
 
 
