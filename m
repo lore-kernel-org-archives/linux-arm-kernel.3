@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86AE7CD3425
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 11:22:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C788CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 11:22:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aYwcKF+O9BRV6I0nh/EUmrDeLL0Ut6fk04SddS0PCXg=; b=0iIn3+IQW4y7/P9f4/M7eY/Hoe
-	uTX9wzo4us5rqbWYDn5g8i88RC1/vNTSX0IdQwvkjQ26W6gOGEngtbrXjbo6s27qFnHuZ9jpJaRaO
-	TNfHO0CsTHjpl7mE2lkJIvW/RRixS1vaYlTOWtig7pZjjvTHb2/zEN3b3xOrFQ3Oy7Y9XzJwf7kQa
-	z/xcKFiryQikHHoMglpLwUZLHIrRm7aPa8RhNUl457yVo6elcvEHeOQi13fPogzE7NmOjka8I326e
-	30s+1EKSBQYZHlM9cAlSnRh7dshsfZsiT/OLEANKY42AADrepxUld85au16Dr+Gh3lEVcdW8GgjOF
-	Xm7GqzTw==;
+	bh=ZrLinQWyFKg2m6ErNGuwXnFHhW5qOEbX3IE7Ywix0YI=; b=AxpbrhocclekisBRhf2/mkVPpp
+	ThhUb/orcl0xGsp1MIiJ3cJIJp/r58IFufL9u8gtq7wkwx82WsKNpqvGtZ6A3AKNiRWNcO3TMArXD
+	OI4lj52CgipdGlJj86vdlOKrxrZnbHmeLICy53tPAOow9UQLaHa34mLPH25Dxx2/y/G6Q40v8EDPs
+	Cf2+bxPu64AYSJjIhW2l5VFDbSF5bUP97tySf211i7Qq0ActSoinWP3iITkePr2+2iDac7t4qgCuT
+	hVf3ytqvOdUexnEBNrRR3LU+GsjmDnh0WiohD3In1rMWpWGSD/CoVd2cfOfXxWthc8am6N7MpGRLm
+	iO7p7uiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIlwW-00000006ep5-3Gw9;
-	Fri, 01 May 2026 11:22:00 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1wIlwY-00000006er4-1kdE;
+	Fri, 01 May 2026 11:22:02 +0000
+Received: from mail-ej1-x64a.google.com ([2a00:1450:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIlwT-00000006ekx-2rFl
+	id 1wIlwW-00000006en5-1N1J
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 May 2026 11:21:58 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-488cc31ea57so12584645e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 May 2026 04:21:57 -0700 (PDT)
+	Fri, 01 May 2026 11:22:01 +0000
+Received: by mail-ej1-x64a.google.com with SMTP id a640c23a62f3a-b9bfd3b1c92so185451266b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 May 2026 04:21:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777634516; x=1778239316; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777634518; x=1778239318; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=aYwcKF+O9BRV6I0nh/EUmrDeLL0Ut6fk04SddS0PCXg=;
-        b=N00ThzU9UbuyW+69IOrNV//BBlvsRgQyja5Y5l+OIRF23t2PgTtSyvJF2+LI1+fnU3
-         i1QMGkA4aCvwzXx9Cj9vYc3Sj7SMnoOBEa/iuoFzOIZaVWUMYTeTxbxB4t97NfTSK2RH
-         2RrVaRfqU4gDZF3c2p1Tf5NTksXgTLbjpDRyqJb6jd0bWVn4G88YsICBBEIW44qeBMs4
-         +2DZcIdi+LdJ6E8ytmWeasW9Gf/Mmv5/P1npGLkGD7CX4Kg1YSL5LMFr29NlM8POCfyP
-         DGhXLihaIZzR/y6S2yupkEL0MxjfKyYV9MnaVMRRDiOTZqWFgitSviPvqCnKeAHoF7ZK
-         z8Vw==
+        bh=ZrLinQWyFKg2m6ErNGuwXnFHhW5qOEbX3IE7Ywix0YI=;
+        b=Gomimt2MeWV10my1QfcHUl8D+nUHuZM//q3KVBn6iGAhbMOxUzhjIG3KD9xe9EYj0H
+         9Dnp+7oUAN6x/r6uM4S0hZaIPcfMclEx/lqOReliT6CAnkaiUa8GZDhuThIHEdDFyRmJ
+         qEBYqsRd8hj9O8Wol0CH147MuVbuH8yfzY6xKSITfC1h5rGeC3tSTIl6vsfTQNZw0uZH
+         vlfws+n1X0PtDgfgPcVB3NG2gJFgiWt1FfU2UPMKHAvDP8N6cRm7Goy8AVaMXhb2XIAM
+         DvGZmKl2Fnlcvcz9ciuHdAvU5EE0R91NaShd9cbfk13K/GMsxA+vVXPHA7z73KI/A5rH
+         1O4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777634516; x=1778239316;
+        d=1e100.net; s=20251104; t=1777634518; x=1778239318;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=aYwcKF+O9BRV6I0nh/EUmrDeLL0Ut6fk04SddS0PCXg=;
-        b=I9pm1gqXeOEUSFzLKkxaj+R9gTvinNCtWLdiOBZDc78g01jhHt3AJmaVpp/JZi/seO
-         Vx81TkW18lcDP5Hi1kdwg4K47bhUQeASO2vQdIScnjS+T6R2CNhMUn2tDwTC6JfDSIdT
-         q12IZgrHLUC0cmkdU9sZz/6S9BEzHAE0fFKhKgMu8ZRv554JNSXSZJ3sys5pWYa2uCqT
-         G/AjAZuKxBTPO/f37X5dB4jsRmIsbKd1z6vIFbcYu5FWbJQzeyRO7r6iMG2y/pTfzLqs
-         vB0wcXwaAz3APbkGuqifK9j20FcU9kBWuIH/xzVo89q0l//cMZ4UXlGTjZo7uQwH/3P8
-         b1tQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+NRR+VTRLJtefQEL4XvZ/BFddsTH2Qcffmf5U70UK1c+8rL4M1z/16MvPGzSaPkvyROH2w7TA7z4Kax02tBHN0@lists.infradead.org
-X-Gm-Message-State: AOJu0YyfP4cFpsTi/AqyKL4nHkm881JFvEaD3QbVsDvyzPSlsO7r9xQy
-	HoDZ6exCv9F6JAape71eenFdlsYcqWmCHmFjzv0pPaNQx4OAZViuwQ81KxXso9lff1ByOH4nYiz
-	TWA==
-X-Received: from wmog7.prod.google.com ([2002:a05:600c:3107:b0:488:a71c:cf48])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4594:b0:48a:52f2:a0f1
- with SMTP id 5b1f17b1804b1-48a8444fac4mr110930795e9.18.1777634515632; Fri, 01
- May 2026 04:21:55 -0700 (PDT)
-Date: Fri,  1 May 2026 12:21:47 +0100
+        bh=ZrLinQWyFKg2m6ErNGuwXnFHhW5qOEbX3IE7Ywix0YI=;
+        b=CVEMbAUKseOtJHpCKOd15WFeG4JuJel3WxCT1oTc88XSET1jJp119SXjox4I+Ibs70
+         Mfs/eIX92zHZ/E6LihP+K0GjijU81LLdmPp6pl5Fc6Bqy5S3S8vXZ53pO8nLUEORFXPx
+         AOqaiuAYiZet8N2LLzVxql8QZo3/jQt7J+DXNDkGyFrJ3LiyfWwT+aNzM2gVplBLVQ4w
+         lVLrCV7nK6CbYNnUFM3c4AxGYyfR6ADuO5DQHc9NGooW//L1fsDShh8rI0p1+bWU8Myl
+         zePu+aBI1a7SYbleUQmVPdEoNucLqLVY03+PX+JvUu9O76T6kCdGhi+XRhkWAPHKfCcx
+         U/9w==
+X-Forwarded-Encrypted: i=1; AFNElJ9Fdp1jUqViiHd+encEqE3JT4WQPwtn3I+Rv+DbXjJETEE4zvsvVA9gjhNMmEzWJqSZtnYGx5ZuwQpW2rU0tIZ7@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy2IHXiFKMPAgAL3avFEEGdiabq0aWecub9YBWVfvxos845WLLO
+	cdnYDpbhCEnAid/ezw3loMJMih4NCg1nn2J9Y/Umnavx4yUr0jIEs0QQxo6yjt9JLKtwYi5F/Je
+	J1w==
+X-Received: from ejcdn19.prod.google.com ([2002:a17:907:94d3:b0:b9c:aee9:a002])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a17:906:f588:b0:b9c:b069:8ab6
+ with SMTP id a640c23a62f3a-bbac47d4717mr450739666b.7.1777634517844; Fri, 01
+ May 2026 04:21:57 -0700 (PDT)
+Date: Fri,  1 May 2026 12:21:49 +0100
 In-Reply-To: <20260501112149.2824881-1-tabba@google.com>
 Mime-Version: 1.0
 References: <20260501112149.2824881-1-tabba@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260501112149.2824881-5-tabba@google.com>
-Subject: [PATCH v2 4/6] KVM: arm64: Seed pkvm_ownership_selftest vcpu memcache
+Message-ID: <20260501112149.2824881-7-tabba@google.com>
+Subject: [PATCH v2 6/6] KVM: arm64: Pre-check vcpu memcache for host->guest donate
 From: Fuad Tabba <tabba@google.com>
 To: maz@kernel.org, oliver.upton@linux.dev
 Cc: james.morse@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
@@ -75,8 +75,8 @@ Cc: james.morse@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
 	linux-kernel@vger.kernel.org, stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260501_042157_755968_844AA61E 
-X-CRM114-Status: GOOD (  14.67  )
+X-CRM114-CacheID: sfid-20260501_042200_373235_0ACC84BD 
+X-CRM114-Status: GOOD (  12.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,58 +91,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The hypercall handlers call pkvm_refill_memcache() to top up the
-hyp_vcpu memcache before invoking __pkvm_host_{share,donate}_guest().
-pkvm_ownership_selftest invokes those functions directly with a
-static selftest_vcpu that has an empty memcache.
+__pkvm_host_donate_guest() flips the host stage-2 PTE for the
+donated page to a non-valid annotation via
+host_stage2_set_owner_metadata_locked() and then calls
+kvm_pgtable_stage2_map() to install the matching guest stage-2
+mapping. The map's return value is wrapped in WARN_ON() and
+otherwise discarded, asserting that the call cannot fail.
 
-Seed selftest_vcpu's memcache from the prepopulated selftest
-pages, leaving the remainder for selftest_vm.pool. Required by
-the memcache-sufficiency pre-check added in the following
-patches.
+WARN_ON() at nVHE EL2 panics, so this assertion is only correct
+if the call genuinely cannot fail. kvm_pgtable_stage2_map() can
+fail with -ENOMEM even at PAGE_SIZE granularity: the donate path
+verifies PKVM_NOPAGE for the guest IPA before the map, so the
+walker must allocate fresh page-table pages from the vcpu
+memcache, and the host controls the vcpu memcache via the topup
+interface. An under-provisioned donation request would otherwise
+turn a recoverable -ENOMEM into a fatal hyp panic.
 
+Bound the worst-case walker allocation alongside the existing
+__host_check_page_state_range() / __guest_check_page_state_range()
+pre-checks, using the helper introduced for host->guest share. If
+the vcpu memcache holds fewer pages than kvm_mmu_cache_min_pages(),
+return -ENOMEM before any state mutation.
+
+Fixes: 1e579adca177 ("KVM: arm64: Introduce __pkvm_host_donate_guest()")
 Assisted-by: Gemini:gemini-3.1-pro review-prompts
 Signed-off-by: Fuad Tabba <tabba@google.com>
 ---
- arch/arm64/kvm/hyp/nvhe/pkvm.c | 16 +++++++++++++++-
- 1 file changed, 15 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index 7ed96d64d611..deee7947d694 100644
---- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -751,16 +751,30 @@ static struct pkvm_hyp_vcpu selftest_vcpu = {
- struct pkvm_hyp_vcpu *init_selftest_vm(void *virt)
- {
- 	struct hyp_page *p = hyp_virt_to_page(virt);
-+	unsigned long min_pages, seeded = 0;
- 	int i;
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+index e428304f94f2..c7f7149c4796 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
++++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+@@ -1404,6 +1404,10 @@ int __pkvm_host_donate_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu)
+ 	if (ret)
+ 		goto unlock;
  
- 	selftest_vm.kvm.arch.mmu.vtcr = host_mmu.arch.mmu.vtcr;
- 	WARN_ON(kvm_guest_prepare_stage2(&selftest_vm, virt));
- 
-+	/*
-+	 * Mirror pkvm_refill_memcache() for the share/donate pre-checks;
-+	 * the selftest invokes those functions directly and would
-+	 * otherwise see an empty memcache.
-+	 */
-+	min_pages = kvm_mmu_cache_min_pages(&selftest_vm.kvm.arch.mmu);
++	ret = __guest_check_pgtable_memcache(vcpu);
++	if (ret)
++		goto unlock;
 +
- 	for (i = 0; i < pkvm_selftest_pages(); i++) {
- 		if (p[i].refcount)
- 			continue;
- 		p[i].refcount = 1;
--		hyp_put_page(&selftest_vm.pool, hyp_page_to_virt(&p[i]));
-+		if (seeded < min_pages) {
-+			push_hyp_memcache(&selftest_vcpu.vcpu.arch.pkvm_memcache,
-+					  hyp_page_to_virt(&p[i]), hyp_virt_to_phys);
-+			seeded++;
-+		} else {
-+			hyp_put_page(&selftest_vm.pool, hyp_page_to_virt(&p[i]));
-+		}
- 	}
- 
- 	selftest_vm.kvm.arch.pkvm.handle = __pkvm_reserve_vm();
+ 	meta = host_stage2_encode_gfn_meta(vm, gfn);
+ 	WARN_ON(host_stage2_set_owner_metadata_locked(phys, PAGE_SIZE,
+ 						      PKVM_ID_GUEST, meta));
 -- 
 2.54.0.545.g6539524ca2-goog
 
