@@ -4,94 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39694CD3424
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 09:43:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B1FFCD3424
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 09:55:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=in3/bYblpEbZej2XATKsoT0Of3FBnJ5woY0ebB360NI=; b=QUyWZGjZbgKJL8aa9aR/ZTO78H
-	AlOEeDC+6miCmMcnUN28O0kSFbT6sXQ2rJPv4bO0XAl0qPdZ2HOfjFDjzxovz1Z9djq2ZmgyAuWVC
-	kioEP4Q9DlZM2AOWB5hNTihf01i5hYFypwsn7kP3TxIxxwqhhHRr3LksGtTTu7HIi5lnROise107P
-	fILrvF3We98nTyEdAu+g45ORYHJoSeNcmCiWgdwxl9ss7stgh06PmjDdhyM+ut/+hpBfbgb2Otm5k
-	Z8i/BTDYa4GUzcd9QlukRe4FSHeSFF4BD2thGIqUhM4FahdyB9a5PXvKQF5XblhAhBwA2fOLT62of
-	PslGFA2g==;
+	bh=CVh18dbQkIUQXPMSoTzzeNJ7COJOHTfURBaWpeEbNpc=; b=CDKRe9XfSTTIrztiQcZ6AvjVYY
+	QGjOTVXrNAPfk3qk30rn7HaPrzg4fANfyJtfI4zmYFbVosAWzGHGQQWQx0GuN+NkcA8MyCnhGjGwA
+	S4+Ph9rQdw937PesLLqhUJcug9cfFouEB7r2jT/Iiz8yUbuPoVIpw/Pxsl1cw3cWqJPJ03bLDaXE+
+	OVygRIj/havBWQtUxM57lKKNNJqtrHw3vkKKh05eweahG5a8rCzs35iVF6ZCt+D4CuxwBOsUSvrLl
+	PtNqu2WYBUNZoXcjHYM4jYkWLXjalyZ/h1UeSMQV1QfndoKCZfOkZJGOmo2buRZBujrdPpvEqqCR8
+	JdZzco9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIkOx-00000006YPc-3M7G;
-	Fri, 01 May 2026 09:43:15 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1wIkaJ-00000006Z4Y-3BHV;
+	Fri, 01 May 2026 09:54:59 +0000
+Received: from mail-westeuropeazon11013042.outbound.protection.outlook.com ([52.101.72.42] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIkOv-00000006YPF-0jZK
+	id 1wIkaG-00000006Z4F-38Bf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 May 2026 09:43:14 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-43d73422431so1510140f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 May 2026 02:43:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1777628591; x=1778233391; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=in3/bYblpEbZej2XATKsoT0Of3FBnJ5woY0ebB360NI=;
-        b=e0Qx9pezb8CEZulPQ+gKhWvKZqSZKIHHZLD+HmTtD2J+GJSCAgYOx3N61RefCGbeAF
-         QI31YdvCwBBtcFsUC6BAZ7HA0kWMkCyPcpJW/1agmtwJRLZX1WlpbaaB1m1++oUtkGSF
-         a0Z9dtc2kQMgw494x/QIGkBv/dWUCoX2TW+68732jYBzAK34bu/RS3f+vJSVW+PEeA0a
-         ikujPL9EZuaG3xo53rw5Dkhf1mPA/9V4q3c1+t2iATq2HZxTEjwpw1Umox6B89eZE97B
-         Tuzr7zBkf7PBJO5uJDC98VHAUj1+nDF7R4svHATmKQn5sT5pNPgXTlZbq7YltVZ39Nt9
-         2s6w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777628591; x=1778233391;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=in3/bYblpEbZej2XATKsoT0Of3FBnJ5woY0ebB360NI=;
-        b=jR6VVe3gQfYzoUANK20J8Hi152HwijaUJ+6AhEQWYtuwOlpqQN5vnNg68zXxXjEaxj
-         b0WcWf0RZRlXc5IAD5EgoNww+0AovkV2b+KoHQ9lTOnWxpNqoME5cILMoyEswrL9uiVq
-         G63ma3d7NeCxJ32JUcXESxDiz94q7NlYib725pOObsnJO9LSh4pJ/JpdwJHk08Dx7cJ5
-         GPCl6A/j1sYukTG4UDa5+IoawADV8sVTBZoxw1INnRW1RnrL5IUVWcOnnw78Y9V54gG+
-         Cc/08Yobp6UqAnCIeIl5Wg2DpJ07Qn83B9mBXmqEQaZkobojJX4Ypkwc6cTbBNDbkJ7K
-         puYw==
-X-Forwarded-Encrypted: i=1; AFNElJ+Xhm5JsW0EBF+ssOOdTWqBT9fEK1SBssytC1BWU1HJaEBZRi34YjIsaDNAU8o2D6Tcv0z0E6sj/GGFO61RkbVA@lists.infradead.org
-X-Gm-Message-State: AOJu0YzYAn9DwuHDh+zGEzRZVQZyA4CbhwZ7TM38NeI427w6VBNjfWqn
-	Nt5/VOatbb8TtmTD9EJPhCnOEUKL7StvMfVjz40XNlVBmEDIu770os/CIU7DdWtgw0f5H3ebA09
-	crFrGqpo=
-X-Gm-Gg: AeBDietFyPKvwyj2Iq9bw3XQuQPHTtCgrnhVuRZFNmfcoaCUMC98uevh0jaqO/UYcAd
-	IIlFbyvogXkCMhwq3prHG/ob18dZ7oqbx8cnfMtlHW3cKt0b7OCBoemJ2DxmquR1bQnaHPwhmje
-	T9B2rVRKemPa4OiEPeHR8NKW6xp71/VAow0+N4Z2/Qz7zfVOljW3slRERh2uwdmZQB29spyIL8b
-	6xh5NXJwJ/wdewNQ3YddFp30jjiJS17ZTPfAxl82yFk756UC5hxE7x45qm8n8NotxtCDHLG3o4w
-	630BHFnnitP82806Qjxgk3f/BFIQ/yYK8QSjTn3G2jabNHNQHsAyCI7YTaezmmoa4U6/u5fvXIc
-	QPCbjrXsrMtyPuPrKmg6U/ARda4Z8wrM33/dTI2NqnL+88K4PSRm8yhQwPMRA+MEjXpQG5EYdc2
-	eCDt8jjHoPLTzWl6qncQA2MfJJixolS3DtFQIqBD4=
-X-Received: by 2002:a05:6000:2508:b0:43d:1c59:2dc with SMTP id ffacd0b85a97d-4493e5ac44cmr11110357f8f.28.1777628590663;
-        Fri, 01 May 2026 02:43:10 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-44a9879ef89sm4384785f8f.30.2026.05.01.02.43.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 01 May 2026 02:43:10 -0700 (PDT)
-Message-ID: <be6bbfe1-cd51-43d8-84c7-34de929118f4@linaro.org>
-Date: Fri, 1 May 2026 10:43:09 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] coresight: ete: Always save state on power down
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, Leo Yan <leo.yan@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Mike Leach <mike.leach@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Mathieu Poirier <mathieu.poirier@linaro.org>
-References: <20260428-james-cs-ete-pm_save_enable-v1-0-c7a90ca6f43b@linaro.org>
- <20260428-james-cs-ete-pm_save_enable-v1-1-c7a90ca6f43b@linaro.org>
- <bc9f873e-4919-4617-bb6f-1f495a6a508b@arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <bc9f873e-4919-4617-bb6f-1f495a6a508b@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+	Fri, 01 May 2026 09:54:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SBOlAA9d3nFyha8r7Mr+MFSqoVaxu7F8Fb3I0XtvYo1L+XTBEA6gql3JTp5bhLxCQsvvlc0LrAGMxgBVPkFkNn9Vfbwx3rg2DMbgfIXk3jYxPIhYdr4HXmy/DGhDMCyV+atbpNHHFy4COTKOLAWSCZQVy9U7oPWvlZXWa5ftBTsVaRT2vKnCvIRxUNDwJ7Y74OK7dX+KUrg9FjKDNaNL2WyGaWILdPIhiVk7P1mzExMRzIQeI498JStSep5QsxYSrgwEklpITaH6h8VXNfkKYHt5YZWGYVv5bRYm0WktS8vxkNUQcZ2GyF8/bjlJX5Pa2oF/vvFURv6OqRG9cmGjHg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CVh18dbQkIUQXPMSoTzzeNJ7COJOHTfURBaWpeEbNpc=;
+ b=Sieh9aTWrqF1em+PQZTK7jxlgl4AWzw57YSBhfsXlXGdrCG6KhMSmf47X6ApSxUR4MJHj7FlxbPDg0IzmzlQ7H8HBhB0EK4ABubudeHMDnwOLIwornG8ADTVR5u+EjpL62yQKGYfwPgihobDJIJC3MrBL2RK9vjMr+g8XyAQOQ+RBr035f8WscwaMF2KTKPUy6OU+EL5n5MKqXxa82ef0UlC4EJ8FktyvKl8SXMRovdMETtJ4SlO/Hmx501wEudP7nSVO8zspQAE4EussyUKOHW7qK0fkpyCaibF+ed8an/j8+yanH+fa7/qyiiRVwFjj63AMq/0rwB7VEeDw9cLaw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=est.tech; dmarc=pass action=none header.from=est.tech;
+ dkim=pass header.d=est.tech; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=est.tech; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CVh18dbQkIUQXPMSoTzzeNJ7COJOHTfURBaWpeEbNpc=;
+ b=JOiVy5F9LwZuVx0t9PkHiqq3auLHJ1W+dWJ5xPza+5pm+bUutSC/+8gSVZjKt+Wzbc1bN0x5sSUCJxJrrA9ElRKkenVbJrsyC4UU7cChhMSA3gbGEkDIsb6yY54lPkQkzHcbp+oc7yke3HCqzyo8Gz1VXQPKQv3tIeXXzXob5zw8fsYAd7PDWpg5FBtdz0424ujedsihS+R/KqPwMRI33AZVPLf7aNmj5KwgZ5JJnNmhl/gQnJfbb53tj42wGd8K9OynxgaGnGl9V0nSGCtKuNxWJR9Z09fQ0pfdSOdrb0EQbt9+d2kJpT67i6OZgkgksINcr3YbIv5T+hK+hMaesg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=est.tech;
+Received: from PAWP189MB2611.EURP189.PROD.OUTLOOK.COM (2603:10a6:102:336::8)
+ by DBBP189MB1163.EURP189.PROD.OUTLOOK.COM (2603:10a6:10:1e4::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Fri, 1 May
+ 2026 09:54:52 +0000
+Received: from PAWP189MB2611.EURP189.PROD.OUTLOOK.COM
+ ([fe80::b400:cf4f:b2e1:d884]) by PAWP189MB2611.EURP189.PROD.OUTLOOK.COM
+ ([fe80::b400:cf4f:b2e1:d884%6]) with mapi id 15.20.9870.020; Fri, 1 May 2026
+ 09:54:52 +0000
+Date: Fri, 1 May 2026 11:54:50 +0200
+From: Fredrik Markstrom <fredrik.markstrom@est.tech>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	Santosh Shilimkar <santosh.shilimkar@ti.com>,
+	Olof Johansson <olof@lixom.net>, Tony Lindgren <tony@atomide.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-perf-users@vger.kernel.org,
+	Nicolas Pitre <nico@fluxnic.net>,
+	Ivar Holmqvist <ivar.holmqvist@est.tech>,
+	Malin Jonsson <malin.jonsson@est.tech>
+Subject: Re: [PATCH v2 1/3] arm64: perf: Skip device memory during user
+ callchain unwinding
+Message-ID: <afR4an4IkuvjwOog@elx-5cg6022w5t>
+References: <20260430-master-with-pfix-v3-v2-0-bd526ec04a75@est.tech>
+ <20260430-master-with-pfix-v3-v2-1-bd526ec04a75@est.tech>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260430-master-with-pfix-v3-v2-1-bd526ec04a75@est.tech>
+X-ClientProxiedBy: GVX0EPF0005F6DB.SWEP280.PROD.OUTLOOK.COM
+ (2603:10a6:158:400::1f4) To PAWP189MB2611.EURP189.PROD.OUTLOOK.COM
+ (2603:10a6:102:336::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAWP189MB2611:EE_|DBBP189MB1163:EE_
+X-MS-Office365-Filtering-Correlation-Id: b90d239b-b01d-4970-695f-08dea767b0a5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|56012099003|18002099003|22082099003|921020;
+X-Microsoft-Antispam-Message-Info: ZLdLqKThD780R8STqP8ZvZX16USIfy0wyX/QNFjyoH5kKKDn6ykFQuaSMFzYz45phWBFG/Ca3V0/bfgUDhsZ39OpuY3BqKTg8el/1WPpa3dITfaqcxKOLvFtjXB6SivBTdhtD2dREOzCym5kXRgwzDjo2PpTy+q9/in9TfkWbGToTTDtbFmmu/Q8f63gvioMEmSo9/Z66eGbid/qmedsyjz+gpRO7+ad891UYv2jqHA63huiSVsTlmIWCfuGuw8P6tV4y+kNdGsfb6+ndvImO+kT9GQ3NEzSQu9z/jFqR1t8nt+1VvwJqBhIBFyv2cgM8PCN+QZpgDzIZJPw1JpTgJd52ZfOyWPEXjU9LOhmBketdqeirgD0+qjXfL9yTrYg77eNkunppnXlWvwjGFd7k4bO4yvL/rhw6yS7IGDzJBrVIwklAczTIcmdF5kdjGr4eaQfbaEY7g9K22oVRVxwfJAheTulRZ8FFfgR7kukdxw8f0BOObj1fYeBHQKp31Ms6nG3F+iaelawKkicYO4T9vSiZNx/IrKQv4qzr9OdIqYvsij6v7gKnB6r6RPkL6jrnxaGnaz8cstsNIKWLWi6eXVfkka2MUEiSvXuwou590y17Gslg8RyPUcVMZnJa0vetK6pzU8LxNqP05N/Yr31X2OygPSeLNa8H47HYntrnyAG1NR3mu8Jv/SROl3ac2I2WxeLhKZz6o7AU5THt9QB42p61tu4tq194N8xwnAFldI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAWP189MB2611.EURP189.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(56012099003)(18002099003)(22082099003)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WFd6OHMvNU1PalpQNXpQVFdlbUcrR2N3RG5EUVJaTm16T243QzIzWURGVDRZ?=
+ =?utf-8?B?cTVmOWNxeWowVFV2ZnBsbGQvbGFKT3JtSUtZUVhXTElVdWxZNlhtUGVZb2FI?=
+ =?utf-8?B?dGlkcjNCZmZGRWZ4QWE2K3dlUm1ON0JNb1laQjN1YmdOK0xRUTAwV2x1dXAw?=
+ =?utf-8?B?eTIxSTY2aUloM1pSSld1eng4dkdsc2dTTWZ0eTdGRGFmN080c1BKbFluOWtP?=
+ =?utf-8?B?bXdaWDlTVnJEVkd0WXdFeHdnOEoySVIwUUh1cndQc2hQUlV5U20zOTBFVC9G?=
+ =?utf-8?B?SGFIcFJWYUV0cWI2QUhRb2ZGSkg3eVRFVGhpd3VxUU4xY2xxVitRVmRpd2ky?=
+ =?utf-8?B?SlJYbUJZTThhcU03Y1pUZW5ndmRuckNoZjVQeGk2WEYxSDBwQXBPVDczN01U?=
+ =?utf-8?B?SWg1dWFUQ0drNnBicnNkNXdPTFg3bytBSzViZnRoRE96ZGJ4OEVpSVA3M2xE?=
+ =?utf-8?B?aU9ZK3VnWnVtUlNENWZ4N0s0U3luKzZ0MVFackFkcjNIem1MYUlXc2lsbnBa?=
+ =?utf-8?B?QitvNlNTU25DZGx2SUVMN1NLSGNrcmlYWC9WZjhlZ3NNdUlMU1FEK1dZdGlW?=
+ =?utf-8?B?TnVGNHJHcnpkNzh1WGxCSEVybHZTck1tNnRuby96RkRDUlF6OStGSDN5V2hN?=
+ =?utf-8?B?ZWpvc2RRNmsvQURJUzcxRjlEZ1gxZXllVEVtQjB3TjlmWG1JODMydTkydFNm?=
+ =?utf-8?B?YlllSENJSHBXVTBMQ0NkR3N5SnJ6d1hyR0lyRnVrRlRvUVJyR0Rpa2U2aDZh?=
+ =?utf-8?B?VUlEUlBta1FHYkhpbGZMdHZNb2F2ZUFieUZSaTFTZ0s5T0dqZE5OSkU5NWdX?=
+ =?utf-8?B?Nk85VzRra1kySUZTRkw2Q20zd2o5b2g5OTRoeURJSk1YREFlNWd0U3JUSmtl?=
+ =?utf-8?B?R0ZNTkNpcDBHY29VRzV4S2lnVVgzMGRTQ25YL1RoVjhlekFoVzg5VzZxMlJh?=
+ =?utf-8?B?ZTl5WEdZVk5uV0ptZkR5WitPS0h0TDhlamlzQ2Qrb2g0Q0MrNVhmSDVROFZX?=
+ =?utf-8?B?TGp0V3VKSVFxOXNWd2h6L3BVZnIwTW1UdFgvSHVvTUtaVEJNaExaRXFGZWNz?=
+ =?utf-8?B?a2VGd21ucnZmRlNMZVl5U0JHUExncXgzMmRMSm1QZVVIaGxMRGJkSGtNQU5B?=
+ =?utf-8?B?UEl4R3dONjc2cVlqcHNMS29TT3VTa28yOFdRWUlrVUpqdkVMT201dTVhU3ZU?=
+ =?utf-8?B?TGdIT20xZDNiRnJHZ2JzNkMvakZxUGtjUEY0Z3ZMWGhRNk5RY09EekRKSjJF?=
+ =?utf-8?B?OWNoekJYOWhNL2VyQkVwV1dHL0tyVDMxcXE5NTg4RmJvTlVwR0hCa2tGSG9w?=
+ =?utf-8?B?RERCN2RwZ1ROQ1locjRFS3NvaHhxcmRaR1d6V0RJTzhzMjduVU9HR0o0Qm9C?=
+ =?utf-8?B?Zm5CQnVONXZJLzFrYWVaR1pzb0dkaWJXaEFFZVhnWnVTUkl2RWVjSW9wOFYy?=
+ =?utf-8?B?QTlsOUl1ZkU5YXlSS2NNZ0lEUVJ3NUtSYm9pNXpWM0JhNDRKdi8wUGtUZi81?=
+ =?utf-8?B?cXhlakVERzVGZ093aHZ4U3FBTzdrM2UrQmNWZXN2MmY5dWpvWUYrdTRsd2tt?=
+ =?utf-8?B?TDdDTmtSdnhYL09UNHo0ZDZ2NElpcTBPeFdncjdTc3BVMnlZeWNxRjk4WlZY?=
+ =?utf-8?B?ZXJxRVdacFdWQXFGZG9xaFU3dGN1b2tDd0VJZFhreXNoNG4zaTk2cGlzMXY0?=
+ =?utf-8?B?NEJyUnZPZVFrTHFVZWpzWTIrNjJGNVM5ZmZneHNOYlQ4Zk4wc0J4Y0VLMXpn?=
+ =?utf-8?B?NmttNDVZcUM1M2NmTDV2NmxwelpjNEZDT1E3RE82ekQxSE9OUWdBTWcyaysy?=
+ =?utf-8?B?ZGM2R1ArL1ZESE9pUVYyT1lHVmJBaG03TFA1d3hab1l6UnJlUDRqbUdOOWZv?=
+ =?utf-8?B?S0JJUWJtUjZkRk0wUzY4QUVRSWJFcEFZWkdEZ2pMOE1POFZMcElRWnZST0pz?=
+ =?utf-8?B?bitISDk5eGlqYnVYRmNiTnQ5bVZya1dseXYrOTJHR1M4QzRvbXJIemtqclV3?=
+ =?utf-8?B?WkM2YnpxK3dQNk1nVVB5VFVVaFdoY0Jzcm90bXF2anN6R1NYR1lPNmlQMEtY?=
+ =?utf-8?B?NkI3eVo0Yk9ZWlhrOWNnUnY1dDcwRTRXYzVtZHhrOFY5S1N4d2x5SjA4S2Y2?=
+ =?utf-8?B?M1pXQjB5eW1YbG9FVUNXWEZ6RFVSWUxTb3RFK0ZZbkoxdWVrWW5iVFQ0NjJK?=
+ =?utf-8?B?aC9yRkc4VUV2NjF3Rm5WOXBublNvY21QSzdEQzBraHNqUlpoc3ZHVTZNejlM?=
+ =?utf-8?B?Vm54WlVHU3NwaFp0K0R6U0xQcmxwcGpla3BEZzExa1hwbFAxNzZyN2FNN1VD?=
+ =?utf-8?B?REp0czUyMmJCZ1pFcDl1dUJvcXpCQmQvb0dlcXZMeDdoWGQrQTZOcWl5N3ZI?=
+ =?utf-8?Q?/o2bxqJYRVL3EE88=3D?=
+X-OriginatorOrg: est.tech
+X-MS-Exchange-CrossTenant-Network-Message-Id: b90d239b-b01d-4970-695f-08dea767b0a5
+X-MS-Exchange-CrossTenant-AuthSource: PAWP189MB2611.EURP189.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 May 2026 09:54:52.1398
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: d2585e63-66b9-44b6-a76e-4f4b217d97fd
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: XhFQ3A8xde64tZ/I2bgsOos13st4sEs2+algunZMUh5Ioc2AaOthn6YOabMBv/cgIGGuyPoSuL0bnj0F7DT8Wsc5rTSbmx9rdKStx3UBzc8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBP189MB1163
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260501_024313_264009_DC95D391 
-X-CRM114-Status: GOOD (  28.54  )
+X-CRM114-CacheID: sfid-20260501_025456_836742_567D85B5 
+X-CRM114-Status: UNSURE (   9.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,133 +163,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+As pointed out by Sashiko there is a TOCTOU race between the page
+table walk (which checks for device memory) and the
+copy_from_user_inatomic (which reads the frame). Another thread
+could mmap device memory at the target address in between.
 
+Three options:
 
-On 01/05/2026 9:24 am, Suzuki K Poulose wrote:
-> On 28/04/2026 13:18, James Clark wrote:
->> ETE registers are always system registers so it's highly unlikely there
->> will be an implementation that preserves them on CPU power down. Also
->> the ETE DT binding never documented
->> "arm,coresight-loses-context-with-cpu" so nobody would have legitimately
->> been able to use that binding to fix it.
->>
->> Fix it by hard coding the setting for ETE and add a warning if the user
->> tried to use the module parameter. Don't add a warning if
->> loses-context-with-cpu is present in the DT as it's not a documented
->> binding anyway. etm4_init_pm_save() needs to happen after drvdata is
->> initialised so etm4x_is_ete() can be called.
->>
->> This fixes the following error when using Coresight with ACPI on the FVP
->> which supports CPU PM:
->>
->>    coresight ete0: External agent took claim tag
->>    WARNING: drivers/hwtracing/coresight/coresight-core.c:248 at 
->> coresight_disclaim_device_unlocked+0xe0/0xe8, CPU#0: perf/117
->>
->> Fixes: 35e1c9163e02 ("coresight: ete: Add support for ETE tracing")
->> Signed-off-by: James Clark <james.clark@linaro.org>
->> ---
->>   drivers/hwtracing/coresight/coresight-etm4x-core.c | 41 ++++++++++++ 
->> +++-------
->>   1 file changed, 29 insertions(+), 12 deletions(-)
->>
->> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/ 
->> drivers/hwtracing/coresight/coresight-etm4x-core.c
->> index d565a73f0042..a7fb680dd383 100644
->> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
->> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
->> @@ -56,10 +56,11 @@ MODULE_PARM_DESC(boot_enable, "Enable tracing on 
->> boot");
->>   #define PARAM_PM_SAVE_NEVER      1 /* never save any state */
->>   #define PARAM_PM_SAVE_SELF_HOSTED 2 /* save self-hosted state only */
->> +/* Save option for ETM4. ETE ignores this option and always saves */
->>   static int pm_save_enable = PARAM_PM_SAVE_FIRMWARE;
->>   module_param(pm_save_enable, int, 0444);
->>   MODULE_PARM_DESC(pm_save_enable,
->> -    "Save/restore state on power down: 1 = never, 2 = self-hosted");
->> +    "Save/restore state on power down: 1 = never, 2 = self-hosted. 
->> ETM4 only.");
->>   static struct etmv4_drvdata *etmdrvdata[NR_CPUS];
->>   static void etm4_set_default_config(struct etmv4_config *config);
->> @@ -1365,6 +1366,30 @@ static void etm4_fixup_wrong_ccitmin(struct 
->> etmv4_drvdata *drvdata)
->>       }
->>   }
->> +static int etm4_init_pm_save(struct device *dev, struct etmv4_drvdata 
->> *drvdata)
->> +{
->> +    if (etm4x_is_ete(drvdata)) {
->> +        /*
->> +         * Always do PM save for ETE. It always uses system registers
->> +         * which will be lost on CPU power down.
->> +         */
->> +        pm_save_enable = PARAM_PM_SAVE_SELF_HOSTED;
-> 
-> Should we do this instead based on if the ETM/ETE is accessed via sys 
-> instructions ? That would cover all implementations?
-> 
-> 
-> Suzuki
-> 
+1. Accept the race — it requires a cooperating thread with precise
+   timing, and the guard still eliminates the common case (stable
+   device mappings).
+2. Use mmap_read_trylock() once per unwind, held across all frames:
+   a. Fall back to the lockless walk (best-effort) when the trylock fails.
+   b. Stop unwinding user space entirely when the trylock fails.
 
-I did discuss that with Leo but we thought it might be a riskier change 
-as ETM is older and nobody has reported any issues, and there is already 
-the DT option to fix it that way. Turning it on by default could cause 
-some performance regressions. Although it's only if the ETM is in use, 
-so the impact is minimal.
-
-In reality it probably does make sense as it's highly unlikely that 
-sysreg ETM wouldn't need saving, so it might make some platforms with 
-misconfigured DTs more stable.
-
-I can send another version if you think it makes sense, what do you 
-think Leo?
-
->> +    } else if (pm_save_enable == PARAM_PM_SAVE_FIRMWARE) {
->> +        pm_save_enable = coresight_loses_context_with_cpu(dev) ?
->> +            PARAM_PM_SAVE_SELF_HOSTED : PARAM_PM_SAVE_NEVER;
->> +    }
->> +
->> +    if (pm_save_enable != PARAM_PM_SAVE_NEVER) {
->> +        drvdata->save_state = devm_kmalloc(dev,
->> +                           sizeof(struct etmv4_save_state),
->> +                           GFP_KERNEL);
->> +        if (!drvdata->save_state)
->> +            return -ENOMEM;
->> +    }
->> +
->> +    return 0;
->> +}
->> +
->>   static void etm4_init_arch_data(void *info)
->>   {
->>       u32 etmidr0;
->> @@ -2247,6 +2272,9 @@ static int etm4_add_coresight_dev(struct 
->> etm4_init_arg *init_arg)
->>           return -ENOMEM;
->>       etm4_set_default(&drvdata->config);
->> +    ret = etm4_init_pm_save(dev, drvdata);
->> +    if (ret)
->> +        return ret;
->>       pdata = coresight_get_platform_data(dev);
->>       if (IS_ERR(pdata))
->> @@ -2305,17 +2333,6 @@ static int etm4_probe(struct device *dev)
->>       if (ret)
->>           return ret;
->> -    if (pm_save_enable == PARAM_PM_SAVE_FIRMWARE)
->> -        pm_save_enable = coresight_loses_context_with_cpu(dev) ?
->> -                   PARAM_PM_SAVE_SELF_HOSTED : PARAM_PM_SAVE_NEVER;
->> -
->> -    if (pm_save_enable != PARAM_PM_SAVE_NEVER) {
->> -        drvdata->save_state = devm_kmalloc(dev,
->> -                sizeof(struct etmv4_save_state), GFP_KERNEL);
->> -        if (!drvdata->save_state)
->> -            return -ENOMEM;
->> -    }
->> -
->>       raw_spin_lock_init(&drvdata->spinlock);
->>       drvdata->cpu = coresight_get_cpu(dev);
->>
-> 
-
+Option 2 adds mmap_lock contention per unwind. Is the race narrow
+enough to accept, or is the trylock approach preferred?
 
