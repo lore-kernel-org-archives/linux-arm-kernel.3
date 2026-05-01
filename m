@@ -4,96 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71036CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 20:30:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79CBDCD3423
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 21:15:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qVBnu6Q/tQcYvEy05j8zTeFYSonQvouDAQt7Xng1rGU=; b=4jdSOi5fWKF8Mip123rehlfCBN
-	ZkDvKmd6YzDy/zVx4PNX1zMo1nmgR+nPfSdqjB6oV/mRpNZ3x848Xq7zaaXZKE7QPEjKR/a3wUxXG
-	CBmhZPPwwcIaWOeTfaGKKkk0WsNOmdti2G8zilu9jyLcEbzOKDWtF8wK7yistzeVdWPET4vl6EgLE
-	5TMBbTY1upsHG8llTfbgTw0zcnmPJfA8z0yuB9W4BqzndjlkHfP/oaFHArSTLX4cqbGFvWJQBQVw/
-	O57b8rpY7u0FTs+fPS3HC56MbNYLYmDGaY2lwknq49mENknMI8aZ3yMK9rOb7jCp1XMYDGKk/T6P5
-	ZfUB0z7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=O31KxZTM0lF562iFAPNNwC+x11Y7ojPJv0AOkMdLfu8=; b=xNsZVfd74Uc05dP/KbfDnezydH
+	w4OREixLBy1D1SHw1ceq8vgInpU7s7cA/8YEODSZ2InGsolHWTSFNWHGIXO/2haRN5STHuOFrMvtM
+	J/ISDE+0ZOnWCahVkymobKs6+GiV3e9ZvmEhVQfEOp9gvPW+fTNCmK/bMLYdZUKnXcigdWSqFxIfq
+	20rx1DCKTsB3/5gMPYTYlW7IKkp0w6YAdxZzaFvI3U6rCDS9O3dbAtnq58W7gyzxurGHFijzTDHht
+	nlaMA/4GVg92EdDTZ1axp4yUAQ6/DHOL7fO3SRVrH6pMsQSzbB4gdYiSXnvmaOGCLY1x503rq6jrs
+	f4NNustw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIuVa-00000007euM-0Lmt;
-	Fri, 01 May 2026 20:30:46 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIuVX-00000007ett-3hxl
+	id 1wIvCk-00000007gg6-2S1O;
+	Fri, 01 May 2026 21:15:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wIvCh-00000007gfj-2ugt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 May 2026 20:30:45 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-824c9da9928so1077905b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 May 2026 13:30:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777667442; x=1778272242; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qVBnu6Q/tQcYvEy05j8zTeFYSonQvouDAQt7Xng1rGU=;
-        b=gfTv6Fk+sD6TkmQ90BpjNQFcTJdLKpizgGjcxdOdDIIZNkY9p73gch8UlKqiX+W2aQ
-         FxffLezZaZnZVW4jVIoXT3alTgEwV+Z1LxWwnDp9HckMMcW66/pnu7Lr1/FEpMh9SWNq
-         xy6reNctQo6UlUX8rndeoF3BysV6u2blKq8ipymkk5TQd8+tCfpwqGkXwRWyyTw3oymM
-         nk5Yf3AD95R3cw3JGlKzHSeXFpkf0qUTv9Z9go4wfOqrxGTRro0NCTKFVVS27fw90FB3
-         HRanMzG8XixayaUv1hFFJLouit+xFV5nCjOkYNjIyBFt6rHYTA+ZvkwCtxWaIGoD0CBI
-         n+Rw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777667442; x=1778272242;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=qVBnu6Q/tQcYvEy05j8zTeFYSonQvouDAQt7Xng1rGU=;
-        b=E+EzQGaF5znQIGutz20DbFT31G6HsSY/Vchu8N7dd49jXclbb8fGNg7gY6t8VzJqpH
-         NBaAi1Sr2HeOQrIDM3MMRSWgovjgfoFmZrZB/euktE7XktF/72GKdyn18ndJEw7dUzeC
-         qVuA8RZ5QY0guSBCnAnjHAl02t5n7B0rU3xWAhQjNAmrA3RQPH+ih7pLnNDtWeewbwtj
-         aa9IGMKiwCEBZsL7B/EoEBi0LE1yajx0anU//zCU9OguPgfzMMBzrhZW3KPLu77VKptV
-         QZr6rRqvyagpYPRYKY9dbVqba2tdQcUYvLju8ROaFrfIhkkSmDEzlBXOZ+eHDuu4qS6C
-         h11Q==
-X-Forwarded-Encrypted: i=1; AFNElJ+anzh9ZQ60H9CThtQXwOdGCOUW+wAIw5Ri6sH73SWZShUbbutFL1fvTc1ssn55AkDlSb7Vaje/BtQciMS6QzU3@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQF8TbikumNqciaH9RBxF/1eSjSgdJueT/gzci4CorK1cvn1Vi
-	E+psQQiiIBj1ZOorrWk+IzqMqfzxXa2AzsAkobpUDYV4nDMtp8CdkTKh
-X-Gm-Gg: AeBDiesh74IX3AHjTpoFGaZHZEiSz2ESdrK6m2WOTtIH4Oop5weAHgy6C1zpwjGwKrl
-	ygkQJiqY7guhjDf0DBvsumy+ILQHtecQ9iPzgJgR4wIL8/QOqAfhkf+g6NKlCa43COPPgRSmft1
-	N9Jd/XdyuYq4imbCW7le1f1sIz8k9Boc+h398RRXTuZboQpWuoPeyJ0ihM/2aiIB2GCuk+0cHii
-	zMbI/DE1LQ0NRF08QE8aE8bmcleiYkypYKL0WI3HpSitMcBH+HeUN+KJpmuWVDbX45ZWPxipkmG
-	PJz9l9VLAsVsegF6eJ7sZSy+QlFQH4CYzdJW9x+BAxua/+Kd5MqE2/NhHjefdmVdxiJId7z0q9F
-	LBg0N1j7OCMvG98I8qM0tUCmaZgpqMEKLbfEdD2OZ4ALZaG9QsXc6DuF2q2wUq2GjZozIrIWHSK
-	13Rnqel8HzdsYG+cNiswac7KFctyCbDmyMaHKvskU3aYcoRXYvTw/z4wDHNGhFcRpJEIY7HDyg
-X-Received: by 2002:a05:6a00:330b:b0:827:4343:4c1 with SMTP id d2e1a72fcca58-8352d20b2a9mr661002b3a.29.1777667442262;
-        Fri, 01 May 2026 13:30:42 -0700 (PDT)
-Received: from localhost.localdomain ([115.110.225.242])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83515b84aedsm3230595b3a.57.2026.05.01.13.30.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 01 May 2026 13:30:41 -0700 (PDT)
-From: Shitalkumar Gandhi <shital.gandhi45@gmail.com>
-X-Google-Original-From: Shitalkumar Gandhi <shitalkumar.gandhi@cambiumnetworks.com>
-To: Andi Shyti <andi.shyti@kernel.org>
-Cc: Wolfram Sang <wsa@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Felix Gu <ustc.gu@gmail.com>,
-	linux-i2c@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Shitalkumar Gandhi <shitalkumar.gandhi@cambiumnetworks.com>
-Subject: [PATCH v2] i2c: sun6i-p2wi: fix of_node reference leak in probe
-Date: Sat,  2 May 2026 02:00:02 +0530
-Message-Id: <20260501203002.3382428-1-shitalkumar.gandhi@cambiumnetworks.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20260201-p2wi-v1-1-e0ec9cda82b3@gmail.com>
-References: <20260201-p2wi-v1-1-e0ec9cda82b3@gmail.com>
+	Fri, 01 May 2026 21:15:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 576A54388;
+	Fri,  1 May 2026 14:15:12 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 039333F62B;
+	Fri,  1 May 2026 14:15:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1777670117; bh=T7MMJ9Wv9l1EyhkVWkTS1mIc0MqZ90VW1VkSOijVsMc=;
+	h=Date:From:To:Cc:Subject:From;
+	b=KleSpujHasFcyYW042XT2VSpAaSLj1RSffjRfnw3vgXKSfvQLQPvQeEUZglnhIUBi
+	 clnOS8VvWq9ZjbQdFiGH24b1daOozgPB6GSRPdhL6eQleANFNnzR/OVAfuuT6I6vKq
+	 EAXw7U/FTQbUU7YgaEO9RO5+dM7i2cQFRrL2SXz8=
+Date: Fri, 1 May 2026 22:15:06 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [GIT PULL] arm64 fixes for 7.1-rc2
+Message-ID: <afUX2gRwmgEfU0X1@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260501_133043_983448_155B9A11 
-X-CRM114-Status: GOOD (  17.01  )
+X-CRM114-CacheID: sfid-20260501_141519_859509_BE1B5976 
+X-CRM114-Status: GOOD (  11.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,57 +66,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-of_get_next_available_child() returns a device_node pointer with an
-incremented reference count.  The reference taken in p2wi_probe() for
-the optional child node was dropped on neither the early return when
-the "reg" property is missing/invalid nor on the success path, so a
-reference is leaked once on every successful probe and twice on every
-failed one.
+Hi Linus,
 
-Use the scoped __free(device_node) cleanup helper at the point of
-acquisition so the reference is dropped automatically on every exit
-path.
+Please pull the arm64 fixes below. Thanks.
 
-Suggested-by: Felix Gu <ustc.gu@gmail.com>
-Link: https://lore.kernel.org/linux-i2c/20260201-p2wi-v1-1-e0ec9cda82b3@gmail.com/
-Fixes: 3e833490fae5 ("i2c: sunxi: add P2WI (Push/Pull 2 Wire Interface) controller support")
+The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
 
-Signed-off-by: Shitalkumar Gandhi <shitalkumar.gandhi@cambiumnetworks.com>
----
-Changes since v1 (Felix Gu, https://lore.kernel.org/linux-i2c/20260201-p2wi-v1-1-e0ec9cda82b3@gmail.com/):
-  - Reword the commit message to make explicit that the leak is of an
-    of_node *reference*, not of an allocation.
-  - checkpatch --strict --codespell: clean.
-  - Build-tested: x86_64 allmodconfig (CONFIG_I2C_SUN6I_P2WI=m via
-    COMPILE_TEST) and arm sunxi_defconfig.  No new warnings.
-  - Runtime test: not performed; no Allwinner A31 hardware available.
+  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
 
- drivers/i2c/busses/i2c-sun6i-p2wi.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+are available in the Git repository at:
 
-diff --git a/drivers/i2c/busses/i2c-sun6i-p2wi.c b/drivers/i2c/busses/i2c-sun6i-p2wi.c
-index fb5280b8cf7f..652b37b57159 100644
---- a/drivers/i2c/busses/i2c-sun6i-p2wi.c
-+++ b/drivers/i2c/busses/i2c-sun6i-p2wi.c
-@@ -184,7 +184,6 @@ static int p2wi_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
- 	struct device_node *np = dev->of_node;
--	struct device_node *childnp;
- 	unsigned long parent_clk_freq;
- 	u32 clk_freq = I2C_MAX_STANDARD_MODE_FREQ;
- 	struct p2wi *p2wi;
-@@ -223,7 +222,8 @@ static int p2wi_probe(struct platform_device *pdev)
- 	 * In this case the target_addr is set to -1 and won't be checked when
- 	 * launching a P2WI transfer.
- 	 */
--	childnp = of_get_next_available_child(np, NULL);
-+	struct device_node *childnp __free(device_node) =
-+		of_get_next_available_child(np, NULL);
- 	if (childnp) {
- 		ret = of_property_read_u32(childnp, "reg", &target_addr);
- 		if (ret) {
+  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-fixes
+
+for you to fetch changes up to 030e8a40fff65ca6ac1c04a4d3c08afe72438922:
+
+  arm64: signal: Preserve POR_EL0 if poe_context is missing (2026-05-01 17:44:25 +0100)
+
+----------------------------------------------------------------
+Assorted arm64, ACPI and kselftest fixes for 7.1-rc2:
+
+ - Avoid writing an uninitialised stack variable to POR_EL0 on
+   sigreturn if the poe_context record is absent
+
+ - Reserve one more page for the early 4K-page kernel mapping to cover
+   the extra [_text, _stext) split introduced by the non-executable
+   read-only mapping
+
+ - Force the arch_local_irq_*() wrappers to be __always_inline so that
+   noinstr entry and idle paths cannot call out-of-line, instrumentable
+   copies
+
+ - Fix potential sign extension in the arm64 SCS unwinder's DWARF
+   advance_loc4 decoding
+
+ - Tolerate arm64 ACPI platforms with only WFI and no deeper PSCI idle
+   states, restoring cpuidle registration on such systems
+
+ - Include the UAPI <asm/ptrace.h> header in the arm64 GCS libc test
+   rather than carrying a duplicate struct user_gcs definition (the
+   original #ifdef NT_ARM_GCS was wrong to cover the structure
+   definition as it would be masked out if the toolchain defined it)
+
+----------------------------------------------------------------
+Breno Leitao (2):
+      arm64/irqflags: __always_inline the arch_local_irq_*() helpers
+      ACPI: arm64: cpuidle: Tolerate platforms with no deep PSCI idle states
+
+Kevin Brodsky (1):
+      arm64: signal: Preserve POR_EL0 if poe_context is missing
+
+Leo Yan (1):
+      kselftest/arm64: Include <asm/ptrace.h> for user_gcs definition
+
+Wentao Guan (1):
+      arm64/scs: Fix potential sign extension issue of advance_loc4
+
+Zhaoyang Huang (1):
+      arm64: Reserve an extra page for early kernel mapping
+
+ arch/arm64/include/asm/irqflags.h            | 14 ++++----
+ arch/arm64/include/asm/kernel-pgtable.h      |  7 +++-
+ arch/arm64/kernel/pi/patch-scs.c             |  4 +--
+ arch/arm64/kernel/signal.c                   | 54 ++++++++++++++++++++++------
+ drivers/acpi/arm64/cpuidle.c                 | 10 ++----
+ tools/testing/selftests/arm64/gcs/gcs-util.h |  6 ----
+ tools/testing/selftests/arm64/gcs/libc-gcs.c |  1 +
+ 7 files changed, 62 insertions(+), 34 deletions(-)
+
 -- 
-2.25.1
-
+Catalin
 
