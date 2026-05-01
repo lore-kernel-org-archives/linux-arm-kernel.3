@@ -4,85 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3E48CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 15:36:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97E12CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 15:49:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rNqbrJ0nYBLUq7KvlneyDzlxeJd5FU1yTTH99vsr+/Q=; b=tG69sIHZ9Uz1F+wU+iAEcjgnek
-	kw1dlLDwP9M0javKSh++AK4BwrJ/j9jT28fuMdcqtIGNIPL5RYnnt1AP9lje4cUeHBX6xA+dx9tCK
-	FzF4AGVjahHWNQNW3X4DJOHGrHIOtr9teefZvFqGqeRf+lM7rXNg9UVMMFzgIzN9x6yXXuwZpPs31
-	WfJqjFyQ34HR/QiJijszQhe3JDtib706s2K0Uqh08jbvoUOuPDs+zXFJuJL3f64rgiwFVPbAMvU/Z
-	1NpYf3M2hk2+LsCjAhEzL0q5bv9sRERV38UeSa/ro62Lv4Gsfq8bkO0a/zag9G2Ao9qskK3FVx1PS
-	cnircuWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RVmoK4JO4RI/G7aKQ2BqkJVjM64PAZNOdybgLpeuzUY=; b=S49kCXhZg8OEX/Mpqd34rp0Zxw
+	kjO4lUTb3pNulQpuG/XApfOV/sXXZNTgQZCSAqUuwEr0z9BET6VigR6K3KqmiF103vec1aJhykM1d
+	taU0kn/zTb9xlQihtBoiJ0uaxJIAXguzHQMjmJGq+AA7EbMNYYjs2ROaVXDo3z5MWnmaDr9Dw7Qtg
+	AT2mKduRLKFOmjfUfjDtP1JKkeytz5QSHm5uhkdHbojXAbtlFj5V+n7c4g+uPY1zAEIdSEOO7uG9d
+	4EVAH79QINLfjCGyDvym0QPKOSld9JUPg/H4XzvBFq46wf9QCunR63vi1W/3v5aXIK8jT4/5wiXg7
+	ZHiewlBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIpuv-00000007M9n-0VhJ;
-	Fri, 01 May 2026 15:36:37 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wIq7A-00000007Ms4-4B3W;
+	Fri, 01 May 2026 15:49:17 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIpuu-00000007M9U-0zZN
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 01 May 2026 15:36:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=rNqbrJ0nYBLUq7KvlneyDzlxeJd5FU1yTTH99vsr+/Q=; b=B7o/TkfYtKvBRrUCIThMmjygTv
-	eQri7cmtlOj5/rPH+SrEia+tUanNFty+NwXdmyiTBHZouCzS5DUFDexnSGGtxXpPacAJxwD720Va1
-	4mVwYFcEeaOyZeaTyH3lkBdGD40MV60LeBhli2T0qVFktXPD/EVj6cYhlPwjdEio1YUsXdQJZMsEp
-	9Mbs4rQ4HlRaqDbnE8BARMGcxEAZSBm6WJSOT6H3wckp2gZDQWVOK3iXUUzO2NJpDYSxOC0HMaupj
-	zUxch6N8Y2dou6nXW/OBtve+sFK/jUBYH9oi6Sy0XAgE51VSmfGs8KrI1cOOaPlOzwwqM9jGwh30l
-	YCUjF27A==;
-Received: from m16.mail.163.com ([117.135.210.3])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIpuq-0000000969D-3K7u
+	id 1wIq7A-00000007Mrx-1QxP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 May 2026 15:36:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=rN
-	qbrJ0nYBLUq7KvlneyDzlxeJd5FU1yTTH99vsr+/Q=; b=jhTaH9fJuQMA7ClBan
-	6isFXXHBF+KQZ3ULwH/LZTlMhxuWnY7b69VbtYXw1ms6DwCLoOXM16vjgN83RsO6
-	dfEqkMGjG/a8WtVugORKCiqmWRlAo60YBNu7mEqBlJ14RzamERpp5YeywwR7g2uv
-	sKpPj6f3psu/bmGLG7w8t0SIc=
-Received: from zhb.. (unknown [])
-	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wCH4HBbyPRpuOd_Cw--.58479S4;
-	Fri, 01 May 2026 23:35:57 +0800 (CST)
-From: Hans Zhang <18255117159@163.com>
-To: bhelgaas@google.com,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	vigneshr@ti.com
-Cc: robh@kernel.org,
-	s-vadapalli@ti.com,
-	linux-omap@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Hans Zhang <18255117159@163.com>
-Subject: [PATCH 2/2] PCI: j721e: Set max_link_speed to enable 100 ms delay after link up
-Date: Fri,  1 May 2026 23:35:53 +0800
-Message-Id: <20260501153553.66382-3-18255117159@163.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260501153553.66382-1-18255117159@163.com>
-References: <20260501153553.66382-1-18255117159@163.com>
+	Fri, 01 May 2026 15:49:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DA66F600AE;
+	Fri,  1 May 2026 15:49:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44B8AC2BCB4;
+	Fri,  1 May 2026 15:49:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777650554;
+	bh=kEBptyWNUcQXhlahaz6HoRE5/fku/pmWiKKe01rKllU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tel3gBT4JSk0jv3KMGWE7mVrkHtzK2MKnzUrBGYWelV/7gOOjIDUF+BEESuuGQymP
+	 tL88eDhiFN3uLgtvxxg/sVOMP7if3SLODr36cwQzC6bYutQ9U6BPcLD+MLPBrukVrv
+	 zvw1O/MSHZuB1qVRlHOAUwJTRVreiDJ7To8TVtrKcAP42LrUxu3w7wyfMJFVFW3Q7d
+	 HFvERFzvdMuyblmh5NuMIxAdxi1FpYxfaTKeWqksHpXUlqQAcIaL2v3DgEzk/JtPa5
+	 1Xn1W6/duJDZnHnUAygtsLK4wEK/m3fdKDpbZ9fEIfXCiqfiYxDEC3A/kjKZM4OIzh
+	 YxJM9aZYZnsvw==
+Date: Fri, 1 May 2026 16:49:09 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Tanmay Shah <tanmay.shah@amd.com>
+Cc: andersson@kernel.org, mathieu.poirier@linaro.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, michal.simek@amd.com,
+	ben.levinsky@amd.com, linux-remoteproc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] dt-bindings: remoteproc: xlnx: add firmware-name
+ property
+Message-ID: <20260501-strudel-sample-ded4d3ebf58b@spud>
+References: <20260501143707.1591110-1-tanmay.shah@amd.com>
+ <20260501143707.1591110-2-tanmay.shah@amd.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wCH4HBbyPRpuOd_Cw--.58479S4
-X-Coremail-Antispam: 1Uf129KBjvJXoW7uF1xXry8try3ZF17tFy8AFb_yoW8Gr1Dpa
-	y7GFWxG3WIqrW5uanrZ3W5XFyaqFn8J3y7GrZag3WxZFnxCr93JFyIqFyfJ3ySkF4kAF13
-	A3Zrt342qr43tF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zZg4U5UUUUU=
-X-Originating-IP: [240e:b8f:927e:5900:a6da:de99:5aab:66f2]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbC6x3ghGn0yF2uugAA3O
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260501_163633_424440_95A23801 
-X-CRM114-Status: UNSURE (   8.87  )
-X-CRM114-Notice: Please train this message.
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="iQ7bHvBbkiCwQUvk"
+Content-Disposition: inline
+In-Reply-To: <20260501143707.1591110-2-tanmay.shah@amd.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,35 +74,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Set cdns_pcie.max_link_speed to the maximum supported link speed
-(obtained from the device tree property "max-link-speed") in
-j721e_pcie_set_link_speed(). This activates the post-link delay logic
-added in cdns_pcie_host_wait_for_link() when the controller supports
-speeds greater than 5 GT/s.
 
-As required by PCIe r6.0 sec 6.6.1, and following the same approach as
-commit 80dc18a0cba8d ("PCI: dwc: Ensure that dw_pcie_wait_for_link()
-waits 100 ms after link up"), this ensures a 100 ms delay after link
-training completes before any Configuration Request is sent.
+--iQ7bHvBbkiCwQUvk
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Hans Zhang <18255117159@163.com>
----
- drivers/pci/controller/cadence/pci-j721e.c | 1 +
- 1 file changed, 1 insertion(+)
+On Fri, May 01, 2026 at 07:37:06AM -0700, Tanmay Shah wrote:
+> The firmware-name property indicates which firmware to load on RPU
+> during the Linux boot time. It is possible to stop the RPU after boot
+> and load different firmware and start RPU.
 
-diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
-index bfdfe98d5aba..ee85b8e04f5b 100644
---- a/drivers/pci/controller/cadence/pci-j721e.c
-+++ b/drivers/pci/controller/cadence/pci-j721e.c
-@@ -206,6 +206,7 @@ static int j721e_pcie_set_link_speed(struct j721e_pcie *pcie,
- 	    (pcie_get_link_speed(link_speed) == PCI_SPEED_UNKNOWN))
- 		link_speed = 2;
- 
-+	pcie->cdns_pcie.max_link_speed = link_speed;
- 	val = link_speed - 1;
- 	ret = regmap_update_bits(syscon, offset, GENERATION_SEL_MASK, val);
- 	if (ret)
--- 
-2.34.1
+The file supports 3 devices, do they all support loading firmware like
+this?
 
+>=20
+> Signed-off-by: Tanmay Shah <tanmay.shah@amd.com>
+> ---
+>  .../devicetree/bindings/remoteproc/xlnx,zynqmp-r5fss.yaml     | 4 ++++
+>  1 file changed, 4 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/remoteproc/xlnx,zynqmp-r5f=
+ss.yaml b/Documentation/devicetree/bindings/remoteproc/xlnx,zynqmp-r5fss.ya=
+ml
+> index ee63c03949c9..ae63c3e39ced 100644
+> --- a/Documentation/devicetree/bindings/remoteproc/xlnx,zynqmp-r5fss.yaml
+> +++ b/Documentation/devicetree/bindings/remoteproc/xlnx,zynqmp-r5fss.yaml
+> @@ -135,6 +135,10 @@ patternProperties:
+>            - description: vring1
+>          additionalItems: true
+> =20
+> +      firmware-name:
+> +        maxItems: 1
+> +        description: default firmware to load
+> +
+>      required:
+>        - compatible
+>        - reg
+> --=20
+> 2.34.1
+>=20
+
+--iQ7bHvBbkiCwQUvk
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCafTLcgAKCRB4tDGHoIJi
+0mgxAQCSN4vfXjReAU+odS32cFAbDxJepqbnJA6xsu0KLX7ffQD/RYD82fvE6AdC
+JHdDzDSRHvKGzsddkWaMtCbu/yMIQwQ=
+=536k
+-----END PGP SIGNATURE-----
+
+--iQ7bHvBbkiCwQUvk--
 
