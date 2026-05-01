@@ -4,64 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FFD9CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 14:16:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4519ECD3424
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 14:18:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=skVC9z4AOYvJboBbJ+s6RNW76DmlEAxe5n7RJ+tdzao=; b=Sqe6XE+2SfvydizQ2PmOHRYrSv
-	Os6Q3WDmK/A32FoUQy3P8hKB7fd6RdqjzmMJ0zs+xsUTWZPdS6DZ4/GCY1iGwfyOqaMcVyXtoFq4q
-	uoq7j5zanvm16lgGvRNC/XVINW3X3HD7ljFNuK8mMqWvk96/pBKITUwB9fiLTnPjONFu7+G9d+TBh
-	3EM1yM3sItHjX8Pzp2MPuEiOZtzUhgFTl4Zn6pet5tMsr3V0Zjy2m4vwDnz0hjTYXkGsA0oQWnHuX
-	li3tGujldW61NUVSOoYskLXwV2OJsWkmCqHdUdzwKsQ8boGTXrJSNffT9A58r49Umm992hLGIoonm
-	cro/7jGg==;
+	bh=JvOnRbZdSG/7wBrtRm+8n+Do2dRXUbjUXwKRNK243Gs=; b=FZOjMvyt/VSQFXXxw2ucAAnt9z
+	JvIM4Rk3BADou3FIUXuVuuSxPIy1emYEZfOP0jLFfA5fT3Mx76ptXsGCzyTEKWZQCuSXXdJDA1FwO
+	E/CX31gN1lH17eMQ7oav2WV+jF9sTOMKyzhuvZetdCrKF16PS4rJR3igbT04ie4kduISdazLdZR2T
+	0Nb8G8TATHKGpcpfDsOM0dtE2YYnFK1YrC4O2EDtkBoMFFZQ/Wylb78EY+dN98ZAG0ysDZbPgnKLp
+	ShBSOwwoH4IgO9V+idJj/VkNcKLW2AYK3awFvtOLaDVd6H2zHvtoR9rxL98QtH9zqOsVsozdrw82B
+	M8ntl13A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIofR-00000007EUV-2Zbt;
-	Fri, 01 May 2026 14:16:33 +0000
+	id 1wIohL-00000007EjO-23Bx;
+	Fri, 01 May 2026 14:18:31 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIofO-00000007ETx-3Q5Y
+	id 1wIohI-00000007Eij-3g8f
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 May 2026 14:16:32 +0000
+	Fri, 01 May 2026 14:18:30 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 706632A9A;
-	Fri,  1 May 2026 07:16:23 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E57AB3F7B4;
-	Fri,  1 May 2026 07:16:26 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5AB672C1C;
+	Fri,  1 May 2026 07:18:20 -0700 (PDT)
+Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BF50F3F7B4;
+	Fri,  1 May 2026 07:18:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777644988; bh=BayNa5jbz0M4jvagJ0bgGlBgBI0tYgCb5eIEkJ2Mmqw=;
+	t=1777645105; bh=n4QKpHTlKIbKxoVyb8jomzE98FcpdhxCxXybOaeTddY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hxNIlQxl/Cc35oPga4quxc30zuSS+wR7D1y58Bxd69AqzHhrwDi+YoOyF1lX/bHz+
-	 fghYsV3F27IHNwoExqu4JjbMY/pr+tB4GKLCnI66w5ySpHxtC2yAlYeZhuzM9KDcwj
-	 4vQqc1LIRvEKHMzcSaIwIWlcBA+/+ITuSIUbZbGA=
-Date: Fri, 1 May 2026 15:16:20 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: "zhangpengjie (A)" <zhangpengjie2@huawei.com>
-Cc: will@kernel.org, maz@kernel.org, timothy.hayes@arm.com,
-	lpieralisi@kernel.org, mrigendra.chaubey@gmail.com, arnd@arndb.de,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	zhanjie9@hisilicon.com, zhenglifeng1@huawei.com,
-	lihuisong@huawei.com, yubowen8@huawei.com, linhongye@h-partners.com,
-	linuxarm@huawei.com, wangzhi12@huawei.com
-Subject: Re: [PATCH v2] arm64: smp: Do not mark secondary CPUs possible under
- nosmp
-Message-ID: <afS1tJJkwDTKvNJ6@arm.com>
-References: <20260423134654.4178271-1-zhangpengjie2@huawei.com>
- <ae9iqdt_qdJRjVZs@arm.com>
- <49f96032-6027-4c79-8d08-9545261e553f@huawei.com>
- <1b1b1319-2f98-4b5d-85ec-6fc4150b6f85@huawei.com>
+	b=YhClDYmWmp6O5MaEN5QwnO5JBVi0bDYByAXkKn7fiDuCzxz0ob/7DxW/wZ/xIYLCA
+	 gkfwAy+hNWKVA8+B1KyQrqGix+V7kPyXloob1Ckrt+kuUQUF9cqYRo97BQpFH4JqxS
+	 BESkBXabNRE0Q6XJjUxIEpPESEi0NcjJgVMHTsOU=
+Date: Fri, 1 May 2026 15:18:16 +0100
+From: Alexandru Elisei <alexandru.elisei@arm.com>
+To: Fuad Tabba <tabba@google.com>
+Cc: maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	mark.rutland@arm.com
+Subject: Re: [PATCH] KVM: arm64: Handle permission faults with guest_memfd
+Message-ID: <afS2KDp6zEo3zSvP@raptor>
+References: <20260430132351.280766-1-alexandru.elisei@arm.com>
+ <CA+EHjTwZ=yFx_NEyw5YEiGqCjsfM=QotHgsCUVQmWDr6cNKLZw@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <1b1b1319-2f98-4b5d-85ec-6fc4150b6f85@huawei.com>
+In-Reply-To: <CA+EHjTwZ=yFx_NEyw5YEiGqCjsfM=QotHgsCUVQmWDr6cNKLZw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260501_071630_914464_4630CF13 
-X-CRM114-Status: GOOD (  24.98  )
+X-CRM114-CacheID: sfid-20260501_071828_991421_4BF2DE79 
+X-CRM114-Status: GOOD (  37.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,45 +71,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 30, 2026 at 05:54:35PM +0800, zhangpengjie (A) wrote:
-> On 4/30/2026 5:34 PM, zhangpengjie (A) wrote:
-> > On 4/27/2026 9:20 PM, Catalin Marinas wrote:
-> > > On Thu, Apr 23, 2026 at 09:46:54PM +0800, Pengjie Zhang wrote:
-> > > > Under nosmp (maxcpus=0), arm64 never brings up secondary CPUs.
-> > > > 
-> > > > However, arm64 still enumerates firmware-described CPUs during SMP
-> > > > initialization, which can leave secondary CPUs visible to
-> > > > for_each_possible_cpu() users even though they never reach the
-> > > > bringup path in this configuration.
-> > > > 
-> > > > This is not just a cosmetic mask mismatch: code iterating over
-> > > > possible CPUs may observe secondary CPU per-CPU state that is never
-> > > > fully initialized under nosmp.
-> > > I'm fine with the patch in principle but I fail to see why it is not
-> > > mostly cosmetic. If we have possible & !present CPUs (there's another
-> > > thread around cpuhp_smt_enable() to allow this combination on arm64),
-> > > get_cpu_device() would return NULL and the core code is supposed to
-> > > handle this. What other per-CPU state should be initialised for a
-> > > possible CPU but it is not without this patch?
-[...]
-> Yes, possible-but-not-present CPUs are valid in the general hotplug
-> model. The nosmp/maxcpus=0 case is different though: on arm64,
-> smp_prepare_cpus() treats this as a UP-mandated boot and returns before
-> marking secondary CPUs present, so these CPUs are deliberately kept out of
-> the bringup path for this boot.
-> 
-> The kind of issue I had in mind was subsystem-owned per-CPU state where
-> iteration follows cpu_possible_mask but the state is populated only from
-> CPU online/probe paths. The CPPC nosmp issue fixed by commit 15eece6c5b05
-> ("ACPI: CPPC: Fix NULL pointer dereference when nosmp is used") was the
-> kind of mismatch I was thinking of, although CPPC itself has already been
-> fixed to use online CPUs where appropriate.
-> 
-> I agree the changelog overstates this. I can respin with a toned-down
-> changelog if you prefer.
+Hi Fuad,
 
-Please do. Since it's not an urgent fix, I'll leave it for 7.2. With the
-commit text changed:
+On Thu, Apr 30, 2026 at 03:48:21PM +0100, Fuad Tabba wrote:
+> Hi Alexandru,
+> 
+> On Thu, 30 Apr 2026 at 14:24, Alexandru Elisei <alexandru.elisei@arm.com> wrote:
+> >
+> > gmem_abort() calls kvm_pgtable_stage2_map() to make changes to stage 2. It
+> > does this for both relaxing permissions on an existing mapping and to
+> > install a missing mapping.
+> >
+> > kvm_pgtable_stage2_map() doesn't make changes to stage 2 if there is an
+> > existing, valid entry and the new entry modifies only the permissions.
+> > This is checked in:
+> >
+> > kvm_pgtable_stage2_map()
+> >   stage2_map_walk_leaf()
+> >      stage2_map_walker_try_leaf()
+> >        stage2_pte_needs_update()
+> >
+> > and if only the permissions differ, kvm_pgtable_stage2_map() returns
+> > -EAGAIN and KVM returns to the guest to replay the instruction. The
+> > assumption is that a concurrent fault on a different VCPU already mapped
+> > the faulting IPA, and replaying the instruction will either succeed, or
+> > cause a permission fault, which should be handled with
+> > kvm_pgtable_stage2_relax_perms().
+> >
+> > gmem_abort(), on a read or write fault on a system without DIC (instruction
+> > cache invalidation required for data to instruction coherence), installs a
+> > valid entry with read and write permissions, but without executable
+> > permissions. On an execution fault on the same page, gmem_abort() attempts
+> > to relax the permissions to allow execution, but calls
+> > kvm_pgtable_stage2_map() to change the existing, valid, entry.
+> > kvm_pgtable_stage2_map() returns -EAGAIN and KVM resumes execution from the
+> > faulting instruction, which leads to an infinite loop of permission faults
+> > on the same instruction.
+> >
+> > Allow the guest to make progress by using kvm_pgtable_stage2_relax_perms()
+> > to relax permissions.
+> >
+> > Fixes: a7b57e099592 ("KVM: arm64: Handle guest_memfd-backed guest page faults")
+> > Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
+> > ---
+> >
+> > Lightly tested on an Orion O6 board, without pkvm, and without nested
+> > virtualisation.
+> >
+> > Doesn't apply cleanly on top of a7b57e099592, I can send a patch for that if
+> > needed.
+> >
+> >  arch/arm64/kvm/mmu.c | 24 +++++++++++++++++-------
+> >  1 file changed, 17 insertions(+), 7 deletions(-)
+> >
+> > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> > index d089c107d9b7..dff58de7703b 100644
+> > --- a/arch/arm64/kvm/mmu.c
+> > +++ b/arch/arm64/kvm/mmu.c
+> > @@ -1576,6 +1576,7 @@ struct kvm_s2_fault_desc {
+> >  static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+> >  {
+> >         bool write_fault, exec_fault;
+> > +       bool perm_fault = kvm_vcpu_trap_is_permission_fault(s2fd->vcpu);
+> >         enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
+> >         enum kvm_pgtable_prot prot = KVM_PGTABLE_PROT_R;
+> >         struct kvm_pgtable *pgt = s2fd->vcpu->arch.hw_mmu->pgt;
+> > @@ -1587,10 +1588,12 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+> >         gfn_t gfn;
+> >         int ret;
+> >
+> > -       memcache = get_mmu_memcache(s2fd->vcpu);
+> > -       ret = topup_mmu_memcache(s2fd->vcpu, memcache);
+> > -       if (ret)
+> > -               return ret;
+> > +       if (!perm_fault) {
+> > +               memcache = get_mmu_memcache(s2fd->vcpu);
+> > +               ret = topup_mmu_memcache(s2fd->vcpu, memcache);
+> > +               if (ret)
+> > +                       return ret;
+> > +       }
+> 
+> memcache is now uninitialized when perm_fault, and only read in the
+> !perm_fault branch below. It's safe today, but initializing it to NULL
+> would silence any defensive analyzer and keep things robust against
+> future churn.
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Sure, I'll initialise memcache to NULL.
+
+> 
+> >
+> >         if (s2fd->nested)
+> >                 gfn = kvm_s2_trans_output(s2fd->nested) >> PAGE_SHIFT;
+> > @@ -1631,9 +1634,16 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+> >                 goto out_unlock;
+> >         }
+> >
+> > -       ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, s2fd->fault_ipa, PAGE_SIZE,
+> > -                                                __pfn_to_phys(pfn), prot,
+> > -                                                memcache, flags);
+> > +       if (perm_fault) {
+> > +               /* Preserve the software bits from the existing table entry. */
+> > +               prot &= ~KVM_NV_GUEST_MAP_SZ;
+> 
+> Can you please phrase it the same way as the existing comment in
+> user_mem_abort, as that phrasing more precisely describes the
+> rationale? i.e.,
+
+Of course.
+
+> 
+>    /*
+>     * Drop the SW bits in favour of those stored in the
+>     * PTE, which will be preserved.
+>     */
+> 
+> > +               ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms(pgt, s2fd->fault_ipa,
+> > +                                                               prot, flags));
+> 
+> nit: args wrapped inside KVM_PGT_FN() is inconsistent with the rest of
+> the file (and with the else-branch immediately below). Every other
+> call site uses name-only inside the macro. Both expand the same way,
+> but it's better to stick to the convention.
+
+This was a typo on my part, thanks for catching it.
+
+> 
+> > +       } else {
+> > +               ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, s2fd->fault_ipa, PAGE_SIZE,
+> > +                                                        __pfn_to_phys(pfn), prot,
+> > +                                                        memcache, flags);
+> > +       }
+> >
+> >  out_unlock:
+> >         kvm_release_faultin_page(kvm, page, !!ret, prot & KVM_PGTABLE_PROT_W);
+> 
+> With these fixed:
+> 
+> Reviewed-by: Fuad Tabba <tabba@google.com>
+
+Thanks!
+
+Alex
 
