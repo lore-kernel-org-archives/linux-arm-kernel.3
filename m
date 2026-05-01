@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1157CCCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 19:08:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F6F1CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 19:39:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AqdV78Ha3ZcHSu7Csugrc0aupLcQuY2iftWCnXuSVPs=; b=JuGw4iRXPBBTgGu+pwQ0TAhD4d
-	+YdnPzHvpx7TcqaSSkxuLDzDuBAhNsfvMNhGK8Rlw46g6V+Rkyo4wqP5tWrZar5DFCWIQPhVOwMm8
-	gDMflaX3o5GMr9KL9iYtySFOf8Ihxxl/H/D1bHFmSqmgyUXuLF0K3E+SrHJ+N9Cmb1hhrRxPOqKJF
-	D1X8Qj6n5a0QB8VaTMBIgCwm2ATM7wWf4lrNFSTAONrGlbSEGibSsaIBDun+Z6yG/ThuyA81M9iu1
-	z2ovIu4dSb/vm19ayuP2+YJ3z/wdj1M0IeQSTMzKWucwMOohyTpm6wQYCp+eE5dKtP722VLSoG6w8
-	SkN5ZzQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rp8f/WeQia8QAD+YJmPABxXPXrvHyOM5hZfBchCKMDA=; b=nu6RP68wLl4c7gHDuXp4wQ7QAB
+	pbZNRjIjFVX4pBFuUEgpvYwL/EcH0bYb0K9Sd8PK8T7Ze0jFqRJJ9Gy62Xw7aJXh7n+4pwDU3/vd8
+	axyBCTn+byJzjyOfaCN/9Q7sk3a+z9jcjEp4YaO52gS9cXsPXqLyZAlRgM37TLlc6H28I1xL1QW46
+	cZfL9YweC9rdjAziVvdS6DTQiH8k92EVAWsQE8N+oqRg9TN6BWAvNzt7eFkCkcbsyGsCfOhoxz4/o
+	1Qh00Wve0HNgu6RQe3/UKITzK250oA0cvpsRSciRXXmI10EsjvZwoNE8byyZ2eeg8UONGT+Ic9iIQ
+	V97r3lRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wItDS-00000007bkj-1wbi;
-	Fri, 01 May 2026 19:07:58 +0000
-Received: from smtprelay0013.hostedemail.com ([216.40.44.13] helo=relay.hostedemail.com)
+	id 1wIthr-00000007csL-1ued;
+	Fri, 01 May 2026 19:39:23 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wItDP-00000007bkL-0SAV;
-	Fri, 01 May 2026 19:07:56 +0000
-Received: from omf11.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay03.hostedemail.com (Postfix) with ESMTP id 991E2A020D;
-	Fri,  1 May 2026 19:07:48 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf11.hostedemail.com (Postfix) with ESMTPA id 769B32002A;
-	Fri,  1 May 2026 19:07:43 +0000 (UTC)
-Date: Fri, 1 May 2026 15:07:44 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Detlev Casanova <detlev.casanova@collabora.com>
-Cc: linux-kernel@vger.kernel.org, Nicolas Dufresne
- <nicolas.dufresne@collabora.com>, Benjamin Gaignard
- <benjamin.gaignard@collabora.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, Daniel Almeida <daniel.almeida@collabora.com>, Masami
- Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>, Hans Verkuil <hverkuil@kernel.org>,
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>, Ricardo
- Ribalda <ribalda@chromium.org>, Yunke Cao <yunkec@google.com>, Sakari Ailus
- <sakari.ailus@linux.intel.com>, Pavan Bobba <opensource206@gmail.com>,
- James Cowgill <james.cowgill@blaize.com>, Ma Ke <make24@iscas.ac.cn>,
- Jacopo Mondi <jacopo.mondi@ideasonboard.com>, Daniel Scally
- <dan.scally@ideasonboard.com>, linux-media@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-trace-kernel@vger.kernel.org, kernel@collabora.com
-Subject: Re: [PATCH 01/11] media: Move visl traces to v4l2-core
-Message-ID: <20260501150744.065081ac@gandalf.local.home>
-In-Reply-To: <20260212162328.192217-2-detlev.casanova@collabora.com>
-References: <20260212162328.192217-1-detlev.casanova@collabora.com>
-	<20260212162328.192217-2-detlev.casanova@collabora.com>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	id 1wIthp-00000007csA-3GZJ;
+	Fri, 01 May 2026 19:39:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=rp8f/WeQia8QAD+YJmPABxXPXrvHyOM5hZfBchCKMDA=; b=uHjHrPPD2LeDk5mLziBh3YyqEj
+	pfhR1tJpiKuUsooCkGqL2JZsb+D6vXBCRLBIbK0Q44xOCZOqwgtOj5wLR1q5KX9Q3NvcP0rciSd+G
+	ckgC0Zlz14TMgm+JsN7ZyOCt1Uvx4cReuGP0X3rwHMIqy2VNYPteQIn4/oeQedWAMeFvYDZOK+5J9
+	gMu8Q18KidiWTxvlLNVjdpduJUbW8ext7a3iuodZcXYJM4buozO5xWvugDSnEUtY1AeZRzE+j32qI
+	9Rxm90eK24xcN0FvxD+xBCl3zDGmbqcxwWSaplpXlbRREhdZ7Fj4povFbiHlxELsrOySKt4514WFP
+	5emRWH6A==;
+Received: from willy by casper.infradead.org with local (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wIthf-00000009F6Q-0jSu;
+	Fri, 01 May 2026 19:39:11 +0000
+Date: Fri, 1 May 2026 20:39:10 +0100
+From: Matthew Wilcox <willy@infradead.org>
+To: Barry Song <baohua@kernel.org>
+Cc: akpm@linux-foundation.org, linux-mm@kvack.org, david@kernel.org,
+	ljs@kernel.org, liam@infradead.org, vbabka@kernel.org,
+	rppt@kernel.org, surenb@google.com, mhocko@suse.com, jack@suse.cz,
+	pfalcato@suse.de, wanglian@kylinos.cn, chentao@kylinos.cn,
+	lianux.mm@gmail.com, kunwu.chan@gmail.com, liyangouwen1@oppo.com,
+	chrisl@kernel.org, kasong@tencent.com, shikemeng@huaweicloud.com,
+	nphamcs@gmail.com, bhe@redhat.com, youngjun.park@lge.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
+Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
+ fault performance
+Message-ID: <afUBXnPVnt7Jt5hh@casper.infradead.org>
+References: <20260430040427.4672-1-baohua@kernel.org>
+ <afNM-gIqxpyJ6ro7@casper.infradead.org>
+ <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
+ <afS_L-5XeWIldTXA@casper.infradead.org>
+ <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
+ <afTpoL3FklpQZNMM@casper.infradead.org>
+ <CAGsJ_4x8sNtgv7Y198Gh9NSY+SE2o_JPFAxG9aWE+xXsB9vwGg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Stat-Signature: ukwp7o711oh9hqdcagr83o8ipbi84ubz
-X-Rspamd-Server: rspamout08
-X-Rspamd-Queue-Id: 769B32002A
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX18DLft44k2YZeX2Udu1SeE+L6rSwk5PnC0=
-X-HE-Tag: 1777662463-242147
-X-HE-Meta: U2FsdGVkX18HZ+JhHq9zIZprVHj8AGRMlv1oqYmjfGya9vaHea71t0EKjSn80nvm9Il4U7tne7/JdmHSroYcDA55tm7YVqGnxZtHrugibYTMD1JUiRqPTwQ5j9dkCF503SnUMmQ3WkDZXk8giuSr8g1YOaufsDbgX4Zn/1l1PRfIYZFetI5mngS6Wj7K76RpbuZJBRevihBBniFKGJxL575k0aJI8SevXXAClsYrRFmSQjHzLWFOCNllh/V4Q/pLW/FbuV0Qoj2JmWxeW2ulqkSJwE0aOcIhwqtqwDqnDO4NtURAcY8QIN20NCLerIUhVriTtPJHRfRzKlDs5JQJMKd3wDWbGC/PbxGfQEEGX3lZfBAUGJdgyqIEJKZyCnp/MFj37lOeNTKJSXwLFxCbz7j6ig0eE/an8d3WIfZQaXfgcgHFeLMFZuMiA8THIp57
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260501_120755_230637_AFFC6D8C 
-X-CRM114-Status: GOOD (  13.65  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAGsJ_4x8sNtgv7Y198Gh9NSY+SE2o_JPFAxG9aWE+xXsB9vwGg@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,62 +81,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sat, May 02, 2026 at 02:25:37AM +0800, Barry Song wrote:
+> On Sat, May 2, 2026 at 1:58 AM Matthew Wilcox <willy@infradead.org> wrote:
+> > Yes, but that still fails to answer "does this actually happen".  How much
+> > performance is all this complexity in the page fault handler buying us?
+> > If you don't answer this question, I'm just going to go in and rip it
+> > all out.
+> 
+> I’m getting quite confused. In patch 4/5, you suggest a more
+> restrictive condition using
+> if (folio_test_uptodate(folio) && !folio_test_writeback(folio))
+> rather than if (folio_test_uptodate(folio)), before we decide to skip
+> retrying the page fault [1].
+> That seems to suggest we should be more cautious about when we can skip
+> retrying the page fault.
+> 
+> However, in the cover letter, you suggest removing all retry code entirely.
+> Does this suggestion apply only to file-backed page faults?
 
-Sorry, I didn't look at these patches at the time they were posted, but
-when I saw you reply recently with:
+I'm making sure that if Andrew decides to override me he at least sees
+that there are other problems with this patchset beyond "I don't like
+the additional complexity".
 
- "On the userspace side, each trace events can be enabled separately and 
-  even filtered (although I'm not sure filtering is good for performance, 
-  has it has to match each event with a regex)."
-
-I had to see what you meant by regex, because no tracer should be using
-regex for filtering.
-
-On Thu, 12 Feb 2026 11:23:18 -0500
-Detlev Casanova <detlev.casanova@collabora.com> wrote:
-
-> +
-> +DECLARE_EVENT_CLASS(v4l2_ctrl_mpeg2_seq_tmpl,
-> +	TP_PROTO(const struct v4l2_ctrl_mpeg2_sequence *s),
-> +	TP_ARGS(s),
-> +	TP_STRUCT__entry(__field_struct(struct v4l2_ctrl_mpeg2_sequence, s)),
-> +	TP_fast_assign(__entry->s = *s;),
-
-What the heck! You are copying an entire structure onto the ring buffer to
-print just a portion of it? This is really a waste of ring buffer, and also
-prevents you from doing any real filtering.
-
-You do realize that you can filter on fields (if they are defined as normal
-fields).
-
- For example, 
-
-  # cd /sys/kernel/tracing
-  # echo 'height > 20 && width > 30' > events/visl_fwht_controls/v4l2_ctrl_fwht_params/filter
-  # echo 1 > events/visl_fwht_controls/v4l2_ctrl_fwht_params/enable
-
-And that will only trace that event where the height field is greater than
-20 and the width field is greater than 30. It's converted into a fast array
-to do the filtering. No regex involved.
-
-Also, there's a library to read the raw events from the ring buffers where
-you can do filtering on the read side too:
-
-  https://trace-cmd.org/Documentation/libtracefs/
-  https://trace-cmd.org/Documentation/libtraceevent/
-
--- Steve
-
-> +	TP_printk("\nhorizontal_size %u\nvertical_size %u\nvbv_buffer_size %u\n"
-> +		  "profile_and_level_indication %u\nchroma_format %u\nflags %s\n",
-> +		  __entry->s.horizontal_size,
-> +		  __entry->s.vertical_size,
-> +		  __entry->s.vbv_buffer_size,
-> +		  __entry->s.profile_and_level_indication,
-> +		  __entry->s.chroma_format,
-> +		  __print_flags(__entry->s.flags, "|",
-> +		  {V4L2_MPEG2_SEQ_FLAG_PROGRESSIVE, "PROGRESSIVE"})
-> +	)
-> +);
-> +
+And maybe we decide to do the fallback for anon-mm but not file memory.
+Or maybe it's just something somebody happens upon when reading the
+mailing list (or more likely it's just grist for an AI).
 
