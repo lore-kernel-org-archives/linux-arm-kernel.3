@@ -4,95 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACC93CD3424
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 14:00:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53A5ECD3424
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 14:01:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/yRGhlBCY/TW5XKeeufbyghz250gEgHu0HIRBXKkoYQ=; b=hzlnV51fBoCX9MaDRSr/p5Kixe
-	gClx1BLpcwzps8Py0GECKWrQJG7Ouct0OB9jdpq08oXSzfJvQZjK6pY7+iROFrO2GiDLVFHVh5TQs
-	DnOGZNmpV/izYyoC0rIyZwBh25evto9gBCQzWx8dnt6uA2/x75K7rLFic4fX7J4UJLfR/aXdxAsYB
-	SZHOxyZyivdmSHI6bvV9KCzjSgg9lRtQIgWdt75T6pPf4MRUiYs/SRfXY54qm6VwSyt2BI+LZ/pdY
-	W1Sws2wZQX5pjiLI8B3Bd52L/Ev7t1vWPIFa7SC9eBDw0Kn5hZqKq6rOInvLi5odYsJ4FK+Z8cHDp
-	Z4YRDJ3A==;
+	bh=HG7O0lHSRscMsCiZTAkBaQVsH7ojMjtgb6J5wme+v7Y=; b=4YWPj1b+U/hwGBOWBti0HWqSxN
+	EfVNEGAOANh34oOZzzoq7kKhXsHKYXDSR56OXfN5J4yHcO0nePADGkHiN1+FhSXfP3fb8ycLUn0JJ
+	t2t9Rhvk3b0tJfOsnTYncLsh8aMRzmw15hmohEg6ZepO5zB3sSrG7DZvZAP10L81ebb51mGYdLYGt
+	YAuzWlJYjplIHUsSk8O9cgbT23+Dxx95CnvwNK4bfcVqtqk81MlPO/xzgsdK76C7wTx0qMeWL8ig0
+	g7ZaxcbtbfD+ZB+wlYj4I8j73+7w+C1n4opBzFY4OAjJqqpd5J6aqdXg0IBtBnmaBYshPRMzzUYwb
+	9rgg+0Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIoPY-00000007CrV-2vKU;
-	Fri, 01 May 2026 14:00:08 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1wIoRD-00000007DOj-1bjE;
+	Fri, 01 May 2026 14:01:51 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIoPV-00000007CoP-2WCi
+	id 1wIoR8-00000007DOA-2qzZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 May 2026 14:00:06 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-488b3f8fa2bso28994235e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 May 2026 07:00:05 -0700 (PDT)
+	Fri, 01 May 2026 14:01:50 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-44a5174670eso453368f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 May 2026 07:01:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777644004; x=1778248804; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/yRGhlBCY/TW5XKeeufbyghz250gEgHu0HIRBXKkoYQ=;
-        b=AU84q3xm/fPCKXa1L1yyVPSxYHzNOwM0cySxgHBuh8JRPLzRdX6hMc8ZzkDxOk/WOO
-         81IQ5HhT1REQuAm9LTZ6NtD4p8nshNBrJnMDZyGO9A8Phb+RIjfRzYaC4KB40vhkpzCQ
-         BneQhT2uF6gNMBN4wRQvIzqq6EBsRwxbfhLJyD1Wq+gS07MfSWK9c93mzuJT9HdVbRHT
-         LS4s1yX8FUwXVA6p8aqnZQYZqzkv1ekz4EpUalCTKn0R+qGAheIsWv/xZgm8bczsc1oz
-         DOp5c9nC6GHRlW/PhK5xMEEbs3i+VCrkoPqORYnW7wBLvEqLbKG8oMiZ5pX3E4KIeIwg
-         ghew==
+        d=linaro.org; s=google; t=1777644105; x=1778248905; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=HG7O0lHSRscMsCiZTAkBaQVsH7ojMjtgb6J5wme+v7Y=;
+        b=Pu9TPXAUZJVk/60PBW+jEb6bjSSAzO85ReSmjHVBBiSt0dSAtWxk/vET8SpTsNvJ0E
+         dyDNKcL7viYjO2pk8UNbfhR3rgZCJVxQKzDBdycvkJgJJdIfp9FXIr+8vI8sII7N044T
+         kG1AuvtH9KprwqVUQXKGCER/FCBGwvRx7+mCzBA0jtpcR4VE2E9YeZB4hq7xqdZdqyoR
+         c+v/Vlc/GhRcp9vDC20y7bwrkYkAs5oaN0fws6LoUFv1790yQqan2yc8wmIn987YBNsC
+         0YiI9A2CbmjprtDdZe7kf2DrBvWf771pBZWGN6xChxmE0Gm/mQ8mjCd6WumaN4nHBAOf
+         IGDg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777644004; x=1778248804;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=/yRGhlBCY/TW5XKeeufbyghz250gEgHu0HIRBXKkoYQ=;
-        b=aHYy1xeDUpedNwO4rmCO0Y58FnjJIMMVdD2k93My6oMHmEf1j5ni94SXbOxeuGoaY2
-         22998KKZT3rEM+97I9YjRW1ojxa7uct8E0XbfiVb2HSOjG9hF94LSi7W5EBi5jO93z7i
-         j9his/leM4dnqK9oAcY8WhlVxdYgv+jNNgD7JCiFhEd0Z4sNVa2ZJhjyefHrVoECUas+
-         jbKyFMRUMrdhOBn8nXtDKtFdUsAhPL6KwKTjay7aTJumfcyCEi9sCQygulPMDNWlqjxX
-         Jlt8OGKG3Mwy97V22qXke1BfgH1ywrJ1qkpp7Zxs7Ag42UmXdgM8X0Q588miNfZbyNIp
-         TnLg==
-X-Forwarded-Encrypted: i=1; AFNElJ+8e0oVyFC8pJy0LpeCd1rYZpwKHQplFkroTpNaF8MJLfUr2X/Y2bv0WVP3uzSV1OzBLNcrJXJGX9FRq5Zl9Mb8@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywtg6n6ivAZMLOr1X2U45994wk0N/xdZ6jwccxVrqXSz35LOR6S
-	H2Le5AkdSnxcTAv7Cz4FLX1oD6HmC3qUhHsbRzeLNxmjwKfhXTtPpRGp
-X-Gm-Gg: AeBDiev5gwMxVypCPTcIHya6jUZQy/7C0E+9wY6lKHPXMee6AP1lhv0V80fBERYsZvU
-	cq68qwQXlq44omL3JcJ57tf5JBcC4qTGRChfcMNv/4baUlvApvUQ1gW4N5at8rWv0v7xEs4DS9J
-	fggbQbzoRW1dNYqvxBHExvzAuNfS4hRm0e+alRu+MvPnTiGd/HaDUgFK8gXdYye/pL7VgmJ89Nh
-	Ej/PIDfkDrC8Gefg1khl0HHRVerN104M7nwBBi6Wt5OIZh+oK7b7865y+gtme8g5z9HpTOTr60M
-	DRKBiQ4+VgBgSWXVCxs+tWpegXlB1FmjrjfEZ7zwmfmADhI8fHzxK6Jr0JaZIPJXT3tqYEagUb1
-	8oLUEkDdSP5G4LGp5qfC/IbuWdz9Xln6G2gXuIWHJe00mfusVJltXREK2n/KmDPhyEMim6RizJG
-	d5j0GlydnmKozp55c0S7TIq4ipCfte1X/EW9EVmURkd5GQ3GRbLs8caEBM0Xz+++FW4OLmqO4Dy
-	Qow
-X-Received: by 2002:a05:600c:34c6:b0:48a:761:5816 with SMTP id 5b1f17b1804b1-48a85e7c80amr105322175e9.8.1777644003492;
-        Fri, 01 May 2026 07:00:03 -0700 (PDT)
-Received: from localhost.localdomain (ns31537009.ip-141-94-163.eu. [141.94.163.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-44a98b768fdsm4823539f8f.33.2026.05.01.07.00.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 01 May 2026 07:00:02 -0700 (PDT)
-From: John Madieu <john.madieu@gmail.com>
-To: broonie@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de
-Cc: kernel@pengutronix.de,
-	festevam@gmail.com,
-	carlos.song@nxp.com,
-	linux-spi@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	John Madieu <john.madieu@gmail.com>
-Subject: [PATCH 3/3] spi: imx: Propagate prepare_transfer() error from spi_imx_setupxfer()
-Date: Fri,  1 May 2026 13:59:51 +0000
-Message-Id: <20260501135951.2416527-4-john.madieu@gmail.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20260501135951.2416527-1-john.madieu@gmail.com>
-References: <20260501135951.2416527-1-john.madieu@gmail.com>
+        d=1e100.net; s=20251104; t=1777644105; x=1778248905;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=HG7O0lHSRscMsCiZTAkBaQVsH7ojMjtgb6J5wme+v7Y=;
+        b=O3H68gjTgTG+jZqRaOVND8jb8/We5cRykQhC3QcO4FuEwxGen7XIKtRy5ccy8luEIP
+         TsjAQNr+ZWA7POzMMrxEBYcpTdrWqCpVoOS88eGrrj5i4piCH8ChbQsOS/PejxyFhYuk
+         ub+0Imr4fPVQV3rUZrvhjBgV7VXx/dGMXJ4jnjbo2hh4mZPdWrI0z1Wno2kBvF0i6KjH
+         EUoZJEMZbFQ485JPyV86Uon4Rg4m/Thk1LGFjMu1MDwoZlcMXFdoUWmT+wEp2lBFqJwn
+         k4fx3mcwPWdR8RL2fLDAGv9EjNdJfbrsaeDREnrR28F1CoacZEIUI0CjjRFwB3b7ZUff
+         P6eA==
+X-Gm-Message-State: AOJu0YwXBCXOsRU3thlgBBmCMTgTu2HEUpr4epTR3vETiB0d5u9dAOpV
+	H5LrxFjZkjn7nb+pJcXzleBUkhXsfjZlC4EJDY6wyVIk8VaiaZgPIDhSO+drWhL5lho=
+X-Gm-Gg: AeBDiesmoLrSdmSxD8TMxpaoNNPGodH9zWAc3bbWx8sX/8F7DnLlFYkTDufvVeB/ApS
+	1WNL0d5UmVLpFxDbckj6QtGEEDERpF9JZ4ype3b3WUXM3TpoZH5/SbUfW1aivmTBVQ9Wmns8SjR
+	BOTht7vypzmvx9uuo6JuhTMlHhVZJYFxEZKu15VJH9D5Dh6eiSytLYmpjYM6j2YYcxHHXEtXJoJ
+	3+qebuX7z7eAIZnQog6n9lwNpzleRYe7alirDUz4nac8RrgqHNKZMexIRvpoNwAp0sy0dv0T9kd
+	dYDmhtDfywKBEg1q2GIxgT9d9HwagZJf6Eb2YYC17SScAvkdu+y2s4YbsKcQtkCVWH1Y1hblH6y
+	lg2n/TpGUAx71CxaBcLyhjvna8Wgo5UDo4XGjbYsR11eeMZrlfL5iOR2OYhtmMUCWg5M+Bqgf8J
+	UtVxLsTrtrQi9jlpE+oBFqMEg8+Z6ypRVn9MReIxe905bi1f2vyw==
+X-Received: by 2002:a5d:5c89:0:b0:43c:f583:126a with SMTP id ffacd0b85a97d-4493d412141mr12783250f8f.14.1777644104559;
+        Fri, 01 May 2026 07:01:44 -0700 (PDT)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-44a8ef50e59sm5185538f8f.10.2026.05.01.07.01.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 01 May 2026 07:01:43 -0700 (PDT)
+Message-ID: <0fc8ae87-a941-4dfe-9c14-c851c6a29514@linaro.org>
+Date: Fri, 1 May 2026 15:01:42 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] perf/arm_pmu: Skip PMCCNTR_EL0 on NVIDIA Olympus
+To: Besar Wicaksono <bwicaksono@nvidia.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-tegra@vger.kernel.org, treding@nvidia.com, jonathanh@nvidia.com,
+ vsethi@nvidia.com, rwiley@nvidia.com, sdonthineni@nvidia.com,
+ mochs@nvidia.com, nirmoyd@nvidia.com, skelley@nvidia.com, will@kernel.org,
+ mark.rutland@arm.com, yangyccccc@gmail.com
+References: <20260429215614.1793131-1-bwicaksono@nvidia.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20260429215614.1793131-1-bwicaksono@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260501_070005_650046_E3E039EB 
-X-CRM114-Status: GOOD (  13.14  )
+X-CRM114-CacheID: sfid-20260501_070146_789628_2DBC6F91 
+X-CRM114-Status: GOOD (  41.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,43 +103,198 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-spi_imx_setupxfer() calls the per-variant prepare_transfer()
-callback and returns 0 unconditionally:
 
-	spi_imx->devtype_data->prepare_transfer(spi_imx, spi, t);
 
-	return 0;
+On 29/04/2026 10:56 pm, Besar Wicaksono wrote:
+> PMCCNTR_EL0 may continue to increment on NVIDIA Olympus CPUs while the
+> PE is in WFI/WFE. That does not necessarily match the CPU_CYCLES event
+> counted by a programmable counter, so using PMCCNTR_EL0 for cycles can
+> give results that differ from the programmable counter path.
+> 
+> Extend the existing PMCCNTR avoidance decision from the SMT case to
+> also cover Olympus. Store the result in the common arm_pmu state at
+> registration time, so arm_pmuv3 can keep using a single flag when
+> deciding whether CPU_CYCLES may use PMCCNTR_EL0.
+> 
+> Use the cached MIDR from cpu_data to identify Olympus parts and avoid
+> reading MIDR_EL1 in the event path.
+> 
+> Signed-off-by: Besar Wicaksono <bwicaksono@nvidia.com>
+> ---
+> 
+> Changes from v1:
+>    * add CONFIG_ARM64 check to fix build error found by kernel test robot
+>    * add explicit include of <asm/cputype.h>
+> v1: https://lore.kernel.org/linux-arm-kernel/20260406232034.2566133-1-bwicaksono@nvidia.com/
+> 
+> Changes from v2:
+>    * Move the Olympus PMCCNTR avoidance check from arm_pmuv3.c to the
+>      common arm_pmu registration path.
+>    * Replace the PMUv3-only has_smt flag with avoid_pmccntr, covering both
+>      the existing SMT restriction and the Olympus MIDR restriction.
+>    * Use the cached per-CPU MIDR from cpu_data instead of calling
+>      is_midr_in_range_list() from armv8pmu_can_use_pmccntr().
+>    * Add the required asm/cpu.h include for cpu_data.
+>    * Drop the use_pmccntr override patch from this revision.
+> v2: https://lore.kernel.org/linux-arm-kernel/20260421203856.3539186-1-bwicaksono@nvidia.com/#t
+> 
+> ---
+>   drivers/perf/arm_pmu.c       | 78 +++++++++++++++++++++++++++++++++---
+>   drivers/perf/arm_pmuv3.c     |  8 +---
+>   include/linux/perf/arm_pmu.h |  2 +-
+>   3 files changed, 75 insertions(+), 13 deletions(-)
+> 
+> diff --git a/drivers/perf/arm_pmu.c b/drivers/perf/arm_pmu.c
+> index 939bcbd433aa..7df185ee7b74 100644
+> --- a/drivers/perf/arm_pmu.c
+> +++ b/drivers/perf/arm_pmu.c
+> @@ -24,6 +24,8 @@
+>   #include <linux/irq.h>
+>   #include <linux/irqdesc.h>
+>   
+> +#include <asm/cpu.h>
+> +#include <asm/cputype.h>
+>   #include <asm/irq_regs.h>
+>   
+>   static int armpmu_count_irq_users(const struct cpumask *affinity,
+> @@ -920,6 +922,76 @@ void armpmu_free(struct arm_pmu *pmu)
+>   	kfree(pmu);
+>   }
+>   
+> +#ifdef CONFIG_ARM64
+> +/*
+> + * List of CPUs that should avoid using PMCCNTR_EL0.
+> + */
+> +static struct midr_range armpmu_avoid_pmccntr_cpus[] = {
+> +	/*
+> +	 * The PMCCNTR_EL0 in Olympus CPU may still increment while in WFI/WFE state.
+> +	 * This is an implementation specific behavior and not an erratum.
+> +	 *
+> +	 * From ARM DDI0487 D14.4:
+> +	 *   It is IMPLEMENTATION SPECIFIC whether CPU_CYCLES and PMCCNTR count
+> +	 *   when the PE is in WFI or WFE state, even if the clocks are not stopped.
+> +	 *
+> +	 * From ARM DDI0487 D24.5.2:
+> +	 *   All counters are subject to any changes in clock frequency, including
+> +	 *   clock stopping caused by the WFI and WFE instructions.
+> +	 *   This means that it is CONSTRAINED UNPREDICTABLE whether or not
+> +	 *   PMCCNTR_EL0 continues to increment when clocks are stopped by WFI and
+> +	 *   WFE instructions.
+> +	 */
+> +	MIDR_ALL_VERSIONS(MIDR_NVIDIA_OLYMPUS),
+> +	{}
+> +};
+> +
+> +static bool armpmu_is_in_avoid_pmccntr_cpus(int cpu)
+> +{
+> +	struct midr_range const *r = armpmu_avoid_pmccntr_cpus;
+> +	u32 midr = (u32)per_cpu(cpu_data, cpu).reg_midr;
 
-mx51_ecspi_prepare_transfer() can return -EINVAL when the requested
-word_delay does not fit in MX51_ECSPI_PERIOD_MASK. The error is
-detected after a partial set of register writes (CTRL: BL, clkdiv,
-SMC), so the controller is left in a partially-configured state and
-the transfer is then submitted as if setup succeeded.
+Hi Besar,
 
-Propagate the return value. The other variants' prepare_transfer
-callbacks all return 0, so this is a no-op for them.
+This is still fragile to the thing I mentioned on V2 about some of the 
+CPUs not being online, then cpu_data isn't initialized for those CPUs.
 
-Signed-off-by: John Madieu <john.madieu@gmail.com>
----
- drivers/spi/spi-imx.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+Sashiko suggests to use cpumask_any_and(&pmu->supported_cpus, 
+cpu_online_mask), and currently the Arm PMUs do require at least one CPU 
+online so it's probably fine. Although it could be fragile if we added 
+deferred probing in the future.
 
-diff --git a/drivers/spi/spi-imx.c b/drivers/spi/spi-imx.c
-index 4e3dbd01d619..480d1e8b281f 100644
---- a/drivers/spi/spi-imx.c
-+++ b/drivers/spi/spi-imx.c
-@@ -1382,9 +1382,7 @@ static int spi_imx_setupxfer(struct spi_device *spi,
- 		spi_imx->target_burst = t->len;
- 	}
- 
--	spi_imx->devtype_data->prepare_transfer(spi_imx, spi, t);
--
--	return 0;
-+	return spi_imx->devtype_data->prepare_transfer(spi_imx, spi, t);
- }
- 
- static void spi_imx_sdma_exit(struct spi_imx_data *spi_imx)
--- 
-2.25.1
+The other alternative is to put this in __armv8pmu_probe_pmu(), although 
+then you end up with both arm_pmuv3 and arm_pmu initializing 
+cpu_pmu->has_smt, but I'm sure there is a way to make it fit somehow.
+
+James
+
+> +
+> +	while (r->model) {
+> +		if (midr_is_cpu_model_range(midr, r->model, r->rv_min, r->rv_max))
+> +			return true;
+> +		r++;
+> +	}
+> +
+> +	return false;
+> +}
+> +#else
+> +static bool armpmu_is_in_avoid_pmccntr_cpus(int cpu)
+> +{
+> +	return false;
+> +}
+> +#endif
+> +
+> +static bool armpmu_avoid_pmccntr(struct arm_pmu *pmu)
+> +{
+> +	int cpu = cpumask_first(&pmu->supported_cpus);
+> +
+> +	/*
+> +	 * By this stage we know our supported CPUs on either DT/ACPI platforms,
+> +	 * detect the SMT implementation.
+> +	 * On SMT CPUs, the PMCCNTR_EL0 increments from the processor clock rather
+> +	 * than the PE clock (ARM DDI0487 L.b D13.1.3) which means it'll continue
+> +	 * counting on a WFI PE if one of its SMT sibling is not idle on a
+> +	 * multi-threaded implementation. So don't use it on SMT cores.
+> +	 */
+> +	if (topology_core_has_smt(cpu))
+> +		return true;
+> +
+> +	/*
+> +	 * On some CPUs, PMCCNTR_EL0 does not match the behavior of CPU_CYCLES
+> +	 * programmable counter, so avoid routing cycles through PMCCNTR_EL0 to
+> +	 * prevent inconsistency in the results.
+> +	 */
+> +	if (armpmu_is_in_avoid_pmccntr_cpus(cpu))
+> +		return true;
+> +
+> +	return false;
+> +}
+> +
+>   int armpmu_register(struct arm_pmu *pmu)
+>   {
+>   	int ret;
+> @@ -928,11 +1000,7 @@ int armpmu_register(struct arm_pmu *pmu)
+>   	if (ret)
+>   		return ret;
+>   
+> -	/*
+> -	 * By this stage we know our supported CPUs on either DT/ACPI platforms,
+> -	 * detect the SMT implementation.
+> -	 */
+> -	pmu->has_smt = topology_core_has_smt(cpumask_first(&pmu->supported_cpus));
+> +	pmu->avoid_pmccntr = armpmu_avoid_pmccntr(pmu);
+>   
+>   	if (!pmu->set_event_filter)
+>   		pmu->pmu.capabilities |= PERF_PMU_CAP_NO_EXCLUDE;
+> diff --git a/drivers/perf/arm_pmuv3.c b/drivers/perf/arm_pmuv3.c
+> index 8014ff766cff..60f159a51992 100644
+> --- a/drivers/perf/arm_pmuv3.c
+> +++ b/drivers/perf/arm_pmuv3.c
+> @@ -1002,13 +1002,7 @@ static bool armv8pmu_can_use_pmccntr(struct pmu_hw_events *cpuc,
+>   	if (has_branch_stack(event))
+>   		return false;
+>   
+> -	/*
+> -	 * The PMCCNTR_EL0 increments from the processor clock rather than
+> -	 * the PE clock (ARM DDI0487 L.b D13.1.3) which means it'll continue
+> -	 * counting on a WFI PE if one of its SMT sibling is not idle on a
+> -	 * multi-threaded implementation. So don't use it on SMT cores.
+> -	 */
+> -	if (cpu_pmu->has_smt)
+> +	if (cpu_pmu->avoid_pmccntr)
+>   		return false;
+>   
+>   	return true;
+> diff --git a/include/linux/perf/arm_pmu.h b/include/linux/perf/arm_pmu.h
+> index 52b37f7bdbf9..02d2c7f45b52 100644
+> --- a/include/linux/perf/arm_pmu.h
+> +++ b/include/linux/perf/arm_pmu.h
+> @@ -119,7 +119,7 @@ struct arm_pmu {
+>   
+>   	/* PMUv3 only */
+>   	int		pmuver;
+> -	bool		has_smt;
+> +	bool		avoid_pmccntr;
+>   	u64		reg_pmmir;
+>   	u64		reg_brbidr;
+>   #define ARMV8_PMUV3_MAX_COMMON_EVENTS		0x40
 
 
