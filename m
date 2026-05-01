@@ -4,104 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E29BEFF886F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 00:03:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFCACFF886F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 00:27:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L/stw2Li+z9zBw8IsGsJQTT0j6lAz8JjDjcZka6O6Bc=; b=45N80kUgVDSAoFOnTjZ+bROF+6
-	/wzDOzlffzvHFyBbMENB5P+/v0ZvW9vax+wvBXNpetTanPw2IQEldpTUKLSf7OTeN9zqv0Y6cnKhI
-	IiTkUbKK6i2R0uV4WZ3Ub8O2bXFEt1EppgDAtOMlrvx6ptFm+OHNuzPEr/qw5eVzaNP5MH7lEkKNI
-	XWjFoja3A5YMKSuAqVZdw8yp6jykZX5fbSqvGio9j+SFkehq1u/JXx50CUWBJVBe1ZENN2qBvYGZQ
-	bY+Tec1Iw5q3nAR1Ds34mIb1F/vBSDj9DEVsyRLbDX0AAZaWDVLZf1+TWNNmD2IDaXxWGjCykzBuT
-	DF+RTM5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VmoGKkI7NuJwulbhvTqV0QTHX+4aatQIeLcAJQ/xayA=; b=sY9sInntl+Z+paECafZjCPpR3i
+	JLt89RB/s4ENzpjM7t30dKesyZXLW4ckILzxTUUjLpINmUyEiV6HLBVRi3QrAER2yWVunwhUZeb1M
+	igR4OlJe8APhSFLWAO2ju0r03S4yKLbzJWZtSW9Nmf2XSBvmTYYKq3nXGVXAJHRMo/F+uSgrkI8Hy
+	G+omqW5AItT//cbW4U3ipoBpToYydaJAhD84cW/xBaELGnzokT3sgMNjGFOuAIxuoAburuy+VNYlZ
+	Yhyebr0nDvkLmdkybq6Xk5ghlkUFfj9jwONhl6oNZa8svhclUnrklEUgTiK+e+2TRfmvXamT0Z41X
+	tx+kIZ2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIbLu-000000069fC-3khU;
-	Fri, 01 May 2026 00:03:30 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1wIbj7-00000006Any-3ZFc;
+	Fri, 01 May 2026 00:27:29 +0000
+Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIbLt-000000069eq-0bjf
+	id 1wIbj5-00000006AnE-0vE6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 May 2026 00:03:30 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-bbe539fc355so74966966b.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 17:03:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1777593807; x=1778198607; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=L/stw2Li+z9zBw8IsGsJQTT0j6lAz8JjDjcZka6O6Bc=;
-        b=eK4FztNRga6BWmduqcTSySji1ZQclcT5PQVfD1WYxgLn9PNyfdEjgpGTkwlOauFTls
-         zdlazX/qHfPKFFtZQdr0e4uEqOk8a1uyceo31qMr8vRf9nazqGhntYv3IaJKKuvwXLcF
-         JPSE29dgzfiVXS66D66qsDX46Hng4xLC0K20o=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777593807; x=1778198607;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=L/stw2Li+z9zBw8IsGsJQTT0j6lAz8JjDjcZka6O6Bc=;
-        b=p16m0/R6Qo8KdhyhFDhQ32e8TkIxeAPEs/AbmfKWIuWqoBXXcot4YlOz6gEu2f6e4T
-         vyKwOi+pISeahNZYwwrQWWf46RSEtvPeb4F9kFtd7YtBmDY3elay+42cdEaR1KCEKzEc
-         RmDQpkpPywYho47m1AQu/3GL7KtHhIy33p4A+shTLTZ4DKJ1V9X40fCq5Bt82jVn6JRK
-         MDTNqoTWiuBocyHFaNOwlF1/DqceqjGCXPRFCc9WFonqiTezijeuzJg3zXtFKLBrdqFx
-         aj2JWZ5ml0pAPnOslAxuWMShf/3+gpapn46qV12uxBVNTtB/duC0sIDYaAmBSyxkD423
-         fSlg==
-X-Forwarded-Encrypted: i=1; AFNElJ97dxydyQN0CFWwijPeR02krfxTlykHIILKWuyUvLLeNi1UT2Uop38xdxxFolzSWSCO69qFMS6gvsz2/4St6Lp8@lists.infradead.org
-X-Gm-Message-State: AOJu0YwzMQRTWRLAgyajKY2jRaYUd+Um8eE8yKk+CFLGsQ4n8E0sBCDm
-	2emKU8ipjhu5OU0JRdRjLsLtnc75RjlDCLEo1tn2fsRZvvfjJtxhLbZm5K1PrXUXKLD7Hss89qz
-	MC4xgwkPR
-X-Gm-Gg: AeBDieuW597JQITI3R2bm0vh6JVdr9aeAYeEl2sKAVHIRF7OCJ5DsvuDLREZlrXTk7w
-	pNFt6aVbAGITkKq6pRaQNjRdCY+4T0J7S6RXI/vRn219YMMxDYvX5BPVI/vHCAvh7AsyO752MmB
-	vQac8qAsQv0MJcsaFezpWF9zhOeF4u97/L/WEBWN43LwmOX0fKUJuTJgThOscmQInOpeDbf0gz+
-	XMKqoDcmeHud6qakq+aZAh4/JaOZ5Sbrc44FQIQx1TAQPAK0G5XFV7L798IvDvm0sVxu41MxQGH
-	7VGNvbhRBPYAlWf1/oiJr4yX6EehENMhjG1c7fnYImL66P1OyvikAORB6brpd5exWG/E4dZv6gY
-	91kHjnJo0GmeGrmXOa/XB+vtfZqIatDt189o3F5vyHuVSx0pY2CAw6ev2C+AaueL+uqQz6JDEcN
-	sU9ax9SIE7SFiUDMKQ+sKinmPYUUYj7Hyxrx1ijmwnycXlU0Z+17tNEg5+yUMDvdmTb1sjq00v
-X-Received: by 2002:a17:906:dc90:b0:ba4:d724:1730 with SMTP id a640c23a62f3a-bbec04096e4mr32452966b.20.1777593806731;
-        Thu, 30 Apr 2026 17:03:26 -0700 (PDT)
-Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com. [209.85.221.41])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-67b85e28d6csm432452a12.4.2026.04.30.17.03.25
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 30 Apr 2026 17:03:26 -0700 (PDT)
-Received: by mail-wr1-f41.google.com with SMTP id ffacd0b85a97d-43d73352cf2so1313969f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Apr 2026 17:03:25 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ9bUB1JVlzI1eMatXVyQacXyczPaGpQRM4AZbRkNlMxaYv0fZShwYKdov9AOPrQzvY+zdweXN+4wOEUtKhWtwuX@lists.infradead.org
-X-Received: by 2002:a5d:5846:0:b0:447:55b5:d532 with SMTP id
- ffacd0b85a97d-44a87f60a32mr1080919f8f.37.1777593318187; Thu, 30 Apr 2026
- 16:55:18 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260428200712.2660635-1-briannorris@chromium.org> <20260428200712.2660635-8-briannorris@chromium.org>
-In-Reply-To: <20260428200712.2660635-8-briannorris@chromium.org>
-From: Doug Anderson <dianders@chromium.org>
-Date: Thu, 30 Apr 2026 16:54:55 -0700
-X-Gmail-Original-Message-ID: <CAD=FV=V2H426VR8z5EEm4bWuK-Fvg_wr+mAkkaAfJrWcU0kV1g@mail.gmail.com>
-X-Gm-Features: AVHnY4JV5Y3mu38iXutrpDHLS51XF8wv90SD0VK4jxBhsJoT2PtDnx5IHddvQ_U
-Message-ID: <CAD=FV=V2H426VR8z5EEm4bWuK-Fvg_wr+mAkkaAfJrWcU0kV1g@mail.gmail.com>
-Subject: Re: [PATCH 7/7] arm64: dts: qcom: Add #{address,size}-cells to
- Chromium-based /firmware
-To: Brian Norris <briannorris@chromium.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Thierry Reding <thierry.reding@kernel.org>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Tzung-Bi Shih <tzungbi@kernel.org>, chrome-platform@lists.linux.dev, 
-	linux-rockchip@lists.infradead.org, Julius Werner <jwerner@chromium.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, cros-qcom-dts-watchers@chromium.org, 
-	linux-arm-msm@vger.kernel.org, linux-tegra@vger.kernel.org, 
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	Fri, 01 May 2026 00:27:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vZ97yC/Y0+e9s/jws4HMzHIKfabQr1LgJ/DU2qlKm3dB04r+Lm5Wb2MfyrMh4t+T0SNgPuhmM4Q9PDt+xS2HOjVYl5x14Ntj1suhC1UGK8IxHOnxvEyBw9gEj5w+gq+kwi5zeljzKHhvRoELFQ4znAUgrV9yg45Bq/SIWkIUdI8iQN6aXqNVTvOHKMbMsIW0Denaegao1k7pVv0qjpPeVLFILYaNhfDOpIBcwgL0qExzQtbmej6TTd3ZpDHaKi9BwyrlVeJVfiTqlHM3K+DAt8HNaLpzQjqN66NoI9V0Me+6+CmOGPui+XNL1QLNLCpCsQ1yH4+3PtllKSs8JX/iUA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VmoGKkI7NuJwulbhvTqV0QTHX+4aatQIeLcAJQ/xayA=;
+ b=QnATk5JrceLZ+NSQaUNkMeYuMDEjnt6LC2ZaGacetDuRHWw/2BacK5UhUNWwVX8thOlDIg8opgmU+VLTzAO+oaf9uIoVGOOTbTB0/ta34K88J8bQ2SlFI0vc1SOQNZogMPK97qjKALsQ3r8VbX+jeJbJHsiZjpbYVjetyfZCKFiTGqCvmtgE1HrIxOwhTfD5FJFGwYYSm8wUD5XeS75VyzOna4jRFLX/kR0n9d8VSHOwPZMcbECz92e7lDAPFKMZamPO/ewhn1ucztOCtpPkZTtGGCYws1UH0Hf/MZyyERjwjEwcBob1clhe1VQMoo7FOCw3HrUVbUD0v0Jqo6y/vg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VmoGKkI7NuJwulbhvTqV0QTHX+4aatQIeLcAJQ/xayA=;
+ b=e2zCkzJ1h4e2sZNiigbtO7FJldd9OUZmziplNY0amdHBUa79kZ1O1WOMsgWmuPHB9dme+CcyByFymKcr9CoRinvCFqYVkQQF1FRL6eh6LP5y8KDuHLdT6HIXi5UWtwMjNQVL+qilp3W/cJK3+LJIIPfpaGrPeOEYfP0BMqAj8gOSBcTOod+3JOCKN2GTZhi/rimbzbiasB8FYDeYqv4/IrxyvpA/GIB/Dxk6v/nsOow2q1qYy1ydN554dN24vfZCGOooLpPMb9Vraaf1o4oLAQuXUDksyjBP2lrumKLuRude0RHqkFPRe0G0TpQHcnLEkM3lPxzdE+aLpkNhZ0WAOg==
+Received: from DS0PR12MB8442.namprd12.prod.outlook.com (2603:10b6:8:125::12)
+ by LV8PR12MB9449.namprd12.prod.outlook.com (2603:10b6:408:204::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.21; Fri, 1 May
+ 2026 00:27:18 +0000
+Received: from DS0PR12MB8442.namprd12.prod.outlook.com
+ ([fe80::c4df:b439:571:4591]) by DS0PR12MB8442.namprd12.prod.outlook.com
+ ([fe80::c4df:b439:571:4591%6]) with mapi id 15.20.9870.020; Fri, 1 May 2026
+ 00:27:18 +0000
+From: Matt Ochs <mochs@nvidia.com>
+To: Besar Wicaksono <bwicaksono@nvidia.com>
+CC: "will@kernel.org" <will@kernel.org>, "mark.rutland@arm.com"
+	<mark.rutland@arm.com>, "james.clark@linaro.org" <james.clark@linaro.org>,
+	"yangyccccc@gmail.com" <yangyccccc@gmail.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-tegra@vger.kernel.org"
+	<linux-tegra@vger.kernel.org>, Thierry Reding <treding@nvidia.com>, Jon
+ Hunter <jonathanh@nvidia.com>, Vikram Sethi <vsethi@nvidia.com>, Rich Wiley
+	<rwiley@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>, Nirmoy Das
+	<nirmoyd@nvidia.com>, Sean Kelley <skelley@nvidia.com>
+Subject: Re: [PATCH v3] perf/arm_pmu: Skip PMCCNTR_EL0 on NVIDIA Olympus
+Thread-Topic: [PATCH v3] perf/arm_pmu: Skip PMCCNTR_EL0 on NVIDIA Olympus
+Thread-Index: AQHc2CMVnUUPaHwN1E6xtk7y25sENLX4UjWA
+Date: Fri, 1 May 2026 00:27:18 +0000
+Message-ID: <4BC7B5BD-9160-4A6A-B18F-E788CF340E8A@nvidia.com>
+References: <20260429215614.1793131-1-bwicaksono@nvidia.com>
+In-Reply-To: <20260429215614.1793131-1-bwicaksono@nvidia.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DS0PR12MB8442:EE_|LV8PR12MB9449:EE_
+x-ms-office365-filtering-correlation-id: e632dc8b-7cbd-4f51-3956-08dea7186704
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|366016|18002099003|56012099003|22082099003|38070700021;
+x-microsoft-antispam-message-info: XoXqy7vFfklF6N+kk0TmMjjsKEMpARhpAiD/C6pu/GOLoKNqQeo7BVWfyg6BgcaAsoEDaoYEqQ/IAmyiCKugusBXT72KPFO+NJRghZnYjc5K2cCEZmml3ry+KNmu1jToGOcOseW9/m2QUmf8LwxvmSRCdjQxdMCvXAifDQcLHfj5unSSIHElre1ooqKOIQMNzna56EvqbZ4qXLYyVRfFNZG0JdL3Ewn1dZ3Jd7gdrRam5fgjBjC+gGw2mWT8w4Tpv9u3vFX4IgGkbfNJQLhPYiNkBoeqGLzrBHZaWNRNjHe8Ya1lVX3tLBkVNvg8tr4XbXzibKxyz9mPnm0Hp33eFk3S4MfrYia8ZQhQPjn6/N9b0JTccyaxvlEmpby4edL5eYAl3otWnOl+rPSwdUTxPjm5QPEJBDywVN8CCc02uGzeCIbgFRDhUSP6f6I8L4GhLgHjrHMi0qPj8BUBzOX2r1BR1csmrE2qS0KQF7AEA9uC6MUfDhuiYfitu5fQybrmRYVwmoeILC4PwcT0b7tXD7YYt1sULWTgtv5Phq3hnNfsk7/g6Idtz1Hn8sKBZr5zUvX27xIj2ifJseIMl7PHP+B3wInrkwY9rUtfkHlZfrtYpNfmKD6TJB3SigAQD+ksGec2K8SYUdjeNoCgPillJU6NWH8NV3UahKC/bSQcV5aVVU4uCND4wtvhuvdMdo7OagA8aDQfs8Avjp1EdKr0Ro//TcwpCjyjzr2N7ogt/KBOQswo9It8g2HhE+wFFaBY
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB8442.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(18002099003)(56012099003)(22082099003)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?H91dXT258IJhL/211DM0Hvq5NRz3ciQTvYYkU9SeWPmrdQuFU38pIWIWqb65?=
+ =?us-ascii?Q?lC6B/P4bjQmd5Wj66ZTsnrNSN3YPRMIxJCEGeApfEko6TXIi9jBE4AAOCJf8?=
+ =?us-ascii?Q?ScPpmToy5bX/IExdXBpF6tB1bB+mCwnrLdWf8QRW3bpcyRolRKFZuia1Z4xr?=
+ =?us-ascii?Q?fMzIWNDgpGc4KhP4sL6uqaPDBk2/Y01D7ZokJ6Y3+wBoP3DK+CTrQBd5Hpdq?=
+ =?us-ascii?Q?XhycIBEL/bCsrqQT8ciRAAe9M+m5pSxao57uvmCDF6hTGnaWXkDdIQkMnZ0o?=
+ =?us-ascii?Q?aEK7FUrel7cysi6T6KyKiJw0+k4P1I18f3SIvlC8tMkjAgyOjI30FYF7Jd/M?=
+ =?us-ascii?Q?kl7KFfYZic3i5Bhs4pSiwLmTVwS13+b/JOcCabi7MeI6Js1lTtI1wz9ijgJh?=
+ =?us-ascii?Q?wIhh55UdgNrvprhIrhQUg9lCRRfvBEoyRjaBQfTtv/9XQGuzSYwrVe/sCyx0?=
+ =?us-ascii?Q?s5pkdyEOrWDHJUEufocrZwIwRAssIJ40ZlPn5JbMYqbC+TXGTbVYpfZxddPj?=
+ =?us-ascii?Q?aFF8NuYOavhMKfFUq6FdzDHIT2BtSPEFCx08kGeu0Th7CO8KI/DjLYFGeGhH?=
+ =?us-ascii?Q?8FcB1DlOlIJI35g6af8XsdASqZTAA4PzcVvualay6C4xDr6vcOsJ+82no1mt?=
+ =?us-ascii?Q?tNR1Ao+LORSwhcrhUOSylq9EDXkS5RvCuepUjIqftzcXQU3PjpKUp/PAJwbx?=
+ =?us-ascii?Q?Uesy8KXaYvbBJxszl5Ah6E+zgkJQdfpwMyNUH3ebfb+cs6NgSbcZZJD/TUiN?=
+ =?us-ascii?Q?z8mQ3d90rf9mdHuO7mger5CTkxM3DV9voQvCVeyPPDbKluaGB8KjKf7EVILi?=
+ =?us-ascii?Q?m8oZJ+XOPcCKM0ktombnIaEeEb60hBcx499zm+kLarw9+1A4bkDqaIHw5eMR?=
+ =?us-ascii?Q?VyeXIGH6FYY23uWkzTHmZgUifftfyYkg4ykPcsCGPvGVvs7Y2M+OFtkDnq0U?=
+ =?us-ascii?Q?MDR5fVUZbfyjknCdttVx6w1gRrT6AK4IJTq1h4XPgVzaKwIql+Wnc+NVE7IA?=
+ =?us-ascii?Q?fMdCZBFvVWpHIXTNI0ygrmK55YaSDJxQUKSCYlD2NbrKYTFtkAY7kfSJTyWI?=
+ =?us-ascii?Q?1wTrifopbe7ZvT7MjDTuwDe9KhQRBZkwYiXv2OBsvE6/StySnuKSdqPpQIeU?=
+ =?us-ascii?Q?CSYQreG1L+q749+Hdwr1w8dbLr6TmJ3xIAN9zPyi7UmWYnqAmFvPHJQaY3fc?=
+ =?us-ascii?Q?3jw8JtDt4WafBA6tAz7/4J8r2MTPsquMqTPfNjzJoTEc+jZNo8ZyxICQBRHz?=
+ =?us-ascii?Q?sj/zmUP1vxbAPWYVkbMcmpnqSVOfYQOQwD5dgHSAh01OOuoE/PcAlccE2NFF?=
+ =?us-ascii?Q?8c3qFTbuHzwLy2Qp0kwSaLf0l8UvA7doFuiaw8nO6O3OC6dR5175ocpi23Cl?=
+ =?us-ascii?Q?f3kWMt+Mf6vYtNtstHtNhBHDwh0pwF/GJniVyuJWuWc/rYuPoVlks/nuhHp7?=
+ =?us-ascii?Q?t00+4kUAweSrZsSdu8wHUH/OBTjNEqPlAjb8vqMRyk8wFOJfRH0Qs3+zNLzo?=
+ =?us-ascii?Q?S7vaQJMi7RaDGYoRPnbfmEltPuO5Ug8jm2ssk3WCS49bWcgexdV6q84uNuIP?=
+ =?us-ascii?Q?Di9SlsHkQ7sZi3LCnKLpdLixSbjF+BCIvYJHRPV96nVqkoMf4Fq92dg4RKsc?=
+ =?us-ascii?Q?c6nIpio22UExWmfvqTuvHfcSDxvb1eQsXBoDD7PxRiK4KE9n4XqC4w8id+zP?=
+ =?us-ascii?Q?5eUglet2uCu6x2O0HejPqpo7AGBiYhi0uooliYjVgDGNTNSwzQlBn6M8ZAr5?=
+ =?us-ascii?Q?7SH2SoxQRg=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-ID: <5C3220BB1279BE4EA63CEBA5172FFCD5@namprd12.prod.outlook.com>
 Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB8442.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e632dc8b-7cbd-4f51-3956-08dea7186704
+X-MS-Exchange-CrossTenant-originalarrivaltime: 01 May 2026 00:27:18.2270
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: M3SGhK6FDB1HseCQeKlHjgDsm/2L/JjqMDGNW3AbVzUpXLjV6U7uF+ZqBAGDAoxDQEak/43eAHmFy+5CUzikjw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR12MB9449
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_170329_213870_30EC84F3 
-X-CRM114-Status: GOOD (  18.56  )
+X-CRM114-CacheID: sfid-20260430_172727_266079_8106A2D9 
+X-CRM114-Status: GOOD (  11.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,59 +147,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-On Tue, Apr 28, 2026 at 1:07=E2=80=AFPM Brian Norris <briannorris@chromium.=
-org> wrote:
->
-> Chromium/Depthcharge bootloaders may dynamically add a few device nodes
-> to a system's DTB under a /firmware node. A typical DT looks something
-> like the following:
->
-> / {
->         firmware {
->                 ranges;
->
->                 coreboot {
->                         compatible =3D "coreboot";
->                         reg =3D <...>;
->                         ...;
->                 };
->         };
-> };
->
-> Notably, the /firmware node has an empty 'ranges', but does not have
-> address/size-cells.
->
-> Commit 6e5773d52f4a ("of/address: Fix WARN when attempting translating
-> non-translatable addresses") started requiring #address-cells for a
-> device's parent if we want to use the reg resource in a device node.
-> This leads to errors like the following:
->
-> [    7.763870] coreboot_table firmware:coreboot: probe with driver corebo=
-ot_table failed with error -22
->
-> Add appropriate #{address,size}-cells to work around the problem.
->
-> Note that Google has also patched the Depthcharge bootloader source to
-> add {address,size}-cells [1], but bootloader updates are typically
-> delivered only via Google OS updates. Not all users install Google
-> software updates, and even if they do, Google may not produce updated
-> binaries for all/older devices.
->
-> [1] https://lore.kernel.org/all/20241209092809.GA3246424@google.com/
->     https://crrev.com/c/6051580 ("coreboot: Insert #address-cells and
->     #size-cells for firmware node")
->
-> Closes: https://lore.kernel.org/all/aeKlYzTiL0OB1y3g@google.com/
-> Fixes: 6e5773d52f4a ("of/address: Fix WARN when attempting translating no=
-n-translatable addresses")
-> Signed-off-by: Brian Norris <briannorris@chromium.org>
-> ---
->
->  arch/arm64/boot/dts/qcom/sc7180-trogdor.dtsi   | 5 +++++
->  arch/arm64/boot/dts/qcom/sc7280-herobrine.dtsi | 5 +++++
->  2 files changed, 10 insertions(+)
 
-Reviewed-by: Douglas Anderson <dianders@chromium.org>
+> On Apr 29, 2026, at 16:56, Besar Wicaksono <bwicaksono@nvidia.com> wrote:
+>=20
+> PMCCNTR_EL0 may continue to increment on NVIDIA Olympus CPUs while the
+> PE is in WFI/WFE. That does not necessarily match the CPU_CYCLES event
+> counted by a programmable counter, so using PMCCNTR_EL0 for cycles can
+> give results that differ from the programmable counter path.
+>=20
+> Extend the existing PMCCNTR avoidance decision from the SMT case to
+> also cover Olympus. Store the result in the common arm_pmu state at
+> registration time, so arm_pmuv3 can keep using a single flag when
+> deciding whether CPU_CYCLES may use PMCCNTR_EL0.
+>=20
+> Use the cached MIDR from cpu_data to identify Olympus parts and avoid
+> reading MIDR_EL1 in the event path.
+>=20
+> Signed-off-by: Besar Wicaksono <bwicaksono@nvidia.com>
+
+Verified on NVIDIA Vera (Olympus CPUs) with UEFI SMT disabled. Confirmed
+that grouped cpu_cycles events show ~1x ratio (both on programmable
+counters) with the patch vs ~15x inflation without it.
+
+Tested-by: Matthew R. Ochs <mochs@nvidia.com>
 
