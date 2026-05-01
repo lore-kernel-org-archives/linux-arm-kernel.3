@@ -4,122 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99132CD3423
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 15:33:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 749F3CD3423
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 15:36:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
-	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nIFGJkIeWdUt+CmNJefoaOlO/byGEQ4fNf280dgFKws=; b=S70Oxk3NwIc+2BR57a9HRBGnq1
-	xjKnrFLyBQVyZzAhvyQBceVAJUjbgvlvZ1lLBYT8Lvpn+c+Xj3LhCs8s5lZTlttW+mnMTuyfzvr8k
-	uJlajBCNtcyQHLLcUnbSJR/cQgV2xCW1/dyAJXcqYHaI6wHnuvyNEbP0aCFYSyOVNXG/4ACU1GyYx
-	t1LbmQ/rY+AtmeFHzF4SybQfgB6Eg3Fw7zg8+VQZxvYYD/q7Y5Tcm357t42dzWg97Rsq/QYy1EbSR
-	HVnFzRfI9rJPSeGNl2vTSygD2s6qew1M1txbQbZff2oImYrorG01vrDcaRBx23lqNkfHRvrzgEn0T
-	0HwAAf6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uRtlnL49pKeZCApCiJ/CvbaZOCEdzedFqtleNnlK0c0=; b=Fj/xNisXLWjuSVye8RwfxqQcQY
+	RPP4mpJa05ckr6kKkMbnVWIzdIsBy0h8EHWoU7seWKBPoWNAeMqzMeED+6YRxVVL0UOZwxnbSMktg
+	Fbjonyr5A2TuCXFrVECTh7hPbaI/iX31Lwz9ph8XjmHUCqBpXAa2JoNmtQUGtBi44CmShH7cJx+Pv
+	EL6E5GRHqhhvW7P5Wjs1GYV4zv4d3p8JJK2GRBzT0gSBr47UU41JkULEsCtxoe5pvBQHGIhVVJaML
+	0o6jHiLw2qTEfvyJNixiIB9d3CNJXDnALFvgraOWcxy3A1kkxMbqQfO3vZxSKzy7lHC1sazkN23aP
+	WgvvyWYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIprQ-00000007LtI-1yrG;
-	Fri, 01 May 2026 15:33:00 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wIpun-00000007M7F-1Pqg;
+	Fri, 01 May 2026 15:36:29 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIprO-00000007LtC-2rGy
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 01 May 2026 15:32:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:References:Cc:To:From:
-	Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:Mime-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=nIFGJkIeWdUt+CmNJefoaOlO/byGEQ4fNf280dgFKws=; b=OhR+21xut8tPvt4O8tb56d+E6g
-	egV9edH2QwmEwrAvoCMcj+aUM6oP1xh7Zw2++vX7/dqCMwY3fXmpOoxuV+H0BXlkRe5LOuUOuPmut
-	QJvB+JXZTJcxTZxw+6igloEFRkEBAwV89YmUO9ZfRTHTSP2qpyOfJH2PLPncxnet3SjmDKJ5RqBJe
-	jS1bBfNtLZDBNX9rR9PvzGsRitRJ+cVe88U0MF/7CwnglZyZ8GsvgkWsy9nOIj8Nq3oPzjvYA0Vxb
-	t7dQ5wV9RL+u6RNESvftW/JM/ZXytonhWYhVh6/inuQ1p5WaCm1sCFowDjEUXCcP19HOjeonVtNs7
-	nVSjHoGg==;
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIprL-000000095vy-1uEi
+	id 1wIpuj-00000007M6A-3MwM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 May 2026 15:32:57 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-488d2079582so22565305e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 May 2026 08:32:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1777649573; x=1778254373; darn=lists.infradead.org;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nIFGJkIeWdUt+CmNJefoaOlO/byGEQ4fNf280dgFKws=;
-        b=mcE4+daMWnin/Yf3FFrSZ+26c/YM+lvEJNoNGAuUTDbYn3d2VLIlRNj7ZyBXFkS/IG
-         qvAfTMIuvFRlRE41AAtqqyOytrx8qEm/oMrVgoHM0GhiC8ufQwnN5on/DqKmxd5kEKTX
-         G6MdrgVKREv6uVtCT0QqjH6/H8SB9eH/o5lAQB2hcyl1YnMNYkR/4LtZ8BSmDfrwIDA/
-         w01t0/RdLiEAkD43wqtamfzYoOGMBe+ekGhxYJUo0ESF27Fwo8Edf1oHDpJ4gPuXH7F0
-         2tzAxHx7ZmYIt52/N/mmXkTcexXnED2r7VAMcN4aX6lBYLd47l9KBBKuHtjBggVpUQMJ
-         SnZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777649573; x=1778254373;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=nIFGJkIeWdUt+CmNJefoaOlO/byGEQ4fNf280dgFKws=;
-        b=lUBp9OVSVQtzRC5Q6wiauLY0Tbf9XSl6ZRvgBU0sa2crCvQSqnbfGvFcH7mu89DZVt
-         9yzYFcv0h3GzWsEMB3oKLOEmseruG0gqgqVa22IU0sZvtDS9fCaeMeU0vkPHc4QE+Iy9
-         TPAyUH2vYnBY92PDo9coS6ZeBNXlxl5KXmx1xFcehbU0/GnQWVqH/fv8UvWJQuiX5qsH
-         jOBPcz1jGwOhFgcVpopvFSSDsTI1oYgdcC903mG68hijLcIzmsyegQ8BIZTwmF5WDHsF
-         nagYOYCpbykCksRbeLk7gsklIIccgQQA0BenrJreVWnUUhmN1e779Yj5RUhI/N+uKPQ9
-         Aqkg==
-X-Forwarded-Encrypted: i=1; AFNElJ/nbsjrXjKW1iXg2eetWsUxLOaikvbH8/rPzWxUJj8g8PN8h7x1N828mcneXS1/aGwTXpJ9tOWy4NZKR8/TdDUO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx0vOBz1Gy7xGBN4fPU5/dJ3xx81Wu8ojM0sk6cRuhCzqyGqcYE
-	2d+XDGYEwTACTOHtnkRjoutmDK555m0pt837iObr4XoOxGNPZUa12fHmqskuUrUxBso=
-X-Gm-Gg: AeBDietVushWHNuU3/uldLts0fbHnRDBAgwc+QLe2U38kS8EDemgUj0IRd2h0KoB91a
-	R8PHCek4AMEVWuFvpgwX+/0iGun+LGYhPLW9SgF1YHdQDXmApAr0yevZvEjMyJEgGAuNIM3EAgN
-	wzdWa5QSVjKPHbpgnggGYLgr9Ot+BQvEKdCd+89ucpEq/jBiaUfrDoS5G468NgqoXqfKffVrRAn
-	HesXir1I7RkdWX4tv6FA01AHbXdt3tRP5fkV3SDw3/oB5RWNivYtYtDuuflO3xkgipENw8eDmCm
-	/dCi7/OgBw97XI74hLH12ojLiUFWv6gzbvNLQL2i9b3L/NbyylPgtuATu+DC+nzEP9s91ROUW75
-	OkKNV+DhbvVo725AG9+5p4sFKzB64IMmWsdLCMf1+KB8vTqYL3EgOVGCJtQi4GfXgy0Wqa3aZqF
-	oARFgtfU+GcpoHXZcTZso7/b6uj1OdbHrhd/E84DgT1xnBxMvhfrmdh6codm1ThxUpmWSxrsSwr
-	bCxeIJOr+aEgnswq5dtjkmLOd1EEF5sSYY=
-X-Received: by 2002:a05:600c:354d:b0:488:8b99:54a1 with SMTP id 5b1f17b1804b1-48a8445e8bcmr124239825e9.28.1777649573128;
-        Fri, 01 May 2026 08:32:53 -0700 (PDT)
-Received: from localhost ([94.4.195.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-44a8ef50e59sm5648768f8f.10.2026.05.01.08.32.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 01 May 2026 08:32:52 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 01 May 2026 16:32:51 +0100
-Message-Id: <DI7G6J6LMC4T.2LQ8SEC6HMM1L@linaro.org>
-Subject: Re: [PATCH v4 00/11] thermal: samsung: Add support for Google GS101
- TMU
-From: "Alexey Klimov" <alexey.klimov@linaro.org>
-To: "Tudor Ambarus" <tudor.ambarus@linaro.org>, "Alexey Klimov"
- <alexey.klimov@linaro.org>, "Rafael J. Wysocki" <rafael@kernel.org>, "Zhang
- Rui" <rui.zhang@intel.com>, "Lukasz Luba" <lukasz.luba@arm.com>, "Rob
- Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Krzysztof Kozlowski"
- <krzk@kernel.org>, "Alim Akhtar" <alim.akhtar@samsung.com>, "Bartlomiej
- Zolnierkiewicz" <bzolnier@gmail.com>, "Kees Cook" <kees@kernel.org>,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>, "Peter Griffin"
- <peter.griffin@linaro.org>, =?utf-8?q?Andr=C3=A9_Draszik?=
- <andre.draszik@linaro.org>, "Daniel Lezcano" <daniel.lezcano@kernel.org>,
- "Sylwester Nawrocki" <s.nawrocki@samsung.com>, "Chanwoo Choi"
- <cw00.choi@samsung.com>, "Michael Turquette" <mturquette@baylibre.com>,
- "Stephen Boyd" <sboyd@kernel.org>, "Lee Jones" <lee@kernel.org>
-Cc: <willmcvicker@google.com>, <jyescas@google.com>, <shin.son@samsung.com>,
- <linux-samsung-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-pm@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-hardening@vger.kernel.org>,
- <linux-clk@vger.kernel.org>, "Krzysztof Kozlowski"
- <krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: aerc 0.21.0
-References: <20260423-acpm-tmu-v4-0-8b59f8548634@linaro.org>
- <DI7D7JXW4RGK.XB0BE6ZXNMHS@linaro.org>
- <b9fa48f1-0ace-4a8b-b2bf-b5e01f789f7b@linaro.org>
-In-Reply-To: <b9fa48f1-0ace-4a8b-b2bf-b5e01f789f7b@linaro.org>
+	Fri, 01 May 2026 15:36:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=uR
+	tlnL49pKeZCApCiJ/CvbaZOCEdzedFqtleNnlK0c0=; b=ioo1AimeJkcaKRj8Fj
+	IrKD3TGc5GOVSIZgoPTkXi5LkY98r4n09UEesWcztOhKXK7RycZWuiHHtRHuR/VP
+	IL4tMeVchuWTWHo2rSGcWak9r2li1ZQM+IoaWlpmcKGAm3d6dsSpzQVsd2kfCuXV
+	23L2nV6FRS82iKj7Vm9l7E/DA=
+Received: from zhb.. (unknown [])
+	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wCH4HBbyPRpuOd_Cw--.58479S2;
+	Fri, 01 May 2026 23:35:56 +0800 (CST)
+From: Hans Zhang <18255117159@163.com>
+To: bhelgaas@google.com,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	vigneshr@ti.com
+Cc: robh@kernel.org,
+	s-vadapalli@ti.com,
+	linux-omap@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Hans Zhang <18255117159@163.com>
+Subject: [PATCH 0/2] PCI: cadence: Add 100 ms delay after link up for speeds > 5 GT/s
+Date: Fri,  1 May 2026 23:35:51 +0800
+Message-Id: <20260501153553.66382-1-18255117159@163.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wCH4HBbyPRpuOd_Cw--.58479S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7trWfKFW8Zr18uF4kWr48WFg_yoW8Zr18pa
+	y5Wr4FkFn7Ww4avan7Z3W7Zry5uFn5J3y3Kr4kKa4Iq3sxCr93JF1IqFnaqayagFs5Zr12
+	yw1qqasrCFsxuFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piGjg7UUUUU=
+X-Originating-IP: [240e:b8f:927e:5900:a6da:de99:5aab:66f2]
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCxBzghGn0yFzAdgAA3D
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260501_163255_599236_6DBB041B 
-X-CRM114-Status: GOOD (  10.56  )
+X-CRM114-CacheID: sfid-20260501_083626_759747_0D69FD48 
+X-CRM114-Status: UNSURE (   9.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,61 +80,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri May 1, 2026 at 3:33 PM BST, Tudor Ambarus wrote:
->
->
-> On 5/1/26 4:13 PM, Alexey Klimov wrote:
->>> Dependencies
->>> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
->>> - context dependency on the ACPM fixes sent at:
->>>   Link: https://lore.kernel.org/linux-samsung-soc/20260423-acpm-fixes-s=
-ashiko-reports-v1-0-2217b790925e@linaro.org/T/#t
->
-> cut
->
->> I've took series locally using b4 and result doesn't compile:
->
-> take the set linked above as well please.
+As per PCIe r6.0, sec 6.6.1, a Downstream Port that supports Link speeds
+greater than 5.0 GT/s, software must wait a minimum of 100 ms after Link
+training completes before sending a Configuration Request.
 
-Okay, now I am lost. Were dependencies incorrectly described in this
-series?
+The same requirement has already been addressed for the Synopsys
+DesignWare PCIe controller in commit 80dc18a0cba8d ("PCI: dwc: Ensure that
+dw_pcie_wait_for_link() waits 100 ms after link up").
 
-Log below of applying patches below:
+This series implements the required delay for the Cadence PCIe controller.
 
-Total patches: 11
+Patch 1 introduces a 'max_link_speed' field in struct cdns_pcie and adds
+the delay logic in cdns_pcie_host_wait_for_link(). Since max_link_speed
+defaults to 0, the delay is not yet triggered. This patch prepares the
+infrastructure and references the DWC implementation.
+
+Patch 2 sets the max_link_speed value in the TI J721E glue driver based
+on the maximum supported link speed (obtained from the device tree
+"max-link-speed" property), thereby activating the delay when the
+controller supports speeds greater than 5 GT/s.
+
+Other Cadence-based glue drivers can be updated similarly in follow-up
+work.
+
 ---
- Base: using specified base-commit 2e68039281932e6dc37718a1ea7cbb8e2cda42e6
- Deps: looking for dependencies matching 4 patch-ids
-Grabbing search results from lore.kernel.org
- Deps: Applying prerequisite patch: [PATCH v3 1/6] firmware: samsung: acpm:=
- Fix cross-thread RX length corruption
- Deps: Applying prerequisite patch: [PATCH 2/4] firmware: samsung: acpm: Fi=
-x sequence number leak and infinite loop
- Deps: Applying prerequisite patch: [PATCH 3/4] firmware: samsung: acpm: Fi=
-x mailbox channel leak on probe error
- Deps: Applying prerequisite patch: [PATCH v3 3/6] firmware: samsung: acpm:=
- Fix dummy stubs to return ERR_PTR
-Applying: firmware: samsung: acpm: Fix cross-thread RX length corruption
-Applying: firmware: samsung: acpm: Fix sequence number leak and infinite lo=
-op
-Applying: firmware: samsung: acpm: Fix mailbox channel leak on probe error
-Applying: firmware: samsung: acpm: Fix dummy stubs to return ERR_PTR
-Applying: dt-bindings: thermal: Add Google GS101 TMU
-Applying: firmware: samsung: acpm: Consolidate transfer initialization help=
-er
-Applying: firmware: samsung: acpm: Annotate rx_data->cmd with __counted_by_=
-ptr
-Applying: firmware: samsung: acpm: Drop redundant _ops suffix in acpm_ops m=
-embers
-Applying: firmware: samsung: acpm: Make acpm_ops const and access via point=
-er
-Applying: firmware: samsung: acpm: Add TMU protocol support
-Applying: firmware: samsung: acpm: Add devm_acpm_get_by_phandle helper
-Applying: thermal: samsung: Add Exynos ACPM TMU driver GS101
-Applying: MAINTAINERS: Add entry for Samsung Exynos ACPM thermal driver
-Applying: arm64: dts: exynos: gs101: Add thermal management unit
-Applying: arm64: defconfig: enable Exynos ACPM thermal support
+Our company's product is based on the HPA IP from Cadence. When connecting
+to different devices, we encountered issues with the enumeration failure
+when connecting to the NVIDIA RTX5070 GPU and the NVMe SSD with PCIe 5.0
+interface. Our code is based on: 80dc18a0cba8d ("PCI: dwc: Ensure that
+dw_pcie_wait_for_link() waits 100 ms after link up").
+---
 
-Best regards,
-Alexey
+Hans Zhang (2):
+  PCI: cadence: Ensure that cdns_pcie_host_wait_for_link() waits 100 ms
+    after link up
+  PCI: j721e: Set max_link_speed to enable 100 ms delay after link up
+
+ drivers/pci/controller/cadence/pci-j721e.c               | 1 +
+ .../pci/controller/cadence/pcie-cadence-host-common.c    | 9 +++++++++
+ drivers/pci/controller/cadence/pcie-cadence.h            | 2 ++
+ 3 files changed, 12 insertions(+)
+
+
+base-commit: e75a43c7cec459a07d91ed17de4de13ede2b7758
+-- 
+2.34.1
+
 
