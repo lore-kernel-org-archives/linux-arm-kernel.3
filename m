@@ -4,76 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DB08CD3424
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 12:41:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14CEECCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 12:44:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2W3ZOFfDhqX8vh6C4yIuWTuxJv6mmoplDTMsMIIiSDs=; b=L5vP0mzUVDq9XWMKpS6fcddAm7
-	b3JniDm2ZoUQuuTnAuzg3ZCXzTv3U5Vc23wjc6Ncz3lBkHO79HO/GGkLaaOF1wgHIfN3joknAJD+E
-	V4irTveNo+KT38RrHLGpu0xwRNaVBCyVXbwL1gW4PGRaTqQF7/hpjRll+XYd6pFgFHbbhkOCReHO3
-	utIBykVceLzLxCqb6N9Gyr5k4J9bp4zUfMTi1srsc+E8716T/avgHQYoFUpFo5McH5Ok27P3IqsR3
-	B78JAR3TVxgvQQJVJftxynoy+27jqlORzpSLQM0jtQtzD3rsNe/wWodMy4Xw5/KnqFkn/GYayoZ/Z
-	OPdkKGhQ==;
+	bh=x+W1ujC/i2sYkXDbzkORn7Jew8iq3dGZCwNInAwZJio=; b=bV3NUqKhGdoipERxsr8cHM97vr
+	d0TQwY9S9vrEDd/fCTHRTxI7nu1ASN5bYn4qIT7ac3B1aSF+igyhKrL6Lehbp8JIgLX+pkkULtcOT
+	ZWPj322uE06wNrQC/RKa914zhzu/BgeIBWJ4FtTelU0Klf3DBmEFtDlYeIP/3UE2wGpggWj3n5SWm
+	s7ytaf1TEd9KMlSnVzU4bqk01DRvjLenJcU2YvElpzt3KQ/8EdkroTmb+vRGOQKAeITPEkabEmq/d
+	m0PSj2zlX0f/nhbToa6cAF6Jcn//dTf2AfvbbX3CPQfc8bFHMPxXQ5imI8jkeAaI2k3O7mTsMBi9g
+	+fsLclDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wInBl-000000077qm-1ejN;
-	Fri, 01 May 2026 12:41:49 +0000
-Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
+	id 1wInEh-0000000786G-0YH7;
+	Fri, 01 May 2026 12:44:51 +0000
+Received: from mail-qk1-x72b.google.com ([2607:f8b0:4864:20::72b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wInBi-000000077pu-0htM
+	id 1wInEe-0000000785i-1S5Q
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 May 2026 12:41:47 +0000
-Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-50fb4a7d704so14194971cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 May 2026 05:41:45 -0700 (PDT)
+	Fri, 01 May 2026 12:44:49 +0000
+Received: by mail-qk1-x72b.google.com with SMTP id af79cd13be357-8d736211595so129021485a.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 May 2026 05:44:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1777639305; x=1778244105; darn=lists.infradead.org;
+        d=ziepe.ca; s=google; t=1777639487; x=1778244287; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=2W3ZOFfDhqX8vh6C4yIuWTuxJv6mmoplDTMsMIIiSDs=;
-        b=Se07q/QMcia1cDEy9vFg6fhhUVz3xT3LdaFmhjncSmnZv1eeQirxKn0CQWepvsJqj0
-         3jCc5T1cy9o+n8URpmJ58XN46caAOa3inrFwzouOXCm/nIBHF3OqgO8ZVhsW9aRdFuci
-         4BWqTXD2B48HYKkZfH1mWWUlWMrcbLUWv+029gyacCvGon2NiRaOkskyzOLtLypKXc6m
-         HGYFNRJbV0siTY4SaBJp9hrbrGH0W+TQfX4Yev5I3iNrVlsxDQ5KQRmcUKTNBorIiABX
-         JzCWq40sgtHBQOD3V9jbpB1LSRTxJ79nX+SHzZLOFvtsLYI0wgBiokny4rpx87IeWHuD
-         j5ng==
+        bh=x+W1ujC/i2sYkXDbzkORn7Jew8iq3dGZCwNInAwZJio=;
+        b=ZrNkmHVghTIaFbADMIFDZ5uzmbc+mFP4VPVbtUTlwKN6v0MpZElfsxBrmyxLAp/VQA
+         O2WwpoNpziH/Zo6iwqJ1GNvluLjjxNiXd4CGEfa9FpGlUoH/Ww8jLqM0yIexjAhe/RkC
+         EGmwd+R8M07aZeuIQflUXX2YviAAYuQ+eGj4eLdXbLdtdhyWUvYGom1FWv/PpytLlxOm
+         c7I+ljRAFJi9o4VsszmTN2b1+xhPAoDL/sXX/c7TlghMpXzLGQrQepgWuWO2/nDXQ0AF
+         P59A9rUat9pnTxETKWXFYB/zAinkdgh+Vhcf/6Ygr6JS5KJbH6Ssh/UUz8bFZb1QjtIa
+         LJ2w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777639305; x=1778244105;
+        d=1e100.net; s=20251104; t=1777639487; x=1778244287;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=2W3ZOFfDhqX8vh6C4yIuWTuxJv6mmoplDTMsMIIiSDs=;
-        b=M5Jopq8jSv7mNkkGBSqS2Uofpq7qcxPJiO0pK/3DpK2eICn2TjNdSXdA0UEKDY2r9M
-         oNliVL39Ojg4MItPo3ft62lE5lYO1VTKtpooARhpVduynKSClEKxu+MSxjpBC3430wt8
-         ZZZNLyOSPgwJn3LyrKVHGtUW1rAVPR9Bd78A3/irzP9YSslQLQgRpI7G3oig+0QTyoJx
-         DO+gvGh6/ch07IWHTu+Vvgr0tXcXVN7aOvoANlTq/XxfobMgCUAf06+LC/deSctY63NN
-         UUIc4OCRRxIGbK/F/4sI8poZeG4g4aiqc71G5OOZy3GjS2XQ2FYlRI86MK74gVJUpAog
-         YhGw==
-X-Gm-Message-State: AOJu0YyDLDHFpgyX3V4ZKjaNoBmugW/LTvU5SaqGYe1jLhNDfwsz0/Ml
-	mBmb62i7cBsY3qRO1Y2Al+y2NuRLA8OLY1B8DW3Rw0JVIcvHrbswxbDZVZuRpLWiTMETLdPc46+
-	EwZ1F0VY=
-X-Gm-Gg: AeBDieuIMMOCrDPaGZoamLGCbQ1XeXEQ9B/nSIrB8w4I3EMGlDa8kGC6zGOxf9jWLJu
-	9Ji7oOpL5oOk2hrsUYOLfbriLxKIk5aa9hiekxZstYrO5vBkn7lYCeHpAga7+UUjfvQMUkt8gqE
-	Hr++iQ38yp+yA6SW5sF+KuAfBd7UyPZAShZQ2zkVjE5LkYr+ICfqWnWtVWR80kOFgribl5aXpOO
-	VCAJpBytuX0xoakMH+SZ84Wdq0XoSekC6HXNNIPN79CaPx0My+M6Gh/NuBwT58FtreoNVP4Seld
-	e5a4j0BzNTOjA/42jzxFSK0NDJGjnev351gDcnIAKfNw9Xd45O1SV8sjZzPUK+b2/g4Bff6kJ+Q
-	kOpGC7bTDth8L0Bh6dm7pdqan6sFlVGLfjX6hxvWlTxZBvR5hYwO8uCXnYAnQR24nvkFl06OUWK
-	z6sPMP86CvZxx8Sxkm9XZziU0UAXDGlNSMnTIBodQzqk71tq5R16lfIq+OPnRk4krt3B9lI7BSm
-	Ef8YDQVpOAhIqYQ
-X-Received: by 2002:ac8:7f84:0:b0:510:1b61:d0e4 with SMTP id d75a77b69052e-5103e8fad49mr37362611cf.35.1777639304723;
-        Fri, 01 May 2026 05:41:44 -0700 (PDT)
+        bh=x+W1ujC/i2sYkXDbzkORn7Jew8iq3dGZCwNInAwZJio=;
+        b=iDwZwLyMNZGyMs80tnLUlAXGlwKQO3ZWvuloNUZenJtGVr2Z767hfUtklG1uWpsSfQ
+         imNISJsmPEJvQgeowSxeDH0HUKNTSP9tLgXUOaPsJMIEIQhnSCrANTkB50h2FrbDfd8z
+         V4a1kkfzn18y0ZH2xuFodBeCvPz/us5QinGuNpAx7DEZB9viZe6zCnZXxkCniMEvMPZH
+         5Rna4TZhq4d5iXRkCTwqW+lIF5V5QstYIx3Oz66Xjmht6UYbDHRSougG3qKOdAnw/1td
+         SwIn6X+oIFU5ZEKHYYbzwuAfiT8c4yL1HcW7ey97CFJfRgVuaH9muxNcgZE9Y/iF8IQ/
+         L9Lw==
+X-Gm-Message-State: AOJu0Yz1bZC9yDV7L05NTI+HzlZUFhHcKcfdjtFAiohs8NqlLPJC609u
+	dxA6w0gcTfYXluFtgP3icce3OFMMv43HAUfxoqifO/YlIG+zyvNZRBESvqpflzXyqhc=
+X-Gm-Gg: AeBDievzfe90JEuT8GqgCQti6Rdz7uSobvxfP5xHbRA5S8/AeH2T0qFGJLoa3aKupLN
+	0F3k9VFAkxgdsGUrnXMZEi5DSAXRF+EZMhbkx1e15pSPwKF0NbHXg9pPpauHh+YS0zE2N8MFqYT
+	D0y9VJDLGqXQmF64On6pKyz4UD5Igqz/82X/ghVtiFaQ3MQJ2BBXWPfxfjD3OOjBNBW1Ej8A2EX
+	xIE3meRtVCV+Kbt/1T6SvB9B3E9mjYHcaw+EFLRNkK5+6HwX9bZe7y9sVHpH24nh/kglRrZq4Va
+	5A1XuPqCVjURU6j8J8EfUYE5kypHyzaJGE0DoX10P49R6nVkX806Pc+gEZQCT5henY+YF0JMdmd
+	zd+0kzOFYYYHn5hOv5vYCXQd30YWaQX52770YkS0z9/yqL3AGVnBnOcEqS/9Ci3M7iLXcJxY7th
+	iTWBTxMp8sNiYnRcCPO9tk334OVcUcBAsd8RtmGlejQHHCTmkfoB3Zs9az8B6dZ5p88DioQKSw7
+	lO0ULD8i/V6olvmyL0doQZ4fOA=
+X-Received: by 2002:a05:620a:6989:b0:8f0:a3f8:fb2d with SMTP id af79cd13be357-8fa869c827amr1076322085a.2.1777639486728;
+        Fri, 01 May 2026 05:44:46 -0700 (PDT)
 Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-51040b8174csm14655201cf.25.2026.05.01.05.41.44
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8fc2cd06f16sm155809085a.42.2026.05.01.05.44.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 01 May 2026 05:41:44 -0700 (PDT)
+        Fri, 01 May 2026 05:44:46 -0700 (PDT)
 Received: from jgg by wakko with local (Exim 4.97)
 	(envelope-from <jgg@ziepe.ca>)
-	id 1wInBf-000000058bc-2ERN;
-	Fri, 01 May 2026 09:41:43 -0300
-Date: Fri, 1 May 2026 09:41:43 -0300
+	id 1wInEb-000000059N4-2gid;
+	Fri, 01 May 2026 09:44:45 -0300
+Date: Fri, 1 May 2026 09:44:45 -0300
 From: Jason Gunthorpe <jgg@ziepe.ca>
 To: Mostafa Saleh <smostafa@google.com>
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -83,18 +82,17 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
 	mark.rutland@arm.com, qperret@google.com, tabba@google.com,
 	vdonnefort@google.com, sebastianene@google.com, keirf@google.com
-Subject: Re: [PATCH v6 04/25] iommu/arm-smmu-v3: Move TLB range invalidation
- into common code
-Message-ID: <20260501124143.GB6912@ziepe.ca>
+Subject: Re: [PATCH v6 03/25] iommu/arm-smmu-v3: Split code with hyp
+Message-ID: <20260501124445.GC6912@ziepe.ca>
 References: <20260501111928.259252-1-smostafa@google.com>
- <20260501111928.259252-5-smostafa@google.com>
+ <20260501111928.259252-4-smostafa@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260501111928.259252-5-smostafa@google.com>
+In-Reply-To: <20260501111928.259252-4-smostafa@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260501_054146_216127_34710605 
-X-CRM114-Status: GOOD (  15.89  )
+X-CRM114-CacheID: sfid-20260501_054448_411159_C3FE9331 
+X-CRM114-Status: GOOD (  10.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,46 +107,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 01, 2026 at 11:19:06AM +0000, Mostafa Saleh wrote:
-> Range TLB invalidation has a very specific algorithm. Instead of
-> re-writing it for the hypervisor, move it to a function that can
-> be re-used.
+On Fri, May 01, 2026 at 11:19:05AM +0000, Mostafa Saleh wrote:
+> +int arm_smmu_cmdq_build_cmd(u64 *cmd, struct arm_smmu_cmdq_ent *ent)
+> +{
+> +	memset(cmd, 0, 1 << CMDQ_ENT_SZ_SHIFT);
+> +	cmd[0] |= FIELD_PREP(CMDQ_0_OP, ent->opcode);
 
-I think this is too narrow.
-
-You should start at __arm_smmu_domain_inv_range() and shove all of
-that callchain into a new file "arm-smmuv3-tlbi.c" which you can then
-double compile for pkvm.
-
-pkvm would have to present the tlbi description and the invs array
-which shouldn't be hard for it. Then it will enjoy all the same
-hypervisor optimizations we are working on for the normal driver.
-
-I am about to send a patch series here for iommupt that significantly
-alters this. I think it will help your pkvm effort as the invalidation
-entry point becomes significantly decoupled from the
-iommu subsystem:
-
-static void arm_smmu_domain_tlbi_inv(struct arm_smmu_tlbi *tlbi,
-				     struct arm_smmu_invs *invs)
-
-struct arm_smmu_tlbi {
-	struct arm_smmu_domain *smmu_domain; // Can be removed 
-	unsigned long start;
-	unsigned long last;
-	u8 leaf_levels_bitmap;
-	u8 table_levels_bitmap;
-};
-
-Which pkvm should have no trouble invoking. It has to build an invs,
-but I guess that is pretty simple and done once at boot for pkvm?
-
-Once done all the fiddly bits about building the commands would be
-shared. There is really no reason this should differ anyhow.
+Hopefully I get to it today, but I am going to post a series that will
+move this logic into the headers while deleting arm_smmu_cmdq_ent. It
+should be directly usable for pkvm as well to achieve this same split
+without having to shove a giant inline into a header file.
 
 https://github.com/jgunthorpe/linux/commits/iommu_pt_arm64/
 
-cover-letter: Organize SMMUv3 the invalidation flow so iommupt can use it
+cover-letter: Remove SMMUv3 struct arm_smmu_cmdq_ent
 
 Jason
 
