@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 988BECD3423
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 16:48:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 117BBCD3423
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 16:48:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NG7jRPHoBNuuIjchU93mJsdpGwfuuwgKyMQfI5gTIuo=; b=sj49hDRaebw/imxFtarVD6wu57
-	Tx3alXwYdtTW5dZmcPca8d4EQr6n04lXNdO+KERWmEWGZNrPxgqPUfQT62wzWdofLxsYhmYW9Ej8+
-	d0/yr5ocbsKExoqyoeTbzWTeqhwmb5iB+yIYWWfnk9WD22z8MlAXZaoo0h0SAT2W4go74WMuXHKP0
-	O8qU4+XxvLnGk3clCrP4bILh2dICejdZ1qYzQNYYr+RCRts1Olm+G+GPGbTHHPldeGjRgnXvieDHP
-	6Ae9MpUKATwYbym437coNTOgoN7v09K4y6oBO19sKwBbi6FaEdc1KBBEwKTRUZ82vIgLP8y73EGPu
-	8CY3VrWQ==;
+	bh=MULAdqgWlLA8oLwvwTwt3mY6wOtGb/xUdiazYgSV87E=; b=oUICdJlCLLXDfOZBhXG3S24Eiq
+	TT16pqREh2QMEyW4XeRn0ej+o0opN//np6xL4MmB/F40Xf0aHlVHDSk89JS6B7Xkbu6ePxrK17wPB
+	rVs+2Zm63gDF+a0hK1bbLZPJAxY9Nbe7MhNqZnTwfFNfcc3K8RKFE/UX5pkDRMzsjmvFTY1ZbuP1s
+	/ZVQRflqaA8KaakS/ghNUwHWa5+W8ZRefnR6M4hl294wt/pbYx9cdcLfqwA1lj8P3kTm1VlEc2aHE
+	F9PjX14rSFPhXn0tqLM4XqaVotLIf2cjBoP2WKJSSr8lKDC9soyrrm2EIHLjmiQaRgtc90m+yItzv
+	gsf70+Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIr2o-00000007RTM-2LiZ;
-	Fri, 01 May 2026 16:48:50 +0000
+	id 1wIr2r-00000007RXf-3kjr;
+	Fri, 01 May 2026 16:48:53 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIr2n-00000007RR9-3KrR
+	id 1wIr2q-00000007RUi-15Vf
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 01 May 2026 16:48:49 +0000
+	Fri, 01 May 2026 16:48:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=NG7jRPHoBNuuIjchU93mJsdpGwfuuwgKyMQfI5gTIuo=; b=gEMOoQCHTNOCGOUk8jbdYRgpTg
-	m0cVLzKT9rhwWDqLWo8P6do350n3UMs0j657cSsAb5zs3cMTlRCGtNxXq9qv6xgvYI/zk02s9Zb2s
-	zblNNzJMgolPHXCjLC+I27Jr0kGGjLABjgSxh7cEkBBZnADZoYPB4LeN5dfcFVKmomtfW1Jk0JUVm
-	uveFL1oCd+URUGN6fmbpaXls0gYJsfUbonRPRifnDU50luzMXAr8vwr2FFlzdSA/SmiKD5eLCerok
-	snV+VuDBX92u6azQMY52GI1pRDJ7liUkV0yrvd+RvlW5CuEjqwwuE2ezNo/SfT5Gz+ctDB5gvRjMc
-	rLo7QroQ==;
+	bh=MULAdqgWlLA8oLwvwTwt3mY6wOtGb/xUdiazYgSV87E=; b=BVAdXzSyspSfOANjBThs/zuYHm
+	Bmg8ww1uTg3kCA9mcG+OyRqrdZe3UQLmJWDLKjDIoJfY7cAT8xj0jifSUQqHh/rFKxPN3of6vkvQf
+	I24AqrOD582hO+8RyYWrmhNVXF29IdMevRTvchry8AWRCJdrhPLNqgPEJ8ovGY16UTI1xk9ksQqhk
+	x1i0S/VjHIIl1vbZp7L1Dd32AqAzer3iMadIvb7v/PESo63lEiKYbUe1Hp0e/9vjJon+fZtlZAukZ
+	ZFHuXxxDnt5RIYuaaVkTllK/NTDIpWSjppkEZVdU4aDKStH+5+UpyeVao/83cQzE9aAgot4cPo7TZ
+	ZC7UFF4Q==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIr2l-00000009B20-07KS
+	id 1wIr2n-00000009B2g-15FH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 May 2026 16:48:48 +0000
+	Fri, 01 May 2026 16:48:51 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 194291692;
-	Fri,  1 May 2026 09:48:40 -0700 (PDT)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 07EA93F7B4;
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E6EB3176A;
 	Fri,  1 May 2026 09:48:42 -0700 (PDT)
+Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D31C53F7B4;
+	Fri,  1 May 2026 09:48:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777654125; bh=SchapTxrN4TVWiNI0N9O2rNdFt+OW0JK5K20P+inEt4=;
+	t=1777654128; bh=ZcnhXgMwQtCGhdvoN4Bk/yvcRHiDUh41XV35ayqSt8Q=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=VyGr1JPRDXY9s2eejEwOtWICq3SRUUgWua1/qH8gGZU0LAkn2EKb9ae81d0nqpb0W
-	 veYMcEYU9Pn5BpT/sFvhEyzo/dQUpg8kwPnAn1ZQPx5hDJIBL1NP7F75umCiuCUzgK
-	 UckuWlJLEmdvKwSPgph2DWQ7kKYiXtsDNo4LGZME=
+	b=J1QpS61GnV8R2EKXAw4GO9NRsDBlUp4+5Vpiq1fQ6+NFnL3yXUBN0prldAmGaJnWW
+	 iloBsqLWh3TzBGmOq45TZ+IpTUCy6DMml2dOh9cp3B+1tEDBSlU845wxsUyPgWNNJb
+	 VWSHFspvBRdV80m73zwqghtcpH3Nx6XjLMRMptj0=
 From: Leo Yan <leo.yan@arm.com>
-Date: Fri, 01 May 2026 17:47:54 +0100
-Subject: [PATCH v11 13/27] coresight: syscfg: Use IRQ-safe spinlock to
- protect active variables
+Date: Fri, 01 May 2026 17:47:55 +0100
+Subject: [PATCH v11 14/27] coresight: Move source helper disabling to
+ coresight_disable_path()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260501-arm_coresight_path_power_management_improvement-v11-13-fc7fb9d5af1c@arm.com>
+Message-Id: <20260501-arm_coresight_path_power_management_improvement-v11-14-fc7fb9d5af1c@arm.com>
 References: <20260501-arm_coresight_path_power_management_improvement-v11-0-fc7fb9d5af1c@arm.com>
 In-Reply-To: <20260501-arm_coresight_path_power_management_improvement-v11-0-fc7fb9d5af1c@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -77,16 +77,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777654085; l=4374;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777654085; l=4552;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=SchapTxrN4TVWiNI0N9O2rNdFt+OW0JK5K20P+inEt4=;
- b=2sPfdCsPTD8dThkzAV3wnMFKql8DVIR08huaYjCsf/P++N8ULkH1lVnYGeEpbe+cvXYrUh/TQ
- Fv4aIunt1ifDSkdVBN/D1j4dLoIu09jqbPnV0KZKi/HgjhAX/qAqYDm
+ bh=ZcnhXgMwQtCGhdvoN4Bk/yvcRHiDUh41XV35ayqSt8Q=;
+ b=U5f22QGDfDxgYWOP+i5yb4/WoS6cMXnVD3Yh6zw1jMDmQTc6BmBdV8DPMomZjygrkggs8iQYS
+ S7JSF2eZ/z8Cf+LL+4n694QMef4Z4XP3EzJ/JQo1dgyOIAGZ2zcSLN0
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260501_174847_259034_276F9FA6 
-X-CRM114-Status: GOOD (  17.00  )
+X-CRM114-CacheID: sfid-20260501_174849_640295_5CB858E0 
+X-CRM114-Status: GOOD (  20.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,13 +101,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-cscfg_config_sysfs_get_active_cfg() will be used from idle flows, while
-sleeping locks are not allowed.  Introduce sysfs_store_lock to replace
-the mutex to protect sysfs_active_config and sysfs_active_preset
-accesses, with IRQ-safe locking to avoid lockdep complaint.
+Move source helper disabling to coresight_disable_path() to pair it with
+coresight_enable_path().
 
-Refactor cscfg_config_sysfs_activate() to use spinlock for
-sysfs_active_config and activate/deactivate config.
+In coresight_enable_path(), if enabling a node fails, iterate to the
+next node (which is the last successfully enabled node) and pass it to
+coresight_disable_path() for rollback.  If the failed node is the last
+node on the path, no device is actually enabled, so bail out directly.
+
+As a result, coresight_disable_source() only controls the source,
+leaving the associated helpers to be managed as part of path.  Update
+the comment to reflect this change.
 
 Tested-by: Jie Gan <jie.gan@oss.qualcomm.com>
 Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
@@ -115,112 +119,101 @@ Reviewed-by: James Clark <james.clark@linaro.org>
 Tested-by: James Clark <james.clark@linaro.org>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-syscfg.c | 38 ++++++++++++++------------
- drivers/hwtracing/coresight/coresight-syscfg.h |  2 ++
- 2 files changed, 22 insertions(+), 18 deletions(-)
+ drivers/hwtracing/coresight/coresight-core.c | 38 +++++++++++++---------------
+ 1 file changed, 17 insertions(+), 21 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
-index d7f5037953d6ba7fb7f83a8012a1abc5ffd0a147..2bfdd7b45e49c8bec88428545069577431083bda 100644
---- a/drivers/hwtracing/coresight/coresight-syscfg.c
-+++ b/drivers/hwtracing/coresight/coresight-syscfg.c
-@@ -953,39 +953,41 @@ int cscfg_config_sysfs_activate(struct cscfg_config_desc *config_desc, bool acti
- 	unsigned long cfg_hash;
- 	int err = 0;
- 
--	mutex_lock(&cscfg_mutex);
-+	guard(mutex)(&cscfg_mutex);
- 
- 	cfg_hash = (unsigned long)config_desc->event_ea->var;
- 
- 	if (activate) {
- 		/* cannot be a current active value to activate this */
--		if (cscfg_mgr->sysfs_active_config) {
--			err = -EBUSY;
--			goto exit_unlock;
--		}
--		err = _cscfg_activate_config(cfg_hash);
--		if (!err)
-+		if (cscfg_mgr->sysfs_active_config)
-+			return -EBUSY;
-+
-+		scoped_guard(raw_spinlock_irqsave, &cscfg_mgr->sysfs_store_lock) {
-+			err = _cscfg_activate_config(cfg_hash);
-+			if (err)
-+				return err;
-+
- 			cscfg_mgr->sysfs_active_config = cfg_hash;
-+		}
- 	} else {
--		/* disable if matching current value */
--		if (cscfg_mgr->sysfs_active_config == cfg_hash) {
-+		if (cscfg_mgr->sysfs_active_config != cfg_hash)
-+			return -EINVAL;
-+
-+		scoped_guard(raw_spinlock_irqsave, &cscfg_mgr->sysfs_store_lock) {
-+			/* disable if matching current value */
- 			_cscfg_deactivate_config(cfg_hash);
- 			cscfg_mgr->sysfs_active_config = 0;
--		} else
--			err = -EINVAL;
-+		}
- 	}
- 
--exit_unlock:
--	mutex_unlock(&cscfg_mutex);
--	return err;
-+	return 0;
- }
- 
- /* set the sysfs preset value */
- void cscfg_config_sysfs_set_preset(int preset)
- {
--	mutex_lock(&cscfg_mutex);
-+	guard(raw_spinlock_irqsave)(&cscfg_mgr->sysfs_store_lock);
- 	cscfg_mgr->sysfs_active_preset = preset;
--	mutex_unlock(&cscfg_mutex);
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index 0c11e7fff1bd5cf504b17241595d83a1d11bcf40..6ab80ae7c389e9031d4ab065d83bb676fd12160b 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -447,19 +447,12 @@ static void coresight_disable_helpers(struct coresight_device *csdev,
  }
  
  /*
-@@ -994,10 +996,9 @@ void cscfg_config_sysfs_set_preset(int preset)
+- * Helper function to call source_ops(csdev)->disable and also disable the
+- * helpers.
+- *
+- * There is an imbalance between coresight_enable_path() and
+- * coresight_disable_path(). Enabling also enables the source's helpers as part
+- * of the path, but disabling always skips the first item in the path (which is
+- * the source), so sources and their helpers don't get disabled as part of that
+- * function and we need the extra step here.
++ * coresight_disable_source() only disables the source, but do nothing for
++ * the associated helpers, which are controlled as part of the path.
   */
- void cscfg_config_sysfs_get_active_cfg(unsigned long *cfg_hash, int *preset)
+ void coresight_disable_source(struct coresight_device *csdev, void *data)
  {
--	mutex_lock(&cscfg_mutex);
-+	guard(raw_spinlock_irqsave)(&cscfg_mgr->sysfs_store_lock);
- 	*preset = cscfg_mgr->sysfs_active_preset;
- 	*cfg_hash = cscfg_mgr->sysfs_active_config;
--	mutex_unlock(&cscfg_mutex);
+ 	source_ops(csdev)->disable(csdev, data);
+-	coresight_disable_helpers(csdev, NULL);
  }
- EXPORT_SYMBOL_GPL(cscfg_config_sysfs_get_active_cfg);
+ EXPORT_SYMBOL_GPL(coresight_disable_source);
  
-@@ -1201,6 +1202,7 @@ static int cscfg_create_device(void)
- 	INIT_LIST_HEAD(&cscfg_mgr->load_order_list);
- 	atomic_set(&cscfg_mgr->sys_active_cnt, 0);
- 	cscfg_mgr->load_state = CSCFG_NONE;
-+	raw_spin_lock_init(&cscfg_mgr->sysfs_store_lock);
+@@ -486,9 +479,9 @@ int coresight_resume_source(struct coresight_device *csdev)
+ EXPORT_SYMBOL_GPL(coresight_resume_source);
  
- 	/* setup the device */
- 	dev = cscfg_device();
-diff --git a/drivers/hwtracing/coresight/coresight-syscfg.h b/drivers/hwtracing/coresight/coresight-syscfg.h
-index 66e2db890d8203853a0c3c907b48aa66dd8014e6..658e93c3705f1cb3ba3523d0bc27ac704697dd70 100644
---- a/drivers/hwtracing/coresight/coresight-syscfg.h
-+++ b/drivers/hwtracing/coresight/coresight-syscfg.h
-@@ -42,6 +42,7 @@ enum cscfg_load_ops {
-  * @sysfs_active_config:Active config hash used if CoreSight controlled from sysfs.
-  * @sysfs_active_preset:Active preset index used if CoreSight controlled from sysfs.
-  * @load_state:		A multi-stage load/unload operation is in progress.
-+ * @sysfs_store_lock:	Exclusive access sysfs stored variables.
+ /*
+- * coresight_disable_path_from : Disable components in the given path beyond
+- * @nd in the list. If @nd is NULL, all the components, except the SOURCE are
+- * disabled.
++ * coresight_disable_path_from : Disable components in the given path starting
++ * from @nd in the list. If @nd is NULL, all the components, except the SOURCE
++ * are disabled.
   */
- struct cscfg_manager {
- 	struct device dev;
-@@ -54,6 +55,7 @@ struct cscfg_manager {
- 	u32 sysfs_active_config;
- 	int sysfs_active_preset;
- 	enum cscfg_load_ops load_state;
-+	raw_spinlock_t sysfs_store_lock;
- };
+ static void coresight_disable_path_from(struct coresight_path *path,
+ 					struct coresight_node *nd)
+@@ -499,7 +492,7 @@ static void coresight_disable_path_from(struct coresight_path *path,
+ 	if (!nd)
+ 		nd = list_first_entry(&path->path_list, struct coresight_node, link);
  
- /* get reference to dev in cscfg_manager */
+-	list_for_each_entry_continue(nd, &path->path_list, link) {
++	list_for_each_entry_from(nd, &path->path_list, link) {
+ 		csdev = nd->csdev;
+ 		type = csdev->type;
+ 
+@@ -519,12 +512,6 @@ static void coresight_disable_path_from(struct coresight_path *path,
+ 			coresight_disable_sink(csdev);
+ 			break;
+ 		case CORESIGHT_DEV_TYPE_SOURCE:
+-			/*
+-			 * We skip the first node in the path assuming that it
+-			 * is the source. So we don't expect a source device in
+-			 * the middle of a path.
+-			 */
+-			WARN_ON(1);
+ 			break;
+ 		case CORESIGHT_DEV_TYPE_LINK:
+ 			parent = list_prev_entry(nd, link)->csdev;
+@@ -580,12 +567,16 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode)
+ {
+ 	int ret = 0;
+ 	u32 type;
+-	struct coresight_node *nd;
++	struct coresight_node *nd, *last;
+ 	struct coresight_device *csdev, *parent, *child;
+ 	struct coresight_device *source;
+ 
+ 	source = coresight_get_source(path);
+-	list_for_each_entry_reverse(nd, &path->path_list, link) {
++
++	last = list_last_entry(&path->path_list, struct coresight_node, link);
++
++	nd = last;
++	list_for_each_entry_from_reverse(nd, &path->path_list, link) {
+ 		csdev = nd->csdev;
+ 		type = csdev->type;
+ 
+@@ -639,6 +630,11 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode)
+ err_disable_helpers:
+ 	coresight_disable_helpers(csdev, path);
+ err_disable_path:
++	/* No device is actually enabled */
++	if (nd == last)
++		goto out;
++
++	nd = list_next_entry(nd, link);
+ 	coresight_disable_path_from(path, nd);
+ 	goto out;
+ }
 
 -- 
 2.34.1
