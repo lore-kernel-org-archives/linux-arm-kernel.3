@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DF98CD3424
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 11:22:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14769CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 11:22:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pkGXruA+MAauMM9ApRELF9QcQ1O0uA1Qqp7VMYhHPII=; b=21YrrvX1ypA9GUaSN+eA11VyLu
-	FVl/oOnPcgi/fOju/dwrYsf60WTshNqIFRRoKw48BGDX/f0EibI7T4eAp039gjsYp+N+/CQoudaTO
-	ZjPdgOBp9ACkCR4338aQkbz8G8nCkN+CXf8EIEQ1cfhoyfiQ5eiLBW0nJTiRL2NlENZZ2nDjmOVqg
-	nu5v/Dd1nT13lCHfJRSWFbxwwoYoQxYKloS4Ms8drFSPzcvnvWZ9jp2FeWZijISAkq1RfY6TYebDJ
-	Qq+F+Y8Ig2NLnYuhmjZsY+5otf/sxni/vwQx3OqEJGYmZONfI+XmkAKB8nutwxtihv9/gtrlhOjg3
-	D1zLzKOg==;
+	bh=hX/U36pu+btUiKMTGpxWXuvgYMFqfHpYvSZt+8MNmUg=; b=T4H90OuaDBE6ASaJ0CCkMr5iqt
+	/eXPXu8a+AAzRR/XSdPMmXFYi2uXwrFGXrZCqKxMZIF8o4tFrPGSeZgxvaOaL70NFfNE+Qv4QCs9g
+	T8Dx8E0+MIZFlXZEG1bvXyYis1eMSIuzVvOhBbJl2/Ggp0XkYKJsbNtayfk4h1MWMxxF3QFF+Yr3n
+	Le3HlBV1flJSp8nHr6pLOsQF4SWELQMaQdM1DOy0tmIAMStNWRZ9u3T6ABZBHXv3CmYkVB2eJ/ged
+	z657JYIhmTrgVosY2gEgJJ2lazg0sYovbphGv69UOPNLi8AR39Nr+Yzcbs3TO5ai8ZD+EIVO3uTyp
+	PmfLjaNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIlwW-00000006eoT-1mbi;
-	Fri, 01 May 2026 11:22:00 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	id 1wIlwY-00000006eqY-0UiI;
+	Fri, 01 May 2026 11:22:02 +0000
+Received: from mail-ej1-x64a.google.com ([2a00:1450:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIlwT-00000006ekQ-0UjT
+	id 1wIlwV-00000006em6-2fNi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 May 2026 11:21:58 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-44a122a5128so787263f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 May 2026 04:21:56 -0700 (PDT)
+	Fri, 01 May 2026 11:22:00 +0000
+Received: by mail-ej1-x64a.google.com with SMTP id a640c23a62f3a-ba70cda6755so149298666b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 May 2026 04:21:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777634515; x=1778239315; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777634517; x=1778239317; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=pkGXruA+MAauMM9ApRELF9QcQ1O0uA1Qqp7VMYhHPII=;
-        b=KdnjXTnFIiOFW4LY6+sNUYsKAONPTMqkUduQrMFrwYl5CCe0026v5EJ1u9vzqQ0QYg
-         6/mf0evltzxc8v7GQr4Jw0/XuwleggMvHFYe+m+y0suKGGfi50RSJWN1aVXIedkvzOa4
-         vCWjtWJlm/X0j7hhuV31b9MGyWWfJUQ72NoOUhIlIuoxn6pmaLsCSMj5lF/Qq35NfEkp
-         aIKP8MOE/6Ou4AoawDU4VQmQAr68SLfgyEOlowqrDgpSLtyjPT1JEAi7NnVUFOZ9JT0n
-         D2CJPJlMd1H1KX5RRtjeGFx5NwRPOM781ZX2I6ovUZA/La+K4t+PZMWEdjcVGq7FxfiJ
-         6how==
+        bh=hX/U36pu+btUiKMTGpxWXuvgYMFqfHpYvSZt+8MNmUg=;
+        b=toRS6x72RSE+dEnOK9XsHrOJ2ZoFxvtdFMR0fGA2z/cy5VtBQfpDWGdjrqKyf77juA
+         bAYuBg2kw6TQmhXabaelI+D4CRcbZr9Gl9LHsENh4yXe9Qp/b6F0xooqoFMc0lXWsUxc
+         cW/3WMXLa0duxliebNc3H+ibJwmm4sKK28Pj0/LhYcfGsrjIE9Tgk1Exi4mc3FoadCJU
+         mTa7Lu9tIEJg8TImLs1HTvf3DKFNLI9iL36U+cmTfOkMjAxD3sm8Mor7pOv2iOmt2HLc
+         EE+6dhy2CHp5B41PdXjST9kpSlFTj9//ZDQJ+DA7P5nE34W+awATuVqLPFlfh4/bFjyM
+         husA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777634515; x=1778239315;
+        d=1e100.net; s=20251104; t=1777634517; x=1778239317;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=pkGXruA+MAauMM9ApRELF9QcQ1O0uA1Qqp7VMYhHPII=;
-        b=MLlBNzmtlXHYNZ40/cCWDk+XrfwPSk6btV1ngak1pekSSZMLPfEs5RfZDwwskqUyAT
-         bD9oltvDn5UBy9k5ouGAXTgzzbHpF9OB8P41lffvhFUNr49i+eNn/bs8sulhZ+nC5Gwy
-         ApczaUQVr71ov/GQH6v7T2lfYUhNuIVgDAV1kXVlPKfjnhQXFUbRrCfHalNyb3HxGtu5
-         b4yYCG6k5rzQ1f26kfm4JGS+L1qQJ/faBCJqAXEgQlywjaGX0EIDwrROFSkZZz1C9dcl
-         tE2KwkGJe4vDvpHKxwsZv8xo8vEVbCq1Dp8E1hIl88fPtnk2dClFuxH+0J+tpMf6HUvw
-         OAjw==
-X-Forwarded-Encrypted: i=1; AFNElJ/18fB2BQe/PsCtMpopewjs9aNXC0XVa0amrRftUpg+zC83HwkkKE2Ks7OmtBo3Fy9vu6SUJtUbw/JPBxtH2WRW@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxpe+UThjkZOk2/PAikQdHG+4D+zK4gUfkO/fZ+iy7nEOmwIAKe
-	WWxLS6kwYrTnDKlsDfaXLTd8v8dqygXwWXA0J5Wups+pA9rgAF1ZCWE7B0JOB+M60sZLrnuumz/
-	RJA==
-X-Received: from wrcz10.prod.google.com ([2002:a05:6000:454a:b0:44a:2a68:f4aa])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:24c5:b0:43d:71f4:7ed5
- with SMTP id ffacd0b85a97d-4493cc3fdffmr11707041f8f.17.1777634514643; Fri, 01
- May 2026 04:21:54 -0700 (PDT)
-Date: Fri,  1 May 2026 12:21:46 +0100
+        bh=hX/U36pu+btUiKMTGpxWXuvgYMFqfHpYvSZt+8MNmUg=;
+        b=muYQOq4fYbxnrrWWoN9js05rKyyrJeMZopI450IzvGiiybZxP7qEutRZYczw5bhAJ1
+         zuLVvVnwtQDFmzpbTPG/sabukPkfkKHw/2UKKyzf+HHw4gOC6X/POsghoE0RQPQ6EGC2
+         xv2jHc9W8l6/zCtUDlYrGNSOXzIyk6blWKLaRY/0joQlo07pCF2m5jenj27B/IwXjTj3
+         dEkA0h7fgOgF8aPvArLZRzYSt8z/wleQu/yS1xICY56Ghvqkb+TuDrZQuom1ZUHyb74y
+         iPKgDeDYv7iJuAfio+HHxJm/HUJoztTrkh/kodfvk7mSANie+0bBsOJBSvFHP+OSbtyI
+         YeRQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+davppDYMVqcGUXSOaqrEuZy/wWysoP9F9TEEMasPP7FG78JvLnUuE/hVQolGHi+94/lDSnEA9N7iMwt/InhgN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw7aAW7yd6PZJLkp5JfKEm02hORMLJL/oTqUY6xEupQQAjNfJvO
+	3XxwnKKCvEB9Tpu5h6wwWQZkKs8fY8MDoHWyjn/J/pmR/SfEqB7JPkE2Co9AqIuUG20yZRKOxyC
+	N1w==
+X-Received: from ejbwt14.prod.google.com ([2002:a17:906:ee8e:b0:b98:23e7:c41])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a17:906:f58e:b0:bb7:be6a:7671
+ with SMTP id a640c23a62f3a-bbac5ac10c5mr381051166b.6.1777634516878; Fri, 01
+ May 2026 04:21:56 -0700 (PDT)
+Date: Fri,  1 May 2026 12:21:48 +0100
 In-Reply-To: <20260501112149.2824881-1-tabba@google.com>
 Mime-Version: 1.0
 References: <20260501112149.2824881-1-tabba@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260501112149.2824881-4-tabba@google.com>
-Subject: [PATCH v2 3/6] KVM: arm64: Fix __deactivate_fgt macro parameter typo
+Message-ID: <20260501112149.2824881-6-tabba@google.com>
+Subject: [PATCH v2 5/6] KVM: arm64: Pre-check vcpu memcache for host->guest share
 From: Fuad Tabba <tabba@google.com>
 To: maz@kernel.org, oliver.upton@linux.dev
 Cc: james.morse@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
@@ -75,8 +75,8 @@ Cc: james.morse@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
 	linux-kernel@vger.kernel.org, stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260501_042157_197802_42DF61D6 
-X-CRM114-Status: GOOD (  12.55  )
+X-CRM114-CacheID: sfid-20260501_042159_691654_80D4FF1D 
+X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,40 +91,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-__deactivate_fgt() declares its first parameter as "htcxt" but the body
-references "hctxt". The parameter is unused; the macro silently captures
-"hctxt" from the enclosing scope. Both existing callers
-(__deactivate_traps_hfgxtr() and __deactivate_traps_ich_hfgxtr()) happen
-to define a local "struct kvm_cpu_context *hctxt", so the macro works
-by coincidence.
+__pkvm_host_share_guest() ends with kvm_pgtable_stage2_map() to
+install the guest stage-2 mapping, after a forward pass that mutates
+the host vmemmap (sets PKVM_PAGE_SHARED_OWNED and increments
+host_share_guest_count) for every page in the range. The map's
+return value is wrapped in WARN_ON() and otherwise discarded,
+asserting that the call cannot fail.
 
-A future caller without an "hctxt" local in scope, or naming it
-differently, would compile but bind to the wrong context. Align the
-parameter name with the sibling __activate_fgt() macro.
+WARN_ON() at nVHE EL2 panics, so this assertion is only correct if
+the call genuinely cannot fail. kvm_pgtable_stage2_map() can fail
+with -ENOMEM when the stage-2 walker exhausts the caller's
+memcache, and the host controls the vcpu memcache via the topup
+interface, so an under-provisioned share request would otherwise
+turn a recoverable -ENOMEM into a fatal hyp panic.
 
-The "vcpu" parameter remains unused in the body, kept for API symmetry
-with __activate_fgt() (which uses it).
+Bound the worst-case walker allocation in the existing pre-check
+pass so that kvm_pgtable_stage2_map() cannot fail at the call
+site, using kvm_mmu_cache_min_pages() -- the same bound host EL1
+uses for its own stage-2 maps. If the vcpu memcache holds fewer
+pages, return -ENOMEM before any state mutation.
 
-Fixes: f5a5a406b4b8 ("KVM: arm64: Propagate and handle Fine-Grained UNDEF bits")
+Fixes: d0bd3e6570ae ("KVM: arm64: Introduce __pkvm_host_share_guest()")
 Assisted-by: Gemini:gemini-3.1-pro review-prompts
 Signed-off-by: Fuad Tabba <tabba@google.com>
 ---
- arch/arm64/kvm/hyp/include/hyp/switch.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
 
-diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-index 98b2976837b1..bf0eb5e43427 100644
---- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-@@ -245,7 +245,7 @@ static inline void __activate_traps_ich_hfgxtr(struct kvm_vcpu *vcpu)
- 	__activate_fgt(hctxt, vcpu, ICH_HFGITR_EL2);
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+index 28a471d1927c..e428304f94f2 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
++++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+@@ -1369,6 +1369,22 @@ int __pkvm_host_reclaim_page_guest(u64 gfn, struct pkvm_hyp_vm *vm)
+ 	return ret && ret != -EHWPOISON ? ret : 0;
  }
  
--#define __deactivate_fgt(htcxt, vcpu, reg)				\
-+#define __deactivate_fgt(hctxt, vcpu, reg)				\
- 	do {								\
- 		write_sysreg_s(ctxt_sys_reg(hctxt, reg),		\
- 			       SYS_ ## reg);				\
++/*
++ * share/donate install at most one stage-2 leaf (PAGE_SIZE, or one
++ * KVM_PGTABLE_LAST_LEVEL - 1 block for share). kvm_mmu_cache_min_pages()
++ * bounds the worst-case allocation: exact for the PAGE_SIZE leaf,
++ * conservative by one for the block.
++ */
++static int __guest_check_pgtable_memcache(struct pkvm_hyp_vcpu *vcpu)
++{
++	struct pkvm_hyp_vm *vm = pkvm_hyp_vcpu_to_hyp_vm(vcpu);
++
++	if (vcpu->vcpu.arch.pkvm_memcache.nr_pages < kvm_mmu_cache_min_pages(vm->pgt.mmu))
++		return -ENOMEM;
++
++	return 0;
++}
++
+ int __pkvm_host_donate_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu)
+ {
+ 	struct pkvm_hyp_vm *vm = pkvm_hyp_vcpu_to_hyp_vm(vcpu);
+@@ -1453,6 +1469,10 @@ int __pkvm_host_share_guest(u64 pfn, u64 gfn, u64 nr_pages, struct pkvm_hyp_vcpu
+ 		}
+ 	}
+ 
++	ret = __guest_check_pgtable_memcache(vcpu);
++	if (ret)
++		goto unlock;
++
+ 	for_each_hyp_page(page, phys, size) {
+ 		set_host_state(page, PKVM_PAGE_SHARED_OWNED);
+ 		page->host_share_guest_count++;
 -- 
 2.54.0.545.g6539524ca2-goog
 
