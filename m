@@ -4,106 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC2B6CD3423
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 18:43:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58FBBCCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 18:55:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ulsFcfU93D70Sa+J1hAyL4OPSDEMDmywDdF1UctN/Y4=; b=XOht+ixlH3/UA5Ri6w4QoeuHKx
-	UfrF9XxG0Puq1qVmg5dpHRbkxkEvQ5E7xCO0IdG38C1qEblfQFix4u6QapyNLZmNpTNz8X5iceEwj
-	hYVhzG7/8Ya2UX08a74gW2DHyt7axR2SZVuuCxpcIEDx/1/AFURZhogATEQh9f0BfYTWgep6ou2pd
-	PicftQrQW8qG7RVZjowH6/GEmhrxPVglMW8wFj7jrreHGYBXjGjSUw6OocwrPMqT1JgKIVvdZ6eWo
-	gzcgtvMcX6e64I1e9PN+FXY+5bbWvjm3I+IEbsefSSM6sOcUUfa2jko7nN4U18YFNCIwBk0CkQZwd
-	0N6rL6DQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SeZa2vTfQTPPy2tE0AELI/CywGdS8lzsR2UtuqDGCz0=; b=kItx4ksh/6ymNa2GDNKfULiXQ8
+	BtpRrqgFxYym7cdT85OSqPvXfEJnIg6mFu83di6A1U6BZEfueq3hinjLG91S4ZCNWqYgUrGgLWnS9
+	+/eso0H+AHmR7WTiBwZyImDV7awHVD9XlHl6PWZkZJSSgkUSYNY5CA6kx7egFH1Rj+G7Ob9ZsdBj8
+	rD2tbq1emU+hy48cn//+3WkYdEwpqCZ5NDpTRc3TSjLoIgr63Bp8AQM5Wp1eHsXNzbjbgp03Qv/Ln
+	imxQ8Mdm3lNT69ceA4PYKBZm0JfxcALO2qG1aQOsC+y/3EdZXcKpChCxC9ALSur2timrVBpN8FlPE
+	YGVOftZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIsq5-00000007aTx-1MyJ;
-	Fri, 01 May 2026 18:43:49 +0000
-Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIsq1-00000007aSW-44xu
+	id 1wIt0x-00000007avc-2hT2;
+	Fri, 01 May 2026 18:55:03 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wIt0v-00000007auz-1mQU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 May 2026 18:43:47 +0000
-Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-506aa685d62so10633071cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 May 2026 11:43:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20251104.gappssmtp.com; s=20251104; t=1777661025; x=1778265825; darn=lists.infradead.org;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
-         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=ulsFcfU93D70Sa+J1hAyL4OPSDEMDmywDdF1UctN/Y4=;
-        b=u9T7bIwyBwvmDU0K/zxZly6QByV5xm3Ot3CggVYpzfJTFSembhsIUI2U0ExqXcpyEu
-         2nLuxLy9FansHEoOQx7GT1sJ38oQvyJfDpwTJCkUBvZL8MHQJMWTy3p8xjCo08rs9l8s
-         KX7a6nyoj3gqLMjtbhrjW54n+5jteOsSxvcjOF7DItE9NuJhNQaC+kUZUz0gUW5lgwDr
-         3pkR3i2FQs1SJEfwb4fd0dwOmJeYRSiMkl6gfGIwMosURkYvpSEdfHowTinFDb/luAHd
-         KAscQro8q8lmm0xEEDubmALa2P8faRth+XQMbaRBpHeai/SWSrwLGlyU5Jpt3ypPJ6dW
-         1K/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777661025; x=1778265825;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
-         :from:subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ulsFcfU93D70Sa+J1hAyL4OPSDEMDmywDdF1UctN/Y4=;
-        b=MA4NFG/ShDV7LEyfB/IXVroR4LvJNr8j6KQt9Vpg9AsC9Pbd9oPcQ4Fr1ql2PrXfB4
-         VOSdpDLPset53Qct/tL2ZYOJpPp9hMHPn5GY6NSddyatQAR/iSIhYbNkfzm5anJGFQiK
-         iz16gLERTr/BIpTbWLajnc/ZyhoV7fuxnwvP5R7UDHORUL2WUVomCsHtwCTnAQ+L5O0q
-         wMWe44tYcQV+KYQde40lWrDu/OOGFNc/GRQy2ptuqhKWFWlgjD85WGIdgvYBiGEFykGx
-         WhwTUNUV869G0fuVl1RvOvzG+iuPLt/tJWYqraG2j6bLzdnCO9GKQVOU3clSA/k0cXbs
-         nyOQ==
-X-Forwarded-Encrypted: i=1; AFNElJ80ANBqDTlV+7eWZEyHziDoPI+J6e94mZb5cS6ator7t/l7AKl4DkxzGLI2o0jtAD5sy0Gtv2sgDmz7LuxVmQ8L@lists.infradead.org
-X-Gm-Message-State: AOJu0YwT/0RAaTK8IYfzIxjBFdJRV33RHK4we+IMHkGHHWVz+HBNEA3B
-	ga2Ocyd984FP4UOjMY8qIR49NBtr1MaESdWwRBE/90EGExODGjVSY6MD6WOtAD5kxWI=
-X-Gm-Gg: AeBDieuaEc/bLT1qlluwIbXqtx5XuZk52O0Yr0h3xcuEQZdtmVpfZzX4n1DX4xf2eDa
-	IbmbzvQWsWKI1xhseJqE3FibDMaesavzrHbqOf3auFZWlndfIolA1m+5OxRNSiChuJTmQh6E7I+
-	IGh+/13ZMCsoO+RqjC7CHPCP+uwBBK8gdjj+XpjcQ8pPOaEae7bG2kvYCn+YI2/zPmtTLjJz+m4
-	5FEKZZMc0PdrzbsUCZWOoHZXMgHlksgSz1lP2x9iu6n2/SrV1DEzFTXCmGV6Nyo9PgkWZ8SQpkc
-	ixHw8CY42iDHqNQFP/k5HeMmcI4mWcZzQV4nL79OkK0RWv/mwFdTled/RhhKZ7cPdFMN129US61
-	Yp/nfk+0rca56ZFFjtDflX96+kYkGyuZnyo8wMcvJxFsEurzPOZWuLwdbqGia6tXmMTvQa0D+5J
-	zQ8tiAV08BBdy9kJVWCfxhefuxtkLZjuKmdjJLSS7S9ZOOG0Hsf6opYA==
-X-Received: by 2002:a05:622a:4805:b0:50e:5ffd:dec2 with SMTP id d75a77b69052e-5104be45024mr6935901cf.1.1777661024659;
-        Fri, 01 May 2026 11:43:44 -0700 (PDT)
-Received: from [192.168.42.160] (mtl.collabora.ca. [66.171.169.34])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-51041ddb598sm18992271cf.13.2026.05.01.11.43.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 01 May 2026 11:43:43 -0700 (PDT)
-Message-ID: <fae38f0f4ab8e8176cb6c5a37246e7aa5b5409d8.camel@ndufresne.ca>
-Subject: Re: [PATCH v2] media: mediatek: vcodec: free working buf in
- vdec_vp9_slice_setup_single()
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>, tiffany.lin@mediatek.com, 
-	andrew-ct.chen@mediatek.com, yunfei.dong@mediatek.com, mchehab@kernel.org, 
-	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
-	laurent.pinchart@ideasonboard.com, hverkuil+cisco@kernel.org, 
-	p.zabel@pengutronix.de, benjamin.gaignard@collabora.com, 
-	xiaoyong.lu@mediatek.com, mingjia.zhang@mediatek.com
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	stable@vger.kernel.org
-Date: Fri, 01 May 2026 14:43:42 -0400
-In-Reply-To: <20260429070119.181876-1-lihaoxiang@isrc.iscas.ac.cn>
-References: <20260429070119.181876-1-lihaoxiang@isrc.iscas.ac.cn>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-aMrOnipeNucjfzPvuk1Q"
-User-Agent: Evolution 3.60.1 (3.60.1-1.fc44) 
+	Fri, 01 May 2026 18:55:02 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 58E4043CD;
+	Fri,  1 May 2026 11:54:51 -0700 (PDT)
+Received: from [10.57.66.223] (unknown [10.57.66.223])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E07813F763;
+	Fri,  1 May 2026 11:54:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1777661696; bh=dcheq2gtdulc2g0JlS68aZSwyoZSfE7RjnC9DAk/F0w=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=aNxXli3g5wTSmB68mouLOemRqZ7r9XmhaJ3vpcb1cXd/NR2ZYumUCRzs56bjdHl9m
+	 NhJ+RRJXPMaQWsL7IvWopUh0VTZgks4+TmLAZn7H3YIzYwRf8ktqgJnzqK6xW53g+Q
+	 5UyVe2BtQt5J7i2tPw1lglNRCuITeLN91QFNi+Gs=
+Message-ID: <187900ec-4585-42d9-946c-e6de3111552d@arm.com>
+Date: Fri, 1 May 2026 19:54:51 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 36/43] KVM: arm64: gic-v5: Implement save/restore
+ mechanisms for ISTs
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+ "kvm@vger.kernel.org" <kvm@vger.kernel.org>
+Cc: nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>,
+ "oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+ Joey Gouly <Joey.Gouly@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
+ "yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+ "peter.maydell@linaro.org" <peter.maydell@linaro.org>,
+ "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+ Timothy Hayes <Timothy.Hayes@arm.com>
+References: <20260427160547.3129448-1-sascha.bischoff@arm.com>
+ <20260427160547.3129448-37-sascha.bischoff@arm.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <20260427160547.3129448-37-sascha.bischoff@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260501_114346_017021_47E00F14 
-X-CRM114-Status: GOOD (  15.89  )
+X-CRM114-CacheID: sfid-20260501_115501_598592_BF6941D9 
+X-CRM114-Status: UNSURE (   9.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,83 +82,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Sascha,
 
---=-aMrOnipeNucjfzPvuk1Q
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+On 4/27/26 17:18, Sascha Bischoff wrote:
+> +	tmp = le64_to_cpu(READ_ONCE(vmte->val[3]));
+> +	host_id_bits = FIELD_GET(GICV5_VMTEL2E_IST_ID_BITS, tmp);
+> +	host_istsz = FIELD_GET(GICV5_VMTEL2E_IST_ISTSZ, tmp);
+> +	host_l2sz = FIELD_GET(GICV5_VMTEL2E_IST_L2SZ, tmp);
+> +
+> +	/* We always use a Linear SPI IST on the host */
+> +	for (int i = 0; i < BIT(host_id_bits); ++i) {
 
-Le mercredi 29 avril 2026 =C3=A0 15:01 +0800, Haoxiang Li a =C3=A9crit=C2=
-=A0:
-> Add an error path label in vdec_vp9_slice_setup_single()
-> and call vdec_vp9_slice_free_working_buffer() to free
-> working buffer.
->=20
-> Fixes: b0f407c19648 ("media: mediatek: vcodec: add vp9 decoder driver for
-> mt8186")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>
-> ---
-> Changes in v2:
-> =C2=A0- Remove vdec_vp9_slice_setup_prob_buffer()'s return
-> =C2=A0=C2=A0 value, since it never fails. Thanks, Nicolas!
-> ---
-> =C2=A0.../mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c=C2=A0=C2=A0 =
-| 9 ++++-----
-> =C2=A01 file changed, 4 insertions(+), 5 deletions(-)
->=20
-> diff --git
-> a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if=
-.c
-> b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if=
-.c
-> index cd1935014d76..d034d84ad7f1 100644
-> ---
-> a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if=
-.c
-> +++
-> b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if=
-.c
-> @@ -1808,17 +1808,16 @@ static int vdec_vp9_slice_setup_single(struct
-> vdec_vp9_slice_instance *instance,
-> =C2=A0
-> =C2=A0	vdec_vp9_slice_setup_single_buffer(instance, pfc, vsi, bs, fb);
-> =C2=A0	vdec_vp9_slice_setup_seg_buffer(instance, vsi, &instance->seg[0]);
-> -
-> -	ret =3D vdec_vp9_slice_setup_prob_buffer(instance, vsi);
+IIUC here we iterate over host's SPIs and save them into buffer provided
+by the user. One thing I noticed is that if user set number of SPIs via
+KVM_DEV_ARM_VGIC_GRP_NR_IRQS bellow 16, say 1 (btw, it seems there is no
+way to set SPIs to 0...), it would be rounded up to 16 in 
+kvm_vgic_v5_irs_init(). So from user perspective it needs to save just
+single SPI, thus it could provide buffer just for that single entry. With such
+setup we can end up corrupting user's memory. We can argue that it is user's
+problem... perhaps we need to spell explicitly requirements for the buffer or
+provide interface to the user to query required size or respect nr_spis set
+by user or some combinations of all :)
 
-Same as previous patch.
-
-regards,
-Nicolas
-
-> -	if (ret)
-> -		goto err;
-> +	vdec_vp9_slice_setup_prob_buffer(instance, vsi);
-> =C2=A0
-> =C2=A0	ret =3D vdec_vp9_slice_setup_tile_buffer(instance, vsi, bs);
-> =C2=A0	if (ret)
-> -		goto err;
-> +		goto alloc_err;
-> =C2=A0
-> =C2=A0	return 0;
-> =C2=A0
-> +alloc_err:
-> +	vdec_vp9_slice_free_working_buffer(instance);
-> =C2=A0err:
-> =C2=A0	return ret;
-> =C2=A0}
-
---=-aMrOnipeNucjfzPvuk1Q
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCafT0XwAKCRDZQZRRKWBy
-9DtqAQC1Dg6Zdwpp1TbLyQpoV3dfXpp0ZnEkO20SH8pEBubrUgD+MoWNudTp/uFM
-Wq9Gi27dGGRSf9vDASBpXnzMdkgrVQQ=
-=o8rD
------END PGP SIGNATURE-----
-
---=-aMrOnipeNucjfzPvuk1Q--
+Cheers
+Vladimir
 
