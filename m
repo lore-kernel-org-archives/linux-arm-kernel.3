@@ -4,65 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD061FF886F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 01:21:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B2E0CD13DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 01:51:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eymi/yOMkUKJQZkJaKH0gLCUwZmiZZ6GGA5U3OWc7VU=; b=BV8+fhv2BoSCXsoRmAPpRalPVs
-	2rkRy6cd+6AGva4EqPi7ahjcWYmvhPqsaVRpkW4l3r+fzouFRIDwyfh7CdiasOxDrFKmConHdstB3
-	qstKsVngcXuhYuPpvbdYU0I+O8j64LaakN1K8QnW7rPiXOP8Hm08wkPw0BYyilQXtEgFdtCZ4flKU
-	UlVLz8YCHmT79Av2VlFRE7eZLVWIxMqK0IWOAf4AqMbUNve/r8l4g+5hTignUtquCkw6o2Vcmtwek
-	3FTafrQ5YzohX/pJYZFBVRzBt+rnWorSzppSo9tQhwx/yG85bQkiQLv5zKakAzeR7Rm7Fw0Y1DZgc
-	rogZAhCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
+	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pctAgo7X9RQj9a/zqNh+bnzttTaEBLL4/27teK03ChE=; b=gM3sIgle81yhZj+DWjrPwZ1pgb
+	SZTrgB6/k/cybCdGTzEGHY2LRoCFvTiP7op7Pc/0myCaOJY9QVNhNp+hJkw9A0QyJcCACVhesXqgW
+	UdzliHpAMzpqoLi82n6+5bB5r3NwGpR29Z1c0AIRHPmK8+kywW/fqtbQNH4qbY/3zPB31Dp9gAkSV
+	tKl68sJ+OhB4qrQ0ZZ0otD9/sEYCLQMPSO+Mxuaf/727G3jmBsacYrsryBtsZkurZ+i3KCYq3NMq8
+	c1WDvaICS1bl7KplwSJKO0k+aKZE0L4OfvyCryuolY757czIXhjjXLbhdiD3/4L8T35lfO4CqoTTf
+	IUDi1iJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIcYt-00000006DSd-0MHT;
-	Fri, 01 May 2026 01:20:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wId2U-00000006EKx-0s0j;
+	Fri, 01 May 2026 01:51:34 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIcYq-00000006DSF-3GPI;
-	Fri, 01 May 2026 01:20:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 18B2B444D4;
-	Fri,  1 May 2026 01:20:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA7BCC2BCB3;
-	Fri,  1 May 2026 01:20:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777598456;
-	bh=7rKuBfm/sZqWZkIHfGrPtqBLbz7QhI+DrjxOxPQGULw=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=IsBNqDWiGsHNeM/iuiQqKxH4swR8cjkUwEK/tmacRzj+lrUdMaXDTaGVNofROB5sF
-	 bBRODprviHwVF9VQuBIYcZfE5TFhZpUthESgCf5ZlmBwO2d9jAbWnyo60NtK+kvPiB
-	 ukozERPSd6GQgUthnkjU2WUEQ7hoLZF1IL8iPi1XhU844bync1gOyFnYjr/xvF8fA4
-	 6vOpDxwr6dkSi/MiGP2eb3tWmb+nCsu+Ts1i2ezYiJUJiYRS93IBhoXefPfCOJ6BEu
-	 kzIY2gOsalMit/H10XPtTRPMiWg/LTiI6Qew0wLk4YKCDUwxJsX40ZDqYtv7UauFVY
-	 oKxsyQDxwdAuw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FC46380A957;
-	Fri,  1 May 2026 01:20:11 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1wId2R-00000006EKd-3BcO
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 01 May 2026 01:51:33 +0000
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63UNHI9N3403831;
+	Fri, 1 May 2026 01:51:05 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=pctAgo
+	7X9RQj9a/zqNh+bnzttTaEBLL4/27teK03ChE=; b=ZPsDB5gozoNNUJmZR76pNK
+	VhWlabDqSQyvCVSDNpT4s9ch2uQXW82wF3kEy77pFvko+JIUlCq5SACYaOH1JD3u
+	Gx6eiye6ED/8H6biB015qkiUgoGb23dRbsMnoKVdTuIAdm68IOnh5+M4Q5aLVukZ
+	8dlyHFr+8Eb6qosMaHkWQP9k7Pv6T61gp/19r+SOghBFDhfXm/zqOe/uKv98Hds2
+	AOawFd0W038O/zvrSgHhVrodEcKe0MCHR1H5pXUkvx9ZLyoK1bWp9+ENA0AkOEgM
+	t9+VmnHgmHMjkg/yQxy5SjinbB5jh2eA5xJQyVq7opNpxnKFML1Jwod8BDtP82Lg
+	==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4drm1e8y57-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 01 May 2026 01:51:04 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 6411dJYw029174;
+	Fri, 1 May 2026 01:51:03 GMT
+Received: from smtprelay04.wdc07v.mail.ibm.com ([172.16.1.71])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4ds7xqntte-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 01 May 2026 01:51:03 +0000 (GMT)
+Received: from smtpav05.wdc07v.mail.ibm.com (smtpav05.wdc07v.mail.ibm.com [10.39.53.232])
+	by smtprelay04.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6411p2KC38142524
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 1 May 2026 01:51:02 GMT
+Received: from smtpav05.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id ABC1858053;
+	Fri,  1 May 2026 01:51:02 +0000 (GMT)
+Received: from smtpav05.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 7C19458043;
+	Fri,  1 May 2026 01:51:00 +0000 (GMT)
+Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.61.35.95])
+	by smtpav05.wdc07v.mail.ibm.com (Postfix) with ESMTP;
+	Fri,  1 May 2026 01:51:00 +0000 (GMT)
+Message-ID: <ba4bf28314b679474a6a8da6298e548e54b3754c.camel@linux.ibm.com>
+Subject: Re: [PATCH] ima: debugging late_initcall_sync measurements
+From: Mimi Zohar <zohar@linux.ibm.com>
+To: Paul Moore <paul@paul-moore.com>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Jonathan McDowell
+ <noodles@earth.li>,
+        linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-integrity@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        kvmarm@lists.linux.dev, jmorris@namei.org, serge@hallyn.com,
+        roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
+        eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
+        sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
+        joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+        catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
+        sebastianene@google.com
+In-Reply-To: <CAHC9VhRsnmPp2KmQAns5uq5qXX5EF2xQQzyfTgrPi4O9AXyPpg@mail.gmail.com>
+References: <cover.1777036497.git.noodles@meta.com>
+	 <7734099f5e7fda5480bca016a9e6707983325fbd.camel@linux.ibm.com>
+	 <afMlgstqahnZg68h@e129823.arm.com>
+	 <9f188536f09a2db30877d6bfbb84aeaf2565cccf.camel@linux.ibm.com>
+	 <CAHC9VhRsnmPp2KmQAns5uq5qXX5EF2xQQzyfTgrPi4O9AXyPpg@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Date: Thu, 30 Apr 2026 21:51:00 -0400
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v2] net: airoha: Move entries to queue head in case of
- DMA mapping failure in airoha_dev_xmit()
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <177759841005.3278779.2333326558858237558.git-patchwork-notify@kernel.org>
-Date: Fri, 01 May 2026 01:20:10 +0000
-References: <20260429-airoha-xmit-unmap-error-path-v2-1-32e43b7c6d25@kernel.org>
-In-Reply-To: <20260429-airoha-xmit-unmap-error-path-v2-1-32e43b7c6d25@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, jacob.e.keller@intel.com,
- horms@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-ORIG-GUID: wQfQRKpUY3OQ6rzb7_9sA7HT8Gy0Wcet
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTAxMDAxNSBTYWx0ZWRfX+CCFTEIecljI
+ qBcmGjp0BHT61EHAh4Imm+jrh7Ox3VZ5+E3tvkdlAj+3hw400mQr4ggJ+s80f4+i4ckvkyP0WLl
+ 9Uev4UzpCplVwb2MrmDAnyvfUOpjgjHJR4cGRq6P1wVIT0TN6x/OUzZ5gyZDmmWV/P2Ha3ewoiK
+ cFfdAsad08W83aVifg/SN7UmJItYvNSIslB10gPwT0YPEmyUoRcTp5canbDwIlhDj0Mj7C8wVEC
+ +l86T1ZnhkluOxjoOHnDI3oVZ7x489qQpA7d1IUvVlRPEL5LEdBf6TKp9KRMmcZY628MuzjsNJP
+ PNSXCWb5dwh3K80qJ9C3MblZ/xfzS4YK2DEObUQoV9Zea3pvBB3HY7iaqctEgPb2EHUaiP3IhJd
+ aaWlSll2HbYiSKs55H5GD1fV0yD3v0rnvwgxWXQyCiEmcTFEPDRnFZeuxDRa6qGGy0afdnggo7j
+ PMtbbpyvnwlSPziAlqw==
+X-Authority-Analysis: v=2.4 cv=VZLH+lp9 c=1 sm=1 tr=0 ts=69f40709 cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=VwQbUJbxAAAA:8
+ a=7CQSdrXTAAAA:8 a=VnNF1IyMAAAA:8 a=-XdNLD7Q-W-cEsWseUgA:9 a=QEXdDO2ut3YA:10
+ a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-GUID: zdhmN0WO-ojqK2IChMV6ORErdExKpzKo
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-30_07,2026-04-30_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 suspectscore=0 adultscore=0 lowpriorityscore=0 phishscore=0
+ spamscore=0 malwarescore=0 bulkscore=0 priorityscore=1501 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2605010015
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_182056_837430_03501A94 
-X-CRM114-Status: UNSURE (   8.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260430_185131_919393_4B953233 
+X-CRM114-Status: GOOD (  21.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,30 +133,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+On Thu, 2026-04-30 at 18:35 -0400, Paul Moore wrote:
+> On Thu, Apr 30, 2026 at 5:39=E2=80=AFPM Mimi Zohar <zohar@linux.ibm.com> =
+wrote:
+> > On Thu, 2026-04-30 at 10:48 +0100, Yeoreum Yun wrote:
+> > > With above change I confirmed there is no meaurement log
+> > > between boot_aggregate and boot_aggregate_late except "kernel_version=
+"
+> > > But this is ignorable since this UTS measurement is done in
+> > > "ima_init_core() (old: ima_init())" and it is part of ima initialisat=
+ion.
+> > >=20
+> > > 1. ima_policy=3Dtcb
+> > >=20
+> > >   # cat /sys/kernel/security/ima/ascii_runtime_measurements
+> > >   10 0adefe762c149c7cec19da62f0da1297fcfbffff ima-ng sha256:000000000=
+0000000000000000000000000000000000000000000000000000000 boot_aggregate
+> > >   10 4e5d73ebadfd8f850cb93ce4de755ba148a9a7d5 ima-ng sha256:000000000=
+0000000000000000000000000000000000000000000000000000000 boot_aggregate_late
+> > >   10 7c23cc970eceec906f7a41bc2fbde770d7092209 ima-ng sha256:72ade6ae3=
+d35cfe5ede7a77b1c0ed1d1782a899445fdcb219c0e994a084a70d5 /bin/busybox
+> > >   10 17ec669c65c401e5e85875cf2962eb7d8c47595f ima-ng sha256:dc6b013e9=
+768d9b13bcd6678470448090138ca831f4771a43ce3988d8e54ffce /lib/ld-linux-aarch=
+64.so.1
+> > >   10 58679a66ac1de17f02595625a8fbeafa259a4c81 ima-ng sha256:494f62bcf=
+b2fcf1b427d5092fafa62c8df39a83b4a64402620b28846724f237f /usr/lib/libtirpc.s=
+o.3.0.0
+> > >   10 42f74ee200434576e33be153830b3d55bbe6d2bf ima-ng sha256:a18856b4f=
+6927bc2b8dd4608c0768b8f98544a161b85bf4a64419131243ad300 /lib/libresolv.so.2
+> > >   10 626b4f7bd4f123d18d3a3d8719ed0ae19ee5f331 ima-ng sha256:b8d442de5=
+d31c3f9d1bbb98785f04d4a23dc53442b286d85d4b355927cbe9af4 /lib/libc.so.6
+> > >   10 655a200869696207646377a58cab417fd35b09d2 ima-ng sha256:ad46146b6=
+dd32b47213e5327f1bb2f962ef838a4b707ef7445fa2dbc9019b44f /etc/inittab
+> > >   10 81353202685e022fcd0069a3b2fc4eaa6b1db537 ima-ng sha256:74d698fe0=
+a6862050af29083aa591c960ec1f67be960047e96bb6be5fc2bc0c0 /bin/mount
+> > >   10 ae64184ee607ef8f3aa08ab52cb548318534fd4b ima-ng sha256:27846b57e=
+8234c6a9611b00351f581a54ad6f9a1920b9aa18ceb0ae28e4f7564 /lib/libmount.so.1.=
+1.0
+> > >   10 5ea01f34e7705d1bdb936fd576e2aeb5fd78dab9 ima-ng sha256:3d2a414ec=
+0355fcf0910224fb4a3c53e13d98731a35241edfdf4fb911ed9b210 /lib/libblkid.so.1.=
+1.0
+> > >   10 22c48b4853594a08a73ad4ae6dbe6f2c2bebc6c5 ima-ng sha256:e3b0c4429=
+8fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 /run/utmp
+> > >   10 3024ea5021f8a5d9fb4bd519d599bdca43b7fb93 ima-ng sha256:71ea9ffe2=
+b30e5a9bdceff78785cf281cc41544474db8dc4605a06a597ce1edc /etc/fstab
+> > >   10 2e7530a0f56420991ac7611734cea4774b92b9ef ima-ng sha256:df4697d69=
+9442cfe73db7cc8b4c1b37e8a31e75e01f66a0d70134ac812fa683b /bin/mkdir
+> > >   10 3ad117a863aa1ed7b7c09e1d106f84abf7d2ae96 ima-ng sha256:c19a71098=
+9b43222431b02399273dba409fe10ca8eefff88eaa936fa695f8324 /bin/ln
+> > >   10 4141c82cb516ac3c846e0b08abcd6abeee7efa1a ima-ng sha256:b75d7f287=
+72f71715a941c77e07e3922815391dd9cc5718ad21f2231c2da09bb /etc/hostname
+> > >   10 dfcedd3c7dc3ed42e09219804504489ab264e2e3 ima-ng sha256:dc1615df9=
+f2012b20b81ffad8e07e16293039ba7fd897854ca3646d6cfea0c0f /etc/init.d/rcS
+> > >   ...
+> > >=20
+> > > 2. ima_policy=3Dcritical_data
+> > >=20
+> > >   # cat /sys/kernel/security/ima/ascii_runtime_measurements
+> > >   10 0adefe762c149c7cec19da62f0da1297fcfbffff ima-ng sha256:000000000=
+0000000000000000000000000000000000000000000000000000000 boot_aggregate
+> > >   10 49ab61dd97ea2f759edcb6c6a3387ac67f0aa576 ima-buf sha256:0c907aab=
+3261194f16b0c2a422a82f145bc9b9ecb8fdb633fa43e3e5379f0af2 kernel_version 372=
+e312e302d7263312b // Ignorable since it's generated by ima_init(_core)().
+> > >   10 4e5d73ebadfd8f850cb93ce4de755ba148a9a7d5 ima-ng sha256:000000000=
+0000000000000000000000000000000000000000000000000000000 boot_aggregate_late
+> > >=20
+> > > Therefore, init_ima() could move into late_initcall_sync like v1 did:
+> > >   - https://lore.kernel.org/all/20260417175759.3191279-2-yeoreum.yun@=
+arm.com/
+> >=20
+> > Thanks, Yeoreum.  It's a bit premature to claim it's "safe" to move the
+> > initcall.  Hopefully others will respond.
+>=20
+> Is it not possible to look at the code and determine if it is safe or
+> not?  Or is the initialization of TPM devices at boot done in a random
+> order with respect to the initcall levels?
 
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+The TPM is normally initialized at the device_initcall, except when other
+resources are not ready.
 
-On Wed, 29 Apr 2026 14:02:31 +0200 you wrote:
-> In order to respect the original descriptor order and avoid any
-> potential IOMMU fault or memory corruption, move pending queue entries
-> to the head of hw queue tx_list if the DMA mapping of current inflight
-> packet fails in airoha_dev_xmit routine.
-> 
-> Fixes: 3f47e67dff1f7 ("net: airoha: Add the capability to consume out-of-order DMA tx descriptors")
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> 
-> [...]
+(Abbreviated) AI explanation:
+   If the TPM's first probe succeeds at device_initcall with no deferral, I=
+MA
+   finds it fine. It is only when the TPM is pushed onto the deferred list =
+that
+   late_initcall can execute before the retry succeeds, leaving
+   tpm_default_chip() returning NULL.
+  =20
+   Recall that the kernel schedules a final deferred probe flush as its own
+   late_initcall:
+  =20
+   This means the TPM retry and IMA init are both late_initcall, and their
+   relative order is determined by link order =E2=80=94 which is not guaran=
+teed to put
+   the deferred probe flush before ima_init. If ima_init happens to run bef=
+ore
+   deferred_probe_initcall, and the TPM is on the deferred list, IMA will e=
+nter
+   bypass mode even though the TPM is about to successfully probe moments l=
+ater.
+   This is the precise and subtle nature of the race.
 
-Here is the summary with links:
-  - [net,v2] net: airoha: Move entries to queue head in case of DMA mapping failure in airoha_dev_xmit()
-    https://git.kernel.org/netdev/net/c/75df490c9e84
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+Mimi
+
+
 
 
 
