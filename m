@@ -4,90 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62E7AFF8864
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 08:13:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACD99FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 08:24:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NJy9JRzzea0MEbuvCcgPyf18aJdET1ySFm9JDivNUQ0=; b=mzTumSqjsO9sGsn+zc5yKFgH+P
-	Z5vnfEEotLAic6xLZZ48gebnqNvNy1nHC4twwcy4A5EqXCywtBQJWfVZnjc2UDAPLk3uWryooTuOz
-	qLLW+WXXjzjbxf6OFjiqY3CQcZ9WQyYKklqA64L5MTC68+EWXhn3yjAOG3oh1u8zr/C/JrhIIfKab
-	dmeWSruF2HDGIgCFTPEPwVMyj9JZ7ZCSNE3Yoy1eBBdc8VyJR+0VrXuUJp4PH8+P1S3Y0SSTG7/UC
-	K8HclkPmBmlXeLtvLGvLTO2Y/eJKkUdAzEZnbLQbGQCKjfqnj3h38m35b8a0iofHjNrokViR7kTVk
-	ugmeCNhA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wRSzBVZFgub2HmMShQ90dHmqgeN4zf9oh5ozCMakXGA=; b=UVTLiU8K61TsC/AAU+DaWzT/zz
+	kRATOoszh22scd/rRV1jvqbOo6fS/zFY+0Rhh9ZB1vl/yY4v5gR0CP8j0YOigz+jVuAc/OvKPLg7n
+	rm2fx5Ikw585+Wp5sHZZw4wdgzZErRR1hjTn1Afxb9x24jFA39PhF9YaQ0KCQYuUugIeSNNjlQMwd
+	hbm1nIIhQeFixnpHQPJ8/CYz71E/f+E57vs/4QYJqLB5OzpwxCBJLPxGB1Vur1f2jt+bWhlUuRv13
+	FucpfcTuHDpygxQ5aPtjygYwaivG6kCF9ee+PlZboUK5h0DV7KTeyqUFOJpLkPTnYDiuW/39hoHpi
+	Hw+uTBZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIj0O-00000006VEM-32Wz;
-	Fri, 01 May 2026 08:13:48 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIj0M-00000006VE1-0wRJ
+	id 1wIjB0-00000006Vk7-3IvH;
+	Fri, 01 May 2026 08:24:46 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wIjAy-00000006Vjg-0nPl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 May 2026 08:13:47 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-35da9692ec3so2113055a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 May 2026 01:13:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777623225; x=1778228025; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=NJy9JRzzea0MEbuvCcgPyf18aJdET1ySFm9JDivNUQ0=;
-        b=q3UKoRq3HsNN6Gyv1Fo93WhGoll/4JwJfwCvH1uOQxRpo/OB90daOm5CuCMS/8xrPM
-         2Wlp6VGElczadiWqVdz4g4/suau6/rWtq7i/ZOSjYnwMZXFpEbOXhRGV3PjuqTI1nsSU
-         /3pmncisXdejPjbfhPD/FlwGZLa38EJzl438VWbwwHGYCZgYSZn+0UYyib5oeo3TnvRf
-         CJIA8FTFX/RtveH9Cr0DMBmul5uQcq+TbDBd6qquXzX4QZemzP4LL/WNhmZtentvYrG7
-         1TDpIYSSBW2JhS114y6IuzSCFuBP+iXuMr+Plj5mUJxPYS/ntEopQ0Qmy3GYNpS66gon
-         syYQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777623225; x=1778228025;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NJy9JRzzea0MEbuvCcgPyf18aJdET1ySFm9JDivNUQ0=;
-        b=rNI6hJSSd2wnocE4sI5y3bvxEh/0zEbqJfjDmynAjkVtv2sWc55PHjNmmSDk/4lR9X
-         8qK5QAzpY4L14RI7szV344xrGVkDIss1eWN8sLPVgJbtTti/0lWL6t5hPKj4jpj6I1zj
-         U8VhhkbI+hiviPUwSCMTsZrNv5hqTalbUfgBBovazWY/CHFN4tlK9lVoZKZqZJJFtm9q
-         /4Gsyw4lw44Ui6tlnMXgIA96VgX5nxu0ehz1vjt0YXL7wLAIOUffsxMe/9EWKY0kXLUc
-         v6g1l6H2k+TFdMMWGRK3v8sIWg+62hDoEPr2fZZTaiJlz8TnpmJI+aGY793/qa+Q0L9j
-         rX5Q==
-X-Forwarded-Encrypted: i=1; AFNElJ+Jkk9+FeyvnfOel+dajUVLACoK3jDifHI2Bzp70rSlU3DbxV0+Eekj2He9YBEHmRNhpyAn5Nud14TT0pf6G9Bx@lists.infradead.org
-X-Gm-Message-State: AOJu0YxvJKqLsNLH5Tuf4XmA46y5D2dtn9UwcCCJftAB/r9bIG7q2fkP
-	yl36JQFjW5fvUFRX2pY0WN2oNb/JrQJcuP4Ra1wqiaEbgqAWnA0xyf2X
-X-Gm-Gg: AeBDietwGf2lIMK44eLIoYY5Ci7nsewRG+6f77PbUtptozAcbNlluxNoeGJVvtOx2zw
-	q185vkNWH4yPqyo31Axfd0zZdhoQk98JhcHJaxyiajzPbO1Ok8thqIqbYJI3/LVePbA6RiHwepZ
-	4knZJmb0JuYSLeTDued6ktOls1ewC+woE8hNJvKNy+w/vle8eEIvsq8iWPZFCpm4ryAaqinMGTc
-	lccyj4MZrzZTz5kZ10ifiVDYYO7BYdD9OiXC7BtAKMRZQT3hxyKe8TelwW53W6puXodQZab+9zz
-	W2UCabIS2ORx2bJeQ6gmithVSad7+4rvAWP/G35XwF5DSraqQQNg1hwe7RXH0/Hm8CE6IzsHJtE
-	6zyzEDHQIptHYpxbZs9BDeLTJFmEJAYYm8XBDTQAIdC60Z/C0B2iKFw3TUH9x0oinFcIR1YDi4g
-	p2ExBi0fqV7sxweBp9eWMHxy47qAU4baVKnHhhJ6Ig0YCT
-X-Received: by 2002:a17:90b:3911:b0:35e:5929:d78d with SMTP id 98e67ed59e1d1-364c2f0a149mr7040037a91.3.1777623224810;
-        Fri, 01 May 2026 01:13:44 -0700 (PDT)
-Received: from penguin.lan ([2409:40f0:11d1:8c2a:613a:7c61:540d:f337])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-364ec03c944sm1551734a91.15.2026.05.01.01.13.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 01 May 2026 01:13:44 -0700 (PDT)
-From: Rakesh Alasyam <alasyamrakesh77@gmail.com>
-To: richard.genoud@bootlin.com,
-	gregkh@linuxfoundation.org,
-	jirislaby@kernel.org
-Cc: nicolas.ferre@microchip.com,
-	alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev,
-	linux-serial@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Rakesh Alasyam <alasyamrakesh77@gmail.com>
-Subject: [PATCH] serial: atmel: honor CREAD in atmel_set_termios
-Date: Fri,  1 May 2026 13:43:17 +0530
-Message-ID: <20260501081317.15477-1-alasyamrakesh77@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Fri, 01 May 2026 08:24:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E5D09176B;
+	Fri,  1 May 2026 01:24:33 -0700 (PDT)
+Received: from [10.57.23.180] (unknown [10.57.23.180])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 547EB3F7B4;
+	Fri,  1 May 2026 01:24:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1777623879; bh=wvmEX2et2ShvFzfkys+EovBlO7Onf2ndTlH0LxczpEU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=rKs56zIXFHWIQyf8oJ+Zg7P1QjdVZniDaAKfy9t0b1uMvyUFLOv5S9xDZDhVM+FfD
+	 85lphHLA3Dmt2UPFYGoyPoI3nNl1cuuxoJcc1LHCrQ6+cwPhUS7cu7QJUluYqdjUhN
+	 4xdsmYq+c4nADTGaVNFeoC1CK0Qcll77VqHwLL/8=
+Message-ID: <bc9f873e-4919-4617-bb6f-1f495a6a508b@arm.com>
+Date: Fri, 1 May 2026 09:24:36 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] coresight: ete: Always save state on power down
+Content-Language: en-GB
+To: James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@arm.com>,
+ Leo Yan <leo.yan@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260428-james-cs-ete-pm_save_enable-v1-0-c7a90ca6f43b@linaro.org>
+ <20260428-james-cs-ete-pm_save_enable-v1-1-c7a90ca6f43b@linaro.org>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20260428-james-cs-ete-pm_save_enable-v1-1-c7a90ca6f43b@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260501_011346_265766_1F37848C 
-X-CRM114-Status: GOOD (  11.55  )
+X-CRM114-CacheID: sfid-20260501_012444_412021_9EABC9C0 
+X-CRM114-Status: GOOD (  30.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,32 +74,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ignore received characters when CREAD is cleared by adding RXRDY
-to ignore_status_mask.
+On 28/04/2026 13:18, James Clark wrote:
+> ETE registers are always system registers so it's highly unlikely there
+> will be an implementation that preserves them on CPU power down. Also
+> the ETE DT binding never documented
+> "arm,coresight-loses-context-with-cpu" so nobody would have legitimately
+> been able to use that binding to fix it.
+> 
+> Fix it by hard coding the setting for ETE and add a warning if the user
+> tried to use the module parameter. Don't add a warning if
+> loses-context-with-cpu is present in the DT as it's not a documented
+> binding anyway. etm4_init_pm_save() needs to happen after drvdata is
+> initialised so etm4x_is_ete() can be called.
+> 
+> This fixes the following error when using Coresight with ACPI on the FVP
+> which supports CPU PM:
+> 
+>    coresight ete0: External agent took claim tag
+>    WARNING: drivers/hwtracing/coresight/coresight-core.c:248 at coresight_disclaim_device_unlocked+0xe0/0xe8, CPU#0: perf/117
+> 
+> Fixes: 35e1c9163e02 ("coresight: ete: Add support for ETE tracing")
+> Signed-off-by: James Clark <james.clark@linaro.org>
+> ---
+>   drivers/hwtracing/coresight/coresight-etm4x-core.c | 41 +++++++++++++++-------
+>   1 file changed, 29 insertions(+), 12 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> index d565a73f0042..a7fb680dd383 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> @@ -56,10 +56,11 @@ MODULE_PARM_DESC(boot_enable, "Enable tracing on boot");
+>   #define PARAM_PM_SAVE_NEVER	  1 /* never save any state */
+>   #define PARAM_PM_SAVE_SELF_HOSTED 2 /* save self-hosted state only */
+>   
+> +/* Save option for ETM4. ETE ignores this option and always saves */
+>   static int pm_save_enable = PARAM_PM_SAVE_FIRMWARE;
+>   module_param(pm_save_enable, int, 0444);
+>   MODULE_PARM_DESC(pm_save_enable,
+> -	"Save/restore state on power down: 1 = never, 2 = self-hosted");
+> +	"Save/restore state on power down: 1 = never, 2 = self-hosted. ETM4 only.");
+>   
+>   static struct etmv4_drvdata *etmdrvdata[NR_CPUS];
+>   static void etm4_set_default_config(struct etmv4_config *config);
+> @@ -1365,6 +1366,30 @@ static void etm4_fixup_wrong_ccitmin(struct etmv4_drvdata *drvdata)
+>   	}
+>   }
+>   
+> +static int etm4_init_pm_save(struct device *dev, struct etmv4_drvdata *drvdata)
+> +{
+> +	if (etm4x_is_ete(drvdata)) {
+> +		/*
+> +		 * Always do PM save for ETE. It always uses system registers
+> +		 * which will be lost on CPU power down.
+> +		 */
+> +		pm_save_enable = PARAM_PM_SAVE_SELF_HOSTED;
 
-This replaces an existing TODO in the driver.
+Should we do this instead based on if the ETM/ETE is accessed via sys 
+instructions ? That would cover all implementations?
 
-Signed-off-by: Rakesh Alasyam <alasyamrakesh77@gmail.com>
----
- drivers/tty/serial/atmel_serial.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/tty/serial/atmel_serial.c b/drivers/tty/serial/atmel_serial.c
-index 5d8c1cfc1c60..5b062d8ccabe 100644
---- a/drivers/tty/serial/atmel_serial.c
-+++ b/drivers/tty/serial/atmel_serial.c
-@@ -2184,8 +2184,8 @@ static void atmel_set_termios(struct uart_port *port,
- 		if (termios->c_iflag & IGNPAR)
- 			port->ignore_status_mask |= ATMEL_US_OVRE;
- 	}
--	/* TODO: Ignore all characters if CREAD is set.*/
--
-+	if (!(termios->c_cflag & CREAD))
-+		port->ignore_status_mask |= ATMEL_US_RXRDY;
- 	/* update the per-port timeout */
- 	uart_update_timeout(port, termios->c_cflag, baud);
- 
--- 
-2.43.0
+Suzuki
+
+> +	} else if (pm_save_enable == PARAM_PM_SAVE_FIRMWARE) {
+> +		pm_save_enable = coresight_loses_context_with_cpu(dev) ?
+> +			PARAM_PM_SAVE_SELF_HOSTED : PARAM_PM_SAVE_NEVER;
+> +	}
+> +
+> +	if (pm_save_enable != PARAM_PM_SAVE_NEVER) {
+> +		drvdata->save_state = devm_kmalloc(dev,
+> +						   sizeof(struct etmv4_save_state),
+> +						   GFP_KERNEL);
+> +		if (!drvdata->save_state)
+> +			return -ENOMEM;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>   static void etm4_init_arch_data(void *info)
+>   {
+>   	u32 etmidr0;
+> @@ -2247,6 +2272,9 @@ static int etm4_add_coresight_dev(struct etm4_init_arg *init_arg)
+>   		return -ENOMEM;
+>   
+>   	etm4_set_default(&drvdata->config);
+> +	ret = etm4_init_pm_save(dev, drvdata);
+> +	if (ret)
+> +		return ret;
+>   
+>   	pdata = coresight_get_platform_data(dev);
+>   	if (IS_ERR(pdata))
+> @@ -2305,17 +2333,6 @@ static int etm4_probe(struct device *dev)
+>   	if (ret)
+>   		return ret;
+>   
+> -	if (pm_save_enable == PARAM_PM_SAVE_FIRMWARE)
+> -		pm_save_enable = coresight_loses_context_with_cpu(dev) ?
+> -			       PARAM_PM_SAVE_SELF_HOSTED : PARAM_PM_SAVE_NEVER;
+> -
+> -	if (pm_save_enable != PARAM_PM_SAVE_NEVER) {
+> -		drvdata->save_state = devm_kmalloc(dev,
+> -				sizeof(struct etmv4_save_state), GFP_KERNEL);
+> -		if (!drvdata->save_state)
+> -			return -ENOMEM;
+> -	}
+> -
+>   	raw_spin_lock_init(&drvdata->spinlock);
+>   
+>   	drvdata->cpu = coresight_get_cpu(dev);
+> 
 
 
