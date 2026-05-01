@@ -4,155 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E7C3CD3423
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 16:45:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68808CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 16:46:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qVK5aGjzQ0JOdASQ5qywjy7F7no38V/8AZf8KBhDSv0=; b=GrhglphLxfCoo4vY4dRnIVgBgM
-	02T0GdhWwEpE49TCkpRf3XYja7++VZE4s9KagY97hvqoTFur44gmswqK4H2y5lyvNEy1WUYMhZYU4
-	VKlBF/tAb1Bw007mKm2EdFNaXQ3vUbJXXtGzJRQeU96OwejfZH6R6pT54h3pKF5NiOqtsTzpvsYpI
-	jMyilrwiOSeKuQ+bEzg8jjzhb047NPmr9QhUEHpAOd9cEXmqTQO+41ZyFpByScc+6UrJhd5kBSYVB
-	2Ikzs5Qb6zvK1a0qYzE5fBNuli8b2Fqvwy2CWJlNDxQU9P2eCv5H87rDgjLsbR2GpwHKVsm+iO1pj
-	ec2tCfmQ==;
+	bh=CFTqUKpnyHKUJ4y+aRJP1iYDyammdTLi1vBbibqzqOY=; b=iHvCv+SMJubE5b1daMZB5vKOu8
+	zNocnufnfHuhFqCExrfT+NxsqtkugGazoMgZ4jWB0bffsWnJg+/Uj31mqREfoGKuSSxgRptQR6u8l
+	DBgc6k30S2GjOpf0YmUnRVEp4wNurpwlZnAZ5PSOB9ln66DlMes8FM/KAxgmHmEN8oZqIA9Km8bd3
+	xgQJNm4ZhYMhghwR0oPXCez0inPxaOYTqwGueaLq2KuZ90JvSNGoAKoNpKvoEH9xkPbvvBbM+LG2W
+	wLPdpnt630FyEiZapqMy/aiCMHWkHn3OdePkBJqq6iHVMfY4vuquWNwP1KqXxB9BHeLbzNqF+sYE3
+	m2UaZBbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIqzb-00000007QT8-1pkg;
-	Fri, 01 May 2026 16:45:31 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIqzX-00000007QRy-00tn
+	id 1wIr0N-00000007QbL-1EXN;
+	Fri, 01 May 2026 16:46:19 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wIr0L-00000007Qal-1Xul
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 May 2026 16:45:30 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=OFfBUcFBn+0pCYNDP8xHPAZ0RBdO2tSReriF9n2ftc92ZfcZMMy+xslKpV8jpK4cV4LW7yOVyxkY+AGUlaRVTigGFNe3r5Jw6ougNZRCm50nWhaDX+ZReHILDtQylhJAQr3Y4pUAeh0SbgvdpxpKgFOb1Jug+evT/++y3vQ21FV1avJ8Ws6SRRPH7GW7OgmKO9Lc18e3CiQsmJGPIO18qVzR0JEs/X8xfoT8KALvUCJ9tKEvvT5NpbknlPHhAHqv2Sk9wQ/k2PmifXmrhfjQSbK8T73vZuLUGCTbZTFXhZSdhdHcFqJiSaoclo8emWD16c2nTOpT6GWnkoOE1b8Eow==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qVK5aGjzQ0JOdASQ5qywjy7F7no38V/8AZf8KBhDSv0=;
- b=EecfHAu3JSmRu+28ZIKHFgBnQc76P6WdLrEJZfhRbN9NN4cgB0xRpmAJtYP6Z1627g1t3lADKAcRLNJgn7efOBMy2XP36Q9PeeaDV/R96yiZ7K96fQ9LxRDWXxSiGATSIfKD0VRWKYmymwiMPdSMHT+4fdMktPv3khoWk1a2m7E7qiMVkLpO1N9xcgQCKYcHZdvygEUXN09f7loCEVrQWybclPcoSVD5fsgrEBfaD4h3oIRWJGyQV/SHjo4gy3OljKeiBm35TjVD4XcWYvORBr1W2+3BlSzl/P5W5ztjZe4OCKR27Ysz1a8HZkN7fK0mDMUNCV9waiBdueOlRUMN8A==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qVK5aGjzQ0JOdASQ5qywjy7F7no38V/8AZf8KBhDSv0=;
- b=dxChtPn3cfdpjnrjkHj4u+BSFFbbrxfXJDYlFQO8rbhyoEW563bBkVEK/mBCmWyEeeDCavV9MgarPSN3ZdRzY3tqodUyTtUbCQ57PNqHtrjPfCYxDKqTeK79pyklSORRxuEGiGpXo4gQrvh3Uz7HKazdzJ1Lpkf8HMujG1S+Bw8=
-Received: from AM0PR10CA0057.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:150::37)
- by AS8PR08MB9813.eurprd08.prod.outlook.com (2603:10a6:20b:616::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.20; Fri, 1 May
- 2026 16:45:19 +0000
-Received: from AM3PEPF00009BA2.eurprd04.prod.outlook.com
- (2603:10a6:20b:150:cafe::d7) by AM0PR10CA0057.outlook.office365.com
- (2603:10a6:20b:150::37) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.30 via Frontend Transport; Fri,
- 1 May 2026 16:45:19 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AM3PEPF00009BA2.mail.protection.outlook.com (10.167.16.27) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.9
- via Frontend Transport; Fri, 1 May 2026 16:45:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xHrI3a1pOcrdMFGIPyOFYU1MI+8TgauqByiActd8HXP8X0W0rZh5vmIidu8Y/s7eKnejI3CJKYkiaL+id0r7cHgkardF5QIJ2gke1TcnIelT3yn/CLh3WWQ/vuR+D7s/7/B9UJOczvS+dIi1lH6mKFfd+cOZmtzkoF7sMK8yIcVeT1zMHNZZN72A9+E+9Zlu9TFCyQN1Pv/G9JB3TAcWDguwZCiHFo3YO0NsBt8pGAxitPPeuw/jMdSLcjPU3GzeGJi9bpIKwHUVJpKiHp/ZrsdnrGyrNMpcvTQ+fwUWhqxkfpiz4/s3UHWEQVorCcQG8FICnYr9yzYNtxXve3EtaA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qVK5aGjzQ0JOdASQ5qywjy7F7no38V/8AZf8KBhDSv0=;
- b=CMwXENL6G6mVGwZYWicdw0vwZJR79XsA8VdNJ8Yz50SlK4Dpl8zHOS0pCSXxW30Y5XX9uxoZ4TQ9tz1RWkldFRsOy6si0XzsMRu8FGWQC2aComiv5Z0LxFRpwyEEZlsvYsfI6ybXkB3uaVMhnrwQinZW7iSSWbv/2/fN7y/52PUpu1Wmx+UKSpBiNOYO0+Kg83oXvuSitEcyLyF3fDycN+E0psWdYGIWhjaTBKIUz7v6ZpwrAcTlG64a9PFwovbYs+ARX/B/bQ3Pv+7qSdiE8B6U4dSjtBctxbEKTrHq+pwUsjZDpIvcqO/71m5/E1MAditseuUh33VtrKISZE2O5w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qVK5aGjzQ0JOdASQ5qywjy7F7no38V/8AZf8KBhDSv0=;
- b=dxChtPn3cfdpjnrjkHj4u+BSFFbbrxfXJDYlFQO8rbhyoEW563bBkVEK/mBCmWyEeeDCavV9MgarPSN3ZdRzY3tqodUyTtUbCQ57PNqHtrjPfCYxDKqTeK79pyklSORRxuEGiGpXo4gQrvh3Uz7HKazdzJ1Lpkf8HMujG1S+Bw8=
-Received: from AM6PR08MB3399.eurprd08.prod.outlook.com (2603:10a6:20b:47::18)
- by VI1PR08MB9958.eurprd08.prod.outlook.com (2603:10a6:800:1c0::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.20; Fri, 1 May
- 2026 16:44:16 +0000
-Received: from AM6PR08MB3399.eurprd08.prod.outlook.com
- ([fe80::59cd:4b6:fceb:3de7]) by AM6PR08MB3399.eurprd08.prod.outlook.com
- ([fe80::59cd:4b6:fceb:3de7%5]) with mapi id 15.20.9870.016; Fri, 1 May 2026
- 16:44:16 +0000
-From: Sascha Bischoff <Sascha.Bischoff@arm.com>
-To: "maz@kernel.org" <maz@kernel.org>
-CC: "yuzenghui@huawei.com" <yuzenghui@huawei.com>, Timothy Hayes
-	<Timothy.Hayes@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>, nd
-	<nd@arm.com>, "peter.maydell@linaro.org" <peter.maydell@linaro.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvm@vger.kernel.org"
-	<kvm@vger.kernel.org>, Joey Gouly <Joey.Gouly@arm.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "oliver.upton@linux.dev"
-	<oliver.upton@linux.dev>
-Subject: Re: [PATCH 05/43] KVM: arm64: gic-v5: Extract host IRS caps from IRS
- config frame
-Thread-Topic: [PATCH 05/43] KVM: arm64: gic-v5: Extract host IRS caps from IRS
- config frame
-Thread-Index: AQHc1l/7N0W5rhjXIUy+56mjABgqtbX0mFsAgATOYoA=
-Date: Fri, 1 May 2026 16:44:16 +0000
-Message-ID: <6e3984f66dad59f06f1362240abec504878bc716.camel@arm.com>
-References: <20260427160547.3129448-1-sascha.bischoff@arm.com>
-	 <20260427160547.3129448-6-sascha.bischoff@arm.com>
-	 <86pl3jyuv3.wl-maz@kernel.org>
-In-Reply-To: <86pl3jyuv3.wl-maz@kernel.org>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.52.3-0ubuntu1.1 
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-x-ms-traffictypediagnostic: AM6PR08MB3399:EE_|VI1PR08MB9958:EE_|AM3PEPF00009BA2:EE_|AS8PR08MB9813:EE_
-X-MS-Office365-Filtering-Correlation-Id: 49eb5c39-3bec-47ce-d06e-08dea7a107b6
-x-checkrecipientrouted: true
-nodisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|376014|1800799024|38070700021|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info-Original: r6TgwOhdrKlgry3ehSzaVVrBR9Py7IWyOSn0t5RDX4K1/SQjm2tkc+w/hJQqNADlyQuMi+nZDm68C7azu8mIytSCMJgMx5vNcXJP/rUbiZIx2c4I1cw/6e20td4spMoX+7YuBtMLjWh8H2PEVRCfoK2SnAowJBsDwJYAspXtoaHKiOia6u0gKWROvMGmWFf2bR6wNSp1+ommq7vkL0Zy4eFMb3DqXeU2ngLshqpVyF04mjKwoi5srHUcx+23noJxstB8sYdCFBJu2i2YFIA/+IpCS+GEjJBuPSF2+j5psqtc0CKdLzwrNGNYsmmb0KUqQseWaIbYCstrgK8r7DZbcxfyYErhb6HhzgaYYF2N7BlHyF6H/gz7cHGWYbd7dtWC3AEA5B6NaUz/K6ZOAz9ZfxDkJBvBmsBxMR82kwDzVn9CWf/ATVeyPx/a0Rus37i5v2oq9BHVmlX5YLVFELtNidPS9uM934vQnsqClD8BDb67BXLi77UrCat893GmJqAUkeqQQrWuTQt8Fr5XN/GnLg0ZNMA/GPDQyFCRyGXADD3yzKlWCTiIPl+HQWIWoa0wUbDPDvY+16leAc9Qcf1GF4tbv5GUm0E1phqYTsodI002B+5eNikqm4npOIA+lFxh5M0WhOeAo39m+UYFEtrXRPSA5cyntI0XL3Iu3Ff230rj+D5374id9PAPl0d0kP9HbFFXV19GqPQbiuPB60ePCmMmq7J0tcrb002uqAowxbKKC7ZvYQEO+UBTJmGAx3BY
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM6PR08MB3399.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(38070700021)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <C972BE3B77ED7744805A4FFB32AAB319@eurprd08.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	Fri, 01 May 2026 16:46:18 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2DD711692;
+	Fri,  1 May 2026 09:46:08 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 177EF3F7B4;
+	Fri,  1 May 2026 09:46:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1777653973; bh=44xl6jnIZuwKgvVWnq+3f6yKLirpvy1PsM7ushYUE5I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gYXN8qKNFfZg5PODtFardrI/KK5Lqv1U7pyfDlnSin5EnX8jmb9mfbbsLCU5IdwmV
+	 BjojzqgC5O13WSn1amRJCPNJ6geoKZHtAlyIk51mcqQC7EMFz4hBpVY2j0TC0VKWIi
+	 xkiutDcOP2K8NDfc8Gdo82I/t9LsMstaZp95/VDM=
+Date: Fri, 1 May 2026 17:46:04 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Dylan Hatch <dylanbhatch@google.com>
+Cc: Roman Gushchin <roman.gushchin@linux.dev>,
+	Weinan Liu <wnliu@google.com>, Will Deacon <will@kernel.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Indu Bhagat <ibhagatgnu@gmail.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Kosina <jikos@kernel.org>, Jens Remus <jremus@linux.ibm.com>,
+	Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
+	Puranjay Mohan <puranjay@kernel.org>, Song Liu <song@kernel.org>,
+	joe.lawrence@redhat.com, linux-toolchains@vger.kernel.org,
+	linux-kernel@vger.kernel.org, live-patching@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Randy Dunlap <rdunlap@infradead.org>
+Subject: Re: [PATCH v5 8/8] unwind: arm64: Use sframe to unwind interrupt
+ frames
+Message-ID: <afTYzAF_x41pyilu@J2N7QTR9R3>
+References: <20260428183643.3796063-1-dylanbhatch@google.com>
+ <20260428183643.3796063-9-dylanbhatch@google.com>
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: nBX+VCWkFx3kVqEgoiAVKSB/bMG2gZ0awFGhrXhKzdSieGZB67gIqf03gS3N+7m0C8JTa2FO+L/+KghHdV26I3sfmDnoa70LGkwUejMh/D2dXemTWfyNd+4S/gb1gQj3ZyH96OieEi+tLP+Xdy0R1pW5h3MYmVxZ9vqbmGJkXFBtqQXGwdawNj9VR3oqvDJdoPaE73LrS9baIAZRz4IZF9JKveuNXNMBAKrMucpl78u85fraM/pt8/F9bPwIGoVRKeVoRZbd+MOl89DFNsIErMQOHtDKm4OCBS3qZnQa2BG/PkxhcTjiKMLpF6PL6oK6PrjcCfdRVaOw0a3jXkAtwA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR08MB9958
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM3PEPF00009BA2.eurprd04.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 9f72858f-5837-4713-6b4c-08dea7a0e231
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700016|14060799003|1800799024|35042699022|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: MqS7SQveQnImCzc0NbrGsNer7MFvbJ77WPlHts2C1njWu5xRyU4Jqk8plcpbD475O5g+KQ+gMnuu1sd4znU7OGdJfCYOSQ26yV5IvsEw3cH3lvCr3FMmghZDIhPG7VvDoCDajNY7r79zxpXgM0Fiyt3hO+N38n5YG4Sx1Awew5EgqgJLcn/9bJyYkBJk7v3SdPU8ioW3n+C991z7DlN3bGJmqVXSTA0AukqUxyjl0Yqvr82Bxls8ScDYLnLpG5KLeWOBnkYN4+7WsykKH/YG1y/mfZpAMXs7ujsvqSWN+OO6FxqxcifQNbVFfpsBi90sPS/qcqGsDMxzK9f8fkSEwMqh5QhCjZPR1nbEcGcMwPN/RA50nAuo5aL4iSKLx9newUGCeRY+QcEM4WWFNXW0Vh0BwznlkKnyn0JeKIVoLLYJyxPphMpSQS9tlg8LTMnTEg5wHjvLi8HvF8MEJwab60gq2oR0A+30B0fJ03fV5fHwEcMGu+J8RHJXA+X5Uzesce9dVSo63zEeUoEBgBByBzykmmaQzTTojUBoYekbnttZkONTMq6Wv3uTcM7fUwTZVzodjCxNwLBcayekWdBirSleWQIRf0VCeqFOQrxkkkuTqQEV1DmExIDsFX9Gljm71YW/F6AjqMbWD3lBNcyI2TD3BSJ+zg67KBOfT75ymCcabQ0RwoZqSw3G2wAVs6tcAmwb9a8M1SUouqox5hStlGqBIWFWBNd9JF8/Gkz+/hU=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700016)(14060799003)(1800799024)(35042699022)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 9/cu/lqGBRRBzyNulyAGIP7snTRc2Ac/klLic53cQqEMNo/nuIdKMji6/wJ37u1jPlx7Yv90Zd6JtNxz45MkXooAndj7wbX4pb2b9R4LqU9VkCDfR6dWBD6FOGFgJUggM1ZT6W8WA+V0+jRymC/4jJQqaOuXtLX6po55MevgxwTvG8Gn0LV/hGpK/3Yo1AYhT1/flde0ahdvFTwmegZSijNW7C35IoBKm744BgDTUgtkrHjY+GlzTBqoBraMjsOLgHZ86aPIXIYwaunFuzDib41FdIBslO7Mvs8jRt53RnD2yuPVG7Ha8ffkmNAF61zj9wBU7w9jLsRpOP/rTxKgUrcZxRakaZvSjb6IbRr51ITiJyj0nho2AhzRSXe4pzqRLkXJi8jflTinStLSn3J/ZSjCFZY71SX7IfTp+p1+KfT6KlGu9V2JZZUsGq6FDUak
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 May 2026 16:45:19.3158
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 49eb5c39-3bec-47ce-d06e-08dea7a107b6
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF00009BA2.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB9813
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260428183643.3796063-9-dylanbhatch@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260501_094528_780868_526922C2 
-X-CRM114-Status: GOOD (  22.47  )
+X-CRM114-CacheID: sfid-20260501_094617_495324_94DAB8EF 
+X-CRM114-Status: GOOD (  61.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,153 +82,661 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCAyMDI2LTA0LTI4IGF0IDE2OjIwICswMTAwLCBNYXJjIFp5bmdpZXIgd3JvdGU6DQo+
-IE9uIE1vbiwgMjcgQXByIDIwMjYgMTc6MDc6NDQgKzAxMDAsDQo+IFNhc2NoYSBCaXNjaG9mZiA8
-U2FzY2hhLkJpc2Nob2ZmQGFybS5jb20+IHdyb3RlOg0KPiA+IA0KPiA+IFRoZSBob3N0IGlycWNo
-aXAgZHJpdmVyIHByb3ZpZGVzIEtWTSB3aXRoIGEgcG9pbnRlciB0byBhbiBJUlMncw0KPiA+IGNv
-bmZpZw0KPiA+IGZyYW1lLCB3aGljaCBhbGxvd3MgS1ZNIHRvIGRpcmVjdGx5IGludGVyYWN0IHdp
-dGggdGhlIGhvc3QncyBJUlMuDQo+ID4gVGhlDQo+ID4gTU1JTyByZWdpc3RlcnMgaW4gdGhlIGNv
-bmZpZyBmcmFtZSBhcmUgdXNlZCB0byBjb25maWd1cmUgVk1zIChpbg0KPiA+IGFkZGl0aW9uIHRv
-IHRoZW0gYmVpbmcgdXNlZCBieSB0aGUgaG9zdCkuIFRoZSBJUlMncyBjb25maWcgZnJhbWUNCj4g
-PiBhbHNvDQo+ID4gaW5jbHVkZXMgYSBzZXQgb2YgSUQgcmVnaXN0ZXJzIHdoaWNoIGRlc2NyaWJl
-IHRoZSBjYXBhYmlsaXRpZXMgdGhhdA0KPiA+IHRoZSBJUlMgaGFzLg0KPiA+IA0KPiA+IFN0YXNo
-IHRoZSBwb2ludGVyIHRvIHRoZSBjb25maWcgZnJhbWUsIGFuZCBleHRyYWN0IHRoZSBWTQ0KPiA+
-IGNhcGFiaWxpdGllcw0KPiA+IChmcm9tIElSU19JRFIzICYgSVJTX0lEUjQpLCBhcyB3ZWxsIGFz
-IHRoZSBJU1QNCj4gPiBjYXBhYmlsaXRpZXMvcmVxdWlyZW1lbnRzIChJUlNfSURSMikgZnJvbSB0
-aGUgSVJTLg0KPiA+IA0KPiA+IFNpZ25lZC1vZmYtYnk6IFNhc2NoYSBCaXNjaG9mZiA8c2FzY2hh
-LmJpc2Nob2ZmQGFybS5jb20+DQo+ID4gLS0tDQo+ID4gwqBhcmNoL2FybTY0L2t2bS9NYWtlZmls
-ZcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzCoCAyICstDQo+ID4gwqBhcmNoL2FybTY0L2t2
-bS92Z2ljL3ZnaWMtdjUtdGFibGVzLmMgfMKgIDggKysrKysNCj4gPiDCoGFyY2gvYXJtNjQva3Zt
-L3ZnaWMvdmdpYy12NS10YWJsZXMuaCB8IDQxICsrKysrKysrKysrKysrKysrKysrKysNCj4gPiDC
-oGFyY2gvYXJtNjQva3ZtL3ZnaWMvdmdpYy12NS5jwqDCoMKgwqDCoMKgwqAgfCA1Mg0KPiA+ICsr
-KysrKysrKysrKysrKysrKysrKysrKysrKysNCj4gPiDCoGluY2x1ZGUvbGludXgvaXJxY2hpcC9h
-cm0tZ2ljLXY1LmjCoMKgIHwgMTAgKysrKysrDQo+ID4gwqA1IGZpbGVzIGNoYW5nZWQsIDExMiBp
-bnNlcnRpb25zKCspLCAxIGRlbGV0aW9uKC0pDQo+ID4gwqBjcmVhdGUgbW9kZSAxMDA2NDQgYXJj
-aC9hcm02NC9rdm0vdmdpYy92Z2ljLXY1LXRhYmxlcy5jDQo+ID4gwqBjcmVhdGUgbW9kZSAxMDA2
-NDQgYXJjaC9hcm02NC9rdm0vdmdpYy92Z2ljLXY1LXRhYmxlcy5oDQo+ID4gDQo+ID4gZGlmZiAt
-LWdpdCBhL2FyY2gvYXJtNjQva3ZtL01ha2VmaWxlIGIvYXJjaC9hcm02NC9rdm0vTWFrZWZpbGUN
-Cj4gPiBpbmRleCA1OTYxMmQyZjI3N2MxLi40MzFkZTliMTQ1Y2ExIDEwMDY0NA0KPiA+IC0tLSBh
-L2FyY2gvYXJtNjQva3ZtL01ha2VmaWxlDQo+ID4gKysrIGIvYXJjaC9hcm02NC9rdm0vTWFrZWZp
-bGUNCj4gPiBAQCAtMjQsNyArMjQsNyBAQCBrdm0teSArPSBhcm0ubyBtbXUubyBtbWlvLm8gcHNj
-aS5vIGh5cGVyY2FsbHMubw0KPiA+IHB2dGltZS5vIFwNCj4gPiDCoAkgdmdpYy92Z2ljLW1taW8u
-byB2Z2ljL3ZnaWMtbW1pby12Mi5vIFwNCj4gPiDCoAkgdmdpYy92Z2ljLW1taW8tdjMubyB2Z2lj
-L3ZnaWMta3ZtLWRldmljZS5vIFwNCj4gPiDCoAkgdmdpYy92Z2ljLWl0cy5vIHZnaWMvdmdpYy1k
-ZWJ1Zy5vIHZnaWMvdmdpYy12My1uZXN0ZWQubyBcDQo+ID4gLQkgdmdpYy92Z2ljLXY1Lm8NCj4g
-PiArCSB2Z2ljL3ZnaWMtdjUubyB2Z2ljL3ZnaWMtdjUtdGFibGVzLm8NCj4gPiDCoA0KPiA+IMKg
-a3ZtLSQoQ09ORklHX0hXX1BFUkZfRVZFTlRTKcKgICs9IHBtdS1lbXVsLm8gcG11Lm8NCj4gPiDC
-oGt2bS0kKENPTkZJR19BUk02NF9QVFJfQVVUSCnCoCArPSBwYXV0aC5vDQo+ID4gZGlmZiAtLWdp
-dCBhL2FyY2gvYXJtNjQva3ZtL3ZnaWMvdmdpYy12NS10YWJsZXMuYw0KPiA+IGIvYXJjaC9hcm02
-NC9rdm0vdmdpYy92Z2ljLXY1LXRhYmxlcy5jDQo+ID4gbmV3IGZpbGUgbW9kZSAxMDA2NDQNCj4g
-PiBpbmRleCAwMDAwMDAwMDAwMDAwLi4zMGUyYjEwOGIxYWEzDQo+ID4gLS0tIC9kZXYvbnVsbA0K
-PiA+ICsrKyBiL2FyY2gvYXJtNjQva3ZtL3ZnaWMvdmdpYy12NS10YWJsZXMuYw0KPiA+IEBAIC0w
-LDAgKzEsOCBAQA0KPiA+ICsvLyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMC1vbmx5
-DQo+ID4gKy8qDQo+ID4gKyAqIENvcHlyaWdodCAoQykgMjAyNSwgMjAyNiBBcm0gTHRkLg0KPiA+
-ICsgKi8NCj4gPiArDQo+ID4gKyNpbmNsdWRlICJ2Z2ljLXY1LXRhYmxlcy5oIg0KPiA+ICsNCj4g
-PiArc3RydWN0IHZnaWNfdjVfaG9zdF9pc3RfY2FwcyBnaWN2NV9ob3N0X2lzdF9jYXBzOw0KPiA+
-IGRpZmYgLS1naXQgYS9hcmNoL2FybTY0L2t2bS92Z2ljL3ZnaWMtdjUtdGFibGVzLmgNCj4gPiBi
-L2FyY2gvYXJtNjQva3ZtL3ZnaWMvdmdpYy12NS10YWJsZXMuaA0KPiA+IG5ldyBmaWxlIG1vZGUg
-MTAwNjQ0DQo+ID4gaW5kZXggMDAwMDAwMDAwMDAwMC4uY2YwMGEyNDhlYWJkNQ0KPiA+IC0tLSAv
-ZGV2L251bGwNCj4gPiArKysgYi9hcmNoL2FybTY0L2t2bS92Z2ljL3ZnaWMtdjUtdGFibGVzLmgN
-Cj4gPiBAQCAtMCwwICsxLDQxIEBADQo+ID4gKy8qIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBH
-UEwtMi4wLW9ubHkgKi8NCj4gPiArLyoNCj4gPiArICogQ29weXJpZ2h0IChDKSAyMDI1LCAyMDI2
-IEFybSBMdGQuDQo+ID4gKyAqLw0KPiA+ICsNCj4gPiArI2lmbmRlZiBfX0tWTV9BUk1fVkdJQ1Y1
-X1RBQkxFU19IX18NCj4gPiArI2RlZmluZSBfX0tWTV9BUk1fVkdJQ1Y1X1RBQkxFU19IX18NCj4g
-PiArDQo+ID4gKyNpbmNsdWRlIDxsaW51eC9pcnFjaGlwL2FybS1naWMtdjUuaD4NCj4gPiArDQo+
-ID4gK3N0cnVjdCB2Z2ljX3Y1X2hvc3RfaXN0X2NhcHMgew0KPiA+ICsJLyogSVNUIENhcGFiaWxp
-dGllcyAqLw0KPiA+ICsNCj4gPiArCS8qIEFwcGx5IHRvIExQSXMgYW5kIFNQSXMgKi8NCj4gPiAr
-CXU4CWlzdF9pZF9iaXRzOw0KPiA+ICsJYm9vbAlpc3RfbGV2ZWxzOw0KPiA+ICsJdTgJaXN0X2wy
-c3o7DQo+ID4gKwlib29sCWlzdG1kOw0KPiA+ICsJdTgJaXN0bWRfc3o7DQo+ID4gKw0KPiA+ICsJ
-LyogTFBJIG9ubHkgKi8NCj4gPiArCXU4CW1pbl9scGlfaWRfYml0czsNCj4gPiArDQo+ID4gKwkv
-KiBWTSBUYWJsZSwgVlBFIFRhYmxlICovDQo+ID4gKwlib29sCXR3b19sZXZlbF92bXRfc3VwcG9y
-dDsNCj4gPiArCXUzMgltYXhfdm1zOw0KPiA+ICsJdTMyCW1heF92cGVzOw0KPiA+ICsJdTE2CXZt
-ZF9zaXplOw0KPiA+ICsJdTE2CXZwZWRfc2l6ZTsNCj4gPiArDQo+ID4gKwkvKiBJcyB0aGUgSVJT
-IGNvaGVyZW50IHdpdGggdXMsIG9yIG5vdD8gKi8NCj4gPiArCWJvb2wJaXJzX25vbl9jb2hlcmVu
-dDsNCj4gPiArfTsNCj4gPiArDQo+ID4gK2V4dGVybiBzdHJ1Y3QgdmdpY192NV9ob3N0X2lzdF9j
-YXBzIGdpY3Y1X2hvc3RfaXN0X2NhcHM7DQo+ID4gK3N0YXRpYyBpbmxpbmUgc3RydWN0IHZnaWNf
-djVfaG9zdF9pc3RfY2Fwcw0KPiA+ICp2Z2ljX3Y1X2hvc3RfY2Fwcyh2b2lkKQ0KPiA+ICt7DQo+
-ID4gKwlyZXR1cm4gJmdpY3Y1X2hvc3RfaXN0X2NhcHM7DQo+ID4gK30NCj4gDQo+IEVyci4gTm8u
-IE1ha2UgZ2ljdjVfaG9zdF9pc3RfY2FwcyBzdGF0aWMsIGFuZCBtb3ZlIHRoZSBoZWxwZXIgYXMN
-Cj4gbm9uLWlubGluZSBpbiB2Z2ljLXY1LXRhYmxlcy5jLiBJdCdzIG5vdCBsaWtlIHRoaXMgaXMg
-YW55d2hlcmUgbmVhcg0KPiBwZXJmb3JtYW5jZS1jcml0aWNhbCBzdHVmZiwgaXMgaXQ/DQo+IA0K
-PiBCdXQgYWxzbywgaWYgdGhhdCdzIGdsb2JhbCBpbmZvcm1hdGlvbiwgd2UgaGF2ZQ0KPiBrdm1f
-dmdpY19nbG9iYWxfc3RhdGUuDQo+IElzbid0IHRoYXQgd2hlcmUgdGhlc2UgdGhpbmdzIHNob3Vs
-ZCBsaXZlPyBUaGVuIHRoZSBpbnRyb2R1Y3Rpb24gb2YNCj4gdmdpYy12NS10YWJsZXMuW2NoXSBj
-YW4gYmUgbW92ZWQgdG8gdGhlIHBvaW50IHdoZXJlIGl0IGFjdHVhbGx5DQo+IG1hdHRlcnMuDQoN
-CkkndmUgZ29uZSB3aXRoIHRoaXMgbGF0dGVyIGFwcHJvYWNoLiB2Z2ljLXY1LXRhYmxlcy5bY2hd
-IGFyZSBub3cNCmludHJvZHVjZWQgYXQgYSBsYXRlciBzdGFnZSBpbiB0aGUgc2VyaWVzLiBBbGwg
-b2YgdGhlc2UgY2FwcyBhcmUgbm93DQpwYXJ0IG9mIHRoZSBnbG9iYWwgc3RhdGUuIE11Y2ggY2xl
-YW5lciBmb3Igc3VyZSENCg0KPiANCj4gPiArDQo+ID4gKyNlbmRpZg0KPiA+IGRpZmYgLS1naXQg
-YS9hcmNoL2FybTY0L2t2bS92Z2ljL3ZnaWMtdjUuYw0KPiA+IGIvYXJjaC9hcm02NC9rdm0vdmdp
-Yy92Z2ljLXY1LmMNCj4gPiBpbmRleCBkNDc4OWZmM2U3NDAyLi5mZDNkNjI5OWEyYmFhIDEwMDY0
-NA0KPiA+IC0tLSBhL2FyY2gvYXJtNjQva3ZtL3ZnaWMvdmdpYy12NS5jDQo+ID4gKysrIGIvYXJj
-aC9hcm02NC9rdm0vdmdpYy92Z2ljLXY1LmMNCj4gPiBAQCAtOSw2ICs5LDcgQEANCj4gPiDCoCNp
-bmNsdWRlIDxsaW51eC9pcnFjaGlwL2FybS12Z2ljLWluZm8uaD4NCj4gPiDCoA0KPiA+IMKgI2lu
-Y2x1ZGUgInZnaWMuaCINCj4gPiArI2luY2x1ZGUgInZnaWMtdjUtdGFibGVzLmgiDQo+ID4gwqAN
-Cj4gPiDCoCNkZWZpbmUgcHBpX2NhcHMJa3ZtX3ZnaWNfZ2xvYmFsX3N0YXRlLnZnaWNfdjVfcHBp
-X2NhcHMNCj4gPiDCoA0KPiA+IEBAIC0zNCw2ICszNSw1NCBAQCBzdGF0aWMgdm9pZCB2Z2ljX3Y1
-X2dldF9pbXBsZW1lbnRlZF9wcGlzKHZvaWQpDQo+ID4gwqAJX19hc3NpZ25fYml0KEdJQ1Y1X0FS
-Q0hfUFBJX1BNVUlSUSwNCj4gPiBwcGlfY2Fwcy5pbXBsX3BwaV9tYXNrLCBzeXN0ZW1fc3VwcG9y
-dHNfcG11djMoKSk7DQo+ID4gwqB9DQo+ID4gwqANCj4gPiArc3RhdGljIHZvaWQgX19pb21lbSAq
-aXJzX2Jhc2U7DQo+IA0KPiBHbG9iYWwgc3RhdGU/DQoNCll1cCwgZG9uZS4NCg0KPiANCj4gPiAr
-DQo+ID4gK3N0YXRpYyB1MzIgaXJzX3JlYWRsX3JlbGF4ZWQoY29uc3QgdTMyIHJlZ19vZmZzZXQp
-DQo+ID4gK3sNCj4gPiArCXJldHVybiByZWFkbF9yZWxheGVkKGlyc19iYXNlICsgcmVnX29mZnNl
-dCk7DQo+ID4gK30NCj4gPiArDQo+ID4gK3N0YXRpYyBpbnQgZ2ljdjVfaXJzX2V4dHJhY3Rfdm1f
-Y2Fwcyhjb25zdCBzdHJ1Y3QgZ2ljX2t2bV9pbmZvDQo+ID4gKmluZm8pDQo+ID4gK3sNCj4gPiAr
-CXU2NCBpZHI7DQo+ID4gKw0KPiA+ICsJaXJzX2Jhc2UgPSBpbmZvLT5naWN2NV9pcnMuYmFzZTsN
-Cj4gPiArCWlmICghaXJzX2Jhc2UpIHsNCj4gPiArCQlrdm1faW5mbygiTm8gR0lDdjUgTU1JTyBJ
-UlMgYWRkcmVzczsgbm8gR0lDdjUNCj4gPiBzdXBwb3J0XG4iKTsNCj4gPiArCQlyZXR1cm4gLUVO
-T0RFVjsNCj4gPiArCX0NCj4gDQo+IFNob3VsZCB5b3UgaW5zdGVhZCBiYWlsIG91dCBlYXJseSBi
-eSBub3QgcmVnaXN0ZXJpbmcgdGhlIGdpY19rdm1faW5mbw0KPiB3aGVuIHRoZSBJUlMgYmFzZSBp
-cyB1bmtub3duLCBtYWtpbmcgdGhpcyBzb3J0IG9mIGNoZWNrcyBpcnJlbGV2YW50Pw0KPiANCj4g
-QWxzbywgaXQncyBub3QgbGlrZSB3ZSBjYW4gbWFrZSBpdCB2ZXJ5IGZhciB3aXRob3V0IGFuIElS
-Uy4uLg0KDQpJbiBmYWN0LCB3ZSB3b24ndCBldmVuIG1ha2UgaXQgdGhpcyBmYXIgKG9yIGV2ZW4g
-YXMgZmFyIGFzIHJlZ2lzdGVyaW5nDQpnaWNfa3ZtX2luZm8pIGlmIHdlIGZhaWwgdG8gaW5pdCB0
-aGUgaG9zdCdzIElSUy4gSGF2ZSBkcm9wcGVkIHRoaXMuDQoNCj4gDQo+ID4gKw0KPiA+ICsJdmdp
-Y192NV9ob3N0X2NhcHMoKS0+aXJzX25vbl9jb2hlcmVudCA9IGluZm8tDQo+ID4gPmdpY3Y1X2ly
-cy5ub25fY29oZXJlbnQ7DQo+ID4gKw0KPiA+ICsJaWRyID0gaXJzX3JlYWRsX3JlbGF4ZWQoR0lD
-VjVfSVJTX0lEUjIpOw0KPiA+ICsNCj4gPiArCS8qIFdlIHNraXAgdGhlIExQSSBmaWVsZCBhcyBp
-dCBvbmx5IGFwcGxpZXMgdG8gcGh5c2ljYWwNCj4gPiBMUElzICovDQo+ID4gKwl2Z2ljX3Y1X2hv
-c3RfY2FwcygpLT5pc3RfaWRfYml0cyA9DQo+ID4gRklFTERfR0VUKEdJQ1Y1X0lSU19JRFIyX0lE
-X0JJVFMsIGlkcik7DQo+ID4gKwl2Z2ljX3Y1X2hvc3RfY2FwcygpLT5taW5fbHBpX2lkX2JpdHMg
-PQ0KPiA+IEZJRUxEX0dFVChHSUNWNV9JUlNfSURSMl9NSU5fTFBJX0lEX0JJVFMsIGlkcik7DQo+
-ID4gKwl2Z2ljX3Y1X2hvc3RfY2FwcygpLT5pc3RfbGV2ZWxzID0NCj4gPiAhIUZJRUxEX0dFVChH
-SUNWNV9JUlNfSURSMl9JU1RfTEVWRUxTLCBpZHIpOw0KPiA+ICsJdmdpY192NV9ob3N0X2NhcHMo
-KS0+aXN0X2wyc3ogPQ0KPiA+IEZJRUxEX0dFVChHSUNWNV9JUlNfSURSMl9JU1RfTDJTWiwgaWRy
-KTsNCj4gPiArCXZnaWNfdjVfaG9zdF9jYXBzKCktPmlzdG1kID0NCj4gPiAhIUZJRUxEX0dFVChH
-SUNWNV9JUlNfSURSMl9JU1RNRCwgaWRyKTsNCj4gPiArCXZnaWNfdjVfaG9zdF9jYXBzKCktPmlz
-dG1kX3N6ID0NCj4gPiBGSUVMRF9HRVQoR0lDVjVfSVJTX0lEUjJfSVNUTURfU1osIGlkcik7DQo+
-ID4gKw0KPiA+ICsJaWRyID0gaXJzX3JlYWRsX3JlbGF4ZWQoR0lDVjVfSVJTX0lEUjMpOw0KPiA+
-ICsNCj4gPiArCXZnaWNfdjVfaG9zdF9jYXBzKCktPm1heF92bXMgPQ0KPiA+IEJJVChGSUVMRF9H
-RVQoR0lDVjVfSVJTX0lEUjNfVk1fSURfQklUUywgaWRyKSk7DQo+ID4gKwl2Z2ljX3Y1X2hvc3Rf
-Y2FwcygpLT50d29fbGV2ZWxfdm10X3N1cHBvcnQgPQ0KPiA+ICEhRklFTERfR0VUKEdJQ1Y1X0lS
-U19JRFIzX1ZNVF9MRVZFTFMsIGlkcik7DQo+ID4gKw0KPiA+ICsJaWYgKEZJRUxEX0dFVChHSUNW
-NV9JUlNfSURSM19WTUQsIGlkcikpDQo+IA0KPiBUaGUgY29uc3RhbnQgKGFiKXVzZSBvZiBGSUVM
-RF9HRVQoKSBmb3IgZmllbGRzIHRoYXQgYXJlIHNpbmdsZSBiaXQNCj4gd2lkZSBpcyB2ZXJ5IGhh
-cmQgdG8gcmVhZC4gSSdkIGxpa2UgdG8gc2VlOg0KPiANCj4gCXZnaWNfdjVfaG9zdF9jYXBzKCkt
-PmlzdF9sZXZlbHMgPSAoaWRyICYNCj4gR0lDVjVfSVJTX0lEUjJfSVNUX0xFVkVMUyk7DQo+IFsu
-Li5dDQo+IAl2Z2ljX3Y1X2hvc3RfY2FwcygpLT5pc3RtZCA9IChpZHIgJiBHSUNWNV9JUlNfSURS
-Ml9JU1RNRCk7DQo+IFsuLi5dDQo+IAlpZiAoaWRyICYgR0lDVjVfSVJTX0lEUjNfVk1EKQ0KPiBb
-Li4uXQ0KPiANCj4gd2hpY2ggaXMgaW5maW5pdGVseSBtb3JlIHJlYWRhYmxlLg0KDQpEb25lLg0K
-DQo+IA0KPiA+ICsJCXZnaWNfdjVfaG9zdF9jYXBzKCktPnZtZF9zaXplID0NCj4gPiBCSVQoRklF
-TERfR0VUKEdJQ1Y1X0lSU19JRFIzX1ZNRF9TWiwgaWRyKSk7DQo+ID4gKwllbHNlDQo+ID4gKwkJ
-dmdpY192NV9ob3N0X2NhcHMoKS0+dm1kX3NpemUgPSAwOw0KPiA+ICsNCj4gPiArCWlkciA9IGly
-c19yZWFkbF9yZWxheGVkKEdJQ1Y1X0lSU19JRFI0KTsNCj4gPiArDQo+ID4gKwl2Z2ljX3Y1X2hv
-c3RfY2FwcygpLT52cGVkX3NpemUgPQ0KPiA+IEJJVChGSUVMRF9HRVQoR0lDVjVfSVJTX0lEUjRf
-VlBFRF9TWiwgaWRyKSk7DQo+ID4gKwkvKiBGaWVsZCBzdG9yZXMgVlBFX0lEX0JJVFMgLSAxICov
-DQo+ID4gKwl2Z2ljX3Y1X2hvc3RfY2FwcygpLT5tYXhfdnBlcyA9DQo+ID4gQklUKEZJRUxEX0dF
-VChHSUNWNV9JUlNfSURSNF9WUEVfSURfQklUUywgaWRyKSArIDEpOw0KPiA+ICsNCj4gPiArCXJl
-dHVybiAwOw0KPiA+ICt9DQo+ID4gKw0KPiA+IMKgLyoNCj4gPiDCoCAqIFByb2JlIGZvciBhIHZH
-SUN2NSBjb21wYXRpYmxlIGludGVycnVwdCBjb250cm9sbGVyLCByZXR1cm5pbmcgMA0KPiA+IG9u
-IHN1Y2Nlc3MuDQo+ID4gwqAgKi8NCj4gPiBAQCAtNjEsNiArMTEwLDkgQEAgaW50IHZnaWNfdjVf
-cHJvYmUoY29uc3Qgc3RydWN0IGdpY19rdm1faW5mbw0KPiA+ICppbmZvKQ0KPiA+IMKgCQlnb3Rv
-IHNraXBfdjU7DQo+ID4gwqAJfQ0KPiA+IMKgDQo+ID4gKwlpZiAoZ2ljdjVfaXJzX2V4dHJhY3Rf
-dm1fY2FwcyhpbmZvKSkNCj4gPiArCQlnb3RvIHNraXBfdjU7DQo+ID4gKw0KPiANCj4gV2Ugc2hv
-dWxkbid0ICJza2lwX3Y1IiBhbnltb3JlLiBJZiB3ZSBjYW4ndCBpbml0aWFsaXNlIEtWTSB3aXRo
-DQo+IEdJQ3Y1LA0KPiB3ZSdyZSBkb25lLCBhbmQgd2Ugc2hvdWxkIG5vdCBldmVuIHRyeSB0byBy
-ZWdpc3RlciB2My4NCg0KQWdyZWVkLCB3aXRoIHRoZSBleGNlcHRpb24gb2YgcEtWTS4gSW4gdGhh
-dCBjYXNlLCB3ZSBvbmx5IHN1cHBvcnQNCnZHSUN2MyBvbiAoY29tcGF0aWJsZSkgR0lDdjUgaGFy
-ZHdhcmUuIEluIGFsbCBvdGhlciBjYXNlcywgaXQgbWFrZXMNCnNlbnNlIHRvIGZhaWwgb3V0cmln
-aHQgaWYgd2UgY2FuJ3QgY29ycmVjdGx5IGluaXQgdkdJQ3Y1Lg0KDQpJJ2xsIHVwZGF0ZSBpdCB0
-byBlcnJvciBvdXQgb24gYWxsIGNhc2VzIGFzaWRlIGZyb20gdGhhdCBvbmUuDQoNCj4gDQo+IFRo
-YW5rcywNCj4gDQo+IAlNLg0KPiANCg0K
+Hi Dylan,
+
+Thanks for putting this together. I think this is looking pretty good.
+However, there are some things that aren't quite right and need some
+work, which I've commented on below.
+
+More generally, there are a few things that aren't addressed by this
+series that we will also need to address. Importantly:
+
+(1) For correctness, we'll need to address a latent issue with unwinding
+    across an fgraph return trampoline, where the return address is
+    transiently unrecoverable.
+
+    Before this series, that doesn't matter for livepatching because the
+    livepatching code isn't called synchronously within the fgraph
+    handler, and unwinds which cross an exception boundary are marked as
+    unreliable.
+
+    After this series, that does matter as we can unwind across an
+    exception boundary, and might happen to interrupt that transient
+    window.
+
+    I think we can solve that with some restructuring of that code,
+    restoring the original address *before* removing that from the
+    fgraph return stack, and ensuring that the unwinder can find it.
+
+    I'm not immediately sure whether kretprobes has a similar issue.
+
+(2) To make unwinding generally possible, we'll need to annotate some
+    assembly functions as unwindable. We'll need to do that for string
+    routines under lib/, and probably some crypto code, but we don't
+    need to do that for most code in head.S, entry.S, etc.
+
+    The vast majority of relevant assembly functions are leaf functions
+    (where the return address is never moved out of the LR), so we can
+    probably get away with a simple annotation for those that avoids the
+    need for open-coded CFI directives everywhere.
+
+I've pushed some reliable stacktrace tests to:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git stacktrace/tests
+
+That finds the fgraph issue (regardless of this series). When merged
+with this series triggers a warning in kunwind_next_frame_record_meta(),
+where unwind_next_frame_sframe() calls that erroneously as a fallback.
+
+As noted below, I think that fallback path should be removed, and
+unwind_next_frame_sframe() should return an error in that case.
+
+On Tue, Apr 28, 2026 at 06:36:43PM +0000, Dylan Hatch wrote:
+> Add unwind_next_frame_sframe() function to unwind by sframe info if
+> present. Use this method at exception boundaries, falling back to
+> frame-pointer unwind only on failure. In such failure cases, the
+> stacktrace is considered unreliable.
+>
+> During normal unwind, prefer frame pointer unwind (for better
+> performance) with sframe as a backup.
+
+We should certainly use SFrame at an exception boundary. However, when
+frame point unwind fails I do not think we should use it as a backup.
+That only fails when something is already wrong, and an SFrame unwind
+isn't necessarily going to be better. I think we should immediately fail
+in those cases.
+
+> This change restores the LR behavior originally introduced in commit
+> c2c6b27b5aa14fa2 ("arm64: stacktrace: unwind exception boundaries"),
+> But later removed in commit 32ed1205682e ("arm64: stacktrace: Skip
+> reporting LR at exception boundaries")
+> 
+> This can be done because the sframe data can be used to determine
+> whether the LR is current for the PC value recovered from pt_regs at the
+> exception boundary.
+> 
+> Signed-off-by: Weinan Liu <wnliu@google.com>
+> Reviewed-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
+> Reviewed-by: Jens Remus <jremus@linux.ibm.com>
+> Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
+> ---
+>  arch/arm64/include/asm/stacktrace/common.h |   6 +
+>  arch/arm64/kernel/stacktrace.c             | 246 +++++++++++++++++++--
+>  2 files changed, 232 insertions(+), 20 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/stacktrace/common.h b/arch/arm64/include/asm/stacktrace/common.h
+> index 821a8fdd31af..4df68181e1b5 100644
+> --- a/arch/arm64/include/asm/stacktrace/common.h
+> +++ b/arch/arm64/include/asm/stacktrace/common.h
+> @@ -21,6 +21,8 @@ struct stack_info {
+>   *
+>   * @fp:          The fp value in the frame record (or the real fp)
+>   * @pc:          The lr value in the frame record (or the real lr)
+> + * @sp:          The sp value at the call site of the current function.
+> + * @unreliable:  Stacktrace is unreliable.
+>   *
+>   * @stack:       The stack currently being unwound.
+>   * @stacks:      An array of stacks which can be unwound.
+> @@ -29,7 +31,11 @@ struct stack_info {
+>  struct unwind_state {
+>  	unsigned long fp;
+>  	unsigned long pc;
+> +#ifdef CONFIG_HAVE_UNWIND_KERNEL_SFRAME
+> +	unsigned long sp;
+> +#endif
+
+As this is only used by the kernel unwinder (and not the hyp unwinder),
+this should live in struct kunwind_state in stacktrace.c.
+
+That said, for unwinding across exception boundaries we should not need
+this, as the SP value will be in the pt_regs. If we only use SFrame for
+the exception boundary case, we can remove this entirely. I would
+strongly prefer that we do that.
+
+> +	bool unreliable;
+
+Likewise, this should live in struct kunwind_state.
+
+>  	struct stack_info stack;
+>  	struct stack_info *stacks;
+>  	int nr_stacks;
+> diff --git a/arch/arm64/kernel/stacktrace.c b/arch/arm64/kernel/stacktrace.c
+> index 3ebcf8c53fb0..c935323f393b 100644
+> --- a/arch/arm64/kernel/stacktrace.c
+> +++ b/arch/arm64/kernel/stacktrace.c
+> @@ -14,6 +14,7 @@
+>  #include <linux/sched/debug.h>
+>  #include <linux/sched/task_stack.h>
+>  #include <linux/stacktrace.h>
+> +#include <linux/sframe.h>
+
+Nit: these are supposed to be ordered alphabetically, so the include of
+<linux/sframe.h> should be just before <linux/stacktrace.h>.
+
+>  
+>  #include <asm/efi.h>
+>  #include <asm/irq.h>
+> @@ -26,6 +27,7 @@ enum kunwind_source {
+>  	KUNWIND_SOURCE_CALLER,
+>  	KUNWIND_SOURCE_TASK,
+>  	KUNWIND_SOURCE_REGS_PC,
+> +	KUNWIND_SOURCE_REGS_LR,
+>  };
+>  
+>  union unwind_flags {
+> @@ -85,6 +87,9 @@ kunwind_init_from_regs(struct kunwind_state *state,
+>  	state->regs = regs;
+>  	state->common.fp = regs->regs[29];
+>  	state->common.pc = regs->pc;
+> +#ifdef CONFIG_HAVE_UNWIND_KERNEL_SFRAME
+> +	state->common.sp = regs->sp;
+> +#endif
+
+As above, I don't think we need to stash the SP, as it only matters when
+performing the next unwind from the KUNWIND_SOURCE_REGS_PC state, and in
+that state we have the regs.
+
+>  	state->source = KUNWIND_SOURCE_REGS_PC;
+>  }
+>  
+> @@ -103,6 +108,9 @@ kunwind_init_from_caller(struct kunwind_state *state)
+>  
+>  	state->common.fp = (unsigned long)__builtin_frame_address(1);
+>  	state->common.pc = (unsigned long)__builtin_return_address(0);
+> +#ifdef CONFIG_HAVE_UNWIND_KERNEL_SFRAME
+> +	state->common.sp = (unsigned long)__builtin_frame_address(0);
+> +#endif
+>  	state->source = KUNWIND_SOURCE_CALLER;
+>  }
+
+This is not correct. On arm64, __builtin_frame_address(0) returns the
+address of the current function's frame record. That's not the same as
+the SP of the caller (which would necessarily differ by at least the
+size of that frame record).
+
+For example, the following:
+
+	void *return_own_frame(void)
+	{
+		return __builtin_frame_address(0);
+	}
+
+... is compiled by GCC 15.2.0 as:
+
+	0000000000000000 <return_own_frame>:
+	   0:   d503233f        paciasp
+	   4:   a9bf7bfd        stp     x29, x30, [sp, #-16]!
+	   8:   910003fd        mov     x29, sp
+	   c:   aa1d03e0        mov     x0, x29
+	  10:   a8c17bfd        ldp     x29, x30, [sp], #16
+	  14:   d50323bf        autiasp
+	  18:   d65f03c0        ret
+	  1c:   d503201f        nop
+
+As above, I think we can remove unwind_state:sp entirely, and omit this.
+
+> @@ -124,6 +132,9 @@ kunwind_init_from_task(struct kunwind_state *state,
+>  
+>  	state->common.fp = thread_saved_fp(task);
+>  	state->common.pc = thread_saved_pc(task);
+> +#ifdef CONFIG_HAVE_UNWIND_KERNEL_SFRAME
+> +	state->common.sp = thread_saved_sp(task);
+> +#endif
+>  	state->source = KUNWIND_SOURCE_TASK;
+>  }
+
+As above, I think we can remove unwind_state:sp entirely, and omit this.
+
+In contrast to kunwind_init_from_caller() above, given the way the
+cpu_switch_to() assembly function saves the FP/PC/SP, those should all
+be consistent with the values in the caller immediately after the caller
+is returned to.
+
+> @@ -181,7 +192,6 @@ int kunwind_next_regs_pc(struct kunwind_state *state)
+>  	state->regs = regs;
+>  	state->common.pc = regs->pc;
+>  	state->common.fp = regs->regs[29];
+> -	state->regs = NULL;
+>  	state->source = KUNWIND_SOURCE_REGS_PC;
+>  	return 0;
+>  }
+> @@ -237,6 +247,9 @@ kunwind_next_frame_record(struct kunwind_state *state)
+>  
+>  	unwind_consume_stack(&state->common, info, fp, sizeof(*record));
+>  
+> +#ifdef CONFIG_HAVE_UNWIND_KERNEL_SFRAME
+> +	state->common.sp = state->common.fp;
+> +#endif
+
+This is not correct. The caller's frame record can be anywhere in the
+caller's stack frame, and we definitely have cases today where FP != SP
+at a function call boundary.
+
+For example, the add_random_kstack_offset() logic in invoke_syscall()
+typically results in the SP being decremented after the frame record has
+been placed on the stack.
+
+That looks roughly like the following:
+
+	void callee(void *ptr);
+
+	void caller(size_t size)
+	{
+		void *ptr = __builtin_alloca(size);
+		callee(ptr);
+	}
+
+... which GCC 15.2.0 can compile as:
+
+	0000000000000000 <caller>:
+	   0:   d503233f        paciasp
+	   4:   91003c00        add     x0, x0, #0xf
+	   8:   a9bf7bfd        stp     x29, x30, [sp, #-16]!
+	   c:   927cec00        and     x0, x0, #0xfffffffffffffff0
+	  10:   910003fd        mov     x29, sp
+	  14:   cb2063ff        sub     sp, sp, x0
+	  18:   910003e0        mov     x0, sp
+	  1c:   94000000        bl      0 <callee>
+	  20:   910003bf        mov     sp, x29
+	  24:   a8c17bfd        ldp     x29, x30, [sp], #16
+	  28:   d50323bf        autiasp
+	  2c:   d65f03c0        ret
+
+As above, I think we can remove unwind_state:sp entirely, and omit this.
+
+>  	state->common.fp = new_fp;
+>  	state->common.pc = new_pc;
+>  	state->source = KUNWIND_SOURCE_FRAME;
+> @@ -244,6 +257,176 @@ kunwind_next_frame_record(struct kunwind_state *state)
+>  	return 0;
+>  }
+>  
+> +#ifdef CONFIG_HAVE_UNWIND_KERNEL_SFRAME
+> +
+> +static __always_inline struct stack_info *
+> +get_word(struct unwind_state *state, unsigned long *word)
+> +{
+> +	unsigned long addr = *word;
+> +	struct stack_info *info;
+> +
+> +	info = unwind_find_stack(state, addr, sizeof(addr));
+> +	if (!info)
+> +		return info;
+> +
+> +	*word = READ_ONCE(*(unsigned long *)addr);
+> +
+> +	return info;
+> +}
+> +
+> +static __always_inline int
+> +get_consume_word(struct unwind_state *state, unsigned long *word)
+> +{
+> +	struct stack_info *info;
+> +	unsigned long addr = *word;
+> +
+> +	info = get_word(state, word);
+> +	if (!info)
+> +		return -EINVAL;
+> +
+> +	unwind_consume_stack(state, info, addr, sizeof(addr));
+> +	return 0;
+> +}
+
+I was hoping that we wouldn't need these if we only used SFrame to
+determine whether to use the LR or frame record, but I see that there
+could be cases where the frame record might be partially constructed.
+
+> +
+> +/*
+> + * Unwind to the next frame according to sframe.
+> + */
+> +static __always_inline int
+> +unwind_next_frame_sframe(struct kunwind_state *state)
+> +{
+> +	struct unwind_frame frame;
+> +	unsigned long cfa, fp, ra;
+> +	enum kunwind_source source = KUNWIND_SOURCE_FRAME;
+> +	struct pt_regs *regs = state->regs;
+> +
+> +	int err;
+
+As above, we should only use this for unwinding from the regs, after a
+KUNWIND_SOURCE_REGS_PC step.
+
+With that in mind, it would be good to:
+
+(1) Rename this to something like kunwind_next_regs_sframe(). Note
+    'kunwind' rather than 'unwind' for consistency with the rest of this
+    file.
+
+(2) Add the following sanity checks:
+
+	if (WARN_ON_ONCE(state->source != KUNWIND_SOURCE_REGS_PC))
+		return -EINVAL;
+	if (WARN_ON_ONCE(!state->regs))
+		return -EINVAL;
+
+    ... which will also allow the code below to be simplified.
+
+> +
+> +	/* FP/SP alignment 8 bytes */
+> +	if (state->common.fp & 0x7 || state->common.sp & 0x7)
+> +		return -EINVAL;
+> +
+> +	/*
+> +	 * Most/all outermost functions are not visible to sframe. So, check for
+> +	 * a meta frame record if the sframe lookup fails.
+> +	 */
+> +	err = sframe_find_kernel(state->common.pc, &frame);
+> +	if (err)
+> +		return kunwind_next_frame_record_meta(state);
+> +
+> +	if (frame.outermost)
+> +		return -ENOENT;
+
+I don't think we ever expect an outermost frame within the kernel. We
+haven't added any annotations for that, and we expect to unwind all the
+way to a FRAME_META_TYPE_FINAL frame.
+
+We cannot fall back to kunwind_next_frame_record_meta() here. We don't
+know that the next frame is a meta frame (and this results in a warning
+noted above), and we don't know the result is going to be reliable if we
+don't have SFrame data, so the right thing to do is return an error.
+
+I think this should be:
+
+	/*
+	 * A kernel unwind should always end at a FRAME_META_TYPE_FINAL
+	 * frame. There should be no outermost frames within the kernel.
+	 */
+	if (frame.outermost)
+		return -EINVAL;
+
+	err = sframe_find_kernel(state->common.pc, &frame);
+	if (err)
+		return -EINVAL;
+
+> +	/* Get the Canonical Frame Address (CFA) */
+> +	switch (frame.cfa.rule) {
+> +	case UNWIND_CFA_RULE_SP_OFFSET:
+> +		cfa = state->common.sp;
+> +		break;
+> +	case UNWIND_CFA_RULE_FP_OFFSET:
+> +		if (state->common.fp < state->common.sp)
+> +			return -EINVAL;
+> +		cfa = state->common.fp;
+> +		break;
+> +	case UNWIND_CFA_RULE_REG_OFFSET:
+> +	case UNWIND_CFA_RULE_REG_OFFSET_DEREF:
+> +		/* regs only available in topmost/interrupt frame */
+> +		if (!regs || frame.cfa.regnum > 30)
+> +			return -EINVAL;
+> +		cfa = regs->regs[frame.cfa.regnum];
+> +		break;
+
+Do we ever expect to see UNWIND_CFA_RULE_REG_OFFSET or
+UNWIND_CFA_RULE_REG_OFFSET_DEREF in practice for kernel code?
+
+> +	default:
+> +		WARN_ON_ONCE(1);
+> +		return -EINVAL;
+> +	}
+> +	cfa += frame.cfa.offset;
+> +
+> +	/*
+> +	 * CFA typically points to a higher address than RA or FP, so don't
+> +	 * consume from the stack when we read it.
+> +	 */
+> +	if (frame.cfa.rule & UNWIND_RULE_DEREF &&
+> +	    !get_word(&state->common, &cfa))
+> +		return -EINVAL;
+
+Per the switch above, this could only be
+UNWIND_CFA_RULE_REG_OFFSET_DEREF. As above, do we ever expect to
+encounter that in practice for kernel code?
+
+> +
+> +	/* CFA alignment 8 bytes */
+> +	if (cfa & 0x7)
+> +		return -EINVAL;
+
+If the CFA is the SP upon entry to the function, then per AAPCS64 rules
+it should be aligned to 16 bytes. Otherwise, where has this 8 byte
+alignment requirement come from? Does SFrame mandate that?
+
+> +
+> +	/* Get the Return Address (RA) */
+> +	switch (frame.ra.rule) {
+> +	case UNWIND_RULE_RETAIN:
+> +		/* regs only available in topmost/interrupt frame */
+> +		if (!regs)
+> +			return -EINVAL;
+> +		ra = regs->regs[30];
+> +		source = KUNWIND_SOURCE_REGS_LR;
+> +		break;
+> +	/* UNWIND_USER_RULE_CFA_OFFSET not implemented on purpose */
+
+It would be better for the comment to say *why* that's not implemented.
+
+I assume that's because UNWIND_USER_RULE_CFA_OFFSET would mean that the return
+address is a stack address, and that's obviously not legitimate.
+
+> +	case UNWIND_RULE_CFA_OFFSET_DEREF:
+> +		ra = cfa + frame.ra.offset;
+> +		break;
+> +	case UNWIND_RULE_REG_OFFSET:
+> +	case UNWIND_RULE_REG_OFFSET_DEREF:
+> +		/* regs only available in topmost/interrupt frame */
+> +		if (!regs)
+> +			return -EINVAL;
+> +		ra = regs->regs[frame.cfa.regnum];
+> +		ra += frame.ra.offset;
+> +		break;
+
+Do we ever expect UNWIND_RULE_REG_OFFSET or UNWIND_RULE_REG_OFFSET_DEREF
+in practice for kernel code?
+
+I don't think we expect UNWIND_RULE_REG_OFFSET unless that's sometimes used
+instead of UNWIND_RULE_RETAIN to express that the return address is in x30
+(with zero offset).
+
+Similarly, if the address is on the stack it should be in a frame
+record. Would we ever expect UNWIND_RULE_REG_OFFSET_DEREF rather than
+UNWIND_RULE_CFA_OFFSET_DEREF?
+
+> +	default:
+> +		WARN_ON_ONCE(1);
+> +		return -EINVAL;
+> +	}
+> +
+> +	/* Get the Frame Pointer (FP) */
+> +	switch (frame.fp.rule) {
+> +	case UNWIND_RULE_RETAIN:
+> +		fp = state->common.fp;
+> +		break;
+> +	/* UNWIND_USER_RULE_CFA_OFFSET not implemented on purpose */
+
+As for RA, the comment should explain why that's not implemented.
+
+> +	case UNWIND_RULE_CFA_OFFSET_DEREF:
+> +		fp = cfa + frame.fp.offset;
+> +		break;
+> +	case UNWIND_RULE_REG_OFFSET:
+> +	case UNWIND_RULE_REG_OFFSET_DEREF:
+> +		/* regs only available in topmost/interrupt frame */
+> +		if (!regs)
+> +			return -EINVAL;
+> +		fp = regs->regs[frame.fp.regnum];
+> +		fp += frame.fp.offset;
+> +		break;
+> +	default:
+> +		WARN_ON_ONCE(1);
+> +		return -EINVAL;
+> +	}
+> +
+> +	/*
+> +	 * Consume RA and FP from the stack. The frame record puts FP at a lower
+> +	 * address than RA, so we always read FP first.
+> +	 */
+> +	if (frame.fp.rule & UNWIND_RULE_DEREF &&
+> +	    !get_word(&state->common, &fp))
+> +		return -EINVAL;
+
+Why is this get_word() rather than get_consume_word()?
+
+> +
+> +	if (frame.ra.rule & UNWIND_RULE_DEREF &&
+> +	    get_consume_word(&state->common, &ra))
+> +		return -EINVAL;
+> +
+> +	state->common.pc = ra;
+> +	state->common.sp = cfa;
+
+As above, the SP can be removed.
+
+> +	state->common.fp = fp;
+> +
+> +	state->source = source;
+> +
+> +	return 0;
+> +}
+> +
+> +#else /* !CONFIG_HAVE_UNWIND_KERNEL_SFRAME */
+> +
+> +static __always_inline int
+> +unwind_next_frame_sframe(struct kunwind_state *state) { return -EINVAL; }
+> +
+> +#endif /* !CONFIG_HAVE_UNWIND_KERNEL_SFRAME*/
+> +
+>  /*
+>   * Unwind from one frame record (A) to the next frame record (B).
+>   *
+> @@ -259,12 +442,25 @@ kunwind_next(struct kunwind_state *state)
+>  	state->flags.all = 0;
+>  
+>  	switch (state->source) {
+> +	case KUNWIND_SOURCE_REGS_PC:
+> +		err = unwind_next_frame_sframe(state);
+> +
+> +		if (err && err != -ENOENT) {
+> +			/* Fallback to FP based unwinder */
+> +			err = kunwind_next_frame_record(state);
+> +			state->common.unreliable = true;
+> +		}
+> +		state->regs = NULL;
+> +		break;
+
+This makes sense to me.
+
+>  	case KUNWIND_SOURCE_FRAME:
+>  	case KUNWIND_SOURCE_CALLER:
+>  	case KUNWIND_SOURCE_TASK:
+> -	case KUNWIND_SOURCE_REGS_PC:
+> +	case KUNWIND_SOURCE_REGS_LR:
+>  		err = kunwind_next_frame_record(state);
+> +		if (err && err != -ENOENT)
+> +			err = unwind_next_frame_sframe(state);
+
+This isn't sound as we cannot track the SP reliably across all
+transitions.
+
+If a regular frame pointer unwind has failed, something is already
+wrong, and we should give up immediately.
+
+Please remove the fallback to sframe here.
+
+>  		break;
+> +
+>  	default:
+
+No need for this whitespace change.
+
+>  		err = -EINVAL;
+>  	}
+> @@ -350,6 +546,9 @@ kunwind_stack_walk(kunwind_consume_fn consume_state,
+>  		.common = {
+>  			.stacks = stacks,
+>  			.nr_stacks = ARRAY_SIZE(stacks),
+> +#ifdef CONFIG_HAVE_UNWIND_KERNEL_SFRAME
+> +			.sp = 0,
+> +#endif
+
+As above, this can go.
+
+Thanks,
+Mark.
+
+>  		},
+>  	};
+>  
+> @@ -390,34 +589,40 @@ noinline noinstr void arch_stack_walk(stack_trace_consume_fn consume_entry,
+>  	kunwind_stack_walk(arch_kunwind_consume_entry, &data, task, regs);
+>  }
+>  
+> +struct kunwind_reliable_consume_entry_data {
+> +	stack_trace_consume_fn consume_entry;
+> +	void *cookie;
+> +	bool unreliable;
+> +};
+> +
+>  static __always_inline bool
+> -arch_reliable_kunwind_consume_entry(const struct kunwind_state *state, void *cookie)
+> +arch_kunwind_reliable_consume_entry(const struct kunwind_state *state, void *cookie)
+>  {
+> -	/*
+> -	 * At an exception boundary we can reliably consume the saved PC. We do
+> -	 * not know whether the LR was live when the exception was taken, and
+> -	 * so we cannot perform the next unwind step reliably.
+> -	 *
+> -	 * All that matters is whether the *entire* unwind is reliable, so give
+> -	 * up as soon as we hit an exception boundary.
+> -	 */
+> -	if (state->source == KUNWIND_SOURCE_REGS_PC)
+> -		return false;
+> +	struct kunwind_reliable_consume_entry_data *data = cookie;
+>  
+> -	return arch_kunwind_consume_entry(state, cookie);
+> +	if (state->common.unreliable) {
+> +		data->unreliable = true;
+> +		return false;
+> +	}
+> +	return data->consume_entry(data->cookie, state->common.pc);
+>  }
+>  
+> -noinline noinstr int arch_stack_walk_reliable(stack_trace_consume_fn consume_entry,
+> -					      void *cookie,
+> -					      struct task_struct *task)
+> +noinline notrace int arch_stack_walk_reliable(
+> +				stack_trace_consume_fn consume_entry,
+> +				void *cookie, struct task_struct *task)
+>  {
+> -	struct kunwind_consume_entry_data data = {
+> +	struct kunwind_reliable_consume_entry_data data = {
+>  		.consume_entry = consume_entry,
+>  		.cookie = cookie,
+> +		.unreliable = false,
+>  	};
+>  
+> -	return kunwind_stack_walk(arch_reliable_kunwind_consume_entry, &data,
+> -				  task, NULL);
+> +	kunwind_stack_walk(arch_kunwind_reliable_consume_entry, &data, task, NULL);
+> +
+> +	if (data.unreliable)
+> +		return -EINVAL;
+> +
+> +	return 0;
+>  }
+>  
+>  struct bpf_unwind_consume_entry_data {
+> @@ -452,6 +657,7 @@ static const char *state_source_string(const struct kunwind_state *state)
+>  	case KUNWIND_SOURCE_CALLER:	return "C";
+>  	case KUNWIND_SOURCE_TASK:	return "T";
+>  	case KUNWIND_SOURCE_REGS_PC:	return "P";
+> +	case KUNWIND_SOURCE_REGS_LR:	return "L";
+>  	default:			return "U";
+>  	}
+>  }
+> -- 
+> 2.54.0.545.g6539524ca2-goog
+> 
 
