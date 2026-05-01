@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D496CD3424
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8261CD3425
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 14:00:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zNOGLSnwE1t6HIl67zIcI4mTCSe3nqPHRh9GxNxgyWw=; b=d0hHioOcrYALbN6HXwcqJ4joUi
-	zv2ZyseF03n9LqJk9bKKJjb++AGi2h8b6UDGZjiWVajyGRQX5MPr2GxLqjJKLdMfCae8rju9kfQBG
-	KQ4MXIafKcwNJSh8/CtTubu2C/DmK+uFBGbxszGm++zvSU74TscViGv0wsXW7Rq3bnNBt5Xx1yVrB
-	a+FQFRhCR6p0++rbbImnXPoYBZzeBh1XkBB1ovz4Gg6eOJYszZM0+POk5pdvkOpONezHiBHuoiM+5
-	LtEFcmZeMZoKJfpUEYSWgQjm2TdtoDwnj2EltJAZrcrhrFCu1N7UMA4OsAnuiwCJGYyVYXAzJ5kN5
-	QWiaKG4w==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wgCd/8OCqeyYKCVUvRrf/jlOcP1suVHYVb2aR3GPrKU=; b=4cThaHQYlgtpMQmz9DYwBJwuXi
+	45caCifa9Vo0aDBErE0RnmXhQEJN/nwsDxBvOUbHktSkM3DmqP03E0jismlOXlNaa+SAG6UMhhj1a
+	btflZUEuNoPVyKkMuxtdd15CUXtom4e6MMQHoQVvEu78aEcl6uYkPAal2IpRj5Mq0XUZ9g+Zo2r1J
+	QP1LCIJqcPYvKOIE8g6fq5S7SLsvouxCO6zRQTttikjA3FuLYr0Xr4KlAh+x9Idr0klZYC89U5nPN
+	u4JR9stSgihhARmygMxQKhnH6UtSDZ2pyUGYQjKUhkNKtibedrZyVX4LgRcAkCYVrCYsfRbs0EgBS
+	pRGKGMrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIoPV-00000007Coq-1F6m;
-	Fri, 01 May 2026 14:00:05 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1wIoPW-00000007Cpr-1foi;
+	Fri, 01 May 2026 14:00:06 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIoPS-00000007Cna-3u4B
+	id 1wIoPU-00000007Co2-1gis
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 May 2026 14:00:04 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-488ba840146so15997005e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 May 2026 07:00:02 -0700 (PDT)
+	Fri, 01 May 2026 14:00:05 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-43cf7683a28so1238618f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 May 2026 07:00:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777644001; x=1778248801; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=zNOGLSnwE1t6HIl67zIcI4mTCSe3nqPHRh9GxNxgyWw=;
-        b=cVM3X4C0E6MQXnxLudmSWDkyilQc9Upnd3MLy6TG5/UWE3IB1vWVjVItRoekYo57qY
-         ws+N+jRHTikyP2mgvoO24q3rQfJLGHzJ6hz1Mf+bDICbhr5nlDkrr2k+itNM0zlODHDn
-         h4//V1nx+QCWkO+KxJ/mOj1V/bYyQftx41y6SAqlEBxgbcoL37MxGbh2IsXqWZqBpDDi
-         LM4ZQdk79SEy9rvGG6UJCasuyReQXd0dOjRzZ7zpnLwdgDPx6HkEzYGcUEVLWInMX8P8
-         x2/+T4TqGRmwrZDOFNoBMVLE0l8XTjTPGo93xlj7t7I5cC77zcswS3Mb8do/h2hNQFbn
-         S66w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777644001; x=1778248801;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1777644002; x=1778248802; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=zNOGLSnwE1t6HIl67zIcI4mTCSe3nqPHRh9GxNxgyWw=;
-        b=lCQpzG1Y8HOc3mFD/h10j1EboH+JXOabTV5tk6rYg1smSqJyCJCH9AwOOYHGCTolYh
-         zu7tAgEiWf8/r0g/oBhQbc4N0pADB/VWHUBEEjoPVdLe5hRCXZmtTHxwL9yw0KsxaIzr
-         yvJO2JKBaA4SgBWDNtZx9DtJwRT20LYFTxMpNOrY4YzyQy95tsUweZxdk47tFo0x0qUG
-         3R/YOdIe+cvmQbFv9q1F1LphPW4g95/9+lWlh+7Aq2RYn7oRqWXMo2p7YKl7KpQjxPAD
-         /8LDXHtodDS1xISrPclTultHExFGp1hs1vqpT1v7ZD3MDDoFShniz038U+S94qU3J4j5
-         wtsQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+c0kvfY+299PPUbJLTYuuZK5T0sZAo/U7heaxHoevVr5hZ0yy+CKbQGKPj3ag5nY/vRsrimm+LJvLuAp/7+CGp@lists.infradead.org
-X-Gm-Message-State: AOJu0YykgnM1XASD3j6IS7DHyvt+GLMHE1TpZJruhGuZrsQxmxwPqLtP
-	Lz1ysGt/3QdkbSjg1wBV9oj2wb26hdDdJ/ZYeijVMSEvr/qI2mHZEpy/
-X-Gm-Gg: AeBDieuYPMKs8rQVbuUzqDfG8UNNn2pXi7fdUNpODhnAfb8sm4b2CbKxyLYDfMUTeGG
-	fB0tFDQqmS+KVZx2nkwv1/ZMRB2UaLIlfxTN2WXtufXmInufGC3N0a7f15qdV3CohMPRL16mOxU
-	yZt/Y8BLd6RuQwmfS9YUAi4Vm2lpcG9ju3Bz9qd1TTAP8W35OCrox/YHHU56JmQ+rx/leruIQIP
-	Hg4mMFcjRukaqE02s3rSU57yLzlW0m16uIJdVXzQBlpFrTzasAyUobnlJGa10pzvDhgtL2gWzCo
-	miT2d+u5QsgFTtqTdPDM97MR/MKpPESIlt8c9RurXObt7n72KRSeTm2nWSTc3EIR5m7XqYU1InR
-	B3nYEjONa7GqzCHSvyqRKEgmxmvkWamCBeaFk1Jj4LnNO/Nnw2w7uJ+Ej5ka+PLQRP4JS/u7sDJ
-	LT8y/GP1jkq3Ct6xqolNdF8YUqZuybNtKHmxK6ijpv8NiMBoVY67QL+e2YvDtNyegPzBhi7Yy8C
-	9AA
-X-Received: by 2002:a05:600c:4ed0:b0:48a:54a6:b29f with SMTP id 5b1f17b1804b1-48a84451fc2mr106947765e9.17.1777644000526;
-        Fri, 01 May 2026 07:00:00 -0700 (PDT)
+        bh=wgCd/8OCqeyYKCVUvRrf/jlOcP1suVHYVb2aR3GPrKU=;
+        b=gAur0YQ4OB/tuqH8RYba1/dSenUr6jRfzwz0cG6ElAePequNIpGDl/QivqBRYEhZEE
+         /vXbD90yB1sD9EFyVmj1baiCPn/1dInNoED3ZLme7u0iXmc9/AB0uBPGMgo5ZoxVUptV
+         yUWfkFev/ZxEZMTyrWN6sAaqjs1C8Bbodb3rDlCYoCdaGlbRznfoC8HliwqFNgnBjkwU
+         zhcAozo9/aIw4JEo5fJQpFXFUBcNRwgA404TghgWkbSPfHKvqo9xZKPBu61skEKDePT4
+         m1Ferte99KNpo0ngDymilBd2x2hRADW8q+MIKvSA/9fQf356yFW23ier95rOaUYNhpnr
+         eq8g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777644002; x=1778248802;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=wgCd/8OCqeyYKCVUvRrf/jlOcP1suVHYVb2aR3GPrKU=;
+        b=cBzgOLjCzymgYUTmMyFxJGNsqqJAk5ki2ksZvqPdG8pIIfPWjHbJ2zrkGkKslYn+B6
+         qiNyAa+0o2hpapBSPMTaGXKc+hEMyDHVX8x6xK/Qj4r59pCIt8hjI69dkwIzexfW93zL
+         iQLBVwh/4G3Xp425tRecGIKlGMZGvGY/uAf8t/KUCReGWuPE/Fq9bvUvVx9xpGyNI7AY
+         ZMCvtYutgZLkDv4GnCwGY0Exe47p8EBhCC3ZMQFF9Hd8kwZQ9qBDU67Vnqpj3CaUrlae
+         DmsxLn4UiyyoR5bAbaAaMply+CrCzfuRthVoEswmrCLKNjNgVhfxkhmXnyyozsKAs5bt
+         7hJQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/qrHGmfCOwp0DJLrenPicLjkkYjXtdctzqUSn1qWJQU8/dD4nyug0BHsuwctK+AEKrw+nXnNemrD7Q22L2yjrI@lists.infradead.org
+X-Gm-Message-State: AOJu0YweDYG08iTHk4S1wCPkSORFjFhgyypuk5cgIWLwxH3ZVwWU+aKN
+	LYmwcc6ckF+aA0XEV7vVDqMEcXjobSwcgTlRiz0xXBjEFc22zslJnBSM
+X-Gm-Gg: AeBDieu4vYHcFW5d+pvqByF9K+H1hXkbu5kfjFSa0lle4eDlTd+x9UgJn/UVjMBcJGl
+	N9N/9+i7jx/yE7qCz+LHFPJOQrnP4uMmZ+UfKKD4f2YtTzPJCPjnR3G5CJfaSiaD160fuTX7oH2
+	XVyFOEVnLwCVjprBbZ4PidT4ZhEAV7d70kmo72WENQQZBN4/mu35rfJvcTpZuCBLUZbcctKL5et
+	e4NHhZyoPlSXEhD7+pktHG4PpatPIuuvXpPKWVBhY5d7/bxjyNUIyAAsd2kdWsLg1Z55d8hOWmq
+	pcvOBpmxR/fLy2eS2xi/qfNUS9D79LwRnkgWJJoNxa4j1LxKEXfvMfwLziAmS/MToKbHT7UrHVp
+	Ng5tnBtbDrQuPPpt+DGsVeINk4/BH3UkgKk8hpOHmO7lZ0gsDVj6IxmF64BPR25QX6y8axg54XK
+	a90RiBV/FzgCYHs3KY+qjnVc7Qr88xfq1zN7DahtMHGvBvuaWcUHDmtIktYw8mJkx2mnYMcXhtg
+	3Jv
+X-Received: by 2002:a05:6000:2b01:b0:43f:e2b7:7160 with SMTP id ffacd0b85a97d-4493cf2d5e0mr7464637f8f.4.1777644002422;
+        Fri, 01 May 2026 07:00:02 -0700 (PDT)
 Received: from localhost.localdomain (ns31537009.ip-141-94-163.eu. [141.94.163.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-44a98b768fdsm4823539f8f.33.2026.05.01.06.59.59
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-44a98b768fdsm4823539f8f.33.2026.05.01.07.00.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 01 May 2026 06:59:59 -0700 (PDT)
+        Fri, 01 May 2026 07:00:01 -0700 (PDT)
 From: John Madieu <john.madieu@gmail.com>
 To: broonie@kernel.org,
 	Frank.Li@nxp.com,
@@ -81,15 +82,17 @@ Cc: kernel@pengutronix.de,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	John Madieu <john.madieu@gmail.com>
-Subject: [PATCH 0/3] spi: imx: Three fixes for the i.MX SPI driver
-Date: Fri,  1 May 2026 13:59:48 +0000
-Message-Id: <20260501135951.2416527-1-john.madieu@gmail.com>
+Subject: [PATCH 2/3] spi: imx: Fix UAF on package-1 prepare failure in spi_imx_dma_data_prepare()
+Date: Fri,  1 May 2026 13:59:50 +0000
+Message-Id: <20260501135951.2416527-3-john.madieu@gmail.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20260501135951.2416527-1-john.madieu@gmail.com>
+References: <20260501135951.2416527-1-john.madieu@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260501_070002_975483_35AE9F12 
-X-CRM114-Status: GOOD (  11.05  )
+X-CRM114-CacheID: sfid-20260501_070004_460243_73F2415C 
+X-CRM114-Status: GOOD (  11.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,38 +107,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi All,
+When transfer->len exceeds MX51_ECSPI_CTRL_MAX_BURST and is not a
+multiple of it, spi_imx_dma_data_prepare() splits the transfer into
+two DMA packages. If preparing the second package fails:
 
-This series independent fixes found in the i.MX SPI driver.
+	ret = spi_imx_dma_tx_data_handle(spi_imx, &spi_imx->dma_data[1],
+					 transfer->tx_buf + spi_imx->dma_data[0].data_len,
+					 false);
+	if (ret) {
+		kfree(spi_imx->dma_data[0].dma_tx_buf);
+		kfree(spi_imx->dma_data[0].dma_rx_buf);
+		kfree(spi_imx->dma_data);
+	}
+	}
 
-These are:
+	return 0;
 
-1/3 fixes a precedence bug in spi_imx_dma_max_wml_find() that makes
-    the watermark-finding logic effectively dead code. The function
-    currently always returns wml = 1 because of how the !-operator
-    binds to the modulo expression.
+the function frees the package-0 buffers and the dma_data array,
+then falls through to `return 0`, telling the caller the prepare
+succeeded. The caller then dereferences the freed dma_data array,
+producing a use-after-free.
 
-2/3 fixes a missing return on the package-1 failure path in
-    spi_imx_dma_data_prepare(). The error path frees the
-    dma_data array and the package-0 buffers, then falls through
-    to "return 0" - the caller proceeds with a freed pointer.
+Return the error from the failure path so the caller takes its
+existing failure branch.
 
-3/3 makes spi_imx_setupxfer() propagate the prepare_transfer()
-    return value. Currently a -EINVAL from mx51_ecspi_prepare_transfer
-    (e.g. on a word_delay overflow) is silently swallowed and the
-    transfer proceeds with a partially-configured controller.
+Fixes: faa8e404ad8e ("spi: imx: support dynamic burst length for ECSPI DMA mode")
+Signed-off-by: John Madieu <john.madieu@gmail.com>
+---
+ drivers/spi/spi-imx.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-Regards,
-
-John Madieu (3):
-  spi: imx: Fix precedence bug in spi_imx_dma_max_wml_find()
-  spi: imx: Fix UAF on package-1 prepare failure in
-    spi_imx_dma_data_prepare()
-  spi: imx: Propagate prepare_transfer() error from spi_imx_setupxfer()
-
- drivers/spi/spi-imx.c | 7 +++----
- 1 file changed, 3 insertions(+), 4 deletions(-)
-
+diff --git a/drivers/spi/spi-imx.c b/drivers/spi/spi-imx.c
+index 7ae8078c10ef..4e3dbd01d619 100644
+--- a/drivers/spi/spi-imx.c
++++ b/drivers/spi/spi-imx.c
+@@ -1709,6 +1709,7 @@ static int spi_imx_dma_data_prepare(struct spi_imx_data *spi_imx,
+ 			kfree(spi_imx->dma_data[0].dma_tx_buf);
+ 			kfree(spi_imx->dma_data[0].dma_rx_buf);
+ 			kfree(spi_imx->dma_data);
++			return ret;
+ 		}
+ 	}
+ 
 -- 
 2.25.1
 
