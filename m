@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14CEECCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 12:44:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEBE8CD3425
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 12:47:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x+W1ujC/i2sYkXDbzkORn7Jew8iq3dGZCwNInAwZJio=; b=bV3NUqKhGdoipERxsr8cHM97vr
-	d0TQwY9S9vrEDd/fCTHRTxI7nu1ASN5bYn4qIT7ac3B1aSF+igyhKrL6Lehbp8JIgLX+pkkULtcOT
-	ZWPj322uE06wNrQC/RKa914zhzu/BgeIBWJ4FtTelU0Klf3DBmEFtDlYeIP/3UE2wGpggWj3n5SWm
-	s7ytaf1TEd9KMlSnVzU4bqk01DRvjLenJcU2YvElpzt3KQ/8EdkroTmb+vRGOQKAeITPEkabEmq/d
-	m0PSj2zlX0f/nhbToa6cAF6Jcn//dTf2AfvbbX3CPQfc8bFHMPxXQ5imI8jkeAaI2k3O7mTsMBi9g
-	+fsLclDw==;
+	bh=J6VnYrS4OpoYLvnXY1t3ZH4F+GKUvLaqlaowydMT7CM=; b=dcqX9AYny8qW4fL7hktzxjrbde
+	naVZIM152n0f0Khg3BnMe1i44r+lGXlYdvNiazYGij+UtKsHJKpLCR+if0vpR9UflE2Cb9HbPbswt
+	20o0oxWTC8sBfabbrPAlUJiLblPg2JZCSzEzWW8orTS0IuI055cS8sV1N9wC0jkUL3KmMKAFqisG6
+	UKhwFBOeuZVZOI1r23S0o30U9cOAsp+4txJvCAe2Vt5zS/2kCSbCpr5wMLVbnMw5twskiR/Tzw/RA
+	f2EFypiGGyEuABHobHAhZuUf/qNxEfFP3vV3hBf8oZzkjOKXU6T7wj6xNxj2XUbARsTqcRrD35H9M
+	Usj2dDCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wInEh-0000000786G-0YH7;
-	Fri, 01 May 2026 12:44:51 +0000
-Received: from mail-qk1-x72b.google.com ([2607:f8b0:4864:20::72b])
+	id 1wInH7-000000078LI-3idb;
+	Fri, 01 May 2026 12:47:21 +0000
+Received: from mail-qv1-xf33.google.com ([2607:f8b0:4864:20::f33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wInEe-0000000785i-1S5Q
+	id 1wInH4-000000078Kb-3Vcw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 May 2026 12:44:49 +0000
-Received: by mail-qk1-x72b.google.com with SMTP id af79cd13be357-8d736211595so129021485a.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 May 2026 05:44:47 -0700 (PDT)
+	Fri, 01 May 2026 12:47:19 +0000
+Received: by mail-qv1-xf33.google.com with SMTP id 6a1803df08f44-8a08fa355a1so26925076d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 May 2026 05:47:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1777639487; x=1778244287; darn=lists.infradead.org;
+        d=ziepe.ca; s=google; t=1777639637; x=1778244437; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=x+W1ujC/i2sYkXDbzkORn7Jew8iq3dGZCwNInAwZJio=;
-        b=ZrNkmHVghTIaFbADMIFDZ5uzmbc+mFP4VPVbtUTlwKN6v0MpZElfsxBrmyxLAp/VQA
-         O2WwpoNpziH/Zo6iwqJ1GNvluLjjxNiXd4CGEfa9FpGlUoH/Ww8jLqM0yIexjAhe/RkC
-         EGmwd+R8M07aZeuIQflUXX2YviAAYuQ+eGj4eLdXbLdtdhyWUvYGom1FWv/PpytLlxOm
-         c7I+ljRAFJi9o4VsszmTN2b1+xhPAoDL/sXX/c7TlghMpXzLGQrQepgWuWO2/nDXQ0AF
-         P59A9rUat9pnTxETKWXFYB/zAinkdgh+Vhcf/6Ygr6JS5KJbH6Ssh/UUz8bFZb1QjtIa
-         LJ2w==
+        bh=J6VnYrS4OpoYLvnXY1t3ZH4F+GKUvLaqlaowydMT7CM=;
+        b=JfPmeraiy+EqTq/p8775UBa4PtBGYjcgSW2PqCjYjGST1EzKYQg9MAhnG9P7E7BWvn
+         xdQ1AZm5Wd/e2Sw0psQHkPYWwDhTDBTPOVJ8mvNWb4xlRN4aF0RaoC5JQY4zW0KELbU1
+         DI5W66XXisHOG02Ilemo9vMHZRphtilNsr7/u+6nEWgaIIRJ0pXMJpUNr3oPfVaqTHLU
+         BVorSMYsK1z0mFQlsMOOZ3LkhVjLF6ND0M4/8598lqojQEzelQCsPvc+9MvwErkji2MG
+         u/4S45I6KtapPJByi828InGM40bLoj1rtWS2MvZtAASQl2V6UorfUD7+YF010BO0k66Q
+         5gVA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777639487; x=1778244287;
+        d=1e100.net; s=20251104; t=1777639637; x=1778244437;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=x+W1ujC/i2sYkXDbzkORn7Jew8iq3dGZCwNInAwZJio=;
-        b=iDwZwLyMNZGyMs80tnLUlAXGlwKQO3ZWvuloNUZenJtGVr2Z767hfUtklG1uWpsSfQ
-         imNISJsmPEJvQgeowSxeDH0HUKNTSP9tLgXUOaPsJMIEIQhnSCrANTkB50h2FrbDfd8z
-         V4a1kkfzn18y0ZH2xuFodBeCvPz/us5QinGuNpAx7DEZB9viZe6zCnZXxkCniMEvMPZH
-         5Rna4TZhq4d5iXRkCTwqW+lIF5V5QstYIx3Oz66Xjmht6UYbDHRSougG3qKOdAnw/1td
-         SwIn6X+oIFU5ZEKHYYbzwuAfiT8c4yL1HcW7ey97CFJfRgVuaH9muxNcgZE9Y/iF8IQ/
-         L9Lw==
-X-Gm-Message-State: AOJu0Yz1bZC9yDV7L05NTI+HzlZUFhHcKcfdjtFAiohs8NqlLPJC609u
-	dxA6w0gcTfYXluFtgP3icce3OFMMv43HAUfxoqifO/YlIG+zyvNZRBESvqpflzXyqhc=
-X-Gm-Gg: AeBDievzfe90JEuT8GqgCQti6Rdz7uSobvxfP5xHbRA5S8/AeH2T0qFGJLoa3aKupLN
-	0F3k9VFAkxgdsGUrnXMZEi5DSAXRF+EZMhbkx1e15pSPwKF0NbHXg9pPpauHh+YS0zE2N8MFqYT
-	D0y9VJDLGqXQmF64On6pKyz4UD5Igqz/82X/ghVtiFaQ3MQJ2BBXWPfxfjD3OOjBNBW1Ej8A2EX
-	xIE3meRtVCV+Kbt/1T6SvB9B3E9mjYHcaw+EFLRNkK5+6HwX9bZe7y9sVHpH24nh/kglRrZq4Va
-	5A1XuPqCVjURU6j8J8EfUYE5kypHyzaJGE0DoX10P49R6nVkX806Pc+gEZQCT5henY+YF0JMdmd
-	zd+0kzOFYYYHn5hOv5vYCXQd30YWaQX52770YkS0z9/yqL3AGVnBnOcEqS/9Ci3M7iLXcJxY7th
-	iTWBTxMp8sNiYnRcCPO9tk334OVcUcBAsd8RtmGlejQHHCTmkfoB3Zs9az8B6dZ5p88DioQKSw7
-	lO0ULD8i/V6olvmyL0doQZ4fOA=
-X-Received: by 2002:a05:620a:6989:b0:8f0:a3f8:fb2d with SMTP id af79cd13be357-8fa869c827amr1076322085a.2.1777639486728;
-        Fri, 01 May 2026 05:44:46 -0700 (PDT)
+        bh=J6VnYrS4OpoYLvnXY1t3ZH4F+GKUvLaqlaowydMT7CM=;
+        b=OJH/dZV0QIetK7iWfbh0EPeoyn334VmOcEAxYc1QDYEWfEXzWUp4vp1Ray6G58j8ui
+         udKfTV3VoZu46O4oPFW1NJz9yOjDdVQ2zDO3muv5mvlwlmh7ypmrHyauUmY9vaDshmcQ
+         VW9++6mPlxvPQAxCwsa8clT6dUJodXAUlupIwN8C+GLQbZzcpkGq78BacmzxPKJIztp8
+         JrjXetW4O4su+lt1s6nehPNi25NN0Ag6l6sT31VQjpU/g9XFAwvb8TTx1/Y3SFFEssND
+         /LXTUjNdOPbYG84opynqvqBW5HvATuRWpLvtJyPtFk8tdYOAOsaFF4oBcdOaITA99RQu
+         exxA==
+X-Gm-Message-State: AOJu0Yyan/jNsjxScIRmDXPgOqT1P6IqM4liBI13NyVuHY4AyzVb4n+7
+	IZvRRf3Vz+71ywOu/pDRuu2D8oAUk/YQAP43KQ+GGfJWVPCi74wefD4z+Sbudjia/Eg=
+X-Gm-Gg: AeBDieurWxHlqnGQ/uCuKZscV64NFkEwruVbjhkqG2oe5Ge/NVPAIVh4q+DHr8AEDi2
+	Xxe3ngtMpPn2eOR/k0hSCb6zHIf39H+NrFhEFpAj9lrUnVkEswpS95M88TKp2e4F2ROlAJ0KfwN
+	Y4aUPV8lOAta6u1zF9w4oAvNxIOyRr+/3w7yeDlfqrrHvZLD2WXOHjojVmZ3tBXW6yC4qDwcn+t
+	oMzCuf+ZQmpzyoPXKLJ7IHcHkk1IF7B1mMG95x/aoLMmIh9LuIi30q0kI5JHl6IfbNS4dYraExN
+	UUnHLmHbfl+aQ/0JSFJKa+nXdZuR3/kTzTR0qV29EEDtkdLYo/rKGWdUCKP19wM0owspt5KpDmi
+	EdSbilbn9awdU2Z2I8KgpV/liDpf6X0yktNUtSb/gNc8G3EdXpRupBhdC1ULJC+wThffZn+q0EO
+	FQhjQ77AzUx3IQ05wpXkq+lc+tF/2hMf3cpSOTWj7uaHpKYy98uX63sMTAbLyLX2UEXAbR8u/0X
+	aLsPp4/Sfmm6Fr/
+X-Received: by 2002:ad4:5769:0:b0:8a1:34df:bbe3 with SMTP id 6a1803df08f44-8b3fe795fb9mr109078226d6.28.1777639637543;
+        Fri, 01 May 2026 05:47:17 -0700 (PDT)
 Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8fc2cd06f16sm155809085a.42.2026.05.01.05.44.46
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8b53c0e6d72sm25671376d6.26.2026.05.01.05.47.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 01 May 2026 05:44:46 -0700 (PDT)
+        Fri, 01 May 2026 05:47:17 -0700 (PDT)
 Received: from jgg by wakko with local (Exim 4.97)
 	(envelope-from <jgg@ziepe.ca>)
-	id 1wInEb-000000059N4-2gid;
-	Fri, 01 May 2026 09:44:45 -0300
-Date: Fri, 1 May 2026 09:44:45 -0300
+	id 1wInH2-000000059zk-2EQo;
+	Fri, 01 May 2026 09:47:16 -0300
+Date: Fri, 1 May 2026 09:47:16 -0300
 From: Jason Gunthorpe <jgg@ziepe.ca>
 To: Mostafa Saleh <smostafa@google.com>
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -82,17 +82,18 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
 	mark.rutland@arm.com, qperret@google.com, tabba@google.com,
 	vdonnefort@google.com, sebastianene@google.com, keirf@google.com
-Subject: Re: [PATCH v6 03/25] iommu/arm-smmu-v3: Split code with hyp
-Message-ID: <20260501124445.GC6912@ziepe.ca>
+Subject: Re: [PATCH v6 05/25] iommu/arm-smmu-v3: Move IDR parsing to common
+ functions
+Message-ID: <20260501124716.GD6912@ziepe.ca>
 References: <20260501111928.259252-1-smostafa@google.com>
- <20260501111928.259252-4-smostafa@google.com>
+ <20260501111928.259252-6-smostafa@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260501111928.259252-4-smostafa@google.com>
+In-Reply-To: <20260501111928.259252-6-smostafa@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260501_054448_411159_C3FE9331 
-X-CRM114-Status: GOOD (  10.01  )
+X-CRM114-CacheID: sfid-20260501_054718_901064_9508B517 
+X-CRM114-Status: GOOD (  13.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,20 +108,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 01, 2026 at 11:19:05AM +0000, Mostafa Saleh wrote:
-> +int arm_smmu_cmdq_build_cmd(u64 *cmd, struct arm_smmu_cmdq_ent *ent)
+On Fri, May 01, 2026 at 11:19:07AM +0000, Mostafa Saleh wrote:
+> Move parsing of IDRs to functions so that it can be re-used
+> +unsigned long smmu_idr5_to_pgsize(u32 reg)
 > +{
-> +	memset(cmd, 0, 1 << CMDQ_ENT_SZ_SHIFT);
-> +	cmd[0] |= FIELD_PREP(CMDQ_0_OP, ent->opcode);
+> +	unsigned long pgsize_bitmap = 0;
+> +
+> +	if (reg & IDR5_GRAN64K)
+> +		pgsize_bitmap |= SZ_64K | SZ_512M;
+> +	if (reg & IDR5_GRAN16K)
+> +		pgsize_bitmap |= SZ_16K | SZ_32M;
+> +	if (reg & IDR5_GRAN4K)
+> +		pgsize_bitmap |= SZ_4K | SZ_2M | SZ_1G;
+> +	return pgsize_bitmap;
+> +}
 
-Hopefully I get to it today, but I am going to post a series that will
-move this logic into the headers while deleting arm_smmu_cmdq_ent. It
-should be directly usable for pkvm as well to achieve this same split
-without having to shove a giant inline into a header file.
+I think this should include:
 
-https://github.com/jgunthorpe/linux/commits/iommu_pt_arm64/
+> +	smmu->oas = smmu_idr5_to_oas(reg);
+> +	if (smmu->oas == 52)
+>  		smmu->pgsize_bitmap |= 1ULL << 42; /* 4TB */
+> -		break;
 
-cover-letter: Remove SMMUv3 struct arm_smmu_cmdq_ent
+ie it should return the supported page sizes by inspecting all the
+idrs and don't leave this tricky bit to be open coded..
 
 Jason
 
