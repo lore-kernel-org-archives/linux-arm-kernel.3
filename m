@@ -4,56 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADCAFCCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 17:52:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AE0BCD3423
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 17:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+E1v/9oi+fc7RUAxsQQgAzZ4ewg8BMGC8mNMmwygoaA=; b=rGG8Vbv/9rljxTeMQiRozkxC9C
-	TFvwPT84M0q38bOKbaneMt7lHWQRZ3CT9fOwI8cqHQy5XlfwwaRTAZLuTQl2x+tjsRplSI1KIVjHW
-	JHyXr6+kyHikCC6xge6orzVy3X546LFzCGbM3UMtC6aDldAHeP1XxkVTW9B+8LJym6keKiaTT2pJJ
-	rO881UY8RxzEESSetunE5Fp8RycnUXupVNA9MkVptMDkUY5PR5Vr1x2IdDT0/bdZwQpAI+qNaXHCt
-	sczMhcc3Pr8pS6vIXwMcfJuZG9LHiKiYaU14KtYQ0Ba03wvRK3KIOtIkQ7JsLtznNbumnKud+8YKC
-	+QeSztKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u/+O11I2l5uEWQtHiF9iLIDtrtif7F+7W2x9HgtS2Zk=; b=AUeNqL/+OLl/jtud5U9YsMWMyr
+	pHOskvmG7ZHZI+4rQcROnhSkTPfJrXeeNok0jUF4+rep2Q+c93t2VvuzSjhUNSX5nBXKjOHy6+DIL
+	OepmVC3QmOcZBtvyZHbp28lV50VLvqC6eGd2SRsiFvCoDeVhzSny1HWkTnyj4pgm9iN58RVtKynAF
+	PzabaeJZxQPrA9kXgw9unNNogutXP6TK1AyyA813sCmJfo/r8o1VvB2cLsZhh3eHb2GLWEe7J3new
+	cTc/4LlsmjY9aFkQp3jwhGinok2i5s/8wMHOVWczuwV0OLhnjFxv+OdJU1KL0Qz846oOhAhq4wYHT
+	Rdndzfpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIs2f-00000007X6j-1S2e;
-	Fri, 01 May 2026 17:52:45 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIs2c-00000007X6I-0Jfy
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 May 2026 17:52:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DF2481713;
-	Fri,  1 May 2026 10:52:32 -0700 (PDT)
-Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.85])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 93CE33F62B;
-	Fri,  1 May 2026 10:52:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777657958; bh=4k+GAVl5/mpPhN++8tD3Jxmm2Yw/1RgbUkEDOwaqdes=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Gh9kSOOZnur/OOMbcuGJyormUqFMW6TrSrFOs2Q1pRZ9jAmDWFTY3FWyRUrYWGRoN
-	 0ozoaxf1thjgR9Y+lntHB5YqSzv4V3FDvHcGjNMFob7nn2NGEdqZqZh7nrN+GSW+qy
-	 N2RYa6G7KJ6+avVvXdR07965wZYUsR4/MeKNojcI=
-From: Robin Murphy <robin.murphy@arm.com>
-To: will@kernel.org,
-	catalin.marinas@arm.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org
-Subject: [PATCH v2] arm64: errata: Reformat table for IDs
-Date: Fri,  1 May 2026 18:52:28 +0100
-Message-ID: <0d4c8f3968e5c5c0a6f3dc295c3e9f696b9006f4.1777657487.git.robin.murphy@arm.com>
-X-Mailer: git-send-email 2.54.0.dirty
+	id 1wIs7o-00000007XYb-2Yc8;
+	Fri, 01 May 2026 17:58:04 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wIs7n-00000007XYG-0O6i;
+	Fri, 01 May 2026 17:58:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=u/+O11I2l5uEWQtHiF9iLIDtrtif7F+7W2x9HgtS2Zk=; b=cS0FYwD2XOEYVbuKnpFKh9ZiSM
+	0EwDyUhzf4L/Z7u5RfwH9F/lLM1NhuqZPIwTkUmNl1PS4VMevXWN1PepuvnRy9E8BXEEBe1NqpbST
+	JCuDyJciLjPMlOgK/msGkQ/Etm/ww5vna/xrv//xWjQSuG3YKtTWGFNZVR8+M3tsp34wr0aQKFWkJ
+	uFsTeHHXdKUGothOh1mQqNx0qA+TQ+SY8myKKpSqt0cEDRnA3Sr7IVPyxsjySvvgY2FjAsXzlkA0p
+	PsB/KjAACHCD+NoUMzQlqunyAml2flv3i9OPzaSZZMasw49lDXCUAuGtnBBvR4d+htLsXvVM7+CgM
+	/hohbFOw==;
+Received: from willy by casper.infradead.org with local (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wIs7c-000000098SG-2Rmh;
+	Fri, 01 May 2026 17:57:52 +0000
+Date: Fri, 1 May 2026 18:57:52 +0100
+From: Matthew Wilcox <willy@infradead.org>
+To: Barry Song <baohua@kernel.org>
+Cc: akpm@linux-foundation.org, linux-mm@kvack.org, david@kernel.org,
+	ljs@kernel.org, liam@infradead.org, vbabka@kernel.org,
+	rppt@kernel.org, surenb@google.com, mhocko@suse.com, jack@suse.cz,
+	pfalcato@suse.de, wanglian@kylinos.cn, chentao@kylinos.cn,
+	lianux.mm@gmail.com, kunwu.chan@gmail.com, liyangouwen1@oppo.com,
+	chrisl@kernel.org, kasong@tencent.com, shikemeng@huaweicloud.com,
+	nphamcs@gmail.com, bhe@redhat.com, youngjun.park@lge.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
+Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
+ fault performance
+Message-ID: <afTpoL3FklpQZNMM@casper.infradead.org>
+References: <20260430040427.4672-1-baohua@kernel.org>
+ <afNM-gIqxpyJ6ro7@casper.infradead.org>
+ <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
+ <afS_L-5XeWIldTXA@casper.infradead.org>
+ <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260501_105242_223379_71181407 
-X-CRM114-Status: UNSURE (   7.99  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,137 +79,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We have some inconsistency where multiple errata for the same component
-share the same Kconfig workaround; some are one ID per line, some are
-smooshed together, and some are entirely separate entries. Standardise
-on the single entry, one ID per line format so that things render nice
-and consistently in the HTML docs, and it's simple and clear to add new
-IDs to existing workarounds without churning the table too much.
+On Sat, May 02, 2026 at 01:44:34AM +0800, Barry Song wrote:
+> On Fri, May 1, 2026 at 10:57 PM Matthew Wilcox <willy@infradead.org> wrote:
+> >
+> > On Fri, May 01, 2026 at 06:49:58AM +0800, Barry Song wrote:
+> > > 1. There is no deterministic latency for I/O completion. It depends on
+> > > both the hardware and the software stack (bio/request queues and the
+> > > block scheduler). Sometimes the latency is short; at other times it can
+> > > be quite long. In such cases, a high-priority thread performing operations
+> > > such as mprotect, unmap, prctl_set_vma, or madvise may be forced to wait
+> > > for an unpredictable amount of time.
+> >
+> > But does that actually happen?  I find it hard to believe that thread A
+> > unmaps a VMA while thread B is in the middle of taking a page fault in
+> > that same VMA.  mprotect() and madvise() are more likely to happen, but
+> > it still seems really unlikely to me.
+> 
+> It doesn’t have to involve unmapping or applying mprotect to
+> the entire VMA—just a portion of it is sufficient.
 
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: Robin Murphy <robin.murphy@arm.com>
----
+Yes, but that still fails to answer "does this actually happen".  How much
+performance is all this complexity in the page fault handler buying us?
+If you don't answer this question, I'm just going to go in and rip it
+all out.
 
-v2: Rebase for 7.0-rc1 
+> BTW, the chain can propagate: a page fault occurs, B wants to write this
+> VMA, and C (a higher-priority task) wants to write another VMA. D may need
+> to iterate VMAs under mmap_lock, so B can end up blocking both C and D.
 
-One last tilt at this windmill - at least I did remember! :)
-
- Documentation/arch/arm64/silicon-errata.rst | 47 +++++++++++----------
- 1 file changed, 25 insertions(+), 22 deletions(-)
-
-diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-index 211119ce7adc..046a7fa47063 100644
---- a/Documentation/arch/arm64/silicon-errata.rst
-+++ b/Documentation/arch/arm64/silicon-errata.rst
-@@ -116,7 +116,8 @@ stable kernels.
- +----------------+-----------------+-----------------+-----------------------------+
- | ARM            | Cortex-A73      | #858921         | ARM64_ERRATUM_858921        |
- +----------------+-----------------+-----------------+-----------------------------+
--| ARM            | Cortex-A76      | #1188873,1418040| ARM64_ERRATUM_1418040       |
-+| ARM            | Cortex-A76      | #1188873,       | ARM64_ERRATUM_1418040       |
-+|                |                 | #1418040        |                             |
- +----------------+-----------------+-----------------+-----------------------------+
- | ARM            | Cortex-A76      | #1165522        | ARM64_ERRATUM_1165522       |
- +----------------+-----------------+-----------------+-----------------------------+
-@@ -136,7 +137,8 @@ stable kernels.
- +----------------+-----------------+-----------------+-----------------------------+
- | ARM            | Cortex-A78      | #3324344        | ARM64_ERRATUM_3194386       |
- +----------------+-----------------+-----------------+-----------------------------+
--| ARM            | Cortex-A78C     | #3324346,3324347| ARM64_ERRATUM_3194386       |
-+| ARM            | Cortex-A78C     | #3324346,       | ARM64_ERRATUM_3194386       |
-+|                |                 | #3324347        |                             |
- +----------------+-----------------+-----------------+-----------------------------+
- | ARM            | Cortex-A710     | #2119858        | ARM64_ERRATUM_2119858       |
- +----------------+-----------------+-----------------+-----------------------------+
-@@ -172,11 +174,11 @@ stable kernels.
- +----------------+-----------------+-----------------+-----------------------------+
- | ARM            | Cortex-X925     | #3324334        | ARM64_ERRATUM_3194386       |
- +----------------+-----------------+-----------------+-----------------------------+
--| ARM            | Neoverse-N1     | #1188873,1418040| ARM64_ERRATUM_1418040       |
-+| ARM            | Neoverse-N1     | #1188873,       | ARM64_ERRATUM_1418040       |
-+|                |                 | #1418040        |                             |
- +----------------+-----------------+-----------------+-----------------------------+
--| ARM            | Neoverse-N1     | #1349291        | N/A                         |
--+----------------+-----------------+-----------------+-----------------------------+
--| ARM            | Neoverse-N1     | #1490853        | N/A                         |
-+| ARM            | Neoverse-N1     | #1349291,       | N/A                         |
-+|                |                 | #1490853        |                             |
- +----------------+-----------------+-----------------+-----------------------------+
- | ARM            | Neoverse-N1     | #1542419        | ARM64_ERRATUM_1542419       |
- +----------------+-----------------+-----------------+-----------------------------+
-@@ -204,10 +206,13 @@ stable kernels.
- +----------------+-----------------+-----------------+-----------------------------+
- | ARM            | C1-Pro          | #4193714        | ARM64_ERRATUM_4193714       |
- +----------------+-----------------+-----------------+-----------------------------+
--| ARM            | MMU-500         | #841119,826419  | ARM_SMMU_MMU_500_CPRE_ERRATA|
--|                |                 | #562869,1047329 |                             |
-+| ARM            | MMU-500         | #562869,        | ARM_SMMU_MMU_500_CPRE_ERRATA|
-+|                |                 | #841119,        |                             |
-+|                |                 | #826419,        |                             |
-+|                |                 | #1047329        |                             |
- +----------------+-----------------+-----------------+-----------------------------+
--| ARM            | MMU-600         | #1076982,1209401| N/A                         |
-+| ARM            | MMU-600         | #1076982,       | N/A                         |
-+|                |                 | #1209401        |                             |
- +----------------+-----------------+-----------------+-----------------------------+
- | ARM            | MMU-700         | #2133013,       | N/A                         |
- |                |                 | #2268618,       |                             |
-@@ -230,11 +235,13 @@ stable kernels.
- | Broadcom       | Brahma-B53      | N/A             | ARM64_ERRATUM_843419        |
- +----------------+-----------------+-----------------+-----------------------------+
- +----------------+-----------------+-----------------+-----------------------------+
--| Cavium         | ThunderX ITS    | #22375,24313    | CAVIUM_ERRATUM_22375        |
-+| Cavium         | ThunderX ITS    | #22375,         | CAVIUM_ERRATUM_22375        |
-+|                |                 | #24313          |                             |
- +----------------+-----------------+-----------------+-----------------------------+
- | Cavium         | ThunderX ITS    | #23144          | CAVIUM_ERRATUM_23144        |
- +----------------+-----------------+-----------------+-----------------------------+
--| Cavium         | ThunderX GICv3  | #23154,38545    | CAVIUM_ERRATUM_23154        |
-+| Cavium         | ThunderX GICv3  | #23154,         | CAVIUM_ERRATUM_23154        |
-+|                |                 | #38545          |                             |
- +----------------+-----------------+-----------------+-----------------------------+
- | Cavium         | ThunderX GICv3  | #38539          | N/A                         |
- +----------------+-----------------+-----------------+-----------------------------+
-@@ -244,9 +251,8 @@ stable kernels.
- +----------------+-----------------+-----------------+-----------------------------+
- | Cavium         | ThunderX SMMUv2 | #27704          | N/A                         |
- +----------------+-----------------+-----------------+-----------------------------+
--| Cavium         | ThunderX2 SMMUv3| #74             | N/A                         |
--+----------------+-----------------+-----------------+-----------------------------+
--| Cavium         | ThunderX2 SMMUv3| #126            | N/A                         |
-+| Cavium         | ThunderX2 SMMUv3| #74,            | N/A                         |
-+|                |                 | #126            |                             |
- +----------------+-----------------+-----------------+-----------------------------+
- | Cavium         | ThunderX2 Core  | #219            | CAVIUM_TX2_ERRATUM_219      |
- +----------------+-----------------+-----------------+-----------------------------+
-@@ -258,11 +264,9 @@ stable kernels.
- +----------------+-----------------+-----------------+-----------------------------+
- | NVIDIA         | T241 GICv3/4.x  | T241-FABRIC-4   | N/A                         |
- +----------------+-----------------+-----------------+-----------------------------+
--| NVIDIA         | T241 MPAM       | T241-MPAM-1     | N/A                         |
--+----------------+-----------------+-----------------+-----------------------------+
--| NVIDIA         | T241 MPAM       | T241-MPAM-4     | N/A                         |
--+----------------+-----------------+-----------------+-----------------------------+
--| NVIDIA         | T241 MPAM       | T241-MPAM-6     | N/A                         |
-+| NVIDIA         | T241 MPAM       | T241-MPAM-1,    | N/A                         |
-+|                |                 | T241-MPAM-4,    |                             |
-+|                |                 | T241-MPAM-6     |                             |
- +----------------+-----------------+-----------------+-----------------------------+
- +----------------+-----------------+-----------------+-----------------------------+
- | Freescale/NXP  | LS2080A/LS1043A | A-008585        | FSL_ERRATUM_A008585         |
-@@ -270,9 +274,8 @@ stable kernels.
- +----------------+-----------------+-----------------+-----------------------------+
- | Hisilicon      | Hip0{5,6,7}     | #161010101      | HISILICON_ERRATUM_161010101 |
- +----------------+-----------------+-----------------+-----------------------------+
--| Hisilicon      | Hip0{6,7}       | #161010701      | N/A                         |
--+----------------+-----------------+-----------------+-----------------------------+
--| Hisilicon      | Hip0{6,7}       | #161010803      | N/A                         |
-+| Hisilicon      | Hip0{6,7}       | #161010701,     | N/A                         |
-+|                |                 | #161010803      |                             |
- +----------------+-----------------+-----------------+-----------------------------+
- | Hisilicon      | Hip07           | #161600802      | HISILICON_ERRATUM_161600802 |
- +----------------+-----------------+-----------------+-----------------------------+
--- 
-2.54.0.dirty
-
+I know.
 
