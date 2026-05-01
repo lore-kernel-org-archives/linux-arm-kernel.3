@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C9B7CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 11:20:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3C21CD3424
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 11:20:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yTbFP/vzGSoWzHV54z7Mcha0ge1NRm8j7joYQ/l7s4Q=; b=Rf84Efejjx3pTc6AXOKtxqB4I9
-	J52a2sYNdTcyxPoPflo7IeKBkhIhfOrMdd5NCYfm6EYQ6iFoWwilCk8MGvw5NZkHvDzAoHHLr7GPB
-	FFBP3cpseQwqJL/bSvjraAc5wXvBUmyWt3cFnXEYPtjoSK2hSSS60CJ59KMH7B6iKOHVvoeRy5jmd
-	1xSzfOeRDKxcD++xmdT5k630xhIv8UrtRxrhs4iZtVoY/NBw7TL+fIm0hFzRP6Lze5d0uvdu4QBZO
-	fJmPcGJZXlrsJH0PcR0nCsOyJtu/8ZVF+WsDjR4DrY7IYCdfx7uXHz8rf46S2SMY4Y+vT5Kr67G5b
-	09LCW4hA==;
+	bh=w0w7aacCAKh5xDmIAde6/c4ma74UnnFyw9cMZFzY2vk=; b=I5KpTOcbVmMBeYMtvKriwVUNlk
+	4YCPJ13fkq3P0TzfYMToS/kvOfgex+J3DhX1iBCJ9O3IrH0d1/ssSqQORLjoOmibyXdMsGCSF+9Zd
+	u1wKCfL6QBeLlbSC+htrAiPeCNSoRI5fQqGkB88MBULlx93dOqRco8sKZam2NZeFq2LGVag49W4Eb
+	zFnTVxFE0xb7xm/jZTWnIhbhZIdViNNAtUCiYg24DrTBqRFo4QLjWoDqRBtq+0ctaLJo+bHK7Mme5
+	1+xKmzJBhqi6sP6Kw3qClyqD3fNzn4CL70/yj5q2JTooOgW/QN7Vhr6eg80x5VjWSZtIrhENUmja2
+	+IKg6llQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIlvE-00000006dTS-3a3e;
-	Fri, 01 May 2026 11:20:40 +0000
-Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
+	id 1wIlvG-00000006dWR-2MQz;
+	Fri, 01 May 2026 11:20:42 +0000
+Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIlv6-00000006dDL-3HER
+	id 1wIlv8-00000006dF9-2Xx2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 May 2026 11:20:34 +0000
-Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-449b2a183d3so966163f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 May 2026 04:20:31 -0700 (PDT)
+	Fri, 01 May 2026 11:20:36 +0000
+Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-43d7a5b9678so1645564f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 May 2026 04:20:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777634430; x=1778239230; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777634432; x=1778239232; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=yTbFP/vzGSoWzHV54z7Mcha0ge1NRm8j7joYQ/l7s4Q=;
-        b=rg+uA8dZGC9z4F1ir79R9LbYz05fWnZo8CstZEeAn5cUDoMSqaoXIHllpt5sUA/h0u
-         0YE+8arNnJdppX8ZdT7MMtclq5eAtA+j8WZc1qtHlTnELBp4Ft2K9ol7svCREmK7jjQ5
-         ZgMSlGfq+T2LVNl6MmlrMFoIqyUe2fdQLaMGBXSsRKeot6b9POaO+pJPjr3bvEiPie/M
-         0I3oSjwrxgx5NLPsTjB9Io2JEOBwu2PBLYs4TEsx0J1eX5+2UtFCBf1nMOTuUW/JCISx
-         08+C8tvY0eFNNxbgznIT4saBdyaPhnomlYf8FGKN2cW7y5W23Cy9qJSMjv8REXq3Jihh
-         cYYQ==
+        bh=w0w7aacCAKh5xDmIAde6/c4ma74UnnFyw9cMZFzY2vk=;
+        b=ucPHPyI2l9aal10xBRXRuybnnqiRvBgF1Aws8gTM5qsloO972kH+r1UdN5AgGkf3dy
+         i3H0Di/mJhI3Et4fYrXe5EJZTrlidl0fpMv1cX4kunbQsA2n+eOhNEO/QgXAKteppbKf
+         xyX8WxyZl5D9w792ijUmb0xPqj8z8+AAVHNStZGNlb9FiF1S4ShB5tDBIIVvlTFy1dQu
+         YZVtk7eeFxYmMK+1P3GFIXZKfNQqqgg8LIZ4GcaObpti4jFB0Nbfskzf+7656SuhNd5a
+         rknuwhenxQk0+RY5XMw+J4uplPSdqm/N1YqvKzZoZk18N6kupi6yvEnJNppeWAC6f56D
+         IUQg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777634430; x=1778239230;
+        d=1e100.net; s=20251104; t=1777634432; x=1778239232;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=yTbFP/vzGSoWzHV54z7Mcha0ge1NRm8j7joYQ/l7s4Q=;
-        b=NGHnarflP7SUTlVVaJppNFZfY9IPLqOP9SvCfoudeQXkaosRWSKNSuFIQLDThTHUe3
-         v2trES7UqbCGWsIiKQ+Akg0Bt2XPGIWqDZcxJC9PYPJHyBOwh1JijMHqvQI8F4LPElaC
-         qDxucOoUIH8t6TjPV70o+hddU74VeR1nOfHKGeGLm/WKtYvPAx93sm57fJ9b5TGiZnB5
-         vjXr5RgDS8nWibXkZl8ADNsHcylmMfFSMnvUOhSLdq0w7hjBSbiF3AEyni4DaHKCyqCS
-         KrQnCjm6voNOte9bkJRzQK8kMwMmSk+Z9ihVAiPT7rskOfgVWpbyMl0R0gN7SLyTK+9t
-         6Tvw==
-X-Gm-Message-State: AOJu0YziwWWxmTrXFnNianIO9a4Ry0VzeBTJSi5+R7mCkOsNDzrmZYOo
-	dDWVnID1SU3g2o+fqn2kyoaPCB5IirS3b87rQuRGrRGRhG/78opHzK6Mk5ccxpmf5oNVSxhjZbq
-	yqY5U7zE5sl3wsCp4Xa+e9KLZjV6olBDMRUNQrR+GtH4yYes+lZjEVTsnL8HWWwH6g3/CZuWyYk
-	tUvFbbz2uyDCaGMoqVT7WPSTinh9ui38T1KXB13htkO/d7YRD16C94Sx5Du0XBbXQxQg==
-X-Received: from wrxp8.prod.google.com ([2002:a05:6000:188:b0:449:9a82:a60d])
+        bh=w0w7aacCAKh5xDmIAde6/c4ma74UnnFyw9cMZFzY2vk=;
+        b=Dqc5Qr5cqf+oaex2L2hxCrrNkSTvZqWsJeETY42gMrZzYoBXzM5ag7GWh1DwH49Adu
+         UABJ+sBVKLeDOg9oWuoOsT3mE/YRoNDrLAE12oxrBVUtWBqFB83K0sTmLNOmz7lp3B3H
+         msXHv5IYaBcy7OkcPDQL0/BNddgAvddobNM/9eNqBPf2l26ax9g/8ulTDDnHbS1Vjb0Y
+         l0CwbSKQZRsU1t5SdgZhlMcWbvBwsOONR8YCoVhmSn98R7AQ8yx6mdUnZAPbe8FIpyxo
+         0bcOCFyVee2y50OCmhnmxh/v+dyVNTUzVKfjfKkZEzJRYuu6A1+109RMgosfAiOTJLxZ
+         S1fw==
+X-Gm-Message-State: AOJu0YxmVSj+iB+lIzQuA2VsfC6HvFQjyzqLq62kZ+gyVlpicpvYGhoV
+	h81dRwGHmEtCxtlAc9Mz5240Smd5JLj5663gBjPwf+PlVDrozEHPJTo91eayPXP0SejSmGgIctb
+	6ZeBL/tOx8azQ9Z8PlZtX26RBImHdd3Znhr4gjXYqf5STQP/YdYS2mfCB83I8okQ2ly6znulv7G
+	inH81bJli0B2wT2iU5gGPeQ35XGcFSyh/QwryNVZslx1IEn9TKR7xc1kUK0VzoLf+2Qw==
+X-Received: from wroq15.prod.google.com ([2002:adf:f50f:0:b0:44a:c22c:e636])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:1862:b0:43d:779e:afa8 with SMTP id ffacd0b85a97d-4494f9a1430mr11063527f8f.16.1777634430023;
- Fri, 01 May 2026 04:20:30 -0700 (PDT)
-Date: Fri,  1 May 2026 11:19:24 +0000
+ 2002:a05:600c:a316:b0:48a:58ae:9933 with SMTP id 5b1f17b1804b1-48a8eb8b706mr26555135e9.18.1777634431501;
+ Fri, 01 May 2026 04:20:31 -0700 (PDT)
+Date: Fri,  1 May 2026 11:19:25 +0000
 In-Reply-To: <20260501111928.259252-1-smostafa@google.com>
 Mime-Version: 1.0
 References: <20260501111928.259252-1-smostafa@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260501111928.259252-23-smostafa@google.com>
-Subject: [PATCH v6 22/25] iommu/io-pgtable-arm: Support io-pgtable-arm in the hypervisor
+Message-ID: <20260501111928.259252-24-smostafa@google.com>
+Subject: [PATCH v6 23/25] iommu/arm-smmu-v3-kvm: Shadow the CPU stage-2 page table
 From: Mostafa Saleh <smostafa@google.com>
 To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	kvmarm@lists.linux.dev, iommu@lists.linux.dev
@@ -77,8 +77,8 @@ Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
 	Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260501_042032_962388_A8B90131 
-X-CRM114-Status: GOOD (  18.37  )
+X-CRM114-CacheID: sfid-20260501_042034_756156_C39AED99 
+X-CRM114-Status: GOOD (  28.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,197 +93,266 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To support DMA isolation in pKVM through SMMUv3 nested trap and
-emulate, io-pgtable-arm needs to be compiled for the hypervisor
-to create the SMMUs page tables.
-
-Instead of factoring out the kernel-specific code and providing
-parallel implementations for the hypervisor, we directly utilize
-and abstract the differences within the iommu-pages API.
-
-This introduces a set of hypervisor-specific wrappers in iommu-pages.h
-when compiled under __KVM_NVHE_HYPERVISOR__, routing allocations,
-frees, virt/phys conversions, and DMA API mapping to the appropriate
-pKVM hypervisor functions (kvm_iommu_donate_pages, etc). The generic
-kernel definitions are now appropriately excluded in this case.
-
-It also introduces kvm_alloc_io_pgtable_ops at the end of
-io-pgtable-arm.c to instantiate the page table for pKVM and adds
-the io-pgtable-arm.o object to the hypervisor Makefile.
+Based on the callbacks from the hypervisor, update the SMMUv3
+Identity mapped page table.
 
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
 ---
- arch/arm64/kvm/hyp/nvhe/Makefile |  3 +-
- drivers/iommu/io-pgtable-arm.c   | 31 +++++++++++++++-
- drivers/iommu/io-pgtable-arm.h   |  6 +++
- drivers/iommu/iommu-pages.h      | 63 ++++++++++++++++++++++++++++++++
- 4 files changed, 100 insertions(+), 3 deletions(-)
+ .../iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c  | 197 +++++++++++++++++-
+ 1 file changed, 195 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
-index 8a75739db947..4e9e0f1ed2b5 100644
---- a/arch/arm64/kvm/hyp/nvhe/Makefile
-+++ b/arch/arm64/kvm/hyp/nvhe/Makefile
-@@ -36,7 +36,8 @@ hyp-obj-y += $(lib-objs)
- HYP_SMMU_V3_DRV_PATH = ../../../../../drivers/iommu/arm/arm-smmu-v3
+diff --git a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
+index 1ed5ccce7849..b73a2462f0dd 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
+@@ -13,6 +13,9 @@
  
- hyp-obj-$(CONFIG_ARM_SMMU_V3_PKVM) += $(HYP_SMMU_V3_DRV_PATH)/pkvm/arm-smmu-v3.o \
--	$(HYP_SMMU_V3_DRV_PATH)/arm-smmu-v3-common-lib.o
-+	$(HYP_SMMU_V3_DRV_PATH)/arm-smmu-v3-common-lib.o \
-+	$(HYP_SMMU_V3_DRV_PATH)/../../io-pgtable-arm.o
+ #include "arm_smmu_v3.h"
  
- # Path to simple_ring_buffer.c
- CFLAGS_trace.nvhe.o += -I$(srctree)/kernel/trace/
-diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
-index e765021308f9..8a0ffea3ae2c 100644
---- a/drivers/iommu/io-pgtable-arm.c
-+++ b/drivers/iommu/io-pgtable-arm.c
-@@ -252,10 +252,14 @@ static void *__arm_lpae_alloc_pages(size_t size, gfp_t gfp,
- 				    void *cookie)
++#include <linux/io-pgtable.h>
++#include "../../../io-pgtable-arm.h"
++
+ size_t __ro_after_init kvm_hyp_arm_smmu_v3_count;
+ struct hyp_arm_smmu_v3_device *kvm_hyp_arm_smmu_v3_smmus;
+ 
+@@ -59,6 +62,9 @@ struct hyp_arm_smmu_v3_device *kvm_hyp_arm_smmu_v3_smmus;
+ 	__ret;								\
+ })
+ 
++/* Protected by host_mmu.lock from core code. */
++static struct io_pgtable *idmap_pgtable;
++
+ static bool is_cmdq_enabled(struct hyp_arm_smmu_v3_device *smmu)
  {
- 	struct device *dev = cfg->iommu_dev;
-+	int nid = NUMA_NO_NODE;
- 	size_t alloc_size;
- 	dma_addr_t dma;
- 	void *pages;
- 
-+	if (dev)
-+		nid = dev_to_node(dev);
-+
- 	/*
- 	 * For very small starting-level translation tables the HW requires a
- 	 * minimum alignment of at least 64 to cover all cases.
-@@ -264,8 +268,7 @@ static void *__arm_lpae_alloc_pages(size_t size, gfp_t gfp,
- 	if (cfg->alloc)
- 		pages = cfg->alloc(cookie, alloc_size, gfp);
- 	else
--		pages = iommu_alloc_pages_node_sz(dev_to_node(dev), gfp,
--						  alloc_size);
-+		pages = iommu_alloc_pages_node_sz(nid, gfp, alloc_size);
- 
- 	if (!pages)
- 		return NULL;
-@@ -1262,3 +1265,27 @@ struct io_pgtable_init_fns io_pgtable_arm_mali_lpae_init_fns = {
- 	.alloc	= arm_mali_lpae_alloc_pgtable,
- 	.free	= arm_lpae_free_pgtable,
- };
-+
-+#ifdef __KVM_NVHE_HYPERVISOR__
-+#include <nvhe/iommu.h>
-+
-+struct io_pgtable_ops *kvm_alloc_io_pgtable_ops(enum io_pgtable_fmt fmt,
-+						struct io_pgtable_cfg *cfg,
-+						void *cookie)
-+{
-+	struct io_pgtable *iop;
-+
-+	if (fmt != ARM_64_LPAE_S2)
-+		return NULL;
-+
-+	iop = arm_64_lpae_alloc_pgtable_s2(cfg, cookie);
-+	if (!iop)
-+		return NULL;
-+
-+	iop->fmt        = fmt;
-+	iop->cookie     = cookie;
-+	iop->cfg        = *cfg;
-+
-+	return &iop->ops;
-+}
-+#endif
-diff --git a/drivers/iommu/io-pgtable-arm.h b/drivers/iommu/io-pgtable-arm.h
-index ba7cfdf7afa0..af3a3f1e765e 100644
---- a/drivers/iommu/io-pgtable-arm.h
-+++ b/drivers/iommu/io-pgtable-arm.h
-@@ -27,4 +27,10 @@
- #define ARM_LPAE_TCR_PS_48_BIT		0x5ULL
- #define ARM_LPAE_TCR_PS_52_BIT		0x6ULL
- 
-+#ifdef __KVM_NVHE_HYPERVISOR__
-+struct io_pgtable_ops *kvm_alloc_io_pgtable_ops(enum io_pgtable_fmt fmt,
-+						struct io_pgtable_cfg *cfg,
-+						void *cookie);
-+#endif
-+
- #endif /* IO_PGTABLE_ARM_H_ */
-diff --git a/drivers/iommu/iommu-pages.h b/drivers/iommu/iommu-pages.h
-index e1945193ad7f..749f0f4f870c 100644
---- a/drivers/iommu/iommu-pages.h
-+++ b/drivers/iommu/iommu-pages.h
-@@ -10,6 +10,7 @@
- #include <linux/dma-mapping.h>
- #include <linux/iommu.h>
- 
-+#ifndef __KVM_NVHE_HYPERVISOR__
- /**
-  * struct ioptdesc - Memory descriptor for IOMMU page tables
-  * @iopt_freelist_elm: List element for a struct iommu_pages_list
-@@ -181,4 +182,66 @@ static inline void iommu_pages_dma_unmap(struct device *dev, dma_addr_t dma, siz
- 	dma_unmap_single(dev, dma, size, DMA_TO_DEVICE);
+ 	return FIELD_GET(CR0_CMDQEN, smmu->cr0);
+@@ -210,7 +216,6 @@ static int smmu_sync_cmd(struct hyp_arm_smmu_v3_device *smmu)
+ 			 smmu_cmdq_empty(&smmu->cmdq));
  }
  
-+#else /* __KVM_NVHE_HYPERVISOR__ */
-+
-+#include <nvhe/memory.h>
-+#include <nvhe/iommu.h>
-+
-+static inline void *iommu_alloc_pages_node_sz(int nid, gfp_t gfp, size_t size)
+-__maybe_unused
+ static int smmu_send_cmd(struct hyp_arm_smmu_v3_device *smmu,
+ 			 struct arm_smmu_cmdq_ent *cmd)
+ {
+@@ -222,6 +227,78 @@ static int smmu_send_cmd(struct hyp_arm_smmu_v3_device *smmu,
+ 	return smmu_sync_cmd(smmu);
+ }
+ 
++static void __smmu_add_cmd(void *__opaque, struct arm_smmu_cmdq_batch *unused,
++			   struct arm_smmu_cmdq_ent *cmd)
 +{
-+	return kvm_iommu_donate_pages(get_order(size));
++	struct hyp_arm_smmu_v3_device *smmu = (struct hyp_arm_smmu_v3_device *)__opaque;
++
++	WARN_ON(smmu_add_cmd(smmu, cmd));
 +}
 +
-+static inline void iommu_free_pages(void *virt)
++static int smmu_tlb_inv_range_smmu(struct hyp_arm_smmu_v3_device *smmu,
++				   struct arm_smmu_cmdq_ent *cmd,
++				   unsigned long iova, size_t size, size_t granule)
 +{
-+	kvm_iommu_reclaim_pages(virt);
++	arm_smmu_tlb_inv_build(cmd, iova, size, granule,
++			       PAGE_SHIFT, smmu->features & ARM_SMMU_FEAT_RANGE_INV,
++			       smmu, __smmu_add_cmd, NULL);
++	return smmu_sync_cmd(smmu);
 +}
 +
-+static inline void *iommu_alloc_data(size_t size, gfp_t gfp)
++static void smmu_tlb_inv_range(unsigned long iova, size_t size, size_t granule,
++			       bool leaf)
 +{
-+	return kvm_iommu_donate_pages(get_order(size));
++	struct arm_smmu_cmdq_ent cmd_s1 = {
++		.opcode = CMDQ_OP_TLBI_NH_ALL,
++		.tlbi = {
++			.vmid = 0,
++		},
++	};
++	struct hyp_arm_smmu_v3_device *smmu;
++
++	for_each_smmu(smmu) {
++		struct arm_smmu_cmdq_ent cmd = {
++			.opcode = CMDQ_OP_TLBI_S2_IPA,
++			.tlbi = {
++				.leaf = leaf,
++				.vmid = 0,
++			},
++		};
++
++		hyp_spin_lock(&smmu->lock);
++		/*
++		 * Don't bother if SMMU is disabled, this would be useful for the case
++		 * when RPM is supported to avoid touching the SMMU MMIO when disabled.
++		 * The hypervisor also asserts CMDQEN is enabled before the SMMU is
++		 * enabled. As otherwise the host can prevent the hypervisor from doing
++		 * TLB invalidations.
++		 */
++		if (is_smmu_enabled(smmu)) {
++			WARN_ON(smmu_tlb_inv_range_smmu(smmu, &cmd, iova, size, granule));
++			WARN_ON(smmu_send_cmd(smmu, &cmd_s1));
++		}
++		hyp_spin_unlock(&smmu->lock);
++	}
 +}
 +
-+static inline void iommu_free_data(void *p)
++static void smmu_tlb_flush_walk(unsigned long iova, size_t size,
++				size_t granule, void *cookie)
 +{
-+	kvm_iommu_reclaim_pages(p);
++	smmu_tlb_inv_range(iova, size, granule, false);
 +}
 +
-+#undef WARN_ONCE
-+#define WARN_ONCE(condition, format...) WARN_ON(condition)
-+
-+static inline phys_addr_t iommu_virt_to_phys(void *virt)
++static void smmu_tlb_add_page(struct iommu_iotlb_gather *gather,
++			      unsigned long iova, size_t granule,
++			      void *cookie)
 +{
-+	return hyp_virt_to_phys(virt);
++	smmu_tlb_inv_range(iova, granule, granule, true);
 +}
 +
-+static inline void *iommu_phys_to_virt(phys_addr_t phys)
-+{
-+	return hyp_phys_to_virt(phys);
-+}
++static const struct iommu_flush_ops smmu_tlb_ops = {
++	.tlb_flush_walk = smmu_tlb_flush_walk,
++	.tlb_add_page	= smmu_tlb_add_page,
++};
 +
-+static inline void iommu_pages_flush_incoherent(struct device *dma_dev,
-+						void *virt, size_t offset,
-+						size_t len)
+ /* Put the device in a state that can be probed by the host driver. */
+ static void smmu_deinit_device(struct hyp_arm_smmu_v3_device *smmu)
+ {
+@@ -495,6 +572,37 @@ static int smmu_init_device(struct hyp_arm_smmu_v3_device *smmu)
+ 	return ret;
+ }
+ 
++static int smmu_init_pgt(void)
 +{
-+	kvm_flush_dcache_to_poc(virt + offset, len);
-+}
++	/* Default values overridden based on SMMUs common features. */
++	struct io_pgtable_cfg cfg = (struct io_pgtable_cfg) {
++		.tlb = &smmu_tlb_ops,
++		.pgsize_bitmap = -1,
++		.ias = 48,
++		.oas = 48,
++		.coherent_walk = true,
++	};
++	struct hyp_arm_smmu_v3_device *smmu;
++	struct io_pgtable_ops *ops;
 +
-+static inline dma_addr_t iommu_pages_dma_map(struct device *dev, void *virt, size_t size)
-+{
-+	kvm_flush_dcache_to_poc(virt, size);
-+	return (dma_addr_t)hyp_virt_to_phys(virt);
-+}
++	for_each_smmu(smmu) {
++		cfg.ias = min(cfg.ias, smmu->oas);
++		cfg.oas = min(cfg.oas, smmu->oas);
++		cfg.pgsize_bitmap &= smmu->pgsize_bitmap;
++		cfg.coherent_walk &= !!(smmu->features & ARM_SMMU_FEAT_COHERENCY);
++	}
 +
-+static inline int iommu_pages_dma_mapping_error(struct device *dev, dma_addr_t dma)
-+{
++	/* At least PAGE_SIZE must be supported by all SMMUs*/
++	if ((cfg.pgsize_bitmap & PAGE_SIZE) == 0)
++		return -EINVAL;
++
++	ops = kvm_alloc_io_pgtable_ops(ARM_64_LPAE_S2, &cfg, NULL);
++	if (!ops)
++		return -ENOMEM;
++	idmap_pgtable = io_pgtable_ops_to_pgtable(ops);
 +	return 0;
 +}
 +
-+static inline void iommu_pages_dma_unmap(struct device *dev, dma_addr_t dma, size_t size)
+ /* Called while is the host is still trusted. */
+ static int smmu_init(void)
+ {
+@@ -520,7 +628,10 @@ static int smmu_init(void)
+ 
+ 	BUILD_BUG_ON(sizeof(hyp_spinlock_t) != sizeof(u32));
+ 
+-	return 0;
++	ret = smmu_init_pgt();
++	if (ret)
++		goto out_reclaim_smmu;
++	return ret;
+ 
+ out_reclaim_smmu:
+ 	while (smmu != kvm_hyp_arm_smmu_v3_smmus)
+@@ -950,8 +1061,90 @@ static bool smmu_dabt_handler(struct user_pt_regs *regs, u64 esr, u64 addr)
+ 	return false;
+ }
+ 
++static size_t smmu_pgsize_idmap(size_t size, u64 paddr, size_t pgsize_bitmap)
 +{
++	size_t pgsizes;
++
++	/* Remove page sizes that are larger than the current size */
++	pgsizes = pgsize_bitmap & GENMASK_ULL(__fls(size), 0);
++
++	/* Remove page sizes that the address is not aligned to. */
++	if (likely(paddr))
++		pgsizes &= GENMASK_ULL(__ffs(paddr), 0);
++
++	WARN_ON(!pgsizes);
++
++	/* Return the largest page size that fits. */
++	return BIT(__fls(pgsizes));
 +}
 +
-+#endif /* __KVM_NVHE_HYPERVISOR__ */
+ static int smmu_host_stage2_idmap(phys_addr_t start, phys_addr_t end, int prot)
+ {
++	size_t pgsize = PAGE_SIZE, pgcount, size;
++	struct io_pgtable *pgtable = idmap_pgtable;
++	int ret = 0;
 +
- #endif /* __IOMMU_PAGES_H */
++	end = min(end, BIT(pgtable->cfg.oas));
++	if (start >= end)
++		return 0;
++
++	size = end - start;
++	if (prot) {
++		size_t mapped;
++
++		if (!(prot & IOMMU_MMIO))
++			prot |= IOMMU_CACHE;
++
++		while (size) {
++			mapped = 0;
++			/*
++			 * We handle pages size for memory and MMIO differently:
++			 * - memory: Map everything with PAGE_SIZE, that is guaranteed to
++			 *   find memory as we allocated enough pages to cover the entire
++			 *   memory, we do that as io-pgtable-arm doesn't support
++			 *   split_blk_unmap logic any more, so we can't break blocks once
++			 *   mapped to tables.
++			 * - MMIO: Unlike memory, pKVM allocate 1G to for all MMIO, while
++			 *   the MMIO space can be large, as it is assumed to cover the
++			 *   whole IAS that is not memory, we have to use block mappings,
++			 *   that is fine for MMIO as it is never donated at the moment,
++			 *   so we never need to unmap MMIO at the run time triggereing
++			 *   split block logic.
++			 */
++			if (prot & IOMMU_MMIO)
++				pgsize = smmu_pgsize_idmap(size, start, pgtable->cfg.pgsize_bitmap);
++
++			pgcount = size / pgsize;
++			ret = pgtable->ops.map_pages(&pgtable->ops, start, start,
++						     pgsize, pgcount, prot, 0, &mapped);
++			size -= mapped;
++			start += mapped;
++			/* Map failures doesn't impact security, tolerate it. */
++			if (!mapped || ret)
++				break;
++		}
++	} else {
++		struct iommu_iotlb_gather gather;
++		size_t unmapped;
++
++		while (size) {
++			pgcount = size / pgsize;
++			iommu_iotlb_gather_init(&gather);
++			unmapped = pgtable->ops.unmap_pages(&pgtable->ops, start,
++							    pgsize, pgcount, &gather);
++			size -= unmapped;
++			start += unmapped;
++			if (!unmapped)
++				break;
++		}
++	}
++
++	if (ret)
++		return ret;
++
++	if (WARN_ON(size))
++		return -EINVAL;
++
+ 	return 0;
+ }
+ 
 -- 
 2.54.0.545.g6539524ca2-goog
 
