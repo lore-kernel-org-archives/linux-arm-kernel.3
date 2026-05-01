@@ -4,59 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2D6ECD3424
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 01:11:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD061FF886F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 May 2026 01:21:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iH/p+QtR2LkX7EPSpsttq7TDnYDbp0jfIyCaRYZNvX4=; b=co/ey07++NDJiyxyPOUWMLarK/
-	nEv/ZmqebSZfO11S2ibFujNUukvwQv0MrW4Ve6OFBZbEsuSKljuIhZv1dw/D1ASCvEhINHSmf1o4X
-	0mBzzpWkumxxxS5bHgCHM3Kuu8q0LiPiPQV0GXt7vKDnSVCTqH2s0a4tsqMs0OsrBsyOg1qN/NgOM
-	WB67lMi/cWs0+iEC5ZKFcrQWvtexbsgG/wZ/kBX8sCaydBc5NdzL2YHShkNdNxhGSijgTHv9ndAp5
-	amPEjPqnAT/yg/n5geAIGhlrnCtECDMIHTg5ujKnh8oo61aTtWxzEuHfRIkDktCQ4jB9BS9kRjliZ
-	nNwm5law==;
+	bh=eymi/yOMkUKJQZkJaKH0gLCUwZmiZZ6GGA5U3OWc7VU=; b=BV8+fhv2BoSCXsoRmAPpRalPVs
+	2rkRy6cd+6AGva4EqPi7ahjcWYmvhPqsaVRpkW4l3r+fzouFRIDwyfh7CdiasOxDrFKmConHdstB3
+	qstKsVngcXuhYuPpvbdYU0I+O8j64LaakN1K8QnW7rPiXOP8Hm08wkPw0BYyilQXtEgFdtCZ4flKU
+	UlVLz8YCHmT79Av2VlFRE7eZLVWIxMqK0IWOAf4AqMbUNve/r8l4g+5hTignUtquCkw6o2Vcmtwek
+	3FTafrQ5YzohX/pJYZFBVRzBt+rnWorSzppSo9tQhwx/yG85bQkiQLv5zKakAzeR7Rm7Fw0Y1DZgc
+	rogZAhCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIcPR-00000006CqO-3XUq;
-	Fri, 01 May 2026 01:11:13 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wIcYt-00000006DSd-0MHT;
+	Fri, 01 May 2026 01:20:59 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIcPQ-00000006CqE-19zB;
-	Fri, 01 May 2026 01:11:12 +0000
+	id 1wIcYq-00000006DSF-3GPI;
+	Fri, 01 May 2026 01:20:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5EF3F60142;
-	Fri,  1 May 2026 01:11:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6B61C2BCB3;
-	Fri,  1 May 2026 01:11:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 18B2B444D4;
+	Fri,  1 May 2026 01:20:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA7BCC2BCB3;
+	Fri,  1 May 2026 01:20:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777597871;
-	bh=iH/p+QtR2LkX7EPSpsttq7TDnYDbp0jfIyCaRYZNvX4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=kjs1zysKsB5u7Ub6LZJvdV9NON1tf33hwhMQ7GdozOwBN+QXknDE1Wwy9vbibNOOs
-	 t/xyBX7jJmN0uGNNj4oscsFZb+JVUp4ZSDf2tsDmxtPinpCoakaV2W9rlh/5AigPby
-	 L3Oumpzq5ZSiZo0//SAWrAV17vh+udSPf7Tsjr+Ywt6FYKKT/vEtzbdcLqtPAIcz+t
-	 xcXXKPCI5eaAhxpT22ulz8aJH88a/xuZlRqjQvX7J2q/WKM46Rj7HEbpa55FbmKAmd
-	 FA+Ha2MjzPe3gzRpQo7ihrFSSwvGUdjCHxsjbtFQ2jgO/YwoazmJuPsYaJU0W74q/w
-	 UGw1BRjVAjKNg==
-Date: Thu, 30 Apr 2026 18:11:09 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- netdev@vger.kernel.org
-Subject: Re: [PATCH net-next v2] net: airoha: Introduce
- airoha_fe_get()/airoha_qdma_get() register read helpers
-Message-ID: <20260430181109.68c65940@kernel.org>
-In-Reply-To: <20260429-airoha_fe_get-airoha_qdma_get-v2-1-909e791f1dc0@kernel.org>
-References: <20260429-airoha_fe_get-airoha_qdma_get-v2-1-909e791f1dc0@kernel.org>
+	s=k20201202; t=1777598456;
+	bh=7rKuBfm/sZqWZkIHfGrPtqBLbz7QhI+DrjxOxPQGULw=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=IsBNqDWiGsHNeM/iuiQqKxH4swR8cjkUwEK/tmacRzj+lrUdMaXDTaGVNofROB5sF
+	 bBRODprviHwVF9VQuBIYcZfE5TFhZpUthESgCf5ZlmBwO2d9jAbWnyo60NtK+kvPiB
+	 ukozERPSd6GQgUthnkjU2WUEQ7hoLZF1IL8iPi1XhU844bync1gOyFnYjr/xvF8fA4
+	 6vOpDxwr6dkSi/MiGP2eb3tWmb+nCsu+Ts1i2ezYiJUJiYRS93IBhoXefPfCOJ6BEu
+	 kzIY2gOsalMit/H10XPtTRPMiWg/LTiI6Qew0wLk4YKCDUwxJsX40ZDqYtv7UauFVY
+	 oKxsyQDxwdAuw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FC46380A957;
+	Fri,  1 May 2026 01:20:11 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net v2] net: airoha: Move entries to queue head in case of
+ DMA mapping failure in airoha_dev_xmit()
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <177759841005.3278779.2333326558858237558.git-patchwork-notify@kernel.org>
+Date: Fri, 01 May 2026 01:20:10 +0000
+References: <20260429-airoha-xmit-unmap-error-path-v2-1-32e43b7c6d25@kernel.org>
+In-Reply-To: <20260429-airoha-xmit-unmap-error-path-v2-1-32e43b7c6d25@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, jacob.e.keller@intel.com,
+ horms@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260430_182056_837430_03501A94 
+X-CRM114-Status: UNSURE (   8.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,13 +77,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 29 Apr 2026 12:54:32 +0200 Lorenzo Bianconi wrote:
-> Add airoha_fe_get() and airoha_qdma_get() as utility routines for reading
-> a masked field from a specified register.
-> This is a non-functional refactor, no logical changes are introduced to
-> the existing codebase.
+Hello:
 
-Doesn't apply AFAICT.
-If this is because of the net -> net-next merge - please avoid posting
-patches which will cause a conflict on merge.
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Wed, 29 Apr 2026 14:02:31 +0200 you wrote:
+> In order to respect the original descriptor order and avoid any
+> potential IOMMU fault or memory corruption, move pending queue entries
+> to the head of hw queue tx_list if the DMA mapping of current inflight
+> packet fails in airoha_dev_xmit routine.
+> 
+> Fixes: 3f47e67dff1f7 ("net: airoha: Add the capability to consume out-of-order DMA tx descriptors")
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> 
+> [...]
+
+Here is the summary with links:
+  - [net,v2] net: airoha: Move entries to queue head in case of DMA mapping failure in airoha_dev_xmit()
+    https://git.kernel.org/netdev/net/c/75df490c9e84
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
