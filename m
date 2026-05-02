@@ -4,62 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6573BCD3423
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 May 2026 10:30:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1199CD3423
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 May 2026 10:40:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jKC3PTkwWrrt7PYEQQ0B4ZjpL8QByGd23QV939tztOg=; b=VdKmnFm8xX/YwbXnCMcWFiy21U
-	2rkRPS9fosGXjIJmGUoeOxsgmwLF5Xu8IUqSL5fowWxlq1WC0Hse9RFqYo1u0u8rZLLIkdBFeC/CX
-	WUxPWpoVulHKsHA3cypMemFibgNp+x07o3/dIDTnzr2GRx/z9/2g7OFQY/b/wdsQFPYl1anJGQZZA
-	MfXdDDU09glZf+jAmJJn5/7uKYYrFMCz/ibDZRXY9DYaLz1cy7ZRFuBEIauRcwsOXWK6bY/UgJHkr
-	/y6KRAXYvd8ZGjIrt9U9lrc1+vhF2ITFSpx6+ymJT1yNYfmTPfQFP3MpBbYzPER8NpGvjVCrBJN/w
-	1hutw0uw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VhtHkjeSoL6KEgad7rpjC/9JNpJNQV2SGyHL1gpYgb8=; b=hc436RcwRK/Ww1wm+M1o1dfT1z
+	CizXMCEI18dTUqIbOQaIQPKq3X2SXZI4YfskHmr7zoa7l/Sye2XvTMKC+E3gFiv8c+Edi0hotlkrt
+	slDJ+ZxZSgUh0JUZgUF4EielvqG8y2hrk8bQ1z3I/BgD4I+/c1tsz5OWtUdQbRB+sHPSNRCygCdv2
+	ImgxjKCt8lzIAaFeYnUt+IRpKYqvIclRGFOOUrcJzqRFiB7jqd4BCHyKqayBYhHQfBrDw2ek1wZ0E
+	05iPWFQsSIBHlyC0tk/nVf+HB0ecp+EF+g2pJKxZWAx5zrzSXQiRp26zFrked769iMgkTjLNcr+4R
+	7KKhR+Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJ7bq-00000008oI4-3yJg;
-	Sat, 02 May 2026 10:30:06 +0000
-Received: from out-184.mta0.migadu.com ([91.218.175.184])
+	id 1wJ7li-00000008pAc-1ynP;
+	Sat, 02 May 2026 10:40:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJ7bn-00000008oG4-0hAX
+	id 1wJ7lg-00000008p9y-0EMV
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 May 2026 10:30:05 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
-	s=key1; t=1777717788;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=jKC3PTkwWrrt7PYEQQ0B4ZjpL8QByGd23QV939tztOg=;
-	b=TvAbHW2veUJcqZme81cx/GGP21R4PHW48Vdw9zFZVYz7lCULM0oYq8uZZ7Ra4+LV09brVr
-	fAxK4DBv+MX5wbEMbSxiS1cjcjoSfHRiR08qh468IM4CjCYgwY84JKB6OfstJ7+gqrnE2k
-	pD3knfHjk5ly0w8/ukaBdUTNmJ7gGf94gnpXEUNl3fov/xCCdWABF2f1J9p9I+d68sTFI6
-	Ip1ZA7X45ylF88PIs+mnGL1GDFTGMIWXjakszAleSQpi1J5R6xmeKp+XXkXRyd4cWUeArB
-	9RmD0PbQyU6MB6OKBhx6SbGUUbRNFWCqc7Ev8l5DNhOcI6Z00JdNGehMPsnTPA==
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Sat, 02 May 2026 12:29:40 +0200
-Message-Id: <DI84CXWVJPXB.1OG0PYJ5L31TX@cknow-tech.com>
-Cc: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <nick@khadas.com>
-Subject: Re: [PATCH v2 2/7] arm64: dts: rockchip: Add HYM8563 RTC for Khadas
- Edge 2L
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <diederik@cknow-tech.com>
-To: "Gray Huang" <gray.huang@wesion.com>, <robh@kernel.org>,
- <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <heiko@sntech.de>
-References: <20260429063712.2150938-1-gray.huang@wesion.com>
- <20260429063712.2150938-3-gray.huang@wesion.com>
-In-Reply-To: <20260429063712.2150938-3-gray.huang@wesion.com>
-X-Migadu-Flow: FLOW_OUT
+	Sat, 02 May 2026 10:40:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2A87F4335B;
+	Sat,  2 May 2026 10:40:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05A5AC19425;
+	Sat,  2 May 2026 10:40:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777718413;
+	bh=5hGrX1n4wF59Q8/Dj57P146EcinwPZ+zWpBBXfPxm34=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=E1iOK+Q65LVUu1hsaHcyzmolI/YbyIP9NQUDVN5xxMfOs2DRmZv2spjGMbtjaxxJq
+	 QV1CbXNijciGY7h8JsRx65JfZ2CebcfbKi1Ro+CnwIjCPaF0HwaVDr7aa27rPjsBJV
+	 5/ib/nrLaL4ECdcX3oYfZLO9Tq/yKCVasbRM2jKR8DbOOwVcFdO7iK9VcqQSYwap4z
+	 4OEDwzRA6NBh6/n3rAzdD6MA1f0xdjkiVv/rZq3XzafwzPKBZHLVh1FzqB53wxj+sZ
+	 JQGXw1cdW12Ij0YJHMBpgljOjksSf6YxFm0ccE2HIerACw3jKaUaQ8KDnWwJ3S3Db5
+	 YNkjs7hc8/atw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wJ7la-0000000Gjv6-2zOd;
+	Sat, 02 May 2026 10:40:10 +0000
+Date: Sat, 02 May 2026 11:40:10 +0100
+Message-ID: <87cxzeayd1.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>, Thomas Gleixner <tglx@kernel.org>
+Cc: "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org"	<linux-kernel@vger.kernel.org>,
+	nd <nd@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: Re: [PATCH 0/3] irqchip/gic-v5: Tidy up LPI allocation
+In-Reply-To: <20260430153352.3654325-1-sascha.bischoff@arm.com>
+References: <20260430153352.3654325-1-sascha.bischoff@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, tglx@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, nd@arm.com, lpieralisi@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260502_033003_909430_62EDFC5C 
-X-CRM114-Status: GOOD (  14.68  )
+X-CRM114-CacheID: sfid-20260502_034016_136011_BB9F899B 
+X-CRM114-Status: GOOD (  19.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,57 +85,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed Apr 29, 2026 at 8:37 AM CEST, Gray Huang wrote:
-> The Khadas Edge 2L uses an on-board HYM8563 RTC connected to
-> I2C2. Enable it and expose its 32.768kHz clock output so later
-> board-level patches can reference it as the LPO clock source for
-> the AP6275P wireless module.
->
-> Mark the RTC as a wakeup source as well.
->
-> Signed-off-by: Gray Huang <gray.huang@wesion.com>
-> ---
->  .../boot/dts/rockchip/rk3576-khadas-edge-2l.dts     | 13 +++++++++++--
->  1 file changed, 11 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3576-khadas-edge-2l.dts b/arc=
-h/arm64/boot/dts/rockchip/rk3576-khadas-edge-2l.dts
-> index 5781deae00d9..c85b219fe409 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3576-khadas-edge-2l.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3576-khadas-edge-2l.dts
-> @@ -46,8 +46,6 @@ vcc_2v0_pldo_s3: regulator-vcc-2v0-pldo-s3 {
->  		regulator-max-microvolt =3D <2000000>;
->  		vin-supply =3D <&vcc_sys>;
->  	};
-> -
-> -
->  };
+Hi Sascha,
 
-You're removing unneeded empty lines (good), but you introduced them in
-patch 1 of this series ... thus fix patch 1? That also means you're no
-longer adding an unrelated change in this patch.
+On Thu, 30 Apr 2026 16:33:58 +0100,
+Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+> 
+> LPIs are owned by the LPI domain, so allocating and freeing them from
+> the ITS MSI and IPI domains was always a bit backwards. Those domains
+> should only ask their parent for interrupts, and never need to
+> know how the parent picks or releases the underlying LPIs (or do it on
+> behalf of said parent, as was the case).
+> 
+> This series moves LPI allocation into the LPI domain itself and
+> removes the exported wrappers that allowed LPI allocation from elsewhere.
+> 
+> With that done, the LPI domain can also be slightly reworked to
+> support allocating and freeing more than one LPI at a time. This
+> rework is extended to the IPI allocation, too. The last patch makes
+> the ITS MSI domain request its parent interrupts as a single range,
+> matching the IPI cleanup from the previous patch.
+> 
+> As a side effect of these changes, the IPI path now unwinds earlier
+> parent allocations correctly if a later allocation fails.
 
-Cheers,
-  Diederik
- =20
->  &cpu_l0 {
-> @@ -431,6 +429,17 @@ regulator-state-mem {
->  	};
->  };
-> =20
-> +&i2c2 {
-> +	status =3D "okay";
-> +
-> +	hym8563: hym8563@51 {
-> +		compatible =3D "haoyu,hym8563";
-> +		reg =3D <0x51>;
-> +		#clock-cells =3D <0>;
-> +		clock-output-names =3D "hym8563";
-> +		wakeup-source;
-> +	};
-> +};
-> =20
->  &sdhci {
->  	bus-width =3D <8>;
+Thanks for cleaning up this mess. It aligns the GICv5 host code with
+the expectations we have for hierarchical domains (don't mess with
+your parent's allocations), and will make the KVM management of
+doorbell LPIs less awkward. It also removes global helpers that always
+irked me, so:
 
+Reviewed-by: Marc Zyngier <maz@kernel.org>
+
+Thomas, could you please take th in at the earliest opportunity?
+
+Thanks,
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
