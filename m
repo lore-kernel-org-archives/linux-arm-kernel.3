@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62B5DCD13DA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 May 2026 21:17:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C852CCD3424
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 May 2026 21:25:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7RqPKh7sZHF+28JeEz6CG7pr0J0NFZKqUhuzHW8CkS4=; b=MaGhHd+aGE7bzRDCyIqfociaXW
-	JWrhHjNZLG8r/2izD13f1HEpWDggtQJMJhMx0G33knJ2U82LF3qwTrMOldCaXGSby6Q1eD8WGxSgR
-	CUn2EHMeaFFATGDVolvnqZ34G6mXJbaS/tn/fyMD5J8aJ/LmNnDnoAiDewaOB1BfRrWFk30bUdX/+
-	hy2ph6pTMW+IRuj+LjBsZ19MtPNazYexyK6Qqo4xTY7by1VPMuYIL+aHRglYQ/Fk5Q2ioNmj1n5Bo
-	fz+YWHpzfRQQj2RDNYWki8zkgpaeiJKk1ngal0L2649vh7BtI/h2mALMw9JzBzS44eTSglXS1OeTs
-	zcrKmNwQ==;
+	bh=krWvEte6rzYQK7UVqWb8Xrr0bPg1zlcGnKUfpj6lNEw=; b=alO5LBRrDjU0E1IITobhGIjhhm
+	4D4HmjvVqPiCJg7rE5QhXJ1NvqtPMg7aIS8SsJA/PUhRfc1fJQx4b64YHmX1ifyy8IgVz5b9jY1Y2
+	P/nz0PIaMrnkBOy/gv5og5q9uodz/1p/X9cjvDbMa6zYd/OfcVymEH5N+X/tQhWx+Be4jwvnuLZN2
+	G7CjhVOtXEYCd0wIitDgzul1qRLpv18GeiMABYEsajFv+U3fRhYKkRC9jZ6dsnKS2yPfiGgfTWa+p
+	LP0YH2SXUkPW+00Z8nsIDhNuBNIggwHXIYoGe8aLLT+8zmNjniLAmTEwWjCYbUr4GY3hz0+tHueJO
+	QkoU0n6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJHiZ-00000009iTK-2AfB;
-	Sat, 02 May 2026 21:17:43 +0000
-Received: from mout-p-101.mailbox.org ([80.241.56.151])
+	id 1wJHq1-00000009j5U-1XrG;
+	Sat, 02 May 2026 21:25:25 +0000
+Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJHiX-00000009iSJ-0b0J
+	id 1wJHpy-00000009j4j-0iER
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 May 2026 21:17:42 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
+	Sat, 02 May 2026 21:25:23 +0000
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4g7LMr6WTvz9tFH;
-	Sat,  2 May 2026 23:17:28 +0200 (CEST)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4g7LXs1LTVz9tjW;
+	Sat,  2 May 2026 23:25:17 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1777756648;
+	t=1777757117;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=7RqPKh7sZHF+28JeEz6CG7pr0J0NFZKqUhuzHW8CkS4=;
-	b=LCK7vt8ywGFsDdethYein7AVOvM26O4jQ9Sj3DG5Xxm30lSzd6GGRhCm4zndiMUjtJzpgG
-	TW2jcM9fV0MxczPq4R400BQkm7zzIZharv3QvcfJrQ9R9qR70pymuDUGFVDGo2W7aF6BSe
-	jgQNpRpZOJPyzmtfJqdK2rEfFnA1BC8iXcy5vv6uYNYoCW3k7snTwkShxwZux5gEVd6ArP
-	BBVMt09eySjv4oNKWeX9E+3sUhNHhpnzxlZLDAyCI8W7Pk5k5AN/v0qMi+bML9iObdk6+B
-	K1ObvvGcSLG+5SIFWwGg+Y3kfTGvTSUQ08eypdez+00C56a6acb39N1HDNnueg==
-Message-ID: <71b24195-2a3c-46a4-8587-f5055a015eb8@mailbox.org>
-Date: Sat, 2 May 2026 23:17:22 +0200
+	bh=krWvEte6rzYQK7UVqWb8Xrr0bPg1zlcGnKUfpj6lNEw=;
+	b=knvsL8k12JbPXpYAlE9cBexu30rqoUtTFLzP18ypZSmRCQPvA/hch4OLnCGgip9mSiF17t
+	2sFEMq2QuB84fTcucGgg+aAC1VQ/v1WOjLI4xQTvz1zpaaSH3YUELU//a2fRpHLY7DNnL0
+	+01jP0ak5enIm3CWv2Zvz3YEheA7CdBHUeATtHWkFO20v1Td4XLRx38Tx4qS7uBOUvwo0N
+	Qry9PMuiJ+vXurTP60Wc3kNEGqOJLdM2ckDM4IcwIZOoId2ryzCZIhDB9Vv8Jf7qa850BO
+	L8PCX6o4eBHX6TmsUL5qXFs8bZx0q3skIid21QoyjqrksGWRrn0panx7kh/EYQ==
+Message-ID: <321547f5-40b6-449f-8a6e-5396b70823e6@mailbox.org>
+Date: Sat, 2 May 2026 23:25:02 +0200
 MIME-Version: 1.0
-Subject: Re: [PATCH 1/7] dt-bindings: display: renesas,du: Document Renesas
- R-Car R8A779MD M3Le
+Subject: Re: [PATCH 2/7] drm/rcar-du: Add support for Renesas R-Car R8A779MD
+ M3Le
 To: Geert Uytterhoeven <geert@linux-m68k.org>
 Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
  David Airlie <airlied@gmail.com>,
@@ -66,18 +66,18 @@ Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
  linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-renesas-soc@vger.kernel.org
 References: <20260419193718.133174-1-marek.vasut+renesas@mailbox.org>
- <20260419193718.133174-2-marek.vasut+renesas@mailbox.org>
- <CAMuHMdUzRoELGedrM3ELUjZr-N6DnF4TXtdQR_k74Xmfppu9fA@mail.gmail.com>
+ <20260419193718.133174-3-marek.vasut+renesas@mailbox.org>
+ <CAMuHMdUHKQwX43=c9JR67=x1EvWzdHTiXdUnPV2bDKU7PV_EnA@mail.gmail.com>
 Content-Language: en-US
 From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <CAMuHMdUzRoELGedrM3ELUjZr-N6DnF4TXtdQR_k74Xmfppu9fA@mail.gmail.com>
+In-Reply-To: <CAMuHMdUHKQwX43=c9JR67=x1EvWzdHTiXdUnPV2bDKU7PV_EnA@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-MBO-RS-META: 39hpsyab6hn1upgtg1dgny8ski4mntmu
-X-MBO-RS-ID: 22ba611169e36e18812
+X-MBO-RS-META: wgjgs6jskon4uskfcndud97puhskkd3w
+X-MBO-RS-ID: 03f2f67987000091c2f
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260502_141741_341644_192D33F3 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20260502_142522_382368_04ABFCD4 
+X-CRM114-Status: GOOD (  13.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,56 +92,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/29/26 11:57 AM, Geert Uytterhoeven wrote:
+On 4/29/26 12:10 PM, Geert Uytterhoeven wrote:
 
 Hello Geert,
 
 > On Sun, 19 Apr 2026 at 21:37, Marek Vasut
 > <marek.vasut+renesas@mailbox.org> wrote:
->> Extend the Renesas DU display bindings to support the Renesas R-Car
->> R8A779MD M3Le SoC. This SoC is similar to R-Car R8A77965 M3-N SoC,
->> except the HDMI port@1 is not present.
+>> Add support the Renesas R-Car R8A779MD M3Le SoC. This SoC is
+>> similar to R-Car R8A77965 M3-N SoC, except the HDMI port@1 is
+>> not present.
 > 
 > "and DU1 is unused." (whatever that may mean...)
 
 Fixed in V2.
 
->> +++ b/Documentation/devicetree/bindings/display/renesas,du.yaml
->> @@ -42,6 +42,7 @@ properties:
->>         - renesas,du-r8a779a0 # for R-Car V3U compatible DU
->>         - renesas,du-r8a779g0 # for R-Car V4H compatible DU
->>         - renesas,du-r8a779h0 # for R-Car V4M compatible DU
->> +      - renesas,du-r8a779md # for R-Car M3Le compatible DU
+>> +++ b/drivers/gpu/drm/renesas/rcar-du/rcar_du_drv.c
+>> @@ -564,6 +564,30 @@ static const struct rcar_du_device_info rcar_du_r8a779h0_info = {
+>>          .dsi_clk_mask = BIT(0),
+>>   };
+>>
+>> +static const struct rcar_du_device_info rcar_du_r8a779md_info = {
 > 
-> I am not sure you need a new compatible value: is the DU really
-> different than on R-Car M3-N, or does it just lack some wiring? ...
-It seems the DU is identical to the M3N one, so I will add another entry 
-to R8A77965 DU to handle the M3Le one, just like R8A774B1 and R8A774E1 
-DUs . I hope that is acceptable, and also addresses the feedback on this 
-patch ?
+> Assuming for this review we do need a new compatible value...
 
-I dumped the VSP and FCP versions on M3N and M3Le and compared them, and 
-I also wrote and read-back the CMM registers to confirm CMM IPs are all 
-present on both M3N and M3Le:
+I will be dropping this part in V2.
 
-FCP is identical on M3N and M3Le:
-fe950000.fcp FCP_VCR=0x106
-fe96f000.fcp FCP_VCR=0x106
-fe9af000.fcp FCP_VCR=0x106
-fea27000.fcp FCP_VCR=0x106
-fea2f000.fcp FCP_VCR=0x106
+[...]
 
-VSP is identical on M3N and M3Le:
-fe960000.vsp IP_VERSION=0x01011504
-fe9a0000.vsp IP_VERSION=0x01011404
-fea20000.vsp IP_VERSION=0x01011904
-fea28000.vsp IP_VERSION=0x01011704
+>>   static const struct of_device_id rcar_du_of_table[] = {
+>>          { .compatible = "renesas,du-r8a7742", .data = &rcar_du_r8a7790_info },
+>>          { .compatible = "renesas,du-r8a7743", .data = &rzg1_du_r8a7743_info },
+> 
+> I also don't know where "M3Le does not support 4K output." (which is
+> a VSP2 limitation) is to be handled.
+R-Car Gen3 RM R19UH0105EJ0230 Rev.2.30 Aug 31, 2021
+Page 2468
+32.1.1.1 Features of VSPI [R-Car H3/R-Car H3-N/R-Car M3-W/R-Car 
+M3-W+/R-Car M3-N/R-Car E3]
+point Video processing and point Performance of VSPI
+indicates R-Car E3 has similar limitation due to VSP bandwidth.
 
-CMMs are present on M3N and M3Le, tested with write of bits 28 and 24 
-into CM2_CLU_CTRL and then readback:
-fea40000.cmm CM2_CLU_CTRL readback 0x11000000
-fea50000.cmm CM2_CLU_CTRL readback 0x11000000
-fea70000.cmm CM2_CLU_CTRL readback 0x11000000
-
-And it does indeed look like we do have DOTCLKIN1 .
+Currently, this seems to be up to user to avoid the higher resolution 
+operation on hardware which has lower VSP bandwidth.
 
