@@ -4,125 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7C0DCD3424
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 May 2026 04:51:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01CB7CD3424
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 May 2026 05:16:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w6m8Fg2hEviq5jlxMolZrCBWOSQEVN0FAQwjR0hddLU=; b=UDBp3WimGGzzaTHkqh6rgp+lKZ
-	4I3hVVw937KOZrzqPzt4A2hT84pjRf1lIVTV3lCpWnaoMynTtY6GEIeQ1MYu2Ef3PTGV6Ns2uVx3N
-	RgpfdzZpeFSO77Phq8yIntWzRmWHfP0xoUc6aM2Pke/SuXJqxZeBmogVhzMRBHV/vN25Sr0ch5BjO
-	kXz6SWoNt7mRg1aSbtS3XofUnAk4GjAe63n1oxMaF7s9iEhk0VSttNyaHrRgq+dtV4z78WK8K9lOo
-	U8nxLFBRlAcSzC13OpqYA2N7kdovxIIS7e2lsaWxP38fdKrgUxGDWkuyPoZTaQ481ZmjFvWC6dSwB
-	C3w1Hsjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:CC:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5tCjWgN/NAiNjLOCW6TU9gRGPxO1pY9ShiqBx2CDATA=; b=G59KzVkYgw4HliclA6DRgLw5aN
+	Rau5HC5bsmSmkgLmk42Cab4Bnmcfg2LaugH0vnnKqBQWf/w7YHYHJYCSWadep58RUO+rf9JmWKHz7
+	76tq8Ck+ugY7gMg2IBpIo1xP0hopHJYKXpBD9yQqCZysk979k+uwFR/qSA34mYOSG9OczuVzHTmsq
+	KNssYR9yI3HNOmUSI9PDk6wDKeLOgld8zcuZo7CDlqS1tRO7xiEPA9LAMopG3VkxCMdwEDwwt94H5
+	TpI4tgYMeExmptattd8MFBgXuHEImgJ1EG+4xV6eYe4Re8OqpJormXXSIeOTD+xJCXcL1jMeRKMyU
+	asnQ+87w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJ2K0-00000008HwG-09zI;
-	Sat, 02 May 2026 04:51:20 +0000
-Received: from mail-francecentralazon11013027.outbound.protection.outlook.com ([40.107.162.27] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1wJ2i9-00000008KND-488y;
+	Sat, 02 May 2026 05:16:17 +0000
+Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJ2Jy-00000008Hvb-0DRI
+	id 1wJ2i6-00000008KMO-33kg
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 May 2026 04:51:19 +0000
+	Sat, 02 May 2026 05:16:16 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vx8e/SWH28T/6KcVqu4TteceE8UOgWW3c3uUCTXlTMwD8KCZtUSYu3TJtuHy0V4kjbS8zc93s+2qIdbeFv5dHs9arttsslf5kDVeqAXm8R/0RUEC5SNmZsGvJPIFm7EusBKq2DOxUof2mioyliaGq011AXIQbs401mRutyvsEk3Dma41EAfmpG/YVoD5PXj/yHIcPIwYS0sxbupVzMFWoiJzwMD/7s6gW8OvuQ/VlrhPJJtJxVK+JLyFd9UhhgJeliKECFQvPCta6F9fFWNjtg8wMDi7L4wcMAiFxxQBw+d+u4q7/ees7JS4MVPWXeto/7zpfe9JukjrkVlkFBGsug==
+ b=k/7U9jdNNTd4Yob8JBFpzVB8HVuHCrpoV3JLuyXugaGsjyB/i/X+q+X/ViaF1/jIX7M/ZTCN6Y1xc+ElqjNgvggHlMMnHRNpN+YMOoeEclWqNjdibzJC/t4Xso+OZn5KXMA4umO42mwAouZxzDoSRwFBo+JREZl5FhQz2ZMmRRlTsV+WLL5cXDomWpL8G7736Dif3G7bGjPtUKsEylZahHQKmokdq7iBX+skCRNSN7ys/72gvGy7HbvzVI10ZwO9zWSazK2UxqR4aQT4I81ncqyQqsZFBDI5EQkAQyv//kAxQj7O4EygpTpnUroVTZmuN2gqiN/ctCRNXroLCG79Qg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=w6m8Fg2hEviq5jlxMolZrCBWOSQEVN0FAQwjR0hddLU=;
- b=hEV+mRiu+BstDXyaorAUpt39er98Wlz3BmeYELqXOepBz9iUZyTKv9jFhiQCis/4LKfflT7e4NDA5e5v0U1zUcaMTIAiwyOP14aQXiRSh7MDCogy3ctPMpjNi3Bq/wbqtbh5qsEZmxCRqq11dwLaDgbS800oqcnDcMj1dlxV6wo8RLLA6fI+P1qpg/yC6pNqFPxjeoaJKJFOLBgqCxXLBZMEAg54XjxIJZ5PKNqo60PybxIiTS4/rhvpaAKMI8SiDpaXXtyViMIRH9UmaTDm+3vwrZCOXYFgpsO/RSQgr24UaRjRmbzw7109Y5uW6hyqqzT1nrk8qAmxidqsqrXT2w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ bh=5tCjWgN/NAiNjLOCW6TU9gRGPxO1pY9ShiqBx2CDATA=;
+ b=MMlisvP2WcQNPmEUUiBwsrM8Z3MMqDMcmiQqYv/EtMP0tSvBA8PHVr9W/20jND2z+skdmRmhuldvc2KLGpOwG0a2tOufJh7R/pi8+45dcxe3/puummsI1rYJABXyk/JNhoFXaiy+VrLQrBtLxlihsEfN1ZjiZ9xBggm78jZwpRy9BwTTJZNWBTfricXhTaJg1HrRI1t2FhX7GzxwV0XHbtkPF8qYozU9QQGGWPIbvW37fRj1Tlaotg3JjV3jHjtLxfSoWgUbcdhViZJyNEVQC8xz2fZj9q9arqK+fy8e2pX9syeXRRg7cBvwB/FcVlO9UTMUIxc5unf1S2rwkkXxOA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=w6m8Fg2hEviq5jlxMolZrCBWOSQEVN0FAQwjR0hddLU=;
- b=Hi6b9b6iHeDgBakRU0cVaKUvcwtWx+u6ud2uoHLtmsh76PddqPr5t/+H9lIJVoihNYeKDBu+ayzyO4+edWc7nOJFUpHpvXONL2tMNPVumtJ6caqA3kKiTGuj1wwAmFZLmgU/I2F1N2NwJFI4sq4EzCBxesAyL+Ghv26HvvQAU5twRvu4JvGsmcJIlbYl0LTySLD6eH4MpSkkBZvmQ3GwlSMGmfTf9qNRSRHFQ7fOuAXkklShsK++201N7MmrFa91u/L0JVYWdZEoe7ZZjGL76jgETKPtqBzJIPL7Cmzv+MrNUu+23gG7RLkMtfea+El9HmIgTz2u82VtDSthVMQywQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by DU4PR04MB10792.eurprd04.prod.outlook.com (2603:10a6:10:58e::18) with
+ bh=5tCjWgN/NAiNjLOCW6TU9gRGPxO1pY9ShiqBx2CDATA=;
+ b=X8y78tbEZ3CvH1c+2aAsOBN1AJ75bPCy6k07Q2tLFmXfXHC/llElaNsuVXyu5eKEjmbRJ5ji1i86Nfe62p83LR/DUz9IxaR7/8uqX/egzfyJYNwgsMgZTXZrxowh0Bgbesl9vJGlMYwNl6sblVxDD0Mf9XGEnQn8QAecsJFtym8=
+Received: from DS0PR17CA0012.namprd17.prod.outlook.com (2603:10b6:8:191::20)
+ by CY8PR10MB7220.namprd10.prod.outlook.com (2603:10b6:930:78::21) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.23; Sat, 2 May
- 2026 04:51:13 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9870.022; Sat, 2 May 2026
- 04:51:13 +0000
-Date: Sat, 2 May 2026 00:51:07 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: John Madieu <john.madieu@gmail.com>
-Cc: broonie@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, carlos.song@nxp.com, linux-spi@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/3] spi: imx: Propagate prepare_transfer() error from
- spi_imx_setupxfer()
-Message-ID: <afWCu40UdOHlSvni@lizhi-Precision-Tower-5810>
-References: <20260501135951.2416527-1-john.madieu@gmail.com>
- <20260501135951.2416527-4-john.madieu@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260501135951.2416527-4-john.madieu@gmail.com>
-X-ClientProxiedBy: SN6PR16CA0066.namprd16.prod.outlook.com
- (2603:10b6:805:ca::43) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+ 2026 05:15:59 +0000
+Received: from CH3PEPF00000015.namprd21.prod.outlook.com
+ (2603:10b6:8:191:cafe::51) by DS0PR17CA0012.outlook.office365.com
+ (2603:10b6:8:191::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9870.23 via Frontend Transport; Sat,
+ 2 May 2026 05:15:58 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ CH3PEPF00000015.mail.protection.outlook.com (10.167.244.120) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.25.1 via Frontend Transport; Sat, 2 May 2026 05:15:58 +0000
+Received: from DLEE205.ent.ti.com (157.170.170.85) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sat, 2 May
+ 2026 00:15:57 -0500
+Received: from DLEE207.ent.ti.com (157.170.170.95) by DLEE205.ent.ti.com
+ (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sat, 2 May
+ 2026 00:15:56 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE207.ent.ti.com
+ (157.170.170.95) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Sat, 2 May 2026 00:15:56 -0500
+Received: from [10.24.73.74] (uda0492258.dhcp.ti.com [10.24.73.74])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6425Frcn705867;
+	Sat, 2 May 2026 00:15:53 -0500
+Message-ID: <4ce9f13a-b17f-4149-ade8-57519f4a4752@ti.com>
+Date: Sat, 2 May 2026 10:48:14 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+CC: <bhelgaas@google.com>, <lpieralisi@kernel.org>, <kwilczynski@kernel.org>,
+	<mani@kernel.org>, <vigneshr@ti.com>, <robh@kernel.org>,
+	<linux-omap@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-pci@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<s-vadapalli@ti.com>
+Subject: Re: [PATCH 1/2] PCI: cadence: Ensure that
+ cdns_pcie_host_wait_for_link() waits 100 ms after link up
+To: Hans Zhang <18255117159@163.com>
+References: <20260501153553.66382-1-18255117159@163.com>
+ <20260501153553.66382-2-18255117159@163.com>
+Content-Language: en-US
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+In-Reply-To: <20260501153553.66382-2-18255117159@163.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DU4PR04MB10792:EE_
-X-MS-Office365-Filtering-Correlation-Id: 90918d38-9268-495d-9f5f-08dea8066ff7
+X-MS-TrafficTypeDiagnostic: CH3PEPF00000015:EE_|CY8PR10MB7220:EE_
+X-MS-Office365-Filtering-Correlation-Id: 40ec5ca9-7d88-40e6-1720-08dea809e552
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|52116014|376014|366016|56012099003|22082099003|18002099003|38350700014;
-X-Microsoft-Antispam-Message-Info: iDbNe6mr4BGBPBLCGIs+ChPmPNnZmi8qegESpPk/UJ6oZWq4Bni67Gv02bB29wdOnRu9U8nswzT5aHyYa9eNPyyMcoYCKP01QmKkqtPCOiZJS2E/Aer+XVoGXMglbCg/qLmIOd6DMhtzNaZ3laDodJhiHxL5QWhzYTPd58LkU4m0H4VhqSFnRzA7Z8mBXU+SKu/autfU9T3xO3fMmiVg40n7WER/cX7vg4TGZhpGYe/tozAnHehxJxugCo6sskQd1KA1ftJff8yc3I05kbP4rNj40LtF0cNJb0Qyh7Ek53rsYVeBZ5gK33yrs2c5z/6aFjYqXAXsHDaCkT/+VFzYJ9N4G3lw3okEboGYxB4mwoapTRDt4pQSdMzdfsZBCUmCAJCjMwT4VjvkEKAJhBTQTNgKd3n0tRN6v/AULrvGriAQOPcJfIMiryaPIXr2yi9w+jc8iD5wyfg7XQVfwkWP8cCDPArAzP8mO3f2+ne6PxczOuwUjoPsSMuWjVCWmQYVPFdP13l3KgCVRA2ds4RZ7illVn0QW5DRM1eoXbPaRM4hMfLsFszj3Sax632kqcz1z/N/P3gCjBitCxxZ+HrCI12a4BWF3OYwtN21JUXWdUadPAxBcwOemss6zOFvjWlDeYQn6fzpag0oKVeb/Ntxyw9kLf2i0eJMrPt/c1NortDLKQrguMbrmKIDhISXZZfqQ5nep59n1+70TXcEnGmcaZ42xH6g2FKzi8PzifkclZt69nSDfRUB4iHdWaVv1MSd
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(52116014)(376014)(366016)(56012099003)(22082099003)(18002099003)(38350700014);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|36860700016|82310400026|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 1DMlFSZl82TRajtb08J8jsXbOxCF6f+pbHI96YpvPF70D7nEtj4nGwqYOARMtJEFrcdUFRRzumi57aOEWaqHAAdH6W/Q4voLJs+pXugA1RkB7xZhj1pLDv4ERLYfXrUxNiZz23BtUxZplnyn7/ocUqBMaJjbG/pa3OOHGrcXTrPhax0gHUZJWLjCVzp+Og7LLlr8wrvxhlqsyMeCV5ott3Wq3kJTmbWZUgIKgkhtlaen0OD/GmarYuucY/VEN2vnvj60CGdaOapMYYXEFyc/ku806mrot2izXsed+zQO4VpYiLm/Q6yPcvDzRmQxd4JGzobsgnE2EddYHMGnO2az6lvysCOyprPmcaJimA7GEGxbqejj2SjUfP+kGlQqeJgwy5ibFF/Tju45I0m69ki9Xn12auJREYvVHBQI0yLOyIS7csno/XaDGjmLVVHXJDZI2MW6srgs6rkS5lXji9BChEZ8qq4pw2MmU3QMaMcBfJxPZoRIH16Z8V+KVR1QmP4iNRBXDcaxZNp1Q79sETaJeV/ZXxSyXPyPgRMSb9HRTUL0LVeq546kk55yqKfhX+w5kSy3XY41iyB4mjCU5CSpTzwuC6b17Ssw4geKd38mlEmpvD1yU7OEDuc1XnfgvrU2pzSLe6UdZrIKCA74bKsGHLsobCVsXget5tNfb6ES09hGIebdLeNE4jSOcQzUyF2XzGMAxBF/kuZMbFFQR01Gz00aPUNKC7QoZxaUfJEuzbA=
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(36860700016)(82310400026)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2rPqlu/hCtanR7OqDqfVU0b+c4cCYMLqDVsHls6xZWcfiLFEltMQkaKnG1p/?=
- =?us-ascii?Q?WXhaoBUmBvnRgt7eX1s8jxmOysFhWx5iFdb+CMVBFOjJPAOPqS3vaiGWeLeG?=
- =?us-ascii?Q?GlAYKiPnTg7CwscDwGQCJzRm3UMmGYDrUJBZk6jNvgHQdJGY/eXEfr/VGQDH?=
- =?us-ascii?Q?0faZc8fP3scr4MIpulkMxk2eibviY/7pIqyl8ACtnc/z5Bqh6cYb70T1hsdd?=
- =?us-ascii?Q?43ffgrvbKZZSSzOb/wzMdAd5ZuKgXJpGEj+OgA2I1Uamwr4GeFFPQrUZYWx0?=
- =?us-ascii?Q?QEMrMqNprIcm4FEJAZ6gtr2+OR+J4mFdYXjnibxOD+DeozlwBJaraxxYZ75f?=
- =?us-ascii?Q?Qq9bF9moSbKP8qFZX+J2bdfr8BTqCXKg3OfheIzg1r4aogzqZ8EHn7pUNRjp?=
- =?us-ascii?Q?ScQyHwzg2RjVVjNdz5YdFpIsS8EwMGM1bSUa8wfzWzotqbWr3R/N6Jf2ve/a?=
- =?us-ascii?Q?Z2goLEh14XuGddKWe16xipGheKCeecSUXiHUuWl7Pwz/tFDoGS/3TKqgjPA4?=
- =?us-ascii?Q?K2MKsTVEL2ro6UwFKXY9tfvra8xyM6hqOMO08PiHXvO9yIKzo46pVm+XSs5Y?=
- =?us-ascii?Q?GslwYg1zEIma83SkbbesQv+E/yBwRZ/ZH6EmVo7KrgSwx+Ze1FVOVJKj6/dn?=
- =?us-ascii?Q?/Pe65PcGnlzCukIUUPAof/5F1NKzE4VGAmIF3S7RZmM0bH3kOcXcL2o2jzY0?=
- =?us-ascii?Q?MKwq+ynGiiRwKfIiI9uhK4LShLSvjxaKrFWFL+q3Bf7RtaGcKLm+wjeAf22Y?=
- =?us-ascii?Q?eLkLmEtJR40qbvTNSlfOzs5b5wXkH5NDcugC4SJLbZ1pbQTTdmvsAFQKmPcS?=
- =?us-ascii?Q?aNRJqgbfoF6Pp4HxkHBsUvasCFWP2vji5ntEPmpJrpKqKWxaT1SxO0d3113N?=
- =?us-ascii?Q?iGTCpYPv+XaznZxHqrAQ1ozOod6kOYTswwrV4qdOUuI6LhkiEs/fWKVC90E0?=
- =?us-ascii?Q?Z/gjgsmj/HquaiHydjIl5kwICJjEyb4kyYamA8WNbcyLvtubBeuS94DiBlOV?=
- =?us-ascii?Q?ya3GSXg7WpSrO4WxEbU4TP9SXpNKxvqQBdXrxyjYYFpI8mX0kGx/KtjGWz9K?=
- =?us-ascii?Q?8/W/PHawSNuGH1xaqnUvmlYy7Xu+ddvc4cz0UgcJPf6zOszPJG2qUhLGDR5b?=
- =?us-ascii?Q?gl58G+qPofW+3xxzHtobJBBWInUjdx9mP+s8VYPQEdvV8C2e66MI318g4pN1?=
- =?us-ascii?Q?NbhxKOpmNKBHB+/1CzUrLfTG8hBqo3pyXzhTrljq2h3liAiktcOv5C/ZFsxq?=
- =?us-ascii?Q?+CovORoxdexKA0WJ5937gF/PjqVQw8Qrg19hI14VWFyWKuh5kew2PSs/oLgi?=
- =?us-ascii?Q?Bocx0Utvb8GQxBkOxWc57wxKGoPEcyUdrVAkWsr2T76xvoXrB6MEv1jVKYIq?=
- =?us-ascii?Q?yjk5C65e5Y+vjbJfiAApLrU67Jdzz66gIgjwcrs7lXz2qX4deM9X9NflalND?=
- =?us-ascii?Q?H7ZwWw109mfrwFMmpIskk1Hn4wuAYFs8XrKj2nFuiGAg4pAfwJONBQx5Dnk+?=
- =?us-ascii?Q?1tWYxoGRIHFL+njh5C7uOUESywFpFfHqU31GFZCXooXZaxdXSzbo9dTMXwPM?=
- =?us-ascii?Q?RLQT53UdGsUwjCV1KG2lQdU08SlMOL6Z1ywSWhLiT8IP+K1ofkIUSGrG/0IN?=
- =?us-ascii?Q?ytGEhI+Xr4/QtAWuFttUmeMq9c9KdNjAh4mnxt4N6YhuBL9XIyvzNhKQJnKr?=
- =?us-ascii?Q?lF9bjQBmHCbRVTiXCnIh8/0iB2TMlHJZEwTFGRtrsrwPpmKl?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 90918d38-9268-495d-9f5f-08dea8066ff7
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 May 2026 04:51:13.6192
+X-MS-Exchange-AntiSpam-MessageData-0: eFltndShEC7JM4E8AezFGMXXL68G+BjbPl38QbWROyryXTGmu6eDDQ9QkXvKy0XkFCHzwtxOZDjFK+EKT2K2AkWRg4JALwmVFJuLpijU2+ftHk+q4erMKwIOjQiJbDq8YUQUVS9z53hSGfvu+fDDW3QyOs4ZQHDMwmHVnaltZYScQYMAru+7DVY7Xyd+LIEk8P4knl94Pg788R9PZX0wM357qMaYElRda8+fq8p5b/PFI2bFORDA/t47GzPA0vmcxGKz5P+irkSZ5JNzFy8KTUCAhaymemCdZlyq484wDvHTZ5Tn0uv/xJl1jBm9Fu4fA0We2k0uj7R6FbJsgGSUeH3yc34zVIVMwQ0uTfBNFrt8IuW10tyfe4i/ptKAyDBNLP4Vv5qXZu7FyJX5Y6y/z+q9V9EQW9Aac4o9cELvcOWHfJLqzItkkDR5DKQkfjJ2
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 May 2026 05:15:58.7816
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2J/CqBQzYQS/R720kHO/QO84AuPwMmehLtiQTGRoZml0fDm2FPCqVt++C/fL9E1heWftCABq4o3VRcy9Qn/YFw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10792
+X-MS-Exchange-CrossTenant-Network-Message-Id: 40ec5ca9-7d88-40e6-1720-08dea809e552
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF00000015.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR10MB7220
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260501_215118_097015_D3DF3B29 
-X-CRM114-Status: GOOD (  19.68  )
+X-CRM114-CacheID: sfid-20260501_221614_893711_92B26FA5 
+X-CRM114-Status: GOOD (  21.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,47 +135,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 01, 2026 at 01:59:51PM +0000, John Madieu wrote:
-> spi_imx_setupxfer() calls the per-variant prepare_transfer()
-> callback and returns 0 unconditionally:
->
-> 	spi_imx->devtype_data->prepare_transfer(spi_imx, spi, t);
->
-> 	return 0;
->
-> mx51_ecspi_prepare_transfer() can return -EINVAL when the requested
-> word_delay does not fit in MX51_ECSPI_PERIOD_MASK. The error is
-> detected after a partial set of register writes (CTRL: BL, clkdiv,
-> SMC), so the controller is left in a partially-configured state and
-> the transfer is then submitted as if setup succeeded.
->
-> Propagate the return value. The other variants' prepare_transfer
-> callbacks all return 0, so this is a no-op for them.
->
-> Signed-off-by: John Madieu <john.madieu@gmail.com>
+On 01/05/26 21:05, Hans Zhang wrote:
+> As per PCIe r6.0, sec 6.6.1, a Downstream Port that supports Link speeds
+> greater than 5.0 GT/s, software must wait a minimum of 100 ms after Link
+> training completes before sending a Configuration Request.
+> 
+> Add a new 'max_link_speed' field in struct cdns_pcie to record the
+> maximum supported (or currently configured) link speed of the controller.
+> 
+> In cdns_pcie_host_wait_for_link(), after the link is reported as up,
+> insert a 100 ms delay if max_link_speed > 2 (i.e., > 5 GT/s). This
+> implements the required delay at the common Cadence host layer.
+> 
+> Currently max_link_speed is zero-initialized, so the delay is not yet
+> active. Glue drivers must set max_link_speed appropriately to enable
+> the delay. This matches the approach taken for the Synopsys DWC
+> controller in commit 80dc18a0cba8d ("PCI: dwc: Ensure that
+> dw_pcie_wait_for_link() waits 100 ms after link up").
+> 
+> Signed-off-by: Hans Zhang <18255117159@163.com>
 > ---
+>   .../pci/controller/cadence/pcie-cadence-host-common.c    | 9 +++++++++
+>   drivers/pci/controller/cadence/pcie-cadence.h            | 2 ++
+>   2 files changed, 11 insertions(+)
+> 
+> diff --git a/drivers/pci/controller/cadence/pcie-cadence-host-common.c b/drivers/pci/controller/cadence/pcie-cadence-host-common.c
+> index 2b0211870f02..d4ae762f423f 100644
+> --- a/drivers/pci/controller/cadence/pcie-cadence-host-common.c
+> +++ b/drivers/pci/controller/cadence/pcie-cadence-host-common.c
+> @@ -14,6 +14,7 @@
+>   
+>   #include "pcie-cadence.h"
+>   #include "pcie-cadence-host-common.h"
+> +#include "../../pci.h"
+>   
+>   #define LINK_RETRAIN_TIMEOUT HZ
+>   
+> @@ -55,6 +56,14 @@ int cdns_pcie_host_wait_for_link(struct cdns_pcie *pcie,
+>   	/* Check if the link is up or not */
+>   	for (retries = 0; retries < LINK_WAIT_MAX_RETRIES; retries++) {
+>   		if (pcie_link_up(pcie)) {
+> +			/*
+> +			 * As per PCIe r6.0, sec 6.6.1, a Downstream Port that
+> +			 * supports Link speeds greater than 5.0 GT/s, software
+> +			 * must wait a minimum of 100 ms after Link training
+> +			 * completes before sending a Configuration Request.
+> +			 */
+> +			if (pcie->max_link_speed > 2)
+> +				msleep(PCIE_RESET_CONFIG_WAIT_MS);
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+I think the above could be moved to cdns_pcie_host_start_link() as follows:
 
->  drivers/spi/spi-imx.c | 4 +---
->  1 file changed, 1 insertion(+), 3 deletions(-)
->
-> diff --git a/drivers/spi/spi-imx.c b/drivers/spi/spi-imx.c
-> index 4e3dbd01d619..480d1e8b281f 100644
-> --- a/drivers/spi/spi-imx.c
-> +++ b/drivers/spi/spi-imx.c
-> @@ -1382,9 +1382,7 @@ static int spi_imx_setupxfer(struct spi_device *spi,
->  		spi_imx->target_burst = t->len;
->  	}
->
-> -	spi_imx->devtype_data->prepare_transfer(spi_imx, spi, t);
-> -
-> -	return 0;
-> +	return spi_imx->devtype_data->prepare_transfer(spi_imx, spi, t);
->  }
->
->  static void spi_imx_sdma_exit(struct spi_imx_data *spi_imx)
-> --
-> 2.25.1
->
+diff --git a/drivers/pci/controller/cadence/pcie-cadence-host-common.c 
+b/drivers/pci/controller/cadence/pcie-cadence-host-common.c
+index 2b0211870f02..0f885dcbdb12 100644
+--- a/drivers/pci/controller/cadence/pcie-cadence-host-common.c
++++ b/drivers/pci/controller/cadence/pcie-cadence-host-common.c
+@@ -115,6 +115,15 @@ int cdns_pcie_host_start_link(struct cdns_pcie_rc *rc,
+  	if (!ret && rc->quirk_retrain_flag)
+  		ret = cdns_pcie_retrain(pcie, pcie_link_up);
+
++	/*
++	 * As per PCIe r6.0, sec 6.6.1, a Downstream Port that
++	 * supports Link speeds greater than 5.0 GT/s, software
++	 * must wait a minimum of 100 ms after Link training
++	 * completes before sending a Configuration Request.
++	 */
++	if (!ret && pcie->max_link_speed > 2)
++		msleep(PCIE_RESET_CONFIG_WAIT_MS);
++
+  	return ret;
+  }
+  EXPORT_SYMBOL_GPL(cdns_pcie_host_start_link);
+
+This will avoid an additional and unnecessary delay when 
+'cdns_pcie_retrain()' retrains the link.
+
+Instead of checking for the link being up using "pcie_link_up(pcie)", 
+checking for 'ret' being zero should also work (ret being zero indicates 
+that the link is up).
+
+Since configuration space accesses will not be performed until 
+cdns_pcie_host_start_link() completes executing, it should be safe to 
+switch to the above implementation.
+
+
+>   			dev_info(dev, "Link up\n");
+>   			return 0;
+>   		}
+
+[TRIMMED]
+
+Regards,
+Siddharth.
 
