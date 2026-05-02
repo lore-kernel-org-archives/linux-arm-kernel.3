@@ -4,89 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85151CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 May 2026 18:56:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 853D7CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 May 2026 19:23:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7KAzkLlbASG4LW7V5LypyNoWScFuOeCwZgBmWCYq3qI=; b=IfxtJpghLEtfhVoWW9u8xOX76v
-	QUJqNHF3J13VcjoMumrM7LtANHkffLzx2blW70D6DAg3IH2tIwrQdc4S9DDq74LT98ahx4hUzBDCr
-	wLKCYIXb/doaTxK29aR16UYP7ljMA9hKyINfS9lqYqF95l+pYEoDug9j4dM7mB8aXBX1RqE9mmG/L
-	ZpqJRLw6E+Zk+ZOxBbhmy+cPq2dXtHm5CiaXt0YG+uLa/BrJQE5WaKLRhp7207m1JytiNHci3oOjA
-	1CnCbez2Fih0C2LZroxRnHIlhxGlkRTIECwoncHJPytV28z+Ate1+tSfCYmkFPjewUoTV5XaJ5ay/
-	eRX4HCtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SQyM8PYqgq9KHO/9GDVJe/G8ctJp6ORTTOTa2vgtdPo=; b=h7SRb6u67VhtbhoszoekZQYp+j
+	PzcWMxRf6tFFWMySJQR1LaDl2y+KRqoNYScK8n5hV8Y89O6lBfNb2VDG+3ypshITyS4VjPoy2NT+Q
+	kNuZINxd8JGwcN6vD9EK61aY5/jrmQLRHggCYNFsOd8p4hoyFVCysSMDlomje4JYQn6DdfUF/3zg2
+	t/w2mv9FGEQgu2+myhmwH7cnHH8SDliL4wPxb2q3Vuy8RcDHa0thrxthiwSe6mYyuoeDzq5wyKZdD
+	g+BCoOeQ5Zu4DMsSrDXg5YJGWeCK+qIMmW3iLxwALswew5aP1fgZbevrXzmuydVm6WS6A633YOJBS
+	8MhA12lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJFVr-00000009WXW-1xqy;
-	Sat, 02 May 2026 18:56:27 +0000
-Received: from mout-p-201.mailbox.org ([80.241.56.171])
+	id 1wJFvn-00000009ZS9-309O;
+	Sat, 02 May 2026 19:23:15 +0000
+Received: from smtprelay0013.hostedemail.com ([216.40.44.13] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJFVo-00000009WVf-0rUG
+	id 1wJFvl-00000009ZRJ-0XFz
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 May 2026 18:56:25 +0000
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4g7HF20Lx4z9ttQ;
-	Sat,  2 May 2026 20:56:22 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1777748182;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7KAzkLlbASG4LW7V5LypyNoWScFuOeCwZgBmWCYq3qI=;
-	b=VcUoxl/6896CDJJC28XPPz2ZRiL2AvAchZ8B0F3lcH+dxMqfBig2Ue501L5axPMtMt2kEW
-	HCwhdNU4LBwvXuz3tQXYRfiEtUkltrPLbMHhwRFUeiDtafBVUWAesm/PMfSSQtvJAYXOBu
-	XZfd+/Sm8Cj9YxOQLl+TtieDeMXNBgsN1fsg5CQK2RQea3/u80s1led5wytLxvQMSPieqm
-	xLcV59TLhVi2omJk0O/i5jDKx7+7qchSFnNSGHxvWNyRG5nkmvZxwi4dDtlz6wAVIogYr+
-	cTRLE3mZR6HkHcrtv7cWksuQ2kGGMzOei7Uz96BBx5tVIASv7nYMEDsLxVcluQ==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=ILxESlRZ;
-	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::2 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
-From: Marek Vasut <marek.vasut+renesas@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1777748180;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7KAzkLlbASG4LW7V5LypyNoWScFuOeCwZgBmWCYq3qI=;
-	b=ILxESlRZUZQPs9XRIr+S/PmVgZ5fvh4JX5MUTytXcWpb+Llu21133twCdz4YRgWySwXKLF
-	Hq/aJqRIv38IP7uYgJQJiiat4KMFsJCqXr8bxkfLKmBz3dWIw2osjoYwimfhAtFtQETHRV
-	4GlCwIUhS4jb7tzT6o+R5aSug1sjr5h/w8Xw8zjW7ydpJc2XsFilqZbcMt3nzDuD7fQHza
-	dA/fEY957Ns58ZrEzfpHxJ8SZcd6OLSQmV8zOoTBNs2cm/s1zoX8WwDPH4x/RvMfR0BGRE
-	+yV7jGrh8e//+DR8yQXFG4tq+YKgL2uOW8Rj1r9bie52sUh9DGcWLzouv0UP5w==
-To: linux-arm-kernel@lists.infradead.org
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Stephen Boyd <sboyd@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH 4/4] ARM: dts: renesas: r8a73a4: Describe coresight on R-Mobile APE6
-Date: Sat,  2 May 2026 20:55:45 +0200
-Message-ID: <20260502185557.93061-5-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260502185557.93061-1-marek.vasut+renesas@mailbox.org>
-References: <20260502185557.93061-1-marek.vasut+renesas@mailbox.org>
+	Sat, 02 May 2026 19:23:14 +0000
+Received: from omf16.hostedemail.com (lb01a-stub [10.200.18.249])
+	by unirelay07.hostedemail.com (Postfix) with ESMTP id 410F6160524;
+	Sat,  2 May 2026 19:23:08 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf16.hostedemail.com (Postfix) with ESMTPA id 3A49C20018;
+	Sat,  2 May 2026 19:23:06 +0000 (UTC)
+Date: Sat, 2 May 2026 15:23:04 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
+ <will@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Ian
+ Rogers <irogers@google.com>, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v19 0/7] ring-buffer: Making persistent ring buffers
+ robust
+Message-ID: <20260502152304.560a5954@robin>
+In-Reply-To: <177751968499.2136606.17388366710182662849.stgit@mhiramat.tok.corp.google.com>
+References: <177751968499.2136606.17388366710182662849.stgit@mhiramat.tok.corp.google.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: 939a1c036ea3e18311a
-X-MBO-RS-META: at5tgu1ibk9swst1773rnnhh8qwqp8px
-X-Rspamd-Queue-Id: 4g7HF20Lx4z9ttQ
+Content-Type: multipart/mixed; boundary="MP_/bduRHcIgi7cE_At8/bu1uhd"
+X-Rspamd-Server: rspamout05
+X-Rspamd-Queue-Id: 3A49C20018
+X-Stat-Signature: 1p61ghnqdpke4wkizqjbgexfjuxxyhqw
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX19GhuIyQaIfEX0jv4huB7H5ggusR9h7p+8=
+X-HE-Tag: 1777749786-296731
+X-HE-Meta: U2FsdGVkX19bUoGqhA2+ZC9WRj15X+DlVnMrZ9GL9LDsFXFqNWKrSedMwv9eDtwKQQY5jzSCeRN5ay+A/mpFH1V41iSgOsKuZmcRpJY7Q1nBf/36tTBCukt6pNL65VMzdFrjl5+rymlfb5aO289feVNy9DTZJ67ZHW7cyV5mcnZUkB8CGKYEXgb4hde5Qawtehde5AszOb8wuQLwbGCMLfEVkRz74Wn62mZ12x2rGFS0UvXqyy5Zk0iK1Ez6ahmDW53ok34uWPRJoAEBXdp453CMHj5SCFdAoBolaQjzHI34ctuqC21bOD+f53dLNIWwkhGeeY1KjGU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260502_115624_390911_6177F92D 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20260502_122313_234169_E8B06436 
+X-CRM114-Status: UNSURE (   7.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,155 +72,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Describe coresight topology on R-Mobile APE6. Extend the current PTM node
-with connection funnel, TPIU, ETB and replicator. The coresight on this
-hardware is clocked from the ZT/ZTR trace clock.
+--MP_/bduRHcIgi7cE_At8/bu1uhd
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
-Note that only core 0 part of the topology is described, because the
-other cores are still not present in the DT.
+Hi Masami,
 
-Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
----
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Magnus Damm <magnus.damm@gmail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Stephen Boyd <sboyd@kernel.org>
-Cc: devicetree@vger.kernel.org
-Cc: linux-clk@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-renesas-soc@vger.kernel.org
----
- arch/arm/boot/dts/renesas/r8a73a4.dtsi | 112 ++++++++++++++++++++++++-
- 1 file changed, 110 insertions(+), 2 deletions(-)
+I applied your patches and enabled your ptracingtest code. I noticed
+that when there's dropped pages, the trace output is not in order:
 
-diff --git a/arch/arm/boot/dts/renesas/r8a73a4.dtsi b/arch/arm/boot/dts/renesas/r8a73a4.dtsi
-index a70a0dc402a5f..c3427dc7cf7dd 100644
---- a/arch/arm/boot/dts/renesas/r8a73a4.dtsi
-+++ b/arch/arm/boot/dts/renesas/r8a73a4.dtsi
-@@ -47,9 +47,117 @@ L2_CA7: cache-controller-1 {
- 		};
- 	};
- 
--	ptm {
--		compatible = "arm,coresight-etm3x";
-+	replicator {
-+		compatible = "arm,coresight-static-replicator";
-+		clocks = <&cpg_clocks R8A73A4_CLK_ZTR>;
-+		clock-names = "atclk";
- 		power-domains = <&pd_d4>;
-+
-+		out-ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			/* replicator output ports */
-+			port@0 {
-+				reg = <0>;
-+
-+				replicator_out_port0: endpoint {
-+					remote-endpoint = <&tpiu_in_port>;
-+				};
-+			};
-+			port@1 {
-+				reg = <1>;
-+
-+				replicator_out_port1: endpoint {
-+					remote-endpoint = <&etb_in_port>;
-+				};
-+			};
-+		};
-+
-+		in-ports {
-+			/* replicator input port */
-+			port {
-+				replicator_in_port0: endpoint {
-+					remote-endpoint = <&funnel_out_port>;
-+				};
-+			};
-+		};
-+	};
-+
-+	etb@e6f81000 {
-+		compatible = "arm,coresight-etb10", "arm,primecell";
-+		reg = <0 0xe6f81000 0 0x1000>;
-+		clocks = <&cpg_clocks R8A73A4_CLK_ZT>, <&cpg_clocks R8A73A4_CLK_ZTR>;
-+		clock-names = "apb_pclk", "atclk";
-+		power-domains = <&pd_d4>;
-+
-+		in-ports {
-+			port {
-+				etb_in_port: endpoint {
-+					remote-endpoint = <&replicator_out_port1>;
-+				};
-+			};
-+		};
-+	};
-+
-+	tpiu@e6f83000 {
-+		compatible = "arm,coresight-tpiu", "arm,primecell";
-+		reg = <0 0xe6f83000 0 0x1000>;
-+		clocks = <&cpg_clocks R8A73A4_CLK_ZT>, <&cpg_clocks R8A73A4_CLK_ZTR>;
-+		clock-names = "apb_pclk", "atclk";
-+		power-domains = <&pd_d4>;
-+
-+		in-ports {
-+			port {
-+				tpiu_in_port: endpoint {
-+					remote-endpoint = <&replicator_out_port0>;
-+				};
-+			};
-+		};
-+	};
-+
-+	funnel {
-+		compatible = "arm,coresight-static-funnel";
-+
-+		/* funnel output ports */
-+		out-ports {
-+			port {
-+				funnel_out_port: endpoint {
-+					remote-endpoint =
-+						<&replicator_in_port0>;
-+				};
-+			};
-+		};
-+
-+		in-ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			/* funnel input ports */
-+			port@0 {
-+				reg = <0>;
-+				funnel0_in_port0: endpoint {
-+					remote-endpoint = <&ptm0_out_port>;
-+				};
-+			};
-+		};
-+	};
-+
-+	ptm@e6fbc000 {
-+		compatible = "arm,coresight-etm3x", "arm,primecell";
-+		reg = <0 0xe6fbc000 0 0x1000>;
-+		clocks = <&cpg_clocks R8A73A4_CLK_ZT>, <&cpg_clocks R8A73A4_CLK_ZTR>;
-+		clock-names = "apb_pclk", "atclk";
-+		cpu = <&cpu0>;
-+		power-domains = <&pd_d4>;
-+
-+		out-ports {
-+			port {
-+				ptm0_out_port: endpoint {
-+					remote-endpoint = <&funnel0_in_port0>;
-+				};
-+			};
-+		};
- 	};
- 
- 	timer {
--- 
-2.53.0
+ # trace-cmd start -B ptracingtest -e all -v -e '*lock*'
+ # taskset -c 5 echo c > /proc/sysrq-trigger
 
+On reboot, I ran:
+
+ # trace-cmd show -B ptracingtest > /tmp/trace.out
+
+Then executed the attached perl program:
+
+  # ./read-ts.pl < /tmp/trace.out
+
+And it errors our:
+
+ 30.212495 < 30.213534
+           <...>-1048    [005] d....    30.212495: irq_enable: caller=irqentry_exit+0xf5/0x710 parent=0x0
+
+That is, I think the zero timestamps may be messing with the order.
+
+-- Steve
+
+--MP_/bduRHcIgi7cE_At8/bu1uhd
+Content-Type: application/x-perl
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename=read-ts.pl
+
+IyEvdXNyL2Jpbi9wZXJsIC13CgpteSAkbGFzdCA9IDAuMDsKd2hpbGUgKDw+KSB7CiAgICAgICAg
+aWYgKC9eXHMqXFMrXHMrXFMrXHMrXFMrXHMrKFswLTkuXSspOi8pIHsKICAgICAgICAgICAgICAg
+IGlmICgkMSA8ICRsYXN0KSB7CiAgICAgICAgICAgICAgICAgICAgICAgIHByaW50ICIkMSA8ICRs
+YXN0XG4iOwogICAgICAgICAgICAgICAgICAgICAgICBwcmludDsKICAgICAgICAgICAgICAgICAg
+ICAgICAgZXhpdCAwOwogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgJGxhc3QgPSAk
+MTsKICAgICAgICB9Cn0K
+
+--MP_/bduRHcIgi7cE_At8/bu1uhd--
 
