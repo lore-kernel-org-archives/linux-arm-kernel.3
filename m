@@ -4,80 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C852CCD3424
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 May 2026 21:25:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BFF2CD13DA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 May 2026 22:17:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=krWvEte6rzYQK7UVqWb8Xrr0bPg1zlcGnKUfpj6lNEw=; b=alO5LBRrDjU0E1IITobhGIjhhm
-	4D4HmjvVqPiCJg7rE5QhXJ1NvqtPMg7aIS8SsJA/PUhRfc1fJQx4b64YHmX1ifyy8IgVz5b9jY1Y2
-	P/nz0PIaMrnkBOy/gv5og5q9uodz/1p/X9cjvDbMa6zYd/OfcVymEH5N+X/tQhWx+Be4jwvnuLZN2
-	G7CjhVOtXEYCd0wIitDgzul1qRLpv18GeiMABYEsajFv+U3fRhYKkRC9jZ6dsnKS2yPfiGgfTWa+p
-	LP0YH2SXUkPW+00Z8nsIDhNuBNIggwHXIYoGe8aLLT+8zmNjniLAmTEwWjCYbUr4GY3hz0+tHueJO
-	QkoU0n6g==;
+	bh=SYX336FMlvCHwC/NU1/p8TqLNp1ffe8P2lV7TGX0BB8=; b=0UtGOVtb6QnBpDvwhWIJlNir6p
+	GKQhnKGV0cCcEfREx+xBYxqB3qutQRDd/dsHfUnHR0h8F4MQUBtoZQ8n6VeYwPvN+RDDC9M4wuOXZ
+	aq0g6KA2hAwWvRjkWy5aSkvgt21XOKW3sVySK1xO3T/rs9Hi66D5rQOdNnXw98RYLiTNG8Th1KMNq
+	Hla4IeB4Jvlc+0fqjB570ZknDXq+zXiNXmOrQG+1yMlLB1h9eK+yQS/agUPrJfGUm3rpVmDeQKorM
+	ZLMn//MVaMOGXBtEpTc412nzZH3OMDkvO+v2nMEA+AxYb4kZZbQFQIRanK/To1DT0Ba0HfQpNdnpQ
+	g5VrCYvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJHq1-00000009j5U-1XrG;
-	Sat, 02 May 2026 21:25:25 +0000
-Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
+	id 1wJIeQ-00000009nPC-3KRr;
+	Sat, 02 May 2026 22:17:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJHpy-00000009j4j-0iER
+	id 1wJIeP-00000009nOs-1HZd
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 May 2026 21:25:23 +0000
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4g7LXs1LTVz9tjW;
-	Sat,  2 May 2026 23:25:17 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1777757117;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=krWvEte6rzYQK7UVqWb8Xrr0bPg1zlcGnKUfpj6lNEw=;
-	b=knvsL8k12JbPXpYAlE9cBexu30rqoUtTFLzP18ypZSmRCQPvA/hch4OLnCGgip9mSiF17t
-	2sFEMq2QuB84fTcucGgg+aAC1VQ/v1WOjLI4xQTvz1zpaaSH3YUELU//a2fRpHLY7DNnL0
-	+01jP0ak5enIm3CWv2Zvz3YEheA7CdBHUeATtHWkFO20v1Td4XLRx38Tx4qS7uBOUvwo0N
-	Qry9PMuiJ+vXurTP60Wc3kNEGqOJLdM2ckDM4IcwIZOoId2ryzCZIhDB9Vv8Jf7qa850BO
-	L8PCX6o4eBHX6TmsUL5qXFs8bZx0q3skIid21QoyjqrksGWRrn0panx7kh/EYQ==
-Message-ID: <321547f5-40b6-449f-8a6e-5396b70823e6@mailbox.org>
-Date: Sat, 2 May 2026 23:25:02 +0200
+	Sat, 02 May 2026 22:17:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 90728600AE;
+	Sat,  2 May 2026 22:17:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51A82C19425;
+	Sat,  2 May 2026 22:17:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777760246;
+	bh=gBJbaaIGQVQb2n21mMPbuRuHh1uzGoPVGVcGZHTYWNw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=L2ezqMHgHwDYiGZvnjG+2o4vWYqPlEF3h93FpqyD5LhXJ8hQimsoSKKFTdc7FPF5b
+	 4TbLL7lYXhJfYBk9e9PBhLZXhi8A/PIsXsIE4uSPDkIC8xj/c+Wwe/hfNT27yrskgl
+	 +8Hd537OGba+L2zIm5fw+WNdxGxRNRH9c5gJjcEKYBfiCs7/gYvppGt5MxcmensuH0
+	 5YuH18Ni+Vsc8l4xpIWFCC76uY7qMKIVL2JKiur69KTzI/1sGbD7LaLo3Fw/Nn3lUH
+	 qjMppd+n6SAtF7tPeV/cNaic7ID4SljmYLcXCWhnKu70kP/hdIzTV8yahmOoK+hQgT
+	 t8z8HQ13sv3Bw==
+Date: Sat, 2 May 2026 18:17:06 -0400
+From: Steven Rostedt <rostedt@kernel.org>
+To: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
+ <will@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Ian
+ Rogers <irogers@google.com>, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v19 0/7] ring-buffer: Making persistent ring buffers
+ robust
+Message-ID: <20260502181619.7f5003dc@robin>
+In-Reply-To: <20260502152304.560a5954@robin>
+References: <177751968499.2136606.17388366710182662849.stgit@mhiramat.tok.corp.google.com>
+	<20260502152304.560a5954@robin>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Subject: Re: [PATCH 2/7] drm/rcar-du: Add support for Renesas R-Car R8A779MD
- M3Le
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
- David Airlie <airlied@gmail.com>,
- Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
- Magnus Damm <magnus.damm@gmail.com>, Maxime Ripard <mripard@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>,
- Simona Vetter <simona@ffwll.ch>, Stephen Boyd <sboyd@kernel.org>,
- Thomas Zimmermann <tzimmermann@suse.de>,
- Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
- devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org
-References: <20260419193718.133174-1-marek.vasut+renesas@mailbox.org>
- <20260419193718.133174-3-marek.vasut+renesas@mailbox.org>
- <CAMuHMdUHKQwX43=c9JR67=x1EvWzdHTiXdUnPV2bDKU7PV_EnA@mail.gmail.com>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <CAMuHMdUHKQwX43=c9JR67=x1EvWzdHTiXdUnPV2bDKU7PV_EnA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-MBO-RS-META: wgjgs6jskon4uskfcndud97puhskkd3w
-X-MBO-RS-ID: 03f2f67987000091c2f
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260502_142522_382368_04ABFCD4 
-X-CRM114-Status: GOOD (  13.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,46 +73,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/29/26 12:10 PM, Geert Uytterhoeven wrote:
+On Sat, 2 May 2026 15:23:04 -0400
+Steven Rostedt <rostedt@goodmis.org> wrote:
 
-Hello Geert,
-
-> On Sun, 19 Apr 2026 at 21:37, Marek Vasut
-> <marek.vasut+renesas@mailbox.org> wrote:
->> Add support the Renesas R-Car R8A779MD M3Le SoC. This SoC is
->> similar to R-Car R8A77965 M3-N SoC, except the HDMI port@1 is
->> not present.
+> Hi Masami,
 > 
-> "and DU1 is unused." (whatever that may mean...)
-
-Fixed in V2.
-
->> +++ b/drivers/gpu/drm/renesas/rcar-du/rcar_du_drv.c
->> @@ -564,6 +564,30 @@ static const struct rcar_du_device_info rcar_du_r8a779h0_info = {
->>          .dsi_clk_mask = BIT(0),
->>   };
->>
->> +static const struct rcar_du_device_info rcar_du_r8a779md_info = {
+> I applied your patches and enabled your ptracingtest code. I noticed
+> that when there's dropped pages, the trace output is not in order:
 > 
-> Assuming for this review we do need a new compatible value...
-
-I will be dropping this part in V2.
-
-[...]
-
->>   static const struct of_device_id rcar_du_of_table[] = {
->>          { .compatible = "renesas,du-r8a7742", .data = &rcar_du_r8a7790_info },
->>          { .compatible = "renesas,du-r8a7743", .data = &rzg1_du_r8a7743_info },
+>  # trace-cmd start -B ptracingtest -e all -v -e '*lock*'
+>  # taskset -c 5 echo c > /proc/sysrq-trigger
 > 
-> I also don't know where "M3Le does not support 4K output." (which is
-> a VSP2 limitation) is to be handled.
-R-Car Gen3 RM R19UH0105EJ0230 Rev.2.30 Aug 31, 2021
-Page 2468
-32.1.1.1 Features of VSPI [R-Car H3/R-Car H3-N/R-Car M3-W/R-Car 
-M3-W+/R-Car M3-N/R-Car E3]
-point Video processing and point Performance of VSPI
-indicates R-Car E3 has similar limitation due to VSP bandwidth.
+> On reboot, I ran:
+> 
+>  # trace-cmd show -B ptracingtest > /tmp/trace.out
+> 
+> Then executed the attached perl program:
+> 
+>   # ./read-ts.pl < /tmp/trace.out
+> 
+> And it errors our:
+> 
+>  30.212495 < 30.213534
+>            <...>-1048    [005] d....    30.212495: irq_enable: caller=irqentry_exit+0xf5/0x710 parent=0x0
+> 
+> That is, I think the zero timestamps may be messing with the order.
+> 
 
-Currently, this seems to be up to user to avoid the higher resolution 
-operation on hardware which has lower VSP bandwidth.
+Ah, I think I found the problem. The iterator needs the same logic you
+added for the consuming read:
+
+diff --git a/kernel/trace/ring_buffer.c b/kernel/trace/ring_buffer.c
+index 7bfbed0ac90c..90a7fa772fe3 100644
+--- a/kernel/trace/ring_buffer.c
++++ b/kernel/trace/ring_buffer.c
+@@ -6105,12 +6105,14 @@ rb_iter_peek(struct ring_buffer_iter *iter, u64 *ts)
+ 	struct ring_buffer_per_cpu *cpu_buffer;
+ 	struct ring_buffer_event *event;
+ 	int nr_loops = 0;
++	int max_loops;
+ 
+ 	if (ts)
+ 		*ts = 0;
+ 
+ 	cpu_buffer = iter->cpu_buffer;
+ 	buffer = cpu_buffer->buffer;
++	max_loops = cpu_buffer->ring_meta ? cpu_buffer->nr_pages : 3;
+ 
+ 	/*
+ 	 * Check if someone performed a consuming read to the buffer
+@@ -6133,7 +6135,7 @@ rb_iter_peek(struct ring_buffer_iter *iter, u64 *ts)
+ 	 * the ring buffer with an active write as the consumer is.
+ 	 * Do not warn if the three failures is reached.
+ 	 */
+-	if (++nr_loops > 3)
++	if (++nr_loops > max_loops)
+ 		return NULL;
+ 
+ 	if (rb_per_cpu_empty(cpu_buffer))
+
+
+I'll test this some more, and make a proper patch.
+
+-- Steve
+
 
