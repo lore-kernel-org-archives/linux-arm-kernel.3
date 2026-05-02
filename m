@@ -4,91 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D63ECD13DA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 May 2026 07:50:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C8FECD13DA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 May 2026 10:22:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=m+ZeSxbLTHdUprUeLJ8FV3dNcTYT+WtrO6078xK0XsY=; b=3Ueynrldipm0yExDUKoP5R7XhN
-	mZ3vT11dKL8Ptcj6DHaUaTQdg9f41miwcKBkKpb7wRIShoHIyfntr82/umu2WyLnwWgTDxJG+UWAj
-	yQGxwqGqBmdtI+WamzqspjwTbzNSn7kXsOlz49b2NLfmsFwEOJyLmzj+Ccgj2GKe6x1hJL3BdoUC6
-	cAJPgjdBfXFjQY6v5lYWGadnVPFykTODVZf2yDdO/200VNpzMB2vSsb+JnWBEd9WyaWCtsuQJVKp3
-	LnoaMJpvQMYdsSRZq+g/3+C1XQRjHT8v+2+iRvqSEsovLShZn0nXpDmN5pTFilTby0j19DbG4CL6U
-	zu6O8iew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:Cc:To
+	:Subject:Message-ID:From:Content-Transfer-Encoding:Content-Type:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BbnEszm/PmeV98ZXBrarbNHFdx3a5ydIzCvCJ4oa3xg=; b=JgHLEbMKEiP3WHj9gSCzorjI/9
+	IHjYbwdBHUC872iOq1o3cTaKw4H3h/yeECDG5fKTGm+7r4OwDpXMh7rEnvxMg+gcMSE2ydNvkJkUp
+	/LstkG7S/2GSDjadDClqu/pY+Y+IFW84Fhc+LW5Faqx5FzVtYVfYlsVMMXfpB2wJ/1cjW+8Tksqd8
+	jNCXZWVNN4YyCA5Dp0TbtYaZSzrh8IB4hETSf8fH3dHqBxtCevQQxDY6/U96A/WIgp/RKdcO8JEQg
+	cdmQgCjrx3dVI3cPFetIFwQy0Y0o3x/aAB4xko+CP65ShzbNqR/W3VOYVVdzJN0BAOGh9gVT2czoK
+	+BCJQODw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJ56q-00000008YXH-0ANZ;
-	Sat, 02 May 2026 07:49:56 +0000
-Received: from mail-dy1-x132d.google.com ([2607:f8b0:4864:20::132d])
+	id 1wJ7Ui-00000008nal-0fSs;
+	Sat, 02 May 2026 10:22:44 +0000
+Received: from out-177.mta0.migadu.com ([91.218.175.177])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJ56n-00000008YWA-0fkL
+	id 1wJ7Uf-00000008nZ3-04cj
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 May 2026 07:49:54 +0000
-Received: by mail-dy1-x132d.google.com with SMTP id 5a478bee46e88-2d8ffdc31d0so6796135eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 May 2026 00:49:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=pcc-me-uk.20251104.gappssmtp.com; s=20251104; t=1777708192; x=1778312992; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=m+ZeSxbLTHdUprUeLJ8FV3dNcTYT+WtrO6078xK0XsY=;
-        b=z6vxzO4HgNC/Vkww7IS+I719SC98LIxX2D+5kQ1T2wLEH60+J8WOIgkmvRTYWT98di
-         FU8feqb3in26NokVyLl606BYV26Z4KRnPCEvUBvFybM9PRxdmQP9PP7/poh+uJD52G7q
-         dan0eXwIES+oBQkts3MLV9KG8eXtHjwYlgqpUOLPT2zTPZF2E251E+nhnAABdDGtZe1I
-         Zfnso+R4OCZAaTPb+4S7yuTXj/qjueP3XmcnYY38ht4dazfE84tRCBIbIgk9i0MxSAUR
-         gXXp85zcIS/UqbZZXOm+OH8ghPWuQYIqhnSLP9M93prqSzzfK1DZO/17N8cuwf3V71pv
-         kE3Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777708192; x=1778312992;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=m+ZeSxbLTHdUprUeLJ8FV3dNcTYT+WtrO6078xK0XsY=;
-        b=CAPIuECw07UssQwO8BEoobMB3uo7WDalOIjCMLmhVaXMnRj23BU05cqt/3sFx+p6kr
-         89TbzhULrgs6+4b9vLPKWA0GMo7KRD5TL9//bd8MminhcSSIJQeWAGLliTorVXS/xNba
-         ywN71Sm0M9ZO5IiKmJELW3FyOHg+waF/12iJtqPJRJ2znJWTrB57a4BzkM/SWQ6rtWBz
-         eBd+fiSqmcHBc+zzBZy1SYKbUwO6FjOGfVjrEnHLHUYe/QNwp0bKfl4xmSYKsBurT6rj
-         PrvZzSObElZJv/JtLVtIdPuK81D8zcBEDy+xpMgghIVNIDkTFyEPKCAdcOBL7XjQO3NB
-         gATQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8yagyuZ5QzYABzhUd13RcFwfhUR4QuwPYYlWUUX3x4S/YfazWxpY9k9AYydU5EctlOi4WqC563ZjBkY1a+as3/@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywv4Je3nA0W8+DRzYj41sLFThXgT/GkoBFBw2fzaIQkEhuAijWT
-	9lEG+BNfaieZcSuPNyze2wrCPw4f3pDKV2kzL8WUe5QTEaffAje3bOqUCFlNChKtHoQ=
-X-Gm-Gg: AeBDieue0gsFm446pmKKjCOeFAEzBu8VXYRJeyLS5NHjDSQN1DlKi/I57pB0tjV/1hn
-	fKlU1h44MhHJuNXVtiSqpxykQC9xCHhvkzQzHEBl+6L+zZADX7WJliHMdWQOnetVQIZCCk7UDc2
-	ZS39wA6H+R9NDFHydZPAGdG0HBVF1zDFBjE00hN20m0k3GbPzSI4B5EZVrPM4D3Pe7d3/6/4idI
-	cNkCnMRwqj8N8hmPH7C8ybLPBrFoCzb7FxUN1AP4IEN9lTuOTnB8WW5cCDe6fCiRlykwRKVESGc
-	ikV9noP39Mcn006zhJc1pHhp2KPONVDvjD2PmfuJ4fA7jSSbNtiO/OgiyoJB7CeiTbkBIT5CCQ0
-	MdaQEG9EveOv+b/p5a6uGgEg72WNq9dSigB8wzzUXC0rH8FWOoKX5CVQ+2HqKbnHrOzXjqqto+6
-	dRh1SfsUIkGyrhAzxLr5gGbJ7Jgrya2maLBqUgWVXBG91tF5/iwdQ5v6QxVvV3/S+U+g==
-X-Received: by 2002:a05:7301:6706:b0:2ef:1d11:18ae with SMTP id 5a478bee46e88-2efbb29039bmr1022967eec.28.1777708191723;
-        Sat, 02 May 2026 00:49:51 -0700 (PDT)
-Received: from localhost (c-67-180-161-137.hsd1.ca.comcast.net. [67.180.161.137])
-        by smtp.gmail.com with UTF8SMTPSA id 5a478bee46e88-2ee3bb63c5fsm7422380eec.25.2026.05.02.00.49.50
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 02 May 2026 00:49:51 -0700 (PDT)
-From: Peter Collingbourne <peter@pcc.me.uk>
-To: Sjoerd Simons <sjoerd@collabora.com>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Peter Collingbourne <peter@pcc.me.uk>
-Subject: [PATCH] arm64: dts: mediatek: mt7981b: Add PMU
-Date: Sat,  2 May 2026 00:49:12 -0700
-Message-ID: <20260502074912.12193-1-peter@pcc.me.uk>
-X-Mailer: git-send-email 2.54.0
+	Sat, 02 May 2026 10:22:43 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1777717349;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BbnEszm/PmeV98ZXBrarbNHFdx3a5ydIzCvCJ4oa3xg=;
+	b=DZ+RtjeOqUIRi7xLXEr2nmh+M7SqhdoverehoZWlI9YrMO0UF9jumTDJB1ZzEZP+54X9QG
+	ivwkbLBRErJisC9xJDm478D8cYtLjO82TLc4HmMGf3piEglx4uF3FV64j1Or6aF+8754V5
+	pRaASGAWwj5Prm01IHLeg7nqanlmIUI=
+Date: Sat, 02 May 2026 10:22:25 +0000
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Frank Wunderlich" <frank.wunderlich@linux.dev>
+Message-ID: <7a4d6015e991aaf80b9ffcaaf8fa76799d56649a@linux.dev>
+TLS-Required: No
+Subject: Re: [PATCH v2 0/4] some BPI-R4Pro dts updates
+To: "Frank Wunderlich" <linux@fw-web.de>, "Matthias Brugger"
+ <matthias.bgg@gmail.com>, "AngeloGioacchino Del Regno"
+ <angelogioacchino.delregno@collabora.com>, "Rob Herring"
+ <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>
+Cc: devicetree@vger.kernel.org, "Daniel Golle" <daniel@makrotopia.org>,
+ linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, "Andrew
+ LaMarche" <andrewjlamarche@gmail.com>,
+ linux-arm-kernel@lists.infradead.org
+In-Reply-To: <20260412092333.6371-1-linux@fw-web.de>
+References: <20260412092333.6371-1-linux@fw-web.de>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260502_004953_455218_EAF41D85 
-X-CRM114-Status: GOOD (  10.19  )
+X-CRM114-CacheID: sfid-20260502_032241_636698_759DFDFD 
+X-CRM114-Status: GOOD (  10.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,33 +75,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The interrupt number was taken from a downstream DTS of the similar MT7987
-[1] and verified on my OpenWrt One.
+Hi
 
-Signed-off-by: Peter Collingbourne <peter@pcc.me.uk>
-Link: [1] https://github.com/openwrt/openwrt/blob/e4b3d5c799aef3be20b7f6079e8e5a14b215c116/target/linux/mediatek/dts/mt7987.dtsi#L246
----
- arch/arm64/boot/dts/mediatek/mt7981b.dtsi | 6 ++++++
- 1 file changed, 6 insertions(+)
+just a gentle ping
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
-index 4084f4dfa3e5..3c6fbb6c5333 100644
---- a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
-@@ -38,6 +38,12 @@ oscillator-40m {
- 		#clock-cells = <0>;
- 	};
- 
-+	pmu {
-+		compatible = "arm,cortex-a53-pmu";
-+		interrupt-parent = <&gic>;
-+		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
- 	psci {
- 		compatible = "arm,psci-1.0";
- 		method = "smc";
--- 
-2.54.0
+do i need to change anything? i wonder why i do not see this series in de=
+vicetree patchwork...
 
+Am 12. April 2026 um 11:23 schrieb "Frank Wunderlich" <linux@fw-web.de ma=
+ilto:linux@fw-web.de?to=3D%22Frank%20Wunderlich%22%20%3Clinux%40fw-web.de=
+%3E >:
+>=20
+>=20From: Frank Wunderlich <frank-w@public-files.de>
+>=20
+>=20There are some parts of BPI-R4Pro DTS that need to be changed. Curren=
+tly
+> there should be not much users of the mainline-dts and we noticed some
+> things while openwrt integration.
+>=20
+>=20v2:
+> - added mgmt port renaming as this patch is still outstanding to keep
+>  all in one series
+>  https://patchwork.kernel.org/project/linux-mediatek/patch/202603032020=
+06.37515-1-linux@fw-web.de/
+> - dropped default-state in gpio-leds patch as suggested by daniel
+>=20
+>=20Frank Wunderlich (4):
+>  arm64: dts: mediatek: mt7988a-bpi-r4pro: rename mgmt port to lan5
+>  arm64: dts: mediatek: mt7988a-bpi-r4pro: drop duplicate fan properties
+>  arm64: dts: mediatek: mt7988a-bpi-r4pro: update gpio-leds
+>  arm64: dts: mediatek: mt7988a-bpi-r4pro: rework pcie gpio-hog handling
+>=20
+>=20 arch/arm64/boot/dts/mediatek/Makefile | 8 ++++++++
+>  .../mt7988a-bananapi-bpi-r4-pro-cn13.dtso | 20 +++++++++++++++++++
+>  .../mt7988a-bananapi-bpi-r4-pro-cn14.dtso | 20 +++++++++++++++++++
+>  .../mediatek/mt7988a-bananapi-bpi-r4-pro.dtsi | 15 +++-----------
+>  4 files changed, 51 insertions(+), 12 deletions(-)
+>  create mode 100644 arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r=
+4-pro-cn13.dtso
+>  create mode 100644 arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r=
+4-pro-cn14.dtso
+>=20
+>=20--=20
+>=202.43.0
+>=20
+
+regards=20Frank
 
