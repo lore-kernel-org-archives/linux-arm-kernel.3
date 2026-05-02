@@ -4,111 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EBB2CD13DA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 02:23:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EA18CD13DA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 02:51:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6zleKM47mpduavdnaP2aBKf2rkXt6X2UG0Frna4ddag=; b=kwRURRy0Il29OzXHDv7bhITzt4
-	16t25Fge7BVTPFWiMTWXD0lYKz+E60yCD9uOG+6qsCq/pfVfMchSvT0IN62mo8tW4gnPDILa3CZAV
-	XQji+64B76EmWsscG3ozq3c2oL72yL7AqClMPJGv1Nf61CWhrbKN8hNaPYHfAhSEONTxmNzAbka83
-	foryewkx+RfKn2/8gkF7oN5MBhS4QkdqJVt8m2SDUocq30nP2TsuvGoqTXu2wESPbzw8qsvde37xf
-	v5l7zWODl/EWvgNLZxZYMlLSSD2WIGI/SDVLiWHlxjVeepzoyaJWD6D4zGBtkGb5+dvnTnKw8Xb4U
-	BrJIJEHw==;
+	bh=d1A1qyP8QeOPCU1K/hsX1FmZmqrWn214Zp6AIo4nhBs=; b=0bDIRqHew1jcWP0EO9cGsSoKCZ
+	8e2y6wusyZM8Lv2Y7sQkc1GYtQcUuKsBBjFhTGHCXnj+oEccJ4IUpOngmEuKRIzySqAUXLF1hspcs
+	T77EgL2MUZKWnU65v/i4nuFO1DUp5ezOA9YM/YO8Uf0q2VhMtO2HVMw674EwVlZA7tdQurvojzzEz
+	UGN9HeoJmf0D6X9mkxq8X1tB9il4qdbFAB/QdMh+DSDqJ1zB4SpP0SFwihsUxFjmMg7BcoVjhow8k
+	/jXDmerSOQUSSus84oNz1HMoROb7aRWRKf6zUV3va7r6/VtoW0xATdLiZlcddmYkNAkatKVWz15T+
+	Bk7qw7TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJMUk-0000000A9k4-17i7;
-	Sun, 03 May 2026 02:23:46 +0000
-Received: from mail-qk1-x72b.google.com ([2607:f8b0:4864:20::72b])
+	id 1wJMuy-0000000AC5L-42Lc;
+	Sun, 03 May 2026 02:50:52 +0000
+Received: from mout-p-201.mailbox.org ([80.241.56.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJMUg-0000000A9ja-3PLF
+	id 1wJMuw-0000000AC4Y-2Gk8
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 May 2026 02:23:44 +0000
-Received: by mail-qk1-x72b.google.com with SMTP id af79cd13be357-8ef0ba61d46so344697985a.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 May 2026 19:23:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1777775021; x=1778379821; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=6zleKM47mpduavdnaP2aBKf2rkXt6X2UG0Frna4ddag=;
-        b=qR9GcazYlfrCUnRZ4Ii4m46hcFQ7EBwTcgtMR1ebvqJrthkFCwlq5c6hYMBX6fiFyd
-         FCUH3AKILGegDm8y7ynj0NAUvbkuTw7mz6b4Tlh+Xzkl03S8/YHDq7sT9i9mZiC516tv
-         CwNTgTQjxRhKVKgv0tu2qhHtxJkg2h5jDstUo1+oAzqZGwkzlBlivQ3s6GS1WbstU7wj
-         FRNc/YDQkw1wjWhajlG3NLJY7a9o2apaulz80ETcjJqF3OY4Y/Mp/3a3mAY/HdQ/1WEG
-         iXfFhUjOFKgaJmUC/iOOiIz+oYEgMYvDWSUklnsp37DmlwldJ7IiV2E+Ydpr8heez1nP
-         LSnw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777775021; x=1778379821;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=6zleKM47mpduavdnaP2aBKf2rkXt6X2UG0Frna4ddag=;
-        b=RnkK1uqZ+L5iYJJ8RXsD1/qERKpQp5B+LBXAoS74S4yYDFL19ER4JUnpHim7MIRulM
-         kPLUJRWykDWfPl8Qgja1urQIqE4bD/T4nxBtScxfMq+XeRbaKSZlH9TI6Ped5HIRj519
-         FVpme0P9fayX+o15gkGsJ0v8R8RJf0oNMoQs1gKo77lvgWcNt3vknwHq2AZB5nTUEbzN
-         mGNEXJi+/U8A8xUEEQnzb8Hces8lqQmrHust7M/c7/BopS4NqMY+974h28FzQ0Sr1axe
-         VW7s2KO0/bnnUuDLM24H6yqdhtiFgMN0y2TBUtXuA58iUGX7Mn2pZZuhayqWM4DD4I9T
-         G0CA==
-X-Forwarded-Encrypted: i=1; AFNElJ9QcC/aqmTRFCSBOF2pq/8VhtPup07f5obyRIMe7bPBcWb72eMv2sUQaGbS3u/+HZLiSN4ULX2Iu78gKPvIIztV@lists.infradead.org
-X-Gm-Message-State: AOJu0YwN3UJ9vRTY1WHt8IGqw1lGTJqz986FaxZwgNbtAiTNLXRrME5p
-	0bmitLoY32G+m9UhVzkqNvHL/UsYr+/YDEgInL6KN7V+t0bXvTx9GuAcfm7MNj12exc=
-X-Gm-Gg: AeBDietJ0GGftgcuYjTbdWQnLq761dlbv7h0lJah9nEIv5xx+uCR+DEJuO/swjBF8t0
-	/QO68SrO5NU9vTj9gf6rwdqGRDavj+UhDiD3Oa0P55bOoz9X+jLFD8J6lqeEh4VSE46CznrctFb
-	enaH7ocvkbynWIVzZzyNKrH21D5d7ttByKLPyhsuTtxfCZYx6TCcULr1tjpo5y3zp3AIJM99gL6
-	Y2Djddq00wt8Y7K+/BOlpBBS+U7sLgsUcsgN8VSOPlmYDW5VYS/AJrb+v0HwsqlKgDLcIKknh7J
-	6EzSvpFLW73f5PqKv4jNLv8+1v1le8t8sDp72Sp86KbkZCdeh9ORLJaJSCTy+ofZ0TZZfw0++8S
-	fcIjQoaUbElc4CBRr5aqOtnvDWaSTvEbP96kqgs7jGlkzb0I5kP+NKCPL6iaan4pEQe8LwKTk/+
-	dugq/aBpm6U9SZgkY+s/UUS2leXz8ic6lFJr8f7y1zl/mq9rBp+MyDHNOnnn9vjjuPDTwr5Awg2
-	w==
-X-Received: by 2002:a05:620a:2a0f:b0:8cf:e946:bb56 with SMTP id af79cd13be357-8fd1833a52fmr796002985a.44.1777775021562;
-        Sat, 02 May 2026 19:23:41 -0700 (PDT)
-Received: from [172.22.22.28] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8fc2c349572sm652634685a.28.2026.05.02.19.23.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 02 May 2026 19:23:41 -0700 (PDT)
-Message-ID: <5a8cde2d-2871-4f9a-be16-66c38005fd9e@riscstar.com>
-Date: Sat, 2 May 2026 21:23:37 -0500
+	Sun, 03 May 2026 02:50:51 +0000
+Received: from smtp1.mailbox.org (smtp1.mailbox.org [10.196.197.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4g7TmP5BtLz9tjP;
+	Sun,  3 May 2026 04:50:45 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1777776645;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=d1A1qyP8QeOPCU1K/hsX1FmZmqrWn214Zp6AIo4nhBs=;
+	b=khdl8CnHDmq8rAwn3UDgffvBS7llbtM4SCECCpjOR0ezbfjH17+dLJReJmvcKjc+UoOKGA
+	RU3Z5xmkgQ3EoXJ8P1d+KjiiNYxCDEMTnsGK0BVWbBmRpi3lRxIkgHVYBx21GvhOhA71Lp
+	t/UpvNPk7kWBDD1UDbXF7kszEoDs7pf83TpH/2zYg+fNcnh8TMcZOgXyQ28KDCUyXqDOvR
+	8KaU9ZRoY/dTXZiwhyGmq1MKzmLi6C5ecTzgipWpegH4BMWYCPRoykeViDvgt1zE8Rb/gS
+	2KAbXg+hCgk5E/4nw/oUmnlmpLfdtfkEme0SzlHq81QefByEtuFmo/MjNBucZg==
+Message-ID: <8668e3da-fcd2-412e-9457-3413e0aceafc@mailbox.org>
+Date: Sat, 2 May 2026 21:23:33 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 11/12] misc: tc956x_pci: add TC956x/QPS615
- support
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- pabeni@redhat.com, maxime.chevallier@bootlin.com,
- rmk+kernel@armlinux.org.uk, andersson@kernel.org, konradybcio@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, linusw@kernel.org,
- brgl@kernel.org, arnd@arndb.de, gregkh@linuxfoundation.org,
- daniel@riscstar.com, mohd.anwar@oss.qualcomm.com, a0987203069@gmail.com,
- alexandre.torgue@foss.st.com, ast@kernel.org, boon.khai.ng@altera.com,
- chenchuangyu@xiaomi.com, chenhuacai@kernel.org, daniel@iogearbox.net,
- hawk@kernel.org, hkallweit1@gmail.com, inochiama@gmail.com,
- john.fastabend@gmail.com, julianbraha@gmail.com, livelycarpet87@gmail.com,
- matthew.gerlach@altera.com, mcoquelin.stm32@gmail.com, me@ziyao.cc,
- prabhakar.mahadev-lad.rj@bp.renesas.com, richardcochran@gmail.com,
- rohan.g.thomas@altera.com, sdf@fomichev.me, siyanteng@cqsoftware.com.cn,
- weishangjuan@eswincomputing.com, wens@kernel.org, netdev@vger.kernel.org,
- bpf@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-gpio@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260501155421.3329862-1-elder@riscstar.com>
- <20260501155421.3329862-12-elder@riscstar.com>
- <20260502094559.15c3f479@kernel.org>
- <649428a4-9505-4a1a-bbbe-bd90be9b8155@riscstar.com>
- <20260502191427.34048082@kernel.org>
+Subject: Re: [PATCH 3/7] dt-bindings: clock: cs2000-cp: document CS2500
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
+ David Airlie <airlied@gmail.com>,
+ Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+ Magnus Damm <magnus.damm@gmail.com>, Maxime Ripard <mripard@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>,
+ Simona Vetter <simona@ffwll.ch>, Stephen Boyd <sboyd@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>,
+ Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
+ devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org
+References: <20260419193718.133174-1-marek.vasut+renesas@mailbox.org>
+ <20260419193718.133174-4-marek.vasut+renesas@mailbox.org>
+ <CAMuHMdUkT6wO=mCSbJt1dQueW62=_o3r589MvFyHhz-zSfw_9w@mail.gmail.com>
 Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <20260502191427.34048082@kernel.org>
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <CAMuHMdUkT6wO=mCSbJt1dQueW62=_o3r589MvFyHhz-zSfw_9w@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-MBO-RS-ID: 85931d5d9f889a08582
+X-MBO-RS-META: i4rmf11wrmk77r1ympywfpfi9bxrssa9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260502_192343_555280_C26D952C 
-X-CRM114-Status: GOOD (  10.09  )
+X-CRM114-CacheID: sfid-20260502_195050_739676_C1DB9287 
+X-CRM114-Status: GOOD (  11.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,21 +91,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/2/26 9:14 PM, Jakub Kicinski wrote:
-> On Sat, 2 May 2026 21:06:33 -0500 Alex Elder wrote:
->>> drivers/misc/tc956x_pci.c:541:17: error: call to undeclared function 'u32_get_bits'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
->>>     541 |         chip->rev_id = u32_get_bits(val, NCID_REV_ID_MASK);
->>>         |                        ^
->>
->> Yeah I think I noticed an error like that shows up with 32-bit builds?
->> In any case we didn't see it during development, and we'll make sure
->> <linux/bitfield.h> gets included.
+On 4/29/26 1:32 PM, Geert Uytterhoeven wrote:
+> Hi Marek,
 > 
-> on x86 it hits on all configs, I suspected you're building for ARM?
-
-Yes.  I'll spend a little more time trying to build on other
-architectures.  I normally like to add COMPILE_TEST.
-
-					-Alex
-
+> On Sun, 19 Apr 2026 at 21:37, Marek Vasut
+> <marek.vasut+renesas@mailbox.org> wrote:
+>> Document backward compatibility support for CS2500 chip, which
+>> is a drop-in replacement for CS2000 chip.
+>>
+>> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+> 
+> Thanks for your patch!
+> 
+>> --- a/Documentation/devicetree/bindings/clock/cirrus,cs2000-cp.yaml
+>> +++ b/Documentation/devicetree/bindings/clock/cirrus,cs2000-cp.yaml
+>> @@ -11,14 +11,18 @@ maintainers:
+>>
+>>   description: |
+>>     The CS2000-CP is an extremely versatile system clocking device that
+>> -  utilizes a programmable phase lock loop.
+>> +  utilizes a programmable phase lock loop. CP2500-CP is a compatible
+>> +  drop-in replacement for CP2000-CP.
+> 
+> While CP2000 exists in two variants (-CP and -OTP, cfr. the link below),
+> there is just "CP2500"[2].
+And it is called CS2500 , suffix dropped and typo fixed in V2, thanks !
 
