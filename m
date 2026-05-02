@@ -4,60 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 853D7CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 May 2026 19:23:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8228CD13DA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 May 2026 20:28:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SQyM8PYqgq9KHO/9GDVJe/G8ctJp6ORTTOTa2vgtdPo=; b=h7SRb6u67VhtbhoszoekZQYp+j
-	PzcWMxRf6tFFWMySJQR1LaDl2y+KRqoNYScK8n5hV8Y89O6lBfNb2VDG+3ypshITyS4VjPoy2NT+Q
-	kNuZINxd8JGwcN6vD9EK61aY5/jrmQLRHggCYNFsOd8p4hoyFVCysSMDlomje4JYQn6DdfUF/3zg2
-	t/w2mv9FGEQgu2+myhmwH7cnHH8SDliL4wPxb2q3Vuy8RcDHa0thrxthiwSe6mYyuoeDzq5wyKZdD
-	g+BCoOeQ5Zu4DMsSrDXg5YJGWeCK+qIMmW3iLxwALswew5aP1fgZbevrXzmuydVm6WS6A633YOJBS
-	8MhA12lQ==;
+	bh=cEOoN52sZJgC6GBEUET4gzKRvynCeddAxhuKHpv+5jA=; b=Jbuf1OqGY+NDDe7rw07DWuyrFG
+	p0W8/RBHwnNIpCDoqvaHpsYTLcb00tGmlIWHEiarCC6QOKVQyS98wtQJs8aM4lCm74DIc5NKRRGD+
+	hh4sZT1xeN+MZ4mmkGiyVwr9o9zmRRkRT6lk5/8zRb7KnXvV/1WI7nRLh4w57vBfDrxbYjIA12NY4
+	wGFO+MKNxxFeqo7JgUWhwzPtmGmTTcXLPu8P5b5mUhqYVqBAN0zEl41I/p1fDY+9d5JuEcfUuk+Nt
+	hzert7gZjmZIB/ILv46viwoTF6Ien2zjUZEa9cQIhLgpKgRZ5Cf0lYMuxnBm68NRc4lK+kLCqGXHH
+	fyz1C1uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJFvn-00000009ZS9-309O;
-	Sat, 02 May 2026 19:23:15 +0000
-Received: from smtprelay0013.hostedemail.com ([216.40.44.13] helo=relay.hostedemail.com)
+	id 1wJGwf-00000009eb7-2Q35;
+	Sat, 02 May 2026 20:28:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJFvl-00000009ZRJ-0XFz
+	id 1wJGwe-00000009ear-0Yyx
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 May 2026 19:23:14 +0000
-Received: from omf16.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay07.hostedemail.com (Postfix) with ESMTP id 410F6160524;
-	Sat,  2 May 2026 19:23:08 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf16.hostedemail.com (Postfix) with ESMTPA id 3A49C20018;
-	Sat,  2 May 2026 19:23:06 +0000 (UTC)
-Date: Sat, 2 May 2026 15:23:04 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
- <will@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Ian
- Rogers <irogers@google.com>, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v19 0/7] ring-buffer: Making persistent ring buffers
- robust
-Message-ID: <20260502152304.560a5954@robin>
-In-Reply-To: <177751968499.2136606.17388366710182662849.stgit@mhiramat.tok.corp.google.com>
-References: <177751968499.2136606.17388366710182662849.stgit@mhiramat.tok.corp.google.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
+	Sat, 02 May 2026 20:28:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C193A60120;
+	Sat,  2 May 2026 20:28:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B1DFC19425;
+	Sat,  2 May 2026 20:28:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777753689;
+	bh=wRbkd2E40k/miu3YkMKKA9nNsJMs+bJw1b3/I6M3AwQ=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=FqBPVkO9/xwN4v0u+LK9FbfjH2K6r1xvKXFhR9duvAGEKl28e8z+4K5s9mOo+7KyE
+	 WdbrTfuuK2B5FI3Gl6cC/toMDCfucqCXv+bn1MnyfgIwzUmpfOROWpPNrhRqH6cCCS
+	 W0X2NREQgwwaEgk39QOsHTRmkTf5X6htBTFEqqZEr3sVtdrp+cYGlaqMiOfKUVkqQT
+	 jSfy/+4jwA21QUsdcg433JALfIVt2ixqBDFRdRUQJlH2fGauRxrXKV6h7KjjvKFbWM
+	 ccGsPmVAVh0GwiqoDsNcldvGF3Dnqzpa7pWXmwBO6d99csCMdkT+k2sTWhnS3pIhD4
+	 FJIQxUwaQt6Pw==
+Date: Sat, 02 May 2026 15:28:06 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="MP_/bduRHcIgi7cE_At8/bu1uhd"
-X-Rspamd-Server: rspamout05
-X-Rspamd-Queue-Id: 3A49C20018
-X-Stat-Signature: 1p61ghnqdpke4wkizqjbgexfjuxxyhqw
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX19GhuIyQaIfEX0jv4huB7H5ggusR9h7p+8=
-X-HE-Tag: 1777749786-296731
-X-HE-Meta: U2FsdGVkX19bUoGqhA2+ZC9WRj15X+DlVnMrZ9GL9LDsFXFqNWKrSedMwv9eDtwKQQY5jzSCeRN5ay+A/mpFH1V41iSgOsKuZmcRpJY7Q1nBf/36tTBCukt6pNL65VMzdFrjl5+rymlfb5aO289feVNy9DTZJ67ZHW7cyV5mcnZUkB8CGKYEXgb4hde5Qawtehde5AszOb8wuQLwbGCMLfEVkRz74Wn62mZ12x2rGFS0UvXqyy5Zk0iK1Ez6ahmDW53ok34uWPRJoAEBXdp453CMHj5SCFdAoBolaQjzHI34ctuqC21bOD+f53dLNIWwkhGeeY1KjGU=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260502_122313_234169_E8B06436 
-X-CRM114-Status: UNSURE (   7.61  )
-X-CRM114-Notice: Please train this message.
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Michael Turquette <mturquette@baylibre.com>, devicetree@vger.kernel.org, 
+ linux-clk@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+ Geert Uytterhoeven <geert+renesas@glider.be>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20260502185557.93061-2-marek.vasut+renesas@mailbox.org>
+References: <20260502185557.93061-1-marek.vasut+renesas@mailbox.org>
+ <20260502185557.93061-2-marek.vasut+renesas@mailbox.org>
+Message-Id: <177775368688.2906489.15956699735661007768.robh@kernel.org>
+Subject: Re: [PATCH 1/4] dt-bindings: clock: renesas,cpg-clocks: Document
+ ZT/ZTR trace clock on R-Mobile APE6
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,47 +74,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---MP_/bduRHcIgi7cE_At8/bu1uhd
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
-Hi Masami,
+On Sat, 02 May 2026 20:55:42 +0200, Marek Vasut wrote:
+> Document ZT trace bus and ZTR trace clock on the R-Mobile APE6.
+> These clock supply the coresight tracing modules, PTM, TPIU,
+> ETB and replicator. Without these clock, the coresight tracing
+> can not be operated. While this does change the ABI, it does so
+> by extending the existing clock-output-names, therefore if an
+> old software is used with new DT, the coresight tracing parts
+> will likely fail to probe, otherwise if new software is used
+> with an old DT, there is no impact.
+> 
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+> ---
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Magnus Damm <magnus.damm@gmail.com>
+> Cc: Michael Turquette <mturquette@baylibre.com>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Stephen Boyd <sboyd@kernel.org>
+> Cc: devicetree@vger.kernel.org
+> Cc: linux-clk@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-renesas-soc@vger.kernel.org
+> ---
+>  Documentation/devicetree/bindings/clock/renesas,cpg-clocks.yaml | 2 ++
+>  include/dt-bindings/clock/r8a73a4-clock.h                       | 2 ++
+>  2 files changed, 4 insertions(+)
+> 
 
-I applied your patches and enabled your ptracingtest code. I noticed
-that when there's dropped pages, the trace output is not in order:
+My bot found errors running 'make dt_binding_check' on your patch:
 
- # trace-cmd start -B ptracingtest -e all -v -e '*lock*'
- # taskset -c 5 echo c > /proc/sysrq-trigger
+yamllint warnings/errors:
 
-On reboot, I ran:
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/clock/renesas,cpg-div6-clock.example.dtb: cpg_clocks@e6150000 (renesas,r8a73a4-cpg-clocks): clock-output-names: ['main', 'pll0', 'pll1', 'pll2', 'pll2s', 'pll2h', 'z', 'z2', 'i', 'm3', 'b', 'm1', 'm2', 'zx', 'zs', 'hp'] is too short
+	from schema $id: http://devicetree.org/schemas/clock/renesas,cpg-clocks.yaml
 
- # trace-cmd show -B ptracingtest > /tmp/trace.out
+doc reference errors (make refcheckdocs):
 
-Then executed the attached perl program:
+See https://patchwork.kernel.org/project/devicetree/patch/20260502185557.93061-2-marek.vasut+renesas@mailbox.org
 
-  # ./read-ts.pl < /tmp/trace.out
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-And it errors our:
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
 
- 30.212495 < 30.213534
-           <...>-1048    [005] d....    30.212495: irq_enable: caller=irqentry_exit+0xf5/0x710 parent=0x0
+pip3 install dtschema --upgrade
 
-That is, I think the zero timestamps may be messing with the order.
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
--- Steve
-
---MP_/bduRHcIgi7cE_At8/bu1uhd
-Content-Type: application/x-perl
-Content-Transfer-Encoding: base64
-Content-Disposition: attachment; filename=read-ts.pl
-
-IyEvdXNyL2Jpbi9wZXJsIC13CgpteSAkbGFzdCA9IDAuMDsKd2hpbGUgKDw+KSB7CiAgICAgICAg
-aWYgKC9eXHMqXFMrXHMrXFMrXHMrXFMrXHMrKFswLTkuXSspOi8pIHsKICAgICAgICAgICAgICAg
-IGlmICgkMSA8ICRsYXN0KSB7CiAgICAgICAgICAgICAgICAgICAgICAgIHByaW50ICIkMSA8ICRs
-YXN0XG4iOwogICAgICAgICAgICAgICAgICAgICAgICBwcmludDsKICAgICAgICAgICAgICAgICAg
-ICAgICAgZXhpdCAwOwogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgJGxhc3QgPSAk
-MTsKICAgICAgICB9Cn0K
-
---MP_/bduRHcIgi7cE_At8/bu1uhd--
 
