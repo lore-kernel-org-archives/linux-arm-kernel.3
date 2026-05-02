@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25F3BCD13DA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 May 2026 16:46:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2449BCD3423
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 May 2026 16:47:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/5GnXDMtr/R5YsCNudvsJOf8SB18UYQaTHVrLuMyiHg=; b=U1FZLWxM2L42RJgWMMVv86Ut1+
-	0tOu0MamhtxH5VG7qeVFHqVQkmL+iaZIO9Eq8aVah2TQuQpB+2O+2JVEtk+mnG75Ke/2jSqVmwla+
-	HYekuJ5FuDLS4RlzJTE2ud8Z5IHggvWtlkMSX7UZI0nJSSY/v6PqYk3WNIe8TBWyPSEo/QtkzqdgD
-	U7lY2Snj6y5+ntow3tsht1D56JWrp1N7xvaxHuJK88aWGh2M+cwDdxMFdOqpKAQzsPwOFVTJf5oZK
-	5iNGoLanRcvkgV8/KfOuMspY/+9FjKvOqVvDM2YRM0Wq7xTCSZKRCBGeerpCi9QuhiQWmcNXPx8RJ
-	kN9s6Rjg==;
+	bh=9gU8wGABgGbVaNUsM1tHa0aLaqckse0CQ3IDkZfd/MY=; b=nbAC/RbBKi6FJP3UCjmVVl0WPK
+	CSsjNWkwqdfGsibj/hV8JVU1ZA/+OGzJcmaVkvagPhbfwOzuePUZDUKHh4SsomwKOudkyL7bcFF8u
+	Y4OnvAwdpUovSGCoxaFhETKfx7hrgzx6rN4Dn37WrZz2Jim0P8M6IXJpthCLwJsLgshcg9MJmQY5e
+	FsmIwSgPekWvy0IFosvs/Tu9/jcMmoiofmMW6ONl8Vcq5ErtSHiet4jJ4LcdnXhnx4B0dx8Z0l+Kk
+	RiOr/oEAOUoEIE904P36A8cjmiHG3y2NvN93D+hMhGI8qGuHUASfP+/G0NpCfq4nMR4yEB9/4kZjM
+	+kclaVmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJDTj-00000009LUe-24q7;
-	Sat, 02 May 2026 16:46:07 +0000
+	id 1wJDUs-00000009Lej-3ZNX;
+	Sat, 02 May 2026 16:47:18 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJDTg-00000009LUH-2fDT
+	id 1wJDUq-00000009Le4-0kLw
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 May 2026 16:46:05 +0000
+	Sat, 02 May 2026 16:47:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0ACEA40163;
-	Sat,  2 May 2026 16:46:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB58BC19425;
-	Sat,  2 May 2026 16:46:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C1293439E4;
+	Sat,  2 May 2026 16:47:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4943CC19425;
+	Sat,  2 May 2026 16:47:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777740362;
-	bh=s93VJCDBnvDfrecPRtxHRCkkBez6Fz+HZPYqWbqIAkw=;
+	s=k20201202; t=1777740435;
+	bh=zymvXjOjeTSggFeuoM050BBTeP4ivuV+K0ZODz63sG8=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=mM0VFItvv0NwJhTS9Qka9pD2gQhdVDRZNLnEudvHavHJW8PcHO1CMmyYOlFMYXz72
-	 bW8edgGGN9KR5w5kt2QryXHza2K+FphEN+EM4T8tSbNtE1HSOOLzrc+jJPFnNtUhQH
-	 4ixpGPO2jxLUANqnBRaPcgA9a/zpzuEzU0fK4wBgHb1zgFflgV4MpWUzVefa1ssRrX
-	 CS6kp8LDHcZKBTHfy+4rpnDCnoXki8a045qnr45cxJxAIf4sLzfCgohbieuv3ChkTE
-	 9eHKCPBEQfvlwA6xypbDE/fQa1CJkU9UugGOdptKEvZovhqrc4dn+cQaaQfD3cOpTE
-	 IR1LR8d3C7y9Q==
-Date: Sat, 2 May 2026 09:45:59 -0700
+	b=C2a0Vi3QX0WD3xutTIXFvjrVMuUqle24NF4BAQHxyUpWgq77agsQiQDARZ48oGEr8
+	 zWeFVrQ+2yNo3XsQXXseVTkoumlvbwMcqRQ9Yrv9/oCfoJJfiKSyfy/R/1KWeM8Ejx
+	 j3kgXK8lc2stL15qKUXCkaF9uBbZyYkkj9ca4JUpNJEbRoD1qD1piUoN2e5hAWLFZo
+	 hmI8PjcAL1L79x9BIkN1E2eRROzi9GCkLp+6y/VFSfpgKhQs2XFoSYrQPXb4whpnxD
+	 2Fh+iykG/8DvSFLTzfAlLeLNrYwBZESP4BuukCRYY4PUWPAJsNa9OBiyeLZcaDz2BO
+	 p7nB8soAtHKMg==
+Date: Sat, 2 May 2026 09:47:12 -0700
 From: Jakub Kicinski <kuba@kernel.org>
 To: Alex Elder <elder@riscstar.com>
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
@@ -64,18 +64,16 @@ Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
  devicetree@vger.kernel.org, linux-gpio@vger.kernel.org,
  linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next 11/12] misc: tc956x_pci: add TC956x/QPS615
- support
-Message-ID: <20260502094559.15c3f479@kernel.org>
-In-Reply-To: <20260501155421.3329862-12-elder@riscstar.com>
+Subject: Re: [PATCH net-next 00/12] net: enable TC956x support
+Message-ID: <20260502094712.69b29dc8@kernel.org>
+In-Reply-To: <20260501155421.3329862-1-elder@riscstar.com>
 References: <20260501155421.3329862-1-elder@riscstar.com>
-	<20260501155421.3329862-12-elder@riscstar.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260502_094604_720175_CD9D3152 
-X-CRM114-Status: UNSURE (   7.64  )
+X-CRM114-CacheID: sfid-20260502_094716_236704_9E24BD63 
+X-CRM114-Status: UNSURE (   6.07  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,17 +89,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri,  1 May 2026 10:54:19 -0500 Alex Elder wrote:
-> The Toshiba TC956x is an Ethernet AVB/TSN bridge,  and is
-> essentially a small and highly-specialized SoC.  It implements
-> a number of internal functions, including a GPIO controller,
-> control registers managing internal reset and clock control
-> signals, a PCIe switch and internal endpoint, and mapping
-> hardware that translates between PCIe and internal addressing.
+On Fri,  1 May 2026 10:54:08 -0500 Alex Elder wrote:
+>  create mode 100644 Documentation/devicetree/bindings/net/toshiba,tc956x-dwmac.yaml
+>  create mode 100644 drivers/gpio/gpio-tc956x.c
+>  create mode 100644 drivers/misc/tc956x_pci.c
+>  create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-tc956x.c
+>  create mode 100644 drivers/net/pcs/pcs-xpcs-regmap.c
+>  create mode 100644 include/linux/pcs/pcs-xpcs-regmap.h
+>  create mode 100644 include/soc/toshiba/tc956x-dwmac.h
 
-drivers/misc/tc956x_pci.c:541:17: error: call to undeclared function 'u32_get_bits'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-  541 |         chip->rev_id = u32_get_bits(val, NCID_REV_ID_MASK);
-      |                        ^
--- 
-pw-bot: cr
+Please add an entry to MAITNAINERS for tx956x stuff?
 
