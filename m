@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C8FECD13DA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 May 2026 10:22:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6573BCD3423
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 May 2026 10:30:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:Cc:To
-	:Subject:Message-ID:From:Content-Transfer-Encoding:Content-Type:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BbnEszm/PmeV98ZXBrarbNHFdx3a5ydIzCvCJ4oa3xg=; b=JgHLEbMKEiP3WHj9gSCzorjI/9
-	IHjYbwdBHUC872iOq1o3cTaKw4H3h/yeECDG5fKTGm+7r4OwDpXMh7rEnvxMg+gcMSE2ydNvkJkUp
-	/LstkG7S/2GSDjadDClqu/pY+Y+IFW84Fhc+LW5Faqx5FzVtYVfYlsVMMXfpB2wJ/1cjW+8Tksqd8
-	jNCXZWVNN4YyCA5Dp0TbtYaZSzrh8IB4hETSf8fH3dHqBxtCevQQxDY6/U96A/WIgp/RKdcO8JEQg
-	cdmQgCjrx3dVI3cPFetIFwQy0Y0o3x/aAB4xko+CP65ShzbNqR/W3VOYVVdzJN0BAOGh9gVT2czoK
-	+BCJQODw==;
+	bh=jKC3PTkwWrrt7PYEQQ0B4ZjpL8QByGd23QV939tztOg=; b=VdKmnFm8xX/YwbXnCMcWFiy21U
+	2rkRPS9fosGXjIJmGUoeOxsgmwLF5Xu8IUqSL5fowWxlq1WC0Hse9RFqYo1u0u8rZLLIkdBFeC/CX
+	WUxPWpoVulHKsHA3cypMemFibgNp+x07o3/dIDTnzr2GRx/z9/2g7OFQY/b/wdsQFPYl1anJGQZZA
+	MfXdDDU09glZf+jAmJJn5/7uKYYrFMCz/ibDZRXY9DYaLz1cy7ZRFuBEIauRcwsOXWK6bY/UgJHkr
+	/y6KRAXYvd8ZGjIrt9U9lrc1+vhF2ITFSpx6+ymJT1yNYfmTPfQFP3MpBbYzPER8NpGvjVCrBJN/w
+	1hutw0uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJ7Ui-00000008nal-0fSs;
-	Sat, 02 May 2026 10:22:44 +0000
-Received: from out-177.mta0.migadu.com ([91.218.175.177])
+	id 1wJ7bq-00000008oI4-3yJg;
+	Sat, 02 May 2026 10:30:06 +0000
+Received: from out-184.mta0.migadu.com ([91.218.175.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJ7Uf-00000008nZ3-04cj
+	id 1wJ7bn-00000008oG4-0hAX
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 May 2026 10:22:43 +0000
-MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1777717349;
+	Sat, 02 May 2026 10:30:05 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
+	s=key1; t=1777717788;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=BbnEszm/PmeV98ZXBrarbNHFdx3a5ydIzCvCJ4oa3xg=;
-	b=DZ+RtjeOqUIRi7xLXEr2nmh+M7SqhdoverehoZWlI9YrMO0UF9jumTDJB1ZzEZP+54X9QG
-	ivwkbLBRErJisC9xJDm478D8cYtLjO82TLc4HmMGf3piEglx4uF3FV64j1Or6aF+8754V5
-	pRaASGAWwj5Prm01IHLeg7nqanlmIUI=
-Date: Sat, 02 May 2026 10:22:25 +0000
-Content-Type: text/plain; charset="utf-8"
+	bh=jKC3PTkwWrrt7PYEQQ0B4ZjpL8QByGd23QV939tztOg=;
+	b=TvAbHW2veUJcqZme81cx/GGP21R4PHW48Vdw9zFZVYz7lCULM0oYq8uZZ7Ra4+LV09brVr
+	fAxK4DBv+MX5wbEMbSxiS1cjcjoSfHRiR08qh468IM4CjCYgwY84JKB6OfstJ7+gqrnE2k
+	pD3knfHjk5ly0w8/ukaBdUTNmJ7gGf94gnpXEUNl3fov/xCCdWABF2f1J9p9I+d68sTFI6
+	Ip1ZA7X45ylF88PIs+mnGL1GDFTGMIWXjakszAleSQpi1J5R6xmeKp+XXkXRyd4cWUeArB
+	9RmD0PbQyU6MB6OKBhx6SbGUUbRNFWCqc7Ev8l5DNhOcI6Z00JdNGehMPsnTPA==
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Sat, 02 May 2026 12:29:40 +0200
+Message-Id: <DI84CXWVJPXB.1OG0PYJ5L31TX@cknow-tech.com>
+Cc: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <nick@khadas.com>
+Subject: Re: [PATCH v2 2/7] arm64: dts: rockchip: Add HYM8563 RTC for Khadas
+ Edge 2L
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Frank Wunderlich" <frank.wunderlich@linux.dev>
-Message-ID: <7a4d6015e991aaf80b9ffcaaf8fa76799d56649a@linux.dev>
-TLS-Required: No
-Subject: Re: [PATCH v2 0/4] some BPI-R4Pro dts updates
-To: "Frank Wunderlich" <linux@fw-web.de>, "Matthias Brugger"
- <matthias.bgg@gmail.com>, "AngeloGioacchino Del Regno"
- <angelogioacchino.delregno@collabora.com>, "Rob Herring"
- <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>
-Cc: devicetree@vger.kernel.org, "Daniel Golle" <daniel@makrotopia.org>,
- linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, "Andrew
- LaMarche" <andrewjlamarche@gmail.com>,
- linux-arm-kernel@lists.infradead.org
-In-Reply-To: <20260412092333.6371-1-linux@fw-web.de>
-References: <20260412092333.6371-1-linux@fw-web.de>
+From: "Diederik de Haas" <diederik@cknow-tech.com>
+To: "Gray Huang" <gray.huang@wesion.com>, <robh@kernel.org>,
+ <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <heiko@sntech.de>
+References: <20260429063712.2150938-1-gray.huang@wesion.com>
+ <20260429063712.2150938-3-gray.huang@wesion.com>
+In-Reply-To: <20260429063712.2150938-3-gray.huang@wesion.com>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260502_032241_636698_759DFDFD 
-X-CRM114-Status: GOOD (  10.00  )
+X-CRM114-CacheID: sfid-20260502_033003_909430_62EDFC5C 
+X-CRM114-Status: GOOD (  14.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,50 +74,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+On Wed Apr 29, 2026 at 8:37 AM CEST, Gray Huang wrote:
+> The Khadas Edge 2L uses an on-board HYM8563 RTC connected to
+> I2C2. Enable it and expose its 32.768kHz clock output so later
+> board-level patches can reference it as the LPO clock source for
+> the AP6275P wireless module.
+>
+> Mark the RTC as a wakeup source as well.
+>
+> Signed-off-by: Gray Huang <gray.huang@wesion.com>
+> ---
+>  .../boot/dts/rockchip/rk3576-khadas-edge-2l.dts     | 13 +++++++++++--
+>  1 file changed, 11 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3576-khadas-edge-2l.dts b/arc=
+h/arm64/boot/dts/rockchip/rk3576-khadas-edge-2l.dts
+> index 5781deae00d9..c85b219fe409 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3576-khadas-edge-2l.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3576-khadas-edge-2l.dts
+> @@ -46,8 +46,6 @@ vcc_2v0_pldo_s3: regulator-vcc-2v0-pldo-s3 {
+>  		regulator-max-microvolt =3D <2000000>;
+>  		vin-supply =3D <&vcc_sys>;
+>  	};
+> -
+> -
+>  };
 
-just a gentle ping
+You're removing unneeded empty lines (good), but you introduced them in
+patch 1 of this series ... thus fix patch 1? That also means you're no
+longer adding an unrelated change in this patch.
 
-do i need to change anything? i wonder why i do not see this series in de=
-vicetree patchwork...
+Cheers,
+  Diederik
+ =20
+>  &cpu_l0 {
+> @@ -431,6 +429,17 @@ regulator-state-mem {
+>  	};
+>  };
+> =20
+> +&i2c2 {
+> +	status =3D "okay";
+> +
+> +	hym8563: hym8563@51 {
+> +		compatible =3D "haoyu,hym8563";
+> +		reg =3D <0x51>;
+> +		#clock-cells =3D <0>;
+> +		clock-output-names =3D "hym8563";
+> +		wakeup-source;
+> +	};
+> +};
+> =20
+>  &sdhci {
+>  	bus-width =3D <8>;
 
-Am 12. April 2026 um 11:23 schrieb "Frank Wunderlich" <linux@fw-web.de ma=
-ilto:linux@fw-web.de?to=3D%22Frank%20Wunderlich%22%20%3Clinux%40fw-web.de=
-%3E >:
->=20
->=20From: Frank Wunderlich <frank-w@public-files.de>
->=20
->=20There are some parts of BPI-R4Pro DTS that need to be changed. Curren=
-tly
-> there should be not much users of the mainline-dts and we noticed some
-> things while openwrt integration.
->=20
->=20v2:
-> - added mgmt port renaming as this patch is still outstanding to keep
->  all in one series
->  https://patchwork.kernel.org/project/linux-mediatek/patch/202603032020=
-06.37515-1-linux@fw-web.de/
-> - dropped default-state in gpio-leds patch as suggested by daniel
->=20
->=20Frank Wunderlich (4):
->  arm64: dts: mediatek: mt7988a-bpi-r4pro: rename mgmt port to lan5
->  arm64: dts: mediatek: mt7988a-bpi-r4pro: drop duplicate fan properties
->  arm64: dts: mediatek: mt7988a-bpi-r4pro: update gpio-leds
->  arm64: dts: mediatek: mt7988a-bpi-r4pro: rework pcie gpio-hog handling
->=20
->=20 arch/arm64/boot/dts/mediatek/Makefile | 8 ++++++++
->  .../mt7988a-bananapi-bpi-r4-pro-cn13.dtso | 20 +++++++++++++++++++
->  .../mt7988a-bananapi-bpi-r4-pro-cn14.dtso | 20 +++++++++++++++++++
->  .../mediatek/mt7988a-bananapi-bpi-r4-pro.dtsi | 15 +++-----------
->  4 files changed, 51 insertions(+), 12 deletions(-)
->  create mode 100644 arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r=
-4-pro-cn13.dtso
->  create mode 100644 arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r=
-4-pro-cn14.dtso
->=20
->=20--=20
->=202.43.0
->=20
-
-regards=20Frank
 
