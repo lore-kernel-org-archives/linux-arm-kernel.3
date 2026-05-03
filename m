@@ -4,82 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B63BCD13DA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 00:11:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A4E8CD13DA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 01:02:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rBbGG49lvszkSs6r+vkoyB+q5ycwyPUBvGTobwqzXCY=; b=zpBSQ/8AR5DWY1Kp522ktPFz1H
-	Jggvg9HFx5nGI+Scl/SpSrO5ljQatHfbIGbFjDwIepzl4BKUUQFP8jUmNBla+XWho2b+0F+Fo09x6
-	kVIHteER72koQXXmWIwpKmkH1OGZHHfbSNWv+lLZW5SWSx6BhAvamiR9HuMCWbtPjzb2/ULlzoEzY
-	zTEBHLid+FUU4n/hcOtcRzmkc5/iUPAI5LcnXlngZx7b7XJ6a2aelHAyxusl98G4RUU1+VcmNw5HP
-	KwPMnq6TSbf1DO6EJb/Z/l8eSb4V64m9lMbYJRZyx6/5jH2a1qb8jzh5YcAq75irVIuXtN4zI4ORz
-	C4tH4CTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BejErdLjcloUq8b5PniyViDnyXSa8nSLqZwJTPcujYs=; b=PnwvJN09CEQDMEnGeRrie5Fns1
+	9AZs6kveW08yeWWaI+ZHe0VZtyhNgfFNLKEsxLD7pwdWeeLuz4m3M+xbHGiOA6+Hk9gV+bAN+kMc5
+	T2Ir8JX27oycevnU77uAZ/1vnzZyKYKdp+ySgDyW18kvVRy7TyLuix3BbIqZ+oNwOi08E+ubFspsi
+	P4O8CtgOlWvvYulR7rj1bJ/p7vwbmBFxAXWN3q7naTcdGtsLG+pbcC/kLeUDVtuhP3yuru7z3WwAy
+	7YMHVv37RB528P2qQN+zLvHNjlSqhBeAbi4fbvzJtb5AG9/LGzSpr1KXAnCF9o9nVbAftxE1wqnOi
+	r4QeJ5Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJKQw-00000009xV7-2vQP;
-	Sun, 03 May 2026 00:11:42 +0000
-Received: from mout-p-102.mailbox.org ([80.241.56.152])
+	id 1wJLDf-0000000A1WD-3Lfd;
+	Sun, 03 May 2026 01:02:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJKQt-00000009xUA-1mlc
+	id 1wJLDd-0000000A1Vd-3mY7
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 May 2026 00:11:40 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4g7QDk6sXSz9tRD;
-	Sun,  3 May 2026 02:11:34 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1777767095;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rBbGG49lvszkSs6r+vkoyB+q5ycwyPUBvGTobwqzXCY=;
-	b=jysqW7jAuDFJrbua8FgWRyjdkmFUEE3iRBd6BzYPCL/hjHNKhq/AgbzZZgkZhOUQDQU+pJ
-	ahFjUj3IB9jL++70DEsokWc+NrPeaVURtK2Z0c/5MAEptyxrW23tDQph3dL7ByjW+WvowP
-	iFQCCEhTJaLnIbsnHaS+ZeRkiRj89a4Cn77U2MlR6Mpd1aK7vfhF85jPwF1zJehov1wKUA
-	0miMQTqWQNhbM6MQCR51Zju7C/4XvZqBeIfVlyN+F8vIDMkoV2wwbAHvIUj8iQ4W7a+z2T
-	zkq1WTNX5jj6xJk5UiRQPtbvDBAv2/Y9PRv4/twjkNg7OaVNI8a6oT3qa7d5sw==
-Message-ID: <7e4283f1-c179-45e4-a8ee-5026e467fd21@mailbox.org>
-Date: Sun, 3 May 2026 02:11:29 +0200
+	Sun, 03 May 2026 01:02:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 15BE743D72;
+	Sun,  3 May 2026 01:02:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD9B7C19425;
+	Sun,  3 May 2026 01:01:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777770120;
+	bh=BejErdLjcloUq8b5PniyViDnyXSa8nSLqZwJTPcujYs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pDysEjuQPcQ7jBSc1PFLCXCQ7pK5ItVVQyrqU8Gyl4viLnzTzP2w4VpjqCHLJKBOz
+	 usCZwjN9TDEfMj+cYa/33gOuSAt5nfamthqjp2AwRw35TvA18BnbXfGLYy1SIVi+Ku
+	 VpWJwmybN+1cdODsbyvSrF+RnXTLNgYjfKVg/rwFv0jz8VagDW4WlBsPMrVvnUQOsk
+	 x0UORuIs/mzc+UZ23N9WOgWRhQIL1pEqmyqwfrplHpTqh2Tj2KvS7aUgLuEY24jKBA
+	 6CeeawTTgroCGO+uJyDnpedMO+hrK0I2xks0sYaSGBYzPCGs8qi6e2RJLzNqaeVHvk
+	 dbgY9KLTOb/dQ==
+Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
+	id 45A1E1AC5865; Sun, 03 May 2026 02:01:57 +0100 (BST)
+Date: Sun, 3 May 2026 10:01:57 +0900
+From: Mark Brown <broonie@kernel.org>
+To: Leonardo Bras <leo.bras@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Saket Dumbre <saket.dumbre@intel.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Chengwen Feng <fengchengwen@huawei.com>,
+	Jonathan Cameron <jic23@kernel.org>, Kees Cook <kees@kernel.org>,
+	=?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	Thomas Huth <thuth@redhat.com>,
+	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Ard Biesheuvel <ardb@kernel.org>, Fuad Tabba <tabba@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Tian Zheng <zhengtian10@huawei.com>,
+	Wei-Lin Chang <weilin.chang@arm.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-acpi@vger.kernel.org, acpica-devel@lists.linux.dev,
+	kvm@vger.kernel.org
+Subject: Re: [PATCH v1 04/12] arm64/sysreg: Add HACDBS consumer and base
+ registers
+Message-ID: <afaehWCHVIN7EXNB@sirena.co.uk>
+References: <20260430111424.3479613-2-leo.bras@arm.com>
+ <20260430111424.3479613-6-leo.bras@arm.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH 6/7] arm64: dts: renesas: r8a779md: Add Renesas R-Car
- R8A779MD M3Le DTs
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: linux-arm-kernel@lists.infradead.org,
- Nguyen Tran <nguyen.tran.pz@bp.renesas.com>,
- Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>,
- Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
- Magnus Damm <magnus.damm@gmail.com>, Maxime Ripard <mripard@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>,
- Simona Vetter <simona@ffwll.ch>, Stephen Boyd <sboyd@kernel.org>,
- Thomas Zimmermann <tzimmermann@suse.de>,
- Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
- devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org,
- Wolfram Sang <wsa+renesas@sang-engineering.com>
-References: <20260419193718.133174-1-marek.vasut+renesas@mailbox.org>
- <20260419193718.133174-7-marek.vasut+renesas@mailbox.org>
- <CAMuHMdV5NRFjGmLLSAFkst=y_v=haZ9_-oiZ7_3M2J1s5jiJSQ@mail.gmail.com>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <CAMuHMdV5NRFjGmLLSAFkst=y_v=haZ9_-oiZ7_3M2J1s5jiJSQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-MBO-RS-ID: 5b19e038c16ec512322
-X-MBO-RS-META: bs89hkih9ipn8s579q3adtcmkkc76bmw
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="WmuCcD5bxYsJvAXW"
+Content-Disposition: inline
+In-Reply-To: <20260430111424.3479613-6-leo.bras@arm.com>
+X-Cookie: 667:
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260502_171139_622616_96B0DCB7 
-X-CRM114-Status: GOOD (  16.63  )
+X-CRM114-CacheID: sfid-20260502_180201_963138_3A4A72DB 
+X-CRM114-Status: GOOD (  10.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,75 +105,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/29/26 2:16 PM, Geert Uytterhoeven wrote:
 
-Hello Geert,
+--WmuCcD5bxYsJvAXW
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-[...]
+On Thu, Apr 30, 2026 at 12:14:08PM +0100, Leonardo Bras wrote:
+> They will be used on a later commit to make use of the FEAT_HACDBS
+> mechanism if available.
 
->> +/delete-node/ &pciec1;
->> +/delete-node/ &sata;
->> +/delete-node/ &sdhi3;
-> 
-> I am not sure disabling sdhi3 is correct.
-> The R-Car M3Le documentation says:
-> 
->     "M3Le does not support MMC1.
->      M3Le supports one MMC channel (MMC0) only.
->      SD3 is used only for SDHI and is not used for MMC.
->      M3Le does not support MMC HS400 class transfer rate."
-> 
-> The main R-Car Gen3 documentation says:
-> 
->     "This LSI has four SD card interfaces (SDHI0 to SDHI3), two of
->      which can also be used as MMC interfaces (SDHI2 and SDHI3)."
-> 
-> So while MMC1 is indeed sdhi3, sdhi3 can still be used in SD mode?
-> Do we need a new compatible value, as R-Car M3Le does not support HS400?
+Checked against DDI0601 2026-03:
 
-I think we do need new compatible string, yes, I'll include that in V2.
+Reviewed-by: Mark Brown <broonie@kernel.org>
 
-We can inhibit MMC support in sdhi3 with 'no-mmc' DT property, which I 
-will also include in V2.
+--WmuCcD5bxYsJvAXW
+Content-Type: application/pgp-signature; name="signature.asc"
 
-[...]
+-----BEGIN PGP SIGNATURE-----
 
->> +/delete-node/ &vin7csi20;
->> +/delete-node/ &xhci0;
-> 
-> Shouldn't the following be disabled, too?
->    - ohci1, ehci1, and usb2_phy1,
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmn2noQACgkQJNaLcl1U
+h9CXzwf/ddnlYC9NFIeWjihBxou3oH5yLLC0aEWsSsEpn4ePUND6BEnFEbPaP+E0
+wbcFjU2eas3oIrx14W0iSIIkalM+8iam+DOyMFcNK22DZotaxwdHuqn1HmsicWN+
+bTSDBTOc0jl0nawI+0FSS00Efpiubnsd1b2vM75E8/nkDujvazEz94P55PRYoR+f
+DSl56OJoOQYDtJOcEGr7TFlY1T/nTMZ9nVO0+i1GCXNeWvSkm0driq2SxrwV6p6a
+s/THx+XOJC9gXNK9yIFDNRUObRZrSA04vIQQiVyi/hR3HZpCs2a3/9+1Axo8qQAh
+MuE6Mv9pzZeGJkoowjc8UJYs95E4aw==
+=vdry
+-----END PGP SIGNATURE-----
 
-Yes, they should.
-
->    - cmm1 and vspd1 (cfr. DU below).
-
-Please see my response to Laurent in here in
-[PATCH 6/7] arm64: dts: renesas: r8a779md: Add Renesas R-Car R8A779MD 
-M3Le DTs
-as well as my response to
-[PATCH 1/7] dt-bindings: display: renesas,du: Document Renesas R-Car 
-R8A779MD M3Le
-
-The CMM1 and VSP1 are actually present, so I think the DT should 
-describe them, even if they are not used. If only to allow the 
-driver(s)to bind to those IPs and bring them to low power state.
-
->> +
->> +&du {
->> +       compatible = "renesas,du-r8a779md";
-> 
-> Assuming the DU needs a new compatible value...
-> 
->> +       renesas,cmms = <&cmm0>, <&cmm3>;
->> +       renesas,vsps = <&vspd0 0>, <&vspd1 0>;
-> 
-> Shouldn't this be
-> 
->      renesas,vsps = <&vspd0 0>, <&vspd0 1>;
-> 
-> ? DU1 is unused, but DU3 is used.
-It should, and will be fixed in V2, thanks !
-
-[...]
+--WmuCcD5bxYsJvAXW--
 
