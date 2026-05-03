@@ -4,96 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09AEACD3424
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 15:01:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01922FF886F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 15:47:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cPdyUCj5zFQG1KGlXkDAzMMroAEruqs+f7PQp/GCZoo=; b=jENWLOLFegkT2XO7eboZ62E+c+
-	7vkdHqSJB7UHVnpDUo/8wgu9XUZs+6M4XpAF7i3GUC9pHor1+B5mxTqbDK/UD8OGBguUc3Jbu/jSd
-	aXwqpJSCJh5PudyikMNDhXwMp/Ju0q3H3aRbGBdxcUJseEvLIaO98lkYvRzRlt8WkhZfWRe5SKRoR
-	XMuXY13IuQ8AVVSVjniR78KNb8iOk35gCnUINw4nIQhGkUA3FfIN6ESRihqtvfD2/QXWFnFk03lXj
-	pP9puFS1aEv1u8gxnCM4TeJeRSFIlYsQU9c8eQTXIoH580Yj4cezpNcJzsIlhIyCcTbevLm4C16EI
-	eKUo8t2w==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fXUtsbdTPP5h/+DpPz67XLTVhEN4uswt4dk5RszFyoI=; b=Pi8laLYMjDL18mwZvJO+gvUdG4
+	wGaOdKQS6n2zx2QiqsKWaxP3qZuoJZthVQF1Uhb4TR5E9pJc6Nhm8aEviOcbHeDngk1lzs3XURxbr
+	hlSF9r5qDHTT1tNxRhFEOKMe5kQ+sBxf8/ggKuqyAuJ3BxBD2mZGLe7yl9+HB/i4eRkwghzB59dkm
+	FvG7Sz9IGQTZKeHIjRkM6ICkkgjihdsNX+Kl5t/y40LN4w01vtB4KFaPfM+gWiVAJ4ZG3ODEBVYSH
+	BkkvDwas/Wf/ET1VNFdn9sa0XqsEKiaohUnApI5Dou8B4AQnRnKF3NAbErZqY1PlPldFgCVzbaPlS
+	Sarr41rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJYJm-0000000BAXR-1lNH;
-	Sun, 03 May 2026 15:01:14 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1wJZ2B-0000000BElm-3p4A;
+	Sun, 03 May 2026 15:47:07 +0000
+Received: from m16.mail.163.com ([220.197.31.2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJYJk-0000000BAX1-252q
+	id 1wJZ28-0000000BEkD-3Hf1
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 May 2026 15:01:13 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-82fa8d6425bso1426262b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 03 May 2026 08:01:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777820471; x=1778425271; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=cPdyUCj5zFQG1KGlXkDAzMMroAEruqs+f7PQp/GCZoo=;
-        b=iHLJWjCSKfYvjRMPKmUXyUaELrDzOKDIdwqx1rHraOZlK46U6I6tXkGrBx8qgX7ss4
-         r09C0gu/p0+maqj2C2KM24BeWr3f4i8nKE3R/ovAOiQ7iqNcffGERJGBCoahrVkCqPx4
-         E9mIJhwddts7yAOLEY4ODA5NHrxlTlGH427TaXgLCc39oVn4v4BXJuFLlYcM+N9pqueg
-         tQfZ3uHWCuMNkZzdmbrdI3O+D8kCPXIlsUgFHqtH2JGq6gHb5sz7HyPvzMPGnllFFs/j
-         HObDHgicoWxbhSs9Y65u0m+/ocSFpYzKnKJ+BXlOEHne4AUHdyaY/2UMfF65yupj7/9G
-         Qsdw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777820471; x=1778425271;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cPdyUCj5zFQG1KGlXkDAzMMroAEruqs+f7PQp/GCZoo=;
-        b=nwN3spXur+YBx+sqOyiZ8iFOrzBZkjmKDzNLEzybA0/X3IvuSMRGsrIItYgvZ+ITQe
-         fakky8ddRrnABIPZpp7N0O1fGu/wUGhODSkwfBDX4AQHJcAjAFTm8eZT1fhJkQd+JfMV
-         GeVJV0CKeSVvvjYvE+RqZnNfNmpYr1GAN7/3IzAY3vO7QDNSCKBplButnRO2ZYvmVGdL
-         KSuQ1chIRa2SU3K4Qn/dnApz+0+5PA6ov2NkApI652dY60REZcVQVLvbFE9F6L5xE8pk
-         OR9k0b6xzorVCHSjr1QtbkpkWqvAG8yKlhDMP1SRpqNEflMJqC6C1H0kd3FeIb3gaf3Q
-         Us6g==
-X-Forwarded-Encrypted: i=1; AFNElJ8r4btRsNCfyU3T1CJ0HXIYVTTk+OIM+ZjlYeLzc+APe+xGFG0zX272ZkYbAoPcgwyl3hCw28AykSf59Oirs2g0@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy67t1akzBT+kQBtzCjZ/gW0ZOoqLo8MRgOufqaOh4lRm4DeaXf
-	ZXuBlS3S1HN2cjG0u9hJMbwe8KYC/DhC9dL7jm9vFy0/l5R+DvDlkUNl
-X-Gm-Gg: AeBDiesuzZSOaCK81DPZQ2Lw3kKKjNUb5vkJTN2FPjRS6ZvdrebnABDdFnDAEKYiixn
-	eeIx7y2j7yT1JejBg7VOsW9BrT/xqczP51OdxndYdDUf6KzUak0GpP7HGKOg9NZLZqX0guNDnSK
-	DmxLkuJ6tfd6OWY0vhRXmLhBlMorOtVwbT242WU+97nMWXQTiXulrwj+B6JeyLh5MuIhmyc5NNc
-	tx/9NHjiicHPHWTRp0uBEY+O7mDnj8brA/Xb1+GIupNZqe72U0BzdBevBTKQ90uSdDFelx4uzlF
-	OWVN0uGuqPb3JpqZX6dZae3U5iRAJmIDwozp/2UsP5KDpw7cAMsG42tVqFNTZ5M6WsyoQSwlkH9
-	GMSPWr+e8sdM9OW64k1HT+sARbmtwKXoT26GskHoIDhlOPwHSYu2NE7CUN8i3Hm/b2NMI/ukrJ8
-	Qq/bm2VBR18uV6nY2izMv4brArSLP1fShSWfrKxbCaQslUzGJp5pM4RptGuA1+A8/gP7XKHIDzg
-	3YCqScyPXPnMtodrTOMyB5GlKGOGECe+g==
-X-Received: by 2002:aa7:8b48:0:b0:835:6bdf:c886 with SMTP id d2e1a72fcca58-8356bdfd657mr1415743b3a.7.1777820470787;
-        Sun, 03 May 2026 08:01:10 -0700 (PDT)
-Received: from shyam-VMware-Virtual-Platform.localdomain ([223.181.115.140])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8351582dc36sm9699387b3a.6.2026.05.03.08.01.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 03 May 2026 08:01:10 -0700 (PDT)
-From: Shyam Sunder Reddy Padira <shyamsunderreddypadira@gmail.com>
-To: slongerbeam@gmail.com,
-	p.zabel@pengutronix.de,
-	mchehab@kernel.org,
-	gregkh@linuxfoundation.org,
-	s.hauer@pengutronix.de
-Cc: Frank.Li@nxp.com,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	imx@lists.linux.dev,
-	linux-media@vger.kernel.org,
-	linux-staging@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Shyam Sunder Reddy Padira <shyamsunderreddypadira@gmail.com>
-Subject: [PATCH] staging: media: imx: remove unnecessary out-of-memory error message
-Date: Sun,  3 May 2026 20:30:26 +0530
-Message-ID: <20260503150027.107173-1-shyamsunderreddypadira@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Sun, 03 May 2026 15:47:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
+	Content-Type; bh=fXUtsbdTPP5h/+DpPz67XLTVhEN4uswt4dk5RszFyoI=;
+	b=Wo6wpdMa+HLX/r39LtIQRrsokF3uTK2oo8O9FhfIBfa9DheuEttE8m7XQhwngw
+	mcssaFbGpDwse1hOneoPV6eBOaVyEHNcIY3m2r39kem8AWWm2bDDiYEhQrIT88O5
+	vYdHUXndAI9XwCnr9+7UB89NifgqU6uKPV5OnKp8n0Emg=
+Received: from [IPV6:240e:b8f:927e:5900:ed20:7e7a:6456:3b2c] (unknown [])
+	by gzsmtp3 (Coremail) with SMTP id PigvCgBXxffWbfdp1t+hCA--.253S2;
+	Sun, 03 May 2026 23:46:33 +0800 (CST)
+Message-ID: <699bd359-7389-45fa-a79b-10046f73bf12@163.com>
+Date: Sun, 3 May 2026 23:46:33 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] PCI: cadence: Ensure that
+ cdns_pcie_host_wait_for_link() waits 100 ms after link up
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
+ mani@kernel.org, vigneshr@ti.com, robh@kernel.org,
+ linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260501153553.66382-1-18255117159@163.com>
+ <20260501153553.66382-2-18255117159@163.com>
+ <4ce9f13a-b17f-4149-ade8-57519f4a4752@ti.com>
+Content-Language: en-US
+From: Hans Zhang <18255117159@163.com>
+In-Reply-To: <4ce9f13a-b17f-4149-ade8-57519f4a4752@ti.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: PigvCgBXxffWbfdp1t+hCA--.253S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxKFy5GryDJw1xXr4kCF1UAwb_yoW7XF15pa
+	yUWFyxKF4IqrWYva1kA3W7ZryaqF95Aa47Gw4kKa4xArnrArWUtFsFgF13WrZIgr4qvr17
+	Zw1jqF9rGF1avFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UOYFZUUUUU=
+X-Originating-IP: [240e:b8f:927e:5900:ed20:7e7a:6456:3b2c]
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCxBnpjWn3bdnkZQAA3S
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260503_080112_561762_3508BCC5 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260503_084705_203984_2A1EBAB0 
+X-CRM114-Status: GOOD (  26.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,35 +79,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove dev_err() call after dma_alloc_coherent() failure.
 
-checkpatch.pl reports this as an unnecessary out-of-memory
-message because failure is already conveyed by returning
--ENOMEM, and the current message does not provide additional
-useful debugging information.
 
-Signed-off-by: Shyam Sunder Reddy Padira <shyamsunderreddypadira@gmail.com>
----
- drivers/staging/media/imx/imx-media-utils.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+On 5/2/26 13:18, Siddharth Vadapalli wrote:
+> On 01/05/26 21:05, Hans Zhang wrote:
+>> As per PCIe r6.0, sec 6.6.1, a Downstream Port that supports Link speeds
+>> greater than 5.0 GT/s, software must wait a minimum of 100 ms after Link
+>> training completes before sending a Configuration Request.
+>>
+>> Add a new 'max_link_speed' field in struct cdns_pcie to record the
+>> maximum supported (or currently configured) link speed of the controller.
+>>
+>> In cdns_pcie_host_wait_for_link(), after the link is reported as up,
+>> insert a 100 ms delay if max_link_speed > 2 (i.e., > 5 GT/s). This
+>> implements the required delay at the common Cadence host layer.
+>>
+>> Currently max_link_speed is zero-initialized, so the delay is not yet
+>> active. Glue drivers must set max_link_speed appropriately to enable
+>> the delay. This matches the approach taken for the Synopsys DWC
+>> controller in commit 80dc18a0cba8d ("PCI: dwc: Ensure that
+>> dw_pcie_wait_for_link() waits 100 ms after link up").
+>>
+>> Signed-off-by: Hans Zhang <18255117159@163.com>
+>> ---
+>>   .../pci/controller/cadence/pcie-cadence-host-common.c    | 9 +++++++++
+>>   drivers/pci/controller/cadence/pcie-cadence.h            | 2 ++
+>>   2 files changed, 11 insertions(+)
+>>
+>> diff --git a/drivers/pci/controller/cadence/pcie-cadence-host-common.c 
+>> b/drivers/pci/controller/cadence/pcie-cadence-host-common.c
+>> index 2b0211870f02..d4ae762f423f 100644
+>> --- a/drivers/pci/controller/cadence/pcie-cadence-host-common.c
+>> +++ b/drivers/pci/controller/cadence/pcie-cadence-host-common.c
+>> @@ -14,6 +14,7 @@
+>>   #include "pcie-cadence.h"
+>>   #include "pcie-cadence-host-common.h"
+>> +#include "../../pci.h"
+>>   #define LINK_RETRAIN_TIMEOUT HZ
+>> @@ -55,6 +56,14 @@ int cdns_pcie_host_wait_for_link(struct cdns_pcie 
+>> *pcie,
+>>       /* Check if the link is up or not */
+>>       for (retries = 0; retries < LINK_WAIT_MAX_RETRIES; retries++) {
+>>           if (pcie_link_up(pcie)) {
+>> +            /*
+>> +             * As per PCIe r6.0, sec 6.6.1, a Downstream Port that
+>> +             * supports Link speeds greater than 5.0 GT/s, software
+>> +             * must wait a minimum of 100 ms after Link training
+>> +             * completes before sending a Configuration Request.
+>> +             */
+>> +            if (pcie->max_link_speed > 2)
+>> +                msleep(PCIE_RESET_CONFIG_WAIT_MS);
+> 
+> I think the above could be moved to cdns_pcie_host_start_link() as follows:
+> 
+> diff --git a/drivers/pci/controller/cadence/pcie-cadence-host-common.c 
+> b/drivers/pci/controller/cadence/pcie-cadence-host-common.c
+> index 2b0211870f02..0f885dcbdb12 100644
+> --- a/drivers/pci/controller/cadence/pcie-cadence-host-common.c
+> +++ b/drivers/pci/controller/cadence/pcie-cadence-host-common.c
+> @@ -115,6 +115,15 @@ int cdns_pcie_host_start_link(struct cdns_pcie_rc *rc,
+>       if (!ret && rc->quirk_retrain_flag)
+>           ret = cdns_pcie_retrain(pcie, pcie_link_up);
+> 
+> +    /*
+> +     * As per PCIe r6.0, sec 6.6.1, a Downstream Port that
+> +     * supports Link speeds greater than 5.0 GT/s, software
+> +     * must wait a minimum of 100 ms after Link training
+> +     * completes before sending a Configuration Request.
+> +     */
+> +    if (!ret && pcie->max_link_speed > 2)
+> +        msleep(PCIE_RESET_CONFIG_WAIT_MS);
+> +
+>       return ret;
+>   }
+>   EXPORT_SYMBOL_GPL(cdns_pcie_host_start_link);
+> 
+> This will avoid an additional and unnecessary delay when 
+> 'cdns_pcie_retrain()' retrains the link.
+> 
+> Instead of checking for the link being up using "pcie_link_up(pcie)", 
+> checking for 'ret' being zero should also work (ret being zero indicates 
+> that the link is up).
+> 
+> Since configuration space accesses will not be performed until 
+> cdns_pcie_host_start_link() completes executing, it should be safe to 
+> switch to the above implementation.
 
-diff --git a/drivers/staging/media/imx/imx-media-utils.c b/drivers/staging/media/imx/imx-media-utils.c
-index 1b5af8945e6b..85b63993ef28 100644
---- a/drivers/staging/media/imx/imx-media-utils.c
-+++ b/drivers/staging/media/imx/imx-media-utils.c
-@@ -589,10 +589,8 @@ int imx_media_alloc_dma_buf(struct device *dev,
- 	buf->len = PAGE_ALIGN(size);
- 	buf->virt = dma_alloc_coherent(dev, buf->len, &buf->phys,
- 				       GFP_DMA | GFP_KERNEL);
--	if (!buf->virt) {
--		dev_err(dev, "%s: failed\n", __func__);
-+	if (!buf->virt)
- 		return -ENOMEM;
--	}
- 
- 	return 0;
- }
--- 
-2.43.0
+Hi Siddharth,
+
+I think this is applicable to LGA IP as per the method you mentioned. 
+However, for HPA IP, additional repetitive code needs to be added in the 
+following code.
+
+Regarding the "quirk_retrain_flag" tag, I reviewed this submission 
+record and it appears to be a workaround method. Can it be considered 
+that it is not a universal method? Or is the same processing logic also 
+added in the HPA?
+
+diff --git a/drivers/pci/controller/cadence/pcie-cadence-host-hpa.c 
+b/drivers/pci/controller/cadence/pcie-cadence-host-hpa.c
+index 0f540bed58e8..65159f52067d 100644
+--- a/drivers/pci/controller/cadence/pcie-cadence-host-hpa.c
++++ b/drivers/pci/controller/cadence/pcie-cadence-host-hpa.c
+@@ -305,6 +305,15 @@ int cdns_pcie_hpa_host_link_setup(struct 
+cdns_pcie_rc *rc)
+         if (ret)
+                 dev_dbg(dev, "PCIe link never came up\n");
+
++       /*
++        * As per PCIe r6.0, sec 6.6.1, a Downstream Port that
++        * supports Link speeds greater than 5.0 GT/s, software
++        * must wait a minimum of 100 ms after Link training
++        * completes before sending a Configuration Request.
++        */
++       if (pcie->max_link_speed > 2)
++               msleep(PCIE_RESET_CONFIG_WAIT_MS);
++
+         return ret;
+  }
+  EXPORT_SYMBOL_GPL(cdns_pcie_hpa_host_link_setup);
+
+Best regards,
+Hans
+> 
+> 
+>>               dev_info(dev, "Link up\n");
+>>               return 0;
+>>           }
+> 
+> [TRIMMED]
+> 
+> Regards,
+> Siddharth.
 
 
