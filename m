@@ -4,82 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44611CD3424
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 19:56:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 141F5CD3424
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 20:12:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7bhFmIB4GpwZzfLoiO6pcKAFE9QNelEpmmS09GV+5aw=; b=PexJUJ1S0ynGsvUkI2EAwNPInB
-	6ZPB150k3Z4PPsEFntJKekH+ohPDaHTYcC4X39ZN0vM0L2QdZcmOxTiMxOAhRbVAvkB7/D6DqvVa7
-	N9E609+oNuxTzCxBqUnm6K/rUp089QxyJL5g7gBhXuB1o3yZQnfp0ZpvjT6taWV+ggTcN28JStiTY
-	6O6WAoaM9xS07ElYgu37qFKQwTZPC/p9FhPIdOK/ewxwxmgwF9sYoJkByUthQeJYF8Q981MsLUyC3
-	5aNV4fRir6zcDQroXZ6k6rqfipn2CQspVj9i++iws5bgLo0PLYF8kn43/sOoxryGjd8iGoevimpyB
-	+maTxQaw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RbGHm08BxGQD7aCQOyLWw7aVLNNFoqSYxYwfTxucUlU=; b=yKOi5LMhh9K4gQJJe38UckhZ5Y
+	n1LLHNVz9QBO7z3TppqeGC029RqBmGwSoJyqIPkZe62Arm/thuEH5LUDy3cuqLR8DmTfbODpPFXZH
+	uJBbhlyV/1gClfIhIxdztaC5/zayMrd5ZDDpP81n2EIDmg3YAmQDXEWLDrXrj5yScgTyH1nyZ5e37
+	yYwJFeI1MBX8nwJ0Nr0IF0o4ikF2ZFEQ53VJnM4yMpY+/lwn69Pr6FceV+gHdXOpz1iHSyh/ZjIP8
+	Y1K4/83Rp+LXQVk7vUCFNv6Nn3U/XBgrP92u7XvlopfxenoCT13wqwjAVfB9zdiDjRribF5yXm+bj
+	GQ8S/gew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJcv2-0000000Bcsv-3CFI;
-	Sun, 03 May 2026 19:56:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wJdBC-0000000BePY-2l20;
+	Sun, 03 May 2026 20:12:42 +0000
+Received: from mail-ot1-x332.google.com ([2607:f8b0:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJcuz-0000000Bcs0-2qtW
+	id 1wJdBA-0000000BeOy-0VYC
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 May 2026 19:55:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1E2324448D
-	for <linux-arm-kernel@lists.infradead.org>; Sun,  3 May 2026 19:55:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04621C2BCC9
-	for <linux-arm-kernel@lists.infradead.org>; Sun,  3 May 2026 19:55:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777838156;
-	bh=q0YQtTiiL7ieGdsHU5xDXtyCdqIQKThOK+46A5C32Gs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Cj6v3ho8XQfyMkc2mcbVYz5gbjtO6TpIKfVRIfx39fBfRxlPpTTlEioyCOLKq/Bgy
-	 syEeMHuA96cCtRmE0eK4D+1G69rilMXnWX9kM7MhwI3jo7W9szhkO9KRqgHk8t3NpG
-	 Sk3ZsOqt3RVBSj0Ov1H0qqwVAM+QK5+tAsEylWo4xrOIvCwv5U7sQEbhIRuIemVE/4
-	 YwF1wNxPmlb9Q6Qfxa4ZU5G6rDjOzJvG9Q8TiEcXSO8/EKWQxQ3yEG6s0RNjENWTrl
-	 L3LcL6LYySHyCYYSkVHdPFUFAA06rWJJ1VpOBGHtiUfRaNjo+7z55NRH/ZW13KhGO3
-	 ukBw+8sSdtS7w==
-Received: by mail-qk1-f180.google.com with SMTP id af79cd13be357-8d4f78fc9f6so384486985a.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 03 May 2026 12:55:55 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ8FWPuxREpfzEVjwcS5JoidoPcRD/StzvJLwn6qzsYtCJMOhaYlAx6XM3zr1iDhYSTXAxLRoFKBfV1QAOdrKDBb@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/KFpFjWsze68zwicKYlLrjn1k52oDMU7KHojKPeNXwTYAUjyU
-	b+j3ABjEe3zs8g7+QF473tv88PjDQ9XH8OhtK/x+0SjDyl3GQzXkNoJk0RjUfSJv2RpUIij5zRg
-	f3Af3DjZOLtqUbkHZBBrP7SoHI/tKkAc=
-X-Received: by 2002:a05:620a:4706:b0:8ee:f390:8f85 with SMTP id
- af79cd13be357-8fd154fbfdemr1048725085a.3.1777838154653; Sun, 03 May 2026
- 12:55:54 -0700 (PDT)
+	Sun, 03 May 2026 20:12:41 +0000
+Received: by mail-ot1-x332.google.com with SMTP id 46e09a7af769-7de431da8fbso3206392a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 03 May 2026 13:12:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1777839158; x=1778443958; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=RbGHm08BxGQD7aCQOyLWw7aVLNNFoqSYxYwfTxucUlU=;
+        b=bTfSMnTnSo2C51nMYMwWSsKMNPlRpTXIcAd6cthSMu1HgAJoh/TlJzwARhPTQdhnJS
+         pa79gzoRwtHymJ6QnJs32sIoPLJQXLf50ewNCnQgcN1JDwZzXgFtxGwsIyzNcSnfGPrB
+         1yHKihJnzuF6Wze0JhLmWjRigrNpgLXBgfl1LOXYGdPCF/q87CrUBwkUzvnerBuYzuHP
+         n85blFS8ZLNLLA7zcpPU1zjJfE5/0YkV4pjZ//ji75xnDHraZEcipd4v6FNXcRBZSJgc
+         Jk6YQYJeO7QMRqpy3/rt/8tzr3639l5Zo8O+F86pBj6Z5RuMYkf1WIgNQE/YSul2cDQE
+         wiLA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777839158; x=1778443958;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RbGHm08BxGQD7aCQOyLWw7aVLNNFoqSYxYwfTxucUlU=;
+        b=iZ0YwaBotb8U8nFX/6+5AWHHU+53i2AsYqH+EBDnIo55ZuZ33HzjyS3sQT5/tpd91x
+         F4WJbkt0V5XpvEA2IYibqdd9UbSzKTzAyPIRtnYaIZY+mMAsvWhNtBCKh6XfuFOSJx1g
+         jMJapJ2wu82N3AQVAVgqTKKg4A6Fh3NSBm/TjbNEcHK/RLL5F6NhpMbk2m/ZJS2ofRXH
+         XDkAlw50ahHLTST6JPqfYjXqhOYsAksDkfhPuY76ssx7XoOIGR48LTElOZqbIrdYDi7d
+         I2sxISF3IJCvuVMJX9WJgk/3CG8vGKcMq98xPDyM1dL8UTxQsH4EJDoMa7uSTKL+no1d
+         51lg==
+X-Gm-Message-State: AOJu0Yzkjc1eeRFWzAvN4PDCILQcAv/7bgpqDVCSGmZ/15Ap1RJiuiND
+	4fBNp5KDmKupL4YtW/hRcWqXoi22BgqrE5PMtS65Lfi16VMqw2g+XOb7bT0pLhU5
+X-Gm-Gg: AeBDiet1QNKiDDtdodUhWkaMdx6sWpa+dpm+JjGGNyaexN832hj7UEEuC+7afo4W6BY
+	AC/JWwGZRoRkmvj9pxfp/ONgfzU7/JYyjC6TLIYcZlcQHf2BGTooyIh2bfsYZjvKvFfhLj5OX2A
+	JOX1ZN40Qy2/nabrd6+WW2xbKN5st122ipXYWxM+n8mGLmH2XEuQK8qbRjX/fVRhH2RkQuFEXia
+	HTbl2JFCkBmh8Rfp3cAGeA7MOvoH9TGe9P5bp5IfXiOOBIgrDDgZs5bY7fPH4JgiEJub5hJhc/Y
+	lDzd1qOFIeGE3IUacmZ7cCmueMP4pho68kISwJ5emdEylCcgVHh5rcTM1Q9KQ0L5dVAt2AP1WT1
+	gSBmhE3rmUWJ0xQZ1LzMKJbsbVrtgkmcqZ59HKmGgO/rvOWsS6HJWwhg8ptJT6lz7RfD9q1FiV4
+	uKTCm+w0XFznnRBphNAugdQahvtk9mWakc7CZdQtKFhIxYOYggUgs7mb6uFBLM5lJZrNxv
+X-Received: by 2002:a4a:e90b:0:b0:68a:af54:cb61 with SMTP id 006d021491bc7-69697e1852cmr3063891eaf.60.1777839158605;
+        Sun, 03 May 2026 13:12:38 -0700 (PDT)
+Received: from linuxescape.lan (23-88-128-2.fttp.usinternet.com. [23.88.128.2])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6968947934esm5194328eaf.8.2026.05.03.13.12.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 03 May 2026 13:12:38 -0700 (PDT)
+From: Maxwell Doose <m32285159@gmail.com>
+To: linusw@kernel.org,
+	alexandre.belloni@bootlin.com
+Cc: linux-arm-kernel@lists.infradead.org (moderated list:ARM/NOMADIK/Ux500 ARCHITECTURES),
+	linux-rtc@vger.kernel.org (open list:REAL TIME CLOCK (RTC) SUBSYSTEM),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH RESEND] rtc: ab8500: replace sprintf() with sysfs_emit()
+Date: Sun,  3 May 2026 15:12:36 -0500
+Message-ID: <20260503201236.29685-1-m32285159@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-References: <20260430040427.4672-1-baohua@kernel.org> <afNM-gIqxpyJ6ro7@casper.infradead.org>
- <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
- <afS_L-5XeWIldTXA@casper.infradead.org> <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
- <afTpoL3FklpQZNMM@casper.infradead.org> <yezmezj26xntushmylductlmytfgvwsnbnzlhffkfwugfxkt6m@gleq22spziyk>
-In-Reply-To: <yezmezj26xntushmylductlmytfgvwsnbnzlhffkfwugfxkt6m@gleq22spziyk>
-From: Barry Song <baohua@kernel.org>
-Date: Mon, 4 May 2026 03:55:43 +0800
-X-Gmail-Original-Message-ID: <CAGsJ_4y8JtCxEy9hVxVd8eaf8D9WC8BcRQp9afUVu=FJA1-awA@mail.gmail.com>
-X-Gm-Features: AVHnY4Ib9xDIPW1tJ1arRI_zR4ugsASIRuQ44tzF-c_n00UjvUcn8YpRrQawfp8
-Message-ID: <CAGsJ_4y8JtCxEy9hVxVd8eaf8D9WC8BcRQp9afUVu=FJA1-awA@mail.gmail.com>
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-To: Jan Kara <jack@suse.cz>
-Cc: Matthew Wilcox <willy@infradead.org>, akpm@linux-foundation.org, linux-mm@kvack.org, 
-	david@kernel.org, ljs@kernel.org, liam@infradead.org, vbabka@kernel.org, 
-	rppt@kernel.org, surenb@google.com, mhocko@suse.com, pfalcato@suse.de, 
-	wanglian@kylinos.cn, chentao@kylinos.cn, lianux.mm@gmail.com, 
-	kunwu.chan@gmail.com, liyangouwen1@oppo.com, chrisl@kernel.org, 
-	kasong@tencent.com, shikemeng@huaweicloud.com, nphamcs@gmail.com, 
-	bhe@redhat.com, youngjun.park@lge.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260503_125557_768470_C1C6ECF7 
-X-CRM114-Status: GOOD (  33.88  )
+X-CRM114-CacheID: sfid-20260503_131240_188747_E78DE0A1 
+X-CRM114-Status: GOOD (  11.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,97 +96,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 4, 2026 at 2:17=E2=80=AFAM Jan Kara <jack@suse.cz> wrote:
->
-> On Fri 01-05-26 18:57:52, Matthew Wilcox wrote:
-> > On Sat, May 02, 2026 at 01:44:34AM +0800, Barry Song wrote:
-> > > On Fri, May 1, 2026 at 10:57=E2=80=AFPM Matthew Wilcox <willy@infrade=
-ad.org> wrote:
-> > > >
-> > > > On Fri, May 01, 2026 at 06:49:58AM +0800, Barry Song wrote:
-> > > > > 1. There is no deterministic latency for I/O completion. It depen=
-ds on
-> > > > > both the hardware and the software stack (bio/request queues and =
-the
-> > > > > block scheduler). Sometimes the latency is short; at other times =
-it can
-> > > > > be quite long. In such cases, a high-priority thread performing o=
-perations
-> > > > > such as mprotect, unmap, prctl_set_vma, or madvise may be forced =
-to wait
-> > > > > for an unpredictable amount of time.
-> > > >
-> > > > But does that actually happen?  I find it hard to believe that thre=
-ad A
-> > > > unmaps a VMA while thread B is in the middle of taking a page fault=
- in
-> > > > that same VMA.  mprotect() and madvise() are more likely to happen,=
- but
-> > > > it still seems really unlikely to me.
-> > >
-> > > It doesn=E2=80=99t have to involve unmapping or applying mprotect to
-> > > the entire VMA=E2=80=94just a portion of it is sufficient.
-> >
-> > Yes, but that still fails to answer "does this actually happen".  How m=
-uch
-> > performance is all this complexity in the page fault handler buying us?
-> > If you don't answer this question, I'm just going to go in and rip it
-> > all out.
->
-> I fully agree with you we should verify whether the retry code still brin=
-gs
-> in real-world advantage today with VMA locks. After all the retry logic h=
-as
-> been introduced in 2010. That being said if there are realistic loads whe=
-re
-> one thread needs VMA write lock while another thread is faulting the VMA,
-> then the latencies can be indeed extreme. For example things like cgroup =
-IO
-> throttling happen on the IO path and thus can throttle IO of a low-priori=
-ty
-> thread for a long time.
+This patch replaces sprintf() with sysfs_emit() to ensure proper
+bounds checking. It also simplifies the return logic by directly
+returning the error after logging, instead of logging, calling
+sprintf(), then returning.
 
-I=E2=80=99m quite sure that swap-in and VMA writes can occur
-concurrently, and this is fairly common. For example,
-Java GC may use mprotect or userfaultfd on a small
-portion of a large Java heap while other portions are
-still under do_swap_page().
+Reviewed-by: Linus Walleij <linusw@kernel.org>
+Signed-off-by: Maxwell Doose <m32285159@gmail.com>
+---
+ note 1: original patch can be found here:
+ https://lore.kernel.org/linux-rtc/CAD++jLkQD_ZSFPGrx4uL+ezrR1Ai2ddUF9_PpesDG+AEwiDrag@mail.gmail.com/T/#t
 
-If we start exploring different approaches for anon and
-file, I agree I can revisit this on an Android phone if
-there is a real, serious case where a file VMA can be
-written and a page fault occurs at the same time.
+ note 2: I rebased this on to v7.1-rc1 to make sure there wouldn't be
+ any merge conflicts.
 
-Please note that, as an Android developer, I am particularly
-cautious about priority inversion. A recent issue causing
-severe priority inversion is zram attempting to support
-preemption[1]. When a task performing compression or
-decompression is migrated to another CPU and then preempted
-by other tasks, high-priority tasks waiting on the mutex may
-be significantly delayed, impacting user experience.
+ drivers/rtc/rtc-ab8500.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
->
-> BTW I'm not sure I quite understand Barry's priority inversion problem
-> since I'd expect all threads of a task to generally be treated with the
-> same priority...
+diff --git a/drivers/rtc/rtc-ab8500.c b/drivers/rtc/rtc-ab8500.c
+index ed2b6b8bb3bf..c6147837f957 100644
+--- a/drivers/rtc/rtc-ab8500.c
++++ b/drivers/rtc/rtc-ab8500.c
+@@ -284,11 +284,10 @@ static ssize_t ab8500_sysfs_show_rtc_calibration(struct device *dev,
+ 	retval = ab8500_rtc_get_calibration(dev, &calibration);
+ 	if (retval < 0) {
+ 		dev_err(dev, "Failed to read RTC calibration attribute\n");
+-		sprintf(buf, "0\n");
+ 		return retval;
+ 	}
+ 
+-	return sprintf(buf, "%d\n", calibration);
++	return sysfs_emit(buf, "%d\n", calibration);
+ }
+ 
+ static DEVICE_ATTR(rtc_calibration, S_IRUGO | S_IWUSR,
 
-Exactly not. Maybe these slides[2] and this project[3] can give
-you a hint=E2=80=94they aim to standardize things on Linux by
-learning from Apple OS. Basically, tasks are classified
-into five types:
+base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
+-- 
+2.54.0
 
-USER_INTERACTIVE: Requires immediate response.
-USER_INITIATED: Tolerates a short delay, but must respond quickly still.
-UTILITY: Tolerates long delays, but not prolonged ones.
-BACKGROUND: Doesn=E2=80=99t mind prolonged delays.
-DEFAULT: System default behavior.
-
-[1] https://lore.kernel.org/linux-mm/20250303022425.285971-3-senozhatsky@ch=
-romium.org/
-[2] https://lpc.events/event/19/contributions/2089/attachments/1797/3877/Us=
-erspace%20Assisted%20Scheduling%20via%20Sched%20QoS.pdf
-[3] https://lore.kernel.org/lkml/20260415000910.2h5misvwc45bdumu@airbuntu/
-
-Thanks
-Barry
 
