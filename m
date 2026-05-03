@@ -4,121 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D14DFCD3426
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 11:37:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BD6CCD3426
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 12:23:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
-	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JeO9wpJmE2rZ4RmHVIraoaQUKxeV+2cdGG9sRb8QKPk=; b=Gka3sBjB+V99BUqnVJBMYHW9Z9
-	bgPlVuEqo2bkJUbiQ3BQgNgCIHLbA2+eSv5J30asY0sa06SbvC9Lkuh4fwriGTofvG06jhPgCq/lB
-	CYF9hcEsqBtZIhReEqdt5Nf/355EX5UJu0GlV5VgjT0tOHXcPjbNLCudHXYdzoN2mW1/0Zq2gm5sR
-	5wSUBGfid6c7+RllYw/FHvr/XWH92jC9HL47tXI5mQghwma62OpBPr2QGX3AbcqEGbebeP7mMYtHT
-	YKUaCkZ7hjXUYzyXJQSAzpr44S0NwrmMNC7GneGN7J+YbDyIFcRn4WsLZ3aHFl/bCHW9TDIUsTFcl
-	J2++2kbg==;
+	bh=/DSk9Drmpcj1ibuCBNpctPjtz0meSarAig7cdbcFQA4=; b=eu4yy2B6+dRB2nBU1k1C6G+ziQ
+	phGUmAbQehyo3+mBwNWTLn/2/SKumTeo4Ph94W7Yi4IjMGR8RZZVsl3Dkwjvm/A4Cm7a10B4PFoL/
+	aRKdVINY0xUOC+lVl66SA8lZi+zzc/+WaDFsmSWJaIgRNKPukCjUkDsfcYGtiAyN+3kob4Cj8tXip
+	kfj+wNJRioMkUr331lDgvhCou2lmwrVUDxXCM5Hn4f0GsD7fv+nek0Eoo2UIwx+nsztEDB6P6QCsC
+	HBX1fUPU9qT+yTNee1Ym08gc95EAQM0umZwDKjCjfkKQdKN9CfWXXhDLF5pATf8FvE0rZzpb6SnXm
+	o3Lflzlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJV8W-0000000Atko-4BBC;
-	Sun, 03 May 2026 11:37:25 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wJVqf-0000000AxLO-2mtj;
+	Sun, 03 May 2026 12:23:01 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJV8T-0000000AtkE-1J84
+	id 1wJVqe-0000000AxL2-0bzR
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 May 2026 11:37:23 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6435qZtq755481;
-	Sun, 3 May 2026 11:36:55 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=JeO9wp
-	JmE2rZ4RmHVIraoaQUKxeV+2cdGG9sRb8QKPk=; b=gLU4/IMNiuNZiXIdXT6BrU
-	JaO28btmajScC6x+90eRjEKWFv2bGhKX3ADZ9GXGTPJKAsJDuvrPdSkxCCXgRu65
-	cjonIBFxNrcutM9K/RbIls2TTkDN83Mp46AuSfMArtqDVxKNp4iVEhNsL/41nBHP
-	JJtC1V+L8F9cIb1x4LjCp3P7zjQWCTJ9x7PTYPHCpbdosNtRDX5cukyRIEjJM1RK
-	RWzXs+VXY8NprHV/MY3lSfQ3IYXzWYfg6m/0UJoYtzYqrH2VIERjP22Lo5i9Bl1j
-	CIwPTVLPm9VOlNTbbpTrA66nXRfV+dRW0nMrCEt8ssfND5HGDgnd8LLLQQvQMuAw
-	==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dw9y13js7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sun, 03 May 2026 11:36:54 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 643BOhpg001570;
-	Sun, 3 May 2026 11:36:53 GMT
-Received: from smtprelay03.dal12v.mail.ibm.com ([172.16.1.5])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4dww3gs8pd-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sun, 03 May 2026 11:36:53 +0000 (GMT)
-Received: from smtpav05.dal12v.mail.ibm.com (smtpav05.dal12v.mail.ibm.com [10.241.53.104])
-	by smtprelay03.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 643BaqjJ29819590
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Sun, 3 May 2026 11:36:52 GMT
-Received: from smtpav05.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 872DD58056;
-	Sun,  3 May 2026 11:36:52 +0000 (GMT)
-Received: from smtpav05.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E458358052;
-	Sun,  3 May 2026 11:36:50 +0000 (GMT)
-Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.61.175.251])
-	by smtpav05.dal12v.mail.ibm.com (Postfix) with ESMTP;
-	Sun,  3 May 2026 11:36:50 +0000 (GMT)
-Message-ID: <202f90682fe47bb5fb9b08f8678ae00981b5290b.camel@linux.ibm.com>
-Subject: Re: [PATCH] ima: debugging late_initcall_sync measurements
-From: Mimi Zohar <zohar@linux.ibm.com>
-To: David Safford <david.safford@gmail.com>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Jonathan McDowell
- <noodles@earth.li>,
-        linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-integrity@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        kvmarm@lists.linux.dev, paul@paul-moore.com, jmorris@namei.org,
-        serge@hallyn.com, roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
-        eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
-        sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
-        joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-        catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
-        sebastianene@google.com
-In-Reply-To: <CAGWfHUW+AX0Hpuw5Vr5iTSaJKQJ+O_4nWWmU1UR8Z_3XFctHZg@mail.gmail.com>
-References: <cover.1777036497.git.noodles@meta.com>
-	 <7734099f5e7fda5480bca016a9e6707983325fbd.camel@linux.ibm.com>
-	 <afMlgstqahnZg68h@e129823.arm.com>
-	 <9f188536f09a2db30877d6bfbb84aeaf2565cccf.camel@linux.ibm.com>
-	 <CAGWfHUW+AX0Hpuw5Vr5iTSaJKQJ+O_4nWWmU1UR8Z_3XFctHZg@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-Date: Sun, 03 May 2026 07:36:50 -0400
+	Sun, 03 May 2026 12:23:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3D7186012A;
+	Sun,  3 May 2026 12:22:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5418DC2BCB4;
+	Sun,  3 May 2026 12:22:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777810978;
+	bh=3t2fZVhKoGJkBso3q9G12wHZi5tsGuXL8oWG87Neuqo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=evePO99E5G3/P9ft2lQWXkiCQfxNPpki++qf7j2veTXoCfrY8FPAZ+TC7aMIIcS/P
+	 lyYLugbwZDjdaLMrto3q5W0u+WTts2oTGPrkRbKfUMDkrmZvKY09ZcYP6yAUvJj6OT
+	 L3pzIFIuRPi04aY5JEonUxYkQYIKAhrWfjVYt9jGtZakcC9p+2tXVebhaTeICLtPgQ
+	 EyN8z2l8HN3+8d0q/ZJJwwZzDo6Ac8yYodb22pgBoMmmCXQ6PQ63wLsHkOkSQMJjLP
+	 XV1SDjdK/S+bXt15QgARTKSaZd7+nwL+Zt3ha1C6XN7p0VFwebfMtWEpnrcFFyRNGb
+	 wwV1dgi2PvbVg==
+Date: Sun, 3 May 2026 14:22:56 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Cc: gregkh@linuxfoundation.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, michal.simek@amd.com, Thinh.Nguyen@synopsys.com, 
+	p.zabel@pengutronix.de, linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, git@amd.com
+Subject: Re: [PATCH v3 1/4] dt-bindings: usb: dwc3-xilinx: Add MMI USB
+ support on Versal Gen2 platform
+Message-ID: <20260503-enchanted-galago-of-relaxation-dcda7f@quoll>
+References: <20260429173050.1772377-1-radhey.shyam.pandey@amd.com>
+ <20260429173050.1772377-2-radhey.shyam.pandey@amd.com>
 MIME-Version: 1.0
-User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-ORIG-GUID: dQ6vNqDViTXOrTVmMehSPZgNp19xmol0
-X-Proofpoint-GUID: ZCj7tR0wUAnHWdtxqY_YPlVBcCiYYGZs
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTAzMDEyOCBTYWx0ZWRfXw4m7oZKWaAIF
- ifiZrDuRr5g5w9OQ3dKqUPFxaE+PrQoh2Tl3K5l+inyzb57uROLOeSXWFScTmt8pwHy99iXXoDI
- h+Ct4+sFVA64w7nz3TOelolobRZmAr5IPaRBaY9q536/7+wRqDFsNRpnjV9VfsJCHLVpG+7sDD2
- Fn+ucRtSt8BY6vPP03HKt1z9x7YWQUyAbY5Oa3msTtAvqFg+I9h0M7dshE4g2OcyWxrx55RaBNO
- VnHfk3UkqRFPMBc5FKj1Ic5d0Hwe0NcpIgga48JaeavaWD/6q4p7H5tQk2HvmU9u7wvEaCH4LDQ
- G/LxM+/E6fvpnrLVwTaPwONudHvEgf5lPFBgCDob/bfZc48kVjiH9mtFajzpAb6DX9iZ4dvGe6L
- ChVaABPYDW9BKWkCDTmvg1iEUR/lSAk5hw7C3/B/tdPWvEsh8VtFM4haHIC56XFWKCS4h3Aw5F1
- w2m3p+ZAsJnwtOQho6A==
-X-Authority-Analysis: v=2.4 cv=UbFhjqSN c=1 sm=1 tr=0 ts=69f73357 cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
- a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=VwQbUJbxAAAA:8
- a=7CQSdrXTAAAA:8 a=VnNF1IyMAAAA:8 a=wjnevlr4pEST-T4ujgEA:9 a=QEXdDO2ut3YA:10
- a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-03_04,2026-04-30_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 spamscore=0 lowpriorityscore=0 malwarescore=0 suspectscore=0
- adultscore=0 priorityscore=1501 bulkscore=0 phishscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2605030128
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260503_043721_384241_67D428E9 
-X-CRM114-Status: GOOD (  19.75  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260429173050.1772377-2-radhey.shyam.pandey@amd.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,63 +72,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2026-05-01 at 12:52 -0400, David Safford wrote:
-> On Thu, Apr 30, 2026 at 5:43=E2=80=AFPM Mimi Zohar <zohar@linux.ibm.com> =
-wrote:
-> >=20
-> > On Thu, 2026-04-30 at 10:48 +0100, Yeoreum Yun wrote:
-> > > With above change I confirmed there is no meaurement log
-> > > between boot_aggregate and boot_aggregate_late except "kernel_version=
-"
-> > > But this is ignorable since this UTS measurement is done in
-> > > "ima_init_core() (old: ima_init())" and it is part of ima initialisat=
-ion.
-> > >=20
-> > > 1. ima_policy=3Dtcb
-> > >=20
-> > >   # cat /sys/kernel/security/ima/ascii_runtime_measurements
-> > >   10 0adefe762c149c7cec19da62f0da1297fcfbffff ima-ng sha256:000000000=
-0000000000000000000000000000000000000000000000000000000 boot_aggregate
-> > >   10 4e5d73ebadfd8f850cb93ce4de755ba148a9a7d5 ima-ng sha256:000000000=
-0000000000000000000000000000000000000000000000000000000 boot_aggregate_late
-> > >   10 7c23cc970eceec906f7a41bc2fbde770d7092209 ima-ng sha256:72ade6ae3=
-d35cfe5ede7a77b1c0ed1d1782a899445fdcb219c0e994a084a70d5 /bin/busybox
-> snip
-> > >=20
-> > > 2. ima_policy=3Dcritical_data
-> > >=20
-> > >   # cat /sys/kernel/security/ima/ascii_runtime_measurements
-> > >   10 0adefe762c149c7cec19da62f0da1297fcfbffff ima-ng sha256:000000000=
-0000000000000000000000000000000000000000000000000000000 boot_aggregate
-> > >   10 49ab61dd97ea2f759edcb6c6a3387ac67f0aa576 ima-buf sha256:0c907aab=
-3261194f16b0c2a422a82f145bc9b9ecb8fdb633fa43e3e5379f0af2 kernel_version 372=
-e312e302d7263312b // Ignorable since it's generated by ima_init(_core)().
-> > >   10 4e5d73ebadfd8f850cb93ce4de755ba148a9a7d5 ima-ng sha256:000000000=
-0000000000000000000000000000000000000000000000000000000 boot_aggregate_late
-> > >=20
-> > > Therefore, init_ima() could move into late_initcall_sync like v1 did:
-> > >   - https://lore.kernel.org/all/20260417175759.3191279-2-yeoreum.yun@=
-arm.com/
-> >=20
-> > Thanks, Yeoreum.  It's a bit premature to claim it's "safe" to move the
-> > initcall.  Hopefully others will respond.
-> >=20
-> > Mimi
->=20
-> I have also run with this patch on a number of bare metal and virtual mac=
-hines,
-> running everything from default Fedora 44 to a version with everything tu=
-rned on
-> (uefi secure boot, UKI with sdboot stub measurements, IMA measurement
-> and appraisal enabled,
-> all systemd measurements on, and systemd using the TPM for root
-> partition decryption.)
-> I too see only the kernel_version event between the normal and late
-> calls, if ima_policy=3Dcritical_data.
+On Wed, Apr 29, 2026 at 11:00:47PM +0530, Radhey Shyam Pandey wrote:
+>  additionalProperties: false
+>  
+>  examples:
+> @@ -156,3 +193,30 @@ examples:
+>              };
+>          };
+>      };
+> +  - |
+> +    #include <dt-bindings/power/xlnx-zynqmp-power.h>
+> +    #include <dt-bindings/reset/xlnx-zynqmp-resets.h>
+> +    #include <dt-bindings/phy/phy.h>
+> +    usb {
+> +        #address-cells = <1>;
+> +        #size-cells = <1>;
 
-Thanks, Dave!  Were all the systems you tested x86_64?  The next step would=
- be
-to test on different arch's (e.g. Z, Power).
+Please follow DTS coding style.
 
-Mimi
+> +        compatible = "xlnx,versal2-mmi-dwc3";
+
+I really doubt that DWC3 block comes without addressing space
+(registers), so either you just misrepresented things, like created a
+fake block and syscon, or forgot to combine DWC3 with the wrapper.
+
+And if you built with W=1 your DTS you would see errors. How do you see
+it now? Where do you place it? Wrapper must be outside of soc, but DWC3
+child must be inside. Did you read submitting patches and writing
+bindings documents?
+
+> +        clocks = <&zynqmp_clk 32>, <&zynqmp_clk 34>;
+> +        clock-names = "bus_clk", "ref_clk";
+> +        power-domains = <&zynqmp_firmware PD_USB_0>;
+> +        resets = <&zynqmp_reset ZYNQMP_RESET_USB1_CORERESET>;
+> +        reset-names = "usb_crst";
+> +        phys = <&psgtr 2 PHY_TYPE_USB3 0 2>;
+> +        phy-names = "usb3-phy";
+> +        xlnx,usb-syscon = <&udh_slcr 0x005c 0x0070 0x00c4 0x00f8>;
+> +        ranges;
+> +
+> +        usb@fe200000 {
+> +            compatible = "snps,dwc3";
+> +            reg = <0xfe200000 0x40000>;
+> +            interrupt-names = "host", "otg";
+> +            interrupts = <0 65 4>, <0 69 4>;
+
+Why these are not proper defines?
+
+> +            dr_mode = "host";
+> +            dma-coherent;
+> +        };
+> +    };
+> -- 
+> 2.43.0
+> 
 
