@@ -4,139 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F5ABFF886F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 18:17:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D80CCD3424
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 18:33:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AsKSGKv1gbQ1kxj3oO+fSJmap4EgBc+0PTi6YnXpoZE=; b=5DZ3+D2c1jWWzNtWlQQRTuAwwX
-	uJUeLbF4++N69xJP/biLfPqkeYBlGXkZgmgzjIoTJMlKb+6l46gNnYYPqETW+g4xGPdb1FjK6gDCD
-	Ta8+tHRZySiQD5rgeqZsOXXFGLaFTIVtzyqAkoC+F0pP8uT4UkY4+1KVg1pXiq/TRGzq4n4MvAMVG
-	YS/LtUtWOxdSh3u10C68P3QKgX53Sp61+3xXrDORaPrrdnm+gA2MSH1NI5WdzfnE72OkJnjr2RCpZ
-	qhJaJu/nB1yQn4MHgBolq/AkzU870wPfN2jE9WMYX/1MaWi9NuDlxEIaLlm7FRdm5y+wkwmNhvLTb
-	JbSuu9ew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=o3utWj4RKerN8aOrJgZnfWZvtAomUk7/WxunGO1ma4U=; b=SU1RdUHMJLfFpjprjcrwbWM+Ur
+	KA49D3P1wYMvxlIDzxyLVZ4x1FJ4YGoimic7UwtDV+3V7VuJclg+1or36VZptXHqc0WSW8FyRiBGD
+	2/JdXgB4gzdTKDbX9F52adp6ZhTExX2Z/fU1mkWSk2rRdAYRV7yc9eI9Kjh1Viop53WPtUVelqueg
+	NvUuOjy8s3Q5qVQD3xkpsL+8JJIEx0yYfQ1zGxc8rcrQE3hF+0ZgZNTsVZMpae/bIpnEAyE+8B5fm
+	DO+XRpWgPH4FLp3z9cGIDiCFKVcg6w5NhLP1GtoZvmnOiViJ8KzOxgHbOZiM75JpLInAcQ4Pc8cYm
+	AvPHL+qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJbNt-0000000BUOe-3G21;
-	Sun, 03 May 2026 18:17:41 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1wJbcz-0000000BVmt-0Wvd;
+	Sun, 03 May 2026 18:33:17 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJbNr-0000000BUNU-0TuV
+	id 1wJbcw-0000000BVmL-1Bzp
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 May 2026 18:17:40 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	Sun, 03 May 2026 18:33:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1777833193;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=o3utWj4RKerN8aOrJgZnfWZvtAomUk7/WxunGO1ma4U=;
+	b=OdBoKMt7thS6pYFQ8mZUsGuvR8nXJE9u0QSK0oeCxXcaLMM2ArgtwiDQqkpDwzevtZUmz1
+	WteWyMW68CL9Ob6KazFtNvN6qQ4X42RV/mVZWgMMjPPpSI1/HHdxM8sEqKMDTee3ehSjJ0
+	8PoZwFPBodDqDtK62mLdDZwLUyk21U8=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-508-HaKFSwHxNlq601WHliNTMw-1; Sun,
+ 03 May 2026 14:33:09 -0400
+X-MC-Unique: HaKFSwHxNlq601WHliNTMw-1
+X-Mimecast-MFC-AGG-ID: HaKFSwHxNlq601WHliNTMw_1777833188
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id A9BB95C010;
-	Sun,  3 May 2026 18:17:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1777832255; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=AsKSGKv1gbQ1kxj3oO+fSJmap4EgBc+0PTi6YnXpoZE=;
-	b=OoNHn3y4rN894Hek56TAHXPlCqi/IQ1Uo/ALP1kQg3A/6zShv94jQjNfaUtelYYh+YOGMu
-	YeRcyoqLNAZBC2BP6OBIZWp0DepiBiJDwjmpOTSysVRWSzDWf2mNm6RtcDBCZaXZCcT03y
-	JNuY4E27lqaHD9OEaIdKjcy6iTWHDa0=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1777832255;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=AsKSGKv1gbQ1kxj3oO+fSJmap4EgBc+0PTi6YnXpoZE=;
-	b=q7pHytijoJfoB1JUwtZq+JLzu+1pit499ofgLxkX0CU8I3YxZ3scCg1SxCoipgJc/00K6j
-	CBR8iE/NRq1ZfJBQ==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1777832255; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=AsKSGKv1gbQ1kxj3oO+fSJmap4EgBc+0PTi6YnXpoZE=;
-	b=OoNHn3y4rN894Hek56TAHXPlCqi/IQ1Uo/ALP1kQg3A/6zShv94jQjNfaUtelYYh+YOGMu
-	YeRcyoqLNAZBC2BP6OBIZWp0DepiBiJDwjmpOTSysVRWSzDWf2mNm6RtcDBCZaXZCcT03y
-	JNuY4E27lqaHD9OEaIdKjcy6iTWHDa0=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1777832255;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=AsKSGKv1gbQ1kxj3oO+fSJmap4EgBc+0PTi6YnXpoZE=;
-	b=q7pHytijoJfoB1JUwtZq+JLzu+1pit499ofgLxkX0CU8I3YxZ3scCg1SxCoipgJc/00K6j
-	CBR8iE/NRq1ZfJBQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 93C8F593A8;
-	Sun,  3 May 2026 18:17:35 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id a28LJD+R92kuFQAAD6G6ig
-	(envelope-from <jack@suse.cz>); Sun, 03 May 2026 18:17:35 +0000
-Received: by quack3.suse.cz (Postfix, from userid 1000)
-	id 2B30FA078B; Sun, 03 May 2026 15:13:04 +0200 (CEST)
-Date: Sun, 3 May 2026 15:13:04 +0200
-From: Jan Kara <jack@suse.cz>
-To: Matthew Wilcox <willy@infradead.org>
-Cc: Barry Song <baohua@kernel.org>, akpm@linux-foundation.org, 
-	linux-mm@kvack.org, david@kernel.org, ljs@kernel.org, liam@infradead.org, 
-	vbabka@kernel.org, rppt@kernel.org, surenb@google.com, mhocko@suse.com, 
-	jack@suse.cz, pfalcato@suse.de, wanglian@kylinos.cn, chentao@kylinos.cn, 
-	lianux.mm@gmail.com, kunwu.chan@gmail.com, liyangouwen1@oppo.com, chrisl@kernel.org, 
-	kasong@tencent.com, shikemeng@huaweicloud.com, nphamcs@gmail.com, bhe@redhat.com, 
-	youngjun.park@lge.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-Message-ID: <yezmezj26xntushmylductlmytfgvwsnbnzlhffkfwugfxkt6m@gleq22spziyk>
-References: <20260430040427.4672-1-baohua@kernel.org>
- <afNM-gIqxpyJ6ro7@casper.infradead.org>
- <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
- <afS_L-5XeWIldTXA@casper.infradead.org>
- <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
- <afTpoL3FklpQZNMM@casper.infradead.org>
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 66A4E1956080;
+	Sun,  3 May 2026 18:33:08 +0000 (UTC)
+Received: from [172.20.231.189] (unknown [10.30.44.222])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id D433B30001A1;
+	Sun,  3 May 2026 18:33:06 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS (MISSED 51 of 56): Test report for for-kernelci
+ (7.1.0-rc1, upstream-arm-next, 030e8a40)
+Date: Sun, 03 May 2026 18:33:06 -0000
+To: will@kernel.org, catalin.marinas@arm.com,
+ linux-arm-kernel@lists.infradead.org
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <afTpoL3FklpQZNMM@casper.infradead.org>
-X-Spamd-Result: default: False [-2.30 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	ARC_NA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	TO_DN_SOME(0.00)[];
-	MISSING_XM_UA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[30];
-	TAGGED_RCPT(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	R_RATELIMIT(0.00)[to_ip_from(RLhrg5631p11qpq785u7koq73u)];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_CC(0.00)[kernel.org,linux-foundation.org,kvack.org,infradead.org,google.com,suse.com,suse.cz,suse.de,kylinos.cn,gmail.com,oppo.com,tencent.com,huaweicloud.com,redhat.com,lge.com,lists.infradead.org,vger.kernel.org,lists.linux.dev,lists.ozlabs.org];
-	RCVD_COUNT_THREE(0.00)[3];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_TLS_LAST(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:email,infradead.org:email,imap1.dmz-prg2.suse.org:helo]
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+Message-Id: <43260.126050314330900453@us-mta-508.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: IukYScxDerzggzVLQ14OL_bAPIZu2GZaIb9qD8CW1to_1777833188
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260503_111739_307752_F3D1FB63 
-X-CRM114-Status: GOOD (  28.90  )
+X-CRM114-CacheID: sfid-20260503_113314_417988_65080511 
+X-CRM114-Status: UNSURE (   6.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,45 +84,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri 01-05-26 18:57:52, Matthew Wilcox wrote:
-> On Sat, May 02, 2026 at 01:44:34AM +0800, Barry Song wrote:
-> > On Fri, May 1, 2026 at 10:57 PM Matthew Wilcox <willy@infradead.org> wrote:
-> > >
-> > > On Fri, May 01, 2026 at 06:49:58AM +0800, Barry Song wrote:
-> > > > 1. There is no deterministic latency for I/O completion. It depends on
-> > > > both the hardware and the software stack (bio/request queues and the
-> > > > block scheduler). Sometimes the latency is short; at other times it can
-> > > > be quite long. In such cases, a high-priority thread performing operations
-> > > > such as mprotect, unmap, prctl_set_vma, or madvise may be forced to wait
-> > > > for an unpredictable amount of time.
-> > >
-> > > But does that actually happen?  I find it hard to believe that thread A
-> > > unmaps a VMA while thread B is in the middle of taking a page fault in
-> > > that same VMA.  mprotect() and madvise() are more likely to happen, but
-> > > it still seems really unlikely to me.
-> > 
-> > It doesn’t have to involve unmapping or applying mprotect to
-> > the entire VMA—just a portion of it is sufficient.
-> 
-> Yes, but that still fails to answer "does this actually happen".  How much
-> performance is all this complexity in the page fault handler buying us?
-> If you don't answer this question, I'm just going to go in and rip it
-> all out.
+Hi, we tested your kernel and here are the results:
 
-I fully agree with you we should verify whether the retry code still brings
-in real-world advantage today with VMA locks. After all the retry logic has
-been introduced in 2010. That being said if there are realistic loads where
-one thread needs VMA write lock while another thread is faulting the VMA,
-then the latencies can be indeed extreme. For example things like cgroup IO
-throttling happen on the IO path and thus can throttle IO of a low-priority
-thread for a long time.
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
+              Test: OK
 
-BTW I'm not sure I quite understand Barry's priority inversion problem
-since I'd expect all threads of a task to generally be treated with the
-same priority...
+Tested-by: CKI Project <cki-project@redhat.com>
 
-								Honza
--- 
-Jan Kara <jack@suse.com>
-SUSE Labs, CR
+Kernel information:
+    Commit message: arm64: signal: Preserve POR_EL0 if poe_context is missi=
+ng
+
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2493981635
+
+Tests that were not ran because of internal issues:
+    /distribution/check-install [aarch64]
+    /distribution/command [aarch64]
+    /test/misc/machineinfo [aarch64]
+    Boot test [aarch64]
+    CKI/restraint [aarch64]
+    Hardware - Firmware test suite [aarch64]
+    Reboot test [aarch64]
+    SELinux Custom Module Setup [aarch64]
+    selinux-policy: serge-testsuite [aarch64]
+    Storage - blktests - throtl [aarch64]
+    Storage - blktests - ublk [aarch64]
+    stress: stress-ng - cpu-cache [aarch64]
+    stress: stress-ng - memory [aarch64]
+    xfstests - btrfs [aarch64]
+    xfstests - ext4 [aarch64]
+    xfstests - xfs [aarch64]
+
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
+
 
