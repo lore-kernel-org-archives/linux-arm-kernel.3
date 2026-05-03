@@ -4,70 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39338FF886F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 16:53:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDD24FF886F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 17:16:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lquLlMxx26BK1MjiYbriC2wHnJG0WT6UWKpRtkYw8Ik=; b=4fNlYHoGtIYiKW4FlH3a1e66tX
-	Kf6ivywX6JVbmead8d2oFUrfv8184Z4nnF/rNQioC/x/dnX9XdcR+RAUWrcvqxBZPT5ydN1ahA9Hp
-	Ba6D0URikYt+mre65oNnFW7XRe5HqG10on8SYGoh9F53fpTcn06UQ5GAYN3GXo2LgNAxTaNfYXaho
-	kLDubHdE8moiAwooSITB5buQHopMxAbcPKo0mX7B568eYsKuoJCWRKdlSvUJec955WY7Ie0lCyDjw
-	w715GALp4tNBYkyJySF++AaDNlSm8MjaTn885ZL47Z5GqkeUET5s/JiReuic2VYHDP+rHIDQeICFj
-	k4OHAw9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W5Y4TqVr1qa0LJO4yqFYciZH0TI7JzPAx3H6ugU+JDI=; b=3j2zDYlvZCavyq/EsR/rlKRWXh
+	sPB4RV0r0exLKokljinlUgYDL/PUu8X3V10QEKJbOYXi+Bz4lXEPVG/CML4G1ud93YU4wgcmLiOOU
+	jXrAmMs0Ggtt7QDob1JBD2UWevDrZlkBe97H0qUSwJjCXa01+bUBTfcXWY9BPClt0q5jk2B+9ND0u
+	QhPJdvNJylYDC1rf1QOrCajeEWkCd/1UY61QIB+TxDkWgxgQiHnFvZxDXEVn4BTwM7+Mez5Yne0Tg
+	LfoIn9s2OzuZmEG3HY0Cuosg08SP9Dfno6rBz/LITz+LdmWEs0Z7B6TzTW7M1eM5CiwhsSy3nrHg0
+	w0+C5x1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJa4c-0000000BLNd-45eE;
-	Sun, 03 May 2026 16:53:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wJaQo-0000000BNfB-0LXE;
+	Sun, 03 May 2026 17:16:38 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJa4Z-0000000BLMs-3ShI;
-	Sun, 03 May 2026 16:53:41 +0000
+	id 1wJaQm-0000000BNex-3LMr;
+	Sun, 03 May 2026 17:16:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 25C7C43D13;
-	Sun,  3 May 2026 16:53:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61020C2BCB4;
-	Sun,  3 May 2026 16:53:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DED9660008;
+	Sun,  3 May 2026 17:16:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64866C2BCB4;
+	Sun,  3 May 2026 17:16:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777827219;
-	bh=1Etpq6wnGwOr5oR0u0952ST5kV6ZQp1I+Y9KByQY0Vc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ghW9LrpCOgQpUpZ6bt35gv9JaxPFBItxyJkeSUdmr8HmMdSQ81CCNedzh4qF8kb2U
-	 xNtoEOXtZ2L+CCm/4a2hUqrGZ0BbqTTjSqKIQLVOsxTAlOEOumoxBmQcW6ZELL7okp
-	 Wbn7S7zmfJN05INga6GyQ3euRVkhtXVPm6dYGHp3quwMW5zVRCZGTAcLC8mKpNXIi0
-	 fI/Al4q2y9c+CjhZIh99gUltSQIq3yNK2HqDOrpmtMlJNN4B9Tn22fQbEty0fPLUGR
-	 fAHzLWtr1EN9cGIh2HW45tymrTpfP30G/+Ot9WyRXIIJJ9EeiC9j56VqTem5wkFdU6
-	 eIyrz1g5Rfu8A==
-Date: Sun, 3 May 2026 22:23:34 +0530
+	s=k20201202; t=1777828595;
+	bh=xt4m6IIiEWQScT982aoYUfG4aqztOk+QWMb0fwwhLV0=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=ojQ8ECNEqdV0tPx12W1h05+xlBUWUCmLfMz2rgTaE1s2W7rAkjjpkJ0u5Vm8n9njJ
+	 1WRrBLPoM7RimYqy8dLFnH3BIXEg859o0ljDcG2a8+Q0iE7JcPZGLqOnV0ZB0AvP7z
+	 9txhEvvsjZOeehCmuiLAjPkQlpqu6zjOYpkKDsDkX0TojgYCyPbLRkaEok4p+FN0D0
+	 KVF86Tq4E4ThDcJfWPjTNC/tlwXDqPUMhHa9ksIfFaEyNU4byiWtMSuduDRQfSDTzb
+	 o8FoTZ7yvP4Y22/tosnqABjCdS6Y8vPqnRoUkdiqLzK7Fau/ggMM41qzZRoedmQx0m
+	 9opuR8V/fldVA==
 From: Vinod Koul <vkoul@kernel.org>
-To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-Cc: Parshuram Thombare <pthombar@cadence.com>,
-	Swapnil Jakhade <sjakhade@cadence.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux@ew.tq-group.com,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Ying Liu <victor.liu@nxp.com>
-Subject: Re: [PATCH v22 6/8] phy: freescale: Add DisplayPort/HDMI Combo-PHY
- driver for i.MX8MQ
-Message-ID: <afd9juuQh8OB6SEw@vaman>
-References: <20260424-dcss-hdmi-upstreaming-v22-0-30a28f89298d@oss.nxp.com>
- <20260424-dcss-hdmi-upstreaming-v22-6-30a28f89298d@oss.nxp.com>
+To: Lorenzo Bianconi <lorenzo@kernel.org>, 
+ Aditya Dabhade <aditya.dabhade066@gmail.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, 
+ linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20260428193459.5865-1-aditya.dabhade066@gmail.com>
+References: <20260428193459.5865-1-aditya.dabhade066@gmail.com>
+Subject: Re: [PATCH] phy: airoha: use C-style SPDX comment for header file
+Message-Id: <177782859303.133776.12955045250669984440.b4-ty@kernel.org>
+Date: Sun, 03 May 2026 22:46:33 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260424-dcss-hdmi-upstreaming-v22-6-30a28f89298d@oss.nxp.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260503_095339_886065_B40C8EB7 
-X-CRM114-Status: UNSURE (   7.29  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.13.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,22 +70,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24-04-26, 11:07, Laurentiu Palcu wrote:
-> From: Sandor Yu <Sandor.yu@nxp.com>
+
+On Wed, 29 Apr 2026 01:04:59 +0530, Aditya Dabhade wrote:
+> checkpatch reports an improper SPDX comment style for this header:
 > 
-> Add Cadence HDP-TX DisplayPort and HDMI PHY driver for i.MX8MQ.
+>     WARNING: Improper SPDX comment style for
+>     'drivers/phy/phy-airoha-pcie-regs.h', please use '/*' instead
 > 
-> Cadence HDP-TX PHY could be put in either DP mode or
-> HDMI mode base on the configuration chosen.
-> DisplayPort or HDMI PHY mode is configured in the driver.
+> Per Documentation/process/license-rules.rst, C header files must use the
+> '/* SPDX-License-Identifier: ...  */' form instead of the '// ....' form
+> used in C source files. Fix it.
+> 
+> [...]
 
-Hi,
+Applied, thanks!
 
-Please consider if this can be split from rest of the series and posted
-as phy driver
+[1/1] phy: airoha: use C-style SPDX comment for header file
+      commit: 0bd448b5467b7ead268bc3a946c1deabbda70fe0
 
-Also sasiko has flagged some issues, please take a look https://sashiko.dev/#/patchset/20260424-dcss-hdmi-upstreaming-v22-0-30a28f89298d%40oss.nxp.com
-
+Best regards,
 -- 
 ~Vinod
+
+
 
