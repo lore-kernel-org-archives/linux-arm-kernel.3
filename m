@@ -4,78 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CE1AFF886F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 15:51:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D289DFF886F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 15:57:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wlNemilBuw39SThyFRPcSL8dn9W2ob2b25XcfmRbzNo=; b=vafH/KrNROa5etO2StaWpNyPgQ
-	pp2I3ysUFi8z3vcikChsXynSCwcrbmnX4GNtJRwnW6xem9icrYuVqrI3NXLfe6BtypFhtDgViaIQz
-	zewEUUtX/P4hWXG+VYKO0sj74CjcpIQiTcluRbRKs7ax481dR7fAOeVp/cbh9ns9QlGjhUYzJnEIS
-	d5ICB9e+EIqnr/8e7cQ/E6R9Xo4LIRLVFizSmDFFbfOZOkVK1RyukW7i68JwWSKbrHK21JjI0X8H9
-	my4zqC3poqlnVHKpHSWuKy38t+Jm/WnHdPC2ZzLQbcJD7yzP5tGyJO5m5sMfzKkWbWIUniXFdKwRD
-	qebtHrqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3Dekv3tI4SAkRrEMgiD3ZmjSX8tBUo5iiLFe1Kp62is=; b=of0mkaK/5JVlUQ+LRrP99GNMPj
+	5JP0jUUZl/KbbnMmlD7o1dRGJOJR3fm0NWYwo/ZLjWqE5aF9J9YMJ+LOoxx2ew8y31v72lfGQxIAk
+	fHjHMP0JXBHQW0J8oV8Ir0cAw8xE2dZzuL9q/bVuUvYfEh84PVMbzOwJWEpU5KSbv6DjYAwo0NwO9
+	GiTP7s4aqDtOZ+laVBDR1VhtVDFkHftgAQiP0wl2YFG/uTu4SSoiyM5k+0ZFhtK8w/B9cwstb9vF9
+	VeO4GlHeDCXmUpErwFZUaAz/MYtwwkCR4LwHEVB4wQn5mx+fo6DxPb4hKyXCISwUQcKpY+dChEXmq
+	TzP/VHJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJZ6R-0000000BFG8-3DWd;
-	Sun, 03 May 2026 15:51:31 +0000
-Received: from pdx-out-013.esa.us-west-2.outbound.mail-perimeter.amazon.com ([34.218.115.239])
+	id 1wJZCB-0000000BFn9-2G6f;
+	Sun, 03 May 2026 15:57:27 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJZ6O-0000000BFEr-3SMK
+	id 1wJZC8-0000000BFmd-0xlK
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 May 2026 15:51:30 +0000
+	Sun, 03 May 2026 15:57:25 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-83659d38e38so109975b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 03 May 2026 08:57:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1777823488; x=1809359488;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=wlNemilBuw39SThyFRPcSL8dn9W2ob2b25XcfmRbzNo=;
-  b=V1FsbcGAhZ8OvzzlRifj8YASS/4NL4OfszyZPNBv6UwH9R/vvMG22qva
-   OAUr7jFQv5q2F6sDSfNhDm2zd0XZNC8M/Za0Q8V5TyuPCUlLrPhgSHMAP
-   RG+D6w1MZPeE3V8SUuMxQQJ04XtmON38zhY4O0IBcnVlZAhiqO31wiDyM
-   bGvrMupPYEWcZifm0d+/BNyPnVusGmmXDtJflkQw7np8uQ3L4nnaCELq+
-   tYt/ErKLyIS6QvqWUr2jzIUZnRBCkVZ83uU8mYkb7XZy7tUvGQ9kHYDaZ
-   OuiBPGqdWIBQADueXpNSX/RViLwoqgTNVQpsOL3+i1K1GVpxpk3o68tqK
-   A==;
-X-CSE-ConnectionGUID: 1C1iU2exQciPINPU8IOI/Q==
-X-CSE-MsgGUID: NLApcGvNT6aePF+J5pBjJw==
-X-IronPort-AV: E=Sophos;i="6.23,213,1770595200"; 
-   d="scan'208";a="18543697"
-Received: from ip-10-5-0-115.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.0.115])
-  by internal-pdx-out-013.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 May 2026 15:51:22 +0000
-Received: from EX19MTAUWB001.ant.amazon.com [205.251.233.51:1245]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.27.2:2525] with esmtp (Farcaster)
- id 7c33e460-31d7-4c8f-835e-d3e23c625257; Sun, 3 May 2026 15:51:22 +0000 (UTC)
-X-Farcaster-Flow-ID: 7c33e460-31d7-4c8f-835e-d3e23c625257
-Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWB001.ant.amazon.com (10.250.64.248) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Sun, 3 May 2026 15:51:22 +0000
-Received: from dev-dsk-avivb-1b-e28f450e.eu-west-1.amazon.com (10.15.33.9) by
- EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Sun, 3 May 2026 15:51:20 +0000
-From: Aviv Bakal <avivb@amazon.com>
-To: <robin.murphy@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>
-CC: <linux-arm-kernel@lists.infradead.org>,
-	<linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<avivb@amazon.com>, <zeev@amazon.com>, <blakgeof@amazon.com>
-Subject: [PATCH] perf/arm-cmn: Add workarounds for CMN-S3 on Graviton5
-Date: Sun, 3 May 2026 18:51:18 +0300
-Message-ID: <20260503155118.16191-1-avivb@amazon.com>
-X-Mailer: git-send-email 2.47.3
+        d=gmail.com; s=20251104; t=1777823843; x=1778428643; darn=lists.infradead.org;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :mail-followup-to:message-id:subject:cc:to:from:date:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=3Dekv3tI4SAkRrEMgiD3ZmjSX8tBUo5iiLFe1Kp62is=;
+        b=c0KoMf5Nx0zgCFFNuY56ah5NejIthixcxaDDWQgPawgFX6d37PFfqVnsStDztZ0f9Q
+         bsreoQo+vy1B+8hu5rHt7MpG8XTEziVMHCPkL/FsNU1vS8TVkJA12fN6kZFEuiLTzDGS
+         qoCTa7VNoSc6xayghjb86+C1qpoD0gT4QHD+zhTcGChbkUwbmhADlBuGeDvkUgbEA/jp
+         WKgheTJJzIcGa0nBsRtJrlMjo758ZwSMmzgP/pLkG7KI8G/sidEnjpOj4CyXoMT2Qd1r
+         rcfdZfpwmWjmfcv02L+alUYf1sABzwaI01WBjIddo+SwKW+E6UQDzE/c6kfU+DOnjiM+
+         1G5Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777823843; x=1778428643;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :mail-followup-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=3Dekv3tI4SAkRrEMgiD3ZmjSX8tBUo5iiLFe1Kp62is=;
+        b=X4zK7q1+lQilya3CJjeRZH85fNX+cd4XvrRkEzDuQp2ndGZDVvO2+j6kg//YcvMfii
+         +5XZCBiMj5XupOpQhT546qAKEMdFRY8H9FgjPZ7r/hvnBoFEQQ1H7aXm8PTzGNallkOJ
+         E9YTGQYSkgCPyAK3AH/+Ea1loM3X3Y+E9y2DjDg1TulTwrDbLPX+XlbHeC6uLKSlrCkL
+         QqZK9hsLa4KW5AZjuPje+uct0rr2UL8AkIHe7tAahTMX1ASntC1zJzksQdGkI+6JjAFe
+         3TxJfsLb/+VOkZ0pTUumDcnjIuwVWeEVJ1p3Mu2a/lmcpvlQN2CENupGzw0nsP3DWpoz
+         zVOQ==
+X-Forwarded-Encrypted: i=1; AFNElJ95yEnid+vvUm/v/3FuTuKGZNJzsLwEBo3RvFXF2I02DBAbBxvMu05xScIlX7bNjJ96ARpLPIaZ9x5wM4yEGEYO@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyt/6uBFO2RDuMH/C3w2GRh/ZqRkGAy1+i3m2Jgro7PRwsZv+kJ
+	SDJDodbAZfNFUtUzc9VRSL3fqzVZynh8MP3MuTY7e4ax3sCiT2EOX4/p
+X-Gm-Gg: AeBDietbFIFcKE1I4faW7fwB5QDcSCeg+TCKkX8RezfiEKlXGv7t5Mf+lT7clO3TgHw
+	WqcyBjsR2JHhNFfztr7agezHITtT2nxUOdTRpvogmK6sFtVi74v64xLKmb3mztbEqtgHHSRSiLy
+	f6Pnc93tE1/4sZuEqHLnKh83EGJ+ozu240RFW8mKH+1IRZD1TNrO5hgsNQ3nq15Xw6IijyIHASr
+	k6iidaBKzKURzMVhXaSsFpMyvijY31ve9irk5sODGRHHfLol5fD9oy2OupPz41xED15GJsme903
+	WXis0Ahibf8GDgs4jGPiUrSn8pKrCn0TTZnQJQuogHPDRjoR9FqtQwNBL5ts7e6DBGNPzt/vtmJ
+	m8J1CBrLid/ZidLfWq2O4GoWWd56xAASfSIi9c9LrJKfL31Q6HtwEJmdYqujcykmZvuEZvXGIKv
+	okjeooJWKNTLkw7wI1Fh75p5CiqRP/OEmNI/P79wEoEVcCmmxxkg==
+X-Received: by 2002:a05:6a00:4c15:b0:82a:6852:559e with SMTP id d2e1a72fcca58-8352d1f7175mr5950625b3a.12.1777823842767;
+        Sun, 03 May 2026 08:57:22 -0700 (PDT)
+Received: from udknight.localhost ([110.87.76.109])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-835158a26d3sm8671335b3a.19.2026.05.03.08.57.18
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 03 May 2026 08:57:21 -0700 (PDT)
+Received: from udknight.localhost (localhost [127.0.0.1])
+	by udknight.localhost (8.14.9/8.14.4) with ESMTP id 643Fsddo019172;
+	Sun, 3 May 2026 23:54:40 +0800
+Received: (from root@localhost)
+	by udknight.localhost (8.14.9/8.14.9/Submit) id 643FsY8J019166;
+	Sun, 3 May 2026 23:54:35 +0800
+Date: Sun, 3 May 2026 23:54:34 +0800
+From: Wang YanQing <udknight@gmail.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: akpm@linux-foundation.org, willy@infradead.org,
+        torvalds@linux-foundation.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] arm: lpae: fix non-atomic page table entry update
+ issue
+Message-ID: <20260503155432.GA18098@udknight>
+Mail-Followup-To: Wang YanQing <udknight@gmail.com>,
+	"Russell King (Oracle)" <linux@armlinux.org.uk>,
+	akpm@linux-foundation.org, willy@infradead.org,
+	torvalds@linux-foundation.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+References: <20260315004746.GA32062@udknight>
+ <abYHfGjqTRAB_oyR@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.15.33.9]
-X-ClientProxiedBy: EX19D031UWA001.ant.amazon.com (10.13.139.88) To
- EX19D001UWA001.ant.amazon.com (10.13.138.214)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <abYHfGjqTRAB_oyR@shell.armlinux.org.uk>
+User-Agent: Mutt/1.7.1 (2016-10-04)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260503_085129_829690_06049113 
-X-CRM114-Status: GOOD (  16.64  )
+X-CRM114-CacheID: sfid-20260503_085724_273882_7F514E43 
+X-CRM114-Status: GOOD (  20.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,113 +113,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Graviton5 uses a customised CMN-S3 implementation where certain
-discovery registers report zeroed fields. Add the following workarounds:
+On Sun, Mar 15, 2026 at 01:12:28AM +0000, Russell King (Oracle) wrote:
+> On Sun, Mar 15, 2026 at 08:47:46AM +0800, Wang YanQing wrote:
+> > The ARM Architecture Reference Manual explicitly dictates that writes of 64-bit
+> > translation table descriptors must be single-copy atomic:
+> > ARM Architecture Reference Manual ARMv7-A and ARMv7-R edition (https://developer.arm.com/documentation/ddi0406/latest)
+> > "
+> > ...
+> > A3.5.3 Atomicity in the ARM architecture
+> > ...
+> > In an implementation that includes the Large Physical Address Extension, LDRD, and STRD accesses to 64-bit aligned
+> > locations are 64-bit single-copy atomic as seen by translation table walks and accesses to translation tables.
+> > Note
+> > The Large Physical Address Extension adds this requirement to avoid the need for complex measures to avoid
+> > atomicity issues when changing translation table entries, without creating a requirement that all locations in the
+> > memory system are 64-bit single-copy atomic.
+> 
+> Thanks. Now, please locate where the need for the updates to the page
+> tables needs to be done atomically, bearing in mind that we program
+> SCTLR.AFE=1 and SCTLR.HA=0, meaning the hardware won't write-back to
+> the page tables to e.g. update the access flag.
 
- - Introduce a dedicated ACPI HID to identify the Graviton5 CMN variant.
- - Derive the DTC domain from the XP node ID, since the unit info
-   register reports it as zero.
- - Set the DTC logical ID from the XP's logical ID, since the node info
-   register's logical ID field is also zeroed.
+Dear Russell and all
 
-Signed-off-by: Aviv Bakal <avivb@amazon.com>
----
- drivers/perf/arm-cmn.c | 32 +++++++++++++++++++++++++++++++-
- 1 file changed, 31 insertions(+), 1 deletion(-)
+ARM Cortex-A cores (cortex-a7, cortex-a32, cortex-a55) all have "walk cache ram", 
+according to cortex_a32_trm_100241_0100_00_en.pdf (https://documentation-service.arm.com/static/5e7dca43cbfe76649ba52835)
+"
+...
+The walk cache RAM holds the result of a stage 1 translation up to but not including the last
+level
+...
+"
 
-diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
-index f5305c8fdca4..368fe1a86bfb 100644
---- a/drivers/perf/arm-cmn.c
-+++ b/drivers/perf/arm-cmn.c
-@@ -31,7 +31,8 @@
- #define CMN_CHILD_NODE_ADDR		GENMASK(29, 0)
- #define CMN_CHILD_NODE_EXTERNAL		BIT(31)
- 
--#define CMN_MAX_DIMENSION		12
-+/* Some implementations use a mesh larger than the architectural max of 12 */
-+#define CMN_MAX_DIMENSION		14
- #define CMN_MAX_XPS			(CMN_MAX_DIMENSION * CMN_MAX_DIMENSION)
- #define CMN_MAX_DTMS			(CMN_MAX_XPS + (CMN_MAX_DIMENSION - 1) * 4)
- 
-@@ -214,6 +215,8 @@ enum cmn_part {
- 	PART_CMN700 = 0x43c,
- 	PART_CI700 = 0x43a,
- 	PART_CMN_S3 = 0x43e,
-+	/* Synthetic part number, overridden to PART_CMN_S3 during discovery */
-+	PART_GRAVITON5 = 0xa5,
- };
- 
- /* CMN-600 r0px shouldn't exist in silicon, thankfully */
-@@ -2221,6 +2224,18 @@ static unsigned int arm_cmn_dtc_domain(struct arm_cmn *cmn, void __iomem *xp_reg
- 	return FIELD_GET(CMN_DTM_UNIT_INFO_DTC_DOMAIN, readl_relaxed(xp_region + offset));
- }
- 
-+static unsigned int arm_cmn_graviton5_dtc_domain(u16 xp_id)
-+{
-+	unsigned int x = (xp_id >> 7) & 0xf;
-+	unsigned int y = (xp_id >> 3) & 0xf;
-+
-+	/*
-+	 * The unit info register reads as zero; derive the DTC domain from
-+	 * the XP's mesh coordinates over the 10x14 mesh.
-+	 */
-+	return (x / 5) + (y / 7) * 2;
-+}
-+
- static void arm_cmn_init_node_info(struct arm_cmn *cmn, u32 offset, struct arm_cmn_node *node)
- {
- 	int level;
-@@ -2266,6 +2281,7 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
- 	u64 reg;
- 	int i, j;
- 	size_t sz;
-+	bool graviton5_workaround = false;
- 
- 	arm_cmn_init_node_info(cmn, rgn_offset, &cfg);
- 	if (cfg.type != CMN_TYPE_CFG)
-@@ -2276,6 +2292,13 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
- 	reg = readq_relaxed(cfg_region + CMN_CFGM_PERIPH_ID_01);
- 	part = FIELD_GET(CMN_CFGM_PID0_PART_0, reg);
- 	part |= FIELD_GET(CMN_CFGM_PID1_PART_1, reg) << 8;
-+
-+	/* Graviton5 has a customised CMN-S3 which needs some fixups */
-+	if (cmn->part == PART_GRAVITON5) {
-+		cmn->part = PART_CMN_S3;
-+		graviton5_workaround = true;
-+	}
-+
- 	/* 600AE is close enough that it's not really worth more complexity */
- 	if (part == PART_CMN600AE)
- 		part = PART_CMN600;
-@@ -2365,6 +2388,8 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
- 
- 		if (cmn->part == PART_CMN600)
- 			xp->dtc = -1;
-+		else if (graviton5_workaround)
-+			xp->dtc = arm_cmn_graviton5_dtc_domain(xp->id);
- 		else
- 			xp->dtc = arm_cmn_dtc_domain(cmn, xp_region);
- 
-@@ -2443,6 +2468,10 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
- 
- 			switch (dn->type) {
- 			case CMN_TYPE_DTC:
-+				if (graviton5_workaround) {
-+					/* Node info logical ID is zeroed; use the XP's */
-+					dn->logid = xp->logid;
-+				}
- 				cmn->num_dtcs++;
- 				dn++;
- 				break;
-@@ -2658,6 +2687,7 @@ static const struct acpi_device_id arm_cmn_acpi_match[] = {
- 	{ "ARMHC650" },
- 	{ "ARMHC700" },
- 	{ "ARMHC003" },
-+	{ "AMZN0070", PART_GRAVITON5 },
- 	{}
- };
- MODULE_DEVICE_TABLE(acpi, arm_cmn_acpi_match);
--- 
-2.47.3
+The walk cache ram will cache translation result of L1/L2 page table walk, so the non-atomic
+pmd entry update issue describe in the patch will cause partial updated 64-bit entry to be cached
+in the walk cache ram.
 
+On SoCs like TI keystone and Sigmastar SoCs which will run arm32 linux kernel on high address,
+the physical address of page table will be 64-bit and will meet the issue described in the patch.
+
+I think it is right to make page table entry update become atomic according to ARM Architecture 
+Reference Manual.
+
+Thanks
+> 
+> -- 
+> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
