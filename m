@@ -4,93 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A4E8CD13DA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 01:02:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CF78CD3423
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 01:39:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BejErdLjcloUq8b5PniyViDnyXSa8nSLqZwJTPcujYs=; b=PnwvJN09CEQDMEnGeRrie5Fns1
-	9AZs6kveW08yeWWaI+ZHe0VZtyhNgfFNLKEsxLD7pwdWeeLuz4m3M+xbHGiOA6+Hk9gV+bAN+kMc5
-	T2Ir8JX27oycevnU77uAZ/1vnzZyKYKdp+ySgDyW18kvVRy7TyLuix3BbIqZ+oNwOi08E+ubFspsi
-	P4O8CtgOlWvvYulR7rj1bJ/p7vwbmBFxAXWN3q7naTcdGtsLG+pbcC/kLeUDVtuhP3yuru7z3WwAy
-	7YMHVv37RB528P2qQN+zLvHNjlSqhBeAbi4fbvzJtb5AG9/LGzSpr1KXAnCF9o9nVbAftxE1wqnOi
-	r4QeJ5Ww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IkJvgTcI4nUUQ/9kKtwsMfSDSEk8uVrEpeWRMA7wuFg=; b=ePzvwSlXjHnV5L0r8hddYgPHVt
+	urvuoqoWoWAfJSBuCZ7LXbHL3vEVTk+ZguYDFZL+4a/+eNYJE6mq+ClwGx69DEPEn7Ik42w0129uC
+	5knwdST1ZlCevJLf24UBQz2cliYbk4DWiUigOXn45EKEbY7MMFdn1Z44yoU/sUFiRbcTmfT0tpxcz
+	MTuY6onv2+EBT5RU4WCOG4anDME/bJ6Ucdwt5TWoJ0e/8PjXaKxRvefK2SZ98TU6/AWGFF+ofOcs6
+	2DeRU5yjftzgQLUeKtavimBlrUZiB+7/dld1k/a8LIdqaTiDlbKvyvdldAkSG0U6igSInbUYmGmeo
+	VU8MItXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJLDf-0000000A1WD-3Lfd;
-	Sun, 03 May 2026 01:02:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wJLny-0000000A57C-3rAK;
+	Sun, 03 May 2026 01:39:34 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJLDd-0000000A1Vd-3mY7
+	id 1wJLnv-0000000A53g-0mdD
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 May 2026 01:02:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 15BE743D72;
-	Sun,  3 May 2026 01:02:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD9B7C19425;
-	Sun,  3 May 2026 01:01:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777770120;
-	bh=BejErdLjcloUq8b5PniyViDnyXSa8nSLqZwJTPcujYs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pDysEjuQPcQ7jBSc1PFLCXCQ7pK5ItVVQyrqU8Gyl4viLnzTzP2w4VpjqCHLJKBOz
-	 usCZwjN9TDEfMj+cYa/33gOuSAt5nfamthqjp2AwRw35TvA18BnbXfGLYy1SIVi+Ku
-	 VpWJwmybN+1cdODsbyvSrF+RnXTLNgYjfKVg/rwFv0jz8VagDW4WlBsPMrVvnUQOsk
-	 x0UORuIs/mzc+UZ23N9WOgWRhQIL1pEqmyqwfrplHpTqh2Tj2KvS7aUgLuEY24jKBA
-	 6CeeawTTgroCGO+uJyDnpedMO+hrK0I2xks0sYaSGBYzPCGs8qi6e2RJLzNqaeVHvk
-	 dbgY9KLTOb/dQ==
-Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id 45A1E1AC5865; Sun, 03 May 2026 02:01:57 +0100 (BST)
-Date: Sun, 3 May 2026 10:01:57 +0900
-From: Mark Brown <broonie@kernel.org>
-To: Leonardo Bras <leo.bras@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Saket Dumbre <saket.dumbre@intel.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Chengwen Feng <fengchengwen@huawei.com>,
-	Jonathan Cameron <jic23@kernel.org>, Kees Cook <kees@kernel.org>,
-	=?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Thomas Huth <thuth@redhat.com>,
-	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Ard Biesheuvel <ardb@kernel.org>, Fuad Tabba <tabba@google.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Tian Zheng <zhengtian10@huawei.com>,
-	Wei-Lin Chang <weilin.chang@arm.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-acpi@vger.kernel.org, acpica-devel@lists.linux.dev,
-	kvm@vger.kernel.org
-Subject: Re: [PATCH v1 04/12] arm64/sysreg: Add HACDBS consumer and base
- registers
-Message-ID: <afaehWCHVIN7EXNB@sirena.co.uk>
-References: <20260430111424.3479613-2-leo.bras@arm.com>
- <20260430111424.3479613-6-leo.bras@arm.com>
+	Sun, 03 May 2026 01:39:32 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-677f7c29af6so5365118a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 May 2026 18:39:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1777772369; x=1778377169; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=IkJvgTcI4nUUQ/9kKtwsMfSDSEk8uVrEpeWRMA7wuFg=;
+        b=nE3gUPUZlMbulnqWMbjoC3W2oHWVoD3pVW8c75gwikn41NCWGZBoOQjMlziA3Mfacf
+         RdEwqRS9IyJGnNPQOyd9EG3qwypIxVn+0DmNlPaiwbbXDMcw3zqcr2q6j5MiXsvMq8wd
+         tGQ4poNoeIoa3meC2EBdaxI5MxBh3A6ygbmvpfKy+xsYOY8+3fsfMnML7nA9cyGH5dml
+         Gk64hP9alA9VY/k2wjOjWx+wNq94JGQgB5SnP6y5A/Uy4uP0zabSdXb+GfKzvSmH0dhm
+         eA+BhTx0SJuP09HK8D3UtDLBJHEf09aKzWJkKR+gZcsBotC/NNERZ4SWYcKX0naxO5Bj
+         +bVQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777772369; x=1778377169;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=IkJvgTcI4nUUQ/9kKtwsMfSDSEk8uVrEpeWRMA7wuFg=;
+        b=E6N/ee2OTvfgKxJAdQm0OZ59L6xpve/UVNHu2B5kdvekbbf0RSozT8Rv7DfNQTWKMi
+         WGI+cC4JdTpfwP4WaxNi7cj07HOr4FZAufYBCWUvyqAXaP/8Z8F4kS0qQn3oCG+CYdjp
+         WuJrVXcuFEq/hyMP+KjQpVDk+4ZqIee8V3aZlm5SvepfWPyExoDZWQWSumZJTiCHs/wt
+         bj9V9WPDWeBCKol2Id0U6WA5G2uAdoFtW3+xVwjCU4xIwaTGR36Cwg7efg1EOovMulD6
+         FTYcilQ05ZJLGhQV1/G82CxndcjWRnK/m5Pyz5UMrivMPkz9Hb7g6kSPC7Q5QVYRh3na
+         gxmw==
+X-Forwarded-Encrypted: i=1; AFNElJ+o0pj5MzUI30Y1iZiDbLU063Zw6ACzCNGj2z3equ/DZJp7IeU2QiJN/1/dkrjTKbDzeX+beQMvQcWWVYUlJ03j@lists.infradead.org
+X-Gm-Message-State: AOJu0YxL++f0Wvaglkp62Jec4vK5FlY+AM9xHPYOLTOVvCq7XHA4i9nm
+	weZAiPHsI9YX2bhmXX8wemY7AZ3bbBeXijb/w7BkfVj8akmPikDt1LnR
+X-Gm-Gg: AeBDievn72JeFmbCKVtmLQZEgdlgow7cmr0vXR4d+SWIk+oNUC+9M0cRGCG/Wdw6xSs
+	h1gp/EKnvacPNLSPLW9GTF6W/aGqZgzj2ONvmaTIVNfC2IjRRDwzEnWmJAgcWh0S/7iZzq88spD
+	ljxy6a19wDZBss4oYEmVFyXNhlWZuiH1eg4ZWGN1awb1JHaM2M1mCs/MYoFpg1f9QiGbMxNIaVH
+	xXkl4zQVa4BRn+NCt7R7oasxdhRz4k+SoeQcVT62QUMcc21Si7yTqo7hzvIDgkVURhGA7DmEZXX
+	Bc8VAQ0K1+0i6YJicMn+fs/IdvvTp/vcv04+QYB1ysqQp+eaENBcY21tUSGyE+p9l52YipB/bl0
+	MM5E8y+bA81NnZVguXEbeJyusrdxlPOeZnuEyfUtWXKCKtE8VyNtTeAF+NopuHqgM9WujLcOUQB
+	dhbhvOPst6qFUE2HCAHZnh0RxsctxbGkLxIe14PbZpiJc950aiv0nDmq/UTIhMzXzc/Vm8hl4bV
+	auoa6EVMsVcA3ty5VwLQoT3r5t9
+X-Received: by 2002:a17:907:a06:b0:bb9:c62:2c04 with SMTP id a640c23a62f3a-bbff9933024mr206200166b.10.1777772369341;
+        Sat, 02 May 2026 18:39:29 -0700 (PDT)
+Received: from KURWA.angora-ide.ts.net (mm-39-71-126-178.vitebsk.dynamic.pppoe.byfly.by. [178.126.71.39])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-bc1671c1d3esm24796466b.42.2026.05.02.18.39.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 02 May 2026 18:39:28 -0700 (PDT)
+From: ElXreno <elxreno@gmail.com>
+Date: Sun, 03 May 2026 04:38:31 +0300
+Subject: [PATCH 2/2] wifi: mt76: mt7925: don't disable AP BSS when removing
+ TDLS peer
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="WmuCcD5bxYsJvAXW"
-Content-Disposition: inline
-In-Reply-To: <20260430111424.3479613-6-leo.bras@arm.com>
-X-Cookie: 667:
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260503-mt7925-tdls-fixes-v1-2-dde847e21081@gmail.com>
+References: <20260503-mt7925-tdls-fixes-v1-0-dde847e21081@gmail.com>
+In-Reply-To: <20260503-mt7925-tdls-fixes-v1-0-dde847e21081@gmail.com>
+To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, 
+ Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>, 
+ Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Soul Huang <Soul.Huang@mediatek.com>, 
+ Ming Yen Hsieh <mingyen.hsieh@mediatek.com>, 
+ Deren Wu <deren.wu@mediatek.com>
+Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ stable@vger.kernel.org, ElXreno <elxreno@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3207; i=elxreno@gmail.com;
+ h=from:subject:message-id; bh=uAMNZJNELeTW91RepEFHxSC/5cFK8pGWTHntf3vPjy0=;
+ b=owJ4nJvAy8zAJXa0WDmKX5v/EeNptSSGzG/LfVlS+BMnzPKMFGComFxwcnOSX4zj+c2njmcvL
+ HFa2jGR+WFHKQuDGBeDrJgiC8+5vbU5y+qWTK7nyoCZw8oEMoSBi1MAJiLxiZFhqnGD+9dv22e8
+ j+faISvyxHGrrHJ7m+aGV2l35AQm9F8MYvgf69L9rHvtLQuly6/WCE3Q4GHeHtf+XJMp2rL+pbb
+ 3MxUeAFDqRN8=
+X-Developer-Key: i=elxreno@gmail.com; a=openpgp;
+ fpr=0CCEBD7D6CA67EA4937F0A68C573235A0F2B0FE2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260502_180201_963138_3A4A72DB 
-X-CRM114-Status: GOOD (  10.78  )
+X-CRM114-CacheID: sfid-20260502_183931_277899_7A7455A8 
+X-CRM114-Status: GOOD (  13.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,33 +117,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On a STATION vif, removing a TDLS peer takes the mt7925_mac_sta_remove
+-> mt7925_mac_sta_remove_links path. The first loop in that function
+calls mt7925_mcu_add_bss_info(..., enable=false) for every link of the
+station being removed. For a non-MLO STATION vif there is exactly one
+link, link 0, whose bss_conf is the AP's. TDLS peers do not have their
+own bss_conf - they share the AP's BSS.
 
---WmuCcD5bxYsJvAXW
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+The result is that every TDLS peer teardown sends a BSS_INFO_UPDATE
+with enable=0 for the AP's BSS to the firmware, which wipes the AP-side
+rate-control context. The connection stays associated and TX from the
+host still works at the negotiated rate, but the AP's downlink to us
+collapses to the lowest mandatory OFDM rate (HE-MCS 0 / 6 Mbit/s OFDM)
+and only slowly recovers as rate adaptation re-learns under sustained
+traffic. With brief or bursty traffic the link can stay at 6-72 Mbit/s
+indefinitely, requiring a manual reconnect.
 
-On Thu, Apr 30, 2026 at 12:14:08PM +0100, Leonardo Bras wrote:
-> They will be used on a later commit to make use of the FEAT_HACDBS
-> mechanism if available.
+mt7925_mac_link_sta_remove() already guards its own
+mt7925_mcu_add_bss_info(..., false) call with
+"vif->type == NL80211_IFTYPE_STATION && !link_sta->sta->tdls".
+Add the equivalent guard at the top of the cleanup loop in
+mt7925_mac_sta_remove_links(), above the link_sta / link_conf /
+mlink / mconf lookups, so TDLS peer teardown skips the loop body
+entirely without doing the per-link work that would just be thrown
+away.
 
-Checked against DDI0601 2026-03:
+Verified on mt7925e by triggering Samsung-S938B auto-TDLS via iperf3
+and watching iw rx bitrate after teardown:
 
-Reviewed-by: Mark Brown <broonie@kernel.org>
+  Before: rx bitrate collapses to 6.0-72.0 Mbit/s, oscillates 17/72/
+          137/288/432 Mbit/s for 30+ seconds, no full recovery without
+          an NM reconnect.
+  After:  rx bitrate stays at 1200.9 Mbit/s HE-MCS 11 NSS 2 80 MHz
+          across the entire TDLS lifecycle.
 
---WmuCcD5bxYsJvAXW
-Content-Type: application/pgp-signature; name="signature.asc"
+bpftrace confirms a single mt7925_mcu_add_bss_info(enable=0) call per
+teardown before the fix; zero such calls after.
 
------BEGIN PGP SIGNATURE-----
+Fixes: 3878b4333602 ("wifi: mt76: mt7925: update mt7925_mac_link_sta_[add, assoc, remove] for MLO")
+Cc: stable@vger.kernel.org
+Signed-off-by: ElXreno <elxreno@gmail.com>
+Assisted-by: Claude:claude-opus-4-7 bpftrace
+---
+ drivers/net/wireless/mediatek/mt76/mt7925/main.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmn2noQACgkQJNaLcl1U
-h9CXzwf/ddnlYC9NFIeWjihBxou3oH5yLLC0aEWsSsEpn4ePUND6BEnFEbPaP+E0
-wbcFjU2eas3oIrx14W0iSIIkalM+8iam+DOyMFcNK22DZotaxwdHuqn1HmsicWN+
-bTSDBTOc0jl0nawI+0FSS00Efpiubnsd1b2vM75E8/nkDujvazEz94P55PRYoR+f
-DSl56OJoOQYDtJOcEGr7TFlY1T/nTMZ9nVO0+i1GCXNeWvSkm0driq2SxrwV6p6a
-s/THx+XOJC9gXNK9yIFDNRUObRZrSA04vIQQiVyi/hR3HZpCs2a3/9+1Axo8qQAh
-MuE6Mv9pzZeGJkoowjc8UJYs95E4aw==
-=vdry
------END PGP SIGNATURE-----
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/main.c b/drivers/net/wireless/mediatek/mt76/mt7925/main.c
+index 73d3722739d0..7220bf2c0afa 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7925/main.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7925/main.c
+@@ -1265,6 +1265,16 @@ mt7925_mac_sta_remove_links(struct mt792x_dev *dev, struct ieee80211_vif *vif,
+ 		if (vif->type == NL80211_IFTYPE_AP)
+ 			break;
+ 
++		/* TDLS peers on a STATION vif share the AP's bss_conf. The
++		 * link_conf retrieved below would be the AP's, and calling
++		 * mcu_add_bss_info(..., false) for a TDLS peer teardown
++		 * would disable the AP's BSS in firmware, wiping its
++		 * rate-control context. mt7925_mac_link_sta_remove() has
++		 * the symmetric guard for its own bss-info call.
++		 */
++		if (vif->type == NL80211_IFTYPE_STATION && sta->tdls)
++			continue;
++
+ 		link_sta = mt792x_sta_to_link_sta(vif, sta, link_id);
+ 		if (!link_sta)
+ 			continue;
 
---WmuCcD5bxYsJvAXW--
+-- 
+2.53.0
+
 
