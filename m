@@ -4,115 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87C44CD3426
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 13:54:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09AEACD3424
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 15:01:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tj2+hqYd1S8ulxN8n8VYNe5qA+wZFVHUron88tKCpqc=; b=HGIBMbVWyIPvLcECq/9hF5QEip
-	LQwjwAPzI0rTeHwUxDeSSZ1ZLHthNGi7DslftyscLpiaBM5fy30rJi82yi1N6ZQ8VIy6EQZ+0tQdQ
-	0Ppq13+vUYO1a5qGgHTpqIGLcBkOi4A0rmjKaFA8vKAu2k+pWMIgt919Vzu7SdC8YpH8SZmOXDP67
-	PKvTO0YVn/ISthOMkp6rstm4GKqHfKnW5Bp3zhuFJ1IUlmKYJc7AxiBFC0Ilk0au2TQyUHkQA6uVr
-	50fNfty8xIy5YGiInfXU5zYLAn2tuh+sV+tQm147FWcvBm34Z2yKN7Dmwog1kyZ5JbsLgX72t12R9
-	e4JAkXVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cPdyUCj5zFQG1KGlXkDAzMMroAEruqs+f7PQp/GCZoo=; b=jENWLOLFegkT2XO7eboZ62E+c+
+	7vkdHqSJB7UHVnpDUo/8wgu9XUZs+6M4XpAF7i3GUC9pHor1+B5mxTqbDK/UD8OGBguUc3Jbu/jSd
+	aXwqpJSCJh5PudyikMNDhXwMp/Ju0q3H3aRbGBdxcUJseEvLIaO98lkYvRzRlt8WkhZfWRe5SKRoR
+	XMuXY13IuQ8AVVSVjniR78KNb8iOk35gCnUINw4nIQhGkUA3FfIN6ESRihqtvfD2/QXWFnFk03lXj
+	pP9puFS1aEv1u8gxnCM4TeJeRSFIlYsQU9c8eQTXIoH580Yj4cezpNcJzsIlhIyCcTbevLm4C16EI
+	eKUo8t2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJXHL-0000000B4nK-1JnA;
-	Sun, 03 May 2026 13:54:39 +0000
-Received: from mail-westcentralusazon11010020.outbound.protection.outlook.com ([40.93.198.20] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1wJYJm-0000000BAXR-1lNH;
+	Sun, 03 May 2026 15:01:14 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJXHJ-0000000B4mm-01Zj
+	id 1wJYJk-0000000BAX1-252q
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 May 2026 13:54:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fM6pE773XeUfy4QHK6mho0oV2uuwnApMzvnPO4qDwVSKa+3AJWA/S16OdQ3OXcMkodbvFLgb0mUIq5Q4Qkrzzb+6XaDFByIVmamb+CpR85bGXKIjlMDJfWRTCcvuiHGQWsVnI9A96o2gb4kRL/nQjdld6lOxnHz8MoigCniCCwl7dKhyWlFssT/0+WkYJV0a/LIOrMHequZByIxfn0dM4oeBYRgRaNymWtOM3rn+TXY6oc81y9OO8BWSjwT8XRkZvtVROtNNx2+wRjPp29r/fag+S7aMtOLub0edZPcfPg2rP/0bGr7P8kMnzN4dNkYqmpn/APfRNRkAZZEPHVI3HA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tj2+hqYd1S8ulxN8n8VYNe5qA+wZFVHUron88tKCpqc=;
- b=AqRY9lUf6mb73MNmas8NmaWiVFS1hxNq9PZU/LbfKDeS/AGdQcoDYHS72TH9urwj7E2lJvtoDvlKP4KJ1hKCxUBmHOq4BMeZXpDk+ZNb5mYbRj/rk+4nGFlRVFYCChrl4M5NdHoBgZh9W9413UVzfmCY4lPPCMqmgslzNSbc6Ulc7jmy3yNEtl065rrSoo3h5s9QZXDp/GhIUc+Ub5/wC1peJNagj/mXO9vpNR63CQWTK2FTfq0bvRns+o07Hn4nLp3CcUS68b+4xWczpiCykPMCkTOfdL8urE54q+yKo6GbhmNKeDgN5j5lwfFThBESKk0Gw5sfVLzsIQodF9ABIg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tj2+hqYd1S8ulxN8n8VYNe5qA+wZFVHUron88tKCpqc=;
- b=ft0ZHhvDur+EjZCBzuqqpbhQgkgmZBVBo+loX08PKSQzV8fMyFnamBxVFipATcCi/ptITmSx4Wat2rYGE2CeZhN8KrPQ4HjJ6xTceG0gTRfXOkrkgqGH5GmfB1vUiP1fQzS7GQEcDBeT32jxPTLTZosLShAXL97rOEkABooppcheUInu2Q6NDul/FBsDUA2ppuQ73dIeOM3qfed8goLL174F4s7HwUR0aKrh2bFmNeYrwkQPp6EyHSoinj4wqIP2VghAuPd4/SjsNGpJA/sj4i9XPwcMj4CBd9vQhdSVVvyu1OpClavXjzvOcodtTvIEcVpcqdkxJSruSmbf2Jxgeg==
-Received: from BY5PR17CA0034.namprd17.prod.outlook.com (2603:10b6:a03:1b8::47)
- by DM4PR12MB5769.namprd12.prod.outlook.com (2603:10b6:8:60::6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9870.23; Sun, 3 May 2026 13:54:29 +0000
-Received: from SJ5PEPF000001CA.namprd05.prod.outlook.com
- (2603:10b6:a03:1b8:cafe::12) by BY5PR17CA0034.outlook.office365.com
- (2603:10b6:a03:1b8::47) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9870.25 via Frontend Transport; Sun,
- 3 May 2026 13:54:28 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- SJ5PEPF000001CA.mail.protection.outlook.com (10.167.242.39) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9891.9 via Frontend Transport; Sun, 3 May 2026 13:54:28 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sun, 3 May
- 2026 06:54:21 -0700
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sun, 3 May
- 2026 06:54:21 -0700
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.12) by mail.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Sun, 3 May 2026 06:54:20 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Will Deacon <will@kernel.org>
-CC: Joerg Roedel <joro@8bytes.org>, Jean-Philippe Brucker <jpb@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe <jgg@nvidia.com>,
-	Pranjal Shrivastava <praan@google.com>, Catalin Marinas
-	<catalin.marinas@arm.com>, =?UTF-8?q?Miko=C5=82aj=20Lenczewski?=
-	<miko.lenczewski@arm.com>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH] iommu/arm-smmu-v3-sva: Enable Hardware Access and Hardware Dirty bits
-Date: Sun, 3 May 2026 06:54:12 -0700
-Message-ID: <20260503135413.1108138-1-nicolinc@nvidia.com>
+	Sun, 03 May 2026 15:01:13 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-82fa8d6425bso1426262b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 03 May 2026 08:01:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1777820471; x=1778425271; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=cPdyUCj5zFQG1KGlXkDAzMMroAEruqs+f7PQp/GCZoo=;
+        b=iHLJWjCSKfYvjRMPKmUXyUaELrDzOKDIdwqx1rHraOZlK46U6I6tXkGrBx8qgX7ss4
+         r09C0gu/p0+maqj2C2KM24BeWr3f4i8nKE3R/ovAOiQ7iqNcffGERJGBCoahrVkCqPx4
+         E9mIJhwddts7yAOLEY4ODA5NHrxlTlGH427TaXgLCc39oVn4v4BXJuFLlYcM+N9pqueg
+         tQfZ3uHWCuMNkZzdmbrdI3O+D8kCPXIlsUgFHqtH2JGq6gHb5sz7HyPvzMPGnllFFs/j
+         HObDHgicoWxbhSs9Y65u0m+/ocSFpYzKnKJ+BXlOEHne4AUHdyaY/2UMfF65yupj7/9G
+         Qsdw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777820471; x=1778425271;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=cPdyUCj5zFQG1KGlXkDAzMMroAEruqs+f7PQp/GCZoo=;
+        b=nwN3spXur+YBx+sqOyiZ8iFOrzBZkjmKDzNLEzybA0/X3IvuSMRGsrIItYgvZ+ITQe
+         fakky8ddRrnABIPZpp7N0O1fGu/wUGhODSkwfBDX4AQHJcAjAFTm8eZT1fhJkQd+JfMV
+         GeVJV0CKeSVvvjYvE+RqZnNfNmpYr1GAN7/3IzAY3vO7QDNSCKBplButnRO2ZYvmVGdL
+         KSuQ1chIRa2SU3K4Qn/dnApz+0+5PA6ov2NkApI652dY60REZcVQVLvbFE9F6L5xE8pk
+         OR9k0b6xzorVCHSjr1QtbkpkWqvAG8yKlhDMP1SRpqNEflMJqC6C1H0kd3FeIb3gaf3Q
+         Us6g==
+X-Forwarded-Encrypted: i=1; AFNElJ8r4btRsNCfyU3T1CJ0HXIYVTTk+OIM+ZjlYeLzc+APe+xGFG0zX272ZkYbAoPcgwyl3hCw28AykSf59Oirs2g0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy67t1akzBT+kQBtzCjZ/gW0ZOoqLo8MRgOufqaOh4lRm4DeaXf
+	ZXuBlS3S1HN2cjG0u9hJMbwe8KYC/DhC9dL7jm9vFy0/l5R+DvDlkUNl
+X-Gm-Gg: AeBDiesuzZSOaCK81DPZQ2Lw3kKKjNUb5vkJTN2FPjRS6ZvdrebnABDdFnDAEKYiixn
+	eeIx7y2j7yT1JejBg7VOsW9BrT/xqczP51OdxndYdDUf6KzUak0GpP7HGKOg9NZLZqX0guNDnSK
+	DmxLkuJ6tfd6OWY0vhRXmLhBlMorOtVwbT242WU+97nMWXQTiXulrwj+B6JeyLh5MuIhmyc5NNc
+	tx/9NHjiicHPHWTRp0uBEY+O7mDnj8brA/Xb1+GIupNZqe72U0BzdBevBTKQ90uSdDFelx4uzlF
+	OWVN0uGuqPb3JpqZX6dZae3U5iRAJmIDwozp/2UsP5KDpw7cAMsG42tVqFNTZ5M6WsyoQSwlkH9
+	GMSPWr+e8sdM9OW64k1HT+sARbmtwKXoT26GskHoIDhlOPwHSYu2NE7CUN8i3Hm/b2NMI/ukrJ8
+	Qq/bm2VBR18uV6nY2izMv4brArSLP1fShSWfrKxbCaQslUzGJp5pM4RptGuA1+A8/gP7XKHIDzg
+	3YCqScyPXPnMtodrTOMyB5GlKGOGECe+g==
+X-Received: by 2002:aa7:8b48:0:b0:835:6bdf:c886 with SMTP id d2e1a72fcca58-8356bdfd657mr1415743b3a.7.1777820470787;
+        Sun, 03 May 2026 08:01:10 -0700 (PDT)
+Received: from shyam-VMware-Virtual-Platform.localdomain ([223.181.115.140])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8351582dc36sm9699387b3a.6.2026.05.03.08.01.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 03 May 2026 08:01:10 -0700 (PDT)
+From: Shyam Sunder Reddy Padira <shyamsunderreddypadira@gmail.com>
+To: slongerbeam@gmail.com,
+	p.zabel@pengutronix.de,
+	mchehab@kernel.org,
+	gregkh@linuxfoundation.org,
+	s.hauer@pengutronix.de
+Cc: Frank.Li@nxp.com,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	imx@lists.linux.dev,
+	linux-media@vger.kernel.org,
+	linux-staging@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Shyam Sunder Reddy Padira <shyamsunderreddypadira@gmail.com>
+Subject: [PATCH] staging: media: imx: remove unnecessary out-of-memory error message
+Date: Sun,  3 May 2026 20:30:26 +0530
+Message-ID: <20260503150027.107173-1-shyamsunderreddypadira@gmail.com>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF000001CA:EE_|DM4PR12MB5769:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3c3e7171-bafa-4001-01f5-08dea91b7e8e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|36860700016|1800799024|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: WJxGblC0gWUr8XzCgqCK4BixBVW8JH74WcDT5p2EIxUJRipM2Qm2z0wpI4IuloiDFqCKRda0w9Gdnl9y8nH5Tf6xAte9S2vOid3bVsBf25x69iKcU64RML0o/4kthOVX8Y2j4+NaLDSWmU8M40jzD8WfXL2pMr+vuLNwN+zNOIlUmcymkuA2/hVHSb11sEym7G295o20qFvnn4DxejVyhvK9FTyAe43k7bLIllKndohralbvJayuVu3NdKQzbZD3bU7tHI/mzxkEYm/CWaJO1ukuah63MPUS4+e1IUh0R674ebE0rUK+ftZJHU7wv+h02oE5AYyOjdRO/ko+xpfaDR8Kq1KcB1w835YRaTx72Owj6VDZFcCiAOi4odgHQB0W4TBsaNOF02Ig16JJ+GP53ai7IgHgdb8K5RNpAh0r+2/LdMxAlUefzrdTsb07VPQea1fQbXnSUw3gSk3wf4IcKp1dXBkC9WMIMevLbHLHbT+DGssk+dlOqQcVJmU8FmJzKlBlNn4WpbFCtgPRx35FugLQvaTfXBpjuPK9h6/52KCWi1WdCxSF7pASum2N54p9XuVdyNC0pNPq9RCGtu4w3BSm1OgNLyoHRN6xB7YUg+Lt/0n9xy/fUbFFeVvZZkcj5F176TU6HHuoIApa350nEBiUrqLvK0kP+JfNKcS1UqhzTbTTWpoPzVqX3SWLvHj4kx8DMC92xk+gOqsr1kBwWFXUlbZehWHkUt+rN6mlMXo=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(36860700016)(1800799024)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: F/WLmtxD6MMFSbzwMFAIFVr9NxTQsXUzLqUFb6crZglcG89UOTrMO6g+4Bkr94yBDn4aN/oSTVR8LpFoQoxPlNJ/51v0itxtKs13KPHlbFpy6UhHEcZw+SvewFz9gpmsN6cVtyB34ZVeBH9oFJyd3uq/r+rt0MMUzHDRkQehSbk5RQBoqy0BfFFWBgevPwfFSzwRgzwm/Pcj9gDUqn7lH7JocQJ8XQdTV9m6ugwpbAW1QwpwUTT8rLet0x/hM0H8nyxolWhcxZhM+c+9kSM8+CgfBPLxIxJ5W1VQeaDHSq5RjnBPNQ6fx5yDyLCZpddclNE/hZtoYZim/Wpj/abBZf/CY/Yw+rNXVwdy1DLRazMSJq4BLIIpDztWYkFC51tbhoFAI19iNg7EIftXqv9wFYUPbetNBQyHq8i8zo4gwOzL93N86Fpu6Cv0nNJU8OYa
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 May 2026 13:54:28.5037
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3c3e7171-bafa-4001-01f5-08dea91b7e8e
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001CA.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB5769
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260503_065437_057763_C7E1F7AB 
-X-CRM114-Status: GOOD (  11.11  )
+X-CRM114-CacheID: sfid-20260503_080112_561762_3508BCC5 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,45 +108,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-HTTU is introduced by utilizing the Dirty Bit Modifier (DBM) in the PTE.
-When kernel maps a clean but writable page, it will set PTE_READONLY and
-PTE_DBM (aka PTE_WRITE) at the same time. When a write occurs, an HTTU-
-capable MMU will automatically clear the PTE_RDONLY bit without software
-intervention.
+Remove dev_err() call after dma_alloc_coherent() failure.
 
-On the other hand, SMMU has the same HTTU feature, yet it is not enabled
-in the SVA CD. As a result, SMMU will not clear the PTE_RDONLY bit while
-sharing the CPU page table, resulting in unnecessary stalls.
+checkpatch.pl reports this as an unnecessary out-of-memory
+message because failure is already conveyed by returning
+-ENOMEM, and the current message does not provide additional
+useful debugging information.
 
-Thus, enable CTXDESC_CD_0_TCR_HA and CTXDESC_CD_0_TCR_HD in the SVA CD.
-
-Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+Signed-off-by: Shyam Sunder Reddy Padira <shyamsunderreddypadira@gmail.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ drivers/staging/media/imx/imx-media-utils.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-index f1f8e01a7e914..1ed8a6f29dc44 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-@@ -92,6 +92,16 @@ void arm_smmu_make_sva_cd(struct arm_smmu_cd *target,
+diff --git a/drivers/staging/media/imx/imx-media-utils.c b/drivers/staging/media/imx/imx-media-utils.c
+index 1b5af8945e6b..85b63993ef28 100644
+--- a/drivers/staging/media/imx/imx-media-utils.c
++++ b/drivers/staging/media/imx/imx-media-utils.c
+@@ -589,10 +589,8 @@ int imx_media_alloc_dma_buf(struct device *dev,
+ 	buf->len = PAGE_ALIGN(size);
+ 	buf->virt = dma_alloc_coherent(dev, buf->len, &buf->phys,
+ 				       GFP_DMA | GFP_KERNEL);
+-	if (!buf->virt) {
+-		dev_err(dev, "%s: failed\n", __func__);
++	if (!buf->virt)
+ 		return -ENOMEM;
+-	}
  
- 		target->data[1] = cpu_to_le64(virt_to_phys(mm->pgd) &
- 					      CTXDESC_CD_1_TTB0_MASK);
-+
-+		/*
-+		 * Enable Hardware Access and Dirty updates (DBM) if supported.
-+		 * This is safe to enable by default, as PTE_WRITE and PTE_DBM
-+		 * share the same bit.
-+		 */
-+		if (master->smmu->features & ARM_SMMU_FEAT_HA)
-+			target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_HA);
-+		if (master->smmu->features & ARM_SMMU_FEAT_HD)
-+			target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_HD);
- 	} else {
- 		target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_EPD0);
- 
+ 	return 0;
+ }
 -- 
 2.43.0
 
