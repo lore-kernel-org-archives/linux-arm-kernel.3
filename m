@@ -4,105 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A1ABCD3426
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 01:39:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5965CD3423
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 02:06:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=5/hy9Op5MH/n5HzPINkQe6Hw6Gmq5KhiDMLcdOYjsuM=; b=d04MWFZthg3lJZ
-	husjyCBW5BLrzzftkbepBUeupbCtpUwNrS+Yt70Tv6ML5Ia/VSfG9VKH81N+N3IsYY83kG26nKwMh
-	+AMtVI/HgSHxMx8cEomHN05z7TW5dmIDFV75uoFNwuaNbaqxWNGQTbqjxWk6i3+RFQe35PzIKCsZ/
-	aVgQ1xSmv/eRxHd2GlygE6d3CQEwtvCEVYGfF+x9srFRJE5yr4k9OuhmnBvXJZaYmvchXbZjDFV8S
-	jfnXMdl8rV1wkMDtaVuGG7uFku0d7Dmgv31Qd1Bh96kp/w1ix9s2l5ZZdMLOl7XX71myGB+jppWX0
-	CKqBUFETdS3OgO02kq6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PnVCaxNshzzHjwMMq5W7gN5QUApxgL+R58MdQlfO6d0=; b=ZyBAZuwbMAA1SKEhjY6M/9Ut0D
+	yAWLTBWtWnllFB2gC4wJHzCig9r+sEHLOCsQWfleJG7fXJdG9fD7Seo0CSx8ZgmZQ+gP4+HctKTkL
+	MGMbuPTGfhITWdIRjWij9qh77ekmRKMOD7dvB4kCuHPGPbiWSV5KFVqxsaEo9ibmWCjziTkmhLRQ8
+	EVwAULMxVPKLc8tNlzCb59bHTbogJOV2OmhWIbJND85oFM3/ufu6aEl43397mv1ZCF3EhdN1AbrvX
+	HQfVZHEUJixyVbPstr7KyXtt6XCUyWNMlv2J7UpGbL/SORmrf6i+6oWCxX3x4BWPjc+8WP666fu8h
+	V4fqZvdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJLnw-0000000A55T-3ErK;
-	Sun, 03 May 2026 01:39:32 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1wJMEC-0000000A80Q-2E2A;
+	Sun, 03 May 2026 02:06:40 +0000
+Received: from mail-qv1-xf2f.google.com ([2607:f8b0:4864:20::f2f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJLnt-0000000A52y-21kF
+	id 1wJMEA-0000000A7zV-2Eqe
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 May 2026 01:39:30 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-ba60d78aff3so432804566b.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 May 2026 18:39:27 -0700 (PDT)
+	Sun, 03 May 2026 02:06:39 +0000
+Received: by mail-qv1-xf2f.google.com with SMTP id 6a1803df08f44-8b5cda2dab9so13845056d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 May 2026 19:06:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777772367; x=1778377167; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=5/hy9Op5MH/n5HzPINkQe6Hw6Gmq5KhiDMLcdOYjsuM=;
-        b=c2nG1Mp6Vp4cR3nE1ioECs/Ul16hQQboM1mGhBTf7O1benIudorbrGA2SmaFOU3MF1
-         +gY3TuJ6HlvS5YGNH8ujP7Jn0W5EhADUhiw6WBYrWRUAYaopIfEw4WTEiaEATVOh2TGw
-         O5CqKqewaA0/9ATa3rPHOR9czj1SRxkq7lV+YHJu/Yjw4+AguNcsCLyzYYFGGaw6g7Ow
-         QayM+PgSo2ieBYzRCN5vzcegGgZVcNUK1CL0JqwQn8mJDXMhxDYaEph0aWA9JbESx2Jm
-         VCaXEZkNlyc1EPSgTU3FZV+bT/uc0CF+tcb9mv8w9A44Mf8KuYKXiyqfEOfDQze3CmHc
-         8zWA==
+        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1777773997; x=1778378797; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=PnVCaxNshzzHjwMMq5W7gN5QUApxgL+R58MdQlfO6d0=;
+        b=F2zF1M+J4Z3Hn2CX3nZIc0EASvHVzyZQqJvBFmiSTZmVJBdO/buz7kdX/W11TbVckG
+         GLj8yh9uEks4jpPG6hILO85j3qUzIsf3VuZTwMaHCIi36OIGr4rSmhZWfB1jcX0nAIhI
+         xUA+NPhbWbvARrxWsVLddCdYto7gsyctlfecnKZuVuCAI53PwYhO3S8SX6JTelFrv6HC
+         1Lp5eyR6khMRk1cfZ4V00sEl3azGHkJvxXvnvaYhbvgURbbzQmnsaKHW7goguWFDb5O/
+         oGWO+Tw0Z2NVRFZqvZ6mvJuTsOoOkuNUs7A7B8YOvfe9jx/mTlGO7CIoW2iKGscQQIAF
+         xYwA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777772367; x=1778377167;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5/hy9Op5MH/n5HzPINkQe6Hw6Gmq5KhiDMLcdOYjsuM=;
-        b=OMoLG30DD718p11/9ZLPD5+gIN0ddDU9Dvmr5pqZgsptwwXc2jPXWEt6jhBBzneCl4
-         fcGtc87nfk9FF744QAe+NEYyAQIu8kC0cqLcelMTRFQx7RvdfBZv35YpPOOWDyx7xSuD
-         1Ga1tI33lb7sVuKsi970Fsm4Eh0ZYvdC5x0p1oXrN3PJV30ciI3tJR5jQzZluETEqft5
-         MoS6Aanb8k434Glw6TzYrLcvo6+sQnA4nIXgEigFfu1ihEyA8IwLL1arpQ9rLg2at59d
-         8nq+hiXyEYH/XQifWVy2+LMk5M6PSwysmFSHEq3qrt4afK43y/wW1R65m798rtdqhKD5
-         soLA==
-X-Forwarded-Encrypted: i=1; AFNElJ8ELZ3xRw7/ML38dOgpf/WVN8nVXg1sRVpfP+h0ZKdhOAubzV+48dVdX/xl/dDMpxjyxynHpzkHDqQFjg+teT2+@lists.infradead.org
-X-Gm-Message-State: AOJu0YyFkDva46+VnysnsVx716loi931sQXDHyyjJgf+uWo++dISOmt5
-	OWBH9kJz94iI8OB39PkNUze0ym7nYb5IOWM5G6ahnDQ8VstJ4sR0lveu
-X-Gm-Gg: AeBDieuAo0gxgjqhWtL5FGYxqI4WvAc2ho3s6oCAhkyCb/npL4neuOIM0YyJSjVjuXp
-	ReAKm6hyH6nunU6s0ZCe7M1bv5lt8lAoDU/k27Qo/3tGhir8UjpUyQqiT/HfS22TzuiiNHXohNd
-	3jVgbaQ5NPoYJoyG01ySr29f93FvI84MjbAJm3xZqXbuXA80OG1EMw9pLW1GV3yaSZQBCZ2SSGd
-	Ntxsu3/otnfdL4sC6p1zuoRZKT7OZmrrH6FvRz/BPb4uCLYbFcnAd7ZXfWPeQde1WoM6zhHVvr2
-	DjaRr9ybfvfO8eJwFR1Ik1pCw/P+QHnTJFi6RhW2Uoknla6QgpooXtKCjzJ3i2iZQxdkG92nNim
-	BXbMG/3zfXaLWQfD7FsmfsObJMK9KOuoJHZS8ymfvlMaydeWmJRB5LUb9wQzPTFEPRzWgYpVdSV
-	4NYx87MDgtnYE1FZ+rF++aewMw6oH110jYTF7Z/6fqMlGZatUi57kF8Kmjh6h+w0fuyJhhBA4Ut
-	FJnBkoutjQKXsiDmtR0XzqUpOYnSAutIGQv48Q=
-X-Received: by 2002:a17:906:9f87:b0:ba1:1181:b773 with SMTP id a640c23a62f3a-bbffa336011mr224803366b.10.1777772366373;
-        Sat, 02 May 2026 18:39:26 -0700 (PDT)
-Received: from KURWA.angora-ide.ts.net (mm-39-71-126-178.vitebsk.dynamic.pppoe.byfly.by. [178.126.71.39])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-bc1671c1d3esm24796466b.42.2026.05.02.18.39.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 02 May 2026 18:39:25 -0700 (PDT)
-From: ElXreno <elxreno@gmail.com>
-Subject: [PATCH 0/2] wifi: mt76: fix TDLS direct-link on MediaTek MT7925
-Date: Sun, 03 May 2026 04:38:29 +0300
-Message-Id: <20260503-mt7925-tdls-fixes-v1-0-dde847e21081@gmail.com>
+        d=1e100.net; s=20251104; t=1777773997; x=1778378797;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=PnVCaxNshzzHjwMMq5W7gN5QUApxgL+R58MdQlfO6d0=;
+        b=qRNQPBYtaqX5YolaYRTMT7xvYbu7keeIRs2Mqil1AZQI5YnFw0WEk3fXlk1CcjXvYj
+         CF0UXu0KwRv24EULvljYoL9GWKwvNwCKCUapppES/Y/zMgASXoSPBh+GTtbFMMXaK4GQ
+         rwIXcVrxzTgpJFpm0sY3g5YK4GNu2gDapEeHCCSY+Xm4oE7avPzxnrLWE+Uq0OC0JN0L
+         xnVbKlFWbkTsux9l0S5oP2JxEqjWcud2lsUKeJjb9crLb5IRjQabVkTYKetSvBNHM0ad
+         kvqJnBqWRM/5fUgAPQbLxEyxF7vVfPQEZjXSKMN/ePV+rjkrvlspKK5SgYwS8j7S8VYA
+         Cjow==
+X-Forwarded-Encrypted: i=1; AFNElJ8ossDp+O6QjnZEaaTpeAmnEd+nJE0ATzEoJkww5YdqusoYkWmfc/Wl8oBcSI+Scb4N9w8bkAgz8TW0X5Ibni/H@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxf376la8aAhTAJsAXnO8WOuG50kweetHZ4/HIRTE4TmW7pZjCT
+	a8obU22wrYhgAv3Cwa4GhZOjQDr0oRATEqZYfl5HcOWCsAMpgbenuOJi3+rT0+dfW2E=
+X-Gm-Gg: AeBDieuv6xOM3FxSC13NQrm5f1tFLnGDf3jLxV5orI2ldr9QpoLpPyyZ4CfJ+JOe3Y4
+	GgDrdZWZ+E+RHll3rJ9WsAPHL+itNYkhUzE+KPOzDs4tOkaz9JuKZead9icmHFPe+96XBdAVrpk
+	q36clWTsHVlYkF0H3nBYN3oN+nt4adbnjv5J2Vva0zpkRPPvWNPtKY5fKcHpKG1O3gSsLlt+x4H
+	94XPcz2aYq27kAR3WcOcbidWWJYmrUniFirdAxFJbNqqKSTeoAXepTSeJzfHBEBqaLBLJmSCzJl
+	zPd3Yx827n2AWsWq/vKRvDhcq+MNBccbhLPE6z4zzfzKNU4n4t7VXtIHSRx68GDuLhmtUuvJsLJ
+	/vSUPENg/rz52M7ocleYiyrXIM1yyfypCXiKpFK7nT+rD2l6KWqbKtPn9n+VgZzcYbYE0vkpDRF
+	RdRjs+eyECI5EtgtMo6RtlUGMV5lR9GZ4S95Dx5H67/X23nuWmHQbnKYeaniD8xhHGZdTzzcSvb
+	Q==
+X-Received: by 2002:a05:6214:610d:b0:89c:8a3c:e34f with SMTP id 6a1803df08f44-8b667b79753mr56665696d6.12.1777773997147;
+        Sat, 02 May 2026 19:06:37 -0700 (PDT)
+Received: from [172.22.22.28] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8b53d831ac7sm72634806d6.49.2026.05.02.19.06.33
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 02 May 2026 19:06:36 -0700 (PDT)
+Message-ID: <649428a4-9505-4a1a-bbbe-bd90be9b8155@riscstar.com>
+Date: Sat, 2 May 2026 21:06:33 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 11/12] misc: tc956x_pci: add TC956x/QPS615
+ support
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ pabeni@redhat.com, maxime.chevallier@bootlin.com,
+ rmk+kernel@armlinux.org.uk, andersson@kernel.org, konradybcio@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, linusw@kernel.org,
+ brgl@kernel.org, arnd@arndb.de, gregkh@linuxfoundation.org,
+ daniel@riscstar.com, mohd.anwar@oss.qualcomm.com, a0987203069@gmail.com,
+ alexandre.torgue@foss.st.com, ast@kernel.org, boon.khai.ng@altera.com,
+ chenchuangyu@xiaomi.com, chenhuacai@kernel.org, daniel@iogearbox.net,
+ hawk@kernel.org, hkallweit1@gmail.com, inochiama@gmail.com,
+ john.fastabend@gmail.com, julianbraha@gmail.com, livelycarpet87@gmail.com,
+ matthew.gerlach@altera.com, mcoquelin.stm32@gmail.com, me@ziyao.cc,
+ prabhakar.mahadev-lad.rj@bp.renesas.com, richardcochran@gmail.com,
+ rohan.g.thomas@altera.com, sdf@fomichev.me, siyanteng@cqsoftware.com.cn,
+ weishangjuan@eswincomputing.com, wens@kernel.org, netdev@vger.kernel.org,
+ bpf@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-gpio@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260501155421.3329862-1-elder@riscstar.com>
+ <20260501155421.3329862-12-elder@riscstar.com>
+ <20260502094559.15c3f479@kernel.org>
+Content-Language: en-US
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <20260502094559.15c3f479@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIABWn9mkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDUwNj3dwSc0sjU92SlJxi3bTMitRiXcMUQ2NLcxMjA0sDAyWgvoKiVLA
- EUFt0LIRfXJqUlZpcAjJIqbYWAK4p9jx1AAAA
-X-Change-ID: 20260503-mt7925-tdls-fixes-1d1397420900
-To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, 
- Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>, 
- Sean Wang <sean.wang@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Soul Huang <Soul.Huang@mediatek.com>, 
- Ming Yen Hsieh <mingyen.hsieh@mediatek.com>, 
- Deren Wu <deren.wu@mediatek.com>
-Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- stable@vger.kernel.org, ElXreno <elxreno@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3364; i=elxreno@gmail.com;
- h=from:subject:message-id; bh=YPGmyUudNSjw4eCk1z0v7TQxyamgkewkjdMSqZfW3uA=;
- b=owJ4nJvAy8zAJXa0WDmKX5v/EeNptSSGzG/LfatSrcLPN15++MYthFUoRjl0P9uFBxs3mHG9s
- t3u1fv3xrmOUhYGMS4GWTFFFp5ze2tzltUtmVzPlQEzh5UJZAgDF6cATGRnEyPDqa45L/1ZclJ/
- /9llq7hf+zqzQ2gHy6bMwgdSfMtWLRHdwfBXqCrhlfWsxyXsGw3No7YdPOWXz7twtWi41hQxt1u
- f7yUxAgBO/EcD
-X-Developer-Key: i=elxreno@gmail.com; a=openpgp;
- fpr=0CCEBD7D6CA67EA4937F0A68C573235A0F2B0FE2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260502_183929_543051_9D38F33C 
-X-CRM114-Status: GOOD (  13.97  )
+X-CRM114-CacheID: sfid-20260502_190638_588974_F8AA44AF 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,76 +121,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series fixes two TDLS-related issues on the MediaTek MT7925
-(Connac3) Wi-Fi 6E chip, observed reproducibly with Samsung phones
-and other peers that auto-initiate TDLS direct links.
+On 5/2/26 11:45 AM, Jakub Kicinski wrote:
+> On Fri,  1 May 2026 10:54:19 -0500 Alex Elder wrote:
+>> The Toshiba TC956x is an Ethernet AVB/TSN bridge,  and is
+>> essentially a small and highly-specialized SoC.  It implements
+>> a number of internal functions, including a GPIO controller,
+>> control registers managing internal reset and clock control
+>> signals, a PCIe switch and internal endpoint, and mapping
+>> hardware that translates between PCIe and internal addressing.
+> 
+> drivers/misc/tc956x_pci.c:541:17: error: call to undeclared function 'u32_get_bits'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+>    541 |         chip->rev_id = u32_get_bits(val, NCID_REV_ID_MASK);
+>        |                        ^
 
-Patch 1 works around a TDLS direct-link issue on MT7925: QoS Data
-frames whose destination WCID is a TDLS peer are silently dropped
-after submission to firmware via the HW_80211_ENCAP TX path. mt76
-advertises WIPHY_FLAG_SUPPORTS_TDLS via the shared
-mt76_register_phy_helper(), but does not provide TDLS-aware
-firmware-facing peer setup -- no CONNECTION_TDLS constant in
-mt76_connac_mcu.h, no STA_REC_TDLS TLV, no TDLS bit in
-mt76_wcid_flags, no TDLS-specific handling in
-mt7925_mac_write_txwi_8023(); the proprietary out-of-tree MediaTek
-driver carries an explicit cfg80211_tdls.c with no in-tree
-equivalent. Whether the underlying gap is in the firmware HW_ENCAP
-path or in mt76's missing TDLS-aware setup is unclear from the
-kernel side; the software-encap path sidesteps it either way. This
-patch stops advertising SUPPORTS_TX_ENCAP_OFFLOAD and
-SUPPORTS_RX_DECAP_OFFLOAD in mt792x_init_wiphy(); mac80211 then
-takes the software 802.11 encap path, which submits already-formed
-802.11 frames via a different firmware path that handles all WCIDs
-correctly. Verified on mt7925e at 5 GHz HE 80 MHz and 2.4 GHz
-802.11n; TDLS direct link sustains ~750 Mbit/s and ~130 Mbit/s
-respectively. The disable is applied to the shared
-mt792x_init_wiphy() and so also covers the Connac2 family
-(mt7921/22/20/02), which uses the same firmware HW_ENCAP path; if
-Connac2 is later confirmed unaffected, the disable can be narrowed
-with is_mt7925().
+Yeah I think I noticed an error like that shows up with 32-bit builds?
+In any case we didn't see it during development, and we'll make sure
+<linux/bitfield.h> gets included.
 
-Patch 2 fixes a regression introduced by the MLO refactor in
-commit 3878b4333602 ("wifi: mt76: mt7925: update
-mt7925_mac_link_sta_[add, assoc, remove] for MLO"): the cleanup
-loop in mt7925_mac_sta_remove_links() unconditionally calls
-mt7925_mcu_add_bss_info(..., enable=false) for every link of the
-station being removed, including TDLS peers on a STATION vif which
-share the AP's bss_conf -- wiping the AP-side rate-control context
-on every TDLS teardown and collapsing rx bitrate to 6 Mbit/s for
-tens of seconds.
+Thanks.
 
----
-To: Felix Fietkau <nbd@nbd.name>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Ryder Lee <ryder.lee@mediatek.com>
-To: Shayne Chen <shayne.chen@mediatek.com>
-To: Sean Wang <sean.wang@mediatek.com>
-To: Matthias Brugger <matthias.bgg@gmail.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: Soul Huang <Soul.Huang@mediatek.com>
-To: Ming Yen Hsieh <mingyen.hsieh@mediatek.com>
-To: Deren Wu <deren.wu@mediatek.com>
-Cc: linux-wireless@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-mediatek@lists.infradead.org
-base-commit: 7baf5857e15d722776898510a10546d6b2f18645
-
----
-ElXreno (2):
-      wifi: mt76: mt792x: disable HW TX/RX encap offload to fix TDLS direct-link
-      wifi: mt76: mt7925: don't disable AP BSS when removing TDLS peer
-
- drivers/net/wireless/mediatek/mt76/mt7925/main.c | 10 ++++++++++
- drivers/net/wireless/mediatek/mt76/mt792x_core.c | 10 ++++++++--
- 2 files changed, 18 insertions(+), 2 deletions(-)
----
-base-commit: 7baf5857e15d722776898510a10546d6b2f18645
-change-id: 20260503-mt7925-tdls-fixes-1d1397420900
-
-Best regards,
---  
-ElXreno <elxreno@gmail.com>
-
+					-Alex
 
