@@ -4,94 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38886CD342F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 08:35:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8ED0FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 10:47:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=/6FZTn1uDz0N1c7PIwvbk3rD0JkNh6yzne9kAdOtgfI=; b=NGk3tAp+Q5PbkQ
-	RKlCuLRUF+Uq7OdzmBh2y4ZODCE5YL8DUYCLAkBjmXlNFa0e/vqI8EwoV9LD50K7pqVErTCLc+Ylm
-	o2QdVOXLXeCLvfO9mW106xLolgg+ZEJ/vQ1Qmedi8il+BZGhgE/88d/J4ehqk3DakL+g9ro6LlOwP
-	JgO98j+fdplQR0Xct6jaVOroRRH8aAR8C8hSAU6GQegLyroV83FBtvil0T6wIAGhFzZo2sOytkNeL
-	qgl5twC72IGPrsbtWQ0H+fyzOt5+B3Xpt1W8r0jQpcGWbmQD6DXDXzlaymNYvctOn0Xjin72mz8VI
-	52O7tTZvcbn8CT6Dc+Xw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OaxcfO/rOb7KPw8kjmdpIixm6/HZqD2v6gnazPmWTAQ=; b=Jr8QnS0nCbLRQ76aihuldEuxJM
+	ZL5RlHwXSpBHhr0U/dWSezBbedVfWlH8WsN+u8HeT6jt85Fz47Oews/lqrefUmULMstW5/+S9whiv
+	3fgAF5adNmjoyogpNu1LrrRLq7yo/kFiHwmA1gMC/qQreBPn7V27yGZ+bvuRQ4XWeY4AR4xC8WWVE
+	jRAlVFCzmDRYIoPvqZ7kJeU9RMdwn5GP3f94ugIWo/SlZr2PH6xqCHeCs4S00Dnt0HMEZmCAJGJpi
+	U1DmJqfiEmK5LFI7XJhEFrEx5hYdalFASxXNkQBjVrwpdbyO7ByI/ufzSFqqkNih5mhOhi1O3jqVA
+	z4deUPEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJSIe-0000000AdpE-2M2u;
-	Sun, 03 May 2026 08:35:40 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1wJULu-0000000Ap69-3fVy;
+	Sun, 03 May 2026 10:47:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJSIb-0000000AdoV-2VVj
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 May 2026 08:35:38 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-824c9da9928so1350079b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 03 May 2026 01:35:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777797336; x=1778402136; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=/6FZTn1uDz0N1c7PIwvbk3rD0JkNh6yzne9kAdOtgfI=;
-        b=enG3OmDZTQV9saxi2YmkkdX642OEFrnUIvlm+wQ3BYViTERUCqSyxqVglvI+wn0vGp
-         nE9Le0gCeXHZ0iUz66f+tXYoxJvtC9AGo+zfxiQSFT2IizEANeIGutdFkcnGaHmrQAs5
-         hXLdmZSCgiyXoM8KFyiv1FAO8CYm5WgzQY4Ti/+/1/A9z8YDGeMHo5Du+Ld90X3r6FEQ
-         k4ihRK3Uaed5C25Vzv+Z4nCRKkGm6B1gmFej37DA5INX7O2DyLyr56UPWhcRgC3nicZh
-         MxbOMc+lv4UMgU4gNQhUFzYmeBwj21eK5+Dc9RGAD5CNBIqk5xk6IaoZd82i9TsAE6sw
-         pP5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777797336; x=1778402136;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/6FZTn1uDz0N1c7PIwvbk3rD0JkNh6yzne9kAdOtgfI=;
-        b=R+Z5koZoIr8pgAurv5SQ89yy5iQeucoOwqijP592Lypf9uOHJ/WkBBQtJAoMaWzlvs
-         dtGkmKv4OH6jwwvw986LcOGSj0YaJUjp4glV9fBrSFvebiWWEwjNQxT2Mysp7du/tF7+
-         FDal+cXJlGe0DpSQjLaOHQ+SV/yKUYygOlvacT8KUUkUrn2SKyGKTjDjcoNS85O5IXqY
-         upBuVC8HcjGRWe8llnFJMS+Kb9GFQso+v6z4FJf+V35f7R1Y0sicPqvwcCLHpxKksGTZ
-         hjreQ5UMS5bTggu+UHMgpJmTsHemi3Q+wiutDl/AWk47+hd5xkmGV5ztfvv/miSnu/5m
-         YpyA==
-X-Forwarded-Encrypted: i=1; AFNElJ9JqgNPm643+gl7RBZ19M5m+AfD21GBgZlslfz1v24VOdeGR/ArkDHB3di/QlhqbN5MoOJf3i3nTyiTQvucCofU@lists.infradead.org
-X-Gm-Message-State: AOJu0YwtlHvkddkx7qm+vXSVpz6PjPNBIhY1lOUuFv2M1Nvx+A+GutLz
-	yYTMfX+J47k2ozLXIoBMnB24dxLTs0hjNqD+W6wdipZrbD1Gxz3DH4ob
-X-Gm-Gg: AeBDiesZ2cWJ7dUR78jB5dUyonQyslTWHxGW1vijiwUb/0pfzGzerojZuOBrdKloJLn
-	fiRfYBzSCfJpMvkF3TIKjdjuQU96Qk5WupZnrm2ZvpslszvrtCbBn3wlH49UUOlWHShVh4C4bD9
-	BlbEzVXa1jz0Rc93LJDmVr/GrnJM/N+Otp+89sgloyq0hfUo1vCSFMhk4lHTMYWbYBtTEn+2fsN
-	7+WFKJghsqm92X5feag3awFtlJeqfSDbwH5b7wiH8dr7hWqXlVkNh8S9R4TUFXwebOhk79PcTCN
-	OBMXeGPxBUdVNgyqlEjLIT/LaKT3XsP4DqpkSCHHQ2XhXduhRnjzLWEv48Ls843hUECThTw8FDO
-	M8p+MOhz2zRnkB+Zj1he+ZIpqr/LQb4urp70zsbt2vyD/jubcNI/ZK4ue536Qv4ssC/z4CqkXld
-	OKPXbkPtHGLxuiQt3+sdlN6A5UCN4Je6JlWczDUdae7f/iLn9B41HdGi4=
-X-Received: by 2002:a05:6a00:a88e:b0:82d:556b:7a01 with SMTP id d2e1a72fcca58-8352d164430mr5171642b3a.16.1777797336292;
-        Sun, 03 May 2026 01:35:36 -0700 (PDT)
-Received: from Black-Pearl.localdomain ([60.243.224.75])
-        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-835446b1b0asm1578142b3a.8.2026.05.03.01.35.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 03 May 2026 01:35:35 -0700 (PDT)
-From: Charan Pedumuru <charan.pedumuru@gmail.com>
-Subject: [PATCH v2 0/2] dt-bindings: mmc: st,sdhci: convert
- STMicroelectronics SDHCI-ST MMC/SD Controller controller binding to YAML
-Date: Sun, 03 May 2026 08:35:28 +0000
-Message-Id: <20260503-st-mmc-v2-0-11ae3216d2ce@gmail.com>
+	id 1wJULs-0000000Ap5g-1zAC;
+	Sun, 03 May 2026 10:47:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 219D743306;
+	Sun,  3 May 2026 10:47:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8D55C2BCB4;
+	Sun,  3 May 2026 10:46:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777805227;
+	bh=3pCV6LH2vYCWmblublKkhdz5LTIMxW5qGQGwzJOdVX4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=fG3TWM1OI4lfJrryBwdIAdznMDOynkpdZwkjn+94qy9ryuZ63cyDMfYzi8S2tttrF
+	 LQkV3+9X4DgYua95Zh14HzfdI3uuWJjFHzQepL9ecI+iB6RelRvyl9mTspJOeK0Mcp
+	 40U0W2lkPR58VnW8Kf4ce/cwqjG0a2kO26uE/j8KxPAd/Ffqx1v0YvckMjxoAgInsh
+	 koiR2Q+6DeAjqR4oANnzSszFgfm/BKGstmVsLJVmuoSphzppCsVQIUqWLJR6gheZW2
+	 ECtV7Dz+5WcF4814BWPgHkdl2kltuktC6+IDE7Ba+vAs/eUaUCO9x9mygNT3CrLGHc
+	 dgX6i5kBujJHg==
+From: William Breathitt Gray <wbg@kernel.org>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: William Breathitt Gray <wbg@kernel.org>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Lee Jones <lee@kernel.org>,
+	Damon Ding <damon.ding@rock-chips.com>,
+	kernel@collabora.com,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Alexey Charkov <alchark@gmail.com>,
+	linux-rockchip@lists.infradead.org,
+	linux-pwm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-iio@vger.kernel.org
+Subject: Re: [PATCH v5 4/6] counter: Add rockchip-pwm-capture driver
+Date: Sun,  3 May 2026 19:46:23 +0900
+Message-ID: <20260503104624.459765-1-wbg@kernel.org>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260420-rk3576-pwm-v5-4-ae7cfbbe5427@collabora.com>
+References: <20260420-rk3576-pwm-v5-4-ae7cfbbe5427@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIANAI92kC/zXMSw7CIBSF4a00dyyGZxVH7sN0QCi0N5HSQEM0D
- XsXaxz+JyffDtkldBlu3Q7JFcwYlxb81IGdzTI5gmNr4JT3VPALyRsJwRKraW9Grby/CmjnNTm
- PrwN6DK1nzFtM78Mt7Lv+CEn1nyiMMCKtkoIzK5RQ9ykYfJ5tDDDUWj93hWQOnAAAAA==
-X-Change-ID: 20260327-st-mmc-c906ad95ff83
-To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Patrice Chotard <patrice.chotard@foss.st.com>
-Cc: linux-mmc@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Charan Pedumuru <charan.pedumuru@gmail.com>
-X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6676; i=wbg@kernel.org; h=from:subject; bh=3pCV6LH2vYCWmblublKkhdz5LTIMxW5qGQGwzJOdVX4=; b=owGbwMvMwCW21SPs1D4hZW3G02pJDJnf1WOOPLL01ulYkW+90T/xlOzJv6dzgwQ3lk9Rt/h3c +pitsUnO0pZGMS4GGTFFFl6zc/efXBJVePHi/nbYOawMoEMYeDiFICJWDxj+F/u9FK8KipthVvW yvy/19g2f8l/fshgx8nnp958vVZnWcPNyPAzoaz5sN3KeOdpR2sXK6zl7zh+0ffthWsHTl88Wmy ovIoNAA==
+X-Developer-Key: i=wbg@kernel.org; a=openpgp; fpr=8D37CDDDE0D22528F8E89FB6B54856CABE12232B
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260503_013537_647880_7D0EE746 
-X-CRM114-Status: GOOD (  11.02  )
+X-CRM114-CacheID: sfid-20260503_034708_614942_257BCE05 
+X-CRM114-Status: GOOD (  28.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,39 +87,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series converts the legacy text-based Device Tree binding for
-STMicroelectronics SDHCI-ST MMC/SD controller to DT schema (YAML) format.
+On Mon, Apr 20, 2026 at 03:52:41PM +0200, Nicolas Frattaroli wrote:
+> Among many other things, Rockchip's new PWMv4 IP in the RK3576 supports
+> PWM capture functionality.
+> 
+> Add a basic driver for this that works to expose HPC/LPC counts and
+> state change events to userspace through the counter framework. It's
+> quite basic, but works well enough to demonstrate the device function
+> exclusion stuff that mfpwm does, in order to eventually support all the
+> functions of this device in drivers within their appropriate subsystems,
+> without them interfering with each other.
+> 
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-Note:
-The patch "dt-bindings: mmc: st,sdhci: convert to DT schema"
-depends on the patch "arm: dts: st: align node patterns with established
-convention". If the DT schema patch is applied before the DTS
-cleanup patch, `dtbs_check` will fail due to the presence of the removed
-properties in the existing DTS.
+Hi Nicolas,
 
-Signed-off-by: Charan Pedumuru <charan.pedumuru@gmail.com>
----
-Changes in v2:
-- Fix node name in DTS for the MMC to match with the estableshed convention.
-- st,sdhci: drop unnecessary properties, modify "reg", "reg-names" and
-  "clock-names" properties, include an allOf with $ref to mmc-controller.
-- Link to v1: https://patch.msgid.link/20260409-st-mmc-v1-1-4c54321c3535@gmail.com
+Forgive me if I asked this before, but I'm having trouble finding it
+online: do you have a link to a publicly available RK357 technical
+reference manual? I think that will help me better understand how this
+PWMv4 IP works.
 
----
-Charan Pedumuru (2):
-      arm: dts: st: align node patterns with established convention
-      dt-bindings: mmc: st,sdhci: convert to DT schema
+Regardless, some comments inline below from my current understanding.
 
- Documentation/devicetree/bindings/mmc/sdhci-st.txt | 110 ---------------------
- .../devicetree/bindings/mmc/st,sdhci.yaml          |  93 +++++++++++++++++
- arch/arm/boot/dts/st/stih407-family.dtsi           |   4 +-
- 3 files changed, 95 insertions(+), 112 deletions(-)
----
-base-commit: cf2cd8efd046c561191b8541d32a8bfe845bf06b
-change-id: 20260327-st-mmc-c906ad95ff83
+> +static struct counter_signal rkpwmc_signals[] = {
+> +	{
+> +		.id = 0,
+> +		.name = "PWM Clock"
+> +	},
+> +};
 
-Best regards,
---  
-Charan Pedumuru <charan.pedumuru@gmail.com>
+If the capture mode is used to measure the duty cycle of the PWM input,
+then we actually have two Signals to define here: "PWM Clock" and "PWM
+Input".
 
+I imagine the capture mode waveforms look something like this:
+
+               __    __    __    __    __    __    __
+    clk     __|  |__|  |__|  |__|  |__|  |__|  |__|  |__
+    
+                      __________________ LPC: 2 edges ____
+    pwm_in  _________|   HPC: 3 edges   |____________|
+
+So the level of the pwm_in signal is counted each rising edge of clk;
+the number of clk edges while pwm_in is high is the HPC count, whereas
+the number of clk edges while pwm_in is low is the LPC count.
+
+In the Generic Counter paradigm, this would look like the following:
+
+    Signals             Synapses              Counts
+    =======             ========              ======
+    +-----------+                               _______________________
+    |           | <---- "Rising Edge" ---+---> /                       \
+    |"PWM Clock"|                        |     |"High Polarity Capture"|
+    |           |                    +---|---> \                       /
+    +-----------+                    |   |      -----------------------
+                                     |   |
+    +-----------+                    |   |      _______________________
+    |           |                    |   +---> /                       \
+    |"PWM Input"|                    |         | "Low Polarity Capture |
+    |           | <---- "None" ------+-------> \                       /
+    +-----------+                               -----------------------
+
+The key idea is that the clock and PWM input Signals are associated to
+both Counts (HPC and LPC) through their respective Synapses. However,
+while the clock Synapse ("Rising Edge") indicates the clock Signal
+state triggers updates in the Counts, the PWM input Synapse ("None")
+indicates the PWM input Signal state does not trigger but is simply
+evaluated to determine the new Count value.
+
+> +static const enum counter_synapse_action rkpwmc_hpc_lpc_actions[] = {
+> +	COUNTER_SYNAPSE_ACTION_BOTH_EDGES,
+> +	COUNTER_SYNAPSE_ACTION_NONE,
+> +};
+
+To simplify my above example, I assumed that the HPC and LPC counts are
+only updated on rising edges of the clock Signal. If the Count values
+actually update on both edges, then you don't need to make a change
+here. Otherwise, change the "both edges" enum constant to "rising edge"
+or "falling edge" as required.
+
+> +static struct counter_synapse rkpwmc_pwm_synapses[] = {
+> +	{
+> +		.actions_list = rkpwmc_hpc_lpc_actions,
+> +		.num_actions = ARRAY_SIZE(rkpwmc_hpc_lpc_actions),
+> +		.signal = &rkpwmc_signals[0]
+> +	},
+> +};
+
+Add a Synapse here for the "PWM Input" Signal.
+
+You should also implement an action_read() callback. Check the value of
+synapse->signal->id to determine which Signal is associated to the
+Synapse and set the respective action; i.e. for the PWM clock set
+COUNTER_SYNAPSE_ACTION_BOTH_EDGES, while for the PWM input set
+COUNTER_SYNAPSE_ACTION_NONE.
+
+> +static const enum counter_function rkpwmc_functions[] = {
+> +	COUNTER_FUNCTION_INCREASE,
+> +};
+
+I wonder if we need a new enum counter_function constant to express
+what's happening in this driver. In theory, the
+COUNTER_FUNCTION_INCREASE represent a Count whose value only increases,
+but what we're describing here is more of a duty cycle sample, right?
+
+I haven't made up my mind on this, so for now you can stick with
+COUNTER_FUNCTION_INCREASE. I'll reconsider it in the next revision.
+
+> +static int rkpwmc_enable_write(struct counter_device *counter,
+> +			       struct counter_count *count,
+> +			       u8 enable)
+> +{
+> +	struct rockchip_pwm_capture *pc = counter_priv(counter);
+> +	int ret;
+> +
+> +	ret = mfpwm_acquire(pc->pwmf);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (!!enable != rkpwmc_is_enabled(pc->pwmf)) {
+
+The Counter subsystem gurantees enable is a boolean value so there's no
+need for the double negation here in the conditional.
+
+Also, instead of checking if the enable value is different from
+rkpwm_is_enabled(), check if it is the same and exit early. That will
+avoid the large conditional block as what you have inside can now move
+outside after the conditional check.
+
+> +		if (enable) {
+> +			mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_ENABLE,
+> +					 PWMV4_EN(false));
+> +			mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_CTRL,
+> +					 PWMV4_CTRL_CAP_FLAGS);
+> +			mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_INT_EN,
+> +					 PWMV4_INT_LPC_W(true) |
+> +					 PWMV4_INT_HPC_W(true));
+> +			mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_ENABLE,
+> +					 PWMV4_EN(true) | PWMV4_CLK_EN(true));
+> +
+> +			ret = clk_enable(pc->pwmf->core);
+> +			if (ret)
+> +				goto err_release;
+> +
+> +			ret = clk_rate_exclusive_get(pc->pwmf->core);
+> +			if (ret)
+> +				goto err_disable_pwm_clk;
+> +
+> +			ret = mfpwm_acquire(pc->pwmf);
+> +			if (ret)
+> +				goto err_unprotect_pwm_clk;
+> +		} else {
+> +			mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_INT_EN,
+> +					 PWMV4_INT_LPC_W(false) |
+> +					 PWMV4_INT_HPC_W(false));
+> +			mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_ENABLE,
+> +					 PWMV4_EN(false) | PWMV4_CLK_EN(false));
+> +			clk_rate_exclusive_put(pc->pwmf->core);
+> +			clk_disable(pc->pwmf->core);
+> +			mfpwm_release(pc->pwmf);
+> +		}
+> +	}
+> +
+> +	mfpwm_release(pc->pwmf);
+
+The call to mfpwm_release() in the else block is redundant because it is
+called immediately again here.
+
+William Breathitt Gray
 
