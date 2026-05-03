@@ -4,106 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21B2CCD3426
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 11:26:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D14DFCD3426
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 11:37:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N7prIoheVvgXIUQ8iV+lRMb0W/2ewpXni9RbSfAw0Xs=; b=isX4UG4vwnhTQtOvRobf/ROwNY
-	qKo2YUqmS8FiO7jkHzX43x9U6UkXfu1ovXDiUxR5Wwj9UQPeWmKNpotbiAHh0PhwpoP3YASgf44fq
-	wTJ5C+cTWGzQ2XnyYG6cBSBIJzOxohgRD28R6oWexF7RPh4s2L1RjOlLWYHT56ReDmisQj8BbUJbO
-	xqB3GfqDSW2UE9goggRamBMy56Kc5+bA2PRmC8J5IxfG748woFWd3/O9SvMpGp73OOmTetsyYcZTy
-	a51BtRR/DONqhi6SkFDfL2rUhvpOz3xcGMGpJVFDEbU5kX15Eje0qGT9vNDcAh/vW0iY50SxJr8G2
-	Ev7yT3Eg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
+	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JeO9wpJmE2rZ4RmHVIraoaQUKxeV+2cdGG9sRb8QKPk=; b=Gka3sBjB+V99BUqnVJBMYHW9Z9
+	bgPlVuEqo2bkJUbiQ3BQgNgCIHLbA2+eSv5J30asY0sa06SbvC9Lkuh4fwriGTofvG06jhPgCq/lB
+	CYF9hcEsqBtZIhReEqdt5Nf/355EX5UJu0GlV5VgjT0tOHXcPjbNLCudHXYdzoN2mW1/0Zq2gm5sR
+	5wSUBGfid6c7+RllYw/FHvr/XWH92jC9HL47tXI5mQghwma62OpBPr2QGX3AbcqEGbebeP7mMYtHT
+	YKUaCkZ7hjXUYzyXJQSAzpr44S0NwrmMNC7GneGN7J+YbDyIFcRn4WsLZ3aHFl/bCHW9TDIUsTFcl
+	J2++2kbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJUxT-0000000AsUv-3Urt;
-	Sun, 03 May 2026 11:25:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wJV8W-0000000Atko-4BBC;
+	Sun, 03 May 2026 11:37:25 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJUxS-0000000AsUh-3wc2
+	id 1wJV8T-0000000AtkE-1J84
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 May 2026 11:25:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A44BD60120;
-	Sun,  3 May 2026 11:25:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A02AAC2BCB4;
-	Sun,  3 May 2026 11:25:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777807557;
-	bh=1ApkGvMpBykRcSrLAPYMZ2j7dZyA7S2OjoYOUuyklD8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RkobcQvoPxmMyhccy69jg8Ff6Fm+taknjJpT4wEkTuhU4IS8hvs6g53ydJBv3jo8N
-	 jHRD8LtCNU2ySKi/Y+fTD5+jbKgXl9IkDoSm/0kvwfZl3GrdOuYgKzqX1QPKVN+XTo
-	 rewswp067by9Y54oK97+aYaL1B3tzmZfaoiy4IVwGbiuX9iA33bm8ZZg/PdJkrJFnP
-	 z2TR93qZNYh44xGJwyNf5t0nw4fxPfGJfVbmgWRFgX6DexQ5QsIhbUM+XZCw7RNkP5
-	 3mxEM2vGaOIMCvMTjLjTC9YljBqm1W8M3RQJzgkv/PD+PB2Jj9wSHf20aKCmkoqZSF
-	 2EWEn4ablqGhw==
-Message-ID: <b96543f2-8907-4128-8f77-f670c22bbf7d@kernel.org>
-Date: Sun, 3 May 2026 13:25:52 +0200
+	Sun, 03 May 2026 11:37:23 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6435qZtq755481;
+	Sun, 3 May 2026 11:36:55 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=JeO9wp
+	JmE2rZ4RmHVIraoaQUKxeV+2cdGG9sRb8QKPk=; b=gLU4/IMNiuNZiXIdXT6BrU
+	JaO28btmajScC6x+90eRjEKWFv2bGhKX3ADZ9GXGTPJKAsJDuvrPdSkxCCXgRu65
+	cjonIBFxNrcutM9K/RbIls2TTkDN83Mp46AuSfMArtqDVxKNp4iVEhNsL/41nBHP
+	JJtC1V+L8F9cIb1x4LjCp3P7zjQWCTJ9x7PTYPHCpbdosNtRDX5cukyRIEjJM1RK
+	RWzXs+VXY8NprHV/MY3lSfQ3IYXzWYfg6m/0UJoYtzYqrH2VIERjP22Lo5i9Bl1j
+	CIwPTVLPm9VOlNTbbpTrA66nXRfV+dRW0nMrCEt8ssfND5HGDgnd8LLLQQvQMuAw
+	==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dw9y13js7-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sun, 03 May 2026 11:36:54 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 643BOhpg001570;
+	Sun, 3 May 2026 11:36:53 GMT
+Received: from smtprelay03.dal12v.mail.ibm.com ([172.16.1.5])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4dww3gs8pd-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sun, 03 May 2026 11:36:53 +0000 (GMT)
+Received: from smtpav05.dal12v.mail.ibm.com (smtpav05.dal12v.mail.ibm.com [10.241.53.104])
+	by smtprelay03.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 643BaqjJ29819590
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Sun, 3 May 2026 11:36:52 GMT
+Received: from smtpav05.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 872DD58056;
+	Sun,  3 May 2026 11:36:52 +0000 (GMT)
+Received: from smtpav05.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id E458358052;
+	Sun,  3 May 2026 11:36:50 +0000 (GMT)
+Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.61.175.251])
+	by smtpav05.dal12v.mail.ibm.com (Postfix) with ESMTP;
+	Sun,  3 May 2026 11:36:50 +0000 (GMT)
+Message-ID: <202f90682fe47bb5fb9b08f8678ae00981b5290b.camel@linux.ibm.com>
+Subject: Re: [PATCH] ima: debugging late_initcall_sync measurements
+From: Mimi Zohar <zohar@linux.ibm.com>
+To: David Safford <david.safford@gmail.com>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Jonathan McDowell
+ <noodles@earth.li>,
+        linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-integrity@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        kvmarm@lists.linux.dev, paul@paul-moore.com, jmorris@namei.org,
+        serge@hallyn.com, roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
+        eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
+        sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
+        joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+        catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
+        sebastianene@google.com
+In-Reply-To: <CAGWfHUW+AX0Hpuw5Vr5iTSaJKQJ+O_4nWWmU1UR8Z_3XFctHZg@mail.gmail.com>
+References: <cover.1777036497.git.noodles@meta.com>
+	 <7734099f5e7fda5480bca016a9e6707983325fbd.camel@linux.ibm.com>
+	 <afMlgstqahnZg68h@e129823.arm.com>
+	 <9f188536f09a2db30877d6bfbb84aeaf2565cccf.camel@linux.ibm.com>
+	 <CAGWfHUW+AX0Hpuw5Vr5iTSaJKQJ+O_4nWWmU1UR8Z_3XFctHZg@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Date: Sun, 03 May 2026 07:36:50 -0400
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64: dts: ti: Add k3-am62l3-beaglebadge
-To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
- Vignesh Raghavendra <vigneshr@ti.com>
-Cc: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Andrew Davis <afd@ti.com>, Bryan Brattlof <bb@ti.com>
-References: <20260501233148.4180391-1-jm@ti.com>
- <20260501233148.4180391-3-jm@ti.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260501233148.4180391-3-jm@ti.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-ORIG-GUID: dQ6vNqDViTXOrTVmMehSPZgNp19xmol0
+X-Proofpoint-GUID: ZCj7tR0wUAnHWdtxqY_YPlVBcCiYYGZs
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTAzMDEyOCBTYWx0ZWRfXw4m7oZKWaAIF
+ ifiZrDuRr5g5w9OQ3dKqUPFxaE+PrQoh2Tl3K5l+inyzb57uROLOeSXWFScTmt8pwHy99iXXoDI
+ h+Ct4+sFVA64w7nz3TOelolobRZmAr5IPaRBaY9q536/7+wRqDFsNRpnjV9VfsJCHLVpG+7sDD2
+ Fn+ucRtSt8BY6vPP03HKt1z9x7YWQUyAbY5Oa3msTtAvqFg+I9h0M7dshE4g2OcyWxrx55RaBNO
+ VnHfk3UkqRFPMBc5FKj1Ic5d0Hwe0NcpIgga48JaeavaWD/6q4p7H5tQk2HvmU9u7wvEaCH4LDQ
+ G/LxM+/E6fvpnrLVwTaPwONudHvEgf5lPFBgCDob/bfZc48kVjiH9mtFajzpAb6DX9iZ4dvGe6L
+ ChVaABPYDW9BKWkCDTmvg1iEUR/lSAk5hw7C3/B/tdPWvEsh8VtFM4haHIC56XFWKCS4h3Aw5F1
+ w2m3p+ZAsJnwtOQho6A==
+X-Authority-Analysis: v=2.4 cv=UbFhjqSN c=1 sm=1 tr=0 ts=69f73357 cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=VwQbUJbxAAAA:8
+ a=7CQSdrXTAAAA:8 a=VnNF1IyMAAAA:8 a=wjnevlr4pEST-T4ujgEA:9 a=QEXdDO2ut3YA:10
+ a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-03_04,2026-04-30_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 spamscore=0 lowpriorityscore=0 malwarescore=0 suspectscore=0
+ adultscore=0 priorityscore=1501 bulkscore=0 phishscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2605030128
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260503_043721_384241_67D428E9 
+X-CRM114-Status: GOOD (  19.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,45 +133,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/05/2026 01:31, Judith Mendez wrote:
-> BeagleBoard.org BeagleBadge is a compact, affordable open source
-> hardware single board computer based on the Texas Instruments AM62L3
-> SoC designed for IoT and embedded applications with low power consumption.
-> Expansion is provided over open standards based headers including
-> QWIIC and GPIO interfaces.
-> 
-> https://beagleboard.org/
-> https://github.com/beagleboard/BeagleBadge
-> 
-> Co-developed-by: Andrew Davis <afd@ti.com>
+On Fri, 2026-05-01 at 12:52 -0400, David Safford wrote:
+> On Thu, Apr 30, 2026 at 5:43=E2=80=AFPM Mimi Zohar <zohar@linux.ibm.com> =
+wrote:
+> >=20
+> > On Thu, 2026-04-30 at 10:48 +0100, Yeoreum Yun wrote:
+> > > With above change I confirmed there is no meaurement log
+> > > between boot_aggregate and boot_aggregate_late except "kernel_version=
+"
+> > > But this is ignorable since this UTS measurement is done in
+> > > "ima_init_core() (old: ima_init())" and it is part of ima initialisat=
+ion.
+> > >=20
+> > > 1. ima_policy=3Dtcb
+> > >=20
+> > >   # cat /sys/kernel/security/ima/ascii_runtime_measurements
+> > >   10 0adefe762c149c7cec19da62f0da1297fcfbffff ima-ng sha256:000000000=
+0000000000000000000000000000000000000000000000000000000 boot_aggregate
+> > >   10 4e5d73ebadfd8f850cb93ce4de755ba148a9a7d5 ima-ng sha256:000000000=
+0000000000000000000000000000000000000000000000000000000 boot_aggregate_late
+> > >   10 7c23cc970eceec906f7a41bc2fbde770d7092209 ima-ng sha256:72ade6ae3=
+d35cfe5ede7a77b1c0ed1d1782a899445fdcb219c0e994a084a70d5 /bin/busybox
+> snip
+> > >=20
+> > > 2. ima_policy=3Dcritical_data
+> > >=20
+> > >   # cat /sys/kernel/security/ima/ascii_runtime_measurements
+> > >   10 0adefe762c149c7cec19da62f0da1297fcfbffff ima-ng sha256:000000000=
+0000000000000000000000000000000000000000000000000000000 boot_aggregate
+> > >   10 49ab61dd97ea2f759edcb6c6a3387ac67f0aa576 ima-buf sha256:0c907aab=
+3261194f16b0c2a422a82f145bc9b9ecb8fdb633fa43e3e5379f0af2 kernel_version 372=
+e312e302d7263312b // Ignorable since it's generated by ima_init(_core)().
+> > >   10 4e5d73ebadfd8f850cb93ce4de755ba148a9a7d5 ima-ng sha256:000000000=
+0000000000000000000000000000000000000000000000000000000 boot_aggregate_late
+> > >=20
+> > > Therefore, init_ima() could move into late_initcall_sync like v1 did:
+> > >   - https://lore.kernel.org/all/20260417175759.3191279-2-yeoreum.yun@=
+arm.com/
+> >=20
+> > Thanks, Yeoreum.  It's a bit premature to claim it's "safe" to move the
+> > initcall.  Hopefully others will respond.
+> >=20
+> > Mimi
+>=20
+> I have also run with this patch on a number of bare metal and virtual mac=
+hines,
+> running everything from default Fedora 44 to a version with everything tu=
+rned on
+> (uefi secure boot, UKI with sdboot stub measurements, IMA measurement
+> and appraisal enabled,
+> all systemd measurements on, and systemd using the TPM for root
+> partition decryption.)
+> I too see only the kernel_version event between the normal and late
+> calls, if ima_policy=3Dcritical_data.
 
-Incomplete DCO. Please read carefully submitting patches to understand
-what you should do here.
+Thanks, Dave!  Were all the systems you tested x86_64?  The next step would=
+ be
+to test on different arch's (e.g. Z, Power).
 
-> Signed-off-by: Judith Mendez <jm@ti.com>
-
-...
-
-> +&spi3 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&spi3_pins_default>;
-> +	status = "okay";
-> +
-> +	sx1262_lora: lora@0 {
-
-Heh? Lora?
-
-> +		compatible = "rohm,dh2228fv";
-
-Nope, you don't have this device. Stop faking stuff. dh2228fv DOES NOT
-EXIST! How could you put to hardware something which does not even exist?
-
-> +		reg = <0>;
-> +		spi-max-frequency = <10000000>;
-> +	};
-> +};
-
-
-Best regards,
-Krzysztof
+Mimi
 
