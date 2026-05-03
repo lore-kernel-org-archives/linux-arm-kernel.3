@@ -4,83 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04F29FF886F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 20:39:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D3DBCD3424
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 21:04:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yy36aEN1ISq3rx8gbkVjtmwzFJPPiPu+6w78nwiNyyA=; b=Tmq8Ve1QEJRSt4PJhzr6DYXJTF
-	KKlFPHPrIOVyz8cw4XIQeojpC/sN4V2JdTq5X38tRgkCYDf8TlLxSVLDZ5WchriBpif5cbc4c9H4x
-	tjswxGdDNuci9ncxveBB4sxOuqxG8ibI0DJhhXGQmisjoVwbwFzvIDW+E1o5bdKXk0bVANLhFDUK8
-	2Fzk734leltfJxw/qvD1d7y3ktUYUhl4lczyKRVUys9ay8xYuCXssDDQx1c/xy7GPUrP0WNq+bvR8
-	TBymV2B2SKVXDJs6DmT8421ABP+TKTjuGRPT0fAYh6eJ5U0D9ypdeTKzJzYayTGYiS4j7QciZqXiO
-	cQf8zb5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Dl4XbChRRX2SzAfJdIqD9LXDTYpJPDAGOZzCS282mUk=; b=0FSgI7KqVj+BRu+6PWWszRa5NT
+	K/bWiIN/cVPZn3FQP9djKnctpMADtEZvQtH9mCuzMAL+aXfq8CYhKLfiv8cXUIkQ+/UJV00IYMs2X
+	/kIu29Bki9Pmh/65OvNCaJAmj0HuV9+jlfzfLvIDguL283L2hdxYf+C1rik7FeWOwaYwtxvIRhtB8
+	+9sDJuzoWJowhMLyY7XMGnfiWo8+7rDXFqltXsAHnos0CUHfUxTwgSdEq3utsxTgSqpU87WIYyHEk
+	Wq3Ev5AlAV1lKGP3zzzcfWz4sjB+Am3WVCFGQdU6Qtopn0coJa4jldPsGgSkYDl7w/29y9YvyYND6
+	1Wn+8A/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJdb1-0000000Bh7l-4Bi8;
-	Sun, 03 May 2026 20:39:24 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wJdyv-0000000BjUd-1ehM;
+	Sun, 03 May 2026 21:04:05 +0000
+Received: from mail-dl1-x1229.google.com ([2607:f8b0:4864:20::1229])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJdaz-0000000Bh6e-1S3P
+	id 1wJdyt-0000000BjTu-0unm
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 May 2026 20:39:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 13DE44439B
-	for <linux-arm-kernel@lists.infradead.org>; Sun,  3 May 2026 20:39:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFE0CC4AF0C
-	for <linux-arm-kernel@lists.infradead.org>; Sun,  3 May 2026 20:39:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777840761;
-	bh=OYTEHp7kfu60uKZpC7uNHUoEqcMaDbfVrENwGSgXkAg=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=oQ4dUdb5atMjLxp1+0AQoh6FUEYpAUVniDRpLShr+tgiDJEUcO1b1w0o05Is6rA5e
-	 pRFzBXnvnuTLiBO9M3mStfZmj5l2Phir3lVt8nCKUJ9m7GwyIlYqe2uUE/Y02LfVrm
-	 OXG5kJ4RwS6QYH8yYF/2j+bhE3ruoMpxNmoR7wk5XFdZOMx3j08I5yywZW/QY0ITmb
-	 0TvUcVyWVAXXQMJQ7404OC2maYfXJ4LXXcvP1b87ku9WVIfQN9ujMoudGa4tzmvuD8
-	 gE1z7MR8oXxa5U1uOOgfQNng+9fpnnEzw/N2GvhkZ/P3qJXW2C2YRrCxSQular6VTi
-	 8Oay8mWUM/23g==
-Received: by mail-qv1-f44.google.com with SMTP id 6a1803df08f44-8a093c784b0so36439356d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 03 May 2026 13:39:19 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/d9TSAg/HCEFBVkYB7udJZpTS06iM7s4E6Io4SjWbjtONPE+SIywCmpuldhza3tFhu22lpsqLHII38rvCVDjmu@lists.infradead.org
-X-Gm-Message-State: AOJu0YznYboi8OeqIDmMF8v8nHSKs7zLFefMXNPnAIMBuTUCEuExaBuI
-	DZ1yrJZvCjIGWrKR6gxxht2AgO7I6BNtASb4VoMbYEhtJaIcqjws08Bip/SR05UsXQsEEBiJpIC
-	ywon8yVqgSYWQy1YS55j3DPKXjya29yA=
-X-Received: by 2002:ad4:5be8:0:b0:8a7:16f8:442a with SMTP id
- 6a1803df08f44-8b6691f4b71mr126409566d6.39.1777840759244; Sun, 03 May 2026
- 13:39:19 -0700 (PDT)
+	Sun, 03 May 2026 21:04:04 +0000
+Received: by mail-dl1-x1229.google.com with SMTP id a92af1059eb24-12c8ccc7755so4951347c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 03 May 2026 14:04:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1777842242; x=1778447042; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Dl4XbChRRX2SzAfJdIqD9LXDTYpJPDAGOZzCS282mUk=;
+        b=YPLDJpGyIaKLhfDiICbDM0GOh8X8HNbmMl/A+swU46sBLdaa2lgokyu/527u9/XCS4
+         mulH29TKMjTOI8Ie5aT1LO18Rqk9MvdDJ0RnT/3MWYRu56IRTtfytSghVEc24Y8OLN3D
+         ssy7uhf75yIhUCzooWEF3iCtegNlUQIyzo+0ySyYkg6cm8eXISKPQXqWtHBzoYqcULV7
+         je3nhGaJ6XUVi6m6tbe/0XvNW4ZFoyZCH8LzTVjbd88XVst5n1Gh9qFo5eA4UFP1Pk5i
+         eb/3ipSHvF/o22GqV5iDGZ1Dfv5arZLppIR0Q6B4gHU4I+tZCT3tvV+I9qS9NYtheUqw
+         mYjg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777842242; x=1778447042;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=Dl4XbChRRX2SzAfJdIqD9LXDTYpJPDAGOZzCS282mUk=;
+        b=MqMeESyjROZPgiPrGWsjfLyamTaA5NyBM44riqCExOUgABsfaeqPgSMFuxXaAsX0ZG
+         CnUSxeiJ9hNvzXu+sKZt6Mv+rjVqg+KzM8b2Qqd/gZ2BNEGLCjKstZIJq44T/8irQoM1
+         QS7pv/A9j5QxttJCdmKFzRBwxU8yd46uCmOysKqFHut5izOQnsVERVEBS1IfLbwLL9ij
+         40gC/i9bYZ8OJVZC14qeX6CZywb/5LzaikShql5pacLMWHUDlpL5clnwpGr3+vpVOSkb
+         AkwJcMyB2s3UDzc6MdYzgDLuVsAVYN3Yr6TPgIMurbti559mxu0dTzrgdHW0CbWgri+T
+         7q/Q==
+X-Forwarded-Encrypted: i=1; AFNElJ/t4icS6EpCACnKYRsynezBlkFLL7RDW+NWT7x2tlNto7lk35ULdcszdsOxt+/Qbb9O+eVzRvzX9sBcdVRmK3fl@lists.infradead.org
+X-Gm-Message-State: AOJu0YzzWj0s/+FIWXlOp49nUW5+AG1n46Ra6sarFEK4I9FBrR+MDJGF
+	TLE5MQp5jJUWSVwI4P/FYqZX1Ls86OvjghlpyKRpXt6inGGrqc1igOEG
+X-Gm-Gg: AeBDies4fuGTBekEs3xOH2Bo9CThNuHQ+i87Vthpv1jBAWcPLOCynmIteC/IXiS8kKi
+	nH38NcZrB8oh0gkVbVeGl1X1VL2CLEQnoIbfNSrMjJ8/4T4ZSqWrSPjvkLJ70+tzbkZHBysaXDJ
+	ZoIHl2jmKQPSBMtlJAvTmzw6BT3lCZW0ecTyywUaWUufPEcbFOhMeLHNiyIAO/WRbgQQlX/OYub
+	ye8eC4SP50JYrsdRne7BgJJfFS+sSiWXbntNywDm64qx/lYnoE1A1d9aax7QO5lg+ES+bgjXyk+
+	50swWcWEEXIFrTeSeHUFTmeR6lydtboTJNF3hD9y/mp5/psAzrwN0dKh+WZO/guGDaB9yaU+1A8
+	3PwtfshBdm90ZgXf1Y5PcYIiedWB/LAE0Vz9GJUlAO4GsE6cHJqjEqHTRMBVSD5rxQb1cLkBIAE
+	VKZr5jmwgBbk0iB6fvCW9xBhZfllqo76uDGsgRfam8u4GuMr4nHANE+Tit8w==
+X-Received: by 2002:a05:7022:6187:b0:12d:b2e9:b20f with SMTP id a92af1059eb24-12dfd821474mr2830188c88.21.1777842241500;
+        Sun, 03 May 2026 14:04:01 -0700 (PDT)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-12df827a73fsm11486445c88.1.2026.05.03.14.04.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 03 May 2026 14:04:00 -0700 (PDT)
+Date: Sun, 3 May 2026 14:03:59 -0700
+From: Guenter Roeck <linux@roeck-us.net>
+To: Balakrishnan Sambath <balakrishnan.s@microchip.com>
+Cc: linux-watchdog@vger.kernel.org, wim@linux-watchdog.org,
+	alexandre.belloni@bootlin.com, andrei.simion@microchip.com,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Subject: Re: [PATCH 2/2] watchdog: at91sam9_wdt.h: Document WDDIS bit
+ position per SoC family
+Message-ID: <a5f60dc5-0aa7-4324-821a-e0c74b965f8b@roeck-us.net>
+References: <20260302113310.133989-1-balakrishnan.s@microchip.com>
+ <20260302113310.133989-3-balakrishnan.s@microchip.com>
 MIME-Version: 1.0
-References: <20260430040427.4672-1-baohua@kernel.org> <afNM-gIqxpyJ6ro7@casper.infradead.org>
- <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
- <afS_L-5XeWIldTXA@casper.infradead.org> <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
- <afTpoL3FklpQZNMM@casper.infradead.org> <CAGsJ_4x8sNtgv7Y198Gh9NSY+SE2o_JPFAxG9aWE+xXsB9vwGg@mail.gmail.com>
- <afUBXnPVnt7Jt5hh@casper.infradead.org>
-In-Reply-To: <afUBXnPVnt7Jt5hh@casper.infradead.org>
-From: Barry Song <baohua@kernel.org>
-Date: Mon, 4 May 2026 04:39:08 +0800
-X-Gmail-Original-Message-ID: <CAGsJ_4z3MfP_sx1+qSr00dP5wshOuCAOcbT3RJ_He6Ddz_LnKA@mail.gmail.com>
-X-Gm-Features: AVHnY4J-8SFfwvh8WWDAqxVa-cYngpmLlGJISHly6gCLbGvwUy-qMx6Jb2WhZWc
-Message-ID: <CAGsJ_4z3MfP_sx1+qSr00dP5wshOuCAOcbT3RJ_He6Ddz_LnKA@mail.gmail.com>
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-To: Matthew Wilcox <willy@infradead.org>
-Cc: akpm@linux-foundation.org, linux-mm@kvack.org, david@kernel.org, 
-	ljs@kernel.org, liam@infradead.org, vbabka@kernel.org, rppt@kernel.org, 
-	surenb@google.com, mhocko@suse.com, jack@suse.cz, pfalcato@suse.de, 
-	wanglian@kylinos.cn, chentao@kylinos.cn, lianux.mm@gmail.com, 
-	kunwu.chan@gmail.com, liyangouwen1@oppo.com, chrisl@kernel.org, 
-	kasong@tencent.com, shikemeng@huaweicloud.com, nphamcs@gmail.com, 
-	bhe@redhat.com, youngjun.park@lge.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260302113310.133989-3-balakrishnan.s@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260503_133921_415934_CEC521D2 
-X-CRM114-Status: GOOD (  27.77  )
+X-CRM114-CacheID: sfid-20260503_140403_265922_5646701B 
+X-CRM114-Status: GOOD (  17.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,71 +103,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 2, 2026 at 3:39=E2=80=AFAM Matthew Wilcox <willy@infradead.org>=
- wrote:
->
-> On Sat, May 02, 2026 at 02:25:37AM +0800, Barry Song wrote:
-> > On Sat, May 2, 2026 at 1:58=E2=80=AFAM Matthew Wilcox <willy@infradead.=
-org> wrote:
-> > > Yes, but that still fails to answer "does this actually happen".  How=
- much
-> > > performance is all this complexity in the page fault handler buying u=
-s?
-> > > If you don't answer this question, I'm just going to go in and rip it
-> > > all out.
+On Mon, Mar 02, 2026 at 05:03:10PM +0530, Balakrishnan Sambath wrote:
+> AT91_WDT_WDDIS (bit 15) applies to SAMA5/AT91SAM9261 and
+> AT91_SAM9X60_WDDIS (bit 12) to SAM9X60/SAMA7G5/SAM9X75. Update
+> comments to reflect this and add SAMA7G5 and SAM9X75 datasheet
+> references to the file header.
+> 
+> Signed-off-by: Balakrishnan Sambath <balakrishnan.s@microchip.com>
+> Reviewed-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
 
-I guess the only way to answer this question is to
-remove all retry code for file VMA and run a real test.
-For defensive programming, I am generally very cautious
-about this approach, but if this is the only way to clarify
-whether we still need PF retry for file, I can give it a try
-and run a complete test on Android phones after lsf/mm/bpf.
+Reviewed-by: Guenter Roeck <linux@roeck-us.net>
 
-> >
-> > I=E2=80=99m getting quite confused. In patch 4/5, you suggest a more
-> > restrictive condition using
-> > if (folio_test_uptodate(folio) && !folio_test_writeback(folio))
-> > rather than if (folio_test_uptodate(folio)), before we decide to skip
-> > retrying the page fault [1].
-> > That seems to suggest we should be more cautious about when we can skip
-> > retrying the page fault.
-> >
-> > However, in the cover letter, you suggest removing all retry code entir=
-ely.
-> > Does this suggestion apply only to file-backed page faults?
->
-> I'm making sure that if Andrew decides to override me he at least sees
-
-No, I don=E2=80=99t want Andrew to override you unless there is a real PI
-issue for file, and only if you still still insist on =E2=80=9Cripping it o=
-ut=E2=80=9D
-after a thorough test with it removed.
-
-> that there are other problems with this patchset beyond "I don't like
-> the additional complexity".
-
-The other issue you are pointing out is that, for anon, we
-should be more cautious before deciding to skip PF retry,
-which seems to be the opposite direction of what you expect
-for file.
-
->
-> And maybe we decide to do the fallback for anon-mm but not file memory.
-
-I was targeting a unified approach for both file-backed
-and anonymous memory. For example, if anon requires retry
-under the per-VMA lock, we may already have the necessary
-branch in place that file-backed cases can also leverage.
-For anon cases, high-level language GCs can operate on a
-small portion of a large heap requiring VMA writes, which
-is fairly common, as I explained to Jan.
-
-> Or maybe it's just something somebody happens upon when reading the
-> mailing list (or more likely it's just grist for an AI).
-
-Maybe one or two years from now. For now, at least, there are still
-humans working on the kernel :-)
-
-Best Regards
-Barry
+> ---
+>  drivers/watchdog/at91sam9_wdt.h | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/watchdog/at91sam9_wdt.h b/drivers/watchdog/at91sam9_wdt.h
+> index 298d545df1a1..2020694f8f6f 100644
+> --- a/drivers/watchdog/at91sam9_wdt.h
+> +++ b/drivers/watchdog/at91sam9_wdt.h
+> @@ -3,40 +3,42 @@
+>   * drivers/watchdog/at91sam9_wdt.h
+>   *
+>   * Copyright (C) 2007 Andrew Victor
+>   * Copyright (C) 2007 Atmel Corporation.
+>   * Copyright (C) 2019 Microchip Technology Inc. and its subsidiaries
+>   *
+>   * Watchdog Timer (WDT) - System peripherals regsters.
+>   * Based on AT91SAM9261 datasheet revision D.
+>   * Based on SAM9X60 datasheet.
+> + * Based on SAMA7G5 datasheet.
+> + * Based on SAM9X75 datasheet.
+>   *
+>   */
+>  
+>  #ifndef AT91_WDT_H
+>  #define AT91_WDT_H
+>  
+>  #include <linux/bits.h>
+>  
+>  #define AT91_WDT_CR		0x00			/* Watchdog Control Register */
+>  #define  AT91_WDT_WDRSTT	BIT(0)			/* Restart */
+>  #define  AT91_WDT_KEY		(0xa5UL << 24)		/* KEY Password */
+>  
+>  #define AT91_WDT_MR		0x04			/* Watchdog Mode Register */
+>  #define  AT91_WDT_WDV		(0xfffUL << 0)		/* Counter Value */
+>  #define  AT91_WDT_SET_WDV(x)	((x) & AT91_WDT_WDV)
+>  #define  AT91_SAM9X60_PERIODRST	BIT(4)		/* Period Reset */
+>  #define  AT91_SAM9X60_RPTHRST	BIT(5)		/* Minimum Restart Period */
+>  #define  AT91_WDT_WDFIEN	BIT(12)		/* Fault Interrupt Enable */
+> -#define  AT91_SAM9X60_WDDIS	BIT(12)		/* Watchdog Disable */
+> +#define  AT91_SAM9X60_WDDIS	BIT(12)		/* Watchdog Disable (SAM9X60, SAMA7G5, SAM9X75) */
+>  #define  AT91_WDT_WDRSTEN	BIT(13)		/* Reset Processor */
+>  #define  AT91_WDT_WDRPROC	BIT(14)		/* Timer Restart */
+> -#define  AT91_WDT_WDDIS		BIT(15)		/* Watchdog Disable */
+> +#define  AT91_WDT_WDDIS		BIT(15)		/* Watchdog Disable (SAMA5, AT91SAM9261) */
+>  #define  AT91_WDT_WDD		(0xfffUL << 16)		/* Delta Value */
+>  #define  AT91_WDT_SET_WDD(x)	(((x) << 16) & AT91_WDT_WDD)
+>  #define  AT91_WDT_WDDBGHLT	BIT(28)		/* Debug Halt */
+>  #define  AT91_WDT_WDIDLEHLT	BIT(29)		/* Idle Halt */
+>  
+>  #define AT91_WDT_SR		0x08		/* Watchdog Status Register */
+>  #define  AT91_WDT_WDUNF		BIT(0)		/* Watchdog Underflow */
+>  #define  AT91_WDT_WDERR		BIT(1)		/* Watchdog Error */
+>  
 
