@@ -4,99 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8917CFF886F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 20:30:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04F29FF886F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 20:39:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=utFZGAmkY5HSapsYpTO/OWvfTIFdh3s3Nz41thxW7Qs=; b=0IVG+Xo8JKxrJLG13MfPqTnLbp
-	IUqI1oW2CR/16ez6bg5c4ZphI5eXbJoDU5n7idJzAOGfnTbKY6l+Pjfkq24+p6RVlsviiaj3lN1id
-	gJnrsE6rdk70lb45Y8KL7yMXtB0ITtFHLfsapLiKhmHXEmI3+9RAlfzaHov/hkppfUa+7vga7D8xo
-	fgzmEYrpDaJ6kAhstErIHrUokI37vcRxZtNOT3NnGWcSfv698HBxm3mkIjKrQsYCQRfIo48QiKWBE
-	C3iKJYkboLsApNOzUdlvKzCn9xIGWoFzsnkgYmvi459QP0rhxQAwh5TYowKyu9ai+iFYUsGch6anM
-	JLfcXpeA==;
+	bh=yy36aEN1ISq3rx8gbkVjtmwzFJPPiPu+6w78nwiNyyA=; b=Tmq8Ve1QEJRSt4PJhzr6DYXJTF
+	KKlFPHPrIOVyz8cw4XIQeojpC/sN4V2JdTq5X38tRgkCYDf8TlLxSVLDZ5WchriBpif5cbc4c9H4x
+	tjswxGdDNuci9ncxveBB4sxOuqxG8ibI0DJhhXGQmisjoVwbwFzvIDW+E1o5bdKXk0bVANLhFDUK8
+	2Fzk734leltfJxw/qvD1d7y3ktUYUhl4lczyKRVUys9ay8xYuCXssDDQx1c/xy7GPUrP0WNq+bvR8
+	TBymV2B2SKVXDJs6DmT8421ABP+TKTjuGRPT0fAYh6eJ5U0D9ypdeTKzJzYayTGYiS4j7QciZqXiO
+	cQf8zb5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJdSA-0000000BgB4-0oAe;
-	Sun, 03 May 2026 20:30:14 +0000
-Received: from mail-yw1-x1131.google.com ([2607:f8b0:4864:20::1131])
+	id 1wJdb1-0000000Bh7l-4Bi8;
+	Sun, 03 May 2026 20:39:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJdS7-0000000BgAP-34fH
+	id 1wJdaz-0000000Bh6e-1S3P
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 May 2026 20:30:13 +0000
-Received: by mail-yw1-x1131.google.com with SMTP id 00721157ae682-79885f4a8ffso32778007b3.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 03 May 2026 13:30:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777840210; x=1778445010; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=utFZGAmkY5HSapsYpTO/OWvfTIFdh3s3Nz41thxW7Qs=;
-        b=TdQDQI8AEG8mpKdkyHidn4yfUK2xgys3IfZdyBVDU0yeh3UOfDd5HoWBk9KxiHwXw4
-         OYzrKykL5AXNE7+Hl7s9kNYDI622CKVT+0zFgl7MkAqS1OHXlbNI+4/RmCC1Pr4Oy7EV
-         t8ohH2r7Sj4PFD/IWtTeSb/HsVqQwA1EPbDwfa/+cUlRZKz5fJinwdVqwxye16q7Nfa2
-         M2xt6BInPWDdHV+sHVoZtBvHQ1FccBJgzyBujnusRjxswgZqVzfx1sOvgTOGcGTQhNJi
-         100kBOTYIi1/AaJTEtrx+cTd6H7rRHEJWpwHFmmJab3K/b0ddAbi9ay7dSYVThe4iZ1Z
-         NJ0A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777840210; x=1778445010;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=utFZGAmkY5HSapsYpTO/OWvfTIFdh3s3Nz41thxW7Qs=;
-        b=YZUJ1Q7xrOcmA76bpln3lRQKSrEC9S2akkZt7OwWOoOyPD48ZmLBkXXqsNr6KVQbbg
-         fmy8EG5bPCAbDKgKtK7komUQ/h+YftYdV4V1pjybeneLbL0Pu9WFZXsXYHIyT96anV95
-         N7Cwu35lZPW9j1wjDgML9+H796HgO5WXvtbruwOfss5VepyBDetoQ/l0XhA4QbiuYF3S
-         u/fjrf2P27FBhdRystF0OfQzguSGFOGsUcURsf6vTfwaCAkkPNLKRX1JVC3z9yBJFCDI
-         5tvmOyc46c73bMVhzrZnbZwzVU1d2rn7p/egrhTb0R0c1AwJFph8M+ntRiIKk4w1PkPF
-         vhWA==
-X-Forwarded-Encrypted: i=1; AFNElJ/3VKOXV4d0FyIB3n0I2foaa8+0Nac5j2C36H1XT4SIYGk7TyAdvM9tV543/bzEGhotB1GV85CfN4CRoYf+k37V@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQuJtsK1BjJH8t9U6bhGaNme3rOJudK4myQLqcvqC1DfMyMMF4
-	tpU5MlJrONm2v4E33U4gM5Er8PWhvkMQAedC7wkf0pS49oKJhSJAzIUp
-X-Gm-Gg: AeBDietC0gHwBUyM0ZKdVXiBiQ0C2hcKIph7nMiTtvySkReRCa1Uc2nhV06GKV4LjB+
-	rKK6dqOxrTFAhdIg4VTacwxs+gAaZ+Mloh/L7apipBlVjefWV6WfGRAwLAPsWkb/anaBi1NkgOL
-	4SXc9TnHqj40ZsvTNrwt4dTB+A8fUJeHRoojg09FYxIvVlPFtFZG/mxdavdCOhLM6xT12z37fKC
-	v5XD9CXqr4xv0n+QKEvSR3Gkwac3yE2Y9QBIVeUqX9GQC7VYISlOLPMmzJaRIO7xN+0lazR9qm/
-	52RoO7poH5mwqNacTzWTc/gEV79dE5T+CUpSzra+WksXOjLCyJdalz4tI98+0HVmgksz6uNNO89
-	8ADnOGfYBAJy4CwNvD46GbyvYXQnStlVBxOnIAu+xG3mybHLD8vUuDHGMbj/GHVqVSlAFjeu2Zq
-	i/R0jImLStcuH5Bdxp1y7ycJk0CM8HgIG5CqKXkatWaxR40Nygxxla+Rms20n6C2YD95NtxQxcq
-	9b37jVUwA==
-X-Received: by 2002:a05:690c:c4f6:b0:79a:40fb:9346 with SMTP id 00721157ae682-7bd76fabc9emr76374857b3.20.1777840209910;
-        Sun, 03 May 2026 13:30:09 -0700 (PDT)
-Received: from localhost (104-48-214-220.lightspeed.snantx.sbcglobal.net. [104.48.214.220])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-7bd66525651sm40140327b3.3.2026.05.03.13.30.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 03 May 2026 13:30:09 -0700 (PDT)
-From: Steev Klimaszewski <threeway@gmail.com>
-To: krishna.chundru@oss.qualcomm.com
-Cc: bhelgaas@google.com,
-	bjorn.andersson@oss.qualcomm.com,
-	jingoohan1@gmail.com,
-	jonathanh@nvidia.com,
-	kwilczynski@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	lpieralisi@kernel.org,
-	mani@kernel.org,
-	robh@kernel.org,
-	will@kernel.org
-Subject: Re: PCI: qcom: Add D3cold support
-Date: Sun,  3 May 2026 15:30:06 -0500
-Message-ID: <20260503203008.287559-1-threeway@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260429-d3cold-v5-0-89e9735b9df6@oss.qualcomm.com>
-References: <20260429-d3cold-v5-0-89e9735b9df6@oss.qualcomm.com>
+	Sun, 03 May 2026 20:39:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 13DE44439B
+	for <linux-arm-kernel@lists.infradead.org>; Sun,  3 May 2026 20:39:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFE0CC4AF0C
+	for <linux-arm-kernel@lists.infradead.org>; Sun,  3 May 2026 20:39:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777840761;
+	bh=OYTEHp7kfu60uKZpC7uNHUoEqcMaDbfVrENwGSgXkAg=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=oQ4dUdb5atMjLxp1+0AQoh6FUEYpAUVniDRpLShr+tgiDJEUcO1b1w0o05Is6rA5e
+	 pRFzBXnvnuTLiBO9M3mStfZmj5l2Phir3lVt8nCKUJ9m7GwyIlYqe2uUE/Y02LfVrm
+	 OXG5kJ4RwS6QYH8yYF/2j+bhE3ruoMpxNmoR7wk5XFdZOMx3j08I5yywZW/QY0ITmb
+	 0TvUcVyWVAXXQMJQ7404OC2maYfXJ4LXXcvP1b87ku9WVIfQN9ujMoudGa4tzmvuD8
+	 gE1z7MR8oXxa5U1uOOgfQNng+9fpnnEzw/N2GvhkZ/P3qJXW2C2YRrCxSQular6VTi
+	 8Oay8mWUM/23g==
+Received: by mail-qv1-f44.google.com with SMTP id 6a1803df08f44-8a093c784b0so36439356d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 03 May 2026 13:39:19 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ/d9TSAg/HCEFBVkYB7udJZpTS06iM7s4E6Io4SjWbjtONPE+SIywCmpuldhza3tFhu22lpsqLHII38rvCVDjmu@lists.infradead.org
+X-Gm-Message-State: AOJu0YznYboi8OeqIDmMF8v8nHSKs7zLFefMXNPnAIMBuTUCEuExaBuI
+	DZ1yrJZvCjIGWrKR6gxxht2AgO7I6BNtASb4VoMbYEhtJaIcqjws08Bip/SR05UsXQsEEBiJpIC
+	ywon8yVqgSYWQy1YS55j3DPKXjya29yA=
+X-Received: by 2002:ad4:5be8:0:b0:8a7:16f8:442a with SMTP id
+ 6a1803df08f44-8b6691f4b71mr126409566d6.39.1777840759244; Sun, 03 May 2026
+ 13:39:19 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20260430040427.4672-1-baohua@kernel.org> <afNM-gIqxpyJ6ro7@casper.infradead.org>
+ <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
+ <afS_L-5XeWIldTXA@casper.infradead.org> <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
+ <afTpoL3FklpQZNMM@casper.infradead.org> <CAGsJ_4x8sNtgv7Y198Gh9NSY+SE2o_JPFAxG9aWE+xXsB9vwGg@mail.gmail.com>
+ <afUBXnPVnt7Jt5hh@casper.infradead.org>
+In-Reply-To: <afUBXnPVnt7Jt5hh@casper.infradead.org>
+From: Barry Song <baohua@kernel.org>
+Date: Mon, 4 May 2026 04:39:08 +0800
+X-Gmail-Original-Message-ID: <CAGsJ_4z3MfP_sx1+qSr00dP5wshOuCAOcbT3RJ_He6Ddz_LnKA@mail.gmail.com>
+X-Gm-Features: AVHnY4J-8SFfwvh8WWDAqxVa-cYngpmLlGJISHly6gCLbGvwUy-qMx6Jb2WhZWc
+Message-ID: <CAGsJ_4z3MfP_sx1+qSr00dP5wshOuCAOcbT3RJ_He6Ddz_LnKA@mail.gmail.com>
+Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
+ fault performance
+To: Matthew Wilcox <willy@infradead.org>
+Cc: akpm@linux-foundation.org, linux-mm@kvack.org, david@kernel.org, 
+	ljs@kernel.org, liam@infradead.org, vbabka@kernel.org, rppt@kernel.org, 
+	surenb@google.com, mhocko@suse.com, jack@suse.cz, pfalcato@suse.de, 
+	wanglian@kylinos.cn, chentao@kylinos.cn, lianux.mm@gmail.com, 
+	kunwu.chan@gmail.com, liyangouwen1@oppo.com, chrisl@kernel.org, 
+	kasong@tencent.com, shikemeng@huaweicloud.com, nphamcs@gmail.com, 
+	bhe@redhat.com, youngjun.park@lge.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260503_133011_801958_8DBB18E0 
-X-CRM114-Status: GOOD (  22.48  )
+X-CRM114-CacheID: sfid-20260503_133921_415934_CEC521D2 
+X-CRM114-Status: GOOD (  27.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,65 +95,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krishna,
+On Sat, May 2, 2026 at 3:39=E2=80=AFAM Matthew Wilcox <willy@infradead.org>=
+ wrote:
+>
+> On Sat, May 02, 2026 at 02:25:37AM +0800, Barry Song wrote:
+> > On Sat, May 2, 2026 at 1:58=E2=80=AFAM Matthew Wilcox <willy@infradead.=
+org> wrote:
+> > > Yes, but that still fails to answer "does this actually happen".  How=
+ much
+> > > performance is all this complexity in the page fault handler buying u=
+s?
+> > > If you don't answer this question, I'm just going to go in and rip it
+> > > all out.
 
-> This series adds support for putting Qualcomm PCIe host bridges into D3cold
-> when downstream conditions allow it, and introduces a small common helper
-> to determine D3cold eligibility based on endpoint state.
+I guess the only way to answer this question is to
+remove all retry code for file VMA and run a real test.
+For defensive programming, I am generally very cautious
+about this approach, but if this is the only way to clarify
+whether we still need PF retry for file, I can give it a try
+and run a complete test on Android phones after lsf/mm/bpf.
 
-> On Qualcomm platforms, PCIe host controllers are currently kept powered
-> even when there are no active endpoints (i.e. all endpoints are already in
-> PCI_D3hot). This prevents the SoC from entering deeper low‑power states
-> such as CXPC.
+> >
+> > I=E2=80=99m getting quite confused. In patch 4/5, you suggest a more
+> > restrictive condition using
+> > if (folio_test_uptodate(folio) && !folio_test_writeback(folio))
+> > rather than if (folio_test_uptodate(folio)), before we decide to skip
+> > retrying the page fault [1].
+> > That seems to suggest we should be more cautious about when we can skip
+> > retrying the page fault.
+> >
+> > However, in the cover letter, you suggest removing all retry code entir=
+ely.
+> > Does this suggestion apply only to file-backed page faults?
+>
+> I'm making sure that if Andrew decides to override me he at least sees
 
-> While PCIe D3cold support exists in the PCI core, host controller drivers
-> lack a common mechanism to determine whether it is safe to power off the
-> host bridge without breaking active devices or wakeup functionality.
-> As a result, controllers either avoid entering D3cold or depend on rough,
-> driver‑specific workarounds.
+No, I don=E2=80=99t want Andrew to override you unless there is a real PI
+issue for file, and only if you still still insist on =E2=80=9Cripping it o=
+ut=E2=80=9D
+after a thorough test with it removed.
 
-> This series addresses that gap.
+> that there are other problems with this patchset beyond "I don't like
+> the additional complexity".
 
-> 1. Introduces pci_host_common_can_enter_d3cold(), a helper that determines
->    whether a host bridge may enter D3cold based on downstream PCIe endpoint
->    state. The helper permits D3cold only when all *active* endpoints are
->    already in PCI_D3hot, and any wakeup‑enabled endpoint supports PME
->    from D3cold.
+The other issue you are pointing out is that, for anon, we
+should be more cautious before deciding to skip PF retry,
+which seems to be the opposite direction of what you expect
+for file.
 
-> 2. Updates the Designware PCIe host driver to use this helper in the
->    suspend_noirq() path, replacing the existing heuristic that blocked
->    D3cold whenever L1 ASPM was enabled.
+>
+> And maybe we decide to do the fallback for anon-mm but not file memory.
 
-> 3. Enables D3cold support for Qualcomm PCIe controllers by wiring them into
->    the DesignWare common suspend/resume flow and explicitly powering down
->    controller resources when all endpoints are in D3hot.
+I was targeting a unified approach for both file-backed
+and anonymous memory. For example, if anon requires retry
+under the per-VMA lock, we may already have the necessary
+branch in place that file-backed cases can also leverage.
+For anon cases, high-level language GCs can operate on a
+small portion of a large heap requiring VMA writes, which
+is fairly common, as I explained to Jan.
 
-> The immediate outcome of this series is that Qualcomm PCIe host bridges can
-> enter D3cold when all endpoints are in D3hot.
+> Or maybe it's just something somebody happens upon when reading the
+> mailing list (or more likely it's just grist for an AI).
 
-> This is a necessary but not sufficient step toward unblocking CXPC. With
-> this series applied, CXPC can be achieved on systems with no attached NVMe
-> devices. Support for NVMe‑attached systems requires additional changes
-> in NVMe driver, which are being worked on separately.
+Maybe one or two years from now. For now, at least, there are still
+humans working on the kernel :-)
 
-> Tested on:
->   - Qualcomm Lemans EVK, Monaco & sc7280 platforms.
-
-> Validation steps:
->   - Boot without NVMe attach:
->       * PCIe host enters D3cold during suspend
->       * SoC is able to reach CXPC provided other drivers also remove
-> 	their votes as part of suspend.
-
-I have been testing this patchset with Mani's patchset that is supposed to be
-related to NVMe on the Thinkpad X13s found at:
-
-https://lore.kernel.org/all/20260414-l1ss-fix-v1-0-adbb4555b5ab@oss.qualcomm.com/
-
-v4 of this patchset *boots* along with Mani's patchset, however, v5 does not,
-and unfortunately, the machine does not seem to get to a point where I can even
-get logs from it.  Do you know what I might be missing?  I have *not* attempted
-to remove the nvme drive and boot off USB to test it.
-
--- steev
+Best Regards
+Barry
 
