@@ -4,72 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE52ACD3424
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 17:33:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3EF8FF886F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 17:54:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vJ8tGqBUvuWKGLXB7Csu+pVgqW3xVtDUmv09UATg8tE=; b=2t/xFd6SIqesnR01WYsiXF/CaC
-	HMFZJ5dMZZtBVWCej52hXtMqDHHg0FwtE0dJSZknUpge1seTyG0Kav9Tv3zRHOHquUwWmHdonO+m1
-	UwPBTaZxPJgQhgonHPUAp70rF/qDrbDYNVXjqlkeu3hpuRPWpR7P7FmpqDpp0j2tBFE2IRSgCxw2w
-	abw3I+mdtd1s0AjGKEcIbfPUbvOJQyFjBtJ2rJeA8i684F/dlwUrm4Om9M/Vwe+phDxSozlng33GJ
-	EXae78g9/p8JtwOikOqHMjyC9EOuFzcqumvoMxy4cc8vQsPBatSErX/fxPuUGgZdO3VmSSeOABxI0
-	SYFdm9TA==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BscMhkqkVjKr9Fhf3eCNiguX8E1ntO7DxU4yhTD9IEo=; b=C2w3H6K40nt25yjuFGkd54WDwU
+	zKe1VW8Kg6oD+3AikMGozXw7gDpoOoSrMu/BZWKRooelyFJE7LOR2YJqDF4/0ac05OHhOSJxAyNze
+	EgKXQkrp6oqAFSeLNtfkotAhMZPJCqz4/ApLs++IAwvmf1dmi/J4In6eIdM6oUeWx6tYnjNLyYhM8
+	VF7dlBdZ7BEmLU3nB3X/0QQs4RFhPmul4CEnFdAVFHoY5I/KW4l+4fFaB3QFLT4h0RYmenGRu/mn/
+	a0EKQOeTMm7K63yq2gcONKW16PEbssZcIQUjYUSBGwetLUWI36sNnw5xZ6d5C58EQlPh18HhXTS02
+	Owhfc9aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJagu-0000000BPmK-2IIt;
-	Sun, 03 May 2026 17:33:16 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wJb1B-0000000BRz4-3Euw;
+	Sun, 03 May 2026 17:54:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJagr-0000000BPlY-2j9y
+	id 1wJb1A-0000000BRyX-07Jd
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 May 2026 17:33:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1777829591;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=vJ8tGqBUvuWKGLXB7Csu+pVgqW3xVtDUmv09UATg8tE=;
-	b=d2TcMiJd1zbnYCDGkSPUGvhRyQ/tCT3Z7J5mnGCa3F0JBw01bwvsknDu7tqflH9DytHDWl
-	h3FlrQxjeZu+63a3qLjm7crEbOSwaqXCiY1Yn2RElgzQp8zm1f5P/DUFehiLX8F26/uWwg
-	yxILcTXIOC+kGwPhNUc0UI5/rz79sYk=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-169-JTW3Hoc9PvWebp-tpvAUxg-1; Sun,
- 03 May 2026 13:33:08 -0400
-X-MC-Unique: JTW3Hoc9PvWebp-tpvAUxg-1
-X-Mimecast-MFC-AGG-ID: JTW3Hoc9PvWebp-tpvAUxg_1777829587
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 85DB71800473;
-	Sun,  3 May 2026 17:33:06 +0000 (UTC)
-Received: from [172.20.231.189] (unknown [10.30.44.222])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id CBA0A19560A6;
-	Sun,  3 May 2026 17:33:04 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS (MISSED 51 of 56): Test report for for-kernelci
- (7.1.0-rc1, upstream-arm-next, 4d8e74ad)
-Date: Sun, 03 May 2026 17:33:04 -0000
-To: will@kernel.org, catalin.marinas@arm.com,
- linux-arm-kernel@lists.infradead.org
+	Sun, 03 May 2026 17:54:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DC611600C3
+	for <linux-arm-kernel@lists.infradead.org>; Sun,  3 May 2026 17:54:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9341EC2BCF5
+	for <linux-arm-kernel@lists.infradead.org>; Sun,  3 May 2026 17:54:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777830850;
+	bh=vZix6njdv2p1CVHPQk3N5+z8QTc46xF0Umj6dJoNSss=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=fzw+uEFQ1htYzOl+xFJqUU+e7m4wKFi685C/CP8i1VOOvuHtLSJP+gW2oAn56LhFE
+	 Hj6oAPcSoEty8SFElbgQhmfO0Gpkja/vOoqkQSBVBfSQ8r/JnwW6qWXTiclf+fMbuo
+	 IqoXiRG+V/Nln17tZ/g9SHdwwmIcBXQahmHH3n3u2HDyCbdF8z1VYHY8S8PhVwR6yn
+	 xNQZmayPAw4tk7idT/+b+O0UItKuH3AXnbyXFPeH+VSBg3dvHEWTH0Bmq8K8wBU+QJ
+	 BNJ2Ufhw7VmHeS5Qo41wPK7rXmlNL6n0zzMIXynggnKT2ngA9WRnJ5ZIlgUQUH+oSk
+	 qjXAeptDzK32w==
+Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-38e9653b580so37620791fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 03 May 2026 10:54:10 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ8vvj/mMqI6fTMwHBxq1N5nz93jbAl6DBe3kw08JQTPs6hI0YxW7/6T4Txjlj3KPy/cB6ZZ3gQhJnFPr6qupC3D@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx45QFjO/4KnRDUlfbLCPa//sbrIJU5WpzUXRwWAtyfGd0MrSAs
+	JciPLcUp1Iv0WXAGmfeKG2dJ8ca/FwHcDuWPpc2QbLKgPrIDeD1Dtp+VODVldlf7jVCqwzS0As4
+	n0b/gFhYXTY0DJ8SuRvFjzOzXfYnN1+A=
+X-Received: by 2002:a2e:7c0b:0:b0:393:71d3:d019 with SMTP id
+ 38308e7fff4ca-393784e5ffbmr21655141fa.15.1777830848881; Sun, 03 May 2026
+ 10:54:08 -0700 (PDT)
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
-Message-Id: <69528.126050313330800229@us-mta-169.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: f25hErOR9rOlbFf3fkwFiCDUmza7GO8sGB2DoQJKE-g_1777829587
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
+References: <20260503-mt7925-tdls-fixes-v1-0-dde847e21081@gmail.com> <20260503-mt7925-tdls-fixes-v1-1-dde847e21081@gmail.com>
+In-Reply-To: <20260503-mt7925-tdls-fixes-v1-1-dde847e21081@gmail.com>
+From: Sean Wang <sean.wang@kernel.org>
+Date: Sun, 3 May 2026 12:53:57 -0500
+X-Gmail-Original-Message-ID: <CAGp9LzogKfGovfDw+=m4BkqWAakFTStXH20cQ_FA_5-zo+rmGA@mail.gmail.com>
+X-Gm-Features: AVHnY4KyXQ7oHCi5bs4lLYBGHsaGNKAAiWN14GcaixGFGQwp3VhrQVd9985J61o
+Message-ID: <CAGp9LzogKfGovfDw+=m4BkqWAakFTStXH20cQ_FA_5-zo+rmGA@mail.gmail.com>
+Subject: Re: [PATCH 1/2] wifi: mt76: mt792x: disable HW TX/RX encap offload to
+ fix TDLS direct-link
+To: ElXreno <elxreno@gmail.com>
+Cc: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>, 
+	Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Soul Huang <Soul.Huang@mediatek.com>, Ming Yen Hsieh <mingyen.hsieh@mediatek.com>, 
+	Deren Wu <deren.wu@mediatek.com>, linux-wireless@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260503_103313_761889_A4097B6C 
-X-CRM114-Status: UNSURE (   6.67  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,56 +86,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+Hi ElXreno,
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
-              Test: OK
+On Sat, May 2, 2026 at 8:40=E2=80=AFPM ElXreno <elxreno@gmail.com> wrote:
+>
+> On MediaTek MT7925 (Connac3), QoS Data frames whose destination WCID
+> is a TDLS direct-link peer are silently dropped after submission to
+> firmware via the HW_80211_ENCAP TX path. The driver sees submit and
+> complete counts match (firmware reports success on TX queue
+> submission), but the frames never reach the PHY. iw counters show
+> tx_packets growing, tx_failed =3D 0, tx_retries low; on the air,
+> nothing.
+>
+> This breaks TDLS direct-link as soon as a peer auto-initiates one
+> (Samsung phones do this aggressively when both peers share a BSS and
+> traffic exceeds a threshold). Pattern is:
+>
+>   1. Any sustained direct traffic between two STAs sharing the BSS
+>      reaches the auto-TDLS threshold within ~1 s.
+>   2. Peer initiates TDLS; mac80211 routes data frames to the TDLS-peer
+>      WCID and the AP stops forwarding peer-to-peer traffic per the
+>      802.11z spec.
+>   3. Direct-link frames are accepted by firmware, completed in the TX
+>      descriptor pool, but never PHY-transmitted.
+>   4. TCP collapses; the peer eventually tears down the TDLS link with
+>      reason WLAN_REASON_TDLS_TEARDOWN_UNSPECIFIED. Cycle repeats.
+>
+> Effective TCP throughput drops from ~300 Mbit/s (AP route) to ~6
+> Mbit/s with TDLS active.
+>
+> Verified on mt7925e (PCIe) at 5 GHz HE NSS 2 MCS 11 80 MHz and at
+> 2.4 GHz 802.11n HT NSS 2 MCS 15. With this patch, TDLS direct link
+> sustains ~750 Mbit/s and ~130 Mbit/s respectively.
+>
+> mt76 advertises WIPHY_FLAG_SUPPORTS_TDLS via the shared
+> mt76_register_phy_helper() but does not provide TDLS-aware
+> firmware-facing peer setup: no CONNECTION_TDLS constant in
+> mt76_connac_mcu.h, no STA_REC_TDLS TLV, no TDLS bit in
+> mt76_wcid_flags, and no TDLS-specific code in
+> mt7925_mac_write_txwi_8023(). TDLS peers are registered as
+> CONNECTION_INFRA_STA with peer_addr set to the peer's MAC and
+> nothing else. The proprietary out-of-tree MediaTek driver carries an
+> explicit cfg80211_tdls.c (PTK/TK install paths, etc.) with no
+> in-tree equivalent. Whether the underlying gap is in the firmware
+> HW_ENCAP path or in mt76's missing TDLS-aware setup is unclear from
+> the kernel side; the software-encap path sidesteps it either way.
+>
+> Work around the issue by not advertising SUPPORTS_TX_ENCAP_OFFLOAD
+> and SUPPORTS_RX_DECAP_OFFLOAD in mt792x_init_wiphy(). mac80211 then
+> takes the software 802.11 encap path, which submits already-formed
+> 802.11 frames via a different firmware path that handles all WCIDs
+> correctly, including TDLS peers.
+>
+> mt792x_init_wiphy() is shared with the Connac2 family (mt7921/22/20/02),
+> which uses the same firmware HW_ENCAP path; the disable is applied
+> globally to cover the likely-affected chips. If Connac2 is later
+> confirmed unaffected, the disable can be narrowed with is_mt7925().
+>
+> Fixes: 5c14a5f944b9 ("mt76: mt7921: introduce mt7921e support")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: ElXreno <elxreno@gmail.com>
+> Assisted-by: Claude:claude-opus-4-7 bpftrace
+> ---
+>  drivers/net/wireless/mediatek/mt76/mt792x_core.c | 10 ++++++++--
+>  1 file changed, 8 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/net/wireless/mediatek/mt76/mt792x_core.c b/drivers/n=
+et/wireless/mediatek/mt76/mt792x_core.c
+> index 152cfcca2f90..f9610c6c1597 100644
+> --- a/drivers/net/wireless/mediatek/mt76/mt792x_core.c
+> +++ b/drivers/net/wireless/mediatek/mt76/mt792x_core.c
+> @@ -681,8 +681,14 @@ int mt792x_init_wiphy(struct ieee80211_hw *hw)
+>
+>         ieee80211_hw_set(hw, SINGLE_SCAN_ON_ALL_BANDS);
+>         ieee80211_hw_set(hw, HAS_RATE_CONTROL);
+> -       ieee80211_hw_set(hw, SUPPORTS_TX_ENCAP_OFFLOAD);
+> -       ieee80211_hw_set(hw, SUPPORTS_RX_DECAP_OFFLOAD);
+> +       /* HW TX/RX 802.11 encap offload is intentionally NOT advertised:
+> +        * the firmware HW_80211_ENCAP path silently drops QoS Data frame=
+s
+> +        * whose destination WCID is a TDLS direct-link peer, breaking TD=
+LS
+> +        * data flow. The mac80211 software encap path submits already-fo=
+rmed
+> +        * 802.11 frames, which the firmware handles correctly for all WC=
+IDs.
+> +        * Re-add SUPPORTS_TX_ENCAP_OFFLOAD / SUPPORTS_RX_DECAP_OFFLOAD h=
+ere
+> +        * once the firmware HW_ENCAP path is fixed.
+> +        */
 
-Tested-by: CKI Project <cki-project@redhat.com>
+I do not think disabling TX/RX encap offload globally in
+mt792x_init_wiphy() is the right fix.
 
-Kernel information:
-    Commit message: arm64: Reserve an extra page for early kernel mapping
+The reported failure is specific to TDLS direct-link peers, while this
+change affects all normal STA/AP/P2P data paths and all mt792x chips,
+including mt7925/mt7921/22/20/02. This is too broad for a TDLS-specific iss=
+ue.
 
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2493907638
+The commit message already points out that mt76 lacks TDLS-aware
+firmware-facing peer setup, and also mentions that the proprietary
+out-of-tree MediaTek driver has an explicit cfg80211_tdls.c
+implementation. If that driver supports TDLS on top of the firmware HW
+encap model, I think we should try to align the in-tree driver with that
+design by adding the missing TDLS-aware firmware-facing peer setup,
+instead of disabling HW encap globally.
 
-Tests that were not ran because of internal issues:
-    /distribution/check-install [aarch64]
-    /distribution/command [aarch64]
-    /test/misc/machineinfo [aarch64]
-    Boot test [aarch64]
-    CKI/restraint [aarch64]
-    Hardware - Firmware test suite [aarch64]
-    Reboot test [aarch64]
-    SELinux Custom Module Setup [aarch64]
-    selinux-policy: serge-testsuite [aarch64]
-    Storage - blktests - throtl [aarch64]
-    Storage - blktests - ublk [aarch64]
-    stress: stress-ng - cpu-cache [aarch64]
-    stress: stress-ng - memory [aarch64]
-    xfstests - btrfs [aarch64]
-    xfstests - ext4 [aarch64]
-    xfstests - xfs [aarch64]
+In particular, I would prefer to first check whether adding
+CONNECTION_TDLS / proper TDLS peer setup on top of the current code is
+enough to fix the issue.
 
+Please avoid removing SUPPORTS_TX_ENCAP_OFFLOAD and
+SUPPORTS_RX_DECAP_OFFLOAD globally from mt792x_init_wiphy().
 
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
-
+>         ieee80211_hw_set(hw, WANT_MONITOR_VIF);
+>         ieee80211_hw_set(hw, SUPPORTS_PS);
+>         ieee80211_hw_set(hw, SUPPORTS_DYNAMIC_PS);
+>
+> --
+> 2.53.0
+>
+>
 
