@@ -4,108 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A6E3FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 14:16:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7053ACD3430
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 14:16:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KJYvNhQ3mzD7bXhkgriTfy1RxP23dOYPeDTU/pUBZ1I=; b=f+TTVlgTnu17xdSOyep4wq1t/j
-	fvWpMgDfZe12edkSPL7P+Lbj9cQwfAY25fDHsomEgwTPqOjGSJauL5PeYFWhzdFjnnn23lC94usAl
-	Fwh/GcKB0PRS2O80+iPToeIw1F9fun2w5o5An1GoZDmkgv5aNAoVTOauWUONXKuh/IEvoQuv7k2RT
-	1bU/IOq+r/eqkqB4NFv9J/IGo7wy5r4asA0SvsT+t9tBET3WGHNZP0I7W/apcDpKLLcoDKIkaUDg2
-	ei3P1xdV0+16boXW9gDnH8Jl0jPXFjegq8H13Q1egX1UUSlxpfJB+7tLwqR3t2lbL9VIP1Y4Eg7Su
-	cFK4oMaA==;
+	bh=kNZRK1xzyieW295ShspfGtTk8+AaEYUV8qNPdWcyUvs=; b=pWN1hww/65WQ71/mnPbcsDRLh5
+	iSY6o/7OUfrcecFROF0a0P+b3B/3MfLI7tKCFDmf4Dqk3hYEkkOScGnwrEecl4RtWXc4p+Q9GNDI3
+	HgxbH72DfPKRKCYgtsnMGdsOtxK4B0n24B7LZzRrCIJqkT77u0Etjy8iacL8NSsJCbsSxhF5xsqhZ
+	P5oaWJwMLRKZDTlG7aLzPsCtGQqWGtiPVhunDbgjHgV2B/zRHz5qlVL6F6oZ6Wi1DFl6ob7K3iQ4C
+	AhE/kjQU/29vnlQUZLoTaVASqegzVD6X47pfNfyNG1BZNKiAV+XqRliyJ+B7GEDRqXJ7YdLGCtgP8
+	vmiSdqNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJu5j-0000000DPEr-1a5i;
-	Mon, 04 May 2026 14:16:11 +0000
-Received: from mail-yx1-xb12c.google.com ([2607:f8b0:4864:20::b12c])
+	id 1wJu6B-0000000DPLS-1TqF;
+	Mon, 04 May 2026 14:16:39 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJu5g-0000000DPEE-1KRD
+	id 1wJu68-0000000DPJt-0g97
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 14:16:09 +0000
-Received: by mail-yx1-xb12c.google.com with SMTP id 956f58d0204a3-6587cee8b57so4363519d50.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 May 2026 07:16:07 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1777904167; cv=none;
-        d=google.com; s=arc-20240605;
-        b=dbbHyoWDW+ODxwchv2ACRkLIT9brumw7SJeUeIO8N2X+Avp0m8l4Zn6OCblKjrfGlk
-         ntxjwq9zGqm5G09pKWmLkgWammrbtacSWfSiiE7mrQwVcivj+hHGjHYIMmnkF0+Gf3dE
-         GzuzdOliVZovQrYCvogtDoyNwgRTlEHhWXEezST+dftuItRei5l9IVXGuj0TX6yPJNWk
-         HrruvhvgGmM2RyCgTbob0zNaKVszzaQ9aMrxfXm7FFtbXSIjACTGTBtzTrCdBv4gSX+S
-         WID+BDWaRNPktrI/r2HOzdNjLkXbM1bMTsCcpoMSsivvOHKLTPNoJMUcdY3pk2i0eMUB
-         xPlA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=KJYvNhQ3mzD7bXhkgriTfy1RxP23dOYPeDTU/pUBZ1I=;
-        fh=RPeh/227bnX7LpVq3VxZT/Y6nGm9fSHRvJ7H9cB2z38=;
-        b=f2YM7/2RwD8HiTrLqYyU7X0SV8YpWV/uIz6HFQxgkbaKcMXWzIboXC4qM1Iw5K9uZW
-         UW/PDQggyxWi8ROo1hnXHWgMXggTRvMWbvx8xUecYeG6y5NV1pK13Iqh02hcBeLNi07b
-         tOPsK8dXUIFy58BM/FAzO7dkvjxLUFfWICRAr8zeOgCslYF08GjsA7vWIt/0HYqkUAvp
-         BSuXFN8I5TDvY2nNYyQfOzJpXDP4rnpmcHLUzGDMpAxVqd0AHDlM1PHsR+oFO3nW31F8
-         CN8A73hSTP9Wfa8Tnx/+7JRjsmfey/pEyx2U32w5pjjlVceHM7uTtDirSdicMtrJYwUG
-         BYXw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777904167; x=1778508967; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KJYvNhQ3mzD7bXhkgriTfy1RxP23dOYPeDTU/pUBZ1I=;
-        b=e39QPQ01T9yQY96YjHJtXyot1hiblH1gFKE9UYFm9AMxbEZgL/4V5N2trFhLaYtmKF
-         dgnDXKCdEbrrbXFWFizdRnGoW5u3+lh/2uNWNm3/Zr9OMRWB4PPqml3akmOVmXxCldLJ
-         HcqDUGeDf66DTDQNu4L94u/QIeksWOvK32xbrjPcOIu1fqgG6wXZvJ6WIeMgXEPc2tLT
-         NtJhfzfDpKznyOUdUSb6tQYRUOMCxcxQCYt1eeT7fyKMfUh0otBPs/Ry9ShjqtYOfvMW
-         nxh1Q6Uh+jAwpqPcRf7UsWs/+wEOUzTQd8UzjtEk1QEV+i53tDD33v5zUuDdYCUcK9F4
-         Y9gA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777904167; x=1778508967;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=KJYvNhQ3mzD7bXhkgriTfy1RxP23dOYPeDTU/pUBZ1I=;
-        b=kfs6XXfPq40R7LK25lTouTNFXQ8vOLzV0QXt6YKNJRLr+6HteuF2cGLyjVraL7oNRC
-         xbIMhimi+pLPgTsXEam7SlrQf8RumFBjP3XGx6RJ8sZloMjwF4c4DzqicvrXrw0YfM5a
-         fpfs5dl2tWRQ8408RnNgtr4Ev7Va639I4R0FU+V2qgTBAAiDO1ryIfqR9bbWlNeVjqUv
-         vFwzWN4gth301/Z7Bzi5mANEkGmOWBY+quYvWnVL3r4pGs8gkYqDKqPYYBs9R8vGS1hk
-         EKG1qj7cfMwMjedb4iwoKuGLfcWNmiXFnHaHKcgXgSBh3YXVBy1FmhZie9APZ9TO/fXd
-         ZPiw==
-X-Forwarded-Encrypted: i=1; AFNElJ97PmIZ/EZBKJv1zgMLPJcnNaiDqmlC1/Wu0ryTrQ55Ip07GPhykU21oRMqGUx9rtTeMjDiMBynXnYmK+sNPto9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz4OPBH8hT24mYbq0wFAIdXI8ce4//nL2CecaRI6iOSdLPpaX/d
-	AHCNEz10tv3JUnxPiFObUMZPnYsOOnqaZtvHa+VdtlUcDTLn4Lb85heIsjVkI/l6qqMnSQqyzML
-	fy7fwG+PnpRdBPwufxVSSvdS7819Nyc0=
-X-Gm-Gg: AeBDieuttfY1f4pycC6YznO1SsUCNinXR086w6Fc7tXz6Oywq9CrRJmmlnmtbBI/vUa
-	v42daIurfahQrbgxTEy8WVXbG5ovwgwmlprUcFQDwp5ZC1CqgsnTyaKZWE4ekoSVAThKbW0TpCT
-	XWUhVyoZBFw1j8i2eX8ZavikCMdvgPQJfgDCZcmZHN/16n4Ut/B55VxIICJ4kd/irOJ5BTAVoDs
-	9sdfwdCkH2m6s/jVZG9m+asZTVNXZhkAgwwzOAGQMa4IUt+TXdoja6Eb+2N4cZyvV0dt+SUELM9
-	Hi2AJOyOAwyqpnnzJ8Q=
-X-Received: by 2002:a05:690e:1186:b0:65c:6452:1ccf with SMTP id
- 956f58d0204a3-65c64522530mr786151d50.8.1777904166584; Mon, 04 May 2026
- 07:16:06 -0700 (PDT)
+	Mon, 04 May 2026 14:16:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D40344442C
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  4 May 2026 14:16:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0D71C2BCFA
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  4 May 2026 14:16:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777904195;
+	bh=dnulhm1JTuoUEhQzuO1u5rEt0FwJiLQjQxWn1rCEVQ4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=EEZJoSA2+V1bS9N6/kBUrA73Kbqtv4rr5pK0ImtIEOP8hp3g/Pxpx3OB5nfBWsQkk
+	 JTEXv4tAWXlTHtQj1YfWReoHeA2fuK78sq+jKA9LGBnAV9zfafUmGPkGTDF2a+XBKT
+	 +Uj7+VoYbC8HwONiur8ukdewMwXCdtwSsCNlaLtM2b4MGnkCWPqRP3SJjZikftuCaL
+	 Zml9OhkupD9qECWzXBsF54LDbks60MTExeOShwnCEz7JpZgbYDjwAIhw4paXPT+PST
+	 uFaAxYZBh+fDrl8m4NnNjoZ/ehcrAwyzSNeHoJPSGdvmnM+nA216iRM7s/dgE18WlP
+	 U21yQQlu9E1CA==
+Received: by mail-qv1-f49.google.com with SMTP id 6a1803df08f44-8acb3dab8dfso33512066d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 May 2026 07:16:35 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ/+qHLs89YDRvjgeE7ow6KpXt7W0/yyLzlxu/dwOkgneT52Kb4lNIXJf5qVI18tX55sGxTXbeghtpFsZCcjsyVi@lists.infradead.org
+X-Gm-Message-State: AOJu0YySAhkc2ejBjt6616VowColK8/oAAVzquhap13G73qhz9QCLZcU
+	0Glp8V/pWctPCqcKjryQfG0+HC0rvYhbgCHECHMAHZF4pr9+viTBGhMBUC9D5H6ZJxS4vzFtrfq
+	9U0ZgcI4/pSgN9DOhvy4ZeCCadiFAGO8=
+X-Received: by 2002:a05:6214:27c3:b0:8a4:db54:b3a4 with SMTP id
+ 6a1803df08f44-8b665d1127bmr158681076d6.7.1777904164104; Mon, 04 May 2026
+ 07:16:04 -0700 (PDT)
 MIME-Version: 1.0
-References: <dd4dc11e-338a-4d13-9830-095a93187f4c@oss.qualcomm.com>
- <20260504041407.289464-1-threeway@gmail.com> <ffd59407-c65c-4f99-a587-3b968f9c82c5@oss.qualcomm.com>
-In-Reply-To: <ffd59407-c65c-4f99-a587-3b968f9c82c5@oss.qualcomm.com>
-From: Steev Klimaszewski <threeway@gmail.com>
-Date: Mon, 4 May 2026 09:16:00 -0500
-X-Gm-Features: AVHnY4JCkZFUA50J5VjxRP-M3UPWI_XzDvfu0OdsGPxK7C4Ok0bBFRM_vOJe338
-Message-ID: <CAOvMTZgpYg-UFuQE01NsECTPf3UEHDifnCLYu7iEqOUnvzs0Ag@mail.gmail.com>
-Subject: Re: PCI: qcom: Add D3cold support
-To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Cc: bhelgaas@google.com, bjorn.andersson@oss.qualcomm.com, 
-	jingoohan1@gmail.com, jonathanh@nvidia.com, kwilczynski@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, 
-	lpieralisi@kernel.org, mani@kernel.org, robh@kernel.org, will@kernel.org
+References: <20260430040427.4672-1-baohua@kernel.org> <afNM-gIqxpyJ6ro7@casper.infradead.org>
+ <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
+ <afS_L-5XeWIldTXA@casper.infradead.org> <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
+ <afTpoL3FklpQZNMM@casper.infradead.org> <yezmezj26xntushmylductlmytfgvwsnbnzlhffkfwugfxkt6m@gleq22spziyk>
+ <CAGsJ_4y8JtCxEy9hVxVd8eaf8D9WC8BcRQp9afUVu=FJA1-awA@mail.gmail.com> <n5vsmp6ingbhfztl6wzcwmrz56gkkfbpzardk43scr7rcgqsw5@evtnov34c5bt>
+In-Reply-To: <n5vsmp6ingbhfztl6wzcwmrz56gkkfbpzardk43scr7rcgqsw5@evtnov34c5bt>
+From: Barry Song <baohua@kernel.org>
+Date: Mon, 4 May 2026 22:15:52 +0800
+X-Gmail-Original-Message-ID: <CAGsJ_4xM8W5NHB4J2c1dVyXhu9SHAK_iiVZPAtH0fMvJoz77ww@mail.gmail.com>
+X-Gm-Features: AVHnY4LS13GrbYqayhsefNP68ODiwhwvddGMrFC2vbCyG8eLOAO_PeI0iks995A
+Message-ID: <CAGsJ_4xM8W5NHB4J2c1dVyXhu9SHAK_iiVZPAtH0fMvJoz77ww@mail.gmail.com>
+Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
+ fault performance
+To: Jan Kara <jack@suse.cz>
+Cc: Matthew Wilcox <willy@infradead.org>, akpm@linux-foundation.org, linux-mm@kvack.org, 
+	david@kernel.org, ljs@kernel.org, liam@infradead.org, vbabka@kernel.org, 
+	rppt@kernel.org, surenb@google.com, mhocko@suse.com, pfalcato@suse.de, 
+	wanglian@kylinos.cn, chentao@kylinos.cn, lianux.mm@gmail.com, 
+	kunwu.chan@gmail.com, liyangouwen1@oppo.com, chrisl@kernel.org, 
+	kasong@tencent.com, shikemeng@huaweicloud.com, nphamcs@gmail.com, 
+	bhe@redhat.com, youngjun.park@lge.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_071608_364610_1DA10C9A 
-X-CRM114-Status: GOOD (  23.27  )
+X-CRM114-CacheID: sfid-20260504_071636_685997_01A98DC7 
+X-CRM114-Status: GOOD (  44.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,62 +95,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krishna,
-
-On Mon, May 4, 2026 at 2:06=E2=80=AFAM Krishna Chaitanya Chundru
-<krishna.chundru@oss.qualcomm.com> wrote:
+On Mon, May 4, 2026 at 9:04=E2=80=AFPM Jan Kara <jack@suse.cz> wrote:
 >
+> On Mon 04-05-26 03:55:43, Barry Song wrote:
+> > On Mon, May 4, 2026 at 2:17=E2=80=AFAM Jan Kara <jack@suse.cz> wrote:
+> > > On Fri 01-05-26 18:57:52, Matthew Wilcox wrote:
+> > > > On Sat, May 02, 2026 at 01:44:34AM +0800, Barry Song wrote:
+> > > > > On Fri, May 1, 2026 at 10:57=E2=80=AFPM Matthew Wilcox <willy@inf=
+radead.org> wrote:
+> > > > > > On Fri, May 01, 2026 at 06:49:58AM +0800, Barry Song wrote:
+> > > > > > > 1. There is no deterministic latency for I/O completion. It d=
+epends on
+> > > > > > > both the hardware and the software stack (bio/request queues =
+and the
+> > > > > > > block scheduler). Sometimes the latency is short; at other ti=
+mes it can
+> > > > > > > be quite long. In such cases, a high-priority thread performi=
+ng operations
+> > > > > > > such as mprotect, unmap, prctl_set_vma, or madvise may be for=
+ced to wait
+> > > > > > > for an unpredictable amount of time.
+> > > > > >
+> > > > > > But does that actually happen?  I find it hard to believe that =
+thread A
+> > > > > > unmaps a VMA while thread B is in the middle of taking a page f=
+ault in
+> > > > > > that same VMA.  mprotect() and madvise() are more likely to hap=
+pen, but
+> > > > > > it still seems really unlikely to me.
+> > > > >
+> > > > > It doesn=E2=80=99t have to involve unmapping or applying mprotect=
+ to
+> > > > > the entire VMA=E2=80=94just a portion of it is sufficient.
+> > > >
+> > > > Yes, but that still fails to answer "does this actually happen".  H=
+ow much
+> > > > performance is all this complexity in the page fault handler buying=
+ us?
+> > > > If you don't answer this question, I'm just going to go in and rip =
+it
+> > > > all out.
+> > >
+> > > I fully agree with you we should verify whether the retry code still =
+brings
+> > > in real-world advantage today with VMA locks. After all the retry log=
+ic has
+> > > been introduced in 2010. That being said if there are realistic loads=
+ where
+> > > one thread needs VMA write lock while another thread is faulting the =
+VMA,
+> > > then the latencies can be indeed extreme. For example things like cgr=
+oup IO
+> > > throttling happen on the IO path and thus can throttle IO of a low-pr=
+iority
+> > > thread for a long time.
+> >
+> > I=E2=80=99m quite sure that swap-in and VMA writes can occur
+> > concurrently, and this is fairly common. For example,
+> > Java GC may use mprotect or userfaultfd on a small
+> > portion of a large Java heap while other portions are
+> > still under do_swap_page().
 >
+> OK, makes sense.
 >
-> On 5/4/2026 9:44 AM, Steev Klimaszewski wrote:
-> > On Sun, May 3, 2026 at 10:37=E2=80=AFPM Krishna Chaitanya Chundru <kris=
-hna.chundru@oss.qualcomm.com> wrote:
-> >>> v4 of this patchset *boots* along with Mani's patchset, however, v5 d=
-oes not,
-> >>> and unfortunately, the machine does not seem to get to a point where =
-I can even
-> >>> get logs from it.  Do you know what I might be missing?  I have *not*=
- attempted
-> >>> to remove the nvme drive and boot off USB to test it.
-> >> This series, will not have any impact on the boot, this series comes i=
-n to the
-> >> picture only in case
-> >> of suspend and resume. can you share your platform details and kernel =
-you are
-> >> booting with.
-> > Oddly, it seems to, because if I simply go back to v4, the system boots=
-.  I'm
-> > using a 7.0 kernel on the Thinkpad X13s (SC8280XP).  The sources are at
-> > https://github.com/steev/linux/tree/lenovo-x13s-linux-7.0.y (with the v=
-5
-> > applied).  PCIE_QCOM is built-in to the kernel.  Not sure what other in=
-formation
-> > is needed.
-> Hi Steev,
+> > If we start exploring different approaches for anon and
+> > file, I agree I can revisit this on an Android phone if
+> > there is a real, serious case where a file VMA can be
+> > written and a page fault occurs at the same time.
+> >
+> > Please note that, as an Android developer, I am particularly
+> > cautious about priority inversion. A recent issue causing
+> > severe priority inversion is zram attempting to support
+> > preemption[1]. When a task performing compression or
+> > decompression is migrated to another CPU and then preempted
+> > by other tasks, high-priority tasks waiting on the mutex may
+> > be significantly delayed, impacting user experience.
 >
-> I made mistake in re basing the code, can you try below and see if that f=
-ixes
-> your issue.
-> I will send this in next patch series.
->
-> --- a/drivers/pci/controller/dwc/pcie-qcom.c
-> +++ b/drivers/pci/controller/dwc/pcie-qcom.c
-> @@ -1327,7 +1327,7 @@ static enum dw_pcie_ltssm qcom_pcie_get_ltssm(struc=
+> Well, container people are concerned about priority inversion as well. Bu=
 t
-> dw_pcie *pci)
->         struct qcom_pcie *pcie =3D to_qcom_pcie(pci);
->         u32 val;
->
-> -       if (pcie->cfg->ops->ltssm_enable)
-> +       if (pcie->cfg->ops->get_ltssm)
->                 return pcie->cfg->ops->get_ltssm(pcie);
->
-> - Krishna Chaitanya.
-> >> - Krishna Chaitanya.
-> >>> -- steev
+> usually this is with coarse lock (such as global filesystem locks) but VM=
+A
+> lock is specific to a task (and a VMA) so there the opportunity for
+> priority inversion looks more limited.  But the example with Java where G=
+C
+> thread can presumably have higher priority than ordinary Java threads is =
+an
+> interesting one.
 
+A major difference in Android apps is that each thread can
+affect user experience differently. And it is not simply a matter
+of whether a VMA writer has higher or lower priority than a
+page-fault (PF) thread performing I/O.
 
-Indeed, that fixes it, thank you!
+For example, thread A handles a PF; thread B attempts to
+modify the VMA where the PF occurs; thread C tries to modify
+another VMA (requiring mmap_lock in write mode) or iterate
+VMAs (requiring mmap_lock in read mode). Regardless of
+thread B=E2=80=99s priority, it holds mmap_lock in write mode while
+waiting for the VMA lock. The usual pattern for a VMA writer
+is:
 
--- steev
+mmap_write_lock()
+vma_start_write()
+
+As a result, thread C can be blocked even if it has higher
+priority but operates on a different VMA.
+
+In essence, when a PF and a VMA write occur concurrently,
+high-priority threads may be blocked even if they operate on
+different VMAs, not necessarily the same one.
+
+Thanks
+Barry
 
