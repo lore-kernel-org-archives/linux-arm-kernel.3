@@ -4,45 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34273CD3424
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 May 2026 21:42:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 324CFFF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 01:39:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ylGhPogPdvQ9Ms4MmL9aBfryjCEpoixYIBwvNlno5/s=; b=v1/4lvWTlbfQOJKccEFKgXvGRw
-	6YRk/T8Sxs+fYxHyKXCYsx9HQ7SBEhdNr/AaV4IDITbDxFYTSFd+nQWoYxK01oFoYnkOV8P1OETPB
-	KZ3z6zMdcyfAejI5BU1fDJPDZGJIvMutI3CGVOnuIJM/ws+kf41qRPIFZ1+xCJPvn5WcSJRsfMv8a
-	LTS+P4q4rlFDKh61YYygGam0QL81/vD/0GmQDEGrlvl8vzz21+zMZMK4qtQsm+HAP0ck8/sRC4k9C
-	auJFn+61crdxH1o0dz0FUdC3HN8UDn9SEuLZPJZhlXPlDMQcX7zwUgT9W3lRtcj4ryX74ZwG2edhS
-	gj8a3PRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IYcdBHIqFgEvILxmZRBX4ED3Al8Q+GCzZear3xHG+wc=; b=cUHDDXuXZ/sjWUE3SbD/g3N92P
+	F48B53cckzr9aorL28ghO7DKK3OdWTNZxpvHSnC5TL9JUxVzBss6UnEk2suCC7WWIaRURtuKkWTu0
+	kXV2NSOe0mI6aab1elhUtwBonr2j5FCYfG3R2i7MCZQFEAjtQdr9ehwrlXZH7YkqvXjImWvgJEZYI
+	jE5nAlShf0AlV870onCsriciw7N0Gi89XQRSmyl8AdAMQSq098MhzYyipscdb6o/g4tQzzg8kjhIn
+	yDnKtTHgf2Hz6tuD/nzIDcjJ9tpMNF3qDDm5x4JtA6EuazOe4FfIsrdM5mnqjm7/jlq5Ax3SSaVJ9
+	x6fygWWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJeZu-0000000Bn31-34PO;
-	Sun, 03 May 2026 21:42:18 +0000
-Received: from [50.53.43.113] (helo=bombadil.infradead.org)
-	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJeZq-0000000Bn2Q-2iOs;
-	Sun, 03 May 2026 21:42:14 +0000
-From: Randy Dunlap <rdunlap@infradead.org>
-To: linux-kernel@vger.kernel.org
-Cc: Randy Dunlap <rdunlap@infradead.org>,
-	Petr Mladek <pmladek@suse.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	John Ogness <john.ogness@linutronix.de>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	bcm-kernel-feedback-list@broadcom.com,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] printk: remove BOOT_PRINTK_DELAY config
-Date: Sun,  3 May 2026 14:42:14 -0700
-Message-ID: <20260503214214.3475670-1-rdunlap@infradead.org>
-X-Mailer: git-send-email 2.54.0
+	id 1wJiGx-0000000C6Zr-11PL;
+	Mon, 04 May 2026 01:38:59 +0000
+Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wJiGs-0000000C6Xh-451c;
+	Mon, 04 May 2026 01:38:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Z7ho8KuA4zbYpx10i/9yQy0csnu4bw3Of1vWh1xGV7fi8wmaqL10yjXBN+ROWJNChnWWraJisap1Lwd00IKaKrDlI+JQkq4TTJBHFK7aEj5ff6P2f+mJhSIR5gnRvDv0cX21CkHF33OpcbEBYQB/ClsOSNQ2lr8MktXuElFYw3n0u66o9ztdU+zrAdy5E/IBXHJU549jVVzv9/KCPE29nSs5Azm7U2GD9s3dbwiHRwT9pDYi6otaGobNRsobXD+hq4zx21HrkeOGY+b5vp/SweVaI7cvBo5GT66UVgmkUo4j7Zki5bDH7oJlIUWzYkrbf0G3syA2TRLkn2ZiQ1HJdg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IYcdBHIqFgEvILxmZRBX4ED3Al8Q+GCzZear3xHG+wc=;
+ b=V5uAGLZvQGMkRpdZBeni4pHzQk+E+q8HyZxsrTvYxFblkIbN3oUMfMmB8ci5xzXlwobxb/IUMwzNeciuGmseYWYhvYOLwp1otebiS1u+e0a8gKezwAG2AxYs1JcPe0jKg1kCRpxSY96Cg7oCbmVear4W49LgwM0kXTAPTeB+jYTu2JXsIiBKGRgrA7Ymnt02i0PJiu5gF82o7ogdOv6KTmRE30GD7mTuDeJPXZHLDpGRPdHKMIgWwHsH7uCaL2qPw8B+6yD7kTKton4JKbgm615SMktzyXDM8vtsZogRPy/HEQhTjdBNGNCu/29hlZXW0hyZaanDNJZKQGxNUdPlJA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 64.62.143.114) smtp.rcpttodomain=axiado.com smtp.mailfrom=axiado.com;
+ dmarc=none action=none header.from=axiado.com; dkim=none (message not
+ signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IYcdBHIqFgEvILxmZRBX4ED3Al8Q+GCzZear3xHG+wc=;
+ b=EO1A0PwHRzNoeqLcb9Rh+jx6pg9MmYBCUIZ7oIMTof6n0BiCpSC0y3CsLy5xMK6OY9wZ444tblzx7TLhz+YxrdIWuW4KbogsDHIxjbRJBKtU8oYwoZjP/xkQdcb/JY1eVZQQBHHa1oxzLpUDhJ+S9Tp9fO9Tg02JGjegnu9rzYwc/fQZ24cyUg5vdAYxJ5exmx3bI0p/IeD9innYXsElGiHIOlPRgb7IFp3s8MbyUYcBfmVU+oorrGuD4wd95us7KzVZV/L7/FXXRKX+y//clEcj5EH+EWIyJmUU1xjPjNDy5LfPJm2iUOgU38iv7FBf1t3eVTIC7y4wp+4JL34d7g==
+Received: from DM6PR03CA0076.namprd03.prod.outlook.com (2603:10b6:5:333::9) by
+ EAYPR18MB988325.namprd18.prod.outlook.com (2603:10b6:303:2be::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Mon, 4 May
+ 2026 01:38:47 +0000
+Received: from DS2PEPF000061C5.namprd02.prod.outlook.com
+ (2603:10b6:5:333:cafe::c) by DM6PR03CA0076.outlook.office365.com
+ (2603:10b6:5:333::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9870.25 via Frontend Transport; Mon,
+ 4 May 2026 01:38:47 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 64.62.143.114)
+ smtp.mailfrom=axiado.com; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=axiado.com;
+Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
+ designate 64.62.143.114 as permitted sender) receiver=protection.outlook.com;
+ client-ip=64.62.143.114; helo=smtp.corp.axiado.com;
+Received: from smtp.corp.axiado.com (64.62.143.114) by
+ DS2PEPF000061C5.mail.protection.outlook.com (10.167.23.72) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.9
+ via Frontend Transport; Mon, 4 May 2026 01:38:47 +0000
+Received: from axz-uw1-build-vm02.corp.axiado.com (unknown [10.14.1.22])
+	by smtp.corp.axiado.com (Postfix) with ESMTPS id DA0084186B5D;
+	Sun,  3 May 2026 18:36:50 -0700 (PDT)
+From: Tzu-Hao Wei <twei@axiado.com>
+Date: Mon, 04 May 2026 09:38:34 +0800
+Subject: [PATCH RESEND v3 3/4] MAINTAINERS: Add Axiado AX3000 eMMC PHY
+ driver
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+Message-Id: <20260504-axiado-ax3000-add-emmc-phy-driver-support-v3-3-3ab7eb45b0c5@axiado.com>
+References: <20260504-axiado-ax3000-add-emmc-phy-driver-support-v3-0-3ab7eb45b0c5@axiado.com>
+In-Reply-To: <20260504-axiado-ax3000-add-emmc-phy-driver-support-v3-0-3ab7eb45b0c5@axiado.com>
+To: SriNavmani A <srinavmani@axiado.com>, 
+ Prasad Bolisetty <pbolisetty@axiado.com>, Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ openbmc@lists.ozlabs.org, Tzu-Hao Wei <twei@axiado.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1110; i=twei@axiado.com;
+ h=from:subject:message-id; bh=ObP8N1UtvWKp2CtmzxJN3VKa1vOSFezLpJd8KJulKic=;
+ b=owEB7QES/pANAwAKAXgQMF3EWvHXAcsmYgBp9/imCt0F8unvqVG9sFNz2lbvnTw+kWUwuQQq/
+ Rurflle7CmJAbMEAAEKAB0WIQSZyWINOowtFmDvdYF4EDBdxFrx1wUCaff4pgAKCRB4EDBdxFrx
+ 16sHDACpIbPbJIEub3P25V72awHnfbBt1BfnE2L8zeQ2jT766wxs2VnuqT4qRyUxX2ru9UMiye5
+ S/Ld4SuHqoljOsz0Ip6xWn7cE1WCnLaitkL7tiQ/8VBFyelO9eFDnVlefMFupbakVXyC4A8Za0y
+ //eGa2cFtUNwXbrtlXVQutozMXCS79wYCJamr8YM1xcHIXaL4HP4WkkU5ciOd3zgxHZl8KOEeS2
+ 6vqPg2Lz4SyGGoAsBoLe9YKY+4f1jLXSTDCC94ho3owJqXioQOPqGpTgxSiIXdf6P5rUbTGHPv2
+ w2EFmL/fKW2hO8BmWSd+9n7Au2sLmxN3Dy8ANHNgwuFDpg/klw5nXojUXa504jLj8IyZGsNA/xQ
+ 3FrDhlZ6mwaELtt2K650z7X81r5l6++isJH/fG7TCx1JkIsGturdMWTZuDXPpgIP4ucgjpVFlyH
+ BC5NhSkpJYP1/JGNN4DiRGSzIIwXZxIxi8Pr/TbXODRFMCUj4OvrSs2AUVGbaWGUzMyRM=
+X-Developer-Key: i=twei@axiado.com; a=openpgp;
+ fpr=99C9620D3A8C2D1660EF75817810305DC45AF1D7
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS2PEPF000061C5:EE_|EAYPR18MB988325:EE_
+X-MS-Office365-Filtering-Correlation-Id: 253ec410-f2e9-411f-5c45-08dea97de2c9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|82310400026|34020700016|42112799006|36860700016|13003099007|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: 7+/37unoblo7j3VmPHXUFyMwbd6HWnxl+0rsx3PYwqbFe7kyITomYproIYgyX9gIuqL/SRS3sYeKIT/2W2YsWD0zoqze2LNBIQRUs/acX3cjLDjw21jsjf6KORB31Umo7khtbMkQhgFfvTuUyVAM+jMCsRHKaT0deLaOdknQK6z1y7NVS2b+Q8VZEZ+9eLLfltSGKYnwrDDKnpBzEZxmtLc7lRvqOVjktJ/jNTrtXl0nFacMlXYOWG7rnsGrKeOdazKdedhI/oWhyleDDUabqYR8DcaUcEuz9+DJp9Dh6myixUwzITBYD+5OZKSQi5YSIlzPZ9MHCc24A8zwOrABppFSWnmN9Umgix2VlJcCzjIIXqsj4fYELlwNfjPgIJxBvnW+rAM/o80YcF5+cKBlUd9qRK9zE/jb1oWD2yAwi2osrVlsqgvZsqUdr5HdX9RYwp8ylT7t2ZDgVawxkZPi1emMJPLThWCAWG9fAgIFfO7E4sqlg5u3fekW2k0Z0dUu0P9r/jUOpT/U0u+MFgl15dx+B4ZcSdSnydSX+xINlhFu/YDtuXi2BkdHJ94DxwKR9LiXD1pfmHDUv+xd21MB/9kPt5y9hJlI+egDcYlV1NkjZHJN6p0v5qmLiKwtN6Ujys8onIej0S8y6IOEBKvXm/uSOisRq4KzAWhkMxtTO4gfxWH1EX42IOkr8WrVUJXKq8NvCn35Z4g6gLOW2C58tCVlyOc4NPZdVIBWbCqWQYE=
+X-Forefront-Antispam-Report: CIP:64.62.143.114;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtp.corp.axiado.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(82310400026)(34020700016)(42112799006)(36860700016)(13003099007)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: GAmNrxx/X8aO+Abrv61Dp3ek62Du67HpJATJCmkYSXoGLNFizAGCCHsA4L9AJh6IVswiTtlwAlL4iiJgVwJ+heveFe6yIcDa3xq57atMp56VEve1SK8lmRwjTPgLrUz+W6vB4vJYDS6hzJkh15qRigUqe5F2NgZ1v7oAJPcsPY9tnbVJbP3SFvUoiRG4IvM7s9AwuUR+5Rf3aOTg039lmjs53L2d5sv2BAWrxZQRwjx7usaNXUEVTuR/qpWbQO6Qldmj1+Lwsxcb06qM2KufFlrOo/LgQ8QWa/MRsAWrlChEjiusMOofi2NL+/lr/A99HIRxCPMfRGQFpmIahdDsE9iYDDhEMk5is8smyY3IQFhly4PH4o84eNnTHCTOx144OOIovme2f2KYoWC/r7uxZ40oud6D/8ieSLm6koRMjOdru8okXM2MIRaDK3+HlyIs
+X-OriginatorOrg: axiado.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 May 2026 01:38:47.2771
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 253ec410-f2e9-411f-5c45-08dea97de2c9
+X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[64.62.143.114];Helo=[smtp.corp.axiado.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS2PEPF000061C5.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: EAYPR18MB988325
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260503_183855_023951_9F0ACECD 
+X-CRM114-Status: UNSURE (   7.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -57,152 +136,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This boot option is ancient and probably not being used.
-Dave Jones used it successfully maybe 15 years ago...
-AFAIK it doesn't work reliably, especially on SMP.
+Add SriNavmani, Prasad and me as maintainers for Axiado AX3000 eMMC PHY
+driver
 
-Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+Acked-by: Prasad Bolisetty <pbolisetty@axiado.com>
+Signed-off-by: Tzu-Hao Wei <twei@axiado.com>
 ---
-Cc: Petr Mladek <pmladek@suse.com>
-Cc: Steven Rostedt <rostedt@goodmis.org>
-Cc: John Ogness <john.ogness@linutronix.de>
-Cc: Sergey Senozhatsky <senozhatsky@chromium.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: bcm-kernel-feedback-list@broadcom.com
-Cc: linux-rpi-kernel@lists.infradead.org
-Cc: linux-arm-kernel@lists.infradead.org
+ MAINTAINERS | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
- Documentation/admin-guide/kernel-parameters.txt |    8 -
- arch/arm/configs/bcm2835_defconfig              |    1 
- kernel/printk/printk.c                          |   57 --------------
- lib/Kconfig.debug                               |   18 ----
- 4 files changed, 84 deletions(-)
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 67db88b04537b431c927b73624993233eef43e3f..c33b0aa94de81c89b674e44d4813c4e3b95b7b2d 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -4254,6 +4254,16 @@ W:	https://ez.analog.com/linux-software-drivers
+ F:	Documentation/devicetree/bindings/hwmon/adi,axi-fan-control.yaml
+ F:	drivers/hwmon/axi-fan-control.c
+ 
++AXIADO EMMC PHY DRIVER
++M:	SriNavmani A <srinavmani@axiado.com>
++M:	Tzu-Hao Wei <twei@axiado.com>
++M:	Prasad Bolisetty <pbolisetty@axiado.com>
++L:	linux-phy@lists.infradead.org (moderated for non-subscribers)
++S:	Maintained
++F:	Documentation/devicetree/bindings/phy/axiado,ax3000-emmc-phy.yaml
++F:	drivers/phy/axiado/Kconfig
++F:	drivers/phy/axiado/phy-axiado-emmc.c
++
+ AXI SPI ENGINE
+ M:	Michael Hennerich <michael.hennerich@analog.com>
+ M:	Nuno Sá <nuno.sa@analog.com>
 
---- linux-next-20260429.orig/kernel/printk/printk.c
-+++ linux-next-20260429/kernel/printk/printk.c
-@@ -1289,61 +1289,6 @@ static bool suppress_message_printing(in
- 	return (level >= console_loglevel && !ignore_loglevel);
- }
- 
--#ifdef CONFIG_BOOT_PRINTK_DELAY
--
--static int boot_delay; /* msecs delay after each printk during bootup */
--static unsigned long long loops_per_msec;	/* based on boot_delay */
--
--static int __init boot_delay_setup(char *str)
--{
--	unsigned long lpj;
--
--	lpj = preset_lpj ? preset_lpj : 1000000;	/* some guess */
--	loops_per_msec = (unsigned long long)lpj / 1000 * HZ;
--
--	get_option(&str, &boot_delay);
--	if (boot_delay > 10 * 1000)
--		boot_delay = 0;
--
--	pr_debug("boot_delay: %u, preset_lpj: %ld, lpj: %lu, "
--		"HZ: %d, loops_per_msec: %llu\n",
--		boot_delay, preset_lpj, lpj, HZ, loops_per_msec);
--	return 0;
--}
--early_param("boot_delay", boot_delay_setup);
--
--static void boot_delay_msec(int level)
--{
--	unsigned long long k;
--	unsigned long timeout;
--	bool suppress = !is_printk_force_console() &&
--			suppress_message_printing(level);
--
--	if ((boot_delay == 0 || system_state >= SYSTEM_RUNNING) || suppress)
--		return;
--
--	k = (unsigned long long)loops_per_msec * boot_delay;
--
--	timeout = jiffies + msecs_to_jiffies(boot_delay);
--	while (k) {
--		k--;
--		cpu_relax();
--		/*
--		 * use (volatile) jiffies to prevent
--		 * compiler reduction; loop termination via jiffies
--		 * is secondary and may or may not happen.
--		 */
--		if (time_after(jiffies, timeout))
--			break;
--		touch_nmi_watchdog();
--	}
--}
--#else
--static inline void boot_delay_msec(int level)
--{
--}
--#endif
--
- static bool printk_time = IS_ENABLED(CONFIG_PRINTK_TIME);
- module_param_named(time, printk_time, bool, S_IRUGO | S_IWUSR);
- 
-@@ -2121,8 +2066,6 @@ int printk_delay_msec __read_mostly;
- 
- static inline void printk_delay(int level)
- {
--	boot_delay_msec(level);
--
- 	if (unlikely(printk_delay_msec)) {
- 		int m = printk_delay_msec;
- 
---- linux-next-20260429.orig/lib/Kconfig.debug
-+++ linux-next-20260429/lib/Kconfig.debug
-@@ -99,24 +99,6 @@ config MESSAGE_LOGLEVEL_DEFAULT
- 	  by default. To change that, use loglevel=<x> in the kernel bootargs,
- 	  or pick a different CONSOLE_LOGLEVEL_DEFAULT configuration value.
- 
--config BOOT_PRINTK_DELAY
--	bool "Delay each boot printk message by N milliseconds"
--	depends on DEBUG_KERNEL && PRINTK && GENERIC_CALIBRATE_DELAY
--	help
--	  This build option allows you to read kernel boot messages
--	  by inserting a short delay after each one.  The delay is
--	  specified in milliseconds on the kernel command line,
--	  using "boot_delay=N".
--
--	  It is likely that you would also need to use "lpj=M" to preset
--	  the "loops per jiffy" value.
--	  See a previous boot log for the "lpj" value to use for your
--	  system, and then set "lpj=M" before setting "boot_delay=N".
--	  NOTE:  Using this option may adversely affect SMP systems.
--	  I.e., processors other than the first one may not boot up.
--	  BOOT_PRINTK_DELAY also may cause LOCKUP_DETECTOR to detect
--	  what it believes to be lockup conditions.
--
- config DYNAMIC_DEBUG
- 	bool "Enable dynamic printk() support"
- 	default n
---- linux-next-20260429.orig/Documentation/admin-guide/kernel-parameters.txt
-+++ linux-next-20260429/Documentation/admin-guide/kernel-parameters.txt
-@@ -654,14 +654,6 @@ Kernel parameters
- 			embedded devices based on command line input.
- 			See Documentation/block/cmdline-partition.rst
- 
--	boot_delay=	[KNL,EARLY]
--			Milliseconds to delay each printk during boot.
--			Only works if CONFIG_BOOT_PRINTK_DELAY is enabled,
--			and you may also have to specify "lpj=".  Boot_delay
--			values larger than 10 seconds (10000) are assumed
--			erroneous and ignored.
--			Format: integer
--
- 	bootconfig	[KNL,EARLY]
- 			Extended command line options can be added to an initrd
- 			and this will cause the kernel to look for it.
---- linux-next-20260429.orig/arch/arm/configs/bcm2835_defconfig
-+++ linux-next-20260429/arch/arm/configs/bcm2835_defconfig
-@@ -174,7 +174,6 @@ CONFIG_NLS_UTF8=y
- CONFIG_DMA_CMA=y
- CONFIG_CMA_SIZE_MBYTES=32
- CONFIG_PRINTK_TIME=y
--CONFIG_BOOT_PRINTK_DELAY=y
- CONFIG_DYNAMIC_DEBUG=y
- CONFIG_DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT=y
- # CONFIG_ENABLE_MUST_CHECK is not set
+-- 
+2.34.1
+
 
