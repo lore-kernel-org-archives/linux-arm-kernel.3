@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86B61CD3436
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 22:57:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C2AFCD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 22:57:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6/yKHq3c9e3uGgpl4ruRXjj8z5brLv19LBRwYLdjeLQ=; b=c24bUUUWORrmGiQZupxOxaIc+X
-	JDZnegktg7KXwC5GIKUirVFEkYApKCoig/XGb+JzUYgezWq/Uw+ZjqkjsXpCJe7Bzx15Wq/yk/h2r
-	RfvJrqsP2jQgMxnN2+sSsFl5LyfVrrnG85tQtsT8yJgyW+aGnZaqQbJ8226GktnKnizE2aYiseiCD
-	TH48yjOrDk36aOYr9PsngajnhHs2d43fae3AkG3a+P4oKcChaWit3e4Yup6qY0/Zpum9cWWD8v6Qs
-	qOGIQCsJUwI8TywIWJpAP/QhlVtV5UOnw5Te0qu093ZR55cQctnQTAfCHRmu2YQDppmVqLckWr77y
-	ak0tqaxA==;
+	bh=ONlp9b1BBI6f716sKEiSIPM1GeGje3EDpZgOtfKwV74=; b=yFyW1qxIE+4QaKjxOPLoa5JSLI
+	LTFZ9qpzO2dqv9wp+GuGPvPmv4EdS4Sf8ttEF8BFnG3zcfSIp1wWgmi/TTgLXDnbseMb3YUpbj1JS
+	x4kcqbBYHp9izeivIkzq6CdLAUC6+6HfIZ5hahKzJM2x87PP1lTI0701ySEFiXTCS3nEujxAcbcAE
+	3GsxHBJZ9DrhzXTzrl3ZjWsZEjKdzowZgsudbnQXFcFw+1HPxsj8JcWZWXBRBM9raQShBGtUuJGTt
+	npe6D+HrnwdLO2ucCvYbIHn8vucderoSlJsZ5vtCC/GyVOzj5qkVlUv59xTh1/97/ZVXxIIxZgIv4
+	Yb8rup1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wK2E8-0000000EXcC-0OZd;
-	Mon, 04 May 2026 22:57:24 +0000
-Received: from mout-p-102.mailbox.org ([2001:67c:2050:0:465::102])
+	id 1wK2EA-0000000EXdu-1tSK;
+	Mon, 04 May 2026 22:57:26 +0000
+Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wK2E5-0000000EXaG-252K
+	id 1wK2E7-0000000EXbO-3qrj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 22:57:22 +0000
+	Mon, 04 May 2026 22:57:25 +0000
 Received: from smtp202.mailbox.org (smtp202.mailbox.org [10.196.197.202])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4g8cV744Wxz9tkd;
-	Tue,  5 May 2026 00:57:19 +0200 (CEST)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4g8cVB2MKMz9tyw;
+	Tue,  5 May 2026 00:57:22 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1777935439;
+	t=1777935442;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=6/yKHq3c9e3uGgpl4ruRXjj8z5brLv19LBRwYLdjeLQ=;
-	b=ySQjWAue0Z+TzXQS3SWwW2z05fUQflSyVjnt+i5s60G17B7hy4rcYz2wtj6M0Jy33DPQ/7
-	EwROhqz+Ox1NbxNmEfj40EHpAIhENAQJHK/FO9t+Z5HX2phiVGcQAUr6fGegJBwV4K+roR
-	QVgRfXg1gyd5C4SidQaIVR0yxiQFY+fY4uOblDrcB8aGJ/NN2sb3HD5bxG2+TmzeeIpVZk
-	tU0sTtdICnn/e0EN5xaFqazQcN+N+SSF1YlwPQHKA6ZQhoVub806vnkoUW1WtSAFoMZDAn
-	XnzmZ8CjXxrflUe+C78wFKP9Brvz94KzIFb3uJPI8oGvLW9FsnVcSfz+BBn/7Q==
+	bh=ONlp9b1BBI6f716sKEiSIPM1GeGje3EDpZgOtfKwV74=;
+	b=AyZ1zB5+bX3joWBG7eQ0CfJDuh5DTnpo/KmahNOGX3BW7+7JVHfE6pHkSvTgfLoBc4iiCx
+	UJyqSx1VCD8HB8S4RupBZsQnexBAqiNn2IoFeodDuzsOZtkBBPJpILnMCJA6Qv6wNFMatt
+	0po6wc4mPIzvg6Ul7E6/7WHFdZKCylXZlq8LxUdi/8lD2hh6ZLeuIsbhH3iltCcMWv2wP3
+	unzps6KQJGBeGhcM3vr1HUB+vZT6JG6cMOU2haEupaTVi4uOxFfRPWxCVhvpOFr+l9doeo
+	c+NWEqDjMJs27FC963Vtp10fTh/2FAC+r05vOYXCxB+U5t14a37sWUAp7aMzTw==
 From: Marek Vasut <marek.vasut+renesas@mailbox.org>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1777935438;
+	t=1777935440;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=6/yKHq3c9e3uGgpl4ruRXjj8z5brLv19LBRwYLdjeLQ=;
-	b=LxzZgGdpNXRN7KkzOGpUWHLwwLQRbrq+vsHJ6YGe5p9mDn/SY10DQhaNQDuSKRirv9xEaG
-	2eyoOfIz3dn4OCapg/r48v27mnQ8Rk6L9FDeb4WDjjCmzaNOpG+p/hGe6UtCofKnF4McTJ
-	UJWBwL39nTmuIuLo/auTUY73D++Wqd3Tsf/oTSunJFRpQSTp3IZzCruM734Ytw0+4hc6iR
-	QUnm6N+ujry9tDKN4ppNmH02gdPB9UxE1waSYdgXjdQapvcc57t9s853wZFZgGjYHxOVVo
-	LuIRGEjAeKX9Re7mH6Obd8ybqu1BUuN7VH1+s/myAXPASrnYdO7EJExvmKsMIg==
+	bh=ONlp9b1BBI6f716sKEiSIPM1GeGje3EDpZgOtfKwV74=;
+	b=adU2rUiKQpz57mNrgpnoTZG1uhVfxt5StL+ItgOySe/PhZWL0OAVibglQ475NF89DMg13J
+	wxC4HR63xgQ9J5lV4Y9wQPH2NiddSrrtANjA4y8QNaSE3wjHncwUQt5gNB4Q32cL1Bu4sR
+	UeObThw7SZ8fudDtijYsGfCWm+ImXcSmFROQ6HtnlxBQihsdnf7W6FPmiAan7WgF+G+B9U
+	4NWW/g0+qZgZO+W8hS9Fyoco+RG8BcfknA5NHwpXIFU4dmV7gJE+XJ7MIrZP2SivmAp2IT
+	MFXWKG5gDtYSskDanETBeYUjrR/o1pGt/KCxgRPealQle2fWCK3eL3uxXUyA9A==
 To: linux-arm-kernel@lists.infradead.org
 Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	Conor Dooley <conor+dt@kernel.org>,
@@ -68,18 +68,18 @@ Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH 4/5] arm64: dts: renesas: salvator-common: Rename clk-multiplier to clock-controller
-Date: Tue,  5 May 2026 00:56:54 +0200
-Message-ID: <20260504225704.115125-4-marek.vasut+renesas@mailbox.org>
+Subject: [PATCH 5/5] arm64: dts: renesas: ulcb: Rename clk-multiplier to clock-controller
+Date: Tue,  5 May 2026 00:56:55 +0200
+Message-ID: <20260504225704.115125-5-marek.vasut+renesas@mailbox.org>
 In-Reply-To: <20260504225704.115125-1-marek.vasut+renesas@mailbox.org>
 References: <20260504225704.115125-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-META: bu4mjmjt3nfsrmw4q3j17h6hhuu4f5cq
-X-MBO-RS-ID: 4dcc9fe492346b65882
+X-MBO-RS-META: yndyu5wue89wcaj8nqais4ojgwgkk74s
+X-MBO-RS-ID: 5077995fc196c0f2ef0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_155721_678959_FE8D43ED 
-X-CRM114-Status: GOOD (  11.18  )
+X-CRM114-CacheID: sfid-20260504_155724_125184_76E4011E 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,15 +108,15 @@ Cc: devicetree@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org
 Cc: linux-renesas-soc@vger.kernel.org
 ---
- arch/arm64/boot/dts/renesas/salvator-common.dtsi | 2 +-
+ arch/arm64/boot/dts/renesas/ulcb.dtsi | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/renesas/salvator-common.dtsi b/arch/arm64/boot/dts/renesas/salvator-common.dtsi
-index 0b29bf9564eb1..b1f56efe25d9a 100644
---- a/arch/arm64/boot/dts/renesas/salvator-common.dtsi
-+++ b/arch/arm64/boot/dts/renesas/salvator-common.dtsi
-@@ -507,7 +507,7 @@ ak4613_endpoint: endpoint {
- 		};
+diff --git a/arch/arm64/boot/dts/renesas/ulcb.dtsi b/arch/arm64/boot/dts/renesas/ulcb.dtsi
+index 67fd6a65db897..ae36a2e66948e 100644
+--- a/arch/arm64/boot/dts/renesas/ulcb.dtsi
++++ b/arch/arm64/boot/dts/renesas/ulcb.dtsi
+@@ -221,7 +221,7 @@ ak4613: codec@10 {
+ 		asahi-kasei,out6-single-end;
  	};
  
 -	cs2000: clk-multiplier@4f {
