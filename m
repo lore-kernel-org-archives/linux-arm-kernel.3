@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 135FFFF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 10:46:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFB60FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 10:46:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7g3vKU4FJK3bdeL2wswg+c1U9GcG/rfgEqVyD7i/uyE=; b=wjR0jztB9y+2rRhmMbz5rNteqh
-	66Z6EU1CMod0oCnWE/zadOr+qbU4Ff9oaz9MXSuiICenF7B8m0tNlmrMWEGRiVk9c6FFYS6Fsb4f/
-	nxQCadw8+Z8n/V7cj6k4+27GEL8lNQtWdcEMS7UOy/9inOo/UCC2WdubARrzrzv02lDyZcfkTU5Sl
-	Ieskti5DzIBxRd6yHo8GLcrtmVnKSBeebC1nKO7OtX+jhvQSTVuvyoHh/wX1GfN3eLEeUJqWKujpw
-	BBIDVO+8p9vuKsxR/dRAw9sTVQHaBwYj2duHgGnVgpOeuOfk/9+TIZIQcEX43CoKbavP/4zsN+wjV
-	MMk/K6PA==;
+	bh=yUEV9MYSt3pHOUbVC0XEstJh+n5Nd9x9JzYSEpAeTFA=; b=QFYdgcQ3gcjOBPNc1rh/BiPB4t
+	zHKaTneKy2Q8CgDaKs+cRu/moKD69m4s8mQy77kC8CNDrwSMmj/lhlq0i8db/20N84puxFlb2g2lG
+	cETP6MIU+M5UDTvvIBAekU95o0tfFQO6ck26jFmX0J/Tns2C4/1G1BBQv/2hAOCFLh/Ob6X501ojT
+	skct0Eh37TeNhEyqxOAy5ygolGypsgC03IhwLTGsCi2a68308y1spzSIXU+v35A/aEuvHZJfQ66eZ
+	hhm6lMSpmhKa7zc6AedpfTlwS4SLRyf3toFOxEuoVXC112OhzNHmmRvuMjtoaMn/ZUDqgbqcJ8HIu
+	2tIxTf+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJqoK-0000000CxuJ-1usO;
-	Mon, 04 May 2026 10:46:00 +0000
+	id 1wJqoO-0000000CxyY-3Tu3;
+	Mon, 04 May 2026 10:46:04 +0000
 Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJqoH-0000000CxqC-0pCz
+	id 1wJqoM-0000000Cxv2-0HY7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 10:45:58 +0000
+	Mon, 04 May 2026 10:46:03 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id C96681A3506;
-	Mon,  4 May 2026 10:45:55 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id AA30A1A3506;
+	Mon,  4 May 2026 10:46:00 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 95FFE5FD5F;
-	Mon,  4 May 2026 10:45:55 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D694611AD269A;
-	Mon,  4 May 2026 12:45:49 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 7682E5FD5F;
+	Mon,  4 May 2026 10:46:00 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5C14611AD2697;
+	Mon,  4 May 2026 12:45:54 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1777891553; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1777891558; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=7g3vKU4FJK3bdeL2wswg+c1U9GcG/rfgEqVyD7i/uyE=;
-	b=udv6K9m5VyBA6hUWtGuVFWKNp8/AatoPvgc1zsqDqHLLjUNfeipryfUZqmWR4TNdHLe1Yt
-	nR7cEpCucCf+Rw4o4dwBtufJ0lAacebWizgX1VtCnlCTFArIkRsugZ86VP4vSzoRehYGaQ
-	r1ZLZGbkOQVMV9FifsjI64ESBLrG28P4ZAbMtzEgvfRj593P+YIWvx9yUI9vENIwt7Wi/z
-	WhQpcCd6QCQC2ohDaH5UpVdEIibTbcLLJKzlDhJeHiPHNRKZf8g8ixcP2b4iAZseyckJDf
-	BYsYdwcPk7EwIKK1F83wAEmIoS+2GM9t1YeL3KFc0SKguzELFcWcU6gbLOhXmg==
+	bh=yUEV9MYSt3pHOUbVC0XEstJh+n5Nd9x9JzYSEpAeTFA=;
+	b=McGIlkQLxAaeShqBoEvdrTM5fFesioCNkCLtafyxwCYfTwd3EVgpNQ2nCqYGEYEM1Xhbiv
+	rqBkN7qzsAOzABelx+a09kgKTj72VRZLeIIy80rAoKN0ZOnw5QBJOl0UqWdIcvLQIkBPHZ
+	CaG9upRrgU3APYACR8lQXFKGNCphYc1iE9cxpVQpvFVo6rlxwzT9tUDg+VenmVpQsYEqMI
+	sqnrp0Ry3YKXWJfvzpReE5UtXf9OkTjtc+cpHsmL4b5kQ4Toi8/VIq5pzwSqWE1+D4QNXH
+	klxmCSmhB8bBkS25tR5DXZhARN6oxSCHdA+O1uw5+esIlANyzDswlXVdAczsWA==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Mon, 04 May 2026 12:45:11 +0200
-Subject: [PATCH v4 08/11] drm/bridge: adv7511: switch to
+Date: Mon, 04 May 2026 12:45:12 +0200
+Subject: [PATCH v4 09/11] drm/bridge: lt8713sx: switch to
  of_drm_get_bridge_by_endpoint()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260504-drm-bridge-alloc-getput-panel_or_bridge-v4-8-b578c3daaf10@bootlin.com>
+Message-Id: <20260504-drm-bridge-alloc-getput-panel_or_bridge-v4-9-b578c3daaf10@bootlin.com>
 References: <20260504-drm-bridge-alloc-getput-panel_or_bridge-v4-0-b578c3daaf10@bootlin.com>
 In-Reply-To: <20260504-drm-bridge-alloc-getput-panel_or_bridge-v4-0-b578c3daaf10@bootlin.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -75,13 +75,12 @@ Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>,
  linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org, 
  linux-arm-kernel@lists.infradead.org, 
  Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Biju Das <biju.das.jz@bp.renesas.com>, 
  Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 X-Mailer: b4 0.15.2
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_034557_378204_8561CF6D 
-X-CRM114-Status: GOOD (  13.29  )
+X-CRM114-CacheID: sfid-20260504_034602_265670_6F7C0AAB 
+X-CRM114-Status: GOOD (  12.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,62 +104,47 @@ returned bridge, ensure it is put on removal. To achieve this, instead of
 adding an explicit drm_bridge_put(), migrate to the bridge::next_bridge
 pointer which is automatically put when the bridge is eventually freed.
 
-Tested-by: Biju Das <biju.das.jz@bp.renesas.com>
 Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 ---
-Changes in v3:
-- fix ERR_PTR deref when -ENODEV is returned
----
- drivers/gpu/drm/bridge/adv7511/adv7511.h     |  1 -
- drivers/gpu/drm/bridge/adv7511/adv7511_drv.c | 15 +++++++++------
- 2 files changed, 9 insertions(+), 7 deletions(-)
+ drivers/gpu/drm/bridge/lontium-lt8713sx.c | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/gpu/drm/bridge/adv7511/adv7511.h b/drivers/gpu/drm/bridge/adv7511/adv7511.h
-index 8be7266fd4f4..12c95198d9a4 100644
---- a/drivers/gpu/drm/bridge/adv7511/adv7511.h
-+++ b/drivers/gpu/drm/bridge/adv7511/adv7511.h
-@@ -354,7 +354,6 @@ struct adv7511 {
- 	enum drm_connector_status status;
- 	bool powered;
- 
+diff --git a/drivers/gpu/drm/bridge/lontium-lt8713sx.c b/drivers/gpu/drm/bridge/lontium-lt8713sx.c
+index 18fac6a46db4..cee485adf5e5 100644
+--- a/drivers/gpu/drm/bridge/lontium-lt8713sx.c
++++ b/drivers/gpu/drm/bridge/lontium-lt8713sx.c
+@@ -32,7 +32,6 @@ DECLARE_CRC8_TABLE(lt8713sx_crc_table);
+ struct lt8713sx {
+ 	struct device *dev;
+ 	struct drm_bridge bridge;
 -	struct drm_bridge *next_bridge;
- 	struct drm_display_mode curr_mode;
  
- 	unsigned int f_tmds;
-diff --git a/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c b/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c
-index f318080f1139..8304978535e4 100644
---- a/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c
-+++ b/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c
-@@ -849,8 +849,8 @@ static int adv7511_bridge_attach(struct drm_bridge *bridge,
- 	struct adv7511 *adv = bridge_to_adv7511(bridge);
- 	int ret = 0;
+ 	struct regmap *regmap;
+ 	/* Protects all accesses to registers by stopping the on-chip MCU */
+@@ -458,7 +457,7 @@ static int lt8713sx_bridge_attach(struct drm_bridge *bridge,
+ 	struct lt8713sx *lt8713sx = container_of(bridge, struct lt8713sx, bridge);
  
--	if (adv->next_bridge) {
--		ret = drm_bridge_attach(encoder, adv->next_bridge, bridge,
-+	if (adv->bridge.next_bridge) {
-+		ret = drm_bridge_attach(encoder, adv->bridge.next_bridge, bridge,
- 					flags | DRM_BRIDGE_ATTACH_NO_CONNECTOR);
- 		if (ret)
- 			return ret;
-@@ -1249,10 +1249,13 @@ static int adv7511_probe(struct i2c_client *i2c)
+ 	return drm_bridge_attach(encoder,
+-				lt8713sx->next_bridge,
++				lt8713sx->bridge.next_bridge,
+ 				bridge, flags);
+ }
  
- 	memset(&link_config, 0, sizeof(link_config));
+@@ -537,10 +536,9 @@ static int lt8713sx_probe(struct i2c_client *client)
+ 	if (IS_ERR(lt8713sx->regmap))
+ 		return dev_err_probe(dev, PTR_ERR(lt8713sx->regmap), "regmap i2c init failed\n");
  
--	ret = drm_of_find_panel_or_bridge(dev->of_node, 1, -1, NULL,
--					  &adv7511->next_bridge);
--	if (ret && ret != -ENODEV)
+-	ret = drm_of_find_panel_or_bridge(lt8713sx->dev->of_node, 1, -1, NULL,
+-					  &lt8713sx->next_bridge);
+-	if (ret < 0)
 -		return ret;
-+	adv7511->bridge.next_bridge = of_drm_get_bridge_by_endpoint(dev->of_node, 1, -1);
-+	if (IS_ERR(adv7511->bridge.next_bridge)) {
-+		if (PTR_ERR(adv7511->bridge.next_bridge) == -ENODEV)
-+			adv7511->bridge.next_bridge = NULL;
-+		else
-+			return PTR_ERR(adv7511->bridge.next_bridge);
-+	}
++	lt8713sx->bridge.next_bridge = of_drm_get_bridge_by_endpoint(lt8713sx->dev->of_node, 1, -1);
++	if (IS_ERR(lt8713sx->bridge.next_bridge))
++		return PTR_ERR(lt8713sx->bridge.next_bridge);
  
- 	if (adv7511->info->link_config)
- 		ret = adv7511_parse_dt(dev->of_node, &link_config);
+ 	ret = lt8713sx_gpio_init(lt8713sx);
+ 	if (ret < 0)
 
 -- 
 2.53.0
