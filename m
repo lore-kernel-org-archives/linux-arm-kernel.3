@@ -4,66 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AB96FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 14:19:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20DD1CD3439
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 14:23:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OCnLN2YnQc3U6OxiioM5BzyNU5DemyO9xIHP+J46WUM=; b=ZxOYJwWtz6mibIWxuRQn4qoA05
-	j3CzsXmCyaWu98QOG3uLWyeKVR6a1cp74atsvfxDhwCZmV/xvzV1Dxv1Jl+bj+FWYSDyycRZnPal5
-	HggIT7XdCcwRNe+KNeN8adB1PwBan+8mMPy6laZWQ5RRP8QjiPlUyMjbyDFAt9l670DklVodu/wVi
-	/6+w4P6JemGwNx3og38jkSrlCYV8Ahei7eE1AM0sOZau9aix2hLbm9xANvxDBJnghtL7g3hWN3S7Z
-	rgQ6KdkM2kYX+P3/TDVo/0mzB9LMing9Egp+VaLlObvsLInf1lUctlkrLHfpJYbISMwmZFggnBxZ7
-	EAfEKCwA==;
+	bh=KkCjA7PMH/aSVvVrX+/TuMdscF6hazMIB1ZZqVXGmt8=; b=1Y0cDGYoHusWu59bBGN1aWVnrq
+	0ofl/MsQeAvPREdH6RdxE0OUerjYlSEQMcp4YW3lunP/NBY2VGATAEJnlEgpD/K53zhsiYqSLU47P
+	op+5ATskp/dI8VlHYVgjn+xaejeo3c0StPK8wCYcNi1207zUuuzwpHjK95YRVOTOhYo9aSguiEgQd
+	2DTQ8rBHLdT0NtSx+375FuggiyoQlnvCU83KA/VdCMNootMDAXYTDkVuxh85YzSTqupQwb4r6iO1v
+	JtsJMz1xOFenjdTiU8wRKEw6s4OxTJu39YRHmoklwPESPoX66V7ehfdY53ebmXoh+GP93H3KhgsCV
+	4GhfwJ5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJu9J-0000000DPpv-2bPs;
-	Mon, 04 May 2026 14:19:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wJuD1-0000000DQcr-1vHB;
+	Mon, 04 May 2026 14:23:43 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJu9H-0000000DPor-1GfY
+	id 1wJuCz-0000000DQbU-0YX9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 14:19:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EFAF84042D;
-	Mon,  4 May 2026 14:19:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 847A7C2BCB8;
-	Mon,  4 May 2026 14:19:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1777904390;
-	bh=EKv+RifZg7DCkm76bD05njyW7hxGAQloEeNfOV5I7h8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=2vXtVaXIf7+q0fNyDbjTSE24exdAcJGWbtA448NzkpFz6kgQEPCYR5/BCcK5cJnUh
-	 AgKfW/3JZp5sa7fBcPCi39ED1g1rlOrINC6vH8CSOwzBknF0AjoyJLy2P2qFYto+Uq
-	 N1Y25vR4CjgWPV0Bq9AUoitf5Jogr8tw/pFv8m+g=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	patches@lists.linux.dev,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	"David Hildenbrand (Arm)" <david@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>
-Subject: [PATCH 6.12 020/215] arm64/mm: Enable batched TLB flush in unmap_hotplug_range()
-Date: Mon,  4 May 2026 15:50:39 +0200
-Message-ID: <20260504135130.914998069@linuxfoundation.org>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260504135130.169210693@linuxfoundation.org>
-References: <20260504135130.169210693@linuxfoundation.org>
-User-Agent: quilt/0.69
-X-stable: review
-X-Patchwork-Hint: ignore
+	Mon, 04 May 2026 14:23:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1777904620; x=1809440620;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:references:in-reply-to:to:cc;
+  bh=sdIDib52H6AQ9l5/WMofEgq/e7UPZ/O833GfFW/9l30=;
+  b=l7v9lqVzk93NiA24Tmm5BR1IEtd6//2jwk2kEhATnC3un6Z3/jtKG8pn
+   Sn5jmn4Sz4wpty6rKMoLpZnS/HCGCTdHMNrHpB6VtrFVBI/1xM46INLeX
+   z7FEZRZ1yk6ONbqYDK+HiOUu9ixvUu2HQZKex2cKREesVv7sjN/7uBegk
+   SyJNctjTL79Ezake/1iJufWoTvE7OUdb7zOBISCKwKZ5eq99dXVip7G/S
+   TPtwxyX2cfXUBS/pAp8fP5EeK4/y/5/aTYPOVQKrlSU/QHXhRNzNdUJ2O
+   pWQZpW6wCVwz8pmXLVLuCdTt0aYcTJbbEuqclTzBDX5ezKlUA2LlJbc5L
+   w==;
+X-CSE-ConnectionGUID: p2DN0flFTUqIEZ4qcVbI2w==
+X-CSE-MsgGUID: 4BgqMR44TqyZQYjIV5yFrw==
+X-IronPort-AV: E=Sophos;i="6.23,215,1770620400"; 
+   d="scan'208";a="224241155"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 May 2026 07:23:39 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.87.71) by
+ chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.37; Mon, 4 May 2026 07:23:39 -0700
+Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Mon, 4 May 2026 07:23:35 -0700
+From: Daniel Machon <daniel.machon@microchip.com>
+Date: Mon, 4 May 2026 16:23:14 +0200
+Subject: [PATCH net-next v3 01/13] MAINTAINERS: add FDMA library to Sparx5
+ SoC entry
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20260504-lan966x-pci-fdma-v3-1-a56f5740d870@microchip.com>
+References: <20260504-lan966x-pci-fdma-v3-0-a56f5740d870@microchip.com>
+In-Reply-To: <20260504-lan966x-pci-fdma-v3-0-a56f5740d870@microchip.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Horatiu Vultur
+	<horatiu.vultur@microchip.com>, Steen Hegelund
+	<steen.hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>, "Alexei
+ Starovoitov" <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+	"Jesper Dangaard Brouer" <hawk@kernel.org>, John Fastabend
+	<john.fastabend@gmail.com>, Stanislav Fomichev <sdf@fomichev.me>, Herve
+ Codina <herve.codina@bootlin.com>, Arnd Bergmann <arnd@arndb.de>, Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>, Mohsin Bashir
+	<mohsin.bashr@gmail.com>
+CC: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<bpf@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_071951_428847_39FCFAD0 
-X-CRM114-Status: GOOD (  17.88  )
+X-CRM114-CacheID: sfid-20260504_072341_257174_2DE30176 
+X-CRM114-Status: GOOD (  11.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,137 +95,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-6.12-stable review patch.  If anyone has any objections, please let me know.
+The FDMA library under drivers/net/ethernet/microchip/fdma/ is shared by
+the lan966x, sparx5 and lan969x drivers, but is not covered by an entry
+in the MAINTAINERS file. A subsequent patch will add new files to the
+FDMA library, so let's make sure it's covered.
 
-------------------
+Add drivers/net/ethernet/microchip/fdma/ to the Sparx5 SoC entry, since
+I am already listed there.
 
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-
-commit 48478b9f791376b4b89018d7afdfd06865498f65 upstream.
-
-During a memory hot remove operation, both linear and vmemmap mappings for
-the memory range being removed, get unmapped via unmap_hotplug_range() but
-mapped pages get freed only for vmemmap mapping. This is just a sequential
-operation where each table entry gets cleared, followed by a leaf specific
-TLB flush, and then followed by memory free operation when applicable.
-
-This approach was simple and uniform both for vmemmap and linear mappings.
-But linear mapping might contain CONT marked block memory where it becomes
-necessary to first clear out all entire in the range before a TLB flush.
-This is as per the architecture requirement. Hence batch all TLB flushes
-during the table tear down walk and finally do it in unmap_hotplug_range().
-
-Prior to this fix, it was hypothetically possible for a speculative access
-to a higher address in the contiguous block to fill the TLB with shattered
-entries for the entire contiguous range after a lower address had already
-been cleared and invalidated. Due to the table entries being shattered, the
-subsequent TLB invalidation for the higher address would not then clear the
-TLB entries for the lower address, meaning stale TLB entries could persist.
-
-Besides it also helps in improving the performance via TLBI range operation
-along with reduced synchronization instructions. The time spent executing
-unmap_hotplug_range() improved 97% measured over a 2GB memory hot removal
-in KVM guest.
-
-This scheme is not applicable during vmemmap mapping tear down where memory
-needs to be freed and hence a TLB flush is required after clearing out page
-table entry.
-
-Cc: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Closes: https://lore.kernel.org/all/aWZYXhrT6D2M-7-N@willie-the-truck/
-Fixes: bbd6ec605c0f ("arm64/mm: Enable memory hot remove")
-Cc: stable@vger.kernel.org
-Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Tested-by: Herve Codina <herve.codina@bootlin.com>
+Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
 ---
- arch/arm64/mm/mmu.c |   36 ++++++++++++++++++++----------------
- 1 file changed, 20 insertions(+), 16 deletions(-)
+ MAINTAINERS | 1 +
+ 1 file changed, 1 insertion(+)
 
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -869,10 +869,14 @@ static void unmap_hotplug_pte_range(pmd_
- 
- 		WARN_ON(!pte_present(pte));
- 		__pte_clear(&init_mm, addr, ptep);
--		flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
--		if (free_mapped)
-+		if (free_mapped) {
-+			/* CONT blocks are not supported in the vmemmap */
-+			WARN_ON(pte_cont(pte));
-+			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
- 			free_hotplug_page_range(pte_page(pte),
- 						PAGE_SIZE, altmap);
-+		}
-+		/* unmap_hotplug_range() flushes TLB for !free_mapped */
- 	} while (addr += PAGE_SIZE, addr < end);
- }
- 
-@@ -893,15 +897,14 @@ static void unmap_hotplug_pmd_range(pud_
- 		WARN_ON(!pmd_present(pmd));
- 		if (pmd_sect(pmd)) {
- 			pmd_clear(pmdp);
--
--			/*
--			 * One TLBI should be sufficient here as the PMD_SIZE
--			 * range is mapped with a single block entry.
--			 */
--			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
--			if (free_mapped)
-+			if (free_mapped) {
-+				/* CONT blocks are not supported in the vmemmap */
-+				WARN_ON(pmd_cont(pmd));
-+				flush_tlb_kernel_range(addr, addr + PMD_SIZE);
- 				free_hotplug_page_range(pmd_page(pmd),
- 							PMD_SIZE, altmap);
-+			}
-+			/* unmap_hotplug_range() flushes TLB for !free_mapped */
- 			continue;
- 		}
- 		WARN_ON(!pmd_table(pmd));
-@@ -926,15 +929,12 @@ static void unmap_hotplug_pud_range(p4d_
- 		WARN_ON(!pud_present(pud));
- 		if (pud_sect(pud)) {
- 			pud_clear(pudp);
--
--			/*
--			 * One TLBI should be sufficient here as the PUD_SIZE
--			 * range is mapped with a single block entry.
--			 */
--			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
--			if (free_mapped)
-+			if (free_mapped) {
-+				flush_tlb_kernel_range(addr, addr + PUD_SIZE);
- 				free_hotplug_page_range(pud_page(pud),
- 							PUD_SIZE, altmap);
-+			}
-+			/* unmap_hotplug_range() flushes TLB for !free_mapped */
- 			continue;
- 		}
- 		WARN_ON(!pud_table(pud));
-@@ -964,6 +964,7 @@ static void unmap_hotplug_p4d_range(pgd_
- static void unmap_hotplug_range(unsigned long addr, unsigned long end,
- 				bool free_mapped, struct vmem_altmap *altmap)
- {
-+	unsigned long start = addr;
- 	unsigned long next;
- 	pgd_t *pgdp, pgd;
- 
-@@ -985,6 +986,9 @@ static void unmap_hotplug_range(unsigned
- 		WARN_ON(!pgd_present(pgd));
- 		unmap_hotplug_p4d_range(pgdp, addr, next, free_mapped, altmap);
- 	} while (addr = next, addr < end);
-+
-+	if (!free_mapped)
-+		flush_tlb_kernel_range(start, end);
- }
- 
- static void free_empty_pte_table(pmd_t *pmdp, unsigned long addr,
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 2fb1c75afd16..c962cded2a2e 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -3101,6 +3101,7 @@ M:	UNGLinuxDriver@microchip.com
+ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+ S:	Supported
+ F:	arch/arm64/boot/dts/microchip/sparx*
++F:	drivers/net/ethernet/microchip/fdma/
+ F:	drivers/net/ethernet/microchip/vcap/
+ F:	drivers/pinctrl/pinctrl-microchip-sgpio.c
+ N:	sparx5
 
+-- 
+2.34.1
 
 
