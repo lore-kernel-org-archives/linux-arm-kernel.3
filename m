@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9298DCD3430
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 13:55:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E356FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 14:09:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kjtuPBtUs3wRfxAo9hJlxREU/KDYi77wQBFvfglAVmM=; b=4GxCUfFdEwZlqAW32FfOtdoOIb
-	VJ7+Rnfqwd0GEFCKjfFv/02MK4YfFqP+vw/gl+17NBnteABAq4r4MSLpD8ZCKF/U1qJNLgeoTsouF
-	Rv22stUdYR6Wh2Mxb4XHy6sf5Cn2mVhoSXzjwkmb9xYfN8E4CH0iGRp1uGOlul/E/ajiKCefeQ+FP
-	sos4TGJ89XW5riOzBPG5JwVgj1PiSztMBIUxqDRGg53aHLqKh/mJu7vniEAWwTfqyLt45mvjycUZz
-	Ztr0DYkymmJIwqWF98a5xtIQe++0r8zEBcv3B3IGHapMDjdMn6Y1dcxc04u5fqj296ycgIx1kASj8
-	folTarog==;
+	bh=Kk8jBfo4k5zIgTDC9V6K4eXLsawh+5YGI0Dp/ePzmi0=; b=mehSIgyi6ivSo2lLyjw9ymM926
+	uurlXs6ZsVPQsuzsH79LAIQNd9lXkddbcjyzL7oFMVpe4qpQE9MASM05zi/UwK4y92RS1DClA0RUI
+	p7NkqoAucZY8u+DXp+i0dNISJdESiMBVhkObAnamAWpriEImWy6rs1obzTTHY0fNYYx5WsJPx67QX
+	TeTV0mRegtqnSIm8cobG3ZT0QdNAiSDO1VD0PAX+y2UoJBQIOxopXxsbtuZVHIrHS8eLB0SHDbsie
+	44zP1LChkqxYBWPyrKTaKgBrNH1q1/kV2PRAZVGGYMZ6Abpb11d/1zcchNdRAesV9OKevg5CDMX9R
+	yzxGmZgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJtlF-0000000DMcn-2Q4Y;
-	Mon, 04 May 2026 13:55:01 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wJtzJ-0000000DOMe-1xQM;
+	Mon, 04 May 2026 14:09:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJtlE-0000000DMc6-15x0
+	id 1wJtzH-0000000DOMM-3iLQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 13:55:00 +0000
+	Mon, 04 May 2026 14:09:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 43B8760018;
-	Mon,  4 May 2026 13:54:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9ABE3C2BCB8;
-	Mon,  4 May 2026 13:54:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2052B600C3;
+	Mon,  4 May 2026 14:09:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BC05C2BCB8;
+	Mon,  4 May 2026 14:09:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1777902899;
-	bh=t4kUMwZB57/vEZa0pAXLz4i0ebZS73miLhX964u1D/4=;
+	s=korg; t=1777903770;
+	bh=EYa+9xfTLCJwBToO046T/cmxvOGULK6AJSv3a0/98qg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=yVEddBoV03Mq5M0vTDjIXlW8BHXs7WAvben0N0FW2Kouj4Ik2fMaA+bjkMrLQUdW3
-	 0lBEsI1i44zkXzAsMm7Mda4aLEtEXYy0L7gccgq6NCUSAVTNrbn+/h/tIBawO9MUit
-	 9G1wqld0T9vPiCBNkU2SQQ9PXeIrqwb8RGBqvyIA=
+	b=b4+E+g5IDtztTr+6t4QHMQ3y89DefLVjC0NBTuCbL992LlZzC1OcaZjFBpVO+K5Jp
+	 KeF4o/lJx4vLq11gMlHiXUG7QQ7PJr/G21+C7en7mrBrtqdmhgHg4znhpnYJYg0ZHa
+	 HwnvH7ShaUkQ0PxbGsin170opaE7aGpyJiV1KzWs=
 From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 To: stable@vger.kernel.org
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -50,12 +50,12 @@ Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Ryan Roberts <ryan.roberts@arm.com>,
 	Anshuman Khandual <anshuman.khandual@arm.com>,
 	Catalin Marinas <catalin.marinas@arm.com>
-Subject: [PATCH 7.0 025/307] arm64/mm: Enable batched TLB flush in unmap_hotplug_range()
-Date: Mon,  4 May 2026 15:48:30 +0200
-Message-ID: <20260504135143.779476141@linuxfoundation.org>
+Subject: [PATCH 6.18 023/275] arm64/mm: Enable batched TLB flush in unmap_hotplug_range()
+Date: Mon,  4 May 2026 15:49:23 +0200
+Message-ID: <20260504135143.799710105@linuxfoundation.org>
 X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260504135142.814938198@linuxfoundation.org>
-References: <20260504135142.814938198@linuxfoundation.org>
+In-Reply-To: <20260504135142.929052779@linuxfoundation.org>
+References: <20260504135142.929052779@linuxfoundation.org>
 User-Agent: quilt/0.69
 X-stable: review
 X-Patchwork-Hint: ignore
@@ -75,7 +75,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-7.0-stable review patch.  If anyone has any objections, please let me know.
+6.18-stable review patch.  If anyone has any objections, please let me know.
 
 ------------------
 
@@ -129,7 +129,7 @@ Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 
 --- a/arch/arm64/mm/mmu.c
 +++ b/arch/arm64/mm/mmu.c
-@@ -1462,10 +1462,14 @@ static void unmap_hotplug_pte_range(pmd_
+@@ -1465,10 +1465,14 @@ static void unmap_hotplug_pte_range(pmd_
  
  		WARN_ON(!pte_present(pte));
  		__pte_clear(&init_mm, addr, ptep);
@@ -146,7 +146,7 @@ Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
  	} while (addr += PAGE_SIZE, addr < end);
  }
  
-@@ -1486,15 +1490,14 @@ static void unmap_hotplug_pmd_range(pud_
+@@ -1489,15 +1493,14 @@ static void unmap_hotplug_pmd_range(pud_
  		WARN_ON(!pmd_present(pmd));
  		if (pmd_sect(pmd)) {
  			pmd_clear(pmdp);
@@ -168,7 +168,7 @@ Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
  			continue;
  		}
  		WARN_ON(!pmd_table(pmd));
-@@ -1519,15 +1522,12 @@ static void unmap_hotplug_pud_range(p4d_
+@@ -1522,15 +1525,12 @@ static void unmap_hotplug_pud_range(p4d_
  		WARN_ON(!pud_present(pud));
  		if (pud_sect(pud)) {
  			pud_clear(pudp);
@@ -188,7 +188,7 @@ Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
  			continue;
  		}
  		WARN_ON(!pud_table(pud));
-@@ -1557,6 +1557,7 @@ static void unmap_hotplug_p4d_range(pgd_
+@@ -1560,6 +1560,7 @@ static void unmap_hotplug_p4d_range(pgd_
  static void unmap_hotplug_range(unsigned long addr, unsigned long end,
  				bool free_mapped, struct vmem_altmap *altmap)
  {
@@ -196,7 +196,7 @@ Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
  	unsigned long next;
  	pgd_t *pgdp, pgd;
  
-@@ -1578,6 +1579,9 @@ static void unmap_hotplug_range(unsigned
+@@ -1581,6 +1582,9 @@ static void unmap_hotplug_range(unsigned
  		WARN_ON(!pgd_present(pgd));
  		unmap_hotplug_p4d_range(pgdp, addr, next, free_mapped, altmap);
  	} while (addr = next, addr < end);
