@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 717BBCD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 16:33:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43538FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 16:34:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EszjOY/2l/F2ZzlprvBpfq/tGJnSaTDI9ZdD9SfWrPc=; b=Cy/7G34L6rjNVtG8+U2kEsFKna
-	Hc+pWJCxat1VAFnpVJeHRPKY/k0gmRKcsWfVQEKcd+0JP2RAK02ung947KhwFOiDKxwgwl2ouJhnE
-	+sREIOV97+FU5jHkmdSMh52GW3BIAAXAMI7Ewo4W/cLpjkKgPgcJDqJLhdRLsmC7JrYHOHHoX45fX
-	9mpU1rPhrAdvoOUumNvIKqPQgG8pQXEauqalty+ZR0QLiAALPtsoqFFLFKk8k3/Zr6awmzH5FKnmd
-	lUOFrWJRtxPxH7dYjLvimxP4UO4kdDoxqdE6ELmhrvvSqC++tce3q5+5PJ3Xr/VGrOVhcwKWc+jRs
-	Zl1CvUNQ==;
+	bh=cTwBZuBkLaEoXEXlx8lRKjsB6RK7v7MFH7fzcG9R9DI=; b=MvKa1q0UKmw5HxybVpXQ9kqHe+
+	2rtqqLKgL1qxgGtxgKiHVBqHwZ0HcnMPedCHlxGu3ijj/woqmxJU4vI3kU04dboU/rPLstVaa9nnb
+	X0A3+lKezIsxKN26fxPfuc5jNeP/46cJYLvBWHTpJjPo+S4Z59x+OW7G8S3sPR88EeaB/6/IHFGNw
+	E+RDhdoVQgG1XiDjHaZ3crIvMOy7AftBpdQX8fSQBL0Qci8XfEc1UPYRLPqF5Nd2d92t52/Tp2yRr
+	tpR9yKP3+IgiDwIBs3DihnYuhDWtjqlGRY3Mn7AmyIA5rs80W/+YKzbmA0EJmRQ/ng1AiwbjqFPhv
+	yuakhPJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJwEw-0000000Dj80-3rgh;
-	Mon, 04 May 2026 16:33:50 +0000
+	id 1wJwFs-0000000DjG9-1D2w;
+	Mon, 04 May 2026 16:34:48 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJwEu-0000000Dj6r-2V50
+	id 1wJwFo-0000000DjF6-364R
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 16:33:49 +0000
+	Mon, 04 May 2026 16:34:46 +0000
 Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 7C3A09C;
-	Mon,  4 May 2026 18:33:44 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 3A5EF9C;
+	Mon,  4 May 2026 18:34:41 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1777912424;
-	bh=cfzmXBDD422Por2LycrwmL6gW7qKihpcCAhAXwjAaEw=;
+	s=mail; t=1777912481;
+	bh=2OSAeT8an5e3Y+nfCRfDAXE6cwKmFiIVVKAcvn/IUNE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rUrAPYeyapt7U6A033SCkQly5hGUACZeILzTaCoo/zhWqAvQkZYig/KxXOks6nWNF
-	 +mQmvYBFY1yLdCZtTJbujncTJg3f10lZ8BQDZeh+DS2omCGMjll8J4BZ43NXelpeqm
-	 U3Hv9iUwLY8rJOcXjck2D40TI3gagvm3DdC9vo4A=
-Date: Mon, 4 May 2026 19:33:45 +0300
+	b=vxISDUCuo6b67rdu9OyWQc4v82FFMWzd49PyIU+P5FA58n/pOr24USVXMSVJzhYd2
+	 9LLY/MSJUZJRAKvQ69brP3BXwQwmcOYkm+rI9oCeir5Z2a+F7hIimQPN7mSOZBxz6H
+	 TnMUIUFuDNrQ9kdWmO/7opamqlJOvglSdCiRFVTA=
+Date: Mon, 4 May 2026 19:34:41 +0300
 From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 To: Maxime Ripard <mripard@kernel.org>
 Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
@@ -70,18 +70,18 @@ Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 	linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>,
 	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v3 03/20] drm/atomic: Drop drm_private_obj.state
- assignment from create_state
-Message-ID: <20260504163345.GH1344263@killaraus.ideasonboard.com>
+Subject: Re: [PATCH v3 04/20] drm/atomic: Expand atomic_create_state
+ expectations for drm_private_obj
+Message-ID: <20260504163441.GI1344263@killaraus.ideasonboard.com>
 References: <20260424-drm-mode-config-init-v3-0-8b68d9db0d8b@kernel.org>
- <20260424-drm-mode-config-init-v3-3-8b68d9db0d8b@kernel.org>
+ <20260424-drm-mode-config-init-v3-4-8b68d9db0d8b@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260424-drm-mode-config-init-v3-3-8b68d9db0d8b@kernel.org>
+In-Reply-To: <20260424-drm-mode-config-init-v3-4-8b68d9db0d8b@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_093348_780793_EE13494F 
-X-CRM114-Status: GOOD (  18.15  )
+X-CRM114-CacheID: sfid-20260504_093444_917358_D9359C20 
+X-CRM114-Status: GOOD (  21.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,49 +96,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 24, 2026 at 12:18:43PM +0200, Maxime Ripard wrote:
-> The initial intent of the atomic_create_state hook was to simply
-> allocate a proper drm_private_state and return it, without any side
-> effect.
+Hi Maxime,
+
+Thank you for the patch.
+
+On Fri, Apr 24, 2026 at 12:18:44PM +0200, Maxime Ripard wrote:
+> The atomic_create_state callback documentation for planes, CRTCs, and
+> connectors explicitly states the expected behaviour: the returned
+> state must not be assigned to the object's state pointer, and hardware
+> must not be touched.
 > 
-> However, __drm_atomic_helper_private_obj_create_state(), which most
-> atomic_create_state implementations call, introduces a side effect by
-> setting drm_private_obj.state to the newly allocated state.
+> The drm_private_state_funcs.atomic_create_state documentation is
+> missing this clarification. Add it for consistency.
 > 
-> This assignment defeats the purpose, but is also redundant since
-> drm_atomic_private_obj_init(), the only call site for the
-> atomic_create_state hook, will also set this pointer to the newly
-> allocated state.
-> 
-> Drop the assignment in __drm_atomic_helper_private_obj_create_state().
-> 
-> Fixes: e7be39ed1716 ("drm/atomic-helper: Add private_obj atomic_create_state helper")
 > Signed-off-by: Maxime Ripard <mripard@kernel.org>
 
 Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 
 > ---
->  drivers/gpu/drm/drm_atomic_state_helper.c | 2 --
->  1 file changed, 2 deletions(-)
+>  include/drm/drm_atomic.h | 5 ++++-
+>  1 file changed, 4 insertions(+), 1 deletion(-)
 > 
-> diff --git a/drivers/gpu/drm/drm_atomic_state_helper.c b/drivers/gpu/drm/drm_atomic_state_helper.c
-> index 76746ad4a1bb..875149494b00 100644
-> --- a/drivers/gpu/drm/drm_atomic_state_helper.c
-> +++ b/drivers/gpu/drm/drm_atomic_state_helper.c
-> @@ -729,12 +729,10 @@ EXPORT_SYMBOL(drm_atomic_helper_connector_destroy_state);
->  void __drm_atomic_helper_private_obj_create_state(struct drm_private_obj *obj,
->  						  struct drm_private_state *state)
->  {
->  	if (state)
->  		state->obj = obj;
-> -
-> -	obj->state = state;
->  }
->  EXPORT_SYMBOL(__drm_atomic_helper_private_obj_create_state);
->  
->  /**
->   * __drm_atomic_helper_private_obj_duplicate_state - copy atomic private state
-> 
+> diff --git a/include/drm/drm_atomic.h b/include/drm/drm_atomic.h
+> index f03cd199aee7..f7f9c6c85f3a 100644
+> --- a/include/drm/drm_atomic.h
+> +++ b/include/drm/drm_atomic.h
+> @@ -263,11 +263,14 @@ struct drm_private_state;
+>  struct drm_private_state_funcs {
+>  	/**
+>  	 * @atomic_create_state:
+>  	 *
+>  	 * Allocates a pristine, initialized, state for the private
+> -	 * object and returns it.
+> +	 * object and returns it. This callback must have no side
+> +	 * effects: in particular, the returned state must not be
+> +	 * assigned to the object's state pointer and it must not affect
+> +	 * the hardware state.
+>  	 *
+>  	 * RETURNS:
+>  	 *
+>  	 * A new, pristine, private state instance or an error pointer
+>  	 * on failure.
 
 -- 
 Regards,
