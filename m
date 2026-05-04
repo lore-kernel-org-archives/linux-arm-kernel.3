@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 124E9CD3430
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 14:46:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 799EACD3430
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 14:46:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+w1luitm//CsWxQGEdc4H06+WVuZOC8TbuCR91/229M=; b=JYgHnaA4EEY3dhI4vdykJRcM0E
-	WWKcXfg0PjJrEEsdw8HVaubQpShTVwnZZJ5cHx1pBdTyptrFwfDVCz3xj2pz0pW69xe6zTV9mmz+Q
-	01F8JF3B+NbbPx65aOZfmpYNptX99o4KpXNwWIllQa/zOP0b3inqg4ywNf36zgMxDMhrNWE0ueo+w
-	KgbTsJySIwzkGBYfMd01iaMtgOC5uHdOgBW++YrmXL8uzfVKPZ3pNc5NxKCm805OvbxIq1uli/XRN
-	j1pjNJW4fSwuqyHjJsAPuG1KYUJyZUVaXiB8WHuhgGyagwO0SXAspZbSlrmwxX3G4Hlo8P083p+io
-	6pzz/rBA==;
+	bh=bqBQI5ZShnSxB5z5FL9+IeZXqZpX+/ABiAi5KCnD1Jo=; b=XNu+mj5PLsBXwp7FgmEPUhNWTY
+	g9gz4PFMlRo45SYDJVQQEH8x0rHYNj9jxf+5D5VldNXm7ivPhpK3alXYw/R3yPmwEH2kRylFDnQZG
+	iOULh/pUMAU1/3dWHPnxqC+TdQn7FyyCZE441ednjqAbo/IgbAjYpzc04Ag4ETn9qlBXzKO/1mS5V
+	egLlqae8tkKDmlJGWZPlqrLcCovhsAO2FXqjyhw2sVobBht1UREkViGAmPCqOdu4LL29s5B1d5L9n
+	k889sqKvxQB8zu/okeaZkSbmgksWeJdDU6PG3SkQnqb3G3fFIjUp7iVBPIBrNe5EmHNw23W9WP93Q
+	RyH0FgKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJuYe-0000000DV7O-1Oax;
-	Mon, 04 May 2026 14:46:04 +0000
-Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
+	id 1wJuYi-0000000DV9k-2qDE;
+	Mon, 04 May 2026 14:46:08 +0000
+Received: from mout-p-101.mailbox.org ([80.241.56.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJuYb-0000000DV5o-2NtS
+	id 1wJuYg-0000000DV80-2E0x
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 14:46:02 +0000
+	Mon, 04 May 2026 14:46:07 +0000
 Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4g8PbC354Lz9trX;
-	Mon,  4 May 2026 16:45:59 +0200 (CEST)
+	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4g8PbJ5J6fz9tSP;
+	Mon,  4 May 2026 16:46:04 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1777905959;
+	t=1777905964;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=+w1luitm//CsWxQGEdc4H06+WVuZOC8TbuCR91/229M=;
-	b=HCU7wnhR3a01tXb2gPVvhk5D8sa0qwUTA7WfyfluY/fPOIZ53GxFAU8Bk+fvJ3FXMDVDHF
-	b8REGQg0YXGVkaJ25CpzXfUfyjIADwFj4QqP47cf4GaVR2273qeAwQJHyADlg1z1xVPyRG
-	BniKBPo8Bfu9voC/kypTJ179kvGiuSXKk3teLc5kGxXWuo+0qumX3J/DxGOmQEZMA3oAnx
-	vE2lZtgYkSkmMdf9qsCld2F2H8STrMg9Zd3+8XS1OagGJ5yCEAEPE2lPKcPkrUtpP9PhZl
-	XXdmPsxmAkKUA0uORpNOUI7IJI1x8n8JJW/3IVDrJDEV0c57VwQh8FdNVQTulQ==
+	bh=bqBQI5ZShnSxB5z5FL9+IeZXqZpX+/ABiAi5KCnD1Jo=;
+	b=XZMyFd4/PVTBYBe0J464a3FIHqCuVc9yVcl6LvhiRNUQVXRTmZYc6J3m0G+c3sBafo4JqN
+	ZJw4nel4bFRPtXQJj2uNKTUqm6vAFq884ERnL9TzGe+cZsEq4DeKfcgV0SDKShwz/RYcuk
+	XEKnF5iqTGcEdoDQlIejP3KMo2Z+sNvHPhwFr3M/FNHQBGkX3pcs64vxxpXIP4v/b1UasR
+	jjJ3cISDabseYaTf3nKntZPOHpMZBv/56riZ1OpxqbtFNUhzSKU5/aYqfTTp87AdMWUD01
+	Oojtgjau7/mPx3HZ45osrJ2CUXyag/gdvcVMtCoyYIFKwWMzS9UWJNAIWUwSyQ==
 Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=ggxet2wN;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=QGwH8TbF;
 	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::2 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
 From: Marek Vasut <marek.vasut+renesas@mailbox.org>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1777905957;
+	t=1777905962;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=+w1luitm//CsWxQGEdc4H06+WVuZOC8TbuCR91/229M=;
-	b=ggxet2wNxVUyjK+/VsdfwiI8ssP/RBR5Tl+IFBwjvKHIJl9UiuA15zI08BOM0cqG5oFIb8
-	/KstOI8HZ6IPoCGPOOZoUuCHR+o1gP7kI33DORe34nBFdOQvs9kNeV1bg8yeJdPCxn/Pgr
-	UY7rnYeF9sdg/LQl/dzeM4BN7+Jy2r1XPUQdNvMr8FFayIqezGpwRbXh3LiXuUsoILcCnI
-	TlAJwXVX6R5/Dd/uUd82XYTU/BZ/BzcoBxgTTxsNMQOx44cFTVcg9OGOMurKwLggsU7uoL
-	EMu12nDgeVaFLtnomYToyrJvyaqfCFrZy4QhcxAcXD4riNoPUQEYZM1oP8K+dQ==
+	bh=bqBQI5ZShnSxB5z5FL9+IeZXqZpX+/ABiAi5KCnD1Jo=;
+	b=QGwH8TbFsOkCQUR/QJkkcJ+uhXLzU5HPtXU4qzg3o+yhy8dptmV6JH5Bptkmc/qtvZPQAr
+	/ctB+DMRP/kV/A0y3Vkuk5jgH71kqFCaBvbo/H0d6oH81L6heOPs7xhUNVX09Vl1hzdNMV
+	3hauGkZzCt27JcyCZ4yPbPqpRlgdcBvDuTC1KebXM93dX8H1WtM5PmZGJeAWVQ/8OGlWFu
+	NfDqc2Gi7jQqQCcEgz6rK0b3Syuzy6P9Wkx//AoVobXDbBA55Em40WmfuAfF7x1JchNNiU
+	DKnfE7nJYDasp/OPfHZv3AsEDyPlpaATJO98VPMJ7v1BsvIvasMOnyiWebZmCA==
 To: linux-arm-kernel@lists.infradead.org
 Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Stephen Boyd <sboyd@kernel.org>,
 	Brian Masney <bmasney@redhat.com>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Geert Uytterhoeven <geert+renesas@glider.be>,
@@ -71,7 +73,6 @@ Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	Magnus Damm <magnus.damm@gmail.com>,
 	Michael Turquette <mturquette@baylibre.com>,
 	Rob Herring <robh@kernel.org>,
-	Stephen Boyd <sboyd@kernel.org>,
 	Ulf Hansson <ulfh@kernel.org>,
 	Wolfram Sang <wsa+renesas@sang-engineering.com>,
 	devicetree@vger.kernel.org,
@@ -79,19 +80,19 @@ Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	linux-kernel@vger.kernel.org,
 	linux-mmc@vger.kernel.org,
 	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH v2 2/7] mmc: renesas_sdhi: add R-Car M3Le compatibility string
-Date: Mon,  4 May 2026 16:43:24 +0200
-Message-ID: <20260504144534.43745-3-marek.vasut+renesas@mailbox.org>
+Subject: [PATCH v2 3/7] dt-bindings: clock: cs2000-cp: document CS2500
+Date: Mon,  4 May 2026 16:43:25 +0200
+Message-ID: <20260504144534.43745-4-marek.vasut+renesas@mailbox.org>
 In-Reply-To: <20260504144534.43745-1-marek.vasut+renesas@mailbox.org>
 References: <20260504144534.43745-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: 151800571d8e8c141d2
-X-MBO-RS-META: 8n1w6r51ue7uqfmdhue7djdswtg8zmok
-X-Rspamd-Queue-Id: 4g8PbC354Lz9trX
+X-MBO-RS-ID: 94ec97eb4d7439e3b08
+X-MBO-RS-META: zwxwmftrmkdmexfdqt1omou8jkk1qacd
+X-Rspamd-Queue-Id: 4g8PbJ5J6fz9tSP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_074601_754478_FC455D71 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20260504_074606_720433_82C5527A 
+X-CRM114-Status: GOOD (  10.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,10 +107,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the SD Card/MMC Interface in the Renesas R-Car M3Le
-(R8A779MD) SoC. R19UH0260EJ0100 Rev.1.00 , Dec 25, 2025 Notes 7.70.
-indicates that HS400 mode is not supported.
+Document backward compatibility support for CS2500 chip, which
+is a drop-in replacement for CS2000 chip.
 
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Acked-by: Stephen Boyd <sboyd@kernel.org>
 Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 ---
 Cc: Brian Masney <bmasney@redhat.com>
@@ -129,23 +131,41 @@ Cc: linux-kernel@vger.kernel.org
 Cc: linux-mmc@vger.kernel.org
 Cc: linux-renesas-soc@vger.kernel.org
 ---
-V2: - New patch
+V2: - Add AB from Conor and Stephen
+    - Drop variant suffix
+    - Fix CS2500 name typo in description
+    - Add link to the CS2500 product page
 ---
- drivers/mmc/host/renesas_sdhi_internal_dmac.c | 1 +
- 1 file changed, 1 insertion(+)
+ .../devicetree/bindings/clock/cirrus,cs2000-cp.yaml   | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/mmc/host/renesas_sdhi_internal_dmac.c b/drivers/mmc/host/renesas_sdhi_internal_dmac.c
-index f6ebb7bc7ede1..b716a518f2650 100644
---- a/drivers/mmc/host/renesas_sdhi_internal_dmac.c
-+++ b/drivers/mmc/host/renesas_sdhi_internal_dmac.c
-@@ -285,6 +285,7 @@ static const struct of_device_id renesas_sdhi_internal_dmac_of_match[] = {
- 	{ .compatible = "renesas,sdhi-r8a77970", .data = &of_r8a77970_compatible, },
- 	{ .compatible = "renesas,sdhi-r8a77990", .data = &of_r8a77990_compatible, },
- 	{ .compatible = "renesas,sdhi-r8a77995", .data = &of_rcar_gen3_nohs400_compatible, },
-+	{ .compatible = "renesas,sdhi-r8a779md", .data = &of_rcar_gen3_nohs400_compatible, },
- 	{ .compatible = "renesas,sdhi-r9a09g011", .data = &of_rzg2l_compatible, },
- 	{ .compatible = "renesas,sdhi-r9a09g057", .data = &of_rzg2l_compatible, },
- 	{ .compatible = "renesas,rzg2l-sdhi", .data = &of_rzg2l_compatible, },
+diff --git a/Documentation/devicetree/bindings/clock/cirrus,cs2000-cp.yaml b/Documentation/devicetree/bindings/clock/cirrus,cs2000-cp.yaml
+index d416c374e8534..ceeaa8f9fb08f 100644
+--- a/Documentation/devicetree/bindings/clock/cirrus,cs2000-cp.yaml
++++ b/Documentation/devicetree/bindings/clock/cirrus,cs2000-cp.yaml
+@@ -11,14 +11,19 @@ maintainers:
+ 
+ description: |
+   The CS2000-CP is an extremely versatile system clocking device that
+-  utilizes a programmable phase lock loop.
++  utilizes a programmable phase lock loop. CS2500 is a compatible
++  drop-in replacement for CS2000-CP.
+ 
+   Link: https://www.cirrus.com/products/cs2000/
++  Link: https://www.cirrus.com/products/cs2500/
+ 
+ properties:
+   compatible:
+-    enum:
+-      - cirrus,cs2000-cp
++    oneOf:
++      - items:
++          - const: cirrus,cs2500
++          - const: cirrus,cs2000-cp
++      - const: cirrus,cs2000-cp
+ 
+   clocks:
+     description:
 -- 
 2.53.0
 
