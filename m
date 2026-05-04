@@ -4,118 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3899FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 11:50:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99F41FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 12:00:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zcoNVnqpoRp4lUINw02TRaJLlaizuUuGQxPscEfzY9I=; b=0yKpLRc550poF53kZHzVmv5/5U
-	ZgRal09+3bxzYTtLRgBHnJ22sEJucEqyTqJioR0tD8VEOkNG//2qojMI7EwBBh2jd/eOhkh6VtcrD
-	JvoMYS63T5aDHC99SjIfKkkfBVBONuXmIfvTVO1Ur3iH+xICtpmmnkw/yeIJ5Pz4+97oRr+M7IAei
-	PyATN4hElCT4n1AypHTgTOYKRUtE1M6Q967k41eDz6MGabKx9HKPa9f1Cpo+q9joPaXWAh/5Zi1Al
-	0dgG15l7+VLYvqM2Qhozkdb+oyNJ1OJp3PC6FtzJnByneHJWwKe7SN0WqSxwTDCDw7fOsa6d+Q10u
-	xS5qFXqA==;
+	bh=a6AphpQSUPl78NvNF7EIueg+2EXYiFyQ8P0vhAjjh5U=; b=jVhmZg9BpKiEvwwOKUph8ve9+o
+	nm8PNrWXE7cFbRhs+wPa2jeCRl7LSEh6RwKTB7I0NEPWEh+W/Tr7bbOPaL5PTr/4fFmT6kSIGIWC2
+	TycfnN5ZaJtPYA9ae1zNSatK6t/+HfkXI99Ni8cuLyk6SspNXpcNmWC7V4lVc0hLZMtZmG6DqjBSX
+	Z8yTQi49snHKtU2sU1VT1k1QfDDOuU5C3ay94ZP2lA7rKABKoStCOtyIPYXluki9g3DH/Bto9T21K
+	THn02Ro8wC5NpvzsMRVftcDSM2Z2B+qlOpxWegO9WhfLV8YnyzrykpR3G0uFS2y/aicMA6UoPFdMR
+	PIeYcVGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJroW-0000000D5JN-2wyw;
-	Mon, 04 May 2026 11:50:16 +0000
-Received: from mail-francesouthazon11011038.outbound.protection.outlook.com ([40.107.130.38] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wJrxz-0000000D6NJ-2xcX;
+	Mon, 04 May 2026 12:00:03 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJroU-0000000D5Hl-1EiR
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 11:50:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vIrhhXvKkrYMrkKto5TCceaZS1eepRBLPp+Op322zREXKl60BtB0unR9pT0Hsq6pm7T8haN3fruDS58a5l4DbK7BukiupxZIaGmAJr0bNy92zmcEb5J/+3Gz1/y4tYPXsfXZvIsREpWl/sGqNv0HHjvDOh74bwn4DlnJCYzhrlGCXGL0dm2VSXNPKRG0P4q0jf3sGpPhDXnoZcMg3fpufI8xhZ8qZKlfbIybfwWGWnH6svwD2TJzkfWvVgrBB1xwpzvBRNktWAIds07mS+FSy3DYJGQZ5bD8Mo6ATfPcyngoiFuNbQYa+WeDXw0O9xqMARCDxXY5YCRpvm+2unOevg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zcoNVnqpoRp4lUINw02TRaJLlaizuUuGQxPscEfzY9I=;
- b=j8TRYdrmYCgEkwxBw9/YbeNNSedZavopgukdSvxF+o2foX9KLRYemzcRHehlM6j128BzGWHhgXIqoc79C8fzcD0ODj+ar60Kr4BwjLPnRzFFJEdsZPLq6v4adsPJRVCcRy5IJBZK9kPBcL57G2QYlHkNuog7vWxNkGzIKZP5xZPZUkGEA1FH2op+893IJnYEyss1O9Jm1waL+YF9moYcWc2quSyHvRv89ULkDzZQA3MsxcOMpXFcCg2p3J+U/fDjIrycB5yKUV8gLMCPHbn15RgpalsVDfMeHValavbcD88Z3a6/tvP3tGR1gxNIoS73Gm8G7zXVULSgu4RH50pNpA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zcoNVnqpoRp4lUINw02TRaJLlaizuUuGQxPscEfzY9I=;
- b=bZ/guL58MjRyRZst7TzOVvPn61mVOpBMCKqCDwiJA25ZGY651ZE/Vqtuvlryw57HbpRvCG5lF4y62ObFlgUfCkwgZp6tDMEOdhl9D8EAeaWT/yfAFrahEI0HQAOmjKugLf3//MTtkxE4dlo0XTens+rtIUKJCHDTVGfDCTZhGD6ZoRsJcDNkMrdXoI5JvmKaK0fMyvnXbHuBku2EH2zoTXIldVjcgUEpywwEsmQJPFup8Xd3r0GHGuivrNhfTgbDWf9n2CF3CYIuk3LsWYI1yxClWxaveKssVKlhHcJx+9+/b9LLY04Q9RW1qKwdyLjBBCp4ee+Olhm6jvJLUfnPNg==
-Received: from CWLP123CA0172.GBRP123.PROD.OUTLOOK.COM (2603:10a6:400:19b::7)
- by AMBPR10MB9925.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:75e::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Mon, 4 May
- 2026 11:50:03 +0000
-Received: from AM3PEPF0000A79B.eurprd04.prod.outlook.com
- (2603:10a6:400:19b:cafe::f) by CWLP123CA0172.outlook.office365.com
- (2603:10a6:400:19b::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9870.25 via Frontend Transport; Mon,
- 4 May 2026 11:50:03 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- AM3PEPF0000A79B.mail.protection.outlook.com (10.167.16.106) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9891.9 via Frontend Transport; Mon, 4 May 2026 11:50:03 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Mon, 4 May
- 2026 13:53:19 +0200
-Received: from gnbcxd0016.gnb.st.com (10.130.77.119) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Mon, 4 May
- 2026 13:50:02 +0200
-Date: Mon, 4 May 2026 13:49:53 +0200
-From: Alain Volmat <alain.volmat@foss.st.com>
-To: Hugues Fruchet <hugues.fruchet@foss.st.com>, Mauro Carvalho Chehab
-	<mchehab@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, "Alexandre
- Torgue" <alexandre.torgue@foss.st.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-CC: <linux-media@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, Sakari Ailus <sakari.ailus@iki.fi>
-Subject: Re: [PATCH 00/13] media: stm32: dcmipp: add support for MP2x pixel
- pipes
-Message-ID: <afiH4cNyG_vb2Dwf@gnbcxd0016.gnb.st.com>
-References: <20260202-stm32-dcmipp-pixel-pipes-support-v1-0-8d8d51f5e014@foss.st.com>
+	id 1wJrxv-0000000D6MB-2qif;
+	Mon, 04 May 2026 12:00:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CFDEB43447;
+	Mon,  4 May 2026 11:59:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A5C4C2BCB8;
+	Mon,  4 May 2026 11:59:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1777895998;
+	bh=FmmU1zdzb/NwHV/okkpMG5ffX1wADS5zh2r5zlKF9J0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=xU7lD3QMbhkmxDobaKClWo0Ll+gqvoaXSTlzZeHGZZ3iffFnzpMwX+5f1E3r/WFqd
+	 L8lwnD76oZHMLGYxeePjOEDzIrJ83gLCqJQ6KFn2TFIn7fhgzcpsY+m+Mc+MNUrq3+
+	 eMdHsGfftMnf1k3rFNS3asR73qnTjm1SBBGZQnf4=
+Date: Mon, 4 May 2026 13:59:56 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Maha Maryam Javaid <mahamaryamjavaid@gmail.com>
+Cc: neil.armstrong@linaro.org, mchehab@kernel.org, khilman@baylibre.com,
+	jbrunet@baylibre.com, martin.blumenstingl@googlemail.com,
+	linux-media@vger.kernel.org, linux-amlogic@lists.infradead.org,
+	linux-staging@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, hverkuil+cisco@kernel.org
+Subject: Re: [PATCH] staging: media: meson: fix typo in codec files
+Message-ID: <2026050442-rut-zipping-5de8@gregkh>
+References: <20260504111219.7797-1-mahamaryamjavaid@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260202-stm32-dcmipp-pixel-pipes-support-v1-0-8d8d51f5e014@foss.st.com>
-X-Disclaimer: ce message est personnel / this message is private
-X-Originating-IP: [10.130.77.119]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM3PEPF0000A79B:EE_|AMBPR10MB9925:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2dd2bb67-7975-48bf-913f-08dea9d3478c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|30052699003|1800799024|36860700016|7416014|376014|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: QrHujKkZgm0W5OvoBExyjsKiK8GOHgGT00Y4QX4wS3Bjr2Z5/Jks9U9GIWiFlTmWFbWlKz95yWWLoP8/f/EcW80jQU5AMFG++b8d0bPhBftSh67xCylqlB2wl6JA3TP1QQZf3iY8fJSjJM+8681DT67uchxyDiW+H//VsFcIPzmvja1P8vLnaMUgsQXXyn4GuKjR64821sK0qHZGEfiQzGgNzB3Jj/s0IyzrtIj42w3JenRwCTr6E2CRmjlqhL/hOFGCVnrrek8LSq1LvHydr96SwxyHCB5gDzu11nqYFyuH0NKfVut8GK1FiEhSMN8d7Wh7LxgQnr9TlrXP3ayyai6HUWU5XgRikDFmA9MZ2OPEeBIYliRpQ/D3cLXZall5uxX/DuLnt9ZssrS0KfnxiCdywZrjueAJC47LGgrs1a8oSONDv5BV0I+7v2X/Q10XTTsOH7vl+gDtCUKR49ugAghwWUhbAXFmAdsmkG2dwm27XShbo/P8Sx9AtgLBQcswi6piSDoX+GhjlvhX/sjZfWjQB6bzxI7RsZuv1NbobTme6mMxL/zzLFV4spmX+jb9qh/nfcyp64WDKO4+5Jpe9cUqkVSFq91W62n31E9vxUJxHLvEOyoOX03Iiu4xqBi5mzFK5wPLY4GISz/IVGCIpWU7VXHE7dIBCgxWRZ6xUfL0XQGfgY2V5Z2aMOwvnbCaDeNaw2sHLh66qVP+Es9NramS/bJIeXEnhouksRF7XZE=
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(30052699003)(1800799024)(36860700016)(7416014)(376014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 48rVSUdkvRs86m+yTOVOj87quZpDAqdx0QdRVOwxqfvroXngvEgJQYGr7nVVH02Pp2wehIzJb/WIXGYORg9Kvgyn/g6p/0ccIWCecxdlRn+xZjjPfSxYRHhRUdn0PCsrm3zP3Hlfxo6snTzkLk9PS6oOF9GrY7Ej23s+YZlk/3b2zXbJ29GXwxtPL6tMrKrdEeCb2/q/1nWK56TMcUNyPpkyHy+POzLoHrnmUhmuqokr708tBdAo/Oj0zTMs4Okfz0lqoynPLgysRLp+kbSVTPgWWZdn0T2CCmCkrayLlxOlFv0dSte5Q3XSQDx341EXEBxn9IUc7K9CCY/T4nHaM1gBKiTOlVWa6nvPlEhj/13jsIAkoaddQ8cr6C71a8pMVOE7L0SplMDRhqHKftn2QtOHsoopIDD/nw80n9Yd7aOKbUrOTvoywm1jw1F6jx6V
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 May 2026 11:50:03.5869
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2dd2bb67-7975-48bf-913f-08dea9d3478c
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF0000A79B.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMBPR10MB9925
+In-Reply-To: <20260504111219.7797-1-mahamaryamjavaid@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_045014_815146_9667DAAC 
-X-CRM114-Status: GOOD (  18.37  )
+X-CRM114-CacheID: sfid-20260504_045959_847930_413D44B4 
+X-CRM114-Status: GOOD (  23.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,63 +70,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
-
-Gentle ping. Would it be possible to have this serie reviewed ?
-
-Regards,
-Alain
-
-On Mon, Feb 02, 2026 at 02:57:25PM +0100, Alain Volmat wrote:
-> This series add support for the main & aux pixel pipes
-> available on the MP2x. In addition to the byte pipe
-> already available, the DCMIPP is able to process two
-> other streams in parallel, including ISP operations
-> such as demosaicing, exposure etc, post-processing operations
-> such as cropping, downscaling and various pixel formats
-> output.
+On Mon, May 04, 2026 at 07:12:19AM -0400, Maha Maryam Javaid wrote:
+> Fix spelling mistake: substracted -> subtracted
 > 
-> This series introduces the whole DCMIPP pipelines including
-> static configuration of the ISP part (such as demosaicing).
-> Dynamic control of the ISP as well as statistic extraction
-> part will be added on top of this serie via usage of 2 other
-> video devices (input & output) for statistics extraction and
-> dynamic ISP parameter injection.
-> 
-> Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
+> Signed-off-by: Maha Maryam Javaid <mahamaryamjavaid@gmail.com>
 > ---
-> Alain Volmat (13):
->       media: stm32: dcmipp: share struct dcmipp_device among subdevs
->       media: stm32: dcmipp: make dcmipp_state & cmsr2 read common
->       media: stm32: dcmipp: bytecap: protect CMIER register access
->       media: stm32: dcmipp: move common structures in dcmipp-common.h
->       media: stm32: dcmipp: correct swap in YUYV data with parallel input
->       media: stm32: dcmipp: configure csi input of all pipes on stm32mp25
->       media: stm32: dcmipp: introduce a dcmipp global media_pipeline
->       media: stm32: dcmipp: add pixel pipes helper functions
->       media: stm32: dcmipp: addition of a dcmipp-isp subdev
->       media: stm32: dcmipp: pixelproc: addition of dcmipp-pixelproc subdev
->       media: stm32: dcmipp: add pixel-pipe support in bytecap
->       media: stm32: dcmipp: rename bytecap into capture
->       media: stm32: dcmipp: instantiate & link stm32mp25 subdevs
+>  drivers/staging/media/meson/vdec/codec_h264.c   | 2 +-
+>  drivers/staging/media/meson/vdec/codec_mpeg12.c | 2 +-
+>  2 files changed, 2 insertions(+), 2 deletions(-)
 > 
->  .../media/platform/st/stm32/stm32-dcmipp/Makefile  |   3 +-
->  .../st/stm32/stm32-dcmipp/dcmipp-byteproc.c        |  27 +-
->  .../{dcmipp-bytecap.c => dcmipp-capture.c}         | 593 +++++++++----
->  .../platform/st/stm32/stm32-dcmipp/dcmipp-common.h |  98 ++-
->  .../platform/st/stm32/stm32-dcmipp/dcmipp-core.c   | 124 ++-
->  .../platform/st/stm32/stm32-dcmipp/dcmipp-input.c  | 113 ++-
->  .../platform/st/stm32/stm32-dcmipp/dcmipp-isp.c    | 482 +++++++++++
->  .../st/stm32/stm32-dcmipp/dcmipp-pixelcommon.c     | 180 ++++
->  .../st/stm32/stm32-dcmipp/dcmipp-pixelcommon.h     |  41 +
->  .../st/stm32/stm32-dcmipp/dcmipp-pixelproc.c       | 937 +++++++++++++++++++++
->  10 files changed, 2322 insertions(+), 276 deletions(-)
-> ---
-> base-commit: eb4ee870747c3a77a9c3c84d84efb64bd481013a
-> change-id: 20251219-stm32-dcmipp-pixel-pipes-support-b42924c0b4e5
-> 
-> Best regards,
+> diff --git a/drivers/staging/media/meson/vdec/codec_h264.c b/drivers/staging/media/meson/vdec/codec_h264.c
+> index 89e0f8624e5b..a6074de15118 100644
+> --- a/drivers/staging/media/meson/vdec/codec_h264.c
+> +++ b/drivers/staging/media/meson/vdec/codec_h264.c
+> @@ -16,7 +16,7 @@
+>  #define SIZE_SEI	(8 * SZ_1K)
+>  
+>  /*
+> - * Offset added by the firmware which must be substracted
+> + * Offset added by the firmware which must be subtracted
+>   * from the workspace phyaddr
+>   */
+>  #define WORKSPACE_BUF_OFFSET	0x1000000
+> diff --git a/drivers/staging/media/meson/vdec/codec_mpeg12.c b/drivers/staging/media/meson/vdec/codec_mpeg12.c
+> index 76e9ca7191ab..ab4374e3b2ef 100644
+> --- a/drivers/staging/media/meson/vdec/codec_mpeg12.c
+> +++ b/drivers/staging/media/meson/vdec/codec_mpeg12.c
+> @@ -12,7 +12,7 @@
+>  #include "vdec_helpers.h"
+>  
+>  #define SIZE_WORKSPACE		SZ_128K
+> -/* Offset substracted by the firmware from the workspace paddr */
+> +/* Offset subtracted by the firmware from the workspace paddr */
+>  #define WORKSPACE_OFFSET	(5 * SZ_1K)
+>  
+>  /* map firmware registers to known MPEG1/2 functions */
 > -- 
-> Alain Volmat <alain.volmat@foss.st.com>
+> 2.34.1
 > 
+> 
+
+Hi,
+
+This is the friendly patch-bot of Greg Kroah-Hartman.  You have sent him
+a patch that has triggered this response.  He used to manually respond
+to these common problems, but in order to save his sanity (he kept
+writing the same thing over and over, yet to different people), I was
+created.  Hopefully you will not take offence and will fix the problem
+in your patch and resubmit it so that it can be accepted into the Linux
+kernel tree.
+
+You are receiving this message because of the following common error(s)
+as indicated below:
+
+- This looks like a new version of a previously submitted patch, but you
+  did not list below the --- line any changes from the previous version.
+  Please read the section entitled "The canonical patch format" in the
+  kernel file, Documentation/process/submitting-patches.rst for what
+  needs to be done here to properly describe this.
+
+
+If you wish to discuss this problem further, or you have questions about
+how to resolve this issue, please feel free to respond to this email and
+Greg will reply once he has dug out from the pending patches received
+from other developers.
+
+thanks,
+
+greg k-h's patch email bot
 
