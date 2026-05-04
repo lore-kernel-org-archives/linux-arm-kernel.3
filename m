@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 971C2FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 22:55:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D392BCD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 22:55:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=P6wqddPFyyag+0HqiKhjqX5gfmmABljWiCbj0h87e8Y=; b=vF5L8ndAV1xA9cFh3sB4IUC1Dr
-	r2TZ8I57lDrvS2IssGejSCRy3NI0W+ltgTfoqJoAj7yii766syc5mM23KoHe51xbOo4org47TivKk
-	BzNjDZjr7syueCut1EY583/T1ao6qI5HqvXiy1DtOZiNPDjBAqDqGfCAdWewIVIJe5KbbBIHybYZf
-	YTgFTRs78zh7KFZE7sUhcEZpAfnNwlViGL41x56at3qe9gc2iUcrHZ8Z4IK0QFnjv4/hGIBrKwtsx
-	T6s8/6bNunk45ipwc9VmC3ptiWxo15AHGHvJ6nuEXXK02qk816OWZfe6soZg854oqXN4HMIAfTB24
-	Wpg6EjKQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r9eV2D3TS7gKH+wZUMRrIiQzv2fQ9qi/JsMp4cHZiF8=; b=rJQLtjNFqF4r3CIWFWNGDW72xo
+	3N/RQD/Rx6WCju7Sthwh1YLsigNLpL7iOeo5dg+VjS0//Ng/bHPoz6tiPlRcbo1Xy0gWkqC017XzA
+	CtiOaKNTDkUUWwUObuD8uL0vWjN5Q9jzdhIHJrwDXT7BL6JlbrmpcZ2R2KERcGMfioerIyY/XFVdZ
+	hmRi62RynHsZeSA+RzWIuwlk24J90fki/ZZA6sLsyemRvhas84EKQx8IhHCEVEFeTcQugRyjN1g2s
+	/gtb46Suf+vidWY1WJmt5C+/11yf6lO9lrpnFAecyxBXgAe43M0mSwRD1oU0rgeBqLDxP5td6x5L9
+	bFCUIikQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wK2CK-0000000EXDH-1uGT;
-	Mon, 04 May 2026 22:55:32 +0000
-Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
+	id 1wK2CN-0000000EXEn-41hM;
+	Mon, 04 May 2026 22:55:35 +0000
+Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wK2CH-0000000EXCK-2q8c
+	id 1wK2CL-0000000EXCz-0Kkr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 22:55:31 +0000
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
+	Mon, 04 May 2026 22:55:35 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4g8cRz2W9zz9sss;
-	Tue,  5 May 2026 00:55:27 +0200 (CEST)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4g8cS2742Jz9srB;
+	Tue,  5 May 2026 00:55:30 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1777935327;
+	t=1777935331;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=P6wqddPFyyag+0HqiKhjqX5gfmmABljWiCbj0h87e8Y=;
-	b=Tpv7d+h5dL1knisdlh7UBjkinEoKoBsPW95Jq5jM5NdIZy/C1vMaInpTJ91KZOcfMGaujW
-	Tw8if6Y0wzXkmmJdEjx6K8YxPyREdwzHRCMcBCl7Hr9sykPs8xaK5kaAAXdZBNpYjGmfaP
-	inQbW7Ql8bF1ls2Gt+P6crcFD7cN2+9R2O7cAbEGTYc95AjRPYyKpjEDnrq9JwvxSoT10x
-	Vnity6tE9ryB1i+hCwRNRrFRhNPj2rBgDBhz7H8lXEErvvVf9Gi+0ffkgn02sfQaO3EMT4
-	oVGg08KonaGpu26RMipX0qT5UrX6acBhwFrLb2YwGbVOc5nEnpjoLT4g8XyKNw==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=p5mcKY7T;
-	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::2 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=r9eV2D3TS7gKH+wZUMRrIiQzv2fQ9qi/JsMp4cHZiF8=;
+	b=wTzBxyL1yJCkJPTOjiUTIFlEfa6+afpwGxjzHivw2MZXsmy8rr20XpdQjJWc1P7hNS+9oK
+	7fCe/S5nJgB3nbSrziU0YcD22lH3z0UIZz1kp8vruIS3a+6iUJha+dBGXyci4QpNTD4IIx
+	jxcdjyURK3IWk1eoqNA2xhGS2akJ3at75mTfbtf1Oq+0ZXwU0sqFq5tCZ6QHLxSM7aVdSW
+	43fBxzBeQL7+RDq0nKaxJHgA9kjNf3IjM/Oq/yulSKk1lpvV0XLKNfA3bneuzMJv9erW6z
+	B/Aobl6QtlcwC3rI8rUMWokwsEhVf415OT5g9gZVL6HExM5Xax49Ftc33Z57pg==
 From: Marek Vasut <marek.vasut+renesas@mailbox.org>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1777935325;
+	t=1777935329;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=P6wqddPFyyag+0HqiKhjqX5gfmmABljWiCbj0h87e8Y=;
-	b=p5mcKY7T8eA+iyL+Ft9GmRBAOVZK54B+jHNOXsCnPsXy16OLq3AgG49wOrnsduUJ9dgxal
-	Z39GKelv6YRGGsRJFgFkQIU1z5iKwNdxoE2U8PnBMLwraJDMq74Xt5LcVfllsqLB4M5sG9
-	SxaTN/E/i2kNbP8KgOItmqDg6qZqMdzQLCeWsH23ckGKzMoYtiuVd+hWFNECRJcy6+TA7Y
-	8FznnD/Iv6DLMsiZOeBDO0p/eY+y1nNLvUiCCzNLn+nBW/gSDssswFOLmNA9ejlk4UjwVa
-	LPdnkupK9mGkZFxN1PMfbTqkB3WGAtSnmkWk9Uw4hhuUHBd8tswlUotOMMcGRA==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=r9eV2D3TS7gKH+wZUMRrIiQzv2fQ9qi/JsMp4cHZiF8=;
+	b=GoSkeMm2hoQQ10LB6KEGtCDKnxk/D2yQtbD/J+O9IsJezeyEHtSA3K13cUiqwerYbiZCZK
+	hnNjdW9fR2LA2ERMUUR/Z6iKwNrI3XU2w6rEuAHHRR2IeGDN5xjmze9SEWr7ZdzhfHwTrk
+	tGD4kImiMvFbN1pXlRXHhSkCYML4rZiBsA/eRm8jd4rjlffvIasuvipEHnjcLTiOsqHkjH
+	7Km55M2JTfE79EJuTxMtXgCv2VbgTuLwiIinj/j+F3u0AXDuExGMpfUccbw6IrUzhrRHnW
+	eRegjYIWsqGm1269ZSTAo/9fqWz5DtqK7YFdjG9p+uRfBPt7SOQquz6uTm5UOw==
 To: linux-arm-kernel@lists.infradead.org
 Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	Conor Dooley <conor+dt@kernel.org>,
@@ -69,18 +68,18 @@ Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH 1/2] arm64: dts: renesas: ebisu: Sort sound node
-Date: Tue,  5 May 2026 00:54:42 +0200
-Message-ID: <20260504225515.114986-1-marek.vasut+renesas@mailbox.org>
+Subject: [PATCH 2/2] arm64: dts: renesas: salvator-common: Sort sound node
+Date: Tue,  5 May 2026 00:54:43 +0200
+Message-ID: <20260504225515.114986-2-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20260504225515.114986-1-marek.vasut+renesas@mailbox.org>
+References: <20260504225515.114986-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: 51c91871026be051011
-X-MBO-RS-META: fcqpm9xnkumw5gk6o8hkimkjef8fjrrm
-X-Rspamd-Queue-Id: 4g8cRz2W9zz9sss
+X-MBO-RS-META: o7kfb6w1ysnwmkt1m3sicx3punoa5myn
+X-MBO-RS-ID: e175057cfe656f826ea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_155529_857230_FC8582D5 
-X-CRM114-Status: UNSURE (   9.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260504_155533_263719_70EF8DF5 
+X-CRM114-Status: GOOD (  10.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,56 +108,48 @@ Cc: devicetree@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org
 Cc: linux-renesas-soc@vger.kernel.org
 ---
- arch/arm64/boot/dts/renesas/ebisu.dtsi | 34 +++++++++++++-------------
- 1 file changed, 17 insertions(+), 17 deletions(-)
+ .../boot/dts/renesas/salvator-common.dtsi     | 26 +++++++++----------
+ 1 file changed, 13 insertions(+), 13 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/renesas/ebisu.dtsi b/arch/arm64/boot/dts/renesas/ebisu.dtsi
-index aaedb1fb51aed..ba564aa098661 100644
---- a/arch/arm64/boot/dts/renesas/ebisu.dtsi
-+++ b/arch/arm64/boot/dts/renesas/ebisu.dtsi
-@@ -186,23 +186,6 @@ reg_12p0v: regulator-12p0v {
+diff --git a/arch/arm64/boot/dts/renesas/salvator-common.dtsi b/arch/arm64/boot/dts/renesas/salvator-common.dtsi
+index e505161caa675..0b29bf9564eb1 100644
+--- a/arch/arm64/boot/dts/renesas/salvator-common.dtsi
++++ b/arch/arm64/boot/dts/renesas/salvator-common.dtsi
+@@ -211,19 +211,6 @@ reg_12v: regulator-12v {
  		regulator-always-on;
  	};
  
--	rsnd_ak4613: sound {
--		compatible = "simple-audio-card";
+-	sound_card: sound {
+-		compatible = "audio-graph-card";
 -
--		simple-audio-card,name = "rsnd-ak4613";
--		simple-audio-card,format = "left_j";
--		simple-audio-card,bitclock-master = <&sndcpu>;
--		simple-audio-card,frame-master = <&sndcpu>;
+-		label = "rcar-sound";
 -
--		sndcodec: simple-audio-card,codec {
--			sound-dai = <&ak4613>;
--		};
--
--		sndcpu: simple-audio-card,cpu {
--			sound-dai = <&rcar_sound>;
--		};
+-		dais = <&rsnd_port0	/* ak4613 */
+-			&rsnd_port1	/* HDMI0  */
+-#ifdef SOC_HAS_HDMI1
+-			&rsnd_port2	/* HDMI1  */
+-#endif
+-			>;
 -	};
 -
  	vbus0_usb2: regulator-vbus0-usb2 {
  		compatible = "regulator-fixed";
  
-@@ -260,6 +243,23 @@ vccq_sdhi1: regulator-vccq-sdhi1 {
+@@ -281,6 +268,19 @@ vccq_sdhi3: regulator-vccq-sdhi3 {
  		states = <3300000 1>, <1800000 0>;
  	};
  
-+	rsnd_ak4613: sound {
-+		compatible = "simple-audio-card";
++	sound_card: sound {
++		compatible = "audio-graph-card";
 +
-+		simple-audio-card,name = "rsnd-ak4613";
-+		simple-audio-card,format = "left_j";
-+		simple-audio-card,bitclock-master = <&sndcpu>;
-+		simple-audio-card,frame-master = <&sndcpu>;
++		label = "rcar-sound";
 +
-+		sndcodec: simple-audio-card,codec {
-+			sound-dai = <&ak4613>;
-+		};
-+
-+		sndcpu: simple-audio-card,cpu {
-+			sound-dai = <&rcar_sound>;
-+		};
++		dais = <&rsnd_port0	/* ak4613 */
++			&rsnd_port1	/* HDMI0  */
++#ifdef SOC_HAS_HDMI1
++			&rsnd_port2	/* HDMI1  */
++#endif
++			>;
 +	};
 +
  	vga {
