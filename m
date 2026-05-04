@@ -4,63 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C402FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 12:43:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 782D8FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 13:00:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1PMEvjlLQCF+IhJSDR+OfV1rOuww5+zhdmbObo+aXic=; b=PZSMt4ffh7GfwcgyYyKAtPVWBm
-	AUKvu4adzm3o0cDV/K/v9PvH2uehwH9mIuC6sGHP1iPpCiQaLXEU8vVJrpwNHU4gYZlPY/UxnJ7gq
-	dSp1rQlTidJgzeDP1X0G26uejMknw9jWRSIA5CWwIh/ndpOLumqD+bqEHSkPzMUEm7TSVXXI80sif
-	Y3k+2sdr/6kjGgIZmGORgo19OiRaecO5f/gq4fgWyxxMgwGR6FugvW/123QwY5wPeVbdRcTYOwj96
-	7pSML9/Jg9qOj6+77d+bFTb0wWQAMkPViTg8cal2PNHfbP6H4hHTQjips0V2Pfkqg+tBJZ48D3aps
-	RJd1Q/cA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=S031vBNU+JgrXTVKHjnIkVHpNj+hiUpmvamQk+gL5nA=; b=dX+FXG8l98OhRAS3h5f+1VrJZX
+	JIBWCbyyv1I5puw2uSJGRJ51g5qX0ZZS3Eh55LXaUCX+0+XqpiAYLiZtAwT4srwQwcBv8JikTX79W
+	1bUwfLErs4ElAniftYUIQGIucho7IjQxupRBTDlZJcRRdVEl44nEg5ZsunilPpWP1NIfrW7LGzs/q
+	TSosUTEekCPOXDyvwR9pMzkoJT29hR/R1Pn43TP8rz/Gqd9lGuD3pYwOq8FBFFpspP90QxUbwWEIE
+	Tv/XRGNaH/vyKW6sn/jQLpscHueejlOGH3+xnzFX32O8nwGpFd04hkmlfpGHvxnVG2un/CVIRxgea
+	KsS5Iwyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJse7-0000000DC5I-1tbo;
-	Mon, 04 May 2026 12:43:35 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wJsuF-0000000DDfp-20f7;
+	Mon, 04 May 2026 13:00:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJse0-0000000DC1i-3r5V;
-	Mon, 04 May 2026 12:43:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=1PMEvjlLQCF+IhJSDR+OfV1rOuww5+zhdmbObo+aXic=; b=MWni85lCQoXDMVP6bhjc2GczaN
-	d2l5A5HEaNUgy12XQ4iQZtIe76OLfLdlkr+3UkGGsN91//fZs9i34a7a6W2d0B4l5DUg4Jj0gzZuE
-	E8fkLl9+/Q/NH8aebCYfcaS4GPk+jTY4AS0wwKnvqR+S4pMzK5PXQlXYyPzY2UVvNpjA=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wJsdl-001GDe-KX; Mon, 04 May 2026 14:43:13 +0200
-Date: Mon, 4 May 2026 14:43:13 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Rosen Penev <rosenp@gmail.com>
-Cc: netdev@vger.kernel.org, Felix Fietkau <nbd@nbd.name>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>,
-	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>,
-	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>
-Subject: Re: [PATCH net-next] net: mtk_star_emac: use of_get_ethdev_address
-Message-ID: <64c2b026-88b1-4560-8763-9f6696d854a5@lunn.ch>
-References: <20260504031019.607682-1-rosenp@gmail.com>
+	id 1wJsuE-0000000DDfh-2F9q
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 04 May 2026 13:00:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B380B60125;
+	Mon,  4 May 2026 13:00:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18410C2BCB8;
+	Mon,  4 May 2026 13:00:11 +0000 (UTC)
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: soc@lists.linux.dev,
+	soc <soc@kernel.org>
+Cc: Magnus Damm <magnus.damm@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [GIT PULL]  Renesas SoC fixes for v7.1
+Date: Mon,  4 May 2026 15:00:09 +0200
+Message-ID: <cover.1777899408.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260504031019.607682-1-rosenp@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_054329_005469_9E564B48 
-X-CRM114-Status: GOOD (  10.04  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,43 +59,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 03, 2026 at 08:10:19PM -0700, Rosen Penev wrote:
-> The platform_ variant calls arch_get_platform_mac_address which is only
-> implemented under SPARC.
+	Hi SoC folks,
 
-platform_get_ethdev_address() calls eth_platform_get_mac_address().
+The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
 
-int eth_platform_get_mac_address(struct device *dev, u8 *mac_addr)
-{
-	unsigned char *addr;
-	int ret;
+  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
 
-	ret = of_get_mac_address(dev->of_node, mac_addr);
-	if (!ret)
-		return 0;
+are available in the Git repository at:
 
-	addr = arch_get_platform_mac_address();
-	if (!addr)
-		return -ENODEV;
+  git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git tags/renesas-fixes-for-v7.1-tag1
 
-	ether_addr_copy(mac_addr, addr);
+for you to fetch changes up to 7e070a14beaf036588f164575bbaf7011dd26285:
 
-	return 0;
-}
- 
-> Switch to the of variant as of functions are used in the surrounding
-> code and to get EPROBE_DEFER support in order to handle NVMEM MAC
-> address specifications.
+  arm64: dts: renesas: r9a09g056: Add #mux-state-cells to usb20phyrst (2026-04-27 11:14:31 +0200)
 
-So there is a call to of_get_mac_address(). And it calls
-arch_get_platform_mac_address() as well. If you only call
-of_get_mac_address(), don't you break SPARC?
+----------------------------------------------------------------
+Renesas fixes for v7.1
 
-If EPROBE_DEFER is what you are trying to get, please change
-eth_platform_get_mac_address() to actually return it, not break SPARC.
+  - Fix SCIF (serial port) clocks on R-Car X5H,
+  - Fix various dtc and dtbs_check warnings.
 
-    Andrew
+Thanks for pulling!
 
----
-pw-bot: cr
+----------------------------------------------------------------
+Geert Uytterhoeven (1):
+      arm64: dts: renesas: r8a78000: Fix SCIF brg_int clocks
+
+Marek Vasut (10):
+      arm64: dts: renesas: draak/ebisu-panel: Fix missing cells and reg in DTO
+      arm64: dts: renesas: salvator-panel: Fix missing cells and reg in DTO
+      arm64: dts: renesas: rz-smarc-cru-csi-ov5645: Fix missing cells and reg in CSI2 subnode
+      arm64: dts: renesas: rz-smarc-du-adv7513-smarc: Fix missing cells and reg in DU subnode
+      ARM: dts: renesas: r8a7778: Add missing unit address to bus node
+      ARM: dts: renesas: r8a7779: Add missing unit address to bus node
+      ARM: dts: renesas: r8a7792: Add missing unit address to bus node
+      ARM: dts: renesas: r7s72100: Add missing unit address to bus node
+      ARM: dts: renesas: genmai: Drop superfluous cells
+      ARM: dts: renesas: rskrza1: Drop superfluous cells
+
+Tommaso Merciai (2):
+      arm64: dts: renesas: r9a09g057: Add #mux-state-cells to usb2{0,1}phyrst
+      arm64: dts: renesas: r9a09g056: Add #mux-state-cells to usb20phyrst
+
+ arch/arm/boot/dts/renesas/r7s72100-genmai.dts                | 3 ---
+ arch/arm/boot/dts/renesas/r7s72100-rskrza1.dts               | 2 --
+ arch/arm/boot/dts/renesas/r7s72100.dtsi                      | 2 +-
+ arch/arm/boot/dts/renesas/r8a7778.dtsi                       | 2 +-
+ arch/arm/boot/dts/renesas/r8a7779.dtsi                       | 2 +-
+ arch/arm/boot/dts/renesas/r8a7792.dtsi                       | 2 +-
+ arch/arm64/boot/dts/renesas/draak-ebisu-panel-aa104xd12.dtso | 5 +++++
+ arch/arm64/boot/dts/renesas/r8a78000.dtsi                    | 8 ++++----
+ arch/arm64/boot/dts/renesas/r9a09g056.dtsi                   | 1 +
+ arch/arm64/boot/dts/renesas/r9a09g057.dtsi                   | 2 ++
+ arch/arm64/boot/dts/renesas/rz-smarc-cru-csi-ov5645.dtsi     | 5 +++++
+ arch/arm64/boot/dts/renesas/rz-smarc-du-adv7513.dtsi         | 5 +++++
+ arch/arm64/boot/dts/renesas/salvator-panel-aa104xd12.dtso    | 5 +++++
+ 13 files changed, 31 insertions(+), 13 deletions(-)
+
+Gr{oetje,eeting}s,
+
+						Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+							    -- Linus Torvalds
 
