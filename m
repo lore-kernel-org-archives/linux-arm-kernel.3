@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D73ECD3430
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 14:23:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 814B4FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 14:23:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=yyvsyxqFaVnvOXX9fk+pYkRDRwFcOWZKgKsvyzP7MDs=; b=lWs4tVNZbBgqU9
-	bf9nHnDn2au89vjapTBGNk8UY8QpabCoG6yYtLSZSf3OdkYCrz4MVLcXppmbQ/QTrz2GKpi8P8tr/
-	KjUvAIeFUYd35duXLXnIai9tFOWeG0waX7+sDG1V6xHe8FmUHMfFLkurwimrJedwhavy0SveQnrYA
-	sNYMVtSoC84cuPVbrHNCTo9T7xl9+N7H+TSDJ93xTA2F02H5yxuBvJjdVQAW8vGWrMZ3g89cPTHWZ
-	Dn+cfg1fTsNFEfMLwLHEY3FoxQR0yWI85L2oxP14m1qT/5swSGAXZ+ZHyJHth/188S9bqzcxS6sbK
-	F1/BpBoXO7uvZwOdY0RA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SRGfoY5fptjSCSDpPTXPQLnKb2uG++BSAYA/DP0vDZk=; b=ugTaNgEFpAErqTCsAiYMqh6a3E
+	BDZMdonFUB3cLAv46ZNGxPVXe5iyKUzM2/gOc5qzmssbA9t533sNxe4L9MCgaRQ5cN5LXRAbDupKH
+	LHYWuLJX6b+Jo+p1W+jQt5v3fE+yF8aPUoQnjQkixWlmtEiUYcc617ZQOSioISqQIGyUw0qI3IrLJ
+	cS2SLRDliSru8XFl3Qt3jfVDv8kUvBcvZgV74rwdCkOqMPh3QUWo+wtcFpd+w+eNAID+gJNJLI1Wy
+	nZWKDSnrUH5QKiia5LzvLcep0Ycq+Oy7kcRP12fd1R2Omp0RztfE5jXbOb9vtrDrW0b31/6z5SRda
+	KwrI0Rpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJuD0-0000000DQbx-0aoP;
-	Mon, 04 May 2026 14:23:42 +0000
+	id 1wJuD6-0000000DQfE-1caz;
+	Mon, 04 May 2026 14:23:48 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJuCw-0000000DQas-3OqB
+	id 1wJuD2-0000000DQdC-2owY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 14:23:40 +0000
+	Mon, 04 May 2026 14:23:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1777904619; x=1809440619;
-  h=from:subject:date:message-id:mime-version:
-   content-transfer-encoding:to:cc;
-  bh=71Xurdx5vJpihuHuZwJGTYt1cBFho/ZdMoBdcPlU5wk=;
-  b=t/M6hMHPiLVILn6WVFhMzJcZRK0ZHxfuD12vH7Hjbj/MtO9u/Bz12n4v
-   CqxkuvWetY48+376DUNKfQ3ZwGxEbwPWXjo0qA8KKhfHcxAOtejOy4Qln
-   oAhh9L5dvWAKeXlRSpaX9tLkTG4gm8Moi/+v+V7DkPB9QrLESTbJvCUJb
-   ngu3HtBn/uTL9H0Ux+YVIevzk5J3461EEA2hA28hsYPoSwSsZWkl9BWEg
-   YYpNJoO6dcuhzcY6IaTiNtL1uI4XgSr/iJ781jysbNfDE6ITJ+74HUkKB
-   lJvJBMHIIqQ0+CuIkYEqiDPOEdFFlnMj1UhtnH6JOCIjzsq8rvycIuQal
-   Q==;
-X-CSE-ConnectionGUID: wzRnnTf3QRmZCQDuK+CT3A==
-X-CSE-MsgGUID: EbI6GhoXR4a3VIlKBuhfkw==
+  t=1777904624; x=1809440624;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:references:in-reply-to:to:cc;
+  bh=EDw2BFUuUKmnY7vXM3KNgnA7TAgDYmQg1lhPInRD5kg=;
+  b=E7bQNKQnGHp3nZ8ohWKkNwCG3AM7YoyL3RSk4Hx6EFpvqJkf+tZXGUT0
+   9hBtJ8gMxeKW8Q8ogudP5fVr+eC6xylepo/6yG8rsDvOjp18LEuSSZpj5
+   afXdm0LkQfDRFzEQgExyCC/g8/WXZ1/eDlrn9MMl+vTWWf6/6NWZ7wuqH
+   dLA97+Ru6lirf686UjDvBy6gNM/q1Fh5ChSLKxsLI8XMTtWD5GT3GpPBJ
+   6UpgTaAuFHUTmNVZYWCBdgmBkNHpeei7gdIoQihVbFzDVpbzLi9WLDI3Y
+   Q8H3vllqsOm+O2EWxKTutgGWupK3juhLIe9vqrXvjeUmbq8OyPbdGrAbe
+   g==;
+X-CSE-ConnectionGUID: OMN5V5VDQOeMFS8+c/zjaw==
+X-CSE-MsgGUID: kPf2qkyRQQq29VHbyz6EDg==
 X-IronPort-AV: E=Sophos;i="6.23,215,1770620400"; 
-   d="scan'208";a="56221181"
+   d="scan'208";a="57408601"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 May 2026 07:23:36 -0700
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 May 2026 07:23:43 -0700
 Received: from chn-vm-ex01.mchp-main.com (10.10.87.71) by
  chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.37; Mon, 4 May 2026 07:23:35 -0700
+ 15.2.2562.37; Mon, 4 May 2026 07:23:42 -0700
 Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
  chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Mon, 4 May 2026 07:23:31 -0700
+ 15.1.2507.58 via Frontend Transport; Mon, 4 May 2026 07:23:39 -0700
 From: Daniel Machon <daniel.machon@microchip.com>
-Subject: [PATCH net-next v3 00/13] net: lan966x: add support for PCIe FDMA
-Date: Mon, 4 May 2026 16:23:13 +0200
-Message-ID: <20260504-lan966x-pci-fdma-v3-0-a56f5740d870@microchip.com>
+Date: Mon, 4 May 2026 16:23:15 +0200
+Subject: [PATCH net-next v3 02/13] net: microchip: fdma: rename contiguous
+ dataptr helpers
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIANKr+GkC/23NQQ7CIBAF0KsY1mIoUNK68h7GBYXBTmKhgYbUN
- L27BBcm6vLnz3+zkQQRIZHzYSMRMiYMvgRxPBAzan8HirZkwhlXTDSCPrTvlVrpbJA6O2naS7C
- yay0XTpMymyM4XCt5JR4W6mFdyK00I6YlxGf9lZvav1nOftncUEbBtdIM/cCMHC4TmhjMiPPJh
- KmCmX8Qybs/CC+IFWCUAqbK3Tey7/sL+ipiywMBAAA=
-X-Change-ID: 20260313-lan966x-pci-fdma-94ed485d23fa
+Content-Transfer-Encoding: 7bit
+Message-ID: <20260504-lan966x-pci-fdma-v3-2-a56f5740d870@microchip.com>
+References: <20260504-lan966x-pci-fdma-v3-0-a56f5740d870@microchip.com>
+In-Reply-To: <20260504-lan966x-pci-fdma-v3-0-a56f5740d870@microchip.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
 	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
 	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Horatiu Vultur
@@ -81,8 +79,8 @@ CC: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<bpf@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_072339_044090_3BE1BBBE 
-X-CRM114-Status: GOOD (  22.25  )
+X-CRM114-CacheID: sfid-20260504_072344_890910_2763917F 
+X-CRM114-Status: GOOD (  12.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,172 +95,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When lan966x operates as a PCIe endpoint, the driver currently uses
-register-based I/O for frame injection and extraction. This approach is
-functional but slow, topping out at around 33 Mbps on an Intel x86 host
-with a lan966x PCIe card.
+When the FDMA library was introduced [1], two helpers to get the DMA and
+virtual address of a DCB, in contiguous memory, were added. These
+helpers have had no callers until this series. I found the naming I
+initially used confusing and inconsistent.
 
-This series adds FDMA (Frame DMA) support for the PCIe path. When
-operating as a PCIe endpoint, the internal FDMA engine on lan966x cannot
-directly access host memory, so DMA buffers are allocated as contiguous
-coherent memory and mapped through the PCIe Address Translation Unit
-(ATU). The ATU provides outbound windows that translate internal FDMA
-addresses to PCIe bus addresses, allowing the FDMA engine to read and
-write host memory. Because the ATU requires contiguous address regions,
-page_pool and normal per-page DMA mappings cannot be used. Instead,
-frames are transferred using memcpy between the ATU-mapped buffers and
-the network stack. With this, throughput increases from ~33 Mbps to
-~620 Mbps for default MTU.
+Rename fdma_dataptr_get_contiguous() and
+fdma_dataptr_virt_get_contiguous() to fdma_dataptr_dma_addr_contiguous()
+and fdma_dataptr_virt_addr_contiguous(). This makes the pair symmetric
+and clarifies what type of address each returns.
 
-Patch 1 adds the shared drivers/net/ethernet/microchip/fdma/ directory
-to the Sparx5 SoC MAINTAINERS entry.
+[1]: commit 30e48a75df9c ("net: microchip: add FDMA library")
 
-Patches 2-3 prepare the shared FDMA library: patch 2 renames the
-contiguous dataptr helpers for clarity, and patch 3 adds PCIe ATU
-region management and coherent DMA allocation with ATU mapping.
-
-Patches 4-6 refactor the lan966x FDMA code to support both platform
-and PCIe paths: extracting the LLP register write into a helper,
-exporting shared functions, and introducing an ops dispatch table
-selected at probe time.
-
-Patches 7-8 harden the existing FDMA path for the PCIe endpoint
-lifecycle: patch 7 clears latched FDMA error/interrupt stickies after
-the switch reset so they don't assert as soon as interrupts are
-enabled, and patch 8 adds a shutdown() callback that quiesces the
-FDMA engine on host warm reboot (on the PCIe card the FDMA survives
-host reset and would otherwise keep the shared INTx asserted into
-the next probe).
-
-Patch 9 adds the core PCIe FDMA implementation with RX/TX using
-contiguous ATU-mapped buffers. Patches 10 and 11 extend it with MTU
-change and XDP support respectively. XDP_PASS, XDP_TX, XDP_DROP and
-XDP_ABORTED are supported; XDP_REDIRECT is deliberately not, because
-the PCIe data path does not use page_pool.
-
-Patches 12-13 update the lan966x PCI device tree overlay to extend the
-cpu register mapping to cover the ATU register space and add the FDMA
-interrupt.
-
-To: Andrew Lunn <andrew+netdev@lunn.ch>
-To: David S. Miller <davem@davemloft.net>
-To: Eric Dumazet <edumazet@google.com>
-To: Jakub Kicinski <kuba@kernel.org>
-To: Paolo Abeni <pabeni@redhat.com>
-To: Horatiu Vultur <horatiu.vultur@microchip.com>
-To: Steen Hegelund <steen.hegelund@microchip.com>
-To: UNGLinuxDriver@microchip.com
-To: Alexei Starovoitov <ast@kernel.org>
-To: Daniel Borkmann <daniel@iogearbox.net>
-To: Jesper Dangaard Brouer <hawk@kernel.org>
-To: John Fastabend <john.fastabend@gmail.com>
-To: Stanislav Fomichev <sdf@fomichev.me>
-To: Herve Codina <herve.codina@bootlin.com>
-To: Arnd Bergmann <arnd@arndb.de>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Mohsin Bashir <mohsin.bashr@gmail.com>
-Cc: netdev@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: bpf@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-
+Tested-by: Herve Codina <herve.codina@bootlin.com>
 Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
 ---
-Changes in v3:
+ drivers/net/ethernet/microchip/fdma/fdma_api.h | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
 
-Version 3 fixes a number of issues reported by sashiko - mostly
-hardening.
+diff --git a/drivers/net/ethernet/microchip/fdma/fdma_api.h b/drivers/net/ethernet/microchip/fdma/fdma_api.h
+index d91affe8bd98..94f1a6596097 100644
+--- a/drivers/net/ethernet/microchip/fdma/fdma_api.h
++++ b/drivers/net/ethernet/microchip/fdma/fdma_api.h
+@@ -197,8 +197,9 @@ static inline int fdma_nextptr_cb(struct fdma *fdma, int dcb_idx, u64 *nextptr)
+  * if the dataptr addresses and DCB's are in contiguous memory and the driver
+  * supports XDP.
+  */
+-static inline u64 fdma_dataptr_get_contiguous(struct fdma *fdma, int dcb_idx,
+-					      int db_idx)
++static inline u64 fdma_dataptr_dma_addr_contiguous(struct fdma *fdma,
++						   int dcb_idx,
++						   int db_idx)
+ {
+ 	return fdma->dma + (sizeof(struct fdma_dcb) * fdma->n_dcbs) +
+ 	       (dcb_idx * fdma->n_dbs + db_idx) * fdma->db_size +
+@@ -209,8 +210,8 @@ static inline u64 fdma_dataptr_get_contiguous(struct fdma *fdma, int dcb_idx,
+  * applicable if the dataptr addresses and DCB's are in contiguous memory and
+  * the driver supports XDP.
+  */
+-static inline void *fdma_dataptr_virt_get_contiguous(struct fdma *fdma,
+-						     int dcb_idx, int db_idx)
++static inline void *fdma_dataptr_virt_addr_contiguous(struct fdma *fdma,
++						      int dcb_idx, int db_idx)
+ {
+ 	return (u8 *)fdma->dcbs + (sizeof(struct fdma_dcb) * fdma->n_dcbs) +
+ 	       (dcb_idx * fdma->n_dbs + db_idx) * fdma->db_size +
 
-- Fix double use of XDP_PACKET_HEADROOM.
-- Fix ERR_PTR persistence in fdma->atu_region and add missing
-  NULL/ERR_PTR guard in fdma_pci_atu_region_unmap().
-- Reject size <= 0 in fdma_pci_atu_region_map() and return
-  -ENOSPC (was -ENOMEM) when no region is free.
-- Introduce lan966x_fdma_pci_tx_size_fits() that accounts for
-  XDP_PACKET_HEADROOM; use it from both xmit paths to keep
-  bpf_xdp_adjust_tail from writing past the TX slot.
-- Validate BLOCKL in rx_check_frame() (reject < IFH+FCS or
-  > db_size) before it feeds memcpy/XDP sizes.
-- READ_ONCE(port->xdp_prog) inside lan966x_xdp_pci_run() to close
-  a TOCTOU on XDP detach that could deref NULL in
-  bpf_prog_run_xdp().
-- Strip IFH and FCS pre-XDP in rx_check_frame(). After BPF runs
-  the driver cannot tell whether the tail was modified; drop the
-  unconditional skb_pull/skb_trim in rx_get_frame().
-- Account tx_bytes/tx_packets on XDP_TX success and tx_dropped on
-  XDP_TX size reject.
-- Add dma_wmb()/dma_rmb() around DCB status writes and reads in
-  xmit, xmit_xdpf, and napi_poll.
-- Collected Tested-by: Hervé Codina.
-- Link to v2: https://lore.kernel.org/r/20260428-lan966x-pci-fdma-v2-0-d3ec66e06202@microchip.com
-
-Changes in v2:
-
-Version 2 primarily addresses issues with module unload/load, where
-traffic would stop working (Hervé), and XDP head/tail adjust that would be
-discarded (Mohsin).
-
-Apart from that, I ran through issues reported by Sashiko, and fixed a
-number of other issues.
-
-- New patch 1: add drivers/net/ethernet/microchip/fdma/ to the Sparx5
-  SoC MAINTAINERS entry.
-- New patch 7: clear latched FDMA error/interrupt stickies after the
-  switch reset so they don't fire as soon as interrupts are enabled.
-- New patch 8: shutdown() callback, quiescing FDMA on host warm reboot.
-- Replaced the depth-2 dev_is_pci(parent->parent) backend selector
-  with a parent-chain walk.
-- XDP: use xdp.data/xdp.data_end for the post-XDP frame length so that
-  bpf_xdp_adjust_head/tail are respected (Mohsin Bashir)
-- MTU change: drain in-flight xmits with netif_tx_disable() on every
-  port before reallocating rings, waking them again on completion.
-- MTU change: cap the PCIe DCB ring at 256 entries so a full-ring
-  coherent DMA allocation fits in a single MAX_PAGE_ORDER block at
-  jumbo MTU.
-- PCIe ATU: disable the region before clearing its translation on
-  unmap.
-- PCIe FDMA: hold tx_lock in napi_poll around the free-DCB check used
-  to wake stopped netdev queues.
-- PCIe FDMA: return -ENOSPC (not -1) when the DCB ring is exhausted.
-- Link to v1: https://lore.kernel.org/r/20260320-lan966x-pci-fdma-v1-0-ef54cb9b0c4b@microchip.com
-
----
-Daniel Machon (13):
-      MAINTAINERS: add FDMA library to Sparx5 SoC entry
-      net: microchip: fdma: rename contiguous dataptr helpers
-      net: microchip: fdma: add PCIe ATU support
-      net: lan966x: add FDMA LLP register write helper
-      net: lan966x: export FDMA helpers for reuse
-      net: lan966x: add FDMA ops dispatch for PCIe support
-      net: lan966x: clear FDMA interrupt stickies after switch reset
-      net: lan966x: add shutdown callback to stop FDMA on reboot
-      net: lan966x: add PCIe FDMA support
-      net: lan966x: add PCIe FDMA MTU change support
-      net: lan966x: add PCIe FDMA XDP support
-      misc: lan966x-pci: dts: extend cpu reg to cover PCIE DBI space
-      misc: lan966x-pci: dts: add fdma interrupt to overlay
-
- MAINTAINERS                                        |   1 +
- drivers/misc/lan966x_pci.dtso                      |   5 +-
- drivers/net/ethernet/microchip/fdma/Makefile       |   4 +
- drivers/net/ethernet/microchip/fdma/fdma_api.c     |  33 ++
- drivers/net/ethernet/microchip/fdma/fdma_api.h     |  25 +-
- drivers/net/ethernet/microchip/fdma/fdma_pci.c     | 182 ++++++
- drivers/net/ethernet/microchip/fdma/fdma_pci.h     |  42 ++
- drivers/net/ethernet/microchip/lan966x/Makefile    |   4 +
- .../net/ethernet/microchip/lan966x/lan966x_fdma.c  |  51 +-
- .../ethernet/microchip/lan966x/lan966x_fdma_pci.c  | 656 +++++++++++++++++++++
- .../net/ethernet/microchip/lan966x/lan966x_main.c  |  74 ++-
- .../net/ethernet/microchip/lan966x/lan966x_main.h  |  45 ++
- .../net/ethernet/microchip/lan966x/lan966x_regs.h  |  25 +
- .../net/ethernet/microchip/lan966x/lan966x_xdp.c   |  10 +
- 14 files changed, 1117 insertions(+), 40 deletions(-)
----
-base-commit: 790ead9394860e7d70c5e0e50a35b243e909a618
-change-id: 20260313-lan966x-pci-fdma-94ed485d23fa
-
-Best regards,
 -- 
-Daniel Machon <daniel.machon@microchip.com>
+2.34.1
 
 
