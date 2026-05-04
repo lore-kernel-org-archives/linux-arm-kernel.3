@@ -4,125 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCE39FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 08:48:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90148CD3423
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 08:50:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wXFCpQj+tDpD81rQ3cbXwz0JF/z2ToW/sY2Jm67Dc2g=; b=v42B+PjKiyHiKWguzX9LR2bhE5
-	eKpU6RaOg8bBDf49TeWaLdKjCXQ8cDSQAC/lG3uASxXIxvP2/W4C4NUEWnqXWvFS8aBileCs6Do2R
-	p5bgaiHq5RmXzjlaqi0/puMtQiQo/bvqPv5VQs1ZN+fS3ca1zP+o5tKRgZ2ia7iR9hZ0r4ucxbDWE
-	kGj7SLmB9leUk5RqKrBBizs3UsEFxXymq7faAWiVmw+8wSAKc84j/UVThW8YY0fntvsSB8w4WZBFL
-	WVHOpu9jJH9zsBaQOjfsyUPoMDbPSI92LwBUxeh6UgrzHK3d+zZzMHX5OHKWcNwE5KPXYeKaBwMZ3
-	vkDLVhFQ==;
+	bh=rCGUloykHYiuCuZEtw9fiqIuDOMh4v9mTor+YU1AuXs=; b=kKPKeb5DXEGNlQCwb+4rF8LQiG
+	h8gjvURUF5NcXW7y4j3sGIqEOuSMNiYgNBXL6JdOhJ1RocCHfZ+9N5hZLepKOSiRB/cru3XgykXLv
+	4jD4sn0UxiplLi4cj5vKpVJJPVrgFuaZO5OEte/DhdWlYmBOOQpaIUh7ijl2dO1b++LCLmHBEc7oy
+	LmBFT/6YVxTbPcQB/OqxPvLsRyUklbQ1R5SuNNyVkE8CxuS7J6nmyFV+day2I2x7MoLRNe0Ku5esw
+	kqVu7JkfppRrWdoEgngTTXf8hvbhAHJVDuJHPoDr0E5RFohFeLr4ZeDT/5139PsJ3M+SDXkkC9l5V
+	ySE/tbyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJoyK-0000000CknX-0THz;
-	Mon, 04 May 2026 08:48:12 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJoyI-0000000Ckmq-19ul
+	id 1wJp0Z-0000000Cl6P-0xsP;
+	Mon, 04 May 2026 08:50:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wJp0V-0000000Cl5h-3DtT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 08:48:11 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 643Mx6CY2725335;
-	Mon, 4 May 2026 08:47:31 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=wXFCpQ
-	j+tDpD81rQ3cbXwz0JF/z2ToW/sY2Jm67Dc2g=; b=dAE87kWTu/dMORqCkeHx8G
-	FmY0WDimAoo5aamQiYho+t4LAfm/W6BKcOhha0rJ5cAy2qrMQgzNtJyHzyZPvEYt
-	i6cYEQWAHs/IYD79vMpSNeWmZMKyqqyzC/4Z7LAbm0K8RQQzTYtoPnLOAfcGVYm9
-	7hxgInYk6xwMC674SjwsRGp6tS4N6wLvvLKBnlw+gR/T6vcgmiXKfqWJr88ydaoc
-	jHKNn5d1KbZHHH0YVrHy3zy9pLyY0yet3ZHYBm0VHFbvEb42WseBdFVXY4/EM8MA
-	7cQx8UZ5mT1GWnamk7uLG+/tItyzJr79G2VC7I5q7GxEg3HQ/C4HnKFF6rrAHaWA
-	==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dw9y4e0fr-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 04 May 2026 08:47:30 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 6448dbPD006212;
-	Mon, 4 May 2026 08:47:30 GMT
-Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4dwuyvvg32-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 04 May 2026 08:47:30 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6448lS2333751328
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 4 May 2026 08:47:28 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 2994B2004B;
-	Mon,  4 May 2026 08:47:28 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 3471A20040;
-	Mon,  4 May 2026 08:47:27 +0000 (GMT)
-Received: from [9.111.168.154] (unknown [9.111.168.154])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon,  4 May 2026 08:47:27 +0000 (GMT)
-Message-ID: <bc3fb59b-9d80-4957-af51-20db38e3487e@linux.ibm.com>
-Date: Mon, 4 May 2026 10:47:26 +0200
+	Mon, 04 May 2026 08:50:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A83531713;
+	Mon,  4 May 2026 01:50:18 -0700 (PDT)
+Received: from [10.57.34.72] (unknown [10.57.34.72])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C6D133F763;
+	Mon,  4 May 2026 01:50:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1777884624; bh=FCMkZ9hkweao0c59LeiVz688RdDZQ8lSc3hEZVLOErk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=vugjd43cPy1s2or/IKdw/90It0UtXRePbtH549/6cttjMFAgm9Gdw5rlF0k8TrWC0
+	 6z8xwVelspAzl3e+lQ+ekhrPmZ5vMU0D9K2Wl9nCbaJCCexBDwY0/8LBrXBEpFJPOf
+	 gEIFSygQ8vdYubxqMBnzuD3iSgcy8OysDOF8lTgQ=
+Message-ID: <49eb450b-0045-4add-b993-a8b518514c34@arm.com>
+Date: Mon, 4 May 2026 10:50:17 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 8/8] unwind: arm64: Use sframe to unwind interrupt
- frames
-To: Mark Rutland <mark.rutland@arm.com>, Dylan Hatch <dylanbhatch@google.com>
-Cc: Roman Gushchin <roman.gushchin@linux.dev>, Weinan Liu <wnliu@google.com>,
-        Will Deacon <will@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>,
-        Indu Bhagat <ibhagatgnu@gmail.com>,
-        Peter Zijlstra <peterz@infradead.org>,
-        Steven Rostedt <rostedt@goodmis.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Jiri Kosina <jikos@kernel.org>,
-        Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
-        Puranjay Mohan <puranjay@kernel.org>, Song Liu <song@kernel.org>,
-        joe.lawrence@redhat.com, linux-toolchains@vger.kernel.org,
-        linux-kernel@vger.kernel.org, live-patching@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        Randy Dunlap <rdunlap@infradead.org>,
-        Heiko Carstens <hca@linux.ibm.com>
-References: <20260428183643.3796063-1-dylanbhatch@google.com>
- <20260428183643.3796063-9-dylanbhatch@google.com>
- <afTYzAF_x41pyilu@J2N7QTR9R3>
-Content-Language: en-US
-From: Jens Remus <jremus@linux.ibm.com>
-Organization: IBM Deutschland Research & Development GmbH
-In-Reply-To: <afTYzAF_x41pyilu@J2N7QTR9R3>
+Subject: Re: [PATCH v4 12/15] arm64: mm: Map the kernel data/bss read-only in
+ the linear map
+To: Ard Biesheuvel <ardb@kernel.org>, Ard Biesheuvel <ardb+git@google.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org, Will Deacon <will@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>, Ryan Roberts <ryan.roberts@arm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Liz Prucka <lizprucka@google.com>, Seth Jenkins <sethjenkins@google.com>,
+ Kees Cook <kees@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+ David Hildenbrand <david@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org,
+ linux-hardening@vger.kernel.org
+References: <20260427153416.2103979-17-ardb+git@google.com>
+ <20260427153416.2103979-29-ardb+git@google.com>
+ <a8740f95-e167-48ae-ae65-97c6701d9c94@arm.com>
+ <9ff1d19d-f3f8-4106-aeeb-66c4c21742b9@app.fastmail.com>
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+Content-Language: en-GB
+In-Reply-To: <9ff1d19d-f3f8-4106-aeeb-66c4c21742b9@app.fastmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA0MDA5MiBTYWx0ZWRfX0Qv4mg/ZyCV0
- Kz4k7POT7/u4xvrAKz+6I7V5aLc2eUlIaBYh+Nd1L6ar1EfVaCCRhgZibwn4hfhPQFBwKvGJSrO
- ZP+stJVZ4pvW3rrJv5bYQJ3gGA/8kPqnT1GeHiquj6I0Is94CWI4WwkS/8yTF13oo2Mq7zwOrSY
- LmS9B/EG0pj73YEjur/8fqgk+TF6+Z+FvWjUxcG7quchga/tpb0SbEQTt9huFbwMUeMdths1Ytm
- dX34imgluZ81/WMv1kEikhrQ2dRnlHOSYjGPof8H43/otVwqUEfqHIbAFFiWMGJjWzhC1ZJDA49
- 4keNFtXeFa0yZsz1dZ5wRdIKmC6dslELOEDSSWts+Sss64FWRdC2ncwi+top1tV2XNsgVgQVAw2
- W8KjK0Q+jhf0VVxiVamtQDtt0P6AoIvylAmMJ575YszRo4VtmlT7oW63nYPfGhtZlzN1UHptF0c
- DkQT0I3oJkMdcGmIXag==
-X-Authority-Analysis: v=2.4 cv=J4GaKgnS c=1 sm=1 tr=0 ts=69f85d23 cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
- a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=CCpqsmhAAAAA:8
- a=VnNF1IyMAAAA:8 a=DIEc2ppCuoNOjgjcGPkA:9 a=mEOxYIM7fCpmq0lQ:21
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=ul9cdbp4aOFLsgKbc677:22
-X-Proofpoint-GUID: A8vLvKcL-m9ZiK52wbdcR4xVQgvV8Wsi
-X-Proofpoint-ORIG-GUID: fYTOW5P0dtHLAAQU_sNzU3JOkUZPiIF5
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-04_03,2026-04-30_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 clxscore=1015 malwarescore=0 bulkscore=0 suspectscore=0
- priorityscore=1501 spamscore=0 phishscore=0 adultscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2605040092
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_014810_444221_16615B2B 
-X-CRM114-Status: GOOD (  61.00  )
+X-CRM114-CacheID: sfid-20260504_015028_026903_6059CDC7 
+X-CRM114-Status: GOOD (  12.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,354 +82,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Mark,
+On 29/04/2026 16:46, Ard Biesheuvel wrote:
+>>> @@ -1155,7 +1157,11 @@ static void __init map_mem(void)
+>>>  	 * of the region accessible to subsystems such as hibernate,
+>>>  	 * but protects it from inadvertent modification or execution.
+>>>  	 */
+>>> -	__map_memblock(kernel_start, kernel_end, pgprot_tagged(PAGE_KERNEL),
+>>> +	__map_memblock(kernel_start, init_begin, pgprot_tagged(PAGE_KERNEL),
+>>> +		       flags);
+>>> +
+>>> +	/* Map the kernel data/bss so it can be remapped later */
+>>> +	__map_memblock(init_end, kernel_end, pgprot_tagged(PAGE_KERNEL),
+>> Maybe I'm missing something obvious, but considering patch 3/4 couldn't
+>> we directly map the range RO here?
+>>
+> After 3/4, __map_memblock() will no longer combine new mappings with existing
+> ones into block mappings or contiguous ranges. However, it will still set the
+> requested type and permission attributes on the entire range, and so the second
+> invocation is needed to restore the read-only bit.
+>
+> IOW, we could also map it read-only twice, the result would be the same, but the
+> second call is still needed.
 
-I mostly have comments regarding your the SFrame related remarks.
+Got it, thanks.
 
-On 5/1/2026 6:46 PM, Mark Rutland wrote:
-> Thanks for putting this together. I think this is looking pretty good.
-> However, there are some things that aren't quite right and need some
-> work, which I've commented on below.
-
-> (2) To make unwinding generally possible, we'll need to annotate some
->     assembly functions as unwindable. We'll need to do that for string
->     routines under lib/, and probably some crypto code, but we don't
->     need to do that for most code in head.S, entry.S, etc.
-> 
->     The vast majority of relevant assembly functions are leaf functions
->     (where the return address is never moved out of the LR), so we can
->     probably get away with a simple annotation for those that avoids the
->     need for open-coded CFI directives everywhere.
-
-Wrapping them in .cfi_startproc ... .cfi_endproc should do.  For instance
-by extending SYM_FUNC_START() and SYM_FUNC_END() or introducing flavors
-that do.  Or where you thinking of something else?
-
-> On Tue, Apr 28, 2026 at 06:36:43PM +0000, Dylan Hatch wrote:
-
->> diff --git a/arch/arm64/include/asm/stacktrace/common.h b/arch/arm64/include/asm/stacktrace/common.h
-
->> @@ -21,6 +21,8 @@ struct stack_info {
->>   *
->>   * @fp:          The fp value in the frame record (or the real fp)
->>   * @pc:          The lr value in the frame record (or the real lr)
->> + * @sp:          The sp value at the call site of the current function.
->> + * @unreliable:  Stacktrace is unreliable.
->>   *
->>   * @stack:       The stack currently being unwound.
->>   * @stacks:      An array of stacks which can be unwound.
->> @@ -29,7 +31,11 @@ struct stack_info {
->>  struct unwind_state {
->>  	unsigned long fp;
->>  	unsigned long pc;
->> +#ifdef CONFIG_HAVE_UNWIND_KERNEL_SFRAME
->> +	unsigned long sp;
->> +#endif
-> 
-> As this is only used by the kernel unwinder (and not the hyp unwinder),
-> this should live in struct kunwind_state in stacktrace.c.
-> 
-> That said, for unwinding across exception boundaries we should not need
-> this, as the SP value will be in the pt_regs. If we only use SFrame for
-> the exception boundary case, we can remove this entirely. I would
-> strongly prefer that we do that.
-
->> diff --git a/arch/arm64/kernel/stacktrace.c b/arch/arm64/kernel/stacktrace.c
-
->> +/*
->> + * Unwind to the next frame according to sframe.
->> + */
->> +static __always_inline int
->> +unwind_next_frame_sframe(struct kunwind_state *state)
->> +{
->> +	struct unwind_frame frame;
->> +	unsigned long cfa, fp, ra;
->> +	enum kunwind_source source = KUNWIND_SOURCE_FRAME;
->> +	struct pt_regs *regs = state->regs;
->> +
->> +	int err;
-> 
-> As above, we should only use this for unwinding from the regs, after a
-> KUNWIND_SOURCE_REGS_PC step.
-> 
-> With that in mind, it would be good to:
-> 
-> (1) Rename this to something like kunwind_next_regs_sframe(). Note
->     'kunwind' rather than 'unwind' for consistency with the rest of this
->     file.
-> 
-> (2) Add the following sanity checks:
-> 
-> 	if (WARN_ON_ONCE(state->source != KUNWIND_SOURCE_REGS_PC))
-> 		return -EINVAL;
-> 	if (WARN_ON_ONCE(!state->regs))
-> 		return -EINVAL;
-> 
->     ... which will also allow the code below to be simplified.
-> 
->> +
->> +	/* FP/SP alignment 8 bytes */
->> +	if (state->common.fp & 0x7 || state->common.sp & 0x7)
->> +		return -EINVAL;
->> +
->> +	/*
->> +	 * Most/all outermost functions are not visible to sframe. So, check for
->> +	 * a meta frame record if the sframe lookup fails.
->> +	 */
->> +	err = sframe_find_kernel(state->common.pc, &frame);
->> +	if (err)
->> +		return kunwind_next_frame_record_meta(state);
->> +
->> +	if (frame.outermost)
->> +		return -ENOENT;
-> 
-> I don't think we ever expect an outermost frame within the kernel. We
-> haven't added any annotations for that, and we expect to unwind all the
-> way to a FRAME_META_TYPE_FINAL frame.
-> 
-> We cannot fall back to kunwind_next_frame_record_meta() here. We don't
-> know that the next frame is a meta frame (and this results in a warning
-> noted above), and we don't know the result is going to be reliable if we
-> don't have SFrame data, so the right thing to do is return an error.
-> 
-> I think this should be:
-> 
-> 	/*
-> 	 * A kernel unwind should always end at a FRAME_META_TYPE_FINAL
-> 	 * frame. There should be no outermost frames within the kernel.
-> 	 */
-> 	if (frame.outermost)
-> 		return -EINVAL;
-
-Makes sense.
-
-> 
-> 	err = sframe_find_kernel(state->common.pc, &frame);
-> 	if (err)
-> 		return -EINVAL;
-> 
->> +	/* Get the Canonical Frame Address (CFA) */
->> +	switch (frame.cfa.rule) {
->> +	case UNWIND_CFA_RULE_SP_OFFSET:
->> +		cfa = state->common.sp;
-
-IIUC you suggest this to be changed as follows?
-
-		cfa = regs->regs[31];
-
->> +		break;
->> +	case UNWIND_CFA_RULE_FP_OFFSET:
->> +		if (state->common.fp < state->common.sp)
->> +			return -EINVAL;
->> +		cfa = state->common.fp;
->> +		break;
->> +	case UNWIND_CFA_RULE_REG_OFFSET:
->> +	case UNWIND_CFA_RULE_REG_OFFSET_DEREF:
->> +		/* regs only available in topmost/interrupt frame */
->> +		if (!regs || frame.cfa.regnum > 30)
->> +			return -EINVAL;
->> +		cfa = regs->regs[frame.cfa.regnum];
->> +		break;
-> 
-> Do we ever expect to see UNWIND_CFA_RULE_REG_OFFSET or
-> UNWIND_CFA_RULE_REG_OFFSET_DEREF in practice for kernel code?
-
-No.  Those can only occur with SFrame V3 flexible FDE, which are
-currently not generated by GNU assembler for arm64/aarch64, and thus
-could be omitted in the arm64-specific kernel sframe unwinder:
-
-https://sourceware.org/git/?p=binutils-gdb.git;a=blob;f=gas/config/tc-aarch64.h;hb=binutils-2_46#l342
-
-I must admit that while reviewing I thought it would be future-proof to
-have support for rules that can only be represented with SFrame V3
-flexible FDE, even if they are currently not used on arm64.  Ideally
-kunwind_next_sframe() could be made common, if another architecture
-would implement kernel unwinding using sframe.
-
-> 
->> +	default:
->> +		WARN_ON_ONCE(1);
->> +		return -EINVAL;
->> +	}
->> +	cfa += frame.cfa.offset;
->> +
->> +	/*
->> +	 * CFA typically points to a higher address than RA or FP, so don't
->> +	 * consume from the stack when we read it.
->> +	 */
->> +	if (frame.cfa.rule & UNWIND_RULE_DEREF &&
->> +	    !get_word(&state->common, &cfa))
->> +		return -EINVAL;
-> 
-> Per the switch above, this could only be
-> UNWIND_CFA_RULE_REG_OFFSET_DEREF. As above, do we ever expect to
-> encounter that in practice for kernel code?
-
-No.  See above.
-
-> 
->> +
->> +	/* CFA alignment 8 bytes */
->> +	if (cfa & 0x7)
->> +		return -EINVAL;
-> 
-> If the CFA is the SP upon entry to the function, then per AAPCS64 rules
-> it should be aligned to 16 bytes. Otherwise, where has this 8 byte
-> alignment requirement come from? Does SFrame mandate that?
-
-That originates from the common unwind user logic (see
-kernel/unwind/user.c, unwind_user_next_common()), which currently
-assumes 8-byte/4-byte SP alignment for all 64-bit/32-bit architectures.
-
-So checking for 16-byte alignment here would make sense.
-
-> 
->> +
->> +	/* Get the Return Address (RA) */
->> +	switch (frame.ra.rule) {
->> +	case UNWIND_RULE_RETAIN:
->> +		/* regs only available in topmost/interrupt frame */
->> +		if (!regs)
->> +			return -EINVAL;
->> +		ra = regs->regs[30];
->> +		source = KUNWIND_SOURCE_REGS_LR;
->> +		break;
->> +	/* UNWIND_USER_RULE_CFA_OFFSET not implemented on purpose */
-
-Nit: s/UNWIND_USER_RULE_CFA_OFFSET/UNWIND_RULE_CFA_OFFSET/
-
-> 
-> It would be better for the comment to say *why* that's not implemented.
-> 
-> I assume that's because UNWIND_USER_RULE_CFA_OFFSET would mean that the return
-> address is a stack address, and that's obviously not legitimate.
-
-That and SFrame V3 currently cannot represent FP/RA as CFA + offset
-(i.e. UNWIND_RULE_CFA_OFFSET; .cfi_val_offset FP/RA).
-
-The comment originates from the common unwind user logic (see
-kernel/unwind/user.c).  I am open to improve that.  What about:
-
-	/*
-	 * UNWIND_RULE_CFA_OFFSET not implemented on purpose, as a stack
-	 * address cannot be a legitimate return address value.  It is
-	 * also not used (e.g. not represented in sframe).
-	 */
-
-> 
->> +	case UNWIND_RULE_CFA_OFFSET_DEREF:
->> +		ra = cfa + frame.ra.offset;
->> +		break;
->> +	case UNWIND_RULE_REG_OFFSET:
->> +	case UNWIND_RULE_REG_OFFSET_DEREF:
->> +		/* regs only available in topmost/interrupt frame */
->> +		if (!regs)
->> +			return -EINVAL;
->> +		ra = regs->regs[frame.cfa.regnum];
->> +		ra += frame.ra.offset;
->> +		break;
-> 
-> Do we ever expect UNWIND_RULE_REG_OFFSET or UNWIND_RULE_REG_OFFSET_DEREF
-> in practice for kernel code?
-
-No.  See above (SFrame V3 flexible FDE).
-
-> 
-> I don't think we expect UNWIND_RULE_REG_OFFSET unless that's sometimes used
-> instead of UNWIND_RULE_RETAIN to express that the return address is in x30
-> (with zero offset).
-
-No.  Unless there would be nonsense .cfi_register 30, 30, which would
-require SFrame V3 flexible FDE to be represented.
-
-@Indu:  We may consider to treat .cfi_register <reg>, <reg> (for FP/RA)
-like .cfi_restore <reg> in the GNU assembler?
-
-> 
-> Similarly, if the address is on the stack it should be in a frame
-> record. Would we ever expect UNWIND_RULE_REG_OFFSET_DEREF rather than
-> UNWIND_RULE_CFA_OFFSET_DEREF?
-
-No.  See above (SFrame V3 flexible FDE).
-
-> 
->> +	default:
->> +		WARN_ON_ONCE(1);
->> +		return -EINVAL;
->> +	}
->> +
->> +	/* Get the Frame Pointer (FP) */
->> +	switch (frame.fp.rule) {
->> +	case UNWIND_RULE_RETAIN:
->> +		fp = state->common.fp;
->> +		break;
->> +	/* UNWIND_USER_RULE_CFA_OFFSET not implemented on purpose */
-> 
-> As for RA, the comment should explain why that's not implemented.
-
-I am open to improve the comment in the the common unwind user logic.
-What about:
-
-	/*
-	 * UNWIND_RULE_CFA_OFFSET not implemented on purpose, as it is
-	 * not used (e.g. not represented in sframe).
-	 */
-
-> 
->> +	case UNWIND_RULE_CFA_OFFSET_DEREF:
->> +		fp = cfa + frame.fp.offset;
->> +		break;
->> +	case UNWIND_RULE_REG_OFFSET:
->> +	case UNWIND_RULE_REG_OFFSET_DEREF:
->> +		/* regs only available in topmost/interrupt frame */
->> +		if (!regs)
->> +			return -EINVAL;
->> +		fp = regs->regs[frame.fp.regnum];
->> +		fp += frame.fp.offset;
->> +		break;
-
-Likewise neither UNWIND_RULE_REG_OFFSET nor UNWIND_RULE_REG_OFFSET_DEREF
-can currently occur on arm64.  See above (SFrame V3 flexible FDE).
-
->> +	default:
->> +		WARN_ON_ONCE(1);
->> +		return -EINVAL;
->> +	}
->> +
->> +	/*
->> +	 * Consume RA and FP from the stack. The frame record puts FP at a lower
->> +	 * address than RA, so we always read FP first.
->> +	 */
->> +	if (frame.fp.rule & UNWIND_RULE_DEREF &&
->> +	    !get_word(&state->common, &fp))
->> +		return -EINVAL;
-> 
-> Why is this get_word() rather than get_consume_word()?
-> 
->> +
->> +	if (frame.ra.rule & UNWIND_RULE_DEREF &&
->> +	    get_consume_word(&state->common, &ra))
->> +		return -EINVAL;
->> +
->> +	state->common.pc = ra;
->> +	state->common.sp = cfa;
-> 
-> As above, the SP can be removed.
-> 
->> +	state->common.fp = fp;
->> +
->> +	state->source = source;
->> +
->> +	return 0;
->> +}
-Regards,
-Jens
--- 
-Jens Remus
-Linux on Z Development (D3303)
-jremus@de.ibm.com / jremus@linux.ibm.com
-
-IBM Deutschland Research & Development GmbH; Vorsitzender des Aufsichtsrats: Wolfgang Wendt; Geschäftsführung: David Faller; Sitz der Gesellschaft: Ehningen; Registergericht: Amtsgericht Stuttgart, HRB 243294
-IBM Data Privacy Statement: https://www.ibm.com/privacy/
-
+- Kevin
 
