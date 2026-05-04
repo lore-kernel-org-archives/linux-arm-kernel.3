@@ -4,58 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6513CCD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 18:25:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 620C4FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 18:25:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EDF6hUkZ0lywwZvFhw0Nk/fYqOoq7apBZafqB0ONLuU=; b=3DtnLZq65JUJiDx+czwO9Awp+t
-	9Dcb402fQKM6+yvUQgxFc9TJCmuwkwlOdFAjo1PGuR2JbN2cgRQC5HQXmVSvq5UyZGXy2Zgha+BoI
-	45OXJQv1YGJnAnSKfHKdRS8Avu9FGQ71BgXxL1t6Fi9KUlpAbpOXqdb5nOSQBiM96c5GjW76uUC69
-	h+b3bfiPMQ06kiEXg8Ek/KjfQ5UtQVrqGCMqcU0DruuTUgSu5OoMO5SgC9ICH6Xrt8F7PBceIVPdy
-	R71svqZDezpkUWwjwm9IBZPFlzFZCJJD7ipEQVx9d4CCYTlr/gKuGSR3NNGeeAWg3iNGGlYrDEb0R
-	RVeavyQg==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T9+S973VEhtbV0vWBhIsDJH6lSw/g8GJeR7OfMw8/Nw=; b=eIkXfwailzsmiYNTF/ekqYIWiR
+	912rswldVJ6og/UT22mnLjVaItHSTcSiadtH+0DynOesgR5UR57kFiH1mNuOomNFiBiLYBO/QuwZE
+	xESNjmF2Q7/+FWn8P8xaEi+SUlNzW8+wIfgyiWXhGzlHL+NOIJskrflEnGZRfugZBMkWFAgPsmLSE
+	ILDuYcGJgbTgbCrvjD+TS6p1YKoELFtGFjJaYM1q7TnZwoUYoUuoTgAzKnzyiO/WExRgFxP/8OsRy
+	z4W0iJbR/3YuBvUl0pyXgaQpPLFT6HcvHBc4yAQNSzfZJPg/PsCKhivvFT4Zao7RRU4j0VmNc5xYX
+	eZVU3XFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJxyZ-0000000DyHv-11fU;
-	Mon, 04 May 2026 18:25:03 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wJxya-0000000DyKx-3h68;
+	Mon, 04 May 2026 18:25:04 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJxyV-0000000DyAr-3Zsd;
-	Mon, 04 May 2026 18:25:01 +0000
+	id 1wJxyV-0000000DyBO-3m0b;
+	Mon, 04 May 2026 18:25:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A653D44366;
+	by sea.source.kernel.org (Postfix) with ESMTP id D665F4455F;
 	Mon,  4 May 2026 18:24:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 78D87C2BCB8;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id A81A2C2BCF5;
 	Mon,  4 May 2026 18:24:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1777919098;
-	bh=QYhlAZ3CmOdhVVfeWniyHMUkBmi9/VkBz61p37XrddE=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=qu7pVB5Z+Fti0eh5R7o4ePLqloDkhg/rPuNC+jm++mu5LEGORB67ThZlaB4Ri6REd
-	 h9k3PZDK50VzbGjjW6to0CZ3WYG0JKpKddijq3iBM/j6MUBj6IS8JeP2QGBV/AmJ/f
-	 opBFVbpeJQwBStAro4VeWFGJi7YCpHj639JioMKBtknoJcM+/nAT1OknxZbHmuhOo8
-	 g5FRyEkINzqEhfHst5RqbQN1DzzxF9nv8pANcmBAq/erH8+f9Z/ucGfsZPMRJsIYkJ
-	 MOTHJyj0MIwgo8a09bKuJelLt2gmZ4rLYLlnREHi3n7hdc/WGqlT/+WWEa1H77BwF5
-	 4vjunr/b3eLzg==
+	bh=KLZKepons1ktWUi2cBQErmKekVgkW3Se0X3Vct8Tzv8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=B1mO8BP2bXa0mSeeC6gqwke9UdeoBN4BX+2IJ0Ya0DQQdDwzhTvNxMSxEcqmuShAA
+	 7/gQmd3onHmtystCjQTzrBC5Wh84Y50FyLiMjuzDO0eza1GZkezcC6LNjR4gC0lI6v
+	 kttLs6lSd8EyfMWpQ9Lq06Um+fVa4/3Fo+i2Fj41I2/wKxyLBDlUtBkA/f6tJZWal2
+	 jXJ5IuDxU3a7vax+fDKwFePN5W9ZalBC3MhIUENFxm2BopTB2YHqHVIPsKHoRj06MP
+	 9PXZ8b32WDLBKsOifR5sd8yV2zZ95ICRc/MuxcHgaAAqBeV8atQ/sTwtdhOztO7McP
+	 6WXhao6WeLE7A==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 452C2CD342F;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9D107FF885A;
 	Mon,  4 May 2026 18:24:58 +0000 (UTC)
 From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
-Subject: [PATCH 00/13] add AUXADC, EFUSE and thermal drivers for the
- MediaTek mt6323 PMIC
-Date: Mon, 04 May 2026 21:24:52 +0300
-Message-Id: <20260504-mt6323-v1-0-799b58b355ff@protonmail.com>
+Date: Mon, 04 May 2026 21:24:55 +0300
+Subject: [PATCH 03/13] dt-bindings: thermal: add mt6323 PMIC thermal
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDUwMj3dwSM2MjY11Lk1TDNKMUo8SkJGMloOKCotS0zAqwQdGxEH5xaVJ
- WanIJSLdSbS0AsRoavGoAAAA=
-X-Change-ID: 20260502-mt6323-94e1f2d2abb3
+Message-Id: <20260504-mt6323-v1-3-799b58b355ff@protonmail.com>
+References: <20260504-mt6323-v1-0-799b58b355ff@protonmail.com>
+In-Reply-To: <20260504-mt6323-v1-0-799b58b355ff@protonmail.com>
 To: Jonathan Cameron <jic23@kernel.org>, 
  David Lechner <dlechner@baylibre.com>, 
  =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
@@ -74,19 +71,19 @@ Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
  Ben Grisdale <bengris32@protonmail.ch>, 
  Roman Vivchar <rva333@protonmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777919095; l=2679;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777919095; l=2523;
  i=rva333@protonmail.com; s=20260325; h=from:subject:message-id;
- bh=QYhlAZ3CmOdhVVfeWniyHMUkBmi9/VkBz61p37XrddE=;
- b=HnPIZLJxYhQb7c7hv5WLcTV2Su7mCxPFsQG4AYkl+FX9MpAm+P9sqwlSxYaIA8rUnf5jsv0hA
- hEI5QMSVOeAAjC+pse0XZEk6Ve0do2DE/vjHgpCOLUXF/3zs0ZaWYhy
+ bh=Y0jGUqql3soeCei8ikkZ/UAUGnGbcX1Kt0zfmNLXZe4=;
+ b=lQx9pnqPRHZhANCq6Fot6muIYsncfpNjwFildJFkPJyUUmvivT5WyxPskKeUZyyj05VzSA3s8
+ QsmJn2RmGknDE3xVFJJ7MX3q+cv0iIOMyuptPHzDdSNh8XjAkhcp4/S
 X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
  pk=euuVBZGtA2Cqb8Dju84qpQPhvwxyUirJlXpqEPQWKBM=
 X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260325 with
  auth_id=695
 X-Original-From: Roman Vivchar <rva333@protonmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_112459_974492_B4927850 
-X-CRM114-Status: GOOD (  10.36  )
+X-CRM114-CacheID: sfid-20260504_112500_048215_6CFD3793 
+X-CRM114-Status: GOOD (  12.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,61 +99,93 @@ Reply-To: rva333@protonmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds support for AUXADC, EFUSE and thermal drivers for the
-MediaTek mt6323 PMIC
+From: Roman Vivchar <rva333@protonmail.com>
 
-Usually vendor downstream kernels for devices with mt6323 include various
-useful drivers like AUXADC, thermal, fuel gauge etc. Bring it to the
-upstream kernel by rewriting some drivers from 3.18 vendor tree.
+The MediaTek mt6323 PMIC temperature can be read using AUXADC channel.
 
-Currently dt-bindings limit some values like ADC channel count and names
-to what mt6323 has, but the drivers were designed in a way to support
-other PMICs like mt6358 (which has very similar thermal logic).
-
-Tested on the MediaTek mt6572 and mt8163 SoCs, both paired with mt6323.
+Add the devicetree binding documentation for the MediaTek mt6323 thermal.
+Due similarities with newer PMICs like mt6358, which include more than
+one thermal sensor, the #thermal-sensor-cells should be set to 1, to
+avoid breaking devicetree ABI in future.
 
 Tested-by: Ben Grisdale <bengris32@protonmail.ch> # Amazon Echo Dot (2nd Generation)
 Signed-off-by: Roman Vivchar <rva333@protonmail.com>
 ---
-Roman Vivchar (13):
-      dt-bindings: iio: adc: add mt6323 PMIC AUXADC
-      dt-bindings: nvmem: add mt6323 PMIC EFUSE
-      dt-bindings: thermal: add mt6323 PMIC thermal
-      iio: adc: mediatek: add mt6323 PMIC AUXADC driver
-      nvmem: add mt6323 PMIC EFUSE driver
-      thermal: mediatek: add pmic thermal support
-      mfd: mt6397-core: add mt6323 AUXADC support
-      mfd: mt6397-core: add support for mt6323 efuse
-      mfd: mt6397-core: add support for mt6323 thermal
-      ARM: dts: mediatek: mt6323: add support for AUXADC
-      ARM: dts: mediatek: mt6323: add support for EFUSE
-      ARM: dts: mediatek: mt6323: add support for thermal
-      MAINTAINERS: add mt6323 drivers maintainer
+ .../bindings/thermal/mediatek,mt6323-thermal.yaml  | 63 ++++++++++++++++++++++
+ 1 file changed, 63 insertions(+)
 
- .../bindings/iio/adc/mediatek,mt6323-auxadc.yaml   |  39 +++
- .../bindings/nvmem/mediatek,mt6323-efuse.yaml      |  42 +++
- .../bindings/thermal/mediatek,mt6323-thermal.yaml  |  63 ++++
- MAINTAINERS                                        |  18 +
- arch/arm/boot/dts/mediatek/mt6323.dtsi             |  42 +++
- drivers/iio/adc/Kconfig                            |  11 +
- drivers/iio/adc/Makefile                           |   1 +
- drivers/iio/adc/mt6323-auxadc.c                    | 372 +++++++++++++++++++++
- drivers/mfd/mt6397-core.c                          |   9 +
- drivers/nvmem/Kconfig                              |  11 +
- drivers/nvmem/Makefile                             |   2 +
- drivers/nvmem/mt6323-efuse.c                       |  86 +++++
- drivers/thermal/mediatek/Kconfig                   |   9 +
- drivers/thermal/mediatek/Makefile                  |   1 +
- drivers/thermal/mediatek/pmic_thermal.c            | 274 +++++++++++++++
- .../dt-bindings/iio/adc/mediatek,mt6323-auxadc.h   |  16 +
- 16 files changed, 996 insertions(+)
----
-base-commit: 028ef9c96e96197026887c0f092424679298aae8
-change-id: 20260502-mt6323-94e1f2d2abb3
+diff --git a/Documentation/devicetree/bindings/thermal/mediatek,mt6323-thermal.yaml b/Documentation/devicetree/bindings/thermal/mediatek,mt6323-thermal.yaml
+new file mode 100644
+index 000000000000..1882816ba274
+--- /dev/null
++++ b/Documentation/devicetree/bindings/thermal/mediatek,mt6323-thermal.yaml
+@@ -0,0 +1,63 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/thermal/mediatek,mt6323-thermal.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: MediaTek PMIC thermal
++
++maintainers:
++  - Roman Vivchar <rva333@protonmail.com>
++
++description:
++  The MediaTek PMIC thermal sensor uses an AUXADC channel to read raw
++  temperature data and applies calibration data from NVMEM.
++
++allOf:
++  - $ref: thermal-sensor.yaml#
++
++properties:
++  compatible:
++    const: mediatek,mt6323-thermal
++
++  io-channels:
++    description: >
++      IIO channel for the AUXADC to read raw data from.
++    maxItems: 1
++
++  io-channel-names:
++    const: vts
++
++  nvmem-cells:
++    description: >
++      NVMEM cell with phandle to the calibration data provided by the
++      NVMEM device. If unspecified default values will be used.
++    maxItems: 1
++
++  nvmem-cell-names:
++    const: calibration-data
++
++  "#thermal-sensor-cells":
++    const: 1
++
++required:
++  - compatible
++  - io-channels
++  - io-channel-names
++  - "#thermal-sensor-cells"
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/iio/adc/mediatek,mt6323-auxadc.h>
++
++    mt6323_thermal: thermal {
++      compatible = "mediatek,mt6323-thermal";
++      nvmem-cells = <&mt6323_thermal_calibration_data>;
++      nvmem-cell-names = "calibration-data";
++
++      io-channels = <&mt6323_adc MT6323_AUXADC_CHIP_TEMP>;
++      io-channel-names = "vts";
++      #thermal-sensor-cells = <1>;
++    };
 
-Best regards,
---  
-Roman Vivchar <rva333@protonmail.com>
+-- 
+2.53.0
 
 
 
