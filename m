@@ -4,61 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77AAACD3430
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 13:42:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3282CD3430
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 13:46:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VXV5sOcPo5EdgGgghpRQ3MuzjSpAQqR7Rz2Uoz+R8h4=; b=Z3TYkprDv8E1Rn8COzlpR9W5eN
-	f4Rps/s31i51zAEq7C7JwF1nxhIJSpm3azmV908PtsqWuwbDpk/wL8koQzgFAkEhMpcu33YzWkeMq
-	MST8FE5uVKd0D6Icj2Amkcf3XFTUpMKACpu6+Vbo1FFvby1RgcitT564StQZKumUtFXsij3s6tevz
-	BL2Es7ckT3elelC8I6kImbg5QNSV3T6vUxbBl1OdCZDV74WX3s6zrdXAY9XAd5xerDw7K2t1WjDkJ
-	YaKR/dcHjxwpuvOIq3HX9lAb+B9PeRINp8pvyHUV1uJ17xNSflkqBrzqoSCBVkhVFsx7UZEO8/ZHe
-	a0jOSfSg==;
+	bh=aqA8j284nR9EwEunyRE/Z5TkjJEqRCgTaWrf0ir56eA=; b=lHiY8ESn40+b734CezhcD8/XXp
+	bGhVPm2iTknqgacc5bsWH+JHCVcWueyBtq72REypv2FBQJH96IG4J3UwIzNM7NIjPhn3HnR7z/3Qj
+	ET4EbYXiLveZSRSoa1IiWevgg/yjz7v0QuEyGWCdj9vog9xI0Fy3SDyf6mRcaq6llOm0LLUQU3EGu
+	l72qoJ02wlCuYO78MOnVdLVYkVfoSS2vzopevabRn1aoKHtE4fNIyVlIdiywreqC8Tq3kL33UaUJw
+	Zv197Ptb3c9VpgEUBjwYByabCD3xM4T6VsktszhH9OXHipCbGTiKZY77TVVWANyqXy7jJ5BXmNANl
+	ZHG2Q/Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJtZP-0000000DL40-3o4K;
-	Mon, 04 May 2026 13:42:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wJtdK-0000000DLWP-3Vip;
+	Mon, 04 May 2026 13:46:50 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJtZO-0000000DL3r-3mz2
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 13:42:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 06A9C600C3;
-	Mon,  4 May 2026 13:42:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59ADDC2BCB8;
-	Mon,  4 May 2026 13:42:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777902165;
-	bh=8tSxUuDeUyvAzyJEtbx33GrMXbNrQ8yGPFNRsdz/Gs8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Zrh5lzVfDhZEsk2qhy4yS5mwhpiYAWQXd41K5Z+bqFwH7Uzmef/Z8XTg/NHKKI0hD
-	 TVmdh+yKwg03VNygJ9vobHiCUrYkun7ThShNwwaEs1ATuiAw1F9ggDcNryy26TvPzQ
-	 gA5T2CYQE43C+HM2mzetxkuUprqZdZOHII6qR2Y0EUKQJ++T5+knqWzFmwmfMFMkEM
-	 VGuzKVCJWuVeo/lbTpKJnLxDV4pz7WDIKI4V1etF4iKaKUBqb+MH+OKHRwvJ8QDfid
-	 hQf9kmW4NYN5sJ5qqXcFu8044fZxP1wIuC5rXJ8H1dFkRJ+bif39CBxKiyOs78C8T/
-	 DYlhXoJuklPpA==
-Date: Mon, 4 May 2026 16:42:41 +0300
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Stefan Wahren <wahrenst@gmx.net>
-Cc: Peter Huewe <peterhuewe@gmx.de>, Jason Gunthorpe <jgg@ziepe.ca>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-integrity@vger.kernel.org, kernel@pengutronix.de,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>
-Subject: Re: tpm: spi: do not call blocking ops when !TASK_RUNNING; during
- shutdown
-Message-ID: <afiiUdFv7p0fuK-5@kernel.org>
-References: <e7974d35-0d50-4742-8747-822f28915e00@gmx.net>
+	id 1wJtdH-0000000DLVX-14BB;
+	Mon, 04 May 2026 13:46:50 +0000
+Received: from edelgard.fodlan.icenowy.me (unknown [112.94.100.82])
+	by APP-01 (Coremail) with SMTP id qwCowABHs249o_hpSL9ADw--.53082S2;
+	Mon, 04 May 2026 21:46:38 +0800 (CST)
+Message-ID: <b91f527f5ef7999300dd6f7df36dd2d31aa89bc2.camel@iscas.ac.cn>
+Subject: Re: [PATCH] arm64: dts: mediatek: mt8188-geralt: enable touchpad
+From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+  Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
+ <angelogioacchino.delregno@collabora.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+Date: Mon, 04 May 2026 21:46:37 +0800
+In-Reply-To: <CAGXv+5FvdufzjqBRQnnG3y8FVW9bHL47CVv_=e7GbVv2d3eEuA@mail.gmail.com>
+References: <20260504072846.2581096-1-zhengxingda@iscas.ac.cn>
+	 <CAGXv+5FvdufzjqBRQnnG3y8FVW9bHL47CVv_=e7GbVv2d3eEuA@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: base64
+User-Agent: Evolution 3.58.3 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <e7974d35-0d50-4742-8747-822f28915e00@gmx.net>
+X-CM-TRANSID: qwCowABHs249o_hpSL9ADw--.53082S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxAw48AFWfAr4ftw15Gw4rKrg_yoWrWF1Upr
+	97trWUtryUGrn7Jr15Xr1UJFy5Ar1kJ3W5Gr18XFyUJw1UJr1jqr4Yqrn0gr1UJr48Jw1U
+	Jr1jqry7ur17JrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPlb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
+	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
+	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACY4xI67k04243AVAKzVAKj4xxM4xv
+	F2IEb7IF0Fy26I8I3I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GF
+	yl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWU
+	JVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7V
+	AKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j
+	6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42
+	IY6I8E87Iv6xkF7I0E14v26r4j6r4UJwCE64xvF2IEb7IF0Fy7YxBIdaVFxhVjvjDU0xZF
+	pf9x07b5Xd8UUUUU=
+X-Originating-IP: [112.94.100.82]
+X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260504_064647_715114_D4D5C870 
+X-CRM114-Status: GOOD (  28.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,80 +84,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stefan,
+5ZyoIDIwMjYtMDUtMDTkuIDnmoQgMTc6NDEgKzA4MDDvvIxDaGVuLVl1IFRzYWnlhpnpgZPvvJoK
+PiBPbiBNb24sIE1heSA0LCAyMDI2IGF0IDM6MjjigK9QTSBJY2Vub3d5IFpoZW5nCj4gPHpoZW5n
+eGluZ2RhQGlzY2FzLmFjLmNuPiB3cm90ZToKPiA+IAo+ID4gRGVzcGl0ZSB0aGUgQ2lyaSBkZXZp
+Y2UncyB0b3VjaHBhZCBpcyBvbiB0aGUgZGV0YWNoYWJsZSBrZXlib2FyZCwKPiA+IHRoZQo+ID4g
+STJDIEhJRCBkZXZpY2Ugc2VlbiBieSBMaW51eCBpcyBlbXVsYXRlZCBieSBDaHJvbWVPUyBFQyBh
+bmQgYWx3YXlzCj4gPiBwcmVzZW50IHJlZ2FyZGxlc3Mgb2YgdGhlIHByZXNlbmNlIG9mIHBoeXNp
+Y2FsIHRvdWNocGFkLgo+IAo+IEFGQUlLIGl0IGlzIGFjdHVhbGx5IGFuIEkyQyBISUQgZGV2aWNl
+IG9uIHRoZSBkZXRhY2hhYmxlIGtleWJvYXJkLgo+IFRoZSBJMkMgYnVzIGlzICJ0dW5uZWxlZCIg
+YWNyb3NzIHRoZSBFQy1FQyBjb25uZWN0aW9uLiBBbmQgaWYgeW91Cj4gZGV0YWNoIHRoZSBrZXli
+b2FyZCwgdGhlIEkyQyBkZXZpY2Ugd2lsbCBzdG9wIHJlc3BvbmRpbmcuCgpObywgaXQgbG9va3Mg
+dGhhdCB3aGVuIHRoZSBrZXlib2FyZCBpc24ndCBhdHRhY2hlZCwgdGhlIEkyQyBISUQKZGVzY3Jp
+cHRvciBjYW4gc3RpbGwgYmUgcmV0cmlldmVkIHN1Y2Nlc3NmdWxseS4gSXRzIGRldmljZSBJRCBp
+cyBldmVuCmFzc2lnbmVkIGluIHRoZSBDaHJvbWVPUyBFQyBkZXZpY2UgKGFuZCBhIFRPRE8gcmVt
+YWlucyB0aGVyZSwgd2l0aCBhCnBsYWNlaG9sZGVyIDB4NTA5OSBnZXRzIHNoaXBwZWQpIFsxXS4K
+ClsxXQpodHRwczovL2dpdGh1Yi5jb20vY29yZWJvb3QvY2hyb21lLWVjL2Jsb2IvbWFpbi96ZXBo
+eXIvcHJvZ3JhbS9nZXJhbHQvaTJjLmR0c2kjTDE2MQoKPiAKPiBXZSBoYXZlIHNvbWUgZG93bnN0
+cmVhbSB0cmlja2VyeSB0byBkZWFsIHdpdGggdGhpczoKPiAKPiDCoMKgwqAgaHR0cHM6Ly9jcnJl
+di5jb20vYy82MDQwMDQ0Cj4gwqDCoMKgIGh0dHBzOi8vY3JyZXYuY29tL2MvNjA0MDA0NQo+IAo+
+IEl0IGJhc2ljYWxseSBpbnZvbHZlcyByZWdpc3RlcmluZyB0aGUgSTJDIGRldmljZSB3aGVuIHRo
+ZSBrZXlib2FyZCBpcwo+IGF0dGFjaGVkLCBhbmQgcmVtb3ZpbmcgaXQgd2hlbiBpdCBpcyBkZXRh
+Y2hlZC4gV2UgaGF2ZW4ndCBnb3R0ZW4KPiBhcm91bmQKPiB0byB1cHN0cmVhbWluZyBpdCB0aG91
+Z2guIEkgdGFsa2VkIHRvIEtyenlzenRvZiBhYm91dCB0aGlzIGRlc2lnbgo+IGxhc3QKPiB5ZWFy
+LCBhbmQgSSBiZWxpZXZlIGl0IHdhcyBhdCBsZWFzdCBhY2NlcHRhYmxlIGZyb20gRFQgcG9pbnQg
+b2Ygdmlldy4KPiAKPiBTbyB0aGlzIHBhdGNoIGlzIHNvbWV3aGF0IGluY29ycmVjdCwgaW4gdGhh
+dCB0aGUgdHJhY2twYWQgc2hvdWxkIGJlCj4gZGlzYWJsZWQgYnkgZGVmYXVsdCwgYW5kIGl0cyBz
+dGF0dXMgc2hvdWxkIGJlIHRvZ2dsZWQgYXQgcnVudGltZQo+IGJhc2VkCj4gb24gdGhlIGRldGFj
+aGFibGUga2V5Ym9hcmQgZXZlbnRzLgo+IAo+IE90aGVyd2lzZSBpZiB5b3UgYm9vdCB0aGUgc3lz
+dGVtIHdpdGhvdXQgdGhlIGtleWJvYXJkLCB0aGUgZHJpdmVyCj4gd2lsbAo+IHByb2JhYmx5IGZh
+aWwgdG8gcmVhZCB0aGUgSElEIGRlc2NyaXB0b3IuCgpUaGlzIGRvZXNuJ3QgaGFwcGVuIG9uIG15
+IGRldmljZS4gV2hlbiBJIGJvb3Qgdy9vIGEga2V5Ym9hcmQgYXR0YWNoZWQsCmEgYGhpZC1vdmVy
+LWkyYyAxOEQxOjUwRkZgIGRldmljZSBzdGlsbCBhcHBlYXJzLCBhbmQgYWZ0ZXIgSSBhdHRhY2gg
+dGhlCmtleWJvYXJkIGl0IGNvcnJlY3RseSBkZWxpdmVycyB0cmFja3BhZCBldmVudHMuCgpUaGFu
+a3MsCkljZW5vd3kKCj4gCj4gCj4gQ2hlbll1Cj4gCj4gPiBFbmFibGUgdGhlIGRldmljZSBpbiB0
+aGUgZGV2aWNlIHRyZWUuCj4gPiAKPiA+IFNpZ25lZC1vZmYtYnk6IEljZW5vd3kgWmhlbmcgPHpo
+ZW5neGluZ2RhQGlzY2FzLmFjLmNuPgo+ID4gLS0tCj4gPiDCoC4uLi9ib290L2R0cy9tZWRpYXRl
+ay9tdDgxODgtZ2VyYWx0LmR0c2nCoMKgwqDCoMKgIHwgMjAKPiA+ICsrKysrKysrKysrKysrKysr
+KysKPiA+IMKgMSBmaWxlIGNoYW5nZWQsIDIwIGluc2VydGlvbnMoKykKPiA+IAo+ID4gZGlmZiAt
+LWdpdCBhL2FyY2gvYXJtNjQvYm9vdC9kdHMvbWVkaWF0ZWsvbXQ4MTg4LWdlcmFsdC5kdHNpCj4g
+PiBiL2FyY2gvYXJtNjQvYm9vdC9kdHMvbWVkaWF0ZWsvbXQ4MTg4LWdlcmFsdC5kdHNpCj4gPiBp
+bmRleCA4ZTQyMzUwNGVjMDUyLi44ZjgwMTQ1NGJmODRjIDEwMDY0NAo+ID4gLS0tIGEvYXJjaC9h
+cm02NC9ib290L2R0cy9tZWRpYXRlay9tdDgxODgtZ2VyYWx0LmR0c2kKPiA+ICsrKyBiL2FyY2gv
+YXJtNjQvYm9vdC9kdHMvbWVkaWF0ZWsvbXQ4MTg4LWdlcmFsdC5kdHNpCj4gPiBAQCAtNDYwLDYg
+KzQ2MCwxOCBAQCAmaTJjNCB7Cj4gPiDCoMKgwqDCoMKgwqDCoCBwaW5jdHJsLTAgPSA8JmkyYzRf
+cGlucz47Cj4gPiDCoMKgwqDCoMKgwqDCoCBjbG9jay1mcmVxdWVuY3kgPSA8NDAwMDAwPjsKPiA+
+IMKgwqDCoMKgwqDCoMKgIHN0YXR1cyA9ICJva2F5IjsKPiA+ICsKPiA+ICvCoMKgwqDCoMKgwqAg
+LyogVGhlIHRvdWNocGFkIEhJRCBkZXZpY2UgaXMgZW11bGF0ZWQgYnkgRUMgc28gaXQncyBhbHdh
+eXMKPiA+IHByZXNlbnQgKi8KPiA+ICvCoMKgwqDCoMKgwqAgdG91Y2hwYWQ6IHRvdWNocGFkQDU2
+IHsKPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGNvbXBhdGlibGUgPSAiaGlkLW92
+ZXItaTJjIjsKPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHJlZyA9IDwweDU2PjsK
+PiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGhpZC1kZXNjci1hZGRyID0gPDB4MDAw
+MT47Cj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBpbnRlcnJ1cHQtcGFyZW50ID0g
+PCZwaW8+Owo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgaW50ZXJydXB0cyA9IDwx
+NDggSVJRX1RZUEVfTEVWRUxfTE9XPjsKPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+IHBpbmN0cmwtbmFtZXMgPSAiZGVmYXVsdCI7Cj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoCBwaW5jdHJsLTAgPSA8JnRvdWNocGFkX2ludD47Cj4gPiArwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoCB3YWtldXAtc291cmNlOwo+ID4gK8KgwqDCoMKgwqDCoCB9Owo+ID4gwqB9Owo+
+ID4gCj4gPiDCoCZpMmM1IHsKPiA+IEBAIC0xMTMxLDYgKzExNDMsMTQgQEAgcGlucy1idXMgewo+
+ID4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIH07Cj4gPiDCoMKgwqDCoMKgwqDCoCB9
+Owo+ID4gCj4gPiArwqDCoMKgwqDCoMKgIHRvdWNocGFkX2ludDogdG91Y2hwYWQtaW50LXBpbnMg
+ewo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgcGlucy1lYy1hcC10b3VjaHBhZC1p
+bnQtb2RsIHsKPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oCBwaW5tdXggPSA8UElOTVVYX0dQSU8xNDhfX0ZVTkNfQl9HUElPMTQ4PjsKPiA+ICvCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBpbnB1dC1lbmFibGU7Cj4gPiAr
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgYmlhcy1kaXNhYmxl
+Owo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfTsKPiA+ICvCoMKgwqDCoMKgwqAg
+fTsKPiA+ICsKPiA+IMKgwqDCoMKgwqDCoMKgIHVhcnQwX3BpbnM6IHVhcnQwLXBpbnMgewo+ID4g
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHBpbnMtYnVzIHsKPiA+IMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgcGlubXV4ID0gPFBJTk1VWF9HUElP
+MzFfX0ZVTkNfT19VVFhEMD4sCj4gPiAtLQo+ID4gMi41Mi4wCj4gPiAKPiA+IAo=
 
-On Mon, Apr 20, 2026 at 12:25:21PM +0200, Stefan Wahren wrote:
-> Hi,
-> we use a custom i.MX93 board, which based on Phytec Phycore i.MX93 with a
-> TPM connected via SPI. If I enable CONFIG_DEBUG_ATOMIC_SLEEP=y in our kernel
-> config with mainline kernel 6.18.23 and reboot our board, I will get the
-> following warning:
-
-Please provide results with the latest mainline kernel.
-
-> 
-> [   43.287416] do not call blocking ops when !TASK_RUNNING; state=1 set at
-> [<000000005a2107f3>] prepare_to_wait_event+0x54/0x14c
-> [   43.299009] WARNING: CPU: 0 PID: 1 at kernel/sched/core.c:8857
-> __might_sleep+0x74/0x7c
-> [   43.306920] Modules linked in: polyval_ce flexcan rtc_rv3028 can_dev
-> mse102x phy_can_transceiver fuse autofs4
-> [   43.316838] CPU: 0 UID: 0 PID: 1 Comm: systemd-shutdow Not tainted
-> 6.18.23-00002-g626a194342f0 #2 PREEMPT
-> [   43.326471] Hardware name: chargebyte Charge SOM Evaluation Kit (DT)
-> [   43.332807] pstate: 60400009 (nZCv daif +PAN -UAO -TCO -DIT -SSBS
-> BTYPE=--)
-> [   43.339757] pc : __might_sleep+0x74/0x7c
-> [   43.343675] lr : __might_sleep+0x74/0x7c
-> [   43.347592] sp : ffff800081aab720
-> [   43.350894] x29: ffff800081aab720 x28: 0000000000000080 x27:
-> ffff000000235880
-> [   43.358018] x26: ffff800081897000 x25: 0000000000000018 x24:
-> 0000000000000000
-> [   43.365142] x23: ffff800081aab907 x22: 0000000000000000 x21:
-> 0000000000000080
-> [   43.372266] x20: 000000000000010f x19: ffff80008131cd00 x18:
-> 0000000000000001
-> [   43.379390] x17: 0000000000000000 x16: 000000000017d600 x15:
-> ffff00003fda4680
-> [   43.386514] x14: 0000000000017e01 x13: 0000000000000209 x12:
-> 0000000000000000
-> [   43.393638] x11: 00000000000000c0 x10: 0000000000000950 x9 :
-> ffff800081aab5a0
-> [   43.400762] x8 : ffff0000000d89b0 x7 : ffff00003fda3f00 x6 :
-> 000000013417d29a
-> [   43.407886] x5 : 0000000000000000 x4 : 0000000000000002 x3 :
-> 0000000000000010
-> [   43.415010] x2 : 0000000000000000 x1 : 0000000000000000 x0 :
-> ffff0000000d8000
-> [   43.422135] Call trace:
-> [   43.424570]  __might_sleep+0x74/0x7c (P)
-> [   43.428487]  mutex_lock+0x24/0x80
-> [   43.431797]  spi_bus_lock+0x20/0x50
-> [   43.435281]  tpm_tis_spi_transfer_full+0x70/0x2c4
-> [   43.439979]  tpm_tis_spi_read_bytes+0x3c/0x48
-> [   43.444321]  tpm_tis_status+0x58/0xf8
-> [   43.447978]  wait_for_tpm_stat_cond+0x30/0x90
-> [   43.452329]  wait_for_tpm_stat+0x1cc/0x2e0
-> [   43.456419]  tpm_tis_send_data+0xdc/0x334
-> [   43.460423]  tpm_tis_send_main+0x74/0x160
-> [   43.464427]  tpm_tis_send+0xd4/0x13c
-> [   43.467998]  tpm_transmit+0xc4/0x3c4
-> [   43.471569]  tpm_transmit_cmd+0x38/0xd4
-> [   43.475399]  tpm2_shutdown+0x6c/0xa4
-> [   43.478970]  tpm_class_shutdown+0x60/0x88
-> [   43.482974]  device_shutdown+0x130/0x25c
-> [   43.486891]  kernel_restart+0x44/0xa4
-> [   43.490549]  __do_sys_reboot+0x114/0x254
-> [   43.494466]  __arm64_sys_reboot+0x24/0x30
-> [   43.498470]  invoke_syscall+0x48/0x10c
-> [   43.502214]  el0_svc_common.constprop.0+0x40/0xe0
-> [   43.506911]  do_el0_svc+0x1c/0x28
-> [   43.510222]  el0_svc+0x34/0xec
-> [   43.513273]  el0t_64_sync_handler+0xa0/0xe4
-> [   43.517441]  el0t_64_sync+0x198/0x19c
-> 
-> Best regards
-
-BR, Jarkko
 
