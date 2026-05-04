@@ -4,65 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5F77CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 17:48:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E13B7FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 17:49:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mu+qDb0wZ4/740wrPzuhHEl3nsK31AADu99bFUEF+x0=; b=bz2wGohCHn4NJWiwmIK5focgDe
-	B2c6TlhPR5Pg7arTDsEBcIegDwcHGU696Lu4jCCluovzSIETmJK/VaQ4XKP6ui4QLhsJnmOxC2rCI
-	EqFjRjBk17hh3+3mZleWZ2w4t6+E+y82V4lyubKwd0oL9YMNkkqHYUvX+Vb9/1oOimmtsSKrpAw1m
-	tAxmWtSbXY781e7pYzLPaC12v3bEG2QeWFNxZx6GMCReopG+J80wlcAjBPhq8Fmd8S3LGUh0FTOsa
-	J5oYVaqZ9Mb1ejznkryukiMBMjb+K9yQXVqBd1P1reo2Axd3YYydNuIWqjOLCPZEAznCArGNF85KP
-	FOQjQbYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B2T2BAbCxfNbOkzmjPGmIYHeM3AqRaqTLVL6HexL7mI=; b=p4C4b0ziHNvr4PxHfyVEuPjsOn
+	w3tnWti9IrrQnVfr2h5xO2NuzMUisKtKahHd/yidgFiVW9kRAnpAhzReIcwkklo5u0M4vemcRDGBJ
+	1vCT3x2SNTBDp7+jq6Hd3qyO+vV8hajyKEKsU7qGDWogCgBgmlq1RdltvJ0hNeiCTVPTmScYRTzXu
+	aATL8JPOoGNpAIQl6KJ4JBSyT8pVxZDNCgI4Fa0L+RIdHEee3bHSNzJtQXZvwRDd2kmfDqt1RjaSR
+	CvmQVEUB1lnlWF3YzV8pxqa4lO3TGhBUU0LX0AofPky7oqXXeRJkA10g/X/7aEtb29GwJWEdyVHio
+	XaWFPDng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJxP4-0000000DtbS-0lKc;
-	Mon, 04 May 2026 17:48:22 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wJxPt-0000000DttR-2pSg;
+	Mon, 04 May 2026 17:49:13 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJxP2-0000000Dta4-01AX
+	id 1wJxPq-0000000DtrS-3B1T
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 17:48:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0B52940B3C;
-	Mon,  4 May 2026 17:48:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D55D3C2BCC4;
-	Mon,  4 May 2026 17:48:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777916897;
-	bh=Gn59W2rZKGmYdbBqCGg8RqnxgppGZjElxUC6lD8BqGw=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=HfAZQkfcVirmU8V5cCQecXzwgkWEEpgqOunXPDJ10GZl1RN5qDfynN0VBOC/mDmcn
-	 0AgRd/7R2JYROR2inqMjk+lDGVU1fHAjXgkAch/XuU93x2h4wrLKqosl2E83pjx2UB
-	 EWO4gupewhcvk3iidpddamYOFpvJ2Bmlg22KeXS+HWEMfGiwowLNgfUt9777KLt1b0
-	 BIiXSI3/pR8JV19cVExvK7ce0GzChWiXZAWPB6g8uzp7isHh3sh3dl9YSgkVhqvKMN
-	 6XZwmkvpDFjEc/sWtYdNX5xnaibM2xjpJXLiiGkH28SC7H4AYzCHqMgqSUBQrnTN4h
-	 aHTIBPm7SqaEg==
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Linus Walleij <linusw@kernel.org>, 
- Charles Keepax <ckeepax@opensource.cirrus.com>, 
- Bartosz Golaszewski <brgl@kernel.org>, patches@opensource.cirrus.com, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20260427143546.3098519-1-arnd@kernel.org>
-References: <20260427143546.3098519-1-arnd@kernel.org>
-Subject: Re: [PATCH] ARM: s3c: use gpio lookup table for LEDs
-Message-Id: <177791689555.723297.3718755834253737201.b4-ty@b4>
-Date: Mon, 04 May 2026 19:48:15 +0200
+	Mon, 04 May 2026 17:49:12 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 9EDF6175;
+	Mon,  4 May 2026 19:49:06 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1777916946;
+	bh=/MyttNxa7Rdujb9ZVQxRQ3bnYHx9AV0Hr8Kn7vSqiEg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SVnDG4tDJpRD1pGi6dpuqWH/nt08r97IRxjdXIKnb2UDvYJy+u9wRxfrWt5nW9RBR
+	 dT2wPwppgjkNrffDRzNLCpYVKDMcbO6r7r2VaAhHYvu3yOVcWfgz6f/jbWFacMmDew
+	 Uy5IRB4P3h9wUMjXnpSCEVgk3nZzezGh4KMrQal0=
+Date: Mon, 4 May 2026 20:49:07 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Jyri Sarha <jyri.sarha@iki.fi>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Simon Ser <contact@emersion.fr>,
+	Harry Wentland <harry.wentland@amd.com>,
+	Melissa Wen <mwen@igalia.com>,
+	Sebastian Wick <sebastian.wick@redhat.com>,
+	Alex Hung <alex.hung@amd.com>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>,
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+	dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>,
+	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v3 18/20] drm/tidss: Switch to
+ drm_mode_config_create_initial_state()
+Message-ID: <20260504174907.GT1344263@killaraus.ideasonboard.com>
+References: <20260424-drm-mode-config-init-v3-0-8b68d9db0d8b@kernel.org>
+ <20260424-drm-mode-config-init-v3-18-8b68d9db0d8b@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15.2
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260424-drm-mode-config-init-v3-18-8b68d9db0d8b@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_104820_068142_73F53C11 
-X-CRM114-Status: UNSURE (   5.21  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260504_104910_981910_883A1556 
+X-CRM114-Status: GOOD (  19.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,18 +96,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Maxime,
 
-On Mon, 27 Apr 2026 16:35:27 +0200, Arnd Bergmann wrote:
+Thank you for the patch.
+
+On Fri, Apr 24, 2026 at 12:18:58PM +0200, Maxime Ripard wrote:
+> Now that drm_mode_config_create_initial_state() exists to create the
+> initial state, use it instead of drm_mode_config_reset() during
+> driver probe.
+> 
+> Signed-off-by: Maxime Ripard <mripard@kernel.org>
+> ---
+>  drivers/gpu/drm/tidss/tidss_drv.c | 6 +++++-
+>  1 file changed, 5 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/gpu/drm/tidss/tidss_drv.c b/drivers/gpu/drm/tidss/tidss_drv.c
+> index 1c8cc18bc53c..f5099d5d6e32 100644
+> --- a/drivers/gpu/drm/tidss/tidss_drv.c
+> +++ b/drivers/gpu/drm/tidss/tidss_drv.c
+> @@ -169,11 +169,15 @@ static int tidss_probe(struct platform_device *pdev)
+>  		goto err_runtime_suspend;
+>  	}
+>  
+>  	drm_kms_helper_poll_init(ddev);
+>  
+> -	drm_mode_config_reset(ddev);
+> +	ret = drm_mode_config_create_initial_state(ddev);
+> +	if (ret) {
+> +		dev_err(dev, "failed to create initial state: %d\n", ret);
+> +		goto err_irq_uninstall;
+> +	}
+
+There's also a call to drm_mode_config_reset() in tidss_modeset_init(),
+shouldn't it be dropped ?
+
+>  
+>  	ret = drm_dev_register(ddev, 0);
+>  	if (ret) {
+>  		dev_err(dev, "failed to register DRM device\n");
+>  		goto err_irq_uninstall;
 > 
 
-
-Applied, thanks!
-
-[1/1] ARM: s3c: use gpio lookup table for LEDs
-      https://git.kernel.org/krzk/linux/c/b64cbd3f5d96b143fa9f21d84d381b1bb286339c
-
-Best regards,
 -- 
-Krzysztof Kozlowski <krzk@kernel.org>
+Regards,
 
+Laurent Pinchart
 
