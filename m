@@ -4,82 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C0BBCD3430
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 14:44:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F855CD3430
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 14:46:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k+cBiRZ4X5MDENOygxFJep/5qJlzEzmK4R86tr4zNgY=; b=sChUtYzP2cQuLPxdrCsUoqeIay
-	jpa9Q8LiXxcdwwl9A5m5KWpUA27DtmprsSeZy7kvntwijLkhwUE+UjdBKyon2gP9/OJ3plGKLqAPd
-	eKZGajCzDgymGygKBUK0ZISf6o/YRcGI4zzgyqLo0musqkXnuuga+akfoFxtl87J670iM7+xCZs+c
-	TvMCHZIm+Zrb86g9la53FB4HRLfw800GoArO3wA79HWOPewpBjSQwsuVGVUQPd5hYI1EBusuaTWoM
-	CocdoPt4JDs0LK1FEfd84ppUCUbgL26YnoiHSjKNtgMNWel9vcxG690ngK4XYXo/WcC1o1ojgeIUL
-	VO9JcdTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cYYAh5UCl+y7lrHPwfOHemfwVIweJ/p4wEN7zniKp1Q=; b=0kDo37IYoFvDSIhPqIuRd6iUM+
+	0B4l5zi3JTXI3lsLtTvHCHFqhHosMf+86JncHIj3xMxiKwQQXArAMre9AsDXs3KHg4Z7Bfy1rq14B
+	O+w9P6UgLltRvBRYLLlfxJQV93qdxF4OR+HhJd39n4/qXyt7pnnoLILbfgdRPi3ppFoM3G5mifEbh
+	GY4r7/F/De5SWqN8myR463Qqs25VWnezyb3rzFhXmhCFFMAzn6x4MY04408776nzuQxTuL1bNM7cI
+	59WGhiW2d3DCxRiuXhLRY3pm71Oi/z99a1R5C/1aKbDIichfdNoGzxa1/86657ZfjzhTeRz1pCGq0
+	hvG/4RWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJuWt-0000000DUUc-0oJh;
-	Mon, 04 May 2026 14:44:15 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1wJuYW-0000000DV3Y-08Su;
+	Mon, 04 May 2026 14:45:56 +0000
+Received: from mout-p-201.mailbox.org ([2001:67c:2050:0:465::201])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJuWq-0000000DUSt-3nTY
+	id 1wJuYT-0000000DV2z-0nRg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 14:44:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1777905852; x=1809441852;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=MEHpsXH9lNIJOnJl8LRK8fvASgeNl0B9kl50QUAwWqE=;
-  b=vAh2cZmqAEP/fbQjkcvGDiVtwi8Oz8dFL3eSwrjtxeHsFAXQ/00CJhWg
-   8xozWbCAd6hg3Se4Z7ALSwPT+rFhl42NkMlIYs90EMdLxlW7HWQw0eva1
-   TDg5wVdiehkXrDlcsfXAQTEZSZjWfQ+sFVFN5qExYH/WoDXbYFPisfsHP
-   zdonlT/BGaY1FzV9vXoFQCpoZc628NE3k9+EJAS1bZC/ihTLOEbg+iiDD
-   1r5SfvoUkSLTD1fefIQ1GT1PY+TieTaR8JPtqeoJ6tNBhODqywkOYl+Bb
-   JtER2glL2j0fMBSpuSyJM+72QwRLNXikgZicEpJqKDfjRmZk9iQGD700a
-   w==;
-X-CSE-ConnectionGUID: f6FNNhZuRiuYZMD8mQLEXA==
-X-CSE-MsgGUID: AB2JYIKvQpaCASb5LbruRA==
-X-IronPort-AV: E=Sophos;i="6.23,215,1770620400"; 
-   d="scan'208";a="57409533"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 04 May 2026 07:44:12 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Mon, 4 May 2026 07:44:11 -0700
-Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Mon, 4 May 2026 07:44:08 -0700
-From: Daniel Machon <daniel.machon@microchip.com>
-Date: Mon, 4 May 2026 16:43:45 +0200
-Subject: [PATCH net 4/4] net: sparx5: configure serdes for 1000BASE-X in
- sparx5_port_init()
+	Mon, 04 May 2026 14:45:54 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4g8Pb246f5z9scQ;
+	Mon,  4 May 2026 16:45:50 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1777905950;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=cYYAh5UCl+y7lrHPwfOHemfwVIweJ/p4wEN7zniKp1Q=;
+	b=gZydUKKJeQfGWT6E9CrCKkxUPNhZ5FqAUCliv4alubwDoRcsAVANUD87jniG8URKQNfYdu
+	NMfl1RujBt4iC5z3UHztTSczr18I8iTyYWDeczHJxPkeCuQfnZKMmN24V0W2RTsMRfu7or
+	9JI2PlJCfsXs56AgO/mJYfQ2w/m13cVOqR0CCGJT40ckiwocIfPrQ4405dTFTM7oGDI4z3
+	LKzw+njp/qJv81sDJu3qhT5D3FmXAeZP2rhM8yBZ4ieZQVywgXJmOdZlWqieiPCiGmxJjN
+	ECx+QcdoPcLGFglOmzN6p4PmjvlZKV+D2eDRBMW0pFyqVXXjLQBepySDE/jaJA==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=izKQTwOs;
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::2 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
+From: Marek Vasut <marek.vasut+renesas@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1777905948;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=cYYAh5UCl+y7lrHPwfOHemfwVIweJ/p4wEN7zniKp1Q=;
+	b=izKQTwOsbrpz2J9+xHigUa6Prty6ca8Ao+2CBJi7050qGZTsCvZLza/h5mtv4BuiZUGS2z
+	tMpNQe/QY7AUnEl0PbOGI2mRIYLxTsWwoUuvW6Zrty1nl+l9n++k7jD2w+icD4VVM3U77H
+	3s8j8c7d3mbP62IusEYcDYk/xUx8fRztYLFngfs0rUrbcLwvaUGDqNYvaXl95KaKbOSIuc
+	/Z7bAIzY0tEyBpQn+8t40Q9w1TeWIVnvIfPC0/pvNvNkwQ6nyMVDuRWHjGAYrhSn4sSYIR
+	OnLbHDFFx31wQzzRI6HicuKOFpyRbCkjsdraTJEHZSVCZGQkGv+h4E4T5aqmng==
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Brian Masney <bmasney@redhat.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Ulf Hansson <ulfh@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-mmc@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH v2 0/7] arm64: dts: renesas: r8a779md: Add support for R-Car M3Le R8A779MD SoC and Geist board
+Date: Mon,  4 May 2026 16:43:22 +0200
+Message-ID: <20260504144534.43745-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260504-misc-fixes-sparx5-lan969x-v1-4-6604306b5743@microchip.com>
-References: <20260504-misc-fixes-sparx5-lan969x-v1-0-6604306b5743@microchip.com>
-In-Reply-To: <20260504-misc-fixes-sparx5-lan969x-v1-0-6604306b5743@microchip.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Steen Hegelund
-	<Steen.Hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>, "Sebastian
- Andrzej Siewior" <bigeasy@linutronix.de>, Clark Williams
-	<clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, Bjarni Jonasson
-	<bjarni.jonasson@microchip.com>, Lars Povlsen <lars.povlsen@microchip.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>
-CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, Steen Hegelund
-	<steen.hegelund@microchip.com>, <linux-rt-devel@lists.linux.dev>, Andrew Lunn
-	<andrew@lunn.ch>
-X-Mailer: b4 0.14.3
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-META: kpbj889koap7puwmoxoz8u9st4n53md5
+X-MBO-RS-ID: ab31f21b33fd55f0820
+X-Rspamd-Queue-Id: 4g8Pb246f5z9scQ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_074413_022971_A119FEF9 
-X-CRM114-Status: GOOD (  12.57  )
+X-CRM114-CacheID: sfid-20260504_074553_391935_8072D552 
+X-CRM114-Status: GOOD (  10.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,39 +102,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-sparx5_port_init() only invokes sparx5_serdes_set() and the associated
-shadow-device enable and low-speed device switch for SGMII and QSGMII.
-On any port with a high-speed primary device (DEV5G/DEV10G/DEV25G)
-configured for 1000BASE-X the serdes is therefore left uninitialized,
-the DEV2G5 shadow is never enabled, and the port stays pointed at its
-high-speed device rather than the DEV2G5. The PCS1G block looks
-healthy in isolation, but no frames reach the link partner.
+Add support for the Renesas R-Car M3Le (R8A779MD) SoC, a register-compatible
+variant of the R8A77965 (M3-N) with reduced set of peripherals. Add support
+for the Geist board based on the Renesas R-Car R8A779MD (M3Le).
 
-Add 1000BASE-X to the check so the same three steps run.
+The DU part is currently removed until it can be tested.
+VIN is also untested due to no remote hardware access.
 
-Reported-by: Andrew Lunn <andrew@lunn.ch>
-Fixes: 946e7fd5053a ("net: sparx5: add port module support")
-Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
+Marek Vasut (5):
+  dt-bindings: mmc: renesas,sdhi: Document R-Car M3Le support
+  mmc: renesas_sdhi: add R-Car M3Le compatibility string
+  dt-bindings: clock: cs2000-cp: document CS2500
+  dt-bindings: soc: renesas: Document Renesas R-Car R8A779MD Geist
+  soc: renesas: Identify Renesas R-Car R8A779MD M3Le SoC
+
+Nguyen Tran (2):
+  arm64: dts: renesas: r8a779md: Add Renesas R-Car R8A779MD M3Le DTs
+  arm64: dts: renesas: r8a779md: Add support for R-Car M3Le R8A779MD
+    Geist
+
+ .../bindings/clock/cirrus,cs2000-cp.yaml      |  11 +-
+ .../devicetree/bindings/mmc/renesas,sdhi.yaml |   1 +
+ .../bindings/soc/renesas/renesas.yaml         |   6 +
+ arch/arm64/boot/dts/renesas/Makefile          |   1 +
+ .../arm64/boot/dts/renesas/r8a779md-geist.dts | 732 ++++++++++++++++++
+ arch/arm64/boot/dts/renesas/r8a779md.dtsi     |  59 ++
+ drivers/mmc/host/renesas_sdhi_internal_dmac.c |   1 +
+ drivers/soc/renesas/renesas-soc.c             |   1 +
+ 8 files changed, 809 insertions(+), 3 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/renesas/r8a779md-geist.dts
+ create mode 100644 arch/arm64/boot/dts/renesas/r8a779md.dtsi
+
 ---
- drivers/net/ethernet/microchip/sparx5/sparx5_port.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_port.c b/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
-index 04bc8fffaf96..62c49893de3c 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
-@@ -1128,7 +1128,8 @@ int sparx5_port_init(struct sparx5 *sparx5,
- 		DEV2G5_PCS1G_SD_CFG(port->portno));
- 
- 	if (conf->portmode == PHY_INTERFACE_MODE_QSGMII ||
--	    conf->portmode == PHY_INTERFACE_MODE_SGMII) {
-+	    conf->portmode == PHY_INTERFACE_MODE_SGMII ||
-+	    conf->portmode == PHY_INTERFACE_MODE_1000BASEX) {
- 		err = sparx5_serdes_set(sparx5, port, conf);
- 		if (err)
- 			return err;
+Cc: Brian Masney <bmasney@redhat.com>
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+Cc: Magnus Damm <magnus.damm@gmail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Stephen Boyd <sboyd@kernel.org>
+Cc: Ulf Hansson <ulfh@kernel.org>
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Cc: devicetree@vger.kernel.org
+Cc: linux-clk@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-mmc@vger.kernel.org
+Cc: linux-renesas-soc@vger.kernel.org
 
 -- 
-2.34.1
+2.53.0
 
 
