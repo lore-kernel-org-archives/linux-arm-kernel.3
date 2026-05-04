@@ -4,96 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9F76FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 06:50:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CE13CD3423
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 07:00:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dGJ477HuI1WPg+LRgbwSNS5n5sfdYQDEeJHoHa7Wyzs=; b=KkC0MQbcDaTcK+c27LWLCn5SQR
-	bhshTAZpPUv9drHX2yd18htAO2QToPGj41D3sA/otU5VUa7GxBBCIB0ipX75DcRT9SvMa0ivbVuRK
-	U2SLrePbAo4/tYw+bZ56EVOd9MhJQjqw7/G0r8AeUuWuLdnzMrySMjUhy5lk12/Ein/uYZF47rRZp
-	etFhstcZuxrserZs1zY+H/EBAS6aF4oTbF2vkzVavNx/QIutYt3RxmzRwyRTrYW3FS0yvkF5ClYHX
-	rDsmpRep9SLpZL4QI/nYkik7KKNWiR9iYojKNBNL2abbMdDFbl+kh/fEVwTwliwXw54fKV112K1yJ
-	tfupEKAw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wyQWAFQp3LGAr7U5fSrIJ2+rXIPTk9pvcU/79Oj4GGQ=; b=vL6mQG8gzz287xnYWuQ2TyH+Cb
+	K6FxbfLIYJSNJVtntFQXnBqpy6jGFuYsAZShE2n3fWMm9DTP3N4514HujVQJ8C88axRHK3hc5lztG
+	bHMXCHvgugH2evcycBH9ytPd7vpbLiOOm2LJzfJWaLSwV13pGHErJzGW/MftYIFXxg1dJ130mBhND
+	uCzZP2jVgi90H8/efVAtsD0RYu+kbhfvEC/uunRDH9xMP8WvLtAiNUeN1kvMdIS9VFimVD0qNcoqx
+	yqVBZdT+d1jlCEjLeIuFrwtvTaHbUkfCpLaEMxL2a8Zi2qRl0dkvpqjkLGn/SdkqOWwR94+mIDrb/
+	neCnE+Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJn8e-0000000CXae-0klE;
-	Mon, 04 May 2026 06:50:44 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1wJnHn-0000000CYPa-3Arz;
+	Mon, 04 May 2026 07:00:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJn8a-0000000CXa4-3YiT
+	id 1wJnHm-0000000CYPH-2JWh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 06:50:43 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-3650a4eb605so1299629a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 03 May 2026 23:50:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777877440; x=1778482240; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dGJ477HuI1WPg+LRgbwSNS5n5sfdYQDEeJHoHa7Wyzs=;
-        b=KEwwFXYB+wjI8UXgb5ZN74anpWdgKZwooJMiwKiTrYg1unceXJwEx6iGJYs1qro29g
-         WujyTPRid3vIYWEJgXiNlvFUe0rE6wzM6pWxiQ5KziIX01gih5Nsr+fIyL+mAub84bGe
-         7DUNzTwdDwoSi9WRSQ1t2krW1FmSLBRpAhXWNjMqsVsBv0GsUKw+fsmdcMW/gJIIgw33
-         cTKZzA6yzpiH+JUPe6aRz6oMyZoywLmJHd4xdU4hDalcczWqXQrLBOTCXROMJUoVu2tM
-         6F4OKbSBYCc0Fng3SDKG7kp5Z7y21IjlEpF+BlP1pUrcwm11ICUT5yhHjybes30whMEc
-         jwgQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777877440; x=1778482240;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=dGJ477HuI1WPg+LRgbwSNS5n5sfdYQDEeJHoHa7Wyzs=;
-        b=Axf8gFJsTS8nmvSJC0D4oEaHV6B2WqbMBzJzhNclyLqRFdUy2Ou8JALjEzQQfynke3
-         AHaGvA3DWzkwNyBdbrOzruhtDkz0uqDqdW6dyiSPFSpkbkUcLJ/urHHRU6JOBoUIMNlO
-         M1RV27HggCzcDUu4f7KfB99VUWbsHnj2N8uhnm8l4C+PtL/0m8oN0TdOBvAlevCkbKBJ
-         0MrTtFgBR9Dv7/c5573wZg6INR+fMhtARU+97thiA+e2JVqIF390qhxZsH/cuTl9EUqE
-         NMXYAV7ojjbZ4Wzp6QRtgusISYKHho0OI2FxzLTsC43CP4bkWuAJy+8rBTQH2UKRn0C9
-         iWow==
-X-Forwarded-Encrypted: i=1; AFNElJ8K2mrmXh+8OhsIBizHYiHD6M4Hkd6IpYDE5WZV4o6+dXQdjd1+mdgt3JWJttZfA5aqwyCNY2s+ZTvHEpWgHuWd@lists.infradead.org
-X-Gm-Message-State: AOJu0YwsdXazWGI9zk4iIVhGXlxEwY3nLxgJctdcdPS0t6aQ+MqIJF6F
-	vZJ5DguqNaOgjzrxqWLYzoZMIXOUoiMqkz47KgGI9cQl/OMV1ncD+rUF
-X-Gm-Gg: AeBDieu5jDksYMxOa3gxoQDlOSPyy3SxQ+op49Zxbaed07qcg/0s5oKmzXP4zdm97sf
-	Uel6drpW4Q+6QW6o2WhRHi2AMEEu5gblnTVyoxWPaqPzXTO/fB+e9O79nYUbraz8Bmwhx1ismWb
-	rnOgdnC8a+vz6CVIj6ljGNW5N7A7PT0J6qXPui0kofma6XAD4vroPfx/38wEVtTY8ipRoJO6bDi
-	PO79e5FRvWckbxrllREoZhzY4HDPZYP15ruh0fMsLmWQzPpM2cEgEqHgC31LRlRF9iFYmlDwJb0
-	gxMqXLU4huznhP464VEs+w7N2gsC2HNKUldsv4IYTYl61/y/CzaycbTBSr3MS1BHpF+Vccu0wSd
-	EV9k6QJNceswMX/BtxXtGeqQVPtSOqBjP7l5THPny09XpsF3zDk3FrqOpuLMAJ1pe7MBIFU7Aw6
-	0O7cVnTL7j81HJcVGSKuP1AoadDoAaSv5WkhEpWMBwUcRnAlb3cKACOiYj701vdEiSOWxYS2fq
-X-Received: by 2002:a17:90b:5808:b0:364:d994:da00 with SMTP id 98e67ed59e1d1-3650cf15bf5mr8689925a91.25.1777877439686;
-        Sun, 03 May 2026 23:50:39 -0700 (PDT)
-Received: from localhost.localdomain ([115.110.225.242])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-364f4859530sm3918712a91.10.2026.05.03.23.50.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 03 May 2026 23:50:39 -0700 (PDT)
-From: Shitalkumar Gandhi <shital.gandhi45@gmail.com>
-X-Google-Original-From: Shitalkumar Gandhi <shitalkumar.gandhi@cambiumnetworks.com>
-To: gregkh@linuxfoundation.org
-Cc: Frank.Li@nxp.com,
-	bhuvanchandra.dv@toradex.com,
-	imx@lists.linux.dev,
-	jirislaby@kernel.org,
+	Mon, 04 May 2026 07:00:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7649E60120;
+	Mon,  4 May 2026 07:00:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C23EC2BCC9;
+	Mon,  4 May 2026 07:00:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777878009;
+	bh=HYE+2VXomDM5alKWkGo/zugLFJRNpUaW/PT9zTrCdW0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=HgWnepWUeIz0CCNkXwC7eHebgLU5wI2fbwVtCUditlMSUphZp8wbqiuACSxqgE4A0
+	 /x0jVKOPCSfhN0JOHPHF/ywRivDdHqfE9+Uhyf3an1+dBtEIFZA+c2nSRGhBrzfZAl
+	 nRgU6IvXAU0acGWgpc1OUnZ2Yh/PIW+CcReh2QZIty0OjB/0webTUH9mUpsvChkWwV
+	 foFXiiAjGcHkAAIJo7tVdmoYPrOJs/wKYmhYlb7QnDTenx/C6wcbv8If06kDMqt29i
+	 K1Ulem0E/BNjdv0jm0I/kILCE4Ufpl+FQxJ9Qh6C23n/f2VRswacN/Wr6nvzkzpzkT
+	 Lnk9fS7/770SQ==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Russell King <linux@armlinux.org.uk>
+Cc: Jeff Johnson <quic_jjohnson@quicinc.com>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Kees Cook <kees@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-serial@vger.kernel.org,
-	peng.fan@nxp.com,
-	sherry.sun@nxp.com,
-	shital.gandhi45@gmail.com,
-	Shitalkumar Gandhi <shitalkumar.gandhi@cambiumnetworks.com>
-Subject: Re: [PATCH] serial: fsl_lpuart: fix rx buffer and DMA map leaks in start_rx_dma
-Date: Mon,  4 May 2026 12:19:41 +0530
-Message-Id: <20260504064941.3460658-1-shitalkumar.gandhi@cambiumnetworks.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <2026050410-frozen-fondue-5476@gregkh>
-References: <2026050410-frozen-fondue-5476@gregkh>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] ARM: kprobes: test: add MODULE_DESCRIPTION
+Date: Mon,  4 May 2026 08:59:46 +0200
+Message-Id: <20260504065957.2040055-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260503_235041_418796_0EED51C2 
-X-CRM114-Status: GOOD (  12.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,24 +70,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 04, 2026 at 08:24:20AM +0200, Greg Kroah-Hartman wrote:
-> > Any update on this? It has Frank's Reviewed-by but I don't see
-> > it queued in tty-next or tty-testing yet.
->
-> What is "this"?  I see no context here :(
+From: Arnd Bergmann <arnd@arndb.de>
 
-Sorry for the missing context. The patch is:
+All loadable modules must have a description, and since commit
+6c6c1fc09de3 ("modpost: require a MODULE_DESCRIPTION()"), the kernel build
+warns about it missing:
 
-  serial: fsl_lpuart: fix rx buffer and DMA map leaks in start_rx_dma
+   WARNING: modpost: missing MODULE_DESCRIPTION() in arch/arm/probes/kprobes/test-kprobes.o
 
-Fixes three error paths in lpuart_start_rx_dma() that leak ring->buf
-and the DMA mapping. Sent April 20, Frank Li gave Reviewed-by on
-April 21.
+Add the missing description tags. Noticing that the existing license tag
+is unnecessarily hidden in an #ifdef section, remove the #ifdef and
+use conventional placing of the initcall and module_exit tags as well
+as the license and description.
 
-Lore: https://lore.kernel.org/linux-serial/20260420135903.2062024-1-shitalkumar.gandhi@cambiumnetworks.com/
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ arch/arm/probes/kprobes/test-core.c | 14 +++-----------
+ 1 file changed, 3 insertions(+), 11 deletions(-)
 
-Happy to resend with Frank's Reviewed-by added if that helps.
+diff --git a/arch/arm/probes/kprobes/test-core.c b/arch/arm/probes/kprobes/test-core.c
+index 7a2baa135f0f..2de28088dac8 100644
+--- a/arch/arm/probes/kprobes/test-core.c
++++ b/arch/arm/probes/kprobes/test-core.c
+@@ -1649,24 +1649,16 @@ static int __init run_all_tests(void)
+ 
+ 	return ret;
+ }
+-
++late_initcall(run_all_tests);
+ 
+ /*
+  * Module setup
+  */
+ 
+-#ifdef MODULE
+-
+ static void __exit kprobe_test_exit(void)
+ {
+ }
+-
+-module_init(run_all_tests)
+ module_exit(kprobe_test_exit)
+-MODULE_LICENSE("GPL");
+ 
+-#else /* !MODULE */
+-
+-late_initcall(run_all_tests);
+-
+-#endif
++MODULE_DESCRIPTION("Test code for ARM kprobes");
++MODULE_LICENSE("GPL");
+-- 
+2.39.5
 
-Thanks,
-Shital
 
