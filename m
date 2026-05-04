@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9EE0CD3430
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 15:22:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 416DCCD3430
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 15:24:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eAK0NVDTXgfOyaDOAEDsii3ti5HHZ+55PJPDlnkFlQk=; b=mOYe/l6cc8v/RfL14mx3PsHc3F
-	hU5/JAgRAbEWMpJT3crIV9f22tNmHrr+L0s3a41dI7fsJtqPvb0mnSOxdbovvltMy+OuVlazqAYJY
-	C+tstO3eq1GhwvsEsy8+ND1UoiWwkNGRvjHXcjwG9pNf4rwAGAc3ZumzKrhIusQEqnsPaF7KMEDSj
-	/Vq48G6Cpa2EpcrWxWAdVOU+OVV/jnExU9PC+tLDltoGlID3ZxtEtLs+LrxQkn4/Y8n34A8DMRvk2
-	oGt/t1FH2L9wB8041ZnyHmx/BLK4cLB/LvekIC6BjbiVwyVK0HP7XP0imIrXu2ZlQMiUxovj5Lrsa
-	kiF9nTUg==;
+	bh=xYNcXti+b8H0n24uR4D8nmzORNoE6W+mXIeBUy7ZNjg=; b=dLw7I1ijdmQkXJ1Be1s8aZXrxP
+	kFZe1JQmee1iTvOGq9osmWYUohbTXHMN9jHTllvgBnM5gt5XIf3xTHX2mXq1MYUR3EeodoOS64QrW
+	4F5CtgM7/yzsQ3bJTj7b3O+GM87IjR5LQiaJFHxSbhsAsgkCB5ztsDd/yddrEzhrOA3zMh3bRciZ3
+	dBfR/IAJcOREemt1wS9UdyEjjE1oEmRuue7H5YgPzniGt64vinY+elDMHVPGHodpijDKnW8MNyk6E
+	bPJ67OR18VtvX56SU53UpUAfZcYE7wAxOn1Efi6dQaNHhMNerfoUhCWXrt6P1tn1hTWMDrytn4Erw
+	jzhZNYWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJv7w-0000000DahR-2sdK;
-	Mon, 04 May 2026 15:22:32 +0000
+	id 1wJv9j-0000000DazG-1iJx;
+	Mon, 04 May 2026 15:24:23 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJv7u-0000000Dah6-0HRd
+	id 1wJv9h-0000000Dayg-1JzS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 15:22:31 +0000
+	Mon, 04 May 2026 15:24:22 +0000
 Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 183FC175;
-	Mon,  4 May 2026 17:22:26 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 7D9E7175;
+	Mon,  4 May 2026 17:24:17 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1777908146;
-	bh=zqH6L+EG9wUTO7Qoyz4neBCPa6T/Ac/tjYvnTvOAB7Y=;
+	s=mail; t=1777908257;
+	bh=yz5CJzoCekoxmuhkSUxICdRVDMPN012+4TnwLeJXyT0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GHXtwh5T5BDC8Q9lFPK/5JEuWFjkhO2o8t8eJUO5EnQigc23poa+JjvgYhTAKT0fZ
-	 2WAfqiKfoaQQcpeFgC0FcTCWmZWo3te0QcHcWFshgYdHWgitgFsqCdYFkqpJQIapQY
-	 LQ0xWLVZ2ygWK/cNBfWeyY0dm7tXSECuDWeQGXVI=
-Date: Mon, 4 May 2026 18:22:26 +0300
+	b=B61SUdKbg+TBoeJcmGjMgIBh7kyNGLwCDoIVmQHw6UmyS2Z3VRmOTu/32ZobUYVGW
+	 dbG6Benp8XPSbsjfBi1yDix1qMnHaedC+BVRBFN+KPYfu6fGF3RspbWz7B7ImZAjVX
+	 NZ+NnuYkhZh2W4rpi11v3DQfaPbKXmN+hkOONYx8=
+Date: Mon, 4 May 2026 18:24:18 +0300
 From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 To: Luca Ceresoli <luca.ceresoli@bootlin.com>
 Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
@@ -62,21 +62,19 @@ Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
 	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
 	linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Subject: Re: [PATCH v4 08/11] drm/bridge: adv7511: switch to
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 10/11] drm: zynqmp_dp: switch to
  of_drm_get_bridge_by_endpoint()
-Message-ID: <20260504152226.GB1455860@killaraus.ideasonboard.com>
+Message-ID: <20260504152418.GC1455860@killaraus.ideasonboard.com>
 References: <20260504-drm-bridge-alloc-getput-panel_or_bridge-v4-0-b578c3daaf10@bootlin.com>
- <20260504-drm-bridge-alloc-getput-panel_or_bridge-v4-8-b578c3daaf10@bootlin.com>
+ <20260504-drm-bridge-alloc-getput-panel_or_bridge-v4-10-b578c3daaf10@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260504-drm-bridge-alloc-getput-panel_or_bridge-v4-8-b578c3daaf10@bootlin.com>
+In-Reply-To: <20260504-drm-bridge-alloc-getput-panel_or_bridge-v4-10-b578c3daaf10@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_082230_248493_02D9B357 
-X-CRM114-Status: GOOD (  22.03  )
+X-CRM114-CacheID: sfid-20260504_082421_581633_193FFA0A 
+X-CRM114-Status: GOOD (  25.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,7 +93,7 @@ Hi Luca,
 
 Thank you for the patch.
 
-On Mon, May 04, 2026 at 12:45:11PM +0200, Luca Ceresoli wrote:
+On Mon, May 04, 2026 at 12:45:13PM +0200, Luca Ceresoli wrote:
 > This driver calls drm_of_find_panel_or_bridge() with a NULL pointer in the
 > @panel parameter, thus using a reduced feature set of that function.
 > Replace this call with the simpler of_drm_get_bridge_by_endpoint().
@@ -105,65 +103,83 @@ On Mon, May 04, 2026 at 12:45:11PM +0200, Luca Ceresoli wrote:
 > adding an explicit drm_bridge_put(), migrate to the bridge::next_bridge
 > pointer which is automatically put when the bridge is eventually freed.
 > 
-> Tested-by: Biju Das <biju.das.jz@bp.renesas.com>
-> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 > Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-
-Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-
 > ---
+> 
+> Changes in v4:
+> - fix missing assignment
+> 
 > Changes in v3:
 > - fix ERR_PTR deref when -ENODEV is returned
 > ---
->  drivers/gpu/drm/bridge/adv7511/adv7511.h     |  1 -
->  drivers/gpu/drm/bridge/adv7511/adv7511_drv.c | 15 +++++++++------
->  2 files changed, 9 insertions(+), 7 deletions(-)
+>  drivers/gpu/drm/xlnx/zynqmp_dp.c | 19 +++++++++++--------
+>  1 file changed, 11 insertions(+), 8 deletions(-)
 > 
-> diff --git a/drivers/gpu/drm/bridge/adv7511/adv7511.h b/drivers/gpu/drm/bridge/adv7511/adv7511.h
-> index 8be7266fd4f4..12c95198d9a4 100644
-> --- a/drivers/gpu/drm/bridge/adv7511/adv7511.h
-> +++ b/drivers/gpu/drm/bridge/adv7511/adv7511.h
-> @@ -354,7 +354,6 @@ struct adv7511 {
->  	enum drm_connector_status status;
->  	bool powered;
+> diff --git a/drivers/gpu/drm/xlnx/zynqmp_dp.c b/drivers/gpu/drm/xlnx/zynqmp_dp.c
+> index 379180fb3004..fd30491a6697 100644
+> --- a/drivers/gpu/drm/xlnx/zynqmp_dp.c
+> +++ b/drivers/gpu/drm/xlnx/zynqmp_dp.c
+> @@ -353,7 +353,6 @@ struct zynqmp_dp_train_set_priv {
+>   * @lock: Mutex protecting this struct and register access (but not AUX)
+>   * @irq: irq
+>   * @bridge: DRM bridge for the DP encoder
+> - * @next_bridge: The downstream bridge
+>   * @test: Configuration for test mode
+>   * @config: IP core configuration from DTS
+>   * @aux: aux channel
+> @@ -385,7 +384,6 @@ struct zynqmp_dp {
+>  	struct completion aux_done;
+>  	struct mutex lock;
 >  
 > -	struct drm_bridge *next_bridge;
->  	struct drm_display_mode curr_mode;
+>  	struct device *dev;
+>  	struct zynqmp_dpsub *dpsub;
+>  	void __iomem *iomem;
+> @@ -1494,8 +1492,8 @@ static int zynqmp_dp_bridge_attach(struct drm_bridge *bridge,
+>  		return ret;
+>  	}
 >  
->  	unsigned int f_tmds;
-> diff --git a/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c b/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c
-> index f318080f1139..8304978535e4 100644
-> --- a/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c
-> +++ b/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c
-> @@ -849,8 +849,8 @@ static int adv7511_bridge_attach(struct drm_bridge *bridge,
->  	struct adv7511 *adv = bridge_to_adv7511(bridge);
->  	int ret = 0;
->  
-> -	if (adv->next_bridge) {
-> -		ret = drm_bridge_attach(encoder, adv->next_bridge, bridge,
-> +	if (adv->bridge.next_bridge) {
-> +		ret = drm_bridge_attach(encoder, adv->bridge.next_bridge, bridge,
->  					flags | DRM_BRIDGE_ATTACH_NO_CONNECTOR);
->  		if (ret)
->  			return ret;
-> @@ -1249,10 +1249,13 @@ static int adv7511_probe(struct i2c_client *i2c)
->  
->  	memset(&link_config, 0, sizeof(link_config));
->  
-> -	ret = drm_of_find_panel_or_bridge(dev->of_node, 1, -1, NULL,
-> -					  &adv7511->next_bridge);
-> -	if (ret && ret != -ENODEV)
-> -		return ret;
-> +	adv7511->bridge.next_bridge = of_drm_get_bridge_by_endpoint(dev->of_node, 1, -1);
-> +	if (IS_ERR(adv7511->bridge.next_bridge)) {
-> +		if (PTR_ERR(adv7511->bridge.next_bridge) == -ENODEV)
-> +			adv7511->bridge.next_bridge = NULL;
-> +		else
-> +			return PTR_ERR(adv7511->bridge.next_bridge);
+> -	if (dp->next_bridge) {
+> -		ret = drm_bridge_attach(encoder, dp->next_bridge,
+> +	if (dp->bridge.next_bridge) {
+> +		ret = drm_bridge_attach(encoder, dp->bridge.next_bridge,
+>  					bridge, flags);
+>  		if (ret < 0)
+>  			goto error;
+> @@ -2461,10 +2459,15 @@ int zynqmp_dp_probe(struct zynqmp_dpsub *dpsub)
+>  	 * Acquire the next bridge in the chain. Ignore errors caused by port@5
+>  	 * not being connected for backward-compatibility with older DTs.
+>  	 */
+> -	ret = drm_of_find_panel_or_bridge(dp->dev->of_node, 5, 0, NULL,
+> -					  &dp->next_bridge);
+> -	if (ret < 0 && ret != -ENODEV)
+> -		goto err_reset;
+> +	dp->bridge.next_bridge = of_drm_get_bridge_by_endpoint(dp->dev->of_node, 5, 0);
+> +	if (IS_ERR(dp->bridge.next_bridge)) {
+> +		if (PTR_ERR(dp->bridge.next_bridge) == -ENODEV) {
+> +			dp->bridge.next_bridge = NULL;
+> +		} else {
+> +			ret = PTR_ERR(dp->bridge.next_bridge);
+> +			goto err_reset;
+> +		}
+
+I would find
+
+		if (PTR_ERR(dp->bridge.next_bridge) != -ENODEV) {
+			ret = PTR_ERR(dp->bridge.next_bridge);
+			goto err_reset;
+		}
+
+		dp->bridge.next_bridge = NULL;
+
+easier to read. Up to you.
+
+Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+
 > +	}
 >  
->  	if (adv7511->info->link_config)
->  		ret = adv7511_parse_dt(dev->of_node, &link_config);
+>  	/* Initialize the hardware. */
+>  	dp->config.misc0 &= ~ZYNQMP_DP_MAIN_STREAM_MISC0_SYNC_LOCK;
 
 -- 
 Regards,
