@@ -4,69 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8E3BCD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 18:29:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DF43FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 18:36:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Gq053oVtS3TSD7VktC6VEOO7yzt0A6zW/Lb6qaxVL7A=; b=Q5eO6VnN2zXu6v6JJWYdCy2FA4
-	LgWHrvC22AAgr7u5jOpE2UTZ6iUK2PDGOREgv7JykSqHo8ZSoCdcAHgZhl1Q5D+6gxduT+1/uKOqX
-	82ACoJVL8vdtbE+frjgRSPPf7tCGAFm4sguUPewrO3QnH+T3Pj+j3nlSO1Nx7RiOebcVpaMwSBTp3
-	YEYmfyLV8vguZa/rbVF2gKD6KbZMpR3Yp7ct15gTCy9Vz+YYj7GublJ387GLh1TrbVdPreSYULNxT
-	yG+YBNflO1mFHJR3j76zMJ4VO4iLWEGI4C/RZa2Yg/XW4iQdF4Ah0vsiJkCme2XkVsrZLcMKPVXIz
-	FjSWyXxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SRdn7k3LFnQNAVYCK1u2qQMTJ/KntaiRc5c33mXlkdI=; b=uZ0N8S6kaSY0WY8Ri/nzAPg5hz
+	C/ynBMijuQ7i0jztWttRCn9ELmAUODAtEOMa15wWn/CWLlUexUdjOnUbc+Wn//gAKN5gIIw8V6RRm
+	7BhVqhgS5dHKoygDYKyZIjBayC+aJGyKpNuauPu9XFASSL9Uh0p9LnnuUlXKxKtkbf79iQwsKcItY
+	rJMe1x41T0eVrnpBEeHk68ngdtMQUCUp9nmNrhTXopl4U+F2nJ79b4hrsGRX+TBsuDVmJ+IHL23JA
+	3zG6tpxru49Ug4ThT/jndlUpx9AsonKi9DHhOi8ckPIasnc2hiZjShVgKdPsWHIzUtyC/HzlZsGa2
+	clAjNvFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJy35-0000000E0NK-15wu;
-	Mon, 04 May 2026 18:29:43 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wJy9d-0000000E1Eq-1xDl;
+	Mon, 04 May 2026 18:36:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJy32-0000000E0Lb-2LxK
+	id 1wJy9b-0000000E1Ea-2rO9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 18:29:41 +0000
+	Mon, 04 May 2026 18:36:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C1A68439D7
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  4 May 2026 18:29:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1928C2BCB8
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  4 May 2026 18:29:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0AED66001A;
+	Mon,  4 May 2026 18:36:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6ACACC2BCB8;
+	Mon,  4 May 2026 18:36:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777919379;
-	bh=Gq053oVtS3TSD7VktC6VEOO7yzt0A6zW/Lb6qaxVL7A=;
-	h=From:Date:Subject:To:Cc:From;
-	b=ZudSxXKS3ircpSE1ecMi5elvVnpO+4fhxoiL7TKkKcF6bxP9ZIaobtlyvleAUCZhj
-	 G4VPGHdRM9E7tn65F21TFduYaDTR0sWi/IDSZQC4Ags5/Vbl3TGVe6b0SjtOt3EaCk
-	 z6rb+Dik7YQTDqVwB7e30mtzRP+AVNpWp8tt6cYidicy4IVP8SvTT1dyw7+2aLbFq3
-	 iCFGTaF4GrPZ9PpXh7hHDOVa3LtEGeeeJj5zxbaqyG7h1zjLCJmU2c3KfGGqptXYJr
-	 zwosDSBJLrab44dQ2j1NIRvz2KZuoJwXQpWknasEfmz8orkG4TsH/Fz87+tzNn454N
-	 2zYnvwB6/ugtw==
-Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-59dcdf60427so3948086e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 May 2026 11:29:39 -0700 (PDT)
-X-Gm-Message-State: AOJu0Yx8kN9YAOQZE1lpYfBbEuy9AGlWKMWV1LLbX55zLUQgnN21f7jE
-	KYfefDH5iquXORHLNbfjUlCWTiMovtXkcdvo90ZAe5bS1T20I0/stpIN2Gyl6/t9y1Q/4KrEc+z
-	s66hPZ5rt2qZGrvjYfqp9NV96ZwmZIj8=
-X-Received: by 2002:a05:6512:1251:b0:5a8:5ca8:7f72 with SMTP id
- 2adb3069b0e04-5a862ebb68emr3363288e87.4.1777919378367; Mon, 04 May 2026
- 11:29:38 -0700 (PDT)
+	s=k20201202; t=1777919786;
+	bh=bRqSCWHEuIynO/9H0a1C015nwBsHdjF4zCRJ5hbbg8o=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=usurPhpbtninSMp+rORevQ9NQkMOR0lJe0JozaqZSjLPVmG6+QkOs86AqqJg0bS6B
+	 QWJf+xyhLJKgCtYXMTw+A/SfWgv31pG/oAsz9nDnEPzbPhJBN9Yec3ZIo7mnOop5BM
+	 EjIHtQTiodwVVIJ+fyGlXps1oI9SolzALVXCtOxY4GNlx4TctZAkST6ppZX+4nqYGm
+	 3EWDvha0UoRb4zzwvGc3KkkpfoMo+b/0GF4NqN3uguSi80MPMj3BCDIBP5WL4sxIKL
+	 qn4KNkamACV2NbcBzddkXocwcasilOw03nxba6eciypkDu71raxLhUJRiUBh5eKt4G
+	 RY0oXb0kL5hmg==
+Message-ID: <8e5ad1bc-e404-4247-8a38-aa2a51df24bb@kernel.org>
+Date: Mon, 4 May 2026 20:36:22 +0200
 MIME-Version: 1.0
-From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 4 May 2026 20:29:27 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=GZ3x_pWZ6xYUHH_OFuA0Dyzw2E5ACvo=XDWs66BCeGA@mail.gmail.com>
-X-Gm-Features: AVHnY4IuAq5c4lNKdZLiGmzZmHmfV4Bry4dlrtHayxO3--O9zWJ9-sV2BDvEaow
-Message-ID: <CAD++jL=GZ3x_pWZ6xYUHH_OFuA0Dyzw2E5ACvo=XDWs66BCeGA@mail.gmail.com>
-Subject: Extension of Airoha MAINTAINERS
-To: "moderated list:PIN CONTROLLER - MEDIATEK" <linux-mediatek@lists.infradead.org>, 
-	Lorenzo Bianconi <lorenzo@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	"Christian Marangi (Ansuel)" <ansuelsmth@gmail.com>
-Cc: Linux ARM <linux-arm-kernel@lists.infradead.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, abelloni@kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_112940_618020_770C4AE1 
-X-CRM114-Status: GOOD (  10.32  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/7] firmware: samsung: acpm: Fix cross-thread RX
+ length corruption
+To: Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, peter.griffin@linaro.org,
+ andre.draszik@linaro.org, jyescas@google.com, kernel-team@android.com,
+ stable@vger.kernel.org
+References: <20260504-acpm-fixes-sashiko-reports-v4-0-529246be6b2b@linaro.org>
+ <20260504-acpm-fixes-sashiko-reports-v4-1-529246be6b2b@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260504-acpm-fixes-sashiko-reports-v4-1-529246be6b2b@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,27 +118,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Airoha people,
+On 04/05/2026 12:15, Tudor Ambarus wrote:
+> Sashiko identified a cross-thread RX length corruption bug when
+> reviewing the thermal addition to ACPM [1].
+> 
+> When multiple threads concurrently send IPC requests, the ACPM polling
+> mechanism can encounter responses belonging to other threads. To drain
+> the queue, the driver saves these concurrent responses into an internal
+> cache (`rx_data->cmd`) to be retrieved later by the owning thread.
+> 
+> Previously, the driver incorrectly used `xfer->rxcnt` (the expected
+> receive length of the *current* polling thread) when copying data for
+> *other* threads into this cache. If the threads expected responses of
+> different lengths, this resulted in buffer underflows (leading to reads
+> of uninitialized memory) or potential buffer overflows.
+> 
+> Fix this by replacing the boolean `response` flag in
+> `struct acpm_rx_data` with `rxcnt`, caching the exact expected receive
+> length for each specific transaction during transfer preparation. Use
+> this cached length when saving concurrent responses.
+> 
+> Consequently, ensure that `xfer->rxcnt` is explicitly zeroed in driver
+> helpers (e.g., `acpm_dvfs_set_xfer`) for fire-and-forget messages to
+> prevent uninitialized stack garbage from being interpreted as a massive
+> expected receive length.
+> 
+> Cc: stable@vger.kernel.org
+> Fixes: a88927b534ba ("firmware: add Exynos ACPM protocol driver")
+> Closes: https://sashiko.dev/#/patchset/20260420-acpm-tmu-v3-0-3dc8e93f0b26%40linaro.org [1]
+> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 
-I have asked Christian Marangi (ansuel) to send a patch adding
-himself and Lorenzo Biaconi as co-maintainers of the ARM Airoha
-sub-architecture. I'm doing this as SoC co-maintainer.
+I think parallel credits for Titouan Ameline would be suitable here.
+If there is going to be new version, please also add:
 
-Please take the platform out of "S: Odd fixes" at the same time.
-There are clearly people interested in maintaining it.
+Reported-by: Titouan Ameline <titouan.ameline@gmail.com>
+Closes: https://lore.kernel.org/r/20260426210255.73674-1-titouan.ameline@gmail.com/
 
-Maybe a good way of working is for Christian/ansuel to accumulate
-patches and then send per pull request to the Mediatek maintainers
-since the platforms are so related?
 
-It would be advisible for Christian to include his own Airoha tree
-into linux-next so they all get tested before getting pulled to the
-Mediatek tree.
-
-This is being asked because Airoha patches were reportedly missed
-from the 7.1 merge window and while such things happen, I think this
-will oil up the process going forward.
-
-Yours,
-Linus Walleij
+Best regards,
+Krzysztof
 
