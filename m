@@ -4,91 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 054E0FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 14:46:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BA5EFF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 14:49:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=syZcRqkEoSRcvIiWcgaZXfGr2Hbbf5BKIpXNcQeAYXs=; b=uEuDNf5W4WnILDoJcWuWiTl9wY
-	fmE4gA0uJ6ecvAWCij8fNTkeQJpYTLOp8bk6Bfax+La92GFuBU89k8cjyfnHCU/ycjYexGBy9vg/t
-	I1zmysKoUDoUNtDNh7//txzr0faFlXisazQjQFyUYI2uIpE1o8uWGNJAG+2w0TDirl+ENWyVJR9k4
-	lLR1fRAaCeIjgOhdM0TWmSxCc/8JeiqnbvNEJxfweahjOD1o0CW66JKjv3fBdd8YRsrD5pptymAhQ
-	wA/Vfa7SwevcWG6CpOo38st/74jMUGN4ZL85fQ19Qor12kcNGtOLrUf40praj+3u2YjuSZhEZUosS
-	gpV/ZC1w==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:References:MIME-Version:
+	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=io8Wlmt6ElK07PQGWeonKWMTJB0aVZSKKRBar7wmn/0=; b=fHyjjzKqMYMqGIaUTfEm33PUTC
+	7KmzV+zeIwrNu4r2/6Yp2nXr2pRFTDtDaTSk3pjuFxN9qYn3ibPnjzRCVt67+SBUJTtYl6hWujXzo
+	Keew9gFZDqFyOO6TpXOOkoMRVflZcaoWW0NPy9djAZSFGdGY2IzPSdwceG3KibUqxhz5MphqiOSMq
+	P2dLeDgT8FJvZdDhCH0yqXWlnUbdUfKpLfHgGs0MvLsF2eOxraOiqfqgr6GwHcPFFKzUqNLHuwvsX
+	mtRZBHiWqB31YyimZt37v9GwQlAYeFGMqcMAC3GBlxRLRa8bfxu/EyLXshW0BVaUcne1fINmIdrPj
+	NtkX1eAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJuYz-0000000DVOC-46aI;
-	Mon, 04 May 2026 14:46:25 +0000
-Received: from mout-p-201.mailbox.org ([2001:67c:2050:0:465::201])
+	id 1wJuc2-0000000DW56-10Z7;
+	Mon, 04 May 2026 14:49:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJuYx-0000000DVKb-0kz6
+	id 1wJuby-0000000DW4c-3iTU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 14:46:25 +0000
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4g8Pbd3Ml6z9v0J;
-	Mon,  4 May 2026 16:46:21 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1777905981;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=syZcRqkEoSRcvIiWcgaZXfGr2Hbbf5BKIpXNcQeAYXs=;
-	b=aOpWgCHis4xF21lpTXzQ0d7gUqLOl1n3exmGgp2031WYx66jyvVcfrl7+5ZCQO8QKkO28c
-	s7hvrfptU6sMiWeccpr7cVd4ISKRnXCGgi3OxIKuTGsy5UDNRgCHhiKvrQ7WtcXufoyWjI
-	/iOqDfUIRRA65BG7mecimfzimc0LwNp3pR7drMccm2f5zD7XPl46BUQNwtxQ01fG+isxdb
-	rCJuwf/rxk2nAo23rlRbP5FaZMAqXozqlgyrTy/65RTP+5f21jD2YkoQscLVU+gtIK+6Py
-	sTq5y6wk/bs3/lkHT68VN5g+zY8MreIbgw0y/6eF3pTgvcSOEmtf1xxb39VSwQ==
-From: Marek Vasut <marek.vasut+renesas@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1777905980;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=syZcRqkEoSRcvIiWcgaZXfGr2Hbbf5BKIpXNcQeAYXs=;
-	b=PC4GLnth2BL8+5ZeyW4v8Ilud9ZiaYgHuSiVgBNGGY7yAt1cK2JvuGKCWG2IgpLOxY7bLP
-	Pbdel12XiqpCUIxueMBnmmmncST6LE2ZHM9cfPKMpG64Rm69s8xfCMI1nXpgXPOa84Xl7Y
-	RqM/sCB60l6PRZwdZ4YYr0pTM3ADQYUZDxpkyAat9Ee1FqiLBjAF3kF+5bcueTJU7gHvkB
-	TrHPbqt01jUK31ZofBh7KnNbwoLWn4t/xcJPARXQ9GTm2Ww6QHD/JAmHWfDU8ZA7G8Y9kA
-	QEnDgmVhNkUGe4ib607CTBSmncx+FZShI5euMmdxnjgp/sRbyPmsRROMuAjhYw==
-To: linux-arm-kernel@lists.infradead.org
-Cc: Nguyen Tran <nguyen.tran.pz@bp.renesas.com>,
-	Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Brian Masney <bmasney@redhat.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Ulf Hansson <ulfh@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mmc@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH v2 7/7] arm64: dts: renesas: r8a779md: Add support for R-Car M3Le R8A779MD Geist
-Date: Mon,  4 May 2026 16:43:29 +0200
-Message-ID: <20260504144534.43745-8-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260504144534.43745-1-marek.vasut+renesas@mailbox.org>
-References: <20260504144534.43745-1-marek.vasut+renesas@mailbox.org>
+	Mon, 04 May 2026 14:49:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 39F1A44509
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  4 May 2026 14:49:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBD9BC4AF14
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  4 May 2026 14:49:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777906170;
+	bh=e8dA+224ilunkVHtXb15F3k4EW0iTNw77ciicxoNYj0=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
+	b=ghb1DxphhW0IQ+cn9ZTnw/7BHW7UMp8OEBKirpJe1dMZl8G2AQ/LbL6cpiLqoY1V6
+	 jpJCAiLgGeMX6gh40Ue5iSAGx99vPDicV2FuOx2fl11MDJDyJxJ3j3/xathe51JNao
+	 LNOonBqCVTS+CNRanOCYMqqZ2ExXQPsiwIaevCpnC9svn0rBukyjoI68r36HTG2l3J
+	 THNOkCIY56jPIC3kJLDeSb3O5z9iPfdo431SKUP6aOe0zZ2bpl49m8zm1d/FT7/TEd
+	 Wha9zC7oXLfyZgCK3qRhMzT7KcJv1Co+7TtBHYw8fS79IcEE1DB21vD3KwioFfDlUC
+	 +20PSrjkt4hSA==
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5a3d42263e4so4860900e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 May 2026 07:49:29 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ9dObXVdv9nyWbOuYwZ+5TbqCgcg5zkQ9auS5+sujxBVb75NH+268TAfQ0RO4Z3AahuslmHQrimChe1QBpao1NY@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywe+u891TL3KvpyJ7YJ6oV0jhhfDBluBqqkyLeDrcBhISsR0kjp
+	pLScl1MeWRcc+UutG/8EjrRmL3H+KwwxWX4sl6aK0Yh2YHO5PjNoNRV5QswaQiH0fk/gd4qyuuV
+	nVdqwqJLdkkRo8HPob13qwJFU7QaLrQr4AHxG8RxPQQ==
+X-Received: by 2002:a05:6512:39cd:b0:5a4:19df:48de with SMTP id
+ 2adb3069b0e04-5a8631bb8fbmr3913651e87.26.1777906168125; Mon, 04 May 2026
+ 07:49:28 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 4 May 2026 14:49:26 +0000
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 4 May 2026 14:49:26 +0000
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260504131148.3622697-7-khristineandreea.barbulescu@oss.nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: 66d8aac08747721bfd7
-X-MBO-RS-META: qhum65cwxyfadcdofznxa3gqcd3rzb8d
+References: <20260504131148.3622697-1-khristineandreea.barbulescu@oss.nxp.com> <20260504131148.3622697-7-khristineandreea.barbulescu@oss.nxp.com>
+Date: Mon, 4 May 2026 14:49:26 +0000
+X-Gmail-Original-Message-ID: <CAMRc=Mc93NYJZr8O4+44CnPS56s4rtWm7qGOVW4oa+oW2xkgiA@mail.gmail.com>
+X-Gm-Features: AVHnY4JkcVyxi4y6LcUzdAf0ho4qNeSh7a2uWkgn08xoRxzXPZoOy3UQI5h1Glg
+Message-ID: <CAMRc=Mc93NYJZr8O4+44CnPS56s4rtWm7qGOVW4oa+oW2xkgiA@mail.gmail.com>
+Subject: Re: [PATCH v9 6/7] pinctrl: s32cc: implement GPIO functionality
+To: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
+Cc: Alberto Ruiz <aruizrui@redhat.com>, Christophe Lizzi <clizzi@redhat.com>, devicetree@vger.kernel.org, 
+	Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Vincent Guittot <vincent.guittot@linaro.org>, 
+	Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
+	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>, Larisa Grigore <larisa.grigore@nxp.com>, 
+	Lee Jones <lee@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Srinivas Kandagatla <srini@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_074623_561306_35D65CA1 
-X-CRM114-Status: GOOD (  19.58  )
+X-CRM114-CacheID: sfid-20260504_074930_987271_4103940F 
+X-CRM114-Status: GOOD (  36.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,808 +98,789 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nguyen Tran <nguyen.tran.pz@bp.renesas.com>
+On Mon, 4 May 2026 15:11:47 +0200, Khristine Andreea Barbulescu
+<khristineandreea.barbulescu@oss.nxp.com> said:
+> From: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+>
+> Add basic GPIO functionality (request, free, get, set) for
+> the existing pinctrl SIUL2 driver since the hardware for
+> pinctrl&GPIO is tightly coupled.
+>
+> The updated SIUL2 block groups pinctrl, GPIO data access
+> and interrupt control within the same hardware unit.
+> The SIUL2 driver is therefore structured as a monolithic
+> pinctrl/GPIO driver.
+>
+> This change came as a result of upstream review in the
+> following series:
+> https://lore.kernel.org/linux-gpio/20260120115923.3463866-4-khristineandr=
+eea.barbulescu@oss.nxp.com/T/#m543c9edbdde74bdc68b6a2364e8b975356c33043
+>
+> Support both SIUL2 DT layouts:
+> - legacy pinctrl-only binding
+> - extended pinctrl/GPIO/irqchip binding
+>
+> Also, remove pinmux_ops which are no longer needed.
+>
+> Signed-off-by: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+> Signed-off-by: Khristine Andreea Barbulescu <khristineandreea.barbulescu@=
+oss.nxp.com>
+> ---
+>  drivers/pinctrl/nxp/pinctrl-s32.h   |  15 +-
+>  drivers/pinctrl/nxp/pinctrl-s32cc.c | 527 ++++++++++++++++++++++++----
+>  drivers/pinctrl/nxp/pinctrl-s32g2.c |  25 +-
+>  3 files changed, 499 insertions(+), 68 deletions(-)
+>
+> diff --git a/drivers/pinctrl/nxp/pinctrl-s32.h b/drivers/pinctrl/nxp/pinc=
+trl-s32.h
+> index 8715befd5f05..d33f4d631dd6 100644
+> --- a/drivers/pinctrl/nxp/pinctrl-s32.h
+> +++ b/drivers/pinctrl/nxp/pinctrl-s32.h
+> @@ -2,7 +2,7 @@
+>   *
+>   * S32 pinmux core definitions
+>   *
+> - * Copyright 2016-2020, 2022 NXP
+> + * Copyright 2016-2020, 2022, 2026 NXP
+>   * Copyright (C) 2022 SUSE LLC
+>   * Copyright 2015-2016 Freescale Semiconductor, Inc.
+>   * Copyright (C) 2012 Linaro Ltd.
+> @@ -34,11 +34,23 @@ struct s32_pin_range {
+>  	unsigned int end;
+>  };
+>
+> +/**
+> + * struct s32_gpio_range - contiguous GPIO pin range within a SIUL2 modu=
+le
+> + * @gpio_base: first pinctrl pin number in the GPIO range
+> + * @gpio_num: number of consecutive GPIO pins in the range
+> + */
+> +struct s32_gpio_range {
+> +	unsigned int gpio_base;
+> +	unsigned int gpio_num;
+> +};
+> +
+>  struct s32_pinctrl_soc_data {
+>  	const struct pinctrl_pin_desc *pins;
+>  	unsigned int npins;
+>  	const struct s32_pin_range *mem_pin_ranges;
+>  	unsigned int mem_regions;
+> +	const struct s32_gpio_range *gpio_ranges;
+> +	unsigned int num_gpio_ranges;
+>  };
+>
+>  struct s32_pinctrl_soc_info {
+> @@ -53,6 +65,7 @@ struct s32_pinctrl_soc_info {
+>
+>  #define S32_PINCTRL_PIN(pin)	PINCTRL_PIN(pin, #pin)
+>  #define S32_PIN_RANGE(_start, _end) { .start =3D _start, .end =3D _end }
+> +#define S32_GPIO_RANGE(_base, _num) { .gpio_base =3D _base, .gpio_num =
+=3D _num }
+>
+>  int s32_pinctrl_probe(struct platform_device *pdev,
+>  		      const struct s32_pinctrl_soc_data *soc_data);
+> diff --git a/drivers/pinctrl/nxp/pinctrl-s32cc.c b/drivers/pinctrl/nxp/pi=
+nctrl-s32cc.c
+> index 27757f2c5570..2d9b14792cf4 100644
+> --- a/drivers/pinctrl/nxp/pinctrl-s32cc.c
+> +++ b/drivers/pinctrl/nxp/pinctrl-s32cc.c
+> @@ -2,7 +2,7 @@
+>  /*
+>   * Core driver for the S32 CC (Common Chassis) pin controller
+>   *
+> - * Copyright 2017-2022,2024-2025 NXP
+> + * Copyright 2017-2022,2024-2026 NXP
+>   * Copyright (C) 2022 SUSE LLC
+>   * Copyright 2015-2016 Freescale Semiconductor, Inc.
+>   */
+> @@ -39,6 +39,14 @@
+>  #define S32_MSCR_ODE		BIT(20)
+>  #define S32_MSCR_OBE		BIT(21)
+>
+> +/* PGPDOs are 16bit registers that come in big endian
 
-Add support for the Geist board based on the Renesas R-Car R8A779MD (M3Le)
-SoC, a register-compatible variant of the R8A77965 (M3-N) with reduced set
-of peripherals.
+Use:
 
-Signed-off-by: Nguyen Tran <nguyen.tran.pz@bp.renesas.com>
-Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
----
-Cc: Brian Masney <bmasney@redhat.com>
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-Cc: Magnus Damm <magnus.damm@gmail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Stephen Boyd <sboyd@kernel.org>
-Cc: Ulf Hansson <ulfh@kernel.org>
-Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: devicetree@vger.kernel.org
-Cc: linux-clk@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-mmc@vger.kernel.org
-Cc: linux-renesas-soc@vger.kernel.org
----
-V2: - Drop CS2500 variant suffix
-    - Drop cells from rcar_sound ports {}
-    - Drop ehci1, ohci1, usb2_phy1
-    - Drop Salvator-X reference from commit message
-    - Split panel DTO into separate patch
-    - Drop FCNL node
-    - Add another memory node for the second 2 GiB of DRAM,
-      although the DRAM layout is patched in by U-Boot
-    - Drop FIXME from audio-clkout {}
-    - Sort nodes without unit address
-    - Rename regulators, use npmv suffix for n.m V regulators
-    - Rename x12 node to x12-clock node
-    - Add PHY compatible string
-    - Use interrupts-extended in PHY node
-    - Rename clk_multiplier/clock-generator to clock-controller
-    - Use interrupts-extended
-    - Reinstate port@0 to rsound
-    - Drop iommus from SDHI2
-    - Drop DU until it can be tested
----
- arch/arm64/boot/dts/renesas/Makefile          |   1 +
- .../arm64/boot/dts/renesas/r8a779md-geist.dts | 732 ++++++++++++++++++
- 2 files changed, 733 insertions(+)
- create mode 100644 arch/arm64/boot/dts/renesas/r8a779md-geist.dts
+/*
+ * text
+ */
 
-diff --git a/arch/arm64/boot/dts/renesas/Makefile b/arch/arm64/boot/dts/renesas/Makefile
-index ca45d2857ea7f..8bf155badd111 100644
---- a/arch/arm64/boot/dts/renesas/Makefile
-+++ b/arch/arm64/boot/dts/renesas/Makefile
-@@ -60,6 +60,7 @@ r8a77965-salvator-xs-panel-aa104xd12-dtbs := r8a77965-salvator-xs.dtb salvator-p
- dtb-$(CONFIG_ARCH_R8A77965) += r8a77965-salvator-xs-panel-aa104xd12.dtb
- dtb-$(CONFIG_ARCH_R8A77965) += r8a77965-ulcb.dtb
- dtb-$(CONFIG_ARCH_R8A77965) += r8a77965-ulcb-kf.dtb
-+dtb-$(CONFIG_ARCH_R8A77965) += r8a779md-geist.dtb
- 
- dtb-$(CONFIG_ARCH_R8A77970) += r8a77970-eagle.dtb
- dtb-$(CONFIG_ARCH_R8A77970) += r8a77970-eagle-function-expansion.dtbo
-diff --git a/arch/arm64/boot/dts/renesas/r8a779md-geist.dts b/arch/arm64/boot/dts/renesas/r8a779md-geist.dts
-new file mode 100644
-index 0000000000000..b2d37ed4bac19
---- /dev/null
-+++ b/arch/arm64/boot/dts/renesas/r8a779md-geist.dts
-@@ -0,0 +1,732 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+/*
-+ * Device Tree Source for the Geist board with R-Car M3Le
-+ *
-+ * Copyright (C) 2025-2026 Renesas Electronics Corp.
-+ */
-+
-+/dts-v1/;
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/input/input.h>
-+#include "r8a779md.dtsi"
-+
-+/ {
-+	model = "Renesas Geist board based on r8a779md";
-+	compatible = "renesas,geist", "renesas,r8a779md", "renesas,r8a77965";
-+
-+	aliases {
-+		serial0 = &scif2;
-+		serial1 = &hscif1;
-+		ethernet0 = &avb;
-+		mmc0 = &sdhi2;
-+		mmc1 = &sdhi0;
-+	};
-+
-+	chosen {
-+		bootargs = "ignore_loglevel rw root=/dev/nfs ip=on";
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	audio_clkout: audio-clkout {
-+		/*
-+		 * This is same as <&rcar_sound 0>
-+		 * but needed to avoid cs2500/rcar_sound probe dead-lock
-+		 */
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <12288000>;
-+	};
-+
-+	backlight: backlight {
-+		compatible = "pwm-backlight";
-+		pwms = <&pwm1 0 50000>;
-+
-+		brightness-levels = <256 128 64 16 8 4 0>;
-+		default-brightness-level = <6>;
-+
-+		power-supply = <&reg_12v>;
-+		enable-gpios = <&gpio6 7 GPIO_ACTIVE_HIGH>;
-+	};
-+
-+	cvbs-in {
-+		compatible = "composite-video-connector";
-+		label = "CVBS IN";
-+
-+		port {
-+			cvbs_con: endpoint {
-+				remote-endpoint = <&adv7482_ain7>;
-+			};
-+		};
-+	};
-+
-+	hdmi-in {
-+		compatible = "hdmi-connector";
-+		label = "HDMI IN";
-+		type = "a";
-+
-+		port {
-+			hdmi_in_con: endpoint {
-+				remote-endpoint = <&adv7482_hdmi>;
-+			};
-+		};
-+	};
-+
-+	keys {
-+		compatible = "gpio-keys";
-+
-+		pinctrl-0 = <&keys_pins>;
-+		pinctrl-names = "default";
-+
-+		key-1 {
-+			gpios = <&gpio5 17 GPIO_ACTIVE_LOW>;
-+			linux,code = <KEY_1>;
-+			label = "SW4-1";
-+			wakeup-source;
-+			debounce-interval = <20>;
-+		};
-+
-+		key-2 {
-+			gpios = <&gpio5 20 GPIO_ACTIVE_LOW>;
-+			linux,code = <KEY_2>;
-+			label = "SW4-2";
-+			wakeup-source;
-+			debounce-interval = <20>;
-+		};
-+
-+		key-3 {
-+			gpios = <&gpio5 22 GPIO_ACTIVE_LOW>;
-+			linux,code = <KEY_3>;
-+			label = "SW4-3";
-+			wakeup-source;
-+			debounce-interval = <20>;
-+		};
-+
-+		key-4 {
-+			gpios = <&gpio5 23 GPIO_ACTIVE_LOW>;
-+			linux,code = <KEY_4>;
-+			label = "SW4-4";
-+			wakeup-source;
-+			debounce-interval = <20>;
-+		};
-+
-+		key-a {
-+			gpios = <&gpio6 11 GPIO_ACTIVE_LOW>;
-+			linux,code = <KEY_A>;
-+			label = "TSW0";
-+			wakeup-source;
-+			debounce-interval = <20>;
-+		};
-+
-+		key-b {
-+			gpios = <&gpio6 12 GPIO_ACTIVE_LOW>;
-+			linux,code = <KEY_B>;
-+			label = "TSW1";
-+			wakeup-source;
-+			debounce-interval = <20>;
-+		};
-+
-+		key-c {
-+			gpios = <&gpio6 13 GPIO_ACTIVE_LOW>;
-+			linux,code = <KEY_C>;
-+			label = "TSW2";
-+			wakeup-source;
-+			debounce-interval = <20>;
-+		};
-+	};
-+
-+	memory@48000000 {
-+		device_type = "memory";
-+		/* first 128MB is reserved for secure area. */
-+		reg = <0x0 0x48000000 0x0 0x78000000>;
-+	};
-+
-+	memory@480000000 {
-+		device_type = "memory";
-+		reg = <0x4 0x80000000 0x0 0x80000000>;
-+	};
-+
-+	reg_1p8v: regulator-1p8v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "fixed-1.8V";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+
-+	reg_3p3v: regulator-3p3v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "fixed-3.3V";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+
-+	reg_12v: regulator-12v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "fixed-12V";
-+		regulator-min-microvolt = <12000000>;
-+		regulator-max-microvolt = <12000000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+
-+	vbus0_usb2: regulator-vbus0-usb2 {
-+		compatible = "regulator-fixed";
-+
-+		regulator-name = "USB20_VBUS0";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+
-+		gpio = <&gpio6 16 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
-+	vcc_sdhi0: regulator-vcc-sdhi0 {
-+		compatible = "regulator-fixed";
-+
-+		regulator-name = "SDHI0 Vcc";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+
-+		gpio = <&gpio5 2 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
-+	vccq_sdhi0: regulator-vccq-sdhi0 {
-+		compatible = "regulator-gpio";
-+
-+		regulator-name = "SDHI0 VccQ";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <3300000>;
-+
-+		gpios = <&gpio5 1 GPIO_ACTIVE_HIGH>;
-+		gpios-states = <1>;
-+		states = <3300000 1>, <1800000 0>;
-+	};
-+
-+	sound_card: sound {
-+		compatible = "audio-graph-card";
-+
-+		label = "rcar-sound";
-+		dais = <&rsnd_port0>; /* AK4619 Audio Codec */
-+	};
-+
-+	x12_clk: x12-clock {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <24576000>;
-+	};
-+
-+	/* External DU dot clocks */
-+	x21_clk: x21-clock {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <33000000>;
-+	};
-+
-+	x22_clk: x22-clock {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <33000000>;
-+	};
-+
-+	x23_clk: x23-clock {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <25000000>;
-+	};
-+
-+	x3013_clk: x3013-clock {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <25000000>;
-+	};
-+};
-+
-+&audio_clk_a {
-+	clock-frequency = <22579200>;
-+};
-+
-+&avb {
-+	pinctrl-0 = <&avb_pins>;
-+	pinctrl-names = "default";
-+	phy-handle = <&phy0>;
-+	tx-internal-delay-ps = <2000>;
-+	status = "okay";
-+
-+	phy0: ethernet-phy@0 {
-+		compatible = "ethernet-phy-id0022.1622";
-+		rxc-skew-ps = <1500>;
-+		reg = <0>;
-+		interrupts-extended = <&gpio2 11 IRQ_TYPE_LEVEL_LOW>;
-+		reset-gpios = <&gpio2 10 GPIO_ACTIVE_LOW>;
-+		reset-assert-us = <100>;
-+		reset-deassert-us = <100>;
-+	};
-+};
-+
-+&csi40 {
-+	status = "okay";
-+
-+	ports {
-+		port@0 {
-+			csi40_in: endpoint {
-+				clock-lanes = <0>;
-+				data-lanes = <1 2 3 4>;
-+				remote-endpoint = <&adv7482_txa>;
-+			};
-+		};
-+	};
-+};
-+
-+&ehci0 {
-+	dr_mode = "otg";
-+	status = "okay";
-+};
-+
-+&extalr_clk {
-+	clock-frequency = <32768>;
-+};
-+
-+&extal_clk {
-+	clock-frequency = <16666666>;
-+};
-+
-+&hscif1 {
-+	pinctrl-0 = <&hscif1_pins>;
-+	pinctrl-names = "default";
-+
-+	uart-has-rtscts;
-+	/* Please only enable hscif1 or scif1 */
-+	status = "okay";
-+};
-+
-+&hsusb {
-+	dr_mode = "otg";
-+	status = "okay";
-+};
-+
-+&i2c2 {
-+	pinctrl-0 = <&i2c2_pins>;
-+	pinctrl-names = "default";
-+	clock-frequency = <100000>;
-+	status = "okay";
-+
-+	ak4619: codec@10 {
-+		compatible = "asahi-kasei,ak4619";
-+		reg = <0x10>;
-+		clocks = <&rcar_sound 3>;
-+		clock-names = "mclk";
-+		#sound-dai-cells = <0>;
-+
-+		port {
-+			ak4619_endpoint: endpoint {
-+				remote-endpoint = <&rsnd_endpoint0>;
-+			};
-+		};
-+	};
-+
-+	/* Pin-to-pin, register map, and control compatible with CS2000 and CS2200 */
-+	cs2500: clock-controller@4f {
-+		#clock-cells = <0>;
-+		compatible = "cirrus,cs2500", "cirrus,cs2000-cp";
-+		reg = <0x4f>;
-+		clocks = <&audio_clkout>, <&x12_clk>;
-+		clock-names = "clk_in", "ref_clk";
-+
-+		assigned-clocks = <&cs2500>;
-+		assigned-clock-rates = <24576000>; /* 1/1 divide */
-+	};
-+};
-+
-+&i2c4 {
-+	clock-frequency = <400000>;
-+	status = "okay";
-+
-+	versaclock3: clock-controller@68 {
-+		compatible = "renesas,5p35023";
-+		reg = <0x68>;
-+		#clock-cells = <1>;
-+		clocks = <&x3013_clk>;
-+		assigned-clocks = <&versaclock3 4>, <&versaclock3 5>;
-+		assigned-clock-rates = <100000000>, <100000000>;
-+	};
-+
-+	versaclock5: clock-controller@6a {
-+		compatible = "idt,5p49v5923";
-+		reg = <0x6a>;
-+		#clock-cells = <1>;
-+		clocks = <&x23_clk>;
-+		clock-names = "xin";
-+	};
-+
-+	video-receiver@70 {
-+		compatible = "adi,adv7482";
-+		reg = <0x70 0x71 0x72 0x73 0x74 0x75
-+		       0x60 0x61 0x62 0x63 0x64 0x65>;
-+		reg-names = "main", "dpll", "cp", "hdmi", "edid", "repeater",
-+			    "infoframe", "cbus", "cec", "sdp", "txa", "txb" ;
-+
-+		interrupts-extended = <&gpio6 30 IRQ_TYPE_LEVEL_LOW>,
-+				      <&gpio6 31 IRQ_TYPE_LEVEL_LOW>;
-+		interrupt-names = "intrq1", "intrq2";
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			port@7 {
-+				reg = <7>;
-+
-+				adv7482_ain7: endpoint {
-+					remote-endpoint = <&cvbs_con>;
-+				};
-+			};
-+
-+			port@8 {
-+				reg = <8>;
-+
-+				adv7482_hdmi: endpoint {
-+					remote-endpoint = <&hdmi_in_con>;
-+				};
-+			};
-+
-+			port@a {
-+				reg = <10>;
-+
-+				adv7482_txa: endpoint {
-+					clock-lanes = <0>;
-+					data-lanes = <1 2 3 4>;
-+					remote-endpoint = <&csi40_in>;
-+				};
-+			};
-+		};
-+	};
-+
-+	csa_vdd: adc@7c {
-+		compatible = "maxim,max9611";
-+		reg = <0x7c>;
-+
-+		shunt-resistor-micro-ohms = <5000>;
-+	};
-+
-+	csa_dvfs: adc@7f {
-+		compatible = "maxim,max9611";
-+		reg = <0x7f>;
-+
-+		shunt-resistor-micro-ohms = <5000>;
-+	};
-+};
-+
-+&i2c_dvfs {
-+	status = "okay";
-+
-+	clock-frequency = <400000>;
-+
-+	eeprom@50 {
-+		compatible = "rohm,br24t01", "atmel,24c01";
-+		reg = <0x50>;
-+		pagesize = <8>;
-+	};
-+};
-+
-+&ohci0 {
-+	dr_mode = "otg";
-+	status = "okay";
-+};
-+
-+&pcie_bus_clk {
-+	status = "disabled";
-+};
-+
-+&pciec0 {
-+	clocks = <&cpg CPG_MOD 319>, <&versaclock3 4>;
-+	status = "okay";
-+};
-+
-+&pciec0_rp {
-+	clocks = <&versaclock3 5>;
-+};
-+
-+&pfc {
-+	pinctrl-0 = <&scif_clk_pins>;
-+	pinctrl-names = "default";
-+
-+	avb_pins: avb {
-+		mux {
-+			groups = "avb_link", "avb_mdio", "avb_mii";
-+			function = "avb";
-+		};
-+
-+		pins_mdio {
-+			groups = "avb_mdio";
-+			drive-strength = <24>;
-+		};
-+
-+		pins_mii_tx {
-+			pins = "PIN_AVB_TX_CTL", "PIN_AVB_TXC", "PIN_AVB_TD0",
-+			       "PIN_AVB_TD1", "PIN_AVB_TD2", "PIN_AVB_TD3";
-+			drive-strength = <12>;
-+		};
-+	};
-+
-+	hscif1_pins: hscif1 {
-+		groups = "hscif1_data_a", "hscif1_ctrl_a";
-+		function = "hscif1";
-+	};
-+
-+	i2c2_pins: i2c2 {
-+		groups = "i2c2_a";
-+		function = "i2c2";
-+	};
-+
-+	irq0_pins: irq0 {
-+		groups = "intc_ex_irq0";
-+		function = "intc_ex";
-+	};
-+
-+	keys_pins: keys {
-+		pins = "GP_5_17", "GP_5_20", "GP_5_22";
-+		bias-pull-up;
-+	};
-+
-+	pwm1_pins: pwm1 {
-+		groups = "pwm1_a";
-+		function = "pwm1";
-+	};
-+
-+	pwm2_pins: pwm2 {
-+		groups = "pwm2_a";
-+		function = "pwm2";
-+	};
-+
-+	scif1_pins: scif1 {
-+		groups = "scif1_data_a", "scif1_ctrl";
-+		function = "scif1";
-+	};
-+
-+	scif2_pins: scif2 {
-+		groups = "scif2_data_a";
-+		function = "scif2";
-+	};
-+
-+	scif_clk_pins: scif_clk {
-+		groups = "scif_clk_a";
-+		function = "scif_clk";
-+	};
-+
-+	sdhi0_pins: sd0 {
-+		groups = "sdhi0_data4", "sdhi0_ctrl";
-+		function = "sdhi0";
-+		power-source = <3300>;
-+	};
-+
-+	sdhi0_pins_uhs: sd0_uhs {
-+		groups = "sdhi0_data4", "sdhi0_ctrl";
-+		function = "sdhi0";
-+		power-source = <1800>;
-+	};
-+
-+	sdhi2_pins: sd2 {
-+		groups = "sdhi2_data8", "sdhi2_ctrl", "sdhi2_ds";
-+		function = "sdhi2";
-+		power-source = <1800>;
-+	};
-+
-+	sound_pins: sound {
-+		groups = "ssi01239_ctrl", "ssi0_data", "ssi1_data_a";
-+		function = "ssi";
-+	};
-+
-+	sound_clk_pins: sound_clk {
-+		groups = "audio_clk_a_a", "audio_clk_b_a", "audio_clk_c_a",
-+			 "audio_clkout_a", "audio_clkout3_a";
-+		function = "audio_clk";
-+	};
-+
-+	usb0_pins: usb0 {
-+		groups = "usb0";
-+		function = "usb0";
-+	};
-+};
-+
-+&pwm1 {
-+	pinctrl-0 = <&pwm1_pins>;
-+	pinctrl-names = "default";
-+
-+	status = "okay";
-+};
-+
-+&pwm2 {
-+	pinctrl-0 = <&pwm2_pins>;
-+	pinctrl-names = "default";
-+
-+	status = "okay";
-+};
-+
-+&rcar_sound {
-+	pinctrl-0 = <&sound_pins>, <&sound_clk_pins>;
-+	pinctrl-names = "default";
-+
-+	/* Single DAI */
-+	#sound-dai-cells = <0>;
-+
-+	/* audio_clkout0/1/2/3 */
-+	#clock-cells = <1>;
-+	clock-frequency = <12288000 11289600>;
-+
-+	status = "okay";
-+
-+	/* update <audio_clk_b> to <cs2500> */
-+	clocks = <&cpg CPG_MOD 1005>,
-+		 <&cpg CPG_MOD 1006>, <&cpg CPG_MOD 1007>,
-+		 <&cpg CPG_MOD 1008>, <&cpg CPG_MOD 1009>,
-+		 <&cpg CPG_MOD 1010>, <&cpg CPG_MOD 1011>,
-+		 <&cpg CPG_MOD 1012>, <&cpg CPG_MOD 1013>,
-+		 <&cpg CPG_MOD 1014>, <&cpg CPG_MOD 1015>,
-+		 <&cpg CPG_MOD 1022>, <&cpg CPG_MOD 1023>,
-+		 <&cpg CPG_MOD 1024>, <&cpg CPG_MOD 1025>,
-+		 <&cpg CPG_MOD 1026>, <&cpg CPG_MOD 1027>,
-+		 <&cpg CPG_MOD 1028>, <&cpg CPG_MOD 1029>,
-+		 <&cpg CPG_MOD 1030>, <&cpg CPG_MOD 1031>,
-+		 <&cpg CPG_MOD 1020>, <&cpg CPG_MOD 1021>,
-+		 <&cpg CPG_MOD 1020>, <&cpg CPG_MOD 1021>,
-+		 <&cpg CPG_MOD 1019>, <&cpg CPG_MOD 1018>,
-+		 <&audio_clk_a>, <&cs2500>,
-+		 <&audio_clk_c>,
-+		 <&cpg CPG_MOD 922>;
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		rsnd_port0: port@0 {
-+			reg = <0>;
-+
-+			rsnd_endpoint0: endpoint {
-+				remote-endpoint = <&ak4619_endpoint>;
-+				dai-format = "left_j";
-+				bitclock-master = <&rsnd_endpoint0>;
-+				frame-master = <&rsnd_endpoint0>;
-+				playback = <&ssi0>, <&src0>, <&dvc0>;
-+				capture = <&ssi1>, <&src1>, <&dvc1>;
-+			};
-+		};
-+	};
-+};
-+
-+&rwdt {
-+	timeout-sec = <60>;
-+	status = "okay";
-+};
-+
-+&scif1 {
-+	pinctrl-0 = <&scif1_pins>;
-+	pinctrl-names = "default";
-+
-+	uart-has-rtscts;
-+	/* Please only enable hscif1 or scif1 */
-+	/* status = "okay"; */
-+};
-+
-+&scif2 {
-+	pinctrl-0 = <&scif2_pins>;
-+	pinctrl-names = "default";
-+
-+	status = "okay";
-+};
-+
-+&scif_clk {
-+	clock-frequency = <14745600>;
-+};
-+
-+&sdhi0 {
-+	pinctrl-0 = <&sdhi0_pins>;
-+	pinctrl-1 = <&sdhi0_pins_uhs>;
-+	pinctrl-names = "default", "state_uhs";
-+
-+	vmmc-supply = <&vcc_sdhi0>;
-+	vqmmc-supply = <&vccq_sdhi0>;
-+	cd-gpios = <&gpio3 12 GPIO_ACTIVE_LOW>;
-+	wp-gpios = <&gpio3 13 GPIO_ACTIVE_HIGH>;
-+	bus-width = <4>;
-+	sd-uhs-sdr50;
-+	sd-uhs-sdr104;
-+	status = "okay";
-+};
-+
-+&sdhi2 {
-+	/* used for on-board 8bit eMMC */
-+	pinctrl-0 = <&sdhi2_pins>;
-+	pinctrl-1 = <&sdhi2_pins>;
-+	pinctrl-names = "default", "state_uhs";
-+
-+	vmmc-supply = <&reg_3p3v>;
-+	vqmmc-supply = <&reg_1p8v>;
-+	bus-width = <8>;
-+	mmc-hs200-1_8v;
-+	no-sd;
-+	no-sdio;
-+	non-removable;
-+	fixed-emmc-driver-type = <1>;
-+	full-pwr-cycle-in-suspend;
-+	status = "okay";
-+};
-+
-+&ssi1 {
-+	shared-pin;
-+};
-+
-+&usb_extal_clk {
-+	clock-frequency = <50000000>;
-+};
-+
-+&usb2_phy0 {
-+	pinctrl-0 = <&usb0_pins>;
-+	pinctrl-names = "default";
-+
-+	vbus-supply = <&vbus0_usb2>;
-+	status = "okay";
-+};
-+
-+&vin0 {
-+	status = "okay";
-+};
-+
-+&vin1 {
-+	status = "okay";
-+};
-+
-+&vin2 {
-+	status = "okay";
-+};
-+
-+&vin3 {
-+	status = "okay";
-+};
-+
-+&vin4 {
-+	status = "okay";
-+};
-+
-+&vin5 {
-+	status = "okay";
-+};
-+
-+&vin6 {
-+	status = "okay";
-+};
-+
-+&vin7 {
-+	status = "okay";
-+};
-+
-+&vspb {
-+	status = "okay";
-+};
-+
-+&vspi0 {
-+	status = "okay";
-+};
--- 
-2.53.0
+style for comments please.
 
+> + * order if they are grouped in pairs of two.
+> + *
+> + * For example, the order is PGPDO1, PGPDO0, PGPDO3, PGPDO2...
+> + */
+> +#define S32_PGPD(N)		(((N) ^ 1) * 2)
+> +#define S32_PGPD_SIZE		16
+> +
+>  enum s32_write_type {
+>  	S32_PINCONF_UPDATE_ONLY,
+>  	S32_PINCONF_OVERWRITE,
+> @@ -72,6 +80,18 @@ struct s32_pinctrl_mem_region {
+>  	char name[8];
+>  };
+>
+> +/**
+> + * struct s32_gpio_regmaps - GPIO register maps for a SIUL2 instance
+> + * @pgpdo: regmap for Parallel GPIO Pad Data Out registers
+> + * @pgpdi: regmap for Parallel GPIO Pad Data In registers
+> + * @range: GPIO range info
+> + */
+> +struct s32_gpio_regmaps {
+> +	struct regmap *pgpdo;
+> +	struct regmap *pgpdi;
+> +	const struct s32_gpio_range *range;
+> +};
+> +
+>  /**
+>   * struct gpio_pin_config - holds pin configuration for GPIO's
+>   * @pin_id: Pin ID for this GPIO
+> @@ -96,8 +116,11 @@ struct s32_pinctrl_context {
+>   * struct s32_pinctrl - private driver data
+>   * @dev: a pointer back to containing device
+>   * @pctl: a pointer to the pinctrl device structure
+> + * @gc: a pointer to the gpio_chip
+>   * @regions: reserved memory regions with start/end pin
+>   * @info: structure containing information about the pin
+> + * @gpio_regmaps: PGPDO/PGPDI regmaps for each SIUL2 module
+> + * @num_gpio_regmaps: number of GPIO regmap entries
+>   * @gpio_configs: saved configurations for GPIO pins
+>   * @gpio_configs_lock: lock for the `gpio_configs` list
+>   * @saved_context: configuration saved over system sleep
+> @@ -105,8 +128,11 @@ struct s32_pinctrl_context {
+>  struct s32_pinctrl {
+>  	struct device *dev;
+>  	struct pinctrl_dev *pctl;
+> +	struct gpio_chip gc;
+>  	struct s32_pinctrl_mem_region *regions;
+>  	struct s32_pinctrl_soc_info *info;
+> +	struct s32_gpio_regmaps *gpio_regmaps;
+> +	unsigned int num_gpio_regmaps;
+>  	struct list_head gpio_configs;
+>  	spinlock_t gpio_configs_lock;
+>  #ifdef CONFIG_PM_SLEEP
+> @@ -379,67 +405,6 @@ static int s32_pmx_get_groups(struct pinctrl_dev *pc=
+tldev,
+>  	return 0;
+>  }
+>
+> -static int s32_pmx_gpio_request_enable(struct pinctrl_dev *pctldev,
+> -				       struct pinctrl_gpio_range *range,
+> -				       unsigned int offset)
+> -{
+> -	struct s32_pinctrl *ipctl =3D pinctrl_dev_get_drvdata(pctldev);
+> -	struct gpio_pin_config *gpio_pin;
+> -	unsigned int config;
+> -	unsigned long flags;
+> -	int ret;
+> -
+> -	ret =3D s32_regmap_read(pctldev, offset, &config);
+
+These are all mmio regmaps, right? You probably don't need to check the ret=
+urn
+values of regmap ops in this driver.
+
+> -	if (ret)
+> -		return ret;
+> -
+> -	/* Save current configuration */
+> -	gpio_pin =3D kmalloc_obj(*gpio_pin);
+> -	if (!gpio_pin)
+> -		return -ENOMEM;
+> -
+> -	gpio_pin->pin_id =3D offset;
+> -	gpio_pin->config =3D config;
+> -	INIT_LIST_HEAD(&gpio_pin->list);
+> -
+> -	spin_lock_irqsave(&ipctl->gpio_configs_lock, flags);
+> -	list_add(&gpio_pin->list, &ipctl->gpio_configs);
+> -	spin_unlock_irqrestore(&ipctl->gpio_configs_lock, flags);
+> -
+> -	/* GPIO pin means SSS =3D 0 */
+> -	config &=3D ~S32_MSCR_SSS_MASK;
+> -
+> -	return s32_regmap_write(pctldev, offset, config);
+> -}
+> -
+> -static void s32_pmx_gpio_disable_free(struct pinctrl_dev *pctldev,
+> -				      struct pinctrl_gpio_range *range,
+> -				      unsigned int offset)
+> -{
+> -	struct s32_pinctrl *ipctl =3D pinctrl_dev_get_drvdata(pctldev);
+> -	struct gpio_pin_config *gpio_pin, *tmp;
+> -	unsigned long flags;
+> -	int ret;
+> -
+> -	spin_lock_irqsave(&ipctl->gpio_configs_lock, flags);
+> -
+> -	list_for_each_entry_safe(gpio_pin, tmp, &ipctl->gpio_configs, list) {
+> -		if (gpio_pin->pin_id =3D=3D offset) {
+> -			ret =3D s32_regmap_write(pctldev, gpio_pin->pin_id,
+> -						 gpio_pin->config);
+> -			if (ret !=3D 0)
+> -				goto unlock;
+> -
+> -			list_del(&gpio_pin->list);
+> -			kfree(gpio_pin);
+> -			break;
+> -		}
+> -	}
+> -
+> -unlock:
+> -	spin_unlock_irqrestore(&ipctl->gpio_configs_lock, flags);
+> -}
+> -
+>  static int s32_pmx_gpio_set_direction(struct pinctrl_dev *pctldev,
+>  				      struct pinctrl_gpio_range *range,
+>  				      unsigned int offset,
+> @@ -463,8 +428,6 @@ static const struct pinmux_ops s32_pmx_ops =3D {
+>  	.get_function_name =3D s32_pmx_get_func_name,
+>  	.get_function_groups =3D s32_pmx_get_groups,
+>  	.set_mux =3D s32_pmx_set,
+> -	.gpio_request_enable =3D s32_pmx_gpio_request_enable,
+> -	.gpio_disable_free =3D s32_pmx_gpio_disable_free,
+>  	.gpio_set_direction =3D s32_pmx_gpio_set_direction,
+>  };
+>
+> @@ -683,6 +646,397 @@ static const struct pinconf_ops s32_pinconf_ops =3D=
+ {
+>  	.pin_config_group_dbg_show =3D s32_pinconf_group_dbg_show,
+>  };
+>
+> +static struct s32_pinctrl *to_s32_pinctrl(struct gpio_chip *chip)
+> +{
+> +	return container_of(chip, struct s32_pinctrl, gc);
+> +}
+> +
+> +static struct regmap *s32_gpio_get_pgpd_regmap(struct gpio_chip *chip,
+> +					       unsigned int gpio,
+> +					       bool output,
+> +						   unsigned int *relative_pin)
+> +{
+> +	struct s32_pinctrl *ipctl =3D to_s32_pinctrl(chip);
+> +	const struct s32_gpio_range *range;
+> +	int i;
+> +
+> +	for (i =3D 0; i < ipctl->num_gpio_regmaps; i++) {
+> +		range =3D ipctl->gpio_regmaps[i].range;
+> +		if (gpio >=3D range->gpio_base &&
+> +		    gpio < range->gpio_base + range->gpio_num) {
+> +			if (relative_pin)
+> +				*relative_pin =3D gpio - range->gpio_base;
+> +			return output ? ipctl->gpio_regmaps[i].pgpdo :
+> +					ipctl->gpio_regmaps[i].pgpdi;
+> +		}
+> +	}
+> +
+> +	return NULL;
+> +}
+> +
+> +static int s32_gpio_request(struct gpio_chip *gc, unsigned int gpio)
+> +{
+> +	struct s32_pinctrl *ipctl =3D to_s32_pinctrl(gc);
+> +	struct pinctrl_dev *pctldev =3D ipctl->pctl;
+> +	struct gpio_pin_config *gpio_pin;
+> +	unsigned int config;
+> +	int ret;
+> +
+> +	ret =3D s32_regmap_read(pctldev, gpio, &config);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/* Save current configuration */
+> +	gpio_pin =3D kmalloc(sizeof(*gpio_pin), GFP_KERNEL);
+> +	if (!gpio_pin)
+> +		return -ENOMEM;
+> +
+> +	gpio_pin->pin_id =3D gpio;
+> +	gpio_pin->config =3D config;
+> +	INIT_LIST_HEAD(&gpio_pin->list);
+
+This is only needed on the list *head*, not on nodes you add.
+
+> +
+> +	/* GPIO pin means SSS =3D 0 */
+> +	config &=3D ~S32_MSCR_SSS_MASK;
+> +
+> +	ret =3D s32_regmap_write(pctldev, gpio, config);
+> +	if (ret) {
+> +		kfree(gpio_pin);
+
+Maybe __free(kfree) and no_free_ptr()?
+
+> +		return ret;
+> +	}
+> +
+> +	scoped_guard(spinlock_irqsave, &ipctl->gpio_configs_lock)
+> +		list_add(&gpio_pin->list, &ipctl->gpio_configs);
+> +
+> +	return 0;
+> +}
+> +
+> +static void s32_gpio_free(struct gpio_chip *gc, unsigned int gpio)
+> +{
+> +	struct s32_pinctrl *ipctl =3D to_s32_pinctrl(gc);
+> +	struct pinctrl_dev *pctldev =3D ipctl->pctl;
+> +	struct gpio_pin_config *gpio_pin, *tmp;
+> +	int ret;
+> +
+> +	guard(spinlock_irqsave)(&ipctl->gpio_configs_lock);
+> +
+> +	list_for_each_entry_safe(gpio_pin, tmp, &ipctl->gpio_configs, list) {
+> +		if (gpio_pin->pin_id =3D=3D gpio) {
+> +			list_del(&gpio_pin->list);
+> +			ret =3D s32_regmap_write(pctldev, gpio_pin->pin_id,
+> +					       gpio_pin->config);
+> +			if (ret)
+> +				dev_warn(gc->parent, "Failed to restore config for pin %u\n", gpio);
+> +			kfree(gpio_pin);
+> +			return;
+> +		}
+> +	}
+> +}
+> +
+> +static int s32_gpio_get_dir(struct gpio_chip *chip, unsigned int gpio)
+> +{
+> +	struct s32_pinctrl *ipctl =3D to_s32_pinctrl(chip);
+> +	unsigned int reg_value;
+> +	int ret;
+> +
+> +	ret =3D s32_regmap_read(ipctl->pctl, gpio, &reg_value);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (!(reg_value & S32_MSCR_IBE))
+> +		return -EIO;
+> +
+> +	return reg_value & S32_MSCR_OBE ? GPIO_LINE_DIRECTION_OUT :
+> +					  GPIO_LINE_DIRECTION_IN;
+> +}
+> +
+> +static unsigned int s32_pin2pad(unsigned int pin)
+> +{
+> +	return pin / S32_PGPD_SIZE;
+> +}
+> +
+> +static u16 s32_pin2mask(unsigned int pin)
+> +{
+> +	/*
+> +	 * From Reference manual :
+> +	 * PGPDOx[PPDOy] =3D GPDO(x =C3=97 16) + (15 - y)[PDO_(x =C3=97 16) + (=
+15 - y)]
+> +	 */
+> +	return BIT(S32_PGPD_SIZE - 1 - pin % S32_PGPD_SIZE);
+> +}
+> +
+> +static struct regmap *s32_gpio_get_regmap_offset_mask(struct gpio_chip *=
+chip,
+> +						      unsigned int gpio,
+> +						      unsigned int *reg_offset,
+> +						      u16 *mask,
+> +						      bool output)
+> +{
+> +	struct regmap *regmap;
+> +	unsigned int pad, relative_pin;
+> +
+> +	regmap =3D s32_gpio_get_pgpd_regmap(chip, gpio, output, &relative_pin);
+> +	if (!regmap)
+> +		return NULL;
+> +
+> +	*mask =3D s32_pin2mask(relative_pin);
+> +	pad =3D s32_pin2pad(relative_pin);
+> +
+> +	*reg_offset =3D S32_PGPD(pad);
+> +
+> +	return regmap;
+> +}
+> +
+> +static int s32_gpio_set_val(struct gpio_chip *chip, unsigned int gpio,
+> +			    int value)
+> +{
+> +	unsigned int reg_offset;
+> +	struct regmap *regmap;
+> +	u16 mask;
+> +
+> +	regmap =3D s32_gpio_get_regmap_offset_mask(chip, gpio, &reg_offset,
+> +						 &mask, true);
+> +	if (!regmap)
+> +		return -ENODEV;
+> +
+> +	value =3D value ? mask : 0;
+> +
+> +	return regmap_update_bits(regmap, reg_offset, mask, value);
+> +}
+> +
+> +static int s32_gpio_set(struct gpio_chip *chip, unsigned int gpio,
+> +			int value)
+> +{
+> +	return s32_gpio_set_val(chip, gpio, value);
+> +}
+> +
+> +static int s32_gpio_get(struct gpio_chip *chip, unsigned int gpio)
+> +{
+> +	unsigned int reg_offset, value;
+> +	struct regmap *regmap;
+> +	u16 mask;
+> +	int ret;
+> +
+> +	regmap =3D s32_gpio_get_regmap_offset_mask(chip, gpio, &reg_offset,
+> +						 &mask, false);
+> +	if (!regmap)
+> +		return -EINVAL;
+> +
+> +	ret =3D regmap_read(regmap, reg_offset, &value);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return !!(value & mask);
+> +}
+> +
+> +static int s32_gpio_dir_out(struct gpio_chip *chip, unsigned int gpio,
+> +			    int val)
+> +{
+> +	struct s32_pinctrl *ipctl =3D to_s32_pinctrl(chip);
+> +	int ret;
+> +
+> +	ret =3D s32_gpio_set_val(chip, gpio, val);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return s32_pmx_gpio_set_direction(ipctl->pctl, NULL, gpio, false);
+> +}
+> +
+> +static int s32_gpio_dir_in(struct gpio_chip *chip, unsigned int gpio)
+> +{
+> +	struct s32_pinctrl *ipctl =3D to_s32_pinctrl(chip);
+> +
+> +	return s32_pmx_gpio_set_direction(ipctl->pctl, NULL, gpio, true);
+> +}
+> +
+> +static bool s32_gpio_is_valid(struct gpio_chip *chip, unsigned int gpio)
+> +{
+> +	struct s32_pinctrl *ipctl =3D to_s32_pinctrl(chip);
+> +	const struct s32_pinctrl_soc_data *soc_data;
+> +	const struct pinctrl_pin_desc *pins;
+> +	int i;
+> +
+> +	soc_data =3D ipctl->info->soc_data;
+> +	pins =3D ipctl->info->soc_data->pins;
+> +	for (i =3D 0; i < soc_data->npins && pins[i].number <=3D gpio; i++)
+> +		if (pins[i].number =3D=3D gpio)
+> +			return true;
+> +
+> +	return false;
+> +}
+> +
+> +static int s32_init_valid_mask(struct gpio_chip *chip, unsigned long *ma=
+sk,
+> +			       unsigned int ngpios)
+> +{
+> +	struct s32_pinctrl *ipctl =3D to_s32_pinctrl(chip);
+> +	const struct s32_pinctrl_soc_data *soc_data;
+> +	const struct pinctrl_pin_desc *pins;
+> +	int i;
+> +
+> +	bitmap_zero(mask, ngpios);
+> +
+> +	soc_data =3D ipctl->info->soc_data;
+> +	pins =3D soc_data->pins;
+> +
+> +	for (i =3D 0; i < soc_data->npins; i++)
+> +		if (pins[i].number < ngpios)
+> +			bitmap_set(mask, pins[i].number, 1);
+> +
+> +	return 0;
+> +}
+> +
+> +static int s32_gpio_gen_names(struct device *dev, struct gpio_chip *gc,
+> +			      unsigned int cnt, char **names, char *ch_index,
+> +			      unsigned int *num_index)
+> +{
+> +	unsigned int gpio;
+> +	unsigned int i;
+> +
+> +	/*
+> +	 * GPIO names follow the format P<port>_<pin>, for example:
+> +	 *   PA_00 .. PA_15, PB_00 .. PB_15, ..
+> +	 *
+> +	 * @num_index tracks the absolute GPIO index. The port letter is
+> +	 * advanced whenever the index crosses a 16-pin boundary.
+> +	 */
+> +	for (i =3D 0; i < cnt; i++) {
+> +		gpio =3D *num_index;
+> +		if (i !=3D 0 && (gpio % 16) =3D=3D 0)
+> +			(*ch_index)++;
+> +
+> +		if (s32_gpio_is_valid(gc, gpio)) {
+> +			names[i] =3D devm_kasprintf(dev, GFP_KERNEL, "P%c_%02d",
+> +						  *ch_index, gpio & 0xF);
+> +			if (!names[i])
+> +				return -ENOMEM;
+> +		}
+> +
+> +		(*num_index)++;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int s32_gpio_populate_names(struct device *dev,
+> +				   struct s32_pinctrl *ipctl)
+> +{
+> +	const struct s32_pinctrl_soc_data *soc_data =3D ipctl->info->soc_data;
+> +	const struct s32_gpio_range *range;
+> +	unsigned int num_index =3D 0;
+> +	char ch_index =3D 'A';
+> +	char **names;
+> +	int i, ret;
+> +
+> +	names =3D devm_kcalloc(dev, ipctl->gc.ngpio, sizeof(*names),
+> +			     GFP_KERNEL);
+> +	if (!names)
+> +		return -ENOMEM;
+> +
+> +	for (i =3D 0; i < soc_data->num_gpio_ranges; i++) {
+> +		range =3D &soc_data->gpio_ranges[i];
+> +
+> +		if (range->gpio_base % 16 =3D=3D 0)
+> +			num_index =3D 0;
+> +
+> +		ret =3D s32_gpio_gen_names(dev, &ipctl->gc, range->gpio_num,
+> +					 names + range->gpio_base,
+> +					 &ch_index, &num_index);
+> +		if (ret)
+> +			return dev_err_probe(dev, ret,
+> +					     "Error setting SIUL2_%d names\n",
+> +					     i);
+> +
+> +		ch_index++;
+> +	}
+> +
+> +	ipctl->gc.names =3D (const char *const *)names;
+> +
+> +	return 0;
+> +}
+> +
+> +static int s32_pinctrl_init_gpio_regmaps(struct platform_device *pdev,
+> +					 struct s32_pinctrl *ipctl)
+> +{
+> +	const struct s32_pinctrl_soc_data *soc_data =3D ipctl->info->soc_data;
+> +	static const struct regmap_config pgpd_config =3D {
+> +		.reg_bits =3D 32,
+> +		.val_bits =3D 16,
+> +		.reg_stride =3D 2,
+> +	};
+> +	struct regmap_config cfg;
+> +	struct resource *res;
+> +	void __iomem *base;
+> +	unsigned int pgpdo_idx, pgpdi_idx;
+> +	unsigned int i;
+> +
+> +	if (!soc_data->gpio_ranges || !soc_data->num_gpio_ranges)
+> +		return 0;
+> +
+> +	ipctl->num_gpio_regmaps =3D soc_data->num_gpio_ranges;
+> +	ipctl->gpio_regmaps =3D devm_kcalloc(&pdev->dev, ipctl->num_gpio_regmap=
+s,
+> +					   sizeof(*ipctl->gpio_regmaps),
+> +					   GFP_KERNEL);
+> +	if (!ipctl->gpio_regmaps)
+> +		return -ENOMEM;
+> +
+> +	for (i =3D 0; i < ipctl->num_gpio_regmaps; i++) {
+> +		ipctl->gpio_regmaps[i].range =3D &soc_data->gpio_ranges[i];
+> +
+> +		/*
+> +		 * GPIO resources are placed after the pinctrl regions
+> +		 */
+> +		pgpdo_idx =3D soc_data->mem_regions + i * 2;
+> +		pgpdi_idx =3D soc_data->mem_regions + i * 2 + 1;
+> +
+> +		/* PGPDO */
+> +		res =3D platform_get_resource(pdev, IORESOURCE_MEM, pgpdo_idx);
+> +		if (!res)
+> +			return dev_err_probe(&pdev->dev, -ENOENT,
+> +						 "Missing PGPDO resource %u\n", i);
+> +
+> +		base =3D devm_ioremap_resource(&pdev->dev, res);
+> +		if (IS_ERR(base))
+> +			return PTR_ERR(base);
+> +
+> +		cfg =3D pgpd_config;
+> +		cfg.name =3D devm_kasprintf(&pdev->dev, GFP_KERNEL, "pgpdo%u", i);
+> +		if (!cfg.name)
+> +			return -ENOMEM;
+> +
+> +		cfg.max_register =3D resource_size(res) - cfg.reg_stride;
+> +
+> +		ipctl->gpio_regmaps[i].pgpdo =3D
+> +			devm_regmap_init_mmio(&pdev->dev, base, &cfg);
+> +		if (IS_ERR(ipctl->gpio_regmaps[i].pgpdo))
+> +			return dev_err_probe(&pdev->dev,
+> +						 PTR_ERR(ipctl->gpio_regmaps[i].pgpdo),
+> +						 "Failed to init PGPDO regmap %u\n", i);
+> +
+> +		/* PGPDI */
+> +		res =3D platform_get_resource(pdev, IORESOURCE_MEM, pgpdi_idx);
+> +		if (!res)
+> +			return dev_err_probe(&pdev->dev, -ENOENT,
+> +						 "Missing PGPDI resource %u\n", i);
+> +
+> +		base =3D devm_ioremap_resource(&pdev->dev, res);
+> +		if (IS_ERR(base))
+> +			return PTR_ERR(base);
+> +
+> +		cfg =3D pgpd_config;
+> +		cfg.name =3D devm_kasprintf(&pdev->dev, GFP_KERNEL, "pgpdi%u", i);
+> +		if (!cfg.name)
+> +			return -ENOMEM;
+> +
+> +		cfg.max_register =3D resource_size(res) - cfg.reg_stride;
+> +
+> +		ipctl->gpio_regmaps[i].pgpdi =3D
+> +			devm_regmap_init_mmio(&pdev->dev, base, &cfg);
+> +		if (IS_ERR(ipctl->gpio_regmaps[i].pgpdi))
+> +			return dev_err_probe(&pdev->dev,
+> +						 PTR_ERR(ipctl->gpio_regmaps[i].pgpdi),
+> +						 "Failed to init PGPDI regmap %u\n", i);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  #ifdef CONFIG_PM_SLEEP
+>  static bool s32_pinctrl_should_save(struct s32_pinctrl *ipctl,
+>  				    unsigned int pin)
+> @@ -928,9 +1282,11 @@ int s32_pinctrl_probe(struct platform_device *pdev,
+>  #ifdef CONFIG_PM_SLEEP
+>  	struct s32_pinctrl_context *saved_context;
+>  #endif
+> +	const struct s32_gpio_range *last_range;
+>  	struct pinctrl_desc *s32_pinctrl_desc;
+>  	struct s32_pinctrl_soc_info *info;
+>  	struct s32_pinctrl *ipctl;
+> +	struct gpio_chip *gc;
+>  	int ret;
+>
+>  	if (!soc_data || !soc_data->pins || !soc_data->npins)
+> @@ -974,6 +1330,11 @@ int s32_pinctrl_probe(struct platform_device *pdev,
+>  		return dev_err_probe(&pdev->dev, ret,
+>  				     "Fail to probe dt properties\n");
+>
+> +	ret =3D s32_pinctrl_init_gpio_regmaps(pdev, ipctl);
+> +	if (ret)
+> +		return dev_err_probe(&pdev->dev, ret,
+> +					 "Failed to init GPIO regmaps\n");
+> +
+>  	ret =3D devm_pinctrl_register_and_init(&pdev->dev, s32_pinctrl_desc,
+>  					     ipctl, &ipctl->pctl);
+>  	if (ret)
+> @@ -997,5 +1358,43 @@ int s32_pinctrl_probe(struct platform_device *pdev,
+>
+>  	dev_info(&pdev->dev, "Initialized S32 pinctrl driver\n");
+>
+> +	/* Setup GPIO if GPIO ranges are defined */
+> +	if (!soc_data->gpio_ranges || !soc_data->num_gpio_ranges)
+> +		return 0;
+> +
+> +	gc =3D &ipctl->gc;
+> +	gc->parent =3D &pdev->dev;
+> +	gc->label =3D dev_name(&pdev->dev);
+> +	gc->base =3D -1;
+> +	/*
+> +	 * In some cases, there is a gap between the SIUL GPIOs.
+> +	 *
+> +	 * gpio_ranges[] is expected to be sorted by increasing gpio_base.
+> +	 * ngpio is derived from the last range and must cover the highest
+> +	 * GPIO offset, even when gaps exist in the numbering.
+> +	 */
+> +	last_range =3D &soc_data->gpio_ranges[soc_data->num_gpio_ranges - 1];
+> +	gc->ngpio =3D last_range->gpio_base + last_range->gpio_num;
+> +	ret =3D s32_gpio_populate_names(&pdev->dev, ipctl);
+> +	if (ret)
+> +		return ret;
+> +
+> +	gc->set =3D s32_gpio_set;
+> +	gc->get =3D s32_gpio_get;
+> +	gc->set_config =3D gpiochip_generic_config;
+> +	gc->request =3D s32_gpio_request;
+> +	gc->free =3D s32_gpio_free;
+> +	gc->direction_output =3D s32_gpio_dir_out;
+> +	gc->direction_input =3D s32_gpio_dir_in;
+> +	gc->get_direction =3D s32_gpio_get_dir;
+> +	gc->init_valid_mask =3D s32_init_valid_mask;
+> +
+> +	ret =3D devm_gpiochip_add_data(&pdev->dev, gc, ipctl);
+> +	if (ret)
+> +		return dev_err_probe(&pdev->dev, ret,
+> +				     "Unable to add gpiochip\n");
+> +
+> +	dev_info(&pdev->dev, "Initialized S32 GPIO functionality\n");
+
+Don't do this, there's no reason for a driver to emit logs on success.
+
+> +
+>  	return 0;
+>  }
+> diff --git a/drivers/pinctrl/nxp/pinctrl-s32g2.c b/drivers/pinctrl/nxp/pi=
+nctrl-s32g2.c
+> index c49d28793b69..b1bf328371e2 100644
+> --- a/drivers/pinctrl/nxp/pinctrl-s32g2.c
+> +++ b/drivers/pinctrl/nxp/pinctrl-s32g2.c
+> @@ -3,7 +3,7 @@
+>   * NXP S32G pinctrl driver
+>   *
+>   * Copyright 2015-2016 Freescale Semiconductor, Inc.
+> - * Copyright 2017-2018, 2020-2022 NXP
+> + * Copyright 2017-2018, 2020-2022, 2025-2026 NXP
+>   * Copyright (C) 2022 SUSE LLC
+>   */
+>
+> @@ -773,17 +773,36 @@ static const struct s32_pin_range s32_pin_ranges_si=
+ul2[] =3D {
+>  	S32_PIN_RANGE(942, 1007),
+>  };
+>
+> -static const struct s32_pinctrl_soc_data s32_pinctrl_data =3D {
+> +static const struct s32_gpio_range s32_gpio_ranges_siul2[] =3D {
+> +	S32_GPIO_RANGE(0, 102),
+> +	S32_GPIO_RANGE(112, 79),
+> +};
+> +
+> +/* Legacy data for old DT bindings without GPIO support */
+> +static const struct s32_pinctrl_soc_data legacy_s32g_pinctrl_data =3D {
+> +	.pins =3D s32_pinctrl_pads_siul2,
+> +	.npins =3D ARRAY_SIZE(s32_pinctrl_pads_siul2),
+> +	.mem_pin_ranges =3D s32_pin_ranges_siul2,
+> +	.mem_regions =3D ARRAY_SIZE(s32_pin_ranges_siul2),
+> +};
+> +
+> +static const struct s32_pinctrl_soc_data s32g_pinctrl_data =3D {
+>  	.pins =3D s32_pinctrl_pads_siul2,
+>  	.npins =3D ARRAY_SIZE(s32_pinctrl_pads_siul2),
+>  	.mem_pin_ranges =3D s32_pin_ranges_siul2,
+>  	.mem_regions =3D ARRAY_SIZE(s32_pin_ranges_siul2),
+> +	.gpio_ranges =3D s32_gpio_ranges_siul2,
+> +	.num_gpio_ranges =3D ARRAY_SIZE(s32_gpio_ranges_siul2),
+>  };
+>
+>  static const struct of_device_id s32_pinctrl_of_match[] =3D {
+> +	{
+> +		.compatible =3D "nxp,s32g2-siul2-pinctrl-gpio",
+> +		.data =3D &s32g_pinctrl_data,
+> +	},
+>  	{
+>  		.compatible =3D "nxp,s32g2-siul2-pinctrl",
+> -		.data =3D &s32_pinctrl_data,
+> +		.data =3D &legacy_s32g_pinctrl_data,
+>  	},
+>  	{ /* sentinel */ }
+>  };
+> --
+> 2.34.1
+>
+>
+
+Bart
 
