@@ -4,83 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7053ACD3430
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 14:16:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AB96FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 14:19:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kNZRK1xzyieW295ShspfGtTk8+AaEYUV8qNPdWcyUvs=; b=pWN1hww/65WQ71/mnPbcsDRLh5
-	iSY6o/7OUfrcecFROF0a0P+b3B/3MfLI7tKCFDmf4Dqk3hYEkkOScGnwrEecl4RtWXc4p+Q9GNDI3
-	HgxbH72DfPKRKCYgtsnMGdsOtxK4B0n24B7LZzRrCIJqkT77u0Etjy8iacL8NSsJCbsSxhF5xsqhZ
-	P5oaWJwMLRKZDTlG7aLzPsCtGQqWGtiPVhunDbgjHgV2B/zRHz5qlVL6F6oZ6Wi1DFl6ob7K3iQ4C
-	AhE/kjQU/29vnlQUZLoTaVASqegzVD6X47pfNfyNG1BZNKiAV+XqRliyJ+B7GEDRqXJ7YdLGCtgP8
-	vmiSdqNA==;
+	bh=OCnLN2YnQc3U6OxiioM5BzyNU5DemyO9xIHP+J46WUM=; b=ZxOYJwWtz6mibIWxuRQn4qoA05
+	j3CzsXmCyaWu98QOG3uLWyeKVR6a1cp74atsvfxDhwCZmV/xvzV1Dxv1Jl+bj+FWYSDyycRZnPal5
+	HggIT7XdCcwRNe+KNeN8adB1PwBan+8mMPy6laZWQ5RRP8QjiPlUyMjbyDFAt9l670DklVodu/wVi
+	/6+w4P6JemGwNx3og38jkSrlCYV8Ahei7eE1AM0sOZau9aix2hLbm9xANvxDBJnghtL7g3hWN3S7Z
+	rgQ6KdkM2kYX+P3/TDVo/0mzB9LMing9Egp+VaLlObvsLInf1lUctlkrLHfpJYbISMwmZFggnBxZ7
+	EAfEKCwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJu6B-0000000DPLS-1TqF;
-	Mon, 04 May 2026 14:16:39 +0000
+	id 1wJu9J-0000000DPpv-2bPs;
+	Mon, 04 May 2026 14:19:53 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJu68-0000000DPJt-0g97
+	id 1wJu9H-0000000DPor-1GfY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 14:16:37 +0000
+	Mon, 04 May 2026 14:19:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D40344442C
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  4 May 2026 14:16:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0D71C2BCFA
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  4 May 2026 14:16:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777904195;
-	bh=dnulhm1JTuoUEhQzuO1u5rEt0FwJiLQjQxWn1rCEVQ4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=EEZJoSA2+V1bS9N6/kBUrA73Kbqtv4rr5pK0ImtIEOP8hp3g/Pxpx3OB5nfBWsQkk
-	 JTEXv4tAWXlTHtQj1YfWReoHeA2fuK78sq+jKA9LGBnAV9zfafUmGPkGTDF2a+XBKT
-	 +Uj7+VoYbC8HwONiur8ukdewMwXCdtwSsCNlaLtM2b4MGnkCWPqRP3SJjZikftuCaL
-	 Zml9OhkupD9qECWzXBsF54LDbks60MTExeOShwnCEz7JpZgbYDjwAIhw4paXPT+PST
-	 uFaAxYZBh+fDrl8m4NnNjoZ/ehcrAwyzSNeHoJPSGdvmnM+nA216iRM7s/dgE18WlP
-	 U21yQQlu9E1CA==
-Received: by mail-qv1-f49.google.com with SMTP id 6a1803df08f44-8acb3dab8dfso33512066d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 May 2026 07:16:35 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/+qHLs89YDRvjgeE7ow6KpXt7W0/yyLzlxu/dwOkgneT52Kb4lNIXJf5qVI18tX55sGxTXbeghtpFsZCcjsyVi@lists.infradead.org
-X-Gm-Message-State: AOJu0YySAhkc2ejBjt6616VowColK8/oAAVzquhap13G73qhz9QCLZcU
-	0Glp8V/pWctPCqcKjryQfG0+HC0rvYhbgCHECHMAHZF4pr9+viTBGhMBUC9D5H6ZJxS4vzFtrfq
-	9U0ZgcI4/pSgN9DOhvy4ZeCCadiFAGO8=
-X-Received: by 2002:a05:6214:27c3:b0:8a4:db54:b3a4 with SMTP id
- 6a1803df08f44-8b665d1127bmr158681076d6.7.1777904164104; Mon, 04 May 2026
- 07:16:04 -0700 (PDT)
+	by sea.source.kernel.org (Postfix) with ESMTP id EFAF84042D;
+	Mon,  4 May 2026 14:19:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 847A7C2BCB8;
+	Mon,  4 May 2026 14:19:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1777904390;
+	bh=EKv+RifZg7DCkm76bD05njyW7hxGAQloEeNfOV5I7h8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=2vXtVaXIf7+q0fNyDbjTSE24exdAcJGWbtA448NzkpFz6kgQEPCYR5/BCcK5cJnUh
+	 AgKfW/3JZp5sa7fBcPCi39ED1g1rlOrINC6vH8CSOwzBknF0AjoyJLy2P2qFYto+Uq
+	 N1Y25vR4CjgWPV0Bq9AUoitf5Jogr8tw/pFv8m+g=
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: stable@vger.kernel.org
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	patches@lists.linux.dev,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	"David Hildenbrand (Arm)" <david@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: [PATCH 6.12 020/215] arm64/mm: Enable batched TLB flush in unmap_hotplug_range()
+Date: Mon,  4 May 2026 15:50:39 +0200
+Message-ID: <20260504135130.914998069@linuxfoundation.org>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260504135130.169210693@linuxfoundation.org>
+References: <20260504135130.169210693@linuxfoundation.org>
+User-Agent: quilt/0.69
+X-stable: review
+X-Patchwork-Hint: ignore
 MIME-Version: 1.0
-References: <20260430040427.4672-1-baohua@kernel.org> <afNM-gIqxpyJ6ro7@casper.infradead.org>
- <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
- <afS_L-5XeWIldTXA@casper.infradead.org> <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
- <afTpoL3FklpQZNMM@casper.infradead.org> <yezmezj26xntushmylductlmytfgvwsnbnzlhffkfwugfxkt6m@gleq22spziyk>
- <CAGsJ_4y8JtCxEy9hVxVd8eaf8D9WC8BcRQp9afUVu=FJA1-awA@mail.gmail.com> <n5vsmp6ingbhfztl6wzcwmrz56gkkfbpzardk43scr7rcgqsw5@evtnov34c5bt>
-In-Reply-To: <n5vsmp6ingbhfztl6wzcwmrz56gkkfbpzardk43scr7rcgqsw5@evtnov34c5bt>
-From: Barry Song <baohua@kernel.org>
-Date: Mon, 4 May 2026 22:15:52 +0800
-X-Gmail-Original-Message-ID: <CAGsJ_4xM8W5NHB4J2c1dVyXhu9SHAK_iiVZPAtH0fMvJoz77ww@mail.gmail.com>
-X-Gm-Features: AVHnY4LS13GrbYqayhsefNP68ODiwhwvddGMrFC2vbCyG8eLOAO_PeI0iks995A
-Message-ID: <CAGsJ_4xM8W5NHB4J2c1dVyXhu9SHAK_iiVZPAtH0fMvJoz77ww@mail.gmail.com>
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-To: Jan Kara <jack@suse.cz>
-Cc: Matthew Wilcox <willy@infradead.org>, akpm@linux-foundation.org, linux-mm@kvack.org, 
-	david@kernel.org, ljs@kernel.org, liam@infradead.org, vbabka@kernel.org, 
-	rppt@kernel.org, surenb@google.com, mhocko@suse.com, pfalcato@suse.de, 
-	wanglian@kylinos.cn, chentao@kylinos.cn, lianux.mm@gmail.com, 
-	kunwu.chan@gmail.com, liyangouwen1@oppo.com, chrisl@kernel.org, 
-	kasong@tencent.com, shikemeng@huaweicloud.com, nphamcs@gmail.com, 
-	bhe@redhat.com, youngjun.park@lge.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_071636_685997_01A98DC7 
-X-CRM114-Status: GOOD (  44.23  )
+X-CRM114-CacheID: sfid-20260504_071951_428847_39FCFAD0 
+X-CRM114-Status: GOOD (  17.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,116 +78,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 4, 2026 at 9:04=E2=80=AFPM Jan Kara <jack@suse.cz> wrote:
->
-> On Mon 04-05-26 03:55:43, Barry Song wrote:
-> > On Mon, May 4, 2026 at 2:17=E2=80=AFAM Jan Kara <jack@suse.cz> wrote:
-> > > On Fri 01-05-26 18:57:52, Matthew Wilcox wrote:
-> > > > On Sat, May 02, 2026 at 01:44:34AM +0800, Barry Song wrote:
-> > > > > On Fri, May 1, 2026 at 10:57=E2=80=AFPM Matthew Wilcox <willy@inf=
-radead.org> wrote:
-> > > > > > On Fri, May 01, 2026 at 06:49:58AM +0800, Barry Song wrote:
-> > > > > > > 1. There is no deterministic latency for I/O completion. It d=
-epends on
-> > > > > > > both the hardware and the software stack (bio/request queues =
-and the
-> > > > > > > block scheduler). Sometimes the latency is short; at other ti=
-mes it can
-> > > > > > > be quite long. In such cases, a high-priority thread performi=
-ng operations
-> > > > > > > such as mprotect, unmap, prctl_set_vma, or madvise may be for=
-ced to wait
-> > > > > > > for an unpredictable amount of time.
-> > > > > >
-> > > > > > But does that actually happen?  I find it hard to believe that =
-thread A
-> > > > > > unmaps a VMA while thread B is in the middle of taking a page f=
-ault in
-> > > > > > that same VMA.  mprotect() and madvise() are more likely to hap=
-pen, but
-> > > > > > it still seems really unlikely to me.
-> > > > >
-> > > > > It doesn=E2=80=99t have to involve unmapping or applying mprotect=
- to
-> > > > > the entire VMA=E2=80=94just a portion of it is sufficient.
-> > > >
-> > > > Yes, but that still fails to answer "does this actually happen".  H=
-ow much
-> > > > performance is all this complexity in the page fault handler buying=
- us?
-> > > > If you don't answer this question, I'm just going to go in and rip =
-it
-> > > > all out.
-> > >
-> > > I fully agree with you we should verify whether the retry code still =
-brings
-> > > in real-world advantage today with VMA locks. After all the retry log=
-ic has
-> > > been introduced in 2010. That being said if there are realistic loads=
- where
-> > > one thread needs VMA write lock while another thread is faulting the =
-VMA,
-> > > then the latencies can be indeed extreme. For example things like cgr=
-oup IO
-> > > throttling happen on the IO path and thus can throttle IO of a low-pr=
-iority
-> > > thread for a long time.
-> >
-> > I=E2=80=99m quite sure that swap-in and VMA writes can occur
-> > concurrently, and this is fairly common. For example,
-> > Java GC may use mprotect or userfaultfd on a small
-> > portion of a large Java heap while other portions are
-> > still under do_swap_page().
->
-> OK, makes sense.
->
-> > If we start exploring different approaches for anon and
-> > file, I agree I can revisit this on an Android phone if
-> > there is a real, serious case where a file VMA can be
-> > written and a page fault occurs at the same time.
-> >
-> > Please note that, as an Android developer, I am particularly
-> > cautious about priority inversion. A recent issue causing
-> > severe priority inversion is zram attempting to support
-> > preemption[1]. When a task performing compression or
-> > decompression is migrated to another CPU and then preempted
-> > by other tasks, high-priority tasks waiting on the mutex may
-> > be significantly delayed, impacting user experience.
->
-> Well, container people are concerned about priority inversion as well. Bu=
-t
-> usually this is with coarse lock (such as global filesystem locks) but VM=
-A
-> lock is specific to a task (and a VMA) so there the opportunity for
-> priority inversion looks more limited.  But the example with Java where G=
-C
-> thread can presumably have higher priority than ordinary Java threads is =
-an
-> interesting one.
+6.12-stable review patch.  If anyone has any objections, please let me know.
 
-A major difference in Android apps is that each thread can
-affect user experience differently. And it is not simply a matter
-of whether a VMA writer has higher or lower priority than a
-page-fault (PF) thread performing I/O.
+------------------
 
-For example, thread A handles a PF; thread B attempts to
-modify the VMA where the PF occurs; thread C tries to modify
-another VMA (requiring mmap_lock in write mode) or iterate
-VMAs (requiring mmap_lock in read mode). Regardless of
-thread B=E2=80=99s priority, it holds mmap_lock in write mode while
-waiting for the VMA lock. The usual pattern for a VMA writer
-is:
+From: Anshuman Khandual <anshuman.khandual@arm.com>
 
-mmap_write_lock()
-vma_start_write()
+commit 48478b9f791376b4b89018d7afdfd06865498f65 upstream.
 
-As a result, thread C can be blocked even if it has higher
-priority but operates on a different VMA.
+During a memory hot remove operation, both linear and vmemmap mappings for
+the memory range being removed, get unmapped via unmap_hotplug_range() but
+mapped pages get freed only for vmemmap mapping. This is just a sequential
+operation where each table entry gets cleared, followed by a leaf specific
+TLB flush, and then followed by memory free operation when applicable.
 
-In essence, when a PF and a VMA write occur concurrently,
-high-priority threads may be blocked even if they operate on
-different VMAs, not necessarily the same one.
+This approach was simple and uniform both for vmemmap and linear mappings.
+But linear mapping might contain CONT marked block memory where it becomes
+necessary to first clear out all entire in the range before a TLB flush.
+This is as per the architecture requirement. Hence batch all TLB flushes
+during the table tear down walk and finally do it in unmap_hotplug_range().
 
-Thanks
-Barry
+Prior to this fix, it was hypothetically possible for a speculative access
+to a higher address in the contiguous block to fill the TLB with shattered
+entries for the entire contiguous range after a lower address had already
+been cleared and invalidated. Due to the table entries being shattered, the
+subsequent TLB invalidation for the higher address would not then clear the
+TLB entries for the lower address, meaning stale TLB entries could persist.
+
+Besides it also helps in improving the performance via TLBI range operation
+along with reduced synchronization instructions. The time spent executing
+unmap_hotplug_range() improved 97% measured over a 2GB memory hot removal
+in KVM guest.
+
+This scheme is not applicable during vmemmap mapping tear down where memory
+needs to be freed and hence a TLB flush is required after clearing out page
+table entry.
+
+Cc: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Closes: https://lore.kernel.org/all/aWZYXhrT6D2M-7-N@willie-the-truck/
+Fixes: bbd6ec605c0f ("arm64/mm: Enable memory hot remove")
+Cc: stable@vger.kernel.org
+Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+---
+ arch/arm64/mm/mmu.c |   36 ++++++++++++++++++++----------------
+ 1 file changed, 20 insertions(+), 16 deletions(-)
+
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -869,10 +869,14 @@ static void unmap_hotplug_pte_range(pmd_
+ 
+ 		WARN_ON(!pte_present(pte));
+ 		__pte_clear(&init_mm, addr, ptep);
+-		flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+-		if (free_mapped)
++		if (free_mapped) {
++			/* CONT blocks are not supported in the vmemmap */
++			WARN_ON(pte_cont(pte));
++			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+ 			free_hotplug_page_range(pte_page(pte),
+ 						PAGE_SIZE, altmap);
++		}
++		/* unmap_hotplug_range() flushes TLB for !free_mapped */
+ 	} while (addr += PAGE_SIZE, addr < end);
+ }
+ 
+@@ -893,15 +897,14 @@ static void unmap_hotplug_pmd_range(pud_
+ 		WARN_ON(!pmd_present(pmd));
+ 		if (pmd_sect(pmd)) {
+ 			pmd_clear(pmdp);
+-
+-			/*
+-			 * One TLBI should be sufficient here as the PMD_SIZE
+-			 * range is mapped with a single block entry.
+-			 */
+-			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+-			if (free_mapped)
++			if (free_mapped) {
++				/* CONT blocks are not supported in the vmemmap */
++				WARN_ON(pmd_cont(pmd));
++				flush_tlb_kernel_range(addr, addr + PMD_SIZE);
+ 				free_hotplug_page_range(pmd_page(pmd),
+ 							PMD_SIZE, altmap);
++			}
++			/* unmap_hotplug_range() flushes TLB for !free_mapped */
+ 			continue;
+ 		}
+ 		WARN_ON(!pmd_table(pmd));
+@@ -926,15 +929,12 @@ static void unmap_hotplug_pud_range(p4d_
+ 		WARN_ON(!pud_present(pud));
+ 		if (pud_sect(pud)) {
+ 			pud_clear(pudp);
+-
+-			/*
+-			 * One TLBI should be sufficient here as the PUD_SIZE
+-			 * range is mapped with a single block entry.
+-			 */
+-			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+-			if (free_mapped)
++			if (free_mapped) {
++				flush_tlb_kernel_range(addr, addr + PUD_SIZE);
+ 				free_hotplug_page_range(pud_page(pud),
+ 							PUD_SIZE, altmap);
++			}
++			/* unmap_hotplug_range() flushes TLB for !free_mapped */
+ 			continue;
+ 		}
+ 		WARN_ON(!pud_table(pud));
+@@ -964,6 +964,7 @@ static void unmap_hotplug_p4d_range(pgd_
+ static void unmap_hotplug_range(unsigned long addr, unsigned long end,
+ 				bool free_mapped, struct vmem_altmap *altmap)
+ {
++	unsigned long start = addr;
+ 	unsigned long next;
+ 	pgd_t *pgdp, pgd;
+ 
+@@ -985,6 +986,9 @@ static void unmap_hotplug_range(unsigned
+ 		WARN_ON(!pgd_present(pgd));
+ 		unmap_hotplug_p4d_range(pgdp, addr, next, free_mapped, altmap);
+ 	} while (addr = next, addr < end);
++
++	if (!free_mapped)
++		flush_tlb_kernel_range(start, end);
+ }
+ 
+ static void free_empty_pte_table(pmd_t *pmdp, unsigned long addr,
+
+
 
