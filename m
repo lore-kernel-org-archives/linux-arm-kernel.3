@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95DF6CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 20:22:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0F4CFF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 20:22:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=djb7sBuKAwcyPC5uO/ympVNzlz8bWFHBS01g270pHWE=; b=S4Lqq7nUAxUEsH5UoQzN9JzACM
-	qU1knXoPXAQpa6iMJY98Qos+OfCPiaHbuYKX9Xd5il24gkD4n61WSfMWOC51oSmFDBHntx3CEqfMi
-	Soou6Ih16ipZt/oUFRsG1fnlTMYLfM5xKWPr2dqkvyvBQ6xvUWz690XMlA2VM0HP3IkDcjEdLFPLt
-	IcCHy6zIrFGm8sTvE1zho9elGF6FRUIYKY89jLfg4jSLiG/TvcZzQqBQZwdklqzaGWf2e/2ppn2vJ
-	wSw+uWfS3xsvcbnr5qbVdM/C03mYJI9VpS7YZ5DuRtW2yfSJOLFKz/03i6obCLOVa2rd2asTNmTM6
-	EEcBkOOQ==;
+	bh=c82R6Es7eDPcPWblla7AWCKK+V4V83gpmHJodOpmnzk=; b=IhdQk2Pbo+OTfZLONID4x/xxnH
+	SSc5tUCTHdA2ckSs15sL9nRJxxwGl0wML8dsu3ceR0aWt4/ltEIw/jqJ5//6J8+/2mbIwukw7qDDq
+	Z+hUCzROHfh0Tsw7nvV3pXzFWYnic2I4Ja2ZhEzx2v2Pb8q2pzzJYHEinHWwgqDV0lstP0waOZjJW
+	xJ/xgOSLBT5XISNyLv95xksTJYhn9+WpxuZxRSTg+i3unrr4PGpZutWzJnAyafYyB652P6n3hriPL
+	+W/m/NURgHNJ+ZVgtZNtg1Fo4fK9jctluYlPo8aYSgKg1lLsUhfcw7T4g0h3GhgMLzxlIRrMt/8hd
+	hH2fcm7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJzo4-0000000EFRd-2uSb;
+	id 1wJzo4-0000000EFQt-1TL7;
 	Mon, 04 May 2026 20:22:20 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJzo0-0000000EFP2-47B4
+	id 1wJzo0-0000000EFP1-2n9p
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 04 May 2026 20:22:18 +0000
 Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <m.felsch@pengutronix.de>)
-	id 1wJznX-0007WV-Kh; Mon, 04 May 2026 22:21:47 +0200
+	id 1wJznX-0007WV-BD; Mon, 04 May 2026 22:21:47 +0200
 From: Marco Felsch <m.felsch@pengutronix.de>
-Date: Mon, 04 May 2026 22:21:44 +0200
-Subject: [PATCH 4/4] arm64: dts: imx8mp: remove LDB reg and reg-names
- property
+Date: Mon, 04 May 2026 22:21:41 +0200
+Subject: [PATCH 1/4] Revert "dt-bindings: display: bridge: ldb: Add check
+ for reg and reg-names"
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260504-v7-1-topic-ldb-fixes-v1-4-0125d937ff7f@pengutronix.de>
+Message-Id: <20260504-v7-1-topic-ldb-fixes-v1-1-0125d937ff7f@pengutronix.de>
 References: <20260504-v7-1-topic-ldb-fixes-v1-0-0125d937ff7f@pengutronix.de>
 In-Reply-To: <20260504-v7-1-topic-ldb-fixes-v1-0-0125d937ff7f@pengutronix.de>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -64,8 +64,8 @@ X-SA-Exim-Mail-From: m.felsch@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_132217_037425_03358DAC 
-X-CRM114-Status: GOOD (  11.72  )
+X-CRM114-CacheID: sfid-20260504_132216_734515_D96EC09E 
+X-CRM114-Status: GOOD (  10.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,37 +80,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The blk-ctrl syscon device(s) have a very loose register definition, e.g
-one register configures the USB PHY clock source, the PCIe EP ready bit
-and enables PCIe and USB clocks. This would lead into multiple
-sub-devices which use the same 'reg' which is wrong.
+This reverts commit 8aa2f0ac08d3b207ba54e98698c9d696b86452a7.
 
-Instead of specifying the 'reg' in the OF each sub-device driver needs
-to handle the correct bits on their own. Therefore drop the 'reg' and
-'reg-names' porperty from the bridge node as well as the '@5c' register
-suffix.
+The LDB is either part of the IOMUX_GPR (i.MX6SX) or the BLKCTRL
+(i.MX8MP, i.MX93) register space. Both IOMUX_GPR and BLKCTRL are
+register ranges with loose register definitions. E.g.
+
+  - On the i.MX8MP there is one register which controls the AXI
+    threshold for two different IPs (BIT(31:16) - IP1, BIT(15:0) - IP2).
+  - On the i.MX6SX IOMUXC_GPR5 controlls: CSI2 mux, WDOG3 settings, PXP
+    handshake, ...
+
+In conclusion: it can't be ensured that one register belongs to one
+dedicated IP and the LDB is rather an exception than the rule.
+
+Therefore remove the 'reg' and 'reg-names' property requirement.
 
 Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
 ---
- arch/arm64/boot/dts/freescale/imx8mp.dtsi | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+ Documentation/devicetree/bindings/display/bridge/fsl,ldb.yaml | 10 ----------
+ 1 file changed, 10 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-index 90d7bb8f5619e50d9fd65bcf18c083affe15e6f9..41649afff813833aeb1c0355827597578048b037 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-@@ -1999,10 +1999,8 @@ media_blk_ctrl: blk-ctrl@32ec0000 {
- 						       <1039500000>;
- 				#power-domain-cells = <1>;
+diff --git a/Documentation/devicetree/bindings/display/bridge/fsl,ldb.yaml b/Documentation/devicetree/bindings/display/bridge/fsl,ldb.yaml
+index 7f380879fffdfef28d9a35d7fbf87fdf28377b43..828b7a40e9b6cf27f76d1cd3009505b03cbe09f1 100644
+--- a/Documentation/devicetree/bindings/display/bridge/fsl,ldb.yaml
++++ b/Documentation/devicetree/bindings/display/bridge/fsl,ldb.yaml
+@@ -68,7 +68,6 @@ required:
+   - compatible
+   - clocks
+   - ports
+-  - reg
  
--				lvds_bridge: bridge@5c {
-+				lvds_bridge: bridge {
- 					compatible = "fsl,imx8mp-ldb";
--					reg = <0x5c 0x4>, <0x128 0x4>;
--					reg-names = "ldb", "lvds";
- 					clocks = <&clk IMX8MP_CLK_MEDIA_LDB_ROOT>;
- 					clock-names = "ldb";
- 					assigned-clocks = <&clk IMX8MP_CLK_MEDIA_LDB>;
+ allOf:
+   - if:
+@@ -83,15 +82,6 @@ allOf:
+         ports:
+           properties:
+             port@2: false
+-  - if:
+-      not:
+-        properties:
+-          compatible:
+-            contains:
+-              const: fsl,imx6sx-ldb
+-    then:
+-      required:
+-        - reg-names
+ 
+   - if:
+       properties:
 
 -- 
 2.47.3
