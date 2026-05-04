@@ -4,141 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31EA2FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 17:09:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18D05CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 17:16:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Tzh+AwxA4/9jl+CGARtak5XFqCUajD4/x5a1uMP4slw=; b=mnOqdaIfMVTiNqd61nGHF9mqhq
-	uXmfkvg/RInMg3pINkumYmfSZ+Omz1i7rfa4kiPVpXjMrlYZixebEUNdWs9RIw8/7sCdb86cYPp6G
-	RXNxs365TklOMyqAlJVGtkeZReiUVmafDTy0cWmBgU+rt+QMi20GVoYqn5byPGKG2AHJXBXhPY9Yz
-	v6Ls5ttoRRfrhRmSQqDiS2iGseCocMO6csc4XtILidYQe2IrSKSUxLOhklWbisdvuBkbMyzT96eBe
-	aus+SfeHCQRVUpZKU9tOaBKB2lZPa2wa1S05idNE/hINREjNuL/t06CubkVW9UoPp1JZPBEa2kqOQ
-	bYSF+Wvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Zk62V5Oyi/C0dBrJeWuDQbb0Ke9NcjBJqyGJq6gOxTY=; b=CekuuILGrHBM5Pt2ywNKb7KEog
+	Ab5xJVrJ01dHo1e8yLiabLCjpWyisBxDVIZnYHCPDoc9hiJAckmGNRMD8sa86UB3R7jMrHRp2DXzo
+	9E9TojPeLjBV6OjhE+9yPnbVvQ5SvUO6Zu4XxtO2YSjm3JPQ9I2Ql+z7OYTLyVEBxuRQgMe5RZSpx
+	x2UAaHVaXw8QNjg9u7q3X1vNDi2+8J1qdSU8N3n1DcnjaQu9UhpUhWapS3JpbvylTdciiL5CVeLTG
+	CsVzgwzTj2P4O+mPTc5Di+0MjzPqJ2vimdW+DjpCKBrMnuvx7zp1Wzbg2BTtvhRLrrcvzfDfCbuhU
+	7x6nK1cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJwnQ-0000000Dnbp-1zEn;
-	Mon, 04 May 2026 17:09:28 +0000
-Received: from mail-westeuropeazon11010055.outbound.protection.outlook.com ([52.101.69.55] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wJwuZ-0000000Doa4-0oGF;
+	Mon, 04 May 2026 17:16:51 +0000
+Received: from v2202511311555398556.powersrv.de ([46.38.245.6] helo=mail.kernel-space.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJwnN-0000000DnbJ-4B9y
+	id 1wJwuW-0000000DoYK-26uW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 17:09:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yALOatNR4jkCwnFk7KdxOc2GJziUHOC2YhxZw/uCzTAoF84UV7IF2JScDtW2gavR/iqiMDast4mnzraK0IkhCg9IbxF4J2gMH62GWGO4mm0TAZ+T87x6lzrw+hKlBTOW3b2cDsKx0OC9ZxpF9Xw0kNy/xIP5vB/xF3VKysrjs/im5ZpacO+L73XzHxB4GFIh0IvaULkz7pwdDct/0/1ibKFBmUyS51zaOyoA/s8+i5Ii7CKduscFTH86anwTDRIt2y8te68LQ5jies5ENW9iCNHxaCAAM9J4yw4qiFdMpbkIQSuQSzM7WRf1peh2bj/cwN0rgE76jj1sWM4oAg+xfA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Tzh+AwxA4/9jl+CGARtak5XFqCUajD4/x5a1uMP4slw=;
- b=UcnPmcTBhjLOAFRt6w1jJBTnJLkrcwdXEYhTtnNKM9bEd1zeoUcz0nR7fkLEZ/kDQ98d9WpjcyOKuIcbzfhiuGN/d1EuRvpl5T1XjQIbK/tRAr5zTzQGatO4/5Xbty1kT9hwwLmN5pTdeZicohfqLgRUqiolcqZ8U29Z6wiX0jlSlbUGcFlNzT/kFFsvPYqD9Xl3jknGm/4P39uhVLQI4SINsoWlZNLK20j+03a0pr8POf84TTd+Ef6r+8KpzBRNvBn3T12YwFfnsPJ1Wo0xGo1lM1WNHOINCt39PHwK0L+9y9fb/b6437RGLqW1mujpQdBs7TNQ5lgJ/po8tPwxoQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Tzh+AwxA4/9jl+CGARtak5XFqCUajD4/x5a1uMP4slw=;
- b=E440B4c9XS0PMs3LzD9l6mcGnoCiYkY1HZ88Id2lNHKDX9AZPgGZjkpdrraO0uU3D6MxGSL9zswIQtLSlApmCfs1RAXIxwluulRlGsctHNFlhpBFY6HW0tpO2ONWYWmxL8kes2C1FstGS590b5E8Sf5qc1FrqHIvcJI5uYrQzwrkeOB5GNeDzBdEyqJiwW8fZzP45BPeqqo7fFEwxyncaWEr4bydLahWLYbzaIvBkb6tyABWMde1RZW4yoLwsayg1mGsdsqH9RK9aWQYvTJ8RR+uhu7n+AjVfwclKrZ5T2k4eUr2f2MHroac8bKNNX+Qw0faNiwmf1XmbwB4LQ2vLQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by DB9PR04MB8202.eurprd04.prod.outlook.com (2603:10a6:10:24f::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Mon, 4 May
- 2026 17:09:19 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9870.023; Mon, 4 May 2026
- 17:09:19 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: =?UTF-8?q?S=C3=A9bastien=20Szymanski?= <sebastien.szymanski@armadeus.com>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Jacky Bai <ping.bai@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	NXP S32 Linux Team <s32@nxp.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	linux-gpio@vger.kernel.org (open list:PIN CONTROLLER - FREESCALE),
-	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Cc: imx@lists.linux.dev
-Subject: [PATCH 1/1] pinctrl: imx1: Allow parsing DT without function nodes
-Date: Mon,  4 May 2026 13:08:35 -0400
-Message-ID: <20260504170836.1794372-1-Frank.Li@nxp.com>
-X-Mailer: git-send-email 2.43.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SN7P220CA0018.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:806:123::23) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Mon, 04 May 2026 17:16:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel-space.org;
+	s=s1; t=1777915002;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Zk62V5Oyi/C0dBrJeWuDQbb0Ke9NcjBJqyGJq6gOxTY=;
+	b=PJYYE4DcF9Hvwjt5GcatrBouZj6gPLUiqA7zM2pr3Tf06mm0wRrGgODHjv3I/lbkOjDEov
+	O0caF1JX09GwVc3S7/ELkq6fHzWn7lUSSz1fLHTBSLb4oz3RmVuHwx9J/JpALHbgoczxT3
+	2felQuDbmpYnspsbnvGXTcnHjQkxKCk=
+Received: from [192.168.0.2] (<unknown> [2a07:7e81:7daa:0:62cf:84ff:feee:627])
+	by oreshnik (OpenSMTPD) with ESMTPSA id 0f146065 (TLSv1.3:TLS_AES_256_GCM_SHA384:256:NO);
+	Mon, 4 May 2026 17:16:42 +0000 (UTC)
+From: Angelo Dureghello <angelo@kernel-space.org>
+Date: Mon, 04 May 2026 19:16:39 +0200
+Subject: [PATCH 01/10] m68k: mcf5441x: fix clocks numbering
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DB9PR04MB8202:EE_
-X-MS-Office365-Filtering-Correlation-Id: 08769e9f-0f70-4499-24de-08dea9ffe156
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|1800799024|19092799006|366016|56012099003|921020|18002099003|38350700014;
-X-Microsoft-Antispam-Message-Info: U27hKmnUq1cVNxbnNN5NtLxfgwuLUAtER2+nJlJe4b0ibbn4GXt2TB46Iafr+K/SprZK4DguPWsSffpCPlYIKiBm2psyL3bDsPtVykz8kehULqWcevAnLl7nsUNMiK8SmGqPdhn3P7Yed+I+YikL6H+FpTSnhPv1qwKiyteAO/gwY72cAI9ruVgMi4KknjZHxgQvvETPP3VafI2ZyI6ZXXvcZpZIFSHD9NgbuR5c3XuozalEz0gJrfRQ32XNAXW9XGx2O/gtqv8791TRlNnwggpkFcYbzIqtiM3K/fGA7jj712iq1tBku71j1QgE4IIdJkcaS7Hfm2NR6u7e4iDoSQQxzOj/2TSRdcwNccefoIAKCbww1EqcEaIZO9DoIbAVUey5ArSQywnA/QUFnbxQmiyP+yUFrEIF6S/4WhfhAEDYwDdCYt19O9rQWrZ0ZAW8/rmDHnYfrfG1d6ZDm/qCNqGXrwlJyANCR6fpBCHApBX5Wr6DeTCck+MCKyH4sPkEWWsLIU/wwkYafpQICDqEs7V1h957V6UqG2XYX+aJhPzn58u09yY3hINqJZmeKQq8pZxH1f84B1g1zsw2o8MTmvfO6SLnyvYVgNzMRZ/DuhWj0KEBi6VOz+167SGCEuD8NNxUlTZNrLcGbUyec+oz2C5suqxx8iRoS/z6AEnRuFmvgWtJe4/zeGQg0MFrCHl7Hgwd2FR+V6bhIZCEGFHtPcmMYQQjMYhJ+W81kZqh7l8DteOLWko4Ky5QLrLcPBrUBemssWnV91MqyXR8E5n41Q==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(1800799024)(19092799006)(366016)(56012099003)(921020)(18002099003)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WUt0WmlBdHlOOHd2V1NLVEFtK1dSWktqbW0wTTErbVlQV1FLZnRqWk5lUmVH?=
- =?utf-8?B?SlBCS294Q2RyK25OWmRGY3FXeHJ1VGlYRUtDYXo1QUNxUm9NdG82S09vam9y?=
- =?utf-8?B?ejJQZUZzRzdhaGhEZjhPbWdSemZ1ZjFLSFI4aytWdVFyL3JUU3Bscm1VVTB1?=
- =?utf-8?B?eDdQaERQeUJuWjdFRDBaQnV5TFhkczZpSmMzRFV1d1VKUWZwQ1FSTDVCSlJY?=
- =?utf-8?B?d29yajdQcGRpQkhuTTI5NGZjK1VJMEx5LzYwNE5zOUEvbFpCbEs0WWo4VC9p?=
- =?utf-8?B?RkJvVkxsZHdjbXJuSmdFcmU0dG5sUEFrVEZobjMvd1BZa2FVRUh3MG13TjZx?=
- =?utf-8?B?YmNONDFHYmdiZ1JHeXlsT1NwZkROWmNvWDltRm9wejE2Um4rN3BURzh2WURZ?=
- =?utf-8?B?RTZBaGpXaXozbU1oY2k4N09JVjA4SHZINWVWZWZRUWcveWljejRQc2pGUmwv?=
- =?utf-8?B?bEwwRnRNTG9Nb2RXYUJjQy9mZVJEY3JWeG9PVjBCTFVWZ0swMTRtaVJJenVB?=
- =?utf-8?B?czlIaXgycUpaV0pqV0RNZnc1alJocGVNeEJWeVRWQWduZytWVHJ1RHBvZE9T?=
- =?utf-8?B?NUhRMGNuL21WWWdHL25FL1FlQzQzbU10VkVoWFpwVkZkYjZIT1lmbkc3QUlt?=
- =?utf-8?B?K3F2T25TNGZOV3BqZGZ4N043QmEwWForZDZDYnd6OEZRbXdrSWFENi9WWmhL?=
- =?utf-8?B?bE84UmpUczZ4cGVNQnR5ZTN3SUk4RGdYVnIrRlR2Tm1rZFdhVHdUNmhkZmZR?=
- =?utf-8?B?OC9iODhoMXV5eXkxOE9LQzRiM29hNnE4WkRkaGZwTG1rWnQrOWRRZ3oyY3ZR?=
- =?utf-8?B?VWpqazB5d2UrQnNXOUFWWkZnSTRTbUNtSEJUOVFTUlVCQjJKTGlwV2tGbm11?=
- =?utf-8?B?d0J3ZFk4Q3QwaitUajE3V0RsbUprNGJYdXl2ZUYzK0xwNEZtL0dtUFVENHNX?=
- =?utf-8?B?cmpnRm9IYUY4eHFFaHQwc0hFVCtOVkhpZnhHalBMU0g0bW9iK29zQ2Z4UStw?=
- =?utf-8?B?U014UENRN0JlYjFUNnFiTkxNeld5aEV0bThXdHZIQXRBNlB0UnVyeEpTMXd2?=
- =?utf-8?B?TjNOcHNTUWpSNTRqS0hCek5PQXpxeWhZUi8vWHBabFRZeEJOaHlyMms4ZElI?=
- =?utf-8?B?YnFIVDd5Q0prS3JIWGtjR1UxcFFUQUFOL1d5Qjk1LzRtT0ZsKzY1aEdjeUNU?=
- =?utf-8?B?RWRsTXM5TC9Zejk1TTRmOTllV0NCQWFaNGR4MXcxRVcwYVhvWTB1QjRGS3Rl?=
- =?utf-8?B?OHRWM0JDYi9xNVpva2JhS1BNWnJyMHhRN3RNSDZ4WVQ0WWZSL0t2Yk5FUXZV?=
- =?utf-8?B?c0ZnNTZ1RW85bXFHYURPVDYwNGpTT3NKUGlPOENVNmRyUWJJSnFBNWl3dStE?=
- =?utf-8?B?TEhYdWdoZnUxY3ljOENjYUJSWVVhelc5Z1BZaUlFMEF6Mk1TYTlXZHNZMXE1?=
- =?utf-8?B?MGs1NWc2NkVLMlE3RjlZaHE3VHVZKzI5UXFFWlFQTDBwM3JKcmE0Nno4QzhX?=
- =?utf-8?B?b3ZOSlBLc1hMS2EzUUxkbFZJUnNXcENQKzRnWXpEc1ErV0N6VWxNK1MyN2w4?=
- =?utf-8?B?UWJ6azBsc1FjV09Ba3Q0WVRPdm9NaEJxZjRhd0krRzJaa3kvWFRLYmhQNDh4?=
- =?utf-8?B?L3JVSFVVSFB0dHFmVjk0dnBKdkhUWGdhMStNOW1OWjROTElNQXJEc3lCaERn?=
- =?utf-8?B?NDVXVk92cEFPekdHcGwvYWNNWW9Jd1U2TW1HOE1DdDBSVXNmTHd0M3FSQjBw?=
- =?utf-8?B?RUZDckxWZzF0MXl4NmtHNWM1N2lGZzEyNlY5TU03Q2NkOENZZ25NQ1UvZ09a?=
- =?utf-8?B?aDdRQU5lRnlMUEhtZUlJTjhGK0RLRmpNNVRDWDU5L0xrVGsrMXMvaGtEeGti?=
- =?utf-8?B?azVzaWMzVVN5TWdVYzZLN3BRYW5zZHFzSDVIdjlUWjZPMDVYKzNkL1QxLzdm?=
- =?utf-8?B?TEU2N3ZleGpZNjd4N0xPdkVNekljQkQ4SC9mQ2duZmsrVVprd0lqSThFRjdE?=
- =?utf-8?B?b3VlVW0zRE5BVWl2RmpwVVBLVFpaYjZ6L2c3amloUmxoc3FVS01oS09xQmVk?=
- =?utf-8?B?OTJreUZTZk9VOHlDRWdsVk9ic3J0ajBIOWdnZ0tjQnUyMXZONzNTN2dCWExy?=
- =?utf-8?B?QzZHZmV5ampIamdvRUJrQUw1SXBwTENLUG40SFUvU1Z5MGllTkFsVWFsMXlk?=
- =?utf-8?B?V3I2Nzl2dHJnUnE2ZjhRMHRrVTU2QXo0WXhEQk1UWEJsZnlQVUN1RVdHazVQ?=
- =?utf-8?B?WDNUeVVWT1Z4SFd3bXN3MzdSY0FZOWdTOVFLMU9WK3RHNTZNUE5XNWFaSkRB?=
- =?utf-8?Q?H9Eq+KBpNuxcMDAfiA?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 08769e9f-0f70-4499-24de-08dea9ffe156
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 May 2026 17:09:19.7069
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: N2AaQhXQ5+o11LPTyEv7oXu5vIBsnPsQ3HnlnILVUQQPJ9eWfuprF0nGTngF4ZRCco1shf0hK9CWCObw0CX9lg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8202
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260504-wip-stmark2-dac-v1-1-874c36a4910d@baylibre.com>
+References: <20260504-wip-stmark2-dac-v1-0-874c36a4910d@baylibre.com>
+In-Reply-To: <20260504-wip-stmark2-dac-v1-0-874c36a4910d@baylibre.com>
+To: Greg Ungerer <gerg@linux-m68k.org>, 
+ Geert Uytterhoeven <geert@linux-m68k.org>, Steven King <sfking@fdwdc.com>, 
+ Arnd Bergmann <arnd@arndb.de>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, 
+ =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
+ Andy Shevchenko <andy@kernel.org>
+Cc: Greg Ungerer <gerg@uclinux.org>, linux-m68k@lists.linux-m68k.org, 
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org, 
+ Angelo Dureghello <adureghello@baylibre.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_100926_041105_662FFC06 
-X-CRM114-Status: GOOD (  18.12  )
+X-CRM114-CacheID: sfid-20260504_101648_878246_4895F253 
+X-CRM114-Status: UNSURE (   9.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,108 +79,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The old format to define pinctrl settings for imx in DT has two hierarchy
-levels. The first level are function device nodes. The second level are
-pingroups which contain a property fsl,pins. The original ntention was to
-define all pin functions in a single dtsi file and just reference the
-correct ones in the board files.
+From: Angelo Dureghello <adureghello@baylibre.com>
 
-The commit ("5fcdf6a7ed95e pinctrl: imx: Allow parsing DT without function
-nodes") already make moden i.MX chip support flatten layout.
+Fix clocks numbering, set correct values for eport and DAC,
+as per RM Rev 5, 05/2018, table 9.5.
 
-Make legacy chipes (more than 15 years) support this flatten layout also.
-
-Fixes: e948cbdc41d6f ("ARM: dts: imx: remove redundant intermediate node in pinmux hierarchy")
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
+Fixes: bea8bcb12da09 ("m68knommu: Add support for the Coldfire m5441x.")
+Fixes: 007f84ede6e3e ("m68k: coldfire: remove private clk_get/clk_put")
+Signed-off-by: Angelo Dureghello <adureghello@baylibre.com>
 ---
-build test only
+ arch/m68k/coldfire/m5441x.c | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
 
-Sébastien Szymanski:
-	Can you help test it? I am happy i.MX27 still alive.
+diff --git a/arch/m68k/coldfire/m5441x.c b/arch/m68k/coldfire/m5441x.c
+index 7a25cfc7ac07..ac9c17d0ee64 100644
+--- a/arch/m68k/coldfire/m5441x.c
++++ b/arch/m68k/coldfire/m5441x.c
+@@ -41,9 +41,9 @@ DEFINE_CLK(0, "mcfpit.0", 32, MCF_BUSCLK);
+ DEFINE_CLK(0, "mcfpit.1", 33, MCF_BUSCLK);
+ DEFINE_CLK(0, "mcfpit.2", 34, MCF_BUSCLK);
+ DEFINE_CLK(0, "mcfpit.3", 35, MCF_BUSCLK);
+-DEFINE_CLK(0, "mcfeport.0", 37, MCF_CLK);
+-DEFINE_CLK(0, "mcfadc.0", 38, MCF_CLK);
+-DEFINE_CLK(0, "mcfdac.0", 39, MCF_CLK);
++DEFINE_CLK(0, "mcfeport.0", 36, MCF_CLK);
++DEFINE_CLK(0, "mcfadc.0", 37, MCF_CLK);
++DEFINE_CLK(0, "mcfdac.0", 38, MCF_CLK);
+ DEFINE_CLK(0, "mcfrtc.0", 42, MCF_CLK);
+ DEFINE_CLK(0, "mcfsim.0", 43, MCF_CLK);
+ DEFINE_CLK(0, "mcfusb-otg.0", 44, MCF_CLK);
+@@ -103,9 +103,9 @@ static struct clk_lookup m5411x_clk_lookup[] = {
+ 	CLKDEV_INIT("mcfpit.1", NULL, &__clk_0_33),
+ 	CLKDEV_INIT("mcfpit.2", NULL, &__clk_0_34),
+ 	CLKDEV_INIT("mcfpit.3", NULL, &__clk_0_35),
+-	CLKDEV_INIT("mcfeport.0", NULL, &__clk_0_37),
+-	CLKDEV_INIT("mcfadc.0", NULL, &__clk_0_38),
+-	CLKDEV_INIT("mcfdac.0", NULL, &__clk_0_39),
++	CLKDEV_INIT("mcfeport.0", NULL, &__clk_0_36),
++	CLKDEV_INIT("mcfadc.0", NULL, &__clk_0_37),
++	CLKDEV_INIT("mcfdac.0", NULL, &__clk_0_38),
+ 	CLKDEV_INIT("mcfrtc.0", NULL, &__clk_0_42),
+ 	CLKDEV_INIT("mcfsim.0", NULL, &__clk_0_43),
+ 	CLKDEV_INIT("mcfusb-otg.0", NULL, &__clk_0_44),
+@@ -156,7 +156,7 @@ static struct clk * const enable_clks[] __initconst = {
+ 	&__clk_0_27, /* uart3 */
+ 
+ 	&__clk_0_33, /* pit.1 */
+-	&__clk_0_37, /* eport */
++	&__clk_0_36, /* eport */
+ 	&__clk_0_48, /* pll */
+ 	&__clk_0_51, /* esdhc */
+ 
+@@ -174,8 +174,8 @@ static struct clk * const disable_clks[] __initconst = {
+ 	&__clk_0_32, /* pit.0 */
+ 	&__clk_0_34, /* pit.2 */
+ 	&__clk_0_35, /* pit.3 */
+-	&__clk_0_38, /* adc */
+-	&__clk_0_39, /* dac */
++	&__clk_0_37, /* adc */
++	&__clk_0_38, /* dac.0 */
+ 	&__clk_0_44, /* usb otg */
+ 	&__clk_0_45, /* usb host */
+ 	&__clk_0_47, /* ssi.0 */
 
-Frank
----
- drivers/pinctrl/freescale/pinctrl-imx1-core.c | 48 ++++++++++++++++---
- 1 file changed, 41 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/pinctrl/freescale/pinctrl-imx1-core.c b/drivers/pinctrl/freescale/pinctrl-imx1-core.c
-index b36c8a1461b7c..bf07e0c64a098 100644
---- a/drivers/pinctrl/freescale/pinctrl-imx1-core.c
-+++ b/drivers/pinctrl/freescale/pinctrl-imx1-core.c
-@@ -540,10 +540,34 @@ static int imx1_pinctrl_parse_functions(struct device_node *np,
- 	return 0;
- }
- 
-+/*
-+ * Check if the DT contains pins in the direct child nodes. This indicates the
-+ * newer DT format to store pins. This function returns true if the first found
-+ * fsl,pins property is in a child of np. Otherwise false is returned.
-+ */
-+static bool imx1_pinctrl_dt_is_flat_functions(struct device_node *np)
-+{
-+	struct device_node *function_np;
-+	struct device_node *pinctrl_np;
-+
-+	for_each_child_of_node(np, function_np) {
-+		if (of_property_read_bool(function_np, "fsl,pins"))
-+			return true;
-+
-+		for_each_child_of_node(function_np, pinctrl_np) {
-+			if (of_property_read_bool(pinctrl_np, "fsl,pins"))
-+				return false;
-+		}
-+	}
-+
-+	return true;
-+}
-+
- static int imx1_pinctrl_parse_dt(struct platform_device *pdev,
- 		struct imx1_pinctrl *pctl, struct imx1_pinctrl_soc_info *info)
- {
- 	struct device_node *np = pdev->dev.of_node;
-+	bool flat_funcs;
- 	int ret;
- 	u32 nfuncs = 0;
- 	u32 ngroups = 0;
-@@ -552,9 +576,15 @@ static int imx1_pinctrl_parse_dt(struct platform_device *pdev,
- 	if (!np)
- 		return -ENODEV;
- 
--	for_each_child_of_node_scoped(np, child) {
--		++nfuncs;
--		ngroups += of_get_child_count(child);
-+	flat_funcs = imx1_pinctrl_dt_is_flat_functions(np);
-+	if (flat_funcs) {
-+		nfuncs = 1;
-+		ngroups = of_get_child_count(np);
-+	} else {
-+		for_each_child_of_node_scoped(np, child) {
-+			++nfuncs;
-+			ngroups += of_get_child_count(child);
-+		}
- 	}
- 
- 	if (!nfuncs) {
-@@ -574,10 +604,14 @@ static int imx1_pinctrl_parse_dt(struct platform_device *pdev,
- 	if (!info->functions || !info->groups)
- 		return -ENOMEM;
- 
--	for_each_child_of_node_scoped(np, child) {
--		ret = imx1_pinctrl_parse_functions(child, info, ifunc++);
--		if (ret == -ENOMEM)
--			return -ENOMEM;
-+	if (flat_funcs) {
-+		imx1_pinctrl_parse_functions(np, info, 0);
-+	} else {
-+		for_each_child_of_node_scoped(np, child) {
-+			ret = imx1_pinctrl_parse_functions(child, info, ifunc++);
-+			if (ret == -ENOMEM)
-+				return -ENOMEM;
-+		}
- 	}
- 
- 	return 0;
 -- 
-2.43.0
+2.54.0
 
 
