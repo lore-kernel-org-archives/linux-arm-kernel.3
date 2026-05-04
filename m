@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65F9DFF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 10:16:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F19ECD3430
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 10:16:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Mo2IeU/AaXoLyUW0cqRpgQJYVfBlAhtHpp2oMUPg6A=; b=ULkWJHuiTkblKptJGdAcreKIYQ
-	UGRxmskB7vykFgS4To/1yZ2ukzY3mObnhRjFdet50XROeoj05tx3DKA9QvSRKJjSUNioj5w243GS9
-	d6LkSmB82+rihsE0FacZy7NypWJsP0Amn5IbtSzGR5jWt2J+zMS1FRvhWO5wYrvqm5EjxDPOifvES
-	rdHDif+tHxCalMG7INJ5UpJfNN9m8+TLRBvVQZJlRzWgBAAZEB4Asc+CWkKVq27udnOfDwYmM0V9w
-	my9Oieb3pq6FTyRsQzSjvCBb79Rzq0UYiyycG97kvOZo8S149reNf6zgitCHSBAevLW9dwmoFmHcd
-	2HNtHaow==;
+	bh=4AFkvwk1yHFeeDLYag5Oi8EMMsCVOXTu0Co6nMK2/h4=; b=NhR5iWl+g1juyidQVQo/qVn1D2
+	LNtrFezQ2SmiZEeVEmuOQEpFzbB6etN0faErl8O8ZyfnIq51pw3MKM+yuIHWIyxF6m4NEzFQxqNvl
+	HjslR5hTWDTBRnrBXiXTV+d1eBpmEDDL4g60iqMARJAPGtR7ZB7JzBS512SaDVRDvrDIj+R9ZNmTq
+	Pp3d+yz7aC2MWgyXuwkOAekzY9SPKVnpz6U0Ru/e8q987i8txDpiygVAeaq0y1b3GetsBqP/yVTqo
+	PL/1ot7p12GeI9jj4X7CDivHxF0v9qQed0uHnM1olhaKETpy7pP53qEcU7PPvx0io6Vyo+8ROGBPG
+	QdXvzu0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJqLD-0000000CteQ-43Ms;
+	id 1wJqLE-0000000Ctex-36Sk;
 	Mon, 04 May 2026 10:15:56 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJqL8-0000000Ctap-3YmQ
+	id 1wJqL9-0000000Ctas-2bds
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 04 May 2026 10:15:53 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-444826c16ffso3799688f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 May 2026 03:15:50 -0700 (PDT)
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-44c350a5b87so758984f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 May 2026 03:15:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1777889749; x=1778494549; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1777889750; x=1778494550; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=+Mo2IeU/AaXoLyUW0cqRpgQJYVfBlAhtHpp2oMUPg6A=;
-        b=t70jCmlfFdON+A9KOH18/rGOPgW+APScHpOmwUSx0u7BTYLmSmS4ovxqa2midUA188
-         TXlOXCL7yNpCWW1XL5RWqLZFTK+CavGe3Frzv7EjbMs87Mor6ctVervbYVNrJWObClzu
-         PJHNP6p9XiiCPNwzMbwlQB42vMr1yYTIMQGSEAJwgJ1yVek2F5zSNkgi1Qjwju8z8+q2
-         8OuBsfAflE4I9O9KCBJ7K+M6SeercVgOPEOYCv164C/mk92O3tPDlwx6okKFSNHArhNL
-         1w3VfNum4bYuuXfSOSFdRXP6oTLmoJw/J4/z+KvGFDxmqJmzpEMPNrE3Cs4MT2WHgvl7
-         e/zw==
+        bh=4AFkvwk1yHFeeDLYag5Oi8EMMsCVOXTu0Co6nMK2/h4=;
+        b=pdUE9R+oPpLEBus2MaE5kIcbmX+lSzRqIXLeVdahOLrcVGeyq/8r9AWwUqyTfcYhUP
+         uO0tXL35aorD8r2QkIok0uxoNJ5VEU/Ur6eGrcUxkwci3NL205zxBQShoCrn0b66IEhQ
+         URT2Ry75F/pCNw3feCwJElqdy/uLRrEZjcsAKBkBGTiT/cBFgH024VlpzftXwFkfuAO4
+         htMGzQU30PxCLhErmU1qJtDpWTIa8QV4Y2DGx6ju0/bmZUrtNRmgpRyb2yez6X6Ig9st
+         MhFW0aTgEUiMhqfxegsO+DSlIwRLQUO0g5ygxfX9e3bvVxseQoweTgddbkZVTlWxjvYN
+         AjyA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777889749; x=1778494549;
+        d=1e100.net; s=20251104; t=1777889750; x=1778494550;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=+Mo2IeU/AaXoLyUW0cqRpgQJYVfBlAhtHpp2oMUPg6A=;
-        b=nyFZutvQWJ3PvZQjbUOBzW/VKGNFhO55lyFKJwALBE7Aam7jtmmpF1MTH+yP/8MQW7
-         8CDzKymOH13O5nc0F9HQOx3WpGi67vXtX4AYEXqj2XaY1uBF4FK7usjJ+zusEjK6sWnz
-         8Dom8C7M25NOiZOMLIYnUzTQvrAz8ubhY43ydWZH4JStf6auhVrXYwK8yeNDDnsugUTY
-         FSMlqhB7eo9Y+24dbbhrLBYqlCaC+MqXvVvcaUJChBdTLzMdQu39YqT5FqyWOAHW3Uuw
-         DnpfpRAhSFpLmO6tURiWBgdZf00lYy6PCHSbBrM7Q5EZeECAQvVP9KTpa3V5PQ3BT+GR
-         bV+w==
-X-Forwarded-Encrypted: i=1; AFNElJ8wTCDQXhCW5ixgywUGWO4wZ6dvcqocUKcPLzhN0pxK3nY5A7GWWjtVpWP3/ncNXnBCDaiZ5Gh8Mj+YLEBZzyUC@lists.infradead.org
-X-Gm-Message-State: AOJu0YzBQhPJ4rdC7xNUOHzKiTX4tod4ty8pOGZmeTeY5zX7SdLiTIYj
-	xsJlpS1iYfogWyseNcY1Q+ypebX2Gx64CbcqU+vDe6pYmrzf0ISifxyLAC63728HW/E=
-X-Gm-Gg: AeBDiesZulFlcnw2bodcj9rhbwUBjlal7Nln+Tk68nSqUXx8+fSJhjV8W2pApPLIwu1
-	LGIDR8gw5IUVHEN3l8lXf9wkBgWKM5HHG3ThqJnj8wMfOEa7qi6nHbwSh9NGGGQ/lB16BTCxi1l
-	aXjOJLoebZb6pc02NECiIcB/8ZXE18QRvu9kwVgMB1ncgJT70OpCgSti0cxa/yaP/FHU8DIpgEj
-	PXhcYLAEWlAfws2qUeCMru5yM6pc7mxFMqaJeTRurZFttr4Zt/kmhUf0WElx1T21lY8pEHqT12l
-	TGK5NkmdwCMAXGk84ZtW4NmRvWsPV9AZ/lB2JdZapybBPqMuLlsVpWn8QS5QMXso62CjgaHJvsO
-	29VBxNRis7aDn26HdFTgtTQ7LY9pFdX1diNc+xLWVXPtARthE6svDYFEUyHMT7A7M+y9yV3o9QC
-	x1snd3hGnLb35ORW6AzdUR/D1ykyelZNLGJMVNKZXCtFFZ2P0GiEunQLnBppcw5EWUcLvQjs1RQ
-	9ybgCeEyTY258dNuQ==
-X-Received: by 2002:a05:6000:2dc6:b0:43f:e99a:ff91 with SMTP id ffacd0b85a97d-44bb4538036mr13545221f8f.4.1777889749199;
+        bh=4AFkvwk1yHFeeDLYag5Oi8EMMsCVOXTu0Co6nMK2/h4=;
+        b=Zewc0wwUE1Y5InPTBUVX1qqKL/DP+mG11GQijG02tar1TNwXa8Y6BTusZybM6anAVi
+         XcJkp6Ccu2mbLDObAvcFva+nkvguBe9gfhCUgeGCabaDMA+gGldQW7YHevl5Ss5VSIPS
+         JZmdvoNMWaFCAvi4mtUXLgMTCmZ8SgVKsaoaovbNNEBI1nreozr3kHvgTdX4NnQPF7HM
+         AwG+KOCyCCq6hzKAC7yZVcpKyaOUY+kYybIdrUH5xUXlgzyGGvw7W0uS1RDVLo5omoCK
+         UylCXJFUXgBnBJM19tvoO7K8EC2LuXGXodWBj9LXSp85Dfu5EdmhbNIxKcAzrjNEwZCG
+         qzXw==
+X-Forwarded-Encrypted: i=1; AFNElJ/W1uAQakxJ01DW+cngWCbqT/ou0dwEz/F8pVcRjip7sRXf2DlovZPQjxRqFlPWdmfmmOjnzrBhIg7dbYztFLcI@lists.infradead.org
+X-Gm-Message-State: AOJu0YwPkOk2rS6RD20NDEqoIvZlzUnsdV5RPJKGhW/bCMpn6EzmuRs2
+	NMdwNozls/ojzNMPWD/yoF0M2vpCT6ML7C+MVdh9UydNLCdN2AN3u5RsfcZ1B0B1/NI=
+X-Gm-Gg: AeBDiet8i1I5b3+ooEM9bVEL4FZtCsdeJAOtmGAXblCCDj2ZK+XPPaemMousVEawmD+
+	vZKnAypGyf2HsqspK+rMxcRNc5s3+bLoA98HEq0mtxAYknVDzW8TQCdVc4oi0+XTtZs0Rtsio5x
+	s1bgv/o2YkjZcKWlwUCGyEA4gL8ijn6hacGYBqwhrscSBwdbY0GiwEdbAi6lAFHuhYUi1DOp1R3
+	hWuT5qf2YXqlioS2dB/nKE2hcmYuPY3e7nTC5Jfa/D9/gNGNzJ6/aw46b0hntoI30p0p2SumnTd
+	+tKJYWefugK5HG/6fzqev7NW+9XtBp4Xyl9/fQ2j237V5dIcAcyVkf3He7APgfx+vxC+Y+uQBd/
+	+MPq77WBvRrMM8LZ9k4P7Tu/NiXj80O8wdu3W+QJ/VKcR/jORRiRJ2NgipzfjmcglzLPkwSLXK3
+	ny7rfp8Pm5xUR1WdjyQ+J6qwNhHRFrv3J76w2nbgNmjsf0wheGmNzy/ZyJBpDG4QYWXx9+60M3C
+	YsSsVJzOavx5qfh0Q==
+X-Received: by 2002:a05:6000:2906:b0:44d:4898:7ed9 with SMTP id ffacd0b85a97d-44d489881bbmr8562220f8f.23.1777889749744;
         Mon, 04 May 2026 03:15:49 -0700 (PDT)
 Received: from ta2.c.googlers.com (17.83.155.104.bc.googleusercontent.com. [104.155.83.17])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-44a9879ef89sm28545366f8f.30.2026.05.04.03.15.48
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-44a9879ef89sm28545366f8f.30.2026.05.04.03.15.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 04 May 2026 03:15:48 -0700 (PDT)
+        Mon, 04 May 2026 03:15:49 -0700 (PDT)
 From: Tudor Ambarus <tudor.ambarus@linaro.org>
-Date: Mon, 04 May 2026 10:15:46 +0000
-Subject: [PATCH v4 3/7] firmware: samsung: acpm: Fix dummy stubs to return
- ERR_PTR
+Date: Mon, 04 May 2026 10:15:47 +0000
+Subject: [PATCH v4 4/7] firmware: samsung: acpm: Add memory barrier before
+ advancing RX pointer
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260504-acpm-fixes-sashiko-reports-v4-3-529246be6b2b@linaro.org>
+Message-Id: <20260504-acpm-fixes-sashiko-reports-v4-4-529246be6b2b@linaro.org>
 References: <20260504-acpm-fixes-sashiko-reports-v4-0-529246be6b2b@linaro.org>
 In-Reply-To: <20260504-acpm-fixes-sashiko-reports-v4-0-529246be6b2b@linaro.org>
 To: Krzysztof Kozlowski <krzk@kernel.org>, 
@@ -87,16 +87,16 @@ Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
  andre.draszik@linaro.org, jyescas@google.com, kernel-team@android.com, 
  Tudor Ambarus <tudor.ambarus@linaro.org>, stable@vger.kernel.org
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777889746; l=1843;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777889746; l=2113;
  i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
- bh=TrETAIBRtr5BpleipM5VXU32aMTdlU394IStlNmAoNo=;
- b=pwo0xPZ+j2nUIqRUV0W+GmOAiRSFJ9hB1ibEiJnHUOT5RynjZS2zWHluR75Uagx6xq6iMWjKr
- 7H6qLWZki7ADMzuDAAtTu0ijPIK7z7dJq5AyuHmxz7AJ+lK1nM6C8kp
+ bh=wZGIg1WvrcZuYhDQpreZS8xozMJIsonW/o4iqtdaJ6c=;
+ b=suLmSOE+T23wbkQEcy8h90SPyQuIK637mI8IZ9Ruc7euPvI2vIZ2kHtS6x9sSzy80sumoELUw
+ twf0j7bUtcvCZwZaVcYPk8Znt+FJlyLRxilXSSdTe46SYqdAH2SzCha
 X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
  pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_031550_945901_2A10B4EE 
-X-CRM114-Status: GOOD (  14.12  )
+X-CRM114-CacheID: sfid-20260504_031551_690719_20727761 
+X-CRM114-Status: GOOD (  12.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,49 +111,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sashiko identified a potential NULL pointer dereference [1].
+Sashiko identified a silent data corruption in [1].
 
-The dummy stub implementation for devm_acpm_get_by_node() returns NULL
-when CONFIG_EXYNOS_ACPM_PROTOCOL is disabled.
+In acpm_get_rx(), the driver reads the response payload from SRAM using
+__ioread32_copy() and subsequently updates the hardware RX rear pointer
+via writel().
 
-However, the active implementation of this function returns an ERR_PTR
-on failure, and the consumer driver checks the return value using
-IS_ERR(). Because IS_ERR(NULL) evaluates to false, returning NULL from
-the stub tricks consumer drivers into treating the NULL return as a
-valid handle. Subsequent attempts to access handle->ops result in a
-fatal NULL pointer dereference.
+On weakly ordered architectures like ARM64, writel() provides a write
+memory barrier (wmb()), which strictly orders prior writes against
+subsequent writes. However, it does not order prior reads against
+subsequent writes. Consequently, the CPU is permitted to reorder the
+writel() store to become globally visible before the payload reads
+have completed.
 
-Fix this by returning ERR_PTR(-ENODEV) in the disabled configuration
-to correctly propagate the disabled state and match the API contract.
+If this reordering occurs, the firmware may observe the updated rear
+pointer, assume the queue slot is available, and overwrite the SRAM
+payload while the kernel is still actively reading from it, leading
+to silent data corruption.
+
+Fix this by inserting a full memory barrier (mb()) before the writel()
+to guarantee that all payload reads have completed before the hardware
+queue pointer is advanced.
 
 Cc: stable@vger.kernel.org
-Fixes: 6837c006d4e7 ("firmware: exynos-acpm: add empty method to allow compile test")
-Closes: https://sashiko.dev/#/patchset/20260420-acpm-tmu-v3-0-3dc8e93f0b26%40linaro.org [1]
+Fixes: a88927b534ba ("firmware: add Exynos ACPM protocol driver")
+Closes: https://sashiko.dev/#/patchset/20260429-acpm-fixes-sashiko-reports-v3-0-47cf74ab09ad%40linaro.org
 Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 ---
- include/linux/firmware/samsung/exynos-acpm-protocol.h | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/firmware/samsung/exynos-acpm.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/include/linux/firmware/samsung/exynos-acpm-protocol.h b/include/linux/firmware/samsung/exynos-acpm-protocol.h
-index 13f17dc4443b..d4db2796a6fb 100644
---- a/include/linux/firmware/samsung/exynos-acpm-protocol.h
-+++ b/include/linux/firmware/samsung/exynos-acpm-protocol.h
-@@ -8,6 +8,7 @@
- #ifndef __EXYNOS_ACPM_PROTOCOL_H
- #define __EXYNOS_ACPM_PROTOCOL_H
+diff --git a/drivers/firmware/samsung/exynos-acpm.c b/drivers/firmware/samsung/exynos-acpm.c
+index 9766425a44ab..a9449bc33bd0 100644
+--- a/drivers/firmware/samsung/exynos-acpm.c
++++ b/drivers/firmware/samsung/exynos-acpm.c
+@@ -5,6 +5,7 @@
+  * Copyright 2024 Linaro Ltd.
+  */
  
-+#include <linux/err.h>
- #include <linux/types.h>
++#include <asm/barrier.h>
+ #include <linux/bitfield.h>
+ #include <linux/bitmap.h>
+ #include <linux/bits.h>
+@@ -278,6 +279,9 @@ static int acpm_get_rx(struct acpm_chan *achan, const struct acpm_xfer *xfer)
+ 		i = (i + 1) % achan->qlen;
+ 	} while (i != rx_front);
  
- struct acpm_handle;
-@@ -57,7 +58,7 @@ struct acpm_handle *devm_acpm_get_by_node(struct device *dev,
- static inline struct acpm_handle *devm_acpm_get_by_node(struct device *dev,
- 							struct device_node *np)
- {
--	return NULL;
-+	return ERR_PTR(-ENODEV);
- }
- #endif
++	/* Ensure all payload reads complete before advancing the rear pointer */
++	mb();
++
+ 	/* We saved all responses, mark RX empty. */
+ 	writel(rx_front, achan->rx.rear);
  
 
 -- 
