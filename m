@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EB8ACD342F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 17:23:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E7CACD343C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 17:23:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j9fbcKoaqme5Vz1fCTzuqtyu8Za4tl10mh+oXgKUmQo=; b=cUrtK86K0pTiYOj5ujDx9y3a3O
-	E3sWqRZLYuaobHqVmredsB34pAXuleP207O1K3CrBD2ohGLbEktf4V7nBhsIRUxkFlwbhPmv2Gw9c
-	JE7EhvjQoSiVtdN2ZPMZSkKEfraPpuP//u5q43JATcGmb+Clfj8uRVtKiSuOAVOPLxe91nuCFEU9S
-	Ee8PwVGGJP6f9YdD1vQ3WxjK/pJg3Qefzd4bG+1SISh8VwdbDVztwNNDU4k+BMyBGBzFIlyostgyv
-	zo35fRZY8EcweIZJO+Bc2qOP+4XRP53sBmwA2p10IcU9dXTU1itoqtmYjOIk8kjyJkFprKmO1D/ri
-	OuGDmhTg==;
+	bh=66sbIWl/UECZcngzqfN9gySpU5b7WSWy5FgqX8acPdE=; b=WBVXyy52RWiuFOTujrNlG2AVZ3
+	ylZ42eKqGIru0ahFkSx5tZ5JLstOOzH4d1LzHLrxh1ogGTBxfHFcr1T80m1nXR2WP7s5NjTDgJgwb
+	gxfo6wNFeQzUYfRs2GEShZvo2hfXjyb0mMcPpzKIPthyeNLewUgpYOkTm1m5hHI6Gf59TlRgLQMt2
+	zHU+tAHhl3cEvA+OLdgEcgiin/3Q2HSyDJwhA2ESJbKhrzxKVgXOTwAf7kRXYJdBGBi3cByRCY13w
+	mGLKFbGegbMHdThP/l2LEACS1U8xni7yyeYXXzX6CA43e/sZl36NFmwoLZ3dYumVFDuIS2uEZj6k6
+	NW0SHMxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJx0x-0000000Dpew-1w5D;
-	Mon, 04 May 2026 17:23:27 +0000
+	id 1wJx0z-0000000Dpgz-34XW;
+	Mon, 04 May 2026 17:23:29 +0000
 Received: from [2a03:4000:b:d08:14a9:1bff:fedc:75ad] (helo=mail.kernel-space.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJx0v-0000000Dpd7-0yZv
+	id 1wJx0x-0000000Dpd7-08No
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 17:23:26 +0000
+	Mon, 04 May 2026 17:23:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel-space.org;
-	s=s1; t=1777915003;
+	s=s1; t=1777915004;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=j9fbcKoaqme5Vz1fCTzuqtyu8Za4tl10mh+oXgKUmQo=;
-	b=vqktDZFoJYnKsBv7Qg3+jR2KORdYcXNDAAApS5NXnpUaTfHbLvr8OfuEzxzckPuibuLM5u
-	eaFoMh+hPSMYYR8kKZoNrCBtFIhAgqK7d/m6cjzE/ccJGbTgGKxse//ia/IZKONSmkl/3g
-	60Rhk+UlCDDKSdYz0PKhuwt/S+WP+L4=
+	bh=66sbIWl/UECZcngzqfN9gySpU5b7WSWy5FgqX8acPdE=;
+	b=BF4e+y+FI93bmhmBDVYOS9Ywi3UsNwZ9B+nk/SFmHSkqT4n/jl++VpZSEEgYjk786kgiWq
+	3+YgTbehRHNoNXXR+coeZLVsbMqaPAQgho3Tk1wlwOhIqHTt98tJRn/bWv9jMwYhFqs6/B
+	dYJJVVEHO2P347vzmmkLM4ucda/T3u0=
 Received: from [192.168.0.2] (<unknown> [2a07:7e81:7daa:0:62cf:84ff:feee:627])
-	by oreshnik (OpenSMTPD) with ESMTPSA id 2e036497 (TLSv1.3:TLS_AES_256_GCM_SHA384:256:NO);
-	Mon, 4 May 2026 17:16:43 +0000 (UTC)
+	by oreshnik (OpenSMTPD) with ESMTPSA id 31d53e53 (TLSv1.3:TLS_AES_256_GCM_SHA384:256:NO);
+	Mon, 4 May 2026 17:16:44 +0000 (UTC)
 From: Angelo Dureghello <angelo@kernel-space.org>
-Date: Mon, 04 May 2026 19:16:41 +0200
-Subject: [PATCH 03/10] m68k: mcf5441x: setup DAC clock name as per driver
- name
+Date: Mon, 04 May 2026 19:16:43 +0200
+Subject: [PATCH 05/10] m68k: add DAC modules base addresses
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260504-wip-stmark2-dac-v1-3-874c36a4910d@baylibre.com>
+Message-Id: <20260504-wip-stmark2-dac-v1-5-874c36a4910d@baylibre.com>
 References: <20260504-wip-stmark2-dac-v1-0-874c36a4910d@baylibre.com>
 In-Reply-To: <20260504-wip-stmark2-dac-v1-0-874c36a4910d@baylibre.com>
 To: Greg Ungerer <gerg@linux-m68k.org>, 
@@ -63,8 +62,8 @@ Cc: Greg Ungerer <gerg@uclinux.org>, linux-m68k@lists.linux-m68k.org,
  Angelo Dureghello <adureghello@baylibre.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_102325_564377_07806CEF 
-X-CRM114-Status: UNSURE (   9.54  )
+X-CRM114-CacheID: sfid-20260504_102327_359967_97D74171 
+X-CRM114-Status: UNSURE (   8.38  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,44 +81,29 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Angelo Dureghello <adureghello@baylibre.com>
 
-Later in this patchset, the mcf54415 DAC driver is added.
-Considering some other different ColdFire cpu DACs exists, the DAC driver
-is named as "mcf54415_dac", related to the mcf5441x family SoCs with
-DACs (mcf54415/6/7/8).
-
-So updating DAC clock names to bind with proper driver name.
+Add DAC controller 0 and 1 base addresses.
 
 Signed-off-by: Angelo Dureghello <adureghello@baylibre.com>
 ---
- arch/m68k/coldfire/m5441x.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ arch/m68k/include/asm/m5441xsim.h | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/arch/m68k/coldfire/m5441x.c b/arch/m68k/coldfire/m5441x.c
-index 5c33d3896cf7..b21638844fd4 100644
---- a/arch/m68k/coldfire/m5441x.c
-+++ b/arch/m68k/coldfire/m5441x.c
-@@ -43,8 +43,8 @@ DEFINE_CLK(0, "mcfpit.2", 34, MCF_BUSCLK);
- DEFINE_CLK(0, "mcfpit.3", 35, MCF_BUSCLK);
- DEFINE_CLK(0, "mcfeport.0", 36, MCF_CLK);
- DEFINE_CLK(0, "mcfadc.0", 37, MCF_CLK);
--DEFINE_CLK(0, "mcfdac.0", 38, MCF_CLK);
--DEFINE_CLK(0, "mcfdac.1", 39, MCF_CLK);
-+DEFINE_CLK(0, "mcf54415_dac.0", 38, MCF_CLK);
-+DEFINE_CLK(0, "mcf54415_dac.1", 39, MCF_CLK);
- DEFINE_CLK(0, "mcfrtc.0", 42, MCF_CLK);
- DEFINE_CLK(0, "mcfsim.0", 43, MCF_CLK);
- DEFINE_CLK(0, "mcfusb-otg.0", 44, MCF_CLK);
-@@ -106,8 +106,8 @@ static struct clk_lookup m5411x_clk_lookup[] = {
- 	CLKDEV_INIT("mcfpit.3", NULL, &__clk_0_35),
- 	CLKDEV_INIT("mcfeport.0", NULL, &__clk_0_36),
- 	CLKDEV_INIT("mcfadc.0", NULL, &__clk_0_37),
--	CLKDEV_INIT("mcfdac.0", NULL, &__clk_0_38),
--	CLKDEV_INIT("mcfdac.1", NULL, &__clk_0_39),
-+	CLKDEV_INIT("mcf54415_dac.0", NULL, &__clk_0_38),
-+	CLKDEV_INIT("mcf54415_dac.1", NULL, &__clk_0_39),
- 	CLKDEV_INIT("mcfrtc.0", NULL, &__clk_0_42),
- 	CLKDEV_INIT("mcfsim.0", NULL, &__clk_0_43),
- 	CLKDEV_INIT("mcfusb-otg.0", NULL, &__clk_0_44),
+diff --git a/arch/m68k/include/asm/m5441xsim.h b/arch/m68k/include/asm/m5441xsim.h
+index f48cf63bd782..f5acc962bb95 100644
+--- a/arch/m68k/include/asm/m5441xsim.h
++++ b/arch/m68k/include/asm/m5441xsim.h
+@@ -191,6 +191,11 @@
+ #define MCFEPORT_EPPAR		0xfc090000
+ #define MCFEPORT_EPIER		0xfc090003
+ #define MCFEPORT_EPFR		0xfc090006
++/*
++ * DAC Modules.
++ */
++#define MCFDAC_BASE0		0xfc098000
++#define MCFDAC_BASE1		0xfc09c000
+ /*
+  *  RTC Module.
+  */
 
 -- 
 2.54.0
