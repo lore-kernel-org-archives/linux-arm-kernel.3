@@ -4,94 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 201A4FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 03:10:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CC4DFF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 03:37:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Bdq1ceputFrd5lb1OAnfe46lFGDJ7zZ8wPiQreEQXNE=; b=C8YEBno1CELY73W59xzfhr+52d
-	RoVLEoFVJo/bGIzOexKKxViQAS3FRKeTBbJl2Lu6SppzsLKI9KTMRbs1ZsZjLBcQkrX9bYhyzlVhR
-	qrqAyTWnubyxhIAMqKDsn4tHslogq0rCnWUtg87H/DfqWXIaO1Z6NxC0eCS0q2B5Y8d5nxLuHTCEK
-	OGy3ABcJrbVGVWAJngaIUF+AplqtEYdn9vE7NwhN7yhDiuMzvVDekoddt/8S27vP1+imgYlRhgNud
-	rX1VITssvRw3tzqPyAManhD46/X5D8geFsWzlls7SvXd3buKSGgX4BvfC7FOQ+vdmSy731I6uK6l+
-	xQsv6Wfg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RiZ8ZehJHOgAnZPUtOhC/yoFNONpm3oh1RebvCBkpKY=; b=3anOMP1U6qgrItNeGRmoA2vAFo
+	9wLZYTGtSKgAV1wtNhyDmqe5l3xMCbU/dFJ0+sJTxHmA2JexB7RU2sEuX15iC7FMvJzol65c3+RSf
+	i5gMxlonQgiJZ66GZkP8ZL19b2mPmXm6q4tEgkJWGn45QTSOMyZ5CZL90wPRa/ejciu8jGtMVMbS9
+	Uqzx7L4nyqkMwdX8HHXDPQ/h9k6h97RTHFeC++jFoKUyv3XyrVxMV2fmb+MmNxwnV+itnQrlwO2vU
+	ZbpbaIt0KGN4Pfvam4OJGFm8Pm3iMG1Oc6JHAdnuthGJqCFtWZCBV7JHjUrm9xz9Q7mDmK2ww3REB
+	PnMK8pnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJjhk-0000000CEAo-3qre;
-	Mon, 04 May 2026 03:10:44 +0000
-Received: from mail-qv1-xf2b.google.com ([2607:f8b0:4864:20::f2b])
+	id 1wJk7t-0000000CGKM-1TA7;
+	Mon, 04 May 2026 03:37:45 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJjhh-0000000CE9Y-3qB8
+	id 1wJk7q-0000000CGJq-0NzU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 03:10:43 +0000
-Received: by mail-qv1-xf2b.google.com with SMTP id 6a1803df08f44-8b3d6b215cfso62275806d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 03 May 2026 20:10:40 -0700 (PDT)
+	Mon, 04 May 2026 03:37:43 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 643AirOR1184971
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 4 May 2026 03:37:40 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	RiZ8ZehJHOgAnZPUtOhC/yoFNONpm3oh1RebvCBkpKY=; b=KCS8Y5SmYxUC30M1
+	aqpNDzduiNY6aSVBKCaoi9O1IfwNdu1iznSJ+9MzyEQIADutO42fRiWjzmC8ynz0
+	5yWm54y2bIi4btq4TH3+GYVqv6ioY7HYao6HgzXtpzg+ruBerC6msAELWz8Q6PaG
+	qUVAGj318pxH1mF2qNxLa9A7/CK0WHzkHmgYMV5ssGwuWBf2OVUz6SbRdtlt8BzH
+	9loQUB0xfAckuTOC6t4qwoWz0+BSPtfFGP0qu9jl6ztHnDR9Fc6dN4QbN0hjPOEh
+	hPkGZKNl6IhjPWVNMjjSJjhfkZNrwpASaP6x959cWcWQLgRDBnvA7f0milTPXM9Q
+	uFqviw==
+Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com [209.85.210.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dw6mpccen-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 04 May 2026 03:37:40 +0000 (GMT)
+Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-82fa1c94b37so3656696b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 03 May 2026 20:37:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777864240; x=1778469040; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Bdq1ceputFrd5lb1OAnfe46lFGDJ7zZ8wPiQreEQXNE=;
-        b=J+ozIrd7zqdH8f5M58HEbnEdwzfnqNdfzTBdPP4yWdJefdI0n7nykr0MJ60pbSIqnE
-         bANHf9hx0P2yuQhgzkaZ+T64ON8D8l1a1ANnxE/iSkLRiROO9wTORcE/3fi1guE+yG9K
-         v6COXLIm/4SYnOYjQ4dFKKgmKVm0B4BOJinr50IHS8n/NDsbmC45bpmA6/VsGTkbBJLU
-         JU/tUYbYlkGL6vDiTbKXtEFYDeKq+zerdyB4yF6DOaA7IwFbf1d6bT5aF1iPQS/IDTRK
-         FXv+eRTv4KDlZOZfaxJAKpFcUTsmq4EzUJ4vQ+9+MajLQfiEwVvXs3hGuo16t9uwdnfR
-         LsJg==
+        d=oss.qualcomm.com; s=google; t=1777865859; x=1778470659; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=RiZ8ZehJHOgAnZPUtOhC/yoFNONpm3oh1RebvCBkpKY=;
+        b=JsQNB8T+KBdnU8GK5ipMcg5P674LfQOREDebqXyPgwv82EvMazTg8r0p6YfPXxvYdW
+         SDeZLeuWmxMwGuav98vyi4z93Mx+6yH72IJf5V2HJrRJ/2zRhL67vb+xs5KByyjw/GW1
+         TCzvog5BOqcw4KcK6Hr+bbwDxJG/U0YQ2Ybqj/HgLWSSRjmU2aSaf46iGzKdf4icVIvM
+         3taBZqPCR0+8CGX2hmPoTEOWcUzlvpIDvZVCdMvtBBR0QScs9j2yypGQMzSfxdqy5SX+
+         giOTEc/GaNwfHhfTJpAm/2sScFDVF9Bswu3ozMCtoVp25v84UMZ0yq30gqjB+HLdTdH3
+         lldw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777864240; x=1778469040;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Bdq1ceputFrd5lb1OAnfe46lFGDJ7zZ8wPiQreEQXNE=;
-        b=DJpiO4AHPkG47OjiF4Y7hObB4uoPwY8IobiUqtS4Hlr+90jtW90p6ib/L2FUikhLN7
-         OIJLZW75oV3SbcG7xfx5LouJTsMykYiLuaCTqQSdKxpznWVoCQbslzAo5HCJGlB58ALp
-         nuITLVUc9IZ+NM5UQ7bv8kdt8XfI6V4e4qJ6zIQL+DuYeaQZL5P2xuGUtZoIun7Sytln
-         NDLtU2WNUWnR0Gk3Yk4vB9iemil5z4N0ZYBNjCdMygZnBNRqnbg8Wjy2CpCcj0aUjQmE
-         C/aCuf81b1lDHozmm2HG1yb0i4yLRiFzpBAN1OR7ENbYM2euBQ6amhX4DbJGkEJKI0/U
-         Zz4w==
-X-Forwarded-Encrypted: i=1; AFNElJ99usc0sheiXXxM90qPjOEr2AL6q2edewbcw9qAWbrg4iP8z/QduKj2t24grhKgi6vfQ4kKcWH72X2EfCUR4Is3@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxae6YbjYJYYWhbBakoOkqVbtauQPhHZTYl6L91C1kzqrM8GdoA
-	HAQpa/QZXnqWvTRWV63WAqkoI9oN5V+VVCdS6jW9CjcMbPV7Dy9iJbSJ
-X-Gm-Gg: AeBDiett12N6bpytEOZ/CI+gWjfIYtkDXLaGoEiXy2gliXrwc5TNDdBmoR0VzKubgwU
-	L6+T1SDKvmNpTZV8BVZIurtXsY7wN8g/yymLJIEoHgCUYwpljpkPD0UhTEoEZererOEKgG3xLfc
-	Wj6AhccRf8pq3UdQqAY1ggUmZvAptSUSKhJ6yjau0EOibi7+ZqEdHDUN+XBzqmBqZwNBxGrfm7t
-	Pkdm4QKN3yOL6OKL+Avev7JtRSEw0o4J1r0weV/od3OAxHiEzBUe7vWvKEu2EWeDyRJg3h1Y1hS
-	hsBddMp7WRF9CnBuOvqqCLWgJ2okJteCXGXZcZ6gm4oCWOeONVs8cqL8ho5k3Qy4saIc2rgcyk5
-	O5dejp6UedlKD3R4WKdMgP9BlOosA3hzHHk+Hd08QHzZDRgufL4j+CMGI9e4Nfh2KBCRJ6Bsej4
-	WkDrdTd4VUPkPD0X8RZXyBxa/fDOjC/weQcZj009mwaNUtHTq1eY+Yuz0ySBBlX8V8/RBv0tQAv
-	71RvuuUvk6NiWS495KOgZc6pmKK4Hj/wsmmBrcUy/I5sFtSOdDcDi2G
-X-Received: by 2002:a0c:f10c:0:b0:89c:de0e:263b with SMTP id 6a1803df08f44-8b6694eb760mr112988026d6.42.1777864239741;
-        Sun, 03 May 2026 20:10:39 -0700 (PDT)
-Received: from ryzen ([2601:644:8000:5b5d:7285:c2ff:fe45:8a32])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8b538b1d833sm119089176d6.10.2026.05.03.20.10.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 03 May 2026 20:10:38 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: netdev@vger.kernel.org
-Cc: Felix Fietkau <nbd@nbd.name>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-kernel@vger.kernel.org (open list:ARM/Mediatek SoC support),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
-	linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support)
-Subject: [PATCH net-next] net: mtk_star_emac: use of_get_ethdev_address
-Date: Sun,  3 May 2026 20:10:19 -0700
-Message-ID: <20260504031019.607682-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.54.0
+        d=1e100.net; s=20251104; t=1777865859; x=1778470659;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=RiZ8ZehJHOgAnZPUtOhC/yoFNONpm3oh1RebvCBkpKY=;
+        b=B+TiJc1PTLtFXKGOPpv0VTxd4tT0NPrAj2aJ+I9wnzKrnnxcjFMHu9CSdxCrBm8VrJ
+         pTRjridaBvgG7geBUAv9P8f9C6dR97oIy8HL/IPu7K+aCv1G7VLZn7bzLjEyxOeJlAm6
+         91oUBaxChaHvDSIEnqIozUrmlIz9QnGBtqxAaFVQJRU1+W2203GZ/HZyltZuiNIaF5Wr
+         cq6EXbg97WNV6coFFT1FBWDfS87dRa1xBZqjLMv0EKRA2vvY9wYWT8HSKgH/A9wLw6Lh
+         DkJkjmPNCRHm1GjqDX9CgBb7j9Lpi+bo6HhKWytOTYixTBPgMsS1L9sVC8GivaP/agyi
+         ePtw==
+X-Forwarded-Encrypted: i=1; AFNElJ9+bOgp4xR/cMW7P9Dj8eiAc0NDobdfqX7wumRcDOb60RLKXGgkFgQeCVeQTK5pQiTXegz8FNpm1PIM0zUOLjbJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzzrxnmbmF5byMokAEN4tsmgfVLq0Mr/roJAa6Mk2uo8jgyyDyo
+	32b+a6ZvwTaDf0VIe94oE4ojijUF3tbC99voKDHzKkzVG26IbEYRtcaOShqzQIsIsRBRQnNkBhV
+	VuY98deoZ6VH0TZjPIx1lLJj3iq3C5dIM28IwMgL2mbKQ0O1u3o1V6M9CgTiABXIL0aM2CJJsfN
+	9ocQ==
+X-Gm-Gg: AeBDies0MXZrWx13BG5h0loZVEI/8AToD8Ng9VuFVNIfP+hxVIxUs9Fv8NPJZ8oapqt
+	tfXNaZCTd6OHighStCf13W3RIo+cdmzrTjDuqFM75bhXLVcDVveCc0hCCUu3EJf6bio3+Txhd5/
+	Ne9vxROo/QzX/SWgBpmjRqpHGEesgUvEq4i2d2/GFAezy9xZVc8P+NjqFQukV5X8QewKoafxstY
+	9IvMm5IzMtEK08+Ia3klmnvQ7fMynFEySsmOSx024AE9GNxayffAAzWl8Kw6+glMmHUHOoJkx35
+	65S1npaO2zkA6S0AS30Eeh3eYQDxSjde2705/rFfVDVCc25dPa31X1aMZy3wBPoZYAqzgRcqjaR
+	thRMgblvoF2Ktu6ke5bEBrCvq2cUE98aizTY3+fB9rJjnwWLnm7bXEGqnW+Obi5ulpA==
+X-Received: by 2002:a05:6a00:bd84:b0:82f:39df:dd54 with SMTP id d2e1a72fcca58-834fff00167mr13681838b3a.8.1777865859259;
+        Sun, 03 May 2026 20:37:39 -0700 (PDT)
+X-Received: by 2002:a05:6a00:bd84:b0:82f:39df:dd54 with SMTP id d2e1a72fcca58-834fff00167mr13681818b3a.8.1777865858697;
+        Sun, 03 May 2026 20:37:38 -0700 (PDT)
+Received: from [10.92.193.136] ([202.46.23.19])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-835158bcb99sm11045688b3a.25.2026.05.03.20.37.33
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 03 May 2026 20:37:38 -0700 (PDT)
+Message-ID: <dd4dc11e-338a-4d13-9830-095a93187f4c@oss.qualcomm.com>
+Date: Mon, 4 May 2026 09:07:31 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: PCI: qcom: Add D3cold support
+To: Steev Klimaszewski <threeway@gmail.com>
+Cc: bhelgaas@google.com, bjorn.andersson@oss.qualcomm.com,
+        jingoohan1@gmail.com, jonathanh@nvidia.com, kwilczynski@kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+        lpieralisi@kernel.org, mani@kernel.org, robh@kernel.org,
+        will@kernel.org
+References: <20260429-d3cold-v5-0-89e9735b9df6@oss.qualcomm.com>
+ <20260503203008.287559-1-threeway@gmail.com>
+Content-Language: en-US
+From: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+In-Reply-To: <20260503203008.287559-1-threeway@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=H6rrBeYi c=1 sm=1 tr=0 ts=69f81484 cx=c_pps
+ a=rEQLjTOiSrHUhVqRoksmgQ==:117 a=j4ogTh8yFefVWWEFDRgCtg==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=wWH99FW7VD-f-Ch3qS4A:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10 a=2VI0MkxyNR6bbpdq8BZq:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA0MDAzNCBTYWx0ZWRfX4cjxVdWrc0UZ
+ h3VvICkpUIVhvU7D9DuSrCrTnxX+vHI9KOuLRqRhiKjh9tGt64ANSFD6hhRAoPeDLnC9+PpVjhy
+ 8tVwpysHZf/GuvQNMnsLHkyIJ5xXWuKFlsBgTZr7SMtG3EXHKIzbLSO+sZDqDFKXdh7Lv/53xkm
+ 01FjdIVn7EXbikeUWCm8gc4lSlPZcEEGuEyarZR50zHW/L1dHCVGyQ+9iicVmni3OwA8Lumzy24
+ iyvaPtkJxGN11+5hAGK1k+3PTdOn3ArdQ3brDvzmlJo/jf/nf4WNxtk1gGVjVCKhjp17XBZUSQu
+ 39J7f5UBkFTUwYzmiSnZK1PWNN5Q1erB+owC/ECksSdbXpIxPDpPOOUEemDb3sSJHvB2fh2J7M8
+ Ile/tjwYsSJbf5+VrOSXun5D/mwDihrtICaF+JPi/YF3YSQigLVuj1p93r16Q0xDCwJrCP6Iqk8
+ E9KBrGGY8IHVgFjAJKA==
+X-Proofpoint-GUID: Z9yzIOonBf6qndsrSovChrwYIgO_P_0F
+X-Proofpoint-ORIG-GUID: Z9yzIOonBf6qndsrSovChrwYIgO_P_0F
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-04_01,2026-04-30_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 clxscore=1015 phishscore=0 malwarescore=0
+ priorityscore=1501 suspectscore=0 bulkscore=0 impostorscore=0 adultscore=0
+ spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
+ definitions=main-2605040034
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260503_201041_955008_4A81FB56 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20260503_203742_282581_984AE08C 
+X-CRM114-Status: GOOD (  24.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,34 +151,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The platform_ variant calls arch_get_platform_mac_address which is only
-implemented under SPARC.
 
-Switch to the of variant as of functions are used in the surrounding
-code and to get EPROBE_DEFER support in order to handle NVMEM MAC
-address specifications.
 
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
----
- drivers/net/ethernet/mediatek/mtk_star_emac.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+On 5/4/2026 2:00 AM, Steev Klimaszewski wrote:
+> Hi Krishna,
+>
+>> This series adds support for putting Qualcomm PCIe host bridges into D3cold
+>> when downstream conditions allow it, and introduces a small common helper
+>> to determine D3cold eligibility based on endpoint state.
+>> On Qualcomm platforms, PCIe host controllers are currently kept powered
+>> even when there are no active endpoints (i.e. all endpoints are already in
+>> PCI_D3hot). This prevents the SoC from entering deeper low‑power states
+>> such as CXPC.
+>> While PCIe D3cold support exists in the PCI core, host controller drivers
+>> lack a common mechanism to determine whether it is safe to power off the
+>> host bridge without breaking active devices or wakeup functionality.
+>> As a result, controllers either avoid entering D3cold or depend on rough,
+>> driver‑specific workarounds.
+>> This series addresses that gap.
+>> 1. Introduces pci_host_common_can_enter_d3cold(), a helper that determines
+>>    whether a host bridge may enter D3cold based on downstream PCIe endpoint
+>>    state. The helper permits D3cold only when all *active* endpoints are
+>>    already in PCI_D3hot, and any wakeup‑enabled endpoint supports PME
+>>    from D3cold.
+>> 2. Updates the Designware PCIe host driver to use this helper in the
+>>    suspend_noirq() path, replacing the existing heuristic that blocked
+>>    D3cold whenever L1 ASPM was enabled.
+>> 3. Enables D3cold support for Qualcomm PCIe controllers by wiring them into
+>>    the DesignWare common suspend/resume flow and explicitly powering down
+>>    controller resources when all endpoints are in D3hot.
+>> The immediate outcome of this series is that Qualcomm PCIe host bridges can
+>> enter D3cold when all endpoints are in D3hot.
+>> This is a necessary but not sufficient step toward unblocking CXPC. With
+>> this series applied, CXPC can be achieved on systems with no attached NVMe
+>> devices. Support for NVMe‑attached systems requires additional changes
+>> in NVMe driver, which are being worked on separately.
+>> Tested on:
+>>   - Qualcomm Lemans EVK, Monaco & sc7280 platforms.
+>> Validation steps:
+>>   - Boot without NVMe attach:
+>>       * PCIe host enters D3cold during suspend
+>>       * SoC is able to reach CXPC provided other drivers also remove
+>> 	their votes as part of suspend.
+> I have been testing this patchset with Mani's patchset that is supposed to be
+> related to NVMe on the Thinkpad X13s found at:
+>
+> https://lore.kernel.org/all/20260414-l1ss-fix-v1-0-adbb4555b5ab@oss.qualcomm.com/
+>
+> v4 of this patchset *boots* along with Mani's patchset, however, v5 does not,
+> and unfortunately, the machine does not seem to get to a point where I can even
+> get logs from it.  Do you know what I might be missing?  I have *not* attempted
+> to remove the nvme drive and boot off USB to test it.
+This series, will not have any impact on the boot, this series comes in to the
+picture only in case
+of suspend and resume. can you share your platform details and kernel you are
+booting with.
 
-diff --git a/drivers/net/ethernet/mediatek/mtk_star_emac.c b/drivers/net/ethernet/mediatek/mtk_star_emac.c
-index b83886a41121..774ecc98ebe1 100644
---- a/drivers/net/ethernet/mediatek/mtk_star_emac.c
-+++ b/drivers/net/ethernet/mediatek/mtk_star_emac.c
-@@ -1640,7 +1640,9 @@ static int mtk_star_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
--	ret = platform_get_ethdev_address(dev, ndev);
-+	ret = of_get_ethdev_address(of_node, ndev);
-+	if (ret == -EPROBE_DEFER)
-+		return ret;
- 	if (ret || !is_valid_ether_addr(ndev->dev_addr))
- 		eth_hw_addr_random(ndev);
- 
--- 
-2.54.0
+- Krishna Chaitanya.
+>
+> -- steev
 
 
