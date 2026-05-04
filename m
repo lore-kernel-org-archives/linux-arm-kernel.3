@@ -4,139 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE070FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 16:22:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAF3FCD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 16:22:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cBQBzRLaJBHS+BpazzoTNjXunhEtTbeF5sq/2idu8k0=; b=eUV+0LpyqlDvp40LHxox2jjp/r
-	vJ7oVupuwxQ9Pqe9CxazOzthALgkP7zyw1sY2BgX1u4d2dF5/qQFFySM+YeoSO0OA+H6uJkTNDDhF
-	k9gXrwYjNCLNKfZOwJq4WRi+mTBdZbu7AOL6gXP+buDF6MKYktGb/Zo2rTeZv5QHaSP8Z8zTIqzHp
-	yaxb3orh9Gp209I8+1B7f6cwhMhUdS1Kyiz0tf29J4s6SfNXy6zpmzS8sbFd4kcHtPPIYIBJvHVGt
-	tK4fO4ZD55gWHlzZ3/aJcaKBfurdxl5afjD8wRo2cb1YgkqTwYXKgJHDCX9Ac759UoKTpoJO1KZSe
-	c43BDTXg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=LKdmk/Dm+Y6ZfX8JMRXumiC2ukHFKCsB2AW35DecUJw=; b=BlYUcYMRmWXrzdQYZj6RS3PlLz
+	t1SHs/8/KJzuhUdErkv14FDQwgIzgsh7yGKRt8a/Dtn+0zxHKYP/h3y/AsvdvhzHuczQswbbg+FPT
+	MbN/xuP5/ACT13E+KJa4pjSyn8FinlpH88w2G7GVBJWrUaEahjOCno+Fr0+zXaBbuKnPosAXZyDqO
+	+yxyFeQGnC0ECibo75dLgo78rcw6Zd8fR4vQ1jn9l4aPoPG4qMiOm0qWmTiSZEhXNdRhE7XRXQ21E
+	JFah10JCRMb6kT4NTpJzPtnDNTqD/YE4ZuZRn0nFIXKgJpQXUK4ZaxBe7ljyu3V18Ds9wJ7Ik22sq
+	FGHuv7tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJw3Z-0000000DhQM-45Qo;
-	Mon, 04 May 2026 16:22:05 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1wJw3o-0000000DhTb-1Hxw;
+	Mon, 04 May 2026 16:22:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJw3X-0000000DhPn-2ciC
+	id 1wJw3m-0000000DhTE-3uik
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 16:22:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QAp200Ksre9QMhv6VsZpRo/UtmS+AxBmPl4LIfKG0T4o3mLfxhEeUyFYdldAtGC8ZKdoSbg4P0RtW9Rvxny6cYW9MEQQr4v+hzbgpxSrBnkIsBMPEnXF1LsIbrEs4eNve2jNrHGWbBmQUgB6y7TFoyQTjQdSr75LLJrNwbujFWtCuD422VUlhbf6xbBPNjW/iC0SJAwLI/OkqXtWauVqf8E/mOkJDVDNGHZZBJxKdHmfYrX2tzY7lsOelPkzwDiXsNf71XVXNTIEiQQDK/EVqHX+tPrmA5bLmYbVg0lqQQEdvSla9reqaETD2sFmsxj3qopTFaWIhDEXTi/Vf57Srg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=cBQBzRLaJBHS+BpazzoTNjXunhEtTbeF5sq/2idu8k0=;
- b=IFcxhvgw3L3XOKjt3b/f2sRXT0KUD1JXhO2C3jbWFVWeGSExMmRVU80R+9c9uI/uf9hkbSAR2EOu11GGjJsnFWmG77kcgOGqx0HsjN1scvn9wSPude3phKTEhexILn45P2GmblErRh+xcmPM64KUwMK+A7nJzO4gsObpjKTQjIk5EC0jDDjEhEw2SF5+EKSqCbrZ28CGJhuNEsX5TLfTYYR5iWjqtz2xgjQU6xDECax3uCwQpISo1xcBUCSOtr6rbDFy6in5BkAu1+jZNRO8q7s/yy3WoQBohlKSt6ud564cJNAenDMF4FvOa1qeYJtQckDElKksyLIDAu8d3TOb1A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cBQBzRLaJBHS+BpazzoTNjXunhEtTbeF5sq/2idu8k0=;
- b=OKgF/CA3CxxUeQ2ZdmCkwsOR9tUrE+ZKvpTsT507tSuJ86EfpBi0aMvqApdh1KNNhFRzPZwED9xB7zVMqWn6vNHJjT8CmqqgZM9n3FkXL/7JTFLltVNwpW3i1p7S5ixHGCUK6rMOk8VuWn5HnidN1jsqhBkD4f60MC8hFrHVElZZMxltfcIVLvK+xB8prEEF8g4WhOZM9nGQHfcKVxeJYlHg8HFx3wdRkW0bteRLswoMWGFXpU5Qt6phOtZkrS9C2UwKKOQ4q64QPKqSydl1EI7066daEfdDmTSn9LpaYZ4Ro4Tsk4foVc0z5Tiu3S9Ut1Nr250z9Xd6O6mG3hPxsw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by DBAPR04MB7381.eurprd04.prod.outlook.com (2603:10a6:10:1a2::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Mon, 4 May
- 2026 16:21:58 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9870.023; Mon, 4 May 2026
- 16:21:58 +0000
-Date: Mon, 4 May 2026 12:21:49 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Xiaolei Wang <xiaolei.wang@windriver.com>
-Cc: laurent.pinchart@ideasonboard.com, mchehab@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	aisheng.dong@nxp.com, jacopo@jmondi.org, guoniu.zhou@nxp.com,
-	s.riedmueller@phytec.de, linux-media@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH 3/3] media: imx8-isi: fix resource leaks in probe error
- paths and remove
-Message-ID: <afjHnSEYm4t0rko8@lizhi-Precision-Tower-5810>
-References: <20260424231926.406079-1-xiaolei.wang@windriver.com>
- <20260424231926.406079-4-xiaolei.wang@windriver.com>
+	Mon, 04 May 2026 16:22:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D3C8460121;
+	Mon,  4 May 2026 16:22:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57194C2BCB8;
+	Mon,  4 May 2026 16:22:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777911737;
+	bh=EFoXaA7QN5/lEL3hMBDIvrwajwBU482e1LM6bLAGR6Y=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=NN+aLVGqB10/VoaP3mPs6rZ+vE1MCrbRPJEj64vcRhSyfVfJHbTI2riAUNJdqkF7Y
+	 tRJxnREeO28XyVFDr3Kxcr2BqGjEfb0EyRCEslWsEdAcQGLLKDeNMRN3PAGJ4U+B6v
+	 NHgaxIMa59DvrK2Qccnk9KQyL9r9bOJcVPoCAldzWAcW6vFOBCg89j/TWw+jVC2yjV
+	 UREFpiAXxRiUys5jTlIb9qxHgyNZju5DcD042BB5VWiw9yclv7wSDjk8+XugRnMZZc
+	 KaD5FVr4eu0kkSvgf9bWwnhB9L2980ddBQkWwM94m7DKGOEMFxga7v46wogsQV5Dkh
+	 3M+rremsnfPzg==
+Date: Mon, 4 May 2026 11:22:16 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Hans Zhang <18255117159@163.com>
+Cc: Siddharth Vadapalli <s-vadapalli@ti.com>, bhelgaas@google.com,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	vigneshr@ti.com, robh@kernel.org, linux-omap@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] PCI: cadence: Ensure that
+ cdns_pcie_host_wait_for_link() waits 100 ms after link up
+Message-ID: <20260504162216.GA646395@bhelgaas>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260424231926.406079-4-xiaolei.wang@windriver.com>
-X-ClientProxiedBy: SN6PR16CA0038.namprd16.prod.outlook.com
- (2603:10b6:805:ca::15) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DBAPR04MB7381:EE_
-X-MS-Office365-Filtering-Correlation-Id: 43220419-2fc5-418d-0250-08dea9f94382
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|52116014|7416014|376014|38350700014|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: hd3a0Vsu1szdXSIFgQNbtKaQHNjVSe9tYZfpRZGCCXv1MMY/COVqkktQefevvFR9C1FOEMiBShvFkAmhFiwNsvWA7/9PYciW1D9W282MWfsgfd9Bw25xs07CXAvW+Xg8aoAP1X3wtifq3Hgi/HsDA69k6dWDB6393BmAPyjgZlEUggXgCSPIQcbBPvP07w5ImBuHuhYh6fBKZHxpDc9kteUHHzBLLyOvc3LpNpS7gqLEmS8AanFRd5gS7CWDPIX7wiESgbCLP6m7iAPpCQAbeadL9hYOAkI2aQE1eUvlWmsJhnCsrcwjkNTuYsQGZNSSVrYPWTa/NR0HJ7/8OFWlQYiLMYndzA9fM8uSv398jZkAKnoyWasOuXxVdRCm8ckV/RA0ZeTC+nmUVVeihD+Cpja9XDuJy7D5QvRoSW3nSH64qixk6b6RT4Pu1EsTGvKMFRzNLP2ZPC19FjJiC0IC8h3tMXz+Uzls/09F2leMHRE7owpYb3HLkn1/R+0g/LmcvuAxRLaMq3MgzaGqrSBlabSdDBnZFxUmJGPqMpA/cOxcaDLniwMvC/dU+IkD2zyT6hY5aSV290GjC469MAHAxAxB8oTSlkG07ojwK14PFLhMCjbmVmVtAiDGfiYP4hDULNIYf/hWr0Ee66Q5GW6qxQMwtiY/dhfrPlenmxqfyac9gRgxx9gY5E+GDNDgwngqeFXNv6ftS1ZorCVrcoBw8y81zXOwCGR95n2m/6YRBIfTkEvBvwtUTc9cpxaTYlY8
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(52116014)(7416014)(376014)(38350700014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WWt4VUNRRnBXZDlhMVlFWGVLWURzZk95dHRUWk5yckV2OWt2Ykd4RkdWNXlL?=
- =?utf-8?B?MjdjMXdVazBicnZkUjArcWFNUzlmWFhqdGNxZ2xVV1V1RFRLVUJQMFNXZzc3?=
- =?utf-8?B?blBHYWkzQmFWVGtid2NqcnZsamVWQ085TE1mYmFMbk14YkEwM2RVNFIwbEV1?=
- =?utf-8?B?aWxCVXdtUGYyR1V2ck9HdW9EcVJJMVRCMlR2eTA3VVZLZmp2dHlFbzAyQ0dr?=
- =?utf-8?B?c3JGZnRoYWg5ZERKbStOdUl5SUdmWmlDeTlYcE1USXBrZ01HT2VXMExaWTh0?=
- =?utf-8?B?RU1UeE82cHk3TGhjajg4L1NFdG15N25ieTcwVHFUNXhpVzI3RHNJZkxZWWNm?=
- =?utf-8?B?aDBwM0k3cWNjejVyVWtWUnJuNlI3aEdkRlZ5cml5NjB0UWwvVk85blNkQlZO?=
- =?utf-8?B?U1BzZGVLZU4vclBQaWlpbHN2SytVK1VzMUtzSHlGSE1kSjg2S2E1MmNyb2hn?=
- =?utf-8?B?a1hmZDB3T0l4WUdaYTNxemJNc3dxMVBEcWF4VURselZMQnRmMWpRUTdUU1ho?=
- =?utf-8?B?SnJIb0FzU2psSmlneTYzNEtydUNMZjVBOWJOQjZoM0hYc2lhbHlXZFNtdkZX?=
- =?utf-8?B?YUNta285WUIyOE8wOVFQT2J6RWxqcFBIamxyWHArYjRyVkpZMk8vMTNuQ0J0?=
- =?utf-8?B?MGlORjlmL2ZINkg1MWZJQVR0b3pFbG5mNVpPa09Fa3JGRC9zNzZIWjc4K2hy?=
- =?utf-8?B?eFpseTdZTy84OE5oVXFlQmpRcmNEeWRaeTVsRERDZWVKZ1lFVTBvcG1aWU9k?=
- =?utf-8?B?WjFCUnpnWU5mZTJNaGs3RlB0bk9wSGtNcXI4djk3VTByNWpCSlByK043ajFX?=
- =?utf-8?B?N3RENFpyNVlJTk5CcHIzbXo2dWhHU09VZndrbG9tT29XUDdrcXp1WUJnVlJZ?=
- =?utf-8?B?MVNNTG4wSUdrbTQrclViMzdRRnNocklHSXdQVnhTbWpscEdSSHFNNnZlZ2Jp?=
- =?utf-8?B?aXVWMEcrY2VwT0d4VldiMmt4MHVIcnF1YzVKakQ0cVJqMENiWHRac1NaY0tt?=
- =?utf-8?B?eWVoMjR5RnJTSWE2WElYSHVkMXBIU3NUSCtERFF2YjlPQVBwMC9QUkFpVnd6?=
- =?utf-8?B?ek0wWDhheDZnK3IxOXVSNEZPclVoaHYvZmxSeUpUREFjeCtRNmQvOVArdndV?=
- =?utf-8?B?UEdraXJ3MElUZVhpZDUvTVhlVVFlZUpGaFFtSkhGNGc2UU45RVBFL21XZWpW?=
- =?utf-8?B?T3B5RzNqNnlranUreEZTdVZxVS9DZ25rMkMzSVIyZkUrSG53OStISy9OUXJx?=
- =?utf-8?B?NUxhWHdmbVRRTEVpNC9RR2I3Ynd1T0lFUE1md0hxZ1JTMEwyMXdXUStwbk5j?=
- =?utf-8?B?Ny9BL2xGeDVSc2ZiM3ZOV01yNmZvMXBHTDAxY0NWUXB3UVBySFlwZVc4K2NT?=
- =?utf-8?B?MENaWUNWeGZ1OUNyTFJvcmZnZE5mbUp4REZoRFNyb08wVFlFUm15SnE1Ulg2?=
- =?utf-8?B?aHRKVWtVN0x2YWNRT2xDUUdsT2hSZWFNZGlDS0NNQ3hYTmNpYno1dXZkM0hv?=
- =?utf-8?B?akJCVWJacVh6d3NyZlJZTEV0SWRsMHNZd3BjSEE0VDFSVkJKd1NzdVVJN25p?=
- =?utf-8?B?d1lGdEY2RkFzSnp3VEZwQ2wwNDRRK3c2OUhCMmpzTmErUmtrM2FVeHBkSE1s?=
- =?utf-8?B?U2xYekxONElVS0dRYWdudnAxTzlIeVhWVVlCZ21PSGt1eDJlTENtMWpDMnJW?=
- =?utf-8?B?YzNKUlZoUys5SXNFdlp1Y1BDQUdYUThUbVJXem5wNi9JRnpxU2Y1bGNnV21v?=
- =?utf-8?B?ODc5eVBHQWZMYTFmZGZEVDFQNHhtN2JBbnNHdGVIL1VLNFlhYnI4RFF5b2Qv?=
- =?utf-8?B?aXB0ek9Ha1FFOFJPVHpKa3E4VDZLVC9YRXdPMEJmQXRYWTJNanphK1J0REQx?=
- =?utf-8?B?c0QvN3Q1ZW1rNldSSmxjajJCUHRIMTZyUXByQ1ZLSENXeWNVZ2VDK0FHQmFZ?=
- =?utf-8?B?empXUFBRVUNBTXA4UDZtbVRYRTNwN3VBTXhyYzUrTGF3SWRYVmRaTWlpMitj?=
- =?utf-8?B?SWhkMEJNTnhKSnFiOFNGdTVRR2ZJeVlucUMwY0d4RzA4Z0M4MnNGV09NWmph?=
- =?utf-8?B?NmFhYXVweVBYR3U3MXEyUC9GZ2lXUERNZjRwUysxQnYwdTlmZmhQRU9mbTZ5?=
- =?utf-8?B?eEJqNlBjY0c3V2tPVFllcmx4Y1YrL1A1Ulo5a1NvNGNxcHBEdWJERHlKRTJa?=
- =?utf-8?B?ZlBjdVcydFBpT09zMHpuc1M3L05LRmJYS3lKMmpmZWFQblZOWFZtQnVCS0pH?=
- =?utf-8?B?Szdudm9naEtMazNkSC9IbTBOWi95NmdUMmIrUUlxUy9yV3Z1cEtIN0VVUndm?=
- =?utf-8?Q?UgiaQTuTkfAmIf8x7l?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 43220419-2fc5-418d-0250-08dea9f94382
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 May 2026 16:21:58.0429
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 8Z093VK35k6jtyBACD8cDi/Xw0CDnEQEBzsK3oEwmkDy1pIeqKZm7Vr/PCi5sSqkF50rX+/PW93OEH8qgAsc/Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7381
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_092203_710569_92E63C6B 
-X-CRM114-Status: GOOD (  23.49  )
+In-Reply-To: <ce5574b7-1c0d-4b46-b92e-e8f7ddbd8ef0@163.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,60 +72,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Apr 25, 2026 at 07:19:26AM +0800, Xiaolei Wang wrote:
-> mxc_isi_probe() allocates isi->pipes with kzalloc_objs() but never
-> frees it on any probe failure path or in mxc_isi_remove(), leaking
-> the allocation on every failed probe and every normal unbind.
->
-> Additionally, when mxc_isi_pipe_init() fails partway through the
-> channel loop or when mxc_isi_v4l2_init() fails, the already
-> initialized pipes are not cleaned up — their media entities and
-> mutexes are leaked.
+On Mon, May 04, 2026 at 02:23:34PM +0800, Hans Zhang wrote:
+> On 5/4/26 13:08, Siddharth Vadapalli wrote:
+> > On 03/05/26 21:16, Hans Zhang wrote:
+> > > On 5/2/26 13:18, Siddharth Vadapalli wrote:
+> > > > On 01/05/26 21:05, Hans Zhang wrote:
+> > > > > As per PCIe r6.0, sec 6.6.1, a Downstream Port that supports
+> > > > > Link speeds
+> > > > > greater than 5.0 GT/s, software must wait a minimum of 100
+> > > > > ms after Link
+> > > > > training completes before sending a Configuration Request.
+> > > > > 
+> > > > > Add a new 'max_link_speed' field in struct cdns_pcie to record the
+> > > > > maximum supported (or currently configured) link speed of
+> > > > > the controller.
+> > > > > 
+> > > > > In cdns_pcie_host_wait_for_link(), after the link is reported as up,
+> > > > > insert a 100 ms delay if max_link_speed > 2 (i.e., > 5 GT/s). This
+> > > > > implements the required delay at the common Cadence host layer.
+> > > > > 
+> > > > > Currently max_link_speed is zero-initialized, so the delay is not yet
+> > > > > active. Glue drivers must set max_link_speed appropriately to enable
+> > > > > the delay. This matches the approach taken for the Synopsys DWC
+> > > > > controller in commit 80dc18a0cba8d ("PCI: dwc: Ensure that
+> > > > > dw_pcie_wait_for_link() waits 100 ms after link up").
+> > > > > 
+> > > > > Signed-off-by: Hans Zhang <18255117159@163.com>
+> > > > > ---
+> > > > >   .../pci/controller/cadence/pcie-cadence-host-common.c    |
+> > > > > 9 +++++ ++++
+> > > > >   drivers/pci/controller/cadence/pcie-cadence.h            | 2 ++
+> > > > >   2 files changed, 11 insertions(+)
+> > > > > 
+> > > > > diff --git
+> > > > > a/drivers/pci/controller/cadence/pcie-cadence-host- common.c
+> > > > > b/drivers/pci/controller/cadence/pcie-cadence-host-common.c
+> > > > > index 2b0211870f02..d4ae762f423f 100644
+> > > > > --- a/drivers/pci/controller/cadence/pcie-cadence-host-common.c
+> > > > > +++ b/drivers/pci/controller/cadence/pcie-cadence-host-common.c
+> > > > > @@ -14,6 +14,7 @@
+> > > > >   #include "pcie-cadence.h"
+> > > > >   #include "pcie-cadence-host-common.h"
+> > > > > +#include "../../pci.h"
+> > > > >   #define LINK_RETRAIN_TIMEOUT HZ
+> > > > > @@ -55,6 +56,14 @@ int cdns_pcie_host_wait_for_link(struct
+> > > > > cdns_pcie *pcie,
+> > > > >       /* Check if the link is up or not */
+> > > > >       for (retries = 0; retries < LINK_WAIT_MAX_RETRIES; retries++) {
+> > > > >           if (pcie_link_up(pcie)) {
+> > > > > +            /*
+> > > > > +             * As per PCIe r6.0, sec 6.6.1, a Downstream Port that
+> > > > > +             * supports Link speeds greater than 5.0 GT/s, software
+> > > > > +             * must wait a minimum of 100 ms after Link training
+> > > > > +             * completes before sending a Configuration Request.
+> > > > > +             */
+> > > > > +            if (pcie->max_link_speed > 2)
+> > > > > +                msleep(PCIE_RESET_CONFIG_WAIT_MS);
+> > > > 
+> > > > I think the above could be moved to cdns_pcie_host_start_link()
+> > > > as follows:
+> > > > 
+> > > > diff --git a/drivers/pci/controller/cadence/pcie-cadence-host-
+> > > > common.c b/
+> > > > drivers/pci/controller/cadence/pcie-cadence-host-common.c
+> > > > index 2b0211870f02..0f885dcbdb12 100644
+> > > > --- a/drivers/pci/controller/cadence/pcie-cadence-host-common.c
+> > > > +++ b/drivers/pci/controller/cadence/pcie-cadence-host-common.c
+> > > > @@ -115,6 +115,15 @@ int cdns_pcie_host_start_link(struct
+> > > > cdns_pcie_rc *rc,
+> > > >       if (!ret && rc->quirk_retrain_flag)
+> > > >           ret = cdns_pcie_retrain(pcie, pcie_link_up);
+> > > > 
+> > > > +    /*
+> > > > +     * As per PCIe r6.0, sec 6.6.1, a Downstream Port that
+> > > > +     * supports Link speeds greater than 5.0 GT/s, software
+> > > > +     * must wait a minimum of 100 ms after Link training
+> > > > +     * completes before sending a Configuration Request.
+> > > > +     */
+> > > > +    if (!ret && pcie->max_link_speed > 2)
+> > > > +        msleep(PCIE_RESET_CONFIG_WAIT_MS);
+> > > > +
+> > > >       return ret;
+> > > >   }
+> > > >   EXPORT_SYMBOL_GPL(cdns_pcie_host_start_link);
+> > > > 
+> > > > This will avoid an additional and unnecessary delay when
+> > > > 'cdns_pcie_retrain()' retrains the link.
+> > > > 
+> > > > Instead of checking for the link being up using
+> > > > "pcie_link_up(pcie)", checking for 'ret' being zero should also
+> > > > work (ret being zero indicates that the link is up).
+> > > > 
+> > > > Since configuration space accesses will not be performed until
+> > > > cdns_pcie_host_start_link() completes executing, it should be
+> > > > safe to switch to the above implementation.
+> > > 
+> > > Hi Siddharth,
+> > > 
+> > > I think this is applicable to LGA IP as per the method you
+> > > mentioned. However, for HPA IP, additional repetitive code needs to
+> > > be added in the following code.
+> > 
+> > Yes, additional code is required as you rightly pointed out, but the
+> > problem I was trying to address with your patch is the following:
+> >      cdns_pcie_host_start_link()
+> >        calls cdns_pcie_host_wait_for_link()
+> >          Link is Up and we wait for 100 ms here
+> >        calls cdns_pcie_retrain()
+> >            calls cdns_pcie_host_wait_for_link() a second time
+> >              Link is Up again after retraining and we wait and
+> >              we wait an additional 100 ms here.
+> > 
+> > Instead, it will be sufficient if we could wait just once after
+> > cdns_pcie_retrain() returns.
+> 
+> Hi Siddharth,
+> 
+> Yes, I looked at the code and indeed it works this way.
+> 
+> Because of the abundance of redundant comments. I'm wondering if it's
+> possible to encapsulate a helper function in the file
+> drivers/pci/controller/pci-host-common.c, so that controller drivers like
+> dwc and cadence can call this API. Or do you know where it would be
+> appropriate to place it?
+> 
+> Hello, Bjorn and Mani, I wonder what your opinions are.
 
-Although it simple change, it is two problems, suggest use two patches to
-fix it.
+Make a proposal.  Sounds fine to remove redundant comments if they
+cause confusion.  Adding a helper to make things more consistent
+across drivers also sounds fine, but it would be better to have a
+straw-man proposal to respond to.
 
-Frank
->
-> Fix the pipes memory leak by switching from kzalloc_objs() to
-> devm_kcalloc(), which ties the allocation lifetime to the device
-> and eliminates the need for explicit kfree() in all error paths
-> and in mxc_isi_remove().
->
-> Fix the pipe init leak by cleaning up already-initialized pipes
-> in the err_xbar error path.
->
-> Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Xiaolei Wang <xiaolei.wang@windriver.com>
-> ---
->  drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> index 2d639b789910..8533a979d60a 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> @@ -485,7 +485,8 @@ static int mxc_isi_probe(struct platform_device *pdev)
->
->  	isi->pdata = of_device_get_match_data(dev);
->
-> -	isi->pipes = kzalloc_objs(isi->pipes[0], isi->pdata->num_channels);
-> +	isi->pipes = devm_kcalloc(dev, isi->pdata->num_channels,
-> +				  sizeof(*isi->pipes), GFP_KERNEL);
->  	if (!isi->pipes)
->  		return -ENOMEM;
->
-> @@ -538,6 +539,8 @@ static int mxc_isi_probe(struct platform_device *pdev)
->  	return 0;
->
->  err_xbar:
-> +	while (i--)
-> +		mxc_isi_pipe_cleanup(&isi->pipes[i]);
->  	mxc_isi_crossbar_cleanup(&isi->crossbar);
->
->  	return ret;
-> --
-> 2.43.0
->
+Bjorn
 
