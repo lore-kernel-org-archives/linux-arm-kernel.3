@@ -4,63 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96692CD342F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 08:25:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A751CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 08:26:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=69yLhlBI16XoVN9bn+X224Mok/47DWhaQAjx6HzSTTc=; b=LuioLZKk2DQ0W4YbdrVsv+mPuR
-	paHuD+U3PQXf4STgNva2oF6r0vVMKf3MqO6ITrmIqkeT9W5aVLG8cgRAe5BmAFdfs07Vxuia7h3lu
-	xuy8mIeeoSWa8BDBNDpKxAsM8G876EqgGhFMZyu0P8WPQscACReS82QCbbo+56O9mICgRhBGAwj3x
-	0vpx9i2Ls3RGB1cTG3VRRV0MXmRo1wnFVHxpsEHXSLw95cKjH6PcrnvsMKv1TP31GmuIW7zz75tAe
-	D9FftzZ454aeJmTB3ltJDP77grrIiJeBPIp9rUJxkDfaLkebebquqZre6GkqDHMvQiXjzFjB/Vngh
-	Y0+IdBPA==;
+	bh=z489JKPDHOfXIXMi7nlez8unyEO4hm8q1SkFaDGqzso=; b=ixqi6HScawIEsykoL06tW9MfMq
+	pb/uEYNKz8GW8NSZexenaI110SmCV35oImRbKudYMD06iMFwBztkDGeRx+18RP87JtyoNbVoId/zb
+	dPsX3K7J4OJts1Z3LofRsyy1YTu3w+/l6/NsqD+qBWsQy2570JLNSki7zQGgGwXelgaFrg55OwuPN
+	2O1/WDRAArUtLj2jBMpbzgjfZUvFpRZGEO4ICSQt6W+pWq5BauDzITh8oTKvrR5SFWHrovjVl+Bqi
+	OcLnJEiWCrUmXEvP9HufNxnxQ5hS+8FHre1A+300drqkaGZnldCr1bUXeDmBhOCXWZoUss1q/ZZzR
+	OgfaZURw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJocW-0000000CiJw-4Auh;
-	Mon, 04 May 2026 08:25:40 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1wJocm-0000000CiNa-0phG;
+	Mon, 04 May 2026 08:25:56 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJocO-0000000CiId-3y2j
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 08:25:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=69yL
-	hlBI16XoVN9bn+X224Mok/47DWhaQAjx6HzSTTc=; b=mD/zbGAP2702YJM1OPmA
-	ub40M6Ut4DpN0w3RYqDDcsh29QDSXY0wM/vRVTbX0NA54uOKr4Jmry/szvORS14o
-	FFBX/ozRpyki7PoKTe7eLJcKX76Y558PbSZKvcGRVuugNtLQZSvCz8eK7CkVCFGW
-	43l8hbVWYFEwby8OeP8ETvg6pWyd/5ij4neBkuEu+YV5ZwfXIAdjQcieN4Cafpfy
-	e2Ue3Ndw2B84JuiaKEGxUkDvY5NHyqaR1t4nt9Zcs9Zhyq/yIXq0SRhOKOQ8Xlv8
-	EoMHbpxFYI++ZYwWfA7ozfIVSfLir6TYYUA9dfQdwceeuVzEyv8Xmij7TJ58tBF5
-	nQ==
-Received: (qmail 2102619 invoked from network); 4 May 2026 10:25:28 +0200
-Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 4 May 2026 10:25:28 +0200
-X-UD-Smtp-Session: l3s3148p1@hdhNrPlQZrcujnvR
-Date: Mon, 4 May 2026 10:25:27 +0200
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Marek Vasut <marex@nabladev.com>
-Cc: linux-i2c@vger.kernel.org, Alain Volmat <alain.volmat@foss.st.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Pierre-Yves MORDRET <pierre-yves.mordret@foss.st.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH] i2c: stm32f7: Move reinit_completion() to
- stm32f7_i2c_xfer_core()
-Message-ID: <afhX9z20oxSZxM6L@ninjato>
-References: <20260502153218.56142-1-marex@nabladev.com>
+	id 1wJocj-0000000CiM9-0JVk;
+	Mon, 04 May 2026 08:25:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1777883135; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=ZDOJ1iMS6BbjMpR1z418oEEtC0vqd6UCTO8avOjxc9wKbIZvKMysUmvzYNo3OKqQRYH5hXNMTe6aN5S9gmzgIZDjsTH79Dpl3o0RahmWU/liu8PTQlduTe/TV+97iKlCALhnCQbNgO2qH+/Zw2pkfR4mQTBweCEjcVEKAlU3GTI=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1777883135; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=z489JKPDHOfXIXMi7nlez8unyEO4hm8q1SkFaDGqzso=; 
+	b=HM5LnyZzYOs7p1xoYLDvpzbLC6UwWoMjy5ahsaqaNOLhmCPuQ/1c+7cLq2M4qjyc5hO88K40GRqrTOFt7UsB6+TFkZjdyQ2cnUhPuk5YkAKD/9yrplzjwTEnCy40WuQcC/0hPajSr50LihYshcN2cLYnYgSqjwTFxqopnqw019A=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1777883135;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=z489JKPDHOfXIXMi7nlez8unyEO4hm8q1SkFaDGqzso=;
+	b=d12UfRqJgDEnkLM63lrzTbsNQ4liJzdOrXDlr8ZK58jJ3QQw8+/+Q/Zon2veh6xG
+	vaAW1Z9AKv8Xmap8IiniyV5tNQNRldwzWazlMIDiog4lqZzPv31i53xeOpgNaJvQ9fH
+	+m4SpSYaj8LCg+hPTQordubO0FlnfZSvkX3qY/wI=
+Received: by mx.zohomail.com with SMTPS id 1777883133012498.91425057032257;
+	Mon, 4 May 2026 01:25:33 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: William Breathitt Gray <wbg@kernel.org>
+Cc: William Breathitt Gray <wbg@kernel.org>,
+ Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <ukleinek@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Lee Jones <lee@kernel.org>, Damon Ding <damon.ding@rock-chips.com>,
+ kernel@collabora.com, Jonas Karlman <jonas@kwiboo.se>,
+ Alexey Charkov <alchark@gmail.com>, linux-rockchip@lists.infradead.org,
+ linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-iio@vger.kernel.org
+Subject: Re: [PATCH v5 4/6] counter: Add rockchip-pwm-capture driver
+Date: Mon, 04 May 2026 10:25:27 +0200
+Message-ID: <4Sq7M_BvSOqHZS-Mve-Dmg@collabora.com>
+In-Reply-To: <20260503104624.459765-1-wbg@kernel.org>
+References: <20260420-rk3576-pwm-v5-4-ae7cfbbe5427@collabora.com>
+ <20260503104624.459765-1-wbg@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260502153218.56142-1-marex@nabladev.com>
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_012533_273419_B4546AEB 
-X-CRM114-Status: GOOD (  15.10  )
+X-CRM114-CacheID: sfid-20260504_012553_178813_E4902E3C 
+X-CRM114-Status: GOOD (  47.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,33 +84,247 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 02, 2026 at 05:31:54PM +0200, Marek Vasut wrote:
-> Currently, the driver may repeatedly call reinit_completion() during
-> transfer which contains multiple messages, while another thread is
-> waiting for the completion.
+On Sunday, 3 May 2026 12:46:23 Central European Summer Time William Breathitt Gray wrote:
+> On Mon, Apr 20, 2026 at 03:52:41PM +0200, Nicolas Frattaroli wrote:
+> > Among many other things, Rockchip's new PWMv4 IP in the RK3576 supports
+> > PWM capture functionality.
+> > 
+> > Add a basic driver for this that works to expose HPC/LPC counts and
+> > state change events to userspace through the counter framework. It's
+> > quite basic, but works well enough to demonstrate the device function
+> > exclusion stuff that mfpwm does, in order to eventually support all the
+> > functions of this device in drivers within their appropriate subsystems,
+> > without them interfering with each other.
+> > 
+> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 > 
-> This happens during transfer with more than 1 message, invoked via
-> stm32f7_i2c_xfer_core() -> stm32f7_i2c_xfer_msg(). After invoking the
-> stm32f7_i2c_xfer_msg() to start transfer, stm32f7_i2c_xfer_core()
-> calls wait_for_completion_timeout() to wait for completion of the
-> transfer of all messages. When the first message transfer completes,
-> the hard IRQ handler triggers, and detects transfer completion, which
-> leads to stm32f7_i2c_isr_event_thread() IRQ thread being started. The
-> stm32f7_i2c_isr_event_thread() calls stm32f7_i2c_xfer_msg() in case
-> there are more messages.
+> Hi Nicolas,
 > 
-> Without this change, the second and later stm32f7_i2c_xfer_msg() would
-> call reinit_completion() on the completion which is still being waited
-> for in stm32f7_i2c_xfer_core(). Fix this by moving the reinit_completion()
-> into stm32f7_i2c_xfer_core(), together with wait_for_completion_timeout().
-> 
-> Since stm32f7_i2c_xfer_core() now waits for completion of the entire
-> transfer, increase the default timeout. This fixes sporadic transfer
-> timeouts on STM32MP25xx during kernel boot.
-> 
-> Fixes: aeb068c57214 ("i2c: i2c-stm32f7: add driver")
-> Signed-off-by: Marek Vasut <marex@nabladev.com>
+> Forgive me if I asked this before, but I'm having trouble finding it
+> online: do you have a link to a publicly available RK357 technical
+> reference manual? I think that will help me better understand how this
+> PWMv4 IP works.
 
-Reworded $subject a little and applied to for-current, thanks!
+Hi!
+
+The RK3576 TRM isn't public, but the same hardware is used in the
+RK3506, which does have its TRM online from Rockchip themselves:
+https://opensource.rock-chips.com/images/3/36/Rockchip_RK3506_TRM_Part_1_V1.2-20250811.pdf
+
+See chapter 31 of this. Right now, this counter driver implements
+what's briefly described in Chapter 31.3.1 "Capture Mode".
+
+> 
+> Regardless, some comments inline below from my current understanding.
+> 
+> > +static struct counter_signal rkpwmc_signals[] = {
+> > +	{
+> > +		.id = 0,
+> > +		.name = "PWM Clock"
+> > +	},
+> > +};
+> 
+> If the capture mode is used to measure the duty cycle of the PWM input,
+> then we actually have two Signals to define here: "PWM Clock" and "PWM
+> Input".
+> 
+> I imagine the capture mode waveforms look something like this:
+> 
+>                __    __    __    __    __    __    __
+>     clk     __|  |__|  |__|  |__|  |__|  |__|  |__|  |__
+>     
+>                       __________________ LPC: 2 edges ____
+>     pwm_in  _________|   HPC: 3 edges   |____________|
+> 
+> So the level of the pwm_in signal is counted each rising edge of clk;
+> the number of clk edges while pwm_in is high is the HPC count, whereas
+> the number of clk edges while pwm_in is low is the LPC count.
+
+Correct. In fact, your diagram is very close to what's in the
+aforementioned chapter.
+
+> 
+> In the Generic Counter paradigm, this would look like the following:
+> 
+>     Signals             Synapses              Counts
+>     =======             ========              ======
+>     +-----------+                               _______________________
+>     |           | <---- "Rising Edge" ---+---> /                       \
+>     |"PWM Clock"|                        |     |"High Polarity Capture"|
+>     |           |                    +---|---> \                       /
+>     +-----------+                    |   |      -----------------------
+>                                      |   |
+>     +-----------+                    |   |      _______________________
+>     |           |                    |   +---> /                       \
+>     |"PWM Input"|                    |         | "Low Polarity Capture |
+>     |           | <---- "None" ------+-------> \                       /
+>     +-----------+                               -----------------------
+> 
+> The key idea is that the clock and PWM input Signals are associated to
+> both Counts (HPC and LPC) through their respective Synapses. However,
+> while the clock Synapse ("Rising Edge") indicates the clock Signal
+> state triggers updates in the Counts, the PWM input Synapse ("None")
+> indicates the PWM input Signal state does not trigger but is simply
+> evaluated to determine the new Count value.
+> 
+> > +static const enum counter_synapse_action rkpwmc_hpc_lpc_actions[] = {
+> > +	COUNTER_SYNAPSE_ACTION_BOTH_EDGES,
+> > +	COUNTER_SYNAPSE_ACTION_NONE,
+> > +};
+> 
+> To simplify my above example, I assumed that the HPC and LPC counts are
+> only updated on rising edges of the clock Signal. If the Count values
+> actually update on both edges, then you don't need to make a change
+> here. Otherwise, change the "both edges" enum constant to "rising edge"
+> or "falling edge" as required.
+
+I checked the TRM and couldn't see any word on whether the count
+is updated on the clock's rising edge only, but judging by Damon
+Ding's review, I assume that is the case. I'll modify it to
+reflect that.
+
+> > +static struct counter_synapse rkpwmc_pwm_synapses[] = {
+> > +	{
+> > +		.actions_list = rkpwmc_hpc_lpc_actions,
+> > +		.num_actions = ARRAY_SIZE(rkpwmc_hpc_lpc_actions),
+> > +		.signal = &rkpwmc_signals[0]
+> > +	},
+> > +};
+> 
+> Add a Synapse here for the "PWM Input" Signal.
+> 
+> You should also implement an action_read() callback. Check the value of
+> synapse->signal->id to determine which Signal is associated to the
+> Synapse and set the respective action; i.e. for the PWM clock set
+> COUNTER_SYNAPSE_ACTION_BOTH_EDGES, while for the PWM input set
+> COUNTER_SYNAPSE_ACTION_NONE.
+
+Will do!
+
+> 
+> > +static const enum counter_function rkpwmc_functions[] = {
+> > +	COUNTER_FUNCTION_INCREASE,
+> > +};
+> 
+> I wonder if we need a new enum counter_function constant to express
+> what's happening in this driver. In theory, the
+> COUNTER_FUNCTION_INCREASE represent a Count whose value only increases,
+> but what we're describing here is more of a duty cycle sample, right?
+
+Yeah, that's a great point. I think we can say it "increases",
+in that either HPC or LPC are increased by the pwm_clk signal
+based on the value of the pwm_in signal by the hardware.
+
+But of course, the two counts are limited by the full period
+of the PWM waveform. So reading a counter will give the
+reader a snapshot view of the high cycles vs. low cycles of
+the last observed PWM waveform period, which is both a duty
+cycle sample and a period length sample, as the counts are
+in clock cycles, so if we add the counts together we get the
+PWM signal period in clock cycles.
+
+This is also why you saw me convert counts to nanoseconds in a
+previous revision; it felt like I should decouple it from the clock,
+but I think the can of worms that this opens isn't worth it.
+
+> 
+> I haven't made up my mind on this, so for now you can stick with
+> COUNTER_FUNCTION_INCREASE. I'll reconsider it in the next revision.
+> 
+> > +static int rkpwmc_enable_write(struct counter_device *counter,
+> > +			       struct counter_count *count,
+> > +			       u8 enable)
+> > +{
+> > +	struct rockchip_pwm_capture *pc = counter_priv(counter);
+> > +	int ret;
+> > +
+> > +	ret = mfpwm_acquire(pc->pwmf);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	if (!!enable != rkpwmc_is_enabled(pc->pwmf)) {
+> 
+> The Counter subsystem gurantees enable is a boolean value so there's no
+> need for the double negation here in the conditional.
+> 
+> Also, instead of checking if the enable value is different from
+> rkpwm_is_enabled(), check if it is the same and exit early. That will
+> avoid the large conditional block as what you have inside can now move
+> outside after the conditional check.
+
+Good call, will do.
+
+> 
+> > +		if (enable) {
+> > +			mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_ENABLE,
+> > +					 PWMV4_EN(false));
+> > +			mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_CTRL,
+> > +					 PWMV4_CTRL_CAP_FLAGS);
+> > +			mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_INT_EN,
+> > +					 PWMV4_INT_LPC_W(true) |
+> > +					 PWMV4_INT_HPC_W(true));
+> > +			mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_ENABLE,
+> > +					 PWMV4_EN(true) | PWMV4_CLK_EN(true));
+> > +
+> > +			ret = clk_enable(pc->pwmf->core);
+> > +			if (ret)
+> > +				goto err_release;
+> > +
+> > +			ret = clk_rate_exclusive_get(pc->pwmf->core);
+> > +			if (ret)
+> > +				goto err_disable_pwm_clk;
+> > +
+> > +			ret = mfpwm_acquire(pc->pwmf);
+> > +			if (ret)
+> > +				goto err_unprotect_pwm_clk;
+> > +		} else {
+> > +			mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_INT_EN,
+> > +					 PWMV4_INT_LPC_W(false) |
+> > +					 PWMV4_INT_HPC_W(false));
+> > +			mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_ENABLE,
+> > +					 PWMV4_EN(false) | PWMV4_CLK_EN(false));
+> > +			clk_rate_exclusive_put(pc->pwmf->core);
+> > +			clk_disable(pc->pwmf->core);
+> > +			mfpwm_release(pc->pwmf);
+> > +		}
+> > +	}
+> > +
+> > +	mfpwm_release(pc->pwmf);
+> 
+> The call to mfpwm_release() in the else block is redundant because it is
+> called immediately again here.
+
+It's actually intentional, and not redundant. The if (enable) branch
+does an mfpwm_acquire() so that as long as the counter functionality
+is enabled, the use count remains > 0. This way, the PWM output
+driver can't tell the mfpwm driver that it'd like to have exclusive
+use of the PWM device now, as the counter driver is claiming it.
+
+To balance this, the else block here needs to release it.
+
+The release outside the else block is to balance the acquire
+earlier in the function, the pair of which is there to ensure
+mfpwm has powered on the hardware and associated clocks for
+the register reads and writes.
+
+Admittedly, I could get rid of the additional mfpwm_acquire
+in the if (enable) branch by letting the function entry acquire
+"leak" on purpose, by getting rid of the function end mfpwm_release.
+But this feels less obvious to me than the current way. I'll
+definitely add comments though to indicate what's going on, and
+maybe even define a cleanup.h guard() class for the function
+level acquire-release.
+
+Thanks for the review, and especially the explanations.
+
+Kind regards,
+Nicolas Frattaroli
+
+> 
+> William Breathitt Gray
+> 
+
+
+
 
 
