@@ -4,80 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE285FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 14:13:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A6E3FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 14:16:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XsNmFR8dV4OacjfIioHdUGNm4L3AowKlSDqo2yTRzw8=; b=ROh971F2JmhDNSPy0SN4RWb4vV
-	jSbF0TTNzpU1BEvXUNl4DK+7a+WJiooZRc+ImuLC69raDI3yw3FpaevwSxK4DFvjFVMmCws9T6IBZ
-	EXys3cJIu2/QVFXy4hFm3NOQuKEte4srSDoOsNpk1NmsbxrZR4eqJDp+6lRuA1m+RiTpYX0j4WdxO
-	1ZGbcjxozim4c7t6sAu68QckVCv8FOsoNxfz3HjnL4LaYyNrUQsCCPgDTk6zjxbvHswz2MJydO1JK
-	hRtUupErCFJZodrHQKWQfaw5gH48DnZ3DOd1ebJI5OgZvM6Qc+QqfZ3RaGXRjX1l5ElvHO6zetQAt
-	KHE3D8eA==;
+	bh=KJYvNhQ3mzD7bXhkgriTfy1RxP23dOYPeDTU/pUBZ1I=; b=f+TTVlgTnu17xdSOyep4wq1t/j
+	fvWpMgDfZe12edkSPL7P+Lbj9cQwfAY25fDHsomEgwTPqOjGSJauL5PeYFWhzdFjnnn23lC94usAl
+	Fwh/GcKB0PRS2O80+iPToeIw1F9fun2w5o5An1GoZDmkgv5aNAoVTOauWUONXKuh/IEvoQuv7k2RT
+	1bU/IOq+r/eqkqB4NFv9J/IGo7wy5r4asA0SvsT+t9tBET3WGHNZP0I7W/apcDpKLLcoDKIkaUDg2
+	ei3P1xdV0+16boXW9gDnH8Jl0jPXFjegq8H13Q1egX1UUSlxpfJB+7tLwqR3t2lbL9VIP1Y4Eg7Su
+	cFK4oMaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJu3S-0000000DOun-3no4;
-	Mon, 04 May 2026 14:13:50 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1wJu5j-0000000DPEr-1a5i;
+	Mon, 04 May 2026 14:16:11 +0000
+Received: from mail-yx1-xb12c.google.com ([2607:f8b0:4864:20::b12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJu3P-0000000DOtv-0hKX
+	id 1wJu5g-0000000DPEE-1KRD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 14:13:49 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 94D59C5D72D;
-	Mon,  4 May 2026 14:14:31 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 21DC25FD5F;
-	Mon,  4 May 2026 14:13:45 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CCCB711AD27FB;
-	Mon,  4 May 2026 16:13:33 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1777904023; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=XsNmFR8dV4OacjfIioHdUGNm4L3AowKlSDqo2yTRzw8=;
-	b=AFI5Mvlro/TMbUmDqfw6uuasM2l3dZYYZR9gYoQkon/fLCo3EvKUyNNFBC/QEdh3UsgPE0
-	/7gYVYkc5TduLQZWOs7RLRZ8VBl/TUyIcFZNHzxezTrcn2J+YwTOpSLRnb/wM0M3ZcLrA9
-	Lm2FueyC8nmzxUe1s1qWG5sbz1DvWaN/1LQ7cnLW6F7HbhXvVu6z9wO+ubYbEuQbNtRSvN
-	LlAwzXp9TH/yhof4kNc4NJV2lcb8NApSHflSLMIdoi7+ItBAfw3SgF93mrkGrU99tsASNf
-	dediVg4WLdgI85RyfhTmH6WWXJoKbLBbhcyb2krC+3W2W/beCnk+piqeWLU5YQ==
-Mime-Version: 1.0
+	Mon, 04 May 2026 14:16:09 +0000
+Received: by mail-yx1-xb12c.google.com with SMTP id 956f58d0204a3-6587cee8b57so4363519d50.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 May 2026 07:16:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1777904167; cv=none;
+        d=google.com; s=arc-20240605;
+        b=dbbHyoWDW+ODxwchv2ACRkLIT9brumw7SJeUeIO8N2X+Avp0m8l4Zn6OCblKjrfGlk
+         ntxjwq9zGqm5G09pKWmLkgWammrbtacSWfSiiE7mrQwVcivj+hHGjHYIMmnkF0+Gf3dE
+         GzuzdOliVZovQrYCvogtDoyNwgRTlEHhWXEezST+dftuItRei5l9IVXGuj0TX6yPJNWk
+         HrruvhvgGmM2RyCgTbob0zNaKVszzaQ9aMrxfXm7FFtbXSIjACTGTBtzTrCdBv4gSX+S
+         WID+BDWaRNPktrI/r2HOzdNjLkXbM1bMTsCcpoMSsivvOHKLTPNoJMUcdY3pk2i0eMUB
+         xPlA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=KJYvNhQ3mzD7bXhkgriTfy1RxP23dOYPeDTU/pUBZ1I=;
+        fh=RPeh/227bnX7LpVq3VxZT/Y6nGm9fSHRvJ7H9cB2z38=;
+        b=f2YM7/2RwD8HiTrLqYyU7X0SV8YpWV/uIz6HFQxgkbaKcMXWzIboXC4qM1Iw5K9uZW
+         UW/PDQggyxWi8ROo1hnXHWgMXggTRvMWbvx8xUecYeG6y5NV1pK13Iqh02hcBeLNi07b
+         tOPsK8dXUIFy58BM/FAzO7dkvjxLUFfWICRAr8zeOgCslYF08GjsA7vWIt/0HYqkUAvp
+         BSuXFN8I5TDvY2nNYyQfOzJpXDP4rnpmcHLUzGDMpAxVqd0AHDlM1PHsR+oFO3nW31F8
+         CN8A73hSTP9Wfa8Tnx/+7JRjsmfey/pEyx2U32w5pjjlVceHM7uTtDirSdicMtrJYwUG
+         BYXw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1777904167; x=1778508967; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=KJYvNhQ3mzD7bXhkgriTfy1RxP23dOYPeDTU/pUBZ1I=;
+        b=e39QPQ01T9yQY96YjHJtXyot1hiblH1gFKE9UYFm9AMxbEZgL/4V5N2trFhLaYtmKF
+         dgnDXKCdEbrrbXFWFizdRnGoW5u3+lh/2uNWNm3/Zr9OMRWB4PPqml3akmOVmXxCldLJ
+         HcqDUGeDf66DTDQNu4L94u/QIeksWOvK32xbrjPcOIu1fqgG6wXZvJ6WIeMgXEPc2tLT
+         NtJhfzfDpKznyOUdUSb6tQYRUOMCxcxQCYt1eeT7fyKMfUh0otBPs/Ry9ShjqtYOfvMW
+         nxh1Q6Uh+jAwpqPcRf7UsWs/+wEOUzTQd8UzjtEk1QEV+i53tDD33v5zUuDdYCUcK9F4
+         Y9gA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777904167; x=1778508967;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=KJYvNhQ3mzD7bXhkgriTfy1RxP23dOYPeDTU/pUBZ1I=;
+        b=kfs6XXfPq40R7LK25lTouTNFXQ8vOLzV0QXt6YKNJRLr+6HteuF2cGLyjVraL7oNRC
+         xbIMhimi+pLPgTsXEam7SlrQf8RumFBjP3XGx6RJ8sZloMjwF4c4DzqicvrXrw0YfM5a
+         fpfs5dl2tWRQ8408RnNgtr4Ev7Va639I4R0FU+V2qgTBAAiDO1ryIfqR9bbWlNeVjqUv
+         vFwzWN4gth301/Z7Bzi5mANEkGmOWBY+quYvWnVL3r4pGs8gkYqDKqPYYBs9R8vGS1hk
+         EKG1qj7cfMwMjedb4iwoKuGLfcWNmiXFnHaHKcgXgSBh3YXVBy1FmhZie9APZ9TO/fXd
+         ZPiw==
+X-Forwarded-Encrypted: i=1; AFNElJ97PmIZ/EZBKJv1zgMLPJcnNaiDqmlC1/Wu0ryTrQ55Ip07GPhykU21oRMqGUx9rtTeMjDiMBynXnYmK+sNPto9@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz4OPBH8hT24mYbq0wFAIdXI8ce4//nL2CecaRI6iOSdLPpaX/d
+	AHCNEz10tv3JUnxPiFObUMZPnYsOOnqaZtvHa+VdtlUcDTLn4Lb85heIsjVkI/l6qqMnSQqyzML
+	fy7fwG+PnpRdBPwufxVSSvdS7819Nyc0=
+X-Gm-Gg: AeBDieuttfY1f4pycC6YznO1SsUCNinXR086w6Fc7tXz6Oywq9CrRJmmlnmtbBI/vUa
+	v42daIurfahQrbgxTEy8WVXbG5ovwgwmlprUcFQDwp5ZC1CqgsnTyaKZWE4ekoSVAThKbW0TpCT
+	XWUhVyoZBFw1j8i2eX8ZavikCMdvgPQJfgDCZcmZHN/16n4Ut/B55VxIICJ4kd/irOJ5BTAVoDs
+	9sdfwdCkH2m6s/jVZG9m+asZTVNXZhkAgwwzOAGQMa4IUt+TXdoja6Eb+2N4cZyvV0dt+SUELM9
+	Hi2AJOyOAwyqpnnzJ8Q=
+X-Received: by 2002:a05:690e:1186:b0:65c:6452:1ccf with SMTP id
+ 956f58d0204a3-65c64522530mr786151d50.8.1777904166584; Mon, 04 May 2026
+ 07:16:06 -0700 (PDT)
+MIME-Version: 1.0
+References: <dd4dc11e-338a-4d13-9830-095a93187f4c@oss.qualcomm.com>
+ <20260504041407.289464-1-threeway@gmail.com> <ffd59407-c65c-4f99-a587-3b968f9c82c5@oss.qualcomm.com>
+In-Reply-To: <ffd59407-c65c-4f99-a587-3b968f9c82c5@oss.qualcomm.com>
+From: Steev Klimaszewski <threeway@gmail.com>
+Date: Mon, 4 May 2026 09:16:00 -0500
+X-Gm-Features: AVHnY4JCkZFUA50J5VjxRP-M3UPWI_XzDvfu0OdsGPxK7C4Ok0bBFRM_vOJe338
+Message-ID: <CAOvMTZgpYg-UFuQE01NsECTPf3UEHDifnCLYu7iEqOUnvzs0Ag@mail.gmail.com>
+Subject: Re: PCI: qcom: Add D3cold support
+To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+Cc: bhelgaas@google.com, bjorn.andersson@oss.qualcomm.com, 
+	jingoohan1@gmail.com, jonathanh@nvidia.com, kwilczynski@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, 
+	lpieralisi@kernel.org, mani@kernel.org, robh@kernel.org, will@kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 04 May 2026 16:13:32 +0200
-Message-Id: <DI9YDFTUBA4R.3NBES5EAMOD03@bootlin.com>
-Subject: Re: [PATCH v4 01/11] drm/bridge: drm_bridge_get/put(): ignore
- ERR_PTR
-Cc: "Andrzej Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
- <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>, "Jonas
- Karlman" <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>,
- "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
- <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David
- Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Rob Clark"
- <robin.clark@oss.qualcomm.com>, "Dmitry Baryshkov" <lumag@kernel.org>,
- "Abhinav Kumar" <abhinav.kumar@linux.dev>, "Jessica Zhang"
- <jesszhan0024@gmail.com>, "Sean Paul" <sean@poorly.run>, "Marijn Suijten"
- <marijn.suijten@somainline.org>, "Sumit Semwal" <sumit.semwal@linaro.org>,
- "John Stultz" <jstultz@google.com>, "Tomi Valkeinen"
- <tomi.valkeinen@ideasonboard.com>, "Michal Simek" <michal.simek@amd.com>,
- "Hui Pu" <Hui.Pu@gehealthcare.com>, "Ian Ray" <ian.ray@gehealthcare.com>,
- "Thomas Petazzoni" <thomas.petazzoni@bootlin.com>,
- <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
- <linux-arm-msm@vger.kernel.org>, <freedreno@lists.freedesktop.org>,
- <linux-arm-kernel@lists.infradead.org>, "Dmitry Baryshkov"
- <dmitry.baryshkov@oss.qualcomm.com>
-To: "Laurent Pinchart" <laurent.pinchart@ideasonboard.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-X-Mailer: aerc 0.20.1
-References: <20260504-drm-bridge-alloc-getput-panel_or_bridge-v4-0-b578c3daaf10@bootlin.com> <20260504-drm-bridge-alloc-getput-panel_or_bridge-v4-1-b578c3daaf10@bootlin.com> <20260504135300.GE1344263@killaraus.ideasonboard.com>
-In-Reply-To: <20260504135300.GE1344263@killaraus.ideasonboard.com>
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_071347_401174_502A73E2 
-X-CRM114-Status: GOOD (  10.82  )
+X-CRM114-CacheID: sfid-20260504_071608_364610_1DA10C9A 
+X-CRM114-Status: GOOD (  23.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,35 +120,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Laurent,
+Hi Krishna,
 
-On Mon May 4, 2026 at 3:53 PM CEST, Laurent Pinchart wrote:
-> On Mon, May 04, 2026 at 12:45:04PM +0200, Luca Ceresoli wrote:
->> Most functions returning a struct drm_bridge pointer currently return a
->> valid pointer or NULL, but this restricts their ability to return an err=
-or
->> code describing the error kind.
->>
->> In preparation to have new APIs that can return a struct drm_bridge poin=
-ter
->> holding an ERR_PTR (and for those which already do) make drm_bridge_get(=
-)
->> and drm_bridge_put() ignore ERR_PTR values, just like they ignore NULL
->> pointers.
+On Mon, May 4, 2026 at 2:06=E2=80=AFAM Krishna Chaitanya Chundru
+<krishna.chundru@oss.qualcomm.com> wrote:
 >
-> The change in drm_bridge_put() looks good to me. I'm less sure about
-> drm_bridge_get(), is there a valid use case to call get() on a bridge
-> that is not valid ? Doesn't it indicate a clear error in the caller ?
+>
+>
+> On 5/4/2026 9:44 AM, Steev Klimaszewski wrote:
+> > On Sun, May 3, 2026 at 10:37=E2=80=AFPM Krishna Chaitanya Chundru <kris=
+hna.chundru@oss.qualcomm.com> wrote:
+> >>> v4 of this patchset *boots* along with Mani's patchset, however, v5 d=
+oes not,
+> >>> and unfortunately, the machine does not seem to get to a point where =
+I can even
+> >>> get logs from it.  Do you know what I might be missing?  I have *not*=
+ attempted
+> >>> to remove the nvme drive and boot off USB to test it.
+> >> This series, will not have any impact on the boot, this series comes i=
+n to the
+> >> picture only in case
+> >> of suspend and resume. can you share your platform details and kernel =
+you are
+> >> booting with.
+> > Oddly, it seems to, because if I simply go back to v4, the system boots=
+.  I'm
+> > using a 7.0 kernel on the Thinkpad X13s (SC8280XP).  The sources are at
+> > https://github.com/steev/linux/tree/lenovo-x13s-linux-7.0.y (with the v=
+5
+> > applied).  PCIE_QCOM is built-in to the kernel.  Not sure what other in=
+formation
+> > is needed.
+> Hi Steev,
+>
+> I made mistake in re basing the code, can you try below and see if that f=
+ixes
+> your issue.
+> I will send this in next patch series.
+>
+> --- a/drivers/pci/controller/dwc/pcie-qcom.c
+> +++ b/drivers/pci/controller/dwc/pcie-qcom.c
+> @@ -1327,7 +1327,7 @@ static enum dw_pcie_ltssm qcom_pcie_get_ltssm(struc=
+t
+> dw_pcie *pci)
+>         struct qcom_pcie *pcie =3D to_qcom_pcie(pci);
+>         u32 val;
+>
+> -       if (pcie->cfg->ops->ltssm_enable)
+> +       if (pcie->cfg->ops->get_ltssm)
+>                 return pcie->cfg->ops->get_ltssm(pcie);
+>
+> - Krishna Chaitanya.
+> >> - Krishna Chaitanya.
+> >>> -- steev
 
-Good point. Indeed I don't have a valid use case in mind.
 
-I guess I can drop the drm_bridge_get() and send v5. Should there be a
-valid use case it will emerge at some point and this can be rediscussed.
+Indeed, that fixes it, thank you!
 
-Luca
-
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+-- steev
 
