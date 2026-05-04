@@ -4,70 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B25FBCD3423
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 08:52:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEA3CFF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 09:25:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mEyeAUfJQW8Kt1Ng6+Xlvp3Ie550ZOIsa7l52iT+Vyg=; b=OE18W3A8mjYVMCZI2fGPXfxwJh
-	GkFmiHwzLtEvX+5sBRhlNeVCfUXhPjCK68zj9SmD3OpxFWUa+csI4PZtzCjyZ/anWBJ1/5MgskpZX
-	PXrN7XD7b3lioKZr1PDODJYVP0O71QykrVmq+e5gsYc1IAWuAX+rRo8S6w62OsGQQV01Bh0PExOJR
-	F03HGp8VoNym5WWsXeTq3yyEu2BEql/D8TCjUVdhUMbmYgssB7gI166kRjSmgAPl2n1AZPRQBp6XA
-	HIw1ir62KthCg9qCxbP1P2JvrjeYoNy1vi65CzcCj92o9gzjh+2hZJvh+/TGz7puJGHbuWdaKq7LK
-	I3kSKTCQ==;
+	bh=XiyjHCJDl/rogPwAqEoOmuI7BlhASDQQxZixIp7ihY8=; b=KK0l59JDMjDb2AR4KzK4a3YCHe
+	ZbC0BZrFzFOnVRkngdfPlcD6a5HtlKAO+jSbTm4Y57/h0BS7Arpzbu1Peb+fFC03tU7LDUKq+nDJo
+	u0wlqC7qEIq8dVEolx6m8wbLKx9DcF3xzchPrvNUNpZnwIyyrVts9DPyYVADCNSSxqA8hSiSjx65e
+	DxoVXCjPo49W4cd2RfVRXJCY9Nk2quoJcmvFGsi8wrWM5PN7mK0XBAnkH1wxZKmw8hXfn6JGB93dg
+	W2Q2sH2CR2DpuC96LBKH7mHAbABtK3hqeb9HEi0ekFhFCqxyvhTEcBnE9OoA9Cvo1dShRMLoKw3/v
+	n3Yhvz4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJp2E-0000000ClLQ-2yry;
-	Mon, 04 May 2026 08:52:14 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJp2C-0000000ClKc-12GC
+	id 1wJpY8-0000000Cokv-25vn;
+	Mon, 04 May 2026 09:25:12 +0000
+Received: from mail-vk1-f178.google.com ([209.85.221.178])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wJpY5-0000000CokG-1N7k
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 08:52:13 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C45251713;
-	Mon,  4 May 2026 01:52:04 -0700 (PDT)
-Received: from [10.57.34.72] (unknown [10.57.34.72])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 753B83F763;
-	Mon,  4 May 2026 01:52:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777884730; bh=Bg78KoT8CemEyZViwGh6uhzKeqfwdHIhOCQAX57fvRo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NNK2jSQl2B1FVgfn2NY38+h+ww+DbMNckBAn2S5WShSlWOVB0HBAEnYt4Fe7b6x8r
-	 dxSgc0GWneyT0Czpajo6Kg4LAJHpFew1oH5j4LCCUImRsL01mFadAPdBOU2JBaDpev
-	 sv3EtzBHR9deCjHx0SIYcZRxWDBCuRlBTCHUr4bA=
-Message-ID: <4f50dad3-76a6-4117-b5f0-d939c6e551f6@arm.com>
-Date: Mon, 4 May 2026 10:52:03 +0200
+	Mon, 04 May 2026 09:25:11 +0000
+Received: by mail-vk1-f178.google.com with SMTP id 71dfb90a1353d-5674d8be45eso997742e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 May 2026 02:25:08 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777886707; x=1778491507;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=XiyjHCJDl/rogPwAqEoOmuI7BlhASDQQxZixIp7ihY8=;
+        b=HpuEhbe/9Cyi8m25gHB4SEa3bSJQouBGTLHqIk2JsEvCrxDbGanIjJ/AzhLR9h8JCr
+         zdd6yoLvoosVUHG3MbeVkay0paylSKE7dl8sHbcS5RceQ+pYJjjlhXTrA8PT+BVbkm/v
+         M3ecA1r4yjse61VifUkywhMtW80057ZuUlI5dra+7MbIVMukKMR3Qw8pexo5nrYRKuQ4
+         /Tg+CW7RWzrDhfbcXQN9DIwzizBvIjALLpcHef9ZkYJ5G5U35fHNZidP37U8/EGJj9A7
+         dBRndzHV2h9HWAG07hJore475PxDRpkNc2HL17Xjd0LTRE3dsIzXO2FuiZJvdfWhsb7X
+         6HXw==
+X-Gm-Message-State: AOJu0Yyug5QErF83ATuHAP0K4PKsjSS7MsmGJjnYJ/76ukAhgBfJXgUo
+	9CBFYWHeOsBpRgvX5lwUV1BynSR8xNGsw2FAx61r23rlH4ikW8jsTtfsuvGwB2JX
+X-Gm-Gg: AeBDiesbhdZ4fHuLUGlsglPMjI+rqiBeimFaMVmz2d9IA42/crL9s4Nj6akn8LB2IIP
+	Qkiy26lJ6eeC1QGUT4yI2LoXLmguD5oQUPz/FZ4jjp/IVbIVVw5AEnX0XaKH7g8H3/4wI17OcG8
+	xnx1mh+ljSb0zQWRLjF0VeDBoy4y+YwGV5ecg/XNI7Z85QPQEeSfYZGBAkLH88ro+9eaDy7FSeG
+	q+Ool5Mp6wgoFC2Uq3Pmbc3iHfUPSiI9NnIBcJ1al/bSUXqdBhnnQur2+5H3gJO8d3G/31PpGIs
+	x5wLWUBSl+82nhnxThNZejKhmeQzgjljMeWrfRddDxWc7IKG4L/6WTHFMyArNZFX/1jVkImr0Ki
+	JGzIrI4dNegNraFQW99aQ0Hy0hado87oB8/SlTaj5g9/eeso13Lfl4UuV5/VpiNWDWYboQ+1ybm
+	PSOLYUa+z3APIO+RvC3dgSjvfYCHP4G/kslB/WsAz2cX+oHpDww/IVik7A0CDkNk1+xjPFm7T8F
+	1M=
+X-Received: by 2002:a05:6122:2220:b0:56e:f071:d4ef with SMTP id 71dfb90a1353d-5750c8c55c2mr3446710e0c.8.1777886707062;
+        Mon, 04 May 2026 02:25:07 -0700 (PDT)
+Received: from mail-vk1-f182.google.com (mail-vk1-f182.google.com. [209.85.221.182])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5749f7e8c25sm5692961e0c.2.2026.05.04.02.25.06
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 04 May 2026 02:25:06 -0700 (PDT)
+Received: by mail-vk1-f182.google.com with SMTP id 71dfb90a1353d-5673804da95so1272018e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 May 2026 02:25:06 -0700 (PDT)
+X-Received: by 2002:a05:6122:2884:b0:56d:b639:5c0d with SMTP id
+ 71dfb90a1353d-5750ca1f022mr3391522e0c.13.1777886706296; Mon, 04 May 2026
+ 02:25:06 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 13/15] arm64: mm: Unmap kernel data/bss entirely from
- the linear map
-To: Ard Biesheuvel <ardb@kernel.org>, Ard Biesheuvel <ardb+git@google.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, Will Deacon <will@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Mark Rutland <mark.rutland@arm.com>, Ryan Roberts <ryan.roberts@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Liz Prucka <lizprucka@google.com>, Seth Jenkins <sethjenkins@google.com>,
- Kees Cook <kees@kernel.org>, Mike Rapoport <rppt@kernel.org>,
- David Hildenbrand <david@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org,
- linux-hardening@vger.kernel.org
-References: <20260427153416.2103979-17-ardb+git@google.com>
- <20260427153416.2103979-30-ardb+git@google.com>
- <15555e9f-65ab-4811-b20c-8ada90bdc9d0@arm.com>
- <5279ea66-0e31-4f53-ad76-4fd8ebc012fc@app.fastmail.com>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <5279ea66-0e31-4f53-ad76-4fd8ebc012fc@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20260419193718.133174-1-marek.vasut+renesas@mailbox.org>
+ <20260419193718.133174-8-marek.vasut+renesas@mailbox.org> <CAMuHMdX17D3n_5vxsvmaSmionjOqrEdPygjPdYuu6a0DR7b83w@mail.gmail.com>
+ <0875e4a1-f112-4619-a229-2f6f9197f21c@mailbox.org>
+In-Reply-To: <0875e4a1-f112-4619-a229-2f6f9197f21c@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 4 May 2026 11:24:55 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdXJvrsXitGagqZJ_STdTTh_s1cBAKf6+esihaVWjfn40g@mail.gmail.com>
+X-Gm-Features: AVHnY4LakVD8SFWNnLvI5N41V0dwMs_sPKYjvoWQU3neqkGpISJJCy9fOpu_jcA
+Message-ID: <CAMuHMdXJvrsXitGagqZJ_STdTTh_s1cBAKf6+esihaVWjfn40g@mail.gmail.com>
+Subject: Re: [PATCH 7/7] arm64: dts: renesas: r8a779md: Add support for R-Car
+ M3Le R8A779MD Geist
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+	Nguyen Tran <nguyen.tran.pz@bp.renesas.com>, Conor Dooley <conor+dt@kernel.org>, 
+	David Airlie <airlied@gmail.com>, 
+	Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
+	Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>, 
+	Magnus Damm <magnus.damm@gmail.com>, Maxime Ripard <mripard@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>, 
+	Simona Vetter <simona@ffwll.ch>, Stephen Boyd <sboyd@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, 
+	Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>, devicetree@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linux-clk@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_015212_479055_CC3863C0 
-X-CRM114-Status: GOOD (  27.85  )
+X-CRM114-CacheID: sfid-20260504_022509_415244_14434EE9 
+X-CRM114-Status: GOOD (  23.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,77 +108,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/04/2026 19:37, Ard Biesheuvel wrote:
-> On Wed, 29 Apr 2026, at 15:55, Kevin Brodsky wrote:
->> On 27/04/2026 17:34, Ard Biesheuvel wrote:
->>> From: Ard Biesheuvel <ardb@kernel.org>
->>>
->>> The linear aliases of the kernel text and rodata are mapped read-only in
->>> the linear map as well. Given that the contents of these regions are
->>> mostly identical to the version in the loadable image, mapping them
->>> read-only and leaving their contents visible is a reasonable hardening
->>> measure.
->>>
->>> Data and bss, however, are now also mapped read-only but the contents of
->>> these regions are more likely to contain data that we'd rather not leak.
->> That sounds like a good rationale but I wonder, is there anything
->> stopping us from unmapping text/rodata as well?
->>
-> There is the zero page now, which may be accessed via
-> 'page_address(ZERO_PAGE(0))'. Also, anything that dereferences page tables
-> (like /sys/kernel/debug/kernel_page_tables) will expect to have read-only
-> access to swapper_pg_dir.
+Hi Marek,
 
-Isn't swapper_pg_dir always accessed via the kernel mapping? If the zero
-page is the only data that actually needs to be accessed via the linear
-map, maybe we could move it alongside fixmap_pgdir so that we can unmap
-everything else from the linear map?
-
->>> So let's unmap these entirely in the linear map when the kernel is
->>> running normally.
->>>
->>> When going into hibernation or waking up from it, these regions need to
->>> be mapped, so map the region initially, and toggle the valid bit so
->>> map/unmap the region as needed.
->> Doesn't safe_copy_page() already handle that? I suppose this is an
->> optimisation to avoid modifying the linear map for every page, but if so
->> it would be good to spell it out.
->>
-> Uhm, good question.
+On Sun, 3 May 2026 at 04:50, Marek Vasut <marek.vasut@mailbox.org> wrote:
+> On 4/29/26 3:59 PM, Geert Uytterhoeven wrote:
+> >> +&avb {
+> >> +       pinctrl-0 =3D <&avb_pins>;
+> >> +       pinctrl-names =3D "default";
+> >> +       phy-handle =3D <&phy0>;
+> >> +       tx-internal-delay-ps =3D <2000>;
+> >> +       status =3D "okay";
+> >> +
+> >> +       phy0: ethernet-phy@0 {
+> >
+> > compatible =3D "ethernet-phy-id0022.1622";
+> >
+> >> +               rxc-skew-ps =3D <1500>;
+> >> +               reg =3D <0>;
+> >> +               interrupt-parent =3D <&gpio2>;
+> >> +               interrupts =3D <11 IRQ_TYPE_LEVEL_LOW>;
+> >
+> > interrupts-extended =3D <&gpio2 11 IRQ_TYPE_LEVEL_LOW>;
+> >
+> >> +               reset-gpios =3D <&gpio2 10 GPIO_ACTIVE_LOW>;
+> >> +               reset-assert-us =3D <100>;
+> >> +               reset-deassert-us =3D <100>;
+> >
+> > Do we need these two? We don't have them in e.g.
+> > arch/arm64/boot/dts/renesas/salvator-common.dtsi
 >
-> When hibernate was first implemented for arm64, we had to bring back the
-> linear alias of the kernel image, and when I started working on this, I
-> hadn't realised that we have safe_copy_page() now which should take care
-> of this even if the linear alias is invalid.
+> I believe we should add them, the KSZ9031 PHY does require 100us delay
+> after reset is deasserted and before MDIO access is possible:
 >
-> However, if I remove this handling, things breaks mysteriously, and it
-> is a bit tricky to debug so it may take me some time to answer this
-> question. In any case, I will address this in the next revision, and
-> put you on cc.
+> https://ww1.microchip.com/downloads/aemDocuments/documents/UNG/ProductDoc=
+uments/DataSheets/KSZ9031RNX-Data-Sheet-DS00002117.pdf
+>
+> FIGURE 7-5: POWER-UP/POWER-DOWN/RESET TIMING
+>
+> "
+> Note 2: After the de-assertion of reset, wait a minimum of 100 =C2=B5s be=
+fore
+> starting programming on the MIIM (MDC/MDIO)
+> interface
+> "
 
-Sounds good, thanks!
+OK. So please add it to the other boards, too.
 
->>> [...]
->>>  
->>>  #ifdef CONFIG_KFENCE
->>> @@ -1162,7 +1198,7 @@ static void __init map_mem(void)
->>>  
->>>  	/* Map the kernel data/bss so it can be remapped later */
->>>  	__map_memblock(init_end, kernel_end, pgprot_tagged(PAGE_KERNEL),
->>> -		       flags);
->>> +		       flags | NO_BLOCK_MAPPINGS);
->> Might be an obvious question but why do we need this?
->>
-> set_memory_valid() only works on regions that are mapped down to pages.
+> [...]
+>
+> >> +       pwm2_pins: pwm2 {
+> >> +               groups =3D "pwm2_a";
+> >> +               function =3D "pwm2";
+> >> +       };
+> >
+> > What is pwm2 used for?
+>
+> The signal is accessible on the EXIO connector D (LBSC) .
+> It is up to user to use the pin for their purposes.
 
-AFAIU since [1] this is no longer the case. Even if we don't have
-BBML2-noabort, we should be able to modify a block-mapped region, as
-long as we're not splitting any block (which should not happen here
-since we're always changing permissions on the same range).
+Usually we do not enable support for random user wirings on EXIO connectors=
+.
 
-- Kevin
+Gr{oetje,eeting}s,
 
-[1]
-https://lore.kernel.org/all/20250917190323.3828347-1-yang@os.amperecomputing.com/
+                        Geert
 
+--=20
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
+.org
+
+In personal conversations with technical people, I call myself a hacker. Bu=
+t
+when I'm talking to journalists I just say "programmer" or something like t=
+hat.
+                                -- Linus Torvalds
 
