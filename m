@@ -4,72 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52876FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 08:30:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EFC3FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 08:46:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eTSdDPwWW4/ZWzbZYVwv6UgySSpuqfzPBisnZyolzFg=; b=T7GajfPzOhEwWDBclTXoyik5BF
-	OTVByFmRe2Age9N+ehVPK2qLwmuMQAGyrjMM4s0ePLl5YkrsFSuA70mFYv9QyKktRdAJacEs7diBK
-	7XCr2wU27KD1ZYvxccmHTxsAmKBNIJp3NvSTq5al8pNhQ7J+dSNvBy9Mkm2kCYJVGk5MgDACsfOiz
-	UcSL3kxTX/YcYe7pY9wkGbA0I59CufZMHZaTZSuVjRvUPBOKw+0O5/n1E/a2f2eqm7vqPEw8kXyuh
-	45A1dHpGRVxBmUXF813UPCMXO48QDe5hj1W3GSWlkKSbbe2TTT9kXwgEjQzI/SMDvvG5oOoGRUhwO
-	zd07bRjg==;
+	bh=KkdObDVCfz+ZkgPAIiIOJMgQmp+rMUpIDlL/diCEWbA=; b=vcHgO8pwfAqv3hgyS3KcwX/Fpn
+	6m6iD4Rxrj0WNvHJoE5xbenJw11sKLNK0HJbIbegTd3kQpGFwS3pMCppUxd4r8HAbiYy4M5SJPdtr
+	g233KLKph5sguMGDIfI3XLyyKBgQ6pMlFneF3iMTELiw5uk1k8jw4PZQPzgRw+572Cw0zKS1a3MnF
+	zZwLPCVUlTl/yy3DwI9PHmYc3rbqfkwsv7kXzjL+CACa4krTCk7D6XM/EYfiB6qpZGLFHHaWtPC/y
+	/L+9AilduLj/sKO8vWHBvQSzQskAs+1WrdZ5jI5juoHwpp3EjB6vNs6x/KtIe9gNN36gIOE8gKT+1
+	rwgsCokA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJoh7-0000000Cj5e-0Jsw;
-	Mon, 04 May 2026 08:30:25 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1wJowF-0000000CkZp-1zYD;
+	Mon, 04 May 2026 08:46:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJoh4-0000000Cj4o-0IRu
+	id 1wJowD-0000000CkZb-18HB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 08:30:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=eTSd
-	DPwWW4/ZWzbZYVwv6UgySSpuqfzPBisnZyolzFg=; b=L0LY+0ZKpGp1YN9pVpMW
-	YLJxnvPaC+/Tvf3Wjy2FILZZQ3KP/OKnI4y9ILEPNUFtlIDFOeZDZa+KFBM3OSIo
-	IHzU4NWS4Z6rsozRkhL3FFH/1lAb6VBCQhFVgTyb8hBF/IVhnQ0YrTAm0Gu/bmMc
-	VKQwCXogLBB5dkEcfvZUGGosM53Z/D9c5c85ikTIGg/XyGmHOi5l9o9oYu0Skgcy
-	REYwjGNYu4AhTxYZ85kAZefqbvwOAI00HKlfSU+XapOOJDzlN2qv00McvDtVf6bo
-	t1meY0cIKIr2aWMMpY8UTrlsW++R6xD3Ok688WLvBwnUDAbnapSq8J4j+jFu80lV
-	cA==
-Received: (qmail 2104411 invoked from network); 4 May 2026 10:30:19 +0200
-Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 4 May 2026 10:30:19 +0200
-X-UD-Smtp-Session: l3s3148p1@X9uhvflQBM8ujnvR
-Date: Mon, 4 May 2026 10:30:18 +0200
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Janne Grunau <j@jannau.net>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>,
-	Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Linus Walleij <linusw@kernel.org>,
-	Mark Kettenis <kettenis@openbsd.org>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	Sasha Finkelstein <fnkl.kernel@gmail.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-watchdog@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-i2c@vger.kernel.org, linux-pwm@vger.kernel.org
-Subject: Re: [PATCH 6/9] dt-bindings: i2c: apple,i2c: Add t8122 compatible
-Message-ID: <afhZGnc9vATRDH9d@ninjato>
-References: <20260320-apple-m3-initial-devicetrees-v1-0-5842e1e393a8@jannau.net>
- <20260320-apple-m3-initial-devicetrees-v1-6-5842e1e393a8@jannau.net>
+	Mon, 04 May 2026 08:46:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3D412600C3;
+	Mon,  4 May 2026 08:46:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41A7EC2BCB8;
+	Mon,  4 May 2026 08:45:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777884359;
+	bh=UDq1RDYaWCjStk8E4hk5OHqI0mQrjqqEAbHXWsZuKBM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tplZwMxJ3opnzMO9/nHta4kU5dkZai++s1rem/crD3tBDHmVs9zdWJoovq9YvylSn
+	 PvjcGT5N+0qPKjRppLZ0L2Xzd5eRyalOgTQaFngbLicRWt8fOcH+iJVb4de8tgGv7h
+	 eJUdViKOpt2eX6QvP3Gi1ZWLilL8Yvm1bbK9O9Pw0aJCurmx0sw0a3HpQwQdEYF9GX
+	 acBm48uI9x2HLO84oyLsnxXWQZQl0XqJFMYftEfaVDeIT8NKZK5cFpT6unIbX0NXks
+	 LMvHpWDvzDkJ+dZV14vppPFKTMrjoD7F3iEI7LAiMcrMx0ZgdsEznbk6I2mROiiyek
+	 kFTCRQvWzsmCg==
+Date: Mon, 4 May 2026 10:45:55 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	nd <nd@arm.com>
+Subject: Re: [PATCH 0/3] irqchip/gic-v5: Tidy up LPI allocation
+Message-ID: <afhcw4u4413uZeUM@lpieralisi>
+References: <20260430153352.3654325-1-sascha.bischoff@arm.com>
+ <87cxzeayd1.wl-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260320-apple-m3-initial-devicetrees-v1-6-5842e1e393a8@jannau.net>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_013022_417039_3A2ECEA8 
-X-CRM114-Status: UNSURE (   8.66  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <87cxzeayd1.wl-maz@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,15 +72,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 20, 2026 at 01:23:24PM +0100, Janne Grunau wrote:
-> The i2c block on the Apple silicon t8122 (M3) SoC is compatible with the
-> existing driver. Add "apple,t8122-i2c" as SoC specific compatible under
-> "apple,t8103-i2c" used by the deriver.
+On Sat, May 02, 2026 at 11:40:10AM +0100, Marc Zyngier wrote:
+> Hi Sascha,
 > 
-> Signed-off-by: Janne Grunau <j@jannau.net>
-> Acked-by: Andi Shyti <andi.shyti@kernel.org>
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> On Thu, 30 Apr 2026 16:33:58 +0100,
+> Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+> > 
+> > LPIs are owned by the LPI domain, so allocating and freeing them from
+> > the ITS MSI and IPI domains was always a bit backwards. Those domains
+> > should only ask their parent for interrupts, and never need to
+> > know how the parent picks or releases the underlying LPIs (or do it on
+> > behalf of said parent, as was the case).
+> > 
+> > This series moves LPI allocation into the LPI domain itself and
+> > removes the exported wrappers that allowed LPI allocation from elsewhere.
+> > 
+> > With that done, the LPI domain can also be slightly reworked to
+> > support allocating and freeing more than one LPI at a time. This
+> > rework is extended to the IPI allocation, too. The last patch makes
+> > the ITS MSI domain request its parent interrupts as a single range,
+> > matching the IPI cleanup from the previous patch.
+> > 
+> > As a side effect of these changes, the IPI path now unwinds earlier
+> > parent allocations correctly if a later allocation fails.
+> 
+> Thanks for cleaning up this mess. It aligns the GICv5 host code with
+> the expectations we have for hierarchical domains (don't mess with
+> your parent's allocations), and will make the KVM management of
+> doorbell LPIs less awkward. It also removes global helpers that always
+> irked me, so:
 
-Applied to for-current, thanks!
+Bah, sorry, it not only breaks the IRQ domains expectations but
+the current allocation is really braindead - I was too fixated on
+the IDA 1 by 1 allocation (that should really disappear asap) that
+I could not see the wood for the trees.
 
+Thank you Sascha for cleaning it up.
+
+Reviewed-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+
+> Reviewed-by: Marc Zyngier <maz@kernel.org>
+> 
+> Thomas, could you please take th in at the earliest opportunity?
+> 
+> Thanks,
+> 
+> 	M.
+> 
+> -- 
+> Jazz isn't dead. It just smells funny.
 
