@@ -4,72 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3282CD3430
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 13:46:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC8FBCD3430
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 13:53:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aqA8j284nR9EwEunyRE/Z5TkjJEqRCgTaWrf0ir56eA=; b=lHiY8ESn40+b734CezhcD8/XXp
-	bGhVPm2iTknqgacc5bsWH+JHCVcWueyBtq72REypv2FBQJH96IG4J3UwIzNM7NIjPhn3HnR7z/3Qj
-	ET4EbYXiLveZSRSoa1IiWevgg/yjz7v0QuEyGWCdj9vog9xI0Fy3SDyf6mRcaq6llOm0LLUQU3EGu
-	l72qoJ02wlCuYO78MOnVdLVYkVfoSS2vzopevabRn1aoKHtE4fNIyVlIdiywreqC8Tq3kL33UaUJw
-	Zv197Ptb3c9VpgEUBjwYByabCD3xM4T6VsktszhH9OXHipCbGTiKZY77TVVWANyqXy7jJ5BXmNANl
-	ZHG2Q/Ww==;
+	bh=D4dulbXDAwQBxDOVeAokcoekpEexPLvg83xRvBbR29I=; b=epFHk5XzO+Uk4wVXdqFNmeFK37
+	CaZU28igP61zZdgHzSqRwDlcsA63H3V2uVUgggz7QmnQ/dap7R3UNsnzVDvdzXTtDDfiOnUPCj6Uc
+	iWk9x1wLjNSZdh1JUrr+M+ElPcKOc/W7IIHvXMknh5Gn1sP929z6QeGaQPi4kS5nca4E5X1auHNh0
+	q8KduwScrOo3nes7MUQQJ6jxLA2kcvKGT+VOWL8wvww9eve4h0ZuEJB/8cSrJebUbjP6LtIp9AIt3
+	xO8Z0oyp1DvTIOw9MG9Wk8R29V1IZIedYEpdH3hkwVJQV7/3g57XjJfMW8r0fOihKPuZBZy9y4UOA
+	/aRg/XKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJtdK-0000000DLWP-3Vip;
-	Mon, 04 May 2026 13:46:50 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1wJtjS-0000000DMGm-2Dxg;
+	Mon, 04 May 2026 13:53:10 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJtdH-0000000DLVX-14BB;
-	Mon, 04 May 2026 13:46:50 +0000
-Received: from edelgard.fodlan.icenowy.me (unknown [112.94.100.82])
-	by APP-01 (Coremail) with SMTP id qwCowABHs249o_hpSL9ADw--.53082S2;
-	Mon, 04 May 2026 21:46:38 +0800 (CST)
-Message-ID: <b91f527f5ef7999300dd6f7df36dd2d31aa89bc2.camel@iscas.ac.cn>
-Subject: Re: [PATCH] arm64: dts: mediatek: mt8188-geralt: enable touchpad
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-  Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
- <angelogioacchino.delregno@collabora.com>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org
-Date: Mon, 04 May 2026 21:46:37 +0800
-In-Reply-To: <CAGXv+5FvdufzjqBRQnnG3y8FVW9bHL47CVv_=e7GbVv2d3eEuA@mail.gmail.com>
-References: <20260504072846.2581096-1-zhengxingda@iscas.ac.cn>
-	 <CAGXv+5FvdufzjqBRQnnG3y8FVW9bHL47CVv_=e7GbVv2d3eEuA@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: base64
-User-Agent: Evolution 3.58.3 
+	id 1wJtjP-0000000DMEN-1qsr
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 04 May 2026 13:53:09 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id F04A69C;
+	Mon,  4 May 2026 15:52:59 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1777902780;
+	bh=jAmwC7RoNIdGSDJJnfsMWk2C7VRG5k4+P0kWxDw9Xwc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=exN6jme3FnN7ZdO5dMT/84j58aS3PmMfbugbcsP5HQfKmXzQeMcPeaceQi3LUlvYy
+	 14u80HmmnjNDtQbvRSMWvGlbBMYR1/5ISJlmGaTbSIFKRBeISfpeJr4m04M6OyWwT9
+	 tIcGO430tOAc9odmsPTKtdJsFUpSNNMGDC2X6S7Q=
+Date: Mon, 4 May 2026 16:53:00 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Rob Clark <robin.clark@oss.qualcomm.com>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	Abhinav Kumar <abhinav.kumar@linux.dev>,
+	Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
+	Marijn Suijten <marijn.suijten@somainline.org>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	John Stultz <jstultz@google.com>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Hui Pu <Hui.Pu@gehealthcare.com>,
+	Ian Ray <ian.ray@gehealthcare.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Subject: Re: [PATCH v4 01/11] drm/bridge: drm_bridge_get/put(): ignore ERR_PTR
+Message-ID: <20260504135300.GE1344263@killaraus.ideasonboard.com>
+References: <20260504-drm-bridge-alloc-getput-panel_or_bridge-v4-0-b578c3daaf10@bootlin.com>
+ <20260504-drm-bridge-alloc-getput-panel_or_bridge-v4-1-b578c3daaf10@bootlin.com>
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowABHs249o_hpSL9ADw--.53082S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxAw48AFWfAr4ftw15Gw4rKrg_yoWrWF1Upr
-	97trWUtryUGrn7Jr15Xr1UJFy5Ar1kJ3W5Gr18XFyUJw1UJr1jqr4Yqrn0gr1UJr48Jw1U
-	Jr1jqry7ur17JrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPlb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
-	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
-	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACY4xI67k04243AVAKzVAKj4xxM4xv
-	F2IEb7IF0Fy26I8I3I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GF
-	yl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWU
-	JVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7V
-	AKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j
-	6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42
-	IY6I8E87Iv6xkF7I0E14v26r4j6r4UJwCE64xvF2IEb7IF0Fy7YxBIdaVFxhVjvjDU0xZF
-	pf9x07b5Xd8UUUUU=
-X-Originating-IP: [112.94.100.82]
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260504-drm-bridge-alloc-getput-panel_or_bridge-v4-1-b578c3daaf10@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_064647_715114_D4D5C870 
-X-CRM114-Status: GOOD (  28.66  )
+X-CRM114-CacheID: sfid-20260504_065307_618708_1CABBA27 
+X-CRM114-Status: GOOD (  20.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,74 +89,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-5ZyoIDIwMjYtMDUtMDTkuIDnmoQgMTc6NDEgKzA4MDDvvIxDaGVuLVl1IFRzYWnlhpnpgZPvvJoK
-PiBPbiBNb24sIE1heSA0LCAyMDI2IGF0IDM6MjjigK9QTSBJY2Vub3d5IFpoZW5nCj4gPHpoZW5n
-eGluZ2RhQGlzY2FzLmFjLmNuPiB3cm90ZToKPiA+IAo+ID4gRGVzcGl0ZSB0aGUgQ2lyaSBkZXZp
-Y2UncyB0b3VjaHBhZCBpcyBvbiB0aGUgZGV0YWNoYWJsZSBrZXlib2FyZCwKPiA+IHRoZQo+ID4g
-STJDIEhJRCBkZXZpY2Ugc2VlbiBieSBMaW51eCBpcyBlbXVsYXRlZCBieSBDaHJvbWVPUyBFQyBh
-bmQgYWx3YXlzCj4gPiBwcmVzZW50IHJlZ2FyZGxlc3Mgb2YgdGhlIHByZXNlbmNlIG9mIHBoeXNp
-Y2FsIHRvdWNocGFkLgo+IAo+IEFGQUlLIGl0IGlzIGFjdHVhbGx5IGFuIEkyQyBISUQgZGV2aWNl
-IG9uIHRoZSBkZXRhY2hhYmxlIGtleWJvYXJkLgo+IFRoZSBJMkMgYnVzIGlzICJ0dW5uZWxlZCIg
-YWNyb3NzIHRoZSBFQy1FQyBjb25uZWN0aW9uLiBBbmQgaWYgeW91Cj4gZGV0YWNoIHRoZSBrZXli
-b2FyZCwgdGhlIEkyQyBkZXZpY2Ugd2lsbCBzdG9wIHJlc3BvbmRpbmcuCgpObywgaXQgbG9va3Mg
-dGhhdCB3aGVuIHRoZSBrZXlib2FyZCBpc24ndCBhdHRhY2hlZCwgdGhlIEkyQyBISUQKZGVzY3Jp
-cHRvciBjYW4gc3RpbGwgYmUgcmV0cmlldmVkIHN1Y2Nlc3NmdWxseS4gSXRzIGRldmljZSBJRCBp
-cyBldmVuCmFzc2lnbmVkIGluIHRoZSBDaHJvbWVPUyBFQyBkZXZpY2UgKGFuZCBhIFRPRE8gcmVt
-YWlucyB0aGVyZSwgd2l0aCBhCnBsYWNlaG9sZGVyIDB4NTA5OSBnZXRzIHNoaXBwZWQpIFsxXS4K
-ClsxXQpodHRwczovL2dpdGh1Yi5jb20vY29yZWJvb3QvY2hyb21lLWVjL2Jsb2IvbWFpbi96ZXBo
-eXIvcHJvZ3JhbS9nZXJhbHQvaTJjLmR0c2kjTDE2MQoKPiAKPiBXZSBoYXZlIHNvbWUgZG93bnN0
-cmVhbSB0cmlja2VyeSB0byBkZWFsIHdpdGggdGhpczoKPiAKPiDCoMKgwqAgaHR0cHM6Ly9jcnJl
-di5jb20vYy82MDQwMDQ0Cj4gwqDCoMKgIGh0dHBzOi8vY3JyZXYuY29tL2MvNjA0MDA0NQo+IAo+
-IEl0IGJhc2ljYWxseSBpbnZvbHZlcyByZWdpc3RlcmluZyB0aGUgSTJDIGRldmljZSB3aGVuIHRo
-ZSBrZXlib2FyZCBpcwo+IGF0dGFjaGVkLCBhbmQgcmVtb3ZpbmcgaXQgd2hlbiBpdCBpcyBkZXRh
-Y2hlZC4gV2UgaGF2ZW4ndCBnb3R0ZW4KPiBhcm91bmQKPiB0byB1cHN0cmVhbWluZyBpdCB0aG91
-Z2guIEkgdGFsa2VkIHRvIEtyenlzenRvZiBhYm91dCB0aGlzIGRlc2lnbgo+IGxhc3QKPiB5ZWFy
-LCBhbmQgSSBiZWxpZXZlIGl0IHdhcyBhdCBsZWFzdCBhY2NlcHRhYmxlIGZyb20gRFQgcG9pbnQg
-b2Ygdmlldy4KPiAKPiBTbyB0aGlzIHBhdGNoIGlzIHNvbWV3aGF0IGluY29ycmVjdCwgaW4gdGhh
-dCB0aGUgdHJhY2twYWQgc2hvdWxkIGJlCj4gZGlzYWJsZWQgYnkgZGVmYXVsdCwgYW5kIGl0cyBz
-dGF0dXMgc2hvdWxkIGJlIHRvZ2dsZWQgYXQgcnVudGltZQo+IGJhc2VkCj4gb24gdGhlIGRldGFj
-aGFibGUga2V5Ym9hcmQgZXZlbnRzLgo+IAo+IE90aGVyd2lzZSBpZiB5b3UgYm9vdCB0aGUgc3lz
-dGVtIHdpdGhvdXQgdGhlIGtleWJvYXJkLCB0aGUgZHJpdmVyCj4gd2lsbAo+IHByb2JhYmx5IGZh
-aWwgdG8gcmVhZCB0aGUgSElEIGRlc2NyaXB0b3IuCgpUaGlzIGRvZXNuJ3QgaGFwcGVuIG9uIG15
-IGRldmljZS4gV2hlbiBJIGJvb3Qgdy9vIGEga2V5Ym9hcmQgYXR0YWNoZWQsCmEgYGhpZC1vdmVy
-LWkyYyAxOEQxOjUwRkZgIGRldmljZSBzdGlsbCBhcHBlYXJzLCBhbmQgYWZ0ZXIgSSBhdHRhY2gg
-dGhlCmtleWJvYXJkIGl0IGNvcnJlY3RseSBkZWxpdmVycyB0cmFja3BhZCBldmVudHMuCgpUaGFu
-a3MsCkljZW5vd3kKCj4gCj4gCj4gQ2hlbll1Cj4gCj4gPiBFbmFibGUgdGhlIGRldmljZSBpbiB0
-aGUgZGV2aWNlIHRyZWUuCj4gPiAKPiA+IFNpZ25lZC1vZmYtYnk6IEljZW5vd3kgWmhlbmcgPHpo
-ZW5neGluZ2RhQGlzY2FzLmFjLmNuPgo+ID4gLS0tCj4gPiDCoC4uLi9ib290L2R0cy9tZWRpYXRl
-ay9tdDgxODgtZ2VyYWx0LmR0c2nCoMKgwqDCoMKgIHwgMjAKPiA+ICsrKysrKysrKysrKysrKysr
-KysKPiA+IMKgMSBmaWxlIGNoYW5nZWQsIDIwIGluc2VydGlvbnMoKykKPiA+IAo+ID4gZGlmZiAt
-LWdpdCBhL2FyY2gvYXJtNjQvYm9vdC9kdHMvbWVkaWF0ZWsvbXQ4MTg4LWdlcmFsdC5kdHNpCj4g
-PiBiL2FyY2gvYXJtNjQvYm9vdC9kdHMvbWVkaWF0ZWsvbXQ4MTg4LWdlcmFsdC5kdHNpCj4gPiBp
-bmRleCA4ZTQyMzUwNGVjMDUyLi44ZjgwMTQ1NGJmODRjIDEwMDY0NAo+ID4gLS0tIGEvYXJjaC9h
-cm02NC9ib290L2R0cy9tZWRpYXRlay9tdDgxODgtZ2VyYWx0LmR0c2kKPiA+ICsrKyBiL2FyY2gv
-YXJtNjQvYm9vdC9kdHMvbWVkaWF0ZWsvbXQ4MTg4LWdlcmFsdC5kdHNpCj4gPiBAQCAtNDYwLDYg
-KzQ2MCwxOCBAQCAmaTJjNCB7Cj4gPiDCoMKgwqDCoMKgwqDCoCBwaW5jdHJsLTAgPSA8JmkyYzRf
-cGlucz47Cj4gPiDCoMKgwqDCoMKgwqDCoCBjbG9jay1mcmVxdWVuY3kgPSA8NDAwMDAwPjsKPiA+
-IMKgwqDCoMKgwqDCoMKgIHN0YXR1cyA9ICJva2F5IjsKPiA+ICsKPiA+ICvCoMKgwqDCoMKgwqAg
-LyogVGhlIHRvdWNocGFkIEhJRCBkZXZpY2UgaXMgZW11bGF0ZWQgYnkgRUMgc28gaXQncyBhbHdh
-eXMKPiA+IHByZXNlbnQgKi8KPiA+ICvCoMKgwqDCoMKgwqAgdG91Y2hwYWQ6IHRvdWNocGFkQDU2
-IHsKPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGNvbXBhdGlibGUgPSAiaGlkLW92
-ZXItaTJjIjsKPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHJlZyA9IDwweDU2PjsK
-PiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGhpZC1kZXNjci1hZGRyID0gPDB4MDAw
-MT47Cj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBpbnRlcnJ1cHQtcGFyZW50ID0g
-PCZwaW8+Owo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgaW50ZXJydXB0cyA9IDwx
-NDggSVJRX1RZUEVfTEVWRUxfTE9XPjsKPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-IHBpbmN0cmwtbmFtZXMgPSAiZGVmYXVsdCI7Cj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoCBwaW5jdHJsLTAgPSA8JnRvdWNocGFkX2ludD47Cj4gPiArwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoCB3YWtldXAtc291cmNlOwo+ID4gK8KgwqDCoMKgwqDCoCB9Owo+ID4gwqB9Owo+
-ID4gCj4gPiDCoCZpMmM1IHsKPiA+IEBAIC0xMTMxLDYgKzExNDMsMTQgQEAgcGlucy1idXMgewo+
-ID4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIH07Cj4gPiDCoMKgwqDCoMKgwqDCoCB9
-Owo+ID4gCj4gPiArwqDCoMKgwqDCoMKgIHRvdWNocGFkX2ludDogdG91Y2hwYWQtaW50LXBpbnMg
-ewo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgcGlucy1lYy1hcC10b3VjaHBhZC1p
-bnQtb2RsIHsKPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oCBwaW5tdXggPSA8UElOTVVYX0dQSU8xNDhfX0ZVTkNfQl9HUElPMTQ4PjsKPiA+ICvCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBpbnB1dC1lbmFibGU7Cj4gPiAr
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgYmlhcy1kaXNhYmxl
-Owo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfTsKPiA+ICvCoMKgwqDCoMKgwqAg
-fTsKPiA+ICsKPiA+IMKgwqDCoMKgwqDCoMKgIHVhcnQwX3BpbnM6IHVhcnQwLXBpbnMgewo+ID4g
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHBpbnMtYnVzIHsKPiA+IMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgcGlubXV4ID0gPFBJTk1VWF9HUElP
-MzFfX0ZVTkNfT19VVFhEMD4sCj4gPiAtLQo+ID4gMi41Mi4wCj4gPiAKPiA+IAo=
+On Mon, May 04, 2026 at 12:45:04PM +0200, Luca Ceresoli wrote:
+> Most functions returning a struct drm_bridge pointer currently return a
+> valid pointer or NULL, but this restricts their ability to return an error
+> code describing the error kind.
+> 
+> In preparation to have new APIs that can return a struct drm_bridge pointer
+> holding an ERR_PTR (and for those which already do) make drm_bridge_get()
+> and drm_bridge_put() ignore ERR_PTR values, just like they ignore NULL
+> pointers.
 
+The change in drm_bridge_put() looks good to me. I'm less sure about
+drm_bridge_get(), is there a valid use case to call get() on a bridge
+that is not valid ? Doesn't it indicate a clear error in the caller ?
+
+> This will avoid annoying error checking in many places and the risk of
+> missing error checks.
+> 
+> Suggested-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> Link: https://lore.kernel.org/all/20260318152533.GA633439@killaraus.ideasonboard.com/
+> Suggested-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> Link: https://lore.kernel.org/all/omlnswxukeqgnatzdvooaashgkfcacjevkvbkm6xt33itgua2k@jcmzll2w6kdq/
+> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> ---
+> 
+> Changes in v4:
+> - removed incorrect change to drm_bridge_clear_and_put() kdoc
+> 
+> Patch added in v2
+> ---
+>  drivers/gpu/drm/drm_bridge.c | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
+> index d4b3478258ec..6fb71de6d22a 100644
+> --- a/drivers/gpu/drm/drm_bridge.c
+> +++ b/drivers/gpu/drm/drm_bridge.c
+> @@ -282,7 +282,7 @@ static void __drm_bridge_free(struct kref *kref)
+>  
+>  /**
+>   * drm_bridge_get - Acquire a bridge reference
+> - * @bridge: DRM bridge; if NULL this function does nothing
+> + * @bridge: DRM bridge; if NULL or an ERR_PTR this function does nothing
+>   *
+>   * This function increments the bridge's refcount.
+>   *
+> @@ -291,7 +291,7 @@ static void __drm_bridge_free(struct kref *kref)
+>   */
+>  struct drm_bridge *drm_bridge_get(struct drm_bridge *bridge)
+>  {
+> -	if (bridge)
+> +	if (!IS_ERR_OR_NULL(bridge))
+>  		kref_get(&bridge->refcount);
+>  
+>  	return bridge;
+> @@ -300,7 +300,7 @@ EXPORT_SYMBOL(drm_bridge_get);
+>  
+>  /**
+>   * drm_bridge_put - Release a bridge reference
+> - * @bridge: DRM bridge; if NULL this function does nothing
+> + * @bridge: DRM bridge; if NULL or an ERR_PTR this function does nothing
+>   *
+>   * This function decrements the bridge's reference count and frees the
+>   * object if the reference count drops to zero.
+> @@ -310,7 +310,7 @@ EXPORT_SYMBOL(drm_bridge_get);
+>   */
+>  void drm_bridge_put(struct drm_bridge *bridge)
+>  {
+> -	if (bridge)
+> +	if (!IS_ERR_OR_NULL(bridge))
+>  		kref_put(&bridge->refcount, __drm_bridge_free);
+>  }
+>  EXPORT_SYMBOL(drm_bridge_put);
+
+-- 
+Regards,
+
+Laurent Pinchart
 
