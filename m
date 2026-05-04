@@ -4,58 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99F41FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 12:00:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9C42FF886F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 12:03:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
+	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a6AphpQSUPl78NvNF7EIueg+2EXYiFyQ8P0vhAjjh5U=; b=jVhmZg9BpKiEvwwOKUph8ve9+o
-	nm8PNrWXE7cFbRhs+wPa2jeCRl7LSEh6RwKTB7I0NEPWEh+W/Tr7bbOPaL5PTr/4fFmT6kSIGIWC2
-	TycfnN5ZaJtPYA9ae1zNSatK6t/+HfkXI99Ni8cuLyk6SspNXpcNmWC7V4lVc0hLZMtZmG6DqjBSX
-	Z8yTQi49snHKtU2sU1VT1k1QfDDOuU5C3ay94ZP2lA7rKABKoStCOtyIPYXluki9g3DH/Bto9T21K
-	THn02Ro8wC5NpvzsMRVftcDSM2Z2B+qlOpxWegO9WhfLV8YnyzrykpR3G0uFS2y/aicMA6UoPFdMR
-	PIeYcVGw==;
+	bh=l04vgrhiUBVJ40ibTRxasIaQMDV+oR0MUnO977L5BNY=; b=xi2FtjFreLABVF5Naru0/57Qob
+	eIA4nqES2Qad0XbPFIIL4ZutrtdKJGDx0IYi1daspOJu76ZWfsAPSz0jdQ382sR5GK3aWwJNMCySc
+	RQ2Jr4qtw4zGZjiabtCCC3Uh1qVaWwhLhgzFGgKw1T53yv2ZtKO2S1APj5nijZbA1MH+SnXGIA79q
+	sd7btYebk7AnJ2Z0sxVWfGax+riGZruXwIwKqmIHeGnITv78RIagBvyJCi+mS2BGO59dvOkyUjm9s
+	dIPePujy3kXi2H2gyYVxixECPcR39g6RIIGCXsAuL/M3zy+tDhT+PY9C4nODrU4y88b9Eo8hVD4NW
+	/qcBAFBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJrxz-0000000D6NJ-2xcX;
-	Mon, 04 May 2026 12:00:03 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wJs16-0000000D6pc-37iB;
+	Mon, 04 May 2026 12:03:16 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJrxv-0000000D6MB-2qif;
-	Mon, 04 May 2026 12:00:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CFDEB43447;
-	Mon,  4 May 2026 11:59:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A5C4C2BCB8;
-	Mon,  4 May 2026 11:59:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1777895998;
-	bh=FmmU1zdzb/NwHV/okkpMG5ffX1wADS5zh2r5zlKF9J0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=xU7lD3QMbhkmxDobaKClWo0Ll+gqvoaXSTlzZeHGZZ3iffFnzpMwX+5f1E3r/WFqd
-	 L8lwnD76oZHMLGYxeePjOEDzIrJ83gLCqJQ6KFn2TFIn7fhgzcpsY+m+Mc+MNUrq3+
-	 eMdHsGfftMnf1k3rFNS3asR73qnTjm1SBBGZQnf4=
-Date: Mon, 4 May 2026 13:59:56 +0200
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Maha Maryam Javaid <mahamaryamjavaid@gmail.com>
-Cc: neil.armstrong@linaro.org, mchehab@kernel.org, khilman@baylibre.com,
-	jbrunet@baylibre.com, martin.blumenstingl@googlemail.com,
-	linux-media@vger.kernel.org, linux-amlogic@lists.infradead.org,
-	linux-staging@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, hverkuil+cisco@kernel.org
-Subject: Re: [PATCH] staging: media: meson: fix typo in codec files
-Message-ID: <2026050442-rut-zipping-5de8@gregkh>
-References: <20260504111219.7797-1-mahamaryamjavaid@gmail.com>
+	id 1wJs15-0000000D6p0-0TT2
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 04 May 2026 12:03:16 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6447sMqf852737;
+	Mon, 4 May 2026 12:02:52 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=l04vgr
+	hiUBVJ40ibTRxasIaQMDV+oR0MUnO977L5BNY=; b=qMq4yCIVP5pOXgmriDeS8z
+	2i5OoS7ezJBicI9G3O7lt8iJIu9r7mKgYDj2yQxvTP2o1rft0/gRpqU8MOEtUsl6
+	2dr6DI02Oty2Tf6Ku3m9SEbToQXjl/sBbrUECu1FoGPl0HBsuZql5Kb3f1LSQ5Wo
+	XNOf2cbppkKV9xWK/F080sNR/TopaV1cXQdpkZtM53lNPP85i91qajzSgrkMHYRI
+	ORBFNskXcwMddg825hCZ9rMVzwTrvz0lP0+0iT0dZrlOchC3V/tzuSli5KxHVKpC
+	SyGc6fLOtWfqiG9S2rPIvRLpBod6n7aKM5yxGxsT48UNGVDWaFJp2V6mGihbDoog
+	==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dw9y4em46-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 04 May 2026 12:02:52 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 644BsXqP030860;
+	Mon, 4 May 2026 12:02:51 GMT
+Received: from smtprelay04.wdc07v.mail.ibm.com ([172.16.1.71])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4dwx9y4q8a-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 04 May 2026 12:02:51 +0000 (GMT)
+Received: from smtpav03.dal12v.mail.ibm.com (smtpav03.dal12v.mail.ibm.com [10.241.53.102])
+	by smtprelay04.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 644C2oI236962950
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 4 May 2026 12:02:50 GMT
+Received: from smtpav03.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 2F5E358056;
+	Mon,  4 May 2026 12:02:50 +0000 (GMT)
+Received: from smtpav03.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 8BD0C5803F;
+	Mon,  4 May 2026 12:02:48 +0000 (GMT)
+Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.61.125.169])
+	by smtpav03.dal12v.mail.ibm.com (Postfix) with ESMTP;
+	Mon,  4 May 2026 12:02:48 +0000 (GMT)
+Message-ID: <ff28c6dcb60c357c752724927addaa8c4fd3bf2c.camel@linux.ibm.com>
+Subject: Re: [PATCH] ima: debugging late_initcall_sync measurements
+From: Mimi Zohar <zohar@linux.ibm.com>
+To: Paul Moore <paul@paul-moore.com>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Jonathan McDowell
+ <noodles@earth.li>,
+        linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-integrity@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        kvmarm@lists.linux.dev, jmorris@namei.org, serge@hallyn.com,
+        roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
+        eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
+        sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
+        joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+        catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
+        sebastianene@google.com
+In-Reply-To: <CAHC9VhRE2kRr1fdDf6xgQgpSrtvqtP8Vy9LVGJhDZFUbzLKGmQ@mail.gmail.com>
+References: <cover.1777036497.git.noodles@meta.com>
+	 <7734099f5e7fda5480bca016a9e6707983325fbd.camel@linux.ibm.com>
+	 <afMlgstqahnZg68h@e129823.arm.com>
+	 <9f188536f09a2db30877d6bfbb84aeaf2565cccf.camel@linux.ibm.com>
+	 <CAHC9VhRsnmPp2KmQAns5uq5qXX5EF2xQQzyfTgrPi4O9AXyPpg@mail.gmail.com>
+	 <ba4bf28314b679474a6a8da6298e548e54b3754c.camel@linux.ibm.com>
+	 <CAHC9VhRE2kRr1fdDf6xgQgpSrtvqtP8Vy9LVGJhDZFUbzLKGmQ@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Date: Mon, 04 May 2026 08:02:48 -0400
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260504111219.7797-1-mahamaryamjavaid@gmail.com>
+User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA0MDEyMyBTYWx0ZWRfX3lMCQg2GdYj4
+ zb2CMGSv1FXRAseLkhlhbewvpipIcXqCuAAgkCPXN1KvrRXdayHGQOiX/xUxPm7WC7yvK3xuCpO
+ rYTn+YW2RUnrBzbtgMxhAmOrmjmqxSAvesI4dG+D7MAMezH+PAWholxiSC67tqx+CwgyG9rLVVu
+ UQq4MmEplwy2wpaOuAQHLdjLRZbjqtx4cs3/yAB2VphrYiReNq8YVBGKBA/kJ3oTG4xRNXgt2/b
+ xr+Zr0ru+u5buZEDsjzzmMeOxNOb+2GW+VFSUDN9fCyhAp0CjfaCJiH4vPej8PBBfikpWx5Aw5F
+ YRELIQ8yCl//aGuk7w3mErQdmaTerpRh7XN3BgH64nSx4M2x5tvJJS3zb/DBAEueK5CRDprMGx8
+ wJwhtBuxYaXPcQ1jh+kh9xHVxcDS+uDgovoOwv9tINNgr23a7PbmmIXOHrgBKzg6dKi5i5e44o0
+ lGF83L9CkswtGdJYtfA==
+X-Authority-Analysis: v=2.4 cv=J4GaKgnS c=1 sm=1 tr=0 ts=69f88aec cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=HoVq9zYKdZc2vep7obkA:9
+ a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: iXpw0SMeopALzrzjBD9UShBrcyb1LlDE
+X-Proofpoint-ORIG-GUID: 5uQlSXbiDIA3UYiMMFtdaLflhQcXZ96V
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-04_04,2026-04-30_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 clxscore=1015 malwarescore=0 bulkscore=0 suspectscore=0
+ priorityscore=1501 spamscore=0 phishscore=0 adultscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2605040123
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_045959_847930_413D44B4 
-X-CRM114-Status: GOOD (  23.05  )
+X-CRM114-CacheID: sfid-20260504_050315_278655_C1E6002D 
+X-CRM114-Status: GOOD (  11.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,72 +134,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 04, 2026 at 07:12:19AM -0400, Maha Maryam Javaid wrote:
-> Fix spelling mistake: substracted -> subtracted
-> 
-> Signed-off-by: Maha Maryam Javaid <mahamaryamjavaid@gmail.com>
-> ---
->  drivers/staging/media/meson/vdec/codec_h264.c   | 2 +-
->  drivers/staging/media/meson/vdec/codec_mpeg12.c | 2 +-
->  2 files changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/staging/media/meson/vdec/codec_h264.c b/drivers/staging/media/meson/vdec/codec_h264.c
-> index 89e0f8624e5b..a6074de15118 100644
-> --- a/drivers/staging/media/meson/vdec/codec_h264.c
-> +++ b/drivers/staging/media/meson/vdec/codec_h264.c
-> @@ -16,7 +16,7 @@
->  #define SIZE_SEI	(8 * SZ_1K)
->  
->  /*
-> - * Offset added by the firmware which must be substracted
-> + * Offset added by the firmware which must be subtracted
->   * from the workspace phyaddr
->   */
->  #define WORKSPACE_BUF_OFFSET	0x1000000
-> diff --git a/drivers/staging/media/meson/vdec/codec_mpeg12.c b/drivers/staging/media/meson/vdec/codec_mpeg12.c
-> index 76e9ca7191ab..ab4374e3b2ef 100644
-> --- a/drivers/staging/media/meson/vdec/codec_mpeg12.c
-> +++ b/drivers/staging/media/meson/vdec/codec_mpeg12.c
-> @@ -12,7 +12,7 @@
->  #include "vdec_helpers.h"
->  
->  #define SIZE_WORKSPACE		SZ_128K
-> -/* Offset substracted by the firmware from the workspace paddr */
-> +/* Offset subtracted by the firmware from the workspace paddr */
->  #define WORKSPACE_OFFSET	(5 * SZ_1K)
->  
->  /* map firmware registers to known MPEG1/2 functions */
-> -- 
-> 2.34.1
-> 
-> 
+On Sun, 2026-05-03 at 12:46 -0400, Paul Moore wrote:
+> Regardless, assuming you always want IMA to leverage a TPMs when they
+> exist, your reply suggests that using an initcall based IMA init
+> scheme, even a late-sync initcall, may not be sufficient because
+> deferred TPM initialization could happen later, yes?
 
-Hi,
+Well yeah.  The TPM could be configured as a module, but that scenario is n=
+ot of
+interest.  That's way too late.  The case being addressed in this patch set=
+ is
+when the TPM driver tries to initialize at device_initcall, returns
+EPROBE_DEFER, and is retried at deferred_probe_initcall (late_initcall).  S=
+ince
+ordering within an initcall is not supported, this patch attempts to initia=
+lize
+IMA at late_initcall and similarly retries, in this case, at late_initcall_=
+sync.
 
-This is the friendly patch-bot of Greg Kroah-Hartman.  You have sent him
-a patch that has triggered this response.  He used to manually respond
-to these common problems, but in order to save his sanity (he kept
-writing the same thing over and over, yet to different people), I was
-created.  Hopefully you will not take offence and will fix the problem
-in your patch and resubmit it so that it can be accepted into the Linux
-kernel tree.
-
-You are receiving this message because of the following common error(s)
-as indicated below:
-
-- This looks like a new version of a previously submitted patch, but you
-  did not list below the --- line any changes from the previous version.
-  Please read the section entitled "The canonical patch format" in the
-  kernel file, Documentation/process/submitting-patches.rst for what
-  needs to be done here to properly describe this.
-
-
-If you wish to discuss this problem further, or you have questions about
-how to resolve this issue, please feel free to respond to this email and
-Greg will reply once he has dug out from the pending patches received
-from other developers.
-
-thanks,
-
-greg k-h's patch email bot
+Mimi
 
