@@ -4,116 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0821CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 17:52:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E758FFF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 18:02:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1mUlUsMZQbqOKKdwd4r/DzRMo6SS4RXPnjCKqYKXLOU=; b=R+p+RQWH3wfh9t70xMbmctKt7q
-	1FYeTb+KDI0r/G150d+TViqPA51OZtmihwpmXuoDX5/GvguhdKmiz0h2zrL9zVtLJWT0OhDsR2Zt5
-	YTL7SZb8SAHS4PlKPaig1oD78n7yMj02KW2YG9EzdA/a8aeiabZOqP0GwWcvL+1ERRmvXtlpJeGLh
-	cfUbiCuaADv7BhxgOUzSTYl2jRYD/s2hdjZtq60aKztdlVzqu52/dXEtpaOcj3vAbCAYumq/Cd3RZ
-	x40WBWQAWhLcvxobtFnSgEKko3u4BbY8pESWW1IlEr/q4oee7HH5AxqcTMZuybAGmEByPIsJDiwD/
-	Ox8CizAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JxJ7uz2NKEUad4NDNzwYHdXOMFyNu7eXZW+pJIBjTrE=; b=B6vf69+9uf2kHpRBt1Ga6rlKtq
+	tUjFaqnX1o0AmAA7a5S6WEHAIO5M5MQ0JIe4kDVLXo7AeliNtzPgI+eZxSaeENDopIZSvGtNLp63S
+	XNsMRN6UusZz1ORW/VkohVYFduvbrO13TpQSY6z5YHnnkxun7g2w7oAmM6mb0RMlq46nJuhWZcTtz
+	BS4fHGtbCDmgGxuPPj7xgH6bhjj7uh95ZLj8gCLKIGRTkWDMJYPXH8YbLTM1ZBY7G3V/5v2cr074X
+	oeoCThWqzpQr9DXJ42u50RDHuSr8iKN1Bt1K5EYXJgbfSel6Yo+fuQiso3ghsxfpnNMWqQXmN72lh
+	++YwNtVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJxTN-0000000Dulg-1bWN;
-	Mon, 04 May 2026 17:52:49 +0000
-Received: from mail-westus2azon11012039.outbound.protection.outlook.com ([52.101.48.39] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1wJxcc-0000000Dvsh-1qHi;
+	Mon, 04 May 2026 18:02:22 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJxTK-0000000DukC-2jyU
+	id 1wJxcZ-0000000Dvrr-46ql
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 17:52:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=m/eqV00mIHTPHLRORP4rqdt4DtU6McAC2v82TIDW3zAf+fJl15D5pyMmvfqEDrmSKBtICDdCtVnp357H2MG7fDZfRU7Kh4v2ROtQhdWbdLARFxHsBrN2QVFyVO5zmTy6ldHPwXypgX4IcQJxf0sEFofg6z8ZufjJUlJYMn1QAgzD6rO2YroRxqcFG0a495LqnNXHCheKPZdGQ/Houu7udcMQKevLxwXXMmpkk8o4UvQOa5GCpZe4TJhiUdicEjtTL8b0aAza8qEmuFxcOj4AupC7wFjI5UkoFts9xnhgCuI2pGsXH5Ht7kg/9OnwgS+ZCQLX9Ghzbgcu0zj185gbYA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1mUlUsMZQbqOKKdwd4r/DzRMo6SS4RXPnjCKqYKXLOU=;
- b=HYlVPdmWYhhMBd8qYktAlIz5SOdZt0qjbHDFWhnHBDxM9M03FuqWVW3IXAdRsUSCA1OxbHERaqdrzEZx/K7s3tD6+7LLa37DKN0QqPUxY5rZoNEeyrB+K5C3myWsy7X95V+veM8Pc8KViVS97S6rkjjmZAWnuyKlTwPytM1jvha7YLAmCqWbdkeLVsSRMrTEvt1dWbdS432wk7eyfMrJgohcBucDfw4nnBBNvtO5iflVZsGM0H59rX3QzzDk3XSWn3rdDS9kt2e19ELyCQh5j08MyB5QTnCOCABmBKWOFXHB042OQPHaK2xV/bem3jToWYh7JlB0VvIF3xx4pemxLA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1mUlUsMZQbqOKKdwd4r/DzRMo6SS4RXPnjCKqYKXLOU=;
- b=WYQN/qrqYTJIzbK/IAsHd+eFbOMOav3rNI+rh4maJl4zBjwsMe532ekgKxGpoRQMglRcGAMjs19PMRxowoBFZpUntxcHpY/WBZG1MX4FqE7miphPPyedRD9JryqPCZKwKtP8E8mCGk9Ixnt4h1yqm7q2zi4yghMYcxMy2XeD1YBACS+sltF4ymd1bnmDo6kMhUGqIZAzU++ShhOKKEktKbYbcz5eHTnfrK6QcwzID48qpUxcieb57iKEGP8qEHevYNUgSUhoX2/CdB7U+thbKmQS4v9mqTIgN96jq6AhKuFzVhfwJxyqHKYBZOTniRToQfnCjhsxAJeR3YQhmLwH9A==
-Received: from CYZPR14CA0010.namprd14.prod.outlook.com (2603:10b6:930:8f::18)
- by DM6PR12MB4434.namprd12.prod.outlook.com (2603:10b6:5:2ad::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Mon, 4 May
- 2026 17:52:36 +0000
-Received: from CY4PEPF0000FCC4.namprd03.prod.outlook.com
- (2603:10b6:930:8f:cafe::1b) by CYZPR14CA0010.outlook.office365.com
- (2603:10b6:930:8f::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9870.25 via Frontend Transport; Mon,
- 4 May 2026 17:52:35 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- CY4PEPF0000FCC4.mail.protection.outlook.com (10.167.242.106) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9891.9 via Frontend Transport; Mon, 4 May 2026 17:52:35 +0000
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 4 May
- 2026 10:52:12 -0700
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail204.nvidia.com
- (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 4 May
- 2026 10:52:11 -0700
-Received: from build-bwicaksono-noble-20251018.internal (10.127.8.11) by
- mail.nvidia.com (10.129.68.6) with Microsoft SMTP Server id 15.2.2562.20 via
- Frontend Transport; Mon, 4 May 2026 10:52:10 -0700
-From: Besar Wicaksono <bwicaksono@nvidia.com>
-To: <will@kernel.org>, <mark.rutland@arm.com>, <james.clark@linaro.org>,
-	<yangyccccc@gmail.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-tegra@vger.kernel.org>, <treding@nvidia.com>, <jonathanh@nvidia.com>,
-	<vsethi@nvidia.com>, <rwiley@nvidia.com>, <sdonthineni@nvidia.com>,
-	<mochs@nvidia.com>, <nirmoyd@nvidia.com>, <skelley@nvidia.com>, "Besar
- Wicaksono" <bwicaksono@nvidia.com>
-Subject: [PATCH v4] perf/arm_pmu: Skip PMCCNTR_EL0 on NVIDIA Olympus
-Date: Mon, 4 May 2026 17:52:04 +0000
-Message-ID: <20260504175204.3122979-1-bwicaksono@nvidia.com>
-X-Mailer: git-send-email 2.43.0
+	Mon, 04 May 2026 18:02:21 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id C62019C;
+	Mon,  4 May 2026 20:02:15 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1777917736;
+	bh=7jbSAljiTPkKqJTgG1DeBRsKb/Ln1LpocLciBKuNSuk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YnqgFdgFttmuLffMS5TgsyuM48yEk6z0WoekgzM5bIw4g9Ra0fU/7U45WjE+yVhSy
+	 d6kAAxIvIcoDVvQBfJkBTFx3CVUaiSLn65JuM9fJ+Ygg2KptlJeif7Yy3cl/sq8Gw2
+	 f8wz50w+ANWkaFoTopxUc54KjrvsE//tdjt5G6a8=
+Date: Mon, 4 May 2026 21:02:16 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Jyri Sarha <jyri.sarha@iki.fi>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Simon Ser <contact@emersion.fr>,
+	Harry Wentland <harry.wentland@amd.com>,
+	Melissa Wen <mwen@igalia.com>,
+	Sebastian Wick <sebastian.wick@redhat.com>,
+	Alex Hung <alex.hung@amd.com>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>,
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+	dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>,
+	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v3 17/20] drm/drv: Switch skeleton to
+ drm_mode_config_create_initial_state()
+Message-ID: <20260504180216.GU1344263@killaraus.ideasonboard.com>
+References: <20260424-drm-mode-config-init-v3-0-8b68d9db0d8b@kernel.org>
+ <20260424-drm-mode-config-init-v3-17-8b68d9db0d8b@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000FCC4:EE_|DM6PR12MB4434:EE_
-X-MS-Office365-Filtering-Correlation-Id: c6f00f0b-d08c-4826-380e-08deaa05eca8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700016|376014|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: g9TeO6tShVWxEz8VJGoa03PS2h8Q0QQgNGMRC2zzHJDwnuAgEhotKj8PGnOjdzN2LlqXPC1ny4DSASbTkhLWYOC/FQA73JbSyvZ700e47VTOihdwf4TqFJBbhxXMpIFcKRKv9kKvLZT1QyXmivsiRx2nw8cLAkFGyJBoKgsD+1LUUx7JBLG4DzSB+Yd2Kq9rcVEjrKc6mo9TteZOh3/M6uaAT2wg/Fr4ddt/CO4x56RjuYnBWL0PBpgZgv82SAYA8Trk7izoIBxJs7twZmfWDN62jC40cJDOXYEJ6m+dx8kFxid/B/d+v9HgmG9oi4aMvHpLHHE9C4W3YV9mFayM9Vb2ykl9EWKJU99Ryl5CgQ6afZhHxeVngHtU4Gde/xePwXZzTRhzKvuIIeHSk9IxqRp7Zwl7aXoyOfuYboYFEi7KWLkk5CCycShdRqv7ODjXCzmXHfxuuV270Yl5UbpL5zbLYPHeGjcqEXTfMrIDrZPrjrPQXSkGeabiqpf9N0nN8p2vLNPHRlbaOm9NpVBeFn3ohjVeAc8imWHbdo01Q0vF1aVzBTYeH87a14DOQsM1fxS12Z+gtS3i990jkbWtpqjBSOKOoIvjPwjzVBKzHmn0HoVmelBlUiq24CXVjhQzlgTaC+OB7Y3Pxnyy1q4q0bRQbOrTW+8Xedz86e1VR1CM6q/EN6d5V4jguKbHuYJQKfe8S/sk2yxZApvv8Ai12qh6zEbB4UHAtKLqjnjVlXc+V7+X5mKEPpqXL4iDYVEg
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700016)(376014)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: icfUU3rOFaDQdRc8zsF4el2MqxNxWbiS8vEermJ2MIFM8N6Wq3ymLCUg/VTnyzuUtOG9GUYp8ttwCTETYhRh4S8pXhgrQb9pWw6f0Mz5/tmYQxShf37wP2WT6MEanCWNItOJB0YGXrES6zusiii2YT3ucNL3uu7LNqvIQXR6QGR9Q9Mbcz5EbHPubRp80Dxg6B11G49jKjn7DvTaT3ImTluE9nkBbCooKyQhxfsF4VjxxeBsDSJ2jRXRN3txxdYfQmCKJSvG5KpfiX5pn6AT1DtnUzYqoJTQvRPzj3hWInxXufMjOq8crWgjr45WrFjnodRSIwux9d/9y2HrM/2nc86w5flX4zjoz0+2Qt6Uy5KbaR4Jp2IhCcGP3uDsG1f6vsf/iPDqGt4Vy4scVYGB2Rws1JH9ry9InKOnY8RswfRGkKns+DEH8MdTFbN7Xtg6
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 May 2026 17:52:35.3301
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c6f00f0b-d08c-4826-380e-08deaa05eca8
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000FCC4.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4434
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260424-drm-mode-config-init-v3-17-8b68d9db0d8b@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_105246_707438_95D4FA86 
-X-CRM114-Status: GOOD (  25.94  )
+X-CRM114-CacheID: sfid-20260504_110220_193651_243F1C8B 
+X-CRM114-Status: GOOD (  20.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,161 +96,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PMCCNTR_EL0 may continue to increment on NVIDIA Olympus CPUs while the
-PE is in WFI/WFE. That does not necessarily match the CPU_CYCLES event
-counted by a programmable counter, so using PMCCNTR_EL0 for cycles can
-give results that differ from the programmable counter path.
+On Fri, Apr 24, 2026 at 12:18:57PM +0200, Maxime Ripard wrote:
+> The driver skeleton currently recommends calling
+> drm_mode_config_reset() at probe time to create the initial state.
+> 
+> Now that drm_mode_config_create_initial_state() exists to handle
+> initial state allocation without hardware side effects, update the
+> skeleton to recommend it instead.
+> 
+> Signed-off-by: Maxime Ripard <mripard@kernel.org>
+> ---
+>  drivers/gpu/drm/drm_drv.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/gpu/drm/drm_drv.c b/drivers/gpu/drm/drm_drv.c
+> index 985c283cf59f..f537556b06a8 100644
+> --- a/drivers/gpu/drm/drm_drv.c
+> +++ b/drivers/gpu/drm/drm_drv.c
+> @@ -340,11 +340,13 @@ void drm_minor_release(struct drm_minor *minor)
+>   *
+>   *		// Further setup, display pipeline etc
+>   *
+>   *		platform_set_drvdata(pdev, drm);
+>   *
+> - *		drm_mode_config_reset(drm);
+> + *		ret = drm_mode_config_create_initial_state(drm);
+> + *		if (ret)
+> + *			return ret;
 
-Extend the existing PMCCNTR avoidance decision from the SMT case to
-also cover Olympus. Store the result in the common arm_pmu state at
-registration time, so arm_pmuv3 can keep using a single flag when
-deciding whether CPU_CYCLES may use PMCCNTR_EL0.
+There's one point I'm still not sure to understand properly. The
+skeleton example (and the tidss driver, which you convert to the new API
+in this series) both call drm_mode_config_helper_resume(). This in turn
+calls drm_atomic_helper_resume(), and drm_mode_config_reset(). For
+drivers that implement .atomic_create_state() instead of .reset() (such
+as tidss, after its conversion in this series), drm_mode_config_reset()
+will call the drm_mode_config_*_create_state() helpers, which allocate
+and initialize a new state (through .atomic_create_state()), and store
+that new state in the object's ->state field. Won't this leak the state
+previously stored there ?
 
-Signed-off-by: Besar Wicaksono <bwicaksono@nvidia.com>
----
+>   *
+>   *		ret = drm_dev_register(drm);
+>   *		if (ret)
+>   *			return ret;
+>   *
 
-Changes from v1:
-  * add CONFIG_ARM64 check to fix build error found by kernel test robot
-  * add explicit include of <asm/cputype.h>
-v1: https://lore.kernel.org/linux-arm-kernel/20260406232034.2566133-1-bwicaksono@nvidia.com/
-
-Changes from v2:
-  * Move the Olympus PMCCNTR avoidance check from arm_pmuv3.c to the
-    common arm_pmu registration path.
-  * Replace the PMUv3-only has_smt flag with avoid_pmccntr, covering both
-    the existing SMT restriction and the Olympus MIDR restriction.
-  * Use the cached per-CPU MIDR from cpu_data instead of calling
-    is_midr_in_range_list() from armv8pmu_can_use_pmccntr().
-  * Add the required asm/cpu.h include for cpu_data.
-v2: https://lore.kernel.org/linux-arm-kernel/20260421203856.3539186-1-bwicaksono@nvidia.com/#t
-
-Changes from v3:
-  * Move avoidance check based on MIDR to __armv8pmu_probe_pmu() to make sure
-    the MIDR is retrieved from the correct online CPU.
-v3: https://lore.kernel.org/linux-arm-kernel/20260429215614.1793131-1-bwicaksono@nvidia.com/
-
----
- drivers/perf/arm_pmu.c       |  7 ++++-
- drivers/perf/arm_pmuv3.c     | 51 +++++++++++++++++++++++++++++++-----
- include/linux/perf/arm_pmu.h |  2 +-
- 3 files changed, 51 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/perf/arm_pmu.c b/drivers/perf/arm_pmu.c
-index 939bcbd433aa..aa1dac0b440f 100644
---- a/drivers/perf/arm_pmu.c
-+++ b/drivers/perf/arm_pmu.c
-@@ -931,8 +931,13 @@ int armpmu_register(struct arm_pmu *pmu)
- 	/*
- 	 * By this stage we know our supported CPUs on either DT/ACPI platforms,
- 	 * detect the SMT implementation.
-+	 * On SMT CPUs, the PMCCNTR_EL0 increments from the processor clock rather
-+	 * than the PE clock (ARM DDI0487 L.b D13.1.3) which means it'll continue
-+	 * counting on a WFI PE if one of its SMT sibling is not idle on a
-+	 * multi-threaded implementation. So don't use it on SMT cores.
- 	 */
--	pmu->has_smt = topology_core_has_smt(cpumask_first(&pmu->supported_cpus));
-+	pmu->avoid_pmccntr |=
-+		topology_core_has_smt(cpumask_first(&pmu->supported_cpus));
- 
- 	if (!pmu->set_event_filter)
- 		pmu->pmu.capabilities |= PERF_PMU_CAP_NO_EXCLUDE;
-diff --git a/drivers/perf/arm_pmuv3.c b/drivers/perf/arm_pmuv3.c
-index 8014ff766cff..1ee4a09d0dcc 100644
---- a/drivers/perf/arm_pmuv3.c
-+++ b/drivers/perf/arm_pmuv3.c
-@@ -8,6 +8,7 @@
-  * This code is based heavily on the ARMv7 perf event code.
-  */
- 
-+#include <asm/cputype.h>
- #include <asm/irq_regs.h>
- #include <asm/perf_event.h>
- #include <asm/virt.h>
-@@ -1002,13 +1003,7 @@ static bool armv8pmu_can_use_pmccntr(struct pmu_hw_events *cpuc,
- 	if (has_branch_stack(event))
- 		return false;
- 
--	/*
--	 * The PMCCNTR_EL0 increments from the processor clock rather than
--	 * the PE clock (ARM DDI0487 L.b D13.1.3) which means it'll continue
--	 * counting on a WFI PE if one of its SMT sibling is not idle on a
--	 * multi-threaded implementation. So don't use it on SMT cores.
--	 */
--	if (cpu_pmu->has_smt)
-+	if (cpu_pmu->avoid_pmccntr)
- 		return false;
- 
- 	return true;
-@@ -1299,6 +1294,41 @@ static int armv8_vulcan_map_event(struct perf_event *event)
- 				       &armv8_vulcan_perf_cache_map);
- }
- 
-+#ifdef CONFIG_ARM64
-+/*
-+ * List of CPUs that should avoid using PMCCNTR_EL0.
-+ */
-+static struct midr_range armv8pmu_avoid_pmccntr_cpus[] = {
-+	/*
-+	 * The PMCCNTR_EL0 in Olympus CPU may still increment while in WFI/WFE state.
-+	 * This is an implementation specific behavior and not an erratum.
-+	 *
-+	 * From ARM DDI0487 D14.4:
-+	 *   It is IMPLEMENTATION SPECIFIC whether CPU_CYCLES and PMCCNTR count
-+	 *   when the PE is in WFI or WFE state, even if the clocks are not stopped.
-+	 *
-+	 * From ARM DDI0487 D24.5.2:
-+	 *   All counters are subject to any changes in clock frequency, including
-+	 *   clock stopping caused by the WFI and WFE instructions.
-+	 *   This means that it is CONSTRAINED UNPREDICTABLE whether or not
-+	 *   PMCCNTR_EL0 continues to increment when clocks are stopped by WFI and
-+	 *   WFE instructions.
-+	 */
-+	MIDR_ALL_VERSIONS(MIDR_NVIDIA_OLYMPUS),
-+	{}
-+};
-+
-+static bool armv8pmu_is_in_avoid_pmccntr_cpus(void)
-+{
-+	return is_midr_in_range_list(armv8pmu_avoid_pmccntr_cpus);
-+}
-+#else
-+static bool armv8pmu_is_in_avoid_pmccntr_cpus(void)
-+{
-+	return false;
-+}
-+#endif
-+
- struct armv8pmu_probe_info {
- 	struct arm_pmu *pmu;
- 	bool present;
-@@ -1348,6 +1378,13 @@ static void __armv8pmu_probe_pmu(void *info)
- 	else
- 		cpu_pmu->reg_pmmir = 0;
- 
-+	/*
-+	 * On some CPUs, PMCCNTR_EL0 does not match the behavior of CPU_CYCLES
-+	 * programmable counter, so avoid routing cycles through PMCCNTR_EL0 to
-+	 * prevent inconsistency in the results.
-+	 */
-+	cpu_pmu->avoid_pmccntr |= armv8pmu_is_in_avoid_pmccntr_cpus();
-+
- 	brbe_probe(cpu_pmu);
- }
- 
-diff --git a/include/linux/perf/arm_pmu.h b/include/linux/perf/arm_pmu.h
-index 52b37f7bdbf9..02d2c7f45b52 100644
---- a/include/linux/perf/arm_pmu.h
-+++ b/include/linux/perf/arm_pmu.h
-@@ -119,7 +119,7 @@ struct arm_pmu {
- 
- 	/* PMUv3 only */
- 	int		pmuver;
--	bool		has_smt;
-+	bool		avoid_pmccntr;
- 	u64		reg_pmmir;
- 	u64		reg_brbidr;
- #define ARMV8_PMUV3_MAX_COMMON_EVENTS		0x40
 -- 
-2.43.0
+Regards,
 
+Laurent Pinchart
 
