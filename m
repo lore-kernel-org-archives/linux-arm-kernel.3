@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E70E9CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 21:18:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C83CCD342F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 21:19:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IHqwi47gLxulqjFwzyPWRWmJ21m3KfZnivqkYOWLGBw=; b=DhA1RyYNr9EqphqWThdYyjk99Y
-	OqT1bpzYeoyN99DmH+2vXRHHEMAt42RtzNT5zo+EF1natEtqWt0AsxTi2oNA4Y+ZpDMCUuy6R6VnT
-	vbMsnGUD3E8B3DK8sr/RIwA8WAYyvdFNvEVEo5pwbL6J5ztw4e+dEX88NupXIKR1RdOWGz6svkpL+
-	+lDmsg4rgGyimDWO+jHiNECE2Faty0MVF5RBE7UGf6R7NrrYZeGQFOjokhFGHB2SyvA0vR7Fyb4Cw
-	TNG5R3E3vvlN5XHtJUIFDdpTObLfzW6ZceWAtg/LOxkqRSebLdYhHfJ1J+UJWT72LEqUk5RAKsw+/
-	rGWFTf+g==;
+	bh=IBRwxe29L12LD2xEcP8UBXi5vcKDWFkDhBR645b//Pw=; b=qPYQZi+SZ73Ea40eXQuycmFhQA
+	H5CE+3Vrm0Z9mlC1KZ7z4Kxem4w3UnKKN97gWUu20cgiK8skPmFGouNF7GjD3F13NUmeoWd/eA92a
+	qrWF2VJIx1UHemoLs8R/lNlgx6PYp9yqoeh2/JjbTtQYoz3AWHC4eNTIi3cLxVBBX7NluyQx25Kqm
+	rOe3UDNHH9n9Sh9pwz29I3vGE9t5VFXraSrDLv4Oo6uD34wt8TIMHcQoAVrvjIZy+7/d5obqsx5sd
+	pHiXV2TEyhu0S0JUvG0eQHWjLgnQ0E7DdUaK9QKjLq1QEL+gWcjR80JxOQpcUgOLuLilPTyLfrHv0
+	+z3CeUEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wK0gj-0000000ELcK-0Ym7;
-	Mon, 04 May 2026 21:18:49 +0000
-Received: from mail-ot1-x34a.google.com ([2607:f8b0:4864:20::34a])
+	id 1wK0gl-0000000ELgA-17jH;
+	Mon, 04 May 2026 21:18:51 +0000
+Received: from mail-oa1-x49.google.com ([2001:4860:4864:20::49])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wK0gg-0000000ELUK-0CMO
+	id 1wK0gi-0000000ELZ0-1MlN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 21:18:47 +0000
-Received: by mail-ot1-x34a.google.com with SMTP id 46e09a7af769-7dbd50dee52so11811785a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 May 2026 14:18:44 -0700 (PDT)
+	Mon, 04 May 2026 21:18:49 +0000
+Received: by mail-oa1-x49.google.com with SMTP id 586e51a60fabf-42343e87c3aso5291619fac.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 May 2026 14:18:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777929524; x=1778534324; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777929527; x=1778534327; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=IHqwi47gLxulqjFwzyPWRWmJ21m3KfZnivqkYOWLGBw=;
-        b=oThlVjJJ5JgfmjWiYZB+ymyILuiypISsmztXjwIYriIqljd4J6PGoqNlHTDuE8xNRi
-         r8DcWBzCoEiP4QKyGxkNIvU5Mj9xuJiTcA503IitEqMKrqEWuBOWJTXUI7HHatljess2
-         inm5SLNQorUjFLlr/EL5UKaiHTzHKumzO3XLfCKB1j5G00M7TZLXUYoqI3AFCoZi3DE/
-         O526DHMZ3l1J3Zo7QkNN5AunokyI0pS9M/qMJS7/qSRos9/lvQx6qfMrSvPvdLB6LiwU
-         exmO6Zen8/D9ccekUgOpHDhqsDdERzMjbkcIW1pA5uQsdPIzEK0lm9XWb7me0u5JbWLv
-         dl3Q==
+        bh=IBRwxe29L12LD2xEcP8UBXi5vcKDWFkDhBR645b//Pw=;
+        b=YZQhkAFq3XAqRgQe6BSVgBrSEGvrlSSctLMY3eBt0OywE+B397ticNXvGTTdvO2S0I
+         csplHinQn9sMCef6yqL28PZix6i6kJfvqsaGq0L1KnUumyOAVcICUcME8WTN0Oiprbk9
+         vXeJBhuFNeJPHdEEL6X6F2AAp7+0Kq3AcKxXIcd0zKvs0HWfmi/KRX4ALHAsE4+EjbbC
+         WgnZQiUc/xpdBsdyTYI0CpYceEzlcPRP3da8Z9hbuBZXw/ziSC2pd85XWoA33O14Zsrc
+         6xSHk83gLzjYhiJKxvwXdMpfzwiF+NeCFNKV4adLL6dej/haarWLfuUAWaOMqvicoDht
+         /Hkg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777929524; x=1778534324;
+        d=1e100.net; s=20251104; t=1777929527; x=1778534327;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=IHqwi47gLxulqjFwzyPWRWmJ21m3KfZnivqkYOWLGBw=;
-        b=fUgUvZphWxrB2W4yvUu4ePtwQIHoi32ehJdPk91BeM9nV4P1p01xqSNePSHRIVJ0Nq
-         qGfhSx4CmvpsUIXgcLSah7pX3n8oR89YkH2S9p9eOwgISpZVNA8K43AN6JtRxFpdwu2W
-         1+shDp3Klk5N0TS++h5atTPbrVS4r3FGX9jRk+UJ0a/vf1WiaIpjP0GGv+gpBDxHtBR6
-         nzjoaU2l1SMZyv/29Lsa48xMUyeFKgaCUvi/DAH0fT5b0Qswrb8Tu8711AMAQxc4dODp
-         rQk84szskvv5v4BvySVJbNjgOHIi+9ZiDaaKrouGRMaQAsZxZd0K/u53d8QT6dA8Wmik
-         JgwQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+pleC2EXZX23/qLWyHtJr9b6w2FwqgfkKRMdVZK5a7PgHmMSbpGICzJfMLQEf6W3lY51AdTYPdRX1pTnZVLw+c@lists.infradead.org
-X-Gm-Message-State: AOJu0YyLfkSUrFtfXy0Ljq9y+wssm9GfdUw7q1SebmF52ckf+mIGti3x
-	vuCTbdG/Dc9uZ5L/ppS9u3k77kfKISmRu6VoMVbKTUIBKUwqOxwVlbEooGWIVwUyJszGk2sgft1
-	oZPqcLAcoRXvZ8q+RV4kz/S78cw==
-X-Received: from iods12.prod.google.com ([2002:a05:6602:324c:b0:96b:30a7:3dc9])
+        bh=IBRwxe29L12LD2xEcP8UBXi5vcKDWFkDhBR645b//Pw=;
+        b=DfUP3uNUxsYHcibfJ/DJJLbKVmzuWOb4d5Hg3P7/8+weD27dprCgLC+5E5sJe5inTT
+         ohMxVtjM2N2GgRAoau/MkwEnxAH1p9YjjVRXlNe+vTVD1wMtoaQ2CeIkITcXJzGZe0UK
+         1qlRFesaylvpuNDJ6Hx5zhpC/WvPofVji2kkc1KNrGjSJlP9W4G+/MIIW1DqJ6RRCgJW
+         5pd403xe3JGE2lv8KF8/iM43iPN3cTVuSx/i/72hTzwvi3EQQUsPF4l04SQklGJza33R
+         gvPEY1Y3EZcLm+a3Zl1BU/GVkh+Mls/ur0BoliMX6vWVq1o9aIwrmhIaPwpR0sAJ0Vft
+         75fw==
+X-Forwarded-Encrypted: i=1; AFNElJ/CSZeC5HtjPhL20f+l8jAg8MbF3dayi3bk7TIb9czd1tb6daWsxFS8zXAhhW60yach5W2pJ5jUKLGIsx91SCRl@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXeUNhz4L/LGxyaQoVuu5ii63PHuCtxvwzgfOsMPzydzu1gCvL
+	gyuvtbgTKl7gaNFp0N7l0O+cB3S7rp1WAnUz6JkELmwjpgydAkH40QzzmQ9RdNZymNIpv5m82ez
+	8n5idoeqyRXPJeSQnowCLnZBLwg==
+X-Received: from iljy18.prod.google.com ([2002:a05:6e02:f52:b0:4fe:8f6f:9544])
  (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6820:211:b0:696:8278:c619 with SMTP id 006d021491bc7-696979ad7d2mr5858531eaf.6.1777929523888;
- Mon, 04 May 2026 14:18:43 -0700 (PDT)
-Date: Mon,  4 May 2026 21:18:05 +0000
+ 2002:a05:6820:178f:b0:696:77e2:a78 with SMTP id 006d021491bc7-6998a5aaa71mr161406eaf.23.1777929526446;
+ Mon, 04 May 2026 14:18:46 -0700 (PDT)
+Date: Mon,  4 May 2026 21:18:07 +0000
 In-Reply-To: <20260504211813.1804997-1-coltonlewis@google.com>
 Mime-Version: 1.0
 References: <20260504211813.1804997-1-coltonlewis@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260504211813.1804997-13-coltonlewis@google.com>
-Subject: [PATCH v7 12/20] perf: Add perf_pmu_resched_update()
+Message-ID: <20260504211813.1804997-15-coltonlewis@google.com>
+Subject: [PATCH v7 14/20] KVM: arm64: Implement lazy PMU context swaps
 From: Colton Lewis <coltonlewis@google.com>
 To: kvm@vger.kernel.org
 Cc: Alexandru Elisei <alexandru.elisei@arm.com>, Paolo Bonzini <pbonzini@redhat.com>, 
@@ -81,8 +81,8 @@ Cc: Alexandru Elisei <alexandru.elisei@arm.com>, Paolo Bonzini <pbonzini@redhat.
 	linux-kselftest@vger.kernel.org, Colton Lewis <coltonlewis@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_141846_096704_10D92BCF 
-X-CRM114-Status: GOOD (  16.34  )
+X-CRM114-CacheID: sfid-20260504_141848_443513_4AF6C5AB 
+X-CRM114-Status: GOOD (  20.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,90 +97,220 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To modify PMU guest counter reservations dynamically, we need to
-update the available counters safely.
+Since many guests will never touch the PMU, they need not pay the cost
+of context swapping those registers.
 
-Introduce perf_pmu_resched_update() to allow updating the PMU struct
-in between scheduling perf events out and scheduling them back in
-again. It takes a callback operation to call in between schedule out
-and schedule in. This accomplishes the goal with minimal perf API
-expansion.
-
-Refactor ctx_resched call the callback in the right place.
+Use an enum to implement a simple state machine for PMU register
+access. The PMU is either free or guest owned. We only need to context
+swap if the PMU registers are guest owned. The PMU initially starts as
+free and only transitions to guest owned if a guest has touched the
+PMU registers.
 
 Signed-off-by: Colton Lewis <coltonlewis@google.com>
 ---
- include/linux/perf_event.h |  3 +++
- kernel/events/core.c       | 28 +++++++++++++++++++++++++---
- 2 files changed, 28 insertions(+), 3 deletions(-)
+ arch/arm64/include/asm/kvm_host.h  |  1 +
+ arch/arm64/include/asm/kvm_types.h |  6 +++++-
+ arch/arm64/kvm/debug.c             |  2 +-
+ arch/arm64/kvm/pmu-direct.c        | 25 +++++++++++++++++++++++--
+ arch/arm64/kvm/sys_regs.c          | 11 +++++++++++
+ include/kvm/arm_pmu.h              |  5 +++++
+ 6 files changed, 46 insertions(+), 4 deletions(-)
 
-diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
-index 48d851fbd8ea5..a08db3ee38b10 100644
---- a/include/linux/perf_event.h
-+++ b/include/linux/perf_event.h
-@@ -1242,6 +1242,9 @@ extern int perf_event_task_disable(void);
- extern int perf_event_task_enable(void);
- 
- extern void perf_pmu_resched(struct pmu *pmu);
-+extern void perf_pmu_resched_update(struct pmu *pmu,
-+				    void (*update)(struct pmu *, void *),
-+				    void *data);
- 
- extern int perf_event_refresh(struct perf_event *event, int refresh);
- extern void perf_event_update_userpage(struct perf_event *event);
-diff --git a/kernel/events/core.c b/kernel/events/core.c
-index 89b40e4397177..62fec73caabad 100644
---- a/kernel/events/core.c
-+++ b/kernel/events/core.c
-@@ -2983,9 +2983,10 @@ static void perf_event_sched_in(struct perf_cpu_context *cpuctx,
-  * event_type is a bit mask of the types of events involved. For CPU events,
-  * event_type is only either EVENT_PINNED or EVENT_FLEXIBLE.
-  */
--static void ctx_resched(struct perf_cpu_context *cpuctx,
--			struct perf_event_context *task_ctx,
--			struct pmu *pmu, enum event_type_t event_type)
-+static void __ctx_resched(struct perf_cpu_context *cpuctx,
-+			  struct perf_event_context *task_ctx,
-+			  struct pmu *pmu, enum event_type_t event_type,
-+			  void (*update)(struct pmu *, void *), void *data)
- {
- 	bool cpu_event = !!(event_type & EVENT_CPU);
- 	struct perf_event_pmu_context *epc;
-@@ -3021,6 +3022,9 @@ static void ctx_resched(struct perf_cpu_context *cpuctx,
- 	else if (event_type & EVENT_PINNED)
- 		ctx_sched_out(&cpuctx->ctx, pmu, EVENT_FLEXIBLE);
- 
-+	if (update)
-+		update(pmu, data);
-+
- 	perf_event_sched_in(cpuctx, task_ctx, pmu, 0);
- 
- 	for_each_epc(epc, &cpuctx->ctx, pmu, 0)
-@@ -3032,6 +3036,24 @@ static void ctx_resched(struct perf_cpu_context *cpuctx,
- 	}
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 1f789ba589d56..891433fe304ac 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -1404,6 +1404,7 @@ static inline bool kvm_system_needs_idmapped_vectors(void)
+ 	return cpus_have_final_cap(ARM64_SPECTRE_V3A);
  }
  
-+static void ctx_resched(struct perf_cpu_context *cpuctx,
-+			struct perf_event_context *task_ctx,
-+			struct pmu *pmu, enum event_type_t event_type)
-+{
-+	__ctx_resched(cpuctx, task_ctx, pmu, event_type, NULL, NULL);
-+}
-+
-+void perf_pmu_resched_update(struct pmu *pmu, void (*update)(struct pmu *, void *), void *data)
-+{
-+	struct perf_cpu_context *cpuctx = this_cpu_ptr(&perf_cpu_context);
-+	struct perf_event_context *task_ctx = cpuctx->task_ctx;
-+
-+	perf_ctx_lock(cpuctx, task_ctx);
-+	__ctx_resched(cpuctx, task_ctx, pmu, EVENT_ALL|EVENT_CPU, update, data);
-+	perf_ctx_unlock(cpuctx, task_ctx);
-+}
-+EXPORT_SYMBOL_GPL(perf_pmu_resched_update);
-+
- void perf_pmu_resched(struct pmu *pmu)
++void kvm_arm_setup_mdcr_el2(struct kvm_vcpu *vcpu);
+ void kvm_init_host_debug_data(void);
+ void kvm_debug_init_vhe(void);
+ void kvm_vcpu_load_debug(struct kvm_vcpu *vcpu);
+diff --git a/arch/arm64/include/asm/kvm_types.h b/arch/arm64/include/asm/kvm_types.h
+index 9a126b9e2d7c9..4e39cbc80aa0b 100644
+--- a/arch/arm64/include/asm/kvm_types.h
++++ b/arch/arm64/include/asm/kvm_types.h
+@@ -4,5 +4,9 @@
+ 
+ #define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE 40
+ 
+-#endif /* _ASM_ARM64_KVM_TYPES_H */
++enum vcpu_pmu_register_access {
++	VCPU_PMU_ACCESS_FREE,
++	VCPU_PMU_ACCESS_GUEST_OWNED,
++};
+ 
++#endif /* _ASM_ARM64_KVM_TYPES_H */
+diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
+index 0ab89c91e19cb..c2cf6b308ec60 100644
+--- a/arch/arm64/kvm/debug.c
++++ b/arch/arm64/kvm/debug.c
+@@ -34,7 +34,7 @@ static int cpu_has_spe(u64 dfr0)
+  *  - Self-hosted Trace Filter controls (MDCR_EL2_TTRF)
+  *  - Self-hosted Trace (MDCR_EL2_TTRF/MDCR_EL2_E2TB)
+  */
+-static void kvm_arm_setup_mdcr_el2(struct kvm_vcpu *vcpu)
++void kvm_arm_setup_mdcr_el2(struct kvm_vcpu *vcpu)
  {
- 	struct perf_cpu_context *cpuctx = this_cpu_ptr(&perf_cpu_context);
+ 	int hpmn = kvm_pmu_hpmn(vcpu);
+ 
+diff --git a/arch/arm64/kvm/pmu-direct.c b/arch/arm64/kvm/pmu-direct.c
+index 14cc419dbafad..881cea5117515 100644
+--- a/arch/arm64/kvm/pmu-direct.c
++++ b/arch/arm64/kvm/pmu-direct.c
+@@ -72,10 +72,29 @@ bool kvm_vcpu_pmu_use_fgt(struct kvm_vcpu *vcpu)
+ 	u8 hpmn = vcpu->kvm->arch.nr_pmu_counters;
+ 
+ 	return kvm_vcpu_pmu_is_partitioned(vcpu) &&
++		vcpu->arch.pmu.access == VCPU_PMU_ACCESS_GUEST_OWNED &&
+ 		cpus_have_final_cap(ARM64_HAS_FGT) &&
+ 		(hpmn != 0 || cpus_have_final_cap(ARM64_HAS_HPMN0));
+ }
+ 
++/**
++ * kvm_pmu_set_guest_owned()
++ * @vcpu: Pointer to vcpu struct
++ *
++ * Reconfigure the guest for physical access of PMU hardware if
++ * allowed. This means reconfiguring mdcr_el2 and loading the vCPU
++ * state onto hardware.
++ *
++ */
++void kvm_pmu_set_guest_owned(struct kvm_vcpu *vcpu)
++{
++	if (kvm_vcpu_pmu_is_partitioned(vcpu) &&
++	    vcpu->arch.pmu.access == VCPU_PMU_ACCESS_FREE) {
++		vcpu->arch.pmu.access = VCPU_PMU_ACCESS_GUEST_OWNED;
++		kvm_arm_setup_mdcr_el2(vcpu);
++	}
++}
++
+ /**
+  * kvm_pmu_hpmn() - Calculate HPMN field value
+  * @vcpu: Pointer to struct kvm_vcpu
+@@ -278,7 +297,8 @@ void kvm_pmu_load(struct kvm_vcpu *vcpu)
+ 	 * If we aren't guest-owned then we know the guest isn't using
+ 	 * the PMU anyway, so no need to bother with the swap.
+ 	 */
+-	if (!kvm_vcpu_pmu_is_partitioned(vcpu))
++	if (!kvm_vcpu_pmu_is_partitioned(vcpu) ||
++	    vcpu->arch.pmu.access != VCPU_PMU_ACCESS_GUEST_OWNED)
+ 		return;
+ 
+ 	preempt_disable();
+@@ -353,7 +373,8 @@ void kvm_pmu_put(struct kvm_vcpu *vcpu)
+ 	 * accessing the PMU anyway, so no need to bother with the
+ 	 * swap.
+ 	 */
+-	if (!kvm_vcpu_pmu_is_partitioned(vcpu))
++	if (!kvm_vcpu_pmu_is_partitioned(vcpu) ||
++	    vcpu->arch.pmu.access != VCPU_PMU_ACCESS_GUEST_OWNED)
+ 		return;
+ 
+ 	preempt_disable();
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index cc3d1804ab200..e4840d93a769f 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -1035,6 +1035,7 @@ static bool pmu_access_event_counter_el0_disabled(struct kvm_vcpu *vcpu)
+ static void pmu_write_pmcr(struct kvm_vcpu *vcpu, u64 val)
+ {
+ 	if (kvm_vcpu_pmu_is_partitioned(vcpu)) {
++		kvm_pmu_set_guest_owned(vcpu);
+ 		write_sysreg(val, pmcr_el0);
+ 		return;
+ 	}
+@@ -1086,6 +1087,7 @@ static bool access_pmcr(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+ static void pmu_write_pmselr(struct kvm_vcpu *vcpu, u64 val)
+ {
+ 	if (kvm_vcpu_pmu_is_partitioned(vcpu)) {
++		kvm_pmu_set_guest_owned(vcpu);
+ 		write_sysreg(val, pmselr_el0);
+ 		return;
+ 	}
+@@ -1193,6 +1195,8 @@ static void pmu_write_evcntr(struct kvm_vcpu *vcpu, u64 val, u64 idx)
+ 		return;
+ 	}
+ 
++	kvm_pmu_set_guest_owned(vcpu);
++
+ 	if (idx == ARMV8_PMU_CYCLE_IDX) {
+ 		write_sysreg(val, pmccntr_el0);
+ 		return;
+@@ -1281,6 +1285,7 @@ static void pmu_write_evtyper(struct kvm_vcpu *vcpu, u64 val, u64 idx)
+ 	u64 mask;
+ 
+ 	if (kvm_vcpu_pmu_is_partitioned(vcpu)) {
++		kvm_pmu_set_guest_owned(vcpu);
+ 		mask = kvm_pmu_evtyper_mask(vcpu->kvm);
+ 		__vcpu_assign_sys_reg(vcpu, PMEVTYPER0_EL0 + idx, val & mask);
+ 		return;
+@@ -1350,6 +1355,8 @@ static int get_pmreg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r, u64 *v
+ static void pmu_write_pmcnten(struct kvm_vcpu *vcpu, u64 val, bool set)
+ {
+ 	if (kvm_vcpu_pmu_is_partitioned(vcpu)) {
++		kvm_pmu_set_guest_owned(vcpu);
++
+ 		if (set)
+ 			write_sysreg(val, pmcntenset_el0);
+ 		else
+@@ -1398,6 +1405,8 @@ static bool access_pmcnten(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+ static void pmu_write_pminten(struct kvm_vcpu *vcpu, u64 val, bool set)
+ {
+ 	if (kvm_vcpu_pmu_is_partitioned(vcpu)) {
++		kvm_pmu_set_guest_owned(vcpu);
++
+ 		if (set)
+ 			write_sysreg(val, pmintenset_el1);
+ 		else
+@@ -1453,6 +1462,8 @@ static bool access_pmovs(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+ 		return false;
+ 
+ 	if (p->is_write) {
++		kvm_pmu_set_guest_owned(vcpu);
++
+ 		if (r->CRm & 0x2)
+ 			/* accessing PMOVSSET_EL0 */
+ 			__vcpu_rmw_sys_reg(vcpu, PMOVSSET_EL0, |=, (p->regval & mask));
+diff --git a/include/kvm/arm_pmu.h b/include/kvm/arm_pmu.h
+index fa881dc5f5832..0de63cc48fef9 100644
+--- a/include/kvm/arm_pmu.h
++++ b/include/kvm/arm_pmu.h
+@@ -7,6 +7,7 @@
+ #ifndef __ASM_ARM_KVM_PMU_H
+ #define __ASM_ARM_KVM_PMU_H
+ 
++#include <linux/kvm_types.h>
+ #include <linux/perf_event.h>
+ #include <linux/perf/arm_pmuv3.h>
+ #include <linux/perf/arm_pmu.h>
+@@ -40,6 +41,7 @@ struct kvm_pmu {
+ 	int irq_num;
+ 	bool created;
+ 	bool irq_level;
++	enum vcpu_pmu_register_access access;
+ };
+ 
+ struct arm_pmu_entry {
+@@ -101,6 +103,8 @@ u64 kvm_pmu_guest_counter_mask(struct arm_pmu *pmu);
+ void kvm_pmu_load(struct kvm_vcpu *vcpu);
+ void kvm_pmu_put(struct kvm_vcpu *vcpu);
+ 
++void kvm_pmu_set_guest_owned(struct kvm_vcpu *vcpu);
++
+ #if !defined(__KVM_NVHE_HYPERVISOR__)
+ bool kvm_vcpu_pmu_is_partitioned(struct kvm_vcpu *vcpu);
+ bool kvm_vcpu_pmu_use_fgt(struct kvm_vcpu *vcpu);
+@@ -173,6 +177,7 @@ static inline u8 kvm_pmu_hpmn(struct kvm_vcpu *vcpu)
+ }
+ static inline void kvm_pmu_load(struct kvm_vcpu *vcpu) {}
+ static inline void kvm_pmu_put(struct kvm_vcpu *vcpu) {}
++static inline void kvm_pmu_set_guest_owned(struct kvm_vcpu *vcpu) {}
+ static inline void kvm_pmu_set_counter_value(struct kvm_vcpu *vcpu,
+ 					     u64 select_idx, u64 val) {}
+ static inline void kvm_pmu_set_counter_value_user(struct kvm_vcpu *vcpu,
 -- 
 2.54.0.545.g6539524ca2-goog
 
