@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1559DFF886F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 12:29:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C72FAFF886F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 12:30:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=814xa8seFs15bj3a4vxXUsxq6BSSUZsJ1eCZuSdGtu8=; b=hwvCGMRBu+zwegw/QRbfGljsZE
-	OfPsQNwA5F/zGU8D329OnJy2qog4SNQtWkSIFVzQS3NCiNrL1BiwESZGgj+IqWhs5WmsGcRc4tAEF
-	rvC9PfoUASP0VqaR+JhYRh2qURulDtBtxCSdxd0uTmccHEHvzzemCWWUHWSd/hEDP/NkCmcRlgUei
-	moDWrGbmixBkbK7msK4uRwMLWDlA3JqERYerqHcPwO+2Cqqtc/PNGDY57/WTYydu6iORX9hKAq3S7
-	joScDkzM858dgz03bbrEy7XIRpVqGitjy/pUNJkwil/chqrY2bGTBV46j9ETp0+S9FiM0IUDhLVmd
-	5GOZK+vw==;
+	bh=qOfQTG3NufNYyUm+WMPkXEQQNupQgi3c8ZHhQrRCx6U=; b=Urx99N8PD4i9LezuMsv/5xFASh
+	eg8kn9oV34GqT7DtN4MOkZKkCYdFiJYyd+JCkv6/D+wx9z/VQXuxi2tJubWbIaq7ZC+VvJlrxzR1m
+	AoXnblkvVF0tHdnsSNc+f+7zrd7bAfhZKsDHSWXrFvasncfZqdRcPe39RMf33H79MGVRX2XTxHSOf
+	7Oqvc3D++Lnak3RB8VlnbDeSZ9buY+qBlI9XhEB2jISdiIqRylM9nmVuntI6FMuYTQaZZSF0guLOc
+	ObqAa5qbsGFklHid+GWmc1R/iWHApaJDlg8ouamyE1+uw8DPTnIvLqw37QNR7TLIXDRGguK9Ozcxz
+	S2iN7HNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJsQ5-0000000D9lK-0rZ9;
-	Mon, 04 May 2026 12:29:05 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1wJsRi-0000000DA4X-2GBM;
+	Mon, 04 May 2026 12:30:46 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJsQ2-0000000D9kj-27rT
+	id 1wJsRc-0000000DA3i-3cVg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 12:29:03 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4891b4934ffso198795e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 May 2026 05:29:01 -0700 (PDT)
+	Mon, 04 May 2026 12:30:44 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-488940ccfa6so171385e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 May 2026 05:30:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777897740; x=1778502540; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=814xa8seFs15bj3a4vxXUsxq6BSSUZsJ1eCZuSdGtu8=;
-        b=UWUrY/HzsBN4lyqLUhLfTgE1OZdeLSJ9sx47s2LsSvt3hTc73Vp8lbzLDFz9hL64vo
-         r/YM7w4lXsYaF5tvmfuUrD/aIQ0Ql5KWgMp30XbtAhipAlo2ZuPTS+mojJppahDU3J/8
-         /nGnLq8omf4Mv2IYrPaPizj1Jb12g71WaOogs5ysn0/vaXSUev6OXBdkUCPCgLx/A9jd
-         6qK4hwDzSGbplGbZO7pdu9+3LZc0nmh3RqMevYfysUqislIky5TpEGoFXwTdGBoqXRiF
-         ZovS2gd29WgpEiMCqknmOxzmAkrufzUeFpkylJzQ1mKGKIxqwHSpkiFkuUxE2jtvdKLD
-         yEEg==
+        d=google.com; s=20251104; t=1777897839; x=1778502639; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=qOfQTG3NufNYyUm+WMPkXEQQNupQgi3c8ZHhQrRCx6U=;
+        b=Hy0uAvFnijf6fGbE70fT7WrYapI6BAidrr/bQ0AJEnseW12hTvfhmanJLoDh7B+PJj
+         jZE9955cUYDlDm/ykqOras3QCS3hcTuZ4E5EUObtc0l9k3Jh15N0qPmajiZ1p7PB3YoN
+         ZQfqdiJPlCNyvrbU7NVS+F5HgxEtReEeQTIM8UKTgsP6WlcNXhStJTMMxXv1z4zauOLW
+         Dml6+DQabiwQhOkii+KXD6xYYFC2Zr6FQ9uSySomSHeJpiWyQ5n7uXKzzd/bIZio6R/y
+         GyRTO+BccAUQl0qXd7TZiEpvqAM9YI7eq5aI+DRNK7RTWqOIK981wAJgzj1dsfdbqQfS
+         iO4w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777897740; x=1778502540;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=814xa8seFs15bj3a4vxXUsxq6BSSUZsJ1eCZuSdGtu8=;
-        b=SNGgsdEwZN9N80dU1/FsOyZi4B/kZ5UhzDroQT4yN9rgJhOfBWrMGdccGmchMldEQP
-         oerLn3MEX9JK3OifOekRiC2SMetXpTxZtP8D5AkHbcIEYxx5Da5DAucwNCn6Tjlr3NYJ
-         W9FczNYotcmUMKiZ3QuYt9YzYsqXIaljASnNpDkvvF4CxHYMXkfgfaCg1N+9ORmdLouS
-         4w7ijry+kJg6qV/RwaZfoT1Gv0XrV7IGRh+XUXVVwKZkM+0u1ittIGmfLSOcd4yUoJdn
-         2sRlYULx60we872wCN4OP2XPgNp2AXBzmsYZsmGgMsUzVCFqUI93kneuz5sjUNdU6rRo
-         0shg==
-X-Gm-Message-State: AOJu0YwY47JSHwhvlSJr8PAAuVOUICL4qKTuzQ/yslXlxR4Vh9Kq2nsL
-	6NONemwUecGgIU4h1e0mJisPF/qNzz1xk+ICd25SgQsjcUXa/AYpOe0hnIBhYwatFw==
-X-Gm-Gg: AeBDieujO7Jy97ROEN3eduG78O5YNsPb+kMzq1xQwtYiD+ihKu7Qx9q3gndgI7bHQSh
-	U0ogyqX0ehZzfBPdXbQaHRgXhO/LvTXZbhVYtwPsbMDcrNNKcHDqQZc+kIcK5wRqEGUfRaxET4h
-	yh2VB08fMGffOJbyHvRJz+FaHTbwohiXFRePfcdU5blI3dEBZS/MdJQcEn4hdVFm1KDNwhMMA9W
-	trdf+EXjH1nqU0bSulMOAVHtcPHo3ngzILgJG3zvTVDA0eA7lqtm3aMiQ+Eps6Lpxiu/qiduLFj
-	JSzojD8cL6oPmYAcndatsref0KqD0WLyZI/Y/p1dc6mJcdqZPA5heSUqu03UHh+bu8W2O4whRLT
-	yUlpkHUAGK4pK3EQh7NCSvdZP5mIn9/ekiKAuf/9MirLxqj5AObsDHpAvkhr9of9/Jwdc2c1rh1
-	RXqzTBkPh1pAa9xPYplIqplI/KQzRmZC+GNHq69XzPePU3vECDk8+dLGcEwuFkxMqXNE+FNcec3
-	IddPA==
-X-Received: by 2002:a05:600c:8717:b0:475:d905:9f12 with SMTP id 5b1f17b1804b1-48a98102ba3mr3204765e9.4.1777897740070;
-        Mon, 04 May 2026 05:29:00 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1777897839; x=1778502639;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=qOfQTG3NufNYyUm+WMPkXEQQNupQgi3c8ZHhQrRCx6U=;
+        b=XB0rJogeHLRmie9vFPLtgnSUfn91PulTwCddivSXqG95TObCorjKf7U/vkFo18nOy5
+         F7XKDHT2jxVdWW5ZdtSX0bchkAFGn2AAC53LHRg7zOZpZC46PJNG+81DR7KDotw+4X5p
+         KlSwYZITBgZlEsQxGY9j/dpnotvZx0ZHv6eCrmNkQKZy5/vnX/UQZKTuO97/gAqcpMlc
+         TCND+bZ1LeT5CUOAbUxcs7neIlRoXBGbmf/GSdJE1imJ+XCOWevDrQXDroVAHYqxS5RE
+         G01NiufHPOYKnNnwFhph0/ogHr8UY8wWg4yHk6zTt6ifCnzj9fhy2YIvb9uMDd9dHDiY
+         Fvyg==
+X-Gm-Message-State: AOJu0Ywqa8k1wgF7OSomql+MFrjbEkuCq+vp4ofCF3YAA6UbJmaYlDdl
+	H7l0TLl54tlZePz97JfJUAvewGfYl3j2mMZ8CJJfYT5+uxxTJbz8nYjaIO7OQ5Rzzg==
+X-Gm-Gg: AeBDietVFOAQqlBMyz1GPgLU/mbujXuvHrKLbF/mejyMNm7TAJDi9yk/uNHZfrvz4vv
+	7d1lukBPdnRTHQPxZ9iZIVDfAvnD2R7l7gSqbFRdSzWigE3rohVOYPSTklJGBmVOd9Ci4QHOYcp
+	Owgl5swwwjF1PjulH0kM3Eak33BDGROzx/nPlMMdQQ0LHiJ2Gn36y3ji1AFAcrpukiWxAUIiGN3
+	INVlb0bho6cgJ209S0Amn+BqKVHXyd/FhgemsBeQm3epH6RdVPa2Fm4Za6nlr79EjWPFdxsSDje
+	+xYqj5dMAWQUsC9O6vtLe9SrubiOpsWXe2FCuDhWCUUyPmLDrNnDXAKDqxqXalxqZ5OM6J2O+me
+	DhA5a0Z3f4NWqv1O+OWKRccgspcFCvVT5r66EAHL8QLshUfCGGDG1LVlffoa8SNtDUT5iizG22a
+	7wDgg+3veZx/g4vZeQmFZAvGIb8uXQ0EOHVIE0WXUXyD4ptWap1wnb6x6jxJDuUYC00KFylBVSu
+	cTxhw==
+X-Received: by 2002:a05:600c:63c4:b0:485:b6e4:9808 with SMTP id 5b1f17b1804b1-48ac315a359mr2185965e9.1.1777897838152;
+        Mon, 04 May 2026 05:30:38 -0700 (PDT)
 Received: from google.com (8.181.38.34.bc.googleusercontent.com. [34.38.181.8])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-44b638ac434sm21945298f8f.36.2026.05.04.05.28.59
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48a8fee32fesm113417605e9.3.2026.05.04.05.30.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 04 May 2026 05:28:59 -0700 (PDT)
-Date: Mon, 4 May 2026 12:28:55 +0000
+        Mon, 04 May 2026 05:30:37 -0700 (PDT)
+Date: Mon, 4 May 2026 12:30:33 +0000
 From: Mostafa Saleh <smostafa@google.com>
 To: Jason Gunthorpe <jgg@ziepe.ca>
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -79,20 +78,18 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
 	mark.rutland@arm.com, qperret@google.com, tabba@google.com,
 	vdonnefort@google.com, sebastianene@google.com, keirf@google.com
-Subject: Re: [PATCH v6 08/25] KVM: arm64: iommu: Shadow host stage-2 page
- table
-Message-ID: <afiRB3e3o0G1oZvY@google.com>
+Subject: Re: [PATCH v6 13/25] iommu/arm-smmu-v3-kvm: Probe SMMU HW
+Message-ID: <afiRaQRmu7Evbzfn@google.com>
 References: <20260501111928.259252-1-smostafa@google.com>
- <20260501111928.259252-9-smostafa@google.com>
- <20260501130006.GF6912@ziepe.ca>
+ <20260501111928.259252-14-smostafa@google.com>
+ <20260501125148.GE6912@ziepe.ca>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260501130006.GF6912@ziepe.ca>
+In-Reply-To: <20260501125148.GE6912@ziepe.ca>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_052902_584674_6F348868 
-X-CRM114-Status: GOOD (  24.19  )
+X-CRM114-CacheID: sfid-20260504_053040_952574_4494E01F 
+X-CRM114-Status: GOOD (  24.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,66 +104,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 01, 2026 at 10:00:06AM -0300, Jason Gunthorpe wrote:
-> On Fri, May 01, 2026 at 11:19:10AM +0000, Mostafa Saleh wrote:
-> > Create a page-table for the IOMMU that shadows the host CPU stage-2
-> > to establish DMA isolation.
+On Fri, May 01, 2026 at 09:51:48AM -0300, Jason Gunthorpe wrote:
+> On Fri, May 01, 2026 at 11:19:15AM +0000, Mostafa Saleh wrote:
+> > diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> > index 61e6ab364086..157acde0436d 100644
+> > --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> > +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> > @@ -4738,12 +4738,6 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
+> >  	return 0;
+> >  }
+> >  
+> > -#define IIDR_IMPLEMENTER_ARM		0x43b
+> > -#define IIDR_PRODUCTID_ARM_MMU_600	0x483
+> > -#define IIDR_PRODUCTID_ARM_MMU_700	0x487
+> > -#define IIDR_PRODUCTID_ARM_MMU_L1	0x48a
+> > -#define IIDR_PRODUCTID_ARM_MMU_S3	0x498
+> > -
+> >  static void arm_smmu_device_iidr_probe(struct arm_smmu_device *smmu)
+> >  {
+> >  	u32 reg;
+> > diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> > index 64618299d03a..f904f4d19609 100644
+> > --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> > +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> > @@ -84,6 +84,12 @@ struct arm_vsmmu;
+> >  #define IIDR_REVISION			GENMASK(15, 12)
+> >  #define IIDR_IMPLEMENTER		GENMASK(11, 0)
+> >  
+> > +#define IIDR_IMPLEMENTER_ARM		0x43b
+> > +#define IIDR_PRODUCTID_ARM_MMU_600	0x483
+> > +#define IIDR_PRODUCTID_ARM_MMU_700	0x487
+> > +#define IIDR_PRODUCTID_ARM_MMU_L1	0x48a
+> > +#define IIDR_PRODUCTID_ARM_MMU_S3	0x498
+> > +
+> >  #define ARM_SMMU_AIDR			0x1C
 > 
-> Is there a reason you can't just use the CPU S2 for the iommu?
+> Lets put these hunks in some earlier patch to migrate out the
+> functions/etc
 > 
-> ie the CCA RMM is doing that, it is how ARM imagined this stuff would
-> work.
+> I think all these pkvm/arm-smmu-v3.c should just be building up the
+> driver.
+
+Will do.
+
 > 
-> Once you start supporting DMA like this you have no choice but to keep
-> a fully populated at all times S2 around, why not use that for the CPU
-> too to avoid faults?
+> > +static bool smmu_nesting_supported(struct hyp_arm_smmu_v3_device *smmu)
+> > +{
+> > +	unsigned int implementer, productid, variant, revision;
+> > +	u32 reg;
+> > +
+> > +	if (!(smmu->features & ARM_SMMU_FEAT_TRANS_S1) ||
+> > +	    !(smmu->features & ARM_SMMU_FEAT_TRANS_S2))
+> > +		return false;
+> > +
+> > +	reg = readl_relaxed(smmu->base + ARM_SMMU_IIDR);
+> > +	implementer = FIELD_GET(IIDR_IMPLEMENTER, reg);
+> > +	productid = FIELD_GET(IIDR_PRODUCTID, reg);
+> > +	variant = FIELD_GET(IIDR_VARIANT, reg);
+> > +	revision = FIELD_GET(IIDR_REVISION, reg);
+> > +
+> > +	if (implementer != IIDR_IMPLEMENTER_ARM)
+> > +		return true;
+> > +
+> > +	if (productid == IIDR_PRODUCTID_ARM_MMU_600)
+> > +		return variant >= 2;
+> > +	else if (productid == IIDR_PRODUCTID_ARM_MMU_700)
+> > +		return !(variant < 1 || revision < 1);
+> > +
+> > +	return true;
+> > +}
 > 
-> I guess there is a reason, but maybe explain in the commit message?
+> Why not share all this errata stuff with the idr parsing code too?
 > 
-> It sure would be simpler, you wouldn't have to mess with iopgtable at
-> all...
+> We already have ARM_SMMU_FEAT_NESTING that has the above calculation.
+> 
+> The two drivers use the same ARM_SMMU_FEAT system, I would expect one
+> chunk of shared code to compute the FEATs, who cares if pkvm doesn't
+> use all of them?
+> 
+> Use the same errata logic and so on to get to the feat bitmap.
 
-Sharing the page table is tricky, this is something I have been thinking
-about and my plan was to work on it after this series as it has some
-constraints and would require core KVM changes.
-
-So far this is the list of requirements/changes needed share the
-stage-2 page table (besides the obvious: same page table format,
-granularity, endianness...)
-
-1) HW BBM is not supported in the hypervisor page table, that’s
-   because it can generate TLB conflict aborts, which the hypervisor
-   can not handle because of the limited syndrome information.
-   We can rely on FEAT_BBML3 which was newly introduced to work
-   around that, it’s quite niche and not supported in KVM yet or
-   have an allow list similar to the kernel
-   (as in cpu_supports_bbml2_noabort()) which also limits the number
-   of CPUs that can run this.
-
-2) Handling page faults, devices must be able to stall and let the
-   hypervisor handle the page fault (which has to proxy through the
-   kernel as the hypervisor doesn’t handle interrupts), this includes
-   also IO page faults which are hard to get right from the HW which
-   and may lead to system stability issues or lockups.
-   Alternatively, we can pin the stage-2 pages, that would require some
-   hypercalls, hacks to the driver/IOMMU API and possibly new semantics
-   in the DMA-API for IDENTITY devices as they will still need to pin
-   the pages as they are actually in stage-2 translation and not bypass.
-
-3) SMMUv3 must be coherent.
-
-4) Support BTM/DVM for TLB invalidation, otherwise some hooks are
-   still required (although not io-pgtable-arm)
-
-This is not the complete list, I am sure I will run into more issues
-when prototyping this.
-
-IMO, 1, 2 are the most tricky parts. It's more work and runs on very
-limited systems, However, it can be implemented as an optimization)
-which is my plan.
-
-I am not sure how CCA deals with that, I’d expect they have a lot of
-constraints on CPUs/SMMUs and DMA capable devices on those systems.
+Makes sense.
 
 Thanks,
 Mostafa
