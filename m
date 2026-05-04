@@ -4,83 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F81BFF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 13:36:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62912CD3430
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 13:37:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=anAXTn2WVNJfQBijdvlVjx89L+KjLxZQUrMBMBAvn58=; b=TUA3H1cu0aBwauv0uKd/lDGi39
-	3KbxUDq8bdvmPnxlAq5MMp1S1p0QJIRS3zO7N3Rsvum0BhbeJhgNuxUt2F/8n7/bm16Cq0XkYtkUv
-	yt5v20yCbhVsC2eEhEJAeMitjzg3I/cR7nRvX+C4gIcwJLBRSn6HSQBE8JRaSuc17HviJM3Vd8bXS
-	5q1W+eudbzJeMHBEoSHOpRkmPRZoWiUb71SI/OqCojZxNNbWxU7X7OleqCEypILwgr13M5s4X6fAY
-	ACWU4ji87/ZFuJEEgzk4adx2Y654yYJZyBgeYgpMCyLBfH3uyW3EJqO1qf5yhgihea8y+U+w7Eh2w
-	IpuffPDg==;
+	bh=mCE6JH9CRlAZCEsBvLqMNoyr3/ZelpavSG/0UEYXErs=; b=0cZXnPtX9JvLAbRhaP3mL/BxYG
+	CCX5GCmwm7TYi9CqUXyYGoxlYPvCk+/RjfEfbK5rkLD7HzwqsBDfC4hFEatqiy/1WcV5NU3W0KJb/
+	wQChHjNjtu6l+T2r9GWKQOvHW+eGcXwwUzh+zH8zGeeFcTycRnD5sh/EzEFH6ocgk/zdq1znYCn1L
+	Nd9GsY1TXCurc0t6/7hunzJqJDeb6F0WGSS/e3yE7KoXZv7nRCqIdZu28E1mKv3GgvBDZOw0rF06p
+	XUICkH70C1LiTjk/CfkwCz/wX/+ftrcdb8NJkNvDElpxj5ouC/wSXNmRDmNcXpo7PK1h3u9OIGURl
+	Z3nevL9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJtSk-0000000DK5e-1eBz;
-	Mon, 04 May 2026 13:35:54 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wJtUD-0000000DKNU-3clV;
+	Mon, 04 May 2026 13:37:25 +0000
+Received: from pdx-out-007.esa.us-west-2.outbound.mail-perimeter.amazon.com ([52.34.181.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJtSi-0000000DK4u-1LoO
+	id 1wJtUB-0000000DKMd-0pF7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 13:35:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 962C244057
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  4 May 2026 13:35:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7554EC2BCFD
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  4 May 2026 13:35:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777901751;
-	bh=anAXTn2WVNJfQBijdvlVjx89L+KjLxZQUrMBMBAvn58=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=lm8czak3ojKL/iSeFyCXKqI7NTDydVsOyB2+Hmt8nIK2EusB+d4Z4frGvii94dCYM
-	 jWu0DSEVVN+bGYmtnqjUZ613RrBl279QTX5Q4GXGY/7uhrANxd69oXqVhg4v9RhlDr
-	 j0Bf6ACKU0YROCTpFS5awmkcjdKqVuM+Cdbkq4OknL3HDQb1DpvjyXBC7KufyhvzqD
-	 7zI8a4XUxzPdXMbnVIlJrXSGL14ML23Gg2KG7zpTnsaZSKWHibluTUhcKe4kIIwY+6
-	 YESTlho5Ct6TbII6iOg1nmDm+rg+TnF6JT9MWtZidEiRLMooEyQHzB5HaaV3YK9SH9
-	 zy3fy169eVGyw==
-Received: by mail-qv1-f43.google.com with SMTP id 6a1803df08f44-8b62ca1d28eso24892976d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 May 2026 06:35:51 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/UYM9z3FmbGOgmqQFUg2viBGyJEEQCjZoxfyZRfKQlsl15Y9LjCMBYNh/y3pTQ9qFvL8nz81FqOhJELXWVsU0d@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywt/5l2cWjJUC7B+ouMUEhvPIiN5mIjqMYDQlcn0dkS+ORZ7j73
-	Dua5M4snIIe+7mGf1CHUIaHkuKSvO9HvyRKvOfWiDGg9GzQ0khAWeajlcb6sdQoJ2/sOy3Ak8TW
-	9q3HIZbTNkvLuB2to7p3A1lkoI0wXuLQ=
-X-Received: by 2002:a05:6214:260a:b0:8ac:4fd1:2d4a with SMTP id
- 6a1803df08f44-8b668a259e6mr167277966d6.33.1777901750649; Mon, 04 May 2026
- 06:35:50 -0700 (PDT)
+	Mon, 04 May 2026 13:37:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1777901843; x=1809437843;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=mCE6JH9CRlAZCEsBvLqMNoyr3/ZelpavSG/0UEYXErs=;
+  b=TxYD41t9UNnFtOr48aYnlL16YWpkuQ3UftikWRrj1clawvpatIK6NLmc
+   XaXREcbCdO8DRMQoVh9yzahe0qL6oL6OimrsizuBUNEeljWc5yWXoWrwu
+   dnTG1Otq0lMa3YRv4RSGrU9uP5XTjOuWmMbxral2OssNOOm1NqvdPIzKD
+   mhtBETxJ1y66xBzZDbft0cApTPay4kcvjEQIRdBjIt2GlZFCd7otscYE7
+   foqGEKxvFRfibiM0ef5Lo/6Bm9liV+gDrh6FN3ij8fpswig3ZcXOU72y4
+   7LReJbgS81h21Wls2Eo8GMbU5j/DlWRUxan+Zy7Io74mGUqM6YMDv8CrK
+   g==;
+X-CSE-ConnectionGUID: j5BOBbQAQvGWv871vytCSw==
+X-CSE-MsgGUID: Z3/mLQI3S7Kp38xE9hy0Jg==
+X-IronPort-AV: E=Sophos;i="6.23,215,1770595200"; 
+   d="scan'208";a="18775859"
+Received: from ip-10-5-0-115.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.0.115])
+  by internal-pdx-out-007.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 May 2026 13:37:17 +0000
+Received: from EX19MTAUWC002.ant.amazon.com [205.251.233.111:8570]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.4.227:2525] with esmtp (Farcaster)
+ id 382ad3c0-3a31-436a-aa72-fa9330aea906; Mon, 4 May 2026 13:37:16 +0000 (UTC)
+X-Farcaster-Flow-ID: 382ad3c0-3a31-436a-aa72-fa9330aea906
+Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
+ EX19MTAUWC002.ant.amazon.com (10.250.64.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
+ Mon, 4 May 2026 13:37:16 +0000
+Received: from dev-dsk-avivb-1b-e28f450e.eu-west-1.amazon.com (10.15.33.9) by
+ EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
+ Mon, 4 May 2026 13:37:15 +0000
+From: Aviv Bakal <avivb@amazon.com>
+To: <sashiko-bot@kernel.org>
+CC: <robin.murphy@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <zeev@amazon.com>, <blakgeof@amazon.com>
+Subject: Re: [PATCH] perf/arm-cmn: Add workarounds for CMN-S3 on Graviton5
+Date: Mon, 4 May 2026 16:37:10 +0300
+Message-ID: <20260504133712.21085-1-avivb@amazon.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260503162039.E185EC2BCB4@smtp.kernel.org>
+References: <20260503162039.E185EC2BCB4@smtp.kernel.org>
 MIME-Version: 1.0
-References: <20260430040427.4672-1-baohua@kernel.org> <afNM-gIqxpyJ6ro7@casper.infradead.org>
- <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
- <afS_L-5XeWIldTXA@casper.infradead.org> <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
- <afTpoL3FklpQZNMM@casper.infradead.org> <yezmezj26xntushmylductlmytfgvwsnbnzlhffkfwugfxkt6m@gleq22spziyk>
- <CAGsJ_4y8JtCxEy9hVxVd8eaf8D9WC8BcRQp9afUVu=FJA1-awA@mail.gmail.com> <n5vsmp6ingbhfztl6wzcwmrz56gkkfbpzardk43scr7rcgqsw5@evtnov34c5bt>
-In-Reply-To: <n5vsmp6ingbhfztl6wzcwmrz56gkkfbpzardk43scr7rcgqsw5@evtnov34c5bt>
-From: Barry Song <baohua@kernel.org>
-Date: Mon, 4 May 2026 21:35:38 +0800
-X-Gmail-Original-Message-ID: <CAGsJ_4zBiRTttf1nR0Ni9BRT3Cv5XFZhyYP8oipFodpS7saGwQ@mail.gmail.com>
-X-Gm-Features: AVHnY4I0u-Qbkg0vrggpRHSUVs_cQpUa3gydJwrEbvTBOzz3MxeuFlaWucVZXHg
-Message-ID: <CAGsJ_4zBiRTttf1nR0Ni9BRT3Cv5XFZhyYP8oipFodpS7saGwQ@mail.gmail.com>
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-To: Jan Kara <jack@suse.cz>
-Cc: Matthew Wilcox <willy@infradead.org>, akpm@linux-foundation.org, linux-mm@kvack.org, 
-	david@kernel.org, ljs@kernel.org, liam@infradead.org, vbabka@kernel.org, 
-	rppt@kernel.org, surenb@google.com, mhocko@suse.com, pfalcato@suse.de, 
-	wanglian@kylinos.cn, chentao@kylinos.cn, lianux.mm@gmail.com, 
-	kunwu.chan@gmail.com, liyangouwen1@oppo.com, chrisl@kernel.org, 
-	kasong@tencent.com, shikemeng@huaweicloud.com, nphamcs@gmail.com, 
-	bhe@redhat.com, youngjun.park@lge.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.15.33.9]
+X-ClientProxiedBy: EX19D036UWB002.ant.amazon.com (10.13.139.139) To
+ EX19D001UWA001.ant.amazon.com (10.13.138.214)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_063552_409145_B443B308 
-X-CRM114-Status: GOOD (  15.91  )
+X-CRM114-CacheID: sfid-20260504_063723_290904_E0629F30 
+X-CRM114-Status: GOOD (  13.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,45 +92,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 4, 2026 at 9:04=E2=80=AFPM Jan Kara <jack@suse.cz> wrote:
-[...]
->
-> > > BTW I'm not sure I quite understand Barry's priority inversion proble=
-m
-> > > since I'd expect all threads of a task to generally be treated with t=
-he
-> > > same priority...
-> >
-> > Exactly not. Maybe these slides[2] and this project[3] can give
-> > you a hint=E2=80=94they aim to standardize things on Linux by
-> > learning from Apple OS. Basically, tasks are classified
-> > into five types:
-> >
-> > USER_INTERACTIVE: Requires immediate response.
-> > USER_INITIATED: Tolerates a short delay, but must respond quickly still=
-.
-> > UTILITY: Tolerates long delays, but not prolonged ones.
-> > BACKGROUND: Doesn=E2=80=99t mind prolonged delays.
-> > DEFAULT: System default behavior.
->
-> Again, this is a clasification of tasks but not really of threads in a ta=
-sk
-> so at least for VMA lock there's no inversion so have?
+> Will this cross-wire the DTC domains?
+> In arm_cmn_init_dtcs(), the cmn->dns array is sorted by logid, and the
+> cmn->dtc array is populated sequentially based on this sorted order.
+> During PMU event programming, the driver uses the domain ID (dn->dtc) as an
+> index into the cmn->dtc array.
+> If the physical layout of the DTC XPs causes their xp->logid values (typically
+> y * mesh_x + x) to sort differently than their computed domain IDs, wouldn't
+> the cmn->dtc array be misaligned?
+> For example, a Domain 1 DTC at (5,0) has a smaller logid (5) than a Domain 0
+> DTC at (0,6) (60), meaning Domain 1 would incorrectly occupy cmn->dtc[0]. This
+> cross-wiring could cause PMU events to program the wrong physical DTC hardware
+> and map IRQs to the wrong domains, resulting in incorrect performance
+> statistics and unhandled interrupts.
+> Would it be better to assign the computed domain ID to the logical ID here
+> using dn->logid = xp->dtc?
 
-I=E2=80=99m specifically referring to a task (i.e., a thread) when
-discussing scheduler context. It may be clearer to use the
-terms process and thread explicitly.
+Good catch on the cleanliness — I'll switch to dn->logid = xp->dtc.
 
-In a typical process sharing an mm_struct, each thread can
-have a different priority.
+That said, the two approaches are equivalent on this hardware. The four
+DTCs discovered on Graviton5 are:
 
-In an Android app, some threads handle the UI and require
-higher priority, such as the main thread and RenderThread;
-otherwise, frame drops may occur.
+  pmu_base    xp->dtc  xp->logid
+  c030d900    0        0
+  e430d900    1        9
+  c370d900    2        130
+  e770d900    3        139
 
-The Linux scheduler can control scheduling policy and
-priority for each thread.
+The xp->logid values (0, 9, 130, 139) sort in the same order as the
+domain IDs (0, 1, 2, 3), so arm_cmn_node_cmp produces the same sorted
+sequence either way, and dtc_idx++ assigns the same indices.
 
-Thanks
-Barry
+This follows from the topology: arm_cmn_graviton5_dtc_domain() computes
+domain = (x/5) + (y/7)*2 over the 10x14 mesh, which increases
+monotonically with the row-major XP position that logid encodes. So the
+sort orders can't diverge for this mesh geometry.
+
+Still, using xp->dtc is cleaner and more obviously correct — the logid
+directly reflects the domain ID rather than relying on sort-order
+equivalence. I'll update the patch.
 
