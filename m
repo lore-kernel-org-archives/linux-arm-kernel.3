@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65740FF885A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E13DBCD343B
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 18:24:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,45 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q9AqQVe5FuQzEuP42W8y3dSp3R5FDscpZbanQAxC0mU=; b=jMKOciuyzPzXKRqkIF2pAEEuxM
-	h5A0uOkKhRdaUSglLBqAF7l0rph8mmbxWpn9ZNq+iR5KT9aNtVKT1oS4t01jz5huBZMtVkvlEuHCI
-	g5FUkfgE3LsFW+GSMaiiWGZYPemhxbKeUGNRBRE8pm8Rf7l4FWNn6tQSqC10poLjS5TKoRkSCiqXB
-	mA8m9a+1ZfSLxW76m2ituZ7M/naZ2F15hLqexB2k3wehUktRaKrYnANjhywp9fkANaU2QmtO4e/Qx
-	UhZ0t5uGKTS976nMVadnmezXf218fiTSyyNuz6oqhQBkSYoFiVr4Z10SeiTL6nhalQHo/9ABN1fcx
-	u7+wxfYA==;
+	bh=IeSuaeLEfRncycUXWnDmsk3VT6BgZL7nEBXLURHaM9A=; b=wIzBHChURh+hGKN+OdhwIGZ12Y
+	hrBvvF1NTzVYHi/tEV8kxs19hOy2M1tM6r5G8ZKb6gkP+l47wB+6oPYZM5pwB629vsXc7TbthpXhu
+	hMOIbxyA+KV6RWbYxFV3Jo+z4LDJdIZvAvqs+TvVc/kHlE9BI279tfpBmAA/77xwJgzyJSrf2MZQv
+	pGAsHBiCaeXf/7RUc3bJg5HUAhPgLbyGr2mBSsfWiJm7H7cjpdVW7gAC29sKTF1QOpaDPGpR03zBQ
+	Y6MMGDdvU43u+rGFoiPDp6PE8dS4jgrK6HdNBd7CLq1cXV9WCohwjfCGsfYZWgRoNzv2EmeV89QKg
+	xZ5Vqg3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJxyB-0000000DxsW-1GqJ;
-	Mon, 04 May 2026 18:24:39 +0000
+	id 1wJxyE-0000000Dxu4-0A8d;
+	Mon, 04 May 2026 18:24:42 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJxy8-0000000DxqS-2nxL;
-	Mon, 04 May 2026 18:24:37 +0000
+	id 1wJxy8-0000000Dxr1-38Uk;
+	Mon, 04 May 2026 18:24:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1777919072;
-	bh=LIaSlxFKDMGdLUeGmCaMWboNkyhoBoZUFgC5ptDTBTY=;
+	s=mail; t=1777919073;
+	bh=CrUMD80L0tPh/ReWZWhyFAP6sKoT7Ci2SErvfpP/5Yw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=dHOSERktEipbU+Wy5cUpTDKMgYTumbdri8JkAkRQx8MyFLu1p8Q8dmBxIMPiaDVJ0
-	 LYPgZ23rp4iDtFnvdH6yV/I2idGqV/U6rXewcU1tGeyN6IY2Op/F5Zyjt/J7lw6jJM
-	 XC8qF7J2Aff+pvBonsUcvNSHkMxH5WoRiTk3uGshvfnEEbwntiQkGGXE79LCMmqlKI
-	 Nab986FKJVQtoexN1/0dulZd+j+xOP+DC51j5W56tXb7AhUgvKATpZXHuRU/mI1wSl
-	 DvG4T2Ee/aHvKPAws6G16WI2hfEjlze156z9+oxVP49QjzWiaPTal1paHuqwvtfwza
-	 tljjXr3RF7LAw==
+	b=JP5VsES8QC1489VuseSPugmyxnxbDiuYlt8+kzwVkBDDylqpXKJusT9MIQh5C1sMG
+	 y3E83asCjPuVmbkyDC2EjGW/npf9cwyZ4bfqf3S+XwcU40F55chYjBX3eg7quNLeVl
+	 wV2eZ9wtDrpTTc6RmF094up8hDhZP+kHwe1QcjXZ6TDXzpCD+Eduno4ZlQJ9Jivh68
+	 cNReNQaFZaZEvD5EWv/V15iriP/1qxDfCYIWDR8IVphwDyFFe67Hb19CSKEpv3Gsax
+	 POgzyFY7MWM672rRs87w2g0v5dRz0OAFNeWz6fVu4Yry6Lv0/WNOp1pTgj5M3vAIJd
+	 BTsCn7Man/5ow==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0FBFC17E12EB;
-	Mon,  4 May 2026 20:24:32 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B448717E1544;
+	Mon,  4 May 2026 20:24:33 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Mon, 04 May 2026 21:23:59 +0300
-Subject: [PATCH 1/5] drm/rockchip: vop2: Fix wrong wait target in layer cfg
- done check
+Date: Mon, 04 May 2026 21:24:01 +0300
+Subject: [PATCH 3/5] drm/rockchip: vop2: Delay old_{layer|port}_sel updates
+ in setup_layer_mixer()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260504-vop2-layer-cfg-tmout-v1-1-730226a7331e@collabora.com>
+Message-Id: <20260504-vop2-layer-cfg-tmout-v1-3-730226a7331e@collabora.com>
 References: <20260504-vop2-layer-cfg-tmout-v1-0-730226a7331e@collabora.com>
 In-Reply-To: <20260504-vop2-layer-cfg-tmout-v1-0-730226a7331e@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -64,8 +64,8 @@ Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
  linux-kernel@vger.kernel.org
 X-Mailer: b4 0.15.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_112436_878528_9293A972 
-X-CRM114-Status: GOOD (  12.54  )
+X-CRM114-CacheID: sfid-20260504_112436_959813_89A959B1 
+X-CRM114-Status: GOOD (  12.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,41 +80,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-rk3568_vop2_setup_layer_mixer() waits for the previous Video Port (VP)
-layer configuration to take effect before writing a new one to the
-shared RK3568_OVL_LAYER_SEL shadow register.  However, it passes
-vop2->old_layer_sel to rk3568_vop2_wait_for_layer_cfg_done() as the
-expected value, which at that point already contains the new VP layer.
+The old_layer_sel and old_port_sel local variables were introduced to
+hold the previous VP configuration for comparisons and wait targets,
+working around the premature update of vop2->old_layer_sel and
+vop2->old_port_sel earlier in the function.
 
-This causes the wait to poll for a value that has not been written to
-the shadow register yet, resulting in spurious timeouts when two
-non-blocking atomic commits race:
+Remove these superfluous locals and instead defer the assignments of
+vop2->old_layer_sel and vop2->old_port_sel to just before the
+corresponding shadow register writes, where the transition from old to
+new logically belongs.
 
-  rockchip-drm display-subsystem: [drm] *ERROR* wait layer cfg done timeout [...]
+No functional change intended.
 
-Pass the local old_layer_sel instead, which still holds the value
-captured from vop2->old_layer_sel before it was overwritten, i.e. the
-previous VP target that the hardware is expected to latch.
-
-Fixes: 3e89a8c68354 ("drm/rockchip: vop2: Fix the update of LAYER/PORT select registers when there are multi display output on rk3588/rk3568")
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/rockchip/rockchip_vop2_reg.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/gpu/drm/rockchip/rockchip_vop2_reg.c | 21 +++++++++------------
+ 1 file changed, 9 insertions(+), 12 deletions(-)
 
 diff --git a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-index 02a788a4dfdd..edca0fb16e08 100644
+index 5206f01ec787..1f5e8c2acecd 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
 +++ b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-@@ -2307,7 +2307,7 @@ static void rk3568_vop2_setup_layer_mixer(struct vop2_video_port *vp)
+@@ -2136,9 +2136,7 @@ static void rk3568_vop2_setup_layer_mixer(struct vop2_video_port *vp)
+ 	struct drm_plane *plane;
+ 	u32 layer_sel = 0;
+ 	u32 port_sel;
+-	u32 old_layer_sel = 0;
+ 	u32 atv_layer_sel = 0;
+-	u32 old_port_sel = 0;
+ 	u8 layer_id;
+ 	u8 old_layer_id;
+ 	u8 layer_sel_id;
+@@ -2161,8 +2159,7 @@ static void rk3568_vop2_setup_layer_mixer(struct vop2_video_port *vp)
+ 	else
+ 		ovl_ctrl &= ~RK3568_OVL_CTRL__YUV_MODE(vp->id);
+ 
+-	old_port_sel = vop2->old_port_sel;
+-	port_sel = old_port_sel;
++	port_sel = vop2->old_port_sel;
+ 	port_sel &= RK3568_OVL_PORT_SEL__SEL_PORT;
+ 
+ 	if (vp0->nlayers)
+@@ -2188,8 +2185,7 @@ static void rk3568_vop2_setup_layer_mixer(struct vop2_video_port *vp)
+ 		port_sel |= FIELD_PREP(RK3588_OVL_PORT_SET__PORT3_MUX, 7);
+ 
+ 	atv_layer_sel = vop2_readl(vop2, RK3568_OVL_LAYER_SEL);
+-	old_layer_sel = vop2->old_layer_sel;
+-	layer_sel = old_layer_sel;
++	layer_sel = vop2->old_layer_sel;
+ 
+ 	ofs = 0;
+ 	for (i = 0; i < vp->id; i++)
+@@ -2273,8 +2269,6 @@ static void rk3568_vop2_setup_layer_mixer(struct vop2_video_port *vp)
+ 			     old_win->data->layer_sel_id[vp->id]);
+ 	}
+ 
+-	vop2->old_layer_sel = layer_sel;
+-	vop2->old_port_sel = port_sel;
+ 	/*
+ 	 * As the RK3568_OVL_LAYER_SEL and RK3568_OVL_PORT_SEL are shared by all Video Ports,
+ 	 * and the configuration take effect by one Video Port's vsync.
+@@ -2290,7 +2284,7 @@ static void rk3568_vop2_setup_layer_mixer(struct vop2_video_port *vp)
+ 	 *    of the new VP.
+ 	 */
+ 
+-	if (layer_sel != old_layer_sel && atv_layer_sel != old_layer_sel) {
++	if (layer_sel != vop2->old_layer_sel && atv_layer_sel != vop2->old_layer_sel) {
+ 		cfg_done = vop2_readl(vop2, RK3568_REG_CFG_DONE);
+ 		cfg_done &= (BIT(vop2->data->nr_vps) - 1);
+ 		cfg_done &= ~BIT(vp->id);
+@@ -2298,20 +2292,23 @@ static void rk3568_vop2_setup_layer_mixer(struct vop2_video_port *vp)
  		 * Changes of other VPs' overlays have not taken effect
  		 */
  		if (cfg_done)
--			rk3568_vop2_wait_for_layer_cfg_done(vop2, vop2->old_layer_sel);
-+			rk3568_vop2_wait_for_layer_cfg_done(vop2, old_layer_sel);
+-			rk3568_vop2_wait_for_layer_cfg_done(vop2, old_layer_sel);
++			rk3568_vop2_wait_for_layer_cfg_done(vop2, vop2->old_layer_sel);
  	}
  
+-	if (layer_sel != old_layer_sel || port_sel != old_port_sel)
++	if (layer_sel != vop2->old_layer_sel || port_sel != vop2->old_port_sel)
+ 		ovl_ctrl |= FIELD_PREP(RK3568_OVL_CTRL__LAYERSEL_REGDONE_SEL, vp->id);
+ 	vop2_writel(vop2, RK3568_OVL_CTRL, ovl_ctrl);
+ 
+-	if (port_sel != old_port_sel) {
++	if (port_sel != vop2->old_port_sel) {
++		vop2->old_port_sel = port_sel;
+ 		vop2_writel(vop2, RK3568_OVL_PORT_SEL, port_sel);
+ 		vop2_cfg_done(vp);
+ 		rk3568_vop2_wait_for_port_mux_done(vop2);
+ 	}
+ 
++	vop2->old_layer_sel = layer_sel;
  	vop2_writel(vop2, RK3568_OVL_LAYER_SEL, layer_sel);
++
+ 	mutex_unlock(&vop2->ovl_lock);
+ }
+ 
 
 -- 
 2.53.0
