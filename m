@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE14DCD342F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 22:42:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5B3DCD342F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 22:42:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WPDlks8S40wU9ZB94GBJYrEHqJjoYpfybndF76KRr9U=; b=4Thb+QWxGYQlkwrzsFLjg0f1cz
-	W5NgUIX9u6w80Jmj8ZYzwCqmcCcfckl7dt+R8kB7N30qyOVLfIv7/UElMUKgHtIb5rdmaUtAVN9xF
-	k9qpTF4PGwu7IkrBT2ttHamYySjJFnE2v6v8EydmYW++nLfPhnDbfKpQLcZ9tIg6ahwMn5V19MibA
-	YKlH49oBXz5GPVnLKm0ZaqjAwpUh2m4aVKHP1j1mem7zKfAaTULyGdxQrHPBvUn1MpKTCB/Lr0YNU
-	OM0irCu6nGxGGmBu7iJLEqIBRrAG39d54qDNjgCej0Bwne070AnPvDCtf48JgCYGWV561tYi+VvQe
-	f+vNfayA==;
+	bh=vC+QCMBPXdQWF+dL8GXMYzl+k9Np64sK2GTCcOrjhPY=; b=pdVOjuiSpoyaQE/WT7slS/D3A5
+	/JZeN++NTLQqk2MG4Ph3CDDhwCdVvDng7Nv8ycY4PEgqMNVtPCwD+FPX0K1ShBFk09o039Wbh2LEl
+	jGAgzPpGLl4RbfZh7ajo4z4TOBBTazEppEU9RXS0MY12Lv/EMgSMEO6OTLnY6z8jNxhmHhujPLXJF
+	eJ8oSKZfgTK3KhAYN4p2qvxXpVqiPVjVbsi2TCGH4ICoJgOsI80kSZkV1MuUtdSdNzNpXBWWB9xz+
+	QVo4v//SeWQAzmunJKaw95c1ktF/nYxgTZ+Z9DtcJy4zsaMLECZ4OOHYVP01lQda9oXtX8JMxo9HN
+	VI93jBfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wK1zx-0000000EVLL-3nBY;
-	Mon, 04 May 2026 22:42:45 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	id 1wK205-0000000EVPF-11GC;
+	Mon, 04 May 2026 22:42:53 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wK1zv-0000000EVJd-2e08
+	id 1wK202-0000000EVNF-1Ioi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 22:42:44 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-c7948640854so1949538a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 May 2026 15:42:42 -0700 (PDT)
+	Mon, 04 May 2026 22:42:51 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2b258636d16so49473885ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 May 2026 15:42:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777934562; x=1778539362; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777934569; x=1778539369; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=WPDlks8S40wU9ZB94GBJYrEHqJjoYpfybndF76KRr9U=;
-        b=EbqZUrgPB/zOQLFJFYwPcM6bVDrXhtjJ6G/KqMIxxvVC7sEimssdn4LQA8cKU4u5/F
-         Z6Ggp6bocLZha2GezkSFcHT7rYn0KAnFBq++oTb/foaHi7R8QQqflVxMTlGK+6E/uKYn
-         TBeRmlwS0mKK45tW2Q9bIT+HOqz1+9uFC35RNzZP09ah6ey0Y13dSZBPB0e+ZXPJYGlr
-         6WvAfkzu59aVLLJIdJaE42kwO14X9enfWcudjfMY6l/wdQF86zL+yQrPmavUT0scqoi9
-         ok4Ru+fWlNHJZ+cCjSZs9UER6p0Tlz30Pjf8UzlfBwuQsNNeRUbFoHgIzRzKUl7sH+w3
-         9BMg==
+        bh=vC+QCMBPXdQWF+dL8GXMYzl+k9Np64sK2GTCcOrjhPY=;
+        b=L8lbXO0E+wCIijEyy0BPva8CyfLUnnPuVZzMm7CAzFt+7G62zqWZ8FmxdNYIXQk2p3
+         v+6xz5DVZyWGqEPxYRuM66aq2wnrUs8wQb21nQt2dO3jpzEFD1ab1g9g8k8WQ5VSyfvc
+         Ti0BQb5M97HmYv/3cPkO1Q+rSwlqLTDEFlyY8l9bgD/13ZyM4zw1znTFKhUJs/eAx6Lr
+         0hbA9ifBohu/TWUtzf3+oyjfQ2RwzWf5AiL+Yiss4qM8ZzyiOzJ04Dk8cV7t5LOclSNm
+         S67c60PRLCX4dklm4lZM4JlnDVAufTxXNuTDeNR3lEaWaEu7oGeWEPAbT+tQqsmQ+4WS
+         q3Ig==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777934562; x=1778539362;
+        d=1e100.net; s=20251104; t=1777934569; x=1778539369;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=WPDlks8S40wU9ZB94GBJYrEHqJjoYpfybndF76KRr9U=;
-        b=IquCr+0DjXP9SNg2j8fsKSGKXe3XMGu4cnKbSFdHVyI2y4KGLrSILaM7FhLagjXc9P
-         5cpUEkKIENloi4e0YhaTvFGb1KhWluhbOczRmcV0rU+LXXxWom+xPOXVVH7kUEw81X4d
-         I+7NoeVic1px7O4PdWRbE6Tr9yapp/G14Glepn/paeLWDmHMcQg0yQHffLBJQTiRA7+k
-         QRteC3Adj7uoVAjdXUpoaCWeEPABFIpxgk+N/wdd8OBIZwzx+FWr1juU7t9Fzo7zSi6i
-         eJUjpx14KIEm7/BBKnTYV4AOl59iRIbPG/Xt7A+Vqcs8E/z3xbf374YjJ4GysR7jWfxR
-         xgPw==
-X-Forwarded-Encrypted: i=1; AFNElJ9RrqkmG34lemyciKMNXDhC53QopPE0Si1qL0KsXmjASyIIa67E/mv4kCi3WPjssTaq7cYo+vzlvS76fFSZbGyg@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxq80Q2WbIzize5ek+0mz/dfy75lcGattyDgzBpih+qDgzPwpPe
-	hwBYE4CP6WF6vsC4MCH0OH2wJzzyQwBoveEfvLT3btC0PtQV3ORqf0a1fru712PtBkqDFEEqj/N
-	7y1tFk5Xp6s+Y3Wqx0CoKYg==
-X-Received: from pgbcp9.prod.google.com ([2002:a05:6a02:4009:b0:c79:8315:4734])
+        bh=vC+QCMBPXdQWF+dL8GXMYzl+k9Np64sK2GTCcOrjhPY=;
+        b=nQHsBmEmdLwrPzmFRqL22LdyUA0N5aG9jDeVUEdxmUaZWHNwaPlsrpC6HAMoL1hrq7
+         QNPcoxbyq66LNYUvoMEP968F4L5bidTQ+5oYtV9txwcYREUXPtxxp/RRsPijlECR+Drf
+         L16V1gZHGmVIS3alpJdaDV/cJP3plhsHxN440y3nINOFYul85d+RkeJG44fF0dVa33pw
+         pIOVgJ57CU6pgra8+R21y4Esdb+mU4xOwshzWhBLiVpcnBatB1FregRJZGGMwp3Y6OwA
+         ZCNXEs9drutVDKDeQmyXGVlef+WaUblbksnD8ntMqKQPxxwLbK8rSzBDNoOF0HgOx7a4
+         PzuQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/7eSXAILll8y8cu9mQX8JJa/CPCslGSu4O76psxtUH4Wgw52BbPe1XyP8qd4PuUh+ggRgM7x5u71qwkphog1xq@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx0FD/EEPOe8l80FWPXdWBSL0QtuKj58HYVo8waMrNDs9UsdYMP
+	bjA1H+PZ/GBo/wwssOA2qeXZse6E++A7oAFXNd60V27QHpXKFXQKL8ywBoZ8niBFQUD7wyIvWiJ
+	udZ13DnNOsTO+UoWJDRpGMA==
+X-Received: from plmx11.prod.google.com ([2002:a17:902:fe8b:b0:2ae:3bca:37a5])
  (user=jthoughton job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a20:918a:b0:3a2:e0d3:37d1 with SMTP id adf61e73a8af0-3a7f1eb20dbmr12044574637.41.1777934561428;
- Mon, 04 May 2026 15:42:41 -0700 (PDT)
-Date: Mon,  4 May 2026 22:42:10 +0000
+ 2002:a17:903:4b0d:b0:2b0:6d33:e7c0 with SMTP id d9443c01a7336-2ba535e2df5mr4309355ad.1.1777934568708;
+ Mon, 04 May 2026 15:42:48 -0700 (PDT)
+Date: Mon,  4 May 2026 22:42:11 +0000
 In-Reply-To: <20260504224213.1049426-1-jthoughton@google.com>
 Mime-Version: 1.0
 References: <20260504224213.1049426-1-jthoughton@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260504224213.1049426-4-jthoughton@google.com>
-Subject: [PATCH 3/5] KVM: mips: Grab MMU lock in kvm_arch_flush_shadow_all()
+Message-ID: <20260504224213.1049426-5-jthoughton@google.com>
+Subject: [PATCH 4/5] KVM: Hold MMU lock exclusively when calling kvm_arch_flush_shadow_all()
 From: James Houghton <jthoughton@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>
 Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
@@ -76,12 +76,11 @@ Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly 
 	Huacai Chen <chenhuacai@kernel.org>, James Hogan <jhogan@kernel.org>, 
 	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
 	loongarch@lists.linux.dev, linux-mips@vger.kernel.org, kvm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, James Houghton <jthoughton@google.com>, 
-	stable@vger.kernel.org
+	linux-kernel@vger.kernel.org, James Houghton <jthoughton@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_154243_672298_DFBEAA86 
-X-CRM114-Status: GOOD (  10.57  )
+X-CRM114-CacheID: sfid-20260504_154250_356035_9FCD154F 
+X-CRM114-Status: GOOD (  17.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,49 +95,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-kvm_mips_flush_gpa_pt() expects the MMU lock to be held; it is not in
-this path.
+All architectures that non-trivially implement this function grab the
+KVM MMU lock exclusively to prevent things like double-freeing of page
+table entries and caches. Do so generically to somewhat simplify the
+architecture-specific logic.
 
-This can lead to a double-free of page table entries if
-kvm_arch_flush_shadow_all() is called twice on the same `kvm`
-concurrently; such a scenario is possible.
+Without this change, it is possible for kvm_arch_flush_shadow_all() to
+be called on the same `kvm` at the same time: if the `kvm`'s mm is
+destroyed (exit_mm()) at the same time to the final reference to the
+`kvm` is dropped.
 
-Cc: stable@vger.kernel.org
-Fixes: b62091108633 ("KVM: MIPS: Implement kvm_arch_flush_shadow_all/memslot")
 Signed-off-by: James Houghton <jthoughton@google.com>
 ---
-Note: This is compile-tested only!
+ arch/arm64/kvm/nested.c  | 2 +-
+ arch/loongarch/kvm/mmu.c | 4 +++-
+ arch/mips/kvm/mips.c     | 2 +-
+ arch/riscv/kvm/mmu.c     | 4 ++--
+ arch/riscv/kvm/vm.c      | 2 ++
+ arch/x86/kvm/mmu/mmu.c   | 4 +---
+ virt/kvm/kvm_main.c      | 3 +++
+ 7 files changed, 13 insertions(+), 8 deletions(-)
 
- arch/mips/kvm/mips.c | 2 ++
- arch/mips/kvm/mmu.c  | 2 ++
- 2 files changed, 4 insertions(+)
-
-diff --git a/arch/mips/kvm/mips.c b/arch/mips/kvm/mips.c
-index a53abbba43ea..463b6c4aa62c 100644
---- a/arch/mips/kvm/mips.c
-+++ b/arch/mips/kvm/mips.c
-@@ -180,6 +180,8 @@ long kvm_arch_dev_ioctl(struct file *filp, unsigned int ioctl,
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index 977598bff5e6..ba2e6c98bd45 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -1190,7 +1190,7 @@ void kvm_arch_flush_shadow_all(struct kvm *kvm)
+ {
+ 	int i;
+ 
+-	guard(write_lock)(&kvm->mmu_lock);
++	lockdep_assert_held_write(&kvm->mmu_lock);
+ 
+ 	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
+ 		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+diff --git a/arch/loongarch/kvm/mmu.c b/arch/loongarch/kvm/mmu.c
+index 5dbce9b18e1c..120001da26e4 100644
+--- a/arch/loongarch/kvm/mmu.c
++++ b/arch/loongarch/kvm/mmu.c
+@@ -486,7 +486,9 @@ void kvm_arch_commit_memory_region(struct kvm *kvm,
  
  void kvm_arch_flush_shadow_all(struct kvm *kvm)
  {
-+	guard(spinlock)(&kvm->mmu_lock);
-+
- 	/* Flush whole GPA */
- 	kvm_mips_flush_gpa_pt(kvm, 0, ~0);
- 	kvm_flush_remote_tlbs(kvm);
-diff --git a/arch/mips/kvm/mmu.c b/arch/mips/kvm/mmu.c
-index d2c3b6b41f18..5045833f8116 100644
---- a/arch/mips/kvm/mmu.c
-+++ b/arch/mips/kvm/mmu.c
-@@ -269,6 +269,8 @@ static bool kvm_mips_flush_gpa_pgd(pgd_t *pgd, unsigned long start_gpa,
-  */
- bool kvm_mips_flush_gpa_pt(struct kvm *kvm, gfn_t start_gfn, gfn_t end_gfn)
- {
+-	kvm_flush_range(kvm, 0, kvm->arch.gpa_size >> PAGE_SHIFT, 1);
 +	lockdep_assert_held(&kvm->mmu_lock);
 +
- 	return kvm_mips_flush_gpa_pgd(kvm->arch.gpa_mm.pgd,
- 				      start_gfn << PAGE_SHIFT,
- 				      end_gfn << PAGE_SHIFT);
++	kvm_flush_range(kvm, 0, kvm->arch.gpa_size >> PAGE_SHIFT, 0);
+ }
+ 
+ void kvm_arch_flush_shadow_memslot(struct kvm *kvm, struct kvm_memory_slot *slot)
+diff --git a/arch/mips/kvm/mips.c b/arch/mips/kvm/mips.c
+index 463b6c4aa62c..4ad9e21a3321 100644
+--- a/arch/mips/kvm/mips.c
++++ b/arch/mips/kvm/mips.c
+@@ -180,7 +180,7 @@ long kvm_arch_dev_ioctl(struct file *filp, unsigned int ioctl,
+ 
+ void kvm_arch_flush_shadow_all(struct kvm *kvm)
+ {
+-	guard(spinlock)(&kvm->mmu_lock);
++	lockdep_assert_held(&kvm->mmu_lock);
+ 
+ 	/* Flush whole GPA */
+ 	kvm_mips_flush_gpa_pt(kvm, 0, ~0);
+diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+index 2d3def024270..c1b9333f17eb 100644
+--- a/arch/riscv/kvm/mmu.c
++++ b/arch/riscv/kvm/mmu.c
+@@ -558,7 +558,8 @@ void kvm_riscv_mmu_free_pgd(struct kvm *kvm)
+ 	struct kvm_gstage gstage;
+ 	void *pgd = NULL;
+ 
+-	spin_lock(&kvm->mmu_lock);
++	lockdep_assert_held(&kvm->mmu_lock);
++
+ 	if (kvm->arch.pgd) {
+ 		kvm_riscv_gstage_init(&gstage, kvm);
+ 		kvm_riscv_gstage_unmap_range(&gstage, 0UL,
+@@ -568,7 +569,6 @@ void kvm_riscv_mmu_free_pgd(struct kvm *kvm)
+ 		kvm->arch.pgd_phys = 0;
+ 		kvm->arch.pgd_levels = 0;
+ 	}
+-	spin_unlock(&kvm->mmu_lock);
+ 
+ 	if (pgd)
+ 		free_pages((unsigned long)pgd, get_order(kvm_riscv_gstage_pgd_size));
+diff --git a/arch/riscv/kvm/vm.c b/arch/riscv/kvm/vm.c
+index a9f083feeb76..f704a64bfc48 100644
+--- a/arch/riscv/kvm/vm.c
++++ b/arch/riscv/kvm/vm.c
+@@ -38,7 +38,9 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
+ 
+ 	r = kvm_riscv_gstage_vmid_init(kvm);
+ 	if (r) {
++		spin_lock(&kvm->mmu_lock);
+ 		kvm_riscv_mmu_free_pgd(kvm);
++		spin_unlock(&kvm->mmu_lock);
+ 		return r;
+ 	}
+ 
+diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
+index 892246204435..6e6f94046b3f 100644
+--- a/arch/x86/kvm/mmu/mmu.c
++++ b/arch/x86/kvm/mmu/mmu.c
+@@ -7352,7 +7352,7 @@ static void kvm_mmu_zap_all(struct kvm *kvm)
+ 	LIST_HEAD(invalid_list);
+ 	int ign;
+ 
+-	write_lock(&kvm->mmu_lock);
++	lockdep_assert_held_write(&kvm->mmu_lock);
+ restart:
+ 	list_for_each_entry_safe(sp, node, &kvm->arch.active_mmu_pages, link) {
+ 		if (WARN_ON_ONCE(sp->role.invalid))
+@@ -7367,8 +7367,6 @@ static void kvm_mmu_zap_all(struct kvm *kvm)
+ 
+ 	if (tdp_mmu_enabled)
+ 		kvm_tdp_mmu_zap_all(kvm);
+-
+-	write_unlock(&kvm->mmu_lock);
+ }
+ 
+ void kvm_arch_flush_shadow_all(struct kvm *kvm)
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 89489996fbc1..f5affd3bfda8 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -340,7 +340,10 @@ void kvm_flush_remote_tlbs_memslot(struct kvm *kvm,
+ 
+ static void kvm_flush_shadow_all(struct kvm *kvm)
+ {
++	KVM_MMU_LOCK(kvm);
+ 	kvm_arch_flush_shadow_all(kvm);
++	KVM_MMU_UNLOCK(kvm);
++
+ 	kvm_arch_guest_memory_reclaimed(kvm);
+ }
+ 
 -- 
 2.54.0.545.g6539524ca2-goog
 
