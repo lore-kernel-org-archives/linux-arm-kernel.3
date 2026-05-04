@@ -4,92 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2D17CD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 11:11:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AFCCCD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 11:14:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=27+9hbIbO04NsdU2Ihy7RK9GtejGnCOQvrQ7DVV6SEE=; b=Kg2c3muaFKqfqe/JLq3LoEKC87
-	1WKDiGirICE68jLMAcYq8dTdOq8aL5xShwYAI0kO8So+ze3iGgrEdl6YG2DcxKS6TCVSnpPpDQZ0J
-	y2y8YkjqAC3IH3kNY8F9u05PpI08BuJ8jQZka5ca63bsDwrQHtEIAxBW68HTVWWFRfnrsvz8Y6P7W
-	uM0suI/eTQ2HiZRi0x3U+URCUOcCFwHhnJj/EwNhTW9GHH9NKKSbU5AClijydk0M3fdKHSn3HPSzm
-	qr/aCBLjN6xELmpRV6N0aRCfiOs4K+OKKQZe5kCdgIMMbLtZpqp5JFPyqe5gGAXwoF8USJCZrR/n+
-	PW+wis8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eIoXQIVw/Vuj4jbZ/QrXIRnsUY3etOFhZ4gnsuho/XY=; b=3Cx4q/xoRqol2zib2hcIZ0Hreu
+	G0QwVaVu++aPJXk09bpLA2hxxhBjN+Ru+ocZXzqvQUVfAOESBb9tZDcXJht90FKCfRoqPHoY/jxmD
+	dstFYOZlK5I3KMh3N+xcutSZPRcUTV3whTFUqomuZSHYYXxkDTos5WtOduGTV5PhBPkKb9W5IonSx
+	pWOZbJflz1moXcZfb2KApIDiJDc/CvC9zdDh7fcCSAhauKLkm2CY5ELzFEL4BxgusTVPHj3J5W5S3
+	haeQ7PgP+CcqK42NyJhnBadh2/kUrUTi3bc7bBxCtaY+kHck4CIMb8ARqxvljj1v6OysmM0Om9ZhL
+	Ee+SQZLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJrCq-0000000D0hL-3yAZ;
-	Mon, 04 May 2026 11:11:20 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1wJrFu-0000000D16B-1RJF;
+	Mon, 04 May 2026 11:14:30 +0000
+Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJrCo-0000000D0gP-08s4
+	id 1wJrFq-0000000D14B-1UbS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 11:11:20 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <m.tretter@pengutronix.de>)
-	id 1wJrCY-000165-73; Mon, 04 May 2026 13:11:02 +0200
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <m.tretter@pengutronix.de>)
-	id 1wJrCX-000On2-0w;
-	Mon, 04 May 2026 13:11:01 +0200
-Received: from mtr by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
-	(envelope-from <m.tretter@pengutronix.de>)
-	id 1wJrCX-0000000Gbea-2V4Y;
-	Mon, 04 May 2026 13:11:01 +0200
-Date: Mon, 4 May 2026 13:11:01 +0200
-From: Michael Tretter <m.tretter@pengutronix.de>
-To: Frank Li <Frank.li@nxp.com>, Hans Verkuil <hverkuil+cisco@kernel.org>,
-	Steve Longerbeam <slongerbeam@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>, linux-media@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-staging@lists.linux.dev
-Subject: Re: [PATCH v2 0/3] media: imx-csi: cleanup media pipeline start
-Message-ID: <afh-xcWC2p62-QvN@pengutronix.de>
-Mail-Followup-To: Michael Tretter <m.tretter@pengutronix.de>,
-	Frank Li <Frank.li@nxp.com>,
-	Hans Verkuil <hverkuil+cisco@kernel.org>,
-	Steve Longerbeam <slongerbeam@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>, linux-media@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-staging@lists.linux.dev
-References: <20251218-media-imx-cleanup-v2-0-9e3e3c269f7f@pengutronix.de>
- <aXOoc0lvAtPt0fAL@pengutronix.de>
- <aco5Ei1B4vJWKMMj@pengutronix.de>
- <acqK9Ms_eRxg59Xa@lizhi-Precision-Tower-5810>
- <adffNaI6hQbc1mAO@pengutronix.de>
+	Mon, 04 May 2026 11:14:28 +0000
+Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-8d4f78fc9f6so436097185a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 May 2026 04:14:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1777893264; x=1778498064; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=eIoXQIVw/Vuj4jbZ/QrXIRnsUY3etOFhZ4gnsuho/XY=;
+        b=jfezJUbOj5MZom7zde98uv0DWDihqkzrngMZu3kG5j5FMPPWpEs1A8X36v6xnUNjaE
+         of1HtQ3+ZsEqpzCmPBfC8uMyuIonOzkTM2Ih2VqUe36ayoB7ptMM32AIWTw2gpCPZVrr
+         8vdgRNy9NHnmn9jpvEYETf06B1pbM9CUcvttiocvSwpzBT63RVPEEQqynJe4hp8Ga0x9
+         VwKeYwdEOrRukgVDU4MkDlBXEWjQs9Os2c4zS2DxEDA9+owW61EIxgJIqrUM2kxprYrF
+         rCGWNSU4r7E8dcGs38yBogNfzFsFQYgNpsVJBhDPTdufvWEom53DcCesiyeFgEKbtyea
+         HJ7A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777893264; x=1778498064;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=eIoXQIVw/Vuj4jbZ/QrXIRnsUY3etOFhZ4gnsuho/XY=;
+        b=j0m2gs6YX7VDxHFk9a9l0H3wY6QSR3Z3ZdGemTWm/gbeF2G+Y7Pie5WI6mLAmnF/jW
+         OETYjI2Nbx7krLQ1fOfoO07xM2wyGaAFiAozMLPXvtBxP611nyjppykkqFLvLCR6h/SG
+         Abe7nVZX52vRO70usXAE7bElsem8Md/2D2JWCK4ZvqQYaVkDOS6ZYhVbldQB8jq8pfH6
+         D18fNX8gA9VvCcRudeK0adyaGmjTOUHfUWKud+T5wVhBkGaPcstesuRizt7ZPVwkIRus
+         1hKOxKuaCKnaTgp9lzQIx+/ryHN0361YFYc2NSy5kD5XqVNXp83z9TCy74NDeP0sj2dl
+         g3tA==
+X-Forwarded-Encrypted: i=1; AFNElJ+SFmi8igM2JicVmcQVec6pA/69w+PFTU1d0qJL/hByHlrJIj0Z73ITDnTbUipDdrZrnb0KlgU+V0L1wfPt8qqd@lists.infradead.org
+X-Gm-Message-State: AOJu0YwPCylGX076WWhs1LsHZ+ma/kuw8rXoqeJtrH0mIKNklyKe3FTU
+	ULM3PrCxl5EtCx4kben6stSQG6VQeUxBeX4JQnYlCC5W+9+8caU6XG6V
+X-Gm-Gg: AeBDieuCqpyBng5FpYP4gfxGe6Y1FtDxIoGIBTZfDQkewQYY17LgxH5lPcrpTUTGDG8
+	eE+5rKZLtLpXGajGsc9xUtnDLgJwwefOwgL/39kjqzR9E9XAO3xqzP6N7TGwi5wyV1SoNsJ6mZo
+	A4BC005O1OsSmv31NAx2CYdmJhXaJF63Z+mHwqB1WnUwjf8cwB30e274b3Q83398Y7Oq5f1dsZu
+	vZMs2uRisIFI8By9NAD68imsnt6UH0XobyRnDLcLGd5hyVeE0pk2Lm2wWd6i8bupvoAVSorphz0
+	lt+T3Ma3KQcsJcGtdsz71OfidIujdmPeRzUQOmfWqAFGyM9KoakLqZ0rHxMSW7tr7rPUONxFG55
+	tfPwaslWXpojc9FMoj/lXAPsuMQRw4gCsh9eIRlTfWDWsLGsbokJk5EeKo12K7nBMw9z+HHimAN
+	ubT70B0RoEo+oJraZrVwEe74xDbHibkZsoKpVIbP88go/cq+YjbQo0qF8CkiCHXd1WP0NReiDP2
+	JQk/Q==
+X-Received: by 2002:a05:620a:230b:10b0:902:df55:8ee1 with SMTP id af79cd13be357-902df558f8bmr29755685a.8.1777893264457;
+        Mon, 04 May 2026 04:14:24 -0700 (PDT)
+Received: from House.mynetworksettings.com ([2600:4040:2afb:6400:b95a:c81a:e3b:6e2c])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-9027c2baea8sm214559385a.45.2026.05.04.04.14.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 04 May 2026 04:14:24 -0700 (PDT)
+From: Maha Maryam Javaid <mahamaryamjavaid@gmail.com>
+To: neil.armstrong@linaro.org
+Cc: mchehab@kernel.org,
+	gregkh@linuxfoundation.org,
+	khilman@baylibre.com,
+	jbrunet@baylibre.com,
+	martin.blumenstingl@googlemail.com,
+	linux-media@vger.kernel.org,
+	linux-amlogic@lists.infradead.org,
+	linux-staging@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	hverkuil+cisco@kernel.org,
+	Maha Maryam Javaid <mahamaryamjavaid@gmail.com>
+Subject: [PATCH] staging: media: meson: fix typo in codec files
+Date: Mon,  4 May 2026 07:12:19 -0400
+Message-Id: <20260504111219.7797-1-mahamaryamjavaid@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <adffNaI6hQbc1mAO@pengutronix.de>
-X-Sent-From: Pengutronix Hildesheim
-X-URL: http://www.pengutronix.de/
-X-Accept-Language: de,en
-X-Accept-Content-Type: text/plain
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: m.tretter@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_041118_111143_16C831C5 
-X-CRM114-Status: GOOD (  30.19  )
+X-CRM114-CacheID: sfid-20260504_041426_772298_A7184721 
+X-CRM114-Status: GOOD (  11.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,62 +106,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+Fix spelling mistake: substracted -> subtracted
 
-On Thu, 09 Apr 2026 19:17:41 +0200, Michael Tretter wrote:
-> On Mon, 30 Mar 2026 10:38:44 -0400, Frank Li wrote:
-> > On Mon, Mar 30, 2026 at 10:49:22AM +0200, Michael Tretter wrote:
-> > > Hi Hans,
-> > >
-> > > On Fri, 23 Jan 2026 17:57:23 +0100, Michael Tretter wrote:
-> > > > On Thu, 18 Dec 2025 10:23:48 +0100, Michael Tretter wrote:
-> > > > > The imx media device currently assumes that there is only a single media
-> > > > > pipeline. However, the media graph has multiple imx capture devices.
-> > > > > These may be started separately on media pipelines if they don't cause
-> > > > > conflicts in the media graph.
-> > > > >
-> > > > > Move the media pipeline from the media device to the capture devices to
-> > > > > properly track and handle multiple media pipelines for the imx-csi.
-> > > > > Refactor the code to start the media pipeline from the driver to help
-> > > > > the reader.
-> > > >
-> > >
-> > > Could you take a look and apply this series for the imx-media driver,
-> > > too? The patches are already reviewed by Frank Li and Philipp Zabel.
-> > 
-> > Sorry, I will take care imx's stage driver. I already sent pull-request,
-> > which included your other two patches.
-> 
-> Thanks for taking care! I found the other two patches in the
-> media-committers repository.
+Signed-off-by: Maha Maryam Javaid <mahamaryamjavaid@gmail.com>
+---
+ drivers/staging/media/meson/vdec/codec_h264.c   | 2 +-
+ drivers/staging/media/meson/vdec/codec_mpeg12.c | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-Ping. Would it be possible to include this series in the pull request
-for Linux v7.2?
+diff --git a/drivers/staging/media/meson/vdec/codec_h264.c b/drivers/staging/media/meson/vdec/codec_h264.c
+index 89e0f8624e5b..a6074de15118 100644
+--- a/drivers/staging/media/meson/vdec/codec_h264.c
++++ b/drivers/staging/media/meson/vdec/codec_h264.c
+@@ -16,7 +16,7 @@
+ #define SIZE_SEI	(8 * SZ_1K)
+ 
+ /*
+- * Offset added by the firmware which must be substracted
++ * Offset added by the firmware which must be subtracted
+  * from the workspace phyaddr
+  */
+ #define WORKSPACE_BUF_OFFSET	0x1000000
+diff --git a/drivers/staging/media/meson/vdec/codec_mpeg12.c b/drivers/staging/media/meson/vdec/codec_mpeg12.c
+index 76e9ca7191ab..ab4374e3b2ef 100644
+--- a/drivers/staging/media/meson/vdec/codec_mpeg12.c
++++ b/drivers/staging/media/meson/vdec/codec_mpeg12.c
+@@ -12,7 +12,7 @@
+ #include "vdec_helpers.h"
+ 
+ #define SIZE_WORKSPACE		SZ_128K
+-/* Offset substracted by the firmware from the workspace paddr */
++/* Offset subtracted by the firmware from the workspace paddr */
+ #define WORKSPACE_OFFSET	(5 * SZ_1K)
+ 
+ /* map firmware registers to known MPEG1/2 functions */
+-- 
+2.34.1
 
-I couldn't find the patches neither in media nor in media-committers.
-
-Michael
-
-> > > >
-> > > > >
-> > > > > Signed-off-by: Michael Tretter <m.tretter@pengutronix.de>
-> > > > > ---
-> > > > > Changes in v2:
-> > > > > - Improve code readability in Patch 2
-> > > > > - Update commit message of Patch 3 as suggested by Frank Li
-> > > > > - Link to v1: https://patch.msgid.link/20251107-media-imx-cleanup-v1-0-f82a693c28f4@pengutronix.de
-> > > > >
-> > > > > ---
-> > > > > Michael Tretter (3):
-> > > > >       media: imx-csi: move media_pipeline to video device
-> > > > >       media: imx-csi: explicitly start media pipeline on pad 0
-> > > > >       media: imx-csi: use media_pad_is_streaming helper
-> > > > >
-> > > > >  drivers/staging/media/imx/imx-media-capture.c |  8 ++++----
-> > > > >  drivers/staging/media/imx/imx-media-utils.c   | 12 ++++++++----
-> > > > >  drivers/staging/media/imx/imx-media.h         |  7 ++++---
-> > > > >  3 files changed, 16 insertions(+), 11 deletions(-)
-> > > > > ---
-> > > > > base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-> > > > > change-id: 20251107-media-imx-cleanup-9022d941ae44
 
