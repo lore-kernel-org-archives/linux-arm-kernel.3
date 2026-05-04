@@ -4,68 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BBCECD343C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 16:52:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5A0AFF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 16:52:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cCHgyC0BhiRCmgl36Zu440ZWPFQeNkt6EfZQa/Geuwk=; b=esKCDyobC+BrvmEqOopxZzRv4i
-	jJ5BPKd7xeDcaVaoo8NwTTbPPlRaWsNRf0oexmSsKn6LajQzYYPdaHIMMXBPRwV292Wu/388PqqqH
-	pXa5QE+X6p5nfBtBNh4496o8C2jw7iqGTyfKMDl8AFxNBHu10NVD7y6UBggxz9fCKudMO5rCUKHcS
-	MYttVSI7QGNabKZVK42jnnIbIq34UT21+ecJXjoIr3jFQZJUwIKofvh3k038GvNNqm9qtHZ9O4DCS
-	DDr7eyC8yQm9vEJ16SuDTH+Eegxt6sJGtTijIATVoqUFwZrNUqV/7o4z+5nU4V7ioI687zw+bmqDP
-	lzRhqQ/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+cMkB9Pn+PhAlTlbMNpdaARg3YuqZ1ZGJc9cJ63qou8=; b=XFy5jKoc2PSLjv85M8mj3kHAos
+	hsUm3bFV/Y7seBECxkjCXNMtBnEhvZJEUC8ArjzOkqfnWgewYTwmFU4fvygncE4sC8MEmfG354NoY
+	GJc2kkaZkncKKqAplPFyOYRdbdOFQdZzX4iQvkJ8SMZCwPiS0059sCvbEhuk9R83EXP0YlDljynhe
+	acPIJkTIhMuK3C5qX1PNTY0kDJOBYw3F6E3WGk76aZinX71d8/xRYQ6WO4vguJZmmDrcnyJDDrqL0
+	Uezb8oHFi7Z+f8lAYwqhLUfd+hUmdJRARmwe+yATgAicMF5y8acV2sQgmnpmwVYvSwtc8sNCGqwtr
+	wfFvQO4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJwWy-0000000DlK8-25Sg;
-	Mon, 04 May 2026 16:52:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJwWw-0000000DlIV-19Rd
+	id 1wJwX4-0000000DlOM-3ptp;
+	Mon, 04 May 2026 16:52:34 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wJwX2-0000000DlLv-11Dp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 16:52:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9DB4E1691;
-	Mon,  4 May 2026 09:52:19 -0700 (PDT)
-Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D4C4E3F763;
-	Mon,  4 May 2026 09:52:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777913545; bh=b1TfSp8pJ8Zlwfe8b5wy069zWBg5zqbxvqUZ5fMpVtk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=aE8ymg7J003652yTbbJuowZD3DnZam5JFGJ5kay2wilqWsmGHAkT7hqx9FRPx39/M
-	 QnpIn0TS2aAOMVkhdjPcgTplHHeNo9ZO2Nvdfk1GHCXLoueeO8yCW+ouA+3cU+y2Pu
-	 +3YqiA4oDaABhYisye+ZwNng56qwYA1QxYpHo4oA=
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org
-Cc: sudeep.holla@kernel.org,
-	philip.radford@arm.com,
-	james.quinlan@broadcom.com,
-	f.fainelli@gmail.com,
-	vincent.guittot@linaro.org,
-	etienne.carriere@foss.st.com,
-	peng.fan@oss.nxp.com,
-	michal.simek@amd.com,
-	gatien.chevallier@foss.st.com,
-	u.kleine-koenig@baylibre.com,
-	dakr@kernel.org,
-	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH v1 3/3] firmware: arm_scmi: optee: Rework transport probe sequence
-Date: Mon,  4 May 2026 17:52:04 +0100
-Message-ID: <20260504165204.639499-4-cristian.marussi@arm.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260504165204.639499-1-cristian.marussi@arm.com>
-References: <20260504165204.639499-1-cristian.marussi@arm.com>
+	Mon, 04 May 2026 16:52:33 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 4F3B79C;
+	Mon,  4 May 2026 18:52:28 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1777913548;
+	bh=Zp02atCQOj7Mvz8FpD9o1Rib3JYiNwqY/fzhTQloymc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=apQMfJezBXKACeI7uQn/oz/Lcn5MEWfk1oZq+4/QwXjK4nd490DgyWBu45eZIV78V
+	 oG6cukUKj4q26+bcvBlCyV4+vCJ07TZ41wfzmQ93Z73XT8XzHkRyqZY1OXQuMthKKo
+	 Uy+VcIEaS1+FAh3h5pLW3a03re+ils9QLAHjOAl8=
+Date: Mon, 4 May 2026 19:52:29 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Jyri Sarha <jyri.sarha@iki.fi>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Simon Ser <contact@emersion.fr>,
+	Harry Wentland <harry.wentland@amd.com>,
+	Melissa Wen <mwen@igalia.com>,
+	Sebastian Wick <sebastian.wick@redhat.com>,
+	Alex Hung <alex.hung@amd.com>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>,
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+	dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>,
+	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v3 10/20] drm/plane: Add new atomic_create_state callback
+Message-ID: <20260504165229.GM1344263@killaraus.ideasonboard.com>
+References: <20260424-drm-mode-config-init-v3-0-8b68d9db0d8b@kernel.org>
+ <20260424-drm-mode-config-init-v3-10-8b68d9db0d8b@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260424-drm-mode-config-init-v3-10-8b68d9db0d8b@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_095226_415352_ECD3322B 
-X-CRM114-Status: GOOD (  19.23  )
+X-CRM114-CacheID: sfid-20260504_095232_427845_A5747826 
+X-CRM114-Status: GOOD (  36.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,182 +95,206 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the new per-instance transport handles helpers to synchronize and
-optionally defer the core SCMI driver probe up until the transport driver
-has completely been initialized and it is fully operational as a supplier.
+Hi Maxime,
 
-Introduce proper module init/exit routines while removing the ugly trick of
-registering a driver from within the probe sequence of another one, just to
-avoid to have to deal with probe deferrals.
+Thank you for the patch.
 
-Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
----
- drivers/firmware/arm_scmi/transports/optee.c | 118 +++++++++++++++++--
- 1 file changed, 105 insertions(+), 13 deletions(-)
+On Fri, Apr 24, 2026 at 12:18:50PM +0200, Maxime Ripard wrote:
+> Commit 47b5ac7daa46 ("drm/atomic: Add new atomic_create_state callback
+> to drm_private_obj") introduced a new pattern for allocating drm object
+> states.
+> 
+> Instead of relying on the reset() callback, it created a new
+> atomic_create_state hook. This is helpful because reset is a bit
+> overloaded: it's used to create the initial software state, reset it,
+> but also reset the hardware.
+> 
+> It can also be used either at probe time, to create the initial state
+> and possibly reset the hardware to an expected default, but also during
+> suspend/resume.
+> 
+> Both these cases come with different expectations too: during the
+> initialization, we want to initialize all states, but during
+> suspend/resume, drm_private_states for example are expected to be kept
+> around.
+> 
+> reset() also isn't fallible, which makes it harder to handle
+> initialization errors properly. This is only really relevant for some
+> drivers though, since all the helpers for reset only create a new
+> state, and don't touch the hardware at all.
+> 
+> It was thus decided to create a new hook that would allocate and
+> initialize a pristine state without any side effect:
+> atomic_create_state to untangle a bit some of it, and to separate the
+> initialization with the actual reset one might need during a
+> suspend/resume.
+> 
+> Continue the transition to the new pattern with planes.
+> 
+> Signed-off-by: Maxime Ripard <mripard@kernel.org>
+> ---
+>  drivers/gpu/drm/drm_atomic_state_helper.c | 25 +++++++++++++++++++++++++
+>  drivers/gpu/drm/drm_mode_config.c         | 21 ++++++++++++++++++++-
+>  include/drm/drm_atomic_state_helper.h     |  2 ++
+>  include/drm/drm_plane.h                   | 16 ++++++++++++++++
+>  4 files changed, 63 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/gpu/drm/drm_atomic_state_helper.c b/drivers/gpu/drm/drm_atomic_state_helper.c
+> index 285efbf29520..50fe4eec41a8 100644
+> --- a/drivers/gpu/drm/drm_atomic_state_helper.c
+> +++ b/drivers/gpu/drm/drm_atomic_state_helper.c
+> @@ -338,10 +338,35 @@ void drm_atomic_helper_plane_reset(struct drm_plane *plane)
+>  	if (plane->state)
+>  		__drm_atomic_helper_plane_reset(plane, plane->state);
+>  }
+>  EXPORT_SYMBOL(drm_atomic_helper_plane_reset);
+>  
+> +/**
+> + * drm_atomic_helper_plane_create_state - default &drm_plane_funcs.atomic_create_state hook for planes
 
-diff --git a/drivers/firmware/arm_scmi/transports/optee.c b/drivers/firmware/arm_scmi/transports/optee.c
-index 07ae18d5279d..6950089fb659 100644
---- a/drivers/firmware/arm_scmi/transports/optee.c
-+++ b/drivers/firmware/arm_scmi/transports/optee.c
-@@ -154,6 +154,79 @@ static struct scmi_transport_core_operations *core;
- /* There can be only 1 SCMI service in OP-TEE we connect to */
- static struct scmi_optee_agent *scmi_optee_private;
- 
-+/**
-+ * struct scmi_optee_suppliers  - Transport descriptor
-+ * @mtx: A mutex to protect @available
-+ * @available: A reference to an initialized transport device ready to use
-+ *	       which  will cycle through the following 3 states:
-+ *	       1. PTR_ERR(-EPROBE_DEFER) at start before transport is ready
-+ *	       2. <supplier_dev> when transport is initialized, ready for use,
-+ *	          but still unused
-+ *	       3. PTR_ERR(-EBUSY) when transport supplier device is in use
-+ * @th: An embedded transport handle object that embeds the helpers
-+ *	implementing the above mentioned logic
-+ *
-+ * Note that this transport driver enforces single instance probing.
-+ */
-+struct scmi_optee_suppliers {
-+	/* Protect @available */
-+	struct mutex mtx;
-+	struct device *available;
-+	const struct scmi_transport_handle th;
-+};
-+
-+#define to_osup(t)	container_of(t, struct scmi_optee_suppliers, th)
-+
-+static int scmi_optee_supplier_init(const struct scmi_transport_handle *th,
-+				    struct device *dev)
-+{
-+	struct scmi_optee_suppliers *osup = to_osup(th);
-+
-+	guard(mutex)(&osup->mtx);
-+	/* Was any transport already registered ? */
-+	if (!IS_ERR(osup->available))
-+		return -EBUSY;
-+
-+	osup->available = dev;
-+
-+	return 0;
-+}
-+
-+static struct device *
-+scmi_optee_supplier_get(const struct scmi_transport_handle *th)
-+{
-+	struct scmi_optee_suppliers *osup = to_osup(th);
-+	struct device *supplier;
-+
-+	guard(mutex)(&osup->mtx);
-+	supplier = osup->available;
-+	if (!IS_ERR(supplier))
-+		osup->available = ERR_PTR(-EBUSY);
-+
-+	return supplier;
-+}
-+
-+static void scmi_optee_supplier_put(const struct scmi_transport_handle *th,
-+				    struct device *supplier)
-+{
-+	struct scmi_optee_suppliers *osup = to_osup(th);
-+
-+	guard(mutex)(&osup->mtx);
-+	osup->available = supplier;
-+}
-+
-+static void scmi_optee_supplier_cleanup(const struct scmi_transport_handle *th)
-+{
-+	scmi_optee_supplier_put(th, ERR_PTR(-EPROBE_DEFER));
-+}
-+
-+static struct scmi_optee_suppliers scmi_transport_suppliers = {
-+	.mtx = __MUTEX_INITIALIZER(mutexname),
-+	.available = INIT_ERR_PTR(-EPROBE_DEFER),
-+	.th.supplier_get = scmi_optee_supplier_get,
-+	.th.supplier_put = scmi_optee_supplier_put,
-+};
-+
- /* Open a session toward SCMI OP-TEE service with REE_KERNEL identity */
- static int open_session(struct scmi_optee_agent *agent, u32 *tee_session)
- {
-@@ -522,7 +595,7 @@ static struct scmi_desc scmi_optee_desc = {
- };
- 
- static const struct of_device_id scmi_of_match[] = {
--	{ .compatible = "linaro,scmi-optee" },
-+	{ .compatible = "linaro,scmi-optee", .data = &scmi_transport_suppliers.th},
- 	{ /* Sentinel */ },
- };
- 
-@@ -561,15 +634,12 @@ static int scmi_optee_service_probe(struct tee_client_device *scmi_pta)
- 	if (ret)
- 		goto err;
- 
--	/* Ensure agent resources are all visible before scmi_optee_private is */
--	smp_mb();
--	scmi_optee_private = agent;
--
--	ret = platform_driver_register(&scmi_optee_driver);
--	if (ret) {
--		scmi_optee_private = NULL;
-+	ret = scmi_optee_supplier_init(&scmi_transport_suppliers.th, agent->dev);
-+	if (ret)
- 		goto err;
--	}
-+
-+	/* Ensure initialized scmi_optee_private is visible */
-+	smp_store_mb(scmi_optee_private, agent);
- 
- 	return 0;
- 
-@@ -586,13 +656,12 @@ static void scmi_optee_service_remove(struct tee_client_device *scmi_pta)
- 	if (!scmi_optee_private)
- 		return;
- 
--	platform_driver_unregister(&scmi_optee_driver);
--
- 	if (!list_empty(&scmi_optee_private->channel_list))
- 		return;
- 
--	/* Ensure cleared reference is visible before resources are released */
-+	/* Ensure scmi_optee_private is visible as NULL */
- 	smp_store_mb(scmi_optee_private, NULL);
-+	scmi_optee_supplier_cleanup(&scmi_transport_suppliers.th);
- 
- 	tee_client_close_context(agent->tee_ctx);
- }
-@@ -616,7 +685,30 @@ static struct tee_client_driver scmi_optee_service_driver = {
- 	},
- };
- 
--module_tee_client_driver(scmi_optee_service_driver);
-+static int __init scmi_transport_optee_init(void)
-+{
-+	int ret;
-+
-+	ret = tee_client_driver_register(&scmi_optee_service_driver);
-+	if (ret)
-+		return ret;
-+
-+	ret = platform_driver_register(&scmi_optee_driver);
-+	if (ret) {
-+		tee_client_driver_unregister(&scmi_optee_service_driver);
-+		return ret;
-+	}
-+
-+	return ret;
-+}
-+module_init(scmi_transport_optee_init);
-+
-+static void __exit scmi_transport_optee_exit(void)
-+{
-+	platform_driver_unregister(&scmi_optee_driver);
-+	tee_client_driver_unregister(&scmi_optee_service_driver);
-+}
-+module_exit(scmi_transport_optee_exit);
- 
- MODULE_AUTHOR("Etienne Carriere <etienne.carriere@foss.st.com>");
- MODULE_DESCRIPTION("SCMI OPTEE Transport driver");
+drm_atomic_helper_colorop_create_state() states "Allocates and
+initializes colorop atomic state", while here you document it as
+"default hook for planes". Consistency would be good.
+
+> + * @plane: plane object
+> + *
+> + * Initializes a pristine @drm_plane_state.
+
+"Allocate and initialize ..."
+
+> + *
+> + * This is useful for drivers that don't subclass @drm_plane_state.
+> + *
+> + * RETURNS:
+> + * Pointer to new plane state, or ERR_PTR on failure.
+> + */
+> +struct drm_plane_state *drm_atomic_helper_plane_create_state(struct drm_plane *plane)
+> +{
+> +	struct drm_plane_state *state;
+> +
+> +	state = kzalloc_obj(*state);
+> +	if (!state)
+> +		return ERR_PTR(-ENOMEM);
+> +
+> +	__drm_atomic_helper_plane_state_init(state, plane);
+> +
+> +	return state;
+> +}
+> +EXPORT_SYMBOL(drm_atomic_helper_plane_create_state);
+> +
+>  /**
+>   * __drm_atomic_helper_plane_duplicate_state - copy atomic plane state
+>   * @plane: plane object
+>   * @state: atomic plane state
+>   *
+> diff --git a/drivers/gpu/drm/drm_mode_config.c b/drivers/gpu/drm/drm_mode_config.c
+> index c33382a38191..10b7815cbe48 100644
+> --- a/drivers/gpu/drm/drm_mode_config.c
+> +++ b/drivers/gpu/drm/drm_mode_config.c
+> @@ -180,10 +180,26 @@ int drm_mode_getresources(struct drm_device *dev, void *data,
+>  	drm_connector_list_iter_end(&conn_iter);
+>  
+>  	return ret;
+>  }
+>  
+> +static int drm_mode_config_plane_create_state(struct drm_plane *plane)
+> +{
+> +	struct drm_plane_state *plane_state;
+> +
+> +	if (!plane->funcs->atomic_create_state)
+> +		return 0;
+> +
+> +	plane_state = plane->funcs->atomic_create_state(plane);
+> +	if (IS_ERR(plane_state))
+> +		return PTR_ERR(plane_state);
+> +
+> +	plane->state = plane_state;
+> +
+> +	return 0;
+> +}
+> +
+>  /**
+>   * drm_mode_config_reset - call ->reset callbacks
+>   * @dev: drm device
+>   *
+>   * This functions calls all the crtc's, encoder's and connector's ->reset
+> @@ -204,13 +220,16 @@ void drm_mode_config_reset(struct drm_device *dev)
+>  	struct drm_connector_list_iter conn_iter;
+>  
+>  	drm_for_each_colorop(colorop, dev)
+>  		drm_colorop_reset(colorop);
+>  
+> -	drm_for_each_plane(plane, dev)
+> +	drm_for_each_plane(plane, dev) {
+>  		if (plane->funcs->reset)
+>  			plane->funcs->reset(plane);
+> +		else if (plane->funcs->atomic_create_state)
+> +			drm_mode_config_plane_create_state(plane);
+> +	}
+>  
+>  	drm_for_each_crtc(crtc, dev)
+>  		if (crtc->funcs->reset)
+>  			crtc->funcs->reset(crtc);
+>  
+> diff --git a/include/drm/drm_atomic_state_helper.h b/include/drm/drm_atomic_state_helper.h
+> index 44e8850aae7f..df371b2eef3e 100644
+> --- a/include/drm/drm_atomic_state_helper.h
+> +++ b/include/drm/drm_atomic_state_helper.h
+> @@ -53,10 +53,12 @@ void __drm_atomic_helper_crtc_destroy_state(struct drm_crtc_state *state);
+>  void drm_atomic_helper_crtc_destroy_state(struct drm_crtc *crtc,
+>  					  struct drm_crtc_state *state);
+>  
+>  void __drm_atomic_helper_plane_state_init(struct drm_plane_state *state,
+>  					   struct drm_plane *plane);
+> +struct drm_plane_state *
+> +drm_atomic_helper_plane_create_state(struct drm_plane *plane);
+>  void __drm_atomic_helper_plane_reset(struct drm_plane *plane,
+>  				     struct drm_plane_state *state);
+>  void drm_atomic_helper_plane_reset(struct drm_plane *plane);
+>  void __drm_atomic_helper_plane_duplicate_state(struct drm_plane *plane,
+>  					       struct drm_plane_state *state);
+> diff --git a/include/drm/drm_plane.h b/include/drm/drm_plane.h
+> index 703ef4d1bbbc..886e219c4609 100644
+> --- a/include/drm/drm_plane.h
+> +++ b/include/drm/drm_plane.h
+> @@ -386,10 +386,26 @@ struct drm_plane_funcs {
+>  	 * 0 on success or a negative error code on failure.
+>  	 */
+>  	int (*set_property)(struct drm_plane *plane,
+>  			    struct drm_property *property, uint64_t val);
+>  
+> +	/**
+> +	 * @atomic_create_state:
+> +	 *
+> +	 * Allocates a pristine, initialized, state for the plane object
+
+s/Allocates/Allocate/
+
+based on the documentation of other callbacks, and the fact that
+imperative style is the usual standard in kernel documentation.
+
+Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+
+> +	 * and returns it. This callback must have no side effects: in
+> +	 * particular, the returned state must not be assigned to the
+> +	 * object's state pointer and it must not affect the hardware
+> +	 * state.
+> +	 *
+> +	 * RETURNS:
+> +	 *
+> +	 * A new, pristine, plane state instance or an error pointer
+> +	 * on failure.
+> +	 */
+> +	struct drm_plane_state *(*atomic_create_state)(struct drm_plane *plane);
+> +
+>  	/**
+>  	 * @atomic_duplicate_state:
+>  	 *
+>  	 * Duplicate the current atomic state for this plane and return it.
+>  	 * The core and helpers guarantee that any atomic state duplicated with
+
 -- 
-2.53.0
+Regards,
 
+Laurent Pinchart
 
