@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75F7FCD342F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 16:52:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D98ACD343B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 16:52:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MruspXSbtTFgkf3+iARnSB6wieYNnj4qu5FnynOLlzo=; b=oOT9kSySRgjuyUGnNzvASn64yi
-	HfUNdPUINTWHNsq10UNzUJ7r1U5ELezunFh4G5yBXDeQyyFG2SBAH77ECCdkpkLxh0mNFocPiK9De
-	PJdRHlJBL89Z7q+KfWcdJi2IYkEyToM6gfzAkbBbs61Go77PVJw22Xo31QUDiq+/5+kAKhar6LXyl
-	5ikHuooXUFvjEBJKX99I7qcgL433SYVc0PF5Vhg2rTulazhI3ZGJ3uBY9xjCTymKqmXHouLL+4UUY
-	QOrgmuF05pYRfXzwTpOA2rbSFhQKw4c/Wq9JRcUnfMMYM62rxqxzr8oRtV+TAE7KrK26rELzjj710
-	34x2h12g==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=60xza86OiyntCPXp/fDW6kWf+cmVsX1ylfSNphHJIW8=; b=Njk8pMYg/WNFPtUYpyW1edvG/7
+	wrYH+FfVsHw59jr43tf9hR2VXUKEjYCzkDW/0rViWjNb6z+jaQKQofoJCkpsupM7N/XAYSpujjfiD
+	hovvS1GRyOINEVRCawy3quzpasShHOKjtUSPc9D02vZgsbXY+TURGo1J4YQp6xnO8syzS/ph3W5Yr
+	vhm0rEaWbGtuY7iVx3Jr9ZmBUgu57o0PJKD+MRWHWuEIaQ3lq57FxcquStTRtuLs75J00q29n7Uow
+	2oweIMAcCdhTagImAiHokArjvZ8fT5IEkk9IVDyLgtv3OPvtY+7vCy4PApandp5LGFl81exNENzIQ
+	cgyXhR/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJwWw-0000000DlIm-3Hzs;
-	Mon, 04 May 2026 16:52:26 +0000
+	id 1wJwWx-0000000DlJQ-28Re;
+	Mon, 04 May 2026 16:52:27 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJwWs-0000000DlH3-3Kq8
+	id 1wJwWu-0000000DlHA-0fTb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 16:52:24 +0000
+	Mon, 04 May 2026 16:52:25 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 07EA51691;
-	Mon,  4 May 2026 09:52:12 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A3BB02573;
+	Mon,  4 May 2026 09:52:14 -0700 (PDT)
 Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3AC773F763;
-	Mon,  4 May 2026 09:52:15 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B357A3F763;
+	Mon,  4 May 2026 09:52:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777913537; bh=pv+EpS7kLPV3FVH6OLAo+oFowntQxkqnyKJDj4ef3Nw=;
-	h=From:To:Cc:Subject:Date:From;
-	b=iRgt/lCmFj8j+ufPwH9ykGp8wmjs1isNFTkh857I9OgPI/m97OLfDC/YGYLaJPd1b
-	 zK43UgIVU+kjdU6vrlxKgXg39h+ezYe/B0buZeQ6civbYy/PjXv7nAuzLR7+nV5YpI
-	 nGZZI9KhIvloGxEgPLXxEQCgQxfIw8G3QGcscG2I=
+	t=1777913540; bh=OsQUNk3wxQb0nDBmW8OLr73j5WEYyxdcA19bMyj2+dA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=KeZsY3t0Fek5vretZaMIXranQuza6O7axZROOA1K02YHwalK0o9xZ43eUfxuVLTUl
+	 +mU74Un3kbq9w+OnJ84o73IKnVFzXUMnMXHrnSPAeG2gfO9sH73zSGPn01IeMTvQQk
+	 +bbe7td6Smg5NbUvL7ri/heoiU8DWWVGyRxfERLw=
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -55,15 +55,17 @@ Cc: sudeep.holla@kernel.org,
 	u.kleine-koenig@baylibre.com,
 	dakr@kernel.org,
 	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH v1 0/3] Rework SCMI transport drivers probing sequence
-Date: Mon,  4 May 2026 17:52:01 +0100
-Message-ID: <20260504165204.639499-1-cristian.marussi@arm.com>
+Subject: [PATCH v1 1/3] firmware: arm_scmi: Add transport instance handles
+Date: Mon,  4 May 2026 17:52:02 +0100
+Message-ID: <20260504165204.639499-2-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260504165204.639499-1-cristian.marussi@arm.com>
+References: <20260504165204.639499-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_095223_082003_B35A206E 
-X-CRM114-Status: GOOD (  17.30  )
+X-CRM114-CacheID: sfid-20260504_095224_292492_491F845C 
+X-CRM114-Status: GOOD (  22.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,86 +80,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+SCMI transport drivers are initialized first and then the control is passed
+to the SCMI core stack: some of these transports are dependent also on some
+external subsytem which will have to be initialized upfront, before the
+transport driver itself can be deemed operational.
 
-when the SCMI transports were split out into standalone drivers [1] the
-probe sequence was laid out in such a way that:
+Transport drivers like virtio or optee need a way to defer the core SCMI
+probing till they are fully initialized and operational and also a way to
+pass back the device reference to be used as a supplier while building the
+devlink relations.
 
- - the transport drivers would have probed first, triggered by the firmware
-   driven discovery process (DT/ACPI)
+SCMI transport drivers can be probed multiple times when used in a multiple
+instance configuration but the capability to carry-on with multiple probes
+depends on the support provided by the underlying transport driver.
 
- - afterwards the control would have been passed to the core SCMI stack
-   driver via the creation of a dedicated device that would have inherited
-   the original firmware descriptor (since that same DT/ACPI node would
-   have still needed by the SCMI core driver to be parsed)
+This change will also allow for the removal of the frowned-upon trick of
+registering a platform driver only after the end of the transport drivers
+porbe to avoid explicit probe deferrals.
 
-The tricky part came around with some transport driver like virtio and
-optee since they are, in turn, upfront dependent on an external distinct
-kernel subsystem; IOW these have first to undergo their own subsystem
-specific probe/initialization to become fully operational as transports:
-this kind of initialization sequencing of course must deal with the
-possibility of probe deferrals BUT at that time we avoided this by using
-the trick in virtio/optee transports to register the next stage drivers
-ONLY at the end of the subsystem specific probe routine, from within the
-probe itself.
+Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+---
+ drivers/firmware/arm_scmi/common.h | 59 +++++++++++++++++++++++++++---
+ 1 file changed, 54 insertions(+), 5 deletions(-)
 
-This register_while_probing behaviour is ugly and has 2 main issues:
-
- - it is frowned upon and can lead to hangs in the driver core whenever
-   some core locking is changed as exposed in [2][3]
-
- - it limits these transport drivers to a single instance probing since of
-   course you cannot register the same driver more than once
-
-Note also that such dependencies are NOT explicitly represented in any way
-within the firmware description tables: i.e. we cannot play the fw_devlink
-card and enjoy correct sequencing of the box.
-
-In this V1 we remove the ugly register_while_probing trick and introduce
-some basic mechanism to allow the probe to be deferred until the underlying
-transport has probed and it is fully operational so as that can be used as
-a supplier device. This is obtained by:
-
- - moving the problematic platform driver registration away from the probe
-   into its own module_init/exit
-
- - adding a few common well-known optional helpers that can be invoked
-   to retrieve the supplier reference, if ready, OR defer the probe when
-   neeeded.
-
-Instead, we do NOT introduce in this series (as we attempted in the RFC)
-a mechanism to support multiple instance probing also for optee and virtio
-transports, because there is currently NO possible way to bind such probed
-transport driver instances to the related SCMI instances, so that this
-would narrow down the multiple instance scenario to the case in which each
-underlying SCMI server instance is setup in exactly the same way.
-(same protocols for each node)
-
-Based on v7.1-rc2
-
-Tested on:
- - an emulated environment against a mock SCMI Server (virtio)
- - a QEMU based setup against SCP-based server running in OPTEE (optee)
- - JUNO with the standard SCP reference firmware (mailbox)
- - RADXA ROCK_5B with Rockchip fw (smc) 
-
-Thanks,
-Cristian
-
-[1]: https://lore.kernel.org/arm-scmi/20240812173340.3912830-1-cristian.marussi@arm.com/
-[2]: https://lore.kernel.org/lkml/aaA6t-J2gRy3dE1_@pluto/
-[3]: https://lore.kernel.org/all/ad9cglZCwtsVsGmq@monoceros/
-
-Cristian Marussi (3):
-  firmware: arm_scmi: Add transport instance handles
-  firmware: arm_scmi: virtio: Rework transport probe sequence
-  firmware: arm_scmi: optee: Rework transport probe sequence
-
- drivers/firmware/arm_scmi/common.h            |  59 +++++++-
- drivers/firmware/arm_scmi/transports/optee.c  | 118 +++++++++++++--
- drivers/firmware/arm_scmi/transports/virtio.c | 137 +++++++++++++++---
- 3 files changed, 279 insertions(+), 35 deletions(-)
-
+diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
+index 7c9617d080a0..8bb0dd1fe702 100644
+--- a/drivers/firmware/arm_scmi/common.h
++++ b/drivers/firmware/arm_scmi/common.h
+@@ -17,6 +17,7 @@
+ #include <linux/hashtable.h>
+ #include <linux/list.h>
+ #include <linux/module.h>
++#include <linux/property.h>
+ #include <linux/refcount.h>
+ #include <linux/scmi_protocol.h>
+ #include <linux/spinlock.h>
+@@ -462,6 +463,28 @@ struct scmi_transport_core_operations {
+ 	const struct scmi_message_operations *msg;
+ };
+ 
++/**
++ * struct scmi_transport_handle  - Transport instance handle
++ * @supplier_get: A helper to retrieve the device descriptor, identifying the
++ *		  transport driver serving this SCMI instance, which will be
++ *		  used as a supplier for the core SCMI driver: returning an
++ *		  error here causes the probe sequence to be interrupted and
++ *		  return that same error code, so that each transport can decide
++ *		  which policy to implement by choosing an appropriate error.
++ * @supplier_put: A helper to signal that the specified transport supplier is
++ *		  no more being used and it is made available again.
++ *
++ * Note that these helpers are needed and provided only by those transports
++ * whose initialization relies on some other subsystem and whose relations to
++ * the core SCMI driver is not tracked by firmware descriptions.
++ */
++struct scmi_transport_handle {
++	struct device __must_check *(*supplier_get)
++		(const struct scmi_transport_handle *th);
++	void (*supplier_put)(const struct scmi_transport_handle *th,
++			     struct device *dev);
++};
++
+ /**
+  * struct scmi_transport  - A structure representing a configured transport
+  *
+@@ -480,25 +503,47 @@ struct scmi_transport {
+ #define DEFINE_SCMI_TRANSPORT_DRIVER(__tag, __drv, __desc, __match, __core_ops)\
+ static void __tag##_dev_free(void *data)				       \
+ {									       \
++	const struct scmi_transport_handle *th;				       \
+ 	struct platform_device *spdev = data;				       \
++	struct device *dev = &spdev->dev;				       \
++									       \
++	th = device_get_match_data(dev);				       \
++	if (th)	{							       \
++		struct scmi_transport *strans;				       \
++									       \
++		strans = dev_get_platdata(dev);				       \
++		if (strans)						       \
++			th->supplier_put(th, strans->supplier);		       \
++	}								       \
+ 									       \
+ 	platform_device_unregister(spdev);				       \
+ }									       \
+ 									       \
+ static int __tag##_probe(struct platform_device *pdev)			       \
+ {									       \
+-	struct device *dev = &pdev->dev;				       \
+-	struct platform_device *spdev;					       \
++	struct device *dev = &pdev->dev, *supplier;			       \
++	const struct scmi_transport_handle *th;				       \
+ 	struct scmi_transport strans;					       \
++	struct platform_device *spdev;					       \
+ 	int ret;							       \
+ 									       \
++	supplier = dev;							       \
++	th = device_get_match_data(dev);				       \
++	if (th) {							       \
++		supplier = th->supplier_get(th);			       \
++		if (IS_ERR(supplier))					       \
++			return PTR_ERR(supplier);			       \
++	}								       \
++									       \
+ 	spdev = platform_device_alloc("arm-scmi", PLATFORM_DEVID_AUTO);	       \
+-	if (!spdev)							       \
+-		return -ENOMEM;						       \
++	if (!spdev) {							       \
++		ret = -ENOMEM;						       \
++		goto err_mem;						       \
++	}								       \
+ 									       \
+ 	device_set_of_node_from_dev(&spdev->dev, dev);			       \
+ 									       \
+-	strans.supplier = dev;						       \
++	strans.supplier = supplier;					       \
+ 	memcpy(&strans.desc, &(__desc), sizeof(strans.desc));		       \
+ 	strans.core_ops = &(__core_ops);				       \
+ 									       \
+@@ -515,6 +560,10 @@ static int __tag##_probe(struct platform_device *pdev)			       \
+ 									       \
+ err:									       \
+ 	platform_device_put(spdev);					       \
++err_mem:								       \
++	if (th)								       \
++		th->supplier_put(th, supplier);				       \
++									       \
+ 	return ret;							       \
+ }									       \
+ 									       \
 -- 
 2.53.0
 
