@@ -4,100 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 614BDCD3430
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 14:53:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA7B9CD3430
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 14:55:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=L68A0nliiu2Q3xuxzZG34RHvsW2Cqh1HButFAloiLuY=; b=gZOp+IrTQDlHpY5N1KTTBGK9cO
-	uejLLISVOCCmrfRzizvLHO94WmbL8uNmDA0KRIFxwZmu2q41c904ONJTQmf6+89KY+o1OBOkbEsdt
-	tRTFJBrOBcTjE1nL/W5rZrqZcsansujrmdADXubTmOt6JXKD/ZN8tHlC/hFmSCib/l4mXd80gZR22
-	Ttm2IoLcm6/DTkj5Bm7GaKis19BfOFqJ/a/K9tM8pHSuf0oEe31OY9NwLjjUDTu5tF+T0QMpavIvK
-	edjyguMLddQuc/s94tYfKl+kLUdL9pxK+NxvGfbl7E44Abb2durBU8m7S2rUpCz70LylTeu01w7n4
-	RgzkDYHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IeLJ+4GnYJN9YO4JhTqHgc1uNPQGxxiPwDK28NIVGXE=; b=ux76vgmqqY6RwQa28pylV8pFgm
+	vFud3s4HNMmCLhI6yVUdN99cpx5VHZUQUvknwbxkRhm5MCo7FnELHvejC4DzcHpNNWns491uIIv4u
+	UNRujGC/PrnBbLQOI7XjTusGCR049NVDr9Ctyr9eObBHI/FGazSkBSEjZdtHbWOvIjyydZrh9u8tZ
+	FrnnYQDMYG3Eg5U6nX/dd/nW7Ja2kSIAuYzT7KoxCgwMXSiowJN02G969odfSb0dy+F6W5MlcyAjt
+	PG2UVhnJUYPl97o3ETNLtMhRLLRFYx3F8sgLa3ha6hwNvXN6fKdR3ZgKU9XVt4ArRE6NCNB+F2De4
+	ILZ0Pz4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJufx-0000000DWaC-0v88;
-	Mon, 04 May 2026 14:53:37 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1wJuhy-0000000DWw0-2XIl;
+	Mon, 04 May 2026 14:55:42 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJufu-0000000DWZY-2Hrs
+	id 1wJuhw-0000000DWv9-3sTx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 14:53:35 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-364f7c42c62so1705678a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 May 2026 07:53:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777906413; x=1778511213; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=L68A0nliiu2Q3xuxzZG34RHvsW2Cqh1HButFAloiLuY=;
-        b=lGqhL6mQ2dC3wNifspPNPwFDqCvJIIXCQPXJpIYcEIQR+327Z/M/5PpBct+iybFtTV
-         03QiO3fixklxuwN4fbH7nAJPt7JF9Zr8eG80s4lPtN19MEHNSLe++LcgC+AFsx18CspW
-         PfM6zQFgpam1oJnfCaQCZbDHaWaE3bzQ03oYfs1TnbA39ldilncKwQ1gSvGtLz+/TOFg
-         FwDnafXzjN0b8jQuHv0HAqF6e8yE5O3Pgb7kVrfTwv+kYBmb0Xknl+QODMt4Us569dkX
-         2LYz8kwxshBGhIPt4gh8XXI+Kt/euRAWGs22OrhlINxbf9U+Hueu93ore4mECPIWRITg
-         VPLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777906413; x=1778511213;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=L68A0nliiu2Q3xuxzZG34RHvsW2Cqh1HButFAloiLuY=;
-        b=cF+HmbXDRlBrWrCxHW+Op7PLTFjpm0EMnw8cgyJ40HaxQQrtJSg94ZhC0elLF11B9s
-         LERFuZW/N/1IUR28vyJg70ytmGLcVfOXXdUOCv6hkbXABD3kVLW4WV8kCtDpl7bWGRTn
-         8b/ILk2xuI3aI6uw10m0d6IsUYEdpe45dQZVBoeBXo8iNqAUVvYQbZqWRWFbCYW71r+s
-         RFEnFaC1Hblvx5MCyWvtpdi8OMtEVjhRpyUya7MxEDoLrln7WAFGvwQCJuvpcPc1Fccu
-         n8jSYZ0kSsItuCjCZw7Zg9hIQF6YXxlDcHVa22PRyQ/IjD1v6b1XWwT4YSX74BMUFft9
-         BLww==
-X-Forwarded-Encrypted: i=1; AFNElJ8EBbWMmqn6xmoXkeah4LtyJfpSfSdMdtq9NjMzT1CDEbbBoxvO6ZUd+xe3sZ4prR0Y/MuyUjSoNkD+CW+Be8Vq@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/RQ1tqM3PDTSAZpCzHpkb3AOYJR+fDLzaVcuz7ULyx5XysGDn
-	kNPCuxXW8keBxiIxdDBneeYH8gpA2OORRAoB24OCyp/l8TQaouN6y8Vu
-X-Gm-Gg: AeBDieuujBCiuZIe9Vcj02+yyvAlDYbNqlTsSGQ96MlxGj4q4j8I3Ki2NMJZRvTQGMd
-	9uOXqZsilPE1SCSdb7kRkf1xGjSFY/CRHT8ZVMG/fniZimFvTLzhJPfnrbAjCJo+H5BPwtzT+0K
-	6dzVkagvAUNYdaWJ7fUKbTns0YZQXvMlhMOfHF4Ahv55jHuZntHQ6qpnDv1gAaHe6GkjGsrehtN
-	0OMgJJ1PXRQODzh46yQqGFll3T7YEAkBto1v4QhaMV0BIIpNYBM23B2UCTlGPRX50Dp5fAXtHwQ
-	iQY2K5IeMIXEZTLF/EVht6OFfX6LkPv3GETL5G4CHcOku3XfxtfzqghYl/L7owUKnggMX9jUFf2
-	kEK+GpYyGud0DAxShbvmqn5oeEjI7B8HYuzaYm6VGmLxjzsJfbS61Fg24yziy85rOSsd+C7y554
-	eSNcjT6LCQ2e4D7T8MNCqhZ1eYB5u1AHWUsPw3dhCKfVL4klU03tnp5++dGusa56UErytSWJTvn
-	SUr5+d3DG5wy3OcI7teJ/kziFFqUw==
-X-Received: by 2002:a17:90a:d444:b0:364:6558:99be with SMTP id 98e67ed59e1d1-3650ceaab7fmr9463975a91.22.1777906412786;
-        Mon, 04 May 2026 07:53:32 -0700 (PDT)
-Received: from junjungu-PC.localdomain ([223.166.246.30])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c7ffbb05798sm9926085a12.0.2026.05.04.07.53.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 04 May 2026 07:53:32 -0700 (PDT)
-From: Felix Gu <ustc.gu@gmail.com>
-Date: Mon, 04 May 2026 22:53:26 +0800
-Subject: [PATCH] pinctrl: sunxi: fix regulator leak in sunxi_pmx_request()
- error path
+	Mon, 04 May 2026 14:55:42 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id AAE259C;
+	Mon,  4 May 2026 16:55:35 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1777906535;
+	bh=kQP0669SSkV4Pbo9r7KVWJedLhb9QWsm5WD+7wHDNU0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TQCzqL3+kCjx4SA5fD1konBZlj2IajoWgIOf6zPBg8IO7fhPhIvu/SYYYr7cVKDI7
+	 3/dW/L/TO8mlgbRq2ax0skkFC1DQNkqdEXZbPLae94bHTmcvKdPyEYSDilbBbBmJhz
+	 MCp/TuRjYZcIuWlrg+MoM6CpGRfi/fc2y7C5XNGs=
+Date: Mon, 4 May 2026 17:55:36 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Rob Clark <robin.clark@oss.qualcomm.com>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	Abhinav Kumar <abhinav.kumar@linux.dev>,
+	Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
+	Marijn Suijten <marijn.suijten@somainline.org>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	John Stultz <jstultz@google.com>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Hui Pu <Hui.Pu@gehealthcare.com>,
+	Ian Ray <ian.ray@gehealthcare.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Subject: Re: [PATCH v4 02/11] drm/bridge: add of_drm_get_bridge_by_endpoint()
+Message-ID: <20260504145536.GA1455860@killaraus.ideasonboard.com>
+References: <20260504-drm-bridge-alloc-getput-panel_or_bridge-v4-0-b578c3daaf10@bootlin.com>
+ <20260504-drm-bridge-alloc-getput-panel_or_bridge-v4-2-b578c3daaf10@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260504-sunxi-v1-1-c0fd0df52776@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAOWy+GkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDUwMT3eLSvIpM3eSUREtDMzPDZEMLQyWg2oKi1LTMCrA50bG1tQCZt7F
- DVwAAAA==
-X-Change-ID: 20260504-sunxi-cda91661c181
-To: Linus Walleij <linusw@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>
-Cc: linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Felix Gu <ustc.gu@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777906408; l=1142;
- i=ustc.gu@gmail.com; h=from:subject:message-id;
- bh=KsGehUIs9yjLgFhJm+ALM6CihYTUD9IxFPyF+rbn54Y=;
- b=HeZnzJUAEwh2zXD8lRSUzBtxzjVKqCO0BBfYZRyGOZBJ5CwDrdBrjEiQHQdwkS1QwwsLUSbpO
- 6SW0IlZZ5BXCjzD1FqEQUkVaPWVJsfKl5GiXk3mGGLFIUcMtZBXaX+U
-X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
- pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260504-drm-bridge-alloc-getput-panel_or_bridge-v4-2-b578c3daaf10@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_075334_628507_8F4E4AB4 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20260504_075541_102397_88D23A2E 
+X-CRM114-Status: GOOD (  32.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,38 +89,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the error path of sunxi_pmx_request(), the code calls
-regulator_put(s_reg->regulator) to release the regulator. However,
-s_reg->regulator is only assigned after a successful regulator_enable().
-This causes a memory leak: the regulator obtained via regulator_get()
-is never properly released when regulator_enable() fails.
+On Mon, May 04, 2026 at 12:45:05PM +0200, Luca Ceresoli wrote:
+> drm_of_find_panel_or_bridge() is widely used, but many callers pass NULL
+> into the @panel or the @bridge arguments, thus making a very partial usage
+> of this rather complex function.
+> 
+> Besides, the bridge returned in @bridge is not refcounted, thus making this
+> API unsafe when DRM bridge hotplug will be introduced.
+> 
+> Solve both issues for the cases of calls to drm_of_find_panel_or_bridge()
+> with a NULL @panel pointer by adding a new function that only looks for
+> bridges (and is thus much simpler) and increments the refcount of the
+> returned bridge.
+> 
+> The new function is identical to drm_of_find_panel_or_bridge() except it:
+> 
+>  - handles bridge refcounting: uses of_drm_find_and_get_bridge() instead of
+>    of_drm_find_bridge() internally to return a refcounted bridge
+>  - is simpler to use: just takes no @panel parameter, returns the pointer
+>    in the return value instead of a double pointer argument
+>  - has a simpler implementation: it is equal to
+>    drm_of_find_panel_or_bridge() after removing the code that becomes dead
+>    when @panel == NULL
+> 
+> Also add this function to drm_bridge.c and not drm_of.c because it returns
+> bridges only.
+> 
+> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> ---
+> Changes in v4:
+> - update function declaration in non-OF case
+> 
+> Changes in v2:
+> - return the bridge in the return value, not a double pointer
+> ---
+>  drivers/gpu/drm/drm_bridge.c | 41 +++++++++++++++++++++++++++++++++++++++++
+>  include/drm/drm_bridge.h     |  7 +++++++
+>  2 files changed, 48 insertions(+)
+> 
+> diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
+> index 6fb71de6d22a..01f9e0426648 100644
+> --- a/drivers/gpu/drm/drm_bridge.c
+> +++ b/drivers/gpu/drm/drm_bridge.c
+> @@ -1582,6 +1582,47 @@ struct drm_bridge *of_drm_find_bridge(struct device_node *np)
+>  	return bridge;
+>  }
+>  EXPORT_SYMBOL(of_drm_find_bridge);
+> +
+> +/**
+> + * of_drm_get_bridge_by_endpoint - return DRM bridge connected to a port/endpoint
+> + * @np: device tree node containing output ports
+> + * @port: port in the device tree node, or -1 for the first port found
+> + * @endpoint: endpoint in the device tree node, or -1 for the first endpoint found
+> + *
+> + * Given a DT node's port and endpoint number, find the connected node and
+> + * return the associated drm_bridge device.
+> + *
+> + * The refcount of the returned bridge is incremented. Use drm_bridge_put()
+> + * when done with it.
+> + *
+> + * Returns a pointer to the connected drm_bridge, or a negative error on failure
+> + */
+> +struct drm_bridge *of_drm_get_bridge_by_endpoint(const struct device_node *np,
+> +						 int port, int endpoint)
+> +{
+> +	struct drm_bridge *bridge;
+> +
+> +	/*
+> +	 * of_graph_get_remote_node() produces a noisy error message if port
+> +	 * node isn't found and the absence of the port is a legit case here,
+> +	 * so at first we silently check whether graph presents in the
 
-Fixes: dc1445584177 ("pinctrl: sunxi: Fix and simplify pin bank regulator handling")
-Signed-off-by: Felix Gu <ustc.gu@gmail.com>
----
- drivers/pinctrl/sunxi/pinctrl-sunxi.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+s/graph presents/graph is present/
 
-diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
-index d3042e0c9712..25489beeb312 100644
---- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
-+++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
-@@ -925,7 +925,7 @@ static int sunxi_pmx_request(struct pinctrl_dev *pctldev, unsigned offset)
- 	return 0;
- 
- out:
--	regulator_put(s_reg->regulator);
-+	regulator_put(reg);
- 
- 	return ret;
- }
+Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 
----
-base-commit: b9303e6bff706758c167af686b5315ad00233bf8
-change-id: 20260504-sunxi-cda91661c181
+> +	 * device-tree node.
+> +	 */
+> +	if (!of_graph_is_present(np))
+> +		return ERR_PTR(-ENODEV);
+> +
+> +	struct device_node *remote __free(device_node) =
+> +		of_graph_get_remote_node(np, port, endpoint);
+> +	if (!remote)
+> +		return ERR_PTR(-ENODEV);
+> +
+> +	bridge = of_drm_find_and_get_bridge(remote);
+> +	if (!bridge)
+> +		return ERR_PTR(-EPROBE_DEFER);
+> +
+> +	return bridge;
+> +}
+> +EXPORT_SYMBOL_GPL(of_drm_get_bridge_by_endpoint);
+>  #endif
+>  
+>  /**
+> diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
+> index d6cd0f5af045..31e11a360c42 100644
+> --- a/include/drm/drm_bridge.h
+> +++ b/include/drm/drm_bridge.h
+> @@ -1327,6 +1327,8 @@ int drm_bridge_attach(struct drm_encoder *encoder, struct drm_bridge *bridge,
+>  #ifdef CONFIG_OF
+>  struct drm_bridge *of_drm_find_and_get_bridge(struct device_node *np);
+>  struct drm_bridge *of_drm_find_bridge(struct device_node *np);
+> +struct drm_bridge *of_drm_get_bridge_by_endpoint(const struct device_node *np,
+> +						 int port, int endpoint);
+>  #else
+>  static inline struct drm_bridge *of_drm_find_and_get_bridge(struct device_node *np)
+>  {
+> @@ -1336,6 +1338,11 @@ static inline struct drm_bridge *of_drm_find_bridge(struct device_node *np)
+>  {
+>  	return NULL;
+>  }
+> +static inline struct drm_bridge *of_drm_get_bridge_by_endpoint(const struct device_node *np,
+> +							       int port, int endpoint)
+> +{
+> +	return -ENODEV;
+> +}
+>  #endif
+>  
+>  static inline bool drm_bridge_is_last(struct drm_bridge *bridge)
 
-Best regards,
 -- 
-Felix Gu <ustc.gu@gmail.com>
+Regards,
 
+Laurent Pinchart
 
