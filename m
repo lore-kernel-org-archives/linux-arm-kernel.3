@@ -4,147 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08717CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 16:58:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56CCCFF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 17:04:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=faOI5W+NOaiamFpm7prjE2bXLwM58plu3qwpg+EeMUk=; b=AJhw7Jo424JGQXGMqDIfZ2r9CA
-	VxvGzl6I7rBXEDfOAYyLT7KA7YGSyPxVZz7UL2EmPZRyWynIsFetotzRXhr5tiZEblQYFngJg2+sr
-	6ke6P7dzsB9Srz74RMynqUANJuPitHrZprXrerv81YZFhVVU25GGeh0Gla9zb123HCeYQNUBHfoJU
-	0JSJ3UbQj0e+OW4dextyPMsnCnEqEuMX5nqqJ0Oa4CivMGu6Dn5KfQatGOXKxHBXZig0Yl9Wh2EyK
-	3Tuvh8LIh2OvwCo0ZbWz0bR8IEgdbdhQhdqA6LLPvb/sxaSUdt0nUOMv4ngrG00SfWYkuP+nbrNrr
-	ewf4fhcg==;
+	bh=DewmIMK1E+PrFwRSO/i7NFmJvmMUtxZon64RWouJSSM=; b=iPLdYd4Z/cpNBrQlZ0d7cQ6ils
+	BjR0PiKT7UONxDS7zraV0Yf9Wvuje+lZVyqdTRY+4JRFqafNsWHD1g7lnwBkyuaQ7fVTrc/8pzJnA
+	G9DoJvIxWDeJtDJOajoqztuOwCi2/aFUczPxtiNZQdBvSV6N+AaFxwGD3etPC2heZop+CQLDKlrBY
+	252ajAropTJ4wEDyLlCdaYIBqB12iW6yJwEyHJzFSSOdasfS9Xo55pC459134613CdUf8/PUHbqvh
+	26vAjWZ6de9GdernSim7StkuEGBQJXBeuBmFhQC3ZlehZo9y5Acd+XERnt2nJ/zyqVNK4Sff2smoo
+	fFd1sUoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJwch-0000000DmNx-068E;
-	Mon, 04 May 2026 16:58:23 +0000
-Received: from mail-pj1-x1064.google.com ([2607:f8b0:4864:20::1064])
+	id 1wJwiT-0000000Dmzp-3geT;
+	Mon, 04 May 2026 17:04:21 +0000
+Received: from mail-westeuropeazon11011038.outbound.protection.outlook.com ([52.101.70.38] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJwcd-0000000DmLW-48mb
+	id 1wJwiR-0000000DmzB-0mEe
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 16:58:21 +0000
-Received: by mail-pj1-x1064.google.com with SMTP id 98e67ed59e1d1-3651fa24c6bso1334026a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 May 2026 09:58:19 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777913898; x=1778518698;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=faOI5W+NOaiamFpm7prjE2bXLwM58plu3qwpg+EeMUk=;
-        b=Y4txDkfG7sEM8rOjCxPnOqLnyeDwmmoxXJuJYouIg6+JQfpY1k2fDucD9J9MfBIVSK
-         mPLppH63WGbm85XCLs19xrjuaSU2dctEiNr9cvTPNBkj/8HEHIXpqc2G3pNHkZA+m7Xa
-         rh221e+Cv2Be5vU9I7pVPeKCQuUUbYiGx9+wvhRxwWFwLuB9Dor4JMmx2PQKD81+EfQM
-         8pga1z94oIt7NmjD4jrdb45g6meb0mWX6JUGTV36XZrv7SLZvRoH0YKAEB54eyVOOxgn
-         dEmZxK66VJorSsCSK1yRAPNv7NCTZEVrnDwCsxYo7dhZegodtQi3SY88r2y2CvgbHHUk
-         SVvw==
-X-Forwarded-Encrypted: i=1; AFNElJ8NMVQcy11ygov2wRIn+I/zksI6AO9UVVZW0WiR1copOX4Kx5xlRKtcP9vk42FZGriVL45PsTPAep5Xy1GdpYj0@lists.infradead.org
-X-Gm-Message-State: AOJu0YzvkoSY5Yw866jV9IUVST5vDNVk/Tpzs3LK1jAVIv6kqw53a4E/
-	uP8NIwA9XGxKg9E4qUCl3kad3B9A/AjkY17nqktA6v5hzd/FXtHH4LXB83QqdDHZUNfdby9Lv3r
-	EuEL4kpkUosqmy3Rj9iPZpV+mmA1Rb0gPIkpyWnwzhrQF8xc5BbbNcX2+Bi3TJD9hgy01D0PTxc
-	w2Yb5Afd6oVqRXoMZiw0i14wuvzEGS/o8cWx2iNoqcTDNI5/w7gYJOUoYZ7DWJLNaS655u7MNzI
-	2ehdZ7eKMvI4HIsgwOSMzRmGa54/YNAhBo=
-X-Gm-Gg: AeBDiet9yEfWCbZGEzVXe+Q9T5UYLcZEs/+M08ws8obz/zt1M/dDdTIqYUnmvdw1+0P
-	6ZG0PCz5tqnXG3KOhoOIULhBr6XqOOV3EHymTD67/gsBK/YISWmo8/CQyuqqJtREQ/tqOVdJhvJ
-	BDDP4M7L5BBt3kDh156kdaQndL7FQZFLHOMpaqoJdpWhILlUD5ZsqTkF8p9BaPMHf/EUW2PSJiT
-	SEYZmv+LY8L+G4xu5HRsx9/wm7+UpAzAIlHby1DWd7cuf42fqKXBgd9Aaq7XQQeytx1xG07Gxeu
-	Sop5Q/2+urCritk2FY+jT/F+fSfT6xIqguGixgq6PAp87RAmvmrvtnYS2sSiW5JsliyHPLoz4Cf
-	JAd/Vx0hHOpmv77P4mF2WRAoC6RhOMLedEw4EALPGIb/+b31ca8KqM0at7Tswq0C7V0c8Sbq+i5
-	iPl2ifztlm/4FJE9yxig04dt/GvZYBLf/6k/arR/6xv5lNySUtVj2rGrXqLtiG9Ke8hgADzqQX
-X-Received: by 2002:a17:90b:3852:b0:35b:e52a:6fe5 with SMTP id 98e67ed59e1d1-3650cd26470mr9834613a91.5.1777913898394;
-        Mon, 04 May 2026 09:58:18 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-21.dlp.protect.broadcom.com. [144.49.247.21])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-364f3c3cd7dsm261052a91.0.2026.05.04.09.58.17
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 04 May 2026 09:58:18 -0700 (PDT)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-2da19227bc1so5121342eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 May 2026 09:58:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1777913896; x=1778518696; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=faOI5W+NOaiamFpm7prjE2bXLwM58plu3qwpg+EeMUk=;
-        b=UO9i74j2Qw7bL0X/xK8Zampi3+gSqQ9vVP96IVKwr+qr3Z2ZIwVkwUWjiGdD2+XkBR
-         uR/eG4sNZu7Xq3UVbv/z607tsfkehOkQiusL90NLUNWCMKD9oxhlYZbZ7KhqODWNJV1N
-         lxVoIRzhIK7aOomtfcwqur/S2TN7ToICpSuAo=
-X-Forwarded-Encrypted: i=1; AFNElJ+/UAQrF2CCEj3//AZSTrh/ALFlBIT3WCrgfxP9KVyRr4lkW4J/GBzSYOAsw0gVml14PX//mP2qb3mlqcl2/tjn@lists.infradead.org
-X-Received: by 2002:a05:7300:8c28:b0:2ed:e15:c923 with SMTP id 5a478bee46e88-2efbb7718e3mr4770354eec.31.1777913895957;
-        Mon, 04 May 2026 09:58:15 -0700 (PDT)
-X-Received: by 2002:a05:7300:8c28:b0:2ed:e15:c923 with SMTP id 5a478bee46e88-2efbb7718e3mr4770325eec.31.1777913895339;
-        Mon, 04 May 2026 09:58:15 -0700 (PDT)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2f194556795sm6594936eec.2.2026.05.04.09.58.14
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 04 May 2026 09:58:14 -0700 (PDT)
-Message-ID: <2f453b89-0ce8-4ef3-ae93-c282a2d08fd7@broadcom.com>
-Date: Mon, 4 May 2026 09:58:13 -0700
+	Mon, 04 May 2026 17:04:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=voWBL1yQ9Azl4lw/Inq7BFqn1RVawmi0zGvmspGYZzWY3+t1AgbWcsoztRDKdKHcRkxCYzhhEoDxrqQVSX482SdRu90FHX8pl6arlOZVqg7xFVTlIfmBGs3tHjEaKQVrfN5fgOzc+hLl3TOnO/SHd/qoIwijlnTcbYftgJh15KOfkLyLa5HzplnrZkRh1ROmhHqTL2tdWNpjTEH5kduwT5a8nwjwcSG6UPv1Ur6QXVaNvtjtF0yesGPDng0Svq2imhPB2qNt7Bm1u4O3HozJKy0jrgTNey3gP2sSRzDn4cUJMHXdulErkF6m43KT2eAHt0FRYVLkqTMuQAvnaye2mA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DewmIMK1E+PrFwRSO/i7NFmJvmMUtxZon64RWouJSSM=;
+ b=ixKIadAZXi/XcJcXWL4XNe5robnbvB1aOyLE8tgrCfUDyjMnNaTRK5Qm5BGLviQF4JGJ6yzICeGr1efd4oY/ZriLvqQ+1xnjSekyYb7rJCNyDSUZzx2dkHEWVDF8YuX2iJNGA/lXTZGlMt7VaHzzwImqAQHZTUtPYB9Ja2OO2WGGzOlH2AE06zEo1zM1MX+INU2e6xkUr0aFmCmwlbTK0fxP09GDHcAnkNfbxLZrHhkZIIRwmd30H5nz/X/ne+vOq1o8G8K+S1rRmMwP2N4JXhhnJuzz8ShcfIlS4u320rclKoDAHxCX7W+RTdNF7IvBt6+jP2hGKqjmbpCo0PPp+Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=ti.com smtp.mailfrom=foss.st.com; dmarc=fail
+ (p=none sp=none pct=100) action=none header.from=foss.st.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DewmIMK1E+PrFwRSO/i7NFmJvmMUtxZon64RWouJSSM=;
+ b=FuUNdI4nYAtfDsvORbeUPqwbEtQ0OdE7UpngWmXyiBRsnX0WBQ2CihbnQt3+GH4uckUPorAIy9h5W4Q+EGsTObfUx/4zkBDVy8F1zN3EaC3RVgM2/CscmDMWR/kJ2LvRZTA5S3xM+GcJQhBJHQMJOEAR7RBfSNKS2J0UfskkOmh+ooNegaZEsGVnairRaTYH0HMOezzawULxLWN2FE8quGI0oJ90G+iAm9J/DSUDNkkLxtVIUjNf7DlgKW8HBHk7+DnZGEnQyzkzomdPQWvrGv/jws4vSMSoK/mp7JCn0wYXcdnzknKN+V+uhylf9fmeQrm/YDOh0Am5KcqrJS/waw==
+Received: from DUZPR01CA0171.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:4b3::17) by AS4PR10MB5991.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:20b:51e::7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Mon, 4 May
+ 2026 17:04:10 +0000
+Received: from DU2PEPF00028D01.eurprd03.prod.outlook.com
+ (2603:10a6:10:4b3:cafe::42) by DUZPR01CA0171.outlook.office365.com
+ (2603:10a6:10:4b3::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9870.25 via Frontend Transport; Mon,
+ 4 May 2026 17:04:10 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ DU2PEPF00028D01.mail.protection.outlook.com (10.167.242.185) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9870.22 via Frontend Transport; Mon, 4 May 2026 17:04:09 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Mon, 4 May
+ 2026 19:07:44 +0200
+Received: from [10.48.87.127] (10.48.87.127) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Mon, 4 May
+ 2026 19:04:07 +0200
+Message-ID: <9e2492d3-8753-46c7-8db6-5f1a80b4f2e9@foss.st.com>
+Date: Mon, 4 May 2026 19:04:06 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] PCI: brcmstb: Assign pcie->gen from pcie_get_link_speed()
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: linux-pci@vger.kernel.org, Dom Cobley <popcornmix@gmail.com>,
- Phil Elwell <phil@raspberrypi.com>, Jim Quinlan <jim2101024@gmail.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Hans Zhang <18255117159@163.com>,
- "moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE"
- <linux-rpi-kernel@lists.infradead.org>,
- "moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>
-References: <20260502114019.GA551304@bhelgaas>
-Content-Language: en-US, fr-FR
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20260502114019.GA551304@bhelgaas>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+Subject: Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
+To: Beleswar Prasad Padhi <b-padhi@ti.com>, Mathieu Poirier
+	<mathieu.poirier@linaro.org>
+CC: Shenwei Wang <shenwei.wang@nxp.com>, Andrew Lunn <andrew@lunn.ch>, "Linus
+ Walleij" <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
+	"Jonathan Corbet" <corbet@lwn.net>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Bjorn
+ Andersson <andersson@kernel.org>, Frank Li <frank.li@nxp.com>, Sascha Hauer
+	<s.hauer@pengutronix.de>, Shuah Khan <skhan@linuxfoundation.org>,
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "Pengutronix
+ Kernel Team" <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+	"Peng Fan" <peng.fan@nxp.com>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-remoteproc@vger.kernel.org"
+	<linux-remoteproc@vger.kernel.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>
+References: <20260422212849.1240591-1-shenwei.wang@nxp.com>
+ <20260422212849.1240591-4-shenwei.wang@nxp.com>
+ <22fb5fac-2568-42be-a7e3-7e89d0017eb3@ti.com>
+ <PAXPR04MB91850A11C58419C03909145F89362@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <6412a758-4560-4cf1-a0d0-5b24d1a715f1@lunn.ch>
+ <PAXPR04MB9185009A17DFDF3D6C8B44E789362@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <6e01e114-e336-4744-b6b4-563ec42e321b@lunn.ch>
+ <PAXPR04MB9185A098D894B6A6EBCC13F889372@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <afImuoeHolxGgw3H@p14s>
+ <PAXPR04MB9185F2F6DDB55AC56C92D63B89342@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <CANLsYkwvL0Z3+12MD=J+Dc2yAU2T8ypizyG=6AhYoWOh55odHA@mail.gmail.com>
+ <472f85bd-42c2-40c6-abfd-b76924797069@ti.com>
+ <CANLsYkzt9xUczxSU28u-TfZAAjr0ufZKXAj8Eqfq=45gufXW3w@mail.gmail.com>
+ <f7ef3417-eb84-4467-ac72-a9bc8b0c81e8@foss.st.com>
+ <21de8440-adf7-454b-acfc-06e50882e075@ti.com>
+ <4c526816-b127-43e7-86e9-eee4dc1152bc@foss.st.com>
+ <268f8e00-91bc-43ea-ba95-077cf859e7f3@ti.com>
+Content-Language: en-US
+From: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
+In-Reply-To: <268f8e00-91bc-43ea-ba95-077cf859e7f3@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.48.87.127]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PEPF00028D01:EE_|AS4PR10MB5991:EE_
+X-MS-Office365-Filtering-Correlation-Id: db0c7e8e-94e6-4a66-504a-08dea9ff28a8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|7416014|82310400026|376014|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: 7TWAPlvRC4b8gL6Csbkcd+uIAJgQZvzcfk+v8Ib6nOQBkNuoe+DbqlYKEhnyDjpjSrwsEf09OiOjpbR52kxFWs3id2XEmUqqod8zl6gvPKS++yO7bUhrqEHC62jOsKqAfWEFtwJMGtFa2uiMtE2jbUFJ5km+GF2ktKiadb01YTnbsajrbLw9dFxDbBzHN2Yb9r/nNiRx8vbJ+OEL8oWvFVGslrEg8J9YkQadQyluiXGzs30YT+b1DrLmMrGlfGC73/u3Kl9j9en9hMNwusH3g7VZhOImNjnTzCZVzAjL4wNk+0lRiovRhpkXKpALl1p2ExJO9K6bh8cont7eROl/coG20RRy4WFtiZcEFjO2kqNhfL+06jzw2+9wOECNmufTjJ2Yq0Xtg15PHCZ0z+8hTv1VUxWR4I0sc6FtnVfkjlUutbHhGzPhcZ0TKhuH7sqglFV2eAIo63jc0srUs/o7ziX6vhO7sRt0kwAkVZ0pwYFX88oW30QGHwf6yoNCH0hoWV1JajTpEga/woCSuOnLIU1d4UnEWHxhLnsNHjJITsU3UCJqKRe6YfcYQbQseaveexsgTXkEUDpauoplSgVsq+lqYZLL7UU3lHXLETL4DnKekuZE3nb3P5pKWFuX5HZADnQ2bo20pDBWOimIKftmDLNkrau/xSqwZIjoWPjC/CnZNkY9lQXNSwSTIfZ9DN/WZRmnh0Oitn8X7M3plcP2RNWBnJ+QuJsP2a9pgR4IA4c=
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(7416014)(82310400026)(376014)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: oOusno+ZGCeemnyrZMuoNrwsAzMqOX1xaguT77HI8+2PcfHj8xKg3aEFbh9LMrub8tbb/TJR7+rIIsj0050XhH64ORoI4oqPtSh5Q/1N62roudqCfQDbIlt6KZkKipSsIcG+A9+1SHKrxDTvGNh7vVN+rjVF6q9o+4jXzZQw7WRHQV+n0bjzJ0ZWtYNd9+SvWbTpKO0n0KiO41topPXmARXeP06e/l0pcmAJuul4Y0LM1f4bnNUJIHd4YeXrFi+DdPW3qx3Ee4yuVJfnauiu/dxc0PAe6C4FKhxY0w86UqCLft5ZteRVLNF+0JvMUAHI2iWJS5Frz2qMKgC37wavV6i3Wm0gurnwl+HBm03doxRoSwnpafeF60+6zo+JsJrmlrpQ6V1lF/uqlnRQpcOA3KRbhg4Vhg3kMxk8WUc6phgJjJemNs7Img0Y3QnVTNpk
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 May 2026 17:04:09.5802
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: db0c7e8e-94e6-4a66-504a-08dea9ff28a8
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D01.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR10MB5991
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_095820_042122_8BD27A76 
-X-CRM114-Status: GOOD (  17.97  )
+X-CRM114-CacheID: sfid-20260504_100419_744269_4B2F4E0E 
+X-CRM114-Status: GOOD (  27.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,44 +157,292 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/2/26 04:40, Bjorn Helgaas wrote:
-> On Fri, May 01, 2026 at 01:24:38PM -0700, Florian Fainelli wrote:
->> After commit 03f920936977 ("PCI: controller: Validate max-link-speed"),
->> pcie->gen stopped being assigned and as a result the established PCIe
->> link would stop supporting Gen3 speeds on 2712 since pcie->gen is used
->> to populate LnkCntl2 and LnkCap in brcm_pcie_set_gen().
->>
->> Link: https://github.com/raspberrypi/linux/issues/7343
->> Reported-by: Dom Cobley <popcornmix@gmail.com>
->> Reported-by: Phil Elwell <phil@raspberrypi.com>
->> Fixes: 03f920936977 ("PCI: controller: Validate max-link-speed")
->> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
->> ---
->>   drivers/pci/controller/pcie-brcmstb.c | 3 +--
->>   1 file changed, 1 insertion(+), 2 deletions(-)
->>
->> diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
->> index 714bcab97b60..6138fc4bc064 100644
->> --- a/drivers/pci/controller/pcie-brcmstb.c
->> +++ b/drivers/pci/controller/pcie-brcmstb.c
->> @@ -2072,8 +2072,7 @@ static int brcm_pcie_probe(struct platform_device *pdev)
->>   		return PTR_ERR(pcie->clk);
->>   
->>   	ret = of_pci_get_max_link_speed(np);
->> -	if (pcie_get_link_speed(ret) == PCI_SPEED_UNKNOWN)
->> -		pcie->gen = 0;
->> +	pcie->gen = pcie_get_link_speed(ret);
-> 
-> Take a look at https://sashiko.dev/#/patchset/20260501202438.376033-1-florian.fainelli%40broadcom.com
-> 
-> The notes at https://github.com/raspberrypi/linux/issues/7343 assumed
-> PCI_SPEED_UNKNOWN was 0, but in fact it is 0xff, which means you might
-> want the more defensive patch instead.
-> 
-> I'll be happy to replace what's on pci/for-linus if so.
+Hi Beleswar,
 
-I am starting to think a revert is the simplest path forward, it's not 
-clear what pcie_get_link_speed() brings to the table honestly.
--- 
-Florian
+On 5/4/26 10:17, Beleswar Prasad Padhi wrote:
+> Hi Arnaud,
+> 
+> On 30/04/26 22:10, Arnaud POULIQUEN wrote:
+>>
+>>
+>> On 4/30/26 14:56, Beleswar Prasad Padhi wrote:
+>>> Hello Arnaud,
+>>>
+>>> On 30/04/26 13:05, Arnaud POULIQUEN wrote:
+>>>> Hello,
+>>>>
+>>>> On 4/29/26 21:20, Mathieu Poirier wrote:
+>>>>> On Wed, 29 Apr 2026 at 12:07, Padhi, Beleswar <b-padhi@ti.com> wrote:
+>>>>>>
+>>>>>> Hi Mathieu,
+>>>>>>
+>>>>>> On 4/29/2026 11:03 PM, Mathieu Poirier wrote:
+>>>>>>> On Wed, 29 Apr 2026 at 10:53, Shenwei Wang <shenwei.wang@nxp.com> wrote:
+>>>>>
+> 
+> [...]
+> 
+>>>>>> My mental model looks like this for the complete picture:
+>>>>>>
+>>>>>> 1. namespace/channel#1 = rpmsg-io
+>>>>>>        a. ept1 -> gpio-controller@1
+>>>>>>        b. ept2 -> gpio-controller@2
+>>>>>>
+>>>>>
+>>>>> I've asked for one endpoint per GPIO controller since the very
+>>>>> beginning.  I don't yet have a strong opinion on whether to use one
+>>>>> namespace request per GPIO controller or a single request that spins
+>>>>> off multiple endpoints.  I'll have to look at your link and reflect on
+>>>>> that.  Regardless of how we proceed on that front, multiplexing needs
+>>>>> to happen at the endpoint level rather than the packet level.  This is
+>>>>> the only way this work can move forward.
+>>>>>
+>>>>
+>>>> I would be more in favor of Mathieu’s proposal: “An endpoint is created with every namespace request.”
+>>>>
+>>>> If the endpoint is created only on the Linux side, how do we match the Linux endpoint address with the local port field on the remote side?
+>>>
+>>>
+>>> Simply by sending a message to the remote containing the newly created
+>>> endpoint and the port idx. Note that is this done just one time, after this
+>>> Linux need not have the port field in the message everytime its sending
+>>> a message.
+>>>
+>>>>
+>>>> With a multi-namespace approach, the namespace could be rpmsg-io-[addr], where [addr] corresponds to the GPIO controller address in the DT. This would:
+>>>
+>>>
+>>> You will face the same problem in this case also that you asked above:
+>>> "how do we match the Linux endpoint address with the local port field
+>>> on the remote side?"
+>>
+>> Sorry I probably introduced confusion here
+>> my sentence should be;
+>>   With a multi-namespace approach, the namespace could be rpmsg-io-[port],
+>>   where [port] corresponds to the GPIO controller port in the DT.
+>>
+>>
+>> For instance:
+>>
+>>        rpmsg {
+>>          rpmsg-io {
+>>            #address-cells = <1>;
+>>            #size-cells = <0>;
+>>
+>>            gpio@25 {
+>>              compatible = "rpmsg-gpio";
+>>              reg = <25>;
+>>              gpio-controller;
+>>              #gpio-cells = <2>;
+>>              #interrupt-cells = <2>;
+>>              interrupt-controller;
+>>            };
+>>
+>>            gpio@32 {
+>>              compatible = "rpmsg-gpio";
+>>              reg = <32>;
+>>              gpio-controller;
+>>              #gpio-cells = <2>;
+>>              #interrupt-cells = <2>;
+>>              interrupt-controller;
+>>            };
+>>          };
+>>        };
+>>
+>>   rpmsg-io-25  would match with gpio@25
+>>   rpmsg-io-32  would match with gpio@32
+>>
+>>
+>>>
+>>> Because the endpoint that is created on a namespace request is also
+>>> dynamic in nature. How will the remote know which endpoint addr
+>>> Linux allocated for a namespace that it announced?
+>>>
+>>> As an example/PoC, I created a firmware example which announces
+>>> 2 name services to Linux, one is the standard "rpmsg_chrdev" and
+>>> the other is a TI specific name service "ti.ipc4.ping-pong". You can
+>>> see it created 2 different addresses (0x400 and 0x401) for each of
+>>> the name service request from the same firmware:
+>>>
+>>> root@j784s4-evm:~# dmesg | grep virtio0 | grep -i channel
+>>> [    9.290275] virtio_rpmsg_bus virtio0: creating channel ti.ipc4.ping-pong addr 0xd
+>>> [    9.311230] virtio_rpmsg_bus virtio0: creating channel rpmsg_chrdev addr 0xe
+>>> [    9.496645] rpmsg_chrdev virtio0.rpmsg_chrdev.-1.14: DEBUG: Channel formed from src = 0x400 to dst = 0xe
+>>> [    9.707255] rpmsg_client_sample virtio0.ti.ipc4.ping-pong.-1.13: new channel: 0x401 -> 0xd!
+>>>
+>>> So in this case, rpmsg-io-1 can have different ept addr than rpmsg-io-2
+>>> Back to same problem. Simple solution is to reply to remote with the
+>>> created ept addr and the index.
+>>
+>> That why I would like to suggest to use the name service field to identify the port/controller, instead of the endpoint address.
+>>>   
+>>>>
+>>>> - match the RPMsg probe with the DT,
+>>>
+>>>
+>>> We can probe from all controllers with a single name service
+>>> announcement too.
+>>>
+>>>> - provide a simple mapping between the port and the endpoint on both sides,
+>>>
+>>>
+>>> We are trying to get rid of this mapping from Linux side to adapt
+>>> the gpio-virtio design.
+>>>
+>>>> - allow multiple endpoints on the remote side,
+>>>
+>>>
+>>> We can support this as well with single nameservice model.
+>>> There is no limitation. Remote has to send a message with
+>>> its newly created ept that's all.
+>>>
+>>>> - provide a simple discovery mechanism for remote capabilities.
+>>>
+>>>
+>>> A single announcement: "rpmsg-io" is also discovery mechanism.
+>>>
+>>> Feel free to let me know if you have concerns with any of the
+>>> suggestions!
+>>
+>> My only concern, whatever the solution, is that we find a smart
+>> solution to associate the correct endpoint with the correct GPIO
+>> port/controller defined in the DT.
+> 
+> 
+> In my solution, there is no need to have this map of endpoint to
+> GPIO port at Linux side. This aligns more with virtio-gpio design
+> as well.
+> 
+>>
+>> I may have misunderstood your solution. Could you please help me
+>> understand your proposal by explaining how you would handle three
+>> GPIO ports defined in the DT, considering that the endpoint
+>> addresses on the Linux side can be random?
+>> If I assume there is a unique endpoint on the remote side,
+>> I do not understand how you can match, on the firmware side,
+>> the Linux endpoint address to the GPIO port.
+> 
+> 
+> Sure, let me take an example:
+> Assumptions: 3 GPIO ports in DT, 3 endpoints in Linux (one per port),
+> 1 endpoint in remote (0xd) and 1 rpmsg channel (rpmsg-io)
+> 
+>         rpmsg {
+>           rpmsg-io {
+>             #address-cells = <1>;
+>             #size-cells = <0>;
+> 
+>             gpio@25 {
+>               compatible = "rpmsg-gpio";
+>               reg = <25>;
+>               gpio-controller;
+>               #gpio-cells = <2>;
+>               #interrupt-cells = <2>;
+>               interrupt-controller;
+>             };
+> 
+>             gpio@32 {
+>               compatible = "rpmsg-gpio";
+>               reg = <32>;
+>               gpio-controller;
+>               #gpio-cells = <2>;
+>               #interrupt-cells = <2>;
+>               interrupt-controller;
+>             };
+> 
+>             gpio@35 {
+>               compatible = "rpmsg-gpio";
+>               reg = <35>;
+>               gpio-controller;
+>               #gpio-cells = <2>;
+>               #interrupt-cells = <2>;
+>               interrupt-controller;
+>             };
+>           };
+>         };
+> 
+> Code Flow:
+> 1. "rpmsg-io" channel is announced from remote firmware with unique dst
+>      ept = 0xd.
+> 
+> 2. rpmsg_core.c creates the default dynamic local ept for the channel
+>      ept = 0x405.
+> 
+> 3. rpmsg_core.c assigns the allocated addr to rpdev device:
+>      rpdev->src = 0x405 and rpdev->dst = 0xd.
+> 
+> 4. rpmsg_gpio_channel_probe() is triggered. For *each* of the GPIO ports
+>      in DT, it will trigger rpmsg_gpiochip_register() which will now:
+>         a. Call port->ept = rpmsg_create_ept(rpdev,
+>                                                                     rpmsg_gpio_channel_callback,
+>                                                                     port,
+>                                                                    {rpdev.id.name,
+>                                                                     RPMSG_ADDR_ANY,
+>                                                                     RPMSG_ADDR_ANY});
+>             Ex- port->ept->addr = 0x408
+> 
+>         b. Prepare a 8-byte message having 2 fields:
+>             port->ept->addr (0x408) and port->idx (25)
+> 
+>         c. Send this message to remote firmware on default channel ept
+>             (0x405 -> 0xd) by:
+>             rpmsg_send(rpdev->ept, &message, sizeof(message));
+> 
+>         d. Remote side receives this message and creates a map of the
+>             linux_ept_addr to gpio_port. (0x408 <-> 25)
+> 
+> 5. After this point, any gpio messages sent from Linux from gpio port
+>      endpoints (Ex- 0x408) can be decoded at remote side by looking up
+>      its map (Ex- map[0x408] = 25).
+> 
+> 6. Any messages sent from remote to Linux for a particular gpio port can
+>      also be decoded at Linux by simply fetching the priv pointer to get
+>      the per-port device:
+>      struct rpmsg_gpio_port *port = priv;
+>
+
+Thanks for the details!
+
+To sum up:
+- the default endpoint acts as the GPIO controller (0x405),
+- one extra Linux endpoint is created per port defined in DT.
+
+This should work, but my concerns remain the same:
+
+   1) This implementation forces the remote processor to handle a single
+      endpoint instead of one endpoint per port. This may add complexity to
+      the remote firmware if each port is managed in a separate thread.
+
+   2) Linux, as a consumer, should not expose its capabilities to the remote
+      side (in your proposal it enumerates the ports defined in the DT). 
+     In my view, the remote processor should expose its capabilities as the
+      provider.
+
+ From my perspective, based on your proposal:
+  1) Linux should send a get_config message to the remote proc (0x405 -> 
+0xD). 2) The remote processor would respond with the list of ports, 
+associated
+     with an remote endpoint addresses.
+  3) Linux would parse the response, compare it with the DT, enable the GPIO
+     ports accordingly, creating it local endpoint and associating it with
+     the remote endpoint.
+Using name service to identify the ports should avoid step 1 & 2 ...
+
+At the end, whatever solution is implemented, my main concern is that the
+Linux driver design should, if possible, avoid adding unnecessary complexity
+or limitations on the remote side (for instance in openAMP project).
+
+Thanks,
+Arnaud
+
+
+> So Linux does not need to send the port idx everytime while sending a
+> gpio message anymore.
+> 
+> Thanks,
+> Beleswar
+> 
+> [...]
+> 
+
 
