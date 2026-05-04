@@ -4,61 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F6C0FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 23:47:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24F9BCD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 23:53:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WYxFdRTU4h9RAKAcbt2Z1ljzhixMvqC+2yJI5MURaGc=; b=DAkkg796XO0aBs5YmtHeDTYDEu
-	Y/VECvF5/ckkpvKIwr7w0bP2bZMy/rVaOC8ysmzqXgGdbSYcF/2p3jG7/9kL34KNhiZtzW3epzk9E
-	2oGqEJ+B+fnJR4bAfNP5RsNHg/gwiKqJvjyxGfe8VuRox7MMjZYrCQeBmScIRmqmsISWxtPLeHO29
-	JcA5hRmYvZjK+3MVD+x8We6pzbxMcLTYnywEsojVplMLSp/aE5tkntrii0aKvAbcjzQwb+QTlU9gz
-	qjGrEMZNSSQVg+jkP8tQnnHtVZXeDDVCT+fdZsMoJCFY1TCK3F0t5eIw+VBdNA02z7se9HqdTfz0x
-	fK/PBWPA==;
+	bh=KAOd1V9M6ZWqHCSjDNjv4F8nmp8wTumJhk0Vw3mgNZc=; b=EO1QU9ZgodrQEtz3VBkDCQ+alq
+	4eFfb2YpSNTL3LOwQFqGz1aVisCjVEL4lGc2o6gw8SFP89599+yzu1cQLDVmwQRco+NTkx/+D3cXn
+	Z1N6oLdpvxEFSKimGBehC48WTSBA5wSUG+g8CC3EPEps8mo/JXEOajzQun9aUIvAaPuUWJH6+HDLw
+	Qoc21j/QjKI3BDDAVDIwkat9u4gzfSBHU1/tjOkc66Y4hUbWNc3TCXGOfFNK5NXHLGkbaiFmTRj+N
+	cNAH/Jhs7RQ6nKQ6shs2+tCYjdrkEqJz9ztnEUdVygWsttcU/P5Pg3aiqucEYaUAsh+56lFw7XDwu
+	2P/m0aCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wK310-0000000Edco-10qF;
-	Mon, 04 May 2026 23:47:54 +0000
+	id 1wK360-0000000EeKu-0GpF;
+	Mon, 04 May 2026 23:53:04 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wK30z-0000000Edc3-0EZX
+	id 1wK35y-0000000EeKj-2ik8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 23:47:53 +0000
+	Mon, 04 May 2026 23:53:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1B46B600C3;
-	Mon,  4 May 2026 23:47:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17E0FC2BCB8;
-	Mon,  4 May 2026 23:47:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BEF056001A;
+	Mon,  4 May 2026 23:53:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6C2FC2BCB8;
+	Mon,  4 May 2026 23:52:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777938471;
-	bh=zlNl/31cJlXFe729EzijjaD7RKBh3+E2pVeQT84vO6c=;
+	s=k20201202; t=1777938781;
+	bh=KAOd1V9M6ZWqHCSjDNjv4F8nmp8wTumJhk0Vw3mgNZc=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=S0ODceSYBvsK2yl3SNJBAbm9Qcjrx9s51vrrGC+isk9qJjzgxDpr7dVrx9OKcls3q
-	 3B+3b41MsxIVIRgz9zEasNIj/bxpKuerlgA4JuS34h9bdLlEPTlVUyCKaeAq87+mn5
-	 Hyy1y8pYx+dXs60EY9As0tyrCNdF/1hQYxuSdcbb8tr1U2omib5OCRgT2AHXGn1rHv
-	 F6JkT2s7s7zKTVJNdx9Ox8Mck31DKQ6rJ8vA3uWIaDZkccKhO9QkR55zLdewO2h4kZ
-	 zX0mI2CBEHKKE7rynbQLRv2SWUCicE+1R0Bpw4pc+4h6V8XGINmpzpW9YrvKN9KXu6
-	 gGEYWjPr3dMNg==
-Date: Mon, 4 May 2026 16:47:50 -0700
+	b=u8uWwS7Qzn6wA7JSIKsO0sKF2G+VlRXqBQsxSe4/fk6fahgfaVOW656JguZiNUqKS
+	 5DI3BzNywNszZ40oGTo4QRBrzSBkYXrkofQAgNUt2mCNgeNas0njNZz69IMCg65Btp
+	 mvTgVaMcx5+wQXbFZagAhoVv/l+WlDwpF3KelSs+X2TRsa00lydA4dz1J5jsuqSA4T
+	 4vkf6nMFPbzHSA/66+CjKd0leHCoJmWc3K1cWmQ/2Skquvu0YHLt6PCdDmQF96DxlQ
+	 RROPDH/Gp1CrLd8pZryGatPE9Oy76gKptmGL6wQXWBrPjdo0MaA0bLXfeptNxCvEAR
+	 QcwJBcsO5earw==
+Date: Mon, 4 May 2026 16:52:58 -0700
 From: Jakub Kicinski <kuba@kernel.org>
-To: Shitalkumar Gandhi <shital.gandhi45@gmail.com>
-Cc: MD Danish Anwar <danishanwar@ti.com>, Parvathi Pudi
- <parvathi@couthit.com>, Roger Quadros <rogerq@kernel.org>, Mohan Reddy
- Putluru <pmohan@couthit.com>, "David S . Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Andrew
- Lunn <andrew@lunn.ch>, Simon Horman <horms@kernel.org>, Dan Carpenter
- <dan.carpenter@linaro.org>, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Shitalkumar Gandhi <shitalkumar.gandhi@cambiumnetworks.com>, Felix Gu
- <ustc.gu@gmail.com>
-Subject: Re: [PATCH net] i2c: sun6i-p2wi: fix of_node reference leak in
- probe
-Message-ID: <20260504164750.5eb6c55a@kernel.org>
-In-Reply-To: <20260504193834.3516862-1-shitalkumar.gandhi@cambiumnetworks.com>
-References: <20260504193834.3516862-1-shitalkumar.gandhi@cambiumnetworks.com>
+To: Daniel Machon <daniel.machon@microchip.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Steen Hegelund <Steen.Hegelund@microchip.com>,
+ <UNGLinuxDriver@microchip.com>, "Sebastian Andrzej Siewior"
+ <bigeasy@linutronix.de>, Clark Williams <clrkwllms@kernel.org>, Steven
+ Rostedt <rostedt@goodmis.org>, Bjarni Jonasson
+ <bjarni.jonasson@microchip.com>, Lars Povlsen <lars.povlsen@microchip.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, <linux-kernel@vger.kernel.org>,
+ <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-rt-devel@lists.linux.dev>
+Subject: Re: [PATCH net 2/4] net: sparx5: fix sleep in atomic context in MAC
+ table access
+Message-ID: <20260504165258.30b81158@kernel.org>
+In-Reply-To: <20260504-misc-fixes-sparx5-lan969x-v1-2-6604306b5743@microchip.com>
+References: <20260504-misc-fixes-sparx5-lan969x-v1-0-6604306b5743@microchip.com>
+	<20260504-misc-fixes-sparx5-lan969x-v1-2-6604306b5743@microchip.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
@@ -76,8 +78,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue,  5 May 2026 01:08:34 +0530 Shitalkumar Gandhi wrote:
-> Subject: [PATCH net] i2c: sun6i-p2wi: fix of_node reference leak in probe
+On Mon, 4 May 2026 16:43:43 +0200 Daniel Machon wrote:
+> sparx5_mact_learn() is called from .ndo_set_rx_mode with
+> netif_addr_lock_bh held, but takes sparx5->lock which is a mutex.
+> A mutex may block, which is not allowed from atomic context.
 
-This is obviously not something that should go via the networking tree 
+Could you try to switch to the recently added ndo_set_rx_mode_async?
+We added it exactly because most drivers have to sleep / wait for FW
+to do something.
 
