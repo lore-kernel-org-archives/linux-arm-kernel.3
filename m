@@ -4,77 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC8FBCD3430
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 13:53:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9298DCD3430
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 13:55:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D4dulbXDAwQBxDOVeAokcoekpEexPLvg83xRvBbR29I=; b=epFHk5XzO+Uk4wVXdqFNmeFK37
-	CaZU28igP61zZdgHzSqRwDlcsA63H3V2uVUgggz7QmnQ/dap7R3UNsnzVDvdzXTtDDfiOnUPCj6Uc
-	iWk9x1wLjNSZdh1JUrr+M+ElPcKOc/W7IIHvXMknh5Gn1sP929z6QeGaQPi4kS5nca4E5X1auHNh0
-	q8KduwScrOo3nes7MUQQJ6jxLA2kcvKGT+VOWL8wvww9eve4h0ZuEJB/8cSrJebUbjP6LtIp9AIt3
-	xO8Z0oyp1DvTIOw9MG9Wk8R29V1IZIedYEpdH3hkwVJQV7/3g57XjJfMW8r0fOihKPuZBZy9y4UOA
-	/aRg/XKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kjtuPBtUs3wRfxAo9hJlxREU/KDYi77wQBFvfglAVmM=; b=4GxCUfFdEwZlqAW32FfOtdoOIb
+	VJ7+Rnfqwd0GEFCKjfFv/02MK4YfFqP+vw/gl+17NBnteABAq4r4MSLpD8ZCKF/U1qJNLgeoTsouF
+	Rv22stUdYR6Wh2Mxb4XHy6sf5Cn2mVhoSXzjwkmb9xYfN8E4CH0iGRp1uGOlul/E/ajiKCefeQ+FP
+	sos4TGJ89XW5riOzBPG5JwVgj1PiSztMBIUxqDRGg53aHLqKh/mJu7vniEAWwTfqyLt45mvjycUZz
+	Ztr0DYkymmJIwqWF98a5xtIQe++0r8zEBcv3B3IGHapMDjdMn6Y1dcxc04u5fqj296ycgIx1kASj8
+	folTarog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJtjS-0000000DMGm-2Dxg;
-	Mon, 04 May 2026 13:53:10 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wJtlF-0000000DMcn-2Q4Y;
+	Mon, 04 May 2026 13:55:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJtjP-0000000DMEN-1qsr
+	id 1wJtlE-0000000DMc6-15x0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 13:53:09 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id F04A69C;
-	Mon,  4 May 2026 15:52:59 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1777902780;
-	bh=jAmwC7RoNIdGSDJJnfsMWk2C7VRG5k4+P0kWxDw9Xwc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=exN6jme3FnN7ZdO5dMT/84j58aS3PmMfbugbcsP5HQfKmXzQeMcPeaceQi3LUlvYy
-	 14u80HmmnjNDtQbvRSMWvGlbBMYR1/5ISJlmGaTbSIFKRBeISfpeJr4m04M6OyWwT9
-	 tIcGO430tOAc9odmsPTKtdJsFUpSNNMGDC2X6S7Q=
-Date: Mon, 4 May 2026 16:53:00 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Rob Clark <robin.clark@oss.qualcomm.com>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Abhinav Kumar <abhinav.kumar@linux.dev>,
-	Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
-	Marijn Suijten <marijn.suijten@somainline.org>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	John Stultz <jstultz@google.com>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Hui Pu <Hui.Pu@gehealthcare.com>,
-	Ian Ray <ian.ray@gehealthcare.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
+	Mon, 04 May 2026 13:55:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 43B8760018;
+	Mon,  4 May 2026 13:54:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9ABE3C2BCB8;
+	Mon,  4 May 2026 13:54:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1777902899;
+	bh=t4kUMwZB57/vEZa0pAXLz4i0ebZS73miLhX964u1D/4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=yVEddBoV03Mq5M0vTDjIXlW8BHXs7WAvben0N0FW2Kouj4Ik2fMaA+bjkMrLQUdW3
+	 0lBEsI1i44zkXzAsMm7Mda4aLEtEXYy0L7gccgq6NCUSAVTNrbn+/h/tIBawO9MUit
+	 9G1wqld0T9vPiCBNkU2SQQ9PXeIrqwb8RGBqvyIA=
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: stable@vger.kernel.org
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	patches@lists.linux.dev,
+	Will Deacon <will@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Subject: Re: [PATCH v4 01/11] drm/bridge: drm_bridge_get/put(): ignore ERR_PTR
-Message-ID: <20260504135300.GE1344263@killaraus.ideasonboard.com>
-References: <20260504-drm-bridge-alloc-getput-panel_or_bridge-v4-0-b578c3daaf10@bootlin.com>
- <20260504-drm-bridge-alloc-getput-panel_or_bridge-v4-1-b578c3daaf10@bootlin.com>
+	linux-kernel@vger.kernel.org,
+	"David Hildenbrand (Arm)" <david@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: [PATCH 7.0 025/307] arm64/mm: Enable batched TLB flush in unmap_hotplug_range()
+Date: Mon,  4 May 2026 15:48:30 +0200
+Message-ID: <20260504135143.779476141@linuxfoundation.org>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260504135142.814938198@linuxfoundation.org>
+References: <20260504135142.814938198@linuxfoundation.org>
+User-Agent: quilt/0.69
+X-stable: review
+X-Patchwork-Hint: ignore
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260504-drm-bridge-alloc-getput-panel_or_bridge-v4-1-b578c3daaf10@bootlin.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_065307_618708_1CABBA27 
-X-CRM114-Status: GOOD (  20.69  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,82 +75,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 04, 2026 at 12:45:04PM +0200, Luca Ceresoli wrote:
-> Most functions returning a struct drm_bridge pointer currently return a
-> valid pointer or NULL, but this restricts their ability to return an error
-> code describing the error kind.
-> 
-> In preparation to have new APIs that can return a struct drm_bridge pointer
-> holding an ERR_PTR (and for those which already do) make drm_bridge_get()
-> and drm_bridge_put() ignore ERR_PTR values, just like they ignore NULL
-> pointers.
+7.0-stable review patch.  If anyone has any objections, please let me know.
 
-The change in drm_bridge_put() looks good to me. I'm less sure about
-drm_bridge_get(), is there a valid use case to call get() on a bridge
-that is not valid ? Doesn't it indicate a clear error in the caller ?
+------------------
 
-> This will avoid annoying error checking in many places and the risk of
-> missing error checks.
-> 
-> Suggested-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> Link: https://lore.kernel.org/all/20260318152533.GA633439@killaraus.ideasonboard.com/
-> Suggested-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-> Link: https://lore.kernel.org/all/omlnswxukeqgnatzdvooaashgkfcacjevkvbkm6xt33itgua2k@jcmzll2w6kdq/
-> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-> ---
-> 
-> Changes in v4:
-> - removed incorrect change to drm_bridge_clear_and_put() kdoc
-> 
-> Patch added in v2
-> ---
->  drivers/gpu/drm/drm_bridge.c | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
-> index d4b3478258ec..6fb71de6d22a 100644
-> --- a/drivers/gpu/drm/drm_bridge.c
-> +++ b/drivers/gpu/drm/drm_bridge.c
-> @@ -282,7 +282,7 @@ static void __drm_bridge_free(struct kref *kref)
->  
->  /**
->   * drm_bridge_get - Acquire a bridge reference
-> - * @bridge: DRM bridge; if NULL this function does nothing
-> + * @bridge: DRM bridge; if NULL or an ERR_PTR this function does nothing
->   *
->   * This function increments the bridge's refcount.
->   *
-> @@ -291,7 +291,7 @@ static void __drm_bridge_free(struct kref *kref)
->   */
->  struct drm_bridge *drm_bridge_get(struct drm_bridge *bridge)
->  {
-> -	if (bridge)
-> +	if (!IS_ERR_OR_NULL(bridge))
->  		kref_get(&bridge->refcount);
->  
->  	return bridge;
-> @@ -300,7 +300,7 @@ EXPORT_SYMBOL(drm_bridge_get);
->  
->  /**
->   * drm_bridge_put - Release a bridge reference
-> - * @bridge: DRM bridge; if NULL this function does nothing
-> + * @bridge: DRM bridge; if NULL or an ERR_PTR this function does nothing
->   *
->   * This function decrements the bridge's reference count and frees the
->   * object if the reference count drops to zero.
-> @@ -310,7 +310,7 @@ EXPORT_SYMBOL(drm_bridge_get);
->   */
->  void drm_bridge_put(struct drm_bridge *bridge)
->  {
-> -	if (bridge)
-> +	if (!IS_ERR_OR_NULL(bridge))
->  		kref_put(&bridge->refcount, __drm_bridge_free);
->  }
->  EXPORT_SYMBOL(drm_bridge_put);
+From: Anshuman Khandual <anshuman.khandual@arm.com>
 
--- 
-Regards,
+commit 48478b9f791376b4b89018d7afdfd06865498f65 upstream.
 
-Laurent Pinchart
+During a memory hot remove operation, both linear and vmemmap mappings for
+the memory range being removed, get unmapped via unmap_hotplug_range() but
+mapped pages get freed only for vmemmap mapping. This is just a sequential
+operation where each table entry gets cleared, followed by a leaf specific
+TLB flush, and then followed by memory free operation when applicable.
+
+This approach was simple and uniform both for vmemmap and linear mappings.
+But linear mapping might contain CONT marked block memory where it becomes
+necessary to first clear out all entire in the range before a TLB flush.
+This is as per the architecture requirement. Hence batch all TLB flushes
+during the table tear down walk and finally do it in unmap_hotplug_range().
+
+Prior to this fix, it was hypothetically possible for a speculative access
+to a higher address in the contiguous block to fill the TLB with shattered
+entries for the entire contiguous range after a lower address had already
+been cleared and invalidated. Due to the table entries being shattered, the
+subsequent TLB invalidation for the higher address would not then clear the
+TLB entries for the lower address, meaning stale TLB entries could persist.
+
+Besides it also helps in improving the performance via TLBI range operation
+along with reduced synchronization instructions. The time spent executing
+unmap_hotplug_range() improved 97% measured over a 2GB memory hot removal
+in KVM guest.
+
+This scheme is not applicable during vmemmap mapping tear down where memory
+needs to be freed and hence a TLB flush is required after clearing out page
+table entry.
+
+Cc: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Closes: https://lore.kernel.org/all/aWZYXhrT6D2M-7-N@willie-the-truck/
+Fixes: bbd6ec605c0f ("arm64/mm: Enable memory hot remove")
+Cc: stable@vger.kernel.org
+Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+---
+ arch/arm64/mm/mmu.c |   36 ++++++++++++++++++++----------------
+ 1 file changed, 20 insertions(+), 16 deletions(-)
+
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -1462,10 +1462,14 @@ static void unmap_hotplug_pte_range(pmd_
+ 
+ 		WARN_ON(!pte_present(pte));
+ 		__pte_clear(&init_mm, addr, ptep);
+-		flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+-		if (free_mapped)
++		if (free_mapped) {
++			/* CONT blocks are not supported in the vmemmap */
++			WARN_ON(pte_cont(pte));
++			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+ 			free_hotplug_page_range(pte_page(pte),
+ 						PAGE_SIZE, altmap);
++		}
++		/* unmap_hotplug_range() flushes TLB for !free_mapped */
+ 	} while (addr += PAGE_SIZE, addr < end);
+ }
+ 
+@@ -1486,15 +1490,14 @@ static void unmap_hotplug_pmd_range(pud_
+ 		WARN_ON(!pmd_present(pmd));
+ 		if (pmd_sect(pmd)) {
+ 			pmd_clear(pmdp);
+-
+-			/*
+-			 * One TLBI should be sufficient here as the PMD_SIZE
+-			 * range is mapped with a single block entry.
+-			 */
+-			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+-			if (free_mapped)
++			if (free_mapped) {
++				/* CONT blocks are not supported in the vmemmap */
++				WARN_ON(pmd_cont(pmd));
++				flush_tlb_kernel_range(addr, addr + PMD_SIZE);
+ 				free_hotplug_page_range(pmd_page(pmd),
+ 							PMD_SIZE, altmap);
++			}
++			/* unmap_hotplug_range() flushes TLB for !free_mapped */
+ 			continue;
+ 		}
+ 		WARN_ON(!pmd_table(pmd));
+@@ -1519,15 +1522,12 @@ static void unmap_hotplug_pud_range(p4d_
+ 		WARN_ON(!pud_present(pud));
+ 		if (pud_sect(pud)) {
+ 			pud_clear(pudp);
+-
+-			/*
+-			 * One TLBI should be sufficient here as the PUD_SIZE
+-			 * range is mapped with a single block entry.
+-			 */
+-			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+-			if (free_mapped)
++			if (free_mapped) {
++				flush_tlb_kernel_range(addr, addr + PUD_SIZE);
+ 				free_hotplug_page_range(pud_page(pud),
+ 							PUD_SIZE, altmap);
++			}
++			/* unmap_hotplug_range() flushes TLB for !free_mapped */
+ 			continue;
+ 		}
+ 		WARN_ON(!pud_table(pud));
+@@ -1557,6 +1557,7 @@ static void unmap_hotplug_p4d_range(pgd_
+ static void unmap_hotplug_range(unsigned long addr, unsigned long end,
+ 				bool free_mapped, struct vmem_altmap *altmap)
+ {
++	unsigned long start = addr;
+ 	unsigned long next;
+ 	pgd_t *pgdp, pgd;
+ 
+@@ -1578,6 +1579,9 @@ static void unmap_hotplug_range(unsigned
+ 		WARN_ON(!pgd_present(pgd));
+ 		unmap_hotplug_p4d_range(pgdp, addr, next, free_mapped, altmap);
+ 	} while (addr = next, addr < end);
++
++	if (!free_mapped)
++		flush_tlb_kernel_range(start, end);
+ }
+ 
+ static void free_empty_pte_table(pmd_t *pmdp, unsigned long addr,
+
+
 
