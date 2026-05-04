@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43538FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 16:34:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 191C2CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 16:36:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cTwBZuBkLaEoXEXlx8lRKjsB6RK7v7MFH7fzcG9R9DI=; b=MvKa1q0UKmw5HxybVpXQ9kqHe+
-	2rtqqLKgL1qxgGtxgKiHVBqHwZ0HcnMPedCHlxGu3ijj/woqmxJU4vI3kU04dboU/rPLstVaa9nnb
-	X0A3+lKezIsxKN26fxPfuc5jNeP/46cJYLvBWHTpJjPo+S4Z59x+OW7G8S3sPR88EeaB/6/IHFGNw
-	E+RDhdoVQgG1XiDjHaZ3crIvMOy7AftBpdQX8fSQBL0Qci8XfEc1UPYRLPqF5Nd2d92t52/Tp2yRr
-	tpR9yKP3+IgiDwIBs3DihnYuhDWtjqlGRY3Mn7AmyIA5rs80W/+YKzbmA0EJmRQ/ng1AiwbjqFPhv
-	yuakhPJQ==;
+	bh=9UmPOT5KJqOC8YmuvJo/yPAOOR/jmZTXRcBb0ww8ROU=; b=uBYbrpQth70lCPRE21o1pmeMkG
+	VUYH0Pc+xMvJstAtj7YqmDiQGrqV5MeSHayv7L+P2b6ZEo5KMZxzdYBfbhX8JDOyE8lFSVRSIOiWj
+	iZ4OK5yzOBt8As9kLCEgRPT6DJ7Ieszd5pSDKMqC7fLsX8tXmCb3GILTKXzX2VRoNi9Xz5rjGQ294
+	+/zzJnqjnWU0lQO3dCcfhd+fi60fs0xCeT43WHEezjDqX/dde8UW/ypNDyI2bYmPEFwEYTGAXNcPp
+	D8sxW+ZZySsdHmzss1MiOJbSmwlNxzbi0UM02j3LDINVTxsrD6YOPkh/BnYH9hyeCEWqYNzsWAaWn
+	VvtOADpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJwFs-0000000DjG9-1D2w;
-	Mon, 04 May 2026 16:34:48 +0000
+	id 1wJwHX-0000000DjVG-14Zn;
+	Mon, 04 May 2026 16:36:31 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJwFo-0000000DjF6-364R
+	id 1wJwHU-0000000DjU0-2Epa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 16:34:46 +0000
+	Mon, 04 May 2026 16:36:29 +0000
 Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 3A5EF9C;
-	Mon,  4 May 2026 18:34:41 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id AAC319C;
+	Mon,  4 May 2026 18:36:24 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1777912481;
-	bh=2OSAeT8an5e3Y+nfCRfDAXE6cwKmFiIVVKAcvn/IUNE=;
+	s=mail; t=1777912584;
+	bh=1EJqZzRZKr0O2+ZK+UwE6c4ahhtTRCZZ2gf3ylP/+Hg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=vxISDUCuo6b67rdu9OyWQc4v82FFMWzd49PyIU+P5FA58n/pOr24USVXMSVJzhYd2
-	 9LLY/MSJUZJRAKvQ69brP3BXwQwmcOYkm+rI9oCeir5Z2a+F7hIimQPN7mSOZBxz6H
-	 TnMUIUFuDNrQ9kdWmO/7opamqlJOvglSdCiRFVTA=
-Date: Mon, 4 May 2026 19:34:41 +0300
+	b=t5xVo43WK/DZuGnNw5dwo2Lb5Ceoc2zGDTrfDDiBBbAntPEsGW1ttAXPCZHUUJmW8
+	 8D44iUJbBQQvexGBda7xP7p80qwhLjJG8zNYyZknz2g0VlltE3y41+HDutUtNu6Z+A
+	 tZHRnbLPfIAmXBPDZiDWQt444WwCofNaunY7oFv8=
+Date: Mon, 4 May 2026 19:36:25 +0300
 From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 To: Maxime Ripard <mripard@kernel.org>
 Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
@@ -70,18 +70,17 @@ Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 	linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>,
 	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v3 04/20] drm/atomic: Expand atomic_create_state
- expectations for drm_private_obj
-Message-ID: <20260504163441.GI1344263@killaraus.ideasonboard.com>
+Subject: Re: [PATCH v3 06/20] drm/colorop: Rename __drm_colorop_state_reset()
+Message-ID: <20260504163625.GJ1344263@killaraus.ideasonboard.com>
 References: <20260424-drm-mode-config-init-v3-0-8b68d9db0d8b@kernel.org>
- <20260424-drm-mode-config-init-v3-4-8b68d9db0d8b@kernel.org>
+ <20260424-drm-mode-config-init-v3-6-8b68d9db0d8b@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260424-drm-mode-config-init-v3-4-8b68d9db0d8b@kernel.org>
+In-Reply-To: <20260424-drm-mode-config-init-v3-6-8b68d9db0d8b@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_093444_917358_D9359C20 
-X-CRM114-Status: GOOD (  21.28  )
+X-CRM114-CacheID: sfid-20260504_093628_717549_95409836 
+X-CRM114-Status: GOOD (  21.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,43 +99,67 @@ Hi Maxime,
 
 Thank you for the patch.
 
-On Fri, Apr 24, 2026 at 12:18:44PM +0200, Maxime Ripard wrote:
-> The atomic_create_state callback documentation for planes, CRTCs, and
-> connectors explicitly states the expected behaviour: the returned
-> state must not be assigned to the object's state pointer, and hardware
-> must not be touched.
+On Fri, Apr 24, 2026 at 12:18:46PM +0200, Maxime Ripard wrote:
+> __drm_colorop_state_reset() is used to initialize a newly allocated
+> drm_colorop_state, and is being typically called by drm_colorop_reset().
 > 
-> The drm_private_state_funcs.atomic_create_state documentation is
-> missing this clarification. Add it for consistency.
+> Since we want to consolidate DRM objects state allocation around the
+> atomic_create_state callback that will only allocate and initialize a
+> new drm_colorop_state instance, we will need to call
+> __drm_colorop_state_reset() from both the reset and atomic_create paths.
 > 
+> To avoid any confusion, we can thus rename __drm_colorop_state_reset()
+> to __drm_colorop_state_init().
+> 
+> Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
 > Signed-off-by: Maxime Ripard <mripard@kernel.org>
 
 Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 
 > ---
->  include/drm/drm_atomic.h | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
+>  drivers/gpu/drm/drm_colorop.c | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
 > 
-> diff --git a/include/drm/drm_atomic.h b/include/drm/drm_atomic.h
-> index f03cd199aee7..f7f9c6c85f3a 100644
-> --- a/include/drm/drm_atomic.h
-> +++ b/include/drm/drm_atomic.h
-> @@ -263,11 +263,14 @@ struct drm_private_state;
->  struct drm_private_state_funcs {
->  	/**
->  	 * @atomic_create_state:
->  	 *
->  	 * Allocates a pristine, initialized, state for the private
-> -	 * object and returns it.
-> +	 * object and returns it. This callback must have no side
-> +	 * effects: in particular, the returned state must not be
-> +	 * assigned to the object's state pointer and it must not affect
-> +	 * the hardware state.
->  	 *
->  	 * RETURNS:
->  	 *
->  	 * A new, pristine, private state instance or an error pointer
->  	 * on failure.
+> diff --git a/drivers/gpu/drm/drm_colorop.c b/drivers/gpu/drm/drm_colorop.c
+> index 48d0b7ae3fc9..4c4d0a953e35 100644
+> --- a/drivers/gpu/drm/drm_colorop.c
+> +++ b/drivers/gpu/drm/drm_colorop.c
+> @@ -498,19 +498,19 @@ void drm_colorop_atomic_destroy_state(struct drm_colorop *colorop,
+>  	__drm_atomic_helper_colorop_destroy_state(state);
+>  	kfree(state);
+>  }
+>  
+>  /**
+> - * __drm_colorop_state_reset - resets colorop state to default values
+> + * __drm_colorop_state_init - Initializes colorop state to default values
+>   * @colorop_state: atomic colorop state, must not be NULL
+>   * @colorop: colorop object, must not be NULL
+>   *
+>   * Initializes the newly allocated @colorop_state with default
+>   * values. This is useful for drivers that subclass the colorop state.
+>   */
+> -static void __drm_colorop_state_reset(struct drm_colorop_state *colorop_state,
+> -				      struct drm_colorop *colorop)
+> +static void __drm_colorop_state_init(struct drm_colorop_state *colorop_state,
+> +				     struct drm_colorop *colorop)
+>  {
+>  	u64 val;
+>  
+>  	colorop_state->colorop = colorop;
+>  	colorop_state->bypass = true;
+> @@ -537,11 +537,11 @@ static void __drm_colorop_state_reset(struct drm_colorop_state *colorop_state,
+>   */
+>  static void __drm_colorop_reset(struct drm_colorop *colorop,
+>  				struct drm_colorop_state *colorop_state)
+>  {
+>  	if (colorop_state)
+> -		__drm_colorop_state_reset(colorop_state, colorop);
+> +		__drm_colorop_state_init(colorop_state, colorop);
+>  
+>  	colorop->state = colorop_state;
+>  }
+>  
+>  void drm_colorop_reset(struct drm_colorop *colorop)
 
 -- 
 Regards,
