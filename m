@@ -4,128 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 260CBCD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 16:22:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB503CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 16:26:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W0Adqd/alGRHTMfCfP/jhy7JGtX4Uz81j0BSxJh1JVQ=; b=iScyrkJd/DImOKQRihQrRhy8T/
-	Py2IZRBPcmQD3Fwg+mvTJ7MyE/RKiKQfOqdjYb0G9aAq/C3xoMsul1FaMaKwH2Hc2Bfp5OowdP4Cr
-	9mVfHtSK32cqQR4EqJ3nIb43xVi+y6aQ3Rd07YLfI/onWnmv3GeorqpqRggYk25XIi+oERh4+VPfc
-	8Srwli17BK/Ib3CT9VY8QdsZ7d+S26ts1k198ogecMlZJ8tYXKEOtmBglcCR4x7AIbfkLC5VuEtOc
-	0vo5ILm0XflePRX5zrQapXLZ6V/W3BDHeK5LlJRdv2PAkD3gtW6A0HRcC4kQzAB4na91tX6J5mBBd
-	3IqC7sXg==;
+	bh=p5E4v0EnPxDNNiWJ2/yjD1PGWSAAPKQV0Iph9tpmsY8=; b=Kh55E0BCtqMGPsZjHXsRnOunZ5
+	8ROaFN7hKMadDqcf1NXGFzgAR6A07XqsxVD1jOgG2jdnqRjUKX1be0ptjgsJEOGv/ql8JthtC8zlP
+	OqFI7XRHBv8Rhe7Z6naYsgnT2WsOdDM0YBauuw3VPLl2FY9A1NCuY1bdiGIonrdY6J3OdqiRn59lj
+	FZbnRDkGj3yxgB+MMqj6vGuyqWqWirR69sZDZaBxTxYtSTnz0ZjlgNvILjrXJ0ZFqrsspURc7uwFl
+	KPzExjCnV/XKDUH6qeUbZLl/D/4MA2iUGhBZq/7Qqism6t5NTyHbl2aTCyecB64QIooOS9grU17Br
+	YoaI0cJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJw4M-0000000Dhf8-28iT;
-	Mon, 04 May 2026 16:22:54 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wJw83-0000000DiBo-0pVj;
+	Mon, 04 May 2026 16:26:43 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJw4J-0000000Dhdz-3tRv
+	id 1wJw80-0000000DiAF-2KJN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 16:22:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DLlg8EMCJkITN1THRZoIbpJ74vqxifcJr18Ly+q/JM6apwx+8uGeOXxAlq/azu1AyJTwjQRNZ8+nLWOw5ONGdHr/ZXByUXQ1p19v47PC73VF/yciuav42taiBhBng6oQFF/VEt6deDRupQAcuC4d2ok7axlSJKCtkEh7tFucxw3fJYlyoJdVLkJqTJclcgH5hEJquyAf4n7VXGiVB/eKxAhcfjij6Fwpx2hb8jNT8Lw/c/TSuC//YlX8zDG4bSrYYf5uVVDSUE+kWBXjYB9JaUeCD/W0MCJuJG0bZ9PCX2tfGi7cv68Y/DU7dnsWD9i7sVEoUhs5qY6EPFiqDBT/Fg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=W0Adqd/alGRHTMfCfP/jhy7JGtX4Uz81j0BSxJh1JVQ=;
- b=oEG+gHUZ41hiN7UVtip58WxcI5oGD3Wwtmd6vE7VNbhKKfcjG8xi736bKti9QZxd+tSQKA9TXQN7mThoNBRh+qqgPZVkboJnaQy7kZORLx6cElzqHp5Ye3u0EA1ihpAwIqT9wWpDlJ2PiHTNqQ1RLfZNr++xBX5Si6iFObJVp+jnc+TP59CWI+fSkhCaEb037dzmuwhVQHxPwqfqdYlGfKeVamnLeMpgkRRa4M1esfV+gKMkKr8Bi6Kir3Tvvyon9i4ry582QsmhGiERomekeparqAgardnVs74TOsCLwQTT81pBWBj2JHSd+GaklgQ4rAkMvjPT7usvwm6F2aZzvA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=W0Adqd/alGRHTMfCfP/jhy7JGtX4Uz81j0BSxJh1JVQ=;
- b=e1CN3pxetv8LHrCiqlO9neOkWhS6UVDFNKBaNOtCOhMs1O9WDWYuSiETFBinGLWqFfiw/fmqymhxBIy8kT3nDfErKWq2437FjIrFpgPUhIJz3ol3gDIGpOWAjT0QM8btNPJUPNC4PTC1qvTX+a6+FWR5sEEEsl9zPcX8GjeHnVJUgn4VgAW6a5BvmvQECg9we4Dgz2Lgew7vj0JqCNkNAcC+j4oyVms4GqBzZdv7faip7ipvO4cEwLrbkIVUkYOfJhwiv9gO2U8E/8d3LtRSJLAOWWFXjlLK4qOBPthX5LzXfRpdVw4rwxH4DomTt9j37IlpyqtCG6miiQyFtOAz6Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by DU2PR04MB9052.eurprd04.prod.outlook.com (2603:10a6:10:2e7::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Mon, 4 May
- 2026 16:22:46 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9870.023; Mon, 4 May 2026
- 16:22:46 +0000
-Date: Mon, 4 May 2026 12:22:40 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Xiaolei Wang <xiaolei.wang@windriver.com>
-Cc: laurent.pinchart@ideasonboard.com, mchehab@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	aisheng.dong@nxp.com, jacopo@jmondi.org, guoniu.zhou@nxp.com,
-	s.riedmueller@phytec.de, linux-media@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH 2/3] media: imx8-isi: add missing v4l2_subdev_cleanup()
- in crossbar and pipe
-Message-ID: <afjH0HcMoklVjUkt@lizhi-Precision-Tower-5810>
-References: <20260424231926.406079-1-xiaolei.wang@windriver.com>
- <20260424231926.406079-3-xiaolei.wang@windriver.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260424231926.406079-3-xiaolei.wang@windriver.com>
-X-ClientProxiedBy: SA0PR11CA0081.namprd11.prod.outlook.com
- (2603:10b6:806:d2::26) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Mon, 04 May 2026 16:26:42 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 7D36F9C;
+	Mon,  4 May 2026 18:26:35 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1777911995;
+	bh=E9px648KO3wjHBF0FvoQJ7oWqClwxx9bwOStqChZ5Dg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=C7nsBiw9DfJdqe3vAIYvrHSaWv8vOFVzMj0n+NiBzUAPMyhk8h2a2SM2Bulaujsx8
+	 d1pRVOk4Ncb3L1muy/CHM/aX8ZQX1GlcGVUsDs0tNhAx+haCjF7MzMb+9wF1uQ5IaL
+	 OgYAB8rIqmJUXUEvwtBpDVsHyESYrjqNYazNcKwY=
+Date: Mon, 4 May 2026 19:26:36 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Jyri Sarha <jyri.sarha@iki.fi>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Simon Ser <contact@emersion.fr>,
+	Harry Wentland <harry.wentland@amd.com>,
+	Melissa Wen <mwen@igalia.com>,
+	Sebastian Wick <sebastian.wick@redhat.com>,
+	Alex Hung <alex.hung@amd.com>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>,
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+	dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>,
+	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v3 01/20] drm/atomic: Document atomic state lifetime
+Message-ID: <20260504162636.GF1344263@killaraus.ideasonboard.com>
+References: <20260424-drm-mode-config-init-v3-0-8b68d9db0d8b@kernel.org>
+ <20260424-drm-mode-config-init-v3-1-8b68d9db0d8b@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DU2PR04MB9052:EE_
-X-MS-Office365-Filtering-Correlation-Id: c0f6d7a8-ddd3-4e85-b9c4-08dea9f960a5
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|376014|7416014|52116014|1800799024|38350700014|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: FeSFEI9cse3cblbaO/IYyLCr7eMCH5wn+JsOu01iyw5+Jk45Q9Gbl/c5rz8pP3/zXMcZ9bcNY/FoaIsWC4OdKxBZTpvST0G2iXxC8B14QjanSAMt5qY488KYXVVeEHAIIqOXHNNtun9cLkI4UMt1tlSEmezXO9dGG5wDlMwTzAz2VB3EGLn9rkczpF7LcPZ5rtGfE2jFydC0EvOxocco3vFfQyY9AaxPE0aYXK5KNnmGaGYxkmUX+MYTKMx3uULxIRhn5cmVSfjNjOWO9gr7afwYeyLvRIx2dNNNZdGLrc1eiVhUyuuzzxdyv1Mti32B+fh5PAz1rqDlhtNabxuXd2PYrKT2aZUU+pLn1pxkak3uu4u78iMulna/8JpsyK0N4F82UTAE6KG+bCn5o1GalZR3p78bPG3bd6kC+zeA/AbUGH51sFldICApHZGUqABezq5NAjd45hxWkJIYDsj1WMmOjXcfdVoEyOcA6u48HVS3zmGnLfGEWom71DYZkymaxDokdZZawOYie3wCgTUV6QZkaBJIyYzar0RSMnpQECkkuLyIFcLrWUielVOg9d28APd4EitNRmQCjo/0hAgEFTLz29W7e9MpPg8fquyIH/fjP1JmLeGpAsfnKPqcdP3iYDLkGZKz77Z/cP/IQx4uu9sQnkq38S7V+kRZsceQxb161KaXqTVt6L6cr9jOB2DDjQu1l2hepve4AMQxMQgRrBc53AoGOJQQJpNS5OwSLUd0cLsfAh5JTwnJBHuPuD+X
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(376014)(7416014)(52116014)(1800799024)(38350700014)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?nLVld0Lq40KITI93e7ZFUxXG808j2biYhLcRLlHmzWjkmYiV0oMz0MhHnvyO?=
- =?us-ascii?Q?2SgjLQ5KSbyXEfcjZXra4GBtsVeeZa2Tr/ZZ4IFnm2KxFaxAz45w25I6c+kd?=
- =?us-ascii?Q?0fFCvIoNquHHicQFcheuuTDtX3UYziABGGC2E4c/AzB3QqjzUv/xx+Pba/9u?=
- =?us-ascii?Q?0Igg6k2cURwZCaY/lH74W88lhLaH9tBAKkSN5hRNwlbBmIE6AEbyiZ370ydE?=
- =?us-ascii?Q?xwOzGEGXFWtaMXUoYaNzhdLlr+XQzjKtHVOrATBRLGukB1jVIK1lk6Hfx3MP?=
- =?us-ascii?Q?ZbZjz3fcQNU5xrHFK7/hGwC7XJlNtA+YlCBfzEEEWvUbpL2wbId7gMGWB9JV?=
- =?us-ascii?Q?KjY2N7yy8h3/aJcwjuztVlMY7R9xtZPp99PB9XnVtXUMXknOo6Hcm9gu2MvD?=
- =?us-ascii?Q?Y6/Rj2e8b6vW+aGnlY4zQ2iXTuqPPfPWQutJ99br6geOJJMz3LI1MPwcAafi?=
- =?us-ascii?Q?fpd37DvVAS1p3GwEiYJI2wzRhGoDmSjtNy5X0x0LQZtsUGhIhJtJ4VuOzXHd?=
- =?us-ascii?Q?9sR7Q2l0WcNzlROywzsEo9Q7Wd7qxdIYu6oNJ3Qbxrq98B8pVOxPnhng5tZZ?=
- =?us-ascii?Q?9pS8gizcrnOI4FoS1sA8MfaPI8f5OiJEpxMOw2Eze6b3QOIRFKQkpY8L4kA7?=
- =?us-ascii?Q?gMpV/J5SMeeYaOXOignPJdeadTp8guvPaw0g7rP9QxMDf4vu6rYNKyxDwmI0?=
- =?us-ascii?Q?lBZwboNtffVjxoMcIUbavKx4A8ZEprTnc5jP4cww6jf4JAdiBJxrT0iqlILF?=
- =?us-ascii?Q?unEsv8sxEC1AJtJB4etKRMGayYC4QlnYgRIZH2/Bx0zu5bpiL7L4tr9rv55g?=
- =?us-ascii?Q?6CIkKg9KFrGDvizCocRbFuwKJtXopAFoQC1aPkFxfXxe7iHC0F6Sgg09Y4lQ?=
- =?us-ascii?Q?iGdRrm6AiBP5iG+7zw8PWrs5QvT6GlBJE8OKJk5bfhjyARjjFd6Ot64ACYBt?=
- =?us-ascii?Q?ZDOE0HsvlmpwFN8+tzyzt9LC6+Q6l7Wp9jMv7GZb3hof/6xTyI0mkfGudv51?=
- =?us-ascii?Q?WnDs19v6pFnIbK0z6AnK0cYE+mbi5yQM2G19ekNxcuHdBTDaMZEtYIYQ2w93?=
- =?us-ascii?Q?TeDrMLao+w1v8QGZxvxlu5HTqdj4RrENjjBCc7nfr8Ua2ABEZlp+ZEGcvgU/?=
- =?us-ascii?Q?WulR7dINO+ErbkSqER9bYpgkwihjRzvJOy2nykiaPWqma2m3C8zZ6cejD7LR?=
- =?us-ascii?Q?esZAhaouHrXXx7dCEyJsJch+8xMIH3yaVsRWogrs5zeVjbEVeNC25x1CpZtT?=
- =?us-ascii?Q?a5Ua8L9skogEGlppHL5Ojj/zHqDm9I8t0C830ZmlceIj1OnR24IfEYJ4aGHW?=
- =?us-ascii?Q?eGGOZu8wL/jGAanQNFdPx2ExKjDcA8juXwAzrjCGoSmb2KJBCBiJ+xIzTdy+?=
- =?us-ascii?Q?Yh7qWocEimvNGICDAa+IZSZcBYLTbJE56st7tbYfk7M2eCX4Ke9ns/SgjZNa?=
- =?us-ascii?Q?Cpp3P+eJ0K1BrlKH5TLZbt2sCg+eO/s4yd29XqhpjXVZ6NyDr2SBzRODykiF?=
- =?us-ascii?Q?uAPGjR6j+bpRPCpfHTMyno8vh0qlGvjxcC5JjEHbmBHzRLvDucF+io1gsaJf?=
- =?us-ascii?Q?lfH3bz2TMc1lOsSTRgZYiXR+KKS+mCizjVU3MN+aoQnz0h8aoKNR57+X8ugI?=
- =?us-ascii?Q?JzEsYOAQIZZqffNln5iKYX1a4cAglxoVXrQ+bt1dLCib8xvou3M31k5eNQRK?=
- =?us-ascii?Q?U7mQecXTSBYFj7XB2ORbg6C6fitirWqtQzFeH5Vuinhe/Zs5?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c0f6d7a8-ddd3-4e85-b9c4-08dea9f960a5
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 May 2026 16:22:46.8337
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: p+svPH6SseGVI41Euky6Jy/95y/QTdHjU+1fqSQUKQ/O9i2zypduRNYp58Sylwtxbfj+WrlyO4gFmr0eyBYnVA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB9052
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260424-drm-mode-config-init-v3-1-8b68d9db0d8b@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_092251_969407_8E0495B6 
-X-CRM114-Status: GOOD (  18.07  )
+X-CRM114-CacheID: sfid-20260504_092641_427797_90B318A0 
+X-CRM114-Status: GOOD (  35.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,61 +95,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Apr 25, 2026 at 07:19:25AM +0800, Xiaolei Wang wrote:
-> Both mxc_isi_crossbar_init() and mxc_isi_pipe_init() call
-> v4l2_subdev_init_finalize() which allocates the subdev active state,
-> but neither mxc_isi_crossbar_cleanup() nor mxc_isi_pipe_cleanup()
-> calls v4l2_subdev_cleanup() to free it.
->
-> This causes a memory leak on every rmmod, reported by kmemleak:
->
->   unreferenced object 0xffff0000d06fc800 (size 192):
->     comm "(udev-worker)", pid 254, jiffies 4294913455
->     backtrace (crc 36eeae58):
->       kmemleak_alloc+0x34/0x40
->       __kvmalloc_node_noprof+0x5f8/0x7d8
->       __v4l2_subdev_state_alloc+0x1fc/0x30c
->       __v4l2_subdev_init_finalize+0x178/0x368
->
-> Add the missing v4l2_subdev_cleanup() calls before media_entity_cleanup()
-> in both crossbar and pipe cleanup paths.
->
-> Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Xiaolei Wang <xiaolei.wang@windriver.com>
+Hi Maxime,
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Thank you for the patch.
 
+On Fri, Apr 24, 2026 at 12:18:41PM +0200, Maxime Ripard wrote:
+> How drm_atomic_state structures and the various entity structures are
+> allocated and freed isn't really trivial. Document it.
+> 
+> Signed-off-by: Maxime Ripard <mripard@kernel.org>
 > ---
->  drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c | 1 +
->  drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c     | 1 +
->  2 files changed, 2 insertions(+)
->
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
-> index 605a45124103..c580c831972e 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
-> @@ -491,6 +491,7 @@ int mxc_isi_crossbar_init(struct mxc_isi_dev *isi)
->
->  void mxc_isi_crossbar_cleanup(struct mxc_isi_crossbar *xbar)
+>  Documentation/gpu/drm-kms.rst |  6 +++++
+>  drivers/gpu/drm/drm_atomic.c  | 55 +++++++++++++++++++++++++++++++++++++++++++
+>  2 files changed, 61 insertions(+)
+> 
+> diff --git a/Documentation/gpu/drm-kms.rst b/Documentation/gpu/drm-kms.rst
+> index 2292e65f044c..017c7b196ed7 100644
+> --- a/Documentation/gpu/drm-kms.rst
+> +++ b/Documentation/gpu/drm-kms.rst
+> @@ -280,10 +280,16 @@ structure, ordering of committing state changes to hardware is sequenced using
+>  :c:type:`struct drm_crtc_commit <drm_crtc_commit>`.
+>  
+>  Read on in this chapter, and also in :ref:`drm_atomic_helper` for more detailed
+>  coverage of specific topics.
+>  
+> +Atomic State Lifetime
+> +---------------------
+> +
+> +.. kernel-doc:: drivers/gpu/drm/drm_atomic.c
+> +   :doc: state lifetime
+> +
+>  Handling Driver Private State
+>  -----------------------------
+>  
+>  .. kernel-doc:: drivers/gpu/drm/drm_atomic.c
+>     :doc: handling driver private state
+> diff --git a/drivers/gpu/drm/drm_atomic.c b/drivers/gpu/drm/drm_atomic.c
+> index 41c57063f3b4..253a00f450b0 100644
+> --- a/drivers/gpu/drm/drm_atomic.c
+> +++ b/drivers/gpu/drm/drm_atomic.c
+> @@ -45,10 +45,65 @@
+>  #include <drm/drm_colorop.h>
+>  
+>  #include "drm_crtc_internal.h"
+>  #include "drm_internal.h"
+>  
+> +/**
+> + * DOC: state lifetime
+> + *
+> + * &struct drm_atomic_state represents an update to video pipeline
+> + * state. Despite its confusing name, it's actually a transient object
+> + * that holds a state update as a collection of pointers to individual
+> + * objects' states. &struct drm_atomic_state has a much shorter lifetime
+> + * than the objects' states, since it's only allocated while preparing,
+> + * checking or committing the update, while object states are allocated
+> + * when preparing the update and kept alive as long as they are active
+> + * in the device.
+> + *
+> + * Their respective lifetimes are:
+> + *
+> + * - at reset time, the object reset implementation will allocate a new
+> + *   default state and will store it in the object state pointer.
+> + *
+> + * - whenever a new update is needed:
+> + *
+> + *   + A new &struct drm_atomic_state is allocated using
+> + *     drm_atomic_state_alloc().
+> + *
+> + *   + The current active state of affected entity is copied into this
+
+s/affected entity/affected entities/
+
+but maybe clearer, I'd write
+
+  + The current active state of all entities affected by the update is
+  copied ...
+
+> + *     new &struct drm_atomic_state using drm_atomic_get_plane_state(),
+> + *     drm_atomic_get_crtc_state(), drm_atomic_get_connector_state(), or
+> + *     drm_atomic_get_private_obj_state(). This new state can then be
+> + *     modified.
+> + *
+> + *     At that point, &struct drm_atomic_state stores three state
+> + *     pointers for any affected entity: the "old" and "new" states, and
+> + *     state_to_destroy. The old state is the state currently active in
+> + *     the hardware, which is either the one initialized by reset() or a
+> + *     newer one if a commit has been made. The new state is the state
+> + *     we just allocated and we might eventually commit to the hardware.
+> + *     The state_to_destroy points to the state we'll eventually have to
+> + *     free when the drm_atomic_state will be destroyed, and points to
+> + *     the new state for now since the old state is still the active
+> + *     state.
+> + *
+> + *   + After the state is populated, it is checked. If the check is
+> + *     successful, the update is committed. Part of the commit is a call
+> + *     to drm_atomic_helper_swap_state() which will turn the new states
+> + *     into the active states. Doing so involves updating the object's
+> + *     state pointer (&drm_crtc.state or similar) to point to the new
+> + *     state, and state_to_destroy will now point to the old states,
+> + *     that used to be active but aren't anymore.
+> + *
+> + *   + When the commit is done, and when all references to our &struct
+> + *     drm_atomic_state are put, drm_atomic_state_clear() runs and will
+> + *     free all state_to_destroy (ie. old states).
+
+I would also mention here that the drm_atomic_state itself is freed at
+this point (unless I'm mistaken and the drm_atomic_state still lives on
+for some time, in which case this misunderstanding is probably a sign
+that the correct behaviour should be documented :-)).
+
+With this,
+
+Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+
+> + *
+> + *   + Now, we don't have any active &struct drm_atomic_state anymore,
+> + *     and only the entity active states remain allocated.
+> + */
+> +
+>  void __drm_crtc_commit_free(struct kref *kref)
 >  {
-> +	v4l2_subdev_cleanup(&xbar->sd);
->  	media_entity_cleanup(&xbar->sd.entity);
->  	kfree(xbar->pads);
->  	kfree(xbar->inputs);
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
-> index a41c51dd9ce0..cb50af2270f6 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
-> @@ -819,6 +819,7 @@ void mxc_isi_pipe_cleanup(struct mxc_isi_pipe *pipe)
->  {
->  	struct v4l2_subdev *sd = &pipe->sd;
->
-> +	v4l2_subdev_cleanup(sd);
->  	media_entity_cleanup(&sd->entity);
->  	mutex_destroy(&pipe->lock);
->  }
-> --
-> 2.43.0
->
+>  	struct drm_crtc_commit *commit =
+>  		container_of(kref, struct drm_crtc_commit, ref);
+>  
+
+-- 
+Regards,
+
+Laurent Pinchart
 
