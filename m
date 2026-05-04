@@ -4,84 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E758FFF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 18:02:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65740FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 18:24:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JxJ7uz2NKEUad4NDNzwYHdXOMFyNu7eXZW+pJIBjTrE=; b=B6vf69+9uf2kHpRBt1Ga6rlKtq
-	tUjFaqnX1o0AmAA7a5S6WEHAIO5M5MQ0JIe4kDVLXo7AeliNtzPgI+eZxSaeENDopIZSvGtNLp63S
-	XNsMRN6UusZz1ORW/VkohVYFduvbrO13TpQSY6z5YHnnkxun7g2w7oAmM6mb0RMlq46nJuhWZcTtz
-	BS4fHGtbCDmgGxuPPj7xgH6bhjj7uh95ZLj8gCLKIGRTkWDMJYPXH8YbLTM1ZBY7G3V/5v2cr074X
-	oeoCThWqzpQr9DXJ42u50RDHuSr8iKN1Bt1K5EYXJgbfSel6Yo+fuQiso3ghsxfpnNMWqQXmN72lh
-	++YwNtVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q9AqQVe5FuQzEuP42W8y3dSp3R5FDscpZbanQAxC0mU=; b=jMKOciuyzPzXKRqkIF2pAEEuxM
+	h5A0uOkKhRdaUSglLBqAF7l0rph8mmbxWpn9ZNq+iR5KT9aNtVKT1oS4t01jz5huBZMtVkvlEuHCI
+	g5FUkfgE3LsFW+GSMaiiWGZYPemhxbKeUGNRBRE8pm8Rf7l4FWNn6tQSqC10poLjS5TKoRkSCiqXB
+	mA8m9a+1ZfSLxW76m2ituZ7M/naZ2F15hLqexB2k3wehUktRaKrYnANjhywp9fkANaU2QmtO4e/Qx
+	UhZ0t5uGKTS976nMVadnmezXf218fiTSyyNuz6oqhQBkSYoFiVr4Z10SeiTL6nhalQHo/9ABN1fcx
+	u7+wxfYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJxcc-0000000Dvsh-1qHi;
-	Mon, 04 May 2026 18:02:22 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wJxyB-0000000DxsW-1GqJ;
+	Mon, 04 May 2026 18:24:39 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJxcZ-0000000Dvrr-46ql
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 18:02:21 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id C62019C;
-	Mon,  4 May 2026 20:02:15 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1777917736;
-	bh=7jbSAljiTPkKqJTgG1DeBRsKb/Ln1LpocLciBKuNSuk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YnqgFdgFttmuLffMS5TgsyuM48yEk6z0WoekgzM5bIw4g9Ra0fU/7U45WjE+yVhSy
-	 d6kAAxIvIcoDVvQBfJkBTFx3CVUaiSLn65JuM9fJ+Ygg2KptlJeif7Yy3cl/sq8Gw2
-	 f8wz50w+ANWkaFoTopxUc54KjrvsE//tdjt5G6a8=
-Date: Mon, 4 May 2026 21:02:16 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Jyri Sarha <jyri.sarha@iki.fi>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Simon Ser <contact@emersion.fr>,
-	Harry Wentland <harry.wentland@amd.com>,
-	Melissa Wen <mwen@igalia.com>,
-	Sebastian Wick <sebastian.wick@redhat.com>,
-	Alex Hung <alex.hung@amd.com>,
-	Jani Nikula <jani.nikula@linux.intel.com>,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-	Tvrtko Ursulin <tursulin@ursulin.net>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Samuel Holland <samuel@sholland.org>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>,
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-	dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>,
-	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v3 17/20] drm/drv: Switch skeleton to
- drm_mode_config_create_initial_state()
-Message-ID: <20260504180216.GU1344263@killaraus.ideasonboard.com>
-References: <20260424-drm-mode-config-init-v3-0-8b68d9db0d8b@kernel.org>
- <20260424-drm-mode-config-init-v3-17-8b68d9db0d8b@kernel.org>
+	id 1wJxy8-0000000DxqS-2nxL;
+	Mon, 04 May 2026 18:24:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1777919072;
+	bh=LIaSlxFKDMGdLUeGmCaMWboNkyhoBoZUFgC5ptDTBTY=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=dHOSERktEipbU+Wy5cUpTDKMgYTumbdri8JkAkRQx8MyFLu1p8Q8dmBxIMPiaDVJ0
+	 LYPgZ23rp4iDtFnvdH6yV/I2idGqV/U6rXewcU1tGeyN6IY2Op/F5Zyjt/J7lw6jJM
+	 XC8qF7J2Aff+pvBonsUcvNSHkMxH5WoRiTk3uGshvfnEEbwntiQkGGXE79LCMmqlKI
+	 Nab986FKJVQtoexN1/0dulZd+j+xOP+DC51j5W56tXb7AhUgvKATpZXHuRU/mI1wSl
+	 DvG4T2Ee/aHvKPAws6G16WI2hfEjlze156z9+oxVP49QjzWiaPTal1paHuqwvtfwza
+	 tljjXr3RF7LAw==
+Received: from localhost (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0FBFC17E12EB;
+	Mon,  4 May 2026 20:24:32 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Mon, 04 May 2026 21:23:59 +0300
+Subject: [PATCH 1/5] drm/rockchip: vop2: Fix wrong wait target in layer cfg
+ done check
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260424-drm-mode-config-init-v3-17-8b68d9db0d8b@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260504-vop2-layer-cfg-tmout-v1-1-730226a7331e@collabora.com>
+References: <20260504-vop2-layer-cfg-tmout-v1-0-730226a7331e@collabora.com>
+In-Reply-To: <20260504-vop2-layer-cfg-tmout-v1-0-730226a7331e@collabora.com>
+To: Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.15.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_110220_193651_243F1C8B 
-X-CRM114-Status: GOOD (  20.46  )
+X-CRM114-CacheID: sfid-20260504_112436_878528_9293A972 
+X-CRM114-Status: GOOD (  12.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,53 +80,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 24, 2026 at 12:18:57PM +0200, Maxime Ripard wrote:
-> The driver skeleton currently recommends calling
-> drm_mode_config_reset() at probe time to create the initial state.
-> 
-> Now that drm_mode_config_create_initial_state() exists to handle
-> initial state allocation without hardware side effects, update the
-> skeleton to recommend it instead.
-> 
-> Signed-off-by: Maxime Ripard <mripard@kernel.org>
-> ---
->  drivers/gpu/drm/drm_drv.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/gpu/drm/drm_drv.c b/drivers/gpu/drm/drm_drv.c
-> index 985c283cf59f..f537556b06a8 100644
-> --- a/drivers/gpu/drm/drm_drv.c
-> +++ b/drivers/gpu/drm/drm_drv.c
-> @@ -340,11 +340,13 @@ void drm_minor_release(struct drm_minor *minor)
->   *
->   *		// Further setup, display pipeline etc
->   *
->   *		platform_set_drvdata(pdev, drm);
->   *
-> - *		drm_mode_config_reset(drm);
-> + *		ret = drm_mode_config_create_initial_state(drm);
-> + *		if (ret)
-> + *			return ret;
+rk3568_vop2_setup_layer_mixer() waits for the previous Video Port (VP)
+layer configuration to take effect before writing a new one to the
+shared RK3568_OVL_LAYER_SEL shadow register.  However, it passes
+vop2->old_layer_sel to rk3568_vop2_wait_for_layer_cfg_done() as the
+expected value, which at that point already contains the new VP layer.
 
-There's one point I'm still not sure to understand properly. The
-skeleton example (and the tidss driver, which you convert to the new API
-in this series) both call drm_mode_config_helper_resume(). This in turn
-calls drm_atomic_helper_resume(), and drm_mode_config_reset(). For
-drivers that implement .atomic_create_state() instead of .reset() (such
-as tidss, after its conversion in this series), drm_mode_config_reset()
-will call the drm_mode_config_*_create_state() helpers, which allocate
-and initialize a new state (through .atomic_create_state()), and store
-that new state in the object's ->state field. Won't this leak the state
-previously stored there ?
+This causes the wait to poll for a value that has not been written to
+the shadow register yet, resulting in spurious timeouts when two
+non-blocking atomic commits race:
 
->   *
->   *		ret = drm_dev_register(drm);
->   *		if (ret)
->   *			return ret;
->   *
+  rockchip-drm display-subsystem: [drm] *ERROR* wait layer cfg done timeout [...]
+
+Pass the local old_layer_sel instead, which still holds the value
+captured from vop2->old_layer_sel before it was overwritten, i.e. the
+previous VP target that the hardware is expected to latch.
+
+Fixes: 3e89a8c68354 ("drm/rockchip: vop2: Fix the update of LAYER/PORT select registers when there are multi display output on rk3588/rk3568")
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ drivers/gpu/drm/rockchip/rockchip_vop2_reg.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
+index 02a788a4dfdd..edca0fb16e08 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
++++ b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
+@@ -2307,7 +2307,7 @@ static void rk3568_vop2_setup_layer_mixer(struct vop2_video_port *vp)
+ 		 * Changes of other VPs' overlays have not taken effect
+ 		 */
+ 		if (cfg_done)
+-			rk3568_vop2_wait_for_layer_cfg_done(vop2, vop2->old_layer_sel);
++			rk3568_vop2_wait_for_layer_cfg_done(vop2, old_layer_sel);
+ 	}
+ 
+ 	vop2_writel(vop2, RK3568_OVL_LAYER_SEL, layer_sel);
 
 -- 
-Regards,
+2.53.0
 
-Laurent Pinchart
 
