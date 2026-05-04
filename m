@@ -4,115 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 182E0CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 17:27:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58FB5FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 May 2026 17:28:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PKhOnIqkD7OddmCvXQ+7Bvp5CGMRz9+KcuJBJZlAia0=; b=t5nkzXBHJpkgSJRgH0dTeaNhhy
-	xbrTTimN7SSh0m53W5bQDTCAXWeWdAP3p4LNwF166NnCwh9vI+zY03596uZi+lJETqKsbpDBbQep8
-	OW1PZTlmjE6oODUiI4733AqEo70cUF83qmeA9m2QZ0C3lgcsgAO3yy0h0P5lJ7Mc/bWv8xAqcQzyn
-	aNE8uwRmt+zcUt9GbfX7C4RYBh56Q4TcQFR8srzIawGXQ2MdSY3wi5Ez/3BBzCBiRa4DtEZrzkfA8
-	nL8H5Ya0eduwwaVy+xymbHgBtousdXyIwL2ARxbhV0DDJ1ascKrTzW3IeXGw2Lg6O+JofHu3sT436
-	C00NJS3g==;
+	bh=/+IJ2bHq3KHL+ncW96AkfLa+YxfD/L2ZH5eAWikm96M=; b=vxIJzCTyy0AJr5BMbfS7sakXL3
+	IYz/12mM7hq1e/TQ/gEUQXJTJv2WejOqqGs5ubNLCSMjGyxwIKEOJM6BHB9EUZoMkDuTrRoWyrtLR
+	KW6Zri49wkweEcgNKKj3xapmNoDE1cX0ZrpICr67EMxUp4Yn78+Z2cLDvkrB/6JJHT96s8n3Wo4pO
+	0QmNzgo0Y1xPmGh8aikbLMAcbmS0xnx4ryAK6rrGSoBlKs7CLLEhh+onsgxRzKVisWQd9b9MJYPJh
+	uRo81E66mYpq6vB6RIGMjLEu04qbT3vlPkRzzj5xumRGOKXasyVZW4HFQ7FtZ5IstFkdw1GjHDrIZ
+	Ap6RpKYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJx52-0000000Dqhj-3MFJ;
-	Mon, 04 May 2026 17:27:40 +0000
-Received: from fout-a1-smtp.messagingengine.com ([103.168.172.144])
+	id 1wJx5H-0000000Dqm6-33er;
+	Mon, 04 May 2026 17:27:55 +0000
+Received: from m16.mail.163.com ([220.197.31.3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJx4z-0000000Dqgx-2cw5
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 May 2026 17:27:38 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.phl.internal (Postfix) with ESMTP id 46D42EC0307;
-	Mon,  4 May 2026 13:27:36 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Mon, 04 May 2026 13:27:36 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1777915656;
-	 x=1778002056; bh=PKhOnIqkD7OddmCvXQ+7Bvp5CGMRz9+KcuJBJZlAia0=; b=
-	wG3iz1afyziRW/spIsFmx+E56N4iunySx7s8DU8ZZ/JzUUTKv/tW4+6XftpGF+jY
-	tUJ5eSrP7UqpnS412VXfC83r8QYpu4POZ47W7radouKCwG1ZRwWxxHixAasC7/IQ
-	4jMh6nqtWDUo1AFecrRyELJs4FvsuYYbRTtFYipq7euRrHsiRHEnYjYhdBtuVDNM
-	RYOB0VR16BvEzkJsxUpsgRa8WMR5nGOZUlgTbYAzX8SoB7bCHrYV9temyfpCCleT
-	8ijzVQPa4ir70EF2tilpV9sipjGva8GAtJfMP8caGMyFVGBo1nw8i83nwts39S+b
-	FshmKoNtp+6fnHkQa65s5w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1777915656; x=
-	1778002056; bh=PKhOnIqkD7OddmCvXQ+7Bvp5CGMRz9+KcuJBJZlAia0=; b=A
-	nyzUp4F6JOgsx/s2h1/jgLFhRpewE1TO6Q6IrJ9nP9cIiRpIMqMJ1PpmjCCPY9+T
-	zBdQDHI1QF0L2taGzG4MRuvc9dXwegVJVgohq+Dhuhh+OumAyKRf3BueJHKpUa5Q
-	0xaS7DQCyvGZhh+izlU2IPE25SVi1aDsC53Km26sUgqzTlUHnyp6pYyqY7Iz8j22
-	YHTOsx4pOEVI8lA2beW80X7vTot05tTJww+BXBwjcny7CrdK78TJL5xIOAxlATpf
-	3tOcUAcnHGsJhVCG/DtVxbcFB2L0vMeYeqTTGwB4dgzN7cZxAEcbde7Kw9Zfkuep
-	UfnymMQ2MN5aDFwN5zWDA==
-X-ME-Sender: <xms:B9f4aQE45qs6GXeQUBmBZ4RCQxyqCtU5SI74QyIv2V9XpXhtZkK1DQ>
-    <xme:B9f4aUKS0WFZ6qLZ8HVyMUajYySmrvAVZyXqGhUqkmQKJYnI6AiFmWuTPfSpCLePR
-    OqvdzQitYrP8ZkZpXbvs6ONDu5Bvzv9fdAfqBOO5w4dL-Qm0oXX66TR>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdelleeggecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
-    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
-    hnpefhtdfhvddtfeehudekteeggffghfejgeegteefgffgvedugeduveelvdekhfdvieen
-    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
-    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopedujedpmhhouggvpehsmhhtphhouhht
-    pdhrtghpthhtohepnhhunhhordhsrgesrghnrghlohhgrdgtohhmpdhrtghpthhtoheprg
-    guuhhrvghghhgvlhhlohessggrhihlihgsrhgvrdgtohhmpdhrtghpthhtohepughlvggt
-    hhhnvghrsegsrgihlhhisghrvgdrtghomhdprhgtphhtthhopehsfhhkihhnghesfhgufi
-    gutgdrtghomhdprhgtphhtthhopegrlhgvgigrnhgurhgvrdhtohhrghhuvgesfhhoshhs
-    rdhsthdrtghomhdprhgtphhtthhopehmtghoqhhuvghlihhnrdhsthhmfedvsehgmhgrih
-    hlrdgtohhmpdhrtghpthhtoheprghnghgvlhhosehkvghrnhgvlhdqshhprggtvgdrohhr
-    ghdprhgtphhtthhopegrnhguhieskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepjhhitg
-    dvfeeskhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:B9f4aXqD8Y6YHMd90HQZp0EfrCIxZBNxnW7F2OZm7HGxXmkRnKOVKQ>
-    <xmx:B9f4aaYylXYuqJyKS87d9f5zkrH1zUwBm9uKvSCoh1OalPvu7Vacww>
-    <xmx:B9f4aS7Urnh_rpGGHp2v_ZThVAv1j1RaCBYxpBMhXMOqOYNcPtePMQ>
-    <xmx:B9f4adRClFUUKW7RDce4XDf0L5E-X5YNAfOQknuYIcuToWZWlnp6Pg>
-    <xmx:CNf4aW9G3x_OAzZitTHBOu0WPZA0WgWEgHNMJeleLaAlF1Ah_ZjpushM>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 37100700063; Mon,  4 May 2026 13:27:35 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1wJx5D-0000000Dqji-3Xnr;
+	Mon, 04 May 2026 17:27:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
+	Content-Type; bh=/+IJ2bHq3KHL+ncW96AkfLa+YxfD/L2ZH5eAWikm96M=;
+	b=jaqEnUkNVgj2cgy8SfWW9EK6v+ENe6eXlNvzSo3I0415X+x4fxY6l8Fk7Mfqor
+	xH5SPnjK/Jtgqkrg87OD9Q0RHqrj4SMQfBkY7U38KcQgwMgrEidVNSLvdZb9Pu1x
+	ATrSM6cykEg/+fDDxWhLRX5lFRUi7Lp8k+ZA+wE+0OorM=
+Received: from [IPV6:240e:b8f:927e:5900:8c4c:fe90:544d:6d62] (unknown [])
+	by gzga-smtp-mtada-g0-1 (Coremail) with SMTP id _____wD3nnnY1vhpZalxDQ--.25765S2;
+	Tue, 05 May 2026 01:26:49 +0800 (CST)
+Message-ID: <a491a592-5576-4987-a866-a8491f8612e8@163.com>
+Date: Tue, 5 May 2026 01:26:48 +0800
 MIME-Version: 1.0
-X-ThreadId: AMJQmnOn-FE-
-Date: Mon, 04 May 2026 19:27:14 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Angelo Dureghello" <angelo@kernel-space.org>,
- "Greg Ungerer" <gerg@linux-m68k.org>,
- "Geert Uytterhoeven" <geert@linux-m68k.org>,
- "Steven King" <sfking@fdwdc.com>,
- "Maxime Coquelin" <mcoquelin.stm32@gmail.com>,
- "Alexandre Torgue" <alexandre.torgue@foss.st.com>,
- "Jonathan Cameron" <jic23@kernel.org>,
- "David Lechner" <dlechner@baylibre.com>,
- =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
- "Andy Shevchenko" <andy@kernel.org>
-Cc: "Greg Ungerer" <gerg@uclinux.org>, linux-m68k@lists.linux-m68k.org,
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
- "Angelo Dureghello" <adureghello@baylibre.com>
-Message-Id: <965cb599-37ac-4d69-a8c0-015152037139@app.fastmail.com>
-In-Reply-To: <20260504-wip-stmark2-dac-v1-10-874c36a4910d@baylibre.com>
-References: <20260504-wip-stmark2-dac-v1-0-874c36a4910d@baylibre.com>
- <20260504-wip-stmark2-dac-v1-10-874c36a4910d@baylibre.com>
-Subject: Re: [PATCH 10/10] iio: dac: add mcf54415 DAC
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] PCI: brcmstb: Assign pcie->gen from pcie_get_link_speed()
+To: Florian Fainelli <florian.fainelli@broadcom.com>,
+ Bjorn Helgaas <helgaas@kernel.org>
+Cc: linux-pci@vger.kernel.org, Dom Cobley <popcornmix@gmail.com>,
+ Phil Elwell <phil@raspberrypi.com>, Jim Quinlan <jim2101024@gmail.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ "moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE"
+ <linux-rpi-kernel@lists.infradead.org>,
+ "moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>,
+ open list <linux-kernel@vger.kernel.org>
+References: <20260502114019.GA551304@bhelgaas>
+ <2f453b89-0ce8-4ef3-ae93-c282a2d08fd7@broadcom.com>
+Content-Language: en-US
+From: Hans Zhang <18255117159@163.com>
+In-Reply-To: <2f453b89-0ce8-4ef3-ae93-c282a2d08fd7@broadcom.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wD3nnnY1vhpZalxDQ--.25765S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxJw1Dtw17Zw1xJFW3Cr4DArb_yoWrCryrpa
+	9rJa48tF18tFW5ur1jq3Z5Zw1Yg3ZxCrWUKws3Ww17uFsIy3s5KFyFkrySyF97tFZ7uw17
+	X3W3tF48GF4fAFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zR58nrUUUUU=
+X-Originating-IP: [240e:b8f:927e:5900:8c4c:fe90:544d:6d62]
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbC6xqEKGn41toR3gAA3P
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_102737_791917_A630BF48 
-X-CRM114-Status: UNSURE (   7.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260504_102752_297055_7AFAF64E 
+X-CRM114-Status: GOOD (  16.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,25 +86,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 4, 2026, at 19:16, Angelo Dureghello wrote:
 
-> +static void mcf54415_dac_exit(void *data)
-> +{
-> +	struct mcf54415_dac *info = data;
-> +	int val;
-> +
-> +	val = readw(info->regs + MCF54415_DAC_CR);
-> +	val |= MCF54415_DAC_CR_PDN;
-> +	writew(val, info->regs + MCF54415_DAC_CR);
-> +}
 
-We've recently discussed changing the MMIO accessors on coldfire
-to behave like all the other ones, which makes readw() and writew()
-have an implicit byteswap. An additional driver means one more
-place to change during the conversion. Maybe you can use the
-new mcf_readw()/mcf_writew() helpers that Greg has started
-introducing? Those will keep using native big-endian register
-definitions.
+On 5/5/26 00:58, Florian Fainelli wrote:
+> On 5/2/26 04:40, Bjorn Helgaas wrote:
+>> On Fri, May 01, 2026 at 01:24:38PM -0700, Florian Fainelli wrote:
+>>> After commit 03f920936977 ("PCI: controller: Validate max-link-speed"),
+>>> pcie->gen stopped being assigned and as a result the established PCIe
+>>> link would stop supporting Gen3 speeds on 2712 since pcie->gen is used
+>>> to populate LnkCntl2 and LnkCap in brcm_pcie_set_gen().
+>>>
+>>> Link: https://github.com/raspberrypi/linux/issues/7343
+>>> Reported-by: Dom Cobley <popcornmix@gmail.com>
+>>> Reported-by: Phil Elwell <phil@raspberrypi.com>
+>>> Fixes: 03f920936977 ("PCI: controller: Validate max-link-speed")
+>>> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
+>>> ---
+>>>   drivers/pci/controller/pcie-brcmstb.c | 3 +--
+>>>   1 file changed, 1 insertion(+), 2 deletions(-)
+>>>
+>>> diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/ 
+>>> controller/pcie-brcmstb.c
+>>> index 714bcab97b60..6138fc4bc064 100644
+>>> --- a/drivers/pci/controller/pcie-brcmstb.c
+>>> +++ b/drivers/pci/controller/pcie-brcmstb.c
+>>> @@ -2072,8 +2072,7 @@ static int brcm_pcie_probe(struct 
+>>> platform_device *pdev)
+>>>           return PTR_ERR(pcie->clk);
+>>>       ret = of_pci_get_max_link_speed(np);
+>>> -    if (pcie_get_link_speed(ret) == PCI_SPEED_UNKNOWN)
+>>> -        pcie->gen = 0;
+>>> +    pcie->gen = pcie_get_link_speed(ret);
+>>
+>> Take a look at https://sashiko.dev/#/patchset/20260501202438.376033-1- 
+>> florian.fainelli%40broadcom.com
+>>
+>> The notes at https://github.com/raspberrypi/linux/issues/7343 assumed
+>> PCI_SPEED_UNKNOWN was 0, but in fact it is 0xff, which means you might
+>> want the more defensive patch instead.
+>>
+>> I'll be happy to replace what's on pci/for-linus if so.
+> 
+> I am starting to think a revert is the simplest path forward, it's not 
+> clear what pcie_get_link_speed() brings to the table honestly.
 
-       Arnd
+Hi Florian,
+
+The pcie_get_link_speed function is designed to prevent other Root Port 
+drivers from accessing the array pcie_link_speed out of bounds.
+
+
+
+commit 03f920936977 ("PCI: controller: Validate max-link-speed")
+
+diff --git a/drivers/pci/controller/pcie-brcmstb.c 
+b/drivers/pci/controller/pcie-brcmstb.c
+index 062f55690012..714bcab97b60 100644
+--- a/drivers/pci/controller/pcie-brcmstb.c
++++ b/drivers/pci/controller/pcie-brcmstb.c
+@@ -1442,7 +1442,7 @@ static int brcm_pcie_start_link(struct brcm_pcie 
+*pcie)
+         cls = FIELD_GET(PCI_EXP_LNKSTA_CLS, lnksta);
+         nlw = FIELD_GET(PCI_EXP_LNKSTA_NLW, lnksta);
+         dev_info(dev, "link up, %s x%u %s\n",
+-                pci_speed_string(pcie_link_speed[cls]), nlw,
++                pci_speed_string(pcie_get_link_speed(cls)), nlw,
+                  ssc_good ? "(SSC)" : "(!SSC)");
+
+         return 0;
+@@ -2072,7 +2072,8 @@ static int brcm_pcie_probe(struct platform_device 
+*pdev)
+                 return PTR_ERR(pcie->clk);
+
+         ret = of_pci_get_max_link_speed(np);
+-       pcie->gen = (ret < 0) ? 0 : ret;
++       if (pcie_get_link_speed(ret) == PCI_SPEED_UNKNOWN)
++               pcie->gen = 0;
+
+
+
+
+Sorry, it's my fault. Should it be changed to the following?
+Florian, what do you think?
+
+
+
+diff --git a/drivers/pci/controller/pcie-brcmstb.c 
+b/drivers/pci/controller/pcie-brcmstb.c
+index 714bcab97b60..9a09a48acfb5 100644
+--- a/drivers/pci/controller/pcie-brcmstb.c
++++ b/drivers/pci/controller/pcie-brcmstb.c
+@@ -2074,6 +2074,8 @@ static int brcm_pcie_probe(struct platform_device 
+*pdev)
+         ret = of_pci_get_max_link_speed(np);
+         if (pcie_get_link_speed(ret) == PCI_SPEED_UNKNOWN)
+                 pcie->gen = 0;
++       else
++               pcie->gen = ret;
+
+         pcie->ssc = of_property_read_bool(np, "brcm,enable-ssc");
+
+
+
+or
+
+
+
+diff --git a/drivers/pci/controller/pcie-brcmstb.c 
+b/drivers/pci/controller/pcie-brcmstb.c
+index 714bcab97b60..1187e19fbe89 100644
+--- a/drivers/pci/controller/pcie-brcmstb.c
++++ b/drivers/pci/controller/pcie-brcmstb.c
+@@ -2072,8 +2072,7 @@ static int brcm_pcie_probe(struct platform_device 
+*pdev)
+                 return PTR_ERR(pcie->clk);
+
+         ret = of_pci_get_max_link_speed(np);
+-       if (pcie_get_link_speed(ret) == PCI_SPEED_UNKNOWN)
+-               pcie->gen = 0;
++       pcie->gen = (ret < 0) ? 0 : ret;
+
+
+Best regards,
+Hans
+
+
+
 
