@@ -4,94 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0578EFF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 12:14:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE01ACD342F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 12:18:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tzVA3bAqqUzorx+k6MSHtdqUxfZ3J2aAaM3KCVizFPE=; b=aEN6kcKNBJOblkn30Tc6pm8+oY
-	zk22YO6qajYQ4XxD1D1FBbhN9Vd45DhYu/4nLEQauWgoKf5dm5w9oA1esa7Pi1yK3bD8pT5l06ZqT
-	p0wY4DY5hcEgYfTRbc8qPPVP4+MbFuDZ96+Kz8UBCyRiABv90QKckVMfBeCOL2812EA9eNcNyH2xT
-	/7s9dzfUBM+SK/U6Sf1SpDXp3Ug5AzF6TotolZ7UDsHRwtfgofLASB/jgkRu7Q7Is1PyCfLhvI5Hj
-	C4dDdWiekHs4y4U4G38bkBJJHDbqpCunY2C2BHTsOzqGgjYoyGlr/N1ku2QiGjKxfuaRq3d8Zhksq
-	ah6DLaqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Mx10RFm2VbKGi60P1ByLYAwwUUKZhzhPZIKANt76f2M=; b=gWdqiE6i+s35SrU4uGw1V1uIET
+	MiQ/psIQ5Taxlh/KzuHZWX590lJ9Mx6XA72pOjEIQde5eLDNDEOJ9YyRishlFIQVePx/YLp3Khrod
+	6d+o01N4yFv80CED/7TuytLqwI+FBewXjSwo9snxT0j4EaDm95ToI7LUoo2RYiCb4lOEvWVVyukBy
+	RNAWDFMJ0yAMPfM7cVNZc3MsTrTAtiGMlw0q3GS+imMPMZMmRKY2ZXw1cm7YuAM1IiMm0fX6rXhEM
+	MNn29bZFjUWhXsms0wft1KAumn+XiyBp1thZB8vth/enYDaLq/UNcMUGtaKXxODhGWuzgR8weJlfr
+	nYZjstEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKEfr-0000000G99T-45Le;
-	Tue, 05 May 2026 12:14:52 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1wKEiv-0000000G9TB-29qt;
+	Tue, 05 May 2026 12:18:01 +0000
+Received: from mail-vs1-f50.google.com ([209.85.217.50])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKEfp-0000000G98w-1YUS
+	id 1wKEit-0000000G9SQ-0FHT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 12:14:50 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-43d75312379so3531171f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 05:14:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1777983287; x=1778588087; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=tzVA3bAqqUzorx+k6MSHtdqUxfZ3J2aAaM3KCVizFPE=;
-        b=AAvvBp+FB6+9ZluGO1XfHvNKYHD1CRUzrBT/TqIWwJ/sXYTlbWY8yGid2mt0Swj55A
-         yrLU9nHb20huL/P6eOQpZE8hYlEOJ3AE9BSicoapQE5GuxdT9f3MhPPy8jSH9nFW4UlW
-         0J3ERnXOLDzR2xG4QSF+KXjtm8oY2qG5Ec7uLTngOBB/TqihSoHbEVrWA5U2iAZueU1K
-         LHdf4iODA84gb4dT4YjxtnR8YwlkK0QM93c6UCm5jJaZhjFx/a2rNUDhCPvFpWwpbFCV
-         lquTo3NKZS+uZq8iQ3cVld7sgaPVDZxFmmO50M7zuahHx7JbwPQ0TQcuU5dtYZgWdxAY
-         UgUw==
+	Tue, 05 May 2026 12:18:00 +0000
+Received: by mail-vs1-f50.google.com with SMTP id ada2fe7eead31-62f33bad185so1315787137.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 05:17:58 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777983287; x=1778588087;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=tzVA3bAqqUzorx+k6MSHtdqUxfZ3J2aAaM3KCVizFPE=;
-        b=kWaxQzieDBWUkS6ZBBoPAkp6XZJ3U6r/3r1+bb2gymVixcq7Buazq36k9zUns72f/t
-         8kWR3rHTP88iEnWehASdTcBWThuUnFFLD1fFpncwqhvzQ69dEuXc5SFZkqHkVlTvlwBc
-         RsMDhLaISV+Mv3CBVt8LuhICPGZp07VQc9rfMjjMdm0l9fyUZZnAPYMkDt9Ae+6ViSJF
-         dvjdwlqlbQEvcUI1OUK7khbZOyrppNfqCJbodq6ewJtuNZ67Zvxq9UhD4FF2quMYvwI/
-         Z/7uspUEhUowEORcjEaaORuuQp9y53tTr/581NSdTYbQ4E+8ZNZQ8tMzydoJDCznOSgl
-         vrBQ==
-X-Forwarded-Encrypted: i=1; AFNElJ83F4SG2+L8phXWjrkJ5ItXvBehLcVpcumF5NNIRPOfaSfC6Dn0Z8act1LJMn2cZnjhBghcNZWOjFMTuc7DSxSz@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxqf6f1NOZFQDhDBwDoALhbWYgYxPx5wkikss26R9JUUenTqjG2
-	EV7XvOa0DtkeWkRUjOzK3fdgGMmdr6RRoY3imKxB5ybJ8PpeIBh73dx9jBqm9OezryM=
-X-Gm-Gg: AeBDieu7EP3mAJvxtQCf3Kj+Bsj/203ZwYu3SpeDtxtpxLI6RP9BWW0xfcpB3G8bTCX
-	uvh9xBpwU9l8h+n5Snf2TwmcsfFh0uPuryh9YX7YTjkevcy+Os77FlIsO+nT3vG3t4jRNvzhDUQ
-	25p2MxQURozSCZt/G0xbR4MU8xdAA2tY72+85gdwHqRJbyMMboaF1Kc/KDLH40pL/5AEkFdbR7+
-	KrJHq0frYzv8tNn/gsn3rTIiqrbKHcfbpp7VBoCL9g/B1hQaTIK4LSPXm1JUk+oIU+LsMhJOOo1
-	TWhz4xJWEp22BuvO3xx9U+qft/2C+yPshxSuZVVTcfjg/kRCJpo71l4i46+a6WCsUJ9R9e6FZQr
-	uAHYzruviUQZVKbw9A/hvKvLvAo7z3yokIrf3j1HEPlmEMtmqzo5k3eYhCDS/+o2WDNAHM8FQ3R
-	F2gZ8Yfboy/cvsBKcDjoPxbf+Mx//HWL5wHGbFEbDQVfA=
-X-Received: by 2002:a05:600c:3f06:b0:48a:761:5816 with SMTP id 5b1f17b1804b1-48d1424a351mr58621115e9.8.1777983286660;
-        Tue, 05 May 2026 05:14:46 -0700 (PDT)
-Received: from [10.11.12.108] ([79.115.63.228])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48a8eb72a17sm362772905e9.6.2026.05.05.05.14.45
+        d=1e100.net; s=20251104; t=1777983477; x=1778588277;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Mx10RFm2VbKGi60P1ByLYAwwUUKZhzhPZIKANt76f2M=;
+        b=GDvxiBDFdbCQUzaOu6zUOL1tPdH71gjHqMHG2Szbzlun27V+jivH9XLBbwt4wlj/7g
+         iZfDyxx8Wz42s66tXTGD6M1TMgLDSuFPos7Fk1Vkg8e0L7AnDHh8oXaUHe8Tl5eNHCMM
+         9PCCLq6K9Xo+GYSDhPtaIh18axkgiZnxG/mrdr5myxXPsIiTwyv036SnN7QA1WtA7V1y
+         2Jp3DYPCkF4MHcj7iqq/pZ//BZ7WkN71H/tcFuiUarR926sEbo3x8KzPvGCJvih6SDBY
+         i9Y76cOZi87wwGR4Bv7UdGthCdUqI1NS+SEPgztUdpvm8BwxnlDCiNP2aEVkbF5ZYQHD
+         ru4g==
+X-Forwarded-Encrypted: i=1; AFNElJ+RDG7+gYJgI47Lb+o1DgeqdILxUAw1O6zfzvWh/tuaIZAvlCzhtXPt2DSU7iKzfA50TpBcv6xc8vZWyboXo0Jw@lists.infradead.org
+X-Gm-Message-State: AOJu0YxUWjt6zGcS5iNzNLBK4rD0wbytv0CUZPxCKkyPAbjIQoIRRHgt
+	Z2tqCMVedrZ9e/41TI7ZKtdBIwzumoSnhE/9iSzgjLe54BzB09EJXlwFSTS7ygpf
+X-Gm-Gg: AeBDiesxd0RSADhezzgdexZWSlAcryOdE/LMIAg2GsThwzE8syzfcpr0AV89Ncgu36Q
+	d5DrMALd5CowwT4u0OHIltdFjkJ3Qw/Vty62IUVxDi7I53s5t9PHCzR5qrTd4baeVJHoNh2Ok8D
+	B/cbim0b+o3V13UAm5bI7/AIU3Dg0c/LUTCzNVuz+jvz0jw2h6W6ZQ9sTTyyVR5T9F7pzE1ZIGh
+	bx2sqvGl+MQarjFcOx93NpnkG8BoT3RRQohH8sM7XzaqyEceh46zi8O5hHX82VQP8veRNVPbiQG
+	fQAWTB1N7yel/YlkVECzvIhYAklbHJ1XnxFNfssiyP5NrvK1JLG8+pqd2nUNeuQPNkfTe058y81
+	3nLBsG93la+U5mziSkL7KpVZGveogK8CWTr1LlXS+p1Ao/Dbb/v4Hau7q9rbY5Hy95bRboNhud8
+	yCMYLEwjb1NGD+ZYneIw4NEn71z8LyjMevYE+T3LmpRhvG6LPgzjl0J7hpdlWc424gV6PVATm9Y
+	4U=
+X-Received: by 2002:a05:6102:2912:b0:62f:3abe:907f with SMTP id ada2fe7eead31-62f5903ac4bmr1439120137.4.1777983477392;
+        Tue, 05 May 2026 05:17:57 -0700 (PDT)
+Received: from mail-vk1-f176.google.com (mail-vk1-f176.google.com. [209.85.221.176])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-62bfbb75140sm7011421137.5.2026.05.05.05.17.56
+        for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 05 May 2026 05:14:46 -0700 (PDT)
-Message-ID: <366fc343-0cac-4e03-a08e-aa50a6e17314@linaro.org>
-Date: Tue, 5 May 2026 15:14:42 +0300
+        Tue, 05 May 2026 05:17:56 -0700 (PDT)
+Received: by mail-vk1-f176.google.com with SMTP id 71dfb90a1353d-56a86f0a23bso5278564e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 05:17:56 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ/Wap90JuiiThGiwiooHMJycGSIlDDdnqyNpeKOKuvg27t2ZyDNRZW2z4jjTIlwNi0x1UD/xSDOwyU7cu3/0mmh@lists.infradead.org
+X-Received: by 2002:a05:6122:3c44:b0:56f:7c7e:f33a with SMTP id
+ 71dfb90a1353d-57547fd53a0mr1268108e0c.0.1777983476537; Tue, 05 May 2026
+ 05:17:56 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 5/7] firmware: samsung: acpm: Fix false timeouts in
- polling path
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, peter.griffin@linaro.org,
- andre.draszik@linaro.org, jyescas@google.com, kernel-team@android.com,
- stable@vger.kernel.org
-References: <20260504-acpm-fixes-sashiko-reports-v4-0-529246be6b2b@linaro.org>
- <20260504-acpm-fixes-sashiko-reports-v4-5-529246be6b2b@linaro.org>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <20260504-acpm-fixes-sashiko-reports-v4-5-529246be6b2b@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20260428201522.903875-1-cristian.marussi@arm.com> <20260428201522.903875-5-cristian.marussi@arm.com>
+In-Reply-To: <20260428201522.903875-5-cristian.marussi@arm.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 5 May 2026 14:17:45 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdUF1dW0hR-UZMVVqTnpWbMcv1D41jfL_4rEj6Vzj9wGSg@mail.gmail.com>
+X-Gm-Features: AVHnY4JwQvUlXCNsMN5caeA9aMIeCzl1Epu5sphmxX2UtNuOS2ulpV9OaCHfntE
+Message-ID: <CAMuHMdUF1dW0hR-UZMVVqTnpWbMcv1D41jfL_4rEj6Vzj9wGSg@mail.gmail.com>
+Subject: Re: [PATCH v3 04/15] firmware: arm_scmi: Simplify clock rates exposed interface
+To: Cristian Marussi <cristian.marussi@arm.com>, sudeep.holla@arm.com
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	arm-scmi@vger.kernel.org, linux-clk@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, philip.radford@arm.com, 
+	james.quinlan@broadcom.com, f.fainelli@gmail.com, vincent.guittot@linaro.org, 
+	etienne.carriere@foss.st.com, peng.fan@oss.nxp.com, michal.simek@amd.com, 
+	kuninori.morimoto.gx@renesas.com, marek.vasut+renesas@gmail.com, 
+	Peng Fan <peng.fan@nxp.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_051449_457554_7C2C6188 
-X-CRM114-Status: GOOD (  21.06  )
+X-CRM114-CacheID: sfid-20260505_051759_132619_F499F070 
+X-CRM114-Status: GOOD (  24.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,113 +100,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+Hi Cristian, Sudeep,
 
-Before sending out the v5 of this series, I wanted to share what Sashiko
-found when reviewing this patch, I think they are great examples of
-tricky concurrency bugs. I'll also give some hints on how I'll be fixing
-the problems in v5.
+On Tue, 28 Apr 2026 at 22:16, Cristian Marussi <cristian.marussi@arm.com> wrote:
+> Introduce a new internal struct scmi_clock_desc so as to be able to hide,
+> in the future, some of the needlessly public fields currently kept inside
+> scmi_clock_info, while keeping exposed only the two new min_rate and
+> max_rate fields for each clock.
+>
+> No functional change.
+>
+> Reviewed-by: Peng Fan <peng.fan@nxp.com>
+> Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 
-> @@ -261,6 +264,12 @@ static int acpm_get_rx(struct acpm_chan *achan, const struct acpm_xfer *xfer)
->  			if (rx_seqnum == tx_seqnum) {
->  				__ioread32_copy(xfer->rxd, addr, xfer->rxcnt);
->  				rx_set = true;
-> +				/*
-> +				 * Signal completion to the polling thread.
-> +				 * Pairs with smp_load_acquire() in polling
-> +				 * loop.
-> +				 */
-> +				smp_store_release(&rx_data->completed, true);
->  				clear_bit(seqnum, achan->bitmap_seqnum);
+Thanks for your patch, which is now commit 83fd9d34b6b75be5 ("firmware:
+arm_scmi: Simplify clock rates exposed interface") in scmi/for-linux-next.
 
-Sashiko pointed out that calling clear_bit() immediately after setting
-completed = true creates a fatal Use-After-Free window.
+> --- a/drivers/firmware/arm_scmi/clock.c
+> +++ b/drivers/firmware/arm_scmi/clock.c
 
-If Thread A natively finds its message, it copies the payload, sets
-completed = true, and clears the sequence bit. If Thread A is preempted
-right before evaluating smp_load_acquire() in the polling loop, a
-concurrent Thread C can claim that exact same sequence number, overwrite
-the buffer, and reset completed = false. When Thread A finally resumes,
-it reads false, misses its completion signal, and eventually times out.
+> @@ -457,14 +466,14 @@ iter_clk_describe_update_state(struct scmi_iterator_state *st,
+>         flags = le32_to_cpu(r->num_rates_flags);
+>         st->num_remaining = NUM_REMAINING(flags);
+>         st->num_returned = NUM_RETURNED(flags);
+> -       p->clk->rate_discrete = RATE_DISCRETE(flags);
 
->  			} else {
->  				/*
-> @@ -271,8 +280,19 @@ static int acpm_get_rx(struct acpm_chan *achan, const struct acpm_xfer *xfer)
->  				 */
->  				__ioread32_copy(rx_data->cmd, addr,
->  						rx_data->rxcnt);
-> +				/*
-> +				 * Signal completion to the polling thread.
-> +				 * Pairs with smp_load_acquire() in polling
-> +				 * loop.
-> +				 */
-> +				smp_store_release(&rx_data->completed, true);
+This removes the last setter of scmi_clock_info.rate_discrete.
+However, it is still used until the next commit cd73d1bfaa8d34bb
+("clk: scmi: Use new simplified per-clock rate properties").
+V2 did now have this issue, as the patches were ordered differently
+in that series.
 
-The second issue occurs when dealing with cross-thread responses. If
-Thread B drains the queue and finds Thread A's response, it saves it to
-the cache and sets completed = true. It intentionally skips calling
-clear_bit(), expecting Thread A to do it.
+After both commits, there are no more users of
+scmi_clock_info.rate_discrete, so it can be removed.
 
-However, if Thread A calls acpm_get_rx() (finding nothing) and is
-preempted right before evaluating smp_load_acquire(), Thread B can
-step in, cache the data, and set the completed flag. When Thread A
-resumes, it sees completed == true and immediately returns 0 (success).
+> +       p->clkd->rate_discrete = RATE_DISCRETE(flags);
+>
+>         /* Warn about out of spec replies ... */
+> -       if (!p->clk->rate_discrete &&
+> +       if (!p->clkd->rate_discrete &&
+>             (st->num_returned != 3 || st->num_remaining != 0)) {
+>                 dev_warn(p->dev,
+>                          "Out-of-spec CLOCK_DESCRIBE_RATES reply for %s - returned:%d remaining:%d rx_len:%zd\n",
+> -                        p->clk->name, st->num_returned, st->num_remaining,
+> +                        p->clkd->info.name, st->num_returned, st->num_remaining,
+>                          st->rx_len);
+>
+>                 SCMI_QUIRK(clock_rates_triplet_out_of_spec,
 
-Because Thread A returns immediately, it completely bypasses calling
-acpm_get_saved_rx(). The result: the sequence bit and the response are
-permanently leaked.
+Gr{oetje,eeting}s,
 
-Both of these bugs stem from a lack of strict ownership over the
-sequence slot. To fix this in v5, I will be rewriting the polling loop
-to enforce the following invariant: Only the polling thread that
-allocated the TX sequence number is allowed to free it, and only right
-before it exits the polling loop. Specifically:
-- clear_bit() will be completely stripped out of the RX draining paths
-  (acpm_get_rx and acpm_get_saved_rx).
-- acpm_get_rx() will now return a native_match boolean, which evaluates
-  to true only if the thread natively processed its own sequence number
-  during the call
-- the polling loop will use native_match to determine if it must pull
-  data from the cache.
-- the polling loop will execute clear_bit() on its own tx_seqnum only
-  after the payload is safely in the caller's buffer.
+                        Geert
 
-Cheers,
-ta
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
->  			}
->  		} else {
-> +			/*
-> +			 * Signal completion to the polling thread.
-> +			 * Pairs with smp_load_acquire() in polling loop.
-> +			 */
-> +			smp_store_release(&rx_data->completed, true);
->  			clear_bit(seqnum, achan->bitmap_seqnum);
->  		}
->  
-> @@ -318,7 +338,13 @@ static int acpm_dequeue_by_polling(struct acpm_chan *achan,
->  		if (ret)
->  			return ret;
->  
-> -		if (!test_bit(seqnum - 1, achan->bitmap_seqnum))
-> +		/*
-> +		 * Safely check if our specific transaction has been processed.
-> +		 * smp_load_acquire prevents the CPU from speculatively
-> +		 * executing subsequent instructions before the transaction is
-> +		 * synchronized.
-> +		 */
-> +		if (smp_load_acquire(&achan->rx_data[seqnum - 1].completed))
->  			return 0;
->  
->  		/* Determined experimentally. */
-> @@ -384,6 +410,7 @@ static void acpm_prepare_xfer(struct acpm_chan *achan,
->  
->  	/* Clear data for upcoming responses */
->  	rx_data = &achan->rx_data[achan->seqnum - 1];
-> +	rx_data->completed = false;
->  	memset(rx_data->cmd, 0, sizeof(*rx_data->cmd) * rx_data->n_cmd);
->  	/* zero means no response expected */
->  	rx_data->rxcnt = xfer->rxcnt;
-> 
-
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
