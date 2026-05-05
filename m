@@ -4,125 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B25C9FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 11:43:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F69FFF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 11:57:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yXLWq7djRHm8aAsYMORJa30OUOiucUxK+JszfmcJsW8=; b=gxTbQ6BnjFAwTnuE2U7KH2a/EX
-	guCMdVvwn7UUjBtm9jzq7h2IZu3PSthhUIXXMXdSJQ2FrwzJTFzrHDXFDZad/1mkQUp2ns3jyiUVF
-	4sQRnP/r+uTORoIy7eEUZ/iHb2NqXNly3vZB03RMHi9TKVXFfGO5ZZTTEtuIzXxwb0b6wNzdZ5i94
-	FIPQ+bt9hpecD4WSNZ1MVpvDQl1gfwwxeh5TcVdzzqsASJvTxUo8xHx83KiGQP8rdyxZ0Ps5kKR5v
-	Sod+58p+CA902dcrKfl1ORugWI7sLTLBYTVhaEwQzzBYuxeSLYaGKLrDaIhmEUFa+dAtgqK/74APx
-	v9PW6/5g==;
+	bh=1WSn3Gp8++tbsczQV3o+avsi3Hm1AnDhWAFzNoHqmYE=; b=4QjCp1LW/Tkl3lW0rgVyHO8rWU
+	HEXTpzMsBfgG9KidfxcCkjCCatokrhGnUaB+GmI5kZ23RUq/h8aph2nlNy9uIX5cbFMYpMR1ERUCe
+	xpp5VsTA0FG/xRQ6If8vxk7VVdolVvpZi9CX+H2k3d8KAkt12g9+WOKyJ4HNCgaKkO0YNtDdL6DpP
+	OsIfs8JkFuiZuC6f0ilAB/yu3ZVMCuMUHFb2agq1LTdhB6bp9T3wAh+flfQo/6MPY24fhEGcEvoCZ
+	i97Zgei11dGnPSuBYwbsSe2WdxQuqXU5PXA01qq25MPGwdDzlbhV5OA18r9ATJnPXQ32jLql94yEB
+	kqRY7MMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKEB0-0000000G590-1QsJ;
-	Tue, 05 May 2026 11:42:58 +0000
-Received: from mail-centralusazon11010015.outbound.protection.outlook.com ([52.101.61.15] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1wKEOv-0000000G6vB-0R0N;
+	Tue, 05 May 2026 11:57:21 +0000
+Received: from mail-ua1-f49.google.com ([209.85.222.49])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKEAx-0000000G58Y-2eCP
+	id 1wKEOt-0000000G6ul-1wZv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 11:42:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MsMKmzYJK67z27LTa1jW9JAmuTpA0VHk+zSSDAr+KDtpaoPbKCv4C4qRRbJukXEofYwq1bTH4AzV1E1KaxHhbAjGRWtGirJn76MKhDlXxJnYELf38xiAQEQQter4ktw5SThaxbwY6tPlqLF4fYYumaPB4li34L49/dJsFlexKQMmm/FNEk/tVCvzw8TnwPb6tuFX9fO9UC2fUkByv+eAU85N04e0bzvLc8vrXJ58d4hA3aht4y3huxqh831kS8ltm6gXaFMqviD2Dtpyf7KnLfc3FJT9DeWOv+v4aYz9DPg/BrLWGkdps1/5/bepbndalRMxBdbEg7KuY4NQaSKX3g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yXLWq7djRHm8aAsYMORJa30OUOiucUxK+JszfmcJsW8=;
- b=snAKEzSDppxjxC2RWbcXg1ZzM8JPQAzmkumxgiBui8dYII931W390lgzKoXDpLAfa3tEnq54boQlXgsPE+SwEltoHfVoMTkPljcBizD5slCEknqngH9UY4UljIg0EU7dUKwKcMeIhB0kAOHAmLIud6ReWGvbqVXI16qryOhc/QSJ0cng89IUSU5RGBgqQc3YVIEZKpvM5ChdwFEkFCEtj7LPZh8gwFqatMDPyEAxEbQc7yxb6AKBTbQY13RYZVA2pWOiVr7O4+huMdwTzVKc/1URQxXtQU1ELpvNuxoo7RFrNVp01+VytCgCou2PQ8DVaLsMqG2riqKXpO0X40mk1Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yXLWq7djRHm8aAsYMORJa30OUOiucUxK+JszfmcJsW8=;
- b=S3PT3RYCJZllkAW1r4EeqLViHQlfP0o/Y8hokffeZZ5CQrWRvn5lb7R1GQmii4u36ZfcJmYFU/8QpywxXBn/ooqqlL+5jI5ti8u57330tu62FKVOZIRZSP0m+1fMYOKbw5z5BWDg9jQPRNoxpRc8/rbJFVCGmNqk2R82IOZFIJM=
-Received: from SA1P222CA0069.NAMP222.PROD.OUTLOOK.COM (2603:10b6:806:2c1::29)
- by SJ0PR10MB4720.namprd10.prod.outlook.com (2603:10b6:a03:2d7::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Tue, 5 May
- 2026 11:42:50 +0000
-Received: from SN1PEPF00036F41.namprd05.prod.outlook.com
- (2603:10b6:806:2c1:cafe::1e) by SA1P222CA0069.outlook.office365.com
- (2603:10b6:806:2c1::29) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9870.27 via Frontend Transport; Tue,
- 5 May 2026 11:42:49 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- SN1PEPF00036F41.mail.protection.outlook.com (10.167.248.25) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9891.9 via Frontend Transport; Tue, 5 May 2026 11:42:49 +0000
-Received: from DLEE205.ent.ti.com (157.170.170.85) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 5 May
- 2026 06:42:49 -0500
-Received: from DLEE201.ent.ti.com (157.170.170.76) by DLEE205.ent.ti.com
- (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 5 May
- 2026 06:42:49 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE201.ent.ti.com
- (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 5 May 2026 06:42:49 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 645Bgn1X3169764;
-	Tue, 5 May 2026 06:42:49 -0500
-Date: Tue, 5 May 2026 06:42:49 -0500
-From: Nishanth Menon <nm@ti.com>
-To: "Thomas Richard (TI)" <thomas.richard@bootlin.com>
-CC: Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
-	Gregory CLEMENT <gregory.clement@bootlin.com>, <richard.genoud@bootlin.com>,
-	Udit Kumar <u-kumar1@ti.com>, Abhash Kumar <a-kumar2@ti.com>, "Thomas
- Petazzoni" <thomas.petazzoni@bootlin.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>, Dhruva Gole <d-gole@ti.com>, Kendall Willis
-	<k-willis@ti.com>
-Subject: Re: [PATCH v6 3/4] clk: keystone: sci-clk: add restore_context()
- operation
-Message-ID: <20260505114249.y7svb7jf7w64zflo@concerned>
-References: <20260427-ti-sci-jacinto-s2r-restore-irq-v6-0-72c6468cb2ab@bootlin.com>
- <20260427-ti-sci-jacinto-s2r-restore-irq-v6-3-72c6468cb2ab@bootlin.com>
+	Tue, 05 May 2026 11:57:20 +0000
+Received: by mail-ua1-f49.google.com with SMTP id a1e0cc1a2514c-95d18b33f93so1021672241.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 04:57:18 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777982238; x=1778587038;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1WSn3Gp8++tbsczQV3o+avsi3Hm1AnDhWAFzNoHqmYE=;
+        b=coOvGNa02BmFi8WIIzpP9P6hbugKfNZ0bfHsWxl/3DCLe+aL/5UEk5IxxyjfMPvcXh
+         Sw5IlTWYhCZ1UKB/dwrgn1NscWi+h+vRAwx2XcIm6Tq7/Nchl1+y4CBmhY+az4bzaqyy
+         2dPj+iFjC2V7Xwqqm/zrdX8YH9efcGP6WpebUv02cl5KDbJTV1AOFtxta5+oNQNwbWAx
+         Fmqy0+4VxJ+9gOYVBCFLK5C8rLvU2nXt3okEn0aQqK4zegyAWHQOvE8txTnTZ2NstBtj
+         VeS2w9aM4/ZzCjcVKlVh5RT7kcn2dUkvDa2+UkGZsYeTBrmrBBkJpYWJ1sq41dwCjqq4
+         NZ4w==
+X-Forwarded-Encrypted: i=1; AFNElJ+zUj4WxbJxbUsXBQMRzJoRskYqQBqsk5eWZzNnaYAGh6zaEIL5/MXK0CMSwnsfACQHqdp5oQLLcYkJXeemNtCz@lists.infradead.org
+X-Gm-Message-State: AOJu0YyfcyOrwelAN4yFR5Q7xqEL2gauuU0F5ZifEDgDXVAdltPKjiZQ
+	+iGDu6ZVO/VSFc3qmXaiBUv0zyNK0CrCf0gsftnY+LP/XpFZnzFD02iuP2NG6xsh
+X-Gm-Gg: AeBDietgToooeZOjvJVkze8Sis74O9BjDqY+hABAChQ2R5ZV/Cn3a47rlzmXvcHAAMv
+	h1/vdqnknG+PwkXtwl9xz2bufR1rKJCT2ovyI9REgJbV0sayVzDOSO4mC3e8K5nq78IndWjaNkp
+	TgEs9r7IEa+gY+a661rkPa6BO5xN5yHPEj55v+I7oWZX8Cj2yPeBZpQcb4hzCFP9wvXu05AG+uz
+	ctGNyuXKCxyPYVFBt81QQx6kgCtqLb+ZSbeJnt71XD6u/24mb9Wj/FkORGfqgSzldbY8NupfIJO
+	08cqxhd7oNzKkp3q0wp00xCgraKMbbu0khAXgNh1nlnnJD7QlCVnbP7AgX1GPfkTXLv8WUlgNbx
+	21TIIasCNy/P/heLpBpmOl+2ErDaYcV5E9TUp3V4Ud516B0edb3fjmAtEtcXGdMZTHfrt3PwOEY
+	e0NGwiHYggXDADACPGOZioUnyXrE0bYL3lcMIFbDXAJduZkbXivhrVQ2wk42UgDZStOLLFERE=
+X-Received: by 2002:a05:6102:8012:b0:62f:43e5:c157 with SMTP id ada2fe7eead31-62f55984103mr1269931137.15.1777982237771;
+        Tue, 05 May 2026 04:57:17 -0700 (PDT)
+Received: from mail-vs1-f46.google.com (mail-vs1-f46.google.com. [209.85.217.46])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-62bfbb75140sm6983343137.5.2026.05.05.04.57.16
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 05 May 2026 04:57:17 -0700 (PDT)
+Received: by mail-vs1-f46.google.com with SMTP id ada2fe7eead31-610f4cf6ddcso4357580137.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 04:57:16 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ9CBEHgShJUoa/Zr6y0Od3kcI4U8U8fXYZ3By3v65pQixcPEBqqi8tMcr9Nh15vj7km/LYd/cCRexh/4u217+46@lists.infradead.org
+X-Received: by 2002:a05:6102:d8a:b0:607:d68f:d0f6 with SMTP id
+ ada2fe7eead31-62f55a492fdmr1354982137.20.1777982236245; Tue, 05 May 2026
+ 04:57:16 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260427-ti-sci-jacinto-s2r-restore-irq-v6-3-72c6468cb2ab@bootlin.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF00036F41:EE_|SJ0PR10MB4720:EE_
-X-MS-Office365-Filtering-Correlation-Id: 680cff20-8685-425a-5195-08deaa9b6f67
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700016|7416014|376014|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: wIsbcLyDqXN9EcRm8Q7PUGVrRB/JEnBI1/Rz8SsRLTlMY2U6kxLQ1IaF17SqwZA2aU0GOkiq+pgSxL8XgUk+51lZaz4bdSMrQ21tC7Stl4oOjQw9puwu3e4Hwi8b7BCY/rN3vhtUnH+L5CiuZyzuZJLyp6+JPNYkXXKb2umXoh25Ky0X7eSBNM91xfN3j7RpIPH6DagxeDKkwEfmJGH/TyuMWUSkShH/HiGmnZ2pkwX4aPB3FINkFVAWUVydM8Aq3g2NtxyhHRC5Vs/2uwQ/6rbMV7s14aW0IY25W1PmB0Trm+pFO4NDlfD3AfJucSy2RT5A9361Pz221ia21CKJ5if6D+65MnkSuqqCSdpvzmcnVt/dXXdl5pyH6cYtNwdT3GoXiguTJzb6HkJkyGf2tPLQ8ilNfBOMfaAoffmtSaKKB1MldeBvBgrz/ALHXNhfAp8rO/+Dd4LLkMvrqTM8nEi42OrmjJ6yZP2G1Tx6Kc6k83umNGcezQ54flEigsTCVMRsVAW2v1YKp9TI+illzKi41J2RBSKlr97FbpK8xjjpjONond6IxXvHdw1JHxKcqyd+usWfAs86kZCNbaUWjdhnwhP+JsPj6CWzfWF4KFm1qOIfoQTbgQCEkrWG7f8Jjf0Nq0t0vDOPoTWqorDNXeWZQr28E6nUoaVg0qNVDLCVG/Pf/Eh07f/NYxpScd5YQjhGxFD1JHM+XkdAxJchgrP395XFLeFob8cGlIdMH5g=
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700016)(7416014)(376014)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 5JVz+PQv3UJHDB4N4AnAcRTKZ5g9MNii9LXun1XPXGRVz+V/AyEQoCYgyEtrDuCDIC7ElwCrvVM54QPGUlZR5+CiNqlPcR2QUjQks4mpiGTI0CFcFUJEs1Jtj0xlyLCyVD9ZNwI65geMBTYEl8EOWhh1/IXsbIcdrBUzf5NAEpxsoBsYGjhWBLIYlX1wUFfY1QngAHetPAHhPdFVh4ksRGpATugHCCiE13yeWQ+cItPk1DunVFsaUuxK7UCzTkglKKirURZI3Ib5cxanxfIWQOJ6X63qcTZb3EEEdtGj6nastQO9rsPwtsBnB6On95mMr13fOoGmiXYWDlQGj0PXLcSGjBNoH4mqKB7Ld59avEW+j/qMLoi1r2NqZpXT1TKV96TJs80sTdSu5wpMiAyq3rKuqXsjKljl7AlZd0r8WEWsBZLOdqOCiLgIdOZAPqd6
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2026 11:42:49.8129
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 680cff20-8685-425a-5195-08deaa9b6f67
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF00036F41.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB4720
+References: <20260428201522.903875-1-cristian.marussi@arm.com>
+ <20260428201522.903875-14-cristian.marussi@arm.com> <CAMuHMdXtH=4J7bDGAk8xoxNDYRsHSRDReVNU_PpUnUDfU=afpw@mail.gmail.com>
+In-Reply-To: <CAMuHMdXtH=4J7bDGAk8xoxNDYRsHSRDReVNU_PpUnUDfU=afpw@mail.gmail.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 5 May 2026 13:57:03 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdUG9cTH+WFAHymHeBrPK1vsE5XCJeWOxqF22efc_omMhw@mail.gmail.com>
+X-Gm-Features: AVHnY4Lq3Zggrs4Qv91iMEofghVqKQUPPKW-R1C9WbhWCH-RGMfKoh_-yjYR4Ms
+Message-ID: <CAMuHMdUG9cTH+WFAHymHeBrPK1vsE5XCJeWOxqF22efc_omMhw@mail.gmail.com>
+Subject: Re: [PATCH v3 13/15] firmware: arm_scmi: Use bound iterators to
+ minimize discovered rates
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	arm-scmi@vger.kernel.org, linux-clk@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, sudeep.holla@arm.com, 
+	philip.radford@arm.com, james.quinlan@broadcom.com, f.fainelli@gmail.com, 
+	vincent.guittot@linaro.org, etienne.carriere@foss.st.com, 
+	peng.fan@oss.nxp.com, michal.simek@amd.com, kuninori.morimoto.gx@renesas.com, 
+	marek.vasut+renesas@gmail.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_044255_673263_81467DB7 
-X-CRM114-Status: GOOD (  25.64  )
+X-CRM114-CacheID: sfid-20260505_045719_551535_1E7D9056 
+X-CRM114-Status: GOOD (  30.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,149 +101,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14:21-20260427, Thomas Richard (TI) wrote:
-> Implement the restore_context() operation to restore the clock rate and the
-> clock parent state. The clock rate is saved in sci_clk struct during
-> set_rate() and recalc_rate() operations. The parent index is saved in
-> sci_clk struct during set_parent() operation. During clock registration,
-> the core retrieves each clock’s parent using get_parent() operation to
-> ensure the internal clock tree reflects the actual hardware state,
-> including any configurations made by the bootloader. So we also save the
-> parent index in get_parent().
-> 
-> Reviewed-by: Dhruva Gole <d-gole@ti.com>
-> Reviewed-by: Kendall Willis <k-willis@ti.com>
-> Signed-off-by: Thomas Richard (TI) <thomas.richard@bootlin.com>
-> ---
->  drivers/clk/keystone/sci-clk.c | 44 ++++++++++++++++++++++++++++++++++--------
->  1 file changed, 36 insertions(+), 8 deletions(-)
-> 
-> diff --git a/drivers/clk/keystone/sci-clk.c b/drivers/clk/keystone/sci-clk.c
-> index 9d5071223f4c..b090edf5f82e 100644
-> --- a/drivers/clk/keystone/sci-clk.c
-> +++ b/drivers/clk/keystone/sci-clk.c
-> @@ -47,6 +47,8 @@ struct sci_clk_provider {
->   * @node:	 Link for handling clocks probed via DT
->   * @cached_req:	 Cached requested freq for determine rate calls
->   * @cached_res:	 Cached result freq for determine rate calls
-> + * @parent_id:	 Parent index for this clock
-> + * @rate:	 Clock rate
->   */
->  struct sci_clk {
->  	struct clk_hw hw;
-> @@ -58,6 +60,8 @@ struct sci_clk {
->  	struct list_head node;
->  	unsigned long cached_req;
->  	unsigned long cached_res;
-> +	u8 parent_id;
-> +	unsigned long rate;
->  };
->  
->  #define to_sci_clk(_hw) container_of(_hw, struct sci_clk, hw)
-> @@ -150,6 +154,8 @@ static unsigned long sci_clk_recalc_rate(struct clk_hw *hw,
->  		return 0;
->  	}
->  
-> +	clk->rate = freq;
-> +
->  	return freq;
->  }
->  
-> @@ -210,10 +216,15 @@ static int sci_clk_set_rate(struct clk_hw *hw, unsigned long rate,
->  			    unsigned long parent_rate)
->  {
->  	struct sci_clk *clk = to_sci_clk(hw);
-> +	int ret;
->  
-> -	return clk->provider->ops->set_freq(clk->provider->sci, clk->dev_id,
-> -					    clk->clk_id, rate / 10 * 9, rate,
-> -					    rate / 10 * 11);
-> +	ret = clk->provider->ops->set_freq(clk->provider->sci, clk->dev_id,
-> +					   clk->clk_id, rate / 10 * 9, rate,
-> +					   rate / 10 * 11);
-> +	if (!ret)
-> +		clk->rate = rate;
-> +
-> +	return ret;
->  }
->  
->  /**
-> @@ -237,9 +248,9 @@ static u8 sci_clk_get_parent(struct clk_hw *hw)
->  		return 0;
+On Tue, 5 May 2026 at 11:59, Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> On Tue, 28 Apr 2026 at 22:17, Cristian Marussi <cristian.marussi@arm.com> wrote:
+> > Clock rates are guaranteed to be returned in ascending order for SCMI clock
+> > protocol versions greater than 1.0: in such a case, use bounded iterators
+> > to minimize the number of message exchanges needed to discover min and max
+> > rate.
+> >
+> > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+>
+> Thanks for your patch!
+>
+> > +static int
+> > +scmi_clock_describe_rates_get(const struct scmi_protocol_handle *ph,
+> > +                             u32 clk_id, struct clock_info *cinfo)
+> > +{
+> > +       struct scmi_clock_desc *clkd = &cinfo->clkds[clk_id];
+> > +       int ret;
+> > +
+> > +       /*
+> > +        * Since only after SCMI Clock v1.0 the returned rates are guaranteed to
+> > +        * be discovered in ascending order, lazy enumeration cannot be use for
+> > +        * SCMI Clock v1.0 protocol.
+> > +        */
+> > +       if (PROTOCOL_REV_MAJOR(ph->version) > 0x1)
+> > +               ret = scmi_clock_describe_rates_get_lazy(ph, clkd);
+> > +       else
+> > +               ret = scmi_clock_describe_rates_get_full(ph, clkd);
+> > +
+> > +       if (ret)
+> > +               return ret;
+> > +
+> > +       clkd->info.min_rate = clkd->rates[RATE_MIN];
+> >         if (!clkd->rate_discrete) {
+> >                 clkd->info.max_rate = clkd->rates[RATE_MAX];
+> >                 dev_dbg(ph->dev, "Min %llu Max %llu Step %llu Hz\n",
+> >                         clkd->rates[RATE_MIN], clkd->rates[RATE_MAX],
+> >                         clkd->rates[RATE_STEP]);
+> >         } else {
+> > -               sort(clkd->rates, clkd->num_rates,
+> > -                    sizeof(clkd->rates[0]), rate_cmp_func, NULL);
+> >                 clkd->info.max_rate = clkd->rates[clkd->num_rates - 1];
+> > +               dev_dbg(ph->dev, "Clock:%s DISCRETE:%d -> Min %llu Max %llu\n",
+> > +                       clkd->info.name, clkd->rate_discrete,
+> > +                       clkd->info.min_rate, clkd->info.max_rate);
+>
+> Printing clkd->rate_discrete is futile, as it is always 1.
+> It would be more useful to print clkd->r.num_rates instead, although
 
-What happens if get_parent() fails during clock registration? Looking at
-sci_clk_get_parent(), if the firmware call fails, parent_id will be a
-valid value of 0? and in restore, we'd attempt to restore it back? I
-think that is wrong.
+clkd->tot_rates (sorry, my local tree still had your v2)
 
->  	}
->  
-> -	parent_id = parent_id - clk->clk_id - 1;
-> +	clk->parent_id = (u8)(parent_id - clk->clk_id - 1);
->  
-> -	return (u8)parent_id;
-> +	return clk->parent_id;
+> that may still be lower than the actual value, due to lazy handling.
 
+clkd->tot_rates is the actual value, so there is no such issue.
 
+>
+> >         }
+> > -       clkd->info.min_rate = clkd->rates[RATE_MIN];
+> >
+> >         return 0;
+> >  }
 
->  }
->  
->  /**
-> @@ -252,12 +263,28 @@ static u8 sci_clk_get_parent(struct clk_hw *hw)
->  static int sci_clk_set_parent(struct clk_hw *hw, u8 index)
->  {
->  	struct sci_clk *clk = to_sci_clk(hw);
-> +	int ret;
->  
->  	clk->cached_req = 0;
->  
-> -	return clk->provider->ops->set_parent(clk->provider->sci, clk->dev_id,
-> -					      clk->clk_id,
-> -					      index + 1 + clk->clk_id);
-> +	ret = clk->provider->ops->set_parent(clk->provider->sci, clk->dev_id,
-> +					     clk->clk_id,
-> +					     index + 1 + clk->clk_id);
-> +	if (!ret)
-> +		clk->parent_id = index;
+Gr{oetje,eeting}s,
 
-index of 0 is still a valid value, right? same value clk->parent_id will have
-even if ret was 0.
-
-> +
-> +	return ret;
-> +}
-> +
-> +static void sci_clk_restore_context(struct clk_hw *hw)
-> +{
-> +	struct sci_clk *clk = to_sci_clk(hw);
-> +
-> +	if (clk->num_parents > 1)
-> +		sci_clk_set_parent(hw, clk->parent_id);
-
-And we end up attempting invalid parent_id (0) here?
-
-> +
-> +	if (clk->rate)
-> +		sci_clk_set_rate(hw, clk->rate, 0);
->  }
->  
->  static const struct clk_ops sci_clk_ops = {
-> @@ -269,6 +296,7 @@ static const struct clk_ops sci_clk_ops = {
->  	.set_rate = sci_clk_set_rate,
->  	.get_parent = sci_clk_get_parent,
->  	.set_parent = sci_clk_set_parent,
-> +	.restore_context = sci_clk_restore_context,
->  };
->  
->  /**
-> 
-> -- 
-> 2.53.0
-> 
+                        Geert
 
 -- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
