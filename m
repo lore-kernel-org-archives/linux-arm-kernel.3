@@ -4,71 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C8B6CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 12:56:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8906EFF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 12:57:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Roa/R3xKoyx9d1QsB+LkhjgOO/Ewqs+tzAO6wvLC2sc=; b=jEysNU2OkfzE/Ba1bEjh32jbQl
-	Y1RECU0ObJtU+kNXkES5SWpwsh6orq798Yvf1rw2+Mpp176a9wxJuq4R+GZN5GyfqGIuA4F3uxgGF
-	SavF0J3O4l4Lr3yMB9NMBsAq33mUaZxNXa6RT7AWyLYopMW36t5Gw+WYO/g3ZaSCUTJCswUg7v22J
-	Ac2pfYIOT6uu7BGj9C1COpZwFHDba1FTfMU2n/byQpIBhiWYvSYBYkJjzq1MIiwRzB3sqau2wvgNT
-	vxwxJ8EdSQFIoP7A0cr2GG9778HvNf3RtCnZMZkYGfIIK/WKSY+9wpgbBmc2ACEc5jUDrJqefYYVP
-	kOvfmg3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DbyDCSwMYZk7eG5a6jkCN+qhSVul6PYK1pXIvlezugU=; b=rgbQuU7z5KmzAPKTKNZILPFqUq
+	0Rzx0IbR/5FQ4ZVCTCcOSheiNTJ2dXB5W5LmgSGj5TG2CzhiD2Y6y8/zO1OSem2Zrol4RvH75vKgu
+	bBd9HF0L7KDUSLOBbgzqLDowo1/KTww8cif+EnVAKzFlej7IHoLphiton67PHIrloKDpUxNXTK5YK
+	SOP7JF6U942pEd2KLl1ultIbPBOFcixuq+K00xlg02ApT1c/GGMfdjJ1Nk7GExjGxy6iWi1Md9P0W
+	uwNhTnibH9whG52hN1IKoxnQHgtXZme838S1zLZ4LD8Xk0/3yaZkKmVlPbqLer82DlOMVTGSFQSnH
+	Sa2bw+wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKFKW-0000000GFlc-0MWR;
-	Tue, 05 May 2026 12:56:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wKFLK-0000000GFzo-3DvU;
+	Tue, 05 May 2026 12:57:43 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKFKV-0000000GFl6-0XQk
+	id 1wKFLH-0000000GFyG-3T58
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 12:56:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 91D1160142
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 May 2026 12:56:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4973BC4AF0B
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 May 2026 12:56:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777985810;
-	bh=ZUs4wo3g3+7GpdmJ7ncT0CXa7bmF1VEsrvwglg4jLoE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=TW8pdnz6ylCu+n5A3jS6uOFfm1r+mrh5QJj/b5ngfXVDaIb6sHGRAklRK+cd8AwyJ
-	 LM4uXqHWrv1OQYhOadPOWdI0+97b/ql0+GrGkVegK8/S2QGKL5MSYZaa71wfnd8cPI
-	 BtaZlO4QuaxNAyVQCaqeW8pMIP9qhv1FpLcMKgHItIIKnZn+Wc9rdz4yx5dy5wT5PO
-	 t/CZudqTq/6Q/Ajl0B6O+Cp5L/3u5wVQrHWbmJYuJ7pg4XoxkaBSFzCIDYWaJm9JQD
-	 h4c5Z+uVfXj3DdraDaZGDRkC9kELRIYwtQQwaE2rmuZiTAm9RtmBcbK/VRcD310Tg9
-	 A8JBWqsMhnijQ==
-Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-38e7d984096so58805491fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 05:56:50 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ95pycYUdeVr1uAIN/UUOGUmTixi2zJUakwRI4MyxbKz5qBQhkP8AX69LMf1i6IbH9Si7LPopdQ3YTtUucyxMkC@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywe3Zj7Bt5tFm4xRHfACxNRWRi56YomR0BYwQ9obwtpQe+7WqsT
-	vw0y2M1qpESScuwqnCukt5lkJKELKZF2zCkJHoavbUJSjj4FyWVWbuQc/XYePlNXMdSToJG7LQv
-	z2npUQ0u27NLJGA8j2rh5rr1TBmQSpko=
-X-Received: by 2002:a2e:be0c:0:b0:38a:a77a:b0b2 with SMTP id
- 38308e7fff4ca-393785870femr48588051fa.30.1777985808984; Tue, 05 May 2026
- 05:56:48 -0700 (PDT)
+	Tue, 05 May 2026 12:57:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=DbyDCSwMYZk7eG5a6jkCN+qhSVul6PYK1pXIvlezugU=; b=jRUt0o88F1fXqtAQNU2ekCe6DI
+	hDxvl96nLo2h2Ye6E6RXzjPlf+HZ4wiITdGhpkIosRr/UEwJkift30vCD599K8o/RTdpK+6wJcL8w
+	O7JJhGnQ4dGLKOj4Xhi3NMf2wdzOZtFXU9YSGM4yssuPDHSoGdbWT01Dd4XLO5kFs30s=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1wKFL6-001Scf-Lt; Tue, 05 May 2026 14:57:28 +0200
+Date: Tue, 5 May 2026 14:57:28 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: dev.taqnialabs@gmail.com
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RESEND] net: stmmac: fix RX DMA leak on TX alloc failure
+Message-ID: <af3d7a77-048e-4cb8-8980-8462365d2fa9@lunn.ch>
+References: <20260505-stmmac-rx-desc-cleanup-v1-1-df85cd095ebc@gmail.com>
 MIME-Version: 1.0
-References: <20260505094321.75040-3-krzysztof.kozlowski@oss.qualcomm.com> <20260505094321.75040-4-krzysztof.kozlowski@oss.qualcomm.com>
-In-Reply-To: <20260505094321.75040-4-krzysztof.kozlowski@oss.qualcomm.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 5 May 2026 14:56:37 +0200
-X-Gmail-Original-Message-ID: <CAD++jLn-QPagz4m6jkYU6JJS22cRZrsGA=h20JiSvn-3Pxq=Dg@mail.gmail.com>
-X-Gm-Features: AVHnY4Igt9-o67zqCdCfXKKYOq79SDn0cypO6X1gGr102Z0s00tmMJ-a4onPwSE
-Message-ID: <CAD++jLn-QPagz4m6jkYU6JJS22cRZrsGA=h20JiSvn-3Pxq=Dg@mail.gmail.com>
-Subject: Re: [PATCH 2/2] pinctrl: rockchip: Move MODULE_DEVICE_TABLE next to
- the table itself
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, Heiko Stuebner <heiko@sntech.de>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260505-stmmac-rx-desc-cleanup-v1-1-df85cd095ebc@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260505_055739_864532_AA5DEFD0 
+X-CRM114-Status: GOOD (  16.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,20 +73,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 5, 2026 at 11:43=E2=80=AFAM Krzysztof Kozlowski
-<krzysztof.kozlowski@oss.qualcomm.com> wrote:
+On Tue, May 05, 2026 at 08:23:07AM +0000, Abid Ali via B4 Relay wrote:
+> From: Abid Ali <dev.taqnialabs@gmail.com>
+> 
+> Free RX DMA resources when alloc_dma_tx_desc_resources() fails in
+> alloc_dma_desc_resources().
+> 
+> Signed-off-by: Abid Ali <dev.taqnialabs@gmail.com>
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 6 +++++-
+>  1 file changed, 5 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 13d3cac05..8bb843b55 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -2370,8 +2370,12 @@ static int alloc_dma_desc_resources(struct stmmac_priv *priv,
+>  		return ret;
+>  
+>  	ret = alloc_dma_tx_desc_resources(priv, dma_conf);
+> +	if (ret) {
+> +		free_dma_rx_desc_resources(priv, dma_conf);
+> +		return ret;
+> +	}
+>  
+> -	return ret;
+> +	return 0;
 
-> By convention MODULE_DEVICE_TABLE() immediately follows the ID table it
-> exports, because this is easier to read and verify.  It also makes more
-> sense since #ifdef for ACPI or OF could hide both of them.
->
-> Most of the pin controller drivers already have this correctly placed,
-> so adjust the other drivers.  No functional impact.
->
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+You could keep the return ret, and simplify the code:
 
-Patch applied.
+	ret = alloc_dma_tx_desc_resources(priv, dma_conf);
+	if (ret)
+		free_dma_rx_desc_resources(priv, dma_conf);
 
-Yours,
-Linus Walleij
+	return ret;
+
+    Andrew
+
+---
+pw-bot: cr
 
