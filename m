@@ -4,90 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67D42FF8855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 13:55:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C597FF8855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 14:00:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OW0dklUq7uf6SLk/z/yDWKh4nZLnpSbAuY6QO/s7DpU=; b=CiJAYo/E7OtNAXxZJrpzkzUi3b
-	g22BhKKe7n2iMSSxVPk96qS0l3mbvKu/5sUHD5oHyYqHarpnLdMWgHXz6M5EtIPnFFgRjzd7j+LvV
-	mDx6/E7nOCw68/ScwxxjFZjWdYALs5SiQM8xeyfY0GJD0vAIcV5q7mt9PtX/POC2+TXDO9aNCKUWl
-	5OSN6KQpIJRgscDEWuwPX13U29kLAt3i5pprePgclKSHEhWHPzVD2SCEWfCcZN9NScq6FqFi3lNXu
-	lQPl71r+IEgjumZIJpVSgMQkeY8i8hxJMD3BUzcb220+W1cc7I8YmV6IiV0aq5PmgH18dyn5A+VAH
-	X5eOOdWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pLRKjY+dTk7MNtndcoc2Nm++WwPduDsu+jujhCsW/MI=; b=2RYDWwzfAUdszWqvAX6OpwGPdG
+	9FyKJOEhOeOBpViJG+mr1e101UFApnQdA9NBGY9n4UL23W+86p3PPmjRM2ya/17yj9c1npByYSDRK
+	pO0Zm3yCxevImLXvP/v3tfwzn5zCX/HWiOJWnnyu79uRUjr5bLQoaildGudTVn85WWo/V1+N4hDhH
+	cWKeuybDQBXUdyk7z8zd4MAIH9lIfJmgHbAMM9Divk9hlgOdYErggJJ96gfzfKWKEjKMA+ZC5vCHC
+	N5CGFbeCVmkZAOUdohLVkJIFq5/kYDdntLYd6gE6SLZF6CiUVQlipp5rWUE7dYoPwS++E9xhJq/Yz
+	w9MwqFew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKGEw-0000000GP4z-0dCU;
-	Tue, 05 May 2026 13:55:10 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1wKGJo-0000000GPdV-0FOb;
+	Tue, 05 May 2026 14:00:12 +0000
+Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKGEt-0000000GP3m-42pV
+	id 1wKGJk-0000000GPce-2MYJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 13:55:09 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-48909558b3aso57878245e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 06:55:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1777989305; x=1778594105; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=OW0dklUq7uf6SLk/z/yDWKh4nZLnpSbAuY6QO/s7DpU=;
-        b=KV0UnThSxCDo0zGthXdxGra/1ciGthTHd1WKxrEb2dETQpYOW6nPW+zLZYNY/WDsT8
-         NOcOtUmlok9nuSBmjc7KO5OgrrXNV4JzZYXCUoNqvEbYezf94ADRFbONWZacHD+FHIbs
-         Cp00Zx+HTrZxMRaOiyxftaRb9UlkTJuR/G3QcG0kMD/jf+7tmPp3BcD8XndzG8Ik0Abg
-         V5qbnwcs6lR0wqleOzhfvpG3ALMG6QvdypGeftBkexGgA8ezvMQzhFz7W6btbHzdaxMt
-         lWhSkNY97bT028h+mhD0dX1/XCBCqdgj5rzRwAnIggZlyAA1EDzokZn3o83YwWi0t2rP
-         3gIQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777989305; x=1778594105;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=OW0dklUq7uf6SLk/z/yDWKh4nZLnpSbAuY6QO/s7DpU=;
-        b=U5BYj3iEahJ5OWABXYW0SgJ2GX37HVMZTEiPKnKvP48s8o3+ryxAaiHM/lKUb7pmfU
-         6B0wNXfJUn/7ipVv6qrF2TcSva2Jn6+DUVVv2GrWrVLuGxm8KVQwXYOkhf30sTqCpF5V
-         a9NHKUHmoTgoW7/dg/KtHKQA4y5StvdREpRHgthX/ZnM3Yd4a1r87Y5AwzY9vsTVBwR6
-         qMvTQo/c6a/D5gLNnriyfir1TyLrenvvGIlPBGj7zhXn3AEdtspxl0T6bxpJ96nuF9NB
-         1iwxzensAzYBJos4qV1lNsd02f/d8COrIXpcA5PtBBsEmCwXFYN9vGvSFUME/+yrMoJT
-         +QjQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9z+s9D1qicwHij1rNGTXmawFaTuSa0vLH9Zr9vlXDGiNMCHaz8pLxiX6ppW6z40FUa8nC8SiLMKh+vCLXgTaxb@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz1vpys9HevhiPw/kdPpYOSvh1oNhTasSsIMLRjQunp03q4b9dr
-	2gRxhc1/RJ2CBmcESjwZoNFtNftIGXQCAi2f83/zzrHO7/HSJ07V4OTYkfeWAMUi520=
-X-Gm-Gg: AeBDievLeqcDYc9EDopX15DHEHi0BEJt9ddrHK6NlQ6V4KokYmk7ibWciAzHC1wZ4FE
-	gNFhDKWQQ0Zpz+OCCz6rABtZuBkZbl0S3Qn29ezA8sZJ1PjSUDN18flE0sOdmRYFq6iNGXoKQNz
-	qOEj/7ycIZEFhOE7edCbVt1jmJEZhnHwcMeiU78MXtlo1vXY4wZ3bvEHYRHCZWa0SoSRs5RbF6i
-	rgFTZ0atlKBgF9kxFh5WwWoDZZwmbOQdfiACbAUXqnkIfeuwU0BovwgSBw6Kad2fKMsxTbdPJvz
-	A1NA1WYJpVP0VtQWy9bTqNMCYGSOle+h+uMwWDYu98NFQnJBAeBvBPFodP36M3vCRHf1WR+sb7Q
-	kZnIxiO1Nbj9JYbsLQ1UhuBEr3i4C1U3EO3poAH3pQn2zWYJr2edCdQXUotqsbzGTxZ59lY97TY
-	7SYFh6UdABVeuU+DO/hP4qdiMCrQpU9GQG6LkvHUY1dLkE4w0=
-X-Received: by 2002:a05:600c:8590:b0:487:5c0:671f with SMTP id 5b1f17b1804b1-48a986381b8mr182417195e9.9.1777989305399;
-        Tue, 05 May 2026 06:55:05 -0700 (PDT)
-Received: from pathway.suse.cz ([176.114.240.130])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48a8eb72a17sm369040085e9.6.2026.05.05.06.55.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 May 2026 06:55:04 -0700 (PDT)
-Date: Tue, 5 May 2026 15:54:57 +0200
-From: Petr Mladek <pmladek@suse.com>
-To: Randy Dunlap <rdunlap@infradead.org>
-Cc: linux-kernel@vger.kernel.org, Steven Rostedt <rostedt@goodmis.org>,
-	John Ogness <john.ogness@linutronix.de>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	bcm-kernel-feedback-list@broadcom.com,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] printk: remove BOOT_PRINTK_DELAY config
-Message-ID: <afn2sYKKsqG4QBVX@pathway.suse.cz>
-References: <20260503214214.3475670-1-rdunlap@infradead.org>
+	Tue, 05 May 2026 14:00:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oeeByqkojifANuistrLzMNyBKa7vzhhy85q5dD3tpi3g9vxyVS4g5JcWPyVtYBq4y6qafoiw5poonWOrlj9GciUGBSSWPb8maAuVc0+Zcu8BjJi0fize1VFb4oYS0L77L1dc4Oig3sgWYDoDiYjuSzb0RiIHptlXgR+7YNIMqM+QECwrCDRwB3IjoFdNqQ6vD9a3Voazwan9/SiSSG6yOgMAsiuxN5NKgfphmtj7Jw4dvspnnjlWtBHA4lObrLiDU0VpEAJwYC0YvszedUZqZ7AD+GHqNzblWsGOlLwgjIwlSOUgXC+uy4tu4taPMqV0gI585hAc8HAV6iEeq2qJjw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pLRKjY+dTk7MNtndcoc2Nm++WwPduDsu+jujhCsW/MI=;
+ b=V7SDzLTMG0nZEseGgdTd7FRwS6jEQkKjhaHQerJxgTjUcW9z0zyIpQhcc3cJuVBYp/k4Jcvdf8wh4ESe2b3yizXpqCKReQtGoIQIecAp+gTqDoybhOHBetGg9CHLvsFLxJDoCvDsOT6v6gKbz5DWMmcsHt/kUOKUH6nyLGKZJzKZHjIyXOWa9PYzXkSb6yThNrlMmPjh4W/IrVu9drAjW30bRPDX0CTa3GLiA54twysiuuU26A5i88NE+POijfBd2uuFlJzxyvcg3/wG92d++XIDwOP50rZDSiswAJcZuIO4pkA9IfnJY/ShKsrgYeN48Ngxgw2gNDrcVC62arGxmg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pLRKjY+dTk7MNtndcoc2Nm++WwPduDsu+jujhCsW/MI=;
+ b=Gp83Wc0HBFhTT4/G5v16OoXSrNrcsb4jS/LMjygbDJBDrKNi9BUx4pXgjM8Te2cdd0lt4eeIq/U0Bk7dq/IiLkJyxKY2eUFNcoGmACqWsgG9SswyuW8am6TUMFC6krJREeCZKdltPtWibNOxaYHCkgUhy0HQb7W5QIaMZ5k9okY=
+Received: from CY5PR13CA0015.namprd13.prod.outlook.com (2603:10b6:930::24) by
+ DS0PR10MB6973.namprd10.prod.outlook.com (2603:10b6:8:14d::17) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9870.27; Tue, 5 May 2026 14:00:02 +0000
+Received: from CH3PEPF00000016.namprd21.prod.outlook.com
+ (2603:10b6:930:0:cafe::74) by CY5PR13CA0015.outlook.office365.com
+ (2603:10b6:930::24) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.15 via Frontend Transport; Tue,
+ 5 May 2026 14:00:00 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ CH3PEPF00000016.mail.protection.outlook.com (10.167.244.121) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.25.1 via Frontend Transport; Tue, 5 May 2026 14:00:00 +0000
+Received: from DLEE201.ent.ti.com (157.170.170.76) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 5 May
+ 2026 09:00:00 -0500
+Received: from DLEE214.ent.ti.com (157.170.170.117) by DLEE201.ent.ti.com
+ (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 5 May
+ 2026 08:59:59 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE214.ent.ti.com
+ (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 5 May 2026 08:59:59 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 645DxxPQ3101012;
+	Tue, 5 May 2026 08:59:59 -0500
+From: Nishanth Menon <nm@ti.com>
+To: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
+	Judith Mendez <jm@ti.com>
+CC: Nishanth Menon <nm@ti.com>, <linux-arm-kernel@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, Andrew Davis
+	<afd@ti.com>
+Subject: Re: [PATCH v3 0/2] Add AM62P silicon revision detection via NVMEM
+Date: Tue, 5 May 2026 08:59:54 -0500
+Message-ID: <177798958251.336362.11127694530585425048.b4-ty@b4>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20260209172330.53623-1-jm@ti.com>
+References: <20260209172330.53623-1-jm@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260503214214.3475670-1-rdunlap@infradead.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PEPF00000016:EE_|DS0PR10MB6973:EE_
+X-MS-Office365-Filtering-Correlation-Id: ecfd7172-b2de-44de-ed09-08deaaae9974
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700016|376014|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: yN1kWcUqbo3/q998fBgXQfDxUiwy/aHqiRG+MhWqTevd+HaOcxhtoTTNzDLw4CDN2w/l4vgY2CVXmSgndHCxdZuCc5F5l/rk/NbdXv6FTM3EU77dAkVpBye9A2CV8JixmLaTcoU///wx4zlhjIJepIj2wuRrD1bLy2rAhq6luuERokUZcrCLTTFB061PEHlMeMqOimN8gJjKWoDg2GxQJZtwQ75nbpLq9Z+rIWmwq+PNOW7PCK0khhQ/973VxFpcfhqakLmEtpxcvwjTuBeeKJFWUpXuXXtDnt4MMUEUfY9P2/30HnP62VIP4WxDCJiz/6ZUYg6QpBSlawADabCiIY3xyCuzpcBK7u6eoTshTViVEcVbT+ddMhad8A+asohiYWdhdhurpMKKlmPyMiNEFYSkjy+ZkLRrMqZqv6KYekUM4Krwze5f8JDKy6OYeoiLi+hasxpNY/rlQzsBADbCUU8OdDsn41jmebPUYOqX5GzFLPv3tdEJ6iZjSHyzCR1TBlkTJoXet+5w6cBzzxqbql8sLfj8mJRdn82WIihx4WpnWAXE0yBSjSpGyJEaCMgHKnmsYCZI3g2nIDt7Rqt8yAVGvv5ozhCONsc8eoTPIkPsrG+zES9zxcyPX5FqOWAfwHsyZIWZkmM1uocdyf+85UIL+khsRBTs/BX+JfKJE/CV24OYLbHRRfeq2sJqraB6WbzMVwDJZ6woIavmVi/pld7SnPYEDsp3a5Y4P0ObgLs=
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700016)(376014)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: rMUU4v4ppXzZyiuLuoS7RuS+1Fe2i5IBy4A7af5YuOtCZbJj5M0vqQAqO6UmyveeXrvp7S/juGeGVcoptg+KKRh7Upy4ACTIxtpsJymV37nMgwUoXaKOCXTaZW5sYhaxkcL+BXZouQVzNxd7AmxYBc3R6T0V9V9rFrql/j9LPz5Bc7LFM7Q1zIVtb7hYFniuavrx4qIsd8xLpxWwDTEdHaeJrxoXGcnxNhocuhiLzbFMEDe5uhjEExwSNVkYjKqeEBmZpMe2WApVwpa5NUCSU7NN3OUyb3HSQk0UVuP4o/H11G2N0hoFgGnDCnzO9CJq1+niMEyMQAAh2+QMQu1Y/EJ9Ewa68baFB5TqcN0dwwDMEO3pVD5hftSsxPlvnwkDNs8I2XflDsBDj4ggcP4dsOucDzEJkmQaDkkXFMVhioZsLMjKF+L0iQDEISWbQaUS
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2026 14:00:00.7140
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ecfd7172-b2de-44de-ed09-08deaaae9974
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF00000016.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB6973
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_065508_006316_A5F1E8DA 
-X-CRM114-Status: GOOD (  13.79  )
+X-CRM114-CacheID: sfid-20260505_070008_707868_9A7D70FF 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,36 +132,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun 2026-05-03 14:42:14, Randy Dunlap wrote:
-> This boot option is ancient and probably not being used.
-> Dave Jones used it successfully maybe 15 years ago...
-> AFAIK it doesn't work reliably, especially on SMP.
+Hi Judith Mendez,
 
-I agree that it most likely does not have many users and is not
-reliable.
+On Mon, 09 Feb 2026 11:23:28 -0600, Judith Mendez wrote:
+> This series adds support for detecting AM62P silicon revisions using
+> the NVMEM framework to read the GP_SW1 register.
+> 
+> Background:
+> ===========
+> On AM62P SoCs, the standard JTAGID register does not provide information
+> on silicon revision, instead the GP_SW1 register contains the information
+> needed for proper device identification.
+> 
+> [...]
 
-In addition, it was kind of obsoleted by printk_delay() which
-does very similar thing except that it can only be set
-at runtime via sysctl.
+I have applied the following to branch ti-drivers-soc-next on [1].
+Thank you!
 
-Which brings an idea. What about doing the obsoleting properly?
-I mean to:
+[1/2] dt-bindings: hwinfo: ti,k3-socinfo: Add nvmem-cells support
+      commit: b0ea5175358f0872ffdc9c6073585637dc01815a
+[2/2] soc: ti: k3-socinfo: Add support for AM62P variants via NVMEM
+      commit: 97cfbd30525ef0df3de0681a4ca04a80a06d4f16
 
-  1. Add "printk_delay" early_param() which would allow
-     to set "printk_delay_msec" via command line.
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent up the chain during
+the next merge window (or sooner if it is a relevant bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-  2. Modify boot_delay_setup() to set "printk_delay_msec" as well.
-     In addition, it might print a message that it has been
-     obsoleted by "printk_delay" and will be removed.
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-Would you mind to do it this way, please?
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
-Regarding the reliability, it might get improved by moving the delay
-to console handling code. It would even allow to use sleeping wait
-when the consoles are handled in kthreads. But the wait might
-get multiplied when more consoles are registered and proceed
-on the same CPU. Anyway, this is out of scope for this patch.
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
-Best Regards,
-Petr
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
+-- 
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+https://ti.com/opensource
+
 
