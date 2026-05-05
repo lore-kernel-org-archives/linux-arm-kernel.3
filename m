@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E31F1FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 09:26:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95321FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 09:27:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BiETUYGBdA6U6OoG8HOJZeeTR5ZTz0XpLfvjy4A7y8Y=; b=QKvrJUPe6QmqEJQUx33J3vUk58
-	IT9OjpoH5g2qodxY3tSvg8xp3lbLn3kpfpYdr8Ap08K9/aK1H1HyTfrexmk4ANJPMg4OsRDC77uNJ
-	JbRFBbs20Uvpw0UaGOee1oy2/W868Rc/NP/NkToGyJiEeEc8xQVUxlmFBG1bIGV+TFjlW8BJqjR3Z
-	XTFaWd2e3pHy3dbMW9jLXYkcZCvDCejHNZdrZ58Ot/UweIe45MAyj1YZBOxEog3HFug/Nnyw0lO2K
-	EgsKfoKvyhTmomVg8726YoPztz8zbbd2stvWizeeSmVdjSVTLN/nrXUqW/5VNXPaK5l8NSYzFBCXL
-	hBCD5zHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+AXtKqd4hursGhJ7ysYyzDvc1qaibPoD+s00h+TaKbc=; b=P5gf0hGx4jtDpAqffO4Z5vuns4
+	zfDOTpx09vGa9IBIEyUSr43qvRZ7s9IKeR+ECqeU/4fGT7hKwdjx4XWH1a3z6UQQsyfEjXlh1X/5P
+	O3OqsKpUt0cDnAbEnZib+LYqcUyL3T0vDaeTvn6fTCQFibXIJXAbILoxfDaTR8/s/1njyN7hNpo2J
+	6F8YevhLKEYESgoNjr8JhMW6tY6MRpg8SLTWM+o8ohXssXEBGgVv4RSIN5EX14xVA1Ev9FLXqSqTE
+	ToAe1puu6vC7nfMR/hK9Moc/tS8hGEnAsca35BEDuYP53VUK6xRWf5z0czCUNxdsfrI/r2NH9/Gpb
+	/gq1GI0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKC2u-0000000FfEW-0xgL;
-	Tue, 05 May 2026 09:26:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wKC3s-0000000FfND-38DB;
+	Tue, 05 May 2026 09:27:28 +0000
+Received: from abb.hmeau.com ([180.181.231.80])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKC2t-0000000FfEN-0RxJ
+	id 1wKC3q-0000000FfMX-0Qoo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 09:26:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 57D6260141
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 May 2026 09:26:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E368C2BCF7
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 May 2026 09:26:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777973186;
-	bh=BiETUYGBdA6U6OoG8HOJZeeTR5ZTz0XpLfvjy4A7y8Y=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=bqiatuw+F31Yuyoyo8LoEyVfRW3HPwHTDRebp1rK4BMrtJwqiA/ehvA6BeODAu+bt
-	 Fh5S9NOONoE2eOGNNiOsU0Mtv+sSZxpix2vGFIAXFvTlOGJkXUA8KWA8Sx/EwqSkDW
-	 R0+EwFg/rqq0v34ez6QlHT/ciTnOwE4Q857yVeIznIU9uD9K/bQQnxKmRogHYVSrdz
-	 P98VKbcN/5GnBX0hBG5VHALMEHfI95rMmAAQ89K8CXwWEkjN+j66d6y+15g0FnRyD9
-	 MOZyGFxQxe7BaPMbtajV4taehBXjgHEjL2H+T9Q0p6sOaCDByrIsULDgqwxhKs7NG6
-	 aNpUu3y/fHm+A==
-Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5a858881ad2so5086385e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 02:26:25 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+SItQh32WCbXUYSLPpQqZaPEUrTny2LVZ+EEx3PHJwVVUnlauXyu3bDLWBxgAloMgQinG5SxKGBttAZSVQzOXa@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHVbst79biEJaN1HWcqbpjHuoIdBkpVRaF93csu7kwSI7y13+X
-	eKryEFaCZX44bz7o+hcSQw/rFDpKI6mJak6wkYfCcqwEVDCYVmqjEmcmJeTVqj19II6OaQTksKF
-	/HewK7l9lQUK1hVe/JLZOShTv85YTIbI=
-X-Received: by 2002:a05:6512:3a83:b0:5a4:1a2:1d39 with SMTP id
- 2adb3069b0e04-5a862ebe3a4mr4549164e87.6.1777973184715; Tue, 05 May 2026
- 02:26:24 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260504-sunxi-v1-1-c0fd0df52776@gmail.com>
-In-Reply-To: <20260504-sunxi-v1-1-c0fd0df52776@gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 5 May 2026 11:26:12 +0200
-X-Gmail-Original-Message-ID: <CAD++jLki-QEVAGwO5YfYAeVWs+Ey1WmFY-+XNkn_BA+6T7u6WA@mail.gmail.com>
-X-Gm-Features: AVHnY4JN0IoEyvASti40bogeQWlWZiOgk0WDse555_qDzC-5oeg4FV2OdHIN3wY
-Message-ID: <CAD++jLki-QEVAGwO5YfYAeVWs+Ey1WmFY-+XNkn_BA+6T7u6WA@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: sunxi: fix regulator leak in sunxi_pmx_request()
- error path
-To: Felix Gu <ustc.gu@gmail.com>
-Cc: Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	Tue, 05 May 2026 09:27:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
+	from:content-type:reply-to; bh=+AXtKqd4hursGhJ7ysYyzDvc1qaibPoD+s00h+TaKbc=; 
+	b=sG7AklXyvYyiQ8BjEyZUNeNRuNCC6x8wSTQp9Tm0d2USXuCdoLyN9JR1KpsDmk3DekpI78YI4SV
+	6Vudpfk9UQe/BDZCJnaOy5WkC4CzHxVIENTeOI5Ht4f90U+4tQRxnvUX91NsoBZvwOxJZGFZM/6Kl
+	UE2hee1Ft4vEOBv7UDxSNCQ+MZDl5dBKJ8ooyfgv0VITLu6Z3fsiKaWR53ORD/RehxswOGBsD9SBy
+	AyBbLaOReKgF02y++3pxwn434vmaDUP9yhn2f5xWZM6w7p+5Xi9sajndJbSzHE7/fwFwucpDUkjqL
+	QJjl84ERj25t0eQbpzt0vpU7oq4b6ocwVChA==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1wKC3Y-00BNtc-10;
+	Tue, 05 May 2026 17:27:09 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Tue, 05 May 2026 17:27:08 +0800
+Date: Tue, 5 May 2026 17:27:08 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Lothar Rubusch <l.rubusch@gmail.com>
+Cc: thorsten.blum@linux.dev, davem@davemloft.net,
+	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev, ardb@kernel.org, linusw@kernel.org,
+	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v5 1/1] crypto: atmel-sha204a - fix blocking and
+ non-blocking rng logic
+Message-ID: <afm37IhzvsAQCZj1@gondor.apana.org.au>
+References: <20260426212947.24757-1-l.rubusch@gmail.com>
+ <20260426212947.24757-2-l.rubusch@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260426212947.24757-2-l.rubusch@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260505_022726_142114_E00A9D0A 
+X-CRM114-Status: GOOD (  13.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,20 +75,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 4, 2026 at 4:53=E2=80=AFPM Felix Gu <ustc.gu@gmail.com> wrote:
+On Sun, Apr 26, 2026 at 09:29:47PM +0000, Lothar Rubusch wrote:
+> The blocking and non-blocking paths were failing to provide valid entropy
+> due to improper buffer management. Reading the buffer starting from byte 1,
+> only fetch the 32 bytes of random data from the return message.
+> 
+> Tested on an Atmel SHA204A device.
+> 
+> Before (here for blocking), tests showed repeatedly reading reduced bytes.
+> $ head -c 32 /dev/hwrng | hexdump -C
+> 00000000  02 28 85 b3 47 40 f2 ee  00 00 00 00 00 00 00 00  |.(..G@..........|
+> 00000010  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+> 00000020
+> 
+> After, the result will be similar to the following:
+> $ head -c 32 /dev/hwrng | hexdump -C
+> 00000000  5a fc 3f 13 14 68 fe 06  68 0a bd 04 83 6e 09 69  |Z.?..h..h....n.i|
+> 00000010  75 ff cf 87 10 84 3b c9  c1 df ae eb 45 53 4c c3  |u.....;.....ESL.|
+> 00000020
+> 
+> Fixes: da001fb651b0 ("crypto: atmel-i2c - add support for SHA204A random number generator")
+> Suggested-by: Ard Biesheuvel <ardb@kernel.org>
+> Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
+> ---
+>  drivers/crypto/atmel-sha204a.c | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
 
-> In the error path of sunxi_pmx_request(), the code calls
-> regulator_put(s_reg->regulator) to release the regulator. However,
-> s_reg->regulator is only assigned after a successful regulator_enable().
-> This causes a memory leak: the regulator obtained via regulator_get()
-> is never properly released when regulator_enable() fails.
->
-> Fixes: dc1445584177 ("pinctrl: sunxi: Fix and simplify pin bank regulator=
- handling")
-> Signed-off-by: Felix Gu <ustc.gu@gmail.com>
-
-Patch applied as nonurgent fix!
-
-Yours,
-Linus Walleij
+Patch applied.  Thanks.
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
