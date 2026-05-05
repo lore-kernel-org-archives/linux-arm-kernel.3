@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90714FF8855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:18:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6F83CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:18:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eVs3CfOcVeYDqCO5ry0qkJJJOLsr43VkIKZBYscM63Q=; b=b2hWbPHEMQoFFOQ8EH3x+ZI6tb
-	ujzjYA058GUX0D4QE34BGxitJeoU8VEBuNRZXNwom9m9VY0R6MRTUy4l1kJ9KLfOOFp4XHavI4o8Q
-	hg70pLO3Ta78r43P7Qt45Gj/CKlydgqWpOPoNhN4q8ztxUNjlCZG/2/R+uyFNOabOLcc/k608/6/s
-	M9kcRv7Umxz6YCoBo6osP0qO+kHeirUAoXQbrK3wUnMzssHHd+sVCc+F0pKKBa5WcIXM9sVfnF/Bx
-	pJ9llIVsbETU1CanCwPexdY/iAHuzkCU3C5e6P5J1Qea1izGU5ihpRO0it9Q9cNKYnSVmFFh5R2da
-	KlAnU4rw==;
+	bh=kFgK8lPtkO+1vWsJ8rKW8KSPYA1D7WBjiFbzZGEngaU=; b=f2Z06vwqRfR/gAAOhZNg/hP1Wg
+	OkVuiCSMvIdwReb93NJ8SippAL3iOY3J/50o1tpHALpfARxiKMnhKMWH5yRI4noejY7nIVe+S42Sz
+	YrH8Ha+dG6hK71rmrz271Olh1knURU9Ctvganf8Ueqx6jIsE707hkL7tRm78vf5OsvVuU64l7st1L
+	9lgtuf/Rh8G0sADBsseJQufppwZKkCj/AiPtYw3bNEdJByjE2awM/zWh55cb1gMhXsuuwS9EsIJ7i
+	od1nZcD+zKrV2bX0c9Zjthm1tva53hqPX9Bx7PMP4i2ln0Xt7Z5Iv1SHwWOmCVjolwMN7LRZpw1YG
+	bTNhaGAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKITo-0000000Gqm6-3OXP;
-	Tue, 05 May 2026 16:18:40 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1wKIU1-0000000Gqqr-2rKR;
+	Tue, 05 May 2026 16:18:53 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKITk-0000000Gqkv-1G2Q
+	id 1wKITz-0000000GqpB-0pGN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 16:18:37 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-44e1860558fso1673497f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 09:18:35 -0700 (PDT)
+	Tue, 05 May 2026 16:18:52 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-48d146705b4so13859605e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 09:18:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777997914; x=1778602714; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1777997929; x=1778602729; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=eVs3CfOcVeYDqCO5ry0qkJJJOLsr43VkIKZBYscM63Q=;
-        b=PzcEZMUkRxmpONLyW2/s3Ihfm5wbXLSOFyoA8rtVHU8KwrqqT3Cctb5qC9BpKMFxCT
-         l5z0VyAw5nSLFwjY+2YmSll6stAqsyZx7+2SkGAzHjZ3yvbYvbtTrLDMKVny9rrRRnq3
-         jO/EUTJ+Sm5dZ8DiLJ06mukD1PGmrpmOSCITcUPRF9J4a06raRffWlGvRbK4+i5VofPu
-         Zcypf7I2pAI0iHz6htCcSRTxYZi2EetlnEzfdq568i8egOiNMwVMpoGAS5wkHlK5Ugwu
-         snI9iI83hDHRKcoLcT2lMWizQ7PSNvjKyQM1MnrEpcyD7zEvr9F5MGQDXKO3Z1bqlheS
-         /Tzg==
+        bh=kFgK8lPtkO+1vWsJ8rKW8KSPYA1D7WBjiFbzZGEngaU=;
+        b=rPDsms7XfJJLy2X9SD0z0KDTzHKZeC0fkqaueuOUTCGZkoS+huwG77Ac9qHj2K5YnG
+         PUYWsHw6nJiI2nmtOPJ0ZapW4gFWq8X4bZ5mx6PWlI6f51SF/hTMoIRExCyuk+wVWhy4
+         bhS1NG3/Bnnezzn1NGH8Nqk+j+vbefZckaUMG6J/EHOyYQ+ttiFJFPv2aNTK8Gu/AD4R
+         4MCaoPa7leA2Bba0W3kwf3rx5h6CcM81F0fWL5I/jn7APpaUNDr6OBcEj8nQrKItDtrk
+         Be0qc3MHve6OZZXGG9MNQ+x69qqw3VKPsazjvEX/FIcm9Qi2Am7kUmhtFH12YZYr/QzJ
+         P+Ew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777997914; x=1778602714;
+        d=1e100.net; s=20251104; t=1777997929; x=1778602729;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=eVs3CfOcVeYDqCO5ry0qkJJJOLsr43VkIKZBYscM63Q=;
-        b=BkYvl5NLgQsIbYa2ZV8aJtQhceeu+0kI5vBQ6YoLtVTTtpPJufCYOZ8LyB0Ijlx5SU
-         WfPHLNoG8ap2sS4qRe1CRQ2ncAZVeZnSvGh//tao/iaB9J5XBAkorh5+aTfgFbsI5hXg
-         S9TU5B1Z/TnoszkRfihW0Bjr9a8YFOAcgQszgFED/0gK2xy6f5FQKDJVCqO/qBqRl78+
-         cz2Qz6W4aoabWIoSCrrMbrtmVSogmQfBSsHmfaEq/sTzmJI/+qsjHrZQRmyteiWRr4Ol
-         5sqgwhRl2u5ttF3R+J9gBZhbDEGkW/WAebEDyAVdVHtxSph37gRuXDXXI2y8AlYao80q
-         I2fQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+IWq/z6MC5kTfx1Mvic/geMWdjxA9bu2Vj6GI2qySIqUvqBO8Qkqsx1zZ1fcesEPhZZ1bOqEiDlDsq3r31mNUw@lists.infradead.org
-X-Gm-Message-State: AOJu0YwyOGcALq8Nzh/9KN0z3OPemrq906yLb+gUvFwW1355sJQm6H5M
-	VImU8oSKoCuwfaQ0VqfoMbWYrqzv+VgvAIfelue5et6ZS4qxjqgEPrmr
-X-Gm-Gg: AeBDieuW/pIYs00ub8X9ENkvt+t244+IX/FDCUpKG8kODVmU1DI7/+C6KnkiulonTyT
-	xcjNtvA6jrjkXaeziZEprNMotJMwR2ms6QCHAMBjZ3V/PQkGbAr26Uk9hIsqHSE0qJ+Ial9U/Mx
-	+xo4Arvtw7l8EHxUz07FncArkF3S0ug0OS1WgJhoatwaGF2M4imEHy3rYuHIXb+pu7ac9WTt79z
-	6134JybR7krMvIv3sZnBSovGclfwVg0rjQM6OU3nGehmXw7HHY/Y3tkE3nzOACTDvic//4J530x
-	kqKqiAlmKFrG/Oe4BfCud1I2rIMhKmzFdBu5pq0tYT/VPGy7mzdlurlGQzZzsJmxr/BuybDOoCg
-	GCTNVzRJVlN6ojB3OPEHJUeASGEeyoDAc3YNX0hdJd3/XkK6JMVeiVvz5JLdOxyDEpMb9r4jjap
-	0/DaB4fChuUiniC+0Bm6/KguN0fn4yslmuxBv5n1Chi+oBEnSKv8BNR3J5BMhVVGhsNAeyCfkq2
-	0qAxFFaNdg1q0COG/ysCkxk0J2h
-X-Received: by 2002:a5d:50c8:0:b0:44b:cd2f:a3c8 with SMTP id ffacd0b85a97d-44bcd2fa400mr16334421f8f.4.1777997914315;
-        Tue, 05 May 2026 09:18:34 -0700 (PDT)
+        bh=kFgK8lPtkO+1vWsJ8rKW8KSPYA1D7WBjiFbzZGEngaU=;
+        b=K8Kfzo/ctbCrzbwIRSy1+gTWFiG4VD6v5L+dF7vm+17sjv8AgV0qyTMTQZdYnMF0fT
+         TuompT8VSWXZcJnwiMgflHexLwOyXERaD0kPTQ7xSBnHkU4cA7A5U1vGIkjoj3sWLPiP
+         NabvPlrwLoOKwJeQOgP3EeTveG+GtHn1dwTX2dnZ4Jt1qjrcMkGBhA/BeXfTpngNyuh+
+         epVCWIFS5Iipqow/WCWjzDc5+Iej7IJH4dlRIlxpZEN2feS290gz3BYbrp+1jH3sk2UG
+         SJFTA9Ag8eyJi8QLdy1X9tTpTfQ/JNDrqBdPIsLEmBclf2jncBKgqCX6FJey7m1GENPn
+         sl5A==
+X-Forwarded-Encrypted: i=1; AFNElJ9FzP1ddyR0uvmLWtAvZmKJEkRu2V1kh51TzPa5IVPWlU1zHVOvbWFXRyreQS+boSpf9FuG6OTSZQ8ods1+HsfG@lists.infradead.org
+X-Gm-Message-State: AOJu0YyrpJDqOpXxJQtIdG569ixY2FvzAgJcazjzitCJGWe3ibqYnE4K
+	7NRBDQmCaaKlWLtPJoLa3gCJ5FLjnC05AggV7XaZRUc6Airj0njITq9s
+X-Gm-Gg: AeBDietwB/xzVsr31rE6ah7VhncftZMhJ7ZALO8l6VenB9BbBuw9oprhKxcZlhmOxvN
+	ESntewijzoxGrD1iCNiSj2ndPPmCUoD1PrE+nX2fHvHh9gqhT1ysnCnN75YJJlU7O+6m07x8+1B
+	bo5SLASXop28X/ap1JE2nD55/vw602RAdWjjmtLGhMjWpynfxGec4/a+ieYBFdLEzHWgmDZtj3+
+	AAKRj0yYu5UtCRRli3T012/H0DgCpj8+x5BoNe1wfN7ha7/h+y+P89kptd6bxupLF9Rl1e+h2SF
+	3BbtnKRtrOItmMXOKnT+nDzPkPgk5DHLFCZzsTuZat7iya9bAuXVPC3pEsqjcjHR+SggpEn4E2F
+	Iam86B8+YQ/SS/TfCK468DmXx5xEYWQzitFhL7MJ57Nzi08C286xt8BjKAFTX710YwuDClm4TVm
+	1NGNedMeMop6dnBJBZzvuFKUA61DK9H0+0pIND7LiwLaKpPA/sHP7+km4vzGoLUwLjX6xvCQMDK
+	mIdVrGNplFnOsehSHfn75iL9TIR
+X-Received: by 2002:a05:600d:8408:b0:48a:53ea:13df with SMTP id 5b1f17b1804b1-48d186dc892mr46627055e9.2.1777997929083;
+        Tue, 05 May 2026 09:18:49 -0700 (PDT)
 Received: from jernej-laptop.localnet (46-150-62-216.dynamic.telemach.net. [46.150.62.216])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45055960aa2sm5411552f8f.29.2026.05.05.09.18.32
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45055e2d3d0sm5425787f8f.34.2026.05.05.09.18.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 May 2026 09:18:33 -0700 (PDT)
+        Tue, 05 May 2026 09:18:48 -0700 (PDT)
 From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
 To: Maxime Ripard <mripard@kernel.org>, Paul Kocialkowski <paulk@sys-base.io>,
  Mauro Carvalho Chehab <mchehab@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
@@ -80,19 +80,19 @@ Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  linux-media@vger.kernel.org, linux-staging@lists.linux.dev,
  devicetree@vger.kernel.org, linux-sunxi@lists.linux.dev,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 5/7] arm64: dts: allwinner: sun50i-h6: Add missing SRAM region for
- video engine
-Date: Tue, 05 May 2026 18:18:31 +0200
-Message-ID: <0QgbHBOXTsqa8Ms4s4GfYg@gmail.com>
-In-Reply-To: <20260505134812.408316-6-wens@kernel.org>
+Subject: Re: [PATCH 6/7] arm64: dts: allwinner: sun50i-h6: Add missing IOMMU for video
+ engine
+Date: Tue, 05 May 2026 18:18:46 +0200
+Message-ID: <YPmvp_egR-m-cMSokrsA5w@gmail.com>
+In-Reply-To: <20260505134812.408316-7-wens@kernel.org>
 References: <20260505134812.408316-1-wens@kernel.org>
- <20260505134812.408316-6-wens@kernel.org>
+ <20260505134812.408316-7-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_091836_342397_9A5665C8 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20260505_091851_238991_5FF7E6C1 
+X-CRM114-Status: GOOD (  11.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,15 +107,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne torek, 5. maj 2026 ob 15:48:09 Srednjeevropski poletni =C4=8Das je Chen=
+Dne torek, 5. maj 2026 ob 15:48:10 Srednjeevropski poletni =C4=8Das je Chen=
 =2DYu Tsai napisal(a):
-> The SRAM C region contains a partial alias to the VE SRAM already
-> referenced by the video engine. To avoid access through this alias
-> window, the region should also be claimed by the video engine.
+> The video engine on the H6 actually has two IOMMU ports. The one already
+> listed is simply named "VE" in the user manual. The missing one is named
+> "VE_R" and is probably either read-only or used for reference frames.
+> Either way, it should be listed.
 >=20
-> Add a reference to the SRAM C region to the video engine node.
+> Add a reference to the "VE_R" IOMMU port to the video engine node.
 >=20
-> Fixes: b542570e5605 ("arm64: dts: allwinner: h6: Add Video Engine node")
+> Fixes: 62a8ccf3a248 ("arm64: dts: allwinner: h6: Fix Cedrus IOMMU usage")
 > Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
 
 Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
