@@ -4,83 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD2E7FF8855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:02:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74C16CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:03:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2wLsw9nGyw43qdgk/7w4u2+YPwhp18IN4nTEToE9F3Y=; b=jMhj0SfJWAhTmve9qQFL8okFHb
-	LYohrUSjSU9jwPOyEy1Ir+m8woh/cq4YjjDdR16gGwoM6eXkpVb2T/ZnfftUSsl73hni1Zdt9jxkY
-	HbveUk2/gze3O5Y87jZ5KnVyG7iWQylZcOTu57tirTi1SYmpke1iAYcv5G2k9vfGdJoXrZNZl315F
-	oYRptZekUJkjkuzieNrNa4hLYjFsPxefxLZBOm5bZjXrUfjIZrJ8qPA0ZNRdL1uM09awPLZln+TvP
-	LrDU96OOJArRJF2pSnBHnylJpVElynKO3jGrrDygQkdOK2U+txrhyHN3x/4EAS9qM1lo89dafTBCb
-	M+YJDLeg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6hpDxpUfc5XAie7Di0S8Tb4d+7wqZtFI2aWrbn/wVb4=; b=0UhhsO9D+AuUJF/tV2gzGRwHxP
+	/5zSVqH1j3HaedS3lCX6lSTgiSqiFE4JY5xHVPiIqDcWv5QizxPZgEc6N8dgSttjPYTI5c2uwUu4U
+	SLvD4qugoUEiTTx5CCsFXzZISa4rL7XMjTIMU8QuSZNukPNbqU/X/wAEtvblWZxKylS7OvaSbZIwh
+	rIzpmwFpuTyPVfYCOhaunCYC2r0sKTcL3sOYoiWid0+HGeaIa2JppfZ04X1GuWuUIlGPbm9lfYVJI
+	ezs4+FEQ5MlW5yWA16VFix+iaRv/tAPCGPm0BBe+/jMDfK4obDvlGAld2YYS6zMDox0qKD+y+roOk
+	VmJPvwJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKIEF-0000000Glb3-0gF3;
-	Tue, 05 May 2026 16:02:35 +0000
-Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
+	id 1wKIF4-0000000Glo7-0CIk;
+	Tue, 05 May 2026 16:03:26 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKIEC-0000000GlZY-1s9T
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 16:02:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
-	bh=2wLsw9nGyw43qdgk/7w4u2+YPwhp18IN4nTEToE9F3Y=; b=FB2KVSMqpbICkJnzCRWeGNbgng
-	ZvX6EP4GNEyiNzKh/qHDCA1ipaWNbObphRvLdNOPcTi3UMjKLVQhrOLVQHha6wgSR3vaa3YP+XIit
-	F3awJeA9pq7MHxi8BL/1afC7kIeLuBl0WrdlGk7Bkg02tlCnxBReqMxGJPN34eI4oAteEUcTIMte1
-	MDBYJiMMgRex+foKnhJIHSbOlpmiMRkImwSvO95U/erbDy+rUTByASJJfW8ZuGNTY883/uYQoB04p
-	U/4awfxXJA6HZ4MF62rPRMZEzJ0/L9OVbA/6xdpdx81oZ3RMuXFHjOuxNGAju7wXkxfQKjNPRdFns
-	gnM814pA==;
-Received: from authenticated user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.96)
-	(envelope-from <leitao@debian.org>)
-	id 1wKIE6-002vJ4-2r;
-	Tue, 05 May 2026 16:02:27 +0000
-From: Breno Leitao <leitao@debian.org>
-Date: Tue, 05 May 2026 09:02:13 -0700
-Subject: [PATCH] arm64/fpsimd: ptrace: zero target's fpsimd_state, not the
- tracer's
+	id 1wKIF1-0000000GlnC-0pXq;
+	Tue, 05 May 2026 16:03:24 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.99)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1wKIEm-000000000lR-04fy;
+	Tue, 05 May 2026 16:03:08 +0000
+Date: Tue, 5 May 2026 17:03:03 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: "Chester A. Unal" <chester.a.unal@arinc9.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	=?utf-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>,
+	Sean Wang <sean.wang@mediatek.com>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net 2/5] net: dsa: mt7530: preserve VLAN tags on trapped
+ link-local frames
+Message-ID: <afoUt46gGwAC33ZU@makrotopia.org>
+References: <cover.1777986341.git.daniel@makrotopia.org>
+ <3ad4b724d7ae6250b8429d50fe913d2dca07a3f9.1777986341.git.daniel@makrotopia.org>
+ <46071c08-d85f-4157-9d61-6a0feef56747@arinc9.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260505-fix_ptrace-v1-1-36ac1f6d0bfb@debian.org>
-X-B4-Tracking: v=1; b=H4sIAIUU+mkC/yXMQQqDMBAF0KsMf20gChGSq0gpcZzYcWElsRIQ7
- 15sl2/zThTJKgWBTmQ5tOh7RaC2IfArrrMYnRAIne1666wzSetz23NkMe3IcXLesfWChrBlSVp
- /2fD4u3zGRXi/B1zXF78XopVuAAAA
-X-Change-ID: 20260505-fix_ptrace-1bcad595c09e
-To: Oleg Nesterov <oleg@redhat.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- kernel-team@meta.com, Breno Leitao <leitao@debian.org>
-X-Mailer: b4 0.16-dev-453a6
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2116; i=leitao@debian.org;
- h=from:subject:message-id; bh=IUePtTvQ2uwrE6aC1G7IWe8HsA67uQUPK38IVnbXGkQ=;
- b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBp+hSO7GZIc4/Lkdia4lLzVLAru8vqS+wiBEY0r
- flINyBU37eJAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCafoUjgAKCRA1o5Of/Hh3
- bXrfD/4v9pniIS+MUjOPPhAPYVwngnhfpi6cdZCo2aJA22+Tbnm+lf0KjJCkolNPJ9P4Eqbqqbc
- OESHJljjd21SrorgJ2vLXevuzCFQC3CM/+h3y/Da3dpDEcom05rQPvDfQSvnotYSWo3MAIPRj3U
- tRIBCqJLYakhLeTLMn5/bJ2aOyHUTLJoolOZXqeSF/sblfo9rFw1b7GQ71JfBJJ96qqTIAB4H+W
- QI49HCHVfUcllHfDBPM4gjdSulJUfpSal18SlRTBEl1jvYyJEzPIvwh7yw+Uv6bGIWKMP2jGJzv
- vc//Vb5FrfvsGJRfPcu3iuA2MAYybE8U9LYbtKy7zC+/b0F76zqI0TyG8lVCNzIBGrbKn4zRU+L
- sMZYh5WJjCm3YZQtF8rETRzYTU+tWjYbggRts+3Dhi92sgGJgvZQyuZvdbKmHCtEZ59+NU+btpT
- FbS4YwKJ6AWfbHCW2TnkcREGSyiMDxVSONOFundB7XGhbGDdthuHTW8sHMF9emuCZk6dRxRTY88
- DkapqO983BzOV6fcAbeEewN7DzYgXPdTREeFGMsYVZUBPbdpOSo1F1ZNVFm78GIMn49lJhBFCFE
- wHjJ/cJ4azaLZE9WAvQKNOz+p5U9Bdtk0RhLS/IN97+8OaoRtUTuQfETd1Cgb2Nn0YrWVtJUKLI
- ahFpCFMTTNt9bGg==
-X-Developer-Key: i=leitao@debian.org; a=openpgp;
- fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
-X-Debian-User: leitao
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <46071c08-d85f-4157-9d61-6a0feef56747@arinc9.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_090232_493932_CA4796F7 
-X-CRM114-Status: GOOD (  12.05  )
+X-CRM114-CacheID: sfid-20260505_090323_236901_61354479 
+X-CRM114-Status: GOOD (  19.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,57 +74,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-sve_set_common() is the backend for PTRACE_SETREGSET(NT_ARM_SVE) and
-PTRACE_SETREGSET(NT_ARM_SSVE). Every write in the function operates on
-the tracee (target) - except a single memset that uses current instead,
-zeroing the tracer's saved V0-V31 / FPSR / FPCR shadow on every ptrace
-SETREGSET call.
+On Tue, May 05, 2026 at 03:37:29PM +0000, Chester A. Unal wrote:
+> Hey Daniel.
+> 
+> On 05/05/2026 15:16, Daniel Golle wrote:
+> > The BPC, RGAC1 and RGAC2 registers control the handling of link-local
+> > frames with reserved MAC DAs (01:80:C2:00:00:0x). These frames are
+> > correctly trapped to the CPU port, but the egress VLAN tag attribute was
+> > set to MT7530_VLAN_EG_UNTAGGED which causes the switch to strip any
+> > VLAN tags from trapped frames before they reach the CPU.
+> > 
+> > This causes VLAN-tagged link-local frames (STP BPDUs, LLDP, PTP Peer
+> > Delay Requests) to arrive at the CPU without their VLAN tag, so they
+> > are delivered to the base network interface instead of the VLAN
+> > sub-interface. The DSA local_termination selftest confirms this: all
+> > link-local protocol tests on VLAN upper interfaces fail.
+> > 
+> > Set the EG_TAG attribute to MT7530_VLAN_EG_DISABLED (system default)
+> > so that the switch does not modify VLAN tags in trapped frames. This
+> > way VLAN-tagged frames retain their original tag and are delivered to
+> > the correct VLAN sub-interface, matching the behavior of non-trapped
+> > frames which pass through without VLAN tag modification.
+> > 
+> > Fixes: 69ddba9d170b ("net: dsa: mt7530: fix handling of all link-local frames")
+> > Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+> 
+> Thank you for this patch. Could you please confirm that it conforms to the
+> findings documented on this patch log?
+> 
+> https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git/commit/?id=e8bf353577f382c7066c661fed41b2adc0fc7c40
 
-The memset is meant to give the tracee a defined zero register image
-before the user-supplied payload is copied in (for partial writes,
-header-only writes, and FPSIMD<->SVE format switches). Aiming it at
-current both denies the tracee that clean slate and silently corrupts
-the tracer.
+Yes. Combining VLAN CTAG and DSA tag into single "mess" tag is what the
+MT7530 hardware does, and also what tag_mtk.c expects, and mtk_eth_soc
+"special tag" feature handles well.
 
-Due to FPSIMD lazy save/restore the wipe only takes effect when the
-tracer's CPU FPSIMD binding is dropped after the memset; the next
-return to userspace then reloads V0-V31, FPSR and FPCR as zero. No
-signal is raised and ptrace() returns success.
+I've found, addressed and verified all the issues in the series using
+the DSA selftests in tools/testing/selftest/drivers/net/dsa, ie. running
+bridge_vlan_aware.sh, bridge_vlan_unaware.sh and local_termination.sh
+in a loop, and random order, on BPi-R3 (MT7531) and BPi-R4 (MT7988).
 
-Reproducible on an arm64 kernel with SVE: a single-threaded tracer that
-loads a known pattern into V0-V31, issues PTRACE_SETREGSET(NT_ARM_SVE)
-on a child, and reads V0-V31 back observes them all zeroed within tens
-of thousands of iterations when a sibling thread keeps stealing the
-FPSIMD CPU binding.
-
-Fixes: 316283f276eb ("arm64/fpsimd: ptrace: Consistently handle partial writes to NT_ARM_(S)SVE")
-Signed-off-by: Breno Leitao <leitao@debian.org>
----
- arch/arm64/kernel/ptrace.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
-index ba5eab23fd900..4d08598e2891d 100644
---- a/arch/arm64/kernel/ptrace.c
-+++ b/arch/arm64/kernel/ptrace.c
-@@ -983,8 +983,8 @@ static int sve_set_common(struct task_struct *target,
- 	}
- 
- 	/* Always zero V regs, FPSR, and FPCR */
--	memset(&current->thread.uw.fpsimd_state, 0,
--	       sizeof(current->thread.uw.fpsimd_state));
-+	memset(&target->thread.uw.fpsimd_state, 0,
-+	       sizeof(target->thread.uw.fpsimd_state));
- 
- 	/* Registers: FPSIMD-only case */
- 
-
----
-base-commit: 9d0d467c3572e93c5faa2e5906a8bbcd70b24efd
-change-id: 20260505-fix_ptrace-1bcad595c09e
-
-Best regards,
---  
-Breno Leitao <leitao@debian.org>
-
+With the series applied many of the previously failing tests are now
+passing.
 
