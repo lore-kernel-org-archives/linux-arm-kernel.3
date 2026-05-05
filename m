@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 991D1CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 17:04:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B20CCD343B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 17:04:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8q2IZq6215HQoBX7glbcRLyovR5wi8eLtrWHqEETf9E=; b=AtFhmKKrD7jMsRRCOQqwFwRYoJ
-	tRv+ABgE+svgc4V1tRwEjR0G9UpPqBnSSYlh7sPbGkK+VaWHTkSadJYdnEBDpXntRI7u7+XCpVAXy
-	YNv0wLmE5GmOkb9HWqGWSYU3mnoIeNdExpwE/796f4C3MFyuxMT0BXvPwJiqV0HAMEq6N82wD4ysV
-	lelgSrkJwjRizo9Mg9tdpIYt1SrWL+tDUyvsGtwHB+hQnK8cya6h12XD8WBRY4lv753srui7iS/7N
-	cQkub/B+KXz2NT54V8gyprMu+dZLE9zR4oiFiXxJITMYVoU7y2BNsKqa8XOjUPG74U67xkpDvBdv3
-	HNI4V6DQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=93gcAeK+pFauxx7NJKjEKC10Wy8T4t0qkj8Q59r5KXI=; b=njkIjVjrUkQauUQxfmQTMn2R26
+	PmX+5RoJis7LjVM7jPYBsPN2gkazYFEwyBS303m1S2foewKRZVXJ3DF2dYp1R13JxXzwnPKoa4M7A
+	ISjHocti8JFhOiFNEij7lY6qS+v2FfaO0319do/kQ/pSoz/JMQ1XyDHC3O7n2zVOUnoTnKN6BbJFJ
+	MNlrwDba4YRB6Opq1jnb+QoF6F0HSueuQ3yN8S6wUx8hXxvGbSkTQmjwrKXZ5ul11owKOe87UiYZ+
+	mCnWw6S9STaw7T5+2kK5A2Yo4eWW8NaqGqGntHconUVxPKJz71Woe9oiAAdPRKtim00kITNUBqCAI
+	dot08RCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKJC3-0000000Gz29-210S;
-	Tue, 05 May 2026 17:04:23 +0000
+	id 1wKJC4-0000000Gz3A-1j0V;
+	Tue, 05 May 2026 17:04:24 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKJC0-0000000Gz06-1r6n;
+	id 1wKJC0-0000000Gz0A-1rhK;
 	Tue, 05 May 2026 17:04:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
-	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type;
-	bh=8q2IZq6215HQoBX7glbcRLyovR5wi8eLtrWHqEETf9E=; b=1NOlqDw6rTwmiPp3P/3is+4Cbi
-	fnNd7WWSsTFRJAHmCrTtJT9WIfYL6ZtM4+ydiHyJ+EmOg+K5nlNcxag88C1I/XXrvnrjnmuGTaKI7
-	0gWhxtecMq0gEnkb2JEEDStfIWU8njd4EdE/7DRy0IhO2ifsIak1VJvwuXXzYc4V2D4ouI9pglwmI
-	/mW/KnArWeZStq/8G2jLM6ugbrwo7knHzT2lSVpG+L6tqEqKBYOGbxBuJ4G401SM/njKjh7nhO8hz
-	mdCBx7veyMwrE/6jXnUiopOR2BOmvWuQ/EoXx6F7HMU7i8zUrnHDogWGGzFmwr++p8YaKlXRFwczq
-	5pDrEyxw==;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
+	Subject:Cc:To:From:Reply-To:Content-Type:In-Reply-To:References;
+	bh=93gcAeK+pFauxx7NJKjEKC10Wy8T4t0qkj8Q59r5KXI=; b=NAcz8RqXkqY5dOxTG9K1dh/z/f
+	52boxihZa0OxOBTr7wVTslPE+R0F5KYS2UGdNYUXW4wh+hCPsuND80dRa8FpMux5t1bPzmG39tK4J
+	zzbx8H5vAUmf/lFQmajJjfw8N3CrJn4L8U59oSTyvdTd0gOlxdt+CXNMTJSVHUdDlBdephBLnQeog
+	ppEQMXggCNno0ikQ4s9JIdbbiiQc6c+t8VCOqZ+xv+yACb3fisEG2popgjk5e/w+5v41AH1y1gMaC
+	joKorJNIOBF+y8+TFSlz7UdYnEZ/tcReyEXKSupcJxJdMZfa4PS2MMcKjTzjetZJUeHzMPv1NC6Wh
+	M8ZRbXjA==;
 From: Heiko Stuebner <heiko@sntech.de>
 To: vkoul@kernel.org
 Cc: neil.armstrong@linaro.org,
@@ -48,17 +48,16 @@ Cc: neil.armstrong@linaro.org,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	jonas@kwiboo.se
-Subject: [PATCH v2 1/5] dt-bindings: phy: rockchip,inno-usb2phy: Require GRF for RK3568/RV1108
-Date: Tue,  5 May 2026 19:04:06 +0200
-Message-ID: <20260505170410.3265305-2-heiko@sntech.de>
+Subject: [PATCH v2 0/5] rockchip: Add USB 2.0 support for RK3528
+Date: Tue,  5 May 2026 19:04:05 +0200
+Message-ID: <20260505170410.3265305-1-heiko@sntech.de>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260505170410.3265305-1-heiko@sntech.de>
-References: <20260505170410.3265305-1-heiko@sntech.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_100420_479514_CAF5F068 
-X-CRM114-Status: GOOD (  10.20  )
+X-CRM114-CacheID: sfid-20260505_100420_482220_8877489C 
+X-CRM114-Status: UNSURE (   9.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,53 +72,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jonas Karlman <jonas@kwiboo.se>
+This series adds support for USB 2.0 on Rockchip RK3528 to the
+Innosilicon usbphy driver.
 
-Typically these Rockchip USB2 PHYs are fully contained within a single
-GRF. However, for RK3568 and RV1108 regs to control the USB2 PHY is
-located in a different GRF compared to the base address.
+The usb3 support has already been merge for the naneng combophy
+last year.
 
-Update this binding to require rockchip,usbgrf for RK3568 and RV1108 to
-properly reflect that the USB GRF is required to control the USB2 PHYs
-on these variants. Also disable use of rockchip,usbgrf for variants
-where it is not required.
+Changes in v2:
+- rebase on top of v7.1-rc1
+- split off dwc3 compatible and dts changes
+- add error handling to regmap_write (Vinod)
+- v1 is here
+  https://lore.kernel.org/linux-rockchip/20250723122323.2344916-1-jonas@kwiboo.se/
 
-This should not introduce any breakage as the affected usb2phy nodes for
-RK3568 and RV1108 were added together with a rockchip,usbgrf phandle in
-their initial commit.
+Jianwei Zheng (1):
+  phy: rockchip: inno-usb2: Add support for RK3528
 
-Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Heiko Stuebner <heiko@sntech.de>
----
- .../bindings/phy/rockchip,inno-usb2phy.yaml        | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+Jonas Karlman (4):
+  dt-bindings: phy: rockchip,inno-usb2phy: Require GRF for RK3568/RV1108
+  phy: rockchip: inno-usb2: Simplify rockchip,usbgrf handling
+  dt-bindings: phy: rockchip,inno-usb2phy: Add compatible for RK3528
+  phy: rockchip: inno-usb2: Add clkout_ctl_phy support
 
-diff --git a/Documentation/devicetree/bindings/phy/rockchip,inno-usb2phy.yaml b/Documentation/devicetree/bindings/phy/rockchip,inno-usb2phy.yaml
-index 58e735b5dd05..b95c9e3e44fe 100644
---- a/Documentation/devicetree/bindings/phy/rockchip,inno-usb2phy.yaml
-+++ b/Documentation/devicetree/bindings/phy/rockchip,inno-usb2phy.yaml
-@@ -145,6 +145,20 @@ anyOf:
-       - host-port
- 
- allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - rockchip,rk3568-usb2phy
-+              - rockchip,rv1108-usb2phy
-+    then:
-+      required:
-+        - rockchip,usbgrf
-+    else:
-+      properties:
-+        rockchip,usbgrf: false
-+
-   - if:
-       properties:
-         compatible:
+ .../bindings/phy/rockchip,inno-usb2phy.yaml   |  44 +++-
+ drivers/phy/rockchip/phy-rockchip-inno-usb2.c | 191 +++++++++++++-----
+ 2 files changed, 176 insertions(+), 59 deletions(-)
+
 -- 
 2.47.3
 
