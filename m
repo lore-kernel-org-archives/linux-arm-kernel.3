@@ -4,74 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA7B6CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 14:15:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84050FF8855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 14:16:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j1nB02IjvKHpw9cON+cJaf9JT0gkQcPpJ01RGLydvJE=; b=vynb80vd+jscR6VWrn2eN0CBxd
-	dDJmY5wE9USEPu8/N7AOeHCOrnnNOIVo6v3bSxTSp0lypiSWciAymM5QtWhzQEcZRaId2c2bDS9A1
-	T1T5FqtmkNO55CRdTTnZ1JWwsv8cfXS5Md6dcE83h2UNEKs+u4D394CPANuQ4gzogaf6FQJH5LNZn
-	N1DEBPHCzG/ae+burvq3Nf3uSJmSL8S/C4lO6cPrzrQlnkB7+abSn2jl9WkdMaUjCGpy+6mBXNyqb
-	tomGdcHTVNq1xlmFpjhjffgQqIU9OfsaeADfsCVFzfuqj8b4sci1kKdVyzN0TtkMCB5GAvBm/nRpi
-	TSdI3V3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ewlfab5TlMI3g+5lyde8COFy0B8myj0hnkYTWeKU9os=; b=n+JkjrU7/vddmVvLIsTQcqX5Bh
+	jbrcg2r0evw5hT5MB2DRHJX6K0DRPqAvbzvX5GgLl4sr9/6jstsucqTsOwnK0acT064xkkbZbsQOP
+	jo/AljVA+Wa0O+Q6cJATvk9sTABfhu7+NFEx5qV4u9xFFv6oERQeOpFNqORDZ69GiC6/gtvYNvqh9
+	sjrftSxMJXaHukAykZc8fv5Fyh71e9vDpQyubGEFvVnJC9N1mpX9palo5TrIVoR9BLUKvLedRDpPv
+	ZSBEdmLTz+j6LysOFlu1CgXIHKAHsrIq266xuGMHLmAciMIA6P1NvpqbRP3fC8E7yqaPqSK1Ku+Mn
+	GQU3Ed2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKGYp-0000000GTBL-0xeI;
-	Tue, 05 May 2026 14:15:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wKGZD-0000000GTGC-2O5j;
+	Tue, 05 May 2026 14:16:07 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKGYo-0000000GTB8-07i2
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 14:15:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EB9CD60154;
-	Tue,  5 May 2026 14:15:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 698A6C2BCB4;
-	Tue,  5 May 2026 14:15:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777990540;
-	bh=FQsBhAgsYHplHV2/vcCwYjBqbsq7KXkPO3MRqXSfMok=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=E6osNGJmPtrOn/dO5V7lDP7Lu/A7Jxq46ChObn5PlgAvC6B/uvqi6QdXgDtylkKuM
-	 fustiBuO44Cvy9/Z8gnQ76Exw7F/EXMUM4tSZWdpthwoUGaAcvKTxfr129TuZP6AEp
-	 acVDIdJWpmY9DvuBke1cI4BAhj6/Bo7OzY2Lo5qNrUeNE3QZsRE8RiO0sPN9cQVgoK
-	 UIC3P1lMZp8WkwsjfaA+BGMryIpLkoMJpkbBeeXm28BjehqGYWBVps0s8ISiwSZ3ti
-	 UIk9UYCpdU0ypAKcGcmQqzOppY78h0DnZSdZF+XEj94/78Kh78Mv6n5pO1dnuOpRqM
-	 Sg6yu/4lU10xg==
-Date: Tue, 5 May 2026 09:15:38 -0500
-From: Rob Herring <robh@kernel.org>
-To: Marco Felsch <m.felsch@pengutronix.de>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Marek Vasut <marex@denx.de>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, laurentiu.palcu@oss.nxp.com,
-	victor.liu@nxp.com, dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/4] Revert "dt-bindings: display: bridge: ldb: Fill in
- reg property"
-Message-ID: <20260505141538.GA2547282-robh@kernel.org>
-References: <20260504-v7-1-topic-ldb-fixes-v1-0-0125d937ff7f@pengutronix.de>
- <20260504-v7-1-topic-ldb-fixes-v1-2-0125d937ff7f@pengutronix.de>
+	id 1wKGZB-0000000GTEs-1J6O;
+	Tue, 05 May 2026 14:16:06 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.99)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1wKGYt-000000008Q8-0upW;
+	Tue, 05 May 2026 14:15:47 +0000
+Date: Tue, 5 May 2026 15:15:40 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: "Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Edward Parker <edward@topnotchit.com>, Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	=?utf-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>,
+	Sean Wang <sean.wang@mediatek.com>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH net 0/5] net: dsa: mt7530: assorted fixes
+Message-ID: <cover.1777986341.git.daniel@makrotopia.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260504-v7-1-topic-ldb-fixes-v1-2-0125d937ff7f@pengutronix.de>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260505_071605_352931_FECD4F01 
+X-CRM114-Status: UNSURE (   5.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,31 +72,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 04, 2026 at 10:21:42PM +0200, Marco Felsch wrote:
-> This reverts commit 16c8d76abe83d75b578d72ee22d25a52c764e14a.
-> 
-> Remove the 'reg' and 'reg-names' property from the LDB.
-> 
-> The LDB is either part of the IOMUX_GPR (i.MX6SX) or the BLKCTRL
-> (i.MX8MP, i.MX93) register space. Both IOMUX_GPR and BLKCTRL are
-> register ranges with loose register definitions. E.g.
-> 
->   - On the i.MX8MP there is one register which controls the AXI
->     threshold for two different IPs (BIT(31:16) - IP1, BIT(15:0) - IP2).
->   - On the i.MX6SX IOMUXC_GPR5 controlls: CSI2 mux, WDOG3 settings, PXP
->     handshake, ...
-> 
-> In conclusion: it can't be ensured that one register belongs to one
-> dedicated IP and the LDB is rather an exception than the rule.
+A batch of small, independent fixes for the MediaTek MT7530 family DSA
+driver, addressing long-standing correctness issues that surface on
+hardware with bridge VLAN filtering enabled, on link-local frame
+reception, and during bridge join/leave transitions.
 
-It is fine if there's a child node for LDB if the LDB registers are 
-consistent, but the other misc things are represented by the parent 
-node. It is certainly not a requirement that either everything be in 
-child nodes or nothing be in child nodes.
+Daniel Golle (4):
+  net: dsa: mt7530: fix FDB entries not aging out with short timeout
+  net: dsa: mt7530: preserve VLAN tags on trapped link-local frames
+  net: dsa: mt7530: fix CPU port VLAN not being reset to unaware
+  net: dsa: mt7530: clear flood flags on bridge leave
 
-What I don't see in this series is what problem does this fix? If you 
-are going to break compatibility, then there had better be a good 
-reason.
+Edward Parker (1):
+  net: dsa: mt7530: untag VLAN-aware bridge PVID
 
-Rob
+ drivers/net/dsa/mt7530.c | 153 +++++++++++++++++++++++----------------
+ 1 file changed, 90 insertions(+), 63 deletions(-)
+
+-- 
+2.54.0
 
