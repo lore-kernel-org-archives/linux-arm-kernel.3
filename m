@@ -4,59 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1B25CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 19:15:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB912FF8855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 19:22:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gITJYuN3t1YHbVZuq58zcmjnVsrSVGV338QgJrJjvGc=; b=0fzv8h5Ct3FCEp2LBvWZCCpc1N
-	xMvSV2KMIVeUedkVZ/Rno+AhWKNuRkNHY3IECAsAr7uthjV7Nyd+0+l1t2eODRzSEV6D4sEgQKcBQ
-	kLnGMMejkuX5T1/rQN5140mRLoZM3yrg2/Ib+AGG5WuaoXbg4Y8fMf465NbZK1Chg4t5On/Edqg0m
-	yXsX7KQTwl3krBQdkIEtWGPWOb4SL3OtMr/PPAqW1O7GGHRpJxvLvWAkNlluC/ZNa+sF98sAYy8Yx
-	lSySDqOZd4dpe9Ns55oyno9fUBHMznkJGqUExcLkvIS0JOIbRugE0tQ5+OOcbWVgthsb3hPkf9025
-	Ntr2IV5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:References:
+	In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QpRrQQ1/fv/77iW6tnouMAJQEfG0OZKXv90DiEh43fM=; b=fsgYsq8eGlxpIcn94NNg1pWFv3
+	GRNaCQSJNiO11mYeujlNfYH+sovON7M3goeTSmF5HuGA/c/JLHWMv93AGbyjNvYqDQFbtre5yTn2v
+	Pp4p/YaFyET9hVUwxcyRqYsIWLX6uGOBoLTyFBPmTezDCQL1oEYSygRpMkEysPk3AflVRL7Jxb3Mw
+	I3bsIZ2nuihvpRMOdMaDtwu+APuKXTddp7kbnbnOBL8bMxAwCufEEVEvP88QVDKP2jayDtHYckcty
+	fOCC12EluDVwre6FZErWly9d4w7uzczBhuQiuHgE+j8JVBKD5+QTFucDfQeth1ENo08AJKeTjHIEu
+	fxjzCy/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKLF9-0000000HHAu-3PE4;
-	Tue, 05 May 2026 19:15:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wKLLO-0000000HHlK-2rvc;
+	Tue, 05 May 2026 19:22:10 +0000
+Received: from mail-northeuropeazon11010064.outbound.protection.outlook.com ([52.101.84.64] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKLF8-0000000HHAY-19OY
+	id 1wKLLM-0000000HHkp-0waB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 19:15:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4784460181;
-	Tue,  5 May 2026 19:15:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E57CDC2BCB4;
-	Tue,  5 May 2026 19:15:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778008541;
-	bh=Ai2OUVAeU1hHFyXkQn4BFPhzJ8Wo1VWlb+jckP5ZuGk=;
-	h=From:Date:Subject:To:Cc:From;
-	b=ehPDIhQ0fxxCrknzFJcQCy4KB5o367nN82BkcXzxMzhfB1BBlK3oRH+MuM9FR+fFl
-	 FjHiBU5t6mlu4G5/KD5QzgiMivOZN5hpRV+DOLhO0+ZRVbyWuOMDYWFflIubgV4j1d
-	 82sdETUamD2ofZiZ/7hMnOKrsTKrrB0q3RnURLtpMNh57bAg6e3m6cciSg56Ro/cJG
-	 cEako0mCFK0v9kmPzIaLHS/3akgRIIlSRi18Ft6UId+yMgIuM4+8AUx/h/nInvH5nr
-	 ic3f1yfvucJqk2T4YJVtZMmod/mZ25yAR4IRK0/WcV5WsnkrwS3SfE92kLx7E87z14
-	 3xZUA2XAZ1wag==
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 05 May 2026 21:15:37 +0200
-Subject: [PATCH] ARM: integrator: Fix early initialization
-MIME-Version: 1.0
+	Tue, 05 May 2026 19:22:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=eYro43To0nP5CFXNeWpL9RAnMwbxpkaMSFnD6PohhqMGD9H01KStjC5D8N3Bs6goIMP8KYx1kukd8kHBOeyA3L5BGewLEWHz9PujdVzJifGKVpY5xw5HHHZGl+0GdvatW44nD3q0i0sJpg69QJ4pfdFlH3ImUmSZuZ36YM9nSerVvNXT+6fpnvotQXQSTuA0nooLMkQxe2zZAt8ALl0S9pLQ0EwKuNC4q//LoQVJQvHi7sFueUmXySSM8SE5yiE6kDAeoPYREO3K6jXytqSEdtClReZGwvklfLF1rVBpBYCjq4AOvAKjW2OtO0eZekApD12UAnHqlibSqKKSnlNRkQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QpRrQQ1/fv/77iW6tnouMAJQEfG0OZKXv90DiEh43fM=;
+ b=VikSYY766fvBgAfZd3auAYYrhtg3oDGQOYT5PlU+gUapkH6iIywZdzC507DTMIfGO4VAoqLGBQwUtFpJiVIEJs44ei2q7Vq6blNOwDansCGQpbx7KAyh9rHLozAFPdsbl/yFemazmWK9dgTj0vW1SONU7W8MTE0qIIbwKLUmwuMS6dIb8QJusysFniOAPHAiAim1DefmNaK2oWbdL2TUTMqF+ojF+8VrRrZCz7xIo+i6vFZatdTcfogBTwBcEPy83VlRDBQB5K5RIMVbrTM7Zy8oJgR5hktpd72OgksaTqfA6RIB40LXQYQmnVtj7bXEYo39ZVZd5YoQleMvAFEnUA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QpRrQQ1/fv/77iW6tnouMAJQEfG0OZKXv90DiEh43fM=;
+ b=dDE5Y42drvq1Ndjxao48emtBTct/EFIN9TUh1wSG9Sv69swWJJfYVn4JG95+K/1yebgidKqOnnOcWoowCQA7TQMho/lH82dcGLHB0pc8c4ho7XnP5UleqlOq6I9kBc9kUPmHHG38ST4i8cxqEtSIlGVXNX3s3T5C9DYEbwE77UhFE+Y6bR9W5MgZAodwMh0QRPUJJ/BufoZgWd0uxhxzhpu52SEic/lKO8lKcvTheunxzXv14kv++kmz5rdVVrIIiwUauDa+YpXWuhGs40/7xqA7FdJIIO9GxqKanonqGR2IL44z/eVySNdmKYl/jj/10Oj8ZPzly6K0L5Q6pqa39w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by GV2PR04MB11639.eurprd04.prod.outlook.com (2603:10a6:150:2a7::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Tue, 5 May
+ 2026 19:22:01 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9870.023; Tue, 5 May 2026
+ 19:22:00 +0000
+From: Frank Li <Frank.Li@nxp.com>
+To: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: pierluigi.p@variscite.com, Stefano Radaelli <stefano.r@variscite.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
+ Dario Binacchi <dario.binacchi@amarulasolutions.com>, 
+ Alexander Stein <alexander.stein@ew.tq-group.com>, 
+ Maud Spierings <maudspierings@gocontroll.com>, 
+ Josua Mayer <josua@solid-run.com>, 
+ Markus Niebel <Markus.Niebel@tq-group.com>, 
+ Primoz Fiser <primoz.fiser@norik.com>, 
+ Francesco Dolcini <francesco.dolcini@toradex.com>
+In-Reply-To: <cover.1774601806.git.stefano.r@variscite.com>
+References: <cover.1774601806.git.stefano.r@variscite.com>
+Subject: Re: [PATCH v2 0/3] Add support for Variscite DART-MX93 and Sonata
+ board
+Message-Id: <177800891761.1935716.70197785565861058.b4-ty@nxp.com>
+Date: Tue, 05 May 2026 15:21:57 -0400
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260505-integrator-fixes-v1-1-56ab9aac59db@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3LMQqAMAxA0atIZgO1ahGvIg7VxpqlSlpEEO9uc
- Hx8/gOZhCnDWD0gdHHmIymauoJ19ykSclCDNbY3zrTIqVAUXw7BjW/K6Ie260NYvGsM6HYK/UG
- vaX7fD3c3butiAAAA
-X-Change-ID: 20250603-integrator-fixes-a8345ddba610
-To: soc@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, 
- Guenter Roeck <linux@roeck-us.net>, Linus Walleij <linusw@kernel.org>
-X-Mailer: b4 0.15.2
+X-Mailer: b4 0.14.2
+X-ClientProxiedBy: SN7PR04CA0003.namprd04.prod.outlook.com
+ (2603:10b6:806:f2::8) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|GV2PR04MB11639:EE_
+X-MS-Office365-Filtering-Correlation-Id: f4f6faa5-5be8-441c-6c56-08deaadb94f1
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|52116014|7416014|376014|1800799024|38350700014|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: b85h29UPBEzeR1RV32WTQkcPHhSl5HXZux5RsXa8s4SKjLYcLYu6GGv7ecvFQO5sGX93y9NiV5i5mIrCwpawTIa5XI5uibF0xove11RCI3wITQRo/veFPq2BwjmRWw0Dt8scvV+NVTnu79J2ok5N6dMP7OkrYzagrbfMwl5h0WG5iN5bYZZ8O9wxxIR9lvGvavh2L4bngr/a9dZJWxySY1OQIBcVrUNkr44uPM82pYJu41VjZxVJfsNiyiG/E+Bln/42ppbbFEzVqyqJbK8ZD5HdXpGDLWBWUz1Ol7zlXHHpcYE82mXzwQr2kS+RGkimWavj+JydGZnzFRWm5cEM1+T2sLfLzcvnEVb1EC1M2tbBH4oRz5pkYqnPAapo+8s9vhy6f4BIuht1JHsLQ6cH0BszEeaIhWc/G2XhD3NSK0k5GeXm+BaAdjv/WzeuIOpWsZwdqWsoTc23HEAEewY2ZNMBAeNuhFZbpSf4qBdVW4R8Z4um8FmzOV9aBDs3n/GN0LT9tRlWSnQh12oQgWj3DNkNrS500CwVL+RhWFng6o8/T5d8Q+NvaXQ9Ky86ey7UebIDuwSuQfvZH7UdfIpV2+Hz7ntAjLhBerIKE5FUoYsVMGjFEvjbKA1gaDKaErPRRHXPcokGWszC+8Do5bRHNs8C45CjzYXP6sZbTVhLy8Cpo5Y+Lq6BbkR+6rzzmPQydBTvGm6c10PscgCeWpsxbMCuqu+mtMSV+SFklSqAqfCQ0kTemp12RAybyd9FY+h2
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(52116014)(7416014)(376014)(1800799024)(38350700014)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZCtJS0dtWmFxYlBMZlFNUVZqbUxLdzJlNDhkTHFyZnFtNUk1c3ZFcUVId1J6?=
+ =?utf-8?B?WUJHZktZZUUzVmNuZVN2Wi85SnVzT04xUFB2QVUrbEpSbjEwcHVmdTY0TmtL?=
+ =?utf-8?B?V1JoY0V1bHlRYU03UFlrbExkNktROEZ4dnd6eGthUXc0SmhlcGxqVjl1M3Zn?=
+ =?utf-8?B?cGRFamR2KzBNU3BsSkx3QkNwVDhVSEZUWERsNWR0bUNYcms2MzBHcFRZMTdi?=
+ =?utf-8?B?d2lTUWtJd1NWYmh2QXRHUklIY1UxVWoxbE5IaWp0VVlrZGpkMFU4Mk1KVnBN?=
+ =?utf-8?B?dUM4K08xZWJveHB4bWVUL0JVb0N3aTVQUy8yUEVFNnU2eDh4ZUl1SEM0YStI?=
+ =?utf-8?B?U29JT3FhMlhYOVJNZjZuWm5tamkybGVGazJqL3UwTEZBNENxTStRWVU0VVYr?=
+ =?utf-8?B?c1VqRFlKWlNpaEdFUU1ETnBNU0ZwVjI0Y3RyalNjNEx0L2NvQmd6cU9HcFFj?=
+ =?utf-8?B?ZXVCUGdoeEFGVnI0U0wrczRpRVA1NW00WHgvbTJCWHBmQlBaM2FNdUwvc0Jm?=
+ =?utf-8?B?eFFFa1IrS2swWmZuOEs1VW4xdzY4bFM5aGxIa3J6dTlxWlNVcGd2a2hlRjN2?=
+ =?utf-8?B?MzZGejBYTStMbFc2bCtiSHpFbkFjVGJucUtPOVNFbGVUOFZlMVFGUEJrSEty?=
+ =?utf-8?B?QlE4Tk1BZ0JZK2N2L3RSVURSSkFkc2hVeWxNZVpUdjY2OTloaWhscThDc0JE?=
+ =?utf-8?B?L0VSeEJSekVOTko4M0ordVI5QTNKekk4bjJobjNYaGYvc25RcFZoNGVPWnIv?=
+ =?utf-8?B?UzRMaEtia25kR1pUZmJGVlkvQXRHRW0xdm5NUjZhWVpEZC9QMTA3SHowSm5F?=
+ =?utf-8?B?NENvb0tVbFNpTnFRUGNxSHJUdGJyTWd3OXV2VGpDNmNnUVE3K3Fra2s4LzFO?=
+ =?utf-8?B?cExDNzRuWnVqblFaYURZVzVGZ3EyMmFBWEIxNnNZZ1AwdURjKzZYQldYbTI5?=
+ =?utf-8?B?cUpza0ViL2JtVlJ6NUw3UUU3VlpmdEIvc2xzMVByeDVpMC9TUmlNeW1QT2tE?=
+ =?utf-8?B?Wjl4ckhJM25MUzU5a0xlVEhwUjUzT3FvNmRTejVRWFFiK1dBMjBlSWJ4ZGZK?=
+ =?utf-8?B?R3BxZm5McXhIdUZOUEk1cWZyY09KQ3hDM1VJL1pQWWV2OEVDc0RGLzFLUDVI?=
+ =?utf-8?B?dGlCWFBaZldGM0pGWUkxZ29DZGRpM3dqQzFHSkNmL3IzTzVIR1NGZ1pMcDNz?=
+ =?utf-8?B?cUUxTU9xTWl4WWx2VzBPMVhwczQyaGRoQzFZSk13V3hNd0gzLzJ4MHUydnc3?=
+ =?utf-8?B?S1JDdmR4TVpVSlJrdjhIeFh2b0RSaGlDblMwOTNaZlp5U3hUb1RzejFzNzVt?=
+ =?utf-8?B?ZnFrdGRYS29kZUxzN2MybHNCRXVmdUZkckhJSVFFWFRqbXpRenlGL0JXT2xI?=
+ =?utf-8?B?Rm1lUVBKOE5KSWQxM1haZ0tKWWtZY3l4bDdOblhuYThpaUdHbHJLUklJZnAz?=
+ =?utf-8?B?Z3VHQ2RYWE44QTM2MmNJdklXVE9qQXJ1Y0Y5Sk4yais2TmM4ZTlVc1NIWmpx?=
+ =?utf-8?B?dm0rYitCK01ha2oxVk0zSlFRU041azVhL2Q4WFZOMDFlb1NBanZjQUZJem1J?=
+ =?utf-8?B?ekJzNjJCbkV2MzlVRTJMaVdGRXE0NXUrNW4zNmhxWFVJQUVaaVJZTHU3YWwr?=
+ =?utf-8?B?S2s1azFJTUtsVmhNazNkZ3UxWWQzM3plU3oycmp4NFpGNHNhVlJIdmhqUEhL?=
+ =?utf-8?B?VXFEOFlQdnAzSjNKUlJHb1d6L25JUVB3MEdtQm10Z3hSOWlITUlHbUErUXhs?=
+ =?utf-8?B?NlpTVHplTEt1bHZjWFVUb0ZjTk9NOVdWSjlYcE1RZGFnWmtYYVhId3QyNWF2?=
+ =?utf-8?B?MjhkWWpBTWtveFM5OUtHYWJGN3BJUHBUSFNmdHhUZ2FaTGFJRUZxM1hVQ2pW?=
+ =?utf-8?B?c2hnamRqRUVOY2VGVEkrQ3hWVVdnQWV3dG4wVXYyWkw2SCtLSGovZkx2RExW?=
+ =?utf-8?B?WDVDdWllWnJLeVgyUEx3NndoUUdmQ0tsRUJhWHE2YzhrcVk0K3cwdGxzR2R6?=
+ =?utf-8?B?YnpldFR4TisrV2svZElCRndnRHZRQWRtOFJlb0pGQlBuZFpmL0M1cmFRMDdt?=
+ =?utf-8?B?QXNiMWp2UDIxa3ArSmJKMGVKdTZ4Q25YWmNkcGdWKzBENVBEenVWZUVFb3E0?=
+ =?utf-8?B?Vml0Q01XYWpDQzV3VDZabUFFTWdBNmNzdks3QmJPalFkWTNKeGNPSEk5TldQ?=
+ =?utf-8?B?c2VIM1RHSjB4MHlHWmh0aFIxQURGNmV3eEZLSWlJUWhSTVNZWE9yU1hLeWdy?=
+ =?utf-8?B?UVcwL0s3S05WNzR1U1c4RGVmSEVZaGNPaEpjcGxFYjJ5cjJuNzE0eVZ6cjFv?=
+ =?utf-8?Q?cId86FZJK3YRA/7ZXX?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f4f6faa5-5be8-441c-6c56-08deaadb94f1
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2026 19:22:00.8002
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: KXmcJ4JYWIjph6id404yAWISNyXYFnNKpAtmkJSwav2YDwdacfw594PsYF8U6/tUeG7k/M/sFEZSBmD7AmH+Aw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11639
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260505_122208_275184_55EEA6DD 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,99 +158,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Guenter Roeck <linux@roeck-us.net>
 
-Starting with commit bdb249fce9ad4 ("ARM: integrator: read counter using
-syscon/regmap"), intcp_init_early calls syscon_regmap_lookup_by_compatible
-which in turn calls of_syscon_register. This function allocates memory.
-Since the memory management code has not been initialized at that time,
-the call always fails. It either returns -ENOMEM or crashes as follows.
+On Fri, 27 Mar 2026 10:08:53 +0100, Stefano Radaelli wrote:
+> This patch series adds support for the Variscite DART-MX93 system on
+> module and the Sonata carrier board.
+> 
+> The series includes:
+> - SOM device tree with on-module peripherals
+> - Sonata carrier board device tree with board-specific features
+> 
+> [...]
 
-Unable to handle kernel NULL pointer dereference at virtual address 0000000c when read
-[0000000c] *pgd=00000000
-Internal error: Oops: 5 [#1] ARM
-Modules linked in:
-CPU: 0 UID: 0 PID: 0 Comm: swapper Not tainted 6.15.0-rc5-00026-g5fcc9bf84ee5 #1 PREEMPT
-Hardware name: ARM Integrator/CP (Device Tree)
-PC is at __kmalloc_cache_noprof+0xec/0x39c
-LR is at __kmalloc_cache_noprof+0x34/0x39c
-...
-Call trace:
- __kmalloc_cache_noprof from of_syscon_register+0x7c/0x310
- of_syscon_register from device_node_get_regmap+0xa4/0xb0
- device_node_get_regmap from intcp_init_early+0xc/0x40
- intcp_init_early from start_kernel+0x60/0x688
- start_kernel from 0x0
+Applied, thanks!
 
-The crash is seen due to a dereferenced pointer which is not supposed to be
-NULL but is NULL if the memory management subsystem has not been
-initialized. The crash is not seen with all versions of gcc. Some versions
-such as gcc 9.x apparently do not dereference the pointer, presumably if
-tracing is disabled. The problem has been reproduced with gcc 10.x, 11.x,
-and 13.x. Either case, if the crash is not seen, the call to
-syscon_regmap_lookup_by_compatible returns -ENOMEM, and
-sched_clock_register is never called.
-
-Fix the problem by moving the early initialization code into the standard
-machine initialization code.
-
-Fixes: bdb249fce9ad4 ("ARM: integrator: read counter using syscon/regmap")
-Cc: Linus Walleij <linus.walleij@linaro.org>
-Signed-off-by: Guenter Roeck <linux@roeck-us.net>
-Link: https://lore.kernel.org/20250518164118.3859567-1-linux@roeck-us.net
-Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
----
-Hi SoC folks, please apply this directly for fixes.
-Got stuck on a sideways branch for way too long.
----
- arch/arm/mach-versatile/integrator_cp.c | 13 ++++---------
- 1 file changed, 4 insertions(+), 9 deletions(-)
-
-diff --git a/arch/arm/mach-versatile/integrator_cp.c b/arch/arm/mach-versatile/integrator_cp.c
-index 2ed4ded56b3f..03dfb5f720b7 100644
---- a/arch/arm/mach-versatile/integrator_cp.c
-+++ b/arch/arm/mach-versatile/integrator_cp.c
-@@ -86,14 +86,6 @@ static u64 notrace intcp_read_sched_clock(void)
- 	return val;
- }
- 
--static void __init intcp_init_early(void)
--{
--	cm_map = syscon_regmap_lookup_by_compatible("arm,core-module-integrator");
--	if (IS_ERR(cm_map))
--		return;
--	sched_clock_register(intcp_read_sched_clock, 32, 24000000);
--}
--
- static void __init intcp_init_irq_of(void)
- {
- 	cm_init();
-@@ -119,6 +111,10 @@ static void __init intcp_init_of(void)
- {
- 	struct device_node *cpcon;
- 
-+	cm_map = syscon_regmap_lookup_by_compatible("arm,core-module-integrator");
-+	if (!IS_ERR(cm_map))
-+		sched_clock_register(intcp_read_sched_clock, 32, 24000000);
-+
- 	cpcon = of_find_matching_node(NULL, intcp_syscon_match);
- 	if (!cpcon)
- 		return;
-@@ -138,7 +134,6 @@ static const char * intcp_dt_board_compat[] = {
- DT_MACHINE_START(INTEGRATOR_CP_DT, "ARM Integrator/CP (Device Tree)")
- 	.reserve	= integrator_reserve,
- 	.map_io		= intcp_map_io,
--	.init_early	= intcp_init_early,
- 	.init_irq	= intcp_init_irq_of,
- 	.init_machine	= intcp_init_of,
- 	.dt_compat      = intcp_dt_board_compat,
-
----
-base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
-change-id: 20250603-integrator-fixes-a8345ddba610
+[1/3] dt-bindings: arm: fsl: add Variscite DART-MX93 Boards
+      commit: 1eb192d84674c387d50f926ca5da017d7a158de5
+[2/3] arm64: dts: freescale: Add support for Variscite DART-MX93
+      commit: 5d8ca6456690ee511d56f0d7373c9a93c01068c5
+[3/3] arm64: dts: imx93-var-dart: Add support for Variscite Sonata board
+      commit: 3bfec2d4747452e130f25e8422c59a1415aca815
 
 Best regards,
---  
-Linus Walleij <linusw@kernel.org>
+-- 
+Frank Li <Frank.Li@nxp.com>
 
 
