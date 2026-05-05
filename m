@@ -4,73 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3BE9CD342F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 10:45:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BB8FCD342F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 10:49:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NCwr5IzwXs1Qc4UinXjykqNmHwUAVjuU6Giar5Byk18=; b=Od0waVkn7jMSqVf4ZvdwLxQCtd
-	mhbKEPcFvI3TWXDyOYyNQMbJ4B3ufvYF7h2PR1ZOjbwkBqlh4CMUm5QB15sXOoZpKGTTk8O0ywxFH
-	LolQlyrBJRAKW47NbDHxwQIS1S523vCOFHWDNw5Y9KBUGxvGJaNaEo3Q4fxPJiqXc5NfvPSFjuslE
-	1Mhv3EFL0KNGMgndW1GJBfjH0ktbBS98Z6t9uFmP89978Ye9oIgSLQj8rPvvJqxsACUo1OOU5deI4
-	Tf3wJtMhElK4M68AON9GoLynDG3CXMzqyiYowSYgU7akgL8bKEwFli7XjUhjZo30RYa30he8Gq7FN
-	VfHObh7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Tm4cieeyxWKQJzP/gn+NGwTwMIETon0wksSXBN3S/3c=; b=WrZNDjuFDsHZq9rXwHARtIvVwo
+	L0/BB2oTW+p5WN/0ZYPGM8oTQMKAM8cmSBa4QOB3PTtYzUQ4QoCGZUTPoWOSBpGl319iawjTe25DU
+	j5D4p6Q2h5iLpgyJw+C2ifoogXf2TJS15ylsdCqMjJyaRSWG1HBw4aWJfj/TBD1j4Tbm7S6RWEwrw
+	agDSAxiDwuYPsn9DxodhOrpAirz/UeTbJZrvXxL61rA2yMsh9WjHBAFxKwo6T5piKaizE2GtmynOj
+	+f2xrW41LygilcUfUepeBUCzJtee/NUiIcz6gsek3am0pryb7CTroPVQjvbGdVuFzcWtS8y5Pu0lM
+	EYG6EFWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKDHf-0000000Fvz4-16Y2;
-	Tue, 05 May 2026 10:45:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wKDKz-0000000Fwb5-1zAW;
+	Tue, 05 May 2026 10:49:13 +0000
+Received: from mail-japaneastazlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c405::2] helo=TYVP286CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKDHd-0000000FvyB-0YH7
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 10:45:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8956A60128
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 May 2026 10:45:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CB05C2BCC9
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 May 2026 10:45:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777977944;
-	bh=TsTg/4UWC81TfUPMbovyHWMpmJYOhH0GyHDfnnm3vHk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=kJ+tCkcSp6dpIN6tgYJu9sXU6+VcQHZ8W1zFFfUpjX8/2a9fzB+NHY0+oM5ubz08a
-	 EPwvgLTTDYnpinWIKHchn5Dy51BJeO15CBCAgYoSTfMYMpBVxh8eq8iobw7dkEcy1p
-	 BHY8T0doxouMzLmXwp0pTkjEuc2uxl3fShHQmUcuiJ1xAs/bHaG5CQCPo9Ijy+anqG
-	 8nDhUF6mRHTCmsDmQ+NizWo3zkHxEPZIhZX4S/XFacjjSr1vBb7Uq3txgsQiIMLnSx
-	 CyIuS4LHW+WbYQ1K3AhYpaaM6iGDu8+egCSAFp4PCGgCigVKMOK+OnXSLeMJ1kfQSO
-	 UqMCCoZtKUD2w==
-Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-39393c1b5aaso23034251fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 03:45:44 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/YXCaXDmCO7Qe4qMf6DgXPrcC2jX0MRRu5ZL53cahRQmyX0leV1XuQ3Bt0ItL8si3+QSwjUfIoHOspPGT0rAOr@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw335UQ+mu4NWnMFrdiSnQWQsFcqxmzLAg7KW5SvoSTqNy0zYfC
-	rm20enyd1cJumpcQjWt2LBfeVL8P5qhpnbEDA5unNesfLTfcj8KwEjhAi/ZKXVmP+nIJYTzPO7V
-	YlNJn1pxcrQrNAa8MZdx1UJs1/6WnUE8=
-X-Received: by 2002:a05:651c:4198:b0:393:a639:4a10 with SMTP id
- 38308e7fff4ca-393a6394c4dmr22048921fa.15.1777977943005; Tue, 05 May 2026
- 03:45:43 -0700 (PDT)
-MIME-Version: 1.0
+	id 1wKDKw-0000000FwYv-3QHC;
+	Tue, 05 May 2026 10:49:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ILHdNn0/+OwCMSsyIdTyB0GdkcGJ9KE7KnZPQrqp4BPUCXnxMejgyF9Hcxq0chcShax/QFugbamCaZsrXyrVPZwR/fpI4LuMwImRLAcJqkV4yzwPqlioFBmrwifKr3Q3iYicQWOUkCBxKnfsBCuSeqiMF+QLqDUwe4QESb4WYR578IHAAH/lAWB7N2wbhUwMCRAZRVXiv42e9KzYVb1HDwrBE3El1dh7QfdoNfSL9ivAd0uh/L50sD2fT4sH0rLDuM7vgH8ZmthrLf7euhyx7ErOBSLIqiP3/OlQWKR/JRPVRcYMOL3Q1KPIjy+lkCWMF+ECNrr2iyxK+okyB5GxGQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Tm4cieeyxWKQJzP/gn+NGwTwMIETon0wksSXBN3S/3c=;
+ b=apBaRGdU/tfjnJLZPfotvBQnECBHBerzJRjZnjSVKJJu8/yGP6NNPZos+htOUQVASmVYivrF8qHDdtKsaQl+Y/z+RZovXd6SpX6ESmiUeKD091QSYZ1mVtqA47SA1Iep2k8go42YwJyaEpQqz2xjH+Yo2NsP/DgrzOmmSpNHQmflguhrf3QAWBHp7nmbHts+3FCNUBf5olxTV3gfJV/jT+IY9QOnvqgrkrmOuWfXt43NzCKHJ2TzVQOBGEEu5trx76dHrLGAzbgSFiYrNHPe3nw52lnxfRgwJgHqNZVS+MwFLTrnYLB2T2LxAmYQ60jVwW1txa59mfpWmbKU3X1nUA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
+ header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Tm4cieeyxWKQJzP/gn+NGwTwMIETon0wksSXBN3S/3c=;
+ b=qeZ9RddyR0egP9XPS40m6fYA8mh4UyWWpX13Gl7kFEVEBrOB085OinK3Pp9I+u9LCkbmoJkwW9KR61L610L3uImSAMO27kZOdxmJ08edcrbCkmr1pFylh8UdtcTPIs3myIRUbRcDU8OjnReJYzz4fOGoNnRiVMv3SQ3ZHvv71zk=
+Received: from OSCPR01MB14315.jpnprd01.prod.outlook.com (2603:1096:604:39f::5)
+ by TYRPR01MB13639.jpnprd01.prod.outlook.com (2603:1096:405:18e::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Tue, 5 May
+ 2026 10:48:57 +0000
+Received: from OSCPR01MB14315.jpnprd01.prod.outlook.com
+ ([fe80::66f:fac9:2ef6:9796]) by OSCPR01MB14315.jpnprd01.prod.outlook.com
+ ([fe80::66f:fac9:2ef6:9796%6]) with mapi id 15.20.9870.023; Tue, 5 May 2026
+ 10:48:57 +0000
+From: Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>
+To: Geert Uytterhoeven <geert+renesas@glider.be>, Linus Walleij
+	<linusw@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>, Sean Wang
+	<sean.wang@kernel.org>, Paul Cercueil <paul@crapouillou.net>, Tony Lindgren
+	<tony@atomide.com>, Haojian Zhuang <haojian.zhuang@linaro.org>, Matthias
+ Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-omap@vger.kernel.org"
+	<linux-omap@vger.kernel.org>, "linux-renesas-soc@vger.kernel.org"
+	<linux-renesas-soc@vger.kernel.org>
+Subject: RE: [PATCH 5/7] pinctrl: renesas: rzg2l: Fix type in
+ .pin_config_group_get() callback
+Thread-Topic: [PATCH 5/7] pinctrl: renesas: rzg2l: Fix type in
+ .pin_config_group_get() callback
+Thread-Index: AQHc2LbDaLcnwsT7fUmZ3K+TtxHxDLX/R9sQ
+Date: Tue, 5 May 2026 10:48:57 +0000
+Message-ID: <OSCPR01MB143159AA54CC67CA063A153C9AA3E2@OSCPR01MB14315.jpnprd01.prod.outlook.com>
 References: <cover.1777562725.git.geert+renesas@glider.be>
-In-Reply-To: <cover.1777562725.git.geert+renesas@glider.be>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 5 May 2026 12:45:31 +0200
-X-Gmail-Original-Message-ID: <CAD++jLmg0-CviaWkzJi7xCvgwzz2KbVkmq-kqcWJ+2=uTNCoHg@mail.gmail.com>
-X-Gm-Features: AVHnY4J5V-rMG0dWh1E5TLlvveEO0urdyGOidGxFOXsPqvTO1NYgVMcBKduDto0
-Message-ID: <CAD++jLmg0-CviaWkzJi7xCvgwzz2KbVkmq-kqcWJ+2=uTNCoHg@mail.gmail.com>
-Subject: Re: [PATCH 0/7] pinctrl: Fix types in .pin_config_group_get() callbacks
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Lorenzo Bianconi <lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>, 
-	Paul Cercueil <paul@crapouillou.net>, Tony Lindgren <tony@atomide.com>, 
-	Haojian Zhuang <haojian.zhuang@linaro.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, linux-gpio@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-mips@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-omap@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+ <6befae30f129daffd94f7a9507d874443e444a21.1777562725.git.geert+renesas@glider.be>
+In-Reply-To: <6befae30f129daffd94f7a9507d874443e444a21.1777562725.git.geert+renesas@glider.be>
+Accept-Language: en-US, en-GB
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=bp.renesas.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: OSCPR01MB14315:EE_|TYRPR01MB13639:EE_
+x-ms-office365-filtering-correlation-id: 9b54e937-302a-4af5-3e95-08deaa93e8e9
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|18002099003|22082099003|56012099003|38070700021;
+x-microsoft-antispam-message-info: 59/+zX0HuBCY5hf+CcQWTy5r8uvLCykxq9Wds2lKVhPu/1YkS/NOkAfOTSuCSnQ7RMBoV98Bo9b9P3h8OOlJ5PN6AEVW3uYPz3PgvRHU6b8RYE1zLH7DuVF8JqbTR8qtAfEGYgsQ77X8yRPWQLmx/8Jw/D4D6496M2dFkTWVRHeXZWHe1v8Mtyd7nqFGLn2MrClh95FxIEC1mv7RFC+J4ZYdu8UUFcWHgSLeDpunIzMC6+zFgoVL7alTts02jgE/8ABb27VxsvRrVOfnkV+vIjjfiirI19hwOlr6HkVI5GVgHfdRmeJqejR2RN8MMwl+OoH/m1HS7EsiEBSJBoTPtQnlGWF2AqReiyv2kOcOhu46cWcQkarRqxyXQTYSKRVLeOwPLK2ZKjk49bnf7CpySHmOk9L6Y7SjA9hMEX3eQucfyIJXdfWKyny0uienuA3uNNyWNhx8RDZISccNmOUfo9Onnw1fOpO4+P5bFFIhdCRLo09uJ39mQ7pCPLLQLNQ4PpT1Wf3mrkpWLUBs4hk/U83WepzbpOGneRyYk5GAa6nJFPeszhu1H7uchagc5MADipybqXSnJgjldAzquBnpx58+kiHAH1hW8viwmbRBBxM47C4yGTnDAIoaQwHQUA9x2KtZAyR/eMPQqcHVTFdSP3UzT+iSiXUAt/S36c8csG1rV7c9VsaoxE9q1f9XoyK6GBvQvR4hJ/GoyiLHkjfe+UOF6QGDSwhXMIwZpxCwwqAAvJ/m0eYAtLPxdceBYxZ4
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSCPR01MB14315.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(18002099003)(22082099003)(56012099003)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?1EF2QJID3ZyaQJ/TPJum5jfUoK1PB5aiNNWtuBCrOiQwDFBZMHtIV3CYr8Pf?=
+ =?us-ascii?Q?YvSo/kTH3XZjSX9hpT89KWJGsyk+ktTa4PJlIfgPdbS0d3ZsJTUFJ0g2z1ad?=
+ =?us-ascii?Q?78hOlf65zrKCOysAtxLLFdnqKKU7xF/J7qYbykr8D2J2LSyOkdxIzCXY/tw4?=
+ =?us-ascii?Q?+U8Kqvw9cwR5FB8XDXDXyi5tswXZqtpP+62gp9e6z0rtNnQAnBhgf/4838PO?=
+ =?us-ascii?Q?MMyzdafmKLflkNP/FBeaQKpLaKbdhBTSSrs6b95JlukDt+Pr5mBqRYsUcEIy?=
+ =?us-ascii?Q?WSz5CNFzhac5R2b7CTDkJ6d6F4fZsx/zzkLTrcufFJLcvvK5SBXdZt3zG6lN?=
+ =?us-ascii?Q?9zbA4dUzP680mc9rB2UdiiSK4f9eDAqMKf13Y8rUgbFRLi+5w7A21pacfzuk?=
+ =?us-ascii?Q?OrZyABR69p5mHh+r0Us4SUMtJhriG/YcmR9xakOiIpKaQpHch3WPU/vk/Yuh?=
+ =?us-ascii?Q?20Bnih1mXG492dK9j+k5eh5PB90BaoQKe3NWxbwNIJ79nmKAvTLke01bi9Rl?=
+ =?us-ascii?Q?aGNzXnfXo9CVWPBW7RdqEmsP/cOuMbh2yNcDuiFywPa/KDfnPjhfpnrb6GbT?=
+ =?us-ascii?Q?dMnCejLqx4UwzHGpd6GYZe/53m69h7Z5eSXrO8i4e9e3jm5hDPYsin4zlu8Z?=
+ =?us-ascii?Q?kE15mDu7oiBPrVSITdLRtjkYFK1kFw0M5sScaxvzh3R6AEdu8KDiH5yfM1iI?=
+ =?us-ascii?Q?BMr8ptOSL+WXzass/a5JdLXwQIAC6AGahhEs8lvph//Nems4+xN0c0+fjVy8?=
+ =?us-ascii?Q?jH00O9lHzJyKxL9tZJJemaXFmoaCtul2stu4p8Cl8Eq35d9oq6scm42X2tdT?=
+ =?us-ascii?Q?xj+6MhW5jIMYxJXvY+EQnO1iOgxXqdYxIrNlyyN3vjcyN2SIYH56iZj6JJM3?=
+ =?us-ascii?Q?wdw4b7meFpq4ngBrbWZq3NKeH9BgHsOeiot3C9WJsDVNwnPYARDlT0Dk8nk5?=
+ =?us-ascii?Q?cMUA+IgfYpNy2fKRjSk9NMXlKr3UxOGGoKxYMbmDSN56Ig+cENnPAi9TkXAZ?=
+ =?us-ascii?Q?cmvsZRdtUrWQ2R4/UGH0j/XxgPjBH7Y08ziIkiOuyExAuW5vp96hg3KF1pX7?=
+ =?us-ascii?Q?KAguXjrVmLAqOkSEqy+SQOvp5vvjb/cT4bsSMX5cZ3R/yd9I5gQvp8Jnd3Ae?=
+ =?us-ascii?Q?eraJe0WsIHkUU0eT2++IqZGuvJzI/9cUCMWKOHqTiWT8adl0OI1j0AOmYEYB?=
+ =?us-ascii?Q?P1V2KvfNAI7zMLShtaIpXm4nwmVlPnSXTM9AZSJBMTZydqMjeqGtJf6f1LYp?=
+ =?us-ascii?Q?swb2j/gJYr2MFoswRBeZb599IjLaijDlFmaxEDfsHycE33vzBOnB2c3S0KZc?=
+ =?us-ascii?Q?amJMcdOZtJs/OmcbNeDalzdyWYyhZBGaWQ1p/Yt5mhhv6tvpTg6RldpOc7Ze?=
+ =?us-ascii?Q?slsAn8e1zVuOtrzlM/ByjQg7WHcoMR3Sw4qFWzweLMh25C3eL26R1c7EQIuC?=
+ =?us-ascii?Q?SuKmwXIkEhqIRhoZKWYoGSgR27jCHfG3rhN9lqRUyaP/2U/DjRtfgqU5P8NP?=
+ =?us-ascii?Q?IeFwUoNdnpI7ib5aLr9OVZyeKj8inUxPRiJT+q4uknD/bAp+U1NXKQfyuMQL?=
+ =?us-ascii?Q?0YZb+DG5b/qGrZQwvBeonMzuDtcds2IxA6kuqypeUnD+TqyXsqjwAg1EWI2+?=
+ =?us-ascii?Q?WmCP3+lMqNvdt3WDUwa1OyxSlxoKk1DFsmnvkoljiQ+5WdjVIqHINySvJsj6?=
+ =?us-ascii?Q?Ql2G9N+Y5on0oskqpyBT38N8nNa3xQl8GIC0hZ+UCVhbRFKriMcM9I0NPOgM?=
+ =?us-ascii?Q?vUP5RbWqjfiO0skJwA2WfeZ/bzrv7FemA4Fw7ayamQJXDgL0lQHt?=
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: bp.renesas.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: OSCPR01MB14315.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9b54e937-302a-4af5-3e95-08deaa93e8e9
+X-MS-Exchange-CrossTenant-originalarrivaltime: 05 May 2026 10:48:57.7524
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: k3tX4syrsFTrIiHipUCVLnYmMmK0uRmrSOrSyuOvj5tNbD8WRp0DTtDxqay69XyBGtGffl1UwL2X5gaJdP5fUYSawpCdIuqc2LqFyngBIXKOIv3mFBqcb/oGApH2mQBT
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYRPR01MB13639
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260505_034910_869580_30C174E3 
+X-CRM114-Status: GOOD (  14.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,27 +151,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 30, 2026 at 5:33=E2=80=AFPM Geert Uytterhoeven
-<geert+renesas@glider.be> wrote:
-
-> On 64-bit platforms, "unsigned long" is 64-bit.  However, when checking
-> if all "unsigned long" configuration values passed to the
-> .pin_config_group_get() callback are equal, several drivers use a 32-bit
-> temporary.  Fortunately this works, as currently all configuration
-> values fit in 32-bit.
+> From: Geert Uytterhoeven <geert+renesas@glider.be>
+> Sent: 30 April 2026 16:33
+> To: Linus Walleij <linusw@kernel.org>; Lorenzo Bianconi
+> <lorenzo@kernel.org>; Sean Wang <sean.wang@kernel.org>; Paul Cercueil
+> <paul@crapouillou.net>; Tony Lindgren <tony@atomide.com>; Haojian Zhuang
+> <haojian.zhuang@linaro.org>; Matthias Brugger <matthias.bgg@gmail.com>;
+> AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>;
+> Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> Cc: linux-gpio@vger.kernel.org; linux-mediatek@lists.infradead.org; linux=
+-
+> kernel@vger.kernel.org; linux-mips@vger.kernel.org; linux-arm-
+> kernel@lists.infradead.org; linux-omap@vger.kernel.org; linux-renesas-
+> soc@vger.kernel.org; Geert Uytterhoeven <geert+renesas@glider.be>
+> Subject: [PATCH 5/7] pinctrl: renesas: rzg2l: Fix type in
+> .pin_config_group_get() callback
+>=20
+> On 64-bit platforms, "unsigned long" is 64-bit.  Hence checking if all
+> "unsigned long" configuration values are equal should be done using an
+> "unsigned long" temporary.
+>=20
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> ---
+>  drivers/pinctrl/renesas/pinctrl-rzg2l.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
 >
-> This series makes the code cleaner and more future-proof by changing the
-> types of all temporaries to unsigned long.
->
-> I intend to queue patches 5 and 6 in renesas-pinctrl for v7.2.
-> Thanks for your comments!
+Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Excellent work Geert, thanks for noticing and fixing this!
+Cheers,
+Prabhakar
+=20
+> diff --git a/drivers/pinctrl/renesas/pinctrl-rzg2l.c
+> b/drivers/pinctrl/renesas/pinctrl-rzg2l.c
+> index bc2154b695149809..5b0f23af5a6cc9de 100644
+> --- a/drivers/pinctrl/renesas/pinctrl-rzg2l.c
+> +++ b/drivers/pinctrl/renesas/pinctrl-rzg2l.c
+> @@ -1647,8 +1647,9 @@ static int rzg2l_pinctrl_pinconf_group_get(struct
+> pinctrl_dev *pctldev,
+>  					   unsigned int group,
+>  					   unsigned long *config)
+>  {
+> +	unsigned long prev_config =3D 0;
+>  	const unsigned int *pins;
+> -	unsigned int i, npins, prev_config =3D 0;
+> +	unsigned int i, npins;
+>  	int ret;
+>=20
+>  	ret =3D pinctrl_generic_get_group_pins(pctldev, group, &pins, &npins);
+> --
+> 2.43.0
 
-I applied patches 1, 2, 3, 4 and 7 to the pin control
-tree, leaving off the Renesas patches so you can keep the
-Renesas stuff together.
-
-Yours,
-Linus Walleij
 
