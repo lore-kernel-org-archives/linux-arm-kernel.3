@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A429FFF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 10:06:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A965BCD343C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 10:07:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cSRCaU/T/RHpwudJD39b132C2AOlZdafTfBCJ5GHb7o=; b=KlIQedQ9tanN6X+Ld+syE+XoNJ
-	pc03mmxgA3X/84dP8hZzXEL1722SSxbJNx6xOhWhthL13WURjnNGGnBYGoN4OPYeR2lUlNX8gCRe+
-	SXezJlGTo/Ajp2P6BMnB2LoY0wMRaCGfcb7F1uuINmRJh5EfDR1S4GvU7RXnJFc+OT38qP+6AhPTo
-	myoXf+Gt57D1mU0Vo6VtqhQ/HsTBJ1HiVzeJMhMWYsgVBhLm9zQV/oFL5mgg1v7BwYPO0tQqf2dbs
-	rD4i1MMFVTUgNXEG46VJWBAXpXhVjuQf0a38KO7hYGxLMbytqg+QH6J/owknwVY0SaPYApC2OTHiN
-	WeSxRT+A==;
+	bh=peY7nwIrQ0Vo9Wg3nyAoFzgTp4el9JJoCbdirxkwdqk=; b=NGbSTmQPJAmO2zxDHbzhgB0a8v
+	yJvI5zzlsMcmxabPjZ7BWPO3fcHeTtkwA78PJSjX+RCqiZk/ZOq3dI8wvbbORDWg6xkU9Wgc7Ga6j
+	uBiGkOPqGzTSsHWtzTFthr602ESWKyhVmvDRYaX2ND+1uRwqePkFoBrCYItqgT55j7sAHBmcQhHkl
+	UEDo/pwqi7693pszrt6N0oAnMiOo9UUL4+W9WS/mq7IpKEynnTkHArSHNF4cDODvrg1ffFX8+tk37
+	6PSM97Y2tqTI+xJywcketYtHVXZ2dTBEK5DLQ5HdZ8BbZqZ1VzUnApM5L8+5Fwq6i8yic8qluGi96
+	qHUeolEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKCfl-0000000Flmk-3kQO;
-	Tue, 05 May 2026 10:06:38 +0000
+	id 1wKCfz-0000000Fm2V-0nWj;
+	Tue, 05 May 2026 10:06:51 +0000
 Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKCfM-0000000Fkdf-2ucH;
-	Tue, 05 May 2026 10:06:15 +0000
+	id 1wKCfQ-0000000Fkdf-2oJU;
+	Tue, 05 May 2026 10:06:20 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=e94PMQYPhHi00IMVT8SMEYyIeRGLLKf0R+ujgE66F60vU64z0z/OYyQqWQARUu0iFT5tiPewLXVlGGUdck6PkvNx0oCd1CiQ235xTVHe2ixRAKpUUkTHgU2ZfuDVDgNzPVzDP13+Nq/i+hVs+8XrSzV9g0u0RhpTpx/Bu8kxETTI+zvkAHElOrMwVY4HBiprBw0aEgm+mjDOm4r2C33RBOIgxN53XSg6uQkGs7jwZtXf4zjH2wIOcxaJvPimghZQyCOWUw/UWbTxDhqdgDG/lOrgCP6k+pBXoNB7M4KN5UKW93ONuqVyoMpYov30aE/SGt9DuugEhP4OZR+OhHjhdA==
+ b=Qzu4otWk23bVNMwJgMBhviSj+5XmqRhQQgl6XtNU3ZQn74PeIIRelVxTBtr/r5v4BFIlpCFk4q1IrpMdeGgVE2G85G9GR5bgODUT3xsQRwa8p3OXFCu9CHM2zsDCwBIEFP2NnDYf82/vswpYOEW0TbvHyccvMm9FW4FsaOOgSWXHSZWRifm/+FUIJFWyRXx5+WH9Mu0rkT9aivsh1b+nquFyl6L6gxb5bwPopqHosZqAj16ML0JTd+VUrynIBo4C0mPR0g8IVm6/xALHqIe/MVGHKgnwZONFXwiP8Ll1dq0jReV0klrNDnu/I0jQ2+h7zdu4lIztMvAG2D1BIRkedQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=cSRCaU/T/RHpwudJD39b132C2AOlZdafTfBCJ5GHb7o=;
- b=LIYJwy/2D8Rwm9OnL7+oFsyMbrMNLEuc3Q1Xv5dy0ZC3nbd+tKfVUM1pyqxOs3p+Cn1wZNqjZuj7t99JP5gc0XIJL7vTBpTA8et9Q8kCGyvOgofPILD/bhS/JRp/V3vpIOX7WocUwgMeB8NcljH1wZeOqSXNBbMNLzeqLuRSNS5wzoYfD90ECmB8ZDLJinz3EOlwckm3eY8bxVSgDZfLjLMVzPSyAd+VHFMlp/p6XakbjyV65s70R352y9A73sQccl+IRw4frJVvUL1dZeUe0soNDvXb/LNVSzHAn1/ikn3L6Lg00lH7SSHsl2pk9GNMQ8oyw1CFdCupQ875JMVg5A==
+ bh=peY7nwIrQ0Vo9Wg3nyAoFzgTp4el9JJoCbdirxkwdqk=;
+ b=Ss1d3fAR3kozy7FHzPYpvLqnD+EJi8My9m+MznO+5TxA8WORLGDq+FHF4B955IBnUWWBZEPjIXSzmjUFnqaM1M+Gs+QRyzKniG7VDR3+8dTcH71NUGOsJqdhjy64127qHCt4OsfjxqFox9ltrK8rzKtkJPOcmkqqvkn1gxms1YuRmynR4QXIXoqWuRjhp9u7aPU8uX0algP14I+H/yGZAMSF/BdgovlLv3oHdQODG5PKrsCPo9DFv9PNxR2Z8unojvQdnBid7W01ojikCsvhwmV/JESJtjhMY2D239dNNt8MbqAANocxbnsfo9O6rn16dQyQUYuINmtyAI25b7L3mw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cSRCaU/T/RHpwudJD39b132C2AOlZdafTfBCJ5GHb7o=;
- b=Xy81EUkea+ev6aXZQ3kig6eB6QFfeaxFmYMADmQLIjKEaJtc6GTk9XBnM5ntLJfQdUfHVdGJn8EPguqszt2SPuc2jfexfSwRgKBX0BDkzjXuA/tmF2l6WLZ1FayHqVL1HXLl2daM5N9k2CV8R51JmkwiBJer45tnpw67gpZUci3SJaNVVZrRFx43QrOzV8xzNJOBwZOM4GZ04GfIG8QPbhZVdK+HlMW3MWOB4SMOP+YGw9cWQFVfD80lNCX7nIodUWal8ri2U/9zVM7q7PqapBGz8x/WCLjDu8FPBOJ6hDxp1xc/qBDrWF3LVrjWbb49bu/EvKA8MY/rZ6Qnc6qLxg==
+ bh=peY7nwIrQ0Vo9Wg3nyAoFzgTp4el9JJoCbdirxkwdqk=;
+ b=AJCuNzdYJokyTO80JgMKrtxfAcHe1Q5fp5MHltqBibLmfVMs9WYCYDbqB0TMAK7IHnc2QHu6C3+m9JoK2QRsitTncKQKy+T5jDDaTIgATpnaeP+0a81PI+HdtrKpUa04CqeyHR+zgIhgKDFxf8otvQvh7vVwswmRLn+ZpZ8aevRoifRK1dw2Bb8We66Z+P69FGK4izV6nPf9t0EXhIeF0TCSSXcA3HzOnqLbm+TO8QGIbqQpDzn2XrpHG40wfnVlAhccLdaBK+XHAqbfMmDahOCLRKDZ5KQRiB1NNGb954Z+J2HTWfM6TQvLS6vGYm5k8pjx7tt9nZNqGJWqM5fVZA==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
  by DB9PR04MB8363.eurprd04.prod.outlook.com (2603:10a6:10:24b::11) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Tue, 5 May
- 2026 10:05:56 +0000
+ 2026 10:06:01 +0000
 Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
  ([fe80::f010:fca8:7ef:62f4]) by AM9PR04MB8585.eurprd04.prod.outlook.com
  ([fe80::f010:fca8:7ef:62f4%4]) with mapi id 15.20.9870.023; Tue, 5 May 2026
- 10:05:56 +0000
+ 10:06:00 +0000
 From: Vladimir Oltean <vladimir.oltean@nxp.com>
 To: linux-phy@lists.infradead.org
 Cc: Vinod Koul <vkoul@kernel.org>,
@@ -76,79 +76,77 @@ Cc: Vinod Koul <vkoul@kernel.org>,
 	netdev@vger.kernel.org,
 	spacemit@lists.linux.dev,
 	UNGLinuxDriver@microchip.com,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Bart Van Assche <bvanassche@acm.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
+	Can Guo <quic_cang@quicinc.com>,
 	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
 	"Martin K. Petersen" <martin.petersen@oracle.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Chanho Park <chanho61.park@samsung.com>
-Subject: [PATCH v8 phy-next 10/31] scsi: ufs: exynos: use dedicated API for updating PHY bus width
-Date: Tue,  5 May 2026 13:05:02 +0300
-Message-Id: <20260505100523.1922388-11-vladimir.oltean@nxp.com>
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Nitin Rawat <quic_nitirawa@quicinc.com>,
+	Manivannan Sadhasivam <mani@kernel.org>
+Subject: [PATCH v8 phy-next 12/31] scsi: ufs: qcom: make use of QMP PHY dynamic gear switching ability
+Date: Tue,  5 May 2026 13:05:04 +0300
+Message-Id: <20260505100523.1922388-13-vladimir.oltean@nxp.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260505100523.1922388-1-vladimir.oltean@nxp.com>
 References: <20260505100523.1922388-1-vladimir.oltean@nxp.com>
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: FR4P281CA0226.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:e9::14) To AM9PR04MB8585.eurprd04.prod.outlook.com
+X-ClientProxiedBy: FR4P281CA0318.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:eb::18) To AM9PR04MB8585.eurprd04.prod.outlook.com
  (2603:10a6:20b:438::13)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|DB9PR04MB8363:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0fd1a2e4-5c9c-47ea-1f93-08deaa8de615
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Office365-Filtering-Correlation-Id: c5912e16-2270-417a-826b-08deaa8de8e0
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|19092799006|7416014|366016|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: y5JvMxunJ8txVoYYgW9oeeWpwH6jTW79Ae2Z5uOaRb5SrixMXaD46A9tSMCzq9pnDUpnAw5AT4izCzbeQ5xZjFhcKBNu8x93aWGNqBljCFErsZYg2cquL44XgemR7r7JAGIAEe9cLc8uYLnedSDJL9xqqMXxrTqcXSEsG4vreNuMSp263nrwSxSXeeKldLK6hvskq7zQS8YZ8Nlq98L+fUUXE0rmxcESRRXzWYCfxeTbQkaE7KD57a/aMFyLK7PuhM6TvZmmFRl+WOv5YN71tXprg1USh3qw2cJZUQwQj9/cMohqmuqsc0k8/MBZrn9qvHWnSOqOB/wnlc/lpiL6UaxjYDhHWOegVco6p8IS72ekDVEOgiye4vAYoo5JB4IU13DleGqSdhk1t/c6o839ztu5VZXhu4Z+dpWou5+EVcJ0LAEtmTEq/+4Q303Ea/Hda3z+5AtRiXB6RPKz8V5lA6UrHEhI6FY2xEYmYQJeknY7ngDW8cG0Bfx5j+OycPgJzBwOFjHIq80yZmi23/C5uoj1R73XYzGOhVi9h3zPzacJmbAcwLINTNwtJzQTHs1LeWWEC1A+5Rus92su0l4QWoM7IVa0Oo0bb/kzQJxVXoWyIDoNCJNq6ek9TFaoeQwVBWkmOsH0HzjVFJhRegcKGA==
+X-Microsoft-Antispam-Message-Info: WYwMZhUHUemFwqXcR+xwqMsIhqpwbUAcQiPC4lxt3u8ZksTWkvNCQafH/MiqgKg6Zr0/LWv9R/Uyv79Ohu2qPCEeRShY72llaln2/l1IAxbN9aMRQezKbbiqfthAvOBB2X6ktPUCfvHgU74g2kVgKbGkJp0JA92xZJ128PM6ijLSQtOzIpnYYuA2h4GhDWXYv3q14v7jIFZwCLP4mnNYZsNYmq73i5YZjdQkGZdnluQ1VYa9iycsT/YE5iEx5yA+UdGwm3mTDG+fry5ia7AxdzuKXg2xMt8j8Fn87SZcX4q8Vxyc8UbmsgbcIWA8FLFKAL/wOZoLjVytXDp5N2/YCjtvp2Z6mZbuwYP6Uuvil9o/lEs07BfRbtN/cugLN6QP7k7lKzx16Dk6gQ29T9UUlpSiwP5NeuePlx3ZtnMcuDutDX7yghiCJ11OywAQXIWqE42g0HJjvsz9/I+YsNviBqUpmAOIXvzGAIxWG1HlmxzU5pBCwHrjMnkx02cNfi4YvEO7fRjdjIdwfFzqgNjQ1ZjGc/agZrB1NEaNucvsaDYGegSJ9ydvpuGObTTgQ56m9M/jgh5oo1ePOODlP4fo66VE5OoUPIVOhhyXfYnixwNgA2qD3ruQXy026izg44N1k7eaGV1dD1UUO/yoR2t6rUivI3rOHEIRwl7k5m3UmNUt4JzCAJO9z2tk4MCZiMH8E+S/FAAZEX9J10++zfverA==
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(19092799006)(7416014)(366016)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Xa2B1pH6ppdSVcK+2eNSe06fW/myPWKtK9mJyaLNQwcTr7cRhUrVs7BhPoFM?=
- =?us-ascii?Q?YpKbg6MqNAuBgqLUQTaLFUG7QY/cfBwZhBy1/7OfORZMq8EK8s6WPooSpK/s?=
- =?us-ascii?Q?K8YnHj95aYPPg5mfYzlvT/+hiTO/1w2m18woZhOUKZ9SLy8qCQQyKR7ZHhQ8?=
- =?us-ascii?Q?FUW3GU4UcqvcNFKNofrKyri+xEXboMt1e/MAy1MkYnTdhSxx4KX/HUDLs050?=
- =?us-ascii?Q?V6CnuHr8y+etpOSEF0IkDsOpMf07bnw44Vvd+af4hVl6wB34AMPK71ZARx35?=
- =?us-ascii?Q?fdFQYV5m3KUcCKz7S3bqynrfqWRMCMWxhL9JbtkxLpZHLBuGDQeJokVnABRJ?=
- =?us-ascii?Q?NqSwImQPwK3XaRuRAN11b/K2fEsaOvZUUnYLmIW580ZkjWNJWdROkd/kcL6C?=
- =?us-ascii?Q?hTDjoqtbOoqokW7iyaX0C4LO8bkxZnSmBHXJ3l5HHUnIcPr82k3Coaq1agAq?=
- =?us-ascii?Q?+dJ8LK4mtNEUxpHhgRvkm9t/W7o7Ks57k7gx3CQvN4ldCt5pgoMTiDif1Frm?=
- =?us-ascii?Q?Kq7Gj9jMM8aWgLU4jpnY+5A5P/aT8V4Er9vaV1lHgr/poZ8SWqME5MvKV7Vt?=
- =?us-ascii?Q?JrBrqRz74TPunkTPUUvQlo2ZCoLtdBlca+Oh6wT2Ic/XNbO4TdZUoXGHHvwT?=
- =?us-ascii?Q?qNCLvsAIjdXNw/sg5INGtEC9fovnhXxU978prHMdD5uSDP335XSyhnAMWCp3?=
- =?us-ascii?Q?is5FTRGjZvv5mmCAa4LqZqh9vsN9O7qxWzUw7RbUFxdW1VklW+v4DTAsvg1B?=
- =?us-ascii?Q?JhabrMJ+8z4YTjOlfX1OWNU6cfDBf1aMHNE1WiyP1zjJKM8AZ4r7PAAkq2zu?=
- =?us-ascii?Q?da+2pTMmt6LN3goE3/gxcAD6USMesh2K0K/wJimysca8XRENBHCZRg7OimTF?=
- =?us-ascii?Q?Mh+m8kzOqwffYWb6j3eGD3XKgQMqGmBD3yPvbb3Z+63/JZMuc2O4l9oQOmhI?=
- =?us-ascii?Q?PxnEHtBaG7c6PEH/hM2JxDxS1ZSH6wCsR52iyEUfNBUxcZBXmreNpjswcO0t?=
- =?us-ascii?Q?x3opTl2I5Rb9+z0HYOTw0YPIZmcwbJcifEMLBPeP3FSkcj3cW7b9HRkc9cqR?=
- =?us-ascii?Q?z5AUCgTcWnI9+MfIKsy2ZMMHTENwEYrOlI9LUIH7CeiO+ItE+X2Xbu/fmPrk?=
- =?us-ascii?Q?2gNY3wDj/Uav8XgrmTKDrFG/kGcoX50kF0BRA9OxOqNbnnPyqVWUMM/HPrOE?=
- =?us-ascii?Q?JKcm4RZvpVcSCmZV9POyKHCNBmv8opktrCWF+V0wT9e8coFFokeZTYFiNVkQ?=
- =?us-ascii?Q?DB2xL7Pt69zlRb5KywkJ2pRHEPGttZ2XYHFQWf0Be6TrOddpNC7NZ7rN6i13?=
- =?us-ascii?Q?ONd0hVMbkVAKByLCC12h3ODNbINsz5yU4y4CoolWWk+i8xlO36oN8hGlcaGG?=
- =?us-ascii?Q?tHMiHMP9gTCKZcWEVY2nCW/0pRbe91y6J+qCYJ1DCj0fUAGsQNECSE1JlDUV?=
- =?us-ascii?Q?Zmi4RO5xtQDf1eHSjgN7FDlM/UD+MqfTsqtGwIQMrv8rj3WLDHEBuLCCToyj?=
- =?us-ascii?Q?oVbQ3+5047pXZGJLkMvuI5iHzLLXuJ30im6Vq3trBj6YQ/H2wXOjnYfJVUfb?=
- =?us-ascii?Q?NBVxtpeXARGKs1cCdsng/hLIqMLgjXTvxB4gZXU+co8AySSZbbtU5LEZ69Cb?=
- =?us-ascii?Q?ice4ldLssTU0wuyim80sM3tano4qnU4ljFtemuplp+4LeCyzyqFaeuMQ0gKu?=
- =?us-ascii?Q?QhYq/ruvW/hUxsEdfCTLjqbt3VTXYggYtARNu34rNYvBTu7q6KwkaqhnKiIf?=
- =?us-ascii?Q?0vPMRbVgTw=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?pjKll4/ioIkeELFDNEd1hF0upjtMTS/DKjWtvcJTQFO10zOYLDFsRZWKOTX2?=
+ =?us-ascii?Q?ya3mc82lfOPSl+2UxIPYnudpGNdWuEg6KLMwjkM9SdgqbAXk1J6y2asgQcVZ?=
+ =?us-ascii?Q?F17qn3TPOmeCI3AYn2wEg2boY2BU4UfYmErDYDbrreqG9mFNXAozb18cNnSn?=
+ =?us-ascii?Q?ITscUdxJnA/ThZJgZHqMxm+pPx33Pw4rGO7G/QBBpWwtT+gIWHUjMqa9FK56?=
+ =?us-ascii?Q?WOlTuAg5TXsfL0xddKH+mC+Bfbx+hJD/IjMpsMhYkhuS8g+1hUIoMjn2Fp4h?=
+ =?us-ascii?Q?Pz15DD1E4UAlMMr9NHecLZiKOFtmtzmdcDUIj0SjvE1mZMPQEOj0ii9htT+k?=
+ =?us-ascii?Q?Liwzl6yU1MwmewaHBfY0yNeYcCYXLF9i54AvL2M9BiA8nus4QUgwFU1aqmEQ?=
+ =?us-ascii?Q?K/cE6yheNMqpN9jynyxde4iDdrIQaHTLdzCKAa4ZhkmTJfqYcQ6TyV2mf+zk?=
+ =?us-ascii?Q?YWwNOyUZsa0Pdv2GSR2Zuq9ToHJvApyPP213fJcr8WH5yqtCITPlVWgGp5op?=
+ =?us-ascii?Q?bnmRtEgmcIo+td6wb6UXmE1d03naTJllH2FeOCfOJpk/++KGqExZLdKK1jK9?=
+ =?us-ascii?Q?TXCSBsHXr/I/HykwMgXkkLlv8gzNVRPqSixo7QXMbiyaCdomBjJdkCQYKNdV?=
+ =?us-ascii?Q?sHlSsmM8A8aSZZprFc/CEj/WnG8w7+eU4+wpJV6J2J8dqOLHAK0hpSaRatE/?=
+ =?us-ascii?Q?BLfkuhG2mxNYKUdVraNq+hBVwQEebGNObcjQgjqmOzF8Ofln7H4xR0ZV/+Oz?=
+ =?us-ascii?Q?w1Z7txZNrlPE57YZSBd9p/z36yaWz8gvtjK5svJRN2U4iLkFpwoDII/I5hvw?=
+ =?us-ascii?Q?zANHjhObkFhHUVtG8WHyPdASHSY1IbO+ys43tjwgXdkMmof2eZ0tFS8GFIKe?=
+ =?us-ascii?Q?JuGtR1u3B8gthWFjagsDEw3fkVVuLgZ3G2c0Q8sBv9uQslkY1GLa4RNqBVcc?=
+ =?us-ascii?Q?beYKllRQrA3vrGE59L4TeOnldEL6jk70DFMxXS6YpPNOsWfOsqLXsRMfxDKl?=
+ =?us-ascii?Q?pj6g1fBj2SWmYxKCHP16YIJOBmCiqmdpQLCC59OPzvs70Ey6OWhiIyuwiq8s?=
+ =?us-ascii?Q?a9IRSZR1G/6gaq/PDVedd+63JIdGRslWOL/3Q5vSAf6ijK7wxvHy/2xLjA9/?=
+ =?us-ascii?Q?DHGht/o9KeBCIYGRkaHb6AjXOHgXC7qHtqm0IwdY7NjZKO2WvNbUcjbPgRFl?=
+ =?us-ascii?Q?KH9tuVfO7rSyhyjiT0qG6MkVhwrvPPgeXYcUOvD1HWqYcYqbSXgXEGMT9oot?=
+ =?us-ascii?Q?nKsxMTLntWmtKXAclYw8R5fuJlXIqh2PK6Cw6kqN9rB87KEqtfe+hFh6WWZv?=
+ =?us-ascii?Q?5OiUkIE/MJoPjAdOvDmVaJFwfC8bJlLKwNClmQRhKlfNlzh1Cym4jWEU36BF?=
+ =?us-ascii?Q?C/YF6Lz3WEUOnkX9k7DoAzKhfLoAsL0OFInKv9i890xo0p+PEcjdOrgMmi4M?=
+ =?us-ascii?Q?HMoujpVJ/vyZ7FJiPIT3jGGBrGiCG6Fo/4m4glgc1zG0sB+49tOdyjhwgZR1?=
+ =?us-ascii?Q?5BiXMII+ZbbstHL66Vbwhtes9ns9JiFJacUWV1sXultdjh5kgNmEQZRpJwi9?=
+ =?us-ascii?Q?bshiZQRVMsOZwCGuFAd85jUgQ8HfNGiNmaw3i5N9kAOXfChAocNDonIsKFif?=
+ =?us-ascii?Q?FuZ3p8IgHDc6K3fV/Bo51P/XsR/KNAHXkHtEjhJYTVGdqaa/34PtbVKhE2ru?=
+ =?us-ascii?Q?0CrQ+bU/5uHqWHuoU+5AxeAH+4xtxBjKd/PbWqDtosFdW6WVk6f31fnHCoOp?=
+ =?us-ascii?Q?TkpVQdqkjw=3D=3D?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0fd1a2e4-5c9c-47ea-1f93-08deaa8de615
+X-MS-Exchange-CrossTenant-Network-Message-Id: c5912e16-2270-417a-826b-08deaa8de8e0
 X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2026 10:05:56.4082
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2026 10:06:00.9297
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vkHMvoPaohs5q6ZoRq9I17MSTz7EWznPzirXt/mWLGmuVGAtG/9Eki37GOga3Oh8t0r0/b5J4UCl3o0Q8xy72A==
+X-MS-Exchange-CrossTenant-UserPrincipalName: Kwx2JG4W23Z+iAECvHQij9XwnjMiVoyt7YcCzYmYSXWLSZCVocibJmdd+OdWtvwsPa1yoOCAP8/M5l4ryTZoXA==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8363
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_030612_883673_AFE89C96 
-X-CRM114-Status: GOOD (  24.35  )
+X-CRM114-CacheID: sfid-20260505_030616_851171_EF1B1BA3 
+X-CRM114-Status: GOOD (  18.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,456 +161,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I am trying to get rid of code instances where PHY consumers (like the
-Exynos UFS HCD) poke inside struct phy fields, in order to further turn
-struct phy into an opaque data structure.
+Currently, phy_set_mode_ext() on the QMP UFS PHY makes no change to the
+hardware state, instead it is mandatory that phy_power_on() followed by
+phy_calibrate() be run afterwards, for the new mode to be picked up.
 
-The ufs-exynos.c driver interacts with phy-samsung-ufs.c in order to
-power it on and to update the lane count. For the later purpose, it
-(ab)uses phy_set_bus_width().
+By absorbing the phy_power_off() -> ... -> phy_power_on() ->
+phy_calibrate() surrounding sequence into phy_set_mode_ext(), the UFS
+HCD consumer driver can be greatly simplified, and we also have a proper
+self-standing phy_set_mode_ext() implementation which does not rely on
+other calls to do its job.
 
-The phy_set_bus_width() function is a PHY provider function, not a
-consumer one, and I am calling its use from ufs-exynos.c an abuse
-because
-(1) commit 8feed347d33b ("phy: add phy_get_bus_width()/phy_set_bus_width()
-    calls") clearly states the intended use.
-(2) phy_set_bus_width() only alters phy->attrs.bus_width, and does not
-    call into phy_ops at all. So a consumer that makes a call to
-    phy_set_bus_width() can not possibly produce any hardware change in
-    the provider at all.
+So simplify ufs_qcom_power_up_sequence() to only call phy_set_mode_ext()
+and let PHY power management be handled just by ufs_qcom_setup_clocks().
+Actually, after this change, ufs_qcom_power_up_sequence() becomes an
+inadequate name, since from the consumer perspective the powering up is
+invisible. So change it to ufs_qcom_phy_change_mode().
 
-This is where the Exynos UFS HCD driver decided to be creative and
-hijacked phy_init() to pick up the change of the bus_width attribute.
-
-This requires a very careful dance where the PHY consumer needs to
-simultaneously juggle multiple requirements:
-- the UFS PHY needs to pick up the updated lane count in its
-  samsung_ufs_phy_init() handler for the phy_init() call
-- phy_init() calls need to be balanced with phy_exit(), otherwise
-  subsequent phy_init() calls don't make it into samsung_ufs_phy_init()
-  and just leave the PHY with an elevated init_count
-- phy_power_on() can't be called without phy_init()
-
-The difficulty to observe all requirements is why the following bug fix
-commits exist:
-3d73b200f989 ("scsi: ufs: ufs-exynos: Change ufs phy control sequence")
-7f05fd9a3b6f ("scsi: ufs: exynos: Ensure consistent phy reference counts")
-
-Currently the UFS HCD driver tries to keep the PHY init_count and
-power_count in tight lockstep, but even this is error-prone. For
-example, if exynos_ufs_suspend() runs and then exynos_ufs_exit(),
-the PHY power_count will underflow.
-
-If we address the root issue first (phy_init() abused to pick up new
-lane count) by introducing a new PHY consumer method which actually does
-call into the PHY provider driver, then we are able to absorb the entire
-UFS HCD dance and update the lane count without altering the PHY
-init_count or power_count.
-
-This allows more consumer flexibility to call phy_init() from other
-places, and same goes for phy_power_on().
-
-It is common practice to call phy_init() only once, right after
-phy_get(), and doing so will naturally balance it with phy_exit().
-
-We can also leave the phy_power_on() call to be on demand, placed inside
-exynos_ufs_pre_link(). But the UFS core (specifically ufshcd_link_startup())
-may call the variant operation exynos_ufs_pre_link() -> exynos_ufs_phy_init()
-multiple times if the link startup fails and needs to be retried.
-
-For this reason we need a consumer-specific "bool phy_powered_on" which
-ensures that we call phy_power_on() at most once, and that
-exynos_ufs_exit() only calls phy_power_off() if phy_power_on() was
-previously called. Using the phy->power_count for this purpose is
-undesirable because it is going away, and the PHY API is not offering a
-helper for it (would be a foot gun, because multiple consumers of the
-same provider shouldn't interfere with each other; each should only undo
-the effects of what it did itself)
-
-Inside the new samsung_ufs_phy_request_bus_width(), I've sanity checked
-that the bus width is either 1 or 2 lanes. This coincides with
-samsung_ufs_phy_config() which only configures LANE_0 and LANE_1.
+The consumer and the provider are modified at once because ufs-qcom.c
+already calls phy_set_mode_ext() while the QMP PHY is powered on, so
+introducing the extra logic in qmp_ufs_set_mode() would cause a
+potentially breaking second QMP PHY power sequence until the consumer is
+patched to remove its own calls.
 
 Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
 ---
-Cc: Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Bart Van Assche <bvanassche@acm.org>
-Cc: Peter Griffin <peter.griffin@linaro.org>
+Cc: Can Guo <quic_cang@quicinc.com>
 Cc: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>
 Cc: "Martin K. Petersen" <martin.petersen@oracle.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Chanho Park <chanho61.park@samsung.com>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Nitin Rawat <quic_nitirawa@quicinc.com>
+Cc: Manivannan Sadhasivam <mani@kernel.org>
 
-v7->v8:
-- rewrote commit after Sashiko pointed out the new handling is still
-  not correct:
-  https://sashiko.dev/#/patchset/20260430110652.558622-1-vladimir.oltean@nxp.com
-- removed Reviewed-by, Tested-by and Acked-by tags from Alim, Bart and
-  Peter
-v6->v7: collect tags from Martin and Peter
-v5->v6: collect tags from Alim Akhtar
-v4->v5: collect tag, add "scsi: " prefix to commit title
-v3->v4: none
-v2->v3:
-- add Cc Chanho Park, author of commit 3d73b200f989 ("scsi: ufs:
-  ufs-exynos: Change ufs phy control sequence")
-v1->v2:
-- add better ufs->phy_powered_on handling in exynos_ufs_exit(),
-  exynos_ufs_suspend() and exynos_ufs_resume() which ensures we won't
-  enter a phy->power_count underrun condition
+v7->v8: patch is new
+Commit was previously posted here but did not get any testing.
+https://lore.kernel.org/linux-phy/20260327112858.r5lpqygtvsane2vf@skbuf/
+
+Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
 ---
- drivers/phy/phy-core.c                |  35 ++++++++
- drivers/phy/samsung/phy-samsung-ufs.c |  27 +++++-
- drivers/ufs/host/ufs-exynos.c         | 114 ++++++++++++++++++--------
- drivers/ufs/host/ufs-exynos.h         |   1 +
- include/linux/phy/phy.h               |  11 +++
- 5 files changed, 151 insertions(+), 37 deletions(-)
+ drivers/phy/qualcomm/phy-qcom-qmp-ufs.c |  6 ++++++
+ drivers/ufs/host/ufs-qcom.c             | 25 +++++--------------------
+ 2 files changed, 11 insertions(+), 20 deletions(-)
 
-diff --git a/drivers/phy/phy-core.c b/drivers/phy/phy-core.c
-index 21aaf2f76e53..634ac07fd1f3 100644
---- a/drivers/phy/phy-core.c
-+++ b/drivers/phy/phy-core.c
-@@ -606,6 +606,41 @@ int phy_validate(struct phy *phy, enum phy_mode mode, int submode,
- }
- EXPORT_SYMBOL_GPL(phy_validate);
+diff --git a/drivers/phy/qualcomm/phy-qcom-qmp-ufs.c b/drivers/phy/qualcomm/phy-qcom-qmp-ufs.c
+index 771bc7c2ab50..e4e7966eb39a 100644
+--- a/drivers/phy/qualcomm/phy-qcom-qmp-ufs.c
++++ b/drivers/phy/qualcomm/phy-qcom-qmp-ufs.c
+@@ -2012,6 +2012,12 @@ static int qmp_ufs_set_mode(struct phy *phy, enum phy_mode mode, int submode)
+ 	qmp->mode = mode;
+ 	qmp->submode = submode;
  
-+/**
-+ * phy_request_bus_width() - request PHY to change its bus width
-+ * @phy: the phy returned by phy_get()
-+ * @bus_width: new bus width
-+ *
-+ * Consumers can use this method to request the PHY to update itself to a new
-+ * bus width (typically meaning lane count). Can be called from any init state
-+ * and power state. PHY is expected to use the new lane count as soon as this
-+ * method returns.
-+ *
-+ * Returns: 0 if successful or if operating on an optional and absent PHY,
-+ *	-EOPNOTSUPP if the operation is not implemented, -EINVAL if the
-+ *	requested bus width is not supported, other negative error codes for
-+ *	driver-specific failures.
-+ */
-+int phy_request_bus_width(struct phy *phy, int bus_width)
-+{
-+	int ret;
-+
-+	if (!phy)
-+		return 0;
-+
-+	if (!phy->ops->request_bus_width)
-+		return -EOPNOTSUPP;
-+
-+	mutex_lock(&phy->mutex);
-+	ret = phy->ops->request_bus_width(phy, bus_width);
-+	if (!ret)
-+		phy_set_bus_width(phy, bus_width);
-+	mutex_unlock(&phy->mutex);
-+
-+	return ret;
-+}
-+EXPORT_SYMBOL_GPL(phy_request_bus_width);
-+
- /**
-  * _of_phy_get() - lookup and obtain a reference to a phy by phandle
-  * @np: device_node for which to get the phy
-diff --git a/drivers/phy/samsung/phy-samsung-ufs.c b/drivers/phy/samsung/phy-samsung-ufs.c
-index ee665f26c236..b09a35ab6acd 100644
---- a/drivers/phy/samsung/phy-samsung-ufs.c
-+++ b/drivers/phy/samsung/phy-samsung-ufs.c
-@@ -165,7 +165,6 @@ static int samsung_ufs_phy_init(struct phy *phy)
- {
- 	struct samsung_ufs_phy *ss_phy = get_samsung_ufs_phy(phy);
- 
--	ss_phy->lane_cnt = phy->attrs.bus_width;
- 	ss_phy->ufs_phy_state = CFG_PRE_INIT;
- 
- 	return 0;
-@@ -204,6 +203,31 @@ static int samsung_ufs_phy_power_off(struct phy *phy)
- 	return 0;
- }
- 
-+static int samsung_ufs_phy_request_bus_width(struct phy *phy, int bus_width)
-+{
-+	struct samsung_ufs_phy *ss_phy = get_samsung_ufs_phy(phy);
-+	u8 old_lane_cnt = ss_phy->lane_cnt;
-+	int err = 0;
-+
-+	if (bus_width != 1 && bus_width != 2)
-+		return -EINVAL;
-+
-+	ss_phy->lane_cnt = bus_width;
-+
-+	if (phy->init_count)
-+		samsung_ufs_phy_init(phy);
-+
-+	/* If the init_count is 0, the power_count should also be 0 */
 +	if (phy->power_count) {
-+		samsung_ufs_phy_power_off(phy);
-+		err = samsung_ufs_phy_power_on(phy);
-+		if (err)
-+			ss_phy->lane_cnt = old_lane_cnt;
++		qmp_ufs_power_off(phy);
++		qmp_ufs_power_on(phy);
++		return qmp_ufs_phy_calibrate(phy);
 +	}
 +
-+	return err;
-+}
-+
- static int samsung_ufs_phy_set_mode(struct phy *generic_phy,
- 				    enum phy_mode mode, int submode)
- {
-@@ -272,6 +296,7 @@ static const struct phy_ops samsung_ufs_phy_ops = {
- 	.calibrate	= samsung_ufs_phy_calibrate,
- 	.set_mode	= samsung_ufs_phy_set_mode,
- 	.notify_phystate = samsung_ufs_phy_notify_state,
-+	.request_bus_width = samsung_ufs_phy_request_bus_width,
- 	.owner          = THIS_MODULE,
- };
- 
-diff --git a/drivers/ufs/host/ufs-exynos.c b/drivers/ufs/host/ufs-exynos.c
-index 77a6c8e44485..b90876b268db 100644
---- a/drivers/ufs/host/ufs-exynos.c
-+++ b/drivers/ufs/host/ufs-exynos.c
-@@ -931,11 +931,73 @@ static void exynos_ufs_specify_nexus_t_tm_req(struct ufs_hba *hba,
- 	}
+ 	return 0;
  }
  
--static int exynos_ufs_phy_init(struct exynos_ufs *ufs)
-+static int exynos_ufs_phy_init(struct device *dev, struct exynos_ufs *ufs)
-+{
-+	struct phy *generic_phy;
-+	int ret;
-+
-+	generic_phy = devm_phy_get(dev, "ufs-phy");
-+	if (IS_ERR(generic_phy)) {
-+		ret = PTR_ERR(generic_phy);
-+		dev_err(dev, "failed to get ufs-phy: %pe\n", ERR_PTR(ret));
-+		return ret;
-+	}
-+
-+	ret = phy_init(generic_phy);
-+	if (ret) {
-+		dev_err(dev, "phy init failed: %pe\n", ERR_PTR(ret));
-+		return ret;
-+	}
-+
-+	ufs->phy = generic_phy;
-+
-+	return ret;
-+}
-+
-+static void exynos_ufs_phy_exit(struct exynos_ufs *ufs)
-+{
-+	phy_exit(ufs->phy);
-+}
-+
-+static int exynos_ufs_phy_power_on(struct exynos_ufs *ufs)
-+{
-+	int ret;
-+
-+	if (ufs->phy_powered_on)
-+		return 0;
-+
-+	ret = phy_power_on(ufs->phy);
-+	if (ret) {
-+		dev_err(ufs->hba->dev, "Failed to power on PHY: %pe\n",
-+			ERR_PTR(ret));
-+		return ret;
-+	}
-+
-+	ufs->phy_powered_on = true;
-+
-+	return 0;
-+}
-+
-+static void exynos_ufs_phy_power_off(struct exynos_ufs *ufs)
-+{
-+	int ret;
-+
-+	if (!ufs->phy_powered_on)
-+		return;
-+
-+	ret = phy_power_off(ufs->phy);
-+	if (ret)
-+		dev_warn(ufs->hba->dev, "Failed to power off PHY: %pe\n",
-+			 ERR_PTR(ret));
-+
-+	ufs->phy_powered_on = false;
-+}
-+
-+static int exynos_ufs_phy_update_bus_width(struct exynos_ufs *ufs)
+diff --git a/drivers/ufs/host/ufs-qcom.c b/drivers/ufs/host/ufs-qcom.c
+index 9039b087bf21..e28edcfd13a1 100644
+--- a/drivers/ufs/host/ufs-qcom.c
++++ b/drivers/ufs/host/ufs-qcom.c
+@@ -485,7 +485,7 @@ static u32 ufs_qcom_get_hs_gear(struct ufs_hba *hba)
+ 	return UFS_HS_G3;
+ }
+ 
+-static int ufs_qcom_power_up_sequence(struct ufs_hba *hba)
++static int ufs_qcom_phy_change_mode(struct ufs_hba *hba)
  {
- 	struct ufs_hba *hba = ufs->hba;
- 	struct phy *generic_phy = ufs->phy;
--	int ret = 0;
-+	int ret;
+ 	struct ufs_qcom_host *host = ufshcd_get_variant(hba);
+ 	struct ufs_host_params *host_params = &host->host_params;
+@@ -508,26 +508,11 @@ static int ufs_qcom_power_up_sequence(struct ufs_hba *hba)
+ 	if (ret)
+ 		return ret;
  
- 	if (ufs->avail_ln_rx == 0 || ufs->avail_ln_tx == 0) {
- 		ufshcd_dme_get(hba, UIC_ARG_MIB(PA_AVAILRXDATALANES),
-@@ -947,30 +1009,11 @@ static int exynos_ufs_phy_init(struct exynos_ufs *ufs)
- 			ufs->avail_ln_rx, ufs->avail_ln_tx);
- 	}
- 
--	phy_set_bus_width(generic_phy, ufs->avail_ln_rx);
+-	if (phy->power_count)
+-		phy_power_off(phy);
 -
--	if (generic_phy->power_count) {
--		phy_power_off(generic_phy);
--		phy_exit(generic_phy);
--	}
 -
--	ret = phy_init(generic_phy);
+-	/* phy initialization - calibrate the phy */
+ 	ret = phy_set_mode_ext(phy, mode, host->phy_gear);
+-	if (ret)
+-		goto out_disable_phy;
+-
+-	/* power on phy - start serdes and phy's power and clocks */
+-	ret = phy_power_on(phy);
 -	if (ret) {
--		dev_err(hba->dev, "%s: phy init failed, ret = %d\n",
+-		dev_err(hba->dev, "%s: phy power on failed, ret = %d\n",
 -			__func__, ret);
 -		return ret;
 -	}
 -
--	ret = phy_power_on(generic_phy);
-+	ret = phy_request_bus_width(generic_phy, ufs->avail_ln_rx);
- 	if (ret)
--		goto out_exit_phy;
--
--	return 0;
--
--out_exit_phy:
--	phy_exit(generic_phy);
-+		return ret;
- 
--	return ret;
-+	return exynos_ufs_phy_power_on(ufs);
- }
- 
- static void exynos_ufs_config_unipro(struct exynos_ufs *ufs)
-@@ -1055,7 +1098,7 @@ static int exynos_ufs_pre_link(struct ufs_hba *hba)
- 		ufs->drv_data->pre_link(ufs);
- 
- 	/* m-phy */
--	exynos_ufs_phy_init(ufs);
-+	exynos_ufs_phy_update_bus_width(ufs);
- 	if (!(ufs->opts & EXYNOS_UFS_OPT_SKIP_CONFIG_PHY_ATTR)) {
- 		exynos_ufs_config_phy_time_attr(ufs);
- 		exynos_ufs_config_phy_cap_attr(ufs);
-@@ -1475,12 +1518,9 @@ static int exynos_ufs_init(struct ufs_hba *hba)
- 		goto out;
+-	ret = phy_calibrate(phy);
+ 	if (ret) {
+-		dev_err(hba->dev, "Failed to calibrate PHY: %d\n", ret);
++		dev_err(hba->dev,
++			"Failed to change PHY mode %d submode %d: %pe\n",
++			mode, host->phy_gear, ERR_PTR(ret));
+ 		return ret;
  	}
  
--	ufs->phy = devm_phy_get(dev, "ufs-phy");
--	if (IS_ERR(ufs->phy)) {
--		ret = PTR_ERR(ufs->phy);
--		dev_err(dev, "failed to get ufs-phy\n");
-+	ret = exynos_ufs_phy_init(dev, ufs);
-+	if (ret)
- 		goto out;
--	}
+@@ -582,7 +567,7 @@ static int ufs_qcom_hce_enable_notify(struct ufs_hba *hba,
  
- 	exynos_ufs_priv_init(hba, ufs);
+ 	switch (status) {
+ 	case PRE_CHANGE:
+-		err = ufs_qcom_power_up_sequence(hba);
++		err = ufs_qcom_phy_change_mode(hba);
+ 		if (err)
+ 			return err;
  
-@@ -1490,13 +1530,13 @@ static int exynos_ufs_init(struct ufs_hba *hba)
- 		ret = ufs->drv_data->drv_init(ufs);
- 		if (ret) {
- 			dev_err(dev, "failed to init drv-data\n");
--			goto out;
-+			goto out_phy_exit;
- 		}
- 	}
- 
- 	ret = exynos_ufs_get_clk_info(ufs);
- 	if (ret)
--		goto out;
-+		goto out_phy_exit;
- 	exynos_ufs_specify_phy_time_attr(ufs);
- 
- 	exynos_ufs_config_smu(ufs);
-@@ -1504,6 +1544,8 @@ static int exynos_ufs_init(struct ufs_hba *hba)
- 	hba->host->dma_alignment = DATA_UNIT_SIZE - 1;
- 	return 0;
- 
-+out_phy_exit:
-+	exynos_ufs_phy_exit(ufs);
- out:
- 	hba->priv = NULL;
- 	return ret;
-@@ -1513,8 +1555,8 @@ static void exynos_ufs_exit(struct ufs_hba *hba)
- {
- 	struct exynos_ufs *ufs = ufshcd_get_variant(hba);
- 
--	phy_power_off(ufs->phy);
--	phy_exit(ufs->phy);
-+	exynos_ufs_phy_power_off(ufs);
-+	exynos_ufs_phy_exit(ufs);
- }
- 
- static int exynos_ufs_host_reset(struct ufs_hba *hba)
-@@ -1728,7 +1770,7 @@ static int exynos_ufs_suspend(struct ufs_hba *hba, enum ufs_pm_op pm_op,
- 		ufs->drv_data->suspend(ufs);
- 
- 	if (!ufshcd_is_link_active(hba))
--		phy_power_off(ufs->phy);
-+		exynos_ufs_phy_power_off(ufs);
- 
- 	return 0;
- }
-@@ -1738,7 +1780,7 @@ static int exynos_ufs_resume(struct ufs_hba *hba, enum ufs_pm_op pm_op)
- 	struct exynos_ufs *ufs = ufshcd_get_variant(hba);
- 
- 	if (!ufshcd_is_link_active(hba))
--		phy_power_on(ufs->phy);
-+		exynos_ufs_phy_power_on(ufs);
- 
- 	exynos_ufs_config_smu(ufs);
- 	exynos_ufs_fmp_resume(hba);
-diff --git a/drivers/ufs/host/ufs-exynos.h b/drivers/ufs/host/ufs-exynos.h
-index abe7e472759e..683b9150e2ba 100644
---- a/drivers/ufs/host/ufs-exynos.h
-+++ b/drivers/ufs/host/ufs-exynos.h
-@@ -227,6 +227,7 @@ struct exynos_ufs {
- 	int avail_ln_rx;
- 	int avail_ln_tx;
- 	int rx_sel_idx;
-+	bool phy_powered_on;
- 	struct ufs_pa_layer_attr dev_req_params;
- 	struct ufs_phy_time_cfg t_cfg;
- 	ktime_t entry_hibern8_t;
-diff --git a/include/linux/phy/phy.h b/include/linux/phy/phy.h
-index ea47975e288a..01af84f97608 100644
---- a/include/linux/phy/phy.h
-+++ b/include/linux/phy/phy.h
-@@ -93,6 +93,7 @@ union phy_configure_opts {
-  * @reset: resetting the phy
-  * @calibrate: calibrate the phy
-  * @notify_phystate: notify and configure the phy for a particular state
-+ * @request_bus_width: request a different bus width for the phy
-  * @release: ops to be performed while the consumer relinquishes the PHY
-  * @owner: the module owner containing the ops
-  */
-@@ -143,6 +144,7 @@ struct phy_ops {
- 	int	(*disconnect)(struct phy *phy, int port);
- 
- 	int	(*notify_phystate)(struct phy *phy, union phy_notify state);
-+	int	(*request_bus_width)(struct phy *phy, int bus_width);
- 	void	(*release)(struct phy *phy);
- 	struct module *owner;
- };
-@@ -275,6 +277,7 @@ static inline void phy_set_bus_width(struct phy *phy, int bus_width)
- {
- 	phy->attrs.bus_width = bus_width;
- }
-+int phy_request_bus_width(struct phy *phy, int bus_width);
- struct phy *phy_get(struct device *dev, const char *string);
- struct phy *devm_phy_get(struct device *dev, const char *string);
- struct phy *devm_phy_optional_get(struct device *dev, const char *string);
-@@ -456,6 +459,14 @@ static inline void phy_set_bus_width(struct phy *phy, int bus_width)
- 	return;
- }
- 
-+static inline int phy_request_bus_width(struct phy *phy, int bus_width)
-+{
-+	if (!phy)
-+		return 0;
-+
-+	return -ENOSYS;
-+}
-+
- static inline struct phy *phy_get(struct device *dev, const char *string)
- {
- 	return ERR_PTR(-ENOSYS);
 -- 
 2.34.1
 
