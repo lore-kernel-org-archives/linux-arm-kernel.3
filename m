@@ -4,68 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55603CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:01:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD2E7FF8855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:02:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=Ap24xGx6zxA8VKgZBuv887OXFLFrVuQrrf5tJdD+90I=; b=xUPAx5qNcfWhCLwP3dYdKt4cs2
-	3VsJP3u3pgeIYeQgCsk1qREqhofsEcnbB/lak6cvoSeaQqvgZq0+uzn7GvCZSbGj7trY1noAwwWtn
-	57cz5zwWAnPWzKzzMNsKz0HIV8hBqclmSc0gnN11SEHTshkkDdIbxfL+CF0QIg/VwJ2TEg4lo4vNi
-	lhVMQbJPupclBHei0Uy73wFi2Rb23ELjPboHFjZX+M6IBi5GMTZ+j2HUqHqmB5jo0R3ArdWxxmJL6
-	wDh+9hzNGYWei17NSAMwJJABsbveRaN2qMc7nWnzV/QUmoN39sn9GmPdOWfr/CV4wcy366GRoF/JJ
-	sFOYMVMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2wLsw9nGyw43qdgk/7w4u2+YPwhp18IN4nTEToE9F3Y=; b=jMhj0SfJWAhTmve9qQFL8okFHb
+	LYohrUSjSU9jwPOyEy1Ir+m8woh/cq4YjjDdR16gGwoM6eXkpVb2T/ZnfftUSsl73hni1Zdt9jxkY
+	HbveUk2/gze3O5Y87jZ5KnVyG7iWQylZcOTu57tirTi1SYmpke1iAYcv5G2k9vfGdJoXrZNZl315F
+	oYRptZekUJkjkuzieNrNa4hLYjFsPxefxLZBOm5bZjXrUfjIZrJ8qPA0ZNRdL1uM09awPLZln+TvP
+	LrDU96OOJArRJF2pSnBHnylJpVElynKO3jGrrDygQkdOK2U+txrhyHN3x/4EAS9qM1lo89dafTBCb
+	M+YJDLeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKIDV-0000000GlS9-0VQw;
-	Tue, 05 May 2026 16:01:49 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wKIEF-0000000Glb3-0gF3;
+	Tue, 05 May 2026 16:02:35 +0000
+Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKIDS-0000000GlR4-3Bc2;
-	Tue, 05 May 2026 16:01:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 28D98433A2;
-	Tue,  5 May 2026 16:01:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0BB4C2BCF4;
-	Tue,  5 May 2026 16:01:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777996906;
-	bh=p03k4D7H3+p+mJwOfE/Zl7so2RTgEEY6I1N4cF+8F/I=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=LYUk/HeiyCh3Axvju0g5M3iFuATMdDMABJYBK/9siHV3UswdFQSjbhyXI9BmUBuyo
-	 1ejGGgrd25HrVCei3j8RaIs+C9Gg7cNKDlvS/4zQvOGrshy5FfVDHQLVYKe7TSfoiS
-	 oquGN8LvY75h687/RQjnHWFKBJP4sVHv/kcuT0FexdIXVVlZd0XuiE4tAFqI0O9mIN
-	 frigDgaT9VPqG59nIhKSVgtUlaEprpjXZF3QQXr1sW5FtFjDbqjrG0QDLATiABuDYU
-	 NTjTHA/wk8cf9yzuXNjjsYGbBj0GVfdfYSslIYGbjHfkoBF8bFpYpdw2vkzmSb3v5M
-	 JE6G5DCjsmMnA==
-Date: Tue, 5 May 2026 11:01:44 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Hans Zhang <18255117159@163.com>, linux-pci@vger.kernel.org,
-	Dom Cobley <popcornmix@gmail.com>,
-	Phil Elwell <phil@raspberrypi.com>,
-	Jim Quinlan <jim2101024@gmail.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] PCI: brcmstb: Assign pcie->gen from pcie_get_link_speed()
-Message-ID: <20260505160144.GA732689@bhelgaas>
+	id 1wKIEC-0000000GlZY-1s9T
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 05 May 2026 16:02:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
+	bh=2wLsw9nGyw43qdgk/7w4u2+YPwhp18IN4nTEToE9F3Y=; b=FB2KVSMqpbICkJnzCRWeGNbgng
+	ZvX6EP4GNEyiNzKh/qHDCA1ipaWNbObphRvLdNOPcTi3UMjKLVQhrOLVQHha6wgSR3vaa3YP+XIit
+	F3awJeA9pq7MHxi8BL/1afC7kIeLuBl0WrdlGk7Bkg02tlCnxBReqMxGJPN34eI4oAteEUcTIMte1
+	MDBYJiMMgRex+foKnhJIHSbOlpmiMRkImwSvO95U/erbDy+rUTByASJJfW8ZuGNTY883/uYQoB04p
+	U/4awfxXJA6HZ4MF62rPRMZEzJ0/L9OVbA/6xdpdx81oZ3RMuXFHjOuxNGAju7wXkxfQKjNPRdFns
+	gnM814pA==;
+Received: from authenticated user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.96)
+	(envelope-from <leitao@debian.org>)
+	id 1wKIE6-002vJ4-2r;
+	Tue, 05 May 2026 16:02:27 +0000
+From: Breno Leitao <leitao@debian.org>
+Date: Tue, 05 May 2026 09:02:13 -0700
+Subject: [PATCH] arm64/fpsimd: ptrace: zero target's fpsimd_state, not the
+ tracer's
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <631c8f3f-3d38-42e0-b89a-64281d269bfd@broadcom.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260505-fix_ptrace-v1-1-36ac1f6d0bfb@debian.org>
+X-B4-Tracking: v=1; b=H4sIAIUU+mkC/yXMQQqDMBAF0KsMf20gChGSq0gpcZzYcWElsRIQ7
+ 15sl2/zThTJKgWBTmQ5tOh7RaC2IfArrrMYnRAIne1666wzSetz23NkMe3IcXLesfWChrBlSVp
+ /2fD4u3zGRXi/B1zXF78XopVuAAAA
+X-Change-ID: 20260505-fix_ptrace-1bcad595c09e
+To: Oleg Nesterov <oleg@redhat.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ kernel-team@meta.com, Breno Leitao <leitao@debian.org>
+X-Mailer: b4 0.16-dev-453a6
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2116; i=leitao@debian.org;
+ h=from:subject:message-id; bh=IUePtTvQ2uwrE6aC1G7IWe8HsA67uQUPK38IVnbXGkQ=;
+ b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBp+hSO7GZIc4/Lkdia4lLzVLAru8vqS+wiBEY0r
+ flINyBU37eJAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCafoUjgAKCRA1o5Of/Hh3
+ bXrfD/4v9pniIS+MUjOPPhAPYVwngnhfpi6cdZCo2aJA22+Tbnm+lf0KjJCkolNPJ9P4Eqbqqbc
+ OESHJljjd21SrorgJ2vLXevuzCFQC3CM/+h3y/Da3dpDEcom05rQPvDfQSvnotYSWo3MAIPRj3U
+ tRIBCqJLYakhLeTLMn5/bJ2aOyHUTLJoolOZXqeSF/sblfo9rFw1b7GQ71JfBJJ96qqTIAB4H+W
+ QI49HCHVfUcllHfDBPM4gjdSulJUfpSal18SlRTBEl1jvYyJEzPIvwh7yw+Uv6bGIWKMP2jGJzv
+ vc//Vb5FrfvsGJRfPcu3iuA2MAYybE8U9LYbtKy7zC+/b0F76zqI0TyG8lVCNzIBGrbKn4zRU+L
+ sMZYh5WJjCm3YZQtF8rETRzYTU+tWjYbggRts+3Dhi92sgGJgvZQyuZvdbKmHCtEZ59+NU+btpT
+ FbS4YwKJ6AWfbHCW2TnkcREGSyiMDxVSONOFundB7XGhbGDdthuHTW8sHMF9emuCZk6dRxRTY88
+ DkapqO983BzOV6fcAbeEewN7DzYgXPdTREeFGMsYVZUBPbdpOSo1F1ZNVFm78GIMn49lJhBFCFE
+ wHjJ/cJ4azaLZE9WAvQKNOz+p5U9Bdtk0RhLS/IN97+8OaoRtUTuQfETd1Cgb2Nn0YrWVtJUKLI
+ ahFpCFMTTNt9bGg==
+X-Developer-Key: i=leitao@debian.org; a=openpgp;
+ fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
+X-Debian-User: leitao
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_090146_890963_13A79BC4 
-X-CRM114-Status: GOOD (  29.82  )
+X-CRM114-CacheID: sfid-20260505_090232_493932_CA4796F7 
+X-CRM114-Status: GOOD (  12.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,73 +95,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 04, 2026 at 04:46:03PM -0700, Florian Fainelli wrote:
-> On 5/4/26 10:26, Hans Zhang wrote:
-> > On 5/5/26 00:58, Florian Fainelli wrote:
-> > > On 5/2/26 04:40, Bjorn Helgaas wrote:
-> > > > On Fri, May 01, 2026 at 01:24:38PM -0700, Florian Fainelli wrote:
-> > > > > After commit 03f920936977 ("PCI: controller: Validate max-link-speed"),
-> > > > > pcie->gen stopped being assigned and as a result the established PCIe
-> > > > > link would stop supporting Gen3 speeds on 2712 since pcie->gen is used
-> > > > > to populate LnkCntl2 and LnkCap in brcm_pcie_set_gen().
-> > > > > 
-> > > > > Link: https://github.com/raspberrypi/linux/issues/7343
-> > > > > Reported-by: Dom Cobley <popcornmix@gmail.com>
-> > > > > Reported-by: Phil Elwell <phil@raspberrypi.com>
-> > > > > Fixes: 03f920936977 ("PCI: controller: Validate max-link-speed")
-> > > > > Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
-> > > > > ---
-> > > > >   drivers/pci/controller/pcie-brcmstb.c | 3 +--
-> > > > >   1 file changed, 1 insertion(+), 2 deletions(-)
-> > > > > 
-> > > > > diff --git a/drivers/pci/controller/pcie-brcmstb.c
-> > > > > b/drivers/pci/ controller/pcie-brcmstb.c
-> > > > > index 714bcab97b60..6138fc4bc064 100644
-> > > > > --- a/drivers/pci/controller/pcie-brcmstb.c
-> > > > > +++ b/drivers/pci/controller/pcie-brcmstb.c
-> > > > > @@ -2072,8 +2072,7 @@ static int brcm_pcie_probe(struct
-> > > > > platform_device *pdev)
-> > > > >           return PTR_ERR(pcie->clk);
-> > > > >       ret = of_pci_get_max_link_speed(np);
-> > > > > -    if (pcie_get_link_speed(ret) == PCI_SPEED_UNKNOWN)
-> > > > > -        pcie->gen = 0;
-> > > > > +    pcie->gen = pcie_get_link_speed(ret);
-> > > > 
-> > > > Take a look at https://sashiko.dev/#/
-> > > > patchset/20260501202438.376033-1-
-> > > > florian.fainelli%40broadcom.com
-> > > > 
-> > > > The notes at https://github.com/raspberrypi/linux/issues/7343 assumed
-> > > > PCI_SPEED_UNKNOWN was 0, but in fact it is 0xff, which means you might
-> > > > want the more defensive patch instead.
-> > > > 
-> > > > I'll be happy to replace what's on pci/for-linus if so.
-> > > 
-> > > I am starting to think a revert is the simplest path forward, it's
-> > > not clear what pcie_get_link_speed() brings to the table honestly.
-> > 
-> > The pcie_get_link_speed function is designed to prevent other Root Port
-> > drivers from accessing the array pcie_link_speed out of bounds.
-> 
-> Yes, so that's useful in the first hunk of your commit where we were
-> printing the link speed without checking that the 'max-link-speed' would be
-> bounds check, however it is not really useful for assigning to pcie->gen in
-> our case, so I would prefer the second option:
-> 
->           ret = of_pci_get_max_link_speed(np);
->  -       if (pcie_get_link_speed(ret) == PCI_SPEED_UNKNOWN)
->  -               pcie->gen = 0;
->  +       pcie->gen = (ret < 0) ? 0 : ret;
+sve_set_common() is the backend for PTRACE_SETREGSET(NT_ARM_SVE) and
+PTRACE_SETREGSET(NT_ARM_SSVE). Every write in the function operates on
+the tracee (target) - except a single memset that uses current instead,
+zeroing the tracer's saved V0-V31 / FPSR / FPCR shadow on every ptrace
+SETREGSET call.
 
-The point of this validation is to make sure we don't program the
-brcmstb hardware with something it doesn't support.
+The memset is meant to give the tracee a defined zero register image
+before the user-supplied payload is copied in (for partial writes,
+header-only writes, and FPSIMD<->SVE format switches). Aiming it at
+current both denies the tracee that clean slate and silently corrupts
+the tracer.
 
-of_pci_get_max_link_speed() only returns an error (ret < 0) if DT
-didn't contain a 'max-link-speed' property.  That doesn't tell us
-anything about what brcmstb devices support.
+Due to FPSIMD lazy save/restore the wipe only takes effect when the
+tracer's CPU FPSIMD binding is dropped after the memset; the next
+return to userspace then reloads V0-V31, FPSR and FPCR as zero. No
+signal is raised and ptrace() returns success.
 
-I think this test should be something like what advk_pcie_probe() or
-rockchip_pcie_parse_dt() do.  If of_pci_get_max_link_speed() fails or
-returns something not supported by the hardware, they default to the
-fastest speed known to be supported.
+Reproducible on an arm64 kernel with SVE: a single-threaded tracer that
+loads a known pattern into V0-V31, issues PTRACE_SETREGSET(NT_ARM_SVE)
+on a child, and reads V0-V31 back observes them all zeroed within tens
+of thousands of iterations when a sibling thread keeps stealing the
+FPSIMD CPU binding.
+
+Fixes: 316283f276eb ("arm64/fpsimd: ptrace: Consistently handle partial writes to NT_ARM_(S)SVE")
+Signed-off-by: Breno Leitao <leitao@debian.org>
+---
+ arch/arm64/kernel/ptrace.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
+index ba5eab23fd900..4d08598e2891d 100644
+--- a/arch/arm64/kernel/ptrace.c
++++ b/arch/arm64/kernel/ptrace.c
+@@ -983,8 +983,8 @@ static int sve_set_common(struct task_struct *target,
+ 	}
+ 
+ 	/* Always zero V regs, FPSR, and FPCR */
+-	memset(&current->thread.uw.fpsimd_state, 0,
+-	       sizeof(current->thread.uw.fpsimd_state));
++	memset(&target->thread.uw.fpsimd_state, 0,
++	       sizeof(target->thread.uw.fpsimd_state));
+ 
+ 	/* Registers: FPSIMD-only case */
+ 
+
+---
+base-commit: 9d0d467c3572e93c5faa2e5906a8bbcd70b24efd
+change-id: 20260505-fix_ptrace-1bcad595c09e
+
+Best regards,
+--  
+Breno Leitao <leitao@debian.org>
+
 
