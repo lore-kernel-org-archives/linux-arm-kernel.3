@@ -4,114 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52B64FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 10:27:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01AACFF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 10:28:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nd4ZcYSmdEtBrbYBc5EdvBORdOz6BQRpz7hjMzcloAs=; b=pW+uL/pR5Fz5FeN1mHwuhWyu4I
-	feduM5TC3rVUic6HZfW5fDG80FZHViTj9dJke93XUGAHpgLyf7KUWZ0H3qbZvKau80jnvfxate0QH
-	VQ10/WjDJCmTKo58mV1rYnE5+oAgApoPNDQuiyxclqD0FwEEy6Jg55K4Si/l0QufE744gT0s5Dsy2
-	yD37O3imdM3VYRs1TzIfDWhai1/Izs9+yAw524RWPufNVD5CvCOQmjdUKScfGH/xzVExVQva5eIZt
-	MblJWsRXcttjaBXZO21N1ALOPXYnQ2OG3B92sFR1ZiRJsn+q8r3jpJG5tZO82fSYCkFGOIyIVuLq6
-	Oj4XWp9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=U5kZwARyzl50XHwnIIgnTM4EUs3/eZVvYSCUYEqXM1o=; b=3iG0Gve9oDPZMQZJxSN6BZX24v
+	HObc+50uFtPMKdrf6t2oQhYhzOEhx/NhjVwJs/b2iR+jlLZIM2UgN1IlVgG7G90Jvc7G6pmTmyjeC
+	AYO99RO45oyV/qDeljiWD+dtS23UgRMweUJ6nIcEihWdORQk6DBRl92Cw5f8QKqM5tkv55A9JZb7c
+	gjAANo0hBc8rCYalPOycOcb8J9CVXkiPlNt1jo+04lfnLE/Wfajfpzmn0TvBoWDZDvbp0jTSuU7KP
+	eB4o/RLbuq+pJpW9Xp1AID0nG/4ykEFdC6912rUBPcdkHBlUDIxu5G1b2oGoIs05L0lCV5A1WANBF
+	amSwiDgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKCzr-0000000Fsxy-0R1R;
-	Tue, 05 May 2026 10:27:23 +0000
+	id 1wKD0s-0000000FtDD-0cH5;
+	Tue, 05 May 2026 10:28:26 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKCzp-0000000FsxM-0Eyv;
-	Tue, 05 May 2026 10:27:21 +0000
+	id 1wKD0q-0000000FtCN-1iSt
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 05 May 2026 10:28:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=nd4ZcYSmdEtBrbYBc5EdvBORdOz6BQRpz7hjMzcloAs=; b=HsyIL3lQoznLZgmis69oRbE5et
-	WRgTZBKiyc1DOrSr62CA8JHwwHa9po4C2OkPXYj1lXlkvOMMbfy0CI6fjbVrhwvDJEef24Mtbe3m4
-	aCrMEpFj8I/jtpAh+zIX03YbUxcnPx8cYjswbOplPYiZKWJqwAYHL2rPNzYnkMN9TiR8LlF6rjXSi
-	cD7wJRyZTJNE5ZVnRGtWYZXhsq7C0aLiHjbDx0Nw+TGripjY/f+KpOfm2M3r+qQrYoaQ0TteofgC1
-	diULtkDICqz3zt5r9LQ3oIC/jXPq2sgnCTyv0MWl/7M2FOJj139Yxirn9u65NsN+zhILHzVcc/oAn
-	CRHo6O/w==;
-Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=U5kZwARyzl50XHwnIIgnTM4EUs3/eZVvYSCUYEqXM1o=; b=CYk6XWtCCq0bfCSxWE04gj8jMp
+	Ueyj+y10/M4e5jRwgyZZgEbFhC4hwjKi6Q7lXeGw11Lh79tQZrN9LD88meWvkaaaXcPtjEpIhF7Pc
+	VzOmqUddfxvsrOm7fQg8hoG6op53keNiFpSq2mue0tYhOtykQ8Gf0h3cJ4ZBmlxvO1+F5pOODt/3a
+	fp9RSuFx2rE0LEEUhaLwnnCkclNcn0kY+exnHqpvuA/dx90LbnnSJ6B1d0k/ic6Q4I/UJM6IIHDgz
+	rDb6x7cT45sKqVAd1oAh2czWrT2XhBiPuuvzuYQ2R7YZJF6m+ngRI0kOHnvbGgzjoeHCAXlXhUtZI
+	xPF72ROQ==;
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKCzl-0000000DByX-1wsy;
-	Tue, 05 May 2026 10:27:19 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 645AQbyP61150973, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1777976797; bh=nd4ZcYSmdEtBrbYBc5EdvBORdOz6BQRpz7hjMzcloAs=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=KRUPH5AmyvR3Ywi2gVAXXKSJKUY1dbABEKalo9995UmQmFI3BknwOuxt4gqAgVM67
-	 09gzw4NaRay1M6Ev6gX10ZGvXQG8xsPoA6W+yVlfnxw1AiKOeGF/HQb896TiJ0hfeK
-	 YpUIhHSygWZ9XCh6J/O5MBVfbZP3wTyScU1hSpTlGJxKu0eNVTmnqRZKSY2FjXk4qR
-	 o8BZkbgrwzO0kFbNPK61+3MbgqzJ/NOmVqrjieJ2/Arv/mSsnAtJJr9c3F0BvtK9/u
-	 4Dr3QEYG/8HRT+N5uzhw/FpSscWM+Ug9oj+QM5IVQCdJxDjY8rl16q69102056mwGU
-	 9+rQJ+E78ZQkg==
-Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
-	by rtits2.realtek.com.tw (8.15.2/3.27/5.94) with ESMTPS id 645AQbyP61150973
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 5 May 2026 18:26:37 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Tue, 5 May 2026 18:26:36 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([fe80::ed72:3015:2840:4458]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::ed72:3015:2840:4458%10]) with mapi id
- 15.02.1748.010; Tue, 5 May 2026 18:26:36 +0800
-From: =?big5?B?WXUtQ2h1biBMaW4gW6pMr6enZ10=?= <eleanor.lin@realtek.com>
-To: Michael Walle <mwalle@kernel.org>, Linus Walleij <linusw@kernel.org>
-CC: Bartosz Golaszewski <brgl@kernel.org>,
-        "linux-gpio@vger.kernel.org"
-	<linux-gpio@vger.kernel.org>,
-        "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>,
-        "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>,
-        "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-        "linux-realtek-soc@lists.infradead.org"
-	<linux-realtek-soc@lists.infradead.org>,
-        =?big5?B?Q1lfSHVhbmdbtsDgsq7LXQ==?=
-	<cy.huang@realtek.com>,
-        =?big5?B?U3RhbmxleSBDaGFuZ1up96h8vHdd?=
-	<stanley_chang@realtek.com>,
-        =?big5?B?SmFtZXMgVGFpIFvAuafTrnBd?=
-	<james.tai@realtek.com>,
-        "robh@kernel.org" <robh@kernel.org>,
-        "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-        "conor+dt@kernel.org"
-	<conor+dt@kernel.org>,
-        "afaerber@suse.com" <afaerber@suse.com>,
-        =?big5?B?VFlfQ2hhbmdbsWmkbLZoXQ==?= <tychang@realtek.com>
-Subject: RE: [PATCH v2 3/4] gpio: realtek: Add driver for Realtek DHC RTD1625
- SoC
-Thread-Topic: [PATCH v2 3/4] gpio: realtek: Add driver for Realtek DHC RTD1625
- SoC
-Thread-Index: AQHcxwLHJ5/eWVH9pU2ZY37QYpQGurXUP0uAgAPMV8CADmSzAIAAqFqAgBBo1aD//5D9AIAIUqFA
-Date: Tue, 5 May 2026 10:26:36 +0000
-Message-ID: <3f9aa7a00a384511bf12d5b420c98e85@realtek.com>
-References: <20260408025243.1155482-1-eleanor.lin@realtek.com>
- <20260408025243.1155482-4-eleanor.lin@realtek.com>
- <CAMRc=MfUh_OuxS4SC6QzSOg_PMNc9i9crGYgBASrbVUgHDHSCw@mail.gmail.com>
- <52bf9ce2b7754af8af69b0afee0d07b2@realtek.com>
- <CAD++jLkpS-T9yK=ctSwpLvXkj7s7ivmwu1KKwzy4KS40LVYeyA@mail.gmail.com>
- <DHXSUW3NJU22.1RUYUHQZSZ53S@kernel.org>
- <b73f34ec55984a33b0172e2ac3a28e04@realtek.com>
- <DI6G6LSE68E9.1PHS6K9083JJ9@kernel.org>
-In-Reply-To: <DI6G6LSE68E9.1PHS6K9083JJ9@kernel.org>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-x-originating-ip: [172.21.6.42]
-Content-Type: text/plain; charset="big5"
-Content-Transfer-Encoding: base64
+	id 1wKD0n-0000000DCDa-0u59
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 05 May 2026 10:28:23 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6459VRjd2859177
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 5 May 2026 10:28:18 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=U5kZwARyzl50XHwnIIgnTM4EUs3/eZVvYSC
+	UYEqXM1o=; b=bNvpU9mvouLG/7dPG9Ma7uCaJFIPu/2iXuOdUgE9938x9791Y81
+	Du5g4RPzNfZ3Wkg2ReINzGoTrhSFh9HGPEMZmrjC47mxJsjN4d1pgWIG3jFTfxpc
+	0aA5UBk639Muu/pzr89RfUX4jeHtcnuUJGVVP4Ko2ALRJjKEeL/WsiKZMr83X2AM
+	1H68bNoYHl4twkt4xCQUv3DX32dCBJ3J8WGrhuK4uhAtMH3m21eHA2pb43NXiGis
+	sGQ/E+BnopElT/e2PJrfpK7gzC/Lc8bm3Yy16HfzEn+nrGN02WBWUt4iPC+E/l6c
+	EigN3JXycdkUML1kMAucJwtyVCMne9WPkbQ==
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dye0ag81v-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 10:28:17 +0000 (GMT)
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-50fbc70cfbdso125335161cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 03:28:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1777976897; x=1778581697; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=U5kZwARyzl50XHwnIIgnTM4EUs3/eZVvYSCUYEqXM1o=;
+        b=GSB71UslzrMsWHfEa2N8k3ZjM3HRhnT155hLl9d9udHfmrJRlTpubdvmXTu90UAXko
+         RvMkRpC4rxTIWhgJv+qWS0NKOFLEvV1uLxzi5y32A/m9ouX6gWx9w+yKxQBdNZIqRkbM
+         Ox5IQjsCip26V415Dk9fZolL182PPgVq/fTvEHRxAOLrZhAmGpa+rK+J9SDpJ1X8AYQ2
+         RrfhAXS8xJqGT1JIJ8JoAxEiX+VewzQidkSsbaA9w2w/GqWClcybrWwyfogbxVwpeBLZ
+         pNtZ6Tp/MlbU/7Tgaou1TNzz2/RO7p/GM2LNhqPuaowrH1fXJ+sA24dSLNFuhdASSgGO
+         IK6Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777976897; x=1778581697;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=U5kZwARyzl50XHwnIIgnTM4EUs3/eZVvYSCUYEqXM1o=;
+        b=DNCSCOk3w6bRGZ9jJGpFbYmPE5HuBOqtKEFxy3yltVqfQsII3KvcVL3Hp7jfWMSxsa
+         kRmVWNeSJ6PyQaGkKON72SxKJKwbP6j0+OTfgbPbvJTE8zJDD5Q2gB2IbEjtaWXt1er9
+         tCBiT+S+1fNObm+tYbhAA511VmFJaaALsxXpYpqpp/sn887G4eEBmDmbrVKIeK/tsIiz
+         sXBLUpOKmEV5dEg55QC7LZ+QPyGQiQtV9jvsQ6aVRZZIuChhrqlpsWhQTufiNxv4Xnr/
+         3PsCg4yL6t6KBsbdC64G2QLkc4tJtpgRRb/z6ki77sMQecJRom8IkZuO99apbjO4D9BJ
+         skDQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8YFsxgbEGp/HvJ19gvPb9ZfY+tONcYrvH+2S1IUkNBfglRfwxX/PDhYOUi7TJ6Z4PH5KSnZfXhlDNzyT34/oRM@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzd/2C04I75UkQZf2VnnRObM8FI7yhLQPqivP3LUbWdE7HkDXSu
+	2VisA5SQbZDXz7ZTeaRnlW5ntho5KLW92957cIc2i4dAoqvtXZ2TFv2fL38O/5o14DoLwcTHDq9
+	/dhcu70q50BBKChdk2o7nqRSW1HkY5UioUGwmo+sEwboQp9gmSeBCuC6PM2vOprjtlzjcVOmPHq
+	3wfQ==
+X-Gm-Gg: AeBDieu5Wtn6dIj0KGaYL4rvKEYFPXGLRyJzrMlF4sEziiP4D2HqTW8pR6pSN2babxD
+	3cKrBAoWWV1R+Bhb1H4sA/KCqi2aZpjCRupaXfWK2iQXCvsJE6stHSYS9hJDyu2MbTBj5NB5Bmm
+	Yp07K1OgKYrngVQkYhlPjBqWpa0FWjR+c9SIpYJ+O9tWHivaRKNsJ/7T+F7TYjYfpvVKgYTw2Yn
+	n8fMlsyDEIn6jO+tAOI9S1Lgrp/B/qCqVISt1W68fxntBsBVrx7fYUP9rLRW/AbyXe3SDfDlWly
+	N00FPZo0JU2bUU4gsQA4DRu/rE6JtDtqDuKcu8gxDb9c/pwiiJvFrGGbnUf413LGJfbAmFGgHza
+	r/RKpMAfReY/9nTQOsVWRcGkI97onr+EEF9dy2E38mdUayZQ=
+X-Received: by 2002:a05:622a:2304:b0:50b:86f5:8fbc with SMTP id d75a77b69052e-5104c034745mr195431221cf.51.1777976896995;
+        Tue, 05 May 2026 03:28:16 -0700 (PDT)
+X-Received: by 2002:a05:622a:2304:b0:50b:86f5:8fbc with SMTP id d75a77b69052e-5104c034745mr195430191cf.51.1777976895389;
+        Tue, 05 May 2026 03:28:15 -0700 (PDT)
+Received: from quoll ([178.197.219.94])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48af0d5a613sm140661845e9.2.2026.05.05.03.28.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 05 May 2026 03:28:14 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+        Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+        Heiko Stuebner <heiko@sntech.de>,
+        Nicolas Frattaroli <frattaroli.nicolas@gmail.com>,
+        Thierry Reding <thierry.reding@kernel.org>,
+        Jonathan Hunter <jonathanh@nvidia.com>, linux-sound@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org,
+        linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-tegra@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH 1/2] ASoC: tegra: Move MODULE_DEVICE_TABLE next to the table itself
+Date: Tue,  5 May 2026 12:28:04 +0200
+Message-ID: <20260505102803.183455-3-krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4190; i=krzysztof.kozlowski@oss.qualcomm.com;
+ h=from:subject; bh=XVPD+W616R8y/3NolQ5AG12OfNJrpdVU9osOz5k7zUo=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBp+cYzGhX9vBzZinmPzQmxC1YRTCLeIfGMsAgSQ
+ CuPZALwv+CJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCafnGMwAKCRDBN2bmhouD
+ 1yB6D/sG86we9BBj1y7ZakpR857UpaCg961KT4yS8rXNLZX8PwEQXk1kmGhbypYl5BwQLlQo/Nd
+ xoKUC/YSn80w71teMhyUrBS8rCS4kZiQFg5+G9pnBwL13hf5YaOhUYecI9MZ7b57uAOl0LnMJLs
+ NyxFCmCvy+kTl7UpLdBQ3JG4brPkyHR8tQWagBP2/mGabQa4KJLVNRBAmX6xbVbFBY7ZGX9R661
+ qBJQxTlJHJ/QoFydP/OznA/LVedghRIwfqpdgpDNR3du+f9QhtxCMaW4R4ymNcuaH52P8i+cI5Q
+ eXit2jRzGBujRnlIyuiuvaEMBtIH7Uw8i+EQVXIfKSDk9DAm/zNixUG3sJlmHtNDtd1rS08d2zX
+ KEgKpyhq9s+7TJHW12o2uhBoX3FsIsweIB1fxg7JCY26o4+h8GGMacRCgCUti7pQnGCEaW3vOx1
+ aksHBOQDd5PyVz4he02viSTqsh+o/bYXUZx/UsLqOeMg9gGPK04AMV/8peJQvzH9r2e+wIn9fLP
+ 7i2aaawOY8edXRtDDN6HOIvS02iuRfrGwvil99v7wBKtSZ3wr59gM/Yldzv1PDUveEbthbW9NCf
+ OUk3j4NAHxAnEyMNnLvxq/OaZOQyPKzFKMjEAyvOUovISkjAM9UTJZqrgqqMubD4Z+pusUCb4EY mq1MJkn0mN96ntA==
+X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA1MDA5NyBTYWx0ZWRfX25gpJa3E2/r0
+ iNjVcBXWhutmFOsqj7JOPzL9vaTKMlerVORJPq7NhDG2i/ABzUtBftFfq7VHoMhTXb4sd4S3Ai3
+ X+8vlMw2X2yzjAmyVn7LyJ5a1v7S+hGuQBibrybAu/zFFrxIh7AJ3YjDumjb2ii/duVkXYp8rrg
+ BAcxJHqgls1z4UeBOBbDQ95vQh9ARowJgxVWCeAzKJVW4sb2lRPDLynNETosZGU9oGIJu7aQfFs
+ 3VXslKpZVFKla+ftoaTTaaJp2s4yEfL9iIgJBP08Du3HeNCMqvMpofKQbxm2xanz5F0nHubhr1Q
+ wjYv14tbXTqPImAj/Gn8HVeE31hhWnYdy5ORyMFtS9BJmFfY+92MHEifPfx/aHeZjWUhTT52AvU
+ V+DJdB+KQSzIEP0kN3PQbzhQRAGQlQnNywWd4DboWEWFx5PXrlWL6lzuPw+ZxYC/I6WJzjXBYtd
+ LxsLZzwGcfzLmn5n5NA==
+X-Authority-Analysis: v=2.4 cv=Wtkb99fv c=1 sm=1 tr=0 ts=69f9c641 cx=c_pps
+ a=WeENfcodrlLV9YRTxbY/uA==:117 a=gOEeR9iKwsj33Yj5oN/cWg==:17
+ a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22 a=EUspDBNiAAAA:8
+ a=Ikd4Dj_1AAAA:8 a=jFLt6X_-GGHsf4P6n_8A:9 a=kacYvNCVWA4VmyqE58fU:22
+X-Proofpoint-GUID: 7BFA8C5XIcy58c_C7t5-Y2PbZYrkNgFu
+X-Proofpoint-ORIG-GUID: 7BFA8C5XIcy58c_C7t5-Y2PbZYrkNgFu
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-05_02,2026-04-30_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 priorityscore=1501 lowpriorityscore=0 phishscore=0
+ malwarescore=0 spamscore=0 bulkscore=0 adultscore=0 clxscore=1015
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
+ definitions=main-2605050097
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_112718_141516_820AA5EE 
-X-CRM114-Status: GOOD (  27.40  )
+X-CRM114-CacheID: sfid-20260505_112821_528551_DF3387A1 
+X-CRM114-Status: GOOD (  18.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,41 +174,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiBIaSwNCj4NCj4gT24gVGh1IEFwciAzMCwgMjAyNiBhdCAxMTo1OCBBTSBDRVNULCBZdS1DaHVu
-IExpbiBbqkyvp6dnXSB3cm90ZToNCj4gPj4gPj4gMy4gSGFyZHdhcmUgRGVib3VuY2U6IFdlIGFs
-c28gbmVlZCB0byBzdXBwb3J0IGhhcmR3YXJlIGRlYm91bmNlIA0KPiA+PiA+PiBzZXR0aW5ncyBw
-ZXIgcGluLCB3aGljaCByZXF1aXJlcyBjdXN0b20gY29uZmlndXJhdGlvbiB2aWEgDQo+ID4+ID4+
-IHNldF9jb25maWcgbWFwcGVkIHRvIHRoZXNlIHNwZWNpZmljIHBlci1waW4gcmVnaXN0ZXJzLg0K
-PiA+PiA+DQo+ID4+ID4gSnVzdCBhZGQgYSB2ZXJzaW9uIG9mIGFuIG9wdGlvbmFsIC5zZXRfY29u
-ZmlnKCkgY2FsbCB0byANCj4gPj4gPiBncGlvLXJlZ21hcC5jIHRvIGhhbmRsZSB0aGlzIHVzaW5n
-IC5yZWdfbWFza194bGF0ZSgpIHBlciBhYm92ZSBhbmQgDQo+ID4+ID4gYWRkIGEgbmV3IEdQSU9f
-UkVHTUFQX0NPTkZJR19PUCB0byB0aGUgYWJvdmUgZW51bSwgcHJvYmxlbSBzb2x2ZWQuDQo+ID4+
-ID4NCj4gPj4gPiBJZiBpdCBzZWVtcyB0b28gaGFyZCBJIGNhbiB3cml0ZSBwYXRjaCAxICYgMiBh
-ZGRpbmcgdGhpcyANCj4gPj4gPiBpbmZyYXN0cnVjdHVyZSBidXQgSSBiZXQgeW91IGNhbiBlYXNp
-bHkgc2VlIHdoYXQgY2FuIGJlIGRvbmUgd2l0aCANCj4gPj4gPiBncGlvLXJlZ21hcC5jIGhlcmUg
-cHJvdmlkZWQgTWljaGFlbCBXIGFwcHJvdmVzIHRoZSBpZGVhLg0KPiA+PiA+DQo+ID4NCj4gPiBP
-dXIgLnNldF9jb25maWcgcmVxdWlyZXMgbWFwcGluZyBzcGVjaWZpYyBkZWJvdW5jZSB0aW1lIHZh
-bHVlcyB0byANCj4gPiBoYXJkd2FyZS1zcGVjaWZpYyBlbnVtcyBhbmQgYXBwbHlpbmcgYSBXcml0
-ZS1FbmFibGUgYml0Lg0KPiA+DQo+ID4gV291bGQgaXQgYmUgYmV0dGVyIHRvIGFsbG93IGRyaXZl
-cnMgdG8gYXNzaWduIGEgY3VzdG9tICcuc2V0X2NvbmZpZycgDQo+ID4gY2FsbGJhY2sgZGlyZWN0
-bHkgd2l0aGluICdzdHJ1Y3QgZ3Bpb19yZWdtYXBfY29uZmlnJz8NCj4NCj4gWWVhaCwgSSBkb24n
-dCB0aGluayB0aGVyZSB3aWxsIGJlIG11Y2ggY29kZSBzaGFyaW5nIG9mIGNvZGUvZnVuY3Rpb25h
-bGl0eQ0KPiBmb3IgdGhlIC5zZXRfY29uZmlnIGNhbGxiYWNrLiBBIGN1c3RvbSAuc2V0X2NvbmZp
-ZyB3YXMgcHJvcG9zZWQgbWFueSB0aW1lcyBpbiB0aGUgcGFzdC4NCj4gDQoNCldpbGwgYWRkIGEg
-bmV3IHBhdGNoIHRvIHN1cHBvcnQgY3VzdG9tIC5zZXRfY29uZmlnLg0KDQo+ID4gQWRkaXRpb25h
-bGx5LCBJIGRpZG4ndCBtZW50aW9uIHRoaXMgaW4gbXkgcHJldmlvdXMgZW1haWwuIHdlIGFsc28g
-bmVlZCANCj4gPiB0byBpbXBsZW1lbnQgR1BJTyBpbnRlcnJ1cHRzLiBPdXIgaGFyZHdhcmUgZGVz
-aWduIGRvZXMgbm90IGZpdCB3ZWxsIA0KPiA+IHdpdGggJ3JlZ21hcF9pcnFfY2hpcCcuIFRoZXJl
-Zm9yZSwgSSBhbSBwbGFubmluZyB0byBjcmVhdGUgb3VyIG93biANCj4gPiAnaXJxZG9tYWluJyBh
-bmQgJ2lycWNoaXAnIG9wcyB0byBoYW5kbGUgb3VyIGNhc2NhZGVkIGludGVycnVwdHMuDQo+ID4N
-Cj4gPiBCZWNhdXNlIG9mIHRoaXMgY3VzdG9tIElSUSBpbXBsZW1lbnRhdGlvbiwgSSB3b3VsZCBu
-ZWVkIHRvIHVzZSAncmVhZGwoKS93cml0ZWwoKScNCj4gPiBmb3IgdGhlIElSUSBjYWxsYmFja3Mg
-aW4gdGhlIHJ0ZDE2MjUgR1BJTyBkcml2ZXIgaW5zdGVhZCBvZiB0aGUgcmVnbWFwIEFQSXMuDQo+
-ID4gRG8geW91IGhhdmUgYW55IHN1Z2dlc3Rpb25zIG9uIGhvdyB0byBoYW5kbGUgdGhpcyBncmFj
-ZWZ1bGx5IHdoaWxlIA0KPiA+IGtlZXBpbmcgaXQgYWxpZ25lZCB3aXRoIHRoZSByZWdtYXAgaW5m
-cmFzdHJ1Y3R1cmU/DQo+DQo+IFdoeSBjYW4ndCB0aGUgTU1JTyByZWdtYXAgYmUgdXNlZCBmb3Ig
-dGhhdD8NCj4NCj4gLW1pY2hhZWwNCg0KSSB3YXMgd29ycmllZCBhYm91dCByZWdtYXAgb3Zlcmhl
-YWQgaW4gYXRvbWljIGNvbnRleHQsIGJ1dCBNTUlPIHJlZ21hcCBzaG91bGQNCmJlIGZpbmUuIEkn
-bGwgY29udmVydCB0aGUgaXJxY2hpcCBjYWxsYmFja3MgdG8gdXNlIHJlZ21hcCBpbiB2My4NCg0K
-QmVzdCBSZWdhcmRzLA0KWXUtQ2h1bg0K
+By convention MODULE_DEVICE_TABLE() immediately follows the ID table it
+exports, because this is easier to read and verify.  It also makes more
+sense since #ifdef for ACPI or OF could hide both of them.
+
+Most of the privers already have this correctly placed, so adjust
+the missing ones.  No functional impact.
+
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+---
+ sound/soc/tegra/tegra20_ac97.c | 2 +-
+ sound/soc/tegra/tegra20_das.c  | 2 +-
+ sound/soc/tegra/tegra20_i2s.c  | 2 +-
+ sound/soc/tegra/tegra30_ahub.c | 2 +-
+ sound/soc/tegra/tegra30_i2s.c  | 2 +-
+ 5 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/sound/soc/tegra/tegra20_ac97.c b/sound/soc/tegra/tegra20_ac97.c
+index 08c58e8f3c22..0df1fc64f532 100644
+--- a/sound/soc/tegra/tegra20_ac97.c
++++ b/sound/soc/tegra/tegra20_ac97.c
+@@ -441,6 +441,7 @@ static const struct of_device_id tegra20_ac97_of_match[] = {
+ 	{ .compatible = "nvidia,tegra20-ac97", },
+ 	{},
+ };
++MODULE_DEVICE_TABLE(of, tegra20_ac97_of_match);
+ 
+ static struct platform_driver tegra20_ac97_driver = {
+ 	.driver = {
+@@ -456,4 +457,3 @@ MODULE_AUTHOR("Lucas Stach");
+ MODULE_DESCRIPTION("Tegra20 AC97 ASoC driver");
+ MODULE_LICENSE("GPL v2");
+ MODULE_ALIAS("platform:" DRV_NAME);
+-MODULE_DEVICE_TABLE(of, tegra20_ac97_of_match);
+diff --git a/sound/soc/tegra/tegra20_das.c b/sound/soc/tegra/tegra20_das.c
+index c620ab0c601f..b48cc4a6967b 100644
+--- a/sound/soc/tegra/tegra20_das.c
++++ b/sound/soc/tegra/tegra20_das.c
+@@ -188,6 +188,7 @@ static const struct of_device_id tegra20_das_of_match[] = {
+ 	{ .compatible = "nvidia,tegra20-das", },
+ 	{},
+ };
++MODULE_DEVICE_TABLE(of, tegra20_das_of_match);
+ 
+ static struct platform_driver tegra20_das_driver = {
+ 	.probe = tegra20_das_probe,
+@@ -202,4 +203,3 @@ MODULE_AUTHOR("Stephen Warren <swarren@nvidia.com>");
+ MODULE_DESCRIPTION("Tegra20 DAS driver");
+ MODULE_LICENSE("GPL");
+ MODULE_ALIAS("platform:" DRV_NAME);
+-MODULE_DEVICE_TABLE(of, tegra20_das_of_match);
+diff --git a/sound/soc/tegra/tegra20_i2s.c b/sound/soc/tegra/tegra20_i2s.c
+index 51df0835ce3e..d9ab210ad69a 100644
+--- a/sound/soc/tegra/tegra20_i2s.c
++++ b/sound/soc/tegra/tegra20_i2s.c
+@@ -485,6 +485,7 @@ static const struct of_device_id tegra20_i2s_of_match[] = {
+ 	{ .compatible = "nvidia,tegra20-i2s", },
+ 	{},
+ };
++MODULE_DEVICE_TABLE(of, tegra20_i2s_of_match);
+ 
+ static const struct dev_pm_ops tegra20_i2s_pm_ops = {
+ 	RUNTIME_PM_OPS(tegra20_i2s_runtime_suspend,
+@@ -507,4 +508,3 @@ MODULE_AUTHOR("Stephen Warren <swarren@nvidia.com>");
+ MODULE_DESCRIPTION("Tegra20 I2S ASoC driver");
+ MODULE_LICENSE("GPL");
+ MODULE_ALIAS("platform:" DRV_NAME);
+-MODULE_DEVICE_TABLE(of, tegra20_i2s_of_match);
+diff --git a/sound/soc/tegra/tegra30_ahub.c b/sound/soc/tegra/tegra30_ahub.c
+index 51e5ab6c276b..ee68f28852c4 100644
+--- a/sound/soc/tegra/tegra30_ahub.c
++++ b/sound/soc/tegra/tegra30_ahub.c
+@@ -509,6 +509,7 @@ static const struct of_device_id tegra30_ahub_of_match[] = {
+ 	{ .compatible = "nvidia,tegra30-ahub",  .data = &soc_data_tegra30 },
+ 	{},
+ };
++MODULE_DEVICE_TABLE(of, tegra30_ahub_of_match);
+ 
+ static int tegra30_ahub_probe(struct platform_device *pdev)
+ {
+@@ -684,4 +685,3 @@ MODULE_AUTHOR("Stephen Warren <swarren@nvidia.com>");
+ MODULE_DESCRIPTION("Tegra30 AHUB driver");
+ MODULE_LICENSE("GPL v2");
+ MODULE_ALIAS("platform:" DRV_NAME);
+-MODULE_DEVICE_TABLE(of, tegra30_ahub_of_match);
+diff --git a/sound/soc/tegra/tegra30_i2s.c b/sound/soc/tegra/tegra30_i2s.c
+index b121af9ef8ed..1d7b3aed51fd 100644
+--- a/sound/soc/tegra/tegra30_i2s.c
++++ b/sound/soc/tegra/tegra30_i2s.c
+@@ -402,6 +402,7 @@ static const struct of_device_id tegra30_i2s_of_match[] = {
+ 	{ .compatible = "nvidia,tegra30-i2s", .data = &tegra30_i2s_config },
+ 	{},
+ };
++MODULE_DEVICE_TABLE(of, tegra30_i2s_of_match);
+ 
+ static int tegra30_i2s_platform_probe(struct platform_device *pdev)
+ {
+@@ -567,4 +568,3 @@ MODULE_AUTHOR("Stephen Warren <swarren@nvidia.com>");
+ MODULE_DESCRIPTION("Tegra30 I2S ASoC driver");
+ MODULE_LICENSE("GPL");
+ MODULE_ALIAS("platform:" DRV_NAME);
+-MODULE_DEVICE_TABLE(of, tegra30_i2s_of_match);
+-- 
+2.51.0
+
 
