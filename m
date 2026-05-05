@@ -4,98 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3F73CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 12:25:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67C6ECD3430
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 12:25:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vNQeM4CWq6GEUrlO+R6vYzykbXC2BbBSiNTrZjov5SU=; b=GsoUM1lkPG9Qp930dW0eGvkLO5
-	6yR6Qw9G4vCs5z1mySoqxGYwRV04fozl4EBoUJeMd1oOaY8YILDAdHit9EbHo5nVh3Fu7rU1v8r9M
-	BtINoT4YCjjp0pxbuAVpOSst5Pf9ATzkX2XoTHneuQcmb1bUnj+DPX5bEQz8JL8FVjnLtj36Srk2Z
-	UWTGpxp6rbfLo+RVo9dqc1QOjx3Ubqwl8kUCg8Wre8cIcFQUjQ7uVcHoIUQS61I4shsgQin2Fe7hd
-	vADxgGxGF+hWCI6N5BQELBvYnL1o6OYNDqts0rwA1vhaeML0TjHFCJSfeHrBWYCVbniBGLh0pPnnB
-	9iFO+K/g==;
+	bh=TZf2r7pK9NMV0g29eBVq5NPT9XVCIRwIpXmVRC6PE58=; b=uSsmZvKDLwW2fa/h1d6ve+eTJE
+	Jg5N2CCfV2qpl02wFmpxYq4smx4oKVZ+2g6rmxnxpvLy7wzQwrZmma5RwvGAIRRnvstnB8JubLwt5
+	R+lmhyyL7d97gUgX0QMeAQtlj2AOYFC93UpqAdxHq3W94c9yikJpsQW7qHG1yioHkHbCMCBZ19Kbu
+	fHNpvMZIXAgvazFAXGQdZP45SH3sNYBmxxtmJ8RdoXBG0BD408RWMqV9RGt4vLC3edSdA0KGWR3J4
+	HRSmthhhPhtL+bg/62ZJhLbKtgjoq76QjCegaMN72AMFHZFk2JJbdjVn9ntn+Dj4yWhMQhwV/wAEN
+	LdIBJqaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKEq1-0000000GAgI-1L4g;
-	Tue, 05 May 2026 12:25:21 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wKEqA-0000000GAm2-0WAe;
+	Tue, 05 May 2026 12:25:30 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKEpz-0000000GAem-0Ytx
+	id 1wKEq7-0000000GAjr-1l7b
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 12:25:20 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 645CDnft2187253
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 5 May 2026 12:25:18 GMT
+	Tue, 05 May 2026 12:25:29 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6459VShL2859207
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 5 May 2026 12:25:26 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	vNQeM4CWq6GEUrlO+R6vYzykbXC2BbBSiNTrZjov5SU=; b=RAaL/5NtaOtf/UeJ
-	61uZt5QhzCTyJJJm7qnLWJcbdhiiZeVsNfEjlUC6woArxVpPwCTBsn4awDbGUihp
-	27m2eWPYJKNON/xUpn+L9hzcGnm89BUF/dnxHZtnlwwB7mRg5QKxVDIu85W1vUn7
-	QB0G5Gy3ZDJcxTkbr8k10lpd0xaDWK/i46+Wk54vw9AcceF3hjVkWUXrwgbYGcvn
-	sYyHqRHQyheK6Q6aJ0nv9R0ijhpT0ota0WfayP1o1VrX2YDmmGIoU94djvlKHZ/w
-	eojB50BIDZ26n5gv9+YFMedY9sIeJD53+3gtgYK5tppWQq1qaIT6v+7Hp/0RUdWW
-	h/l2ng==
-Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dygce00w7-1
+	TZf2r7pK9NMV0g29eBVq5NPT9XVCIRwIpXmVRC6PE58=; b=W9o8/5+tUm3HVB/t
+	J5eJi8MBnY7bQiFTQttZ6Ym9KWPRiYnODu3IrHMJHOlz0PfnbITjE6qt1JHnPoXj
+	5yeUJsHcsKFN+ABhxEn2nBPXygwo8BE0XWrQ80XxxcslVXyFTZaJjVp5K8z7CqoJ
+	owYdO+UdkBC+0q80r2TI5+3ZakMwyMcIIvrkCi8f6xqGXVnG6O3YdxIy9hshjray
+	RsWAYdKzrwrM9a6zQma3IXR0hr/0AnE0TlHvw/vM9shQjE7XJAIhYwdfezjky0x6
+	FqMCJeYh3aysBgMpSeBN6DZWt1P5EibBlTmLMrFjTwbyfQRDV6zlzxi2fwABpraN
+	bEWgMQ==
+Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dye0agpab-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 12:25:18 +0000 (GMT)
-Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-c8025414a5aso228748a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 05:25:18 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 12:25:25 +0000 (GMT)
+Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-837b33eea94so450555b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 05:25:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1777983918; x=1778588718; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1777983925; x=1778588725; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=vNQeM4CWq6GEUrlO+R6vYzykbXC2BbBSiNTrZjov5SU=;
-        b=JP8mAjz7W5aOdQmQJmH5lMIbCE3BJhqFg9y43iJ0vl4YuZ9N4d+AAIbu2MGmbYeZuz
-         2SXEalU2cdAs5QCiZm42ZOZLz/HS+2JOSQKfKtDxuDDDm+m+CR5sAfKdYi7s9J5r76HZ
-         3r+o9tHf71TPzwQ3c+kOm2HSpgnJxwaFWeSRTQFjI8SiP5iBFZT8gQMyO9WOoRTnxQ10
-         TEQTLemZ/HPZAVPZUGA8QfTiAWJdk8C8gH9W3sqJKpY8FzrPprux2PLZvTGLq9sLwFLK
-         vy/rZQsTOoN2X00STtXRMmqQaY1egv9sAfVbSJ5WpItk7mOdrVrdg64w5WjJiM/aFjF/
-         oLMA==
+        bh=TZf2r7pK9NMV0g29eBVq5NPT9XVCIRwIpXmVRC6PE58=;
+        b=hSz0ZeKkzRQRYVOSmNQVZT8+NHVS/Rd3QALo2ImF83e4Qf2jVgCXHAjzxo8vdsht36
+         4mEtFYLyNqcQ8WnsTCjUcyhiqxyLQsh6Sbwnco7ppiG2CgLU0HmVb52Q9dx5RQ41EwfX
+         8KD8LD8RTwCKrZdirukZw+M6pmaTP58AZ0HGRbGZmdZfJZSUbY4Ax6N2Js8gw8uCmBMN
+         nu73Gv4UavjJe0TaAwgKVkGRT6Vim96J94VpZbzjRfgXYYmeOTbCz0N9eMpycrPHWUQa
+         J5Lj9mVVedxi1Y+leAG0ugeQd1SMJ+ezKu4l3hq5kgfYFk4DqUPRRQ2aQNkMCcxla2+N
+         f5yA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777983918; x=1778588718;
+        d=1e100.net; s=20251104; t=1777983925; x=1778588725;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=vNQeM4CWq6GEUrlO+R6vYzykbXC2BbBSiNTrZjov5SU=;
-        b=MnpE9VpoY2RiyKBYsRURX6MwMdGTJL32EMLwU101AZxgXTkwJ2/2hTzErMmzDmEu7N
-         7PhWabqpOgGS6rm2S74AgjvR5CQ9gkqiyanGv1bJOVuEJDUjH3vWIazFJT61VQNvES3D
-         KfZuiTDfJohwRMISu5Ot32c+G0D1ry3K7mAwVz5FRWaTqJ0BM/vs/EoR7pft9OP9U3Ay
-         9ZwGymHafF+NzKe0TLScGjo/aZD1kkp9LKzifOOdZMJhwZersARXJin0smlQv8UUVFno
-         bmJeuUJ+Q5rYwpWwvZ4q7/eRvxsNWDEB18gnOAJNcw1MHUr3rO8tbKNDhgj8/HhdxptJ
-         AWZQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+aHFZQsYzAT5U5oXBfY85S9yawxZ9/QV1pCRHDcFizjoCpWR7CSzsh6oZe/PMWxJJQ9c8srsJSD5x8B/oOnVMm@lists.infradead.org
-X-Gm-Message-State: AOJu0YysszNU4NWcotjxFaaQtcIEb1ZYsfxR2SRlhP/YwCG19PkPm2SY
-	PL6I6b3n7YRD834/rBsp1bw2YlTYVwfYlGo2LUMjZH6+gf38Blgm8Ro3Lyaybr1v12LrtNF8SXy
-	7wubvDK8PJFdcxcVRI6N2S6Bl9U90PqAp1XIuv2TrzmMTN0PEvA8MrbOVGToXANTFrMc3YyKfLI
-	JNHQ==
-X-Gm-Gg: AeBDieuv+wU8cE/41UwGJe2Qm8SEAErG2T7paLnfIxTsklo6wTM2xwPOn+nJ8+Gu61g
-	C5ZDnpoShc0ocL5aMjtwcThgQjcZ7C/lb80GlLFoXeFwAijyeZcLelFKUGod9CWjeWl+V5qWIzA
-	mwyHq0OnzDGtbwQAe0Glnoz6owxDaPiVtbHOvM7lDp6Qr0XxeQtiQCfhVraSQ9fZBiE0uIcnI2i
-	wJ+rbgPP/6IcmdihTu+hNtcbWUtPf3nas28U6lEauQ7h26ulMigukME/eaxN8q4J23KG4lGZAqh
-	mHJqzlTHNTpSBsi1p6N6Icq3kKcRP/UFsdK8hmn1Iw8MM49FRLfGrPHfiM/iLHIAnynPqYFg8Ia
-	e7n2nhxcYsIdMqoK5gEE1nvYIqNESp5Gz92txbGpgwzoPHYJ2QZVgTHN8vxDLlgQ=
-X-Received: by 2002:a17:90b:2f03:b0:35d:ab8b:abe6 with SMTP id 98e67ed59e1d1-3650ce1146dmr7079546a91.4.1777983917985;
-        Tue, 05 May 2026 05:25:17 -0700 (PDT)
-X-Received: by 2002:a17:90b:2f03:b0:35d:ab8b:abe6 with SMTP id 98e67ed59e1d1-3650ce1146dmr7079533a91.4.1777983917473;
-        Tue, 05 May 2026 05:25:17 -0700 (PDT)
+        bh=TZf2r7pK9NMV0g29eBVq5NPT9XVCIRwIpXmVRC6PE58=;
+        b=S9LieleA8vhZcbYrnCzlbPxe7EhdcF7Ro5O+fuvXl9/v/eLjFq7YzBVSRXaIhwvK4w
+         DPsiKYsIKGhfkHkN+dLJWeh8CItUKY1J7vfamYpe5fh0/hggzKRWIxpTcmvmyQtmQT2d
+         27ZrzhdLLvVEcKwDlk2S9sOBmAiF6jPyHOWSkRp646VFqlTjh7y1DS/3UUbl7ClhuWwS
+         UggBm2PrJQAWhJmnEjkIDwcm6tt3gcNRG/p2IxgrVYX512e5BRUjJBa+lvQZNLWGNMXW
+         PrbUX5StiX51PDdFSUSw2FG6kYWGJRSrtDm/baetVt6pgORy+Md5rpliozEcK3zYD5YE
+         S/xg==
+X-Forwarded-Encrypted: i=1; AFNElJ/PpJYvzmLrTL8VYep6W5tOjCzVpz94PqmpcsNzAUvMAXgNg0qZ9YKkMFCQOHWOsvmmYKBEE+WMoHPiZN2mmAeo@lists.infradead.org
+X-Gm-Message-State: AOJu0YynKp+1yVC8fEwV/KoVZi2Pk3sv/JklBMfIDC0C31zaU+FBdZhx
+	wSWINKVRGJuhlERKzA84FKRY2XdKlf/HA3BkYKnDBYcsghywvRhyW48gvPkH7qOfrCILCG6I+E4
+	pAPP8AmZEXr4dg+0YP97oH+WV3HkcgB+Jh5p/XMjkmrAZW6YvfDr6XKgmlWnQZcqEIyPoXwBHFb
+	nOnw==
+X-Gm-Gg: AeBDietsBdeAMGYYk7vP6Grt2Jcu+UxeNsd+sHT3TYi1oXy+bpPfi1/CbIBKigppjUS
+	K5xcYcUahgzHgFUcjKiJwmPuWLqqZpciWrAJ7q7Y9CbEgXAyebonLZ1r+AN4q0h6ifYNOca0y3a
+	xBMmZVpswc+0gZWGrCr3WtE5HmLn66u79Gg5WmYu10uMfDu7JcPMgVE6DCXrLuhh2M6c5Fxh5g9
+	NKWt90ZdK/SSwkMaP6ow9yUsuepRBe1jckHD+4MA5qA8/FkTL4J8qyPaEmDoc3rMS7p8Sp0xq9w
+	+yII5nxNgLuC6MWWYHU1KJ2bPxfDN4UPtjtO3LPRjRcy34tJoItRQHm4VdhoVYs+Yvs8TkP7mCd
+	Hetg7qvMDAHEZwqJhy7p0pQw4yO1UvnpiE64GInYYJOg9z8OkMms7rwEPZu3i6XE=
+X-Received: by 2002:a05:6a21:e58b:b0:3a0:b812:3a84 with SMTP id adf61e73a8af0-3a7f1ab60cbmr7561844637.1.1777983924553;
+        Tue, 05 May 2026 05:25:24 -0700 (PDT)
+X-Received: by 2002:a05:6a21:e58b:b0:3a0:b812:3a84 with SMTP id adf61e73a8af0-3a7f1ab60cbmr7561804637.1.1777983923927;
+        Tue, 05 May 2026 05:25:23 -0700 (PDT)
 Received: from hu-uchheda-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c7ffbbaac5bsm12597998a12.6.2026.05.05.05.25.11
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c7ffbbaac5bsm12597998a12.6.2026.05.05.05.25.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 May 2026 05:25:16 -0700 (PDT)
+        Tue, 05 May 2026 05:25:23 -0700 (PDT)
 From: Umang Chheda <umang.chheda@oss.qualcomm.com>
-Date: Tue, 05 May 2026 17:53:48 +0530
-Subject: [PATCH 4/8] ras: aest: Add panic_on_ue module parameter
+Date: Tue, 05 May 2026 17:53:49 +0530
+Subject: [PATCH 5/8] dt-bindings: arm: ras: Introduce bindings for ARM AEST
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260505-aest-devicetree-support-v1-4-d5d6ffacf0a5@oss.qualcomm.com>
+Message-Id: <20260505-aest-devicetree-support-v1-5-d5d6ffacf0a5@oss.qualcomm.com>
 References: <20260505-aest-devicetree-support-v1-0-d5d6ffacf0a5@oss.qualcomm.com>
 In-Reply-To: <20260505-aest-devicetree-support-v1-0-d5d6ffacf0a5@oss.qualcomm.com>
 To: Ruidong Tian <tianruidond@linux.alibaba.com>,
@@ -113,40 +113,41 @@ Cc: linux-arm-msm@vger.kernel.org, linux-acpi@vger.kernel.org,
         linux-edac@vger.kernel.org,
         Umang Chheda <umang.chheda@oss.qualcomm.com>
 X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777983885; l=1723;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777983885; l=17370;
  i=umang.chheda@oss.qualcomm.com; s=20260328; h=from:subject:message-id;
- bh=85/U6iXBPakM0Mmmb5NPMjAPvvGqfJ6KU2VNXgLZ+Sc=;
- b=uAueX0E+J7mO3vSlmsfq2s5T3DTennvda5xbsWtVnYuvom+4lJANe1HZ9CTFuHCFI9bv0MzJh
- UVBLIZVfoxaCfAJSibykZ21OmsQSeQN479uLTCjjakaC2Y6xWj7Te3x
+ bh=UHYiBMmAeYcwT/oKI59kIU40Oa6oQXNeQvw8DW7wwUc=;
+ b=f4X30PASN24PpuxlrbpxYQZBWzx209SeZljlnp69AjiGRkj+36R5vxwg3Qy5cQBrM/hbFOpjx
+ u4UP5xT2z8ODHJb/19T3Ngha9QvMUP2gtbjutRuGfrAcWKWTjmmt8b6
 X-Developer-Key: i=umang.chheda@oss.qualcomm.com; a=ed25519;
  pk=3+tjZ+PFFYphz0Vvu4B14pBQSzqcG0jZAQspTaDRQYA=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA1MDExNyBTYWx0ZWRfXxfZUPzf4s0CA
- QLKSy7qK+dg4Q2Zvy2g8QpKAW7h/WrdGJ2cUzN+SagezqRIoaOg4DpnaGbACMMlFT9lDws1aQof
- J6RlL+MtwcjTUao+evE+LQqSItjezFCaUeVS8Zzz56wtGZ2iHVoqyj1TJ7r/1Agq5kNbadWMgN0
- aW2SFTbak3tR3f3qga4tkHChuUYmY46j4M99OgPKQxr9lHwkHDaNbgeozKNzpI6aX/64YQ4GoWG
- t4kO70zAdxZzhRK7H5aajvIGRiuDMGt1SfOfLWOR0O9ADZZL3fj+sN/qfIodf6WFIRglSFNVYx4
- hfc/XJdH9myg/Khryx4f3+VUYlfRrZQsB5Itw/OYFCuhzEBCOyl2mWy6MaSbSqEEZxEHQem/s/Z
- wtXIT/LWgwCPwRvezRStLwD9btrVUkP16ZhWboqkjydLbSidYNJZynufvWve4+9ppqwYHbLG2ex
- 8n3GbzKO6BBd00EdOHA==
-X-Proofpoint-GUID: gDL06UihwZ69yCeBCVwLCMjtdsvNUOZf
-X-Proofpoint-ORIG-GUID: gDL06UihwZ69yCeBCVwLCMjtdsvNUOZf
-X-Authority-Analysis: v=2.4 cv=b6KCJNGx c=1 sm=1 tr=0 ts=69f9e1ae cx=c_pps
- a=Qgeoaf8Lrialg5Z894R3/Q==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA1MDExOCBTYWx0ZWRfX4kqVsG6NAha5
+ UeaOln8NHSV+Ag5M89iJtrlonzxrFzIJyeufHSxwsgpRRksiTYBb5FAEjrZiJT18rhXz1xiR6Jh
+ fpJuRNPqU9wZ64uwkRN/VL38XwKcNDJEjg3ZBchkskV6LNu0KzulgNMCHSsVSfAeU7e+GwcAwae
+ r4dzjHtWDL3VITRhVWZwXZWybYWi4N8TaMPjJ8/WmlrsgzP5UxM6kjAI6778MekozEmSTTKbbON
+ koesFa4UVo1nFr3HpvJcyc5kqZrYK+HZqgauEIO8XMOxgOeSxMaWEgE3Z6nuaMvlg6/2Y0S9UHf
+ goZWjjNoRQOCwhp3rEaYiJV5EcwXqYBgsrvildk21n4A/admVHBl2yqhEiatCwC2R7GNhrRTUbR
+ 4ehWp98SbwEYb7Axvy3HIAhql3m+tKA81DR1tpk/5JKEoU97afHbxzHnq4HgLkr52iuBODtgecj
+ TeRZ1N+mQ6hWZLa7KPw==
+X-Authority-Analysis: v=2.4 cv=Wtkb99fv c=1 sm=1 tr=0 ts=69f9e1b5 cx=c_pps
+ a=m5Vt/hrsBiPMCU0y4gIsQw==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
  a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=EUspDBNiAAAA:8 a=y-mMqNAVNQw5A1T741kA:9 a=QEXdDO2ut3YA:10
- a=x9snwWr2DeNwDh03kgHS:22
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
+ a=gEfo2CItAAAA:8 a=EUspDBNiAAAA:8 a=vTNCWx79gXjKDdEYbRgA:9 a=QEXdDO2ut3YA:10
+ a=IoOABgeZipijB_acs4fv:22 a=sptkURWiP4Gy88Gu7hUp:22
+X-Proofpoint-GUID: fQPPesAR37rv6TCQAZOZdPnX9ulEDN37
+X-Proofpoint-ORIG-GUID: fQPPesAR37rv6TCQAZOZdPnX9ulEDN37
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-05-05_02,2026-04-30_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 phishscore=0 adultscore=0 impostorscore=0 lowpriorityscore=0
- priorityscore=1501 suspectscore=0 clxscore=1015 malwarescore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2605050117
+ suspectscore=0 priorityscore=1501 lowpriorityscore=0 phishscore=0
+ malwarescore=0 spamscore=0 bulkscore=0 adultscore=0 clxscore=1015
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
+ definitions=main-2605050118
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_052519_198563_0F00C8F8 
-X-CRM114-Status: GOOD (  15.03  )
+X-CRM114-CacheID: sfid-20260505_052527_596412_387E46BC 
+X-CRM114-Status: GOOD (  22.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,56 +162,480 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver unconditionally calls panic() whenever an unrecoverable,
-uncontainable UE (UET_UC or UET_UEU) is detected. There is no way
-for the user to suppress this behaviour, which makes it difficult to
-test UE injection or to run in environments where a kernel panic on
-every UE is undesirable.
+The Arm Error Source Table (AEST) specification describes how firmware
+exposes RAS error source topology to the operating system. On ACPI
+systems this information is provided via the AEST ACPI table.
 
-Add a module parameter `aest_panic_on_ue` When set to 0 the driver
-logs the UE and continues instead of panicking.
-
-Usage:
-  # Boot time (kernel cmdline)
-  aest.aest_panic_on_ue=0
-
-  # Runtime
-  echo 0 > /sys/module/aest/parameters/aest_panic_on_ue
+Introduce Device Tree bindings that provide an equivalent description
+of AEST error sources for DT-based platforms.
 
 Signed-off-by: Umang Chheda <umang.chheda@oss.qualcomm.com>
 ---
- drivers/ras/aest/aest-core.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+ .../devicetree/bindings/arm/arm,aest.yaml          | 406 +++++++++++++++++++++
+ include/dt-bindings/arm/aest.h                     |  43 +++
+ 2 files changed, 449 insertions(+)
 
-diff --git a/drivers/ras/aest/aest-core.c b/drivers/ras/aest/aest-core.c
-index b4f4c975da1d..9ce782a66edf 100644
---- a/drivers/ras/aest/aest-core.c
-+++ b/drivers/ras/aest/aest-core.c
-@@ -22,6 +22,11 @@ DEFINE_PER_CPU(struct aest_device, percpu_adev);
- #undef pr_fmt
- #define pr_fmt(fmt) "AEST: " fmt
- 
-+static bool aest_panic_on_ue;
-+module_param(aest_panic_on_ue, bool, 0644);
-+MODULE_PARM_DESC(aest_panic_on_ue,
-+		 "Panic on unrecoverable error: 0=off 1=on (default: 1)");
+diff --git a/Documentation/devicetree/bindings/arm/arm,aest.yaml b/Documentation/devicetree/bindings/arm/arm,aest.yaml
+new file mode 100644
+index 000000000000..7809a0d38270
+--- /dev/null
++++ b/Documentation/devicetree/bindings/arm/arm,aest.yaml
+@@ -0,0 +1,406 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/arm/arm,aest.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
- #ifdef CONFIG_DEBUG_FS
- struct dentry *aest_debugfs;
- #endif
-@@ -342,9 +347,11 @@ void aest_proc_record(struct aest_record *record, void *data, bool fake)
- 			aest_record_info(
- 				record,
- 				"Simulated error! Skip panic due to fault injection\n");
--		else
-+		else if (aest_panic_on_ue)
- 			aest_panic(record, &regs,
- 				   "AEST: unrecoverable error encountered");
-+		else
-+			aest_record_err(record, "UE detected, panic suppressed\n");
- 	}
- 
- 	aest_log(record, &regs);
++title: Arm Error Source Table (AEST)
++
++maintainers:
++  - Umang Chheda <umang.chheda@oss.qualcomm.com>
++
++description:
++  The Arm Error Source Table (AEST) describes RAS error sources and their
++  register interfaces. Each error source exposes one or more error records
++  through either system registers or a memory-mapped register window, and
++  may signal errors via interrupts. The top-level node acts as a container
++  for one or more child nodes, each describing a single AEST error source.
++  Refer to the Arm AEST specification (DEN0085 / DDI 0587B) for details.
++  Flag bit constants for use in DT source files are defined in
++  <dt-bindings/arm/aest.h>.
++
++properties:
++  compatible:
++    const: arm,aest
++
++  "#address-cells":
++    const: 2
++
++  "#size-cells":
++    const: 2
++
++  ranges: true
++
++required:
++  - compatible
++
++additionalProperties: false
++
++patternProperties:
++  "^aest-[a-z0-9-]+(@[0-9a-f]+)?$":
++    type: object
++    description:
++      An AEST error source node describing one error source defined by
++      the Arm AEST specification.
++
++    properties:
++      compatible:
++        description:
++          Identifies the type of AEST error source. Each value corresponds to
++          a distinct error source class defined by the Arm AEST specification.
++          arm,aest-proxy represents a proxy error source that forwards errors
++          from another error source.
++        enum:
++          - arm,aest-processor
++          - arm,aest-memory
++          - arm,aest-smmu
++          - arm,aest-gic
++          - arm,aest-pcie
++          - arm,aest-vendor
++          - arm,aest-proxy
++
++      reg:
++        description:
++          Register ranges for the error source. Absence of reg implies
++          system-register access (interface type 0). A single range implies
++          memory-mapped access (interface type 1). Two ranges imply
++          single-record memory-mapped access (interface type 2).
++        minItems: 1
++        maxItems: 4
++
++      reg-names:
++        description:
++          Names for the register ranges. The base error-record window is
++          unnamed (or first entry). Optional named ranges provide access to
++          the fault-injection, error-group, and interrupt-config register
++          windows defined by the AEST specification.
++        minItems: 1
++        maxItems: 4
++        items:
++          enum:
++            - fault-inject
++            - err-group
++            - irq-config
++
++      interrupts:
++        description: Interrupts associated with the error source.
++        minItems: 1
++        maxItems: 2
++
++      interrupt-names:
++        description: Names of the interrupts associated with the error source.
++        minItems: 1
++        maxItems: 2
++        items:
++          enum:
++            - fhi
++            - eri
++
++      arm,fhi-flags:
++        description:
++          Bitmask of flags for the fault-handling interrupt (FHI), as defined
++          in the AEST node interrupt structure flags field. Constants are
++          defined in <dt-bindings/arm/aest.h> - AEST_IRQ_MODE_LEVEL (0),
++          AEST_IRQ_MODE_EDGE (1).
++        $ref: /schemas/types.yaml#/definitions/uint32
++
++      arm,eri-flags:
++        description:
++          Bitmask of flags for the error-recovery interrupt (ERI), as defined
++          in the AEST node interrupt structure flags field. Constants are
++          defined in <dt-bindings/arm/aest.h>.
++        $ref: /schemas/types.yaml#/definitions/uint32
++
++      arm,interface-flags:
++        description: |
++          Bitmask of interface flags for the error source, as defined in the
++          AEST node interface flags field. Constants are defined in
++          <dt-bindings/arm/aest.h>:
++            AEST_XFACE_SHARED        (bit 0) - shared error source,
++            AEST_XFACE_CLEAR_MISC    (bit 1) - clear MISC registers on error,
++            AEST_XFACE_ERROR_DEVICE  (bit 2) - error node device present,
++            AEST_XFACE_AFFINITY      (bit 3) - affinity information valid,
++            AEST_XFACE_ERROR_GROUP   (bit 4) - error group register window present,
++            AEST_XFACE_FAULT_INJECT  (bit 5) - fault injection register window present,
++            AEST_XFACE_INT_CONFIG    (bit 6) - interrupt config register window present.
++          For system-register interface nodes (no reg property), only
++          AEST_XFACE_CLEAR_MISC is meaningful; the MMIO window flags
++          (AEST_XFACE_ERROR_GROUP, AEST_XFACE_FAULT_INJECT,
++          AEST_XFACE_INT_CONFIG) have no effect without a base address.
++        $ref: /schemas/types.yaml#/definitions/uint32
++
++      arm,group-format:
++        description: |
++          Page-granularity of the error record group register window, which
++          determines the MMIO mapping size, the number of ERRGSR registers,
++          and the width of the record-implemented and status-reporting bitmaps.
++          Constants are defined in <dt-bindings/arm/aest.h>:
++            AEST_GROUP_FORMAT_4K  (0) - 4K window, 1 ERRGSR, up to 64 records,
++            AEST_GROUP_FORMAT_16K (1) - 16K window, 4 ERRGSRs, up to 256 records,
++            AEST_GROUP_FORMAT_64K (2) - 64K window, 14 ERRGSRs, up to 896 records.
++          Required for memory-mapped nodes (reg present) where it controls
++          the ioremap size and ERRGSR layout. For system-register nodes
++          (no reg property) this property is optional and defaults to
++          AEST_GROUP_FORMAT_4K.
++        $ref: /schemas/types.yaml#/definitions/uint32
++        enum: [0, 1, 2]
++
++      arm,num-records:
++        description: Number of error records implemented by this error source.
++        $ref: /schemas/types.yaml#/definitions/uint32
++
++      arm,record-impl:
++        description:
++          Bitmap of implemented error records within this error source. Bit N
++          set to 0 means error record N is implemented and must be polled.
++        $ref: /schemas/types.yaml#/definitions/uint64-array
++
++      arm,status-reporting:
++        description:
++          Bitmap indicating which error records support status reporting via
++          the ERRGSR register. Bit N set to 1 means record N does not report
++          through ERRGSR and must be polled explicitly.
++        $ref: /schemas/types.yaml#/definitions/uint64-array
++
++      arm,addressing-mode:
++        description:
++          Bitmap indicating the address type reported in ERR_ADDR for each
++          error record. Bit N set to 0 means record N reports System Physical
++          Addresses (SPA); bit N set to 1 means record N reports node-specific
++          Logical Addresses (LA) that require OS translation to SPA.
++        $ref: /schemas/types.yaml#/definitions/uint64-array
++
++      arm,processor-flags:
++        description:
++          Bitmask indicating the scope of a processor error source, as defined
++          in the AEST processor node flags field. Constants are defined in
++          <dt-bindings/arm/aest.h> - AEST_PROC_GLOBAL (bit 0),
++          AEST_PROC_SHARED (bit 1).
++        $ref: /schemas/types.yaml#/definitions/uint32
++
++      arm,resource-type:
++        description: |
++          Type of processor resource associated with this error source.
++          Constants are defined in <dt-bindings/arm/aest.h>:
++            AEST_RESOURCE_CACHE   (0),
++            AEST_RESOURCE_TLB     (1),
++            AEST_RESOURCE_GENERIC (2).
++        $ref: /schemas/types.yaml#/definitions/uint32
++        enum: [0, 1, 2]
++
++      arm,cache-ref:
++        description:
++          Phandle to the cache node associated with this processor error source.
++        $ref: /schemas/types.yaml#/definitions/phandle
++
++      arm,tlb-level:
++        description: TLB level identifier for this processor TLB error source.
++        $ref: /schemas/types.yaml#/definitions/uint32
++
++      arm,resource-ref:
++        description:
++          Generic resource reference identifier for this processor error source.
++        $ref: /schemas/types.yaml#/definitions/uint32
++
++      arm,proximity-domain:
++        description:
++          SRAT proximity domain of the memory node associated with this error
++          source.
++        $ref: /schemas/types.yaml#/definitions/uint32
++
++      arm,smmu-ref:
++        description:
++          Phandle to the SMMU node in the IORT associated with this error
++          source.
++        $ref: /schemas/types.yaml#/definitions/phandle
++
++      arm,smmu-subcomponent:
++        description:
++          SMMU subcomponent reference identifier for this error source, as
++          defined in the AEST SMMU node structure.
++        $ref: /schemas/types.yaml#/definitions/uint32
++
++      arm,gic-type:
++        description: |
++          GIC component type for this error source, as defined in the AEST GIC
++          node structure. Constants are defined in <dt-bindings/arm/aest.h>:
++            AEST_GIC_CPU           (0),
++            AEST_GIC_DISTRIBUTOR   (1),
++            AEST_GIC_REDISTRIBUTOR (2),
++            AEST_GIC_ITS           (3).
++        $ref: /schemas/types.yaml#/definitions/uint32
++        enum: [0, 1, 2, 3]
++
++      arm,gic-instance:
++        description:
++          GIC instance identifier for this error source, used to distinguish
++          multiple instances of the same GIC component type.
++        $ref: /schemas/types.yaml#/definitions/uint32
++
++      arm,pcie-segment:
++        description:
++          PCI segment number of the PCIe root port associated with this error
++          source, corresponding to the IORT node reference.
++        $ref: /schemas/types.yaml#/definitions/uint32
++
++      arm,vendor-hid:
++        description:
++          8-character ACPI Hardware ID string identifying the vendor error
++          source, as defined in the AEST vendor node structure.
++        $ref: /schemas/types.yaml#/definitions/string
++
++      arm,vendor-uid:
++        description:
++          ACPI unique instance identifier for this vendor error source, used
++          to distinguish multiple instances with the same hardware ID.
++        $ref: /schemas/types.yaml#/definitions/uint32
++
++    required:
++      - compatible
++      - arm,num-records
++
++    allOf:
++      - if:
++          required:
++            - reg
++        then:
++          required:
++            - arm,group-format
++      - if:
++          properties:
++            compatible:
++              contains:
++                const: arm,aest-processor
++        then:
++          properties:
++            arm,processor-flags: {}
++            arm,resource-type: {}
++            arm,cache-ref: {}
++            arm,tlb-level: {}
++            arm,resource-ref: {}
++        else:
++          properties:
++            arm,processor-flags: false
++            arm,resource-type: false
++            arm,cache-ref: false
++            arm,tlb-level: false
++            arm,resource-ref: false
++
++      - if:
++          properties:
++            compatible:
++              contains:
++                const: arm,aest-memory
++        then:
++          required:
++            - arm,proximity-domain
++          properties:
++            arm,proximity-domain: {}
++        else:
++          properties:
++            arm,proximity-domain: false
++
++      - if:
++          properties:
++            compatible:
++              contains:
++                const: arm,aest-smmu
++        then:
++          required:
++            - arm,smmu-ref
++          properties:
++            arm,smmu-ref: {}
++            arm,smmu-subcomponent: {}
++        else:
++          properties:
++            arm,smmu-ref: false
++            arm,smmu-subcomponent: false
++
++      - if:
++          properties:
++            compatible:
++              contains:
++                const: arm,aest-gic
++        then:
++          properties:
++            arm,gic-type: {}
++            arm,gic-instance: {}
++        else:
++          properties:
++            arm,gic-type: false
++            arm,gic-instance: false
++
++      - if:
++          properties:
++            compatible:
++              contains:
++                const: arm,aest-pcie
++        then:
++          required:
++            - arm,pcie-segment
++          properties:
++            arm,pcie-segment: {}
++        else:
++          properties:
++            arm,pcie-segment: false
++
++      - if:
++          properties:
++            compatible:
++              contains:
++                const: arm,aest-vendor
++        then:
++          required:
++            - arm,vendor-hid
++          properties:
++            arm,vendor-hid: {}
++            arm,vendor-uid: {}
++        else:
++          properties:
++            arm,vendor-hid: false
++            arm,vendor-uid: false
++
++    unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/arm/aest.h>
++
++    aest {
++        compatible = "arm,aest";
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        /* System-register based processor error source (no reg property) */
++        aest-processor-0 {
++            compatible = "arm,aest-processor";
++            arm,num-records = <2>;
++            arm,record-impl = /bits/ 64 <0x3>;
++            arm,status-reporting = /bits/ 64 <0x0>;
++            arm,addressing-mode = /bits/ 64 <0x0>;
++            arm,processor-flags = <AEST_PROC_GLOBAL>;
++            arm,resource-type = <AEST_RESOURCE_CACHE>;
++            interrupts = <GIC_PPI 0 IRQ_TYPE_LEVEL_HIGH>;
++            interrupt-names = "fhi";
++        };
++
++        /* Memory-mapped memory controller error source */
++        aest-memory-0@50010000 {
++            compatible = "arm,aest-memory";
++            reg = <0x0 0x50010000 0x0 0x1000>,
++                  <0x0 0x50011000 0x0 0x1000>,
++                  <0x0 0x50012000 0x0 0x1000>;
++            reg-names = "err-group", "fault-inject", "irq-config";
++            arm,group-format = <AEST_GROUP_FORMAT_4K>;
++            arm,num-records = <4>;
++            arm,record-impl = /bits/ 64 <0xf>;
++            arm,status-reporting = /bits/ 64 <0x0>;
++            arm,addressing-mode = /bits/ 64 <0x0>;
++            arm,interface-flags = <AEST_XFACE_ERROR_GROUP>;
++            arm,proximity-domain = <0>;
++            interrupts = <GIC_SPI 32 IRQ_TYPE_LEVEL_HIGH>,
++                         <GIC_SPI 33 IRQ_TYPE_LEVEL_HIGH>;
++            interrupt-names = "fhi", "eri";
++        };
++    };
+diff --git a/include/dt-bindings/arm/aest.h b/include/dt-bindings/arm/aest.h
+new file mode 100644
+index 000000000000..43679314e98e
+--- /dev/null
++++ b/include/dt-bindings/arm/aest.h
+@@ -0,0 +1,43 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/*
++ * This header provides constants for the Arm Error Source Table (AEST)
++ * DT binding (Documentation/devicetree/bindings/arm/arm,aest.yaml).
++ */
++
++#ifndef _DT_BINDINGS_ARM_AEST_H
++#define _DT_BINDINGS_ARM_AEST_H
++
++/* arm,interface-flags - AEST node interface flags field */
++#define AEST_XFACE_SHARED		1
++#define AEST_XFACE_CLEAR_MISC		2
++#define AEST_XFACE_ERROR_DEVICE		4
++#define AEST_XFACE_AFFINITY		8
++#define AEST_XFACE_ERROR_GROUP		16
++#define AEST_XFACE_FAULT_INJECT		32
++#define AEST_XFACE_INT_CONFIG		64
++
++/* arm,fhi-flags / arm,eri-flags - AEST node interrupt flags field */
++#define AEST_IRQ_MODE_LEVEL		0
++#define AEST_IRQ_MODE_EDGE		1
++
++/* arm,processor-flags - AEST processor node flags field */
++#define AEST_PROC_GLOBAL		1
++#define AEST_PROC_SHARED		2
++
++/* arm,group-format - error record group register window page size */
++#define AEST_GROUP_FORMAT_4K		0
++#define AEST_GROUP_FORMAT_16K		1
++#define AEST_GROUP_FORMAT_64K		2
++
++/* arm,resource-type - processor resource type */
++#define AEST_RESOURCE_CACHE		0
++#define AEST_RESOURCE_TLB		1
++#define AEST_RESOURCE_GENERIC		2
++
++/* arm,gic-type - GIC component type */
++#define AEST_GIC_CPU			0
++#define AEST_GIC_DISTRIBUTOR		1
++#define AEST_GIC_REDISTRIBUTOR		2
++#define AEST_GIC_ITS			3
++
++#endif /* _DT_BINDINGS_ARM_AEST_H */
 
 -- 
 2.34.1
