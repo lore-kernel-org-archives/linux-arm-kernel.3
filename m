@@ -4,119 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59BFACD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:12:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFE8AFF8855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:13:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O4UXY/O1n8garPzUK7BlpEllKN6HEI5/pvuk32gImq0=; b=HSn5y2Y6NBBwxh
-	OH/11kT4XrZswPgTIyupfNO9kfCXIzfaGgp8niicAZQLtg1NwZsymGEOOg/qLhX3lwrlEb2UWulLw
-	9nwTStAOGs00e3y/aF5ehipsZ1jBU7Fsh9DL/MFPg4reXQTwAR/QkDF/Ie7vOSpHViBR9IXqzZAT9
-	YSlhMWdCTtR+4R5WDLy8oeAPrbt2fdoWOKT5rDa/RhDzRlV2XMeBgFaQ5FpXuqAx1G21ard/nEhe1
-	X8WorEGJTqah6G/6XA+Ny98SVtNYIbMfb0BSppE5K4yI2Z7WcjYdzx3hvlqX84rG/NxsYurBjOCX9
-	KlFCZ4ih5pigusEAh3+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9LKoOaDpW+6gIkaLt2BcWVeBNSCUDhUWqdZNsoWNjIM=; b=FAcfebILxM8HAVKx1xgkbDoUs8
+	Mtq+Y9M38e0TgJaTlIaAGh2mg8FjkkjH+DMdK5RnjS/KrbYIGK+hPayIL3Cd8EaksFaM9HIUz7zKW
+	51Y98G4J8+cS1a+GOC9l5OQjWXdALuCqreVdHbefxFXTAWfyJWmilLchxlCQeBoxHfjyHdfLnMQjT
+	ww+btJ6DksugQNeSH6N197/oPGCDbktQd2Y4VfuDdGTI40QghkkyNLb27lJQJE/pcLe07IpYd/aoa
+	QFLK5DquHoA3z2UWoTopQu/3QQ3NfH/W805w29MswZopWTv/WCsD9rAcmmJGyh/HAJi4AJje4Dnio
+	p/z2p0MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKINW-0000000GpSy-1GF6;
-	Tue, 05 May 2026 16:12:10 +0000
-Received: from earwig.ash.relay.mailchannels.net ([23.83.222.54])
+	id 1wKIP6-0000000Gpnx-29iL;
+	Tue, 05 May 2026 16:13:48 +0000
+Received: from mail-westusazon11010019.outbound.protection.outlook.com ([52.101.85.19] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKINU-0000000GpRU-0bba;
-	Tue, 05 May 2026 16:12:09 +0000
-X-Sender-Id: hostingeremail|x-authuser|chester.a.unal@arinc9.com
-Received: from relay.mailchannels.net (localhost [127.0.0.1])
-	by relay.mailchannels.net (Postfix) with ESMTP id C3B1040042C;
-	Tue, 05 May 2026 16:12:06 +0000 (UTC)
-Received: from de-fra-smtpout10.hostinger.io (100-96-24-249.trex-nlb.outbound.svc.cluster.local [100.96.24.249])
-	(Authenticated sender: hostingeremail)
-	by relay.mailchannels.net (Postfix) with ESMTPA id A21E5400DF3;
-	Tue, 05 May 2026 16:12:03 +0000 (UTC)
-ARC-Seal: i=1; a=rsa-sha256; d=mailchannels.net; s=arc-2022; cv=none;
-	t=1777997526;
-	b=VTr7TGlcrQQJh7V1+2z9UiyLQCPDe+uOGK6XwFmgvxkfhFDcyvBrhsrD2mO3MzEwaTkaun
-	dmBnUplnUTXN0C/8pzq0vzi2emcNBOa5DDhmPphKs/Zu9RqFjWZTL3Sj9CH9WZFQXcNnC1
-	J//TfucxzzQWTu+sZLFwuzdOChJeyS4DOvVR6TlWF9g60cnVs38XyABeeTGcEUU2YGxAiJ
-	7wNtgzaTvbZPeyFTF3cPDA3t9FCF/X9lF2QhIG9D1Vpma723vZfnhIEEvaFjtYtNDwo6kY
-	eRBw8dntV90793Xt4Ki306ZGThI9zdKVe4e/u8cm8Jwxbpr6XboIve21J3tqfQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mailchannels.net;
-	s=arc-2022; t=1777997526;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:dkim-signature;
-	bh=O4UXY/O1n8garPzUK7BlpEllKN6HEI5/pvuk32gImq0=;
-	b=6FRuuJqN8ZBX8prOKt/kIalj2pN3qf4Nb5OwTUAZtesJqSJ3gP3xmyozJ8/+BS5X/NOlsA
-	0qAYF2xX0TV09czB23KAUh63IkCB/LNrAsE62LPeX95woHN63FPMPJwEZbfDvFlBQlSA8S
-	bRbQL+5tIcIXxF7F3Id08geEmL2KfpYgzrlYm1Ij1eICKUhbziNRlO2kRJabaSnoLJiaIq
-	KX5htLX78trx212oOLPq6aZRulDHfKkqAqFnu131HF+Fa3MUsFqpX3Zfu4yERszO5Yj4X7
-	2PIzGHSSVefTLNwWfN7ZmTi3VLfg+FhEoJnj9+yqEI2YbDMAgtCPvd0c6V3Dyg==
-ARC-Authentication-Results: i=1;
-	rspamd-7766795c76-g2nwv;
-	auth=pass smtp.auth=hostingeremail smtp.mailfrom=chester.a.unal@arinc9.com
-X-Sender-Id: hostingeremail|x-authuser|chester.a.unal@arinc9.com
-X-MC-Relay: Neutral
-X-MailChannels-SenderId: hostingeremail|x-authuser|chester.a.unal@arinc9.com
-X-MailChannels-Auth-Id: hostingeremail
-X-Stretch-Celery: 71ee9a8704ca7cd7_1777997526695_4240053568
-X-MC-Loop-Signature: 1777997526695:4274407990
-X-MC-Ingress-Time: 1777997526694
-Received: from de-fra-smtpout10.hostinger.io (de-fra-smtpout10.hostinger.io
- [148.222.55.9])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
-	by 100.96.24.249 (trex/7.1.5);
-	Tue, 05 May 2026 16:12:06 +0000
-Received: from [10.10.10.3] (unknown [109.228.203.208])
-	(Authenticated sender: chester.a.unal@arinc9.com)
-	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4g93S01kzqz406B;
-	Tue,  5 May 2026 16:12:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arinc9.com;
-	s=hostingermail-a; t=1777997522;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=O4UXY/O1n8garPzUK7BlpEllKN6HEI5/pvuk32gImq0=;
-	b=cqqREIpxtI/aaybTpgT+MCzSKcM4Q4HuWLNLVJY9whqtks0uzjeSBh5pz24N8kwxqSkhDr
-	XjmlWKxOERed0sHJvxodML2FPP3gxdHWcP5JUhcbOHIcE8RWx2WAu3ERDRjvDareEL9CUY
-	kZUPN3Cgw0j7Z01wCB8qrXE1S+CaQ5vtb5szY5jGrw8nz4cB1ilrBGH2gxX5i3mpYP2TZt
-	DmSgC4f9yhXn0XS1nuaYIz8ZIm1gaJlOFj0hSsfajkieAWRA/6YZYA0xO2kzpuqbPLvl7g
-	nyGziJpqIg+T0OfjmXZB5t6REwZEu+b640GPOq53g0TGhBJNPodj22KISNmTaQ==
-Message-ID: <1a62de44-7fbb-46b3-8d6c-66dac7ef9c94@arinc9.com>
+	id 1wKIP3-0000000Gpn2-2s6J
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 05 May 2026 16:13:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rlUamzFFevUgBwDI8k9iDCWYM4qYnq0q10zWN5hY7+bb2IgpATaJQ2pfx6FGqZ/HnHkGptOEa5Q0d7+MCFJ9B/dAigOfVsvVZv8uKHunj0XRW96oo3aA+1B1ReHH0cApbJs5yR6ZrVYXfK5pvstFNB5syyjX/Q9x6urHBFg7GpZrGeaiUaZD5q8Ogw6/OUGVmuZchmfHencHJOZkIXW57g3yt3YSIIyCd1hYVzAjCiewUsYpJnlyZiiYESTP+kfFVqLbw3IqvvyneAlXS1sm/tkqMXAqEHdDjacVmFmDABpz8t1aiYUnN/MVZWM4JTp4DpEIEztDNSpk7N3UeqGM0g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9LKoOaDpW+6gIkaLt2BcWVeBNSCUDhUWqdZNsoWNjIM=;
+ b=hjzDet5nuk/B5mDib3iSYUrwCQGb4rS4udoGjvaSno8fpFL/pIDB4m7AKcfKUzhcIvW0Wb8cpX7ZdRnRQVLuro8b5MRwrHp5xugh2gWgbVSmpwLrUNbNeg6HH4lXkoxdxU2KV6uHI4+N/juf0uYokU0U6SG+4H4CGdhABUPeK+eSuNxI5kaafGadtM9Puucgy6hyDhLZkiiNhIsqSpnEzvaCGv7w90YEfHVhxxQkZMQP/HLbOMvk24hX+VxvAp+prxHp5vJaIMuaotviSBmxoTrHgnap/adj3ui8IX5boX//xNMw+cVcIUzUOax5ekMTyGQLgVTNpjUd37E0AROT8A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=bgdev.pl smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9LKoOaDpW+6gIkaLt2BcWVeBNSCUDhUWqdZNsoWNjIM=;
+ b=KuTGe84iqbcvTNu0TtUNSdIj8/BxcC6ObxSuCnADdn+HdE6W5vyUYSxsSdFwlaSt2BPzOOU9gshTIRzUngpU6U6tb9koP+NwID1MySfkZCYsN0oB9y3Mo188xVWwjzY/H+JP/bunnJw7ElS+BLx2BS7+/kIqN5s+DUUGBsQSOIo=
+Received: from BN9P222CA0006.NAMP222.PROD.OUTLOOK.COM (2603:10b6:408:10c::11)
+ by MW6PR10MB7638.namprd10.prod.outlook.com (2603:10b6:303:248::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Tue, 5 May
+ 2026 16:13:32 +0000
+Received: from BL02EPF00021F68.namprd02.prod.outlook.com
+ (2603:10b6:408:10c:cafe::b5) by BN9P222CA0006.outlook.office365.com
+ (2603:10b6:408:10c::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.15 via Frontend Transport; Tue,
+ 5 May 2026 16:13:30 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ BL02EPF00021F68.mail.protection.outlook.com (10.167.249.4) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9891.9 via Frontend Transport; Tue, 5 May 2026 16:13:28 +0000
+Received: from DFLE201.ent.ti.com (10.64.6.59) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 5 May
+ 2026 11:13:18 -0500
+Received: from DFLE204.ent.ti.com (10.64.6.62) by DFLE201.ent.ti.com
+ (10.64.6.59) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 5 May
+ 2026 11:13:18 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE204.ent.ti.com
+ (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 5 May 2026 11:13:18 -0500
+Received: from [10.249.130.12] ([10.249.130.12])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 645GDAO73329317;
+	Tue, 5 May 2026 11:13:10 -0500
+Message-ID: <9a249ea8-5279-4698-a93f-2e91e2b8bf8f@ti.com>
+Date: Tue, 5 May 2026 21:43:09 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 2/5] net: dsa: mt7530: preserve VLAN tags on trapped
- link-local frames
-To: Daniel Golle <daniel@makrotopia.org>
-Cc: Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- DENG Qingfang <dqfext@gmail.com>, Florian Fainelli <f.fainelli@gmail.com>,
- =?UTF-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>,
- Sean Wang <sean.wang@mediatek.com>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-References: <cover.1777986341.git.daniel@makrotopia.org>
- <3ad4b724d7ae6250b8429d50fe913d2dca07a3f9.1777986341.git.daniel@makrotopia.org>
- <46071c08-d85f-4157-9d61-6a0feef56747@arinc9.com>
- <afoUt46gGwAC33ZU@makrotopia.org>
-Content-Language: en-GB
-From: "Chester A. Unal" <chester.a.unal@arinc9.com>
-In-Reply-To: <afoUt46gGwAC33ZU@makrotopia.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
+To: <tanmay.shah@amd.com>, Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>
+CC: Shenwei Wang <shenwei.wang@nxp.com>, Andrew Lunn <andrew@lunn.ch>, "Linus
+ Walleij" <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
+	"Jonathan Corbet" <corbet@lwn.net>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Bjorn
+ Andersson <andersson@kernel.org>, Frank Li <frank.li@nxp.com>, Sascha Hauer
+	<s.hauer@pengutronix.de>, Shuah Khan <skhan@linuxfoundation.org>,
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "Pengutronix
+ Kernel Team" <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+	"Peng Fan" <peng.fan@nxp.com>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-remoteproc@vger.kernel.org"
+	<linux-remoteproc@vger.kernel.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>
+References: <20260422212849.1240591-1-shenwei.wang@nxp.com>
+ <PAXPR04MB91850A11C58419C03909145F89362@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <6412a758-4560-4cf1-a0d0-5b24d1a715f1@lunn.ch>
+ <PAXPR04MB9185009A17DFDF3D6C8B44E789362@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <6e01e114-e336-4744-b6b4-563ec42e321b@lunn.ch>
+ <PAXPR04MB9185A098D894B6A6EBCC13F889372@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <afImuoeHolxGgw3H@p14s>
+ <PAXPR04MB9185F2F6DDB55AC56C92D63B89342@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <CANLsYkwvL0Z3+12MD=J+Dc2yAU2T8ypizyG=6AhYoWOh55odHA@mail.gmail.com>
+ <472f85bd-42c2-40c6-abfd-b76924797069@ti.com>
+ <CANLsYkzt9xUczxSU28u-TfZAAjr0ufZKXAj8Eqfq=45gufXW3w@mail.gmail.com>
+ <f7ef3417-eb84-4467-ac72-a9bc8b0c81e8@foss.st.com>
+ <21de8440-adf7-454b-acfc-06e50882e075@ti.com>
+ <4c526816-b127-43e7-86e9-eee4dc1152bc@foss.st.com>
+ <c6f68ab5-271a-41ed-b285-75b739f1edd6@amd.com>
+ <4b622824-0073-4c6a-8525-248bd484c3f0@ti.com>
+ <a5012462-9953-424e-bfa0-427e7b07201e@amd.com>
+Content-Language: en-US
+From: "Padhi, Beleswar" <b-padhi@ti.com>
+In-Reply-To: <a5012462-9953-424e-bfa0-427e7b07201e@amd.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
-Date: Tue,  5 May 2026 16:12:00 +0000 (UTC)
-X-CM-Analysis: v=2.4 cv=Ceda56rl c=1 sm=1 tr=0 ts=69fa16d2 a=CS7yVHPVoEopjVSexcYCQA==:117 a=CS7yVHPVoEopjVSexcYCQA==:17 a=IkcTkHD0fZMA:10 a=VwQbUJbxAAAA:8 a=VT4XjZGOAAAA:8 a=GvHEsTVZAAAA:8 a=E8QqtcFgGylCMEfhWDkA:9 a=QEXdDO2ut3YA:10 a=6CpsfURP9XNmmWg3j1mJ:22 a=aajZ2D0djhd3YR65f-bR:22
-X-CM-Envelope: MS4xfJcwCJVpL1ZtOgXAwEetgW+YoNBvGUQPfmTxMKooQpgL08qLBmkPPJT9r7YgekgaKNRoJ/wjtuoqxgnatbFlj/11pJPx8GLKuo+MZmXFw/WCY3T45xBP 5WbYH8ePugTJ0kc8bjAbKWKDIzwU2N3qszk0q5AQ9qRnwlR5wRD+s3LeeZ54ghfygM+Vol+AExOaR8HPsIPw/RalpnzgD8XdcwJcTuGCkrXZtvY3R1dAD0UH CJuH/J0d+7c4Nns/xevN6Gt8HPUbqm6Dh+BlRo4bOv8ZZh37z1qcAKLFcqlOba0/Nj1TSL40RXk7hMjTFeMedEggEu2a255jm60L/0VYdOG8G2PmUm1OZ7kD OiEYi9gVjup8hJ2G7orHrds12F3ntgZpfm915uBvg9b+hO7IhDEZlebtR88TfAbi4Au0kHv0UVbJq/YW5BVGIrUTItdB3klrFuK4rtN+SShMQdQfW5EyICQX FHgFR8uW6s1z0d7RgSS5IqNfQT2K0AXDFkE4uaa/0uv5k97Ez4zOGM+aR04M3FR7a/WGAzYN7bPPoZiy8sebYM0D8HU/wtdXwXEAICch3fmxi+vmoK5rSTzD Rmj9NhD9cqIH3grnaBt4gu61sI5xcnQDdBp5vr4j8ltfWCGBPnMmdcy6wMFX3JtrzAWidLOeiK88bJpakJAw7+cQDP9wMKfmdoUcBHCOLJM5msp17puLno6x Af9zAoY6PYFSfVxUBNEW80D5OTn395RI2HOFmhPgbNLN6vRV2HvPUg==
-X-AuthUser: chester.a.unal@arinc9.com
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL02EPF00021F68:EE_|MW6PR10MB7638:EE_
+X-MS-Office365-Filtering-Correlation-Id: f0595e92-5529-458e-fae6-08deaac13e76
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|82310400026|36860700016|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: lC/nT6G2+8MHvwnMeqhhKmBlG8jKaCuh4rZWqaK/6m0nzFnO7iqqP493ydDjL0MjpTSf88wWWaEWQ3nXJkhnpHGJYJnFSUHZdc+7WXAHaHv6+GasRrN5qGvB+7FtFzZl7n2trVY7LAJq/IkKgaa7xwkBMP1CbSIAitNmkZ9bEhtfljOJruUzJ9UgscIt8Qrgcy+wVDA4XhCmiZiOlPbKrZvKr7LV0KNxFy4aarpglcjjbtvUH4QlkGfJhteCEZ37ARAvjckPS4JntPme65Y/yn/S8v+Yg2A71u73vdPEvUSDEGWyRy14U3q66A6A+IYYfd1RuyEUnvCy9s7hp0GKe8pRrcudH1Jxt0quMm0RYV5hAi6W+2gAULwqzEGfPtmNYyDS/JOX+WoSqF7vqvwnWctYrv3CeXR8gsusi4+bhd8pVapS4ml12STkRyGqTLYCbiWdgqOeQSqpTSPMXWD0JI7Ow42I5r/QvHSvbubVF5wSdL+DtMVup3cB2IRT6Gx5LoJsYFaIoaXWxHgzVhA5wZh2yjsJHi0cun8Ae7dGnt8YTY4ERED1BkPDSK24opyv1ZbrRLH2TUY21mQexjpgbXOB5wWsI3a7mCwZ7eDxgwMP6UFQHZNQSxni8Mkr5mHc7LdkRaJBU3VQmYGxmbAxVv8RqjxwXLeu4xdja2E/AaF4bHbswj/WtuwMt3R5Nzt2vp+yqfI7+rAc9hPurWCsILgMYybAsrj2/xIqTA5Tm0I=
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(82310400026)(36860700016)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: Z0IuSX4riiF10GzL7WzJnGD/UKZvkWBk3hS1RFv9iFi0zXuiVlPi80OoDUlgEhg5VesXwKlTgRGp5a2WBgl3CBmtyy7DfUsJw9pY3U4Ca85fDFUw56Pv+rib9PwYtrVb14d4g5HflCGFwauXifdjmG4mOx/nrJiNM5WNlDleAEBmMNv0V7HcwlUQJ6Br4cnrcE+IRN6ZxIHykTM2Xico5jJfcHsJpsuF6maoowg+93e9iD/6zNhgxPM/2lXuyV4gz2YRo0mo1qYr7IScgYNskgA9tLim/3cdrome/nSuDEHa7AjhvSExcus45Ttlihh0DmGbDb0EYlwN8RuPFCiAS/0zMidenEirpp9HZQ49aVsAOXJYr9yVWJu44yMcY6CBrNZejPoRmcnpGa/kgfk6T5qruFqmqPTnx0WjMHLXgxzoFxyUNwe1z+4tB9LNMsWv
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2026 16:13:28.5464
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f0595e92-5529-458e-fae6-08deaac13e76
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL02EPF00021F68.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR10MB7638
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_091208_334700_A13FBA46 
-X-CRM114-Status: GOOD (  15.08  )
+X-CRM114-CacheID: sfid-20260505_091345_953984_2424A863 
+X-CRM114-Status: GOOD (  15.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,52 +161,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/05/2026 17:03, Daniel Golle wrote:
-> On Tue, May 05, 2026 at 03:37:29PM +0000, Chester A. Unal wrote:
->> Hey Daniel.
->>
->> On 05/05/2026 15:16, Daniel Golle wrote:
->>> The BPC, RGAC1 and RGAC2 registers control the handling of link-local
->>> frames with reserved MAC DAs (01:80:C2:00:00:0x). These frames are
->>> correctly trapped to the CPU port, but the egress VLAN tag attribute was
->>> set to MT7530_VLAN_EG_UNTAGGED which causes the switch to strip any
->>> VLAN tags from trapped frames before they reach the CPU.
->>>
->>> This causes VLAN-tagged link-local frames (STP BPDUs, LLDP, PTP Peer
->>> Delay Requests) to arrive at the CPU without their VLAN tag, so they
->>> are delivered to the base network interface instead of the VLAN
->>> sub-interface. The DSA local_termination selftest confirms this: all
->>> link-local protocol tests on VLAN upper interfaces fail.
->>>
->>> Set the EG_TAG attribute to MT7530_VLAN_EG_DISABLED (system default)
->>> so that the switch does not modify VLAN tags in trapped frames. This
->>> way VLAN-tagged frames retain their original tag and are delivered to
->>> the correct VLAN sub-interface, matching the behavior of non-trapped
->>> frames which pass through without VLAN tag modification.
->>>
->>> Fixes: 69ddba9d170b ("net: dsa: mt7530: fix handling of all link-local frames")
->>> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
->>
->> Thank you for this patch. Could you please confirm that it conforms to the
->> findings documented on this patch log?
->>
->> https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git/commit/?id=e8bf353577f382c7066c661fed41b2adc0fc7c40
-> 
-> Yes. Combining VLAN CTAG and DSA tag into single "mess" tag is what the
-> MT7530 hardware does, and also what tag_mtk.c expects, and mtk_eth_soc
-> "special tag" feature handles well.
-> 
-> I've found, addressed and verified all the issues in the series using
-> the DSA selftests in tools/testing/selftest/drivers/net/dsa, ie. running
-> bridge_vlan_aware.sh, bridge_vlan_unaware.sh and local_termination.sh
-> in a loop, and random order, on BPi-R3 (MT7531) and BPi-R4 (MT7988).
-> 
-> With the series applied many of the previously failing tests are now
-> passing.
 
-Great to hear!
+On 5/5/2026 9:08 PM, Shah, Tanmay wrote:
 
-Acked-by: Chester A. Unal <chester.a.unal@arinc9.com>
 
-Chester A.
+[...]
+
+>
+>>>   If there are
+>>> multiple or multiple instances of same controller, than we need separate
+>>> channel name for that controller just like we would have separate device
+>>> on the Linux.
+>>
+>> Why so? I think there is some confusion in the terminology:
+>>
+>> GPIO controller = GPIO port (gpio@xyz) defined in the
+>> Device tree = struct rpmsg_gpio_port in code
+>>
+>> GPIO line = Individual lines within each GPIO port (max =
+>> GPIOS_PER_PORT_DEFAULT) = struct rpmsg_gpio_line in code
+>>
+> Okay, I understand now. So, same gpio controller has multiple instances.
+>
+>>>>>>>> 1. namespace/channel#1 = rpmsg-io
+>>>>>>>>        a. ept1 -> gpio-controller@1
+>>>>>>>>        b. ept2 -> gpio-controller@2
+> So, In that case above mentioned approach doesn't work.
+>
+> Because, this approach is mapping endpoint to the gpio-controller.
+
+
+And what is the problem with that?
+
+>   From
+> linux's perspective, it needs to map rpmsg *channel* to the
+> gpio-controller not the endpoint.
+
+
+Can you explain why it *needs* to?
+
+>
+> To be more specific:
+>
+> Linux:                               remote:
+>
+> ch1: rpmsg-gpio.-1.1024 ->     gpio-controller@1024
+>      - gpio-line ept1
+>      - gpio-line ept2    ->     They all map to same callback_ept_1024.
+>      - gpio-line ept3
+
+
+This is a weird mapping. I am not suggesting one ept per gpio-line,
+rather one per gpio-controller. You can refer my detailed proposal
+here:
+
+https://lore.kernel.org/all/268f8e00-91bc-43ea-ba95-077cf859e7f3@ti.com/
+
+>
+> ch2: rpmsg-gpio.-1.1025 ->     gpio-controller@1025
+>      - gpio-line ept1
+>      - gpio-line ept2    ->     They all map to same callback_ept_1025.
+>      - gpio-line ept3
+
+
+[...]
+
+>
+> On the remote side, we have to hardcode Which rpmsg controller is mapped
+> to which endpoint.
+
+
+Not necessarily, we can exchange this info at runtime.
+
+Thanks,
+Beleswar
+
 
