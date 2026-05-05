@@ -4,124 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E835FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 13:00:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AAB4CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 13:09:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hU5wAVIJyHs9K+yaHH8vyxDxbAaXVWjT22V/HMPaxdQ=; b=LxI22LqtFRNYDLtzisVzcNta1j
-	AJfa2/0MwtYl+duvgfNvGc1JDEFn7vGNaFTk/c8ZPAhs804/x2Ubn5lPEQA9qcopjcWtRvGeXbi3L
-	APYH7lvHUkS61ItRRZiAGmJadFc9Iy5gr8m77yxxBjv5E2zjZ9+P/kqS680Vw6YmWoiM9eqJJbiER
-	1dJGa4jyaJwz90CF7ongw3KbzzmOmGnRB+BeF9F6IjxcA2U2Qh+kVf3nVOO4CTcoQ/uTk90e3QyOW
-	O1yeV/PR+V4CO+AgDl/dwx02z6vYkI9fjQKtk+GQKFpnowlIy07ndwMeyJiC8YespA2AFnRU6M0EP
-	+vPC5UiQ==;
+	bh=UddZamzvC1yg0ZBTUZu2OKA00w0YS6UygPeTDigZ9mY=; b=Iaj36NJbGT/JnMFxKpHeQBps65
+	1/63xuaRpOhxZk7QJaPZR9bU7+9cqhSksD+fIA9lkwEIGdJSwU0f5tV3veyk9fYZVGjuiE5UW+ojy
+	ckOhqWLJPXkT4jFrId+/J210Htu8dmWh3ftsLgabXiZpbfROKqpEFPVqk/1qxqyL2iN5D60ikLs8T
+	pDzuHJbTdN9pBrZaL02BMZgjeXBA1AE3OUBcDvhcK4sfaW8iWRIHla+s46l20dQXuujDTuqyeyyCN
+	uL2evon7yVGzEgcE1iQeSnbja6BSw/SHOnN/vCdA/vmCzdFQ8o0B7TZlQ/JKULN4cVzDZHPJs/piM
+	WX7oZPCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKFNT-0000000GGHT-3ADh;
-	Tue, 05 May 2026 12:59:55 +0000
-Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1wKFWw-0000000GHbs-2Wh3;
+	Tue, 05 May 2026 13:09:44 +0000
+Received: from leonov.paulk.fr ([185.233.101.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKFNR-0000000GGGt-0SiQ
+	id 1wKFWs-0000000GHaj-24Ae
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 12:59:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Fu0/fJD3BMgpu8yl+K5CTbPzT6Xklw/jfwpCQWaqYRqYB7YTRfwdCPyPh4dgAkKQnd3mywkdLfBjOpNRIDVqLo4LDmxOdK63txSeIwm9RWjUgXyUs0C4CHufunCoeobaexoJZ3BbxVYhZ3+mmrm8TxHGX/WB6UHrQJoo7hHLc5t81flgq3zZpZrQfhIljOfBXkDLm6x7OIxSYTRjJSeh8Z7aNO3DqQOAxepwpigQgLk0FgMEWwvwvbXnT9xgHTcVKhq4LQVE7gQT13BK3ZJHJL0TpP7LnWUe/4kxHr1ja41ThuHDVsAcLS7cHwH0Kx2S7PV6tSO/n3eajijDRBwNdg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hU5wAVIJyHs9K+yaHH8vyxDxbAaXVWjT22V/HMPaxdQ=;
- b=pvaAREYyp7TZk/fKJW4vqz+6s54qEgxBw/eC3+pH8GnL7L8IGB65pqx2RsE6Eu59HjsO7vnTusb+N4D4HIUMhSE/y4KMpvJ+5/pCOtZS9ghkja0mJI4bkmK4VItrZorXx3/waiuoPDOarPMBJ98S6ddC4cI/VifZ7KAC1T9eZlO8KA9sVfzMBFEJPQkA2I5TV+Esgy5d4lNcLUxeB1f4y9HR5ItSvcfKOX60Pjitlk6hc8/FNruPMQIoGu2/FLKIG8SFmkyFeaYEYS9cBYNmZz4MUk2xVGiTlLQeeFUswG6Vu1jZi42r1JxzUdncwGIVRX4Qo/5dYmQQLl+Og4/EUg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hU5wAVIJyHs9K+yaHH8vyxDxbAaXVWjT22V/HMPaxdQ=;
- b=uheJFMUn4Q9uG4qAqeAK1ugFajOgI65lsO7E/baSLrbyDx/2YrIXMyCOzsYtVXt78x3cnVtp25Phm5OiPU/xSXc6heFc/XIdxo337iJb8EbNP2wNnBHNj1hRC+kbo9u37NL9X2znpieU+0/paRGXbyJT+NWFGCkPQn9vbdGBZuY=
-Received: from SJ0PR13CA0178.namprd13.prod.outlook.com (2603:10b6:a03:2c7::33)
- by MW4PR10MB6372.namprd10.prod.outlook.com (2603:10b6:303:1e9::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.27; Tue, 5 May
- 2026 12:59:47 +0000
-Received: from MW1PEPF0001615C.namprd21.prod.outlook.com
- (2603:10b6:a03:2c7:cafe::36) by SJ0PR13CA0178.outlook.office365.com
- (2603:10b6:a03:2c7::33) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.15 via Frontend Transport; Tue,
- 5 May 2026 12:59:46 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- MW1PEPF0001615C.mail.protection.outlook.com (10.167.249.87) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.25.1 via Frontend Transport; Tue, 5 May 2026 12:59:46 +0000
-Received: from DLEE207.ent.ti.com (157.170.170.95) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 5 May
- 2026 07:59:45 -0500
-Received: from DLEE215.ent.ti.com (157.170.170.118) by DLEE207.ent.ti.com
- (157.170.170.95) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 5 May
- 2026 07:59:45 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE215.ent.ti.com
- (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 5 May 2026 07:59:45 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 645CxjlD3003518;
-	Tue, 5 May 2026 07:59:45 -0500
-Date: Tue, 5 May 2026 07:59:45 -0500
-From: Nishanth Menon <nm@ti.com>
-To: "Richard Genoud (TI)" <richard.genoud@bootlin.com>
-CC: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Udit Kumar <u-kumar1@ti.com>, "Abhash
- Kumar" <a-kumar2@ti.com>, Beleswar Padhi <b-padhi@ti.com>, Thomas Richard
-	<thomas.richard@bootlin.com>, Gregory CLEMENT <gregory.clement@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 1/1] arm64: dts: ti: k3-j7: Reserve memory for LPM
- meta data
-Message-ID: <20260505125945.mxucy4cfpno2x66z@slacking>
-References: <20260427160326.370415-1-richard.genoud@bootlin.com>
- <20260427160326.370415-2-richard.genoud@bootlin.com>
+	Tue, 05 May 2026 13:09:40 +0000
+Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
+	by leonov.paulk.fr (Postfix) with ESMTPS id 359461F8005A
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 May 2026 13:09:32 +0000 (UTC)
+Received: by laika.paulk.fr (Postfix, from userid 65534)
+	id A6D90B4054B; Tue,  5 May 2026 13:09:30 +0000 (UTC)
+Received: from shepard (unknown [192.168.1.1])
+	by laika.paulk.fr (Postfix) with ESMTPSA id 72EE5B40540;
+	Tue,  5 May 2026 13:09:29 +0000 (UTC)
+Date: Tue, 5 May 2026 15:09:26 +0200
+From: Paul Kocialkowski <paulk@sys-base.io>
+To: =?utf-8?B?67CV66qF7ZuI?= <mhun512@gmail.com>
+Cc: Maxime Ripard <mripard@kernel.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>, linux-media@vger.kernel.org,
+	linux-staging@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org, Ijae Kim <ae878000@gmail.com>
+Subject: Re: [PATCH v2] media: cedrus: clean up media device on probe failure
+Message-ID: <afnsBu1nepWi8yy_@shepard>
+References: <20260430142534.12928-1-pakmyeonghun@bagmyeonghun-ui-MacBookPro.local>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="OKqRcrL7IoYtAh8b"
 Content-Disposition: inline
-In-Reply-To: <20260427160326.370415-2-richard.genoud@bootlin.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MW1PEPF0001615C:EE_|MW4PR10MB6372:EE_
-X-MS-Office365-Filtering-Correlation-Id: ed2ff93a-6b9e-4b9a-7d99-08deaaa62f32
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|376014|7416014|36860700016|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: ZBk9qS873E7ZZbicRUQkkOmf70ZSbpaqFC4U2hjaAbEcl6fNfSmsaBkMriVnfyf4PMea66S+DHsFjLTop6ZMTcDBlcv4C97p7K+ytfWUkWcdW5Xr6krZFy1QyV1TbvfbG7UsRnwQvv+hfR6Q/yBVsEu81Lc+Im9o5Flha3xyEtecBw2WWPU3DLcEUmmlOiR8nbQkr0VXsX6+NAG9qOB+DW/sPOTe4HrMwYp348uB8COxB2DwmoEd4oCoQ0j411tsqx0r4DW1z+I9QTZkLzC1g25ZZxJ5cGdhPBtjKXCIpw917hT92S0vommTwYFydCKCXPryTgwrJl3NbwLi6Wp2HD8xz+3W+crPIG8/eR0VymuAzVqhnJtFU6gtOBf1zSzhHGc4FaFolor9n1UKQKG+qi77iFWUeaDsBXHrK7tt1FCS+JqslbzBliqC30nx4ST4JLSexLpk5gHpehkWOmsVUzemST52hI8k8sL1Blb/XvWrOj4dtZ2qQiiKkMMnN49H84zSja5wfNcsdPUIl0FxzrS1z0n29q7WEGG+SKRvv6m9LDeVXp0V258pumjINWAWfoKVIQm3OUg9P5PidXsSx3aOPS8CaR/uhDVx7CX/YIesygcGCLATIdgqGOeJcrGOtExibZJD+cXvxC8xi7UIDjcGqZtya/BfWQjIk622wOsFPhB79zJ943k85wSzlMwf
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(7416014)(36860700016)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: rOLm5r9iEg9TdktgjxozXb+MkJtOpIr7xnqi2Savhu44HZUGkntNkikPMDa2oTGDb9E9Ail7Cr0Pt4ghXDnfPgkvfRaFEjh7rakBHUOj2AnDHy1Rre6EeomiAZR3JrF5ihb9GWrEw663SBTpoqS0+eOPiUyMaSvyZXyYlwBSA02cfR3B4Oo5Xo+A/Z+9hzV7AhzGktrzWuHEK0Zsr0pnvRTAfvf9j9bxg6bgPcbmFJypUvMUyhom2Y4RogEkbFZwNP1TMGkfhSIGMDjMlY9imCZyWlSZHoytwaSIhbQE+Hx6cTG3wbE7W4F4wDOafmjnBpOsvucBTlnUhMktIYd53aXpWFLRDo99N+wod4hde84sSdhTOg0KsTfzfueIzgDTqh8bFbXJb3MX4KAOWQnl30AiFQty7z/6qRhkULLXXNtUlBOABoIVMNTqsWIn0DVU
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2026 12:59:46.4930
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ed2ff93a-6b9e-4b9a-7d99-08deaaa62f32
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: MW1PEPF0001615C.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR10MB6372
+In-Reply-To: <20260430142534.12928-1-pakmyeonghun@bagmyeonghun-ui-MacBookPro.local>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_055953_276967_BFEEF692 
-X-CRM114-Status: GOOD (  21.51  )
+X-CRM114-CacheID: sfid-20260505_060938_886411_FED0FA49 
+X-CRM114-Status: GOOD (  24.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,142 +72,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18:03-20260427, Richard Genoud (TI) wrote:
-> From: Prasanth Babu Mantena <p-mantena@ti.com>
-> 
-> For TI SOCs J7200, J784S4, J722S, J721s2 which support low power modes,
-> a chunk of memory is reserved for LPM meta data, which is needed for
-> saving ATF context and the certificate information of ATF and OPTEE and
-> DM image. This LPM metadata area is firewalled to be accessed only by
-> TIFS.
-> 
-> U-Boot/TIFS will use this area to save and restore:
-> - ATF context
-> - ATF certificate information
-> - OPTEE certificate information
-> - DM image
 
-DM image is loaded from storage, correct?
-> 
-> https://software-dl.ti.com/tisci/esd/latest/2_tisci_msgs/pm/lpm.html#lpm-msg-lpm-save-addr
-> 
-> U-Boot has to parse and retrieve this area from the device tree, thus
-> @lpm-memory node are used instead of the generic @memory.
-> 
-> Signed-off-by: Prasanth Babu Mantena <p-mantena@ti.com>
-> Signed-off-by: Richard Genoud (TI) <richard.genoud@bootlin.com>
+--OKqRcrL7IoYtAh8b
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hi,
+
+On Thu 30 Apr 26, 23:25, =EB=B0=95=EB=AA=85=ED=9B=88 wrote:
+> From: Myeonghun Pak <mhun512@gmail.com>
+>=20
+> cedrus_probe() initializes the media device before registering the video
+> device, the media controller, and the media device. If any of those later
+> steps fails, probe returns without calling media_device_cleanup(), so the
+> media device internals initialized by media_device_init() are left behind.
+>=20
+> Add a media-device cleanup label to the probe unwind path and route video
+> registration failures through it as well.
+
+The label should be named "err_media" instead of "err_media_cleanup" to be
+consistent with the other labels. With that fixed:
+
+Reviewed-by: Paul Kocialkowski <paulk@sys-base.io>
+
+Thanks for the fix!
+
+Paul
+
+> Fixes: 50e761516f2b8c ("media: platform: Add Cedrus VPU decoder driver")
+> Cc: stable@vger.kernel.org
+> Co-developed-by: Ijae Kim <ae878000@gmail.com>
+> Signed-off-by: Ijae Kim <ae878000@gmail.com>
+> Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
 > ---
->  arch/arm64/boot/dts/ti/k3-j7200-som-p0.dtsi  | 6 ++++++
->  arch/arm64/boot/dts/ti/k3-j721s2-som-p0.dtsi | 6 ++++++
->  arch/arm64/boot/dts/ti/k3-j722s-evm.dts      | 6 ++++++
->  arch/arm64/boot/dts/ti/k3-j742s2-evm.dts     | 9 +++++++++
->  arch/arm64/boot/dts/ti/k3-j784s4-evm.dts     | 9 ++++++---
+> Changes in v2:
+> - Drop the now-unused err_m2m label.
+>=20
+>  drivers/staging/media/sunxi/cedrus/cedrus.c | 5 +++--
+>  1 file changed, 3 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/drivers/staging/media/sunxi/cedrus/cedrus.c b/drivers/stagin=
+g/media/sunxi/cedrus/cedrus.c
+> index 6600245dff..2c25654640 100644
+> --- a/drivers/staging/media/sunxi/cedrus/cedrus.c
+> +++ b/drivers/staging/media/sunxi/cedrus/cedrus.c
+> @@ -507,7 +507,7 @@ static int cedrus_probe(struct platform_device *pdev)
+>  	ret =3D video_register_device(vfd, VFL_TYPE_VIDEO, 0);
+>  	if (ret) {
+>  		v4l2_err(&dev->v4l2_dev, "Failed to register video device\n");
+> -		goto err_m2m;
+> +		goto err_media_cleanup;
+>  	}
+> =20
+>  	v4l2_info(&dev->v4l2_dev,
+> @@ -533,6 +533,7 @@ static int cedrus_probe(struct platform_device *pdev)
+>  	v4l2_m2m_unregister_media_controller(dev->m2m_dev);
+>  err_video:
+>  	video_unregister_device(&dev->vfd);
+> -err_m2m:
+> +err_media_cleanup:
+> +	media_device_cleanup(&dev->mdev);
+>  	v4l2_m2m_release(dev->m2m_dev);
+>  err_v4l2:
+> --=20
+> 2.50.1
 
-Split this up into platform wise. I dont understand why you'd not modify
-the ipc-firmware.dtsi and use the phandle similar to https://lore.kernel.org/all/20260318-topic-am62a-ioddr-dt-v6-19-v3-4-c41473cb23c3@baylibre.com/
+--=20
+Paul Kocialkowski,
 
-Split the patches per ipc-firmware.dtsi as required.
+Independent contractor - sys-base - https://www.sys-base.io/
+Free software developer - https://www.paulk.fr/
 
->  5 files changed, 33 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-j7200-som-p0.dtsi b/arch/arm64/boot/dts/ti/k3-j7200-som-p0.dtsi
-> index 5a8c2e707fde..756928a2d411 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j7200-som-p0.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j7200-som-p0.dtsi
-> @@ -40,6 +40,12 @@ mcu_r5fss0_core0_memory_region: memory@a0100000 {
->  			reg = <0x00 0xa0100000 0x00 0xf00000>;
->  			no-map;
->  		};
-> +
-> +		lpm_memory_region: lpm-memory@a4800000 {
+Expert in multimedia, graphics and embedded hardware support with Linux.
 
-vignesh already flagged this in previous revision - just use phandle
-reference in u-boot and make this memory@
+--OKqRcrL7IoYtAh8b
+Content-Type: application/pgp-signature; name=signature.asc
 
-> +			reg = <0x00 0xa4800000 0x00 0x00300000>;
-> +			no-map;
-> +			bootph-all;
-> +		};
->  	};
->  
->  	mux0: mux-controller-0 {
-> diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-som-p0.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-som-p0.dtsi
-> index 12a38dd1514b..ceab8f057640 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j721s2-som-p0.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j721s2-som-p0.dtsi
-> @@ -42,6 +42,12 @@ mcu_r5fss0_core0_memory_region: memory@a0100000 {
->  			reg = <0x00 0xa0100000 0x00 0xf00000>;
->  			no-map;
->  		};
-> +
-> +		lpm_memory_region: lpm-memory@a9c00000 {
-> +			reg = <0x00 0xa9c00000 0x00 0x00300000>;
-> +			no-map;
-> +			bootph-all;
-> +		};
->  	};
->  
->  	mux0: mux-controller-0 {
-> diff --git a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
-> index e66330c71593..eebc5cc7d4cd 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
-> @@ -63,6 +63,12 @@ wkup_r5fss0_core0_memory_region: memory@a0100000 {
->  			reg = <0x00 0xa0100000 0x00 0xf00000>;
->  			no-map;
->  		};
-> +
-> +		lpm_memory_region: lpm-memory@a6c00000 {
-> +			reg = <0x00 0xa6c00000 0x00 0x00300000>;
-> +			no-map;
-> +			bootph-all;
-> +		};
->  	};
->  
->  	vmain_pd: regulator-0 {
-> diff --git a/arch/arm64/boot/dts/ti/k3-j742s2-evm.dts b/arch/arm64/boot/dts/ti/k3-j742s2-evm.dts
-> index fcb7f05d7faf..d0752c8a6b37 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j742s2-evm.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-j742s2-evm.dts
-> @@ -23,4 +23,13 @@ memory@80000000 {
->  		device_type = "memory";
->  		bootph-all;
->  	};
-> +
-> +};
-> +
-> +&reserved_memory {
-> +	lpm_memory_region: lpm-memory@ab000000 {
-> +		reg = <0x00 0xab000000 0x00 0x00300000>;
-> +		no-map;
-> +		bootph-all;
-> +	};
->  };
-> diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-evm.dts b/arch/arm64/boot/dts/ti/k3-j784s4-evm.dts
-> index 6c7458c76f53..114594f37f0b 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j784s4-evm.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-j784s4-evm.dts
-> @@ -23,10 +23,13 @@ memory@80000000 {
->  		device_type = "memory";
->  		bootph-all;
->  	};
-> +};
->  
-> -	reserved_memory: reserved-memory {
-> -		#address-cells = <2>;
-> -		#size-cells = <2>;
-> +&reserved_memory {
-> +	lpm_memory_region: lpm-memory@ac000000 {
-> +		reg = <0x00 0xac000000 0x00 0x00300000>;
-> +		no-map;
-> +		bootph-all;
->  	};
->  };
->  
+-----BEGIN PGP SIGNATURE-----
 
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmn57AYACgkQhP3B6o/u
+lQxYTQ//Vg6dZ/FBGwVcZvEbR67CmVXDfwgz6zE8GeXVEXwu7GY40c3yev5F2pNn
+0N2ec5Jj2a+nTeRv62lgSsUBy1K+YsRhcQ30RpCkrRGYXESPJ5WeFBU/+IYRJjmN
+G6hW5bN7ZiOZN2jQ53swcwHOZq5cZcxdtpSG9OFDDB66E46fCs67UnfLuv6koUFH
+wtGTgHJKOg5MkO4SjNpN2KEZmDcuPodnaHdvRo/BX1rkY+fS3GKIP5Dtd6W5xBVn
+6ag9Wrwr24akqGWfjRTstDTFglqPIvUZtXJp1w4QVqYsik1o0d9UY+rLqe66DzQZ
+KGNSe9DufKyB9WmeaaXlGFhCbMdLKqWr+LfiVKY0fmEkJlPJkjazs4eKm/c8VN2i
+9TfeW8hlaWev8RrC/pLJxcnJOWNtJCo7pjp2d4zIXg629SAN2yIqn2hMi4cQtpOL
+Ixc3c30xVlEAnSSVXXZgaMGCCgIoSY7JcuWq6JE4cxMmAnZe+zWZKNI8gyi7906r
+mx/ZsKPA91CmsZn02R3/RnaAhHKRTxvRPI3oAnK4mLrzDkNy+1JurgxAr8IuKBQ8
+BLzJr4XI0W1YIrXzo1vMn2PSdaLmroX8ok3TEXS/JAsoeCEjlTsBy2TS1Bliq/2t
++YNKoMFNF6OU34nh+74LO9nsvS/hlPFSixiBiIDOH8zl9AmemqU=
+=PbbW
+-----END PGP SIGNATURE-----
+
+--OKqRcrL7IoYtAh8b--
 
