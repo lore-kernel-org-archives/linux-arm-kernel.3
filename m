@@ -4,110 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C5D7CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 20:01:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8DB6FF8855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 20:02:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=slB+JxKgDShuj1onoapW+Brn+Ree9yJxr7H7uqFs8aw=; b=zd7BRlzelxiYxvdO6ZQOwg09+A
-	L6sWCaCGyVJM+yn+FdhUh+DNIQENg8zI15tMXs8ynwgwIjiKqwqUn+/hDNrUNyfhA1KuI5iEepHVp
-	q5ksUO3JZ/OMjrpX0tNjM132d4BV96uO1RWMU2TYmevUir3Q9b8Yq3bszTjms4cwyuwnKW4yw9DUk
-	uAiCcKEugESnyhiL1CdLeSiZ02r3tDqTE1aVckt+8EnIdgKbHkZOEzFX+Ct/kwjpa8TdoKyXHHU/c
-	n9Wzrw6Jxv/WxzOUYx6NeSOtsaMxXYByq6C72rqN4T2h34TkiZnecBr3/vQzxB4Y1F3kE4jAAahS4
-	rvof2gnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mqk5KRpr2QM7zZel/mc+QHCJaqF1SuWyHsWctnUBoxM=; b=U9SbF1Vzy8npurHA6mxz4LVbsL
+	qspMHw6fVwaxSHTCNDULr9eXqcx6JRRC8QTiVUKyNWlZKshmcAmizd6et/fWH0fn+1PmwWgTUsmNt
+	RovtIIL4h7P3k35O4+UZO57Dj4CuUTjxRbfYzr/yOcbJOHX1f2NKwbxlDsc4Rvzm/BvYlJzKrCFQk
+	owaXj9V74EXDVu4VTNASfbyX1DFDW7o9FqZO6rkwdeUKb1lDiFyxDWWeGeqPID/awrD4T0qgJP0IC
+	Fj18boT474jsesRwhxUiO30fU/7KrBW735OdZV5Da2hUhrxXV1kmUnn5GUeqC5FNWCaZtl1LZMLWm
+	u4s43G7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKLx2-0000000HMso-1ovv;
-	Tue, 05 May 2026 20:01:04 +0000
-Received: from fhigh-b1-smtp.messagingengine.com ([202.12.124.152])
+	id 1wKLyj-0000000HNAL-0aMG;
+	Tue, 05 May 2026 20:02:49 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKLwz-0000000HMrI-4ARm
+	id 1wKLyh-0000000HNA5-3f7w
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 20:01:03 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 159467A0115;
-	Tue,  5 May 2026 16:00:58 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Tue, 05 May 2026 16:00:58 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1778011257;
-	 x=1778097657; bh=slB+JxKgDShuj1onoapW+Brn+Ree9yJxr7H7uqFs8aw=; b=
-	SyXuXsibDWmDIvGMuropPfwcuhPTFJasgJ814kb872VG7zz+jfhpuPFklSJmasVZ
-	jeG7qjRsdQUicowkJ6pn0IQD2RwtlGUhFGOqo8+rBD/nwT5/nL7K2gQvCHkbOHtb
-	yIDwEzRjEpDlrBTGz2zddaxJf+KYA1ep+K0sQwEwuR7uxxobznlnmm1/IAJzAmjq
-	uAEM+eDAMA4CUIX8q354pGARhd/xid/Te8rePIY1c53I5Cd22wARMQYFG/+rUzyA
-	ijGIYoeBDf9GKhvdIzJc6eeqd74kwy/hdB+CYxChwPsGsee8XTWpXeXarHCevSIj
-	la2xgiVMIRT2G0NBiAJT0w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1778011257; x=
-	1778097657; bh=slB+JxKgDShuj1onoapW+Brn+Ree9yJxr7H7uqFs8aw=; b=o
-	9M8oCnP6kBiG6H7REmllcEA9vbxYRXHE1YN7XW3T3sAkRrOOT/EGzRkzH9KkqsSO
-	Gu84mhwPlwfvO8XD4mz9OrSB4p8WNEwYXyaGLqdsYKWoKGgFsceFe3rGm23UEhVF
-	F+2+QvLoEGBOsD9+fJ+EKR7MlDQqQpLY0RpIgkjMDHg/40Cfz+zw/jZ1xpGFDhWH
-	/aAL1HnWn5LklXJYKIQ2ESfCae1vlthtwlroe0sdGh2KHtkBhvECxq6rQz+Yiidv
-	EcY5gpjGzs/iE6ikoLbprloHotkCOqSHMHu8BkgJWFl/e+CTz7gwwp3t8YfHNU/J
-	1yu432ubdd7jd/9WHWGvg==
-X-ME-Sender: <xms:eEz6aeEkyL6LFnsv5dbzI1ZOxl-USAD_mcTkY7BoA301IU65fhevcA>
-    <xme:eEz6aaKtVAXCrDtWzgNmkUDS5jQlWcFETD9i-Uk3xRbBuYQcogtzIUQyZS_oOVz8O
-    li5Ssoq9c4qzQCk0MZWKEird633sZh2cmNAUFv2ERdHeyrUapYpE0w>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgddutddvieduucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhepfefhheetffduvdfgieeghfejtedvkeetkeejfeekkeelffejteevvdeghffhiefh
-    necuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpedtne
-    curfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgt
-    phhtthhopeduvddpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheprhhosggvrhhtrd
-    hjrghriihmihhksehfrhgvvgdrfhhrpdhrtghpthhtohephhgrohhjihgrnhdriihhuhgr
-    nhhgsehgmhgrihhlrdgtohhmpdhrtghpthhtoheprghnughrihihrdhshhgvvhgthhgvnh
-    hkohesihhnthgvlhdrtghomhdprhgtphhtthhopegrrhhnugeskhgvrhhnvghlrdhorhhg
-    pdhrtghpthhtohepsghrohhonhhivgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplh
-    hinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhg
-    pdhrtghpthhtohepthhrvgguihhnghesnhhvihguihgrrdgtohhmpdhrtghpthhtohepph
-    gvrhgvgiesphgvrhgvgidrtgiipdhrtghpthhtohepthhifigrihesshhushgvrdgtohhm
-X-ME-Proxy: <xmx:eUz6aWCZCSLFciJhpPxL7Pl9dH9wNxs1bk8_VLtkkjuHopEt6Ae8_w>
-    <xmx:eUz6aW4MzRRYrXk4pLiAJ-YD4uy7bd0rbvWAm3ofT-A9AX1DU-IOmQ>
-    <xmx:eUz6aV1A0WpD5PXRkmggGfhtZTkyIsKZJkabEgw9BjOnB0wNNfRnbQ>
-    <xmx:eUz6aSmVFdx6OnNVW75NV-wF2yEIIl2qXZ2xyrF9LWiJQ_Unsqqw0w>
-    <xmx:eUz6aWz-ZN1z3GIsnkC4r7cGLjdywdEPEvSDywam0Rp8ZgNwEnxCfas9>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id E3EFE700069; Tue,  5 May 2026 16:00:56 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Tue, 05 May 2026 20:02:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0DFEA60181;
+	Tue,  5 May 2026 20:02:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D40DEC2BCB4;
+	Tue,  5 May 2026 20:02:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778011366;
+	bh=S4mPz1gHjU8JPLMFTOh6+Yltl18mwFwYQmcVdfoQwYE=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=hKf4MOXtyo3lBpMYJ6Kt9fwcEE6MvbIRoZTODnNG4oG3FchXQVHyHvCt6mUU6hWEm
+	 2KL8rM6TvPuav81DG/3vMEpUqZi6Vb1t4u/opmYKBLoNDP3pH+zKIFORb0xxFtO6QT
+	 JqqUvGlRVkHGHVQxpe2RbLoQOsUSsa7kR5nRq18CDYwo5SPupLvptoyyPKXhcupBSE
+	 /2qyNYCqoRmmZT0Xf/EssG8TMCDPFtNBq+j7faJvGfBIZpKkbMumkJKnuq8APsu8T3
+	 3X2BKPwu3Jv9H7PqTJoUa0+EQp52ihbup4AU4yVBiHsTgcLAFDC0Gyxk5ssz9elJPu
+	 QpPt1DchVlb/Q==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>
+Cc: nd <nd@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Marc Zyngier
+ <maz@kernel.org>
+Subject: Re: [PATCH 1/3] irqchip/gic-v5: Move LPI alloc/free into LPI domain
+In-Reply-To: <20260430153352.3654325-2-sascha.bischoff@arm.com>
+References: <20260430153352.3654325-1-sascha.bischoff@arm.com>
+ <20260430153352.3654325-2-sascha.bischoff@arm.com>
+Date: Tue, 05 May 2026 22:02:43 +0200
+Message-ID: <873405y68s.ffs@tglx>
 MIME-Version: 1.0
-X-ThreadId: A7hCdP3FbXcs
-Date: Tue, 05 May 2026 21:59:33 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Andy Shevchenko" <andriy.shevchenko@intel.com>,
- "Arnd Bergmann" <arnd@kernel.org>
-Cc: "Daniel Mack" <daniel@zonque.org>,
- "Haojian Zhuang" <haojian.zhuang@gmail.com>,
- "Robert Jarzmik" <robert.jarzmik@free.fr>,
- "Jaroslav Kysela" <perex@perex.cz>, "Takashi Iwai" <tiwai@suse.com>,
- "Thierry Reding" <treding@nvidia.com>, "Mark Brown" <broonie@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-sound@vger.kernel.org
-Message-Id: <ca83fbbf-e7d1-43d0-bb5b-0fe02644c91f@app.fastmail.com>
-In-Reply-To: <ae-Hl4LZiZzCh8dy@ashevche-desk.local>
-References: <20260427144658.3609647-1-arnd@kernel.org>
- <20260427144658.3609647-2-arnd@kernel.org>
- <ae-Hl4LZiZzCh8dy@ashevche-desk.local>
-Subject: Re: [PATCH 2/3] ASoC: pxa2xx: push gpio usage into arch code
 Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_130102_457663_BE2694A1 
-X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,43 +71,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 27, 2026, at 17:58, Andy Shevchenko wrote:
-> On Mon, Apr 27, 2026 at 04:46:30PM +0200, Arnd Bergmann wrote:
->
->> There are no remaining static platform_device users of pxa2xx ac97,
->> so the rest of that code path can go away as well.
->> 
->> Since nothing in the driver uses the gpio number now, constrain the use
->> of the legacy gpio interface to the architecture specific code.
->
-> ...
->
->> +	if (cpu_is_pxa27x()) {
->>  		/* Assert reset using GPIOD_OUT_HIGH, because reset is GPIO_ACTIVE_LOW */
->>  		rst_gpio = devm_gpiod_get(&dev->dev, "reset", GPIOD_OUT_HIGH);
->> +		if (IS_ERR(rst_gpio))
->> +			rst_gpio = NULL;
->
-> Have you seen my
-> https://lore.kernel.org/r/20260415150412.365989-1-andriy.shevchenko@linux.intel.com
-> ?
->
-> Perhaps you can incorporate it into this mini-series, as it looks like that one
-> hasn't been applied yet.
+On Thu, Apr 30 2026 at 15:34, Sascha Bischoff wrote:
 
-Done now. It was already similar to your version and after
-addressing Mark's comment about error handling, I now squashed
-it into this:
+> Rather than relying on the domains built on top of GICv5's LPI domain
+> to manage LPI allocations and frees, move that into the LPI domain
+> itself. This, rightly, ensures that domains other than the LPI itself
+> have no knowledge of LPI allocations themselves. This not only cleans
+> up the LPI domain itself, but also the IPI and ITS MSI domains which
+> build upon it.
+>
+> While we're at it, drop the helpers wrapping the helpers -
+> gicv5_alloc_lpi() and gicv5_free_lpi() - and directly use alloc_lpi()
+> and release_lpi() instead.
 
-        if (cpu_is_pxa27x()) {
-                /* Assert reset using GPIOD_OUT_HIGH, because reset is GPIO_ACTIVE_LOW */
-                rst_gpio = devm_gpiod_get_optional(&dev->dev, "reset",
-                                                   GPIOD_OUT_HIGH);
-                if (IS_ERR(rst_gpio))
-                        return dev_err_probe(&dev->dev, PTR_ERR(rst_gpio),
-                                             "reset gpio failed\n");
-                ...
-        }
+https://www.kernel.org/doc/html/latest/process/maintainer-tip.html#changelog
 
-       Arnd 
+>  
+> +static void gicv5_irq_lpi_domain_free(struct irq_domain *domain, unsigned int virq,
+> +				      unsigned int nr_irqs)
+> +{
+> +	struct irq_data *d;
+> +
+> +	if (WARN_ON_ONCE(nr_irqs != 1))
+> +		return;
+> +
+> +	d = irq_domain_get_irq_data(domain, virq);
+> +
+> +
+
+Stray extra newline.
+
+> +	release_lpi(d->hwirq);
+> +
+> +	irq_set_handler(virq, NULL);
+> +	irq_domain_reset_irq_data(d);
+> +}
+
+Otherwise this looks good.
 
