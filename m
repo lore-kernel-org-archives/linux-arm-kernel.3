@@ -4,64 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38CC1CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 21:44:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 534D6CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 21:46:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+y/h21i0FBlFlE5Hg0qvij7l+70t7dMFKlxM4wj1Ons=; b=beZDlIi5oLAHYl2zQUpqCLk0H2
-	Cp2trr15511V3KJRWJQcWjMUf3Y57UCvUVcbasAqmBGJr8vetsLnic+ZFBY0Q7ehTIzogKGM8jnrz
-	NlUX23GlHDMho9YpedRQU2kTn6ONvq6sO0c4rxYycpWGDrKksrS43XpQdYe5/DSNaj6Z5LwEFKiDR
-	bVp4cMGsKVXRUbw6l5l89OWpq2S/XEs+BHgxfD7GLAMUCkvHkJE8OtV0vWg0hi3kq2cIKSf7wG5iX
-	5yCnWV61Z4+t8CKHoOtCuK38vm+15J6qt6k6bFvsIGej0PW4Lb7pHzR9aGduRjYt6RqQY9lqWicB8
-	uTDZLdUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mWFcBq0zhFRY7Cz5fcJUSQDRK4lDJnO8aVB09yQ4oes=; b=z86Ckam62x3SWji95hQtEZ8GxJ
+	Ow0sFzb2cYC6fPG9oQmPenQOQNK2m6ta8KN5VMbE7ebbXEm86766jNnl3IwK8no5SNdAZ3yiAw1Mg
+	lrIxUcrg3mtX+nYet+SC4FFFLzDAhsEijRQ7c+I4RfkJ7BhIbWyJrSkVpO+wQoroikvu+AepPTIj7
+	rfHYJxvzSsYl7XJvp/1ktGJmd7mKUdw+itNc16ZMBLPIPTE3GHfnrwOAhDfXo+3Xr6RdBTcieAUEO
+	JARwlDnfrLKnlRPP2glAO94Z0MngY2KlbFIYd6agnysF0oAyPmhj77DLBJMNgk5kihe8z4oUX0eFi
+	IrMUzmHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKNYs-0000000HZ2j-3R2l;
-	Tue, 05 May 2026 21:44:14 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKNYp-0000000HZ29-3RYO
+	id 1wKNb8-0000000HZNy-15zl;
+	Tue, 05 May 2026 21:46:34 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wKNb5-0000000HZMU-2DvK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 21:44:13 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C07D61A25;
-	Tue,  5 May 2026 14:44:04 -0700 (PDT)
-Received: from donnerap.manchester.arm.com (donnerap.manchester.arm.com [10.33.8.81])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AE6453F7B4;
-	Tue,  5 May 2026 14:44:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778017450; bh=wn++sDs6bzfikHLcTyLewysJeV6R0AgYt4Hgu4eJvZU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GNWwXzjXR4Zbk1WYsiIebDPMyTjJ8m8Ta9mJdD732DE9nlWq7e8EtG/GSLnMvee63
-	 cfEEOO/I2PZj4fWvTNASzR2QSXxQgSi1USAFeoawNVXfAPxhyRWaZ6c7NzMm7xJ4Qs
-	 7Gufebq6KtlMyBpTiedfc44Wm5X13w5GB2PRiwRA=
-Date: Tue, 5 May 2026 22:44:05 +0100
-From: Philip Radford <philip.radford@arm.com>
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, linux-pm@vger.kernel.org,
-	sudeep.holla@arm.com, james.quinlan@broadcom.com,
-	f.fainelli@gmail.com, vincent.guittot@linaro.org,
-	etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
-	quic_sibis@quicinc.com, dan.carpenter@linaro.org, d-gole@ti.com,
-	souvik.chakravarty@arm.com
-Subject: Re: [PATCH v5 09/12] firmware: arm_scmi: add Powercap MAI get/set
- support
-Message-ID: <afpkpUcevUh_Z8kQ@donnerap.manchester.arm.com>
-References: <20260428090922.346069-1-philip.radford@arm.com>
- <20260428090922.346069-10-philip.radford@arm.com>
- <afpUytkInNKLTB0k@pluto>
+	Tue, 05 May 2026 21:46:32 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-488a9033b2cso50861835e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 14:46:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778017590; x=1778622390; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=mWFcBq0zhFRY7Cz5fcJUSQDRK4lDJnO8aVB09yQ4oes=;
+        b=PfG7wWusihT4Ce9IrI7CUPh56EZFMRAx6kL7FPhZFYszwbswL/JAEjItcZjqtoBxlg
+         ckeYdhQVUB4TckcFUy/Ky0B+kWkRPYBsuKGn92jf2mrAZpsFI7hva2OOUNQ8XcGtdhyx
+         R+uAPBZAuAemcE0w3StcZ0REqSKpDvZvEX9vel7CY60yCp9ajmlukHl2/29YEkzFiUdF
+         zFfn6+uQ2ulM/7lGeIBiGH1R6TEgvjOAgiD+ct1/gQ6GpvoJLEGSCOGx6cvuhlGuZxXZ
+         8yRR704ILyHTr1J2VTgqfUu+YDdtbel27ll77lxaXOfF65TV5OKXTM26wg86Jm/F9nwk
+         zlWg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778017590; x=1778622390;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mWFcBq0zhFRY7Cz5fcJUSQDRK4lDJnO8aVB09yQ4oes=;
+        b=bT/ZWZivDdmk3EojSSHKmhX3+zCiLbBlQwEwu03oleVtRFOFmDHHlSjJbolk4K4Kfk
+         f/BIIxZ7KnZ+4gPPs1ABBtRfQPPTbdOajSSrG5jSf834r1HYtZM2+kYX6Hb4ZH+MrEXC
+         sMsoe9GWt9lrYduZzvQA6C9xna9N76wFAx+ZGZp5Itb4l2o02f5SObSD4ERg4qsikwQt
+         hZN5GG3dWOQPC95BVXJOn7cN3f2Y6umGinuPn+t4dOkNlLG8rY8U+kjWG270Td6Rsm45
+         4RGCFhLU1FU9uStNuX/Gt8SNdmf/6GfRICguNjcEooMwB8728Xbq+KHgaouIGasIsY94
+         OXTQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/Yz/gdPbYcyRiCXjrfe/Ad1fjqtnsw8dzHwqBm7SiWt0qeUngU/TKlM2ZsWXizwDRvpHx+fjqDQJKlrWTxlVyg@lists.infradead.org
+X-Gm-Message-State: AOJu0YwwXdNAVe4dAVO3EbuRUPsVMwEL200gKadtJIZUhTA0hKrh0ctR
+	TbtQGIW/RB5wYaPrzs7ik/unpw/uiDWB21hhd9DA+CUAExW7UkaSUOAI
+X-Gm-Gg: AeBDiesH5l7AX0uXIUFeqigExxEtHdCzQZrGcZ+0NW++wdSnsw5kG8yVE/JeHy5U6HO
+	+Gg1pif84rVT1869W3heybL0gLaCs9wAVDh26bCAPft1cWDGVBD+oVmx7dUSP5oqK72prQ0XsfH
+	E5uN3ba/WTLgOpv0wsfBePv2BWWo9QO+l9HtxFIHFmuAsOrRM4cVp1/ZJ/OWYTzEwqq7Je15ALD
+	b+MY+JNP+SnziL4UBt3KIP/BNxwFlQh11Pt6iu2XA7DZOEFOytMbzMOs25iAAol2b3h/V10TzVV
+	6oBDAFowEl+z3hpZxg+ucJLn+VkrEr+Ps3L6/Gll+UlBM3Lnq5HAczrgnuPulOdvmr5jSmA6KZd
+	5pgI4lVkbTQKwB94upZAfCmHg6P3KkVUvLzXaVypeHNDgmncULnxclzH+gPhALfS4LgTMI+x8ks
+	DoFFLjZeCn1D1aRbG+5FJGP1snxlP3D+Zq/0f2qwk2
+X-Received: by 2002:a05:600c:3f0b:b0:48a:6fd4:d3d3 with SMTP id 5b1f17b1804b1-48e51f37fb8mr17928735e9.20.1778017589343;
+        Tue, 05 May 2026 14:46:29 -0700 (PDT)
+Received: from luca-vm.lan ([154.61.61.58])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48a824f9f0dsm411556165e9.15.2026.05.05.14.46.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 05 May 2026 14:46:28 -0700 (PDT)
+From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+To: linux-mediatek@lists.infradead.org
+Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	dri-devel@lists.freedesktop.org
+Subject: [PATCH v4 0/2] Add support for mt8167 display blocks
+Date: Tue,  5 May 2026 22:44:58 +0100
+Message-ID: <20260505214541.333657-1-l.scorcia@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <afpUytkInNKLTB0k@pluto>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_144411_968012_5CBCFD46 
-X-CRM114-Status: GOOD (  30.92  )
+X-CRM114-CacheID: sfid-20260505_144631_608266_96D1C0E1 
+X-CRM114-Status: GOOD (  14.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,282 +107,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 05, 2026 at 09:36:26PM +0100, Cristian Marussi wrote:
-> On Tue, Apr 28, 2026 at 10:09:18AM +0100, Philip Radford wrote:
-> > Add support for Power Measurement Averaging Interval (MAI)
-> 
-> Hi,
-> 
+This series adds support for the display blocks on MediaTek mt8167.
+Tested on Xiaomi Mi Smart Clock x04g.
 
-Hi,
-Thanks for the review.
+The second patch in the series ideally wouldn't be required as the
+DSI controller is compatible with mt2701, but the mediatek,dsi binding
+lists an explicit compatible since 2020 and removing or changing it
+would break the ABI, so we actually need to support it.
 
-> > get and set operations to the SCMI powercap protocol driver.
-> > Extends scmi_powercap_info to store MAI configuration and
-> > implement MAI get/set via xfer and optional fast-channel
-> > support.
-> 
-> You have to stay under 75 chars...ok...but I'd say this commit message
-> lines are way to short...you can stretch a bit more towards 75chars
-> without having to split words I think....because
-> 
-> t
-> o
-> o
-> 
-> s
-> h
-> o
-> r
-> t
-> 
-> l
-> i
-> n
-> e
-> s
-> 
-> are not so good anyway :P
-> 
+Changes in v4:
+- Rebased patches
+- Rewrote commit message to better explain why we need to add an
+  explicit compatible.
 
-Noted. I was too concerned about going over the limit and didn't think
-about the opposite being an issue.
+Changes in v3 [3]:
+- Added mt8167-dsi compatible to driver instead of changing the binding;
+- Resolved patch formatting issues.
 
-> > 
-> > Signed-off-by: Philip Radford <philip.radford@arm.com>
-> > ---
-> >  drivers/firmware/arm_scmi/powercap.c | 120 +++++++++++++++++++++++++++
-> >  include/linux/scmi_protocol.h        |   8 ++
-> >  2 files changed, 128 insertions(+)
-> > 
-> > diff --git a/drivers/firmware/arm_scmi/powercap.c b/drivers/firmware/arm_scmi/powercap.c
-> > index 86262eb0f34a..b5879f204b5e 100644
-> > --- a/drivers/firmware/arm_scmi/powercap.c
-> > +++ b/drivers/firmware/arm_scmi/powercap.c
-> > @@ -401,6 +401,34 @@ scmi_powercap_domain_attrs_process(const struct scmi_protocol_handle *ph,
-> >  		dom_info->notify_powercap_measurement_change =
-> >  			SUPPORTS_POWERCAP_MEASUREMENTS_CHANGE_NOTIFY(flags);
-> >  
-> > +	if (PROTOCOL_REV_MAJOR(ph->version) >= 0x3) {
-> > +		struct scmi_msg_resp_powercap_domain_attributes_v3 *resp_v3 = r;
-> > +
-> > +		flags = le32_to_cpu(resp_v3->attributes);
-> > +		if (pinfo->notify_measurements_cmd)
-> > +			dom_info->notify_powercap_measurement_change =
-> > +			       SUPPORTS_POWERCAP_MEASUREMENTS_CHANGE_NOTIFY(flags);
-> > +
-> > +		dom_info->mai_config = SUPPORTS_POWERCAP_MAI_CONFIGURATION(flags);
-> > +		dom_info->min_mai = le32_to_cpu(resp_v3->min_mai);
-> > +		dom_info->max_mai = le32_to_cpu(resp_v3->max_mai);
-> > +		dom_info->mai_step = le32_to_cpu(resp_v3->mai_step);
-> > +
-> > +		if (dom_info->mai_config) {
-> > +			ret = scmi_powercap_validate(dom_info->min_mai,
-> > +						     dom_info->max_mai,
-> > +						     dom_info->mai_step,
-> > +						     dom_info->mai_config);
-> > +
-> > +			if (ret) {
-> > +				dev_warn(ph->dev, "Platform reported problem MAI config for domain %d - %s\n",
-> 
-> "....reported invalid MAI config for domain..."
-> 
+Changes in v2 [2]:
+- Separate patch for mediatek,dsi-phy binding;
+- Separate patch for mt8167-dsi binding;
+- Simplified OF graph endpoints in mt8167.dtsi.
 
-Noted, will change.
+Link to v1: [1].
 
-> > +					 dom_info->id, dom_info->name);
-> > +
-> > +				return ret;
-> > +			}
-> > +		}
-> > +	}
-> > +
-> >  	dom_info->extended_names = SUPPORTS_EXTENDED_NAMES(flags);
-> >  
-> >  	dom_info->async_powercap_cap_set =
-> > @@ -1082,6 +1110,96 @@ static int scmi_powercap_cap_enable_get(const struct scmi_protocol_handle *ph,
-> >  	return 0;
-> >  }
-> >  
-> > +static int scmi_powercap_xfer_mai_get(const struct scmi_protocol_handle *ph, u32 domain_id,
-> > +				      u32 *mai)
-> 
-> ..bad alignment and till now we try still to stick tpo 80cols in the SCMI
-> stack if it does NOT really hamper readability...
-> 
+[1] https://lore.kernel.org/linux-mediatek/cover.1771144723.git.l.scorcia@gmail.com/
+[2] https://lore.kernel.org/linux-mediatek/cover.1771258407.git.l.scorcia@gmail.com/
+[3] https://lore.kernel.org/linux-mediatek/cover.1771863641.git.l.scorcia@gmail.com/
 
-I will address this, but I'm quite certain it wasn't flagged by checkpatch.
+Luca Leonardo Scorcia (2):
+  arm64: dts: mediatek: mt8167: Add DRM nodes
+  drm/mediatek: dsi: Add compatible for mt8167-dsi
 
-> > +{
-> > +	int ret;
-> > +	struct scmi_xfer *t;
-> > +
-> > +	ret = ph->xops->xfer_get_init(ph, POWERCAP_MAI_GET, sizeof(u32),
-> > +								sizeof(u32), &t);
-> 
-> ...terrible alignment...and you know why :D
-> 
+ arch/arm64/boot/dts/mediatek/mt8167.dtsi | 317 +++++++++++++++++++++++
+ drivers/gpu/drm/mediatek/mtk_dsi.c       |   1 +
+ 2 files changed, 318 insertions(+)
 
-Will address.
+-- 
+2.43.0
 
-> > +
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	put_unaligned_le32(domain_id, t->tx.buf);
-> > +
-> > +	ret = ph->xops->do_xfer(ph, t);
-> > +	if (!ret)
-> > +		*mai = get_unaligned_le32(t->rx.buf);
-> > +
-> > +	ph->xops->xfer_put(ph, t);
-> > +	return ret;
-> > +}
-> > +
-> > +static int scmi_powercap_xfer_mai_set(const struct scmi_protocol_handle *ph, u32 domain_id, u32 mai)
-> 
-> ..same...try to stick to 80 cols when not impossibly ugly..
-> 
-
-Will do.
-
-> > +{
-> > +	int ret;
-> > +	struct scmi_xfer *t;
-> > +	struct scmi_msg_powercap_cap_or_pai_set *msg;
-> > +
-> > +	ret = ph->xops->xfer_get_init(ph, POWERCAP_MAI_SET, sizeof(*msg), 0, &t);
-> 
-> same
-> 
-
-I'm not sure why I split that over two lines, will change.
-
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	msg = t->tx.buf;
-> > +	msg->domain_id = cpu_to_le32(domain_id);
-> > +	msg->flags = cpu_to_le32(0);
-> > +	msg->value = cpu_to_le32(mai);
-> > +
-> > +	ret = ph->xops->do_xfer(ph, t);
-> > +
-> > +	ph->xops->xfer_put(ph, t);
-> > +	return ret;
-> > +}
-> > +
-> > +static int scmi_powercap_measurements_interval_get(const struct scmi_protocol_handle *ph,
-> > +						   u32 domain_id, u32 *val)
-> > +{
-> 
-> ditto
-> 
-
-Will do.
-
-> > +	const struct scmi_powercap_info *pc;
-> > +	struct scmi_fc_info *fci;
-> > +
-> > +	if (!val)
-> > +		return -EINVAL;
-> > +
-> > +	pc = scmi_powercap_dom_info_get(ph, domain_id);
-> > +	if (!pc)
-> > +		return -EINVAL;
-> > +
-> > +	fci = pc->cpli[CPL0].fc_info;
-> > +	if (fci && fci[POWERCAP_FC_MAI].get_addr) {
-> > +		*val = ioread32(fci[POWERCAP_FC_MAI].get_addr);
-> > +		trace_scmi_fc_call(SCMI_PROTOCOL_POWERCAP, POWERCAP_MAI_GET, domain_id, 0, *val, 0);
-> ditto
-
-Noted
-
-> > +		return 0;
-> > +	}
-> > +
-> > +	return scmi_powercap_xfer_mai_get(ph, domain_id, val);
-> > +}
-> > +
-> > +static int scmi_powercap_measurements_interval_set(const struct scmi_protocol_handle *ph,
-> > +						   u32 domain_id, u32 val)
-> > +{
-> 
-> ditto
-> 
-
-Noted.
-
-> > +	const struct scmi_powercap_info *pc;
-> > +	struct scmi_fc_info *fci;
-> > +
-> > +	pc = scmi_powercap_dom_info_get(ph, domain_id);
-> > +	if (!pc)
-> > +		return -EINVAL;
-> > +
-> > +	if (!pc->mai_config || !val || val < pc->min_mai || val > pc->max_mai)
-> > +		return -EINVAL;
-> > +
-> > +	fci = pc->cpli[CPL0].fc_info;
-> > +	if (fci && fci[POWERCAP_FC_MAI].set_addr) {
-> > +		iowrite32(val, fci[POWERCAP_FC_MAI].set_addr);
-> > +		ph->hops->fastchannel_db_ring(fci[POWERCAP_FC_MAI].set_db);
-> > +		trace_scmi_fc_call(SCMI_PROTOCOL_POWERCAP, POWERCAP_MAI_SET, domain_id, 0, val, 0);
-> > +		return 0;
-> > +	}
-> > +
-> > +	return scmi_powercap_xfer_mai_set(ph, domain_id, val);
-> > +}
-> > +
-> >  static const struct scmi_powercap_proto_ops powercap_proto_ops = {
-> >  	.num_domains_get = scmi_powercap_num_domains_get,
-> >  	.info_get = scmi_powercap_dom_info_get,
-> > @@ -1094,6 +1212,8 @@ static const struct scmi_powercap_proto_ops powercap_proto_ops = {
-> >  	.measurements_get = scmi_powercap_measurements_get,
-> >  	.measurements_threshold_set = scmi_powercap_measurements_threshold_set,
-> >  	.measurements_threshold_get = scmi_powercap_measurements_threshold_get,
-> > +	.measurements_interval_get = scmi_powercap_measurements_interval_get,
-> > +	.measurements_interval_set = scmi_powercap_measurements_interval_set,
-> >  };
-> >  
-> >  static void scmi_powercap_domain_init_fc(const struct scmi_protocol_handle *ph,
-> > diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-> > index d0f6c0102559..73d66281dcc3 100644
-> > --- a/include/linux/scmi_protocol.h
-> > +++ b/include/linux/scmi_protocol.h
-> > @@ -675,6 +675,10 @@ struct scmi_powercap_info {
-> >  	bool powercap_scale_uw;
-> >  	bool extended_names;
-> >  	bool fastchannels;
-> > +	bool mai_config;
-> > +	u32 min_mai;
-> > +	u32 max_mai;
-> > +	u32 mai_step;
-> 
-> No docs for new fields ?
-> 
-
-Will add them.
-
-> >  	char name[SCMI_MAX_STR_SIZE];
-> >  	unsigned int sustainable_power;
-> >  	unsigned int accuracy;
-> > @@ -758,6 +762,10 @@ struct scmi_powercap_proto_ops {
-> >  	int (*measurements_threshold_get)(const struct scmi_protocol_handle *ph,
-> >  					  u32 domain_id, u32 *power_thresh_low,
-> >  					  u32 *power_thresh_high);
-> > +	int (*measurements_interval_get)(const struct scmi_protocol_handle *ph,
-> > +					 u32 domain_id, u32 *val);
-> > +	int (*measurements_interval_set)(const struct scmi_protocol_handle *ph,
-> > +					 u32 domain_id, u32 val);
-> 
-> No docs for new fields ?
-> 
-
-Will add them.
-And will pay more attention to col length from now on.
-
-Regards,
-Phil.
 
