@@ -4,77 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDF73FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 13:52:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67D42FF8855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 13:55:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=16crbpE+fo9e6NqCvKQRKG+iiqH3XIXLq7L/8lqbgiU=; b=NbkoqnVy2FY+Nw
-	mCD8I6zaXU5xk8ktQq16femnp58QwThgGONBVT9K+WBm224X6fsCyFbCMB3bJP8SH/Xi8WOD8t8Sd
-	QgSgW+qi0XYGEeTlt5CC6NavQU6uH2BvmvmEAEHrZH5nsRQlBPtXfAeWinY6JkAfpUmlacg0yDGSi
-	8qFAVoSRnKd/9tdfJn/WAIro2bkRkMy0Xn7NzkB0cfxud9wFWGMJkkah0pEyTIs2jjfrGqK5dPpz3
-	9O7jwBQKTitHBMQjvr9UvEgJBc/q12aKuC7nCrRC+/RQ90NbdAaS/YJ186h07eF0BWy/DNOulwS8b
-	7djsAdfSsGSksFuDmtew==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OW0dklUq7uf6SLk/z/yDWKh4nZLnpSbAuY6QO/s7DpU=; b=CiJAYo/E7OtNAXxZJrpzkzUi3b
+	g22BhKKe7n2iMSSxVPk96qS0l3mbvKu/5sUHD5oHyYqHarpnLdMWgHXz6M5EtIPnFFgRjzd7j+LvV
+	mDx6/E7nOCw68/ScwxxjFZjWdYALs5SiQM8xeyfY0GJD0vAIcV5q7mt9PtX/POC2+TXDO9aNCKUWl
+	5OSN6KQpIJRgscDEWuwPX13U29kLAt3i5pprePgclKSHEhWHPzVD2SCEWfCcZN9NScq6FqFi3lNXu
+	lQPl71r+IEgjumZIJpVSgMQkeY8i8hxJMD3BUzcb220+W1cc7I8YmV6IiV0aq5PmgH18dyn5A+VAH
+	X5eOOdWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKGCl-0000000GOlp-1d2Y;
-	Tue, 05 May 2026 13:52:55 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wKGEw-0000000GP4z-0dCU;
+	Tue, 05 May 2026 13:55:10 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKGCi-0000000GOl5-2qnJ
+	id 1wKGEt-0000000GP3m-42pV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 13:52:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 65FF040AB4
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 May 2026 13:52:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 496AAC2BCB9
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 May 2026 13:52:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777989172;
-	bh=16crbpE+fo9e6NqCvKQRKG+iiqH3XIXLq7L/8lqbgiU=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=hzd+lenkIMEVcvFwN6XXY/tuY5oA+9X322v8bFhDINbThAWerGAdEQW+ldLKDn3FP
-	 D1e7cP/NwtJw+pjK3hpjKGo96j3HK4eOJTZ9GFbgfsgjXhjkuLQ10PRq4cxnBuxSR8
-	 rEfBJT4nidKWMISjVu875veccvSMvxbXz2inBZCc0TnqQFYmAV88ahSLMhrO/kX/am
-	 FSTXsArL6p58mCna/BtGv3YDGYOrDHUeUoVWx37rIfvxAS6KGyXdTk+psiPRzqZQ+u
-	 pbU9o38l/axINVOX8TOA13UDEgYIqJjGsEVJw8L+TAVtJS2p9sYA6ANaavdlzA+lYF
-	 F5spwNTB2ADjA==
-Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-38e7d984096so59562801fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 06:52:52 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+xP+zvk1RcYki/ClotpuGSJ6+V9ryI9IZ7CJxXj11LDKdXUSdO2ZGDtXHim19U76cH/YAEskl6Q9vS4ejXC3nP@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy7y/RIoz4grUKmw6VFbMtbN7O1ls4nkl2l2GxZRd8TW5+x3Ym0
-	rODs+eyGxnXMUbDvFOsm6lR1XgmLZkMzqoCn/L2cYa5+DpT2IqpFkblj2/L28dZkoHOac7aKk2g
-	sA/rrILY0Q6uoeasWkY8PY5pq7FfHino=
-X-Received: by 2002:a2e:b0f9:0:b0:393:975b:5634 with SMTP id
- 38308e7fff4ca-393975b5741mr29824471fa.11.1777989170742; Tue, 05 May 2026
- 06:52:50 -0700 (PDT)
+	Tue, 05 May 2026 13:55:09 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-48909558b3aso57878245e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 06:55:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1777989305; x=1778594105; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=OW0dklUq7uf6SLk/z/yDWKh4nZLnpSbAuY6QO/s7DpU=;
+        b=KV0UnThSxCDo0zGthXdxGra/1ciGthTHd1WKxrEb2dETQpYOW6nPW+zLZYNY/WDsT8
+         NOcOtUmlok9nuSBmjc7KO5OgrrXNV4JzZYXCUoNqvEbYezf94ADRFbONWZacHD+FHIbs
+         Cp00Zx+HTrZxMRaOiyxftaRb9UlkTJuR/G3QcG0kMD/jf+7tmPp3BcD8XndzG8Ik0Abg
+         V5qbnwcs6lR0wqleOzhfvpG3ALMG6QvdypGeftBkexGgA8ezvMQzhFz7W6btbHzdaxMt
+         lWhSkNY97bT028h+mhD0dX1/XCBCqdgj5rzRwAnIggZlyAA1EDzokZn3o83YwWi0t2rP
+         3gIQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777989305; x=1778594105;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=OW0dklUq7uf6SLk/z/yDWKh4nZLnpSbAuY6QO/s7DpU=;
+        b=U5BYj3iEahJ5OWABXYW0SgJ2GX37HVMZTEiPKnKvP48s8o3+ryxAaiHM/lKUb7pmfU
+         6B0wNXfJUn/7ipVv6qrF2TcSva2Jn6+DUVVv2GrWrVLuGxm8KVQwXYOkhf30sTqCpF5V
+         a9NHKUHmoTgoW7/dg/KtHKQA4y5StvdREpRHgthX/ZnM3Yd4a1r87Y5AwzY9vsTVBwR6
+         qMvTQo/c6a/D5gLNnriyfir1TyLrenvvGIlPBGj7zhXn3AEdtspxl0T6bxpJ96nuF9NB
+         1iwxzensAzYBJos4qV1lNsd02f/d8COrIXpcA5PtBBsEmCwXFYN9vGvSFUME/+yrMoJT
+         +QjQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9z+s9D1qicwHij1rNGTXmawFaTuSa0vLH9Zr9vlXDGiNMCHaz8pLxiX6ppW6z40FUa8nC8SiLMKh+vCLXgTaxb@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1vpys9HevhiPw/kdPpYOSvh1oNhTasSsIMLRjQunp03q4b9dr
+	2gRxhc1/RJ2CBmcESjwZoNFtNftIGXQCAi2f83/zzrHO7/HSJ07V4OTYkfeWAMUi520=
+X-Gm-Gg: AeBDievLeqcDYc9EDopX15DHEHi0BEJt9ddrHK6NlQ6V4KokYmk7ibWciAzHC1wZ4FE
+	gNFhDKWQQ0Zpz+OCCz6rABtZuBkZbl0S3Qn29ezA8sZJ1PjSUDN18flE0sOdmRYFq6iNGXoKQNz
+	qOEj/7ycIZEFhOE7edCbVt1jmJEZhnHwcMeiU78MXtlo1vXY4wZ3bvEHYRHCZWa0SoSRs5RbF6i
+	rgFTZ0atlKBgF9kxFh5WwWoDZZwmbOQdfiACbAUXqnkIfeuwU0BovwgSBw6Kad2fKMsxTbdPJvz
+	A1NA1WYJpVP0VtQWy9bTqNMCYGSOle+h+uMwWDYu98NFQnJBAeBvBPFodP36M3vCRHf1WR+sb7Q
+	kZnIxiO1Nbj9JYbsLQ1UhuBEr3i4C1U3EO3poAH3pQn2zWYJr2edCdQXUotqsbzGTxZ59lY97TY
+	7SYFh6UdABVeuU+DO/hP4qdiMCrQpU9GQG6LkvHUY1dLkE4w0=
+X-Received: by 2002:a05:600c:8590:b0:487:5c0:671f with SMTP id 5b1f17b1804b1-48a986381b8mr182417195e9.9.1777989305399;
+        Tue, 05 May 2026 06:55:05 -0700 (PDT)
+Received: from pathway.suse.cz ([176.114.240.130])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48a8eb72a17sm369040085e9.6.2026.05.05.06.55.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 05 May 2026 06:55:04 -0700 (PDT)
+Date: Tue, 5 May 2026 15:54:57 +0200
+From: Petr Mladek <pmladek@suse.com>
+To: Randy Dunlap <rdunlap@infradead.org>
+Cc: linux-kernel@vger.kernel.org, Steven Rostedt <rostedt@goodmis.org>,
+	John Ogness <john.ogness@linutronix.de>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	bcm-kernel-feedback-list@broadcom.com,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] printk: remove BOOT_PRINTK_DELAY config
+Message-ID: <afn2sYKKsqG4QBVX@pathway.suse.cz>
+References: <20260503214214.3475670-1-rdunlap@infradead.org>
 MIME-Version: 1.0
-References: <20260504050245.646078-1-iuncuim@gmail.com> <20260504050245.646078-3-iuncuim@gmail.com>
-In-Reply-To: <20260504050245.646078-3-iuncuim@gmail.com>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 5 May 2026 21:52:38 +0800
-X-Gmail-Original-Message-ID: <CAGb2v675Pw3a=8VkNc_ztYtQcCdezG9PrntXLHO8YgGx5bJjxQ@mail.gmail.com>
-X-Gm-Features: AVHnY4KSBoJLk7nvV-NLPC9NRZBgg446WsQhRQL5baEYgZM1ln_FGyUdU8wzQSg
-Message-ID: <CAGb2v675Pw3a=8VkNc_ztYtQcCdezG9PrntXLHO8YgGx5bJjxQ@mail.gmail.com>
-Subject: Re: [PATCH v4 2/5] thermal/drivers/sun8i: replace devm_reset_control_get
- to devm_reset_control_get_shared_deasserted
-To: Mikhail Kalashnikov <iuncuim@gmail.com>
-Cc: Vasily Khoruzhick <anarsoul@gmail.com>, Yangtao Li <tiny.windzz@gmail.com>, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-pm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260503214214.3475670-1-rdunlap@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_065252_735050_CEEA08E2 
-X-CRM114-Status: GOOD (  10.82  )
+X-CRM114-CacheID: sfid-20260505_065508_006316_A5F1E8DA 
+X-CRM114-Status: GOOD (  13.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,23 +99,39 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 4, 2026 at 1:03=E2=80=AFPM Mikhail Kalashnikov <iuncuim@gmail.c=
-om> wrote:
->
-> The A523 processor has two temperature controllers, but they share a
-> common reset line. Make it shared with the shared variant of
-> devm_reset_control_get(), and also simplify the driver by switching to
-> devm_reset_control_get_shared_deasserted().
->
-> Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
+On Sun 2026-05-03 14:42:14, Randy Dunlap wrote:
+> This boot option is ancient and probably not being used.
+> Dave Jones used it successfully maybe 15 years ago...
+> AFAIK it doesn't work reliably, especially on SMP.
 
-> Reviewed-by: Chen-Yu Tsai <wens@csie.org>
+I agree that it most likely does not have many users and is not
+reliable.
 
-Update to:
+In addition, it was kind of obsoleted by printk_delay() which
+does very similar thing except that it can only be set
+at runtime via sysctl.
 
-Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+Which brings an idea. What about doing the obsoleting properly?
+I mean to:
+
+  1. Add "printk_delay" early_param() which would allow
+     to set "printk_delay_msec" via command line.
+
+  2. Modify boot_delay_setup() to set "printk_delay_msec" as well.
+     In addition, it might print a message that it has been
+     obsoleted by "printk_delay" and will be removed.
+
+Would you mind to do it this way, please?
+
+Regarding the reliability, it might get improved by moving the delay
+to console handling code. It would even allow to use sleeping wait
+when the consoles are handled in kthreads. But the wait might
+get multiplied when more consoles are registered and proceed
+on the same CPU. Anyway, this is out of scope for this patch.
+
+Best Regards,
+Petr
 
