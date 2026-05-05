@@ -4,66 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EB86CD3439
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 08:48:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F93ECD3430
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 08:50:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9dc/DawnBS7v5LouJWO8JHZ42We4raZ1ycwZyZC9NSg=; b=F6ilCKf5aIBDsL6q2eb7O0QloY
-	6o0DUhL59TR3Lk3rUSRUY4n6Z8z9xhzO/HZOMpCRKQzbJ7hMyWLB/aOGdO89JkJS3iR+0YiRCVGOp
-	+bndVq2CwEp5jXMisRJ11cOgg0AcmL6vHUUVHp7uz0focutM1Gb6TibajITEDeDfqAZnYFyVfrQDr
-	niL3to+0uMsWsXQsDw6lORvzo3Cyb+mHvL5pKSilmUaOKFYfn6KlH4+lQlLdQSD7IjPUquk+fsNb4
-	kJJccJGrTs/gE7P6gTUoIzh9eCQMVUalt+MTBzImXv7bV837RceJ9L0OxhuUHmHqG1pSMKkUlMYMP
-	hXs3pMuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=F5hOpaU3JfhbOlF5IAmWy/xLn4EDl4wT+1atWKZBpuU=; b=0PHFxuT2bRyOv6
+	TUaRq4G2h1ALBcJgJM1Th7zSsQ/kiURBi0Oo/DbJ77HPcQUYWqQAlJKmiftAHhwe+Us2yjGrgUzih
+	n4gPwdqXT8oZbk4lU+/i6D6MaYw/8/7hsZskgZltgsaa+mn1sRy3mrJhRouzLHmb2kmxDvqTd8/SK
+	kXuKap7x3qciQ0u/zL84XBnoYO2erzFdVMaaXC8TydOLdwvKyKmQBkXDLCkIXk7L5Wr8Ug3ZXkq31
+	FedSl2J+9n3w8PjaUvSfcNf388irtQFgeSYSy3hPuUtT9gogseNoSJZpF04BVtZTk7NZzsLeq1Myt
+	XBaYAQwkj8piVLF9ZiPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKBSJ-0000000FZKW-17H1;
-	Tue, 05 May 2026 08:48:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wKBU8-0000000FZvQ-3DSD;
+	Tue, 05 May 2026 08:50:32 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKBSG-0000000FZIw-2EKb;
-	Tue, 05 May 2026 08:48:37 +0000
+	id 1wKBU7-0000000FZvD-2TAP
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 05 May 2026 08:50:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8964442B05;
-	Tue,  5 May 2026 08:48:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C344FC2BCB4;
-	Tue,  5 May 2026 08:48:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9E39460125;
+	Tue,  5 May 2026 08:50:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83A40C2BCB9;
+	Tue,  5 May 2026 08:50:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777970915;
-	bh=VoLG4om3LpMu6n/Rm19I44/U7HtIxq4nWFHci0mVcJQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=OlAvh5mxETVWeOeQOP0cx2TPuQdar1Qo63oUGsyjgHBoL8WbHY9STto/vJjpy/WCm
-	 MJ6hVp22pb6rw8eQMJdkyVvaLjSb77BnI2zyIYpKhAFjR66FvOTu6r+2etEWAlvHna
-	 uFzHV6JVPdqW4vngVY8VZcih5KwShRRN87GSKxW/LqkYXkrKBh6K+eqNh/YnREUIWT
-	 57s88b8/yrGPTgoRkp6pAAmPAcMy7/pgpadPwCKn25i4b3T2EB/m1RcUY4o5kI91h8
-	 jdY9ReXyeitMWjG21T3Dz5By7JyUgK2wPIaTK7ReASdZGf3H3Y3BI6044rhduJ0m4j
-	 Q1xl4tcE8RfLw==
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Date: Tue, 05 May 2026 10:48:04 +0200
-Subject: [PATCH 2/2] irqchip/gic-v5: Add IWB to ACPI probe dependency
- control
+	s=k20201202; t=1777971030;
+	bh=TSABjFUKhaSPriZfG4wryerz/Bt+NOXbdIcM8wPv6lQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=BM6xynsQg5t4v96vNM57GMBYQb2A6y0jIBSCJ1tNnpZjwFujDCsmkMWtA5LeCurye
+	 rSDsVZV524Bqe5cKvZf0/fWuFD4iw3O5IwiDCeezs9veuOkoYd5oQNj+DJM4co9XaQ
+	 HC7ayxUWUyEpqVw6CjN7+SoUyybK9uRruBBAX77sZdK+3p58u5JhHEcGpHYZPWLZq+
+	 v5oIrBujP0veRImQOI2qYUwlq1m9UnLvXXoRxWll3WrQhoFX6DgwlzK6nFaAFc/ATO
+	 SBnBgqWZ85ho0kwHcU2HOMEfTTJw87fUPLeUGXMOzW1Na9UqExbYACZHoxKILym5lk
+	 SXWmfmMEyuFEA==
+Date: Tue, 5 May 2026 09:50:26 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Vastargazing <vebohr@gmail.com>
+Cc: linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org
+Subject: Re: [PATCH 4/5] perf: arm: pmu: fix reference leak on failed device
+ registration
+Message-ID: <20260505-bold-kind-herring-2c7eef@sudeepholla>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260505-gic-v5-acpi-iwb-probe-deferral-v1-2-b37b85998362@kernel.org>
-References: <20260505-gic-v5-acpi-iwb-probe-deferral-v1-0-b37b85998362@kernel.org>
-In-Reply-To: <20260505-gic-v5-acpi-iwb-probe-deferral-v1-0-b37b85998362@kernel.org>
-To: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
- Sunil V L <sunilvl@ventanamicro.com>, Marc Zyngier <maz@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
- Anup Patel <anup@brainfault.org>, Hanjun Guo <guohanjun@huawei.com>, 
- Sudeep Holla <sudeep.holla@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- loongarch@lists.linux.dev, Lorenzo Pieralisi <lpieralisi@kernel.org>
-X-Mailer: b4 0.15.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_014836_629484_0EEB5113 
-X-CRM114-Status: GOOD (  18.88  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <243cb3737b41fae32a09117c17809a210395e69f.1777889235.git.vebohr@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,160 +73,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Arm GICv5 systems, wired IRQs routed to an IWB may require resolving
-probe dependencies to make sure drivers for devices whose IRQs are routed
-to an IWB are probed after the IWB interrupt controller driver for the IWB
-they are routed to has probed.
+On Mon, May 04, 2026 at 01:08:46PM +0300, Vastargazing wrote:
+> When platform_device_register() fails in arm_acpi_register_pmu_device(),
+> the embedded struct device has already been initialized by
+> device_initialize() inside platform_device_register(). The error path
+> unregisters the GSI interrupt but returns without dropping the device
+> reference:
+> 
+>   arm_acpi_register_pmu_device()
+>     -> platform_device_register(pdev)
+>        -> device_initialize(&pdev->dev)   /* kref = 1 */
+>        -> platform_device_add(pdev)       /* fails */
+>     <- acpi_unregister_gsi() called, but kref still 1
+> 
+> Per platform_device_register() kernel-doc:
+> 
+>   NOTE: _Never_ directly free @pdev after calling this function, even if
+>   it returned an error! Always use platform_device_put() to give up the
+>   reference initialised in this function instead.
+> 
+> Fix this by calling platform_device_put() in the error branch before
+> unregistering the GSI.
+> 
+> Fixes: d24a0c7099b3 ("arm_pmu: acpi: spe: Add initial MADT/SPE probing")
+> Cc: stable@vger.kernel.org
+> Assisted-by: GitHub Copilot (Claude Sonnet 4.5)
+> Signed-off-by: Vastargazing <vebohr@gmail.com>
+> ---
+>  drivers/perf/arm_pmu_acpi.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/perf/arm_pmu_acpi.c b/drivers/perf/arm_pmu_acpi.c
+> index e80f76d95e68..c2defbc32ad9 100644
+> --- a/drivers/perf/arm_pmu_acpi.c
+> +++ b/drivers/perf/arm_pmu_acpi.c
+> @@ -119,8 +119,10 @@ arm_acpi_register_pmu_device(struct platform_device *pdev, u8 len,
+>  
+>  	pdev->resource[0].start = irq;
+>  	ret = platform_device_register(pdev);
+> -	if (ret)
+> +	if (ret) {
+> +		platform_device_put(pdev);
 
-Implement an ACPI hook to retrieve an acpi_handle for a specific GSI (if
-any, on GICv5 systems only the IWB is represented in firmware with an
-ACPI device object), hook it into ACPI IRQ core (updating
-acpi_set_irq_model()) and add the IWB to the list of devices whose
-dependencies can be detected (and cleared) in ACPI core to guarantee that
-probe dependencies for the IWB are satisfied.
-
-Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Thomas Gleixner <tglx@kernel.org>
-Cc: Hanjun Guo <guohanjun@huawei.com>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>
----
- drivers/acpi/arm64/iort.c        | 22 +++++++++++++++++++---
- drivers/acpi/scan.c              |  1 +
- drivers/irqchip/irq-gic-v5-iwb.c |  5 +++++
- drivers/irqchip/irq-gic-v5.c     | 13 +++++++++++--
- include/linux/acpi_iort.h        |  3 ++-
- 5 files changed, 38 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/acpi/arm64/iort.c b/drivers/acpi/arm64/iort.c
-index af7a9b2fd5bc..34412cd697d8 100644
---- a/drivers/acpi/arm64/iort.c
-+++ b/drivers/acpi/arm64/iort.c
-@@ -789,11 +789,9 @@ struct irq_domain *iort_get_device_domain(struct device *dev, u32 id,
- 	return irq_find_matching_fwnode(handle, bus_token);
- }
- 
--struct fwnode_handle *iort_iwb_handle(u32 iwb_id)
-+acpi_handle iort_iwb_handle(u32 iwb_id)
- {
--	struct fwnode_handle *fwnode;
- 	struct acpi_iort_node *node;
--	struct acpi_device *device;
- 	struct acpi_iort_iwb *iwb;
- 	acpi_status status;
- 	acpi_handle handle;
-@@ -808,6 +806,19 @@ struct fwnode_handle *iort_iwb_handle(u32 iwb_id)
- 	if (ACPI_FAILURE(status))
- 		return NULL;
- 
-+	return handle;
-+}
-+
-+struct fwnode_handle *iort_iwb_handle_fwnode(u32 iwb_id)
-+{
-+	struct fwnode_handle *fwnode;
-+	struct acpi_device *device;
-+	acpi_handle handle;
-+
-+	handle = iort_iwb_handle(iwb_id);
-+	if (!handle)
-+		return NULL;
-+
- 	device = acpi_get_acpi_dev(handle);
- 	if (!device)
- 		return NULL;
-@@ -2090,6 +2101,11 @@ static void __init iort_init_platform_devices(void)
- 	}
- }
- 
-+u32 arch_acpi_add_auto_dep(acpi_handle handle)
-+{
-+	return acpi_irq_add_auto_dep(handle);
-+}
-+
- void __init acpi_iort_init(void)
- {
- 	acpi_status status;
-diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
-index 530547cda8b2..ba15da9058dc 100644
---- a/drivers/acpi/scan.c
-+++ b/drivers/acpi/scan.c
-@@ -856,6 +856,7 @@ static const char * const acpi_ignore_dep_ids[] = {
- 
- /* List of HIDs for which we honor deps of matching ACPI devs, when checking _DEP lists. */
- static const char * const acpi_honor_dep_ids[] = {
-+	"ARMH0003", /* ARM GICv5 IWB */
- 	"INT3472", /* Camera sensor PMIC / clk and regulator info */
- 	"INTC1059", /* IVSC (TGL) driver must be loaded to allow i2c access to camera sensors */
- 	"INTC1095", /* IVSC (ADL) driver must be loaded to allow i2c access to camera sensors */
-diff --git a/drivers/irqchip/irq-gic-v5-iwb.c b/drivers/irqchip/irq-gic-v5-iwb.c
-index 9103feb70ce8..a02cb9537b15 100644
---- a/drivers/irqchip/irq-gic-v5-iwb.c
-+++ b/drivers/irqchip/irq-gic-v5-iwb.c
-@@ -269,6 +269,11 @@ static int gicv5_iwb_device_probe(struct platform_device *pdev)
- 	if (IS_ERR(iwb_node))
- 		return PTR_ERR(iwb_node);
- 
-+#ifdef CONFIG_ACPI
-+	if (has_acpi_companion(&pdev->dev))
-+		acpi_dev_clear_dependencies(ACPI_COMPANION(&pdev->dev));
-+#endif
-+
- 	return 0;
- }
- 
-diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
-index 03cc2830b260..26cfaea1af41 100644
---- a/drivers/irqchip/irq-gic-v5.c
-+++ b/drivers/irqchip/irq-gic-v5.c
-@@ -1217,11 +1217,19 @@ static struct fwnode_handle *gsi_domain_handle;
- static struct fwnode_handle *gic_v5_get_gsi_domain_id(u32 gsi)
- {
- 	if (FIELD_GET(GICV5_GSI_IC_TYPE, gsi) == GICV5_GSI_IWB_TYPE)
--		return iort_iwb_handle(FIELD_GET(GICV5_GSI_IWB_FRAME_ID, gsi));
-+		return iort_iwb_handle_fwnode(FIELD_GET(GICV5_GSI_IWB_FRAME_ID, gsi));
- 
- 	return gsi_domain_handle;
- }
- 
-+static acpi_handle gic_v5_get_gsi_handle(u32 gsi)
-+{
-+	if (FIELD_GET(GICV5_GSI_IC_TYPE, gsi) == GICV5_GSI_IWB_TYPE)
-+		return iort_iwb_handle(FIELD_GET(GICV5_GSI_IWB_FRAME_ID, gsi));
-+
-+	return NULL;
-+}
-+
- static int __init gic_acpi_init(union acpi_subtable_headers *header, const unsigned long end)
- {
- 	struct acpi_madt_gicv5_irs *irs = (struct acpi_madt_gicv5_irs *)header;
-@@ -1242,7 +1250,8 @@ static int __init gic_acpi_init(union acpi_subtable_headers *header, const unsig
- 	if (ret)
- 		goto out_irs;
- 
--	acpi_set_irq_model(ACPI_IRQ_MODEL_GIC_V5, gic_v5_get_gsi_domain_id, NULL);
-+	acpi_set_irq_model(ACPI_IRQ_MODEL_GIC_V5, gic_v5_get_gsi_domain_id,
-+			   gic_v5_get_gsi_handle);
- 
- 	return 0;
- 
-diff --git a/include/linux/acpi_iort.h b/include/linux/acpi_iort.h
-index 17bb3374f4ca..931eaa7bbf6a 100644
---- a/include/linux/acpi_iort.h
-+++ b/include/linux/acpi_iort.h
-@@ -27,7 +27,8 @@ int iort_register_domain_token(int trans_id, phys_addr_t base,
- 			       struct fwnode_handle *fw_node);
- void iort_deregister_domain_token(int trans_id);
- struct fwnode_handle *iort_find_domain_token(int trans_id);
--struct fwnode_handle *iort_iwb_handle(u32 iwb_id);
-+acpi_handle iort_iwb_handle(u32 iwb_id);
-+struct fwnode_handle *iort_iwb_handle_fwnode(u32 iwb_id);
- 
- #ifdef CONFIG_ACPI_IORT
- u32 iort_msi_map_id(struct device *dev, u32 id);
+Both spe_dev and trbe_dev using this are statically allocated, what am I
+missing here ? What will platform_device_put() do ?
 
 -- 
-2.54.0
-
+Regards,
+Sudeep
 
