@@ -4,126 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B9A4CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:50:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8995FF8855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:51:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9iUaHOQIWsUUj00K9YHUDLQ+SltEZ04hxSkIAGt/CXI=; b=TmXUa+XuZgqzGG/Feh/48/eA3i
-	HOt15Lcp7WfWoQdXCZff01sczYDkDujUdbmSXbLCWseyAsLBnNgcI+nrJcnGeOz44Ekg7l4opOVYq
-	iDayUyVdENnZBugVd7XfbC5yKtJyK0Oo4478EoPdNz+KivUaWzvMowQrWOguZ7FV0SxvqMa1QZg/6
-	8DAtHUO+skzUSFtfLntXGNsaydW1vpxS30wk3azRxQQkRS5nae9bIVAWxHRQBlXGPN/8ciPUkDPFV
-	M5CvKxO4noCWvCE7CHaq1wfiBn2MeTAmncIh3G1g9ODi65LNs3q/weLw5DU7KcC85TAKIRs7dRm9X
-	o7e/w3eQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cFOxlmgrHFRh5b7c9s/7e3CdnNG1mfP3sI5WdJh8q18=; b=kIB9MjNc5J1t7no8EAWvrp4sz2
+	R24LySzZc4gDrDbMxIJmOw4T+4doYB2kg0jqM85Frpn/HL4zTzkg8t0FiZxBmoWCirQ7E9NwWDlNM
+	YYdaekWgeagi71we5nFVMNPQBE9CGoEKJ2PH2cagReBDUPSB8EtUgXnb8X9Wj+POBVZg2S/r8vmp7
+	1WXf/wLkhXqSoOwZfPobuWDclXbmUbr9tpAWttuzeRWS92UIV81mxJjshaD/xqZ/2T0b37IlcT/Tt
+	EeUGwEGlSRgoPYgTvb5XhbNwFQX7ucyRLR2gxe3TslKvrI2A++PffhwPHR4l8O8vik3telvtbBYQv
+	FxfDaRQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKIyU-0000000GxAM-24K5;
-	Tue, 05 May 2026 16:50:22 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wKIzj-0000000GxLJ-49Tq;
+	Tue, 05 May 2026 16:51:39 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKIyS-0000000Gx9z-2ZNU
+	id 1wKIzf-0000000GxKM-3Z28
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 16:50:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uDDS2nceXXjkelIFcIRgoXKNntfH3QjfNOHS6nn6jsGE7E2GTBO7s39X8wYdM3f6bN8J4aVNxGnzLVlkpoddQwWlD6UJJ1A6EzcCXe+Do5vLBPa2fh5Wh3lQg5GO9vS79CMbOzbCz7HVEgG0wsaUmLa8TRj8DoBUq1GjCP1ITmCTAQcTDamGO2hXOW9Ji0OeOy2NUQWPUHCEb2tOkhTByOx1KAJHG7wrODek7vtlgrPoJYcF197Bf+uOiK3q+IanA2KdGCeP9SUAZwQDyb94FN5guczbMTiMyWilY49g0eo4qJ1+eOcqY5ym31AIpy5m9zXg4ATJl5wsiROqTuIxnA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9iUaHOQIWsUUj00K9YHUDLQ+SltEZ04hxSkIAGt/CXI=;
- b=McF02MT1Ju6vhAiGrlMIilKAPz35ynjH58XCI62yGQQtSDrmGkz8ufHViP5qyHPvpINho29m8a3TGzfo6EPbvldZUu//Y6jbsi6qqwkdEpqzQbqFuNcjfH+UI9NDWCjJEMvGdOhkoR2Y8ZGh/h/boYOpbPc6ilAYHO4zLpBv+OFvdoj4/W2eEtA57dCpHX/3mmvBNtIwWmO+v/LoxkxkziMLiMCOZEdDYDPE+cvr2fi9yVswa2mZX+x/gVW/fog+HrlmU3x4oTXmNbSzZu9bDd8AycehmPnyoqdO1fxrwAa1v9vRW1qUpAtimvacFlE7B/1ouSoDvxGc09PAQe41aw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9iUaHOQIWsUUj00K9YHUDLQ+SltEZ04hxSkIAGt/CXI=;
- b=emBHeNGf0zkUVAhveHqNhEEWkB27yIXHifYSMtzs1chYu7SVLQiIoWjfC1ADrXsFa3oKr1LfYH6r/IKgSJVt5y/vBq7UkdLepaxE7XZlXOHEojkiXQDGL7eB1CV+L70oMFmwaCDa2AcGe5x661kOlX+zRQevk9L1qfWfUgz2zpG0oCj+qgsKbBmnq8gcPnzjsuZGeMjPZcKI1/mIY4hRi16CJUjD3Yw/LwNkpT9MmjT4aBqKLSb7vX4cKa1r0c0fzafEDM8rWLQ5u0aU7EXHwJjlAtiUIuzaDwWp1yFzmsEeuXizsqn8oUR3H7fEoT/TU85RUdmG0mN2mfo6VE4k6A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by PAWPR04MB9912.eurprd04.prod.outlook.com (2603:10a6:102:387::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Tue, 5 May
- 2026 16:50:13 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9870.023; Tue, 5 May 2026
- 16:50:13 +0000
-Date: Tue, 5 May 2026 12:50:07 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Sherry Sun <sherry.sun@nxp.com>
-Cc: s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	hongxing.zhu@nxp.com, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH V3 3/3] arm64: dts: imx: Add common imx-m2-pcie.dtso to
- enable PCIe on M.2 connector
-Message-ID: <afofv3GjEpS67ayb@lizhi-Precision-Tower-5810>
-References: <20260325083201.2637520-1-sherry.sun@nxp.com>
- <20260325083201.2637520-4-sherry.sun@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260325083201.2637520-4-sherry.sun@nxp.com>
-X-ClientProxiedBy: SA1P222CA0009.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:806:22c::25) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Tue, 05 May 2026 16:51:38 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-48a563e4ef7so53101215e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 09:51:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1777999894; x=1778604694; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=cFOxlmgrHFRh5b7c9s/7e3CdnNG1mfP3sI5WdJh8q18=;
+        b=irE0syH/Lb76uBQKGOXE1l6BMdRuK/PleA5zothG/FBxgaKeO1VVHCvrtXFZNsVUN7
+         vMKS2v3WJnSBK+SH+u/B05dA3XKwviVIirryTpIKhI42yHs5j22K2zYU7B5B+egA040w
+         0A9r6q5iOITMVFWgrqllDrd6E44Q6CHf7n3VNhT6lbqkPUOkWT+qEN9R1/jUSTcyH9C8
+         xDV9Z330qYDbRIfdQgHcG3KpIn0Gy4l9e/o/oLcCFp8qiAGe33crQxXDhyRT40xS1q/9
+         xH93aJS9xU4X6TE72ijcHX0+aTbAPNfSIW0wt7DfF5+knEU5C5Deb2ro2jwmxWkzOm8W
+         tpbQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777999894; x=1778604694;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=cFOxlmgrHFRh5b7c9s/7e3CdnNG1mfP3sI5WdJh8q18=;
+        b=h26Ht1RembSJwCW/TFdDV1WORgunfJToVPZ0RbeCAty7Jy38xi5j6sHhzW3gCMQnma
+         3+B5m4x3tT95pO/Y/GJ/3Tz7rwmW5TlBHsl7hvxml1TVTZ7+/KozSsFAETua6ZR2aBkr
+         MxoQC5LbTEM5q75T86DHgBWRBZ/H1TrN31DbDIhI4kcwOk02zTEQDkPOXTra0oHQVkNA
+         jZpc6ptorBCTKcrh62GIHkqx++EGh9MYFug5ky0KPPVCZvxOr4/LlHZ+TgxdjYkiEgBX
+         AsHvNZhepG+gD33Jl5hsYaKts5ZlvziqZsXM95rjhnAnq0cYdPUzc7I9TXR09l1UDxK2
+         mCbg==
+X-Forwarded-Encrypted: i=1; AFNElJ+nFrhhi09dWQ/bueU3rOJ7NqWsXP7BlpVPjrWnbkx5wR81QPBxBtvkGKVlvh9CnAuVDGXHZhwFngbUiyKMK3Fg@lists.infradead.org
+X-Gm-Message-State: AOJu0YzaPT1GCKM8RW1IM3xRBZEsbQgE70KIeUW2nL/9L/CNAypFFPoG
+	bYmKMMsWwIHnoks3zFradNXSfuhKFbbFs0BGYDSbbfQnjQsgDJcJADAlmpRKTGPXOnBCDN5ka+/
+	BJ2/c+i0=
+X-Gm-Gg: AeBDiet5YJQcCoOQiWzX9JHF0Y9wAU8vP3/MXjyQ+33W0PggdOFbBRpofvosGNJqmEf
+	iJtEC0YlDBZakECe6chlWYcqVRBC0IfPNhNtfZ49A8DXV2gUFqCj2XBEgFw6RQlNf5SY2aXThXy
+	czSBFijK8fuw/bGaCG4OF0GlQV98/OUIZkBPncInhXySa1cJ5yECFEDsWIsu0l8Cyri4g/6CuHi
+	uoZplpkUcoTA+9wzGScaJC2Vt0ZsgddceSNJxinCIOD/FZ0nWiZvubSOaRlnLXSVvDrYK85g3rS
+	mWRP7mG4prIAw0k0FPOmz9Hv9orVOrPXOPba1L4qy/HtfnL596WQ+hi12oKVfM2XPPaBUs/uFJb
+	4UsfJk3XN96Nt5ire4jJ4VtJK+jAndwh+mR0BM2bF7dpFlZ2B8r7F8YW8TeNscHAhBtgGbxeG09
+	iMnklF1cdWd2s5eqKHvIesx/89vxG3kErDCcU/lhWjXL0rLo8V1O+kLA==
+X-Received: by 2002:a05:600c:3b17:b0:488:ffb1:494c with SMTP id 5b1f17b1804b1-48e51e1f0b2mr701835e9.12.1777999893963;
+        Tue, 05 May 2026 09:51:33 -0700 (PDT)
+Received: from ho-tower-lan.lan ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48d149f1a77sm23721885e9.4.2026.05.05.09.51.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 05 May 2026 09:51:33 -0700 (PDT)
+From: James Clark <james.clark@linaro.org>
+Date: Tue, 05 May 2026 17:51:25 +0100
+Subject: [PATCH v3] coresight: ete: Always save state on power down
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PAWPR04MB9912:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7e2a337f-985f-417e-e1f6-08deaac66062
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|52116014|366016|1800799024|38350700014|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: pAW3vjHjDcSdOF8OPmmj1zabLtylskBL5u9Cv0Oi/Yqj87z8DgVwuYd7opl1e+RM80KvOXlBbG5+ZTb9YovriFsUbG9ZOr73kAsOTVMZBfsOsf73wLP2HNqz1uu6Gqbp5F60LH8sr5Hi6LoYV4icmlyjFro7yy53dfsj2dDwSbSL3waWLnZuP+Ynpu0iHJPEdRfkZQLuHEHRhOUNLI+FEmXWTIGY7YRc5L/hUmUN/q28rg6SzcCagHP0QIT4H23Tds2XA+d2YYDEQVuTKBsOBOiyQAsyJlrdRyarmswmGjkRA8Cmd8WtaJ15K9vqT7zRQJTVTKQc3qT0qJIbKWBEXF+7I7OvMzQmgWjQ2KFudZmG1Zl1E9TwCjXxyKr1Gj75BG+0SLE4TZJ/pc1bRPEYG68EqxNmGvDnewoj6Y5IZpoPV+yloiNvwcYKIFrrF/SuhpzstIAKaLhDNFFZquTHUzPYsT8Bdr821BRLXOiaXFxKYwQYb6XJOL5/t5DBjMmvkohefCNqjGFBJpmhRyBH9gAcqOta/h3Pe/YE2smgJL4Im6vUCcAB7K5NjXAaHoqu1ndP8bvyp96YwAfG3IrrCJZZtoeEwznx+gJP3L0PZqOIViwjuc/Cr2zYTAZzt9DGCLLPKCjKjSn5QrdMIyfQe2l0WC7R6uSp2Y+9giaD4dhTS26OLdsAr+896Q5ElkNIKjKioGGrPUWw3qpLuSS9mpCof5T1AXVSw7118jw+u/HH/HBz4Hpe+ncqxX7nJ8Xv
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(52116014)(366016)(1800799024)(38350700014)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?WA3LlEriBySzL4PiLfVJX2XSzthhzdWg4zGol8m46PQNJTc8i6Vtu2ZdNz51?=
- =?us-ascii?Q?VYVdNoKdGHLjl6trljl/FCHvWrU/zoBEXsVhI55nQGR1t46/nvxRrAGEb+Wc?=
- =?us-ascii?Q?2Xvi51PGf8o2FwagaczTwJvYiup49FSa8OUEtjdTeVFMGeMT1edzTtRqrWo1?=
- =?us-ascii?Q?1eg09EkzqCD93Jj3VAi7sDHCaJrtBCOvM2iRki8KMPLRgA/zAeN/0/6t3102?=
- =?us-ascii?Q?tw9vuAzv31qBFIsOqKkuyf2QlFxD8hHxUz6cKHYyWPTt+UNhNE/94iM7sYrq?=
- =?us-ascii?Q?Rl5EGDr9HT9+bsD3LLw8WYaMCC6qEGwr6jXAyKnU/TZ9KWse81qHOlXlzqEy?=
- =?us-ascii?Q?kfRqerCqL7tkT5Oo+FvzCrKBXGv8vMAz7r99alhhIlowfRpzggs5O2IUSMoO?=
- =?us-ascii?Q?vtzQ/rXiJoWJnqD+GXez0hTntGcBKCG7w/CjYFZR+icyEGg6T1gGwBRSTqMu?=
- =?us-ascii?Q?lYMmnI+CxYW+yOTXsXcH+wRT/3hQXuQwX4daDCGL7O4uej94ZlN19v6ygeXv?=
- =?us-ascii?Q?3mdud2v6yxzDCdoPdsnPNu9l9GHjzMoW+tkwjlybVmWU6uoXq0NEeDMGjpRX?=
- =?us-ascii?Q?OByiBUHjbBKCfLvqJTRjFcrO5V9rz2Phrq/Z+8BdNacz+uBnmMdhqEHbWceo?=
- =?us-ascii?Q?C1HArebNd+iEoN91pcxThnWXEmKZZS2/hDvMSU1TnwNq5MQUmr+GiZft5lHi?=
- =?us-ascii?Q?cQEPIDZvls4xaufd8lW3JlrWGsk7c+/BIgqoxeRV5SyN42yysFQlfn8TC0rw?=
- =?us-ascii?Q?9MsIiK3RkdSR+1CC5C9PdTwuHMyg2SCK67adYbvqZIGI74yeanul2i6q4Qfc?=
- =?us-ascii?Q?7yDWa45ZEfryuz9ykSgEG8E3bo9uE/HiuY0rJ0LmkCFeJZ6Rizmw9qbrZ8S6?=
- =?us-ascii?Q?Y6wNYTtCPzUZ7GpFRDklxQdByYrAXOwj1MhKKcWXhnu3FgEVJ3S20AkUECgH?=
- =?us-ascii?Q?h3eVrd91urUn+iA+fFk4x9FD7MkR/wuiNiE/acbG0eSxxAErO1Xg/khqaEnv?=
- =?us-ascii?Q?Gdq82D8HccyeGgLpRtg4t2aDqu5Y0CxV50KSxtgbYwLbTdUWbHtcPiSxHuzv?=
- =?us-ascii?Q?5C6aVV5lyK7BdbxQsE7asUkoFwiFWjMclKQ/ZQ+FEajaHx7wdqmwXHcaAPB/?=
- =?us-ascii?Q?ItNJPHvfZnk8Kx5S/QigSEgg/eZXt5eENj69NNRm6gFqsnbPsP3RmuerwV4P?=
- =?us-ascii?Q?Zwu3rlPvc4Kjvkpprw9e9z4npyIvb3xrkURfHPbKkxhweSFFCYSulf4G8a09?=
- =?us-ascii?Q?O3yK/Qq9qi0rVcRACv0B3ZMOGkR/P3PtimAyxHr1R7WBzit8Zbv337UxEHnZ?=
- =?us-ascii?Q?U5X0ipgjHrY6FYT18YwtNMQmLu3d/s5IW0GQvfpaKqOknTyEFv9WQQsZtJIS?=
- =?us-ascii?Q?/l2Mq2zGl5H8qpvO5v3h27L7uoQxmqMPoFkJ6IR2kLuhrthu0vIunsmsbObe?=
- =?us-ascii?Q?jumJnrbXs/xpVNtidEYwhCYNra+FjUCOziu1ojV/l6IXgRVKr4SfyWqRQ4vj?=
- =?us-ascii?Q?OKlwqNBPUTWViBlDC6/ktJwpNtmmaD2Wx1mbrs6BnR/lkfDQ0CkfaE27SgtZ?=
- =?us-ascii?Q?XEcM4C5sYsq8WUmBNsXZFaYP4dsyfyRakQ3S0eU+I31+RkZHT3zrs9Ue0vO8?=
- =?us-ascii?Q?aRcEtxIIE4Hm0fvsBj2dtUuHnDKhU2waMvfwSrnCxjnA2xk1eBSm5hT6VtjZ?=
- =?us-ascii?Q?cTRSHxgAlJ5LGz2TSoHjxoIAstmf5yaaGSTYI5UaEI4v/p4v?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7e2a337f-985f-417e-e1f6-08deaac66062
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2026 16:50:13.2479
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: NsQS92zhUVMCs/ERjIKhQrex4GTf487RGj4Mp5N6eoVHVed3vdr2MVdJIU4UYtrgiEX6CYb4gw3LBSRLQx7zlg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB9912
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260505-james-cs-ete-pm_save_enable-v3-1-485d21dd79b8@linaro.org>
+X-B4-Tracking: v=1; b=H4sIAAwg+mkC/33NSw6CMBSF4a2Qjr2mD0DryH0YQ0q5QI20pCWNh
+ rB3C4kxThj+Z/CdmQT0BgO5ZDPxGE0wzqYQh4zoXtkOwTSpCae8pDmn8FADBtABcEIYhyqoiBV
+ aVT8RcpQyR1HoRmmShNFja16bfrun7k2YnH9vZ5Gt69c977qRAQV9UpJqVba5qK9PY5V3R+c7s
+ sKR/7CCFvsYBwaNkJq1DCnK8g9bluUDBeEjERQBAAA=
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@arm.com>, Leo Yan <leo.yan@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Mathieu Poirier <mathieu.poirier@linaro.org>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, James Clark <james.clark@linaro.org>
+X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_095020_656464_5BCED80B 
-X-CRM114-Status: GOOD (  19.40  )
+X-CRM114-CacheID: sfid-20260505_095135_923364_097448EF 
+X-CRM114-Status: GOOD (  23.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,87 +104,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 25, 2026 at 04:32:01PM +0800, Sherry Sun wrote:
-> Some i.MX boards (i.MX8MP EVK and i.MX95-15x15 EVK) have M.2 connectors
-> that are physically wired to both USDHC and PCIe controllers. The
-> default device tree enables USDHC for SDIO WiFi modules and disables
-> PCIe to avoid regulator conflicts.
->
-> Add a common imx-m2-pcie.dtso that can be applied to enable PCIe and
-> disable USDHC when a PCIe module is installed in the M.2 connector.
->
-> This creates the following DTB files:
-> - imx8mp-evk-pcie.dtb: i.MX8MP EVK with PCIe enabled
-> - imx95-15x15-evk-pcie.dtb: i.MX95-15x15 EVK with PCIe enabled
->
-> Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
-> ---
+System register ETMs and ETE are unlikely to be preserved on CPU power
+down. The ETE DT binding also never documented
+"arm,coresight-loses-context-with-cpu" so nobody would have legitimately
+been able to use that binding to fix it and ACPI has no such binding at
+all.
 
-Please rebase it to imx/dt64, and prefer use b4 or provide base-commit
-information. ref
-https://people.kernel.org/monsieuricon/all-patches-must-include-base-commit-info
+Fix it by hard coding the setting for sysreg ETMs (ETE is always sysreg)
+or ACPI boots. Use a local variable when setting up save_state so that
+it's immune to concurrent probing when devices have different
+configurations which is an issue with modifying the global.
 
-Frank
+This fixes the following error when using Coresight with ACPI on the FVP
+which supports CPU PM:
 
->  arch/arm64/boot/dts/freescale/Makefile         |  9 +++++++--
->  arch/arm64/boot/dts/freescale/imx-m2-pcie.dtso | 15 +++++++++++++++
->  2 files changed, 22 insertions(+), 2 deletions(-)
->  create mode 100644 arch/arm64/boot/dts/freescale/imx-m2-pcie.dtso
->
-> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-> index 155213c45319..1f542324b4fc 100644
-> --- a/arch/arm64/boot/dts/freescale/Makefile
-> +++ b/arch/arm64/boot/dts/freescale/Makefile
-> @@ -333,12 +333,14 @@ imx8mp-evk-lvds0-imx-lvds-hdmi-dtbs += imx8mp-evk.dtb imx8mp-evk-lvds0-imx-lvds-
->  imx8mp-evk-lvds1-imx-dlvds-hdmi-channel0-dtbs += imx8mp-evk.dtb imx8mp-evk-lvds1-imx-dlvds-hdmi-channel0.dtbo
->  imx8mp-evk-lvds1-imx-lvds-hdmi-dtbs += imx8mp-evk.dtb imx8mp-evk-lvds1-imx-lvds-hdmi.dtbo
->  imx8mp-evk-mx8-dlvds-lcd1-dtbs += imx8mp-evk.dtb imx8mp-evk-mx8-dlvds-lcd1.dtbo
-> -imx8mp-evk-pcie-ep-dtbs += imx8mp-evk.dtb imx-pcie0-ep.dtbo
-> +imx8mp-evk-pcie-dtbs += imx8mp-evk.dtb imx-m2-pcie.dtbo
-> +imx8mp-evk-pcie-ep-dtbs += imx8mp-evk-pcie.dtb imx-pcie0-ep.dtbo
->  dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk-lvds0-imx-dlvds-hdmi-channel0.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk-lvds0-imx-lvds-hdmi.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk-lvds1-imx-dlvds-hdmi-channel0.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk-lvds1-imx-lvds-hdmi.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk-mx8-dlvds-lcd1.dtb
-> +dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk-pcie.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk-pcie-ep.dtb
->
->  imx8mp-tqma8mpql-mba8mpxl-lvds-tm070jvhg33-dtbs += imx8mp-tqma8mpql-mba8mpxl.dtb imx8mp-tqma8mpql-mba8mpxl-lvds-tm070jvhg33.dtbo
-> @@ -481,7 +483,10 @@ dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk-sof.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx95-toradex-smarc-dev.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx95-tqma9596sa-mb-smarc-2.dtb
->
-> -imx95-15x15-evk-pcie0-ep-dtbs = imx95-15x15-evk.dtb imx-pcie0-ep.dtbo
-> +imx95-15x15-evk-pcie-dtbs += imx95-15x15-evk.dtb imx-m2-pcie.dtbo
-> +dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-evk-pcie.dtb
-> +
-> +imx95-15x15-evk-pcie0-ep-dtbs = imx95-15x15-evk-pcie.dtb imx-pcie0-ep.dtbo
->  dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-evk-pcie0-ep.dtb
->  imx95-19x19-evk-pcie0-ep-dtbs += imx95-19x19-evk.dtb imx-pcie0-ep.dtbo
->  imx95-19x19-evk-pcie1-ep-dtbs += imx95-19x19-evk.dtb imx-pcie1-ep.dtbo
-> diff --git a/arch/arm64/boot/dts/freescale/imx-m2-pcie.dtso b/arch/arm64/boot/dts/freescale/imx-m2-pcie.dtso
-> new file mode 100644
-> index 000000000000..1930de058a08
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/freescale/imx-m2-pcie.dtso
-> @@ -0,0 +1,15 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +/*
-> + * Copyright 2026 NXP
-> + */
-> +
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +&pcie0 {
-> +	status = "okay";
-> +};
-> +
-> +&m2_usdhc {
-> +	status = "disabled";
-> +};
-> --
-> 2.37.1
->
+  coresight ete0: External agent took claim tag
+  WARNING: drivers/hwtracing/coresight/coresight-core.c:248 at coresight_disclaim_device_unlocked+0xe0/0xe8, CPU#0: perf/117
+
+Fixes: 35e1c9163e02 ("coresight: ete: Add support for ETE tracing")
+Signed-off-by: James Clark <james.clark@linaro.org>
+---
+Fix PM save on ETE, which is an issue that showed up on the FVP when
+booted with ACPI and the newly enabled idle states.
+---
+Changes in v3:
+- Setup using a local variable and then check drvdata->save_state
+  at runtime so it's immune to concurrent probing with different
+  configs.
+- Link to v2: https://lore.kernel.org/r/20260505-james-cs-ete-pm_save_enable-v2-1-d39c1f1e0e96@linaro.org
+
+Changes in v2:
+- Expand rule to also save for ACPI and sysreg ETMs. Now module param is
+  only read for MMIO ETMs and DT.
+- Drop change to save the result in drvdata as the single global is
+  simpler.
+- Link to v1: https://lore.kernel.org/r/20260428-james-cs-ete-pm_save_enable-v1-0-c7a90ca6f43b@linaro.org
+---
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 48 +++++++++++++++-------
+ 1 file changed, 34 insertions(+), 14 deletions(-)
+
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+index d565a73f0042..591dfe0bc635 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+@@ -56,10 +56,14 @@ MODULE_PARM_DESC(boot_enable, "Enable tracing on boot");
+ #define PARAM_PM_SAVE_NEVER	  1 /* never save any state */
+ #define PARAM_PM_SAVE_SELF_HOSTED 2 /* save self-hosted state only */
+ 
++/*
++ * Save option for ETM4. ETE, sysreg ETM4s and ACPI boots ignore this option and
++ * will always save.
++ */
+ static int pm_save_enable = PARAM_PM_SAVE_FIRMWARE;
+ module_param(pm_save_enable, int, 0444);
+ MODULE_PARM_DESC(pm_save_enable,
+-	"Save/restore state on power down: 1 = never, 2 = self-hosted");
++	"Save/restore state on power down: 1 = never, 2 = self-hosted. MMIO and DT only.");
+ 
+ static struct etmv4_drvdata *etmdrvdata[NR_CPUS];
+ static void etm4_set_default_config(struct etmv4_config *config);
+@@ -2012,7 +2016,7 @@ static int etm4_cpu_save(struct etmv4_drvdata *drvdata)
+ {
+ 	int ret = 0;
+ 
+-	if (pm_save_enable != PARAM_PM_SAVE_SELF_HOSTED)
++	if (!drvdata->save_state)
+ 		return 0;
+ 
+ 	/*
+@@ -2127,7 +2131,7 @@ static void __etm4_cpu_restore(struct etmv4_drvdata *drvdata)
+ 
+ static void etm4_cpu_restore(struct etmv4_drvdata *drvdata)
+ {
+-	if (pm_save_enable != PARAM_PM_SAVE_SELF_HOSTED)
++	if (!drvdata->save_state)
+ 		return;
+ 
+ 	if (coresight_get_mode(drvdata->csdev))
+@@ -2212,6 +2216,17 @@ static void etm4_pm_clear(void)
+ 	}
+ }
+ 
++static bool etm4x_always_pm_save(struct device *dev, struct csdev_access *csa)
++{
++	/*
++	 * Only IO mem ETM devices will benefit from skipping PM save and only
++	 * DT has the option to control it, not ACPI. Otherwise system register
++	 * based ETMs and ETEs will always lose context on CPU power down, so
++	 * always save.
++	 */
++	return !csa->io_mem || is_acpi_device_node(dev_fwnode(dev));
++}
++
+ static int etm4_add_coresight_dev(struct etm4_init_arg *init_arg)
+ {
+ 	int ret;
+@@ -2221,6 +2236,7 @@ static int etm4_add_coresight_dev(struct etm4_init_arg *init_arg)
+ 	struct coresight_desc desc = { 0 };
+ 	u8 major, minor;
+ 	char *type_name;
++	bool pm_save;
+ 
+ 	if (!drvdata)
+ 		return -EINVAL;
+@@ -2248,6 +2264,21 @@ static int etm4_add_coresight_dev(struct etm4_init_arg *init_arg)
+ 
+ 	etm4_set_default(&drvdata->config);
+ 
++	if (etm4x_always_pm_save(dev, init_arg->csa))
++		pm_save = true;
++	else if (pm_save_enable == PARAM_PM_SAVE_FIRMWARE)
++		pm_save = coresight_loses_context_with_cpu(dev);
++	else
++		pm_save = pm_save_enable != PARAM_PM_SAVE_NEVER;
++
++	if (pm_save) {
++		drvdata->save_state = devm_kmalloc(dev,
++						   sizeof(struct etmv4_save_state),
++						   GFP_KERNEL);
++		if (!drvdata->save_state)
++			return -ENOMEM;
++	}
++
+ 	pdata = coresight_get_platform_data(dev);
+ 	if (IS_ERR(pdata))
+ 		return PTR_ERR(pdata);
+@@ -2305,17 +2336,6 @@ static int etm4_probe(struct device *dev)
+ 	if (ret)
+ 		return ret;
+ 
+-	if (pm_save_enable == PARAM_PM_SAVE_FIRMWARE)
+-		pm_save_enable = coresight_loses_context_with_cpu(dev) ?
+-			       PARAM_PM_SAVE_SELF_HOSTED : PARAM_PM_SAVE_NEVER;
+-
+-	if (pm_save_enable != PARAM_PM_SAVE_NEVER) {
+-		drvdata->save_state = devm_kmalloc(dev,
+-				sizeof(struct etmv4_save_state), GFP_KERNEL);
+-		if (!drvdata->save_state)
+-			return -ENOMEM;
+-	}
+-
+ 	raw_spin_lock_init(&drvdata->spinlock);
+ 
+ 	drvdata->cpu = coresight_get_cpu(dev);
+
+---
+base-commit: 971f3474f8898ae8bbab19a9b547819a5e6fbcf1
+change-id: 20260420-james-cs-ete-pm_save_enable-4e994e35cdac
+
+Best regards,
+-- 
+James Clark <james.clark@linaro.org>
+
 
