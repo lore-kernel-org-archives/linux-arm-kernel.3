@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CD65FF8855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 21:31:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38CC1CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 21:44:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=yy7bEKzcQGtAlqENwVNI0EQc1wIGMr6oPzwoQMSpSAo=; b=IzFMrbzpjjPc+QMUMzneyg0vVj
-	Zd1N9haHVSxbrDvLhinpUX1I8i2DvtlNMcSphrQld2IdDp7BG5wtoIa7oTixQ4mnzciLgw3G8OKg0
-	/NGYgrcZx1o6srYI2Dz6atef9MPONmBgPR1Lj6QRUIWmkuad6Ys6ZhHfPwhyFgWYq7eo3I0/LKOvV
-	/4AEud2MP2U3dt17JEsCXzLl5ZQKvxa0QaS1HFy2zHLzSSreAXzRyOsLpLjopw8wYCSo1LiFKZehq
-	mnuuL4I412YWi3s5M3M5hVaF/lqnv2pYLrHN1973nxuthAKAr7Yv4piozPYuLuhJiUGeyp40ik/8z
-	9UL1+50g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+y/h21i0FBlFlE5Hg0qvij7l+70t7dMFKlxM4wj1Ons=; b=beZDlIi5oLAHYl2zQUpqCLk0H2
+	Cp2trr15511V3KJRWJQcWjMUf3Y57UCvUVcbasAqmBGJr8vetsLnic+ZFBY0Q7ehTIzogKGM8jnrz
+	NlUX23GlHDMho9YpedRQU2kTn6ONvq6sO0c4rxYycpWGDrKksrS43XpQdYe5/DSNaj6Z5LwEFKiDR
+	bVp4cMGsKVXRUbw6l5l89OWpq2S/XEs+BHgxfD7GLAMUCkvHkJE8OtV0vWg0hi3kq2cIKSf7wG5iX
+	5yCnWV61Z4+t8CKHoOtCuK38vm+15J6qt6k6bFvsIGej0PW4Lb7pHzR9aGduRjYt6RqQY9lqWicB8
+	uTDZLdUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKNMB-0000000HXfz-2UDt;
-	Tue, 05 May 2026 21:31:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKNM8-0000000HXfN-2i0q;
-	Tue, 05 May 2026 21:31:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 832FF40BA2;
-	Tue,  5 May 2026 21:31:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44779C2BCB4;
-	Tue,  5 May 2026 21:31:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778016663;
-	bh=i9ndZnTLt8zIDy5Mkgz7fGXuWdU3oQ9A5bMpZWxB1ZA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=kEyYBLGA+XfMJXuZ3Uwb/EoPqSdmtYKeCCZpRwkybIP1z4TrzcAbQK+PV0M6tix7X
-	 G4baoMSN6EPb3enZoZt0d3xWs6EBbjXSH6xJtQZZ4XIzR7+YMl9Dy6pjL9rpw1sE4w
-	 FOoZtqxUlxfuoh/kYMQ1aVu04f8wYnt5NvrKvwdf0T9OzFn2U5lEaLYD3ZW8kS/zbt
-	 MRRaKR7O+I6vb+HqxiM01+N19la4tFuCqMTZZFNMUWiBP/2xCqRgOhVr1zlSrWKb8V
-	 9YTyWKGVUiycFNVBmKTGNwtMGpu5esSVfCKygbJfR3f6BIayeh2Mn6xSD3/2Gk577q
-	 nOAYkX3YxlPNA==
-Date: Tue, 5 May 2026 16:31:02 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Hans Zhang <18255117159@163.com>, linux-pci@vger.kernel.org,
-	Dom Cobley <popcornmix@gmail.com>,
-	Phil Elwell <phil@raspberrypi.com>,
-	Jim Quinlan <jim2101024@gmail.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] PCI: brcmstb: Assign pcie->gen from pcie_get_link_speed()
-Message-ID: <20260505213102.GA750989@bhelgaas>
+	id 1wKNYs-0000000HZ2j-3R2l;
+	Tue, 05 May 2026 21:44:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wKNYp-0000000HZ29-3RYO
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 05 May 2026 21:44:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C07D61A25;
+	Tue,  5 May 2026 14:44:04 -0700 (PDT)
+Received: from donnerap.manchester.arm.com (donnerap.manchester.arm.com [10.33.8.81])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AE6453F7B4;
+	Tue,  5 May 2026 14:44:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778017450; bh=wn++sDs6bzfikHLcTyLewysJeV6R0AgYt4Hgu4eJvZU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GNWwXzjXR4Zbk1WYsiIebDPMyTjJ8m8Ta9mJdD732DE9nlWq7e8EtG/GSLnMvee63
+	 cfEEOO/I2PZj4fWvTNASzR2QSXxQgSi1USAFeoawNVXfAPxhyRWaZ6c7NzMm7xJ4Qs
+	 7Gufebq6KtlMyBpTiedfc44Wm5X13w5GB2PRiwRA=
+Date: Tue, 5 May 2026 22:44:05 +0100
+From: Philip Radford <philip.radford@arm.com>
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, linux-pm@vger.kernel.org,
+	sudeep.holla@arm.com, james.quinlan@broadcom.com,
+	f.fainelli@gmail.com, vincent.guittot@linaro.org,
+	etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
+	quic_sibis@quicinc.com, dan.carpenter@linaro.org, d-gole@ti.com,
+	souvik.chakravarty@arm.com
+Subject: Re: [PATCH v5 09/12] firmware: arm_scmi: add Powercap MAI get/set
+ support
+Message-ID: <afpkpUcevUh_Z8kQ@donnerap.manchester.arm.com>
+References: <20260428090922.346069-1-philip.radford@arm.com>
+ <20260428090922.346069-10-philip.radford@arm.com>
+ <afpUytkInNKLTB0k@pluto>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <d13eb4ce-a868-4b10-b044-83fa1ddea1e9@broadcom.com>
+In-Reply-To: <afpUytkInNKLTB0k@pluto>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_143104_950110_0D2AE32C 
-X-CRM114-Status: GOOD (  40.19  )
+X-CRM114-CacheID: sfid-20260505_144411_968012_5CBCFD46 
+X-CRM114-Status: GOOD (  30.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,87 +76,282 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 05, 2026 at 10:58:49AM -0700, Florian Fainelli wrote:
-> On 5/5/26 09:01, Bjorn Helgaas wrote:
-> > On Mon, May 04, 2026 at 04:46:03PM -0700, Florian Fainelli wrote:
-> > > On 5/4/26 10:26, Hans Zhang wrote:
-> > > > On 5/5/26 00:58, Florian Fainelli wrote:
-> > > > > On 5/2/26 04:40, Bjorn Helgaas wrote:
-> > > > > > On Fri, May 01, 2026 at 01:24:38PM -0700, Florian Fainelli wrote:
-> > > > > > > After commit 03f920936977 ("PCI: controller: Validate max-link-speed"),
-> > > > > > > pcie->gen stopped being assigned and as a result the established PCIe
-> > > > > > > link would stop supporting Gen3 speeds on 2712 since pcie->gen is used
-> > > > > > > to populate LnkCntl2 and LnkCap in brcm_pcie_set_gen().
-> > > > > > > 
-> > > > > > > Link: https://github.com/raspberrypi/linux/issues/7343
-> > > > > > > Reported-by: Dom Cobley <popcornmix@gmail.com>
-> > > > > > > Reported-by: Phil Elwell <phil@raspberrypi.com>
-> > > > > > > Fixes: 03f920936977 ("PCI: controller: Validate max-link-speed")
-> > > > > > > Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
-> > > > > > > ---
-> > > > > > >    drivers/pci/controller/pcie-brcmstb.c | 3 +--
-> > > > > > >    1 file changed, 1 insertion(+), 2 deletions(-)
-> > > > > > > 
-> > > > > > > diff --git a/drivers/pci/controller/pcie-brcmstb.c
-> > > > > > > b/drivers/pci/ controller/pcie-brcmstb.c
-> > > > > > > index 714bcab97b60..6138fc4bc064 100644
-> > > > > > > --- a/drivers/pci/controller/pcie-brcmstb.c
-> > > > > > > +++ b/drivers/pci/controller/pcie-brcmstb.c
-> > > > > > > @@ -2072,8 +2072,7 @@ static int brcm_pcie_probe(struct
-> > > > > > > platform_device *pdev)
-> > > > > > >            return PTR_ERR(pcie->clk);
-> > > > > > >        ret = of_pci_get_max_link_speed(np);
-> > > > > > > -    if (pcie_get_link_speed(ret) == PCI_SPEED_UNKNOWN)
-> > > > > > > -        pcie->gen = 0;
-> > > > > > > +    pcie->gen = pcie_get_link_speed(ret);
-> > > > > > 
-> > > > > > Take a look at https://sashiko.dev/#/
-> > > > > > patchset/20260501202438.376033-1-
-> > > > > > florian.fainelli%40broadcom.com
-> > > > > > 
-> > > > > > The notes at https://github.com/raspberrypi/linux/issues/7343 assumed
-> > > > > > PCI_SPEED_UNKNOWN was 0, but in fact it is 0xff, which means you might
-> > > > > > want the more defensive patch instead.
-> > > > > > 
-> > > > > > I'll be happy to replace what's on pci/for-linus if so.
-> > > > > 
-> > > > > I am starting to think a revert is the simplest path forward, it's
-> > > > > not clear what pcie_get_link_speed() brings to the table honestly.
-> > > > 
-> > > > The pcie_get_link_speed function is designed to prevent other Root Port
-> > > > drivers from accessing the array pcie_link_speed out of bounds.
-> > > 
-> > > Yes, so that's useful in the first hunk of your commit where we were
-> > > printing the link speed without checking that the 'max-link-speed' would be
-> > > bounds check, however it is not really useful for assigning to pcie->gen in
-> > > our case, so I would prefer the second option:
-> > > 
-> > >            ret = of_pci_get_max_link_speed(np);
-> > >   -       if (pcie_get_link_speed(ret) == PCI_SPEED_UNKNOWN)
-> > >   -               pcie->gen = 0;
-> > >   +       pcie->gen = (ret < 0) ? 0 : ret;
-> > 
-> > The point of this validation is to make sure we don't program the
-> > brcmstb hardware with something it doesn't support.
-> > 
-> > of_pci_get_max_link_speed() only returns an error (ret < 0) if DT
-> > didn't contain a 'max-link-speed' property.  That doesn't tell us
-> > anything about what brcmstb devices support.
-> > 
-> > I think this test should be something like what advk_pcie_probe() or
-> > rockchip_pcie_parse_dt() do.  If of_pci_get_max_link_speed() fails or
-> > returns something not supported by the hardware, they default to the
-> > fastest speed known to be supported.
+On Tue, May 05, 2026 at 09:36:26PM +0100, Cristian Marussi wrote:
+> On Tue, Apr 28, 2026 at 10:09:18AM +0100, Philip Radford wrote:
+> > Add support for Power Measurement Averaging Interval (MAI)
 > 
-> Doing that could be challenging because it varies on a per-controller
-> instance on some chips like 2712, this would also be a behavioral difference
-> compared to today where the driver resorts to HW-defaults if the property is
-> not specified.
+> Hi,
+> 
 
-I think it's OK to default to what the hardware advertises if that
-makes sense for this hardware and driver.
+Hi,
+Thanks for the review.
 
-The fact that this is all device & driver dependent was part of what
-motivated the series in the first place -- the generic OF code can't
-do that kind of per-controller validation.
+> > get and set operations to the SCMI powercap protocol driver.
+> > Extends scmi_powercap_info to store MAI configuration and
+> > implement MAI get/set via xfer and optional fast-channel
+> > support.
+> 
+> You have to stay under 75 chars...ok...but I'd say this commit message
+> lines are way to short...you can stretch a bit more towards 75chars
+> without having to split words I think....because
+> 
+> t
+> o
+> o
+> 
+> s
+> h
+> o
+> r
+> t
+> 
+> l
+> i
+> n
+> e
+> s
+> 
+> are not so good anyway :P
+> 
+
+Noted. I was too concerned about going over the limit and didn't think
+about the opposite being an issue.
+
+> > 
+> > Signed-off-by: Philip Radford <philip.radford@arm.com>
+> > ---
+> >  drivers/firmware/arm_scmi/powercap.c | 120 +++++++++++++++++++++++++++
+> >  include/linux/scmi_protocol.h        |   8 ++
+> >  2 files changed, 128 insertions(+)
+> > 
+> > diff --git a/drivers/firmware/arm_scmi/powercap.c b/drivers/firmware/arm_scmi/powercap.c
+> > index 86262eb0f34a..b5879f204b5e 100644
+> > --- a/drivers/firmware/arm_scmi/powercap.c
+> > +++ b/drivers/firmware/arm_scmi/powercap.c
+> > @@ -401,6 +401,34 @@ scmi_powercap_domain_attrs_process(const struct scmi_protocol_handle *ph,
+> >  		dom_info->notify_powercap_measurement_change =
+> >  			SUPPORTS_POWERCAP_MEASUREMENTS_CHANGE_NOTIFY(flags);
+> >  
+> > +	if (PROTOCOL_REV_MAJOR(ph->version) >= 0x3) {
+> > +		struct scmi_msg_resp_powercap_domain_attributes_v3 *resp_v3 = r;
+> > +
+> > +		flags = le32_to_cpu(resp_v3->attributes);
+> > +		if (pinfo->notify_measurements_cmd)
+> > +			dom_info->notify_powercap_measurement_change =
+> > +			       SUPPORTS_POWERCAP_MEASUREMENTS_CHANGE_NOTIFY(flags);
+> > +
+> > +		dom_info->mai_config = SUPPORTS_POWERCAP_MAI_CONFIGURATION(flags);
+> > +		dom_info->min_mai = le32_to_cpu(resp_v3->min_mai);
+> > +		dom_info->max_mai = le32_to_cpu(resp_v3->max_mai);
+> > +		dom_info->mai_step = le32_to_cpu(resp_v3->mai_step);
+> > +
+> > +		if (dom_info->mai_config) {
+> > +			ret = scmi_powercap_validate(dom_info->min_mai,
+> > +						     dom_info->max_mai,
+> > +						     dom_info->mai_step,
+> > +						     dom_info->mai_config);
+> > +
+> > +			if (ret) {
+> > +				dev_warn(ph->dev, "Platform reported problem MAI config for domain %d - %s\n",
+> 
+> "....reported invalid MAI config for domain..."
+> 
+
+Noted, will change.
+
+> > +					 dom_info->id, dom_info->name);
+> > +
+> > +				return ret;
+> > +			}
+> > +		}
+> > +	}
+> > +
+> >  	dom_info->extended_names = SUPPORTS_EXTENDED_NAMES(flags);
+> >  
+> >  	dom_info->async_powercap_cap_set =
+> > @@ -1082,6 +1110,96 @@ static int scmi_powercap_cap_enable_get(const struct scmi_protocol_handle *ph,
+> >  	return 0;
+> >  }
+> >  
+> > +static int scmi_powercap_xfer_mai_get(const struct scmi_protocol_handle *ph, u32 domain_id,
+> > +				      u32 *mai)
+> 
+> ..bad alignment and till now we try still to stick tpo 80cols in the SCMI
+> stack if it does NOT really hamper readability...
+> 
+
+I will address this, but I'm quite certain it wasn't flagged by checkpatch.
+
+> > +{
+> > +	int ret;
+> > +	struct scmi_xfer *t;
+> > +
+> > +	ret = ph->xops->xfer_get_init(ph, POWERCAP_MAI_GET, sizeof(u32),
+> > +								sizeof(u32), &t);
+> 
+> ...terrible alignment...and you know why :D
+> 
+
+Will address.
+
+> > +
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	put_unaligned_le32(domain_id, t->tx.buf);
+> > +
+> > +	ret = ph->xops->do_xfer(ph, t);
+> > +	if (!ret)
+> > +		*mai = get_unaligned_le32(t->rx.buf);
+> > +
+> > +	ph->xops->xfer_put(ph, t);
+> > +	return ret;
+> > +}
+> > +
+> > +static int scmi_powercap_xfer_mai_set(const struct scmi_protocol_handle *ph, u32 domain_id, u32 mai)
+> 
+> ..same...try to stick to 80 cols when not impossibly ugly..
+> 
+
+Will do.
+
+> > +{
+> > +	int ret;
+> > +	struct scmi_xfer *t;
+> > +	struct scmi_msg_powercap_cap_or_pai_set *msg;
+> > +
+> > +	ret = ph->xops->xfer_get_init(ph, POWERCAP_MAI_SET, sizeof(*msg), 0, &t);
+> 
+> same
+> 
+
+I'm not sure why I split that over two lines, will change.
+
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	msg = t->tx.buf;
+> > +	msg->domain_id = cpu_to_le32(domain_id);
+> > +	msg->flags = cpu_to_le32(0);
+> > +	msg->value = cpu_to_le32(mai);
+> > +
+> > +	ret = ph->xops->do_xfer(ph, t);
+> > +
+> > +	ph->xops->xfer_put(ph, t);
+> > +	return ret;
+> > +}
+> > +
+> > +static int scmi_powercap_measurements_interval_get(const struct scmi_protocol_handle *ph,
+> > +						   u32 domain_id, u32 *val)
+> > +{
+> 
+> ditto
+> 
+
+Will do.
+
+> > +	const struct scmi_powercap_info *pc;
+> > +	struct scmi_fc_info *fci;
+> > +
+> > +	if (!val)
+> > +		return -EINVAL;
+> > +
+> > +	pc = scmi_powercap_dom_info_get(ph, domain_id);
+> > +	if (!pc)
+> > +		return -EINVAL;
+> > +
+> > +	fci = pc->cpli[CPL0].fc_info;
+> > +	if (fci && fci[POWERCAP_FC_MAI].get_addr) {
+> > +		*val = ioread32(fci[POWERCAP_FC_MAI].get_addr);
+> > +		trace_scmi_fc_call(SCMI_PROTOCOL_POWERCAP, POWERCAP_MAI_GET, domain_id, 0, *val, 0);
+> ditto
+
+Noted
+
+> > +		return 0;
+> > +	}
+> > +
+> > +	return scmi_powercap_xfer_mai_get(ph, domain_id, val);
+> > +}
+> > +
+> > +static int scmi_powercap_measurements_interval_set(const struct scmi_protocol_handle *ph,
+> > +						   u32 domain_id, u32 val)
+> > +{
+> 
+> ditto
+> 
+
+Noted.
+
+> > +	const struct scmi_powercap_info *pc;
+> > +	struct scmi_fc_info *fci;
+> > +
+> > +	pc = scmi_powercap_dom_info_get(ph, domain_id);
+> > +	if (!pc)
+> > +		return -EINVAL;
+> > +
+> > +	if (!pc->mai_config || !val || val < pc->min_mai || val > pc->max_mai)
+> > +		return -EINVAL;
+> > +
+> > +	fci = pc->cpli[CPL0].fc_info;
+> > +	if (fci && fci[POWERCAP_FC_MAI].set_addr) {
+> > +		iowrite32(val, fci[POWERCAP_FC_MAI].set_addr);
+> > +		ph->hops->fastchannel_db_ring(fci[POWERCAP_FC_MAI].set_db);
+> > +		trace_scmi_fc_call(SCMI_PROTOCOL_POWERCAP, POWERCAP_MAI_SET, domain_id, 0, val, 0);
+> > +		return 0;
+> > +	}
+> > +
+> > +	return scmi_powercap_xfer_mai_set(ph, domain_id, val);
+> > +}
+> > +
+> >  static const struct scmi_powercap_proto_ops powercap_proto_ops = {
+> >  	.num_domains_get = scmi_powercap_num_domains_get,
+> >  	.info_get = scmi_powercap_dom_info_get,
+> > @@ -1094,6 +1212,8 @@ static const struct scmi_powercap_proto_ops powercap_proto_ops = {
+> >  	.measurements_get = scmi_powercap_measurements_get,
+> >  	.measurements_threshold_set = scmi_powercap_measurements_threshold_set,
+> >  	.measurements_threshold_get = scmi_powercap_measurements_threshold_get,
+> > +	.measurements_interval_get = scmi_powercap_measurements_interval_get,
+> > +	.measurements_interval_set = scmi_powercap_measurements_interval_set,
+> >  };
+> >  
+> >  static void scmi_powercap_domain_init_fc(const struct scmi_protocol_handle *ph,
+> > diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
+> > index d0f6c0102559..73d66281dcc3 100644
+> > --- a/include/linux/scmi_protocol.h
+> > +++ b/include/linux/scmi_protocol.h
+> > @@ -675,6 +675,10 @@ struct scmi_powercap_info {
+> >  	bool powercap_scale_uw;
+> >  	bool extended_names;
+> >  	bool fastchannels;
+> > +	bool mai_config;
+> > +	u32 min_mai;
+> > +	u32 max_mai;
+> > +	u32 mai_step;
+> 
+> No docs for new fields ?
+> 
+
+Will add them.
+
+> >  	char name[SCMI_MAX_STR_SIZE];
+> >  	unsigned int sustainable_power;
+> >  	unsigned int accuracy;
+> > @@ -758,6 +762,10 @@ struct scmi_powercap_proto_ops {
+> >  	int (*measurements_threshold_get)(const struct scmi_protocol_handle *ph,
+> >  					  u32 domain_id, u32 *power_thresh_low,
+> >  					  u32 *power_thresh_high);
+> > +	int (*measurements_interval_get)(const struct scmi_protocol_handle *ph,
+> > +					 u32 domain_id, u32 *val);
+> > +	int (*measurements_interval_set)(const struct scmi_protocol_handle *ph,
+> > +					 u32 domain_id, u32 val);
+> 
+> No docs for new fields ?
+> 
+
+Will add them.
+And will pay more attention to col length from now on.
+
+Regards,
+Phil.
 
