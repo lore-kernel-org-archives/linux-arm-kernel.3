@@ -4,109 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E599DCD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:46:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6B13CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:48:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DrfGKIeyY4VV6HtGnp4FKIxytz8xo/bAXQmJCIlvsw8=; b=nU+sZIHJOUV9urTRhdDtX/nrYB
-	J/Sd4sRyqAmN8vt9IiQkmX/wtxMyBGpuV8xWVRTa9WJnK3kE9I3XEQdXalNcfusehtPPct4q6zX+7
-	ZMYpEB0YQKFP0AIE1fb82g3DayLZHmDN0dKjKbEKUCnJjW7vqmo0Ujc01JWkY8Ny5UaW+lzU9n3Eb
-	dWcHTFnRcTMpIOj8F7ZXpblMd7F6VJUJShBWMU1ELZ1jkHl1WE7GSLbuerfXQt0kBJSgfTy9xt1NR
-	QdCssNtVNYo4Z3CdsJmJUm/UXaYgJPTM82qqr8twdwX8XLZNK5YJWlsSoHzmvtIxebEmgg7xD7pCh
-	nEGUb3rg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Vp5iopfAmcsOX6ZIRTEf038gXmebvITcztxNgxO/nOk=; b=H4CmleeQ93KdumMv73lDAjgdop
+	PIJPe/9vYz0IcmKv9T1GkiX+dj31sp24SkFR6ojk9++5cKH0F38oWsSUGguWn1z/K/AyvA17iiY1P
+	v3HTzszZsrVCC452t0Xw55QVf2ktPfweJGloJlRFm8WXvp+59+gF8TXY6i/t2wyIZYguiUUAM6g4D
+	o16QTI4bO40+juIvk1CD29pOxxY6uGrppqrhmrSs5wJXguI0aI6r7VHxEa8HZedbOIfI1B26GIfQ3
+	s7FY1NCkIXSZsTmTvgWK4Qi6x9FGFj9mnBMTvfAqNGV9YgEPNy7LmluP5SDbaojcyuxdW53d5qBzR
+	GjqRwHNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKIuv-0000000Gwf9-3twy;
-	Tue, 05 May 2026 16:46:41 +0000
-Received: from mail-yw1-x112c.google.com ([2607:f8b0:4864:20::112c])
+	id 1wKIwX-0000000Gwwq-3yTy;
+	Tue, 05 May 2026 16:48:21 +0000
+Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKIur-0000000GweH-3loP
+	id 1wKIwV-0000000GwwF-1V2D
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 16:46:40 +0000
-Received: by mail-yw1-x112c.google.com with SMTP id 00721157ae682-7bd5e373d07so49328527b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 09:46:37 -0700 (PDT)
+	Tue, 05 May 2026 16:48:20 +0000
+Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-50e61648f10so8311cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 09:48:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1777999597; x=1778604397; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=DrfGKIeyY4VV6HtGnp4FKIxytz8xo/bAXQmJCIlvsw8=;
-        b=nCO4As9t6zoyvorRMXUjRjWj3V0iTq3D9ofpWRYZjcgZ2OIEUMVmcvEhuhq8WVC2+W
-         Z1deiKUnccU8Ct65SzMJh9UMcV0yLQ3OASD4M9u5anskYG5+IdIB3WuHvPP/oni7qAL4
-         ONXDGvI+cwlt4/nfgb+wI4mU5NyTse0q9wNx7Ri37ExrBYQTWg7Cjn7SzKKsIxzLtSQ+
-         J5Xo7zQFIPUom10zIVfXIeCOWN4gCqRKhpw8luGETgFdp9bpIlAGa3XunSZZBdU/+eya
-         nr3CWR18zalRupzq4PdhWjgfR2hxuQAxgbHx6YFblFMHm9rs+BKTtFnpgweqIGcPQvGZ
-         Qj3Q==
+        d=google.com; s=20251104; t=1777999698; x=1778604498; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=Vp5iopfAmcsOX6ZIRTEf038gXmebvITcztxNgxO/nOk=;
+        b=lahoAkiQgXG7b3Bf09JINxwZzwSdfh/Oe1xN1wQAb7/ZT/Gb+JDOEUTTGwBKfbFhTu
+         NPjJgJ4lr7pltaPAECQV8IogoCBUya2d4rq8cJeyOnF8Qh8S+47Qv71xaolkEIPwXM2M
+         6wXqQ4wgGOICgO9xVMLaxEs9APm2zLz/7EccKN0XndJq0ZkHE8JI+AosOWKQAl7ZRBhT
+         3uG6aZn5U2F/0U0tKske9AjS2AnpB/FrMY0AMxkZDa7KAbOg1uJxrmKGv5F5L/ypNVQq
+         2BHTd0RUX5PbHV3jNZhm4rsxIABoD39jvV1hR60rHBdKE8gmvjWe1YN8+nAazs2Nuhz6
+         xX9A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777999597; x=1778604397;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=DrfGKIeyY4VV6HtGnp4FKIxytz8xo/bAXQmJCIlvsw8=;
-        b=RovC462KwI89UVAk7n2Ep/lmauvOEgDyv0aVgBzsJqyL+hIPJMJZC3H2/g4fqZGmhU
-         jJPMz1Pzwr2O90CKKLqjvQr4DPUzutFxDt4X4+XhsgqLdMR1PSHxxjOO41gn/c+IF4mI
-         F13BcprRs3rSDee26jjqvqADrkngO5KGHaK/FCePseBet+2zWIikn5orc7mzXYg0eViz
-         UQXkbcoASvoc3ttUUQVbWkcKZL5nnTfGYiEw4xLf+WBhKQd8mvLlSeZCMnAgZQEZ05p5
-         rxIo6G7PxCV8unqukgPPDTV+A8K8pDQ2c6Zh0LhSK5jN4tmNjRNlRu1vWiLul5vVKB8f
-         3TFw==
-X-Forwarded-Encrypted: i=1; AFNElJ+zp+m7J6kkJ628DbEckj+1VMNmuG2Ylg3SLpOa3VOrcxOWUUQuWrk204KX0BBJmc55vx8wJPnUfvqCWmouBTHz@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNXzh3vhJc/4QMOPSOc5KXSdoqN88umgBYekxqyHYvG9kBqlCO
-	melYUsx9IkafO2dj4JwWPB3jNszvbn2ioBgT/9k91hzBf5uTxuUTC9CazN0a1MaFB68=
-X-Gm-Gg: AeBDietAQ0wDpQSDodkCPB0jliXtfOEJsmgDqS76W9CdZ00VjkTDCge3jZdVmUu3Hbx
-	avBGnXDcSQEAo0IuBrnNVHjHNlEf/ETxxQES+tQK1o99cxvcwwANVNoZ27tsf7w3KBoQ3QjCoHG
-	kQUgqEaTReaeLBpY0jCghrEg3C9mgHw9kUlwg5YCAz2V0DYLWyt6iUB/OTq5RVhTGX7QQARUW2n
-	cuQFMZzFqIWyI9PHNfGkeNJFAczV6+jPHpaYRuNtEuSjlDVXRcP7S4M1NPyxqCf5y5zeNWCIlk/
-	s+8A+0lemtz3crI85gmxWQVYSL79WVoZvfImROFWNcGUG0rery0dGoIulpMqIq1/HSaPYxdDaQG
-	xBcuiS5Vgq5HhllmSDWL6647+NvKpG0TQXJTObs5fyr50cyQ2pLIzsUFvA9Eu2OQwUlGoMbbE4Y
-	LHK7uw+MH6FoAFYXLMnZvnkWquZd87T8p0eyQAJ4FT0f/QCKIkhZ2imKNTcC/BTK2aJl/cbxYB7
-	Q==
-X-Received: by 2002:a05:690c:60c4:b0:7bd:8cb2:4fa4 with SMTP id 00721157ae682-7bdac5ffe89mr42184327b3.39.1777999596609;
-        Tue, 05 May 2026 09:46:36 -0700 (PDT)
-Received: from [172.22.22.28] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-7bd66558f35sm66666507b3.15.2026.05.05.09.46.33
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 05 May 2026 09:46:36 -0700 (PDT)
-Message-ID: <c716efe3-1b60-4a82-8fcf-1928c0233d64@riscstar.com>
-Date: Tue, 5 May 2026 11:46:33 -0500
+        d=1e100.net; s=20251104; t=1777999698; x=1778604498;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Vp5iopfAmcsOX6ZIRTEf038gXmebvITcztxNgxO/nOk=;
+        b=bDbEPzzPbd/oeHFzJdvnd0adMrJZ83wwb2a7mULLmwepLUHEqfM/YFWU1K/BVUhW/L
+         TzGV6xfspbrSYS1O4cnWQf9fQcF4MP9eqL73+SggzEZNQ2S6B1rbgJf31q/WhzYv29ob
+         JLQwNsp2DvRJeDqW2wN64eUKg118vy3OOu2nDXsn3NV+dZkR4gtUZ4W37A1iJf5b4H8u
+         PvPK0f8dfSJj0MR9wE2G8PI40rvf4PgDrBhmcBx8l8b+ElZd3DRjlOd2BJeUY/lUqy3B
+         pMgB5sFv8tlVvRQVErkaLXOJU+wZrHRYGn+1syOp6CSQ9Yk49zstpoZde8ONeFfH05e/
+         Oeyw==
+X-Gm-Message-State: AOJu0YxBnIExIFaMyjp2nkC+jekfxTmoHNaBg5ZUIjCDhaRCiu7QemRl
+	qKM6OHEHoLgipZMfbqIDe4wcC+6wVYhv9ev1lmvlrdKAmZEizaLkJOlI4Ua/rHh23g==
+X-Gm-Gg: AeBDiesq1CgOLq0Ke6u7CJo51FQifh2fZbs4LXVFO/sCc3be5yv4AxEmX4kl5t0jUer
+	1p+6v8RR3DE2YM9XUASnlH9yb+AU3gmzrpX4Q9NjmgKD6nEpk+2TyCHlys5hpBXiHdTBiyu3gpO
+	9xAeU7tKL9G2imXiDG4Pf7uJBy7FNC6UtuqzA93ogtfMnQ7hjojAnVkhDg/vjEH1R5cZtcBnG8K
+	HT7xQqBNTG4FTFVLPFqOM0OviuHSL8i+ZLuEfKD4HqnB278/7vGOHeHpOAG3pkg1yO7iz8bziQj
+	fAZXudfcN+jOjAvJgGnOPF09qwVsGId4wioKyxDzSbfOnbHnFeg6wnzGOf4p+rkAecjLG7VU/s1
+	fPrPj83DBQ4e49z57c5GjFpFNScD+H29Uj2KGW0ehEe1BKjKOcIt7xawA0lwnfWf99Kn0Fi1dLa
+	X0fJlVzk0XodFXrazXTBcZT/vuUD41BBRAllknnlr52wqRpDEMtr/wCkYU+LsC97W0moBPAFsc9
+	N7Qyg==
+X-Received: by 2002:a05:622a:8310:b0:509:15b6:f6a0 with SMTP id d75a77b69052e-51305908cf9mr15393051cf.6.1777999697103;
+        Tue, 05 May 2026 09:48:17 -0700 (PDT)
+Received: from google.com (8.181.38.34.bc.googleusercontent.com. [34.38.181.8])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8fc29c6fa7asm1340531885a.20.2026.05.05.09.48.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 05 May 2026 09:48:16 -0700 (PDT)
+Date: Tue, 5 May 2026 16:48:08 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
+	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
+	mark.rutland@arm.com, qperret@google.com, tabba@google.com,
+	vdonnefort@google.com, sebastianene@google.com, keirf@google.com
+Subject: Re: [PATCH v6 05/25] iommu/arm-smmu-v3: Move IDR parsing to common
+ functions
+Message-ID: <afofSPQbepd_fpom@google.com>
+References: <20260501111928.259252-1-smostafa@google.com>
+ <20260501111928.259252-6-smostafa@google.com>
+ <20260501124716.GD6912@ziepe.ca>
+ <afiODW2sVMeOj3Ag@google.com>
+ <afoagb/wVBJD1IX+@ziepe.ca>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 12/12] arm64: dts: qcom: qcs6490-rb3gen2: enable
- TC9564 with a single QCS8081 phy
-To: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, maxime.chevallier@bootlin.com,
- rmk+kernel@armlinux.org.uk, andersson@kernel.org, konradybcio@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, linusw@kernel.org,
- brgl@kernel.org, arnd@arndb.de, gregkh@linuxfoundation.org,
- Daniel Thompson <daniel@riscstar.com>, a0987203069@gmail.com,
- alexandre.torgue@foss.st.com, ast@kernel.org, boon.khai.ng@altera.com,
- chenchuangyu@xiaomi.com, chenhuacai@kernel.org, daniel@iogearbox.net,
- hawk@kernel.org, hkallweit1@gmail.com, inochiama@gmail.com,
- john.fastabend@gmail.com, julianbraha@gmail.com, livelycarpet87@gmail.com,
- matthew.gerlach@altera.com, mcoquelin.stm32@gmail.com, me@ziyao.cc,
- prabhakar.mahadev-lad.rj@bp.renesas.com, richardcochran@gmail.com,
- rohan.g.thomas@altera.com, sdf@fomichev.me, siyanteng@cqsoftware.com.cn,
- weishangjuan@eswincomputing.com, wens@kernel.org, netdev@vger.kernel.org,
- bpf@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-gpio@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260501155421.3329862-1-elder@riscstar.com>
- <20260501155421.3329862-13-elder@riscstar.com>
- <afod8ot7xb+g0wzN@oss.qualcomm.com>
-Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <afod8ot7xb+g0wzN@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <afoagb/wVBJD1IX+@ziepe.ca>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_094637_952661_7DB3DA78 
-X-CRM114-Status: GOOD (  13.42  )
+X-CRM114-CacheID: sfid-20260505_094819_404082_60C16C07 
+X-CRM114-Status: GOOD (  29.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,36 +109,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/5/26 11:42 AM, Mohd Ayaan Anwar wrote:
-> Hi Alex,
-> On Fri, May 01, 2026 at 10:54:20AM -0500, Alex Elder wrote:
->> From: Daniel Thompson <daniel@riscstar.com>
->>
->> The QCS6490 RB3Gen2 includes a Toshiba TC9564 (a.k.a. Qualcomm QPS615).
->> TC9564 is an twin Ethernet-AVB/TSN bridge with an integrated PCIe switch.
->>
->> There are multiple builds of RB3Gen2 with components included/excluded.
->> That means whether or not there is a phy attached to eMAC0 depends on
->> the exact board. However all versions include a TC9564 combined with a
->> single QCS8081 attached to eMAC1.
->>
->> Add properties to the existing PCI nodes to describe how the TC9564 and
->> QCS8081 are connected to each other (and to the host SoC).
->>
->> (Note: "pci1179,0220" is documented in the "net/toshiba,tc956x-dwmac.yaml"
->> binding, but checkpatch.pl doesn't recognize that.)
->>
->> Co-developed-by: Alex Elder <elder@riscstar.com>
->> Signed-off-by: Alex Elder <elder@riscstar.com>
->> Signed-off-by: Daniel Thompson <daniel@riscstar.com>
+On Tue, May 05, 2026 at 01:27:45PM -0300, Jason Gunthorpe wrote:
+> On Mon, May 04, 2026 at 12:16:13PM +0000, Mostafa Saleh wrote:
+> > On Fri, May 01, 2026 at 09:47:16AM -0300, Jason Gunthorpe wrote:
+> > > On Fri, May 01, 2026 at 11:19:07AM +0000, Mostafa Saleh wrote:
+> > > > Move parsing of IDRs to functions so that it can be re-used
+> > > > +unsigned long smmu_idr5_to_pgsize(u32 reg)
+> > > > +{
+> > > > +	unsigned long pgsize_bitmap = 0;
+> > > > +
+> > > > +	if (reg & IDR5_GRAN64K)
+> > > > +		pgsize_bitmap |= SZ_64K | SZ_512M;
+> > > > +	if (reg & IDR5_GRAN16K)
+> > > > +		pgsize_bitmap |= SZ_16K | SZ_32M;
+> > > > +	if (reg & IDR5_GRAN4K)
+> > > > +		pgsize_bitmap |= SZ_4K | SZ_2M | SZ_1G;
+> > > > +	return pgsize_bitmap;
+> > > > +}
+> > > 
+> > > I think this should include:
+> > > 
+> > > > +	smmu->oas = smmu_idr5_to_oas(reg);
+> > > > +	if (smmu->oas == 52)
+> > > >  		smmu->pgsize_bitmap |= 1ULL << 42; /* 4TB */
+> > > > -		break;
+> > > 
+> > > ie it should return the supported page sizes by inspecting all the
+> > > idrs and don't leave this tricky bit to be open coded..
+> > 
+> > This way was easier as each function only returns one thing, otherwise
+> > we have to pass stuff by address as we can’t pass the smmu struct as it
+> > is not shared between the drivers.
+> > But no strong opinion, I can change that.
 > 
-> There's a minor typo in the PHY name - QCS8081 instead of QCA8081.
-
-OK, I'll fix that too.  Thanks a lot Ayaan.
-
-					-Alex
-
+> Could you share the struct? With multi-compilation you do get two
+> structs with the same name and different layout, it is OK?
 > 
-> 	Ayaan
+> That would give a cleaner setup too because you can just shove all
+> this into a function and have it setup the same struct which is more a
+> copy and paste than break up into little functions?
 
+Yes, that’s possible, but I didn't want to contaminate the main struct,
+also we can’t compile the main one for KVM because of things such as
+“struct device, struct mutex...”
+May we can do:
+- struct arm_smmu_device_common: Basic stuff (ioaddress, features,
+  oas...)
+- arm_smmu_device: For the main driver which inherits arm_smmu_device_common
+- arm_smmu_nested_device for KVM which also inherits arm_smmu_device_common
+
+
+What do you think?
+
+Thanks,
+Mostafa
+> 
+> Jason
 
