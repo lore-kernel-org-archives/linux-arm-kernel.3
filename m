@@ -4,60 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2043BCD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 20:09:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59082CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 20:12:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:References:
+	In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YFvr9dpkmNdHKrycuo28tXSnDK+PIn/Xjg+wesAdMy0=; b=EdrdzhoA8uBMTDACNRrErj/h98
-	G3RPmKgdX9zfAEUQ2UpkarG+OwVkGO3peS4s/QcGtOsd8EgR7vwz++An/a7kZcyru9RBoKGuG5pu8
-	wAP5KP5a9RfufwVV6I5rCsopv+3mWGRxSNQS3kcMELiXc0sm5AeGwhANpL0+eQA92BMU1ZUSd51vB
-	+KNcywDZ16zr4TnkXIXorlI+RAjmaIffVtGKRniqrirlQ2ynVV/xiruVrFw4IJ5bT0Wbr/npwySNE
-	DD849fCQSdi5LJdl39FmssCBdMniCa9TTCuOrXn2WP/rfgl9D3qrytENz8bokwemipov+OESnYI2e
-	oqa69Y6g==;
+	bh=TfRzuK1HI6G8d4TIsqxuCTlT6zieF/kWtpfoCw6sl5Q=; b=lTSPXiRXU8CpnMIGYasJoZCXJF
+	T3OrUtBc0p/eFOivUAtLiKW7SN5UOs9LYaxGb+Df7JiJani3aVMZ7IHkGVaIcz+t1kKNgBGxQcgWt
+	BZDT+AbUi9xVOeILwccUFSHoEj8Kkcgp9R4cbeI/aJwJ6dBv2CGNd1vANitjT81s/NasBnUMNtocZ
+	yY14JndmOt9+SQJvhci/3wI32qZ2GnGpsqLo4Eaw29o2Yd5tCfaXgmtby178aSSby1WBC49rpB+Wt
+	ogBqgZOVuGCB49uCuC0980JY5LUiwlAHd/nCitKrfzjaa7n8vWgX99ImDMfsfHXPpq9EG6Z6sZa6U
+	LuplYBGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKM4j-0000000HO21-1LLT;
-	Tue, 05 May 2026 20:09:01 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wKM7j-0000000HOSW-1hNW;
+	Tue, 05 May 2026 20:12:07 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKM4h-0000000HO1k-2EbA
+	id 1wKM7h-0000000HORM-0Qbf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 20:08:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A482960181;
-	Tue,  5 May 2026 20:08:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0935C2BCB4;
-	Tue,  5 May 2026 20:08:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778011738;
-	bh=/j11J9M2rpjHFDo2P3PpYGg75ACUlpOX6HbyyxFh7nk=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=eocsxk8/k0flO75+vYiaiRdFsHmYWsbGcX1ILS8p9jwmitTwEiStHDi+9MuFyzSvp
-	 kJI/WG/HeTBKGhzh3fvWcNYRmmFJ5IhSdG/LxxGliTZo5ctiCxiYrWEn7PVnWu+sRD
-	 eTdMr1LftCcqow29DhBAZBwQsQUdJhHLG0PEci07XLjMOtH2JU1QwykZJ9fRluqigN
-	 h7lBS7JMOQitGZ/qZQnVapq3Kj1E9scCekC9fL+SAX8YGnC2gbYm4djsGPfhPNRyYa
-	 ApNWchCJhBndTET24wXpzEm+MRiYxdDSHfJXhFODQ3zPOVkrrROIqSVqN8eTMV0npD
-	 a3v8U68ShHQpA==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>
-Cc: nd <nd@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Marc Zyngier
- <maz@kernel.org>
-Subject: Re: [PATCH 2/3] irqchip/gic-v5: Allow for nr_irqs > 1 for LPI alloc
- and teardown
-In-Reply-To: <20260430153352.3654325-3-sascha.bischoff@arm.com>
-References: <20260430153352.3654325-1-sascha.bischoff@arm.com>
- <20260430153352.3654325-3-sascha.bischoff@arm.com>
-Date: Tue, 05 May 2026 22:08:55 +0200
-Message-ID: <87zf2dwre0.ffs@tglx>
+	Tue, 05 May 2026 20:12:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Kz372QaXHhEMfVqd3kstDjC1wl4t3w9Qdp79Bok9t+ADrN0bSYSuyqDPDjFA1UZfS9XhQYAw2B85SeOlPHH7FT6aG9p5DLr26iQNyBOMLJa78NGO0aPRPehrVbEFNhLNXJVSfbqTysxkf4EhOVJvUohcBwjmesQVzXNbbEJdxLddiaFgNgE5rTV9tOBoiGX9Oaj3d5+n4u6c2E4gRlWZtd6UDq7Jq5wu2XzexYafoBTuMH2JWIR+TDQuDqNV6YLo4xWyK8l+GoT5LsiCVLFxYTe4WQdBhVPNOhihrtuxdJahR5qdz3rpmpdh1/JtQgJ4+pZ5bF5F61CgvTolWG/Giw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TfRzuK1HI6G8d4TIsqxuCTlT6zieF/kWtpfoCw6sl5Q=;
+ b=CO+g0nZVEMFtd5+HRamep4N6aPgYHdF9sU0FMo0XltxmAoD8EH/+6HYm4xNc6CPLG5nUWu1kPXP11tiLbqhW0DzQwTM/ISxZMTHeWuTYhHjw8++Wl8cQunXOyeMJpNd8PhMYu9Hql+pbMfW0lN+7HbOmY1okcfl8OOnVJebCK/xttCqN4t/VhGOJvEVzqZTBkbzADDWCXN27nM26B2IpjE9RbnzV59CCfATrF4XPu0EmoY3YWSfNbZQ4b+24mP+Jn05SNll0vDxGp+/PXHIUndI6kUHi6rmEWbnUp85ae08/5o9XbmOUOg/TTCBJX41oBtHCsfgvyY8pQWTu+xIahQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TfRzuK1HI6G8d4TIsqxuCTlT6zieF/kWtpfoCw6sl5Q=;
+ b=kyxe2KuM9YuXKCoyBrx12cQFjl5JwkqGVr59LACX8z7W3C/4Emsj6BIJqztdDiyjHKauNLviF3AXzNt8IuAZJ+F/AwC3AdDiUG5gG/8B+4NWEPFhvjND8LEIp6J5d/D4JNXjpfaXQaczoLp0HNxka9VfP8vVfqA27pNTT2cxvl0CzFxwQreffHdTXuA2mh4TRpHNKfytyD0KA8IbRGIgvy6yDxI+pgFK5qfz8+7yqbnwDsQoEEPtVLCXH/cs0U3C+XlhwrYEye0NrT27JktxgqAz1gCdEonrkmfkp94BFTXrPeWScubliUlw3WrlT7kEawyjt5Ug0/qvIWLd8kxFxg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by VI0PR04MB12233.eurprd04.prod.outlook.com (2603:10a6:800:335::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Tue, 5 May
+ 2026 20:11:50 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9870.023; Tue, 5 May 2026
+ 20:11:50 +0000
+From: Frank Li <Frank.Li@nxp.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
+ Francesco Dolcini <francesco@dolcini.it>
+Cc: Francesco Dolcini <francesco.dolcini@toradex.com>, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+In-Reply-To: <20260409095855.61252-1-francesco@dolcini.it>
+References: <20260409095855.61252-1-francesco@dolcini.it>
+Subject: Re: [PATCH v1 0/7] Add verdin imx8m[mp] and imx95 zinnia board
+Message-Id: <177801190792.2069344.428143754036338345.b4-ty@nxp.com>
+Date: Tue, 05 May 2026 16:11:47 -0400
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
+X-ClientProxiedBy: SA1PR05CA0022.namprd05.prod.outlook.com
+ (2603:10b6:806:2d2::28) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-Content-Type: text/plain
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|VI0PR04MB12233:EE_
+X-MS-Office365-Filtering-Correlation-Id: c6927011-bab8-4cbe-38cd-08deaae28abb
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|19092799006|366016|1800799024|38350700014|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: GnU+iQhvRfLrDNLtyt2Jr/vZKqXX4qK6Sblg872lZiHL/YxxqVIZwDshwinscn6ghYYK6NKgAxYYtzcIKcu4RwlvYKgGx04ivEpbQn4VBxMzIHSyGKs8Z7kE8QJuZMXQiqx92I7uKJx3QvgJnoDlYKL3mdpyFNm+dexusMKMShCXfKR22qoyRVdMuDXNCc6xNA/DEQmT4duE/rY0z14j27uqCoTzppwMX4F9h8oQ/c2OV72Dmjcy5168ggiXrcCgM5VVh+Y6EcvIYhdEFFTKn+M98l3Ilk4GLu2HV/9X13+T5JaLCzYGMOK0jag9S9D6w1yjfWb0yg1D63zqSVvkFXWH6qcBQs4SWtS2eCeJEi179kXAvH2d1oNsjopKQQVtFINg1I7mJ1S+kbAeHkv1PnKwwNyGDbWsUj5C8R0o6TXZElJkAcj/D2FIAxSOC2L3JdXpE8pcIlnJ4oMf75y1cY9EecvQSARtmlE6UfpW8tfsOeV8JGux3EI07S2OzLMdz4ye8l4YEI9rp8sWg4EQ5WoN0TxoY/taq49vRoDkMqzz0PSyUEp/oX1jbmLwuqVoAWhPBs31qTc/hifbLfKosFoP740b8Cxexcun7je452TazV0kasKbmhVwx6iDlvRfAG0Cfb2uHCw5caKeSmJ9EPbRzpDOQ9OhpDT/0muLEnljyH2ncCJdK0xn2gtSUbycWtx/4JjXolMGfzHd1cNBOiEXu7ua7lKwvqGqLbVYCdEbT53EEwpSUe9wfH9xr4Vf
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(19092799006)(366016)(1800799024)(38350700014)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bTJ4NVVWbXQvVXdzRklkSHdKU3htdXdvdVgwbndxdm42THRKZzF2RzdTZ3RJ?=
+ =?utf-8?B?OXlVYWhLUUtIU2wzRmVvWkdjR3lyd29Hd2EyR1BDQWFwRGRpeEppOFNZV0ND?=
+ =?utf-8?B?MTJNMWx1YUx0MEJEcnlpbElYUHVPOTRNWDVRWWp1ZXBsMkdnNFVtQ2Q1czJ0?=
+ =?utf-8?B?VHBXZGx6dnpOK0xpZlVDbFhHT2pNRi9weW1TKzVUWERKV1ZDaktFcm1ZY1Ra?=
+ =?utf-8?B?ZDdldGRQKytHamdRT3pOTGZ2VmRURXVpUmtLZHdSMFI0dERxa3Nud0dYZzN0?=
+ =?utf-8?B?aDl4SUZhOEgwVW5CdHhsOEVpdVp2REdjRWc0ajhNMDhFRVBLOHVkR3lBM2Zv?=
+ =?utf-8?B?RzMzZXhOdTVvY0VBS3QwNzBHa1c5Yzk0Y3NXWlFGUi9yYXZ6Tml5YWlJL3ky?=
+ =?utf-8?B?bWcvWU5UUmN2U213Sk41N0dzT0VMOWI2K1VpZ0xGVy9RN09CMHNhcjBmNm1N?=
+ =?utf-8?B?a3lJeENLc0FjaXRaTDc3Rzl1bjJ3c05nR2ZxbXFuNGd2S0RoQUZqVjBMSVpw?=
+ =?utf-8?B?NVhTSlJUQjlONXZSWUpNSVh0K09LZnpMcG9kR0pSejJMdllPb2pXZDBNc0p2?=
+ =?utf-8?B?OEttU25lZ3RCWkJ3MUIzb29aVTA1N3ViVDZuT2Z3QmorVG9uZlRTM0tkMlIw?=
+ =?utf-8?B?TnZrZGl6a2tpeTdGdlVXM0UvZDFodVdkUmZzZzFFWlBjYUdqc3hKcjFYdEJk?=
+ =?utf-8?B?VUlnZlYrcjArZU5QUE9pdnFDOWpzUUVPZVRqUTU5ZkZUeGZFaGZoZnRDMTd5?=
+ =?utf-8?B?bTByZVJqeHgvakFtSlpvYWtrRzJwZEVVNlpnZzVHK3RlRlY4RWc0RzlKQldK?=
+ =?utf-8?B?Z09mMnJvVE0reGppYzMvOFY4ZWdEbHZ1QWJEWkFpOERNbTB0OWx0OGtlR1pJ?=
+ =?utf-8?B?cXFqcjlzRVlqd3JwQjNtUFRoQ3FqVHVlOE1LeFVORWNVOVVseWJvaUI2dnB4?=
+ =?utf-8?B?Rmp5QytaMXlTQzg3VkdXSmRzZzQ2ZW5PeU50SGhZMFFCOHN1QnozVzJVeC9s?=
+ =?utf-8?B?eUlhdzFkSkN2aXhXY2hCSENaVGg2a0tDZE1ybWQ5ZnFjTkRsbzZERjh0cHNs?=
+ =?utf-8?B?NE0wRzlxYWcweElDb3hJMWhuZFZrUGVpVGcxOHFiRGRFdFhpdlg1L2gwbGhm?=
+ =?utf-8?B?dTFnMUNOZmt3SHQwTWx0b2RKNTg4QzgvZ2xQZ0tsdWJOMGlCY1VwZ1p0WnNr?=
+ =?utf-8?B?c09wTTVEazg2Qi9SN2kvTWxJTUdrODhnTUwyNkFGMU5qQldybVUwRkExekNC?=
+ =?utf-8?B?d2dnR1NjZTFqdTNiaytLY1psMDZJNklUUVFhbVpLNW5PczlJODEwRVgrcU1F?=
+ =?utf-8?B?eHpuRWZ3TEpmM0hEelFJUmFkVURqcHRPaDdCSTNydkgvcmpFSjJrRndLNFdY?=
+ =?utf-8?B?S3VEdnZiWHF3RENmWTcxNFlwNFdXNG5OKytIeGY3TVBia1ZQNHZUT050WXd4?=
+ =?utf-8?B?VWJJMUtwRmFPanFlNUNVeFNZdFM3Q2dhSGkzUlpPRTdJVnhmeitla0JjMFFH?=
+ =?utf-8?B?RmczMHgzODlYNUFtdyttczhYZ2c4Um43N3RrT3Z2ekhIMlNHQWp0UEpxanZz?=
+ =?utf-8?B?MmsrbGRJaWlxd09KdTJWcHVYcDJTajJrMUpHck02SDZ3T0UxRnl6aU1BTU9h?=
+ =?utf-8?B?czBQMjNZK3c4eVI3ZElSaEg2U0NwMmZDRFlJblpuTnpEYzF1RW11eTN3MVM3?=
+ =?utf-8?B?THpXZkFnZlA4aUpZWnd2dzlPUnVtUXBKUUI3clBhWmkvZ1JFT21zNWxOU2hr?=
+ =?utf-8?B?SnhlYWdmOFYvVklweXdsNFJRQVpKMmVKNGdjSlpyZW1TZ2xZUENiSzBXREkv?=
+ =?utf-8?B?dkJNVUpVakRRSHJlOWRzQTRLN2JadHExNDM1dU0zLzlJUUg2SlU0ZENTdDJy?=
+ =?utf-8?B?QitBTkduTEgrR295WjdvTjdPRXhBN2JkZHRUWU5ZUGxHYTY4VDRzbWNmSkE4?=
+ =?utf-8?B?UllXQkZBK3JmZk51Q3lHcy9LMDI1SmJXaDgvQXRWR3Q5UGNHdHZHdzkxdHZr?=
+ =?utf-8?B?VFArRElydm1Wa25FS25qRmZKT0N5N2FsK242SjFZTCtscUpsNmR5b3pCVmlr?=
+ =?utf-8?B?dU1oeVk1bjE5N0wrOUh4eklkMmdBUnNjUXJtbkttbytYcm1HdE1HVFZ3UE1S?=
+ =?utf-8?B?bWg2a00wQXpsNEN5VEVHR0V4L0ljUFNzU3MrQ2E1d3lEM1Ruc3VXMFlPbFI5?=
+ =?utf-8?B?VlpuNGxIUjllN01sdG5yQ2U3VXlOb0tuVnJmV3JHSlA5c2xldFVsQTNkb0Nu?=
+ =?utf-8?B?MzlWMUVsTThaQXdIMmtja3prdzFBNzgrelEyVEJtaFArR2ljdEtIOEQvd3l6?=
+ =?utf-8?B?ZUlUNHVldEVLcnBoZHpyK0daRjRTMG83UUhCbm40WmhNTnB0V3A3QT09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c6927011-bab8-4cbe-38cd-08deaae28abb
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2026 20:11:50.1499
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: mswZke56CMotxq7XXvnP8sDSpMsxqCmy5VMABmrHYXSZhlduCgueDisGyHUVpJOMiL1bTwCauZ8k8Fi+UKtAyg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB12233
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260505_131205_149898_6B44E357 
+X-CRM114-Status: UNSURE (   8.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,85 +151,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 30 2026 at 15:34, Sascha Bischoff wrote:
-> Formerly the LPI allocaion and freeing was handled by the domains
-> built on top of the LPI domain, and hence the LPI to use was passed in
-> from the child domain. This mandadated that LPI allocation and freeing
-> was done one at a time, rather than for a range of interrupts in one
-> go.
->
-> Now that the underlying restriction has been removed and all LPI
-> tracking happens within the LPI domain itself, drop the requirement to
-> allocate and free LPIs one-by-one.  While we're at it, clean up the
-> IPI allocation to request all LPIs in one go, rather than requesting
-> them one at a time.
->
-> Incidentally, this fixes a unwind bug for IPIs where previously
-> allocated entries were not unwound on a failed parent allocation.
 
-See previous reply
+On Thu, 09 Apr 2026 11:58:46 +0200, Francesco Dolcini wrote:
+> From: Francesco Dolcini <francesco.dolcini@toradex.com>
+> 
+> Add Zinnia Carrier Board mated with Verdin iMX8M Plus, Verdin iMX8M Mini and
+> Verdin iMX95.
+> 
+> It features 1 x RS232, 1 x RS485, 1 x CAN, 3 x isolated digital I/O,
+> 2 x 1GBit/s Ethernet, a mini PCIe slot with USB / SIM card connector
+> for a modem, USB and SD card interfaces.
+> 
+> [...]
 
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> ---
->  drivers/irqchip/irq-gic-v5.c | 70 +++++++++++++++++++-----------------
->  1 file changed, 38 insertions(+), 32 deletions(-)
->
-> diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
-> index a3c9eaa8ff486..61a70fe48bc32 100644
-> --- a/drivers/irqchip/irq-gic-v5.c
-> +++ b/drivers/irqchip/irq-gic-v5.c
-> @@ -800,17 +800,16 @@ static void gicv5_irq_lpi_domain_free(struct irq_domain *domain, unsigned int vi
->  				      unsigned int nr_irqs)
->  {
->  	struct irq_data *d;
-> +	int i;
->  
-> -	if (WARN_ON_ONCE(nr_irqs != 1))
-> -		return;
-> -
-> -	d = irq_domain_get_irq_data(domain, virq);
-> -
-> +	for (i = 0; i < nr_irqs; i++) {
+Applied, thanks!
 
-        for (unsigned int = 0; ....
+[1/7] dt-bindings: arm: fsl: Add verdin imx8m[mp] and imx95 zinnia board
+      commit: 70e7491569309e53ac4591d2e41c66867a43f3a0
+[2/7] arm64: dts: freescale: imx8mm-verdin: Split UART_2 pinctrl group
+      commit: 1adec08904bdb8edfcb78ba6144797db68a1b049
+[3/7] arm64: dts: freescale: imx8mm-verdin: Add Zinnia
+      commit: 4ae9c3f71915ba8a137ae37982273f6e0a521c8c
+[4/7] arm64: dts: freescale: imx8mp-verdin: Split UART_2 pinctrl group
+      commit: 64f3d33bb803d70044cbe9b98894c8098fa122b6
+[5/7] arm64: dts: freescale: imx8mp-verdin: Add Zinnia
+      commit: 17658e1c90b0df0e7152011e496cc251a373a581
+[6/7] arm64: dts: freescale: imx95-verdin: Split UART_2 pinctrl group
+      commit: 7bd750e7b7d1a70b838ba5f375547ca30f7c4b39
+[7/7] arm64: dts: freescale: imx95-verdin: Add Zinnia
+      commit: 76182019a4c41c1f187694f1c3db48a0112854c0
 
-> +		d = irq_domain_get_irq_data(domain, virq + i);
+Best regards,
+-- 
+Frank Li <Frank.Li@nxp.com>
 
-  s/virq/ and then make
-  
-        for (unsigned int = 0; ....; i++, virq++)
-
->  static int gicv5_irq_lpi_domain_alloc(struct irq_domain *domain, unsigned int virq,
-> @@ -818,32 +817,38 @@ static int gicv5_irq_lpi_domain_alloc(struct irq_domain *domain, unsigned int vi
->  {
->  	irq_hw_number_t hwirq;
->  	struct irq_data *irqd;
-> -	int ret;
-> -
-> -	if (WARN_ON_ONCE(nr_irqs != 1))
-> -		return -EINVAL;
-> +	int ret, i;
-
-unsigned int i;
-
->  static const struct irq_domain_ops gicv5_irq_lpi_domain_ops = {
-> @@ -871,11 +876,11 @@ static int gicv5_irq_ipi_domain_alloc(struct irq_domain *domain, unsigned int vi
->  	struct irq_data *irqd;
->  	int ret, i;
->  
-> -	for (i = 0; i < nr_irqs; i++) {
-> -		ret = irq_domain_alloc_irqs_parent(domain, virq + i, 1, NULL);
-> -		if (ret)
-> -			return ret;
-> +	ret = irq_domain_alloc_irqs_parent(domain, virq, nr_irqs, arg);
-> +	if (ret)
-> +		return ret;
->  
-> +	for (i = 0; i < nr_irqs; i++) {
-
-  for (unsigned int i ....
-
-Thanks,
-
-        tglx
 
