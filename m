@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24923FF8855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 15:36:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08127FF8855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 15:36:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BoY2xl3WFQWDPWBsQnDWvIzJN3zB4He4FVO7nRAlbIM=; b=FFfBaazdd8T/rAKok+/bWj3TFN
-	gJu4Rwcv6mJNOG7xal7XT3jB6D+/KXvZdrrGn0pYOldnOPsiH0AKQ4L6/kW4D2Hx9DeQr+1jVq66I
-	cz3hpd2QMGAhcVtCVXUlDHM49Xg67ALCTiPZYWVvl7Zp1boGwhZ7ZELGn5DovNO2qpiwDeTO2FBpm
-	q2qcGAUZE+SxuHowVAzTVHrVoUAHOVxuapmZ7nNJtxzyyUtzoWlcU+Rm1zYp6bXkrUutb/zlZYdbN
-	20mOMGfYkwynlZomKwKPhivIVqEZt777gOh84SgA/G0DMhZiPGX0VMtVRYdsCxwmwxHQcQTO7pCHv
-	pNhTCvvA==;
+	bh=1+L+812ZE3FIB9FkYGx6SrckpLjGu++m3Er9AsDLCYY=; b=QeUjPuVADnPt+LbaspX01agMAH
+	TD9AyJdu2d4u4u+EgHNs3xLI4u5skSdl9Zf5E8FdncFYIXFLul5/qpk1eXWwi58q3dU00wtactOYv
+	ml1Pec5sSRvl85StOHeBIhMqFUiklHRyLgpRaeQKLpmAzRoTZ5DEli2rqFNKMcCrS7pJfrEN134EO
+	hgdSwQqYRzGX5MyBoAv/HNfD+qOVkZuR95VxR5uw7qiOR2FNuQiCmbrqzgl3LPN5bbMAc5cCFxY0i
+	topSZnpvB3XPER8uaXvEfamzEUE/lHJARuMC9ldHFElJJgodAGD1AX+TPJ189+TImhl/0gpYOoRj8
+	lzVk6AhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKHoa-0000000GfXX-2aHi;
-	Tue, 05 May 2026 15:36:04 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wKHpM-0000000Gfha-3yKX;
+	Tue, 05 May 2026 15:36:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKHoY-0000000GfX1-3evm
+	id 1wKHpK-0000000Gfgy-2xCh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 15:36:02 +0000
+	Tue, 05 May 2026 15:36:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DC16D60181;
-	Tue,  5 May 2026 15:36:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E8A7C2BCB4;
-	Tue,  5 May 2026 15:35:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DEF3443C48;
+	Tue,  5 May 2026 15:36:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63397C2BCB4;
+	Tue,  5 May 2026 15:36:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777995361;
-	bh=XfXn5vFpNRL3BzSGTKkMxL3IKOMOJehLm1MshbVDa3Y=;
+	s=k20201202; t=1777995409;
+	bh=mVMJa3FLlsFImoqLFsKRghlowG3fcTKy8cBNX44JwE4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=AWDQxVrn13Dvi2p5cBg7DvmBVJECkUW4KGkAuj/2mzPUAQ8/5XITfB8CAIlIVBWup
-	 Ym7PULgVTijEOvsO5cJYpCZ6r6ErO8w+MlMtnc4xgvFx+znUvTZIIwWkwN0p4jfzoG
-	 LWo5oINKYkWM9mX1HRZM1eRfgzgHIaJqbHlKSuEvQH11CNmV5fWMtpVELw+9aATTME
-	 MKcN+LLmXSoPDoOUATagrCgsxKkmqNBJGEegbhF0Bm4+DtxHhEC3oOzhX7JvYvO8kI
-	 QJL8T3MzE6XL3k2JjgzSMpsry6FmGG6iE5SPeLAMDZCdqVufAMdkK02Xn+AHz97wwt
-	 yB7BwDwIaOx/w==
+	b=DOTgxvSuiaHiwxHSak7ZubAjvxzhZsqxOIk2zvQJfzVyylb38J/g9x0875+LymX28
+	 SRUJO2zMmT5FszOHM62GFA09vPcm8X+/LlSg3Knz9YrxA3rPJ2D8DPKWIXeYTC4WBv
+	 2eEAt9h1XsiFEePaYn13rGxi0P6b5tq/xIh6ttcb1MJka/PKgct06s+884/GMENBt8
+	 qYx+XR9MSLfN0/lJvQizsS35OXzEfMuz4Sq6F/VQFg3+hw5HLWPJyK/6HQ9WRbxW1J
+	 KrvxMkElEsWhdPnur9OEa6d5URNyYgF/2aH/0tAF03A7jZLR99fgjzaW62edyBtWNP
+	 xoPfMXHONlLCw==
 From: Sudeep Holla <sudeep.holla@kernel.org>
 To: Cristian Marussi <cristian.marussi@arm.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+	Marek Vasut <marek.vasut@mailbox.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>
 Cc: Sudeep Holla <sudeep.holla@kernel.org>,
 	arm-scmi@vger.kernel.org,
-	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 0/2] firmware: arm_scmi: imx: Support getting reset reason
-Date: Tue,  5 May 2026 16:35:53 +0100
-Message-ID: <177799528962.2896536.13143365004665388354.b4-ty@b4>
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH 0/3] firmware: arm_scmi: Miscellaneous improvements
+Date: Tue,  5 May 2026 16:36:38 +0100
+Message-ID: <177799538519.2896858.17495611577680479278.b4-ty@b4>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260305-scmi-imx-reset-v1-0-18de78978ba9@nxp.com>
-References: <20260305-scmi-imx-reset-v1-0-18de78978ba9@nxp.com>
+In-Reply-To: <cover.1775205358.git.geert+renesas@glider.be>
+References: <cover.1775205358.git.geert+renesas@glider.be>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260505_083650_757674_551073D2 
+X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,22 +77,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 05 Mar 2026 09:56:43 +0800, Peng Fan (OSS) wrote:
-> i.MX SCMI MISC protocol supports getting reset reason per Logical Machine
-> or System. Add the API for user to retrieve the information from System
-> Manager.
+On Fri, 03 Apr 2026 10:41:28 +0200, Geert Uytterhoeven wrote:
+> 	Hi all,
 > 
-> Documentation: drivers/firmware/arm_scmi/vendors/imx/imx95.rst +1542
+> This patch series contains miscellaneous improvements for SCMI quirk
+> handling and SCMI instance iteration.
 > 
+> Thanks for your comments!
 > 
 > [...]
 
 Applied to sudeep.holla/linux (for-next/scmi/updates), thanks!
 
-[1/2] firmware: arm_scmi: imx: Support getting reset reason of MISC protocol
-      https://git.kernel.org/sudeep.holla/c/dc7ccfc86c1a
-[2/2] firmware: imx: sm-misc: Print boot/shutdown reasons
-      https://git.kernel.org/sudeep.holla/c/c17216c1a922
+[1/3] firmware: arm_scmi: quirk: Improve quirk range parsing
+      https://git.kernel.org/sudeep.holla/c/6991e5de9709
+[2/3] firmware: arm_scmi: quirk: Simplify quirk table iteration
+      https://git.kernel.org/sudeep.holla/c/5be6732f820c
+[3/3] firmware: arm_scmi: Convert to list_for_each_entry()
+      https://git.kernel.org/sudeep.holla/c/145728fb616a
 
 --
 Regards,
