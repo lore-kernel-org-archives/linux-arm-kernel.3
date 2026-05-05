@@ -4,86 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18E17FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 10:59:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DA88CD3436
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 11:03:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tAJhk27tpW5Xpntp31c3+nM/LaggP06QbC7a84S+snc=; b=Wr9jgIMjcKPIMUplvAyS/RbeFX
-	uwTVoZMhSrTJ+S7ie73rsWF0j9nvjEe6InF4YBKXbBakpRAbhXKYeodhsqQCA1l4Z/fTX3FAq73pS
-	SngDZZ92cgYcZkmppcrvoxmHlEVCV6IyJXYpNPMRQcNpIYj7y49/KIvgZvWi4cMqVCn/sKl0/fnxV
-	nBf1awdmDnXcVCsL6qnLK2+hrd415L5wH+4gs1Ex2s1x2IC4DxMyiRha4NN14q0FODlQNwKd0tpeG
-	LtTWEftgQ+0YE3r08OLouLLeMnFG/BX45m7g5aGYIHtfGgimxO8Q1hjz+FfpQzy3SMieqbSV+3uv/
-	TKeP/smg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YRt9IneYAHIH0sZGh01M8ZB/vtqtUvbYE19BEN3veSA=; b=deYiK3u6hJPkJG2mXAhDiaWclL
+	BSGRvE21GlzgesEZoWr5d6Fzg9cVbTTyPRy7qUbr7e/gC8zI5tK5UNvToufbOzPo2qmZvm20664zp
+	fA2eqR4wodq7p10A+HyaDdcccEucQoRRUMQrNJJA+tNdcU1sj803vmhQUd9MTVDfgpNbwlRxv7Xrp
+	yedn+Gt0G+pPI+uzO/rL8KZpNWf7ipuS/Etb6qbXUjmI6VHnc9UB61SsXhO8yZt4YlNJvqm09is61
+	mmLMmeLEX3ANwCrkhwWi2SwTuMp5OI2LFU3+3m3oaLD+VLoznPm2AX8BCpAr3nJt5LKuFmsjFiRW/
+	1ehGP+eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKDUX-0000000FxuR-30w0;
-	Tue, 05 May 2026 10:59:05 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wKDYT-0000000FyVH-0xfb;
+	Tue, 05 May 2026 11:03:09 +0000
+Received: from fhigh-b4-smtp.messagingengine.com ([202.12.124.155])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKDUW-0000000Fxth-2Cx6;
-	Tue, 05 May 2026 10:59:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=tAJhk27tpW5Xpntp31c3+nM/LaggP06QbC7a84S+snc=; b=Hy2yampZzQWvx3NaMpBKlutXrn
-	OlJONhCp44qFi695EF+D1SrgZGkJEZkg7QUFRQAu/hYzZ5kNouKfSmUxA3F5ZSWZnv2KTxEOF/xdr
-	q5RQMm8imUoKOWeeFX4G/0vdceIsrVmrUuoTKRGc1dPyg3U68+AWvjtU59Ma26+ffzIVTwxxw2KfQ
-	obYZbM2OHr7Kl39fnxt/wBUalVXfIMMdwjhnxM4eFibWYssfB1qHhSzybZouak0jq+gY6gWsYA12O
-	nSgYFaS9FWRy7Y+IMleSfDvado7HUPBXAAntTteYdnbrcNEeQyeFqvJD3mXnz+f/Zqwjp9bMEzlR0
-	y765v9RQ==;
-Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKDUS-0000000DHxz-0u8t;
-	Tue, 05 May 2026 10:59:03 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 645AwcN431171996, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1777978718; bh=tAJhk27tpW5Xpntp31c3+nM/LaggP06QbC7a84S+snc=;
-	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type;
-	b=XQ67WtdxH3ZXsJEykG4/BOM036OW3bkwxxETnEiDCe6u5CUK3LTuzsK9tZwvgk16O
-	 /uQ3w/cieB89hZ8HiKdf02fj0G4j0I6Wr5tledW8f2v8k9DfHXP6Cfp+qP++fEzX16
-	 JY/sWg7jYmrdVdThsOq2BZ9CqF5lQJFjxu3IBlvxsd+bCZZMbYBce0JHj03XOs4mb3
-	 jSY6Y89y0g0Z3gYpCokTQW0075l/mKe3BDmqR4nLITtIMjKzkKNnp27uekZncLPNxh
-	 A0+s7VAXy2fLPDoi3ILhb7FnyUzGfxIYdHhEtWqw4ribyAqjWbMY3f3qDNxUcY+tV4
-	 xxEa/7owRU2sw==
-Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
-	by rtits2.realtek.com.tw (8.15.2/3.27/5.94) with ESMTPS id 645AwcN431171996
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 5 May 2026 18:58:38 +0800
-Received: from RTKEXHMBS04.realtek.com.tw (10.21.1.54) by
- RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Tue, 5 May 2026 18:58:38 +0800
-Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS04.realtek.com.tw
- (10.21.1.54) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Tue, 5 May 2026 18:58:38 +0800
-From: Yu-Chun Lin <eleanor.lin@realtek.com>
-To: <soc@kernel.org>
-CC: <james.tai@realtek.com>, <eleanor.lin@realtek.com>, <afaerber@suse.com>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-realtek-soc@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <cy.huang@realtek.com>, <stanley_chang@realtek.com>,
-        Krzysztof Kozlowski
-	<krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH 3/3] ARM: realtek: MAINTAINERS: Include pin controller drivers
-Date: Tue, 5 May 2026 18:58:37 +0800
-Message-ID: <20260505105838.1014771-2-eleanor.lin@realtek.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260505105838.1014771-1-eleanor.lin@realtek.com>
-References: <20260505103955.1010130-1-eleanor.lin@realtek.com>
- <20260505105838.1014771-1-eleanor.lin@realtek.com>
+	id 1wKDYQ-0000000FyTk-3mjP
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 05 May 2026 11:03:08 +0000
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id CD69C7A012A;
+	Tue,  5 May 2026 07:03:03 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-01.internal (MEProxy); Tue, 05 May 2026 07:03:04 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1777978983;
+	 x=1778065383; bh=YRt9IneYAHIH0sZGh01M8ZB/vtqtUvbYE19BEN3veSA=; b=
+	LNc8NrT9XmghYrDXkRxdcUTPmqKidcyTAJimgWf21O224qfe9Xy3GFyUzEYSZX+E
+	SzjI6DeItLdffPJMcUFbna4IWYyUu+ZOfCqJNKkQDYzz+gBmyYW/Vwx2nr82dHJx
+	DZ7E/s/CUEn/5qtY8d6n7+QQUyhQaynmFrWXkoYPyqhkfGbcc/uyM3Q8+nIbYio9
+	rZEmAihaFAOr2qK66yiQy8fc5P+Jqro6805p6GcOqunvUd5FFhV2yd2/JGAjWW5Y
+	Y9oKAzwYpr/qQHYsCusxJJ1Sg2F7BHF8fOYdy6u4/pVxQdgIYcONyY36S3dj59YL
+	0uyGmzBxMQbc4Ib+zfc+IQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1777978983; x=
+	1778065383; bh=YRt9IneYAHIH0sZGh01M8ZB/vtqtUvbYE19BEN3veSA=; b=G
+	zG39iDe+K806o9MCvXSI6g0PGU2C1slgdOYVpBj/w800NswknPMzpY/I6cparCV6
+	V16qVtR142BFd2zx12fRkaFAZqORhT/n/zpg80px1r5Q6m04oeEFlH+Zxewp/YJp
+	8skplY8t6k4+oREriXeJjiucBRCinWHLBWleX1O6KcXieJ0wLRnUdBvBCOYxcJXS
+	028Q8VFD1WjyCjqrnw/eiwqiRqBL5sqMY+db6DGI0IEkm7nUWHP1fXt4R0Vh/W94
+	eFEJUZS0KvFG2AU+cXrHHCID5l5fh8fZTOPDOFXrTzXFbMzwXsY95/To+AJV1jJf
+	e7th7mLem3ceRVNBd34GQ==
+X-ME-Sender: <xms:Z875aTLOuaWaNJOiUUzph5d66pH593lLG9MBmR17zzYn2BYaa5nhLQ>
+    <xme:Z875acCOR26eJV9wtDtVu2GNjPESTu2z9gK63qunU9of9dhP5QElAg3yhPfMSxadJ
+    MPu6g8gqC8A3Ulqqf42PwcuVi6cjNoZRrrLJCzAwmhXZ1zCD35L6w>
+X-ME-Received: <xmr:Z875aUSQBIvkDi8OkLb2u4qbwX1ZzADDV_mwqB3in74iEpjflAyyM0gyWaTPPSSypV70zaz16rEuiEBG4frXxQb9Db3Ya0iCzYeK9g>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgddutdduheegucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhephfffufggtgfgkfhfjgfvvefosehtjeertdertdejnecuhfhrohhmpeflrghnnhgv
+    ucfirhhunhgruhcuoehjsehjrghnnhgruhdrnhgvtheqnecuggftrfgrthhtvghrnhepfe
+    ehheeileduffehteeihfdvtdelffdutdeludduiedutedvfeffheekhefgtedtnecuvehl
+    uhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepjhesjhgrnhhnrg
+    hurdhnvghtpdhnsggprhgtphhtthhopeduledpmhhouggvpehsmhhtphhouhhtpdhrtghp
+    thhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtg
+    hpthhtoheprghsrghhiheslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopeif
+    ihhmsehlihhnuhigqdifrghttghhughoghdrohhrghdprhgtphhtthhopehukhhlvghinh
+    gvkheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqfigrthgthhguohhg
+    sehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepjhhpvghishgrtghhsehusg
+    hunhhtuhdrtghomhdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhg
+    pdhrtghpthhtoheplhhinhhugiesrhhovggtkhdquhhsrdhnvghtpdhrtghpthhtohepkh
+    hriihkodgutheskhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:Z875adrTQR35QNIWXWSmOPxZTVMjmFh5aUE48noQ53vcxOM5Rol_Ig>
+    <xmx:Z875adX2aPvsDh2QhYRcdU06evNt_8f_ju16-rWre19Tm2sQ7uBdxg>
+    <xmx:Z875ab9gQ-9nzz7_4AYkgeds4fI_u3r3XLC0qY6568RKXQh0c1iT4w>
+    <xmx:Z875aVaEG7azyyPD_EzlOfosmGV44NmXlEWhd_MI7fGyQrh8bGnG1g>
+    <xmx:Z875aSLDhj6rKVUWVaByGsnVsksq-Gji54gT3F6r6-HWikWTk_La2QJz>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 5 May 2026 07:03:02 -0400 (EDT)
+From: Janne Grunau <j@jannau.net>
+Date: Tue, 05 May 2026 13:02:39 +0200
+Subject: [PATCH v2 1/6] dt-bindings: arm: apple: apple,pmgr: Add t8122
+ compatible
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260505-apple-m3-initial-devicetrees-v2-1-b0c2f3519e0e@jannau.net>
+References: <20260505-apple-m3-initial-devicetrees-v2-0-b0c2f3519e0e@jannau.net>
+In-Reply-To: <20260505-apple-m3-initial-devicetrees-v2-0-b0c2f3519e0e@jannau.net>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Sven Peter <sven@kernel.org>, 
+ Neal Gompa <neal@gompa.dev>, Wim Van Sebroeck <wim@linux-watchdog.org>, 
+ Guenter Roeck <linux@roeck-us.net>, Mark Kettenis <kettenis@openbsd.org>, 
+ Sasha Finkelstein <k@chaosmail.tech>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-watchdog@vger.kernel.org, linux-pwm@vger.kernel.org, 
+ Janne Grunau <j@jannau.net>, Joshua Peisach <jpeisach@ubuntu.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1123; i=j@jannau.net;
+ s=yk2025; h=from:subject:message-id;
+ bh=v3VFWaz90916Vt3W0q5xTV1SO3iqzrjNVjydD1K3Sd4=;
+ b=owGbwMvMwCW2UNrmdq9+ahrjabUkhsyf5+L1Gk1m3VNj/h10lVm9eA/HyoTU+FaDo4p1jnOez
+ 3x/+F1rRykLgxgXg6yYIkuS9ssOhtU1ijG1D8Jg5rAygQxh4OIUgImcPMXIsH92iPnrt6b1Ic83
+ i4o+7tRb4nTjyPd7jz6/feey++DZZSoM/8vYWwPaN+pU3QwtVtwWx7LrQLKTy+ZVoasXlm+2V3O
+ J5AMA
+X-Developer-Key: i=j@jannau.net; a=openpgp;
+ fpr=8B336A6BE4E5695E89B8532B81E806F586338419
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_115900_576486_235BCC63 
-X-CRM114-Status: UNSURE (   8.60  )
+X-CRM114-CacheID: sfid-20260505_040306_992259_B73FC532 
+X-CRM114-Status: UNSURE (   8.33  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -99,34 +133,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+The PMGR blocks on Apple silicon M3 SoCs (t8122) are compatible with the
+M1 and M2 predecessors. Add "apple,t8122-pmgr" as M3 specific
+compatible.
 
-No dedicated maintainers are shown for Realtek SoC pin controllers,
-except pinctrl subsystem maintainer, which means reduced review and
-impression of abandoned drivers.  Pin controller drivers are essential
-part of an SoC, so in case of lack of dedicated entry at least cover it
-by the SoC platform maintainers.
-
-Acked-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
+Reviewed-by: Neal Gompa <neal@gompa.dev>
+Signed-off-by: Janne Grunau <j@jannau.net>
 ---
- MAINTAINERS | 1 +
- 1 file changed, 1 insertion(+)
+ Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index b66b739ae2ca..0f8b8264e6e1 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3356,6 +3356,7 @@ F:	Documentation/devicetree/bindings/arm/realtek.yaml
- F:	arch/arm/boot/dts/realtek/
- F:	arch/arm/mach-realtek/
- F:	arch/arm64/boot/dts/realtek/
-+F:	drivers/pinctrl/realtek/
- 
- ARM/RISC-V/RENESAS ARCHITECTURE
- M:	Geert Uytterhoeven <geert+renesas@glider.be>
+diff --git a/Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml b/Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml
+index b88f41a225a3..c67b67ba065a 100644
+--- a/Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml
++++ b/Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml
+@@ -36,7 +36,9 @@ properties:
+           - const: syscon
+           - const: simple-mfd
+       - items:
+-          - const: apple,t6020-pmgr
++          - enum:
++              - apple,t6020-pmgr
++              - apple,t8122-pmgr
+           - const: apple,t8103-pmgr
+           - const: syscon
+           - const: simple-mfd
+
 -- 
-2.34.1
+2.54.0
 
 
