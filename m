@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85C45CD3436
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78A70CD3427
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 13:48:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZNPUWyZqyjMPgjuXNxihjO/YkYddOiR2agKG3NMh+d0=; b=IhfI6I1dPHj1BJydkj586CcPSS
-	qxPpPr4cVLso1+/wdXk5ByhH3WeV2MrLd20YYlibooFKdj0TKRaPPIfcHZyISKnJcwBZJAJsAafM0
-	NuAu4mw1nEJuyALT2VrdfvRCz3EvEbm5+AkdMsYh8GhRDtpDR57lkBowgLG1WbIe3KQx0H0hfhJzS
-	us/cvGJvwo8P/Wig1f2ITaEn+pScItkJStpq6lx+uOUqFmgLCk/p3C+q+HqEXErk00d0ujPuCGdFl
-	KIAWzHTpy9OKKRXy0Nchq+DDhbA7Mz7hxdM+y5rsGr7DCXH4XcY7ccsnZuesm5Gk6oI4Eg3MToBHZ
-	egGBVGdQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BUON3NcMzSF1mWfu3HxXzDVg+x3bO0PMZLKsvIPiouQ=; b=VkO9jNC9+FU6B5CUTrLabp6Bf/
+	fNSth6d5zcLU9qSK2tFvVUCp5JsEdpg0VtidEaNqipKTGfgx2CExNV7q4yBvhgkJ6GNWb0y37QdSO
+	7QGAjUkDxpnvZEwzrU+O4NV2W4aLzNhvOM9eib+kqlZqpG4CDDklx1/GJI1/wq/stcD0n11Fk4QFS
+	529mY9UIM8Q2Q9o/4ZsjDdoU/R+xeq5uMhHXCwsKTw8UpP2bhjWt1o3mbdcQwqF9bC3HxhLvYaVVO
+	6/ghJtDRlkJ31Gg6atE0kZOwt2kxM9O43OwIFYTxynaPediUI+Z8X/NDnGULDxFJsSuNvZ+Ir5k0T
+	gEN8VAKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKG8O-0000000GNUG-371m;
+	id 1wKG8O-0000000GNU4-1qqr;
 	Tue, 05 May 2026 13:48:24 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKG8M-0000000GNS4-2ijd
+	id 1wKG8M-0000000GNS2-218X
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 13:48:23 +0000
+	Tue, 05 May 2026 13:48:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D7E07446F5;
+	by tor.source.kernel.org (Postfix) with ESMTP id 9FFFC60181;
 	Tue,  5 May 2026 13:48:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94034C2BCFB;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32D42C2BCB4;
 	Tue,  5 May 2026 13:48:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1777988901;
-	bh=xF1jTvN4NvmVxS1I/epYbue7pIXNESPdSRtLfleCD1w=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ijx1lBqNPEMBLP0Ay/ZHh/p1+vm09mTq5rbpTTL9e2SRWmgOk+2cdAYU55l+2+gqM
-	 x4KLqdokMk/QJS9+kE1wTYVOhNr9I5aGoBIQr7sV+HIfGCkKRh9Tiu++nD4BPtIm5+
-	 WZXtCvLPinyKtuiUkmxEbmb314GQC9bz7FnacDyNkAorkQHPJeLN6VCIcKd5b8IS4K
-	 CeQjNyyfQjV3aSm5B2s2r7c8fXQTIuxDS1gpUeHOYpX+iw3TAxLTAbAS0aVoxRMNSQ
-	 BH4FZyY1dlC5dA3hTbmWjJ6/ij4SZKsJvCOqIWRP44mVoIsgJVvDUYyYXI01NBj5o0
-	 N61zew6Me6/sw==
+	bh=AG0oKwGOLP7O1AKKR+FpbgNj0bCG/wVgOoeQV3TqI0c=;
+	h=From:To:Cc:Subject:Date:From;
+	b=qQQymP0JMuJLCD/jYY8/0Y0PKc2gOEr7Jedi1Aw2st+I2JzEGvC709NwpL+YHivz2
+	 tkYlQSW4xCrOBj+TorwBIVmIXDz47Ym519qG/rR18hdeQvKOSa4Mwy0pjmVw69hcKb
+	 MR12+5n2hof8yV4KH8xa6Ho9zLe/ydUU1JNUIa4BpzsF6TR7tzAJ7vdJ03cCJF1dj6
+	 GTwoASfa78iolU9CsZOWqozr2ibFTyeim3b7V+V08Y0+xZfjRkMf3mQTG9izHJp9qf
+	 JBtIPDpGnZ+MgicoeFDLfNwVwfqUFtOgNVKzAKKAxAtlQh71knfVtl9JW6tHa0askv
+	 Baj7+Hj25B+Sw==
 Received: by wens.tw (Postfix, from userid 1000)
-	id 539755FFCE; Tue, 05 May 2026 21:48:19 +0800 (CST)
+	id 2B4DD5FEF9; Tue, 05 May 2026 21:48:19 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
 To: Maxime Ripard <mripard@kernel.org>,
 	Paul Kocialkowski <paulk@sys-base.io>,
@@ -61,17 +61,12 @@ Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	linux-sunxi@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 4/7] drivers: staging: media: sunxi: cedrus: add H616 variant
-Date: Tue,  5 May 2026 21:48:08 +0800
-Message-ID: <20260505134812.408316-5-wens@kernel.org>
+Subject: [PATCH 0/7] arm64: allwinner: h616: Support Video Engine
+Date: Tue,  5 May 2026 21:48:04 +0800
+Message-ID: <20260505134812.408316-1-wens@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260505134812.408316-1-wens@kernel.org>
-References: <20260505134812.408316-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_064822_707443_2C3922F0 
-X-CRM114-Status: GOOD (  15.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,34 +81,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Allwinner H616 SoC has a video engine hardware block like the one
-found on previous generations such as the H6. In addition to the
-currently supported features of the H6, it is also supposed to include
-a VP9 decoder. However software support for this is currently missing
-and still needs to be reverse engineered from the vendor BSP.
+Hi folks,
 
-Add the compatible for the H616 variant, using the H6 variant data.
+This series adds support for the Cedar video engine found in the
+Allwinner H616 SoC. On the way, it also fixes some issues with the
+DT representation for the Allwinner H6 SoC.
 
-Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
----
- drivers/staging/media/sunxi/cedrus/cedrus.c | 4 ++++
- 1 file changed, 4 insertions(+)
+Patch 1 fixes the video engine's number of IOMMU endpoints on the
+H6 in the DT binding.
 
-diff --git a/drivers/staging/media/sunxi/cedrus/cedrus.c b/drivers/staging/media/sunxi/cedrus/cedrus.c
-index ee0e286add67..2801b9a064bd 100644
---- a/drivers/staging/media/sunxi/cedrus/cedrus.c
-+++ b/drivers/staging/media/sunxi/cedrus/cedrus.c
-@@ -695,6 +695,10 @@ static const struct of_device_id cedrus_dt_match[] = {
- 		.compatible = "allwinner,sun50i-h6-video-engine",
- 		.data = &sun50i_h6_cedrus_variant,
- 	},
-+	{
-+		.compatible = "allwinner,sun50i-h616-video-engine",
-+		.data = &sun50i_h6_cedrus_variant,
-+	},
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, cedrus_dt_match);
+Patch 2 fixes the video engine's number of SRAM regions on the
+H6 in the DT binding.
+
+Patch 3 adds a new compatible for the H616's video engine.
+
+Patch 4 adds the new compatible for the H616's video engine to the
+cedrus driver.
+
+Patch 5 adds the video engine's missing SRAM region to the H6 dtsi.
+
+Patch 6 adds the video engine's missing IOMMU endpoint to the H6 dtsi.
+
+Patch 7 adds a device node for the video engine to the H616 dtsi.
+
+
+Patches 1-4 should go through the media tree, while patches 5-7 will go
+through the soc tree via the sunxi tree.
+
+
+Please have a look.
+
+
+Thanks
+ChenYu
+
+
+Chen-Yu Tsai (6):
+  dt-bindings: media: sun4i-a10-video-engine: Fix IOMMU count for H6
+  dt-bindings: media: sun4i-a10-video-engine: Fix SRAM count for H6
+  dt-bindings: media: sun4i-a10-video-engine: Add H616 compatible
+  drivers: staging: media: sunxi: cedrus: add H616 variant
+  arm64: dts: allwinner: sun50i-h6: Add missing SRAM region for video
+    engine
+  arm64: dts: allwinner: sun50i-h6: Add missing IOMMU for video engine
+
+Jernej Skrabec (1):
+  arm64: dts: allwinner: sun50i-h616: Add video engine
+
+ .../allwinner,sun4i-a10-video-engine.yaml     | 45 ++++++++++++++++++-
+ arch/arm64/boot/dts/allwinner/sun50i-h6.dtsi  |  4 +-
+ .../arm64/boot/dts/allwinner/sun50i-h616.dtsi | 12 +++++
+ drivers/staging/media/sunxi/cedrus/cedrus.c   |  4 ++
+ 4 files changed, 61 insertions(+), 4 deletions(-)
+
 -- 
 2.47.3
 
