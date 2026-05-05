@@ -4,72 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C896CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 19:30:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DDD6FF8855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 19:31:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LhEVCU+RWA12wE6SM4koi/FPATXZvpWES9LGLU/U2IA=; b=TI882m3NL589A2qv42QBxn98JW
-	gI5wZzwWjTeEOgUdX8fPBRynqN2ExtmCREzMxE9u52Gevg9fE4Adqcf4nnq/WXnI/aYae/7fyiztu
-	3baqSfd9t/sagRkQuh3x7JQSeWmGKKLnVMHHyOTXRnWhIxRcWl3XqAdhnxuMbto9d64pVrb/7SNyG
-	UtM1TbZQnqWvZeoCZqwDn8o7/2AsrRbqVKDezbVRJ9RqEi/tKDaR/xK25BhCnYUo/uDxPuG+PfPn8
-	qOopduwbHLMcoYy24hlM5uSdBTQ6PeeD8D+fT5w6r+7gFT/EY1k8ztHZVDqqD6UhfQVBgfjeYR4eW
-	YXk17LwQ==;
+	bh=Lq+7Y+vsXRQT8s4+vBhwnSz8vGg/ibDRCsKu2Y+cHpU=; b=PfoEqBBTDqJ1zcCYYvTl0kOwkA
+	2w3J2o5+YHGwVZdB/atAC1vDmb89G8ynRAfqJqHBL3fOfvq6LcNDPNFMgAW028jbPIFjReLQKZhpY
+	JmX333zemTIj8Gert/e2ueZ0sOfoBXl2Op6rG20qBeue+pEW7XgirPnYNnDbl5ikw7YXYI7DU2S7X
+	6gVzH7GMytSh59LmIbfNnlSSwnZbMZTcVcIg7ECzL2reAaGg4lx3bNeYlLt/q6DZM2Xbr1jyjDBGP
+	+Onqq5a7vXNNqX9Uo65yiUefpqRK8xpjxzLgp86PBD/K5x/veKc7zSCTU9U4ZDB6US0qCOSXRLAOd
+	0WV7q+Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKLTr-0000000HIfA-1Rq6;
-	Tue, 05 May 2026 19:30:55 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wKLUK-0000000HIln-2o6B;
+	Tue, 05 May 2026 19:31:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKLTp-0000000HIeT-12sY
+	id 1wKLUJ-0000000HIlW-1fXT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 19:30:54 +0000
+	Tue, 05 May 2026 19:31:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A27464081B;
-	Tue,  5 May 2026 19:30:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E307C2BCB4;
-	Tue,  5 May 2026 19:30:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5D61560252;
+	Tue,  5 May 2026 19:31:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0F32C2BCB4;
+	Tue,  5 May 2026 19:31:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778009452;
-	bh=BSXjw9y3KYoAOtp4MKHJYGZVUScd4L94J8qMpikSXXg=;
+	s=k20201202; t=1778009482;
+	bh=GjclJVRV1WXsBgkEYNCF0uu63ubfAvR0q8rRqvwUTNI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LcS80M1XsfS2qDLN4lcCjVu+8ZIOi6RttY7/OiKj0iinJIwz6c1egpyZJMkc0ejQ8
-	 AXMVO7dzRkBBFUGg357piGKkJGw3zVRPA3ey4w/zqop/nmC//IY/VnpMNbpl8A/iN6
-	 35aCGKNViUVfgyiCVUil4skzo/qhsfg+ukEnmWd1mF57Mnmnm37stQt/f3O+8MI4GH
-	 MZEQP5jLa5NA79rBik6NeX67i6m97WeFnBAIPKr2Hevf3/muI3k0xZUnCMaCOVwNah
-	 3ekp9AOENsMy65i4fs+uFgV+qvYvWgQ4HjeQKgHstZPpgaztHpwsfO3ftE668YCrfi
-	 HwfcSMd1Do2mg==
-Date: Tue, 5 May 2026 14:30:50 -0500
+	b=Cm6P7AxM9wyw8dxiPZS6tpdUdzCAsLqIAaYizqFTF4z9vXs6/dhxM0Wq4Jde05jrg
+	 UAvo8feUU8C3bE+4VLBb6ltBp6g7EdTBcP5bQ6dYN8gf1qEg6I9LSF7Flsz1JBKd8X
+	 /IVchF2nmdmgogq6q1buJXt1v713NmxW8ZLfQCnM3qoB/8MHdLNhutSJoG0ZE7BIMN
+	 zOhKMBhOREfV2AbdaH8ayH2zdM9hosNnKgRORUxz3O3f1Hhk17it9getJNuXKfdAdC
+	 XMdYwrTYjflOAkQUZ6zl0oXeojbBPkcIrbbzaZsrqbr/PoKWRHPssYf1Ta2Ed5O7wR
+	 AIy3m7dDJ63MQ==
+Date: Tue, 5 May 2026 14:31:19 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Cc: Conor Dooley <conor+dt@kernel.org>, Maxime Ripard <mripard@kernel.org>,
+Cc: Louis Chauvet <louis.chauvet@bootlin.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Lee Jones <lee@kernel.org>,
-	Aradhya Bhatia <aradhya.bhatia@linux.dev>,
-	Devarsh Thakkar <devarsht@ti.com>, Swamil Jain <s-jain1@ti.com>,
 	Vignesh Raghavendra <vigneshr@ti.com>,
-	David Airlie <airlied@gmail.com>, Nishanth Menon <nm@ti.com>,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-	Louis Chauvet <louis.chauvet@bootlin.com>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	Simona Vetter <simona@ffwll.ch>,
+	Maxime Ripard <mripard@kernel.org>, Simona Vetter <simona@ffwll.ch>,
+	Aradhya Bhatia <aradhya.bhatia@linux.dev>,
+	Devarsh Thakkar <devarsht@ti.com>,
 	Thomas Zimmermann <tzimmermann@suse.de>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>
-Subject: Re: [PATCH 01/15] dt-bindings: display: ti: Move ti,am62l-dss
- binding to a new binding file
-Message-ID: <177800944993.3784016.8382311748877095453.robh@kernel.org>
+	dri-devel@lists.freedesktop.org, Nishanth Menon <nm@ti.com>,
+	Lee Jones <lee@kernel.org>, David Airlie <airlied@gmail.com>,
+	Swamil Jain <s-jain1@ti.com>, linux-kernel@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>
+Subject: Re: [PATCH 02/15] dt-bindings: display: ti,am65x-dss: Simplify
+ binding
+Message-ID: <177800947953.3784799.10067421854229298328.robh@kernel.org>
 References: <20260420-beagley-ai-display-v1-0-f628543dfd14@ideasonboard.com>
- <20260420-beagley-ai-display-v1-1-f628543dfd14@ideasonboard.com>
+ <20260420-beagley-ai-display-v1-2-f628543dfd14@ideasonboard.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260420-beagley-ai-display-v1-1-f628543dfd14@ideasonboard.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_123053_306504_269AF9B3 
-X-CRM114-Status: GOOD (  14.07  )
+In-Reply-To: <20260420-beagley-ai-display-v1-2-f628543dfd14@ideasonboard.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,25 +82,24 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 20 Apr 2026 15:54:08 +0300, Tomi Valkeinen wrote:
-> We currently have two binding files for different TI K3 DSS versions:
-> ti,j721e-dss.yaml which contains bindings for the "full" DSS version,
-> with four planes and outputs, and ti,am65x-dss.yaml which used to
-> contain bindings for the "lite" DSS version, with two planes and
-> outputs.
+On Mon, 20 Apr 2026 15:54:09 +0300, Tomi Valkeinen wrote:
+> In principle the DT binding for the DSS IP should mainly cover the DSS
+> IP. The current binding also covers the SoC integration topics outside
+> the DSS, mainly via the endpoint related rules and descriptions.
 > 
-> ti,am62l-dss binding was added recently to the ti,am65x-dss.yaml file,
-> which only has a single plane and a single output. To keep with the
-> above "binding file per DSS model" style, and to simplify the
-> ti,am65x-dss.yaml file, let's move the ti,am62l-dss to a separate, new
-> file.
+> A more recent SoC, AM62P, has two instances of the DSS IP, and while
+> both DSS IPs are identical, they are integrated slightly differently
+> (e.g. which DSS output goes to an in-SoC DSI bridge, which goes to
+> DPI pins, etc.).
+> 
+> To make the bindings usable for both DSS instances, relax the binding
+> slightly: remove the explicit endpoint rules, and generalize the
+> descriptions.
 > 
 > Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 > ---
->  .../bindings/display/ti/ti,am62l-dss.yaml          | 136 +++++++++++++++++++++
->  .../bindings/display/ti/ti,am65x-dss.yaml          |  94 +++-----------
->  MAINTAINERS                                        |   1 +
->  3 files changed, 156 insertions(+), 75 deletions(-)
+>  .../bindings/display/ti/ti,am65x-dss.yaml          | 55 ++++++++--------------
+>  1 file changed, 20 insertions(+), 35 deletions(-)
 > 
 
 Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
