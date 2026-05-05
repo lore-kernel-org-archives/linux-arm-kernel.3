@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E931ECD342F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 10:59:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18E17FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 10:59:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+weT3KNEWHRZNkAbVSTMGJxpE357XP50uaxJaJN6zaQ=; b=dgClh33KcwYzNS24HfqfJ3jUPl
-	kZwYuvrhPErGp6wBwdyfyDl7aqrQQGkdq703SujoRA1djxTbNy/ae8LMWtXBxjNBa0KBl7VX7OuUD
-	TTBOHuOpZtrJXuAgsLhPndtBEEUNE7fzOcJ+d4QofpoUOFCS++OxoNr88FyafIg6bj0HcQVocRWR8
-	yGvRr2ZfC8aOK1al0S3H1fnseU/QDxQiHEIf8z6zNz7usY3XNRCzBaOV6pbXyREseu/JiUS0tz38l
-	JAoAZ0m8F8sRXGYLF1zzi+Hx225RxJgcgUNXdA0TibUVhGmngZHHx+L7LFeIMw+8okU4pj1akkhKY
-	1jGILRNg==;
+	bh=tAJhk27tpW5Xpntp31c3+nM/LaggP06QbC7a84S+snc=; b=Wr9jgIMjcKPIMUplvAyS/RbeFX
+	uwTVoZMhSrTJ+S7ie73rsWF0j9nvjEe6InF4YBKXbBakpRAbhXKYeodhsqQCA1l4Z/fTX3FAq73pS
+	SngDZZ92cgYcZkmppcrvoxmHlEVCV6IyJXYpNPMRQcNpIYj7y49/KIvgZvWi4cMqVCn/sKl0/fnxV
+	nBf1awdmDnXcVCsL6qnLK2+hrd415L5wH+4gs1Ex2s1x2IC4DxMyiRha4NN14q0FODlQNwKd0tpeG
+	LtTWEftgQ+0YE3r08OLouLLeMnFG/BX45m7g5aGYIHtfGgimxO8Q1hjz+FfpQzy3SMieqbSV+3uv/
+	TKeP/smg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKDUW-0000000Fxtu-425j;
-	Tue, 05 May 2026 10:59:04 +0000
+	id 1wKDUX-0000000FxuR-30w0;
+	Tue, 05 May 2026 10:59:05 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKDUV-0000000FxtN-0VAX;
-	Tue, 05 May 2026 10:59:03 +0000
+	id 1wKDUW-0000000Fxth-2Cx6;
+	Tue, 05 May 2026 10:59:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=+weT3KNEWHRZNkAbVSTMGJxpE357XP50uaxJaJN6zaQ=; b=LsU7dSXOoMP8t7eyEP2L9RuZ41
-	QaCDLNddbXXnKsLk54etBw5N9pwpuGhmDQgD8ZHOOH9atbwfzksJABZ6ParTldvjTLSO+d7B6tuPK
-	iyi5SEvzQHSEwc6FwEHiEe76rhUwbBytRUSDb2uxtUmClJixbaJKdgpAUy71+GFNNYvtAWybZLOgk
-	isjTqleza+y3TvcX8s/DCdNTjo8uXf+Vo4/cxEul6xKEcmsiEV6SsDjZs4yTjhySBbHkDjPXS3buB
-	RmP0fI534CkyAJxPCibeoEvHw7Zx0eG0onx4moFbQ6XOYib2Mnjx8T75CpWwJg/lET1XFyizEUJNk
-	lmqPT+mA==;
+	bh=tAJhk27tpW5Xpntp31c3+nM/LaggP06QbC7a84S+snc=; b=Hy2yampZzQWvx3NaMpBKlutXrn
+	OlJONhCp44qFi695EF+D1SrgZGkJEZkg7QUFRQAu/hYzZ5kNouKfSmUxA3F5ZSWZnv2KTxEOF/xdr
+	q5RQMm8imUoKOWeeFX4G/0vdceIsrVmrUuoTKRGc1dPyg3U68+AWvjtU59Ma26+ffzIVTwxxw2KfQ
+	obYZbM2OHr7Kl39fnxt/wBUalVXfIMMdwjhnxM4eFibWYssfB1qHhSzybZouak0jq+gY6gWsYA12O
+	nSgYFaS9FWRy7Y+IMleSfDvado7HUPBXAAntTteYdnbrcNEeQyeFqvJD3mXnz+f/Zqwjp9bMEzlR0
+	y765v9RQ==;
 Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKDUS-0000000DHxd-01ag;
-	Tue, 05 May 2026 10:59:01 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 645AwcMuB1171994, This message is accepted by code: ctloc85258
+	id 1wKDUS-0000000DHxz-0u8t;
+	Tue, 05 May 2026 10:59:03 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 645AwcN431171996, This message is accepted by code: ctloc85258
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1777978718; bh=+weT3KNEWHRZNkAbVSTMGJxpE357XP50uaxJaJN6zaQ=;
+	t=1777978718; bh=tAJhk27tpW5Xpntp31c3+nM/LaggP06QbC7a84S+snc=;
 	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding:Content-Type;
-	b=BSAwxvNnxeKq53eNbASK9q+fR0UVjwn053a9HQEJnofJaGi6PsbHM7JBGwxw0MnRA
-	 4YeEd7dIj3+ECjtk09LkoBgdAxv1fxnsOcw/UlW0XZ/UHh0LaQ4U79HkqSUrBN1o0V
-	 mqfh6z2j3SqYnpD2PHb19kZN9EdaKRCNyw8ktE/TCFZouPqWfejeVYYHxyLcV/uDl4
-	 b3ooxEghLByozK0BBQOGA9xp07UKGwCHTt5G6Fw5CiV334esHKWHuGrL/bOglwzzKr
-	 hltxjeYshh1MctPBPk4qRks+i3ySyCCA9OnS7Tyv3nkMlSn3OMGOkG+SB/Hu6D655I
-	 cYqWn3m1UE5kA==
+	b=XQ67WtdxH3ZXsJEykG4/BOM036OW3bkwxxETnEiDCe6u5CUK3LTuzsK9tZwvgk16O
+	 /uQ3w/cieB89hZ8HiKdf02fj0G4j0I6Wr5tledW8f2v8k9DfHXP6Cfp+qP++fEzX16
+	 JY/sWg7jYmrdVdThsOq2BZ9CqF5lQJFjxu3IBlvxsd+bCZZMbYBce0JHj03XOs4mb3
+	 jSY6Y89y0g0Z3gYpCokTQW0075l/mKe3BDmqR4nLITtIMjKzkKNnp27uekZncLPNxh
+	 A0+s7VAXy2fLPDoi3ILhb7FnyUzGfxIYdHhEtWqw4ribyAqjWbMY3f3qDNxUcY+tV4
+	 xxEa/7owRU2sw==
 Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
-	by rtits2.realtek.com.tw (8.15.2/3.27/5.94) with ESMTPS id 645AwcMuB1171994
+	by rtits2.realtek.com.tw (8.15.2/3.27/5.94) with ESMTPS id 645AwcN431171996
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
 	Tue, 5 May 2026 18:58:38 +0800
 Received: from RTKEXHMBS04.realtek.com.tw (10.21.1.54) by
@@ -69,20 +69,21 @@ CC: <james.tai@realtek.com>, <eleanor.lin@realtek.com>, <afaerber@suse.com>,
         <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
         <linux-realtek-soc@lists.infradead.org>, <devicetree@vger.kernel.org>,
         <cy.huang@realtek.com>, <stanley_chang@realtek.com>,
-        Linus Walleij
-	<linusw@kernel.org>
-Subject: [PATCH 2/3] arm64: dts: realtek: Add pinctrl support for RTD1625
-Date: Tue, 5 May 2026 18:58:36 +0800
-Message-ID: <20260505105838.1014771-1-eleanor.lin@realtek.com>
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH 3/3] ARM: realtek: MAINTAINERS: Include pin controller drivers
+Date: Tue, 5 May 2026 18:58:37 +0800
+Message-ID: <20260505105838.1014771-2-eleanor.lin@realtek.com>
 X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260505103955.1010130-1-eleanor.lin@realtek.com>
+In-Reply-To: <20260505105838.1014771-1-eleanor.lin@realtek.com>
 References: <20260505103955.1010130-1-eleanor.lin@realtek.com>
+ <20260505105838.1014771-1-eleanor.lin@realtek.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_115900_438303_9BE5B658 
-X-CRM114-Status: UNSURE (   8.62  )
+X-CRM114-CacheID: sfid-20260505_115900_576486_235BCC63 
+X-CRM114-Status: UNSURE (   8.60  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -98,45 +99,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the pinctrl nodes for the Realtek RTD1625 SoC.
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+No dedicated maintainers are shown for Realtek SoC pin controllers,
+except pinctrl subsystem maintainer, which means reduced review and
+impression of abandoned drivers.  Pin controller drivers are essential
+part of an SoC, so in case of lack of dedicated entry at least cover it
+by the SoC platform maintainers.
+
+Acked-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
 ---
- arch/arm64/boot/dts/realtek/kent.dtsi | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+ MAINTAINERS | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/boot/dts/realtek/kent.dtsi b/arch/arm64/boot/dts/realtek/kent.dtsi
-index ae006ce24420..8d4293cd4c03 100644
---- a/arch/arm64/boot/dts/realtek/kent.dtsi
-+++ b/arch/arm64/boot/dts/realtek/kent.dtsi
-@@ -150,6 +150,26 @@ uart0: serial@7800 {
- 				reg-shift = <2>;
- 				status = "disabled";
- 			};
-+
-+			iso_pinctrl: pinctrl@4e000 {
-+				compatible = "realtek,rtd1625-iso-pinctrl";
-+				reg = <0x4e000 0x1a4>;
-+			};
-+
-+			main2_pinctrl: pinctrl@4f200 {
-+				compatible = "realtek,rtd1625-main2-pinctrl";
-+				reg = <0x4f200 0x50>;
-+			};
-+
-+			isom_pinctrl: pinctrl@146200 {
-+				compatible = "realtek,rtd1625-isom-pinctrl";
-+				reg = <0x146200 0x34>;
-+			};
-+
-+			ve4_pinctrl: pinctrl@14e000 {
-+				compatible = "realtek,rtd1625-ve4-pinctrl";
-+				reg = <0x14e000 0x84>;
-+			};
- 		};
+diff --git a/MAINTAINERS b/MAINTAINERS
+index b66b739ae2ca..0f8b8264e6e1 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -3356,6 +3356,7 @@ F:	Documentation/devicetree/bindings/arm/realtek.yaml
+ F:	arch/arm/boot/dts/realtek/
+ F:	arch/arm/mach-realtek/
+ F:	arch/arm64/boot/dts/realtek/
++F:	drivers/pinctrl/realtek/
  
- 		gic: interrupt-controller@ff100000 {
+ ARM/RISC-V/RENESAS ARCHITECTURE
+ M:	Geert Uytterhoeven <geert+renesas@glider.be>
 -- 
 2.34.1
 
