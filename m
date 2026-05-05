@@ -4,98 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17CE2FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 12:25:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3F73CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 12:25:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6n/YGblvIcxORdMx+6LxziMRaZ4/mcyw2o6YavI3itw=; b=wQ8JwwhbA0FeLeNhDJIV5AflMz
-	NjsWcJUwM2Wu7M9S1oeqQMM8V+ZV4sy39OnCutK81LN+txTxJutJhG35N+ono49n0xEBgNxC+vzdL
-	uqh+lYX7ePISpPUeSsWeO+NXW5wVG5UbQZYo8nz/ZtaUtTBeasTjGxrEf52IYXxRrYU1YlVCcLwoR
-	N0a8+GiSpTsZhgEyv5u0fquUMDzXPvEC9J11sJy2X76offwjyhW8WFtwIOgAZ8N9OwfnjBBylgY/b
-	iCdDQIBKeNt40pLGWaopqDY4ATJ8ADrbiI+XeJivfdjlC25YEj1JZhgWrZIRmGIbIHRWfE3fl5Alj
-	BreAvWfw==;
+	bh=vNQeM4CWq6GEUrlO+R6vYzykbXC2BbBSiNTrZjov5SU=; b=GsoUM1lkPG9Qp930dW0eGvkLO5
+	6yR6Qw9G4vCs5z1mySoqxGYwRV04fozl4EBoUJeMd1oOaY8YILDAdHit9EbHo5nVh3Fu7rU1v8r9M
+	BtINoT4YCjjp0pxbuAVpOSst5Pf9ATzkX2XoTHneuQcmb1bUnj+DPX5bEQz8JL8FVjnLtj36Srk2Z
+	UWTGpxp6rbfLo+RVo9dqc1QOjx3Ubqwl8kUCg8Wre8cIcFQUjQ7uVcHoIUQS61I4shsgQin2Fe7hd
+	vADxgGxGF+hWCI6N5BQELBvYnL1o6OYNDqts0rwA1vhaeML0TjHFCJSfeHrBWYCVbniBGLh0pPnnB
+	9iFO+K/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKEpu-0000000GAcF-494w;
-	Tue, 05 May 2026 12:25:14 +0000
+	id 1wKEq1-0000000GAgI-1L4g;
+	Tue, 05 May 2026 12:25:21 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKEps-0000000GAar-3Jwk
+	id 1wKEpz-0000000GAem-0Ytx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 12:25:13 +0000
+	Tue, 05 May 2026 12:25:20 +0000
 Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 645CDsqg2187320
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 5 May 2026 12:25:12 GMT
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 645CDnft2187253
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 5 May 2026 12:25:18 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	6n/YGblvIcxORdMx+6LxziMRaZ4/mcyw2o6YavI3itw=; b=TdJ65q7ZsmmM7A9s
-	PBnNuQ/i0v4A8QPjn4V2POdg9kz/RCuU25m6xcXQN3WWok6aroZpw+rrldHYTAbZ
-	5vmi1ETWcg43mtJQa3IAqFY5hg7tK9RcBniEEWKTdSS06luxc8Eczlt+X7+WJeNx
-	L58cHgLKPuHNpiOZOtZ2EhMfaLHEcqX+Nn7QWtzGq9jAfltQVyF4h7cdzjSQXk5u
-	OFLqy9roijDBrGdoGMOMzIv74cr3H1oXxHkL4yzhB2yeSmL/LwLoi31AWcK5Ut64
-	7XRuZOKq3E5iUPMH3MtU9B3zbZv0T3EkwdhNm6yuqhBVPcjKMtSqvRbhH9q+Svkm
-	uJTYKw==
-Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dygce00w1-1
+	vNQeM4CWq6GEUrlO+R6vYzykbXC2BbBSiNTrZjov5SU=; b=RAaL/5NtaOtf/UeJ
+	61uZt5QhzCTyJJJm7qnLWJcbdhiiZeVsNfEjlUC6woArxVpPwCTBsn4awDbGUihp
+	27m2eWPYJKNON/xUpn+L9hzcGnm89BUF/dnxHZtnlwwB7mRg5QKxVDIu85W1vUn7
+	QB0G5Gy3ZDJcxTkbr8k10lpd0xaDWK/i46+Wk54vw9AcceF3hjVkWUXrwgbYGcvn
+	sYyHqRHQyheK6Q6aJ0nv9R0ijhpT0ota0WfayP1o1VrX2YDmmGIoU94djvlKHZ/w
+	eojB50BIDZ26n5gv9+YFMedY9sIeJD53+3gtgYK5tppWQq1qaIT6v+7Hp/0RUdWW
+	h/l2ng==
+Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dygce00w7-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 12:25:12 +0000 (GMT)
-Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-c822bc6ff86so202547a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 05:25:12 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 12:25:18 +0000 (GMT)
+Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-c8025414a5aso228748a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 05:25:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1777983912; x=1778588712; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1777983918; x=1778588718; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=6n/YGblvIcxORdMx+6LxziMRaZ4/mcyw2o6YavI3itw=;
-        b=Tw/+naMTkIwqAPFMGviPKywcI5LSlkBr8kqYATGDGLN2Q6Q1FzGamr1jDMnMF/SW2c
-         o1uUVZQV4/XeQ7lLUf2XFN/NvD2G1Di+8Gxm2m56tRW/qU2f/dqstOWMg5hBkXzC3Mek
-         i+3o40zf3yhKsJJskTFUFmwdW0kYl7ijCU7pV/cvZyP05TBqhMmOZA0+zRLQPbiMQXJY
-         c+Pl0Xexnrs1sSNwjFbq3naiikGu2FnS0TBen31p5TAVWd6/XDrkkJTkCWllekAXKeDr
-         qoUu5EAdh+qKMpM4twpC3xEPLHu2ZWaPLpfZKJ7BHwEu4orJyYhDIJ8CtYTepOgACY1W
-         yngQ==
+        bh=vNQeM4CWq6GEUrlO+R6vYzykbXC2BbBSiNTrZjov5SU=;
+        b=JP8mAjz7W5aOdQmQJmH5lMIbCE3BJhqFg9y43iJ0vl4YuZ9N4d+AAIbu2MGmbYeZuz
+         2SXEalU2cdAs5QCiZm42ZOZLz/HS+2JOSQKfKtDxuDDDm+m+CR5sAfKdYi7s9J5r76HZ
+         3r+o9tHf71TPzwQ3c+kOm2HSpgnJxwaFWeSRTQFjI8SiP5iBFZT8gQMyO9WOoRTnxQ10
+         TEQTLemZ/HPZAVPZUGA8QfTiAWJdk8C8gH9W3sqJKpY8FzrPprux2PLZvTGLq9sLwFLK
+         vy/rZQsTOoN2X00STtXRMmqQaY1egv9sAfVbSJ5WpItk7mOdrVrdg64w5WjJiM/aFjF/
+         oLMA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777983912; x=1778588712;
+        d=1e100.net; s=20251104; t=1777983918; x=1778588718;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=6n/YGblvIcxORdMx+6LxziMRaZ4/mcyw2o6YavI3itw=;
-        b=CjCYI8Yq9Iz03o8SoI9jIv1JRZwgnO0fscBU2+DSWBbpzs8F+/p9Rmin/BxypmHUGN
-         3aLdBiH4MGOz+en7JdhNjvAto7KvQtJKS6OpxaR6An7CjgCgIwTBB6OO0OqusG2yLYEh
-         GVeDiPD0Hadg0AtsSTcltpeg8psAmcp8YoRcxTK0M3Bj/o17ilgoWss41XERU1lvMOrV
-         Eu5pylYO5hlFUbyOfnDls5Mp23OIKdAEI9vbn9kwiFspQ5QT3FSFd7jJHFODI1ggAeyo
-         Ug0tvJyDeSYRv85IdzYwAcJv4cxKdusyVVwAi+wdYrOWNsY9Ot71N19qLOBsSNbByBaa
-         BEGw==
-X-Forwarded-Encrypted: i=1; AFNElJ+sYMcH/TGhbwIfI/6RzWONA4LDco6HMpZQ1KIKC8OaqAKJJwkcs776eisMhq/UW9xUjY/DgTO/hTvGLvoyb7/1@lists.infradead.org
-X-Gm-Message-State: AOJu0YzYnw7Tm1vvXTLo956k0ollizE7pQksOV1xAbJmY5/zq4yhKnHN
-	pvr1AvKuugtIz8PBTB85CoLt8xGDHfzznvQXYjzw4MXBlKEF45geK1qeWWg3TYYDgYZFjzyJl7W
-	KqEZBD1xATEJjRZTTk4e+eV9NSW/5Dji+hZngfb/VJccdMNLAbvFcgKUTZkcvrSp6A/G44Q+K1D
-	IrEA==
-X-Gm-Gg: AeBDieu7dm3BKwRIfARJ6zqgkUKh5KLwN/N/O/ebamh+4dYyvw7VidYj6FIDwOKT92T
-	72vy1AjjD5sY7T9SDypR6biXU7vOAbtiAESVV0I8r4bLtlvbJTBDuWL1oAUvFzce25JbrOmNmWH
-	DQhu5MUauf58WA6CjNU3MyZ//UkTanwiljXpH/BQJplKkl7YoaVBtPkN3J/ASPUvhOtrKWQr1rD
-	52Ra5ndo8PRCSAvzPS44fV4Il3T2dFaO3fm4F0rLUd2FIUriTUvjAS9e39u9/IDCSJwU4CM+fzb
-	m7J7YGLXrUDhqYn3Lpxywr1LM3w+mE71T9FtsUbafg4RYv8UghkfMxrnraPtNChpAI1YXzojLpI
-	TDK9S+G0mEAUpuvez0QuyBQBPhkR/EZG4lLUJG/BZldGR6MZvoCtG2qm5rQw8qa0=
-X-Received: by 2002:a17:90b:4e85:b0:35f:ba08:35bf with SMTP id 98e67ed59e1d1-3650ce40d34mr7090696a91.5.1777983911504;
-        Tue, 05 May 2026 05:25:11 -0700 (PDT)
-X-Received: by 2002:a17:90b:4e85:b0:35f:ba08:35bf with SMTP id 98e67ed59e1d1-3650ce40d34mr7090668a91.5.1777983911014;
-        Tue, 05 May 2026 05:25:11 -0700 (PDT)
+        bh=vNQeM4CWq6GEUrlO+R6vYzykbXC2BbBSiNTrZjov5SU=;
+        b=MnpE9VpoY2RiyKBYsRURX6MwMdGTJL32EMLwU101AZxgXTkwJ2/2hTzErMmzDmEu7N
+         7PhWabqpOgGS6rm2S74AgjvR5CQ9gkqiyanGv1bJOVuEJDUjH3vWIazFJT61VQNvES3D
+         KfZuiTDfJohwRMISu5Ot32c+G0D1ry3K7mAwVz5FRWaTqJ0BM/vs/EoR7pft9OP9U3Ay
+         9ZwGymHafF+NzKe0TLScGjo/aZD1kkp9LKzifOOdZMJhwZersARXJin0smlQv8UUVFno
+         bmJeuUJ+Q5rYwpWwvZ4q7/eRvxsNWDEB18gnOAJNcw1MHUr3rO8tbKNDhgj8/HhdxptJ
+         AWZQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+aHFZQsYzAT5U5oXBfY85S9yawxZ9/QV1pCRHDcFizjoCpWR7CSzsh6oZe/PMWxJJQ9c8srsJSD5x8B/oOnVMm@lists.infradead.org
+X-Gm-Message-State: AOJu0YysszNU4NWcotjxFaaQtcIEb1ZYsfxR2SRlhP/YwCG19PkPm2SY
+	PL6I6b3n7YRD834/rBsp1bw2YlTYVwfYlGo2LUMjZH6+gf38Blgm8Ro3Lyaybr1v12LrtNF8SXy
+	7wubvDK8PJFdcxcVRI6N2S6Bl9U90PqAp1XIuv2TrzmMTN0PEvA8MrbOVGToXANTFrMc3YyKfLI
+	JNHQ==
+X-Gm-Gg: AeBDieuv+wU8cE/41UwGJe2Qm8SEAErG2T7paLnfIxTsklo6wTM2xwPOn+nJ8+Gu61g
+	C5ZDnpoShc0ocL5aMjtwcThgQjcZ7C/lb80GlLFoXeFwAijyeZcLelFKUGod9CWjeWl+V5qWIzA
+	mwyHq0OnzDGtbwQAe0Glnoz6owxDaPiVtbHOvM7lDp6Qr0XxeQtiQCfhVraSQ9fZBiE0uIcnI2i
+	wJ+rbgPP/6IcmdihTu+hNtcbWUtPf3nas28U6lEauQ7h26ulMigukME/eaxN8q4J23KG4lGZAqh
+	mHJqzlTHNTpSBsi1p6N6Icq3kKcRP/UFsdK8hmn1Iw8MM49FRLfGrPHfiM/iLHIAnynPqYFg8Ia
+	e7n2nhxcYsIdMqoK5gEE1nvYIqNESp5Gz92txbGpgwzoPHYJ2QZVgTHN8vxDLlgQ=
+X-Received: by 2002:a17:90b:2f03:b0:35d:ab8b:abe6 with SMTP id 98e67ed59e1d1-3650ce1146dmr7079546a91.4.1777983917985;
+        Tue, 05 May 2026 05:25:17 -0700 (PDT)
+X-Received: by 2002:a17:90b:2f03:b0:35d:ab8b:abe6 with SMTP id 98e67ed59e1d1-3650ce1146dmr7079533a91.4.1777983917473;
+        Tue, 05 May 2026 05:25:17 -0700 (PDT)
 Received: from hu-uchheda-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c7ffbbaac5bsm12597998a12.6.2026.05.05.05.25.04
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c7ffbbaac5bsm12597998a12.6.2026.05.05.05.25.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 May 2026 05:25:10 -0700 (PDT)
+        Tue, 05 May 2026 05:25:16 -0700 (PDT)
 From: Umang Chheda <umang.chheda@oss.qualcomm.com>
-Date: Tue, 05 May 2026 17:53:47 +0530
-Subject: [PATCH 3/8] ras: aest: Skip unimplemented records in debugfs
+Date: Tue, 05 May 2026 17:53:48 +0530
+Subject: [PATCH 4/8] ras: aest: Add panic_on_ue module parameter
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260505-aest-devicetree-support-v1-3-d5d6ffacf0a5@oss.qualcomm.com>
+Message-Id: <20260505-aest-devicetree-support-v1-4-d5d6ffacf0a5@oss.qualcomm.com>
 References: <20260505-aest-devicetree-support-v1-0-d5d6ffacf0a5@oss.qualcomm.com>
 In-Reply-To: <20260505-aest-devicetree-support-v1-0-d5d6ffacf0a5@oss.qualcomm.com>
 To: Ruidong Tian <tianruidond@linux.alibaba.com>,
@@ -113,29 +113,29 @@ Cc: linux-arm-msm@vger.kernel.org, linux-acpi@vger.kernel.org,
         linux-edac@vger.kernel.org,
         Umang Chheda <umang.chheda@oss.qualcomm.com>
 X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777983885; l=1700;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777983885; l=1723;
  i=umang.chheda@oss.qualcomm.com; s=20260328; h=from:subject:message-id;
- bh=2IM4lMSreVHLqyyOxDBhvYJWupnQlqLCRMuo/4Cjc8I=;
- b=fu5pDeP5xi3HER6UMYy15HGHWu0Q0X9dpDdi3I2AdC7VPoEVXMmPbTCAZ4BK67PM/lvDZoL4u
- HVgHnE+TPdgB2ZI4YYsNx0SlBhhGoi8hF8+KMHvtMao8NtxlePtZQ+7
+ bh=85/U6iXBPakM0Mmmb5NPMjAPvvGqfJ6KU2VNXgLZ+Sc=;
+ b=uAueX0E+J7mO3vSlmsfq2s5T3DTennvda5xbsWtVnYuvom+4lJANe1HZ9CTFuHCFI9bv0MzJh
+ UVBLIZVfoxaCfAJSibykZ21OmsQSeQN479uLTCjjakaC2Y6xWj7Te3x
 X-Developer-Key: i=umang.chheda@oss.qualcomm.com; a=ed25519;
  pk=3+tjZ+PFFYphz0Vvu4B14pBQSzqcG0jZAQspTaDRQYA=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA1MDExNyBTYWx0ZWRfX51gk7AcWX0TU
- sDst0H3NcyTfLLKAV9Yo1qNF6FwPWJ9wFLNmXV56wRHv53SjtAPkFxpM0Srwc5vX8CeGNSsYDwz
- PWozvlltKTDWPlbcE2SAsNvTbfn6TZbMGabGrcoJOPzFMQOwtgGF6L85ELw+dqycLvsbX4WQi00
- 0Zykmp2OOhBTEfsikEngEVjzdRUeINOZwWfPR3E4t84/ndXPtu5jo8gwr3aKWH7zAs1eEPpC/zO
- Tx4Ug6bpOqKMLiwLqGGAn3jCqQmoUDih8+WJgur12KyVc31QMucCj/eh2x5sXE3Bnxg5vkDmmRO
- S3MFEabMIFGFKcrsJjVL3XDfFCHzuf86NRQ+egytOeQ58AYWXVG8Sw35Qpmd/+MDaaqlpG/PgRd
- aB6aIbBvk5pcbHfO1E9j1Emvc7RYoQs2Xe/eRq+aITWATvO93yiFTNO39Uh3KDEHsrwZllf3PHs
- C9CUkqauJhNTCjMVAHg==
-X-Proofpoint-GUID: shW2AjzHz4ZVUJkn7B8u5K8hOqZnm_2O
-X-Proofpoint-ORIG-GUID: shW2AjzHz4ZVUJkn7B8u5K8hOqZnm_2O
-X-Authority-Analysis: v=2.4 cv=b6KCJNGx c=1 sm=1 tr=0 ts=69f9e1a8 cx=c_pps
- a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA1MDExNyBTYWx0ZWRfXxfZUPzf4s0CA
+ QLKSy7qK+dg4Q2Zvy2g8QpKAW7h/WrdGJ2cUzN+SagezqRIoaOg4DpnaGbACMMlFT9lDws1aQof
+ J6RlL+MtwcjTUao+evE+LQqSItjezFCaUeVS8Zzz56wtGZ2iHVoqyj1TJ7r/1Agq5kNbadWMgN0
+ aW2SFTbak3tR3f3qga4tkHChuUYmY46j4M99OgPKQxr9lHwkHDaNbgeozKNzpI6aX/64YQ4GoWG
+ t4kO70zAdxZzhRK7H5aajvIGRiuDMGt1SfOfLWOR0O9ADZZL3fj+sN/qfIodf6WFIRglSFNVYx4
+ hfc/XJdH9myg/Khryx4f3+VUYlfRrZQsB5Itw/OYFCuhzEBCOyl2mWy6MaSbSqEEZxEHQem/s/Z
+ wtXIT/LWgwCPwRvezRStLwD9btrVUkP16ZhWboqkjydLbSidYNJZynufvWve4+9ppqwYHbLG2ex
+ 8n3GbzKO6BBd00EdOHA==
+X-Proofpoint-GUID: gDL06UihwZ69yCeBCVwLCMjtdsvNUOZf
+X-Proofpoint-ORIG-GUID: gDL06UihwZ69yCeBCVwLCMjtdsvNUOZf
+X-Authority-Analysis: v=2.4 cv=b6KCJNGx c=1 sm=1 tr=0 ts=69f9e1ae cx=c_pps
+ a=Qgeoaf8Lrialg5Z894R3/Q==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
  a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
  a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=EUspDBNiAAAA:8 a=Q5xIpPglxa2DKV_CsKsA:9 a=QEXdDO2ut3YA:10
- a=_Vgx9l1VpLgwpw_dHYaR:22
+ a=EUspDBNiAAAA:8 a=y-mMqNAVNQw5A1T741kA:9 a=QEXdDO2ut3YA:10
+ a=x9snwWr2DeNwDh03kgHS:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-05-05_02,2026-04-30_02,2025-10-01_01
@@ -145,8 +145,8 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2605050117
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_052512_850334_A1717F03 
-X-CRM114-Status: GOOD (  16.31  )
+X-CRM114-CacheID: sfid-20260505_052519_198563_0F00C8F8 
+X-CRM114-Status: GOOD (  15.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,50 +161,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The record_implemented bitmap uses the same semantics as the rest of
-the driver: a SET bit means the record is NOT implemented (skip it),
-a CLEAR bit means the record IS implemented (process it).
+The driver unconditionally calls panic() whenever an unrecoverable,
+uncontainable UE (UET_UC or UET_UEU) is detected. There is no way
+for the user to suppress this behaviour, which makes it difficult to
+test UE injection or to run in environments where a kernel panic on
+every UE is undesirable.
 
-aest_node_init_debugfs() and aest_node_err_count_show() were iterating
-all record_count records unconditionally, creating debugfs entries and
-accumulating error counts for unimplemented records too.
+Add a module parameter `aest_panic_on_ue` When set to 0 the driver
+logs the UE and continues instead of panicking.
 
-Fix both functions to skip records where the corresponding bit is set
-in node->record_implemented, consistent with how aest_node_foreach_record()
-handles the same bitmap.
+Usage:
+  # Boot time (kernel cmdline)
+  aest.aest_panic_on_ue=0
+
+  # Runtime
+  echo 0 > /sys/module/aest/parameters/aest_panic_on_ue
 
 Signed-off-by: Umang Chheda <umang.chheda@oss.qualcomm.com>
 ---
- drivers/ras/aest/aest-sysfs.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+ drivers/ras/aest/aest-core.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/ras/aest/aest-sysfs.c b/drivers/ras/aest/aest-sysfs.c
-index f710503e4d74..b36190bb3b3e 100644
---- a/drivers/ras/aest/aest-sysfs.c
-+++ b/drivers/ras/aest/aest-sysfs.c
-@@ -52,7 +52,8 @@ static int aest_node_err_count_show(struct seq_file *m, void *data)
- 	int i;
+diff --git a/drivers/ras/aest/aest-core.c b/drivers/ras/aest/aest-core.c
+index b4f4c975da1d..9ce782a66edf 100644
+--- a/drivers/ras/aest/aest-core.c
++++ b/drivers/ras/aest/aest-core.c
+@@ -22,6 +22,11 @@ DEFINE_PER_CPU(struct aest_device, percpu_adev);
+ #undef pr_fmt
+ #define pr_fmt(fmt) "AEST: " fmt
  
- 	for (i = 0; i < node->record_count; i++)
--		aest_error_count(&node->records[i], &count);
-+		if (!test_bit(i, node->record_implemented))
-+			aest_error_count(&node->records[i], &count);
- 
- 	seq_printf(m, "CE: %llu\n"
- 				"DE: %llu\n"
-@@ -174,8 +175,11 @@ aest_node_init_debugfs(struct aest_node *node)
- 		record = &node->records[i];
- 		if (!record->name)
- 			continue;
-+		/* Skip records not implemented on this node. */
-+		if (test_bit(i, node->record_implemented))
-+			continue;
- 		record->debugfs = debugfs_create_dir(record->name,
--								node->debugfs);
-+							node->debugfs);
- 		aest_record_init_debugfs(record);
++static bool aest_panic_on_ue;
++module_param(aest_panic_on_ue, bool, 0644);
++MODULE_PARM_DESC(aest_panic_on_ue,
++		 "Panic on unrecoverable error: 0=off 1=on (default: 1)");
++
+ #ifdef CONFIG_DEBUG_FS
+ struct dentry *aest_debugfs;
+ #endif
+@@ -342,9 +347,11 @@ void aest_proc_record(struct aest_record *record, void *data, bool fake)
+ 			aest_record_info(
+ 				record,
+ 				"Simulated error! Skip panic due to fault injection\n");
+-		else
++		else if (aest_panic_on_ue)
+ 			aest_panic(record, &regs,
+ 				   "AEST: unrecoverable error encountered");
++		else
++			aest_record_err(record, "UE detected, panic suppressed\n");
  	}
- }
+ 
+ 	aest_log(record, &regs);
 
 -- 
 2.34.1
