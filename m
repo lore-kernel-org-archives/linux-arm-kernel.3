@@ -4,71 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5C23CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:32:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 833B0CD3439
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:32:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e8DEy4xUF+FeW0i9ScNTrAyIVbt+iSGxt0Zd4JLqJtU=; b=cbb8HUirHlesap3JCNMdh+x4q6
-	Qad0d1yDvnyDvL4gZATmTDEgVO8lvIAi5wx+TZxvkNSO2zOC6Nd+2f6x8r9sdcBBV9A7CkLeXqByq
-	43UdZRaMXZkNBhF2t3XhAY/EB8OuGPivK0nyyNU1p+dyOY4f7CpJpRm0jX/QqA0OENrUW8KG/a/+6
-	+wybHQr42uuloCjvk+t5Io2waiQfE+ToIr42MperKEXo0ytxSeVFDqwpZFYs43GllTa979N8xOueP
-	bnrTIGJ57IzaCoCc61vOPCRJy3gWY+0bHRIYbD0XiBwLUpdpGod1P1/X4tBSHihiwlBi7riCdyPvV
-	szNkkDIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5cxk//KUPJSoEx14fWOBCbzpWhXsaa82/9VwpdEGmrc=; b=QLtk3uBH1KUNmM5Uy+y1+AsZim
+	mhBLIbEW7UNzttR2IB6ENtLj4f7VGk/i/KlWFm69oJ+r/G9AqB3bdbhbvpAe5jXTmmiJqzhzL4gTC
+	G4iWzXxCm7Q9psUzns5PlVgdPP63YlewYHqtIh3N/MJcC2vDVH0kDRjKkeg28+lPaa9hjGeH2WgON
+	uEaw9HJg3+hJvaY10K3ylOi/o17ZRcSVpUCjPJCGxuLHIprLpdTENyQosTqArM6Js7Mc0Ia0IsbBw
+	jKD+1KMmTjaS5/nJBUhi7D7kBTuvgmQfIIGFO+55C7vC97jLndoUhrHwEKIfQEJQyNYv6fFmGYMCX
+	Bj10tyxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKIh6-0000000Gtcs-1xs8;
-	Tue, 05 May 2026 16:32:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wKIhb-0000000GtmM-3KSk;
+	Tue, 05 May 2026 16:32:55 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKIh3-0000000Gtc0-3f8m
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 16:32:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5DEA5404A7;
-	Tue,  5 May 2026 16:32:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96258C2BCC7;
-	Tue,  5 May 2026 16:32:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777998741;
-	bh=WyOQn3tBSFDpBAHnLk6bdPwqlgR7hHM6B3vxBY9JYM0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=l6QaN7/6Ls6N62Omndx9ZkQPQPHh93G2jiFu5owUcRgmFTRLMg6ukJpHx5Edd4ziG
-	 LACt5k7L1bSoxw98UD7EqIFHLj+aq9rmSa40+t8E/aopCsGb4qLKgesvoRpp+BrxJN
-	 cbOtYibJBnq/+lcOealAHGJw8tuOq1ECTNSsgTOw3VK1769Kfxa7hB84DAXgqe9MlI
-	 HbTpWwMvQASxkZF6mQNiONGBOowFRPdjPlDKc2OLqp1JGQUOCuMFhTSxtawgcrIYKx
-	 h43Aa/8uEpfq2JJhGfifjxtuHVurPDS680I1drxkQiXzqKLb+4b8JsG5/ZGm9M4i/U
-	 0Fc5jT+9Sn3GA==
-Date: Tue, 5 May 2026 17:32:15 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: linux-integrity@vger.kernel.org, keyrings@vger.kernel.org,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	jarkko@kernel.org, zohar@linux.ibm.com, roberto.sassu@huawei.com,
-	dmitry.kasatkin@gmail.com, eric.snowberg@oracle.com,
-	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
-	maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org
-Subject: Re: [RFC PATCH 2/3] firmware: arm_ffa: initialise ff-a after
- finalising pKVM initialisation
-Message-ID: <20260505-adaptable-mussel-of-virtuosity-2751db@sudeepholla>
-References: <20260505095409.1948371-1-yeoreum.yun@arm.com>
- <20260505095409.1948371-3-yeoreum.yun@arm.com>
- <20260505-super-gecko-of-argument-655030@sudeepholla>
- <afoHizU8NgFWzvYW@e129823.arm.com>
+	id 1wKIhZ-0000000GtkN-1TfQ;
+	Tue, 05 May 2026 16:32:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1777998770;
+	bh=dnfLGzurewhGYmAkfx0e1+N3a4xmKjPSdyc6YJYICe0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=chnNGEJP+I5Tqr/+EzV+BAGa2W8876nPXG15BSzH3+oTObFtVw/uGnWFO4iEfi6Yu
+	 qjVJu+SBs/mo/Sk7SE3fHq+sYl6hc9nf05jEVXaxQ0cR2WLGatLnbs2uyeBwE3/aND
+	 hPWcmnyKFANowsOdgQrWSSRX5HuTRQJWzrUOmENA5qa4LqYsM1N1mfdKOXp3ZrkQLl
+	 1cfuK86dMDOdfh1iedj/t8nURvTzZQRQyNPGBFwpt35AlXQk1bcM/ikK9HdqWi765l
+	 ElVgV22rH5VsA7nb4eBu3bdhO9NoRLdMYZaMe1aI7S9wmGx7xHEbvKlpJGoSAiu6xm
+	 5UrIfFmlWFH5w==
+Received: from fedora (unknown [100.64.0.11])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bbrezillon)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B811917E0F07;
+	Tue,  5 May 2026 18:32:49 +0200 (CEST)
+Date: Tue, 5 May 2026 18:32:44 +0200
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: Ketil Johnsen <ketil.johnsen@arm.com>
+Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+ <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Jonathan
+ Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, Sumit
+ Semwal <sumit.semwal@linaro.org>, Benjamin Gaignard
+ <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>,
+ John Stultz <jstultz@google.com>, "T.J. Mercier" <tjmercier@google.com>,
+ Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>, Steven Price
+ <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>, Daniel Almeida
+ <daniel.almeida@collabora.com>, Alice Ryhl <aliceryhl@google.com>, Matthias
+ Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, dri-devel@lists.freedesktop.org,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH 6/8] drm/panthor: Explicit expansion of locked VM region
+Message-ID: <20260505183244.0830c34c@fedora>
+In-Reply-To: <20260505140516.1372388-7-ketil.johnsen@arm.com>
+References: <20260505140516.1372388-1-ketil.johnsen@arm.com>
+	<20260505140516.1372388-7-ketil.johnsen@arm.com>
+Organization: Collabora
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <afoHizU8NgFWzvYW@e129823.arm.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_093221_954826_E9F2947F 
-X-CRM114-Status: GOOD (  43.29  )
+X-CRM114-CacheID: sfid-20260505_093253_579732_1A18D90A 
+X-CRM114-Status: GOOD (  34.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,229 +88,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 05, 2026 at 04:06:51PM +0100, Yeoreum Yun wrote:
-> Hi Sudeep,
+On Tue,  5 May 2026 16:05:12 +0200
+Ketil Johnsen <ketil.johnsen@arm.com> wrote:
+
+> Currently the panthor_vm_lock_region() function will implicitly expand
+> an already locked VM region. This can be problematic because the caller
+> do not reliably know if it needs to call panthor_vm_unlock_region()
+> or not.
 > 
-> > On Tue, May 05, 2026 at 10:54:08AM +0100, Yeoreum Yun wrote:
-> > > When pKVM is enabled, the FF-A driver must be initialised after pKVM.
-> > > Otherwise, pKVM cannot negotiate the FF-A version or obtain the RX/TX
-> > > buffer information, leading to failures in FF-A calls.
-> > > 
-> > > Currently, pKVM initialisation completes at device_initcall_sync,
-> > > while ffa_init() runs at the device_initcall level.
-> > > 
-> > > So far, linker deployes kvm_arm_init() before ffa_init(), and SMCs can
-> > > still be trapped even before finalise_pkvm() is invoked.
-> > > As a result, this issue has not been observed.
-> > > 
-> > > However, relying on above stuff is fragile.
-> > > Therefore, when pKVM is enabled, the FF-A infrastructure should be
-> > > initialised only after pKVM initialisation has been fully finalised.
-> > > 
-> > > To achieve this, introduce an ffa_root_dev ("arm-ffa") and
-> > > a corresponding driver to defer initialisation of the FF-A infrastructure
-> > > until pKVM initialisation is complete, and to defer probing of all FF-A devices until then
-> > > when pKVM is enabled.
-> > > 
-> > 
-> > I don't like this whole ffa root device design.
-> > Two question for now:
-> > 1. Can FF-A be a module on systems with pKVM which removes the need for all
-> >    this dance done here ?
+> Worth noting, there is currently no known issues with this as the code
+> is written today.
 > 
-> But this means we reduce the other feature e.x) IMA with TPM over
-> FF-A and pKVM feature. Since IMA must be a built-in, we couldn't avoid
-> to build FF-A driver with built-in.
+> This change introduces panthor_vm_expand_region() which will only work
+> if there is already a locked VM region. This again means that the
+> original lock and unlock functions can work as a pair. This pairing is
+> needed for subsequent protected memory changes.
 > 
-> > 2. If it is a requirement to have this built-in, I prefer to add a probe
-> >    and defer it instead of this root ffa device.
+> Signed-off-by: Ketil Johnsen <ketil.johnsen@arm.com>
+> ---
+>  drivers/gpu/drm/panthor/panthor_mmu.c | 69 +++++++++++++++++++--------
+>  1 file changed, 50 insertions(+), 19 deletions(-)
 > 
-> But, How? anyway all of FF-A device & driver couldn't be probed unless
-> FF-A initialisation is finished and How can we trigger FF-A initailise
-> after pKVM finish its initialisation?
-> 
-> The problem is ff-a intiailisation happens before pKVM finish its
-> initailasation and to do defer probe, it should use dd-model and
-> As we discussed in other thread, notifier couldn't be a soluation.
-> 
-> Could you let me share other way I'm missing?
-> 
+> diff --git a/drivers/gpu/drm/panthor/panthor_mmu.c b/drivers/gpu/drm/panthor/panthor_mmu.c
+> index fc930ee158a52..07f54176ec1bf 100644
+> --- a/drivers/gpu/drm/panthor/panthor_mmu.c
+> +++ b/drivers/gpu/drm/panthor/panthor_mmu.c
+> @@ -1701,15 +1701,36 @@ static int panthor_vm_lock_region(struct panthor_vm *vm, u64 start, u64 size)
+>  	struct panthor_device *ptdev = vm->ptdev;
+>  	int ret = 0;
+>  
+> -	/* sm_step_remap() can call panthor_vm_lock_region() to account for
+> -	 * the wider unmap needed when doing a partial huge page unamp. We
+> -	 * need to ignore the lock if it's already part of the locked region.
+> -	 */
+> -	if (start >= vm->locked_region.start &&
+> -	    start + size <= vm->locked_region.start + vm->locked_region.size)
+> -		return 0;
+> +	if (drm_WARN_ON(&ptdev->base, vm->locked_region.size))
+> +		return -EINVAL;
 
-Will something like below work ? If we add DT bindings, then we can add
-of_match_table and drop the platform device creation. Also we can adjust
-the parent device the way you have done by a simple change(not done in
-this untested/not compiled change).
+How about we have a helper called panthor_vm_apply_as_lock() that would
+only take care of the AS_LOCKADDR() sequence. panthor_vm_lock_region()
+would have this WARN_ON(), the pack_region_range() and a call to
+panthor_vm_apply_as_lock(). Similarly,
+panthor_vm_expand_locked_region() would rely on
+panthor_vm_apply_as_lock() to apply the expanded lock.
 
-Regards,
-Sudeep
+> +
+> +	mutex_lock(&ptdev->mmu->as.slots_lock);
+> +	if (vm->as.id >= 0 && size) {
+> +		/* Lock the region that needs to be updated */
+> +		gpu_write64(ptdev, AS_LOCKADDR(vm->as.id),
+> +			    pack_region_range(ptdev, &start, &size));
+> +
+> +		/* If the lock succeeded, update the locked_region info. */
+> +		ret = as_send_cmd_and_wait(ptdev, vm->as.id, AS_COMMAND_LOCK);
+> +	}
+>  
+> -	/* sm_step_remap() may need a locked region that isn't a strict superset
+> +	if (!ret) {
+> +		vm->locked_region.start = start;
+> +		vm->locked_region.size = size;
+> +	}
+> +	mutex_unlock(&ptdev->mmu->as.slots_lock);
+> +
+> +	return ret;
+> +}
+> +
+> +static int panthor_vm_expand_region(struct panthor_vm *vm, u64 start, u64 size)
 
--->8
+s/panthor_vm_expand_region/panthor_vm_expand_locked_region/
 
-firmware: arm_ffa: Register core as a platform driver
-
-Move the FF-A core bring-up and teardown paths into platform driver
-probe and remove callbacks, and register a synthetic arm-ffa platform
-device to bind the driver.
-
-This makes the FF-A core lifetime follow the driver model while keeping
-the device creation internal to the FF-A core. The probe path can now
-return normal driver-model errors, including probe deferral when pKVM is
-enabled but not yet initialized.
-
-Since the transport selection now happens from the platform probe path,
-drop the __init annotation from ffa_transport_init().
-
-Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
----
- drivers/firmware/arm_ffa/common.h |  4 +--
- drivers/firmware/arm_ffa/driver.c | 55 +++++++++++++++++++++++++++----
- drivers/firmware/arm_ffa/smccc.c  |  2 +-
- 3 files changed, 52 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/firmware/arm_ffa/common.h b/drivers/firmware/arm_ffa/common.h
-index 9c6425a81d0d..5cdf4bd222c6 100644
---- a/drivers/firmware/arm_ffa/common.h
-+++ b/drivers/firmware/arm_ffa/common.h
-@@ -18,9 +18,9 @@ bool ffa_device_is_valid(struct ffa_device *ffa_dev);
- void ffa_device_match_uuid(struct ffa_device *ffa_dev, const uuid_t *uuid);
- 
- #ifdef CONFIG_ARM_FFA_SMCCC
--int __init ffa_transport_init(ffa_fn **invoke_ffa_fn);
-+int ffa_transport_init(ffa_fn **invoke_ffa_fn);
- #else
--static inline int __init ffa_transport_init(ffa_fn **invoke_ffa_fn)
-+static inline int ffa_transport_init(ffa_fn **invoke_ffa_fn)
- {
- 	return -EOPNOTSUPP;
- }
-diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
-index eb2782848283..d000727889f4 100644
---- a/drivers/firmware/arm_ffa/driver.c
-+++ b/drivers/firmware/arm_ffa/driver.c
-@@ -36,6 +36,7 @@
- #include <linux/mm.h>
- #include <linux/mutex.h>
- #include <linux/of_irq.h>
-+#include <linux/platform_device.h>
- #include <linux/scatterlist.h>
- #include <linux/slab.h>
- #include <linux/smp.h>
-@@ -46,6 +47,7 @@
- 
- #define FFA_DRIVER_VERSION	FFA_VERSION_1_2
- #define FFA_MIN_VERSION		FFA_VERSION_1_0
-+#define FFA_PLATFORM_NAME	"arm-ffa"
- 
- #define SENDER_ID_MASK		GENMASK(31, 16)
- #define RECEIVER_ID_MASK	GENMASK(15, 0)
-@@ -114,6 +116,7 @@ struct ffa_drv_info {
- };
- 
- static struct ffa_drv_info *drv_info;
-+static struct platform_device *ffa_pdev;
- 
- /*
-  * The driver must be able to support all the versions from the earliest
-@@ -2029,12 +2032,15 @@ static void ffa_notifications_setup(void)
- 	ffa_notifications_cleanup();
- }
- 
--static int __init ffa_init(void)
-+static int ffa_probe(struct platform_device *pdev)
- {
- 	int ret;
- 	u32 buf_sz;
- 	size_t rxtx_bufsz = SZ_4K;
- 
-+	if (is_protected_kvm_enabled() && !is_pkvm_initialized())
-+		return -EPROBE_DEFER;
-+
- 	ret = ffa_transport_init(&invoke_ffa_fn);
- 	if (ret)
- 		return ret;
-@@ -2042,6 +2048,7 @@ static int __init ffa_init(void)
- 	drv_info = kzalloc_obj(*drv_info);
- 	if (!drv_info)
- 		return -ENOMEM;
-+	platform_set_drvdata(pdev, drv_info);
- 
- 	ret = ffa_version_check(&drv_info->version);
- 	if (ret)
-@@ -2103,19 +2110,55 @@ static int __init ffa_init(void)
- 		free_pages_exact(drv_info->tx_buffer, rxtx_bufsz);
- 	free_pages_exact(drv_info->rx_buffer, rxtx_bufsz);
- free_drv_info:
-+	platform_set_drvdata(pdev, NULL);
- 	kfree(drv_info);
-+	drv_info = NULL;
- 	return ret;
- }
--rootfs_initcall(ffa_init);
- 
--static void __exit ffa_exit(void)
-+static void ffa_remove(struct platform_device *pdev)
- {
-+	struct ffa_drv_info *info = platform_get_drvdata(pdev);
-+
- 	ffa_notifications_cleanup();
- 	ffa_partitions_cleanup();
- 	ffa_rxtx_unmap();
--	free_pages_exact(drv_info->tx_buffer, drv_info->rxtx_bufsz);
--	free_pages_exact(drv_info->rx_buffer, drv_info->rxtx_bufsz);
--	kfree(drv_info);
-+	free_pages_exact(info->tx_buffer, info->rxtx_bufsz);
-+	free_pages_exact(info->rx_buffer, info->rxtx_bufsz);
-+	kfree(info);
-+	platform_set_drvdata(pdev, NULL);
-+	drv_info = NULL;
-+}
-+
-+static struct platform_driver ffa_driver = {
-+	.remove = ffa_remove,
-+	.driver = {
-+		.name = FFA_PLATFORM_NAME,
-+	},
-+};
-+
-+static int __init ffa_init(void)
-+{
-+	int ret;
-+
-+	ffa_pdev = platform_device_register_simple(FFA_PLATFORM_NAME,
-+						   PLATFORM_DEVID_NONE,
-+						   NULL, 0);
-+	if (IS_ERR(ffa_pdev))
-+		return PTR_ERR(ffa_pdev);
-+
-+	ret = platform_driver_probe(&ffa_driver, ffa_probe);
-+	if (ret)
-+		platform_device_unregister(ffa_pdev);
-+
-+	return ret;
-+}
-+module_init(ffa_init);
-+
-+static void __exit ffa_exit(void)
-+{
-+	platform_device_unregister(ffa_pdev);
-+	platform_driver_unregister(&ffa_driver);
- }
- module_exit(ffa_exit);
- 
-diff --git a/drivers/firmware/arm_ffa/smccc.c b/drivers/firmware/arm_ffa/smccc.c
-index 4d85bfff0a4e..e6125dd9f58f 100644
---- a/drivers/firmware/arm_ffa/smccc.c
-+++ b/drivers/firmware/arm_ffa/smccc.c
-@@ -17,7 +17,7 @@ static void __arm_ffa_fn_hvc(ffa_value_t args, ffa_value_t *res)
- 	arm_smccc_1_2_hvc(&args, res);
- }
- 
--int __init ffa_transport_init(ffa_fn **invoke_ffa_fn)
-+int ffa_transport_init(ffa_fn **invoke_ffa_fn)
- {
- 	enum arm_smccc_conduit conduit;
- 
--- 
-2.43.0
+> +{
+> +	struct panthor_device *ptdev = vm->ptdev;
+> +	u64 end;
+> +	int ret = 0;
+> +
+> +	/* This function is here to handle the following case:
+> +	 * sm_step_remap() may need a locked region that isn't a strict superset
+>  	 * of the original one because of having to extend unmap boundaries beyond
+>  	 * it to deal with partial unmaps of transparent huge pages. What we want
+>  	 * in those cases is to lock the union of both regions. The new region must
+> @@ -1717,16 +1738,24 @@ static int panthor_vm_lock_region(struct panthor_vm *vm, u64 start, u64 size)
+>  	 * boundaries in a remap operation can only shift up or down respectively,
+>  	 * but never otherwise.
+>  	 */
+> -	if (vm->locked_region.size) {
+> -		u64 end = max(vm->locked_region.start + vm->locked_region.size,
+> -			      start + size);
+>  
+> -		drm_WARN_ON_ONCE(&vm->ptdev->base, (start + size <= vm->locked_region.start) ||
+> -				 (start >= vm->locked_region.start + vm->locked_region.size));
+> +	/* This function can only expand an already locked region */
+> +	if (drm_WARN_ON(&ptdev->base, !vm->locked_region.size))
+> +		return -EINVAL;
+>  
+> -		start = min(start, vm->locked_region.start);
+> -		size = end - start;
+> -	}
+> +	/* Early out if requested range is already locked */
+> +	if (start >= vm->locked_region.start &&
+> +	    start + size <= vm->locked_region.start + vm->locked_region.size)
+> +		return 0;
+> +
+> +	end = max(vm->locked_region.start + vm->locked_region.size,
+> +		  start + size);
+> +
+> +	drm_WARN_ON_ONCE(&ptdev->base, (start + size <= vm->locked_region.start) ||
+> +			 (start >= vm->locked_region.start + vm->locked_region.size));
+> +
+> +	start = min(start, vm->locked_region.start);
+> +	size = end - start;
+>  
+>  	mutex_lock(&ptdev->mmu->as.slots_lock);
+>  	if (vm->as.id >= 0 && size) {
+> @@ -2252,11 +2281,13 @@ static int panthor_gpuva_sm_step_remap(struct drm_gpuva_op *op,
+>  	unmap_hugepage_align(&op->remap, &unmap_start, &unmap_range);
+>  
+>  	/* If the range changed, we might have to lock a wider region to guarantee
+> -	 * atomicity. panthor_vm_lock_region() bails out early if the new region
+> -	 * is already part of the locked region, so no need to do this check here.
+> +	 * atomicity.
+>  	 */
+>  	if (!unmap_vma->evicted) {
+> -		panthor_vm_lock_region(vm, unmap_start, unmap_range);
+> +		ret = panthor_vm_expand_region(vm, unmap_start, unmap_range);
+> +		if (ret)
+> +			return ret;
+> +
+>  		panthor_vm_unmap_pages(vm, unmap_start, unmap_range);
+>  	}
+>  
 
 
