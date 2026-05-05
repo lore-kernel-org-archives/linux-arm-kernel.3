@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7723BCD13DA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0D57FF885A
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 03:43:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,55 +12,55 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7X9VCLXHjxXWTlqd62nzcy4IVpyAqSSzi15Gd5cgAK4=; b=HWsjLAdDJi6WB4Dx7v32+85DH5
-	tP9n9mbg66JXuZST9YurQvL3CnaqfWeJ6V3CLNGrNADdwnrYngVO6uQF95lLXy7Tr7aqoQHJJJ5mP
-	ZJaCLmKMs1rHK344PuQHGV7819dT3Q42d2m7riCGVx3YwZDAcmPzdSr81mKybENYka9VwSHsdiW/s
-	8eViJ1Ya37Nj3hijd+aUVqJoAeaG4CFZ/rbFF6lQ3BUhUkhV5lOD1zvTwScY4v/yS8a/qN70xU8WJ
-	dOLBjNJoio0QKjZ0T/i5vLegGgsuuXTTxsIBk9/gZJZwBxfLzyKWPQklsyYSkVrFJjsQwn+QJWBwA
-	+BCnR4mA==;
+	bh=DWuHnng5BOFVjspVoCh2CO/fn8L6gvKLnoeyOZOicYU=; b=vXfU3oqoexTYOUdVwhaUzkCt77
+	yfgwPHt/H+/PJdY9zgMReGQXOmF+fs1q18TiZ198kVvMnuOyzyqfAi8M2vCp+Ior1ZWACKVj1xQ6u
+	8OwwW2pHXg/pEDjSBJBk41cCzDI/CB7pX9R/uW0R+3iTi5aeUAc4suWzlqFDxNPoXYGtJqCTW2FM2
+	4hVUZy+9kx4N2b9TEbi+yu2NN+63AJ8x8Ia+IfnIKT3ByLUi1TNm/ymj8v5GGmeqANaVMaN1v3KJG
+	Ln+B/wZd5zvNBu4lq4WUGJES+O/oObHzVvfYq56HBat6qGaw/JYdVE2FmKUDJVG8pjzBh3VdiIgYu
+	XFEofgwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wK6hJ-0000000F1q1-2HCj;
-	Tue, 05 May 2026 03:43:49 +0000
+	id 1wK6hL-0000000F1r0-0Vhz;
+	Tue, 05 May 2026 03:43:51 +0000
 Received: from mout-p-201.mailbox.org ([80.241.56.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wK6hF-0000000F1ne-14GX
+	id 1wK6hH-0000000F1oY-0Vby
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 03:43:47 +0000
+	Tue, 05 May 2026 03:43:48 +0000
 Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4g8krX4RYcz9twr;
-	Tue,  5 May 2026 05:43:40 +0200 (CEST)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4g8krd3jlgz9th7;
+	Tue,  5 May 2026 05:43:45 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1777952620;
+	t=1777952625;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=7X9VCLXHjxXWTlqd62nzcy4IVpyAqSSzi15Gd5cgAK4=;
-	b=X2V+N+1VrbovAq3B6wZLnRvRFMVxqf1/O4H0Fu0QGBuIGm4XJfqQ4MjvqBY1zY54bO39QP
-	Yu4zaVxIFj4KoPhZ3xSBcyXzYEj3TKvsKUQcxPd76G/oVaFFI+5RUcrz7cQKTxdxgFXXxH
-	Ag6YxYjNLD2UXnyFDElUHMzwBEY9V4nikOgQd40SAcGjZLzvlHHR591U1PQlBDLBSeGZSu
-	NZXDlORs58fznhhsx8xEZfSfkTeB5SAyFHaR84fC9xByfkUg/HOkI9zC/Z22eu73EQlDpJ
-	kNuCcnAgjGVUFbcC8FbAj5xMOV8v8kQTMfAfZbmXFZgBdz2hZCnfBfEX43SGWQ==
+	bh=DWuHnng5BOFVjspVoCh2CO/fn8L6gvKLnoeyOZOicYU=;
+	b=GglVB3tfnHbt1lRx1Q40TFoBY68Wqj/MAuW4UhAuzpX0+s5vN5+54B4roCzyzct/qPOMaO
+	dHrvcgB+HnFJxrmbGOHjYdDZhX7hk/tHQylLnloTjWdM6JmU4peAfiDpPN3OGEwmOiPLRf
+	ji8HCO3oaxIFu6HusTfNHDTavQyhgTx+rw8EHfz5BUP6cRUwLkkCvs9SJjHDLfU9uzoWKk
+	0/rP66vfZtu3Rov6dn3IANh5KezBOCNQ82Sgu6QW0CeEp68RhA34UrZxBeXPOHgzImQO8U
+	3N5pRNiAvrKetwr5oZ2n4smOZS4e/txVOqHm3OReVqY0fiI7D7DUaOjshyZLTA==
 Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=PxFAlCXa;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=mz+uOm0S;
 	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::1 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
 From: Marek Vasut <marek.vasut+renesas@mailbox.org>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1777952618;
+	t=1777952623;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=7X9VCLXHjxXWTlqd62nzcy4IVpyAqSSzi15Gd5cgAK4=;
-	b=PxFAlCXaaBj7mAvC4xoPvft/cv1BLNRYZ3ZaSyMQjH5SdabOthbaJlqRuHXieKDpt5f+3A
-	8LHGbpHBPRJy+c7dwKCJETVDO/Lnqjut7KdS58I0+Zm195xLkZ+g2uKOyPmC/6SGpE1D2P
-	D+cTrSR1Mh51TDqdn5e7GGMaKPRlAO/epY+y4XrzB53DF9EXTyWBPB8gSmc6wYILdTAmBD
-	F8EOO44AVlyl/UrVD9Y3WsNRs/TSAYeesxr+oV+f7wQjIJlxOkjWdLMwWfa90fr0x9uNqm
-	eaDaONdX16COGEiQeBHGDm6yya/+rZtKG2NB4HuN1s/cOTio5+jke4tvcDTKEQ==
+	bh=DWuHnng5BOFVjspVoCh2CO/fn8L6gvKLnoeyOZOicYU=;
+	b=mz+uOm0S2YOmJCE8Q08lFXGXe+cEYLd7C/jKTm25LDIvA3KIA1NIoiM84OuwqKsKg8lQee
+	saqeBS3aT2A5e6lGi/ugDOGpzjw9aN3o3LWBxILrH+mEbumJxYHjJYwUb2QhJpdvXWWkmG
+	QaT9ZhslCz4Rc6eFY6C7KU/I5orJ7F5SevSU0ngrOwZRE7g9jFOQWrHBx77gTEBTvyKOJg
+	M/DF4LmvadMHGahfE0lnaupUeAP2xkcNLa1SDIc5Lu9nOksCkK8lFepXnTiKsBcYe67+Y/
+	B0SXLyNghReT+ku+icmLXa1DzTqREom5ucjjjsC4dxTLBHHXDrh02zoFARF18g==
 To: linux-arm-kernel@lists.infradead.org
 Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	Conor Dooley <conor+dt@kernel.org>,
@@ -71,18 +71,18 @@ Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH 01/11] arm64: dts: renesas: salvator-common: Specify ethernet PHY reset timings
-Date: Tue,  5 May 2026 05:42:42 +0200
-Message-ID: <20260505034325.167797-2-marek.vasut+renesas@mailbox.org>
+Subject: [PATCH 03/11] arm64: dts: renesas: eagle: Specify ethernet PHY reset timings
+Date: Tue,  5 May 2026 05:42:44 +0200
+Message-ID: <20260505034325.167797-4-marek.vasut+renesas@mailbox.org>
 In-Reply-To: <20260505034325.167797-1-marek.vasut+renesas@mailbox.org>
 References: <20260505034325.167797-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-META: arb1xrp3dfgd1mb3e3hhu3c8xycct6ue
-X-MBO-RS-ID: c9ed13ad1323de76c38
-X-Rspamd-Queue-Id: 4g8krX4RYcz9twr
+X-MBO-RS-ID: e4826d3424b96bfec04
+X-MBO-RS-META: ky1ycbawq9mcw7k5buxkdftnypnozhw9
+X-Rspamd-Queue-Id: 4g8krd3jlgz9th7
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_204345_444977_1CCCB786 
+X-CRM114-CacheID: sfid-20260504_204347_455539_043A4DA4 
 X-CRM114-Status: GOOD (  11.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -125,17 +125,17 @@ Cc: devicetree@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org
 Cc: linux-renesas-soc@vger.kernel.org
 ---
- arch/arm64/boot/dts/renesas/salvator-common.dtsi | 2 ++
+ arch/arm64/boot/dts/renesas/r8a77970-eagle.dts | 2 ++
  1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/renesas/salvator-common.dtsi b/arch/arm64/boot/dts/renesas/salvator-common.dtsi
-index e505161caa675..6c97d186fac22 100644
---- a/arch/arm64/boot/dts/renesas/salvator-common.dtsi
-+++ b/arch/arm64/boot/dts/renesas/salvator-common.dtsi
-@@ -361,6 +361,8 @@ phy0: ethernet-phy@0 {
+diff --git a/arch/arm64/boot/dts/renesas/r8a77970-eagle.dts b/arch/arm64/boot/dts/renesas/r8a77970-eagle.dts
+index b26c5a7097771..a2ad79ddf73db 100644
+--- a/arch/arm64/boot/dts/renesas/r8a77970-eagle.dts
++++ b/arch/arm64/boot/dts/renesas/r8a77970-eagle.dts
+@@ -113,6 +113,8 @@ phy0: ethernet-phy@0 {
  		reg = <0>;
- 		interrupts-extended = <&gpio2 11 IRQ_TYPE_LEVEL_LOW>;
- 		reset-gpios = <&gpio2 10 GPIO_ACTIVE_LOW>;
+ 		interrupts-extended = <&gpio1 17 IRQ_TYPE_LEVEL_LOW>;
+ 		reset-gpios = <&gpio1 16 GPIO_ACTIVE_LOW>;
 +		reset-assert-us = <10000>;
 +		reset-deassert-us = <300>;
  	};
