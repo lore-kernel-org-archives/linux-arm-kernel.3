@@ -4,99 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03832FF8855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:27:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 280A5FF8855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:28:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=psW2zn2RKA7mDVnr8upNFQH0mArJi5iuTG1xm14kmUs=; b=hcb/nz3li7jHtAZs8ozLmGjqo8
-	1qWr4ucrPMXmv8lEWwEYb70LaLPHHoZedIibSEyim32iffn5ZlhmdGedoQv4eH+OIkK+Sn4NtpPbk
-	Xw6jAf31KhhIxeC8Bau1SePgK0S7vR9nHCQflqmFrFJJ665NmRQQ5vi+tQFTdwydGUqtAwEgSm7FG
-	9P481E6EfHIGuQg7e5GzwCePCbINyUn8bbEJj9Fl+feg+XMD0JMMdUqpYHrVhuhjfgeejU0400ZKm
-	yfTtwgeHn1w9FnPG223jjx+WD0XOEM4bfY4HQNXWMP5iTzfBxM2rzIUUgFm8aG9Nan6BLsBxIfpe/
-	NAhHtKJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8WQr36TmyFi7QVIMZQuRjrhbt1LBT/VI6KtNWSrKUFA=; b=YrtvqwE/d5BO//2KSxzsjlNxPv
+	40WZKsjQaHJS2ffEg+UTqj1ebUSfhNjgCe5sHMX3W5GHTB1hUKuD5IOSesIX+3GX+RSST8J2wtKKd
+	NU8xSNld7Wn2jEFpenttXcFDj84D3FU2UM/UHfpB0FSI5pihtjD81BAEdwaeYBeK7vVtBoXbfZb3l
+	3d23/z3K5zOSt/icrbe0dGCoouGgwNo9WR5JkFMFdQsMnAtrwelXcnG+SjaaNf0LMk2yrvcUqywJ2
+	qu9+nO71U0dG4nn8pGks5jvMXGtRhPmEXQdehn43uZEa8tUg5RDwpl/GMFaFOVCx1kD98O8Wmnxnv
+	UcuClRBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKIch-0000000Gsw9-01um;
-	Tue, 05 May 2026 16:27:51 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1wKIdR-0000000Gt8Q-2757;
+	Tue, 05 May 2026 16:28:37 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKIce-0000000Gsuv-18WB
+	id 1wKIdP-0000000Gt77-0JKl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 16:27:49 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4891b0786beso36886245e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 09:27:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1777998466; x=1778603266; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=psW2zn2RKA7mDVnr8upNFQH0mArJi5iuTG1xm14kmUs=;
-        b=lWA/aF4AnZRMVegibBk/o94MP1wKxSNGS+SdWtbS7PXaOVRIMsa9ciMW3R2z8Iixaa
-         wDJjDs1D5gwbs168WKh0ghE/H1abypkU0XDdKG2V+KFPz3pw88MNHnlYonP49ya9hgdS
-         YyA4O+LDo4qvRIN/yiK251Yi6nD/hnQ7PZG7vs0X67tN7R778Fb02t53noP8qbLvyA/R
-         g6dTsF42OKwJ4DZZJB4NEKwiXTXCGfEEOcAQcvRxWJhq4SnHrzk8LCT+U8s6hMykrWLd
-         DVA83qcC9nynvmoPHdCyiNuuo6vDP7UH/ef6XJrnttTKrLyETOHwbD2T7CUv80b3ZJYe
-         zYdQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777998466; x=1778603266;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=psW2zn2RKA7mDVnr8upNFQH0mArJi5iuTG1xm14kmUs=;
-        b=c8tXIZzQ3TOPyNmL4ACuYyxLqulslVfKqtP3FPAOL6p6Tq43NfcDUjBfZwhXIuBDfJ
-         CTny5RjjPYKT9HVsrQFt60/n8bGYTHWNSl47yW9dK9DoFXb3Gra6dbEmq4p2SZYLuqyT
-         9mt3xdJZ/bKcjdYk+nApZ7cotRB2sRqe6eEus355yKZb9BJYBw1X2I4NS0nVpffmNpVy
-         37XI7F6EuWRObReuP36MWEnkWdRU6fAml8f1VSJcbQfFy5ivl2/AJi7sXqpoCZnm5IRc
-         z/mFDE5K2gXBA3zRqpevDIB8hu19yJddGAwAcUEPx21HOXJB/uVhZp6nlhSwDUIJ0Mbf
-         P2eA==
-X-Gm-Message-State: AOJu0YwLdmWafoHY7j6N4K5tFXmm3oVeMRbFrF+zapjETe+cs2wg7f6s
-	xL2DZAEuIjy9GfAYvI5FiXQ3gwFrQJOIdzJ8giJTydGaa85sQG5HHA0ICGzvY46l+TI=
-X-Gm-Gg: AeBDiesXWmFuhUiULl55wAiFRMmNvG6g2dp4+IoQwRhjkAHIlPEVI/MZ9EMSHOdjqWw
-	jZnXusZVZB7GkKKrB2JBPFHk6YGwuDS0H/NsHzngsq/OQvMwd9C1VP/EIHpIO7Ojw/VnLAT0Ai6
-	4vb5T7tjXZN8g/pFwKGOFGzI/at4CPqT92DG5SwSuxOSF3U/qa5QyaKsP98FZtCLl6cmp8Sushi
-	gQg1DqhaeQ9Ah2GAWhREdMYjBSwJhjZ5lt4HsX53X5Z02hO/U+ouP2o1vLxC4OEdXhwJzLGfPtz
-	M0CR2dtoKkqE021ej9ACzVOFBjmULMu90AasFg92QWJ5rxVRROVpw2L9hbC/p7tZPZXtJHyo6ep
-	tFBaE//gzqHfQXTEb1kZrZ4foxTO/RO/HIzG5aPcOxC4f6wksTjoUsnX6OUSjg/4yw1glYN1HF3
-	vnxQcDoTw=
-X-Received: by 2002:a05:600c:3544:b0:489:1d23:4524 with SMTP id 5b1f17b1804b1-48e51a6229fmr2708455e9.5.1777998466365;
-        Tue, 05 May 2026 09:27:46 -0700 (PDT)
-Received: from ziepe.ca ([213.147.98.98])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48a8ebb3dc1sm381506775e9.14.2026.05.05.09.27.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 May 2026 09:27:45 -0700 (PDT)
-Received: from jgg by jggl with local (Exim 4.95)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1wKIcb-000AO7-2w;
-	Tue, 05 May 2026 13:27:45 -0300
-Date: Tue, 5 May 2026 13:27:45 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
-	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
-	mark.rutland@arm.com, qperret@google.com, tabba@google.com,
-	vdonnefort@google.com, sebastianene@google.com, keirf@google.com
-Subject: Re: [PATCH v6 05/25] iommu/arm-smmu-v3: Move IDR parsing to common
- functions
-Message-ID: <afoagb/wVBJD1IX+@ziepe.ca>
-References: <20260501111928.259252-1-smostafa@google.com>
- <20260501111928.259252-6-smostafa@google.com>
- <20260501124716.GD6912@ziepe.ca>
- <afiODW2sVMeOj3Ag@google.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	Tue, 05 May 2026 16:28:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pdPvwAbcGE8VbocMG75D/IS8tv2u/dwImVMtaLZne2VjucTJ2myTyKOu31A6l542J3kGaqFl5K1o8puZUc6c4OI90BF9HUzNHsKvL30Wwgub3YBmETJpCbYyFnQfz6v3CefLBVAvFn3Ox+9AMg86W0CqzyUWDhbqlXepsdR5Vo4pLoPsjdthtk2A1unDp4PkrWHjEpT5A3hVUmBJpUF7N/QxkftTBPVMavNXLqROvtAJtVjmfhRSIFladpIQpEDGM5kAw6DEeawIXnmpOxfDMqm66QjR1mFKU/y3R5ha/ZMUKZtXYltCUYL4QcstTgQe41KfaNugMzlanH1bh3ezcQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=67E+e4MpC+SYypwpZNegS+i6jx9wtRbb15wiJjSSmGc=;
+ b=GKHDuP9UkCIVZnJwYUQ+/cCyjrVyZcP5SMVQeupUA+5ZyCnqhMpKC8CwxeFg/Dt9nRpniOu+DNLZ01yQjgzUwqfwJgS5GLEFwUI7D3xhpn4OljJqZQSrpJFMEO85Nb7gc+NhV2CjOYrV76ESd8X+UD1EIMqiSb/05qQ60NxwKrpNWEDwWJTEOU1FAYHl85Vz8V5WgWV+Zhi4EAuQT+v1cbPkfXNYEgVgw9/K3CtQ3xa7+X6pahXf4K8FFXUJZBCSBTOIExaksd4WemTar6s2CQAUQYNX8QKRl9XiIx3AnOjQXg/VwFTImzZ2ItYEoioMF4Trgb54ck3RuqoYgOl0mw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=67E+e4MpC+SYypwpZNegS+i6jx9wtRbb15wiJjSSmGc=;
+ b=b5RlbsGQ6p3N/CSi4ILewkVwl3pGpupMsHpGZhAcg7XTbZ+AFqn/hLiUNEQ7OTjvUg65rMWbGlYrx92qZiVnKlLRXMUDzGBEkQZAajhBwR6EPDDAcwstKtQQw6l61mzjgW1pqVq1nXHFBx7c4oy+QovtgGMCK7IM2eM5LxA9e8CaXeVQFXOETwvZ5esS1XzupKX/AM7s64jn1sCf6Ag6QYXs6znEPRMf3EUHvzg0LWgvIGy4COeyqDhfAxo5CMxQL3GHw2nDfZj2HE1Ka6IsPjWnorKsSZKYqA+CXD0lbH6ZkEqIcvvA8028jKLBMfIJvdhAqUFG5qm7INuirqXvwg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by VI0PR04MB10925.eurprd04.prod.outlook.com (2603:10a6:800:25b::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Tue, 5 May
+ 2026 16:28:28 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9870.023; Tue, 5 May 2026
+ 16:28:28 +0000
+Date: Tue, 5 May 2026 12:28:21 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: =?iso-8859-1?Q?Adri=E1n_Garc=EDa?= Casado <adriangarciacasado42@gmail.com>
+Cc: Ulf Hansson <ulf.hansson@linaro.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Jens Axboe <axboe@kernel.dk>,
+	Miri Korenblit <miriam.rachel.korenblit@intel.com>,
+	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
+	Haibo Chen <haibo.chen@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Boqun Feng <boqun@kernel.org>, linux-mmc@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-block@vger.kernel.org, rust-for-linux@vger.kernel.org,
+	linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org,
+	=?iso-8859-1?Q?Adri=E1n_Garc=EDa?= Casado <adriangarciacicuelo@gmail.com>
+Subject: Re: [PATCH v2 3/3] mmc: sdhci-esdhc-imx: consolidate imx25/35 data
+ and add Kingston CID
+Message-ID: <afoapez6kwrPjvU2@lizhi-Precision-Tower-5810>
+References: <20260315172746.270734-1-adriangarciacasado42@gmail.com>
+ <20260315172746.270734-4-adriangarciacasado42@gmail.com>
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <afiODW2sVMeOj3Ag@google.com>
+In-Reply-To: <20260315172746.270734-4-adriangarciacasado42@gmail.com>
+X-ClientProxiedBy: SN7PR04CA0074.namprd04.prod.outlook.com
+ (2603:10b6:806:121::19) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|VI0PR04MB10925:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4eb8cd9a-5309-4201-c010-08deaac356ad
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|52116014|376014|366016|7416014|22082099003|18002099003|56012099003|38350700014;
+X-Microsoft-Antispam-Message-Info: nbs78fnH0VNUEU0XlkdbV9kex+WT80t2QXq1tE8TRZIXJVJBl2Arnlv+D+/lFmd0IOt/rxZpgLYDO4DCl0/QPlLZu02IyqVHUH7VwZp0n2yDWe8Vedh12yfpAw5eWnADUTmsng3YoRLYFYA8UA/52YcDeVr4LOFkjuf4m6nxsnApLIPAVoaDUKrL4ngFBV/8ryyE73hwd/zbItpElatKH0nzs0VB02L/1x1DrCkym039j6Brwi15pHyysGoO69yZpB3fj6aWQua1om6/3DaCPy++/WuAysF3o1QyDLuaOCgBqgvfVGv7fl7zlSk1FbyeGnyh0gk0WqUx5AKH7baNtDwP3EKY0xP2UREloVlmRU3P7u8s39Wjb5QC/cmYiDXwswK6f3D4yJ4u07ME5b2AqncndYR+cgWdC8yYREbH5BEoiwgJSqEgyL1yiDgeFHy5Et04x8ZKekwVsHl1ftHGD9U67VOBvBQpyg6VdAj97hvaC1Cq4PLYH+WwbbqzwIlCKp+nJMT8uB0EOaMdCWeBtiJT+SnibATvjaONS0na6Gn4kgKwqeb80z9url7Tytck8TU3lO2ySosJCthgmeP5Ed1Ck5hfh/70lH4/BY4qubLGTZkqdvN47u9vhD7KgaFx7SGpaheEMEHFF+AKcf5wSozuypUSyJJWCs3ofedQTqPnxIzp7D7z6LBeoa0PzCzwBEkx37/e/xkUmGIxxUroxMIRnrUu5mmw5eYB2bT4ifbV7ZVQ/ZCPh+uxhyt8/NTI
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(52116014)(376014)(366016)(7416014)(22082099003)(18002099003)(56012099003)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?bnm7W7GCJwm3IAlWbwPu8xqKqm3vXaWuXFAJDJfZw2yQqUPILJle4E61YV?=
+ =?iso-8859-1?Q?xOsxWA68nNNg4tTivibmjEzwrhKIcTld8lLxD3C+GcHV7DxazKwrNRvK1S?=
+ =?iso-8859-1?Q?FAXSUsoijCWskP8Rn6qRley1hYRjNcD5vw9+DEHfYAE30HitZ386Jj5PvG?=
+ =?iso-8859-1?Q?R3RinK4FEwX9BJDjMMHq5Yw1RBwByhzSwFNa/YOYT6nONgq133bfAWM5Bt?=
+ =?iso-8859-1?Q?tUXKxr1n4nh53705OVuzeqCyvHkNMz01KDF305mEP+KfhctODKaOeGEAz5?=
+ =?iso-8859-1?Q?8oKJKk2+wpBzKh8v9eFOHKM+S1AW6oIGPqietCYAKqB+E6WL93aScEWWTK?=
+ =?iso-8859-1?Q?SVlZ6+ob4aNP0bwy7HDdwWu4Zh2Rm0SSpxzhN4vsamS2kSrqmtiZCmmUSj?=
+ =?iso-8859-1?Q?R7Tev2cLJ0+YD5fidozDxrGKfznPxYWb/hBbfSrkBJEFm/xYAr81wSwU91?=
+ =?iso-8859-1?Q?OHEnxpsPtAww/q45HYjXNEmGMiYzE5vIsgqPCyfYsib6Ydt8jGYeYUePSM?=
+ =?iso-8859-1?Q?SKbcwzpqIb0bsThkiXbnElL1RHg4LW2iHNt0D/J3zqbp/68QzeS2+YCGNY?=
+ =?iso-8859-1?Q?+jEoIee+cq4CLzD+SztZDLeTIvp068aYpZUNahg9BScdi/k71Bmow6P2ul?=
+ =?iso-8859-1?Q?IFZAHd6xebZozCFNTclc+DaS3F4mPiN5ojPumvbH8eMD9RGGgUL99/AUll?=
+ =?iso-8859-1?Q?8bc+ToTSlM4YY/jXc+Nfk1pqnCz3sezXRAqOAObSWTTa/mpNAa7uMCrFh6?=
+ =?iso-8859-1?Q?W1ioT6cJp9mZ/owAZrdog+b82gDGA9t+FghSSSbWTVGxDRuah/+dbYVCGp?=
+ =?iso-8859-1?Q?lmqh0BFqi2Uv7R/3S57ijgT7N6dee/5D8aru5TRT+XIeXdz0gS7AUescQ+?=
+ =?iso-8859-1?Q?qH7D7bcF5lDCGOQgPb4pFKsz7TET3jNnCIryNy119vzQTKHuoFDbpAeTop?=
+ =?iso-8859-1?Q?PrUuwqWanz0AmGrGlckw7gy3dn51Rypw5OEUbXQu+yfJc5iWYLsIPgMtlH?=
+ =?iso-8859-1?Q?DIsLPr6Repr5A8CElNZru3+JYsru6gk7hHgdCNftwASzUP3/H5NlXBMuwV?=
+ =?iso-8859-1?Q?ebNp6O5INUvFNnJvuKIf6OSpc+DcR2XnH07xJvxzqTwDVE53oyz84aslPC?=
+ =?iso-8859-1?Q?qzDePy0Gr3h4ryD5vu1DGX7NDy1GWFCAOMsJAAXgMzBFrKGcobQ7LHwDo/?=
+ =?iso-8859-1?Q?KUETnsofXEdH5/cXFaE617/CFKpw9AJEUlTAFSDoU1NuWJ62o8Zv13I9F5?=
+ =?iso-8859-1?Q?X3sijvoUAhndH93it6aGAAuZxnEBEl3vhDXrsYvuRejI2rQJ3Vly4A8vp0?=
+ =?iso-8859-1?Q?qw1eJsa3MP3uDGg09qc+HLkJ7D8hkeqEX4bbPv4XcHnflDZ7LPOt/nBPK4?=
+ =?iso-8859-1?Q?aFwPbzpZZci4vKqrgQaBA/eCPb0PkWPrXk9nSxe7bj9W5qbP1ushCbuBsm?=
+ =?iso-8859-1?Q?Osx74zHu377vihc8hJZC917AFWbM8AZKmYf6v1IUuyUgka08kHIpOx0dId?=
+ =?iso-8859-1?Q?DCk3dXx51XbPY3+QVQaWJJLLVi45U+nzF/3jFv/Wo5WjDaVZNmvXc2P0am?=
+ =?iso-8859-1?Q?wrJsyyEQAXRsg4rVzOeKlAur8FSgA9HAKIn90oy0f6ecydcqkOgjBJzh+X?=
+ =?iso-8859-1?Q?HV2z+Sv2Qbm4RxsCdAbUpP/g+uvDAgN+/kvRQ3NVqhGoU2vTWzx0XD53Qr?=
+ =?iso-8859-1?Q?NOYWOEWNbxxshsYNRLm1NhuyGtNTmSxcU7FTIP9AmQwwUN10LOCDrfA1S9?=
+ =?iso-8859-1?Q?WxQlMB6cJcFGIw/zRu91YbwFnvO43rubvOaZK2zGg2Ji7oxwPgeouNc+is?=
+ =?iso-8859-1?Q?1EqNKt7r7A=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4eb8cd9a-5309-4201-c010-08deaac356ad
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2026 16:28:28.6002
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: j8AjLd2J1SkI1c4m7z814qN8rtDU+Xvzhfk/kWa1xw/8M1a7z4prBpSIJAgr9KAPhz1uV+GvmsBBZYxVabQMDg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10925
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_092748_322147_3341F226 
-X-CRM114-Status: GOOD (  22.84  )
+X-CRM114-CacheID: sfid-20260505_092835_114616_105874F5 
+X-CRM114-Status: GOOD (  19.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,44 +149,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 04, 2026 at 12:16:13PM +0000, Mostafa Saleh wrote:
-> On Fri, May 01, 2026 at 09:47:16AM -0300, Jason Gunthorpe wrote:
-> > On Fri, May 01, 2026 at 11:19:07AM +0000, Mostafa Saleh wrote:
-> > > Move parsing of IDRs to functions so that it can be re-used
-> > > +unsigned long smmu_idr5_to_pgsize(u32 reg)
-> > > +{
-> > > +	unsigned long pgsize_bitmap = 0;
-> > > +
-> > > +	if (reg & IDR5_GRAN64K)
-> > > +		pgsize_bitmap |= SZ_64K | SZ_512M;
-> > > +	if (reg & IDR5_GRAN16K)
-> > > +		pgsize_bitmap |= SZ_16K | SZ_32M;
-> > > +	if (reg & IDR5_GRAN4K)
-> > > +		pgsize_bitmap |= SZ_4K | SZ_2M | SZ_1G;
-> > > +	return pgsize_bitmap;
-> > > +}
-> > 
-> > I think this should include:
-> > 
-> > > +	smmu->oas = smmu_idr5_to_oas(reg);
-> > > +	if (smmu->oas == 52)
-> > >  		smmu->pgsize_bitmap |= 1ULL << 42; /* 4TB */
-> > > -		break;
-> > 
-> > ie it should return the supported page sizes by inspecting all the
-> > idrs and don't leave this tricky bit to be open coded..
-> 
-> This way was easier as each function only returns one thing, otherwise
-> we have to pass stuff by address as we canâ€™t pass the smmu struct as it
-> is not shared between the drivers.
-> But no strong opinion, I can change that.
+On Sun, Mar 15, 2026 at 06:26:40PM +0100, Adrián García Casado wrote:
+> Consolidate esdhc_imx25 and esdhc_imx35 soc data into a single shared
+> struct since they share the same flags. This reduces redundancy. Also
+> add the CID_MANFID_KINGSTON definition to quirks.h for centralized
+> management.
+>
+> Signed-off-by: Adrián García Casado <adriangarciacicuelo@gmail.com>
+> ---
+>  drivers/mmc/core/quirks.h          |  4 ++++
+>  drivers/mmc/host/sdhci-esdhc-imx.c | 12 ++++--------
+>  2 files changed, 8 insertions(+), 8 deletions(-)
+>
+> diff --git a/drivers/mmc/core/quirks.h b/drivers/mmc/core/quirks.h
+> index c417ed34c..d736bb4be 100644
+> --- a/drivers/mmc/core/quirks.h
+> +++ b/drivers/mmc/core/quirks.h
+> @@ -15,6 +15,10 @@
+>
+>  #include "card.h"
+>
+> +#ifndef CID_MANFID_KINGSTON
+> +#define CID_MANFID_KINGSTON	0x70
+> +#endif
+> +
 
-Could you share the struct? With multi-compilation you do get two
-structs with the same name and different layout, it is OK?
+Where use it? It is un-related change with sdhci-esdhc-imx.c. Please split
+it.
 
-That would give a cleaner setup too because you can just shove all
-this into a function and have it setup the same struct which is more a
-copy and paste than break up into little functions?
+Frank
 
-Jason
+>  static const struct mmc_fixup __maybe_unused mmc_sd_fixups[] = {
+>  	/*
+>  	 * Kingston Canvas Go! Plus microSD cards never finish SD cache flush.
+> diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
+> index a7a5df673..9cfa26722 100644
+> --- a/drivers/mmc/host/sdhci-esdhc-imx.c
+> +++ b/drivers/mmc/host/sdhci-esdhc-imx.c
+> @@ -256,11 +256,7 @@ struct esdhc_soc_data {
+>  	u32 quirks;
+>  };
+>
+> -static const struct esdhc_soc_data esdhc_imx25_data = {
+> -	.flags = ESDHC_FLAG_ERR004536,
+> -};
+> -
+> -static const struct esdhc_soc_data esdhc_imx35_data = {
+> +static const struct esdhc_soc_data esdhc_imx25_35_data = {
+>  	.flags = ESDHC_FLAG_ERR004536,
+>  };
+>
+> @@ -391,8 +387,8 @@ struct pltfm_imx_data {
+>  };
+>
+>  static const struct of_device_id imx_esdhc_dt_ids[] = {
+> -	{ .compatible = "fsl,imx25-esdhc", .data = &esdhc_imx25_data, },
+> -	{ .compatible = "fsl,imx35-esdhc", .data = &esdhc_imx35_data, },
+> +	{ .compatible = "fsl,imx25-esdhc", .data = &esdhc_imx25_35_data, },
+> +	{ .compatible = "fsl,imx35-esdhc", .data = &esdhc_imx25_35_data, },
+>  	{ .compatible = "fsl,imx51-esdhc", .data = &esdhc_imx51_data, },
+>  	{ .compatible = "fsl,imx53-esdhc", .data = &esdhc_imx53_data, },
+>  	{ .compatible = "fsl,imx6sx-usdhc", .data = &usdhc_imx6sx_data, },
+> @@ -414,7 +410,7 @@ MODULE_DEVICE_TABLE(of, imx_esdhc_dt_ids);
+>
+>  static inline int is_imx25_esdhc(struct pltfm_imx_data *data)
+>  {
+> -	return data->socdata == &esdhc_imx25_data;
+> +	return data->socdata == &esdhc_imx25_35_data;
+>  }
+>
+>  static inline int is_imx53_esdhc(struct pltfm_imx_data *data)
+> --
+> 2.47.3
+>
 
