@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F113CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 12:44:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B4CEFF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 12:46:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C5keBJkPYx5ZgoWalnHhunPGrhbaZ7oanxcpIt+4S58=; b=WQHWXv3JisZmG/6QRZK8X6Ysqu
-	2LHo3NWCdqgf3+4lg9YpFLeywPzF7VGxv1V1mNOBFZDBd5uLbpfH+lJDpHHebsWWuGu0GZADjiuGe
-	RVFBNpfnuZCMs24pOIBxqU9fdHFVAGkAZkWVk8WReWb+y6nEGIc3SVjgGdjqMy/J6MnMiEL3XqkWX
-	OXAbmSEYCHHMBvZujrZGuocw70ONfJ+P/fuCT+eS6jG3Ui21r465P6VaHH+pLV1ni/zfPQi9wrFom
-	GhRw0ycs5URrMvSpE5I22gHXU7NebW32t/+do/kwMpC03/+yWpJYchVu6+sszg5Do3gZgPysLM5fq
-	GnWshAcg==;
+	bh=rVnkmHVd+pu9S0anEsS4r4bfU6M1ddOgx2neCXzbhZs=; b=qiy6GU/x8hpA5ZfgYTnvAxJDEf
+	O2ZuOm4qqZw2zMHrctO4Hfp5usNEkkBFu3K5W7yhZLemnFURcCYxlHbNddwSOfWmmFRstRo0BszI3
+	/7JHHveH8z/kkXdcl70rwhFHPmr67AVUQd3Y12RJ7zJoBXUtQMFcpXwVaAsO9XkVVyUr5OTn47XaI
+	e755TqaImvWQLle0SlXoPsUe05ZedYAs1Y9b0BZpgrfCHDohoa0XWng3q7nHNZr+HR2jsd7M94Uos
+	Vs4sGWwO/9Jyr/tN+FpmJA4FdNOPznJV/w5NmQhnhkJi4J1rXqlqT+/v4ALlY/MI0uU2T9CQlWdsD
+	ZvkNEBkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKF8H-0000000GDMt-0geL;
-	Tue, 05 May 2026 12:44:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wKFAn-0000000GDqM-3KJS;
+	Tue, 05 May 2026 12:46:49 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKF8D-0000000GDLk-3m1b
+	id 1wKFAm-0000000GDq8-1Ip1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 12:44:11 +0000
+	Tue, 05 May 2026 12:46:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 94390408A4
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 May 2026 12:44:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58A16C4AF14
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 May 2026 12:44:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 412BB61143
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 May 2026 12:46:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA41BC2BD04
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 May 2026 12:46:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777985048;
-	bh=C5keBJkPYx5ZgoWalnHhunPGrhbaZ7oanxcpIt+4S58=;
+	s=k20201202; t=1777985207;
+	bh=rVnkmHVd+pu9S0anEsS4r4bfU6M1ddOgx2neCXzbhZs=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=n3mrubftJoorIZKutX4S1zhhjIuNHUvJlv7rUoNqJLfRGuJ+bKO8lNjMtCMFfLL3m
-	 bDrJUr3ZhYnAC7yadKg6EhYl1QG/SuDDODEetH1XMNHYQo9COZaLkbHUPDFp8I2oqI
-	 MoDYf1pp4imRyN6cTL6JnbT/vEoKy9wJTSoW8kyLRapxaBGok9fhfo2a2D39HmqfeF
-	 T1lTBJ8QUkoAY15u83/6TDGaaSpa3zuj6Yom3Vktq3BwUh4FZimgUdef0gjTO75c73
-	 NzYYRykj7q/fddMWbB0wAMh+OZhGXTUZjjxhDmKmnIF0yWtRYrqAxlqSte4PgF5yhm
-	 ZZnge9oTbVNBg==
-Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-38e7d983f79so53539991fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 05:44:08 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ8JHJLHUWXXT+jXTaR0MWWl9W3pSGhQ9PHj8gvtqNu690ebJzF+CzJM88gWkEIAKlBEDvQx7fuULk4iNBMecqV8@lists.infradead.org
-X-Gm-Message-State: AOJu0YxYpn8DnJLF+cs/RlATmEK0JyQVBsKOXU//sk8WEFgRE7lnYkYj
-	b0nCK4HwZcXaZSclFWhhpQY6QtoFRbEFl8Ikryx/ID7x25I9zCktWG/zBNvDlTDeZ25EXtux9OL
-	g8NZbBBHBohCQ1dpNydyP8VEUD2ZIaeM=
-X-Received: by 2002:a05:6512:3b8e:b0:5a4:10b5:624c with SMTP id
- 2adb3069b0e04-5a8631bad70mr4316816e87.23.1777985046764; Tue, 05 May 2026
- 05:44:06 -0700 (PDT)
+	b=YBRcqY3hYCIDLQrm7nX0v8wNjpLJT9mWyPfftnVUVahrAKRuy/Ppb/682PfnGLMXN
+	 LWR8HvU82oUGMD2RAQydcMnvyF5jdNG0Pk8L9QzDJE05fSod012Pj05rcD8He4x4S6
+	 bmk7vnkiIfjTCDvHSoYS7BPUoO8y6sYC6F2cjrJQ2McPeNl6OTP0zNxdt1WccEi/27
+	 7U/IJA7hLMUQonfiZ7+s9XswJOQXI6dGF28tBMtnhIZWS2I+j1UzEVrJv2L3ams5v2
+	 TDT65zuHreErrTavdaUprSMIUXzx++2d3z9WvnJeq1yjLfetA3O3PPYNGQ/WxiMYyP
+	 HceKakEZchv5Q==
+Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5a87782588cso2484851e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 05:46:46 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+eN2Q9ph8WpdsxXqX/i8Yso/+nm0/IfFq2N2+0AuYDD9uziIS2S/ENZF5JLfa3kJkcMtDWUII3WlidY3JKKkPJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxifXQy2/vmDsLynKgaGzuD+yKrkaQloBlekpOHRMLx5VRNwciE
+	imeid48iIC4xVw4dTZzPX1GfdzXFO8R0o2GRmEtLXBnRugHI143ONLqs1B2S4brdXhfhsZBHL/w
+	Oj93jkPsip+kei9KBDRyUB/6pcAGfQME=
+X-Received: by 2002:a05:6512:3b10:b0:5a3:feed:31cc with SMTP id
+ 2adb3069b0e04-5a8631b9e85mr4464601e87.24.1777985205388; Tue, 05 May 2026
+ 05:46:45 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260504124155.3615001-1-khristineandreea.barbulescu@oss.nxp.com> <20260504124155.3615001-7-khristineandreea.barbulescu@oss.nxp.com>
-In-Reply-To: <20260504124155.3615001-7-khristineandreea.barbulescu@oss.nxp.com>
+References: <20260504131148.3622697-1-khristineandreea.barbulescu@oss.nxp.com> <20260504131148.3622697-7-khristineandreea.barbulescu@oss.nxp.com>
+In-Reply-To: <20260504131148.3622697-7-khristineandreea.barbulescu@oss.nxp.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 5 May 2026 14:43:55 +0200
-X-Gmail-Original-Message-ID: <CAD++jLnOGUOW7e_cp+LTD-U1aAP++8bw4QNLwRPWRnne=3fnvg@mail.gmail.com>
-X-Gm-Features: AVHnY4LINDdQBuzYyWghNyWztXZnz__yCp4RhcwGAtZR-JFeHZU18RDafo6lElg
-Message-ID: <CAD++jLnOGUOW7e_cp+LTD-U1aAP++8bw4QNLwRPWRnne=3fnvg@mail.gmail.com>
-Subject: Re: [PATCH 6/7] pinctrl: s32cc: implement GPIO functionality
+Date: Tue, 5 May 2026 14:46:33 +0200
+X-Gmail-Original-Message-ID: <CAD++jLnk4q7L_cFzz+1gKkAqwhv=TW1_XSepuii7b_PHF7EPqQ@mail.gmail.com>
+X-Gm-Features: AVHnY4JlHoGXQmSjsgZFXuRe_ND9OHcbw2Ietb05k05PsECGSoH_v05qU7tRmbI
+Message-ID: <CAD++jLnk4q7L_cFzz+1gKkAqwhv=TW1_XSepuii7b_PHF7EPqQ@mail.gmail.com>
+Subject: Re: [PATCH v9 6/7] pinctrl: s32cc: implement GPIO functionality
 To: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
 Cc: Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, 
 	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
@@ -77,9 +77,6 @@ Cc: Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl
 	Pengutronix Kernel Team <kernel@pengutronix.de>, Vincent Guittot <vincent.guittot@linaro.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_054409_979066_80D41A8B 
-X-CRM114-Status: GOOD (  14.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,7 +95,7 @@ Hi Khristine,
 
 thanks for your patch!
 
-On Mon, May 4, 2026 at 2:42=E2=80=AFPM Khristine Andreea Barbulescu
+On Mon, May 4, 2026 at 3:12=E2=80=AFPM Khristine Andreea Barbulescu
 <khristineandreea.barbulescu@oss.nxp.com> wrote:
 
 > From: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
@@ -127,12 +124,14 @@ eea.barbulescu@oss.nxp.com/T/#m543c9edbdde74bdc68b6a2364e8b975356c33043
 > Signed-off-by: Khristine Andreea Barbulescu <khristineandreea.barbulescu@=
 oss.nxp.com>
 
-This looks good, but if you're overhauling the regmap handling,
-have you taken a look at the gpio-regmap library?
+Same comment about GPIO_REGMAP here.
 
-select GPIO_REGMAP
-#include <linux/gpio/regmap.h>
-git grep gpio_regmap_config <- yields examples
+Maybe this has been brought up before so it's just sigh rolleyes,
+but my memory is short.
+
+Of course gpio regmap conversions can be done later, after this,
+but the problem with such things is that they tend to end up on
+the back burner and never actually get done then.
 
 Yours,
 Linus Walleij
