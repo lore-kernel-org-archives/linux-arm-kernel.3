@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 229B9CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 12:56:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C8B6CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 12:56:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Roa/R3xKoyx9d1QsB+LkhjgOO/Ewqs+tzAO6wvLC2sc=; b=gSIladisKM5QL93MKE5qCAVbE2
-	0eHJOohKS8TKx5PiJNhfiNOqjYaIG0h9ekG/swIvnID0eR2JWwo2xe/VOcq/8xUG9pk/pt6mawN7M
-	b03hW0P9FyW42epjoyxXc4YhS5KEuLRsWS2WbkxquCDgGNu9049dMOMFmgbgTMKmtpQoOAGa1Erfk
-	LO2QbwZodXjL3CWX1y8B41T4p/azcekhne2SN4Dbpk/aW+U0GrPUpuBMOmoujS6tv7Rgn5sjMNrf4
-	VxKPHw921QZJht4MBFmDrHzhN8fk8djNYZ/B147r1zXaUzR6MVK49lYpbYE1ybsKWmyQO98AAaz4M
-	gRxI3dEQ==;
+	bh=Roa/R3xKoyx9d1QsB+LkhjgOO/Ewqs+tzAO6wvLC2sc=; b=jEysNU2OkfzE/Ba1bEjh32jbQl
+	Y1RECU0ObJtU+kNXkES5SWpwsh6orq798Yvf1rw2+Mpp176a9wxJuq4R+GZN5GyfqGIuA4F3uxgGF
+	SavF0J3O4l4Lr3yMB9NMBsAq33mUaZxNXa6RT7AWyLYopMW36t5Gw+WYO/g3ZaSCUTJCswUg7v22J
+	Ac2pfYIOT6uu7BGj9C1COpZwFHDba1FTfMU2n/byQpIBhiWYvSYBYkJjzq1MIiwRzB3sqau2wvgNT
+	vxwxJ8EdSQFIoP7A0cr2GG9778HvNf3RtCnZMZkYGfIIK/WKSY+9wpgbBmc2ACEc5jUDrJqefYYVP
+	kOvfmg3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKFKI-0000000GFgx-3DiV;
-	Tue, 05 May 2026 12:56:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wKFKW-0000000GFlc-0MWR;
+	Tue, 05 May 2026 12:56:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKFKG-0000000GFfg-1Vkj
+	id 1wKFKV-0000000GFl6-0XQk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 12:56:37 +0000
+	Tue, 05 May 2026 12:56:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BCB9342E4F
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 May 2026 12:56:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C9BEC2BCF7
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 May 2026 12:56:35 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 91D1160142
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 May 2026 12:56:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4973BC4AF0B
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 May 2026 12:56:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777985795;
+	s=k20201202; t=1777985810;
 	bh=ZUs4wo3g3+7GpdmJ7ncT0CXa7bmF1VEsrvwglg4jLoE=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=hzodQ2NCG9zoh2XqXyjZl5yyYhCcjuWCm9xc/oDTNJN1WJLwwL4HFEEMw9c8vQxSB
-	 //Xl5vKkviuGByHP5wUr5ppSPYKuYFZ9OO0iUFN3H3myUY7ktL+tolifDlitP26ngm
-	 P2Ng3zfyVql6y1Oc8dn9tQA25C4f7gJ1V3P6lr+Dy5b8QDs61od9yKdadTwEqofx7E
-	 Iux2b2dydeMXEVmqSYTJjk9HGstHpKXAO8vFfXpOiEYdHQ91v0SIZi5qVgvaVmyMys
-	 EbFAso9I0L52rHJC+2erRMZ8fQaDgGu0r7ZbzddawxTG6n08oAPfF2l+Dt5FJRIgUN
-	 IED1yLyvleX7A==
-Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-39393c1b5aaso24205771fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 05:56:35 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+SCvxoM6TFcWhleInVQEY/GAcr/3OZZqtgz4e5sn3x7cNH/huhtiINdX4q/9SbTNZGMgk6LawIqCRLGa8i5+lw@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz0rjcDYiaN+cxZ3B6ijh/iidKwqXTNEyj8QD3Da9qLul7c/G5J
-	yURRpjCsPJYfj9lfzxa9hwoiTt2/EI2AWdKAq7lDBLheNU+sZ/ldTGeurPMjc1so/qH2lkROFMb
-	dCdzLhNmOPwR2COYlMtUNW64jEek3rOM=
-X-Received: by 2002:a05:651c:324e:b0:38e:aeab:9ba6 with SMTP id
- 38308e7fff4ca-3937850065bmr44277651fa.24.1777985794358; Tue, 05 May 2026
- 05:56:34 -0700 (PDT)
+	b=TW8pdnz6ylCu+n5A3jS6uOFfm1r+mrh5QJj/b5ngfXVDaIb6sHGRAklRK+cd8AwyJ
+	 LM4uXqHWrv1OQYhOadPOWdI0+97b/ql0+GrGkVegK8/S2QGKL5MSYZaa71wfnd8cPI
+	 BtaZlO4QuaxNAyVQCaqeW8pMIP9qhv1FpLcMKgHItIIKnZn+Wc9rdz4yx5dy5wT5PO
+	 t/CZudqTq/6Q/Ajl0B6O+Cp5L/3u5wVQrHWbmJYuJ7pg4XoxkaBSFzCIDYWaJm9JQD
+	 h4c5Z+uVfXj3DdraDaZGDRkC9kELRIYwtQQwaE2rmuZiTAm9RtmBcbK/VRcD310Tg9
+	 A8JBWqsMhnijQ==
+Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-38e7d984096so58805491fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 05:56:50 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ95pycYUdeVr1uAIN/UUOGUmTixi2zJUakwRI4MyxbKz5qBQhkP8AX69LMf1i6IbH9Si7LPopdQ3YTtUucyxMkC@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywe3Zj7Bt5tFm4xRHfACxNRWRi56YomR0BYwQ9obwtpQe+7WqsT
+	vw0y2M1qpESScuwqnCukt5lkJKELKZF2zCkJHoavbUJSjj4FyWVWbuQc/XYePlNXMdSToJG7LQv
+	z2npUQ0u27NLJGA8j2rh5rr1TBmQSpko=
+X-Received: by 2002:a2e:be0c:0:b0:38a:a77a:b0b2 with SMTP id
+ 38308e7fff4ca-393785870femr48588051fa.30.1777985808984; Tue, 05 May 2026
+ 05:56:48 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260505094321.75040-3-krzysztof.kozlowski@oss.qualcomm.com>
-In-Reply-To: <20260505094321.75040-3-krzysztof.kozlowski@oss.qualcomm.com>
+References: <20260505094321.75040-3-krzysztof.kozlowski@oss.qualcomm.com> <20260505094321.75040-4-krzysztof.kozlowski@oss.qualcomm.com>
+In-Reply-To: <20260505094321.75040-4-krzysztof.kozlowski@oss.qualcomm.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 5 May 2026 14:56:23 +0200
-X-Gmail-Original-Message-ID: <CAD++jLmzzcp+CUKmr6-WLcDmB2zaOki_DTkvADOQ6V-1g710HA@mail.gmail.com>
-X-Gm-Features: AVHnY4L5pGyidj4m0uJSds10p3ObB3yt2OdQMJ_NihpEGQGZ3UJKnYpGnOY1ZG8
-Message-ID: <CAD++jLmzzcp+CUKmr6-WLcDmB2zaOki_DTkvADOQ6V-1g710HA@mail.gmail.com>
-Subject: Re: [PATCH 1/2] pinctrl: bcm: Move MODULE_DEVICE_TABLE next to the
- table itself
+Date: Tue, 5 May 2026 14:56:37 +0200
+X-Gmail-Original-Message-ID: <CAD++jLn-QPagz4m6jkYU6JJS22cRZrsGA=h20JiSvn-3Pxq=Dg@mail.gmail.com>
+X-Gm-Features: AVHnY4Igt9-o67zqCdCfXKKYOq79SDn0cypO6X1gGr102Z0s00tmMJ-a4onPwSE
+Message-ID: <CAD++jLn-QPagz4m6jkYU6JJS22cRZrsGA=h20JiSvn-3Pxq=Dg@mail.gmail.com>
+Subject: Re: [PATCH 2/2] pinctrl: rockchip: Move MODULE_DEVICE_TABLE next to
+ the table itself
 To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Cc: =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
 	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
@@ -69,9 +69,6 @@ Cc: =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
 	linux-rockchip@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_055636_417451_070B641F 
-X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
