@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A7A2CD3442
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE362CD3444
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 17:12:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,60 +12,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P0+N+OKN/kTVkUzotmztG3kumJS+495ukG6sbMOmjcY=; b=1gr+VH0k8WUjryud8LQbUh1iUv
-	Wkx4XEhgTsBfRAT3ZidH/xC6JnQ9Z3pPqOgHDBfH8WuFZ8/j8wK8hfsPLJgwPKRB8W+ghxH0KT5Qu
-	OvLI5Ky0dPEsysVjSXKVz73YxUvSxFfiCAga1dVD69sOy3CqD82JmPHAmjEnqS+qAm4IkmLtMhvFa
-	K/LSKMI7v+NnbxUS2d0rOMAlzJmt+jNwM8dQWS/zzJc+Ci8blUb0T4hDSpWGzDH2Oi0o1+hHODKk9
-	BVab4UgNcVf9jE4TJsJssl35la8c3gZ9TKR68aayg3A3McwY/4GRcUWcQLAavfuegVkGN6xkHVeDs
-	7M2Q/m9Q==;
+	bh=WQzBRtevGp9SDQQk5hM9qSxUDKCpE9SbnE/lz5huCdI=; b=ukzpCJf7rLFtfF9B6oe5i4+SRG
+	v6w6dZcQqoEabBUJgL2P2jsCq1OvFQCs4Tnjhk/Km0jmFXpSqZp/6FB//6i0FZaqlrFn6oz0qoZha
+	siWYf56d2+y4FwoELLnQKMvTzfZHBozbWVc6RdpEOu5KfODb9iyFITAGgrVosgyWf03RMln0d6vZw
+	b+93oaJrE1W70scsZVRGvfCisDB7z1AWUuSvg04yGZeRr3iqVCp4DveU15tS1nwJf+YPj5Wrlfdku
+	LZWtqk8ndTEMHOayRAeVIizGleRcQlPIr1PlJcz+fTr83yGbc/Cbetn6vVbDePwrwhLq9GS+g3RL5
+	nDF3o9xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKJJr-0000000H0vU-09bS;
-	Tue, 05 May 2026 17:12:27 +0000
+	id 1wKJJs-0000000H0yc-3oLj;
+	Tue, 05 May 2026 17:12:28 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKJJp-0000000H0uT-21PP;
-	Tue, 05 May 2026 17:12:25 +0000
+	id 1wKJJr-0000000H0uv-0Qjr;
+	Tue, 05 May 2026 17:12:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=P0+N+OKN/kTVkUzotmztG3kumJS+495ukG6sbMOmjcY=; b=jotFewq0j1xWGRckWYlwqW1KnJ
-	qwp6Hc0z+iruxtDrMk50DV2o1wDJwT0+L4EZbGhgCSTAnzjq6BfZ1JhGypHCMEx7Wn8xzQKerzmsc
-	0+7xTYygd1IDLXrCCd7wDAHSisICZ0DxzGPEsKfm0YIIOaSZ54fqg7rXfrTsbjqPCo+hIf+mBSKEg
-	P4IedCxpJmvoet3kazeS4HwK6hYXi1/m7PeXjsws77xuRvKhHagmjvpPzhu2vnGlyG0KAW3NXDCfv
-	VTj9HdkZ6TX5IbLleyDpRFr+WZVi0FxThMBi5qjtuGVKyCbEG5SwtLIii8JiPt8KWwJ1AD9P45zLS
-	Mi13vgPA==;
+	bh=WQzBRtevGp9SDQQk5hM9qSxUDKCpE9SbnE/lz5huCdI=; b=iOKpeGXqL7NPp8H7tQpZh/hhD+
+	QMlJjM3lfB9VXBIU+ygWHiOcxTGtd/gaCW9osS/wYULAxv53bWSUvysFiQAF73HAzW3OVhsKwCiu6
+	lCVjBBBXGY4EdJf13pCzrTmnOzChGtipOCbBARAJucV1XrRUUlJ9+3E3kfoSXQ+S+diZUu6dTsCZe
+	tW4MtoQo8iq/c3W1w6nhSA3SEz7ZfIlf9XZBnT33UphEA5IKAeWBn+OHziNc1BBnn+Q2OBjILZj56
+	cMmz9bYcZDjG1wUL96O3s+jJ6caFggvlO6PoyMVUnCRuglRbCIlJA17bOaB00brT0YmZZtq+uZmeD
+	EgFJ7oLg==;
 Received: from gloria.sntech.de ([185.11.138.130])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKJJm-0000000E83a-2vdd;
-	Tue, 05 May 2026 17:12:24 +0000
+	id 1wKJJo-0000000E84k-1WtQ;
+	Tue, 05 May 2026 17:12:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
 	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type;
-	bh=P0+N+OKN/kTVkUzotmztG3kumJS+495ukG6sbMOmjcY=; b=ztqPZS1QYDXHebO2xYBa4ILcpc
-	VDzgwBuYXww8q80OfL9ezXMzItO2DNkbHnlB7kuTRK9elBGuSJMdTVnhzCCOA9fWyfvUjIl4N4oMG
-	fJO7nZmhm7vjW6m8+xQXVXK+rk1fJO/YsmPMIiyNtKOr4EWlETUunO926LB8bVxDLxD3csQTbkbjO
-	GhA52z+xeRuSDr2EtRxInMvHEp3Qe97s6SCws4RaRTr3CmMW399tSGfbPZ9aeVfNNpGybDdlm+Elg
-	p5c7dRAJGcF4lLmy6iMnGxU8X3BvY1fSOyLt4aMANsOKYfZ/LRMAiyAe7N9j0q5bX7dHSLdhNSp+k
-	/rcplN5A==;
+	bh=WQzBRtevGp9SDQQk5hM9qSxUDKCpE9SbnE/lz5huCdI=; b=xIANv0IiSz/GsIMmfjdhlBADgC
+	Cvpb9cYAqR8JmFzPuwUNIZ9AHPLi2c1cXLxoZeNhCChQe68zci9GADsNEgqPWfOvjRnJtTAKyWifW
+	Zp8SBaFobf3kbEkcG1oZQJPOyzXERlOzgoGH+BbRau6b1Bp3GQHCmHgPO+b7tVJ1qq8nQof7XA0ru
+	ShiY4lnggK/5Qb85kjCGuJi8B42zNG6YorDx9r+fNwYkd1ZwDe6nAo5mAIEN+dWr3ShkBTVKgRpqF
+	+uwqCcf0q6uSIKTYCBbUDLSv6xcNOiR4BCXK0cYlwjNV9PGRMq+tiEivVBIasezVzrum7eR7zo4OY
+	UDHRlg7A==;
 From: Heiko Stuebner <heiko@sntech.de>
 To: heiko@sntech.de
 Cc: jonas@kwiboo.se,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 1/5] arm64: dts: rockchip: Add USB nodes for RK3528
-Date: Tue,  5 May 2026 19:12:04 +0200
-Message-ID: <20260505171208.3267387-2-heiko@sntech.de>
+Subject: [PATCH v2 5/5] arm64: dts: rockchip: Enable USB 2.0 ports on NanoPi Zero2
+Date: Tue,  5 May 2026 19:12:08 +0200
+Message-ID: <20260505171208.3267387-6-heiko@sntech.de>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260505171208.3267387-1-heiko@sntech.de>
 References: <20260505171208.3267387-1-heiko@sntech.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_181222_975296_B74C8CE6 
-X-CRM114-Status: GOOD (  11.79  )
+X-CRM114-CacheID: sfid-20260505_181224_522096_548EED7A 
+X-CRM114-Status: GOOD (  10.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,121 +82,55 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Jonas Karlman <jonas@kwiboo.se>
 
-Rockchip RK3528 has one USB 3.0 DWC3 controller and oneUSB 2.0 EHCI/OHCI
-controller and uses an Innosilicon-USB2PHY for USB 2.0. The DWC3
-controller additionally uses the Naneng Combo PHY for USB3.
+The NanoPi Zero2 has one USB 2.0 Type-A HOST port and one USB 2.0 Type-C
+OTG port.
 
-Add device tree nodes to describe these USB controllers along with the
-USB 2.0 PHYs.
+Add support for using the USB 2.0 ports on NanoPi Zero2.
 
 Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
 Signed-off-by: Heiko Stuebner <heiko@sntech.de>
 ---
- arch/arm64/boot/dts/rockchip/rk3528.dtsi | 77 ++++++++++++++++++++++++
- 1 file changed, 77 insertions(+)
+ .../boot/dts/rockchip/rk3528-nanopi-zero2.dts | 30 +++++++++++++++++++
+ 1 file changed, 30 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-index 806b8109f67d..8823df18f66e 100644
---- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-@@ -336,6 +336,30 @@ pcie_intc: legacy-interrupt-controller {
- 			};
- 		};
- 
-+		usb_host0_xhci: usb@fe500000 {
-+			compatible = "rockchip,rk3528-dwc3", "snps,dwc3";
-+			reg = <0x0 0xfe500000 0x0 0x400000>;
-+			clocks = <&cru CLK_REF_USB3OTG>,
-+				 <&cru CLK_SUSPEND_USB3OTG>,
-+				 <&cru ACLK_USB3OTG>;
-+			clock-names = "ref_clk", "suspend_clk", "bus_clk";
-+			interrupts = <GIC_SPI 152 IRQ_TYPE_LEVEL_HIGH>;
-+			power-domains = <&power RK3528_PD_VPU>;
-+			resets = <&cru SRST_A_USB3OTG>;
-+			dr_mode = "otg";
-+			phy_type = "utmi_wide";
-+			snps,dis_enblslpm_quirk;
-+			snps,dis_rxdet_inp3_quirk;
-+			snps,dis-del-phy-power-chg-quirk;
-+			snps,dis-tx-ipgap-linecheck-quirk;
-+			snps,dis-u1-entry-quirk;
-+			snps,dis-u2-entry-quirk;
-+			snps,dis-u2-freeclk-exists-quirk;
-+			snps,parkmode-disable-hs-quirk;
-+			snps,parkmode-disable-ss-quirk;
-+			status = "disabled";
-+		};
-+
- 		gic: interrupt-controller@fed01000 {
- 			compatible = "arm,gic-400";
- 			reg = <0x0 0xfed01000 0 0x1000>,
-@@ -349,6 +373,30 @@ gic: interrupt-controller@fed01000 {
- 			#interrupt-cells = <3>;
- 		};
- 
-+		usb_host0_ehci: usb@ff100000 {
-+			compatible = "generic-ehci";
-+			reg = <0x0 0xff100000 0x0 0x40000>;
-+			clocks = <&cru HCLK_USBHOST>, <&cru HCLK_USBHOST_ARB>,
-+				 <&usb2phy>;
-+			interrupts = <GIC_SPI 143 IRQ_TYPE_LEVEL_HIGH>;
-+			phys = <&usb2phy_host>;
-+			phy-names = "usb";
-+			power-domains = <&power RK3528_PD_VO>;
-+			status = "disabled";
-+		};
-+
-+		usb_host0_ohci: usb@ff140000 {
-+			compatible = "generic-ohci";
-+			reg = <0x0 0xff140000 0x0 0x40000>;
-+			clocks = <&cru HCLK_USBHOST>, <&cru HCLK_USBHOST_ARB>,
-+				 <&usb2phy>;
-+			interrupts = <GIC_SPI 144 IRQ_TYPE_LEVEL_HIGH>;
-+			phys = <&usb2phy_host>;
-+			phy-names = "usb";
-+			power-domains = <&power RK3528_PD_VO>;
-+			status = "disabled";
-+		};
-+
- 		qos_crypto_a: qos@ff200000 {
- 			compatible = "rockchip,rk3528-qos", "syscon";
- 			reg = <0x0 0xff200000 0x0 0x20>;
-@@ -1273,6 +1321,35 @@ combphy: phy@ffdc0000 {
- 			rockchip,pipe-phy-grf = <&pipe_phy_grf>;
- 			status = "disabled";
- 		};
-+
-+		usb2phy: usb2phy@ffdf0000 {
-+			compatible = "rockchip,rk3528-usb2phy";
-+			reg = <0x0 0xffdf0000 0x0 0x10000>;
-+			clocks = <&cru CLK_REF_USBPHY>, <&cru PCLK_USBPHY>;
-+			clock-names = "phyclk", "pclk";
-+			#clock-cells = <0>;
-+			clock-output-names = "clk_usbphy_480m";
-+			power-domains = <&power RK3528_PD_VO>;
-+			rockchip,usbgrf = <&vo_grf>;
-+			status = "disabled";
-+
-+			usb2phy_otg: otg-port {
-+				interrupts = <GIC_SPI 146 IRQ_TYPE_LEVEL_HIGH>,
-+					     <GIC_SPI 147 IRQ_TYPE_LEVEL_HIGH>,
-+					     <GIC_SPI 148 IRQ_TYPE_LEVEL_HIGH>;
-+				interrupt-names = "otg-bvalid", "otg-id",
-+						  "linestate";
-+				#phy-cells = <0>;
-+				status = "disabled";
-+			};
-+
-+			usb2phy_host: host-port {
-+				interrupts = <GIC_SPI 150 IRQ_TYPE_LEVEL_HIGH>;
-+				interrupt-names = "linestate";
-+				#phy-cells = <0>;
-+				status = "disabled";
-+			};
-+		};
- 	};
+diff --git a/arch/arm64/boot/dts/rockchip/rk3528-nanopi-zero2.dts b/arch/arm64/boot/dts/rockchip/rk3528-nanopi-zero2.dts
+index 9f683033c5f3..cd5c75433fa9 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3528-nanopi-zero2.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3528-nanopi-zero2.dts
+@@ -338,3 +338,33 @@ &uart0 {
+ 	pinctrl-0 = <&uart0m0_xfer>;
+ 	status = "okay";
  };
- 
++
++&usb_host0_ehci {
++	status = "okay";
++};
++
++&usb_host0_ohci {
++	status = "okay";
++};
++
++&usb_host0_xhci {
++	extcon = <&usb2phy>;
++	maximum-speed = "high-speed";
++	phys = <&usb2phy_otg>;
++	phy-names = "usb2-phy";
++	snps,dis_u2_susphy_quirk;
++	status = "okay";
++};
++
++&usb2phy {
++	status = "okay";
++};
++
++&usb2phy_host {
++	phy-supply = <&usb2_host_5v>;
++	status = "okay";
++};
++
++&usb2phy_otg {
++	status = "okay";
++};
 -- 
 2.47.3
 
