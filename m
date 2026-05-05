@@ -4,75 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBD4EFF8855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 15:46:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF4C4CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 15:46:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AAJbDC4iluXmSGM5UC/PvQCi+EMg4m55pLpOljJJutg=; b=0TTVX9EZp67rkR7on9q5MUSe9Z
-	kvb8xglka6IQTtbpOaZ552Yw8Yu1PMHvXbODFWmEU0HnCdKY15ymvhZx/MnY+Ez1oYjeBaAoVihQp
-	tScohI18TTlWOtc5FbQ7aZ538XgVvUNd2MSCinSfnmf2Maxxi/wqAWcCRXfTqDuQlBVdG+4TuM4LJ
-	wYnKfvy8YcYjeTx+BVZuNl4GhsHGhNap76JzgCMCE1/GE2kFiF9RJsgvToIAftuYQVFwfOtbrsty4
-	OiEXvKjbAKEnyu0MOqrkHOSjObHrm0m12MLViwmx5zlhfswcHgOk6GmUdlpvWsq++5eOz35Udlkrv
-	b4HJDTJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MNIYDGmtqhOIDwyNnLm1xd0jyY5t28O+6Qy95KyNsj8=; b=txDC/LDS9pYmQds02vAnztlzn8
+	ZSdeoFny1EbPqrsfgivgYQ3zq0dd4epOiUbOCbA8z6L3VUJrsYl8E2T8qWnUH7C1cjDRCE/fKjujs
+	ByJmR4+U07DtQJU2gYO5CFIPcECxI+fT4MIkS9hX8xFszW9PQI2crL3ZpTKqkTpEI7ZwdQ41I+O9L
+	wLY9UbdVE4nv1YFTQ6VWhyxaVSf4P//esA94D5hT/QAYdefg9tW4RC5FaFUwSKfMPfbofvrwbFVAV
+	Na7AGA9PgITZIkAMmIT94Ld3CZsWKsgDpPHJJTD0jhdG/QtfGAB1NjAuj0v84WZYwCmpgF2QKJUc9
+	wl4fHqkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKHyo-0000000Gi2k-2v95;
-	Tue, 05 May 2026 15:46:38 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1wKHyu-0000000Gi5N-31dN;
+	Tue, 05 May 2026 15:46:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKHyl-0000000Gi0q-3NHO
+	id 1wKHyq-0000000Gi3h-1buu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 15:46:37 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1wKHyA-0002ON-5T; Tue, 05 May 2026 17:45:58 +0200
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1wKHy7-000bK5-3A;
-	Tue, 05 May 2026 17:45:56 +0200
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1wKHy8-00000001KYi-17yu;
-	Tue, 05 May 2026 17:45:56 +0200
-Date: Tue, 5 May 2026 17:45:56 +0200
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Rob Herring <robh@kernel.org>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Marek Vasut <marex@denx.de>, 
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, laurentiu.palcu@oss.nxp.com, 
-	victor.liu@nxp.com, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/4] Revert "dt-bindings: display: bridge: ldb: Fill in
- reg property"
-Message-ID: <2bl2mwpk57xgkuye2gydliymjkzikiovnb7ovnb73olwtfkjwn@byn3732grvnh>
-References: <20260504-v7-1-topic-ldb-fixes-v1-0-0125d937ff7f@pengutronix.de>
- <20260504-v7-1-topic-ldb-fixes-v1-2-0125d937ff7f@pengutronix.de>
- <20260505141538.GA2547282-robh@kernel.org>
+	Tue, 05 May 2026 15:46:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1208A409F3;
+	Tue,  5 May 2026 15:46:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E04BBC4AF63;
+	Tue,  5 May 2026 15:46:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777995999;
+	bh=DI8b9BQ7TcVhg5qEuSxU1/ZlGThOcIFxs7PwN0uw9Kc=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=GkNuaMgg3UhIsvHXbV3F/GPRhDpfyey4upsUS+cqU/OZIN1uhlwZgo1Wj5n2zQrEO
+	 4zGQmnnc+Tgs5Ic89P0oF++qrnRHH2dkqiKsthcJl5BqO9Vv60D2rIWjm4+m9ZSd8e
+	 yctzEY3EcffLJZ1+OwVVR8GKydaJqWNCMxLoDNF8yYiJCYJIbvXIBy1+0PGuiSgXgR
+	 npiEbTDJq9Juq0+Y5VzvwF99y03ydb/rug9sR40X+ZP9DgUqJK3iv9M/kJowUrdg0n
+	 f6inx58mthXgHsBeUXrA0MNk0+CIe8GaiRSJL4QxnMWNNRGRUp7GFD0PgVUwtGHkEA
+	 ng2o5MfXCNa4Q==
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Sudeep Holla <sudeep.holla@kernel.org>
+Cc: Jens Wiklander <jens.wiklander@linaro.org>,
+	Sebastian Ene <sebastianene@google.com>
+Subject: Re: [PATCH v2 00/11] firmware: arm_ffa: Fix cleanup, notification, and discovery paths
+Date: Tue,  5 May 2026 16:46:33 +0100
+Message-ID: <177799593688.2900098.12239077076770020908.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260428-ffa_fixes-v2-0-8595ae450034@kernel.org>
+References: <20260428-ffa_fixes-v2-0-8595ae450034@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260505141538.GA2547282-robh@kernel.org>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_084635_844624_44842522 
-X-CRM114-Status: GOOD (  28.70  )
+X-CRM114-CacheID: sfid-20260505_084640_974505_9A9299E0 
+X-CRM114-Status: UNSURE (   8.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,81 +75,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26-05-05, Rob Herring wrote:
-> On Mon, May 04, 2026 at 10:21:42PM +0200, Marco Felsch wrote:
-> > This reverts commit 16c8d76abe83d75b578d72ee22d25a52c764e14a.
-> > 
-> > Remove the 'reg' and 'reg-names' property from the LDB.
-> > 
-> > The LDB is either part of the IOMUX_GPR (i.MX6SX) or the BLKCTRL
-> > (i.MX8MP, i.MX93) register space. Both IOMUX_GPR and BLKCTRL are
-> > register ranges with loose register definitions. E.g.
-> > 
-> >   - On the i.MX8MP there is one register which controls the AXI
-> >     threshold for two different IPs (BIT(31:16) - IP1, BIT(15:0) - IP2).
-> >   - On the i.MX6SX IOMUXC_GPR5 controlls: CSI2 mux, WDOG3 settings, PXP
-> >     handshake, ...
-> > 
-> > In conclusion: it can't be ensured that one register belongs to one
-> > dedicated IP and the LDB is rather an exception than the rule.
+On Tue, 28 Apr 2026 19:33:24 +0100, Sudeep Holla wrote:
+> This series fixes a set of issues in the FF-A driver around init
+> cleanup, framework notification handling, v1.0 notifier lifetime, and
+> partition discovery.
 > 
-> It is fine if there's a child node for LDB if the LDB registers are 
-> consistent, but the other misc things are represented by the parent 
-> node. It is certainly not a requirement that either everything be in 
-> child nodes or nothing be in child nodes.
+> The fixes are all small and localized, but together they tighten a few
+> important paths:
 > 
-> What I don't see in this series is what problem does this fix? If you 
-> are going to break compatibility, then there had better be a good 
-> reason.
+> [...]
 
-Hi Rob,
+Applied to sudeep.holla/linux (for-next/ffa/fixes), thanks!
 
-with the upcoming i.MX9x SoCs the parent syscon (BLKCTRL) controlls
-multiple other IPs, e.g. a DPI mux added by commit 3feaa4342637
-("dt-bindings: soc: imx93-media-blk-ctrl: Add PDFC subnode to schema and
-example").
+[01/11] firmware: arm_ffa: Check for NULL FF-A ID table while driver registration
+        https://git.kernel.org/sudeep.holla/c/0a5e695095c5
+[02/11] firmware: arm_ffa: Skip free_pages on RX buffer alloc failure
+        https://git.kernel.org/sudeep.holla/c/09527e2c5349
+[03/11] firmware: arm_ffa: Avoid collapsing NPI work from different CPUs
+        https://git.kernel.org/sudeep.holla/c/9b5597af8bc5
+[04/11] firmware: arm_ffa: Fix per-vcpu self notifications handling in workqueue
+        https://git.kernel.org/sudeep.holla/c/9985d5357ed9
+[05/11] firmware: arm_ffa: Unregister bus notifier on teardown for FF-A v1.0
+        https://git.kernel.org/sudeep.holla/c/6d3daa9b8d31
+[06/11] firmware: arm_ffa: Bound PARTITION_INFO_GET_REGS copies
+        https://git.kernel.org/sudeep.holla/c/3974ea193840
+[07/11] firmware: arm_ffa: Keep framework RX release under lock
+        https://git.kernel.org/sudeep.holla/c/2af18f8e36b2
+[08/11] firmware: arm_ffa: Validate framework notification message layout
+        https://git.kernel.org/sudeep.holla/c/4a1cc9e96b31
+[09/11] firmware: arm_ffa: Align RxTx buffer size before mapping
+        https://git.kernel.org/sudeep.holla/c/0399e3f872ca
+[10/11] firmware: arm_ffa: Snapshot notifier callbacks under lock
+        https://git.kernel.org/sudeep.holla/c/38290b180a4d
+[11/11] firmware: arm_ffa: Fix sched-recv callback partition lookup
+        https://git.kernel.org/sudeep.holla/c/a6848a50404e
 
-During the discussion of the above commit we agreed that the sub-devices
-of the syscon shall not use the reg property due to the fact that one
-register serves multiple purposes. In the above case the same register
-controlling the dpi-mux also controlls MIPI-DSI bits. The MIPI-DSI bits
-can be abstracted as drm-bridge as well. Two sub-devs using the same
-'reg' property below the same parent seems odd and I don't know if this
-allowed either.
-
-Now the LDB is also part of this BLKCTRL syscon device but requires the
-reg property. TBH, I don't know why the reg property was added in the
-first place, due to the above fact (multiple sub-devs - same register).
-
-Of course, we could limit the breakage to i.MX9* SoCs only which is done
-by:
- - https://lore.kernel.org/all/20260329-fsl_ldb_schema_fix-v1-1-351372754bc0@nxp.com/
-
-but I don't think that this would be nice from user and from maintainer
-perspective, because:
- 1) The same LDB "IP" would have a different dt-binding
-    (user perspective)
- 2) It introduces another dimension drivers need to care about
-    (maintainer perspective)
-
-Therefore I went this way to drop it all together to make it easier for
-the user and the maintainers.
-
+--
 Regards,
-  Marco
+Sudeep
 
-
-
-> 
-> Rob
-> 
-
--- 
-#gernperDu 
-#CallMeByMyFirstName
-
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
 
