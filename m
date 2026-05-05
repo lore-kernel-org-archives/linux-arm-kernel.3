@@ -4,85 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23FCDCD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 23:46:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 104E3FF8855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 23:58:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LYEKKpUfVkavdHLKVA6iz5gKTqlOA3vClvdLRGh0BhM=; b=vIdI2xc90EYZFPgDgvwdj7VC2D
-	msEdwQvK8JWJRV/fX1iAYYoJfBgPtvR3A8C6B2Kan32L9RWT6pH8B7bXeRpLVWOtvc9VikdHMJfii
-	dJ6FmQTHTqLica2U8vH49jlE7ys6UBoiYnScmdaA1caw9mr+bOGJuyFgBptk5kTkF7mpL/GggKUp3
-	0d3p5DG7mr2lQDABah2rUQYoFgrWVJ+f36nMP2yJyP00YhqCgSRfJwU2TJSdU8PI1R5evvmxcYlaG
-	GSlgasO+MI5UauLSncjptO6k5T9RQPdbr0sIGucZ5zCHToR0wvI+WxW7VFBiWD9/zs2LpR/JzaJSZ
-	YtEY5IOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MeGMWQbLjZspQ8v1tlpfYlPx2YUAxwMS3yXl0onGmug=; b=gCgs+MlFO19CEokImzslVQxCa+
+	7FT2um19/oJEM7+LUZkk/xmMiQzD1CMTk9yfKOlMePjiIR8on/Jv+IUqxH7rtjDgeg+BVi0G11Q51
+	TADTdwK8JmZd+O4IC0wbRYjWTF79V8n+5wMxEhaO8WONG67iS9QhWjR6kxAfJOaUKxB3AE6QQemiK
+	w3YzVoT1E/uWIlKSfE6tZ/A/fa2DXua5dCFrO9J0dUGW/Q2TG+mMWUjJZW1qRs8SfY6krzMzjR1pn
+	IkJamfgHkjkXy8twDTKYxrj4hsYXxzEzo2eWKTPFgpLwjdQ8xYbiHqeTUNZYqwjjnfTCbiy5GrJm5
+	0k2+6o5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKPSy-00000000FXI-19m8;
-	Tue, 05 May 2026 23:46:16 +0000
-Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
+	id 1wKPem-00000000Gb0-0qIY;
+	Tue, 05 May 2026 23:58:28 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKPSp-00000000FWK-0PuN
+	id 1wKPek-00000000GaP-2Myu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 23:46:15 +0000
-Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-39396f873adso31214511fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 16:46:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778024764; x=1778629564; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=LYEKKpUfVkavdHLKVA6iz5gKTqlOA3vClvdLRGh0BhM=;
-        b=GjF6vC319Fe4JYUCHvemu5XPBJSJMgMk0T6gbkPLmeOtsWrkhiUtnqR4pr0Pk5AYoR
-         RE+sPerBdPA5VkEWLmOZ9y4hSmUlq44/4FeYcfSHzCmXvt6Z8FigDkDMkB0PG4QaM64R
-         ISCt83IGdeZEpn7b1CRTntetAXRSEz+r/ERrZkB0771xAWoIuXwLvk0t5TxURVx4RcEL
-         ZwhcNX+axC9r1loVZwp3Xdfl3SSiHeWzVhXDloqav+qB+Nx4IeRFwr76WwxgvUIvGNVw
-         G3b/CBOq8Sw85t2ngE0FjCz0ZyfcZbbYKIcZdb74mN6RsWBrgZfaojResPpjeDNSZMJ2
-         hEWA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778024764; x=1778629564;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=LYEKKpUfVkavdHLKVA6iz5gKTqlOA3vClvdLRGh0BhM=;
-        b=FN9V9EjCA+4wt53w9WzzPFAZk3o7ezXgywS/iWv+66wenJfIL1Lk8cNR+8wFOJaZTk
-         dwETPzlBGHhg4IUj6MQ0eskDXHTgAHgRnybgXRw4Jlox1jKsLXs2trQrKyiAsCWQvkFW
-         heiVUvSqT6A//1V86M8npwDSb3t0c4nkiNECTp4pRRLsfl5Vt1hQrvAge2T/aSqJ9U9F
-         LCGFlfl6SnN48RUEoiafU5nT413QPpJAnD3A1EkcP7GR0EjD5PWN6mRB02Ftq21c/VpX
-         t2L8WkM3uxdGcUBNxKXw0OYKZdoZif1trgsc1KR1jockTXFN2Zlh9Svt1ZtuZRZeQPD0
-         4Kdg==
-X-Gm-Message-State: AOJu0YzUeAVTOd+QwWKiGv5QLU9+F7oCs/29uhDoinBLB+wceC5Bn7Cn
-	2GmZEgs0MHdHQL6uV/jEiqUGwVlhf8sEoyigSpPPUbWSyubvSydnBJtNZ6zZBbUj
-X-Gm-Gg: AeBDieuw+Lj8b1IL/rPlf09O/CjmL+VkiWJSgf/h/zT10/nUThHWq4GRfsN3AJYObNB
-	cQysbcyvbvnTLGIbzQODKwc2t1E9SGXNucZfpXWyCr5BVT/yh1ILNjDezodwfiKGkzUPDFXgwOA
-	fIWO1FNwNzsO3mz6+g49cHRXqyIffIgtK731Z96HOFlwFe3XHe5QAd54QeMgyh2kyf6rTuWGRy+
-	Y1TkqqSCO9yBrtC27gTL2XbHbLXxsMufvX0VU3vWcUwbzbLEJa8VShd7WkN5w05DDoHrtbuze0t
-	KER5UckrU9UtIC9X1+t4j87BPjlTSYLeSnScC+NhlkF7hbaQKXNS0fP4hkIBYiq8AK6+sy7e0Px
-	ji47pSMOXVnom2mj/itwbCZNtGDn5Xeov3QCh7Y0LVwpxC4cfSFZQXoRPKy5KpUZQbBmQz1u8uC
-	NMfb2sSt1Tcvl/vZY272IGwcCRhA6lF9lajWrnvE4sMz2w0S0AWuPXLzAL02DQQDrBDDoGLjV2v
-	goXlw==
-X-Received: by 2002:a2e:84cc:0:b0:38e:2aa7:398f with SMTP id 38308e7fff4ca-393c40f27camr3232221fa.7.1778024763888;
-        Tue, 05 May 2026 16:46:03 -0700 (PDT)
-Received: from Shofiq.home (87-92-218-151.rev.dnainternet.fi. [87.92.218.151])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-393937ad8b6sm27582841fa.5.2026.05.05.16.46.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 May 2026 16:46:02 -0700 (PDT)
-From: Md Shofiqul Islam <shofiqtest@gmail.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: nm@ti.com,
-	ssantosh@kernel.org,
-	linux-kernel@vger.kernel.org,
-	Md Shofiqul Islam <shofiqtest@gmail.com>
-Subject: [PATCH v3] soc: ti: knav_qmss_queue: free resources in remove callback
-Date: Wed,  6 May 2026 02:46:00 +0300
-Message-ID: <20260505234600.8196-1-shofiqtest@gmail.com>
-X-Mailer: git-send-email 2.51.1
+	Tue, 05 May 2026 23:58:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0FD946024D;
+	Tue,  5 May 2026 23:58:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95368C2BCB4;
+	Tue,  5 May 2026 23:58:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778025504;
+	bh=oZi5mOLJO5tHaHGOBk0mIAUMjE6TaWnkHFAMBM6by+c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JsmR+I5H5ev8eTvCdYfQowrbT0G+qLlOffLa6uWw/PMCnR5YANoFysupz43z1cPV3
+	 yygfJJWwCDheUdWDgoCBEM/PYXcP6bOICgdUTDCg1Ym7sB8ukKk+5POoeBuxS4MiPg
+	 5Crk8mUZ/kMz/n5PwGij9h/Hot1o4HwTGePlMgZ1lVq0hhnc1YcsGfDb9H+CA2LJus
+	 Hj/HYGg5IbzsJU6HJTeTMG9NqpFNOIYdNAl7iXo5QTIoY2t5k1olVcKiSDtujuFUP3
+	 4Fehqr9TDWriaorqRQdmuUF+RHQWUcEJm9jwqsaPoHRo66yxbWNa8P0zAKWAjoE5AW
+	 XXI5hzmYEtpbA==
+Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
+	id 9B99D1AC5878; Wed, 06 May 2026 00:58:21 +0100 (BST)
+Date: Wed, 6 May 2026 08:58:21 +0900
+From: Mark Brown <broonie@kernel.org>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Andy Shevchenko <andriy.shevchenko@intel.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-sound@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>
+Subject: Re: [PATCH v2 2/3] ASoC: pxa2xx: push gpio usage into arch code
+Message-ID: <afqEHZSUCASXPUze@sirena.co.uk>
+References: <20260505202426.3605262-1-arnd@kernel.org>
+ <20260505202426.3605262-2-arnd@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_164609_512222_1C25679C 
-X-CRM114-Status: GOOD (  11.31  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="0lcLZ48zRt5QpNpN"
+Content-Disposition: inline
+In-Reply-To: <20260505202426.3605262-2-arnd@kernel.org>
+X-Cookie: Alex Haley was adopted!
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,34 +78,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement the TODO in knav_queue_remove() by stopping PDSPs and
-freeing queue regions and queue ranges before disabling runtime PM,
-mirroring the cleanup performed in the probe error path.
 
-This ensures resources are released on driver unbind and avoids
-leaking queue/region state.
----
- drivers/soc/ti/knav_qmss_queue.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+--0lcLZ48zRt5QpNpN
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/drivers/soc/ti/knav_qmss_queue.c b/drivers/soc/ti/knav_qmss_queue.c
-index 86d7a9c9a..8d8245352 100644
---- a/drivers/soc/ti/knav_qmss_queue.c
-+++ b/drivers/soc/ti/knav_qmss_queue.c
-@@ -1873,7 +1873,11 @@ static int knav_queue_probe(struct platform_device *pdev)
- 
- static void knav_queue_remove(struct platform_device *pdev)
- {
--	/* TODO: Free resources */
-+	struct knav_device *kdev = platform_get_drvdata(pdev);
-+
-+	knav_queue_stop_pdsps(kdev);
-+	knav_queue_free_regions(kdev);
-+	knav_free_queue_ranges(kdev);
- 	pm_runtime_put_sync(&pdev->dev);
- 	pm_runtime_disable(&pdev->dev);
- }
--- 
-2.51.1
+On Tue, May 05, 2026 at 10:24:25PM +0200, Arnd Bergmann wrote:
 
+> index 7df78867db49..0d5eaf4b100c 100644
+> --- a/include/linux/platform_data/asoc-pxa.h
+> +++ b/include/linux/platform_data/asoc-pxa.h
+> @@ -6,6 +6,6 @@
+>  #include <sound/pcm.h>
+>  #include <sound/ac97_codec.h>
+> =20
+> -extern void pxa27x_configure_ac97reset(int reset_gpio, bool to_gpio);
+> +extern void pxa27x_configure_ac97reset(struct gpio_desc *reset_gpio, boo=
+l to_gpio);
+> =20
+>  #endif
+
+You're adding a use of struct gpio_desc but not including the header for
+it or declaring it.  Which won't really matter here but still.
+
+--0lcLZ48zRt5QpNpN
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmn6hBwACgkQJNaLcl1U
+h9BV7wf+Jmw366XieA0d2MdbU3V0YXlDc+OCwyOPneDbRc8EVPKcVBtuGL3uDNrg
+mcKj4o5Vz6xBqJTo601VF9QKjxP8m6GHMoBaqnTigLj2cpijXYk/P/IRg5R5++tZ
+HUivwwyNM4Irp8wRyEn2+I+6cdRX/urSBzRNVPhyIC/VIKNSG4BjfMr7v2t26PMj
+J1iCQ/psxlDDj8pxFHtBlgG9FTLDJFJUnbAGVSE3kMFFk9XAbnj2rTOqvtzfXt62
+Z2aDCvNtzaCV/H0mN1uRyJGNdf2GCv8Qg30aT7ytbEB0PBUbozCbe4ZYQbLQ74N6
+kITzSVhWFCoWqejbh9OCPiE1wKlwEw==
+=yhzA
+-----END PGP SIGNATURE-----
+
+--0lcLZ48zRt5QpNpN--
 
