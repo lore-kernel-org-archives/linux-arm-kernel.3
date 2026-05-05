@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19C8FCD3440
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 13:48:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86806CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 13:48:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vWl+8/JImjyD4t9bOUMvA2yHONgs8yy+5gzvJcqLaJQ=; b=SSpwgo+iKswmvrmQ3ulOojt1O5
-	McaKsQ7/wi3y1p5xEkajzJv78k+HTTdp4i91w/nOAXL5aT3kxSOhEUYyK0fyn0F76MzPuSMlQTKL0
-	MGFK+3E7qBTV0gWp7q5H6XtRT6UsivMjsarirCTfDMCiFIXHBxKMj3EakQvrv2jp/Aa3vJ+s4kswA
-	6O/lJI8ssTuolP90fq+P0JCUceHLILyv/Fo8XElGcTvP5ccf2MZR/DSfXb0Z5b5IcjAdZvvlYN0Gh
-	SWN279Y8y/elbBj0B4e4OWffdXK9WVF1IFnfQbIZrkhIf8zdcQO8JAkk+cuCRu51Bnlt5oFWzgOFL
-	i8yuGtjQ==;
+	bh=NF3xGrEUFdHEStObrNSfP3pu1tt74nWP2+Cczyhxx5M=; b=uHSlCw8JSgCNTHi+tkxIU6lF37
+	nVKBAGlbkVXWGhBbNahLo7WNBUIe9aBHZu6CXbRrR84tBB0PKvwQlo8QWEeiMxVt0r4iBTKVxGIjL
+	JBoNv5ANXxcK+eO6K6MCwKoaK82BdhnrPEM8srUh68YBJaSnu+3xisG2gs8lyYjhiQS52rkp1TMf7
+	DRNXlRRcRX5YL4Q5y2FHtBjfof1D75O+VrI/ss8w8Ts3iMdV48SvwYBlWeWctKB+Jq9h9ZVhu2dqS
+	4reYYu9cVxu1BiXKurgARFLrXJwmSFw8vKafv3Tk3Te/KlWFvoAZKkxeeoQVl+Ucm8uYy2inm7VQl
+	i1pj/wrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKG8P-0000000GNVI-1VFA;
-	Tue, 05 May 2026 13:48:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wKG8T-0000000GNYk-0Ydz;
+	Tue, 05 May 2026 13:48:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKG8O-0000000GNTP-1BQ8
+	id 1wKG8M-0000000GNS3-2iN4
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 05 May 2026 13:48:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B4204601EE;
-	Tue,  5 May 2026 13:48:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AEFAC2BCB4;
-	Tue,  5 May 2026 13:48:23 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A06D1445ED;
+	Tue,  5 May 2026 13:48:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E312C2BCC7;
+	Tue,  5 May 2026 13:48:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777988903;
-	bh=wQgoGnngpTZW96/wSsSOQkYRjEid39CqoW4AdwUk8c8=;
+	s=k20201202; t=1777988901;
+	bh=41aAwkaRzDArZ2/BUER3ytgPMD/yUeLsP1zzcXu+P7Y=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qY0vU1hDz1VGwqEpu4PenJ508SsBSxkOb1qgmmPdpiJ2EfsOm1pO609+2NfbE8JoM
-	 pQbhf+pZsGm7MebPGD3iRGI83ydhaddTYGDgZ2PlEQi+K8pz1JStqeUSfiU163lo1D
-	 WBxsFpK6f+bTzjtioTM53vpnatbL2ZMwwD1md5VsZgTkbiDCSO//vPE1H3iTNMioah
-	 ItKyfJoWunJyYNxO62qtVRmnxMrSyaLY3TtFtFZ+Vf3dfJih8dOG6dWbLB0BfE0p8r
-	 iM4MMD1z17jqpB/8TKvd0mftJgY9vJLkfLAopSeIf0EXWNYZMl2Ctbp7j4nYrvdWoD
-	 dOSzIKAgXOEsw==
+	b=pr7RAkwJ/OuNJ4iFRuwgPOUqr5/X2gNfeBNEI5jDSh/jpDawzZ3oWjxF2t/z0Pw0+
+	 +MHVJhCyfK6IZ33s054r4LAg7lTQCd/kX6s6oxK/jbtk4jEzrQTAxvix+OpsK85XSZ
+	 bXOx4h0x92dn7/bBQF8JoH03dm4VG413J9opE22tKuJ4wN8GOOpd4VgH2GxkXjtvFv
+	 6QQwRvQdJcKdbIlV9xJSUCyb/sHt0A1sRyX0zVWxDj0k/OT0nRukAI+8XnBzuS4XKS
+	 5C1kDABrdGS0YkrANP65UnyK6HV72gI1t5Ar6BvS5qmYpe+CcCJw20VSD2eE0kkSZa
+	 aZD5EfwfhHoEg==
 Received: by wens.tw (Postfix, from userid 1000)
-	id 61B5A5FFEA; Tue, 05 May 2026 21:48:19 +0800 (CST)
+	id 4A7455FF94; Tue, 05 May 2026 21:48:19 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
 To: Maxime Ripard <mripard@kernel.org>,
 	Paul Kocialkowski <paulk@sys-base.io>,
@@ -61,14 +61,17 @@ Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	linux-sunxi@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 6/7] arm64: dts: allwinner: sun50i-h6: Add missing IOMMU for video engine
-Date: Tue,  5 May 2026 21:48:10 +0800
-Message-ID: <20260505134812.408316-7-wens@kernel.org>
+Subject: [PATCH 3/7] dt-bindings: media: sun4i-a10-video-engine: Add H616 compatible
+Date: Tue,  5 May 2026 21:48:07 +0800
+Message-ID: <20260505134812.408316-4-wens@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260505134812.408316-1-wens@kernel.org>
 References: <20260505134812.408316-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260505_064822_709185_A24488D4 
+X-CRM114-Status: GOOD (  10.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,32 +86,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The video engine on the H6 actually has two IOMMU ports. The one already
-listed is simply named "VE" in the user manual. The missing one is named
-"VE_R" and is probably either read-only or used for reference frames.
-Either way, it should be listed.
+The H616 contains a video engine similar to past SoCs.
 
-Add a reference to the "VE_R" IOMMU port to the video engine node.
+Add a new compatible for it.
 
-Fixes: 62a8ccf3a248 ("arm64: dts: allwinner: h6: Fix Cedrus IOMMU usage")
 Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
 ---
- arch/arm64/boot/dts/allwinner/sun50i-h6.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ .../bindings/media/allwinner,sun4i-a10-video-engine.yaml       | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h6.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h6.dtsi
-index 88c6e3e105c0..48c771223af4 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-h6.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-h6.dtsi
-@@ -206,7 +206,7 @@ video-codec@1c0e000 {
- 			resets = <&ccu RST_BUS_VE>;
- 			interrupts = <GIC_SPI 89 IRQ_TYPE_LEVEL_HIGH>;
- 			allwinner,sram = <&ve_sram 1>, <&de2_sram 1>;
--			iommus = <&iommu 3>;
-+			iommus = <&iommu 3>, <&iommu 1>;
- 		};
+diff --git a/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-video-engine.yaml b/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-video-engine.yaml
+index 818d815d4732..20c430795134 100644
+--- a/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-video-engine.yaml
++++ b/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-video-engine.yaml
+@@ -24,6 +24,7 @@ properties:
+       - allwinner,sun50i-a64-video-engine
+       - allwinner,sun50i-h5-video-engine
+       - allwinner,sun50i-h6-video-engine
++      - allwinner,sun50i-h616-video-engine
  
- 		gpu: gpu@1800000 {
+   reg:
+     maxItems: 1
+@@ -96,6 +97,7 @@ allOf:
+           contains:
+             enum:
+               - allwinner,sun50i-h6-video-engine
++              - allwinner,sun50i-h616-video-engine
+     then:
+       properties:
+         iommus:
+@@ -111,6 +113,7 @@ allOf:
+           contains:
+             enum:
+               - allwinner,sun50i-h6-video-engine
++              - allwinner,sun50i-h616-video-engine
+     then:
+       properties:
+         allwinner,sram:
 -- 
 2.47.3
 
