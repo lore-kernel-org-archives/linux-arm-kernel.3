@@ -4,148 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 009C5CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 17:59:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77E45FF8855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 18:01:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=euKFIAQCeM55RulM535j7KBn6cys8J5H/Q721o26Boo=; b=SoQrkRnEdlsp0ZToUruOK9kcsT
-	OPTY2XlLEHD2vqdyMH/xqlCaDzGz4fMNs+wsGq4MdRYR1jWFsOTi1qb+KpHEycx2y9kprD6gninGF
-	ygHP6TdEf/xNYUkJie1MPs7B3dIDS94Jb7Qwq2CgDI/Ar1SgyCCaimG6I61J2PUXo8hx59wkp22s4
-	eZ8cj7aajAA+gKE21ijaLujrAIhMcQ13tkyPZP7fguNjms2kTmzWPO5SF3koz1CH5eKzq6jzjxqDW
-	4dB6cKbj21lR75FbtMWZ9gP4W6iONElYg6eYQBPBjtvn57C7fIazTS9fbuwPUOuTDhMSCxIx+6Gf7
-	oAytAByA==;
+	bh=nQUZmjv7aHFLMaMFauN5kz/OKqGsuDJKsdlinZQqRbc=; b=wWOr3Kb0csGa7jmMyLCFyU2/Vn
+	pgz7YLQLLU1fVs39/RlfUDa1QJ1/vWpZEnDcD13SHDC9Aot4iObE7fzuR9yIG7GQa9xhdLWYf8sJG
+	SM/nem3LsstjctIMY/LpNBV0p6wgDllDhCVXrh9zaej3r79v9fyoXzm8z+zn0ASgoKxFzjSVIkd7x
+	a6a5eEGJFHOGPXo7734WO888B0iSd4xrzo7gGtLcMLztVJlt5gpoLAQH37DI8OyLJ1AKIRidNUd1y
+	JIWjIeRGzQgwT/Gj0/HwYZQkLlCgj/S/+RZgGuxEkRG3K1MOIXA2YVd2xT+UZaRWgWzn+Y5cICR39
+	SSMSd6uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKK2u-0000000H6ix-1cuk;
-	Tue, 05 May 2026 17:59:00 +0000
-Received: from mail-dy1-x1361.google.com ([2607:f8b0:4864:20::1361])
+	id 1wKK5W-0000000H79Z-0wx8;
+	Tue, 05 May 2026 18:01:42 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKK2r-0000000H6hp-110N
+	id 1wKK5T-0000000H78l-2aCq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 17:58:58 +0000
-Received: by mail-dy1-x1361.google.com with SMTP id 5a478bee46e88-2f36da5c8fbso1978451eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 10:58:56 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778003935; x=1778608735;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=euKFIAQCeM55RulM535j7KBn6cys8J5H/Q721o26Boo=;
-        b=jXbwLsHPzaxm/gYngOLRz/JvsTcBlHjUQBWJLHNX8+fsx1oYkHu5vNQsnp+mvH1D3Z
-         LxJmxGtIuLFowSVHdwlYOTUYh71qNrGVSwG9vc5H3fIXdipzk1PlF9zW8i7Mv5GJuSlK
-         9chmd1toqGlWVEdPZF/Pjohnf2h+T+T68/nR/nDxjhw9xJE1L0qvBKZusJlVLbmoDpKp
-         cPpIyl6n1MChU1L66arKGRoB2h7NVzM45d3fCLZPlCY2uYHuHXd9rOe+192bITpu5Fyi
-         xTQSXZi74kgVzCaxrFFA3m8QpiMgd0q0zil4vA0Ih9UQ0ccKV+hyl2uKLnxi8v0xxdvi
-         mzng==
-X-Forwarded-Encrypted: i=1; AFNElJ8aLb24hJ4BBYPIrBi2LyKt8BETN1FT/GiDr5XgfQkX8MmAPfU8cc93Zkmg67cCmDUDbCzvBpMYae1oQGX/p4Zc@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywf1UKEJ/Sd01m/jEXOjwX4xHobF73SD+ylumTX9jqLBUB7DJzd
-	6b+VO21M6dA41n8cQUS6ip+cxc9HPgoA9S1NuKR3aBgGcxEBa6q5oVAY5gqFYLG5CEDnY40cYgK
-	Tg4rDwf3MX5w5BSTYVvSv05Mr3h8G0cUB8/R3+qPvMSzTnKcRYJZFQVMyC9Wj+e4avowU75geGg
-	YMmrcPNwlDWhWAJsTu0g4xTDlJUIWZpGRHJnm7Vl8at7f3fgYb3nxPlYOCqMk66bmd//E2cABX9
-	8JqItsDngaaMjeqLZYRuk2Wl4RgaRd49VU=
-X-Gm-Gg: AeBDietZyANUdCTNtbS0O+o/5BAeyvtHnZHvI2p4fz//Dk8x5DdwjgXzEnfoouYD09u
-	eDzHtpZ9pUE+trExcxkAF4OhqbVIgUJdh6NS6fmum8B9K59Q5RZ1v8NCO9dlS+nNloaDMF3mH/4
-	0goNvjEtj+0PFHjA2Y7Z6B6S0lJZhv05FP2/eSeydZ+jaSrsAgCQtLZp+MdD9wUJVDyI7W4k3gd
-	ZOwkLoAt18fXm2sIOJubBYBMzKh5AKnlgEzywHIKC8gPS0KgD/TJmu/UDdBlIzxFDutzGFyVHKj
-	uJ6OW/vcigupAZIWFj0Wf118a5k8iNvefoN3rN5YetYVV2oRUbqINqTN6yz8OzDpPczCz+yOaLo
-	I/ivJBwxnUC4CVyqJoDbBoae2iNw5Q+5ftq2QSBNIc87rwoUbgeHSGTOqkuSPnGbb+YRuOe7pSm
-	2d6+MU41brj4DDyPMZ3oVR8Vh/9xiivjDnz/XFhtuICQBJZz3UQ8rZzaSQvo7no9tHWSSW6Ios
-X-Received: by 2002:a05:7300:a507:b0:2ef:8b72:1b9 with SMTP id 5a478bee46e88-2f5459a2137mr227453eec.0.1778003935345;
-        Tue, 05 May 2026 10:58:55 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-16.dlp.protect.broadcom.com. [144.49.247.16])
-        by smtp-relay.gmail.com with ESMTPS id 5a478bee46e88-2f13980c9b3sm591603eec.28.2026.05.05.10.58.54
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 05 May 2026 10:58:55 -0700 (PDT)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-1309f4ee9a3so1896932c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 10:58:54 -0700 (PDT)
+	Tue, 05 May 2026 18:01:40 +0000
+Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-bba0dde4f43so876802266b.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 11:01:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778004098; cv=none;
+        d=google.com; s=arc-20240605;
+        b=aR6crEYUnLh8DcrK4FynuSjAQp1P5Nv7Zr/K7zQHquMO8OzjA2lo9ukzKz3xLCEtPE
+         ouYMws5pc0SJlKFWgu4TTptBGRRJOnnz2SVJb2GmO28ykbUcVOULhVuEPk6s48ctVOKX
+         UJTA8HDBdWoBuTLQYFdYZMdk32KJoFP6KVfVvjBbNSkEcuBeegS3YPHew/w75velLA2f
+         EalLkno7il8XuA3X/z+v8x+CyMLH6QjzWpTMzV6oFauLD6/PRuq4M5hA80+rzs+aHzqK
+         JY+ZpwheJWP5CM1N1E+nadk3kTAVkPnXDgUq7GZ2M1PkwTe7Q4RvjUDO7CankL1KsQ9O
+         qnAA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=nQUZmjv7aHFLMaMFauN5kz/OKqGsuDJKsdlinZQqRbc=;
+        fh=OGqZsHKx9FI7H/1FWqPDgL83llwiVS0yC7WRRMQAn6s=;
+        b=D2KD3FeNZ3nWPyXnDANu7c5a/WNFS4TXGXvYtLFdi/iUmzTWq14PdNjtpGhDWKuSuf
+         o1tzFjvoMD4RtDw1CGWNnZPwgmmBls3OED8YpFZoGAn59jssRqj+OpILQcMQDx55dVD1
+         Ee0qfd/JcqB/wX5hm1WdT8t9ss+EbIILjU6nEFeowvDPqZXwDti+Fda2HlOZtDseszXn
+         r+zS3PTlDTescqTkvkgnnxD1IpRpdzNz4gnFWe6Dvzyeu0CasCWzx35fBo2QjIliohYc
+         qyGqG05nHCeB556Jlc2/dmfWqAFjUESxHACK5V6KBkykGgENC/NwxmE7wi9ww79lTBY2
+         02IQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1778003932; x=1778608732; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=euKFIAQCeM55RulM535j7KBn6cys8J5H/Q721o26Boo=;
-        b=eCtZdX0ChTAnkneW0JT0ybjxA3nhbgsRnMUwnGm89aXtV5mLa2nEVTfSNBNE+UqoP2
-         cmVL/w8zxIfReH54iYY9PXEmXq2yCT9tzA3uFNqSKWf+qmJF8+6eI8YSrNzsqCsffxAQ
-         9Vg2iCADMc2vqDSwu5Vp4F0yVc8hd8VDZUXxo=
-X-Forwarded-Encrypted: i=1; AFNElJ8y3O9+Lk1DW2z0plDQAtVzR0PFvf7tMxS6AWSNDtHzVyLE0Nq5QkUmzQixMvGw5MUiToQUYQYJmjOLkfImxXwx@lists.infradead.org
-X-Received: by 2002:a05:7022:238f:b0:127:3f2a:af21 with SMTP id a92af1059eb24-131852d9084mr151516c88.15.1778003932556;
-        Tue, 05 May 2026 10:58:52 -0700 (PDT)
-X-Received: by 2002:a05:7022:238f:b0:127:3f2a:af21 with SMTP id a92af1059eb24-131852d9084mr151495c88.15.1778003931997;
-        Tue, 05 May 2026 10:58:51 -0700 (PDT)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2ee3889d634sm25912919eec.3.2026.05.05.10.58.50
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 05 May 2026 10:58:51 -0700 (PDT)
-Message-ID: <d13eb4ce-a868-4b10-b044-83fa1ddea1e9@broadcom.com>
-Date: Tue, 5 May 2026 10:58:49 -0700
+        d=google.com; s=20251104; t=1778004098; x=1778608898; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nQUZmjv7aHFLMaMFauN5kz/OKqGsuDJKsdlinZQqRbc=;
+        b=Q1PU/PCSv4SGczIQRVbdyJZYAM3i64uTDDitekHMm0FWeSYucFU0Qj/KOjQvzdg7KO
+         hXW+HgGsawWzOXBBlYWFgZUmS5COSPKdzbcDGjK1vUhUJ/oJDAvC22PjAdiq07TedyJo
+         /PyeHeyygZbOpNQfd4IRrOaNaib3QQ9fQWK7btRzid8W8nxK6LQMB0dhGtO/ph/8SFmW
+         6513HpOD68nJ6J+YvPKo9+FLkym1RLkv57yqD5QqVXmShJKiiVZDUSvUHzzyz/9vlvrI
+         ZBV1CbSZ1su5uwQTYsiT+sGYRhDeWxcrTfNlaF8DRG/Pt78W53COupq50R7+1nZqLaD6
+         cWqA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778004098; x=1778608898;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=nQUZmjv7aHFLMaMFauN5kz/OKqGsuDJKsdlinZQqRbc=;
+        b=MFkrIiDwgKNmK/DbnqY6xh6POGqvQ1ViUSdApG/HqrFMzlpnxl87UzyQ6925IzqKp1
+         zSCLs4kVudFVpEFo1d7z2oEt4blHqv5dLaMLG/jTvBBZP4MYXGuhV0RDr5rciYRUKjgI
+         doAuOvtf0ZnAYh+ObKcPCP1KQH39kif9R5JQlyjO5CmrZtSVr0O+eL8tlPPjIefG8MiL
+         pRVfJ2QvZnZEi3i0KiFoNPtD7uXniZoX0Xw0I8Gzky2ju3oIo1RoHVPCHUjBWClM9ojH
+         zs7M6isk4IYZUlwdW9QzEdgJ48tzCEU5Qw6BQvTCIkqAVgRAJyh/jfL8C9d1vH2I0dGU
+         02mw==
+X-Forwarded-Encrypted: i=1; AFNElJ8PzOWy3sQ3u0xRbeB3nBr+lMVyrCPmY3pac39ki0EHrhZFl7TCWeo4ChC73e7S8lAxmnDFj/RQVQKHF925mrJl@lists.infradead.org
+X-Gm-Message-State: AOJu0YxMrT9ptY/76rTVEKEv2ubW8+pNRrRJ2g6JjFg+bomSAK2CSfW/
+	5789cnQeOIxHRLM6Aa9oAShkN/y7Om6N0em7xrDIxVPFra9uGAicN1P0dWRxCjQYxCjYG33U4cj
+	9Ga11JyF6H5yHj5RH6qaC8Hz5rTvQL3yn8vBIj5ZV
+X-Gm-Gg: AeBDievFN3b1lnVyfVO+mA9qhIVBBKaqM/wQiWpnU+DPvQ/9P4OXNhmo7A8CmmyOxgq
+	XR4vx4lUg9gLZWLIBscDnMybwBfqbXzz76oK1tiUqVMlTs+agzQJ1Zev8yssznz4/Azf8MGE/KX
+	7KR19mtwHgvn0e0TDSQP0XMWxuLqiVv6VlJRsAZHutG83Hd2otTCC3fQplTvm09RXLDWkDHl2P9
+	Z4pHEY0bchyLU3lmwy7r0lrv/FtOnFfCJVU/KWMgky29MN7pccTV4XSiOc7m1KZoqPu53iITLRw
+	faCh4iQnolYwiDqw5F9DDeOu4dnRW/4TYlo26WSd5DCG5LPp/yFpSZdFYMvi4fR+rfuJAVKi/Ys
+	4g2Vn8KeR8c6W5AX/BYL9bbphNw==
+X-Received: by 2002:a17:906:9f87:b0:ba7:cc67:488b with SMTP id
+ a640c23a62f3a-bbffab33111mr887380266b.5.1778004097049; Tue, 05 May 2026
+ 11:01:37 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] PCI: brcmstb: Assign pcie->gen from pcie_get_link_speed()
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Hans Zhang <18255117159@163.com>, linux-pci@vger.kernel.org,
- Dom Cobley <popcornmix@gmail.com>, Phil Elwell <phil@raspberrypi.com>,
- Jim Quinlan <jim2101024@gmail.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>,
- "moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE"
- <linux-rpi-kernel@lists.infradead.org>,
- "moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>
-References: <20260505160144.GA732689@bhelgaas>
-Content-Language: en-US, fr-FR
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20260505160144.GA732689@bhelgaas>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+References: <20260504224213.1049426-2-jthoughton@google.com>
+ <20260504231048.1184273-1-jthoughton@google.com> <afohshVlK9YcBk-f@google.com>
+In-Reply-To: <afohshVlK9YcBk-f@google.com>
+From: James Houghton <jthoughton@google.com>
+Date: Tue, 5 May 2026 11:01:00 -0700
+X-Gm-Features: AVHnY4J0Tr074uKX9gnTkNPmv46TNeS2NEyt9u-k5f94BeNvCS-2m8Zf89eFVRE
+Message-ID: <CADrL8HX223b3YS8aHr7b=AZZ2J5ga+-SwLQX9Rs9Ep=rMM5wUA@mail.gmail.com>
+Subject: Re: [PATCH 1/5] KVM: arm64: Grab KVM MMU write lock in kvm_arch_flush_shadow_all()
+To: Sean Christopherson <seanjc@google.com>
+Cc: chenhuacai@kernel.org, gshan@redhat.com, jhogan@kernel.org, 
+	joey.gouly@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-mips@vger.kernel.org, loongarch@lists.linux.dev, maobibo@loongson.cn, 
+	maz@kernel.org, oupton@kernel.org, pbonzini@redhat.com, ricarkol@google.com, 
+	shahuang@redhat.com, stable@vger.kernel.org, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, zhaotianrui@loongson.cn
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_105857_288592_1851F536 
-X-CRM114-Status: GOOD (  24.62  )
+X-CRM114-CacheID: sfid-20260505_110139_691129_011C19B6 
+X-CRM114-Status: GOOD (  34.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,85 +123,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/5/26 09:01, Bjorn Helgaas wrote:
-> On Mon, May 04, 2026 at 04:46:03PM -0700, Florian Fainelli wrote:
->> On 5/4/26 10:26, Hans Zhang wrote:
->>> On 5/5/26 00:58, Florian Fainelli wrote:
->>>> On 5/2/26 04:40, Bjorn Helgaas wrote:
->>>>> On Fri, May 01, 2026 at 01:24:38PM -0700, Florian Fainelli wrote:
->>>>>> After commit 03f920936977 ("PCI: controller: Validate max-link-speed"),
->>>>>> pcie->gen stopped being assigned and as a result the established PCIe
->>>>>> link would stop supporting Gen3 speeds on 2712 since pcie->gen is used
->>>>>> to populate LnkCntl2 and LnkCap in brcm_pcie_set_gen().
->>>>>>
->>>>>> Link: https://github.com/raspberrypi/linux/issues/7343
->>>>>> Reported-by: Dom Cobley <popcornmix@gmail.com>
->>>>>> Reported-by: Phil Elwell <phil@raspberrypi.com>
->>>>>> Fixes: 03f920936977 ("PCI: controller: Validate max-link-speed")
->>>>>> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
->>>>>> ---
->>>>>>    drivers/pci/controller/pcie-brcmstb.c | 3 +--
->>>>>>    1 file changed, 1 insertion(+), 2 deletions(-)
->>>>>>
->>>>>> diff --git a/drivers/pci/controller/pcie-brcmstb.c
->>>>>> b/drivers/pci/ controller/pcie-brcmstb.c
->>>>>> index 714bcab97b60..6138fc4bc064 100644
->>>>>> --- a/drivers/pci/controller/pcie-brcmstb.c
->>>>>> +++ b/drivers/pci/controller/pcie-brcmstb.c
->>>>>> @@ -2072,8 +2072,7 @@ static int brcm_pcie_probe(struct
->>>>>> platform_device *pdev)
->>>>>>            return PTR_ERR(pcie->clk);
->>>>>>        ret = of_pci_get_max_link_speed(np);
->>>>>> -    if (pcie_get_link_speed(ret) == PCI_SPEED_UNKNOWN)
->>>>>> -        pcie->gen = 0;
->>>>>> +    pcie->gen = pcie_get_link_speed(ret);
->>>>>
->>>>> Take a look at https://sashiko.dev/#/
->>>>> patchset/20260501202438.376033-1-
->>>>> florian.fainelli%40broadcom.com
->>>>>
->>>>> The notes at https://github.com/raspberrypi/linux/issues/7343 assumed
->>>>> PCI_SPEED_UNKNOWN was 0, but in fact it is 0xff, which means you might
->>>>> want the more defensive patch instead.
->>>>>
->>>>> I'll be happy to replace what's on pci/for-linus if so.
->>>>
->>>> I am starting to think a revert is the simplest path forward, it's
->>>> not clear what pcie_get_link_speed() brings to the table honestly.
->>>
->>> The pcie_get_link_speed function is designed to prevent other Root Port
->>> drivers from accessing the array pcie_link_speed out of bounds.
->>
->> Yes, so that's useful in the first hunk of your commit where we were
->> printing the link speed without checking that the 'max-link-speed' would be
->> bounds check, however it is not really useful for assigning to pcie->gen in
->> our case, so I would prefer the second option:
->>
->>            ret = of_pci_get_max_link_speed(np);
->>   -       if (pcie_get_link_speed(ret) == PCI_SPEED_UNKNOWN)
->>   -               pcie->gen = 0;
->>   +       pcie->gen = (ret < 0) ? 0 : ret;
-> 
-> The point of this validation is to make sure we don't program the
-> brcmstb hardware with something it doesn't support.
-> 
-> of_pci_get_max_link_speed() only returns an error (ret < 0) if DT
-> didn't contain a 'max-link-speed' property.  That doesn't tell us
-> anything about what brcmstb devices support.
-> 
-> I think this test should be something like what advk_pcie_probe() or
-> rockchip_pcie_parse_dt() do.  If of_pci_get_max_link_speed() fails or
-> returns something not supported by the hardware, they default to the
-> fastest speed known to be supported.
+On Tue, May 5, 2026 at 10:05=E2=80=AFAM Sean Christopherson <seanjc@google.=
+com> wrote:
+>
+> On Mon, May 04, 2026, James Houghton wrote:
+> > On Mon, May 4, 2026 at 3:42=E2=80=AFPM James Houghton <jthoughton@googl=
+e.com> wrote:
+> > >
+> > > kvm_arch_flush_shadow_all() may sometimes be called on the same `kvm`
+> > > concurrently in the event that the KVM's `mm` is __mmput() at the
+> > > same time that last reference to the KVM is being dropped.
+> > >
+> > > T1              T2
+> > > KVM_CREATE_VM
+> > >                 Get VM file from T1
+> > > close VM
+> > > exit_mm()       close VM
+> > >
+> > > T1: exit_mm() -> kvm_mmu_notifier_release() -> kvm_flush_shadow_all()=
+,
+> > >     with only the KVM srcu read lock held.
+> > >
+> > > T2: kvm_vm_release() ---> mmu_notifier_unregister() ->
+> > >     kvm_mmu_notifier_release() -> kvm_flush_shadow_all(),
+> > >     again, with only the KVM srcu read lock held.
+> > >
+> > > This leads to a potential double-free of
+> > > kvm->arch.kvm_mmu_free_memory_cache and now with NV
+> > > kvm->arch.nested_mmus.
+>
+> ...
+>
+> > >  void kvm_uninit_stage2_mmu(struct kvm *kvm)
+> > >  {
+> > > -       kvm_free_stage2_pgd(&kvm->arch.mmu);
+> > > +       lockdep_assert_held_write(&kvm->mmu_lock);
+> >
+> > *facepalm*.... this doesn't account for the other callers of
+> > kvm_uninit_stage2_mmu(). They will get lockdep warnings.
+> >
+> > I've attached a diff to the bottom of this reply that *does* deal with =
+them.
+> > :( Sorry.
+>
+> ...
+>
+> > > diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> > > index 883b6c1008fb..977598bff5e6 100644
+> > > --- a/arch/arm64/kvm/nested.c
+> > > +++ b/arch/arm64/kvm/nested.c
+> > > @@ -1190,11 +1190,13 @@ void kvm_arch_flush_shadow_all(struct kvm *kv=
+m)
+> > >  {
+> > >         int i;
+> > >
+> > > +       guard(write_lock)(&kvm->mmu_lock);
+> > > +
+> > >         for (i =3D 0; i < kvm->arch.nested_mmus_size; i++) {
+> > >                 struct kvm_s2_mmu *mmu =3D &kvm->arch.nested_mmus[i];
+> > >
+> > >                 if (!WARN_ON(atomic_read(&mmu->refcnt)))
+> > > -                       kvm_free_stage2_pgd(mmu);
+> > > +                       kvm_free_stage2_pgd_locked(mmu);
+> > >         }
+> > >         kvfree(kvm->arch.nested_mmus);
+> > >         kvm->arch.nested_mmus =3D NULL;
+> > > --
+> > > 2.54.0.545.g6539524ca2-goog
+> >
+> > And here is the diff that should fix this patch. (Sorry!!)
+>
+> There are more issues.  kvm->arch.mmu.split_page_cache can be freed by
+> kvm_arch_commit_memory_region(), which holds slots_lock and slots_arch_lo=
+ck,
+> but not mmu_lock.
 
-Doing that could be challenging because it varies on a per-controller 
-instance on some chips like 2712, this would also be a behavioral 
-difference compared to today where the driver resorts to HW-defaults if 
-the property is not specified.
+Thanks. I also noticed that kvm->arch.mmu.split_page_cache is
+documented as being protected by kvm->slots_lock; we should be holding
+it here. But we cannot take it here because we are already holding the
+KVM srcu lock.
 
-There is also another aspect we have ignored which is that don't 
-currently support anything beyond Gen3 at this point, but this is not 
-enforced. Let me cook another patch.
--- 
-Florian
+> IMO, the handling of kvm->arch.mmu.split_page_cache should be reworked.  =
+I don't
+> entirely get the motivation for aggressively freeing the cache.  The cach=
+e will
+> only be filled if KVM actually does eager page splitting, so it's not lik=
+e KVM is
+> burning pages for setups that will never use the cache.
+>
+> Maybe I'm underestimating how many pages arm64 needs in the worst case sc=
+enario?
+> (I can't follow the math, too many macros).  But if KVM is configuring th=
+e cache
+> with a capacity that's _so_ high that the "wasted" memory is problematic,=
+ then we
+> probably should we revisit the capacity and algorithm.  E.g. if KVM is sp=
+litting
+> from 1GiB =3D> 4KiB in a single pass (I can't tell if KVM does this on ar=
+m64), then
+> we could break that into a 1GiB =3D> 2MiB =3D> 4KiB sequence.
+
+I'm not sure I've fully understood the point you're making, but I
+*think* we can just drop the
+    kvm_mmu_free_memory_cache(&kvm->arch.mmu.split_page_cache);
+line from kvm_uninit_stage2_mmu(). It will get freed when the VM is
+destroyed anyway.
+
+So I'm thinking of splitting this patch into two (unless someone tells
+me otherwise):
+
+1. Drop the kvm_mmu_free_memory_cache() from kvm_uninit_stage2_mmu()
+    Fixes: e7bf7a490c68 ("KVM: arm64: Split huge pages when dirty
+logging is enabled")
+
+2. Grab the MMU write lock around the kvfree(nested_mmus) bit in
+kvm_arch_flush_shadow_all(); do the kvfree() without holding the the
+lock.
+    Fixes: 4f128f8e1aaac ("KVM: arm64: nv: Support multiple nested
+Stage-2 mmu structures")
 
