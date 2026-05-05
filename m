@@ -4,60 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7176CD3439
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 18:32:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 408D7CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 18:40:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8XLywXLhWtlTlBR18sfqteObM8GZewXIF3W7Z1e289s=; b=1kh2CraZThHcP28j+QJ/KDKpJP
-	Uf0a52y4eTDrZoBU7iog+FSqs1kCHja4cVnv198NGwqs421RjhB8ap4qPZo7Za5/8S+AobarofBIt
-	6YQDXBgLrLRIzVl7havy9oeYr2J4uTvb5k4iBWUvx3JAGH1GeoLOZ5tHErju8D5aQd+Z+/n0t6Bst
-	8ud8CPUqkc9+95QktRWSoo+ZYI4uate/Npg69cVr3xuFfcdzC4A6VjvjVkE2HN9kXCS/rsqWzlqu1
-	qoCZXl9sD8Yv9nek1wPs4o4AJa7bCTvq9H5uQX2V6vF6eViToTACMpl6slIewPRhkjHAQt8Ml41LI
-	PZnwIRmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:References:
+	In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Zt9I+35WNMSrzAlphYfOBusP/WdbiJb8Yq4I0xccsTo=; b=oRvkdT4TH+z+YGJyt227Xba6Ee
+	Z++2cOX3IJz+uCpyT8jw1Vfk0vqVx8ktRf4Kxeyn7m32gt81jh/G4rjgKgg0pr132IUu658FMwB6E
+	RR8o3yMO3sLAn2scDRpsjlVxnXqIwEtenlFNhyl9OBnO0MgziUkzY9VdUp4lRm+Rmt3ldCicBCkyV
+	1rwd86U5ER9uvSsMxk52/Z322vGbwh20dkgElMifOVZYq37YPBwbtJIHzMgMB7dVVoUhpQiaRg4bi
+	EZz4k+TWyqO4ogu6v7YH9gXTD3J3hAvgidIwysm5OphPT5iVmFgYA75PXD9NIQG/L7Yl5/Cgywavb
+	uaeCAwTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKKZc-0000000HByU-40vM;
-	Tue, 05 May 2026 18:32:48 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wKKh8-0000000HClw-1MMi;
+	Tue, 05 May 2026 18:40:34 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKKZa-0000000HBxr-41FG;
-	Tue, 05 May 2026 18:32:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=8XLywXLhWtlTlBR18sfqteObM8GZewXIF3W7Z1e289s=; b=u4hhcy2bO54pmQJm1LJusecOJf
-	AYn8xH4o6FndxOJ34cYYYs9dWmAd7VHE08vyjd9h+yQvTmrn0+ykAdncYSsOJsiTujLd5ABpqgTh8
-	X1HU7GpdO2esO5kTE9srB+RpoOV06LiQbuJbPfiDRxCDkk0/uHIXoYtbzp2Hr6gWWJLAE77tz7clS
-	hLMK5e7Dsyn7T9IFdP7TN4TzYodeqegaIUk4N8xb3mDUUyFLb2tl5Fd+CWdQhmWIctKacDVfmjAfd
-	W/C3ykqo8MVvCN+E0cj/kMTSUtLM5d6+wh2vtCqhED9flFcVbrIhKErU4v52+LyrRRFYxzwGxdkCe
-	luKunzHA==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	kernel@collabora.com,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 00/13] arm64: dts: rockchip: Wire up frl-enable-gpios for RK3576/RK3588 boards
-Date: Tue,  5 May 2026 20:32:40 +0200
-Message-ID: <177800595582.3294944.15259294512505640833.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260428-dts-rk-frl-enable-gpios-v2-0-924df9db884a@collabora.com>
-References: <20260428-dts-rk-frl-enable-gpios-v2-0-924df9db884a@collabora.com>
-MIME-Version: 1.0
+	id 1wKKh6-0000000HClZ-06Id
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 05 May 2026 18:40:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YLgoA6lj8hpFut1EijM4ME0Tt+lbzWm/YVy79IorANtX6xtbYuLpuKaN6hqsUctPSY6MD+QVlpuzDEx0gnEjNcYeFUksj88NLijozP5mD69WB5nZsgBZGZB3rurxS77KyAuV8Gl5nS3DnFgktxwYxuLqP1e6rVZ7BfHgm3ZguNZZ/4W11CbXJTLcl++wIdMhpxrvNMTf0LbfZoCVMkay8rjHAXgoK+amqNvHDAlcbLxj9rei3WQ3pL4gSWmLBneoCiEbTow76K2iEyqdjlStc2ZE5p5w2OT6w5moyIlUC9c+HCCzyJvYbtVBFmKfBu1OrEn+5qAfRJzgF4H0J6Izew==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Zt9I+35WNMSrzAlphYfOBusP/WdbiJb8Yq4I0xccsTo=;
+ b=HLAXkMfX2skW4zcKvHhOyt7/DCl8VeG8aH5FGIiA97EnRm76u/ZGpFBQaw27xk9zC28ofxrULlPIMJK7FTC30/455fkCrBDGbrrShnfVL6AXoGvxYfqq4nVdlHYZHBrYXV1Rx9UDfPHmid2otgvyQypcE+9kBc4WSuTe3FD7yPdhFv+1C93/oMG3V557zEjsZ/P5BzRPvu/oUhbnEMRxg8gpJ0Cw39CG+8sG/abzArNnPz6H9HXtFwi/+QhZPkqZcwCLCJkXbZOY4h34dOgGxo/+b7+k6GcRKcFDiSXU8Gr/KjyiyUfTJPTzXsxqyMGg9SvdF/b9yh6iYOsW8GgghQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Zt9I+35WNMSrzAlphYfOBusP/WdbiJb8Yq4I0xccsTo=;
+ b=JbwXk/lCo+HRYMoJTGzZPR7GI/eU5xWzLKdXhBa2w9Q64Dn8ol/eoUO0hBFr/3HP5Q1ZC2KsGFd1ldexwN4WdQ6f1iZPRmKHrGPM6ec8/VgEqSJr2v7qzk+zBNEX2uhFv/aR5MSs5RMyuv3YHBheWtb7e/E5cG6Z+2r1Jnt2RwcnOdi5zHrDKnXCSGEX9S4Crb3iT0fZbDyRVOJDZk3XARKYAniN9fVKkl7hjBZqu5qdqPvZ1AlRhFreylnjmMhUcBqwhw0HcbuRGixNLRAvMcbPTPEsgkqEsWcbf6cBOzDglAEAupA3jEw4vIGiJdkpyVBFS04yqJQKamQw4kUviw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by GV2PR04MB11328.eurprd04.prod.outlook.com (2603:10a6:150:2a2::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Tue, 5 May
+ 2026 18:40:26 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9870.023; Tue, 5 May 2026
+ 18:40:26 +0000
+From: Frank Li <Frank.Li@nxp.com>
+To: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: pierluigi.p@variscite.com, Stefano Radaelli <stefano.r@variscite.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+In-Reply-To: <20260331092112.7876-1-stefano.r@variscite.com>
+References: <20260331092112.7876-1-stefano.r@variscite.com>
+Subject: Re: [PATCH v2 1/1] arm64: dts: imx91-var-dart-sonata: add RGB
+ enable supply for PCA6408
+Message-Id: <177800642321.1823815.15501148948631640577.b4-ty@nxp.com>
+Date: Tue, 05 May 2026 14:40:23 -0400
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
+X-ClientProxiedBy: PH7PR17CA0058.namprd17.prod.outlook.com
+ (2603:10b6:510:325::7) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|GV2PR04MB11328:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0a7b14ba-5c32-4b70-ed6e-08deaad5c619
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|52116014|376014|7416014|366016|38350700014|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: wUAcuaR11U3sRNJGXgAoPrEPoU/AKPUSLeGTpN0PmzVNvVY02vJqmoN1UO/rcnRP59xO/QK7USgbnFzo3jDF9pUIVJziE9qOVeGaSgqM8NtE78mNK3QImVOyxC/YFV/doPbBRGsxzlFdkXcKTgRpw4lxk9tEK+WgSC94ChId/OxoGCixfatTQreJArbgQJNmfM7z7v9RfikrKeiqj9LUaTnfqYcBgK5v0RHBfCqSELCEvLSgIuc3hsMDAXo7dWqtioib/kEhK3BJLz3BUZCgQa4lFm9GMkNsnrFY7JHhvQrKXQ/JsJSQLdEaLoeE+I69+ocQ2PbwJbaKQtBUX52/UPugfPbEineJKeyUirGgr/k4jIY1WVPBxaK4lpgyuU4WDvlsvJcnJbtxmtr2hRfpmMwTtFBU8hfpfRfmMcMP6ztIRr8xE8c0doALzpMqEg6K4CXoP2Lw73sXVAJ7J5E3S9zC9oIey+O41K390i/ilb4uCbAxFqJD26FImH7fKovVps+VioDjGcvw7jmD9J1qnFQMuP5wZclZyFF7IePDxKxkNT8+f8gox4JLe6nPPPJ16wo+acRg7om6RwLsvoyG19HdVIXgOIj3fiFN9XoyMyhD41Z/Dny68a5ldijAFV/+cki7NX51gXeYkXLs2S40XCCur8Cz/lsrgwiv3erZYjrB9lZGiDOGXpedL1TNwk1eH6C30b9zgeQ5yUOFJsUdxWxHVcnbGeEUzVAhgF+kw4bKC0Yr4Y2XaoiGGV5QFG4G
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(52116014)(376014)(7416014)(366016)(38350700014)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NWxBSGVHZmRsbmdBaHVXZW96dnJBTVRXTmd2N0RrK0hLWHlZaEtlUnBtRW9K?=
+ =?utf-8?B?MElhaCt0QzRwT0tRZGJkU0hWVXk4ZWVMVzh1Nmh5R3crTVdLQ3QrUXJXbFBp?=
+ =?utf-8?B?ajdDTnlLejRibXkwWitnRVN0cExDUEtnTFljbkRZbVlNemRTdlM5aDVMOGZr?=
+ =?utf-8?B?MWQwMVFKWUhDUjFhczlDdURXb1FZOHphYVYydyttd09oSjNsYnorbit1VWxs?=
+ =?utf-8?B?UXBQMzVRdW96Snc1RU5KcVVvTEVVeWlORGdOT0JRUVhkRnNwOTBEK3N0QkVO?=
+ =?utf-8?B?WmowdTJ6Snl0U3pVYy9yNWcwQm5nL0lhWGRlNTZJdVBibUg0OGlWTVloSkNm?=
+ =?utf-8?B?amYwcWRWZHRIRXNqejQxdXhMc0tsTkE0THhlWkJCTkY1NVZlZ1hvK3Y0Tzdq?=
+ =?utf-8?B?MU9zVEdSYlZ3c2RjOTc5YXlPRXZVQlF3TmFPbmcvL0RsY01HUnF4eEpWU082?=
+ =?utf-8?B?Q242Z3NoV2lXdUtnRHRYYnFhZW0xaTVKdlU2QzZZeGZWVk0wQkpUOTdKeENV?=
+ =?utf-8?B?OUZoZm5XdTRxVHJib1daeW9KSzBMOTBUT0JTemdvY3AyYTJudjdQaUtVZGE1?=
+ =?utf-8?B?K0RMejBiOHkzcGFCS0Q0TnN5VWJRblkwbGRRek5JYmlGY0xESW5uYWtaL3dm?=
+ =?utf-8?B?OTBqWCt6VmNJOVNsWFFCS1REV1lDNHFXTER2YUpHdHVBZDJrUERTUG1QSnY3?=
+ =?utf-8?B?T1lSc1EyT05MdzErdlBHc2d0OFd0NHRLZEUwQkR6NkZNVmFNQVlqcHN1Ky81?=
+ =?utf-8?B?NmZRcTdxQ045V0dBdjFaNmhva2F6MDdjejdkYzNMc3dYOHpSWWFHL3J3Nm9H?=
+ =?utf-8?B?V0gyWFVKK2dUaHFyTjZMZ3dXNXgrQnJQUDljbTMzMFE5Z1ZIbnQyR3RMNWdM?=
+ =?utf-8?B?d0JpNE1oditFSmd1c0RzaCs1OEkzK21yazdObWNhYVBJV3E0dVFzUDRpS25m?=
+ =?utf-8?B?WVMyM1RnRWZadUg0M2VvRmNkUFJXOEYwMkk5YVdJK3hpRmkzUUphOVZETlI5?=
+ =?utf-8?B?Z3RjOEs3cjFYWXVXS3lYZmt5ZmxSMldsZFZNSlZBT2xpUk1ib0k3QXg5aE5l?=
+ =?utf-8?B?Q0xzSmxzUHU5S0I1NVFKaFNIS3BwY2h0MGhzYnB4eUNrMFExd09TcXE4RXc2?=
+ =?utf-8?B?RXE3bEVLYVBPWDZOSlVsVk9tSVdvb0RvdVhvQ216b0hIN0cxajl6Y1JLdTNz?=
+ =?utf-8?B?VFNxSllSUmtNUDQ2VDNiR0lwTGUxcU9mTTFxMU9rbkVRem9WTWtGRmFvV2ZR?=
+ =?utf-8?B?c0pFcmt0SkFFeGtQcm8vekhzZmVMREtsTzFQK3NZQ3o1cVZ6T1RVbG5ETFho?=
+ =?utf-8?B?TWpZbGk4U2FCclg1NU45YXVRWFk2bGE3RmJ4aDBCS29kWkROdnUrTEEvSVJV?=
+ =?utf-8?B?TmxHczJkSEV3YmRFYlpFMnIycmZMM3RXbFVMYW81TEJTQndJcDBJdDF6cTIv?=
+ =?utf-8?B?ekhGNGpqbXZlV2pVTUpOcXJwVnliNFYzbk50TnpNTGNwTm10aktjUTkwV0FI?=
+ =?utf-8?B?TVpvN3hTcDVRcmYyTzl6YTdhMW1kQjUyeElPZlBJakd0OGZWTjNmTzBLS0N2?=
+ =?utf-8?B?akhZckVreUlWeGZpNUJNN2xtclBZYUZ0MCsxVDhlZWV2ZVk3dVRvVUdYbXJY?=
+ =?utf-8?B?dkZIR1VQbEplWk5XRks4ZjYwRDM0UXlhM3h6UVhoT0k1ZktzNnhrNXF4M1h4?=
+ =?utf-8?B?ZThqeUE0dzVHNlZxaEU2ZVZDRVM2dm9HSEh2ZGxQelBObHBWa3ZTRmQvZjA0?=
+ =?utf-8?B?OStOdnArTC9ubHY1WVc1V3QyejhnamZPd2xoeUxjMGxXRStnYXlIZXVyNFRV?=
+ =?utf-8?B?dDBVMVNSM3k1Y0F0MGkweXZWTmErQUdWNUdaRWpnZkFhekh4SlpaZnFKOUZl?=
+ =?utf-8?B?MXpaaVNUdWRERTE1VE5xb2hTOFRLaURkcGl4VWVDOWNyTU9hM0RMYjBSb2tk?=
+ =?utf-8?B?K1U3b1YrSTVGNElxWC9INU1uMlFtd1JVN0ZKbDMvWHQ5NVkzbTloRlJSSVZW?=
+ =?utf-8?B?Z0JtV0FQek9KeDI2d1ZmaUtKYTJyL2tkRUVNMWwrMVZPNnRKaXQ3WkFnVjI5?=
+ =?utf-8?B?enp3dTkydDkrMTNDdFp2di9sT1dIL2ZBclBtUGVESzBOTFppbks3ekFHaVJz?=
+ =?utf-8?B?eHJmWFVWc3hDbHUxVUsyRGd2UTlaWTNBclB3TlVRNUlsSjJsby8rVm5KUFpH?=
+ =?utf-8?B?eVpFcDBjY1RYeFFlSk5IcU56NktkVlVCMit6Y214bHQ0NU5nNWRsdllwU1RN?=
+ =?utf-8?B?MG5UR1N0ZDluZEp0S3F6R2xlZGsraWVzTnRTdnNuSEFuOGNHUk5McG8rdW5K?=
+ =?utf-8?B?V0hVU2NJQURxRmhsRzNGNDVBZUppRzY4UitEdE94VG5OOGltMnBNQT09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0a7b14ba-5c32-4b70-ed6e-08deaad5c619
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2026 18:40:26.3298
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: H+8wZAL3lrzE9mVwZ+rnJHOeOb0r0NCrmndSS1YKeMesqRnrH6mbGM0kwoNCXi17kKzB7W+svuwdAklOFyqErA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11328
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_113246_997646_C4844F4E 
-X-CRM114-Status: GOOD (  12.60  )
+X-CRM114-CacheID: sfid-20260505_114032_109954_21B5B1C1 
+X-CRM114-Status: UNSURE (   9.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,50 +153,23 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 28 Apr 2026 00:57:18 +0300, Cristian Ciocaltea wrote:
-> Several boards based on the RK3576 and RK3588(S) SoCs use a
-> GPIO-controlled voltage bias circuit on the HDMI data lines that must be
-> switched according to the active link mode: asserted for HDMI 2.1 FRL
-> and deasserted for HDMI 1.4/2.0 TMDS.
+On Tue, 31 Mar 2026 11:21:12 +0200, Stefano Radaelli wrote:
+> RGB enable pin, labeled as RGBSEL, is a board-level enable signal on
+> the Sonata carrier board.
 > 
-> This series adds the frl-enable-gpios property to the HDMI nodes of all
-> boards for which the GPIO configuration could be identified from vendor
-> BSP kernel sources and/or schematics where available.  In a small number
-> of cases it was necessary to extract and disassemble the DTB from the
-> vendor firmware image.
+> The two PCA6408 GPIO expanders depend on this signal being asserted, so
+> model it as a fixed regulator and use it as their vcc-supply.
+> 
 > 
 > [...]
 
 Applied, thanks!
 
-[01/13] arm64: dts: rockchip: Add frl-enable-gpios to rk3576 boards
-        commit: 2cd97880fbc434b49a211784561586f0397499b7
-[02/13] arm64: dts: rockchip: Add frl-enable-gpios to rk3576-luckfox-core3576
-        commit: 12eb09ee67cba1e3cc0c75149d0a04a5187ca575
-[03/13] arm64: dts: rockchip: Add frl-enable-gpios to rk3576-nanopi-r76s
-        commit: ba0d7cfb9870064296a8d4d57ff2c230166ada3c
-[04/13] arm64: dts: rockchip: Add frl-enable-gpios to rk3588 boards
-        commit: 643d6733e58c663b66defea758bfb8d336047456
-[05/13] arm64: dts: rockchip: Add frl-enable-gpios to rk3588s boards
-        commit: 3305c44489505e98e794cacce80cb1de9f1b81ad
-[06/13] arm64: dts: rockchip: Add frl-enable-gpios to rk3588s-gameforce-ace
-        commit: cb3ee61e35a9d60e6410526fec7b74af9be22d88
-[07/13] arm64: dts: rockchip: Add frl-enable-gpios to rk3588s-khadas-edge2
-        commit: bb85f4f5541de9abbe7e300e94d58ea888dd3b33
-[08/13] arm64: dts: rockchip: Add frl-enable-gpios to rk3588s-orangepi-cm5-base
-        commit: 640c768d315b25f8e56844d1d71c8d0040dfd88b
-[09/13] arm64: dts: rockchip: Add frl-enable-gpios to rk3588s-roc-pc
-        commit: 0c58a27bf04d88c979dc8ce86c62bb13d15626e4
-[10/13] arm64: dts: rockchip: Drop unnecessary #{address,size}-cells from rk3588-jaguar
-        commit: 161e023cafaca600aa7e5d5fab437334e6e6bcca
-[11/13] arm64: dts: rockchip: Add missing pinctrl-names to rk3576 boards
-        commit: 78f650c45ec342c16f80c50e7ee77272e76f179e
-[12/13] arm64: dts: rockchip: Add missing pinctrl-names to rk3588 boards
-        commit: 0c2c0b6cdd71c5a43f83db2e0dcffe4701d10b87
-[13/13] arm64: dts: rockchip: Add missing pinctrl-names to rk3588s boards
-        commit: 224aa83f3f73a8b17051c1639125260cc04617bc
+[1/1] arm64: dts: imx91-var-dart-sonata: add RGB enable supply for PCA6408
+      commit: 67efe58b4ac7a088a0fe881fab368f93dc40046d
 
 Best regards,
 -- 
-Heiko Stuebner <heiko@sntech.de>
+Frank Li <Frank.Li@nxp.com>
+
 
