@@ -4,104 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A31CCD3436
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 10:15:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4FF0CD342F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 10:27:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iAonctQOxYmxWwndqnNFpeNxU3FDX0KHXQsR2pNC/7w=; b=sZpn05YzuoX3ky+OzvXtTSKIfu
-	aD671JIWSr1j0XIFe5mGi8e5/JX5yvLpnE7td9YSokd5jINAcXr/QXtOZ7DEy1SIaZSF9e9EVf40z
-	uNh0l4hNEFdoUvhK1Lfv+NL4j3QncqWqyJh6ft6hrDbAp+ssIupBZsIzpLQOrGD4/gQ64So3tmBYw
-	Zz/8YISBA/ODmI2cT2dKCS7i/1O4DVWU8t85OS2flDUUup64mdw5Jnf/1znD5oyD+5z7fhizPQDkg
-	bIorgYNsExbCz0cishx6ImavZLF+ttR9TI+/OhyGeuDxlnd4cNCOhHPV3xxN2KSevm24hpe+Y7Jv5
-	fvULaDkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=buKsSZ+7jW/UO5tcyoJnJM3jwIHms8+0rSELJYgMv38=; b=jBKOsxJN1zfsJNiU4t1fV38AYS
+	YTbxIaZSZ89WfwMZMuKwy0IPLAKOEOlivGkwxBSX0+DRBBG0r8CnBYNNRuP0u1mCV3w+SYs2s2pKC
+	VA0IuMDitAC6UlPvt9E00ZFKi1CL8OotYsusQqOQ1xZtbhtInXrlBDVpS0egkuTM8XS7DBl8P7Mwn
+	011pgwvAp1GREIs9d5FuE22fyne/Pjk28XFgm9jYazjCOXPCFofCSsRdZvflvV0zuAPxzgHD+u0Tc
+	/7I3JSmSrEbu8kvnnzy04mYny6q1duhJkCmhei1L/T3pVVlQMkTXNy9eubbzaJ77C27eR7TeQGCgr
+	eHO3IjXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKCo3-0000000FrhS-0czi;
-	Tue, 05 May 2026 10:15:11 +0000
+	id 1wKCzq-0000000Fsxi-3PRa;
+	Tue, 05 May 2026 10:27:22 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKCo1-0000000FreP-2bif
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 05 May 2026 10:15:09 +0000
+	id 1wKCzp-0000000FsxN-0DQl;
+	Tue, 05 May 2026 10:27:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=iAonctQOxYmxWwndqnNFpeNxU3FDX0KHXQsR2pNC/7w=; b=M7rkvl2aPA5HY8dZm/33s02p05
-	y69zLsQFLJYkoH2CQeAbwbgcuLNccQlqnqBL5jMKowxdn9WhhuW5Ab3YxFAwh5QXGPc9iODWZPkiW
-	x070PiWfZwevBB3orCPCUa7VemrPAkI+JcasUc/87NfD1ZYrJ7IFfnFHl/VyR3xrTcd46/MseiBbJ
-	e5a1vx4gwGJyTGnqazwixfJa5vCe5Cr8bxklGuC3Dhmjji+cVVxomgbcY7Xv05y9N/VyONUohgCmL
-	LyP44NAM6VyoTUt6upd+fkX86NfrGTqHtaEEM6QiL8XRyexCqWCIW12IEcPWdixD452VUXYO7bSut
-	E09ajwMQ==;
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=buKsSZ+7jW/UO5tcyoJnJM3jwIHms8+0rSELJYgMv38=; b=pfDyCBd8Tieb8u1nFbb9XmJk8T
+	4qUT5lCteiOmG4tYAAxzPPVhC3M31TGTSw/VPLakVmeeaZtmsjKUFpBtIjAur3H88bjtolnlI29LD
+	OvrTrZu19WnUju4IzUJWWDYhDAitziAZq1udjIQSAvIVOle6+FVC4EBD2Ca6bdylwePvPdsBZvZwT
+	LsWYOksngZ40K6jesahZ2zoqhQEZpVc6G/YS4HP6ASb+bXkffE8V1r9I+m6BipMoLBt+tw45c3jmB
+	Tle0BJfkX5/ZU1+jDBIe/N0OWWFO27dZdZ9UfY7I67cnETnXT4C86XuyG5UaEAiuhrpqv1/MN22Mx
+	wsu94RDg==;
+Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKCny-0000000D9kK-2l5y
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 10:15:08 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-b6ce6d1d3dcso1653806a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 03:15:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1777976105; x=1778580905; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=iAonctQOxYmxWwndqnNFpeNxU3FDX0KHXQsR2pNC/7w=;
-        b=UG2+qGHE8zShE04SwXmFRVOmlEFDCCOJTLZC3YcVIxGWJOVvUcsZgqpSMt4UAB/FhE
-         4Rg1c5+tUbY+1/G9dcVF8cUAxd6mbzz5drs649As+83tolmTTuFvzKY+GmnkQNBYusTz
-         ZaCSisoTUpcvWyJfAjdXh5xwvAiithqUthY3E=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777976105; x=1778580905;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=iAonctQOxYmxWwndqnNFpeNxU3FDX0KHXQsR2pNC/7w=;
-        b=hG9X6RPIAPGl784PR/MGhuovWvsNyA5bYHbUyfR2JLxq7qM6mUpSVsi0hWwuU/3wpS
-         hZzsxed6XT7RJUmXUggoiF0n0lA3ySJyOBp7TbSr59GLrzAc2RFZmz3f+aCR6fXiRShh
-         w2E6AV9jsytFqIYCYBYDgeHRAQB/MGg/gF89XA1cWeeru+JewWoUbNdNtSDeAAVqrZNx
-         FfzXlNr5EWNZjQJfA8kd+7RXRNy5IdWyfAgQq/Ecn5B/r+Cx+zSeHVt+ea0GL4m7hpmQ
-         76yc8utFa1i/CrLHjHgXuO7N5BXQL1EggD1xyKL1RLkm4Cb5FxR58XfCBHlNR9P1D0AU
-         il3Q==
-X-Forwarded-Encrypted: i=1; AFNElJ8fmYHDKEhEDtFF4YnAKBgnrp0g121hCATQtq1CZC2uYluBwgQeJI8ATGGep9HeHrZvzd1DUmxBEvkHiPvtKwTy@lists.infradead.org
-X-Gm-Message-State: AOJu0YxBK8ChFDbwuT1UmVXMU0NTYcFwQvjxx4DtIBMUY1BipoJF6m5m
-	MEV8R/lFhnWUZlyKVtXAzccZRohOIwvYY+x/p3YiznJeKDYQwZ3yEVy/XWCsEIVnYA==
-X-Gm-Gg: AeBDiev5h4+aIGCoGfMDxD8QjV06nQsojyPv8VNXGKnjOIJh/4Cf205YGmXLOJH+0rP
-	GyJ1Vtmmb1tb+16iGIprMxACpIf0WayAZh/Yo8v/1KXOktzL7NliJtN862SIF7rhKur1rv36vCs
-	6n/lSy4DhiuyuWFSXvO7yBJm3J9R7o90azhUWfpZN+aw2UxOoBJC+Z7D/c75KV/2+az20+7d6Zd
-	9iFloHVvo+o8VDWfrK0s4/tghggfk8DUtBKSh9rcbkC73D4xC9hCN6gBfR4KTt3XIVg1CRD448J
-	V3sp1nNnZ/xVHMzDVPDcfq9UqrM0fd7b9LbGcsdPjGZvFrhm4QjKmDDGRbMtOLj3D6p1AzOBcIc
-	oaKImtP+0HsciGCkZ0uF0g1GWsCeQt88ove9I4BK0AeUiZgdqd3cONB2jn2u/I2SYi3ppPCDH5b
-	O2Ob8n8EiSWoKF6/XJrAwIiafQkGkA1UgtzTecHusFiOxQhloqB/+1m5IuV9aVXzTV/BfH380X7
-	EUZBr/E3Yb4LsWuEV4=
-X-Received: by 2002:a05:6a20:9143:b0:398:7912:cb05 with SMTP id adf61e73a8af0-3a7f1c4a82fmr13892686637.38.1777976104687;
-        Tue, 05 May 2026 03:15:04 -0700 (PDT)
-Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:f1d4:2ef0:7d08:9dd8])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-839679c8462sm1666121b3a.38.2026.05.05.03.15.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 May 2026 03:15:03 -0700 (PDT)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Fei Shao <fshao@chromium.org>
-Subject: [PATCH v2 16/16] arm64: dts: mediatek: mt8188-geralt: Add little core CPU power supplies
-Date: Tue,  5 May 2026 18:14:06 +0800
-Message-ID: <20260505101408.1796563-17-wenst@chromium.org>
-X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-In-Reply-To: <20260505101408.1796563-1-wenst@chromium.org>
-References: <20260505101408.1796563-1-wenst@chromium.org>
+	id 1wKCzl-0000000DByY-1xUr;
+	Tue, 05 May 2026 10:27:19 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 645AR5zP41151053, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1777976825; bh=buKsSZ+7jW/UO5tcyoJnJM3jwIHms8+0rSELJYgMv38=;
+	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	b=mkgJVHrBo+1ysTT19p5CNIRkHdmTfy4xkcVllc0UBYxsZk5VZ6e1QDEVhS/ZY34TE
+	 mp0x7Fa0NE37JJSph6OBQkGTWwv4JA+KhCptWaVLtNRibGQoqSlWvJ8kcwkCXQXf7J
+	 1+/wcZCLL1Bp1c0f55SHvnXdc5ML0tIDUO8TSncswePjN6ubADK/PAzaOji84ClvKM
+	 uxIfczzcfC04FP1R0ag385VV3Zk3T0RlJM9X1mn+W66bGu+frmw6E59aN0dYGG6pB4
+	 VAxZtmxMQF6WOI6DFHzCeH2Br37GVb5Z/XzRjKLSr+tSypF80nP0ELf+Sw99Z6bCV3
+	 yjaVo1JaVd1Lg==
+Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
+	by rtits2.realtek.com.tw (8.15.2/3.27/5.94) with ESMTPS id 645AR5zP41151053
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 5 May 2026 18:27:05 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Tue, 5 May 2026 18:27:04 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS06.realtek.com.tw (10.21.1.56) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Tue, 5 May 2026 18:27:04 +0800
+Received: from RTKEXHMBS06.realtek.com.tw ([fe80::ed72:3015:2840:4458]) by
+ RTKEXHMBS06.realtek.com.tw ([fe80::ed72:3015:2840:4458%10]) with mapi id
+ 15.02.1748.010; Tue, 5 May 2026 18:27:04 +0800
+From: =?utf-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?= <eleanor.lin@realtek.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+        "linusw@kernel.org"
+	<linusw@kernel.org>,
+        "brgl@kernel.org" <brgl@kernel.org>,
+        "robh@kernel.org"
+	<robh@kernel.org>,
+        "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+        "conor+dt@kernel.org" <conor+dt@kernel.org>,
+        "afaerber@suse.com"
+	<afaerber@suse.com>,
+        =?utf-8?B?VFlfQ2hhbmdb5by15a2Q6YC4XQ==?=
+	<tychang@realtek.com>
+CC: "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+        "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+        "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+        "linux-realtek-soc@lists.infradead.org"
+	<linux-realtek-soc@lists.infradead.org>,
+        =?utf-8?B?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?= <cy.huang@realtek.com>,
+        =?utf-8?B?U3RhbmxleSBDaGFuZ1vmmIzogrLlvrdd?= <stanley_chang@realtek.com>,
+        =?utf-8?B?SmFtZXMgVGFpIFvmiLTlv5fls7Bd?= <james.tai@realtek.com>
+Subject: RE: [PATCH v2 1/4] gpio: Remove "default y" in Kconfig
+Thread-Topic: [PATCH v2 1/4] gpio: Remove "default y" in Kconfig
+Thread-Index: AQHc2JPPhFmKb15Oy0q6ziQ+KMIRSbX28IkAgAhPSpA=
+Date: Tue, 5 May 2026 10:27:04 +0000
+Message-ID: <9f28aa58bb8c441ca7b4a0e75c2947cf@realtek.com>
+References: <20260408025243.1155482-1-eleanor.lin@realtek.com>
+ <20260408025243.1155482-2-eleanor.lin@realtek.com>
+ <6ff75de9-6d5f-4d4a-bb19-1c06d0aa8d3a@kernel.org>
+ <e1829cf5-c277-4e34-8bcf-addc27bfd69c@kernel.org>
+In-Reply-To: <e1829cf5-c277-4e34-8bcf-addc27bfd69c@kernel.org>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+x-originating-ip: [172.21.6.42]
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_111506_831797_13AF860A 
-X-CRM114-Status: GOOD (  13.96  )
+X-CRM114-CacheID: sfid-20260505_112718_141611_81668EE8 
+X-CRM114-Status: GOOD (  12.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,58 +122,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The device tree for the MT8188 Geralt is missing power supplies for all
-the CPU cores. Power for the little cores is fed from the MT6359 PMIC.
-Power for the big cores is fed from an MT6319 PMIC on SPMI. The latter
-is currently not working in Linux.
-
-Add the power supplies for the little cores.
-
-Supplies for the big cores will be added once the issue with SPMI is
-resolved.
-
-Reviewed-by: Fei Shao <fshao@chromium.org>
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
----
- .../boot/dts/mediatek/mt8188-geralt.dtsi      | 24 +++++++++++++++++++
- 1 file changed, 24 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-index d57e0eec676a..4cb23595d17b 100644
---- a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-@@ -217,6 +217,30 @@ &cam_vcore {
- 	domain-supply = <&mt6359_vproc1_buck_reg>;
- };
- 
-+&cpu0 {
-+	cpu-supply = <&mt6359_vcore_buck_reg>;
-+};
-+
-+&cpu1 {
-+	cpu-supply = <&mt6359_vcore_buck_reg>;
-+};
-+
-+&cpu2 {
-+	cpu-supply = <&mt6359_vcore_buck_reg>;
-+};
-+
-+&cpu3 {
-+	cpu-supply = <&mt6359_vcore_buck_reg>;
-+};
-+
-+&cpu4 {
-+	cpu-supply = <&mt6359_vcore_buck_reg>;
-+};
-+
-+&cpu5 {
-+	cpu-supply = <&mt6359_vcore_buck_reg>;
-+};
-+
- /*
-  * Geralt is the reference design and doesn't have target TDP.
-  * Ciri is (currently) the only device following Geralt, and its
--- 
-2.54.0.545.g6539524ca2-goog
-
+PiBPbiAzMC8wNC8yMDI2IDEzOjIzLCBLcnp5c3p0b2YgS296bG93c2tpIHdyb3RlOg0KPiA+IE9u
+IDA4LzA0LzIwMjYgMDQ6NTIsIFl1LUNodW4gTGluIHdyb3RlOg0KPiA+PiBSZW1vdmUgdGhlIGRl
+ZmF1bHQgeSB0byBhdm9pZCBibG9hdGluZyB0aGUgYnVpbGQgZm9yIG5vbi1SZWFsdGVrDQo+ID4+
+IHBsYXRmb3JtcyB3aGVuIENPTVBJTEVfVEVTVCBpcyBlbmFibGUgb24gb3RoZXIgcGxhdGZvcm1z
+Lg0KPiA+Pg0KPiA+DQo+ID4gV2h5IGlzbid0IHRoaXMgZHJpdmVyIGltcG9ydGFudCBmb3IgUmVh
+bHRlayBTb0M/IFRoaXMgc2hvdWxkIGJlDQo+ID4gZXhwbGFpbmVkLCBvdGhlcndpc2UgcHJvcGVy
+IGZpeCBpcyBkZWZhdWx0IGZvciBBUkNIX1JFQUxURUsuDQo+IA0KPiBBbmQgeW91IHdlcmUga2lu
+ZCBvZiBhc2tlZCBmb3IgaXQgYXQgdjEuLi4NCj4gDQo+IEJlc3QgcmVnYXJkcywNCj4gS3J6eXN6
+dG9mDQoNCkkgd2FzIGFzc3VtaW5nIG91ciBkZWZjb25maWcgYWxyZWFkeSBlbmFibGVzIHRoaXMg
+ZHJpdmVyIGFzIGJ1aWx0LWluLCBzbw0Kc2ltcGx5IGRyb3BwaW5nICJkZWZhdWx0IHkiIHNlZW1l
+ZCBzdWZmaWNpZW50Lg0KDQpJIHdpbGwgY2hhbmdlIGl0ICdkZWZhdWx0IEFSQ0hfUkVBTFRFSycu
+DQoNCkJlc3QgcmVnYXJkcywNCll1LUNodW4NCg==
 
