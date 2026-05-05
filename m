@@ -4,91 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24FD3FF8855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:23:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D0A5FF8855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:24:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ApEyVbHibMfUXEFKd8vG2mJSusEJJaisfPMffm8l//c=; b=u2iqDWBWeJIXQ6ZVGLk28wv9+Z
-	FrrBS4ffPAa5BECy14hY8fygK0G+VoCcyqyBwuPuCJzqZcmOQBmjO3J/qAJ6fM20b1aQ1megLkNFd
-	wpgNTYebu5wDvES2v6bYoiCEtmaoA8QF4w0m2E+eB61XYdTvlXr+ujHpElnNdQo07sq4n958TeUXc
-	AmfWkF4waToVJGWjK7inu7KVK8UsPyZ/PqbEkuyV70EvWIICwzVXMBUiZqUfZ29JFUap8lsJSQPlG
-	0BeoPQXt9/uyI1COAkGfNmwZGygY42xS5K1EjzaaSUoPu8Fe1Lp8gn/NnfCVqBLgMK+NQ+cRGjFJF
-	b6QcXF9w==;
+	bh=/UB6MuZVu1wH16AzcLmdudUfOsdVTK2ldP8gyOgjFPU=; b=U/KdCrKLWR0eCiGYxsTo5SVGC7
+	ihi/gPuxSlw5Br5o2O1DWDjOx4kaxmqCGF4SoAoVz/y+c0/a/2lXF76YrGSvS/1MhOwNJ/EeSV/bE
+	mgr7S+m8nHxx9dLfZTV6+e1kptufMhJmVKFW+Z77qU2cuMDM0GsDTyqDqcCJRdJWuZO7ExeWBzkqu
+	zqwPVkmEp5u7z9bWeXkyoNh0cKwNor15fzb+D6+eY5bs/mf7TT7wUqEwXHo5HLkwrC+nrCMkb9Fhn
+	NanwjCkFjriiFknoLjeZhCtgORl8mMCMOUwk8jpRMb3FfyPLncTVKFXD87im4vVMCHL8l3gc25Y93
+	U+jGqBxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKIYg-0000000GrkG-0SwR;
-	Tue, 05 May 2026 16:23:42 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1wKIZV-0000000Grtf-2GHR;
+	Tue, 05 May 2026 16:24:33 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKIYc-0000000Grjh-2lZE
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 16:23:39 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-44a14580111so3478785f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 09:23:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777998217; x=1778603017; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ApEyVbHibMfUXEFKd8vG2mJSusEJJaisfPMffm8l//c=;
-        b=VeBy8lNylY88t0ZnJk1nG4q/nDVAfKSZVtLD5Jx3adTxsvVWphYpdJNzNE7pynvcfo
-         faWu+rLeGBTeo5gyfF0ca8GwMmE5JfzFWp4v4cXpSPV8ZeKJ//Ox+s8PbPsx7RJkyquJ
-         zn6FpumuLC6aT3AdDflNzK4yLy9Yl7vXhhCDYDYzsN5MDa4Js7dy5C0IMAKdscEYz794
-         5z57K2JkkFJATSZIT98lkL7qAo5RdZt801HMZ/ESTr2WRbx9ZQd0TfsB7oqiTYVCcYeK
-         Pz0QU0pvs6cZBzeHLtJ5oTZpp9+bRHwrqhCqNCSTJY6+t6ULAlhinn4Pkdy/kroYpmpm
-         LrBA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777998217; x=1778603017;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=ApEyVbHibMfUXEFKd8vG2mJSusEJJaisfPMffm8l//c=;
-        b=CZd01gm8SrwYxI8I8qwtYuNMJvwVg7vM6MYU1h12yxyPD0LtT5HEKANNvCFMhIviOT
-         et/SpGrE35gd3gkeeLV6a0zNfTy1ZqnYO6ssKEzYTp+3KgfF9mKncVyQvsBMdz3BfILS
-         +HLFfdt0q+rf6EkeaoHAv0yhknQjkZ3EoRRxBS1FXbqfHvOxWxHNnkhCJeTIZkGclRnn
-         u18sMNv/U8jfaWO1fQZjHP/Dk2P7spJiA5heHEVflMQ8cMfLuJEt9fqmAzk/TBbNz+AE
-         kwDdmrvA55yhqc0G7EUHii19wMUPGhuO63l9PtItKdJXWb3VY31r56nBXM3H3h8T3pz4
-         eL2g==
-X-Forwarded-Encrypted: i=1; AFNElJ/hZyjOgYVZb34rPXTII71DP22Nk/1puUPBuiJRb8C9CWMxyMG9UKD95NWU4CUs+nxdCL5KLBaRv/TTlnjriuJw@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyi4msyByL1NTVjY8G1BVQ9m/InU15RjYLfJLj+8Z1nTdot5Y3m
-	/s7JrBYOVPXnn8upfRAO/bPSiK1TGBgDRDonKvGQ6gQDzutMDf9Hn1xBmlzY9W24
-X-Gm-Gg: AeBDiesU0TLRV/A3z1WmR/rrPaoxB2FIll4QMnMfhZRNbe9x4H/P9y410NpBkElx0SW
-	AI509ej5XDIHOJGiNCASDGElmhoIovrWb1gZymGIKZvRostJ0nlKGe4vfE4Eqsbafz3ArYDB1vK
-	47Sx9FyAji4xbh3+1OUnqzeobrW+28PsLH/N1ARgCHXYecBTOJlXLeX7p9Yd1Yv+kHd3xUHVxZ9
-	ziirw1LgN0JnpwLQT2vV5zQo9/fekPhEMOvwX0oK2c8PqmuG69F0Rx+XD2mZ6gOIx3P7pC2H20Z
-	2ZaQrZNQZnLEPei180efxugAa9t2fRrMMZNZat34QrpVYoDlWlWWAultzLUnnFik/quF5UEnaQ7
-	DfyXVqrdAgx4lomkVmE41Ij+PRxt0iM1IEv9LIuPeUzE2KjsalRhAAZwGKkx9ziQ1gzKXIGu+va
-	zhG9Jsv0lxZgHV1aeCJq+8SC0wbcX/hAy/h+xqsoe75rn9lXgh1VECOq5EH4Npd00Dk5WX1zIgL
-	wXXtDWe0kBth9k0KnP7G5n8C1/I
-X-Received: by 2002:a5d:5d8a:0:b0:44a:2555:f8a9 with SMTP id ffacd0b85a97d-44bb3c94c11mr24734377f8f.10.1777998216446;
-        Tue, 05 May 2026 09:23:36 -0700 (PDT)
-Received: from jernej-laptop.localnet (46-150-62-216.dynamic.telemach.net. [46.150.62.216])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45054b03e04sm5934939f8f.21.2026.05.05.09.23.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 May 2026 09:23:35 -0700 (PDT)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Samuel Holland <samuel@sholland.org>,
- Michal Piekos <michal.piekos@mmpsystems.pl>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- Michal Piekos <michal.piekos@mmpsystems.pl>
-Subject: Re: [PATCH v2] arm: dts: allwinner: t113s: enable watchdog for reboot
-Date: Tue, 05 May 2026 18:23:33 +0200
-Message-ID: <sv5CLRHyTX2Cm45r4DQahA@gmail.com>
-In-Reply-To: <20260425-t113-mangopi-reboot-hang-v2-1-fd343207a4be@mmpsystems.pl>
-References: <20260425-t113-mangopi-reboot-hang-v2-1-fd343207a4be@mmpsystems.pl>
+	id 1wKIZR-0000000GrsK-1di6;
+	Tue, 05 May 2026 16:24:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 924E4419B3;
+	Tue,  5 May 2026 16:24:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FE04C2BCB4;
+	Tue,  5 May 2026 16:24:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777998268;
+	bh=/UB6MuZVu1wH16AzcLmdudUfOsdVTK2ldP8gyOgjFPU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DymjIbDBQ7v6YinmHZT129hxnR1yEV9gg47ge9IsQCkBSYyRCpSnwcOrTtIeDZDRh
+	 0lMbiFmww7nZ0Vc30/FxtzNNXkIt1sqUU9YhfUVbedlc+fBHvZhMyf+N4wa1sPF4AH
+	 Yvq99bP9c9LrJoFISFgD+7ySYNdysewK9HCAdvPWIpXHbd2OV769hoK0xYjUGqDshr
+	 mTvvF2tbXoWHqTJVd/EBKql9FqCBn0mhCYk24ReAK0GGiTr4bnwomSLpBF1HuHn3lQ
+	 /CJAuDuf+GPU4TTIxhJbEHibX5pN2ELu+nKCiyruCzepomKKL7fQGGGi9l/5LlWvV+
+	 /+TuUeEJv3YPg==
+Date: Tue, 5 May 2026 17:24:21 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Manikandan Muralidharan <manikandan.m@microchip.com>
+Cc: alexandre.belloni@bootlin.com, Frank.Li@nxp.com, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org,
+	nicolas.ferre@microchip.com, claudiu.beznea@tuxon.dev,
+	linux@armlinux.org.uk, mturquette@baylibre.com, sboyd@kernel.org,
+	Ryan.Wanner@microchip.com, tytso@mit.edu,
+	romain.sioen@microchip.com, aubin.constans@microchip.com,
+	cristian.birsan@microchip.com, adrian.hunter@intel.com,
+	jarkko.nikula@linux.intel.com, npitre@baylibre.com,
+	linux-i3c@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org
+Subject: Re: [PATCH v5 1/5] dt-bindings: i3c: mipi-i3c-hci: add Microchip
+ SAMA7D65 compatible
+Message-ID: <20260505-prewar-disarm-04392f03d61e@spud>
+References: <20260505071327.125787-1-manikandan.m@microchip.com>
+ <20260505071327.125787-2-manikandan.m@microchip.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="0l+HBF2vu6FcRNjE"
+Content-Disposition: inline
+In-Reply-To: <20260505071327.125787-2-manikandan.m@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_092338_737988_F543A1BE 
-X-CRM114-Status: GOOD (  15.33  )
+X-CRM114-CacheID: sfid-20260505_092429_447981_BF243EE5 
+X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,54 +83,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne sobota, 25. april 2026 ob 10:19:40 Srednjeevropski poletni =C4=8Das je =
-Michal Piekos napisal(a):
-> Reboot hangs on T113s boards because no restart handler is
-> available.
+
+--0l+HBF2vu6FcRNjE
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, May 05, 2026 at 12:43:23PM +0530, Manikandan Muralidharan wrote:
+> Add the microchip,sama7d65-i3c-hci compatible string to the MIPI I3C
+> HCI binding. The Microchip SAMA7D65 I3C controller is based on the
+> MIPI HCI specification but requires two clocks, so add a conditional
+> constraint when this compatible is present.
 >=20
-> Enable the SoC watchdog whose driver registers a restart handler.
->=20
-> Tested on MangoPi MQ-R T113s.
->=20
-> Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
-> ---
-> Changes in v2:
-> - Moved watchdog enablement to SoC level dts following Jernej's
->   suggestion
-> - Link to v1: https://lore.kernel.org/r/20260412-t113-mangopi-reboot-hang=
-=2Dv1-1-5002cfa6e0cc@mmpsystems.pl
-> ---
->  arch/arm/boot/dts/allwinner/sun8i-t113s.dtsi | 6 ++++++
->  1 file changed, 6 insertions(+)
->=20
-> diff --git a/arch/arm/boot/dts/allwinner/sun8i-t113s.dtsi b/arch/arm/boot=
-/dts/allwinner/sun8i-t113s.dtsi
-> index 424f4a2487e2..d3bbed84eedb 100644
-> --- a/arch/arm/boot/dts/allwinner/sun8i-t113s.dtsi
-> +++ b/arch/arm/boot/dts/allwinner/sun8i-t113s.dtsi
-> @@ -34,6 +34,12 @@ cpu1: cpu@1 {
->  		};
->  	};
-> =20
-> +	soc {
-> +		wdt {
-> +			status =3D "okay";
-> +		};
-> +	};
-> +
->  	gic: interrupt-controller@1c81000 {
->  		compatible =3D "arm,gic-400";
->  		reg =3D <0x03021000 0x1000>,
->
+> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
 
-=46ollowing, at the end of the file should work:
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
-&wdt {
-	status =3D "okay";
-};
+--0l+HBF2vu6FcRNjE
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Best regards,
-Jernej
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCafoZtQAKCRB4tDGHoIJi
+0t5tAP9j1Ts8TV5Nm9gBaXbBndqBbbHst/jK10FipNvviPDt+wD/T1eaRHjorVh5
+jpi/+IbbVA5d+oR7IgRe2HlgNZMqRQU=
+=SHjI
+-----END PGP SIGNATURE-----
 
+--0l+HBF2vu6FcRNjE--
 
