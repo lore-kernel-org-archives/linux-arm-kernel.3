@@ -4,67 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C5E4CD342F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 10:07:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C5F1CD3436
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 10:07:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UYAW3Mf5UXamv/g9VDqzzbVHVo1IqRgXCFZ4dRE6avE=; b=EKuBovKL176Yb+WSWT05TTFWJv
-	vv7f6/iyHyxlJZvBHTYknX1p+UvnAClXjOMUg92Z50f4pG5xDL5OZFR2YQMBRy+PuWiLIYYJiJVTi
-	tz7lbOcBR/HKtUiJkK/5zn6/sWl+ErquK1M72IUp0LZxANCQPao4flFK7Xw8GKJJpry8/GSQAR6OO
-	4VwXEE3/AVtAs7sDWPfhMwWNi1GW2bK90JbQa6pP7q6ZSG+xBvqjXrjtsFWT+pjHxPuY7pgPvYZoB
-	A92fT9ZaWyW1kNq1h9s7jfn8Ua6N7vBhGSynSIzd0TZEBlYdoJ/Sv/1Sf2ZXjP9EzVOoSJx+BKBm7
-	to5MhQaw==;
+	bh=LfmEKuSDebMAxunONx1yWbnk6UZDGWJuV+B1JzN3k24=; b=d6xcmLeyvraOasHZWAf6vGTjz5
+	jhLUIGNNdyOo5UV+44/KZkCRsqaErQhdamvRgJWOqxwXp1+7sKS4p5lqGv0B/NmD0VzrwBH7759uS
+	n5EtJXoipxVqqIcfP1LmCPVEzdGtiEdBdjzAl67jIHTq+Z/Fj1wXl13I1nQowjd6wEWlhUP19xROc
+	4fp5fPD5tU0hdksZJuRqwQ/yIOEblCK0dOeCRWcwP2012ETko9OlaCrWwp/ZNnFIuOOCaCR81JNGF
+	EEARkO1CIZgKx+4kQaOrFsF/0FukJdpGePEqJrJjWnpuiccE9LYhoXQfFp6XXYQacqvSbI10Hvi5R
+	mnp8BllQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKCgC-0000000FmNZ-1HZz;
-	Tue, 05 May 2026 10:07:04 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wKCgF-0000000FmSS-3LAE;
+	Tue, 05 May 2026 10:07:07 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKCfZ-0000000FlQU-2ky8;
+	id 1wKCfW-0000000Fkdf-3tmY;
 	Tue, 05 May 2026 10:06:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=UYAW3Mf5UXamv/g9VDqzzbVHVo1IqRgXCFZ4dRE6avE=; b=iMM+47XdWhoypzEA3nQk6Dhv8K
-	AiNyImuLLFpkzBumE7czGuaPBjF1myR6pCIxlDYKwLb+9PkMSGfUqAKFoCRhBE93gKBnlUXbLyzbk
-	cEQBZkXzc2Y+jSgCh3Ixd7J/2kqJcz3O/TrFB6bewTKnrxCrGV0bTvu1bWBT2uzyy+0bXU1FteZMZ
-	llC7Oxxf7U/tEGSM97aaUezoSyMMbM4aqySGRme+gizCcfEwX9bTxue41WPG4h7SXjI/TekuOTUjz
-	fgp+3HzGefMYlm1BNg6Gr/KXryeDcutECdQr+SDFbsVa24qaGulyd/ONOMUAVGC8S1bPuaREkyuJv
-	fjWGjSBQ==;
-Received: from mail-norwayeastazon11013038.outbound.protection.outlook.com ([40.107.159.38] helo=OSPPR02CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKCfL-0000000D7jp-2jKj;
-	Tue, 05 May 2026 10:06:19 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=g26yx/JvVFeKw0kuns/qvqf21hvG56TG1Zx4xMt+pmPrDydqTLJe8IeMXieOWlTxiMz0bKOF3yyKRYDIi4bCKUUiktTuKKq610apl86metyJ9FrWhRvo93Czpru7Bh5fweUOoPoJ3cn/aTf1g/3ywm715AnG0XrNztWthifFJ7e1Fh7u229ZtYLAT9ZtlvkTSww3x4gN0YnjNDKF7nbKq6lv73ZOKiaNf+yYqsZoVfY3S1YfMXiguLu+Ee3X/A7rFjO7uHCI+d5A2/sOOp1XjjC9rj/z7d3IWvJGdlu2AqSWUgjL35A3FtJBzBuJPiIqVRKd79TLst+afQG3Q1iayw==
+ b=G98hC7npOLIMH62MxkJDUAMJRszlDgMXd7xLvb3e1p1ObammOhDIlP5IO0dsrgsR2mgRM+vGL3ZKuRsZct+bXCUeey3tcF1afDIxcWDSBF02MXPlFgbSgjNAtWelPWLIzClTpCkmYwRoKdPNUtqUqBqlEiPNPXIIW9A9JNkWUj/RhwBZ4Xqz/k4BNcqSIQFl3vBE3qaUU1gKuoSNeYg4Kt9Dcy1g4Oiokq9M3zXtjzO6E3Dvhbunq2WcYgtnKWNxJl6YZ4N2bfiOVMeAQ9IN15Jq6FV9LvKQYJWTPVFr0pRJK4tve4sodJm/T0cu3XzhngXvAboUIO43va15NcF0lA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UYAW3Mf5UXamv/g9VDqzzbVHVo1IqRgXCFZ4dRE6avE=;
- b=mmT9aqwUmfQthXIZ0nf14QZ6NbFE9Z5E9iUf5GB5m7M30qBBy3SsnR5QvcUCxClRx+B9fXtJeqr6bvEH9kFEQbT7AdCwDqbG+5MyqkyrRXwfhOPLA7E2wDupWy7ax4bP5pvOsUbkOCcbTJ0bUvMMgfWQBc3uh/g2EZWgB6i/x1wk8Z4eEUxN0UwfB4IBFLLWRDbJpef8sqmUZezv37o4TyuoNzbMkkJHJE6Sld7Q/74yFNGFvTeWjdXLKNFqc/nxxZZnzOPE9C/jj95mRcG7cVXCfCHLRntkXshBO8SHcYsN+T7snWycbXkwdR7Ri2o17xejGRB/iIW7BGwEsseZqw==
+ bh=LfmEKuSDebMAxunONx1yWbnk6UZDGWJuV+B1JzN3k24=;
+ b=eGpmAe7tNXUNj+VmivAv2BWz/oYqER3iVI9HG1oMZPrx0tGDDR/GCbSTcHAWw+6yj7eabe/IfkOQmGc8s3rjy6Redn9gXM0WD53ksx9bC777SAqVZD5NjwLdwsUpcP4hsyQ4hY9tSylT6f3GAAaa+MPRn3IRgZ9h1PYHinAlTqVPdUi/oMqsHLypxDPmXJS/IMd0/KcEQONHquV9YPvAF9LU3OEjKiyALf6e8gRPS3ikrwKOp4TQJdKVrDdRxoq+hE6ufGJB+4WgjohxPYlM2BsGHsMg3+jXbJSPhyy9yzwuFricqG4T99pfe60hKGDNXJffzjKLEOHa/ki99kG8LA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UYAW3Mf5UXamv/g9VDqzzbVHVo1IqRgXCFZ4dRE6avE=;
- b=TCarC9Xiv1X/aTX8Q3Y5pxc8dmztKKCw54US5enQ8u52WM8DBqjZD2eu9N+fMUanRHTbB+ar8SB2kggX8DFPeYhMPb4m+M45OKimqhymu0TyZJkeJStXw/8ThiD0wVX1i1HzDIRwH97e3vYO9BtFChYfkr/pM9kKDpM4sfNs1Y1kmVC8qkSg4m2uiqmRPAl18N5hIQNZdCGPL+nStVW9jM/pvbOgr4/UB6YtxfEh91QI61j4tiRAYBCxPn6JwgCTNdyLwgm4O/2Ck2m+GEhtqngrdIqV8sB734tlacOiEHlTGgpIj2p0Gtx8lVqu9PjoFgUsSTgqLai/d60A1xe3FA==
+ bh=LfmEKuSDebMAxunONx1yWbnk6UZDGWJuV+B1JzN3k24=;
+ b=cNQxRuTNSB1LEy6NBckZ1ok4y+QQHgkQbu9mh1IPhHoiGpW46UY2hrJys7s37ZgYbvas00Mg4K/CTvuBHwfVcq3tlo6wNFAuahYU5f8+rI5SmTeZ1sqIK5k24+G1A/1NOz6q1GZgJnLMaZKKs3d39LgvFTXEQ7yBEPZHSelmZYfdC1shoyvu6xQPjl2aiauJoDOl3DN2vz3sT5LZLBLdbMzIlrlxfy39YBYBAP8QEZhBw+5/N2rvmdI0SrG2aHfjiBhtCUKJaD5THkmHdSfmjc5kipZmZxCL9c0U3LkuMsYPrzWF/bGhbfLGYK0Hwyjof4raKDaEC0LN1nSjvZqVsQ==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
  by DB9PR04MB8363.eurprd04.prod.outlook.com (2603:10a6:10:24b::11) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Tue, 5 May
- 2026 10:05:59 +0000
+ 2026 10:06:03 +0000
 Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
  ([fe80::f010:fca8:7ef:62f4]) by AM9PR04MB8585.eurprd04.prod.outlook.com
  ([fe80::f010:fca8:7ef:62f4%4]) with mapi id 15.20.9870.023; Tue, 5 May 2026
- 10:05:58 +0000
+ 10:06:03 +0000
 From: Vladimir Oltean <vladimir.oltean@nxp.com>
 To: linux-phy@lists.infradead.org
 Cc: Vinod Koul <vkoul@kernel.org>,
@@ -90,76 +76,76 @@ Cc: Vinod Koul <vkoul@kernel.org>,
 	netdev@vger.kernel.org,
 	spacemit@lists.linux.dev,
 	UNGLinuxDriver@microchip.com,
+	Can Guo <quic_cang@quicinc.com>,
 	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
 	"Martin K. Petersen" <martin.petersen@oracle.com>,
 	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
 	Nitin Rawat <quic_nitirawa@quicinc.com>,
 	Manivannan Sadhasivam <mani@kernel.org>
-Subject: [PATCH v8 phy-next 11/31] scsi: ufs: qcom: call phy_init() before phy_power_on()
-Date: Tue,  5 May 2026 13:05:03 +0300
-Message-Id: <20260505100523.1922388-12-vladimir.oltean@nxp.com>
+Subject: [PATCH v8 phy-next 13/31] scsi: ufs: qcom: keep separate track of PHY power state
+Date: Tue,  5 May 2026 13:05:05 +0300
+Message-Id: <20260505100523.1922388-14-vladimir.oltean@nxp.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260505100523.1922388-1-vladimir.oltean@nxp.com>
 References: <20260505100523.1922388-1-vladimir.oltean@nxp.com>
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: FR4P281CA0329.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:eb::12) To AM9PR04MB8585.eurprd04.prod.outlook.com
- (2603:10a6:20b:438::13)
+X-ClientProxiedBy: FRYP281CA0017.DEUP281.PROD.OUTLOOK.COM (2603:10a6:d10::27)
+ To AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|DB9PR04MB8363:EE_
-X-MS-Office365-Filtering-Correlation-Id: f1cc87e0-9e67-43cf-f975-08deaa8de793
+X-MS-Office365-Filtering-Correlation-Id: ed82a3ee-85bc-486b-5dd2-08deaa8dea31
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|19092799006|7416014|366016|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: 73yzMLF9LD0w590Xu8FOvjQgYAxxuQt9n7c5dxgYkmvMtpdcHEwTBcmSPk878pgHH1VT2bjVbIXex3MKdwkpQRXl2DWufK8fCH5OJiKNRFmrCeC2xBs6IFtbDIW4IXyzmEY0346lQTmoVY1x9CDVTR4ff3GyacpH93+tu94cf/Atu3oAyeWnjiklCLBm9ItzJWqsKNrzVslPLbqAJW8ZFqvYxyUiDXr+lKj6GEv8NHqb5ZYmclm3cTHuK5OmgzXBwIcQx9c4XYryGRu2LpXFi663A5raxLbM5RMyKVQ2fUohohHrUOe5qRhfaiZWb1SSaljTU66idtuWx3zNHvQGq3uAo3+5YzTbHjzpywwZJUnl7F3pct0w3yfB6C+FsPZqWN1468Nc/cD6VzRh5U1p3jQJQWNDMKixw9hMTQgmNdvK9crCQfGerqCqqn7l88jTA0P3VHJASTZwNjbrg4sEroifU0ArwpjxJfRKhRD/Xbq8i/U5CULBBF+A3Aep9++hs8fQNf9AA5CEJwxnRBaBbpDvcVew3TfjZIBy1yPLi3AyiegNhlagz6P7eEChBORvXPW6FdTnPzfb8jXc5Pw9W48OpOBnledWIVGRN+R7WEymq9zifJc5X0N9LSgPp6i+/+EXk8cN4sDTf0P05wPZfZOKYTUZq1zmqSzhQ3h0WE314wmcT3rejfH9ZzpXKjYgdJMitpepRDMzdPusK5KXkg==
+X-Microsoft-Antispam-Message-Info: 2ZHidZ2Z9XG1cUXbqmlQK9ajqsxCHl1TDtw5FP0bz1JO9Zif5/lv8mMRG15eqeTY49ycBf8/gOu3aps4JDXGPvvDw2Ji1J6Mr7xrVPatlT2O2Sl4BFGxG49TYFoA43igGaw7Q/oSXTudwWeyP3oTUR8rHdr9UsyGWwvZMRdO6DcwtP1JohNpOd5Eyxtt3kFEXzjbHC2KM5F9BorqJOb7lzVB0OCB5XZoY5oI+kE7EWigMu4ygsHSLIJ6P3ug476hURVhkeBp2C6TFsE05Q3AnLXVNoQEEoTaxihhFmWxTC0LwgAA3nUIMs42I8V0AEGh/ACOqGj9dCaSphO2kDo5meNhFG1IWRjaPbXVuI7k2rK3IN6Bv5waHZfAKYIt4VAazoY9pgMGF6cclacadREjpHCUqCAlMFEZ6LQIrZWp/s+BKaG9zoElPbgnckbvn/H0KJ6lO5r/QFf+DwGXZL/SbfoYbmJlhs4Ms7KMM9byRH8c2Bak1KoVq2CBfgA+kAK5MBlsy1ioHZOqcN9veew2OVn4wdHlAjok1q5nIv8+Ph9xf+QBeEcu8mYSdTBekhsCNbvqENYhOR4uX+I49Spl5Ui5f2hYZhHOXQF4n0WzyarxvtWbuKbP/4fXrY0nPAIL9Zz1SynwZ0feLItB02JM0Q==
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(19092799006)(7416014)(366016)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1gPMaARTglJuKkYD2FywXTG4+TKSzvyTxMQWUG7d6Xc1kVh9GjB07f9twZ5t?=
- =?us-ascii?Q?Z2SnFaDS5PgdywVQQ5lWhOKv7San1xhNnY/Oe4GlD3l251tpnUbQjV/LizaF?=
- =?us-ascii?Q?V37iUiGvhFMyAtxAAOmFapZNqWf+nsG+Hnlq/m1V9C3s3PbkOJf00X7A6MdT?=
- =?us-ascii?Q?LSC3VvNv4xR8IY1vT2bQ3NHApHdGDUjD4dWwt14N9PjPIH0Eh0LDifML0jqL?=
- =?us-ascii?Q?L8IBde/8gkMcYP26r6M7YX++xjO9eTEjh5foJtpntTNp1819XG/CNUcHqr2i?=
- =?us-ascii?Q?0AoO6X0r4LDmEuRDTlZHQrhLx2dPF8zYD+5Vlj/xpe+gtoRW0WJI94Lbxjd4?=
- =?us-ascii?Q?5IuU21/uM/yGQd9k7DDt0R0Gi58rztYygwxM3dtYygyeOpS8F+h3BpfUrBEZ?=
- =?us-ascii?Q?NVxOkWKOED9C+utUYTWyOXr7aSDUN940t2mwPTFMd3E3wp96YcuQdu8QcIs2?=
- =?us-ascii?Q?D+9Cjk8hNISaWQ6amZvKEcXRuDbqAyLt19wvfFY2yPJKLx8VdGt1VD5UBDoD?=
- =?us-ascii?Q?y0f000j4xMYkrtWNF3C+H0H04VnAcace7+bXArOJLEWM3PuB2ERPX/wx9Rki?=
- =?us-ascii?Q?uj8P0aGdD3SksmkElqzlUC8vsJtXcPKdlu1/ryx5BXSlznPzxdEisH0c9rWu?=
- =?us-ascii?Q?V2Yuce0o+IaWyevy+yR15H1LUKc03nvYa5toEbArqggZgM/DI84uoQz+NCU8?=
- =?us-ascii?Q?tRUPV6fdQaDhRQb6eidL1v0DIYrdRLk9uemCkCwf6piCoQYHaoHtXZgj+94m?=
- =?us-ascii?Q?ebDwmaVEV+iJ8vM7KGGap4M5HH8fogTSoHX+1zthfqweeiaT1LJx0JRpv2th?=
- =?us-ascii?Q?TTcgCtx5mCXotND0116an1rpL45N++nJHwKt3qykgcOqSLlSZs9b1SB0o6Ap?=
- =?us-ascii?Q?IBDK7S9fyoeiXWHaANf1Hwec5yMKok2rYgw0v5BLvMwPn5pREoO3y5Gj+ayY?=
- =?us-ascii?Q?OisJ//iI/k7bkJXkSq+QsdyRHIfKtT5GacAN3W1r0b3L0pCXQgZl/xBQIL09?=
- =?us-ascii?Q?Yy8rs1aAIMd6jgnAuaEWfkvc5z8igS/IB+J4RfcUzKZa5KqPxnWSU5fh2Na9?=
- =?us-ascii?Q?ZnUd1OZWjBnPY0SbsuPXNgt5C5WqJNG6gmOkB55grZBliZmuzxDs602oTwSZ?=
- =?us-ascii?Q?2pMixDelSPNpGr/WjEzQHg9khzbww3EqYD8Ji+Q6OF7lON7JEnBg2i4oCCrc?=
- =?us-ascii?Q?ljv6UDFYi3miGbFMk5rYZw2Gg6ThlHpgCi5CFzGMU3B73YjguS/LZVgachD+?=
- =?us-ascii?Q?dC3NqJAX3qskl2/n6Yf9IAYxsMglzUpXCy97SLbe44Mm35cSnPOAA4qTUatc?=
- =?us-ascii?Q?JLeUw7pSh8C/+QgNp2bLKoiD31rSMXX5+Dvh2cSpBGXn9O84XxKGkD/hkd+k?=
- =?us-ascii?Q?1lH5uEcSN9MWDA+qSsi708Pl2LgkSnltplilJ7PtC16NOUpKd3xZXoRFw0TO?=
- =?us-ascii?Q?rr5mxeDSCCsM475VAuJW4mFf5vpWo/6Yg98fTi01hSg3I3CM4EKgQ3WT1rUx?=
- =?us-ascii?Q?CUUA27I62dR01uc5OnajTbQY98wAdmvXdejmO/6MvjYHBN1LjM5TIpYhsOWO?=
- =?us-ascii?Q?YOg3xGe/qEYGXZrKVv1IZvaEc1zF5xPFaa6UxyFLIY2coPt3S/zwUaE0TzSr?=
- =?us-ascii?Q?SjS7D2LmkuS7jd5Z7Mvekm/nacZONsdcgSq2OtUmxn/MHXO5eypWCIdPE0k9?=
- =?us-ascii?Q?8cPhn3n/OaYaQey/x6GF7Q8krKKV8wW2Xj5HDTlWRVURDQGh6DeEx9I5wvtR?=
- =?us-ascii?Q?zEbLNWTXHg=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?RTADKoQWT0uoDwOTgZUdxgAVzPb3pml9Qb67ygWFJWHTxcf1hVkLAlgnNM4w?=
+ =?us-ascii?Q?pZ9a2yAjO83adLRx13mhC/togpTw8FNWfJbbhevPkTOsvgKEJ9FLeWn2fB8H?=
+ =?us-ascii?Q?AQL9z5QQtz5kNucwHzBxfirGSsZYnnW631OXNY19Yvcm/1/vxyzm5UxdfqQS?=
+ =?us-ascii?Q?/OPjy2C0AMHDyOnwm5lk4DJyNR59acUY3FmuhXe30HOIhGeGyLtwCZdzby+p?=
+ =?us-ascii?Q?yRguK0+vnVmMPHJuCOXEiifxDs8N/4kYtOOsSm611VVQXqyyAypdGB9X1u35?=
+ =?us-ascii?Q?wSCYqaao9WFDnzhQJzBvZ0ZkxwJSeuu/6MCnyg7+bSdjslmWs7Re/+zANWOe?=
+ =?us-ascii?Q?paF+LCoskwR92LLY5urEyfnS0zrZ0PttNCYVOrSGhmSC5nR5qXgSSCnCZGwb?=
+ =?us-ascii?Q?9nejn1AlEzCsTMRmJhHgitgT/d8CF8DJhoazc2JNoWvkfaLYbSyYed7G8QIF?=
+ =?us-ascii?Q?JHZO3E2nAaJHS1M3jl2JPWwhHERCcZh/TgPq7ehsOTKCq55ztCw3nBhqVRqb?=
+ =?us-ascii?Q?5AaYS3cG3NX8R8R5sFcbxTQLISndhd9RV8hg8WPPSSQhh7S/wG1JITBF2NWO?=
+ =?us-ascii?Q?GtcWkGxn2n7kkokZYirSoc5Ztbt0etryoLlDNvNwfRjBR68zQ0XXIQNnqRHd?=
+ =?us-ascii?Q?9jhDIbm6PNriVQV8aR4g3cu+ph61Sixmvk7vAHy+U/uuINgqd8yju+OWAknd?=
+ =?us-ascii?Q?Q3BspH0lH3TvxjT7ufg/nlRu/NYhZ4bRFW/CV/Vw45yOaWn/SHT6e1XT8HHc?=
+ =?us-ascii?Q?kxwmNytRYKqsGmySFgtuylo9Fq/csl7/5fbllbhPlWnRDZ2zNXHpWl5K2SZ9?=
+ =?us-ascii?Q?sFbERv9bsiL9ayJFiw3bQCrWXDU2F250Nl5nfmiapQ8ai87t9Cwf7aN43cNf?=
+ =?us-ascii?Q?aWGw6TtVAmng+uNjSXgcPW7soznEAQQCu4HqLN2E70TzOxj7Qx5FqMaLlILB?=
+ =?us-ascii?Q?q0EpSBH1ve8gsZ4pZWX5wxE6t1RWlC+HBR6N2dTrFFLlOpS2T6kTRnvFfrxR?=
+ =?us-ascii?Q?LemWJ/2Qy+Uh0F/sFKDw+135dL2lqMqSlXVf3R5zQD93Idi+t/xBM7j+G0KT?=
+ =?us-ascii?Q?1LnYBfnUdsr4RDTmfTLlj3WcQGSHilarH47i6d/vTJZNYRYIHwGiFAvMvvvr?=
+ =?us-ascii?Q?kfTY4GLsWU4+MD+o35REcGKwPh6NhbHe2+FFQURJm/5vLhh4maxj4zW82YWf?=
+ =?us-ascii?Q?pdIjkWy+xM7J7QamxISCgo7o0vupeG6WF70axtWE2a0iHFb8Y6JHMyVY0apY?=
+ =?us-ascii?Q?Iy+Q6c3Veo7qDwIbafjfRO51CM0VwED5qkPTPvnuB6/TdI0Mp3LPjY/0HMUc?=
+ =?us-ascii?Q?iSgA5NGuQUNubQLqAZQC5lx/I9ssHeVkd6ik0yuPfWyFBBzhqmZi89fbC64x?=
+ =?us-ascii?Q?1fAsxhfxPKW4OLxis6MZu4djr4qsSPmqvt06Oa745gtp2Cf0MOZcYSoxuNfb?=
+ =?us-ascii?Q?8Ct1CNrWXQzq5Kg9fuCykaRAywRDRSJcC/YWahFIRxZ6XYjFgka35al68tCX?=
+ =?us-ascii?Q?4OZ2bJ1+NAX2gLuQygttT9PvPbhMj1V4F3aOh13qUYE5OEqt1vH3Jk54zEct?=
+ =?us-ascii?Q?icxEqCXmDzJVGpBFQQfF5FY+vk2/vbcOnnpG5M3EFtrDNiSUTGH3k3yLU+Gy?=
+ =?us-ascii?Q?swP4NtZeTTEHY6ou65ASuvYURP+flZuhRwLvD8khJRn28zmx9ACboKHz4uUj?=
+ =?us-ascii?Q?T1DObpcWUwQJSndzcUostRsLhWCrDLE4+Rb8N3weFV4bOVSapg1iDfi3AClE?=
+ =?us-ascii?Q?d8hNkhYzsQ=3D=3D?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f1cc87e0-9e67-43cf-f975-08deaa8de793
+X-MS-Exchange-CrossTenant-Network-Message-Id: ed82a3ee-85bc-486b-5dd2-08deaa8dea31
 X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2026 10:05:58.7849
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2026 10:06:03.3376
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qFRHmG9sOqG9/oHc2veaP7HwAxOaYMFxwrPf+r2OjH094OolpS294ZwOPjEYwSHtnhj63RkVpuRrzu9hmUqLRg==
+X-MS-Exchange-CrossTenant-UserPrincipalName: 74OiZfYv6Q5G0wNXi3L0k9sfGcWt2YDI3PCFJcXjzIj+HvoRn265eWOU1QWM8moWjPOlIxFo+Ja3xrisvCk1+g==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8363
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_110615_138230_49ECBDE1 
-X-CRM114-Status: GOOD (  17.50  )
+X-CRM114-CacheID: sfid-20260505_030623_901192_EF358BC7 
+X-CRM114-Status: GOOD (  17.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,144 +160,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Qualcomm UFS host controller interacts with the QMP PHY in a way
-which violates the Generic PHY API expectation, documented in section
-"Order of API calls" from Documentation/driver-api/phy/phy.rst, and then
-tries to hide it.
+The Generic PHY API needs the following call order:
+phy_init() -> phy_power_on() -> phy_power_off() -> phy_exit()
+with a balanced number of phy_init() <-> phy_exit() and
+phy_power_on() <-> phy_power_off() calls.
 
-Namely, calls must be made in the phy_init() -> phy_power_on() ->
-phy_power_off() -> phy_exit() sequence.
+The UFS framework is not exactly great in helping out with obeying these
+requirements. For example, the Qualcomm UFS HCD driver insists pairing
+the PHY power to the clock setup operations. But during driver removal,
+we have:
 
-What we actually have is:
+ufshcd_hba_exit()
+-> ufshcd_variant_hba_exit()
+   -> ufs_qcom_exit()
+-> ufshcd_setup_clocks(hba, false)
 
-ufshcd_init()
--> ufshcd_hba_init()
-   -> ufshcd_setup_clocks(hba, true)
-      -> ufshcd_vops_setup_clocks(hba, true, POST_CHANGE)
-         -> ufs_qcom_setup_clocks(hba, true, POST_CHANGE)
-            -> ufs_qcom_init() has not run, simply ignore
-   -> ufshcd_variant_hba_init()
-      -> ufs_qcom_init()
-         -> ufs_qcom_setup_clocks(hba, true, POST_CHANGE)
-            -> phy_power_on(phy)
--> ufshcd_hba_enable()
-   -> ufshcd_vops_hce_enable_notify()
-      -> ufs_qcom_hce_enable_notify()
-         -> ufs_qcom_power_up_sequence()
-            -> if (phy->power_count) phy_power_off(phy)
-            -> phy_init(phy)
+which means that we will underflow the PHY power_count.
 
-This "works" because the way that the "phy_power_on was called before
-phy_init\n" warning condition is detected in phy-core.c is if the
-power_count is positive at the phy_init() call time.
-
-By having that "if (phy->power_count) phy_power_off(phy)" logic, the
-ufs-qcom.c technically sidesteps the test, but actually violates the
-Generic PHY API even more (calls phy_power_on() *and* phy_power_off()
-before phy_init()).
-
-The reason why I stumbled upon this was that I was trying to remove
-dereferences of phy->power_count (a PHY internal field) from consumer
-drivers.
-
-phy_init(), implemented as qmp_ufs_phy_init(), calls qmp->ufs_reset =
-devm_reset_control_get_exclusive(), so my understanding is that it needs
-to be called:
-- no earlier than ufs_qcom_init() -> devm_reset_controller_register()
-  which makes qmp->ufs_reset available
-- no later than ufs_qcom_power_up_sequence() -> phy_calibrate() ->
-  qmp_ufs_phy_calibrate() where the qmp->ufs_reset is needed; although
-  phy_init() should be the first PHY API call made.
-
-The only mystery is why is the current phy_init() placement so late, in
-ufs_qcom_power_up_sequence(), but I guess the answer is that the
-placement is vestigial. After the incremental work of commit
-c9b589791fc1 ("phy: qcom: Utilize UFS reset controller") from
-Evan Green and commit cbfd6c124f27 ("phy: qcom-qmp-ufs: Refactor
-phy_power_on and phy_calibrate callbacks") from Nitin Rawat, the entire
-multi-stage PHY init procedure was moved to phy_power_on(), but nobody
-bothered to move phy_init() anywhere else more natural.
-
-So hopefully if the calculations are right, any placement within that
-bounding box should be good, and I'm picking the new phy_init() location
-to be in ufs_qcom_init().
-
-Even with phy_init() out of the way, ufs_qcom_power_up_sequence() ->
-phy_power_off() is still needed, for a separate reason which will be
-dealt with separately.
+Adding a "bool power_count" to the driver and checking it before each
+call helps avoid this issue.
 
 Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
 ---
+Cc: Can Guo <quic_cang@quicinc.com>
 Cc: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>
 Cc: "Martin K. Petersen" <martin.petersen@oracle.com>
 Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 Cc: Nitin Rawat <quic_nitirawa@quicinc.com>
 Cc: Manivannan Sadhasivam <mani@kernel.org>
 
-v7->v8: patch is new
-Commit was previously posted here but did not get any testing.
-https://lore.kernel.org/linux-phy/20260327112858.r5lpqygtvsane2vf@skbuf/
+v7->v8: patch is new to fix an issue reported by Sashiko
+https://sashiko.dev/#/patchset/20260430110652.558622-1-vladimir.oltean@nxp.com
 ---
- drivers/ufs/host/ufs-qcom.c | 22 ++++++++--------------
- 1 file changed, 8 insertions(+), 14 deletions(-)
+ drivers/ufs/host/ufs-qcom.c | 53 ++++++++++++++++++++++++++++---------
+ drivers/ufs/host/ufs-qcom.h |  1 +
+ 2 files changed, 41 insertions(+), 13 deletions(-)
 
 diff --git a/drivers/ufs/host/ufs-qcom.c b/drivers/ufs/host/ufs-qcom.c
-index bc037db46624..9039b087bf21 100644
+index e28edcfd13a1..c547d8643480 100644
 --- a/drivers/ufs/host/ufs-qcom.c
 +++ b/drivers/ufs/host/ufs-qcom.c
-@@ -513,13 +513,6 @@ static int ufs_qcom_power_up_sequence(struct ufs_hba *hba)
- 
- 
- 	/* phy initialization - calibrate the phy */
--	ret = phy_init(phy);
--	if (ret) {
--		dev_err(hba->dev, "%s: phy init failed, ret = %d\n",
--			__func__, ret);
--		return ret;
--	}
--
- 	ret = phy_set_mode_ext(phy, mode, host->phy_gear);
- 	if (ret)
- 		goto out_disable_phy;
-@@ -529,23 +522,18 @@ static int ufs_qcom_power_up_sequence(struct ufs_hba *hba)
- 	if (ret) {
- 		dev_err(hba->dev, "%s: phy power on failed, ret = %d\n",
- 			__func__, ret);
--		goto out_disable_phy;
-+		return ret;
- 	}
- 
- 	ret = phy_calibrate(phy);
- 	if (ret) {
- 		dev_err(hba->dev, "Failed to calibrate PHY: %d\n", ret);
--		goto out_disable_phy;
-+		return ret;
- 	}
- 
- 	ufs_qcom_select_unipro_mode(host);
- 
- 	return 0;
--
--out_disable_phy:
--	phy_exit(phy);
--
--	return ret;
+@@ -485,6 +485,42 @@ static u32 ufs_qcom_get_hs_gear(struct ufs_hba *hba)
+ 	return UFS_HS_G3;
  }
  
- /*
-@@ -1625,6 +1613,12 @@ static int ufs_qcom_init(struct ufs_hba *hba)
- 	if (err)
- 		goto out_variant_clear;
- 
-+	err = phy_init(host->generic_phy);
-+	if (err) {
-+		dev_err(hba->dev, "phy_init failed: %pe\n", ERR_PTR(err));
-+		goto out_variant_clear;
++static int ufs_qcom_phy_power_on(struct ufs_qcom_host *host)
++{
++	int ret;
++
++	if (host->phy_powered_on)
++		return 0;
++
++	ret = phy_power_on(host->generic_phy);
++	if (ret) {
++		dev_err(host->hba->dev, "Failed to power on PHY: %pe\n",
++			ERR_PTR(ret));
++		return ret;
 +	}
 +
- 	ufs_qcom_setup_clocks(hba, true, POST_CHANGE);
++	host->phy_powered_on = true;
++
++	return 0;
++}
++
++static void ufs_qcom_phy_power_off(struct ufs_qcom_host *host)
++{
++	int ret;
++
++	if (!host->phy_powered_on)
++		return;
++
++	ret = phy_power_off(host->generic_phy);
++	if (ret) {
++		dev_warn(host->hba->dev, "Failed to power off PHY: %pe\n",
++			 ERR_PTR(ret));
++		return;
++	}
++
++	host->phy_powered_on = false;
++}
++
+ static int ufs_qcom_phy_change_mode(struct ufs_hba *hba)
+ {
+ 	struct ufs_qcom_host *host = ufshcd_get_variant(hba);
+@@ -1390,7 +1426,6 @@ static int ufs_qcom_setup_clocks(struct ufs_hba *hba, bool on,
+ 				 enum ufs_notify_change_status status)
+ {
+ 	struct ufs_qcom_host *host = ufshcd_get_variant(hba);
+-	struct phy *phy;
+ 	int err;
  
- 	ufs_qcom_get_default_testbus_cfg(host);
+ 	/*
+@@ -1401,8 +1436,6 @@ static int ufs_qcom_setup_clocks(struct ufs_hba *hba, bool on,
+ 	if (!host)
+ 		return 0;
+ 
+-	phy = host->generic_phy;
+-
+ 	switch (status) {
+ 	case PRE_CHANGE:
+ 		if (on) {
+@@ -1420,20 +1453,14 @@ static int ufs_qcom_setup_clocks(struct ufs_hba *hba, bool on,
+ 				ufs_qcom_dev_ref_clk_ctrl(host, false);
+ 			}
+ 
+-			err = phy_power_off(phy);
+-			if (err) {
+-				dev_err(hba->dev, "phy power off failed, ret=%d\n", err);
+-				return err;
+-			}
++			ufs_qcom_phy_power_off(host);
+ 		}
+ 		break;
+ 	case POST_CHANGE:
+ 		if (on) {
+-			err = phy_power_on(phy);
+-			if (err) {
+-				dev_err(hba->dev, "phy power on failed, ret = %d\n", err);
++			err = ufs_qcom_phy_power_on(host);
++			if (err)
+ 				return err;
+-			}
+ 
+ 			/* enable the device ref clock for HS mode*/
+ 			if (ufshcd_is_hs_mode(&hba->pwr_info))
+@@ -1629,7 +1656,7 @@ static void ufs_qcom_exit(struct ufs_hba *hba)
+ 	struct ufs_qcom_host *host = ufshcd_get_variant(hba);
+ 
+ 	ufs_qcom_disable_lane_clks(host);
+-	phy_power_off(host->generic_phy);
++	ufs_qcom_phy_power_off(host);
+ 	phy_exit(host->generic_phy);
+ }
+ 
+diff --git a/drivers/ufs/host/ufs-qcom.h b/drivers/ufs/host/ufs-qcom.h
+index 5d083331a7f4..6eafba3c203b 100644
+--- a/drivers/ufs/host/ufs-qcom.h
++++ b/drivers/ufs/host/ufs-qcom.h
+@@ -322,6 +322,7 @@ struct ufs_qcom_host {
+ 	struct clk_bulk_data *clks;
+ 	u32 num_clks;
+ 	bool is_lane_clks_enabled;
++	bool phy_powered_on;
+ 
+ 	struct icc_path *icc_ddr;
+ 	struct icc_path *icc_cpu;
 -- 
 2.34.1
 
