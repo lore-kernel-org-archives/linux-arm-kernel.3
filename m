@@ -4,152 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66A90FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 10:29:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E86F3CD342F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 10:29:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HNlj60pJs02U5K85HJFOtqZd7kl+At2FS1ldDOM8a5U=; b=VV7CofgOzM/lZObTf0o/W2akbM
-	vL1wsp2Ele85y0mMOt9Elkp6yvUwyHJHXlNU+Cv4PMq4xNBC2SUm9fJ8ScecpQBDTHUu6SVrZGQl6
-	dfHBQSwzMZOBPgDdvRpRszijzU/7Y+6vNdLYQEtx0FpYWyHZAsc4vjJVKBCZXgBTMJ6DRRp+CLb6D
-	Udq9sD0GvOx5Rlq1e3uQ/bxhPPz1gLheMTJkxs1/rWA41i2W/xgP+iFa4ZvI4QzpJVZZ+uT4aZM+W
-	31CuXZHvHxCD6ddiv6UDvLSB/oMlDo7g/2OsBzDpFtC7/7OjVud2gi9XYlmyE4luh8sbzoSnDHnUW
-	bAkuRofg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GGOsi0uayRkiYlbHJ5mgajie6nrkM7zNj70nkAbDqlg=; b=fPfwEZTYAJqvWZvabA+xqnyYId
+	F2vszFRTxxi57DL4JfljmnHDD5dpeKCL8nDTU+hcKyCB4z6QsSF5TrOZyYiCisVdzELEu5KD5jPxT
+	r6Lso03rbpplFJpB9e/M7HlVUk7E0+OHX8Z6LWdcVjLyyy5cDENAj/9xIkqEz8Wjs/3iLSeHLEKaa
+	0hj09pYJy0uoIMmxrEfZP56oFdtYKksedUobOuG2r9kX/y5lmralJa4WxAaeI8JbO/EdX2BTmp+FW
+	NKhrXg+a8XlzonH/Ol/8pmXRspDiIGC69Rlau7yHWqWbmfDHivsM9OeTAtVq8E0csoNPNvWL/3fur
+	v7iFkFCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKD1Y-0000000FtTr-1SsH;
-	Tue, 05 May 2026 10:29:08 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKD1V-0000000FtTG-3YSI
+	id 1wKD2J-0000000Ftds-2vIS;
+	Tue, 05 May 2026 10:29:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wKD2G-0000000FtcD-0z7Y
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 10:29:07 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6459VSd72859195
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 5 May 2026 10:29:05 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=HNlj60pJs02U5K85HJFOtq
-	Zd7kl+At2FS1ldDOM8a5U=; b=E+WBRSuHgX8tuxSzKI1QFKFVkIjX265Hi2b9Rk
-	qt2ZUpzOxrqWTxNzjWrWv5od9PCeXOFmgSOcyevZ+NDTeysIICCkOxDrmaxwRpkT
-	q0KIdSvZ2c68X1ap6eCnC+8YVfvjp0ay4Nc9r85Hvwp5rY7EoE1XeCK4JWuUWRxp
-	773SCZVke0K280g13Ok02Qu2zN625zq4NYUqfg8SqmGtq5gxLMpwTeGqN6lzu4ca
-	TZhdhJkB4keP1btznh9QYLxyLVhxRN6RvSKn0j7HG0WEyL2zhA9eSbuIB9BijW//
-	mJIxj9+kqo7T0mEXVWW52rFcU4AdY/IJWk8laI4k0++DF56g==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dye0ag869-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 10:29:04 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-50fae95c82cso20477951cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 03:29:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1777976944; x=1778581744; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=HNlj60pJs02U5K85HJFOtqZd7kl+At2FS1ldDOM8a5U=;
-        b=iXxfyYzGQKywdxOyvB9cgYS/r+F8OUGay7T7xQaejBZPvcojAcWvRHuA6ztG6JS7qE
-         6f4QpBHHNTm5+QBhrJF780aLOt6No+ijNQaBlgQuI0yHgogV6t1CIYq/iUHSo9Fca9eT
-         Xm6DwFQvMNq1hdcPcZOGN/gOSebefhQcD3p6ywdAFsQh3FWDk8qJ4XyjSAKV/igq4Bjt
-         LiDSWCEqKvGvntvb1svogDzc7rO+RzrrOg/J3ikGKdnoxL/Rvxc3JXd1HzWzvmDw433y
-         TZpTkvu1UU7F4mXuDg6SZwPsFX1XyvfGfAk2xhsrmKHDeVnSzhTjtW1yEU/fC8uLI/kt
-         k+jA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777976944; x=1778581744;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HNlj60pJs02U5K85HJFOtqZd7kl+At2FS1ldDOM8a5U=;
-        b=me8BHfk6+K8iwc/YByN7VwMhqTfEL1GC0rN2bp0YtDqYFZcx98Go1sbfyIiuXTWXsA
-         ALg/gERB7BnjDoHj8Yvqn4SWWZLfHmbpOqbgmC0NfoJU7XYHUMpq1e/hODX74a3IUrxN
-         9TNONbINgancyp3FmqV3M8+Ri7QuALDmKpzEyySUs2iVbqU39s8uQsMncMMLco4dUbet
-         XiJg/GmxQyHeDqfuTzA3OrGaEUkAIyGKDzbABAOct7OW4Ije1jXKFG2VEmiwvpfAqnhf
-         v9IsHAlGs79R1as+VpnkcDSuhsfNVJRrrpq0nlYVc504Ya9Mc2ca5yPly2bBkLjZoQv5
-         BvfQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8Uzd9e+ZknJG5wcvW6Z4NodE5A5gW+qFexNNFuJbL8mvl/IFysUyONw8HGei70oUWFN5xR08wR7xhpjAlPtxOT@lists.infradead.org
-X-Gm-Message-State: AOJu0YxrZgdLwiYLHIdAafTckNqtas6/tpqSldGhB7o2Ol17PHpgeSdI
-	dBjory9R6R5OgKAnWNBtwvKIVGbBkmDV+NodU3HNsM19L6ypy57q2VRoogFqBqUc0HinkiTGGFM
-	MWlIFlXGiVOo3e5Qp6ACx7QxCxUu/qdh12BvCYeAYNtQw09Dh99FiAyh8PI+T6SepX4Ks6yakU2
-	Ll1g==
-X-Gm-Gg: AeBDieuWNhkZNcL8QvyWaxKSU+kIYWOTPuVirF5g0MGYm4bAVi1vui3Q5MgilgBlY2o
-	HpE4fzfc46IGale5uT9TMIcVew2TviCaNNBGxXIPwDUnquZ+c7hdPHF4NKZ8IKajEUd6qHg78YP
-	q0PbBs2nJ6LUwa7p85p91PpHteM0mXbOZLilFFBNHLF5Jncw19fxB7ci6GSaNTroaY2awByIcrI
-	KfnYCJOuGzrKyfn02kqbR1LIfYbkcAgq2/1hCfa5LF0RG2nMuWedNMdpwt3OIQuO0k3h1h6fxg3
-	I8bkXGfDzwfqZjL1sU2ayVxXlYzr5JfFhgjkg0Zy612aOPkGSQXVTbvuNA5qXBz6v9wWYsI8GFE
-	vABfb4Rg34TO70Yg6ob62HDzzwB69DsgxBvoa8te0z59tkic=
-X-Received: by 2002:a05:622a:a12:b0:50e:5b04:810b with SMTP id d75a77b69052e-51306a53f21mr35473261cf.32.1777976932967;
-        Tue, 05 May 2026 03:28:52 -0700 (PDT)
-X-Received: by 2002:a05:622a:a12:b0:50e:5b04:810b with SMTP id d75a77b69052e-51306a53f21mr35472161cf.32.1777976930638;
-        Tue, 05 May 2026 03:28:50 -0700 (PDT)
-Received: from quoll ([178.197.219.94])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48a8eba865fsm307039245e9.10.2026.05.05.03.28.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 May 2026 03:28:49 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-To: Lee Jones <lee@kernel.org>, Pavel Machek <pavel@kernel.org>,
-        William Zhang <william.zhang@broadcom.com>,
-        Anand Gore <anand.gore@broadcom.com>,
-        Kursad Oney <kursad.oney@broadcom.com>,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        =?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>,
-        Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-        =?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <linux@weissschuh.net>,
-        Benson Leung <bleung@chromium.org>,
-        Guenter Roeck <groeck@chromium.org>, linux-leds@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        chrome-platform@lists.linux.dev
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH] leds: Move MODULE_DEVICE_TABLE next to the table itself
-Date: Tue,  5 May 2026 12:28:45 +0200
-Message-ID: <20260505102846.186219-2-krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: git-send-email 2.51.0
+	Tue, 05 May 2026 10:29:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 74A55293B;
+	Tue,  5 May 2026 03:29:43 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 398893F763;
+	Tue,  5 May 2026 03:29:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1777976988; bh=08TGql+krOa3BosV5BsD4KJ5MPB96TCdNP+ZE4F3SPs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lqfZ4xUoCsNqC5HY3E7TR5zeUQNYf66Q8WL6GMQf2YbiCJzKAbvV+p05VPcURQ/M0
+	 lS0ppoHeUpKFesFuMFPRMwS5prTlAKioeN4cmNvnqf8jbVbKPzh1AFpJv8FIxCgUFi
+	 Yw2KI23W5wTSadwIyoESM38YVj4K0t5lgX0cOQZ0=
+Date: Tue, 5 May 2026 11:29:26 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Jens Remus <jremus@linux.ibm.com>
+Cc: Dylan Hatch <dylanbhatch@google.com>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Weinan Liu <wnliu@google.com>, Will Deacon <will@kernel.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Indu Bhagat <ibhagatgnu@gmail.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Kosina <jikos@kernel.org>,
+	Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
+	Puranjay Mohan <puranjay@kernel.org>, Song Liu <song@kernel.org>,
+	joe.lawrence@redhat.com, linux-toolchains@vger.kernel.org,
+	linux-kernel@vger.kernel.org, live-patching@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Heiko Carstens <hca@linux.ibm.com>
+Subject: Re: [PATCH v5 8/8] unwind: arm64: Use sframe to unwind interrupt
+ frames
+Message-ID: <afnGhsCYEUG0LXR5@J2N7QTR9R3>
+References: <20260428183643.3796063-1-dylanbhatch@google.com>
+ <20260428183643.3796063-9-dylanbhatch@google.com>
+ <afTYzAF_x41pyilu@J2N7QTR9R3>
+ <bc3fb59b-9d80-4957-af51-20db38e3487e@linux.ibm.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2053; i=krzysztof.kozlowski@oss.qualcomm.com;
- h=from:subject; bh=kILhQAgY3kLM16GxFMfnMK5G+NAgnlyKR3dgRK8YfZk=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBp+cZe19spmhey6vI4b/7yFmBq15pM1VGw4Lnc/
- 0yugqzzGR+JAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCafnGXgAKCRDBN2bmhouD
- 1+IREACFnSRy7ju4VscC9G9J/FnjAyyotS+ISKZWGydzAX1MOB9PooZ37Sf5UDalokelUZojWyx
- +WlYegVlUgcHuj/owKI0xzKKlWPvAiZvZBJF8xpz7fB//0+gOLZTmASdI7KAc5m5baDtLHlCRU3
- yff/QwPa9U7qxINvtbwkiehLmw5d3kX2DBty0i0w1HsYcwsKuy3dEMamsQOyuugpFVUGg0vVnCv
- ElCuozk6ISPxKfqvd45OW/Tkc97bsYI5CcMMwcjJLxX4iQcJ6fKfVWC6rPEgiNlWYwflU8chPGz
- ZmbMxsaWTHZFcs1jiuui6sdmWSzjErhXteLFfaMg2NasVX4D6tnOpzF/Kl365cs1RBwryLXuvob
- WH40NocFZJsHEUelaeXcj6Ac10I2mP3CL8tet14HSRM/8SZEIhwsgvdTA2bTMEmHngqHIGhwvJZ
- nxnMOGPyFkORQDTKppoyrEwt4QCdexA3JMjD5q2kQSQocvIZtO5w9c2tmp0E7VOo8UneY5k16pM
- Iiwuc8ycvpIFz1YByD45DRaYhWEnUGX8Hy+I17MvaP5mTrutYXVLlUGo4r0LyahbdA1HnfIvrfU
- B0/GdY76K0MGfugaaFX6+dWIvth2w1djgET7sYBihXCBz2OC3o7iZ7PkwdhD7iIqMxppz9GjGf/ YrfAMNmEyXD8bVQ==
-X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA1MDA5NyBTYWx0ZWRfX9BUsJwVYPyuH
- QHqr4CzSYA1hc8VPNPNTQSwS9Pdx29ymjd5McFUGOPTjnhnu1kp4l8J2VNIfN78Ns6LV//6YpDm
- P6Wr4WnX0eJ35ok8bgOT854GlC2bb2Nj8mgfzm4KDWQtSALsfpz+q97uwzgCUbIzZJ3WkSBnB98
- juE/0Y4OrrjAIvjVuwaJ9fUlUCTNEN09+9CayD4iFziTqg69qVDq83iaM/5KLb+QCVpuaMsXwwv
- mn6THw6yBy0oipZORF+OxYtvif1Nof1M3Bpobi24C1uo+vP59PN+4oosRp5JN/GdN/J/u/68wd8
- B2zD/BZtR8a5L5FjFpjq1TTvJpS+oLu2TWceoXT5a85lTRqDQXH+Y9VnZc/yhDh7aInQ/vTxhyp
- ijk8yASYzPxfp96BnaXP0mOY5GqTKZw+o6ZKyG/NyqSJf77KGJbWQWHYLuZgK+dvddOtdfCkEV/
- r/Evx8n+lxsF4MdBmPg==
-X-Authority-Analysis: v=2.4 cv=Wtkb99fv c=1 sm=1 tr=0 ts=69f9c670 cx=c_pps
- a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=gOEeR9iKwsj33Yj5oN/cWg==:17
- a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=EUspDBNiAAAA:8 a=VTue-mJiAAAA:8 a=UPwjdVLwzqKTMXskr54A:9 a=3ZKOabzyN94A:10
- a=QEXdDO2ut3YA:10 a=a_PwQJl-kcHnX1M80qC6:22 a=S9YjYK_EKPFYWS37g-LV:22
-X-Proofpoint-GUID: tj1dfH6zJOrJvBiwYoHibItVwBdJjtrZ
-X-Proofpoint-ORIG-GUID: tj1dfH6zJOrJvBiwYoHibItVwBdJjtrZ
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-05_02,2026-04-30_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 priorityscore=1501 lowpriorityscore=0 phishscore=0
- malwarescore=0 spamscore=0 bulkscore=0 adultscore=0 clxscore=1015
- impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
- definitions=main-2605050097
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <bc3fb59b-9d80-4957-af51-20db38e3487e@linux.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_032906_006418_2E38122D 
-X-CRM114-Status: GOOD (  17.77  )
+X-CRM114-CacheID: sfid-20260505_032952_440509_5178A322 
+X-CRM114-Status: GOOD (  69.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,57 +86,292 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-By convention MODULE_DEVICE_TABLE() immediately follows the ID table it
-exports, because this is easier to read and verify.  It also makes more
-sense since #ifdef for ACPI or OF could hide both of them.
+On Mon, May 04, 2026 at 10:47:26AM +0200, Jens Remus wrote:
+> Hello Mark,
+> 
+> I mostly have comments regarding your the SFrame related remarks.
 
-Most of the privers already have this correctly placed, so adjust
-the missing ones.  No functional impact.
+Thanks for this; I have a few more questions and comments below.
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
----
- drivers/leds/blink/leds-bcm63138.c | 2 +-
- drivers/leds/leds-cros_ec.c        | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+> On 5/1/2026 6:46 PM, Mark Rutland wrote:
+> > Thanks for putting this together. I think this is looking pretty good.
+> > However, there are some things that aren't quite right and need some
+> > work, which I've commented on below.
+> 
+> > (2) To make unwinding generally possible, we'll need to annotate some
+> >     assembly functions as unwindable. We'll need to do that for string
+> >     routines under lib/, and probably some crypto code, but we don't
+> >     need to do that for most code in head.S, entry.S, etc.
+> > 
+> >     The vast majority of relevant assembly functions are leaf functions
+> >     (where the return address is never moved out of the LR), so we can
+> >     probably get away with a simple annotation for those that avoids the
+> >     need for open-coded CFI directives everywhere.
+> 
+> Wrapping them in .cfi_startproc ... .cfi_endproc should do.  For instance
+> by extending SYM_FUNC_START() and SYM_FUNC_END() or introducing flavors
+> that do.  Or where you thinking of something else?
 
-diff --git a/drivers/leds/blink/leds-bcm63138.c b/drivers/leds/blink/leds-bcm63138.c
-index ef2e511438cc..45c0662df933 100644
---- a/drivers/leds/blink/leds-bcm63138.c
-+++ b/drivers/leds/blink/leds-bcm63138.c
-@@ -296,6 +296,7 @@ static const struct of_device_id bcm63138_leds_of_match_table[] = {
- 	{ .compatible = "brcm,bcm63138-leds", },
- 	{ },
- };
-+MODULE_DEVICE_TABLE(of, bcm63138_leds_of_match_table);
- 
- static struct platform_driver bcm63138_leds_driver = {
- 	.probe = bcm63138_leds_probe,
-@@ -310,4 +311,3 @@ module_platform_driver(bcm63138_leds_driver);
- MODULE_AUTHOR("Rafał Miłecki");
- MODULE_DESCRIPTION("Broadcom BCM63138 SoC LED driver");
- MODULE_LICENSE("GPL");
--MODULE_DEVICE_TABLE(of, bcm63138_leds_of_match_table);
-diff --git a/drivers/leds/leds-cros_ec.c b/drivers/leds/leds-cros_ec.c
-index bea3cc3fbfd2..6592ceee866a 100644
---- a/drivers/leds/leds-cros_ec.c
-+++ b/drivers/leds/leds-cros_ec.c
-@@ -249,6 +249,7 @@ static const struct platform_device_id cros_ec_led_id[] = {
- 	{ "cros-ec-led", 0 },
- 	{}
- };
-+MODULE_DEVICE_TABLE(platform, cros_ec_led_id);
- 
- static struct platform_driver cros_ec_led_driver = {
- 	.driver.name	= "cros-ec-led",
-@@ -257,7 +258,6 @@ static struct platform_driver cros_ec_led_driver = {
- };
- module_platform_driver(cros_ec_led_driver);
- 
--MODULE_DEVICE_TABLE(platform, cros_ec_led_id);
- MODULE_DESCRIPTION("ChromeOS EC LED Driver");
- MODULE_AUTHOR("Thomas Weißschuh <linux@weissschuh.net");
- MODULE_LICENSE("GPL");
--- 
-2.51.0
+I was expecting we'd do something like that, either with distinct
+versions, or some entirely separate annotation.
 
+We can't override SYM_FUNC_START() or SYM_FUNC_END() since those are
+also used for non-leaf functions. The bulk of the work is going to be
+making sure we only annotate leaf functions specifically, which will
+require some human analysis.
+
+> > On Tue, Apr 28, 2026 at 06:36:43PM +0000, Dylan Hatch wrote:
+> >> diff --git a/arch/arm64/include/asm/stacktrace/common.h b/arch/arm64/include/asm/stacktrace/common.h
+> 
+> >> @@ -21,6 +21,8 @@ struct stack_info {
+> >>   *
+> >>   * @fp:          The fp value in the frame record (or the real fp)
+> >>   * @pc:          The lr value in the frame record (or the real lr)
+> >> + * @sp:          The sp value at the call site of the current function.
+> >> + * @unreliable:  Stacktrace is unreliable.
+> >>   *
+> >>   * @stack:       The stack currently being unwound.
+> >>   * @stacks:      An array of stacks which can be unwound.
+> >> @@ -29,7 +31,11 @@ struct stack_info {
+> >>  struct unwind_state {
+> >>  	unsigned long fp;
+> >>  	unsigned long pc;
+> >> +#ifdef CONFIG_HAVE_UNWIND_KERNEL_SFRAME
+> >> +	unsigned long sp;
+> >> +#endif
+> > 
+> > As this is only used by the kernel unwinder (and not the hyp unwinder),
+> > this should live in struct kunwind_state in stacktrace.c.
+> > 
+> > That said, for unwinding across exception boundaries we should not need
+> > this, as the SP value will be in the pt_regs. If we only use SFrame for
+> > the exception boundary case, we can remove this entirely. I would
+> > strongly prefer that we do that.
+
+> >> +	/* Get the Canonical Frame Address (CFA) */
+> >> +	switch (frame.cfa.rule) {
+> >> +	case UNWIND_CFA_RULE_SP_OFFSET:
+> >> +		cfa = state->common.sp;
+> 
+> IIUC you suggest this to be changed as follows?
+> 
+> 		cfa = regs->regs[31];
+
+I was suggesting:
+
+		cfa = regs->sp;
+
+Note: arm64's struct pt_regs has:
+
+	union {
+		struct user_pt_regs user_regs;
+		struct {
+			u64 regs[31];
+			u64 sp;
+			u64 pc;
+			u64 pstate;
+		};
+	};	
+
+... so regs->regs[31] would be an out-of-bounds array access.
+
+[...]
+
+> >> +	case UNWIND_CFA_RULE_REG_OFFSET:
+> >> +	case UNWIND_CFA_RULE_REG_OFFSET_DEREF:
+> >> +		/* regs only available in topmost/interrupt frame */
+> >> +		if (!regs || frame.cfa.regnum > 30)
+> >> +			return -EINVAL;
+> >> +		cfa = regs->regs[frame.cfa.regnum];
+> >> +		break;
+> > 
+> > Do we ever expect to see UNWIND_CFA_RULE_REG_OFFSET or
+> > UNWIND_CFA_RULE_REG_OFFSET_DEREF in practice for kernel code?
+> 
+> No.  Those can only occur with SFrame V3 flexible FDE, which are
+> currently not generated by GNU assembler for arm64/aarch64, and thus
+> could be omitted in the arm64-specific kernel sframe unwinder:
+> 
+> https://sourceware.org/git/?p=binutils-gdb.git;a=blob;f=gas/config/tc-aarch64.h;hb=binutils-2_46#l342
+
+Ok.
+
+Do we know whether there are currently cases on aarch64 that cannot be
+encoded in SFrame (without flexible FDE), or whether SFrame without
+flexible FDE is sufficient for arm64 as-is? ... or do we have
+counter-examples today?
+
+Looking at:
+
+  https://sourceware.org/binutils/docs/sframe-spec.html#Flexible-FDE-Type-Interpretation-1
+
+For arm64 I'm not sure whether we'd encounter the DRAP or stack
+realignment cases within the kernel (perhaps with SVE?), nor whether the
+Register-based RA/FP Locations cases would apply if we assume that we
+continue to use frame records.
+
+[... ]
+
+> I must admit that while reviewing I thought it would be future-proof to
+> have support for rules that can only be represented with SFrame V3
+> flexible FDE, even if they are currently not used on arm64.  Ideally
+> kunwind_next_sframe() could be made common, if another architecture
+> would implement kernel unwinding using sframe.
+
+While I understand that principle, I think that for now it would be
+better to keep this arch-specific and minimal:
+
+* We have arch-specific concerns (e.g. the FRAME_META_TYPE_FINAL
+  frames), and factoring that into generic code is going to be painful
+  to adapt (which we're likely to need to do in the near future), and to
+  maintain going forwards. Keeping that arch-specific for now will make
+  it easier/quicker to get to a stable state.
+
+* Code which isn't used is liable to be wrong or made wrong by accident.
+  For example, with all the SP cases I mentioned in my initial reply.
+
+We can certainly look at making that more generic in future, but for now
+I'd prefer to omit the code that cannot be used (and have some sort of
+build or boot/module-load time check that SFrame only has elements that
+we expect), and make sure that we thoroughly test the cases that do
+exist in practice.
+
+Do we expect SFrame V3 flexible FDE to be generated by toolchains in the
+near future?
+
+[...]
+
+> >> +	/* CFA alignment 8 bytes */
+> >> +	if (cfa & 0x7)
+> >> +		return -EINVAL;
+> > 
+> > If the CFA is the SP upon entry to the function, then per AAPCS64 rules
+> > it should be aligned to 16 bytes. Otherwise, where has this 8 byte
+> > alignment requirement come from? Does SFrame mandate that?
+> 
+> That originates from the common unwind user logic (see
+> kernel/unwind/user.c, unwind_user_next_common()), which currently
+> assumes 8-byte/4-byte SP alignment for all 64-bit/32-bit architectures.
+> 
+> So checking for 16-byte alignment here would make sense.
+
+Just to confirm, am I correct to understand that the SFrame definition
+of CFA is intended to be the same as the DWARF definition of CFA, and so
+for arm64 the CFA is the SP when the function is called?
+
+That's the case for DWARF on arm64:
+
+  https://github.com/ARM-software/abi-aa/releases/download/2025Q4/aadwarf64.pdf
+  https://github.com/ARM-software/abi-aa/blob/daa7a94ca55973736c0e434a67a6e4bbcd35d7fa/aadwarf64/aadwarf64.rst
+
+| The CFA is the value of the stack pointer (sp) at the call site in the
+| previous frame.
+
+I couldn't find an explciit statement to that effect in:
+
+  https://sourceware.org/binutils/docs/sframe-spec.html
+
+... but I guess that is implied, given the other bits inherited from
+DWARF.
+
+I see that the documented behaviour for CFA on AMD64 and s390x are
+consistent with their DWARF behaviour.
+
+> >> +
+> >> +	/* Get the Return Address (RA) */
+> >> +	switch (frame.ra.rule) {
+> >> +	case UNWIND_RULE_RETAIN:
+> >> +		/* regs only available in topmost/interrupt frame */
+> >> +		if (!regs)
+> >> +			return -EINVAL;
+> >> +		ra = regs->regs[30];
+> >> +		source = KUNWIND_SOURCE_REGS_LR;
+> >> +		break;
+> >> +	/* UNWIND_USER_RULE_CFA_OFFSET not implemented on purpose */
+> 
+> Nit: s/UNWIND_USER_RULE_CFA_OFFSET/UNWIND_RULE_CFA_OFFSET/
+> 
+> > 
+> > It would be better for the comment to say *why* that's not implemented.
+> > 
+> > I assume that's because UNWIND_USER_RULE_CFA_OFFSET would mean that the return
+> > address is a stack address, and that's obviously not legitimate.
+> 
+> That and SFrame V3 currently cannot represent FP/RA as CFA + offset
+> (i.e. UNWIND_RULE_CFA_OFFSET; .cfi_val_offset FP/RA).
+> 
+> The comment originates from the common unwind user logic (see
+> kernel/unwind/user.c).  I am open to improve that.  What about:
+> 
+> 	/*
+> 	 * UNWIND_RULE_CFA_OFFSET not implemented on purpose, as a stack
+> 	 * address cannot be a legitimate return address value.  It is
+> 	 * also not used (e.g. not represented in sframe).
+> 	 */
+
+I'd go with something simpler, e.g.
+
+	/*
+	 * UNWIND_RULE_CFA_OFFSET doesn't make sense for RA.
+	 * The return address cannot legitimately be a stack addres.
+	 */
+
+[...]
+
+> > 
+> > I don't think we expect UNWIND_RULE_REG_OFFSET unless that's sometimes used
+> > instead of UNWIND_RULE_RETAIN to express that the return address is in x30
+> > (with zero offset).
+> 
+> No.  Unless there would be nonsense .cfi_register 30, 30, which would
+> require SFrame V3 flexible FDE to be represented.
+
+Ok.
+
+> @Indu:  We may consider to treat .cfi_register <reg>, <reg> (for FP/RA)
+> like .cfi_restore <reg> in the GNU assembler?
+> 
+> > Similarly, if the address is on the stack it should be in a frame
+> > record. Would we ever expect UNWIND_RULE_REG_OFFSET_DEREF rather than
+> > UNWIND_RULE_CFA_OFFSET_DEREF?
+> 
+> No.  See above (SFrame V3 flexible FDE).
+
+Ok.
+
+> >> +	default:
+> >> +		WARN_ON_ONCE(1);
+> >> +		return -EINVAL;
+> >> +	}
+> >> +
+> >> +	/* Get the Frame Pointer (FP) */
+> >> +	switch (frame.fp.rule) {
+> >> +	case UNWIND_RULE_RETAIN:
+> >> +		fp = state->common.fp;
+> >> +		break;
+> >> +	/* UNWIND_USER_RULE_CFA_OFFSET not implemented on purpose */
+> > 
+> > As for RA, the comment should explain why that's not implemented.
+> 
+> I am open to improve the comment in the the common unwind user logic.
+> What about:
+> 
+> 	/*
+> 	 * UNWIND_RULE_CFA_OFFSET not implemented on purpose, as it is
+> 	 * not used (e.g. not represented in sframe).
+> 	 */
+
+For me, this wording raises more questions, e.g.
+
+* Does 'not used' mean that toolchains don't use that, or that the spec
+  doesn't permit that?
+
+* Does 'not represented' mean that this is not represntable, or that
+  toolchains currently don't generate SFrame with the appropriate
+  elements.
+
+IIUC you're saying that this *is* representable with flexible FDE, but
+current toolchains don't generate that.
+
+Mark.
 
