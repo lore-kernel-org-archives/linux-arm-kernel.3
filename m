@@ -4,70 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2410BCD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 15:45:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 467F1CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 15:46:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z5UxvB6KfjIQQ9vcy2ViEfnEL4yNziORneo0YRHrGMM=; b=vHtsonl1H97dac0eVdPtMfQXlB
-	yzAHNL1taZVvmyjbIKhlh9ZxOyOHjUSSZPMDjZBc5ulH3tZ06MLAvSGJvftKWZuHjR7Qx2pSuumCm
-	QJfoFzn+1U+TcbhWrSpcfcTrVUISu6ats+rhp+W+JyZHNEHVmPqF1YfGXnGwQ2/M0FIRQeTvetnza
-	TEd5MtKAKD05epCLhFLMSjMBlEKYmSQmkLvD/dvf11WWowtGJZtLfTYExYojT9K71gzLODYgfOhwD
-	71iMXWhNISBGB+MHi3GSAq4LI6YAwDzhl3MnmLuQw3CM113Fv/gcPEf3XiiE2hpsDCrWl7KtFDJYJ
-	1DnlOTOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
+	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SamjpVdgQYl7CQ+dyd24kWWXqJfurKa3W3nweeuzGDk=; b=wyKZasXT3H+HJVb90TfakStI4y
+	aVBahvBrRYLTM0jzglVgGW0Zv4z9TmrvBfcp5F9ulkWZLV1Q9YofeP4J9mL0tN5oCgh09qEukuLRM
+	9w34Eu1EMi1jd6QSMReMpZljZT3A5ohMqzw6t0t659GxhwRdRHeXWLoVBftBzICEkrco7izyJ3dXo
+	iCCS6eaSk4Q5BxD1UdGN/ZrhLanyKaM3QcspPLs2ZxPTZ1pnkX4zX2ZP08jzpE4uAVw6q6zu/q3Mq
+	qAbawcZ4S21d2eSWnJfNmtzEIneVheIXrZhNlFkmf7yATKTS5nSl30W+8UXSrcT4jK05AWPpLaZ+2
+	Tr65Wcvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKHy2-0000000Ghlz-0OMg;
-	Tue, 05 May 2026 15:45:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wKHyM-0000000GhuH-1Vvi;
+	Tue, 05 May 2026 15:46:10 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKHy0-0000000Ghkp-0OVR;
-	Tue, 05 May 2026 15:45:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A939D40265;
-	Tue,  5 May 2026 15:45:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59B54C4AF63;
-	Tue,  5 May 2026 15:45:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777995947;
-	bh=Io3H5cRDi6lIxGPJ6ywue4ZtccMZ+LyJ2jiiMPzzy0o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TvD5dUmLdck3YbVwQ+saUCNM/UrQqJ/ltP7Z7cxELkyqNDvsWDUOAuljny2uD5d+Y
-	 RwYMABnD7GAQkSZnYqY9TWsqygRvidZrC5nH0QG+XPVHMqotCDRXtK8VdGZx6uW4BV
-	 kzI3EX/afx0weGJDB19kH99nNKq+YU9TFausm37Z4bNcjxIPPkgzYUc6rUF6PEhxtz
-	 /WkucTb8Fl3PJ6pICEuP7cYbnn5pmNdOGVoWTORronzq48XrPsnHCUqTmwycHfFQIe
-	 cqRF4Da8Ph4dP+xVjEVNl2JfVrBq27Etjg5jzJBeFoRo+O1f4dMhex3jzRWbFC+and
-	 kDI3Hcd22W1Fg==
-Date: Tue, 5 May 2026 10:45:45 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Conor Dooley <conor+dt@kernel.org>, linux-phy@lists.infradead.org,
-	kernel@collabora.com, devicetree@vger.kernel.org,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Yubing Zhang <yubing.zhang@rock-chips.com>,
-	Frank Wang <frank.wang@rock-chips.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-kernel@vger.kernel.org, Alexey Charkov <alchark@gmail.com>,
-	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>
-Subject: Re: [PATCH v4 01/16] dt-bindings: phy: rockchip-usbdp: add improved
- ports scheme
-Message-ID: <177799594467.2982056.14981232958921836425.robh@kernel.org>
-References: <20260428-rockchip-usbdp-cleanup-v4-0-7775671ece22@collabora.com>
- <20260428-rockchip-usbdp-cleanup-v4-1-7775671ece22@collabora.com>
+	id 1wKHyJ-0000000Ghsp-0L0e
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 05 May 2026 15:46:08 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 333FF1A3525;
+	Tue,  5 May 2026 15:46:05 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id F3B666053C;
+	Tue,  5 May 2026 15:46:04 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D7AE911AD0217;
+	Tue,  5 May 2026 17:45:57 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1777995963; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=SamjpVdgQYl7CQ+dyd24kWWXqJfurKa3W3nweeuzGDk=;
+	b=WSRaFgs5iK8VmLp/1TOvE3ewfpUqT3X59uEVMDTCZnkS8AdhVcZXfDx4JiX7O5G0E9A0WH
+	yqsqFRrz6ZWcnQAYk3T/rbnMwAt8AmXcatINdi0JausY2SxTNKzzG1zVApqGeAt8RQvxa0
+	OMnWoE7vtCPXiXi4MBO+0c2I37RgNBCfzXEOSUKKLT5fzaeWrFEPCPLHLek5A95gH5U+3L
+	flt5zhgMzlsw/Rv3WGfZC9iSu3bAKhzNUHgILI57aK8hOK8Sx6zDkSGjWS1TusFazUIK6h
+	+HlsoJtOj6ZYSgGmGoFuX2LlVfX8KiEgnnqt5fxzPGl8XAUUsoke1MBsevXydg==
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260428-rockchip-usbdp-cleanup-v4-1-7775671ece22@collabora.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v4] drm/bridge: imx8qxp-pxl2dpi: avoid ERR_PTR with
+ device_node cleanup
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: Guangshuo Li <lgs201920130244@gmail.com>
+Cc: Liu Ying <victor.liu@nxp.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, dri-devel@lists.freedesktop.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+In-Reply-To: <20260505082145.603262-1-lgs201920130244@gmail.com>
+References: <20260505082145.603262-1-lgs201920130244@gmail.com>
+Date: Tue, 05 May 2026 17:45:52 +0200
+Message-Id: <177799595269.1278867.7014321900391904487.b4-review@b4>
+X-Mailer: b4 0.15.2
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_084548_155602_F1D63AF0 
-X-CRM114-Status: GOOD (  13.15  )
+X-CRM114-CacheID: sfid-20260505_084607_256937_6C6D3896 
+X-CRM114-Status: UNSURE (   4.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,25 +88,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, 05 May 2026 16:21:45 +0800, Guangshuo Li <lgs201920130244@gmail.com> wrote:
+> drm/bridge: imx8qxp-pxl2dpi: avoid ERR_PTR with device_node cleanup
 
-On Tue, 28 Apr 2026 18:13:40 +0200, Sebastian Reichel wrote:
-> Currently the Rockchip USBDP PHY is missing a documented port scheme.
-> Meanwhile upstream RK3588 DTS files are a bit messy and use different
-> port schemes. The upstream USBDP PHY Linux kernel driver does not yet
-> parse the ports at all and thus does not create any implicit ABI either.
-> 
-> But with the current mess it is not possible to properly support USB-C
-> DP AltMode. Thus this introduces a proper port scheme following roughly
-> the ports design of the Qualcomm QMP USB4-USB3-DP PHY controller binding
-> with a slight difference that there is an additional port for the
-> USB-C SBU port as the Rockchip USB-DP PHY also contains the SBU mux.
-> 
-> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> ---
->  .../bindings/phy/phy-rockchip-usbdp.yaml           | 23 ++++++++++++++++++++++
->  1 file changed, 23 insertions(+)
-> 
+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-
+-- 
+Luca Ceresoli <luca.ceresoli@bootlin.com>
 
