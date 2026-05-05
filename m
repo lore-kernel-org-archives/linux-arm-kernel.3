@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89441FF8855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:07:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A770CD3439
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:07:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O+b83bGMCzyEzByJ+5LU82nBa96lT9m0LV7qEzNfGOc=; b=WK3qNXphh8RiSDlZ2lLflyiucw
-	h6cY/nazS92/8M52NkzP7Lv5suUg8VZRlUSA2CkybxKnugQbP0Ei54p1ISgrCM8tjep3f1Xz6AGXT
-	QZ3t0Vq7cRJkBfT1E0PtreNqM1DxX5thQmMQ8X4Ep5cxTMm2kWq77iP0ozEPqpgsP/Cgq/kjURSDp
-	qyErj7Yy2Y7gQ/AkL4iijxfeQEA715GAi6Y6tKykd7X2Gf3sgblnCs+rQDSNoBSHhiMiBY8wevaxZ
-	pwx3SeZwhIAw2rRzKS++WSipUtzGHrL1eZLxb0aXLjmmo9VlD9XbWD24MFqT68UyHB53vYYh/41F+
-	+abCmc7A==;
+	bh=u1xfeI5UbcpARDbBD8TDLZovNjPqioAZ09pYeuPOgdA=; b=Em2ojC0tvwfq7GhpnPStdCohbE
+	NDaRY5A088Yf0UlWfVFLAkdjBLTNtAkWYOyl0CFGtZHmOPjrhfdP8uvHY6J1mYAYAxjnP7Gr5TsiB
+	V+8OZKMOHNv9Tl9WwY9dvSYfDEsrUom4aIG6qJinnUbbWnbICWQiO6fvBsV6mmpyJXxW6cwUy+pT7
+	e/ZUOqioG/xaRHQfbhwFDt5ZKtqpAKFbmtCxOoWWzD2GK7XNVNSl2C9EuhfZAdENQOWKAvrtoKqbu
+	jhODT3XvCcTcyoVfgNKIKQng/owc+dLV/KWw05EjOspKWLT4ZXthVlEcr8/xhC5cQQ1R3IBlS+IZK
+	xQdfz1Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKIIn-0000000Gmgc-2Qu1;
-	Tue, 05 May 2026 16:07:17 +0000
+	id 1wKIIx-0000000Gmnb-19uF;
+	Tue, 05 May 2026 16:07:27 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKIIl-0000000GmeQ-1Jff
+	id 1wKIIt-0000000Gmjk-1TzC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 16:07:16 +0000
+	Tue, 05 May 2026 16:07:25 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8764A14BF;
-	Tue,  5 May 2026 09:07:08 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6C3C71A9A;
+	Tue,  5 May 2026 09:07:17 -0700 (PDT)
 Received: from localhost.localdomain (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C0D1D3F763;
-	Tue,  5 May 2026 09:07:09 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A79873F763;
+	Tue,  5 May 2026 09:07:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777997233; bh=+OGpwgzVEkFFPsMOgL6J2ZFY9bOrw4hijWLmgpJn7uk=;
+	t=1777997242; bh=UwGP8FTfDtcj8k/6otcjhFkm2uk3iMrLq2Ub63GdAmQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Eo9DDHmg2QBzvLuzevofzQsstenbooOdc4Gqg47lWWeDfoebr41BuG04YHG89O/io
-	 NaJ2FYF40DTRNat24YBclNyTeQWc6si99SI9TS3W5M0ijJ8UOdg7W+fxprrdZUTjFy
-	 fo6B/KZ5vD2hAp2k1FAlzS8ZKdW67Z0a1fxCNUes=
+	b=fPUSUhFG9xMoZNvTzxCiKap9c369Fj03UMwYjUAwZadKlqvzHztRcbdEf5retEkJ+
+	 G4MLTGHCNZIQGscu6VlrxumG4LdRNa+lwwQoHE3PAodK41Txy2XVyhX1xBvWyUKpOT
+	 HV2Agmo5HTrW+zlMTxY7kY5ds0e1HgKBRjMuiXHU=
 From: Kevin Brodsky <kevin.brodsky@arm.com>
-Date: Tue, 05 May 2026 17:05:51 +0100
-Subject: [PATCH RFC v7 02/24] set_memory: Introduce set_memory_pkey() stub
+Date: Tue, 05 May 2026 17:05:53 +0100
+Subject: [PATCH RFC v7 04/24] arm64: Introduce por_elx_set_pkey_perms()
+ helper
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260505-kpkeys-v7-2-20c0bdd97197@arm.com>
+Message-Id: <20260505-kpkeys-v7-4-20c0bdd97197@arm.com>
 References: <20260505-kpkeys-v7-0-20c0bdd97197@arm.com>
 In-Reply-To: <20260505-kpkeys-v7-0-20c0bdd97197@arm.com>
 To: linux-hardening@vger.kernel.org
@@ -71,16 +72,16 @@ Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
  Lorenzo Stoakes <ljs@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
  Vlastimil Babka <vbabka@kernel.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777997220; l=917;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777997220; l=2402;
  i=kevin.brodsky@arm.com; s=20260427; h=from:subject:message-id;
- bh=+OGpwgzVEkFFPsMOgL6J2ZFY9bOrw4hijWLmgpJn7uk=;
- b=RlPHbUkc3oheG0ykOqKEOO0iIZrzIk4Arn9cjSnWXUBSSdJ8m6tPQJFPGDMPFbGVuo8Rinbti
- dTlSp8DlZ+lCl1fLdMdgguzhz9WrDCYuKFAxaqScfhVPCEzDVnEUOK8
+ bh=UwGP8FTfDtcj8k/6otcjhFkm2uk3iMrLq2Ub63GdAmQ=;
+ b=qrLCWuhFGAMdVVdM+nsjEEPr+OkOl5O7n85109CRGnj6WWFdPkNSMGwXOial/zTZI8G1kqXnr
+ dFVzJaKzKeKDKKY2A7n5g8spoGW06Jg4suAbywI6wQ1f3+RazBfkkwQ
 X-Developer-Key: i=kevin.brodsky@arm.com; a=ed25519;
  pk=N2QG+eJKrvkNovwhhwJhnJ4+ScVfsGCHldmqLfcMTFs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_090715_432756_06B63CA4 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20260505_090724_240025_A31A05E4 
+X-CRM114-Status: GOOD (  14.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,33 +96,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce a new function, set_memory_pkey(), which sets the
-protection key (pkey) of pages in the specified linear mapping
-range. Architectures implementing kernel pkeys (kpkeys) must
-provide a suitable implementation; an empty stub is added as
-fallback.
+Introduce a helper that sets the permissions of a given pkey
+(POIndex) in the POR_ELx format, and make use of it in
+arch_set_user_pkey_access().
 
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
- include/linux/set_memory.h | 7 +++++++
- 1 file changed, 7 insertions(+)
+ arch/arm64/include/asm/por.h |  7 +++++++
+ arch/arm64/mm/mmu.c          | 26 ++++++++++----------------
+ 2 files changed, 17 insertions(+), 16 deletions(-)
 
-diff --git a/include/linux/set_memory.h b/include/linux/set_memory.h
-index 3030d9245f5a..7b3a8bfde3c6 100644
---- a/include/linux/set_memory.h
-+++ b/include/linux/set_memory.h
-@@ -84,4 +84,11 @@ static inline int set_memory_decrypted(unsigned long addr, int numpages)
+diff --git a/arch/arm64/include/asm/por.h b/arch/arm64/include/asm/por.h
+index d913d5b529e4..bffb4d2b1246 100644
+--- a/arch/arm64/include/asm/por.h
++++ b/arch/arm64/include/asm/por.h
+@@ -31,4 +31,11 @@ static inline bool por_elx_allows_exec(u64 por, u8 pkey)
+ 	return perm & POE_X;
  }
- #endif /* CONFIG_ARCH_HAS_MEM_ENCRYPT */
  
-+#ifndef CONFIG_ARCH_HAS_KPKEYS
-+static inline int set_memory_pkey(unsigned long addr, int numpages, int pkey)
++static inline u64 por_elx_set_pkey_perms(u64 por, u8 pkey, u64 perms)
 +{
-+	return 0;
-+}
-+#endif
++	u64 shift = POR_ELx_PERM_SHIFT(pkey);
 +
- #endif /* _LINUX_SET_MEMORY_H_ */
++	return (por & ~(POE_MASK << shift)) | (perms << shift);
++}
++
+ #endif /* _ASM_ARM64_POR_H */
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index dd85e093ffdb..493310cf0486 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -2339,8 +2339,8 @@ void __cpu_replace_ttbr1(pgd_t *pgdp, bool cnp)
+ #ifdef CONFIG_ARCH_HAS_PKEYS
+ int arch_set_user_pkey_access(int pkey, unsigned long init_val)
+ {
+-	u64 new_por;
+-	u64 old_por;
++	u64 new_perms;
++	u64 por;
+ 
+ 	if (!system_supports_poe())
+ 		return -ENOSPC;
+@@ -2354,25 +2354,19 @@ int arch_set_user_pkey_access(int pkey, unsigned long init_val)
+ 		return -EINVAL;
+ 
+ 	/* Set the bits we need in POR:  */
+-	new_por = POE_RWX;
++	new_perms = POE_RWX;
+ 	if (init_val & PKEY_DISABLE_WRITE)
+-		new_por &= ~POE_W;
++		new_perms &= ~POE_W;
+ 	if (init_val & PKEY_DISABLE_ACCESS)
+-		new_por &= ~POE_RW;
++		new_perms &= ~POE_RW;
+ 	if (init_val & PKEY_DISABLE_READ)
+-		new_por &= ~POE_R;
++		new_perms &= ~POE_R;
+ 	if (init_val & PKEY_DISABLE_EXECUTE)
+-		new_por &= ~POE_X;
++		new_perms &= ~POE_X;
+ 
+-	/* Shift the bits in to the correct place in POR for pkey: */
+-	new_por = POR_ELx_PERM_PREP(pkey, new_por);
+-
+-	/* Get old POR and mask off any old bits in place: */
+-	old_por = read_sysreg_s(SYS_POR_EL0);
+-	old_por &= ~(POE_MASK << POR_ELx_PERM_SHIFT(pkey));
+-
+-	/* Write old part along with new part: */
+-	write_sysreg_s(old_por | new_por, SYS_POR_EL0);
++	por = read_sysreg_s(SYS_POR_EL0);
++	por = por_elx_set_pkey_perms(por, pkey, new_perms);
++	write_sysreg_s(por, SYS_POR_EL0);
+ 
+ 	return 0;
+ }
 
 -- 
 2.51.2
