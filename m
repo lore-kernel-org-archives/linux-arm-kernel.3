@@ -4,71 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D0A5FF8855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:24:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06514CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:24:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/UB6MuZVu1wH16AzcLmdudUfOsdVTK2ldP8gyOgjFPU=; b=U/KdCrKLWR0eCiGYxsTo5SVGC7
-	ihi/gPuxSlw5Br5o2O1DWDjOx4kaxmqCGF4SoAoVz/y+c0/a/2lXF76YrGSvS/1MhOwNJ/EeSV/bE
-	mgr7S+m8nHxx9dLfZTV6+e1kptufMhJmVKFW+Z77qU2cuMDM0GsDTyqDqcCJRdJWuZO7ExeWBzkqu
-	zqwPVkmEp5u7z9bWeXkyoNh0cKwNor15fzb+D6+eY5bs/mf7TT7wUqEwXHo5HLkwrC+nrCMkb9Fhn
-	NanwjCkFjriiFknoLjeZhCtgORl8mMCMOUwk8jpRMb3FfyPLncTVKFXD87im4vVMCHL8l3gc25Y93
-	U+jGqBxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ASWqzKjXrD7GPPPq7eqcATqg6A70mPRmdB4ZyDBwEK0=; b=rGFfOTunQm89Qrj0PAgI++zZdO
+	P1eGKOEDa/4ZN5GGQCFCd4FUN4hlI8rJouGu+wMVxDXMk2uaZQqy3h6R7pE+hW2iqml2hBSfoE7Me
+	gTqTmyuyaXcNyejyH4+PaNAmxULKgp4hzGdCwnz04DwCoOhKdLQpY/FAMx9yGAb+wFdY0Xs9u1JbQ
+	jB48TMpikA4O73FMgIkiUhXOCZd3yiixjOrL/HdGRQtIuN/ZiKy5BDhdcDsNqpkBiIyKpBCpf9k7Q
+	V01l+ieepQWi2DLWXVXuYcJbl/AO8MJAGo03M10WkHYL4rtcSzINwor4WMn98kBkT4a1842iJPTrl
+	QeWubPFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKIZV-0000000Grtf-2GHR;
-	Tue, 05 May 2026 16:24:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wKIZq-0000000Gs0J-2GAC;
+	Tue, 05 May 2026 16:24:54 +0000
+Received: from mail-24427.protonmail.ch ([109.224.244.27])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKIZR-0000000GrsK-1di6;
-	Tue, 05 May 2026 16:24:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 924E4419B3;
-	Tue,  5 May 2026 16:24:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FE04C2BCB4;
-	Tue,  5 May 2026 16:24:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777998268;
-	bh=/UB6MuZVu1wH16AzcLmdudUfOsdVTK2ldP8gyOgjFPU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DymjIbDBQ7v6YinmHZT129hxnR1yEV9gg47ge9IsQCkBSYyRCpSnwcOrTtIeDZDRh
-	 0lMbiFmww7nZ0Vc30/FxtzNNXkIt1sqUU9YhfUVbedlc+fBHvZhMyf+N4wa1sPF4AH
-	 Yvq99bP9c9LrJoFISFgD+7ySYNdysewK9HCAdvPWIpXHbd2OV769hoK0xYjUGqDshr
-	 mTvvF2tbXoWHqTJVd/EBKql9FqCBn0mhCYk24ReAK0GGiTr4bnwomSLpBF1HuHn3lQ
-	 /CJAuDuf+GPU4TTIxhJbEHibX5pN2ELu+nKCiyruCzepomKKL7fQGGGi9l/5LlWvV+
-	 /+TuUeEJv3YPg==
-Date: Tue, 5 May 2026 17:24:21 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Manikandan Muralidharan <manikandan.m@microchip.com>
-Cc: alexandre.belloni@bootlin.com, Frank.Li@nxp.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org,
-	nicolas.ferre@microchip.com, claudiu.beznea@tuxon.dev,
-	linux@armlinux.org.uk, mturquette@baylibre.com, sboyd@kernel.org,
-	Ryan.Wanner@microchip.com, tytso@mit.edu,
-	romain.sioen@microchip.com, aubin.constans@microchip.com,
-	cristian.birsan@microchip.com, adrian.hunter@intel.com,
-	jarkko.nikula@linux.intel.com, npitre@baylibre.com,
-	linux-i3c@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org
-Subject: Re: [PATCH v5 1/5] dt-bindings: i3c: mipi-i3c-hci: add Microchip
- SAMA7D65 compatible
-Message-ID: <20260505-prewar-disarm-04392f03d61e@spud>
-References: <20260505071327.125787-1-manikandan.m@microchip.com>
- <20260505071327.125787-2-manikandan.m@microchip.com>
+	id 1wKIZn-0000000Gryd-3gON
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 05 May 2026 16:24:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1777998287; x=1778257487;
+	bh=ASWqzKjXrD7GPPPq7eqcATqg6A70mPRmdB4ZyDBwEK0=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=M+F3yhx7dJ2rhFSJAZcFeXyevkNolOGRHAyGx9L5V9zEwV48mNW0/j1DxaK2EZV3A
+	 sOI77K5RJdv6vOQ4iT0XOz7d7KLFmOkC+jHajqCLIfMwCKTNmoZk26ZlwEiaoyoM9j
+	 b0Jm6p/Ff5EtNIHmXiEyFH/VfiVWcUCBVrOwkIFsGzbQoFISKrRmmTf1YBwE6BKG50
+	 jEC/Wpla8r4KX6aKV8Ln+iyPz5DRcWZf6WmD+D+yqDdYEw+FuY37PxcYMtVcMYDeHg
+	 ZFaIG7dN5yXP2FY+Ojke22qfg31drHoBz2zpt6/kca1w+FzeqPMI0bs85GKPo37cug
+	 sJC/bk/aU+nQA==
+Date: Tue, 05 May 2026 16:24:41 +0000
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+From: Roman Vivchar <rva333@protonmail.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, =?utf-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Srinivas Kandagatla <srini@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, Lee Jones <lee@kernel.org>, linux-iio@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org, Ben Grisdale <bengris32@protonmail.ch>
+Subject: Re: [PATCH 05/13] nvmem: add mt6323 PMIC EFUSE driver
+Message-ID: <Bn1O24yJ2aBvKUTpiFUzxnqbuuybRirR73G7R38ghYtwhFvQqWJb3HPgcikEa1otDw6n07nX_g8khZUHXJ_QRA--LrV5yj5Mcg1QzrWt6vA=@protonmail.com>
+In-Reply-To: <afmjfWtt7Vii6xfH@ashevche-desk.local>
+References: <20260504-mt6323-v1-0-799b58b355ff@protonmail.com> <20260504-mt6323-v1-5-799b58b355ff@protonmail.com> <afmjfWtt7Vii6xfH@ashevche-desk.local>
+Feedback-ID: 173184497:user:proton
+X-Pm-Message-ID: 70e68a78b3333f71307d661d5a8c93410d5d2dc7
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="0l+HBF2vu6FcRNjE"
-Content-Disposition: inline
-In-Reply-To: <20260505071327.125787-2-manikandan.m@microchip.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_092429_447981_BF243EE5 
-X-CRM114-Status: UNSURE (   8.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260505_092452_072395_281BDA34 
+X-CRM114-Status: GOOD (  21.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,33 +69,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tuesday, May 5th, 2026 at 11:00 AM, Andy Shevchenko <andriy.shevchenko@i=
+ntel.com> wrote:
 
---0l+HBF2vu6FcRNjE
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, May 05, 2026 at 12:43:23PM +0530, Manikandan Muralidharan wrote:
-> Add the microchip,sama7d65-i3c-hci compatible string to the MIPI I3C
-> HCI binding. The Microchip SAMA7D65 I3C controller is based on the
-> MIPI HCI specification but requires two clocks, so add a conditional
-> constraint when this compatible is present.
+> On Mon, May 04, 2026 at 09:24:57PM +0300, Roman Vivchar via B4 Relay wrot=
+e:
 >=20
-> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+> > Add support for the EFUSE controller found in the Mediatek MT6323 PMIC.
+> > The MT6323 EFUSE stores 24 bytes of hardware-related data, such as
+> > thermal sensor calibration values.
+>=20
+> Besides below comments, check for the similar issues that previous patche=
+s in
+> the series have.
+>=20
+> ...
+>=20
+> > +#include <linux/device.h>
+>=20
+> Not needed as platform_device.h implies this ("is this good or bad?" is a
+> different story).
+>=20
+> > +#include <linux/io.h>
+> > +#include <linux/mfd/mt6323/registers.h>
+> > +#include <linux/mod_devicetable.h>
+> > +#include <linux/module.h>
+> > +#include <linux/nvmem-provider.h>
+> > +#include <linux/platform_device.h>
+> > +#include <linux/property.h>
+> > +#include <linux/regmap.h>
+>=20
+> Follow IWYU. At least missing types.h.
+>=20
+> ...
+>=20
+> > +struct mt6323_efuse {
+> > +=09struct regmap *regmap;
+> > +};
+>=20
+> Do you really need a custom wrapper data structure? Can't regmap be used
+> directly?
+>=20
+> ...
+>=20
+> > +static int mt6323_efuse_read(void *context, unsigned int offset, void =
+*val,
+> > +=09=09=09     size_t bytes)
+> > +{
+> > +=09struct mt6323_efuse *efuse =3D context;
+> > +=09u32 tmp;
+>=20
+> > +=09u16 *buf =3D val;
+>=20
+> Really? CPU order all the time?
+>=20
+> > +=09int i, ret;
+>=20
+> Why is 'i' signed?
+>=20
+> > +=09for (i =3D 0; i < bytes; i +=3D 2) {
+>=20
+> sizeof()?
+>=20
+> And since 'i' is used only inside the loop
+>=20
+> =09for (size_t i =3D 0; i < bytes; i +=3D sizeof(*buf)) {
+>=20
+> > +=09=09ret =3D regmap_read(efuse->regmap,
+> > +=09=09=09=09  MT6323_EFUSE_DOUT_BASE + offset + i, &tmp);
+> > +=09=09if (ret)
+> > +=09=09=09return ret;
+> > +=09=09buf[i / 2] =3D tmp;
+> > +=09}
+>=20
+> + blank line.
+>=20
+> Isn't this reimplementation of bulk read? Why the latter may not be used?
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
+Yes, but the PWRAP (the regmap which the driver uses) doesn't support read
+callback, only reg_read is implemented in the driver.
+It hits the map->cache_type =3D=3D REGCACHE_NONE in the regmap_read_raw, an=
+d falls
+for the !map->read check, so regmap_bulk_read neither the regmap_read_raw
+can be used.
 
---0l+HBF2vu6FcRNjE
-Content-Type: application/pgp-signature; name="signature.asc"
+Technically the PMIC is not continuous address space, but rather non-MMIO F=
+SM,
+so it makes sense to not implement the read callback. I guess the custom
+implementation is fine then?
 
------BEGIN PGP SIGNATURE-----
+All other suggestions will be applied for v2.
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCafoZtQAKCRB4tDGHoIJi
-0t5tAP9j1Ts8TV5Nm9gBaXbBndqBbbHst/jK10FipNvviPDt+wD/T1eaRHjorVh5
-jpi/+IbbVA5d+oR7IgRe2HlgNZMqRQU=
-=SHjI
------END PGP SIGNATURE-----
+>=20
+> > +=09return 0;
+> > +}
+>=20
+> ...
+>=20
+> > +static const struct of_device_id mt6323_efuse_of_match[] =3D {
+> > +=09{ .compatible =3D "mediatek,mt6323-efuse" },
+> > +=09{ /* sentinel */ },
+>=20
+> Having trailing comma in the terminator is nonsense. Do we expect anythin=
+g
+> behind it?
+>=20
+> > +};
+>=20
+> --
+> With Best Regards,
+> Andy Shevchenko
+>=20
+>=20
+>
 
---0l+HBF2vu6FcRNjE--
+Best regards,
+Roman
 
