@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D55ACCD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 22:10:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE008FF8855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 22:13:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=55bVZsrPzezb0A8o66C22lV472PRvBfoDwL9nVOzQ44=; b=xTQTRD5WE2IIXc71NNwp0nr3Nt
-	OWGmSwB0GHHbopDFnFbiW3NFXLxxLJCKyUyhZprsdApduWsMvLYeydKWmQ0BTJOmHitrrUpYa+oyc
-	eSTbHysa2IIiZAtVK+r4s/SvNjye/bTo7C/nz32Mv8GGVWo0KiG5J+H78A3KHVPrBTA6tUxc+kLF1
-	JCH+G5vOZDmvnl7EEhJTI+hBuWw8K802BlH0z6+/stFXWEtxvzOiDlIneKqyk6HOW2+VzNddqIonw
-	L4UCn85ljqmTu+E1MDn5UG922fkr96kx/+Hj4vFqed+0NNrWgPR5fIh8H6M6JAEPf2dCxD1ax6gHb
-	2JX2ZPzQ==;
+	bh=BuZXA9Qcsz79IE1YefGF3fDxiWY5XB/9Ov4Ot65mumA=; b=D6NRprhk4KbXMEYX+d5JLLrlt8
+	zAQ5fLqilMcjd3VLoOnxyMrrnL3xxejhTW1LzJCVraulNCPtVhGTrwm27pH+qqlD8R4cM9oKo52X4
+	YjtaZ+DOlIEcMOmnyRTrfebbzS0k3hg2s9+D9aJ7gZLyVb56+85ykiYLKjN4Lc9Z4JohhsffCU0ZR
+	aYsWitrhvoRiXtrfQib9Q0OdMXWPGQ7JUXy9kV4IJcsqtx+0jHinL3ibgMq+KgY1BSNn5dfBTu9BZ
+	uxGnaHrUwHSEolGgs3hdymHTj2b2SDxYUo3sh5432QuynA9jldJlULrZJEi4Yx8BQnMAUr1qwpuze
+	VOtLsOdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKNxo-000000001Zy-2yS8;
-	Tue, 05 May 2026 22:10:00 +0000
+	id 1wKO1Z-000000001yZ-1J6g;
+	Tue, 05 May 2026 22:13:53 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKNxn-000000001ZL-0fsi
+	id 1wKO1X-000000001xv-1RPq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 22:10:00 +0000
+	Tue, 05 May 2026 22:13:52 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8BC3A1A9A;
-	Tue,  5 May 2026 15:09:51 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DDE011A9A;
+	Tue,  5 May 2026 15:13:43 -0700 (PDT)
 Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7FEFA3F763;
-	Tue,  5 May 2026 15:09:54 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D9AF53F763;
+	Tue,  5 May 2026 15:13:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778018996; bh=wngIzFQY61LFVz8abOPGp4EbGemyax42mCgJV6p6iPc=;
+	t=1778019229; bh=JXBOIDwb6e1s8ZmaUYlylleYRr14801abN82WNXhBdw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=We36GZ8MM/yfvHjkDwIuTLTWBu69Uu4K483k5nWZL7vMfmQ4YB3opU2gB0AvBR5d6
-	 NN4zIXVRJbTrS6+tKe/DoqCZiPBAsO1U8hnECuaDXL8f/wf8hC1ig3gcbooPpCFnIe
-	 n+DzMrjBVVl0hLAGiSJ9GiAfUunk0ZEi/NDbqseY=
-Date: Tue, 5 May 2026 23:09:47 +0100
+	b=jkH6N7qm7iFUSnanVg4zc3SjNFJmR3DX6GnHivCcMFaj7oPAEQj3WH/yjmZ2bmsJu
+	 glE6HX01WYbGrfcx9MQXTfI6OffegBZ1vX5OlSz19lkvgSAkROqw7KKgleZel35yCA
+	 Vi8R92y5+9+CQk4rqYOYsk2/tUPMPGgDl5gKTO+g=
+Date: Tue, 5 May 2026 23:13:44 +0100
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: Philip Radford <philip.radford@arm.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	arm-scmi@vger.kernel.org, linux-pm@vger.kernel.org,
 	sudeep.holla@arm.com, james.quinlan@broadcom.com,
 	f.fainelli@gmail.com, vincent.guittot@linaro.org,
 	etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
 	quic_sibis@quicinc.com, dan.carpenter@linaro.org, d-gole@ti.com,
-	souvik.chakravarty@arm.com
-Subject: Re: [PATCH v5 09/12] firmware: arm_scmi: add Powercap MAI get/set
- support
-Message-ID: <afpqqxId9IkyFIAm@pluto>
+	souvik.chakravarty@arm.com, cristian.marussi@arm.com
+Subject: Re: [PATCH v5 11/12] powercap: arm_scmi: Add get_power_uw to
+ synthetic node
+Message-ID: <afprmEnMf5mNf8NE@pluto>
 References: <20260428090922.346069-1-philip.radford@arm.com>
- <20260428090922.346069-10-philip.radford@arm.com>
- <afpUytkInNKLTB0k@pluto>
- <afpkpUcevUh_Z8kQ@donnerap.manchester.arm.com>
+ <20260428090922.346069-12-philip.radford@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <afpkpUcevUh_Z8kQ@donnerap.manchester.arm.com>
+In-Reply-To: <20260428090922.346069-12-philip.radford@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_150959_268091_66CF527A 
-X-CRM114-Status: GOOD (  15.32  )
+X-CRM114-CacheID: sfid-20260505_151351_431397_E31BBCD9 
+X-CRM114-Status: GOOD (  19.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,45 +75,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 05, 2026 at 10:44:05PM +0100, Philip Radford wrote:
-> On Tue, May 05, 2026 at 09:36:26PM +0100, Cristian Marussi wrote:
-> > On Tue, Apr 28, 2026 at 10:09:18AM +0100, Philip Radford wrote:
-> > > Add support for Power Measurement Averaging Interval (MAI)
-> > 
-> > Hi,
-> > 
+On Tue, Apr 28, 2026 at 10:09:20AM +0100, Philip Radford wrote:
+> Exposes the current power usage from the immediate children of
+> the synthetic (root) powercap node. Iterates over pr->spzones and
+> sums per-zone power.
 > 
-> Hi,
-> Thanks for the review.
->
-
-Helo,
- 
-> > > get and set operations to the SCMI powercap protocol driver.
-> > > Extends scmi_powercap_info to store MAI configuration and
-> > > implement MAI get/set via xfer and optional fast-channel
-> > > support.
-
-[snip]
-
-> > > +static int scmi_powercap_xfer_mai_get(const struct scmi_protocol_handle *ph, u32 domain_id,
-> > > +				      u32 *mai)
-> > 
-> > ..bad alignment and till now we try still to stick tpo 80cols in the SCMI
-> > stack if it does NOT really hamper readability...
-> > 
+> Signed-off-by: Philip Radford <philip.radford@arm.com>
+> ---
+>  drivers/powercap/arm_scmi_powercap.c | 29 ++++++++++++++++++++++++++--
+>  1 file changed, 27 insertions(+), 2 deletions(-)
 > 
-> I will address this, but I'm quite certain it wasn't flagged by checkpatch.
+> diff --git a/drivers/powercap/arm_scmi_powercap.c b/drivers/powercap/arm_scmi_powercap.c
+> index d74869af1633..81b5214acda4 100644
+> --- a/drivers/powercap/arm_scmi_powercap.c
+> +++ b/drivers/powercap/arm_scmi_powercap.c
+> @@ -270,9 +270,34 @@ static int instance_root_release(struct powercap_zone *pz)
+>  	return 0;
+>  }
+>  
+> -static int instance_root_get_power_uw(struct powercap_zone *pz, u64 *v)
+> +static int instance_root_get_power_uw(struct powercap_zone *pz, u64 *power_uw)
+>  {
+> -	*v = 0;
+> +	struct scmi_powercap_zone *root = to_scmi_powercap_zone(pz);
+> +	struct scmi_powercap_zone *child;
+> +	struct scmi_powercap_root *pr;
+> +	u64 acc = 0;
+> +	u64 p;
 
-Oh yes..this is currently a convention we kept in the SCMI subsystem (the
-original 80 cols) BUT kernel wise this line length req was relaxed to
-100cols a few years ago..so checkoatch will never flag it (not sure if
-it is configurable in such regards)...
+These u64 can live on a single line...
 
-... so you are excused :P
+> +	int ret;
+> +
+> +	if (!pz || !power_uw)
+> +		return -EINVAL;
+> +
+> +	pr = container_of(root, struct scmi_powercap_root, instance_root);
 
-....anyway maybe Sudeep is fine to relax this...I dont have strong opinions
-BUT since all the stack is 80cols at this point...
+usually we define macros to wrap this like to_scmi_powercap_zone()...
+...even if used only once...this could be a new to_scmi_powercap_root()
+
+> +	if (!pr)
+> +		return -ENODEV;
+> +
+> +	list_for_each_entry(child, &pr->registered_zones[0], node) {
+> +		if (child == &pr->instance_root)
+> +			continue;
+
+You'll need to check this in light of the fixes of previous patch
+
+> +
+> +		ret = scmi_powercap_get_power_uw(&child->zone, &p);
+> +		if (!ret)
+> +			acc += p;
+> +		else
+> +			dev_dbg(child->dev, "Failed to read child power: %u\n", ret);
+> +	}
+> +
+> +	*power_uw = acc;
+>  	return 0;
+>  }
+>  
 
 Thanks,
 Cristian
