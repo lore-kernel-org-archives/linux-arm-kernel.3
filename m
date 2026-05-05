@@ -4,57 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06514CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:24:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D8AECD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:25:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ASWqzKjXrD7GPPPq7eqcATqg6A70mPRmdB4ZyDBwEK0=; b=rGFfOTunQm89Qrj0PAgI++zZdO
-	P1eGKOEDa/4ZN5GGQCFCd4FUN4hlI8rJouGu+wMVxDXMk2uaZQqy3h6R7pE+hW2iqml2hBSfoE7Me
-	gTqTmyuyaXcNyejyH4+PaNAmxULKgp4hzGdCwnz04DwCoOhKdLQpY/FAMx9yGAb+wFdY0Xs9u1JbQ
-	jB48TMpikA4O73FMgIkiUhXOCZd3yiixjOrL/HdGRQtIuN/ZiKy5BDhdcDsNqpkBiIyKpBCpf9k7Q
-	V01l+ieepQWi2DLWXVXuYcJbl/AO8MJAGo03M10WkHYL4rtcSzINwor4WMn98kBkT4a1842iJPTrl
-	QeWubPFA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xhE1GPrxyKAsw37Q2fShYI5FmXFiAGB5BC0k4Zz9C/U=; b=bWno3QUqzSh2oX
+	ZSluai90G3PH9FKjb8u1/fThS4TwR9g7RCuaDBUyBjlPp6fWmlHpsX2k2U3i8MV7jKt+yJ2V1SCcC
+	pykam6PPnruWYpKC6XX+NSwBTWg43Zaq725eHqQpqBnLUPiMgIS6oLCgGR/U0mihQppaxkgV5Q6Ph
+	N5CsJcRagFz9XuDHogY/xE/dnCNeJXtEp1yFsCPQVw3gpWzBEs65wqWRM+eXfO6uWRy4xL6mFv2aJ
+	9q35pNAHKEa/O4LXxRNKCzNGfUT+nZuU6BlMphQvbWoWmo94Nebd0zjWFUgwU7JbsH+ZX9PLGZaJ8
+	WIQuKEP6zCYB1Pc3vF+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKIZq-0000000Gs0J-2GAC;
-	Tue, 05 May 2026 16:24:54 +0000
-Received: from mail-24427.protonmail.ch ([109.224.244.27])
+	id 1wKIa1-0000000Gs4k-0QVD;
+	Tue, 05 May 2026 16:25:05 +0000
+Received: from mail-lf1-f41.google.com ([209.85.167.41])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKIZn-0000000Gryd-3gON
+	id 1wKIZy-0000000Gs2y-1Da7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 16:24:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1777998287; x=1778257487;
-	bh=ASWqzKjXrD7GPPPq7eqcATqg6A70mPRmdB4ZyDBwEK0=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=M+F3yhx7dJ2rhFSJAZcFeXyevkNolOGRHAyGx9L5V9zEwV48mNW0/j1DxaK2EZV3A
-	 sOI77K5RJdv6vOQ4iT0XOz7d7KLFmOkC+jHajqCLIfMwCKTNmoZk26ZlwEiaoyoM9j
-	 b0Jm6p/Ff5EtNIHmXiEyFH/VfiVWcUCBVrOwkIFsGzbQoFISKrRmmTf1YBwE6BKG50
-	 jEC/Wpla8r4KX6aKV8Ln+iyPz5DRcWZf6WmD+D+yqDdYEw+FuY37PxcYMtVcMYDeHg
-	 ZFaIG7dN5yXP2FY+Ojke22qfg31drHoBz2zpt6/kca1w+FzeqPMI0bs85GKPo37cug
-	 sJC/bk/aU+nQA==
-Date: Tue, 05 May 2026 16:24:41 +0000
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-From: Roman Vivchar <rva333@protonmail.com>
-Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, =?utf-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Srinivas Kandagatla <srini@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, Lee Jones <lee@kernel.org>, linux-iio@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org, Ben Grisdale <bengris32@protonmail.ch>
-Subject: Re: [PATCH 05/13] nvmem: add mt6323 PMIC EFUSE driver
-Message-ID: <Bn1O24yJ2aBvKUTpiFUzxnqbuuybRirR73G7R38ghYtwhFvQqWJb3HPgcikEa1otDw6n07nX_g8khZUHXJ_QRA--LrV5yj5Mcg1QzrWt6vA=@protonmail.com>
-In-Reply-To: <afmjfWtt7Vii6xfH@ashevche-desk.local>
-References: <20260504-mt6323-v1-0-799b58b355ff@protonmail.com> <20260504-mt6323-v1-5-799b58b355ff@protonmail.com> <afmjfWtt7Vii6xfH@ashevche-desk.local>
-Feedback-ID: 173184497:user:proton
-X-Pm-Message-ID: 70e68a78b3333f71307d661d5a8c93410d5d2dc7
+	Tue, 05 May 2026 16:25:03 +0000
+Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5a0ff30b240so8030851e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 09:25:01 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777998294; x=1778603094;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=xhE1GPrxyKAsw37Q2fShYI5FmXFiAGB5BC0k4Zz9C/U=;
+        b=Q1oET0MzcgrbIbUr9mwE3JUT/tALE5avkIbBJFM4GDSkTVLNSrfiktboP72Md1LQ1i
+         i7czfbDvsAPcKEkIC1RLbqwbRmBb6qF6ZuTJWWZ2s6T4dVKPefHuTA4dQbIFXAQeS+RU
+         z5q22SnEyRZuebxIE/iWk4+QqJNGmAEhdvl/0GkYN/nUQlwnNJGMqTVcG1R5lj8I2cfv
+         M2AZ243ym8s2PJ7RVc24PW4B6VJgC/42cHVn0KjA/zKxA4obME8MvdtGI9plTTVwCbvx
+         GsPNQ9fV2uB2LsvKTYJkUQPxlGi96thYYhRyaLyhTA/79YSTEMwRyAjbJyAtuoXZFFYd
+         yNjQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+zOv2+ICIYy4NOnxbsMdGoq+aw1V/Ia3cUG+FBXZQNwBuBQ9h7jpkRJHyGzy0+rj+e1w/hN0Eh2THaEGa9M7gZ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/lmn+Zb9frQ3oNZX2DSDZAtvZKk5VZw+UkFdafTvdhUyeQ7YV
+	nP9Eg+e/wiOLEo1FtN2v3zJcrCXSz4V/64MlU00eLJu1ZUQ23Hzmb78eMvGpMulj
+X-Gm-Gg: AeBDievgd8offeR1FvpTvJbkTKUvjvJiVsmYJ3LSv5CQ+9lTDLqPCvuBpl9fX1vsIxq
+	nKEgOr0H95kxBhj8121oJx1jJRiafPbH7CJcZXDYyMRBfMGCvKi6E7dRt6mauVpF/W8yiCPViWI
+	J+qxm6Fx336lf/7np2u29T3ePCaPbYF/cG8s7fZu55ByV4b4mpCPX6her7QQq0mjgHMFbSjOC6Y
+	GxnrG1EvlDxzi1G2mnTGcSzwsyo0a0XHJ1WbcN4fEHUKZzthBdYHzKXmV5S+uSctHqtnvxBQ0Vl
+	fFNslBl89DPASbArc7n/+21wSgkQC5ENs8DrYIvzTNCHF6S5QuRFAVXuHFMY0c0Y1gyrnfpXFsf
+	gLrUt0dJrlCTFs0Rwr9Yj76bj14gBVrHKyw3Wp1CzX6398moOoh1M76kzaXgh9K2ygClj53lnC+
+	/uNAeB7Tyi2sHslIIQTCZ7T+RA4TtAOW3Q1hBv47pPEMJOn7Md0dTJ883wesouKBY3uQ==
+X-Received: by 2002:a05:6512:108e:b0:5a7:4ac8:b332 with SMTP id 2adb3069b0e04-5a8631c728fmr5973553e87.38.1777998293894;
+        Tue, 05 May 2026 09:24:53 -0700 (PDT)
+Received: from mail-lj1-f169.google.com (mail-lj1-f169.google.com. [209.85.208.169])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a8690b9fc6sm3052711e87.4.2026.05.05.09.24.52
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 05 May 2026 09:24:53 -0700 (PDT)
+Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-393a44854d2so17986571fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 09:24:52 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ8x/PjkJV6v4NJu1erqEWLeyZIGcvwV6aVtB2nNt+UYuqn5P4WVQkmk0JANQnyEJ++lv/DqFcwIqLyKX+eQcDdR@lists.infradead.org
+X-Received: by 2002:a2e:bc88:0:b0:393:940e:d5eb with SMTP id
+ 38308e7fff4ca-393940edd6bmr44531191fa.3.1777998292458; Tue, 05 May 2026
+ 09:24:52 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+References: <20250307002628.10684-1-andre.przywara@arm.com>
+ <20250307002628.10684-9-andre.przywara@arm.com> <afoRe6DI4GJIVtg4@shepard> <20260505182017.10d71c11@ryzen.lan>
+In-Reply-To: <20260505182017.10d71c11@ryzen.lan>
+From: Chen-Yu Tsai <wens@csie.org>
+Date: Wed, 6 May 2026 00:24:37 +0800
+X-Gmail-Original-Message-ID: <CAGb2v666gCJiMpeWKpANHPufCp-nVJvdky+Gj87zUagvcrwTiw@mail.gmail.com>
+X-Gm-Features: AVHnY4J2M27F_ij2YPG2EBXpDPE1R3Ey_Ifi-Xq3Eypf1d-qnvtALFOdRCX5tAU
+Message-ID: <CAGb2v666gCJiMpeWKpANHPufCp-nVJvdky+Gj87zUagvcrwTiw@mail.gmail.com>
+Subject: Re: [PATCH v4 08/14] clk: sunxi-ng: a523: add system mod clocks
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Paul Kocialkowski <paulk@sys-base.io>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_092452_072395_281BDA34 
-X-CRM114-Status: GOOD (  21.20  )
+X-CRM114-CacheID: sfid-20260505_092502_348525_14A8EC9F 
+X-CRM114-Status: GOOD (  26.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,123 +98,69 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tuesday, May 5th, 2026 at 11:00 AM, Andy Shevchenko <andriy.shevchenko@i=
-ntel.com> wrote:
-
-> On Mon, May 04, 2026 at 09:24:57PM +0300, Roman Vivchar via B4 Relay wrot=
-e:
->=20
-> > Add support for the EFUSE controller found in the Mediatek MT6323 PMIC.
-> > The MT6323 EFUSE stores 24 bytes of hardware-related data, such as
-> > thermal sensor calibration values.
->=20
-> Besides below comments, check for the similar issues that previous patche=
-s in
-> the series have.
->=20
-> ...
->=20
-> > +#include <linux/device.h>
->=20
-> Not needed as platform_device.h implies this ("is this good or bad?" is a
-> different story).
->=20
-> > +#include <linux/io.h>
-> > +#include <linux/mfd/mt6323/registers.h>
-> > +#include <linux/mod_devicetable.h>
-> > +#include <linux/module.h>
-> > +#include <linux/nvmem-provider.h>
-> > +#include <linux/platform_device.h>
-> > +#include <linux/property.h>
-> > +#include <linux/regmap.h>
->=20
-> Follow IWYU. At least missing types.h.
->=20
-> ...
->=20
-> > +struct mt6323_efuse {
-> > +=09struct regmap *regmap;
-> > +};
->=20
-> Do you really need a custom wrapper data structure? Can't regmap be used
-> directly?
->=20
-> ...
->=20
-> > +static int mt6323_efuse_read(void *context, unsigned int offset, void =
-*val,
-> > +=09=09=09     size_t bytes)
-> > +{
-> > +=09struct mt6323_efuse *efuse =3D context;
-> > +=09u32 tmp;
->=20
-> > +=09u16 *buf =3D val;
->=20
-> Really? CPU order all the time?
->=20
-> > +=09int i, ret;
->=20
-> Why is 'i' signed?
->=20
-> > +=09for (i =3D 0; i < bytes; i +=3D 2) {
->=20
-> sizeof()?
->=20
-> And since 'i' is used only inside the loop
->=20
-> =09for (size_t i =3D 0; i < bytes; i +=3D sizeof(*buf)) {
->=20
-> > +=09=09ret =3D regmap_read(efuse->regmap,
-> > +=09=09=09=09  MT6323_EFUSE_DOUT_BASE + offset + i, &tmp);
-> > +=09=09if (ret)
-> > +=09=09=09return ret;
-> > +=09=09buf[i / 2] =3D tmp;
-> > +=09}
->=20
-> + blank line.
->=20
-> Isn't this reimplementation of bulk read? Why the latter may not be used?
-
-Yes, but the PWRAP (the regmap which the driver uses) doesn't support read
-callback, only reg_read is implemented in the driver.
-It hits the map->cache_type =3D=3D REGCACHE_NONE in the regmap_read_raw, an=
-d falls
-for the !map->read check, so regmap_bulk_read neither the regmap_read_raw
-can be used.
-
-Technically the PMIC is not continuous address space, but rather non-MMIO F=
-SM,
-so it makes sense to not implement the read callback. I guess the custom
-implementation is fine then?
-
-All other suggestions will be applied for v2.
-
->=20
-> > +=09return 0;
-> > +}
->=20
-> ...
->=20
-> > +static const struct of_device_id mt6323_efuse_of_match[] =3D {
-> > +=09{ .compatible =3D "mediatek,mt6323-efuse" },
-> > +=09{ /* sentinel */ },
->=20
-> Having trailing comma in the terminator is nonsense. Do we expect anythin=
-g
-> behind it?
->=20
-> > +};
->=20
-> --
-> With Best Regards,
-> Andy Shevchenko
->=20
->=20
+On Wed, May 6, 2026 at 12:20=E2=80=AFAM Andre Przywara <andre.przywara@arm.=
+com> wrote:
 >
+> On Tue, 5 May 2026 17:49:15 +0200
+> Paul Kocialkowski <paulk@sys-base.io> wrote:
+>
+> Hi Paul,
+>
+> > On Fri 07 Mar 25, 00:26, Andre Przywara wrote:
+> > > Add the clocks driving some core system related subsystems of the SoC=
+:
+> > > the "CE" crypto engine, the high speed timers, the DRAM and the assoc=
+iated
+> > > MBUS clock, and the PCIe clock.
+> > >
+> > > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> > > ---
+> > >  drivers/clk/sunxi-ng/ccu-sun55i-a523.c | 135 +++++++++++++++++++++++=
+++
+> > >  1 file changed, 135 insertions(+)
+> > >
+> > > diff --git a/drivers/clk/sunxi-ng/ccu-sun55i-a523.c b/drivers/clk/sun=
+xi-ng/ccu-sun55i-a523.c
+> > > index 17a4ffc0b7f52..c59f3f789d052 100644
+> > > --- a/drivers/clk/sunxi-ng/ccu-sun55i-a523.c
+> > > +++ b/drivers/clk/sunxi-ng/ccu-sun55i-a523.c
+> >
+> > [...]
+> >
+> > > +static const struct clk_parent_data hstimer_parents[] =3D {
+> > > +   { .fw_name =3D "hosc" },
+> > > +   { .fw_name =3D "iosc" },
+> > > +   { .fw_name =3D "losc" },
+> > > +   { .hw =3D &pll_periph0_200M_clk.hw },
+> > > +};
+> > > +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(hstimer0_clk, "hstimer0",
+> > > +                                  hstimer_parents, 0x730,
+> > > +                                  0, 0,    /* M */
+> >
+> > I was looking at the A523 ccu code and see lots of
+> > SUNXI_CCU_MP_DATA_WITH_MUX_GATE with no M.
+> >
+> > Was there a particular reason for not using SUNXI_CCU_M_DATA_WITH_MUX_G=
+ATE
+> > instead? It would surely be less confusing.
+> >
+> > One difference would be that the ops end up as ccu_div_ops instead of
+> > ccu_mp_ops. Do you need ccu_mp_ops for some reason?
+>
+> Yes, please double check that (as it *is* confusing), but to me it
+> looks like the CCU_M_ version has just a pure divider, whereas in
+> CCU_MP_ the P is a *shift*, and the M a divider. Those timer clocks just
+> feature a shift, which I don't think we have seen before?
 
-Best regards,
-Roman
+We now have SUNXI_CCU_P_DATA_WITH_MUX_GATE() which was recently added by
+me exactly for the timer clocks in the MCU CCU [1].
+
+
+ChenYu
+
+[1] https://lore.kernel.org/all/20250911174710.3149589-5-wens@kernel.org/
 
