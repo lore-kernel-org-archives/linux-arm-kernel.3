@@ -4,75 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 110CCCD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 17:04:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96678FF8855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 17:05:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ws/tCO7WabLbeqQ8hJ2tuff3zVFO2Oni3Ln1XQP7qCk=; b=g/6OWh3U3LFgmVaBSO6W7JKCZl
-	OpSrUEikVKZOmj5vHTJyC5+/0EDmYR3B9woEW5+Cu6mOpQJIho1K7kvZlItPK791jFvhAZ/9fHF0u
-	1YKdw5LlF+bRxkhvJnZOqT7Y177g3FAK3JrpLmUE8BOepPyb3sbDwxa6OKdoNtKwvcrLuNhExfBk4
-	KKULlvMcat/JKwPL0QoB52sJNTGPOkj9ZIHZ8I29vVyRWRFPMzXsTe8HTXl8aSni1bJN3blnp1SXa
-	mMafqBlKoAmp9QN5+vvQrYgvsuhGYRLp6yTpVcgKIvmCIrepsKwkI+xVJWDzw0mGEpAixt1/hz0FX
-	NX6H4fJg==;
+	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
+	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m3ZWo/jJEgMHbppCM8fWNjqKfThN79PtinobDbAzSRU=; b=eej19JyxywquScVibguU6fC8Qo
+	RFyVhFCilJUwpSw4NbgUUXWhYDakhcD+PmeDHyMwsbzHGkbuZGNzYvYTKR3hYGA+YEjFJrmgyHRrd
+	sqABEP6fobE4myrp8K/XjwDF6cH/bSsS/Xu28/a/WuZxwVSBBecrs/MtcLXriU0BQSd4OvzdOkXyC
+	UG/+xIm9Wny7Po6pBfMmT8ah00hjrdK4nlszcXKNha4Ha/8YY6n/M29rMz1l/eeHrk/IRWkIGWk3z
+	UQJF4uCeroi966jW2LxQnS0FxLUMvME4sBr9aJPymuNy09dtrgM1B0B0YRaUVps6q3VAvtHFzu7lw
+	bzSD2fDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKJCJ-0000000GzHv-0bRQ;
-	Tue, 05 May 2026 17:04:39 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wKJCz-0000000GzpG-3ZB4;
+	Tue, 05 May 2026 17:05:21 +0000
+Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKJC8-0000000Gz97-36Jz;
-	Tue, 05 May 2026 17:04:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=Ws/tCO7WabLbeqQ8hJ2tuff3zVFO2Oni3Ln1XQP7qCk=; b=kM8LxfeqQGiauOfKTa2GFCchhr
-	0B5LQ6KOYFtW/yyv5bUzGg/chBlgGPbUrruMkWUocVYRjdaGkX0aJxsLXUK9jsUQyQvTKNPewKHj6
-	F38Ovvb2L9CtPu2dF1uszCnaDTwVjcN9BPoiUZzMqqyNEFDtXxQ6oJlAEM+tr+C9Ukgr3qpc7rjxZ
-	SSp4nyv4B3Rk/mkX19uqWF2cg+VduLffw3qBYqD9JnOUQc1g3GRq3FNZdbC6R9bp0AHCZtdECr8MR
-	nBk+eeGdt9QabuEDkLvIzBXmGfG23NxKhpqkbJma7og0lIy4tjEcNXW/9QQcXjQreCGn4uUwyXxiP
-	ias5K+Ng==;
-Received: from gloria.sntech.de ([185.11.138.130])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKJC5-0000000E6jC-38vL;
-	Tue, 05 May 2026 17:04:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
-	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type;
-	bh=Ws/tCO7WabLbeqQ8hJ2tuff3zVFO2Oni3Ln1XQP7qCk=; b=G1wRKirk5O78gbh1nYtuVmsvLc
-	i2R9B4STcdjhGllq0dIYDr6ikvk+90I8NBHVl5p+S3CiwUQcLXcOojXAhii+HdJIzLNoetwig9ibU
-	kcOnu/rDObetVb0tqor3HLIU1/GX7v5jrW6mDYJL1ebsiE0S2aZDozOt3H1+Vqz0nuMnwzMSTVynT
-	ykIqkRwv6Yy4BcS4D0Zl1A2MgSQaq3ASU1sTdVZpLBymJwCgNZKb3wD01ZOmfWX+8xxXDqk7+f3u2
-	SU2MM9UMhyQVct0l46cRjNcokwoZhWGQdXwl9bpRKj/GfZuGz70dcMCvto82fIOHf4QJwzCxivHGL
-	HxQvtVCA==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: vkoul@kernel.org
-Cc: neil.armstrong@linaro.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	heiko@sntech.de,
-	linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	jonas@kwiboo.se
-Subject: [PATCH v2 2/5] phy: rockchip: inno-usb2: Simplify rockchip,usbgrf handling
-Date: Tue,  5 May 2026 19:04:07 +0200
-Message-ID: <20260505170410.3265305-3-heiko@sntech.de>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260505170410.3265305-1-heiko@sntech.de>
-References: <20260505170410.3265305-1-heiko@sntech.de>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	id 1wKJCx-0000000Gzmm-0ojl
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 05 May 2026 17:05:20 +0000
+Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-83603145987so1525359b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 10:05:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1778000717; x=1778605517; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=m3ZWo/jJEgMHbppCM8fWNjqKfThN79PtinobDbAzSRU=;
+        b=DjUqfN/Xd8iNiD4ehQfr6VfZOc5bIVZ8lZiVDGjZA3OkL69yACtWKgaVfJXPn5Rzsg
+         QoK7/SswHgCpKa4qXTQBsLD1luqzrX0xu+xs5ciaDsFtLaxT+8qtqySFOJkPSydbxOBb
+         YB2WhSrdBQ6BMbsdWwDgvZrmQ7HP8Yvz8GzjbPqz+/DfBbX39FzsfOXLNWsm2sr6k06t
+         viP8Refk/YwcZ8YV4TZDKE+ntQR9OyHBtKG9XpmwWFaifATjFLMO+kL/z85ucgglA1os
+         JXMsKTlXEM6RY35OfCgwxKPWDP+WM504SBejB7/LnrZCwA3k+viicT8LFj29vIdqBD8S
+         SyfA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778000717; x=1778605517;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=m3ZWo/jJEgMHbppCM8fWNjqKfThN79PtinobDbAzSRU=;
+        b=H8w+KjKfnu90q0JhrBQMUU/WpaojA1zVqVA4Ft/vMOPZhmaNkkKaE1D1N6LgPjUPLL
+         wXGjhSIYUmDORF40TF+iPWIcknYVuqnrF+AvDYbdwEU+QyZ/SeUCYzFKu42e1PAocACq
+         apv9/cjcirpT0k92BY0Pw7DQTa6N1Vxhbn22pIhUNzriTD1DkAmM6tZDq0iD6fsAmcgq
+         PUAh75NO6ESC8Sf6M7F57B4sMvJN9IBKz3cG4loiSvpLnlIyMDkgqR6dcVvDcNtI9YO+
+         X8n/eOMWicbzaN1osN3FbcRZ0epHiyCffJv2RYRfdI3r2qwNsVNxSvQzJ80c7oo3IZ4a
+         OSgQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+8lTr7z5G4MJGI+oAl29faSbjHOOm7o9Yd9d9Uj4fbI9pozHFTqUkJoVqOl08jL96W+CI6s7fT7DKTfWQoUwin@lists.infradead.org
+X-Gm-Message-State: AOJu0YxrkF6az79ceiaELMn++4NWxPksUI79QsSVexYdJ+asSxqIlCxJ
+	YuNN0f9vTSXWHAjAaIwcvt589l26g/hq8/9SM3WxQEMPSmN1V86W8O2ZjaAsqFtC9/ccu8LHsJT
+	1qH+ecw==
+X-Received: from pfblm11.prod.google.com ([2002:a05:6a00:3c8b:b0:82c:e899:f089])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:368c:b0:82c:e1a3:986f
+ with SMTP id d2e1a72fcca58-839247bfb7bmr3652379b3a.43.1778000717292; Tue, 05
+ May 2026 10:05:17 -0700 (PDT)
+Date: Tue, 5 May 2026 10:05:15 -0700
+In-Reply-To: <20260504231048.1184273-1-jthoughton@google.com>
+Mime-Version: 1.0
+References: <20260504224213.1049426-2-jthoughton@google.com> <20260504231048.1184273-1-jthoughton@google.com>
+Message-ID: <afohshVlK9YcBk-f@google.com>
+Subject: Re: [PATCH 1/5] KVM: arm64: Grab KVM MMU write lock in kvm_arch_flush_shadow_all()
+From: Sean Christopherson <seanjc@google.com>
+To: James Houghton <jthoughton@google.com>
+Cc: chenhuacai@kernel.org, gshan@redhat.com, jhogan@kernel.org, 
+	joey.gouly@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-mips@vger.kernel.org, loongarch@lists.linux.dev, maobibo@loongson.cn, 
+	maz@kernel.org, oupton@kernel.org, pbonzini@redhat.com, ricarkol@google.com, 
+	shahuang@redhat.com, stable@vger.kernel.org, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, zhaotianrui@loongson.cn
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_180425_972147_C4B43444 
-X-CRM114-Status: GOOD (  18.82  )
+X-CRM114-CacheID: sfid-20260505_100519_240131_7C556C16 
+X-CRM114-Status: GOOD (  27.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,222 +95,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jonas Karlman <jonas@kwiboo.se>
+On Mon, May 04, 2026, James Houghton wrote:
+> On Mon, May 4, 2026 at 3:42=E2=80=AFPM James Houghton <jthoughton@google.=
+com> wrote:
+> >
+> > kvm_arch_flush_shadow_all() may sometimes be called on the same `kvm`
+> > concurrently in the event that the KVM's `mm` is __mmput() at the
+> > same time that last reference to the KVM is being dropped.
+> >
+> > T1              T2
+> > KVM_CREATE_VM
+> >                 Get VM file from T1
+> > close VM
+> > exit_mm()       close VM
+> >
+> > T1: exit_mm() -> kvm_mmu_notifier_release() -> kvm_flush_shadow_all(),
+> >     with only the KVM srcu read lock held.
+> >
+> > T2: kvm_vm_release() ---> mmu_notifier_unregister() ->
+> >     kvm_mmu_notifier_release() -> kvm_flush_shadow_all(),
+> >     again, with only the KVM srcu read lock held.
+> >
+> > This leads to a potential double-free of
+> > kvm->arch.kvm_mmu_free_memory_cache and now with NV
+> > kvm->arch.nested_mmus.
 
-The logic to decide if usbgrf or grf should be used is more complex than
-it needs to be. For RK3568, RV1108 and soon RK3528 we can assign the
-rockchip,usbgrf regmap directly to grf instead of doing a usbgrf and grf
-dance.
+...
 
-Simplify the code to only use the grf regmap and handle the logic of
-what regmap should be used in driver probe instead.
+> >  void kvm_uninit_stage2_mmu(struct kvm *kvm)
+> >  {
+> > -       kvm_free_stage2_pgd(&kvm->arch.mmu);
+> > +       lockdep_assert_held_write(&kvm->mmu_lock);
+>=20
+> *facepalm*.... this doesn't account for the other callers of
+> kvm_uninit_stage2_mmu(). They will get lockdep warnings.
+>=20
+> I've attached a diff to the bottom of this reply that *does* deal with th=
+em.
+> :( Sorry.
 
-The only expected change from this is that RK3528 can be supported
-because of an addition of a of_property_present() check.
+...
 
-Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
-Signed-off-by: Heiko Stuebner <heiko@sntech.de>
----
- drivers/phy/rockchip/phy-rockchip-inno-usb2.c | 68 +++++--------------
- 1 file changed, 18 insertions(+), 50 deletions(-)
+> > diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> > index 883b6c1008fb..977598bff5e6 100644
+> > --- a/arch/arm64/kvm/nested.c
+> > +++ b/arch/arm64/kvm/nested.c
+> > @@ -1190,11 +1190,13 @@ void kvm_arch_flush_shadow_all(struct kvm *kvm)
+> >  {
+> >         int i;
+> >
+> > +       guard(write_lock)(&kvm->mmu_lock);
+> > +
+> >         for (i =3D 0; i < kvm->arch.nested_mmus_size; i++) {
+> >                 struct kvm_s2_mmu *mmu =3D &kvm->arch.nested_mmus[i];
+> >
+> >                 if (!WARN_ON(atomic_read(&mmu->refcnt)))
+> > -                       kvm_free_stage2_pgd(mmu);
+> > +                       kvm_free_stage2_pgd_locked(mmu);
+> >         }
+> >         kvfree(kvm->arch.nested_mmus);
+> >         kvm->arch.nested_mmus =3D NULL;
+> > --
+> > 2.54.0.545.g6539524ca2-goog
+>=20
+> And here is the diff that should fix this patch. (Sorry!!)
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-index 8f4c08e599aa..7cec45192393 100644
---- a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-+++ b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-@@ -228,7 +228,6 @@ struct rockchip_usb2phy_port {
-  * struct rockchip_usb2phy - usb2.0 phy driver data.
-  * @dev: pointer to device.
-  * @grf: General Register Files regmap.
-- * @usbgrf: USB General Register Files regmap.
-  * @clks: array of phy input clocks.
-  * @clk480m: clock struct of phy output clk.
-  * @clk480m_hw: clock struct of phy output clk management.
-@@ -246,7 +245,6 @@ struct rockchip_usb2phy_port {
- struct rockchip_usb2phy {
- 	struct device	*dev;
- 	struct regmap	*grf;
--	struct regmap	*usbgrf;
- 	struct clk_bulk_data	*clks;
- 	struct clk	*clk480m;
- 	struct clk_hw	clk480m_hw;
-@@ -261,11 +259,6 @@ struct rockchip_usb2phy {
- 	struct rockchip_usb2phy_port	ports[USB2PHY_NUM_PORTS];
- };
- 
--static inline struct regmap *get_reg_base(struct rockchip_usb2phy *rphy)
--{
--	return rphy->usbgrf == NULL ? rphy->grf : rphy->usbgrf;
--}
--
- static inline int property_enable(struct regmap *base,
- 				  const struct usb2phy_reg *reg, bool en)
- {
-@@ -323,12 +316,11 @@ static int rockchip_usb2phy_clk480m_prepare(struct clk_hw *hw)
- {
- 	struct rockchip_usb2phy *rphy =
- 		container_of(hw, struct rockchip_usb2phy, clk480m_hw);
--	struct regmap *base = get_reg_base(rphy);
- 	int ret;
- 
- 	/* turn on 480m clk output if it is off */
--	if (!property_enabled(base, &rphy->phy_cfg->clkout_ctl)) {
--		ret = property_enable(base, &rphy->phy_cfg->clkout_ctl, true);
-+	if (!property_enabled(rphy->grf, &rphy->phy_cfg->clkout_ctl)) {
-+		ret = property_enable(rphy->grf, &rphy->phy_cfg->clkout_ctl, true);
- 		if (ret)
- 			return ret;
- 
-@@ -343,19 +335,17 @@ static void rockchip_usb2phy_clk480m_unprepare(struct clk_hw *hw)
- {
- 	struct rockchip_usb2phy *rphy =
- 		container_of(hw, struct rockchip_usb2phy, clk480m_hw);
--	struct regmap *base = get_reg_base(rphy);
- 
- 	/* turn off 480m clk output */
--	property_enable(base, &rphy->phy_cfg->clkout_ctl, false);
-+	property_enable(rphy->grf, &rphy->phy_cfg->clkout_ctl, false);
- }
- 
- static int rockchip_usb2phy_clk480m_prepared(struct clk_hw *hw)
- {
- 	struct rockchip_usb2phy *rphy =
- 		container_of(hw, struct rockchip_usb2phy, clk480m_hw);
--	struct regmap *base = get_reg_base(rphy);
- 
--	return property_enabled(base, &rphy->phy_cfg->clkout_ctl);
-+	return property_enabled(rphy->grf, &rphy->phy_cfg->clkout_ctl);
- }
- 
- static unsigned long
-@@ -574,7 +564,6 @@ static int rockchip_usb2phy_power_on(struct phy *phy)
- {
- 	struct rockchip_usb2phy_port *rport = phy_get_drvdata(phy);
- 	struct rockchip_usb2phy *rphy = dev_get_drvdata(phy->dev.parent);
--	struct regmap *base = get_reg_base(rphy);
- 	int ret;
- 
- 	dev_dbg(&rport->phy->dev, "port power on\n");
-@@ -586,7 +575,7 @@ static int rockchip_usb2phy_power_on(struct phy *phy)
- 	if (ret)
- 		return ret;
- 
--	ret = property_enable(base, &rport->port_cfg->phy_sus, false);
-+	ret = property_enable(rphy->grf, &rport->port_cfg->phy_sus, false);
- 	if (ret) {
- 		clk_disable_unprepare(rphy->clk480m);
- 		return ret;
-@@ -615,7 +604,6 @@ static int rockchip_usb2phy_power_off(struct phy *phy)
- {
- 	struct rockchip_usb2phy_port *rport = phy_get_drvdata(phy);
- 	struct rockchip_usb2phy *rphy = dev_get_drvdata(phy->dev.parent);
--	struct regmap *base = get_reg_base(rphy);
- 	int ret;
- 
- 	dev_dbg(&rport->phy->dev, "port power off\n");
-@@ -623,7 +611,7 @@ static int rockchip_usb2phy_power_off(struct phy *phy)
- 	if (rport->suspended)
- 		return 0;
- 
--	ret = property_enable(base, &rport->port_cfg->phy_sus, true);
-+	ret = property_enable(rphy->grf, &rport->port_cfg->phy_sus, true);
- 	if (ret)
- 		return ret;
- 
-@@ -787,28 +775,22 @@ static const char *chg_to_string(enum power_supply_type chg_type)
- static void rockchip_chg_enable_dcd(struct rockchip_usb2phy *rphy,
- 				    bool en)
- {
--	struct regmap *base = get_reg_base(rphy);
--
--	property_enable(base, &rphy->phy_cfg->chg_det.rdm_pdwn_en, en);
--	property_enable(base, &rphy->phy_cfg->chg_det.idp_src_en, en);
-+	property_enable(rphy->grf, &rphy->phy_cfg->chg_det.rdm_pdwn_en, en);
-+	property_enable(rphy->grf, &rphy->phy_cfg->chg_det.idp_src_en, en);
- }
- 
- static void rockchip_chg_enable_primary_det(struct rockchip_usb2phy *rphy,
- 					    bool en)
- {
--	struct regmap *base = get_reg_base(rphy);
--
--	property_enable(base, &rphy->phy_cfg->chg_det.vdp_src_en, en);
--	property_enable(base, &rphy->phy_cfg->chg_det.idm_sink_en, en);
-+	property_enable(rphy->grf, &rphy->phy_cfg->chg_det.vdp_src_en, en);
-+	property_enable(rphy->grf, &rphy->phy_cfg->chg_det.idm_sink_en, en);
- }
- 
- static void rockchip_chg_enable_secondary_det(struct rockchip_usb2phy *rphy,
- 					      bool en)
- {
--	struct regmap *base = get_reg_base(rphy);
--
--	property_enable(base, &rphy->phy_cfg->chg_det.vdm_src_en, en);
--	property_enable(base, &rphy->phy_cfg->chg_det.idp_sink_en, en);
-+	property_enable(rphy->grf, &rphy->phy_cfg->chg_det.vdm_src_en, en);
-+	property_enable(rphy->grf, &rphy->phy_cfg->chg_det.idp_sink_en, en);
- }
- 
- #define CHG_DCD_POLL_TIME	(100 * HZ / 1000)
-@@ -820,7 +802,6 @@ static void rockchip_chg_detect_work(struct work_struct *work)
- 	struct rockchip_usb2phy_port *rport =
- 		container_of(work, struct rockchip_usb2phy_port, chg_work.work);
- 	struct rockchip_usb2phy *rphy = dev_get_drvdata(rport->phy->dev.parent);
--	struct regmap *base = get_reg_base(rphy);
- 	bool is_dcd, tmout, vout, vbus_attach;
- 	unsigned long delay;
- 
-@@ -834,7 +815,7 @@ static void rockchip_chg_detect_work(struct work_struct *work)
- 			rockchip_usb2phy_power_off(rport->phy);
- 		/* put the controller in non-driving mode */
- 		if (!vbus_attach)
--			property_enable(base, &rphy->phy_cfg->chg_det.opmode, false);
-+			property_enable(rphy->grf, &rphy->phy_cfg->chg_det.opmode, false);
- 		/* Start DCD processing stage 1 */
- 		rockchip_chg_enable_dcd(rphy, true);
- 		rphy->chg_state = USB_CHG_STATE_WAIT_FOR_DCD;
-@@ -898,7 +879,7 @@ static void rockchip_chg_detect_work(struct work_struct *work)
- 	case USB_CHG_STATE_DETECTED:
- 		/* put the controller in normal mode */
- 		if (!vbus_attach)
--			property_enable(base, &rphy->phy_cfg->chg_det.opmode, true);
-+			property_enable(rphy->grf, &rphy->phy_cfg->chg_det.opmode, true);
- 		rockchip_usb2phy_otg_sm_work(&rport->otg_sm_work.work);
- 		dev_dbg(&rport->phy->dev, "charger = %s\n",
- 			 chg_to_string(rphy->chg_type));
-@@ -1353,27 +1334,14 @@ static int rockchip_usb2phy_probe(struct platform_device *pdev)
- 	if (!rphy)
- 		return -ENOMEM;
- 
--	if (!dev->parent || !dev->parent->of_node) {
-+	if (!dev->parent || !dev->parent->of_node ||
-+	    of_property_present(np, "rockchip,usbgrf")) {
- 		rphy->grf = syscon_regmap_lookup_by_phandle(np, "rockchip,usbgrf");
--		if (IS_ERR(rphy->grf)) {
--			dev_err(dev, "failed to locate usbgrf\n");
--			return PTR_ERR(rphy->grf);
--		}
- 	} else {
- 		rphy->grf = syscon_node_to_regmap(dev->parent->of_node);
--		if (IS_ERR(rphy->grf))
--			return PTR_ERR(rphy->grf);
--	}
--
--	if (of_device_is_compatible(np, "rockchip,rv1108-usb2phy")) {
--		rphy->usbgrf =
--			syscon_regmap_lookup_by_phandle(dev->of_node,
--							"rockchip,usbgrf");
--		if (IS_ERR(rphy->usbgrf))
--			return PTR_ERR(rphy->usbgrf);
--	} else {
--		rphy->usbgrf = NULL;
- 	}
-+	if (IS_ERR(rphy->grf))
-+		return PTR_ERR(rphy->grf);
- 
- 	if (of_property_read_u32_index(np, "reg", 0, &reg)) {
- 		dev_err(dev, "the reg property is not assigned in %pOFn node\n", np);
--- 
-2.47.3
+There are more issues.  kvm->arch.mmu.split_page_cache can be freed by
+kvm_arch_commit_memory_region(), which holds slots_lock and slots_arch_lock=
+,
+but not mmu_lock.
 
+IMO, the handling of kvm->arch.mmu.split_page_cache should be reworked.  I =
+don't
+entirely get the motivation for aggressively freeing the cache.  The cache =
+will
+only be filled if KVM actually does eager page splitting, so it's not like =
+KVM is
+burning pages for setups that will never use the cache.
+
+Maybe I'm underestimating how many pages arm64 needs in the worst case scen=
+ario?
+(I can't follow the math, too many macros).  But if KVM is configuring the =
+cache
+with a capacity that's _so_ high that the "wasted" memory is problematic, t=
+hen we
+probably should we revisit the capacity and algorithm.  E.g. if KVM is spli=
+tting
+from 1GiB =3D> 4KiB in a single pass (I can't tell if KVM does this on arm6=
+4), then
+we could break that into a 1GiB =3D> 2MiB =3D> 4KiB sequence.
 
