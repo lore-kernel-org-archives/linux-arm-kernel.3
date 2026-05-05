@@ -4,71 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B85ECD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 02:21:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1337FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 02:32:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=unmh/NzLauaJRbPvFNyUmXNZp8PhEMfuHX3iK6/vqVY=; b=TK35f7Gq/+jXBAYbse400eF6rx
-	fWPwgKodXXkm2WJMZXLPzskKwq3r0w9tFdlhuk2iv1M/2A8g5bQe7WhViw5tUiMLuUpOeWh6ACczX
-	G88G1Z3GZ8GgKLcOV4CiL1m1zdTjc8YW017oiCwHm5huaeM0bV8p83DBWb7Iyd4+UK17bkw7D54er
-	17Cz7W/JFTAeY0bVMHzPT75CTGIh301cEeaMcOG+DeJJcAIqn6Xbt/X/vDNAKuqotY5wl2JbiGhPZ
-	CDxJBO4kz45wpFeP44vwrbHlatGP12QiYM4e8ejaykWAvvkqWx5k2WC/JlngF+9YkYGAYLLbRQ+Je
-	5UQlwdvg==;
+	bh=gOHynxlxpvP+a3T2wBgOBo6x7glot30z3U7rVVlnKUA=; b=KkGMX8momNGdahYqxcJJYpTETK
+	ArMOLKoUYA6d9J5Q/7PWnuiwJ1mqfaYnnK5OShkXgI/fJSidO0GWYtLNRqbmJ/vZeiC3SAHNKwaK+
+	yoy5V43xpO/Fr360LZRJWu3RJmAfIUgD0cq0bUh+Y2LVdpyDUumCyWSkA0PXPkIRB1sM+OwlvokuC
+	lNMCYYEKX6HFt0yNSkRvobyARTQE5KkENlbJH+dAOy7P7/qOe6iPo4DRV87jZNKLc3BJuH1yx1+G6
+	9eRDUay19ITzGl8Ua/zai12cDkVaCGt+R8820CEr4buiqw0Fh8ioZXt+fCS0/FDfTz4J5+R0NcIx5
+	kY1XeTqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wK5PY-0000000EtfK-0ZTN;
-	Tue, 05 May 2026 02:21:24 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wK5a1-0000000EurR-132i;
+	Tue, 05 May 2026 02:32:13 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wK5PW-0000000Eteq-1Ocn
+	id 1wK5Zy-0000000Euqk-1Z9U
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 02:21:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C2EBD4451E;
-	Tue,  5 May 2026 02:21:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86AE0C2BCB8;
-	Tue,  5 May 2026 02:21:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777947681;
-	bh=JO2IMv4fsRX0ZcyGTHisLvXxtyNEwmC3NfmP+6npWNk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YhViaJCnZ9Iqwy4eVh+l7NLp5EUAgIDkA7qwztzRtOqY3Ju4IaOnqMoidw5NLSn8q
-	 6m6WfGoxc/ZpKHOWKBmFoSq9bV3nbO3t7ikomujp8b+jM8QkXUH9Db16fgn3PTpJ8P
-	 7g4k1zRU0ITLxxrrM1x5rUpU1p6uI68qWt4lZtASPF7ruQUc8Xu7buLCt7kXCXGNQy
-	 tbbHU3DWLoalLFOKt+jB4jn3Tt9L6g/fq+bERDHLb+1IeeFHXDk4r+M2B1jQwCpdmV
-	 ke79exptDwH95rFi/UDlLZS+/+7unvKCTRc8+XmouyppdN0nPVHg+Lum2/drHPxY+N
-	 LYw3CMXgAjU3g==
-Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id 6D4FE1AC5871; Tue, 05 May 2026 03:21:19 +0100 (BST)
-Date: Tue, 5 May 2026 11:21:19 +0900
-From: Mark Brown <broonie@kernel.org>
-To: Chancel Liu <chancel.liu@nxp.com>
-Cc: lgirdwood@gmail.com, perex@perex.cz, tiwai@suse.com,
-	shengjiu.wang@gmail.com, Xiubo.Lee@gmail.com, festevam@gmail.com,
-	nicoleotsuka@gmail.com, Frank.Li@nxp.com, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, shumingf@realtek.com,
-	rander.wang@linux.intel.com, pierre-louis.bossart@linux.dev,
-	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 1/3] ASoC: dapm: Fix widget lookup with
- snd_soc_dapm_widget_name_cmp()
-Message-ID: <aflUH_mk3i_IDkac@sirena.co.uk>
-References: <20260429021252.691263-1-chancel.liu@nxp.com>
- <20260429021252.691263-2-chancel.liu@nxp.com>
+	Tue, 05 May 2026 02:32:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1777948330; x=1809484330;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=7zNpcILadDmWNHLxoyVttbmV+/p9Sska7BiaQLLfP8c=;
+  b=YSBC2XPj00/ONPz5342YiIVy3hTfqwUiTmalPOaVV4ATi/qcqxAsH8Ef
+   IZL/+R0z+URflEzRJzAxHQe6A3fTBns3oWfxGyWTZic0jDvZaqM82fG6O
+   BRxSB52rjk/PgPiYy9jy00bjXccGmKNwZs3ZcPV+6aW1slOmm1mCldhfN
+   2Z2LnG9BFXm8NUiQ/AMewvf92h+h50byGIk8/sXRIJRjYYrtBLiC4HpdJ
+   txa6VoGAlpT20EIoUAlYUY2lz0Zj7DpfyNMUh/2D2rmsSYxbjmBKmgAm+
+   JqEIMv3vAc1Zr9zUtFjg/M7hkIxTylUAro7U6pQRvnd4IwOQ/u2RCIlEd
+   g==;
+X-CSE-ConnectionGUID: yrTSxMA/Tv++IZV7+wSQMA==
+X-CSE-MsgGUID: +BrU7489Q76z2RFXCgcAyA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11776"; a="90186108"
+X-IronPort-AV: E=Sophos;i="6.23,216,1770624000"; 
+   d="scan'208";a="90186108"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 May 2026 19:32:06 -0700
+X-CSE-ConnectionGUID: x5tyru0WSOqoOuafiwR/Pw==
+X-CSE-MsgGUID: q6TJWa8mTjG8bL9tbn4lSQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,216,1770624000"; 
+   d="scan'208";a="259344956"
+Received: from lkp-server01.sh.intel.com (HELO 781826d00641) ([10.239.97.150])
+  by fmviesa001.fm.intel.com with ESMTP; 04 May 2026 19:32:03 -0700
+Received: from kbuild by 781826d00641 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wK5Zi-000000004Az-0bIO;
+	Tue, 05 May 2026 02:31:56 +0000
+Date: Tue, 5 May 2026 10:31:02 +0800
+From: kernel test robot <lkp@intel.com>
+To: Aviv Bakal <avivb@amazon.com>, robin.murphy@arm.com, will@kernel.org,
+	mark.rutland@arm.com
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	zeev@amazon.com, blakgeof@amazon.com
+Subject: Re: [PATCH v2] perf/arm-cmn: Add workarounds for CMN-S3 on Graviton5
+Message-ID: <202605051052.zOemYJY9-lkp@intel.com>
+References: <20260504133923.23373-1-avivb@amazon.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="H51FCLIJf4TpdLl7"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260429021252.691263-2-chancel.liu@nxp.com>
-X-Cookie: Alex Haley was adopted!
+In-Reply-To: <20260504133923.23373-1-avivb@amazon.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_192122_390943_5A1ACE07 
-X-CRM114-Status: GOOD (  17.01  )
+X-CRM114-CacheID: sfid-20260504_193210_428783_942B1393 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,55 +90,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Aviv,
 
---H51FCLIJf4TpdLl7
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+kernel test robot noticed the following build errors:
 
-On Wed, Apr 29, 2026 at 11:12:50AM +0900, Chancel Liu wrote:
-> Currently dapm_find_widget() manually constructs a prefixed widget name
-> based on the provided DAPM context and compares it using strcmp(). This
-> happens to work in most cases because callers usually know which DAPM
-> context the target widget belongs to and pass in the matching DAPM
-> context.
+[auto build test ERROR on arm-perf/for-next/perf]
+[also build test ERROR on soc/for-next linus/master v7.1-rc2 next-20260430]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-> -	if (prefix) {
-> -		snprintf(prefixed_pin, sizeof(prefixed_pin), "%s %s",
-> -			 prefix, pin);
-> -		pin_name =3D prefixed_pin;
-> -	} else {
-> -		pin_name =3D pin;
-> -	}
-> =20
->  	for_each_card_widgets(dapm->card, w) {
-> -		if (!strcmp(w->name, pin_name)) {
-> +		if (!snd_soc_dapm_widget_name_cmp(w, pin)) {
->  			if (w->dapm =3D=3D dapm)
->  				return w;
->  			else
+url:    https://github.com/intel-lab-lkp/linux/commits/Aviv-Bakal/perf-arm-cmn-Add-workarounds-for-CMN-S3-on-Graviton5/20260505-011858
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/will/linux.git for-next/perf
+patch link:    https://lore.kernel.org/r/20260504133923.23373-1-avivb%40amazon.com
+patch subject: [PATCH v2] perf/arm-cmn: Add workarounds for CMN-S3 on Graviton5
+config: i386-buildonly-randconfig-004-20260505 (https://download.01.org/0day-ci/archive/20260505/202605051052.zOemYJY9-lkp@intel.com/config)
+compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260505/202605051052.zOemYJY9-lkp@intel.com/reproduce)
 
-This means we can't use the prefix to disambiguate any more -
-snd_soc_dapm_widget_name_cmp() will strip the prefix off.  We want the
-prefix in contexts where the name is specified by the user since the
-prefix is there to provide for disambiguation.  The prefix addition
-logic is a bit weird and I'm not sure it makes sense, but the search
-based on the fully specified name we got is something we want.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202605051052.zOemYJY9-lkp@intel.com/
 
---H51FCLIJf4TpdLl7
-Content-Type: application/pgp-signature; name="signature.asc"
+All errors (new ones prefixed by >>):
 
------BEGIN PGP SIGNATURE-----
+>> drivers/perf/arm-cmn.c:617:15: error: static assertion failed due to requirement 'sizeof(struct arm_cmn_hw_event) <= __builtin_offsetof(struct hw_perf_event, target)': sizeof(struct arm_cmn_hw_event) <= offsetof(struct hw_perf_event, target)
+     617 | static_assert(sizeof(struct arm_cmn_hw_event) <= offsetof(struct hw_perf_event, target));
+         | ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:77:50: note: expanded from macro 'static_assert'
+      77 | #define static_assert(expr, ...) __static_assert(expr, ##__VA_ARGS__, #expr)
+         |                                  ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:78:56: note: expanded from macro '__static_assert'
+      78 | #define __static_assert(expr, msg, ...) _Static_assert(expr, msg)
+         |                                                        ^~~~
+   drivers/perf/arm-cmn.c:617:47: note: expression evaluates to '104 <= 96'
+     617 | static_assert(sizeof(struct arm_cmn_hw_event) <= offsetof(struct hw_perf_event, target));
+         | ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:77:50: note: expanded from macro 'static_assert'
+      77 | #define static_assert(expr, ...) __static_assert(expr, ##__VA_ARGS__, #expr)
+         |                                  ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:78:56: note: expanded from macro '__static_assert'
+      78 | #define __static_assert(expr, msg, ...) _Static_assert(expr, msg)
+         |                                                        ^~~~
+   1 error generated.
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmn5VB4ACgkQJNaLcl1U
-h9CupAf+MGqhy9yn/GtWv68HU9M+CSI26hbO/33u6YCfbI8rVD5r3sVvsPny+nIS
-Hjcpp4SW27502ByKDEE/6t2CNSBpJS0Z3YbgVr/nlsyhs9zVFbvBb3W0BTO10USD
-1cZyS1qeifNAglMYVM8zaR0YIHll+5NWVR4kQr2mVyOt6rOlfa6gVQWBpl5QlJbY
-327ly0J96cBfeR/Irzq0/ya89I4HPIJuCRuIpn8MJBWY/cvQl6l87qWAVoDpk0wX
-RTTkhF/PhREqDYMSDame5+VnaEqr2PJXZgu/MJlpOOgAHWaApnmfnVM62sUZXfkg
-POV16q9CbmYfk2lJbW1huCz+h5xygg==
-=YkxC
------END PGP SIGNATURE-----
 
---H51FCLIJf4TpdLl7--
+vim +617 drivers/perf/arm-cmn.c
+
+a88fa6c28b867a Robin Murphy   2021-12-03  600  
+0ba64770a2f2e5 Robin Murphy   2020-09-18  601  struct arm_cmn_hw_event {
+0ba64770a2f2e5 Robin Murphy   2020-09-18  602  	struct arm_cmn_node *dn;
+359414b33e00ba Robin Murphy   2024-09-02  603  	u64 dtm_idx[DIV_ROUND_UP(CMN_MAX_NODES_PER_EVENT * 2, 64)];
+7633ec2c262fab Robin Murphy   2023-10-20  604  	s8 dtc_idx[CMN_MAX_DTCS];
+0ba64770a2f2e5 Robin Murphy   2020-09-18  605  	u8 num_dns;
+60d1504070c22c Robin Murphy   2021-12-03  606  	u8 dtm_offset;
+4a112585ebe8cb Ilkka Koskinen 2024-06-17  607  
+4a112585ebe8cb Ilkka Koskinen 2024-06-17  608  	/*
+4a112585ebe8cb Ilkka Koskinen 2024-06-17  609  	 * WP config registers are divided to UP and DOWN events. We need to
+4a112585ebe8cb Ilkka Koskinen 2024-06-17  610  	 * keep to track only one of them.
+4a112585ebe8cb Ilkka Koskinen 2024-06-17  611  	 */
+4a112585ebe8cb Ilkka Koskinen 2024-06-17  612  	DECLARE_BITMAP(wp_idx, CMN_MAX_XPS);
+4a112585ebe8cb Ilkka Koskinen 2024-06-17  613  
+23760a0144173e Robin Murphy   2022-04-18  614  	bool wide_sel;
+65adf71398f5af Robin Murphy   2022-04-18  615  	enum cmn_filter_select filter_sel;
+0ba64770a2f2e5 Robin Murphy   2020-09-18  616  };
+ff436cee694ee8 Robin Murphy   2024-09-02 @617  static_assert(sizeof(struct arm_cmn_hw_event) <= offsetof(struct hw_perf_event, target));
+0ba64770a2f2e5 Robin Murphy   2020-09-18  618  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
