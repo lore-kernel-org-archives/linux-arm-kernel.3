@@ -4,98 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 858E2CD342F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 11:03:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E03FCFF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 11:03:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Eflh4sYkW/Ot30zqHUk4wwtQLyml0QQwfhJwCwbZgUY=; b=sDbT1u5bS0c4x8
-	XL16JZgpP+jeNFqG3ilkD/avFvoSmTziMXZUrlSCKypOuCA3NSoFfwvhYvIGSl8IfAmoTRH4biCIa
-	irG8oi5Mhk3f8D83T92/RvoNXsYV6EsQ9U+2ncqyRTXINbMtsaFM72sb9fMrYTJgOm3j/XDn+jaBJ
-	09V+nnVBjTmSpTZYeM3XybH5CcSOGtyVOMR08jLYuNhE0AjAfp+n3oUZQ9lWC35m3GLG8RxvUZr6I
-	Yuukaf/FPabnoeNdQ2dCVKeeN0wQ9w5aMFxapP5YUDD92fCfyFLuIRAmRxEH63+37qxW3UlyyldAK
-	Ze9HW30W5H1om3TfxPPw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OeRP4uxgJUzsKmseBXlEN6ZhvSvowWXW42C3z5EkAwQ=; b=M1be/NNausrRja2hFuWyyPAAiy
+	/Evvr4yBKVSrx9XMTfVWArNnmXWDYtqbFSi9HuKbzr/iGrySxGt0q+Xm3N6sGBfxyN/YQ3fmZfwy+
+	RW6a3BX+dNg6XRd1lmTtIuDGMkEnFsmDWz7OnT6HPTgw8tbauza2agJ/XCk0K9YZLoguJza0nlnZ8
+	ZO6OGlJCDco5Y9/UL4chUEiPb/C0y21Y1F2109yvmlrom+/fcjhhDMt9XSDJve7jyJJp7H0Xtov/X
+	8xuPF5k+dgmiLi26F+8gs4imL67klrsqnMUgkS0RkuG6QsDpoLAsv58F7DV8CNpJkXUTdxHLFwZ//
+	X5ifVVIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKDYR-0000000FyUa-3v52;
-	Tue, 05 May 2026 11:03:07 +0000
+	id 1wKDYW-0000000FyWs-2Jd5;
+	Tue, 05 May 2026 11:03:12 +0000
 Received: from fhigh-b4-smtp.messagingengine.com ([202.12.124.155])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKDYP-0000000FyTR-12aK
+	id 1wKDYR-0000000FyUV-3jxn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 11:03:06 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 77FC57A0052;
-	Tue,  5 May 2026 07:03:00 -0400 (EDT)
+	Tue, 05 May 2026 11:03:09 +0000
+Received: from phl-compute-12.internal (phl-compute-12.internal [10.202.2.52])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id D84557A0122;
+	Tue,  5 May 2026 07:03:06 -0400 (EDT)
 Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-05.internal (MEProxy); Tue, 05 May 2026 07:03:01 -0400
+  by phl-compute-12.internal (MEProxy); Tue, 05 May 2026 07:03:07 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
 	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:message-id:mime-version:reply-to
-	:subject:subject:to:to; s=fm1; t=1777978980; x=1778065380; bh=Ef
-	lh4sYkW/Ot30zqHUk4wwtQLyml0QQwfhJwCwbZgUY=; b=B+48+5AyOaquNHeA/F
-	2RkTfGj+QIucB+XJw8Cv5UCaPjukfMgK8GXrH6XIq/Ymdjer2c28cob5pIZPocJA
-	jiYvL6l+/7AjpGcsE0+BJdGxwDf+Kshx4aGpCwcLcEgI5jn8OSZK9+Xw2/J0TlAq
-	9ebGIHPjSZ5g2j2kA9m2XIScYievR8fOZiue38CBk5pViYdfH+2r3Uvm4qYnZEoV
-	V3CUGX+/5XTKM2t2oNS5ieElm3AyTjVjBbrVqxswrsReL0Y/DqnyZXnHi3P4UzRy
-	zad0UDZIunhK0PSN8RHuZx6EzryU4rVOUPOSBzoh/e/6d0NS0VQ9ThMG07nj4sm6
-	GQsg==
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1777978986;
+	 x=1778065386; bh=OeRP4uxgJUzsKmseBXlEN6ZhvSvowWXW42C3z5EkAwQ=; b=
+	K72goCizpiMpUklrgpWjKTeIes8dzkD56WgkakutA0cUxwECPpD8yrndEzUYrkfH
+	woXcBq9vUa+sddZnAfjUSRyoJmrV2db7djvsVWRm5SQeL/QRWZuUxwI5r86B0hxv
+	I5ctNZ/ba2Up3H5fQomW3qKozvIG2QYH6QdAkZrpIfp2w8pe/HUlo3EFqURtxJFC
+	g1N/yBUxoKlJYpNYuQ/Oh/UVfVgb2Ydv/Y2fiAg6UbOP87AGfdFhXm1NNzpEyFzf
+	0dx2keGCUNkrgKxNXGvx3yUwNMEq3RmtXZZ655LhsNJPRa4dHtxgQBavcLakluPC
+	2ddD8RX4EPh2ROJ19X+zSw==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm3; t=1777978980; x=1778065380; bh=Eflh4sYkW/Ot30zqHUk4wwtQLyml
-	0QQwfhJwCwbZgUY=; b=Eq2RX346eYIFmeEKt3SuMnIBXvf6BtEfnXfrfK+pLEya
-	vBq7b8VqYic8KwtlbPStZGz4mKuPl0lIG/EIRNBdEOek8s8303Tkptc3gjZHiE01
-	Uwlh/ArBeWW/2NZcFQ0fwW0/kemedi6+7hdBkwfDxHHu076NXO9OxUlpitb8+mqx
-	y44oZMPjhQ1ezFawfhB39WXVk+x7FluTelqVdOA3BoSoKJ0Q8tO/rViCLJ+k9JzZ
-	kP1dwX6gXY0NIZu1sInY4TQq3B+Ge3aZq2D/xtE1P8e0eYsFeU58kadaz4+FU3xN
-	1qx6qpUk4rsTkw70cVPlvyFFr5vubfkqr0KWptKbLw==
-X-ME-Sender: <xms:Ys75adh-96U-DAkkzXHBZbE9AHXJ10dJSwbkL0_MbL-0zac7LjYdKw>
-    <xme:Ys75aYczQU8hoT_dGNeIKzNCofIjJ8-_8wjGZZ7exs0aUnuEZWqZk21yR_WnF6WED
-    YzLvhDQtnLL7oi-63lf2_xyQps2hY1Te-85xcAJjb-BNKoo79YQUA>
-X-ME-Received: <xmr:Ys75aanukK-20eSjAvMMqgofLWtT_wTEfpgbwRZ1GxSFQd8z7Rl361lWSoZkNAgwN2xd1N_J1aDOrcyGF_K9yoyQ1uIltrQcfcQgsw>
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1777978986; x=
+	1778065386; bh=OeRP4uxgJUzsKmseBXlEN6ZhvSvowWXW42C3z5EkAwQ=; b=G
+	n8tKnNM0WqAw3+4MzLlYAcqL0+zQBhbHlw/GPxqLC40emlmydDrH5bMwCY5UnQcI
+	nLt6SyzH0ZcOTZ78x2Z4jEgQtxNUfdXHniUN45woOjYckTb4vleKnY2LiEAlYMmt
+	PhK4YyjkemBqmtQ1uJbhcP25qEVg6oqlRRfWSqWSCkqtaDUTugPQIo0gEDdEfWXe
+	N/pTflB8V/FSQz7OTVWiLu+t3La+7lTaFaHPQ5zuTPodUoKkb2wYN29DfuOgw8ZL
+	SFRdW9s3DjkYGIcLuMKwKz58pUOJ4v+GrHNQ5gU0OO+tUZ6WbZ6k2KiV2EAuwER8
+	v8B6Xv9jyaggSZSQAQplQ==
+X-ME-Sender: <xms:as75aUeDQoM0VYYvbggm3tiWoqmBuFuwoNHsYAvP0NEicHUCypOLtw>
+    <xme:as75abGGibnrmY6yMuTZfWdmkOl_o8qc_7OwMm7uveBArQ_tyb3VTJq7VcYSey7tM
+    taTvF0RiwMFAjaRKiOYSdvvh_wdgDziBUyGLhK7JHF4paYyRUu9GA>
+X-ME-Received: <xmr:as75aeGnCWtJcyXhSQzy3Jb9DViALe5H8XQASm8Kt9RiUjtOTIVhcv-H-MM4l5r3MLDceqo_CH0bHgd8ZXOgYMjv_jtFDHM1olPWqw>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgddutdduheegucetufdoteggodetrf
     dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
     rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhephffufffkgggtgffvvefosehtjeertdertdejnecuhfhrohhmpeflrghnnhgvucfi
-    rhhunhgruhcuoehjsehjrghnnhgruhdrnhgvtheqnecuggftrfgrthhtvghrnhepueelgf
-    fhfedvgeelfeduuefhfefhjeeihfffueefjeeihffhheeuteeuvdeuhffhnecuffhomhgr
-    ihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmh
-    epmhgrihhlfhhrohhmpehjsehjrghnnhgruhdrnhgvthdpnhgspghrtghpthhtohepvddt
-    pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvh
-    hgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopegrshgrhhhisehlihhsthhsrdhl
-    ihhnuhigrdguvghvpdhrtghpthhtohepfihimheslhhinhhugidqfigrthgthhguohhgrd
-    horhhgpdhrtghpthhtohepuhhklhgvihhnvghksehkvghrnhgvlhdrohhrghdprhgtphht
-    thhopehlihhnuhigqdifrghttghhughoghesvhhgvghrrdhkvghrnhgvlhdrohhrghdprh
-    gtphhtthhopehjphgvihhsrggthhesuhgsuhhnthhurdgtohhmpdhrtghpthhtoheptgho
-    nhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigsehrohgvtg
-    hkqdhushdrnhgvthdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:Ys75aaqBpwf_P3ZKXU9352ixQRazI5PwEJnYsQtHcdAEWZNbZpwu8w>
-    <xmx:Ys75aZ-iWlNniXOGEQ2oQPMn-N2Ec2TtPhEtbacvstsEC-IqgLGF_Q>
-    <xmx:Ys75aT0cdVPOxpz9CqQzjX7kj3fJVZ-ivFNpm-XglGp90bcFpiHonQ>
-    <xmx:Ys75acl7M1l4rYXBPsPerkWkiFoKTZh1t7lm8Y1tKxTQ_-ubgjHiug>
-    <xmx:ZM75ackIoD5S8dHN-iDmSUX65u9bp4iottCE4BvLcFGv6O7vV0NXoiPn>
+    gurhephfffufggtgfgkfhfjgfvvefosehtjeertdertdejnecuhfhrohhmpeflrghnnhgv
+    ucfirhhunhgruhcuoehjsehjrghnnhgruhdrnhgvtheqnecuggftrfgrthhtvghrnhepfe
+    ehheeileduffehteeihfdvtdelffdutdeludduiedutedvfeffheekhefgtedtnecuvehl
+    uhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepjhesjhgrnhhnrg
+    hurdhnvghtpdhnsggprhgtphhtthhopeduledpmhhouggvpehsmhhtphhouhhtpdhrtghp
+    thhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtg
+    hpthhtoheprghsrghhiheslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopeif
+    ihhmsehlihhnuhigqdifrghttghhughoghdrohhrghdprhgtphhtthhopehukhhlvghinh
+    gvkheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqfigrthgthhguohhg
+    sehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepjhhpvghishgrtghhsehusg
+    hunhhtuhdrtghomhdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhg
+    pdhrtghpthhtoheplhhinhhugiesrhhovggtkhdquhhsrdhnvghtpdhrtghpthhtohepkh
+    hriihkodgutheskhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:as75abPvX_1fGa2rptLUpeo266wgotKqOGtGYMdJo0VqMqiu_-6iFA>
+    <xmx:as75aTrIS09XtMVZ2D3f2AwFKlav11_zFkZ_mC68_Fa1zBv7kChSNw>
+    <xmx:as75acBGEw73i2q-BjdyRYfkDksNuX0bsI0EF7FGiO58HTHIeQV5AA>
+    <xmx:as75acNYMYSq7QxTZmcc-tR7tUJL42l5LA4dRGtPXvLx9tIeysTDbg>
+    <xmx:as75aUMatedB9VUnrJk5oBLcYs5G6uMS8-xUTDN7UAQukVEo0pNtUa1y>
 Feedback-ID: i47b949f6:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 5 May 2026 07:02:58 -0400 (EDT)
+ 5 May 2026 07:03:05 -0400 (EDT)
 From: Janne Grunau <j@jannau.net>
-Subject: [PATCH v2 0/6] Initial Apple silicon M3 device trees and
- dt-bindings
-Date: Tue, 05 May 2026 13:02:38 +0200
-Message-Id: <20260505-apple-m3-initial-devicetrees-v2-0-b0c2f3519e0e@jannau.net>
+Date: Tue, 05 May 2026 13:02:40 +0200
+Subject: [PATCH v2 2/6] dt-bindings: power: apple,pmgr-pwrstate: Add t8122
+ compatible
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32Pyw6CMBBFf4V07Zg+eLryPwyLCYwyBgu2hWgI/
- 25F1i7PTeaczCI8OSYvTskiHM3sebAR9CERTYf2RsBtZKGlzqVRFeA49gQPA2w5MPbQxquGgiP
- ykDVZmmNbFQVqERWjoyu/Nv2ljtyxD4N7b7VZfdddrOV/8axAQlammhSZymB5vqO1OB0tBVGvv
- 5Sj5xQfCHtvXT/l9Qdj3gAAAA==
-X-Change-ID: 20260319-apple-m3-initial-devicetrees-5c546ad977a2
+Message-Id: <20260505-apple-m3-initial-devicetrees-v2-2-b0c2f3519e0e@jannau.net>
+References: <20260505-apple-m3-initial-devicetrees-v2-0-b0c2f3519e0e@jannau.net>
+In-Reply-To: <20260505-apple-m3-initial-devicetrees-v2-0-b0c2f3519e0e@jannau.net>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
  Lorenzo Pieralisi <lpieralisi@kernel.org>, Sven Peter <sven@kernel.org>, 
@@ -106,21 +104,21 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  linux-watchdog@vger.kernel.org, linux-pwm@vger.kernel.org, 
- Janne Grunau <j@jannau.net>, Joshua Peisach <jpeisach@ubuntu.com>, 
- Michael Reeves <michael.reeves077@gmail.com>
+ Janne Grunau <j@jannau.net>, Joshua Peisach <jpeisach@ubuntu.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3070; i=j@jannau.net;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1260; i=j@jannau.net;
  s=yk2025; h=from:subject:message-id;
- bh=kw/jqPJJLRV39vNPy5OhUOfHnyxSY0o6edzYEkXoIOo=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhsyf5+K3XWB+ZR/rXmml9lFGe69Ybeftc0EffEoZuUTmN
- F3fkje7o5SFQYyLQVZMkSVJ+2UHw+oaxZjaB2Ewc1iZQIYwcHEKwER0XzEyPHvxe9vTVZpvGU/X
- n7etN/2elfsiK6Y35OWkhbtuOISGRjEyfLl1vNhr8T7vzQ9Zpt7Ywuvz6eq0/07H1+6cEaL8/E1
- OFBcA
+ bh=+bvTFb6N9eybW1xIFA7El09z2HTI0pUgSg1eZJeYWis=;
+ b=owGbwMvMwCW2UNrmdq9+ahrjabUkhsyf5+LdpierT1DWjFu4eUHRuvM8379tDX3Xn/D4QNGtt
+ +uk1z/T7ShlYRDjYpAVU2RJ0n7ZwbC6RjGm9kEYzBxWJpAhDFycAjCRp5qMDGfmz+z1zyy6f/x0
+ 8b0mxmj9qDdFjuKKxltEF1mdvn7bPpWR4XXVgv5vmvELZC4U7fHRUVraXvEpXfd0sy9Pduweb92
+ zPAA=
 X-Developer-Key: i=j@jannau.net; a=openpgp;
  fpr=8B336A6BE4E5695E89B8532B81E806F586338419
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_040305_562656_695C73A5 
-X-CRM114-Status: GOOD (  10.79  )
+X-CRM114-CacheID: sfid-20260505_040307_978422_C2CBD891 
+X-CRM114-Status: UNSURE (   9.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,69 +133,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hej,
+The device power state management of the PMGR blocks on Apple's t8122
+SoC (M3) is compatible with the existing driver.
+Add "apple,t8122-pmgr-pwrstate" as SoC specific compatible under the
+existing "apple,t8103-pmgr-pwrstate" used by the driver.
 
-This series adds initial device trees for M3 Apple silicon devices. The
-device trees contain only a minimal set of hardware not going much
-beyond the minimum required for booting kernel and initramfs and
-verify via serial console that the hardware and drivers work.
-The hardware with the exception of the interrupt controller is
-compatible with the M1 and M2 SoCs and the existing drivers.
-`make dtbs_check` fails due to already applied and dropped apple,i2c
-dt-bindings change (commit c5f25f5800f5 ("dt-bindings: i2c: apple,i2c:
-Add t8122 compatible") in
-https://git.kernel.org/pub/scm/linux/kernel/git/wsa/linux.git
-i2c/for-next).
-
-Merge strategy:
-Apply whole series ivia apple-soc / arm-soc to keep `make dtbs_check`
-errors minimal. Otherwise no dependencies between the patches.
-I might want to send another series which depends on this later in this
-cycle.
-
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
+Reviewed-by: Neal Gompa <neal@gompa.dev>
 Signed-off-by: Janne Grunau <j@jannau.net>
 ---
-Changes in v2:
-- specify merge strategy
-- rebased onto v7.1-rc1 and thus dropping the aic3 comment
-- collect Acked-by and Reviewed-by: tags
-- drop already picked up changes:
-  - [PATCH 1/9] dt-bindings: arm: cpus: Add Apple M3 CPU core compatibles (in v7.1-rc1)
-  - [PATCH 5/9] dt-bindings: pinctrl: apple,pinctrl: Add t8122 compatible (in v7.1-rc1)
-  - [PATCH 6/9] dt-bindings: i2c: apple,i2c: Add t8122 compatible (for v7.2-rc1)
-- Link to v1: https://lore.kernel.org/r/20260320-apple-m3-initial-devicetrees-v1-0-5842e1e393a8@jannau.net
+ Documentation/devicetree/bindings/power/apple,pmgr-pwrstate.yaml | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
----
-Janne Grunau (6):
-      dt-bindings: arm: apple: apple,pmgr: Add t8122 compatible
-      dt-bindings: power: apple,pmgr-pwrstate: Add t8122 compatible
-      dt-bindings: watchdog: apple,wdt: Add t8122 compatible
-      dt-bindings: pwm: apple,s5l-fpwm: Add t8122 compatible
-      dt-bindings: arm: apple: Add M3 based devices
-      arm64: dts: apple: Initial t8122 (M3) device trees
+diff --git a/Documentation/devicetree/bindings/power/apple,pmgr-pwrstate.yaml b/Documentation/devicetree/bindings/power/apple,pmgr-pwrstate.yaml
+index caf151880999..c9be097cfba0 100644
+--- a/Documentation/devicetree/bindings/power/apple,pmgr-pwrstate.yaml
++++ b/Documentation/devicetree/bindings/power/apple,pmgr-pwrstate.yaml
+@@ -43,7 +43,9 @@ properties:
+               - apple,t6000-pmgr-pwrstate
+           - const: apple,pmgr-pwrstate
+       - items:
+-          - const: apple,t6020-pmgr-pwrstate
++          - enum:
++              - apple,t6020-pmgr-pwrstate
++              - apple,t8122-pmgr-pwrstate
+           - const: apple,t8103-pmgr-pwrstate
+ 
+   reg:
 
- Documentation/devicetree/bindings/arm/apple.yaml   |   18 +
- .../devicetree/bindings/arm/apple/apple,pmgr.yaml  |    4 +-
- .../bindings/power/apple,pmgr-pwrstate.yaml        |    4 +-
- .../devicetree/bindings/pwm/apple,s5l-fpwm.yaml    |    1 +
- .../devicetree/bindings/watchdog/apple,wdt.yaml    |    4 +-
- arch/arm64/boot/dts/apple/Makefile                 |    5 +
- arch/arm64/boot/dts/apple/t8122-j433.dts           |   19 +
- arch/arm64/boot/dts/apple/t8122-j434.dts           |   19 +
- arch/arm64/boot/dts/apple/t8122-j504.dts           |   37 +
- arch/arm64/boot/dts/apple/t8122-j613.dts           |   35 +
- arch/arm64/boot/dts/apple/t8122-j615.dts           |   35 +
- arch/arm64/boot/dts/apple/t8122-jxxx.dtsi          |   48 +
- arch/arm64/boot/dts/apple/t8122-pmgr.dtsi          | 1149 ++++++++++++++++++++
- arch/arm64/boot/dts/apple/t8122-usbpd-i2c.dtsi     |   32 +
- arch/arm64/boot/dts/apple/t8122.dtsi               |  444 ++++++++
- 15 files changed, 1851 insertions(+), 3 deletions(-)
----
-base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
-change-id: 20260319-apple-m3-initial-devicetrees-5c546ad977a2
-
-Best regards,
 -- 
-Janne Grunau <j@jannau.net>
+2.54.0
 
 
