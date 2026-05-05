@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97B11FF8855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 20:35:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74B8DFF8855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 20:36:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lflu3RVHsQktucpV5ercTdqtfn0roku4H7lizLCj3To=; b=GeLLlvrx9EtZdVMWvBKG97YdNg
-	1Jz0loU5qBxPdFkQ8S4WDUx8vqb9UStD5UETANvvlNh7XKvR5FDYu3ipNzp6uqCD53RtR09uaZPpj
-	qCL5VtBkqH/IaeH735BqbrH2Z9tkHyIiCKtC5SWIiSTTK4ho9gxhsI0v1sLtzCzFf6sIHHjuhtIOd
-	/8pwuZ+BOQA/mT/psBd3tDHrAhLNxQjGdlr/SkxudcwL+1gr7WQJUPTvpHAg4SYQA5vCto7vhr0CD
-	dw2vuEPUmhwI7kbkGxu7Ef2xvyaLsDm2NfPCErGawFVU7HAfhu1POKOBlDaoaciPJyau8XG2DdTzg
-	rZOUPZRw==;
+	bh=kj5EcbKmAvaPgDhM2/I2YyyTWJYcSgjtJQGNAhwJC4E=; b=MbEEfGNnC/dVmvwWFPdzgFCtMl
+	XtzGwBpUFwOUH5bsZj7fwzi/Ohv0k+IrLoSsdITpk+/mpS7nxRhiqxgj3wSBusyB5RRH6TjMTwP9d
+	SNZx66//eTjAtzl9SUttqOjzJfnklD2cMQ8VGI4834wI/GjnM1TF+f2pT+cW+liH1kSH4N2Ze6SXW
+	nX1tsovszj7UUidqbGB89Zj1fUSYhNKkqe+wEs0GKzUmTKlJ4Iu1MZcVS5njZNGV0zGuQleI2f4yJ
+	s8BrfrBJBrfuBHW9EBpPE288E1t9zDrzVN3efVodndrUdUNdTbOdW3yD1jALoYXVBldbZ9+Iy3u7/
+	OIyuoq5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKMUO-0000000HRcv-2gt1;
-	Tue, 05 May 2026 20:35:32 +0000
-Received: from leonov.paulk.fr ([185.233.101.22])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKMUM-0000000HRcH-0jJ1
+	id 1wKMVR-0000000HRoK-2P8n;
+	Tue, 05 May 2026 20:36:37 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wKMVO-0000000HRnX-2YJO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 20:35:32 +0000
-Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id 38FB71F8004D
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 May 2026 20:35:27 +0000 (UTC)
-Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id 54F49B4058D; Tue,  5 May 2026 20:35:26 +0000 (UTC)
-Received: from shepard (unknown [192.168.1.1])
-	by laika.paulk.fr (Postfix) with ESMTPSA id 2A1DAB4058A;
-	Tue,  5 May 2026 20:35:25 +0000 (UTC)
-Date: Tue, 5 May 2026 22:35:22 +0200
-From: Paul Kocialkowski <paulk@sys-base.io>
-To: Chen-Yu Tsai <wens@kernel.org>
-Cc: Maxime Ripard <mripard@kernel.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-media@vger.kernel.org, linux-staging@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 5/7] arm64: dts: allwinner: sun50i-h6: Add missing SRAM
- region for video engine
-Message-ID: <afpUiupOgPhLksM8@shepard>
-References: <20260505134812.408316-1-wens@kernel.org>
- <20260505134812.408316-6-wens@kernel.org>
+	Tue, 05 May 2026 20:36:35 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A6AAC1BB0;
+	Tue,  5 May 2026 13:36:26 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B9D5C3F763;
+	Tue,  5 May 2026 13:36:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778013392; bh=XoDo/BJrZK4cQyuJeIpDlXSHvN6Qo6ESDgeLnoaopG4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MqTaghAZAr2+Ff4nnCPEGc5h4c7scu3KsGj0tEPSH3qRIvIkPkvg34LJNIcrABugc
+	 PrnyVYk9F+O3TYZNIuiua/Qbdg8CX8XyVTBHQXKtjoSUfAxF91Y6pmkESltkSeqyJa
+	 QHjVX33PKKRJLZ8Yp2W5yG9wHV3WPA6mmUdPhpI0=
+Date: Tue, 5 May 2026 21:36:26 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Philip Radford <philip.radford@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, linux-pm@vger.kernel.org,
+	sudeep.holla@arm.com, james.quinlan@broadcom.com,
+	f.fainelli@gmail.com, vincent.guittot@linaro.org,
+	etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
+	quic_sibis@quicinc.com, dan.carpenter@linaro.org, d-gole@ti.com,
+	souvik.chakravarty@arm.com, cristian.marussi@arm.com
+Subject: Re: [PATCH v5 09/12] firmware: arm_scmi: add Powercap MAI get/set
+ support
+Message-ID: <afpUytkInNKLTB0k@pluto>
+References: <20260428090922.346069-1-philip.radford@arm.com>
+ <20260428090922.346069-10-philip.radford@arm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="FpfFtflQBQQ4ZJAp"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260505134812.408316-6-wens@kernel.org>
+In-Reply-To: <20260428090922.346069-10-philip.radford@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_133530_544396_5BE1FAEF 
-X-CRM114-Status: GOOD (  25.59  )
+X-CRM114-CacheID: sfid-20260505_133634_759338_7E628CAF 
+X-CRM114-Status: GOOD (  23.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,91 +75,242 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Apr 28, 2026 at 10:09:18AM +0100, Philip Radford wrote:
+> Add support for Power Measurement Averaging Interval (MAI)
 
---FpfFtflQBQQ4ZJAp
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi,
 
-Hi Chen-Yu,
+> get and set operations to the SCMI powercap protocol driver.
+> Extends scmi_powercap_info to store MAI configuration and
+> implement MAI get/set via xfer and optional fast-channel
+> support.
 
-On Tue 05 May 26, 21:48, Chen-Yu Tsai wrote:
-> The SRAM C region contains a partial alias to the VE SRAM already
-> referenced by the video engine. To avoid access through this alias
-> window, the region should also be claimed by the video engine.
->=20
-> Add a reference to the SRAM C region to the video engine node.
+You have to stay under 75 chars...ok...but I'd say this commit message
+lines are way to short...you can stretch a bit more towards 75chars
+without having to split words I think....because
 
-It feels very weird to have a reference to the DE2 SRAM region in the
-VE node. It seems unlikely that the same region would be used by both DE2 a=
-nd
-VE and I am pretty sure can have both running at the same time without
-overstepping.
+t
+o
+o
 
-=46rom what I can see we have so far assumed that the SRAM C and SRAM C1
-are two different physical SRAM areas, but this is most likely not the case.
-My guess would be that SRAM C1 is actually a part of SRAM C and the DE2 is
-using another part of it. The syscon block probably allows switching access
-to these different parts of SRAM C.
+s
+h
+o
+r
+t
 
-Also the sram_c1 node implies it's 2 MiB, which sounds quite unlikely.
+l
+i
+n
+e
+s
 
-All the best,
+are not so good anyway :P
 
-Paul
-
->=20
-> Fixes: b542570e5605 ("arm64: dts: allwinner: h6: Add Video Engine node")
-> Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
+> 
+> Signed-off-by: Philip Radford <philip.radford@arm.com>
 > ---
->  arch/arm64/boot/dts/allwinner/sun50i-h6.dtsi | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h6.dtsi b/arch/arm64/bo=
-ot/dts/allwinner/sun50i-h6.dtsi
-> index 72ce1a75647b..88c6e3e105c0 100644
-> --- a/arch/arm64/boot/dts/allwinner/sun50i-h6.dtsi
-> +++ b/arch/arm64/boot/dts/allwinner/sun50i-h6.dtsi
-> @@ -205,7 +205,7 @@ video-codec@1c0e000 {
->  			clock-names =3D "ahb", "mod", "ram";
->  			resets =3D <&ccu RST_BUS_VE>;
->  			interrupts =3D <GIC_SPI 89 IRQ_TYPE_LEVEL_HIGH>;
-> -			allwinner,sram =3D <&ve_sram 1>;
-> +			allwinner,sram =3D <&ve_sram 1>, <&de2_sram 1>;
->  			iommus =3D <&iommu 3>;
->  		};
-> =20
-> --=20
-> 2.47.3
->=20
+>  drivers/firmware/arm_scmi/powercap.c | 120 +++++++++++++++++++++++++++
+>  include/linux/scmi_protocol.h        |   8 ++
+>  2 files changed, 128 insertions(+)
+> 
+> diff --git a/drivers/firmware/arm_scmi/powercap.c b/drivers/firmware/arm_scmi/powercap.c
+> index 86262eb0f34a..b5879f204b5e 100644
+> --- a/drivers/firmware/arm_scmi/powercap.c
+> +++ b/drivers/firmware/arm_scmi/powercap.c
+> @@ -401,6 +401,34 @@ scmi_powercap_domain_attrs_process(const struct scmi_protocol_handle *ph,
+>  		dom_info->notify_powercap_measurement_change =
+>  			SUPPORTS_POWERCAP_MEASUREMENTS_CHANGE_NOTIFY(flags);
+>  
+> +	if (PROTOCOL_REV_MAJOR(ph->version) >= 0x3) {
+> +		struct scmi_msg_resp_powercap_domain_attributes_v3 *resp_v3 = r;
+> +
+> +		flags = le32_to_cpu(resp_v3->attributes);
+> +		if (pinfo->notify_measurements_cmd)
+> +			dom_info->notify_powercap_measurement_change =
+> +			       SUPPORTS_POWERCAP_MEASUREMENTS_CHANGE_NOTIFY(flags);
+> +
+> +		dom_info->mai_config = SUPPORTS_POWERCAP_MAI_CONFIGURATION(flags);
+> +		dom_info->min_mai = le32_to_cpu(resp_v3->min_mai);
+> +		dom_info->max_mai = le32_to_cpu(resp_v3->max_mai);
+> +		dom_info->mai_step = le32_to_cpu(resp_v3->mai_step);
+> +
+> +		if (dom_info->mai_config) {
+> +			ret = scmi_powercap_validate(dom_info->min_mai,
+> +						     dom_info->max_mai,
+> +						     dom_info->mai_step,
+> +						     dom_info->mai_config);
+> +
+> +			if (ret) {
+> +				dev_warn(ph->dev, "Platform reported problem MAI config for domain %d - %s\n",
 
---=20
-Paul Kocialkowski,
+"....reported invalid MAI config for domain..."
 
-Independent contractor - sys-base - https://www.sys-base.io/
-Free software developer - https://www.paulk.fr/
+> +					 dom_info->id, dom_info->name);
+> +
+> +				return ret;
+> +			}
+> +		}
+> +	}
+> +
+>  	dom_info->extended_names = SUPPORTS_EXTENDED_NAMES(flags);
+>  
+>  	dom_info->async_powercap_cap_set =
+> @@ -1082,6 +1110,96 @@ static int scmi_powercap_cap_enable_get(const struct scmi_protocol_handle *ph,
+>  	return 0;
+>  }
+>  
+> +static int scmi_powercap_xfer_mai_get(const struct scmi_protocol_handle *ph, u32 domain_id,
+> +				      u32 *mai)
 
-Expert in multimedia, graphics and embedded hardware support with Linux.
+..bad alignment and till now we try still to stick tpo 80cols in the SCMI
+stack if it does NOT really hamper readability...
 
---FpfFtflQBQQ4ZJAp
-Content-Type: application/pgp-signature; name=signature.asc
+> +{
+> +	int ret;
+> +	struct scmi_xfer *t;
+> +
+> +	ret = ph->xops->xfer_get_init(ph, POWERCAP_MAI_GET, sizeof(u32),
+> +								sizeof(u32), &t);
 
------BEGIN PGP SIGNATURE-----
+...terrible alignment...and you know why :D
 
-iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmn6VIoACgkQhP3B6o/u
-lQz8VBAAkfyeAYZhinUwpsJmf+oDlItFt7Lfusv+8SkH/qZnD6zCrAQk/Geol1rW
-wZlYqRlWIV1tboLHrW+hgJmK43/FRZ8zoXdUVBTmn1qlfDX0VtLF2DvHC+uaufyF
-4DTP/NfJmIdPOIltCC3FEYzt78hqUzYwwEnsyR+uZ0kPKS8dQyvBoS24LOwnF70g
-huYXW9SWc+458Sjd+NVae7vJneQsx8xrtafjkfPP5Zx2PdYmMTsGPxuBNgLa2CiA
-TvtW1mzJtP2egSTdCfzIJRVCdQ6w9/lYvQoFQfz7U+L+MwpB8U7g3yU7sbIEEBwz
-1RzbbYTvHm68D95/Qb4wkxEPXPw/HTD5Hy3iHdw6JLz3VOXvvQapTbOQqADL7SqD
-6HE8NxgGcLLVMO6P3Na0l+nu6AyuXnou5x99ukr1lQYNAVeUCcq4CpN6GV9/Tgq+
-5ZcTzVFJqD2RJfdPbuljaRgWU5i7fUk1QX0QiNmW+m84Kg5e+wkzf/TB1E5JmypQ
-w4d8oYb059s57puI8NZgwHnyhoLu3HB/NhjboHLcuwzcbgY6PMq68lqazv6qNY/p
-bvQU0TQ/2HwBmCtQT7dIn1ShT5xfo0cu3qpl0bHH9iKBcnXCjdGGqmrNliwBIhta
-5rW/eK5LQyKRXSSg3mKHjITNERBpiraMB65z3LMKUrE/UHivWxA=
-=03GE
------END PGP SIGNATURE-----
+> +
+> +	if (ret)
+> +		return ret;
+> +
+> +	put_unaligned_le32(domain_id, t->tx.buf);
+> +
+> +	ret = ph->xops->do_xfer(ph, t);
+> +	if (!ret)
+> +		*mai = get_unaligned_le32(t->rx.buf);
+> +
+> +	ph->xops->xfer_put(ph, t);
+> +	return ret;
+> +}
+> +
+> +static int scmi_powercap_xfer_mai_set(const struct scmi_protocol_handle *ph, u32 domain_id, u32 mai)
 
---FpfFtflQBQQ4ZJAp--
+..same...try to stick to 80 cols when not impossibly ugly..
+
+> +{
+> +	int ret;
+> +	struct scmi_xfer *t;
+> +	struct scmi_msg_powercap_cap_or_pai_set *msg;
+> +
+> +	ret = ph->xops->xfer_get_init(ph, POWERCAP_MAI_SET, sizeof(*msg), 0, &t);
+
+same
+
+> +	if (ret)
+> +		return ret;
+> +
+> +	msg = t->tx.buf;
+> +	msg->domain_id = cpu_to_le32(domain_id);
+> +	msg->flags = cpu_to_le32(0);
+> +	msg->value = cpu_to_le32(mai);
+> +
+> +	ret = ph->xops->do_xfer(ph, t);
+> +
+> +	ph->xops->xfer_put(ph, t);
+> +	return ret;
+> +}
+> +
+> +static int scmi_powercap_measurements_interval_get(const struct scmi_protocol_handle *ph,
+> +						   u32 domain_id, u32 *val)
+> +{
+
+ditto
+
+> +	const struct scmi_powercap_info *pc;
+> +	struct scmi_fc_info *fci;
+> +
+> +	if (!val)
+> +		return -EINVAL;
+> +
+> +	pc = scmi_powercap_dom_info_get(ph, domain_id);
+> +	if (!pc)
+> +		return -EINVAL;
+> +
+> +	fci = pc->cpli[CPL0].fc_info;
+> +	if (fci && fci[POWERCAP_FC_MAI].get_addr) {
+> +		*val = ioread32(fci[POWERCAP_FC_MAI].get_addr);
+> +		trace_scmi_fc_call(SCMI_PROTOCOL_POWERCAP, POWERCAP_MAI_GET, domain_id, 0, *val, 0);
+ditto
+> +		return 0;
+> +	}
+> +
+> +	return scmi_powercap_xfer_mai_get(ph, domain_id, val);
+> +}
+> +
+> +static int scmi_powercap_measurements_interval_set(const struct scmi_protocol_handle *ph,
+> +						   u32 domain_id, u32 val)
+> +{
+
+ditto
+
+> +	const struct scmi_powercap_info *pc;
+> +	struct scmi_fc_info *fci;
+> +
+> +	pc = scmi_powercap_dom_info_get(ph, domain_id);
+> +	if (!pc)
+> +		return -EINVAL;
+> +
+> +	if (!pc->mai_config || !val || val < pc->min_mai || val > pc->max_mai)
+> +		return -EINVAL;
+> +
+> +	fci = pc->cpli[CPL0].fc_info;
+> +	if (fci && fci[POWERCAP_FC_MAI].set_addr) {
+> +		iowrite32(val, fci[POWERCAP_FC_MAI].set_addr);
+> +		ph->hops->fastchannel_db_ring(fci[POWERCAP_FC_MAI].set_db);
+> +		trace_scmi_fc_call(SCMI_PROTOCOL_POWERCAP, POWERCAP_MAI_SET, domain_id, 0, val, 0);
+> +		return 0;
+> +	}
+> +
+> +	return scmi_powercap_xfer_mai_set(ph, domain_id, val);
+> +}
+> +
+>  static const struct scmi_powercap_proto_ops powercap_proto_ops = {
+>  	.num_domains_get = scmi_powercap_num_domains_get,
+>  	.info_get = scmi_powercap_dom_info_get,
+> @@ -1094,6 +1212,8 @@ static const struct scmi_powercap_proto_ops powercap_proto_ops = {
+>  	.measurements_get = scmi_powercap_measurements_get,
+>  	.measurements_threshold_set = scmi_powercap_measurements_threshold_set,
+>  	.measurements_threshold_get = scmi_powercap_measurements_threshold_get,
+> +	.measurements_interval_get = scmi_powercap_measurements_interval_get,
+> +	.measurements_interval_set = scmi_powercap_measurements_interval_set,
+>  };
+>  
+>  static void scmi_powercap_domain_init_fc(const struct scmi_protocol_handle *ph,
+> diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
+> index d0f6c0102559..73d66281dcc3 100644
+> --- a/include/linux/scmi_protocol.h
+> +++ b/include/linux/scmi_protocol.h
+> @@ -675,6 +675,10 @@ struct scmi_powercap_info {
+>  	bool powercap_scale_uw;
+>  	bool extended_names;
+>  	bool fastchannels;
+> +	bool mai_config;
+> +	u32 min_mai;
+> +	u32 max_mai;
+> +	u32 mai_step;
+
+No docs for new fields ?
+
+>  	char name[SCMI_MAX_STR_SIZE];
+>  	unsigned int sustainable_power;
+>  	unsigned int accuracy;
+> @@ -758,6 +762,10 @@ struct scmi_powercap_proto_ops {
+>  	int (*measurements_threshold_get)(const struct scmi_protocol_handle *ph,
+>  					  u32 domain_id, u32 *power_thresh_low,
+>  					  u32 *power_thresh_high);
+> +	int (*measurements_interval_get)(const struct scmi_protocol_handle *ph,
+> +					 u32 domain_id, u32 *val);
+> +	int (*measurements_interval_set)(const struct scmi_protocol_handle *ph,
+> +					 u32 domain_id, u32 val);
+
+No docs for new fields ?
+
+Thanks,
+Cristian
 
