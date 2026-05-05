@@ -4,99 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CF51FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 12:25:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5312FCD3430
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 12:25:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iWsFFMNfVlraN9koczmb/sKMFEkm65rQ61A6AS0zXkE=; b=h4e6Cn1jigsq2yX8zd139rXB+R
-	RhdLSmK2R3cFZNnk6fzoNLs4Vc4qFH6OkaA9hlS8QX8XwLiSUrPjx/QSvWGvNRK/27dHnCmLLDrJd
-	ivuQCllRd40J3ljQoARPUf1gb9BHNoSLTp0Mx9+lvUBO9qdiTKuocvxXcALv3p7uZmZLC3wRc4buZ
-	q3LY4K5joHQgUnVYkhlO/EMlSIR2U4aR5Q365bLUDoTM+u4S9b4DKKreD4OU8dH6pXfPC2VVZ7965
-	jf/3khgLBxANNHkuEVIRPVlfz+Rm5nQCV+f08JYRIpKki3rcO+0BF9mwNjzXqWGW3jlakxNrWSWfs
-	IERG0mlw==;
+	bh=Pmyq3Jn3jS95x5qGd6vMxoixGm9Dq9F0RVe09Iz/Q7E=; b=o2BYg3a0b1SdT4E2dP69Y6Yf5S
+	4oiMeSaBQeWXVOU+7eI8o0GSgR94M5pyXslhzsexSiLlKqKDjKlf7uVUT0Q6iopi6AbP05cuBDEsy
+	0b8gsxvG+Fd55vql0eDMYqU1mo8Kjk9pieDkwghiZ2pbpO1/zpwj+y9gCY6Ekio0j5eAXbgrNKLnN
+	jielvRcB+V89RoWsOhA8EYsRDCOMc0jGwxKShii4Pf3Sz0ONV26tR2viJ2M9nQmue8WRGsJNJeodI
+	RIlHwMrHzDnm8Z2pY4Oh8yvjjwcE1VoxYCWOL9zmwYvBMNIZUJQy7Isisfv0IcueNbXClk6Pz6Hwg
+	KhPsKpfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKEpi-0000000GAVf-3Ul7;
-	Tue, 05 May 2026 12:25:02 +0000
+	id 1wKEpo-0000000GAYU-2kNr;
+	Tue, 05 May 2026 12:25:08 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKEpg-0000000GAV2-3aoH
+	id 1wKEpm-0000000GAXW-1SkO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 12:25:02 +0000
+	Tue, 05 May 2026 12:25:07 +0000
 Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6458DSHS1346374
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 5 May 2026 12:25:00 GMT
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6458VFbx1346341
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 5 May 2026 12:25:06 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	iWsFFMNfVlraN9koczmb/sKMFEkm65rQ61A6AS0zXkE=; b=In5OnYwrOosFvrc4
-	229iIEoWGlI9oNLndzcldyoMyZUPv6/qN3n9YXP+e0rgWzFhyO4VdDJ2fc2YxyVY
-	oDrnbwG0aYkUhSVXUeuTDfbemwTLxuydv9CCxC4XXqJoCFHuwuqAOuDemHDx7M72
-	kb/mKcXyzQxlq9nNyoRauCHctrAYxmmUIgnpTSI5YBnJAsd7yfxbZ3qYmes0jYZx
-	5Nxo4K1K1wzgSB7sSXzYom/TXly1FlrBF8wJhzBaNLATiyQBqZq0GC5zPlVldxOL
-	AfiP828DFl8hJB3790buiORDsWtSZoh3+E781v0z9diF0bY6H/X4F7Rpc9t8suif
-	CzSXUQ==
-Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dxx2xc0qf-1
+	Pmyq3Jn3jS95x5qGd6vMxoixGm9Dq9F0RVe09Iz/Q7E=; b=JOddLap0jB/q49ce
+	ysA9hU1v8gpGvceX4so5na3MuDovcsC1hapvbgPTLjG4p90D0Lw7HNcngXZ8/o6f
+	tS+tfHIjWHQtBoTPOdn8KqC2FBKhiH7v1k89tJR807w/wDuW/t1OsV3tRpzXaiyp
+	hWa7nKC5Wp9z/EmyBWE+gvt1HrVrRrEqpn/6Hv1Z83Sk5Rrg+vZqPAVwaeLYFkEi
+	VHpzE4WWdDmo6ck89/7+uXZ2KXkHvg4UmYyS6Jvm6b1glK6VTNFgfPYzybMqouAZ
+	2MLbCJq0Zp8irK6UA9PL27jDvN5MpXHR2XrdRxkSh+NgPIq5TRwHZOdA2kdSu72p
+	aYK6Ug==
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dxx2xc0qy-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 12:25:00 +0000 (GMT)
-Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-c822bc6ff86so202516a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 05:25:00 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 12:25:05 +0000 (GMT)
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-c8028392fa7so99207a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 05:25:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1777983899; x=1778588699; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1777983905; x=1778588705; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=iWsFFMNfVlraN9koczmb/sKMFEkm65rQ61A6AS0zXkE=;
-        b=HXIXxVW1spPZHT3LCM2yq2/PuhjmatPkm5yU601tlyVY/COZPRffjcMEism/YL7RXn
-         KtiC/AUxXMsxsDVY0g6m6nllqXNIIxIp3iqVSzpeHUHOEqL/x2h4iRKYj5OSWrhzJk5A
-         KJ7nCh4giTqoUYkrGvj78QUEvFvf++7YwdKpO3SU0oamVAbHpMFYhndKJupNlZU7GXQz
-         dfsWZUzwtp6Ckm7sU4EBhFtNrL2s469kSmlhXzICXzxpXwQUCn+G4DeDLydB5kXJqCnB
-         yt3clQF846S6/DyV0J6NTZFevwe0bBYJ7GZq5mh4Qm8qHDCfv8jf9g2I9YUA3qv/UHvz
-         3N8A==
+        bh=Pmyq3Jn3jS95x5qGd6vMxoixGm9Dq9F0RVe09Iz/Q7E=;
+        b=SME1rwOp0OPNgLvwgDoRlESaYCMo99345iQqcWM/lpyeeeQv3dx8GRhoLrbRy6RS8r
+         Ea+/5xMdSlBSqqma1Ni4y37U4JfsTKy3cpWXpfm0XuWWSByQ/TSSaMcPKYzgTLemWALr
+         T+o9dLvnSkSB7Yg22gvmN40o76O0xf5mkOHjNsRrFRake5ZiG6y0Pq0thINy9cWfm/G/
+         S6uVjfZI8VxCNi8/WpXighP/MCsSw1UPFenMQdczer89b1G/JFt7zpur/m1fkzAGOgDk
+         DJI+Y8pe5A05c4kAExnC/hhFKW2M+ovGWEq1DknalXB7qFqtXQ3VJw7qfJ7bX4vEhgQb
+         OinA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777983899; x=1778588699;
+        d=1e100.net; s=20251104; t=1777983905; x=1778588705;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=iWsFFMNfVlraN9koczmb/sKMFEkm65rQ61A6AS0zXkE=;
-        b=kL4v1RVf8noS3Y/w6BoTQsVWR0fynFXhe7SJKvg+gxI/wss7YK0B+nmCCQZoe55RIL
-         Jag3LqLSh+QP6otxLkE+8zV93SbGb4AmWPNFxtTRWz2qfSNrBJdEdQQTzQlWEYQjdspn
-         3TH4Xlg8WpS1rVP04LHPU89OX7EsGUZcyhuCOUKMaxP4kv0KZyoEZpXn9xQhbXS47r7S
-         SSgbvYhZYJkxhwzdiXsXwE3n3XNduPiE3/2KBTzuwbDmgxUlrfoEOCkXcK4GItJgYpLj
-         1HfGpQhMe9pzprXk+gU/KcAOrFpSioQKNCKalq0A8ypBHdbvXuWzzVE0Q3yv0wOdojpz
-         ai8A==
-X-Forwarded-Encrypted: i=1; AFNElJ+Wk2NI99IdgnQHpjrZTxrDTGcS+sbdDkgKAIJINu2w2OTZ4TLNBkhgM3xpVNuGbtXjpqS3t09mA0FtsK6N0GDM@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzwww6z42Z1JlwsSdthGiPvo/u4SrPxLeLmsWzhwcqtFjjn1YF7
-	jMmdObCvVEVabtR8ZvuAubbFm/XS3v5EpM2Wc1pkYUSUsjQkp6R/Z9Ab7a6JMCPUBMB1YfaerWv
-	2oaQFUUv6mgvy/1pDhKhqCAg9XbSZbACJSyRj/gi/vlP83p9K0Wo3LRJPFh3O72Y8bRdlrB0lI9
-	1RAh6wtJ9pEA==
-X-Gm-Gg: AeBDieskdMiyF3y7UCa81z+PF124hTUkrpzun4p2MJ2BYD8YKoQKpX2FpFBK8Xuu+C8
-	6RY9C3PDLtzP1uq60qZ+2ceVC4e22CKdpjrDIJ8an28lLfdiwnOBcz9hKw+uMMR5o6mVXYcH7rx
-	W+MhvEhaYhrUyjuFdTqLsqPIFL1zZXLZBGRmY+eD0bJUGcSsjRsOX7+1CMhCNLuv3s2FqOtVNYM
-	gWevMKy9/CyH6hSESZhuixPG5qAPpMPKR9yGnKX3eX2i1DSdQQyv4o1bib7fNsXzN8+uUrpxx82
-	jKin1Hv9oU+4UJ9Q8+hCjhk3qdBLWOHpJYtJ9DHdZYUdOA3MWleRhneAvnEJeRUfoAoFeLy3KE5
-	AA3IOrFPhSl4Xqaep0Q/Q8qYHgdFmEAkVAYKnkqVWGwyw95eULbxLVZ6sxSiUDYs=
-X-Received: by 2002:a05:6a21:7a91:b0:39c:68ed:9a39 with SMTP id adf61e73a8af0-3a7f1cccc9emr7197140637.6.1777983898881;
-        Tue, 05 May 2026 05:24:58 -0700 (PDT)
-X-Received: by 2002:a05:6a21:7a91:b0:39c:68ed:9a39 with SMTP id adf61e73a8af0-3a7f1cccc9emr7197093637.6.1777983898325;
-        Tue, 05 May 2026 05:24:58 -0700 (PDT)
+        bh=Pmyq3Jn3jS95x5qGd6vMxoixGm9Dq9F0RVe09Iz/Q7E=;
+        b=seQmAAP9asE0TU977bFZP7iXX25BH2NEJZCFsRnoViNoDlzs/5dg8CejV9AChF9v07
+         DNl7s7XdiXJtyF3AzKakUFGkwBBNepETWBDZLQUxlips9jQnJ6mKoUWCjV5V+U3xlEOe
+         MGqy3oiAcbsB2GUxlKbVdSYZyNGbvljiWCty2C0WNpfpFlYRwUbCzBYzegkXHRkxLkNl
+         WvhO2uw1IYUyFsNYSrqBBRSmqpHWwLsdZs06Bk/49G8btxPijKaAE4SJ0pP8ajDNsw6A
+         ekb2BMQwhZBS2balWLcRFYSUP3Ak4zTuIDiQZ2aV+vvc4EQNcbgkh8h0s2ttpTKS8DHK
+         7aiA==
+X-Forwarded-Encrypted: i=1; AFNElJ+x5waksunEmpqtdJaLoqj5uiKKBntXii9tiQUvKaOxVvUHlpzRrnLutPo5kegK3IPgNxQ6w+q3URrJANTgaery@lists.infradead.org
+X-Gm-Message-State: AOJu0YyRfmd5u85KpzlN9/aMxOwSeScFS7xiVai/BKp2/uQw03iXgdB+
+	JAw3GDxkfrkfBAlGktM8sDtuaUZeYe4qCBvvcTeD28YRat1A5izZrtkQNjGNDYeIqmYOblGvC/2
+	cHI39i2DrrUwN4a2D4A+kcGdD8vW68Pjm3AfQJhLhvhCwc/WKGoklU+K5TCFxvA677k3FSbX2VN
+	LQaA==
+X-Gm-Gg: AeBDievgrhV3ydiTb0u6QwAGek9WC5hI4VLr78YDEOGOfHC+IPria0m37eGPzP13XRo
+	1VfM4iwHt62Uo4xzx6y97HZMwWXDc/lWgKyXn8Y+8eHFnztqp25cpzSaq88rhwhYNjKSUr7sAgt
+	19qcuCME0Ao3SbHD/laptbsqYvKVS82hRPrEpIHlRgFQ879XZ5l+lUK/ZNdYNEOhdmyDAZsdqk4
+	NTQULzC2OaHr8nhkcn7N0IUcowk+Oim1SSdcaMSMQ/bxVtL4ND/i7BAnR1a2zAz3bzReeNykzDv
+	GfaQO84V2UjXopv4aPWA+0+Yem0Q/qzL7hvfd5/XD0DRlBrX63byoPd8TxqLSakRJmHJS6IENOu
+	9bU3noHJ8eYs40mrNj0L6YX0eLSMbMLTj6tMjRfoFJPY7hMcnBSWXeQDMS+HJ/sM=
+X-Received: by 2002:a05:6a21:6906:b0:39b:91d1:6c10 with SMTP id adf61e73a8af0-3aa3e94ebb9mr1574706637.4.1777983905066;
+        Tue, 05 May 2026 05:25:05 -0700 (PDT)
+X-Received: by 2002:a05:6a21:6906:b0:39b:91d1:6c10 with SMTP id adf61e73a8af0-3aa3e94ebb9mr1574672637.4.1777983904596;
+        Tue, 05 May 2026 05:25:04 -0700 (PDT)
 Received: from hu-uchheda-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c7ffbbaac5bsm12597998a12.6.2026.05.05.05.24.52
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c7ffbbaac5bsm12597998a12.6.2026.05.05.05.24.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 May 2026 05:24:57 -0700 (PDT)
+        Tue, 05 May 2026 05:25:04 -0700 (PDT)
 From: Umang Chheda <umang.chheda@oss.qualcomm.com>
-Date: Tue, 05 May 2026 17:53:45 +0530
-Subject: [PATCH 1/8] ras: aest: Fix shared processor node handling and
- error log messages
+Date: Tue, 05 May 2026 17:53:46 +0530
+Subject: [PATCH 2/8] ras: aest: Fix CE/UE error counts not incrementing in
+ debugfs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260505-aest-devicetree-support-v1-1-d5d6ffacf0a5@oss.qualcomm.com>
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260505-aest-devicetree-support-v1-2-d5d6ffacf0a5@oss.qualcomm.com>
 References: <20260505-aest-devicetree-support-v1-0-d5d6ffacf0a5@oss.qualcomm.com>
 In-Reply-To: <20260505-aest-devicetree-support-v1-0-d5d6ffacf0a5@oss.qualcomm.com>
 To: Ruidong Tian <tianruidond@linux.alibaba.com>,
@@ -114,29 +114,29 @@ Cc: linux-arm-msm@vger.kernel.org, linux-acpi@vger.kernel.org,
         linux-edac@vger.kernel.org,
         Umang Chheda <umang.chheda@oss.qualcomm.com>
 X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777983885; l=6543;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777983885; l=2690;
  i=umang.chheda@oss.qualcomm.com; s=20260328; h=from:subject:message-id;
- bh=VI5F8t3DU2L32PPNZQHlAorz7SO6vTHnNS9mo4ZneVE=;
- b=6faC5/GEh5FwFL2OgPM+ezzK5byXA+KdZ7TJce1TC337AuIA1fKkKcfxOExCMlDv938Fkt0LW
- 6jmLHyuiasQDc5iy7BsY6vFF3Lv51LzJ4RKX9eYWynnQF1Ru28y5l3Z
+ bh=K7/WGQ524x+e2ze3I8r02DnkbU84gUgAARamEEr7Lg4=;
+ b=5srgoRDiOLE+04KITceVdE78eHY9ax0xzcodvWQFYmfY3QszjcUqV1fapWymL8cEoMNtESzDE
+ hlR4muq4F70BQ11YJzNFbjlpe+vvXZxKIK3RDMz5XqD1b9rqRIt0Cm1
 X-Developer-Key: i=umang.chheda@oss.qualcomm.com; a=ed25519;
  pk=3+tjZ+PFFYphz0Vvu4B14pBQSzqcG0jZAQspTaDRQYA=
-X-Authority-Analysis: v=2.4 cv=U9eiy+ru c=1 sm=1 tr=0 ts=69f9e19c cx=c_pps
- a=rz3CxIlbcmazkYymdCej/Q==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+X-Authority-Analysis: v=2.4 cv=U9eiy+ru c=1 sm=1 tr=0 ts=69f9e1a1 cx=c_pps
+ a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
  a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
  a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=EUspDBNiAAAA:8 a=KYcbzuZsfW-uCfy2wYUA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=bFCP_H2QrGi7Okbo017w:22
-X-Proofpoint-ORIG-GUID: otlvj52-d_McZG4E2VY1dBJeSs_N6Acc
-X-Proofpoint-GUID: otlvj52-d_McZG4E2VY1dBJeSs_N6Acc
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA1MDExNyBTYWx0ZWRfXzS0G5xN+VRjj
- MtpuQKQ7ma3pX0jg0mueptUf8DySsk5J2Uatlgat1qcUpi5ZSNSpQmRKkEW9b+AVHlzGCKw0G0Q
- zpp0yNzHQM0nhXJNFmHT4MJ4r0mvwaU21zzleVAFfvydcEZ67+6dMgpCF+BWKkyMtNcMXVj/rKA
- hHdAkleZF4wQFiYqO/QzjBhDbWUAJiXvpVVjz7gOTZdiII8GqVARb7J+0w68041pxgukP16OJJ1
- 6Xv0KMn9e1lqAsYRIFEjErNvLEX0Ptf4oAaOBGxX27WJXNDzmyktQyzTvXiDB9bzUDpbKRyKxXM
- CaGrD7uUBindVHK9ySj//LqAYOmud/USJ4vb3pkDV3jnLDpCA/YmWWZP+PgL+uZ1lrkpPG+a1Kb
- f3t3400KWTSDVhC7Jg6cPw8ppt6AbmG34rQ3osBR9V6ECKtZswQgzvT5jx+B08m2ZJe5tE7pvUo
- GB7DixTo6Kv7q3kNhrQ==
+ a=EUspDBNiAAAA:8 a=IvwcuExtd9bf9WbcJAsA:9 a=QEXdDO2ut3YA:10
+ a=3WC7DwWrALyhR5TkjVHa:22
+X-Proofpoint-ORIG-GUID: lfyV1daNXELdSW8PtEmmo-MEkm05uSr7
+X-Proofpoint-GUID: lfyV1daNXELdSW8PtEmmo-MEkm05uSr7
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA1MDExNyBTYWx0ZWRfX/NLY7ESgr3B+
+ LP9LpZ2b8bL0iHdDLG0/NS+auNeYjRolA/KG5BXPaLdgAYrIWuUqBebRjVJl1IXVH75Q56XaM/T
+ TbhSq5s3O37Ow+4C6X9B1yEFfScLuUKk5lq0epRSr+FAA5Q+zns+poAjoKojcW+mT+0dUSusSLj
+ freO7VwvPT9Oc68qPKrP8OcUcY0+NjiChatZrxfvNiMliWVuTajis4JJ3SFIo9NFD3eJVnG6zqd
+ xch5Nhke8Gx4PGcYaPB45MGG/3JhimPQddjkGvvdRBw46+FR3H+CZT4yUVr6vvICIa6crF038NT
+ 4/6IKsTU2F8Iafp8iDVisLUolbAH9ogYL9qAShu5yF9sPhJCNKQYiWfBywDC2aq4vFQCVL1B29c
+ l2kneu16fxYg6mjN0qQStS6k6HgGikVWJwHVAbwNm0Ipbuwp3mfhGzEg4yVVnS4cerx9Nz+ZF+5
+ Zl9dfCtJlGICdN1gUhg==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-05-05_02,2026-04-30_02,2025-10-01_01
@@ -146,8 +146,8 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2605050117
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_052500_929639_1181CCF4 
-X-CRM114-Status: GOOD (  24.07  )
+X-CRM114-CacheID: sfid-20260505_052506_401998_7D443DD5 
+X-CRM114-Status: GOOD (  18.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,166 +162,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Two related fixes for processor nodes with ACPI_AEST_PROC_FLAG_SHARED
-or ACPI_AEST_PROC_FLAG_GLOBAL set (e.g. cluster L3 cache, DSU):
+The error counts visible under:
+  /sys/kernel/debug/aest/<dev>/processor<cpu>/<node>/err_count
 
-1. aest_dev_is_oncore() returns true for any PROCESSOR_ERROR_NODE,
-   causing shared processor nodes (which use an SPI) to take the
-   cpuhp/PPI path.  cpuhp_setup_state() is called instead of
-   aest_online_dev(), so aest_config_irq() is never called and the
-   hardware IRQ-config register is never programmed.
+always reported zero, even though corrected errors (CEs) were being
+serviced by the interrupt handler. aest_oncore_dev_init_debugfs() sets
+up per CPU debugfs entries but wired them up incorrectly in two places:
 
-   Fix aest_dev_is_oncore() to check irq_is_percpu() on the registered
-   IRQ.  Only nodes whose FHI or ERI is a per-CPU PPI take the oncore
-   path, nodes with an SPI take aest_online_dev().
+- this_cpu_ptr(adev->adev_oncore) was used inside for_each_possible_cpu().
+  This always selects the slot for the CPU executing the init code, so all
+  debugfs files ended up referencing the same per CPU aest_device instance
+  instead of the CPU indicated by the loop variable.
 
-2. alloc_aest_node_name() uses processor_id for the node name of all
-   processor nodes.  Shared/global nodes have processor_id=0 (the
-   field is unused when SHARED/GLOBAL is set), so every shared node
-   and the per-PE node for CPU 0 both got the name "processor.0",
-   making error logs ambiguous.
+- The code referenced adev->nodes[i], i.e. the template nodes allocated
+  before __setup_ppi, rather than the per-CPU copies at
+  percpu_dev->nodes[i]. The IRQ handler updates CE counters in the per-CPU
+  records created by __setup_ppi, the template records are never touched
+  at runtime, so err_count always read as zero.
 
-   For shared/global nodes, build the name as
-   "processor.<resource_type>.<device_id>" (e.g. "processor.cache.1")
-   so each node has a unique, meaningful identifier.  Per-PE nodes
-   keep the original "processor.<mpidr>" form.
+Fix this by:
 
-   Also add proc_flags to struct aest_event so aest_print() can
-   distinguish shared from per-PE nodes and print an appropriate
-   message.
+- Using per_cpu_ptr(adev->adev_oncore, cpu) when iterating over CPUs.
+  Wiring debugfs files to percpu_dev->nodes[i] so counters reflect the
+  data updated by the IRQ handler.
+
+- Using adev->nodes[i].name for debugfs directory names. The per-CPU node
+  receives name via a shallow memcpy and is not the authoritative source.
 
 Signed-off-by: Umang Chheda <umang.chheda@oss.qualcomm.com>
 ---
- drivers/ras/aest/aest-core.c | 54 ++++++++++++++++++++++++++++++++++++++++----
- drivers/ras/aest/aest.h      | 15 +++++++++++-
- 2 files changed, 64 insertions(+), 5 deletions(-)
+ drivers/ras/aest/aest-sysfs.c | 19 +++++++++++++------
+ 1 file changed, 13 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/ras/aest/aest-core.c b/drivers/ras/aest/aest-core.c
-index 6a2d84b47721..b4f4c975da1d 100644
---- a/drivers/ras/aest/aest-core.c
-+++ b/drivers/ras/aest/aest-core.c
-@@ -49,7 +49,19 @@ static void aest_print(struct aest_event *event)
+diff --git a/drivers/ras/aest/aest-sysfs.c b/drivers/ras/aest/aest-sysfs.c
+index 66e9c1103f99..f710503e4d74 100644
+--- a/drivers/ras/aest/aest-sysfs.c
++++ b/drivers/ras/aest/aest-sysfs.c
+@@ -189,16 +189,23 @@ aest_oncore_dev_init_debugfs(struct aest_device *adev)
+ 	char name[16];
  
- 	switch (event->type) {
- 	case ACPI_AEST_PROCESSOR_ERROR_NODE:
--		pr_err("%s Error from CPU%d\n", pfx_seq, event->id0);
-+		/*
-+		 * For shared/global nodes (e.g. cluster L3 cache, DSU),
-+		 * id0 is the CPU that handled the interrupt — not the error
-+		 * source itself.  The node_name already identifies the resource
-+		 * (e.g. "processor.cache.1").  Print a distinct message so the
-+		 * log is not confused with a per-PE CPU error.
-+		 */
-+		if (event->proc_flags &
-+		    (ACPI_AEST_PROC_FLAG_SHARED | ACPI_AEST_PROC_FLAG_GLOBAL))
-+			pr_err("%s Error from shared processor resource (interrupt handled on CPU%d)\n",
-+			       pfx_seq, event->id0);
-+		else
-+			pr_err("%s Error from CPU%d\n", pfx_seq, event->id0);
- 		break;
- 	case ACPI_AEST_MEMORY_ERROR_NODE:
- 		pr_err("%s Error from memory at SRAT proximity domain %#x\n",
-@@ -133,6 +145,7 @@ static void init_aest_event(struct aest_event *event,
- 				info->processor->processor_id);
+ 	for_each_possible_cpu(cpu) {
+-		percpu_dev = this_cpu_ptr(adev->adev_oncore);
++		percpu_dev = per_cpu_ptr(adev->adev_oncore, cpu);
  
- 		event->id1 = info->processor->resource_type;
-+		event->proc_flags = info->processor->flags;
- 		break;
- 	case ACPI_AEST_MEMORY_ERROR_NODE:
- 		event->id0 = info->memory->srat_proximity_domain;
-@@ -175,6 +188,7 @@ static int aest_node_gen_pool_add(struct aest_device *adev,
- 	if (!event)
- 		return -ENOMEM;
+-		snprintf(name, sizeof(name), "processor%u%u", cpu);
++		snprintf(name, sizeof(name), "processor%u", cpu);
+ 		percpu_dev->debugfs = debugfs_create_dir(name, adev->debugfs);
  
-+	memset(event, 0, sizeof(*event));
- 	init_aest_event(event, record, regs);
- 	llist_add(&event->llnode, &adev->event_list);
- 
-@@ -730,9 +744,41 @@ static char *alloc_aest_node_name(struct aest_node *node)
- 
- 	switch (node->type) {
- 	case ACPI_AEST_PROCESSOR_ERROR_NODE:
--		name = devm_kasprintf(node->adev->dev, GFP_KERNEL, "%s.%d",
--				      aest_node_name[node->type],
--				      node->info->processor->processor_id);
-+		/*
-+		 * Shared/global processor nodes (e.g. cluster L3 cache, DSU)
-+		 * have processor_id=0 and use smp_processor_id() at error-log
-+		 * time — using processor_id in the name would produce the same
-+		 * "processor.0" string for every shared node and every CPU0
-+		 * per-PE node, making logs ambiguous.
-+		 *
-+		 * For shared/global nodes, build the name from the resource
-+		 * type and the device id so each node gets a unique, meaningful
-+		 * name (e.g. "processor.cache.1", "processor.tlb.2").
-+		 *
-+		 * For per-PE nodes, keep the original "processor.<mpidr>" form.
-+		 */
-+		if (node->info->processor->flags &
-+		    (ACPI_AEST_PROC_FLAG_SHARED | ACPI_AEST_PROC_FLAG_GLOBAL)) {
-+			static const char *const res_name[] = {
-+				[ACPI_AEST_CACHE_RESOURCE]   = "cache",
-+				[ACPI_AEST_TLB_RESOURCE]     = "tlb",
-+				[ACPI_AEST_GENERIC_RESOURCE] = "generic",
-+			};
-+			u8 rtype = node->info->processor->resource_type;
-+			const char *rstr = (rtype < ARRAY_SIZE(res_name) &&
-+				res_name[rtype]) ? res_name[rtype] : "unknown";
+ 		for (i = 0; i < adev->node_cnt; i++) {
+-			node = &adev->nodes[i];
+-
+-			node->debugfs = debugfs_create_dir(node->name,
+-							percpu_dev->debugfs);
++			node = &percpu_dev->nodes[i];
 +
-+			name = devm_kasprintf(node->adev->dev, GFP_KERNEL,
-+					      "%s.%s.%d",
-+					      aest_node_name[node->type],
-+					      rstr,
-+					      node->adev->id);
-+		} else {
-+			name = devm_kasprintf(node->adev->dev, GFP_KERNEL,
-+					      "%s.%d",
-+					      aest_node_name[node->type],
-+					      node->info->processor->processor_id);
-+		}
- 		break;
- 	case ACPI_AEST_MEMORY_ERROR_NODE:
- 	case ACPI_AEST_SMMU_ERROR_NODE:
-diff --git a/drivers/ras/aest/aest.h b/drivers/ras/aest/aest.h
-index 9d67d79eb4a2..9704af97fee8 100644
---- a/drivers/ras/aest/aest.h
-+++ b/drivers/ras/aest/aest.h
-@@ -8,6 +8,7 @@
- #include <linux/acpi_aest.h>
- #include <asm/ras.h>
- #include <linux/debugfs.h>
-+#include <linux/irqdesc.h>
- 
- #define MAX_GSI_PER_NODE 2
- #define DEFAULT_CE_THRESHOLD 1
-@@ -94,6 +95,8 @@ struct aest_event {
- 	/* Vendor node	: hardware ID. */
- 	char *hid;
- 	u32 index;
-+	/* Processor node: ACPI_AEST_PROC_FLAG_* bitmask (SHARED/GLOBAL) */
-+	u8 proc_flags;
- 	u64 ce_threshold;
- 	int addressing_mode;
- 	struct ras_ext_regs regs;
-@@ -387,7 +390,17 @@ static inline void aest_sync(struct aest_node *node)
- 
- static inline bool aest_dev_is_oncore(struct aest_device *adev)
- {
--	return adev->type == ACPI_AEST_PROCESSOR_ERROR_NODE;
-+	/*
-+	 * A processor node is "on-core" (uses PPI + cpuhp) only when its
-+	 * interrupt is a per-CPU PPI.  A shared processor node (e.g. cluster
-+	 * L3 cache, DSU) uses an SPI and must follow the non-oncore path
-+	 * (aest_online_dev) so that aest_config_irq and aest_online_dev are
-+	 * called instead of cpuhp_setup_state.
-+	 */
-+	if (adev->type != ACPI_AEST_PROCESSOR_ERROR_NODE)
-+		return false;
-+	return irq_is_percpu(adev->irq[ACPI_AEST_NODE_FAULT_HANDLING]) ||
-+	       irq_is_percpu(adev->irq[ACPI_AEST_NODE_ERROR_RECOVERY]);
- }
- 
- static inline int default_errgsr_mapping(int errgsr_bit)
++			/*
++			 * Use adev->nodes[i].name (the original) rather than
++			 * node->name from the per-CPU copy. The per-CPU copy
++			 * receives node->name via shallow memcpy in __setup_ppi;
++			 * the original is the authoritative, guaranteed-valid
++			 * string.
++			 */
++			node->debugfs = debugfs_create_dir(adev->nodes[i].name,
++							   percpu_dev->debugfs);
+ 			aest_node_init_debugfs(node);
+ 		}
+ 	}
 
 -- 
 2.34.1
