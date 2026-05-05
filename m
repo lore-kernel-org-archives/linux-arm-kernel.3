@@ -4,99 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BBFBCD3439
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:09:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9933ACD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:09:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J18iXujFK8xYYFlyu0HbKoG2KQuU7cNGKxURAHEC0GA=; b=itQRma8rRut2qL8k37mDoAtSyj
-	CiVlTSFO8EOfnCyfrgHiI9pPI+zZv0Y1vxkv24To8j29l9XDzBd/7gd60vX8Pxb9rVysixU1yfMax
-	SkR18cGvvM0YgK6TGltF5CCdFhgO8xX3nbeENFEcYOXMVloZeHMom8mmpMb4szf5+9knFm1ax/IMe
-	+xj50PY5UeeUntjRHHegfGcoMENT9loBsFqS1iZMisFSnxz1dcTVTF3udDydXrLrlAX9CD3iNT4nr
-	VJbIRHsZAzug6uBOvaqLEDZFcVwqdpX18aY/mg7pFVbZDqV7opoZbqaw8EQtZCm5PEY4Zryv5c0+f
-	95NQHuKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=p80F+20euBb7mmbVWVtUc6ggQungfbWvqdlCfd4GntA=; b=dAzi0Y8KxcvnVIFj9hMpWeFJpu
+	0VMeIdphfpaos0txofi5yHqLo9JPlxY6hsZ3SfxNd7rPspaDKz65zGuy+04qCKS9WZ0OfqgQKmiw5
+	IzCOgSatCQWpHiuygqipZoM/hwOQI4WhicQfrQ3/xs51FEfWmd+EZy3fH5u9KNtuSus5P3dZNfcv0
+	KSVX7E+xhLBoTdXQV76J4peX+LKWkQ9+BT0CKbhHdnr/h9aaMtZMbmbCqZTJM37DmX7hAWxOQVbMY
+	bSum9sA9HjueE5jNvtpNBZsUzK8DYpNjy6wvyYhRPq01xLZq6CPWC/DOjgQXJmD+WQMwDG3VR2zlI
+	A88fpdBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKIKP-0000000GoXE-0xG1;
-	Tue, 05 May 2026 16:08:57 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wKILB-0000000Gp3T-1jbq;
+	Tue, 05 May 2026 16:09:45 +0000
+Received: from mail-westeuropeazon11011046.outbound.protection.outlook.com ([52.101.70.46] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKIKM-0000000GoSy-2jdJ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 05 May 2026 16:08:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=J18iXujFK8xYYFlyu0HbKoG2KQuU7cNGKxURAHEC0GA=; b=GJMhp2z+OrKvVDnXyhm0D/FlA8
-	r1lmRDlz6CwCQn0RzgCQ5J1ESQkqnVEhWBmz+Rxs+hq+o6a9HjpZbx/aTcjvyY61KrNERNUl0u/Zg
-	/D1uM6nyex3jtyfWLm0eVmpwFZ+FJ+Ahbz9x6GAe0DxQbMi11XDAJlagRUsQ0P49ZgEnFrQCjweL7
-	9qTwkmlHAzUKj4b5pwk7VpqIMOP+UtfkYLexFcYeZop9iJsOHdksaU9Iwdwn8jgcDgqifX/VP0YDM
-	we0K3IiS6jcMn2pl9/LancgebXDP1QvezmKXdysvByUGm2LNhprvT6pAB40Iw7SLQyERE2TazjHV8
-	rtlqEDMQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKIKG-0000000DzKe-44my
+	id 1wKIL8-0000000Gp0k-0gUY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 16:08:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E98B114BF;
-	Tue,  5 May 2026 09:08:41 -0700 (PDT)
-Received: from localhost.localdomain (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2E6213F763;
-	Tue,  5 May 2026 09:08:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777997327; bh=XtqotHlvxdKu6c1pkEmCr60+1y0cB/ILuH7HTvPuXjw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=luXYCNazICc3tK6Lo75rwne6t5UDBAIT/GSy+kZtqZUQSSE+SVirz/40QTelJkaZH
-	 JkYWQ7dTpIHd4QSAHQkyPD4tmU4aSFtVOzU4Qw9hg5SZ3yxDqLMi12/J4NzwvaWuli
-	 Q50N8srUXZ+PY0p0gwMmTpE+ZFjErQD3dNlgJVHg=
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Date: Tue, 05 May 2026 17:06:12 +0100
-Subject: [PATCH RFC v7 23/24] arm64: kpkeys: Enable
- kpkeys_hardened_pgtables support
+	Tue, 05 May 2026 16:09:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TDehr20tiRHa3JkMCwmMggEmso1EVqeHWOTUA+pEk5I2JbYq5Pu9cpHXfqZeTR2jcbCZI5BbdVrQDNlLxyU2235F41fwK4KtTFH4yCOIMgXWAFODHu76Z+tCxM//rKostH0Z6q8osXm+dH8EWVk4gAGvwkb0+plp+REsbu389Hu1nqj30TNolfN590ePgPHGkwqZbWKS9IaHFGgfkDiNfq/hcxy+6TOh8U2fh6LocNZVl+ZdFlmn5csH4SFlDySoLCUm7hEduJetYrOKtoDNePgMEeiPt73TNIQTuOkCo8ZuHPqVbLeUvJKhiBlHoaYupkLnXC2HxS33WZIvVIWSFA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=p80F+20euBb7mmbVWVtUc6ggQungfbWvqdlCfd4GntA=;
+ b=guc0a/yAbivZbrInSeRLJxhMGLbQsNcRqeEeiGbkhFjGHrdDOj2PHQixzSTJgbkSVvc0QPfi2KRInPltJDM3hdC3tIN9hRp4TIuH/eB3d68qdskOqGtRIlJ9RJelKVb9IrzNCKUBr/aZBfXIAGAtZANiGx9h7tftfPDiz0etNgnyMMQZ7nq7fjvjJF64u9vmx3VXY+p+a8AtFY5zk4fQkD09E48A/BUtNPoVGm4+ycQDwDGJBsVU3wg3WXCckh4IS7HzwtYdKRPysPQ0M18KJKjEmxaTpQkexbK3LW32Eq9n8ghEOWmciJ4hw3TOoDeTVhGlchmSmH8U57Thybua+w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=p80F+20euBb7mmbVWVtUc6ggQungfbWvqdlCfd4GntA=;
+ b=IsBKayJYEzFvRoUl5kjIDrxZD3SfeIgzT+mcR/4MqoPY1Gl9uFSZtg4CV85jO1a/MrZtQi1JumLFNUeLjHf/wAjP1aGLs2OagPJe6EGM4OEMvMR6nM12xtVneN4ZsZTFieHeT/nGpgqWtsqSmNnA85R4+2XzD0aJrUFHy/Chbm8FY/0ajWDqd9EN7MrVbljYyHeva//0ZAj+3uEzIGun9I2/3SROnXDrSwRth6h5BIQ9LhMOr9M6XaJPC77l57KDs5jko1BM7a0W22e2ExZc/l1ev+V3BDJSrMutVftbLxZ6mI0Bp+73+xdIVfBWnomUCvt3PY9FirLcJrcXJ8j+hw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by PA1PR04MB11531.eurprd04.prod.outlook.com (2603:10a6:102:4df::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Tue, 5 May
+ 2026 16:09:36 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9870.023; Tue, 5 May 2026
+ 16:09:36 +0000
+From: Frank Li <Frank.Li@nxp.com>
+To: =?UTF-8?q?S=C3=A9bastien=20Szymanski?= <sebastien.szymanski@armadeus.com>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Jacky Bai <ping.bai@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	NXP S32 Linux Team <s32@nxp.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	linux-gpio@vger.kernel.org (open list:PIN CONTROLLER - FREESCALE),
+	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Cc: imx@lists.linux.dev
+Subject: [PATCH v2 1/1] pinctrl: imx1: Allow parsing DT without function nodes
+Date: Tue,  5 May 2026 12:09:02 -0400
+Message-ID: <20260505160902.1425532-1-Frank.Li@nxp.com>
+X-Mailer: git-send-email 2.43.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: PH8PR05CA0023.namprd05.prod.outlook.com
+ (2603:10b6:510:2cc::8) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260505-kpkeys-v7-23-20c0bdd97197@arm.com>
-References: <20260505-kpkeys-v7-0-20c0bdd97197@arm.com>
-In-Reply-To: <20260505-kpkeys-v7-0-20c0bdd97197@arm.com>
-To: linux-hardening@vger.kernel.org
-Cc: Kevin Brodsky <kevin.brodsky@arm.com>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Andy Lutomirski <luto@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Dave Hansen <dave.hansen@linux.intel.com>, 
- "David Hildenbrand (Arm)" <david@kernel.org>, 
- Ira Weiny <ira.weiny@intel.com>, Jann Horn <jannh@google.com>, 
- Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>, 
- Kees Cook <kees@kernel.org>, Linus Walleij <linusw@kernel.org>, 
- Marc Zyngier <maz@kernel.org>, Mark Brown <broonie@kernel.org>, 
- Matthew Wilcox <willy@infradead.org>, Maxwell Bland <mbland@motorola.com>, 
- "Mike Rapoport (IBM)" <rppt@kernel.org>, 
- Peter Zijlstra <peterz@infradead.org>, 
- Pierre Langlois <pierre.langlois@arm.com>, 
- Quentin Perret <qperret@google.com>, 
- Rick Edgecombe <rick.p.edgecombe@intel.com>, 
- Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>, 
- Yang Shi <yang@os.amperecomputing.com>, Yeoreum Yun <yeoreum.yun@arm.com>, 
- linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, x86@kernel.org, 
- Lorenzo Stoakes <ljs@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
- Vlastimil Babka <vbabka@kernel.org>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777997220; l=1336;
- i=kevin.brodsky@arm.com; s=20260427; h=from:subject:message-id;
- bh=XtqotHlvxdKu6c1pkEmCr60+1y0cB/ILuH7HTvPuXjw=;
- b=K2Hh5ueB1qxUS4zdYcT6VsETD5dVbzMYDFrOcezoE2+rc8YHsqgE1mD0JpP0LvBzLWt4INwPH
- FdSpumdToMxA5c8hwuqM1w/44U4enD9R0cEYEWjqIAXB1BF6Z84tYVy
-X-Developer-Key: i=kevin.brodsky@arm.com; a=ed25519;
- pk=N2QG+eJKrvkNovwhhwJhnJ4+ScVfsGCHldmqLfcMTFs=
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PA1PR04MB11531:EE_
+X-MS-Office365-Filtering-Correlation-Id: 26c870c0-4023-4bef-0f5a-08deaac0b3ef
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|1800799024|19092799006|366016|18002099003|38350700014|921020|56012099003;
+X-Microsoft-Antispam-Message-Info: GLJ4KQ8gr+zIcWpPEkZkA1WAfs83cI0UlpLaUQv0AtUrXtnN48hXoZFh9alitVAWeEw6+S9r1ob1dlfan75Wr50PHYrcmqAMTI7CAYjnrxb1zxd1j/sl3/NRVb4J6ujgAiOBAVAqgosarRpxphrY4AMSovSwYheAOf7j2gKGAYAOzjk2bVSwjiJX59Q8fPWJEJ5sNviEGtaEqxPFBxTny4ZhMeMJaPKCbA6v7rsEKDT5GkHVxZa3EQjDofXuov68zsplFWmz2OLQK190+yXPv60CHY3MEvBAPP/R0dAbWtzAKDGlUbWwhW36gpKLHqFWmgzJyDCuGS3DLe/HDw3jcaKpYJFD4Is0AX5u02yYHiPCtILZjTPg+LybAVU7pORG3f8K5ucaNj7G3Q0R6NZ7pf4O3b5B68qe1W5GusFzyq3ptaPT98iBkPODqX3ilFMv5Vii6mBaKNHQlNu9/wciWh3ZqNrf3/7oua0laLTRAQSECu7rNSb/26xklEkbFTZVZFh1YWRDIGGS+nqYblHn+V0+S762TFECrhhOwvXq6TaJKRXv6ownBKK+PtuBEkJPPwoIWlNPBho3W3A+xtLvAIoL3EEPpMXNbplRwhaRU41+dKgOgiIYiplJwjvg49ZVbsdCWT5e83CU97f6EKUWdOHJ9Hulvn5X55Ztr8vwTj/Tx4VgDRFoiuELMNtfLALKu4Sv2GAtdp6mwigB65V3pg+bQlfM3VhlZF9hQ7bqLOKNSi6Veo+e9erAbZETSu8u4smopBMaMsrXd/hjp0uuMw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(1800799024)(19092799006)(366016)(18002099003)(38350700014)(921020)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?elo0YnNULzVHdWpRRzhHN1hJajVSb2FDVG5VRVgzZkpIZzZaUnJjaWlRdzNB?=
+ =?utf-8?B?dmduUGZRZk1Ed091TmxIY05lUER3U1poZzRXUlZCcUhPRUVhS3k1Y1pHNVly?=
+ =?utf-8?B?eS9NeEhBRGp3N29xOFY3Y0tLTWtneDJPRGFBU29JNFNxWjdPU3NEcGdoSjRr?=
+ =?utf-8?B?TUJ6SkpyUnpaTnJPMUJvWkVIRkMzZ3JrNnpRVFVzWlJrd0hmYjQ5aXY1NUJP?=
+ =?utf-8?B?N1piOXNVTHBKdDBpQ3lDY0lSejhyYVRMRWJ6Y2l4UmtGYjhCVWYva05NTXRI?=
+ =?utf-8?B?OXM4bDdFTFpKQXlhWTdyR0pqOUM2ZGxzV0xuU2RyTXV6ZkNXNXlJeGl4em1w?=
+ =?utf-8?B?R09nQlhsK3ZKL1dZTjlCNXR4bCtlSk9LT2tCTVlTMENmUlF2TVF6SEpMSHlI?=
+ =?utf-8?B?dHhHVUJzS1FmMnRzTUVKN3I5SDFDNHZDV3RCTU9VbUNCblQ1R3VVTHJWUnB1?=
+ =?utf-8?B?R3BWQ25GeFI1akJOQmZOamIvRnhqdGlhVC8vUnV0R1plRFVhTnR1UWIyYXlJ?=
+ =?utf-8?B?OG1vTUFyZFRQZE1xT0VEeWtJY0lkV0hsclJoeit2bkl3aU02THFaSGdnV3dJ?=
+ =?utf-8?B?WkxreUVNQVBmbTNSWlFUR3ZwSEh4Y3FuTnc4aGx6TFNDa1BkSUhYR05Xb3RS?=
+ =?utf-8?B?TjNRL0txdFE0aFBSWVZleUVXZzFEWEtSSjM4U2RKY2tCVEI0OGdCZXR4RWpJ?=
+ =?utf-8?B?ekVOZWFQNGljOXFTZnFISTgybXRXNkpXNEhMTllVOVg5elBPSCtjSlpmRHRQ?=
+ =?utf-8?B?SlR1Qmlsc3pmV3QzTm9EbEM4eHVMeTFoMzRjSkxtbThwZFgwN2pDSWNwaG81?=
+ =?utf-8?B?V1d5d2xYeStjQ1IvRFlGdW81bGJiNk5kL0N4TWZZS29rUFQvL2o5TW1PNzE0?=
+ =?utf-8?B?QThRN1Z1RVV0RXM5aHBvUWRuS09KbmdVTkI0aHRMMmlFd3NXRENnM3l1QUM4?=
+ =?utf-8?B?RmVncnpac25VTVR0Qk1kbmxYbDZPd0ZQSkRiaVpiQzFrT1pFV3c5MFErTCth?=
+ =?utf-8?B?Z3IyK2svSUNRbHpmclloOXhOekNicEtSaUdxMlRYb0xHdkllZDZFZ1V1TlZp?=
+ =?utf-8?B?VzI2TFhndEhhZ2UrYmw1QS85R0RjUE52VEhRMmN3MXI2dFM1OXdqUEtwZURJ?=
+ =?utf-8?B?RVpWWHVHQWhuc3R0ZEl4WHNqWFRUTGVXeXBWNCtpSzBPdEtrcVVPcHRmdVFU?=
+ =?utf-8?B?Q05Jcy9LMXJiTlVpTmorN2ROOUpuUDdIZ1pDMU1WWjl0dkhvMEVXZGh3WndB?=
+ =?utf-8?B?dDhzbmZnbEQxUFFwODFtaXdvN2NSaitVRDdrRWtUV05vS1pWaEloRlI0UHZZ?=
+ =?utf-8?B?V0VHeVhWY1BBNUQ4aEx3Q2NyT3lMelorQ2llTXA2ajhza0VubGQ5QlNGbVJ4?=
+ =?utf-8?B?aXpYS01wcm4yM2N5aVJQMUxpWGVBZCtSS2paZFgvd2hWcmxjQnpIbmNVN3R1?=
+ =?utf-8?B?Z2RwSHFvcWJKcDBkQWZJM0lNOUhHemJwdmZDaVVJZFJYK0hSdm0xR2QvekNi?=
+ =?utf-8?B?TW43SStzWkdLSjFPZHRYK0J2cjJVbkRQUFlzUDFDMzFDSS8yNFY3eVBnMEY0?=
+ =?utf-8?B?YWtaL0RnR2dZNU5oSkwwNVc4UFV2SmpqZHR1UmJEN21hVlF5SHd3anhQd2w2?=
+ =?utf-8?B?aHZHc1ZqVktQT0JZcFNiLzJIaERqaEkyTlBaMXozSGZnQlNYdHlUVDMrSmZy?=
+ =?utf-8?B?NTJ1MURkSHZBRW8rcEV3ZmZHL0J5UkZJVzk0SlY3akJQQ2lpTkI5dHdiSlFE?=
+ =?utf-8?B?KzczcGxTTGhzQ1Zna1ljWDlONndJVnJjeHlmNm1Wa3BpOU1MTHdIVGc4bUEx?=
+ =?utf-8?B?WVVKUHdHRG5nc01lMWlNdGJFa3oxcGtHcXdzYXFxbEc4aXBCY1k0N3ZzcUF3?=
+ =?utf-8?B?cVoxWEl0Z1VXY3VBSmU1QVVYTkpwcFhlYUpFcXRMTGhWWEZnaUU1US84M0Nv?=
+ =?utf-8?B?YlNVNWR0SW5SSm1FRlNOdi9nSzhRaXVkNWpQbUsrTW53QzVmL1pMNHlseGpl?=
+ =?utf-8?B?R2JTZlNWbWplSE83NHZhWjV6OEJyWVdjaE9wZ0xWckR3cFdETlpURGJZNUtW?=
+ =?utf-8?B?ditIOWxSUXhxR3UxNGF4ejNma2JJbjhiMEpqY0ZsSTlGcXhGTHgrQ3g2Ly93?=
+ =?utf-8?B?T29pRjVOeURHd2RmL3NNV3djRWMrb0phN25tMkVXRjNpQkQxS2Q4bHVDc015?=
+ =?utf-8?B?NzRRcTE5dkM2WDNDUERiNC96d2tiR0hubmg4Tml2QWFDckhHK1pXMnZScUQr?=
+ =?utf-8?B?SERrRk9zVUNjeXJ4WmR2aE80OHVsYStHcUZXUHFiU0t6ZDVPcm1EeU9pc3Ev?=
+ =?utf-8?B?MlZNTVlRcGllQVdkM2o4NWpnS1A1cnU3dVk2RHBrRHlha3JsUXpKUT09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 26c870c0-4023-4bef-0f5a-08deaac0b3ef
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2026 16:09:36.5680
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: MAnHTQ391LtsgHsVdPtz2YZObdV1BC7wZq09Q+htLQpGh/148/folBxoYzRMux+9z46XfkAAP3CQYl+4Gs79zg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11531
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_170849_295195_07415B32 
-X-CRM114-Status: GOOD (  11.24  )
+X-CRM114-CacheID: sfid-20260505_090942_202750_85A4B699 
+X-CRM114-Status: GOOD (  17.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,46 +153,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The kpkeys_hardened_pgtables feature needs to be initialised as soon
-as the buddy allocator becomes available. The canonical place to
-handle this is mem_init().
+The old format to define pinctrl settings for imx in DT has two hierarchy
+levels. The first level are function device nodes. The second level are
+pingroups which contain a property fsl,pins. The original ntention was to
+define all pin functions in a single dtsi file and just reference the
+correct ones in the board files.
 
-With that done, all the bits are in place and we can advertise
-support for kpkeys_hardened_pgtables by selecting
-ARCH_HAS_KPKEYS_HARDENED_PGTABLES if ARM64_POE is enabled.
+The commit ("5fcdf6a7ed95e pinctrl: imx: Allow parsing DT without function
+nodes") already make moden i.MX chip support flatten layout.
 
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+Make legacy chipes (more than 15 years) support this flatten layout also.
+
+Fixes: e948cbdc41d6f ("ARM: dts: imx: remove redundant intermediate node in pinmux hierarchy")
+Tested-by: Sébastien Szymanski <sebastien.szymanski@armadeus.com>
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
- arch/arm64/Kconfig   | 1 +
- arch/arm64/mm/init.c | 1 +
- 2 files changed, 2 insertions(+)
+Change in v2
+- Add Tested-by: Sébastien Szymanski <sebastien.szymanski@armadeus.com>
+- Use of_property_present()
+---
+ drivers/pinctrl/freescale/pinctrl-imx1-core.c | 48 ++++++++++++++++---
+ 1 file changed, 41 insertions(+), 7 deletions(-)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index ab06324a50ae..43d3ab744535 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -2146,6 +2146,7 @@ config ARM64_POE
- 	select ARCH_USES_HIGH_VMA_FLAGS
- 	select ARCH_HAS_PKEYS
- 	select ARCH_HAS_KPKEYS
-+	select ARCH_HAS_KPKEYS_HARDENED_PGTABLES
- 	help
- 	  The Permission Overlay Extension is used to implement Memory
- 	  Protection Keys. Memory Protection Keys provides a mechanism for
-diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-index 97987f850a33..7985045875cf 100644
---- a/arch/arm64/mm/init.c
-+++ b/arch/arm64/mm/init.c
-@@ -386,6 +386,7 @@ bool page_alloc_available __ro_after_init;
- void __init mem_init(void)
- {
- 	page_alloc_available = true;
-+	kpkeys_hardened_pgtables_init();
- 	swiotlb_update_mem_attributes();
+diff --git a/drivers/pinctrl/freescale/pinctrl-imx1-core.c b/drivers/pinctrl/freescale/pinctrl-imx1-core.c
+index b36c8a1461b7c..b7bd4ef9c0db5 100644
+--- a/drivers/pinctrl/freescale/pinctrl-imx1-core.c
++++ b/drivers/pinctrl/freescale/pinctrl-imx1-core.c
+@@ -540,10 +540,34 @@ static int imx1_pinctrl_parse_functions(struct device_node *np,
+ 	return 0;
  }
  
-
++/*
++ * Check if the DT contains pins in the direct child nodes. This indicates the
++ * newer DT format to store pins. This function returns true if the first found
++ * fsl,pins property is in a child of np. Otherwise false is returned.
++ */
++static bool imx1_pinctrl_dt_is_flat_functions(struct device_node *np)
++{
++	struct device_node *function_np;
++	struct device_node *pinctrl_np;
++
++	for_each_child_of_node(np, function_np) {
++		if (of_property_present(function_np, "fsl,pins"))
++			return true;
++
++		for_each_child_of_node(function_np, pinctrl_np) {
++			if (of_property_present(pinctrl_np, "fsl,pins"))
++				return false;
++		}
++	}
++
++	return true;
++}
++
+ static int imx1_pinctrl_parse_dt(struct platform_device *pdev,
+ 		struct imx1_pinctrl *pctl, struct imx1_pinctrl_soc_info *info)
+ {
+ 	struct device_node *np = pdev->dev.of_node;
++	bool flat_funcs;
+ 	int ret;
+ 	u32 nfuncs = 0;
+ 	u32 ngroups = 0;
+@@ -552,9 +576,15 @@ static int imx1_pinctrl_parse_dt(struct platform_device *pdev,
+ 	if (!np)
+ 		return -ENODEV;
+ 
+-	for_each_child_of_node_scoped(np, child) {
+-		++nfuncs;
+-		ngroups += of_get_child_count(child);
++	flat_funcs = imx1_pinctrl_dt_is_flat_functions(np);
++	if (flat_funcs) {
++		nfuncs = 1;
++		ngroups = of_get_child_count(np);
++	} else {
++		for_each_child_of_node_scoped(np, child) {
++			++nfuncs;
++			ngroups += of_get_child_count(child);
++		}
+ 	}
+ 
+ 	if (!nfuncs) {
+@@ -574,10 +604,14 @@ static int imx1_pinctrl_parse_dt(struct platform_device *pdev,
+ 	if (!info->functions || !info->groups)
+ 		return -ENOMEM;
+ 
+-	for_each_child_of_node_scoped(np, child) {
+-		ret = imx1_pinctrl_parse_functions(child, info, ifunc++);
+-		if (ret == -ENOMEM)
+-			return -ENOMEM;
++	if (flat_funcs) {
++		imx1_pinctrl_parse_functions(np, info, 0);
++	} else {
++		for_each_child_of_node_scoped(np, child) {
++			ret = imx1_pinctrl_parse_functions(child, info, ifunc++);
++			if (ret == -ENOMEM)
++				return -ENOMEM;
++		}
+ 	}
+ 
+ 	return 0;
 -- 
-2.51.2
+2.43.0
 
 
