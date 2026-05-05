@@ -4,115 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96B95CD3430
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 09:23:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97F67CD3430
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 09:24:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qSEWOj315cxVAcM5yYzYQ3R+bCBOrMx2eE43MgrPits=; b=4kG5Yt4rm4NWbQIAI+qbulJvZ0
-	A9FoKdeJyCeViraH2ALr8atyahr3cjL9PsczareGp56tCnp9lQYcdeAAPqxxeIq4PaJOQdx+ygD/m
-	wo8NFpAR85LUoStSpYDpLmmEAULWcfb7faZ6umRnpv4qsDDqzoNememloiSBAuZNn/Op2w9+6pDBC
-	jrL2/oyuiRdXVDBBn5Ebq6myhhH+UrSG2tVvmUtDfDrgz3RjdKtQbORiA9px9EOOCFzBtPEfiTEqZ
-	rgIED7LPEhPqZU5AVFYlInNfAuP3uZAu0y1wS12Xeyk7A9FbZaBcw9FZLlCj+QzdYgFkpqceR+UH1
-	pfakC82Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0iFjxSowMvuMBQYdWrDTkbNzEcz8jfIC8K0vfmREwfM=; b=ze8SLWQtzM5dMozHkk+ZHKkUi3
+	jdrmV+bl+Qs6Rhw2SSqS90HQkMqPIHKBSBfoFWLAtX34wSIpb/wYyFqSEhKjfLpLJAxfDd6cDpYtq
+	E9hMPSZyjFXeZkZKPScm0SEErDKA1vkOCPcqUJiPYo2gTfsQsLsl5GPY+NLvOu36gaBaMaITUdEPz
+	M0PicjxsjhfFv4Fypr8tacjza0KSjHyVoDxizUgEVD2Vv0ufHJWiOw5xSi2tcOERI3a6vzYdjBUZj
+	m8xjT5/VQtZ9lDcpHYWGRFTRl2R0w2HBE3FlQpArL8IvdKJzqLUFS5GvWReMDvXQeiXff50dOoQr1
+	bn2h1QVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKBzb-0000000FeKW-0Lhm;
-	Tue, 05 May 2026 09:23:03 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wKC0j-0000000FeYG-1pTC;
+	Tue, 05 May 2026 09:24:13 +0000
+Received: from abb.hmeau.com ([180.181.231.80])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKBzZ-0000000FeJ5-0qna;
-	Tue, 05 May 2026 09:23:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 93C6043AD5;
-	Tue,  5 May 2026 09:23:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6EAC8C2BCB4;
-	Tue,  5 May 2026 09:22:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777972980;
-	bh=bqXesqkNRRYIGa0VDl2myGu9lN6sR5MsNkS5b+oqC2g=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=FAPmhzA6ZaZo7H0+M4EbksxS3NvDQvZHBq4cPx2Dqsw8Ikomcv+5f8IxxAvXVnxwo
-	 YcwKrWYBZCFt7UiQ0iakXxGce6503ml5k4faSY1hR/+Bwvtezo40qtOz/KxP8BuEZ7
-	 0JcabXxDWYxZaFJf7cmtyKqmqNj8cacD2PD5Q+rrbE94GJKsrtxEgpu5eTaRnMACdH
-	 43ybN2I0v+WCWDkXbwFGE+h/ML3DChkEhBepQbee+lFM7b1CqVeD8qewMLW9cijczN
-	 Ryf6VAnMUZGX72rhAoqI+v1tHsP4MCYLg7rKCNrgPPkZ6ZfgTloW0+7OOjzYBNFlFj
-	 o09lVrFci4dBg==
-Message-ID: <64af1e4b-0cf6-4288-a3ee-f65fc9e14e94@kernel.org>
-Date: Tue, 5 May 2026 11:22:54 +0200
+	id 1wKC0h-0000000FeXY-0hTM
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 05 May 2026 09:24:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
+	from:content-type:reply-to; bh=0iFjxSowMvuMBQYdWrDTkbNzEcz8jfIC8K0vfmREwfM=; 
+	b=Y41gk5U8Cns3zRxaKmmQVn8+A39mLYqXQrFvAMToSrCH5Wwdvb7LjOuBDRguIIZHielES7s3kKG
+	R461lbkcS8Z/Cd37DK2yKFFd3DovVSeiDSUBn0bMxOLNIM18FSDJEXR7zEKRhY5Fxbs2Qs+Uww2v9
+	DktsMswR9CNGzrvsYyIizGkWvqs3bBUlu8T4sT4jKGACBiJ5PhbY47lqbniFN8ce9KlWAwJkQotwd
+	n3gYQntFEz0nC3NHsXnqbROXpoabdnlTdhMhVTRBg8UccWaOKBZZ2Gu+KNQW/p7MthpiRbZYBQ5i4
+	lJpxlubiKGt3WYhppMLSS80SPN0pf3LbbdJQ==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1wKC0X-00BNlw-0J;
+	Tue, 05 May 2026 17:24:02 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Tue, 05 May 2026 17:24:01 +0800
+Date: Tue, 5 May 2026 17:24:01 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Corentin Labbe <clabbe.montjoie@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Eric Biggers <ebiggers@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Ovidiu Panait <ovidiu.panait.oss@gmail.com>,
+	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] crypto: sun8i-ss - avoid hash and rng references
+Message-ID: <afm3MTvlJUKv87AN@gondor.apana.org.au>
+References: <20260423065600.2081989-1-arnd@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/4] arm64: dts: broadcom: bcm2712: add
- bcm2712-firmware compatible
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Gregor Herburger <gregor.herburger@linutronix.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui
- <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Eric Anholt <eric@anholt.net>,
- Stefan Wahren <wahrenst@gmx.net>, Srinivas Kandagatla <srini@kernel.org>,
- Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-hardening@vger.kernel.org
-References: <20260505-rpi-otp-driver-v2-0-e9176ec72837@linutronix.de>
- <20260505-rpi-otp-driver-v2-4-e9176ec72837@linutronix.de>
- <6155d6aa-5e66-4043-a7b2-da447548056d@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <6155d6aa-5e66-4043-a7b2-da447548056d@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260423065600.2081989-1-arnd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_022301_284399_593BCE19 
-X-CRM114-Status: GOOD (  12.58  )
+X-CRM114-CacheID: sfid-20260505_022411_277545_5938CC62 
+X-CRM114-Status: GOOD (  20.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,36 +77,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/05/2026 11:21, Krzysztof Kozlowski wrote:
-> On 05/05/2026 09:25, Gregor Herburger wrote:
->> The Raspberry Pi 5 firmware exposes additional features. Update the
->> compatible to reflect these differences.
->>
->> Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
->> ---
->>  arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi | 2 +-
->>  1 file changed, 1 insertion(+), 1 deletion(-)
->>
->> diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
->> index b7a6bc34ae1a..7283078fd441 100644
->> --- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
->> +++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
->> @@ -46,7 +46,7 @@ power_button: power-button {
->>  
->>  	firmware {
->>  		firmware: rpi-firmware {
->> -			compatible = "raspberrypi,bcm2835-firmware", "simple-mfd";
->> +			compatible = "raspberrypi,bcm2712-firmware", "simple-mfd";
+On Thu, Apr 23, 2026 at 08:55:42AM +0200, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
 > 
-> This breaks users without mentioning and without proper reason.
-> "Additional features" is not a reason to break users. At least not
-> without explaining the actual impact, but even with the impact IMO this
-> is just wrong.
+> While the sun4i-ss and sun8i-ce drivers started selecting CRYPTO_RNG,
+> the sun8i-ss variant does not, and causes a link failure:
 > 
+> aarch64-linux-ld: drivers/crypto/allwinner/sun8i-ss/sun8i-ss-core.o: in function `sun8i_ss_unregister_algs':
+> sun8i-ss-core.c:(.text.sun8i_ss_unregister_algs+0x94): undefined reference to `crypto_unregister_rng'
+> aarch64-linux-ld: drivers/crypto/allwinner/sun8i-ss/sun8i-ss-core.o: in function `sun8i_ss_probe':
+> sun8i-ss-core.c:(.text.sun8i_ss_probe+0x40c): undefined reference to `crypto_register_rng'
+> 
+> Looking more closely, I see that all of the allwinner crypto drivers have the
+> same logic where the rng and hash parts of the driver are optional, but then the
+> generic code is still selected, which is a bit inconsistent, aside from the
+> missing CRYPTO_RNG select on sun8i-ss.
+> 
+> Change the approach so only the bits that are actually used are built, using
+> ifdef checks around the optional portions that match the optional references
+> to the sub-drivers.
+> 
+> Ideally the drivers would get reworked in a way that keeps all the bits
+> related to the skcipher/ahash/rng codecs in the respective sub-drivers,
+> rather than having a common driver that knows about all of these.
+> 
+> Fixes: cdadc1435937 ("crypto: cryptomgr - Select algorithm types only when CRYPTO_SELFTESTS")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
+> The simpler approach would be to add even more 'select' statements
+> ---
+>  drivers/crypto/allwinner/Kconfig                  |  2 --
+>  drivers/crypto/allwinner/sun4i-ss/sun4i-ss-core.c |  8 ++++++++
+>  drivers/crypto/allwinner/sun8i-ce/sun8i-ce-core.c | 12 ++++++++++++
+>  drivers/crypto/allwinner/sun8i-ss/sun8i-ss-core.c | 12 ++++++++++++
+>  4 files changed, 32 insertions(+), 2 deletions(-)
 
-
-Heh, and you ignored completely our final comments in last discussion.
-
-Best regards,
-Krzysztof
+Patch applied.  Thanks.
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
