@@ -4,66 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C41DCD13DA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 06:29:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5965DFF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 06:33:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mMW8AEGhMafvz4O5+74DGobnCil6TvXWOF0reU/8wjk=; b=aHG4PU+B48brZy4bgD806NQ3PY
-	QdgDllJRB+VSkcbkQqx164FvzDraxYYcnGzuexPZ6VMxMlhu36VV9YyfKRG7jSdDGJCVn9M3XgcSp
-	ofYKoL5Mq1uSDeqORV2oK0ZsstXwJoFL+NVuKdb/mXqlpExosE0rvwt4c2k8IlqtG/6Z9Kiad3NFb
-	PnnNN8Ovx158q4ytvyRacI45SQTKNSKVoBuHVUHWYbmzb87WBHHi/tl5QDcD63sV779qxxjey4ert
-	0xKSPi6/BfwoBfX5rBNdgsGJCEmLoXiINX2HjhnhBkDjMKfaBwJ2KwtFzCX5lxB8lLUFG1Luizr3K
-	ykWWTn+w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sDuvub1778pFatrBftHPmBbzNs+W0zYjZGDQ4MGF/Sg=; b=yyEqNKx6Fi1VQZlc0Y2Go6cxk2
+	GZy7zPClfv6dy1blpPDYnBRbyZIK5Cfw50jFe+jNZGZqhtEoy6DNLFUZqZdsW0QCzpVzl+mYfRK79
+	RjVvX41uJ10ZjDNnpLvEpfekIdBwAarWUJ6SmmTC53IjS3fNN+qpKJSygTrL6Rocy8aZ9zseC+/bx
+	SmxH02IJc0Ay01ZCntLzbG2NkdEeP2WRhWQQl3wyY9ROY7VNDCvdVVHKsrixxH3Pljvyjmmb2/SFR
+	wxUZtl5aeCRUtt7+oV0Y12V4ecRYNNPc/TmrD76YjZNqeHGZN0vV092bBM76Yf70PEuWonVSt9L99
+	bsPTwIDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wK9Hp-0000000FIB7-0yLY;
-	Tue, 05 May 2026 06:29:41 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
+	id 1wK9Lv-0000000FIaL-42kU;
+	Tue, 05 May 2026 06:33:56 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wK9Hm-0000000FIAQ-0SYZ
+	id 1wK9Lt-0000000FIZU-1gqd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 06:29:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
-	Content-Type; bh=mMW8AEGhMafvz4O5+74DGobnCil6TvXWOF0reU/8wjk=;
-	b=dGVv4kpfLQOtKe1W90YBYeq37NsDG0q3mgiZtNY4I3Vu6DXExg46Xh1QNmWoVk
-	hsIzTfkoNYC7nY5yQS/HFhc2St/qnnCH5kY/kdyHPdZyulsjOovGbEqUvGttAyK2
-	nUC+vzJJ3R2Wn+AXjYuZkjsGzT+P/zbgUE+HTLZEAlsq8=
-Received: from [192.168.50.71] (unknown [])
-	by gzga-smtp-mtada-g0-1 (Coremail) with SMTP id _____wCnTnkgjvlpV+DSDQ--.40732S2;
-	Tue, 05 May 2026 14:28:49 +0800 (CST)
-Message-ID: <25d5e524-d7b4-432d-8114-44d32b736732@163.com>
-Date: Tue, 5 May 2026 14:28:47 +0800
+	Tue, 05 May 2026 06:33:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References;
+	bh=sDuvub1778pFatrBftHPmBbzNs+W0zYjZGDQ4MGF/Sg=; b=mJRHjQnU1i3UVnMzked5o+Kfdj
+	XFd8nziBpu7uVBFatCGtXDQIXbDKdeSPI96BWqcpFvFseWYgXB0qZguFhuSWq3Jzx4JkLmvl5ydSy
+	V8gvI0LyZbe7eH8cv7jynG90GjmpIqaqvK2T1lJx3m7wqWW/k9GvpIfdygOvec5364sRs4kXJ6dJB
+	IDWnn1Xhs0kVlZ7ihFTKT50u5KTTLTA99N4L5dIX63OZ+atGSc3kEaj7Ha+ed+mrqmJxK1lgcqiMP
+	Vuz+vWKm3Xdfid0hL/0dWCOZR7bNdRg12FIxlOcxzyyzFWA6+m40fqoNxhW3sVAi8dCJzonlFuPUy
+	Si/EA3Rw==;
+Received: from sslproxy06.your-server.de ([78.46.172.3])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wK9Lq-0004vM-1M;
+	Tue, 05 May 2026 08:33:50 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy06.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wK9Lq-000KOQ-0O;
+	Tue, 05 May 2026 08:33:49 +0200
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>
+Cc: Paul Gerber <paul.gerber@tq-group.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux@ew.tq-group.com,
+	linux-renesas-soc@vger.kernel.org,
+	Alexander Stein <alexander.stein@ew.tq-group.com>
+Subject: [PATCH 1/2] dt-bindings: arm: fsl: add TQMa8MPxS board
+Date: Tue,  5 May 2026 08:33:43 +0200
+Message-ID: <20260505063346.1799500-1-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] PCI: cadence: Ensure that
- cdns_pcie_host_wait_for_link() waits 100 ms after link up
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Siddharth Vadapalli <s-vadapalli@ti.com>, bhelgaas@google.com,
- lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
- vigneshr@ti.com, robh@kernel.org, linux-omap@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260504162216.GA646395@bhelgaas>
-Content-Language: en-US
-From: Hans Zhang <18255117159@163.com>
-In-Reply-To: <20260504162216.GA646395@bhelgaas>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wCnTnkgjvlpV+DSDQ--.40732S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxtF4ruF43JFy3AFy7ZF45trb_yoW7KrWUpa
-	yUGF1IkF4vqr45Z3Wvv3W5XrySqr98JFy7Xw1kKryxXrnFvr17tF42gF4agFy3Xr4qyr17
-	Zr1UtF9rGr1YyFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07U5sqAUUUUU=
-X-Originating-IP: [140.206.53.66]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCwwGEKGn5jiEdbwAA3j
+X-Virus-Scanned: Clear (ClamAV 1.4.3/27991/Mon May  4 08:24:39 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_232938_677184_98AD7EFE 
-X-CRM114-Status: GOOD (  22.42  )
+X-CRM114-CacheID: sfid-20260504_233353_556862_1B5CC6E9 
+X-CRM114-Status: UNSURE (   8.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,148 +94,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Paul Gerber <paul.gerber@tq-group.com>
 
+TQMa8MPxS is a SOM family using NXP i.MX8MP CPU family.
+MB-SMARC-2 is an evaluation mainbord for this SOM
 
-On 5/5/26 00:22, Bjorn Helgaas wrote:
-> On Mon, May 04, 2026 at 02:23:34PM +0800, Hans Zhang wrote:
->> On 5/4/26 13:08, Siddharth Vadapalli wrote:
->>> On 03/05/26 21:16, Hans Zhang wrote:
->>>> On 5/2/26 13:18, Siddharth Vadapalli wrote:
->>>>> On 01/05/26 21:05, Hans Zhang wrote:
->>>>>> As per PCIe r6.0, sec 6.6.1, a Downstream Port that supports
->>>>>> Link speeds
->>>>>> greater than 5.0 GT/s, software must wait a minimum of 100
->>>>>> ms after Link
->>>>>> training completes before sending a Configuration Request.
->>>>>>
->>>>>> Add a new 'max_link_speed' field in struct cdns_pcie to record the
->>>>>> maximum supported (or currently configured) link speed of
->>>>>> the controller.
->>>>>>
->>>>>> In cdns_pcie_host_wait_for_link(), after the link is reported as up,
->>>>>> insert a 100 ms delay if max_link_speed > 2 (i.e., > 5 GT/s). This
->>>>>> implements the required delay at the common Cadence host layer.
->>>>>>
->>>>>> Currently max_link_speed is zero-initialized, so the delay is not yet
->>>>>> active. Glue drivers must set max_link_speed appropriately to enable
->>>>>> the delay. This matches the approach taken for the Synopsys DWC
->>>>>> controller in commit 80dc18a0cba8d ("PCI: dwc: Ensure that
->>>>>> dw_pcie_wait_for_link() waits 100 ms after link up").
->>>>>>
->>>>>> Signed-off-by: Hans Zhang <18255117159@163.com>
->>>>>> ---
->>>>>>    .../pci/controller/cadence/pcie-cadence-host-common.c    |
->>>>>> 9 +++++ ++++
->>>>>>    drivers/pci/controller/cadence/pcie-cadence.h            | 2 ++
->>>>>>    2 files changed, 11 insertions(+)
->>>>>>
->>>>>> diff --git
->>>>>> a/drivers/pci/controller/cadence/pcie-cadence-host- common.c
->>>>>> b/drivers/pci/controller/cadence/pcie-cadence-host-common.c
->>>>>> index 2b0211870f02..d4ae762f423f 100644
->>>>>> --- a/drivers/pci/controller/cadence/pcie-cadence-host-common.c
->>>>>> +++ b/drivers/pci/controller/cadence/pcie-cadence-host-common.c
->>>>>> @@ -14,6 +14,7 @@
->>>>>>    #include "pcie-cadence.h"
->>>>>>    #include "pcie-cadence-host-common.h"
->>>>>> +#include "../../pci.h"
->>>>>>    #define LINK_RETRAIN_TIMEOUT HZ
->>>>>> @@ -55,6 +56,14 @@ int cdns_pcie_host_wait_for_link(struct
->>>>>> cdns_pcie *pcie,
->>>>>>        /* Check if the link is up or not */
->>>>>>        for (retries = 0; retries < LINK_WAIT_MAX_RETRIES; retries++) {
->>>>>>            if (pcie_link_up(pcie)) {
->>>>>> +            /*
->>>>>> +             * As per PCIe r6.0, sec 6.6.1, a Downstream Port that
->>>>>> +             * supports Link speeds greater than 5.0 GT/s, software
->>>>>> +             * must wait a minimum of 100 ms after Link training
->>>>>> +             * completes before sending a Configuration Request.
->>>>>> +             */
->>>>>> +            if (pcie->max_link_speed > 2)
->>>>>> +                msleep(PCIE_RESET_CONFIG_WAIT_MS);
->>>>>
->>>>> I think the above could be moved to cdns_pcie_host_start_link()
->>>>> as follows:
->>>>>
->>>>> diff --git a/drivers/pci/controller/cadence/pcie-cadence-host-
->>>>> common.c b/
->>>>> drivers/pci/controller/cadence/pcie-cadence-host-common.c
->>>>> index 2b0211870f02..0f885dcbdb12 100644
->>>>> --- a/drivers/pci/controller/cadence/pcie-cadence-host-common.c
->>>>> +++ b/drivers/pci/controller/cadence/pcie-cadence-host-common.c
->>>>> @@ -115,6 +115,15 @@ int cdns_pcie_host_start_link(struct
->>>>> cdns_pcie_rc *rc,
->>>>>        if (!ret && rc->quirk_retrain_flag)
->>>>>            ret = cdns_pcie_retrain(pcie, pcie_link_up);
->>>>>
->>>>> +    /*
->>>>> +     * As per PCIe r6.0, sec 6.6.1, a Downstream Port that
->>>>> +     * supports Link speeds greater than 5.0 GT/s, software
->>>>> +     * must wait a minimum of 100 ms after Link training
->>>>> +     * completes before sending a Configuration Request.
->>>>> +     */
->>>>> +    if (!ret && pcie->max_link_speed > 2)
->>>>> +        msleep(PCIE_RESET_CONFIG_WAIT_MS);
->>>>> +
->>>>>        return ret;
->>>>>    }
->>>>>    EXPORT_SYMBOL_GPL(cdns_pcie_host_start_link);
->>>>>
->>>>> This will avoid an additional and unnecessary delay when
->>>>> 'cdns_pcie_retrain()' retrains the link.
->>>>>
->>>>> Instead of checking for the link being up using
->>>>> "pcie_link_up(pcie)", checking for 'ret' being zero should also
->>>>> work (ret being zero indicates that the link is up).
->>>>>
->>>>> Since configuration space accesses will not be performed until
->>>>> cdns_pcie_host_start_link() completes executing, it should be
->>>>> safe to switch to the above implementation.
->>>>
->>>> Hi Siddharth,
->>>>
->>>> I think this is applicable to LGA IP as per the method you
->>>> mentioned. However, for HPA IP, additional repetitive code needs to
->>>> be added in the following code.
->>>
->>> Yes, additional code is required as you rightly pointed out, but the
->>> problem I was trying to address with your patch is the following:
->>>       cdns_pcie_host_start_link()
->>>         calls cdns_pcie_host_wait_for_link()
->>>           Link is Up and we wait for 100 ms here
->>>         calls cdns_pcie_retrain()
->>>             calls cdns_pcie_host_wait_for_link() a second time
->>>               Link is Up again after retraining and we wait and
->>>               we wait an additional 100 ms here.
->>>
->>> Instead, it will be sufficient if we could wait just once after
->>> cdns_pcie_retrain() returns.
->>
->> Hi Siddharth,
->>
->> Yes, I looked at the code and indeed it works this way.
->>
->> Because of the abundance of redundant comments. I'm wondering if it's
->> possible to encapsulate a helper function in the file
->> drivers/pci/controller/pci-host-common.c, so that controller drivers like
->> dwc and cadence can call this API. Or do you know where it would be
->> appropriate to place it?
->>
->> Hello, Bjorn and Mani, I wonder what your opinions are.
-> 
-> Make a proposal.  Sounds fine to remove redundant comments if they
-> cause confusion.  Adding a helper to make things more consistent
-> across drivers also sounds fine, but it would be better to have a
-> straw-man proposal to respond to.
+The SOM needs a mainboard, therefore we provide two compatibles here:
 
-Hi Bjorn,
+"tq,imx8mp-<SOM>" for the module and
+"tq,imx8mp-<SOM>-<SBC>"
 
-Thank you for your reply. I will then prepare the next version.
+Signed-off-by: Paul Gerber <paul.gerber@tq-group.com>
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+---
+ Documentation/devicetree/bindings/arm/fsl.yaml | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-Best regards,
-Hans
-
-> 
-> Bjorn
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index 0023cd1268075..b69c34752ace6 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1300,6 +1300,18 @@ properties:
+           - const: tq,imx8mp-tqma8mpql            # TQ-Systems GmbH i.MX8MP TQMa8MPQL SOM
+           - const: fsl,imx8mp
+ 
++      - description:
++          TQMa8MPxS is a series of SOM featuring NXP i.MX8MP system-on-chip
++          variants. It has the SMARC-2.0 form factor and is designed to be
++          placed on different carrier boards. All CPU variants use the same
++          device tree hence only one compatible is needed. MB-SMARC-2 is a
++          carrier reference design.
++        items:
++          - enum:
++              - tq,imx8mp-tqma8mpqs-mb-smarc-2    # TQ-Systems GmbH i.MX8MP TQMa8MPQS SOM on MB-SMARC-2
++          - const: tq,imx8mp-tqma8mpqs            # TQ-Systems GmbH i.MX8MP TQMa8MPQS SOM
++          - const: fsl,imx8mp
++
+       - description: Variscite VAR-SOM-MX8M Plus based boards
+         items:
+           - const: variscite,var-som-mx8mp-symphony
+-- 
+2.43.0
 
 
