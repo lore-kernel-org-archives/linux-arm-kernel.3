@@ -4,66 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4AF0CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:20:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24FD3FF8855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:23:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KfAZMsgRa0hd95LG3ZQy3NrFxgXPiQ+9pGnm3p6tz6o=; b=B8Oj3wsOI8rIGx+mEpKdAOlcMu
-	QiPaTfxsq1CjWcltIXhckn1qAcJhE2w/TV+HyNmeokhpZy0sW/o5XmFOo/eD6oftTI4Kvp4hp9/Ii
-	sHGqtWvnVqaTR4E/JhWW0l3Ivl4F8PKeKl2UGpEeAT9jhDBCfbZ1Sn9ILau8Px91E1ukvELMKWuf7
-	/ZBYZZb81kAgMBOeCl7xmg2l/KUZfl2vDnXACXb/0+wSgiXYsWQnT4UKiehhgdwx5RyF9Rjp0cyoP
-	6flpGipNP+H+RmbQ3xsiMGpvoJlxSpsD37AVrc+3W8XDAIigjzX6MFp6p2uxbVUkHyuJs8W/Gi+Z2
-	P+U7fmeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ApEyVbHibMfUXEFKd8vG2mJSusEJJaisfPMffm8l//c=; b=u2iqDWBWeJIXQ6ZVGLk28wv9+Z
+	FrrBS4ffPAa5BECy14hY8fygK0G+VoCcyqyBwuPuCJzqZcmOQBmjO3J/qAJ6fM20b1aQ1megLkNFd
+	wpgNTYebu5wDvES2v6bYoiCEtmaoA8QF4w0m2E+eB61XYdTvlXr+ujHpElnNdQo07sq4n958TeUXc
+	AmfWkF4waToVJGWjK7inu7KVK8UsPyZ/PqbEkuyV70EvWIICwzVXMBUiZqUfZ29JFUap8lsJSQPlG
+	0BeoPQXt9/uyI1COAkGfNmwZGygY42xS5K1EjzaaSUoPu8Fe1Lp8gn/NnfCVqBLgMK+NQ+cRGjFJF
+	b6QcXF9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKIW0-0000000GrOS-02WY;
-	Tue, 05 May 2026 16:20:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKIVy-0000000GrNn-2P3v
+	id 1wKIYg-0000000GrkG-0SwR;
+	Tue, 05 May 2026 16:23:42 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wKIYc-0000000Grjh-2lZE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 16:20:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 887F21C2B;
-	Tue,  5 May 2026 09:20:48 -0700 (PDT)
-Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0581E3F763;
-	Tue,  5 May 2026 09:20:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777998053; bh=C8efCugq5/wF4si+DgA/qFTAdUR0kg1MpKn17jk6yuM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=FnqFTI+oE0YtcnjRCbvYHUF8oZI18TcjaZur9kjU8zGkkPPaFMnJykcV6ZwmQYroB
-	 QbYiwMfaZHg/ifnCvZ4ddY0gQIN1gwFUQRdBnC6UlAhZdUMKM4Lyw2RZVYYj4YV56p
-	 0EZDUcGxKllp0vr0FwW5BhjWUmsBTMH/KDsod0II=
-Date: Tue, 5 May 2026 18:20:17 +0200
-From: Andre Przywara <andre.przywara@arm.com>
-To: Paul Kocialkowski <paulk@sys-base.io>
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai
- <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
- <samuel@sholland.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 08/14] clk: sunxi-ng: a523: add system mod clocks
-Message-ID: <20260505182017.10d71c11@ryzen.lan>
-In-Reply-To: <afoRe6DI4GJIVtg4@shepard>
-References: <20250307002628.10684-1-andre.przywara@arm.com>
-	<20250307002628.10684-9-andre.przywara@arm.com>
-	<afoRe6DI4GJIVtg4@shepard>
-Organization: Arm Ltd.
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
+	Tue, 05 May 2026 16:23:39 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-44a14580111so3478785f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 09:23:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1777998217; x=1778603017; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ApEyVbHibMfUXEFKd8vG2mJSusEJJaisfPMffm8l//c=;
+        b=VeBy8lNylY88t0ZnJk1nG4q/nDVAfKSZVtLD5Jx3adTxsvVWphYpdJNzNE7pynvcfo
+         faWu+rLeGBTeo5gyfF0ca8GwMmE5JfzFWp4v4cXpSPV8ZeKJ//Ox+s8PbPsx7RJkyquJ
+         zn6FpumuLC6aT3AdDflNzK4yLy9Yl7vXhhCDYDYzsN5MDa4Js7dy5C0IMAKdscEYz794
+         5z57K2JkkFJATSZIT98lkL7qAo5RdZt801HMZ/ESTr2WRbx9ZQd0TfsB7oqiTYVCcYeK
+         Pz0QU0pvs6cZBzeHLtJ5oTZpp9+bRHwrqhCqNCSTJY6+t6ULAlhinn4Pkdy/kroYpmpm
+         LrBA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777998217; x=1778603017;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=ApEyVbHibMfUXEFKd8vG2mJSusEJJaisfPMffm8l//c=;
+        b=CZd01gm8SrwYxI8I8qwtYuNMJvwVg7vM6MYU1h12yxyPD0LtT5HEKANNvCFMhIviOT
+         et/SpGrE35gd3gkeeLV6a0zNfTy1ZqnYO6ssKEzYTp+3KgfF9mKncVyQvsBMdz3BfILS
+         +HLFfdt0q+rf6EkeaoHAv0yhknQjkZ3EoRRxBS1FXbqfHvOxWxHNnkhCJeTIZkGclRnn
+         u18sMNv/U8jfaWO1fQZjHP/Dk2P7spJiA5heHEVflMQ8cMfLuJEt9fqmAzk/TBbNz+AE
+         kwDdmrvA55yhqc0G7EUHii19wMUPGhuO63l9PtItKdJXWb3VY31r56nBXM3H3h8T3pz4
+         eL2g==
+X-Forwarded-Encrypted: i=1; AFNElJ/hZyjOgYVZb34rPXTII71DP22Nk/1puUPBuiJRb8C9CWMxyMG9UKD95NWU4CUs+nxdCL5KLBaRv/TTlnjriuJw@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyi4msyByL1NTVjY8G1BVQ9m/InU15RjYLfJLj+8Z1nTdot5Y3m
+	/s7JrBYOVPXnn8upfRAO/bPSiK1TGBgDRDonKvGQ6gQDzutMDf9Hn1xBmlzY9W24
+X-Gm-Gg: AeBDiesU0TLRV/A3z1WmR/rrPaoxB2FIll4QMnMfhZRNbe9x4H/P9y410NpBkElx0SW
+	AI509ej5XDIHOJGiNCASDGElmhoIovrWb1gZymGIKZvRostJ0nlKGe4vfE4Eqsbafz3ArYDB1vK
+	47Sx9FyAji4xbh3+1OUnqzeobrW+28PsLH/N1ARgCHXYecBTOJlXLeX7p9Yd1Yv+kHd3xUHVxZ9
+	ziirw1LgN0JnpwLQT2vV5zQo9/fekPhEMOvwX0oK2c8PqmuG69F0Rx+XD2mZ6gOIx3P7pC2H20Z
+	2ZaQrZNQZnLEPei180efxugAa9t2fRrMMZNZat34QrpVYoDlWlWWAultzLUnnFik/quF5UEnaQ7
+	DfyXVqrdAgx4lomkVmE41Ij+PRxt0iM1IEv9LIuPeUzE2KjsalRhAAZwGKkx9ziQ1gzKXIGu+va
+	zhG9Jsv0lxZgHV1aeCJq+8SC0wbcX/hAy/h+xqsoe75rn9lXgh1VECOq5EH4Npd00Dk5WX1zIgL
+	wXXtDWe0kBth9k0KnP7G5n8C1/I
+X-Received: by 2002:a5d:5d8a:0:b0:44a:2555:f8a9 with SMTP id ffacd0b85a97d-44bb3c94c11mr24734377f8f.10.1777998216446;
+        Tue, 05 May 2026 09:23:36 -0700 (PDT)
+Received: from jernej-laptop.localnet (46-150-62-216.dynamic.telemach.net. [46.150.62.216])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45054b03e04sm5934939f8f.21.2026.05.05.09.23.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 05 May 2026 09:23:35 -0700 (PDT)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Samuel Holland <samuel@sholland.org>,
+ Michal Piekos <michal.piekos@mmpsystems.pl>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Michal Piekos <michal.piekos@mmpsystems.pl>
+Subject: Re: [PATCH v2] arm: dts: allwinner: t113s: enable watchdog for reboot
+Date: Tue, 05 May 2026 18:23:33 +0200
+Message-ID: <sv5CLRHyTX2Cm45r4DQahA@gmail.com>
+In-Reply-To: <20260425-t113-mangopi-reboot-hang-v2-1-fd343207a4be@mmpsystems.pl>
+References: <20260425-t113-mangopi-reboot-hang-v2-1-fd343207a4be@mmpsystems.pl>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_092054_672968_2EC82E2E 
-X-CRM114-Status: GOOD (  22.09  )
+X-CRM114-CacheID: sfid-20260505_092338_737988_F543A1BE 
+X-CRM114-Status: GOOD (  15.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,52 +103,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 5 May 2026 17:49:15 +0200
-Paul Kocialkowski <paulk@sys-base.io> wrote:
+Dne sobota, 25. april 2026 ob 10:19:40 Srednjeevropski poletni =C4=8Das je =
+Michal Piekos napisal(a):
+> Reboot hangs on T113s boards because no restart handler is
+> available.
+>=20
+> Enable the SoC watchdog whose driver registers a restart handler.
+>=20
+> Tested on MangoPi MQ-R T113s.
+>=20
+> Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
+> ---
+> Changes in v2:
+> - Moved watchdog enablement to SoC level dts following Jernej's
+>   suggestion
+> - Link to v1: https://lore.kernel.org/r/20260412-t113-mangopi-reboot-hang=
+=2Dv1-1-5002cfa6e0cc@mmpsystems.pl
+> ---
+>  arch/arm/boot/dts/allwinner/sun8i-t113s.dtsi | 6 ++++++
+>  1 file changed, 6 insertions(+)
+>=20
+> diff --git a/arch/arm/boot/dts/allwinner/sun8i-t113s.dtsi b/arch/arm/boot=
+/dts/allwinner/sun8i-t113s.dtsi
+> index 424f4a2487e2..d3bbed84eedb 100644
+> --- a/arch/arm/boot/dts/allwinner/sun8i-t113s.dtsi
+> +++ b/arch/arm/boot/dts/allwinner/sun8i-t113s.dtsi
+> @@ -34,6 +34,12 @@ cpu1: cpu@1 {
+>  		};
+>  	};
+> =20
+> +	soc {
+> +		wdt {
+> +			status =3D "okay";
+> +		};
+> +	};
+> +
+>  	gic: interrupt-controller@1c81000 {
+>  		compatible =3D "arm,gic-400";
+>  		reg =3D <0x03021000 0x1000>,
+>
 
-Hi Paul,
+=46ollowing, at the end of the file should work:
 
-> On Fri 07 Mar 25, 00:26, Andre Przywara wrote:
-> > Add the clocks driving some core system related subsystems of the SoC:
-> > the "CE" crypto engine, the high speed timers, the DRAM and the associated
-> > MBUS clock, and the PCIe clock.
-> > 
-> > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> > ---
-> >  drivers/clk/sunxi-ng/ccu-sun55i-a523.c | 135 +++++++++++++++++++++++++
-> >  1 file changed, 135 insertions(+)
-> > 
-> > diff --git a/drivers/clk/sunxi-ng/ccu-sun55i-a523.c b/drivers/clk/sunxi-ng/ccu-sun55i-a523.c
-> > index 17a4ffc0b7f52..c59f3f789d052 100644
-> > --- a/drivers/clk/sunxi-ng/ccu-sun55i-a523.c
-> > +++ b/drivers/clk/sunxi-ng/ccu-sun55i-a523.c  
-> 
-> [...]
-> 
-> > +static const struct clk_parent_data hstimer_parents[] = {
-> > +	{ .fw_name = "hosc" },
-> > +	{ .fw_name = "iosc" },
-> > +	{ .fw_name = "losc" },
-> > +	{ .hw = &pll_periph0_200M_clk.hw },
-> > +};
-> > +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(hstimer0_clk, "hstimer0",
-> > +				       hstimer_parents, 0x730,
-> > +				       0, 0,	/* M */  
-> 
-> I was looking at the A523 ccu code and see lots of
-> SUNXI_CCU_MP_DATA_WITH_MUX_GATE with no M.
-> 
-> Was there a particular reason for not using SUNXI_CCU_M_DATA_WITH_MUX_GATE
-> instead? It would surely be less confusing.
-> 
-> One difference would be that the ops end up as ccu_div_ops instead of
-> ccu_mp_ops. Do you need ccu_mp_ops for some reason?
+&wdt {
+	status =3D "okay";
+};
 
-Yes, please double check that (as it *is* confusing), but to me it
-looks like the CCU_M_ version has just a pure divider, whereas in
-CCU_MP_ the P is a *shift*, and the M a divider. Those timer clocks just
-feature a shift, which I don't think we have seen before?
+Best regards,
+Jernej
 
-Cheers,
-Andre
+
 
