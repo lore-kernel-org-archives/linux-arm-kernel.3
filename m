@@ -4,63 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE008FF8855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 22:13:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D7BFCD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 22:22:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BuZXA9Qcsz79IE1YefGF3fDxiWY5XB/9Ov4Ot65mumA=; b=D6NRprhk4KbXMEYX+d5JLLrlt8
-	zAQ5fLqilMcjd3VLoOnxyMrrnL3xxejhTW1LzJCVraulNCPtVhGTrwm27pH+qqlD8R4cM9oKo52X4
-	YjtaZ+DOlIEcMOmnyRTrfebbzS0k3hg2s9+D9aJ7gZLyVb56+85ykiYLKjN4Lc9Z4JohhsffCU0ZR
-	aYsWitrhvoRiXtrfQib9Q0OdMXWPGQ7JUXy9kV4IJcsqtx+0jHinL3ibgMq+KgY1BSNn5dfBTu9BZ
-	uxGnaHrUwHSEolGgs3hdymHTj2b2SDxYUo3sh5432QuynA9jldJlULrZJEi4Yx8BQnMAUr1qwpuze
-	VOtLsOdA==;
+	bh=0GlP2KVGAH3ZHV/1ess4VM1rrDScODyMTFYB33kqARo=; b=YgRUwMqZkQAK7t+rR4kQOuMYFZ
+	iEZsmvr/1fCX7FSyg7D0VZpqjMmx/tNsO8DME+P/99K0G21h+VE5Pf00tNvT3iyKQ1nL5fn7F53g2
+	URO7W9XCIMIdgALWiZ2J6kNqERcx/4FhVaNaWnmK3gCXA+aDS5TQ0mXWy9SLePljD7qdNriw1p/hl
+	xjpT98vc+YEe+h/OE0zpAg83xnxDVF8sLwttmDyATBqp/UPgnE7a+q3Hy6lCwWuV/Be2++zrzWtk3
+	AhvTaS6GBz0D92so+g8s7jv+JCAL5Xf8iLW5mlgSmmsxrzGXd4Fdn/4bZ8vcY2X1d59NtXcztAJan
+	gMvi/zqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKO1Z-000000001yZ-1J6g;
-	Tue, 05 May 2026 22:13:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKO1X-000000001xv-1RPq
+	id 1wKO9U-000000002mo-3MWZ;
+	Tue, 05 May 2026 22:22:04 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wKO9S-000000002m9-1vqq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 22:13:52 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DDE011A9A;
-	Tue,  5 May 2026 15:13:43 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D9AF53F763;
-	Tue,  5 May 2026 15:13:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778019229; bh=JXBOIDwb6e1s8ZmaUYlylleYRr14801abN82WNXhBdw=;
+	Tue, 05 May 2026 22:22:03 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 450B578E;
+	Wed,  6 May 2026 00:21:57 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1778019717;
+	bh=CPnhvTo/ayDu0ICnIu2QOn5mr/0Y2yZIkfO+u6R0rxY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jkH6N7qm7iFUSnanVg4zc3SjNFJmR3DX6GnHivCcMFaj7oPAEQj3WH/yjmZ2bmsJu
-	 glE6HX01WYbGrfcx9MQXTfI6OffegBZ1vX5OlSz19lkvgSAkROqw7KKgleZel35yCA
-	 Vi8R92y5+9+CQk4rqYOYsk2/tUPMPGgDl5gKTO+g=
-Date: Tue, 5 May 2026 23:13:44 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Philip Radford <philip.radford@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, linux-pm@vger.kernel.org,
-	sudeep.holla@arm.com, james.quinlan@broadcom.com,
-	f.fainelli@gmail.com, vincent.guittot@linaro.org,
-	etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
-	quic_sibis@quicinc.com, dan.carpenter@linaro.org, d-gole@ti.com,
-	souvik.chakravarty@arm.com, cristian.marussi@arm.com
-Subject: Re: [PATCH v5 11/12] powercap: arm_scmi: Add get_power_uw to
- synthetic node
-Message-ID: <afprmEnMf5mNf8NE@pluto>
-References: <20260428090922.346069-1-philip.radford@arm.com>
- <20260428090922.346069-12-philip.radford@arm.com>
+	b=fXZRIqeBIjeQo1LkaQ/vthgzsebr995OeJWxRlc2HDoL+Figv4sL/WHbn6bfmGU2p
+	 QWy0MyHSQc+v23g2804kp56itaPE27DLGoAg20Zqv042VSESnu7wE1sT6xNDc60sj2
+	 uDKaDnYVoahAjmygNv7JFOmgq2i1dfRtMItdhwME=
+Date: Wed, 6 May 2026 01:21:58 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	David Airlie <airlied@gmail.com>,
+	Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Rob Herring <robh@kernel.org>, Simona Vetter <simona@ffwll.ch>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
+	devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH 1/7] dt-bindings: display: renesas,du: Document Renesas
+ R-Car R8A779MD M3Le
+Message-ID: <20260505222158.GJ1547435@killaraus.ideasonboard.com>
+References: <20260419193718.133174-1-marek.vasut+renesas@mailbox.org>
+ <20260419193718.133174-2-marek.vasut+renesas@mailbox.org>
+ <CAMuHMdUzRoELGedrM3ELUjZr-N6DnF4TXtdQR_k74Xmfppu9fA@mail.gmail.com>
+ <71b24195-2a3c-46a4-8587-f5055a015eb8@mailbox.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260428090922.346069-12-philip.radford@arm.com>
+In-Reply-To: <71b24195-2a3c-46a4-8587-f5055a015eb8@mailbox.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_151351_431397_E31BBCD9 
-X-CRM114-Status: GOOD (  19.48  )
+X-CRM114-CacheID: sfid-20260505_152202_644069_9D121E4F 
+X-CRM114-Status: GOOD (  22.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,68 +85,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 28, 2026 at 10:09:20AM +0100, Philip Radford wrote:
-> Exposes the current power usage from the immediate children of
-> the synthetic (root) powercap node. Iterates over pr->spzones and
-> sums per-zone power.
+On Sat, May 02, 2026 at 11:17:22PM +0200, Marek Vasut wrote:
+> On 4/29/26 11:57 AM, Geert Uytterhoeven wrote:
+> > On Sun, 19 Apr 2026 at 21:37, Marek Vasut wrote:
+> >> Extend the Renesas DU display bindings to support the Renesas R-Car
+> >> R8A779MD M3Le SoC. This SoC is similar to R-Car R8A77965 M3-N SoC,
+> >> except the HDMI port@1 is not present.
+> > 
+> > "and DU1 is unused." (whatever that may mean...)
 > 
-> Signed-off-by: Philip Radford <philip.radford@arm.com>
-> ---
->  drivers/powercap/arm_scmi_powercap.c | 29 ++++++++++++++++++++++++++--
->  1 file changed, 27 insertions(+), 2 deletions(-)
+> Fixed in V2.
 > 
-> diff --git a/drivers/powercap/arm_scmi_powercap.c b/drivers/powercap/arm_scmi_powercap.c
-> index d74869af1633..81b5214acda4 100644
-> --- a/drivers/powercap/arm_scmi_powercap.c
-> +++ b/drivers/powercap/arm_scmi_powercap.c
-> @@ -270,9 +270,34 @@ static int instance_root_release(struct powercap_zone *pz)
->  	return 0;
->  }
->  
-> -static int instance_root_get_power_uw(struct powercap_zone *pz, u64 *v)
-> +static int instance_root_get_power_uw(struct powercap_zone *pz, u64 *power_uw)
->  {
-> -	*v = 0;
-> +	struct scmi_powercap_zone *root = to_scmi_powercap_zone(pz);
-> +	struct scmi_powercap_zone *child;
-> +	struct scmi_powercap_root *pr;
-> +	u64 acc = 0;
-> +	u64 p;
+> >> +++ b/Documentation/devicetree/bindings/display/renesas,du.yaml
+> >> @@ -42,6 +42,7 @@ properties:
+> >>         - renesas,du-r8a779a0 # for R-Car V3U compatible DU
+> >>         - renesas,du-r8a779g0 # for R-Car V4H compatible DU
+> >>         - renesas,du-r8a779h0 # for R-Car V4M compatible DU
+> >> +      - renesas,du-r8a779md # for R-Car M3Le compatible DU
+> > 
+> > I am not sure you need a new compatible value: is the DU really
+> > different than on R-Car M3-N, or does it just lack some wiring? ...
+> 
+> It seems the DU is identical to the M3N one, so I will add another entry 
+> to R8A77965 DU to handle the M3Le one, just like R8A774B1 and R8A774E1 
+> DUs . I hope that is acceptable, and also addresses the feedback on this 
+> patch ?
+> 
+> I dumped the VSP and FCP versions on M3N and M3Le and compared them, and 
+> I also wrote and read-back the CMM registers to confirm CMM IPs are all 
+> present on both M3N and M3Le:
+> 
+> FCP is identical on M3N and M3Le:
+> fe950000.fcp FCP_VCR=0x106
+> fe96f000.fcp FCP_VCR=0x106
+> fe9af000.fcp FCP_VCR=0x106
+> fea27000.fcp FCP_VCR=0x106
+> fea2f000.fcp FCP_VCR=0x106
+> 
+> VSP is identical on M3N and M3Le:
+> fe960000.vsp IP_VERSION=0x01011504
+> fe9a0000.vsp IP_VERSION=0x01011404
+> fea20000.vsp IP_VERSION=0x01011904
+> fea28000.vsp IP_VERSION=0x01011704
+> 
+> CMMs are present on M3N and M3Le, tested with write of bits 28 and 24 
+> into CM2_CLU_CTRL and then readback:
+> fea40000.cmm CM2_CLU_CTRL readback 0x11000000
+> fea50000.cmm CM2_CLU_CTRL readback 0x11000000
+> fea70000.cmm CM2_CLU_CTRL readback 0x11000000
+> 
+> And it does indeed look like we do have DOTCLKIN1 .
 
-These u64 can live on a single line...
+So the die seems to be the same as M3N, just with some signals not wired
+up. We could simply drop the HDMI output port in DT as Geert proposed.
+I'm however a bit concerned we would later find differences that require
+a specific compatible string.
 
-> +	int ret;
-> +
-> +	if (!pz || !power_uw)
-> +		return -EINVAL;
-> +
-> +	pr = container_of(root, struct scmi_powercap_root, instance_root);
+At this point, I think more testing is needed, with local access to the
+board, to check the display output. As that's hard to do right now,
+let's start by upstreaming board support without the DU, and add the DU
+on top.
 
-usually we define macros to wrap this like to_scmi_powercap_zone()...
-...even if used only once...this could be a new to_scmi_powercap_root()
+-- 
+Regards,
 
-> +	if (!pr)
-> +		return -ENODEV;
-> +
-> +	list_for_each_entry(child, &pr->registered_zones[0], node) {
-> +		if (child == &pr->instance_root)
-> +			continue;
-
-You'll need to check this in light of the fixes of previous patch
-
-> +
-> +		ret = scmi_powercap_get_power_uw(&child->zone, &p);
-> +		if (!ret)
-> +			acc += p;
-> +		else
-> +			dev_dbg(child->dev, "Failed to read child power: %u\n", ret);
-> +	}
-> +
-> +	*power_uw = acc;
->  	return 0;
->  }
->  
-
-Thanks,
-Cristian
+Laurent Pinchart
 
