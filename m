@@ -4,165 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B70F0CD343A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 10:28:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66A90FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 10:29:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F0yHkPJ2+SoSmvwYpxfgmYiW9SG2320qnH+LsMaHO78=; b=PIjeMjo4d9ndKuztD/BfBfJ/9J
-	Dfz0F34Llv5xvpTJYqJ5bTOFk7mdzWZlqe8n7CuiHj6NbGFITF7CK5A+kNybdqCF9Q37Fxg5b/IGu
-	GRr5Z9tqxmLB6xcgdNkNeks46T9s6n7HxoRmB9wJgQdgr2lYsCF1zK28zTJNHqXVk2K/8NFvO94Z+
-	poVz6kUX4QUv/wjvgnnO9xVmIYqvA51D7rT9sAQEc5FjSJXDAOqT7Il87ieeracaC1PqywSt/wWhz
-	WJNtXDukYuX8GmqTFMePQHT7kjGjMh3/aSnraYLvouxbQwbPuRIOOOyV7+OkU0E9TfoHdfoptNA23
-	0xbsi3kQ==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HNlj60pJs02U5K85HJFOtqZd7kl+At2FS1ldDOM8a5U=; b=VV7CofgOzM/lZObTf0o/W2akbM
+	vL1wsp2Ele85y0mMOt9Elkp6yvUwyHJHXlNU+Cv4PMq4xNBC2SUm9fJ8ScecpQBDTHUu6SVrZGQl6
+	dfHBQSwzMZOBPgDdvRpRszijzU/7Y+6vNdLYQEtx0FpYWyHZAsc4vjJVKBCZXgBTMJ6DRRp+CLb6D
+	Udq9sD0GvOx5Rlq1e3uQ/bxhPPz1gLheMTJkxs1/rWA41i2W/xgP+iFa4ZvI4QzpJVZZ+uT4aZM+W
+	31CuXZHvHxCD6ddiv6UDvLSB/oMlDo7g/2OsBzDpFtC7/7OjVud2gi9XYlmyE4luh8sbzoSnDHnUW
+	bAkuRofg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKD0t-0000000FtEb-40xP;
-	Tue, 05 May 2026 10:28:27 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wKD1Y-0000000FtTr-1SsH;
+	Tue, 05 May 2026 10:29:08 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKD0s-0000000FtD6-0CFj
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 05 May 2026 10:28:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=F0yHkPJ2+SoSmvwYpxfgmYiW9SG2320qnH+LsMaHO78=; b=aeHVG23UTb+gkTcjoIqw/Vkdrz
-	j3c2v5L7IX0DaVN535dhopHzLCANQrY7It/13acgyDYiwiswpRAHfmLIVT+L3WLXO8IM/dLIJrZd5
-	7wNXjtMlpfXpaLaih6eDRO7uD+erCvEJkJPpiHUd3ENgel3ceT8po83qWQbJMYuxlOJJmU3dD+FT7
-	WZVgeDgrqwsqMqgRgcXNGzywKnYALbGfipaKPWrJFmKig5aHl2XN0clF0LEXXukp9ZYdFH4VUu0mW
-	N8ipeaowEOgy6lMho26/zlkJF2O+rUznkdc943LJPHpm5n1z0KFIJ05MGpxpw6AAC4DrLEZ+HEDy/
-	LmQrwkHw==;
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKD0o-0000000DCEQ-2lV3
+	id 1wKD1V-0000000FtTG-3YSI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 10:28:24 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6458wb521346318
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 5 May 2026 10:28:20 GMT
+	Tue, 05 May 2026 10:29:07 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6459VSd72859195
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 5 May 2026 10:29:05 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=F0yHkPJ2+So
-	SmvwYpxfgmYiW9SG2320qnH+LsMaHO78=; b=E0a6wCbdIjr2WquOQ71GnfL9AVE
-	vrQq1bGSI4eCKxCxPPcQAbREs38xzniMOeeNXAZNYR/VyIpYStzgQDR4Vvx2QwAT
-	xGXg6V6tcJcwNLSbaUlj3acAP8hRCOoODvS86/LVmPmc7koBnihm63vcfk/GSp1M
-	V+JlskZ2ekidRagRq6IMG5GeOyQ1h9TO3IWLKfEM+ZY+VkND2C1iGXBqMDP6SXIs
-	QZB2RIRTwAs8Ve6n36KEnFfNz+8fF8YhVOzqPMmlqW96UjMKVzI7iwJc7NVSFfbK
-	sr/YXWfKCIBXLu/XeDj9affZRjwBKp5czWgg1bliLamNb0nBs7IJaFyzbCQ==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dxx2xbksp-1
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=HNlj60pJs02U5K85HJFOtq
+	Zd7kl+At2FS1ldDOM8a5U=; b=E+WBRSuHgX8tuxSzKI1QFKFVkIjX265Hi2b9Rk
+	qt2ZUpzOxrqWTxNzjWrWv5od9PCeXOFmgSOcyevZ+NDTeysIICCkOxDrmaxwRpkT
+	q0KIdSvZ2c68X1ap6eCnC+8YVfvjp0ay4Nc9r85Hvwp5rY7EoE1XeCK4JWuUWRxp
+	773SCZVke0K280g13Ok02Qu2zN625zq4NYUqfg8SqmGtq5gxLMpwTeGqN6lzu4ca
+	TZhdhJkB4keP1btznh9QYLxyLVhxRN6RvSKn0j7HG0WEyL2zhA9eSbuIB9BijW//
+	mJIxj9+kqo7T0mEXVWW52rFcU4AdY/IJWk8laI4k0++DF56g==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dye0ag869-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 10:28:20 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-8eaaf673eb4so1180171685a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 03:28:20 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 10:29:04 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-50fae95c82cso20477951cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 03:29:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1777976898; x=1778581698; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=F0yHkPJ2+SoSmvwYpxfgmYiW9SG2320qnH+LsMaHO78=;
-        b=K4Arega/vRBltyqMm5eDlAxt8MDIY7vjawcB/Ko5VUjshQSVs+zhKSHGVU5sbK/G1G
-         EeB+NQn86jONWZSS+3/mOTrKHL89SuZnMsy7lUONXrEJo69a04jUgOg1MYfU9o5TcUpQ
-         l+GG4NmLv2FfXCRdfJxtSIAdqfanKWMXlL4FoI6ZtHD22Bc/o2RgshcDawIHVdR6JA70
-         dZHE+hZzk8sHf5N+IG1oE5oBc60yXvz1Lxlk2NpPdt56L8RDp9ydIThTr5eq1S07mseg
-         buXUQb/7SYIEN4000wdItaBG7TNnu/FpjraqCsNlazXOnz7ksFhFhO61g8cGQonNHSNo
-         5e8A==
+        d=oss.qualcomm.com; s=google; t=1777976944; x=1778581744; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=HNlj60pJs02U5K85HJFOtqZd7kl+At2FS1ldDOM8a5U=;
+        b=iXxfyYzGQKywdxOyvB9cgYS/r+F8OUGay7T7xQaejBZPvcojAcWvRHuA6ztG6JS7qE
+         6f4QpBHHNTm5+QBhrJF780aLOt6No+ijNQaBlgQuI0yHgogV6t1CIYq/iUHSo9Fca9eT
+         Xm6DwFQvMNq1hdcPcZOGN/gOSebefhQcD3p6ywdAFsQh3FWDk8qJ4XyjSAKV/igq4Bjt
+         LiDSWCEqKvGvntvb1svogDzc7rO+RzrrOg/J3ikGKdnoxL/Rvxc3JXd1HzWzvmDw433y
+         TZpTkvu1UU7F4mXuDg6SZwPsFX1XyvfGfAk2xhsrmKHDeVnSzhTjtW1yEU/fC8uLI/kt
+         k+jA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777976898; x=1778581698;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=F0yHkPJ2+SoSmvwYpxfgmYiW9SG2320qnH+LsMaHO78=;
-        b=o6arU7hQdxgh6udDW5bi6BaUfs6bhnFbsJUHXk1ZTD2CL0TTv7POKu8Vke7NXXvx2z
-         LYyc0ozjoWTnGpu+vKwDA+NDZeyESPtiMGTfGUYLMnsLQTU8S5CLK/wMJHAiPrG9GMzP
-         gtADD3cx+3VSLPwb1Z3GivZFxMeqsB9Y6a+NuveivcoLgg9zpw+9AKtdtYeXZb9TpVDV
-         w4575HZDZSpqI4KjZK7f/7xmVSeglpnPtmCbo05tmrueJNoEAm30TSas0JyXnwmjhMLd
-         VBi+/VNrso6iTfipuV+T4VxuPESMleN2/REgegx7lnOxbiWvUKRwxlUyq4YjmLtbdA7X
-         WfOA==
-X-Forwarded-Encrypted: i=1; AFNElJ8Y+5D4nRZgx9awqCR9lHeCvub3KJ0CBcjYn85oRLPbdL/HXZw5j38QFSXdyi4X2PjZNobvLYPcLsdCGQzMlDx4@lists.infradead.org
-X-Gm-Message-State: AOJu0YyTVVX1IEjQ2T1Iz2/KV9X8R9LR1WzgM6yVHy9Ed39NUsFLsqzy
-	EPA2zZC/OSBEgrBR6zLq7ySfcFgnN9Ar+5wsuLuP9C3ExqiBs9+ydYKAOChdOIC6oWb90t5RABc
-	zScg49csT4p/oi50A7pDgZ8MO7r4pXBUJaxCFR8OykQHXbINRRb3s+IVlxROQjoD1NUBmAFWwTa
-	XZe7miTIndAQ==
-X-Gm-Gg: AeBDiev1sdayyi/zGpLENTCD8KTx9q632kL1egsh0mDOA0hzcOJu2/NlLwEBEz2hEFr
-	DLcYXLTzWNIqEnFiVWZ0pckXvjelxVspGOkvZneJHtPzozaZ3oKgZwo5oOD+OJZRQArLQLPD20F
-	zA9ascjt6X+SfVfulJMqL6TLvMp4Bv4Jz0F81BOqi1y3+b0WHIjBND6lzmqID/Rozpl6xah4b+D
-	2oXFX4q348iSkI159/8sT1a3k/G01LiQO3Tqxol0HSVD42v+ZEeZP7kAVtuydQ/ueRuwUAQ8i2o
-	mHSm0r+oH6HKrv3JcG/OVQytcJeXJ/xcAUj7ifX46UxOEA0hp8+pc/+1S9JPaQxbOLmJmYyXWcu
-	2oHGKt4+423BrMMWX0xqRJHgFUihWDFDTMO/QZNVNq71pivc=
-X-Received: by 2002:ac8:5ac8:0:b0:50d:9b07:9c46 with SMTP id d75a77b69052e-5104bef2b99mr203901401cf.33.1777976898362;
-        Tue, 05 May 2026 03:28:18 -0700 (PDT)
-X-Received: by 2002:ac8:5ac8:0:b0:50d:9b07:9c46 with SMTP id d75a77b69052e-5104bef2b99mr203901151cf.33.1777976897898;
-        Tue, 05 May 2026 03:28:17 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1777976944; x=1778581744;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=HNlj60pJs02U5K85HJFOtqZd7kl+At2FS1ldDOM8a5U=;
+        b=me8BHfk6+K8iwc/YByN7VwMhqTfEL1GC0rN2bp0YtDqYFZcx98Go1sbfyIiuXTWXsA
+         ALg/gERB7BnjDoHj8Yvqn4SWWZLfHmbpOqbgmC0NfoJU7XYHUMpq1e/hODX74a3IUrxN
+         9TNONbINgancyp3FmqV3M8+Ri7QuALDmKpzEyySUs2iVbqU39s8uQsMncMMLco4dUbet
+         XiJg/GmxQyHeDqfuTzA3OrGaEUkAIyGKDzbABAOct7OW4Ije1jXKFG2VEmiwvpfAqnhf
+         v9IsHAlGs79R1as+VpnkcDSuhsfNVJRrrpq0nlYVc504Ya9Mc2ca5yPly2bBkLjZoQv5
+         BvfQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8Uzd9e+ZknJG5wcvW6Z4NodE5A5gW+qFexNNFuJbL8mvl/IFysUyONw8HGei70oUWFN5xR08wR7xhpjAlPtxOT@lists.infradead.org
+X-Gm-Message-State: AOJu0YxrZgdLwiYLHIdAafTckNqtas6/tpqSldGhB7o2Ol17PHpgeSdI
+	dBjory9R6R5OgKAnWNBtwvKIVGbBkmDV+NodU3HNsM19L6ypy57q2VRoogFqBqUc0HinkiTGGFM
+	MWlIFlXGiVOo3e5Qp6ACx7QxCxUu/qdh12BvCYeAYNtQw09Dh99FiAyh8PI+T6SepX4Ks6yakU2
+	Ll1g==
+X-Gm-Gg: AeBDieuWNhkZNcL8QvyWaxKSU+kIYWOTPuVirF5g0MGYm4bAVi1vui3Q5MgilgBlY2o
+	HpE4fzfc46IGale5uT9TMIcVew2TviCaNNBGxXIPwDUnquZ+c7hdPHF4NKZ8IKajEUd6qHg78YP
+	q0PbBs2nJ6LUwa7p85p91PpHteM0mXbOZLilFFBNHLF5Jncw19fxB7ci6GSaNTroaY2awByIcrI
+	KfnYCJOuGzrKyfn02kqbR1LIfYbkcAgq2/1hCfa5LF0RG2nMuWedNMdpwt3OIQuO0k3h1h6fxg3
+	I8bkXGfDzwfqZjL1sU2ayVxXlYzr5JfFhgjkg0Zy612aOPkGSQXVTbvuNA5qXBz6v9wWYsI8GFE
+	vABfb4Rg34TO70Yg6ob62HDzzwB69DsgxBvoa8te0z59tkic=
+X-Received: by 2002:a05:622a:a12:b0:50e:5b04:810b with SMTP id d75a77b69052e-51306a53f21mr35473261cf.32.1777976932967;
+        Tue, 05 May 2026 03:28:52 -0700 (PDT)
+X-Received: by 2002:a05:622a:a12:b0:50e:5b04:810b with SMTP id d75a77b69052e-51306a53f21mr35472161cf.32.1777976930638;
+        Tue, 05 May 2026 03:28:50 -0700 (PDT)
 Received: from quoll ([178.197.219.94])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48af0d5a613sm140661845e9.2.2026.05.05.03.28.15
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48a8eba865fsm307039245e9.10.2026.05.05.03.28.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 May 2026 03:28:16 -0700 (PDT)
+        Tue, 05 May 2026 03:28:49 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
-        Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-        Heiko Stuebner <heiko@sntech.de>,
-        Nicolas Frattaroli <frattaroli.nicolas@gmail.com>,
-        Thierry Reding <thierry.reding@kernel.org>,
-        Jonathan Hunter <jonathanh@nvidia.com>, linux-sound@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-tegra@vger.kernel.org
+To: Lee Jones <lee@kernel.org>, Pavel Machek <pavel@kernel.org>,
+        William Zhang <william.zhang@broadcom.com>,
+        Anand Gore <anand.gore@broadcom.com>,
+        Kursad Oney <kursad.oney@broadcom.com>,
+        Florian Fainelli <florian.fainelli@broadcom.com>,
+        =?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>,
+        Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+        =?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <linux@weissschuh.net>,
+        Benson Leung <bleung@chromium.org>,
+        Guenter Roeck <groeck@chromium.org>, linux-leds@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        chrome-platform@lists.linux.dev
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH 2/2] ASoC: rockchip: Move MODULE_DEVICE_TABLE next to the table itself
-Date: Tue,  5 May 2026 12:28:05 +0200
-Message-ID: <20260505102803.183455-4-krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH] leds: Move MODULE_DEVICE_TABLE next to the table itself
+Date: Tue,  5 May 2026 12:28:45 +0200
+Message-ID: <20260505102846.186219-2-krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260505102803.183455-3-krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260505102803.183455-3-krzysztof.kozlowski@oss.qualcomm.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2939; i=krzysztof.kozlowski@oss.qualcomm.com;
- h=from:subject; bh=yrkwkHJYfYh4Qd/e6Jm0X0iKhU1/cDPw/TDKkqjnpUg=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBp+cY01NKoMVb6JQS8/2Bllf0JN0WwvF2MUfjEC
- At0QVkx3JyJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCafnGNAAKCRDBN2bmhouD
- 1xOeD/9pigHD500nSIQ/Gkwl0OOWr4qe4DQ2RsBsMwqJKZMddixBg2k1WVZCFvImq/1ykutfGWB
- zvKUxottxASvb05RWbhFezZvPiZ92vw8G8/QqtVFsfo8FmqjaBw9bqCJfBO7Byw73eoAi0+A6HQ
- 3ROLUywFOoHYJ2CA/pYG7XN/JSvl16zIsfzXJPiKPp0On/y7g7imf2dCVXDLpH3NhdO7ZCSdYDm
- NuizWjY58Tds3uN3/R9dXMVcQAIZbjfLU5+GGg/fzwXsqzd9zIL9MGFTvwpSYjJKNwrHLeAFK/O
- XvQQOtS1mcTMidOoxhd1JsKVdYPmpe9CU3L15djpmERNX3JkgSnrW4C9BjXujwXSZgU9SgDPSy0
- vK8b50I22tU2NXSpESXtWXIUT1glBCCBGa23RcyeP/ZNl+9uDuJufX4Fl943V2ncZgpEhna9Ruk
- jSGMjbFlJvRBY+bJtylBzTZMyRTp4xSEwVfVeiyjSbRrRQDwFYHvoSMgspGUT2hndhjcDDuUHqP
- RGVuxiGngyaiTFx0TlZA5tGvdiZCgYe10cx12PG8UkKANVHLslC5HU0JSnkfVkiyr8eFhDhUonH
- llndMTKQU64VP50PXa4v8GD9IWPCHcDMaomes9je1XMCTH5c3VQsoE1H6hDEoijVxc8l8WOf+IW jV5EH8oLlHvC8tg==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2053; i=krzysztof.kozlowski@oss.qualcomm.com;
+ h=from:subject; bh=kILhQAgY3kLM16GxFMfnMK5G+NAgnlyKR3dgRK8YfZk=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBp+cZe19spmhey6vI4b/7yFmBq15pM1VGw4Lnc/
+ 0yugqzzGR+JAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCafnGXgAKCRDBN2bmhouD
+ 1+IREACFnSRy7ju4VscC9G9J/FnjAyyotS+ISKZWGydzAX1MOB9PooZ37Sf5UDalokelUZojWyx
+ +WlYegVlUgcHuj/owKI0xzKKlWPvAiZvZBJF8xpz7fB//0+gOLZTmASdI7KAc5m5baDtLHlCRU3
+ yff/QwPa9U7qxINvtbwkiehLmw5d3kX2DBty0i0w1HsYcwsKuy3dEMamsQOyuugpFVUGg0vVnCv
+ ElCuozk6ISPxKfqvd45OW/Tkc97bsYI5CcMMwcjJLxX4iQcJ6fKfVWC6rPEgiNlWYwflU8chPGz
+ ZmbMxsaWTHZFcs1jiuui6sdmWSzjErhXteLFfaMg2NasVX4D6tnOpzF/Kl365cs1RBwryLXuvob
+ WH40NocFZJsHEUelaeXcj6Ac10I2mP3CL8tet14HSRM/8SZEIhwsgvdTA2bTMEmHngqHIGhwvJZ
+ nxnMOGPyFkORQDTKppoyrEwt4QCdexA3JMjD5q2kQSQocvIZtO5w9c2tmp0E7VOo8UneY5k16pM
+ Iiwuc8ycvpIFz1YByD45DRaYhWEnUGX8Hy+I17MvaP5mTrutYXVLlUGo4r0LyahbdA1HnfIvrfU
+ B0/GdY76K0MGfugaaFX6+dWIvth2w1djgET7sYBihXCBz2OC3o7iZ7PkwdhD7iIqMxppz9GjGf/ YrfAMNmEyXD8bVQ==
 X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=U9eiy+ru c=1 sm=1 tr=0 ts=69f9c644 cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=gOEeR9iKwsj33Yj5oN/cWg==:17
- a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22 a=EUspDBNiAAAA:8
- a=s8YR1HE3AAAA:8 a=UPwjdVLwzqKTMXskr54A:9 a=bTQJ7kPSJx9SKPbeHEYW:22
- a=jGH_LyMDp9YhSvY-UuyI:22
-X-Proofpoint-ORIG-GUID: r98lVYVf6-Wnrz6GHX3mmPZf78pm0iZ7
-X-Proofpoint-GUID: r98lVYVf6-Wnrz6GHX3mmPZf78pm0iZ7
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA1MDA5NyBTYWx0ZWRfX4gmQFKvfCwvv
- m3bOnpICdcrl9qwINC2pRTUE8F4+Wg6zeaPm4kpRFnKXckKYOxJXZ2XclSshiVpuUPpq6G3KiiZ
- a6I695FxW7oaQZsZveH0Hs36IUPqfSspS1vdNWCaS8sBCIe72G/qiY6b2QaCtgy21CymEDYWvij
- kPq7WKZi7vwotfeTOkEdZCLst0E+DffyRyJ3knuTNFhwbuVE888R0Fn/VwCcZeIePafieGH/hrB
- FBz151qNdbhAnUHrhk7Q86BiV+UZCTxZ4iTGnE5mrOFaR0Rccuup5+mqUhI/qVtTCy6rUEYHN3o
- Q+Rez3szIu84asjy1B7JcsbKwJlgKdt7rPfbO1mgj7droRkFPQlNIz8wAYR0GjOQ6wQEqekKNzi
- IEaiU/eW5Yu8vjTlx+TwMTU2qxZNoWlr6YNvpAGNxOAkRP9kvnKf47r+66C1ec6SaWUG+NL40mE
- /d3DJbNs1WUHTNJATdg==
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA1MDA5NyBTYWx0ZWRfX9BUsJwVYPyuH
+ QHqr4CzSYA1hc8VPNPNTQSwS9Pdx29ymjd5McFUGOPTjnhnu1kp4l8J2VNIfN78Ns6LV//6YpDm
+ P6Wr4WnX0eJ35ok8bgOT854GlC2bb2Nj8mgfzm4KDWQtSALsfpz+q97uwzgCUbIzZJ3WkSBnB98
+ juE/0Y4OrrjAIvjVuwaJ9fUlUCTNEN09+9CayD4iFziTqg69qVDq83iaM/5KLb+QCVpuaMsXwwv
+ mn6THw6yBy0oipZORF+OxYtvif1Nof1M3Bpobi24C1uo+vP59PN+4oosRp5JN/GdN/J/u/68wd8
+ B2zD/BZtR8a5L5FjFpjq1TTvJpS+oLu2TWceoXT5a85lTRqDQXH+Y9VnZc/yhDh7aInQ/vTxhyp
+ ijk8yASYzPxfp96BnaXP0mOY5GqTKZw+o6ZKyG/NyqSJf77KGJbWQWHYLuZgK+dvddOtdfCkEV/
+ r/Evx8n+lxsF4MdBmPg==
+X-Authority-Analysis: v=2.4 cv=Wtkb99fv c=1 sm=1 tr=0 ts=69f9c670 cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=gOEeR9iKwsj33Yj5oN/cWg==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
+ a=EUspDBNiAAAA:8 a=VTue-mJiAAAA:8 a=UPwjdVLwzqKTMXskr54A:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10 a=a_PwQJl-kcHnX1M80qC6:22 a=S9YjYK_EKPFYWS37g-LV:22
+X-Proofpoint-GUID: tj1dfH6zJOrJvBiwYoHibItVwBdJjtrZ
+X-Proofpoint-ORIG-GUID: tj1dfH6zJOrJvBiwYoHibItVwBdJjtrZ
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-05-05_02,2026-04-30_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 lowpriorityscore=0 adultscore=0 phishscore=0 spamscore=0
- bulkscore=0 priorityscore=1501 impostorscore=0 clxscore=1015 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2605050097
+ suspectscore=0 priorityscore=1501 lowpriorityscore=0 phishscore=0
+ malwarescore=0 spamscore=0 bulkscore=0 adultscore=0 clxscore=1015
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
+ definitions=main-2605050097
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_112823_024950_41727FFB 
-X-CRM114-Status: GOOD (  18.07  )
+X-CRM114-CacheID: sfid-20260505_032906_006418_2E38122D 
+X-CRM114-Status: GOOD (  17.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,62 +173,47 @@ the missing ones.  No functional impact.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 ---
- sound/soc/rockchip/rk3399_gru_sound.c | 2 +-
- sound/soc/rockchip/rockchip_i2s.c     | 2 +-
- sound/soc/rockchip/rockchip_i2s_tdm.c | 2 +-
- 3 files changed, 3 insertions(+), 3 deletions(-)
+ drivers/leds/blink/leds-bcm63138.c | 2 +-
+ drivers/leds/leds-cros_ec.c        | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/sound/soc/rockchip/rk3399_gru_sound.c b/sound/soc/rockchip/rk3399_gru_sound.c
-index c8137e8883c4..b80acb221d24 100644
---- a/sound/soc/rockchip/rk3399_gru_sound.c
-+++ b/sound/soc/rockchip/rk3399_gru_sound.c
-@@ -606,6 +606,7 @@ static const struct of_device_id rockchip_sound_of_match[] = {
- 	{ .compatible = "rockchip,rk3399-gru-sound", },
- 	{},
+diff --git a/drivers/leds/blink/leds-bcm63138.c b/drivers/leds/blink/leds-bcm63138.c
+index ef2e511438cc..45c0662df933 100644
+--- a/drivers/leds/blink/leds-bcm63138.c
++++ b/drivers/leds/blink/leds-bcm63138.c
+@@ -296,6 +296,7 @@ static const struct of_device_id bcm63138_leds_of_match_table[] = {
+ 	{ .compatible = "brcm,bcm63138-leds", },
+ 	{ },
  };
-+MODULE_DEVICE_TABLE(of, rockchip_sound_of_match);
++MODULE_DEVICE_TABLE(of, bcm63138_leds_of_match_table);
  
- static struct platform_driver rockchip_sound_driver = {
- 	.probe = rockchip_sound_probe,
-@@ -624,4 +625,3 @@ MODULE_AUTHOR("Xing Zheng <zhengxing@rock-chips.com>");
- MODULE_DESCRIPTION("Rockchip ASoC Machine Driver");
- MODULE_LICENSE("GPL v2");
- MODULE_ALIAS("platform:" DRV_NAME);
--MODULE_DEVICE_TABLE(of, rockchip_sound_of_match);
-diff --git a/sound/soc/rockchip/rockchip_i2s.c b/sound/soc/rockchip/rockchip_i2s.c
-index 0a0a95b4f520..49ff86b35ef1 100644
---- a/sound/soc/rockchip/rockchip_i2s.c
-+++ b/sound/soc/rockchip/rockchip_i2s.c
-@@ -662,6 +662,7 @@ static const struct of_device_id rockchip_i2s_match[] __maybe_unused = {
- 	{ .compatible = "rockchip,rv1126-i2s", },
- 	{},
+ static struct platform_driver bcm63138_leds_driver = {
+ 	.probe = bcm63138_leds_probe,
+@@ -310,4 +311,3 @@ module_platform_driver(bcm63138_leds_driver);
+ MODULE_AUTHOR("Rafał Miłecki");
+ MODULE_DESCRIPTION("Broadcom BCM63138 SoC LED driver");
+ MODULE_LICENSE("GPL");
+-MODULE_DEVICE_TABLE(of, bcm63138_leds_of_match_table);
+diff --git a/drivers/leds/leds-cros_ec.c b/drivers/leds/leds-cros_ec.c
+index bea3cc3fbfd2..6592ceee866a 100644
+--- a/drivers/leds/leds-cros_ec.c
++++ b/drivers/leds/leds-cros_ec.c
+@@ -249,6 +249,7 @@ static const struct platform_device_id cros_ec_led_id[] = {
+ 	{ "cros-ec-led", 0 },
+ 	{}
  };
-+MODULE_DEVICE_TABLE(of, rockchip_i2s_match);
++MODULE_DEVICE_TABLE(platform, cros_ec_led_id);
  
- static int rockchip_i2s_init_dai(struct rk_i2s_dev *i2s, struct resource *res,
- 				 struct snd_soc_dai_driver **dp)
-@@ -878,4 +879,3 @@ MODULE_DESCRIPTION("ROCKCHIP IIS ASoC Interface");
- MODULE_AUTHOR("jianqun <jay.xu@rock-chips.com>");
- MODULE_LICENSE("GPL v2");
- MODULE_ALIAS("platform:" DRV_NAME);
--MODULE_DEVICE_TABLE(of, rockchip_i2s_match);
-diff --git a/sound/soc/rockchip/rockchip_i2s_tdm.c b/sound/soc/rockchip/rockchip_i2s_tdm.c
-index fc52149ed6ae..28fa253a5187 100644
---- a/sound/soc/rockchip/rockchip_i2s_tdm.c
-+++ b/sound/soc/rockchip/rockchip_i2s_tdm.c
-@@ -1040,6 +1040,7 @@ static const struct of_device_id rockchip_i2s_tdm_match[] = {
- 	{ .compatible = "rockchip,rv1126-i2s-tdm", .data = &rv1126_i2s_soc_data },
- 	{},
+ static struct platform_driver cros_ec_led_driver = {
+ 	.driver.name	= "cros-ec-led",
+@@ -257,7 +258,6 @@ static struct platform_driver cros_ec_led_driver = {
  };
-+MODULE_DEVICE_TABLE(of, rockchip_i2s_tdm_match);
+ module_platform_driver(cros_ec_led_driver);
  
- static const struct snd_soc_dai_driver i2s_tdm_dai = {
- 	.ops = &rockchip_i2s_tdm_dai_ops,
-@@ -1442,4 +1443,3 @@ MODULE_DESCRIPTION("ROCKCHIP I2S/TDM ASoC Interface");
- MODULE_AUTHOR("Sugar Zhang <sugar.zhang@rock-chips.com>");
- MODULE_LICENSE("GPL v2");
- MODULE_ALIAS("platform:" DRV_NAME);
--MODULE_DEVICE_TABLE(of, rockchip_i2s_tdm_match);
+-MODULE_DEVICE_TABLE(platform, cros_ec_led_id);
+ MODULE_DESCRIPTION("ChromeOS EC LED Driver");
+ MODULE_AUTHOR("Thomas Weißschuh <linux@weissschuh.net");
+ MODULE_LICENSE("GPL");
 -- 
 2.51.0
 
