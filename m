@@ -4,76 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA2CAFF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 12:55:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 229B9CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 12:56:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AMi3ov2P+2YTc5hMvoKtH1dVk+Jg3S4V+HOG1FzNfAU=; b=Ho8mo9tQigdRXSnZVRPxdlO+VA
-	rwYPi3vk74hpkspvAUj1kXTPcONO2FdGLgxt6eD3ImQ8SHQAuaJVubcNzxXWi20GyDMuBNxR5nAoX
-	lXnS4Z7G8SkObZFuQY1wmJ5zM86QlZiEkiT+FiPbKNptFwoPOTYiKnKkrIHs+bBVf+/U7QcJH9qRq
-	O6ZYXjkWVv0ndBlxlZC1xxYayznH2eC5+3n+NEd7v7RKWOCJ4vt7NWkWoycQFT4Wih6JwZwYtU55y
-	kM2vL7kITLmRAaeTzugbQRnRBeRuP3mxvpgQdPIOY8DhIHK2q+iaXvCtmpaYSytSDZxagos1K4IEn
-	Mu23fmVA==;
+	bh=Roa/R3xKoyx9d1QsB+LkhjgOO/Ewqs+tzAO6wvLC2sc=; b=gSIladisKM5QL93MKE5qCAVbE2
+	0eHJOohKS8TKx5PiJNhfiNOqjYaIG0h9ekG/swIvnID0eR2JWwo2xe/VOcq/8xUG9pk/pt6mawN7M
+	b03hW0P9FyW42epjoyxXc4YhS5KEuLRsWS2WbkxquCDgGNu9049dMOMFmgbgTMKmtpQoOAGa1Erfk
+	LO2QbwZodXjL3CWX1y8B41T4p/azcekhne2SN4Dbpk/aW+U0GrPUpuBMOmoujS6tv7Rgn5sjMNrf4
+	VxKPHw921QZJht4MBFmDrHzhN8fk8djNYZ/B147r1zXaUzR6MVK49lYpbYE1ybsKWmyQO98AAaz4M
+	gRxI3dEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKFIw-0000000GFOB-0YMF;
-	Tue, 05 May 2026 12:55:14 +0000
-Received: from m16.mail.163.com ([220.197.31.2])
+	id 1wKFKI-0000000GFgx-3DiV;
+	Tue, 05 May 2026 12:56:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKFIt-0000000GFNM-06vh;
-	Tue, 05 May 2026 12:55:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
-	Content-Type; bh=AMi3ov2P+2YTc5hMvoKtH1dVk+Jg3S4V+HOG1FzNfAU=;
-	b=fRTAm+cpuhZtyVf5FD63sM7PmQiErZRQb1096WxqtEsZ+RatMomfwY4D/2Q3We
-	i8ASMrdQhZzGnG5OS4Ty6lq5+k/V3WFBxCBgvaKFijW9C3AKgEiEuMNzJZr9jMtt
-	/MJN2aEAxQ0nbSMhemgQwNMmf0Tr+EORl89ef5vkQF1RA=
-Received: from [IPV6:240e:b8f:927e:5900:69e7:6e3e:7ca5:7bb0] (unknown [])
-	by gzga-smtp-mtada-g0-0 (Coremail) with SMTP id _____wD3nx106PlpIevSDQ--.21428S2;
-	Tue, 05 May 2026 20:54:13 +0800 (CST)
-Message-ID: <8647e3e3-0fc3-4a39-91bf-c79a99e38fae@163.com>
-Date: Tue, 5 May 2026 20:54:13 +0800
+	id 1wKFKG-0000000GFfg-1Vkj
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 05 May 2026 12:56:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BCB9342E4F
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 May 2026 12:56:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C9BEC2BCF7
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 May 2026 12:56:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777985795;
+	bh=ZUs4wo3g3+7GpdmJ7ncT0CXa7bmF1VEsrvwglg4jLoE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=hzodQ2NCG9zoh2XqXyjZl5yyYhCcjuWCm9xc/oDTNJN1WJLwwL4HFEEMw9c8vQxSB
+	 //Xl5vKkviuGByHP5wUr5ppSPYKuYFZ9OO0iUFN3H3myUY7ktL+tolifDlitP26ngm
+	 P2Ng3zfyVql6y1Oc8dn9tQA25C4f7gJ1V3P6lr+Dy5b8QDs61od9yKdadTwEqofx7E
+	 Iux2b2dydeMXEVmqSYTJjk9HGstHpKXAO8vFfXpOiEYdHQ91v0SIZi5qVgvaVmyMys
+	 EbFAso9I0L52rHJC+2erRMZ8fQaDgGu0r7ZbzddawxTG6n08oAPfF2l+Dt5FJRIgUN
+	 IED1yLyvleX7A==
+Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-39393c1b5aaso24205771fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 05:56:35 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+SCvxoM6TFcWhleInVQEY/GAcr/3OZZqtgz4e5sn3x7cNH/huhtiINdX4q/9SbTNZGMgk6LawIqCRLGa8i5+lw@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz0rjcDYiaN+cxZ3B6ijh/iidKwqXTNEyj8QD3Da9qLul7c/G5J
+	yURRpjCsPJYfj9lfzxa9hwoiTt2/EI2AWdKAq7lDBLheNU+sZ/ldTGeurPMjc1so/qH2lkROFMb
+	dCdzLhNmOPwR2COYlMtUNW64jEek3rOM=
+X-Received: by 2002:a05:651c:324e:b0:38e:aeab:9ba6 with SMTP id
+ 38308e7fff4ca-3937850065bmr44277651fa.24.1777985794358; Tue, 05 May 2026
+ 05:56:34 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] PCI: brcmstb: Assign pcie->gen from pcie_get_link_speed()
-To: Florian Fainelli <florian.fainelli@broadcom.com>,
- Bjorn Helgaas <helgaas@kernel.org>
-Cc: linux-pci@vger.kernel.org, Dom Cobley <popcornmix@gmail.com>,
- Phil Elwell <phil@raspberrypi.com>, Jim Quinlan <jim2101024@gmail.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>,
- "moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE"
- <linux-rpi-kernel@lists.infradead.org>,
- "moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>
-References: <20260502114019.GA551304@bhelgaas>
- <2f453b89-0ce8-4ef3-ae93-c282a2d08fd7@broadcom.com>
- <a491a592-5576-4987-a866-a8491f8612e8@163.com>
- <631c8f3f-3d38-42e0-b89a-64281d269bfd@broadcom.com>
-Content-Language: en-US
-From: Hans Zhang <18255117159@163.com>
-In-Reply-To: <631c8f3f-3d38-42e0-b89a-64281d269bfd@broadcom.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD3nx106PlpIevSDQ--.21428S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxAw4DXryxZw17ury8uw17Wrg_yoW5ArWxpa
-	y7Ja48tFW8trW5uF4jq3ZYvF1YqFs8GrW7Wws8Wr17uwnIvF93tFy0kr1FkF92yrs7uw17
-	X3W3t3WxWF1UAF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zRAHUkUUUUU=
-X-Originating-IP: [240e:b8f:927e:5900:69e7:6e3e:7ca5:7bb0]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCwxYw02n56HYJiwAA36
+References: <20260505094321.75040-3-krzysztof.kozlowski@oss.qualcomm.com>
+In-Reply-To: <20260505094321.75040-3-krzysztof.kozlowski@oss.qualcomm.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 5 May 2026 14:56:23 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmzzcp+CUKmr6-WLcDmB2zaOki_DTkvADOQ6V-1g710HA@mail.gmail.com>
+X-Gm-Features: AVHnY4L5pGyidj4m0uJSds10p3ObB3yt2OdQMJ_NihpEGQGZ3UJKnYpGnOY1ZG8
+Message-ID: <CAD++jLmzzcp+CUKmr6-WLcDmB2zaOki_DTkvADOQ6V-1g710HA@mail.gmail.com>
+Subject: Re: [PATCH 1/2] pinctrl: bcm: Move MODULE_DEVICE_TABLE next to the
+ table itself
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, Heiko Stuebner <heiko@sntech.de>, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_055511_425391_61406CAE 
-X-CRM114-Status: GOOD (  17.73  )
+X-CRM114-CacheID: sfid-20260505_055636_417451_070B641F 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,80 +86,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, May 5, 2026 at 11:43=E2=80=AFAM Krzysztof Kozlowski
+<krzysztof.kozlowski@oss.qualcomm.com> wrote:
 
+> By convention MODULE_DEVICE_TABLE() immediately follows the ID table it
+> exports, because this is easier to read and verify.  It also makes more
+> sense since #ifdef for ACPI or OF could hide both of them.
+>
+> Most of the pin controller drivers already have this correctly placed,
+> so adjust the other drivers.  No functional impact.
+>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-On 5/5/26 07:46, Florian Fainelli wrote:
-> On 5/4/26 10:26, Hans Zhang wrote:
->>
->>
->> On 5/5/26 00:58, Florian Fainelli wrote:
->>> On 5/2/26 04:40, Bjorn Helgaas wrote:
->>>> On Fri, May 01, 2026 at 01:24:38PM -0700, Florian Fainelli wrote:
->>>>> After commit 03f920936977 ("PCI: controller: Validate max-link- 
->>>>> speed"),
->>>>> pcie->gen stopped being assigned and as a result the established PCIe
->>>>> link would stop supporting Gen3 speeds on 2712 since pcie->gen is used
->>>>> to populate LnkCntl2 and LnkCap in brcm_pcie_set_gen().
->>>>>
->>>>> Link: https://github.com/raspberrypi/linux/issues/7343
->>>>> Reported-by: Dom Cobley <popcornmix@gmail.com>
->>>>> Reported-by: Phil Elwell <phil@raspberrypi.com>
->>>>> Fixes: 03f920936977 ("PCI: controller: Validate max-link-speed")
->>>>> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
->>>>> ---
->>>>>   drivers/pci/controller/pcie-brcmstb.c | 3 +--
->>>>>   1 file changed, 1 insertion(+), 2 deletions(-)
->>>>>
->>>>> diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/ 
->>>>> controller/pcie-brcmstb.c
->>>>> index 714bcab97b60..6138fc4bc064 100644
->>>>> --- a/drivers/pci/controller/pcie-brcmstb.c
->>>>> +++ b/drivers/pci/controller/pcie-brcmstb.c
->>>>> @@ -2072,8 +2072,7 @@ static int brcm_pcie_probe(struct 
->>>>> platform_device *pdev)
->>>>>           return PTR_ERR(pcie->clk);
->>>>>       ret = of_pci_get_max_link_speed(np);
->>>>> -    if (pcie_get_link_speed(ret) == PCI_SPEED_UNKNOWN)
->>>>> -        pcie->gen = 0;
->>>>> +    pcie->gen = pcie_get_link_speed(ret);
->>>>
->>>> Take a look at https://sashiko.dev/#/ 
->>>> patchset/20260501202438.376033-1- florian.fainelli%40broadcom.com
->>>>
->>>> The notes at https://github.com/raspberrypi/linux/issues/7343 assumed
->>>> PCI_SPEED_UNKNOWN was 0, but in fact it is 0xff, which means you might
->>>> want the more defensive patch instead.
->>>>
->>>> I'll be happy to replace what's on pci/for-linus if so.
->>>
->>> I am starting to think a revert is the simplest path forward, it's 
->>> not clear what pcie_get_link_speed() brings to the table honestly.
->>
->> Hi Florian,
->>
->> The pcie_get_link_speed function is designed to prevent other Root 
->> Port drivers from accessing the array pcie_link_speed out of bounds.
-> 
-> Yes, so that's useful in the first hunk of your commit where we were 
-> printing the link speed without checking that the 'max-link-speed' would 
-> be bounds check, however it is not really useful for assigning to pcie- 
->  >gen in our case, so I would prefer the second option:
-> 
-> 
->            ret = of_pci_get_max_link_speed(np);
->   -       if (pcie_get_link_speed(ret) == PCI_SPEED_UNKNOWN)
->   -               pcie->gen = 0;
->   +       pcie->gen = (ret < 0) ? 0 : ret;
-> 
+Patch applied.
 
-Hi Bjorn,
-
-Please replace the pci/for-linus branch with the above modifications. Or 
-do you need me to create a new patch again?
-
-Best regards,
-Hans
-
-> Thank you for stepping in!
-
+Yours,
+Linus Walleij
 
