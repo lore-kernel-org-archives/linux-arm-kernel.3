@@ -4,63 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74B8DFF8855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 20:36:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0816BCD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 21:05:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
+	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kj5EcbKmAvaPgDhM2/I2YyyTWJYcSgjtJQGNAhwJC4E=; b=MbEEfGNnC/dVmvwWFPdzgFCtMl
-	XtzGwBpUFwOUH5bsZj7fwzi/Ohv0k+IrLoSsdITpk+/mpS7nxRhiqxgj3wSBusyB5RRH6TjMTwP9d
-	SNZx66//eTjAtzl9SUttqOjzJfnklD2cMQ8VGI4834wI/GjnM1TF+f2pT+cW+liH1kSH4N2Ze6SXW
-	nX1tsovszj7UUidqbGB89Zj1fUSYhNKkqe+wEs0GKzUmTKlJ4Iu1MZcVS5njZNGV0zGuQleI2f4yJ
-	s8BrfrBJBrfuBHW9EBpPE288E1t9zDrzVN3efVodndrUdUNdTbOdW3yD1jALoYXVBldbZ9+Iy3u7/
-	OIyuoq5Q==;
+	bh=AUDjBRUu42d69Q7ZuzQ4M1Lgt5adZxichyo28UabSBU=; b=B29MDfwnplrY+J5t/oScbJATOw
+	OSnzUCcccAs8mcoWwXUVubm5Mw8F3MT2kvSke9XXcOMyDUtb7u/PKVCvEKSk0hEo4aT4g5Vo3HuzO
+	WNC9gtLkKHBAeYj3sB0pQLw6ve4gvbvDPD0HTrJsNMGpVVzCRPSjUS4DM1Jx73lI9q7MvfsDNB31P
+	YUxssVh5gKrpOtuEcinTaUAwDj19ddJYSFnw1vA8/n9/PT2TIBuq9OMSAauDzYJisqyZooXU5Hgq3
+	NkYTD2Lp2gSjkwHpgqO+gu+KyB8UkWkmQqg3cCHfMSgZYHd56/RnMmNU10zEiBUi4c1xBgS8KcI/X
+	6feucp6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKMVR-0000000HRoK-2P8n;
-	Tue, 05 May 2026 20:36:37 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKMVO-0000000HRnX-2YJO
+	id 1wKMwz-0000000HUgP-1hN5;
+	Tue, 05 May 2026 21:05:05 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wKMwv-0000000HUfp-488E
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 20:36:35 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A6AAC1BB0;
-	Tue,  5 May 2026 13:36:26 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B9D5C3F763;
-	Tue,  5 May 2026 13:36:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778013392; bh=XoDo/BJrZK4cQyuJeIpDlXSHvN6Qo6ESDgeLnoaopG4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MqTaghAZAr2+Ff4nnCPEGc5h4c7scu3KsGj0tEPSH3qRIvIkPkvg34LJNIcrABugc
-	 PrnyVYk9F+O3TYZNIuiua/Qbdg8CX8XyVTBHQXKtjoSUfAxF91Y6pmkESltkSeqyJa
-	 QHjVX33PKKRJLZ8Yp2W5yG9wHV3WPA6mmUdPhpI0=
-Date: Tue, 5 May 2026 21:36:26 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Philip Radford <philip.radford@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, linux-pm@vger.kernel.org,
-	sudeep.holla@arm.com, james.quinlan@broadcom.com,
-	f.fainelli@gmail.com, vincent.guittot@linaro.org,
-	etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
-	quic_sibis@quicinc.com, dan.carpenter@linaro.org, d-gole@ti.com,
-	souvik.chakravarty@arm.com, cristian.marussi@arm.com
-Subject: Re: [PATCH v5 09/12] firmware: arm_scmi: add Powercap MAI get/set
- support
-Message-ID: <afpUytkInNKLTB0k@pluto>
-References: <20260428090922.346069-1-philip.radford@arm.com>
- <20260428090922.346069-10-philip.radford@arm.com>
+	Tue, 05 May 2026 21:05:03 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 645D7QTH2292989;
+	Tue, 5 May 2026 21:04:35 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=AUDjBR
+	Uu42d69Q7ZuzQ4M1Lgt5adZxichyo28UabSBU=; b=HCj5CcPKYikI4EXqLFSR32
+	RsCeyKYK4Ae9s5074Q4n81zDCeSOvl0+ryfg3AyxCOZmqOYSg6BuqB/BViaaKme3
+	0juCObvzEaB0TW4ONzAU80XdlZkHveFtr8AhuUgeTz0v4vyIdNOy8oGoctm47+oa
+	GaABYxL0I4pw+psOOyR1X6se4AXzElJrVaFkb1zYViaBaPUPgWuC+y3Yh6kTsz4B
+	Ln7f0ThwNK2eYTCNs7TMvuuTVWcIGI/ixNHA9/rLDlsbf7qkZPENB6DJSW4efcZh
+	uHr1Dx5WcmurhQdBMVUcxNMqYfeijAqqqv2AXZvBTi04nHPQyB1biICcpaJ90OLg
+	==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dw9v7dt8t-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 05 May 2026 21:04:34 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 645KsWcn012426;
+	Tue, 5 May 2026 21:04:33 GMT
+Received: from smtprelay04.dal12v.mail.ibm.com ([172.16.1.6])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4dwwtgb9nk-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 05 May 2026 21:04:33 +0000 (GMT)
+Received: from smtpav02.wdc07v.mail.ibm.com (smtpav02.wdc07v.mail.ibm.com [10.39.53.229])
+	by smtprelay04.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 645L4WDq26804876
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 5 May 2026 21:04:33 GMT
+Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 936445805C;
+	Tue,  5 May 2026 21:04:32 +0000 (GMT)
+Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 517DC58059;
+	Tue,  5 May 2026 21:04:30 +0000 (GMT)
+Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.61.111.233])
+	by smtpav02.wdc07v.mail.ibm.com (Postfix) with ESMTP;
+	Tue,  5 May 2026 21:04:30 +0000 (GMT)
+Message-ID: <a9412fe10e70ce95dd70556ace19368bec5c188c.camel@linux.ibm.com>
+Subject: Re: [PATCH] ima: debugging late_initcall_sync measurements
+From: Mimi Zohar <zohar@linux.ibm.com>
+To: Paul Moore <paul@paul-moore.com>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Jonathan McDowell
+ <noodles@earth.li>,
+        linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-integrity@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        kvmarm@lists.linux.dev, jmorris@namei.org, serge@hallyn.com,
+        roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
+        eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
+        sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
+        joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+        catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
+        sebastianene@google.com
+In-Reply-To: <CAHC9VhQY2TMkTvQq9P8oZteQWQSr7qq2utOuH+pdVx+8jWLBCw@mail.gmail.com>
+References: <cover.1777036497.git.noodles@meta.com>
+	 <7734099f5e7fda5480bca016a9e6707983325fbd.camel@linux.ibm.com>
+	 <afMlgstqahnZg68h@e129823.arm.com>
+	 <9f188536f09a2db30877d6bfbb84aeaf2565cccf.camel@linux.ibm.com>
+	 <CAHC9VhRsnmPp2KmQAns5uq5qXX5EF2xQQzyfTgrPi4O9AXyPpg@mail.gmail.com>
+	 <ba4bf28314b679474a6a8da6298e548e54b3754c.camel@linux.ibm.com>
+	 <CAHC9VhRE2kRr1fdDf6xgQgpSrtvqtP8Vy9LVGJhDZFUbzLKGmQ@mail.gmail.com>
+	 <ff28c6dcb60c357c752724927addaa8c4fd3bf2c.camel@linux.ibm.com>
+	 <CAHC9VhQY2TMkTvQq9P8oZteQWQSr7qq2utOuH+pdVx+8jWLBCw@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Date: Tue, 05 May 2026 17:02:29 -0400
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260428090922.346069-10-philip.radford@arm.com>
+User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA1MDIwMCBTYWx0ZWRfX/jmQTDjhSyUW
+ a6LYs6KgFw5yBnttZF55PGvDUHOVHG0/qGgWeitdnf84Bwm5tP1/EukNeStDDhrU+vnaff58Sdg
+ uLUHji8keO2Ye8bXIe6XY9J9yz4z9nJ+hazK/O+EwWgR8+pyrPF+I72Dti2jfJFpss/FpSStdte
+ f92YyKboWP4q9VNWxwkr3ntwRwWqd9nxbYkvejFSFh5Tgc/11KKCKB88XC/+F39BF2eZjXnieYs
+ KNqPjJGNi8UBHeLye2eMh+xYQE32ZKBN0M6Y9X64ZcUcx1gLw8xPhTyfHsT7Zp0ShWeA3U/hdWn
+ EB3j4DP82TCFb9t4txo5UFHx72aW74zAELoOjarM+8P/g5XrrVksOQcqHDLWKdH5OVWOViGlKPM
+ a8GSWAN+I/sxj8krZgpCp6eX0E8tT3phzuOaNjnz3QbpJjR67DdlQlT8c8IqmVlY0npaVypitKC
+ S1pb1mckg7MlFnKjKLw==
+X-Proofpoint-GUID: doRHrXqCZk_91sNo7rZqapY8EXxNdxoN
+X-Proofpoint-ORIG-GUID: uNiSJ9wA4y033nK2ypxCDn3HwXZEBPdK
+X-Authority-Analysis: v=2.4 cv=eu/vCIpX c=1 sm=1 tr=0 ts=69fa5b62 cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VwQbUJbxAAAA:8
+ a=VnNF1IyMAAAA:8 a=w4bfxRt4CrPX03RNmT0A:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-05_02,2026-04-30_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 phishscore=0 lowpriorityscore=0 clxscore=1015 adultscore=0
+ suspectscore=0 malwarescore=0 bulkscore=0 impostorscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2605050200
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_133634_759338_7E628CAF 
-X-CRM114-Status: GOOD (  23.61  )
+X-CRM114-CacheID: sfid-20260505_140502_035136_A9D895B1 
+X-CRM114-Status: GOOD (  18.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,242 +136,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 28, 2026 at 10:09:18AM +0100, Philip Radford wrote:
-> Add support for Power Measurement Averaging Interval (MAI)
+On Mon, 2026-05-04 at 16:51 -0400, Paul Moore wrote:
+> On Mon, May 4, 2026 at 8:03=E2=80=AFAM Mimi Zohar <zohar@linux.ibm.com> w=
+rote:
+> > On Sun, 2026-05-03 at 12:46 -0400, Paul Moore wrote:
+> > > Regardless, assuming you always want IMA to leverage a TPMs when they
+> > > exist, your reply suggests that using an initcall based IMA init
+> > > scheme, even a late-sync initcall, may not be sufficient because
+> > > deferred TPM initialization could happen later, yes?
+> >=20
+> > Well yeah.  The TPM could be configured as a module, but that scenario =
+is not of
+> > interest.  That's way too late.  The case being addressed in this patch=
+ set is
+> > when the TPM driver tries to initialize at device_initcall, returns
+> > EPROBE_DEFER, and is retried at deferred_probe_initcall (late_initcall)=
+.  Since
+> > ordering within an initcall is not supported, this patch attempts to in=
+itialize
+> > IMA at late_initcall and similarly retries, in this case, at late_initc=
+all_sync.
+>=20
+> Okay, so from a TPM initialization perspective you are satisfied with
+> a late-sync IMA initialization, yes?
 
-Hi,
+No. On some architectures moving IMA initialization from the late_initcall =
+to
+late_initcall_sync does not miss any measurement records. However, as previ=
+ously
+mentioned, Linux running in a PowerVM LPAR the move would drop ~30 measurem=
+ent
+records[1].  So no, only if the TPM is not initialized by late_initcall, sh=
+ould
+IMA retry at late_initcall_sync.
 
-> get and set operations to the SCMI powercap protocol driver.
-> Extends scmi_powercap_info to store MAI configuration and
-> implement MAI get/set via xfer and optional fast-channel
-> support.
+Mimi
 
-You have to stay under 75 chars...ok...but I'd say this commit message
-lines are way to short...you can stretch a bit more towards 75chars
-without having to split words I think....because
-
-t
-o
-o
-
-s
-h
-o
-r
-t
-
-l
-i
-n
-e
-s
-
-are not so good anyway :P
-
-> 
-> Signed-off-by: Philip Radford <philip.radford@arm.com>
-> ---
->  drivers/firmware/arm_scmi/powercap.c | 120 +++++++++++++++++++++++++++
->  include/linux/scmi_protocol.h        |   8 ++
->  2 files changed, 128 insertions(+)
-> 
-> diff --git a/drivers/firmware/arm_scmi/powercap.c b/drivers/firmware/arm_scmi/powercap.c
-> index 86262eb0f34a..b5879f204b5e 100644
-> --- a/drivers/firmware/arm_scmi/powercap.c
-> +++ b/drivers/firmware/arm_scmi/powercap.c
-> @@ -401,6 +401,34 @@ scmi_powercap_domain_attrs_process(const struct scmi_protocol_handle *ph,
->  		dom_info->notify_powercap_measurement_change =
->  			SUPPORTS_POWERCAP_MEASUREMENTS_CHANGE_NOTIFY(flags);
->  
-> +	if (PROTOCOL_REV_MAJOR(ph->version) >= 0x3) {
-> +		struct scmi_msg_resp_powercap_domain_attributes_v3 *resp_v3 = r;
-> +
-> +		flags = le32_to_cpu(resp_v3->attributes);
-> +		if (pinfo->notify_measurements_cmd)
-> +			dom_info->notify_powercap_measurement_change =
-> +			       SUPPORTS_POWERCAP_MEASUREMENTS_CHANGE_NOTIFY(flags);
-> +
-> +		dom_info->mai_config = SUPPORTS_POWERCAP_MAI_CONFIGURATION(flags);
-> +		dom_info->min_mai = le32_to_cpu(resp_v3->min_mai);
-> +		dom_info->max_mai = le32_to_cpu(resp_v3->max_mai);
-> +		dom_info->mai_step = le32_to_cpu(resp_v3->mai_step);
-> +
-> +		if (dom_info->mai_config) {
-> +			ret = scmi_powercap_validate(dom_info->min_mai,
-> +						     dom_info->max_mai,
-> +						     dom_info->mai_step,
-> +						     dom_info->mai_config);
-> +
-> +			if (ret) {
-> +				dev_warn(ph->dev, "Platform reported problem MAI config for domain %d - %s\n",
-
-"....reported invalid MAI config for domain..."
-
-> +					 dom_info->id, dom_info->name);
-> +
-> +				return ret;
-> +			}
-> +		}
-> +	}
-> +
->  	dom_info->extended_names = SUPPORTS_EXTENDED_NAMES(flags);
->  
->  	dom_info->async_powercap_cap_set =
-> @@ -1082,6 +1110,96 @@ static int scmi_powercap_cap_enable_get(const struct scmi_protocol_handle *ph,
->  	return 0;
->  }
->  
-> +static int scmi_powercap_xfer_mai_get(const struct scmi_protocol_handle *ph, u32 domain_id,
-> +				      u32 *mai)
-
-..bad alignment and till now we try still to stick tpo 80cols in the SCMI
-stack if it does NOT really hamper readability...
-
-> +{
-> +	int ret;
-> +	struct scmi_xfer *t;
-> +
-> +	ret = ph->xops->xfer_get_init(ph, POWERCAP_MAI_GET, sizeof(u32),
-> +								sizeof(u32), &t);
-
-...terrible alignment...and you know why :D
-
-> +
-> +	if (ret)
-> +		return ret;
-> +
-> +	put_unaligned_le32(domain_id, t->tx.buf);
-> +
-> +	ret = ph->xops->do_xfer(ph, t);
-> +	if (!ret)
-> +		*mai = get_unaligned_le32(t->rx.buf);
-> +
-> +	ph->xops->xfer_put(ph, t);
-> +	return ret;
-> +}
-> +
-> +static int scmi_powercap_xfer_mai_set(const struct scmi_protocol_handle *ph, u32 domain_id, u32 mai)
-
-..same...try to stick to 80 cols when not impossibly ugly..
-
-> +{
-> +	int ret;
-> +	struct scmi_xfer *t;
-> +	struct scmi_msg_powercap_cap_or_pai_set *msg;
-> +
-> +	ret = ph->xops->xfer_get_init(ph, POWERCAP_MAI_SET, sizeof(*msg), 0, &t);
-
-same
-
-> +	if (ret)
-> +		return ret;
-> +
-> +	msg = t->tx.buf;
-> +	msg->domain_id = cpu_to_le32(domain_id);
-> +	msg->flags = cpu_to_le32(0);
-> +	msg->value = cpu_to_le32(mai);
-> +
-> +	ret = ph->xops->do_xfer(ph, t);
-> +
-> +	ph->xops->xfer_put(ph, t);
-> +	return ret;
-> +}
-> +
-> +static int scmi_powercap_measurements_interval_get(const struct scmi_protocol_handle *ph,
-> +						   u32 domain_id, u32 *val)
-> +{
-
-ditto
-
-> +	const struct scmi_powercap_info *pc;
-> +	struct scmi_fc_info *fci;
-> +
-> +	if (!val)
-> +		return -EINVAL;
-> +
-> +	pc = scmi_powercap_dom_info_get(ph, domain_id);
-> +	if (!pc)
-> +		return -EINVAL;
-> +
-> +	fci = pc->cpli[CPL0].fc_info;
-> +	if (fci && fci[POWERCAP_FC_MAI].get_addr) {
-> +		*val = ioread32(fci[POWERCAP_FC_MAI].get_addr);
-> +		trace_scmi_fc_call(SCMI_PROTOCOL_POWERCAP, POWERCAP_MAI_GET, domain_id, 0, *val, 0);
-ditto
-> +		return 0;
-> +	}
-> +
-> +	return scmi_powercap_xfer_mai_get(ph, domain_id, val);
-> +}
-> +
-> +static int scmi_powercap_measurements_interval_set(const struct scmi_protocol_handle *ph,
-> +						   u32 domain_id, u32 val)
-> +{
-
-ditto
-
-> +	const struct scmi_powercap_info *pc;
-> +	struct scmi_fc_info *fci;
-> +
-> +	pc = scmi_powercap_dom_info_get(ph, domain_id);
-> +	if (!pc)
-> +		return -EINVAL;
-> +
-> +	if (!pc->mai_config || !val || val < pc->min_mai || val > pc->max_mai)
-> +		return -EINVAL;
-> +
-> +	fci = pc->cpli[CPL0].fc_info;
-> +	if (fci && fci[POWERCAP_FC_MAI].set_addr) {
-> +		iowrite32(val, fci[POWERCAP_FC_MAI].set_addr);
-> +		ph->hops->fastchannel_db_ring(fci[POWERCAP_FC_MAI].set_db);
-> +		trace_scmi_fc_call(SCMI_PROTOCOL_POWERCAP, POWERCAP_MAI_SET, domain_id, 0, val, 0);
-> +		return 0;
-> +	}
-> +
-> +	return scmi_powercap_xfer_mai_set(ph, domain_id, val);
-> +}
-> +
->  static const struct scmi_powercap_proto_ops powercap_proto_ops = {
->  	.num_domains_get = scmi_powercap_num_domains_get,
->  	.info_get = scmi_powercap_dom_info_get,
-> @@ -1094,6 +1212,8 @@ static const struct scmi_powercap_proto_ops powercap_proto_ops = {
->  	.measurements_get = scmi_powercap_measurements_get,
->  	.measurements_threshold_set = scmi_powercap_measurements_threshold_set,
->  	.measurements_threshold_get = scmi_powercap_measurements_threshold_get,
-> +	.measurements_interval_get = scmi_powercap_measurements_interval_get,
-> +	.measurements_interval_set = scmi_powercap_measurements_interval_set,
->  };
->  
->  static void scmi_powercap_domain_init_fc(const struct scmi_protocol_handle *ph,
-> diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-> index d0f6c0102559..73d66281dcc3 100644
-> --- a/include/linux/scmi_protocol.h
-> +++ b/include/linux/scmi_protocol.h
-> @@ -675,6 +675,10 @@ struct scmi_powercap_info {
->  	bool powercap_scale_uw;
->  	bool extended_names;
->  	bool fastchannels;
-> +	bool mai_config;
-> +	u32 min_mai;
-> +	u32 max_mai;
-> +	u32 mai_step;
-
-No docs for new fields ?
-
->  	char name[SCMI_MAX_STR_SIZE];
->  	unsigned int sustainable_power;
->  	unsigned int accuracy;
-> @@ -758,6 +762,10 @@ struct scmi_powercap_proto_ops {
->  	int (*measurements_threshold_get)(const struct scmi_protocol_handle *ph,
->  					  u32 domain_id, u32 *power_thresh_low,
->  					  u32 *power_thresh_high);
-> +	int (*measurements_interval_get)(const struct scmi_protocol_handle *ph,
-> +					 u32 domain_id, u32 *val);
-> +	int (*measurements_interval_set)(const struct scmi_protocol_handle *ph,
-> +					 u32 domain_id, u32 val);
-
-No docs for new fields ?
-
-Thanks,
-Cristian
+[1]
+https://lore.kernel.org/linux-integrity/201b9172ac47c6766443c1f2343cab3548f=
+33c29.camel@linux.ibm.com/
 
