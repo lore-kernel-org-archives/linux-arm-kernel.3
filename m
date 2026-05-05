@@ -4,126 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0588FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 13:20:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1F96FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 13:23:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b8UzirRma+d3QgUVH3Rcj8o+UEs7DfTYjvKVQ54lqT8=; b=cjHVYAzjTF+81kNH07omzGPHlE
-	kHv3S2ajP/tRe7xh0OXlbKwdeXZ0SinR6uHGwO0Aorikj12CnHdsjbhcA4oOVXeXqF/jFWaQL+lNr
-	N/1vzDB4GLYED9m4uU4ODR4gqzNdGS5wKAU27rTaaZMXxgzPMtyb0jf4tO2amAX021lUjnSo1RCdy
-	PtImLDrs1vmYQwyz+iY59KWMTwFfsMTTFAy+H6XWJD44dD62xCI6RQTDepoQv6uLIhBEAmfPGKo52
-	2Y5+jmPyv4QrfC6m328s8ZANY5BGSr40cDlxwhAApztRhZADMD544pfBprvPHWMSThPfLdk0LYnpY
-	OKWdV/yw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jpJqzpWUly5zqR090DThUi0uytJaPFdWlQrLLHbrP7o=; b=4JIKCRt1gtib3e2WN90rIjNHoP
+	DIbEQxkV+3O+HQtPRjHJOYSest2IoGOAy+DVmVQXCk/fs1S0mBD49/ElMb3M7Yo0iFnn+625mWgA5
+	KNUu2ZtUcI4li3sJ7KCjf4XJkALIZxy0+WHpe0kThWXA5NJYhAv9JvwQq8hBqgYNTt+PaVNwheavX
+	JX/2hvt4VJ4u7qOGKzQR8PN88NAJpFC8XqDHNuMFn9UqKnpJPindst9ZfkGEORzBP6MMmrU91ph/J
+	nICAvlpEBzhf0fKSl0ZdH1LrLhrIq3T2fKcnQFNOKkZ3x0a91ccU5OBdkCWp7COP4b5cFpajb53uP
+	moDDEMjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKFhY-0000000GK2E-42qI;
-	Tue, 05 May 2026 13:20:40 +0000
-Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1wKFk2-0000000GKWV-2KWE;
+	Tue, 05 May 2026 13:23:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKFhW-0000000GK04-017d
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 13:20:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=khUk067qiVMrvimRxfgg0SN+lpXn7MMCCZpHiHdr9CZTyzsHDa98oLJcav33ZxQKUrJKqTkxGHQlEfJRf+xRpSYErZYUxSkYZbBM/j8SKIbgWy0e+pEgX4g4HvQLCkORBnnsqpyzeE8ch+lBF2/+00BS43dzWB3Gea+UtgVHRm11xFTITRUnhQj0PqJb/QWbfXIYIc/NRf1TSo9hRXObEgEctiTxfJtPv/SB532+r0k2NX4TbHkamcLI0Hw6arO9L8zm2lcSFBX7gANITiG7rEGk0f/jmXD39QsQlhDRmTx0jM2Z1Vz7C2FTrmzfTGTKrhwGxExMZIgf3yagtbv+Rw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=b8UzirRma+d3QgUVH3Rcj8o+UEs7DfTYjvKVQ54lqT8=;
- b=wfKTHlqcDE4F1+ZyWrsqYj5gEnFjsFSXyQ4awEXMcJuUO/4lBTjvyVZzeVjBo4YWu7hl2OyukvTk+rBSOfYfDpqEuiXaaTWlwJ+SDT5948l9zO3XjKnJb5cYI7f7tQmhMEkMfbJbmDA49ClcFoUyhSBMXYZtts17Ic2NMuNXO89WUI683msoZ7z3UkozO7E5JtY2JdxyF6HKpCKcMULrilcy21zdCbkq9UIjsneg/swvPcocl0MZUNyqbzjnWBzLL88MQSSKz75zSUZjCneyh7kIKC1Ytf+/DVihD0uKK8/s9o2CGjJ0c+BS4ApuCBirAgxFqW69BH040sCDqwHCsA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=b8UzirRma+d3QgUVH3Rcj8o+UEs7DfTYjvKVQ54lqT8=;
- b=XMgQsPgFR0LBwxvKClGCUefBenFhRbrYGDT4Uad1fyKhy2XmVIyyAbjb7s5IJBGGU/Wstx03dBvB7fK2/vQqhW6KKPVfpDqPkUldDXm11KUiJJg1pHH9Hb3C1TYFaoveqWgbhUBgn31NauiJkhl24WRJYKG13mA/K0bZWq3dzjQ=
-Received: from BL1PR13CA0260.namprd13.prod.outlook.com (2603:10b6:208:2ba::25)
- by CH3PR10MB7260.namprd10.prod.outlook.com (2603:10b6:610:12e::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.27; Tue, 5 May
- 2026 13:20:31 +0000
-Received: from BL02EPF00021F6B.namprd02.prod.outlook.com
- (2603:10b6:208:2ba:cafe::e6) by BL1PR13CA0260.outlook.office365.com
- (2603:10b6:208:2ba::25) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.15 via Frontend Transport; Tue,
- 5 May 2026 13:20:31 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- BL02EPF00021F6B.mail.protection.outlook.com (10.167.249.7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9891.9 via Frontend Transport; Tue, 5 May 2026 13:20:30 +0000
-Received: from DLEE212.ent.ti.com (157.170.170.114) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 5 May
- 2026 08:20:28 -0500
-Received: from DLEE209.ent.ti.com (157.170.170.98) by DLEE212.ent.ti.com
- (157.170.170.114) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 5 May
- 2026 08:20:21 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE209.ent.ti.com
- (157.170.170.98) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 5 May 2026 08:20:21 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 645DKLGZ3324103;
-	Tue, 5 May 2026 08:20:21 -0500
-Date: Tue, 5 May 2026 08:20:21 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Thomas Richard <thomas.richard@bootlin.com>
-CC: Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
-	Gregory CLEMENT <gregory.clement@bootlin.com>, <richard.genoud@bootlin.com>,
-	Udit Kumar <u-kumar1@ti.com>, Abhash Kumar <a-kumar2@ti.com>, "Thomas
- Petazzoni" <thomas.petazzoni@bootlin.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>, Dhruva Gole <d-gole@ti.com>, Kendall Willis
-	<k-willis@ti.com>
-Subject: Re: [PATCH v6 2/4] firmware: ti_sci: add support for restoring IRQs
- during resume
-Message-ID: <20260505132021.6qv37kom7oo6fc7r@pointless>
-References: <20260427-ti-sci-jacinto-s2r-restore-irq-v6-0-72c6468cb2ab@bootlin.com>
- <20260427-ti-sci-jacinto-s2r-restore-irq-v6-2-72c6468cb2ab@bootlin.com>
- <20260505113213.fz7qrovpgn4lbesn@zodiac>
- <9fe10a63-3dc5-4bbc-bbd0-08cc3f625975@bootlin.com>
+	id 1wKFk1-0000000GKWD-2Tuy;
+	Tue, 05 May 2026 13:23:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id BBFA760154;
+	Tue,  5 May 2026 13:23:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D97E4C2BCB4;
+	Tue,  5 May 2026 13:23:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777987392;
+	bh=cefudk32snOl/nbbvFdfp5Vnw/EQCTWqq5PCVaxb3Qo=;
+	h=From:To:In-Reply-To:References:Subject:Date:From;
+	b=rkYpK2pRxq7d9ml/8BrXHNIVzBelWfsJF2TH3LPXWtB2cV99dAyBvB8zTqqJXZnMY
+	 MzHCKiIqtcRuCca4DVRjOlq24BbpNH8loMORCuNiLuidLcuyfq8fMWYLwVlH+cc+tn
+	 7TOhhYZZNerTdS6IAH071Sefz4k1vRepSAf1aO9bFGH+F2H3Vxe3BpJfeTYbAcEsXD
+	 UYZiG38zX72VdeyPFbEd9XK6Klt52t2oiZRzQmbjcnVcfw0ZaclgMXLjly2uVhuryc
+	 FPcb9uNNExz1rcKi68iJgudygnnibYVnBZd7/Ee2XjrwByZ01X6MPPx6rN1OJDY3p6
+	 FgYTwwru7c00w==
+From: Mark Brown <broonie@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Heiko Stuebner <heiko@sntech.de>, 
+ Nicolas Frattaroli <frattaroli.nicolas@gmail.com>, 
+ Thierry Reding <thierry.reding@kernel.org>, 
+ Jonathan Hunter <jonathanh@nvidia.com>, linux-sound@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+In-Reply-To: <20260505102803.183455-3-krzysztof.kozlowski@oss.qualcomm.com>
+References: <20260505102803.183455-3-krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH 1/2] ASoC: tegra: Move MODULE_DEVICE_TABLE next to the
+ table itself
+Message-Id: <177798325040.568329.5475184475659729159.b4-ty@b4>
+Date: Tue, 05 May 2026 21:14:10 +0900
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <9fe10a63-3dc5-4bbc-bbd0-08cc3f625975@bootlin.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL02EPF00021F6B:EE_|CH3PR10MB7260:EE_
-X-MS-Office365-Filtering-Correlation-Id: c905f9be-a4bb-414d-29e8-08deaaa914eb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|36860700016|1800799024|82310400026|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: q8cD/5Rbhn14ehiOY/eyGKIVQr9E55XQFONp2A/mAD7WPJJIGRwZvNfI37nigcSGE3/Dd424raRktpTmVFDR6La58217CfCN9s7sMqEFja812bMA050hI3Zcc8V3xF7O1k8bglFcO1KI3TKbJHqyUQhP1sOQnz8VITVblLqrYYxmpsuIaZPDHnznypw/Yn+eTAUU4JRFZl9otQwERJdknxB4X+g4JJi1Lt2yyR39xFU+o7UFLkHO6BlcINQhRp3Z3QfVVrZwh6z2Z+nOS3RUSxe4JFNpoBLo72aYPO2ueZRrxUu/+3Bl1cNpchW63HYc7lbRYj+LYkdOEIKi3OPr3EAyFsd9uMAzyjL//Xcl7gTP3AJo0x1w3DrPbY3eUcdE7kgLrHzOL7maXHAuP12amD4OlbbX6n0u0sC8fvmgUIJk5m9K9aVcD3dW0ix3oL2hYsiWabox0fPbZ497NDtjwDCFAKr+0vI0qU43yt30XGxZdAWTHCiMEF9vj+y6C5tt3Iy5blUztOBp43onf4+2taLzSJZcPpjj5i2qsIkdd+iLDCVHRQhW7Idr4YpRTRkan+T6pvulIUy9vEmX8bvirnBp4XFRbMuOMe0UVdRqUf5Mt9ASLErvmvTkAG8BechQ24bGVi/8oaYI63JW9AIcY7Ch/JYIOt8DP4vd3G/9Has246akFYN0OxlrTr9dt3WZrwbNE3AOgzx52AZVMdEujzGXZ3v1ARKmFwlGGKbGLGg=
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700016)(1800799024)(82310400026)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Pu/0b5TQ76r+yoYXxSPKnqq7xCFehW1nAEs/HQHAgafqCwHyhMZh3/ZEkDj0zrQYzUuhR+4sWi6tsaj3IC55ysh8uEQZ6MyYCVe8vEYlStpk+vyvWgE6ruCtz3V/90oUDZ51e7TzUT3CBrt+n2OpeanasFFT/mnqMQBmW55vxKtVvgP81KRr68igaxSb34qrYUOWhkZkQM7O5ZLMr66Rrv6W5nBpQjfk5At/efaZq/5NgNiTG3V62GQR2/KEAteBflO19yH7CI3O+/4rLlJYZqT38wCCRGY1LuqihKoy7IcWfyeVoCFYIkq9gF8EsrgqGc4Dve5FCWNjkKcZNpr3h/O68WbZ81d4sv2ES+v8b81ewyHxX6/SSmfWSFziBZDhNr6T6QnomnzhrJjbU8OAvSper3SNGhM+91IbNGsR5xcZWW6MpLgOFQf613jsaB9K
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2026 13:20:30.9199
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c905f9be-a4bb-414d-29e8-08deaaa914eb
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL02EPF00021F6B.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR10MB7260
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_062038_049567_C39593C5 
-X-CRM114-Status: GOOD (  20.56  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.16-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1281; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=cefudk32snOl/nbbvFdfp5Vnw/EQCTWqq5PCVaxb3Qo=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBp+e88pPymfwqltCc9XAr3YDRsUA7DBlqSCA6Is
+ JH013PlTkaJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCafnvPAAKCRAk1otyXVSH
+ 0IFdB/wM8EiD0jprJ3GQuxIGKno9/xqIRj95icFwM4m1Ni+Xe9fgCyCV0qOqEv2oLeAfHUmypV2
+ pB5UfRncjVuIpLh07vtuCI2wDBP91FZOLI31oSWi31Zt0nHoQ8AFOPpifk6jRY/eaPQjrd0PyqT
+ 8wz9pBYX+fxyPMXbi8emdbChfpZqtaGdd6L+4uwMH2bdFBTBGj15A/IA+QKf+3Tmx7he98vHZH0
+ Czk3cuNpRDfyLgS4EgHv5pK2wiXMRpHBbpAn0Qwbh04h6gNQIfkvixhLUHkSX7VlheOOo1IWwjm
+ QYXgcnoo6ACsHm4/+Oqz8fCEUxz1EHkBqH092FhhNUIjRpl5
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,76 +85,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15:16-20260505, Thomas Richard wrote:
+On Tue, 05 May 2026 12:28:04 +0200, Krzysztof Kozlowski wrote:
+> ASoC: tegra: Move MODULE_DEVICE_TABLE next to the table itself
 
-[...]
+Applied to
 
-> > 
-> >> +
-> >> +	desc = &irq->desc;
-> >> +	desc->valid_params = valid_params;
-> >> +	desc->src_id = src_id;
-> >> +	desc->src_index = src_index;
-> >> +	desc->dst_id = dst_id;
-> >> +	desc->dst_host_irq = dst_host_irq;
-> >> +	desc->ia_id = ia_id;
-> >> +	desc->vint = vint;
-> >> +	desc->global_event = global_event;
-> >> +	desc->vint_status_bit = vint_status_bit;
-> >> +	desc->secondary_host = s_host;
-> >> +
-> >> +	hash_add(info->irqs, &irq->node, ti_sci_irq_hash(desc));
-> > 
-> > No locking? set_irq can be invoked in parallel paths, no?
-> > Further, should'nt we check if the same src_id and src_index is already
-> > present before adding to hash list?
-> 
-> ti_sci_manage_irq(TI_SCI_MSG_SET_IRQ) is the lock. If it succeeds we
-> have to add it in hash list.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.2
 
-Do document it in code. it is not an obvious path.
+Thanks!
 
-> 
-> Can set_irq() and free_irq() be invoked in parallel paths? In this case
-> maybe I should add a lock for set_irq() and free_irq().
+[1/2] ASoC: tegra: Move MODULE_DEVICE_TABLE next to the table itself
+      https://git.kernel.org/broonie/sound/c/a28d17fdd3f7
+[2/2] ASoC: rockchip: Move MODULE_DEVICE_TABLE next to the table itself
+      https://git.kernel.org/broonie/sound/c/7ed0e11bea0e
 
-Yes - drivers are running all in parallel, right?
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-[...]
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-> >>  
-> >> +	switch (pm_suspend_target_state) {
-> >> +	case PM_SUSPEND_MEM:
-> >> +		if (info->fw_caps & MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST) {
-> >> +			hash_for_each_safe(info->irqs, i, tmp_node, irq, node) {
-> >> +				irq_desc = &irq->desc;
-> >> +				ret = ti_sci_manage_irq(&info->handle,
-> >> +							irq_desc->valid_params,
-> >> +							irq_desc->src_id,
-> >> +							irq_desc->src_index,
-> >> +							irq_desc->dst_id,
-> >> +							irq_desc->dst_host_irq,
-> >> +							irq_desc->ia_id,
-> >> +							irq_desc->vint,
-> >> +							irq_desc->global_event,
-> >> +							irq_desc->vint_status_bit,
-> >> +							irq_desc->secondary_host,
-> >> +							TI_SCI_MSG_SET_IRQ);
-> >> +				if (ret)
-> >> +					return ret;
-> > 
-> > Do you want to attempt to restore the rest of the entries rather than give
-> > up on the first fail? Maybe just log the error for debug and attempt the
-> > rest?
-> 
-> In this case, if I get more than one error what value should I return?
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
-Probably the first one (or the last one - i wouldn't think it matters)
-- we might need to log the other errors though.
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+Thanks,
+Mark
+
 
