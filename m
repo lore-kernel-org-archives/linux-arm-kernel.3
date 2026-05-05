@@ -4,115 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3175CD342F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 11:13:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB0EFCD342F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 11:17:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vHtD1aX9zPxNRjWtqJ4oSWNxhaYMbBh5QHVWQYJquis=; b=KAHtK4mLkDV4BTBYTLORfBZ6pH
-	+dpxBDcETlwAEje5xWsvTKR3nGrboARgAFxmnwyGg9hllCDNp7YeNvHy5xPiRvYUxIsr6Td2nhMAF
-	HNYxhnplmBGaPbKtQOzn5+odmuqHE1I8QQyuMpxj/LT6tJeM8JGydioA3d4KjfV/I7pWHmMIm6Eye
-	uqQK7qyCOgNlJLd4XRoRbFoMM6XhFkf0X6cgZ8jDP8BubIiDVBzpyrwhkNDtw5iCn/kw1YsSnefCP
-	wZxmCgSMColQCs/0TfvB6dZ8Iu1UhXH58XRYKi5vRk0epD9NDVZgIFvsgAgEg9o8OGgtpNgDigE1O
-	Odz0u7Zg==;
+	bh=MmZ+yRiWydGoYjrz8pZQR3/Gfo31OK0B6qcPe+UWQ+Y=; b=VbPmBKM8xHM0BBrv92XfC3/u3b
+	QGA1Iw95N1m8IvuqY+I/PE3c349L2YcMnlQdittY5WpiBQDspgLKXEs80ZF8sg++1k3F/DVzMF9W3
+	z++E71jpKNcyIGY5EF5/kNDr1JcJaPUBSRhYK3NE7O4QubpGc6Uk0/M6oRELkCszfjqU7VFLQGsrz
+	wxXgfxE5hEWXTYStpZbp/K/yszMlfdoJIF59wH/tDFK+JL6cZI1+s5FNFHn2mCZB1ZYQpRBA3v0dl
+	KgzvDZ08QcgAmjfeRzAND1MCX3giFIWTWRO6wwurlRKMt5dOpKQlOp6YO7rLb31NVvTCxl3onryIN
+	H991doBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKDiR-0000000G1PS-2kn6;
-	Tue, 05 May 2026 11:13:27 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKDiO-0000000G1Og-3QI8
+	id 1wKDlx-0000000G1sd-3QVw;
+	Tue, 05 May 2026 11:17:05 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wKDlu-0000000G1sG-3Vip
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 11:13:26 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-5a2b5ea59a1so5887243e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 04:13:23 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1777979602; cv=none;
-        d=google.com; s=arc-20240605;
-        b=T5nEyQkKzcOxgMdaw9i+8+1KVlSqHTr0+Hve2tr7bODXUg4kcjVjx2jzBBQR4e6WlI
-         YAJ+97GJwQLxWnQd93+53n8aeQJDOBjHsqWpYMe7N0scZWSneHSItLE3uHHK3vp24NpT
-         BbmyTM8onIjtB4v7ligE4vgDrLVttCziZCrYdBptMPBhIOYWEltDHNMimYuk3oOmcbL/
-         yx2c5MTD4BKGbro7FhbU/bBYemcOLJBlR+C0uSxyd/ZYemVIIFdyrh8cJk8jDtskE/0r
-         Kt59fydvsRGGB1DcQuoAjI092mAcl1zEh3XUmVRctd4mMinjQi1iBbx1dbHOI1/ww/b5
-         0IBQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=vHtD1aX9zPxNRjWtqJ4oSWNxhaYMbBh5QHVWQYJquis=;
-        fh=LypBAla/DCXUZARKmxC23vKsIVSZnnYM+p9zMYcKMeQ=;
-        b=SCkBQemtSo82gw10Mq2mSdDLtd/4foEOxKzsqVv6HARYDpkwX4hIf959+GX6m46PAw
-         EJZ48jh2xbPLgsp2uNVstcchkOyuOEUcWxbtduWci3u8/MDT/M2jZk8r0PMlvA1F44vn
-         Lo1SK0Mgfpb2HJ0h1utTr5mm8qpC0LZEfJmlg+eAo4Z10TRFrKmWqWEhgMQ7zj8RAkC1
-         TB+vuPzJ70gk2xwwcYCNtOoucyBAYKqHZGMX1nG9YvmKh7daPmFM/VrICPkbMtKcP4dW
-         LMhuJZvFlSV51dMMA2kNf6LszX38KjBKqP81L7VWuOlULDbea8s03kkUvP2MMTCYleme
-         ATSw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1777979602; x=1778584402; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=vHtD1aX9zPxNRjWtqJ4oSWNxhaYMbBh5QHVWQYJquis=;
-        b=aSDdG7FKrOfbArq+oNg5IRR6g+9m7KjQUrnhe3LrqSBiTn5L8VepwMwZYWf/qZHliu
-         N+5R+n0DbJnQaLmXwfMb/mc7jsHuJCd+jmxcloviXqXdGl/F9W3zUKa93zqd7zWht2Vh
-         2jKTmNnzhk786DlporFNK6/p8Nsb5EcOR4rq6iOXuVFp+toa2fgut25ryxV1RFMbqmrT
-         xou3d87lKuu1JxmlrwKfXpe5fp6oFmCEdznzK+fE+viqBrB4rMAOmaq7wYxs2AhoJ73c
-         wXBMH9JZeCEvPp2US9uynb6K+6u7MH0AcC93MVA/0Qh1SYurIVxKXqZoa8Asv6A8RXYx
-         zWQg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777979602; x=1778584402;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vHtD1aX9zPxNRjWtqJ4oSWNxhaYMbBh5QHVWQYJquis=;
-        b=HgkEybSRrtYFqDkY7Yeel0LSdmf2dYKDE2PMfQU1xNe8SutUxP2ax7H7/K9obuw4NT
-         EmXaA0OxJdsFuzxoOd5LXV3nzwwAM3JFhPkY/XhmPqbWspG/z5Gk+IApoHBm7zSDiGKi
-         yaWpg2RclP7nh3f5ylOfzO1ZLfyHXhwYtYp8+0O0icrxdDCaUV3Gf4KXYQt3rTaTORG/
-         neW8gHgzEtOGHuXxMotNQtKzh4ZF0OxJ6Thj1x6Bet7orVrGI1ebBVv+JbOg9Kk5Yz/m
-         f5CbraOS6S0ylxPXG6sak5hSm2vTbWfdM6BOTdEu/nfoS3ht1nMGlf94Qr9wTC9f+0b1
-         nGuQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/Hels6mBp3adwMUTUS7B6sg8Lx9VUuLasQaf5MmlidXuhbdR87+3XMYKopDQVkgBGDlYBepWe4gc50waO04xvT@lists.infradead.org
-X-Gm-Message-State: AOJu0YzKBc84fCUrhRb8tOCpmgIN3yF1EYhdNDlildi9lIdDxH4WIRut
-	lPkNKZmL2KgfbvVBV4rI4KPYGjKhd2luO8r8n25A/04Ct6T0be7e2iKlFi9B9TttO4pWvlhtKq6
-	0BojTXa5NBx249cxh1NhTwJ2bUKSexRTfhwCvWXcL4Q==
-X-Gm-Gg: AeBDietRWwkKzfWARL4S+LeqGx9uv2ZNOHDU3YfBAYTsPlt0xT4Hh2jgPQQbKje9mH9
-	lpF2IJWvW+OOcJxTSKUGPj5HPBKgSnUli9vfLfRI6TE+UOBmDn2EH1KcbcumltGyRLtGweYs2Y3
-	giQgkfgXnits86+Uhe5B5ZWw4+GXb1BVcmnULHroVaz6LTyquAE7kCgt/j29WuesYS4qPdf/laM
-	JW2/+H/JyE86QgksVo9XLazOgpLftok7iKP5O/8HwdAdLXozbhpU27uYbo36zX9ftZa1YY22D7i
-	8Uj6UU7Yp0wbefuUnr8=
-X-Received: by 2002:a05:6512:1255:b0:5a8:6b81:6694 with SMTP id
- 2adb3069b0e04-5a86b8167c7mr5154556e87.30.1777979602140; Tue, 05 May 2026
- 04:13:22 -0700 (PDT)
+	Tue, 05 May 2026 11:17:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0851A28FA;
+	Tue,  5 May 2026 04:16:55 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 49B5F3F836;
+	Tue,  5 May 2026 04:16:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1777979820; bh=0zBd8wva2lIq2UG6LFH51+kY22Y+m/b1XM8Xt6AEgUY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TgXY4NXhIx2uDQtS0+FeUAocTNO/hz/3iB1TpIUaaRDIUIEFp3/HJJkl0ejwC72QX
+	 9cP5IiB+uC8oCB2nihgKqV/IctWHgVbGec1iw5QPPe4UAjjLb5iGXgMDxY0jk2hmL2
+	 WSNQ2ZVG7uXjr3eR1SnEOGFhGx6V09e/ChdG1Z74=
+Date: Tue, 5 May 2026 12:16:54 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: linux-integrity@vger.kernel.org, keyrings@vger.kernel.org,
+	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	jarkko@kernel.org, zohar@linux.ibm.com, roberto.sassu@huawei.com,
+	dmitry.kasatkin@gmail.com, eric.snowberg@oracle.com,
+	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
+	maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, sudeep.holla@kernel.org
+Subject: Re: [RFC PATCH 0/3] initalise ff-a after finalising pKVM
+Message-ID: <afnRptWilWr7nABJ@e129823.arm.com>
+References: <20260505095409.1948371-1-yeoreum.yun@arm.com>
+ <8942c12e-6315-493e-98c5-d55f4e6341f4@arm.com>
+ <afnLpG4osopTzpip@e129823.arm.com>
 MIME-Version: 1.0
-References: <20260410104058.83748-1-ulf.hansson@linaro.org>
- <20260410104058.83748-2-ulf.hansson@linaro.org> <DHW8QPU1VU1F.3P6PH69HLFBYC@kernel.org>
- <CAPDyKFqMDPiqvqJrq5Qs6Tw4Sc7szG4G-=y0NFkNSPoNd9kdVA@mail.gmail.com> <DHZMQLCIRJIS.174HZR6DIAOMM@kernel.org>
-In-Reply-To: <DHZMQLCIRJIS.174HZR6DIAOMM@kernel.org>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Tue, 5 May 2026 13:12:45 +0200
-X-Gm-Features: AVHnY4LlCgMgAkU1pCqSb5NGsrhZtKGgNNx2kcRO5ejJAWo_ZbIw6N5C10vsCeg
-Message-ID: <CAPDyKFoKNpUexGrM0zcysKMKcdYT-cU0_Q_AHbgiGPk_gU-3nA@mail.gmail.com>
-Subject: Re: [PATCH v2 1/9] driver core: Enable suppliers to implement fine
- grained sync_state support
-To: Danilo Krummrich <dakr@kernel.org>
-Cc: Saravana Kannan <saravanak@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-pm@vger.kernel.org, 
-	Sudeep Holla <sudeep.holla@kernel.org>, Cristian Marussi <cristian.marussi@arm.com>, 
-	Kevin Hilman <khilman@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Abel Vesa <abel.vesa@oss.qualcomm.com>, Peng Fan <peng.fan@oss.nxp.com>, 
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
-	Maulik Shah <maulik.shah@oss.qualcomm.com>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, driver-core@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <afnLpG4osopTzpip@e129823.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_041324_900634_95614695 
-X-CRM114-Status: GOOD (  29.06  )
+X-CRM114-CacheID: sfid-20260505_041702_972185_9A5499B7 
+X-CRM114-Status: GOOD (  32.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,58 +77,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 22 Apr 2026 at 12:59, Danilo Krummrich <dakr@kernel.org> wrote:
->
-> On Wed Apr 22, 2026 at 12:07 PM CEST, Ulf Hansson wrote:
-> > On Sat, 18 Apr 2026 at 13:23, Danilo Krummrich <dakr@kernel.org> wrote:
-> >> On Fri Apr 10, 2026 at 12:40 PM CEST, Ulf Hansson wrote:
-> >> > @@ -1126,6 +1128,9 @@ static void __device_links_queue_sync_state(struct device *dev,
-> >> >       if (dev->state_synced)
-> >> >               return;
-> >> >
-> >> > +     if (dev->driver && dev->driver->queue_sync_state)
-> >> > +             dev->driver->queue_sync_state(dev);
-> >>
-> >> This seems to be called without the device lock being held, which seems to allow
-> >> the queue_sync_state() callback to execute concurrently with remove(). This
-> >> opens the door for all kinds of UAF conditions in drivers.
-> >
-> > If that were the case, this whole function would be unsafe even before
-> > this change. I assume this isn't because of how the function is being
-> > called, but I may be wrong.
->
-> This function does not issue any driver callbacks intentionally; the existing
-> sync_state() callback is deferred to device_links_flush_sync_list(), which is
-> called without the device_links_write_lock() held, but takes the device_lock()
-> to protect against other concurrent driver callbacks, such as remove().
->
-> I.e. we can't take the device_lock() when the device_links_write_lock() is held,
-> as it would be prone to lock inversion.
+> Hi Ben,
+> 
+> > Hi Levi,
+> > 
+> > On 5/5/26 10:54, Yeoreum Yun wrote:
+> > > This patch is split out from the patchset [0] --
+> > > fix FF-A call failure with pKVM when the FF-A driver is built-in,
+> > > specifically the IMA-related part.
+> > > 
+> > > When pKVM is enabled, the FF-A driver must be initialised after pKVM.
+> > > Otherwise, pKVM cannot negotiate the FF-A version or obtain the RX/TX
+> > > buffer information, leading to failures in FF-A calls.
+> > > 
+> > > Currently, pKVM initialisation completes at device_initcall_sync,
+> > > while ffa_init() runs at the device_initcall level.
+> > > 
+> > > So far, linker deployes kvm_arm_init() before ffa_init(), and SMCs can
+> > > still be trapped even before finalise_pkvm() is invoked.
+> > > As a result, this issue has not been observed.
+> > > 
+> > > However, relying on above stuff is fragile.
+> > > Therefore, when pKVM is enabled, the FF-A infrastructure should be
+> > > initialised only after pKVM initialisation has been fully finalised.
+> > > 
+> > > To achieve this, introduce an ffa_root_dev ("arm-ffa") and
+> > > a corresponding driver to defer initialisation of the FF-A infrastructure
+> > > until pKVM initialisation is complete, and to defer probing of all FF-A devices until then
+> > > when pKVM is enabled.
+> > > 
+> > > This patch is based on v7.1-rc2
+> > > 
+> > > Question:
+> > > 
+> > > FF-A initialisation can occur at late_initcall. Because it may be deferred,
+> > > some FF-A requests cannot be serviced at that stage.
+> > > A typical example is the EFI runtime variable service using DIRECT_MSG_REQ.
+> > > 
+> > > Depending on the platform, the EFI runtime variable service runs with StandaloneMm
+> > > and uses FF-A DIRECT_REQ. However, when pKVM is enabled, FF-A initialisation
+> > > may be deferred to late_initcall. In this case, load_uefi_certs()
+> > > can fail if it is invoked before the FF-A driver is initialised
+> > > via deferred_probe_initcall().
+> > > 
+> > > Moving load_uefi_certs() to late_initcall_sync, as in the third patch,
+> > > seems not to have any problem since late_initcall and
+> > > late_initcall_sync are both of do_basic_setup() and it's before loading
+> > > init process. However, it is still unclear whether
+> > > it would be better to allow DIRECT_MSG_REQ in kvm_host_ffa_handler()
+> > 
+> > The spec doesn't allow this. Looking at DEN0077A 1.2 REL0:
+> > 
+> > Section 13.2.2 says:
+> > 
+> > "If they are compatible, it enables them to determine which Framework functionalities can be used. Hence, negotiation of
+> > the version must happen before an invocation of any other FF-A ABI."
+> > 
+> > and a bit further down
+> > 
+> > "Once the caller invokes any FF-A ABI other than FFA_VERSION, the version negotiation phase is complete."
+> > 
+> > I would have thought that an SP would only go into the waiting state once the version negotiation is done.
+> 
+> I mean the negotiation between hypervisor and ff-a driver.
+> actually the version negotiation is done with SPMC in
+> hyp_ffa_init() but the negotiaion between hypervisor and ff-a driver
+> just choose the lower version between version requested from ff-a driver
+> and negotiated version with hypervisor and SPMC.
 
-You are right, the device_lock() is needed in
-device_links_flush_sync_list() to protect against concurrent driver
-callbacks from being invoked, such as the ->remove().
+Sorry. re-parse the word, not choose "re-negotiate" when
+FF-A driver request lowever version.
 
-However, as part of the removal procedure in
-__device_release_driver(), we also need to account for device links.
-Hence we call device_links_busy() which takes the
-device_links_write_lock().
+> 
+> So, the version negotiation is already done with SPMC
+> but with FF-A driver with hypervisor is not yet.
+> However, DIRECT_MSG_REQ has supported from v1.0 
+> In this situation, is there any reason not to send DIRECT_REQ_MSG?
 
->
-> The documentation of __device_links_queue_sync_state() actually slightly hints
-> at this, but focuses more on the other reason for the deferred semantics -- the
-> sync_state() callback may want to call device link APIs.
->
-> > Anyway, let me add a get/put_device() here somewhere, to ensure we
-> > prevent this from happening. I assume that is what you are proposing?
->
-> No, an additional device reference count won't protect against other concurrent
-> driver callbacks, such as remove().
+IOW, question is that some of ff-a request can be allowed
+before version negotiation with FF-A driver but
+using negotiated version via hyp_ffa_init() first or not.
 
-Because _device_links_queue_sync_state() is always called while
-holding the device_links_write_lock(), it I believe it should be
-perfectly safe to invoke the driver callbacks from there.
+[...]
 
-Kind regards
-Uffe
+Thanks.
+
+-- 
+Sincerely,
+Yeoreum Yun
 
