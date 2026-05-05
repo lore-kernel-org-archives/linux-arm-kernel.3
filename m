@@ -4,74 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 700A7CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 15:14:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16A2AFF8855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 15:15:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XgBXtsiIb+gLX4PuiVNT80qMAKULOs6sKPUTMJVrqqs=; b=z9UGhcj30F2RUVcjk6ZGTgy0sg
-	UFs5qmEZX/Xq0hFOWPI+f/hgrxF0zIf+bJosP0NDiZUIEXdG8Ov56Frs3FaYSQtYeBLQIaNE1I+dL
-	V0QmYotVU0FK2FACmooaT1c9NE99ovVQfVU/XIZ1/G1ipE2M9oXFSjxnLnNnAEumkrW7s67kk7lHs
-	c7kfDcExn98AeZ2x3v1MbrxC3CAAJDUTENfWC4uV4043UHUSal8c5uOQ9xeyUrztrlmTMuaC/P396
-	HlZyiyYlMMCSp0Xwpa6n1knaKUFbz8L0tQ9TGImJoLO22MVzn/sWcjShw+BBnBsvvcHGwbea2/RNb
-	rf0eTghg==;
+	bh=M9iEkaDT4u19WmS0Yfi5d8HGS2o/7iITmWWIs/xHv50=; b=kFrtYW/CyapluKDfw2ldsP943b
+	GnXUUAcuoy1naM1phnMOoz0CDYCYygjoqejiWWVyEjLH7xZVNCxZ8pCHXRj0d5092bFPdIAaA8+s7
+	mJPbCaJI+dS1ORVasXh2kyVVtkdz29exIt6FUaDnHw+IsjljErO/xFJaDOXWtJjRu3EpPONsdFbdk
+	mFps3nR+wmM7pOvZU3cq4ooE641uGjXeHSSgB99lliUWEYkNhiUFEmB0BeRx/o02pingLn474VUPB
+	ycOT1497zRM1P05kxLamnAecHw8uqS5sjC4sXvdwoPXXYILjHDvHd9KPly+CcMb8ErBHeKvbh9Xwa
+	sqkMaWXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKHTv-0000000Gcxi-0trV;
-	Tue, 05 May 2026 15:14:43 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wKHUD-0000000Gd1W-3IdP;
+	Tue, 05 May 2026 15:15:01 +0000
+Received: from mail-norwayeastazon11013007.outbound.protection.outlook.com ([40.107.159.7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKHTs-0000000GcxC-01eL
+	id 1wKHUB-0000000Gd04-2r4E
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 15:14:42 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id A94251A3522;
-	Tue,  5 May 2026 15:14:36 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 7C8FB6053C;
-	Tue,  5 May 2026 15:14:36 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DAACE11AD02B4;
-	Tue,  5 May 2026 17:14:31 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1777994075; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=XgBXtsiIb+gLX4PuiVNT80qMAKULOs6sKPUTMJVrqqs=;
-	b=AwT8yA7Bb/ath1ep+MNhY9ZGU6GOKM5XLv/FPv5oguicxv+2eEyRzqeLuD+47Hscws9Pc4
-	ZJYGeZps9buNs2BLs/CxHg+d3OEhL0Uj3CcqdY3bjg+0tM+sBgw/RFsZ7n7fuVP4+spSSk
-	de7VcUnG9jYvIFryOSllE+8hNBI5yXv0iMKfE1YTNOy3D11lSyQXPK+F218QY/A3pCYNnw
-	IqDgdbphdsTim60DphNuGnn/IpmiWazZn8qp/bZFGrfNcXGyWQfPWWmE5TCcebQT5t6S6R
-	qZaFVoa2rBFOG8woj+TkBT7LZwJV9hN2oenXBzmgTHqsPqy6DejG5XRIjF1X/Q==
-Message-ID: <676912d8-a957-48dc-9182-5a6a1162b3f4@bootlin.com>
-Date: Tue, 5 May 2026 17:14:31 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 3/4] clk: keystone: sci-clk: add restore_context()
- operation
-To: Nishanth Menon <nm@ti.com>
-Cc: Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Gregory CLEMENT <gregory.clement@bootlin.com>,
- richard.genoud@bootlin.com, Udit Kumar <u-kumar1@ti.com>,
- Abhash Kumar <a-kumar2@ti.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-clk@vger.kernel.org, Dhruva Gole <d-gole@ti.com>,
- Kendall Willis <k-willis@ti.com>
-References: <20260427-ti-sci-jacinto-s2r-restore-irq-v6-0-72c6468cb2ab@bootlin.com>
- <20260427-ti-sci-jacinto-s2r-restore-irq-v6-3-72c6468cb2ab@bootlin.com>
- <20260505114249.y7svb7jf7w64zflo@concerned>
-Content-Language: en-US
-From: Thomas Richard <thomas.richard@bootlin.com>
-In-Reply-To: <20260505114249.y7svb7jf7w64zflo@concerned>
-Content-Type: text/plain; charset=UTF-8
+	Tue, 05 May 2026 15:15:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NPh1uNrKLJB3ZPZiJ8Dea4CL1PGJmpTJtV22G/3M2QUv1Bs7AQVOamzsNteXyn3TRZtokV9RbxeXnWHQP6MsTEppYk5h5gTIi81Suuyq+5T173jn4ZnfG2k0GDrq4V3m4TEh9oWTWh5Xq/bP+VvceMc796x0xGrdyCoG+Hydjx5tLPpk9GIKqY5MPimvYEEqg0vHx5FNIz4ghcn2M1Smc5KvuRjWHT13TnnXT+Hc2zixKD45T0/MCItfP+osbonFRDkC7F7Bzc9hwx2mAcwaIMbmoKLNrP/peNKm9dY/6nfokEgZ3ccyj7NO5crxFBdr/KQi/wyaFVJYeJJlLkFJxg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8+gtkGOVgyjT7X+DqcxNNy6R3uwv+zcZnVjZX+u8fN8=;
+ b=YYgXjGY4PkiS9LG9lwymo+MLZZ/ORFPNCI1e3gaw0m7K2ENrR8WXz6IheARK/MPIdIJtntPf6B3afLoLRaU6EBpMPLJYb5921iGarUGkmkzH+016qxVNoirWpasSKUwhvwUGNXkWVcYACxyd+OGtjf3jJOkx4XCWH682Mtc5mKf+0Cc7fwU08JR3VBtDHwQ37TmPV06xa2eSs12zYyIXLJwlZlpggPhw4+RgtuTFsretaPrvoLj40ngDM1BM9Ihcf+EuiuL4cqw6pHDvlM1f6Q4mmDfAtuJCCWcLbIj0btrTXZf6beMqOSkxZbE7Yl11ecBd/2Mk+APzOIr0DV4dMQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8+gtkGOVgyjT7X+DqcxNNy6R3uwv+zcZnVjZX+u8fN8=;
+ b=k6NWPnsJ2DyYwaNIG6TQC6QYiYclPPGl6mcfnG2kJTHJa7LVGWXTCvjnyluM0yITqb1kkZENFrhvFhBwiyXX+bDved1vVbkEMzIILQC8VOqCf2u85fUeJm+r6IixWchW0dO7/wFFlUJUUW1iBbgIcdz/pAwHXFAYCaDm0l3u6hULZ8HtTCEGndj8EVyEOsAy7uwm/kZx8gNDeH227SW6MtPu23OF27Qv1BKzisYQMRhnHnRTsMimk1/PEfMylYKZGAUvXI+TPtiLc33ea+6BKUb/vTQkudzqgs/5cHm7GE0iSyK7MxRDJu66giFHCOPb/xLQzndby5m3nyJTvRzdIQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by VI2PR04MB11099.eurprd04.prod.outlook.com (2603:10a6:800:298::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Tue, 5 May
+ 2026 15:14:53 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9870.023; Tue, 5 May 2026
+ 15:14:51 +0000
+Date: Tue, 5 May 2026 11:14:44 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: =?iso-8859-1?Q?S=E9bastien?= Szymanski <sebastien.szymanski@armadeus.com>
+Cc: Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>,
+	Jacky Bai <ping.bai@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	NXP S32 Linux Team <s32@nxp.com>, Linus Walleij <linusw@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	"open list:PIN CONTROLLER - FREESCALE" <linux-gpio@vger.kernel.org>,
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 1/1] pinctrl: imx1: Allow parsing DT without function
+ nodes
+Message-ID: <afoJZDlChRnPltVI@lizhi-Precision-Tower-5810>
+References: <20260504170836.1794372-1-Frank.Li@nxp.com>
+ <b5f75901-29c0-4153-ad1f-543dcf7476e4@armadeus.com>
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+In-Reply-To: <b5f75901-29c0-4153-ad1f-543dcf7476e4@armadeus.com>
+X-ClientProxiedBy: SA1PR04CA0010.namprd04.prod.outlook.com
+ (2603:10b6:806:2ce::16) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|VI2PR04MB11099:EE_
+X-MS-Office365-Filtering-Correlation-Id: f4092ed6-8603-459d-4593-08deaab90e28
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|376014|52116014|366016|38350700014|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: kBbRFz7i/zeo34xAuDZj8yaE3tr8gHwX4AWlXLksPgYscwF6e1fw0rg6JbJJpUtP7W+6eOxGcLMGsSJuKQu83miS/zZ2C+Asq+/ttpdjDqeI/8fGN1/qeoyvC6cTgOIHNxM77iLPYnopAahlwRgfK0aMzSCyztzgqvfFVKyfcdDkf9+0K5XfFcgkU8HXRijKG/KukrMk2JNbXJ93EoNidvqzkxolwxCuwVExCStEfFarL+wvI6k17XOAi88sfqyCnTx/hCKfXRDc/4XVvltNvAELIh5hCoVovNMLfRr7tqj0tNs3lqBHJu4y/26poaZbYKfteZuteztslx9XNDwetSPwr1LaJt7Ji5g8fsPWYV/Qde2Sxg33cauJLBymvI3t1fN8UjD9QQEPdHaZvBKT9eXJSR4IOiRYn19EjWl7lAi/kFL4sGcd2ejay82d1HraIRXZCVzeI2WkjY6OQFrqCyXsJWGzmX2o5vD06+Dvy2pk/sy5FtglUnCaMesF72AZHwChYQgjqn/fq/fyvHDR2gDBaxkie1d433fOHHYqdz6qgq8sx6gFn9BBy0WNysVGLgOiV1MJ0hXTjMYSCVOz26MFRC6zMWyvbVXnDrOCbHzCUSgMQh8FpFijcY/z/wJ3Xh9ZGMo0Nf6mjcvlazUtQhgvzfwGcpiogmbl8lFXDVdzJ8D5Ow2mydxBheVLPc/miFIre8JMIX3uVrtBQQhbyWh+gwXYR+laOjsfmAaw2F+GrzvkY08fFNHcvEhn65PR
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(376014)(52116014)(366016)(38350700014)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?Wb8qIaQniynit5e1pqE1yowUHVxqRAQwkpA+3Pbtv9xHYCtmkPrJWlfJ1L?=
+ =?iso-8859-1?Q?hgo6N6RR2y4Ce2x1AL/3uQ1lqmj2Lq9SUHRIp4Y5PxjYhxOL2guVIFp0ks?=
+ =?iso-8859-1?Q?X42I1xF27xg44Erjvrg6BcP8B+OGc4+MyvqZGbb+c1fvP/myIH4WvC4cVi?=
+ =?iso-8859-1?Q?Q334PVCIRZWBwETzNeNd3PNDvLG38aANCIQh5r9m/R4BxeQILqZPS61HVU?=
+ =?iso-8859-1?Q?nmiOhFDIR7UOAQsQ90jCH7wxIgdHYwaQN3IdonQJJPaBTSnR/4nBl0gjfR?=
+ =?iso-8859-1?Q?S5SF649BY4whr7AUB1bqjqD19GjmHHRhShhugAuIWo2E4es8CBHkKFPpHZ?=
+ =?iso-8859-1?Q?CCUrr1WVC0MD+Bqvobg60du1a9ZGlSbc6UmwaJfQ41AwmarwjEYLUmpMbM?=
+ =?iso-8859-1?Q?nUU4SZmrQJu5K2lFW6a7Su0/2vQV5I8f7uone28MImBM554vf6CiWEZmmy?=
+ =?iso-8859-1?Q?bWBeZuzcKfhjZAGtrZ+I+9P8inFvsChfa9nuNFe2sPHVPgUl7xYmuofRBG?=
+ =?iso-8859-1?Q?hL562G5jym1Hm8NxoopCUj8jkgUUZ32cokkhyVAfDUmP19kmSHPX57YQwD?=
+ =?iso-8859-1?Q?bPi3eu6w016/KvTNqGpkyDjC4QjMDvHX8rvDyOEu6vo7w8E+AB9wQgo/ZM?=
+ =?iso-8859-1?Q?DCF2U2HVWmK5+9r2MoZqXTuH6dV/vseZ9B0V6aavBcNyQqHH+iStP6mWe0?=
+ =?iso-8859-1?Q?8CpcdcgMIsYQ5RMssJPhs1D1mAQNKsWzCHv1JG49LiEuB6qTvKBXycu3FM?=
+ =?iso-8859-1?Q?kKmH1Nzxf4UCy1ov0x1uLHrW5I9ZPRYYX7Fvuzx5myBNhfeu0owgAsMR68?=
+ =?iso-8859-1?Q?vjGlADUp6tZ3nWPx76VUytt2vV3SJF6X52i59bX8bA9XzWrZ0tqrzjofMX?=
+ =?iso-8859-1?Q?NNK7FbXUQunHFcTFkkUN1B7h4oiBRbJ2LkoQt0lWDPKWeNwOQZgZdBITyS?=
+ =?iso-8859-1?Q?DBW7DWKAh7pcCS4uJs/EGPxXuz0KGAB+uya1CCBbr8+gVj+cO5pTa2+p6t?=
+ =?iso-8859-1?Q?hILC72kjpkxcfv43UfwgVe6AL8R1ZUdYe/zFAkAstI/LJuKAAXwFNx11s8?=
+ =?iso-8859-1?Q?bZb5CdT/1bAzrAcWtTaf6v3VXfffTFT887gXjJNbyV5suGu2mW9LAygVfm?=
+ =?iso-8859-1?Q?X8F6J1g3X37q/lGrsxDVq09+80ToE1l/ORswlJBGo3+PBm6anWWRd6eYzH?=
+ =?iso-8859-1?Q?k+TnrtEzgxYGH2Y9jsHr6s0cpxcVJbbTBlj1VjjppAIz6t/O56FvpiCYU1?=
+ =?iso-8859-1?Q?BYt3udDQDvu+e5h8/mFq++vP5j2gT2J1wtTQpiAWtE8yXAz+VQgBHnK910?=
+ =?iso-8859-1?Q?ePFIsafK3G9CzvfHORCqDz/zV9PkC3TkBfh6djeAQ7XRVO2nhxQpThpaJs?=
+ =?iso-8859-1?Q?s2mhhqJ490rErZtIvNKRJCja9UK8CxcTi+MzjosOzZIZZIUs/oRKA1VUbQ?=
+ =?iso-8859-1?Q?zbTFOQuGeVR4PNfOTVmHqIi07iWBlIOHj7LRFImbPgBL7H8CkKJLSFkDzC?=
+ =?iso-8859-1?Q?rOSppC+nmUk5E2Q9Jhp89d9YkA/9TsRwDo/6LCA08UzUpd03CxjIgkRT2s?=
+ =?iso-8859-1?Q?Qw1SuALeqGLbCj2tZsjIYIGTCvHaKPX9+CAiX9MybILx/Dak4WkgIZmYoX?=
+ =?iso-8859-1?Q?hHJzTzdZ5QZitAfxLNHMDHqxWFCt1cINGIR72IJAQd0SKO50mlUWpXRIX7?=
+ =?iso-8859-1?Q?JmfcN0N7fO9JOnUus+sfDxaFgjr+Yy4q4Yxf43oCqG81s0t/6cnrthuw8L?=
+ =?iso-8859-1?Q?AnG+nL5vgiWsBjokwnnrJw6OakGt2hQCLe6Z1LWKWVCqNNXwYz6f1ycGmu?=
+ =?iso-8859-1?Q?hw5iAvgxhg=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f4092ed6-8603-459d-4593-08deaab90e28
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2026 15:14:51.7800
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 85PFUirQwgEzA2cEbZ7L/xit6olLs9lwWj/j3uvpxfPUk9Ru/yLuKAzy8fR14mp4+J3P61w+gr1G5kcpM1vnLA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB11099
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_081440_179463_C07B4E6F 
-X-CRM114-Status: GOOD (  18.03  )
+X-CRM114-CacheID: sfid-20260505_081459_725504_4BA1354B 
+X-CRM114-Status: GOOD (  34.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,86 +145,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/5/26 1:42 PM, Nishanth Menon wrote:
-> On 14:21-20260427, Thomas Richard (TI) wrote:
->> Implement the restore_context() operation to restore the clock rate and the
->> clock parent state. The clock rate is saved in sci_clk struct during
->> set_rate() and recalc_rate() operations. The parent index is saved in
->> sci_clk struct during set_parent() operation. During clock registration,
->> the core retrieves each clockâ€™s parent using get_parent() operation to
->> ensure the internal clock tree reflects the actual hardware state,
->> including any configurations made by the bootloader. So we also save the
->> parent index in get_parent().
->>
->> Reviewed-by: Dhruva Gole <d-gole@ti.com>
->> Reviewed-by: Kendall Willis <k-willis@ti.com>
->> Signed-off-by: Thomas Richard (TI) <thomas.richard@bootlin.com>
->> ---
->>  drivers/clk/keystone/sci-clk.c | 44 ++++++++++++++++++++++++++++++++++--------
->>  1 file changed, 36 insertions(+), 8 deletions(-)
->>
->> diff --git a/drivers/clk/keystone/sci-clk.c b/drivers/clk/keystone/sci-clk.c
->> index 9d5071223f4c..b090edf5f82e 100644
->> --- a/drivers/clk/keystone/sci-clk.c
->> +++ b/drivers/clk/keystone/sci-clk.c
->> @@ -47,6 +47,8 @@ struct sci_clk_provider {
->>   * @node:	 Link for handling clocks probed via DT
->>   * @cached_req:	 Cached requested freq for determine rate calls
->>   * @cached_res:	 Cached result freq for determine rate calls
->> + * @parent_id:	 Parent index for this clock
->> + * @rate:	 Clock rate
->>   */
->>  struct sci_clk {
->>  	struct clk_hw hw;
->> @@ -58,6 +60,8 @@ struct sci_clk {
->>  	struct list_head node;
->>  	unsigned long cached_req;
->>  	unsigned long cached_res;
->> +	u8 parent_id;
->> +	unsigned long rate;
->>  };
->>  
->>  #define to_sci_clk(_hw) container_of(_hw, struct sci_clk, hw)
->> @@ -150,6 +154,8 @@ static unsigned long sci_clk_recalc_rate(struct clk_hw *hw,
->>  		return 0;
->>  	}
->>  
->> +	clk->rate = freq;
->> +
->>  	return freq;
->>  }
->>  
->> @@ -210,10 +216,15 @@ static int sci_clk_set_rate(struct clk_hw *hw, unsigned long rate,
->>  			    unsigned long parent_rate)
->>  {
->>  	struct sci_clk *clk = to_sci_clk(hw);
->> +	int ret;
->>  
->> -	return clk->provider->ops->set_freq(clk->provider->sci, clk->dev_id,
->> -					    clk->clk_id, rate / 10 * 9, rate,
->> -					    rate / 10 * 11);
->> +	ret = clk->provider->ops->set_freq(clk->provider->sci, clk->dev_id,
->> +					   clk->clk_id, rate / 10 * 9, rate,
->> +					   rate / 10 * 11);
->> +	if (!ret)
->> +		clk->rate = rate;
->> +
->> +	return ret;
->>  }
->>  
->>  /**
->> @@ -237,9 +248,9 @@ static u8 sci_clk_get_parent(struct clk_hw *hw)
->>  		return 0;
-> 
-> What happens if get_parent() fails during clock registration? Looking at
-> sci_clk_get_parent(), if the firmware call fails, parent_id will be a
-> valid value of 0? and in restore, we'd attempt to restore it back? I
-> think that is wrong.
+On Tue, May 05, 2026 at 10:32:48AM +0200, Sébastien Szymanski wrote:
+> Hello,
+>
+> On 5/4/26 7:08 PM, Frank Li wrote:
+> > The old format to define pinctrl settings for imx in DT has two hierarchy
+> > levels. The first level are function device nodes. The second level are
+> > pingroups which contain a property fsl,pins. The original ntention was to
+> > define all pin functions in a single dtsi file and just reference the
+> > correct ones in the board files.
+> >
+> > The commit ("5fcdf6a7ed95e pinctrl: imx: Allow parsing DT without function
+> > nodes") already make moden i.MX chip support flatten layout.
+> >
+> > Make legacy chipes (more than 15 years) support this flatten layout also.
+> >
+> > Fixes: e948cbdc41d6f ("ARM: dts: imx: remove redundant intermediate node in pinmux hierarchy")
+> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > ---
+> > build test only
+> >
+> > Sébastien Szymanski:
+> > 	Can you help test it? I am happy i.MX27 still alive.
+>
+> Sure! Thanks for the patch! With this patch applied on Linux 7.1-rc2 the
+> board boots again. I see the following messages, though:
+>
+> [    0.085139] imx27-pinctrl 10015000.pinmux: Not a valid fsl,pins property
+> (gpio)
+> [    0.085226] imx27-pinctrl 10015000.pinmux: Not a valid fsl,pins property
+> (gpio)
+> [    0.085281] imx27-pinctrl 10015000.pinmux: Not a valid fsl,pins property
+> (gpio)
+> [    0.085327] imx27-pinctrl 10015000.pinmux: Not a valid fsl,pins property
+> (gpio)
+> [    0.085372] imx27-pinctrl 10015000.pinmux: Not a valid fsl,pins property
+> (gpio)
+> [    0.085416] imx27-pinctrl 10015000.pinmux: Not a valid fsl,pins property
+> (gpio)
+> [    0.092693] imx27-pinctrl 10015000.pinmux: initialized IMX pinctrl driver
+>
+> That's because there is no fsl,pins property in the 6 gpio subnodes.
+>
+> Tested-by: Sébastien Szymanski <sebastien.szymanski@armadeus.com>
+>
+> I one have comment bellow.
+>
+> >
+> > Frank
+> > ---
+> >   drivers/pinctrl/freescale/pinctrl-imx1-core.c | 48 ++++++++++++++++---
+> >   1 file changed, 41 insertions(+), 7 deletions(-)
+> >
+> > diff --git a/drivers/pinctrl/freescale/pinctrl-imx1-core.c b/drivers/pinctrl/freescale/pinctrl-imx1-core.c
+> > index b36c8a1461b7c..bf07e0c64a098 100644
+> > --- a/drivers/pinctrl/freescale/pinctrl-imx1-core.c
+> > +++ b/drivers/pinctrl/freescale/pinctrl-imx1-core.c
+> > @@ -540,10 +540,34 @@ static int imx1_pinctrl_parse_functions(struct device_node *np,
+> >   	return 0;
+> >   }
+> > +/*
+> > + * Check if the DT contains pins in the direct child nodes. This indicates the
+> > + * newer DT format to store pins. This function returns true if the first found
+> > + * fsl,pins property is in a child of np. Otherwise false is returned.
+> > + */
+> > +static bool imx1_pinctrl_dt_is_flat_functions(struct device_node *np)
+> > +{
+> > +	struct device_node *function_np;
+> > +	struct device_node *pinctrl_np;
+> > +
+> > +	for_each_child_of_node(np, function_np) {
+> > +		if (of_property_read_bool(function_np, "fsl,pins"))
+>
+> Isn't of_property_present better here...
+>
+> > +			return true;
+> > +
+> > +		for_each_child_of_node(function_np, pinctrl_np) {
+> > +			if (of_property_read_bool(pinctrl_np, "fsl,pins"))
+>
+> ...and here ?
 
-Okay. I'll use an integer for parent_id, so I can also store
-get_parent()'s return code in case of error. And in restore_context() I
-call set_parent() only if num_parents > 1 and parent_id >= 0.
+Yes, I will update it and send v2.
 
-Best Regards,
-Thomas
+Frank
+>
+> Regards,
+>
+> > +				return false;
+> > +		}
+> > +	}
+> > +
+> > +	return true;
+> > +}
+> > +
+> >   static int imx1_pinctrl_parse_dt(struct platform_device *pdev,
+> >   		struct imx1_pinctrl *pctl, struct imx1_pinctrl_soc_info *info)
+> >   {
+> >   	struct device_node *np = pdev->dev.of_node;
+> > +	bool flat_funcs;
+> >   	int ret;
+> >   	u32 nfuncs = 0;
+> >   	u32 ngroups = 0;
+> > @@ -552,9 +576,15 @@ static int imx1_pinctrl_parse_dt(struct platform_device *pdev,
+> >   	if (!np)
+> >   		return -ENODEV;
+> > -	for_each_child_of_node_scoped(np, child) {
+> > -		++nfuncs;
+> > -		ngroups += of_get_child_count(child);
+> > +	flat_funcs = imx1_pinctrl_dt_is_flat_functions(np);
+> > +	if (flat_funcs) {
+> > +		nfuncs = 1;
+> > +		ngroups = of_get_child_count(np);
+> > +	} else {
+> > +		for_each_child_of_node_scoped(np, child) {
+> > +			++nfuncs;
+> > +			ngroups += of_get_child_count(child);
+> > +		}
+> >   	}
+> >   	if (!nfuncs) {
+> > @@ -574,10 +604,14 @@ static int imx1_pinctrl_parse_dt(struct platform_device *pdev,
+> >   	if (!info->functions || !info->groups)
+> >   		return -ENOMEM;
+> > -	for_each_child_of_node_scoped(np, child) {
+> > -		ret = imx1_pinctrl_parse_functions(child, info, ifunc++);
+> > -		if (ret == -ENOMEM)
+> > -			return -ENOMEM;
+> > +	if (flat_funcs) {
+> > +		imx1_pinctrl_parse_functions(np, info, 0);
+> > +	} else {
+> > +		for_each_child_of_node_scoped(np, child) {
+> > +			ret = imx1_pinctrl_parse_functions(child, info, ifunc++);
+> > +			if (ret == -ENOMEM)
+> > +				return -ENOMEM;
+> > +		}
+> >   	}
+> >   	return 0;
+>
+>
+> --
+> Sébastien Szymanski, Armadeus Systems
+> Software engineer
 
