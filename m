@@ -4,64 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFDAFCD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 21:21:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0542CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 21:25:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R67bXIcJ6ZW0Mr/MWeiAET685IqQQBHGOBblU9BvLWU=; b=KMAM3MBwtrl++sB/Fu3wteGFmT
-	Ezgt39mMtvtTjBO7haZ5bWZN//oEpiFFkZs5mm5N0s6oN3MArwQZAZzZJiSmXZg9Dagl0+8yv5+O+
-	xw6q2KQVBZyTBz7mkItm9dGMp1YdtsD3UU33dU/081lz/wYWFQlAUBLKbvb5nbCayJv50afkgSKYa
-	RgBAVuD4mRKZ1PDk/r69AhCfecrMDSpS/OzI/C8iwRLWsOIDlj/gi8hXspLMSm4vr/WBmw64Tg+8d
-	rXwqDogfDx5OZ2Y/9OInyJiVwnQ5EkACu6KLLpffz4UZOGbfwPXyqo51PqyzLLjhjqnIeoT+wCTgv
-	xM07KcGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zv+vlCVLeCjXO0SN09QurXnaogZl9i2zBbZOK6NPesw=; b=s8Ajfcedzmn/ZqWlWl0rzdhScj
+	IKyO2aRr10hO2571hiGiOxHiNPgk5V6pu+QIGtinGtyBWl0HIjP5pxaU+5ycBsRdRY3A56rzuagJW
+	wf3gWAcbbdopTg0ehy7cvknmLvVP11TctoLI98vpFCcVdKt3vADLY9cV48wtbhVZWJgMY6/TkCg9G
+	4hVoQaDLq6NgB/oeDqF/gY1BMDbNlS3AqwM85M2s/t+iNMJ913h1sQUz9uw8l2OEgO9Z3iYpEFDn7
+	3rcuqU+jOduB/Km25/sT4Y53EsCPKqjUL82TYb0SGYUAXFoxa6U6aEp09lMqcTz0j+zib4nz0R6va
+	POsjjCOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKND4-0000000HWdS-0eWS;
-	Tue, 05 May 2026 21:21:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKND1-0000000HWci-1Wtj
+	id 1wKNHA-0000000HX8t-3Lfo;
+	Tue, 05 May 2026 21:25:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wKNH7-0000000HX8K-2yh3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 21:21:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CA0F51A25;
-	Tue,  5 May 2026 14:21:29 -0700 (PDT)
-Received: from donnerap.manchester.arm.com (donnerap.manchester.arm.com [10.33.8.81])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B732E3F7B4;
-	Tue,  5 May 2026 14:21:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778016095; bh=+mPWg2uMzAPmVMXDNRmqAMdMillF7YQN7BUboho7Z6o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SDdAZKViRVhC0qIt6LW792CahJRW7eJW6wA41BeX2cVSzI2R2cMdMFLMu/oc0RGgX
-	 G5OSKgH0Qed2hIjb/E1KiivDuLXpDhyf9VLBEGXnfpJwgwRBYUrwDaLhm/FesIJjS1
-	 eg7yX1OtlI29sfmJqwW5oTmTgLi4HG7n48MDkHJY=
-Date: Tue, 5 May 2026 22:21:30 +0100
-From: Philip Radford <philip.radford@arm.com>
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, linux-pm@vger.kernel.org,
-	sudeep.holla@arm.com, james.quinlan@broadcom.com,
-	f.fainelli@gmail.com, vincent.guittot@linaro.org,
-	etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
-	quic_sibis@quicinc.com, dan.carpenter@linaro.org, d-gole@ti.com,
-	souvik.chakravarty@arm.com
-Subject: Re: [PATCH v5 06/12] firmware: arm_scmi: Extend powercap report to
- include MAI
-Message-ID: <afpc_Y2cQUw6xKbr@donnerap.manchester.arm.com>
-References: <20260428090922.346069-1-philip.radford@arm.com>
- <20260428090922.346069-7-philip.radford@arm.com>
- <afpPbHkvNE0ijM9n@pluto>
+	Tue, 05 May 2026 21:25:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6D69E40DF4
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 May 2026 21:25:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50809C2BCC9
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 May 2026 21:25:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778016352;
+	bh=zv+vlCVLeCjXO0SN09QurXnaogZl9i2zBbZOK6NPesw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=tmUc7jicozOz4ecoLasRAeYiRFBRlW6kYOwkywcvu8EbmEg1Yy3taCVLdHaVL9m4L
+	 1+/QSr34rm+cGpUN5KB5LJI39wr5787hrJ1lQDJr2kRzmo1GswqU3hjuN2xUU+/MlH
+	 4WA89aHXVUfW6r0xRjsGmnZbRUm5SbUNc7ch47xYhueY2xEJTH/xLSEtrkAY6yDK8F
+	 r2KE9/uIFT1kPF1Y6NNrTn1euvNnESXqWJdx2EtLr1DFjCMZ8A+3UV69XxFw/Tk36Q
+	 +Qkfr/nIo/pa+qqc8Td4QpYrI1SbskAeFCA1GakTbnUc/IhuWv4HJMTcinjsc0iFGk
+	 2SoB6cpC3tOjQ==
+Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-39393ec4ed0so33646941fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 14:25:52 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ9bhMx7w8NYFAHTbMrcPEM7RgSg/O9IycdGoDIA6WIY6rtjTrvoS25Y8khyXIFtbwKtgbymDsE3e+6Ea/AyaXKX@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBBPxrDwcBIJiyGaytw3jEXlYWtDpx5LkDD4di5563+C+nFnW/
+	Fj7CR2CsElKPX3UT5dSPshq3CRSRyxh8gpsBcu/vG01syfi3nLclw+Bam0hFBtTmdxsGLfFj0GX
+	PeS9GZjtaefx0C2bYOdIXbDDf+W7NvFk=
+X-Received: by 2002:a05:6512:3a81:b0:5a8:65ce:e832 with SMTP id
+ 2adb3069b0e04-5a887ceb5ddmr121206e87.36.1778016351014; Tue, 05 May 2026
+ 14:25:51 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <afpPbHkvNE0ijM9n@pluto>
+References: <20260505-integrator-fixes-v1-1-56ab9aac59db@kernel.org> <02b810ab-12b8-4d44-91c2-ce6bf8ad894f@roeck-us.net>
+In-Reply-To: <02b810ab-12b8-4d44-91c2-ce6bf8ad894f@roeck-us.net>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 5 May 2026 23:25:38 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmO935+DC+Bjjo1huipkZ5Nu-y8amMLWCSfX+0atdY9xw@mail.gmail.com>
+X-Gm-Features: AVHnY4JR4hQcbAvDoiohMRDDt_6ZSxWJwEZC_9laXjMXl74mtqE6EYGDsrBiEhY
+Message-ID: <CAD++jLmO935+DC+Bjjo1huipkZ5Nu-y8amMLWCSfX+0atdY9xw@mail.gmail.com>
+Subject: Re: [PATCH] ARM: integrator: Fix early initialization
+To: Guenter Roeck <linux@roeck-us.net>
+Cc: soc@kernel.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_142139_602304_4FF399C0 
-X-CRM114-Status: GOOD (  33.04  )
+X-CRM114-CacheID: sfid-20260505_142553_790992_A6CD2FF2 
+X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,133 +81,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 05, 2026 at 09:13:32PM +0100, Cristian Marussi wrote:
-> On Tue, Apr 28, 2026 at 10:09:15AM +0100, Philip Radford wrote:
-> > Extend scmi_powercap_meas_changed_report to include MAI change
-> > notifications.
-> > 
-> 
-> Hi
-> 
+On Tue, May 5, 2026 at 11:14=E2=80=AFPM Guenter Roeck <linux@roeck-us.net> =
+wrote:
 
-Hi,
-Thanks for the review.
+> I actually stopped testing the integratorcp qemu emulation
+> because it no longer works reliably, not even with gcc 9.x,
+> since the timer-sp804 patches were applied.
+>
+> Given that apparently no one but me ever hit that problem,
+> I wonder if it is time to remove support for that machine entirely.
 
-> > Signed-off-by: Philip Radford <philip.radford@arm.com>
-> > ---
-> >  drivers/firmware/arm_scmi/powercap.c | 20 ++++++++++++--------
-> >  include/linux/scmi_protocol.h        |  1 +
-> >  2 files changed, 13 insertions(+), 8 deletions(-)
-> > 
-> > diff --git a/drivers/firmware/arm_scmi/powercap.c b/drivers/firmware/arm_scmi/powercap.c
-> > index 1d1188e98d49..b9d50f4e8ae5 100644
-> > --- a/drivers/firmware/arm_scmi/powercap.c
-> > +++ b/drivers/firmware/arm_scmi/powercap.c
-> > @@ -11,6 +11,7 @@
-> >  #include <linux/io.h>
-> >  #include <linux/module.h>
-> >  #include <linux/scmi_protocol.h>
-> > +#include <linux/stddef.h>
-> >  
-> >  #include <trace/events/scmi.h>
-> >  
-> > @@ -164,6 +165,7 @@ struct scmi_powercap_meas_changed_notify_payld {
-> >  	__le32 agent_id;
-> >  	__le32 domain_id;
-> >  	__le32 power;
-> > +	__le32 mai;
-> >  };
-> >  
-> >  struct scmi_msg_powercap_cpc {
-> > @@ -1212,13 +1214,6 @@ static int scmi_powercap_notify(const struct scmi_protocol_handle *ph,
-> >  		if (ret)
-> >  			return ret;
-> >  
-> > -		if (enable && !low && !high) {
-> > -			dev_err(ph->dev,
-> > -				"Invalid Measurements Notify thresholds: %u/%u\n",
-> > -				low, high);
-> > -			return -EINVAL;
-> > -		}
-> > -
-> 
-> Ok so you removed this check because now that a notification can be
-> emitted even only to notify a MAI change, it is possible that the
-> thresholds are zero and the notification will be emitted anyway due to
-> a MAI change....BUT you have to review or completely remove the comment
-> block that precedes this that says:
-> 
->    /*                                                               
->     * Note that we have to pick the most recently configured        
->     * thresholds to build a proper POWERCAP_MEASUREMENTS_NOTIFY     
->     * enable request and we fail, complaining, if no thresholds     
->     * were ever set, since this is an indication the API has been   
->     * used wrongly.                                                 
->     */                                                              
-> 
-> ...becasue NOW is no more true and misleading, since you just removed the
-> fail and complain part...
-> 
-> It would be good to shortly explain in a comment the new possible
-> scenarios in which notification can be enabled...
-> 
+I actually have the hardware, even several of them, I've been keeping
+them as a base reference for old 32bit ARM. Ethernet broke on the
+one I had out so I need to bring a new one (yeah, as in factory-new)
+from a box.
 
-Apologies, I have overlooked this comment. I will amend it.
-
-> >  		ret = ph->xops->xfer_get_init(ph, message_id,
-> >  					      sizeof(*notify), 0, &t);
-> >  		if (ret)
-> > @@ -1333,14 +1328,23 @@ scmi_powercap_fill_custom_report(const struct scmi_protocol_handle *ph,
-> >  	{
-> >  		const struct scmi_powercap_meas_changed_notify_payld *p = payld;
-> >  		struct scmi_powercap_meas_changed_report *r = report;
-> > +		const size_t sz_v2 = offsetofend(struct scmi_powercap_meas_changed_notify_payld,
-> > +						 power);
-> > +		const size_t sz_v3 = sizeof(*p);
-> 
-> While this is a valid and nice construct, I think is overkill here since
-> these offsets/sizes will never change at runtime....
-> 
-> ...you can just define above a couples of DEFINE that hardcodes the
-> sizes of the v2 and v3 by using the
-> 
-> 	#define SZ_V2 	(sizeof(struct scmi_powercap_meas_changed_notify_payld))
-> 
-> and
-> 	#define SZ_V3   (SZ_V2 - sizeof(__le32))
-> 
-
-Noted, will do.
-
-> >  
-> > -		if (sizeof(*p) != payld_sz)
-> > +		if (payld_sz != sz_v2 && payld_sz != sz_v3)
-> >  			break;
-> >  
-> >  		r->timestamp = timestamp;
-> >  		r->agent_id = le32_to_cpu(p->agent_id);
-> >  		r->domain_id = le32_to_cpu(p->domain_id);
-> >  		r->power = le32_to_cpu(p->power);
-> 
-> maybe more clear to simply:
-> 		
-> 		r->mai = 0;
-> 		if (payld_sz == SZ_V3 && PROTOCOL_REV_MAJOR(ph->version) >= 0x3)
-> 			r->mai = le32_to_cpu(p->mai);
-> 
-> 	
-
-Agreed.
-	
-> > +
-> > +		if (payld_sz == sz_v3 && PROTOCOL_REV_MAJOR(ph->version) >= 0x3)
-> > +			r->mai = le32_to_cpu(p->mai);
-> > +		else
-> > +			r->mai = 0;
-> > +
-> >  		*src_id = r->domain_id;
-> 
-
-Thanks,
-Phil
+Yours,
+Linus Walleij
 
