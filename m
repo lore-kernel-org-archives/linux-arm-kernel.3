@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51BD9FF8855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:08:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD8C3CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:08:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g7iuMBgPRvHIKWyxDZv1acMtW9fNSsseOOaQ+J8qnE4=; b=cDlzQvZIX/sXc3quT9LzMDOWlD
-	3kCLcCAHnUK4sMcRfa/5qjCBIBDbVfdKDogEKFcmK1w056VXAJZELAwvBdN0XWAsNz0vZtPSOAZDf
-	KXGMIXX59RJMqjlxwyj0N9dwU9pN+vDbh5ObMxJ8S99De8jauBBdsnCrk2M55F8hL9XJdE3aaWex+
-	lzD8eqxnlfxQJbaWy1SuiZ5eGgeqqcGY1TXo6RX9FDpvbdowf17YZ2b0dv6zCmP23a21St3K/Uybv
-	RIN1J9fTBSMQxeKmbTeNEpwejUslczq/36Csq7WGz9A5czyNxQhxiY8REpb9tGHVMejpGS6Hrop+H
-	kPAA/LmQ==;
+	bh=8pvlGeIz4wnhgCGR7um1VoK2EQsgLLVLhUgC1XznHtg=; b=1gpNXFy/UymhTQM92Z+AIjMOgN
+	8MfXQelDWjMUClA30mTPg2la0qZITIsSUy7HmadNPLR9/LyAcn34q0FWmD8e1XJsKjzCtjb0Bdjyd
+	usSNDDz0q7AZ1ghC+I/4tFb3IYUW2fAq0IkF/1wKDr8Wg4N0Chwd1pJDx7NZeESIxBzFwSQj91mEX
+	8iTnfeqS/xwbTdCg24E6ROWZr4shzJsHfNuQkk2L6zOQnXA6/BmUOOWt6js2Qz7fBzC45hpfyOHWf
+	rRio+Q2G/p4DklwXZt6EPqRVm9LOBc5okpmxHfU8tMOVRhLsket9aIPFsqWyjSogvsAiuh03cFnWi
+	74lh5DXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKIJx-0000000Gnz6-2EEI;
-	Tue, 05 May 2026 16:08:29 +0000
+	id 1wKIK1-0000000Go58-40lW;
+	Tue, 05 May 2026 16:08:33 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKIJt-0000000GnuN-41Wl
+	id 1wKIJy-0000000Go09-0LB0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 16:08:27 +0000
+	Tue, 05 May 2026 16:08:33 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B17DA3029;
-	Tue,  5 May 2026 09:08:19 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 28DB02681;
+	Tue,  5 May 2026 09:08:24 -0700 (PDT)
 Received: from localhost.localdomain (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E8FB53F763;
-	Tue,  5 May 2026 09:08:20 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6231B3F905;
+	Tue,  5 May 2026 09:08:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777997305; bh=idlh122mOshIsCnWLTnqYzkLl5s0iSNqncP0VdGsTMo=;
+	t=1777997309; bh=qhiAk4es+a9hrujAuX98hvQ0rPx9R/Rfcb8FmcZAQcU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=aHA3MyVLuf+5i4DP2qj9SudVULlGFDH8dE6NPpi9c6nhYIrrri46XjX6OCBqudX8V
-	 j0vis73I+sFpPUXrgf9bKmCjTD66Ww0RUm6vzxbGwgCzfI5i7qppZwSazuBuEYS9bw
-	 scYKnz5bu28Og6MA0zWiOV7T9gXuKU183rmkhimo=
+	b=cwz5o39njUMufkFV/E0d9BSYsSXSRyEQfsh89MROrUiaAJ3fKPzBPCLmV2jNcMgkV
+	 TKtMDmvPWNszl76CME8z6Oxk9MxGe8zGwM2FZR5elYgo/eU/0yUnM+4Fp+oigj7s+2
+	 MsKdMBhxpuw9E21Th13mvhGN5KyDk4faXlOjRrik=
 From: Kevin Brodsky <kevin.brodsky@arm.com>
-Date: Tue, 05 May 2026 17:06:07 +0100
-Subject: [PATCH RFC v7 18/24] arm64: kpkeys: Ensure the linear map can be
- modified
+Date: Tue, 05 May 2026 17:06:08 +0100
+Subject: [PATCH RFC v7 19/24] arm64: kpkeys: Protect early page tables
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260505-kpkeys-v7-18-20c0bdd97197@arm.com>
+Message-Id: <20260505-kpkeys-v7-19-20c0bdd97197@arm.com>
 References: <20260505-kpkeys-v7-0-20c0bdd97197@arm.com>
 In-Reply-To: <20260505-kpkeys-v7-0-20c0bdd97197@arm.com>
 To: linux-hardening@vger.kernel.org
@@ -72,16 +71,16 @@ Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
  Lorenzo Stoakes <ljs@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
  Vlastimil Babka <vbabka@kernel.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777997220; l=1874;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777997220; l=1150;
  i=kevin.brodsky@arm.com; s=20260427; h=from:subject:message-id;
- bh=idlh122mOshIsCnWLTnqYzkLl5s0iSNqncP0VdGsTMo=;
- b=YhKJ1iNbJSMLHBSCs37q9uovxZza1VNm3qfB+SaYI7GEOCzzkRINrgLZnozpVrSy+E9thbqHl
- JTqh4bXYKA6A9DESUgq2rXyIU20gXRZyzZnigKBwPUS979L027rubMT
+ bh=qhiAk4es+a9hrujAuX98hvQ0rPx9R/Rfcb8FmcZAQcU=;
+ b=ceZ8Tc3q1QQobD2wPmnrxyVPJRe6Vy2svFEKe6fDbmwCJ4eSrjWNuIiq0QYIrPVjTZSfk81sU
+ W02DQ8PfNnJAMPnkA0VoACZYdH+p6i2wuTjpUcrNQtYJXla/WnL1wEL
 X-Developer-Key: i=kevin.brodsky@arm.com; a=ed25519;
  pk=N2QG+eJKrvkNovwhhwJhnJ4+ScVfsGCHldmqLfcMTFs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_090826_133561_355EEF34 
-X-CRM114-Status: GOOD (  14.93  )
+X-CRM114-CacheID: sfid-20260505_090832_037625_739FE609 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,53 +95,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the kpkeys_hardened_pgtables feature is enabled, we need to be
-able to modify attributes (specifically the pkey/POIndex) in the
-linear map at page granularity.
+Use the dedicated kpkeys allocator for early page tables (used to create
+the linear map) when the kpkeys_hardened_pgtables feature is enabled.
 
-Add the appropriate check to can_set_direct_map() on the same
-principle as rodata_full and other features.
-
-kpkeys_hardened_pgtables currently requires the linear map to be
-fully PTE-mapped, so we also need to ensure that force_pte_mapping()
-returns true, like for DEBUG_PAGEALLOC.
-
-Both functions can be called very early, before POE is actually
-detected, so the early_enabled() helper is used.
+CPU features have not been detected at this stage so we use the
+early_enabled() helper. This is not a concern as
+kpkeys_physmem_pgtable_alloc() does not itself use POE or
+set_memory_pkey().
 
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
- arch/arm64/mm/mmu.c      | 2 +-
- arch/arm64/mm/pageattr.c | 3 ++-
- 2 files changed, 3 insertions(+), 2 deletions(-)
+ arch/arm64/mm/mmu.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
 diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 493310cf0486..f79e82c0674a 100644
+index f79e82c0674a..4b9218483dd2 100644
 --- a/arch/arm64/mm/mmu.c
 +++ b/arch/arm64/mm/mmu.c
-@@ -760,7 +760,7 @@ static inline bool force_pte_mapping(void)
- 	const bool bbml2 = system_capabilities_finalized() ?
- 		system_supports_bbml2_noabort() : cpu_supports_bbml2_noabort();
+@@ -109,8 +109,11 @@ static phys_addr_t __init early_pgtable_alloc(enum pgtable_level pgtable_level)
+ {
+ 	phys_addr_t phys;
  
--	if (debug_pagealloc_enabled())
-+	if (debug_pagealloc_enabled() || kpkeys_hardened_pgtables_early_enabled())
- 		return true;
- 	if (bbml2)
- 		return false;
-diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-index ecdfaa9701e1..4405f93f1586 100644
---- a/arch/arm64/mm/pageattr.c
-+++ b/arch/arm64/mm/pageattr.c
-@@ -101,7 +101,8 @@ bool can_set_direct_map(void)
- 	 * Realms need to make pages shared/protected at page granularity.
- 	 */
- 	return rodata_full || debug_pagealloc_enabled() ||
--		arm64_kfence_can_set_direct_map() || is_realm_world();
-+		arm64_kfence_can_set_direct_map() || is_realm_world() ||
-+		kpkeys_hardened_pgtables_early_enabled();
- }
+-	phys = memblock_phys_alloc_range(PAGE_SIZE, PAGE_SIZE, 0,
+-					 MEMBLOCK_ALLOC_NOLEAKTRACE);
++	if (kpkeys_hardened_pgtables_early_enabled())
++		phys = kpkeys_physmem_pgtable_alloc();
++	else
++		phys = memblock_phys_alloc_range(PAGE_SIZE, PAGE_SIZE, 0,
++						 MEMBLOCK_ALLOC_NOLEAKTRACE);
+ 	if (!phys)
+ 		panic("Failed to allocate page table page\n");
  
- static int update_range_prot(unsigned long start, unsigned long size,
 
 -- 
 2.51.2
