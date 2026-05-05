@@ -4,179 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C47F2FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 02:40:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0461ECD3436
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 02:41:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nidYGVBUOYIfXHfuLFKR2BWrOZ+HtDmpEKz2DQdycsI=; b=rnCIvBuzOBRlaJCPFMe4md04CM
-	xGCK/XI7ezO9+gcbHfcFHSp6sddK/qNw/7iU6HvtLB0XiC3Gxhh+pBf6AMcJopAs65Ewwl1pxbULR
-	AV71N3AT4EEShZA2K83fTJhYuUyMdsRK6+WpBDTPOPzitBG8LVQyrCrRH0QS5GTd6lQakD8Ou6kXD
-	vnBxjpnbWQbNO8Ovk80JJZqPQTu2OUeyYAFZ7uik2QVr/I+kDdK2e6QKm2tezIRM0kWEoJVKtEXdr
-	DihXs5uzYrXSTpTkarpOJ5+f1Fp0LMXoQ9fTIBmC3zwt4qgJFKSPc6XzYPPbsF7hxsXvZAUolDhrS
-	bqSYWkhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UZ9C1cGKi3QolnoyKB7mQU4uVgu69LgZP4fkUy44Jp4=; b=ibtL09yNO6V2CGYayaOMjKiscs
+	9wyFfujN+qC6o53F76Gnw8MeOpDQIaSW73WcKkhoSUKhBPK9BXxmhR5yi+FFsjZ5MjmIf72tS2OCH
+	Z2P8P28m1DotXDBc2wF8IzEEe3a/LimZQf03/rOUqsSGDiPTQkw8wqMKD24hYwtrMbMdxm40CRQ+D
+	yMjzq+UrpulUiSbfdP1TTZl9DnxC1jwu9bK+qyHw5cz26knUrG+3oERLlOtwQ+pYywt2/sg8voCO5
+	ju3nlaLswvcPEtGvsL4oDgFo/ZpNetUE8YoDyvAn3S1t3QytwXG3fXf6eFBPWZo3eOOtqGHLtu0Xm
+	DPYzSZKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wK5iJ-0000000Evme-0yX8;
-	Tue, 05 May 2026 02:40:47 +0000
-Received: from mx0a-0064b401.pphosted.com ([205.220.166.238])
+	id 1wK5ia-0000000Evqh-02bv;
+	Tue, 05 May 2026 02:41:04 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wK5iB-0000000EvlV-2l5U
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 02:40:46 +0000
-Received: from pps.filterd (m0250810.ppops.net [127.0.0.1])
-	by mx0a-0064b401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6452MlSK1806311;
-	Mon, 4 May 2026 19:40:18 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=windriver.com;
-	 h=cc:content-transfer-encoding:content-type:date:from
-	:in-reply-to:message-id:mime-version:references:subject:to; s=
-	PPS06212021; bh=nidYGVBUOYIfXHfuLFKR2BWrOZ+HtDmpEKz2DQdycsI=; b=
-	mWdobfxL7Vv2FvgG9aIh6SLCyBOIoFs/I0igvwaEPsUHDpf58Otg8lUnLkNInKHt
-	Agyickz0u/cxMISQ1Kg8EJZjbHfkKckjL/C8SjK30C8OHloLHUV6YYJqQIfDaOjt
-	pQMI163HthqZvUAjX3S1Uf1CF9mWmC5Q/r/ajVXrt4Zc5ml+xGnBNA4L3IAuFAgZ
-	11oV5WgEBlMobB7yqPSJWQObJj39wU5ZPhZse5fR2knCUFIUPA2xW8ztLy7P1J8T
-	8fv2mYO4QFXjIexH1wY6F9AvG4eVwWIwpslBi+U/KQcuYQZkty3w2cVvZ0frHkre
-	4A8dBia7JYlTWxweLKsOUQ==
-Received: from ch5pr02cu005.outbound.protection.outlook.com (mail-northcentralusazon11012067.outbound.protection.outlook.com [40.107.200.67])
-	by mx0a-0064b401.pphosted.com (PPS) with ESMTPS id 4dwchytmjr-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 04 May 2026 19:40:18 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=msQ+T5q/2HxbAp11LrfL6qSWPY/yF6r/POUiBq40kOfiQKx1WQfViyRNP/ItDec3ZYoyff+7GNoLxP20qCxahPlkR5DFGFuTACPUC3Ki3fAPy4VkXdzlyzm4XaopB+woBG2HrlO7tjG03zokpbaz2UlCu1NAPmqvSNSACmcSxBg1D9DlkvkTYvpZCxPzc5mo3HOMnaveWP9LxfbdG4lidlfBI32aPJvgu3647YCz26En7BRYrlQ9VBkRY8/KKyeSCG2xjh2hA8vh87N5EIHBSUnYGq89e8AqcJAg8BKwhBkSW4PlcHVPPXPfZmKQ1EMhi5Ncpxx+n9H0EIamLWbgew==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nidYGVBUOYIfXHfuLFKR2BWrOZ+HtDmpEKz2DQdycsI=;
- b=cSPWV7zkTmEpC8Pwb619KNM9CvW76Aqv/n4gpUXCKxypu4pZ5oLpjmqqSqwS+IOOJGM+qC1HIEU9h7NfDdJfAJp2slSrLCvd93p1I08JT/Sj8EFji9TqGjfpXVxsSXLcKIw/HgZZfa/OqoGpRRnM2To2GFk6HmS9tq3S+xr+kEWZy2ase4TTjyVy77UY+e5CsCeOcD2W16CekJETVsaQLR4cQHIP+dKEW9ZIfKqe/ifTCtRppsylKw2yR9tLTNSZyLfdIIdIvU7nPozWIvxuWZdIpLJI6FOyiGunODsOd29CMZa1y8v9WlODQtrMjq5QbhZOrEd3LLJiotqipKYLDg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=windriver.com; dmarc=pass action=none
- header.from=windriver.com; dkim=pass header.d=windriver.com; arc=none
-Received: from SN7PR11MB7017.namprd11.prod.outlook.com (2603:10b6:806:2ac::17)
- by DS7PR11MB5989.namprd11.prod.outlook.com (2603:10b6:8:70::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Tue, 5 May
- 2026 02:39:15 +0000
-Received: from SN7PR11MB7017.namprd11.prod.outlook.com
- ([fe80::44b9:5767:8577:dee8]) by SN7PR11MB7017.namprd11.prod.outlook.com
- ([fe80::44b9:5767:8577:dee8%6]) with mapi id 15.20.9870.023; Tue, 5 May 2026
- 02:39:15 +0000
-Message-ID: <1bbd7824-a15d-47c6-baf7-03841bff5439@windriver.com>
-Date: Tue, 5 May 2026 10:39:16 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] media: imx8-isi: fix resource leaks in probe error
- paths and remove
-To: Frank Li <Frank.li@nxp.com>
-Cc: laurent.pinchart@ideasonboard.com, mchehab@kernel.org,
-        s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-        aisheng.dong@nxp.com, jacopo@jmondi.org, guoniu.zhou@nxp.com,
-        s.riedmueller@phytec.de, linux-media@vger.kernel.org,
-        imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20260424231926.406079-1-xiaolei.wang@windriver.com>
- <20260424231926.406079-4-xiaolei.wang@windriver.com>
- <afjHnSEYm4t0rko8@lizhi-Precision-Tower-5810>
-Content-Language: en-US
-From: xiaolei wang <xiaolei.wang@windriver.com>
-In-Reply-To: <afjHnSEYm4t0rko8@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SEWP216CA0124.KORP216.PROD.OUTLOOK.COM
- (2603:1096:101:2b9::11) To SN7PR11MB7017.namprd11.prod.outlook.com
- (2603:10b6:806:2ac::17)
+	id 1wK5iY-0000000Evps-1oiA;
+	Tue, 05 May 2026 02:41:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 584826012A;
+	Tue,  5 May 2026 02:41:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06164C2BCB8;
+	Tue,  5 May 2026 02:41:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777948861;
+	bh=ddU8USgzjzQyVZN71U7F/arM8/K2SIdvmClFGkdxcMk=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=VQJeyo6k6QXy5XPxqDOOZW240PDY8mh5WHJ/6vKUobp8ijj4r2E1sp6EhiZd+2SFn
+	 pDHsljLFMHZrIVN9af0K2seKULF8Rp9tPuDlVnIa8OTgG6JnbMEXnpW/vowQtc2YTU
+	 RCQ6BbIp2r3UxOJ/jTIxn4g4cAS/NiBdw5m3Rmu6vRKuQcJmKJZNwC6agaoSwCvZao
+	 juFbYlaJKSsxOBlB8skgAQ9IoT+SHLmVlwU7bN4pxGlx4AH8/o/tMrTU3CkFr+tWkM
+	 QN8G07wjzqp231nBUYTtfsovTMCyWQpXX2X1M2NNAWwpRiNTaLyiLI0AiL+bWCCPsK
+	 +rdyRFB26lSrQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 02D3039301A2;
+	Tue,  5 May 2026 02:40:13 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN7PR11MB7017:EE_|DS7PR11MB5989:EE_
-X-MS-Office365-Filtering-Correlation-Id: c2dfba38-080d-4b1f-91b8-08deaa4f7f48
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|10070799003|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: YEkmzy4CZhHJm3HjqqfCTh9p2aRK7faOJfogDLaopLaktY3frqeQQex9DKGKXsM+E5AcmowcCc3P5Ts2qiGOZI+QTyRl08zm2aXPQed8Ad+3v6NghY8JZZeRRwIgm7/h1jXCim+rt8sd42otKbG2cuTtyeindO5VUsOqXQLYpseJMfIFZbmHNnB1Vb6WU1UPsnRGR2sSCn4IOcVLMGiFlkQ0ysA/TTuKp9rDeGJkLhLuUHYaGHv0GGfni0U0M7MqBtTaBgquBLxz+gwlsRfVR7wRqITOqZACly3FdbiTy8puY2/X7e/WhrpYLyPNe99bpNpW3z88jHWxcA/jMs2hY4Y7RBXcnkCj2d55ZAFwJDtYLslsQWv+2kSexoi2QMCk3yZca8Iy2aqQ7dDs+gtj9Q3lQRHhrTFcjk3+bqESv8pTJIAyIvLAKcUbPjNJSNf37ZfYJcc22pogJVP5QrAioEsvefrXCIL6usq3u6rXZ7BZMbgjp0hMNP0Y4/FYCK3DbCXMOlQmIrsElCJ3boUMZ874INBKDbnPxU5SENs9e7E9wXKZK9+yQ4wA3+OR1pJ4AdPrZW7TopzcyruGWPOWeUx65v4lxkWVSByauquAVRuBui0kfmoYz2glYrcGsgEMbnsxviAybA3fUAHsFXjjTJrJliC002JEiVAJR4nWV6xIeJeGrrkyCdYnlJstvAWY
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN7PR11MB7017.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(10070799003)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dUtCSjZnN2UzK1lONmY1MzhvWWVIM0Z4NzdZcUlZeVZCL1NYY0tCY001TXdJ?=
- =?utf-8?B?TS9qV2xnWDJSNFpzeGlIWWJkTENOcjR4RGZmN0xDUGllZE56aVFrbjJHbVcz?=
- =?utf-8?B?cXhPb1Q1bFROenp0SWNHTFNmMWlUWS8xWWI2UDBHMUpRdkJjRGNWTkZIeUF5?=
- =?utf-8?B?Zmt5Q1FLeFdzYzd6WlYvUHpKM0Q2TU9rTnVtVWRpSkJwbytIaStnWnJjSmtN?=
- =?utf-8?B?emZRa1pGV2V4cG5HcGtGTmNpVEcvUWZ1VmprWWU1VVg5S3J0NGEzS3gxb2x3?=
- =?utf-8?B?cEhhQ21hUHo1Z21EMzBrYkJJZCs2QUF5UE1DdjR6NHVseXZtd3J6MWpsTHRh?=
- =?utf-8?B?NXRkQ3QxelQ0WlZKL3NnSm1Td1F5RGxMSUw2M1kxRVlnVlBCLytGWkdLVUJM?=
- =?utf-8?B?SFNIcUVQM3grUkRjWURGNWdnRlVZeUNuNVdzbDlhbEVab1YwSUZsRkc5bytw?=
- =?utf-8?B?aW5KcG04czRKNWhFamFrSmpiV1h3d0Q1QmRyNUdwQjZJeFNRdHRENHlCUy9Q?=
- =?utf-8?B?ajNoQXFVaDlqUURsM3RxUFdqN1ZSRy9JMVFhelRmZ2U3MTI4Zy9wNEEwU0VG?=
- =?utf-8?B?UWxka0p2VG9mS1Fyb3Byc1JyS0doQm1pMTEwTzR0MWFpS1cwOVAydklxNnhl?=
- =?utf-8?B?WEhqNGhkU0hzSzRKU01uUUZLQjRDR0tKdVBubm5UMGtseitoN2JUbmhlVG03?=
- =?utf-8?B?di9mUFd6aDlKTjNBR09kWUVJTHVBV21aY3VzMWViOVVxS1QzdkRSREU5dWZI?=
- =?utf-8?B?K01NeEZ0blExNlhsRDRKeUxRTHc2cklEQUZGelBwdm0wVjIrNTF0dnhrdnQ3?=
- =?utf-8?B?MG44dDFrZHZGVkxXUmRnZXRDVklpQzJqQzE2OGFQMnQwdWxaTitrRFpRSkFM?=
- =?utf-8?B?dVc1U1ZZYVZPNWpFdUV6aXRlWG9NRmJRTGRhT0hBM2xHZFZRMDRLNitmdndh?=
- =?utf-8?B?TUNBWTVESUppQUJOUW8xcWY0U3dYVnZSK3JWVVNCeFZzZ3BRbnhsZk43ck1y?=
- =?utf-8?B?WHljaWNKWExTTUdOeC9VR2xIMm5KVmRwUnVMNGY4UGRtWWZSUVZOVHpYdDNU?=
- =?utf-8?B?T3QvMTdpL3NTMkxVVkVDdjN1R0ZUQVlseTllKzRleUZGenR1bUJKRVlmVjRF?=
- =?utf-8?B?c0lzRGNyMDVoMnVBenlxNWJzT3IzQ0FuM21PQkhoM284SkIvSDM5VnVuc0tG?=
- =?utf-8?B?MDVVVWhNZ1U1UVl3L3BKeXBwdC9LZWNvR2l1MnptelYwWUxKNk5wSmx2RTE3?=
- =?utf-8?B?bGJyNDkrT29Qd2Y4UTNjQ3EwSm43L2R0RE45bHNSbmt2a0picFhHUTJrTUNR?=
- =?utf-8?B?VjdaQmp0WWlJV3BscWRqTXc3emNLRXdPZlp1K21RZ1FhMyt6UjY2bGl2THFM?=
- =?utf-8?B?aElxRm41YWdwOFVCRHJsVTllRTBiZjJ4WEZPcTVlVmFrZ0xXZlFJNDhWZjJh?=
- =?utf-8?B?SEhVV2MzVHVOQkRlZmJKem4zMzdBWGx5Y2VMS3BvWEJ4QnhsbEI4R1ZwS0Ez?=
- =?utf-8?B?T1RQWVB4a091Y2lpaTdhL3V4N1NtV2NGeExhblVmN08ycVZEblNpQzZURFRY?=
- =?utf-8?B?cWpheXRWalJ5eFlPY2tNZm1KOWFOUGR3V1V1SExldm5MVDJncUNyNlgvQTJ0?=
- =?utf-8?B?WW9LYzNuZzJGT3ErN290N3VYa3pEZzcrM3lUU1lXVlpSSGR0akEybjRxZGFO?=
- =?utf-8?B?M3RhUGdoeENlbzV3YmRLSjNLeTYwdzIwd09XZ0dJUlI4MVA1RDc1VkV1NHJT?=
- =?utf-8?B?Uk9GNlFnTFhEOEtLOHc4Q2h2aXpEUG4zTEdoSm01ZDJEbTc5QkllWlJyYXZ1?=
- =?utf-8?B?b1c3aHpSaTEzS0xQeDAwZi9zK1NlVExDRW1pY1lvdWxYNStqR29KRGlmdndO?=
- =?utf-8?B?YzJuRFptblBvTHFScStKK1BWSmRxd1VnTXJGa2FtT1NTdURQUWU2MnlzSFFN?=
- =?utf-8?B?RlV3ODVaK3Y2MjZhVUZwS1AzQ2NoWXkzK0FBTVRBK1B5V3Z0NnBiaUxIeGly?=
- =?utf-8?B?TklLbG0zSzVXeTJpS2xnZmZEZHkvY09oQ2JacDFSV3RIejk5N1dadHVoS0oz?=
- =?utf-8?B?ZmhUWlkySjRjalVrRWp0YUJ4d1ZPV3RyQTljZ1BXK3NoRU9NekViM3ZuWGln?=
- =?utf-8?B?YllGRWR2YmEwc1Z1UlBDNld3Y2laamVEUFJIWGRFS1lNeUtzc1hEOXd0c1BO?=
- =?utf-8?B?dlF1aEFGc1hzVGsyNmRpc2w1WEFYMllsVFdSMlZla3c4RFQyTVdlYitNYndL?=
- =?utf-8?B?bzBPS2FMV0wyUnA4VGY2K3p1Vi9kVmtsNGx5VEJBZDJjQmQ2d0w2NnVlRDZj?=
- =?utf-8?B?Wm5MLzhWdmVweWhYL0RaTEVNUDlRcTlpYWJidGFYWUY5MFVCK3Z6TDYzVnNM?=
- =?utf-8?Q?UqiwEQmmKlRJExJ4mB9wP73pJAZE42HZQ5KRwg2wMSqTr?=
-X-MS-Exchange-AntiSpam-MessageData-1: KSnqtK7Zd0u8aiWB1wNOhSv7qVEq4nIK/+w=
-X-Exchange-RoutingPolicyChecked: SlHsC34taeOqc1imIpVrcaqK+cZ9z4bv7hp1tvQMgG4QnKxVhWE+L2radGXYjzjemfuyvJ35vG4E1TovGqqxFYdds7MJtWe1A3Now7x+fFzDTlmyHdfklEviYJ8Gkyy/G+9VeWc1lu/JgSMBWGxsv48w5gHbUa4xSq+s4AT32VbzLrilLeZSUWRZZOfZO+SCZeWfKQ6x2AWOaWb0nqlSA5xX0rFYXhPp/hpH5emWm10TnNtsybz02NM7ckWjfMtT9qJGqVDfmt+74NQKyOSIDNHbp9H8iHY+Jq3sS4ALvT20WfN/dURxH3L0vEj+JqYqkOQKOWkuy+xRaevnejGLCQ==
-X-OriginatorOrg: windriver.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c2dfba38-080d-4b1f-91b8-08deaa4f7f48
-X-MS-Exchange-CrossTenant-AuthSource: SN7PR11MB7017.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2026 02:39:15.1319
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8ddb2873-a1ad-4a18-ae4e-4644631433be
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vmLQB+pIAcLJYrfNmvN8mWZjn9AjL20i4xjFWI/UvDMsyyBww352Bbg0nvO12fLb3fG/zNegT8VuXXcHjAeZBPoAPZSDFfUubjmUGffMqiQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR11MB5989
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA1MDAyMyBTYWx0ZWRfX+G3oc5CpMPa3
- 4RNL8hsmx+XZ3AnhHjAVYaCGy84fSb2FaE1GiuT9NMQf9MPggMELV6fHqleKUcU7I173oxWA3b1
- gMoifJhnOhhcHH6wNqWB49Duoi9ttMSzEC8rJdvjhxmFQrusmBIRd0wO3BgTwMtAQpdFx7Ne6pW
- MLHMvrIFDdo9W7Urr52C0IKFQwzc01Pu9AqW5AgJnGKQz/b3WGRxOkNzLmodCXj7T3X26iGTiiu
- HwuxAw1/oemqDBbHZL+jJu5EgkX5wF58ei6mu4hF95furpH2Pn7IQZAg7keGgzGLjVUGK1Zqrfr
- bOMoLp1L2ccnd2jk1hg9uGlflWmh8PPPGDP9lNg+cBjliKHZ8O6rk6j0j5ntCr/5A6LshmgAiEk
- 8o30ke61WyHrYQQXz4SZjEuzhvh+zsiWgPjpNFfa9BPUHFuVYJJnzZVotPGT7B41VGjUNVnhcgb
- oGTs2GyqUp1dG+SDLiw==
-X-Proofpoint-ORIG-GUID: MshUXeY7ITfKgDeHuczKdNOd4WYIcSEs
-X-Authority-Analysis: v=2.4 cv=LsSiDHdc c=1 sm=1 tr=0 ts=69f95892 cx=c_pps
- a=A4Ph3AWZfT0pg7R4Z/C0uw==:117 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19
- a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19
- a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=bi6dqmuHe4P4UrxVR6um:22 a=HK-ge7EqtdluswH-FwHe:22
- a=VwQbUJbxAAAA:8 a=t7CeM3EgAAAA:8 a=zasR19Tv65GsDpzOMRUA:9 a=3ZKOabzyN94A:10
- a=QEXdDO2ut3YA:10 a=FdTzh2GWekK77mhwV6Dw:22
-X-Proofpoint-GUID: MshUXeY7ITfKgDeHuczKdNOd4WYIcSEs
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-05_01,2026-04-30_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 priorityscore=1501 lowpriorityscore=0 spamscore=0 suspectscore=0
- adultscore=0 clxscore=1015 malwarescore=0 bulkscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2605050023
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_194041_443830_E8BBCC52 
-X-CRM114-Status: GOOD (  20.25  )
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net v6] net: dsa: mt7530: fix .get_stats64 sleeping in
+ atomic
+ context
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <177794881154.1397274.8560598975981620800.git-patchwork-notify@kernel.org>
+Date: Tue, 05 May 2026 02:40:11 +0000
+References: <6940b913da2c29156f0feff74b678d3c526ee84c.1777719253.git.daniel@makrotopia.org>
+In-Reply-To: <6940b913da2c29156f0feff74b678d3c526ee84c.1777719253.git.daniel@makrotopia.org>
+To: Daniel Golle <daniel@makrotopia.org>
+Cc: chester.a.unal@arinc9.com, andrew@lunn.ch, olteanv@gmail.com,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+ linux@armlinux.org.uk, ansuelsmth@gmail.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,73 +76,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank
+Hello:
 
-Thank you for your review
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-On 5/5/26 00:21, Frank Li wrote:
-> CAUTION: This email comes from a non Wind River email account!
-> Do not click links or open attachments unless you recognize the sender and know the content is safe.
->
-> On Sat, Apr 25, 2026 at 07:19:26AM +0800, Xiaolei Wang wrote:
->> mxc_isi_probe() allocates isi->pipes with kzalloc_objs() but never
->> frees it on any probe failure path or in mxc_isi_remove(), leaking
->> the allocation on every failed probe and every normal unbind.
->>
->> Additionally, when mxc_isi_pipe_init() fails partway through the
->> channel loop or when mxc_isi_v4l2_init() fails, the already
->> initialized pipes are not cleaned up — their media entities and
->> mutexes are leaked.
-> Although it simple change, it is two problems, suggest use two patches to
-> fix it.
+On Sat, 2 May 2026 11:55:02 +0100 you wrote:
+> The .get_stats64 callback runs in atomic context, but on
+> MDIO-connected switches every register read acquires the MDIO bus
+> mutex, which can sleep:
+> [   12.645973] BUG: sleeping function called from invalid context at kernel/locking/mutex.c:609
+> [   12.654442] in_atomic(): 0, irqs_disabled(): 0, non_block: 0, pid: 759, name: grep
+> [   12.663377] preempt_count: 0, expected: 0
+> [   12.667410] RCU nest depth: 1, expected: 0
+> [   12.671511] INFO: lockdep is turned off.
+> [   12.675441] CPU: 0 UID: 0 PID: 759 Comm: grep Tainted: G S      W           7.0.0+ #0 PREEMPT
+> [   12.675453] Tainted: [S]=CPU_OUT_OF_SPEC, [W]=WARN
+> [   12.675456] Hardware name: Bananapi BPI-R64 (DT)
+> [   12.675459] Call trace:
+> [   12.675462]  show_stack+0x14/0x1c (C)
+> [   12.675477]  dump_stack_lvl+0x68/0x8c
+> [   12.675487]  dump_stack+0x14/0x1c
+> [   12.675495]  __might_resched+0x14c/0x220
+> [   12.675504]  __might_sleep+0x44/0x80
+> [   12.675511]  __mutex_lock+0x50/0xb10
+> [   12.675523]  mutex_lock_nested+0x20/0x30
+> [   12.675532]  mt7530_get_stats64+0x40/0x2ac
+> [   12.675542]  dsa_user_get_stats64+0x2c/0x40
+> [   12.675553]  dev_get_stats+0x44/0x1e0
+> [   12.675564]  dev_seq_printf_stats+0x24/0xe0
+> [   12.675575]  dev_seq_show+0x14/0x3c
+> [   12.675583]  seq_read_iter+0x37c/0x480
+> [   12.675595]  seq_read+0xd0/0xec
+> [   12.675605]  proc_reg_read+0x94/0xe4
+> [   12.675615]  vfs_read+0x98/0x29c
+> [   12.675625]  ksys_read+0x54/0xdc
+> [   12.675633]  __arm64_sys_read+0x18/0x20
+> [   12.675642]  invoke_syscall.constprop.0+0x54/0xec
+> [   12.675653]  do_el0_svc+0x3c/0xb4
+> [   12.675662]  el0_svc+0x38/0x200
+> [   12.675670]  el0t_64_sync_handler+0x98/0xdc
+> [   12.675679]  el0t_64_sync+0x158/0x15c
+> 
+> [...]
 
-Yes, it's two issues, and I will use two patches in the next version.
+Here is the summary with links:
+  - [net,v6] net: dsa: mt7530: fix .get_stats64 sleeping in atomic context
+    https://git.kernel.org/netdev/net/c/07d995873960
 
-thanks
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-xiaolei
 
->
-> Frank
->> Fix the pipes memory leak by switching from kzalloc_objs() to
->> devm_kcalloc(), which ties the allocation lifetime to the device
->> and eliminates the need for explicit kfree() in all error paths
->> and in mxc_isi_remove().
->>
->> Fix the pipe init leak by cleaning up already-initialized pipes
->> in the err_xbar error path.
->>
->> Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver")
->> Cc: stable@vger.kernel.org
->> Signed-off-by: Xiaolei Wang <xiaolei.wang@windriver.com>
->> ---
->>   drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c | 5 ++++-
->>   1 file changed, 4 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
->> index 2d639b789910..8533a979d60a 100644
->> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
->> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
->> @@ -485,7 +485,8 @@ static int mxc_isi_probe(struct platform_device *pdev)
->>
->>        isi->pdata = of_device_get_match_data(dev);
->>
->> -     isi->pipes = kzalloc_objs(isi->pipes[0], isi->pdata->num_channels);
->> +     isi->pipes = devm_kcalloc(dev, isi->pdata->num_channels,
->> +                               sizeof(*isi->pipes), GFP_KERNEL);
->>        if (!isi->pipes)
->>                return -ENOMEM;
->>
->> @@ -538,6 +539,8 @@ static int mxc_isi_probe(struct platform_device *pdev)
->>        return 0;
->>
->>   err_xbar:
->> +     while (i--)
->> +             mxc_isi_pipe_cleanup(&isi->pipes[i]);
->>        mxc_isi_crossbar_cleanup(&isi->crossbar);
->>
->>        return ret;
->> --
->> 2.43.0
->>
 
