@@ -4,75 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D7BEFF8855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 14:32:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61348FF8855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 14:33:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5UUQSZu/wPr4836GSLJWIXuKTCHCzhzEVsH9sTY0wzU=; b=trJlP9aGvmzw3L
-	dXi/rdtDzVZGHhBbRb24YWSPtcdBpv4wn6DeMzdJZEp7Gj03oB4g/qjjiQuvA//WzL81ks6mJCSHS
-	eCQqbULNAfy+oOO42+876WOxUwqlOfg/gBO5Yhi56rG9o9c6CFA6os6NUU3VUhLcKDmFY593Fu8sX
-	RTIfgXHiU7djLvBlOJHCJNw2SxzBo3xzjHUPeWL3belRU6GOd8fcG565iV4zJnaTidXUqgOj7Wiaf
-	i6aezMV33lUbcjsvXDAb1Ldz8WnV5h/+dmBfirnnJHCDurTbDBA1Of/9Qd4sP83ftNCR8n6S86ihN
-	F3rpy7qM1I/39V4CdKqg==;
+	List-Owner; bh=3REQP3S0rlRNl9D6gHBMbS634zLr2TpPMtubYOZQt5g=; b=vcSQ6kYrz/mo5u
+	LvXPkk160oCJLfmiPeY3rin79x5THzu246YzIkrYvXz252c1XQeWdYji8/4WqL5h3fMAxedAL1QTe
+	EECAabsO+PYnRj8bsmWHlFEycbWmrIl2Bj03E9mVRkh9Ib/P1RojMjY+F7+kQuRaOy/nxbHCHQY1p
+	/G58jQ39h92qCQR/wzgSHA3vqB/258IVFYz06QHrfM10pokdDlqTHJHHHii+bFqIdQlKsX99ZhnIo
+	Y2hZpVH/qPJBSYNuPFjofbQY1b/TWH2hmP/EACwaGSMO6AzEX19WG6icGidEHhkhARB0g162qqXTu
+	5IwqFVbovRerQYmhqwQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKGpI-0000000GWEE-44Xt;
-	Tue, 05 May 2026 14:32:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wKGq1-0000000GWLd-1LUH;
+	Tue, 05 May 2026 14:33:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKGpG-0000000GWDf-1iF3
+	id 1wKGpz-0000000GWKy-1aiG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 14:32:43 +0000
+	Tue, 05 May 2026 14:33:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B4B9344281
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 May 2026 14:32:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97E39C4AF09
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 May 2026 14:32:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B28056024D
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 May 2026 14:33:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68628C4AF09
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 May 2026 14:33:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777991561;
-	bh=5UUQSZu/wPr4836GSLJWIXuKTCHCzhzEVsH9sTY0wzU=;
+	s=k20201202; t=1777991605;
+	bh=VafAjM9GvmSm0WQZv3tSs+xJooJUV4K0MGUPgbehomM=;
 	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=Irx1wel2eHCp42ENSZoSM1DE2pXk7V5WailF1o8pMVh+1eQJfjd8G962rvEJbiSRc
-	 Mx1qJBRpSH6RSlcu9PifweOvHPm5PPmMHWtaw4aZoq9/w2fS12nXYF0HPjTPu5vdRT
-	 v3YIIYb3CbYeBHuFQ1eSH+/mjSpHqC1LJxRP2DEzZVteafJZaVbaLn0gRbWFQ+LqO+
-	 jJJpywoyxreKMy9VCU9+u3/bjgE0fr8F73DHVBtPgYh9ez6siUxtozqb+oT+Dqg2uP
-	 BrIlnYQ0Hzu2hsRXoVCaKR01rQgYION3FtIqbWLukHh3Sn3njKMrOr1bknVWLmR/OA
-	 YK0CaD77tdzLA==
-Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5a8738c178dso1602535e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 07:32:41 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ9WHjafHEqh8gx+45PwO7raMOCQSiaCmGPgSodHtzKgAMn/IIaCERi33mNeNebStQPRC5LIQBb8LCMkqnCxv5Mv@lists.infradead.org
-X-Gm-Message-State: AOJu0YxTnouKWgsKd4ootCPIlT7OXsUUQ0/ZDvBg5NdKXZEWekM+rlCG
-	awJqjVQvKNcxSla2Y1nF1riUOHUOolpz+ohyB/ZlIy4bBO4wrrw3VkUSlrU8pKYktq+XcJguf39
-	NYxF1X7VO2ajC+ym3xHQCAQoV2qzrfTM=
-X-Received: by 2002:a05:6512:10d6:b0:5a4:175d:1278 with SMTP id
- 2adb3069b0e04-5a87f1a0551mr1565407e87.1.1777991559950; Tue, 05 May 2026
- 07:32:39 -0700 (PDT)
+	b=Ay+Y3f8iPlrX5W8PmBYs6ssvQMWApDuxR/tV5klbIc3PT318plQPhrq01UF4ZZ44+
+	 T6SlSW5AcYUK5rBrarqApdix2hpXlgdIGNDDtSGsJHRuigIgCYSznjbm0JPS4qbsNP
+	 4+kt7B9XWAn1b6rvUTJZdOd1bbEQPrqRX7wNf1fQmlhP9KuYexCI13EglkdHkI6r3z
+	 C2Gm4Zl0/raqIjzG7/+FWMJtvN1RD0nhhuLqoHuvJ4DamuIWRDelBgXx7DibnlEg7Q
+	 qBEmHtTt+Tsu3c7DN09AaJml6CoDSq0ZWJbhyjfCJNkNIXc0M7Bva2mjlKYv2Q/iBf
+	 2jtRpmYCd0T8g==
+Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-3938d17d6c5so26310921fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 07:33:25 -0700 (PDT)
+X-Gm-Message-State: AOJu0Yy4xpuQQHwKfKwQOu++SKzV7Vl3OrMlLZLfkxEH399OeP5nsH3o
+	rOyGrfYBlGC+DIFT0I0tPGqU3yolPRT/Hva7WC+5fOvfEtcCLBzCvrg3MwM8NzVqgOF0SGlJhnY
+	ZYP4lh2kBGNr+cWNC8i09qIZQkeIhNRY=
+X-Received: by 2002:a2e:ab19:0:b0:38e:2fcc:78fe with SMTP id
+ 38308e7fff4ca-393783c5ceemr71395341fa.3.1777991603808; Tue, 05 May 2026
+ 07:33:23 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260428-h616-t113s-hstimer-v3-0-7e02178a93ee@mmpsystems.pl> <20260428-h616-t113s-hstimer-v3-2-7e02178a93ee@mmpsystems.pl>
-In-Reply-To: <20260428-h616-t113s-hstimer-v3-2-7e02178a93ee@mmpsystems.pl>
+References: <BESPR10MB922376BDC75D346412FC33E4D2302@BESPR10MB9223.EURPRD10.PROD.OUTLOOK.COM>
+In-Reply-To: <BESPR10MB922376BDC75D346412FC33E4D2302@BESPR10MB9223.EURPRD10.PROD.OUTLOOK.COM>
 From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 5 May 2026 22:32:26 +0800
-X-Gmail-Original-Message-ID: <CAGb2v679HMu4EsJVWXxrTFsemFvKyjfFbJWxQ=eNvAACZbYFpQ@mail.gmail.com>
-X-Gm-Features: AVHnY4IaVX6DpQmwoUpBlMFQuD9nalA1_rpExzg-De62sn6g73dQjm9IIJe2UMs
-Message-ID: <CAGb2v679HMu4EsJVWXxrTFsemFvKyjfFbJWxQ=eNvAACZbYFpQ@mail.gmail.com>
-Subject: Re: [PATCH v3 2/4] clocksource/drivers/sun5i: add D1 hstimer support
-To: Michal Piekos <michal.piekos@mmpsystems.pl>
-Cc: Daniel Lezcano <daniel.lezcano@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Maxime Ripard <mripard@kernel.org>, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, Andre Przywara <andre.przywara@arm.com>
+Date: Tue, 5 May 2026 22:33:10 +0800
+X-Gmail-Original-Message-ID: <CAGb2v66hSwJ4iLw0NVt8nBEJrxLDEkEG6RY5AUPk4xCNaCPSqw@mail.gmail.com>
+X-Gm-Features: AVHnY4Ifto1Y_uT3p-KRM-eZu4UBL0La2pOqtqu9YFPG7dOw9V0seprSTLn-VlI
+Message-ID: <CAGb2v66hSwJ4iLw0NVt8nBEJrxLDEkEG6RY5AUPk4xCNaCPSqw@mail.gmail.com>
+Subject: Re: [PATCH] arm: dts: allwinner: enable overlay support for
+ sun8i-h2-plus pi boards
+To: Nisarg Rajput <rajputnisarg17@outlook.com>
+Cc: "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-sunxi@lists.linux.dev" <linux-sunxi@lists.linux.dev>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_073242_482491_606137B4 
-X-CRM114-Status: UNSURE (   9.01  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,16 +81,57 @@ Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 29, 2026 at 12:29=E2=80=AFAM Michal Piekos
-<michal.piekos@mmpsystems.pl> wrote:
+On Sun, May 3, 2026 at 11:58=E2=80=AFPM Nisarg Rajput
+<rajputnisarg17@outlook.com> wrote:
 >
-> D1 high speed timer differs from existing timer-sun5i by register base
-> offset.
+> From a0c7eaa6032748bb79953282a984064a922c916f Mon Sep 17 00:00:00 2001
+> From: ixnisarg <rajputnisarg17@outlook.com>
+> Date: Sun, 3 May 2026 15:42:38 +0000
+> Subject: [PATCH] arm: dts: allwinner: enable overlay support for sun8i-h2=
+-plus
+>  pi boards
 >
-> Add sunxi quirks to handle D1 specific offset.
-> Add D1 compatible string to OF match table.
+> Add DTC_FLAGS -@ for all H2+ pi-class devices to enable device-tree
+> overlay support. This follows the same approach used for H3 pi boards
+> in commit 0801a3a9f35854c91f1f3ab8e879c3d14912d214 ("arm: dts: Enable
+> device-tree overlay support for sun8i-h3 pi devices").
 >
-> Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
+> The -@ flag populates the __symbols__ node in the DTB which is required
+> for applying device-tree overlays from the bootloader or firmware.
+>
+> Boards affected:
+> - sun8i-h2-plus-bananapi-m2-zero
+> - sun8i-h2-plus-libretech-all-h3-cc
+> - sun8i-h2-plus-orangepi-r1
+> - sun8i-h2-plus-orangepi-zero
+>
+> Signed-off-by: ixnisarg <rajputnisarg17@outlook.com>
 
-Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+On Sun, May 3, 2026 at 11:58=E2=80=AFPM Nisarg Rajput
+<rajputnisarg17@outlook.com> wrote:
+>
+> From a0c7eaa6032748bb79953282a984064a922c916f Mon Sep 17 00:00:00 2001
+> From: ixnisarg <rajputnisarg17@outlook.com>
+> Date: Sun, 3 May 2026 15:42:38 +0000
+> Subject: [PATCH] arm: dts: allwinner: enable overlay support for sun8i-h2=
+-plus
+>  pi boards
+>
+> Add DTC_FLAGS -@ for all H2+ pi-class devices to enable device-tree
+> overlay support. This follows the same approach used for H3 pi boards
+> in commit 0801a3a9f35854c91f1f3ab8e879c3d14912d214 ("arm: dts: Enable
+> device-tree overlay support for sun8i-h3 pi devices").
+>
+> The -@ flag populates the __symbols__ node in the DTB which is required
+> for applying device-tree overlays from the bootloader or firmware.
+>
+> Boards affected:
+> - sun8i-h2-plus-bananapi-m2-zero
+> - sun8i-h2-plus-libretech-all-h3-cc
+> - sun8i-h2-plus-orangepi-r1
+> - sun8i-h2-plus-orangepi-zero
+>
+> Signed-off-by: ixnisarg <rajputnisarg17@outlook.com>
+
+Please use a proper name for the author and Signed-off-by.
 
