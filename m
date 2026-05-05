@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4D82CD3436
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 03:44:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91511FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 03:44:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/W3WIxgiIre34DOdHyKWuUPtLKlUjwAROtJmGpAoj6U=; b=yFFP4vqNLjD0sPzRZRZbNIhK6n
-	vPKQPPGSPe0cqh+jzUKGxj0yTfN6a6K1l5CnWOvis9cQON3YQeC6vC6E8VVEJqZ0DJL8HHGAIOA3n
-	7Sdch3geCKjbcFG9td/tL7/cjZbwHLtTC1Y/Lr3n9Dge0Vw5/JPzpQOyyDuQ6Oyz7Qb8V84s4ELnv
-	5/Sn8I5wJULOSnlucSK4sUHwDq7g7JiZE+bNrDnJLvIw3xXlkPPzQqZTMAJRP8NWq89zeFcehyxz+
-	8XRWHNFu5SyRnAvvu37Kt+EtxBCG6NMoMhskaL4ts0oJ9fEPTJ9h1GOVLgC6opHGjJn/OOcWTLbI2
-	e5Csaj5Q==;
+	bh=lKs36l33LjxXtK5zLdlYl9mdFNuvitANVVnZZJYiHag=; b=PQE5jZxQFcpCmzSCZ9DnUqaj4E
+	TqzVz7j9IZOMdY1Utkfat8c7QrzGAeeSPnt0T7QoKLOASy5vGrfXOxGO+DPUqE/rL7ZP+sUD6JJmT
+	r5g9pfmzyo4E+MBqjrmkyjokIqoABIaM2RPvCZUp7y0aYPJ+iXPVJpbrYPfoSKyb/FQ0oIk3KT9+S
+	8hybHDdtAoAoiJquXUwobdEUBBGlJwVJ7W3mlSo+nrI/0xupYB1V9ZjCDVSbEb+Ct2mc0Y2cAVLz3
+	dFItce7N7UfqbTHeZsYhBTAIs5KQN5qjCaCOknLxb3LnoUuLn8SWe65N6qvRujEpYZcAkTZFR0ggw
+	tKRRx+Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wK6hV-0000000F1xI-2kIP;
-	Tue, 05 May 2026 03:44:01 +0000
-Received: from mout-p-201.mailbox.org ([2001:67c:2050:0:465::201])
+	id 1wK6hZ-0000000F20o-12eS;
+	Tue, 05 May 2026 03:44:05 +0000
+Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wK6hS-0000000F1uy-2SUn
+	id 1wK6hX-0000000F1xp-1qXx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 03:44:00 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
+	Tue, 05 May 2026 03:44:04 +0000
+Received: from smtp1.mailbox.org (smtp1.mailbox.org [10.196.197.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4g8krs0QG5z9th7;
-	Tue,  5 May 2026 05:43:57 +0200 (CEST)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4g8krx6FV6z9tw8;
+	Tue,  5 May 2026 05:44:01 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1777952637;
+	t=1777952641;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=/W3WIxgiIre34DOdHyKWuUPtLKlUjwAROtJmGpAoj6U=;
-	b=ST8hI8hwbJInDwfAHHMwIW5gzZgqJ22Jvs7yDMsXSNVq4YKDJEucNVctKQEGtFQBpBrzlz
-	rnDdJv895gFex1HVpm9sO8pNIboI//EvI+B2X31BvhCqQCPFSMZKfo+XuykTokdFSOJmMD
-	w+Ik+kRAPWo6hthG6a0DHrJmxzXd4YlTwCgG2+JO1pOYSXYdx99DhLjv8glZPa3JPGZaA9
-	3ld2ZEXufXlt+GY9nJKGTkaAYWi5tnRZzXb7q1ZIRl35K3SLJeaQKWQptUA8wqpm8jXYqh
-	T+A4mL/+3NzaMZrA84523pnUUZz67/D2enKU0okJgCc34otAlvyvGY6bIUJW5w==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=E2a1A1JL;
-	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::1 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
+	bh=lKs36l33LjxXtK5zLdlYl9mdFNuvitANVVnZZJYiHag=;
+	b=WcNABeYC39EwaGQoBtOiBKb3MzgdaaQaCch2BIiP0UEljLH3h2H3IT2UXCUaS77ARufmwM
+	wddITgUE3a41krWsbRSXJiHx50N7i8tIBPXf1XWRj9Uw9e2Rq+ScwNuKg1WhPY50KoTGlI
+	xPgsatU6FjCdy86Bw1c0o7mhp5YZAXNympYXWtDPn8/HxFzxNb1BAal75+ergrHU/JuDzc
+	jTQP9ZeHDzzC7vucx9tMGm6kQCGYCv4RSq8zF/VFJGHuaR4xc8eLDNk/Rx3TUrYAcKopV4
+	40cE0bGQDHG331DmzznaItpaGBTBimUByhnMqrsQfEDB10bv4E6ies93x3t2Xw==
 From: Marek Vasut <marek.vasut+renesas@mailbox.org>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1777952634;
+	t=1777952639;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=/W3WIxgiIre34DOdHyKWuUPtLKlUjwAROtJmGpAoj6U=;
-	b=E2a1A1JLFQ8YP6JQKsnkw8V0SCsaaoTZQgNdeSeDfQJ3rOhkNmNBV5jLg43Mwi6lQMgbLG
-	/EsdA97SSw2M+aWo3ZdP+lhl32YSSL24KMaQ2B2g7KfpRah6gMIs03a5bf+Kh4nMmB8CPr
-	I4FTNdEJcd4ew6+XXThf+wwUhyPJU1zCT2CF+mnoX1z6ydjMoKEMvFl1ZABLfuZkgCvroU
-	GETZ1Om5DpF1Tt5jFQ+QNydyWlhxNd3rapFD4mmPHZHNkIYKS4NRYi6ysa0aebCr5DmY2+
-	/5er2fopODAwNQgq6qM3qW/Y9tk9lpHEXqDfhRlUPwehkf/OUgnvsnaA6lrDdw==
+	bh=lKs36l33LjxXtK5zLdlYl9mdFNuvitANVVnZZJYiHag=;
+	b=med/3/Erh+tT0Ae1dwGSxEX61HHV5X61QtYHRi6mEL7DWHjZjpT7GC6XYILzwvnjTQimfF
+	9f/IAUNpGjHxHSbFgZ/Uuo0pamjjXss0a6Luxe7CRZWRkfEN3fKJA3J/feh7vM3S1ydwAJ
+	ELD/dJirmiQs2PSuWFStmCLgvyPmRObb4t/jjldpz1bh4ouTeTkCmRdyegt+Gd0RHIm5MM
+	KITxvw0Jaq65FNKIOK1Cy2jlDFL7ddlFpL2cR0K3GZmkB8ik8Lm/D64J3WgfyVh1VsKSZn
+	ywDUh50oPNXnhUJFSBYY1LlsQcZyEQkbfvEUS+gYttBRYSWayivC3ZrZGa0mmg==
 To: linux-arm-kernel@lists.infradead.org
 Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	Conor Dooley <conor+dt@kernel.org>,
@@ -71,19 +68,18 @@ Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH 08/11] arm64: dts: renesas: draak: Specify ethernet PHY reset timings
-Date: Tue,  5 May 2026 05:42:49 +0200
-Message-ID: <20260505034325.167797-9-marek.vasut+renesas@mailbox.org>
+Subject: [PATCH 10/11] arm64: dts: renesas: white-hawk: Specify ethernet PHY reset timings
+Date: Tue,  5 May 2026 05:42:51 +0200
+Message-ID: <20260505034325.167797-11-marek.vasut+renesas@mailbox.org>
 In-Reply-To: <20260505034325.167797-1-marek.vasut+renesas@mailbox.org>
 References: <20260505034325.167797-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-META: q5z68dduynyb75rct9d38gzc5zaxy3uf
-X-MBO-RS-ID: f68902710217a6e3f45
-X-Rspamd-Queue-Id: 4g8krs0QG5z9th7
+X-MBO-RS-META: orhfs1wfo8wtgrezgfwrexybbqgdicr4
+X-MBO-RS-ID: 91f77169026af94cd62
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_204358_766611_3F8E1AD0 
-X-CRM114-Status: GOOD (  10.95  )
+X-CRM114-CacheID: sfid-20260504_204403_626486_C7F522E7 
+X-CRM114-Status: GOOD (  10.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,22 +121,22 @@ Cc: devicetree@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org
 Cc: linux-renesas-soc@vger.kernel.org
 ---
- arch/arm64/boot/dts/renesas/draak.dtsi | 2 ++
+ arch/arm64/boot/dts/renesas/white-hawk-cpu-common.dtsi | 2 ++
  1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/renesas/draak.dtsi b/arch/arm64/boot/dts/renesas/draak.dtsi
-index c83c97d991133..80f0d83dd6766 100644
---- a/arch/arm64/boot/dts/renesas/draak.dtsi
-+++ b/arch/arm64/boot/dts/renesas/draak.dtsi
-@@ -249,6 +249,8 @@ phy0: ethernet-phy@0 {
- 		reg = <0>;
- 		interrupts-extended = <&gpio5 19 IRQ_TYPE_LEVEL_LOW>;
- 		reset-gpios = <&gpio5 18 GPIO_ACTIVE_LOW>;
-+		reset-assert-us = <10000>;
-+		reset-deassert-us = <300>;
- 		/*
- 		 * TX clock internal delay mode is required for reliable
- 		 * 1Gbps communication using the KSZ9031RNX phy present on
+diff --git a/arch/arm64/boot/dts/renesas/white-hawk-cpu-common.dtsi b/arch/arm64/boot/dts/renesas/white-hawk-cpu-common.dtsi
+index b4024e85ae5aa..c5045bda45c33 100644
+--- a/arch/arm64/boot/dts/renesas/white-hawk-cpu-common.dtsi
++++ b/arch/arm64/boot/dts/renesas/white-hawk-cpu-common.dtsi
+@@ -169,6 +169,8 @@ avb0_phy: ethernet-phy@0 {
+ 			reg = <0>;
+ 			interrupts-extended = <&gpio7 5 IRQ_TYPE_LEVEL_LOW>;
+ 			reset-gpios = <&gpio7 10 GPIO_ACTIVE_LOW>;
++			reset-assert-us = <10000>;
++			reset-deassert-us = <300>;
+ 		};
+ 	};
+ };
 -- 
 2.53.0
 
