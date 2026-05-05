@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0542CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 21:25:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CD65FF8855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 21:31:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zv+vlCVLeCjXO0SN09QurXnaogZl9i2zBbZOK6NPesw=; b=s8Ajfcedzmn/ZqWlWl0rzdhScj
-	IKyO2aRr10hO2571hiGiOxHiNPgk5V6pu+QIGtinGtyBWl0HIjP5pxaU+5ycBsRdRY3A56rzuagJW
-	wf3gWAcbbdopTg0ehy7cvknmLvVP11TctoLI98vpFCcVdKt3vADLY9cV48wtbhVZWJgMY6/TkCg9G
-	4hVoQaDLq6NgB/oeDqF/gY1BMDbNlS3AqwM85M2s/t+iNMJ913h1sQUz9uw8l2OEgO9Z3iYpEFDn7
-	3rcuqU+jOduB/Km25/sT4Y53EsCPKqjUL82TYb0SGYUAXFoxa6U6aEp09lMqcTz0j+zib4nz0R6va
-	POsjjCOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=yy7bEKzcQGtAlqENwVNI0EQc1wIGMr6oPzwoQMSpSAo=; b=IzFMrbzpjjPc+QMUMzneyg0vVj
+	Zd1N9haHVSxbrDvLhinpUX1I8i2DvtlNMcSphrQld2IdDp7BG5wtoIa7oTixQ4mnzciLgw3G8OKg0
+	/NGYgrcZx1o6srYI2Dz6atef9MPONmBgPR1Lj6QRUIWmkuad6Ys6ZhHfPwhyFgWYq7eo3I0/LKOvV
+	/4AEud2MP2U3dt17JEsCXzLl5ZQKvxa0QaS1HFy2zHLzSSreAXzRyOsLpLjopw8wYCSo1LiFKZehq
+	mnuuL4I412YWi3s5M3M5hVaF/lqnv2pYLrHN1973nxuthAKAr7Yv4piozPYuLuhJiUGeyp40ik/8z
+	9UL1+50g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKNHA-0000000HX8t-3Lfo;
-	Tue, 05 May 2026 21:25:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wKNMB-0000000HXfz-2UDt;
+	Tue, 05 May 2026 21:31:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKNH7-0000000HX8K-2yh3
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 21:25:54 +0000
+	id 1wKNM8-0000000HXfN-2i0q;
+	Tue, 05 May 2026 21:31:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6D69E40DF4
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 May 2026 21:25:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50809C2BCC9
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 May 2026 21:25:52 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 832FF40BA2;
+	Tue,  5 May 2026 21:31:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44779C2BCB4;
+	Tue,  5 May 2026 21:31:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778016352;
-	bh=zv+vlCVLeCjXO0SN09QurXnaogZl9i2zBbZOK6NPesw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=tmUc7jicozOz4ecoLasRAeYiRFBRlW6kYOwkywcvu8EbmEg1Yy3taCVLdHaVL9m4L
-	 1+/QSr34rm+cGpUN5KB5LJI39wr5787hrJ1lQDJr2kRzmo1GswqU3hjuN2xUU+/MlH
-	 4WA89aHXVUfW6r0xRjsGmnZbRUm5SbUNc7ch47xYhueY2xEJTH/xLSEtrkAY6yDK8F
-	 r2KE9/uIFT1kPF1Y6NNrTn1euvNnESXqWJdx2EtLr1DFjCMZ8A+3UV69XxFw/Tk36Q
-	 +Qkfr/nIo/pa+qqc8Td4QpYrI1SbskAeFCA1GakTbnUc/IhuWv4HJMTcinjsc0iFGk
-	 2SoB6cpC3tOjQ==
-Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-39393ec4ed0so33646941fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 14:25:52 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ9bhMx7w8NYFAHTbMrcPEM7RgSg/O9IycdGoDIA6WIY6rtjTrvoS25Y8khyXIFtbwKtgbymDsE3e+6Ea/AyaXKX@lists.infradead.org
-X-Gm-Message-State: AOJu0YyBBPxrDwcBIJiyGaytw3jEXlYWtDpx5LkDD4di5563+C+nFnW/
-	Fj7CR2CsElKPX3UT5dSPshq3CRSRyxh8gpsBcu/vG01syfi3nLclw+Bam0hFBtTmdxsGLfFj0GX
-	PeS9GZjtaefx0C2bYOdIXbDDf+W7NvFk=
-X-Received: by 2002:a05:6512:3a81:b0:5a8:65ce:e832 with SMTP id
- 2adb3069b0e04-5a887ceb5ddmr121206e87.36.1778016351014; Tue, 05 May 2026
- 14:25:51 -0700 (PDT)
+	s=k20201202; t=1778016663;
+	bh=i9ndZnTLt8zIDy5Mkgz7fGXuWdU3oQ9A5bMpZWxB1ZA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=kEyYBLGA+XfMJXuZ3Uwb/EoPqSdmtYKeCCZpRwkybIP1z4TrzcAbQK+PV0M6tix7X
+	 G4baoMSN6EPb3enZoZt0d3xWs6EBbjXSH6xJtQZZ4XIzR7+YMl9Dy6pjL9rpw1sE4w
+	 FOoZtqxUlxfuoh/kYMQ1aVu04f8wYnt5NvrKvwdf0T9OzFn2U5lEaLYD3ZW8kS/zbt
+	 MRRaKR7O+I6vb+HqxiM01+N19la4tFuCqMTZZFNMUWiBP/2xCqRgOhVr1zlSrWKb8V
+	 9YTyWKGVUiycFNVBmKTGNwtMGpu5esSVfCKygbJfR3f6BIayeh2Mn6xSD3/2Gk577q
+	 nOAYkX3YxlPNA==
+Date: Tue, 5 May 2026 16:31:02 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Hans Zhang <18255117159@163.com>, linux-pci@vger.kernel.org,
+	Dom Cobley <popcornmix@gmail.com>,
+	Phil Elwell <phil@raspberrypi.com>,
+	Jim Quinlan <jim2101024@gmail.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] PCI: brcmstb: Assign pcie->gen from pcie_get_link_speed()
+Message-ID: <20260505213102.GA750989@bhelgaas>
 MIME-Version: 1.0
-References: <20260505-integrator-fixes-v1-1-56ab9aac59db@kernel.org> <02b810ab-12b8-4d44-91c2-ce6bf8ad894f@roeck-us.net>
-In-Reply-To: <02b810ab-12b8-4d44-91c2-ce6bf8ad894f@roeck-us.net>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 5 May 2026 23:25:38 +0200
-X-Gmail-Original-Message-ID: <CAD++jLmO935+DC+Bjjo1huipkZ5Nu-y8amMLWCSfX+0atdY9xw@mail.gmail.com>
-X-Gm-Features: AVHnY4JR4hQcbAvDoiohMRDDt_6ZSxWJwEZC_9laXjMXl74mtqE6EYGDsrBiEhY
-Message-ID: <CAD++jLmO935+DC+Bjjo1huipkZ5Nu-y8amMLWCSfX+0atdY9xw@mail.gmail.com>
-Subject: Re: [PATCH] ARM: integrator: Fix early initialization
-To: Guenter Roeck <linux@roeck-us.net>
-Cc: soc@kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <d13eb4ce-a868-4b10-b044-83fa1ddea1e9@broadcom.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_142553_790992_A6CD2FF2 
-X-CRM114-Status: GOOD (  13.23  )
+X-CRM114-CacheID: sfid-20260505_143104_950110_0D2AE32C 
+X-CRM114-Status: GOOD (  40.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,21 +80,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 5, 2026 at 11:14=E2=80=AFPM Guenter Roeck <linux@roeck-us.net> =
-wrote:
+On Tue, May 05, 2026 at 10:58:49AM -0700, Florian Fainelli wrote:
+> On 5/5/26 09:01, Bjorn Helgaas wrote:
+> > On Mon, May 04, 2026 at 04:46:03PM -0700, Florian Fainelli wrote:
+> > > On 5/4/26 10:26, Hans Zhang wrote:
+> > > > On 5/5/26 00:58, Florian Fainelli wrote:
+> > > > > On 5/2/26 04:40, Bjorn Helgaas wrote:
+> > > > > > On Fri, May 01, 2026 at 01:24:38PM -0700, Florian Fainelli wrote:
+> > > > > > > After commit 03f920936977 ("PCI: controller: Validate max-link-speed"),
+> > > > > > > pcie->gen stopped being assigned and as a result the established PCIe
+> > > > > > > link would stop supporting Gen3 speeds on 2712 since pcie->gen is used
+> > > > > > > to populate LnkCntl2 and LnkCap in brcm_pcie_set_gen().
+> > > > > > > 
+> > > > > > > Link: https://github.com/raspberrypi/linux/issues/7343
+> > > > > > > Reported-by: Dom Cobley <popcornmix@gmail.com>
+> > > > > > > Reported-by: Phil Elwell <phil@raspberrypi.com>
+> > > > > > > Fixes: 03f920936977 ("PCI: controller: Validate max-link-speed")
+> > > > > > > Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
+> > > > > > > ---
+> > > > > > >    drivers/pci/controller/pcie-brcmstb.c | 3 +--
+> > > > > > >    1 file changed, 1 insertion(+), 2 deletions(-)
+> > > > > > > 
+> > > > > > > diff --git a/drivers/pci/controller/pcie-brcmstb.c
+> > > > > > > b/drivers/pci/ controller/pcie-brcmstb.c
+> > > > > > > index 714bcab97b60..6138fc4bc064 100644
+> > > > > > > --- a/drivers/pci/controller/pcie-brcmstb.c
+> > > > > > > +++ b/drivers/pci/controller/pcie-brcmstb.c
+> > > > > > > @@ -2072,8 +2072,7 @@ static int brcm_pcie_probe(struct
+> > > > > > > platform_device *pdev)
+> > > > > > >            return PTR_ERR(pcie->clk);
+> > > > > > >        ret = of_pci_get_max_link_speed(np);
+> > > > > > > -    if (pcie_get_link_speed(ret) == PCI_SPEED_UNKNOWN)
+> > > > > > > -        pcie->gen = 0;
+> > > > > > > +    pcie->gen = pcie_get_link_speed(ret);
+> > > > > > 
+> > > > > > Take a look at https://sashiko.dev/#/
+> > > > > > patchset/20260501202438.376033-1-
+> > > > > > florian.fainelli%40broadcom.com
+> > > > > > 
+> > > > > > The notes at https://github.com/raspberrypi/linux/issues/7343 assumed
+> > > > > > PCI_SPEED_UNKNOWN was 0, but in fact it is 0xff, which means you might
+> > > > > > want the more defensive patch instead.
+> > > > > > 
+> > > > > > I'll be happy to replace what's on pci/for-linus if so.
+> > > > > 
+> > > > > I am starting to think a revert is the simplest path forward, it's
+> > > > > not clear what pcie_get_link_speed() brings to the table honestly.
+> > > > 
+> > > > The pcie_get_link_speed function is designed to prevent other Root Port
+> > > > drivers from accessing the array pcie_link_speed out of bounds.
+> > > 
+> > > Yes, so that's useful in the first hunk of your commit where we were
+> > > printing the link speed without checking that the 'max-link-speed' would be
+> > > bounds check, however it is not really useful for assigning to pcie->gen in
+> > > our case, so I would prefer the second option:
+> > > 
+> > >            ret = of_pci_get_max_link_speed(np);
+> > >   -       if (pcie_get_link_speed(ret) == PCI_SPEED_UNKNOWN)
+> > >   -               pcie->gen = 0;
+> > >   +       pcie->gen = (ret < 0) ? 0 : ret;
+> > 
+> > The point of this validation is to make sure we don't program the
+> > brcmstb hardware with something it doesn't support.
+> > 
+> > of_pci_get_max_link_speed() only returns an error (ret < 0) if DT
+> > didn't contain a 'max-link-speed' property.  That doesn't tell us
+> > anything about what brcmstb devices support.
+> > 
+> > I think this test should be something like what advk_pcie_probe() or
+> > rockchip_pcie_parse_dt() do.  If of_pci_get_max_link_speed() fails or
+> > returns something not supported by the hardware, they default to the
+> > fastest speed known to be supported.
+> 
+> Doing that could be challenging because it varies on a per-controller
+> instance on some chips like 2712, this would also be a behavioral difference
+> compared to today where the driver resorts to HW-defaults if the property is
+> not specified.
 
-> I actually stopped testing the integratorcp qemu emulation
-> because it no longer works reliably, not even with gcc 9.x,
-> since the timer-sp804 patches were applied.
->
-> Given that apparently no one but me ever hit that problem,
-> I wonder if it is time to remove support for that machine entirely.
+I think it's OK to default to what the hardware advertises if that
+makes sense for this hardware and driver.
 
-I actually have the hardware, even several of them, I've been keeping
-them as a base reference for old 32bit ARM. Ethernet broke on the
-one I had out so I need to bring a new one (yeah, as in factory-new)
-from a box.
-
-Yours,
-Linus Walleij
+The fact that this is all device & driver dependent was part of what
+motivated the series in the first place -- the generic OF code can't
+do that kind of per-controller validation.
 
