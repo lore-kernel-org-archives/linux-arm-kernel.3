@@ -4,111 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4452CD3439
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 20:31:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97B11FF8855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 20:35:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XWiaguT33mFKTHX+XCub37wPb4gjq7oRFtLlclQ4EBM=; b=1qLuG58ThuZkYYk+wqzTe0V2r4
-	2OMf5Jnl1qac0r97pwchCLCv+qJzEpfFIJnj4Bzzdi7lG+kevQtwd99aD8m1IDkX4Al+g7L0OjA9p
-	NUjtqK9PdwdVegDXV91hIrVMvY2H/aNSd7d4OysBUXKSh/G0xPH0WkgyOJBN4Na5mjqutf465CWeX
-	GSfzVhsi0clc/7Z3O69ZJa5/ETpHVQJT4UtMMiq3SzqCx2CpN8yvVgXsxqw79DttjBLIs2DNcAc9O
-	tw+uyMFiHemFqpB8+N5Iy0CLP6RlpYBWvnmjNR0B6dEB7jVYxCeNX5ioZUpS4ckuWqm70shF9L6Z6
-	TZvksIYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lflu3RVHsQktucpV5ercTdqtfn0roku4H7lizLCj3To=; b=GeLLlvrx9EtZdVMWvBKG97YdNg
+	1Jz0loU5qBxPdFkQ8S4WDUx8vqb9UStD5UETANvvlNh7XKvR5FDYu3ipNzp6uqCD53RtR09uaZPpj
+	qCL5VtBkqH/IaeH735BqbrH2Z9tkHyIiCKtC5SWIiSTTK4ho9gxhsI0v1sLtzCzFf6sIHHjuhtIOd
+	/8pwuZ+BOQA/mT/psBd3tDHrAhLNxQjGdlr/SkxudcwL+1gr7WQJUPTvpHAg4SYQA5vCto7vhr0CD
+	dw2vuEPUmhwI7kbkGxu7Ef2xvyaLsDm2NfPCErGawFVU7HAfhu1POKOBlDaoaciPJyau8XG2DdTzg
+	rZOUPZRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKMQ5-0000000HR8t-310H;
-	Tue, 05 May 2026 20:31:05 +0000
-Received: from mail-ot1-x32f.google.com ([2607:f8b0:4864:20::32f])
+	id 1wKMUO-0000000HRcv-2gt1;
+	Tue, 05 May 2026 20:35:32 +0000
+Received: from leonov.paulk.fr ([185.233.101.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKMQ2-0000000HR7w-3oBp
+	id 1wKMUM-0000000HRcH-0jJ1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 20:31:04 +0000
-Received: by mail-ot1-x32f.google.com with SMTP id 46e09a7af769-7dea1272943so3454746a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 13:31:01 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778013060; cv=none;
-        d=google.com; s=arc-20240605;
-        b=GFRZFzciBrDHGzQTB+inEDMsTDXrQAynL15ibwHbH9WKPbtZf8WdXLYD7V8RN0V1CF
-         MZaDdHoK4DjakL8Kg61LSMWkpuq31jlVtnU7p/DSOkIp+kdjbUp6P5oH7wLN2ugO6/MK
-         drbQuC6XWznm6GojBcXazAJVJvYLbyDrAkBwKjeMvrqzfVxy3QDY6IAPDoV+ak0FYLr1
-         GhHDbzzDPiUfAgXfp2HQh0zkOy9VzaQ/pkjGdqQn6XjvgBNmKhvLVX9QaVUX+mQI1efk
-         sWIZ0xOFAQMYhMPXh59OidKchzIebWEkve9zkXrwDov+PPjuhfDzK/LoD8E6OKofGYAH
-         Z+fQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=XWiaguT33mFKTHX+XCub37wPb4gjq7oRFtLlclQ4EBM=;
-        fh=65CoG4qw1Ci3NH23NcuvNR0psVQwYOhUniEO5A+PvIE=;
-        b=UrT9AgtmdyOVny4G1s0ipE8pVi3/2DhaKqEZ5FX+vtgglJkfpVU5qJ73VWBiykz+GS
-         LKcV/LDuaGAyZVnZgGEBpmKIGZlDxPofpT9PIIo5oNSEz6R4IodflhFwfTovW92cHUh1
-         SLfzEQARyn6Li6kulOAyHh0VPPIUjswLQuBKtLwtOwj7TKZJTYtRP3PsJbZOawsnqHM0
-         d1jJOWdpMaaPlm7wLtCQWh6extVmRrbJPclLhbV3vMUsiuOGU7bo3qnYJGBGOl3Rt/rx
-         u8TcJ88FBMeZDimOt36m66xVAelAMBAGCcIyRTBPHPGG7InzuFmkLZkFTCL95lRp2I3r
-         nFPQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ausil.us; s=google; t=1778013060; x=1778617860; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XWiaguT33mFKTHX+XCub37wPb4gjq7oRFtLlclQ4EBM=;
-        b=WFxK7ESJoz7XkWKJn3MUhMouVi/dj2npIPXxI4jOlaCGiE0kOStCvQJ4lqwXgLl6Es
-         TfIRwO0684FFAn9L+8+yVT2FhSMa+yUTn+iU/Lt5GN3Bek3AvDAdTAOtgpn26HcgRQzv
-         onWTs4Q3vBAdMNDegl8vLAatqFYMDueO25gXE35WCnkenWIShoNTtmGz8NMu+LnQ+v8f
-         /odzU+WXLpb+LiL552j2PM3/XLu6qHtN7xKHTzM8bFGiRQobmhfE7Gzvb5wSI/hZ3JFa
-         l/tw8S3rfmyo+tL3O0rhBb/s+e/75+LvNZ8NdmABERnPmvcCCGR061CIqz898R1lwaia
-         ERcA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778013060; x=1778617860;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=XWiaguT33mFKTHX+XCub37wPb4gjq7oRFtLlclQ4EBM=;
-        b=KhJob6I1ycc7U2Am8SrwHyeIrr1YD0thNFjZvSEyRpo14ZZM6J+mVuY4z9NtCNyj5l
-         GAnaaWWF6YQSQBWv13A3wFW0uaYhqvFAF2zCH0dRqDU534RUrWczSQ25/X7L1pWUKOeo
-         upRrNJHEXz0cbBY3Uk7Xj4hpeEj29hnrWIX+u+q/l9Rau1BEgg4UUb2skABKugnTCNgS
-         SGYRXFaAr3KieiWGkKjSjgDNZo0LIl+TSms+vWJugw6JXGYEyIzJzyJdDGx127ZGSfPp
-         weiJ9C9uf6Zxg7SX/w8X9ZRxGGUtRcUWGhtKVHxDRDX0GVYb6mfjNtykQLlHdxOzoPgP
-         JQ8w==
-X-Forwarded-Encrypted: i=1; AFNElJ9Kp3pbO1XfOYEp7fR/gS/Wms5FUeH453yyLkYC93w5jsGasVsaEahJ94Mn0BqJc+hNW2B8QDYy1v0n5k6VnZUX@lists.infradead.org
-X-Gm-Message-State: AOJu0YyXpJIPsVOyvDsz0QK89i6IASuG4n1UmpOAWDwY9fxLNsGznBfU
-	PRJyaR4yWhJxJw9zooROX3/brFsWj5JctpJsEGv3w3WjVpyhGI48XcDBd/fpE7hXRQ7xWJYQN3+
-	qtCC00t/XvatFkM3s4d8nV/EN4ha8CQNeDp+48C41YQ==
-X-Gm-Gg: AeBDiet9QGMKIy8KoSQQumT37Eeg2DoBaAEWBPeRNcrLN6uZ835oW//PkH+tNswAgNe
-	evix2PdIGJs6s8ygg00gsVEIJ+EXR5HlU0h3qW4PX8eFytQ13qyjz4bKRSnkQBgiKmMAzTFyIRi
-	T2OOO6udoCEwIXk0Bafgda5kbon1XQkHTRTHIm24TzNGDTEPBbaPnNVzgVuOxanbWavwpRvLi9R
-	w41OE1BY9oCBopFEaG0kfXQ2QzJMwvEdZMk64fWiT7p4DW4G7DvLuduz34uRbc4dxXyherdcqjI
-	eOttg/wTaO1ZgZh416MfcdvTktcLlQdpRBuM7jypuqR21gqOdhDbN1IUsCVDkGA1TiA4MgdmFLJ
-	qQRoykA==
-X-Received: by 2002:a05:6820:612:b0:694:914a:ebe1 with SMTP id
- 006d021491bc7-69998d496f4mr230276eaf.47.1778013060106; Tue, 05 May 2026
- 13:31:00 -0700 (PDT)
+	Tue, 05 May 2026 20:35:32 +0000
+Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
+	by leonov.paulk.fr (Postfix) with ESMTPS id 38FB71F8004D
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 May 2026 20:35:27 +0000 (UTC)
+Received: by laika.paulk.fr (Postfix, from userid 65534)
+	id 54F49B4058D; Tue,  5 May 2026 20:35:26 +0000 (UTC)
+Received: from shepard (unknown [192.168.1.1])
+	by laika.paulk.fr (Postfix) with ESMTPSA id 2A1DAB4058A;
+	Tue,  5 May 2026 20:35:25 +0000 (UTC)
+Date: Tue, 5 May 2026 22:35:22 +0200
+From: Paul Kocialkowski <paulk@sys-base.io>
+To: Chen-Yu Tsai <wens@kernel.org>
+Cc: Maxime Ripard <mripard@kernel.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-media@vger.kernel.org, linux-staging@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-sunxi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 5/7] arm64: dts: allwinner: sun50i-h6: Add missing SRAM
+ region for video engine
+Message-ID: <afpUiupOgPhLksM8@shepard>
+References: <20260505134812.408316-1-wens@kernel.org>
+ <20260505134812.408316-6-wens@kernel.org>
 MIME-Version: 1.0
-References: <20260429024737.544813-1-dennis@ausil.us> <20260429024737.544813-4-dennis@ausil.us>
- <26834823.ouqheUzb2q@phil>
-In-Reply-To: <26834823.ouqheUzb2q@phil>
-From: Dennis Gilmore <dennis@ausil.us>
-Date: Tue, 5 May 2026 15:30:49 -0500
-X-Gm-Features: AVHnY4JYRhq_p9ta-ys9Z6NemjXvr6rGjpeyTa05lQ2fOW4hQ-wHeaXjdlyGa24
-Message-ID: <CAABkxwtJv4VrS+6kdZ5c1QeuRtnKaFJir0=B9xsqirUiai+iKA@mail.gmail.com>
-Subject: Re: [PATCH v9 3/4] arm64: dts: rockchip: refactor items from Orange
- Pi 5/b to prep for Pro
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Jonas Karlman <jonas@kwiboo.se>, 
-	Alexey Charkov <alchark@gmail.com>, Quentin Schulz <quentin.schulz@cherry.de>, 
-	FUKAUMI Naoki <naoki@radxa.com>, Peter Robinson <pbrobinson@gmail.com>, devicetree@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="FpfFtflQBQQ4ZJAp"
+Content-Disposition: inline
+In-Reply-To: <20260505134812.408316-6-wens@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_133102_970301_1239DDD4 
-X-CRM114-Status: GOOD (  13.56  )
+X-CRM114-CacheID: sfid-20260505_133530_544396_5BE1FAEF 
+X-CRM114-Status: GOOD (  25.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,37 +75,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 5, 2026 at 12:36=E2=80=AFPM Heiko Stuebner <heiko@sntech.de> wr=
-ote:
->
-> Hi Dennis,
->
-> Am Mittwoch, 29. April 2026, 04:47:34 Mitteleurop=C3=A4ische Sommerzeit s=
-chrieb Dennis Gilmore:
-> > The RK806 PLDO1 and PLDO2 outputs are wired differently between the
-> > 5/5B and the Pro (PLDO1/PLDO2 are swapped), so label the PMIC node
-> > rk806_single in the base dtsi, drop pldo-reg1/pldo-reg2 from it, and
-> > define them via a &rk806_single regulators augmentation in
-> > rk3588s-orangepi-5-5b.dtsi. The Pro will supply its own mapping.
->
-> I guess my only question is, where did that "single" come from and what
-> is it supposed to mean? ... I would've assumed "&rk806" as label would've
-> been enough? But maybe that "_single" has some special meaning?
->
-> Thanks
-> Heiko
 
-Hi Heiko,
+--FpfFtflQBQQ4ZJAp
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-The _single suffix was meant to distinguish this from dual-RK806
-designs (e.g. EVB1/EVB2/QuartzPro64) where two RK806 PMICs are chained
-as master (pmic@0) and slave (pmic@1). I wanted to signal "this board
-has exactly one RK806, not the master half of a pair."
+Hi Chen-Yu,
 
-You're right that this is unnecessary =E2=80=94 the EVB boards don't label
-their master as rk806_master either, so there's no established
-convention that _single is part of. I'll rename it to just rk806 in
-v10.
+On Tue 05 May 26, 21:48, Chen-Yu Tsai wrote:
+> The SRAM C region contains a partial alias to the VE SRAM already
+> referenced by the video engine. To avoid access through this alias
+> window, the region should also be claimed by the video engine.
+>=20
+> Add a reference to the SRAM C region to the video engine node.
 
-Dennis
+It feels very weird to have a reference to the DE2 SRAM region in the
+VE node. It seems unlikely that the same region would be used by both DE2 a=
+nd
+VE and I am pretty sure can have both running at the same time without
+overstepping.
+
+=46rom what I can see we have so far assumed that the SRAM C and SRAM C1
+are two different physical SRAM areas, but this is most likely not the case.
+My guess would be that SRAM C1 is actually a part of SRAM C and the DE2 is
+using another part of it. The syscon block probably allows switching access
+to these different parts of SRAM C.
+
+Also the sram_c1 node implies it's 2 MiB, which sounds quite unlikely.
+
+All the best,
+
+Paul
+
+>=20
+> Fixes: b542570e5605 ("arm64: dts: allwinner: h6: Add Video Engine node")
+> Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
+> ---
+>  arch/arm64/boot/dts/allwinner/sun50i-h6.dtsi | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h6.dtsi b/arch/arm64/bo=
+ot/dts/allwinner/sun50i-h6.dtsi
+> index 72ce1a75647b..88c6e3e105c0 100644
+> --- a/arch/arm64/boot/dts/allwinner/sun50i-h6.dtsi
+> +++ b/arch/arm64/boot/dts/allwinner/sun50i-h6.dtsi
+> @@ -205,7 +205,7 @@ video-codec@1c0e000 {
+>  			clock-names =3D "ahb", "mod", "ram";
+>  			resets =3D <&ccu RST_BUS_VE>;
+>  			interrupts =3D <GIC_SPI 89 IRQ_TYPE_LEVEL_HIGH>;
+> -			allwinner,sram =3D <&ve_sram 1>;
+> +			allwinner,sram =3D <&ve_sram 1>, <&de2_sram 1>;
+>  			iommus =3D <&iommu 3>;
+>  		};
+> =20
+> --=20
+> 2.47.3
+>=20
+
+--=20
+Paul Kocialkowski,
+
+Independent contractor - sys-base - https://www.sys-base.io/
+Free software developer - https://www.paulk.fr/
+
+Expert in multimedia, graphics and embedded hardware support with Linux.
+
+--FpfFtflQBQQ4ZJAp
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmn6VIoACgkQhP3B6o/u
+lQz8VBAAkfyeAYZhinUwpsJmf+oDlItFt7Lfusv+8SkH/qZnD6zCrAQk/Geol1rW
+wZlYqRlWIV1tboLHrW+hgJmK43/FRZ8zoXdUVBTmn1qlfDX0VtLF2DvHC+uaufyF
+4DTP/NfJmIdPOIltCC3FEYzt78hqUzYwwEnsyR+uZ0kPKS8dQyvBoS24LOwnF70g
+huYXW9SWc+458Sjd+NVae7vJneQsx8xrtafjkfPP5Zx2PdYmMTsGPxuBNgLa2CiA
+TvtW1mzJtP2egSTdCfzIJRVCdQ6w9/lYvQoFQfz7U+L+MwpB8U7g3yU7sbIEEBwz
+1RzbbYTvHm68D95/Qb4wkxEPXPw/HTD5Hy3iHdw6JLz3VOXvvQapTbOQqADL7SqD
+6HE8NxgGcLLVMO6P3Na0l+nu6AyuXnou5x99ukr1lQYNAVeUCcq4CpN6GV9/Tgq+
+5ZcTzVFJqD2RJfdPbuljaRgWU5i7fUk1QX0QiNmW+m84Kg5e+wkzf/TB1E5JmypQ
+w4d8oYb059s57puI8NZgwHnyhoLu3HB/NhjboHLcuwzcbgY6PMq68lqazv6qNY/p
+bvQU0TQ/2HwBmCtQT7dIn1ShT5xfo0cu3qpl0bHH9iKBcnXCjdGGqmrNliwBIhta
+5rW/eK5LQyKRXSSg3mKHjITNERBpiraMB65z3LMKUrE/UHivWxA=
+=03GE
+-----END PGP SIGNATURE-----
+
+--FpfFtflQBQQ4ZJAp--
 
