@@ -4,68 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94C05CD13DA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 04:24:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26CD2CD13DA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 05:06:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3B2CunHCGpiMjcTDIPvkA5wnx3g/cxDEDO4exp2ZkTA=; b=vvTXzyVwNbW07qmZ47Zm/ce7q/
-	YfLWuOrFcvePAF9KRlLDhX4+frEG1tJhcfuKG++kZowb9RVbM9ioRQ4OurAmTYIQuEcIeP6xKEHdS
-	R3hNEWfZxZOz1a28JXcs0L1FuF2DrlgLFsnurZPYGo7RpQ5DBGON3A64vqY3YjJMX3DBfVkYyFEWt
-	b3sxx6V4X1oNMvVgQQZwTpkAEiuOLKrxyD+Q8cOb4hds78N3JRRcJf8V4SHNiWb+NjymjxhKG/8JS
-	zIGENPUk4qst72ov/iR6xBbYFw/isjjbBSxHsmSwccWjTsYPN5dludmihYIA7IzpDZUYiTXpmbi47
-	mXpoTwiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IrVPfIjZtdKKQ6X1OAT/VyFAr6iHgDYFmsm09Jfkaek=; b=wt8F0Zy7gfvUDG0oVV4TFo5PVX
+	Y727lBZM79RQTRmErI6dzwKfvzJiLbD9AzlRY7UUcQhu/5ThvClYOJnSgUn1lxPV5UqzLkh7ognpy
+	7ukKSE6S6ljfFhBUifqz0hwFTtNLA0C4srJ0kkLgRC3r5jhFPt/fTPUZuwl2w6MWFFUBFDaRZhz4I
+	3JJi689i7CQqCjkLGXZQzi56juVlGPs0pEq9nEl8EPNjpPBqDt1+rp+6WVxMDf4svdCm4+wsE+XTl
+	qaWXu+T/0kOL/u6jcL5ipSPgmtar7pGxfDzJtOH7ThOYodypO/yoLrTnqHelz2JRvrPZynxK1KYgJ
+	4C+xhELQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wK7Kl-0000000F6Go-0Bns;
-	Tue, 05 May 2026 04:24:35 +0000
-Received: from m16.mail.163.com ([220.197.31.2])
+	id 1wK7zM-0000000F9vd-12UW;
+	Tue, 05 May 2026 05:06:32 +0000
+Received: from mail-westus2azon11010056.outbound.protection.outlook.com ([52.101.46.56] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wK7Kh-0000000F6FH-3qKQ;
-	Tue, 05 May 2026 04:24:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
-	Content-Type; bh=3B2CunHCGpiMjcTDIPvkA5wnx3g/cxDEDO4exp2ZkTA=;
-	b=VBoDHIY4WJJi70YRfo0kb2nK/+cju4NajjJmVjFHGt7bThYMY/JDla9gJih2UX
-	KZEWKBLXh/MbVlXiXid8BOx2ovYOfsu7WpBfnOLNrzg2JJJjL5dc2c5mpWgtzOZx
-	WMWtVyyYMzkssQTjuVe2VJeOtqZUuZud/YB6NXldV8GlY=
-Received: from [192.168.50.71] (unknown [])
-	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wC3T+7RcPlpXxPvDQ--.4818S2;
-	Tue, 05 May 2026 12:23:46 +0800 (CST)
-Message-ID: <9be240fa-ab46-4b58-9240-5e96cab8a097@163.com>
-Date: Tue, 5 May 2026 12:23:45 +0800
+	id 1wK7zK-0000000F9vA-0Mwu
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 05 May 2026 05:06:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JM1EWUGtszzFqTc+/1ooP+UxMmcGsW+oWULyGGscX6PU8MrNsUp8+/baJqebCkcO6eqNqSSZ986PdHCCYyFW7w7B7ul1yRWqCi8XLmgliqn5A5mm1YuLEkCymizA9wj63QKgb/HbfdmbxLIV/ZMhS3lRWxeXXIBWFDaKcx47sgHw1kYf4Q4yPL7Fck232Vfnun8UNvw99fbia6EBeBs5Qg+XUeHSCfRXHaZbZ6NSPswdO+juDmcUNwQcB4QPlK/5X6ARNBe9/bUqxTRmkgIC/CTrwmDlkofK40ZbCQNUHaQnnwxcs5WCjFbQfab0W5F7OPDWMLO4nU6h7T6RZbvwRw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IrVPfIjZtdKKQ6X1OAT/VyFAr6iHgDYFmsm09Jfkaek=;
+ b=fnljYKb8C0iO6Q1pUYofs+ajfCad9+69pA2M/VmSK/5COqwWU9xjvDq8i8OQMOT8H5AIv31yB4TnKfYGECMOW+XdoM+YrdaPbfDhoHrq8FCwlN+KG6Ax/DHAg1AGMjsqQ7VjmfMA420xAHCnuYjhjj9noekygVajkF28t3ZJeo0GZ/A8N53yYmT0p6HPmgDAZaMLusHu5q75DyF7uISSiooxaV4z/r3s8c8XBILRcMwFT8jzMDkJi9BNXD8S81n07n8cUc8s/bxHh9PzAcpSmtM+q35rqsXdHSCnqKT1vLm4uPUp6xyUX+oOaSZ/btTiRMYIYNLcDGn5S+fcJjOBvA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IrVPfIjZtdKKQ6X1OAT/VyFAr6iHgDYFmsm09Jfkaek=;
+ b=Cu/BSIui84LkzN2Jq+Zvv5QbQjzWWIaBvICfwc6CPbe5p8ouxoRhVspdcpf+giLZnZl4E38FfBHxTlgR9qfNpjIwKITkxQO/yF+4b4qHi2RVBf5FILnTya0Cj/YCE64HYEKD/9qf2E6lLZHK7Us4c7Qie5KwbmMZlgT34fiFMKsK8BDMf+Zwj53JYnEtZh41nqY3Grm1x+qbP0p3RlZ//fylakZuT213f9GXfwaStHJp8M92bmf4HNqfr2+pYu5dHeuvr/MMaxSnUSIfP18N4f53ReR1QRlegCVR8d6EEaHS0KuHwYiPAdMNd6KGjZ/EcI5y4Y949L7ASvl2/Xp+bA==
+Received: from SJ0PR05CA0131.namprd05.prod.outlook.com (2603:10b6:a03:33d::16)
+ by BN7PPF9507C739C.namprd12.prod.outlook.com (2603:10b6:40f:fc02::6da) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.20; Tue, 5 May
+ 2026 05:06:22 +0000
+Received: from MWH0EPF000C6184.namprd02.prod.outlook.com
+ (2603:10b6:a03:33d:cafe::c) by SJ0PR05CA0131.outlook.office365.com
+ (2603:10b6:a03:33d::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.13 via Frontend Transport; Tue,
+ 5 May 2026 05:06:22 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ MWH0EPF000C6184.mail.protection.outlook.com (10.167.249.116) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9891.9 via Frontend Transport; Tue, 5 May 2026 05:06:22 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 4 May
+ 2026 22:05:59 -0700
+Received: from nvidia.com (10.126.231.37) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 4 May
+ 2026 22:05:56 -0700
+From: Ender Hsieh <andhsieh@nvidia.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, "Andrew
+ Jeffery" <andrew@codeconstruct.com.au>
+CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>, Andrew Lunn
+	<andrew@lunn.ch>, Marc Olberding <molberding@nvidia.com>, Jacky Chou
+	<jacky_chou@aspeedtech.com>
+Subject: [PATCH 0/1] aspeed: msx4: enable BMC networking via MAC0
+Date: Tue, 5 May 2026 14:05:40 +0900
+Message-ID: <20260505050541.3031447-1-andhsieh@nvidia.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/10] spi: Use FIELD_MODIFY() for bitfield operations
-To: David Laight <david.laight.linux@gmail.com>
-Cc: broonie@kernel.org, sunny.luo@amlogic.com, xianwei.zhao@amlogic.com,
- neil.armstrong@linaro.org, khilman@baylibre.com, han.xu@nxp.com,
- haibo.chen@nxp.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- lhjeff911@gmail.com, hayashi.kunihiko@socionext.com, mhiramat@kernel.org,
- jbrunet@baylibre.com, martin.blumenstingl@googlemail.com,
- linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com
-References: <20260430155456.36998-1-18255117159@163.com>
- <20260501093050.3f97cd3e@pumpkin>
-Content-Language: en-US
-From: Hans Zhang <18255117159@163.com>
-In-Reply-To: <20260501093050.3f97cd3e@pumpkin>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wC3T+7RcPlpXxPvDQ--.4818S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxXw48Cr43ArW3JFykuFWfKrg_yoW5GrW3pF
-	48GF42vFs7JrWFkF4xCrW5CF1Yya4fKrWjga4Ut3s3ZwnYvr17ZrWkt3WrWa9rAFykGFWx
-	KF4jy3s0k3ZxZwUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07U4OJOUUUUU=
-X-Originating-IP: [140.206.53.66]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCwxUqzWn5cNXchAAA3c
+Content-Type: text/plain
+X-Originating-IP: [10.126.231.37]
+X-ClientProxiedBy: rnnvmail202.nvidia.com (10.129.68.7) To
+ rnnvmail201.nvidia.com (10.129.68.8)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MWH0EPF000C6184:EE_|BN7PPF9507C739C:EE_
+X-MS-Office365-Filtering-Correlation-Id: 31e95129-7c31-47e7-7a4a-08deaa640d09
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700016|7416014|376014|13003099007|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: BDecSk97sdlBJpyFUTNkJrBUWYyttiQZG6zk46PlkAYwZXInJnrlqBHORH3B/f4JL8vGBHQMa/T0n5eKZp0XZTQCQdWr+2Wda6k+BfpOLXdgNiiNOuIrsDa1nSd+WpBWl96Vm4wZuB8X43J2nlrUX43joej7LUAo3dACBK09yU3DeC6Xb5UZ8Y212uwH6U8oLUavXBuhlcRX/RtPebRkQudmG4BfmkttWxCGmwjbSySL3z6LC90WocRO0XH1hLOFVacGqFsu0JblzdVhCWZSe98Ywm29Bool1WnO6hbtjH8neTxecHPkAMU9frTuRM/gljX/I+qWc4ZPTMUIK+dWej3jIHquUMsh3Rb8IHh+4nCZC3Ih4zZzT/OK3t8RZQkoNQnYZHQQ8uWGUmiooQ8j5yw4uVDQoyVqhogzzGVX/SYJB0XwKJ63LI4Gje6ODAZg9AK7D2Rrze8pqJUwtheYA/4E+/M1i9BtgOf5yDvEP2GT11yLubTGGv6zAMMY9BF430U7FoMJi4eqw+Fz8JF19uZD3Cavn5qCN6cFbotdpLLnzFE1hbZeUtLPIZwhtzXznpLElWYBJYWJTgcaBFtrtW4wqNbcX6VeHvDwv3ZedUYS4trPrxZNVl4ssPHobjgqMOCVR1HF1B+JajW+2AzIDpK82v38Sl4Gqcf/4pqCRiZUmj1Ro57QP3MOuF3JplF70na9DhForN6oP5hic29CqJEQnVPb9MdCgB9BDRtif7FTY/bNVaIo8nVujjQDiF2V
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700016)(7416014)(376014)(13003099007)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: PCQD4zv8s5dHDwGiGRL3y6oV9yK9F/VDdTPU4HA+zoJDxLc9i7668e7SXLOdwfqtiHTV82VAxIk06cfJUxT5hUDdaMWVNzHlfDIKPSUI0jxvo7ucCXdJhqAMXuaqbFTtmDjFj7wZhktvIEbsodIKw4fJjzXsb7X3QzIkedNXqTrNhIAjMkRHlFPAxOvyErFsweQLSZHWAgP4f9R/2hwMw1rmVlTrmJzBzEk7rFThJyuP4oVnfDiT/CSnts9CK4vWoajUFdt5UZpTeTaMjrZxeGGSkNQvLQJ1fnu2ipyAE/gXCngt3fMFHvbBaI5eTbgqmlxpoZmhPq5VjXT5SO3bEyjmDdj2kRIeRZt4GeBFuu7avhqSmExDyQgmZfE12h3mqfviuEXJs57smF6TAZ3e8RO7Lp/iVURHCiAyM5DsdbehQgiuU2d76IlJe6tC9uFz
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2026 05:06:22.3951
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 31e95129-7c31-47e7-7a4a-08deaa640d09
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000C6184.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN7PPF9507C739C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_212432_321321_47BD75B9 
-X-CRM114-Status: GOOD (  13.16  )
+X-CRM114-CacheID: sfid-20260504_220630_141575_C9A76020 
+X-CRM114-Status: UNSURE (   7.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,77 +128,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add the &mac0/&mdio3/ethphy3 nodes to the NVIDIA MSX4 board dts to
+enable BMC networking. These nodes were intentionally omitted in
+commit f28674fab34f ("ARM: dts: aspeed: Add NVIDIA MSX4 HPM") at
+Andrew Lunn's request, pending RGMII delay handling clarification.
 
+Following his guidance on linux-aspeed [1], the U-Boot bootloader
+has been modified to stop enabling MAC clock delays on the SoC
+side. With phy-mode = "rgmii-id", the PHY now adds the required
+~2ns delay without any double-delay from the MAC controller.
 
-On 5/1/26 16:30, David Laight wrote:
-> On Thu, 30 Apr 2026 23:54:46 +0800
-> Hans Zhang <18255117159@163.com> wrote:
-> 
->> Replace open-coded bitfield modifications with the standard FIELD_MODIFY()
->> macro across multiple SPI controller drivers. This improves readability and
->> adds compile-time checking without functional changes.
-> 
-> I don't think these changes are worth the effort.
-> The readability doesn't change much - you need to know what a slightly
-> more obscure 'helper' does.
-> The extra compile-time checks are pretty unlikely to ever find a problem
-> and mostly just slow down the compile.
-> The generated code is likely be slightly worse.
-> And, with the best will in the world, it is easy to make silly mistakes.
-> 
-> 	David
+Tested on alon8 hardware: 1G link negotiation succeeds with this
+change in coordination with the U-Boot patch [2].
 
-Hi David,
+[1] https://patch.msgid.link/eac09481-0ba1-4ac2-ad8c-d859822ff0d5@lunn.ch
+[2] https://patch.msgid.link/20260504044702.2613879-1-andhsieh@nvidia.com
 
-FIELD_MODIFY() is a standard kernel helper (bitfield.h), not an obscure
-one. My recent power domain series using similar patterns was accepted:
+Ender Hsieh (1):
+  ARM: dts: aspeed: msx4: enable BMC networking via MAC0
 
-https://patchwork.kernel.org/project/linux-pm/cover/20260430163213.44695-1-18255117159@163.com/
+ .../dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dts     | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-The PCIe maintainer also values this kind of code simplification, which
-encouraged me to send these SPI patches.
-
-The macro offers compile-time overflow checks, and I've verified the
-generated assembly is identical (GCC/Clang). I believe the trade‑off
-favours readability and safety.
-
-If you still prefer to keep the open‑coded versions, I'll drop the
-series. Please let me know.
-
-
-Best regards,
-Hans
-
-> 
->>
->> Each patch modifies a single driver, allowing independent review and
->> application.
->>
->> Hans Zhang (10):
->>    spi: amlogic-spifc-a1: Use FIELD_MODIFY()
->>    spi: amlogic-spisg: Use FIELD_MODIFY()
->>    spi: cadence-xspi: Use FIELD_MODIFY()
->>    spi: meson-spicc: Use FIELD_MODIFY()
->>    spi: nxp-xspi: Use FIELD_MODIFY()
->>    spi: sn-f-ospi: Use FIELD_MODIFY()
->>    spi: stm32-ospi: Use FIELD_MODIFY()
->>    spi: stm32-qspi: Use FIELD_MODIFY()
->>    spi: sunplus-sp7021: Use FIELD_MODIFY()
->>    spi: uniphier: Use FIELD_MODIFY()
->>
->>   drivers/spi/spi-amlogic-spifc-a1.c |  5 ++---
->>   drivers/spi/spi-amlogic-spisg.c    | 13 +++++--------
->>   drivers/spi/spi-cadence-xspi.c     |  3 +--
->>   drivers/spi/spi-meson-spicc.c      |  5 ++---
->>   drivers/spi/spi-nxp-xspi.c         | 12 ++++--------
->>   drivers/spi/spi-sn-f-ospi.c        |  5 ++---
->>   drivers/spi/spi-stm32-ospi.c       |  7 +++----
->>   drivers/spi/spi-stm32-qspi.c       |  5 ++---
->>   drivers/spi/spi-sunplus-sp7021.c   |  3 +--
->>   drivers/spi/spi-uniphier.c         | 13 +++++--------
->>   10 files changed, 27 insertions(+), 44 deletions(-)
->>
->>
->> base-commit: 3b3bea6d4b9c162f9e555905d96b8c1da67ecd5b
+-- 
+2.34.1
 
 
