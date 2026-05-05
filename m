@@ -4,61 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE77DCD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 18:55:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 326BFFF8855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 19:02:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=85aBEzzLdnSG7SQA9aPsSPLwJXCmq5FIRWA2XNm4m+U=; b=PewRueYM7HMRX/o4K92KkdvwJg
-	bldM/IdpRkj8ZMr6zcAg+zNRDqX3Vl+/4+eOVMfH4HR3pvvin7TTx0jQ6z2Qu2cUUwR2Qn+vb4SKQ
-	qrsvja6gQhhWDFzWKrRaV955aqbe1epnx/YgEP8p5/ymQ0aXkw5b4+htsMmsxGFYnJKXb636OrVpy
-	B98a9ia+6g4ReG/B5vecf0LM+rTMxDDfY4RBHnuk7iEfJQhUA9LcXeSQzYss2ZFuTA6+WRp/itHMv
-	6k2TvRr8IMfI++LHu+P1OF3IagXxoZddqq3rXbC8y5JRNiVJorQ+mjxgFTU5/A7Z/wyqJZ/jbke0M
-	wYX9GsGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:References:
+	In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EOUWfjlkOsaNQYoUBg0TDJwJFchZ2pp2aMyYP/ZANyo=; b=Sslut6jja/o2w8yu7ndDRguccU
+	2PWlQnQDDDfB9AeNcEq3k15SZVgeZsrKZwdK05wspE/+sgBsODEXEvYQo2cQGYfAlMvTYVzbkDMjp
+	Kd6XQmYiblPguQo9Psf59q3wOWgDOBUeyVzzsWSYhZTwRsxUe+fy0rUuBZaIQVe12S/NjvwA5/AuO
+	+2AiPQ9BARuojQoNxBO36cKqClMZTUUgsLIKZ2csOiOqwp44dQ6P2db7t4u+Li8TlfOJAo7oRzwMr
+	1kVOxgkneGmNp88vago58TsTfZYUXh+5MZSuWqsFzDemu8sagqBe9xMrLBSG53ok5vnllEeVBZ773
+	Dh0TsOjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKKvS-0000000HEJ7-1kq2;
-	Tue, 05 May 2026 18:55:22 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wKL2F-0000000HFgo-380L;
+	Tue, 05 May 2026 19:02:23 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKKvQ-0000000HEHQ-2wnv;
-	Tue, 05 May 2026 18:55:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=85aBEzzLdnSG7SQA9aPsSPLwJXCmq5FIRWA2XNm4m+U=; b=MuV2gijYWxbvj+WXbMgFttTfh8
-	6XX/os3ssMSm5QsEpH97f/FqBouV+Dk3phRjVSZt+eK0C8eU4GJUJGqJY55/RjMwKfE+5KPrjG6Ov
-	JSe8i58My0rr9oX2n6gDqwIWKGjl0G8SV4601mISeSL9Wc1BRKVCJJl8QmI45LLG2n2hWsjxXWsPj
-	aIwffOICUkFHIiG0QMjZvkXVbBq/glhoaJ+EwKrXlWJtq1sslIZN9xwldI8bIx/jaFyfaORaFDau3
-	t0kjtD/7mLDCPcmZZmx4S4bkXtqyJswPmevtD9mCaDe3s4XQHcSEPtBjliVCKL4VpDmhSxnvWqomg
-	qx5lyYOQ==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Weixin Guo <2298701336@qq.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	f.kardame@manjaro.org,
-	pgwipeout@gmail.com,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] arm64: dts: rockchip: fix rk809 interrupt pin on rk3566-roc-pc
-Date: Tue,  5 May 2026 20:55:01 +0200
-Message-ID: <177800729424.3301010.8355730425326488875.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <tencent_5035EEE630C845B1B51DEA4284DE23DCCE06@qq.com>
-References: <tencent_5035EEE630C845B1B51DEA4284DE23DCCE06@qq.com>
-MIME-Version: 1.0
+	id 1wKL2D-0000000HFgJ-3pXd
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 05 May 2026 19:02:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PAD0wTxjB0RZduy61UUe4efQl4+DSoHQVWLqlbt2EmeEAlSxGmoEd5FdclPPtbvI/7FCVG7sfYpqbkU1wO5EU/s1LayPlkI/vZuHW6qwPfiVrPO/Wzr2KCZfZJKOgqO7Wjk73FzrloMGV7ZYwZXX3FOzu11DGveH9H3MIK5291FuoViRvmr6tPjG1oBc+v0fW+4JFFYcTD4lbNpY8M7C6gVjL5pUMsoaOU3VIByg4wheYZFccLrdpr2PE+5i8knRyabOxKa3QvGEzXJjB2uC7/Eb8RCQEk15mD+mmGqdV3tnGRMBFfbVKlto7I59O8HCpCiNDOO0k58lBwlMWeQP3Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EOUWfjlkOsaNQYoUBg0TDJwJFchZ2pp2aMyYP/ZANyo=;
+ b=vTmMFq4MOMORW7ghoym//p3apwWtsCYJonTv3/h00dvF+g74GPiAr+Ik0cxMj6Ofg0u/zcJRLjpNRgJr4okTDTAIC/ZU/9m8mssQ5r5OhQUhWarXKsJGcxWPPwDI4UXSiAI/Z+CqK6fK7nJB68nxQF2R4Sum4INO2aZxKQpvxwzlyBWUMhYl3/cYHvi3mkehhiVTj2hoCqdw85zwB9d27KdnNuyLn8cDPrZCLxQ15Hbc52TLxa3p1XHsl7iVTDtCycPNPxTxp+WmjdFXrv+9hfeTvdgFwQh9eDgCUPTpD9paS+F9YzbCtdtPYvmHt+pFDGn1vGbOObIzPa5mvWdL3w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EOUWfjlkOsaNQYoUBg0TDJwJFchZ2pp2aMyYP/ZANyo=;
+ b=CsQFaBWa5TJYxe6g+4UWvIIJYVg94FLD6vnCqBM5KzN9heKuHoR4tfsSc7jHaAvNKPcjbwzrvNrmaKHLoIvjeSH1GNMCAxauXp3VVc5WpOtZa+D461RHNwtTSRqdDHGRRi2WTSziopPSxDo2u75W5Hs8oGa9khtB33bekQpdHhq/NWMKTq4GTM84+rJYJGabIjV2MuXjrAm/VUmekgt6iuXerttar2Gl+4ZTGMf+BJS+CAvE5avzqvN1TIeAns7e80vJec/N7XNxD+LRkkrxYhAJ27M8jUzLzXbNkusGbSDdd7Sz2XUcq9sF4Sl7tTpWtXK77ZMT/SWuY6bgWerjtA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by PA1PR04MB10793.eurprd04.prod.outlook.com (2603:10a6:102:485::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Tue, 5 May
+ 2026 19:02:16 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9870.023; Tue, 5 May 2026
+ 19:02:16 +0000
+From: Frank Li <Frank.Li@nxp.com>
+To: Rui Miguel Silva <rmfrfs@gmail.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Martin Kepplinger <martink@posteo.de>, Purism Kernel Team <kernel@puri.sm>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ guoniu.zhou@oss.nxp.com
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20260327071105.4110282-1-guoniu.zhou@oss.nxp.com>
+References: <20260327071105.4110282-1-guoniu.zhou@oss.nxp.com>
+Subject: Re: [PATCH v11] arm64: dts: imx8ulp: Add CSI and ISI Nodes
+Message-Id: <177800773265.1882445.831215531012139487.b4-ty@nxp.com>
+Date: Tue, 05 May 2026 15:02:12 -0400
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
+X-ClientProxiedBy: PH8PR21CA0002.namprd21.prod.outlook.com
+ (2603:10b6:510:2ce::16) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PA1PR04MB10793:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7bbc7175-64f6-4269-d25f-08deaad8d318
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|376014|7416014|52116014|22082099003|56012099003|921020|18002099003|38350700014;
+X-Microsoft-Antispam-Message-Info: hMOuFMKvektT2rEWIDhUCAx/VGxXw29twhPYcGdrFt7Bh4zaQ/UCje92Lv2mmdOCv7j0O/ZQmhyVHyqH3X85fIvuqiuobZ1wwPfawmajlYKYufxkL8/DOxp1TpqH9aN6Cf7CsSUup6JwFdWKYc2YD6yYO2NBgoFvjrYlPt5ev0B7GqkRN1ShIJqVTr3Q4j4z0lTSWAz7EWivKDSfqIigJedVpLmUrTEs0C38CU7LdnJlq4cDuNgs0/uaFd92h+GHnCeKG13a62e8jhISe2wIZWTwkj/I7iUibSDtZU0WcfD863DJ7TFM0fR9QpicUv/xTRriz8jTVvlWWIGa/XKK65IvyQsizse5ZjuMHYgHxUmV1mL4454TlXq9TsE+6iqem0//aqE+nDcV2Km7CVutRCXTkEAm2TwlBHX9+uKhsSDRQZzXIsy6pkQtLd0k4Z3RSijIwd+toONK6nHiJ9Tg292JdyT+xezkEnbJvH0l7ThntNl4g7y/mleIUeZtQToKi+eDcBMQpST2TvX7qNexovk7pycXkBT7bRWTqgEW0yWCu3tmg6XNxDY/5Ric9cwLf+Pumxg8WioAUSmWaBbMa61EAsBdJ4DQtf1YcJCGwoTru14zrfHeouCqjgVMABV4vBIlHTNyF1SvaKH0Hhe0vs88BeA7rrXLHbFQyH6nt4K6m63ulMim6UQl5MLGi7SfInmflLv0wAZ2JFS/L5EHoxfCakn94oqsBT9UbXhf/R51+qrr5JgnGapY9TD2ehrWZaV1d+uO+BvLZ8+bzZuYGg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(376014)(7416014)(52116014)(22082099003)(56012099003)(921020)(18002099003)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MFZ4LzZqZzF1aldEOHlrWnpZc0E5bWh1bzUveFMrZFRsanQ4OTRxZGZHS3FP?=
+ =?utf-8?B?ZlhsNUhQdnJXTmprc1lXcEFOd3dmNVRlSXptZFh6ajdMSFBRcGpGUTdGRzJi?=
+ =?utf-8?B?TGl4cFNoWFltdmtpZmRpV0xUZmhCdS9LTmdHRGUvcUNjS3dlQ1BSOUVLTjZ5?=
+ =?utf-8?B?TjgxZkdHRGQ1Sk5JNDJDTTl4SjU3L1JpaWx6RjA2TmMvK04zMVdXM0ZGV0lO?=
+ =?utf-8?B?NDFtZUlmZE1raTFteURycU9wazNvUWR1N3k1ZW1uYzBVMWZ3RjN1N3FMbGZC?=
+ =?utf-8?B?aEM4aEJiTUdmNEgrOHhKeXFqV3V5TC92QVpjamhZbzIyZU5tM0U0RUFlSHo1?=
+ =?utf-8?B?RTBWR1MzbUFOdnVWTkxuYXR4UUhxT0xicDhiUjc5L1pFR1JsUUZNYVFHUWhJ?=
+ =?utf-8?B?QitXZkZSMEZrTG1aTklPSS9oa0xDMGJvakdINTVPVVlTU1Nia1V0N1I3bkhL?=
+ =?utf-8?B?UWE3QmtlN0dFVnI1RnlHWDRGZ1JqcGNTZ3A3dmsxTGxzM2RIbFJaZnNwZmZq?=
+ =?utf-8?B?SVVLWjdyeEN4Mk1sdEI3N0c5dldFQklPa2hhUzFtYUNkOWI1Y2liby9jb3Jo?=
+ =?utf-8?B?UmVLL0JMVUFmK2NZdEtvTkp2bUNtYi9mMGhINjJHbDQ3NmRoaWNpeWM5VDAx?=
+ =?utf-8?B?QldSU09IWkQwT3Bhb0VJU2VIMkYvUUMrZExNNll3VnFzZlVxMzBvNEVhdXcr?=
+ =?utf-8?B?dHBrVE50bkpsc1lITlB3RXVzQmdsakV1ZkNUaGlXMFBvbkNUNnRZV2E4RDBa?=
+ =?utf-8?B?eUNMMTQyVTBxalJsVTRnazh1TjEwS2FXR1BxT3FNUXIxWXhjY2oycUFScWx2?=
+ =?utf-8?B?RWtWdGV3YVdPdFJiK3RxU01Yay9mS3JnQUJ0bnpsQnUrVEJZMW9kNzNSZ3BL?=
+ =?utf-8?B?S2JxUmgzTk0yQ25PUnBWS1d4K2RjbW9sKzEyTSt0WXgvaWlscThHTGJFWnBx?=
+ =?utf-8?B?eU51azB4WmFjWGRkOXVkRDdjNFpaRW10QjNkV2RSTTRmVG1YLzVqZlMyMmdH?=
+ =?utf-8?B?N0VUMjhxeXBKT2xiWWY4dzduK1pka21IKzQ1M2daWGVFZWpHRktrNkswM3pF?=
+ =?utf-8?B?WXpUb29iN1ZjMExRT1pLRVNuQjMwbE1UNzhBaTBWN2dEUC91Z1JvVThQK25l?=
+ =?utf-8?B?eUFNSGI1Q0lRMWRGQmNxNEZQVDExdjl4R0ZmeENDb21wMWpCRnhsU0tmWHBZ?=
+ =?utf-8?B?OWxqQkU0cExFdlordVIrb3F5c3Q5eFlRTXVtb3l3Ymo5Z1V3aHB0Z2h3VHFl?=
+ =?utf-8?B?N0RYUk5aWlhKV0pzRnhxMDJCampFN3pQMklYditIYkdqNmdES1FiUUtnRlVJ?=
+ =?utf-8?B?QS9oMm5FT3pmV3hRaHlZQkhTaDVxanQ1Q0crcVpRUUNNTS9peGtNRjZBLzQ2?=
+ =?utf-8?B?bE5KK2NuRG9lOVpPYUJrSi96U2QxaXdKYW9sMHFYcUVScm10cS85c3JiN2FW?=
+ =?utf-8?B?ZVpobi9vNWdvVTUzQ0VwL1RtOU5sV0ZNb09rYWcraUE4WVE4UXF2YTJDeHNO?=
+ =?utf-8?B?bXJSZEJDSm1ISFI2ZWRzR0Z4d3BmK3V0Q25uRWxPVTZCaFR2TEd1K3Rib09L?=
+ =?utf-8?B?V2hCYndDWVhrTDRDMGZIdlNRdnBFNVFhNHdNVDNLVEphTXZvNFVPcHM5NU5B?=
+ =?utf-8?B?b29qYUJRZGtlRW9LeDZsSExIVTVqVGFWQmxJb0pvaHQwSG50cy81dXNqR1hO?=
+ =?utf-8?B?UXRiQzJYU1JMU3N2QnVDam1UeUkxL1VVbWVxS2ZaeGNYdGF6ajlZQmc0aDNX?=
+ =?utf-8?B?cDVXWUQvTVBIYnVIKzlHN0RuenY0RUlOQjVBYllXOVNMMnViL1hHdFU2ZVAw?=
+ =?utf-8?B?Zm1kWXJnNkpXYzFTSjcyc0lQVFpsUkFva1ZKZVVKSmFnUlNEYmFuYmRFcXZS?=
+ =?utf-8?B?dWxjLzlpdjhwbjZqQVMxUmE3aXBFV1pIZlJrYkJ2TGlQY0VJcU5iSzZzVnR5?=
+ =?utf-8?B?MjM2a3ozS3picDBTN3U4UWtmK0RoM3piMUh0VVFKL2pNa2o2VjJyZEI4NXRE?=
+ =?utf-8?B?OWNnZG5kOVF1emZBWEdORzBMd3plaDJZMlNJb1Y3TURFMzFhbXZQK3JnWGFz?=
+ =?utf-8?B?VHgreGJqeVRJR0xtQWtWdnYxL2tRZm5pR3VLcEFQbmFmRFN1eHdJb2tjaFVp?=
+ =?utf-8?B?cTNSZ29OaEFlQ1lsd1JXemsvY0NYcHpqaFdRU2JiazJNS2ZXbjFkVExvWFQr?=
+ =?utf-8?B?SHBYMnZHbnYvUjZ5QWZmSFBrTDkxOXh6VkprcWdsVEN5ajI2VDRwN0FNRzda?=
+ =?utf-8?B?VWVZNXRzdzFLcUJndE1hZzAxM0dYTUx1eWN4Qm1LNDZYaGJJOGpXaEE3a2NL?=
+ =?utf-8?Q?zakg7kLilD98gvgjex?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7bbc7175-64f6-4269-d25f-08deaad8d318
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2026 19:02:16.6835
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 6sgQq0yFplludfylzGEmwix4vzoZjdtCfqmFsCN3MKUZEMq/bGRBOha8SXIIRIfhtqOXJp2VZQtElJ4eBs6t+A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10793
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_115520_742925_A691497D 
-X-CRM114-Status: UNSURE (   9.41  )
+X-CRM114-CacheID: sfid-20260505_120221_979733_26D4E8AE 
+X-CRM114-Status: UNSURE (   9.47  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,23 +157,21 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 27 Apr 2026 21:58:04 +0800, Weixin Guo wrote:
-> The RK809 PMIC interrupt pin on the Firefly ROC-RK3566-PC (Station M2)
-> is physically connected to GPIO0_A3 (RK_PA3) according to the board's
-> schematic.
+On Fri, 27 Mar 2026 15:11:05 +0800, guoniu.zhou@oss.nxp.com wrote:
+> The CSI-2 in the i.MX8ULP is almost identical to the version present
+> in the i.MX8QXP/QM and is routed to the ISI. Add both the ISI and CSI
+> nodes and mark them as disabled by default since capture is dependent
+> on an attached camera.
 > 
-> Currently, the PMIC node incorrectly specifies RK_PA7 for the interrupt,
-> which prevents the PMIC from correctly signaling interrupts. (Note that
-> the pinctrl node 'pmic_int' correctly configures RK_PA3).
 > 
-> [...]
 
 Applied, thanks!
 
-[1/1] arm64: dts: rockchip: fix rk809 interrupt pin on rk3566-roc-pc
-      commit: 460bac478c5fe69054ffc60d607bba03bcaf909b
+[1/1] arm64: dts: imx8ulp: Add CSI and ISI Nodes
+      commit: dad7f95a1529f7a2b563d3e052968a0fc174b8e1
 
 Best regards,
 -- 
-Heiko Stuebner <heiko@sntech.de>
+Frank Li <Frank.Li@nxp.com>
+
 
