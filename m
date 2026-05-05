@@ -4,79 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1C99CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 12:47:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E387CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 12:50:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:
-	Subject:From:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MEhGr/q0Jz6/qKY3p81j00T5eIEi073Uzt+v4E8D1Bc=; b=thw1SzBQWrhBNRLwu7GcFCW/hY
-	S547X0OG7rCmBld/Z34bEI5ANbwq4QweGjc5hCVHuCgewpKxFQ9G0VWNjgSS6FJ9UlEx0mZ0tvgCo
-	d96cwo0BpTCKDHyvzsJdQTh+NWXhY4RKvS3Zgxzl6fCWxXFJRGsfzijLxvok+X2m1DDUn+XvdfmnJ
-	AxgjFQEK1Yr3FTroEJ5FyOWEb2qi/XB5r4gGMa9dJLeqIbs4/l8jZKyie/FLfNlcjx8SPCaZ+ZlBA
-	oXTu5d+tRitr5BeOKEo9aXVvdqfEC1z2jUMAB4ZMsc0R70odIHK1XKEwqx5Y54On2gBGvr8kL8bR9
-	3RUtztYg==;
+	bh=kJHxpSQ2RAsx52NGXeVPNpjdG3TF8+xCdq6mPtq3ZlA=; b=QKqcuyUCSsH2Cd9Dr6cArz0Hfr
+	9MXPwBzWqmrSf2sECJzxa48tg1A4RkokhSA+lY5DvbOnQAChNiDFw368ERQx53un+rqJuKiLJcktm
+	AAGQcYV1DgbDWn18gyumTnfufCyjJOIdH5rzOZJ1eTknXVqWyf9OfEFspfgyo6OsJL48AU6wWoB/j
+	tg5F7JpHZ2RdsXgIrYOdrCx6457eRVEtrRBSuo7Tmh5FJ21n7UJ55vJR5BHdTwo3GnM9x8+jJ5zaY
+	3R3aM1AZWIzrDSbZJ7kbaiOI8+TuUDbytkQTWf+sL3d8SNIGSZNaQ8j+SPhU2dzdk3hOMX02+yCf+
+	g0mvvFVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKFAx-0000000GDtJ-0LY3;
-	Tue, 05 May 2026 12:46:59 +0000
+	id 1wKFEP-0000000GEZ6-0PaV;
+	Tue, 05 May 2026 12:50:33 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKFAu-0000000GDsC-22yJ
+	id 1wKFEN-0000000GEYi-0aGO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 12:46:57 +0000
+	Tue, 05 May 2026 12:50:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 827AA43C80;
-	Tue,  5 May 2026 12:46:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12EF2C2BCC7;
-	Tue,  5 May 2026 12:46:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C01BC446F5
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 May 2026 12:50:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A802EC2BCC7
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 May 2026 12:50:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777985215;
-	bh=596sMWZzO6rtiPjU1JWkqiiSWIQcxiR85HlwQ2gSnXg=;
-	h=Date:To:From:Subject:Cc:References:In-Reply-To:From;
-	b=ZbU9ITGb91UZX09/qUN7UK+C66NqfMP+rt4z3zVV5PRWg6VyC3VUNmo/QH2vkf6E3
-	 1CJJFrw42Vj/Nn57WBhZHnqrkCLhUKKYMVqUSa/LGx3QPS40ZWxm+8LUe2/G/j31aI
-	 /LnN2J0G5PMTtqnIX2rDri3L4/NDxcLPAxCokN/Fh9PMxN1L5btTgH+oKRxvG6Q/H6
-	 goaafdhFwuzeNXSfCPPW9CqFWJFUb+BINS/qdXA1pi6pWqZiyH1fv7/uldf9S4joKq
-	 Mll2fB6ZEFBIGARw0FzIlqEafFI3HJLPjoF5gjN3waJKaDUX2ADsdA5NKnhR8Fqtpy
-	 du+oNQMpcmAfA==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 05 May 2026 14:46:49 +0200
-Message-Id: <DIAR5LATLBNK.1CSW7AD5VRN77@kernel.org>
-To: "Ulf Hansson" <ulf.hansson@linaro.org>
-From: "Danilo Krummrich" <dakr@kernel.org>
-Subject: Re: [PATCH v2 1/9] driver core: Enable suppliers to implement fine
- grained sync_state support
-Cc: "Saravana Kannan" <saravanak@kernel.org>, "Rafael J . Wysocki"
- <rafael@kernel.org>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- <linux-pm@vger.kernel.org>, "Sudeep Holla" <sudeep.holla@kernel.org>,
- "Cristian Marussi" <cristian.marussi@arm.com>, "Kevin Hilman"
- <khilman@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>, "Marek
- Szyprowski" <m.szyprowski@samsung.com>, "Bjorn Andersson"
- <andersson@kernel.org>, "Abel Vesa" <abel.vesa@oss.qualcomm.com>, "Peng
- Fan" <peng.fan@oss.nxp.com>, "Tomi Valkeinen"
- <tomi.valkeinen@ideasonboard.com>, "Maulik Shah"
- <maulik.shah@oss.qualcomm.com>, "Konrad Dybcio" <konradybcio@kernel.org>,
- "Thierry Reding" <thierry.reding@gmail.com>, "Jonathan Hunter"
- <jonathanh@nvidia.com>, "Geert Uytterhoeven" <geert@linux-m68k.org>,
- "Dmitry Baryshkov" <dmitry.baryshkov@oss.qualcomm.com>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- "Geert Uytterhoeven" <geert+renesas@glider.be>,
- <driver-core@lists.linux.dev>
-References: <20260410104058.83748-1-ulf.hansson@linaro.org>
- <20260410104058.83748-2-ulf.hansson@linaro.org>
- <DHW8QPU1VU1F.3P6PH69HLFBYC@kernel.org>
- <CAPDyKFqMDPiqvqJrq5Qs6Tw4Sc7szG4G-=y0NFkNSPoNd9kdVA@mail.gmail.com>
- <DHZMQLCIRJIS.174HZR6DIAOMM@kernel.org>
- <CAPDyKFoKNpUexGrM0zcysKMKcdYT-cU0_Q_AHbgiGPk_gU-3nA@mail.gmail.com>
-In-Reply-To: <CAPDyKFoKNpUexGrM0zcysKMKcdYT-cU0_Q_AHbgiGPk_gU-3nA@mail.gmail.com>
+	s=k20201202; t=1777985430;
+	bh=kJHxpSQ2RAsx52NGXeVPNpjdG3TF8+xCdq6mPtq3ZlA=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Ye08dOtX5KswflTgRy7PioBdoSHzsNA0RQxedsIJKIPz6V+B8rSm6nxQbmGoY57HM
+	 gEkEC0sm93CSINHwSl0nI1nz1Ow05cj7q5bmYMgP0D9vf9TggYlWvLtu6amg/rZS+y
+	 c8I8jmtAFKRujwezh0WXKHmuk1MmvTDAxhYDmxcadk1JaFGPpEtErVe63hJuzryrqr
+	 LO//AG5UIfxiImG4kzaWeDMSMjPl01UxhVyQj9SZsMdjlAEHtAGj9TjmCJEKYXBBXM
+	 e4Tk/Whzf+of6Av/vW8LQ1Heaw7ISyLlq7igxySdZ1dJs96zAP03l/SKWr27U5zOvb
+	 VqkrlnmvjVaCQ==
+Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-3939d2bd7ecso20749041fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 05:50:30 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+BkAFr5k5nwB3bY1GODxBeqxQ6oGEF/47XdB6Lt9wLUuwRQT6UTo5M8/NCaN0ZsLJ15ePI3UOueZ/OFEG61ifY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy+/cu5vK0BvaPCO92RzxXn3Ho/Sl/jI37aQTIeilLOuzIUjGx3
+	uHSf8aX/ojbO+xxP2QwD1I14UEfOJhUqXWQ/OWQyiwxB3Zz8sYAMKLZLGrWEoSgLx0MdfTctBUt
+	fzoAHcjTpWrCd4vUzo42EOKM6TeQWGGw=
+X-Received: by 2002:a05:651c:e07:b0:393:a39f:5826 with SMTP id
+ 38308e7fff4ca-393b2bb72cemr10436711fa.21.1777985429375; Tue, 05 May 2026
+ 05:50:29 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260504-pinctrl-mux-v6-0-8ea858ba3a5b@nxp.com>
+In-Reply-To: <20260504-pinctrl-mux-v6-0-8ea858ba3a5b@nxp.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 5 May 2026 14:50:17 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmXvnf6sSWsGe+++u37ONJpFFvxFMUkLdvvxiiaWuf9gQ@mail.gmail.com>
+X-Gm-Features: AVHnY4KycpDZhMuiBecuVH9tsvrsrZHEaBFUypvKntpPBTYsQnaEicGr2XejHl0
+Message-ID: <CAD++jLmXvnf6sSWsGe+++u37ONJpFFvxFMUkLdvvxiiaWuf9gQ@mail.gmail.com>
+Subject: Re: [PATCH v6 0/7] pinctrl: Add generic pinctrl for board-level mux chips
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Peter Rosin <peda@axentia.se>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, Haibo Chen <haibo.chen@nxp.com>, 
+	Conor Dooley <conor.dooley@microchip.com>, Ahmad Fatoum <a.fatoum@pengutronix.de>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: base64
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_054656_569168_6F14651D 
-X-CRM114-Status: GOOD (  25.08  )
+X-CRM114-CacheID: sfid-20260505_055031_221031_3764250F 
+X-CRM114-Status: GOOD (  18.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,89 +88,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue May 5, 2026 at 1:12 PM CEST, Ulf Hansson wrote:
-> On Wed, 22 Apr 2026 at 12:59, Danilo Krummrich <dakr@kernel.org> wrote:
->>
->> On Wed Apr 22, 2026 at 12:07 PM CEST, Ulf Hansson wrote:
->> > On Sat, 18 Apr 2026 at 13:23, Danilo Krummrich <dakr@kernel.org> wrote=
-:
->> >> On Fri Apr 10, 2026 at 12:40 PM CEST, Ulf Hansson wrote:
->> >> > @@ -1126,6 +1128,9 @@ static void __device_links_queue_sync_state(s=
-truct device *dev,
->> >> >       if (dev->state_synced)
->> >> >               return;
->> >> >
->> >> > +     if (dev->driver && dev->driver->queue_sync_state)
->> >> > +             dev->driver->queue_sync_state(dev);
->> >>
->> >> This seems to be called without the device lock being held, which see=
-ms to allow
->> >> the queue_sync_state() callback to execute concurrently with remove()=
-. This
->> >> opens the door for all kinds of UAF conditions in drivers.
->> >
->> > If that were the case, this whole function would be unsafe even before
->> > this change. I assume this isn't because of how the function is being
->> > called, but I may be wrong.
->>
->> This function does not issue any driver callbacks intentionally; the exi=
-sting
->> sync_state() callback is deferred to device_links_flush_sync_list(), whi=
-ch is
->> called without the device_links_write_lock() held, but takes the device_=
-lock()
->> to protect against other concurrent driver callbacks, such as remove().
->>
->> I.e. we can't take the device_lock() when the device_links_write_lock() =
-is held,
->> as it would be prone to lock inversion.
->
-> You are right, the device_lock() is needed in
-> device_links_flush_sync_list() to protect against concurrent driver
-> callbacks from being invoked, such as the ->remove().
->
-> However, as part of the removal procedure in
-> __device_release_driver(), we also need to account for device links.
-> Hence we call device_links_busy() which takes the
-> device_links_write_lock().
-
-I don't think this is sufficient.
-
-I wrapped my head around this about three weeks ago and I think there were
-multiple cases where this falls apart. I think one case was:
-
-  1. Consumer binds, supplier is added to deferred_sync. Consumer unbinds,
-     link goes to AVAILABLE.
-
-  2. device_links_busy(supplier) takes and releases device_links_write_lock=
-(),
-     finds no ACTIVE consumers, returns false -- drv->remove() starts witho=
-ut
-     device_links_write_lock() held.
-
-  3. device_links_supplier_sync_state_resume() takes device_links_write_loc=
-k(),
-     finds supplier still on deferred_sync -- device_links_driver_cleanup()
-     hasn't run yet, blocked on the lock. queue_sync_state() is called
-     concurrently with drv->remove().
-
-But again, I think that's what I concluded three weeks ago and this state
-machine is rather tricky.
-
-That said, *even if* we could prove that this works in all cases, it would =
-be
-very subtle, pretty fragile and not by design.
-
-The whole state machine around sync state is already rather complicated. So=
-, if
-we really want to make it an invariant that it is valid to call bus device
-callbacks without holding the device lock from
-__device_links_queue_sync_state(), I think this has to be carefully reflect=
-ed by
-the overall design making it *very explicit* how this invariant holds up in=
- all
-cases.
-
-Otherwise, I'd be rather concerned that this becomes a source of subtle bug=
-s.
+SGkgRnJhbmshDQoNCk9uIFR1ZSwgTWF5IDUsIDIwMjYgYXQgMTo1NeKAr0FNIEZyYW5rIExpIDxG
+cmFuay5MaUBueHAuY29tPiB3cm90ZToNCg0KPiBBZGQgYSBnZW5lcmljIHBpbmN0cmwgYmluZGlu
+ZyBmb3IgYm9hcmQtbGV2ZWwgcGlubXV4IGNoaXBzIHRoYXQgYXJlDQo+IGNvbnRyb2xsZWQgdGhy
+b3VnaCB0aGUgbXVsdGlwbGV4ZXIgc3Vic3lzdGVtLg0KPg0KPiBPbiBzb21lIGJvYXJkcywgZXNw
+ZWNpYWxseSBkZXZlbG9wbWVudCBib2FyZHMsIGV4dGVybmFsIG11eCBjaGlwcyBhcmUgdXNlZA0K
+PiB0byBzd2l0Y2ggU29DIHNpZ25hbHMgYmV0d2VlbiBkaWZmZXJlbnQgcGVyaXBoZXJhbHMgKGUu
+Zy4gTU1DIGFuZCBVQVJUKS4NCj4gVGhlIG11eCBzZWxlY3QgbGluZXMgYXJlIG9mdGVuIGRyaXZl
+biBieSBhIEdQSU8gZXhwYW5kZXIgb3ZlciBJMkMsDQo+IGFzIGlsbHVzdHJhdGVkIGJlbG93Og0K
+Pg0KPiAgICAgICAgIOKUjOKUgOKUgOKUgOKUgOKUgOKUgOKUkCAgICAgIOKUjOKUgOKUgOKUgOKU
+gOKUgOKUkA0KPiAgICAgICAgIOKUgiBTT0MgIOKUgiAgICAgIOKUgiAgICAg4pSCICAgIOKUjOKU
+gOKUgOKUgOKUgOKUgOKUgOKUgOKUkA0KPiAgICAgICAgIOKUgiAgICAgIOKUgiAgICAgIOKUgiAg
+ICAg4pSC4pSA4pSA4pSA4pa64pSCIE1NQyAgIOKUgg0KPiAgICAgICAgIOKUgiAgICAgIOKUgiAg
+ICAgIOKUgiBNVVgg4pSCICAgIOKUlOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUmA0KPiAgICAgICAg
+IOKUgiAgICAgIOKUnOKUgOKUgOKUgOKUgOKUgOKWuuKUgiAgICAg4pSCICAgIOKUjOKUgOKUgOKU
+gOKUgOKUgOKUgOKUgOKUkA0KPiAgICAgICAgIOKUgiAgICAgIOKUgiAgICAgIOKUgiAgICAg4pSC
+4pSA4pSA4pSA4pa64pSCIFVBUlQgIOKUgg0KPiAgICAgICAgIOKUgiAgICAgIOKUgiAgICAgIOKU
+lOKUgOKUgOKUgOKUgOKUgOKUmCAgICDilJTilIDilIDilIDilIDilIDilIDilIDilJgNCj4gICAg
+ICAgICDilIIgICAgICDilIIgICAgICAgICDilrINCj4gICAgICAgICDilIIgICAgICDilIIgICAg
+4pSM4pSA4pSA4pSA4pSA4pS04pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA
+4pSA4pSQDQo+ICAgICAgICAg4pSCIEkyQyAg4pSc4pSA4pSA4pSA4pa64pSCIEdQSU8gRXhwYW5k
+ZXIgICAgIOKUgg0KPiAgICAgICAgIOKUlOKUgOKUgOKUgOKUgOKUgOKUgOKUmCAgICDilJTilIDi
+lIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilJgN
+Cj4NCj4gVHJhZGl0aW9uYWxseSwgZ3Bpby1ob2cgaXMgdXNlZCB0byBjb25maWd1cmUgdGhlIG9u
+Ym9hcmQgbXV4IGF0IGJvb3QuDQo+IEhvd2V2ZXIsIHRoZSBHUElPIGV4cGFuZGVyIG1heSBwcm9i
+ZSBsYXRlciB0aGFuIGNvbnN1bWVyIGRldmljZXMgc3VjaCBhcw0KPiBNTUMuIEFzIGEgcmVzdWx0
+LCB0aGUgTVVYIG1pZ2h0IG5vdCBiZSBjb25maWd1cmVkIHdoZW4gdGhlIHBlcmlwaGVyYWwNCj4g
+ZHJpdmVyIHByb2JlcywgbGVhZGluZyB0byBpbml0aWFsaXphdGlvbiBmYWlsdXJlcyBvciBkYXRh
+IHRyYW5zZmVyIGVycm9ycy4NCj4NCj4gSW50cm9kdWNlIGEgZ2VuZXJpYyBwaW5jdHJsIGJpbmRp
+bmcgdGhhdCBtb2RlbHMgdGhlIGJvYXJkLWxldmVsIE1VWCBhcyBhDQo+IHBpbiBjb250cm9sIHBy
+b3ZpZGVyIGFuZCBidWlsZHMgcHJvcGVyIGRldmljZSBsaW5rcyBiZXR3ZWVuIHRoZSBNVVgsIGl0
+cw0KPiBHUElPIGNvbnRyb2xsZXIsIGFuZCBwZXJpcGhlcmFsIGRldmljZXMuIFRoaXMgZW5zdXJl
+cyBjb3JyZWN0IHByb2JlDQo+IG9yZGVyaW5nIGFuZCByZWxpYWJsZSBtdXggY29uZmlndXJhdGlv
+bi4NCj4NCj4gVGhlIGltcGxlbWVudGF0aW9uIGxldmVyYWdlcyB0aGUgc3RhbmRhcmQgbXVsdGlw
+bGV4ZXIgc3Vic3lzdGVtLCB3aGljaA0KPiBwcm92aWRlcyBicm9hZCBzdXBwb3J0IGZvciBvbmJv
+YXJkIG11eCBjb250cm9sbGVycyBhbmQgYXZvaWRzIHRoZSBuZWVkIGZvcg0KPiBwZXItZHJpdmVy
+IGN1c3RvbSBNVVggaGFuZGxpbmcNCj4NCj4gU2lnbmVkLW9mZi1ieTogRnJhbmsgTGkgPEZyYW5r
+LkxpQG54cC5jb20+DQoNCkkgcHV0IHRoZSBwaW5jdHJsIHBhdGNoZXMgb24gYW4gaW1tdXRhYmxl
+IGJyYW5jaCBmb3IgdGVzdGluZyBhZ2FpbiwNCmlmIG5vdGhpbmcgZXhwbG9kZXMgSSB3aWxsIHRy
+eSB0byBtZXJnZSBpdCBmb3IgbGludXgtbmV4dCBBU0FQIQ0KDQpZb3VycywNCkxpbnVzIFdhbGxl
+aWoNCg==
 
