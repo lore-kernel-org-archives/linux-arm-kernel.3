@@ -4,95 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60ED6CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 13:14:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D18DFF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 13:16:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=00Gzf353kwdb1ZwQdVZ5r/R1yScWtg1pxdKWd+hUbQI=; b=tWc91D8kuPflm8WnhfmsUswIc8
-	vD/vcttfdvsmj1tioejZgEOWjWvEqej3sKxTilWvFfAXEmr9jlAlZ6hd1dgWBy2kjQIvcAKhrtxRJ
-	4p0sLzmfsFdy8gl+ssx8tnIxhv9se6pipZWWIhmkt+wEU1tnNd5GDIBpQ/txbrAUsDQZeUbvvDfyR
-	+ogYwlO3TUYBYZ4riB9TAxtBFFZICm5gLxLFbugkd07rGBsS0xSB2x5WUPQAuIHP9IKZnLC2xQw4Z
-	yP7AsI5OwcmagoZ8xARzvu9V9VMFpieX7K6DjyhmAsPtvLnHIgzxkul8Qypq+tyvvH0nwfNZ5Cd91
-	mjd66qDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0Ay5j5jF2czJyodsxELYPre6pXvfnrOxt7H2FRKhYNQ=; b=kpHVbBiWOXBdHuryYD6Q2oGiCS
+	TN3i9vK5It92QxZtiEEyaZcvKwtczjxmYV3v85ievhCJWxKxFx2X9BXhGuIBW0Ox8k4YzL/A5Zl1d
+	GWGAA531TKMoBOl4oPJKB5oGXIbTLBiqd0fcUu0RO3gxTAiW4nlqmk2W5LH8e2cXPgN8sPavSpAED
+	JfmqZ0ibdPo246qtGbmFz//Xd5MOq4ADW0GaTzGuHhV8cYA9bjuHd3tw+Re52heVyBXwI4Mjrt701
+	C608RL3qjznMtsmzz+/mRxgjzeK1aRx6qYfDcm2i60+S9xE+WB1kVWgjOPDP224cdYyV2K2X4h3bX
+	nPXQZi/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKFbU-0000000GIap-1Rwm;
-	Tue, 05 May 2026 13:14:24 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1wKFdW-0000000GJHm-2NKP;
+	Tue, 05 May 2026 13:16:30 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKFbQ-0000000GIVX-2Nzv
+	id 1wKFdT-0000000GJH7-2zAJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 13:14:22 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-44e1860558fso1520320f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 06:14:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1777986858; x=1778591658; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=00Gzf353kwdb1ZwQdVZ5r/R1yScWtg1pxdKWd+hUbQI=;
-        b=WCaREu0awKQs9hmc5Bc1+hoHJfEXcO9GImHmhw/y7M2Yl53EumcRn2x7vBwolDRUfr
-         wda6plxgbYLHzUuFCN1UdykcE4uj5qcODWfN97It6mTidyoW4oMx5Xy+n+QFmj4R1DR0
-         j+zhiFAhE/0IE7jl8quHQdJsGbyBjgDKpK3Xbjra6xg1q3Fv3wpQxY3nRQGjK1KaozwR
-         iMoAVLnaP+WH0Zl+Y3qOFxn6zAiupa/478E1gfhMggs0Wt54a3ZQ8DKLnr2YQON+S/vy
-         FPWDYR9WwEZ5KX7PNx43aOWrQUfTqXvjj2VKfithaEWPVrRI/OlPBw6L+2fy4rdDJveR
-         JXSQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777986858; x=1778591658;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=00Gzf353kwdb1ZwQdVZ5r/R1yScWtg1pxdKWd+hUbQI=;
-        b=J0LCVvYmaMfyichQu4oCWvfn9avtVuCE/bShWlH9yCBMP8Wkzm871Q0SSk8g6/hR9E
-         CR4MZ0dgBQ7icrmTh2oCz+d013QW6/7VkiaCmr6LxTVW8snVwN7Cy4krgNiLsIbrjBe4
-         1DdNpqxY+auxpkRMl9Buw575HWe2cO++fib8sUx7ngeb54lEdz2d3wbBnrs8tYuBfWIP
-         TwyhaCymonP/drX32kl3PKAXaRfQSMokPO6MNv5m30RYrHCG4AbU2sry4LZiq8vwyRVH
-         Xp6VZ/94ElnkOpqV0VcNeZgqciiXipN4wLmI1dYmU5S9YuW8/htdxTnDVan37QZVMw91
-         hkig==
-X-Forwarded-Encrypted: i=1; AFNElJ/4VHbVakrKY1fGXqhuhuZUjz6cK5g2fxjGk0pYo6A4TBC2nd3D4OpnFre9rjtcF/zOUu74MHeeuIth74MvPrkn@lists.infradead.org
-X-Gm-Message-State: AOJu0YxxV4GHist8rtV/Fbw+7CHVbGivPOd8LsUKYYjfuQFL5mQRAKyj
-	fB2lVUAMo3yflAT79NxgBdjC19OsA1LJEESmKrppJpzsq9OzoF42BhR0y6X0mu60E2E=
-X-Gm-Gg: AeBDievxCywZhcpU9iQYAMFkmEJwra3igSRLPrWkVHNALQMkaEZFhwkAk8zCU8d27MP
-	L0GfIlz+T8Qq8G6Mm10GLfiLfTjbdt0RdDKDyEXmVxWZka6DNqUv2hAuS/WivRL/kA26DVSlsrT
-	1p2AylTP0YGSHotXya5yFiI79PamgCiWQLHLslGraKk8fAUmIUo6Z1KQIEmQbbQm6mppZ9zL5fi
-	cXMN0xZ5fbMpISuftzTcdEyBtbytCfSYa+bH93rAdKu1kd1FkbCbbDSNgQM5yEtlJZWccOsj5AW
-	YKX3StvlzXtllWgjdZ6fZGLGZ0x9LD9rX6Zk+e7EzvvLb3whCLSx/66xh8w4BE9QkONl1oQ2oe/
-	r9vqZA53I8R7mwF12IludHmQO7rtd+PUo4F1RUGDjR3tcG7DGk3Bsq3zA5bJkOKFtR510vWqfsp
-	w2NE9C/OWY2lXwpR/ewyPfcB3tuRCMuPMR9EE15xtlCwu5cz8O6Tr+igrzisfmkRwOQNemFTY6y
-	TTxcsY=
-X-Received: by 2002:a05:6000:2911:b0:441:3144:efc5 with SMTP id ffacd0b85a97d-44bb67cf042mr24716352f8f.42.1777986857973;
-        Tue, 05 May 2026 06:14:17 -0700 (PDT)
-Received: from localhost (host-79-47-155-212.retail.telecomitalia.it. [79.47.155.212])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45055960902sm4932144f8f.28.2026.05.05.06.14.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 May 2026 06:14:17 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Tue, 5 May 2026 15:17:33 +0200
-To: Lukasz Raczylo <lukasz@raczylo.com>
-Cc: netdev@vger.kernel.org, Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org
-Subject: Re: [RFC PATCH net-next 1/3] net: macb: flush PCIe posted write
- after TSTART doorbell
-Message-ID: <afnt7Txq23RafQUF@apocalypse>
-References: <cover.1777064117.git.lukasz@raczylo.com>
- <3106d546d494f2f52ec832e7f7d04f534286e254.1777064117.git.lukasz@raczylo.com>
+	Tue, 05 May 2026 13:16:30 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 857B2C5D739;
+	Tue,  5 May 2026 13:17:09 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id A3A846053C;
+	Tue,  5 May 2026 13:16:22 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BA5E811AD0179;
+	Tue,  5 May 2026 15:16:17 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1777986981; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=0Ay5j5jF2czJyodsxELYPre6pXvfnrOxt7H2FRKhYNQ=;
+	b=YoFL9TeDIlgs+4UdO6TLJUbdRIFRxIC68L5gBvqBPEdsZERSZYnPetT+i8GPets2aozpms
+	wPjVS4wuImYqjkIm81YvLU4zzCTIdLWfrA8tPOTATI+i7ARIGj4h4o5Djs87nLq0UZsdIw
+	x5qVtN1e8AtZlsuN4YfqcR3S3+FG04AP7hKPMVU93Xx2ymPh3crIprUkFHtu39DKqMgvoP
+	ZI0mGi1jLYWSjtANE9pYlamZR7K0ttTayBGwytqnFGrpjlzTKl4/KERzOukirXo5d4S6E5
+	abCcXnasvG4EVhZLUyf6BNVbAcAYiUWh1sKn7Yl8jXIUNc6kvPAnU/V/TupTaw==
+Message-ID: <9fe10a63-3dc5-4bbc-bbd0-08cc3f625975@bootlin.com>
+Date: Tue, 5 May 2026 15:16:17 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <3106d546d494f2f52ec832e7f7d04f534286e254.1777064117.git.lukasz@raczylo.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 2/4] firmware: ti_sci: add support for restoring IRQs
+ during resume
+To: Nishanth Menon <nm@ti.com>
+Cc: Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Gregory CLEMENT <gregory.clement@bootlin.com>,
+ richard.genoud@bootlin.com, Udit Kumar <u-kumar1@ti.com>,
+ Abhash Kumar <a-kumar2@ti.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-clk@vger.kernel.org, Dhruva Gole <d-gole@ti.com>,
+ Kendall Willis <k-willis@ti.com>
+References: <20260427-ti-sci-jacinto-s2r-restore-irq-v6-0-72c6468cb2ab@bootlin.com>
+ <20260427-ti-sci-jacinto-s2r-restore-irq-v6-2-72c6468cb2ab@bootlin.com>
+ <20260505113213.fz7qrovpgn4lbesn@zodiac>
+Content-Language: en-US
+From: Thomas Richard <thomas.richard@bootlin.com>
+In-Reply-To: <20260505113213.fz7qrovpgn4lbesn@zodiac>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_061420_635185_632E02F2 
-X-CRM114-Status: GOOD (  33.86  )
+X-CRM114-CacheID: sfid-20260505_061628_098183_BFE811A7 
+X-CRM114-Status: GOOD (  20.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,88 +86,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lukasz,
+On 5/5/26 1:32 PM, Nishanth Menon wrote:
+> On 14:21-20260427, Thomas Richard (TI) wrote:
+> 
+> [..]
+> 
+>>  /**
+>>   * ti_sci_set_irq() - Helper api to configure the irq route between the
+>>   *		      requested source and destination
+>> @@ -2324,15 +2363,43 @@ static int ti_sci_set_irq(const struct ti_sci_handle *handle, u32 valid_params,
+>>  			  u16 dst_host_irq, u16 ia_id, u16 vint,
+>>  			  u16 global_event, u8 vint_status_bit, u8 s_host)
+>>  {
+>> +	struct ti_sci_info *info = handle_to_ti_sci_info(handle);
+>> +	struct ti_sci_msg_req_manage_irq *desc;
+>> +	struct ti_sci_irq *irq;
+>> +	int ret;
+>> +
+>>  	pr_debug("%s: IRQ set with valid_params = 0x%x from src = %d, index = %d, to dst = %d, irq = %d,via ia_id = %d, vint = %d, global event = %d,status_bit = %d\n",
+>>  		 __func__, valid_params, src_id, src_index,
+>>  		 dst_id, dst_host_irq, ia_id, vint, global_event,
+>>  		 vint_status_bit);
+>>  
+>> -	return ti_sci_manage_irq(handle, valid_params, src_id, src_index,
+>> -				 dst_id, dst_host_irq, ia_id, vint,
+>> -				 global_event, vint_status_bit, s_host,
+>> -				 TI_SCI_MSG_SET_IRQ);
+>> +	ret = ti_sci_manage_irq(handle, valid_params, src_id, src_index,
+>> +				dst_id, dst_host_irq, ia_id, vint,
+>> +				global_event, vint_status_bit, s_host,
+>> +				TI_SCI_MSG_SET_IRQ);
+>> +
+>> +	if (ret || !(info->fw_caps & MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST))
+>> +		return ret;
+>> +
+>> +	irq = kzalloc_obj(*irq, GFP_KERNEL);
+>> +	if (!irq)
+>> +		return -ENOMEM;
+> 
+> Do we need to handle cleanup of ti_sci_manage_irq if the allocation fails?
 
-On 23:38 Fri 24 Apr     , Lukasz Raczylo wrote:
-> macb_start_xmit() and macb_tx_restart() kick transmission by
-> OR-ing MACB_BIT(TSTART) into NCR.  On PCIe-attached macb instances
-> (BCM2712 + RP1 PCIe south bridge on Raspberry Pi 5 is the setup we
-> have in front of us), writes to NCR are posted PCIe writes: they
-> are not guaranteed to reach the device before the issuing CPU
-> returns.  If the TSTART doorbell does not reach the MAC, no TX
-> begins, no TCOMP completion arrives, and the ring remains
-> quiescent without any kernel-visible indication.
-> 
-> Note that the raspberrypi/linux vendor fork carries a local patch
-> around the TSTART site (a queue->tx_pending breadcrumb that is
-> promoted to queue->txubr_pending by the next TCOMP interrupt,
-> triggering macb_tx_restart()).  That workaround makes the loss
-> recoverable under traffic, but it cannot help if TCOMP itself is
-> not raised because no TX started -- which is exactly the case we
-> are targeting here.  The handshake is not present in mainline.
-> 
-> Add a read-back of NCR after each TSTART write in macb_start_xmit()
-> and macb_tx_restart().  The read is an architected PCIe read
-> barrier for earlier posted writes on the same path; it ensures the
-> doorbell has reached the MAC before the functions return.
-> 
-> We do not yet have direct hardware evidence that TSTART is being
-> lost on the RP1 path (that would require a PCIe protocol analyser,
-> or at minimum a before/after counter on queue->tx_stall_last_tail
-> with and without this patch applied in isolation).  This patch is
-> one of a three-patch series ("candidate fixes for silent TX stall
-> on BCM2712/RP1"); see the cover letter for context.  We have
-> verified the series compiles and applies cleanly against mainline
-> HEAD and against raspberrypi/linux rpi-6.18.y @ f2f68e79f16f;
-> runtime verification is pending.
-> 
-> Link: https://github.com/cilium/cilium/issues/43198
-> Link: https://bugs.launchpad.net/ubuntu/+source/linux-raspi/+bug/2133877
-> Signed-off-by: Lukasz Raczylo <lukasz@raczylo.com>
-> ---
->  drivers/net/ethernet/cadence/macb_main.c | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
-> 
-> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-> index a12aa2124..b6cca55ad 100644
-> --- a/drivers/net/ethernet/cadence/macb_main.c
-> +++ b/drivers/net/ethernet/cadence/macb_main.c
-> @@ -1922,6 +1922,13 @@ static void macb_tx_restart(struct macb_queue *queue)
->  
->  	spin_lock(&bp->lock);
->  	macb_writel(bp, NCR, macb_readl(bp, NCR) | MACB_BIT(TSTART));
-> +	/*
-> +	 * Flush the PCIe posted-write queue so the TSTART doorbell
-> +	 * reliably reaches the MAC.  Without this, the write can sit
-> +	 * in the fabric and the MAC never advances, causing a silent
-> +	 * TX stall.
-> +	 */
-> +	(void)macb_readl(bp, NCR);
+Yes to keep hash list and allocated IRQs consistent.
 
-Do you expect it to be a temporal issue (in the comment you stated that the write should be delivered
-before the function returns) or is it just a dropped packet error? In the former case can you please
-explain why? If it's the latter, I'd expect the dropped packet to increment the counter in the AER,
-and I'm pretty sure it didn't when I performed my tests.
-
-Many thanks,
-Andrea
-
->  	spin_unlock(&bp->lock);
->  
->  out_tx_ptr_unlock:
-> @@ -2560,6 +2567,11 @@ static netdev_tx_t macb_start_xmit(struct sk_buff *skb, struct net_device *dev)
->  	spin_lock(&bp->lock);
->  	macb_tx_lpi_wake(bp);
->  	macb_writel(bp, NCR, macb_readl(bp, NCR) | MACB_BIT(TSTART));
-> +	/*
-> +	 * Flush the PCIe posted-write queue; see the comment in
-> +	 * macb_tx_restart() for the reasoning.
-> +	 */
-> +	(void)macb_readl(bp, NCR);
->  	spin_unlock(&bp->lock);
->  
->  	if (CIRC_SPACE(queue->tx_head, queue->tx_tail, bp->tx_ring_size) < 1)
-> -- 
-> 2.53.0
 > 
+>> +
+>> +	desc = &irq->desc;
+>> +	desc->valid_params = valid_params;
+>> +	desc->src_id = src_id;
+>> +	desc->src_index = src_index;
+>> +	desc->dst_id = dst_id;
+>> +	desc->dst_host_irq = dst_host_irq;
+>> +	desc->ia_id = ia_id;
+>> +	desc->vint = vint;
+>> +	desc->global_event = global_event;
+>> +	desc->vint_status_bit = vint_status_bit;
+>> +	desc->secondary_host = s_host;
+>> +
+>> +	hash_add(info->irqs, &irq->node, ti_sci_irq_hash(desc));
+> 
+> No locking? set_irq can be invoked in parallel paths, no?
+> Further, should'nt we check if the same src_id and src_index is already
+> present before adding to hash list?
+
+ti_sci_manage_irq(TI_SCI_MSG_SET_IRQ) is the lock. If it succeeds we
+have to add it in hash list.
+
+Can set_irq() and free_irq() be invoked in parallel paths? In this case
+maybe I should add a lock for set_irq() and free_irq().
+
+> 
+>> +
+>> +	return 0;
+>>  }
+>>  
+>>  /**
+>> @@ -2358,15 +2425,46 @@ static int ti_sci_free_irq(const struct ti_sci_handle *handle, u32 valid_params,
+>>  			   u16 dst_host_irq, u16 ia_id, u16 vint,
+>>  			   u16 global_event, u8 vint_status_bit, u8 s_host)
+>>  {
+>> +	struct ti_sci_info *info = handle_to_ti_sci_info(handle);
+>> +	struct ti_sci_msg_req_manage_irq irq_desc;
+>> +	struct ti_sci_irq *this_irq;
+>> +	struct hlist_node *tmp_node;
+>> +	int ret;
+>> +
+>>  	pr_debug("%s: IRQ release with valid_params = 0x%x from src = %d, index = %d, to dst = %d, irq = %d,via ia_id = %d, vint = %d, global event = %d,status_bit = %d\n",
+>>  		 __func__, valid_params, src_id, src_index,
+>>  		 dst_id, dst_host_irq, ia_id, vint, global_event,
+>>  		 vint_status_bit);
+>>  
+>> -	return ti_sci_manage_irq(handle, valid_params, src_id, src_index,
+>> -				 dst_id, dst_host_irq, ia_id, vint,
+>> -				 global_event, vint_status_bit, s_host,
+>> -				 TI_SCI_MSG_FREE_IRQ);
+>> +	ret = ti_sci_manage_irq(handle, valid_params, src_id, src_index,
+>> +				dst_id, dst_host_irq, ia_id, vint,
+>> +				global_event, vint_status_bit, s_host,
+>> +				TI_SCI_MSG_FREE_IRQ);
+>> +
+>> +	if (ret || !(info->fw_caps & MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST))
+>> +		return ret;
+>> +
+>> +	irq_desc.valid_params = valid_params;
+>> +	irq_desc.src_id = src_id;
+>> +	irq_desc.src_index = src_index;
+>> +	irq_desc.dst_id = dst_id;
+>> +	irq_desc.dst_host_irq = dst_host_irq;
+>> +	irq_desc.ia_id = ia_id;
+>> +	irq_desc.vint = vint;
+>> +	irq_desc.global_event = global_event;
+>> +	irq_desc.vint_status_bit = vint_status_bit;
+>> +	irq_desc.secondary_host = s_host;
+>> +
+>> +	hash_for_each_possible_safe(info->irqs, this_irq, tmp_node, node,
+>> +				    ti_sci_irq_hash(&irq_desc)) {
+>> +		if (ti_sci_irq_equal(&irq_desc, &this_irq->desc)) {
+>> +			hlist_del(&this_irq->node);
+>> +			kfree(this_irq);
+>> +			return 0;
+>> +		}
+>> +	}
+>> +
+> 
+> We should ideally not be here, correct? Add a dev_warn?
+
+yes
+
+> 
+>> +	return 0;
+>>  }
+>>  
+>>  /**
+>> @@ -3847,7 +3945,10 @@ static int ti_sci_suspend_noirq(struct device *dev)
+>>  static int ti_sci_resume_noirq(struct device *dev)
+>>  {
+>>  	struct ti_sci_info *info = dev_get_drvdata(dev);
+>> -	int ret = 0;
+>> +	struct ti_sci_msg_req_manage_irq *irq_desc;
+>> +	struct ti_sci_irq *irq;
+>> +	struct hlist_node *tmp_node;
+>> +	int ret = 0, i;
+>>  	u32 source;
+>>  	u64 time;
+>>  	u8 pin;
+>> @@ -3859,6 +3960,32 @@ static int ti_sci_resume_noirq(struct device *dev)
+>>  			return ret;
+>>  	}
+>>  
+>> +	switch (pm_suspend_target_state) {
+>> +	case PM_SUSPEND_MEM:
+>> +		if (info->fw_caps & MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST) {
+>> +			hash_for_each_safe(info->irqs, i, tmp_node, irq, node) {
+>> +				irq_desc = &irq->desc;
+>> +				ret = ti_sci_manage_irq(&info->handle,
+>> +							irq_desc->valid_params,
+>> +							irq_desc->src_id,
+>> +							irq_desc->src_index,
+>> +							irq_desc->dst_id,
+>> +							irq_desc->dst_host_irq,
+>> +							irq_desc->ia_id,
+>> +							irq_desc->vint,
+>> +							irq_desc->global_event,
+>> +							irq_desc->vint_status_bit,
+>> +							irq_desc->secondary_host,
+>> +							TI_SCI_MSG_SET_IRQ);
+>> +				if (ret)
+>> +					return ret;
+> 
+> Do you want to attempt to restore the rest of the entries rather than give
+> up on the first fail? Maybe just log the error for debug and attempt the
+> rest?
+
+In this case, if I get more than one error what value should I return?
+
+Best Regards,
+Thomas
 
