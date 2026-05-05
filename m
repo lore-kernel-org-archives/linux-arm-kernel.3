@@ -4,99 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8301ECD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 13:14:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60ED6CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 13:14:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q59EG8r8mRnPm4MFGBHxIdCjMVDqVdWUq04J9T41SAY=; b=Z0tRuSuQHYlWpdrbJPhi8g+c+M
-	OGTV9bji4WnW7INRiiTlaMRquKJwrzSrbSc8gJad4AJy0+gAFWQmPeIK+DLubt0fsplTDjUnOI1uk
-	In4pzc6sNokzCdIzHwc57Ten6Rr4tc1S/VtMhR64iWedImNxAS1icrMvCowAZueTARnTj+tj/mLN1
-	GsY+5s43w015rM3oN0DrSPbu0kL6oizumuaHLUpe7qv2st8MqE/193QVXTAqtJYAmCmmvhJgHwm0M
-	83RuQ06uQ2z/wyl5zINlpamWw9t2XxvNvue8X4A6vuA3gSz5fBVmaDeR2eyJkKTJkDR9RbgSGd2BA
-	K1qfIs2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=00Gzf353kwdb1ZwQdVZ5r/R1yScWtg1pxdKWd+hUbQI=; b=tWc91D8kuPflm8WnhfmsUswIc8
+	vD/vcttfdvsmj1tioejZgEOWjWvEqej3sKxTilWvFfAXEmr9jlAlZ6hd1dgWBy2kjQIvcAKhrtxRJ
+	4p0sLzmfsFdy8gl+ssx8tnIxhv9se6pipZWWIhmkt+wEU1tnNd5GDIBpQ/txbrAUsDQZeUbvvDfyR
+	+ogYwlO3TUYBYZ4riB9TAxtBFFZICm5gLxLFbugkd07rGBsS0xSB2x5WUPQAuIHP9IKZnLC2xQw4Z
+	yP7AsI5OwcmagoZ8xARzvu9V9VMFpieX7K6DjyhmAsPtvLnHIgzxkul8Qypq+tyvvH0nwfNZ5Cd91
+	mjd66qDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKFb7-0000000GIIJ-3Bw8;
-	Tue, 05 May 2026 13:14:01 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1wKFbU-0000000GIap-1Rwm;
+	Tue, 05 May 2026 13:14:24 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKFb3-0000000GIDG-0hRW
+	id 1wKFbQ-0000000GIVX-2Nzv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 13:13:58 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4852a9c6309so42620525e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 06:13:56 -0700 (PDT)
+	Tue, 05 May 2026 13:14:22 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-44e1860558fso1520320f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 06:14:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1777986835; x=1778591635; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=q59EG8r8mRnPm4MFGBHxIdCjMVDqVdWUq04J9T41SAY=;
-        b=A+eicHa/3hU7jwL1v5w5lJE2U8VTumgRwWWLHBArirvTRJy25XmGhLJp9Gjdl1SnOi
-         77lZ2p6eviNDBZhY1lQhGi+/zkIFL9zVGmwgyY1abpu/DF3g3qlP6og3IFTpbXHvhwzi
-         Zk8bLFBwGYtQUqmjH4Zu+jzioi/VuCZVBYRstMvMmG9E4pbZcU3X2Q3o7Y9TKhjSeEnB
-         r0K4dzsQoDk1O9a82Oye58lVlQR9xaJukShLD7fI8+Q7g5d5hxG/bMK60ah2QHZIT9Ky
-         TZRnOBfBtacRqTpzVyV9W9Jm0DN0NCQZ7ihkHHBQWmltFRflF1CuemF/EqRIfN5BWgU9
-         OTng==
+        d=suse.com; s=google; t=1777986858; x=1778591658; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=00Gzf353kwdb1ZwQdVZ5r/R1yScWtg1pxdKWd+hUbQI=;
+        b=WCaREu0awKQs9hmc5Bc1+hoHJfEXcO9GImHmhw/y7M2Yl53EumcRn2x7vBwolDRUfr
+         wda6plxgbYLHzUuFCN1UdykcE4uj5qcODWfN97It6mTidyoW4oMx5Xy+n+QFmj4R1DR0
+         j+zhiFAhE/0IE7jl8quHQdJsGbyBjgDKpK3Xbjra6xg1q3Fv3wpQxY3nRQGjK1KaozwR
+         iMoAVLnaP+WH0Zl+Y3qOFxn6zAiupa/478E1gfhMggs0Wt54a3ZQ8DKLnr2YQON+S/vy
+         FPWDYR9WwEZ5KX7PNx43aOWrQUfTqXvjj2VKfithaEWPVrRI/OlPBw6L+2fy4rdDJveR
+         JXSQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777986835; x=1778591635;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=q59EG8r8mRnPm4MFGBHxIdCjMVDqVdWUq04J9T41SAY=;
-        b=HRLr/bIWDpH9KFTOxcht5KvRn6CXKKAYbGszIs2muSA4WVQlE7D5SEM8Kin+6RqQun
-         XJt5UgaZnIznKr4Sgi/QVL3BWQmfHYDAdQ+k244qPIZLXkflBw5JhMUZeJvkWqxH1RSa
-         e9MKQTgVQoMakR8rckADv1w67XZQOX4tHqWYNZFSqv4wsNy0ARLh7I3pIkQxmVjAMQRC
-         E+7UrsyFzzz4WbpvSBWjKVWY4mMC2iQ9dOVCYMKD8ZGxq0D44sUcd14wrir6OToeNO/l
-         u15ZUufQ2fMig+2nDGYmPyl4TajFs6Bc81sgPT3twHCbMQ1cZV8v2s4gew2fmkoxcQn3
-         6whw==
-X-Forwarded-Encrypted: i=1; AFNElJ+ENB08rEZNRrXAVCf3On34Ll2bEEg/RIOghlJ9Ond12LrZ8A3/MB5pXBIQZSw3MMWqGD1KAF159yC1NC73E1Cw@lists.infradead.org
-X-Gm-Message-State: AOJu0YwxIgGDMssQsYgAK7qMQI13xvSBU4RaQTaEtiqbAOnRauoOqJZS
-	s78ZV8KHZ+HkKqWTR3niwBpZZjypTwz+h9O/tg+Uw95kirzHJsKv96/clpOwjwwjphw=
-X-Gm-Gg: AeBDieslGvZu2dpMkXZjB9+AWw1ziqLB6/UrEaMIC/dQPnyRRKxgQDTKsmv7ivIDEyE
-	MA8GK9xBoTyFAZCTiMlzlmnH1jpiHtvsJ/JUh10InmF8aAURSd1acURTdz2BqcuZE7DBQBX8HCM
-	Xj+eXVOgyAPm6HE0HmgkF45D02jvFSRh/r1UCMa0y9GdN7JJWrUmXO1d7QI6Yb72upz7vYHvVY9
-	ocaVRWQcXt+Ha6zVLelcqffuv196hgGKDoTOG1DQttnDxDUl+bQxqVQ90NvxXMIjwN567hyNivT
-	3kwJ86e6XXJSNz7NthlTFzIeOHZwuK7WumIU+/tY+QQMhiAorNLPlUZ58Li8LjGQCCnY7m77qYF
-	yw046o/S8JCtfcp0U/DFLy7Tl0D1H8ETMNfDaj4h8Sr0Jx3qpmvMGZRQhfbdLv9EiFAR7d6hbub
-	eiMaSisegZ8VwU6hX8plVWTISdVjmY4wWzFQqIrrZZDDPGzoRPbARHG1UUfz+DS3VvsPINcwfh1
-	1ix0Jm0RkxpWcellw==
-X-Received: by 2002:a05:600c:859a:b0:48a:8b02:ae91 with SMTP id 5b1f17b1804b1-48d188d4786mr36585875e9.11.1777986835218;
-        Tue, 05 May 2026 06:13:55 -0700 (PDT)
-Received: from ta2.c.googlers.com (17.83.155.104.bc.googleusercontent.com. [104.155.83.17])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48a8eb72a17sm366599525e9.6.2026.05.05.06.13.54
+        d=1e100.net; s=20251104; t=1777986858; x=1778591658;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=00Gzf353kwdb1ZwQdVZ5r/R1yScWtg1pxdKWd+hUbQI=;
+        b=J0LCVvYmaMfyichQu4oCWvfn9avtVuCE/bShWlH9yCBMP8Wkzm871Q0SSk8g6/hR9E
+         CR4MZ0dgBQ7icrmTh2oCz+d013QW6/7VkiaCmr6LxTVW8snVwN7Cy4krgNiLsIbrjBe4
+         1DdNpqxY+auxpkRMl9Buw575HWe2cO++fib8sUx7ngeb54lEdz2d3wbBnrs8tYuBfWIP
+         TwyhaCymonP/drX32kl3PKAXaRfQSMokPO6MNv5m30RYrHCG4AbU2sry4LZiq8vwyRVH
+         Xp6VZ/94ElnkOpqV0VcNeZgqciiXipN4wLmI1dYmU5S9YuW8/htdxTnDVan37QZVMw91
+         hkig==
+X-Forwarded-Encrypted: i=1; AFNElJ/4VHbVakrKY1fGXqhuhuZUjz6cK5g2fxjGk0pYo6A4TBC2nd3D4OpnFre9rjtcF/zOUu74MHeeuIth74MvPrkn@lists.infradead.org
+X-Gm-Message-State: AOJu0YxxV4GHist8rtV/Fbw+7CHVbGivPOd8LsUKYYjfuQFL5mQRAKyj
+	fB2lVUAMo3yflAT79NxgBdjC19OsA1LJEESmKrppJpzsq9OzoF42BhR0y6X0mu60E2E=
+X-Gm-Gg: AeBDievxCywZhcpU9iQYAMFkmEJwra3igSRLPrWkVHNALQMkaEZFhwkAk8zCU8d27MP
+	L0GfIlz+T8Qq8G6Mm10GLfiLfTjbdt0RdDKDyEXmVxWZka6DNqUv2hAuS/WivRL/kA26DVSlsrT
+	1p2AylTP0YGSHotXya5yFiI79PamgCiWQLHLslGraKk8fAUmIUo6Z1KQIEmQbbQm6mppZ9zL5fi
+	cXMN0xZ5fbMpISuftzTcdEyBtbytCfSYa+bH93rAdKu1kd1FkbCbbDSNgQM5yEtlJZWccOsj5AW
+	YKX3StvlzXtllWgjdZ6fZGLGZ0x9LD9rX6Zk+e7EzvvLb3whCLSx/66xh8w4BE9QkONl1oQ2oe/
+	r9vqZA53I8R7mwF12IludHmQO7rtd+PUo4F1RUGDjR3tcG7DGk3Bsq3zA5bJkOKFtR510vWqfsp
+	w2NE9C/OWY2lXwpR/ewyPfcB3tuRCMuPMR9EE15xtlCwu5cz8O6Tr+igrzisfmkRwOQNemFTY6y
+	TTxcsY=
+X-Received: by 2002:a05:6000:2911:b0:441:3144:efc5 with SMTP id ffacd0b85a97d-44bb67cf042mr24716352f8f.42.1777986857973;
+        Tue, 05 May 2026 06:14:17 -0700 (PDT)
+Received: from localhost (host-79-47-155-212.retail.telecomitalia.it. [79.47.155.212])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45055960902sm4932144f8f.28.2026.05.05.06.14.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 May 2026 06:13:54 -0700 (PDT)
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-Date: Tue, 05 May 2026 13:13:04 +0000
-Subject: [PATCH v5 7/7] firmware: samsung: acpm: Fix infinite loop on
- sequence number exhaustion
+        Tue, 05 May 2026 06:14:17 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Tue, 5 May 2026 15:17:33 +0200
+To: Lukasz Raczylo <lukasz@raczylo.com>
+Cc: netdev@vger.kernel.org, Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rpi-kernel@lists.infradead.org
+Subject: Re: [RFC PATCH net-next 1/3] net: macb: flush PCIe posted write
+ after TSTART doorbell
+Message-ID: <afnt7Txq23RafQUF@apocalypse>
+References: <cover.1777064117.git.lukasz@raczylo.com>
+ <3106d546d494f2f52ec832e7f7d04f534286e254.1777064117.git.lukasz@raczylo.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260505-acpm-fixes-sashiko-reports-v5-7-43b5ee7f1674@linaro.org>
-References: <20260505-acpm-fixes-sashiko-reports-v5-0-43b5ee7f1674@linaro.org>
-In-Reply-To: <20260505-acpm-fixes-sashiko-reports-v5-0-43b5ee7f1674@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, peter.griffin@linaro.org, 
- andre.draszik@linaro.org, jyescas@google.com, kernel-team@android.com, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, stable@vger.kernel.org
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777986831; l=4772;
- i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
- bh=EiurrGkcahcx7sI65l5a7ioyNgZJtrM8vsswXoseAMM=;
- b=sGgiYQ0Fj7h0fIetimStE6LYB8Eka6DrbBPLMswMbcYUjNNUFgRR3HOJv91qVm6vem/Uz2Haf
- s2y+X1fAmfYAg6+Az1ciaJJlGHJlRB+5Ax/53p9VNTk8SnnbcnIuAmF
-X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
- pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <3106d546d494f2f52ec832e7f7d04f534286e254.1777064117.git.lukasz@raczylo.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_061357_251435_C0C38757 
-X-CRM114-Status: GOOD (  19.84  )
+X-CRM114-CacheID: sfid-20260505_061420_635185_632E02F2 
+X-CRM114-Status: GOOD (  33.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,128 +107,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sashiko identified a possible infinite loop [1].
+Hi Lukasz,
 
-ACPM IPC sequence numbers are tracked via a 64-bit bitmap. Previously,
-acpm_prepare_xfer() used a do...while loop to search for a free
-sequence number.
+On 23:38 Fri 24 Apr     , Lukasz Raczylo wrote:
+> macb_start_xmit() and macb_tx_restart() kick transmission by
+> OR-ing MACB_BIT(TSTART) into NCR.  On PCIe-attached macb instances
+> (BCM2712 + RP1 PCIe south bridge on Raspberry Pi 5 is the setup we
+> have in front of us), writes to NCR are posted PCIe writes: they
+> are not guaranteed to reach the device before the issuing CPU
+> returns.  If the TSTART doorbell does not reach the MAC, no TX
+> begins, no TCOMP completion arrives, and the ring remains
+> quiescent without any kernel-visible indication.
+> 
+> Note that the raspberrypi/linux vendor fork carries a local patch
+> around the TSTART site (a queue->tx_pending breadcrumb that is
+> promoted to queue->txubr_pending by the next TCOMP interrupt,
+> triggering macb_tx_restart()).  That workaround makes the loss
+> recoverable under traffic, but it cannot help if TCOMP itself is
+> not raised because no TX started -- which is exactly the case we
+> are targeting here.  The handshake is not present in mainline.
+> 
+> Add a read-back of NCR after each TSTART write in macb_start_xmit()
+> and macb_tx_restart().  The read is an architected PCIe read
+> barrier for earlier posted writes on the same path; it ensures the
+> doorbell has reached the MAC before the functions return.
+> 
+> We do not yet have direct hardware evidence that TSTART is being
+> lost on the RP1 path (that would require a PCIe protocol analyser,
+> or at minimum a before/after counter on queue->tx_stall_last_tail
+> with and without this patch applied in isolation).  This patch is
+> one of a three-patch series ("candidate fixes for silent TX stall
+> on BCM2712/RP1"); see the cover letter for context.  We have
+> verified the series compiles and applies cleanly against mainline
+> HEAD and against raspberrypi/linux rpi-6.18.y @ f2f68e79f16f;
+> runtime verification is pending.
+> 
+> Link: https://github.com/cilium/cilium/issues/43198
+> Link: https://bugs.launchpad.net/ubuntu/+source/linux-raspi/+bug/2133877
+> Signed-off-by: Lukasz Raczylo <lukasz@raczylo.com>
+> ---
+>  drivers/net/ethernet/cadence/macb_main.c | 12 ++++++++++++
+>  1 file changed, 12 insertions(+)
+> 
+> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
+> index a12aa2124..b6cca55ad 100644
+> --- a/drivers/net/ethernet/cadence/macb_main.c
+> +++ b/drivers/net/ethernet/cadence/macb_main.c
+> @@ -1922,6 +1922,13 @@ static void macb_tx_restart(struct macb_queue *queue)
+>  
+>  	spin_lock(&bp->lock);
+>  	macb_writel(bp, NCR, macb_readl(bp, NCR) | MACB_BIT(TSTART));
+> +	/*
+> +	 * Flush the PCIe posted-write queue so the TSTART doorbell
+> +	 * reliably reaches the MAC.  Without this, the write can sit
+> +	 * in the fabric and the MAC never advances, causing a silent
+> +	 * TX stall.
+> +	 */
+> +	(void)macb_readl(bp, NCR);
 
-If all 63 available sequence numbers are leaked due to transient
-hardware timeouts or mailbox failures, the bitmap becomes full.
-The next call to acpm_prepare_xfer() would enter an infinite loop.
+Do you expect it to be a temporal issue (in the comment you stated that the write should be delivered
+before the function returns) or is it just a dropped packet error? In the former case can you please
+explain why? If it's the latter, I'd expect the dropped packet to increment the counter in the AER,
+and I'm pretty sure it didn't when I performed my tests.
 
-Fix this by utilizing the kernel's optimized bitmap search functions
-(find_next_zero_bit / find_first_zero_bit). If the pool is completely
-exhausted, log the failure and return -EBUSY to allow the kernel to
-fail gracefully instead of hanging.
+Many thanks,
+Andrea
 
-Furthermore, drop the allocation loop entirely. Because
-acpm_prepare_xfer() is strictly called under the 'tx_lock' mutex,
-sequence number allocations are perfectly serialized. If
-find_next_zero_bit() locates a free bit, a single
-test_and_set_bit_lock() is mathematically guaranteed to succeed.
-
-To enforce this locking invariant, wrap the allocation in a
-WARN_ON_ONCE. If the atomic set fails, it indicates the driver's
-mutex serialization is fundamentally broken. The warning generates a
-stack trace for debugging, while returning -EIO immediately aborts the
-transfer to prevent silent payload corruption.
-
-Cc: stable@vger.kernel.org
-Fixes: a88927b534ba ("firmware: add Exynos ACPM protocol driver")
-Closes: https://sashiko.dev/#/patchset/20260420-acpm-tmu-v3-0-3dc8e93f0b26%40linaro.org [1]
-Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
----
- drivers/firmware/samsung/exynos-acpm.c | 45 +++++++++++++++++++++++-----------
- 1 file changed, 31 insertions(+), 14 deletions(-)
-
-diff --git a/drivers/firmware/samsung/exynos-acpm.c b/drivers/firmware/samsung/exynos-acpm.c
-index fd2e46e9f7e9..a2cac913b2bd 100644
---- a/drivers/firmware/samsung/exynos-acpm.c
-+++ b/drivers/firmware/samsung/exynos-acpm.c
-@@ -13,6 +13,7 @@
- #include <linux/container_of.h>
- #include <linux/delay.h>
- #include <linux/device.h>
-+#include <linux/find.h>
- #include <linux/firmware/samsung/exynos-acpm-protocol.h>
- #include <linux/io.h>
- #include <linux/iopoll.h>
-@@ -394,34 +395,48 @@ static int acpm_wait_for_queue_slots(struct acpm_chan *achan, u32 next_tx_front)
-  * TX queue.
-  * @achan:	ACPM channel info.
-  * @xfer:	reference to the transfer being prepared.
-+ *
-+ * Return: 0 on success, -errno otherwise.
-  */
--static void acpm_prepare_xfer(struct acpm_chan *achan,
--			      const struct acpm_xfer *xfer)
-+static int acpm_prepare_xfer(struct acpm_chan *achan,
-+			     const struct acpm_xfer *xfer)
- {
- 	struct acpm_rx_data *rx_data;
- 	u32 *txd = (u32 *)xfer->txd;
-+	unsigned long size = ACPM_SEQNUM_MAX - 1;
-+	unsigned long bit = achan->seqnum;
-+
-+	bit = find_next_zero_bit(achan->bitmap_seqnum, size, bit);
-+	if (bit >= size) {
-+		bit = find_first_zero_bit(achan->bitmap_seqnum, size);
-+		if (bit >= size) {
-+			dev_err_ratelimited(achan->acpm->dev,
-+					    "ACPM sequence number pool exhausted\n");
-+			return -EBUSY;
-+		}
-+	}
- 
- 	/*
--	 * Prevent chan->seqnum from being re-used.
--	 * test_and_set_bit_lock() provides formal LKMM Acquire semantics.
--	 * It pairs with the RX thread's clear_bit_unlock() to ensure the CPU
--	 * does not speculatively execute the rx_data buffer wipe (memset)
--	 * before the sequence number is safely claimed.
-+	 * Execute the atomic set to formally claim the bit and establish
-+	 * LKMM Acquire semantics against the RX thread's clear_bit_unlock().
-+	 * A loop is unnecessary because allocations are strictly serialized
-+	 * by tx_lock.
- 	 */
--	do {
--		if (++achan->seqnum == ACPM_SEQNUM_MAX)
--			achan->seqnum = 1;
--		/* Flag the index based on seqnum. (seqnum: 1~63, bitmap: 0~62) */
--	} while (test_and_set_bit_lock(achan->seqnum - 1, achan->bitmap_seqnum));
-+	if (WARN_ON_ONCE(test_and_set_bit_lock(bit, achan->bitmap_seqnum)))
-+		return -EIO;
- 
-+	/* Flag the index based on seqnum. (seqnum: 1~63, bitmap: 0~62) */
-+	achan->seqnum = bit + 1;
- 	txd[0] |= FIELD_PREP(ACPM_PROTOCOL_SEQNUM, achan->seqnum);
- 
- 	/* Clear data for upcoming responses */
--	rx_data = &achan->rx_data[achan->seqnum - 1];
-+	rx_data = &achan->rx_data[bit];
- 	rx_data->completed = false;
- 	memset(rx_data->cmd, 0, sizeof(*rx_data->cmd) * rx_data->n_cmd);
- 	/* zero means no response expected */
- 	rx_data->rxcnt = xfer->rxcnt;
-+
-+	return 0;
- }
- 
- /**
-@@ -481,7 +496,9 @@ int acpm_do_xfer(struct acpm_handle *handle, const struct acpm_xfer *xfer)
- 		if (ret)
- 			return ret;
- 
--		acpm_prepare_xfer(achan, xfer);
-+		ret = acpm_prepare_xfer(achan, xfer);
-+		if (ret)
-+			return ret;
- 
- 		/* Write TX command. */
- 		__iowrite32_copy(achan->tx.base + achan->mlen * tx_front,
-
--- 
-2.54.0.545.g6539524ca2-goog
-
+>  	spin_unlock(&bp->lock);
+>  
+>  out_tx_ptr_unlock:
+> @@ -2560,6 +2567,11 @@ static netdev_tx_t macb_start_xmit(struct sk_buff *skb, struct net_device *dev)
+>  	spin_lock(&bp->lock);
+>  	macb_tx_lpi_wake(bp);
+>  	macb_writel(bp, NCR, macb_readl(bp, NCR) | MACB_BIT(TSTART));
+> +	/*
+> +	 * Flush the PCIe posted-write queue; see the comment in
+> +	 * macb_tx_restart() for the reasoning.
+> +	 */
+> +	(void)macb_readl(bp, NCR);
+>  	spin_unlock(&bp->lock);
+>  
+>  	if (CIRC_SPACE(queue->tx_head, queue->tx_tail, bp->tx_ring_size) < 1)
+> -- 
+> 2.53.0
+> 
 
