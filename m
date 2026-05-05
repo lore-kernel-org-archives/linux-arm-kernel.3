@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08127FF8855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 15:36:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CD3EFF8855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 15:37:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1+L+812ZE3FIB9FkYGx6SrckpLjGu++m3Er9AsDLCYY=; b=QeUjPuVADnPt+LbaspX01agMAH
-	TD9AyJdu2d4u4u+EgHNs3xLI4u5skSdl9Zf5E8FdncFYIXFLul5/qpk1eXWwi58q3dU00wtactOYv
-	ml1Pec5sSRvl85StOHeBIhMqFUiklHRyLgpRaeQKLpmAzRoTZ5DEli2rqFNKMcCrS7pJfrEN134EO
-	hgdSwQqYRzGX5MyBoAv/HNfD+qOVkZuR95VxR5uw7qiOR2FNuQiCmbrqzgl3LPN5bbMAc5cCFxY0i
-	topSZnpvB3XPER8uaXvEfamzEUE/lHJARuMC9ldHFElJJgodAGD1AX+TPJ189+TImhl/0gpYOoRj8
-	lzVk6AhA==;
+	bh=t0wX1znEUiUMUYC01FbAaFW4sQTQIIBKhb0kBm+92kE=; b=ZDJQBhdUdCasmoCOcTl6Xi+guY
+	1oWY+5hZio6xCGL3flCzl0tjspXIWMA++uSwUX9K2dTRJNEeMqI6ZLaUEP5Fs2D/YfsQmcTwb/659
+	+lP3To7/3OoQKw0tmDbp8dVV58TnXfXAkb6hcrJQ2463zoyF/wulQoSCCO0nKbeGeidM/6Gz183BG
+	fun0Z66Rp+b7GlQJGL1S9f68BYc3cIPIcRvx61uqYyskt770nvZu4vSidDU/uVc8gd6utAqGpX0de
+	Une4unwjuCsRQ77sqqS4o/ZicmswOAkY+DUZrj60Gh7v+gD9XVSoT17gu27Eo73PXuwm4rk0+XbzC
+	tCitRWbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKHpM-0000000Gfha-3yKX;
-	Tue, 05 May 2026 15:36:52 +0000
+	id 1wKHps-0000000Gfoz-182k;
+	Tue, 05 May 2026 15:37:24 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKHpK-0000000Gfgy-2xCh
+	id 1wKHpp-0000000GfoK-1yF9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 15:36:51 +0000
+	Tue, 05 May 2026 15:37:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DEF3443C48;
-	Tue,  5 May 2026 15:36:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63397C2BCB4;
-	Tue,  5 May 2026 15:36:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1DA4340162;
+	Tue,  5 May 2026 15:37:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A47DEC2BCF4;
+	Tue,  5 May 2026 15:37:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777995409;
-	bh=mVMJa3FLlsFImoqLFsKRghlowG3fcTKy8cBNX44JwE4=;
+	s=k20201202; t=1777995441;
+	bh=q215iWUMbXp86E5trCc9BqE+TbdpfYR9pjH0bK8ACX4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=DOTgxvSuiaHiwxHSak7ZubAjvxzhZsqxOIk2zvQJfzVyylb38J/g9x0875+LymX28
-	 SRUJO2zMmT5FszOHM62GFA09vPcm8X+/LlSg3Knz9YrxA3rPJ2D8DPKWIXeYTC4WBv
-	 2eEAt9h1XsiFEePaYn13rGxi0P6b5tq/xIh6ttcb1MJka/PKgct06s+884/GMENBt8
-	 qYx+XR9MSLfN0/lJvQizsS35OXzEfMuz4Sq6F/VQFg3+hw5HLWPJyK/6HQ9WRbxW1J
-	 KrvxMkElEsWhdPnur9OEa6d5URNyYgF/2aH/0tAF03A7jZLR99fgjzaW62edyBtWNP
-	 xoPfMXHONlLCw==
+	b=lx8GCC+QcC/Jt7eypkdc5f0X8D1DJ8Bx9CC6AD+iLfnZKS+mJmkkaINCKj3mT1KKU
+	 8EYZi6tr97PWFJKG5NEHZRPVkfucSEXqv+YPGlUvXyxYXjQxoOZGX8K3Jt95BipM3h
+	 Q852FL38q1KEBJIcnEi+9pig3eaAT5GA8UWGoIZBoGXYh8iq3Vv7a6bojCo+FpvT8j
+	 Af7blbePLSbRn9kpJ4sN0ErsG+j25PDLF6C0J6Ad2XNMTWyJ9NBwDQTrQwbBF4ZbpI
+	 iLGZlwjskDeeSGVThwHJFJ0AsOg7B8t7KN+K93iBVLxqWJ+PAJllkds9bsw0I8zghZ
+	 DG6LaB/zxusfQ==
 From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Cristian Marussi <cristian.marussi@arm.com>,
-	Marek Vasut <marek.vasut@mailbox.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>
+To: arm-scmi@vger.kernel.org,
+	Marek Vasut <marek.vasut+renesas@mailbox.org>
 Cc: Sudeep Holla <sudeep.holla@kernel.org>,
-	arm-scmi@vger.kernel.org,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH 0/3] firmware: arm_scmi: Miscellaneous improvements
-Date: Tue,  5 May 2026 16:36:38 +0100
-Message-ID: <177799538519.2896858.17495611577680479278.b4-ty@b4>
+Subject: Re: [RFC][PATCH] firmware: arm_scmi: Rename struct scmi_revision_info to scmi_base_info
+Date: Tue,  5 May 2026 16:37:15 +0100
+Message-ID: <177799542159.2897058.8611655484605854510.b4-ty@b4>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1775205358.git.geert+renesas@glider.be>
-References: <cover.1775205358.git.geert+renesas@glider.be>
+In-Reply-To: <20260406155343.72087-1-marek.vasut+renesas@mailbox.org>
+References: <20260406155343.72087-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_083650_757674_551073D2 
-X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-CacheID: sfid-20260505_083721_525585_5796813E 
+X-CRM114-Status: UNSURE (   7.63  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,24 +77,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 03 Apr 2026 10:41:28 +0200, Geert Uytterhoeven wrote:
-> 	Hi all,
-> 
-> This patch series contains miscellaneous improvements for SCMI quirk
-> handling and SCMI instance iteration.
-> 
-> Thanks for your comments!
+On Mon, 06 Apr 2026 17:52:54 +0200, Marek Vasut wrote:
+> Rename struct scmi_revision_info to struct scmi_base_info , to
+> accurately represent its content. The scmi_revision_info is no
+> longer accurate, because the structure now contains more than
+> only SCMI base protocol revision, it now also contains number
+> of protocols, agents, vendor and subvendor strings. All those
+> are fetched from the base protocol, so rename the structure to
+> scmi_base_info, to match the other scmi_*_info structure names.
+> No functional change.
 > 
 > [...]
 
 Applied to sudeep.holla/linux (for-next/scmi/updates), thanks!
 
-[1/3] firmware: arm_scmi: quirk: Improve quirk range parsing
-      https://git.kernel.org/sudeep.holla/c/6991e5de9709
-[2/3] firmware: arm_scmi: quirk: Simplify quirk table iteration
-      https://git.kernel.org/sudeep.holla/c/5be6732f820c
-[3/3] firmware: arm_scmi: Convert to list_for_each_entry()
-      https://git.kernel.org/sudeep.holla/c/145728fb616a
+[1/1] firmware: arm_scmi: Rename struct scmi_revision_info to scmi_base_info
+      https://git.kernel.org/sudeep.holla/c/0c6eb5d019c1
 
 --
 Regards,
