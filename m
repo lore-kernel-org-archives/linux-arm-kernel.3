@@ -4,108 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1C4ECD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 18:28:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7176CD3439
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 18:32:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pbS3OG+YVDKJuembzs3rrFe7024t5JnNqmdQJp33Wns=; b=RvvraBodxPC899iAL5Isfz7AHV
-	8c1jScetVpiNm1H8apwciGogtIoeC1g+yVDQ0Ksa6AJX+FtHgChEBVcTmlprT889VZzgtQsyGn5i7
-	3/lrLPrepiH0dWQIKKld/xCnOF/+0RTo3iPynw/mc6b3YOSOm1VgKYY5uYui2OxBHJe4p3fCJwBsi
-	BOhIFOx3v5OS3MY84ZWAa58zTLHm1Zo5pon5xBVv/SxQVj4WeJLWFMI8dqTJi3JzehyCLj6xxIttM
-	Ht1+LUgeYxW08Cs9UdtcNFyMQLOkfSMxqUwdMNKvbwH2Mbu7dIa49/c5B6cWqbNQmK5Q7TJU2yiT+
-	W3X38dfw==;
+	bh=8XLywXLhWtlTlBR18sfqteObM8GZewXIF3W7Z1e289s=; b=1kh2CraZThHcP28j+QJ/KDKpJP
+	Uf0a52y4eTDrZoBU7iog+FSqs1kCHja4cVnv198NGwqs421RjhB8ap4qPZo7Za5/8S+AobarofBIt
+	6YQDXBgLrLRIzVl7havy9oeYr2J4uTvb5k4iBWUvx3JAGH1GeoLOZ5tHErju8D5aQd+Z+/n0t6Bst
+	8ud8CPUqkc9+95QktRWSoo+ZYI4uate/Npg69cVr3xuFfcdzC4A6VjvjVkE2HN9kXCS/rsqWzlqu1
+	qoCZXl9sD8Yv9nek1wPs4o4AJa7bCTvq9H5uQX2V6vF6eViToTACMpl6slIewPRhkjHAQt8Ml41LI
+	PZnwIRmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKKUq-0000000HAjH-0Cm6;
-	Tue, 05 May 2026 18:27:52 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1wKKZc-0000000HByU-40vM;
+	Tue, 05 May 2026 18:32:48 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKKUl-0000000HAc9-2Sds
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 18:27:49 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4852a9c6309so45119725e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 11:27:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778005666; x=1778610466; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=pbS3OG+YVDKJuembzs3rrFe7024t5JnNqmdQJp33Wns=;
-        b=A4CzJSQ519MMNlZprw5hDeBk78yZ+F2NnGQMlpSytrqFIrkOw5WSd4U1rB80ucTygL
-         iyeRdbsNAods1mofLK8QunnBbJZne5MbrQNnHw9Q1pyV+wyHDaMxus2Aeb1SYFeX9Lfp
-         qGJk6/BVHXXgp06WkuqhRQ6LwyvJKZYmRv04i6WIxJG5n+fHBJV1D3zJAins5dDEzHeI
-         r+Yhtgk+1NuKUNhYC10kFy8oxjuUh8A81rXW6aMKttjOrnqRQ+bpQ6vJGWfeQDuAQMCH
-         T0hqcvyvrs0quoridR+i5JAGeiB7pr3klpyT2x+tPQ5jUneIW9t5aybaKlqB79EsX+d0
-         zy5g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778005666; x=1778610466;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=pbS3OG+YVDKJuembzs3rrFe7024t5JnNqmdQJp33Wns=;
-        b=hrZuT9H9e8rkKnNuBLhVa+qflAz4qMUz/KaJPVs2ul3H30ARbNAyTtMg6NLytMnCF0
-         S1RMMynVxPOZLHB/6v4Oq713pdnRxPxtfkGVnKzXsOOHwbqj9JcIfXXeq/Iw8Y2tOSGu
-         ajOPM3so5oYxl6O3pQaCNxsltJE/+RN3qVw69k+gpf9Pb+7fsm8RFeV+5u1PaRvWMsbZ
-         Lnb0s8TiUQ2i389dhK9vQcjSoYCevYX8IocQFVmFpOh0jQV/rsng8avxRjeFGWeUeyQY
-         00/dr6hw/YIwH60G3og5+rK8X9OVllxMwzqWodkY+XmktZHB1/ajUqtBUkuCraEGy20U
-         PzLw==
-X-Forwarded-Encrypted: i=1; AFNElJ/3KwcxALhmcZyfZpk3F5OAJWRR4jMf6GiJ2EsdJZKIuR7mRfrdWgJWJ5+AJBnt7A0oOv1yjnVN8a9ZiSet3Xqg@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw073HFnFYt1kx0W9l+YGHsbVfZCXCfmd775c9MZSi8s7hUIgbi
-	OguTrC6j+BN3DAqMwR9fpTmJGofe7LXUcwXcjHTgNvQd3b0Yr8xnK5pZ
-X-Gm-Gg: AeBDievGdmBoP3gnqp9pR2K8UHrXe78xMc+MRgW1/GNst0Yqnkm0/fG+4sq2FC6u3qT
-	zg9hGkIUjIpT+EIS/wN2/czJyzYLaQoDWELAhTUN6/sswTT+h64INBgumgnMEkE+h8jRJSERhNU
-	UK7x6xTJ8vw7JH/rywXVeQ4Zyw7mD4iVxTjUALTZlqMiQ1t4IDe/OT0N3+L35Ik8XayVR/Xx0fU
-	oGktblVLXahDAso2yqWjoW0egSWr/ru+ub8/tMBIT0r1xraDvgd6HtmRHaFTt6Q4ewY174mnwa3
-	VFfwEWSDn4YxX8e4CRuGu6O4hPX/oJ3RhMZX5XyGeDnjAygxVj68abG7z0YvYtgZE07pVWacI7/
-	rjvgSaR5r8o3yZlWDRisGirroAMmRklKAxeXWYqxBm+rpaNveO0NcJudunavHNPD2dfI8SrMXvr
-	hpopKmIceL18LqpE0XYbjdGj+/qtAwjWJUul1y/YG3fvppvGRCnYDuygVENfS27OPPGt3yth7f1
-	7Jt3wg=
-X-Received: by 2002:a05:600c:34ca:b0:489:1f08:91b with SMTP id 5b1f17b1804b1-48e521e6085mr3516555e9.16.1778005665680;
-        Tue, 05 May 2026 11:27:45 -0700 (PDT)
-Received: from Ansuel-XPS24 (host-82-59-227-65.retail.telecomitalia.it. [82.59.227.65])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-48a820c865esm408208245e9.5.2026.05.05.11.27.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 May 2026 11:27:45 -0700 (PDT)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
+	id 1wKKZa-0000000HBxr-41FG;
+	Tue, 05 May 2026 18:32:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=8XLywXLhWtlTlBR18sfqteObM8GZewXIF3W7Z1e289s=; b=u4hhcy2bO54pmQJm1LJusecOJf
+	AYn8xH4o6FndxOJ34cYYYs9dWmAd7VHE08vyjd9h+yQvTmrn0+ykAdncYSsOJsiTujLd5ABpqgTh8
+	X1HU7GpdO2esO5kTE9srB+RpoOV06LiQbuJbPfiDRxCDkk0/uHIXoYtbzp2Hr6gWWJLAE77tz7clS
+	hLMK5e7Dsyn7T9IFdP7TN4TzYodeqegaIUk4N8xb3mDUUyFLb2tl5Fd+CWdQhmWIctKacDVfmjAfd
+	W/C3ykqo8MVvCN+E0cj/kMTSUtLM5d6+wh2vtCqhED9flFcVbrIhKErU4v52+LyrRRFYxzwGxdkCe
+	luKunzHA==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Christian Marangi <ansuelsmth@gmail.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	netdev@vger.kernel.org,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	kernel@collabora.com,
 	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	llvm@lists.linux.dev
-Subject: [net-next RFC PATCH v5 10/10] net: airoha: add phylink support for GDM2/3/4
-Date: Tue,  5 May 2026 20:27:11 +0200
-Message-ID: <20260505182713.27644-11-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260505182713.27644-1-ansuelsmth@gmail.com>
-References: <20260505182713.27644-1-ansuelsmth@gmail.com>
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 00/13] arm64: dts: rockchip: Wire up frl-enable-gpios for RK3576/RK3588 boards
+Date: Tue,  5 May 2026 20:32:40 +0200
+Message-ID: <177800595582.3294944.15259294512505640833.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260428-dts-rk-frl-enable-gpios-v2-0-924df9db884a@collabora.com>
+References: <20260428-dts-rk-frl-enable-gpios-v2-0-924df9db884a@collabora.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_112747_714133_01A2D3D0 
-X-CRM114-Status: GOOD (  24.54  )
+X-CRM114-CacheID: sfid-20260505_113246_997646_C4844F4E 
+X-CRM114-Status: GOOD (  12.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,275 +72,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add phylink support for GDM2/3/4 port that require configuration of the
-PCS to make the external PHY or attached SFP cage work.
 
-These needs to be defined in the GDM port node using the pcs-handle
-property.
+On Tue, 28 Apr 2026 00:57:18 +0300, Cristian Ciocaltea wrote:
+> Several boards based on the RK3576 and RK3588(S) SoCs use a
+> GPIO-controlled voltage bias circuit on the HDMI data lines that must be
+> switched according to the active link mode: asserted for HDMI 2.1 FRL
+> and deasserted for HDMI 1.4/2.0 TMDS.
+> 
+> This series adds the frl-enable-gpios property to the HDMI nodes of all
+> boards for which the GPIO configuration could be identified from vendor
+> BSP kernel sources and/or schematics where available.  In a small number
+> of cases it was necessary to extract and disassemble the DTB from the
+> vendor firmware image.
+> 
+> [...]
 
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
----
- drivers/net/ethernet/airoha/Kconfig       |   1 +
- drivers/net/ethernet/airoha/airoha_eth.c  | 144 +++++++++++++++++++++-
- drivers/net/ethernet/airoha/airoha_eth.h  |   3 +
- drivers/net/ethernet/airoha/airoha_regs.h |  12 ++
- 4 files changed, 159 insertions(+), 1 deletion(-)
+Applied, thanks!
 
-diff --git a/drivers/net/ethernet/airoha/Kconfig b/drivers/net/ethernet/airoha/Kconfig
-index ad3ce501e7a5..38dcc76e5998 100644
---- a/drivers/net/ethernet/airoha/Kconfig
-+++ b/drivers/net/ethernet/airoha/Kconfig
-@@ -20,6 +20,7 @@ config NET_AIROHA
- 	depends on NET_DSA || !NET_DSA
- 	select NET_AIROHA_NPU
- 	select PAGE_POOL
-+	select PHYLINK
- 	help
- 	  This driver supports the gigabit ethernet MACs in the
- 	  Airoha SoC family.
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 2bd79da70934..ad0328a25422 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -8,6 +8,7 @@
- #include <linux/of_reserved_mem.h>
- #include <linux/platform_device.h>
- #include <linux/tcp.h>
-+#include <linux/pcs/pcs.h>
- #include <linux/u64_stats_sync.h>
- #include <net/dst_metadata.h>
- #include <net/page_pool/helpers.h>
-@@ -71,6 +72,11 @@ static void airoha_qdma_irq_disable(struct airoha_irq_bank *irq_bank,
- 	airoha_qdma_set_irqmask(irq_bank, index, mask, 0);
- }
- 
-+static bool airhoa_is_phy_external(struct airoha_gdm_port *port)
-+{
-+	return port->id != 1;
-+}
-+
- static void airoha_set_macaddr(struct airoha_gdm_port *port, const u8 *addr)
- {
- 	struct airoha_eth *eth = port->qdma->eth;
-@@ -1644,6 +1650,17 @@ static int airoha_dev_open(struct net_device *dev)
- 	struct airoha_qdma *qdma = port->qdma;
- 	u32 pse_port = FE_PSE_PORT_PPE1;
- 
-+	if (airhoa_is_phy_external(port)) {
-+		err = phylink_of_phy_connect(port->phylink, dev->dev.of_node, 0);
-+		if (err) {
-+			netdev_err(dev, "%s: could not attach PHY: %d\n", __func__,
-+				   err);
-+			return err;
-+		}
-+
-+		phylink_start(port->phylink);
-+	}
-+
- 	netif_tx_start_all_queues(dev);
- 	err = airoha_set_vip_for_gdm_port(port, true);
- 	if (err)
-@@ -1707,6 +1724,11 @@ static int airoha_dev_stop(struct net_device *dev)
- 		}
- 	}
- 
-+	if (airhoa_is_phy_external(port)) {
-+		phylink_stop(port->phylink);
-+		phylink_disconnect_phy(port->phylink);
-+	}
-+
- 	return 0;
- }
- 
-@@ -2883,6 +2905,115 @@ bool airoha_is_valid_gdm_port(struct airoha_eth *eth,
- 	return false;
- }
- 
-+static void airoha_mac_link_up(struct phylink_config *config, struct phy_device *phy,
-+			       unsigned int mode, phy_interface_t interface,
-+			       int speed, int duplex, bool tx_pause, bool rx_pause)
-+{
-+	struct airoha_gdm_port *port = container_of(config, struct airoha_gdm_port,
-+						    phylink_config);
-+	struct airoha_qdma *qdma = port->qdma;
-+	struct airoha_eth *eth = qdma->eth;
-+	u32 frag_size_tx, frag_size_rx;
-+
-+	if (port->id != 4)
-+		return;
-+
-+	switch (speed) {
-+	case SPEED_10000:
-+	case SPEED_5000:
-+		frag_size_tx = 8;
-+		frag_size_rx = 8;
-+		break;
-+	case SPEED_2500:
-+		frag_size_tx = 2;
-+		frag_size_rx = 1;
-+		break;
-+	default:
-+		frag_size_tx = 1;
-+		frag_size_rx = 0;
-+	}
-+
-+	/* Configure TX/RX frag based on speed */
-+	airoha_fe_rmw(eth, REG_GDMA4_TMBI_FRAG,
-+		      GDMA4_SGMII0_TX_FRAG_SIZE_MASK,
-+		      FIELD_PREP(GDMA4_SGMII0_TX_FRAG_SIZE_MASK,
-+				 frag_size_tx));
-+
-+	airoha_fe_rmw(eth, REG_GDMA4_RMBI_FRAG,
-+		      GDMA4_SGMII0_RX_FRAG_SIZE_MASK,
-+		      FIELD_PREP(GDMA4_SGMII0_RX_FRAG_SIZE_MASK,
-+				 frag_size_rx));
-+}
-+
-+static const struct phylink_mac_ops airoha_phylink_ops = {
-+	.mac_link_up = airoha_mac_link_up,
-+};
-+
-+static int airoha_setup_phylink(struct net_device *dev)
-+{
-+	struct airoha_gdm_port *port = netdev_priv(dev);
-+	struct device_node *np = dev->dev.of_node;
-+	struct phylink_pcs **available_pcs;
-+	phy_interface_t phy_mode;
-+	struct phylink *phylink;
-+	unsigned int num_pcs;
-+	int err;
-+
-+	err = of_get_phy_mode(np, &phy_mode);
-+	if (err) {
-+		dev_err(&dev->dev, "incorrect phy-mode\n");
-+		return err;
-+	}
-+
-+	port->phylink_config.dev = &dev->dev;
-+	port->phylink_config.type = PHYLINK_NETDEV;
-+	port->phylink_config.mac_capabilities = MAC_ASYM_PAUSE | MAC_SYM_PAUSE |
-+						MAC_10 | MAC_100 | MAC_1000 | MAC_2500FD |
-+						MAC_5000FD | MAC_10000FD;
-+
-+	err = fwnode_phylink_pcs_parse(dev_fwnode(&dev->dev), NULL, &num_pcs);
-+	if (err)
-+		return err;
-+
-+	available_pcs = kcalloc(num_pcs, sizeof(*available_pcs), GFP_KERNEL);
-+	if (!available_pcs)
-+		return -ENOMEM;
-+
-+	err = fwnode_phylink_pcs_parse(dev_fwnode(&dev->dev), available_pcs,
-+				       &num_pcs);
-+	if (err)
-+		goto out;
-+
-+	port->phylink_config.available_pcs = available_pcs;
-+	port->phylink_config.num_available_pcs = num_pcs;
-+
-+	__set_bit(PHY_INTERFACE_MODE_SGMII,
-+		  port->phylink_config.supported_interfaces);
-+	__set_bit(PHY_INTERFACE_MODE_1000BASEX,
-+		  port->phylink_config.supported_interfaces);
-+	__set_bit(PHY_INTERFACE_MODE_2500BASEX,
-+		  port->phylink_config.supported_interfaces);
-+	__set_bit(PHY_INTERFACE_MODE_USXGMII,
-+		  port->phylink_config.supported_interfaces);
-+
-+	phy_interface_copy(port->phylink_config.pcs_interfaces,
-+			   port->phylink_config.supported_interfaces);
-+
-+	phylink = phylink_create(&port->phylink_config,
-+				 of_fwnode_handle(np),
-+				 phy_mode, &airoha_phylink_ops);
-+	if (IS_ERR(phylink)) {
-+		err = PTR_ERR(phylink);
-+		goto out;
-+	}
-+
-+	port->phylink = phylink;
-+out:
-+	kfree(available_pcs);
-+
-+	return err;
-+}
-+
- static int airoha_alloc_gdm_port(struct airoha_eth *eth,
- 				 struct device_node *np)
- {
-@@ -2954,6 +3085,12 @@ static int airoha_alloc_gdm_port(struct airoha_eth *eth,
- 	port->id = id;
- 	eth->ports[p] = port;
- 
-+	if (airhoa_is_phy_external(port)) {
-+		err = airoha_setup_phylink(dev);
-+		if (err)
-+			return err;
-+	}
-+
- 	return airoha_metadata_dst_alloc(port);
- }
- 
-@@ -3081,8 +3218,11 @@ static int airoha_probe(struct platform_device *pdev)
- 		if (!port)
- 			continue;
- 
--		if (port->dev->reg_state == NETREG_REGISTERED)
-+		if (port->dev->reg_state == NETREG_REGISTERED) {
-+			if (airhoa_is_phy_external(port))
-+				phylink_destroy(port->phylink);
- 			unregister_netdev(port->dev);
-+		}
- 		airoha_metadata_dst_free(port);
- 	}
- 	airoha_hw_cleanup(eth);
-@@ -3107,6 +3247,8 @@ static void airoha_remove(struct platform_device *pdev)
- 		if (!port)
- 			continue;
- 
-+		if (airhoa_is_phy_external(port))
-+			phylink_destroy(port->phylink);
- 		unregister_netdev(port->dev);
- 		airoha_metadata_dst_free(port);
- 	}
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index af29fc74165b..e5c70f1fa4f1 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -538,6 +538,9 @@ struct airoha_gdm_port {
- 	struct net_device *dev;
- 	int id;
- 
-+	struct phylink *phylink;
-+	struct phylink_config phylink_config;
-+
- 	struct airoha_hw_stats stats;
- 
- 	DECLARE_BITMAP(qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS);
-diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethernet/airoha/airoha_regs.h
-index 436f3c8779c1..27f2583e143a 100644
---- a/drivers/net/ethernet/airoha/airoha_regs.h
-+++ b/drivers/net/ethernet/airoha/airoha_regs.h
-@@ -358,6 +358,18 @@
- #define IP_FRAGMENT_PORT_MASK		GENMASK(8, 5)
- #define IP_FRAGMENT_NBQ_MASK		GENMASK(4, 0)
- 
-+#define REG_GDMA4_TMBI_FRAG		0x2028
-+#define GDMA4_SGMII1_TX_WEIGHT_MASK	GENMASK(31, 26)
-+#define GDMA4_SGMII1_TX_FRAG_SIZE_MASK	GENMASK(25, 16)
-+#define GDMA4_SGMII0_TX_WEIGHT_MASK	GENMASK(15, 10)
-+#define GDMA4_SGMII0_TX_FRAG_SIZE_MASK	GENMASK(9, 0)
-+
-+#define REG_GDMA4_RMBI_FRAG		0x202c
-+#define GDMA4_SGMII1_RX_WEIGHT_MASK	GENMASK(31, 26)
-+#define GDMA4_SGMII1_RX_FRAG_SIZE_MASK	GENMASK(25, 16)
-+#define GDMA4_SGMII0_RX_WEIGHT_MASK	GENMASK(15, 10)
-+#define GDMA4_SGMII0_RX_FRAG_SIZE_MASK	GENMASK(9, 0)
-+
- #define REG_MC_VLAN_EN			0x2100
- #define MC_VLAN_EN_MASK			BIT(0)
- 
+[01/13] arm64: dts: rockchip: Add frl-enable-gpios to rk3576 boards
+        commit: 2cd97880fbc434b49a211784561586f0397499b7
+[02/13] arm64: dts: rockchip: Add frl-enable-gpios to rk3576-luckfox-core3576
+        commit: 12eb09ee67cba1e3cc0c75149d0a04a5187ca575
+[03/13] arm64: dts: rockchip: Add frl-enable-gpios to rk3576-nanopi-r76s
+        commit: ba0d7cfb9870064296a8d4d57ff2c230166ada3c
+[04/13] arm64: dts: rockchip: Add frl-enable-gpios to rk3588 boards
+        commit: 643d6733e58c663b66defea758bfb8d336047456
+[05/13] arm64: dts: rockchip: Add frl-enable-gpios to rk3588s boards
+        commit: 3305c44489505e98e794cacce80cb1de9f1b81ad
+[06/13] arm64: dts: rockchip: Add frl-enable-gpios to rk3588s-gameforce-ace
+        commit: cb3ee61e35a9d60e6410526fec7b74af9be22d88
+[07/13] arm64: dts: rockchip: Add frl-enable-gpios to rk3588s-khadas-edge2
+        commit: bb85f4f5541de9abbe7e300e94d58ea888dd3b33
+[08/13] arm64: dts: rockchip: Add frl-enable-gpios to rk3588s-orangepi-cm5-base
+        commit: 640c768d315b25f8e56844d1d71c8d0040dfd88b
+[09/13] arm64: dts: rockchip: Add frl-enable-gpios to rk3588s-roc-pc
+        commit: 0c58a27bf04d88c979dc8ce86c62bb13d15626e4
+[10/13] arm64: dts: rockchip: Drop unnecessary #{address,size}-cells from rk3588-jaguar
+        commit: 161e023cafaca600aa7e5d5fab437334e6e6bcca
+[11/13] arm64: dts: rockchip: Add missing pinctrl-names to rk3576 boards
+        commit: 78f650c45ec342c16f80c50e7ee77272e76f179e
+[12/13] arm64: dts: rockchip: Add missing pinctrl-names to rk3588 boards
+        commit: 0c2c0b6cdd71c5a43f83db2e0dcffe4701d10b87
+[13/13] arm64: dts: rockchip: Add missing pinctrl-names to rk3588s boards
+        commit: 224aa83f3f73a8b17051c1639125260cc04617bc
+
+Best regards,
 -- 
-2.53.0
-
+Heiko Stuebner <heiko@sntech.de>
 
