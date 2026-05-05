@@ -4,62 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29EA2FF8855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 20:25:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4452CD3439
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 20:31:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EEvtyh1qratRa875TvVRbNz2A9rzPjFDxObHiRWIEKU=; b=32IZntviB+YzvCwDGk+R75+WfZ
-	79tUzdlNUBZ4yiOKm1b0DbJa5RoLr5jhiVY7LnGAaWfbfyZoEMzHYv6m5ViOmqM96ofUUN8gTo6+y
-	2VlCz3aAMtJ38iOqpal9Kz17WdwT9Gm+nJvpNb1317FULQhG0SgnY8BtSIA1XBxwdQ1TijTES5mOg
-	Tjkp240NAcfSoHLlHQ7gUxda6IJkWqOlI0gES/sb28bU6xFLrJ9+MjWyK8NfanpHbAb6tcIbO+5uE
-	/Bon6whweYVZWWSqOfmpt9YtEX/nJfUDhBd3mrizApRj5X1s3XuMErKkyXQgmws7Igzk3QyofXzd9
-	RSNzqIKw==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XWiaguT33mFKTHX+XCub37wPb4gjq7oRFtLlclQ4EBM=; b=1qLuG58ThuZkYYk+wqzTe0V2r4
+	2OMf5Jnl1qac0r97pwchCLCv+qJzEpfFIJnj4Bzzdi7lG+kevQtwd99aD8m1IDkX4Al+g7L0OjA9p
+	NUjtqK9PdwdVegDXV91hIrVMvY2H/aNSd7d4OysBUXKSh/G0xPH0WkgyOJBN4Na5mjqutf465CWeX
+	GSfzVhsi0clc/7Z3O69ZJa5/ETpHVQJT4UtMMiq3SzqCx2CpN8yvVgXsxqw79DttjBLIs2DNcAc9O
+	tw+uyMFiHemFqpB8+N5Iy0CLP6RlpYBWvnmjNR0B6dEB7jVYxCeNX5ioZUpS4ckuWqm70shF9L6Z6
+	TZvksIYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKMKh-0000000HQNn-3fXb;
-	Tue, 05 May 2026 20:25:31 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wKMQ5-0000000HR8t-310H;
+	Tue, 05 May 2026 20:31:05 +0000
+Received: from mail-ot1-x32f.google.com ([2607:f8b0:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKMKh-0000000HQNQ-0gmw
+	id 1wKMQ2-0000000HR7w-3oBp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 20:25:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7319560181;
-	Tue,  5 May 2026 20:25:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC596C2BCB4;
-	Tue,  5 May 2026 20:24:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778012700;
-	bh=RPLbGSaE9fK6W+hLR2tVvhlPdS/IRjZSLnCkOBHVBE4=;
-	h=From:To:Cc:Subject:Date:From;
-	b=VRxh79RqvDUMWVTE4B7/c/eAi7o9E5k1WDOypwV2Ud0rVXDbbQ8sgxsMVaXjPNNU3
-	 M8pTE5pPX/CfmRhnYfDv9VPZ33two7TrV0siW3zl+wF2aXdqplvn6D8HtSsw8sPUqe
-	 r+/TUIfp7YTwxjKn7y+ibKOyyvTgysyFGUtiN6sD9ogR65GOcmd9ddklny2tjMVngd
-	 6nv07yyJD8/VqE21OisD1piMYQkTF5GY1RmPH1J8luGm0uwF4sDEc8V8oBlqKqUP+U
-	 OWtTORqBkp1iFsCVhwBYlAxd5Icuuo6zK7DWAMX7vMKnKY1WdGU4SjHKyedGs2SFJG
-	 98Exx4ydMdwcQ==
-From: Arnd Bergmann <arnd@kernel.org>
-To: Mark Brown <broonie@kernel.org>,
-	Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>
-Cc: Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Andy Shevchenko <andriy.shevchenko@intel.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org,
-	Arnd Bergmann <arnd@arndb.de>
-Subject: [PATCH v2 1/3] ASoC: arm: pxa2xx: remove platform_data processing
-Date: Tue,  5 May 2026 22:24:24 +0200
-Message-Id: <20260505202426.3605262-1-arnd@kernel.org>
-X-Mailer: git-send-email 2.39.5
+	Tue, 05 May 2026 20:31:04 +0000
+Received: by mail-ot1-x32f.google.com with SMTP id 46e09a7af769-7dea1272943so3454746a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 13:31:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778013060; cv=none;
+        d=google.com; s=arc-20240605;
+        b=GFRZFzciBrDHGzQTB+inEDMsTDXrQAynL15ibwHbH9WKPbtZf8WdXLYD7V8RN0V1CF
+         MZaDdHoK4DjakL8Kg61LSMWkpuq31jlVtnU7p/DSOkIp+kdjbUp6P5oH7wLN2ugO6/MK
+         drbQuC6XWznm6GojBcXazAJVJvYLbyDrAkBwKjeMvrqzfVxy3QDY6IAPDoV+ak0FYLr1
+         GhHDbzzDPiUfAgXfp2HQh0zkOy9VzaQ/pkjGdqQn6XjvgBNmKhvLVX9QaVUX+mQI1efk
+         sWIZ0xOFAQMYhMPXh59OidKchzIebWEkve9zkXrwDov+PPjuhfDzK/LoD8E6OKofGYAH
+         Z+fQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=XWiaguT33mFKTHX+XCub37wPb4gjq7oRFtLlclQ4EBM=;
+        fh=65CoG4qw1Ci3NH23NcuvNR0psVQwYOhUniEO5A+PvIE=;
+        b=UrT9AgtmdyOVny4G1s0ipE8pVi3/2DhaKqEZ5FX+vtgglJkfpVU5qJ73VWBiykz+GS
+         LKcV/LDuaGAyZVnZgGEBpmKIGZlDxPofpT9PIIo5oNSEz6R4IodflhFwfTovW92cHUh1
+         SLfzEQARyn6Li6kulOAyHh0VPPIUjswLQuBKtLwtOwj7TKZJTYtRP3PsJbZOawsnqHM0
+         d1jJOWdpMaaPlm7wLtCQWh6extVmRrbJPclLhbV3vMUsiuOGU7bo3qnYJGBGOl3Rt/rx
+         u8TcJ88FBMeZDimOt36m66xVAelAMBAGCcIyRTBPHPGG7InzuFmkLZkFTCL95lRp2I3r
+         nFPQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ausil.us; s=google; t=1778013060; x=1778617860; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=XWiaguT33mFKTHX+XCub37wPb4gjq7oRFtLlclQ4EBM=;
+        b=WFxK7ESJoz7XkWKJn3MUhMouVi/dj2npIPXxI4jOlaCGiE0kOStCvQJ4lqwXgLl6Es
+         TfIRwO0684FFAn9L+8+yVT2FhSMa+yUTn+iU/Lt5GN3Bek3AvDAdTAOtgpn26HcgRQzv
+         onWTs4Q3vBAdMNDegl8vLAatqFYMDueO25gXE35WCnkenWIShoNTtmGz8NMu+LnQ+v8f
+         /odzU+WXLpb+LiL552j2PM3/XLu6qHtN7xKHTzM8bFGiRQobmhfE7Gzvb5wSI/hZ3JFa
+         l/tw8S3rfmyo+tL3O0rhBb/s+e/75+LvNZ8NdmABERnPmvcCCGR061CIqz898R1lwaia
+         ERcA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778013060; x=1778617860;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=XWiaguT33mFKTHX+XCub37wPb4gjq7oRFtLlclQ4EBM=;
+        b=KhJob6I1ycc7U2Am8SrwHyeIrr1YD0thNFjZvSEyRpo14ZZM6J+mVuY4z9NtCNyj5l
+         GAnaaWWF6YQSQBWv13A3wFW0uaYhqvFAF2zCH0dRqDU534RUrWczSQ25/X7L1pWUKOeo
+         upRrNJHEXz0cbBY3Uk7Xj4hpeEj29hnrWIX+u+q/l9Rau1BEgg4UUb2skABKugnTCNgS
+         SGYRXFaAr3KieiWGkKjSjgDNZo0LIl+TSms+vWJugw6JXGYEyIzJzyJdDGx127ZGSfPp
+         weiJ9C9uf6Zxg7SX/w8X9ZRxGGUtRcUWGhtKVHxDRDX0GVYb6mfjNtykQLlHdxOzoPgP
+         JQ8w==
+X-Forwarded-Encrypted: i=1; AFNElJ9Kp3pbO1XfOYEp7fR/gS/Wms5FUeH453yyLkYC93w5jsGasVsaEahJ94Mn0BqJc+hNW2B8QDYy1v0n5k6VnZUX@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXpJIPsVOyvDsz0QK89i6IASuG4n1UmpOAWDwY9fxLNsGznBfU
+	PRJyaR4yWhJxJw9zooROX3/brFsWj5JctpJsEGv3w3WjVpyhGI48XcDBd/fpE7hXRQ7xWJYQN3+
+	qtCC00t/XvatFkM3s4d8nV/EN4ha8CQNeDp+48C41YQ==
+X-Gm-Gg: AeBDiet9QGMKIy8KoSQQumT37Eeg2DoBaAEWBPeRNcrLN6uZ835oW//PkH+tNswAgNe
+	evix2PdIGJs6s8ygg00gsVEIJ+EXR5HlU0h3qW4PX8eFytQ13qyjz4bKRSnkQBgiKmMAzTFyIRi
+	T2OOO6udoCEwIXk0Bafgda5kbon1XQkHTRTHIm24TzNGDTEPBbaPnNVzgVuOxanbWavwpRvLi9R
+	w41OE1BY9oCBopFEaG0kfXQ2QzJMwvEdZMk64fWiT7p4DW4G7DvLuduz34uRbc4dxXyherdcqjI
+	eOttg/wTaO1ZgZh416MfcdvTktcLlQdpRBuM7jypuqR21gqOdhDbN1IUsCVDkGA1TiA4MgdmFLJ
+	qQRoykA==
+X-Received: by 2002:a05:6820:612:b0:694:914a:ebe1 with SMTP id
+ 006d021491bc7-69998d496f4mr230276eaf.47.1778013060106; Tue, 05 May 2026
+ 13:31:00 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260429024737.544813-1-dennis@ausil.us> <20260429024737.544813-4-dennis@ausil.us>
+ <26834823.ouqheUzb2q@phil>
+In-Reply-To: <26834823.ouqheUzb2q@phil>
+From: Dennis Gilmore <dennis@ausil.us>
+Date: Tue, 5 May 2026 15:30:49 -0500
+X-Gm-Features: AVHnY4JYRhq_p9ta-ys9Z6NemjXvr6rGjpeyTa05lQ2fOW4hQ-wHeaXjdlyGa24
+Message-ID: <CAABkxwtJv4VrS+6kdZ5c1QeuRtnKaFJir0=B9xsqirUiai+iKA@mail.gmail.com>
+Subject: Re: [PATCH v9 3/4] arm64: dts: rockchip: refactor items from Orange
+ Pi 5/b to prep for Pro
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Jonas Karlman <jonas@kwiboo.se>, 
+	Alexey Charkov <alchark@gmail.com>, Quentin Schulz <quentin.schulz@cherry.de>, 
+	FUKAUMI Naoki <naoki@radxa.com>, Peter Robinson <pbrobinson@gmail.com>, devicetree@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260505_133102_970301_1239DDD4 
+X-CRM114-Status: GOOD (  13.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,162 +123,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+On Tue, May 5, 2026 at 12:36=E2=80=AFPM Heiko Stuebner <heiko@sntech.de> wr=
+ote:
+>
+> Hi Dennis,
+>
+> Am Mittwoch, 29. April 2026, 04:47:34 Mitteleurop=C3=A4ische Sommerzeit s=
+chrieb Dennis Gilmore:
+> > The RK806 PLDO1 and PLDO2 outputs are wired differently between the
+> > 5/5B and the Pro (PLDO1/PLDO2 are swapped), so label the PMIC node
+> > rk806_single in the base dtsi, drop pldo-reg1/pldo-reg2 from it, and
+> > define them via a &rk806_single regulators augmentation in
+> > rk3588s-orangepi-5-5b.dtsi. The Pro will supply its own mapping.
+>
+> I guess my only question is, where did that "single" come from and what
+> is it supposed to mean? ... I would've assumed "&rk806" as label would've
+> been enough? But maybe that "_single" has some special meaning?
+>
+> Thanks
+> Heiko
 
-Nothing ever sets pxa2xx_audio_ops_t since the last users were removed
-in ce79f3a1ad5f ("ARM: pxa: prune unused device support") , so stop
-passing it around through the sound, ac97 code.
+Hi Heiko,
 
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
- include/linux/platform_data/asoc-pxa.h | 21 ---------------------
- include/sound/ac97/codec.h             |  5 ++++-
- include/sound/ac97/controller.h        |  5 ++---
- sound/ac97/bus.c                       | 26 ++------------------------
- sound/soc/pxa/pxa2xx-ac97.c            |  3 +--
- 5 files changed, 9 insertions(+), 51 deletions(-)
+The _single suffix was meant to distinguish this from dual-RK806
+designs (e.g. EVB1/EVB2/QuartzPro64) where two RK806 PMICs are chained
+as master (pmic@0) and slave (pmic@1). I wanted to signal "this board
+has exactly one RK806, not the master half of a pair."
 
-diff --git a/include/linux/platform_data/asoc-pxa.h b/include/linux/platform_data/asoc-pxa.h
-index 7b5b9e20fbf5..7df78867db49 100644
---- a/include/linux/platform_data/asoc-pxa.h
-+++ b/include/linux/platform_data/asoc-pxa.h
-@@ -6,27 +6,6 @@
- #include <sound/pcm.h>
- #include <sound/ac97_codec.h>
- 
--/*
-- * @reset_gpio: AC97 reset gpio (normally gpio113 or gpio95)
-- *              a -1 value means no gpio will be used for reset
-- * @codec_pdata: AC97 codec platform_data
--
-- * reset_gpio should only be specified for pxa27x CPUs where a silicon
-- * bug prevents correct operation of the reset line. If not specified,
-- * the default behaviour on these CPUs is to consider gpio 113 as the
-- * AC97 reset line, which is the default on most boards.
-- */
--typedef struct {
--	int (*startup)(struct snd_pcm_substream *, void *);
--	void (*shutdown)(struct snd_pcm_substream *, void *);
--	void (*suspend)(void *);
--	void (*resume)(void *);
--	void *priv;
--	int reset_gpio;
--	void *codec_pdata[AC97_BUS_MAX_DEVICES];
--} pxa2xx_audio_ops_t;
--
--extern void pxa_set_ac97_info(pxa2xx_audio_ops_t *ops);
- extern void pxa27x_configure_ac97reset(int reset_gpio, bool to_gpio);
- 
- #endif
-diff --git a/include/sound/ac97/codec.h b/include/sound/ac97/codec.h
-index 882b849b9255..69b404c354f5 100644
---- a/include/sound/ac97/codec.h
-+++ b/include/sound/ac97/codec.h
-@@ -108,6 +108,9 @@ static inline void ac97_set_drvdata(struct ac97_codec_device *adev,
- 	dev_set_drvdata(ac97_codec_dev2dev(adev), data);
- }
- 
--void *snd_ac97_codec_get_platdata(const struct ac97_codec_device *adev);
-+static inline void *snd_ac97_codec_get_platdata(const struct ac97_codec_device *adev)
-+{
-+	return NULL;
-+}
- 
- #endif
-diff --git a/include/sound/ac97/controller.h b/include/sound/ac97/controller.h
-index 06b5afb7fa6b..d5895ea3922b 100644
---- a/include/sound/ac97/controller.h
-+++ b/include/sound/ac97/controller.h
-@@ -62,14 +62,13 @@ struct ac97_controller_ops {
- #if IS_ENABLED(CONFIG_AC97_BUS_NEW)
- struct ac97_controller *snd_ac97_controller_register(
- 	const struct ac97_controller_ops *ops, struct device *dev,
--	unsigned short slots_available, void **codecs_pdata);
-+	unsigned short slots_available);
- void snd_ac97_controller_unregister(struct ac97_controller *ac97_ctrl);
- #else
- static inline struct ac97_controller *
- snd_ac97_controller_register(const struct ac97_controller_ops *ops,
- 			     struct device *dev,
--			     unsigned short slots_available,
--			     void **codecs_pdata)
-+			     unsigned short slots_available)
- {
- 	return ERR_PTR(-ENODEV);
- }
-diff --git a/sound/ac97/bus.c b/sound/ac97/bus.c
-index 15487837e894..a4d230a19c56 100644
---- a/sound/ac97/bus.c
-+++ b/sound/ac97/bus.c
-@@ -206,24 +206,6 @@ void snd_ac97_codec_driver_unregister(struct ac97_codec_driver *drv)
- }
- EXPORT_SYMBOL_GPL(snd_ac97_codec_driver_unregister);
- 
--/**
-- * snd_ac97_codec_get_platdata - get platform_data
-- * @adev: the ac97 codec device
-- *
-- * For legacy platforms, in order to have platform_data in codec drivers
-- * available, while ac97 device are auto-created upon probe, this retrieves the
-- * platdata which was setup on ac97 controller registration.
-- *
-- * Returns the platform data pointer
-- */
--void *snd_ac97_codec_get_platdata(const struct ac97_codec_device *adev)
--{
--	struct ac97_controller *ac97_ctrl = adev->ac97_ctrl;
--
--	return ac97_ctrl->codecs_pdata[adev->num];
--}
--EXPORT_SYMBOL_GPL(snd_ac97_codec_get_platdata);
--
- static void ac97_ctrl_codecs_unregister(struct ac97_controller *ac97_ctrl)
- {
- 	int i;
-@@ -337,7 +319,6 @@ static int ac97_add_adapter(struct ac97_controller *ac97_ctrl)
-  * @dev: the device providing the ac97 DC function
-  * @slots_available: mask of the ac97 codecs that can be scanned and probed
-  *                   bit0 => codec 0, bit1 => codec 1 ... bit 3 => codec 3
-- * @codecs_pdata: codec platform data
-  *
-  * Register a digital controller which can control up to 4 ac97 codecs. This is
-  * the controller side of the AC97 AC-link, while the slave side are the codecs.
-@@ -346,18 +327,15 @@ static int ac97_add_adapter(struct ac97_controller *ac97_ctrl)
-  */
- struct ac97_controller *snd_ac97_controller_register(
- 	const struct ac97_controller_ops *ops, struct device *dev,
--	unsigned short slots_available, void **codecs_pdata)
-+	unsigned short slots_available)
- {
- 	struct ac97_controller *ac97_ctrl;
--	int ret, i;
-+	int ret;
- 
- 	ac97_ctrl = kzalloc_obj(*ac97_ctrl);
- 	if (!ac97_ctrl)
- 		return ERR_PTR(-ENOMEM);
- 
--	for (i = 0; i < AC97_BUS_MAX_CODECS && codecs_pdata; i++)
--		ac97_ctrl->codecs_pdata[i] = codecs_pdata[i];
--
- 	ac97_ctrl->ops = ops;
- 	ac97_ctrl->slots_available = slots_available;
- 	ac97_ctrl->parent = dev;
-diff --git a/sound/soc/pxa/pxa2xx-ac97.c b/sound/soc/pxa/pxa2xx-ac97.c
-index a0c672602918..b0b1293bc849 100644
---- a/sound/soc/pxa/pxa2xx-ac97.c
-+++ b/sound/soc/pxa/pxa2xx-ac97.c
-@@ -246,8 +246,7 @@ static int pxa2xx_ac97_dev_probe(struct platform_device *pdev)
- 	}
- 
- 	ctrl = snd_ac97_controller_register(&pxa2xx_ac97_ops, &pdev->dev,
--					    AC97_SLOTS_AVAILABLE_ALL,
--					    NULL);
-+					    AC97_SLOTS_AVAILABLE_ALL);
- 	if (IS_ERR(ctrl))
- 		return PTR_ERR(ctrl);
- 
--- 
-2.39.5
+You're right that this is unnecessary =E2=80=94 the EVB boards don't label
+their master as rk806_master either, so there's no established
+convention that _single is part of. I'll rename it to just rk806 in
+v10.
 
+Dennis
 
