@@ -4,73 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61A13CD3430
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 08:23:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F89ECD3430
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 08:31:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cVjljbLxMN1Ao9P5aPmniNVCYmfyzPj9ri1tx9ADzF0=; b=gPwj5S1Dh/dw/yulUL3NQMk7xI
-	40T/thU3rC7RtBXVwNkmlqUKMKO9bTaG729rbaxSIGO5x87ZlfK3yVxnPE0kjcHb1Ly2Yj+CVGlyu
-	nkqG8bId74KUosyf61MhNt7X2W/dz27adRhib/y3b/ENM/wYRoWpYTiKTNFwz8ZB9ILDH6H7KYyc5
-	nha0Pgg0+dzamqikeGExlMty/a6u0c9Jm7hkNkzjFFLX6T6yPkCZB8M2+A3GOZDUKjWFmJsvneI1A
-	eRAFGGnh9XLot9lM7XcXvPtGggXvw3yvG5CHWDQx9G+FKxguQDMFr223d1LIGywSQAaHxVXn7bEDX
-	F7BjR5Rg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IglbAQHF+NhQTjbv9WpCpxizvQAYxPtqZ/kh+G/wf0M=; b=zjk0vAWzS1WF8SokZkWdrTZP/V
+	9eMP9SjNjg5w6+3+52rnl6DvE4BaQx32SfvSTwv8fmwRqe9PUYBSfAOfXZeBPSUbE1JIL+Zos8Ngm
+	y3VJ/VS4evUJuQNt+aXhyVmYCAzArqVKk4EYGKmIwKwXpTbWEytk5elPhXtFQJyFTRR9DEB7e2qoV
+	z/5kSGsemxsJnUc3AIBxGspoWkhpWm8eoJfSV6mfJDVq3dIheYWJOleDv6k4TOaxEXR8kyjXBANOg
+	cYsC2YRIZMKUpk0G/79f2sAFprg8kdS64sdBsoBXIdoSvMVRMuVuLHlKxk3jY2GNoaEevjoFYcSuk
+	XNB/CkKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKB3m-0000000FWHA-1ptk;
-	Tue, 05 May 2026 08:23:18 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wKBC2-0000000FXEf-44dz;
+	Tue, 05 May 2026 08:31:50 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKB3k-0000000FWGr-2DFR
+	id 1wKBBz-0000000FXDn-3iEW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 08:23:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2FC4160125;
-	Tue,  5 May 2026 08:23:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D07FFC2BCB9;
-	Tue,  5 May 2026 08:23:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777969394;
-	bh=Ind4ewbTlV0VMaMhRBhUOAJ51ivGX/THmUva9v/9gmM=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=f2M9o2jPkz+uTAfhKYX5YkSYI+7u87WX9J92R27Ny34tJVw2/einWFQVPGJzLRIV+
-	 tJlEsetedtd67kB0cJTD9CSSmehibKuRitWy2gfFlmVbzb6aS1FS03MaGW3Cnx1sAH
-	 bCDKOOQRtgL40/GnDMd0xwv3Fn1vinkB/q/+18bfc7yrVy2khSL6vRLyvnJaTZvZf9
-	 3m/lP0WJmdw533Q1AkefvNZlHfK5cvHq2goaCVqB1Ds2uxq+cOxVkOM7zGRA/W7pmV
-	 Q7kZfWHTBBkwuCI3mAatmXjH0z3XDA/CeBMp45ne7twljN7PJhQHhcEB0TtoggxfOd
-	 qjViqG+YX22fQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C2EE3CD3430;
-	Tue,  5 May 2026 08:23:14 +0000 (UTC)
-From: Abid Ali via B4 Relay <devnull+dev.taqnialabs.gmail.com@kernel.org>
-Date: Tue, 05 May 2026 08:23:07 +0000
-Subject: [PATCH RESEND] net: stmmac: fix RX DMA leak on TX alloc failure
+	Tue, 05 May 2026 08:31:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1777969908; x=1809505908;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=hwDIJ7pMtHCCustNvs0AAaepY8/PftFzyLYey8zGy4c=;
+  b=UcvNdjRTEhbxQiv7Z3N1iV4nwsiBVTszx+xWG5u9utsFNvqWCP5euDVK
+   5Ecp5Jc5BzRExtzyHT+GWM9C8kS9sEVQarlCnEMeuNGTGdfxzsyRdPMbT
+   FISMI6kC3VDos+hoy8wEEJF6Y5M5b502Wpl03j3h1iWyP4D+2uNqShji1
+   ZZ76x3sn4/NyCky6V/nCZKavVqKz9EuTbxOjFCXxpYZFCbQZe4U9JdG6L
+   OBjaebPGVO9cB2OQ1epSb7H2LhpFT2IR/4syqqr4YJvdXdg/tYMxusCb7
+   imqKbuykWAbLP2hJ1wZoe9SLnmpULulTvctvhJ52QQGSjGk0rLJ+56ZVO
+   w==;
+X-CSE-ConnectionGUID: 3hgt9AN0TgOd4Eh7SMKB+w==
+X-CSE-MsgGUID: p61cysGvQwq9YxYLJ7dEbA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11776"; a="78933494"
+X-IronPort-AV: E=Sophos;i="6.23,217,1770624000"; 
+   d="scan'208";a="78933494"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 May 2026 01:31:45 -0700
+X-CSE-ConnectionGUID: tuc2W5dZQyOeHu5cjmszog==
+X-CSE-MsgGUID: S21AuqnmTmuWUCuhw4jPkA==
+X-ExtLoop1: 1
+Received: from vpanait-mobl.ger.corp.intel.com (HELO localhost) ([10.245.244.5])
+  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 May 2026 01:31:41 -0700
+Date: Tue, 5 May 2026 11:31:39 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Angelo Dureghello <angelo@kernel-space.org>
+Cc: Greg Ungerer <gerg@linux-m68k.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Steven King <sfking@fdwdc.com>, Arnd Bergmann <arnd@arndb.de>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Greg Ungerer <gerg@uclinux.org>,
+	linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
+	Angelo Dureghello <adureghello@baylibre.com>
+Subject: Re: [PATCH 08/10] m68k: stmark2: add mcf5441x DAC platform devices
+Message-ID: <afmq6-AfomfKtX7c@ashevche-desk.local>
+References: <20260504-wip-stmark2-dac-v1-0-874c36a4910d@baylibre.com>
+ <20260504-wip-stmark2-dac-v1-8-874c36a4910d@baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260505-stmmac-rx-desc-cleanup-v1-1-df85cd095ebc@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Abid Ali <dev.taqnialabs@gmail.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777969393; l=998;
- i=dev.taqnialabs@gmail.com; s=20260425; h=from:subject:message-id;
- bh=6KNXYVuQw7qzkBuKkHzTHDqB5iOSzE7NC8yleiDYCcg=;
- b=dzQlfnpwahC08WkpKQ0tTinR9UEjPL8aHxj20pFBtZJaX/rBZuZ3C4W1mAVOnRozY04M1UhGs
- MgNHvyl7iCwBLgbr1viXQcq7sz6Ik7I3ZbtoXTL0C10kDcNVVtAAbiG
-X-Developer-Key: i=dev.taqnialabs@gmail.com; a=ed25519;
- pk=4Syx51HH/MOySSUpi79M2ToLOdwt1yiNb338eKZBJNk=
-X-Endpoint-Received: by B4 Relay for dev.taqnialabs@gmail.com/20260425 with
- auth_id=752
-X-Original-From: Abid Ali <dev.taqnialabs@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260504-wip-stmark2-dac-v1-8-874c36a4910d@baylibre.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260505_013147_959835_F3697102 
+X-CRM114-Status: UNSURE (   8.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,46 +93,29 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: dev.taqnialabs@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Abid Ali <dev.taqnialabs@gmail.com>
+On Mon, May 04, 2026 at 07:16:46PM +0200, Angelo Dureghello wrote:
 
-Free RX DMA resources when alloc_dma_tx_desc_resources() fails in
-alloc_dma_desc_resources().
+> Add mcf5441x DAC platform devices.
 
-Signed-off-by: Abid Ali <dev.taqnialabs@gmail.com>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+...
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 13d3cac05..8bb843b55 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -2370,8 +2370,12 @@ static int alloc_dma_desc_resources(struct stmmac_priv *priv,
- 		return ret;
- 
- 	ret = alloc_dma_tx_desc_resources(priv, dma_conf);
-+	if (ret) {
-+		free_dma_rx_desc_resources(priv, dma_conf);
-+		return ret;
-+	}
- 
--	return ret;
-+	return 0;
- }
- 
- /**
+> +static struct resource dspi_dac0_resource[] = {
+> +	[0] = {
+> +		.start = MCFDAC_BASE0,
+> +		.end   = MCFDAC_BASE0 + 0xFF,
+> +		.flags = IORESOURCE_MEM,
+> +	},
+> +};
 
----
-base-commit: 028ef9c96e96197026887c0f092424679298aae8
-change-id: 20260425-stmmac-rx-desc-cleanup-440f05845492
+ioport.h has a lot of DEFINE_RES() macros. Please, choose the best fit in each
+case and use them.
 
-Best regards,
 -- 
-Abid Ali <dev.taqnialabs@gmail.com>
+With Best Regards,
+Andy Shevchenko
 
 
 
