@@ -4,149 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFE8AFF8855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:13:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34D39CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 16:15:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9LKoOaDpW+6gIkaLt2BcWVeBNSCUDhUWqdZNsoWNjIM=; b=FAcfebILxM8HAVKx1xgkbDoUs8
-	Mtq+Y9M38e0TgJaTlIaAGh2mg8FjkkjH+DMdK5RnjS/KrbYIGK+hPayIL3Cd8EaksFaM9HIUz7zKW
-	51Y98G4J8+cS1a+GOC9l5OQjWXdALuCqreVdHbefxFXTAWfyJWmilLchxlCQeBoxHfjyHdfLnMQjT
-	ww+btJ6DksugQNeSH6N197/oPGCDbktQd2Y4VfuDdGTI40QghkkyNLb27lJQJE/pcLe07IpYd/aoa
-	QFLK5DquHoA3z2UWoTopQu/3QQ3NfH/W805w29MswZopWTv/WCsD9rAcmmJGyh/HAJi4AJje4Dnio
-	p/z2p0MQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rwCwPqassmdFa5GP4LZDb8M62stClOb1kWRYWVT4ujQ=; b=B8MVM6UC/Ge5Ogv7Cxi/zW/T3c
+	omtzqLa1uUEUSN1nel/rJnDygP79tfaIl6uuO9P+6pdDxvE23QZ4l/kMmCXHYnr6aigWcdGWHSav2
+	VbCyj3Cf6HWsBv39F1cmSGT/IU62Uu1JH3MlBgu/UEkoNgF/uJvmp8b3fKyiyMaSObOIhyANuVE8g
+	B8xhcXSPncMHKY8NKmJzhS68LFljKfVND24h+x2UF/YnnziBp/PPTZOfeu4kHTkuU5jXQ7TtxPPqX
+	d7s20mJAirp/IOrgi5ixSM+2BMg8e1DKfmXQJQzKwICSKFlBajx1xx59yKg2xRTI+IWXwDC5sspiq
+	Jh3eKcqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKIP6-0000000Gpnx-29iL;
-	Tue, 05 May 2026 16:13:48 +0000
-Received: from mail-westusazon11010019.outbound.protection.outlook.com ([52.101.85.19] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1wKIR3-0000000Gq7Z-0tYv;
+	Tue, 05 May 2026 16:15:49 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKIP3-0000000Gpn2-2s6J
+	id 1wKIR0-0000000Gq74-3k3b
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 16:13:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rlUamzFFevUgBwDI8k9iDCWYM4qYnq0q10zWN5hY7+bb2IgpATaJQ2pfx6FGqZ/HnHkGptOEa5Q0d7+MCFJ9B/dAigOfVsvVZv8uKHunj0XRW96oo3aA+1B1ReHH0cApbJs5yR6ZrVYXfK5pvstFNB5syyjX/Q9x6urHBFg7GpZrGeaiUaZD5q8Ogw6/OUGVmuZchmfHencHJOZkIXW57g3yt3YSIIyCd1hYVzAjCiewUsYpJnlyZiiYESTP+kfFVqLbw3IqvvyneAlXS1sm/tkqMXAqEHdDjacVmFmDABpz8t1aiYUnN/MVZWM4JTp4DpEIEztDNSpk7N3UeqGM0g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9LKoOaDpW+6gIkaLt2BcWVeBNSCUDhUWqdZNsoWNjIM=;
- b=hjzDet5nuk/B5mDib3iSYUrwCQGb4rS4udoGjvaSno8fpFL/pIDB4m7AKcfKUzhcIvW0Wb8cpX7ZdRnRQVLuro8b5MRwrHp5xugh2gWgbVSmpwLrUNbNeg6HH4lXkoxdxU2KV6uHI4+N/juf0uYokU0U6SG+4H4CGdhABUPeK+eSuNxI5kaafGadtM9Puucgy6hyDhLZkiiNhIsqSpnEzvaCGv7w90YEfHVhxxQkZMQP/HLbOMvk24hX+VxvAp+prxHp5vJaIMuaotviSBmxoTrHgnap/adj3ui8IX5boX//xNMw+cVcIUzUOax5ekMTyGQLgVTNpjUd37E0AROT8A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=bgdev.pl smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9LKoOaDpW+6gIkaLt2BcWVeBNSCUDhUWqdZNsoWNjIM=;
- b=KuTGe84iqbcvTNu0TtUNSdIj8/BxcC6ObxSuCnADdn+HdE6W5vyUYSxsSdFwlaSt2BPzOOU9gshTIRzUngpU6U6tb9koP+NwID1MySfkZCYsN0oB9y3Mo188xVWwjzY/H+JP/bunnJw7ElS+BLx2BS7+/kIqN5s+DUUGBsQSOIo=
-Received: from BN9P222CA0006.NAMP222.PROD.OUTLOOK.COM (2603:10b6:408:10c::11)
- by MW6PR10MB7638.namprd10.prod.outlook.com (2603:10b6:303:248::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Tue, 5 May
- 2026 16:13:32 +0000
-Received: from BL02EPF00021F68.namprd02.prod.outlook.com
- (2603:10b6:408:10c:cafe::b5) by BN9P222CA0006.outlook.office365.com
- (2603:10b6:408:10c::11) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.15 via Frontend Transport; Tue,
- 5 May 2026 16:13:30 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- BL02EPF00021F68.mail.protection.outlook.com (10.167.249.4) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9891.9 via Frontend Transport; Tue, 5 May 2026 16:13:28 +0000
-Received: from DFLE201.ent.ti.com (10.64.6.59) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 5 May
- 2026 11:13:18 -0500
-Received: from DFLE204.ent.ti.com (10.64.6.62) by DFLE201.ent.ti.com
- (10.64.6.59) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 5 May
- 2026 11:13:18 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE204.ent.ti.com
- (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 5 May 2026 11:13:18 -0500
-Received: from [10.249.130.12] ([10.249.130.12])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 645GDAO73329317;
-	Tue, 5 May 2026 11:13:10 -0500
-Message-ID: <9a249ea8-5279-4698-a93f-2e91e2b8bf8f@ti.com>
-Date: Tue, 5 May 2026 21:43:09 +0530
+	Tue, 05 May 2026 16:15:47 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-488ab2db91aso64935715e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 09:15:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1777997745; x=1778602545; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rwCwPqassmdFa5GP4LZDb8M62stClOb1kWRYWVT4ujQ=;
+        b=Q5emerq6TB+ivoxuam5qAm1GXPIswfprJdCJUeLbrWj41KPVNjRnbZktRDMfz44CWd
+         TcmPz5Lb1Ehtf1G7jMjmuU6nH77yC+BHesLw2JoNiWNjwkrqnctpJiqXE1lyLTCiOKuu
+         6HXXFGzNSlWJMBdboyT0o6hRwKcS+9TyQjD1lVTRuNcrzVrZ0KNd21XlkLmr6AnGSa86
+         kiohaMqH1sbwibFmyYmTymEkV0IAR+BnUNj6ZHWBqfgzXWcW8GltJ2yCBqpbmmqxz85Q
+         xroGdjYDThTv8Q9kLfbzNYZxciBZwuI1tIAEXM9oZXoI88M0VC+RAfzcT0Yt5pLbjwKp
+         k0kA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777997745; x=1778602545;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=rwCwPqassmdFa5GP4LZDb8M62stClOb1kWRYWVT4ujQ=;
+        b=kIgfRUXoLDEbBfipQbyTxpp/xVyYItsuNvtCAep9qiX8GFsoFrOp/wbhcPrx/uOMT9
+         m3yTaY9QuITnkoDs5JlgSzdCj0J2YV2plUqe1pnEe75eFLZBLmzx5iGWKu/FJgrVjA14
+         PbOGQPHjNXD0GHmFW2Ix0Jr0drLmdSpTb1W0FpkS6OdNX9+BE+UnpCydACNW3OdwEjKy
+         /NzWKVWI/hWqWNM40HJTX0z1rHkZOjR1KNGgTwsZYkeexv6HfOyaXNm3b/H1HS4bG04Z
+         rGPT5kMfhPNEQF0/0Ko/VUqC/0mBjWLTVObXgcgpaiK5fS5LEXYdeqqzwLKZHqcV76du
+         oAAg==
+X-Forwarded-Encrypted: i=1; AFNElJ+PlMnD1HSdhfcBWD0oL5idMzXRTIjnPDUdZNBly9pAs/0ZBBbmro/Hb/DTuWw+/aZ+QBSdJWslWGNwYl9bkZJK@lists.infradead.org
+X-Gm-Message-State: AOJu0YzhaV3s0/GHwLOgfJf20HDI3EL/etzQkmTNI9KwzHd6wNwWraLQ
+	3I1S9qE6wgigWRCvbohg4YMMbLSKQS0t6LW+SeVycbLctagvUCHGlJO+pUAgVIrE
+X-Gm-Gg: AeBDieu8Yrm2jFOa9lz8EISBBbrrEyzpT6L5RdU7snvn896qpl8EfhyzpsN4e7hh5vb
+	Zx4W3oKCdRg5PYJ6pVCrd6Mr5r322E1lcB5vwf3bWc9y9ALlZbv9pArkJZqJL06Qv29ar6fLgUx
+	A1xLKJIpx7LezGIx3sWQAl8sQ4sZ0ZYQM2MQvb5pc/vF7PPfE2uERQR+193V/JzizaWv6IYNGs/
+	jHuiWSxv0GJAgTIMpGjun0F+zAigH0JBbsedf3dvixxf5lvrL9jfJ5Em8lqPCY/vxTAHi3HY7bw
+	cp/yfjvcCBYZylByzgrn01DyuoNV8yX1o7TS+Rk2mAGHiWFgJVL+NMaHT9k0FcLk+B4NCwWYuZL
+	PrZ6/5ovPwtdpuqrB1Wpw9i/2Ef9hlDQyTDXO9YR+6TOnOGXAmYWJZzm/Mix6/31TsueDhaykVL
+	y2qMnSXlfvhiv6vMtHDcPvGqGXV8gH3XR9mhhCzQD5kDO6TCY8nfy5p+O7UeW2loL5nbroOMEOC
+	ArUv5aX2zHqbTM67Xro6spIKEW8
+X-Received: by 2002:a05:600c:3513:b0:489:c57:7836 with SMTP id 5b1f17b1804b1-48e51d6c8cfmr1051235e9.27.1777997744843;
+        Tue, 05 May 2026 09:15:44 -0700 (PDT)
+Received: from jernej-laptop.localnet (46-150-62-216.dynamic.telemach.net. [46.150.62.216])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48a820c8556sm402657765e9.4.2026.05.05.09.15.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 05 May 2026 09:15:44 -0700 (PDT)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: Maxime Ripard <mripard@kernel.org>, Paul Kocialkowski <paulk@sys-base.io>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ linux-media@vger.kernel.org, linux-staging@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/7] dt-bindings: media: sun4i-a10-video-engine: Fix SRAM count
+ for H6
+Date: Tue, 05 May 2026 18:15:42 +0200
+Message-ID: <A3ZnAVmNS1uZyanwbLT-hg@gmail.com>
+In-Reply-To: <20260505134812.408316-3-wens@kernel.org>
+References: <20260505134812.408316-1-wens@kernel.org>
+ <20260505134812.408316-3-wens@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
-To: <tanmay.shah@amd.com>, Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>
-CC: Shenwei Wang <shenwei.wang@nxp.com>, Andrew Lunn <andrew@lunn.ch>, "Linus
- Walleij" <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
-	"Jonathan Corbet" <corbet@lwn.net>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Bjorn
- Andersson <andersson@kernel.org>, Frank Li <frank.li@nxp.com>, Sascha Hauer
-	<s.hauer@pengutronix.de>, Shuah Khan <skhan@linuxfoundation.org>,
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "Pengutronix
- Kernel Team" <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
-	"Peng Fan" <peng.fan@nxp.com>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-remoteproc@vger.kernel.org"
-	<linux-remoteproc@vger.kernel.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>
-References: <20260422212849.1240591-1-shenwei.wang@nxp.com>
- <PAXPR04MB91850A11C58419C03909145F89362@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <6412a758-4560-4cf1-a0d0-5b24d1a715f1@lunn.ch>
- <PAXPR04MB9185009A17DFDF3D6C8B44E789362@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <6e01e114-e336-4744-b6b4-563ec42e321b@lunn.ch>
- <PAXPR04MB9185A098D894B6A6EBCC13F889372@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <afImuoeHolxGgw3H@p14s>
- <PAXPR04MB9185F2F6DDB55AC56C92D63B89342@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <CANLsYkwvL0Z3+12MD=J+Dc2yAU2T8ypizyG=6AhYoWOh55odHA@mail.gmail.com>
- <472f85bd-42c2-40c6-abfd-b76924797069@ti.com>
- <CANLsYkzt9xUczxSU28u-TfZAAjr0ufZKXAj8Eqfq=45gufXW3w@mail.gmail.com>
- <f7ef3417-eb84-4467-ac72-a9bc8b0c81e8@foss.st.com>
- <21de8440-adf7-454b-acfc-06e50882e075@ti.com>
- <4c526816-b127-43e7-86e9-eee4dc1152bc@foss.st.com>
- <c6f68ab5-271a-41ed-b285-75b739f1edd6@amd.com>
- <4b622824-0073-4c6a-8525-248bd484c3f0@ti.com>
- <a5012462-9953-424e-bfa0-427e7b07201e@amd.com>
-Content-Language: en-US
-From: "Padhi, Beleswar" <b-padhi@ti.com>
-In-Reply-To: <a5012462-9953-424e-bfa0-427e7b07201e@amd.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL02EPF00021F68:EE_|MW6PR10MB7638:EE_
-X-MS-Office365-Filtering-Correlation-Id: f0595e92-5529-458e-fae6-08deaac13e76
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|82310400026|36860700016|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: lC/nT6G2+8MHvwnMeqhhKmBlG8jKaCuh4rZWqaK/6m0nzFnO7iqqP493ydDjL0MjpTSf88wWWaEWQ3nXJkhnpHGJYJnFSUHZdc+7WXAHaHv6+GasRrN5qGvB+7FtFzZl7n2trVY7LAJq/IkKgaa7xwkBMP1CbSIAitNmkZ9bEhtfljOJruUzJ9UgscIt8Qrgcy+wVDA4XhCmiZiOlPbKrZvKr7LV0KNxFy4aarpglcjjbtvUH4QlkGfJhteCEZ37ARAvjckPS4JntPme65Y/yn/S8v+Yg2A71u73vdPEvUSDEGWyRy14U3q66A6A+IYYfd1RuyEUnvCy9s7hp0GKe8pRrcudH1Jxt0quMm0RYV5hAi6W+2gAULwqzEGfPtmNYyDS/JOX+WoSqF7vqvwnWctYrv3CeXR8gsusi4+bhd8pVapS4ml12STkRyGqTLYCbiWdgqOeQSqpTSPMXWD0JI7Ow42I5r/QvHSvbubVF5wSdL+DtMVup3cB2IRT6Gx5LoJsYFaIoaXWxHgzVhA5wZh2yjsJHi0cun8Ae7dGnt8YTY4ERED1BkPDSK24opyv1ZbrRLH2TUY21mQexjpgbXOB5wWsI3a7mCwZ7eDxgwMP6UFQHZNQSxni8Mkr5mHc7LdkRaJBU3VQmYGxmbAxVv8RqjxwXLeu4xdja2E/AaF4bHbswj/WtuwMt3R5Nzt2vp+yqfI7+rAc9hPurWCsILgMYybAsrj2/xIqTA5Tm0I=
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(82310400026)(36860700016)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Z0IuSX4riiF10GzL7WzJnGD/UKZvkWBk3hS1RFv9iFi0zXuiVlPi80OoDUlgEhg5VesXwKlTgRGp5a2WBgl3CBmtyy7DfUsJw9pY3U4Ca85fDFUw56Pv+rib9PwYtrVb14d4g5HflCGFwauXifdjmG4mOx/nrJiNM5WNlDleAEBmMNv0V7HcwlUQJ6Br4cnrcE+IRN6ZxIHykTM2Xico5jJfcHsJpsuF6maoowg+93e9iD/6zNhgxPM/2lXuyV4gz2YRo0mo1qYr7IScgYNskgA9tLim/3cdrome/nSuDEHa7AjhvSExcus45Ttlihh0DmGbDb0EYlwN8RuPFCiAS/0zMidenEirpp9HZQ49aVsAOXJYr9yVWJu44yMcY6CBrNZejPoRmcnpGa/kgfk6T5qruFqmqPTnx0WjMHLXgxzoFxyUNwe1z+4tB9LNMsWv
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2026 16:13:28.5464
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f0595e92-5529-458e-fae6-08deaac13e76
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL02EPF00021F68.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR10MB7638
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_091345_953984_2424A863 
-X-CRM114-Status: GOOD (  15.39  )
+X-CRM114-CacheID: sfid-20260505_091546_963513_531DF377 
+X-CRM114-Status: GOOD (  18.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,79 +107,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Dne torek, 5. maj 2026 ob 15:48:06 Srednjeevropski poletni =C4=8Das je Chen=
+=2DYu Tsai napisal(a):
+> On the H6, the SRAM C region includes an alias of part of the VE SRAM
+> used by the video engine. This region should also be claimed so that no
+> access happens through the alias window.
+>=20
+> Add a second SRAM region phandle to the video engine for the H6.
+>=20
+> Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
+> ---
+>  .../allwinner,sun4i-a10-video-engine.yaml     | 21 ++++++++++++++++++-
+>  1 file changed, 20 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-=
+video-engine.yaml b/Documentation/devicetree/bindings/media/allwinner,sun4i=
+=2Da10-video-engine.yaml
+> index 932043d7f0cc..818d815d4732 100644
+> --- a/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-video-e=
+ngine.yaml
+> +++ b/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-video-e=
+ngine.yaml
+> @@ -48,11 +48,15 @@ properties:
+> =20
+>    allwinner,sram:
+>      $ref: /schemas/types.yaml#/definitions/phandle-array
+> +    minItems: 1
+>      items:
+>        - items:
+>            - description: phandle to SRAM
+>            - description: register value for device
+> -    description: Phandle to the device SRAM
+> +      - items:
+> +          - description: phandle to SRAM alias
+> +          - description: register value for device
+> +    description: Phandle to the device SRAM(s)
+> =20
+>    iommus:
+>      minItems: 1
+> @@ -101,6 +105,21 @@ allOf:
+>          iommus:
+>            maxItems: 1
+> =20
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - allwinner,sun50i-h6-video-engine
+> +    then:
+> +      properties:
+> +        allwinner,sram:
+> +          minItems: 2
+> +    else:
+> +      properties:
+> +        allwinner,sram:
+> +          maxItems: 1
+> +
+>  additionalProperties: false
+> =20
+>  examples:
+>=20
 
-On 5/5/2026 9:08 PM, Shah, Tanmay wrote:
+Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
+Best regards,
+Jernej
 
-[...]
-
->
->>>   If there are
->>> multiple or multiple instances of same controller, than we need separate
->>> channel name for that controller just like we would have separate device
->>> on the Linux.
->>
->> Why so? I think there is some confusion in the terminology:
->>
->> GPIO controller = GPIO port (gpio@xyz) defined in the
->> Device tree = struct rpmsg_gpio_port in code
->>
->> GPIO line = Individual lines within each GPIO port (max =
->> GPIOS_PER_PORT_DEFAULT) = struct rpmsg_gpio_line in code
->>
-> Okay, I understand now. So, same gpio controller has multiple instances.
->
->>>>>>>> 1. namespace/channel#1 = rpmsg-io
->>>>>>>>        a. ept1 -> gpio-controller@1
->>>>>>>>        b. ept2 -> gpio-controller@2
-> So, In that case above mentioned approach doesn't work.
->
-> Because, this approach is mapping endpoint to the gpio-controller.
-
-
-And what is the problem with that?
-
->   From
-> linux's perspective, it needs to map rpmsg *channel* to the
-> gpio-controller not the endpoint.
-
-
-Can you explain why it *needs* to?
-
->
-> To be more specific:
->
-> Linux:                               remote:
->
-> ch1: rpmsg-gpio.-1.1024 ->     gpio-controller@1024
->      - gpio-line ept1
->      - gpio-line ept2    ->     They all map to same callback_ept_1024.
->      - gpio-line ept3
-
-
-This is a weird mapping. I am not suggesting one ept per gpio-line,
-rather one per gpio-controller. You can refer my detailed proposal
-here:
-
-https://lore.kernel.org/all/268f8e00-91bc-43ea-ba95-077cf859e7f3@ti.com/
-
->
-> ch2: rpmsg-gpio.-1.1025 ->     gpio-controller@1025
->      - gpio-line ept1
->      - gpio-line ept2    ->     They all map to same callback_ept_1025.
->      - gpio-line ept3
-
-
-[...]
-
->
-> On the remote side, we have to hardcode Which rpmsg controller is mapped
-> to which endpoint.
-
-
-Not necessarily, we can exchange this info at runtime.
-
-Thanks,
-Beleswar
 
 
