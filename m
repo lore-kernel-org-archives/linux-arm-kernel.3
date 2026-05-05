@@ -4,82 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B00F2FF8855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 18:51:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8832CFF8855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 18:55:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TEso03AEGLwruWvXRN28p8qd5Yq2cVSCpKmWTTxzbw4=; b=SPKiUsEzTJzfP7WKxFlFmG3CLA
-	cszPWkJHUnVibtzhM0mlI1ang+SuP1QU9n1z1ImfzLKltRBctFYuSNQEti+4vqWFIaexNkSkh5I5T
-	OzxPeCMhHwoMCSDdkvqvuabEPgR1xMQuIq06ZuxQvAvpsCAWw1pIKR7b7Ln+Znx0pDddwwpLJmEZG
-	at0luVduzviMFEL0Bl0sM20z9DJWru4doPn8a3J00fWCUWj/iovT0pQnRtuvg1GpuEusbgT56me6s
-	gAgURrJKwGRV/TLPINQSwD7C8NBVkRrOzLWhzOiEiDpRRBMtkENjAUPPVP5q2eV1/6YK92byStsz7
-	7/96z6mg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EdUe4UPi1xfrH6SeZFh0BDIwDN7xDOV5Uww/aWy2a1s=; b=o5y+70AvEdOijld9SU7JeGcLdd
+	hVejARniU8zT9ibwYdAZiNeKGEULurUbfJSAgCCeAu1gqdbfqjtNSqOZR6jR5FpiJ/qmuM7cqUPdS
+	QuI5DZR9I/Kme8jhoE5uzoMLOEJBCofGoCfnso8x3RFfsof92w2ML5gsE05iBLfL2LJ/7KTr2e8v7
+	EyvrSp8o4G8+xrsI0BfcDJ/LR3if91VcrhkJWiWVOwb7uy1YkmXZsTRiyOL5in+1q7SDy+JBC+Uuo
+	tDkVN27lCSEIQQ8fuTbLkpbYzB2eN81kMW5lE1U5BQyQgyk826o7siZyqF2cbXFOc58FurFOVRVWk
+	1wK2gVKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKKrR-0000000HDsA-39df;
-	Tue, 05 May 2026 18:51:13 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1wKKvN-0000000HEGP-1g4H;
+	Tue, 05 May 2026 18:55:17 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKKrP-0000000HDrd-4BNH
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 18:51:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1778007071; x=1809543071;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=VDJOXjgjZEbpeB4zDJMcjcuhMeExkg7wy+dT+dQlbbQ=;
-  b=da0Gs1w3f5NIvY6n2v3pemnyiqpdM23rvlFXzfDyvHonBWHWXLOPKEoe
-   Q803pGCtlXQJ3pIark+SgsBSWlDIVjV7YNl1dhr89MydAMayIpWp3nniL
-   kb3v6SafGf40XrwJdgsjzSr0UeMsdnfdA+Nkb3r/BNeWnLhDKqky0FKqk
-   0TOAIlRH4XPzSe+SgRIsiHCsD3bv9scBR6f80LG7SJfT90mNLtLqfPgCX
-   vuXc1E/H22b9KfhzNoPWc/WlpcLHVCyXMVuP6oBWm3sd0rlB4ag7bGBIW
-   9eEmcxbzhCPIMeIm3tx3f7dIQnIDZPVgt0aHHT5qaHticLM/FuPH3uqCM
-   g==;
-X-CSE-ConnectionGUID: rdJ3Lq+USdyRShk3O56huA==
-X-CSE-MsgGUID: 8Vitu6v3QSSCz52QCXNVpw==
-X-IronPort-AV: E=Sophos;i="6.23,218,1770620400"; 
-   d="scan'208";a="56297656"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 05 May 2026 11:51:09 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Tue, 5 May 2026 11:51:08 -0700
-Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Tue, 5 May 2026 11:51:05 -0700
-Date: Tue, 5 May 2026 20:51:05 +0200
-From: Daniel Machon <daniel.machon@microchip.com>
-To: Jakub Kicinski <kuba@kernel.org>
-CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
-	<pabeni@redhat.com>, Steen Hegelund <Steen.Hegelund@microchip.com>,
-	<UNGLinuxDriver@microchip.com>, Sebastian Andrzej Siewior
-	<bigeasy@linutronix.de>, Clark Williams <clrkwllms@kernel.org>, "Steven
- Rostedt" <rostedt@goodmis.org>, Bjarni Jonasson
-	<bjarni.jonasson@microchip.com>, Lars Povlsen <lars.povlsen@microchip.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>, <linux-kernel@vger.kernel.org>,
-	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-rt-devel@lists.linux.dev>
-Subject: Re: [PATCH net 2/4] net: sparx5: fix sleep in atomic context in MAC
- table access
-Message-ID: <20260505185105.c7bcupjgm64vcrhy@DEN-DL-M70577.microsemi.net>
-References: <20260504-misc-fixes-sparx5-lan969x-v1-0-6604306b5743@microchip.com>
- <20260504-misc-fixes-sparx5-lan969x-v1-2-6604306b5743@microchip.com>
- <20260504165258.30b81158@kernel.org>
+	id 1wKKvL-0000000HEFl-1IP2;
+	Tue, 05 May 2026 18:55:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=EdUe4UPi1xfrH6SeZFh0BDIwDN7xDOV5Uww/aWy2a1s=; b=lWWGss4A+4AyrPW69TEmA9O98n
+	3luVcHPpCd55cDntRjiHdHeN0CKdMkn5Va2DankgUsHK5gvtEP0s/TK6VcXoKnNzg6bwhkB+IrdNJ
+	rh9FMCyXucbX08zIXSkHikJ5lwdAWE8NMTlJehqORiYOC9k/f56kFWTxA5YunsbOIaX8ezGxOoRa2
+	z1LOx5LSU4QWL22axnWabxNUiqBHwvkaRzUw3/4KsapoQQepYTHPyTxdZpTDctIUIiXy25002lx2I
+	TcuUL4Ro2HP+OXmTar1l/l79oSiX2e2XO4bN1BfUwP+0QQPzNzKhr8GLaRRqPiW0l9zLDnev7yHwR
+	vynbPytg==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Frank Li <Frank.li@nxp.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Collabora Kernel Team <kernel@collabora.com>,
+	Michael Riesch <michael.riesch@collabora.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: (subset) [PATCH v5 0/2] media: synopsys: csi2rx: add support for rk3588 variant
+Date: Tue,  5 May 2026 20:55:02 +0200
+Message-ID: <177800729427.3301010.1526029967373808485.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260305-rk3588-csi2rx-v5-0-3b7061d043ea@collabora.com>
+References: <20260305-rk3588-csi2rx-v5-0-3b7061d043ea@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260504165258.30b81158@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_115112_311443_A812CE44 
-X-CRM114-Status: GOOD (  11.23  )
+X-CRM114-CacheID: sfid-20260505_115515_348776_8210F722 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,17 +79,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On Mon, 4 May 2026 16:43:43 +0200 Daniel Machon wrote:
-> > sparx5_mact_learn() is called from .ndo_set_rx_mode with
-> > netif_addr_lock_bh held, but takes sparx5->lock which is a mutex.
-> > A mutex may block, which is not allowed from atomic context.
+
+On Tue, 28 Apr 2026 09:27:22 +0200, Michael Riesch wrote:
+> Habidere,
 > 
-> Could you try to switch to the recently added ndo_set_rx_mode_async?
-> We added it exactly because most drivers have to sleep / wait for FW
-> to do something.
+> The Rockchip RK3588 features six MIPI CSI-2 receiver units:
+>  - MIPI0: connected to MIPI DCPHY0
+>  - MIPI1: connected to MIPI DCPHY1
+>  - MIPI2: connected to MIPI DPHY0
+>  - MIPI3: connected to MIPI DPHY0-1 (only with split DPHY0)
+>  - MIPI4: connected to MIPI DPHY1
+>  - MIPI5: connected to MIPI DPHY1-1 (only with split DPHY1)
+> 
+> [...]
 
-Interesting. That should get rid of the spinlock and readx_poll_timeout_atomic
-conversions. I will try it out. Thanks.
+Applied, thanks!
 
-/Daniel
+[2/2] arm64: dts: rockchip: add mipi csi-2 receiver nodes to rk3588
+      commit: 5052c99cf05271b91fe2b4e6540f7a7d9b6db62f
+
+Best regards,
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
