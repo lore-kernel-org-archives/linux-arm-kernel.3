@@ -4,139 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5A46CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 20:05:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2043BCD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 20:09:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:References:
-	In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g/QMRVhlg2sH3GmxPUc+yjz3+7zml/1LDVgxBYViRt0=; b=gmB9cGsq5BYoAXVf8MB6yNCoki
-	V26LLgBZ3bcjc2R82gvBDRqry+FGRjrRDyDiGWc0TaLy22KofiV/En6nbUOWx9gvqt7RCuCQ9wM0M
-	xruJRXEXYPw+87OrFP+tn97fQW39PVT6WON9WlLilDZ/lD3MpNN1pnPepjzxkxyBlKe2J/XChyPTl
-	wS7+IovmxUEfftVCvQmi8oMgvUhbSO1M6nmqZcTxEkVG0QQU5aqZwZWuIK/NPD9s/lnCc32ZQJlSq
-	UAhf3PJpQpGoaWM/ZiXdrakhzc1gc+Vkdtn1vY/7M717UodEgpOhO/Dwu9COLgdn3RgKRIxWQ68Lc
-	iRKEXLgA==;
+	bh=YFvr9dpkmNdHKrycuo28tXSnDK+PIn/Xjg+wesAdMy0=; b=EdrdzhoA8uBMTDACNRrErj/h98
+	G3RPmKgdX9zfAEUQ2UpkarG+OwVkGO3peS4s/QcGtOsd8EgR7vwz++An/a7kZcyru9RBoKGuG5pu8
+	wAP5KP5a9RfufwVV6I5rCsopv+3mWGRxSNQS3kcMELiXc0sm5AeGwhANpL0+eQA92BMU1ZUSd51vB
+	+KNcywDZ16zr4TnkXIXorlI+RAjmaIffVtGKRniqrirlQ2ynVV/xiruVrFw4IJ5bT0Wbr/npwySNE
+	DD849fCQSdi5LJdl39FmssCBdMniCa9TTCuOrXn2WP/rfgl9D3qrytENz8bokwemipov+OESnYI2e
+	oqa69Y6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKM0r-0000000HNYt-0hyr;
-	Tue, 05 May 2026 20:05:01 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wKM4j-0000000HO21-1LLT;
+	Tue, 05 May 2026 20:09:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKM0p-0000000HNXM-36Cr
+	id 1wKM4h-0000000HO1k-2EbA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 20:05:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yr4SyN9duOrTii1VFGehdO3HXYvJHGaqEG5I6CQW5fX0FCKHpoj1jYctVTe+4mxF9ESEWQgTHgNR+7XSE3mPyA7uyDIpYoftk0fn4QFeAnsEKyQ8OEKOdCxlykgILdv5DrtqQtAJlNtyfetfp98gCDPTtl53Fo8o5hqzU5dxxhYSoQKFU5KHFgG1HTDWU8tWNQMITakiAb5Ejed0XNrVNT3yY6O9n3tzqZLuULoi52kybP/4YIMTUzRm0R0MyU8ipCUhCe2tlomT7FdyFivB0wxsAYeqFvsdAroMiGLXqY4mzp+ucaGFx/pQ2sUKc2oSJ6ZDm2FoHgs4j8INu1SDig==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=g/QMRVhlg2sH3GmxPUc+yjz3+7zml/1LDVgxBYViRt0=;
- b=c/uLimkSSvcyhSKl4nCbdLaeBohnwDiOSaapEMVHo6RF5GhPvoOfO/4nib3wx9N2mM04afcwvb4sOk+T8a122Eo7vWCaS1Hp94Al0V/UsQfcC02lMqdoDBno1uVOz8vSDsdOvAUZJfroGVPkYrlYlaUuJaDA0G3UMYqC8V68xsiZP1KFU1YM7Ftm3iBc8tqNVDJpqVPS99jptbSVRiNdbtpupXSZXiDEWo63XQ3sulVjR7WxICfYrTVd0AZNB6HmZcu1IlKr4Au9ScxoTim5sc5tKHkM//p6dzNNIwQl4AOhbXepZwqHet841m7LadOu8Xok0xLCnCc3aN/FHr8bAw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=g/QMRVhlg2sH3GmxPUc+yjz3+7zml/1LDVgxBYViRt0=;
- b=jzkx340UrG/Ho/WthDIfQ1qmjUOBg6R5l5aoWYgZ5H7AopGXcf/ZnGMXKskoXldLORclKU0FpYObwS2QjahyLFiGQvHLIrFpJqTFmq5klZVYQJ+6v8n4Xr+0ztdHwOQH79xXms1al3YvjADFiCfc0KH7goifmyWxzH8ZBYd52/iDiVjJ38lY2IHOzoCmZ3IFUyeODVhYr5v0rpFTjP5+N1hC2jBZZGvBXytJ+EP+8EYC/7Xhx4H3NTI+v2+uyS6XXKXo1GS5ek2Zd6JBU00bfR739ZvDMQHUxOjsJgqTrexn9mjnResqpqE7nv8KxrxuYQ/Q/LHiaYrym3OEy3qGbg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by AS8PR04MB7976.eurprd04.prod.outlook.com (2603:10a6:20b:2af::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Tue, 5 May
- 2026 20:04:55 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9870.023; Tue, 5 May 2026
- 20:04:55 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
- Xu Yang <xu.yang_2@nxp.com>, devicetree@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: stable@vger.kernel.org
-In-Reply-To: <20260413090723.53277-2-krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260413090723.53277-2-krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH] arm64: dts: imx8ulp-evk: Correct Type-C int GPIO flags
-Message-Id: <177801149261.2051112.9881722282246082285.b4-ty@nxp.com>
-Date: Tue, 05 May 2026 16:04:52 -0400
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
-X-ClientProxiedBy: SN7PR04CA0181.namprd04.prod.outlook.com
- (2603:10b6:806:126::6) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Tue, 05 May 2026 20:08:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A482960181;
+	Tue,  5 May 2026 20:08:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0935C2BCB4;
+	Tue,  5 May 2026 20:08:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778011738;
+	bh=/j11J9M2rpjHFDo2P3PpYGg75ACUlpOX6HbyyxFh7nk=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=eocsxk8/k0flO75+vYiaiRdFsHmYWsbGcX1ILS8p9jwmitTwEiStHDi+9MuFyzSvp
+	 kJI/WG/HeTBKGhzh3fvWcNYRmmFJ5IhSdG/LxxGliTZo5ctiCxiYrWEn7PVnWu+sRD
+	 eTdMr1LftCcqow29DhBAZBwQsQUdJhHLG0PEci07XLjMOtH2JU1QwykZJ9fRluqigN
+	 h7lBS7JMOQitGZ/qZQnVapq3Kj1E9scCekC9fL+SAX8YGnC2gbYm4djsGPfhPNRyYa
+	 ApNWchCJhBndTET24wXpzEm+MRiYxdDSHfJXhFODQ3zPOVkrrROIqSVqN8eTMV0npD
+	 a3v8U68ShHQpA==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>
+Cc: nd <nd@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Marc Zyngier
+ <maz@kernel.org>
+Subject: Re: [PATCH 2/3] irqchip/gic-v5: Allow for nr_irqs > 1 for LPI alloc
+ and teardown
+In-Reply-To: <20260430153352.3654325-3-sascha.bischoff@arm.com>
+References: <20260430153352.3654325-1-sascha.bischoff@arm.com>
+ <20260430153352.3654325-3-sascha.bischoff@arm.com>
+Date: Tue, 05 May 2026 22:08:55 +0200
+Message-ID: <87zf2dwre0.ffs@tglx>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AS8PR04MB7976:EE_
-X-MS-Office365-Filtering-Correlation-Id: d6722ae3-ff76-43c6-a219-08deaae19346
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|52116014|19092799006|18002099003|56012099003|22082099003|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: LSp9ksdwsZ1+yRV2gmlOE4QBtovjeuG9mdo2gQBxZ0l0Eks8nmvfeJKWquZxWFQviikKGVi8uCqESMwVsTXupLDjHBaQQjK/T0BZATXfGCa67GY7C6MILkuvbgMssy3PrSki/W4FKYYM0Ug/A5G212kVq2oovzr84yUsttRuUp/e8gVKpTQeC51PN7t+HZfsyIRjhk0UA4UebrlGQVG0Tyx9AZBLnRReCVZfPr8kMQg9Qkzr+F1NLcH9aGoPReiVDp0ohuib5St3Z7GiO0LIX8vQkgbwCD2KATGZKq0h5QcLtZNd+J23Ncz79K0e4ZWFNp0t+uFM0fDsRuL/wONEcqEBEL4p6gRlcPmje6SbiH7eIatmMyld0zWEjuwRxGjYDkaGU3/R17yJ4gQWYjbtJhNj1Vvnbdl84w85+oy1cxQVPrjra0U9GZWH5QWtd4tB4fOo9rEu7lZVYn+XaTumMdt0YQ5pv+88ugf2xvqp1EAhOkfYDcinvOC9rlcWPgoZLtrzJRZjkVyz4wTn879LoJkcFmqHi/PgDER+RDk5N91LBSfSD/vvlvuJjjWH/67Ut+7D5AoOvrIzVrmE4l9yAUx3uVB2U4puQCEC3L7MC0v+7D02OP2IH1H9AbmuRst61sf4ITZBIzRFCEjJdhMYq3VZIcy2WzheZz6GSLPy7qkRbKTTl4uccQAQ/pPM1VteH74Nbp2MfgyGHXxl8mWnLw2w1YJZJ/7HeaEyXc/N2VAYQ5bdvgamBEp7wDpV8EZQ9xG37bVvr9Fq4+J0c6xteQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(52116014)(19092799006)(18002099003)(56012099003)(22082099003)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?M0tyenVpR1V4OUxtUFdoUlN6YktyamVkdlNpRFVqR2RUeDVYT3UrY1pDV3Q0?=
- =?utf-8?B?TGQ2M2lZc3FZR2F4KzBMZ1h6dDVZS1FrU0VzWWVEUzdJWWRwRXJWTnFYVTNm?=
- =?utf-8?B?alBmQjJjUmxuK1pCVFEvbmVxbUNucktrMDlIV1d6V1Y2bWlTZDVnblcxQUp3?=
- =?utf-8?B?OFU3ejNUenhBUlpaVGgzVlJmR0Zvc0FWWmU5YmZxZU11R3J5Ri9GRjNuK1Vh?=
- =?utf-8?B?aW5NOUxQcFNiSGM4UWN4YkxZK1JZSGRWOHBRQ2tqU3VFcGxHMlhxcDZYQzJv?=
- =?utf-8?B?N3dhL3pYUDhvM0ZBRDhQSE4rZWg2aTlKRlM3a1pBemEvMG9PaXZlNWQraitm?=
- =?utf-8?B?bW1RbDgrczdXVm9LM0N1a2l3WDJEeXV5NzdNbyt5ZW1ZeUFYejJubFMvY1VB?=
- =?utf-8?B?YUcrLzBacFZqdDd5dERra0xOSEYwZE5heUhPVndSZ1BMZ25RUTU0elFQYWta?=
- =?utf-8?B?MWNhWUZCT3JqZEtrRmRUeERQM25oYno4Vkx6aGxPaFhkZ25Tb1d4cGJwZk05?=
- =?utf-8?B?a2tlVGZodmk3RnRSMnpOaksvZDZOWlBOdHpXOE9VS0prS1pxblBhWllBU1hF?=
- =?utf-8?B?Uzh3a0o0bnJqTmhhY3R1d3ZDV3M2WUdHdkxPQlkyZmFDMTArYndIVzhONGV2?=
- =?utf-8?B?MDg4aE84d0Uxb1FDbENDcjFwTjNUWWFaTGc5MTVvejdteUwwRHU1YWJUeW9P?=
- =?utf-8?B?c2lzajBTVExEbldFOVQ1VXBCU1ZwazgyOTZDc0Q3cmlwSUNpTXc1ZlZZRzdt?=
- =?utf-8?B?YWgzR2h6a1J4Q0ZqUFJmYmFFd2VwL0pPQlFrSjJ4dHVoeXU1eUxCVk5GNUVC?=
- =?utf-8?B?bkdOTmgraGIzQmhIUXcrSitvZ0hFZ1pzay96VHZkZW56b1hYckdrVmkvakw2?=
- =?utf-8?B?VnF5VlVUdXZyWWVSTWJ5L01zdkNqMWp3eGVzRWV6S05uamc4Yi9JZ25TaUI0?=
- =?utf-8?B?bTI1R1ZsM1gvWncyK0wzNGZrdkd4dXA1MThnVVI5WXpVZU5HQWE3cm43ODZU?=
- =?utf-8?B?YnN3Yjg2T0ViVGc3TzB1bEFXVkVWNklUbGdCbmZNVXNkd1FHTXBLZjF2MDFV?=
- =?utf-8?B?UldqbWN5aHF1VXpCZHAyeXZucFBrclJuSzJvZnZET2xvVUE0K1lpSE4wS3Ro?=
- =?utf-8?B?WTJxeWlQU3dLRG9kMVcrTHZlRE96Q0xnd2FpTE5BUDBSamlKSS9DS2RDblBI?=
- =?utf-8?B?cjFDbmt2OUF0aks3a0J6SGh3R2tNeUtKQkxUY0o1ZzVaQzJrcmovSUp5Q2FT?=
- =?utf-8?B?aUlHOVZNTnpiYTZyUkxUSkNXZllBRmwxb2EzdWhJWlZQVXNUdkpMU3RLTVNI?=
- =?utf-8?B?Smp0YXM1eGdYOWxncnlhT1lNTWQ1M21hbnZ0SVdxTHhDdnNIWGoxbG9OVHFW?=
- =?utf-8?B?MmpSMWlsV21yamRxNW90YjdzQ1NGQ1JFNVZzc0JFRXI1YmEweVdRWDJJWGk5?=
- =?utf-8?B?VnYydkxHcjNZUTUwa1oya1U4L1NTZzJWT21FQmFEVHZ1RlZWbkczcHhZRWJp?=
- =?utf-8?B?TVc5YmVwUHRtU0lWc0gwYzM4RGY2UDdrL3RxM004c2N6WG9Wc2drTzRRelRV?=
- =?utf-8?B?aSs2c2loaHp1R0VueWYydVA1ZmIwRklGNmdJcU96bExFMk9XVTFpR29hbG5E?=
- =?utf-8?B?T1dFQkU2Vk1iU3VIak5aaWJBQUpjakJXRkFuNU81Nno0eHRwOVVpYUVicUpH?=
- =?utf-8?B?aEZrNVFsRGkybjVJVlNSeTlOZUxPSlNabFo2cjN1dWRSWS9BL3JOV3ZBQmdO?=
- =?utf-8?B?cTREVHEyc01MaGQxWEN1ci9wY0NoTzJVWnIvK28zTDNHWUl2N0VnbW02cDVP?=
- =?utf-8?B?TGxKdjM0NzdkV2tydFlWSElqMmNxWW95UEp3SmZMb245RFFnN1JzcCtrTUtP?=
- =?utf-8?B?cG1KNkRLK1dDL2lVODJQendURFMvYkNKLytvcXV2WVhjajlDdXMvQTlNRk1s?=
- =?utf-8?B?M1pndFR6MGVHVGFsSVAwTXNJQXFUMU5MZ2lNeC85VHBBSjF3SENaYm1TQ0ZY?=
- =?utf-8?B?NkY0VThXRG1qTHAyNjEvL0gxemEySUtrdlNVOEVhUkZXRTEwQXVVT1hjalhN?=
- =?utf-8?B?TWRlTUorVkpmZHhJbWliVWFTalBvODBabnpRWUZ1NG5aMWhGalNYNHJCN0Nq?=
- =?utf-8?B?aUYwT0hyWkhnYitLZm5taFd6dW1WbVFzQmZRUVVvc0paWXQ5a2R5MEN4K2hX?=
- =?utf-8?B?Q0h5d2tkUUo0cEZTZGQ4V1AzaU1ycjFyTU9yRzh5RVBUdWJzTEs2RGRpbmdC?=
- =?utf-8?B?ZUdiM3BVbUo3MG5RSEZLK3EzeVBZd1MwL3JXTEx1VFRPTlVRSys1MVFPUXNz?=
- =?utf-8?B?YnRrU0VzVEE0a29yNVBuM0FvbG9WZTNBS21XZFJoL1NWems3RVhLUT09?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d6722ae3-ff76-43c6-a219-08deaae19346
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2026 20:04:55.0339
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: wPA8Z68/jP+u6ja57gNuXiMch2dsJ6R20am24jLA+AAkKI9CIYQaEvbrtupc52I5zGkZ0fpn5jM+X5T2QqTDWA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7976
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_130459_785129_72E8810C 
-X-CRM114-Status: UNSURE (   9.73  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,24 +72,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Apr 30 2026 at 15:34, Sascha Bischoff wrote:
+> Formerly the LPI allocaion and freeing was handled by the domains
+> built on top of the LPI domain, and hence the LPI to use was passed in
+> from the child domain. This mandadated that LPI allocation and freeing
+> was done one at a time, rather than for a range of interrupts in one
+> go.
+>
+> Now that the underlying restriction has been removed and all LPI
+> tracking happens within the LPI domain itself, drop the requirement to
+> allocate and free LPIs one-by-one.  While we're at it, clean up the
+> IPI allocation to request all LPIs in one go, rather than requesting
+> them one at a time.
+>
+> Incidentally, this fixes a unwind bug for IPIs where previously
+> allocated entries were not unwound on a failed parent allocation.
 
-On Mon, 13 Apr 2026 11:07:24 +0200, Krzysztof Kozlowski wrote:
-> IRQ_TYPE_xxx flags are not correct in the context of GPIO flags.
-> These are simple defines so they could be used in DTS but they will not
-> have the same meaning: IRQ_TYPE_EDGE_FALLING = 2 = GPIO_SINGLE_ENDED.
-> 
-> Correct the Type-C int-gpios to use proper flags, assuming the author of
-> the code wanted similar logical behavior:
-> 
-> [...]
+See previous reply
 
-Applied, thanks!
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> ---
+>  drivers/irqchip/irq-gic-v5.c | 70 +++++++++++++++++++-----------------
+>  1 file changed, 38 insertions(+), 32 deletions(-)
+>
+> diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
+> index a3c9eaa8ff486..61a70fe48bc32 100644
+> --- a/drivers/irqchip/irq-gic-v5.c
+> +++ b/drivers/irqchip/irq-gic-v5.c
+> @@ -800,17 +800,16 @@ static void gicv5_irq_lpi_domain_free(struct irq_domain *domain, unsigned int vi
+>  				      unsigned int nr_irqs)
+>  {
+>  	struct irq_data *d;
+> +	int i;
+>  
+> -	if (WARN_ON_ONCE(nr_irqs != 1))
+> -		return;
+> -
+> -	d = irq_domain_get_irq_data(domain, virq);
+> -
+> +	for (i = 0; i < nr_irqs; i++) {
 
-[1/1] arm64: dts: imx8ulp-evk: Correct Type-C int GPIO flags
-      commit: 4dfcb78ced35e01dd00d2ca65a92a2794be30d3e
+        for (unsigned int = 0; ....
 
-Best regards,
--- 
-Frank Li <Frank.Li@nxp.com>
+> +		d = irq_domain_get_irq_data(domain, virq + i);
 
+  s/virq/ and then make
+  
+        for (unsigned int = 0; ....; i++, virq++)
+
+>  static int gicv5_irq_lpi_domain_alloc(struct irq_domain *domain, unsigned int virq,
+> @@ -818,32 +817,38 @@ static int gicv5_irq_lpi_domain_alloc(struct irq_domain *domain, unsigned int vi
+>  {
+>  	irq_hw_number_t hwirq;
+>  	struct irq_data *irqd;
+> -	int ret;
+> -
+> -	if (WARN_ON_ONCE(nr_irqs != 1))
+> -		return -EINVAL;
+> +	int ret, i;
+
+unsigned int i;
+
+>  static const struct irq_domain_ops gicv5_irq_lpi_domain_ops = {
+> @@ -871,11 +876,11 @@ static int gicv5_irq_ipi_domain_alloc(struct irq_domain *domain, unsigned int vi
+>  	struct irq_data *irqd;
+>  	int ret, i;
+>  
+> -	for (i = 0; i < nr_irqs; i++) {
+> -		ret = irq_domain_alloc_irqs_parent(domain, virq + i, 1, NULL);
+> -		if (ret)
+> -			return ret;
+> +	ret = irq_domain_alloc_irqs_parent(domain, virq, nr_irqs, arg);
+> +	if (ret)
+> +		return ret;
+>  
+> +	for (i = 0; i < nr_irqs; i++) {
+
+  for (unsigned int i ....
+
+Thanks,
+
+        tglx
 
