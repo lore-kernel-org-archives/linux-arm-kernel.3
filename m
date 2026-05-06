@@ -4,60 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2199DCD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 06:52:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9C41CD3439
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 07:03:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ym3AiKeeVXG7wOa+iSCtIJhd+vnl3Yz5DjQm6LWMcgs=; b=BGzczaEFvEQF9IDU0hvOc/ApKL
-	nzZ0Su8SDBmkhEdk9WDroHF9a3KkbqVytdBL+OQsilkH9uVjFZXawvhE9EBgIfkK7Zi/tJXMe0zp+
-	WEO9cQDfeBMQtE5b4WRLrWiwr97dnGofcwoRwVLebVAIHHCRfA/CIWsOpKv0ztL6C0UQGO3xOydfk
-	C3JqDK2YekKYwMGY1sHbFZnJ7f9Fp8Z3FWECBt3Ra1Sa9zae5B21Z64Z7Qn8y2EZxSRaXOVmN4/m/
-	I3DOBMFkGbYqJ3kCod18NLcG5rpKXYdQDirILSiUIU4Qr3Hqof5fu4NLUJddc3yZ73LNCz/onDVWe
-	ledmpVVg==;
+	bh=7JA3nIN660S/nrqXCDDx9Bd65PjBY+s8DMW0UtiIyp4=; b=d1rlk1iEdFpxZckHRdBhj2LbDv
+	n2L0+ilit6i2f0CXjiTQ+7b0yKhBQoL000cpQAOXEpTWA7750DzCxbrshZnj/TOqTiueXZdlRueLz
+	S5YAdQ4b8IwhOLKXBNt9OPiAq6AIfzFTA/9DxySstswIJyj8iDUxvKjLwRJNCvPlOrn1n2H3s2ufl
+	w7KjBMyER5EvRs9d3BkkgWusOkKKLMK+rDU+pgDymvCbYIiTyNiBV/04pDJOyrM0qVGZr6yVfGiUn
+	S2b9yOMSdbnxx7cTVXj3pBxMMFdGShvAYTqlD1rAx58sKp+FxtGEtNO86UUtsOkKFyBX3Aga8hbMM
+	Q4Qr50KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKW78-00000000wEe-2fBp;
-	Wed, 06 May 2026 06:52:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKW75-00000000wDb-3lS2
+	id 1wKWHv-00000000xBf-2GWg;
+	Wed, 06 May 2026 07:03:19 +0000
+Received: from mail-francecentralazon11013059.outbound.protection.outlook.com ([40.107.162.59] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKWHs-00000000xAv-26YW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 06:52:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1DF7F1691;
-	Tue,  5 May 2026 23:52:01 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 269D63F763;
-	Tue,  5 May 2026 23:52:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778050326; bh=t37kJxEI2QhUVtL3vUNRO6SryV040GC23jsisBVSrHA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cTr+/A+/v3f0Dm2CgBeW5FYRqZPOLhQn/9ZZ/Yx46VdNsnzP9uOOhz8+EkOtAUP8T
-	 8TQZNsoCCNy+RiSFn0/TlSRbA9vm6H15y2uzaR+CbaOaaNzPjWseOh3xCzQhZ0LoPQ
-	 RjG4h5HEFz5kBRLbEHVgcXIa7nVdSzTS0HRgqDpc=
-Date: Wed, 6 May 2026 07:52:04 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] coresight: ete: Always save state on power down
-Message-ID: <20260506065204.GB3778514@e132581.arm.com>
-References: <20260505-james-cs-ete-pm_save_enable-v3-1-485d21dd79b8@linaro.org>
-MIME-Version: 1.0
+	Wed, 06 May 2026 07:03:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KjSHVLn4zuq+M2zZCgN+JFvbkyZdj+EJLfR3JVUaoWZynkNIY9UdXSswOg9GYLJgYd+eOUjayKwXgUrh++FCCodRAgxCFNfOD/dDH+xwBDnE1Ao5PWWsw2kET4SQTU9wxxYWylnaJDuYFwGUH/kRDYtqA1TLUGQZGL2DJqkMp+Py1s++VV9NC7rEmLSJvNV1xKbh2fgrkB/VlYADWUXzxgjyt36EwWSh/i75CT/uxsjHGIGWwaqA+DBz+RcV8r9E81A2KzV04UCL9YarzNEcGmN/Ju8S90J3glwcEFAx0cd0E69gUlaomCTw7sV2TAwT5I1LnT7ONXCwa/sUcPh7Rg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7JA3nIN660S/nrqXCDDx9Bd65PjBY+s8DMW0UtiIyp4=;
+ b=SoCvr5lig9Xka6GVR9B0SSUlTlmw+XIRDQHDZWxwM8JCTgI/+NyFXIUk+XJRO0HHemYUU/lZoMGTCBBcbMXGrgFVr+twmOp8PuMXFMSyA49z27Nfm0KE/vVPRA3FPpfX0KEraTjh9dJY05PkG84vh4bvpENeY0H7kml7d9sjTBBdiISdvbdK03QZp6H3aaoUnCpX/hLb08vl0/O3SH9es+iVJiO7cMb86ZS5kQvlZKTzq7RhSavMuCGBayXKrs4V815v0FK8fWCaImxieeI5h8mdm9y7FWoDsc0EmVOFgayid4Y8UlSJE/fjx+qxn4c/nt4K0NGiPabydFVKTK2Y5w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7JA3nIN660S/nrqXCDDx9Bd65PjBY+s8DMW0UtiIyp4=;
+ b=cqaabRXaW+Fy5DnXtQAokMrzTVriZtEzHYUnpUFDWyiF3hXeXvtNJhB4Gd+Zi0EfU/rM0vK5+rU63ZO/ej12vmk7W6chu8yWLp2gak2nJ1q23EhGVO1GmuZ7HDWPt8pIhZP5D7P0tChWWzh3VYZV674L8yzs6OD5oyB2dYeu7rcg5yvpILkoE7GsMOHHUBZm9fSyBUB24tcOo3nXpYCk2R+BlqNTpHby2DDIaFLmxomtwWkMvSlZ9Ii34MimKaM1xeEBI++pQCqEW37bfAdbf+F9ZWijspikCuzJAYa4C1PMnwUQ4aai0n5j+4pIVSjMHsAXuMZ7fmMKBAmUhe83Xw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS1PR04MB9287.eurprd04.prod.outlook.com (2603:10a6:20b:4dd::8)
+ by GVXPR04MB10851.eurprd04.prod.outlook.com (2603:10a6:150:21e::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.15; Wed, 6 May
+ 2026 07:03:07 +0000
+Received: from AS1PR04MB9287.eurprd04.prod.outlook.com
+ ([fe80::6f30:763d:17d2:b79c]) by AS1PR04MB9287.eurprd04.prod.outlook.com
+ ([fe80::6f30:763d:17d2:b79c%3]) with mapi id 15.20.9891.008; Wed, 6 May 2026
+ 07:03:07 +0000
+Date: Wed, 6 May 2026 15:04:27 +0800
+From: Liu Ying <victor.liu@nxp.com>
+To: Guangshuo Li <lgs201920130244@gmail.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v4] drm/bridge: imx8qxp-pxl2dpi: avoid ERR_PTR with
+ device_node cleanup
+Message-ID: <afrn-zcfiRpJzIcO@raspi>
+References: <20260505082145.603262-1-lgs201920130244@gmail.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260505-james-cs-ete-pm_save_enable-v3-1-485d21dd79b8@linaro.org>
+In-Reply-To: <20260505082145.603262-1-lgs201920130244@gmail.com>
+X-ClientProxiedBy: SI1PR02CA0036.apcprd02.prod.outlook.com
+ (2603:1096:4:1f6::20) To AS1PR04MB9287.eurprd04.prod.outlook.com
+ (2603:10a6:20b:4dd::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS1PR04MB9287:EE_|GVXPR04MB10851:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3125bc6b-68c5-4b5f-6299-08deab3d868c
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|19092799006|1800799024|366016|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: ao7/mt1/B69IMg3vA+wusEJnww8pcd0GNVBT6TB35Es7KKBnoIJ0otB3reom1MfOQbOaedoaKCywMHK6lg398eeqz+XwDDHbKcQWh6rgjAbculP0EDDMjc4US7ytDyp1KCrhWAf4LrrABjww9QzVDZ6hHi/t8e9OP1DmJqfH/X/JhGMx59yfymSdBa5q5G0uzZj446MEEQV95IWzUqhlumpPkbre0R2F7Zag8ZzEuVZ2PSy4xC/7bmIXht3e4V51p3MbBRlc9cAuxShW6GSGis9DzvWofXFSkd5fgkUJvLupNKi1aVRY31IPOG/DDcl5h6VvykEeDrH2XO61pWwzWk79ngpeBfuG97uEQPXTEUWRH7JzVIpvXkozrSM2ujQ+hqbL8RiSP2zCXrOPdvK5t1e+TIfB5K9ncD4qGmSCGUV1JoL9zvYF5TAnjg+po1lwVedzJdC9TnQXQc9xwHo4BqH0X6hmwvIDUMLfZr05WLjAFdRMwAXmRBLFHnhTnYHxn0H3rjVEUd3dvYowRI2miQqtYKwwGFh0dGBKXhDTe6n8rKU4tZWiuXSx3+gMOWYkak0GEF8Y/pBXHfzQJexbyYIr6W5UmkDJCf2Oo4NiXH+CsiUqhWYrNJ1b+/KUxiP17nBVzxz7T4iUPPebN6ucS2Wi5AXkHfNbtY9Ap5NbXrNNfw+oTNgi+C4uJqNsjVLv
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS1PR04MB9287.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(19092799006)(1800799024)(366016)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Uh3Jv9nUIR3tbCrQlTJCCrzdZ0Zo+OzxM0nA0p030+sFbVSs1fGxiQrnS9CI?=
+ =?us-ascii?Q?e1elFj3ZVRQ/Weaac3MT5B3kEmEPq0kiD5t6S+xoDZiF/vXFIAAkPCeUiTbO?=
+ =?us-ascii?Q?ogzAbNyuLzNesKrp4+wBSf787x6CUa0Sze1u0LWmtg9z8yiulg/261BBSAHq?=
+ =?us-ascii?Q?W3B3BvP9OA+JvU2orQ7oypXN4lH+ACcXtV7moN+D0XHqUbE3czh0H9Z9orzs?=
+ =?us-ascii?Q?ebVqj28ylL5HaLD9FqQ98zP140rLdaF2ciwDmdWNQ4JrPZ+7evuXKeV8j+sm?=
+ =?us-ascii?Q?YFgjA8FjoZ4Q1TqxJOzfG3SP9d1ysY3B71z5ej2u30W2SCIY1doPdLapg2k0?=
+ =?us-ascii?Q?s6+9hhg2e9j0gD00+cwaI7sc1T9xabHI51rlSAPGdaebysBfxsad0lyhOQMa?=
+ =?us-ascii?Q?XXr/jaaKgn5LeTDk+YnhWzJ3XWaJLiscQpEU0jrK+yaGbU1u3vnCVKAHrONr?=
+ =?us-ascii?Q?I/JP6cNfAVu6GCseSko2Gf57CtySzbu2sLecSb4Qo9G8mGT1S0FMpSKNzDiq?=
+ =?us-ascii?Q?bOk70EpUJZt3tn8rIhaZpViGyY+sEH2fyR4921VjLCXcJ0RX2NydvMTBvH9Q?=
+ =?us-ascii?Q?Es0T298ljKjEwDCe/7UiPxUcEpziFkxJW88oHckhWQYn3OyYQ5qeroBx6gEq?=
+ =?us-ascii?Q?UW5JGPdBbMDOjkGkHhiwFxkc2Ak7rK4aULNkqvpFmOYFvT53f8m2XU+ma3pX?=
+ =?us-ascii?Q?gB86422Zhnf2mTr7go9L3C384ypPZrRlLhYHWOJKOzMuDmP+5MLH+y/lJn4Q?=
+ =?us-ascii?Q?DBcg0pi69yBtInszmKduwrZA9OS1Jaftqt8/YQcvRfEiwRLMw7OiI2BVac05?=
+ =?us-ascii?Q?rJOtVawE0l8xaofLThDirpeLFE7jpmp0bRe2IhYrpcaeWWQY4BBQcB7CCC/H?=
+ =?us-ascii?Q?H8ouJkWDHA0wVmdW0ES15wiDKUCXoOEPUns1CqxfzFghW1FS6UjMthUfdCzN?=
+ =?us-ascii?Q?Jv3RjJUVnXC8ZuyHhjrENcHRi1qZ5fqZj2q20kZH5+RRimvMovY+YwPsLdWU?=
+ =?us-ascii?Q?pcZMSabQrjDNCr75JZ38zc7Gu8yOG9sNORJYJpXwQ9hJj3Cn+Ui7g7cN5QC5?=
+ =?us-ascii?Q?iExJVmrguInmfdyVnLsxKD2ouv7hOoS6lyWTCNlSQ6BdrR0sf3hvHGjRsILk?=
+ =?us-ascii?Q?mduyaJ64X0WlVEY9NbfAYArtTpR7QyFwR7GlzlUMh55CK8I9HHg5p4HhBQe+?=
+ =?us-ascii?Q?HFJk/4TdvkfuvcELQyWDIcZI4IsGF0OS7AUYK4p6FAcp0UnQoUbogTbH3g1B?=
+ =?us-ascii?Q?+w90VeW42+Ys88tkbTMIUkr6c4WdLV9gjXZnL11sorsUiSGPpCQKezX6/Id7?=
+ =?us-ascii?Q?SxK7WfCizNQfTJ0LpdfxoLk9ieRQ4FCA8QAyA1Ucd0Ttn1dz+ctaBw9w4WdZ?=
+ =?us-ascii?Q?jBfxS3CKubGj/j7IIvfnIIDL24oeMEAPH95/UCYrL9zuxgvYvDJPbHyu7wWR?=
+ =?us-ascii?Q?wMgFKODyr0Uj77FWdTg+s8GJmfjNDdUoRNkbuZPcRBYKoCe3b/RVrXJ5EBXA?=
+ =?us-ascii?Q?J49Z+LCOsSc2Bp5rFtSf3F0iBJrDny1M1xWjGaMwayAJiEVrRGgqGc9Jomj+?=
+ =?us-ascii?Q?2xCltKO9UFpqRZWPp1YK4tQ7M6nV5vgLCSvt0KYRpXr1dfTYC6+hu0B3SYvh?=
+ =?us-ascii?Q?nfMW0EhUcmuU7IpR9wNXkNr1eKw3a8Ie8ggxOfTKEytvX45fSJhrnGTu7CHC?=
+ =?us-ascii?Q?q8YZ+3DCtgBfSKv2BmcNzWrGrY2SpQHQl4qvAtxuwDXhuSYWRDG2abRoYttm?=
+ =?us-ascii?Q?74wf2UqKeQ=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3125bc6b-68c5-4b5f-6299-08deab3d868c
+X-MS-Exchange-CrossTenant-AuthSource: AS1PR04MB9287.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2026 07:03:07.6012
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: b+cR6BGgtkI0YOxgjYXg0oMRDeSBorzdE1stSdPqwFzRCxf0j0UpN85d8t1Pqaq25HGPMDYxc/fCb2mfsXI7hw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10851
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_235207_996669_CF2DB07C 
-X-CRM114-Status: GOOD (  14.94  )
+X-CRM114-CacheID: sfid-20260506_000316_588302_3C79BD3C 
+X-CRM114-Status: GOOD (  30.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,26 +151,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 05, 2026 at 05:51:25PM +0100, James Clark wrote:
-> System register ETMs and ETE are unlikely to be preserved on CPU power
-> down. The ETE DT binding also never documented
-> "arm,coresight-loses-context-with-cpu" so nobody would have legitimately
-> been able to use that binding to fix it and ACPI has no such binding at
-> all.
+On Tue, May 05, 2026 at 04:21:45PM +0800, Guangshuo Li wrote:
+> imx8qxp_pxl2dpi_get_available_ep_from_port() returns ERR_PTR()
+> on errors. imx8qxp_pxl2dpi_find_next_bridge() stores its return
+> value in a __free(device_node) variable before checking IS_ERR().
+> When the function returns on the error path, the cleanup action calls
+> of_node_put() on the ERR_PTR() value.
 > 
-> Fix it by hard coding the setting for sysreg ETMs (ETE is always sysreg)
-> or ACPI boots. Use a local variable when setting up save_state so that
-> it's immune to concurrent probing when devices have different
-> configurations which is an issue with modifying the global.
+> Do not let a device_node cleanup variable hold error pointers. Return
+> the error code from imx8qxp_pxl2dpi_get_available_ep_from_port()
+> directly and pass the endpoint node through an output argument. This
+> keeps the cleanup action operating only on NULL or a valid device_node,
+> while preserving the existing error codes.
 > 
-> This fixes the following error when using Coresight with ACPI on the FVP
-> which supports CPU PM:
+> Fixes: ceea3f7806a10 ("drm/bridge: imx8qxp-pxl2dpi: simplify put of device_node pointers")
+> Cc: stable@vger.kernel.org
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+> ---
+> v4:
+>   - Drop the sentence mentioning the custom static analysis tool.
+>   - Add Frank's Reviewed-by tag.
+>   - No functional code changes.
 > 
->   coresight ete0: External agent took claim tag
->   WARNING: drivers/hwtracing/coresight/coresight-core.c:248 at coresight_disclaim_device_unlocked+0xe0/0xe8, CPU#0: perf/117
+> v3:
+>   - Do not change DEFINE_FREE(device_node, ...).
+>   - Fix the driver pattern by making
+>     imx8qxp_pxl2dpi_get_available_ep_from_port() return an int and
+>     pass the endpoint via an output argument.
+>   - Update both callers so __free(device_node) never holds ERR_PTR().
 > 
-> Fixes: 35e1c9163e02 ("coresight: ete: Add support for ETE tracing")
-> Signed-off-by: James Clark <james.clark@linaro.org>
+> v2:
+>   - Fix DEFINE_FREE(device_node, ...) directly.
+> 
+>  drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c | 54 ++++++++++----------
+>  1 file changed, 26 insertions(+), 28 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c b/drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c
+> index 441fd32dc91c..881ebb811eb3 100644
+> --- a/drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c
+> +++ b/drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c
+> @@ -222,52 +222,52 @@ static const struct drm_bridge_funcs imx8qxp_pxl2dpi_bridge_funcs = {
+>  			imx8qxp_pxl2dpi_bridge_atomic_get_output_bus_fmts,
+>  };
+>  
+> -static struct device_node *
+> +static int
+>  imx8qxp_pxl2dpi_get_available_ep_from_port(struct imx8qxp_pxl2dpi *p2d,
+> -					   u32 port_id)
+> +					   u32 port_id,
+> +					   struct device_node **ep)
+>  {
+> -	struct device_node *port, *ep;
+> +	struct device_node *port __free(device_node) =
 
-Reviewed-by: Leo Yan <leo.yan@arm.com>
+Can you provide a minimal fix for stable tree by not using the cleanup
+action?  You can add the cleanup action with follow-up patch(es).
+
+> +		of_graph_get_port_by_id(p2d->dev->of_node, port_id);
+>  	int ep_cnt;
+>  
+> -	port = of_graph_get_port_by_id(p2d->dev->of_node, port_id);
+> +	*ep = NULL;
+>  	if (!port) {
+>  		DRM_DEV_ERROR(p2d->dev, "failed to get port@%u\n", port_id);
+> -		return ERR_PTR(-ENODEV);
+> +		return -ENODEV;
+>  	}
+>  
+>  	ep_cnt = of_get_available_child_count(port);
+>  	if (ep_cnt == 0) {
+>  		DRM_DEV_ERROR(p2d->dev, "no available endpoints of port@%u\n",
+>  			      port_id);
+> -		ep = ERR_PTR(-ENODEV);
+> -		goto out;
+> +		return -ENODEV;
+>  	} else if (ep_cnt > 1) {
+>  		DRM_DEV_ERROR(p2d->dev,
+>  			      "invalid available endpoints of port@%u\n",
+>  			      port_id);
+> -		ep = ERR_PTR(-EINVAL);
+> -		goto out;
+> +		return -EINVAL;
+>  	}
+>  
+> -	ep = of_get_next_available_child(port, NULL);
+> -	if (!ep) {
+> +	*ep = of_get_next_available_child(port, NULL);
+> +	if (!*ep) {
+>  		DRM_DEV_ERROR(p2d->dev,
+>  			      "failed to get available endpoint of port@%u\n",
+>  			      port_id);
+> -		ep = ERR_PTR(-ENODEV);
+> -		goto out;
+> +		return -ENODEV;
+>  	}
+> -out:
+> -	of_node_put(port);
+> -	return ep;
+> +
+> +	return 0;
+>  }
+>  
+>  static int imx8qxp_pxl2dpi_find_next_bridge(struct imx8qxp_pxl2dpi *p2d)
+>  {
+> -	struct device_node *ep __free(device_node) =
+> -		imx8qxp_pxl2dpi_get_available_ep_from_port(p2d, 1);
+> -	if (IS_ERR(ep))
+> -		return PTR_ERR(ep);
+> +	struct device_node *ep __free(device_node) = NULL;
+
+Why do you need to initialize ep to NULL?
+
+> +	int ret;
+> +
+> +	ret = imx8qxp_pxl2dpi_get_available_ep_from_port(p2d, 1, &ep);
+> +	if (ret)
+> +		return ret;
+>  
+>  	struct device_node *remote __free(device_node) = of_graph_get_remote_port_parent(ep);
+>  	if (!remote || !of_device_is_available(remote)) {
+> @@ -287,26 +287,24 @@ static int imx8qxp_pxl2dpi_find_next_bridge(struct imx8qxp_pxl2dpi *p2d)
+>  
+>  static int imx8qxp_pxl2dpi_set_pixel_link_sel(struct imx8qxp_pxl2dpi *p2d)
+>  {
+> -	struct device_node *ep;
+> +	struct device_node *ep __free(device_node) = NULL;
+
+Same here:
+- Can you provide a minimal fix for stable tree?
+- Why do you need to initialize ep to NULL?
+
+>  	struct of_endpoint endpoint;
+>  	int ret;
+>  
+> -	ep = imx8qxp_pxl2dpi_get_available_ep_from_port(p2d, 0);
+> -	if (IS_ERR(ep))
+> -		return PTR_ERR(ep);
+> +	ret = imx8qxp_pxl2dpi_get_available_ep_from_port(p2d, 0, &ep);
+> +	if (ret)
+> +		return ret;
+>  
+>  	ret = of_graph_parse_endpoint(ep, &endpoint);
+>  	if (ret) {
+>  		DRM_DEV_ERROR(p2d->dev,
+>  			      "failed to parse endpoint of port@0: %d\n", ret);
+> -		goto out;
+> +		return ret;
+>  	}
+>  
+>  	p2d->pl_sel = endpoint.id;
+> -out:
+> -	of_node_put(ep);
+>  
+> -	return ret;
+> +	return 0;
+>  }
+>  
+>  static int imx8qxp_pxl2dpi_parse_dt_companion(struct imx8qxp_pxl2dpi *p2d)
+> -- 
+> 2.43.0
+> 
+
+-- 
+Regards,
+Liu Ying
 
