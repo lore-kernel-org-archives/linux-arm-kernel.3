@@ -4,74 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 446E4CD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 07:24:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96C63CD3424
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 07:26:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EQox7mEOA6byi618iF0K4rslL4WtYvo3VGaw+YwjEvk=; b=AEdjsN5tLOKXQTUzHC3ZHW2k7Z
-	yD5vOmM0eKfh2Zi882GxlY4C7nah3TI7N2oO4JNqtZCxIPLrmeRx1N/NjUoSMwgXh2g8QY+tiTAWD
-	dafV3cBB3VC7IsEwBSgRaase1Bi4uEdySWHVlxxdxNgA9zezh5t0hux+kTuSwtViKkApCyueGgTOG
-	hEJwSLVV7nZHmkHMD0ktMduA1Q4xz9G1yMSYfzj6O91w/HQZbu3f2BtpVdrld6voJ8VH2Ohm2U4cy
-	UeoH+u4p023Jb/VS5zF4T/8CCS4s0I8XB9193AjDAqSLv8j4GWSrqVeQ1kcEzDCKMGmJ+Mxt5BPUg
-	wjisKs1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=WTTC4eWS6xsX1WabsoEMcJQB6BgPKpGPc6CsKIqvis8=; b=2QjQfcorF3T4fv
+	C7sbubTUsB1lUSphqDWbgvHshK9H/3GJvlFyBxVMoLLDO0GH4V2CSndKlfl4+XS9PmvaLzU0GF9xg
+	1vgNVXDtJCXcKnk2vUJtSyBfPeoJGxu7VhKidReL+VtlewtjFVcjrHvlNGalNQP4ycG66R8GvpluF
+	uKF6NJwyxpAro9tIOQpQObT3tFtVrZGZoBgRIAMQQ+0TwafLBc9BIsGUR5G5IMb58ZT9MAiAYhQap
+	pYeOOBBmdNhquLjmHq8QtWPhTe33pxGHfX7tgeesy8KN0hluIffk0RxJAYdjbhjGVNQyo6mGOI95W
+	MVk4TjdNz4wvpZoSUxiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKWc5-000000000ve-0Aia;
-	Wed, 06 May 2026 07:24:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKWc3-000000000v1-2DrQ
+	id 1wKWe5-000000001DL-1PsB;
+	Wed, 06 May 2026 07:26:13 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKWe2-000000001Ci-2Xfl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 07:24:07 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B53291A9A;
-	Wed,  6 May 2026 00:23:59 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 225EC3F7B4;
-	Wed,  6 May 2026 00:24:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778052245; bh=josdpP8sJBysSQkrR9OfpU04GPGaVe3zhd6zCs8tfXc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=d3PnhMugaDC4c4i+pjuX1jwFImk+ltiIhwM/DubcrBScXBfKVAaSLftveyiVp0fDL
-	 OsntxqPiAxHGh3bVKUbb2ea4osStjjJXWIO6dAVsOXmYwkirhLkYeMgE6vwI4sl7/o
-	 JAkVJiRZKkC5x/KN1ySRKGqpN4KLpZze02Q3J6Bg=
-Date: Wed, 6 May 2026 08:23:59 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Mimi Zohar <zohar@linux.ibm.com>
-Cc: David Safford <david.safford@gmail.com>,
-	Jonathan McDowell <noodles@earth.li>,
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-integrity@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
-	roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
-	eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
-	sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
-	sebastianene@google.com
-Subject: Re: [PATCH] ima: debugging late_initcall_sync measurements
-Message-ID: <afrsj6ucNMLuQDA4@e129823.arm.com>
-References: <cover.1777036497.git.noodles@meta.com>
- <7734099f5e7fda5480bca016a9e6707983325fbd.camel@linux.ibm.com>
- <afMlgstqahnZg68h@e129823.arm.com>
- <9f188536f09a2db30877d6bfbb84aeaf2565cccf.camel@linux.ibm.com>
- <CAGWfHUW+AX0Hpuw5Vr5iTSaJKQJ+O_4nWWmU1UR8Z_3XFctHZg@mail.gmail.com>
- <202f90682fe47bb5fb9b08f8678ae00981b5290b.camel@linux.ibm.com>
- <201b9172ac47c6766443c1f2343cab3548f33c29.camel@linux.ibm.com>
- <afrXmRiq7XvSe6yN@e129823.arm.com>
+	Wed, 06 May 2026 07:26:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1778052370; x=1809588370;
+  h=from:subject:date:message-id:mime-version:
+   content-transfer-encoding:to:cc;
+  bh=FUgqcwlqHZvuXQFkTp2cH0PZJLSFbwKOjopx/wLUl0s=;
+  b=NtNMlU2sinpy01vl6J/BDjN+bI3XtgLdy8e9KE8FVTF7kfEUHkQUrnAz
+   6GF4pkSXrK3lZOT6FCHyEEWeNzRyDSK6tfKNFHewzhJF03J5tRtiBNSJd
+   aK4FBzmdisCqjesacRm+WQCSp9QtokKv6PGSZAKdqRfseuSmZYjeRACOw
+   xxE208E8o6D4oruIzkf9TdbEJWguLaSX/Q8zQUYN2FIDMVn+esPFRp+Hn
+   S5OcNG293O5ylpndOs2t7xh/FhJusL0Z2oxS/lax0EkkOm1+PbpxQbmno
+   aX4+rZgjeu7GN2BkyxQr6r11khfi8jA4QvFnRO0YdCjpYDiVDUhcqNsOK
+   g==;
+X-CSE-ConnectionGUID: mdJjxWYtRtGSZSmgn51qzA==
+X-CSE-MsgGUID: wDek4DCXQ9qsBUc39xrVEQ==
+X-IronPort-AV: E=Sophos;i="6.23,219,1770620400"; 
+   d="scan'208";a="57515437"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 May 2026 00:26:08 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.37; Wed, 6 May 2026 00:26:08 -0700
+Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Wed, 6 May 2026 00:26:04 -0700
+From: Daniel Machon <daniel.machon@microchip.com>
+Subject: [PATCH net v2 0/4] net: sparx5: misc fixes for sparx5 and lan969x
+Date: Wed, 6 May 2026 09:25:35 +0200
+Message-ID: <20260506-misc-fixes-sparx5-lan969x-v2-0-fb236aa96908@microchip.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <afrXmRiq7XvSe6yN@e129823.arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAO/s+mkC/31OSw6DIBC9ipl1p0EUrF31Ho0LpFgnqUAYY2yMd
+ y/hAF2+/zuAXSLHcK8OSG4jpuAzkJcK7Gz82yG9MgYppBatvOFCbHGi3TFyNGlX+DG+1/2Oo5W
+ 9ro3qxDRCzsfkii/Hn+DdCkMmZ+I1pG/Z2+oilWol2j/VW40CdT7QCD2qrm0eC9kU7EzxasMCw
+ 3meP+2h4lPLAAAA
+X-Change-ID: 20260428-misc-fixes-sparx5-lan969x-bc2961a570fb
+To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Steen Hegelund
+	<Steen.Hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>, "Sebastian
+ Andrzej Siewior" <bigeasy@linutronix.de>, Clark Williams
+	<clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, Bjarni Jonasson
+	<bjarni.jonasson@microchip.com>, Lars Povlsen <lars.povlsen@microchip.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>, <kees@kernel.org>
+CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, Steen Hegelund
+	<steen.hegelund@microchip.com>, <linux-rt-devel@lists.linux.dev>, Andrew Lunn
+	<andrew@lunn.ch>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_002407_766401_91C31D15 
-X-CRM114-Status: GOOD (  29.38  )
+X-CRM114-CacheID: sfid-20260506_002611_818364_0A27F4F8 
+X-CRM114-Status: UNSURE (   9.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,99 +97,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > On Sun, 2026-05-03 at 07:36 -0400, Mimi Zohar wrote:
-> > > On Fri, 2026-05-01 at 12:52 -0400, David Safford wrote:
-> > > > On Thu, Apr 30, 2026 at 5:43 PM Mimi Zohar <zohar@linux.ibm.com> wrote:
-> > > > > 
-> > > > > On Thu, 2026-04-30 at 10:48 +0100, Yeoreum Yun wrote:
-> > > > > > With above change I confirmed there is no meaurement log
-> > > > > > between boot_aggregate and boot_aggregate_late except "kernel_version"
-> > > > > > But this is ignorable since this UTS measurement is done in
-> > > > > > "ima_init_core() (old: ima_init())" and it is part of ima initialisation.
-> > > > > > 
-> > > > > > 1. ima_policy=tcb
-> > > > > > 
-> > > > > >   # cat /sys/kernel/security/ima/ascii_runtime_measurements
-> > > > > >   10 0adefe762c149c7cec19da62f0da1297fcfbffff ima-ng sha256:0000000000000000000000000000000000000000000000000000000000000000 boot_aggregate
-> > > > > >   10 4e5d73ebadfd8f850cb93ce4de755ba148a9a7d5 ima-ng sha256:0000000000000000000000000000000000000000000000000000000000000000 boot_aggregate_late
-> > > > > >   10 7c23cc970eceec906f7a41bc2fbde770d7092209 ima-ng sha256:72ade6ae3d35cfe5ede7a77b1c0ed1d1782a899445fdcb219c0e994a084a70d5 /bin/busybox
-> > > > snip
-> > > > > > 
-> > > > > > 2. ima_policy=critical_data
-> > > > > > 
-> > > > > >   # cat /sys/kernel/security/ima/ascii_runtime_measurements
-> > > > > >   10 0adefe762c149c7cec19da62f0da1297fcfbffff ima-ng sha256:0000000000000000000000000000000000000000000000000000000000000000 boot_aggregate
-> > > > > >   10 49ab61dd97ea2f759edcb6c6a3387ac67f0aa576 ima-buf sha256:0c907aab3261194f16b0c2a422a82f145bc9b9ecb8fdb633fa43e3e5379f0af2 kernel_version 372e312e302d7263312b // Ignorable since it's generated by ima_init(_core)().
-> > > > > >   10 4e5d73ebadfd8f850cb93ce4de755ba148a9a7d5 ima-ng sha256:0000000000000000000000000000000000000000000000000000000000000000 boot_aggregate_late
-> > > > > > 
-> > > > > > Therefore, init_ima() could move into late_initcall_sync like v1 did:
-> > > > > >   - https://lore.kernel.org/all/20260417175759.3191279-2-yeoreum.yun@arm.com/
-> > > > > 
-> > > > > Thanks, Yeoreum.  It's a bit premature to claim it's "safe" to move the
-> > > > > initcall.  Hopefully others will respond.
-> > > > > 
-> > > > > Mimi
-> > > > 
-> > > > I have also run with this patch on a number of bare metal and virtual machines,
-> > > > running everything from default Fedora 44 to a version with everything turned on
-> > > > (uefi secure boot, UKI with sdboot stub measurements, IMA measurement
-> > > > and appraisal enabled,
-> > > > all systemd measurements on, and systemd using the TPM for root
-> > > > partition decryption.)
-> > > > I too see only the kernel_version event between the normal and late
-> > > > calls, if ima_policy=critical_data.
-> > > 
-> > > Thanks, Dave!  Were all the systems you tested x86_64?  The next step would be
-> > > to test on different arch's (e.g. Z, Power).
-> > 
-> > On both Z and PowerVM, there are ~30 measurements between boot_aggregate and
-> > boot_aggregate_late.  For example, on PowerVM:
-> > 
-> > # grep -n boot_aggregate
-> > /sys/kernel/security/integrity/ima/ascii_runtime_measurements
-> > 
-> > 1:10 f60a05d7354fb34aabc02965216abd3428ea52bb ima-sig
-> > sha256:9887dd089ee19a6517bca10580b02c1bb9aa6cd86c157b6ead8a1c0403f348d5
-> > boot_aggregate 
-> > 31:10 e2592b0d61da6300d3db447b143897a9792231ea ima-sig
-> > sha256:9887dd089ee19a6517bca10580b02c1bb9aa6cd86c157b6ead8a1c0403f348d5
-> > boot_aggregate_late
-> > 
-> > It would be interesting to the results from a Raspberry Pi 5 as well,
-> > with/without a TPM.
-> 
-> Honestly, I find this result hard to accept.
-> 
-> This effectively means that there is code invoking IMA measurement during late_initcall().
-> It also implies that if, in the future, a late_initcall is added that performs
-> an IMA measurement before IMA initialization has occurred accoding to order by linker,
-> that measurement could be missed.
-> 
-> Could you please check how the index (1, 31) was added to either
-> ima_template_entry or ima_queue_entry to produce this result?
+This series fixes various issues in the sparx5 driver, which also
+serves lan969x.
 
-And since most IMA measurements occur during module, file, or bprm operations,
-I’m really curious about where such operations take place
-before the init process is loaded, since init is started only after all
-initcalls have completed.
+Details are in the individual commit descriptions.
 
-Personally, I find it hard to believe that this kind of critical data
-measurement comes from dm or SELinux, as those typically operate via
-ioctl or load policies after userspace becomes available.
+Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
+---
+Changes in v2:
+- Rework patch #2 to use ndo_set_rx_mode_async (Jakub)
+- Link to v1: https://lore.kernel.org/r/20260504-misc-fixes-sparx5-lan969x-v1-0-6604306b5743@microchip.com
 
-If you don’t mind, could you share your test code for the index,
-as well as some stack traces? That would help me understand
-where these measurements are coming from.
+---
+Daniel Machon (4):
+      net: sparx5: defer VCAP debugfs creation until after netdev registration
+      net: sparx5: fix sleep in atomic context in MAC table access
+      net: sparx5: fix wrong chip ids for TSN SKUs
+      net: sparx5: configure serdes for 1000BASE-X in sparx5_port_init()
 
-Thanks!
+ drivers/net/ethernet/microchip/sparx5/Makefile     |  3 ++-
+ .../net/ethernet/microchip/sparx5/sparx5_debugfs.c | 26 ++++++++++++++++++++++
+ .../net/ethernet/microchip/sparx5/sparx5_main.c    |  4 ++--
+ .../net/ethernet/microchip/sparx5/sparx5_main.h    | 17 +++++++++-----
+ .../net/ethernet/microchip/sparx5/sparx5_netdev.c  |  8 ++++---
+ .../net/ethernet/microchip/sparx5/sparx5_port.c    |  3 ++-
+ .../ethernet/microchip/sparx5/sparx5_vcap_impl.c   |  6 -----
+ 7 files changed, 49 insertions(+), 18 deletions(-)
+---
+base-commit: 98878ed91b68a3150126fccef125ee7b1bb86ab2
+change-id: 20260428-misc-fixes-sparx5-lan969x-bc2961a570fb
 
-> 
-> -- 
-> Sincerely,
-> Yeoreum Yun
-> 
-
+Best regards,
 -- 
-Sincerely,
-Yeoreum Yun
+Daniel Machon <daniel.machon@microchip.com>
+
 
