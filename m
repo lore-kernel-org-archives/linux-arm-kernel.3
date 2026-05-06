@@ -4,80 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0CDFCD3436
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 10:50:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EF3ECD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 10:51:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uL9sZui6Tc+jbSJjSfAU4vVKT8bOv/CLYiR/2+rWG8M=; b=EhomkmWjex64ThUlU2BB2UAEBs
-	4LYXkJoFH7UEmMWGITZkms/WabxcRcYLlTvfJ+QrIuVKi4MiBKz70eU5qXy2cDko1Qwo7agwyObLU
-	v1SYxS6fe/E8uUNu31MWU+AYpardzMHWT4v9SlcbcRDtwwk3p0nkyCs+ISzPmrMTMhLsvmh5Ipo7P
-	4Zm3FIEmeBG2UJg5ZqtTomvvXZIS2NArl8sLxszaULyYy6GihWDU8OBxN42cia4owSgUbO8jHsRku
-	+DoaFw5VXi5gMnrnh1DfO8Lj0FC5TkPaoWI/LZRaLdl9ACg0l7wBnNCe2Ifa42qKtlKa7Pfc6cH8F
-	pVTYPGXw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=G3+Pw4BOMf+A6M0ux2tYa+aIcpRxduR/OGHZg/4z2U4=; b=1ESmqDbjuyoE9fHSPjRBZCoqrc
+	bpcvG0OfDoKj4tx38/0OovuY9T5iq1kswz7jCUllh4D4EBe9FsJegfH9rzGrg1cW0QHR8uWA2D7GZ
+	qG2j5WHDa+5KGzwfdlD/xC9G7VEVjkzMJ6hkzfprNbe3Mc5S/+t9lOqYIqnLYIstbozFYWWObNz8s
+	D4AxH3tPYYExzi2aeLfCRA6+Dwuo66SA9gOLQiLwNBR8N4eWqm0IdkO/MLjzdgIG4VcilaqtlMYNR
+	kWzSgu1ksnAERTp6eviK58JQR+w3CgBqA73+w4GzmzdNB2MBib5qWVFdk8XuuhMVKcJBBI3v6ydGQ
+	/8wKCucw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKZpj-00000000XWl-2Yx7;
-	Wed, 06 May 2026 10:50:27 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKZpi-00000000XW3-0uhL;
-	Wed, 06 May 2026 10:50:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1778064622;
-	bh=Av+OJ79VSNTfsD5HTF058Kp/sSgGxzbHFK44LrzECYk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=DIHE5bizmTy6YdKbGpf4m7cazO7rEE1F6QWeN3PnMUwjQ5EESwvZapFqbV6GIIoIg
-	 0GEcvbV9DhIyWXfMFJ7jgWd9RVNBlwQDXdkQYCB82YalyzZjBPzsLR6UyvEbtZcBdO
-	 32LCDdqvpLJGV2y0SyBjxQ39w70AnmTHEc/tjXm7RYr16ONIEi5bmKXRTGrZTK+XPj
-	 IFbZn9yudWLUZLZivVCiWMpjqICec7UOt70meUd+htsoImVNkSGWFucpETNzAEwyJS
-	 N1HUBCY1zlbxnRlBZkBErtLaiy0fEm4fnBSkHx+uAHN99T/r3xNCHJ9yuz0+DjagVw
-	 wZ6jc1/MrP+PA==
-Received: from fedora (unknown [100.64.0.11])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: bbrezillon)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id AFF6017E1305;
-	Wed,  6 May 2026 12:50:21 +0200 (CEST)
-Date: Wed, 6 May 2026 12:50:15 +0200
-From: Boris Brezillon <boris.brezillon@collabora.com>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Ketil Johnsen <ketil.johnsen@arm.com>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
- <tzimmermann@suse.de>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
- <skhan@linuxfoundation.org>, Sumit Semwal <sumit.semwal@linaro.org>,
- Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey
- <Brian.Starkey@arm.com>, John Stultz <jstultz@google.com>, "T.J. Mercier"
- <tjmercier@google.com>, Christian =?UTF-8?B?S8O2bmln?=
- <christian.koenig@amd.com>, Steven Price <steven.price@arm.com>, Liviu
- Dudau <liviu.dudau@arm.com>, Daniel Almeida <daniel.almeida@collabora.com>,
- Alice Ryhl <aliceryhl@google.com>, Matthias Brugger
- <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, dri-devel@lists.freedesktop.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- Florent Tomasin <florent.tomasin@arm.com>
-Subject: Re: [PATCH 4/8] drm/panthor: Add support for protected memory
- allocation in panthor
-Message-ID: <20260506125015.0108ef44@fedora>
-In-Reply-To: <20260506-energetic-azure-pig-2b6ec4@houat>
-References: <20260505140516.1372388-1-ketil.johnsen@arm.com>
-	<20260505140516.1372388-5-ketil.johnsen@arm.com>
-	<20260506-energetic-azure-pig-2b6ec4@houat>
-Organization: Collabora
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
+	id 1wKZqU-00000000Xgz-3dCy;
+	Wed, 06 May 2026 10:51:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKZqT-00000000XfI-1Mbw
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 06 May 2026 10:51:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C25DF3319;
+	Wed,  6 May 2026 03:51:04 -0700 (PDT)
+Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8425B3F836;
+	Wed,  6 May 2026 03:51:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778064670; bh=mLq4TYQ+p660O5valtgnJ3LrPuMxPXfWPFxW8jxq8TM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=HhbmJIyP9sJImfrgGpIg9HwAvlfR0pBsXr5v0luiixEE4kRlqA3UwFXBPEXZcJhfF
+	 Zj9jsusPv3Ts5AACq5YHPuxlUPuCA6HmU6NsRqFWERiU2mpZw5oUQZhEcLRx1xSiYC
+	 p7+CE3QvEgODB1jgUMQuj4OCtScayA3nY18WMotQ=
+From: Alexandru Elisei <alexandru.elisei@arm.com>
+To: maz@kernel.org,
+	oupton@kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Cc: tabba@google.com,
+	David.Hildenbrand@arm.com
+Subject: [RFC PATCH] KVM: arm64: Align KVM_EXIT_MEMORY_FAULT error codes with documentation
+Date: Wed,  6 May 2026 11:50:53 +0100
+Message-ID: <20260506105053.107404-1-alexandru.elisei@arm.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_035026_442526_E50625E5 
-X-CRM114-Status: GOOD (  33.92  )
+X-CRM114-CacheID: sfid-20260506_035113_439498_CA9CF463 
+X-CRM114-Status: GOOD (  18.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,54 +72,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 6 May 2026 12:08:24 +0200
-Maxime Ripard <mripard@kernel.org> wrote:
+The documentation for KVM_EXIT_MEMORY_FAULT states:
 
-> Hi,
-> 
-> On Tue, May 05, 2026 at 04:05:10PM +0200, Ketil Johnsen wrote:
-> > From: Florent Tomasin <florent.tomasin@arm.com>
-> > 
-> > This patch allows Panthor to allocate buffer objects from a
-> > protected heap. The Panthor driver should be seen as a consumer
-> > of the heap and not an exporter.
-> > 
-> > Protected memory buffers needed by the Panthor driver:
-> > - On CSF FW load, the Panthor driver must allocate a protected
-> >   buffer object to hold data to use by the FW when in protected
-> >   mode. This protected buffer object is owned by the device
-> >   and does not belong to a process.
-> > - On CSG creation, the Panthor driver must allocate a protected
-> >   suspend buffer object for the FW to store data when suspending
-> >   the CSG while in protected mode. The kernel owns this allocation
-> >   and does not allow user space mapping. The format of the data
-> >   in this buffer is only known by the FW and does not need to be
-> >   shared with other entities.
-> > 
-> > The driver will retrieve the protected heap using the name of the
-> > heap provided to the driver as module parameter.  
-> 
-> I know it's what dma_heap_find asks for, but I wonder if it wouldn't be
-> better in the device tree and lookup through the device node? heaps are
-> going to have a node anyway, right?
+'Note!  KVM_EXIT_MEMORY_FAULT is unique among all KVM exit reasons in that
+it accompanies a return code of '-1', not '0'!  errno will always be set to
+EFAULT or EHWPOISON when KVM exits with KVM_EXIT_MEMORY_FAULT, userspace
+should assume kvm_run.exit_reason is stale/undefined for all other error
+numbers'.
 
-I'm not too sure. Take the PROTMEM (name="protected,xxxx") dma_heaps
-instantiated by optee for instance, I don't think the originating
-tee_device comes from a device node, nor is the underlying heap
-described as a device node. The reserved memory pool this protected heap
-comes from is most likely defined somewhere as reserved memory in the
-DT, but there's nothing to correlate this range of reserved mem to some
-sub-range that the TEE implementation is carving out to provide
-protected memory.
+where a return code of '-1' is special because according to man 2 ioctl:
 
-> 
-> This would allow you to have a default that works and not mess to much
-> with the kernel parameters that aren't always easy to change for
-> end-users.
+'On error, -1 is returned, and errno is set to indicate the error'.
 
-I guess we can have a default list of heaps that we know provide
-protected memory for GPU rendering if that helps. Right now this list
-would contain only "protected,trusted-ui" :D. The other option would be
-to make this list a panthor Kconfig option and not expose it as a module
-param.
+Putting the two together means that the ioctl KVM_RUN must 1) complete with
+an error and 2) that error must must be either EFAULT or EHWPOISON for
+userspace to detect a KVM_EXIT_MEMORY_FAULT VCPU exit.
+
+On a kvm_gmem_get_pfn() error, gmem_abort() prepares the
+KVM_EXIT_MEMORY_FAULT exit_reason and propagates the error back to
+userspace. kvm_gmem_get_pfn() does not massage the error code, and if the
+error is not -EFAULT or -EHWPOISON, userspace implementing the ABI fails to
+detect the memory fault exit.
+
+Things get more complicated with kvm_handle_vncr_abort().
+kvm_translate_vncr(), similar to gmem_abort(), prepares the VCPU to exit
+with KVM_EXIT_MEMORY_FAULT and propagates the error code from
+kvm_gmem_get_pfn(). Then kvm_handle_vncr_abort() does a number of things
+based on this specific error code:
+
+- If it's -EAGAIN, KVM resumes the guest. Note that KVM, when handling a
+  *host* fault on a guest_memfd backed VMA, retries the fault handling if
+  kvm_gmem_get_pfn() returns -EAGAIN.
+- If it's -ENOMEM, -EFAULT, -EIO or -EHWPOISON, it returns to userspace
+  with 0 (success), meaning that, according to the documentation, userspace
+  will not detect the memory fault exit.
+- If it's -EINVAL, -ENOENT, -EACCESS, KVM injects a synchronous exception
+  back to the guest.
+- If it's -EPERM, KVM injects a permission fault.
+- If the error code is something else, KVM resumes the guest.
+
+Bring a measure of order to all of this by implementing the documented
+behaviour. -EAGAIN is treated as an error, similar to the
+__kvm_faultin_pfn() behaviour for an anonymous VMA.
+
+Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
+---
+
+This has the potential to break userspace, hence the RFC tag.
+
+I went back and forth on the fix. I cannot test any of this and I have no
+context around the usage of guest_memfd. In the end I settled on strictly
+implementing the documented behaviour.
+
+Really not sure what userspace is supposed to do to fixup the fault if
+kvm_gmem_get_pfn() returns -EAGAIN either.
+
+Someone with more knowledge please chime in!
+
+ arch/arm64/kvm/mmu.c    |  8 +++++++-
+ arch/arm64/kvm/nested.c | 24 +++++++++++++-----------
+ 2 files changed, 20 insertions(+), 12 deletions(-)
+
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index d089c107d9b7..ea6c96818fc6 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1610,7 +1610,13 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+ 	if (ret) {
+ 		kvm_prepare_memory_fault_exit(s2fd->vcpu, s2fd->fault_ipa, PAGE_SIZE,
+ 					      write_fault, exec_fault, false);
+-		return ret;
++		switch (ret) {
++		case -EFAULT:
++		case -EHWPOISON:
++			return ret;
++		default:
++			return -EFAULT;
++		}
+ 	}
+ 
+ 	if (!(s2fd->memslot->flags & KVM_MEM_READONLY))
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index 883b6c1008fb..ef426c94daff 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -1320,8 +1320,14 @@ static int kvm_translate_vncr(struct kvm_vcpu *vcpu, bool *is_gmem)
+ 		ret = kvm_gmem_get_pfn(vcpu->kvm, memslot, gfn, &pfn, &page, NULL);
+ 		if (ret) {
+ 			kvm_prepare_memory_fault_exit(vcpu, vt->wr.pa, PAGE_SIZE,
+-					      write_fault, false, false);
+-			return ret;
++						      write_fault, false, false);
++			switch (ret) {
++			case -EFAULT:
++			case -EHWPOISON:
++				return ret;
++			default:
++				return -EFAULT;
++			}
+ 		}
+ 	}
+ 
+@@ -1401,23 +1407,19 @@ int kvm_handle_vncr_abort(struct kvm_vcpu *vcpu)
+ 
+ 		switch (ret) {
+ 		case -EAGAIN:
++		case -ENOMEM:
+ 			/* Let's try again... */
+ 			break;
+-		case -ENOMEM:
++		case -EFAULT:
++		case -EHWPOISON:
+ 			/*
+ 			 * For guest_memfd, this indicates that it failed to
+ 			 * create a folio to back the memory. Inform userspace.
+ 			 */
+ 			if (is_gmem)
+-				return 0;
+-			/* Otherwise, let's try again... */
+-			break;
+-		case -EFAULT:
+-		case -EIO:
+-		case -EHWPOISON:
+-			if (is_gmem)
+-				return 0;
++				return ret;
+ 			fallthrough;
++		case -EIO:
+ 		case -EINVAL:
+ 		case -ENOENT:
+ 		case -EACCES:
+
+base-commit: 7fd2df204f342fc17d1a0bfcd474b24232fb0f32
+-- 
+2.54.0
+
 
