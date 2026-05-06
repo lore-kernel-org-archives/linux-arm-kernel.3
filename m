@@ -4,96 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A509CD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 12:41:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F4C9CD3436
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 12:42:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0IlqU8VwEU2SI0FZdxgow47FUylG/UcOkwWktFbacV4=; b=SdUvQ9uQI9Z+s5RAevpl2PL1dt
-	1sUN6cI7uFc3UfzP6ow6fIDDMnq6v2bkmtRdZCdlp+VPFj7oNzmCObitFaCwGMEZSNAo2IR8RJgzz
-	6Nhpw0AF9Y0TygWefk5Zh56zMrBMtvHnMN7sjOOp2KkbxKEn885Izxb+SIpaViaw4B67SSkADa/nc
-	geO3+a3gthoRxefoReB8LacVgPFRtjh54RpU08mmOWPrkFIpnTbpw2lkbc7QZ1SO2AZZvw7cihYGx
-	ZkfW69jVEQ71JLVK849WNR5t7JAT7MlrshFLQRWSioDJTCsW6RpDYc41iKVPbRUuYmXoHu3ONyScT
-	4m9OHE3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RvGC3o+HXUBsO1osZIafgMiKf+lkJO3vUojNNgCQ4PQ=; b=ZZGyz2gKpz8lCm6YLEVlYbunf6
+	BHIgKwilCzoTjeB6LtRaGFZEkXpnxpZD/whbGusL8gPBZLa0IhsigzDuVjq56hYUSs2cwgFKNMfA9
+	vrXK9GLq+jWluPXVUHxXLmnrzqXWVnjvkeD3yZ7NR7HkrKqI2eDjnVprs9cf9gfC4mxN1oTUI1eLO
+	qKdZHx+Vl9mX/ykvchcAJ9czCbkxDc10mdWSqSrM+yJdXwqgV6KajG5zH1XqWSViowENdT3dKMstP
+	nBiymS5IzbB8d7G5GW1J/SeB8sQyekto1Ou1L6yejajxOdFih2oU+Sl2AQpJSwxI2L8+PXJpR/qjt
+	Az/QB41g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKbZE-00000000nIw-28uW;
-	Wed, 06 May 2026 12:41:32 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1wKabA-00000000eQB-4C4j;
+	Wed, 06 May 2026 11:39:29 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKbZD-00000000nII-1yLQ
+	id 1wKab7-00000000eND-0vfn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 12:41:31 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-835399c11e0so1672627b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 05:41:31 -0700 (PDT)
+	Wed, 06 May 2026 11:39:25 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-44a74032ff8so3547867f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 04:39:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778071290; x=1778676090; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=0IlqU8VwEU2SI0FZdxgow47FUylG/UcOkwWktFbacV4=;
-        b=IGkRlIxgJcXjDKF9PIj39WLjqZOhnEDrOODpF8EttkKO+VDKJWVnFlIWTM+VNPLSsO
-         BwlW5rxgmx6tnbL9pmJOUS0NH8XeSvqcBasHfnWUeQpIim0c0LNVdkokeMxc9tt/WyOX
-         jfQSkyo6eRIX0C6bSp1SjS+yJaH37EnKQDcH0tbRbAN8Pk5nJdXIfxY+NptVo8SE2XyR
-         h+9wlo6wkIurHcqadiZj11T6lFxaw706dHIqF50kwKNRi2Z7MH9ONGu89OWdH2mQ3uWd
-         RBruAUAPolcXZ3ph88olDBI6+XPYJWkMjj3jgw6x2EfT8CDjOXjlOJ5yvhbs0bGo8Zzr
-         dsHg==
+        d=linaro.org; s=google; t=1778067563; x=1778672363; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=RvGC3o+HXUBsO1osZIafgMiKf+lkJO3vUojNNgCQ4PQ=;
+        b=ZMqFuuxqFYl8CE/qUHRmujqLOcrNOWWZ+4IXyVF0QNuZDHC8LxLSRzXDUJhYzAkei5
+         6M66Kci2DudIBHEdo+DHUF0zLnlyYXVLYRPj3yH+cIuO18LLNfs04oHAqKiGUMu1hDi4
+         lxJSaiwicXNoQJTHzJPCkUCKgw1H6MDLVdOvXAHIlMDsngtU5lg80L4umi5o3EMAcchW
+         pgAIvnwiT0OsNcQNDtUqkMDLqFELPzcANyEo2gPlFgNinaQDb7s/a+9aXz/SaaWuHple
+         tRfatrzHy1jiFpuni/G+urCWMOu/eSWXel+Pn0Gp7mOd4q3mTisGZ+V0yzf3Hp0z+y2A
+         ENcQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778071290; x=1778676090;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0IlqU8VwEU2SI0FZdxgow47FUylG/UcOkwWktFbacV4=;
-        b=hvOhTxbIAPofoQCCX3xdSZSl4eYC1MfMlBZxMu64A0MA6iG/3NkoFIw0HSZ+Si4nSO
-         35UshgSE4wdnK4sXgWHLUbnsCMPoFQ/HxvfPYCN/cpGTwbA2ML5cyCFSXFpvq/kEnA3j
-         5+q9WkxJdEH5LxzV1jI0lkqdkHDDtznP8nti2UiNA8pG/xGXmbuLF2CWypcd8xeeDVGS
-         3CgJnVmiQ0ba0qOVwDIf22MJyzY2KVFXKCPfaq2gqHzZEfg1IFRPrZdHgnb2nGEewBnF
-         6HpaMA7R+ISL6WPwA+6sQWB0M8jqkxdeh+Ingt8uJTdR/rCor+TPUY/uCyOSzSv30pc1
-         8NtQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+jUueXVnbpdbmO+nyf75OJd1pclZEHUril+qN406G2cD1JZXB5XaOApf1eq5TFtxR8FszoXD9jMcU6oOg5P9MG@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywul16iNSdhRfKRw2Blh1hwqufan3E0nZlO9A9W+F/2XG+G2PLk
-	9X5d+R/nRT89+ifP5WHrPfz3BJizIa9hIoTJScpeEbz52iMXumlF0tA=
-X-Gm-Gg: AeBDiet7oYMsporf4IWGaFUUjRPoPvHa4xuSIc9ZqlQkF+/Fk4JE+fLKrJoLr1OImkI
-	b2cbKHQ9IDK6CsHkyh85L3Vhdw3Il/lhubuBaScs49M9X+UpXDjAzE6F+4QsilbGtLaW0oOA0aP
-	B9N5N9EjmOPQk8Se5oD6v1R3JBHTRaDFTGkmVRLoa4+ND5vGgxagqsqaaPpOELwakP6CUyK8kwd
-	Fk93r0JLiiV86s6Jh53x4/NL0nAa5yi8CQJ3k69JDHvhMv5LjrX6mdshgfg3R191caR5ug42m9i
-	66FF4C7qhFdrPWezvY9IapdEv/NoeSN+nnVmg7W2YWOsuzjj5PmCmipXROqZBv3xNjClFUlHbDO
-	/7VVP9xcqoVOl8XbtRCTOyXJL2FvErc+BQq1o/EADDKOxZN6m+MmmR+2YIxxAmKK5DjQz0dal0W
-	vZ+CByDlmxOBg72FVP2y/rMot24yLcf39rlIX6sphSlEOlKCJffRwDJwBxPyflZWMaHGO4IrwCZ
-	X1E+a4VLw==
-X-Received: by 2002:a05:6a00:4193:b0:781:2291:1045 with SMTP id d2e1a72fcca58-83a5b2d34damr3232862b3a.8.1778071290350;
-        Wed, 06 May 2026 05:41:30 -0700 (PDT)
-Received: from localhost.localdomain ([1.226.165.54])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-839679c7ba9sm5494056b3a.35.2026.05.06.05.41.27
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 06 May 2026 05:41:29 -0700 (PDT)
-From: Myeonghun Pak <mhun512@gmail.com>
-To: Maxime Ripard <mripard@kernel.org>,
-	Paul Kocialkowski <paulk@sys-base.io>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
-Cc: Myeonghun Pak <mhun512@gmail.com>,
-	linux-media@vger.kernel.org,
-	linux-staging@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Ijae Kim <ae878000@gmail.com>
-Subject: [PATCH v3] media: cedrus: clean up media device on probe failure
-Date: Wed,  6 May 2026 21:41:16 +0900
-Message-ID: <20260506124124.27802-1-mhun512@gmail.com>
-X-Mailer: git-send-email 2.47.1
+        d=1e100.net; s=20251104; t=1778067563; x=1778672363;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=RvGC3o+HXUBsO1osZIafgMiKf+lkJO3vUojNNgCQ4PQ=;
+        b=ZB3UJaZ2mdF5U0qimf1t68C1FFVkqRspGFcXbkApVR3klCsV9Xs/dvh0+TlwTGCLDN
+         JkEyXAIPj1V3w+SpM0pUmEF159g+eNxDinBN2jERnc1gAhWquYsqRoapasT/PO2OFBZF
+         Xzfvdym8DiLIX2puJ/g5KGnzexNNz3ZJDiUrGWujQ/A1B8ReAahhzFOQL6zm9PkiKz5o
+         KNc6ba3ZVy5pnYdDzrfX4lJE7C25sOpzV1UU0aGkIZ7NX6EIpfJrXPUwQheB5dbOdz/d
+         ScIuJvqqVlmpiE7CCj1NpSl24z05IbsA5yAgukku+9LugXhyFGfEarCQ/rQtBxUhC8j8
+         Qtfw==
+X-Forwarded-Encrypted: i=1; AFNElJ/x0mscHyZkh+/iNdSz2ZHztT5STCbOTA0SnpeMeCvVZGgNTKmQOgZGb9bpzw9ENfQPTJzC7TPIh7FfiELtdfEu@lists.infradead.org
+X-Gm-Message-State: AOJu0YyPj8AlGUKZma9AQj45yL0PramMP4UaoY0UAkYsbQYTPvHTnnCq
+	1hk7+4i0O4/ei65VtawPJ5O1wvkj1DHz5moHHySmW61Ngd+tZLiU1YOLVfOp4IER06w=
+X-Gm-Gg: AeBDievPQNkIfzkYSPvcfatFeLS5NI/euU0zIQyymSlgbPOnWScQWJPLNHb8Daz7MRB
+	0XgEfv0DQd1BspYsYKihBgiXB1BkXJ1E1PyKAno7Hiuvnty+XpgvPw29KLxlH1gva/662EPV4l9
+	3NLxHmVhE/GvVge5taiQqxf5m+bYjKYLY4aMMDSxWolm3KPpqRwYizCkm+nmqqLZOTThI7J2G2J
+	ZdO1hfF0TGMlsaMEA2uid1iJOocQpj5MTWRfPd3sJxzWnmr84lS7tw74XH3o+zAF+15NGOXRHKK
+	k1tvgLBaghCcWDX+kKu7vhSQXD+LRO6c6xIo9RpUR0MBkFW3+0ZyPV9qNxAM6tFYyvqXXigPFyS
+	csojdHV9qukMpECIf0tLCHLR2Mq77d8FRT+lzWlDyj8FzoVfpIrYcnquR5+2fWybGvivCGzNiTo
+	XEdRSWK/PrdLmNkmatFXrdMyFFDbwwjDxo2lfYwTIDzOMEj2yzmTw+DKeGqH5gKstOl+KXXA9nx
+	qshPjkpIbJrkalR0w==
+X-Received: by 2002:a5d:5d87:0:b0:43d:762e:76ba with SMTP id ffacd0b85a97d-4515b525abemr5169570f8f.17.1778067563093;
+        Wed, 06 May 2026 04:39:23 -0700 (PDT)
+Received: from ta2.c.googlers.com (17.83.155.104.bc.googleusercontent.com. [104.155.83.17])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4505238e6e0sm11852350f8f.6.2026.05.06.04.39.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 06 May 2026 04:39:22 -0700 (PDT)
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+Date: Wed, 06 May 2026 11:39:04 +0000
+Subject: [PATCH 2/6] firmware: samsung: acpm: Annotate rx_data->cmd with
+ __counted_by_ptr
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260506-acpm-tmu-helpers-v1-2-a9cd5daf8355@linaro.org>
+References: <20260506-acpm-tmu-helpers-v1-0-a9cd5daf8355@linaro.org>
+In-Reply-To: <20260506-acpm-tmu-helpers-v1-0-a9cd5daf8355@linaro.org>
+To: Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Lee Jones <lee@kernel.org>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Chanwoo Choi <cw00.choi@samsung.com>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
+ peter.griffin@linaro.org, andre.draszik@linaro.org, jyescas@google.com, 
+ kernel-team@android.com
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778067561; l=2479;
+ i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
+ bh=InPW5aIoFLfi7L5QYj+FWyGxWg+TtOroOI35/SgGMrQ=;
+ b=pubO52w85UBt/AD2Icw0FjZhzPE1/uxNCqZC7wE3gbz3G3T+DYAk/KG32A46kRsJt6nvTwNLa
+ uopL717hhx2AY4JcFM/7kgruUPkFO+YPujpA0lG1qTAm3QoXYbGW4Zg
+X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
+ pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_054131_511467_97797521 
-X-CRM114-Status: GOOD (  14.20  )
+X-CRM114-CacheID: sfid-20260506_043925_285557_07619B3A 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,54 +117,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-cedrus_probe() initializes the media device before registering the video
-device, the media controller, and the media device. If any of those later
-steps fails, probe returns without calling media_device_cleanup(), so the
-media device internals initialized by media_device_init() are left behind.
+Rename the `n_cmd` member of `struct acpm_rx_data` to `cmdcnt` to
+maintain consistent nomenclature across the driver (aligning with
+`txcnt`, `rxcnt`, and transfer helpers).
 
-Add a media-device cleanup label to the probe unwind path and route video
-registration failures through it as well.
+With the member renamed, annotate the dynamically allocated `cmd`
+pointer with the `__counted_by_ptr(cmdcnt)` macro to improve runtime
+bounds checking.
 
-Fixes: 50e761516f2b8c ("media: platform: Add Cedrus VPU decoder driver")
-Cc: stable@vger.kernel.org
-Reviewed-by: Paul Kocialkowski <paulk@sys-base.io>
-Co-developed-by: Ijae Kim <ae878000@gmail.com>
-Signed-off-by: Ijae Kim <ae878000@gmail.com>
-Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
+Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 ---
-Changes in v3:
-- Rename the media cleanup label to err_media.
-- Add Paul's Reviewed-by tag.
+ drivers/firmware/samsung/exynos-acpm.c | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
 
-Changes in v2:
-- Drop the now-unused err_m2m label.
-
- drivers/staging/media/sunxi/cedrus/cedrus.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/staging/media/sunxi/cedrus/cedrus.c b/drivers/staging/media/sunxi/cedrus/cedrus.c
-index 6600245dff..7cb1f110d6 100644
---- a/drivers/staging/media/sunxi/cedrus/cedrus.c
-+++ b/drivers/staging/media/sunxi/cedrus/cedrus.c
-@@ -507,7 +507,7 @@ static int cedrus_probe(struct platform_device *pdev)
- 	ret = video_register_device(vfd, VFL_TYPE_VIDEO, 0);
- 	if (ret) {
- 		v4l2_err(&dev->v4l2_dev, "Failed to register video device\n");
--		goto err_m2m;
-+		goto err_media;
- 	}
+diff --git a/drivers/firmware/samsung/exynos-acpm.c b/drivers/firmware/samsung/exynos-acpm.c
+index 88a06842753d..fac88c427d2a 100644
+--- a/drivers/firmware/samsung/exynos-acpm.c
++++ b/drivers/firmware/samsung/exynos-acpm.c
+@@ -105,14 +105,14 @@ struct acpm_queue {
+  * struct acpm_rx_data - RX queue data.
+  *
+  * @cmd:	pointer to where the data shall be saved.
+- * @n_cmd:	number of 32-bit commands.
++ * @cmdcnt:	allocated capacity of the @cmd buffer in 32-bit words.
+  * @rxcnt:	expected length of the response in 32-bit words.
+  * @completed:	flag indicating if the firmware response has been fully
+  *		processed.
+  */
+ struct acpm_rx_data {
+-	u32 *cmd;
+-	size_t n_cmd;
++	u32 *cmd __counted_by_ptr(cmdcnt);
++	size_t cmdcnt;
+ 	size_t rxcnt;
+ 	bool completed;
+ };
+@@ -432,7 +432,7 @@ static int acpm_prepare_xfer(struct acpm_chan *achan,
+ 	/* Clear data for upcoming responses */
+ 	rx_data = &achan->rx_data[bit];
+ 	rx_data->completed = false;
+-	memset(rx_data->cmd, 0, sizeof(*rx_data->cmd) * rx_data->n_cmd);
++	memset(rx_data->cmd, 0, sizeof(*rx_data->cmd) * rx_data->cmdcnt);
+ 	/* zero means no response expected */
+ 	rx_data->rxcnt = xfer->rxcnt;
  
- 	v4l2_info(&dev->v4l2_dev,
-@@ -533,7 +533,8 @@ static int cedrus_probe(struct platform_device *pdev)
- 	v4l2_m2m_unregister_media_controller(dev->m2m_dev);
- err_video:
- 	video_unregister_device(&dev->vfd);
--err_m2m:
-+err_media:
-+	media_device_cleanup(&dev->mdev);
- 	v4l2_m2m_release(dev->m2m_dev);
- err_v4l2:
- 	v4l2_device_unregister(&dev->v4l2_dev);
+@@ -584,19 +584,19 @@ static int acpm_achan_alloc_cmds(struct acpm_chan *achan)
+ {
+ 	struct device *dev = achan->acpm->dev;
+ 	struct acpm_rx_data *rx_data;
+-	size_t cmd_size, n_cmd;
++	size_t cmd_size, cmdcnt;
+ 	int i;
+ 
+ 	if (achan->mlen == 0)
+ 		return 0;
+ 
+ 	cmd_size = sizeof(*(achan->rx_data[0].cmd));
+-	n_cmd = DIV_ROUND_UP_ULL(achan->mlen, cmd_size);
++	cmdcnt = DIV_ROUND_UP_ULL(achan->mlen, cmd_size);
+ 
+ 	for (i = 0; i < ACPM_SEQNUM_MAX; i++) {
+ 		rx_data = &achan->rx_data[i];
+-		rx_data->n_cmd = n_cmd;
+-		rx_data->cmd = devm_kcalloc(dev, n_cmd, cmd_size, GFP_KERNEL);
++		rx_data->cmdcnt = cmdcnt;
++		rx_data->cmd = devm_kcalloc(dev, cmdcnt, cmd_size, GFP_KERNEL);
+ 		if (!rx_data->cmd)
+ 			return -ENOMEM;
+ 	}
+
 -- 
-2.47.1
+2.54.0.545.g6539524ca2-goog
+
 
