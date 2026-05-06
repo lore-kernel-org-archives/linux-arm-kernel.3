@@ -4,85 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53CFCCD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 15:04:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DACBCCD343B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 15:05:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B3ABkZmo+Tys72clJH32VJZ0LIeUJAKzD6QrLAYNZdk=; b=M3OthUu8kSYZT4OKvD+yyMzWbb
-	H8t/aV0rEEA+Y5EpGHAHpQnDqTy5KQ5bYrsr+n5YoEbqRiuOIcpRz/q4Fn3sKkpHw55IeZ7NUJMaC
-	VEyorsAglwKUR/sfaDof2Ij/bJ9JMLhnBLhOQKrj6zkkJLJ65HabYRSEr1DXhf0ZIlUZvpXurlNNn
-	Aexh2xIvK26Ucr2XUhxkCJwbd4tcxi3nquyq0FUH6fmFPAjTMQC/zc5xY7U02Gq23Splnrnt7tBqt
-	fzI95i4eeTcvjLmCyZ2J33RNA4NKk98e4p71ibuqt+Ds50vUEmRVBI3PcK9G6Jb90b4krQwMQYLs1
-	DCm4QWHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hrGI2/2uUgGxp6pTViafgrHn82l/svvOzXCnvd+tJek=; b=F9z2guUBOzDRMFw/29vg/vkK3b
+	BUZO5Pzu1L/D3tnq/pokSTyEKTrpBhJJPDKtamHIkL4Fq74ajmnLhcJiP2gwA1lhWAekVsK/ME8fl
+	IXI6NvJsBFMGaVW9alL4buBxpOWGzg+SiO1g6rW6S859QFZlw7zJFo0lBYiiRkmZOuc7OIIS0n8zh
+	811ZKt3INJwIKIu1x7DwLAVdXkWUAYVldjyjJJy/fylZpXWVX14Kc0uR5kfIN0Zol77edY8UGUnjo
+	9XfgndTdwMUgw/sw606Ur1O8eoxIH2uZGGGUcLMeYB6TObAjoMBs++dUeD5FuZ3eOWKZaYuz9ESpC
+	Vl+7HDKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKdn3-00000001EAA-22Iq;
-	Wed, 06 May 2026 15:03:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wKdoV-00000001EQz-2mhq;
+	Wed, 06 May 2026 15:05:27 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKdn2-00000001E9V-0k9C
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 15:03:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id ACD6C441F6;
-	Wed,  6 May 2026 15:03:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DBDFC2BCB8;
-	Wed,  6 May 2026 15:03:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778079835;
-	bh=9wYxQMmVtBz3DEPWlbfvcyKeSl2P2HX1/nFCNbnRXls=;
+	id 1wKdoU-00000001EQO-2XE0;
+	Wed, 06 May 2026 15:05:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1778079924;
+	bh=5VmaZC0RomEbp6aSDoSjoUMQMXlIAykXwImP8NyVAX4=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=RFpwT+nC2ToI8BxTZFN8/5u1tm+3XR/8IolTmSTdxDuUH4ga2bcXbIEO5MD+izzJ4
-	 dbZ/i5b1gy9lmmy/B3/OvVn5WFeVb8oRgO3nD2f3hpUWDMZTZgotkRhXa3/atRqhAz
-	 r7EByGrr6h3BSOu4SOb9aaWOBYi8a1yaSQvIk6YV8Z/h6kzODBHBtAwKYrR3UPxN2I
-	 WOSZ4Qzk7mfCa9D7KSpaBqIKltq0ag0Cxgvwjsz5OSTkGI0WDX1RFBbDewjzTN/yBM
-	 iYQklEifxgdd1uI4wJxFNFsKsfHXGzW0u7qtRyIjEYbrxsovlw+74J9LsIXq49Zb4D
-	 mEGWB5UqF3I6w==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wKdmz-00000000KcH-1ZnQ;
-	Wed, 06 May 2026 15:03:53 +0000
-Date: Wed, 06 May 2026 16:03:53 +0100
-Message-ID: <861pfozijq.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	nd <nd@arm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Joey Gouly
-	<Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>
-Subject: Re: [PATCH 17/43] KVM: arm64: gic-v5: Enable VPE DBs on VPE reset and disable on teardown
-In-Reply-To: <20260427160547.3129448-18-sascha.bischoff@arm.com>
-References: <20260427160547.3129448-1-sascha.bischoff@arm.com>
-	<20260427160547.3129448-18-sascha.bischoff@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+	b=Xl2+76cJ+aSL9e3r2WJoupZZAaYmQbPGDTHPik5U1VTSygVKWY3ArXBA/kjLDvK4G
+	 eg9+ssBQ7WGf+DKYenyfLSkd5s4HT/1O9GMoqrlLxFyY0gax8+zwirT6uUFHpDh13T
+	 0kqWAvplq2HRPGwxVpV7x81YumQffmyohu09SIXwfXESbDS5ZguwU2j2jNqVm+hpiq
+	 laYdbYVv3n8e9Va/HRP8M9VY74Jc3EtOds65TNkUJAHJ/GXycujbibDaOv+giz73Cq
+	 gCyTna02cmPHhb8AkVl3fQ23YY1KHnz1yMjPIfF63MXay/Kr/iYE/FwktK2luqam6O
+	 nqUdERfFEz3VA==
+Received: from fedora (unknown [100.64.0.11])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bbrezillon)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EBF9F17E0610;
+	Wed,  6 May 2026 17:05:22 +0200 (CEST)
+Date: Wed, 6 May 2026 17:05:15 +0200
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Ketil Johnsen <ketil.johnsen@arm.com>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
+ <tzimmermann@suse.de>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
+ <skhan@linuxfoundation.org>, Sumit Semwal <sumit.semwal@linaro.org>,
+ Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey
+ <Brian.Starkey@arm.com>, John Stultz <jstultz@google.com>, "T.J. Mercier"
+ <tjmercier@google.com>, Christian =?UTF-8?B?S8O2bmln?=
+ <christian.koenig@amd.com>, Steven Price <steven.price@arm.com>, Liviu
+ Dudau <liviu.dudau@arm.com>, Daniel Almeida <daniel.almeida@collabora.com>,
+ Alice Ryhl <aliceryhl@google.com>, Matthias Brugger
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, dri-devel@lists.freedesktop.org,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Florent Tomasin <florent.tomasin@arm.com>
+Subject: Re: [PATCH 4/8] drm/panthor: Add support for protected memory
+ allocation in panthor
+Message-ID: <20260506170515.2d8511c3@fedora>
+In-Reply-To: <20260506-golden-python-of-aptitude-ff972a@houat>
+References: <20260505140516.1372388-1-ketil.johnsen@arm.com>
+	<20260505140516.1372388-5-ketil.johnsen@arm.com>
+	<20260506-energetic-azure-pig-2b6ec4@houat>
+	<20260506125015.0108ef44@fedora>
+	<20260506-golden-python-of-aptitude-ff972a@houat>
+Organization: Collabora
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
+MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_080356_254994_657DD1BD 
-X-CRM114-Status: GOOD (  28.88  )
+X-CRM114-CacheID: sfid-20260506_080526_800685_22BA7110 
+X-CRM114-Status: GOOD (  43.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,91 +94,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 27 Apr 2026 17:11:50 +0100,
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+On Wed, 6 May 2026 15:12:37 +0200
+Maxime Ripard <mripard@kernel.org> wrote:
+
+> On Wed, May 06, 2026 at 12:50:15PM +0200, Boris Brezillon wrote:
+> > On Wed, 6 May 2026 12:08:24 +0200
+> > Maxime Ripard <mripard@kernel.org> wrote:
+> >   
+> > > Hi,
+> > > 
+> > > On Tue, May 05, 2026 at 04:05:10PM +0200, Ketil Johnsen wrote:  
+> > > > From: Florent Tomasin <florent.tomasin@arm.com>
+> > > > 
+> > > > This patch allows Panthor to allocate buffer objects from a
+> > > > protected heap. The Panthor driver should be seen as a consumer
+> > > > of the heap and not an exporter.
+> > > > 
+> > > > Protected memory buffers needed by the Panthor driver:
+> > > > - On CSF FW load, the Panthor driver must allocate a protected
+> > > >   buffer object to hold data to use by the FW when in protected
+> > > >   mode. This protected buffer object is owned by the device
+> > > >   and does not belong to a process.
+> > > > - On CSG creation, the Panthor driver must allocate a protected
+> > > >   suspend buffer object for the FW to store data when suspending
+> > > >   the CSG while in protected mode. The kernel owns this allocation
+> > > >   and does not allow user space mapping. The format of the data
+> > > >   in this buffer is only known by the FW and does not need to be
+> > > >   shared with other entities.
+> > > > 
+> > > > The driver will retrieve the protected heap using the name of the
+> > > > heap provided to the driver as module parameter.    
+> > > 
+> > > I know it's what dma_heap_find asks for, but I wonder if it wouldn't be
+> > > better in the device tree and lookup through the device node? heaps are
+> > > going to have a node anyway, right?  
+> > 
+> > I'm not too sure. Take the PROTMEM (name="protected,xxxx") dma_heaps
+> > instantiated by optee for instance, I don't think the originating
+> > tee_device comes from a device node, nor is the underlying heap
+> > described as a device node. The reserved memory pool this protected heap
+> > comes from is most likely defined somewhere as reserved memory in the
+> > DT, but there's nothing to correlate this range of reserved mem to some
+> > sub-range that the TEE implementation is carving out to provide
+> > protected memory.  
 > 
-> Ensure that each VPE doorbell is enabled on the host prior to running
-> the guest by enabling it as part of vgic_v5_reset(). Add a function to
-> disable it again as part of VM teardown, vgic_v5_disable_vcpu(), which
-> also frees the IRQ again.
+> Maybe we should be working on a dt bindings for heaps then? Something
+> simple like we have for clocks with a phandle and an ID would probably
+> be enough. In optee's case, it looks like it would map nicely with
+> TEE_DMA_HEAP_* flags too.
+
+Sure.
+
 > 
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> ---
->  arch/arm64/kvm/vgic/vgic-v5.c | 29 +++++++++++++++++++++++++++++
->  1 file changed, 29 insertions(+)
-> 
-> diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
-> index 9347bc6895223..48ffcb2494db3 100644
-> --- a/arch/arm64/kvm/vgic/vgic-v5.c
-> +++ b/arch/arm64/kvm/vgic/vgic-v5.c
-> @@ -736,6 +736,31 @@ void vgic_v5_reset(struct kvm_vcpu *vcpu)
->  		kvm_vm_dead(vcpu->kvm);
->  		return;
->  	}
-> +
-> +	enable_irq(vgic_v5_vpe_db(vcpu));
+> The only two that wouldn't be covered would be the system and default
+> CMA heap if not setup in the DT, which shouldn't be too bad for this
+> particular use-case.
 
-Odd. Why do you need to manage the enabling of the doorbell? I see
-from the previous patch that you set it as IRQ_NOAUTOEN, but this
-seems to be cargo-culted from GICv4 (which really needs it).
+I'm not opposed to the idea of describing the association through the
+DT (with a <phandle, ID> pair). My main fear is that it drags us into
+endless discussions around what's considered HW description and what's
+not (PTSD of all those DT-bindings discussions I suppose :-)), which
+ends up delaying the merging of Panthor's protected memory support.
 
-My expectations that since the doorbell is controlled from KVM and is
-only one-shot, we should be OK. This is the flow that v4.1 adopts,
-without a need to baby-sit the interrupt state.
+Honestly, at this point I'm considering going back to my initial
+suggestion to add a dedicated ioctl() (requiring high privilege) to let
+the user pass the memory for the FW protected sections as a dmabuf FD.
+Given we don't need those sections to be populated for the FW to boot,
+it wouldn't block the probe of the driver, it would just prevent PROTM
+usage until those sections are populated.
 
-> +}
-> +
-> +static void vgic_v5_disable_vcpu(struct kvm_vcpu *vcpu)
-> +{
-> +	int virq = vgic_v5_vpe_db(vcpu);
-> +
-> +	if (!vcpu->kvm->arch.vgic.gicv5_vm.domain)
-> +		return;
-> +
-> +	if (!virq)
-> +		return;
-> +
-> +	/*
-> +	 * We are called in the vgic_v5_teardown path. We no longer need the
-> +	 * doorbell virqs.
-> +	 */
-> +	disable_irq(virq);
-
-And then this can go as well.
-
-> +
-> +	/* Free the doorbell irq (counter-part to request_irq)*/
-> +	free_irq(virq, vcpu);
-> +
-> +	/* Remove the irq from the domain too */
-> +	irq_domain_free_irqs(virq, 1);
-
-Surely you remove the domain at some point. That should cover the
-freeing of all the doorbells.
-
->  }
->  
->  int vgic_v5_map_resources(struct kvm *kvm)
-> @@ -875,6 +900,10 @@ void vgic_v5_teardown(struct kvm *kvm)
->  			kvm_err("Failed to release VM 0x%x\n", dist->gicv5_vm.vm_id);
->  	}
->  
-> +	/* Goodbye doorbells */
-> +	kvm_for_each_vcpu(i, vcpu, kvm)
-> +		vgic_v5_disable_vcpu(vcpu);
-> +
->  	vgic_v5_teardown_per_vm_domain(&kvm->arch.vgic.gicv5_vm);
->  
->  	vgic_v5_release_vm_id(kvm);
-
-I reckon this patch would be better folded into the previous one, so
-that we can see both the requesting and freeing of the doorbell
-interrupt in the same patch.
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+This would let us make progress with the rest of the changes in this
+patchset, while the community decides how they want to expose dma_heaps
+to in-kernel users.
 
