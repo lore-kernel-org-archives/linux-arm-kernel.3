@@ -4,143 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A101BCD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 08:07:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EEB9CD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 08:10:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Oq1nvSBQ5WV5VwbQiKRBhF+o6GZZv+XrOzWTSzAD9c=; b=Urc+NL0jrVD9XMDWP5mSmnrGeJ
-	lbiYVH3vchgW+mU3wriGwzshEPkgc5tAKVM87FMBKtdVdpC73nW4RxJmT55JUd8/EyMBOPIL4WsAQ
-	GzdiDV28/hmdFsBY6P6S/IudRKuArOsSqEhRP9dkMAqMpa05DouB7Dvw6+WhOg5iOyZ5fbXNzmtuy
-	TMbUf3A4MGk+Pm6IQYZ3iQpvxmp37FUYg5dlVvZueT+Ov09BEm1VhqrAITr2Iq04YhkTRvaxQ2V6X
-	vA9qc3SOYEgGBdUdw/JVn/Uv55nMaYL4nfge8TOCtVGBU09ycFtvrjmWy3+GPPJVoBAybJmfxtMkj
-	TZ4d9bPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yA4Q4VrBxQuoKXsSh7fBnRgwqj5jLm5OpfFWZ/Xem1k=; b=DJgbMgP7GAkhF9jkZkHNQv2w5C
+	QyL2qS3cQ2/0S2bvHHChnoZVUgsiiPsdQ+XMc1yTFaxofnF6jz3H20S4U2uJQEOwN/KwaFQEW/dK0
+	3RWgFtJaF9OrhNsYgPZNX3OWKvseKNOYXnttnIjAAbCyhOObTbL419hgJEtc+JCGjwcwDIAPGdd+Z
+	Qrm+G5NOVpUj7MNV5JOkyHZg8YnxjMf4YGhSXH7wxfvEc8jiGuafzuHC10Ng3kBjZqV4gBpoNc7W/
+	h3vCyby1B8vmEFDvSeOIOIRon/PTyGcjh4gRzwF3aFnb8jma57UO5zUxm2pzZD5yhosjXFwGvyRB9
+	LJd5/Elg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKXIL-000000006wk-1e7M;
-	Wed, 06 May 2026 08:07:49 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wKXKk-000000007JA-3q0y;
+	Wed, 06 May 2026 08:10:18 +0000
+Received: from out30-97.freemail.mail.aliyun.com ([115.124.30.97])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKXIK-000000006wM-12j4
+	id 1wKXKk-000000007Ik-14om
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 08:07:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=O9MYbzCtQ6eJnS7XMebnncPg31RNfoxJ464CXWLob5Irk2vOzThRrRsbDFzHA6k72WG3/pJ6KDRJbk/Ppq+8pOh53w5dhAo4Ru13c6IyMBzt93kqs5Nqb/Fj+pah1aaOBSjCwdFBFN5GE3jf6fxPIknH91ZEDdHCbJCAO+pszfB0jHxG1zG62M+tjRIZ1PeIndbRPjGZJF2Js96zuesOzURY5rFAW496dWxZ7AgB+SmvR71F8Ah0xpQwCt4xJc8xdShMbQl5ccIBkTops04w3AQMXzI3lNKpYiOHWtCDvwsXLEHduHFyDkuWLJYgArYsX61u6e1SZlR03OhvyPT9Kg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/Oq1nvSBQ5WV5VwbQiKRBhF+o6GZZv+XrOzWTSzAD9c=;
- b=GuWRwlSP50Y9xt0SbGhB5r9QcuZVBE+3MZ1eMPJx3y7j/3WymbvxQ36WGNhWlqN2R1VqV1xez7/kb+hOEQrp/i+4aRevn2sWy5NvnwbvFnwGfQs6iafBjP/wwdzLTpmVrS7wJ3XQFmXXOLtrUieiELnwxNqSp/65Fn7BAhaGJW1ULggVOWxw2TQqfKX9exHy+KUQGTg8hzPztgzcMYvXfdekxzMbetq6pENOQcs+LsbfdgEHq2Jy345iA3KV9r1rAKHeCtt8z93RaWDdeFgQq2GeJlibbY3IlckrCH+qtFlemj2oFATyfEg6tLRajVrUm8EWwDcpl9r3Q3YfORjRBQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/Oq1nvSBQ5WV5VwbQiKRBhF+o6GZZv+XrOzWTSzAD9c=;
- b=oDNUNejfBsCMQQli0kB6gLe7kGofs6jaenquieygTa2lYvlEkNLq0Rz9vFcCZmdXMRS+HsRxD4nNq+eFXs7tBDQwIUUxadukk+fvzvHjUlJuTHdp6cuJ65hGbBCmD5vTOR14bBbFmrqEt2EB/UENWF4Jk3OZomQmEsZpoTShffzyL3UC4JzLETEhaZ/DPkU3J1F10UPaRk6g3nB1wzRz9W+uHNdMhLnxsccTFICbqPjEMGMgQuPI0q7+Vkb2bUtLAyKImduZ+7pOysRpVnR0sdKT58xA4JchckSNQhnfUv6Q4Q6EoBIHj4OWK2H9NLFuJWbrSxvB38He5VWyAmJ/CQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS1PR04MB9287.eurprd04.prod.outlook.com (2603:10a6:20b:4dd::8)
- by AS8PR04MB8868.eurprd04.prod.outlook.com (2603:10a6:20b:42f::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Wed, 6 May
- 2026 08:07:43 +0000
-Received: from AS1PR04MB9287.eurprd04.prod.outlook.com
- ([fe80::6f30:763d:17d2:b79c]) by AS1PR04MB9287.eurprd04.prod.outlook.com
- ([fe80::6f30:763d:17d2:b79c%3]) with mapi id 15.20.9891.008; Wed, 6 May 2026
- 08:07:43 +0000
-Date: Wed, 6 May 2026 16:09:01 +0800
-From: Liu Ying <victor.liu@nxp.com>
-To: Marco Felsch <m.felsch@pengutronix.de>
-Cc: Rob Herring <robh@kernel.org>, Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Marek Vasut <marex@denx.de>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, laurentiu.palcu@oss.nxp.com,
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/4] Revert "dt-bindings: display: bridge: ldb: Fill in
- reg property"
-Message-ID: <afr3HWjUr_5wVT-f@raspi>
-References: <20260504-v7-1-topic-ldb-fixes-v1-0-0125d937ff7f@pengutronix.de>
- <20260504-v7-1-topic-ldb-fixes-v1-2-0125d937ff7f@pengutronix.de>
- <20260505141538.GA2547282-robh@kernel.org>
- <2bl2mwpk57xgkuye2gydliymjkzikiovnb7ovnb73olwtfkjwn@byn3732grvnh>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2bl2mwpk57xgkuye2gydliymjkzikiovnb7ovnb73olwtfkjwn@byn3732grvnh>
-X-ClientProxiedBy: SI1PR02CA0027.apcprd02.prod.outlook.com
- (2603:1096:4:1f4::18) To AS1PR04MB9287.eurprd04.prod.outlook.com
- (2603:10a6:20b:4dd::8)
+	Wed, 06 May 2026 08:10:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1778055015; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=yA4Q4VrBxQuoKXsSh7fBnRgwqj5jLm5OpfFWZ/Xem1k=;
+	b=wWI3MuuSQHMMB59hlK0PsnGobl15v8pe0O73bEp9T4VUHPN8dTQtm3msArq3iTP9d21vHHmQz2xPSgr/VLAemJ3uJtUfV0MwqDu9Q14yWNhQyrVF0YNc76Qyv3IQ2dKJ8AME3AYsoswRqLY28L6i9TVJxtpZSBeihqKBGu9X3K0=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R191e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=tianruidong@linux.alibaba.com;NM=1;PH=DS;RN=22;SR=0;TI=SMTPD_---0X2NUGIF_1778055011;
+Received: from 30.221.149.96(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0X2NUGIF_1778055011 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 06 May 2026 16:10:12 +0800
+Message-ID: <8f1529af-f6fe-44bc-a4b1-c47a19824d1e@linux.alibaba.com>
+Date: Wed, 6 May 2026 16:10:11 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS1PR04MB9287:EE_|AS8PR04MB8868:EE_
-X-MS-Office365-Filtering-Correlation-Id: 70e378ba-408d-40de-81e4-08deab468c91
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|7416014|376014|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: a91OE9oIrBHo6HWSkhqJflQ2Ci/ItG3VAt2AlcHaOQ5n81nKUORhm3kK7xk+ZOJQdCnSlSwPJI9lhz2s2vKWYwjzaW0olXHO4kPAIWFVzz3MgWitrGvR3wV6SYlpafkusG3CO5mLdeqC/RdFusg+ZlvzDJzh1U47qa9NP9VIQkcSrU5JImOn5pceVyOo3iJ1vSgABwYWDjD5tC5WF8YpyzoU18qRwJNiyKmoo9I6bbxPF84JhFYCAiJwo7+IVG5GSSeJQGcUZzox5UdwsbOZfNuAW1HIUjDm2URmzpahTjSIdGnBfr1xQOjPtwMUOmBPJoxQR6wJwyP7q4wRWEMuj6upoAKgA3NIA+u1DvhKJT//WQB/fhYtVnQIeLcVVgFGYaKtXUM5G2Xky8CeUnjLB5Jokw2+oMe1ZLlyDoWAmx42m1y9o6l0dKapBdAZS5GD9yh75HWI/xb/oayhX7kb7ct+pCi3x3kzxrfA/ReEjP1t6FagklMztVSZTAK1J5SQl+FdYh/aZ2mDUkk6mzaO5oVvFkSxMiKCsNEY3u6PdWdSJivLkjLWv/wb0BjIf9cx05fv71g3nEHHOmTnmq+ob8dI9Wh91b+P8nGLy/jo9Xri/AwVh0dUrmxHfYWXk3FGVasZaOO1tg6UCQni4gk/xQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS1PR04MB9287.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(7416014)(376014)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JvYBodxEvnUsYixqrDsORvAIbYaR8JzKaIyRxqd8801p/s+Onl1uPk2bTFpI?=
- =?us-ascii?Q?oEMQ988bOuD5nvjt+qtOMniOrL8xAfrcLzy2gMZ3g7Uol/M1pzr/igUy+QXj?=
- =?us-ascii?Q?au+68QU5+C7bs9LySV0Wxb9YPNlehhwpe46IHBQlIxC4mMQH8BnKBWynRZAr?=
- =?us-ascii?Q?gtPnKKSV9qtPR36D9yPESnmIKnfjvl7UsxpoKEdHnHlYv1Eeb68hKAUD7fWk?=
- =?us-ascii?Q?8GHium/DAaL2SkVmR0RC7GcoOWKhyEjQFo1u5NWrj4EH51eSwBOnpfi7kXBK?=
- =?us-ascii?Q?74poNmBgcv6RHlNMIYntEvXpAGv3xXuKwFRiBmdtXqW7YYTu7puYDcA1mL0f?=
- =?us-ascii?Q?A/umeOfSZMgx2kHRbZybplbpZFkn/hGzB84lKf8lFZKVOf4GeUQGp1+l3UDs?=
- =?us-ascii?Q?l7ZypYsRZKsQPwUW5gBZlya23NrnfbCz5QtaEnlE0UbUcBrwQwh60rcNGn9i?=
- =?us-ascii?Q?81xgqI3OxQUVQc79r/yttiOJJLPUJ4yclLuPrF/yMrBXyeaQmcWkxXZNsBs5?=
- =?us-ascii?Q?SeAtA/O5H1mtLilNIHOJbETAXGAtLeXycZAV504j4ejCVJOysnvQO0OdJvt1?=
- =?us-ascii?Q?C13uOFgj+3qBk0pb7+dI7KxX87n++QaQTwn/FqZOZ9tZe35nwbIWlwe/YTZR?=
- =?us-ascii?Q?5wPs79kjiP6YvJDFdx3VFyyQS5qcCUyIb4EKG2DAlHAChaiGjirt6yyBpkK3?=
- =?us-ascii?Q?Yy0U+PuORSPKXJ0QsEnCZTOWgqZKV3awdztlARI9/0JXvOSktYISoQZHmB/W?=
- =?us-ascii?Q?to+dee3hVk8gRFOiAIhpLZjx5Sx85LwjK00v3VDWbaQt0uafK/PK9co4X2AG?=
- =?us-ascii?Q?TkRrIkPyED7q0iH9GYdCfdOsiGRfKedbCqBGZTAuDfhlR5XdTvpMq2w213+t?=
- =?us-ascii?Q?ypBkaoNspNp/BffTAX10qizEixc4A2BvJgvomfUzzHqUkedwagvMdWJ2qvw5?=
- =?us-ascii?Q?S56MbpA+54i34Ez1ZZIuPiGxmZ/9E/5P6If4lFbXFKO9pe9TM8b+yqaFPcqf?=
- =?us-ascii?Q?jNQtdPGD96i0y+L40knHeS9X9MlOwEdDEE00fsY5RKNcBx5iW147pzjWipKi?=
- =?us-ascii?Q?/tTyDbcefVDL2+zBFNrXSd0rE7cXZKXobkZ206H4Yz+dj0xALeINo/5A4TVO?=
- =?us-ascii?Q?h/Q9caf76Euerwy0A4ZVtnKUD8Wlh3KGNu0Mq+yVdXfftUlPzuijnAonwieA?=
- =?us-ascii?Q?qerFK6Zqd/QqttbsOsNhIP4PJyp59cLR8/bC0fWsls0VwIANPHdlX509hEjF?=
- =?us-ascii?Q?kp7ccjDMDEAn+XuKYOcRqsC51xilXZo9r15+FJctbEn6mhgXhOLoW+viaan1?=
- =?us-ascii?Q?HLy+SN/qn8JZqZbIn/Xa+waGM1Ih8Ow3ygiXttMDRRGgMMeVzHwXtL8TAYU/?=
- =?us-ascii?Q?mAcGo4sHJvmpIAEGmluk+vgzBDxfFKnDXsCanSQMtxuV/yvLgjxSYxFqkwJf?=
- =?us-ascii?Q?0ovmH/eNeDBvQcExYaLDXh7yUTatErCXfkLUzpGDQJfB2NkH5D02fYH2agls?=
- =?us-ascii?Q?yM6n8MDiWQdeBd+ttmeQiBmP2nktPDhUcHNxVGlQUdjAm8hKou7L+yl6Yzfe?=
- =?us-ascii?Q?OyarUjzXQrnIu7xKBgXgEVJv9ehsj0PTDb7rTvopr+5JBXMZfGxgPk259QMV?=
- =?us-ascii?Q?PwdNgSbpuiYEZICpltPbpIbh8H6GzjocW2h7Jjw2v3MYhUI0NLqDX6G228uP?=
- =?us-ascii?Q?e+Xh+5c67zQtI6F2eFfSUoiItJb/MXF77EG+Wsi7phwK5SrItU/G730LTHxb?=
- =?us-ascii?Q?paHtVJhL2g=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 70e378ba-408d-40de-81e4-08deab468c91
-X-MS-Exchange-CrossTenant-AuthSource: AS1PR04MB9287.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2026 08:07:42.9447
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: F9mZ9x+zfUfgBSDh7K4TkMglP6VGKcGSIHhFjXsdRxlrVGj80ryXU0NaNYbM1UkzEyLOdd3FB9zGdt+eBK6gNA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8868
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/8] ras: aest: extend AEST support to Device Tree
+ frontend
+To: Umang Chheda <umang.chheda@oss.qualcomm.com>,
+ Ruidong Tian <tianruidong@linux.alibaba.com>, Tony Luck
+ <tony.luck@intel.com>, Borislav Petkov <bp@alien8.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, catalin.marinas@arm.com,
+ will@kernel.org, lpieralisi@kernel.org, rafael@kernel.org,
+ mark.rutland@arm.com, Sudeep Holla <sudeep.holla@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-edac@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ Faruque Ansari <faruque.ansari@oss.qualcomm.com>
+References: <20260505-aest-devicetree-support-v1-0-d5d6ffacf0a5@oss.qualcomm.com>
+From: Ruidong Tian <tianruidong@linux.alibaba.com>
+In-Reply-To: <20260505-aest-devicetree-support-v1-0-d5d6ffacf0a5@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_010748_290978_0C55E201 
-X-CRM114-Status: GOOD (  27.60  )
+X-CRM114-CacheID: sfid-20260506_011018_478430_31F3DFCB 
+X-CRM114-Status: GOOD (  23.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,61 +76,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 05, 2026 at 05:45:56PM +0200, Marco Felsch wrote:
-> On 26-05-05, Rob Herring wrote:
-> > On Mon, May 04, 2026 at 10:21:42PM +0200, Marco Felsch wrote:
-> > > This reverts commit 16c8d76abe83d75b578d72ee22d25a52c764e14a.
-> > > 
-> > > Remove the 'reg' and 'reg-names' property from the LDB.
-> > > 
-> > > The LDB is either part of the IOMUX_GPR (i.MX6SX) or the BLKCTRL
-> > > (i.MX8MP, i.MX93) register space. Both IOMUX_GPR and BLKCTRL are
-> > > register ranges with loose register definitions. E.g.
-> > > 
-> > >   - On the i.MX8MP there is one register which controls the AXI
-> > >     threshold for two different IPs (BIT(31:16) - IP1, BIT(15:0) - IP2).
-> > >   - On the i.MX6SX IOMUXC_GPR5 controlls: CSI2 mux, WDOG3 settings, PXP
-> > >     handshake, ...
-> > > 
-> > > In conclusion: it can't be ensured that one register belongs to one
-> > > dedicated IP and the LDB is rather an exception than the rule.
-> > 
-> > It is fine if there's a child node for LDB if the LDB registers are 
-> > consistent, but the other misc things are represented by the parent 
-> > node. It is certainly not a requirement that either everything be in 
-> > child nodes or nothing be in child nodes.
-> > 
-> > What I don't see in this series is what problem does this fix? If you 
-> > are going to break compatibility, then there had better be a good 
-> > reason.
+Hi Umang,
+
+Thanks for your patch.
+
+Would it be okay if I include this patch in the next version of the AEST 
+patch series? I will make sure to add your Signed-off-by line.
+
+Best regards,
+Ruidong
+
+在 2026/5/5 20:23, Umang Chheda 写道:
+> This series extends Tian Ruidong’s [1] ACPI-based AEST support series
+> to also cover Device Tree based platforms.
 > 
-> Hi Rob,
+> While the existing AEST driver relies on the AEST ACPI table [3], many
+> embedded Arm platforms use Device Tree exclusively and cannot use the
+> driver today. This series adds a DT frontend that mirrors the ACPI
+> implementation and feeds the same core driver, keeping ACPI and DT
+> paths functionally equivalent.
 > 
-> with the upcoming i.MX9x SoCs the parent syscon (BLKCTRL) controlls
-> multiple other IPs, e.g. a DPI mux added by commit 3feaa4342637
-> ("dt-bindings: soc: imx93-media-blk-ctrl: Add PDFC subnode to schema and
-> example").
+> Along the way, several correctness issues were identified in the core
+> driver and are fixed in the first part of this series.
 > 
-> During the discussion of the above commit we agreed that the sub-devices
-> of the syscon shall not use the reg property due to the fact that one
-> register serves multiple purposes. In the above case the same register
-> controlling the dpi-mux also controlls MIPI-DSI bits. The MIPI-DSI bits
-> can be abstracted as drm-bridge as well. Two sub-devs using the same
-> 'reg' property below the same parent seems odd and I don't know if this
-> allowed either.
+> The DT frontend is mutually exclusive with ACPI and does not introduce
+> any DT-specific logic into the core.
+> 
+> How to test with QEMU
+> --------------------------
+> Tian Ruidong's QEMU fork [2] emulates AEST MMIO error records on the
+> virt machine.  To test the DT frontend:
+> 
+> 1. Build QEMU:
+> 
+>       git clone https://github.com/winterddd/qemu.git
+>       cd qemu
+>       git checkout c5e2d5dec9fd62ba622314c40bff0fbecb4dfb34
+>       ./configure --target-list=aarch64-softmmu
+>       make -j$(nproc)
+> 
+> 2. Build the kernel with:
+> 
+>       CONFIG_OF_AEST=y
+>       CONFIG_AEST=y
+>       CONFIG_ARM64_RAS_EXTN=y
+>       CONFIG_RAS=y
+> 
+> 3. Add the following DT node to your virt machine DTB.  The QEMU
+>     fork maps DRAM error records at 0x090d0000 (SPI 44) and CMN
+>     vendor records at 0x090e0000 (SPI 45):
+> 
+>       aest {
+>           compatible = "arm,aest";
+>           #address-cells = <2>;
+>           #size-cells = <2>;
+>           ranges;
+>           interrupt-parent = <&gic>;
+> 
+>           /* DRAM memory node — MMIO at 0x090d0000, SPI 44 */
+>           aest-dram0@90d0000 {
+>               compatible               = "arm,aest-memory";
+>               arm,interface-type       = <1>;
+>               arm,group-format         = <0>;
+>               arm,interface-flags      = <0x22>;
+>               arm,num-records          = <4>;
+>               arm,record-impl          = /bits/ 64 <0x0>;
+>               arm,status-report        = /bits/ 64 <0x0>;
+>               arm,addr-mode            = /bits/ 64 <0x0>;
+>               arm,proximity-domain     = <0>;
+>               reg                      = <0x0 0x090d0000 0x0 0x1000>,
+>                                          <0x0 0x090d0800 0x0 0x200>,
+>                                          <0x0 0x090d0e00 0x0 0x100>;
+>               reg-names                = "errblock", "fault-inject",
+>                                          "err-group";
+>               interrupts               = <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>;
+>               interrupt-names          = "fhi";
+>           };
+> 	};
+> 
+> 4. Boot QEMU with acpi=off:
+> 
+>       ./qemu-system-aarch64 \
+>         -machine virt,accel=tcg,gic-version=3 \
+>         -cpu cortex-a57 -m 2G -smp 4 \
+>         -kernel Image -dtb virt-aest.dtb \
+>         -append "console=ttyAMA0 acpi=off earlycon" \
+>         -nographic
+> 
+> 5. Verify probe:
+> 
+>       dmesg | grep "DT AEST"
+>       # Expected: DT AEST: registered 1 AEST error source(s) from DT
+>       ls /sys/kernel/debug/aest/
+> 
+> 6. Inject a CE error via the QEMU MMIO fault injection registers.
+>     The QEMU device accepts 64-bit accesses only (use devmem with
+>     the 64-bit width flag):
+> 
+>       devmem 0x090d0808 64 0x80000040   # CDOFF | CE inject
+> 
+>     This triggers QEMU's error_record_inj_write() which sets
+>     ERR<n>STATUS.V=1 and asserts the IRQ.  The kernel driver's
+>     aest_irq_func() fires, reads the status, and logs:
+> 
+>       AEST: {1}[Hardware Error]: Hardware error from AEST memory.90d0000
+>       AEST: {1}[Hardware Error]: Error from memory at SRAT proximity domain 0x0
+> 
+> Testing
+> -------
+> - Validated on Qualcomm's lemans-evk and monaco-evk board with DT boot.
+> - Validated CE and UE injection via debugfs soft_inject.
+> - Tested ACPI path is unaffected: ACPI boot continues to use
+>    drivers/acpi/arm64/aest.c unchanged.
+> 
+> [1] https://lore.kernel.org/lkml/20260122094656.73399-1-tianruidong@linux.alibaba.com/
+> [2] https://github.com/winterddd/qemu/tree/error_record
+> [3] https://developer.arm.com/documentation/den0085/0200/
+> 
+> Signed-off-by: Umang Chheda <umang.chheda@oss.qualcomm.com>
+> ---
+> Umang Chheda (8):
+>        ras: aest: Fix shared processor node handling and error log messages
+>        ras: aest: Fix CE/UE error counts not incrementing in debugfs
+>        ras: aest: Skip unimplemented records in debugfs
+>        ras: aest: Add panic_on_ue module parameter
+>        dt-bindings: arm: ras: Introduce bindings for ARM AEST
+>        ras: aest: Add DT frontend for ARM AEST RAS error sources
+>        arm64: dts: qcom: lemans: add AEST error nodes
+>        arm64: dts: qcom: monaco: add AEST error nodes
+> 
+>   .../devicetree/bindings/arm/arm,aest.yaml          | 406 +++++++++++++
+>   arch/arm64/boot/dts/qcom/lemans.dtsi               |  41 ++
+>   arch/arm64/boot/dts/qcom/monaco.dtsi               |  41 ++
+>   drivers/ras/aest/Kconfig                           |  15 +-
+>   drivers/ras/aest/Makefile                          |   2 +
+>   drivers/ras/aest/aest-core.c                       |  63 +-
+>   drivers/ras/aest/aest-of.c                         | 673 +++++++++++++++++++++
+>   drivers/ras/aest/aest-sysfs.c                      |  27 +-
+>   drivers/ras/aest/aest.h                            |  15 +-
+>   include/dt-bindings/arm/aest.h                     |  43 ++
+>   10 files changed, 1310 insertions(+), 16 deletions(-)
+> ---
+> base-commit: a67b7fd0dd1f6ccf3d128dc2099cdb07af1f6a09
+> change-id: 20260505-aest-devicetree-support-a3722d90e1f5
+> prerequisite-message-id: <20260122094656.73399-1-tianruidong@linux.alibaba.com>
+> prerequisite-patch-id: c5a7c6431c6c1e6351241e694ee053800039d41d
+> prerequisite-patch-id: 1f6e2c20829eee41a210dd8a538f1e8efcc65872
+> prerequisite-patch-id: 5556287e3f46c2ed2c0431c53c7782e87bcbd866
+> prerequisite-patch-id: 2edae0a136d7779b8f686181720e71d044a73311
+> prerequisite-patch-id: b5190b2844dcb01e72f87a59f3a29548795fdb82
+> prerequisite-patch-id: 7ba848583708b2ae776a7ce847bb056e3de7f77b
+> prerequisite-patch-id: 397e5b22802b67942435f4f2968f0b1e210ba0e8
+> prerequisite-patch-id: 2169f4b65537eecbd0ccbd2ad6b28c64ec44655d
+> prerequisite-patch-id: b626f85d98747595b3240bc49e6ad9c9dd5c0fa9
+> prerequisite-patch-id: 1323dfd2eebad2ef6514dbbce58ba08e8859f894
+> prerequisite-patch-id: 95b826e5e329408437a3ef336c4f45d4d74f82bb
+> prerequisite-patch-id: b60ff489a5a33c5d5220fa8144af7b7511769cba
+> prerequisite-patch-id: 43f35a52b8a3d13c938ff08083403c1d3bd0df8b
+> prerequisite-patch-id: c55d4e9117ca36d3c2cba82d550a618cb82bb745
+> prerequisite-patch-id: 3885e10f318ae8101d6909b35d92a976cc359e3c
+> prerequisite-patch-id: 92958cde05577f069c5659018a274bb39cfb6b24
+> 
+> Best regards,
+> --
+> Umang Chheda <umang.chheda@oss.qualcomm.com>
+> 
 
-The MIPI-DSI bits are not modelled as sub-devs, but instead,
-according to fsl,imx93-mipi-dsi.yaml[1], an i.MX93 MIPI DSI driver would
-access the bits directly through the syscon.
-
-Here, dpi-mux is a sub-dev while the MIPI-DSI bits are "misc things
-represented by the parent node"(Rob's words).  I don't see any problem
-here at least for Linux since regmap provides register access synchronization
-if everyone accesses registers through parent node's regmap.
-
-[1] https://elixir.bootlin.com/linux/v7.0/source/Documentation/devicetree/bindings/display/bridge/fsl,imx93-mipi-dsi.yaml#L43-L47
-
--- 
-Regards,
-Liu Ying
 
