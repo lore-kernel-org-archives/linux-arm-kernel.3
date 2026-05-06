@@ -4,97 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58A1DCD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 12:12:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51532CD3436
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 12:16:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ws629W1+/OZhaFCmlUMwKh3w716Ok42C3gMHhe8mbxc=; b=NfEgzETOBEgnholJLoTO6DPaj+
-	OIiHywAfHA8IY3LFmHf1cJ1GYea38S6+NQ/dGGljpl56xmnOWi2gJtCRQbQ221TaIz1rEXA0bZZlN
-	k8AG5FuXTUEg+k5/IKFHRS2BQ8S0h/m6JZ8JrJjjet4dFwOc1AdO/qnP+myOalNi5x04hvFl6Z2oJ
-	nYzXiP6oQguoSy9DmE0D54dunxUT+QDCSCgM/78T18vJNgp3rVNsXSgQ05eo3lYzagLpRVigOcAZQ
-	72gepCz0icLVA+WZoTV54mFGSdbvBrdQSMGTNe1j8zaFIDRH3WRj/ltf6iZ66oIm5csbSmUKbYJoA
-	bfTTWt+w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+1/uCUb/9Eo1Px+rgMFN1iRosL2spXsTi3KsPZ1F3xA=; b=CQJAL3h/UbEZll6uavpQ9+whPm
+	w9Rj0spmcqMpEBz+W/wly6MsH+AgzXXtxJlRheYZsV8hxXS1uLCN4wU+XkPwB6cZJfjXimpS1rM6n
+	gNDNzipIHNJT5D2CyKDRQNGmMxW8j2An+/0b0p+Tw4tQkORQ8twWgmb6LA8Ug9V+TeDnBZ28Y0Mhn
+	Yjs020GKVacTN672XbWdbBbv5jWUReVJPa6heFbeNGAzw/cavZNIZRP9pqMH8cOFtnZwCUuc7xNqb
+	tbKXOcGtzIMVFE3wz4ZACViL4YaqyH7hcp+ka1JZBcFOJS6qJT6ErHWIN3t7Dq/mVd3CIoH5XTGDm
+	8iEfhCXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKb6o-00000000isn-2V8w;
-	Wed, 06 May 2026 12:12:10 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1wKbAk-00000000jK6-0MC3;
+	Wed, 06 May 2026 12:16:14 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKb6n-00000000isF-1EHn
+	id 1wKbAh-00000000jIq-3cEX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 12:12:09 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-43d75312379so556485f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 05:12:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1778069527; x=1778674327; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ws629W1+/OZhaFCmlUMwKh3w716Ok42C3gMHhe8mbxc=;
-        b=KkLElb1hjXf9ptAMtjZ9sW6DvsidqeBVDNBnMcLA7smdXK9ewEjdSxlTXVKBpebuI0
-         uppKOeEDuCxBRJx728XYX5GwQRcWF/O7I89oytkKDCk5g8enshXSgOgQ8vbuAAL+7FnS
-         dNhymEjRPY0lHz+OMXHYnOl7GEX3Khfdzodipl9ahJ7efQCJLlyBEFICKSM9BdlyRCYU
-         LXxj5HNscrti8QNoR7U21ftlaeQEvHWf8Hf4DQnUfmOSM/0DhEKMle9qjSqLLzL7sOSh
-         c049ZmFMg+OdOGK8hW03l4Ar3ImNiSG0zdsHVwR737WBuVIW3dhamhSfx2aW/IQFKJ+/
-         HxYA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778069527; x=1778674327;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ws629W1+/OZhaFCmlUMwKh3w716Ok42C3gMHhe8mbxc=;
-        b=Djip3utQi7IvSIYl29mXz3Jp1vLg/OmOk2ERGhbTv7OFmRAQQmwY+G2xMECj3u32bq
-         KHRYg7Vmr+uBMB64lzYTD0V3teXK55OOz5s7I5ksszpkNSVLhXC7KXztIktXVeONjXG5
-         /9yV+h4a+k8CHiGa3ElGyLG2c59s9rtTJsdcdRr5t+a9ikBeWuLe3OHQJL9u4u9rZCcc
-         gaeJV3g10xBJRJsnTr8Q7QuIn3wo2P1+1hwkk1Pd05Sml+G0+AKEyyzJwbbqw0QwsLXQ
-         bzQXMkqqGjj5DWMpdp7kRVJy9ulOAKwnrxOodEEWguXaBgqNpu8ilO6ITpqyTstPY7Gj
-         RPaA==
-X-Forwarded-Encrypted: i=1; AFNElJ/Jforms5cbyblrVE4UWlPzHvr7NLib/be71cBsTt8kX6JzlUCm2F1kuKUJ0U2XEKBn4mV56orwxlMsiXvnal+c@lists.infradead.org
-X-Gm-Message-State: AOJu0YzzSuU28dLB70vtI5grVk0lcY9Z6z1sQgzdYeAUN5Q9Y2XqOVsT
-	nwXgPBXk6KEMiZejYJIoc5fJ0mRwxUCmupiP3rCkOuak7a1Xx2otHB1eToAXUGS4l3g=
-X-Gm-Gg: AeBDiev8cuN6YqSnRa0VFXQhSzcAnURa5RbzPemJ5gzrb4/rs2tjQPkNWY92wtyyfR2
-	IDIKPp2Iny4kpUdURwVJ/6U8P9JbGEVzAT8rHzLkeODeaba1vSoEXBJz1JTdyRgMB137PbeL192
-	qCeqKLUr2YrFdXsR47sRxRL4XWtuLX72eK00d6PnN1k9ZParP0whE7YJRs7Qfa7nZxLIiWXowIJ
-	AdT6X3Dh12Cy3AFRe+uM95zaNBtGK4+boCm2Sjg3l3n0pBN6ZGG3+gHt4wgxPw/moO93iN+cRax
-	ld3VNFXftJ8f4A4vnpAFbScxtXD0SYfjCwesUmyh3iI3di80VkkKL8KmgFlzd601sc3vwG576gK
-	Rhn0Nwio+L9cNcwyV28fiJ8D7shx0aFQfrf691M3tge0FZgm6ZDoRYGmxIlowaHjgKiFRm8JuEy
-	xirphN5j0m1t9XgMHNfLKy5NfXK+SZdNNNp+0xwNI2I04=
-X-Received: by 2002:a5d:64c5:0:b0:43e:a75e:352 with SMTP id ffacd0b85a97d-45162570080mr4694269f8f.4.1778069526968;
-        Wed, 06 May 2026 05:12:06 -0700 (PDT)
-Received: from [10.11.12.108] ([79.115.63.228])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45052a488d8sm12000365f8f.12.2026.05.06.05.12.05
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 06 May 2026 05:12:06 -0700 (PDT)
-Message-ID: <b7657812-3afc-4b13-a579-6f07d061e2d9@linaro.org>
-Date: Wed, 6 May 2026 15:11:58 +0300
+	Wed, 06 May 2026 12:16:12 +0000
+From: John Ogness <john.ogness@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1778069767;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=+1/uCUb/9Eo1Px+rgMFN1iRosL2spXsTi3KsPZ1F3xA=;
+	b=KEZNfb6au2XwQeEEi0swhycY4FJgNVfQtWY/FhK/yCoI3hSDLSwaRRZI7RlzCEMExUQY7f
+	T+QvDlQipN8FjeKi9rITCGTCItHT1Du7tdlSvZgdhQ74eu9zdcBtt8pwU8sOJ181n2cmw8
+	J9/k9sA5/zZtm5ooh/ksw3AgrucA71XVof7sdGHN+LWlrg0VV3tte3HlksbB5VLszGhz28
+	H4IgGvitX+Dn21W9SBCcjK0JOXsIi/JrEVu6xlth/4EHNuMcc01rZuEvaxqYBbT1EoX7Cs
+	d0OeQzL+2UoVRxfvwy9zy3ryLgFelOU8Zr/F5jtXA+rwQit7NsJnRKlvKmc2QA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1778069767;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=+1/uCUb/9Eo1Px+rgMFN1iRosL2spXsTi3KsPZ1F3xA=;
+	b=HDAiL6vdcaFMCJJ0GmldyQzwhs3/86r20VaemvAKGIZwBdTF4E/PwfsT+zLFPFOhI9PuXQ
+	Bfk90npEht4yNjAQ==
+To: "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>
+Cc: Andy Shevchenko <andy.shevchenko@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	linux-serial@vger.kernel.org,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Thomas Fourier <fourier.thomas@gmail.com>,
+	Kees Cook <kees@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Thierry Bultel <thierry.bultel.yh@bp.renesas.com>,
+	Osama Abdelkader <osama.abdelkader@gmail.com>,
+	Ingo Molnar <mingo@kernel.org>,
+	Xin Zhao <jackzxcui1989@163.com>,
+	Joseph Tilahun <jtilahun@astranis.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	Lukas Wunner <lukas@wunner.de>,
+	"Dr. David Alan Gilbert" <linux@treblig.org>
+Subject: [PATCH tty v4 0/6] 8250: Add console flow control
+Date: Wed,  6 May 2026 14:21:55 +0206
+Message-ID: <20260506121606.5805-1-john.ogness@linutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: exynos850: Add SRAM node
-To: Alexey Klimov <alexey.klimov@linaro.org>,
- Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Sam Protsenko <semen.protsenko@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-References: <20260413-exynos850_sram-v1-1-7fda5b7fb7d4@linaro.org>
- <2ff077e1-8983-4a41-bb21-5e4140545aa3@kernel.org>
- <DHSR70EGYY4N.2EA2HWIXJR7QR@linaro.org>
- <4c6a92e0-15a1-4f82-afc9-542f5ad9d2df@kernel.org>
- <DI6LNH2F0DP5.H1ZM8MTSDQJR@linaro.org>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <DI6LNH2F0DP5.H1ZM8MTSDQJR@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_051209_374148_E63D2B89 
-X-CRM114-Status: GOOD (  19.97  )
+X-CRM114-CacheID: sfid-20260506_051612_044136_9925BC07 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,70 +95,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
+
+This is v4 of a series to implement console flow control for the
+8250 serial driver. v3 is here [0].
+
+The 8250 driver already has code in place to support console flow
+control. However, there is no way to activate it and it is
+incomplete. This series provides the necessary missing pieces while
+attempting to be as conservative as possible, so as not to introduce
+any side effects into the many 8250 variants or other non-8250 serial
+drivers.
+
+For patch 2 I used the following Coccinelle script to perform the
+modifications...
+
+===== BEGIN cons_flow.cocci =====
+// SPDX-License-Identifier: GPL-2.0-only
+// Options: --all-includes
+
+virtual patch
+
+@r1@
+type T1;
+identifier U;
+@@
+
+T1 {
+   ...
+   struct uart_port U;
+   ...
+};
+
+@r2@
+r1.T1 *E;
+@@
+
+- (E->port.flags & UPF_CONS_FLOW)
++ uart_cons_flow_enabled(&E->port)
+
+@r3@
+struct uart_port *U;
+@@
+
+- (U->flags & UPF_CONS_FLOW)
++ uart_cons_flow_enabled(U)
+
+@r4@
+struct uart_port *U;
+@@
+
+- U->flags |= UPF_CONS_FLOW
++ uart_set_cons_flow_enabled(U, true)
+===== END cons_flow.cocci =====
+
+Changes for v4:
+
+- Rename uart_get_cons_flow() to uart_cons_flow_enabled().
+
+- Rename uart_set_cons_flow() to uart_set_cons_flow_enabled().
+
+Changes for v3:
+
+- Deprecate UPF_CONS_FLOW. Provide separate boolean with wrappers as
+  alternative.
+
+- Update all UPF_CONS_FLOW users to new cons_flow wrappers.
+
+- Use irqsave variant of spin lock for status update.
+
+- When 8250 console flow control is not specified, clear the policy.
+
+Changes for v2:
+
+- Prepend a patch to perform an extra LSR wait after CTS assertion if
+  the initial LSR wait timed out.
+
+- Close a window in serial8250_register_8250_port() where console
+  flow control was briefly disabled.
+
+- Add port lock synchronization to the port->status RMW update in
+  uart_set_options().
+
+John Ogness
+
+[0] https://lore.kernel.org/lkml/20260417102423.40984-1-john.ogness@linutronix.de
+
+John Ogness (6):
+  serial: core: Add dedicated uart_port field for console flow
+  serial: Replace driver usage of UPF_CONS_FLOW
+  serial: sh-sci: Avoid deprecated UPF_CONS_FLOW
+  serial: 8250: Set cons_flow on port registration
+  serial: 8250: Check LSR timeout on console flow control
+  serial: 8250: Add support for console flow control
+
+ drivers/tty/serial/8250/8250_core.c |  6 ++++++
+ drivers/tty/serial/8250/8250_port.c | 21 +++++++++++++++++----
+ drivers/tty/serial/bcm63xx_uart.c   |  2 +-
+ drivers/tty/serial/omap-serial.c    |  2 +-
+ drivers/tty/serial/pch_uart.c       |  2 +-
+ drivers/tty/serial/pxa.c            |  2 +-
+ drivers/tty/serial/samsung_tty.c    |  8 ++++----
+ drivers/tty/serial/serial_core.c    | 21 ++++++++++++++++++++-
+ drivers/tty/serial/serial_txx9.c    |  4 ++--
+ drivers/tty/serial/sh-sci.c         |  5 ++++-
+ drivers/tty/serial/sunsu.c          |  2 +-
+ include/linux/serial_core.h         | 20 ++++++++++++++++++++
+ 12 files changed, 78 insertions(+), 17 deletions(-)
 
 
-On 4/30/26 6:37 PM, Alexey Klimov wrote:
-> On Tue Apr 14, 2026 at 10:08 AM BST, Krzysztof Kozlowski wrote:
->> On 14/04/2026 11:00, Alexey Klimov wrote:
->>> On Mon Apr 13, 2026 at 4:23 PM BST, Krzysztof Kozlowski wrote:
->>>> On 13/04/2026 16:52, Alexey Klimov wrote:
->>>>> SRAM is used by the ACPM protocol to retrieve the ACPM channels
->>>>> information and configuration data. Add the SRAM node.
->>>>>
->>>>> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
->>>>> ---
->>>>>  arch/arm64/boot/dts/exynos/exynos850.dtsi | 8 ++++++++
->>>>>  1 file changed, 8 insertions(+)
->>>>>
->>>>> diff --git a/arch/arm64/boot/dts/exynos/exynos850.dtsi b/arch/arm64/boot/dts/exynos/exynos850.dtsi
->>>>> index cb55015c8dce..cf4a6168846c 100644
->>>>> --- a/arch/arm64/boot/dts/exynos/exynos850.dtsi
->>>>> +++ b/arch/arm64/boot/dts/exynos/exynos850.dtsi
->>>>> @@ -910,6 +910,14 @@ spi_2: spi@11d20000 {
->>>>>  			};
->>>>>  		};
->>>>>  	};
->>>>> +
->>>>> +	apm_sram: sram@2039000 {
->>>>> +		compatible = "mmio-sram";
->>>>> +		reg = <0x0 0x2039000 0x40000>;
->>>>> +		#address-cells = <1>;
->>>>> +		#size-cells = <1>;
->>>>> +		ranges = <0x0 0x0 0x2039000 0x40000>;
->>>>
->>>> You miss here children.
->>>
->>> Thank you! I guess I should convert it to smth like this:
->>>
->>> apm_sram: sram@2039000 {
->>> 		compatible = "mmio-sram";
->>> 		reg = <0x0 0x2039000 0x40000>;
->>> 		ranges = <0x0 0x0 0x2039000 0x40000>;
->>> 		#address-cells = <1>;
->>> 		#size-cells = <1>;
->>>
->>> 		acpm_sram_region: sram-section@0 {
->>> 			reg = <0x0 0x40000>;
->>
->> This covers entire block, so feels pointless. Maybe requirement of
->> children should be dropped. What's the point of having children? Why
->> does the driver need them?
-> 
-> Thinking further about this. I was looking at the schema file and
-> different commits and it the right approach could be:
-> 
-> - add separate compatible for mmio-sram region for this case. Similar
-> to scmi and scpi, i'd say it should be "exynos,acpm-sram" or
-> "samsung,acpm-sram";
-> 
-> - update schema sram.yaml to exclude requirement for having child nodes
-> and properties like ranges, address and size cells
-> Similar like in commit, for instance, git show d0fe6491ddd22
-> (or git show 2d4a22e79a5fd).
+base-commit: a2083fd1fa7aa0ef5cd8fd92396da0de2d0654b0
+-- 
+2.47.3
 
-this works fine, but only if the sram is consumed as a whole, and only by
-ACPM. Is this the case for exynos850?
-
-Cheers,
-ta
 
