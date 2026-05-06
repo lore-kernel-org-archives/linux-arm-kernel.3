@@ -4,88 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF8BDCD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 10:19:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38455CD3436
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 10:33:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=frOZWVrduNGKMu3VYaa4JiBvzYZTtFtYjox5RDxS4rA=; b=fMkT+uoYaoVMLPQK1eztql1cBN
-	8TC6FE2j9IAx7wK6HoEd9UpmMcsfaqMV/eHXJtH3101PItIFL/+KxMq/ck29+x1XPu78tap68M7a7
-	wHQ6KO6G0HQwAa6Y88JjgnTvF8u9WIWdE6Pgm2z84SBN2Kj8bXyv6mmU/HPpL6Mv8zyUhpZzIwHNj
-	+FFeswlN200AVC9h4DaSS/Rdfsj1l+PxKZ/mwlTTLDdtxamaztW0oCfTEhAUKGHyYnP20MbGTAk3t
-	pyq2FJC25OKDWpkEVri3eicfGiR/8lIumwz1GDJuHg1/xQLzMV4EIJwA16aMKJj16UXD2a6AWNrhP
-	mXU3wQ0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=THuZBEwOiMJtTU+w/7+LqDOas+PoM5CQi/ijMRA93Jg=; b=0h9gmOktJYUOemqzK2r2JVtnAo
+	5e7/Q+nQXZZqdNwV/5Emul8oYLG1iNoQ3eFW40uMUCkMUhdTKAZYs6H+eIkH5q5sTGTC7cXT+Hb+7
+	kMMt+maV36LmUSpYXWb8IzPL4YXgsAiAfhU2ESdcmP87M2v4UZWw90X9UTO7VVw80qJ/UiVJRP//H
+	BMh4DZlwMESWZzQPi3J3j29S5flEHN4lLBShKj8yueSzg5MbpnDTphLPTBXzpLcMeuGlCYmWiwd+J
+	/vl+MLXnwIhBKGDCivK5lPs9IYILRlU7NVcqvBEPcLuENpG6Pad0ANoi9m+H3teRxqwLZ/Ote/Nu8
+	i/1bcnqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKZLj-00000000TET-2qyf;
-	Wed, 06 May 2026 10:19:27 +0000
-Received: from mail-vk1-f177.google.com ([209.85.221.177])
+	id 1wKZZF-00000000V9u-421X;
+	Wed, 06 May 2026 10:33:25 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKZLi-00000000TDb-0rgp
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 10:19:26 +0000
-Received: by mail-vk1-f177.google.com with SMTP id 71dfb90a1353d-56739adfa1aso3763776e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 03:19:25 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778062764; x=1778667564;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=frOZWVrduNGKMu3VYaa4JiBvzYZTtFtYjox5RDxS4rA=;
-        b=RU3pyRZZWak6p768VB/aaCYp2g+pC8DEsnFztT74Y0WCj2iex7OK5735UVkV5qk0ed
-         MFmvTXEKd50FiOporTTrbVc9ngWM8Swn7+o3fUrLB0w36LsAwNHiwHNAuOCGOGoMpvoR
-         kd68q5GAMuHv5W/3abtHwItE2Y9M54jfbhqb40AmxjK1nTuOI4wgBItFxH6oectTCzmy
-         wDXxyEmjmx07w8+pifqjdMae69qPqsu7OgRUvxDacEtq6wetrbpdcU4XkJiUlHiLzMc1
-         nWQGt1lhI+0cXV0jsszqptVDpqzq8w1C3sTbUL2JPPPI5j07CUa2PaGMlwcBxnXGTBke
-         orYA==
-X-Gm-Message-State: AOJu0Yy5HiV/Lt7yOK9XCgyYWyOI37d0qT3eavR9+wjI1lwWzizziilH
-	yKFu3hsOHZaPJTNKRjVxNOAEEdWnfXWS0JsSn1Sb1Mc973scZNUwpoDqkPv+rXxP
-X-Gm-Gg: AeBDieuN9Lidrr4GuFaXqLeqEdiwTUWFNTRmsJ/iQYNGDfwxeyJdx95IDf/NTb6lHXl
-	3bFBy+YHZ4HOHcvH2+ymvWTWdIyLPBgtLfH8fV2CwVWt8n57ojA4ckElBXpOAE4RDl1/VU8pEjO
-	3VepK8p3CBSR+Ex2qJwHwBXyOje/MwbyZdw+TlI6jCYbF1DkAWWuBFy+AYu7ViQYsY5Yy+fXvis
-	Mky+DMOHurkF6sMH36aWtlOdSeqO9okN0qgWt9ftDzJ5UwmZy7oFjNPNQZ/LQwt0a0XYnSF9MPq
-	wO1nH6vlc8CAk6be2JzcToabVmCFyk1ZPy06DhnjB65yMi2LRuz1wqDP9b3BwQFdyIScWeEqIoK
-	loFDkh4m0POIyKvETBxitJ3OSKe6uXe5a0mJdb4IFniDwnI4yqzTXU9vnq5gVgGXBRtgc6A2WH0
-	tVk7ivOSjkz0UUCRRB5p7Z7s3U0lSudaEkwJ3qT+PTsw4b0JH0nT/zL+kU2iEHUgqN+zUPt584M
-	mKGg9WcNrLwbA==
-X-Received: by 2002:a05:6122:4891:b0:56c:e871:31a8 with SMTP id 71dfb90a1353d-57559691a23mr1388479e0c.7.1778062764038;
-        Wed, 06 May 2026 03:19:24 -0700 (PDT)
-Received: from mail-vk1-f170.google.com (mail-vk1-f170.google.com. [209.85.221.170])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5751adf532bsm6732495e0c.8.2026.05.06.03.19.22
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 06 May 2026 03:19:22 -0700 (PDT)
-Received: by mail-vk1-f170.google.com with SMTP id 71dfb90a1353d-56739adfa1aso3763752e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 03:19:22 -0700 (PDT)
-X-Received: by 2002:a05:6122:3214:b0:56b:815c:961d with SMTP id
- 71dfb90a1353d-5755963f49fmr1289109e0c.5.1778062762167; Wed, 06 May 2026
- 03:19:22 -0700 (PDT)
+	id 1wKZZE-00000000V8v-090A;
+	Wed, 06 May 2026 10:33:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1778063599;
+	bh=M5o+/YaupNYZyxmeKf2QjXgCKV0qcMjr7DPzv7F8Sv0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=dHhX2DDEb+wKn+xBlaCHlq6jRa1HZj+2R0vY7hAlUA+C+Zoap/YG7alIUX6QF2JuH
+	 iGWo984ywb6LITJ7cafk4pbvn2DS/7wUBPMhH0nXlMzQqSjx/ELpj6PTtYAsCFnprr
+	 gHgGF7r77Z50yxDgoF7V15ATETV17WYz10R+IypMMoEHxmYpyVhUW9244GtR4aZMrr
+	 px8CHnxYwp40tbLvffOrKczuvdf6qie1oISR6ZEtvS5p0MbMQKQPIaTW3bZYPYkoSG
+	 N1SjfcJWB9w5YQr31HrOSqFKu4oT6y4u7ppxfzDwvm3pdxYZGHcoyntDpuvIYjP6BP
+	 Jn9toahZwrSNw==
+Received: from fedora (unknown [100.64.0.11])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bbrezillon)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 64F3617E1227;
+	Wed,  6 May 2026 12:33:18 +0200 (CEST)
+Date: Wed, 6 May 2026 12:33:14 +0200
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: Ketil Johnsen <ketil.johnsen@arm.com>
+Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+ <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Jonathan
+ Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, Sumit
+ Semwal <sumit.semwal@linaro.org>, Benjamin Gaignard
+ <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>,
+ John Stultz <jstultz@google.com>, "T.J. Mercier" <tjmercier@google.com>,
+ Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>, Steven Price
+ <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>, Daniel Almeida
+ <daniel.almeida@collabora.com>, Alice Ryhl <aliceryhl@google.com>, Matthias
+ Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, dri-devel@lists.freedesktop.org,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Florent Tomasin <florent.tomasin@arm.com>
+Subject: Re: [PATCH 5/8] drm/panthor: Minor scheduler refactoring
+Message-ID: <20260506123314.0f1c01cb@fedora>
+In-Reply-To: <20260505140516.1372388-6-ketil.johnsen@arm.com>
+References: <20260505140516.1372388-1-ketil.johnsen@arm.com>
+	<20260505140516.1372388-6-ketil.johnsen@arm.com>
+Organization: Collabora
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-References: <20260504144534.43745-1-marek.vasut+renesas@mailbox.org> <20260504144534.43745-4-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260504144534.43745-4-marek.vasut+renesas@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 6 May 2026 12:19:11 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdWdqDpU+AZrwz5ccbZPjJfp5DspoVscYi=Q+w-nniuuCQ@mail.gmail.com>
-X-Gm-Features: AVHnY4JCwkwAqaqLSNXuaf0ETjjPOv64a8QgXMobUA_baaUFwZots-RZr9ezKew
-Message-ID: <CAMuHMdWdqDpU+AZrwz5ccbZPjJfp5DspoVscYi=Q+w-nniuuCQ@mail.gmail.com>
-Subject: Re: [PATCH v2 3/7] dt-bindings: clock: cs2000-cp: document CS2500
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
-	Conor Dooley <conor.dooley@microchip.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Brian Masney <bmasney@redhat.com>, Conor Dooley <conor+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
-	Magnus Damm <magnus.damm@gmail.com>, Michael Turquette <mturquette@baylibre.com>, 
-	Rob Herring <robh@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
-	Wolfram Sang <wsa+renesas@sang-engineering.com>, devicetree@vger.kernel.org, 
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-mmc@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_031926_248777_1D5437DA 
-X-CRM114-Status: GOOD (  16.90  )
+X-CRM114-CacheID: sfid-20260506_033324_233590_E494E055 
+X-CRM114-Status: GOOD (  19.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,25 +89,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 4 May 2026 at 16:46, Marek Vasut
-<marek.vasut+renesas@mailbox.org> wrote:
-> Document backward compatibility support for CS2500 chip, which
-> is a drop-in replacement for CS2000 chip.
->
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> Acked-by: Stephen Boyd <sboyd@kernel.org>
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+On Tue,  5 May 2026 16:05:11 +0200
+Ketil Johnsen <ketil.johnsen@arm.com> wrote:
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> From: Florent Tomasin <florent.tomasin@arm.com>
+> 
+> Refactor parts of the group scheduling logic into new helper functions.
+> This will simplify addition of the protected mode feature.
+> 
+> Remove redundant assignments of csg_slot.
+> 
+> Signed-off-by: Florent Tomasin <florent.tomasin@arm.com>
+> Co-developed-by: Ketil Johnsen <ketil.johnsen@arm.com>
+> Signed-off-by: Ketil Johnsen <ketil.johnsen@arm.com>
+> ---
+>  drivers/gpu/drm/panthor/panthor_sched.c | 135 +++++++++++++++---------
+>  1 file changed, 86 insertions(+), 49 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/panthor/panthor_sched.c b/drivers/gpu/drm/panthor/panthor_sched.c
+> index 5ee386338005c..987072bd867c4 100644
+> --- a/drivers/gpu/drm/panthor/panthor_sched.c
+> +++ b/drivers/gpu/drm/panthor/panthor_sched.c
+> @@ -1934,6 +1934,12 @@ static void csgs_upd_ctx_init(struct panthor_csg_slots_upd_ctx *ctx)
+>  	memset(ctx, 0, sizeof(*ctx));
+>  }
+>  
+> +static void csgs_upd_ctx_ring_doorbell(struct panthor_csg_slots_upd_ctx *ctx,
+> +				       u32 csg_id)
+> +{
+> +	ctx->update_mask |= BIT(csg_id);
+> +}
+> +
+>  static void csgs_upd_ctx_queue_reqs(struct panthor_device *ptdev,
+>  				    struct panthor_csg_slots_upd_ctx *ctx,
+>  				    u32 csg_id, u32 value, u32 mask)
+> @@ -1944,7 +1950,8 @@ static void csgs_upd_ctx_queue_reqs(struct panthor_device *ptdev,
+>  
+>  	ctx->requests[csg_id].value = (ctx->requests[csg_id].value & ~mask) | (value & mask);
+>  	ctx->requests[csg_id].mask |= mask;
+> -	ctx->update_mask |= BIT(csg_id);
+> +
+> +	csgs_upd_ctx_ring_doorbell(ctx, csg_id);
+>  }
+>  
+>  static int csgs_upd_ctx_apply_locked(struct panthor_device *ptdev,
+> @@ -1961,8 +1968,12 @@ static int csgs_upd_ctx_apply_locked(struct panthor_device *ptdev,
+>  	while (update_slots) {
+>  		struct panthor_fw_csg_iface *csg_iface;
+>  		u32 csg_id = ffs(update_slots) - 1;
+> +		u32 req_mask = ctx->requests[csg_id].mask;
+>  
+>  		update_slots &= ~BIT(csg_id);
+> +		if (!req_mask)
+> +			continue;
 
-Gr{oetje,eeting}s,
+Looks like something that should be in patch 7, where you update the
+doorbell_req register, and then call csgs_upd_ctx_ring_doorbell(),
+meaning req_mask can be zero. The other option would be to teach
+panthor_csg_slots_upd_ctx about CS doorbells, and let
+csgs_upd_ctx_apply_locked() toggle the doorbell_req.
 
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+> +
+>  		csg_iface = panthor_fw_get_csg_iface(ptdev, csg_id);
+>  		panthor_fw_update_reqs(csg_iface, req,
+>  				       ctx->requests[csg_id].value,
+> @@ -1979,6 +1990,9 @@ static int csgs_upd_ctx_apply_locked(struct panthor_device *ptdev,
+>  		int ret;
+>  
+>  		update_slots &= ~BIT(csg_id);
+> +		if (!req_mask)
+> +			continue;
+> +
+>  		csg_iface = panthor_fw_get_csg_iface(ptdev, csg_id);
+>  
+>  		ret = panthor_fw_csg_wait_acks(ptdev, csg_id, req_mask, &acked, 100);
 
