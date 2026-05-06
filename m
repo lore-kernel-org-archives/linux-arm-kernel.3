@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96C63CD3424
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 07:26:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7C22CD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 07:26:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=WTTC4eWS6xsX1WabsoEMcJQB6BgPKpGPc6CsKIqvis8=; b=2QjQfcorF3T4fv
-	C7sbubTUsB1lUSphqDWbgvHshK9H/3GJvlFyBxVMoLLDO0GH4V2CSndKlfl4+XS9PmvaLzU0GF9xg
-	1vgNVXDtJCXcKnk2vUJtSyBfPeoJGxu7VhKidReL+VtlewtjFVcjrHvlNGalNQP4ycG66R8GvpluF
-	uKF6NJwyxpAro9tIOQpQObT3tFtVrZGZoBgRIAMQQ+0TwafLBc9BIsGUR5G5IMb58ZT9MAiAYhQap
-	pYeOOBBmdNhquLjmHq8QtWPhTe33pxGHfX7tgeesy8KN0hluIffk0RxJAYdjbhjGVNQyo6mGOI95W
-	MVk4TjdNz4wvpZoSUxiw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3gROlKntTUrPoT0AGvSprRcJ0UEtCVOIr8Yb9xfb+Fw=; b=3j1quag3CnBhPToXjyDO0u0n3D
+	9cWcINMmR2PbR2KyFRf69Fl2yuhCzO5SsO4go3CiqsGXM+vdEx5yHFf8Qas4fsiYAvBcz/1/UIQ62
+	mHQ3NJXkpnxRjuhwHsD5AOB0pK2ppXGkMPV3qgzd6q912TWI+K+hfgv06dVG1oHVITfArATrYwD5t
+	VAhwfvUv4evF8xpf9CHPH2KEKf4poNv7l0gmHhSLGh+W6+r28JoWBNS65FtteGOADx47Lm0hNa4b4
+	UZ1d8+1Gxfm37j9dReahw8pmlcQkJzmpP9Sx9VRX5VkWGqUGY8ZdUTRilLkC6IIFRVNnXgP/o30NF
+	u3yKtqgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKWe5-000000001DL-1PsB;
-	Wed, 06 May 2026 07:26:13 +0000
+	id 1wKWe7-000000001EE-1kzN;
+	Wed, 06 May 2026 07:26:15 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKWe2-000000001Ci-2Xfl
+	id 1wKWe5-000000001DK-25Hd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 07:26:11 +0000
+	Wed, 06 May 2026 07:26:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1778052370; x=1809588370;
-  h=from:subject:date:message-id:mime-version:
-   content-transfer-encoding:to:cc;
-  bh=FUgqcwlqHZvuXQFkTp2cH0PZJLSFbwKOjopx/wLUl0s=;
-  b=NtNMlU2sinpy01vl6J/BDjN+bI3XtgLdy8e9KE8FVTF7kfEUHkQUrnAz
-   6GF4pkSXrK3lZOT6FCHyEEWeNzRyDSK6tfKNFHewzhJF03J5tRtiBNSJd
-   aK4FBzmdisCqjesacRm+WQCSp9QtokKv6PGSZAKdqRfseuSmZYjeRACOw
-   xxE208E8o6D4oruIzkf9TdbEJWguLaSX/Q8zQUYN2FIDMVn+esPFRp+Hn
-   S5OcNG293O5ylpndOs2t7xh/FhJusL0Z2oxS/lax0EkkOm1+PbpxQbmno
-   aX4+rZgjeu7GN2BkyxQr6r11khfi8jA4QvFnRO0YdCjpYDiVDUhcqNsOK
-   g==;
-X-CSE-ConnectionGUID: mdJjxWYtRtGSZSmgn51qzA==
-X-CSE-MsgGUID: wDek4DCXQ9qsBUc39xrVEQ==
+  t=1778052372; x=1809588372;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:references:in-reply-to:to:cc;
+  bh=7kododvTQ68yKTSDo3YpbRkIFBnTYQ7gfRla+bTGEck=;
+  b=ooV9qgDTKZYw752bLVpjY3pH0JoitpuIKODN0f9nI3il3lpm1ZRZoR6c
+   NBHU69hiHnVtzhF5nd1PG23vpYYVwhqb4ymABwKoxmzz30hj2Nf2zXvH+
+   a+kla8ECy1o2umwU7F9Qpo8yFd0ZC3S8TmUryo6NCyYX/nx9a6Mvc2x0v
+   u3wF1Ti2w3/OgNPF87hNz4TllyrnpvEbaK2N2xFhAdMOlZ9ndB8+meJ6M
+   T4STKDeKDRSkb/T+EsuXKb6yOzg10X3rcKEteQSYCI5iwXX5+6+sBhEpg
+   rfPlqxgdMwXcWpBghmLCoLgOjJKQgIrbwQvCREdAAWxJYOozjPQCgggw5
+   A==;
+X-CSE-ConnectionGUID: qz5Evn+OQfO8zCrhGrl+XA==
+X-CSE-MsgGUID: st7y93lxRreywRzRdtcX3g==
 X-IronPort-AV: E=Sophos;i="6.23,219,1770620400"; 
-   d="scan'208";a="57515437"
+   d="scan'208";a="56331557"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 May 2026 00:26:08 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 06 May 2026 00:26:11 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.37; Wed, 6 May 2026 00:26:08 -0700
+ 15.1.2507.58; Wed, 6 May 2026 00:26:11 -0700
 Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
  chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Wed, 6 May 2026 00:26:04 -0700
+ 15.1.2507.58 via Frontend Transport; Wed, 6 May 2026 00:26:08 -0700
 From: Daniel Machon <daniel.machon@microchip.com>
-Subject: [PATCH net v2 0/4] net: sparx5: misc fixes for sparx5 and lan969x
-Date: Wed, 6 May 2026 09:25:35 +0200
-Message-ID: <20260506-misc-fixes-sparx5-lan969x-v2-0-fb236aa96908@microchip.com>
+Date: Wed, 6 May 2026 09:25:36 +0200
+Subject: [PATCH net v2 1/4] net: sparx5: defer VCAP debugfs creation until
+ after netdev registration
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAO/s+mkC/31OSw6DIBC9ipl1p0EUrF31Ho0LpFgnqUAYY2yMd
- y/hAF2+/zuAXSLHcK8OSG4jpuAzkJcK7Gz82yG9MgYppBatvOFCbHGi3TFyNGlX+DG+1/2Oo5W
- 9ro3qxDRCzsfkii/Hn+DdCkMmZ+I1pG/Z2+oilWol2j/VW40CdT7QCD2qrm0eC9kU7EzxasMCw
- 3meP+2h4lPLAAAA
-X-Change-ID: 20260428-misc-fixes-sparx5-lan969x-bc2961a570fb
+Message-ID: <20260506-misc-fixes-sparx5-lan969x-v2-1-fb236aa96908@microchip.com>
+References: <20260506-misc-fixes-sparx5-lan969x-v2-0-fb236aa96908@microchip.com>
+In-Reply-To: <20260506-misc-fixes-sparx5-lan969x-v2-0-fb236aa96908@microchip.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
 	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
 	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Steen Hegelund
@@ -76,13 +74,11 @@ To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
 	Philipp Zabel <p.zabel@pengutronix.de>, <kees@kernel.org>
 CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, Steen Hegelund
-	<steen.hegelund@microchip.com>, <linux-rt-devel@lists.linux.dev>, Andrew Lunn
-	<andrew@lunn.ch>
+	<steen.hegelund@microchip.com>, <linux-rt-devel@lists.linux.dev>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_002611_818364_0A27F4F8 
-X-CRM114-Status: UNSURE (   9.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260506_002613_605348_C4550A8C 
+X-CRM114-Status: GOOD (  20.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,38 +93,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series fixes various issues in the sparx5 driver, which also
-serves lan969x.
+Commit 3a95973e7c79 ("net: sparx5: move VCAP initialization to probe")
+moved sparx5_vcap_init() ahead of sparx5_register_netdevs() in probe.
+The VCAP init path ends by calling vcap_port_debugfs() for every port,
+which uses netdev_name(ndev) as the debugfs file name. At that point
+the netdevs have only been allocated, not registered, so dev->name
+still holds the "eth%d" template and netdev_name() returns
+"(unnamed net_device)". Every port tries to create the same file under
+vcaps/, producing a flood of warnings at boot:
 
-Details are in the individual commit descriptions.
+  debugfs: '(unnamed net_device)' already exists in 'vcaps'
+  debugfs: '(unnamed net_device)' already exists in 'vcaps'
+  ...
 
+Move the debugfs setup into a new sparx5_debugfs() helper in
+sparx5_debugfs.c, invoked after sparx5_register_notifier_blocks()
+succeeds so the netdev names are finalized. sparx5_vcap_init() now
+only deals with VCAP state. The sparx5/ debugfs root is created in
+the new helper as well.
+
+Fixes: 3a95973e7c79 ("net: sparx5: move VCAP initialization to probe")
 Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
 ---
-Changes in v2:
-- Rework patch #2 to use ndo_set_rx_mode_async (Jakub)
-- Link to v1: https://lore.kernel.org/r/20260504-misc-fixes-sparx5-lan969x-v1-0-6604306b5743@microchip.com
-
----
-Daniel Machon (4):
-      net: sparx5: defer VCAP debugfs creation until after netdev registration
-      net: sparx5: fix sleep in atomic context in MAC table access
-      net: sparx5: fix wrong chip ids for TSN SKUs
-      net: sparx5: configure serdes for 1000BASE-X in sparx5_port_init()
-
  drivers/net/ethernet/microchip/sparx5/Makefile     |  3 ++-
  .../net/ethernet/microchip/sparx5/sparx5_debugfs.c | 26 ++++++++++++++++++++++
  .../net/ethernet/microchip/sparx5/sparx5_main.c    |  4 ++--
- .../net/ethernet/microchip/sparx5/sparx5_main.h    | 17 +++++++++-----
- .../net/ethernet/microchip/sparx5/sparx5_netdev.c  |  8 ++++---
- .../net/ethernet/microchip/sparx5/sparx5_port.c    |  3 ++-
+ .../net/ethernet/microchip/sparx5/sparx5_main.h    |  7 ++++++
  .../ethernet/microchip/sparx5/sparx5_vcap_impl.c   |  6 -----
- 7 files changed, 49 insertions(+), 18 deletions(-)
----
-base-commit: 98878ed91b68a3150126fccef125ee7b1bb86ab2
-change-id: 20260428-misc-fixes-sparx5-lan969x-bc2961a570fb
+ 5 files changed, 37 insertions(+), 9 deletions(-)
 
-Best regards,
+diff --git a/drivers/net/ethernet/microchip/sparx5/Makefile b/drivers/net/ethernet/microchip/sparx5/Makefile
+index d447f9e84d92..eb5c81527f41 100644
+--- a/drivers/net/ethernet/microchip/sparx5/Makefile
++++ b/drivers/net/ethernet/microchip/sparx5/Makefile
+@@ -14,7 +14,8 @@ sparx5-switch-y  := sparx5_main.o sparx5_packet.o \
+  sparx5_psfp.o sparx5_mirror.o sparx5_regs.o
+ 
+ sparx5-switch-$(CONFIG_SPARX5_DCB) += sparx5_dcb.o
+-sparx5-switch-$(CONFIG_DEBUG_FS) += sparx5_vcap_debugfs.o
++sparx5-switch-$(CONFIG_DEBUG_FS) += sparx5_vcap_debugfs.o \
++				    sparx5_debugfs.o
+ 
+ sparx5-switch-$(CONFIG_LAN969X_SWITCH) += lan969x/lan969x_regs.o \
+ 					  lan969x/lan969x.o \
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_debugfs.c b/drivers/net/ethernet/microchip/sparx5/sparx5_debugfs.c
+new file mode 100644
+index 000000000000..f6cb1eeaab80
+--- /dev/null
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_debugfs.c
+@@ -0,0 +1,26 @@
++// SPDX-License-Identifier: GPL-2.0+
++/* Microchip Sparx5 Switch driver debug filesystem support
++ *
++ * Copyright (c) 2026 Microchip Technology Inc. and its subsidiaries.
++ */
++
++#include <linux/debugfs.h>
++
++#include "sparx5_main.h"
++#include "vcap_api_debugfs.h"
++
++void sparx5_debugfs(struct sparx5 *sparx5)
++{
++	const struct sparx5_consts *consts = sparx5->data->consts;
++	struct vcap_control *ctrl = sparx5->vcap_ctrl;
++	struct dentry *dir;
++	int idx;
++
++	sparx5->debugfs_root = debugfs_create_dir("sparx5", NULL);
++
++	dir = vcap_debugfs(sparx5->dev, sparx5->debugfs_root, ctrl);
++	for (idx = 0; idx < consts->n_ports; ++idx)
++		if (sparx5->ports[idx])
++			vcap_port_debugfs(sparx5->dev, dir, ctrl,
++					  sparx5->ports[idx]->ndev);
++}
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
+index dad713e9ddd5..bec07560e6fe 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
+@@ -820,8 +820,6 @@ static int mchp_sparx5_probe(struct platform_device *pdev)
+ 	/* Default values, some from DT */
+ 	sparx5->coreclock = SPX5_CORE_CLOCK_DEFAULT;
+ 
+-	sparx5->debugfs_root = debugfs_create_dir("sparx5", NULL);
+-
+ 	ports = of_get_child_by_name(np, "ethernet-ports");
+ 	if (!ports) {
+ 		dev_err(sparx5->dev, "no ethernet-ports child node found\n");
+@@ -1000,6 +998,8 @@ static int mchp_sparx5_probe(struct platform_device *pdev)
+ 		goto cleanup_netdevs;
+ 	}
+ 
++	sparx5_debugfs(sparx5);
++
+ 	goto cleanup_config;
+ 
+ cleanup_netdevs:
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
+index 6a745bb71b5c..d5e6644ff124 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
+@@ -565,6 +565,13 @@ void sparx5_get_hwtimestamp(struct sparx5 *sparx5,
+ int sparx5_vcap_init(struct sparx5 *sparx5);
+ void sparx5_vcap_deinit(struct sparx5 *sparx5);
+ 
++/* sparx5_debugfs.c */
++#if defined(CONFIG_DEBUG_FS)
++void sparx5_debugfs(struct sparx5 *sparx5);
++#else
++static inline void sparx5_debugfs(struct sparx5 *sparx5) {}
++#endif
++
+ /* sparx5_pgid.c */
+ enum sparx5_pgid_type {
+ 	SPX5_PGID_FREE,
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c b/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c
+index 95b93e46a41d..dd446b3a9f20 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c
+@@ -2035,7 +2035,6 @@ int sparx5_vcap_init(struct sparx5 *sparx5)
+ 	const struct sparx5_vcap_inst *cfg;
+ 	struct vcap_control *ctrl;
+ 	struct vcap_admin *admin;
+-	struct dentry *dir;
+ 	int err = 0, idx;
+ 
+ 	/* Create a VCAP control instance that owns the platform specific VCAP
+@@ -2074,11 +2073,6 @@ int sparx5_vcap_init(struct sparx5 *sparx5)
+ 			sparx5_vcap_port_key_selection(sparx5, admin);
+ 		list_add_tail(&admin->list, &ctrl->list);
+ 	}
+-	dir = vcap_debugfs(sparx5->dev, sparx5->debugfs_root, ctrl);
+-	for (idx = 0; idx < consts->n_ports; ++idx)
+-		if (sparx5->ports[idx])
+-			vcap_port_debugfs(sparx5->dev, dir, ctrl,
+-					  sparx5->ports[idx]->ndev);
+ 
+ 	return err;
+ }
+
 -- 
-Daniel Machon <daniel.machon@microchip.com>
+2.34.1
 
 
