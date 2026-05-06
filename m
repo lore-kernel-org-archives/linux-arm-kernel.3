@@ -4,59 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CC64CD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 13:39:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7777CD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 13:45:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:From:Date:Reply-To:To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9z6XJfx0McRXgfG+ESzo7dm092rIL3bS6DYQK7Vt2zk=; b=OMWWxOQNvzvnn8m4hfWsST/aCI
-	Jg1hqGuXAHBofoaci9llBdkI5IRg0dJ/8bZqWBfrHsm04VWbAiLCmATiWVS0V13fgr1mu7bSENCR8
-	TzVkjOxzuZO9L+IJG/oZnhhPWFWTvGXEk1048VPkl9rSctvuFc+j8wWxlGwnjvZ53lhzxu8sGHcLa
-	hhGtmE5Lu6vfkP/Oztm7EFNkMUPrxFgeD746xLySAF11BkhB4KhVB7ppkIgYxT3LTQSvlJhtkKQ+1
-	BgQ/aNezOFKoonrs3JQ7UGjyVn1D27ks0WsSqAXLRJXNCrUT9EJPM0oQCBNPw6H3dkoPrDMXC6d09
-	gB/So8MQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gMeTRBDmDnSb/6bNUDbfXXIg58i3yRtlbEoK09izD2M=; b=W/lPj0uMXmn1ZO1SQHEFNacWbE
+	OAD4aBqjVnLvDIKh2g36ajs1riOXkJgOWBP4mynRfHszfn+sODCM01wBFJLdyBF7x7w9qQ1+KUcTI
+	bUjgwteQsxV2GZqf9354XOnKY1U/CguKMSIj4Ytu/6Prjl+l9eoSKxdM23IWSYesdmISgECaib/Hz
+	wruCua4KTPQZyxB9kgmujy7tG4U3oyUoMOu5LdoIJ4oW4kJECd42PY6VDbwKQuF6kX9kFpDakVw/o
+	mWn9wtGBYBP0VAufiwWt2rFsfL0REHBi/Aprvg+WqvOACCOwSF42OYWvIdifr8MVjpRoLGmNjgMUZ
+	o6nw9E+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKcTR-00000000vR6-2fef;
-	Wed, 06 May 2026 13:39:37 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKcTQ-00000000vQk-25B9
+	id 1wKbtH-00000000q6T-3scA;
+	Wed, 06 May 2026 13:02:15 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKbtF-00000000q48-1Cbh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 13:39:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AEBD019F6;
-	Wed,  6 May 2026 06:39:29 -0700 (PDT)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 75C623F7B4;
-	Wed,  6 May 2026 06:39:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778074775; bh=X1DW65cFOZTQJq07rALhs9VeCiIyBm5QnFundIjdxyg=;
-	h=Date:From:Cc:Subject:References:In-Reply-To:From;
-	b=OOT99HGUwDRz/VqppQ7JwvNwRaZNNUy3nvIXGebB256s5BGRBQM67qOKrq48J4Ck0
-	 zzeINSuZTgVG14wmLA9UsA4XCmQSjQkQESkhVFT0qZhxPoAcdco4sCn3gVpYeBMffU
-	 PkeuUxSQhAzQ5OFHhtZrSpiamYRsCJInGszFJSvc=
-Date: Wed, 6 May 2026 14:39:30 +0100
-From: Alexandru Elisei <alexandru.elisei@arm.com>, To: Sean Christopherson <seanjc@google.com>;
-Cc: maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	tabba@google.com, David.Hildenbrand@arm.com
-Subject: Re: [RFC PATCH] KVM: arm64: Align KVM_EXIT_MEMORY_FAULT error codes
- with documentation
-Message-ID: <aftEkgnDdL2AY_6H@raptor>
-References: <20260506105053.107404-1-alexandru.elisei@arm.com>
- <afs3wp7xBUf2jYK4@google.com>
+	Wed, 06 May 2026 13:02:13 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-5a86e4b950cso2843726e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 06:02:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778072531; x=1778677331; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=gMeTRBDmDnSb/6bNUDbfXXIg58i3yRtlbEoK09izD2M=;
+        b=SRgoLgJ4edkBsXWApigLQVrm9aCo+qx+9s4Q7jx1qr8jPOdUd6/qGcvWmiObqNXhYw
+         5DMNeX/SgJIqtG9tPzNcGExIxF/VelA9qDIuLWGKRn609+UITVQjvEd97OLxmWl2EDar
+         nIFfrGqDmhkXGdCwsyDCY4B0VcLoDLaULk7Qoz5dlOQ+C+slr6/ZpizibyCkQ74W0EGI
+         Kqjx4D7yc25CKwt65yCqPYKNLtqioq8kcTry5jy37G1aGSKxWFwyarRwJt7Sd/X67cn8
+         3z+0OqNsojVETfV0FAyfs8Dh0/K4voXeHVcDOdxnv1/P3jRSg46lTckikB5TyZpGs4Ig
+         WAYg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778072531; x=1778677331;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=gMeTRBDmDnSb/6bNUDbfXXIg58i3yRtlbEoK09izD2M=;
+        b=dboM/jygJ5h//aOJuro/DG7C1c8AnRXd5yXWWy+HRn9aMZRRRkrj3ZliQz5fFdDilS
+         EUkFFmZv5COOZLqs3b1MlxcLG6WI6D30rmxCgFlXm/HsQvEtOuQVxcVLtvynF6K91IWE
+         Rp+caomUg0FCr0hbmfccCo30NNIxRp5Ay8/Fi8RVvETzthD8mGQUe8XngRNbbNwS8FzI
+         3bSKdmBhe47jjrakNAAUNzvbm6WMOpKhucCkU59U1neWkE+rcIsYM9RyzLom5YVbo5dL
+         9LWaAzzDcXHXWRIbPfkdO56sSJfhyH1XcogxP/UifZS3z//E/CrLYJs6to1bMyjsIKe1
+         DWww==
+X-Forwarded-Encrypted: i=1; AFNElJ+NV19gn1ssTUNmxIrEl6TNICzQo2Xxh1tH7EvXA1Uhi9dd4kg9ZOvpRQzyI1PbkD+GdRY78rxXdjR485IEZFKx@lists.infradead.org
+X-Gm-Message-State: AOJu0YxhrKxWAwS7I0RwbaHACS214NdRmJ+BPMSIDI6GoI7XsZJQ6BzB
+	WeIElMgeCUOEdhnW6N7ZES13KRnevE1JRpXcDCkKMe7CRz3BfjNFhi2x
+X-Gm-Gg: AeBDieu38nt0qQGqFns2NqPAaAjUMBKrxecwDCaFdjbVUDNpic61Zln5XDFW9ZNiY26
+	/ol5fMhnEbRsU8JAZvRNbEqQJZsohkZ6NZd6hYMIrHdN6EK7lnM3gWQHvN5p0h1X4g91WbSpAPB
+	rpyBCSSlPbJjE7dtolj5mab7WzoCl7S27Xr5GLNo1QgHWvEx+gl7JhH7/KuqmJBsWZHC5P75Mn1
+	DKJcQc8TdL4Ktsr+HQDGryzwfolvvHui4+5dvX2lb/bRm1H/tvoDyckCu80XZsInM1cpnTkncWu
+	z5lQ6caAMOvl97QpngPj10Qk9DVqCd33o7xh8yIJhOiXkloNpTU4yDTXN49kLO9fwMLucZce4pb
+	jUxl1cLjapqxPrGV/e5tt4ElLDF9oY7G2rWU59ROmuHVFDIvllP5RwEKF1BiH0OYz458/a/TgIP
+	/zxG1ETUsFHshtt1Jq09+KPUhDcBu2UMlaPTWabDi8tkx2Hu3LGHijmpSEOIXCKjlrsMvvVTPWa
+	Bqza/Wvfwb+bwHeedbwhqx4bsvqWExEjTymlVKV9X8X1s0/NniOJeUt5WD4HFYf8xGNIa2/22XN
+	+wljrcy5Xkc=
+X-Received: by 2002:a05:6512:6c7:b0:5a8:9135:127e with SMTP id 2adb3069b0e04-5a891351b19mr136583e87.18.1778072530001;
+        Wed, 06 May 2026 06:02:10 -0700 (PDT)
+Received: from [127.0.1.1] (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45052a488d8sm12288076f8f.12.2026.05.06.06.02.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 06 May 2026 06:02:09 -0700 (PDT)
+From: Franz Schnyder <fra.schnyder@gmail.com>
+Date: Wed, 06 May 2026 15:01:55 +0200
+Subject: [PATCH 1/3] dt-bindings: arm: fsl: add Aquila iMX95
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <afs3wp7xBUf2jYK4@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260506-add-aquila-imx95-v1-1-69c8ee1c5413@toradex.com>
+References: <20260506-add-aquila-imx95-v1-0-69c8ee1c5413@toradex.com>
+In-Reply-To: <20260506-add-aquila-imx95-v1-0-69c8ee1c5413@toradex.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Franz Schnyder <franz.schnyder@toradex.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_063936_617632_D500AC43 
-X-CRM114-Status: GOOD (  28.36  )
+X-CRM114-CacheID: sfid-20260506_060213_346815_61896D7E 
+X-CRM114-Status: UNSURE (   9.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,84 +107,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sean,
+From: Franz Schnyder <franz.schnyder@toradex.com>
 
-Thanks for the explanations!
+Add DT compatible strings for the Aquila i.MX95 SoM and its supported
+carrier boards: the Aquila Development Board and the Clover carrier
+board.
 
-On Wed, May 06, 2026 at 05:44:50AM -0700, Sean Christopherson wrote:
-> On Wed, May 06, 2026, Alexandru Elisei wrote:
-> > The documentation for KVM_EXIT_MEMORY_FAULT states:
-> > 
-> > 'Note!  KVM_EXIT_MEMORY_FAULT is unique among all KVM exit reasons in that
-> > it accompanies a return code of '-1', not '0'!  errno will always be set to
-> > EFAULT or EHWPOISON when KVM exits with KVM_EXIT_MEMORY_FAULT, userspace
-> > should assume kvm_run.exit_reason is stale/undefined for all other error
-> > numbers'.
-> > 
-> > where a return code of '-1' is special because according to man 2 ioctl:
-> > 
-> > 'On error, -1 is returned, and errno is set to indicate the error'.
-> > 
-> > Putting the two together means that the ioctl KVM_RUN must 1) complete with
-> > an error and 2) that error must must be either EFAULT or EHWPOISON for
-> > userspace to detect a KVM_EXIT_MEMORY_FAULT VCPU exit.
-> 
-> Yes and no.  The key escape valve we (very deliberately) gave ourselves is this:
-> 
->   userspace should assume kvm_run.exit_reason is stale/undefined for all other
->   error numbers.
-> 
-> As arm64 already does, that clause allows KVM to "speculatively" set exit_reason
-> to KVM_EXIT_MEMORY_FAULT.  Which is by design.  The userspace flow is intended
-> to be "if KVM_RUN returns EFAULT or EHWPOISON, then check for KVM_EXIT_MEMORY_FAULT
-> to see if KVM provided more information about why the EFAULT/EHWPOISON error was
-> returned".
+Link: https://www.toradex.com/computer-on-modules/aquila-arm-family/nxp-imx95
+Link: https://www.toradex.com/products/carrier-board/aquila-development-board-kit
+Link: https://www.toradex.com/products/carrier-board/clover
+Signed-off-by: Franz Schnyder <franz.schnyder@toradex.com>
+---
+ Documentation/devicetree/bindings/arm/fsl.yaml | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-Hm... In general, "speculatively" populating exit_reason with
-KVM_EXIT_MEMORY_FAULT when userspace is not intended to use that information
-looks a bit dubious to me. Why do the work if userspace is not supposed to use
-the information?
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index 59f7f168bf7c4..ea4cc98dadebc 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1507,6 +1507,14 @@ properties:
+           - const: phytec,imx95-phycore-fpsc  # phyCORE-i.MX 95 FPSC
+           - const: fsl,imx95
+ 
++      - description: Toradex Boards with Aquila iMX95 Modules
++        items:
++          - enum:
++              - toradex,aquila-imx95-clover # Aquila iMX95 Module on Clover Board
++              - toradex,aquila-imx95-dev    # Aquila iMX95 Module on Aquila Development Board
++          - const: toradex,aquila-imx95     # Aquila iMX95 Module
++          - const: fsl,imx95
++
+       - description: Toradex Boards with SMARC iMX95 Modules
+         items:
+           - const: toradex,smarc-imx95-dev # Toradex SMARC iMX95 on Toradex SMARC Development Board
 
-Regarding gmem_abort(). As I see it, if today someone writes userspace that
-relies on any of the undocumented error codes propagated from kvm_gmem_get_pfn()
-to handle KVM_EXIT_MEMORY_FAULT, that means that KVM can never use those error
-codes for any other exit_reason in the future, because that userspace will
-break.
+-- 
+2.43.0
 
-I'm sure this was all carefully considered when designing the interface, I was
-just curious how this particular problem has been solved.
-
-> 
-> > On a kvm_gmem_get_pfn() error, gmem_abort() prepares the
-> > KVM_EXIT_MEMORY_FAULT exit_reason and propagates the error back to
-> > userspace. kvm_gmem_get_pfn() does not massage the error code, and if the
-> > error is not -EFAULT or -EHWPOISON, userspace implementing the ABI fails to
-> > detect the memory fault exit.
-> > 
-> > Things get more complicated with kvm_handle_vncr_abort().
-> > kvm_translate_vncr(), similar to gmem_abort(), prepares the VCPU to exit
-> > with KVM_EXIT_MEMORY_FAULT and propagates the error code from
-> > kvm_gmem_get_pfn(). Then kvm_handle_vncr_abort() does a number of things
-> > based on this specific error code:
-> > 
-> > - If it's -EAGAIN, KVM resumes the guest. Note that KVM, when handling a
-> >   *host* fault on a guest_memfd backed VMA, retries the fault handling if
-> >   kvm_gmem_get_pfn() returns -EAGAIN.
-> 
-> Totally fine.
-> 
-> > - If it's -ENOMEM, -EFAULT, -EIO or -EHWPOISON, it returns to userspace
-> >   with 0 (success), meaning that, according to the documentation, userspace
-> >   will not detect the memory fault exit.
-> 
-> Also totally fine, and working as intended.  KVM_EXIT_MEMORY_FAULT is provided
-> for scenarios where (a) the issue is likely related to the GPA and (b) userspace
-> can remedy the underlying issue using the information provided in kvm_run.memory_fault.
-
-If KVM_RUN always returns 0 when exit_reason = KVM_EXIT_MEMORY_FAULT, which is what
-kvm_handle_vncr_abort() does, how will userspace ever be able to handle the
-fault?
-
-Thanks,
-Alex
 
