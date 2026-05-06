@@ -4,90 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF9AFCD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 13:19:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EEA7CD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 13:26:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xGV26fxWeaXiY9rUme+lA6RZN5rDKEIrxGsO7OEUy+c=; b=B8euyl+jPusUQ0wzuvVLUi7S1M
-	ubC/58hTm9PffJiS+jTYW4b/9B2scwycifoquWOJHtmoakpXQvqeBHVV7VnGTHpV+s0Ws5XXcOEUw
-	TRYnLUgb7oY7EgNhr9jJADMJ0KCfbYtsxukwcIwgZW9mg8fskh5Ug3HZ9/T7/Oh4FqHqNYTeNYG7W
-	EJZeFKNz7AQAcNB1zDqXSbHl3xjDLOxegtbmoeI5mvHhrj0Ngc94NQbwTkgTZqa+TYNnYT23WEYLK
-	rdilabflfOVDEw5hz7vRivuSheEg98ZmG1Q1+JfCdHf/Hi8MWqBD2EWI5uVIOCxGebdSd9FMqvFVB
-	fW3NRyIw==;
+	bh=ulyP7ADu2BSwXDSuFyyD2l6/0HJtlIJFL1sFzeCyW14=; b=qWGbtlcqUNJW48ShdnwloiRDKF
+	Rh0F/f8PFwy0wYiG+lVMHqn13VWWBmVyL2sxVb4KSrT4M8JL70eHgrMrc+o3qhXu3DliZIYGCxNr7
+	gk7pbP0dYZvR54POWs5Ly7TY4MpIs/x8kVH/MDjQyPwAGzo2e96d5v9Vn7BYX4xEQffM5VSaXsT4r
+	pjGf3s4BGmy65ko3oy/WKnxM9M8cA53DCvHjCd71G6YJqGTWKyYVcfqHvf1fVn+p8/+yLa2zxL4WV
+	wAVswKJN3fuiHimE6xPIJqUw+rnJ/+1q/Vqq21yk2I6nmkiKDp8JKqRZ7Bs5bsdqQgcDGDvBZR43+
+	CR1X9eFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKcAF-00000000sGs-2fbV;
-	Wed, 06 May 2026 13:19:47 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1wKcGg-00000000tOU-2X2c;
+	Wed, 06 May 2026 13:26:26 +0000
+Received: from mgamail.intel.com ([198.175.65.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKcAD-00000000sGE-3PYB
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 13:19:45 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-488b3f8fa2bso9193365e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 06:19:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778073584; x=1778678384; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=xGV26fxWeaXiY9rUme+lA6RZN5rDKEIrxGsO7OEUy+c=;
-        b=JQtrp0bvXa4aJ8jXGnfnkmHUukfMokCfNXUw1IU8n91HDLV/ZFiazJ0ESAdzmJXWjj
-         OhNQgsrYtAIoRsGY9pXZbzoQZxre0ZYPylEKO8zh25tzLKqDwSOZLEOHHRJCne2gPkII
-         dk+kM4AcZ3iReItZaK6pu2sAD072qNROnPkxhy4IG85Tu8su9ajY3zSuJHwmTxoY+J1j
-         FHaBv3kWpsJZ/MI2SfI7ws4ihj7T81FQ+FijxdKCJ0YfV4aAO4XOvHnU7BAzTFDMh40R
-         I1gBs08VjL7imd8JUz4+omiNED2WZv2ulcTiAnaeP2Nj/WYfc3LsgNZrNFE3ZqKHH/qz
-         AzwA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778073584; x=1778678384;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=xGV26fxWeaXiY9rUme+lA6RZN5rDKEIrxGsO7OEUy+c=;
-        b=iTHgoWZYMnNP3IqFkOICgddTEftYw+4/J8ZEQmyOr2vbVX5n0FtH2GIuJ2YVHPkuN4
-         17MfUSsQrwXP5MlXPrSNNBf4OoQ1PNeKA5JmhAJ/wa+rUpzQmTsqCPHZAuKil70s1/Hz
-         ElilWKMQfVtIxdXl5jVOzcCOMtUvSKSjhcOLuDOv1BAsd+gUSNFunNmxkFrknqs1lKDX
-         f2lwp+jP+KzAgyV5M+t0kEasRTLNg93GMJogMKqCMYyp5MJ7cqCVkXdvq8X9m9NGTZFH
-         HFF/E5A9YyTqxIpU0yiqCdCJEtNq9Ng4j6OuHDDv18U4Xcw/pz9nXiY6aLJiJ90xmGr6
-         MQBQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9u8I7x4fVnCuRlx7HTsohZjt7VGxejAWc/KkT5Z4ekfvdfrYjj6hIkgizbVpJsEPuD+rXeFLP7ck0iGJwm77R5@lists.infradead.org
-X-Gm-Message-State: AOJu0YzSrqxlgzeywkQuAnOJO05+HWAoSIq05PGzY76OXy3VwEqN2ydW
-	GUYovCtAnpNcCVvSQpJC+OpZbeb47vm8k1r6lB5TaQyUiT7SFVGk4Ttg
-X-Gm-Gg: AeBDievDZLu0uc6VSJ71Ky+UBHQdqXEKieKB7JJujhm0jBULrnZrD7L3gDa4y2x1H0a
-	T1g6Obwcz21qLv4Ko+FcHRom/HB43+f4xPxWR0/i0qlXOgQkpuQtXxDKPHgkMy+aGSJhXydY5Xy
-	riQ1FRHytkXWIA/gTMS/0GGjsDqI1UslExj6kEpc8Gz9FHzl/C0CoVyXUyJkAmVax3OudEnRiyw
-	Oh9A7SYP+Sd873r+//48oZY2BWg4hppoATCLJrn6a3sGG8D6uVeWOcgUgr6/Knp/dSdf+/HfDxy
-	pQkQheR1XcnEdZ9PVieec+OyobCGLJ1uzdoP9adhYCA/bgpwKTa1ZlHiLUBjiQAQm2/6bwydrsk
-	CCPwPWaXoKlByQ15TgXKrvqiUcOwHiv4Y38JzRk8bGpBf8hxK+TzIUlZk7n+j1XnmOSIQhiWcQX
-	rDODD8V4R+u67+gwJ262bfFy/LM2kjTQ0/WXPEh6NeHZ/cYOPb8NU76sleHOWnApCSePQP2ISHT
-	iPkHpY=
-X-Received: by 2002:a05:600c:348f:b0:485:3cef:d6ea with SMTP id 5b1f17b1804b1-48e522c0854mr52865865e9.13.1778073583834;
-        Wed, 06 May 2026 06:19:43 -0700 (PDT)
-Received: from osama ([2a02:908:1b6:8980:89b3:e462:e9ca:df27])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e538acbfcsm44485185e9.8.2026.05.06.06.19.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 May 2026 06:19:43 -0700 (PDT)
-Date: Wed, 6 May 2026 15:19:41 +0200
-From: Osama Abdelkader <osama.abdelkader@gmail.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Ryo Takakura <ryotkkr98@gmail.com>,
-	Breno Leitao <leitao@debian.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] arm64: panic from init_IRQ if IRQ handler stacks
- cannot be allocated
-Message-ID: <afs_7VzAljJ1ESbR@osama>
-References: <20260326225755.50297-1-osama.abdelkader@gmail.com>
+	id 1wKcGf-00000000tNg-0JOd;
+	Wed, 06 May 2026 13:26:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1778073985; x=1809609985;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=xaKcmCC+I9v/E09bRdoBMaTkVzosR8rUiWNrEUV6lAg=;
+  b=a8I6/ZHQDWGZQ0Z1fIGrADIXKkSAR/wfx28ZD6ffkFqL45cIUB4p1x5N
+   CDdIxvpj6rS3ZP0g3nrKLmppBeeMPMUsIW/xe4rIcwEKIlKpp2bmgymP7
+   bVpQctR2qdwsLIZo4CgMwYBln/qqLHzeaqjTgtCpqjMli1oNRLz4TFGCg
+   qCUw0H4f5VRYTzgvL9SgytnwNn2GnqdTk3tzb9OVohUt/wtfUFxFu+FCM
+   k3hvMqklEG+zip+fIY5MHUgyDyvXD/KbrSDiu2Vdflq3Ljc5urhhKCFuy
+   7xSSZZeYkqBxSPWkSzFcY6Ct9UVdgTV4vVllXJuvTGSkc2aLHWWkkAmId
+   A==;
+X-CSE-ConnectionGUID: XfhOVfx0TB2w/MdFvIzcWw==
+X-CSE-MsgGUID: TS/ydS+LQoKSo5sBiW/2PQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11777"; a="89312835"
+X-IronPort-AV: E=Sophos;i="6.23,219,1770624000"; 
+   d="scan'208";a="89312835"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 May 2026 06:26:23 -0700
+X-CSE-ConnectionGUID: 1H3000o9TMadDzDQXXLY9Q==
+X-CSE-MsgGUID: tL+QbN0HRuqstpiz/lB/YA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,219,1770624000"; 
+   d="scan'208";a="235306952"
+Received: from abityuts-desk.ger.corp.intel.com (HELO localhost) ([10.245.244.183])
+  by orviesa010-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 May 2026 06:26:19 -0700
+Date: Wed, 6 May 2026 16:26:16 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Roman Vivchar <rva333@protonmail.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+	Lee Jones <lee@kernel.org>, linux-iio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org,
+	Ben Grisdale <bengris32@protonmail.ch>
+Subject: Re: [PATCH 06/13] thermal: mediatek: add pmic thermal support
+Message-ID: <aftBeFbVIap59FFS@ashevche-desk.local>
+References: <20260504-mt6323-v1-0-799b58b355ff@protonmail.com>
+ <20260504-mt6323-v1-6-799b58b355ff@protonmail.com>
+ <afmnUG8dG0N0HpV6@ashevche-desk.local>
+ <cgsML96DsJh_Ow9XsSnyrZ3NhlCnNj1rKegzYNR3eQzkWoF5xQB5-aU6Zi7pKcT8GfUnO3B-D71je60APUtorB7p_A3GtUCp2oer3KYLn6k=@protonmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260326225755.50297-1-osama.abdelkader@gmail.com>
+In-Reply-To: <cgsML96DsJh_Ow9XsSnyrZ3NhlCnNj1rKegzYNR3eQzkWoF5xQB5-aU6Zi7pKcT8GfUnO3B-D71je60APUtorB7p_A3GtUCp2oer3KYLn6k=@protonmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_061945_870571_25C5DE94 
-X-CRM114-Status: GOOD (  19.49  )
+X-CRM114-CacheID: sfid-20260506_062625_257318_6BE39B28 
+X-CRM114-Status: GOOD (  19.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,99 +102,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 26, 2026 at 11:57:52PM +0100, Osama Abdelkader wrote:
-> init_irq_stacks() and init_irq_scs() may fail when arch_alloc_vmap_stack
-> or scs_alloc return NULL. Return -ENOMEM from both and call panic() once
-> from init_IRQ(), covering per-CPU IRQ stacks and shadow IRQ stacks
-> consistently.
+On Wed, May 06, 2026 at 11:22:15AM +0000, Roman Vivchar wrote:
+> On Tuesday, May 5th, 2026 at 11:16 AM, Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
+> > On Mon, May 04, 2026 at 09:24:58PM +0300, Roman Vivchar via B4 Relay wrote:
+
+...
+
+> > > +struct mtk_pmic_sensor {
+> > > +	struct mtk_pmic_thermal *mt;
+> > > +	int id;
+> > > +	struct iio_channel *adc_channel;
+> > > +	struct thermal_zone_device *tzdev;
+> > > +};
+> > 
+> > Can you confirm with `pahole` that this is the best layout (taking into account
+> > the use in the below data structure)?
+> > 
+> > > +struct mtk_pmic_thermal {
+> > > +	struct device *dev;
+> > > +	struct regmap *regmap;
+> > > +	struct mtk_pmic_sensor sensors[MAX_SENSORS];
+> > > +
+> > > +	s32 t_slope1;
+> > > +	s32 t_slope2;
+> > > +	s32 t_intercept;
+> > > +
+> > > +	const struct mtk_thermal_data *data;
+> > > +};
 > 
-> Signed-off-by: Osama Abdelkader <osama.abdelkader@gmail.com>
-> ---
-> v2:
-> - Add return -ENOMEM from both init_irq_stacks() and init_irq_scs()
-> - Call panic() once from init_IRQ() if either init_irq_stacks() or
->   init_irq_scs() returns -ENOMEM
-> ---
->  arch/arm64/kernel/irq.c | 29 ++++++++++++++++++++---------
->  1 file changed, 20 insertions(+), 9 deletions(-)
+> On the ARMv7 it shouldn't be an issue, because pointer size equals to
+> the s32 or int. However, I've reordered the fields to group pointers
+> and integers together.
 > 
-> diff --git a/arch/arm64/kernel/irq.c b/arch/arm64/kernel/irq.c
-> index 15dedb385b9e..9fafd826002b 100644
-> --- a/arch/arm64/kernel/irq.c
-> +++ b/arch/arm64/kernel/irq.c
-> @@ -10,6 +10,7 @@
->   * Copyright (C) 2012 ARM Ltd.
->   */
->  
-> +#include <linux/errno.h>
->  #include <linux/hardirq.h>
->  #include <linux/init.h>
->  #include <linux/irq.h>
-> @@ -32,34 +33,43 @@ DEFINE_PER_CPU(struct nmi_ctx, nmi_contexts);
->  
->  DEFINE_PER_CPU(unsigned long *, irq_stack_ptr);
->  
-> -
->  DECLARE_PER_CPU(unsigned long *, irq_shadow_call_stack_ptr);
->  
->  #ifdef CONFIG_SHADOW_CALL_STACK
->  DEFINE_PER_CPU(unsigned long *, irq_shadow_call_stack_ptr);
->  #endif
->  
-> -static void init_irq_scs(void)
-> +static int __init init_irq_scs(void)
->  {
->  	int cpu;
-> +	void *s;
->  
->  	if (!scs_is_enabled())
-> -		return;
-> +		return 0;
-> +
-> +	for_each_possible_cpu(cpu) {
-> +		s = scs_alloc(early_cpu_to_node(cpu));
-> +		if (!s)
-> +			return -ENOMEM;
-> +		per_cpu(irq_shadow_call_stack_ptr, cpu) = s;
-> +	}
->  
-> -	for_each_possible_cpu(cpu)
-> -		per_cpu(irq_shadow_call_stack_ptr, cpu) =
-> -			scs_alloc(early_cpu_to_node(cpu));
-> +	return 0;
->  }
->  
-> -static void __init init_irq_stacks(void)
-> +static int __init init_irq_stacks(void)
->  {
->  	int cpu;
->  	unsigned long *p;
->  
->  	for_each_possible_cpu(cpu) {
->  		p = arch_alloc_vmap_stack(IRQ_STACK_SIZE, early_cpu_to_node(cpu));
-> +		if (!p)
-> +			return -ENOMEM;
->  		per_cpu(irq_stack_ptr, cpu) = p;
->  	}
-> +
-> +	return 0;
->  }
->  
->  #ifdef CONFIG_SOFTIRQ_ON_OWN_STACK
-> @@ -109,8 +119,9 @@ int __init set_handle_fiq(void (*handle_fiq)(struct pt_regs *))
->  
->  void __init init_IRQ(void)
->  {
-> -	init_irq_stacks();
-> -	init_irq_scs();
-> +	if (init_irq_stacks() || init_irq_scs())
-> +		panic("Failed to allocate IRQ stack resources\n");
-> +
->  	irqchip_init();
->  
->  	if (system_uses_irq_prio_masking()) {
-> -- 
-> 2.43.0
+> struct mtk_pmic_sensor {
+> 	struct mtk_pmic_thermal *  mt;                   /*     0     4 */
+> 	struct iio_channel *       adc_channel;          /*     4     4 */
+> 	struct thermal_zone_device * tzdev;              /*     8     4 */
+> 	int                        id;                   /*    12     4 */
 > 
-ping.
+> 	/* size: 16, cachelines: 1, members: 4 */
+> 	/* last cacheline: 16 bytes */
+> };
+> 
+> struct mtk_pmic_thermal {
+> 	struct device *            dev;                  /*     0     4 */
+> 	struct regmap *            regmap;               /*     4     4 */
+> 	const struct mtk_thermal_data  * data;           /*     8     4 */
+> 	s32                        t_slope1;             /*    12     4 */
+> 	s32                        t_slope2;             /*    16     4 */
+> 	s32                        t_intercept;          /*    20     4 */
+> 	struct mtk_pmic_sensor     sensors[1];           /*    24    16 */
+> 
+> 	/* size: 40, cachelines: 1, members: 7 */
+> 	/* last cacheline: 40 bytes */
+> };
+> 
+> The compiler will still add some padding on the AArch64 though.
+> 
+> struct mtk_pmic_sensor {
+> 	struct mtk_pmic_thermal *  mt;                   /*     0     8 */
+> 	struct iio_channel *       adc_channel;          /*     8     8 */
+> 	struct thermal_zone_device * tzdev;              /*    16     8 */
+> 	int                        id;                   /*    24     4 */
+> 
+> 	/* size: 32, cachelines: 1, members: 4 */
+> 	/* padding: 4 */
+> 	/* last cacheline: 32 bytes */
+> };
+> 
+> struct mtk_pmic_thermal {
+> 	struct device *            dev;                  /*     0     8 */
+> 	struct regmap *            regmap;               /*     8     8 */
+> 	const struct mtk_thermal_data  * data;           /*    16     8 */
+> 	s32                        t_slope1;             /*    24     4 */
+> 	s32                        t_slope2;             /*    28     4 */
+> 	s32                        t_intercept;          /*    32     4 */
+> 
+> 	/* XXX 4 bytes hole, try to pack */
+
+^^^^
+
+> 	struct mtk_pmic_sensor     sensors[1];           /*    40    32 */
+> 
+> 	/* size: 72, cachelines: 2, members: 7 */
+> 	/* sum members: 68, holes: 1, sum holes: 4 */
+> 	/* last cacheline: 8 bytes */
+> };
+> 
+> Is this good enough?
+
+In the last it seems moving the s32 members to be the last will removes
+the 4-byte hole.
+
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
