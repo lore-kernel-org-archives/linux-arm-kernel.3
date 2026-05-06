@@ -4,63 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39962CD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 14:30:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 763F3CD343B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 14:34:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mwUpCPwXLJJCh7xaBzqek3m4/qQsEpHpQheIoSiol0I=; b=iYQXqe5+KvuHRtL12OJJCeO7iX
-	wSwbzVM3IpmViYPJ2HH94JUsexPloBQj06yiwgkWCm+eS/NUDf2dXifA3OSdIdiid84jYC52HikNF
-	6aQCo9ZaAEDMM8g4YgEsbSFufJ/6OcqXaZ0kWGuPfm4OzL9BX3wejWr98LQw0M3qEbxICmMmVQtoe
-	psn3gV48kxTBfvP7mQC/YsEL0g7lbwJcwq8EfKunNTK/Og14GAhrFgEl3jf2DQoAC4kXmwRSnH265
-	mPNAa2MLLWPVzTBfvxmHVT4s+SZjif9Xul2GFCwYhyOV7HL2ytDgm23xXOIqzFITE8Zu2OUQU3H2R
-	9V7L6OfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zqAP6HoJp4PDzUAz6DYhX+6+R5thQEEp6vdxh3M2Ufs=; b=Y8w9QHZPnyIZ1yPGHbh1JlCYx0
+	Kv0bkppT7H8oI6HWI1KRS+Cx0dhGZ3gGfe0kAPBaYlegVI71KhGfsh3HJpuppbK6IligJvKrpmmCa
+	fopTakps4VESUMg4CLmyoRAFw8pKycvE2qSFIn/7TDDcJLno2vdxusVpi/UUhlfgPyTKSPr1Yko1f
+	IBr6SSAzQHSmqQmz4ZyKH0ujXkpcrep0ApD0SiGsVbeJn5bbvj1RWHOkpbp/XUqvVMyBL8QaFX+b2
+	A+Iq4pPspUmdB0QJOhZxAgOvUqzM2smr6BgnitXcInCES86Sp6jW+OXG5i4bOUHp4fTDQRnQQHknY
+	mIAjBhCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKdGq-0000000166V-3Q10;
-	Wed, 06 May 2026 14:30:40 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wKdKi-000000016md-1vnu;
+	Wed, 06 May 2026 14:34:40 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKdGq-00000001660-00wG
+	id 1wKdKg-000000016lP-2YQp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 14:30:40 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id BFFB563D;
-	Wed,  6 May 2026 16:30:34 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1778077834;
-	bh=XSvJ+OmVlLTqJ7h113TNTtPCVhXQ8dW2y/GYuT/4Yc0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WrehR2TjrLABvwpBHdQYZ7tO33iW32DNapFqFOa+/lw7mhXsNCishbETpUzkCOuLf
-	 26z6X1VrNPFIW6G56jxVf5rtRPGNrqL6x4qQag1QjIbhq6EhJKH/oGU7AIHC6m9FQ6
-	 h4DYzE8LkU5rlC+llbnw6sykd8Y9qsY4NX/lzZsA=
-Date: Wed, 6 May 2026 17:30:36 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Robby Cai <robby.cai@nxp.com>, Frank.Li@nxp.com, martink@posteo.de,
-	rmfrfs@gmail.com, kernel@puri.sm, mchehab@kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	martin.kepplinger@puri.sm, imx@lists.linux.dev,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] media: dt-bindings: nxp,imx8mq-mipi-csi2: Fix example
- endpoint label typo
-Message-ID: <20260506143036.GS1598374@killaraus.ideasonboard.com>
-References: <20260506090124.2960477-1-robby.cai@nxp.com>
- <5ad1e2df-85f3-4f9a-ab9d-b6ae34eebed3@kernel.org>
- <20260506142155.GR1598374@killaraus.ideasonboard.com>
- <73111cb1-2019-4faf-abc6-c7deea603eb1@kernel.org>
+	Wed, 06 May 2026 14:34:38 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-48e56c1bf5dso3555065e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 07:34:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778078076; x=1778682876; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=zqAP6HoJp4PDzUAz6DYhX+6+R5thQEEp6vdxh3M2Ufs=;
+        b=BHlR32YzwBTpxiSV7EjAJIQKkrrjt6n1K1SwVpolR0f5Z4Ii7qDVESYCEm7KZOyWzv
+         ++x0By9rm/wjAidEdkDXcIRDtOIYpT9+8ucPo6sZRpWWd0OL5fh9lMfPd5E6QFfYkgEw
+         l4y0qZSYA9Vqu3zjdh5BF4ewZJw9xmMuqUKrhSqEj+bkZYcb5RGuO+nzTjEnG6lPkJB2
+         qglPi9A+pozFua4/4odvuc/LyqVnyOsGuKU+A3oKQk+aUCgvvEZ3hFtmw0OV/NIS9xAk
+         5e4Oy8o4Av5bD9mh25CTJ7UzPev/RFMYBClTksI6KpzlW0rGtsdPbXLCEc9DpJ/2JHkK
+         ApjA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778078076; x=1778682876;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zqAP6HoJp4PDzUAz6DYhX+6+R5thQEEp6vdxh3M2Ufs=;
+        b=Zmt8XBqe6eHR0D0nmHQvOlJ+jABS6Ks5Xuf+Aca1tia/qbYYmZhWWIH+76CXC5CIa5
+         kvKio+5jpCOuQEPvsSDmv2XeY8wWwL+g+yxBlTGN37qxvJPm0F/Jm1K8CzKQYUGVQITD
+         5c/mojOHx5+CvpyEx7ICJSjV9PpuV5KzTyY5CePJnMYz7IjO9nviuizG6NjdSPaebX3u
+         T8nKofPsoKvctN3ZMh3muLmLkdBsTXKesToKZlXQ3OfyTqmfr4nDdd7Yo0WeN0OpjlDN
+         gj2UDJXF6VXZNq9hwD+PGX1e9nWoNVinDWYsdi/htqZDiPXAvv/VG7HIUT78EgX/chZU
+         RDPw==
+X-Forwarded-Encrypted: i=1; AFNElJ+KZqi1Vng3v9n3Yyjbz8dJp2yIKZQbgl8uEBeNtQQM+9DeMj3f7vc5P+BYHo2DQLMCfUrsPAwikNU/6npgOeb7@lists.infradead.org
+X-Gm-Message-State: AOJu0YxGNiXUAbRrfPiBYk9Z8f7Sv/DZhiWDXU5kLIOois4Xfj58C4hF
+	+WKy9BtS1LUwtvRsdIIhMgTDQHgkOV+RzXgK30wfrBmGog+cR9OVYVxA
+X-Gm-Gg: AeBDieuVBgo60pBhwEZP+jbWtUrA4v42wdnVpPZM+lP2sj7ByeZBb8LldM9/IBSAWAU
+	VI/sqTaZSzw1Qko8vKC97vidQGG+NwJrbl7R/8OIc5Rtu9V243h/HlW/SpaI/CE7GF7sSONLo2z
+	KS99t40ZZVajoolbagypClK1UaNz/J+fqUYinNG49nZIZMoBY6t2CxrGdTTXGTKM1duD9S5rYkY
+	vBFWHFWiSBK26B4yq+PEIPZXiVSJ+M6vqeU5wyztfLvbwIFKRdcQZOSH9j1GawvLSFkkMkOvpsb
+	HKv7BbmtdwmmHIpesbuax+SZkild5Re7gX6EBk/aZ9b3B0KPsDP2xE+a4fUZBBuWJ152brGqAsC
+	yCo9hqZ5/Resw7inrxkNqVon/mgh4n8piOp8UiGnyF953j5m9DV6PeUKRuNoG3YdMmM0V60Af/o
+	FINobzMBPKGHdY/4+zQgR6ob7TCiPH8MTviazT8+pA522+g4QZaDBF
+X-Received: by 2002:a05:600c:1d18:b0:489:1f97:6b1d with SMTP id 5b1f17b1804b1-48e51f4844emr64680535e9.28.1778078075891;
+        Wed, 06 May 2026 07:34:35 -0700 (PDT)
+Received: from vitor-nb (dsl-113-208.bl27.telepac.pt. [176.79.113.208])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e530d8691sm42893115e9.2.2026.05.06.07.34.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 06 May 2026 07:34:35 -0700 (PDT)
+From: Vitor Soares <ivitro@gmail.com>
+To: Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Francesco Dolcini <francesco@dolcini.it>
+Cc: Vitor Soares <vitor.soares@toradex.com>,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1] arm64: dts: ti: k3-am62-verdin: Add DSI to HDMI adapter overlay
+Date: Wed,  6 May 2026 15:34:26 +0100
+Message-ID: <20260506143427.348806-2-ivitro@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <73111cb1-2019-4faf-abc6-c7deea603eb1@kernel.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_073040_180135_2752BD25 
-X-CRM114-Status: GOOD (  24.22  )
+X-CRM114-CacheID: sfid-20260506_073438_708760_2BF77E7E 
+X-CRM114-Status: GOOD (  15.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,53 +103,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 06, 2026 at 04:24:35PM +0200, Krzysztof Kozlowski wrote:
-> On 06/05/2026 16:21, Laurent Pinchart wrote:
-> > On Wed, May 06, 2026 at 03:33:57PM +0200, Krzysztof Kozlowski wrote:
-> >> On 06/05/2026 11:01, Robby Cai wrote:
-> >>> The example in imx8mq-mipi-csi2.yaml uses imx8mm_mipi_csi_{in,out} endpoint
-> >>> labels, which is confusing for an i.MX8MQ binding. Rename the labels to
-> >>> imx8mq_mipi_csi_{in,out} for consistency.
-> >>>
-> >>> Fixes: 37255747ecbd ("media: dt-bindings: media: document the nxp,imx8mq-mipi-csi2 receiver phy and controller")
-> >>
-> >> Nothing to fix here. Otherwise explain the bug.
-> >>
-> >>> Signed-off-by: Robby Cai <robby.cai@nxp.com>
-> >>> ---
-> >>>  .../devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml       | 4 ++--
-> >>>  1 file changed, 2 insertions(+), 2 deletions(-)
-> >>>
-> >>> diff --git a/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml b/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
-> >>> index 4fcfc4fd3565..71f79651dd96 100644
-> >>> --- a/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
-> >>> +++ b/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
-> >>> @@ -220,7 +220,7 @@ examples:
-> >>>              port@0 {
-> >>>                  reg = <0>;
-> >>>  
-> >>> -                imx8mm_mipi_csi_in: endpoint {
-> >>> +                imx8mq_mipi_csi_in: endpoint {
-> >>
-> >> Drop the labels instead - they are not used.
-> > 
-> > I think the label has value, it improves readability of the example by
-> > making the purpose of the endpoints more explicit. I won't fight for it
-> > though, I know it's hard to change your mind.
-> 
-> Then should not have imx8mq in the first place. The only information
-> coming here is that it is input endpoint. IMO it is close to obvious
-> from the opposite of "remote-endpoint = <&imx477_out>;" (if remote is
-> OUT, then this must be IN). But keeping the redundant data or actually
-> correcting wrong redundant data into correct redundant data, is still
-> undesirable. Such patterns then keep spreading to new code.
+From: Vitor Soares <vitor.soares@toradex.com>
 
-Dropping the imx8mm_ prefix instead of renaming it is a good idea,
-thanks for proposing it. As for the Fixes: tag, I don't see a need to
-backport this, so I'd leave it out too.
+Add a device-tree overlay for the Toradex DSI to HDMI Adapter, an
+accessory that connects to the Verdin DSI_1 interface and provides a
+full-size HDMI Type-A output. The adapter is based on the Lontium
+LT8912B DSI-to-HDMI bridge.
 
+The overlay is also combined with the Verdin AM62 carrier board device
+trees to provide ready-to-use DTBs for the Dahlia and Development Board
+carriers, in both WiFi and non-WiFi SoM variants.
+
+Link: https://developer.toradex.com/hardware/accessories/add-ons/dsi-hdmi-adapter
+Signed-off-by: Vitor Soares <vitor.soares@toradex.com>
+---
+ arch/arm64/boot/dts/ti/Makefile               | 13 +++
+ .../dts/ti/k3-am625-verdin-dsi-to-hdmi.dtso   | 94 +++++++++++++++++++
+ 2 files changed, 107 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am625-verdin-dsi-to-hdmi.dtso
+
+diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+index 7642c06ca834..21db60cd19de 100644
+--- a/arch/arm64/boot/dts/ti/Makefile
++++ b/arch/arm64/boot/dts/ti/Makefile
+@@ -9,19 +9,32 @@
+ # alphabetically.
+ 
+ # Boards with AM62x SoC
++k3-am625-verdin-nonwifi-dahlia-dsi-to-hdmi-dtbs := k3-am625-verdin-nonwifi-dahlia.dtb \
++	k3-am625-verdin-dsi-to-hdmi.dtbo
++k3-am625-verdin-nonwifi-dev-dsi-to-hdmi-dtbs := k3-am625-verdin-nonwifi-dev.dtb \
++	k3-am625-verdin-dsi-to-hdmi.dtbo
++k3-am625-verdin-wifi-dahlia-dsi-to-hdmi-dtbs := k3-am625-verdin-wifi-dahlia.dtb \
++	k3-am625-verdin-dsi-to-hdmi.dtbo
++k3-am625-verdin-wifi-dev-dsi-to-hdmi-dtbs := k3-am625-verdin-wifi-dev.dtb \
++	k3-am625-verdin-dsi-to-hdmi.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-beagleplay.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-beagleplay-csi2-ov5640.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-beagleplay-csi2-tevi-ov5640.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-phyboard-lyra-rdk.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-sk.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-tqma62xx-mba62xx.dtb
++dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-dsi-to-hdmi.dtbo
++dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-nonwifi-dahlia-dsi-to-hdmi.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-nonwifi-dahlia.dtb
++dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-nonwifi-dev-dsi-to-hdmi.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-nonwifi-dev.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-nonwifi-ivy.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-nonwifi-mallow.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-nonwifi-yavia.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-nonwifi-zinnia.dtb
++dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-wifi-dahlia-dsi-to-hdmi.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-wifi-dahlia.dtb
++dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-wifi-dev-dsi-to-hdmi.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-wifi-dev.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-wifi-ivy.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-wifi-mallow.dtb
+diff --git a/arch/arm64/boot/dts/ti/k3-am625-verdin-dsi-to-hdmi.dtso b/arch/arm64/boot/dts/ti/k3-am625-verdin-dsi-to-hdmi.dtso
+new file mode 100644
+index 000000000000..a219faf0dcc6
+--- /dev/null
++++ b/arch/arm64/boot/dts/ti/k3-am625-verdin-dsi-to-hdmi.dtso
+@@ -0,0 +1,94 @@
++// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
++/*
++ * Copyright (c) Toradex
++ *
++ * Toradex DSI to HDMI Adapter on Verdin DSI_1
++ *
++ * https://developer.toradex.com/hardware/accessories/add-ons/dsi-hdmi-adapter
++ */
++
++/dts-v1/;
++/plugin/;
++
++#include <dt-bindings/gpio/gpio.h>
++
++&{/} {
++	hdmi-connector {
++		compatible = "hdmi-connector";
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_pwm3_dsi_gpio>;
++		ddc-i2c-bus = <&main_i2c2>;
++		/* Verdin PWM_3_DSI (SODIMM 19) */
++		hpd-gpios = <&main_gpio1 17 GPIO_ACTIVE_HIGH>;
++		type = "a";
++
++		port {
++			hdmi_connector_in: endpoint {
++				remote-endpoint = <&dsi_hdmi_bridge_out>;
++			};
++		};
++	};
++};
++
++&dsi_bridge {
++	status = "okay";
++};
++
++&dsi_bridge_ports {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	port@1 {
++		reg = <1>;
++
++		dsi_bridge_out: endpoint {
++			remote-endpoint = <&dsi_hdmi_bridge_in>;
++		};
++	};
++};
++
++&dss {
++	status = "okay";
++};
++
++/* Verdin PWM_3_DSI (SODIMM 19) repurposed as HDMI HPD GPIO */
++&epwm1 {
++	status = "disabled";
++};
++
++/* Verdin I2C_1 */
++&main_i2c1 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	hdmi@48 {
++		compatible = "lontium,lt8912b";
++		reg = <0x48>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_dsi1_bkl_en>;
++		/* Verdin GPIO_10_DSI (SODIMM 21) */
++		reset-gpios = <&main_gpio0 30 GPIO_ACTIVE_LOW>;
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			port@0 {
++				reg = <0>;
++
++				dsi_hdmi_bridge_in: endpoint {
++					data-lanes = <1 2 3 4>;
++					remote-endpoint = <&dsi_bridge_out>;
++				};
++			};
++
++			port@1 {
++				reg = <1>;
++
++				dsi_hdmi_bridge_out: endpoint {
++					remote-endpoint = <&hdmi_connector_in>;
++				};
++			};
++		};
++	};
++};
 -- 
-Regards,
+2.53.0
 
-Laurent Pinchart
 
